@@ -1,0 +1,27 @@
+name: Eleventy Build
+on: 
+  push:
+    paths-ignore:
+      - README.md
+    branches:
+      - master
+
+jobs:
+  build-deploy:
+    name: Eleventy Build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Git Checkout
+        uses: actions/checkout@v2
+      - name: Install
+        run: npm install
+      - name: Build
+        uses: TartanLlama/actions-eleventy@v1.1
+        env:
+          PATH_PREFIX: ${{ github.event.repository.name }}
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          publish_dir: ./_site
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          exclude_assets: '.github,admin/index.html,admin/config.yml'

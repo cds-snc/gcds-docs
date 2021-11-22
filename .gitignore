@@ -1,0 +1,12 @@
+# Ignore installed npm modules
+node_modules/
+
+# Ignore source code editors
+.vscode
+.DS_Store
+
+# Ignore output folder
+public/
+_site/
+
+package-lock.json
