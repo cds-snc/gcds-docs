@@ -4,7 +4,7 @@ on:
     paths-ignore:
       - README.md
     branches:
-      - master
+      - main
 
 jobs:
   build-deploy:
