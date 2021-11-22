@@ -5,7 +5,7 @@ Experimental design system documentation website built with [11ty](https://www.1
 ## Local installation
 
 - git clone https://github.com/cds-snc/alpha-design-system-documentation
-- cd alpha-ds-documentation
+- cd alpha-design-system-documentation
 - npm install
 - npm start
 
