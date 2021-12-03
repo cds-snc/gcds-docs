@@ -5,7 +5,12 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <title>{{ title }}</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="./style.css">
+        <link rel="stylesheet" href="/style.css">
+        <script type="module">
+            import { defineCustomElements } from "{{ '/components/loader/index.es2017.js' | url }}";
+            defineCustomElements();
+        </script>
+        <link rel="stylesheet" href="{{ '/components/dist/gc-ds-button/gc-ds-button.css' | url }}">
         <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
         <link href="./admin/config.yml" type="text/yaml" rel="cms-config-url">
     </head>

@@ -12,6 +12,7 @@
   "dependencies": {
     "@11ty/eleventy": "^0.12.1",
     "@11ty/eleventy-navigation": "^0.3.2",
+    "gc-ds-button": "^0.0.2",
     "markdown-it": "^12.2.0",
     "markdown-it-anchor": "^8.4.1",
     "moment": "^2.29.1"
