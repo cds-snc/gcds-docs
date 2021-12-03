@@ -13,4 +13,4 @@ translationKey: "gc-ds-button"
 
 Button component
 
-<gc-ds-button label="Look at me"></gc-ds-button>
+<gc-ds-button label="This button is in Vanilla JS"></gc-ds-button>
