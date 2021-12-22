@@ -45,7 +45,7 @@ module.exports = function (eleventyConfig) {
       .getAll()
       .map((item, index, all) => {
         return {
-          url: process.env.PATH_PREFIX ? `${process.env.PATH_PREFIX}/item.url` : item.url,
+          url: process.env.PATH_PREFIX ? `${process.env.PATH_PREFIX}/${item.url}` : item.url,
           date: item.date
         }
       });
