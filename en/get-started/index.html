@@ -10,8 +10,7 @@
             defineCustomElements();
         </script>
         <link rel="stylesheet" href="/alpha-design-system-documentation/variables/variables.css">
-        <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-        <link href="./admin/config.yml" type="text/yaml" rel="cms-config-url">
+
     </head>
     <body>
         
@@ -149,16 +148,5 @@ Design system
         <footer>
     <h2>English footer</h2>
 </footer>
-        <script>
-            if (window.netlifyIdentity) {
-                window.netlifyIdentity.on("init", user => {
-                if (!user) {
-                    window.netlifyIdentity.on("login", () => {
-                    document.location.href = "/admin/";
-                    });
-                }
-                });
-            }
-            </script>
     </body>
 </html>
