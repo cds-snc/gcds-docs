@@ -1,11 +1,12 @@
 const eleventyNavigationPlugin = require("@11ty/eleventy-navigation");
+const sitemap = require("@quasibit/eleventy-plugin-sitemap");
 const moment = require("moment");
 const markdownIt = require("markdown-it");
 const markdownItAnchor = require("markdown-it-anchor");
 
 module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("./src/style.css");
-  eleventyConfig.addPassthroughCopy("./src/admin/");
+  eleventyConfig.addPassthroughCopy("./src/admin/config.yml");
   eleventyConfig.addPassthroughCopy({"./src/variables/": "variables"});
   eleventyConfig.addPassthroughCopy({
     "./node_modules/gc-ds-button/": "components"
@@ -30,6 +31,12 @@ module.exports = function (eleventyConfig) {
     permalinkSymbol: "#"
   });
   eleventyConfig.setLibrary("md", markdownLibrary);
+
+  eleventyConfig.addPlugin(sitemap, {
+    sitemap: {
+      hostname: process.env.GITHUB_ORG|| "http://localhost:8000",
+    },
+  });
 
   return {
     pathPrefix: process.env.PATH_PREFIX || "/",

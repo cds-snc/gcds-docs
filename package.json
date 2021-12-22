@@ -16,5 +16,8 @@
     "markdown-it": "^12.2.0",
     "markdown-it-anchor": "^8.4.1",
     "moment": "^2.29.1"
+  },
+  "devDependencies": {
+    "@quasibit/eleventy-plugin-sitemap": "^2.1.4"
   }
 }
