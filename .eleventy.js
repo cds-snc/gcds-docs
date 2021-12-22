@@ -40,6 +40,17 @@ module.exports = function (eleventyConfig) {
     },
   });
 
+  eleventyConfig.addCollection("sitemap", function(collectionApi) {
+    return collectionApi
+      .getAll()
+      .map((item, index, all) => {
+        return {
+          url: process.env.PATH_PREFIX ? `${process.env.PATH_PREFIX}/item.url` : item.url,
+          date: item.date
+        }
+      });
+  });
+
   return {
     pathPrefix: process.env.PATH_PREFIX || "/",
     dir: {
