@@ -44,12 +44,10 @@ module.exports = function (eleventyConfig) {
     return collectionApi
       .getAll()
       .map((item, index, all) => {
-        if(item.url != '/admin') {
           return {
             url: process.env.PATH_PREFIX ? `${process.env.PATH_PREFIX}${item.url}` : item.url,
             date: item.date
           }
-        }
       });
   });
 
