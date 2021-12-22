@@ -2,7 +2,7 @@
     "defaults": {
       "reporters": [
           "cli",
-          ["pa11y-ci-reporter-html", { "destination": "./_site/reports", "includeZeroIssues": true }]
+          ["pa11y-ci-reporter-html", { "destination": "./reports", "includeZeroIssues": true }]
       ]
     }
   }
