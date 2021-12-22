@@ -19,6 +19,7 @@ jobs:
         uses: TartanLlama/actions-eleventy@v1.1
         env:
           PATH_PREFIX: ${{ github.event.repository.name }}
+          GITHUB_ORG: cds-snc
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:

@@ -11,6 +11,8 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy({
     "./node_modules/gc-ds-button/": "components"
   });
+  // Add copy fo a11y testing
+  eleventyConfig.addPassthroughCopy("./.pa11yci.json");
   eleventyConfig.addPlugin(eleventyNavigationPlugin);
 
   // date filter (localized)
@@ -34,7 +36,7 @@ module.exports = function (eleventyConfig) {
 
   eleventyConfig.addPlugin(sitemap, {
     sitemap: {
-      hostname: process.env.GITHUB_ORG|| "http://localhost:8000",
+      hostname: process.env.GITHUB_ORG ? `https://${process.env.GITHUB_ORG}.github.io/${process.env.PATH_PREFIX}` : "http://localhost:8080",
     },
   });
 
