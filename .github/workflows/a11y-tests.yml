@@ -14,7 +14,7 @@ jobs:
       - name: Git Checkout
         uses: actions/checkout@v2
       - name: Install pa11y
-        run: npm install pa11y-ci pa11y-ci-reporter-html
+        run: npm install -g pa11y-ci pa11y-ci-reporter-html
       - name: run pa11y test
         run: pa11y-ci --sitemap https://cds-snc.github.io/${{ github.event.repository.name }}/sitemap.xml
       - name: Commit
