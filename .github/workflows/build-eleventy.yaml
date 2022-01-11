@@ -20,6 +20,8 @@ jobs:
         env:
           PATH_PREFIX: ${{ github.event.repository.name }}
           GITHUB_ORG: cds-snc
+      - name: Add a11y action
+        run: cp ./.github/workflows/a11y-tests.yml ./_site/.github/workflows/a11y-tests.yml
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
