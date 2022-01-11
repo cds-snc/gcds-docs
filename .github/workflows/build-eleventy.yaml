@@ -23,7 +23,7 @@ jobs:
       - name: Add a11y action
         run: |
           mkdir -p ./_site/.github/workflows/
-          cp -r ./.github/workflows/a11y-tests.yml ./_site/.github/workflows/a11y-tests.yml
+          cp -r ./.github/workflows/a11y-tests.yaml ./_site/.github/workflows/a11y-tests.yaml
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
