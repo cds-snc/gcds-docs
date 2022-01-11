@@ -29,4 +29,4 @@ jobs:
         with:
           publish_dir: ./_site
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          exclude_assets: '.github,admin/index.html,admin/config.yml'
+          exclude_assets: 'admin/index.html,admin/config.yml'
