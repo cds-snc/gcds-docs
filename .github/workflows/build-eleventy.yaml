@@ -16,7 +16,7 @@ jobs:
       - name: Install
         run: npm install
       - name: Build
-        uses: TartanLlama/actions-eleventy@v1.1
+        run: npm run build
         env:
           PATH_PREFIX: ${{ github.event.repository.name }}
           GITHUB_ORG: cds-snc
