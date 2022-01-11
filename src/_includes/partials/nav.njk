@@ -1,7 +1,6 @@
-<section>
-{{ nav[locale].title }}
-
 <nav>
+
+    <h2>{{ nav[locale].title }}</h2>
 
     {% set navPages = collections.all | eleventyNavigation %}
 
@@ -33,4 +32,3 @@
     {%- endfor -%}
     </ul>
 </nav>
-</section>

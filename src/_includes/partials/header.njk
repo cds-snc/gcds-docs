@@ -2,7 +2,7 @@
 <header>
     <h2>{{ header[locale].heading }}</h2>
 
-    <section  lang="{{ otherLang }}">
+    <div  lang="{{ otherLang }}">
         {# loop though site.languages #}
         {% for lgg in site.languages %}
         {% if loop.first %}<ul>{% endif %}
@@ -33,5 +33,5 @@
 
         {% if loop.last %}</ul>{% endif %}
         {% endfor %}
-    </section>
+    </div>
 </header>
