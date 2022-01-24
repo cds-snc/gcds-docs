@@ -1,6 +1,6 @@
 ---
 title: Alpha design system documentation
-layout: "layouts/splash.njk"
+layout: "layouts/base.njk"
 ---
 
 # Alpha design system

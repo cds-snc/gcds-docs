@@ -1,14 +1,13 @@
 ---
-title: Components
+title: Component and Pattern Inventory
 layout: "layouts/base.njk"
 eleventyNavigation:
   key: components
-  title: Components
-  order: 2
+  title: Component and Pattern Inventory
   locale: en
 translationKey: "components"
 ---
 
-# Look at all the components
+# Component and Pattern Inventory
 
-There could be a list of components to read here
+[Button Component]({{ "/en/components/buttons" }})
