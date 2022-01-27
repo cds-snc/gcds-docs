@@ -1,19 +1,24 @@
 const eleventyNavigationPlugin = require("@11ty/eleventy-navigation");
+const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 const sitemap = require("@quasibit/eleventy-plugin-sitemap");
 const moment = require("moment");
 const markdownIt = require("markdown-it");
 const markdownItAnchor = require("markdown-it-anchor");
 
 module.exports = function (eleventyConfig) {
-  eleventyConfig.addPassthroughCopy("./src/style.css");
+  eleventyConfig.addPassthroughCopy("./src/styles/style.css");
+  eleventyConfig.addPassthroughCopy("./src/styles/prism.css");
   eleventyConfig.addPassthroughCopy("./src/admin/config.yml");
   eleventyConfig.addPassthroughCopy({"./src/variables/": "variables"});
   eleventyConfig.addPassthroughCopy({
-    "./node_modules/gc-ds-button/": "components"
+    "./node_modules/gcds/": "components"
   });
   // Add copy fo a11y testing
   eleventyConfig.addPassthroughCopy("./.pa11yci.json");
   eleventyConfig.addPlugin(eleventyNavigationPlugin);
+  eleventyConfig.addPlugin(syntaxHighlight, {
+    templateFormats: ['md']
+  });
 
   // date filter (localized)
   eleventyConfig.addNunjucksFilter("date", function (date, format, locale) {
@@ -25,13 +30,15 @@ module.exports = function (eleventyConfig) {
   /* Markdown Overrides */
   let markdownLibrary = markdownIt({
     html: true,
-    breaks: true,
+    breaks: false,
     linkify: true
   }).use(markdownItAnchor, {
     permalink: true,
     permalinkClass: "direct-link",
     permalinkSymbol: "#"
   });
+  markdownLibrary.disable('blockquote');
+  markdownLibrary.disable('code');
   eleventyConfig.setLibrary("md", markdownLibrary);
 
   eleventyConfig.addPlugin(sitemap, {
