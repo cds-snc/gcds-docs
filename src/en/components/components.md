@@ -10,4 +10,4 @@ translationKey: "components"
 
 # Component and Pattern Inventory
 
-[Button Component]({{ "/en/components/buttons" }})
+[Button Component]({{ "/en/components/buttons" | /en/components/buttons }})

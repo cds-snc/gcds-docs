@@ -39,4 +39,4 @@ Consider links instead when:
 Consider menus or selections, like dropdowns or radio buttons, instead when:
 - The user must choose between two or more options.
 
-[Implementation for Developing]({{ "/fr/components/buttons/development" }}) | [Implementation for Designing]({{ "/fr/components/buttons/design" }})
+[Implementation for Developing]({{ "/fr/components/buttons/development" | /fr/components/buttons/development }}) | [Implementation for Designing]({{ "/fr/components/buttons/design" | /fr/components/buttons/design }})
