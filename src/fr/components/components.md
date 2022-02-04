@@ -10,6 +10,5 @@ translationKey: "components"
 
 # Component and Pattern Inventory FR
 
-[Button Component]({{ "/fr/components/buttons" }})
+[Button Component]({{ "/fr/components/buttons" | /fr/components/buttons}})
 
-A button is an object to activate a response or a change of location or state. 

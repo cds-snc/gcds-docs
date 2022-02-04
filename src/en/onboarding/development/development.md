@@ -10,4 +10,4 @@ translationKey: "onboardingDev"
 
 # Developing a Webpage
 
-[Component Inventory]({{ "/en/components" }})
+[Component Inventory]({{ "/en/components" | /en/components }})
