@@ -10,6 +10,6 @@ eleventyNavigation:
 translationKey: "index"
 ---
 
-# Alpha design system
+# Get Started
 
-Here we can test many things.
+[Onboarding]({{ "/en/onboarding" | url }}) | [Component and Pattern Inventory]({{ "/en/components" | url }})
