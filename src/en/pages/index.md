@@ -12,4 +12,4 @@ translationKey: "index"
 
 # Get Started
 
-[Onboarding]({{ "/en/onboarding" | /en/onboarding }}) | [Component and Pattern Inventory]({{ "/en/components" | /en/components }})
+[Onboarding]({{ "/en/onboarding" | url }}) | [Component and Pattern Inventory]({{ "/en/components" | url }})

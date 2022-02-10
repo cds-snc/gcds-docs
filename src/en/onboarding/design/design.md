@@ -10,4 +10,4 @@ translationKey: "onboardingDesign"
 
 # Designing a Webpage
 
-[Component Inventory]({{ "/en/components" | /en/components }})
+[Component Inventory]({{ "/en/components" | url }})
