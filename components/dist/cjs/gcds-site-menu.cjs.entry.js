@@ -1,103 +1,8 @@
-import { HTMLElement, createEvent, h, Host, proxyCustomElement } from '@stencil/core/internal/client';
-export { setAssetPath, setPlatformOptions } from '@stencil/core/internal/client';
+'use strict';
 
-const gcdsButtonCss = ":host button,:host a{font-family:Lato,sans-serif;cursor:pointer;padding:0.5rem 1rem;text-decoration:none;background-color:var(--custom-gcds-style-background-color);display:var(--custom-gcds-style-display, inline-block);margin:var(--custom-gcds-style-margin);margin-bottom:0;font-weight:400;text-align:center;text-transform:var(--custom-gcds-style-text-transform);white-space:nowrap;vertical-align:middle;-ms-touch-action:manipulation;touch-action:manipulation;background-image:none;border-width:var(--custom-gcds-style-border-width, 1px);border-style:var(--custom-gcds-style-border-style, outset);border-color:var(--custom-gcds-style-border-color, transparent);padding:10px 14px;font-size:16px;line-height:1.4375;border-radius:4px;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;box-shadow:var(--custom-gcds-style-box-shadow)}:host button.primary.solid,:host a.primary.solid{background-color:var(--custom-gcds-style-background-color, #26374a);border-color:var(--custom-gcds-style-border-color, #26374a);color:var(--gcds-colour-utils-white)}:host button.primary.solid:hover,:host button.primary.solid.hover,:host a.primary.solid:hover,:host a.primary.solid.hover{background-color:var(--custom-gcds-style-background-color, #1c578a);border-color:var(--custom-gcds-style-border-color, #091c2d)}:host button.primary.solid:focus,:host button.primary.solid.focus,:host a.primary.solid:focus,:host a.primary.solid.focus{background-color:#1c578a;border-color:var(--custom-gcds-style-border-color, #000);outline:5px auto -webkit-focus-ring-color;outline-offset:-2px}:host button.primary.solid:active,:host button.primary.solid.active,:host a.primary.solid:active,:host a.primary.solid.active{background-color:#16446c;border-color:var(--custom-gcds-style-border-color, #091c2d)}:host button.primary.solid:disabled,:host button.primary.solid.disabled,:host a.primary.solid:disabled,:host a.primary.solid.disabled{cursor:not-allowed;opacity:.65;-webkit-box-shadow:none;box-shadow:none}:host button.secondary.solid,:host a.secondary.solid{background-color:var(--custom-gcds-style-background-color, #eaebed);border-color:var(--custom-gcds-style-border-color, #dcdee1);color:#335075}:host button.secondary.solid:hover,:host button.secondary.solid.hover,:host a.secondary.solid:hover,:host a.secondary.solid.hover{background-color:var(--custom-gcds-style-background-color, #cfd1d5);border-color:var(--custom-gcds-style-border-color, #bbbfc5)}:host button.secondary.solid:focus,:host button.secondary.solid.focus,:host a.secondary.solid:focus,:host a.secondary.solid.focus{background-color:#cfd1d5;border-color:var(--custom-gcds-style-border-color, #989da6);outline:5px auto -webkit-focus-ring-color;outline-offset:-2px}:host button.secondary.solid:active,:host button.secondary.solid.active,:host a.secondary.solid:active,:host a.secondary.solid.active{background-color:#bbbfc5;border-color:var(--custom-gcds-style-border-color, #989da6)}:host button.secondary.solid:disabled,:host button.secondary.solid.disabled,:host a.secondary.solid:disabled,:host a.secondary.solid.disabled{cursor:not-allowed;opacity:.65;-webkit-box-shadow:none;box-shadow:none}:host button.danger.solid,:host a.danger.solid{background-color:var(--custom-gcds-style-background-color, #bc3331);border-color:var(--custom-gcds-style-border-color, #6b1d1c);color:#fff}:host button.danger.solid:hover,:host button.danger.solid.hover,:host a.danger.solid:hover,:host a.danger.solid.hover{background-color:var(--custom-gcds-style-background-color, #942826);border-color:var(--custom-gcds-style-border-color, #3b100f)}:host button.danger.solid:focus,:host button.danger.solid.focus,:host a.danger.solid:focus,:host a.danger.solid.focus{background-color:#942826;border-color:var(--custom-gcds-style-border-color, #060202);outline:5px auto -webkit-focus-ring-color;outline-offset:-2px}:host button.danger.solid:active,:host button.danger.solid.active,:host a.danger.solid:active,:host a.danger.solid.active{background-color:#77201f;border-color:var(--custom-gcds-style-border-color, #060202)}:host button.danger.solid:disabled,:host button.danger.solid.disabled,:host a.danger.solid:disabled,:host a.danger.solid.disabled{cursor:not-allowed;opacity:.65;-webkit-box-shadow:none;box-shadow:none}:host button.skip-to-content,:host a.skip-to-content{left:0;position:absolute;text-align:center;top:10px;width:100%;z-index:3;clip:rect(1px,1px,1px,1px);height:1px;margin:0;overflow:hidden;position:absolute;width:1px}:host button.skip-to-content.solid,:host a.skip-to-content.solid{background-color:var(--custom-gcds-style-background-color, var(--gcds-colour-base-blue-grey-900));color:var(--gcds-colour-utils-white);border-color:var(--custom-gcds-style-border-color)}:host button.skip-to-content.solid:focus,:host button.skip-to-content.solid.focus,:host a.skip-to-content.solid:focus,:host a.skip-to-content.solid.focus{clip:rect(auto,auto,auto,auto);height:inherit;margin:inherit;overflow:inherit;position:static;width:inherit}:host button.skip-to-content.outline:focus,:host button.skip-to-content.outline.focus,:host a.skip-to-content.outline:focus,:host a.skip-to-content.outline.focus{clip:rect(auto,auto,auto,auto);height:inherit;margin:inherit;overflow:inherit;position:static;width:inherit}:host button.skip-to-content.text-only:focus,:host button.skip-to-content.text-only.focus,:host a.skip-to-content.text-only:focus,:host a.skip-to-content.text-only.focus{clip:rect(auto,auto,auto,auto);height:inherit;margin:inherit;overflow:inherit;position:static;width:inherit}";
+Object.defineProperty(exports, '__esModule', { value: true });
 
-const styleAPI = {
-  'customBorderWeight': 'border-width',
-  'customBorderStyle': 'border-style',
-  'customBorderColor': 'border-color',
-  'customMargin': 'margin',
-  'customDisplay': 'display',
-  'customBackgroundColor': 'background-color',
-  'customBoxShadow': 'box-shadow',
-  'customCapitalization': 'text-transform'
-};
-let GcdsButton$1 = class extends HTMLElement {
-  constructor() {
-    super();
-    this.__registerHost();
-    this.__attachShadow();
-    this.gcdsFocus = createEvent(this, "gcdsFocus", 7);
-    this.gcdsBlur = createEvent(this, "gcdsBlur", 7);
-    /**
-     * Button props
-     */
-    /**
-     * Set button types
-     */
-    this.type = 'button';
-    /**
-     * Set component states
-     */
-    this.state = 'default';
-    /**
-     * Set the main style
-     */
-    this.task = 'primary';
-    /**
-     * Set the style variant
-     */
-    this.variant = 'solid';
-    this.handleClick = (ev) => {
-      if (this.state !== 'disabled' && this.type != 'button' && this.type != 'link') {
-        // Attach button to form
-        const form = this.el.closest('form');
-        if (form) {
-          ev.preventDefault();
-          const formButton = document.createElement('button');
-          formButton.type = this.type;
-          formButton.style.display = 'none';
-          form.appendChild(formButton);
-          formButton.click();
-          formButton.remove();
-        }
-      }
-    };
-    this.onFocus = () => {
-      this.gcdsFocus.emit();
-    };
-    this.onBlur = () => {
-      this.gcdsBlur.emit();
-    };
-  }
-  componentWillLoad() {
-    // Default to type 'button' if no identifying properties are passed
-    if (this.type === undefined && this.href === undefined) {
-      this.type = 'button';
-    }
-  }
-  componentDidLoad() {
-    const Tag = this.type != 'link' ? 'button' : 'a';
-    //StyleAPI
-    for (let [key, value] of Object.entries(styleAPI)) {
-      if (this[key] !== undefined) {
-        this.el.shadowRoot.querySelector(Tag).style.setProperty(`--custom-gcds-style-${value}`, this[key]);
-      }
-    }
-  }
-  render() {
-    const { type, task, variant, state, name, href, rel, target, download } = this;
-    const Tag = type != 'link' ? 'button' : 'a';
-    const disabled = state === 'disabled' ? true : false;
-    const stateClass = state !== "default" ? state : "";
-    const attrs = (Tag === 'button')
-      ? {
-        type,
-        disabled,
-        name
-      }
-      : {
-        href,
-        rel,
-        target,
-        download
-      };
-    return (h(Host, { onClick: this.handleClick }, h(Tag, Object.assign({}, attrs, { onBlur: this.onBlur, onFocus: this.onFocus, class: `${task} ${variant} ${stateClass}` }), h("slot", { name: "left" }), h("slot", null), h("slot", { name: "right" }))));
-  }
-  get el() { return this; }
-  static get style() { return gcdsButtonCss; }
-};
+const index = require('./index-147671a4.js');
 
 // Hydrogen / Component / Scripts
 
@@ -1093,11 +998,9 @@ function h2MenuEnableSubmenuTriggers_VERSION(targetMenu, hydrogenSystemVersion =
 
 const gcdsSiteMenuCss = ":host{display:block}";
 
-let GcdsSiteMenu$1 = class extends HTMLElement {
-  constructor() {
-    super();
-    this.__registerHost();
-    this.__attachShadow();
+let GcdsSiteMenu = class {
+  constructor(hostRef) {
+    index.registerInstance(this, hostRef);
   }
   componentWillLoad() {
     h2MenuAddUpDownArrowsToMainMenuItems_VERSION("all");
@@ -1108,24 +1011,9 @@ let GcdsSiteMenu$1 = class extends HTMLElement {
     h2MenuAddPageAnchor_VERSION("all");
   }
   render() {
-    return (h(Host, null, h("slot", null)));
-  }
-  static get style() { return gcdsSiteMenuCss; }
-};
-
-const GcdsButton = /*@__PURE__*/proxyCustomElement(GcdsButton$1, [1,"gcds-button",{"label":[1],"type":[1025],"state":[1],"task":[1],"variant":[1],"name":[1],"href":[1],"rel":[1],"target":[1],"download":[1],"customBorderWeight":[1,"custom-border-weight"],"customBorderStyle":[1,"custom-border-style"],"customBorderColor":[1,"custom-border-color"],"customMargin":[1,"custom-margin"],"customDisplay":[1,"custom-display"],"customBackgroundColor":[1,"custom-background-color"],"customBoxShadow":[1,"custom-box-shadow"],"customCapitalization":[1,"custom-capitalization"]}]);
-const GcdsSiteMenu = /*@__PURE__*/proxyCustomElement(GcdsSiteMenu$1, [1,"gcds-site-menu"]);
-const defineCustomElements = (opts) => {
-  if (typeof customElements !== 'undefined') {
-    [
-      GcdsButton,
-  GcdsSiteMenu
-    ].forEach(cmp => {
-      if (!customElements.get(cmp.is)) {
-        customElements.define(cmp.is, cmp, opts);
-      }
-    });
+    return (index.h(index.Host, null, index.h("slot", null)));
   }
 };
+GcdsSiteMenu.style = gcdsSiteMenuCss;
 
-export { GcdsButton, GcdsSiteMenu, defineCustomElements };
+exports.gcds_site_menu = GcdsSiteMenu;

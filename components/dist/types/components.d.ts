@@ -80,6 +80,8 @@ export namespace Components {
          */
         "variant": 'solid' | 'outline' | 'text-only';
     }
+    interface GcdsSiteMenu {
+    }
 }
 declare global {
     interface HTMLGcdsButtonElement extends Components.GcdsButton, HTMLStencilElement {
@@ -88,8 +90,15 @@ declare global {
         prototype: HTMLGcdsButtonElement;
         new (): HTMLGcdsButtonElement;
     };
+    interface HTMLGcdsSiteMenuElement extends Components.GcdsSiteMenu, HTMLStencilElement {
+    }
+    var HTMLGcdsSiteMenuElement: {
+        prototype: HTMLGcdsSiteMenuElement;
+        new (): HTMLGcdsSiteMenuElement;
+    };
     interface HTMLElementTagNameMap {
         "gcds-button": HTMLGcdsButtonElement;
+        "gcds-site-menu": HTMLGcdsSiteMenuElement;
     }
 }
 declare namespace LocalJSX {
@@ -175,8 +184,11 @@ declare namespace LocalJSX {
          */
         "variant"?: 'solid' | 'outline' | 'text-only';
     }
+    interface GcdsSiteMenu {
+    }
     interface IntrinsicElements {
         "gcds-button": GcdsButton;
+        "gcds-site-menu": GcdsSiteMenu;
     }
 }
 export { LocalJSX as JSX };
@@ -184,6 +196,7 @@ declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
             "gcds-button": LocalJSX.GcdsButton & JSXBase.HTMLAttributes<HTMLGcdsButtonElement>;
+            "gcds-site-menu": LocalJSX.GcdsSiteMenu & JSXBase.HTMLAttributes<HTMLGcdsSiteMenuElement>;
         }
     }
 }
