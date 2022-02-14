@@ -14,6 +14,14 @@
 
     </head>
     <body>
+        <gcds-button
+        type="link"
+        task="skip-to-content"
+        href="#content"
+        >
+        Skip to main content
+        </gcds-button>
+
         
 <header>
     <h2>English header</h2>
@@ -175,11 +183,125 @@
 </nav>
 
 
-        <main>
-            <h1 id="end-to-end-architecture-proof-of-concept" tabindex="-1">End-to-end architecture proof of concept <a class="direct-link" href="#end-to-end-architecture-proof-of-concept">#</a></h1>
-<p>Button component</p>
-<p><gc-ds-button label="This button is in Vanilla JS"></gc-ds-button></p>
-
+        <main id="content">
+            <h1 id="gcds-button-(wip)" tabindex="-1">GCDS Button (WIP) <a class="direct-link" href="#gcds-button-(wip)">#</a></h1>
+<p>The various states and functionality of the gcds-button component</p>
+<h2 id="button-properties" tabindex="-1">Button properties <a class="direct-link" href="#button-properties">#</a></h2>
+<h3 id="default" tabindex="-1">Default <a class="direct-link" href="#default">#</a></h3>
+<p><gcds-button
+>
+This button has been passed no properties
+</gcds-button></p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>gcds-button</span><br><span class="token punctuation">></span></span><br>  This button has been passed no properties<br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>gcds-button</span><span class="token punctuation">></span></span></code></pre>
+<h3 id="type-property" tabindex="-1">Type property <a class="direct-link" href="#type-property">#</a></h3>
+<p><gcds-button
+  type="button"
+>
+This button has type: button
+</gcds-button></p>
+<p><gcds-button
+  type="submit"
+>
+This button has type: submit
+</gcds-button></p>
+<p><gcds-button
+  type="reset"
+>
+This button has type: reset
+</gcds-button></p>
+<p><gcds-button
+  type="link"
+  href
+>
+This button has type: link
+</gcds-button></p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>gcds-button</span><br>  <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>button<span class="token punctuation">"</span></span><br><span class="token punctuation">></span></span><br>  This button has type: button<br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>gcds-button</span><span class="token punctuation">></span></span><br><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>gcds-button</span><br>  <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>submit<span class="token punctuation">"</span></span><br><span class="token punctuation">></span></span><br>  This button has type: submit<br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>gcds-button</span><span class="token punctuation">></span></span><br><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>gcds-button</span><br>  <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>reset<span class="token punctuation">"</span></span><br><span class="token punctuation">></span></span><br>  This button has type: reset<br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>gcds-button</span><span class="token punctuation">></span></span><br><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>gcds-button</span><br>  <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>link<span class="token punctuation">"</span></span><br>  <span class="token attr-name">href</span><br><span class="token punctuation">></span></span><br>  This button has type: link<br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>gcds-button</span><span class="token punctuation">></span></span></code></pre>
+<h3 id="task-property" tabindex="-1">Task property <a class="direct-link" href="#task-property">#</a></h3>
+<p><gcds-button
+  task="primary"
+>
+This button has task: primary
+</gcds-button></p>
+<p><gcds-button
+  task="secondary"
+>
+This button has task: secondary
+</gcds-button></p>
+<p><gcds-button
+  task="danger"
+>
+This button has task: danger
+</gcds-button></p>
+<p><gcds-button
+  type="link"
+  task="skip-to-content"
+  href="#main"
+  >
+Skip to main content
+</gcds-button></p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>gcds-button</span><br>  <span class="token attr-name">task</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>primary<span class="token punctuation">"</span></span><br><span class="token punctuation">></span></span><br>  This button has task: primary<br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>gcds-button</span><span class="token punctuation">></span></span><br><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>gcds-button</span><br>  <span class="token attr-name">task</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>secondary<span class="token punctuation">"</span></span><br><span class="token punctuation">></span></span><br>  This button has task: secondary<br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>gcds-button</span><span class="token punctuation">></span></span><br><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>gcds-button</span><br>  <span class="token attr-name">task</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>danger<span class="token punctuation">"</span></span><br><span class="token punctuation">></span></span><br>  This button has task: danger<br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>gcds-button</span><span class="token punctuation">></span></span><br><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>gcds-button</span><br>  <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>link<span class="token punctuation">"</span></span><br>  <span class="token attr-name">task</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>skip-to-content<span class="token punctuation">"</span></span><br>  <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>#main<span class="token punctuation">"</span></span><br>  <span class="token punctuation">></span></span><br>  Skip to main content<br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>gcds-button</span><span class="token punctuation">></span></span></code></pre>
+<h2 id="demos" tabindex="-1">Demos <a class="direct-link" href="#demos">#</a></h2>
+<h3 id="form-with-submit-and-reset-buttons" tabindex="-1">Form with submit and reset buttons <a class="direct-link" href="#form-with-submit-and-reset-buttons">#</a></h3>
+<form onsubmit="alert('Form submitted');">
+  <label for="name">Name</label>
+  <input type="text" id="name" value="Not Ethan" />
+<p><gcds-button
+  type="submit"
+  name="submit"
+>
+Submit
+</gcds-button></p>
+<p><gcds-button
+  type="reset"
+  name="reset"
+  task="danger"
+>
+Reset form
+</gcds-button></p>
+</form>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>form</span> <span class="token special-attr"><span class="token attr-name">onsubmit</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span><span class="token value javascript language-javascript"><span class="token function">alert</span><span class="token punctuation">(</span><span class="token string">'Form submitted'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></span><span class="token punctuation">"</span></span></span><span class="token punctuation">></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>label</span> <span class="token attr-name">for</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>name<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>Name<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>label</span><span class="token punctuation">></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>text<span class="token punctuation">"</span></span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>name<span class="token punctuation">"</span></span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>Not Ethan<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>gcds-button</span><br>    <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>submit<span class="token punctuation">"</span></span><br>    <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>submit<span class="token punctuation">"</span></span><br>  <span class="token punctuation">></span></span><br>    Submit<br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>gcds-button</span><span class="token punctuation">></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>gcds-button</span><br>    <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>reset<span class="token punctuation">"</span></span><br>    <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>reset<span class="token punctuation">"</span></span><br>    <span class="token attr-name">task</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>danger<span class="token punctuation">"</span></span><br>  <span class="token punctuation">></span></span><br>    Reset form<br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>gcds-button</span><span class="token punctuation">></span></span><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>form</span><span class="token punctuation">></span></span></code></pre>
+<h3 id="new-tab-primary-link" tabindex="-1">New tab primary link <a class="direct-link" href="#new-tab-primary-link">#</a></h3>
+<p><gcds-button
+  type="link"
+  href="/en"
+  target="_blank"
+  rel="nofollow"
+>
+Return to english home page
+</gcds-button></p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>gcds-button</span><br>  <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>link<span class="token punctuation">"</span></span><br>  <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>/en<span class="token punctuation">"</span></span><br>  <span class="token attr-name">target</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>_blank<span class="token punctuation">"</span></span><br>  <span class="token attr-name">rel</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>nofollow<span class="token punctuation">"</span></span><br><span class="token punctuation">></span></span><br>  Return to english home page<br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>gcds-button</span><span class="token punctuation">></span></span></code></pre>
+<h3 id="skip-to-content-link" tabindex="-1">Skip to content link <a class="direct-link" href="#skip-to-content-link">#</a></h3>
+<p><gcds-button
+  type="link"
+  task="skip-to-content"
+  href="#main"
+>
+Skip to main content
+</gcds-button></p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>gcds-button</span><br>  <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>link<span class="token punctuation">"</span></span><br>  <span class="token attr-name">task</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>skip-to-content<span class="token punctuation">"</span></span><br>  <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>#main<span class="token punctuation">"</span></span><br><span class="token punctuation">></span></span><br>  Skip to main content<br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>gcds-button</span><span class="token punctuation">></span></span></code></pre>
+<h3 id="style-api-(wip)" tabindex="-1">Style API (WIP) <a class="direct-link" href="#style-api-(wip)">#</a></h3>
+<p><gcds-button
+  task="primary"
+  custom-border-weight="2px"
+  custom-border-style="solid"
+  custom-border-color="red"
+>
+Button with red border
+</gcds-button></p>
+<p><gcds-button
+  task="danger"
+  custom-border-weight="5px"
+  custom-border-style="solid"
+  custom-border-color="blue"
+>
+Button with blue border
+</gcds-button></p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>gcds-button</span><br>  <span class="token attr-name">task</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>primary<span class="token punctuation">"</span></span><br>  <span class="token attr-name">custom-border-weight</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>2px<span class="token punctuation">"</span></span><br>  <span class="token attr-name">custom-border-style</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>solid<span class="token punctuation">"</span></span><br>  <span class="token attr-name">custom-border-color</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>red<span class="token punctuation">"</span></span><br><span class="token punctuation">></span></span><br>  This button is in Vanilla JS<br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>gcds-button</span><span class="token punctuation">></span></span><br><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>gcds-button</span><br>  <span class="token attr-name">task</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>danger<span class="token punctuation">"</span></span><br>  <span class="token attr-name">custom-border-weight</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>5px<span class="token punctuation">"</span></span><br>  <span class="token attr-name">custom-border-style</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>solid<span class="token punctuation">"</span></span><br>  <span class="token attr-name">custom-border-color</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>blue<span class="token punctuation">"</span></span><br><span class="token punctuation">></span></span><br>  This button is in Vanilla JS<br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>gcds-button</span><span class="token punctuation">></span></span></code></pre>
+<style>
+  pre {
+    margin-bottom: 100px !important;
+  }
+</style>
         </main>
 
         <footer>
