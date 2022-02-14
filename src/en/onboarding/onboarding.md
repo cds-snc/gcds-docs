@@ -10,4 +10,4 @@ eleventyNavigation:
 
 # Onboarding
 
-[Developping a Webpage]({{ "/en/onboarding/development" | url }}) | [Designing a Webpage]({{ "/en/onboarding/design" | url }})
+[Developing a Webpage]({{ "/en/onboarding/development" | url }}) | [Designing a Webpage]({{ "/en/onboarding/design" | url }})
