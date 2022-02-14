@@ -11,5 +11,5 @@ translationKey: "components"
 
 # Component and Pattern Inventory FR
 
-[Button Component]({{ "/fr/components/buttons" | url }})
+[Button Component]({{ "/fr/components/boutons" | url }})
 
