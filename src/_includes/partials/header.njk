@@ -1,7 +1,5 @@
 {% set otherLang = "fr" if locale == "en" else "en" %}
 <header>
-    <h2>{{ header[locale].heading }}</h2>
-
     <div  lang="{{ otherLang }}">
         {# loop though site.languages #}
         {% for lgg in site.languages %}

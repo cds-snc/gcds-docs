@@ -1,43 +1,74 @@
 ---
-title: Button Component 
+title: Buttons 
 layout: "layouts/base.njk"
 eleventyNavigation:
   key: buttons
-  title: Button Component 
+  title: Buttons
   locale: en
+translationKey: "buttons"
 ---
 
-# Button Component
+# Buttons
 
-A button is an object to activate a response or a change of location or state. 
+A button is an interactive object that highlights an important or common action for the person using your product.
 
-## Function 
+## How a button works
 
-Buttons highlight important actions that help a user achieve tasks.
-A button is initialized through a click or keydown action, such applying the Enter key when the button’s selected. The user communicates a response, changes their location, or changes their state by using the click or keydown action. 
+A short label or icon says what the button does. A person communicates using the button when they launch the button’s click action. A click action can be a mouse key, a keydown action, a tap, or a mouse click. 
+When someone activates a button, it sets off a response or a change of location or state.
 
-## What buttons are for
+<br/>
 
-Use buttons for important actions, such as:
-- saving, deleting, downloading 
-- clearing entered data 
-- submitting a form or request
-- giving consent or agreement
-- making a binary choice
-- entering or exiting a web product, like a secure area login, a form, or tutorial
+## Button uses
+
+Use a button as a clear, simple means to set off an action. Buttons express agreement or disagreement,  change  location or state, and give direction about information. 
+Some common uses are: 
+- saving, deleting, downloading. 
+- clearing entered data. 
+- sending a form or request.
+- giving consent or agreement. 
+- making a binary choice.
+- entering or exiting a web product, like a secure area login, a form, or tutorial.
+- skip-to-content link.
 
 In applications, buttons are used in place of text links for things like:   
-- controlling movement, going from one screen to another on a website
-- external links  
+- controlling movement, like going from one screen to another in a flow.
+- external links (in a ways that lets someone know they’re external).
 
-## What buttons are not for
+## Related components
 
-Consider links instead when:
-- taking a user off a website page.
-- an action is less important.
+Consider links instead when: 
+- an action is less important.  
+- taking someone off a web page.
 
-Consider menus or selections, like dropdowns or radio buttons, instead when:
-- The user must choose between two or more options.
+Consider menus or selections, like dropdowns or radio buttons, instead for: 
+- a choice with more than two options.
+
+<br/>
+
+## Understanding the basic button component
+
+### Button task
+
+You’ll select a button task based on what you need your button to do. Each task has a different function. They’re styled to help a person using your product predict where to find an action. 
+
+A primary button is a type of button task.  
+
+### Button states
+
+Each task has corrresponding states. A button’s state changes as a person interacts with it. States signal how a button can be used and how someone has used it, like if it’s been selected already.
+
+## How is the button component accessible
+
+Colours, spacing, and typography are built into the button to be accessible.
+- Underlining shows a button can be tapped, clicked, or activated.
+- Margins and padding size makes sure the tap surface is accessible.
+- The button’s size and whitespace are set so tap targets are large enough to hit.
+- Font height and weight support responsive design, accessibility, and bilingual content design.
+- Button and font colours make button tasks recognizable and with enough contrast.  
+
+
+<br/>
 
 [Implementation for Developing]({{ "/en/components/buttons/development" | url }}) | [Implementation for Designing]({{ "/en/components/buttons/design" | url }})
 
