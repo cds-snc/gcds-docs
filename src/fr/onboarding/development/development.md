@@ -5,6 +5,7 @@ eleventyNavigation:
   key: onboardingDev
   title: Developing a Webpage FR
   locale: fr
+  parent: onboarding
 translationKey: "onboardingDev"
 ---
 

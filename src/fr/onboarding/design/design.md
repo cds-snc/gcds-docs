@@ -5,6 +5,7 @@ eleventyNavigation:
   key: onboardingDesign
   title: Designing a Webpage FR
   locale: fr
+  parent: onboarding
 translationKey: "onboardingDesign"
 ---
 

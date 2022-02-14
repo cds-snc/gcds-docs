@@ -6,6 +6,7 @@ eleventyNavigation:
   key: onboarding
   title: Onboarding
   locale: en
+  order: 1
 ---
 
 # Onboarding

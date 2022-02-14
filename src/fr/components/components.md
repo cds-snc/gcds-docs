@@ -5,6 +5,7 @@ eleventyNavigation:
   key: components
   title: Component and Pattern Inventory FR
   locale: fr
+  order: 2
 translationKey: "components"
 ---
 

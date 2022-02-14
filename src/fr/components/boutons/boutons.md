@@ -5,6 +5,7 @@ eleventyNavigation:
   key: buttons
   title: Boutons
   locale: fr
+  parent: components
 translationKey: "buttons"
 ---
 
