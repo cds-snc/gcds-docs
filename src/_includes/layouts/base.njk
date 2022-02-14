@@ -14,11 +14,19 @@
 
     </head>
     <body>
+        <gcds-button
+        type="link"
+        task="skip-to-content"
+        href="#content"
+        >
+        Skip to main content
+        </gcds-button>
+
         {% include "partials/header.njk" %}
 
         {% include "partials/nav.njk" %}
 
-        <main>
+        <main id="content">
             {{ content | safe }}
         </main>
 
