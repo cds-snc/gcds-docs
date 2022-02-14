@@ -160,19 +160,101 @@
     
 
     <ul><li>
-    <a href="/alpha-design-system-documentation/fr/components/boutons/">Boutons</a></li><li>
-    <a href="/alpha-design-system-documentation/fr/components/boutons/design/">Implementing a Button for Design FR</a></li><li class="my-active-class">
-    <a href="/alpha-design-system-documentation/fr/components/boutons/development/">Implementing a Button for Development FR</a></li><li>
-    <a href="/alpha-design-system-documentation/fr/components/">Component and Pattern Inventory FR</a></li><li>
-    <a href="/alpha-design-system-documentation/fr/onboarding/design/">Designing a Webpage FR</a></li><li>
-    <a href="/alpha-design-system-documentation/fr/onboarding/development/">Developing a Webpage FR</a></li><li>
-    <a href="/alpha-design-system-documentation/fr/onboarding/">Onboarding FR</a></li><li>
-    <a href="/alpha-design-system-documentation/fr/">Home</a></li></ul>
+    <a href="/alpha-design-system-documentation/fr/">Home</a></li><li>
+    <a href="/alpha-design-system-documentation/fr/onboarding/">Onboarding FR</a><ul>
+            
+        
+            
+        
+            <li>
+    <a href="/alpha-design-system-documentation/fr/onboarding/design/">Designing a Webpage FR</a></li>
+        
+            <li>
+    <a href="/alpha-design-system-documentation/fr/onboarding/development/">Developing a Webpage FR</a></li>
+        </ul></li><li>
+    <a href="/alpha-design-system-documentation/fr/components/">Component and Pattern Inventory FR</a><ul>
+            
+        
+            <li>
+    <a href="/alpha-design-system-documentation/fr/components/boutons/">Boutons</a><ul>
+            
+        
+            
+        
+            <li>
+    <a href="/alpha-design-system-documentation/fr/components/boutons/design/">Implementing a Button for Design FR</a></li>
+        
+            <li class="my-active-class">
+    <a href="/alpha-design-system-documentation/fr/components/boutons/development/">Implementing a Button for Development FR</a></li>
+        </ul></li>
+        </ul></li></ul>
 </nav>
 
 
         <main id="content">
             <h1 id="implementing-a-button-for-development-fr" tabindex="-1">Implementing a Button for Development FR <a class="direct-link" href="#implementing-a-button-for-development-fr">#</a></h1>
+<p>The various states and functionality of the gcds-button component</p>
+<h2 id="button-properties" tabindex="-1">Button properties <a class="direct-link" href="#button-properties">#</a></h2>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>gcds-button</span><br>  <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>button | submit | reset | link<span class="token punctuation">"</span></span><br>  <span class="token attr-name">task</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>primary | secondary | danger | skip-to-content<span class="token punctuation">"</span></span><br>  <span class="token attr-name">variant</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>solid | outline | text-only<span class="token punctuation">"</span></span><br>  <span class="token attr-name">state</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>default | hover | focus | active | disabled<span class="token punctuation">"</span></span><br>  <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>en | fr<span class="token punctuation">"</span></span><br><span class="token punctuation">></span></span><br>  Button Label<br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>gcds-button</span><span class="token punctuation">></span></span></code></pre>
+<h3 id="type-property" tabindex="-1">Type property <a class="direct-link" href="#type-property">#</a></h3>
+<p><gcds-button
+  type="button"
+>
+This button has type: button
+</gcds-button></p>
+<p><gcds-button
+  type="submit"
+>
+This button has type: submit
+</gcds-button></p>
+<p><gcds-button
+  type="reset"
+>
+This button has type: reset
+</gcds-button></p>
+<p><gcds-button
+  type="link"
+  href
+>
+This button has type: link
+</gcds-button></p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>gcds-button</span><br>  <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>button<span class="token punctuation">"</span></span><br><span class="token punctuation">></span></span><br>  This button has type: button<br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>gcds-button</span><span class="token punctuation">></span></span><br><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>gcds-button</span><br>  <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>submit<span class="token punctuation">"</span></span><br><span class="token punctuation">></span></span><br>  This button has type: submit<br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>gcds-button</span><span class="token punctuation">></span></span><br><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>gcds-button</span><br>  <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>reset<span class="token punctuation">"</span></span><br><span class="token punctuation">></span></span><br>  This button has type: reset<br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>gcds-button</span><span class="token punctuation">></span></span><br><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>gcds-button</span><br>  <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>link<span class="token punctuation">"</span></span><br>  <span class="token attr-name">href</span><br><span class="token punctuation">></span></span><br>  This button has type: link<br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>gcds-button</span><span class="token punctuation">></span></span></code></pre>
+<h3 id="task-property" tabindex="-1">Task property <a class="direct-link" href="#task-property">#</a></h3>
+<p><gcds-button
+  task="primary"
+>
+This button has task: primary
+</gcds-button></p>
+<p><gcds-button
+  task="secondary"
+>
+This button has task: secondary
+</gcds-button></p>
+<p><gcds-button
+  task="danger"
+>
+This button has task: danger
+</gcds-button></p>
+<p><gcds-button
+  type="link"
+  task="skip-to-content"
+  href="#main"
+  >
+Skip to main content
+</gcds-button></p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>gcds-button</span><br>  <span class="token attr-name">task</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>primary<span class="token punctuation">"</span></span><br><span class="token punctuation">></span></span><br>  This button has task: primary<br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>gcds-button</span><span class="token punctuation">></span></span><br><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>gcds-button</span><br>  <span class="token attr-name">task</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>secondary<span class="token punctuation">"</span></span><br><span class="token punctuation">></span></span><br>  This button has task: secondary<br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>gcds-button</span><span class="token punctuation">></span></span><br><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>gcds-button</span><br>  <span class="token attr-name">task</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>danger<span class="token punctuation">"</span></span><br><span class="token punctuation">></span></span><br>  This button has task: danger<br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>gcds-button</span><span class="token punctuation">></span></span><br><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>gcds-button</span><br>  <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>link<span class="token punctuation">"</span></span><br>  <span class="token attr-name">task</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>skip-to-content<span class="token punctuation">"</span></span><br>  <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>#main<span class="token punctuation">"</span></span><br>  <span class="token punctuation">></span></span><br>  Skip to main content<br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>gcds-button</span><span class="token punctuation">></span></span></code></pre>
+<h3 id="state-property" tabindex="-1">State property <a class="direct-link" href="#state-property">#</a></h3>
+<p><gcds-button
+  state="default"
+>
+This button has state: default
+</gcds-button></p>
+<p><gcds-button
+  state="disabled"
+>
+This button has state: disabled
+</gcds-button></p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>gcds-button</span><br>  <span class="token attr-name">state</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>default<span class="token punctuation">"</span></span><br><span class="token punctuation">></span></span><br>  This button has state: default<br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>gcds-button</span><span class="token punctuation">></span></span><br><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>gcds-button</span><br>  <span class="token attr-name">state</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>disabled<span class="token punctuation">"</span></span><br><span class="token punctuation">></span></span><br>  This button has state: disabled<br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>gcds-button</span><span class="token punctuation">></span></span></code></pre>
 
         </main>
 
