@@ -1,3 +1,15 @@
 <footer>
     <br/>
+
+    <ul>
+    {% if locale == "en" %}
+        {% for links in collections.footerEn %}
+            <li><a href={{links.url | url}}>{{links.data.title}}</a></li>
+        {% endfor %}
+    {% else %}
+        {% for links in collections.footerFr %}
+            <li><a href={{links.url | url}}>{{links.data.title}}</a></li>
+        {% endfor %}
+    {% endif %}
+    </ul>
 </footer>

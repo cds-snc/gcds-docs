@@ -5,25 +5,32 @@
     {% set navPages = collections.all | eleventyNavigation %}
 
     {% macro renderNavListItem(entry) -%}
-    <li{% if entry.url == page.url %} class="my-active-class"{% endif %}>
-    <a href="{{ entry.url | url }}">{{ entry.title }}</a>
-    {%- if entry.children.length -%}
-    <ul>
-        {%- for child in entry.children %}
-            {% if child.locale == locale %}{{ renderNavListItem(child) }}{% endif %}
-        {% endfor -%}
-    </ul>
-    {%- endif -%}
-    {%- if entry.samePage -%}
+    {% if not entry.hideMain %}
+        <li{% if entry.url == page.url %} class="my-active-class"{% endif %}>
+        {% if entry.url %}
+            <a href="{{ entry.url | url }}">{{ entry.title }}</a>
+        {% else %}
+            <span>{{ entry.title }}</span>
+        {% endif %}
+    
+        {%- if entry.children.length -%}
         <ul>
-            {%- for link in entry.samePage %}
-                <li>
-                    <a href="{{ entry.url | url }}#{{ link.url }}"> {{ link.title }} </a>
-                </li>
+            {%- for child in entry.children %}
+                {% if child.locale == locale %}{{ renderNavListItem(child) }}{% endif %}
             {% endfor -%}
         </ul>
-    {%- endif -%}
-    </li>
+        {%- endif -%}
+        {%- if entry.samePage -%}
+            <ul>
+                {%- for link in entry.samePage %}
+                    <li>
+                        <a href="{{ entry.url | url }}#{{ link.url }}"> {{ link.title }} </a>
+                    </li>
+                {% endfor -%}
+            </ul>
+        {%- endif -%}
+        </li>
+    {% endif %}
     {%- endmacro %}
 
     <ul>

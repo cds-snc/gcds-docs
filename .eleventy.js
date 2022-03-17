@@ -4,6 +4,7 @@ const sitemap = require("@quasibit/eleventy-plugin-sitemap");
 const moment = require("moment");
 const markdownIt = require("markdown-it");
 const markdownItAnchor = require("markdown-it-anchor");
+const contextMenu = require("./utils/context-menu");
 
 module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("./src/styles/style.css");
@@ -11,13 +12,20 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("./src/admin/config.yml");
   eleventyConfig.addPassthroughCopy({"./src/variables/": "variables"});
   eleventyConfig.addPassthroughCopy({
-    "./node_modules/gcds-components-demo/": "components"
+    "./node_modules/gcds-components/": "components"
   });
   // Add copy fo a11y testing
   eleventyConfig.addPassthroughCopy("./.pa11yci.json");
   eleventyConfig.addPlugin(eleventyNavigationPlugin);
   eleventyConfig.addPlugin(syntaxHighlight, {
     templateFormats: ['md']
+  });
+
+  eleventyConfig.addFilter("sortCollection", (arr) => {
+    // get unsorted items
+    return arr.sort(function(a, b){
+      return a.data.eleventyNavigation.order - b.data.eleventyNavigation.order;
+    });
   });
 
   // date filter (localized)

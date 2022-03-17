@@ -1,11 +1,6 @@
 ---
 title: Implementing a Button for Development
 layout: "layouts/base.njk"
-eleventyNavigation:
-  key: buttonDev
-  title: Implementing a Button for Development
-  locale: en
-  parent: buttons
 translationKey: "buttonDev"
 ---
 
