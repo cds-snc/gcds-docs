@@ -8,12 +8,6 @@ export const GcdsButton: {
   new (): GcdsButton;
 };
 
-interface GcdsSiteMenu extends Components.GcdsSiteMenu, HTMLElement {}
-export const GcdsSiteMenu: {
-  prototype: GcdsSiteMenu;
-  new (): GcdsSiteMenu;
-};
-
 /**
  * Utility to define all custom elements within this package using the tag name provided in the component's source. 
  * When defining each custom element, it will also check it's safe to define by:

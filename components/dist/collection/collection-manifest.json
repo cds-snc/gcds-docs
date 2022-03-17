@@ -1,7 +1,6 @@
 {
   "entries": [
-    "./components/gcds-button/gcds-button.js",
-    "./components/gcds-site-menu/gcds-site-menu.js"
+    "./components/gcds-button/gcds-button.js"
   ],
   "compiler": {
     "name": "@stencil/core",
