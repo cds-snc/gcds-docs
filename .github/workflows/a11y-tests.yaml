@@ -18,12 +18,14 @@ jobs:
       - name: run pa11y test
         run: pa11y-ci --sitemap https://cds-snc.github.io/${{ github.event.repository.name }}/sitemap.xml
       - name: Commit
+        if: always()
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
           git add -A
           git commit -m "A11y report"
       - name: Push changes
+        if: always()
         uses: ad-m/github-push-action@8407731efefc0d8f72af254c74276b7a90be36e1
         with:
           github_token: ${{ secrets.ACCESS_TOKEN }}
