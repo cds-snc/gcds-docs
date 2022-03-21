@@ -3,7 +3,7 @@
     <nav aria-label="breadcrumb">
         <ol>
             <li>
-                <a href={{ breadcrumbs[locale].url }}>{{ breadcrumbs[locale].linkText }}</a>
+                <a href={{ breadcrumbs[locale].url | url }}>{{ breadcrumbs[locale].linkText }}</a>
             </li>
             {% for item in navPages %}
                 {% if item.url %} 
