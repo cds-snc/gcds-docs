@@ -19,12 +19,14 @@
         task="skip-to-content"
         href="#content"
         >
-        Skip to main content
+        {{ base[locale].skipTo }}
         </gcds-button>
 
         {% include "partials/header.njk" %}
 
-        {% include "partials/nav.njk" %}
+        {% if onThisPage %}
+            {% include "partials/onthispage.njk" %}
+        {% endif %}
 
         <main id="content">
             {{ content | safe }}

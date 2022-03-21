@@ -2,10 +2,10 @@
 title: Radio
 layout: "layouts/documentation.njk"
 eleventyNavigation:
-  key: radio
+  key: radioEN
   title: Radio - coming soon
   locale: en
-  parent: forms
+  parent: formsEN
   order: 4
   url: null
   hideMain: true

@@ -2,10 +2,10 @@
 title: Form components 
 layout: "layouts/documentation.njk"
 eleventyNavigation:
-  key: forms
+  key: formsEN
   title: Forms
   locale: en
-  parent: components
+  parent: componentsEN
   order: 2
   url: null
 translationKey: "forms"

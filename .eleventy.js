@@ -28,6 +28,15 @@ module.exports = function (eleventyConfig) {
     });
   });
 
+  eleventyConfig.addFilter("getBreadcrumbs", contextMenu.findBreadcrumbEntries);
+  eleventyConfig.addFilter("onThisPage", function(nodes) {
+    let urls = {};
+    for (let key in nodes) {
+      urls[nodes[key]] = nodes[key].toLowerCase().replaceAll(' ', '-');
+    }
+    return urls;
+  });
+
   // date filter (localized)
   eleventyConfig.addNunjucksFilter("date", function (date, format, locale) {
     locale = locale ? locale : "en";

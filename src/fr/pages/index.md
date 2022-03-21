@@ -11,5 +11,3 @@ translationKey: "index"
 ---
 
 # Get Started FR
-
-[Onboarding]({{ "/fr/onboarding" | url }}) | [Component and Pattern Inventory]({{ "/fr/components" | url }})

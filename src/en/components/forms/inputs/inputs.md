@@ -2,10 +2,10 @@
 title: Input field
 layout: "layouts/documentation.njk"
 eleventyNavigation:
-  key: inputs
+  key: inputsEN
   title: Input field
   locale: en
-  parent: forms
+  parent: formsEN
   order: 1
 translationKey: "inputs"
 ---

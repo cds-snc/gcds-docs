@@ -2,7 +2,7 @@
 title: Foundations
 layout: "layouts/documentation.njk"
 eleventyNavigation:
-  key: foundations
+  key: foundationsEN
   title: Foundations
   locale: en
   order: 1

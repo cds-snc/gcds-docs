@@ -2,10 +2,10 @@
 title: Footer
 layout: "layouts/documentation.njk"
 eleventyNavigation:
-  key: footer
+  key: footerEN
   title: Footer - coming soon
   locale: en
-  parent: basic
+  parent: basicEN
   order: 4
   url: null
   hideMain: true

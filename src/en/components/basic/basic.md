@@ -2,11 +2,11 @@
 title: Basic
 layout: "layouts/documentation.njk"
 eleventyNavigation:
-  key: basic
+  key: basicEN
   title: Basic
   locale: en
   order: 1
-  parent: components
+  parent: componentsEN
   url: null
 permalink: false
 tags: componentsOverview

@@ -2,10 +2,10 @@
 title: Textarea
 layout: "layouts/documentation.njk"
 eleventyNavigation:
-  key: inputs
+  key: inputsEN
   title: Textarea
   locale: en
-  parent: forms
+  parent: formsEN
   order: 2
 translationKey: "textarea"
 ---

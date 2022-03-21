@@ -1,0 +1,17 @@
+{% if eleventyNavigation %}
+    {% set navPages = collections.all | getBreadcrumbs(eleventyNavigation.key) %}
+    <nav aria-label="breadcrumb">
+        <ol>
+            <li>
+                <a href={{ breadcrumbs[locale].url }}>{{ breadcrumbs[locale].linkText }}</a>
+            </li>
+            {% for item in navPages %}
+                {% if item.url %} 
+                    <li>
+                        <a href="{{ item.url | url }}" {% if item.url == page.url %} aria-current="page" {% endif %} >{{ item.title }}</a>
+                    </li>
+                {% endif %}
+            {% endfor %}
+        </ol>
+    </nav>
+{% endif %}

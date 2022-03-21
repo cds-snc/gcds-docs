@@ -2,10 +2,10 @@
 title: Forms guidance
 layout: "layouts/documentation.njk"
 eleventyNavigation:
-  key: formsguidance
+  key: formsguidanceEN
   title: Forms guidance
   locale: en
-  parent: forms
+  parent: formsEN
   order: 0
 translationKey: "formsguidance"
 ---

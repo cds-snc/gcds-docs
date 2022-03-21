@@ -2,10 +2,10 @@
 title: Header
 layout: "layouts/documentation.njk"
 eleventyNavigation:
-  key: header
+  key: headerEN
   title: Header - coming soon
   locale: en
-  parent: basic
+  parent: basicEN
   order: 3
   url: null
   hideMain: true

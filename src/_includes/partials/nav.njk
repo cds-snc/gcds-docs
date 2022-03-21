@@ -1,41 +1,38 @@
-<nav>
+{% set navPages = collections.all | eleventyNavigation %}
 
-    <h2>{{ nav[locale].title }}</h2>
+{% macro renderNavListItem(entry) -%}
+{% if not entry.hideMain %}
+    <li{% if entry.url == page.url %} class="my-active-class"{% endif %}>
+    {% if entry.url %}
+        <a href="{{ entry.url | url }}">{{ entry.title }}</a>
+    {% else %}
+        <span>{{ entry.title }}</span>
+    {% endif %}
 
-    {% set navPages = collections.all | eleventyNavigation %}
-
-    {% macro renderNavListItem(entry) -%}
-    {% if not entry.hideMain %}
-        <li{% if entry.url == page.url %} class="my-active-class"{% endif %}>
-        {% if entry.url %}
-            <a href="{{ entry.url | url }}">{{ entry.title }}</a>
-        {% else %}
-            <span>{{ entry.title }}</span>
-        {% endif %}
-    
-        {%- if entry.children.length -%}
+    {%- if entry.children.length -%}
+    <ul>
+        {%- for child in entry.children %}
+            {% if child.locale == locale %}{{ renderNavListItem(child) }}{% endif %}
+        {% endfor -%}
+    </ul>
+    {%- endif -%}
+    {%- if entry.samePage -%}
         <ul>
-            {%- for child in entry.children %}
-                {% if child.locale == locale %}{{ renderNavListItem(child) }}{% endif %}
+            {%- for link in entry.samePage %}
+                <li>
+                    <a href="{{ entry.url | url }}#{{ link.url }}"> {{ link.title }} </a>
+                </li>
             {% endfor -%}
         </ul>
-        {%- endif -%}
-        {%- if entry.samePage -%}
-            <ul>
-                {%- for link in entry.samePage %}
-                    <li>
-                        <a href="{{ entry.url | url }}#{{ link.url }}"> {{ link.title }} </a>
-                    </li>
-                {% endfor -%}
-            </ul>
-        {%- endif -%}
-        </li>
-    {% endif %}
-    {%- endmacro %}
-
-    <ul>
-    {%- for entry in navPages %}
-        {%- if entry.locale == locale %}{{ renderNavListItem(entry) }}{% endif -%}
-    {%- endfor -%}
-    </ul>
-</nav>
+    {%- endif -%}
+    </li>
+{% endif %}
+{%- endmacro %}
+<gcds-site-menu menu-alignment="right">
+ <span slot="left">{{ nav[locale].title }}</span>
+<ul>
+{%- for entry in navPages %}
+    {%- if entry.locale == locale %}{{ renderNavListItem(entry) }}{% endif -%}
+{%- endfor -%}
+</ul>
+</gcds-site-menu>

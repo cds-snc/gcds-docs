@@ -2,7 +2,7 @@
 title: Components overview
 layout: "layouts/overview.njk"
 eleventyNavigation:
-  key: components
+  key: componentsEN
   title: Components
   locale: en
   order: 2

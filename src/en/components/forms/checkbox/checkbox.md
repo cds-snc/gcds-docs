@@ -2,10 +2,10 @@
 title: Checkbox
 layout: "layouts/documentation.njk"
 eleventyNavigation:
-  key: checkbox
+  key: checkboxEN
   title: Checkbox - coming soon
   locale: en
-  parent: forms
+  parent: formsEN
   order: 5
   url: null
   hideMain: true

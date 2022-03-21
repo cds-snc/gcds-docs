@@ -2,7 +2,7 @@
 title: Contact us
 layout: "layouts/base.njk"
 eleventyNavigation:
-  key: contactus
+  key: contactusEN
   title: Contact us
   locale: en
   order: 3

@@ -1,0 +1,13 @@
+<aside>
+    <nav aria-label="On this page">
+        <h2>On this page</h2>
+        {% set onthispage = onThisPage | onThisPage %}
+        <ul>
+            {% for key, item in onthispage %}
+                <li>
+                    <a href="#{{ item }}">{{ key }}</a>
+                </li>
+            {% endfor %}
+        </ul>
+    </nav>
+</aside>
