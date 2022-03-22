@@ -8,6 +8,42 @@ export const GcdsButton: {
   new (): GcdsButton;
 };
 
+interface GcdsErrorMessage extends Components.GcdsErrorMessage, HTMLElement {}
+export const GcdsErrorMessage: {
+  prototype: GcdsErrorMessage;
+  new (): GcdsErrorMessage;
+};
+
+interface GcdsHint extends Components.GcdsHint, HTMLElement {}
+export const GcdsHint: {
+  prototype: GcdsHint;
+  new (): GcdsHint;
+};
+
+interface GcdsInput extends Components.GcdsInput, HTMLElement {}
+export const GcdsInput: {
+  prototype: GcdsInput;
+  new (): GcdsInput;
+};
+
+interface GcdsLabel extends Components.GcdsLabel, HTMLElement {}
+export const GcdsLabel: {
+  prototype: GcdsLabel;
+  new (): GcdsLabel;
+};
+
+interface GcdsSiteMenu extends Components.GcdsSiteMenu, HTMLElement {}
+export const GcdsSiteMenu: {
+  prototype: GcdsSiteMenu;
+  new (): GcdsSiteMenu;
+};
+
+interface GcdsTextarea extends Components.GcdsTextarea, HTMLElement {}
+export const GcdsTextarea: {
+  prototype: GcdsTextarea;
+  new (): GcdsTextarea;
+};
+
 /**
  * Utility to define all custom elements within this package using the tag name provided in the component's source. 
  * When defining each custom element, it will also check it's safe to define by:

@@ -1,6 +1,12 @@
 {
   "entries": [
-    "./components/gcds-button/gcds-button.js"
+    "./components/gcds-button/gcds-button.js",
+    "./components/gcds-error-message/gcds-error-message.js",
+    "./components/gcds-hint/gcds-hint.js",
+    "./components/gcds-input/gcds-input.js",
+    "./components/gcds-label/gcds-label.js",
+    "./components/gcds-site-menu/gcds-site-menu.js",
+    "./components/gcds-textarea/gcds-textarea.js"
   ],
   "compiler": {
     "name": "@stencil/core",
