@@ -1,0 +1,50 @@
+/*
+ * Breadcrumbs
+ */
+
+nav.breadcrumb {
+    padding: 0.8em 1em;
+    border-radius: 4px;
+}
+
+nav.breadcrumb ol {
+    margin: 0;
+    padding-left: 0;
+    list-style: none;
+}
+
+nav.breadcrumb li {
+    display: inline;
+}
+
+nav.breadcrumb li + li::before {
+    display: inline-block;
+    margin: 0 0.25em;
+    transform: rotate(15deg);
+    border-right: 0.1em solid currentColor;
+    height: 0.8em;
+    content: "";
+}
+
+nav.breadcrumb [aria-current="page"] {
+    color: #000;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+/*
+ * Context menu
+ */
+
+ nav.context-menu > h2 {
+    font-size: 1rem;
+ }
+
+ nav.context-menu ul {
+    list-style-type: none;
+    padding-left: 0;
+ }
+
+ nav.context-menu ul li {
+    margin-bottom: 0.85rem;
+ }
