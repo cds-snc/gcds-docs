@@ -1,3 +1,5 @@
+body { margin: 0;}
+
 /*
  * Breadcrumbs
  */
@@ -48,3 +50,42 @@ nav.breadcrumb [aria-current="page"] {
  nav.context-menu ul li {
     margin-bottom: 0.85rem;
  }
+
+
+ /*
+  * Main + Aside landmarks
+  */
+
+  main {
+      max-width: 80rem;
+      width: 100%;
+      padding: 0 0.8rem;
+      margin-left: auto;
+      margin-right: auto;
+  }
+
+  aside {
+      display: none;
+  }
+
+  @media screen and (min-width: 64rem) {
+      body > div.sidebar-layout {
+        display: grid;
+        gap: 1.5rem;
+        grid-template-areas: "sidebar main";
+        grid-template-columns: 1fr 5fr;
+        width: 100%;
+        max-width: 80rem;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      div.sidebar-layout > aside {
+          display: block;
+        grid-area: sidebar;
+        min-width: 15rem;
+        padding: 0.5rem 0 0 0.8rem;
+      }
+      div.sidebar-layout > aside + main {
+        margin-left: 2rem;
+      }
+  }

@@ -25,13 +25,15 @@
 
         {% include "partials/header.njk" %}
 
-        {% if onThisPage %}
-            {% include "partials/onthispage.njk" %}
-        {% endif %}
+        <div {% if onThisPage %}class="sidebar-layout"{% endif %}>
+            {% if onThisPage %}
+                {% include "partials/onthispage.njk" %}
+            {% endif %}
 
-        <main id="content">
-            {{ content | safe }}
-        </main>
+            <main id="content">
+                {{ content | safe }}
+            </main>
+        </div>
 
         {% include "partials/footer.njk" %}
     </body>
