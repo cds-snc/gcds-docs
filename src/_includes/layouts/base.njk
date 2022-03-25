@@ -25,7 +25,9 @@
 
         {% include "partials/header.njk" %}
 
-        <div {% if onThisPage %}class="sidebar-layout"{% endif %}>
+        {% include "partials/breadcrumbs.njk" %}
+
+        <div {% if onThisPage %}class="container sidebar-layout"{% else %}class="container general-layout"{% endif %}>
             {% if onThisPage %}
                 {% include "partials/onthispage.njk" %}
             {% endif %}

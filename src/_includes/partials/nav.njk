@@ -20,7 +20,9 @@
         <ul>
             {%- for link in entry.samePage %}
                 <li>
-                    <a href="{{ entry.url | url }}#{{ link.url }}"> {{ link.title }} </a>
+                    <a href="{{ entry.url | url }}#{{ link.url }}">
+                        {{ link.title }}
+                    </a>
                 </li>
             {% endfor -%}
         </ul>
@@ -28,11 +30,11 @@
     </li>
 {% endif %}
 {%- endmacro %}
-<gcds-site-menu menu-alignment="right">
- <span slot="left">{{ nav[locale].title }}</span>
-<ul>
-{%- for entry in navPages %}
-    {%- if entry.locale == locale %}{{ renderNavListItem(entry) }}{% endif -%}
-{%- endfor -%}
-</ul>
+<gcds-site-menu menu-alignment="right" class="header__nav">
+    <span slot="left">{{ nav[locale].title }}</span>
+    <ul >
+    {%- for entry in navPages %}
+        {%- if entry.locale == locale %}{{ renderNavListItem(entry) }}{% endif -%}
+    {%- endfor -%}
+    </ul>
 </gcds-site-menu>

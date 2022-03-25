@@ -5,6 +5,7 @@
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 body {
@@ -20,6 +21,60 @@ body {
   width: 90%;
   max-width: 1100px;
   margin: 0 auto;
+}
+
+/*
+ * Header
+ */
+
+.header {
+  margin: 0 0 130px;
+  background-color: #CBD9FF;
+}
+
+@media only screen and (max-width: 767px) {
+  .header {
+    margin: 0 0 60px;
+  }
+}
+
+.header__container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 90%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 22px 0;
+}
+
+.header__container .header__logo {
+  width: calc(100% - 100px);
+  max-width: 355px;
+}
+
+.header__container .header__logo svg {
+  width: 100%;
+  height: auto;
+}
+
+.header__container ul {
+  list-style: none;
+}
+
+.header__container ul li {
+  display: inline-block;
+  margin: 0 15px;
+}
+
+.header__container ul li:last-child {
+  margin-right: 0;
+}
+
+.header__container ul li a {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 1px solid #000;
 }
 
 /*
@@ -112,10 +167,6 @@ aside {
     gap: 1.5rem;
     grid-template-areas: "sidebar main";
     grid-template-columns: 1fr 5fr;
-    width: 100%;
-    max-width: 80rem;
-    margin-left: auto;
-    margin-right: auto;
   }
   div.sidebar-layout > aside {
     display: block;
@@ -127,6 +178,11 @@ aside {
     margin-left: 2rem;
     max-width: 58rem;
   }
+}
+
+body > div.sidebar-layout,
+.general-layout {
+  flex: 1 1 auto;
 }
 
 /*
