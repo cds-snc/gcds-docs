@@ -3,8 +3,9 @@ const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 const sitemap = require("@quasibit/eleventy-plugin-sitemap");
 const moment = require("moment");
 const markdownIt = require("markdown-it");
-const markdownItAnchor = require("markdown-it-anchor");
+const slugify = require("./utils/slugify");
 const contextMenu = require("./utils/context-menu");
+const markdownAnchor = require("./utils/anchor");
 const svgContents = require("eleventy-plugin-svg-contents");
 
 module.exports = function (eleventyConfig) {
@@ -34,7 +35,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addFilter("onThisPage", function(nodes) {
     let urls = {};
     for (let key in nodes) {
-      urls[nodes[key]] = nodes[key].toLowerCase().replaceAll(' ', '-');
+      urls[nodes[key]] = slugify(nodes[key]);
     }
     return urls;
   });
@@ -51,11 +52,7 @@ module.exports = function (eleventyConfig) {
     html: true,
     breaks: false,
     linkify: true
-  }).use(markdownItAnchor, {
-    permalink: true,
-    permalinkClass: "direct-link",
-    permalinkSymbol: "#"
-  });
+  }).use(markdownAnchor);
   markdownLibrary.disable('blockquote');
   markdownLibrary.disable('code');
   eleventyConfig.setLibrary("md", markdownLibrary);
