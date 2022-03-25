@@ -5,11 +5,13 @@ const moment = require("moment");
 const markdownIt = require("markdown-it");
 const markdownItAnchor = require("markdown-it-anchor");
 const contextMenu = require("./utils/context-menu");
+const svgContents = require("eleventy-plugin-svg-contents");
 
 module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("./src/styles/style.css");
   eleventyConfig.addPassthroughCopy("./src/styles/prism.css");
   eleventyConfig.addPassthroughCopy("./src/admin/config.yml");
+  eleventyConfig.addPlugin(svgContents);
   eleventyConfig.addPassthroughCopy({"./src/variables/": "variables"});
   eleventyConfig.addPassthroughCopy({
     "./node_modules/gcds-components/": "components"
