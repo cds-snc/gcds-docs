@@ -108,6 +108,7 @@ aside {
   }
   div.sidebar-layout > aside + main {
     margin-left: 2rem;
+    max-width: 58rem;
   }
 }
 
