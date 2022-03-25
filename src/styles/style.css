@@ -186,6 +186,22 @@ body > div.sidebar-layout,
 }
 
 /*
+ * Landing Page
+ */
+
+.landing-page {
+  text-align: center;
+}
+
+.landing-page h1 {
+  margin: 0 0 45px;
+}
+
+.landing-page__btns gcds-button {
+  margin: 0 10px;
+}
+
+/*
  * Footer
  */
 
