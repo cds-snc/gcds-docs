@@ -1,15 +1,24 @@
-<footer>
-    <br/>
+<footer class="footer">
+    <div class="container footer__container">
+        <ul>
+        {% if locale == "en" %}
+            {% for links in collections.footerEn %}
+                <li><a href={{links.url | url}}>{{links.data.title}}</a></li>
+            {% endfor %}
+        {% else %}
+            {% for links in collections.footerFr %}
+                <li><a href={{links.url | url}}>{{links.data.title}}</a></li>
+            {% endfor %}
+        {% endif %}
+            <li>
+                <a href="https://www.canada.ca/" target="_blank" aria-label="{% if locale == "en" %}Canada.ca site (Opens in a new tab){% else %}Site Web Canada.ca (S'ouvre dans un nouvel onglet){% endif %}">Canada.ca</a>
+            </li>
+        </ul>
 
-    <ul>
-    {% if locale == "en" %}
-        {% for links in collections.footerEn %}
-            <li><a href={{links.url | url}}>{{links.data.title}}</a></li>
-        {% endfor %}
-    {% else %}
-        {% for links in collections.footerFr %}
-            <li><a href={{links.url | url}}>{{links.data.title}}</a></li>
-        {% endfor %}
-    {% endif %}
-    </ul>
+        {% if locale == "en" %}
+            {{ '/src/images/en/gov-canada-wordmark.svg' | svgContents | safe }}
+        {% else %}
+            {{ '/src/images/fr/gov-canada-wordmark.svg' | svgContents | safe }}
+        {% endif %}
+    </div>
 </footer>
