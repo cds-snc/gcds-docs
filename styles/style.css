@@ -23,6 +23,23 @@ body {
 }
 
 /*
+ * Heading anchors
+ */
+
+h2 > a.anchor-link,
+h3 > a.anchor-link {
+  color: #000;
+  text-decoration: none;
+}
+
+h2 > a.anchor-link:hover,
+h2 > a.anchor-link:focus,
+h3 > a.anchor-link:hover,
+h3 > a.anchor-link:focus {
+  text-decoration: underline;
+}
+
+/*
  * Breadcrumbs
  */
 

@@ -301,21 +301,35 @@
             
 
             <main id="content">
-                <h1 id="installation" tabindex="-1">Installation <a class="direct-link" href="#installation">#</a></h1>
-<h2 id="install-from-npm" tabindex="-1">Install from npm <a class="direct-link" href="#install-from-npm">#</a></h2>
-<pre class="language-js"><code class="language-js">npm install gcds<span class="token operator">-</span>components</code></pre>
-<h2 id="supported-frameworks" tabindex="-1">Supported frameworks <a class="direct-link" href="#supported-frameworks">#</a></h2>
-<p>The gcds-component library works in multiple frameworks.</p>
-<h3 id="javascript" tabindex="-1">Javascript <a class="direct-link" href="#javascript">#</a></h3>
-<p>Place the following code in the <code>&lt;head&gt;</code> element of your site.</p>
+                <h1>Installation</h1>
+        <h2 id="install-from-npm">
+            <a class="anchor-link" href="#install-from-npm">Install from npm
+            </a>
+        </h2><pre class="language-js"><code class="language-js">npm install gcds<span class="token operator">-</span>components</code></pre>
+
+        <h2 id="supported-frameworks">
+            <a class="anchor-link" href="#supported-frameworks">Supported frameworks
+            </a>
+        </h2><p>The gcds-component library works in multiple frameworks.</p>
+
+        <h3 id="javascript">
+            <a class="anchor-link" href="#javascript">Javascript
+            </a>
+        </h3><p>Place the following code in the <code>&lt;head&gt;</code> element of your site.</p>
 <pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>module<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript"><br>    <span class="token keyword">import</span> <span class="token punctuation">{</span> defineCustomElements <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'/node_modules/gcds-components/loader/index.es2017.mjs'</span><span class="token punctuation">;</span><br>    <span class="token function">defineCustomElements</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>link</span> <span class="token attr-name">rel</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>stylesheet<span class="token punctuation">"</span></span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>/node_modules/gcds-components/dist/gcds/gcds.css<span class="token punctuation">"</span></span><span class="token punctuation">></span></span></code></pre>
 <p>All gcds-components should now be ready to use in your site.</p>
-<h3 id="react" tabindex="-1">React <a class="direct-link" href="#react">#</a></h3>
-<p>Place the following code in the <code>index.js</code> file of your app.</p>
+
+        <h3 id="react">
+            <a class="anchor-link" href="#react">React
+            </a>
+        </h3><p>Place the following code in the <code>index.js</code> file of your app.</p>
 <pre class="language-jsx"><code class="language-jsx"><span class="token keyword">import</span> <span class="token punctuation">{</span> applyPolyfills<span class="token punctuation">,</span> defineCustomElements <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'gcds-components/loader'</span><span class="token punctuation">;</span><br><span class="token keyword">import</span> <span class="token string">'gcds-components/dist/gcds/gcds.css'</span><span class="token punctuation">;</span><br><br>ReactDOM<span class="token punctuation">.</span><span class="token function">render</span><span class="token punctuation">(</span><span class="token operator">...</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br><br><span class="token function">applyPolyfills</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span><br>  <span class="token function">defineCustomElements</span><span class="token punctuation">(</span>window<span class="token punctuation">)</span><span class="token punctuation">;</span><br><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br></code></pre>
 <p>All gcds-components should now be ready to use in your React app.</p>
-<h3 id="vue" tabindex="-1">Vue <a class="direct-link" href="#vue">#</a></h3>
-<p>Place the following code in the <code>main.js</code> file of your app.</p>
+
+        <h3 id="vue">
+            <a class="anchor-link" href="#vue">Vue
+            </a>
+        </h3><p>Place the following code in the <code>main.js</code> file of your app.</p>
 <pre class="language-js"><code class="language-js"><span class="token keyword">import</span> <span class="token punctuation">{</span> applyPolyfills<span class="token punctuation">,</span> defineCustomElements <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'gcds-components/loader'</span><span class="token punctuation">;</span><br><span class="token keyword">import</span> <span class="token string">'gcds-components/dist/gcds/gcds.css'</span><span class="token punctuation">;</span><br><br><span class="token function">applyPolyfills</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span><br>  <span class="token function">defineCustomElements</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
 <p>All gcds-components should now be ready to use in your Vue app.</p>
 
