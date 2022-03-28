@@ -1,7 +1,7 @@
 {% set otherLang = "fr" if locale == "en" else "en" %}
 <header class="header">
-    <div class="header__container" lang="{{ otherLang }}">
-        <a href="{% if locale == "en" %}/en/ {% else %}/fr/ {% endif %}" class="header__logo">
+    <div class="header__container">
+        <a class="header__logo" href="https://www.canada.ca/" target="_blank" aria-label="{% if locale == "en" %}Canada.ca site (Opens in a new tab){% else %}Site Web Canada.ca (S'ouvre dans un nouvel onglet){% endif %}">
         {% if locale == "en" %}
             {{ '/src/images/en/gov-canada-logo.svg' | svgContents | safe }}
         {% else %}
@@ -29,7 +29,9 @@
                 {% endfor %}
 
                 <li>
-                    <a href="{{ translatedUrl | url }}">{{ lgg.label }}</a>
+                    <a href="{{ translatedUrl | url }}" lang="{{ otherLang }}">
+                        {{ lgg.label }}
+                    </a>
                 </li>
             {% endif %}
 
@@ -38,4 +40,6 @@
     </div>
 
     {% include "partials/nav.njk" %}
+
+    {% include "partials/breadcrumbs.njk" %}
 </header>

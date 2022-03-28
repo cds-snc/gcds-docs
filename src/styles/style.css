@@ -29,7 +29,6 @@ body {
 
 .header {
   margin: 0 0 130px;
-  background-color: #CBD9FF;
 }
 
 @media only screen and (max-width: 767px) {
@@ -99,7 +98,7 @@ h3 > a.anchor-link:focus {
  */
 
 nav.breadcrumb {
-  padding: 0.8em 1em;
+  padding: 0.8em 0;
   border-radius: 4px;
 }
 
