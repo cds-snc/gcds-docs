@@ -2,6 +2,11 @@
 title: Installation
 translationKey: installation
 layout: "layouts/base.njk"
+eleventyNavigation:
+    key: installationEN
+    title: Installation
+    order: 100
+    hideMain: true
 onThisPage:
   0: Install from npm
   1: Supported frameworks

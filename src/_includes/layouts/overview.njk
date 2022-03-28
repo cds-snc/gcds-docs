@@ -32,12 +32,14 @@ layout: "layouts/base.njk"
     {%- endmacro %}
 
 {%- for post in collections.componentsOverview | sortCollection -%}
-    {{ post.data.content | safe }}
+    {%- if post.data.eleventyNavigation.locale == locale %}
+        {{ post.data.content | safe }}
 
-    {% set navPages = collections.all | eleventyNavigation(post.data.eleventyNavigation.key) %}
-    <ul>
-    {%- for entry in navPages %}
-        {%- if entry.locale == locale %}{{ renderNavListItem(entry) }}{% endif -%}
-    {%- endfor -%}
+        {% set navPages = collections.all | eleventyNavigation(post.data.eleventyNavigation.key) %}
+        <ul>
+        {%- for entry in navPages %}
+            {%- if entry.locale == locale %}{{ renderNavListItem(entry) }}{% endif -%}
+        {%- endfor -%}
     </ul>
+    {% endif %}
 {%- endfor -%}
