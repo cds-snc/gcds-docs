@@ -179,3 +179,18 @@ aside {
   text-decoration: none;
   border-bottom: 1px solid #000;
 }
+
+
+/*
+ * Code showcase
+ */
+
+.code-showcase > div.showcase[aria-hidden=true] {
+  display: none;
+  visibility: hidden;
+}
+
+.code-showcase code.copy-code {
+  display: none;
+  visibility: hidden;
+}

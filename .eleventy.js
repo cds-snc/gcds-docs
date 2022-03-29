@@ -11,6 +11,7 @@ const svgContents = require("eleventy-plugin-svg-contents");
 module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("./src/styles/style.css");
   eleventyConfig.addPassthroughCopy("./src/styles/prism.css");
+  eleventyConfig.addPassthroughCopy("./src/scripts/code-showcase.js");
   eleventyConfig.addPassthroughCopy("./src/admin/config.yml");
   eleventyConfig.addPlugin(svgContents);
   eleventyConfig.addPassthroughCopy({"./src/variables/": "variables"});
@@ -55,6 +56,34 @@ module.exports = function (eleventyConfig) {
   }).use(markdownAnchor);
   markdownLibrary.disable('blockquote');
   markdownLibrary.disable('code');
+
+  eleventyConfig.addPairedShortcode('viewCode', (children, lang, id) => {
+    const langStrings = {
+      "en": {
+        "view": "View code",
+        "copy": "Copy code"
+      },
+      "fr": {
+        "view": "Voir le code",
+        "copy": "Copier le code"
+      }
+    }
+    let copyCode = children;
+    copyCode = copyCode.toString().replace("``` html", "").replace("```", "").replaceAll("<", "&lt;").replaceAll(">", "&gt;").trim();
+    const content = markdownLibrary.render(children);
+
+    return `
+    <div class="code-showcase">
+    <gcds-button button-type="button" button-role="secondary" button-style="text-only" onclick="toggleCodeShowcase(this, '${id}');" aria-controls="${id}" aria-expanded="false">${langStrings[lang].view}</gcds-button>
+    <gcds-button button-type="button" button-role="secondary" button-style="text-only" onclick="copyCodeShowcase(this, '${id}', '${lang}');" onblur="this.innerText = '${langStrings[lang].copy}'">${langStrings[lang].copy}</gcds-button>
+    <div class="showcase" id="${id}" aria-hidden="true">
+      ${content}
+    <code class="copy-code" id="${id}-copy">${copyCode}</code>
+    </div>
+    </div>
+    `}
+  );
+
   eleventyConfig.setLibrary("md", markdownLibrary);
 
   eleventyConfig.addPlugin(sitemap, {
