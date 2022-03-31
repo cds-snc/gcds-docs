@@ -1,11 +1,11 @@
 ---
-title: Footer
+title: Pied de page
 layout: "layouts/documentation.njk"
 eleventyNavigation:
-  key: footerEN
-  title: Footer - coming soon
-  locale: en
-  parent: basicEN
+  key: footerFR
+  title: Pied de page  — à venir
+  locale: fr
+  parent: basicFR
   order: 5
   url: null
   hideMain: true

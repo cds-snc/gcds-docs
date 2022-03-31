@@ -6,6 +6,7 @@ eleventyNavigation:
   title: Boutons
   locale: fr
   parent: basicFR
+  order: 1
 translationKey: "buttons"
 ---
 

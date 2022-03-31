@@ -1,11 +1,11 @@
 ---
-title: Header
+title: En-tête
 layout: "layouts/documentation.njk"
 eleventyNavigation:
-  key: headerEN
-  title: Header - coming soon
-  locale: en
-  parent: basicEN
+  key: headerFR
+  title: En-tête — à venir
+  locale: fr
+  parent: basicFR
   order: 4
   url: null
   hideMain: true

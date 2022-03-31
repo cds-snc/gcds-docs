@@ -1,14 +1,14 @@
 ---
-title: Header
+title: Main navigation
 layout: "layouts/documentation.njk"
 eleventyNavigation:
-  key: headerEN
-  title: Header - coming soon
+  key: mainnavigationEN
+  title: Main navigation - coming soon
   locale: en
   parent: basicEN
-  order: 4
+  order: 2
   url: null
   hideMain: true
-translationKey: "header"
+translationKey: "mainnavigation"
 permalink: false
 ---

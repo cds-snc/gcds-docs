@@ -13,3 +13,5 @@ tags: componentsOverview
 ---
 
 ## Basic
+
+Common components that can be used individually or designed together to form patterns and templates.

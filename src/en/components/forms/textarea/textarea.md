@@ -2,7 +2,7 @@
 title: Textarea
 layout: "layouts/documentation.njk"
 eleventyNavigation:
-  key: inputsEN
+  key: textareaEN
   title: Textarea
   locale: en
   parent: formsEN

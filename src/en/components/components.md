@@ -9,4 +9,4 @@ eleventyNavigation:
 translationKey: "components"
 ---
 
-# Components overview
+# Overview of components
