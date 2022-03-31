@@ -148,34 +148,28 @@ nav.context-menu ul li {
  * Main + Aside landmarks
  */
 
-main {
-  max-width: 80rem;
-  width: 100%;
-  padding: 0 0.8rem;
-  margin-left: auto;
-  margin-right: auto;
-}
-
 aside {
   display: none;
 }
 
 @media screen and (min-width: 64rem) {
   body > div.sidebar-layout {
-    display: grid;
-    gap: 1.5rem;
-    grid-template-areas: "sidebar main";
-    grid-template-columns: 1fr 5fr;
+
   }
   div.sidebar-layout > aside {
-    display: block;
-    grid-area: sidebar;
-    min-width: 15rem;
-    padding: 0.5rem 0 0 0.8rem;
+    display: inline-block;
+    vertical-align: top;
+    height: 100%;
+    margin: 0 0.8rem;
+    max-width: 15rem;
+  }
+  div.sidebar-layout > aside > nav {
+    position: sticky;
+    top: 1rem;
   }
   div.sidebar-layout > aside + main {
-    margin-left: 2rem;
-    max-width: 58rem;
+    display: inline-block;
+    width: calc(96% - 15rem);
   }
 }
 

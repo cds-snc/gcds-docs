@@ -4,7 +4,7 @@
 {% if not entry.hideMain %}
     <li{% if entry.url == page.url %} class="my-active-class"{% endif %}>
     {% if entry.url %}
-        <a href="{{ entry.url | url }}">{{ entry.title }}</a>
+        <a href="{{ entry.url | url }}" {% if entry.url == page.url %} aria-current="page" {% endif %} >{{ entry.title }}</a>
     {% else %}
         <span>{{ entry.title }}</span>
     {% endif %}
