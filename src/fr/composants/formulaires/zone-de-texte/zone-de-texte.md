@@ -8,6 +8,92 @@ eleventyNavigation:
   parent: formsFR
   order: 2
 translationKey: "textarea"
+onThisPage:
+  0: Comment utiliser la zone de texte
+  1: Personnaliser une zone de texte
+  2: Quand utiliser une zone de texte
+  3: Composants apparentés
+  4: Assurer la visibilité des zones de texte
+  5: Rédiger une bonne étiquette de zone de texte
+  6: Texte d'aide et messages d’erreur
 ---
 
 # Zone de texte
+
+Une zone de texte est un espace, généralement dans un formulaire, où une personne saisit des informations détaillées en réponse à une question ou à une instruction.
+
+## Comment utiliser la zone de texte
+
+On utilise la zone de texte pour collecter des informations qui tiennent sur plusieurs lignes.
+
+Une zone de texte peut avoir divers états : de survol <span lang="en">(hover)</span>, ciblé <span lang="en">(focus)</span>, actif <span lang="en">(active)</span> et désactivé <span lang="en">(disabled)</span>. Ces états changent quand ’une personne interagit avec la zone.
+
+### Zone de texte
+
+On utilise la zone de texte pour collecter des réponses détaillées tenant sur plusieurs lignes.
+
+## Personnaliser une zone de texte
+
+## Quand utiliser une zone de texte
+
+Utilisez une zone de texte pour collecter des informations comme :
+
+- une réponse libre à une question à développement
+- une description, par exemple pour décrire un problème
+- un message textuel dans une page de contact
+
+## Composants apparentés
+
+**Champs de saisie texte** : à utiliser pour les réponses d’une ligne.
+
+**Liens** : à utiliser quand l’action est de moindre importance.
+
+**Boutons radio ou listes déroulantes** : à utiliser quand vous offrez plusieurs options et qu’il faut en choisir une.
+
+**Cases à cocher** : à utiliser quand vous offrez plusieurs options et qu’on peut en choisir plusieurs.
+
+**Boutons** : à utiliser quand vous demandez un consentement ou une autorisation, ou que vous offrez un choix entre 2 options.
+
+**Sélecteurs de date** : à utiliser quand vous voulez qu’une personne choisisse une date, par exemple pour un rendez-vous.
+
+## Assurer la visibilité des zones de texte
+
+Vérifiez que l’emplacement du champ assure un bon contraste entre la ligne ou le contour du champ et l’arrière-plan, ainsi qu’entre l’étiquette et l’arrière-plan.
+
+Utilisez l’état de survol intégré ou un état de survol personnalisé qui assure un bon constraste.
+ 
+Marquez les champs obligatoires d’une astéristique et du mot « obligatoire ».
+
+Évitez de placer le texte d’aide ou les messages d’erreur après le champ, afin qu’ils soient lus.
+
+## Rédiger une bonne étiquette de zone de texte
+
+Regroupez les zones de texte apparentées en catégories pour que les personnes comprennent plus facilement ce qui est demandé.
+
+Rédigez une étiquette courte qui précise l’information demandée. Évitez de poser une question, car celle-ci rallonge souvent l’étiquette. Ajoutez un texte de remplacement pour toute icône ou image.
+
+Évitez de réutiliser une étiquette pour différentes zones de texte dans une même page. Une personne naviguant d’une zone à l’autre entendrait les mêmes étiquettes sans savoir ce qui les différencie.
+
+Évitez d’utiliser des mots techniques comme « identifiant de compte ». Préférez des mots précis et à caractère personnel, comme « nom complet ».
+
+Évitez les expressions qui pourraient être étrangères à des personnes dont le français n’est pas la langue première, et explicitez les termes difficiles à comprendre.
+
+Ne demandez que les informations dont vous avez besoin. Pour vous aider à savoir quelles questions poser, vous pouvez utiliser un protocole de questionnaire.
+
+## Texte d'aide et messages d’erreur
+
+### Comment utiliser le texte d’aide
+
+Ajoutez un texte d’aide pour aider une personne à remplir un champ de façon attendue.
+
+Rédigez le texte d’aide pour qu’il soit informatif, court et précis.
+
+Assurez-vous que le texte d’aide ne disparaisse pas au moment d’écrire.
+
+### Comment utiliser les messages d’erreur
+
+Rédigez un message d’erreur pour tous les champs obligatoires dont la réponse est manquante ou invalide.
+
+Expliquez à la personne la nature du problème et comment elle peut y remédier. Évitez toute forme de reproche.
+
+Plutôt que de signaler les erreurs, envisagez si possible de confirmer les réponses valides.
