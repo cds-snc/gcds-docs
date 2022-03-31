@@ -94,6 +94,38 @@ h3 > a.anchor-link:focus {
 }
 
 /*
+ * Banner
+ */
+.banner {
+  font-size: 14px;
+  padding: 8px;
+  background-color: #26374A;
+  color: #FFF;
+}
+
+.banner p {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media only screen and (max-width: 530px) {
+  .banner p {
+    align-items: flex-start;
+  }
+}
+
+.banner .banner__icon {
+  display: inline-block;
+  font-weight: 700;
+  text-align: center;
+  margin: 0 10px 0 0;
+  padding: 4px 8px;
+  background-color: #FFF;
+  color: #000;
+}
+
+/*
  * Breadcrumbs
  */
 
