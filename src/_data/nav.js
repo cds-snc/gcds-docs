@@ -3,6 +3,6 @@ module.exports = {
         title: "Design system"
     },
     fr: {
-        title: "Design system FR"
+        title: "Système de design"
     }
 }
