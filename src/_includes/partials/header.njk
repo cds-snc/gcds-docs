@@ -1,4 +1,7 @@
 {% set otherLang = "fr" if locale == "en" else "en" %}
+
+{% include "partials/experimentalbanner.njk" %}
+
 <header class="header">
     <div class="header__container">
         <a class="header__logo" href="https://www.canada.ca/" target="_blank" aria-label="{% if locale == "en" %}Canada.ca site (Opens in a new tab){% else %}Site Web Canada.ca (S'ouvre dans un nouvel onglet){% endif %}">
