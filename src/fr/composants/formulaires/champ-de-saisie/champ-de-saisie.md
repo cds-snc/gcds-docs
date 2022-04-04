@@ -30,6 +30,12 @@ Un champ de saisie peut avoir divers états : de survol <span lang="en">(hover)<
 
 ### Saisie de type texte
 
+<gcds-input
+  type="text"
+  input-id="saisie-de-type-texte"
+  label="Saisie de type texte"
+/>
+
 On utilise le type text pour collecter des réponses courtes tenant sur une ligne.
 
 Employez-le par défaut s’il n’y a pas d’autre type de saisie possible pour une réponse d’une seule ligne.
@@ -38,19 +44,85 @@ Privilégiez-le pour la collecte du nom complet d’une personne.
 
 Employez-le au lieu du type number si le champ peut comprendre à la fois des valeurs numériques et non numériques.
 
+{% viewCode "fr" "text-input-show" %}
+
+``` html
+<gcds-input
+  type="text"
+  input-id="saisie-de-type-texte"
+  label="Saisie de type texte"
+/>
+```
+
+{% endviewCode %}
+
 ### Saisie de type nombre
+
+<gcds-input
+  type="number"
+  input-id="saisie-de-type-texte"
+  label="Saisie de type nombre"
+/>
 
 On utilise le type number pour refuser toute valeur qui n’est pas numérique. 
 
 Bon à savoir : si vous imposez une contrainte, par exemple un intervalle de chiffres, communiquez-le avec un texte d’aide.
 
+{% viewCode "fr" "number-input-show" %}
+
+``` html
+<gcds-input
+  type="number"
+  input-id="saisie-de-type-texte"
+  label="Saisie de type nombre"
+/>
+```
+
+{% endviewCode %}
+
 ### Saisie de type courriel
+
+<gcds-input
+  type="email"
+  input-id="saisie-de-type-courriel"
+  label="Saisie de type courriel"
+/>
 
 On utilise le type email pour collecter une adresse courriel.
 
+{% viewCode "fr" "email-input-show" %}
+
+``` html
+<gcds-input
+  type="email"
+  input-id="saisie-de-type-courriel"
+  label="Saisie de type courriel"
+/>
+```
+
+{% endviewCode %}
+
 ### Saisie de type URL
 
+<gcds-input
+  type="url"
+  input-id="saisie-de-type-texte"
+  label="Saisie de type URL"
+/>
+
 On utilise le type url pour collecter une URL, comme une adresse Web.
+
+{% viewCode "fr" "url-input-show" %}
+
+``` html
+<gcds-input
+  type="url"
+  input-id="saisie-de-type-texte"
+  label="Saisie de type URL"
+/>
+```
+
+{% endviewCode %}
 
 ## Personnaliser un champ de saisie
 

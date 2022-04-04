@@ -30,6 +30,12 @@ Input fields have built in states that change when someone interacts with that f
 
 ### Text input type
 
+<gcds-input
+  type="text"
+  input-id="text-input"
+  label="Text input"
+/>
+
 Use the text input for short, single-line, response collection.
 
 Use when no other specfic input type is available for single-line entry.
@@ -38,19 +44,85 @@ Use in most cases you need to collect a person’s name, to collect the full nam
 
 Use instead of the number input for things like estimates that may include non-numerical values.
 
+{% viewCode "en" "text-input-show" %}
+
+``` html
+<gcds-input
+  type="text"
+  input-id="text-input"
+  label="Text input"
+/>
+```
+
+{% endviewCode %}
+
 ### Number input
+
+<gcds-input
+  type="number"
+  input-id="number-input"
+  label="Number input"
+/>
 
 Use the number input field to reject values that are not numerical.
 
 Tip: When you set a constraint, like a numerical range, use hint text to relay an instruction.
 
+{% viewCode "en" "number-input-show" %}
+
+``` html
+<gcds-input
+  type="number"
+  input-id="number-input"
+  label="Number input"
+/>
+```
+
+{% endviewCode %}
+
 ### Email input
+
+<gcds-input
+  type="email"
+  input-id="email-input"
+  label="Email input"
+/>
 
 Use for email address collection.
 
+{% viewCode "en" "email-input-show" %}
+
+``` html
+<gcds-input
+  type="email"
+  input-id="email-input"
+  label="Email input"
+/>
+```
+
+{% endviewCode %}
+
 ### URL input
 
+<gcds-input
+  type="url"
+  input-id="url-input"
+  label="URL input"
+/>
+
 Use to collect a URL, like a web address.
+
+{% viewCode "en" "url-input-show" %}
+
+``` html
+<gcds-input
+  type="url"
+  input-id="url-input"
+  label="URL input"
+/>
+```
+
+{% endviewCode %}
 
 ## Customize the input field
 

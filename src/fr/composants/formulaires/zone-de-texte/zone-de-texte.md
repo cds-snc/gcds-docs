@@ -30,7 +30,23 @@ Une zone de texte peut avoir divers états : de survol <span lang="en">(hover)</
 
 ### Zone de texte
 
+<gcds-textarea
+  textarea-id="zone-de-texte"
+  label="Zone de texte"
+/>
+
 On utilise la zone de texte pour collecter des réponses détaillées tenant sur plusieurs lignes.
+
+{% viewCode "fr" "textarea-show" %}
+
+``` html
+<gcds-textarea
+  textarea-id="zone-de-texte"
+  label="Zone de texte"
+/>
+```
+
+{% endviewCode %}
 
 ## Personnaliser une zone de texte
 

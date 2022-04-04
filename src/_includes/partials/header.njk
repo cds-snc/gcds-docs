@@ -6,9 +6,8 @@
             {{ '/src/images/en/gov-canada-logo.svg' | svgContents | safe }}
         {% else %}
             {{ '/src/images/fr/gov-canada-logo.svg' | svgContents | safe }}
-        </a>
         {% endif %}
-
+        </a>
         {# loop though site.languages #}
         {% for lgg in site.languages %}
             {% if loop.first %}<ul>{% endif %}

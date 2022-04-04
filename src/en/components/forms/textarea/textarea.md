@@ -30,7 +30,23 @@ Text areas have built in states that change when someone interacts with that fie
 
 ### Text area
 
+<gcds-textarea
+  textarea-id="textarea"
+  label="Text area"
+/>
+
 Use the text area for longform, multi-line, response collection.
+
+{% viewCode "en" "textarea-show" %}
+
+``` html
+<gcds-textarea
+  textarea-id="textarea"
+  label="Text area"
+/>
+```
+
+{% endviewCode %}
 
 ## Customize the text area
 

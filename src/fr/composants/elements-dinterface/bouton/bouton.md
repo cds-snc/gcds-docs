@@ -42,6 +42,8 @@ Employez-le pour les actions essentielles dans un parcours utilisateur ou comme 
 
 Évitez d’avoir plus d’un bouton principal par page. Cela diminuerait l’effet du bouton, en plus de créer une incertitude sur la prochaine action à faire. 
 
+{% viewCode "fr" "primary-show" %}
+
 ``` html
 <gcds-button
   button-role="primary"
@@ -49,6 +51,8 @@ Employez-le pour les actions essentielles dans un parcours utilisateur ou comme 
   Principal
 </gcds-button>
 ```
+
+{% endviewCode %}
 
 ### Bouton secondaire
 
@@ -64,6 +68,8 @@ Employez-le pour attirer l’attention sur une action importante et fréquente, 
 
 Vous pouvez l’utiliser plus d’une fois par page pour les actions optionnelles importantes.
 
+{% viewCode "fr" "secondary-show" %}
+
 ``` html
 <gcds-button
   button-role="secondary"
@@ -71,6 +77,8 @@ Vous pouvez l’utiliser plus d’une fois par page pour les actions optionnelle
   Secondaire
 </gcds-button>
 ```
+
+{% endviewCode %}
 
 ### Bouton destructeur
 
@@ -86,6 +94,8 @@ Employez-le pour les actions irréversibles ou difficilement réversibles.
 
 Bon à savoir : pour les actions irréversibles, demandez à la personne de confirmer son choix.
 
+{% viewCode "fr" "destructive-show" %}
+
 ``` html
 <gcds-button
   button-role="destructive"
@@ -93,6 +103,8 @@ Bon à savoir : pour les actions irréversibles, demandez à la personne de conf
   Destructeur
 </gcds-button>
 ```
+
+{% endviewCode %}
 
 ### Bouton d’évitement « Passer au contenu »
 
@@ -108,6 +120,8 @@ Employez-le pour accélérer la navigation. C’est un raccourci qui saute les l
 
 Ce bouton évite aux personnes d’appuyer sur Tabulation sans relâche ou de faire défiler longuement une page.
 
+{% viewCode "fr" "skipto-show" %}
+
 ``` html
 <gcds-button
   button-role="skip-to-content"
@@ -115,6 +129,8 @@ Ce bouton évite aux personnes d’appuyer sur Tabulation sans relâche ou de fa
   Passer au contenu
 </gcds-button>
 ```
+
+{% endviewCode %}
 
 ## Personnaliser le bouton
 
