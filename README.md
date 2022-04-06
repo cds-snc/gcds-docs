@@ -1,10 +1,10 @@
-# Alpha Design System Documentation Site
+# GCDS Docs
 
 Experimental design system documentation website built with [11ty](https://www.11ty.dev/docs/) and [NetlifyCMS](https://docs.netlify.com/).
 
 ## Local installation
 
-- git clone https://github.com/cds-snc/alpha-design-system-documentation
+- git clone https://github.com/cds-snc/gcds-docs
 - cd alpha-design-system-documentation
 - npm install
 - npm start
@@ -23,7 +23,3 @@ Available frontmatter options:
     - `parent`: Parent node's key. Leave blank to create a top level link.
     - `title`: Text for navigation link.
     - `locale`: Language key to dictate which language the navigation item is available in. Expects **en** or **fr**.
-    - `samePage`: Object to render same page links for page in main navigation. 
-        -`0`: samePage key. Increment by 1 for each additional link.
-            -`title`: Text for navigation link.
-            -`url`: Anchor id on page.
