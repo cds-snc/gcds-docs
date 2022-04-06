@@ -1,7 +1,6 @@
 ---
 title: Alpha design system documentation
 layout: "layouts/splash.njk"
-permalink: false
 ---
 
 <div class="landing-page">
