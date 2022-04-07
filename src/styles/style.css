@@ -291,3 +291,56 @@ body > div.sidebar-layout,
   display: none;
   visibility: hidden;
 }
+
+/*
+ * Documentation links
+ */
+
+ .doc-links .stage-chip,
+ .doc-links ul,
+ .doc-links ul li {
+   display: inline-block;
+   margin: 0 1rem 0 0;
+ }
+
+ .doc-links .stage-chip span:first-of-type {
+  color: white;
+  background-color: #24384f;
+  border: 1px solid #24384f;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+  padding: 3px 5px 3px 12px;
+  vertical-align: middle;
+ }
+ .doc-links .stage-chip span:last-of-type {
+  border: 1px solid #24384f;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  padding: 3px 12px 3px 5px;
+  vertical-align: middle;
+ }
+
+
+ .doc-links ul li {
+  margin-left: 0.5rem;
+ }
+
+ .doc-links ul li.figma-link:before {
+  background-image: url("/images/common/figma_icon.svg");
+  content: "";
+  height: 1.5rem;
+  vertical-align: middle;
+  width: 1.5rem;
+  display: inline-block;
+  background-size: cover;
+ }
+
+ .doc-links ul li.github-link:before {
+  background-image: url(/images/common/github_icon.svg);
+  content: "";
+  height: 1.5rem;
+  vertical-align: middle;
+  width: 1.5rem;
+  display: inline-block;
+  background-size: cover;
+ }

@@ -11,6 +11,7 @@ const svgContents = require("eleventy-plugin-svg-contents");
 module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("./src/styles/style.css");
   eleventyConfig.addPassthroughCopy("./src/styles/prism.css");
+  eleventyConfig.addPassthroughCopy("./src/images");
   eleventyConfig.addPassthroughCopy("./src/scripts/code-showcase.js");
   eleventyConfig.addPassthroughCopy("./src/admin/config.yml");
   eleventyConfig.addPlugin(svgContents);
@@ -86,6 +87,48 @@ module.exports = function (eleventyConfig) {
     </div>
     `}
   );
+
+  eleventyConfig.addPairedShortcode('docLinks', (children, locale, stage, figma, github) => {
+    let stageChip = "";
+    let figmaLink = "";
+    let githubLink = "";
+    const langStrings = {
+      "en": {
+        "stage": "stage",
+        "figma": "Figma",
+        "github": "GitHub"
+      },
+      "fr": {
+        "stage": "phase",
+        "figma": "Figma",
+        "github": "GitHub"
+      }
+    }
+    if (stage) {
+      stageChip = `<div class="stage-chip"><span>${langStrings[locale].stage}</span><span>${stage}</span></div>`;
+    }
+    if (figma) {
+      figmaLink = `
+        <li class="figma-link">
+          <a href="${figma}" lang="en">${langStrings[locale].figma}</a>
+        </li>`;
+    }
+    if (github) {
+      githubLink = github;
+    } else {
+      githubLink = "https://github.com/cds-snc/gcds-components";
+    }
+    return `
+      <div class="doc-links">
+        ${stageChip}
+        <ul>
+          ${figmaLink}
+          <li class="github-link">
+            <a href="${githubLink}" lang="en">${langStrings[locale].github}</a>
+          </li>
+        </ul>
+      </div>`;
+  });
 
   eleventyConfig.setLibrary("md", markdownLibrary);
 
