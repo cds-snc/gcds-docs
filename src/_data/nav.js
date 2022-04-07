@@ -1,8 +1,10 @@
 module.exports = {
     en : {
-        title: "Design system"
+        title: "Design system",
+        url: "/en"
     },
     fr: {
-        title: "Design system FR"
+        title: "Système de design",
+        url: "/fr"
     }
 }

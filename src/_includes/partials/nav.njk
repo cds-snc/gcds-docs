@@ -31,7 +31,7 @@
 {% endif %}
 {%- endmacro %}
 <gcds-site-menu menu-alignment="right" class="header__nav">
-    <span slot="left">{{ nav[locale].title }}</span>
+    <a href="{{ nav[locale].url | url }}" class="home-link" slot="left">{{ nav[locale].title }}</a>
     <ul >
     {%- for entry in navPages %}
         {%- if entry.locale == locale %}{{ renderNavListItem(entry) }}{% endif -%}
