@@ -105,7 +105,9 @@ module.exports = function (eleventyConfig) {
       }
     }
     if (stage) {
-      stageChip = `<div class="stage-chip"><span>${langStrings[locale].stage}</span><span>${stage}</span></div>`;
+      stageChip = `<li class="stage-chip">
+          <span>${langStrings[locale].stage}</span><span>${stage}</span>
+        </li>`;
     }
     if (figma) {
       figmaLink = `
@@ -120,9 +122,8 @@ module.exports = function (eleventyConfig) {
     }
     return `
       <div class="doc-links">
-        ${stageChip}
         <ul>
-          ${figmaLink}
+          ${stageChip} ${figmaLink}
           <li class="github-link">
             <a href="${githubLink}" lang="en">${langStrings[locale].github}</a>
           </li>
