@@ -96,12 +96,14 @@ module.exports = function (eleventyConfig) {
       "en": {
         "stage": "stage",
         "figma": "Figma",
-        "github": "GitHub"
+        "github": "GitHub",
+        "newtab": "(Opens in a new tab)"
       },
       "fr": {
         "stage": "phase",
         "figma": "Figma",
-        "github": "GitHub"
+        "github": "GitHub",
+        "newtab": "(S'ouvre dans un nouvel onglet)"
       }
     }
     if (stage) {
@@ -112,7 +114,7 @@ module.exports = function (eleventyConfig) {
     if (figma) {
       figmaLink = `
         <li class="figma-link">
-          <a href="${figma}" lang="en">${langStrings[locale].figma}</a>
+          <a href="${figma}" target="_blank" rel="nofollow" aria-label="${langStrings[locale].figma} ${langStrings[locale].newtab}">${langStrings[locale].figma}</a>
         </li>`;
     }
     if (github) {
@@ -121,14 +123,12 @@ module.exports = function (eleventyConfig) {
       githubLink = "https://github.com/cds-snc/gcds-components";
     }
     return `
-      <div class="doc-links">
-        <ul>
-          ${stageChip} ${figmaLink}
-          <li class="github-link">
-            <a href="${githubLink}" lang="en">${langStrings[locale].github}</a>
-          </li>
-        </ul>
-      </div>`;
+      <ul class="doc-links">
+        ${stageChip} ${figmaLink}
+        <li class="github-link">
+          <a href="${githubLink}" target="_blank" rel="nofollow" aria-label="${langStrings[locale].github} ${langStrings[locale].newtab}">${langStrings[locale].github}</a>
+        </li>
+      </ul>`;
   });
 
   eleventyConfig.setLibrary("md", markdownLibrary);

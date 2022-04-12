@@ -296,7 +296,7 @@ body > div.sidebar-layout,
  * Documentation links
  */
 
- .doc-links ul li {
+ ul.doc-links li {
   display: inline-block;
   margin: 0 1rem 0 0;
  }
@@ -320,8 +320,8 @@ body > div.sidebar-layout,
   padding: 3px 12px 3px 5px;
  }
 
- .doc-links ul li.figma-link:before,
- .doc-links ul li.github-link:before {
+ ul.doc-links li.figma-link:before,
+ ul.doc-links li.github-link:before {
   content: "";
   height: 1.5rem;
   vertical-align: middle;
@@ -330,11 +330,11 @@ body > div.sidebar-layout,
   background-size: cover;
  }
 
- .doc-links ul li.figma-link:before {
+ ul.doc-links li.figma-link:before {
   background-image: url("/images/common/figma_icon.svg");
  }
 
- .doc-links ul li.github-link:before {
+ ul.doc-links li.github-link:before {
   background-image: url("/images/common/github_icon.svg");
  }
 
