@@ -291,3 +291,68 @@ body > div.sidebar-layout,
   display: none;
   visibility: hidden;
 }
+
+/*
+ * Documentation links
+ */
+
+ ul.doc-links li {
+  display: inline-block;
+  margin: 0 1rem 0 0;
+ }
+
+ .doc-links .stage-chip span {
+  border: 1px solid #24384f;
+  vertical-align: middle;
+ }
+
+ .doc-links .stage-chip span:first-of-type {
+  color: white;
+  background-color: #24384f;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+  padding: 3px 5px 3px 12px;
+ }
+ .doc-links .stage-chip span:last-of-type {
+  border: 1px solid #24384f;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  padding: 3px 12px 3px 5px;
+ }
+
+ ul.doc-links li.figma-link:before,
+ ul.doc-links li.github-link:before {
+  content: "";
+  height: 1.5rem;
+  vertical-align: middle;
+  width: 1.5rem;
+  display: inline-block;
+  background-size: cover;
+ }
+
+ ul.doc-links li.figma-link:before {
+  background-image: url("/images/common/figma_icon.svg");
+ }
+
+ ul.doc-links li.github-link:before {
+  background-image: url("/images/common/github_icon.svg");
+ }
+
+/*
+ * Misc
+ */
+
+ ul.overview-list {
+  list-style: none;
+ }
+
+a.home-link {
+  padding: 1rem 1.5rem 1rem 0;
+  color: white;
+  font-size: 1.2rem;
+}
+@media screen and (min-width: 64rem) {
+  a.home-link {
+    padding: 1rem 1.5rem;
+  }
+}
