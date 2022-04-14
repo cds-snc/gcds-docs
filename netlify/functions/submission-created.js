@@ -39,9 +39,5 @@ exports.handler = async event => {
             Authorization: `Bearer ${ACCESS_TOKEN}`,
         },
         body: null
-    })
-    .then(response => response.json())
-    .then(data => {
-      console.log(`Submission ${submission_id} deleted`);
     });
 }
