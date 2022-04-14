@@ -16,8 +16,8 @@ Ask the GC Design System team about a component in the design system or request 
 
 Fill out the following form or submit an issue through GitHub for [tokens]({{ "https://github.com/cds-snc/gcds-tokens" | url}}), [components]({{ "https://github.com/cds-snc/gcds-components" | url}}), or [documentation]({{ "https://github.com/cds-snc/gcds-docs" | url}}).
 
-<form name="contact" method="post">
-  <input type="hidden" name="form-name" value="contact" />
+<form name="contactEN" method="post">
+  <input type="hidden" name="form-name" value="contactEN" />
   <gcds-input type="text" input-id="name" label="Full name"></gcds-input>
   <gcds-input type="email" input-id="email" label="Email address"></gcds-input>
   <gcds-textarea label="Message" textarea-id="message"></gcds-textarea>

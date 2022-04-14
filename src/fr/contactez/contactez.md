@@ -12,8 +12,8 @@ contactForm: fr
 
 # Contactez-nous
 
-<form name="contact" method="post">
-  <input type="hidden" name="form-name" value="contact" />
+<form name="contactFR" method="post">
+  <input type="hidden" name="form-name" value="contactFR" />
   <gcds-input type="text" input-id="name" label="Nom complet"></gcds-input>
   <gcds-input type="email" input-id="email" label="Adresse courriel"></gcds-input>
   <gcds-textarea label="Message" textarea-id="message"></gcds-textarea>

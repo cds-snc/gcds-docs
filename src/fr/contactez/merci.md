@@ -6,4 +6,4 @@ eleventyExcludeFromCollections: true
 
 # Merci
 
-[Return to home]({{ "/fr" | url }})
+[Accueil]({{ "/fr" | url }})

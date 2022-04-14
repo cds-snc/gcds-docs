@@ -1,4 +1,3 @@
-require('dotenv').config()
 import fetch from 'node-fetch';
 const { EMAIL_TARGET, API_KEY, TEMPLATE_ID } = process.env
 exports.handler = async event => {
