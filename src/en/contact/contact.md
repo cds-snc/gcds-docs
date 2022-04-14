@@ -11,7 +11,8 @@ translationKey: "contactus"
 
 # Contact us
 
-<form action="/en/contact/thanks" method="post" data-netlify="true">
+<form name="contact" action="/en/contact/thanks" method="post" data-netlify="true">
+  <input type="hidden" name="form-name" value="contact" />
   <gcds-input type="text" input-id="name" label="Full name"></gcds-input>
   <gcds-input type="email" input-id="email" label="Email address"></gcds-input>
   <gcds-textarea label="Message" textarea-id="message"></gcds-textarea>
