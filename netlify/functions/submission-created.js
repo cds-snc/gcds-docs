@@ -23,7 +23,10 @@ exports.handler = async event => {
   })
     .then(response => response.json())
     .then(data => {
-      console.log(`Submitted to Notify:\n ${data}`)
+        if (!data.status_code) {
+            console.log(`Error - Status code: ${data.status_code} - Message: ${data.errors[0].message}`);
+        } else {
+            console.log(`Submitted to Notify`)
+        }
     })
-    .catch(error => ({ statusCode: 422, body: String(error) }))
 }
