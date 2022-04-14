@@ -1,0 +1,11 @@
+{% if contactForm == "en" %}
+{% set actionUrl = "/en/contact/thanks" %}
+{% else %}
+{% set actionUrl = "/fr/contactez/merci" %}
+{% endif %}
+
+<form name="contact" data-netlify="true" action="{{ actionUrl }}" hidden>
+  <input type="text" name="name" aria-label="name"/>
+  <input type="email" name="email" aria-label="email"/>
+  <textarea name="message" aria-label="message"></textarea>
+</form>
