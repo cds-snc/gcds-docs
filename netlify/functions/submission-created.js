@@ -26,7 +26,10 @@ exports.handler = async event => {
         if (!data.status_code) {
             console.log(`Submitted to Notify`)
         } else {
-            console.log(`Error - Status code: ${data.status_code} - Message: ${data.errors[0].message}`);
+            console.log(`Error - Status code: ${data.status_code}`);
+            for (const errors of data.errors) {
+                console.log(`Message: ${errors.message}`);
+            }
         }
     })
 }
