@@ -1,13 +1,11 @@
 import fetch from 'node-fetch';
-const { EMAIL_TARGET, API_KEY, TEMPLATE_ID } = process.env
+const { EMAIL_TARGET, API_KEY, TEMPLATE_ID, ACCESS_TOKEN } = process.env;
 exports.handler = async event => {
-  const name = JSON.parse(event.body).payload.name
-  const email = JSON.parse(event.body).payload.email
-  const message = JSON.parse(event.body).payload.message
-  console.log(`Recieved a submission: ${name}`)
-  console.log(`Recieved a submission: ${email}`)
-  console.log(`Recieved a submission: ${JSON.stringify(JSON.parse(event.body).payload)}`)
-  return await fetch('https://api.notification.canada.ca/v2/notifications/email', {
+  const name = JSON.parse(event.body).payload.name;
+  const email = JSON.parse(event.body).payload.email;
+  const message = JSON.parse(event.body).payload.body;
+  const submission_id = JSON.parse(event.body).payload.id;
+  await fetch('https://api.notification.canada.ca/v2/notifications/email', {
     method: 'POST',
     headers: {
       Authorization: `ApiKey-v1 ${API_KEY}`,
@@ -21,8 +19,8 @@ exports.handler = async event => {
             "email": email,
             "message": message
           }
-    }),
-  })
+        }),
+    })
     .then(response => response.json())
     .then(data => {
         if (!data.status_code) {
@@ -33,5 +31,16 @@ exports.handler = async event => {
                 console.log(`Message: ${errors.message}`);
             }
         }
+    });
+
+    await fetch(`https://api.netlify.com/api/v1/submissions/${submission_id}`, {
+        method: 'DELETE',
+        headers: {
+            Authorization: `Bearer ${ACCESS_TOKEN}`
+        }
     })
+    .then(response => response.json())
+    .then(data => {
+      console.log(`Submission ${submission_id} deleted`)
+    });
 }
