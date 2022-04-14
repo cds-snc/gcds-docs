@@ -14,11 +14,11 @@ exports.handler = async event => {
     body: JSON.stringify({
         "email_address": EMAIL_TARGET,
         "template_id": TEMPLATE_ID,
-        "personalisation": {
+        "personalisation":  JSON.stringify({
             "name": name,
             "email": email,
             "message": message
-          }
+          })
     }),
   })
     .then(response => response.json())
