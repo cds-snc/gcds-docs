@@ -1,9 +1,5 @@
 import fetch from 'node-fetch';
-//const { EMAIL_TARGET, API_KEY, TEMPLATE_ID } = process.env
-const fetch = require('node-fetch')
-const EMAIL_TARGET = "ethan.wallace@tbs-sct.gc.ca";
-const API_KEY = "7870e216-5691-4751-9f84-533b6172856a";
-const TEMPLATE_ID = "ec8b658e-34f3-4d21-95f4-5a78dc2b755a";
+const { EMAIL_TARGET, API_KEY, TEMPLATE_ID } = process.env
 exports.handler = async event => {
   const name = JSON.parse(event.body).payload.name
   const email = JSON.parse(event.body).payload.email
