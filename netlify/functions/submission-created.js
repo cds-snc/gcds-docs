@@ -15,9 +15,9 @@ exports.handler = async event => {
         "email_address": EMAIL_TARGET,
         "template_id": TEMPLATE_ID,
         "personalisation": {
-            name,
-            email,
-            message
+            "name": name,
+            "email": email,
+            "message": message
           }
     },
   })
