@@ -1,17 +1,21 @@
 import fetch from 'node-fetch';
-const { EMAIL_TARGET, API_KEY, TEMPLATE_ID } = process.env
+//const { EMAIL_TARGET, API_KEY, TEMPLATE_ID } = process.env
+const fetch = require('node-fetch')
+const EMAIL_TARGET = "ethan.wallace@tbs-sct.gc.ca";
+const API_KEY = "7870e216-5691-4751-9f84-533b6172856a";
+const TEMPLATE_ID = "ec8b658e-34f3-4d21-95f4-5a78dc2b755a";
 exports.handler = async event => {
   const name = JSON.parse(event.body).payload.name
   const email = JSON.parse(event.body).payload.email
   const message = JSON.parse(event.body).payload.message
   console.log(`Recieved a submission: ${email}`)
-  return fetch('https://api.notification.canada.ca/v2/notifications/email', {
+  return await fetch('https://api.notification.canada.ca/v2/notifications/email', {
     method: 'POST',
     headers: {
       Authorization: `ApiKey-v1 ${API_KEY}`,
       'Content-Type': 'application/json',
     },
-    body: {
+    body: JSON.stringify({
         "email_address": EMAIL_TARGET,
         "template_id": TEMPLATE_ID,
         "personalisation": {
@@ -19,7 +23,7 @@ exports.handler = async event => {
             "email": email,
             "message": message
           }
-    },
+    }),
   })
     .then(response => response.json())
     .then(data => {
