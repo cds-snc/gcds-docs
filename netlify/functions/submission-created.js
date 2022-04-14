@@ -24,9 +24,9 @@ exports.handler = async event => {
     .then(response => response.json())
     .then(data => {
         if (!data.status_code) {
-            console.log(`Error - Status code: ${data.status_code} - Message: ${data.errors[0].message}`);
-        } else {
             console.log(`Submitted to Notify`)
+        } else {
+            console.log(`Error - Status code: ${data.status_code} - Message: ${data.errors[0].message}`);
         }
     })
 }
