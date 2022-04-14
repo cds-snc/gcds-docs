@@ -4,7 +4,9 @@ exports.handler = async event => {
   const name = JSON.parse(event.body).payload.name
   const email = JSON.parse(event.body).payload.email
   const message = JSON.parse(event.body).payload.message
+  console.log(`Recieved a submission: ${name}`)
   console.log(`Recieved a submission: ${email}`)
+  console.log(`Recieved a submission: ${message}`)
   return await fetch('https://api.notification.canada.ca/v2/notifications/email', {
     method: 'POST',
     headers: {
@@ -14,11 +16,11 @@ exports.handler = async event => {
     body: JSON.stringify({
         "email_address": EMAIL_TARGET,
         "template_id": TEMPLATE_ID,
-        "personalisation":  JSON.stringify({
+        "personalisation":  {
             "name": name,
             "email": email,
             "message": message
-          })
+          }
     }),
   })
     .then(response => response.json())
