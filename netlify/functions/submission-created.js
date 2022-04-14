@@ -36,11 +36,12 @@ exports.handler = async event => {
     await fetch(`https://api.netlify.com/api/v1/submissions/${submission_id}`, {
         method: 'DELETE',
         headers: {
-            Authorization: `Bearer ${ACCESS_TOKEN}`
-        }
+            Authorization: `Bearer ${ACCESS_TOKEN}`,
+        },
+        body: null
     })
     .then(response => response.json())
     .then(data => {
-      console.log(`Submission ${submission_id} deleted`)
+      console.log(`Submission ${submission_id} deleted`);
     });
 }
