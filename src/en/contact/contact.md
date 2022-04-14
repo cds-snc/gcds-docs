@@ -9,7 +9,7 @@ eleventyNavigation:
 translationKey: "contactus"
 ---
 
-<form name="contact" data-netlify="true" hidden>
+<form name="contact" data-netlify="true" action="/en/contact/thanks" hidden>
   <input type="text" name="name" />
   <input type="email" name="email" />
   <textarea name="message"></textarea>
@@ -17,7 +17,7 @@ translationKey: "contactus"
 
 # Contact us
 
-<form name="contact" action="/en/contact/thanks" method="post">
+<form name="contact" method="post">
   <input type="hidden" name="form-name" value="contact" />
   <gcds-input type="text" input-id="name" label="Full name"></gcds-input>
   <gcds-input type="email" input-id="email" label="Email address"></gcds-input>
