@@ -7,13 +7,8 @@ eleventyNavigation:
   locale: en
   order: 3
 translationKey: "contactus"
+contactForm: true
 ---
-
-<form name="contact" data-netlify="true" action="/en/contact/thanks" hidden>
-  <input type="text" name="name" />
-  <input type="email" name="email" />
-  <textarea name="message"></textarea>
-</form>
 
 # Contact us
 
