@@ -28,3 +28,9 @@ translationKey: "contactus"
     Submit
   </gcds-button>
 </form>
+
+<form name="contact" netlify hidden>
+  <input type="text" name="name" />
+  <input type="email" name="email" />
+  <textarea name="message"></textarea>
+</form>
