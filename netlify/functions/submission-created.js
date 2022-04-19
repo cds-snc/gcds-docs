@@ -1,4 +1,5 @@
 import fetch from 'node-fetch';
+import { NetlifyAPI } from 'netlify'
 const { EMAIL_TARGET, API_KEY, TEMPLATE_ID, ACCESS_TOKEN } = process.env;
 exports.handler = async event => {
   const name = JSON.parse(event.body).payload.name;
@@ -33,12 +34,8 @@ exports.handler = async event => {
         }
     });
 
-    console.log(submission_id);
+    const client = new NetlifyAPI(process.env.ACCESS_TOKEN);
 
-    await fetch(`https://api.netlify.com/api/v1/submissions/${submission_id}`, {
-        method: 'DELETE',
-        headers: {
-            Authorization: `Bearer ${ACCESS_TOKEN}`,
-        }
-    });
+    await client.deleteSubmission({ submission_id: submission_id });
+
 }
