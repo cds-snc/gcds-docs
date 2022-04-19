@@ -1,5 +1,4 @@
 import fetch from 'node-fetch';
-import { NetlifyAPI } from 'netlify'
 const { EMAIL_TARGET, API_KEY, TEMPLATE_ID, ACCESS_TOKEN } = process.env;
 exports.handler = async event => {
   const name = JSON.parse(event.body).payload.name;
