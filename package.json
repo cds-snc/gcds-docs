@@ -17,8 +17,6 @@
     "gcds-components": "^0.0.5",
     "markdown-it": "^12.2.0",
     "moment": "^2.29.1",
-    "netlify": "^11.0.1",
-    "netlify-lambda": "^2.0.15",
     "node-fetch": "^3.2.3"
   },
   "devDependencies": {

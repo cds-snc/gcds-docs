@@ -34,7 +34,11 @@ exports.handler = async event => {
         }
     });
 
-    const client = new NetlifyAPI(ACCESS_TOKEN);
-
-    await client.deleteSubmission({ submission_id: submission_id });
+    await fetch(`https://api.netlify.com/api/v1/submissions/${submission_id}`, {
+        method: 'DELETE',
+        headers: {
+            Authorization: `Bearer ${ACCESS_TOKEN}`,
+        }
+    })
+    .then(response => console.log(response));
 }
