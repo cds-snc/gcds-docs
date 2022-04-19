@@ -33,11 +33,12 @@ exports.handler = async event => {
         }
     });
 
+    console.log(submission_id);
+
     await fetch(`https://api.netlify.com/api/v1/submissions/${submission_id}`, {
         method: 'DELETE',
         headers: {
             Authorization: `Bearer ${ACCESS_TOKEN}`,
-        },
-        body: null
+        }
     });
 }
