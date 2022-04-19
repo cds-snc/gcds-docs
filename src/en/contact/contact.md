@@ -21,6 +21,9 @@ Fill out the following form or submit an issue through GitHub for [tokens]({{ "h
   <gcds-input type="text" input-id="name" label="Full name"></gcds-input>
   <gcds-input type="email" input-id="email" label="Email address"></gcds-input>
   <gcds-textarea label="Message" textarea-id="message"></gcds-textarea>
+  <div hidden>
+    <gcds-input type="text" input-id="bot-field" label="bot"></gcds-input>
+  </div>
   <gcds-button button-type="submit">
     Send message
   </gcds-button>
