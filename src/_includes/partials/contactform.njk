@@ -1,0 +1,13 @@
+{% if locale == "en" %}
+  <form name="contactEN" data-netlify="true" action="/en/contact/thanks" hidden>
+    <input type="text" name="name" aria-label="name"/>
+    <input type="email" name="email" aria-label="email"/>
+    <textarea name="message" aria-label="message"></textarea>
+  </form>
+{% else %}
+  <form name="contactFR" data-netlify="true" action="/fr/contactez/merci" hidden>
+    <input type="text" name="name" aria-label="name"/>
+    <input type="email" name="email" aria-label="email"/>
+    <textarea name="message" aria-label="message"></textarea>
+  </form>
+{% endif %}
