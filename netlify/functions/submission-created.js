@@ -34,8 +34,7 @@ exports.handler = async event => {
         }
     });
 
-    const client = new NetlifyAPI(process.env.ACCESS_TOKEN);
+    const client = new NetlifyAPI(ACCESS_TOKEN);
 
     await client.deleteSubmission({ submission_id: submission_id });
-
 }
