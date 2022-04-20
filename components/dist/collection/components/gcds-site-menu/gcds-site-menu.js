@@ -179,7 +179,7 @@ export class GcdsSiteMenu {
   render() {
     const sticky = this.menuPosition == 'sticky' ? true : false;
     const mobileMenutask = this.menuMobileLayout == 'drawer' ?
-      h("gcds-button", { "aria-expanded": "false", "aria-label": I18N[this.lang].mobileTriggerLabel, "aria-haspopup": "true", "data-h2-mobile-menu-trigger": true, type: "button", role: "button", task: "primary" },
+      h("gcds-button", { "aria-expanded": "false", "aria-label": I18N[this.lang].mobileTriggerLabel, "aria-haspopup": "true", "data-h2-mobile-menu-trigger": true, "button-type": "button", role: "button", "button-role": "primary" },
         h("span", { "data-h2-mobile-menu-trigger-open-label": true }, "Menu"),
         h("span", { "data-h2-mobile-menu-trigger-close-label": true }, I18N[this.lang].mobileTriggerClose))
       :

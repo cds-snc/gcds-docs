@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Boutons</title>
+        <title>Champ de saisie</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <script type="module">
             import { defineCustomElements } from "/gcds-docs/components/loader/index.es2017.js";
@@ -16,13 +16,15 @@
 
     </head>
     <body>
-        <gcds-button
-        type="link"
-        task="skip-to-content"
-        href="#content"
-        >
-        Passer au contenu principal
-        </gcds-button>
+        <nav>
+            <gcds-button
+                button-type="link"
+                button-role="skip-to-content"
+                href="#content"
+            >
+                Passer au contenu principal
+            </gcds-button>
+        </nav>
 
         
 
@@ -53,6 +55,36 @@
             
             
                 
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
                 
                     
                     
@@ -128,9 +160,33 @@
                     
                     
                 
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
 
                 <li>
-                    <a href="/gcds-docs/en/components/basic/buttons/" lang="en">
+                    <a href="/gcds-docs/en/components/forms/input/" lang="en">
                         English
                     </a>
                 </li>
@@ -158,6 +214,11 @@
     <ul >
     <li>
     
+        <a href="/gcds-docs/fr/bases/"  >Bases</a>
+    </li>
+
+    <li>
+    
         <a href="/gcds-docs/fr/composants/"  >Composants</a>
     <ul>
             
@@ -166,14 +227,66 @@
         <span>Éléments d’interface</span>
     <ul>
             
-    <li class="my-active-class">
+    <li>
     
-        <a href="/gcds-docs/fr/composants/elements-dinterface/boutons/"  aria-current="page"  >Boutons</a>
+        <a href="/gcds-docs/fr/composants/elements-dinterface/bouton/"  >Bouton</a>
     </li>
 
+        
+            
+        
+            
+        
+            
+        
+            
+        </ul></li>
+
+        
+            
+    <li>
+    
+        <span>Formulaires</span>
+    <ul>
+            
+    <li>
+    
+        <a href="/gcds-docs/fr/composants/formulaires/aide-a-la-conception/"  >Aide à la conception</a>
+    </li>
+
+        
+            
+    <li class="my-active-class">
+    
+        <a href="/gcds-docs/fr/composants/formulaires/champ-de-saisie/"  aria-current="page"  >Champ de saisie</a>
+    </li>
+
+        
+            
+    <li>
+    
+        <a href="/gcds-docs/fr/composants/formulaires/zone-de-texte/"  >Zone de texte</a>
+    </li>
+
+        
+            
+    <li>
+    
+        <a href="/gcds-docs/fr/composants/formulaires/message-derreur/"  >Message d’erreur</a>
+    </li>
+
+        
+            
+        
+            
         </ul></li>
 
         </ul></li>
+
+    <li>
+    
+        <a href="/gcds-docs/fr/contactez/"  >Nous joindre</a>
+    </li>
 </ul>
 </gcds-site-menu>
 
@@ -196,7 +309,7 @@
             
                  
                     <li>
-                        <a href="/gcds-docs/fr/composants/elements-dinterface/boutons/"  aria-current="page"  >Boutons</a>
+                        <a href="/gcds-docs/fr/composants/formulaires/champ-de-saisie/"  aria-current="page"  >Champ de saisie</a>
                     </li>
                 
             
@@ -205,11 +318,55 @@
 
 </header>
 
-        <div class="container general-layout">
+        <div class="container sidebar-layout">
+            
+                <aside>
+    <nav aria-label="On this page" class="context-menu">
+        <h2>On this page</h2>
+        
+        <ul>
+            
+                <li>
+                    <a href="#comment-utiliser-le-champ-de-saisie">Comment utiliser le champ de saisie</a>
+                </li>
+            
+                <li>
+                    <a href="#personnaliser-un-champ-de-saisie">Personnaliser un champ de saisie</a>
+                </li>
+            
+                <li>
+                    <a href="#quand-utiliser-un-champ-de-saisie">Quand utiliser un champ de saisie</a>
+                </li>
+            
+                <li>
+                    <a href="#composants-apparentes">Composants apparentés</a>
+                </li>
+            
+                <li>
+                    <a href="#ou-placer-les-champs-de-saisie">Où placer les champs de saisie</a>
+                </li>
+            
+                <li>
+                    <a href="#rediger-une-bonne-etiquette-de-champ">Rédiger une bonne étiquette de champ</a>
+                </li>
+            
+                <li>
+                    <a href="#texte-daide-et-messages-derreur">Texte d’aide et messages d&#39;erreur</a>
+                </li>
+            
+        </ul>
+    </nav>
+</aside>
             
 
             <main id="content">
-                <h1>Boutons</h1>
+                
+<h1>Champ de saisie</h1><p><ul class="doc-links"></p>
+<p><li class="github-link">
+<a href="https://github.com/cds-snc/gcds-components/tree/main/src/components/gcds-input" target="_blank" rel="nofollow" aria-label="GitHub (S'ouvre dans un nouvel onglet)">GitHub</a>
+</li>
+</ul></p>
+
             </main>
         </div>
 
@@ -217,6 +374,10 @@
     <div class="container footer__container">
         <ul>
         
+            
+                <li><a href=/gcds-docs/fr/avis/>Avis</a></li>
+            
+                <li><a href=/gcds-docs/fr/confidentialite/>Confidentialité</a></li>
             
         
             <li>

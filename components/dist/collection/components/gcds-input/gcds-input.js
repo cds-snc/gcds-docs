@@ -25,10 +25,11 @@ export class GcdsInput {
     this.gcdsChange.emit(this.value);
   }
   render() {
-    const { disabled, errorMessage, hideLabel, hint, inputId, label, required, type, value } = this;
+    const { disabled, errorMessage, hideLabel, hint, inputId, label, required, size, type, value } = this;
     const attrsInput = {
       disabled,
       required,
+      size,
       type,
       value,
     };
@@ -37,12 +38,13 @@ export class GcdsInput {
       required,
     };
     return (h(Host, null,
-      h("gcds-label", Object.assign({}, attrsLabel, { "hide-label": hideLabel, "label-for": inputId })),
-      hint ? h("gcds-hint", { hint: hint, "hint-id": inputId }) : null,
-      errorMessage ?
-        h("gcds-error-message", { "message-id": inputId, message: errorMessage })
-        : null,
-      h("input", Object.assign({}, attrsInput, { class: errorMessage ? 'error' : null, id: inputId, name: inputId, onBlur: this.onBlur, onFocus: this.onFocus, onInput: (e) => this.handleChange(e), "aria-labelledby": `label-for-${inputId}`, "aria-describedby": `${hint ? `hint-${inputId}` : ''} ${errorMessage ? `error-message-${inputId}` : ''}`, "aria-invalid": errorMessage ? 'true' : 'false' }))));
+      h("fieldset", { class: `${disabled ? 'disabled' : ''} ${errorMessage ? 'error' : ''}` },
+        h("gcds-label", Object.assign({}, attrsLabel, { "hide-label": hideLabel, "label-for": inputId })),
+        hint ? h("gcds-hint", { hint: hint, "hint-id": inputId }) : null,
+        errorMessage ?
+          h("gcds-error-message", { "message-id": inputId, message: errorMessage })
+          : null,
+        h("input", Object.assign({}, attrsInput, { class: errorMessage ? 'error' : null, id: inputId, name: inputId, onBlur: this.onBlur, onFocus: this.onFocus, onInput: (e) => this.handleChange(e), "aria-labelledby": `label-for-${inputId}`, "aria-describedby": `${hint ? `hint-${inputId}` : ''} ${errorMessage ? `error-message-${inputId}` : ''}`, "aria-invalid": errorMessage ? 'true' : 'false' })))));
   }
   static get is() { return "gcds-input"; }
   static get encapsulation() { return "scoped"; }
@@ -171,6 +173,23 @@ export class GcdsInput {
         "text": "Specifies if a form field is required or not."
       },
       "attribute": "required",
+      "reflect": false
+    },
+    "size": {
+      "type": "number",
+      "mutable": false,
+      "complexType": {
+        "original": "number",
+        "resolved": "number",
+        "references": {}
+      },
+      "required": false,
+      "optional": false,
+      "docs": {
+        "tags": [],
+        "text": "Size attribute for an input element."
+      },
+      "attribute": "size",
       "reflect": false
     },
     "type": {

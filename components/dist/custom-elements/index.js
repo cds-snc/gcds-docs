@@ -1,7 +1,21 @@
 import { HTMLElement, createEvent, h, Host, proxyCustomElement } from '@stencil/core/internal/client';
 export { setAssetPath, setPlatformOptions } from '@stencil/core/internal/client';
 
-const gcdsButtonCss = ":host button,:host a{border:none;cursor:pointer;padding:0.5rem 1rem;text-decoration:none;border-width:var(--custom-gcds-style-border-width);border-style:var(--custom-gcds-style-border-style);border-color:var(--custom-gcds-style-border-color);margin:var(--custom-gcds-style-margin);display:var(--custom-gcds-style-display);background-color:var(--custom-gcds-style-background-color);box-shadow:var(--custom-gcds-style-box-shadow);text-transform:var(--custom-gcds-style-text-transform)}:host button.primary.solid,:host a.primary.solid{background-color:var(--custom-gcds-style-background-color, var(--gcds-colour-base-blue-grey-900));color:var(--gcds-colour-utils-white)}:host button.secondary.solid,:host a.secondary.solid{background-color:var(--custom-gcds-style-background-color, var(--gcds-colour-base-grey-100));color:var(--gcds-colour-base-blue-grey-900)}:host button.danger.solid,:host a.danger.solid{background-color:var(--custom-gcds-style-background-color, var(--gcds-colour-base-red-500));color:var(--gcds-colour-utils-white)}:host button.skip-to-content,:host a.skip-to-content{left:0;position:absolute;text-align:center;top:10px;width:100%;z-index:3;clip:rect(1px,1px,1px,1px);height:1px;margin:0;overflow:hidden;position:absolute;width:1px}:host button.skip-to-content.solid,:host a.skip-to-content.solid{background-color:var(--custom-gcds-style-background-color, var(--gcds-colour-base-blue-grey-900));color:var(--gcds-colour-utils-white)}:host button.skip-to-content.solid:focus,:host button.skip-to-content.solid.focus,:host a.skip-to-content.solid:focus,:host a.skip-to-content.solid.focus{clip:rect(auto,auto,auto,auto);height:inherit;margin:inherit;overflow:inherit;position:static;width:inherit}:host button.skip-to-content.outline:focus,:host button.skip-to-content.outline.focus,:host a.skip-to-content.outline:focus,:host a.skip-to-content.outline.focus{clip:rect(auto,auto,auto,auto);height:inherit;margin:inherit;overflow:inherit;position:static;width:inherit}:host button.skip-to-content.text-only:focus,:host button.skip-to-content.text-only.focus,:host a.skip-to-content.text-only:focus,:host a.skip-to-content.text-only.focus{clip:rect(auto,auto,auto,auto);height:inherit;margin:inherit;overflow:inherit;position:static;width:inherit}";
+const inheritAttributes = (el, attributes = []) => {
+  const attributeObject = {};
+  attributes.forEach(attr => {
+    if (el.hasAttribute(attr)) {
+      const value = el.getAttribute(attr);
+      if (value !== null) {
+        attributeObject[attr] = el.getAttribute(attr);
+      }
+      el.removeAttribute(attr);
+    }
+  });
+  return attributeObject;
+};
+
+const gcdsButtonCss = ":host button,:host a{border:none;cursor:pointer;padding:0.5rem 1rem;text-decoration:none;border-width:var(--custom-gcds-style-border-width);border-style:var(--custom-gcds-style-border-style);border-color:var(--custom-gcds-style-border-color);margin:var(--custom-gcds-style-margin);display:var(--custom-gcds-style-display);background-color:var(--custom-gcds-style-background-color);box-shadow:var(--custom-gcds-style-box-shadow);text-transform:var(--custom-gcds-style-text-transform)}:host button.primary.solid,:host a.primary.solid{background-color:var(--custom-gcds-style-background-color, var(--gcds-colour-base-blue-grey-900));color:var(--gcds-colour-utils-white)}:host button.secondary.solid,:host a.secondary.solid{background-color:var(--custom-gcds-style-background-color, var(--gcds-colour-base-grey-100));color:var(--gcds-colour-base-blue-grey-900)}:host button.destructive.solid,:host a.destructive.solid{background-color:var(--custom-gcds-style-background-color, var(--gcds-colour-base-red-500));color:var(--gcds-colour-utils-white)}:host button.skip-to-content,:host a.skip-to-content{left:0;position:absolute;text-align:center;top:10px;width:100%;z-index:3;clip:rect(1px,1px,1px,1px);height:1px;margin:0;overflow:hidden;position:absolute;width:1px}:host button.skip-to-content.solid,:host a.skip-to-content.solid{background-color:var(--custom-gcds-style-background-color, var(--gcds-colour-base-blue-grey-900));color:var(--gcds-colour-utils-white)}:host button.skip-to-content.solid:focus,:host button.skip-to-content.solid.focus,:host a.skip-to-content.solid:focus,:host a.skip-to-content.solid.focus{clip:rect(auto,auto,auto,auto);height:inherit;margin:inherit;overflow:inherit;position:static;width:inherit}:host button.skip-to-content.outline:focus,:host button.skip-to-content.outline.focus,:host a.skip-to-content.outline:focus,:host a.skip-to-content.outline.focus{clip:rect(auto,auto,auto,auto);height:inherit;margin:inherit;overflow:inherit;position:static;width:inherit}:host button.skip-to-content.text-only:focus,:host button.skip-to-content.text-only.focus,:host a.skip-to-content.text-only:focus,:host a.skip-to-content.text-only.focus{clip:rect(auto,auto,auto,auto);height:inherit;margin:inherit;overflow:inherit;position:static;width:inherit}";
 
 const styleAPI = {
   'customBorderWeight': 'border-width',
@@ -26,33 +40,32 @@ let GcdsButton$1 = class extends HTMLElement {
     /**
      * Set button types
      */
-    this.type = 'button';
-    /**
-     * Set component states
-     */
-    this.state = 'default';
+    this.buttonType = 'button';
     /**
      * Set the main style
      */
-    this.task = 'primary';
+    this.buttonRole = 'primary';
     /**
      * Set the style variant
      */
-    this.variant = 'solid';
+    this.buttonStyle = 'solid';
+    this.inheritedAttributes = {};
     this.handleClick = (ev) => {
-      if (this.state !== 'disabled' && this.type != 'button' && this.type != 'link') {
+      if (!this.disabled && this.buttonType != 'button' && this.buttonType != 'link') {
         // Attach button to form
         const form = this.el.closest('form');
         if (form) {
           ev.preventDefault();
           const formButton = document.createElement('button');
-          formButton.type = this.type;
+          formButton.type = this.buttonType;
           formButton.style.display = 'none';
           form.appendChild(formButton);
           formButton.click();
           formButton.remove();
         }
       }
+      // Has any inherited attributes changed on click
+      this.inheritedAttributes = inheritAttributes(this.el, ['aria-label', 'aria-expanded', 'aria-haspopup']);
     };
     this.onFocus = () => {
       this.gcdsFocus.emit();
@@ -61,14 +74,33 @@ let GcdsButton$1 = class extends HTMLElement {
       this.gcdsBlur.emit();
     };
   }
-  componentWillLoad() {
-    // Default to type 'button' if no identifying properties are passed
-    if (this.type === undefined && this.href === undefined) {
-      this.type = 'button';
+  validateButtonType(newValue) {
+    const values = ['submit', 'reset', 'button', 'link'];
+    if (!values.includes(newValue)) {
+      this.buttonType = 'button';
     }
   }
+  validateButtonRole(newValue) {
+    const values = ['primary', 'secondary', 'destructive', 'skip-to-content'];
+    if (!values.includes(newValue)) {
+      this.buttonRole = 'primary';
+    }
+  }
+  validateButtonStyle(newValue) {
+    const values = ['solid', 'outline', 'text-only'];
+    if (!values.includes(newValue)) {
+      this.buttonStyle = 'solid';
+    }
+  }
+  componentWillLoad() {
+    // Validate attributes and set defaults
+    this.validateButtonType(this.buttonType);
+    this.validateButtonRole(this.buttonRole);
+    this.validateButtonStyle(this.buttonStyle);
+    this.inheritedAttributes = inheritAttributes(this.el, ['aria-label', 'aria-expanded', 'aria-haspopup']);
+  }
   componentDidLoad() {
-    const Tag = this.type != 'link' ? 'button' : 'a';
+    const Tag = this.buttonType != 'link' ? 'button' : 'a';
     //StyleAPI
     for (let [key, value] of Object.entries(styleAPI)) {
       if (this[key] !== undefined) {
@@ -76,15 +108,19 @@ let GcdsButton$1 = class extends HTMLElement {
       }
     }
   }
+  /**
+    * Focus element
+    */
+  async focusElement() {
+    this.shadowElement.focus();
+  }
   render() {
-    const { type, task, variant, state, name, href, rel, target, download } = this;
-    const Tag = type != 'link' ? 'button' : 'a';
-    const disabled = state === 'disabled' ? true : false;
-    const stateClass = state !== "default" ? state : "";
+    const { buttonType, buttonRole, buttonStyle, disabled, name, href, rel, target, download, inheritedAttributes } = this;
+    const Tag = buttonType != 'link' ? 'button' : 'a';
     const attrs = (Tag === 'button')
       ? {
-        type,
-        disabled,
+        type: buttonType,
+        ariaDisabled: disabled,
         name
       }
       : {
@@ -93,13 +129,18 @@ let GcdsButton$1 = class extends HTMLElement {
         target,
         download
       };
-    return (h(Host, { onClick: this.handleClick }, h(Tag, Object.assign({}, attrs, { onBlur: this.onBlur, onFocus: this.onFocus, class: `${task} ${variant} ${stateClass}` }), h("slot", { name: "left" }), h("slot", null), h("slot", { name: "right" }))));
+    return (h(Host, { onClick: this.handleClick }, h(Tag, Object.assign({}, attrs, { onBlur: this.onBlur, onFocus: this.onFocus, class: `${buttonRole} ${buttonStyle}`, ref: element => this.shadowElement = element }, inheritedAttributes), h("slot", { name: "left" }), h("slot", null), h("slot", { name: "right" }))));
   }
   get el() { return this; }
+  static get watchers() { return {
+    "buttonType": ["validateButtonType"],
+    "buttonRole": ["validateButtonRole"],
+    "buttonStyle": ["validateButtonStyle"]
+  }; }
   static get style() { return gcdsButtonCss; }
 };
 
-const gcdsErrorMessageCss = ":host .error-message{margin:0 0 10px;padding:.2em .6em .3em;background:var(--gcds-colour-base-white-red-500);color:var(--gcds-colour-utils-black);border-left:4px solid var(--gcds-colour-base-red-dark-500)}";
+const gcdsErrorMessageCss = ":host{display:inline-block}:host .error-message{font-size:inherit;line-height:inherit;margin:0 0 8px;padding:10px 12px;background:#F3E9E8;color:#000;border-left:2px solid #D3080C}";
 
 let GcdsErrorMessage$1 = class extends HTMLElement {
   constructor() {
@@ -109,13 +150,13 @@ let GcdsErrorMessage$1 = class extends HTMLElement {
   }
   render() {
     const { messageId, message } = this;
-    return (h(Host, { id: `error-message-${messageId}` }, h("p", { class: "error-message", role: "alert" }, h("strong", null, message))));
+    return (h(Host, { id: `error-message-${messageId}`, class: "error-message-container" }, h("p", { class: "error-message", role: "alert" }, message)));
   }
   get el() { return this; }
   static get style() { return gcdsErrorMessageCss; }
 };
 
-const gcdsHintCss = ":host .hint{margin:0 0 10px}";
+const gcdsHintCss = ":host .hint{font-size:inherit;line-height:inherit;margin:0 0 14px}";
 
 let GcdsHint$1 = class extends HTMLElement {
   constructor() {
@@ -131,7 +172,7 @@ let GcdsHint$1 = class extends HTMLElement {
   static get style() { return gcdsHintCss; }
 };
 
-const gcdsInputCss = ".sc-gcds-input-h input.sc-gcds-input{display:block;max-width:100%;width:auto;height:auto;min-height:37px;font-family:inherit;font-size:var(--gcds-font-size-400);line-height:1.4375;padding:6px 12px;background-color:var(--gcds-colour-utils-white);background-image:none;color:var(--gcds-colour-base-grey-medium-500);border:1px solid var(--gcds-colour-base-grey-light-500);border-radius:4px;box-sizing:border-box;box-shadow:inset 0 1px 1px rgb(0 0 0 / 8%);transition:border-color ease-in-out .15s, box-shadow ease-in-out .15s}.sc-gcds-input-h input.sc-gcds-input:focus{border-color:var(--gcds-colour-base-blue-500);outline:0;box-shadow:inset 0 1px 1px rgb(0 0 0 / 8%), 0 0 8px rgb(102 175 233 / 60%)}.sc-gcds-input-h input.sc-gcds-input:disabled{opacity:1;background-color:var(--gcds-colour-base-white-grey-500);cursor:not-allowed}.sc-gcds-input-h input.error.sc-gcds-input{border-color:var(--gcds-colour-base-red-300);box-shadow:inset 0 1px 1px rgb(0 0 0 / 8%)}";
+const gcdsInputCss = ".sc-gcds-input-h fieldset.sc-gcds-input{width:75ch;max-width:90%;font-family:'Lato';font-weight:400;font-size:18px;line-height:1.4;color:#000;border:0;transition:color ease-in-out .15s}.sc-gcds-input-h fieldset.sc-gcds-input:focus-within{color:#303FC3}.sc-gcds-input-h fieldset.disabled.sc-gcds-input{color:#707070}.sc-gcds-input-h fieldset.error.sc-gcds-input:not(:focus-within){color:#D3080C}.sc-gcds-input-h input.sc-gcds-input{display:block;min-width:45px;max-width:100%;height:auto;min-height:45px;font-family:inherit;font-size:inherit;line-height:1.6;margin:0 0 25px;padding:8px 10px;background-color:#FFF;background-image:none;color:#000;border:2px solid currentColor;border-radius:4px;box-sizing:border-box;transition:border-color ease-in-out .15s, box-shadow ease-in-out .15s}.sc-gcds-input-h input.sc-gcds-input:not([size]){width:100%}.sc-gcds-input-h input.sc-gcds-input:focus{outline:0;border-color:#303FC3;box-shadow:0 0 0 2.5px #303FC3}.sc-gcds-input-h input.sc-gcds-input:disabled{cursor:not-allowed;background-color:#F0F0F0;border-color:#828282}.sc-gcds-input-h input.error.sc-gcds-input:not(:focus){border-color:#D3080C}";
 
 let GcdsInput$1 = class extends HTMLElement {
   constructor() {
@@ -164,10 +205,11 @@ let GcdsInput$1 = class extends HTMLElement {
     this.gcdsChange.emit(this.value);
   }
   render() {
-    const { disabled, errorMessage, hideLabel, hint, inputId, label, required, type, value } = this;
+    const { disabled, errorMessage, hideLabel, hint, inputId, label, required, size, type, value } = this;
     const attrsInput = {
       disabled,
       required,
+      size,
       type,
       value,
     };
@@ -175,15 +217,15 @@ let GcdsInput$1 = class extends HTMLElement {
       label,
       required,
     };
-    return (h(Host, null, h("gcds-label", Object.assign({}, attrsLabel, { "hide-label": hideLabel, "label-for": inputId })), hint ? h("gcds-hint", { hint: hint, "hint-id": inputId }) : null, errorMessage ?
+    return (h(Host, null, h("fieldset", { class: `${disabled ? 'disabled' : ''} ${errorMessage ? 'error' : ''}` }, h("gcds-label", Object.assign({}, attrsLabel, { "hide-label": hideLabel, "label-for": inputId })), hint ? h("gcds-hint", { hint: hint, "hint-id": inputId }) : null, errorMessage ?
       h("gcds-error-message", { "message-id": inputId, message: errorMessage })
-      : null, h("input", Object.assign({}, attrsInput, { class: errorMessage ? 'error' : null, id: inputId, name: inputId, onBlur: this.onBlur, onFocus: this.onFocus, onInput: (e) => this.handleChange(e), "aria-labelledby": `label-for-${inputId}`, "aria-describedby": `${hint ? `hint-${inputId}` : ''} ${errorMessage ? `error-message-${inputId}` : ''}`, "aria-invalid": errorMessage ? 'true' : 'false' }))));
+      : null, h("input", Object.assign({}, attrsInput, { class: errorMessage ? 'error' : null, id: inputId, name: inputId, onBlur: this.onBlur, onFocus: this.onFocus, onInput: (e) => this.handleChange(e), "aria-labelledby": `label-for-${inputId}`, "aria-describedby": `${hint ? `hint-${inputId}` : ''} ${errorMessage ? `error-message-${inputId}` : ''}`, "aria-invalid": errorMessage ? 'true' : 'false' })))));
   }
   get el() { return this; }
   static get style() { return gcdsInputCss; }
 };
 
-const gcdsLabelCss = ".sc-gcds-label-h label.sc-gcds-label{display:block;max-width:100%;font-family:var(--gcds-font-family-default);font-size:var(--gcds-font-size-400);font-weight:var(--gcds-font-weight-bold);margin:0 0 5px;color:var(--gcds-colour-base-grey-dark-500)}.sc-gcds-label-h label.hidden.sc-gcds-label{overflow:hidden;opacity:0;width:0;height:0;margin:0}.sc-gcds-label-h label.required.sc-gcds-label:before,.sc-gcds-label-h label.sc-gcds-label .required.sc-gcds-label{color:var(--gcds-colour-base-red-dark-500)}.sc-gcds-label-h label.required.sc-gcds-label:before{vertical-align:top;content:\"* \";margin-left:-0.67em}.sc-gcds-label-h label.sc-gcds-label .required.sc-gcds-label{margin:0 0 0 5px}";
+const gcdsLabelCss = ".sc-gcds-label-h label.sc-gcds-label{display:block;max-width:100%;font-size:inherit;font-weight:700;line-height:inherit;margin:0 0 4px;color:inherit}.sc-gcds-label-h label.hidden.sc-gcds-label{overflow:hidden;opacity:0;width:0;height:0;margin:0}.sc-gcds-label-h label.required.sc-gcds-label:before,.sc-gcds-label-h label.sc-gcds-label .required.sc-gcds-label{color:#D3080C}.sc-gcds-label-h label.required.sc-gcds-label:before{vertical-align:top;content:\"* \";margin-left:-0.67em}.sc-gcds-label-h label.sc-gcds-label .required.sc-gcds-label{margin:0 0 0 5px}";
 
 let GcdsLabel$1 = class extends HTMLElement {
   constructor() {
@@ -1440,7 +1482,7 @@ let GcdsSiteMenu$1 = class extends HTMLElement {
   render() {
     const sticky = this.menuPosition == 'sticky' ? true : false;
     const mobileMenutask = this.menuMobileLayout == 'drawer' ?
-      h("gcds-button", { "aria-expanded": "false", "aria-label": I18N[this.lang].mobileTriggerLabel, "aria-haspopup": "true", "data-h2-mobile-menu-trigger": true, type: "button", role: "button", task: "primary" }, h("span", { "data-h2-mobile-menu-trigger-open-label": true }, "Menu"), h("span", { "data-h2-mobile-menu-trigger-close-label": true }, I18N[this.lang].mobileTriggerClose))
+      h("gcds-button", { "aria-expanded": "false", "aria-label": I18N[this.lang].mobileTriggerLabel, "aria-haspopup": "true", "data-h2-mobile-menu-trigger": true, "button-type": "button", role: "button", "button-role": "primary" }, h("span", { "data-h2-mobile-menu-trigger-open-label": true }, "Menu"), h("span", { "data-h2-mobile-menu-trigger-close-label": true }, I18N[this.lang].mobileTriggerClose))
       :
         '';
     return (h(Host, { "data-h2-menu-wrapper": true, "menu-desktop-layout": this.menuDesktopLayout, "menu-mobile-layout": this.menuMobileLayout, "menu-sticky": sticky, lang: this.lang }, mobileMenutask, h("nav", { "aria-label": I18N[this.lang].navLabel, "data-h2-menu": true }, h("div", { "data-h2-menu-container": true }, h("div", { "data-optional-left": true }, h("slot", { name: "left" })), h("slot", null), h("div", { "data-optional-right": true }, h("slot", { name: "right" })))), h("slot", { name: "main" })));
@@ -1452,7 +1494,7 @@ let GcdsSiteMenu$1 = class extends HTMLElement {
   static get style() { return gcdsSiteMenuCss; }
 };
 
-const gcdsTextareaCss = ".sc-gcds-textarea-h textarea.sc-gcds-textarea{display:block;max-width:100%;width:auto;height:auto;min-height:37px;font-family:inherit;font-size:var(--gcds-font-size-400);line-height:1.4375;padding:6px 12px;background-color:var(--gcds-colour-utils-white);background-image:none;color:var(--gcds-colour-base-grey-medium-500);border:1px solid var(--gcds-colour-base-grey-light-500);border-radius:4px;box-sizing:border-box;box-shadow:inset 0 1px 1px rgb(0 0 0 / 8%);transition:border-color ease-in-out .15s, box-shadow ease-in-out .15s}.sc-gcds-textarea-h textarea.sc-gcds-textarea:focus{border-color:var(--gcds-colour-base-blue-500);outline:0;box-shadow:inset 0 1px 1px rgb(0 0 0 / 8%), 0 0 8px rgb(102 175 233 / 60%)}.sc-gcds-textarea-h textarea.sc-gcds-textarea:disabled{opacity:1;background-color:var(--gcds-colour-base-white-grey-500);cursor:not-allowed}.sc-gcds-textarea-h textarea.error.sc-gcds-textarea{border-color:var(--gcds-colour-base-red-300);box-shadow:inset 0 1px 1px rgb(0 0 0 / 8%)}";
+const gcdsTextareaCss = ".sc-gcds-textarea-h fieldset.sc-gcds-textarea{width:100%;max-width:75ch;font-family:'Lato';font-weight:400;font-size:18px;line-height:1.4;color:#000;border:0;transition:color ease-in-out .15s}.sc-gcds-textarea-h fieldset.sc-gcds-textarea:focus-within{color:#303FC3}.sc-gcds-textarea-h fieldset.disabled.sc-gcds-textarea{color:#707070}.sc-gcds-textarea-h fieldset.error.sc-gcds-textarea:not(:focus-within){color:#D3080C}.sc-gcds-textarea-h fieldset.sc-gcds-textarea .error-message-container.sc-gcds-textarea{display:block}.sc-gcds-textarea-h textarea.sc-gcds-textarea{display:block;min-width:50%;max-width:100%;height:auto;min-height:45px;font-family:inherit;font-size:inherit;line-height:1.6;margin:0 0 25px;padding:8px 10px;background-color:#FFF;background-image:none;color:#000;border:2px solid currentColor;border-radius:4px;box-sizing:border-box;transition:border-color ease-in-out .15s, box-shadow ease-in-out .15s}.sc-gcds-textarea-h textarea.sc-gcds-textarea:not([cols]){width:100%}.sc-gcds-textarea-h textarea.sc-gcds-textarea:focus{outline:0;border-color:#303FC3;box-shadow:0 0 0 2.5px #303FC3}.sc-gcds-textarea-h textarea.sc-gcds-textarea:disabled{cursor:not-allowed;background-color:#F0F0F0;border-color:#828282}.sc-gcds-textarea-h textarea.error.sc-gcds-textarea:not(:focus){border-color:#D3080C}";
 
 let GcdsTextarea$1 = class extends HTMLElement {
   constructor() {
@@ -1461,13 +1503,6 @@ let GcdsTextarea$1 = class extends HTMLElement {
     this.gcdsFocus = createEvent(this, "gcdsFocus", 7);
     this.gcdsBlur = createEvent(this, "gcdsBlur", 7);
     this.gcdsChange = createEvent(this, "gcdsChange", 7);
-    /**
-     * Textarea props
-     */
-    /**
-     * Default value for textarea cols.
-     */
-    this.cols = 45;
     /**
      * Specifies if a textarea element is disabled or not.
      */
@@ -1517,7 +1552,7 @@ let GcdsTextarea$1 = class extends HTMLElement {
       required,
       rows,
     };
-    return (h(Host, null, h("gcds-label", Object.assign({}, attrsLabel, { "hide-label": hideLabel, "label-for": textareaId })), hint ? h("gcds-hint", { hint: hint, "hint-id": textareaId }) : null, errorMessage ?
+    return (h(Host, null, h("fieldset", { class: `${disabled ? 'disabled' : ''} ${errorMessage ? 'error' : ''}` }, h("gcds-label", Object.assign({}, attrsLabel, { "hide-label": hideLabel, "label-for": textareaId })), hint ? h("gcds-hint", { hint: hint, "hint-id": textareaId }) : null, errorMessage ?
       h("gcds-error-message", { "message-id": textareaId, message: errorMessage })
       : null, h("textarea", Object.assign({}, attrsTextarea, { class: errorMessage ? 'error' : null, id: textareaId, name: textareaId, onBlur: this.onBlur, onFocus: this.onFocus, onInput: (e) => this.handleChange(e), "aria-labelledby": `label-for-${textareaId}`, "aria-describedby": `${hint ? `hint-${textareaId}` : ''} ${errorMessage ? `error-message-${textareaId}` : ''} ${textareaCharacterCount ? `count-${textareaId}` : ''}`, "aria-invalid": errorMessage ? 'true' : 'false', maxlength: textareaCharacterCount ? textareaCharacterCount : null }), value), textareaCharacterCount ?
       h("p", { id: `count-${textareaId}`, "aria-live": "polite" }, this.lang == 'en' ?
@@ -1526,16 +1561,16 @@ let GcdsTextarea$1 = class extends HTMLElement {
         :
           value == undefined ? `${textareaCharacterCount} caractères maximum`
             : `${textareaCharacterCount - value.length} caractères restants`)
-      : null));
+      : null)));
   }
   get el() { return this; }
   static get style() { return gcdsTextareaCss; }
 };
 
-const GcdsButton = /*@__PURE__*/proxyCustomElement(GcdsButton$1, [1,"gcds-button",{"label":[1],"type":[1025],"state":[1],"task":[1],"variant":[1],"name":[1],"href":[1],"rel":[1],"target":[1],"download":[1],"customBorderWeight":[1,"custom-border-weight"],"customBorderStyle":[1,"custom-border-style"],"customBorderColor":[1,"custom-border-color"],"customMargin":[1,"custom-margin"],"customDisplay":[1,"custom-display"],"customBackgroundColor":[1,"custom-background-color"],"customBoxShadow":[1,"custom-box-shadow"],"customCapitalization":[1,"custom-capitalization"]}]);
+const GcdsButton = /*@__PURE__*/proxyCustomElement(GcdsButton$1, [1,"gcds-button",{"buttonType":[1025,"button-type"],"buttonRole":[1025,"button-role"],"buttonStyle":[1025,"button-style"],"name":[1],"disabled":[4],"href":[1],"rel":[1],"target":[1],"download":[1],"customBorderWeight":[1,"custom-border-weight"],"customBorderStyle":[1,"custom-border-style"],"customBorderColor":[1,"custom-border-color"],"customMargin":[1,"custom-margin"],"customDisplay":[1,"custom-display"],"customBackgroundColor":[1,"custom-background-color"],"customBoxShadow":[1,"custom-box-shadow"],"customCapitalization":[1,"custom-capitalization"],"inheritedAttributes":[32]}]);
 const GcdsErrorMessage = /*@__PURE__*/proxyCustomElement(GcdsErrorMessage$1, [1,"gcds-error-message",{"messageId":[1,"message-id"],"message":[1]}]);
 const GcdsHint = /*@__PURE__*/proxyCustomElement(GcdsHint$1, [1,"gcds-hint",{"hint":[1],"hintId":[1,"hint-id"]}]);
-const GcdsInput = /*@__PURE__*/proxyCustomElement(GcdsInput$1, [2,"gcds-input",{"disabled":[4],"errorMessage":[1,"error-message"],"hideLabel":[4,"hide-label"],"hint":[1],"inputId":[1,"input-id"],"label":[1],"required":[4],"type":[1],"value":[1025]}]);
+const GcdsInput = /*@__PURE__*/proxyCustomElement(GcdsInput$1, [2,"gcds-input",{"disabled":[4],"errorMessage":[1,"error-message"],"hideLabel":[4,"hide-label"],"hint":[1],"inputId":[1,"input-id"],"label":[1],"required":[4],"size":[2],"type":[1],"value":[1025]}]);
 const GcdsLabel = /*@__PURE__*/proxyCustomElement(GcdsLabel$1, [2,"gcds-label",{"hideLabel":[4,"hide-label"],"label":[1],"labelFor":[1,"label-for"],"required":[4]}]);
 const GcdsSiteMenu = /*@__PURE__*/proxyCustomElement(GcdsSiteMenu$1, [1,"gcds-site-menu",{"menuDesktopLayout":[1025,"menu-desktop-layout"],"menuMobileLayout":[1025,"menu-mobile-layout"],"menuAlignment":[1,"menu-alignment"],"menuPosition":[1,"menu-position"]}]);
 const GcdsTextarea = /*@__PURE__*/proxyCustomElement(GcdsTextarea$1, [2,"gcds-textarea",{"cols":[2],"disabled":[4],"errorMessage":[1,"error-message"],"hideLabel":[4,"hide-label"],"hint":[1],"label":[1],"required":[4],"rows":[2],"textareaCharacterCount":[2,"textarea-character-count"],"textareaId":[1,"textarea-id"],"value":[1025]}]);

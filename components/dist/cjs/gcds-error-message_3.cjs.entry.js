@@ -2,9 +2,9 @@
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
-const index = require('./index-64738ed4.js');
+const index = require('./index-faa8db83.js');
 
-const gcdsErrorMessageCss = ":host .error-message{margin:0 0 10px;padding:.2em .6em .3em;background:var(--gcds-colour-base-white-red-500);color:var(--gcds-colour-utils-black);border-left:4px solid var(--gcds-colour-base-red-dark-500)}";
+const gcdsErrorMessageCss = ":host{display:inline-block}:host .error-message{font-size:inherit;line-height:inherit;margin:0 0 8px;padding:10px 12px;background:#F3E9E8;color:#000;border-left:2px solid #D3080C}";
 
 let GcdsErrorMessage = class {
   constructor(hostRef) {
@@ -12,13 +12,13 @@ let GcdsErrorMessage = class {
   }
   render() {
     const { messageId, message } = this;
-    return (index.h(index.Host, { id: `error-message-${messageId}` }, index.h("p", { class: "error-message", role: "alert" }, index.h("strong", null, message))));
+    return (index.h(index.Host, { id: `error-message-${messageId}`, class: "error-message-container" }, index.h("p", { class: "error-message", role: "alert" }, message)));
   }
   get el() { return index.getElement(this); }
 };
 GcdsErrorMessage.style = gcdsErrorMessageCss;
 
-const gcdsHintCss = ":host .hint{margin:0 0 10px}";
+const gcdsHintCss = ":host .hint{font-size:inherit;line-height:inherit;margin:0 0 14px}";
 
 let GcdsHint = class {
   constructor(hostRef) {
@@ -32,7 +32,7 @@ let GcdsHint = class {
 };
 GcdsHint.style = gcdsHintCss;
 
-const gcdsLabelCss = ".sc-gcds-label-h label.sc-gcds-label{display:block;max-width:100%;font-family:var(--gcds-font-family-default);font-size:var(--gcds-font-size-400);font-weight:var(--gcds-font-weight-bold);margin:0 0 5px;color:var(--gcds-colour-base-grey-dark-500)}.sc-gcds-label-h label.hidden.sc-gcds-label{overflow:hidden;opacity:0;width:0;height:0;margin:0}.sc-gcds-label-h label.required.sc-gcds-label:before,.sc-gcds-label-h label.sc-gcds-label .required.sc-gcds-label{color:var(--gcds-colour-base-red-dark-500)}.sc-gcds-label-h label.required.sc-gcds-label:before{vertical-align:top;content:\"* \";margin-left:-0.67em}.sc-gcds-label-h label.sc-gcds-label .required.sc-gcds-label{margin:0 0 0 5px}";
+const gcdsLabelCss = ".sc-gcds-label-h label.sc-gcds-label{display:block;max-width:100%;font-size:inherit;font-weight:700;line-height:inherit;margin:0 0 4px;color:inherit}.sc-gcds-label-h label.hidden.sc-gcds-label{overflow:hidden;opacity:0;width:0;height:0;margin:0}.sc-gcds-label-h label.required.sc-gcds-label:before,.sc-gcds-label-h label.sc-gcds-label .required.sc-gcds-label{color:#D3080C}.sc-gcds-label-h label.required.sc-gcds-label:before{vertical-align:top;content:\"* \";margin-left:-0.67em}.sc-gcds-label-h label.sc-gcds-label .required.sc-gcds-label{margin:0 0 0 5px}";
 
 let GcdsLabel = class {
   constructor(hostRef) {

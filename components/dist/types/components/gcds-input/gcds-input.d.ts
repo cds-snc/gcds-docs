@@ -33,6 +33,10 @@ export declare class GcdsInput {
    */
   required?: boolean;
   /**
+   * Size attribute for an input element.
+   */
+  size: number;
+  /**
    * Set Input types
    */
   type: 'email' | 'number' | 'password' | 'search' | 'text' | 'url';

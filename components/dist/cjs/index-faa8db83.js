@@ -806,6 +806,9 @@ const postUpdateComponent = (hostRef) => {
     else {
         endPostUpdate();
     }
+    {
+        hostRef.$onInstanceResolve$(elm);
+    }
     // load events fire from bottom to top
     // the deepest elements load first then bubbles up
     {
@@ -933,6 +936,16 @@ const proxyComponent = (Cstr, cmpMeta, flags) => {
                     },
                     configurable: true,
                     enumerable: true,
+                });
+            }
+            else if (flags & 1 /* isElementConstructor */ &&
+                memberFlags & 64 /* Method */) {
+                // proxyComponent - method
+                Object.defineProperty(prototype, memberName, {
+                    value(...args) {
+                        const ref = getHostRef(this);
+                        return ref.$onInstancePromise$.then(() => ref.$lazyInstance$[memberName](...args));
+                    },
                 });
             }
         });
@@ -1228,6 +1241,9 @@ const registerHost = (elm, cmpMeta) => {
         $cmpMeta$: cmpMeta,
         $instanceValues$: new Map(),
     };
+    {
+        hostRef.$onInstancePromise$ = new Promise((r) => (hostRef.$onInstanceResolve$ = r));
+    }
     {
         hostRef.$onReadyPromise$ = new Promise((r) => (hostRef.$onReadyResolve$ = r));
         elm['s-p'] = [];

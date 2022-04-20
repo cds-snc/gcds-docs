@@ -1,4 +1,5 @@
-import { Component, Element, Event, Host, Prop, h } from '@stencil/core';
+import { Component, Element, Event, Method, Host, Watch, Prop, State, h } from '@stencil/core';
+import { inheritAttributes } from '../../utils/utils';
 const styleAPI = {
   'customBorderWeight': 'border-width',
   'customBorderStyle': 'border-style',
@@ -17,33 +18,32 @@ export class GcdsButton {
     /**
      * Set button types
      */
-    this.type = 'button';
-    /**
-     * Set component states
-     */
-    this.state = 'default';
+    this.buttonType = 'button';
     /**
      * Set the main style
      */
-    this.task = 'primary';
+    this.buttonRole = 'primary';
     /**
      * Set the style variant
      */
-    this.variant = 'solid';
+    this.buttonStyle = 'solid';
+    this.inheritedAttributes = {};
     this.handleClick = (ev) => {
-      if (this.state !== 'disabled' && this.type != 'button' && this.type != 'link') {
+      if (!this.disabled && this.buttonType != 'button' && this.buttonType != 'link') {
         // Attach button to form
         const form = this.el.closest('form');
         if (form) {
           ev.preventDefault();
           const formButton = document.createElement('button');
-          formButton.type = this.type;
+          formButton.type = this.buttonType;
           formButton.style.display = 'none';
           form.appendChild(formButton);
           formButton.click();
           formButton.remove();
         }
       }
+      // Has any inherited attributes changed on click
+      this.inheritedAttributes = inheritAttributes(this.el, ['aria-label', 'aria-expanded', 'aria-haspopup']);
     };
     this.onFocus = () => {
       this.gcdsFocus.emit();
@@ -52,14 +52,33 @@ export class GcdsButton {
       this.gcdsBlur.emit();
     };
   }
-  componentWillLoad() {
-    // Default to type 'button' if no identifying properties are passed
-    if (this.type === undefined && this.href === undefined) {
-      this.type = 'button';
+  validateButtonType(newValue) {
+    const values = ['submit', 'reset', 'button', 'link'];
+    if (!values.includes(newValue)) {
+      this.buttonType = 'button';
     }
   }
+  validateButtonRole(newValue) {
+    const values = ['primary', 'secondary', 'destructive', 'skip-to-content'];
+    if (!values.includes(newValue)) {
+      this.buttonRole = 'primary';
+    }
+  }
+  validateButtonStyle(newValue) {
+    const values = ['solid', 'outline', 'text-only'];
+    if (!values.includes(newValue)) {
+      this.buttonStyle = 'solid';
+    }
+  }
+  componentWillLoad() {
+    // Validate attributes and set defaults
+    this.validateButtonType(this.buttonType);
+    this.validateButtonRole(this.buttonRole);
+    this.validateButtonStyle(this.buttonStyle);
+    this.inheritedAttributes = inheritAttributes(this.el, ['aria-label', 'aria-expanded', 'aria-haspopup']);
+  }
   componentDidLoad() {
-    const Tag = this.type != 'link' ? 'button' : 'a';
+    const Tag = this.buttonType != 'link' ? 'button' : 'a';
     //StyleAPI
     for (let [key, value] of Object.entries(styleAPI)) {
       if (this[key] !== undefined) {
@@ -67,15 +86,19 @@ export class GcdsButton {
       }
     }
   }
+  /**
+    * Focus element
+    */
+  async focusElement() {
+    this.shadowElement.focus();
+  }
   render() {
-    const { type, task, variant, state, name, href, rel, target, download } = this;
-    const Tag = type != 'link' ? 'button' : 'a';
-    const disabled = state === 'disabled' ? true : false;
-    const stateClass = state !== "default" ? state : "";
+    const { buttonType, buttonRole, buttonStyle, disabled, name, href, rel, target, download, inheritedAttributes } = this;
+    const Tag = buttonType != 'link' ? 'button' : 'a';
     const attrs = (Tag === 'button')
       ? {
-        type,
-        disabled,
+        type: buttonType,
+        ariaDisabled: disabled,
         name
       }
       : {
@@ -85,7 +108,7 @@ export class GcdsButton {
         download
       };
     return (h(Host, { onClick: this.handleClick },
-      h(Tag, Object.assign({}, attrs, { onBlur: this.onBlur, onFocus: this.onFocus, class: `${task} ${variant} ${stateClass}` }),
+      h(Tag, Object.assign({}, attrs, { onBlur: this.onBlur, onFocus: this.onFocus, class: `${buttonRole} ${buttonStyle}`, ref: element => this.shadowElement = element }, inheritedAttributes),
         h("slot", { name: "left" }),
         h("slot", null),
         h("slot", { name: "right" }))));
@@ -99,24 +122,7 @@ export class GcdsButton {
     "$": ["gcds-button.css"]
   }; }
   static get properties() { return {
-    "label": {
-      "type": "string",
-      "mutable": false,
-      "complexType": {
-        "original": "string",
-        "resolved": "string",
-        "references": {}
-      },
-      "required": false,
-      "optional": false,
-      "docs": {
-        "tags": [],
-        "text": "The button label"
-      },
-      "attribute": "label",
-      "reflect": false
-    },
-    "type": {
+    "buttonType": {
       "type": "string",
       "mutable": true,
       "complexType": {
@@ -130,34 +136,16 @@ export class GcdsButton {
         "tags": [],
         "text": "Set button types"
       },
-      "attribute": "type",
+      "attribute": "button-type",
       "reflect": false,
       "defaultValue": "'button'"
     },
-    "state": {
+    "buttonRole": {
       "type": "string",
-      "mutable": false,
+      "mutable": true,
       "complexType": {
-        "original": "'default' | 'hover' | 'active' | 'focus' | 'disabled'",
-        "resolved": "\"active\" | \"default\" | \"disabled\" | \"focus\" | \"hover\"",
-        "references": {}
-      },
-      "required": false,
-      "optional": false,
-      "docs": {
-        "tags": [],
-        "text": "Set component states"
-      },
-      "attribute": "state",
-      "reflect": false,
-      "defaultValue": "'default'"
-    },
-    "task": {
-      "type": "string",
-      "mutable": false,
-      "complexType": {
-        "original": "'primary' | 'secondary' | 'danger' | 'skip-to-content'",
-        "resolved": "\"danger\" | \"primary\" | \"secondary\" | \"skip-to-content\"",
+        "original": "'primary' | 'secondary' | 'destructive' | 'skip-to-content'",
+        "resolved": "\"destructive\" | \"primary\" | \"secondary\" | \"skip-to-content\"",
         "references": {}
       },
       "required": false,
@@ -166,13 +154,13 @@ export class GcdsButton {
         "tags": [],
         "text": "Set the main style"
       },
-      "attribute": "task",
+      "attribute": "button-role",
       "reflect": false,
       "defaultValue": "'primary'"
     },
-    "variant": {
+    "buttonStyle": {
       "type": "string",
-      "mutable": false,
+      "mutable": true,
       "complexType": {
         "original": "'solid' | 'outline' | 'text-only'",
         "resolved": "\"outline\" | \"solid\" | \"text-only\"",
@@ -184,7 +172,7 @@ export class GcdsButton {
         "tags": [],
         "text": "Set the style variant"
       },
-      "attribute": "variant",
+      "attribute": "button-style",
       "reflect": false,
       "defaultValue": "'solid'"
     },
@@ -203,6 +191,23 @@ export class GcdsButton {
         "text": "The name attribute specifies the name for a <button> element."
       },
       "attribute": "name",
+      "reflect": false
+    },
+    "disabled": {
+      "type": "boolean",
+      "mutable": false,
+      "complexType": {
+        "original": "boolean",
+        "resolved": "boolean",
+        "references": {}
+      },
+      "required": false,
+      "optional": false,
+      "docs": {
+        "tags": [],
+        "text": "The disabled attribute for a <button> element."
+      },
+      "attribute": "disabled",
       "reflect": false
     },
     "href": {
@@ -410,6 +415,9 @@ export class GcdsButton {
       "reflect": false
     }
   }; }
+  static get states() { return {
+    "inheritedAttributes": {}
+  }; }
   static get events() { return [{
       "method": "gcdsFocus",
       "name": "gcdsFocus",
@@ -441,5 +449,33 @@ export class GcdsButton {
         "references": {}
       }
     }]; }
+  static get methods() { return {
+    "focusElement": {
+      "complexType": {
+        "signature": "() => Promise<void>",
+        "parameters": [],
+        "references": {
+          "Promise": {
+            "location": "global"
+          }
+        },
+        "return": "Promise<void>"
+      },
+      "docs": {
+        "text": "Focus element",
+        "tags": []
+      }
+    }
+  }; }
   static get elementRef() { return "el"; }
+  static get watchers() { return [{
+      "propName": "buttonType",
+      "methodName": "validateButtonType"
+    }, {
+      "propName": "buttonRole",
+      "methodName": "validateButtonRole"
+    }, {
+      "propName": "buttonStyle",
+      "methodName": "validateButtonStyle"
+    }]; }
 }

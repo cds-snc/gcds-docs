@@ -121,56 +121,56 @@
         
       }
 
-  :host button.danger.solid, :host a.danger.solid {
+  :host button.destructive.solid, :host a.destructive.solid {
       background-color: var(--custom-gcds-style-background-color, var(--gcds-colour-base-red-500));
       color: var(--gcds-colour-utils-white);
     }
 
-  :host button.danger.solid:hover, :host button.danger.solid.hover, :host a.danger.solid:hover, :host a.danger.solid.hover {
+  :host button.destructive.solid:hover, :host button.destructive.solid.hover, :host a.destructive.solid:hover, :host a.destructive.solid.hover {
         
       }
 
-  :host button.danger.solid:focus, :host button.danger.solid.focus, :host a.danger.solid:focus, :host a.danger.solid.focus {
+  :host button.destructive.solid:focus, :host button.destructive.solid.focus, :host a.destructive.solid:focus, :host a.destructive.solid.focus {
         
       }
 
-  :host button.danger.solid:active, :host button.danger.solid.active, :host a.danger.solid:active, :host a.danger.solid.active {
+  :host button.destructive.solid:active, :host button.destructive.solid.active, :host a.destructive.solid:active, :host a.destructive.solid.active {
         
       }
 
-  :host button.danger.solid:disabled, :host button.danger.solid.disabled, :host a.danger.solid:disabled, :host a.danger.solid.disabled {
+  :host button.destructive.solid:disabled, :host button.destructive.solid.disabled, :host a.destructive.solid:disabled, :host a.destructive.solid.disabled {
         
       }
 
-  :host button.danger.outline:hover, :host button.danger.outline.hover, :host a.danger.outline:hover, :host a.danger.outline.hover {
+  :host button.destructive.outline:hover, :host button.destructive.outline.hover, :host a.destructive.outline:hover, :host a.destructive.outline.hover {
         
       }
 
-  :host button.danger.outline:focus, :host button.danger.outline.focus, :host a.danger.outline:focus, :host a.danger.outline.focus {
+  :host button.destructive.outline:focus, :host button.destructive.outline.focus, :host a.destructive.outline:focus, :host a.destructive.outline.focus {
         
       }
 
-  :host button.danger.outline:active, :host button.danger.outline.active, :host a.danger.outline:active, :host a.danger.outline.active {
+  :host button.destructive.outline:active, :host button.destructive.outline.active, :host a.destructive.outline:active, :host a.destructive.outline.active {
         
       }
 
-  :host button.danger.outline:disabled, :host button.danger.outline.disabled, :host a.danger.outline:disabled, :host a.danger.outline.disabled {
+  :host button.destructive.outline:disabled, :host button.destructive.outline.disabled, :host a.destructive.outline:disabled, :host a.destructive.outline.disabled {
         
       }
 
-  :host button.danger.text-only:hover, :host button.danger.text-only.hover, :host a.danger.text-only:hover, :host a.danger.text-only.hover {
+  :host button.destructive.text-only:hover, :host button.destructive.text-only.hover, :host a.destructive.text-only:hover, :host a.destructive.text-only.hover {
         
       }
 
-  :host button.danger.text-only:focus, :host button.danger.text-only.focus, :host a.danger.text-only:focus, :host a.danger.text-only.focus {
+  :host button.destructive.text-only:focus, :host button.destructive.text-only.focus, :host a.destructive.text-only:focus, :host a.destructive.text-only.focus {
         
       }
 
-  :host button.danger.text-only:active, :host button.danger.text-only.active, :host a.danger.text-only:active, :host a.danger.text-only.active {
+  :host button.destructive.text-only:active, :host button.destructive.text-only.active, :host a.destructive.text-only:active, :host a.destructive.text-only.active {
         
       }
 
-  :host button.danger.text-only:disabled, :host button.danger.text-only.disabled, :host a.danger.text-only:disabled, :host a.danger.text-only.disabled {
+  :host button.destructive.text-only:disabled, :host button.destructive.text-only.disabled, :host a.destructive.text-only:disabled, :host a.destructive.text-only.disabled {
         
       }
 

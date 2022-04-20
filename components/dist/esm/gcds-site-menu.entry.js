@@ -1,4 +1,4 @@
-import { r as registerInstance, h, H as Host, g as getElement } from './index-44aa51bb.js';
+import { r as registerInstance, h, H as Host, g as getElement } from './index-8d185c1e.js';
 
 // Hydrogen / Component / Scripts
 
@@ -1238,7 +1238,7 @@ let GcdsSiteMenu = class {
   render() {
     const sticky = this.menuPosition == 'sticky' ? true : false;
     const mobileMenutask = this.menuMobileLayout == 'drawer' ?
-      h("gcds-button", { "aria-expanded": "false", "aria-label": I18N[this.lang].mobileTriggerLabel, "aria-haspopup": "true", "data-h2-mobile-menu-trigger": true, type: "button", role: "button", task: "primary" }, h("span", { "data-h2-mobile-menu-trigger-open-label": true }, "Menu"), h("span", { "data-h2-mobile-menu-trigger-close-label": true }, I18N[this.lang].mobileTriggerClose))
+      h("gcds-button", { "aria-expanded": "false", "aria-label": I18N[this.lang].mobileTriggerLabel, "aria-haspopup": "true", "data-h2-mobile-menu-trigger": true, "button-type": "button", role: "button", "button-role": "primary" }, h("span", { "data-h2-mobile-menu-trigger-open-label": true }, "Menu"), h("span", { "data-h2-mobile-menu-trigger-close-label": true }, I18N[this.lang].mobileTriggerClose))
       :
         '';
     return (h(Host, { "data-h2-menu-wrapper": true, "menu-desktop-layout": this.menuDesktopLayout, "menu-mobile-layout": this.menuMobileLayout, "menu-sticky": sticky, lang: this.lang }, mobileMenutask, h("nav", { "aria-label": I18N[this.lang].navLabel, "data-h2-menu": true }, h("div", { "data-h2-menu-container": true }, h("div", { "data-optional-left": true }, h("slot", { name: "left" })), h("slot", null), h("div", { "data-optional-right": true }, h("slot", { name: "right" })))), h("slot", { name: "main" })));

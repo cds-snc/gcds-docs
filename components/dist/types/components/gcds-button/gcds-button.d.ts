@@ -1,33 +1,33 @@
 import { EventEmitter } from '../../stencil-public-runtime';
 export declare class GcdsButton {
+  private shadowElement?;
   el: HTMLElement;
-  /**
-   * The button label
-   */
-  label: string;
   /**
    * Button props
    */
   /**
    * Set button types
    */
-  type: 'submit' | 'reset' | 'button' | 'link';
-  /**
-   * Set component states
-   */
-  state: 'default' | 'hover' | 'active' | 'focus' | 'disabled';
+  buttonType: 'submit' | 'reset' | 'button' | 'link';
+  validateButtonType(newValue: string): void;
   /**
    * Set the main style
    */
-  task: 'primary' | 'secondary' | 'danger' | 'skip-to-content';
+  buttonRole: 'primary' | 'secondary' | 'destructive' | 'skip-to-content';
+  validateButtonRole(newValue: string): void;
   /**
    * Set the style variant
    */
-  variant: 'solid' | 'outline' | 'text-only';
+  buttonStyle: 'solid' | 'outline' | 'text-only';
+  validateButtonStyle(newValue: string): void;
   /**
    * The name attribute specifies the name for a <button> element.
    */
   name: string | undefined;
+  /**
+   * The disabled attribute for a <button> element.
+   */
+  disabled: boolean;
   /**
    * Link props
    */
@@ -82,6 +82,7 @@ export declare class GcdsButton {
    * StyleAPI: custom btext transform.
    */
   customCapitalization: string | undefined;
+  inheritedAttributes: Object;
   /**
    * Events
    */
@@ -93,10 +94,14 @@ export declare class GcdsButton {
    * Emitted when the button loses focus.
    */
   gcdsBlur: EventEmitter<void>;
+  componentWillLoad(): void;
+  componentDidLoad(): void;
+  /**
+    * Focus element
+    */
+  focusElement(): Promise<void>;
   private handleClick;
   private onFocus;
   private onBlur;
-  componentWillLoad(): void;
-  componentDidLoad(): void;
   render(): any;
 }

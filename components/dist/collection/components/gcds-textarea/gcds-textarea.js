@@ -2,13 +2,6 @@ import { Component, Element, Event, Host, Prop, h } from '@stencil/core';
 export class GcdsTextarea {
   constructor() {
     /**
-     * Textarea props
-     */
-    /**
-     * Default value for textarea cols.
-     */
-    this.cols = 45;
-    /**
      * Specifies if a textarea element is disabled or not.
      */
     this.disabled = false;
@@ -58,20 +51,21 @@ export class GcdsTextarea {
       rows,
     };
     return (h(Host, null,
-      h("gcds-label", Object.assign({}, attrsLabel, { "hide-label": hideLabel, "label-for": textareaId })),
-      hint ? h("gcds-hint", { hint: hint, "hint-id": textareaId }) : null,
-      errorMessage ?
-        h("gcds-error-message", { "message-id": textareaId, message: errorMessage })
-        : null,
-      h("textarea", Object.assign({}, attrsTextarea, { class: errorMessage ? 'error' : null, id: textareaId, name: textareaId, onBlur: this.onBlur, onFocus: this.onFocus, onInput: (e) => this.handleChange(e), "aria-labelledby": `label-for-${textareaId}`, "aria-describedby": `${hint ? `hint-${textareaId}` : ''} ${errorMessage ? `error-message-${textareaId}` : ''} ${textareaCharacterCount ? `count-${textareaId}` : ''}`, "aria-invalid": errorMessage ? 'true' : 'false', maxlength: textareaCharacterCount ? textareaCharacterCount : null }), value),
-      textareaCharacterCount ?
-        h("p", { id: `count-${textareaId}`, "aria-live": "polite" }, this.lang == 'en' ?
-          value == undefined ? `${textareaCharacterCount} characters allowed`
-            : `${textareaCharacterCount - value.length} characters left`
-          :
-            value == undefined ? `${textareaCharacterCount} caractères maximum`
-              : `${textareaCharacterCount - value.length} caractères restants`)
-        : null));
+      h("fieldset", { class: `${disabled ? 'disabled' : ''} ${errorMessage ? 'error' : ''}` },
+        h("gcds-label", Object.assign({}, attrsLabel, { "hide-label": hideLabel, "label-for": textareaId })),
+        hint ? h("gcds-hint", { hint: hint, "hint-id": textareaId }) : null,
+        errorMessage ?
+          h("gcds-error-message", { "message-id": textareaId, message: errorMessage })
+          : null,
+        h("textarea", Object.assign({}, attrsTextarea, { class: errorMessage ? 'error' : null, id: textareaId, name: textareaId, onBlur: this.onBlur, onFocus: this.onFocus, onInput: (e) => this.handleChange(e), "aria-labelledby": `label-for-${textareaId}`, "aria-describedby": `${hint ? `hint-${textareaId}` : ''} ${errorMessage ? `error-message-${textareaId}` : ''} ${textareaCharacterCount ? `count-${textareaId}` : ''}`, "aria-invalid": errorMessage ? 'true' : 'false', maxlength: textareaCharacterCount ? textareaCharacterCount : null }), value),
+        textareaCharacterCount ?
+          h("p", { id: `count-${textareaId}`, "aria-live": "polite" }, this.lang == 'en' ?
+            value == undefined ? `${textareaCharacterCount} characters allowed`
+              : `${textareaCharacterCount - value.length} characters left`
+            :
+              value == undefined ? `${textareaCharacterCount} caractères maximum`
+                : `${textareaCharacterCount - value.length} caractères restants`)
+          : null)));
   }
   static get is() { return "gcds-textarea"; }
   static get encapsulation() { return "scoped"; }
@@ -94,11 +88,10 @@ export class GcdsTextarea {
       "optional": true,
       "docs": {
         "tags": [],
-        "text": "Default value for textarea cols."
+        "text": "Default value for textarea cols (the min-width for textarea's is 50%)."
       },
       "attribute": "cols",
-      "reflect": false,
-      "defaultValue": "45"
+      "reflect": false
     },
     "disabled": {
       "type": "boolean",

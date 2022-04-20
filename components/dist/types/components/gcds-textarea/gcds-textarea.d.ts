@@ -6,7 +6,7 @@ export declare class GcdsTextarea {
    * Textarea props
    */
   /**
-   * Default value for textarea cols.
+   * Default value for textarea cols (the min-width for textarea's is 50%).
    */
   cols?: number;
   /**

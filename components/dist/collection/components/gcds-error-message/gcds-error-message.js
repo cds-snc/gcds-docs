@@ -2,9 +2,8 @@ import { Component, Element, Host, Prop, h } from '@stencil/core';
 export class GcdsErrorMessage {
   render() {
     const { messageId, message } = this;
-    return (h(Host, { id: `error-message-${messageId}` },
-      h("p", { class: "error-message", role: "alert" },
-        h("strong", null, message))));
+    return (h(Host, { id: `error-message-${messageId}`, class: "error-message-container" },
+      h("p", { class: "error-message", role: "alert" }, message)));
   }
   static get is() { return "gcds-error-message"; }
   static get encapsulation() { return "shadow"; }
