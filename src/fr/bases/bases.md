@@ -1,13 +1,13 @@
 ---
-title: Foundations
+title: Bases
 layout: "layouts/documentation.njk"
 eleventyNavigation:
   key: foundationsFR
-  title: Foundations
+  title: Bases
   locale: fr
   order: 1
 translationKey: "foundatons"
 ---
 
-# Foundations
+# Bases
 
