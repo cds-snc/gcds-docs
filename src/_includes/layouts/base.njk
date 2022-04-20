@@ -16,13 +16,15 @@
 
     </head>
     <body>
-        <gcds-button
-        type="link"
-        task="skip-to-content"
-        href="#content"
-        >
-        {{ base[locale].skipTo }}
-        </gcds-button>
+        <nav>
+            <gcds-button
+                button-type="link"
+                button-role="skip-to-content"
+                href="#content"
+            >
+                {{ base[locale].skipTo }}
+            </gcds-button>
+        </nav>
 
         {% include "partials/header.njk" %}
 
