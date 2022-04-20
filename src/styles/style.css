@@ -135,11 +135,11 @@ h3 > a.anchor-link:focus {
   }
 
   .banner p span {
-    margin-top: 0;
+    margin-top: 0.5rem;
   }
 
   .banner .banner__icon {
-    display: none;
+    padding: 4px 9px;
   }
 }
 
@@ -365,6 +365,6 @@ ul.overview-list {
 a.home-link {
   padding: 1rem 1.5rem;
   color: #000000;
-  font-size: 1.2rem;
+  font-size: 1rem;
   margin-left: -1.5rem;
 }
