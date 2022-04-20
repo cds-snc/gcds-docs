@@ -20,7 +20,7 @@ contactForm: fr
   <div hidden>
     <gcds-input type="text" input-id="bot-field" label="bot"></gcds-input>
   </div>
-  <gcds-button button-type="submit">
+  <gcds-button button-role="primary" button-type="submit">
     Envoyer
   </gcds-button>
 </form>

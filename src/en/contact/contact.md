@@ -1,5 +1,5 @@
 ---
-title: Get in contact
+title: Contact us
 layout: "layouts/base.njk"
 eleventyNavigation:
   key: contactusEN
@@ -10,7 +10,7 @@ translationKey: "contactus"
 contactForm: en
 ---
 
-# Get in contact
+# Contact us
 
 Ask the GC Design System team about a component in the design system or request a component you'd like to see.
 
@@ -24,7 +24,7 @@ Fill out the following form or submit an issue through GitHub for [tokens]({{ "h
   <div hidden>
     <gcds-input type="text" input-id="bot-field" label="bot"></gcds-input>
   </div>
-  <gcds-button button-type="submit">
+  <gcds-button button-role="primary" button-type="submit">
     Send message
   </gcds-button>
 </form>

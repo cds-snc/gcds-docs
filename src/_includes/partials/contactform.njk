@@ -1,15 +1,15 @@
 {% if locale == "en" %}
   <form name="contactEN" data-netlify="true" netlify-honeypot="bot-field" action="/en/contact/thanks" hidden>
-    <input type="text" name="name" aria-label="name"/>
-    <input type="email" name="email" aria-label="email"/>
+    <input type="text" name="name" aria-label="Full name"/>
+    <input type="email" name="email" aria-label="Email address"/>
     <textarea name="message" aria-label="message"></textarea>
     <input name="bot-field" aria-label="bot" hidden/>
   </form>
 {% else %}
   <form name="contactFR" data-netlify="true" netlify-honeypot="bot-field" action="/fr/contactez/merci" hidden>
-    <input type="text" name="name" aria-label="name"/>
-    <input type="email" name="email" aria-label="email"/>
-    <textarea name="message" aria-label="message"></textarea>
+    <input type="text" name="name" aria-label="Nom complet"/>
+    <input type="email" name="email" aria-label="Adresse courriel"/>
+    <textarea name="message" aria-label="Message"></textarea>
     <input name="bot-field" aria-label="bot" hidden/>
   </form>
 {% endif %}
