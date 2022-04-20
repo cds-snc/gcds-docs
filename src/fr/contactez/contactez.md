@@ -15,8 +15,8 @@ contactForm: fr
 <form name="contactFR" method="post">
   <input type="hidden" name="form-name" value="contactFR" />
   <gcds-input type="text" input-id="name" label="Nom complet"></gcds-input>
-  <gcds-input type="email" input-id="email" label="Adresse courriel"></gcds-input>
-  <gcds-textarea label="Message" textarea-id="message"></gcds-textarea>
+  <gcds-input type="email" input-id="email" label="Adresse courriel" required></gcds-input>
+  <gcds-textarea label="Message" textarea-id="message" required></gcds-textarea>
   <div hidden>
     <gcds-input type="text" input-id="bot-field" label="bot"></gcds-input>
   </div>
