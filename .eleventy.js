@@ -58,7 +58,7 @@ module.exports = function (eleventyConfig) {
   markdownLibrary.disable('blockquote');
   markdownLibrary.disable('code');
 
-  eleventyConfig.addPairedShortcode('viewCode', (children, lang, id) => {
+  eleventyConfig.addPairedShortcode('viewCode', (children, lang, id, name) => {
     const langStrings = {
       "en": {
         "view": "View code",
@@ -78,7 +78,7 @@ module.exports = function (eleventyConfig) {
 
     return `
     <div class="code-showcase">
-      <gcds-button button-type="button" button-role="secondary" button-style="text-only" onclick="toggleCodeShowcase(this, '${id}');" aria-controls="${id}" aria-expanded="false">${langStrings[lang].view}</gcds-button>
+      <gcds-button button-type="button" button-role="secondary" button-style="text-only" aria-label="${langStrings[lang].view} - ${name}" onclick="toggleCodeShowcase(this, '${id}');" aria-controls="${id}" aria-expanded="false">${langStrings[lang].view}</gcds-button>
       <gcds-button button-type="button" button-role="secondary" button-style="text-only" onclick="copyCodeShowcase(this, '${id}', '${lang}');" onblur="this.innerText = '${langStrings[lang].copy}'">${langStrings[lang].copy}</gcds-button>
       <div class="showcase" id="${id}" aria-hidden="true">
         ${content}
