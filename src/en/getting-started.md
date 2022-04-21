@@ -1,12 +1,12 @@
 ---
-title: Installation
+title: Getting started
 translationKey: installation
 layout: "layouts/base.njk"
 eleventyNavigation:
     key: installationEN
-    title: Installation
-    order: 100
-    hideMain: true
+    title: Getting started
+    locale: en
+    order: 0
 onThisPage:
   0: Install from npm
   1: Supported frameworks
@@ -15,7 +15,7 @@ onThisPage:
   4: Vue 
 ---
 
-# Installation
+# Getting started
 
 ## Install from npm
 
