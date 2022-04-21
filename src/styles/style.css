@@ -368,6 +368,11 @@ a.home-link {
   font-size: 1.2rem;
   margin-left: -1.5rem;
 }
+@media only screen and (max-width: 63.938rem) {
+  a.home-link {
+  margin-left: 0;
+}
+}
 @media screen and (min-width: 64rem) {
   a.home-link {
     padding: 1rem 1.5rem;
