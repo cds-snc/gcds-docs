@@ -1,5 +1,5 @@
 ---
-title: Typography
+title: Typography - Foundations
 layout: "layouts/documentation.njk"
 translationKey: "typography"
 eleventyNavigation:
@@ -7,6 +7,7 @@ eleventyNavigation:
   title: Typography
   locale: en
   parent: foundationsEN
+  order: 0
 ---
 
 # Typography
