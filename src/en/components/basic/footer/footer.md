@@ -6,7 +6,7 @@ eleventyNavigation:
   title: Footer - coming soon
   locale: en
   parent: basicEN
-  order: 4
+  order: 5
   url: null
   hideMain: true
 translationKey: "footer"

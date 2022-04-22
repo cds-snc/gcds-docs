@@ -14,6 +14,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("./src/images");
   eleventyConfig.addPassthroughCopy("./src/scripts/code-showcase.js");
   eleventyConfig.addPassthroughCopy("./src/admin/config.yml");
+  eleventyConfig.addPassthroughCopy("./src/favicon.ico");
   eleventyConfig.addPlugin(svgContents);
   eleventyConfig.addPassthroughCopy({"./src/variables/": "variables"});
   eleventyConfig.addPassthroughCopy({
@@ -97,13 +98,15 @@ module.exports = function (eleventyConfig) {
         "stage": "stage",
         "figma": "Figma",
         "github": "GitHub",
-        "newtab": "(Opens in a new tab)"
+        "newtab": "(Opens in a new tab)",
+        "comingsoon": "coming soon"
       },
       "fr": {
         "stage": "phase",
         "figma": "Figma",
         "github": "GitHub",
-        "newtab": "(S'ouvre dans un nouvel onglet)"
+        "newtab": "(S'ouvre dans un nouvel onglet)",
+        "comingsoon": "à venir"
       }
     }
     if (stage) {
@@ -116,6 +119,11 @@ module.exports = function (eleventyConfig) {
         <li class="figma-link">
           <a href="${figma}" target="_blank" rel="nofollow" aria-label="${langStrings[locale].figma} ${langStrings[locale].newtab}">${langStrings[locale].figma}</a>
         </li>`;
+    } else {
+      figmaLink = `
+        <li class="figma-link">
+          <span>${langStrings[locale].figma} — ${langStrings[locale].comingsoon}</span>
+        </li>`;
     }
     if (github) {
       githubLink = github;
@@ -124,10 +132,10 @@ module.exports = function (eleventyConfig) {
     }
     return `
       <ul class="doc-links">
-        ${stageChip} ${figmaLink}
+        ${stageChip}
         <li class="github-link">
           <a href="${githubLink}" target="_blank" rel="nofollow" aria-label="${langStrings[locale].github} ${langStrings[locale].newtab}">${langStrings[locale].github}</a>
-        </li>
+        </li> ${figmaLink}
       </ul>`;
   });
 

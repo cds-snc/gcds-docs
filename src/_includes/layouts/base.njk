@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>{{ title }}</title>
+        <title>{{ title }} - {{ base[locale].gcds }}</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <script type="module">
             import { defineCustomElements } from "{{ '/components/loader/index.es2017.js' | url }}";
@@ -18,7 +18,7 @@
         <link rel="stylesheet" href="{{ '/styles/prism.css' | url }}">
         <link rel="stylesheet" href="{{ '/styles/style.css' | url }}">
         <script src="{{ '/scripts/code-showcase.js' | url }}"></script>
-
+        <link rel="icon" type="image/png" sizes="96x96" href="{{ '/images/common/favicon-mobile.png' | url }}">
     </head>
     <body>
         <nav>

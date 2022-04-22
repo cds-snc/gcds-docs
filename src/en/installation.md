@@ -5,8 +5,8 @@ layout: "layouts/base.njk"
 eleventyNavigation:
     key: installationEN
     title: Installation
-    order: 100
-    hideMain: true
+    locale: en
+    order: 0
 onThisPage:
   0: Install from npm
   1: Supported frameworks

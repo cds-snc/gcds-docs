@@ -1,10 +1,12 @@
 module.exports = {
     en : {
         linkText: "Home",
-        url: "/en"
+        url: "/en",
+        breadcrumb: "breadcrumb"
     },
     fr: {
         linkText: "Accueil",
-        url: "/fr"
+        url: "/fr",
+        breadcrumb: "Fil d'Ariane"
     }
 }
