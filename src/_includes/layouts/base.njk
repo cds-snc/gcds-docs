@@ -39,5 +39,9 @@
         </div>
 
         {% include "partials/footer.njk" %}
+
+        {% if contactForm %}
+            {% include "partials/contactform.njk" %}
+        {% endif %}
     </body>
 </html>
