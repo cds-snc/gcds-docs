@@ -31,6 +31,8 @@ layout: "layouts/base.njk"
     </li>
 {%- endmacro %}
 
+<h2> {{ foundationsoverview[locale].elements }} </h2>
+
 {% set navPages = collections.all | eleventyNavigation(eleventyNavigation.key) %}
 <ul class="overview-list">
     {%- for entry in navPages %}
