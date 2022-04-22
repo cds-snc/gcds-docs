@@ -23,7 +23,7 @@ github: https://github.com/cds-snc/gcds-components/tree/main/src/components/gcds
 
 # Inputs
 
-`gcds-input'
+`<gcds-input>`
 
 {% docLinks locale stage figma github %}
 {% enddocLinks %}

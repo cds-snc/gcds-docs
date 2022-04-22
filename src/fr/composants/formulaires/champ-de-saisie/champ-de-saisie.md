@@ -23,7 +23,7 @@ github: https://github.com/cds-snc/gcds-components/tree/main/src/components/gcds
 
 # Champ de saisie
 
-`gcds-input'
+`<gcds-input>`
 
 {% docLinks locale stage figma github %}
 {% enddocLinks %}
@@ -32,9 +32,9 @@ github: https://github.com/cds-snc/gcds-components/tree/main/src/components/gcds
 
 ## Le champ de saisie de base
 
-Use an input to collect single-line information from a person. 
+On utilise les champs de saisie pour collecter des informations qui tiennent sur une ligne. 
 
-Inputs have built in states that change when someone interacts with that field: hover, focus, active, disabled. 
+Un champ de saisie peut avoir divers états : de survol <span lang="en">(hover)</span>, ciblé <span lang="en">(focus)</span>, actif <span lang="en">(active)</span> et désactivé <span lang="en">(disabled)</span>. Ces états changent quand une personne interagit avec le champ.
 
 ### Champ de type text
 
