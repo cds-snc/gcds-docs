@@ -1,13 +1,16 @@
 ---
 title: Bases
-layout: "layouts/documentation.njk"
+layout: "layouts/foundations-overview.njk"
 eleventyNavigation:
   key: foundationsFR
   title: Bases
   locale: fr
   order: 1
 translationKey: "foundatons"
+github: https://github.com/cds-snc/gcds-tokens
 ---
 
 # Bases
 
+{% docLinks locale stage figma github %}
+{% enddocLinks %}
