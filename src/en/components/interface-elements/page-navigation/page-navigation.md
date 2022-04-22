@@ -1,14 +1,14 @@
 ---
-title: Contextual navigation
+title: Page navigation
 layout: "layouts/documentation.njk"
 eleventyNavigation:
-  key: contextnavigationEN
-  title: Contextual navigation - coming soon
+  key: pagenavigationEN
+  title: Page navigation - coming soon
   locale: en
   parent: basicEN
   order: 3
   url: null
   hideMain: true
-translationKey: "contextnavigation"
+translationKey: "pagenavigation"
 permalink: false
 ---

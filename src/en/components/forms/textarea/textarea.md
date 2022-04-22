@@ -1,5 +1,5 @@
 ---
-title: Textarea
+title: Textarea - Components
 layout: "layouts/documentation.njk"
 eleventyNavigation:
   key: inputsEN

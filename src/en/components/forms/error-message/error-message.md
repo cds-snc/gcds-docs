@@ -1,5 +1,5 @@
 ---
-title: Error message
+title: Error message - Components
 layout: "layouts/documentation.njk"
 eleventyNavigation:
   key: errormessageEN

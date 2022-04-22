@@ -2,13 +2,13 @@
 title: Navigation contextuelle
 layout: "layouts/documentation.njk"
 eleventyNavigation:
-  key: contextnavigationFR
+  key: pagenavigationFR
   title: Navigation contextuelle  — à venir
   locale: fr
   parent: basicFR
   order: 3
   url: null
   hideMain: true
-translationKey: "contextnavigation"
+translationKey: "pagenavigation"
 permalink: false
 ---

@@ -1,5 +1,5 @@
 ---
-title: Forms guidance
+title: Forms guidance - Components
 layout: "layouts/documentation.njk"
 eleventyNavigation:
   key: formsguidanceEN

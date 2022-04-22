@@ -1,5 +1,5 @@
 ---
-title: Input
+title: Input - Components
 layout: "layouts/documentation.njk"
 eleventyNavigation:
   key: inputsEN

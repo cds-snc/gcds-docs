@@ -1,14 +1,14 @@
 ---
-title: Main navigation
+title: Site menu
 layout: "layouts/documentation.njk"
 eleventyNavigation:
-  key: mainnavigationEN
-  title: Main navigation - coming soon
+  key: sitemenuEN
+  title: Site menu - coming soon
   locale: en
   parent: basicEN
   order: 2
   url: null
   hideMain: true
-translationKey: "mainnavigation"
+translationKey: "sitemenu"
 permalink: false
 ---

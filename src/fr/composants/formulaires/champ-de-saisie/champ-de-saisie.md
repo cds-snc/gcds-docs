@@ -1,5 +1,5 @@
 ---
-title: Champ de saisie
+title: Champ de saisie - Composants
 layout: "layouts/documentation.njk"
 eleventyNavigation:
   key: inputsFR

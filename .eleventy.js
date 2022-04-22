@@ -53,7 +53,7 @@ module.exports = function (eleventyConfig) {
   let markdownLibrary = markdownIt({
     html: true,
     breaks: false,
-    linkify: true
+    linkify: false
   }).use(markdownAnchor);
   markdownLibrary.disable('blockquote');
   markdownLibrary.disable('code');

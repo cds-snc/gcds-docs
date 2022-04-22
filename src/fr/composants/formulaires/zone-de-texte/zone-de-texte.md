@@ -1,5 +1,5 @@
 ---
-title: Zone de texte
+title: Zone de texte - Composants
 layout: "layouts/documentation.njk"
 eleventyNavigation:
   key: textareaFR
