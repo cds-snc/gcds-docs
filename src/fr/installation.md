@@ -1,10 +1,10 @@
 ---
-title: Commencer
+title: Installation
 translationKey: installation
 layout: "layouts/base.njk"
 eleventyNavigation:
     key: installationFR
-    title: Commencer
+    title: Installation
     locale: fr
     order: 0
 onThisPage:
@@ -15,7 +15,7 @@ onThisPage:
   4: Vue 
 ---
 
-# Commencer
+# Installation
 
 ## Installer le paquet avec npm
 

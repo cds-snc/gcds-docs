@@ -5,7 +5,7 @@ layout: "layouts/base.njk"
 {{ content | safe }}
 
 {% macro renderNavListItem(entry) -%}
-    <li{% if entry.url == page.url %} class="my-active-class"{% endif %}>
+    <li>
     {% if entry.url %}
         <a href="{{ entry.url | url }}">{{ entry.title }}</a>
     {% else %}
