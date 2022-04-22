@@ -1,4 +1,5 @@
 import { Component, Element, Host, Prop, Watch, h } from '@stencil/core';
+import { assignLanguage } from '../../utils/utils';
 import { h2MenuAddUpDownArrowsToMainMenuItems, h2MenuTabOrder, h2MenuAddRightArrowToMainMenuItems, h2MenuEnableSubmenuTriggers, h2MenuAddMobileMenuTrigger, h2MenuAddPageAnchor } from "./utils/module";
 import I18N from './i18n/i18n';
 export class GcdsSiteMenu {
@@ -106,20 +107,7 @@ export class GcdsSiteMenu {
   }
   async componentWillLoad() {
     // Define lang attribute
-    if (!this.el.getAttribute("lang")) {
-      if (document.documentElement.getAttribute("lang") == "en" || !document.documentElement.getAttribute("lang")) {
-        this.lang = "en";
-      }
-      else {
-        this.lang = "fr";
-      }
-    }
-    else if (this.el.getAttribute("lang") == "en") {
-      this.lang = "en";
-    }
-    else {
-      this.lang = "fr";
-    }
+    this.lang = assignLanguage(this.el);
     this.validateDesktopLayout(this.menuDesktopLayout);
     this.validateMobileLayout(this.menuMobileLayout);
     // Add required attributes to slotted <ul>

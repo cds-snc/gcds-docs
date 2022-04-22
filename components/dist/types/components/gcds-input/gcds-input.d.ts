@@ -1,6 +1,7 @@
 import { EventEmitter } from '../../stencil-public-runtime';
 export declare class GcdsInput {
   el: HTMLElement;
+  private lang;
   /**
    * Input props
    */
@@ -62,5 +63,6 @@ export declare class GcdsInput {
     */
   gcdsChange: EventEmitter;
   handleChange(e: any): void;
+  componentWillLoad(): Promise<void>;
   render(): any;
 }

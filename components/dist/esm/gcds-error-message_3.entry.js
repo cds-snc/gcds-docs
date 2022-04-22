@@ -34,10 +34,28 @@ let GcdsLabel = class {
   constructor(hostRef) {
     registerInstance(this, hostRef);
   }
+  async componentWillLoad() {
+    // Define lang attribute
+    if (!this.el.getAttribute('lang')) {
+      if (document.documentElement.getAttribute('lang') == 'en' || !document.documentElement.getAttribute('lang')) {
+        this.lang = 'en';
+      }
+      else {
+        this.lang = 'fr';
+      }
+    }
+    else if (this.el.getAttribute('lang') == 'en') {
+      this.lang = 'en';
+    }
+    else {
+      this.lang = 'fr';
+    }
+  }
   render() {
-    const { hideLabel, labelFor, label, required } = this;
+    const { hideLabel, labelFor, label, required, lang } = this;
+    const requiredText = lang == "en" ? "required" : "obligatoire";
     return (h(Host, { id: `label-for-${labelFor}` }, h("label", { htmlFor: labelFor, class: `${hideLabel ? 'hidden' : ''} ${required ? 'required' : ''}` }, h("span", null, label), required ?
-      h("strong", { class: "required" }, "(required)")
+      h("strong", { class: "required" }, "(", requiredText, ")")
       : null)));
   }
   get el() { return getElement(this); }

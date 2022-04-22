@@ -1,18 +1,5 @@
 import { r as registerInstance, c as createEvent, h, H as Host, g as getElement } from './index-8d185c1e.js';
-
-const inheritAttributes = (el, attributes = []) => {
-  const attributeObject = {};
-  attributes.forEach(attr => {
-    if (el.hasAttribute(attr)) {
-      const value = el.getAttribute(attr);
-      if (value !== null) {
-        attributeObject[attr] = el.getAttribute(attr);
-      }
-      el.removeAttribute(attr);
-    }
-  });
-  return attributeObject;
-};
+import { i as inheritAttributes } from './utils-de8f53f8.js';
 
 const gcdsButtonCss = ":host button,:host a{border:none;cursor:pointer;padding:0.5rem 1rem;text-decoration:none;border-width:var(--custom-gcds-style-border-width);border-style:var(--custom-gcds-style-border-style);border-color:var(--custom-gcds-style-border-color);margin:var(--custom-gcds-style-margin);display:var(--custom-gcds-style-display);background-color:var(--custom-gcds-style-background-color);box-shadow:var(--custom-gcds-style-box-shadow);text-transform:var(--custom-gcds-style-text-transform)}:host button.primary.solid,:host a.primary.solid{background-color:var(--custom-gcds-style-background-color, var(--gcds-colour-base-blue-grey-900));color:var(--gcds-colour-utils-white)}:host button.secondary.solid,:host a.secondary.solid{background-color:var(--custom-gcds-style-background-color, var(--gcds-colour-base-grey-100));color:var(--gcds-colour-base-blue-grey-900)}:host button.destructive.solid,:host a.destructive.solid{background-color:var(--custom-gcds-style-background-color, var(--gcds-colour-base-red-500));color:var(--gcds-colour-utils-white)}:host button.skip-to-content,:host a.skip-to-content{left:0;position:absolute;text-align:center;top:10px;width:100%;z-index:3;clip:rect(1px,1px,1px,1px);height:1px;margin:0;overflow:hidden;position:absolute;width:1px}:host button.skip-to-content.solid,:host a.skip-to-content.solid{background-color:var(--custom-gcds-style-background-color, var(--gcds-colour-base-blue-grey-900));color:var(--gcds-colour-utils-white)}:host button.skip-to-content.solid:focus,:host button.skip-to-content.solid.focus,:host a.skip-to-content.solid:focus,:host a.skip-to-content.solid.focus{clip:rect(auto,auto,auto,auto);height:inherit;margin:inherit;overflow:inherit;position:static;width:inherit}:host button.skip-to-content.outline:focus,:host button.skip-to-content.outline.focus,:host a.skip-to-content.outline:focus,:host a.skip-to-content.outline.focus{clip:rect(auto,auto,auto,auto);height:inherit;margin:inherit;overflow:inherit;position:static;width:inherit}:host button.skip-to-content.text-only:focus,:host button.skip-to-content.text-only.focus,:host a.skip-to-content.text-only:focus,:host a.skip-to-content.text-only.focus{clip:rect(auto,auto,auto,auto);height:inherit;margin:inherit;overflow:inherit;position:static;width:inherit}";
 
@@ -62,7 +49,7 @@ let GcdsButton = class {
         }
       }
       // Has any inherited attributes changed on click
-      this.inheritedAttributes = inheritAttributes(this.el, ['aria-label', 'aria-expanded', 'aria-haspopup']);
+      this.inheritedAttributes = inheritAttributes(this.el, this.shadowElement, ['aria-label', 'aria-expanded', 'aria-haspopup', 'aria-controls']);
     };
     this.onFocus = () => {
       this.gcdsFocus.emit();
@@ -94,7 +81,7 @@ let GcdsButton = class {
     this.validateButtonType(this.buttonType);
     this.validateButtonRole(this.buttonRole);
     this.validateButtonStyle(this.buttonStyle);
-    this.inheritedAttributes = inheritAttributes(this.el, ['aria-label', 'aria-expanded', 'aria-haspopup']);
+    this.inheritedAttributes = inheritAttributes(this.el, this.shadowElement, ['aria-label', 'aria-expanded', 'aria-haspopup', 'aria-controls']);
   }
   componentDidLoad() {
     const Tag = this.buttonType != 'link' ? 'button' : 'a';

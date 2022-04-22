@@ -1,7 +1,4 @@
-export function format(label) {
-  return (label ? ` ${label}` : 'Fallback Button Label');
-}
-export const inheritAttributes = (el, shadowElement, attributes = []) => {
+const inheritAttributes = (el, shadowElement, attributes = []) => {
   const attributeObject = {};
   attributes.forEach(attr => {
     if (el.hasAttribute(attr) || (shadowElement && shadowElement.hasAttribute(attr))) {
@@ -14,7 +11,7 @@ export const inheritAttributes = (el, shadowElement, attributes = []) => {
   });
   return attributeObject;
 };
-export const assignLanguage = (el) => {
+const assignLanguage = (el) => {
   let lang = "";
   if (!el.getAttribute('lang')) {
     if (document.documentElement.getAttribute('lang') == 'en' || !document.documentElement.getAttribute('lang')) {
@@ -32,3 +29,5 @@ export const assignLanguage = (el) => {
   }
   return lang;
 };
+
+export { assignLanguage as a, inheritAttributes as i };

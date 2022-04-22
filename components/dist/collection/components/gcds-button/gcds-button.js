@@ -43,7 +43,7 @@ export class GcdsButton {
         }
       }
       // Has any inherited attributes changed on click
-      this.inheritedAttributes = inheritAttributes(this.el, ['aria-label', 'aria-expanded', 'aria-haspopup']);
+      this.inheritedAttributes = inheritAttributes(this.el, this.shadowElement, ['aria-label', 'aria-expanded', 'aria-haspopup', 'aria-controls']);
     };
     this.onFocus = () => {
       this.gcdsFocus.emit();
@@ -75,7 +75,7 @@ export class GcdsButton {
     this.validateButtonType(this.buttonType);
     this.validateButtonRole(this.buttonRole);
     this.validateButtonStyle(this.buttonStyle);
-    this.inheritedAttributes = inheritAttributes(this.el, ['aria-label', 'aria-expanded', 'aria-haspopup']);
+    this.inheritedAttributes = inheritAttributes(this.el, this.shadowElement, ['aria-label', 'aria-expanded', 'aria-haspopup', 'aria-controls']);
   }
   componentDidLoad() {
     const Tag = this.buttonType != 'link' ? 'button' : 'a';

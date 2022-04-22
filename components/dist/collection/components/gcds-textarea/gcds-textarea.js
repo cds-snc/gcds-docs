@@ -1,4 +1,5 @@
 import { Component, Element, Event, Host, Prop, h } from '@stencil/core';
+import { assignLanguage } from '../../utils/utils';
 export class GcdsTextarea {
   constructor() {
     /**
@@ -23,23 +24,10 @@ export class GcdsTextarea {
   }
   async componentWillLoad() {
     // Define lang attribute
-    if (!this.el.getAttribute('lang')) {
-      if (document.documentElement.getAttribute('lang') == 'en' || !document.documentElement.getAttribute('lang')) {
-        this.lang = 'en';
-      }
-      else {
-        this.lang = 'fr';
-      }
-    }
-    else if (this.el.getAttribute('lang') == 'en') {
-      this.lang = 'en';
-    }
-    else {
-      this.lang = 'fr';
-    }
+    this.lang = assignLanguage(this.el);
   }
   render() {
-    const { cols, disabled, errorMessage, hideLabel, hint, label, required, rows, textareaCharacterCount, textareaId, value } = this;
+    const { cols, disabled, errorMessage, hideLabel, hint, label, required, rows, textareaCharacterCount, textareaId, value, lang } = this;
     const attrsLabel = {
       label,
       required,
@@ -52,7 +40,7 @@ export class GcdsTextarea {
     };
     return (h(Host, null,
       h("fieldset", { class: `${disabled ? 'disabled' : ''} ${errorMessage ? 'error' : ''}` },
-        h("gcds-label", Object.assign({}, attrsLabel, { "hide-label": hideLabel, "label-for": textareaId })),
+        h("gcds-label", Object.assign({}, attrsLabel, { "hide-label": hideLabel, "label-for": textareaId, lang: lang })),
         hint ? h("gcds-hint", { hint: hint, "hint-id": textareaId }) : null,
         errorMessage ?
           h("gcds-error-message", { "message-id": textareaId, message: errorMessage })

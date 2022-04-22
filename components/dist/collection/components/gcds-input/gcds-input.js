@@ -1,4 +1,5 @@
 import { Component, Element, Event, Host, Prop, h } from '@stencil/core';
+import { assignLanguage } from '../../utils/utils';
 export class GcdsInput {
   constructor() {
     /**
@@ -24,8 +25,12 @@ export class GcdsInput {
     this.value = val;
     this.gcdsChange.emit(this.value);
   }
+  async componentWillLoad() {
+    // Define lang attribute
+    this.lang = assignLanguage(this.el);
+  }
   render() {
-    const { disabled, errorMessage, hideLabel, hint, inputId, label, required, size, type, value } = this;
+    const { disabled, errorMessage, hideLabel, hint, inputId, label, required, size, type, value, lang } = this;
     const attrsInput = {
       disabled,
       required,
@@ -39,7 +44,7 @@ export class GcdsInput {
     };
     return (h(Host, null,
       h("fieldset", { class: `${disabled ? 'disabled' : ''} ${errorMessage ? 'error' : ''}` },
-        h("gcds-label", Object.assign({}, attrsLabel, { "hide-label": hideLabel, "label-for": inputId })),
+        h("gcds-label", Object.assign({}, attrsLabel, { "hide-label": hideLabel, "label-for": inputId, lang: lang })),
         hint ? h("gcds-hint", { hint: hint, "hint-id": inputId }) : null,
         errorMessage ?
           h("gcds-error-message", { "message-id": inputId, message: errorMessage })

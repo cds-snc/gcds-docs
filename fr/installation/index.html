@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Installation</title>
+        <title>Installation - Système de design GC</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <script type="module">
             import { defineCustomElements } from "/gcds-docs/components/loader/index.es2017.js";
@@ -13,7 +13,7 @@
         <link rel="stylesheet" href="/gcds-docs/styles/prism.css">
         <link rel="stylesheet" href="/gcds-docs/styles/style.css">
         <script src="/gcds-docs/scripts/code-showcase.js"></script>
-
+        <link rel="icon" type="image/png" sizes="96x96" href="/gcds-docs/images/common/favicon-mobile.png">
     </head>
     <body>
         <nav>
@@ -55,6 +55,12 @@
             
             
                 
+                
+                    
+                    
+                
+                    
+                    
                 
                     
                     
@@ -184,6 +190,12 @@
                     
                     
                 
+                    
+                    
+                
+                    
+                    
+                
 
                 <li>
                     <a href="/gcds-docs/en/installation/" lang="en">
@@ -212,10 +224,26 @@
 <gcds-site-menu menu-alignment="right" class="header__nav">
     <a href="/gcds-docs/fr" class="home-link" slot="left">Système de design</a>
     <ul >
+    <li class="my-active-class">
+    
+        <a href="/gcds-docs/fr/installation/"  aria-current="page"  >Installation</a>
+    </li>
+
     <li>
     
         <a href="/gcds-docs/fr/bases/"  >Bases</a>
+    <ul>
+            
+    <li>
+    
+        <a href="/gcds-docs/fr/bases/typography/"  >Typography</a>
     </li>
+
+        
+            
+        
+            
+        </ul></li>
 
     <li>
     
@@ -293,7 +321,7 @@
 
     
     
-    <nav aria-label="breadcrumb" class="container breadcrumb">
+    <nav aria-label="Fil d&#39;Ariane" class="container breadcrumb">
         <ol>
             <li>
                 <a href=/gcds-docs/fr>Accueil</a>
@@ -313,17 +341,17 @@
         <div class="container sidebar-layout">
             
                 <aside>
-    <nav aria-label="On this page" class="context-menu">
-        <h2>On this page</h2>
+    <nav aria-label="Dans cette page" class="context-menu">
+        <h2>Dans cette page</h2>
         
         <ul>
             
                 <li>
-                    <a href="#install-from-npm">Install from npm</a>
+                    <a href="#installer-le-paquet-avec-npm">Installer le paquet avec npm</a>
                 </li>
             
                 <li>
-                    <a href="#supported-frameworks">Supported frameworks</a>
+                    <a href="#cadres-dapplication-pris-en-charge">Cadres d&#39;application pris en charge</a>
                 </li>
             
                 <li>
@@ -345,6 +373,37 @@
 
             <main id="content">
                 <h1>Installation</h1>
+        <h2 id="installer-le-paquet-avec-npm">
+            <a class="anchor-link" href="#installer-le-paquet-avec-npm">Installer le paquet avec npm
+            </a>
+        </h2><pre class="language-js"><code class="language-js">npm install gcds<span class="token operator">-</span>components</code></pre>
+
+        <h2 id="cadres-dapplication-pris-en-charge">
+            <a class="anchor-link" href="#cadres-dapplication-pris-en-charge">Cadres d'application pris en charge
+            </a>
+        </h2><p>La bibliothèque gcds-components fonctionne sous plusieurs cadres d'application.</p>
+
+        <h3 id="javascript">
+            <a class="anchor-link" href="#javascript">Javascript
+            </a>
+        </h3><p>Insérez le code qui suit à l'intérieur de la balise <code>&lt;head&gt;</code> de votre site.</p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>module<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript"><br>    <span class="token keyword">import</span> <span class="token punctuation">{</span> defineCustomElements <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'/node_modules/gcds-components/loader/index.es2017.mjs'</span><span class="token punctuation">;</span><br>    <span class="token function">defineCustomElements</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>link</span> <span class="token attr-name">rel</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>stylesheet<span class="token punctuation">"</span></span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>/node_modules/gcds-components/dist/gcds/gcds.css<span class="token punctuation">"</span></span><span class="token punctuation">></span></span></code></pre>
+<p>Vous devriez maintenant pouvoir utiliser tous les composants de gcds-components sur votre site.</p>
+
+        <h3 id="react">
+            <a class="anchor-link" href="#react">React
+            </a>
+        </h3><p>Insérez le code qui suit dans le fichier <code>index.js</code> de votre application.</p>
+<pre class="language-jsx"><code class="language-jsx"><span class="token keyword">import</span> <span class="token punctuation">{</span> applyPolyfills<span class="token punctuation">,</span> defineCustomElements <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'gcds-components/loader'</span><span class="token punctuation">;</span><br><span class="token keyword">import</span> <span class="token string">'gcds-components/dist/gcds/gcds.css'</span><span class="token punctuation">;</span><br><br>ReactDOM<span class="token punctuation">.</span><span class="token function">render</span><span class="token punctuation">(</span><span class="token operator">...</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br><br><span class="token function">applyPolyfills</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span><br>  <span class="token function">defineCustomElements</span><span class="token punctuation">(</span>window<span class="token punctuation">)</span><span class="token punctuation">;</span><br><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br></code></pre>
+<p>Vous devriez maintenant pouvoir utiliser tous les composants de gcds-components dans votre application React.</p>
+
+        <h3 id="vue">
+            <a class="anchor-link" href="#vue">Vue
+            </a>
+        </h3><p>Insérez le code qui suit dans le fichier <code>main.js</code> de votre application.</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">import</span> <span class="token punctuation">{</span> applyPolyfills<span class="token punctuation">,</span> defineCustomElements <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'gcds-components/loader'</span><span class="token punctuation">;</span><br><span class="token keyword">import</span> <span class="token string">'gcds-components/dist/gcds/gcds.css'</span><span class="token punctuation">;</span><br><br><span class="token function">applyPolyfills</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span><br>  <span class="token function">defineCustomElements</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>Vous devriez maintenant pouvoir utiliser tous les composants de gcds-components dans votre application Vue.</p>
+
             </main>
         </div>
 
