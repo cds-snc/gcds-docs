@@ -6,7 +6,7 @@ eleventyNavigation:
   title: Header - coming soon
   locale: en
   parent: basicEN
-  order: 3
+  order: 4
   url: null
   hideMain: true
 translationKey: "header"

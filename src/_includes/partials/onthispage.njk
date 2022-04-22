@@ -1,6 +1,6 @@
 <aside>
-    <nav aria-label="On this page" class="context-menu">
-        <h2>On this page</h2>
+    <nav aria-label="{{ onthispage[locale].heading }}" class="context-menu">
+        <h2>{{ onthispage[locale].heading }}</h2>
         {% set onthispage = onThisPage | onThisPage %}
         <ul>
             {% for key, item in onthispage %}

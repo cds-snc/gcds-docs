@@ -6,7 +6,7 @@ eleventyNavigation:
   title: Buttons
   locale: en
   parent: basicEN
-translationKey: "buttons"
+translationKey: "button"
 onThisPage:
   0: Use the basic button component
   1: Customize a button

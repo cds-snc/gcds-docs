@@ -1,6 +1,6 @@
 {% if eleventyNavigation %}
     {% set navPages = collections.all | getBreadcrumbs(eleventyNavigation.key) %}
-    <nav aria-label="breadcrumb" class="container breadcrumb">
+    <nav aria-label="{{ breadcrumbs[locale].breadcrumb }}" class="container breadcrumb">
         <ol>
             <li>
                 <a href={{ breadcrumbs[locale].url | url }}>{{ breadcrumbs[locale].linkText }}</a>
