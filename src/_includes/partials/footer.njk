@@ -2,7 +2,7 @@
     <div class="container footer__container">
         <ul>
         {% if locale == "en" %}
-            {% for links in collections.footerEn %}
+            {% for links in collections.footerEn | reverse %}
                 <li><a href={{links.url | url}}>{{links.data.title}}</a></li>
             {% endfor %}
         {% else %}

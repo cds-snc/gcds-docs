@@ -1,13 +1,13 @@
 ---
-title: Privacy
+title: Confidentialité
 translationKey: privacypolicy
 layout: "layouts/base.njk"
-tags: footerEn
+tags: footerFr
 eleventyNavigation:
-    key: privacypolicyEN
-    title: Privacy
+    key: privacypolicyFR
+    title: Confidentialité
     order: 100
     hideMain: true
 ---
 
-# Privacy policy
+# Confidentialité
