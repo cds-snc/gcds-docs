@@ -1,9 +1,11 @@
 ---
-title: merci
+title: Merci de nous avoir contactés!
 layout: "layouts/base.njk"
 eleventyExcludeFromCollections: true
 ---
 
-# Merci
+# Merci de nous avoir contactés!
 
-[Accueil]({{ "/fr" | url }})
+Nous avons bien reçu votre message. Nous vous répondrons sous peu.
+
+Merci pour vos commentaires et vos questions.

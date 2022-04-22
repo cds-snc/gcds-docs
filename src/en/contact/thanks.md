@@ -1,9 +1,11 @@
 ---
-title: Thank you for contacting us
+title: Thank you for reaching out!
 layout: "layouts/base.njk"
 eleventyExcludeFromCollections: true
 ---
 
-# Thank you for contacting us
+# Thank you for reaching out!
 
-[Return to home]({{ "/en" | url }})
+We’ve received your message. A team member will get back to you shortly.
+
+We appreciate your feedback and questions.
