@@ -6,8 +6,6 @@ translationKey: "index"
 redirect_from: /
 ---
 
-# Homepage title
-
 <header>
 
 WELCOME
