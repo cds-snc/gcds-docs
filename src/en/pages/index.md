@@ -4,36 +4,30 @@ layout: "layouts/base.njk"
 permalink: /en/
 translationKey: "index"
 redirect_from: /
+onThisPage:
+  0: Public servants building modern, accessible, beautiful government services
+  1: Ship modern products faster with less work
+  2: An accessible, seamless Canada.ca
+  3: Human-centred design
+  4: Grow your skills and knowledge in the open
+  5: Unified guidance
+  6: Codified decisions
+  7: Component library
+  8: Design tooling
+  9: Enabling thoughtful design in small teams
+  10: Get a head start
+  11: Quick links
 ---
 
 <header>
 
-WELCOME
-
-# The Government of Canada Design System
+# The Government of Canada Design System 
 
 </header>
 
-## Quick Links
-
-<ul>
-    <li>
-        <a href="{{ "/en/components/forms/forms-guidance/" | url }}">Form design</a>
-    </li>
-    <li>
-        <a href="https://github.com/cds-snc/gcds-components">GitHub repo</a>
-    </li>
-    <li>
-        <a href="{{ "/en/foundations/typography" | url }}">Typography</a>
-    </li>
-    <li>
-        <a href="{{ "/en/contact" | url }}">Contact us</a>
-    </li>
-</ul>
-
 ## Public servants building modern, accessible, beautiful government services
 
-### Ship modern products faster with less work
+### Ship modern products faster with less work 
 
 Spend less time doing repetitive work and more time shipping a product that meets the needs of people using your service.
 
@@ -76,5 +70,22 @@ We want to work with you, federal public servants on web and digital product tea
 ## Get a head start
 
 We’ve assembled guidance for each component so you’re caught up on Government of Canada required reading. Hop into the design system’s documentation to explore at your own speed.
+
+## Quick Links
+
+<ul>
+    <li>
+        <a href="{{ "/en/components/forms/forms-guidance/" | url }}">Form design</a>
+    </li>
+    <li>
+        <a href="https://github.com/cds-snc/gcds-components">GitHub repo</a>
+    </li>
+    <li>
+        <a href="{{ "/en/foundations/typography" | url }}">Typography</a>
+    </li>
+    <li>
+        <a href="{{ "/en/contact" | url }}">Contact us</a>
+    </li>
+</ul>
 
 
