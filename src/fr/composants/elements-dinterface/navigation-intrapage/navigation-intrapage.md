@@ -1,9 +1,9 @@
 ---
-title: Navigation contextuelle
+title: Navigation intrapage
 layout: "layouts/documentation.njk"
 eleventyNavigation:
   key: pagenavigationFR
-  title: Navigation contextuelle  — à venir
+  title: Navigation intrapage  — à venir
   locale: fr
   parent: basicFR
   order: 3
