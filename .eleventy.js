@@ -132,8 +132,7 @@ module.exports = function (eleventyConfig) {
     }
     return `
       <ul class="doc-links">
-        ${stageChip}
-        <li class="github-link">
+        ${stageChip} <li class="github-link">
           <a href="${githubLink}" target="_blank" rel="nofollow" aria-label="${langStrings[locale].github} ${langStrings[locale].newtab}">${langStrings[locale].github}</a>
         </li> ${figmaLink}
       </ul>`;

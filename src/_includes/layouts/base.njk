@@ -20,7 +20,7 @@
             <gcds-button
                 button-type="link"
                 button-role="skip-to-content"
-                href="#content"
+                href="#mc"
             >
                 {{ base[locale].skipTo }}
             </gcds-button>
@@ -33,7 +33,7 @@
                 {% include "partials/onthispage.njk" %}
             {% endif %}
 
-            <main id="content">
+            <main id="mc">
                 {{ content | safe }}
             </main>
         </div>
