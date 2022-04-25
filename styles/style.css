@@ -14,6 +14,7 @@ body {
   flex-direction: column;
   font-size: 18px;
   color: #000;
+  font-family: "Lato", sans-serif;
 }
 
 .container {
@@ -97,32 +98,49 @@ h3 > a.anchor-link:focus {
  * Banner
  */
 .banner {
-  font-size: 14px;
-  padding: 8px;
-  background-color: #26374A;
-  color: #FFF;
+  padding: 14px 0;
+  background-color: #26374a;
+  color: #fff;
 }
 
 .banner p {
+  font-size: 16px;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
+}
+
+.banner p span {
+  display: block;
+}
+
+.banner .banner__icon {
+  font-size: 14px;
+  display: block;
+  width: fit-content;
+  height: fit-content;
+  font-weight: 700;
+  text-align: center;
+  margin: 0 24px 0 0;
+  padding: 4px 9px;
+  text-transform: uppercase;
+  border: 2px solid #fff;
+  color: #fff;
 }
 
 @media only screen and (max-width: 530px) {
   .banner p {
     align-items: flex-start;
+    flex-direction: column;
   }
-}
 
-.banner .banner__icon {
-  display: inline-block;
-  font-weight: 700;
-  text-align: center;
-  margin: 0 10px 0 0;
-  padding: 4px 8px;
-  background-color: #FFF;
-  color: #000;
+  .banner p span {
+    margin-top: 0.5rem;
+  }
+
+  .banner .banner__icon {
+    padding: 4px 9px;
+  }
 }
 
 /*
@@ -186,7 +204,6 @@ aside {
 
 @media screen and (min-width: 64rem) {
   body > div.sidebar-layout {
-
   }
   div.sidebar-layout > aside {
     display: inline-block;
@@ -231,7 +248,7 @@ body > div.sidebar-layout,
  */
 
 .footer {
-  background-color: #EDEDED;
+  background-color: #ededed;
 }
 
 .footer__container {
@@ -277,12 +294,11 @@ body > div.sidebar-layout,
   border-bottom: 1px solid #000;
 }
 
-
 /*
  * Code showcase
  */
 
-.code-showcase > div.showcase[aria-hidden=true] {
+.code-showcase > div.showcase[aria-hidden="true"] {
   display: none;
   visibility: hidden;
 }
@@ -296,63 +312,59 @@ body > div.sidebar-layout,
  * Documentation links
  */
 
- ul.doc-links li {
+ul.doc-links li {
   display: inline-block;
   margin: 0 1rem 0 0;
- }
+}
 
- .doc-links .stage-chip span {
+.doc-links .stage-chip span {
   border: 1px solid #24384f;
   vertical-align: middle;
- }
+}
 
- .doc-links .stage-chip span:first-of-type {
+.doc-links .stage-chip span:first-of-type {
   color: white;
   background-color: #24384f;
   border-top-left-radius: 20px;
   border-bottom-left-radius: 20px;
   padding: 3px 5px 3px 12px;
- }
- .doc-links .stage-chip span:last-of-type {
+}
+.doc-links .stage-chip span:last-of-type {
   border: 1px solid #24384f;
   border-top-right-radius: 20px;
   border-bottom-right-radius: 20px;
   padding: 3px 12px 3px 5px;
- }
+}
 
- ul.doc-links li.figma-link:before,
- ul.doc-links li.github-link:before {
+ul.doc-links li.figma-link:before,
+ul.doc-links li.github-link:before {
   content: "";
   height: 1.5rem;
   vertical-align: middle;
   width: 1.5rem;
   display: inline-block;
   background-size: cover;
- }
+}
 
- ul.doc-links li.figma-link:before {
+ul.doc-links li.figma-link:before {
   background-image: url("/images/common/figma_icon.svg");
- }
+}
 
- ul.doc-links li.github-link:before {
+ul.doc-links li.github-link:before {
   background-image: url("/images/common/github_icon.svg");
- }
+}
 
 /*
  * Misc
  */
 
- ul.overview-list {
+ul.overview-list {
   list-style: none;
- }
+}
 
 a.home-link {
-  padding: 1rem 1.5rem 1rem 0;
-  color: #000;
-  font-size: 1rem;
-}
-@media screen and (min-width: 64rem) {
-  a.home-link {
-    padding: 1rem 1.5rem;
-  }
+  padding: 1rem 1.5rem;
+  color: #000000;
+  font-size: 1.125rem;
+  margin-left: -1.5rem;
 }
