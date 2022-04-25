@@ -1,15 +1,12 @@
 <footer class="footer">
     <div class="container footer__container">
         <ul>
-        {% if locale == "en" %}
-            {% for links in collections.footerEn | reverse %}
-                <li><a href={{links.url | url}}>{{links.data.title}}</a></li>
-            {% endfor %}
-        {% else %}
-            {% for links in collections.footerFr %}
-                <li><a href={{links.url | url}}>{{links.data.title}}</a></li>
-            {% endfor %}
-        {% endif %}
+            <li>
+                <a href="{{ footer[locale].termsurl }}" target="_blank" aria-label="{% if locale == "en" %}Terms and conditions (Opens in a new tab){% else %}Avis (S'ouvre dans un nouvel onglet){% endif %}">{{ footer[locale].terms }}</a>
+            </li>
+            <li>
+                <a href="{{ footer[locale].privacyurl }}" target="_blank" aria-label="{% if locale == "en" %}Privacy (Opens in a new tab){% else %}Confidentialité (S'ouvre dans un nouvel onglet){% endif %}">{{ footer[locale].privacy }}</a>
+            </li>
             <li>
                 <a href="https://www.canada.ca/" target="_blank" aria-label="{% if locale == "en" %}Canada.ca site (Opens in a new tab){% else %}Site Web Canada.ca (S'ouvre dans un nouvel onglet){% endif %}">Canada.ca</a>
             </li>
