@@ -1,21 +1,8 @@
 ---
 title: Home
-layout: "layouts/base.njk"
+layout: "layouts/no-aside.njk"
 permalink: /fr/
 translationKey: "index"
-onThisPage:
-  0: Liens rapides
-  1: Vers la création de services fédéraux modernes, accessibles et esthétiques
-  2: Créez des produits modernes rapidement et facilement
-  3: Tirez profit d'un site Canada.ca accessible
-  4: Placez l'humain au centre de votre conception
-  5: Développez votre savoir-faire avec la communauté
-  6: Toute l’info sur les composants
-  7: Décisions codifiées
-  8: Bibliothèque de composants
-  9: Ressources de design
-  10: Les bons outils pour une conception réfléchie
-  11: Partez avec une longueur d’avance
 ---
 
 <header>
@@ -33,7 +20,7 @@ BIENVENUE
         <a href="{{ "/fr/composants/formulaires/aide-a-la-conception/" | url }}">Design de formulaires</a>
     </li>
     <li>
-        <a href="https://github.com/cds-snc/gcds-components">Dépôt GitHub</a>
+        <a target="blank_" aria-label="{% if locale == "en" %}Github.com site (Opens in a new tab){% else %}Site Web Github.com (S'ouvre dans un nouvel onglet){% endif %}" href="https://github.com/cds-snc/gcds-components">Dépôt GitHub</a>
     </li>
     <li>
         <a href="{{ "/fr/bases/typography/" | url }}">Typographie</a>

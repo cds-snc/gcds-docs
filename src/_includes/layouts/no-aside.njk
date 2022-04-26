@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="{{ locale }}">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>{{ title }} - {{ base[locale].gcds }}</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script type="module">
+            import { defineCustomElements } from "{{ '/components/loader/index.es2017.js' | url }}";
+            defineCustomElements();
+        </script>
+        
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+        
+        <link rel="stylesheet" href="{{ '/components/dist/gcds/gcds.css' | url }}">
+        <link rel="stylesheet" href="{{ '/styles/prism.css' | url }}">
+        <link rel="stylesheet" href="{{ '/styles/style.css' | url }}">
+        <script src="{{ '/scripts/code-showcase.js' | url }}"></script>
+        <link rel="icon" type="image/png" sizes="96x96" href="{{ '/images/common/favicon-mobile.png' | url }}">
+    </head>
+    <body>
+        <nav>
+            <gcds-button
+                button-type="link"
+                button-role="skip-to-content"
+                href="#content"
+            >
+                {{ base[locale].skipTo }}
+            </gcds-button>
+        </nav>
+
+        {% include "partials/header.njk" %}
+
+        <div class="container">
+            <main id="content" class="no-aside">
+                {{ content | safe }}
+            </main>
+        </div>
+
+        {% include "partials/footer.njk" %}
+
+        {% if contactForm %}
+            {% include "partials/contactform.njk" %}
+        {% endif %}
+    </body>
+</html>

@@ -1,22 +1,9 @@
 ---
 title: Home
-layout: "layouts/base.njk"
+layout: "layouts/no-aside.njk"
 permalink: /en/
 translationKey: "index"
 redirect_from: /
-onThisPage:
-  0: Quick links
-  1: Public servants building modern, accessible, beautiful government services
-  2: Ship modern products faster with less work
-  3: An accessible, seamless Canada.ca
-  4: Human-centred design
-  5: Grow your skills and knowledge in the open
-  6: Unified guidance
-  7: Codified decisions
-  8: Component library
-  9: Design tooling
-  10: Enabling thoughtful design in small teams
-  11: Get a head start
 ---
 
 <header>
@@ -33,7 +20,7 @@ WELCOME
         <a href="{{ "/en/components/forms/forms-guidance/" | url }}">Form design</a>
     </li>
     <li>
-        <a href="https://github.com/cds-snc/gcds-components">GitHub repo</a>
+        <a target="_blank" aria-label="{% if locale == "en" %}Github.com site (Opens in a new tab){% else %}Site Web Github.com (S'ouvre dans un nouvel onglet){% endif %}" href="https://github.com/cds-snc/gcds-components">GitHub repo</a>
     </li>
     <li>
         <a href="{{ "/en/foundations/typography" | url }}">Typography</a>
