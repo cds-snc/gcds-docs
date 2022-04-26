@@ -1,6 +1,6 @@
 ---
 title: Home
-layout: "layouts/base.njk"
+layout: "layouts/home.njk"
 permalink: /en/
 translationKey: "index"
 redirect_from: /
@@ -21,7 +21,7 @@ WELCOME
         <a href="{{ "/en/components/forms/forms-guidance/" | url }}">Form design</a>
     </li>
     <li>
-        <a href="https://github.com/cds-snc/gcds-components">GitHub repo</a>
+        <a target="_blank" aria-label="Github.com site (Opens in a new tab)" href="https://github.com/cds-snc/gcds-components">GitHub repo</a>
     </li>
     <li>
         <a href="{{ "/en/foundations/typography" | url }}">Typography</a>
@@ -76,4 +76,3 @@ We want to work with you, federal public servants on web and digital product tea
 ## Get a head start
 
 We’ve assembled guidance for each component so you’re caught up on Government of Canada required reading. Hop into the design system’s documentation to explore at your own speed.
-

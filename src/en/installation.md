@@ -39,7 +39,7 @@ Place the following code in the `<head>` element of your site.
 <link rel="stylesheet" href="/node_modules/gcds-components/dist/gcds/gcds.css">
 ```
 
-All gcds-components should now be ready to use in your site.
+All gcds-components should now be ready to use in your site. 
 
 ### React
 
