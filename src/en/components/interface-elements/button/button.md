@@ -30,6 +30,8 @@ A button is an interactive object that highlights an important or common action 
 
 </header>
 
+<section aria-label="The basic button component">
+
 ## The basic button component
 
 Use buttons for user-led actions.
@@ -148,6 +150,10 @@ Use it to help a person avoid tabbing or scrolling uneccesarily.
 
 {% endviewCode %}
 
+</section>
+
+<section aria-label="How to modify the button component">
+
 ## How to modify the button component
 
 Occasionally, the default options may not meet the needs of the people using your product. You can modify the button component to create a custom button for a particular use case.
@@ -187,6 +193,10 @@ Icons can be a helpful visual aid when used sparingly and predictably. Avoid usi
 
 Select typography tokens from the GC Design System [foundations]({{ "/en/foundations" | url }}). Colour and spacing tokens coming soon!
 
+</section>
+
+<section aria-label="What problems buttons solve">
+
 ## What problems buttons solve
 
 Use a button for important user-led actions like:
@@ -204,11 +214,19 @@ In apps, buttons replace text links for things like:
 - controlling movement, like going from one screen to another in a flow
 - external links (in a way that lets someone know they’re external)
 
+</section>
+
+<section aria-label="Related components">
+
 ## Related components
 
 **Radio buttons or dropdowns** when you can give someone a set of options for single selections.
 
 **Checkboxes** when you can give someone a set of options for multi selections.
+
+</section>
+
+<section aria-label="Where to place a button">
 
 ## Where to place a button
 
@@ -223,6 +241,10 @@ Check the button border’s visibility against the surface where you’re placin
 Let a person skip a cluster of navigation links with the skip-to-content button.
 
 To avoid covering up content, configure the button to push down content so it’s not floating, For desktop, place skip-to-content button at top left of the page so it doesn’t interrupt the flow.
+
+</section>
+
+<section aria-label="How to write a good button label">
 
 ## How to write a good button label
 
@@ -239,3 +261,5 @@ Keep label text unique to each button on a page. When you re-use labels, a perso
 Avoid closely resembling language constructions across buttons, like sign up and sign in. Labels that are vague or closely resemble other labels make it difficult for someone to accomplish their task.
 
 Avoid using common verb phrases or expressions that may be unfamiliar to non-fluent speakers.
+
+</section>

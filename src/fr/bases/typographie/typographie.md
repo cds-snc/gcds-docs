@@ -25,6 +25,8 @@ La typographie est la façon de présenter du texte. Elle englobe les polices, l
 
 </header>
 
+<section aria-label="Jetons de design de la typographie">
+
 ## Jetons de design de la typographie
 
 Les polices par défaut et les paramètres de style de taille rendent les produits numériques réactifs, prévisibles et lisibles sur tous les appareils et toutes les plateformes.
@@ -57,6 +59,10 @@ Les tailles de police sont configurées au moyen d’unités rem. Elles sont tou
 | Paragraphe  | Noto sans  | 1.25  | 20  | Normal  |
 | monospace  | Menlo  | 1.11  | 17  | Normal  |
 
+</section>
+
+<section aria-label="Directives sur l’utilisation de la typographie">
+
 ## Directives sur l’utilisation de la typographie
 
 ### Longueur et hauteur de ligne
@@ -74,3 +80,5 @@ Certains composants utilisent des tailles de police, des couleurs et des espacem
 Le système de design fournit des composants, des modèles et des styles qui répondent à la plupart des besoins de conception. Vous pourriez toutefois avoir besoin d’utiliser une typographie personnalisée dans certains cas.
 
 Vous pouvez donc contribuer au système de conception ou le modifier dans le [dépôt de jetons de design sur GitHub](https://github.com/cds-snc/gcds-tokens).
+
+</section>

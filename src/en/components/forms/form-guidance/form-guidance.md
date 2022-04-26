@@ -23,6 +23,8 @@ Forms collect information for things like file creation and records maintenance.
 
 </header>
 
+<section aria-label="Make forms less daunting">
+
 ## Make forms less daunting
 
 Your goal is to make forms less intimidating and frustrating. Help a person achieve their goal without working too hard for it or getting stuck.
@@ -63,6 +65,10 @@ Your goal is to make forms less intimidating and frustrating. Help a person achi
 
 {% endviewCode %}
 
+</section>
+
+<section aria-label="Provide a clear path to completion">
+
 ## Provide a clear path to completion
 
 ### Only select the form fields you need
@@ -90,6 +96,10 @@ Make your form elements work together so the person filling the form has a clear
 Group common elements together into categories and break the form up into steps. Understand the relationship and dependencies between form components.
 
 Keep to one thing per page. One-page forms work well for a single task like a contact us. For a longer form, allocate a page to each common category or sub-task.
+
+</section>
+
+<section aria-label="Make the form easy to understand">
 
 ## Make the form easy to understand
 
@@ -130,6 +140,10 @@ Avoid disabling interface elements, like inputs, text areas and buttons. If you 
 ### A note on ordering
 
 Order fields to gradually introduce a more complex task. Order fields by easiest to most difficult to put people at ease when sharing sensitive information.
+
+</section>
+
+<section aria-label="Give clear interaction feedback">
 
 ## Give clear interaction feedback
 
@@ -174,3 +188,5 @@ Have a strong rationale for keeping an optional field on a form or remove it alt
 ```
 
 {% endviewCode %}
+
+</section>

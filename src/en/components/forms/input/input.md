@@ -30,6 +30,8 @@ github: https://github.com/cds-snc/gcds-components/tree/main/src/components/gcds
 
 </header>
 
+<section aria-label="The basic input component">
+
 ## The basic input component
 
 Use an input to collect single-line information from a person. 
@@ -176,6 +178,10 @@ Use to collect a URL, like a web address.
 
 {% endviewCode %}
 
+</section>
+
+<section aria-label="How to modify the input component">
+
 ## How to modify the input component
 
 Occasionally, the default options may not meet the needs of the people using your product. You can modify the input component to create a custom input for a particular use case.
@@ -197,6 +203,10 @@ The input-type attribute accepts the following options:
 
 Select typography tokens from the GC Design System [foundations]({{ "/en/foundations" | url }}). Colour and spacing tokens coming soon!
 
+</section>
+
+<section aria-label="What problems inputs solve">
+
 ## What problems inputs solve
 
 Use an input field to gather information by:
@@ -207,6 +217,10 @@ Use an input field to gather information by:
 - collecting a numeric-only response
 - collecting an email address or URL
 
+</section>
+
+<section aria-label="Related components">
+
 ## Related components
 
 **Radio buttons or dropdowns** when you can give someone a set of options for single selections.
@@ -216,6 +230,10 @@ Use an input field to gather information by:
 **Buttons** when you’re asking consent or agreement or offering a binary choice.
 
 **Date selectors** when you want someone to choose a date, like for appointment scheduling.
+
+</section>
+
+<section aria-label="Size and placement of inputs">
 
 ## Size and placement of inputs
 
@@ -235,6 +253,10 @@ Use built in or custom hover state to ensure good colour contrast.
 
 Avoid placing hint text or error messages below the field where they might be hidden.
 
+</section>
+
+<section aria-label="How to write a good input label">
+
 ## How to write a good input label
 
 Group input fields by related category so it’s easier for a person to understand what information you’re asking them for.
@@ -248,6 +270,10 @@ Avoid using technical jargon, like “subject email address” or “account ID�
 Avoid using colloquialisms and common verb phrases that are unfamiliar to non-fluent speakers. Explain a term that may not be clear: “handle (name you’d like to go by)”.
 
 When creating inputs, only ask for the information you need. Using a question protocol can help you choose what you need to ask for on a form.
+
+</section>
+
+<section aria-label="When to use hint text and error messages">
 
 ## When to use hint text and error messages
 
@@ -266,3 +292,5 @@ Use error messages to address missing and invalid entries for all required field
 Tell the person what the problem is so they can accomplish their goals. Avoid blaming the person using the product. Let them know what they need to do to move forward.
 
 Consider affirmations like confirming valid entries instead when you can validate a correct input field entry instead of flagging an error.
+
+</section>

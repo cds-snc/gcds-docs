@@ -32,6 +32,8 @@ A text area is a space, usually on a form, for a person to enter long-form infor
 
 </header>
 
+<section aria-label="The basic text area component">
+
 ## The basic text area component
 
 Use a text area to collect multi-line information from a person.
@@ -58,6 +60,10 @@ Use the text area for longform, multi-line, response collection.
 
 {% endviewCode %}
 
+</section>
+
+<section aria-label="How to modify the text area">
+
 ## How to modify the text area
 
 Occasionally, the default options may not meet the needs of the people using your product. You can modify the text area component to create a custom text area for a particular use case.
@@ -66,6 +72,10 @@ Occasionally, the default options may not meet the needs of the people using you
 
 Select typography tokens from the GC Design System [foundations]({{ "/en/foundations" | url }}). Colour and spacing tokens coming soon!
 
+</section>
+
+<section aria-label="What problems text areas solve">
+
 ## What problems text areas solve
 
 Use an input field to gather information by:
@@ -73,6 +83,10 @@ Use an input field to gather information by:
 - capturing a freeform response to a multi-line question
 - for descriptive entries, like describing a problem or concern
 - collecting message text on contact pages
+
+</section>
+
+<section aria-label="Related components">
 
 ## Related components
 
@@ -85,6 +99,10 @@ Use an input field to gather information by:
 **Buttons** when you’re asking consent or agreement or offering a binary choice.
 
 **Date selectors** when you want someone to choose a date, like for appointment scheduling.
+
+</section>
+
+<section aria-label="Size and placement of text area">
 
 ## Size and placement of text area
 
@@ -104,6 +122,10 @@ Mark fields as required using an asterisk and the word “required”.
 
 Avoid placing hint text or error messages below the field where they might be hidden.
 
+</section>
+
+<section aria-label="How to write good text area labels">
+
 ## How to write good text area labels
 
 Group text areas by related category so it’s easier for a person to understand what information you’re asking them for.
@@ -117,6 +139,10 @@ Avoid using technical jargon, like “subject email address” or “account ID�
 Avoid using colloquialisms and common verb phrases that are unfamiliar to non-fluent speakers. Explain a term that may not be clear: “handle (name you’d like to go by)”.
 
 When creating text areas, only ask for the information you need.
+
+</section>
+
+<section aria-label="When to use hint text and error messages">
 
 ## When to use hint text and error messages
 
@@ -135,3 +161,5 @@ Use error messages to address missing and invalid entries for all required field
 Tell the person what the problem is so they can accomplish their goals. Avoid blaming the person using the product. Let them know what they need to do to move forward.
 
 Consider affirmations like confirming valid entries instead when you can validate a correct input field entry instead of flagging an error.
+
+</section>

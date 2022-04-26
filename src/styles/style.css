@@ -488,3 +488,8 @@ table thead th {
 table tbody td {
 	border: 1px solid #dddfe1;
 }
+
+#mc header,
+section {
+  margin-bottom: 6rem;
+}

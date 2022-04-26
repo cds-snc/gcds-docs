@@ -31,6 +31,8 @@ An error message is a communication that tells a person about a problem to help 
 
 </header>
 
+<section aria-label="The basic error message component">
+
 ## The basic error message component
 
 Use an error message to let a person know they need to do something before an action can continue.
@@ -59,6 +61,10 @@ Use inline error messages to highlight the needed action close to the input wher
 
 {% endviewCode %}
 
+</section>
+
+<section aria-label="What problems error messages solve">
+
 ## What problems error messages solve
 
 Use an error message to let a person know what the problem is, why it happened, and how to resolve it.
@@ -69,11 +75,19 @@ Use an error message to draw attention to a needed action by:
 - offering additional formatting instructions, like a missing @ symbol in an email address.
 - giving a person extra details so they know what to enter into a field.
 
+</section>
+
+<section aria-label="Related components">
+
 ## Related components
 
 Validation for signalling positively that an input response is valid and will be accepted.
 
 Alert for communicating an issue where a person may not need to take corrective action.
+
+</section>
+
+<section aria-label="Avoiding errors">
 
 ## Avoiding errors
 
@@ -90,6 +104,10 @@ Avoid making an input or text area required if it’s not essential and clearly 
 Labels that are clear and intuitive help a person to provide the correct information and avoid an error. When a label is too long the person may not read the whole thing.
 
 Useful hint text lets a person know about a format need or other criteria for an input.
+
+</section>
+
+<section aria-label="How to write a good error message">
 
 ## How to write a good error message
 
@@ -123,6 +141,10 @@ Talk the way the people using your product talk. Avoid jargon and negative words
 
 Tip: A good way to incorporate a more human tone for more user-friendly error messages is to think about explaining it out loud to someone. How does the error message sound when you speak it in conversation?
 
+</section>
+
+<section aria-label="Make the error state obvious">
+
 ## Make the error state obvious
 
 If an error is activated upon form submission, set the the label and input border to change to a  danger colour.
@@ -130,3 +152,5 @@ If an error is activated upon form submission, set the the label and input borde
 Place an inline error message just before the input (either to its immediate left or above it) so it’s noticeable. The error message banner should span the width of the input or text areas.
 
 Inline error messages, in combination with an error summary, let a person know all the actions they need to do to move forward in a task. This reduces the cognitive load of mapping the errors in the list to inputs further down a page.
+
+</section>

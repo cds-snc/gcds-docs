@@ -31,6 +31,8 @@ Un message d’erreur est un message qui informe une personne d’un problème e
 
 </header>
 
+<section aria-label="Le message d’erreur de base">
+
 ## Le message d’erreur de base
 
 On utilise le message d’erreur pour informer une personne qu’elle doit intervenir quelque part avant de retourner à sa tâche.
@@ -59,6 +61,10 @@ On utilise le message d’erreur intercalé, près du champ de saisie invalide, 
 
 {% endviewCode %}
 
+</section>
+
+<section aria-label="Cas réglés par un message d’erreur">
+
 ## Cas réglés par un message d’erreur
 
 On utilise le message d’erreur pour communiquer à une personne la nature du problème, la raison pour laquelle c’est arrivé et la façon d’y remédier.
@@ -69,11 +75,19 @@ Utilisez le message d’erreur pour :
 - fournir des instructions de mise en forme, par exemple s’il manque un symbole @ dans une adresse courriel,
 - fournir des informations supplémentaires qui aident à remplir un champ.
 
+</section>
+
+<section aria-label="Composants apparentés">
+
 ## Composants apparentés
 
 **Formes de validation** : à utiliser pour marquer la validité d’un champ et faire savoir que la réponse sera acceptée.
 
 **Alertes** : à utiliser pour communiquer tout problème qu’une personne ne peut pas corriger par elle-même.
+
+</section>
+
+<section aria-label="Limiter les messages d’erreur">
 
 ## Limiter les messages d’erreur
 
@@ -90,6 +104,10 @@ Utilisez des formes de validation pour distinguer les entrées valides des erreu
 Aidez les personnes à fournir les bonnes informations et à éviter les erreurs grâce à des étiquettes claires et intuitives. Les étiquettes trop longues risquent de ne pas être lues au complet.
 
 Utilisez le texte d’aide pour indiquez aux personnes le format requis ou tout autre critère pour remplir un champ.
+
+</section>
+
+<section aria-label="Rédiger un bon message d'erreur">
 
 ## Rédiger un bon message d'erreur
 
@@ -123,6 +141,10 @@ Parlez comme le font les personnes utilisant votre produit. Évitez le jargon et
 
 Astuce : pour donner un ton humain et convivial à vos messages d’erreur, imaginez que vous expliquez le problème à une personne devant vous. Le message d’erreur se dit-il bien dans une conversation?
 
+</section>
+
+<section aria-label="Assurer la visibilité de l’erreur">
+
 ## Assurer la visibilité de l’erreur
 
 Si une erreur est déclenchée par l’envoi d’un formulaire, faites en sorte que l’étiquette et le contour du champ passent à une couleur « danger ».
@@ -130,3 +152,5 @@ Si une erreur est déclenchée par l’envoi d’un formulaire, faites en sorte 
 Placez le message d’erreur intercalé juste avant le champ de saisie (juste à gauche ou au-dessus) pour que les personnes le remarquent. La bannière du message d’erreur doit prendre toute la largeur du champ ou de la zone de texte.
 
 Utilisez les résumés d’erreurs en combinaison avec les messages d’erreur intercalés pour faire connaître toutes les interventions nécessaires. Cela évite aussi aux personnes de se demander quelle erreur de la liste correspond à quel champ plus loin dans la page.
+
+</section>

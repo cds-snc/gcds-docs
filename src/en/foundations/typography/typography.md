@@ -25,6 +25,8 @@ Typography is the presentation of text. It includes fonts, sizing, and spacing a
 
 </header>
 
+<section aria-label="Typography design tokens">
+
 ## Typography design tokens
 
 Default fonts, and styled size settings make digital products responsive, predictable, and readable across devices and platforms.
@@ -52,6 +54,10 @@ Font sizes are configured with rem units. All font sizes are relative to base si
 | Paragraph  | Noto sans  | 1.25  | 20  | Normal  |
 | monospace  | Menlo  | 1.11  | 17  | Normal  |
 
+</section>
+
+<section aria-label="Guidance on using typography">
+
 ## Guidance on using typography
 
 ### Line length and height
@@ -69,3 +75,5 @@ Some components use font sizes, colours, and spacings different from the default
 The design system provides components, patterns, and styles that meet most design needs. In rare instances, you may need custom typography.
 
 You can contribute to or modify the design system at the [design token repository in GitHub](https://github.com/cds-snc/gcds-tokens).
+
+</section>

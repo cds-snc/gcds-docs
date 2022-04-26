@@ -30,6 +30,8 @@ github: https://github.com/cds-snc/gcds-components/tree/main/src/components/gcds
 
 </header>
 
+<section aria-label="Le champ de saisie de base">
+
 ## Le champ de saisie de base
 
 On utilise les champs de saisie pour collecter des informations qui tiennent sur une ligne. 
@@ -176,6 +178,10 @@ Bon à savoir : si vous imposez une contrainte, par exemple un intervalle de chi
 
 {% endviewCode %}
 
+</section>
+
+<section aria-label="Comment modifier le champ de saisie">
+
 ## Comment modifier le champ de saisie
 
 Il peut arriver que les options par défaut ne permettent pas de répondre aux besoins des personnes utilisant votre produit. Vous pouvez modifier le composant pour créer un champ de saisie personnalisé, adapté à un cas particulier.
@@ -201,6 +207,10 @@ L’attribut input-type peut prendre les valeurs suivantes :
 
 Choisissez des valeurs pour la typographie parmi les [bases du système de design du GC]({{ "/fr/bases/" | url }}). Les valeurs de style pour la couleur et l’espacement seront bientôt disponibles!
 
+</section>
+
+<section aria-label="Cas réglés par le champ de saisie">
+
 ## Cas réglés par le champ de saisie
 
 Utilisez un champ de saisie pour collecter des informations comme :
@@ -211,6 +221,10 @@ Utilisez un champ de saisie pour collecter des informations comme :
 - une réponse composée de chiffres seulement
 - une adresse courriel ou une URL
 
+</section>
+
+<section aria-label="Composants apparentés">
+
 ## Composants apparentés
 
 **Boutons radio ou listes déroulantes** : à utiliser quand vous offrez plusieurs options et qu’il faut en choisir une.
@@ -220,6 +234,10 @@ Utilisez un champ de saisie pour collecter des informations comme :
 **Boutons** : à utiliser quand vous demandez un consentement ou une autorisation, ou que vous offrez un choix entre 2 options.
 
 **Sélecteurs de date** : à utiliser quand vous voulez qu’une personne choisisse une date, par exemple pour un rendez-vous.
+
+</section>
+
+<section aria-label="Dimensions et emplacement des champs">
 
 ##  Dimensions et emplacement des champs
 
@@ -239,6 +257,10 @@ Utilisez l’état de survol intégré ou un état de survol personnalisé qui a
 
 Évitez de placer le texte d’aide ou les messages d’erreur après le champ, afin qu’ils soient lus.
 
+</section>
+
+<section aria-label="Rédiger une bonne étiquette">
+
 ## Rédiger une bonne étiquette
 
 Regroupez les champs de saisie apparentés en catégories pour que les personnes comprennent plus facilement ce qui est demandé.
@@ -252,6 +274,10 @@ Rédigez une étiquette courte qui précise l’information demandée. Évitez d
 Évitez les expressions qui pourraient être étrangères à des personnes dont le français n’est pas la langue première, et explicitez les termes difficiles à comprendre.
 
 Ne demandez que les informations dont vous avez besoin. Pour vous aider à savoir quelles questions poser, vous pouvez utiliser un protocole de questionnaire.
+
+</section>
+
+<section aria-label="Texte d’aide et messages d’erreur">
 
 ## Texte d’aide et messages d’erreur
 
@@ -270,3 +296,5 @@ Rédigez un message d’erreur pour tous les champs obligatoires dont la répons
 Expliquez à la personne la nature du problème et comment elle peut y remédier. Évitez toute forme de reproche. 
 
 Plutôt que de signaler les erreurs, envisagez si possible de confirmer les réponses valides.
+
+</section>

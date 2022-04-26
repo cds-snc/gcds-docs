@@ -31,6 +31,8 @@ Un bouton est un objet interactif visant à attirer l’attention d’une person
 
 </header>
 
+<section aria-label="Le bouton de base">
+
 ## Le bouton de base
 
 On utilise le bouton pour indiquer une action pouvant être effectuée par un utilisateur.
@@ -149,6 +151,10 @@ Ce bouton évite aux personnes d’appuyer sur Tabulation sans relâche ou de fa
 
 {% endviewCode %}
 
+</section>
+
+<section aria-label="Comment modifier le bouton">
+
 ## Comment modifier le bouton
 
 Il peut arriver que les options par défaut ne permettent pas de répondre aux besoins des personnes utilisant votre produit. Vous pouvez modifier le composant pour créer un bouton personnalisé, adapté à un cas particulier.
@@ -200,6 +206,10 @@ Les icônes peuvent agir comme aide visuelle si elles sont utilisées avec parci
 
 Choisissez des valeurs pour la typographie parmi les [bases du système de design du GC]({{ "/fr/bases/" | url }}). Les valeurs de style pour la couleur et l’espacement seront bientôt disponibles!
 
+</section>
+
+<section aria-label="Cas réglés par le bouton">
+
 ## Cas réglés par le bouton
 
 - Utilisez les boutons pour des actions importantes effectuées par l’utilisateur comme :
@@ -216,11 +226,19 @@ Dans les applications Web ou mobiles, les boutons remplacent les hyperliens pour
 - contrôler les déplacements, par exemple d’un écran à l’autre dans une séquence d’écrans
 - lier à une page externe (ne pas oublier d’indiquer qu’il s’agit d’un lien externe)
 
+</section>
+
+<section aria-label="Composants apparentés">
+
 ## Composants apparentés
 
 **Boutons radio ou listes déroulantes** : à utiliser quand vous offrez plusieurs options et qu’il faut en choisir une.
 
 **Cases à cocher** : à utiliser quand vous offrez plusieurs options et qu’on peut en choisir plusieurs.
+
+</section>
+
+<section aria-label="Où placer les boutons">
 
 ## Où placer les boutons
 
@@ -235,6 +253,10 @@ Vérifiez que l’emplacement du bouton assure un bon contraste entre le contour
 Permettez aux personnes de sauter un groupe de liens de navigation grâce à un bouton d’évitement.
 
 Pour que le bouton ne cache rien, configurez-le de sorte qu’il pousse le contenu vers le bas. En version bureau, placez le bouton d’évitement dans le coin supérieur gauche de la page pour ne pas entrecouper le contenu.
+
+</section>
+
+<section aria-label="Rédiger un bon libellé de bouton">
 
 ## Rédiger un bon libellé de bouton
 
@@ -251,3 +273,5 @@ Rédigez un libellé spécifique à chaque bouton dans une même page. Si vous r
 Évitez les formules vagues et génériques ou celles qui se ressemblent trop d’un bouton à l’autre. Elles portent à confusion et nuisent aux personnes cherchant à accomplir une tâche.
 
 Évitez les expressions qui pourraient être étrangères à des personnes dont le français n’est pas la langue première.
+
+</section>
