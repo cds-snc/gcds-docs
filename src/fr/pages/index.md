@@ -1,6 +1,6 @@
 ---
 title: Home
-layout: "layouts/no-aside.njk"
+layout: "layouts/home.njk"
 permalink: /fr/
 translationKey: "index"
 ---
@@ -20,7 +20,7 @@ BIENVENUE
         <a href="{{ "/fr/composants/formulaires/aide-a-la-conception/" | url }}">Design de formulaires</a>
     </li>
     <li>
-        <a target="blank_" aria-label="{% if locale == "en" %}Github.com site (Opens in a new tab){% else %}Site Web Github.com (S'ouvre dans un nouvel onglet){% endif %}" href="https://github.com/cds-snc/gcds-components">Dépôt GitHub</a>
+        <a target="blank_" aria-label="Site Web Github.com (S'ouvre dans un nouvel onglet)" href="https://github.com/cds-snc/gcds-components">Dépôt GitHub</a>
     </li>
     <li>
         <a href="{{ "/fr/bases/typography/" | url }}">Typographie</a>

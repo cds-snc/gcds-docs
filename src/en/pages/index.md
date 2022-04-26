@@ -1,6 +1,6 @@
 ---
 title: Home
-layout: "layouts/no-aside.njk"
+layout: "layouts/home.njk"
 permalink: /en/
 translationKey: "index"
 redirect_from: /
@@ -20,7 +20,7 @@ WELCOME
         <a href="{{ "/en/components/forms/forms-guidance/" | url }}">Form design</a>
     </li>
     <li>
-        <a target="_blank" aria-label="{% if locale == "en" %}Github.com site (Opens in a new tab){% else %}Site Web Github.com (S'ouvre dans un nouvel onglet){% endif %}" href="https://github.com/cds-snc/gcds-components">GitHub repo</a>
+        <a target="_blank" aria-label="Github.com site (Opens in a new tab)" href="https://github.com/cds-snc/gcds-components">GitHub repo</a>
     </li>
     <li>
         <a href="{{ "/en/foundations/typography" | url }}">Typography</a>
