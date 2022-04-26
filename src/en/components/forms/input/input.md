@@ -21,7 +21,7 @@ github: https://github.com/cds-snc/gcds-components/tree/main/src/components/gcds
 
 <header>
 
-# Inputs
+# Input
 
 `<gcds-input>`
 

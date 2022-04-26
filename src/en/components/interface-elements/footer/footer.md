@@ -3,7 +3,7 @@ title: Footer
 layout: "layouts/documentation.njk"
 eleventyNavigation:
   key: footerEN
-  title: Footer - coming soon
+  title: Footer — coming soon
   locale: en
   parent: basicEN
   order: 5

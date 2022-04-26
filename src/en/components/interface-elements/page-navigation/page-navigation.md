@@ -3,7 +3,7 @@ title: Page navigation
 layout: "layouts/documentation.njk"
 eleventyNavigation:
   key: pagenavigationEN
-  title: Page navigation - coming soon
+  title: Page navigation — coming soon
   locale: en
   parent: basicEN
   order: 3

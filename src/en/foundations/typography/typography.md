@@ -48,8 +48,9 @@ Font sizes are configured with rem units. All font sizes are relative to base si
 | Heading 3  | Lato  | 2.0  | 32  | Bold  |
 | Heading 4  | Lato  | 1.78  | 28  | Bold  |
 | Heading 5  | Lato  | 1.58  | 25  | Normal  |
+| Heading 6  | Lato  | 1.41  | 22  | Normal  |
 | Paragraph  | Noto sans  | 1.25  | 20  | Normal  |
-| monospace  | Menlo  | 1  | 16  | Normal  |
+| monospace  | Menlo  | 1.11  | 17  | Normal  |
 
 ## Guidance on using typography
 

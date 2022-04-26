@@ -1,9 +1,9 @@
 ---
-title: Textarea - Components
+title: Text area - Components
 layout: "layouts/documentation.njk"
 eleventyNavigation:
   key: inputsEN
-  title: Textarea
+  title: Text area
   locale: en
   parent: formsEN
   order: 2
