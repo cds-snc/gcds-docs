@@ -16,7 +16,7 @@ github: https://github.com/cds-snc/gcds-tokens
 
 <header>
 
-# Typography
+# Typography tokens
 
 Typography is the presentation of text. It includes fonts, sizing, and spacing as applied to the style, arrangement, and appearance of letters, numbers, and symbols.
 
@@ -39,7 +39,7 @@ Font family tokens:
 - `$gcds-font-families-monospace`
 - `$gcds-font-families-icons`
 
-Font sizes are configured with rem units. All font sizes are relative to base size 20px.
+Font sizes are configured with rem units. All font sizes are relative to base size 16px.
 
 | Display  | Font type  | Size (rem)  | Size (px)  | Weight  |
 |---|---|---|---|---|
@@ -56,7 +56,7 @@ Font sizes are configured with rem units. All font sizes are relative to base si
 
 ### Line length and height
 
-Choose between two base values for the root element: font size and line height. Always match H1 line heights with their H1 counterpart.
+Choose between two base values for the root element: font size and line height. Always match `h1` line heights with their `h1` counterpart.
 
 In a line of text, keep text line length below 65 characters for a comfortable reading length. Page layouts may be wider than 65 characters.
 

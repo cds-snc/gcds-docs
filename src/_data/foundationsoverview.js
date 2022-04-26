@@ -3,6 +3,6 @@ module.exports = {
         elements: "Our elements"
     },
     fr : {
-        elements: "Our elements"
+        elements: "Nos éléments"
     }
 }
