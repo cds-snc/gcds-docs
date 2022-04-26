@@ -48,13 +48,13 @@ Les tailles de police sont configurées au moyen d’unités rem. Elles sont tou
 
 | Affichage  | Police  | Taille (rem)  | Taille (px)  | Épaisseur  |
 |---|---|---|---|---|
-| Heading 1  | Lato  | 2.5  | 40  | Gras  |
-| Heading 2  | Lato  | 2.25  | 36  | Gras  |
-| Heading 3  | Lato  | 2.0  | 32  | Gras  |
-| Heading 4  | Lato  | 1.78  | 28  | Gras  |
-| Heading 5  | Lato  | 1.58  | 25  | Normal  |
-| Heading 6  | Lato  | 1.41  | 22  | Normal  |
-| Paragraph  | Noto sans  | 1.25  | 20  | Normal  |
+| Titre 1  | Lato  | 2.5  | 40  | Gras  |
+| Titre 2  | Lato  | 2.25  | 36  | Gras  |
+| Titre 3  | Lato  | 2.0  | 32  | Gras  |
+| Titre 4  | Lato  | 1.78  | 28  | Gras  |
+| Titre 5  | Noto sans  | 1.58  | 25  | Normal  |
+| Titre 6  | Noto sans  | 1.41  | 22  | Normal  |
+| Paragraphe  | Noto sans  | 1.25  | 20  | Normal  |
 | monospace  | Menlo  | 1.11  | 17  | Normal  |
 
 ## Directives sur l’utilisation de la typographie
