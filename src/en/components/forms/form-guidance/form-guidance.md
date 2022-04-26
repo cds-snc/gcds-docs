@@ -17,7 +17,7 @@ onThisPage:
 
 <header>
 
-# Forms guidance
+# Form guidance
 
 Forms collect information for things like file creation and records maintenance. They’re used for applications, feedback, and transactions, like purchases. And sometimes, for formal requests, evaluations, or templates.
 
