@@ -1,5 +1,5 @@
 ---
-title: Typographie - BAses
+title: Typographie - Bases
 layout: "layouts/documentation.njk"
 translationKey: "typography"
 eleventyNavigation:
