@@ -17,11 +17,17 @@ onThisPage:
 
 # Installation
 
+<section aria-label="Install from npm">
+
 ## Install from npm
 
 ``` js
 npm install gcds-components
 ```
+
+</section>
+
+<section aria-label="Supported frameworks">
 
 ## Supported frameworks
 
@@ -73,3 +79,5 @@ applyPolyfills().then(() => {
 ```
 
 All gcds-components should now be ready to use in your Vue app.
+
+</section>
