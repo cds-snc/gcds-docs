@@ -33,12 +33,8 @@
 
         {% include "partials/header.njk" %}
 
-        <div {% if onThisPage %}class="container sidebar-layout"{% else %}class="container general-layout"{% endif %}>
-            {% if onThisPage %}
-                {% include "partials/onthispage.njk" %}
-            {% endif %}
-
-            <main id="mc">
+        <div class="container">
+            <main id="mc" class="no-aside">
                 {{ content | safe }}
             </main>
         </div>
