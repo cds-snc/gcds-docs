@@ -18,7 +18,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPlugin(svgContents);
   eleventyConfig.addPassthroughCopy({"./src/variables/": "variables"});
   eleventyConfig.addPassthroughCopy({
-    "./node_modules/gcds-components/": "components"
+    "./node_modules/@cdssnc/gcds-components/": "components"
   });
   // Add copy fo a11y testing
   eleventyConfig.addPassthroughCopy("./.pa11yci.json");
