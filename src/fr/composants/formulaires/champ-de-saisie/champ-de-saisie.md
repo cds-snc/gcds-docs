@@ -25,6 +25,8 @@ github: https://github.com/cds-snc/gcds-components/tree/main/src/components/gcds
 
 `<gcds-input>`
 
+Un champ de saisie est un espace, généralement dans un formulaire, où une personne saisit de brèves informations en réponse à une question ou à une instruction.
+
 {% docLinks locale stage figma github %}
 {% enddocLinks %}
 

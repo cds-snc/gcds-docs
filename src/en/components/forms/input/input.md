@@ -25,6 +25,8 @@ github: https://github.com/cds-snc/gcds-components/tree/main/src/components/gcds
 
 `<gcds-input>`
 
+An input is a space, usually a form field, for a person to enter short-form information in response to a question or instruction.
+
 {% docLinks locale stage figma github %}
 {% enddocLinks %}
 
