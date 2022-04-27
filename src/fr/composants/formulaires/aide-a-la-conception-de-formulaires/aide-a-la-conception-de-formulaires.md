@@ -121,8 +121,8 @@ Utilisez le texte d’aide pour préciser le format requis ou signaler les élé
 
 <gcds-input
   label="Nom complet"
-  textarea-id="name"
-  hint="For example: Taryn Li"
+  textarea-id="nom"
+  hint="Exemple : Taryn Li"
 ></gcds-input>
 
 {% viewCode locale "instructions" "Donner des instructions au bon moment" %}
@@ -130,8 +130,8 @@ Utilisez le texte d’aide pour préciser le format requis ou signaler les élé
 ``` html
 <gcds-input
   label="Nom complet"
-  textarea-id="name"
-  hint="For example: Taryn Li"
+  textarea-id="nom"
+  hint="Exemple : Taryn Li"
 ></gcds-input>
 ```
 
