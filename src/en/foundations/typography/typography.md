@@ -45,14 +45,14 @@ Font sizes are configured with rem units. All font sizes are relative to base si
 
 | Display  | Font type  | Size (rem)  | Size (px)  | Weight  | Line height  |
 |---|---|---|---|---|---|
-| Heading 1  | Lato  | 2.5  | 40  | Bold  | 128%  |
-| Heading 2  | Lato  | 2.25  | 36  | Bold  | 144%  |
-| Heading 3  | Lato  | 2.0  | 32  | Bold  | 162%  |
-| Heading 4  | Lato  | 1.78  | 28  | Bold  | 182%  |
-| Heading 5  | Noto sans  | 1.58  | 25  | Normal  | 102%  |
-| Heading 6  | Noto sans  | 1.41  | 22  | Normal  | 102%  |
-| Paragraph  | Noto sans  | 1.25  | 20  | Normal  | 130%  |
-| monospace  | Menlo  | 1.11  | 17  | Normal  | 146%  |
+| Heading 1  | Lato  | 2.5  | 40  | bold  | 128%  |
+| Heading 2  | Lato  | 2.25  | 36  | bold  | 144%  |
+| Heading 3  | Lato  | 2.0  | 32  | bold  | 162%  |
+| Heading 4  | Lato  | 1.78  | 28  | bold  | 182%  |
+| Heading 5  | Noto sans  | 1.58  | 25  | regular  | 102%  |
+| Heading 6  | Noto sans  | 1.41  | 22  | regular  | 102%  |
+| Paragraph  | Noto sans  | 1.25  | 20  | regular  | 130%  |
+| monospace  | Menlo  | 1.11  | 17  | regular  | 146%  |
 
 </section>
 

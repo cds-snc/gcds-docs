@@ -18,7 +18,7 @@ github: https://github.com/cds-snc/gcds-tokens
 
 # Jetons de typographie
 
-La typographie est la façon de présenter du texte. Elle englobe les polices, la taille et l’espacement pouvant être appliqués au style, à la disposition, et à l’apparence des lettres, des numéros et des symboles.
+La typographie est la façon de présenter du texte. Elle englobe les polices, la taille et l’espacement pouvant être appliqués au style, à la disposition, et à l’apparence des lettres, des chiffres et des symboles.
 
 {% docLinks locale stage figma github %}
 {% enddocLinks %}
@@ -29,9 +29,9 @@ La typographie est la façon de présenter du texte. Elle englobe les polices, l
 
 ## Jetons de design de la typographie
 
-Les polices par défaut et les paramètres de style de taille rendent les produits numériques réactifs, prévisibles et lisibles sur tous les appareils et toutes les plateformes.
+Les polices par défaut et les paramètres de taille de police permettent de rendre les produits numériques réactifs, prévisibles et lisibles sur tous les appareils et plateformes.
 
-Les choix concernant les valeurs typographiques (polices, tailles, épaisseurs) sont intégrés dans les jetons de typographie du Système de design du GC pour assurer un design uniforme.
+Les décisions relatives aux valeurs typographiques (police, taille, graisse) sont intégrées dans les unité de style de typographie du Système de design du GC pour assurer un design uniforme.
 
 ### Polices par défaut
 
@@ -67,7 +67,7 @@ Les tailles de police sont configurées au moyen d’unités rem. Elles sont tou
 
 ### Longueur et hauteur de ligne
 
-Faites toujours correspondre la taille de police à la hauteur de ligne : la taille de police d’un titre H1 doit correspondre à la hauteur de ligne d’un titre H1.
+Faites toujours correspondre la taille de police à la hauteur de ligne : la taille de police d’un titre de niveau H1 doit correspondre à la hauteur de ligne d’un titre de niveau H1.
 
 Gardez la longueur d’une ligne de texte inférieure à 65 caractères pour faciliter la lecture. La largeur de la mise en page peut dépasser 65 caractères.
 

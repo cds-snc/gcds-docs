@@ -391,6 +391,10 @@ body > div.sidebar-layout,
  * Documentation links
  */
 
+ ul.doc-links {
+   padding: 0;
+ }
+
 ul.doc-links li {
   display: inline-block;
   margin: 0 1rem 0 0;
