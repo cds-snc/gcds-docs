@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Zone de texte - Système de design GC</title>
+        <title>Zone de texte - Composants - Système de design GC</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <script type="module">
             import { defineCustomElements } from "/gcds-docs/components/loader/index.es2017.js";
@@ -13,6 +13,7 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet">
         
         <link rel="stylesheet" href="/gcds-docs/components/dist/gcds/gcds.css">
         <link rel="stylesheet" href="/gcds-docs/styles/prism.css">
@@ -25,7 +26,7 @@
             <gcds-button
                 button-type="link"
                 button-role="skip-to-content"
-                href="#content"
+                href="#mc"
             >
                 Passer au contenu principal
             </gcds-button>
@@ -84,25 +85,13 @@
                 
                     
                     
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
                         
+                    
+                
+                    
+                    
+                
+                    
                     
                 
                     
@@ -241,7 +230,7 @@
             
     <li>
     
-        <a href="/gcds-docs/fr/bases/typography/"  >Typography</a>
+        <a href="/gcds-docs/fr/bases/typographie/"  >Typographie</a>
     </li>
 
         
@@ -284,7 +273,7 @@
             
     <li>
     
-        <a href="/gcds-docs/fr/composants/formulaires/aide-a-la-conception/"  >Aide à la conception</a>
+        <a href="/gcds-docs/fr/composants/formulaires/aide-a-la-conception-de-formulaires/"  >Aide à la conception de formulaires</a>
     </li>
 
         
@@ -360,15 +349,15 @@
         <ul>
             
                 <li>
-                    <a href="#comment-utiliser-la-zone-de-texte">Comment utiliser la zone de texte</a>
+                    <a href="#la-zone-de-texte-de-base">La zone de texte de base</a>
                 </li>
             
                 <li>
-                    <a href="#personnaliser-une-zone-de-texte">Personnaliser une zone de texte</a>
+                    <a href="#comment-modifier-la-zone-de-texte">Comment modifier la zone de texte</a>
                 </li>
             
                 <li>
-                    <a href="#quand-utiliser-une-zone-de-texte">Quand utiliser une zone de texte</a>
+                    <a href="#cas-regles-par-la-zone-de-texte">Cas réglés par la zone de texte</a>
                 </li>
             
                 <li>
@@ -376,15 +365,15 @@
                 </li>
             
                 <li>
-                    <a href="#assurer-la-visibilite-des-zones-de-texte">Assurer la visibilité des zones de texte</a>
+                    <a href="#dimensions-et-emplacement-des-zones-de-texte">Dimensions et emplacement des zones de texte</a>
                 </li>
             
                 <li>
-                    <a href="#rediger-une-bonne-etiquette-de-zone-de-texte">Rédiger une bonne étiquette de zone de texte</a>
+                    <a href="#rediger-une-bonne-etiquette">Rédiger une bonne étiquette</a>
                 </li>
             
                 <li>
-                    <a href="#texte-daide-et-messages-derreur">Texte d&#39;aide et messages d’erreur</a>
+                    <a href="#texte-daide-et-messages-derreur">Texte d’aide et messages d’erreur</a>
                 </li>
             
         </ul>
@@ -394,14 +383,133 @@
 
             <main id="mc">
                 
-<h1>Zone de texte</h1><p><ul class="doc-links"></p>
-<p><li class="github-link">
+<header>
+<h1>Zone de texte</h1><p><code>&lt;gcds-textarea&gt;</code></p>
+<p>Une zone de texte est un espace, généralement dans un formulaire, où une personne saisit des informations détaillées en réponse à une question ou à une instruction.</p>
+<p><ul class="doc-links">
+<li class="github-link">
 <a href="https://github.com/cds-snc/gcds-components/tree/main/src/components/gcds-textarea" target="_blank" rel="nofollow" aria-label="GitHub (S'ouvre dans un nouvel onglet)">GitHub</a>
 </li>
 <li class="figma-link">
 <span>Figma — à venir</span>
 </li>
 </ul></p>
+</header>
+<section aria-label="La zone de texte de base">
+
+        <h2 id="la-zone-de-texte-de-base">
+            <a class="anchor-link" href="#la-zone-de-texte-de-base">La zone de texte de base
+            </a>
+        </h2><p>On utilise la zone de texte pour collecter des informations qui tiennent sur plusieurs lignes.</p>
+<p>Une zone de texte peut avoir divers états : de survol <span lang="en">(<em>hover</em>)</en>, ciblé <span lang="en">(<em>focus</em>)</en>, actif <span lang="en">(<em>active</em>)</en> et désactivé <span lang="en">(<em>disabled</em>)</en>. Ces états changent quand une personne interagit avec la zone.</p>
+
+        <h3 id="zone-de-texte">
+            <a class="anchor-link" href="#zone-de-texte">Zone de texte
+            </a>
+        </h3><p><gcds-textarea
+  textarea-id="textarea"
+  label="Text area"
+></p>
+<p>On utilise la zone de texte pour collecter des réponses détaillées tenant sur plusieurs lignes.</p>
+<p><div class="code-showcase">
+<gcds-button button-type="button" button-role="secondary" button-style="text-only" aria-label="Voir le code - Zone de texte" onclick="toggleCodeShowcase(this, 'view-textarea');" aria-controls="view-textarea" aria-expanded="false">Voir le code</gcds-button>
+<gcds-button button-type="button" button-role="secondary" button-style="text-only" onclick="copyCodeShowcase(this, 'view-textarea', 'fr');" onblur="this.innerText = 'Copier le code'">Copier le code</gcds-button>
+<div class="showcase" id="view-textarea" aria-hidden="true">
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>gcds-textarea</span><br>  <span class="token attr-name">textarea-id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>textarea<span class="token punctuation">&quot;</span></span><br>  <span class="token attr-name">label</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>Zone de texte<span class="token punctuation">&quot;</span></span><br><span class="token punctuation">&gt;</span></span></code></pre></p>
+<p><code class="copy-code" id="view-textarea-copy">&lt;gcds-textarea
+textarea-id=&quot;textarea&quot;
+label=&quot;Zone de texte&quot;
+&gt;</code>
+</div>
+</div></p>
+</section>
+<section aria-label="Comment modifier la zone de texte">
+
+        <h2 id="comment-modifier-la-zone-de-texte">
+            <a class="anchor-link" href="#comment-modifier-la-zone-de-texte">Comment modifier la zone de texte
+            </a>
+        </h2><p>Il peut arriver que les options par défaut ne permettent pas de répondre aux besoins des personnes utilisant votre produit. Vous pouvez modifier le composant pour créer une zone de texte personnalisée, adaptée à un cas particulier.</p>
+
+        <h3 id="appliquer-les-bases-du-systeme-de-design">
+            <a class="anchor-link" href="#appliquer-les-bases-du-systeme-de-design">Appliquer les bases du système de design
+            </a>
+        </h3><p>Choisissez des valeurs pour la typographie parmi les <a href="/gcds-docs/fr/bases/">bases du système de design du GC</a>. Les valeurs de style pour la couleur et l’espacement seront bientôt disponibles!</p>
+</section>
+<section aria-label="Cas réglés par la zone de texte">
+
+        <h2 id="cas-regles-par-la-zone-de-texte">
+            <a class="anchor-link" href="#cas-regles-par-la-zone-de-texte">Cas réglés par la zone de texte
+            </a>
+        </h2><p>Utilisez une zone de texte pour collecter des informations comme :</p>
+<ul>
+<li>une réponse libre à une question à développement</li>
+<li>une description, par exemple pour décrire un problème</li>
+<li>un message textuel dans une page de contact</li>
+</ul>
+</section>
+<section aria-label="Composants apparentés">
+
+        <h2 id="composants-apparentes">
+            <a class="anchor-link" href="#composants-apparentes">Composants apparentés
+            </a>
+        </h2><p><strong>Champs de saisie texte</strong> : à utiliser pour les réponses d’une ligne.</p>
+<p><strong>Boutons radio ou listes déroulantes</strong> : à utiliser quand vous offrez plusieurs options et qu’il faut en choisir une.</p>
+<p><strong>Cases à cocher</strong> : à utiliser quand vous offrez plusieurs options et qu’on peut en choisir plusieurs.</p>
+<p><strong>Boutons</strong> : à utiliser quand vous demandez un consentement ou une autorisation, ou que vous offrez un choix entre 2 options.</p>
+<p><strong>Sélecteurs de date</strong> : à utiliser quand vous voulez qu’une personne choisisse une date, par exemple pour un rendez-vous.</p>
+</section>
+<section aria-label="Dimensions et emplacement des zones de texte">
+
+        <h2 id="dimensions-et-emplacement-des-zones-de-texte">
+            <a class="anchor-link" href="#dimensions-et-emplacement-des-zones-de-texte">Dimensions et emplacement des zones de texte
+            </a>
+        </h2>
+        <h3 id="dimensions-de-la-zone-de-texte">
+            <a class="anchor-link" href="#dimensions-de-la-zone-de-texte">Dimensions de la zone de texte
+            </a>
+        </h3><p>Évitez de définir une largeur de moins de 50 % (1/2 largeur).</p>
+<p>Définissez une hauteur qui est proportionnelle à la quantité de texte attendue. Vous pouvez définir la hauteur d’une zone de texte en utilisant l’attribut rows.</p>
+
+        <h3 id="visibilite-des-zones-de-texte">
+            <a class="anchor-link" href="#visibilite-des-zones-de-texte">Visibilité des zones de texte
+            </a>
+        </h3><p>Vérifiez que l’emplacement du champ assure un bon contraste entre la ligne ou le contour du champ et l’arrière-plan, ainsi qu’entre l’étiquette et l’arrière-plan.</p>
+<p>Utilisez l’état de survol intégré ou un état de survol personnalisé qui assure un bon constraste.</p>
+<p>Marquez les champs obligatoires d’une astéristique et du mot « obligatoire ».</p>
+<p>Évitez de placer le texte d’aide ou les messages d’erreur après le champ, afin qu’ils soient lus.</p>
+</section>
+<section aria-label="Rédiger une bonne étiquette">
+
+        <h2 id="rediger-une-bonne-etiquette">
+            <a class="anchor-link" href="#rediger-une-bonne-etiquette">Rédiger une bonne étiquette
+            </a>
+        </h2><p>Regroupez les zones de texte apparentées en catégories pour que les personnes comprennent plus facilement ce qui est demandé.</p>
+<p>Rédigez une étiquette courte qui précise l’information demandée. Évitez de poser une question, car celle-ci rallonge souvent l’étiquette. Ajoutez un texte de remplacement pour toute icône ou image.</p>
+<p>Évitez de réutiliser une étiquette pour différentes zones de texte dans une même page. Une personne naviguant d’une zone à l’autre entendrait les mêmes étiquettes sans savoir ce qui les différencie.</p>
+<p>Évitez d’utiliser des mots techniques comme « identifiant de compte ». Préférez des mots précis et à caractère personnel, comme « nom complet ».</p>
+<p>Évitez les expressions qui pourraient être étrangères à des personnes dont le français n’est pas la langue première, et explicitez les termes difficiles à comprendre.</p>
+<p>Ne demandez que les informations dont vous avez besoin.</p>
+</section>
+<section aria-label="Texte d’aide et messages d’erreur">
+
+        <h2 id="texte-daide-et-messages-derreur">
+            <a class="anchor-link" href="#texte-daide-et-messages-derreur">Texte d’aide et messages d’erreur
+            </a>
+        </h2>
+        <h3 id="comment-utiliser-le-texte-daide">
+            <a class="anchor-link" href="#comment-utiliser-le-texte-daide">Comment utiliser le texte d’aide
+            </a>
+        </h3><p>Ajoutez un texte d’aide pour aider une personne à remplir un champ de façon attendue.</p>
+<p>Rédigez le texte d’aide pour qu’il soit informatif, court et précis.</p>
+<p>Assurez-vous que le texte d’aide ne disparaisse pas au moment d’écrire.</p>
+
+        <h3 id="comment-utiliser-les-messages-derreur">
+            <a class="anchor-link" href="#comment-utiliser-les-messages-derreur">Comment utiliser les messages d’erreur
+            </a>
+        </h3><p>Rédigez un message d’erreur pour tous les champs obligatoires dont la réponse est manquante ou invalide.</p>
+<p>Expliquez à la personne la nature du problème et comment elle peut y remédier pour accomplir son objectif. Évitez toute forme de reproche.</p>
+<p>Plutôt que de signaler les erreurs, envisagez si possible de confirmer les réponses valides.</p>
+</section>
 
             </main>
         </div>
@@ -409,13 +517,12 @@
         <footer class="footer">
     <div class="container footer__container">
         <ul>
-        
-            
-                <li><a href=/gcds-docs/fr/avis/>Avis</a></li>
-            
-                <li><a href=/gcds-docs/fr/confidentialite/>Confidentialité</a></li>
-            
-        
+            <li>
+                <a href="https://www.canada.ca/fr/transparence/avis.html" target="_blank" aria-label="Avis (S'ouvre dans un nouvel onglet)">Avis</a>
+            </li>
+            <li>
+                <a href="https://www.canada.ca/fr/transparence/confidentialite.html" target="_blank" aria-label="Confidentialité (S'ouvre dans un nouvel onglet)">Confidentialité</a>
+            </li>
             <li>
                 <a href="https://www.canada.ca/" target="_blank" aria-label="Site Web Canada.ca (S'ouvre dans un nouvel onglet)">Canada.ca</a>
             </li>

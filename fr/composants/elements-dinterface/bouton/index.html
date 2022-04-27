@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Bouton - Système de design GC</title>
+        <title>Bouton - Composansts - Système de design GC</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <script type="module">
             import { defineCustomElements } from "/gcds-docs/components/loader/index.es2017.js";
@@ -13,6 +13,7 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet">
         
         <link rel="stylesheet" href="/gcds-docs/components/dist/gcds/gcds.css">
         <link rel="stylesheet" href="/gcds-docs/styles/prism.css">
@@ -25,7 +26,7 @@
             <gcds-button
                 button-type="link"
                 button-role="skip-to-content"
-                href="#content"
+                href="#mc"
             >
                 Passer au contenu principal
             </gcds-button>
@@ -60,6 +61,27 @@
             
             
                 
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
                 
                     
                     
@@ -168,42 +190,9 @@
                     
                     
                 
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
 
                 <li>
-                    <a href="/gcds-docs/en/components/basic/button/" lang="en">
+                    <a href="/gcds-docs/en/components/interface-elements/button/" lang="en">
                         English
                     </a>
                 </li>
@@ -241,7 +230,7 @@
             
     <li>
     
-        <a href="/gcds-docs/fr/bases/typography/"  >Typography</a>
+        <a href="/gcds-docs/fr/bases/typographie/"  >Typographie</a>
     </li>
 
         
@@ -284,7 +273,7 @@
             
     <li>
     
-        <a href="/gcds-docs/fr/composants/formulaires/aide-a-la-conception/"  >Aide à la conception</a>
+        <a href="/gcds-docs/fr/composants/formulaires/aide-a-la-conception-de-formulaires/"  >Aide à la conception de formulaires</a>
     </li>
 
         
@@ -360,15 +349,15 @@
         <ul>
             
                 <li>
-                    <a href="#comment-utiliser-le-bouton-de-base">Comment utiliser le bouton de base</a>
+                    <a href="#le-bouton-de-base">Le bouton de base</a>
                 </li>
             
                 <li>
-                    <a href="#personnaliser-le-bouton">Personnaliser le bouton</a>
+                    <a href="#comment-modifier-le-bouton">Comment modifier le bouton</a>
                 </li>
             
                 <li>
-                    <a href="#quand-utiliser-les-boutons">Quand utiliser les boutons</a>
+                    <a href="#cas-regles-par-le-bouton">Cas réglés par le bouton</a>
                 </li>
             
                 <li>
@@ -380,11 +369,7 @@
                 </li>
             
                 <li>
-                    <a href="#ecrire-un-bon-libelle-de-boutons">Écrire un bon libellé de boutons</a>
-                </li>
-            
-                <li>
-                    <a href="#ajouter-une-icone-aux-boutons">Ajouter une icône aux boutons</a>
+                    <a href="#rediger-un-bon-libelle-de-bouton">Rédiger un bon libellé de bouton</a>
                 </li>
             
         </ul>
@@ -393,14 +378,241 @@
             
 
             <main id="mc">
-                <h1>Bouton</h1><p><ul class="doc-links"></p>
-<p><li class="github-link">
-<a href="https://github.com/cds-snc/gcds-components" target="_blank" rel="nofollow" aria-label="GitHub (S'ouvre dans un nouvel onglet)">GitHub</a>
+                <header>
+<h1>Bouton</h1><p><code>&lt;gcds-button&gt;</code></p>
+<p>Un bouton est un objet interactif visant à attirer l’attention d’une personne sur une action importante ou fréquente qu’elle peut réaliser.</p>
+<p><ul class="doc-links">
+<li class="github-link">
+<a href="https://github.com/cds-snc/gcds-components/tree/main/src/components/gcds-button" target="_blank" rel="nofollow" aria-label="GitHub (S'ouvre dans un nouvel onglet)">GitHub</a>
 </li>
 <li class="figma-link">
 <span>Figma — à venir</span>
 </li>
 </ul></p>
+</header>
+<section aria-label="Le bouton de base">
+
+        <h2 id="le-bouton-de-base">
+            <a class="anchor-link" href="#le-bouton-de-base">Le bouton de base
+            </a>
+        </h2><p>On utilise le bouton pour indiquer une action pouvant être effectuée par un utilisateur.</p>
+<p>Un bouton peut avoir divers états prédéfinis : par défaut <span lang="en">(<em>default</em>)</span>, de survol <span lang="en">(<em>hover</em>)</span>, ciblé <span lang="en">(<em>focus</em>)</span>, appuyé <span lang="en">(<em>active</em>)</span> et désactivé <span lang="en">(<em>disabled</em>)</span>. Ces états changent quand une personne interagit avec le bouton.</p>
+
+        <h3 id="bouton-principal">
+            <a class="anchor-link" href="#bouton-principal">Bouton principal
+            </a>
+        </h3><p><gcds-button
+  button-role="primary"
+  button-type="button"
+>
+Principal
+</gcds-button></p>
+<p>On utilise le bouton principal pour l’action la plus importante.</p>
+<p>Utilisez-le pour les actions essentielles dans un parcours utilisateur ou comme bouton par défaut.</p>
+<p>Évitez d’avoir plus d’un bouton principal par page. Cela diminuerait l’effet du bouton, en plus de créer une incertitude sur la prochaine action à faire.</p>
+<p><div class="code-showcase">
+<gcds-button button-type="button" button-role="secondary" button-style="text-only" aria-label="Voir le code - Principal" onclick="toggleCodeShowcase(this, 'primary');" aria-controls="primary" aria-expanded="false">Voir le code</gcds-button>
+<gcds-button button-type="button" button-role="secondary" button-style="text-only" onclick="copyCodeShowcase(this, 'primary', 'fr');" onblur="this.innerText = 'Copier le code'">Copier le code</gcds-button>
+<div class="showcase" id="primary" aria-hidden="true">
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>gcds-button</span><br>  <span class="token attr-name">button-role</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>primary<span class="token punctuation">&quot;</span></span><br>  <span class="token attr-name">button-type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>button<span class="token punctuation">&quot;</span></span><br><span class="token punctuation">&gt;</span></span><br>  Principal<br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>gcds-button</span><span class="token punctuation">&gt;</span></span></code></pre></p>
+<p><code class="copy-code" id="primary-copy">&lt;gcds-button
+button-role=&quot;primary&quot;
+button-type=&quot;button&quot;
+&gt;
+Principal
+&lt;/gcds-button&gt;</code>
+</div>
+</div></p>
+
+        <h3 id="bouton-secondaire">
+            <a class="anchor-link" href="#bouton-secondaire">Bouton secondaire
+            </a>
+        </h3><p><gcds-button
+  button-role="secondary"
+  button-type="button"
+>
+Secondaire
+</gcds-button></p>
+<p>On utilise le bouton secondaire pour les actions soutenant l’action principale.</p>
+<p>Utilisez-le pour attirer l’attention sur une action importante et fréquente, mais pas essentielle.</p>
+<p>Vous pouvez l’utiliser plus d’une fois par page pour les actions optionnelles importantes.</p>
+<p><div class="code-showcase">
+<gcds-button button-type="button" button-role="secondary" button-style="text-only" aria-label="Voir le code - Secondaire" onclick="toggleCodeShowcase(this, 'secondary');" aria-controls="secondary" aria-expanded="false">Voir le code</gcds-button>
+<gcds-button button-type="button" button-role="secondary" button-style="text-only" onclick="copyCodeShowcase(this, 'secondary', 'fr');" onblur="this.innerText = 'Copier le code'">Copier le code</gcds-button>
+<div class="showcase" id="secondary" aria-hidden="true">
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>gcds-button</span><br>  <span class="token attr-name">button-role</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>secondary<span class="token punctuation">&quot;</span></span><br>  <span class="token attr-name">button-type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>button<span class="token punctuation">&quot;</span></span><br><span class="token punctuation">&gt;</span></span><br>  Secondaire<br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>gcds-button</span><span class="token punctuation">&gt;</span></span></code></pre></p>
+<p><code class="copy-code" id="secondary-copy">&lt;gcds-button
+button-role=&quot;secondary&quot;
+button-type=&quot;button&quot;
+&gt;
+Secondaire
+&lt;/gcds-button&gt;</code>
+</div>
+</div></p>
+
+        <h3 id="bouton-destructeur">
+            <a class="anchor-link" href="#bouton-destructeur">Bouton destructeur
+            </a>
+        </h3><p><gcds-button
+  button-role="destructive"
+  button-type="button"
+>
+Destructeur
+</gcds-button></p>
+<p>On utilise le bouton destructeur pour signaler la sévérité d’une action qui retire, efface ou supprime des informations.</p>
+<p>Utilisez-le pour les actions irréversibles ou difficilement réversibles.</p>
+<p>Bon à savoir : pour les actions irréversibles, demandez à la personne de confirmer son choix.</p>
+<p><div class="code-showcase">
+<gcds-button button-type="button" button-role="secondary" button-style="text-only" aria-label="Voir le code - Destructeur" onclick="toggleCodeShowcase(this, 'destructive');" aria-controls="destructive" aria-expanded="false">Voir le code</gcds-button>
+<gcds-button button-type="button" button-role="secondary" button-style="text-only" onclick="copyCodeShowcase(this, 'destructive', 'fr');" onblur="this.innerText = 'Copier le code'">Copier le code</gcds-button>
+<div class="showcase" id="destructive" aria-hidden="true">
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>gcds-button</span><br>  <span class="token attr-name">button-role</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>destructive<span class="token punctuation">&quot;</span></span><br>  <span class="token attr-name">button-type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>button<span class="token punctuation">&quot;</span></span><br><span class="token punctuation">&gt;</span></span><br>  Destructeur<br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>gcds-button</span><span class="token punctuation">&gt;</span></span></code></pre></p>
+<p><code class="copy-code" id="destructive-copy">&lt;gcds-button
+button-role=&quot;destructive&quot;
+button-type=&quot;button&quot;
+&gt;
+Destructeur
+&lt;/gcds-button&gt;</code>
+</div>
+</div></p>
+
+        <h3 id="bouton-devitement-passer-au-contenu-">
+            <a class="anchor-link" href="#bouton-devitement-passer-au-contenu-">Bouton d’évitement « Passer au contenu »
+            </a>
+        </h3><p><gcds-button
+  button-role="skip-to-content"
+  button-type="button"
+>
+Passer au contenu
+</gcds-button></p>
+<p>On utilise le bouton d’évitement (visible ou masqué) pour aider une personne à passer directement au contenu principal.</p>
+<p>Utilisez-le pour accélérer la navigation. C’est un raccourci qui saute les liens ou autres éléments de navigation d’une page.</p>
+<p>Ce bouton évite aux personnes d’appuyer sur Tabulation sans relâche ou de faire défiler longuement une page.</p>
+<p><div class="code-showcase">
+<gcds-button button-type="button" button-role="secondary" button-style="text-only" aria-label="Voir le code - Passer au contenu" onclick="toggleCodeShowcase(this, 'skip-to-content');" aria-controls="skip-to-content" aria-expanded="false">Voir le code</gcds-button>
+<gcds-button button-type="button" button-role="secondary" button-style="text-only" onclick="copyCodeShowcase(this, 'skip-to-content', 'fr');" onblur="this.innerText = 'Copier le code'">Copier le code</gcds-button>
+<div class="showcase" id="skip-to-content" aria-hidden="true">
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>gcds-button</span><br>  <span class="token attr-name">button-role</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>skip-to-content<span class="token punctuation">&quot;</span></span><br>  <span class="token attr-name">button-type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>button<span class="token punctuation">&quot;</span></span><br><span class="token punctuation">&gt;</span></span><br>  Passer au contenu<br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>gcds-button</span><span class="token punctuation">&gt;</span></span></code></pre></p>
+<p><code class="copy-code" id="skip-to-content-copy">&lt;gcds-button
+button-role=&quot;skip-to-content&quot;
+button-type=&quot;button&quot;
+&gt;
+Passer au contenu
+&lt;/gcds-button&gt;</code>
+</div>
+</div></p>
+</section>
+<section aria-label="Comment modifier le bouton">
+
+        <h2 id="comment-modifier-le-bouton">
+            <a class="anchor-link" href="#comment-modifier-le-bouton">Comment modifier le bouton
+            </a>
+        </h2><p>Il peut arriver que les options par défaut ne permettent pas de répondre aux besoins des personnes utilisant votre produit. Vous pouvez modifier le composant pour créer un bouton personnalisé, adapté à un cas particulier.</p>
+
+        <h3 id="type-style-et-role-des-boutons">
+            <a class="anchor-link" href="#type-style-et-role-des-boutons">Type, style et rôle des boutons
+            </a>
+        </h3><h4>Type du bouton</h4><p>Définissez le type de bouton en fonction du comportement désiré du bouton.</p>
+<p>L’attribut button-type peut prendre les valeurs suivantes :</p>
+<div lang="en">
+<ul>
+<li><code>button</code></li>
+<li><code>submit</code></li>
+<li><code>reset</code></li>
+<li><code>link</code></li>
+</ul>
+</div>
+<h4>Rôle du bouton</h4><p>L’attribut button-role peut prendre les valeurs suivantes :</p>
+<div lang="en">
+<ul>
+<li><code>destructive</code></li>
+<li><code>primary</code></li>
+<li><code>secondary</code></li>
+<li><code>skip-to-content</code></li>
+</ul>
+</div>
+<h4>Style du bouton</h4><p>L’attribut button-style peut prendre les valeurs suivantes :</p>
+<div lang="en">
+<ul>
+<li><code>outline</code></li>
+<li><code>solid</code></li>
+<li><code>text-only</code></li>
+</ul>
+</div>
+
+        <h3 id="ajouter-une-icone-aux-boutons">
+            <a class="anchor-link" href="#ajouter-une-icone-aux-boutons">Ajouter une icône aux boutons
+            </a>
+        </h3><p>Les icônes peuvent agir comme aide visuelle si elles sont utilisées avec parcimonie et de façon prévisible. Évitez d’utiliser une icône seule, sans texte. Si vous ajoutez une icône à un bouton, alignez le libellé à gauche.</p>
+
+        <h3 id="appliquer-les-bases-du-systeme-de-design">
+            <a class="anchor-link" href="#appliquer-les-bases-du-systeme-de-design">Appliquer les bases du système de design
+            </a>
+        </h3><p>Choisissez des valeurs pour la typographie parmi les <a href="/gcds-docs/fr/bases/">bases du système de design du GC</a>. Les valeurs de style pour la couleur et l’espacement seront bientôt disponibles!</p>
+</section>
+<section aria-label="Cas réglés par le bouton">
+
+        <h2 id="cas-regles-par-le-bouton">
+            <a class="anchor-link" href="#cas-regles-par-le-bouton">Cas réglés par le bouton
+            </a>
+        </h2><p>Utilisez les boutons pour des actions importantes effectuées par l’utilisateur comme :</p>
+<ul>
+<li>enregistrer, supprimer, copier, télécharger</li>
+<li>effacer le texte saisi dans un champ</li>
+<li>envoyer un formulaire ou une demande</li>
+<li>donner un consentement ou une autorisation</li>
+<li>faire un choix entre 2 options</li>
+<li>accéder à une zone de connexion sécurisée, à un formulaire ou à un tutoriel</li>
+<li>passer au contenu principal d’une page</li>
+</ul>
+<p>Dans les applications Web ou mobiles, les boutons remplacent les hyperliens pour :</p>
+<ul>
+<li>contrôler les déplacements, par exemple d’un écran à l’autre dans une séquence d’écrans</li>
+<li>lier à une page externe (ne pas oublier d’indiquer qu’il s’agit d’un lien externe)</li>
+</ul>
+</section>
+<section aria-label="Composants apparentés">
+
+        <h2 id="composants-apparentes">
+            <a class="anchor-link" href="#composants-apparentes">Composants apparentés
+            </a>
+        </h2><p><strong>Boutons radio ou listes déroulantes</strong> : à utiliser quand vous offrez plusieurs options et qu’il faut en choisir une.</p>
+<p><strong>Cases à cocher</strong> : à utiliser quand vous offrez plusieurs options et qu’on peut en choisir plusieurs.</p>
+</section>
+<section aria-label="Où placer les boutons">
+
+        <h2 id="ou-placer-les-boutons">
+            <a class="anchor-link" href="#ou-placer-les-boutons">Où placer les boutons
+            </a>
+        </h2><p>Placez les boutons à des endroits habituels et prévisibles de façon à ce qu’une personne trouve facilement l’action qu’elle veut faire.</p>
+<p>Offrez rapidement un chemin vers la prochaine action pour épargner aux personnes les longs défilements d’écran, les multiples tabulations ou les frappes de clavier inutiles.</p>
+<p>Vérifiez que l’emplacement du bouton assure un bon contraste entre le contour du bouton et l’arrière-plan.</p>
+
+        <h3 id="ajouter-un-bouton-devitement">
+            <a class="anchor-link" href="#ajouter-un-bouton-devitement">Ajouter un bouton d’évitement
+            </a>
+        </h3><p>Permettez aux personnes de sauter un groupe de liens de navigation grâce à un bouton d’évitement.</p>
+<p>Pour que le bouton ne cache rien, configurez-le de sorte qu’il pousse le contenu vers le bas. En version bureau, placez le bouton d’évitement dans le coin supérieur gauche de la page pour ne pas entrecouper le contenu.</p>
+</section>
+<section aria-label="Rédiger un bon libellé de bouton">
+
+        <h2 id="rediger-un-bon-libelle-de-bouton">
+            <a class="anchor-link" href="#rediger-un-bon-libelle-de-bouton">Rédiger un bon libellé de bouton
+            </a>
+        </h2>
+        <h3 id="assurer-la-lisibilite-du-libelle">
+            <a class="anchor-link" href="#assurer-la-lisibilite-du-libelle">Assurer la lisibilité du libellé
+            </a>
+        </h3><p>Décrivez l’action du bouton à l’aide d’un libellé court et précis.</p>
+<p>Mettez une majuscule initiale au premier mot seulement.</p>
+
+        <h3 id="choisir-un-libelle-clair-et-descriptif">
+            <a class="anchor-link" href="#choisir-un-libelle-clair-et-descriptif">Choisir un libellé clair et descriptif
+            </a>
+        </h3><p>Rédigez un libellé spécifique à chaque bouton dans une même page. Si vous réutilisez les mêmes libellés, une personne naviguant d’un bouton à l’autre entendra les mêmes mots se répéter sans savoir à quelle action ils se rapportent.</p>
+<p>Évitez les formules vagues et génériques ou celles qui se ressemblent trop d’un bouton à l’autre. Elles portent à confusion et nuisent aux personnes cherchant à accomplir une tâche.</p>
+<p>Évitez les expressions qui pourraient être étrangères à des personnes dont le français n’est pas la langue première.</p>
+</section>
 
             </main>
         </div>
@@ -408,13 +620,12 @@
         <footer class="footer">
     <div class="container footer__container">
         <ul>
-        
-            
-                <li><a href=/gcds-docs/fr/avis/>Avis</a></li>
-            
-                <li><a href=/gcds-docs/fr/confidentialite/>Confidentialité</a></li>
-            
-        
+            <li>
+                <a href="https://www.canada.ca/fr/transparence/avis.html" target="_blank" aria-label="Avis (S'ouvre dans un nouvel onglet)">Avis</a>
+            </li>
+            <li>
+                <a href="https://www.canada.ca/fr/transparence/confidentialite.html" target="_blank" aria-label="Confidentialité (S'ouvre dans un nouvel onglet)">Confidentialité</a>
+            </li>
             <li>
                 <a href="https://www.canada.ca/" target="_blank" aria-label="Site Web Canada.ca (S'ouvre dans un nouvel onglet)">Canada.ca</a>
             </li>

@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Textarea - GC Design System</title>
+        <title>Text area - Components - GC Design System</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <script type="module">
             import { defineCustomElements } from "/gcds-docs/components/loader/index.es2017.js";
@@ -13,6 +13,7 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet">
         
         <link rel="stylesheet" href="/gcds-docs/components/dist/gcds/gcds.css">
         <link rel="stylesheet" href="/gcds-docs/styles/prism.css">
@@ -25,7 +26,7 @@
             <gcds-button
                 button-type="link"
                 button-role="skip-to-content"
-                href="#content"
+                href="#mc"
             >
                 Skip to main content
             </gcds-button>
@@ -190,19 +191,7 @@
                 
                     
                     
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
                         
-                    
-                
-                    
                     
                 
                     
@@ -260,12 +249,12 @@
             
     <li>
     
-        <span>Basic</span>
+        <span>Interface elements</span>
     <ul>
             
     <li>
     
-        <a href="/gcds-docs/en/components/basic/button/"  >Buttons</a>
+        <a href="/gcds-docs/en/components/interface-elements/button/"  >Button</a>
     </li>
 
         
@@ -287,7 +276,7 @@
             
     <li>
     
-        <a href="/gcds-docs/en/components/forms/forms-guidance/"  >Forms guidance</a>
+        <a href="/gcds-docs/en/components/forms/form-guidance/"  >Form guidance</a>
     </li>
 
         
@@ -301,7 +290,7 @@
             
     <li class="my-active-class">
     
-        <a href="/gcds-docs/en/components/forms/textarea/"  aria-current="page"  >Textarea</a>
+        <a href="/gcds-docs/en/components/forms/textarea/"  aria-current="page"  >Text area</a>
     </li>
 
         
@@ -363,15 +352,15 @@
         <ul>
             
                 <li>
-                    <a href="#use-the-basic-text-area-component">Use the basic text area component</a>
+                    <a href="#the-basic-text-area-component">The basic text area component</a>
                 </li>
             
                 <li>
-                    <a href="#customize-the-text-area">Customize the text area</a>
+                    <a href="#how-to-modify-the-text-area">How to modify the text area</a>
                 </li>
             
                 <li>
-                    <a href="#what-to-use-text-area-for">What to use text area for</a>
+                    <a href="#what-problems-text-areas-solve">What problems text areas solve</a>
                 </li>
             
                 <li>
@@ -379,7 +368,7 @@
                 </li>
             
                 <li>
-                    <a href="#making-text-areas-visible">Making text areas visible</a>
+                    <a href="#size-and-placement-of-text-area">Size and placement of text area</a>
                 </li>
             
                 <li>
@@ -397,14 +386,133 @@
 
             <main id="mc">
                 
-<h1>Textarea</h1><p><ul class="doc-links"></p>
-<p><li class="github-link">
+<header>
+<h1>Text area</h1><p><code>&lt;gcds-textarea&gt;</code></p>
+<p>A text area is a space, usually on a form, for a person to enter long-form information in response to a question or instruction.</p>
+<p><ul class="doc-links">
+<li class="github-link">
 <a href="https://github.com/cds-snc/gcds-components/tree/main/src/components/gcds-textarea" target="_blank" rel="nofollow" aria-label="GitHub (Opens in a new tab)">GitHub</a>
 </li>
 <li class="figma-link">
 <span>Figma — coming soon</span>
 </li>
 </ul></p>
+</header>
+<section aria-label="The basic text area component">
+
+        <h2 id="the-basic-text-area-component">
+            <a class="anchor-link" href="#the-basic-text-area-component">The basic text area component
+            </a>
+        </h2><p>Use a text area to collect multi-line information from a person.</p>
+<p>Text areas have built in states that change when someone interacts with that field: default, hover, focus, active, disabled.</p>
+
+        <h3 id="text-area">
+            <a class="anchor-link" href="#text-area">Text area
+            </a>
+        </h3><p><gcds-textarea
+  textarea-id="textarea"
+  label="Text area"
+></p>
+<p>Use the text area for longform, multi-line, response collection.</p>
+<p><div class="code-showcase">
+<gcds-button button-type="button" button-role="secondary" button-style="text-only" aria-label="View code - Text area" onclick="toggleCodeShowcase(this, 'view-textarea');" aria-controls="view-textarea" aria-expanded="false">View code</gcds-button>
+<gcds-button button-type="button" button-role="secondary" button-style="text-only" onclick="copyCodeShowcase(this, 'view-textarea', 'en');" onblur="this.innerText = 'Copy code'">Copy code</gcds-button>
+<div class="showcase" id="view-textarea" aria-hidden="true">
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>gcds-textarea</span><br>  <span class="token attr-name">textarea-id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>textarea<span class="token punctuation">&quot;</span></span><br>  <span class="token attr-name">label</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>Text area<span class="token punctuation">&quot;</span></span><br><span class="token punctuation">&gt;</span></span></code></pre></p>
+<p><code class="copy-code" id="view-textarea-copy">&lt;gcds-textarea
+textarea-id=&quot;textarea&quot;
+label=&quot;Text area&quot;
+&gt;</code>
+</div>
+</div></p>
+</section>
+<section aria-label="How to modify the text area">
+
+        <h2 id="how-to-modify-the-text-area">
+            <a class="anchor-link" href="#how-to-modify-the-text-area">How to modify the text area
+            </a>
+        </h2><p>Occasionally, the default options may not meet the needs of the people using your product. You can modify the text area component to create a custom text area for a particular use case.</p>
+
+        <h3 id="apply-design-system-foundations-to-text-areas">
+            <a class="anchor-link" href="#apply-design-system-foundations-to-text-areas">Apply design system foundations to text areas
+            </a>
+        </h3><p>Select typography tokens from the GC Design System <a href="/gcds-docs/en/foundations">foundations</a>. Colour and spacing tokens coming soon!</p>
+</section>
+<section aria-label="What problems text areas solve">
+
+        <h2 id="what-problems-text-areas-solve">
+            <a class="anchor-link" href="#what-problems-text-areas-solve">What problems text areas solve
+            </a>
+        </h2><p>Use an input field to gather information by:</p>
+<ul>
+<li>capturing a freeform response to a multi-line question</li>
+<li>for descriptive entries, like describing a problem or concern</li>
+<li>collecting message text on contact pages</li>
+</ul>
+</section>
+<section aria-label="Related components">
+
+        <h2 id="related-components">
+            <a class="anchor-link" href="#related-components">Related components
+            </a>
+        </h2><p><strong>Text input</strong> for single-line responses.</p>
+<p><strong>Radio buttons or dropdowns</strong> when you can give someone a set of options for single selections.</p>
+<p><strong>Checkboxes</strong> when you can give someone a set of options for multi selections.</p>
+<p><strong>Buttons</strong> when you’re asking consent or agreement or offering a binary choice.</p>
+<p><strong>Date selectors</strong> when you want someone to choose a date, like for appointment scheduling.</p>
+</section>
+<section aria-label="Size and placement of text area">
+
+        <h2 id="size-and-placement-of-text-area">
+            <a class="anchor-link" href="#size-and-placement-of-text-area">Size and placement of text area
+            </a>
+        </h2>
+        <h3 id="text-area-width">
+            <a class="anchor-link" href="#text-area-width">Text area width
+            </a>
+        </h3><p>Avoid setting width any lower than 50% (1/2 width).</p>
+<p>Make the height of a text area proportional to the amount of text you expect someone to enter. You can set the height of a text area by by specifying the rows attribute.</p>
+
+        <h3 id="visibility-of-text-area">
+            <a class="anchor-link" href="#visibility-of-text-area">Visibility of text area
+            </a>
+        </h3><p>Check the visibility of both the label text and entry field line or border against the surface where you’re placing them.</p>
+<p>Use built in or custom hover state to ensure good colour contrast.</p>
+<p>Mark fields as required using an asterisk and the word “required”.</p>
+<p>Avoid placing hint text or error messages below the field where they might be hidden.</p>
+</section>
+<section aria-label="How to write good text area labels">
+
+        <h2 id="how-to-write-good-text-area-labels">
+            <a class="anchor-link" href="#how-to-write-good-text-area-labels">How to write good text area labels
+            </a>
+        </h2><p>Group text areas by related category so it’s easier for a person to understand what information you’re asking them for.</p>
+<p>Write labels that are short and specific requests for information. Phrasing as a question can make a label unnecessarily long. Use descriptive text for any icons or images.</p>
+<p>Avoid repeating input field label text within the same page. A person browsing fields will hear the label text in rapid succession without cues to tell which label is for which context.</p>
+<p>Avoid using technical jargon, like “subject email address” or “account ID”. Instead be specific and personal, “full name”, “child’s age”.</p>
+<p>Avoid using colloquialisms and common verb phrases that are unfamiliar to non-fluent speakers. Explain a term that may not be clear: “handle (name you’d like to go by)”.</p>
+<p>When creating text areas, only ask for the information you need.</p>
+</section>
+<section aria-label="When to use hint text and error messages">
+
+        <h2 id="when-to-use-hint-text-and-error-messages">
+            <a class="anchor-link" href="#when-to-use-hint-text-and-error-messages">When to use hint text and error messages
+            </a>
+        </h2>
+        <h3 id="handling-hint-text">
+            <a class="anchor-link" href="#handling-hint-text">Handling hint text
+            </a>
+        </h3><p>Add hint text to help a person filling in a field to provide a complete value.</p>
+<p>Write hint text to be instructional, brief, and specific.</p>
+<p>Make your hint text is static, so it does not disappear.</p>
+
+        <h3 id="error-messages-for-all-required-fields">
+            <a class="anchor-link" href="#error-messages-for-all-required-fields">Error messages for all required fields
+            </a>
+        </h3><p>Use error messages to address missing and invalid entries for all required fields.</p>
+<p>Tell the person what the problem is so they can accomplish their goals. Avoid blaming the person using the product. Let them know what they need to do to move forward.</p>
+<p>Consider affirmations like confirming valid entries instead when you can validate a correct input field entry instead of flagging an error.</p>
+</section>
 
             </main>
         </div>
@@ -412,13 +520,12 @@
         <footer class="footer">
     <div class="container footer__container">
         <ul>
-        
-            
-                <li><a href=/gcds-docs/en/terms/>Terms and conditions</a></li>
-            
-                <li><a href=/gcds-docs/en/privacy/>Privacy</a></li>
-            
-        
+            <li>
+                <a href="https://www.canada.ca/en/transparency/terms.html" target="_blank" aria-label="Terms and conditions (Opens in a new tab)">Terms and conditions</a>
+            </li>
+            <li>
+                <a href="https://www.canada.ca/en/transparency/privacy.html" target="_blank" aria-label="Privacy (Opens in a new tab)">Privacy</a>
+            </li>
             <li>
                 <a href="https://www.canada.ca/" target="_blank" aria-label="Canada.ca site (Opens in a new tab)">Canada.ca</a>
             </li>

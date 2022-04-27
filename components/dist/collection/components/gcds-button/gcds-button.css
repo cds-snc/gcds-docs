@@ -2,8 +2,12 @@
 :host a {
   border: none;
   cursor: pointer;
-  padding: 0.5rem 1rem;
+  font-family: var(--gcds-font-families-heading), sans-serif;
+  font-size: var(--gcds-font-sizes-paragraph);
+  line-height: var(--gcds-font-sizes-paragraph);
+  padding: 1rem .75rem;
   text-decoration: none;
+  border-radius: 4px;
 
   border-width: var(--custom-gcds-style-border-width);
   border-style: var(--custom-gcds-style-border-style);
@@ -13,169 +17,123 @@
   background-color: var(--custom-gcds-style-background-color);
   box-shadow: var(--custom-gcds-style-box-shadow);
   text-transform: var(--custom-gcds-style-text-transform);
+
+  transition: all .15s ease-in-out;
 }
 
-  :host button.primary.solid, :host a.primary.solid {
-      background-color: var(--custom-gcds-style-background-color, var(--gcds-colour-base-blue-grey-900));
-      color: var(--gcds-colour-utils-white);
-    }
+  /* Shared Styles */
 
-  :host button.primary.solid:hover, :host button.primary.solid.hover, :host a.primary.solid:hover, :host a.primary.solid.hover {
-        
+  :host button[aria-disabled="true"], :host a[aria-disabled="true"] {
+    background: var(--gcds-button-shared-disabled-background);
+    border: 1px solid var(--gcds-button-shared-disabled-border);
+    color: var(--gcds-button-shared-disabled-text);
+    cursor: not-allowed;
+  }
+
+  :host button:focus, :host a:focus {
+    background-color: var(--gcds-button-shared-focus-background);
+    box-shadow: 0 0 0 2px var(--gcds-button-shared-focus-text);
+    outline: 3px solid var(--gcds-button-shared-focus-background);
+    outline-offset: 2px;
+    color: var(--gcds-button-shared-focus-text);
+  }
+
+  :host button.outline:not([aria-disabled="true"]), :host a.outline:not([aria-disabled="true"]) {
+    border: 1px solid currentColor;
+  }
+
+  :host button.solid:not([aria-disabled="true"]), :host a.solid:not([aria-disabled="true"]) {
+    color: var(--gcds-button-shared-text);
+  }
+
+  :host button:not(:focus):not([aria-disabled="true"]).primary.solid, :host a:not(:focus):not([aria-disabled="true"]).primary.solid {
+        background-color:
+          var(--custom-gcds-style-background-color,
+          var(--gcds-button-primary-default));
       }
 
-  :host button.primary.solid:focus, :host button.primary.solid.focus, :host a.primary.solid:focus, :host a.primary.solid.focus {
-        
+  :host button:not(:focus):not([aria-disabled="true"]).primary.solid:hover, :host a:not(:focus):not([aria-disabled="true"]).primary.solid:hover {
+          background-color: var(--gcds-button-primary-hover);
+        }
+
+  :host button:not(:focus):not([aria-disabled="true"]).primary.solid:active, :host a:not(:focus):not([aria-disabled="true"]).primary.solid:active {
+          background-color: var(--gcds-button-primary-active);
+        }
+
+  :host button:not(:focus):not([aria-disabled="true"]).primary.outline,
+      :host button:not(:focus):not([aria-disabled="true"]).primary.text-only,
+      :host a:not(:focus):not([aria-disabled="true"]).primary.outline,
+      :host a:not(:focus):not([aria-disabled="true"]).primary.text-only {
+        color: var(--gcds-button-primary-default);
       }
 
-  :host button.primary.solid:active, :host button.primary.solid.active, :host a.primary.solid:active, :host a.primary.solid.active {
-        
+  :host button:not(:focus):not([aria-disabled="true"]).primary.outline:hover, :host button:not(:focus):not([aria-disabled="true"]).primary.text-only:hover, :host a:not(:focus):not([aria-disabled="true"]).primary.outline:hover, :host a:not(:focus):not([aria-disabled="true"]).primary.text-only:hover {
+          color: var(--gcds-button-primary-hover);
+        }
+
+  :host button:not(:focus):not([aria-disabled="true"]).primary.outline:active, :host button:not(:focus):not([aria-disabled="true"]).primary.text-only:active, :host a:not(:focus):not([aria-disabled="true"]).primary.outline:active, :host a:not(:focus):not([aria-disabled="true"]).primary.text-only:active {
+          color: var(--gcds-button-primary-active);
+        }
+
+  :host button:not(:focus):not([aria-disabled="true"]).secondary.solid, :host a:not(:focus):not([aria-disabled="true"]).secondary.solid {
+        background-color:
+          var(--custom-gcds-style-background-color,
+          var(--gcds-button-secondary-default));
       }
 
-  :host button.primary.solid:disabled, :host button.primary.solid.disabled, :host a.primary.solid:disabled, :host a.primary.solid.disabled {
-        
+  :host button:not(:focus):not([aria-disabled="true"]).secondary.solid:hover, :host a:not(:focus):not([aria-disabled="true"]).secondary.solid:hover {
+          background-color: var(--gcds-button-secondary-hover);
+        }
+
+  :host button:not(:focus):not([aria-disabled="true"]).secondary.solid:active, :host a:not(:focus):not([aria-disabled="true"]).secondary.solid:active {
+          background-color: var(--gcds-button-secondary-active);
+        }
+
+  :host button:not(:focus):not([aria-disabled="true"]).secondary.outline,
+      :host button:not(:focus):not([aria-disabled="true"]).secondary.text-only,
+      :host a:not(:focus):not([aria-disabled="true"]).secondary.outline,
+      :host a:not(:focus):not([aria-disabled="true"]).secondary.text-only {
+        color: var(--gcds-button-secondary-default);
       }
 
-  :host button.primary.outline:hover, :host button.primary.outline.hover, :host a.primary.outline:hover, :host a.primary.outline.hover {
-        
+  :host button:not(:focus):not([aria-disabled="true"]).secondary.outline:hover, :host button:not(:focus):not([aria-disabled="true"]).secondary.text-only:hover, :host a:not(:focus):not([aria-disabled="true"]).secondary.outline:hover, :host a:not(:focus):not([aria-disabled="true"]).secondary.text-only:hover {
+          color: var(--gcds-button-secondary-hover);
+        }
+
+  :host button:not(:focus):not([aria-disabled="true"]).secondary.outline:active, :host button:not(:focus):not([aria-disabled="true"]).secondary.text-only:active, :host a:not(:focus):not([aria-disabled="true"]).secondary.outline:active, :host a:not(:focus):not([aria-disabled="true"]).secondary.text-only:active {
+          color: var(--gcds-button-secondary-active);
+        }
+
+  :host button:not(:focus):not([aria-disabled="true"]).destructive.solid, :host a:not(:focus):not([aria-disabled="true"]).destructive.solid {
+        background-color:
+          var(--custom-gcds-style-background-color,
+          var(--gcds-button-destructive-default));
       }
 
-  :host button.primary.outline:focus, :host button.primary.outline.focus, :host a.primary.outline:focus, :host a.primary.outline.focus {
-        
+  :host button:not(:focus):not([aria-disabled="true"]).destructive.solid:hover, :host a:not(:focus):not([aria-disabled="true"]).destructive.solid:hover {
+          background-color: var(--gcds-button-destructive-hover);
+        }
+
+  :host button:not(:focus):not([aria-disabled="true"]).destructive.solid:active, :host a:not(:focus):not([aria-disabled="true"]).destructive.solid:active {
+          background-color: var(--gcds-button-destructive-active);
+        }
+
+  :host button:not(:focus):not([aria-disabled="true"]).destructive.outline,
+      :host button:not(:focus):not([aria-disabled="true"]).destructive.text-only,
+      :host a:not(:focus):not([aria-disabled="true"]).destructive.outline,
+      :host a:not(:focus):not([aria-disabled="true"]).destructive.text-only {
+        color: var(--gcds-button-destructive-default);
       }
 
-  :host button.primary.outline:active, :host button.primary.outline.active, :host a.primary.outline:active, :host a.primary.outline.active {
-        
-      }
+  :host button:not(:focus):not([aria-disabled="true"]).destructive.outline:hover, :host button:not(:focus):not([aria-disabled="true"]).destructive.text-only:hover, :host a:not(:focus):not([aria-disabled="true"]).destructive.outline:hover, :host a:not(:focus):not([aria-disabled="true"]).destructive.text-only:hover {
+          color: var(--gcds-button-destructive-hover);
+        }
 
-  :host button.primary.outline:disabled, :host button.primary.outline.disabled, :host a.primary.outline:disabled, :host a.primary.outline.disabled {
-        
-      }
-
-  :host button.primary.text-only:hover, :host button.primary.text-only.hover, :host a.primary.text-only:hover, :host a.primary.text-only.hover {
-        
-      }
-
-  :host button.primary.text-only:focus, :host button.primary.text-only.focus, :host a.primary.text-only:focus, :host a.primary.text-only.focus {
-        
-      }
-
-  :host button.primary.text-only:active, :host button.primary.text-only.active, :host a.primary.text-only:active, :host a.primary.text-only.active {
-        
-      }
-
-  :host button.primary.text-only:disabled, :host button.primary.text-only.disabled, :host a.primary.text-only:disabled, :host a.primary.text-only.disabled {
-        
-      }
-
-  :host button.secondary.solid, :host a.secondary.solid {
-      background-color: var(--custom-gcds-style-background-color, var(--gcds-colour-base-grey-100));
-      color: var(--gcds-colour-base-blue-grey-900);
-    }
-
-  :host button.secondary.solid:hover, :host button.secondary.solid.hover, :host a.secondary.solid:hover, :host a.secondary.solid.hover {
-        
-      }
-
-  :host button.secondary.solid:focus, :host button.secondary.solid.focus, :host a.secondary.solid:focus, :host a.secondary.solid.focus {
-
-      }
-
-  :host button.secondary.solid:active, :host button.secondary.solid.active, :host a.secondary.solid:active, :host a.secondary.solid.active {
-        
-      }
-
-  :host button.secondary.solid:disabled, :host button.secondary.solid.disabled, :host a.secondary.solid:disabled, :host a.secondary.solid.disabled {
-        
-      }
-
-  :host button.secondary.outline:hover, :host button.secondary.outline.hover, :host a.secondary.outline:hover, :host a.secondary.outline.hover {
-        
-      }
-
-  :host button.secondary.outline:focus, :host button.secondary.outline.focus, :host a.secondary.outline:focus, :host a.secondary.outline.focus {
-        
-      }
-
-  :host button.secondary.outline:active, :host button.secondary.outline.active, :host a.secondary.outline:active, :host a.secondary.outline.active {
-        
-      }
-
-  :host button.secondary.outline:disabled, :host button.secondary.outline.disabled, :host a.secondary.outline:disabled, :host a.secondary.outline.disabled {
-        
-      }
-
-  :host button.secondary.text-only:hover, :host button.secondary.text-only.hover, :host a.secondary.text-only:hover, :host a.secondary.text-only.hover {
-        
-      }
-
-  :host button.secondary.text-only:focus, :host button.secondary.text-only.focus, :host a.secondary.text-only:focus, :host a.secondary.text-only.focus {
-        
-      }
-
-  :host button.secondary.text-only:active, :host button.secondary.text-only.active, :host a.secondary.text-only:active, :host a.secondary.text-only.active {
-        
-      }
-
-  :host button.secondary.text-only:disabled, :host button.secondary.text-only.disabled, :host a.secondary.text-only:disabled, :host a.secondary.text-only.disabled {
-        
-      }
-
-  :host button.destructive.solid, :host a.destructive.solid {
-      background-color: var(--custom-gcds-style-background-color, var(--gcds-colour-base-red-500));
-      color: var(--gcds-colour-utils-white);
-    }
-
-  :host button.destructive.solid:hover, :host button.destructive.solid.hover, :host a.destructive.solid:hover, :host a.destructive.solid.hover {
-        
-      }
-
-  :host button.destructive.solid:focus, :host button.destructive.solid.focus, :host a.destructive.solid:focus, :host a.destructive.solid.focus {
-        
-      }
-
-  :host button.destructive.solid:active, :host button.destructive.solid.active, :host a.destructive.solid:active, :host a.destructive.solid.active {
-        
-      }
-
-  :host button.destructive.solid:disabled, :host button.destructive.solid.disabled, :host a.destructive.solid:disabled, :host a.destructive.solid.disabled {
-        
-      }
-
-  :host button.destructive.outline:hover, :host button.destructive.outline.hover, :host a.destructive.outline:hover, :host a.destructive.outline.hover {
-        
-      }
-
-  :host button.destructive.outline:focus, :host button.destructive.outline.focus, :host a.destructive.outline:focus, :host a.destructive.outline.focus {
-        
-      }
-
-  :host button.destructive.outline:active, :host button.destructive.outline.active, :host a.destructive.outline:active, :host a.destructive.outline.active {
-        
-      }
-
-  :host button.destructive.outline:disabled, :host button.destructive.outline.disabled, :host a.destructive.outline:disabled, :host a.destructive.outline.disabled {
-        
-      }
-
-  :host button.destructive.text-only:hover, :host button.destructive.text-only.hover, :host a.destructive.text-only:hover, :host a.destructive.text-only.hover {
-        
-      }
-
-  :host button.destructive.text-only:focus, :host button.destructive.text-only.focus, :host a.destructive.text-only:focus, :host a.destructive.text-only.focus {
-        
-      }
-
-  :host button.destructive.text-only:active, :host button.destructive.text-only.active, :host a.destructive.text-only:active, :host a.destructive.text-only.active {
-        
-      }
-
-  :host button.destructive.text-only:disabled, :host button.destructive.text-only.disabled, :host a.destructive.text-only:disabled, :host a.destructive.text-only.disabled {
-        
-      }
+  :host button:not(:focus):not([aria-disabled="true"]).destructive.outline:active, :host button:not(:focus):not([aria-disabled="true"]).destructive.text-only:active, :host a:not(:focus):not([aria-disabled="true"]).destructive.outline:active, :host a:not(:focus):not([aria-disabled="true"]).destructive.text-only:active {
+          color: var(--gcds-button-destructive-active);
+        }
 
   :host button.skip-to-content, :host a.skip-to-content {
-
     left: 0;
     position: absolute;
     text-align: center;
@@ -183,7 +141,7 @@
     width: 100%;
     z-index: 3;
 
-    clip: rect(1px,1px,1px,1px);
+    clip: rect(1px, 1px, 1px, 1px);
     height: 1px;
     margin: 0;
     overflow: hidden;
@@ -191,70 +149,18 @@
     width: 1px;
   }
 
-  :host button.skip-to-content.solid, :host a.skip-to-content.solid {
-      background-color: var(--custom-gcds-style-background-color, var(--gcds-colour-base-blue-grey-900));
-      color: var(--gcds-colour-utils-white);
+  :host button.skip-to-content.solid:not(:focus), :host a.skip-to-content.solid:not(:focus) {
+      background-color:
+        var(--custom-gcds-style-background-color,
+        var(--gcds-button-primary-default));
+      color: var(--gcds-button-shared-text);
     }
 
-  :host button.skip-to-content.solid:hover, :host button.skip-to-content.solid.hover, :host a.skip-to-content.solid:hover, :host a.skip-to-content.solid.hover {
-        
-      }
-
-  :host button.skip-to-content.solid:focus, :host button.skip-to-content.solid.focus, :host a.skip-to-content.solid:focus, :host a.skip-to-content.solid.focus {
-        clip: rect(auto,auto,auto,auto);
+  :host button.skip-to-content.solid:focus, :host button.skip-to-content.outline:focus, :host button.skip-to-content.text-only:focus, :host a.skip-to-content.solid:focus, :host a.skip-to-content.outline:focus, :host a.skip-to-content.text-only:focus {
+        clip: rect(auto, auto, auto, auto);
         height: inherit;
         margin: inherit;
         overflow: inherit;
         position: static;
         width: inherit;
-      }
-
-  :host button.skip-to-content.solid:active, :host button.skip-to-content.solid.active, :host a.skip-to-content.solid:active, :host a.skip-to-content.solid.active {
-        
-      }
-
-  :host button.skip-to-content.solid:disabled, :host button.skip-to-content.solid.disabled, :host a.skip-to-content.solid:disabled, :host a.skip-to-content.solid.disabled {
-        
-      }
-
-  :host button.skip-to-content.outline:hover, :host button.skip-to-content.outline.hover, :host a.skip-to-content.outline:hover, :host a.skip-to-content.outline.hover {
-        
-      }
-
-  :host button.skip-to-content.outline:focus, :host button.skip-to-content.outline.focus, :host a.skip-to-content.outline:focus, :host a.skip-to-content.outline.focus {
-        clip: rect(auto,auto,auto,auto);
-        height: inherit;
-        margin: inherit;
-        overflow: inherit;
-        position: static;
-        width: inherit;
-      }
-
-  :host button.skip-to-content.outline:active, :host button.skip-to-content.outline.active, :host a.skip-to-content.outline:active, :host a.skip-to-content.outline.active {
-        
-      }
-
-  :host button.skip-to-content.outline:disabled, :host button.skip-to-content.outline.disabled, :host a.skip-to-content.outline:disabled, :host a.skip-to-content.outline.disabled {
-        
-      }
-
-  :host button.skip-to-content.text-only:hover, :host button.skip-to-content.text-only.hover, :host a.skip-to-content.text-only:hover, :host a.skip-to-content.text-only.hover {
-        
-      }
-
-  :host button.skip-to-content.text-only:focus, :host button.skip-to-content.text-only.focus, :host a.skip-to-content.text-only:focus, :host a.skip-to-content.text-only.focus {
-        clip: rect(auto,auto,auto,auto);
-        height: inherit;
-        margin: inherit;
-        overflow: inherit;
-        position: static;
-        width: inherit;
-      }
-
-  :host button.skip-to-content.text-only:active, :host button.skip-to-content.text-only.active, :host a.skip-to-content.text-only:active, :host a.skip-to-content.text-only.active {
-        
-      }
-
-  :host button.skip-to-content.text-only:disabled, :host button.skip-to-content.text-only.disabled, :host a.skip-to-content.text-only:disabled, :host a.skip-to-content.text-only.disabled {
-        
       }

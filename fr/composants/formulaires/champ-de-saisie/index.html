@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Champ de saisie - Système de design GC</title>
+        <title>Champ de saisie - Composants - Système de design GC</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <script type="module">
             import { defineCustomElements } from "/gcds-docs/components/loader/index.es2017.js";
@@ -13,6 +13,7 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet">
         
         <link rel="stylesheet" href="/gcds-docs/components/dist/gcds/gcds.css">
         <link rel="stylesheet" href="/gcds-docs/styles/prism.css">
@@ -25,7 +26,7 @@
             <gcds-button
                 button-type="link"
                 button-role="skip-to-content"
-                href="#content"
+                href="#mc"
             >
                 Passer au contenu principal
             </gcds-button>
@@ -78,25 +79,13 @@
                 
                     
                     
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
                         
+                    
+                
+                    
+                    
+                
+                    
                     
                 
                     
@@ -241,7 +230,7 @@
             
     <li>
     
-        <a href="/gcds-docs/fr/bases/typography/"  >Typography</a>
+        <a href="/gcds-docs/fr/bases/typographie/"  >Typographie</a>
     </li>
 
         
@@ -284,7 +273,7 @@
             
     <li>
     
-        <a href="/gcds-docs/fr/composants/formulaires/aide-a-la-conception/"  >Aide à la conception</a>
+        <a href="/gcds-docs/fr/composants/formulaires/aide-a-la-conception-de-formulaires/"  >Aide à la conception de formulaires</a>
     </li>
 
         
@@ -360,15 +349,15 @@
         <ul>
             
                 <li>
-                    <a href="#comment-utiliser-le-champ-de-saisie">Comment utiliser le champ de saisie</a>
+                    <a href="#le-champ-de-saisie-de-base">Le champ de saisie de base</a>
                 </li>
             
                 <li>
-                    <a href="#personnaliser-un-champ-de-saisie">Personnaliser un champ de saisie</a>
+                    <a href="#comment-modifier-le-champ-de-saisie">Comment modifier le champ de saisie</a>
                 </li>
             
                 <li>
-                    <a href="#quand-utiliser-un-champ-de-saisie">Quand utiliser un champ de saisie</a>
+                    <a href="#cas-regles-par-le-champ-de-saisie">Cas réglés par le champ de saisie</a>
                 </li>
             
                 <li>
@@ -376,15 +365,15 @@
                 </li>
             
                 <li>
-                    <a href="#ou-placer-les-champs-de-saisie">Où placer les champs de saisie</a>
+                    <a href="#dimensions-et-emplacement-des-champs">Dimensions et emplacement des champs</a>
                 </li>
             
                 <li>
-                    <a href="#rediger-une-bonne-etiquette-de-champ">Rédiger une bonne étiquette de champ</a>
+                    <a href="#rediger-une-bonne-etiquette">Rédiger une bonne étiquette</a>
                 </li>
             
                 <li>
-                    <a href="#texte-daide-et-messages-derreur">Texte d’aide et messages d&#39;erreur</a>
+                    <a href="#texte-daide-et-messages-derreur">Texte d’aide et messages d’erreur</a>
                 </li>
             
         </ul>
@@ -394,14 +383,266 @@
 
             <main id="mc">
                 
-<h1>Champ de saisie</h1><p><ul class="doc-links"></p>
-<p><li class="github-link">
+<header>
+<h1>Champ de saisie</h1><p><code>&lt;gcds-input&gt;</code></p>
+<p>Un champ de saisie est un espace, généralement dans un formulaire, où une personne saisit de brèves informations en réponse à une question ou à une instruction.</p>
+<p><ul class="doc-links">
+<li class="github-link">
 <a href="https://github.com/cds-snc/gcds-components/tree/main/src/components/gcds-input" target="_blank" rel="nofollow" aria-label="GitHub (S'ouvre dans un nouvel onglet)">GitHub</a>
 </li>
 <li class="figma-link">
 <span>Figma — à venir</span>
 </li>
 </ul></p>
+</header>
+<section aria-label="Le champ de saisie de base">
+
+        <h2 id="le-champ-de-saisie-de-base">
+            <a class="anchor-link" href="#le-champ-de-saisie-de-base">Le champ de saisie de base
+            </a>
+        </h2><p>On utilise les champs de saisie pour collecter des informations qui tiennent sur une ligne.</p>
+<p>Un champ de saisie peut avoir divers états : de survol <span lang="en">(<em>hover</em>)</span>, ciblé <span lang="en">(<em>focus</em>)</span>, actif <span lang="en">(<em>active</em>)</span> et désactivé <span lang="en">(<em>disabled</em>)</span>. Ces états changent quand une personne interagit avec le champ.</p>
+
+        <h3 id="champ-de-type-text">
+            <a class="anchor-link" href="#champ-de-type-text">Champ de type text
+            </a>
+        </h3><p><gcds-input
+  type="text"
+  input-id="text"
+  label="Champ de type text"
+></gcds-input></p>
+<p>À utiliser pour collecter des réponses textuelles courtes, tenant sur une ligne.</p>
+<p>À utiliser par défaut s’il n’y a pas d’autre type de champ plus approprié pour une réponse d’une seule ligne.</p>
+<p>À utiliser pour collecter le nom d’une personne (souvent le nom complet).</p>
+<p>À utiliser au lieu du type number si le champ peut comprendre à la fois des valeurs numériques et non numériques.</p>
+<p><div class="code-showcase">
+<gcds-button button-type="button" button-role="secondary" button-style="text-only" aria-label="Voir le code - Champ de type text" onclick="toggleCodeShowcase(this, 'view-text');" aria-controls="view-text" aria-expanded="false">Voir le code</gcds-button>
+<gcds-button button-type="button" button-role="secondary" button-style="text-only" onclick="copyCodeShowcase(this, 'view-text', 'fr');" onblur="this.innerText = 'Copier le code'">Copier le code</gcds-button>
+<div class="showcase" id="view-text" aria-hidden="true">
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>gcds-input</span><br>  <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>text<span class="token punctuation">&quot;</span></span><br>  <span class="token attr-name">input-id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>text<span class="token punctuation">&quot;</span></span><br>  <span class="token attr-name">label</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>Champ de type text<span class="token punctuation">&quot;</span></span><br><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>gcds-input</span><span class="token punctuation">&gt;</span></span></code></pre></p>
+<p><code class="copy-code" id="view-text-copy">&lt;gcds-input
+type=&quot;text&quot;
+input-id=&quot;text&quot;
+label=&quot;Champ de type text&quot;
+&gt;&lt;/gcds-input&gt;</code>
+</div>
+</div></p>
+
+        <h3 id="champ-de-type-email">
+            <a class="anchor-link" href="#champ-de-type-email">Champ de type email
+            </a>
+        </h3><p><gcds-input
+  type="email"
+  input-id="email"
+  label="Champ de type email"
+></gcds-input></p>
+<p>À utiliser pour collecter une adresse courriel.</p>
+<p><div class="code-showcase">
+<gcds-button button-type="button" button-role="secondary" button-style="text-only" aria-label="Voir le code - Champ de type email" onclick="toggleCodeShowcase(this, 'view-email');" aria-controls="view-email" aria-expanded="false">Voir le code</gcds-button>
+<gcds-button button-type="button" button-role="secondary" button-style="text-only" onclick="copyCodeShowcase(this, 'view-email', 'fr');" onblur="this.innerText = 'Copier le code'">Copier le code</gcds-button>
+<div class="showcase" id="view-email" aria-hidden="true">
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>gcds-input</span><br>  <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>email<span class="token punctuation">&quot;</span></span><br>  <span class="token attr-name">input-id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span><span class="token punctuation">&quot;</span></span><br>  <span class="token attr-name">label</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>Champ de type email<span class="token punctuation">&quot;</span></span><br><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>gcds-input</span><span class="token punctuation">&gt;</span></span></code></pre></p>
+<p><code class="copy-code" id="view-email-copy">&lt;gcds-input
+type=&quot;email&quot;
+input-id=&quot;&quot;
+label=&quot;Champ de type email&quot;
+&gt;&lt;/gcds-input&gt;</code>
+</div>
+</div></p>
+
+        <h3 id="champ-de-type-password">
+            <a class="anchor-link" href="#champ-de-type-password">Champ de type password
+            </a>
+        </h3><p><gcds-input
+  type="password"
+  input-id="password"
+  label="Champ de type password"
+></gcds-input></p>
+<p>À utiliser pour collecter et vérifier un mot de passe.</p>
+<p><div class="code-showcase">
+<gcds-button button-type="button" button-role="secondary" button-style="text-only" aria-label="Voir le code - Champ de type password" onclick="toggleCodeShowcase(this, 'view-password');" aria-controls="view-password" aria-expanded="false">Voir le code</gcds-button>
+<gcds-button button-type="button" button-role="secondary" button-style="text-only" onclick="copyCodeShowcase(this, 'view-password', 'fr');" onblur="this.innerText = 'Copier le code'">Copier le code</gcds-button>
+<div class="showcase" id="view-password" aria-hidden="true">
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>gcds-input</span><br>  <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>password<span class="token punctuation">&quot;</span></span><br>  <span class="token attr-name">input-id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>password<span class="token punctuation">&quot;</span></span><br>  <span class="token attr-name">label</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>Champ de type password<span class="token punctuation">&quot;</span></span><br><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>gcds-input</span><span class="token punctuation">&gt;</span></span></code></pre></p>
+<p><code class="copy-code" id="view-password-copy">&lt;gcds-input
+type=&quot;password&quot;
+input-id=&quot;password&quot;
+label=&quot;Champ de type password&quot;
+&gt;&lt;/gcds-input&gt;</code>
+</div>
+</div></p>
+
+        <h3 id="champ-de-type-number">
+            <a class="anchor-link" href="#champ-de-type-number">Champ de type number
+            </a>
+        </h3><p><gcds-input
+  type="number"
+  input-id="number"
+  label="Champ de type number"
+></gcds-input></p>
+<p>À utiliser pour refuser toute valeur qui n’est pas numérique.</p>
+<p>Bon à savoir : si vous imposez une contrainte, par exemple un intervalle de chiffres, communiquez-le avec un texte d’aide.</p>
+<p><div class="code-showcase">
+<gcds-button button-type="button" button-role="secondary" button-style="text-only" aria-label="Voir le code - Champ de type number" onclick="toggleCodeShowcase(this, 'view-number');" aria-controls="view-number" aria-expanded="false">Voir le code</gcds-button>
+<gcds-button button-type="button" button-role="secondary" button-style="text-only" onclick="copyCodeShowcase(this, 'view-number', 'fr');" onblur="this.innerText = 'Copier le code'">Copier le code</gcds-button>
+<div class="showcase" id="view-number" aria-hidden="true">
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>gcds-input</span><br>  <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>number<span class="token punctuation">&quot;</span></span><br>  <span class="token attr-name">input-id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>number<span class="token punctuation">&quot;</span></span><br>  <span class="token attr-name">label</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>Champ de type number<span class="token punctuation">&quot;</span></span><br><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>gcds-input</span><span class="token punctuation">&gt;</span></span></code></pre></p>
+<p><code class="copy-code" id="view-number-copy">&lt;gcds-input
+type=&quot;number&quot;
+input-id=&quot;number&quot;
+label=&quot;Champ de type number&quot;
+&gt;&lt;/gcds-input&gt;</code>
+</div>
+</div></p>
+
+        <h3 id="champ-de-type-search">
+            <a class="anchor-link" href="#champ-de-type-search">Champ de type search
+            </a>
+        </h3><p><gcds-input
+  type="search"
+  input-id="search"
+  label="Champ de type search"
+></gcds-input></p>
+<p>À utiliser pour collecter des termes de recherche.</p>
+<p><div class="code-showcase">
+<gcds-button button-type="button" button-role="secondary" button-style="text-only" aria-label="Voir le code - Champ de type search" onclick="toggleCodeShowcase(this, 'view-search');" aria-controls="view-search" aria-expanded="false">Voir le code</gcds-button>
+<gcds-button button-type="button" button-role="secondary" button-style="text-only" onclick="copyCodeShowcase(this, 'view-search', 'fr');" onblur="this.innerText = 'Copier le code'">Copier le code</gcds-button>
+<div class="showcase" id="view-search" aria-hidden="true">
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>gcds-input</span><br>  <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>search<span class="token punctuation">&quot;</span></span><br>  <span class="token attr-name">input-id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>search<span class="token punctuation">&quot;</span></span><br>  <span class="token attr-name">label</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>Champ de type search<span class="token punctuation">&quot;</span></span><br><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>gcds-input</span><span class="token punctuation">&gt;</span></span></code></pre></p>
+<p><code class="copy-code" id="view-search-copy">&lt;gcds-input
+type=&quot;search&quot;
+input-id=&quot;search&quot;
+label=&quot;Champ de type search&quot;
+&gt;&lt;/gcds-input&gt;</code>
+</div>
+</div></p>
+
+        <h3 id="champ-de-type-url">
+            <a class="anchor-link" href="#champ-de-type-url">Champ de type url
+            </a>
+        </h3><p><gcds-input
+  type="url"
+  input-id="url"
+  label="Champ de type url"
+></gcds-input></p>
+<p>À utiliser pour collecter une URL, comme une adresse Web.</p>
+<p><div class="code-showcase">
+<gcds-button button-type="button" button-role="secondary" button-style="text-only" aria-label="Voir le code - Champ de type url" onclick="toggleCodeShowcase(this, 'view-url');" aria-controls="view-url" aria-expanded="false">Voir le code</gcds-button>
+<gcds-button button-type="button" button-role="secondary" button-style="text-only" onclick="copyCodeShowcase(this, 'view-url', 'fr');" onblur="this.innerText = 'Copier le code'">Copier le code</gcds-button>
+<div class="showcase" id="view-url" aria-hidden="true">
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>gcds-input</span><br>  <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>url<span class="token punctuation">&quot;</span></span><br>  <span class="token attr-name">input-id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>url<span class="token punctuation">&quot;</span></span><br>  <span class="token attr-name">label</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>Champ de type url<span class="token punctuation">&quot;</span></span><br><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>gcds-input</span><span class="token punctuation">&gt;</span></span></code></pre></p>
+<p><code class="copy-code" id="view-url-copy">&lt;gcds-input
+type=&quot;url&quot;
+input-id=&quot;url&quot;
+label=&quot;Champ de type url&quot;
+&gt;&lt;/gcds-input&gt;</code>
+</div>
+</div></p>
+</section>
+<section aria-label="Comment modifier le champ de saisie">
+
+        <h2 id="comment-modifier-le-champ-de-saisie">
+            <a class="anchor-link" href="#comment-modifier-le-champ-de-saisie">Comment modifier le champ de saisie
+            </a>
+        </h2><p>Il peut arriver que les options par défaut ne permettent pas de répondre aux besoins des personnes utilisant votre produit. Vous pouvez modifier le composant pour créer un champ de saisie personnalisé, adapté à un cas particulier.</p>
+
+        <h3 id="type-du-champ-de-saisie">
+            <a class="anchor-link" href="#type-du-champ-de-saisie">Type du champ de saisie
+            </a>
+        </h3><p>Définissez le type de champ de saisie en fonction de la façon de valider les données entrées.</p>
+<p>L’attribut input-type peut prendre les valeurs suivantes :</p>
+<div lang="en">
+<ul>
+<li><code>text</code></li>
+<li><code>email</code></li>
+<li><code>password</code></li>
+<li><code>number</code></li>
+<li><code>search</code></li>
+<li><code>url</code></li>
+</ul>
+</div>
+
+        <h3 id="appliquer-les-bases-du-systeme-de-design">
+            <a class="anchor-link" href="#appliquer-les-bases-du-systeme-de-design">Appliquer les bases du système de design
+            </a>
+        </h3><p>Choisissez des valeurs pour la typographie parmi les <a href="/gcds-docs/fr/bases/">bases du système de design du GC</a>. Les valeurs de style pour la couleur et l’espacement seront bientôt disponibles!</p>
+</section>
+<section aria-label="Cas réglés par le champ de saisie">
+
+        <h2 id="cas-regles-par-le-champ-de-saisie">
+            <a class="anchor-link" href="#cas-regles-par-le-champ-de-saisie">Cas réglés par le champ de saisie
+            </a>
+        </h2><p>Utilisez un champ de saisie pour collecter des informations comme :</p>
+<ul>
+<li>une réponse libre à une question brève</li>
+<li>le nom complet d’une personne, afin de l’utiliser dans des communications personnalisées ou un produit</li>
+<li>une date lorsque celle-ci est connue d’avance par la personne remplissant le formulaire</li>
+<li>une réponse composée de chiffres seulement</li>
+<li>une adresse courriel ou une URL</li>
+</ul>
+</section>
+<section aria-label="Composants apparentés">
+
+        <h2 id="composants-apparentes">
+            <a class="anchor-link" href="#composants-apparentes">Composants apparentés
+            </a>
+        </h2><p><strong>Boutons radio ou listes déroulantes</strong> : à utiliser quand vous offrez plusieurs options et qu’il faut en choisir une.</p>
+<p><strong>Cases à cocher</strong> : à utiliser quand vous offrez plusieurs options et qu’on peut en choisir plusieurs.</p>
+<p><strong>Boutons</strong> : à utiliser quand vous demandez un consentement ou une autorisation, ou que vous offrez un choix entre 2 options.</p>
+<p><strong>Sélecteurs de date</strong> : à utiliser quand vous voulez qu’une personne choisisse une date, par exemple pour un rendez-vous.</p>
+</section>
+<section aria-label="Dimensions et emplacement des champs">
+
+        <h2 id="dimensions-et-emplacement-des-champs">
+            <a class="anchor-link" href="#dimensions-et-emplacement-des-champs">Dimensions et emplacement des champs
+            </a>
+        </h2>
+        <h3 id="largeur-du-champ">
+            <a class="anchor-link" href="#largeur-du-champ">Largeur du champ
+            </a>
+        </h3><p>Utilisez des champs à largeur fixe si vous connaissez d’avance la longueur de la réponse. Les codes postaux ont par exemple 6 caractères, et les numéros de téléphone, 10 caractères. Le moyen le plus simple est d’utiliser l’attribut &lt;size&gt;, où &lt;size=”50”&gt; équivaut à une largeur de 50 caractères.</p>
+<p>Si vous ne connaissez pas le nombre de caractères de la réponse, configurez le champ de sorte qu’il prenne presque toute la largeur du conteneur, par exemple 90 %.</p>
+<p>Utilisez le maximum de 75 caractères pour les réponses à longueur variable.</p>
+
+        <h3 id="visibilite-des-champs">
+            <a class="anchor-link" href="#visibilite-des-champs">Visibilité des champs
+            </a>
+        </h3><p>Vérifiez que l’emplacement du champ assure un bon contraste entre la ligne ou le contour du champ et l’arrière-plan, ainsi qu’entre l’étiquette et l’arrière-plan.</p>
+<p>Utilisez l’état de survol intégré ou un état de survol personnalisé qui assure un bon constraste.</p>
+<p>Évitez de placer le texte d’aide ou les messages d’erreur après le champ, afin qu’ils soient lus.</p>
+</section>
+<section aria-label="Rédiger une bonne étiquette">
+
+        <h2 id="rediger-une-bonne-etiquette">
+            <a class="anchor-link" href="#rediger-une-bonne-etiquette">Rédiger une bonne étiquette
+            </a>
+        </h2><p>Regroupez les champs de saisie apparentés en catégories pour que les personnes comprennent plus facilement ce qui est demandé.</p>
+<p>Rédigez une étiquette courte qui précise l’information demandée. Évitez de poser une question, car celle-ci rallonge souvent l’étiquette. Ajoutez un texte de remplacement pour toute icône ou image.</p>
+<p>Évitez de réutiliser une étiquette pour différents champs dans une même page. Une personne naviguant d’un champ à l’autre entendrait les mêmes étiquettes sans savoir ce qui les différencie.</p>
+<p>Évitez d’utiliser des mots techniques comme « identifiant de compte ». Préférez des mots précis et à caractère personnel, comme « nom complet ».</p>
+<p>Évitez les expressions qui pourraient être étrangères à des personnes dont le français n’est pas la langue première, et explicitez les termes difficiles à comprendre.</p>
+<p>Ne demandez que les informations dont vous avez besoin. Pour vous aider à savoir quelles questions poser, vous pouvez utiliser un protocole de questionnaire.</p>
+</section>
+<section aria-label="Texte d’aide et messages d’erreur">
+
+        <h2 id="texte-daide-et-messages-derreur">
+            <a class="anchor-link" href="#texte-daide-et-messages-derreur">Texte d’aide et messages d’erreur
+            </a>
+        </h2>
+        <h3 id="comment-utiliser-le-texte-daide">
+            <a class="anchor-link" href="#comment-utiliser-le-texte-daide">Comment utiliser le texte d’aide
+            </a>
+        </h3><p>Ajoutez un texte d’aide pour aider une personne à remplir un champ de façon attendue.</p>
+<p>Rédigez le texte d’aide pour qu’il soit informatif, court et précis.</p>
+<p>Assurez-vous que le texte d’aide ne disparaisse pas au moment d’écrire.</p>
+
+        <h3 id="comment-utiliser-les-messages-derreur">
+            <a class="anchor-link" href="#comment-utiliser-les-messages-derreur">Comment utiliser les messages d’erreur
+            </a>
+        </h3><p>Rédigez un message d’erreur pour tous les champs obligatoires dont la réponse est manquante ou invalide.</p>
+<p>Expliquez à la personne la nature du problème et comment elle peut y remédier. Évitez toute forme de reproche.</p>
+<p>Plutôt que de signaler les erreurs, envisagez si possible de confirmer les réponses valides.</p>
+</section>
 
             </main>
         </div>
@@ -409,13 +650,12 @@
         <footer class="footer">
     <div class="container footer__container">
         <ul>
-        
-            
-                <li><a href=/gcds-docs/fr/avis/>Avis</a></li>
-            
-                <li><a href=/gcds-docs/fr/confidentialite/>Confidentialité</a></li>
-            
-        
+            <li>
+                <a href="https://www.canada.ca/fr/transparence/avis.html" target="_blank" aria-label="Avis (S'ouvre dans un nouvel onglet)">Avis</a>
+            </li>
+            <li>
+                <a href="https://www.canada.ca/fr/transparence/confidentialite.html" target="_blank" aria-label="Confidentialité (S'ouvre dans un nouvel onglet)">Confidentialité</a>
+            </li>
             <li>
                 <a href="https://www.canada.ca/" target="_blank" aria-label="Site Web Canada.ca (S'ouvre dans un nouvel onglet)">Canada.ca</a>
             </li>

@@ -13,6 +13,7 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet">
         
         <link rel="stylesheet" href="/gcds-docs/components/dist/gcds/gcds.css">
         <link rel="stylesheet" href="/gcds-docs/styles/prism.css">
@@ -25,7 +26,7 @@
             <gcds-button
                 button-type="link"
                 button-role="skip-to-content"
-                href="#content"
+                href="#mc"
             >
                 Skip to main content
             </gcds-button>
@@ -73,15 +74,6 @@
             
             
                 
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
                 
                     
                     
@@ -211,12 +203,9 @@
                     
                     
                 
-                    
-                    
-                
 
                 <li>
-                    <a href="/gcds-docs/fr/bases/typography/" lang="fr">
+                    <a href="/gcds-docs/fr/bases/typographie/" lang="fr">
                         Français
                     </a>
                 </li>
@@ -260,12 +249,12 @@
             
     <li>
     
-        <span>Basic</span>
+        <span>Interface elements</span>
     <ul>
             
     <li>
     
-        <a href="/gcds-docs/en/components/basic/button/"  >Buttons</a>
+        <a href="/gcds-docs/en/components/interface-elements/button/"  >Button</a>
     </li>
 
         
@@ -287,7 +276,7 @@
             
     <li>
     
-        <a href="/gcds-docs/en/components/forms/forms-guidance/"  >Forms guidance</a>
+        <a href="/gcds-docs/en/components/forms/form-guidance/"  >Form guidance</a>
     </li>
 
         
@@ -301,7 +290,7 @@
             
     <li>
     
-        <a href="/gcds-docs/en/components/forms/textarea/"  >Textarea</a>
+        <a href="/gcds-docs/en/components/forms/textarea/"  >Text area</a>
     </li>
 
         
@@ -352,25 +341,174 @@
 
 </header>
 
-        <div class="container general-layout">
+        <div class="container sidebar-layout">
+            
+                <aside>
+    <nav aria-label="On this page" class="context-menu">
+        <h2>On this page</h2>
+        
+        <ul>
+            
+                <li>
+                    <a href="#typography-design-tokens">Typography design tokens</a>
+                </li>
+            
+                <li>
+                    <a href="#guidance-on-using-typography">Guidance on using typography</a>
+                </li>
+            
+        </ul>
+    </nav>
+</aside>
             
 
             <main id="mc">
                 
-<h1>Typography</h1>
+<header>
+<h1>Typography tokens</h1><p>Typography is the presentation of text. It includes fonts, sizing, and spacing as applied to the style, arrangement, and appearance of letters, numbers, and symbols.</p>
+<p><ul class="doc-links">
+<li class="github-link">
+<a href="https://github.com/cds-snc/gcds-tokens" target="_blank" rel="nofollow" aria-label="GitHub (Opens in a new tab)">GitHub</a>
+</li>
+<li class="figma-link">
+<span>Figma — coming soon</span>
+</li>
+</ul></p>
+</header>
+<section aria-label="Typography design tokens">
+
+        <h2 id="typography-design-tokens">
+            <a class="anchor-link" href="#typography-design-tokens">Typography design tokens
+            </a>
+        </h2><p>Default fonts, and styled size settings make digital products responsive, predictable, and readable across devices and platforms.</p>
+<p>Decisions about typography values (fonts, sizes, weights) are built into typography tokens in the GC Design System for a unified design.</p>
+
+        <h3 id="font-defaults">
+            <a class="anchor-link" href="#font-defaults">Font defaults
+            </a>
+        </h3><p>Font family tokens:</p>
+<ul>
+<li><code>$gcds-font-families-heading</code></li>
+<li><code>$gcds-font-families-body</code></li>
+<li><code>$gcds-font-families-monospace</code></li>
+<li><code>$gcds-font-families-icons</code></li>
+</ul>
+<p>Font sizes are configured with rem units. All font sizes are relative to base size 20px.</p>
+<table>
+<thead>
+<tr>
+<th>Display</th>
+<th>Font type</th>
+<th>Size (rem)</th>
+<th>Size (px)</th>
+<th>Weight</th>
+<th>Line height</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Heading 1</td>
+<td>Lato</td>
+<td>2.5</td>
+<td>40</td>
+<td>bold</td>
+<td>128%</td>
+</tr>
+<tr>
+<td>Heading 2</td>
+<td>Lato</td>
+<td>2.25</td>
+<td>36</td>
+<td>bold</td>
+<td>144%</td>
+</tr>
+<tr>
+<td>Heading 3</td>
+<td>Lato</td>
+<td>2.0</td>
+<td>32</td>
+<td>bold</td>
+<td>162%</td>
+</tr>
+<tr>
+<td>Heading 4</td>
+<td>Lato</td>
+<td>1.78</td>
+<td>28</td>
+<td>bold</td>
+<td>182%</td>
+</tr>
+<tr>
+<td>Heading 5</td>
+<td>Noto sans</td>
+<td>1.58</td>
+<td>25</td>
+<td>regular</td>
+<td>102%</td>
+</tr>
+<tr>
+<td>Heading 6</td>
+<td>Noto sans</td>
+<td>1.41</td>
+<td>22</td>
+<td>regular</td>
+<td>102%</td>
+</tr>
+<tr>
+<td>Paragraph</td>
+<td>Noto sans</td>
+<td>1.25</td>
+<td>20</td>
+<td>regular</td>
+<td>130%</td>
+</tr>
+<tr>
+<td>monospace</td>
+<td>Menlo</td>
+<td>1.11</td>
+<td>17</td>
+<td>regular</td>
+<td>146%</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section aria-label="Guidance on using typography">
+
+        <h2 id="guidance-on-using-typography">
+            <a class="anchor-link" href="#guidance-on-using-typography">Guidance on using typography
+            </a>
+        </h2>
+        <h3 id="line-length-and-height">
+            <a class="anchor-link" href="#line-length-and-height">Line length and height
+            </a>
+        </h3><p>Always use corresponding font size and line height: match an H1 font size with an H1 line height.</p>
+<p>In a line of text, keep text line length below 65 characters for a comfortable reading length. Page layouts may be wider than 65 characters.</p>
+
+        <h3 id="typography-for-components">
+            <a class="anchor-link" href="#typography-for-components">Typography for components
+            </a>
+        </h3><p>Some components use font sizes, colours, and spacings different from the default settings that can be  modified. Components are designed and tested to display typography for these contexts. Customized CSS styling is not required.</p>
+
+        <h3 id="custom-typography">
+            <a class="anchor-link" href="#custom-typography">Custom typography
+            </a>
+        </h3><p>The design system provides components, patterns, and styles that meet most design needs. In rare instances, you may need custom typography.</p>
+<p>You can contribute to or modify the design system at the <a href="https://github.com/cds-snc/gcds-tokens">design token repository in GitHub</a>.</p>
+</section>
+
             </main>
         </div>
 
         <footer class="footer">
     <div class="container footer__container">
         <ul>
-        
-            
-                <li><a href=/gcds-docs/en/terms/>Terms and conditions</a></li>
-            
-                <li><a href=/gcds-docs/en/privacy/>Privacy</a></li>
-            
-        
+            <li>
+                <a href="https://www.canada.ca/en/transparency/terms.html" target="_blank" aria-label="Terms and conditions (Opens in a new tab)">Terms and conditions</a>
+            </li>
+            <li>
+                <a href="https://www.canada.ca/en/transparency/privacy.html" target="_blank" aria-label="Privacy (Opens in a new tab)">Privacy</a>
+            </li>
             <li>
                 <a href="https://www.canada.ca/" target="_blank" aria-label="Canada.ca site (Opens in a new tab)">Canada.ca</a>
             </li>

@@ -1,12 +1,12 @@
 /*
  * General
  */
-
+/*
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-}
+}*/
 
 body {
   display: flex;
@@ -15,6 +15,7 @@ body {
   font-size: 18px;
   color: #000;
   font-family: "Lato", sans-serif;
+  margin: 0;
 }
 
 .container {
@@ -37,7 +38,6 @@ body {
 
 ul {
   list-style-position: inside;
-  list-style: none;
   margin-top: 0.65rem;
 }
 
@@ -391,6 +391,10 @@ body > div.sidebar-layout,
  * Documentation links
  */
 
+ ul.doc-links {
+   padding: 0;
+ }
+
 ul.doc-links li {
   display: inline-block;
   margin: 0 1rem 0 0;
@@ -431,6 +435,7 @@ ul.doc-links li.figma-link:before {
 
 ul.doc-links li.github-link:before {
   background-image: url("/images/common/github_icon.svg");
+  margin-right: 3px;
 }
 
 /*
@@ -462,4 +467,40 @@ a.home-link:focus {
 a.home-link:active {
   background-color: #595959;
   color: #ffffff;
+}
+
+table {
+  display: block;
+  border-spacing: 1px;
+  border-collapse: collapse;
+}
+
+@media only screen and (max-width: 767px) {
+  table {
+    overflow-x: scroll;
+  }
+}
+
+table > thead th:nth-child(3),
+table > thead th:nth-child(4),
+table > tbody td:nth-child(3),
+table > tbody td:nth-child(4) {
+  text-align: center;
+}
+
+table td,
+table th {
+	padding: 15px;
+}
+table thead th {
+	background-color: #eee;
+	border: 1px solid #dddfe1;
+}
+table tbody td {
+	border: 1px solid #dddfe1;
+}
+
+#mc header,
+section {
+  margin-bottom: 6rem;
 }

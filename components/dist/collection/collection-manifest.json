@@ -2,6 +2,7 @@
   "entries": [
     "./components/gcds-button/gcds-button.js",
     "./components/gcds-error-message/gcds-error-message.js",
+    "./components/gcds-grid/gcds-grid.js",
     "./components/gcds-hint/gcds-hint.js",
     "./components/gcds-input/gcds-input.js",
     "./components/gcds-label/gcds-label.js",

@@ -14,6 +14,12 @@ export const GcdsErrorMessage: {
   new (): GcdsErrorMessage;
 };
 
+interface GcdsGrid extends Components.GcdsGrid, HTMLElement {}
+export const GcdsGrid: {
+  prototype: GcdsGrid;
+  new (): GcdsGrid;
+};
+
 interface GcdsHint extends Components.GcdsHint, HTMLElement {}
 export const GcdsHint: {
   prototype: GcdsHint;

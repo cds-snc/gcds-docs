@@ -13,6 +13,7 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet">
         
         <link rel="stylesheet" href="/gcds-docs/components/dist/gcds/gcds.css">
         <link rel="stylesheet" href="/gcds-docs/styles/prism.css">
@@ -25,7 +26,7 @@
             <gcds-button
                 button-type="link"
                 button-role="skip-to-content"
-                href="#content"
+                href="#mc"
             >
                 Skip to main content
             </gcds-button>
@@ -73,18 +74,6 @@
             
             
                 
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
                 
                     
                     
@@ -260,12 +249,12 @@
             
     <li>
     
-        <span>Basic</span>
+        <span>Interface elements</span>
     <ul>
             
     <li>
     
-        <a href="/gcds-docs/en/components/basic/button/"  >Buttons</a>
+        <a href="/gcds-docs/en/components/interface-elements/button/"  >Button</a>
     </li>
 
         
@@ -287,7 +276,7 @@
             
     <li>
     
-        <a href="/gcds-docs/en/components/forms/forms-guidance/"  >Forms guidance</a>
+        <a href="/gcds-docs/en/components/forms/form-guidance/"  >Form guidance</a>
     </li>
 
         
@@ -301,7 +290,7 @@
             
     <li>
     
-        <a href="/gcds-docs/en/components/forms/textarea/"  >Textarea</a>
+        <a href="/gcds-docs/en/components/forms/textarea/"  >Text area</a>
     </li>
 
         
@@ -363,7 +352,7 @@
                 </li>
             
                 <li>
-                    <a href="#javascript">Javascript</a>
+                    <a href="#javascript">JavaScript</a>
                 </li>
             
                 <li>
@@ -380,11 +369,14 @@
             
 
             <main id="mc">
-                <h1>Installation</h1>
+                <h1>Installation</h1><section aria-label="Install from npm">
+
         <h2 id="install-from-npm">
             <a class="anchor-link" href="#install-from-npm">Install from npm
             </a>
         </h2><pre class="language-js"><code class="language-js">npm install gcds<span class="token operator">-</span>components</code></pre>
+</section>
+<section aria-label="Supported frameworks">
 
         <h2 id="supported-frameworks">
             <a class="anchor-link" href="#supported-frameworks">Supported frameworks
@@ -392,7 +384,7 @@
         </h2><p>The gcds-component library works in multiple frameworks.</p>
 
         <h3 id="javascript">
-            <a class="anchor-link" href="#javascript">Javascript
+            <a class="anchor-link" href="#javascript">JavaScript
             </a>
         </h3><p>Place the following code in the <code>&lt;head&gt;</code> element of your site.</p>
 <pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>module<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript"><br>    <span class="token keyword">import</span> <span class="token punctuation">{</span> defineCustomElements <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'/node_modules/gcds-components/loader/index.es2017.mjs'</span><span class="token punctuation">;</span><br>    <span class="token function">defineCustomElements</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>link</span> <span class="token attr-name">rel</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>stylesheet<span class="token punctuation">"</span></span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>/node_modules/gcds-components/dist/gcds/gcds.css<span class="token punctuation">"</span></span><span class="token punctuation">></span></span></code></pre>
@@ -411,6 +403,7 @@
         </h3><p>Place the following code in the <code>main.js</code> file of your app.</p>
 <pre class="language-js"><code class="language-js"><span class="token keyword">import</span> <span class="token punctuation">{</span> applyPolyfills<span class="token punctuation">,</span> defineCustomElements <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'gcds-components/loader'</span><span class="token punctuation">;</span><br><span class="token keyword">import</span> <span class="token string">'gcds-components/dist/gcds/gcds.css'</span><span class="token punctuation">;</span><br><br><span class="token function">applyPolyfills</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span><br>  <span class="token function">defineCustomElements</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
 <p>All gcds-components should now be ready to use in your Vue app.</p>
+</section>
 
             </main>
         </div>
@@ -418,13 +411,12 @@
         <footer class="footer">
     <div class="container footer__container">
         <ul>
-        
-            
-                <li><a href=/gcds-docs/en/terms/>Terms and conditions</a></li>
-            
-                <li><a href=/gcds-docs/en/privacy/>Privacy</a></li>
-            
-        
+            <li>
+                <a href="https://www.canada.ca/en/transparency/terms.html" target="_blank" aria-label="Terms and conditions (Opens in a new tab)">Terms and conditions</a>
+            </li>
+            <li>
+                <a href="https://www.canada.ca/en/transparency/privacy.html" target="_blank" aria-label="Privacy (Opens in a new tab)">Privacy</a>
+            </li>
             <li>
                 <a href="https://www.canada.ca/" target="_blank" aria-label="Canada.ca site (Opens in a new tab)">Canada.ca</a>
             </li>

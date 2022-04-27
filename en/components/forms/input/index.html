@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Input - GC Design System</title>
+        <title>Input - Components - GC Design System</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <script type="module">
             import { defineCustomElements } from "/gcds-docs/components/loader/index.es2017.js";
@@ -13,6 +13,7 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet">
         
         <link rel="stylesheet" href="/gcds-docs/components/dist/gcds/gcds.css">
         <link rel="stylesheet" href="/gcds-docs/styles/prism.css">
@@ -25,7 +26,7 @@
             <gcds-button
                 button-type="link"
                 button-role="skip-to-content"
-                href="#content"
+                href="#mc"
             >
                 Skip to main content
             </gcds-button>
@@ -181,19 +182,7 @@
                 
                     
                     
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
                         
-                    
-                
-                    
                     
                 
                     
@@ -260,12 +249,12 @@
             
     <li>
     
-        <span>Basic</span>
+        <span>Interface elements</span>
     <ul>
             
     <li>
     
-        <a href="/gcds-docs/en/components/basic/button/"  >Buttons</a>
+        <a href="/gcds-docs/en/components/interface-elements/button/"  >Button</a>
     </li>
 
         
@@ -287,7 +276,7 @@
             
     <li>
     
-        <a href="/gcds-docs/en/components/forms/forms-guidance/"  >Forms guidance</a>
+        <a href="/gcds-docs/en/components/forms/form-guidance/"  >Form guidance</a>
     </li>
 
         
@@ -301,7 +290,7 @@
             
     <li>
     
-        <a href="/gcds-docs/en/components/forms/textarea/"  >Textarea</a>
+        <a href="/gcds-docs/en/components/forms/textarea/"  >Text area</a>
     </li>
 
         
@@ -363,15 +352,15 @@
         <ul>
             
                 <li>
-                    <a href="#use-the-basic-input-field-component">Use the basic input field component</a>
+                    <a href="#the-basic-input-component">The basic input component</a>
                 </li>
             
                 <li>
-                    <a href="#customize-the-input-field">Customize the input field</a>
+                    <a href="#how-to-modify-the-input-component">How to modify the input component</a>
                 </li>
             
                 <li>
-                    <a href="#what-to-use-input-fields-for">What to use input fields for</a>
+                    <a href="#what-problems-inputs-solve">What problems inputs solve</a>
                 </li>
             
                 <li>
@@ -379,11 +368,11 @@
                 </li>
             
                 <li>
-                    <a href="#where-to-place-input-fields">Where to place input fields</a>
+                    <a href="#size-and-placement-of-inputs">Size and placement of inputs</a>
                 </li>
             
                 <li>
-                    <a href="#how-to-write-a-good-input-field-label">How to write a good input field label</a>
+                    <a href="#how-to-write-a-good-input-label">How to write a good input label</a>
                 </li>
             
                 <li>
@@ -397,14 +386,264 @@
 
             <main id="mc">
                 
-<h1>Inputs</h1><p><ul class="doc-links"></p>
-<p><li class="github-link">
+<header>
+<h1>Input</h1><p><code>&lt;gcds-input&gt;</code></p>
+<p>An input is a space, usually a form field, for a person to enter short-form information in response to a question or instruction.</p>
+<p><ul class="doc-links">
+<li class="github-link">
 <a href="https://github.com/cds-snc/gcds-components/tree/main/src/components/gcds-input" target="_blank" rel="nofollow" aria-label="GitHub (Opens in a new tab)">GitHub</a>
 </li>
 <li class="figma-link">
 <span>Figma — coming soon</span>
 </li>
 </ul></p>
+</header>
+<section aria-label="The basic input component">
+
+        <h2 id="the-basic-input-component">
+            <a class="anchor-link" href="#the-basic-input-component">The basic input component
+            </a>
+        </h2><p>Use an input to collect single-line information from a person.</p>
+<p>Inputs have built in states that change when someone interacts with that field: hover, focus, active, disabled.</p>
+
+        <h3 id="text-input">
+            <a class="anchor-link" href="#text-input">Text input
+            </a>
+        </h3><p><gcds-input
+  type="text"
+  input-id="text"
+  label="Text input"
+></gcds-input></p>
+<p>Use for short, single-line, text response collection.</p>
+<p>Use when no other specfic input type is available for single-line entry.</p>
+<p>Use to collect a person’s name, in most cases by full name.</p>
+<p>Use instead of the number input for things like estimates that may include non-numerical values.</p>
+<p><div class="code-showcase">
+<gcds-button button-type="button" button-role="secondary" button-style="text-only" aria-label="View code - Text input" onclick="toggleCodeShowcase(this, 'view-text');" aria-controls="view-text" aria-expanded="false">View code</gcds-button>
+<gcds-button button-type="button" button-role="secondary" button-style="text-only" onclick="copyCodeShowcase(this, 'view-text', 'en');" onblur="this.innerText = 'Copy code'">Copy code</gcds-button>
+<div class="showcase" id="view-text" aria-hidden="true">
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>gcds-input</span><br>  <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>text<span class="token punctuation">&quot;</span></span><br>  <span class="token attr-name">input-id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>text<span class="token punctuation">&quot;</span></span><br>  <span class="token attr-name">label</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>Text input<span class="token punctuation">&quot;</span></span><br><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>gcds-input</span><span class="token punctuation">&gt;</span></span></code></pre></p>
+<p><code class="copy-code" id="view-text-copy">&lt;gcds-input
+type=&quot;text&quot;
+input-id=&quot;text&quot;
+label=&quot;Text input&quot;
+&gt;&lt;/gcds-input&gt;</code>
+</div>
+</div></p>
+
+        <h3 id="email-input">
+            <a class="anchor-link" href="#email-input">Email input
+            </a>
+        </h3><p><gcds-input
+  type="email"
+  input-id="email"
+  label="Email input"
+></gcds-input></p>
+<p>Use for email address collection.</p>
+<p><div class="code-showcase">
+<gcds-button button-type="button" button-role="secondary" button-style="text-only" aria-label="View code - Email input" onclick="toggleCodeShowcase(this, 'view-email');" aria-controls="view-email" aria-expanded="false">View code</gcds-button>
+<gcds-button button-type="button" button-role="secondary" button-style="text-only" onclick="copyCodeShowcase(this, 'view-email', 'en');" onblur="this.innerText = 'Copy code'">Copy code</gcds-button>
+<div class="showcase" id="view-email" aria-hidden="true">
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>gcds-input</span><br>  <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>email<span class="token punctuation">&quot;</span></span><br>  <span class="token attr-name">input-id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span><span class="token punctuation">&quot;</span></span><br>  <span class="token attr-name">label</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>Email input<span class="token punctuation">&quot;</span></span><br><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>gcds-input</span><span class="token punctuation">&gt;</span></span></code></pre></p>
+<p><code class="copy-code" id="view-email-copy">&lt;gcds-input
+type=&quot;email&quot;
+input-id=&quot;&quot;
+label=&quot;Email input&quot;
+&gt;&lt;/gcds-input&gt;</code>
+</div>
+</div></p>
+
+        <h3 id="password-input">
+            <a class="anchor-link" href="#password-input">Password input
+            </a>
+        </h3><p><gcds-input
+  type="password"
+  input-id="password"
+  label="Password input"
+></gcds-input></p>
+<p>Use for password collection and validation.</p>
+<p><div class="code-showcase">
+<gcds-button button-type="button" button-role="secondary" button-style="text-only" aria-label="View code - Password input" onclick="toggleCodeShowcase(this, 'view-password');" aria-controls="view-password" aria-expanded="false">View code</gcds-button>
+<gcds-button button-type="button" button-role="secondary" button-style="text-only" onclick="copyCodeShowcase(this, 'view-password', 'en');" onblur="this.innerText = 'Copy code'">Copy code</gcds-button>
+<div class="showcase" id="view-password" aria-hidden="true">
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>gcds-input</span><br>  <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>password<span class="token punctuation">&quot;</span></span><br>  <span class="token attr-name">input-id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>password<span class="token punctuation">&quot;</span></span><br>  <span class="token attr-name">label</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>Password input<span class="token punctuation">&quot;</span></span><br><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>gcds-input</span><span class="token punctuation">&gt;</span></span></code></pre></p>
+<p><code class="copy-code" id="view-password-copy">&lt;gcds-input
+type=&quot;password&quot;
+input-id=&quot;password&quot;
+label=&quot;Password input&quot;
+&gt;&lt;/gcds-input&gt;</code>
+</div>
+</div></p>
+
+        <h3 id="number-input">
+            <a class="anchor-link" href="#number-input">Number input
+            </a>
+        </h3><p><gcds-input
+  type="number"
+  input-id="number"
+  label="Number input"
+></gcds-input></p>
+<p>Use to reject values that are not numerical.</p>
+<p>Tip: When you set a constraint, like a numerical range, use hint text to relay an instruction.</p>
+<p><div class="code-showcase">
+<gcds-button button-type="button" button-role="secondary" button-style="text-only" aria-label="View code - Number input" onclick="toggleCodeShowcase(this, 'view-number');" aria-controls="view-number" aria-expanded="false">View code</gcds-button>
+<gcds-button button-type="button" button-role="secondary" button-style="text-only" onclick="copyCodeShowcase(this, 'view-number', 'en');" onblur="this.innerText = 'Copy code'">Copy code</gcds-button>
+<div class="showcase" id="view-number" aria-hidden="true">
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>gcds-input</span><br>  <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>number<span class="token punctuation">&quot;</span></span><br>  <span class="token attr-name">input-id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>number<span class="token punctuation">&quot;</span></span><br>  <span class="token attr-name">label</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>Number input<span class="token punctuation">&quot;</span></span><br><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>gcds-input</span><span class="token punctuation">&gt;</span></span></code></pre></p>
+<p><code class="copy-code" id="view-number-copy">&lt;gcds-input
+type=&quot;number&quot;
+input-id=&quot;number&quot;
+label=&quot;Number input&quot;
+&gt;&lt;/gcds-input&gt;</code>
+</div>
+</div></p>
+
+        <h3 id="search-input">
+            <a class="anchor-link" href="#search-input">Search input
+            </a>
+        </h3><p><gcds-input
+  type="search"
+  input-id="search"
+  label="Search input"
+></gcds-input></p>
+<p>Use to collect search queries.</p>
+<p><div class="code-showcase">
+<gcds-button button-type="button" button-role="secondary" button-style="text-only" aria-label="View code - Search input" onclick="toggleCodeShowcase(this, 'view-search');" aria-controls="view-search" aria-expanded="false">View code</gcds-button>
+<gcds-button button-type="button" button-role="secondary" button-style="text-only" onclick="copyCodeShowcase(this, 'view-search', 'en');" onblur="this.innerText = 'Copy code'">Copy code</gcds-button>
+<div class="showcase" id="view-search" aria-hidden="true">
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>gcds-input</span><br>  <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>search<span class="token punctuation">&quot;</span></span><br>  <span class="token attr-name">input-id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>search<span class="token punctuation">&quot;</span></span><br>  <span class="token attr-name">label</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>Search input<span class="token punctuation">&quot;</span></span><br><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>gcds-input</span><span class="token punctuation">&gt;</span></span></code></pre></p>
+<p><code class="copy-code" id="view-search-copy">&lt;gcds-input
+type=&quot;search&quot;
+input-id=&quot;search&quot;
+label=&quot;Search input&quot;
+&gt;&lt;/gcds-input&gt;</code>
+</div>
+</div></p>
+
+        <h3 id="url-input">
+            <a class="anchor-link" href="#url-input">URL input
+            </a>
+        </h3><p><gcds-input
+  type="url"
+  input-id="url"
+  label="URL input"
+></gcds-input></p>
+<p>Use to collect a URL, like a web address.</p>
+<p><div class="code-showcase">
+<gcds-button button-type="button" button-role="secondary" button-style="text-only" aria-label="View code - URL input" onclick="toggleCodeShowcase(this, 'view-url');" aria-controls="view-url" aria-expanded="false">View code</gcds-button>
+<gcds-button button-type="button" button-role="secondary" button-style="text-only" onclick="copyCodeShowcase(this, 'view-url', 'en');" onblur="this.innerText = 'Copy code'">Copy code</gcds-button>
+<div class="showcase" id="view-url" aria-hidden="true">
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>gcds-input</span><br>  <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>url<span class="token punctuation">&quot;</span></span><br>  <span class="token attr-name">input-id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>url<span class="token punctuation">&quot;</span></span><br>  <span class="token attr-name">label</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>URL input<span class="token punctuation">&quot;</span></span><br><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>gcds-input</span><span class="token punctuation">&gt;</span></span></code></pre></p>
+<p><code class="copy-code" id="view-url-copy">&lt;gcds-input
+type=&quot;url&quot;
+input-id=&quot;url&quot;
+label=&quot;URL input&quot;
+&gt;&lt;/gcds-input&gt;</code>
+</div>
+</div></p>
+</section>
+<section aria-label="How to modify the input component">
+
+        <h2 id="how-to-modify-the-input-component">
+            <a class="anchor-link" href="#how-to-modify-the-input-component">How to modify the input component
+            </a>
+        </h2><p>Occasionally, the default options may not meet the needs of the people using your product. You can modify the input component to create a custom input for a particular use case.</p>
+
+        <h3 id="input-component-type">
+            <a class="anchor-link" href="#input-component-type">Input component type
+            </a>
+        </h3><p>Set the input type based on how the input will validate the values a person enters.</p>
+<p>The input-type attribute accepts the following options:</p>
+<ul>
+<li><code>text</code></li>
+<li><code>email</code></li>
+<li><code>password</code></li>
+<li><code>number</code></li>
+<li><code>search</code></li>
+<li><code>url</code></li>
+</ul>
+
+        <h3 id="apply-design-system-foundations-to-inputs">
+            <a class="anchor-link" href="#apply-design-system-foundations-to-inputs">Apply design system foundations to inputs
+            </a>
+        </h3><p>Select typography tokens from the GC Design System <a href="/gcds-docs/en/foundations">foundations</a>. Colour and spacing tokens coming soon!</p>
+</section>
+<section aria-label="What problems inputs solve">
+
+        <h2 id="what-problems-inputs-solve">
+            <a class="anchor-link" href="#what-problems-inputs-solve">What problems inputs solve
+            </a>
+        </h2><p>Use an input field to gather information by:</p>
+<ul>
+<li>capturing a freeform response to a single-line question</li>
+<li>collecting a person’s full name for reference in the product or personalized communications</li>
+<li>collecting a date when it is known to the person completing the field</li>
+<li>collecting a numeric-only response</li>
+<li>collecting an email address or URL</li>
+</ul>
+</section>
+<section aria-label="Related components">
+
+        <h2 id="related-components">
+            <a class="anchor-link" href="#related-components">Related components
+            </a>
+        </h2><p><strong>Radio buttons or dropdowns</strong> when you can give someone a set of options for single selections.</p>
+<p><strong>Checkboxes</strong> when you can give someone a set of options for multi selections.</p>
+<p><strong>Buttons</strong> when you’re asking consent or agreement or offering a binary choice.</p>
+<p><strong>Date selectors</strong> when you want someone to choose a date, like for appointment scheduling.</p>
+</section>
+<section aria-label="Size and placement of inputs">
+
+        <h2 id="size-and-placement-of-inputs">
+            <a class="anchor-link" href="#size-and-placement-of-inputs">Size and placement of inputs
+            </a>
+        </h2>
+        <h3 id="input-width">
+            <a class="anchor-link" href="#input-width">Input width
+            </a>
+        </h3><p>Use fixed width inputs for content you know has a specific length. For example, 6 characters for a postal code has 6 characters or 10 characters for a telephone number. An easy way to set this is by using the size attribute of the input (size=&quot;50&quot; would be 50 characters).</p>
+<p>If you don’t know the character count of the response, set the input to span almost the entire container, like at 90%.</p>
+<p>Use the maximum, 75 characters for responses without a fixed length.</p>
+
+        <h3 id="visibility-of-input">
+            <a class="anchor-link" href="#visibility-of-input">Visibility of input
+            </a>
+        </h3><p>Check the visibility of both the label text and entry field line or border against the surface where you’re placing them.</p>
+<p>Use built in or custom hover state to ensure good colour contrast.</p>
+<p>Avoid placing hint text or error messages below the field where they might be hidden.</p>
+</section>
+<section aria-label="How to write a good input label">
+
+        <h2 id="how-to-write-a-good-input-label">
+            <a class="anchor-link" href="#how-to-write-a-good-input-label">How to write a good input label
+            </a>
+        </h2><p>Group input fields by related category so it’s easier for a person to understand what information you’re asking them for.</p>
+<p>Write labels as short and specific requests for information. Phrasing as a question can make a label unnecessarily long. Use descriptive text for any icons or images.</p>
+<p>Avoid repeating input label text within the same page. A person browsing fields will hear the label text in rapid succession without cues to tell which label is for which context.</p>
+<p>Avoid using technical jargon, like “subject email address” or “account ID”. Instead be specific and personal, “full name”, “child’s age”.</p>
+<p>Avoid using colloquialisms and common verb phrases that are unfamiliar to non-fluent speakers. Explain a term that may not be clear: “handle (name you’d like to go by)”.</p>
+<p>When creating inputs, only ask for the information you need. Using a question protocol can help you choose what you need to ask for on a form.</p>
+</section>
+<section aria-label="When to use hint text and error messages">
+
+        <h2 id="when-to-use-hint-text-and-error-messages">
+            <a class="anchor-link" href="#when-to-use-hint-text-and-error-messages">When to use hint text and error messages
+            </a>
+        </h2>
+        <h3 id="handling-hint-text">
+            <a class="anchor-link" href="#handling-hint-text">Handling hint text
+            </a>
+        </h3><p>Add hint text to help a person filling in a field to provide a complete value.</p>
+<p>Write hint text to be instructional, brief and specific.</p>
+<p>Make sure your hint text is static, so it does not disappear.</p>
+
+        <h3 id="error-messages-for-all-required-fields">
+            <a class="anchor-link" href="#error-messages-for-all-required-fields">Error messages for all required fields
+            </a>
+        </h3><p>Use error messages to address missing and invalid entries for all required fields.</p>
+<p>Tell the person what the problem is so they can accomplish their goals. Avoid blaming the person using the product. Let them know what they need to do to move forward.</p>
+<p>Consider affirmations like confirming valid entries instead when you can validate a correct input field entry instead of flagging an error.</p>
+</section>
 
             </main>
         </div>
@@ -412,13 +651,12 @@
         <footer class="footer">
     <div class="container footer__container">
         <ul>
-        
-            
-                <li><a href=/gcds-docs/en/terms/>Terms and conditions</a></li>
-            
-                <li><a href=/gcds-docs/en/privacy/>Privacy</a></li>
-            
-        
+            <li>
+                <a href="https://www.canada.ca/en/transparency/terms.html" target="_blank" aria-label="Terms and conditions (Opens in a new tab)">Terms and conditions</a>
+            </li>
+            <li>
+                <a href="https://www.canada.ca/en/transparency/privacy.html" target="_blank" aria-label="Privacy (Opens in a new tab)">Privacy</a>
+            </li>
             <li>
                 <a href="https://www.canada.ca/" target="_blank" aria-label="Canada.ca site (Opens in a new tab)">Canada.ca</a>
             </li>
