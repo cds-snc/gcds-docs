@@ -9,27 +9,29 @@ eleventyNavigation:
   order: 0
 translationKey: "formsguidance"
 onThisPage:
-  0: Make forms less daunting
+  0: Rendre les formulaires moins intimidants
   1: Fournir une marche à suivre qui est claire
   2: Faciliter la compréhension du formulaire
-  3: Give clear interaction feedback
+  3: Donner une rétroaction claire sur l’interaction
 ---
 
 <header>
 
 # Aide à la conception de formulaires
 
-Forms collect information for things like file creation and records maintenance. They’re used for applications, feedback, and transactions, like purchases. And sometimes, for formal requests, evaluations, or templates.
+Les formulaires servent à collecter des informations, notamment pour la création et la tenue de dossiers. On les utilise pour les candidatures, les commentaires et les transactions comme les achats. On les utilise aussi pour les demandes officielles, les évaluations ou en tant que modèles servant à générer d’autres documents.
 
 </header>
 
-## Make forms less daunting
+<section aria-label="Rendre les formulaires moins intimidants">
 
-Your goal is to make forms less intimidating and frustrating. Help a person achieve their goal without working too hard for it or getting stuck.
+## Rendre les formulaires moins intimidants
 
-- Select form elements carefully
-- Group them thoughtfully
-- Communicate the information you need with words they’ll understand
+On cherche à rendre les formulaires moins intimidants et moins frustrants. Il faut aider les personnes à atteindre leur objectif sans leur demander trop d’efforts ni les bloquer.
+
+- Choisissez soigneusement les éléments du formulaire.
+- Regroupez-les judicieusement.
+- Communiquez les informations dont vous avez besoin avec des mots qu'ils comprendront.
 
 <form>
   <gcds-input
@@ -63,6 +65,10 @@ Your goal is to make forms less intimidating and frustrating. Help a person achi
 
 {% endviewCode %}
 
+</section>
+
+<section aria-label="Fournir une marche à suivre qui est claire">
+
 ## Fournir une marche à suivre qui est claire
 
 ### S’en tenir aux champs indispensables
@@ -90,6 +96,10 @@ Assemblez les composants de votre formulaire de manière logique, de façon à d
 Regroupez les éléments semblables en catégories, et divisez le formulaire en étapes. Pensez à ce qui relie certains champs : l’un est-il dépendant d’un autre? ou aborde-t-il des informations apparentées à un autre?
 
 Limitez-vous à une notion par page. Les formulaires d’une seule page se prêtent bien aux tâches uniques de type « Nous joindre ». Pour les longs formulaires, limitez-vous à une catégorie ou sous-tâche par page.
+
+</section>
+
+<section aria-label="Faciliter la compréhension du formulaire">
 
 ## Faciliter la compréhension du formulaire
 
@@ -131,31 +141,35 @@ Utilisez le texte d’aide pour préciser le format requis ou signaler les élé
 
 Placez les champs de façon à ajouter graduellement les tâches complexes. Si vous demandez des informations sensibles, allez du plus facile au plus difficile pour mettre les gens à l’aise.
 
-## Give clear interaction feedback
+</section>
+
+<section aria-label="Donner une rétroaction claire sur l’interaction">
+
+## Donner une rétroaction claire sur l’interaction
 
 ### Limiter le bruit et les distractions
 
-Keep text, images, and distractions around the form field to a minimum. A short label, required text in the label, and hint text are all you need.
+Réduisez au minimum le texte, les images et les distractions autour du champ du formulaire. Un libellé d’étiquette court, la mention « obligatoire » et un texte d’aide sont tout ce qu’il vous faut.
 
-Align fields on the right. Keep input width and character number consistent.
+Alignez les champs sur la droite. Veillez à ce que la largeur des champs et le nombre maximum de caractères soient constants.
 
-### Offer feedback
+### Donner de la rétroaction
 
-Validate inputs in real-time. Make your field validations inline. (Display errors next to the field).
+Validez les champs de saisie en temps réel. Intégrez les formules de validation au contenu en question (affichez les erreurs à côté du champ).
 
-Place the label just above its corresponding form field so a person using screen magnification can find it without having to repeatedly scroll back and forth.
+Placez l’étiquette juste au-dessus du champ qu’elle désigne afin que les personnes utilisant un logiciel de grossissement de texte puissent la trouver sans avoir à faire défiler l’écran à plusieurs reprises.
 
-Match the form field name to the form label text. That way, people who use speech or voice commands can activate the right control.
+Assurez-vous que l’étiquette textuelle du champ est la même que celle qui est codée. Cela permet aux personnes utilisant des commandes vocales de cibler le bon champ.
 
-Screen readers tend to only read form elements aloud such as “input”, “select”, “textarea”, “label” and “legend”. Include hint text with “aria-describedby”.
+Souvent, les lecteurs d’écran ne lisent que le contenu des éléments de formulaire input, select, textarea et legend. Incorporez un texte d’aide en utilisant <span lang="en">aria-describedby</span>.
 
-### Handling required fields
+### Champs obligatoires
 
-Place “required” at the end of the field label if information is required. Avoid red and additional symbols or punctuation, like the asterisk (*).
+Indiquez « obligatoire » à la fin de l’étiquette du champ si l’information est exigée. Évitez d’utiliser la couleur rouge et les symboles ou signes de ponctuation supplémentaires comme l’astérisque (*).
 
-If left blank or incomplete, an error message will remind a person to fill a required field and give specific instructions about what they need to do.
+Si un champ obligatoire reste vide ou est incomplet, un message d’erreur s’affichera pour rappeler à la personne qu’il doit être rempli. Le message fournira des instructions précises sur ce qu’il faut faire.
 
-Have a strong rationale for keeping an optional field on a form or remove it altogether.
+Si un champ est facultatif, ayez une bonne raison de le garder. Sinon, supprimez-le.
 
 <gcds-input
   label="Étiquette"
@@ -174,3 +188,5 @@ Have a strong rationale for keeping an optional field on a form or remove it alt
 ```
 
 {% endviewCode %}
+
+</section>

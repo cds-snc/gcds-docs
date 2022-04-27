@@ -1,8 +1,8 @@
 module.exports = {
     en: {
-        elements: "Our elements"
+        elements: "Tokens"
     },
     fr : {
-        elements: "Nos éléments"
+        elements: "Unités de style"
     }
 }

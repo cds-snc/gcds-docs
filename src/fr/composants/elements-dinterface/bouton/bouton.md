@@ -37,7 +37,7 @@ Un bouton est un objet interactif visant à attirer l’attention d’une person
 
 On utilise le bouton pour indiquer une action pouvant être effectuée par un utilisateur.
 
-Un bouton peut avoir divers états prédéfinis : par défaut <span lang="en">(default)</span>, de survol <span lang="en">(hover)</span>, ciblé <span lang="en">(focus)</span>, appuyé <span lang="en">(active)</span> et désactivé <span lang="en">(disabled)</span>. Ces états changent quand une personne interagit avec le bouton.
+Un bouton peut avoir divers états prédéfinis : par défaut <span lang="en">(*default*)</span>, de survol <span lang="en">(*hover*)</span>, ciblé <span lang="en">(*focus*)</span>, appuyé <span lang="en">(*active*)</span> et désactivé <span lang="en">(*disabled*)</span>. Ces états changent quand une personne interagit avec le bouton.
 
 ### Bouton principal
 
@@ -212,7 +212,7 @@ Choisissez des valeurs pour la typographie parmi les [bases du système de desig
 
 ## Cas réglés par le bouton
 
-- Utilisez les boutons pour des actions importantes effectuées par l’utilisateur comme :
+Utilisez les boutons pour des actions importantes effectuées par l’utilisateur comme :
 - enregistrer, supprimer, copier, télécharger
 - effacer le texte saisi dans un champ
 - envoyer un formulaire ou une demande

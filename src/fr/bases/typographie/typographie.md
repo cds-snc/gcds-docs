@@ -48,16 +48,16 @@ Jetons pour les familles de police :
 
 Les tailles de police sont configurées au moyen d’unités rem. Elles sont toutes exprimées par rapport à la taille de base de 16 px.
 
-| Affichage  | Police  | Taille (rem)  | Taille (px)  | Épaisseur  |
+| Affichage  | Police  | Taille (rem)  | Taille (px)  | Épaisseur  | Hauteur de ligne  |
 |---|---|---|---|---|
-| Titre 1  | Lato  | 2.5  | 40  | Gras  |
-| Titre 2  | Lato  | 2.25  | 36  | Gras  |
-| Titre 3  | Lato  | 2.0  | 32  | Gras  |
-| Titre 4  | Lato  | 1.78  | 28  | Gras  |
-| Titre 5  | Noto sans  | 1.58  | 25  | Normal  |
-| Titre 6  | Noto sans  | 1.41  | 22  | Normal  |
-| Paragraphe  | Noto sans  | 1.25  | 20  | Normal  |
-| monospace  | Menlo  | 1.11  | 17  | Normal  |
+| Titre 1  | Lato  | 2.5  | 40  | Gras  | 128%  |
+| Titre 2  | Lato  | 2.25  | 36  | Gras  | 144%  |
+| Titre 3  | Lato  | 2.0  | 32  | Gras  | 162%  |
+| Titre 4  | Lato  | 1.78  | 28  | Gras  | 182%  |
+| Titre 5  | Noto sans  | 1.58  | 25  | Normal  | 102%  |
+| Titre 6  | Noto sans  | 1.41  | 22  | Normal  | 102%  |
+| Paragraphe  | Noto sans  | 1.25  | 20  | Normal  | 130%  |
+| monospace  | Menlo  | 1.11  | 17  | Normal  | 146%  |
 
 </section>
 
@@ -67,9 +67,9 @@ Les tailles de police sont configurées au moyen d’unités rem. Elles sont tou
 
 ### Longueur et hauteur de ligne
 
-Choisissez entre deux valeurs de base pour l’élément racine : la taille de la police et la hauteur de ligne. Faites toujours correspondre les hauteurs de ligne `h1` avec leur contrepartie `h1`.
+Faites toujours correspondre la taille de police à la hauteur de ligne : la taille de police d’un titre H1 doit correspondre à la hauteur de ligne d’un titre H1.
 
-Pour une ligne de texte donnée, gardez une longueur de ligne inférieure à 65 caractères pour faciliter la lecture. La largeur de la mise en page peut dépasser 65 caractères.
+Gardez la longueur d’une ligne de texte inférieure à 65 caractères pour faciliter la lecture. La largeur de la mise en page peut dépasser 65 caractères.
 
 ### Typographie des composants
 
@@ -79,6 +79,6 @@ Certains composants utilisent des tailles de police, des couleurs et des espacem
 
 Le système de design fournit des composants, des modèles et des styles qui répondent à la plupart des besoins de conception. Vous pourriez toutefois avoir besoin d’utiliser une typographie personnalisée dans certains cas.
 
-Vous pouvez donc contribuer au système de conception ou le modifier dans le [dépôt de jetons de design sur GitHub](https://github.com/cds-snc/gcds-tokens).
+Vous pouvez donc contribuer au système de conception ou le modifier dans le [dépôt de jetons de design](https://github.com/cds-snc/gcds-tokens) sur GitHub.
 
 </section>

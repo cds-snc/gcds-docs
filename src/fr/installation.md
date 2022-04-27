@@ -10,7 +10,7 @@ eleventyNavigation:
 onThisPage:
   0: Installer le paquet avec npm
   1: Cadres d'application pris en charge
-  2: Javascript
+  2: JavaScript
   3: React
   4: Vue 
 ---
@@ -27,7 +27,7 @@ npm install gcds-components
 
 La bibliothèque gcds-components fonctionne sous plusieurs cadres d'application.
 
-### Javascript
+### JavaScript
 
 Insérez le code qui suit à l'intérieur de la balise `<head>` de votre site.
 

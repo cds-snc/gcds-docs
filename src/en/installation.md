@@ -10,7 +10,7 @@ eleventyNavigation:
 onThisPage:
   0: Install from npm
   1: Supported frameworks
-  2: Javascript
+  2: JavaScript
   3: React
   4: Vue 
 ---
@@ -33,7 +33,7 @@ npm install gcds-components
 
 The gcds-component library works in multiple frameworks.
 
-### Javascript
+### JavaScript
 
 Place the following code in the `<head>` element of your site.
 

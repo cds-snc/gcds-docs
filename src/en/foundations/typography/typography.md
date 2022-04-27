@@ -43,16 +43,16 @@ Font family tokens:
 
 Font sizes are configured with rem units. All font sizes are relative to base size 16px.
 
-| Display  | Font type  | Size (rem)  | Size (px)  | Weight  |
+| Display  | Font type  | Size (rem)  | Size (px)  | Weight  | Line height  |
 |---|---|---|---|---|
-| Heading 1  | Lato  | 2.5  | 40  | Bold  |
-| Heading 2  | Lato  | 2.25  | 36  | Bold  |
-| Heading 3  | Lato  | 2.0  | 32  | Bold  |
-| Heading 4  | Lato  | 1.78  | 28  | Bold  |
-| Heading 5  | Noto sans  | 1.58  | 25  | Normal  |
-| Heading 6  | Noto sans  | 1.41  | 22  | Normal  |
-| Paragraph  | Noto sans  | 1.25  | 20  | Normal  |
-| monospace  | Menlo  | 1.11  | 17  | Normal  |
+| Heading 1  | Lato  | 2.5  | 40  | Bold  | 128%  |
+| Heading 2  | Lato  | 2.25  | 36  | Bold  | 144%  |
+| Heading 3  | Lato  | 2.0  | 32  | Bold  | 162%  |
+| Heading 4  | Lato  | 1.78  | 28  | Bold  | 182%  |
+| Heading 5  | Noto sans  | 1.58  | 25  | Normal  | 102%  |
+| Heading 6  | Noto sans  | 1.41  | 22  | Normal  | 102%  |
+| Paragraph  | Noto sans  | 1.25  | 20  | Normal  | 130%  |
+| monospace  | Menlo  | 1.11  | 17  | Normal  | 146%  |
 
 </section>
 
@@ -62,7 +62,7 @@ Font sizes are configured with rem units. All font sizes are relative to base si
 
 ### Line length and height
 
-Choose between two base values for the root element: font size and line height. Always match `h1` line heights with their `h1` counterpart.
+Always use corresponding font size and and line height: match an H1 font size with an H1 line height.
 
 In a line of text, keep text line length below 65 characters for a comfortable reading length. Page layouts may be wider than 65 characters.
 

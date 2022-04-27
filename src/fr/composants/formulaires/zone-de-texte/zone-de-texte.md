@@ -38,7 +38,7 @@ Une zone de texte est un espace, généralement dans un formulaire, où une pers
 
 On utilise la zone de texte pour collecter des informations qui tiennent sur plusieurs lignes.
 
-Une zone de texte peut avoir divers états : de survol <span lang="en">(hover)</en>, ciblé <span lang="en">(focus)</en>, actif <span lang="en">(active)</en> et désactivé <span lang="en">(disabled)</en>. Ces états changent quand une personne interagit avec la zone.
+Une zone de texte peut avoir divers états : de survol <span lang="en">(*hover*)</en>, ciblé <span lang="en">(*focus*)</en>, actif <span lang="en">(*active*)</en> et désactivé <span lang="en">(*disabled*)</en>. Ces états changent quand une personne interagit avec la zone.
 
 ### Zone de texte
 

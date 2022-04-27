@@ -37,7 +37,6 @@ body {
 
 ul {
   list-style-position: inside;
-  list-style: none;
   margin-top: 0.65rem;
 }
 
@@ -431,6 +430,7 @@ ul.doc-links li.figma-link:before {
 
 ul.doc-links li.github-link:before {
   background-image: url("/images/common/github_icon.svg");
+  margin-right: 3px;
 }
 
 /*
