@@ -117,7 +117,7 @@ Utilisez le texte d’aide pour préciser le format requis ou signaler les élé
 
 Évitez de fournir des instructions qui doivent être mémorisées. Ne les placez donc pas dans une page externe ou dans le haut du formulaire. Évitez aussi de préremplir les champs avec du texte d’aide qui disparaît une fois le curseur dans le champ.
 
-Évitez de désactiver les éléments d’interface comme les champs de saisie, les zones de texte et les boutons. Si vous devez le faire, assurez-vous que ces éléments puissent accueillir la cible de saisie dès qu’ils sont réactivés, et faites-le savoir à l’utilisateur.
+Évitez de désactiver les éléments d’interface comme les champs de saisie, les zones de texte et les boutons. Si vous devez le faire, assurez-vous que ces éléments puissent accueillir la cible de saisie dès qu’ils sont réactivés, et faites-le savoir à l’utilisateur en fournissant une rétroaction.
 
 <gcds-input
   label="Nom complet"
@@ -161,7 +161,7 @@ Placez l’étiquette juste au-dessus du champ qu’elle désigne afin que les p
 
 Assurez-vous que l’étiquette textuelle du champ est la même que celle qui est codée. Cela permet aux personnes utilisant des commandes vocales de cibler le bon champ.
 
-Souvent, les lecteurs d’écran ne lisent que le contenu des éléments de formulaire input, select, textarea et legend. Incorporez un texte d’aide en utilisant <span lang="en">aria-describedby</span>.
+Souvent, les lecteurs d’écran ne lisent que le contenu des éléments de formulaire <span lang="en">`input`</span>, <span lang="en">`select`</span>, <span lang="en">`textarea`</span> et <span lang="en">`legend`</span>. Incorporez un texte d’aide en utilisant <span lang="en">aria-describedby</span>.
 
 ### Champs obligatoires
 

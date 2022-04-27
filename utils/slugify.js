@@ -16,6 +16,9 @@ const slugify = (s) =>
       .replace(/[Ç]/g,"C")
       .replace(/[ç]/g,"c")
       .replace(/[^\w\s]|_/g, "")
+      .replace("span ", "")
+      .replace(" span", "")
+      .replace("langen", "")
       .replace(/\s+/g, '-')
   );
 

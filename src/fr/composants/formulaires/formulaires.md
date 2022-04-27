@@ -1,5 +1,5 @@
 ---
-title: Formulaires
+title: Éléments de formulaire
 layout: "layouts/documentation.njk"
 eleventyNavigation:
   key: formsFR
@@ -13,6 +13,6 @@ permalink: false
 tags: componentsOverview
 ---
 
-## Formulaires
+## Éléments de formulaire
 
-Composants et principes pour communiquer de façon structurée et collecter des informations.
+Composants et principes pour structurer ses communications et collecter des informations.

@@ -70,7 +70,7 @@ Il peut arriver que les options par défaut ne permettent pas de répondre aux b
 
 ### Appliquer les bases du système de design
 
-Choisissez des valeurs pour la typographie parmi les [bases du système de design du GC]({{ "/fr/bases/" | url }}). Les valeurs de style pour la couleur et l’espacement seront bientôt disponibles!
+Choisissez des unités de style pour la typographie parmi les [bases du système de design du GC]({{ "/fr/bases/" | url }}). Les unités de style pour la couleur et l’espacement seront bientôt disponibles!
 
 </section>
 
@@ -110,7 +110,7 @@ Utilisez une zone de texte pour collecter des informations comme :
 
 Évitez de définir une largeur de moins de 50 % (1/2 largeur).
 
-Définissez une hauteur qui est proportionnelle à la quantité de texte attendue. Vous pouvez définir la hauteur d’une zone de texte en utilisant l’attribut rows.
+Définissez une hauteur qui est proportionnelle à la quantité de texte attendue. Vous pouvez définir la hauteur d’une zone de texte en utilisant l’attribut <span lang="en">`rows`</span>.
 
 ### Visibilité des zones de texte
 
