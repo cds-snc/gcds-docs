@@ -44,7 +44,7 @@ Font family tokens:
 Font sizes are configured with rem units. All font sizes are relative to base size 16px.
 
 | Display  | Font type  | Size (rem)  | Size (px)  | Weight  | Line height  |
-|---|---|---|---|---|
+|---|---|---|---|---|---|
 | Heading 1  | Lato  | 2.5  | 40  | Bold  | 128%  |
 | Heading 2  | Lato  | 2.25  | 36  | Bold  | 144%  |
 | Heading 3  | Lato  | 2.0  | 32  | Bold  | 162%  |

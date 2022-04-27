@@ -15,6 +15,7 @@ body {
   font-size: 18px;
   color: #000;
   font-family: "Lato", sans-serif;
+  margin: 0;
 }
 
 .container {
@@ -465,9 +466,15 @@ a.home-link:active {
 }
 
 table {
-  overflow: scroll;
+  display: block;
   border-spacing: 1px;
   border-collapse: collapse;
+}
+
+@media only screen and (max-width: 767px) {
+  table {
+    overflow-x: scroll;
+  }
 }
 
 table > thead th:nth-child(3),

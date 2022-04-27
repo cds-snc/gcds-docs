@@ -49,7 +49,7 @@ Jetons pour les familles de police :
 Les tailles de police sont configurées au moyen d’unités rem. Elles sont toutes exprimées par rapport à la taille de base de 16 px.
 
 | Affichage  | Police  | Taille (rem)  | Taille (px)  | Épaisseur  | Hauteur de ligne  |
-|---|---|---|---|---|
+|---|---|---|---|---|---|
 | Titre 1  | Lato  | 2.5  | 40  | Gras  | 128%  |
 | Titre 2  | Lato  | 2.25  | 36  | Gras  | 144%  |
 | Titre 3  | Lato  | 2.0  | 32  | Gras  | 162%  |
