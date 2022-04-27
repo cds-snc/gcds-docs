@@ -68,7 +68,7 @@ Use the text area for longform, multi-line, response collection.
 
 Occasionally, the default options may not meet the needs of the people using your product. You can modify the text area component to create a custom text area for a particular use case.
 
-### Apply design system foundations to buttons
+### Apply design system foundations to text areas
 
 Select typography tokens from the GC Design System [foundations]({{ "/en/foundations" | url }}). Colour and spacing tokens coming soon!
 

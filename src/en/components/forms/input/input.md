@@ -201,7 +201,7 @@ The input-type attribute accepts the following options:
 - `search`
 - `url`
 
-### Apply design system foundations to buttons
+### Apply design system foundations to inputs
 
 Select typography tokens from the GC Design System [foundations]({{ "/en/foundations" | url }}). Colour and spacing tokens coming soon!
 
