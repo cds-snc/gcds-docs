@@ -33,10 +33,10 @@ Insérez le code qui suit à l'intérieur de la balise `<head>` de votre site.
 
 ``` html
 <script type="module">
-    import { defineCustomElements } from '/node_modules/gcds-components/loader/index.es2017.mjs';
+    import { defineCustomElements } from '/node_modules/@cdssnc/gcds-components/loader/index.es2017.mjs';
     defineCustomElements();
 </script>
-<link rel="stylesheet" href="/node_modules/gcds-components/dist/gcds/gcds.css">
+<link rel="stylesheet" href="/node_modules/@cdssnc/gcds-components/dist/gcds/gcds.css">
 ```
 
 Vous devriez maintenant pouvoir utiliser tous les composants de gcds-components sur votre site.
@@ -46,8 +46,8 @@ Vous devriez maintenant pouvoir utiliser tous les composants de gcds-components 
 Insérez le code qui suit dans le fichier `index.js` de votre application.
 
 ``` jsx
-import { applyPolyfills, defineCustomElements } from 'gcds-components/loader';
-import 'gcds-components/dist/gcds/gcds.css';
+import { applyPolyfills, defineCustomElements } from '@cdssnc/gcds-components/loader';
+import '@cdssnc/gcds-components/dist/gcds/gcds.css';
 
 ReactDOM.render(...);
 
@@ -64,8 +64,8 @@ Vous devriez maintenant pouvoir utiliser tous les composants de gcds-components 
 Insérez le code qui suit dans le fichier `main.js` de votre application.
 
 ``` js
-import { applyPolyfills, defineCustomElements } from 'gcds-components/loader';
-import 'gcds-components/dist/gcds/gcds.css';
+import { applyPolyfills, defineCustomElements } from '@cdssnc/gcds-components/loader';
+import '@cdssnc/gcds-components/dist/gcds/gcds.css';
 
 applyPolyfills().then(() => {
   defineCustomElements();
