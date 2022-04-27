@@ -41,7 +41,7 @@ Font family tokens:
 - `$gcds-font-families-monospace`
 - `$gcds-font-families-icons`
 
-Font sizes are configured with rem units. All font sizes are relative to base size 16px.
+Font sizes are configured with rem units. All font sizes are relative to base size 20px.
 
 | Display  | Font type  | Size (rem)  | Size (px)  | Weight  | Line height  |
 |---|---|---|---|---|---|

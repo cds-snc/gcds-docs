@@ -46,7 +46,7 @@ Jetons pour les familles de police :
 
 </div>
 
-Les tailles de police sont configurées au moyen d’unités rem. Elles sont toutes exprimées par rapport à la taille de base de 16 px.
+Les tailles de police sont configurées au moyen d’unités rem. Elles sont toutes exprimées par rapport à la taille de base de 20 px.
 
 | Affichage  | Police  | Taille (rem)  | Taille (px)  | Épaisseur  | Hauteur de ligne  |
 |---|---|---|---|---|---|
