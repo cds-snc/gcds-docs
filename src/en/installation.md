@@ -10,12 +10,14 @@ eleventyNavigation:
 onThisPage:
   0: Install from npm
   1: Supported frameworks
-  2: Javascript
+  2: JavaScript
   3: React
   4: Vue 
 ---
 
 # Installation
+
+<section aria-label="Install from npm">
 
 ## Install from npm
 
@@ -23,11 +25,15 @@ onThisPage:
 npm install gcds-components
 ```
 
+</section>
+
+<section aria-label="Supported frameworks">
+
 ## Supported frameworks
 
 The gcds-component library works in multiple frameworks.
 
-### Javascript
+### JavaScript
 
 Place the following code in the `<head>` element of your site.
 
@@ -73,3 +79,5 @@ applyPolyfills().then(() => {
 ```
 
 All gcds-components should now be ready to use in your Vue app.
+
+</section>

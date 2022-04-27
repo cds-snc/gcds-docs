@@ -1,9 +1,9 @@
 ---
-title: Basic
+title: Interface elements
 layout: "layouts/documentation.njk"
 eleventyNavigation:
   key: basicEN
-  title: Basic
+  title: Interface elements
   locale: en
   order: 1
   parent: componentsEN
@@ -12,4 +12,6 @@ permalink: false
 tags: componentsOverview
 ---
 
-## Basic
+## Interface elements
+
+Common components that can be used individually or designed together to form patterns and templates.

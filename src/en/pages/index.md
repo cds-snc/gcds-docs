@@ -7,6 +7,7 @@ redirect_from: /
 ---
 
 <header>
+
 WELCOME
 
 # The Government of Canada Design System

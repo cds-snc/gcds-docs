@@ -4,7 +4,7 @@ layout: "layouts/documentation.njk"
 translationKey: "spacing"
 eleventyNavigation:
   key: spacingFR
-  title: Espacement - à venir
+  title: Espacement — à venir
   locale: fr
   parent: foundationsFR
   url: null

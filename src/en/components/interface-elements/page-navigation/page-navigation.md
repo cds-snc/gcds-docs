@@ -1,14 +1,14 @@
 ---
-title: Footer
+title: Page navigation
 layout: "layouts/documentation.njk"
 eleventyNavigation:
-  key: footerEN
-  title: Footer - coming soon
+  key: pagenavigationEN
+  title: Page navigation — coming soon
   locale: en
   parent: basicEN
-  order: 5
+  order: 3
   url: null
   hideMain: true
-translationKey: "footer"
+translationKey: "pagenavigation"
 permalink: false
 ---

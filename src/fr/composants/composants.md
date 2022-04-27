@@ -11,3 +11,5 @@ translationKey: "components"
 
 # Aperçu des composants
 
+{% docLinks locale stage figma github %}
+{% enddocLinks %}

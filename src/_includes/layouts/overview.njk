@@ -33,13 +33,18 @@ layout: "layouts/base.njk"
 
 {%- for post in collections.componentsOverview | sortCollection -%}
     {%- if post.data.eleventyNavigation.locale == locale %}
-        {{ post.data.content | safe }}
 
-        {% set navPages = collections.all | eleventyNavigation(post.data.eleventyNavigation.key) %}
-        <ul class="overview-list">
-        {%- for entry in navPages %}
-            {%- if entry.locale == locale %}{{ renderNavListItem(entry) }}{% endif -%}
-        {%- endfor -%}
-        </ul>
+        <section aria-label="{{ post.data.title }}">
+
+            {{ post.data.content | safe }}
+
+            {% set navPages = collections.all | eleventyNavigation(post.data.eleventyNavigation.key) %}
+            <ul class="overview-list">
+            {%- for entry in navPages %}
+                {%- if entry.locale == locale %}{{ renderNavListItem(entry) }}{% endif -%}
+            {%- endfor -%}
+            </ul>
+
+        </section>
     {% endif %}
 {%- endfor -%}
