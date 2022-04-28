@@ -19,7 +19,7 @@ onThisPage:
 
 # Form guidance
 
-Forms collect information for things like file creation and records maintenance. They’re used for applications, feedback, and transactions, like purchases. And sometimes, for formal requests, evaluations, or templates.
+Forms collect information for things like file creation and records maintenance. They’re used for applications, feedback, and transactions, like purchases. And sometimes they’re used for formal requests, evaluations, or templates.
 
 </header>
 
@@ -161,7 +161,7 @@ Place the label just above its corresponding form field so a person using screen
 
 Match the form field name to the form label text. That way, people who use speech or voice commands can activate the right control.
 
-Screen readers tend to only read form elements aloud such as “input”, “select”, “textarea”, “label” and “legend”. Include hint text with “aria-describedby”.
+Screen readers tend to only read form elements aloud such as `<input>`, `<select>`, `<textarea>`, `<label>` and `<legend>`. Include hint text with “aria-describedby”.
 
 ### Handling required fields
 

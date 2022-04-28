@@ -62,7 +62,7 @@ Parcourez une bibliothèque contenant le code de composants Web accessibles et i
 
 ### Ressources de design
 
-Jetez un coup d’oeil à notre bibliothèque de ressources pour designers – à avenir!
+Jetez un coup d’oeil à notre bibliothèque de ressources pour designers — à venir!
 
 ## Les bons outils pour une conception réfléchie
 

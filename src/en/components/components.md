@@ -1,5 +1,5 @@
 ---
-title: Overview of components
+title: Component overview
 layout: "layouts/overview.njk"
 eleventyNavigation:
   key: componentsEN
@@ -9,7 +9,7 @@ eleventyNavigation:
 translationKey: "components"
 ---
 
-# Components overview
+# Component overview
 
 {% docLinks locale stage figma github %}
 {% enddocLinks %}

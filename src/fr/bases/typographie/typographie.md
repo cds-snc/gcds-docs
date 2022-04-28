@@ -9,7 +9,7 @@ eleventyNavigation:
   parent: foundationsFR
   order: 0
 onThisPage:
-  0: Jetons de design de la typographie
+  0: Unités de style pour la typographie
   1: Directives sur l’utilisation de la typographie
 github: https://github.com/cds-snc/gcds-tokens
 ---
@@ -25,9 +25,9 @@ La typographie est la façon de présenter du texte. Elle englobe les polices, l
 
 </header>
 
-<section aria-label="Jetons de design de la typographie">
+<section aria-label="Unités de style pour la typographie">
 
-## Jetons de design de la typographie
+## Unités de style pour la typographie
 
 Les polices par défaut et les paramètres de taille de police permettent de rendre les produits numériques réactifs, prévisibles et lisibles sur tous les appareils et plateformes.
 
@@ -35,7 +35,7 @@ Les décisions relatives aux valeurs typographiques (police, taille, graisse) so
 
 ### Polices par défaut
 
-Jetons pour les familles de police :
+Unités de style des familles de police :
 
 <div lang="en">
 
@@ -48,7 +48,7 @@ Jetons pour les familles de police :
 
 Les tailles de police sont configurées au moyen d’unités rem. Elles sont toutes exprimées par rapport à la taille de base de 20 px.
 
-| Affichage  | Police  | Taille (rem)  | Taille (px)  | Épaisseur  | Hauteur de ligne  |
+| Affichage  | Police  | Taille (rem)  | Taille (px)  | Graisse  | Hauteur de ligne  |
 |---|---|---|---|---|---|
 | Titre 1  | Lato  | 2.5  | 40  | Gras  | 128%  |
 | Titre 2  | Lato  | 2.25  | 36  | Gras  | 144%  |
@@ -78,7 +78,6 @@ Certains composants utilisent des tailles de police, des couleurs et des espacem
 ### Typographie personnalisée
 
 Le système de design fournit des composants, des modèles et des styles qui répondent à la plupart des besoins de conception. Vous pourriez toutefois avoir besoin d’utiliser une typographie personnalisée dans certains cas.
-
-Vous pouvez donc contribuer au système de conception ou le modifier dans le [dépôt de jetons de design](https://github.com/cds-snc/gcds-tokens) sur GitHub.
+Vous pouvez contribuer au système de conception ou le modifier directement dans notre [dépôt d’unités de style](https://github.com/cds-snc/gcds-tokens), sur GitHub.
 
 </section>

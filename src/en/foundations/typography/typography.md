@@ -16,7 +16,7 @@ github: https://github.com/cds-snc/gcds-tokens
 
 <header>
 
-# Typography tokens
+# Typography tokens 
 
 Typography is the presentation of text. It includes fonts, sizing, and spacing as applied to the style, arrangement, and appearance of letters, numbers, and symbols.
 
@@ -62,7 +62,7 @@ Font sizes are configured with rem units. All font sizes are relative to base si
 
 ### Line length and height
 
-Always use corresponding font size and line height: match an H1 font size with an H1 line height.
+Always use corresponding font size and and line height: match an H1 font size with an H1 line height.
 
 In a line of text, keep text line length below 65 characters for a comfortable reading length. Page layouts may be wider than 65 characters.
 

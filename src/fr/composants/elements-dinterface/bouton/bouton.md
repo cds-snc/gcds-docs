@@ -165,7 +165,7 @@ Il peut arriver que les options par défaut ne permettent pas de répondre aux b
 
 Définissez le type de bouton en fonction du comportement désiré du bouton.
 
-L’attribut button-type peut prendre les valeurs suivantes :
+L’attribut `button-type` peut prendre les valeurs suivantes :
 <div lang="en">
 
 - `button`
@@ -177,7 +177,7 @@ L’attribut button-type peut prendre les valeurs suivantes :
 
 #### Rôle du bouton
 
-L’attribut button-role peut prendre les valeurs suivantes :
+L’attribut `button-role` peut prendre les valeurs suivantes :
 <div lang="en">
 
 - `destructive`
@@ -189,7 +189,7 @@ L’attribut button-role peut prendre les valeurs suivantes :
 
 #### Style du bouton
 
-L’attribut button-style peut prendre les valeurs suivantes :
+L’attribut `button-style` peut prendre les valeurs suivantes :
 <div lang="en">
 
 - `outline`
@@ -204,7 +204,7 @@ Les icônes peuvent agir comme aide visuelle si elles sont utilisées avec parci
 
 ### Appliquer les bases du système de design
 
-Choisissez des valeurs pour la typographie parmi les [bases du système de design du GC]({{ "/fr/bases/" | url }}). Les valeurs de style pour la couleur et l’espacement seront bientôt disponibles!
+Choisissez des unités de style pour la typographie parmi les [bases du système de design du GC]({{ "/fr/bases/" | url }}). Les unités de style pour la couleur et l’espacement seront bientôt disponibles!
 
 </section>
 

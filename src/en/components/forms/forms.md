@@ -1,5 +1,5 @@
 ---
-title: Forms 
+title: Form elements
 layout: "layouts/documentation.njk"
 eleventyNavigation:
   key: formsEN
@@ -13,6 +13,6 @@ permalink: false
 tags: componentsOverview
 ---
 
-## Forms
+## Form elements
 
 Components and guidelines for structured communication and collection of information.

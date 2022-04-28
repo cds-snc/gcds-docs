@@ -40,7 +40,7 @@ On utilise les champs de saisie pour collecter des informations qui tiennent sur
 
 Un champ de saisie peut avoir divers états : de survol <span lang="en">(*hover*)</span>, ciblé <span lang="en">(*focus*)</span>, actif <span lang="en">(*active*)</span> et désactivé <span lang="en">(*disabled*)</span>. Ces états changent quand une personne interagit avec le champ.
 
-### Champ de type text
+### Champ de type <span lang="en">`text` </span>
 
 <gcds-input
   type="text"
@@ -68,7 +68,7 @@ Un champ de saisie peut avoir divers états : de survol <span lang="en">(*hover*
 
 {% endviewCode %}
 
-### Champ de type email
+### Champ de type <span lang="en">`email` </span>
 
 <gcds-input
   type="email"
@@ -90,7 +90,7 @@ Un champ de saisie peut avoir divers états : de survol <span lang="en">(*hover*
 
 {% endviewCode %}
 
-### Champ de type password
+### Champ de type <span lang="en">`password` </span>
 
 <gcds-input
   type="password"
@@ -112,7 +112,7 @@ Un champ de saisie peut avoir divers états : de survol <span lang="en">(*hover*
 
 {% endviewCode %}
 
-### Champ de type number
+### Champ de type <span lang="en">`number` </span>
 
 <gcds-input
   type="number"
@@ -136,7 +136,7 @@ Bon à savoir : si vous imposez une contrainte, par exemple un intervalle de chi
 
 {% endviewCode %}
 
-### Champ de type search
+### Champ de type <span lang="en">`search` </span>
 
 <gcds-input
   type="search"
@@ -158,7 +158,7 @@ Bon à savoir : si vous imposez une contrainte, par exemple un intervalle de chi
 
 {% endviewCode %}
 
-### Champ de type url
+### Champ de type<span lang="en">`url` </span>
 
 <gcds-input
   type="url"
@@ -191,8 +191,8 @@ Il peut arriver que les options par défaut ne permettent pas de répondre aux b
 ### Type du champ de saisie
 
 Définissez le type de champ de saisie en fonction de la façon de valider les données entrées.
- 
-L’attribut input-type peut prendre les valeurs suivantes :
+
+L’attribut <span lang="en">`input-type`</span> peut prendre les valeurs suivantes :
 
 <div lang="en">
 
@@ -207,7 +207,7 @@ L’attribut input-type peut prendre les valeurs suivantes :
 
 ### Appliquer les bases du système de design
 
-Choisissez des valeurs pour la typographie parmi les [bases du système de design du GC]({{ "/fr/bases/" | url }}). Les valeurs de style pour la couleur et l’espacement seront bientôt disponibles!
+Choisissez des unités de style pour la typographie parmi les [bases du système de design du GC]({{ "/fr/bases/" | url }}). Les unités de style pour la couleur et l’espacement seront bientôt disponibles!
 
 </section>
 
@@ -245,7 +245,7 @@ Utilisez un champ de saisie pour collecter des informations comme :
 
 ### Largeur du champ
 
-Utilisez des champs à largeur fixe si vous connaissez d’avance la longueur de la réponse. Les codes postaux ont par exemple 6 caractères, et les numéros de téléphone, 10 caractères. Le moyen le plus simple est d’utiliser l’attribut &#x3c;size&#x3e;, où <size=”50”> équivaut à une largeur de 50 caractères.
+Utilisez des champs à largeur fixe si vous connaissez d’avance la longueur de la réponse. Les codes postaux ont par exemple 6 caractères, et les numéros de téléphone, 10 caractères. Le moyen le plus simple est d’utiliser l’attribut `size`, où `size=”50”` équivaut à une largeur de 50 caractères.
 
 Si vous ne connaissez pas le nombre de caractères de la réponse, configurez le champ de sorte qu’il prenne presque toute la largeur du conteneur, par exemple 90 %.
 
@@ -293,9 +293,9 @@ Assurez-vous que le texte d’aide ne disparaisse pas au moment d’écrire.
 
 ### Comment utiliser les messages d’erreur
 
-Rédigez un message d’erreur pour tous les champs obligatoires dont la réponse est manquante ou invalide. 
+Rédigez un message d’erreur pour tous les champs obligatoires dont la réponse est manquante ou invalide.
 
-Expliquez à la personne la nature du problème et comment elle peut y remédier. Évitez toute forme de reproche. 
+Expliquez à la personne la nature du problème et comment elle peut y remédier pour accomplir son objectif. Évitez toute forme de reproche.
 
 Plutôt que de signaler les erreurs, envisagez si possible de confirmer les réponses valides.
 
