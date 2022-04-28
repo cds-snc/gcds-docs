@@ -86,7 +86,7 @@ Utilisez une zone de texte pour collecter des informations comme :
 
 </section>
 
-<section aria-label="Composants apparentés">
+<section lang="fr" aria-label="Composants apparentés">
 
 ## Composants apparentés
 
