@@ -63,7 +63,7 @@ Browse a library of tech agnostic, accessible, coded web components you can impo
 
 ### Design tooling
 
-Check out our design asset library for designers –Coming soon!
+Check out our design asset library for designers – Coming soon!
 
 ## Enabling thoughtful design in small teams
 
