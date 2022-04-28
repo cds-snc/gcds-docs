@@ -1,5 +1,5 @@
 ---
-title: Aide à la conception de formulaires - Composants
+title: Aide à la conception de formulaires - Composants2
 layout: "layouts/documentation.njk"
 eleventyNavigation:
   key: formsguidanceFR
