@@ -4,13 +4,17 @@ export declare class GcdsGrid {
    * Grid props
    */
   /**
-   * Defines element as grid or inline-grid container
-   */
-  display?: 'grid' | 'inline-grid';
-  /**
    * Defines grid container size
    */
-  container?: 'fluid' | 'lg' | 'md' | 'sm' | 'xs';
+  gridContainer?: 'fluid' | 'lg' | 'md' | 'sm' | 'xs';
+  /**
+   * Defines element as grid or inline-grid container
+   */
+  gridDisplay?: 'grid' | 'inline-grid';
+  /**
+   * Set tag for grid container
+   */
+  gridTag: string;
   /**
    * Defines the columns of the grid
    * Option to set different layouts for desktop | tablet | default
@@ -49,9 +53,5 @@ export declare class GcdsGrid {
     * Sets both the align-items + justify-items properties
     */
   placeItems?: 'center' | 'end' | 'start' | 'stretch';
-  /**
-   * Set tag for grid container
-   */
-  tag: string;
   render(): any;
 }

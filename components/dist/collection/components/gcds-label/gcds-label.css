@@ -16,17 +16,7 @@
     margin: 0;
   }
 
-  :host label.required:before,
-  :host label .required {
-    color: var(--gcds-label-destructive-text);
-  }
-
-  :host label.required:before {
-    vertical-align: top;
-    content: "* ";
-    margin-left: calc(var(--gcds-spacing-200) * -1);
-  }
-
   :host label .required {
     margin: 0 0 0 var(--gcds-spacing-100);
+    color: var(--gcds-label-destructive-text);
   }

@@ -185,21 +185,21 @@ let GcdsGrid$1 = class extends HTMLElement {
      * Grid props
      */
     /**
-     * Defines element as grid or inline-grid container
-     */
-    this.display = 'grid';
-    /**
      * Defines grid container size
      */
-    this.container = 'fluid';
+    this.gridContainer = 'fluid';
+    /**
+     * Defines element as grid or inline-grid container
+     */
+    this.gridDisplay = 'grid';
     /**
      * Set tag for grid container
      */
-    this.tag = 'div';
+    this.gridTag = 'div';
   }
   render() {
-    const { alignContent, alignItems, container, display, gap, gridTemplateColumns, gridTemplateColumnsDesktop, gridTemplateColumnsTablet, justifyContent, justifyItems, placeContent, placeItems, tag } = this;
-    const CustomTag = tag;
+    const { alignContent, alignItems, gap, gridContainer, gridDisplay, gridTag, gridTemplateColumns, gridTemplateColumnsDesktop, gridTemplateColumnsTablet, justifyContent, justifyItems, placeContent, placeItems } = this;
+    const Tag = gridTag;
     // Set gridTemplateColumns based on screen size
     const mediaQueryDesktop = window.matchMedia('(min-width: 991px)');
     const mediaQueryTablet = window.matchMedia('(min-width: 768px)');
@@ -214,13 +214,13 @@ let GcdsGrid$1 = class extends HTMLElement {
         return { gridTemplateColumns: gridTemplateColumns };
       }
     }
-    return (h(Host, null, h(CustomTag, { class: `
+    return (h(Host, null, h(Tag, { class: `
             gcds-grid
             ${alignContent ? `align-content-${alignContent}` : ''}
             ${alignItems ? `align-items-${alignItems}` : ''}
-            ${container ? `container-${container}` : ''}
-            ${display ? `display-${display}` : ''}
             ${gap ? `gap-${gap}` : ''}
+            ${gridContainer ? `container-${gridContainer}` : ''}
+            ${gridDisplay ? `display-${gridDisplay}` : ''}
             ${justifyContent ? `justify-content-${justifyContent}` : ''}
             ${justifyItems ? `justify-items-${justifyItems}` : ''}
             ${placeContent ? `place-content-${placeContent}` : ''}
@@ -247,7 +247,7 @@ let GcdsHint$1 = class extends HTMLElement {
   static get style() { return gcdsHintCss; }
 };
 
-const gcdsInputCss = ".sc-gcds-input-h fieldset.sc-gcds-input{width:75ch;max-width:90%;font-family:var(--gcds-font-families-body);font-weight:var(--gcds-font-weights-regular);font-size:var(--gcds-font-sizes-paragraph);line-height:var(--gcds-line-heights-paragraph);color:var(--gcds-input-default-text);border:0;transition:color ease-in-out .15s}.sc-gcds-input-h fieldset.sc-gcds-input:focus-within{color:var(--gcds-input-focus)}.sc-gcds-input-h fieldset.disabled.sc-gcds-input{color:var(--gcds-input-disabled-text)}.sc-gcds-input-h fieldset.error.sc-gcds-input:not(:focus-within){color:var(--gcds-input-destructive)}.sc-gcds-input-h input.sc-gcds-input{display:block;min-width:45px;max-width:100%;height:auto;min-height:45px;font-family:inherit;font-size:inherit;line-height:var(--gcds-line-heights-paragraph);margin:0 0 var(--gcds-spacing-400);padding:var(--gcds-spacing-200) var(--gcds-spacing-300);background-color:var(--gcds-input-default-background);background-image:none;color:var(--gcds-input-default-text);border:2px solid currentColor;border-radius:var(--gcds-spacing-50);box-sizing:border-box;transition:border-color ease-in-out .15s, box-shadow ease-in-out .15s}.sc-gcds-input-h input.sc-gcds-input:not([size]){width:100%}.sc-gcds-input-h input.sc-gcds-input:focus{outline:0;border-color:var(--gcds-input-focus);box-shadow:0 0 0 2.5px var(--gcds-input-focus)}.sc-gcds-input-h input.sc-gcds-input:disabled{cursor:not-allowed;background-color:var( --gcds-input-disabled-background);border-color:var(--gcds-input-disabled-text)}.sc-gcds-input-h input.error.sc-gcds-input:not(:focus){border-color:var(--gcds-input-destructive)}";
+const gcdsInputCss = ".sc-gcds-input-h fieldset.sc-gcds-input{width:75ch;max-width:90%;font-family:var(--gcds-font-families-body);font-weight:var(--gcds-font-weights-regular);font-size:var(--gcds-font-sizes-paragraph);line-height:var(--gcds-line-heights-paragraph);color:var(--gcds-input-default-text);margin:0;padding:0;border:0;transition:color ease-in-out .15s}.sc-gcds-input-h fieldset.sc-gcds-input:focus-within{color:var(--gcds-input-focus)}.sc-gcds-input-h fieldset.disabled.sc-gcds-input{color:var(--gcds-input-disabled-text)}.sc-gcds-input-h fieldset.error.sc-gcds-input:not(:focus-within){color:var(--gcds-input-destructive)}.sc-gcds-input-h input.sc-gcds-input{display:block;min-width:45px;max-width:100%;height:auto;min-height:45px;font-family:inherit;font-size:inherit;line-height:var(--gcds-line-heights-paragraph);margin:0 0 var(--gcds-spacing-400);padding:var(--gcds-spacing-200) var(--gcds-spacing-300);background-color:var(--gcds-input-default-background);background-image:none;color:var(--gcds-input-default-text);border:2px solid currentColor;border-radius:var(--gcds-spacing-50);box-sizing:border-box;transition:border-color ease-in-out .15s, box-shadow ease-in-out .15s}.sc-gcds-input-h input.sc-gcds-input:not([size]){width:100%}.sc-gcds-input-h input.sc-gcds-input:focus{outline:0;border-color:var(--gcds-input-focus);box-shadow:0 0 0 2.5px var(--gcds-input-focus)}.sc-gcds-input-h input.sc-gcds-input:disabled{cursor:not-allowed;background-color:var( --gcds-input-disabled-background);border-color:var(--gcds-input-disabled-text)}.sc-gcds-input-h input.error.sc-gcds-input:not(:focus){border-color:var(--gcds-input-destructive)}";
 
 let GcdsInput$1 = class extends HTMLElement {
   constructor() {
@@ -304,7 +304,7 @@ let GcdsInput$1 = class extends HTMLElement {
   static get style() { return gcdsInputCss; }
 };
 
-const gcdsLabelCss = ".sc-gcds-label-h label.sc-gcds-label{display:block;max-width:100%;font-size:inherit;font-weight:var(--gcds-font-weights-bold);line-height:inherit;margin:0 0 var(--gcds-spacing-50);color:inherit}.sc-gcds-label-h label.hidden.sc-gcds-label{overflow:hidden;opacity:0;width:0;height:0;margin:0}.sc-gcds-label-h label.required.sc-gcds-label:before,.sc-gcds-label-h label.sc-gcds-label .required.sc-gcds-label{color:var(--gcds-label-destructive-text)}.sc-gcds-label-h label.required.sc-gcds-label:before{vertical-align:top;content:\"* \";margin-left:calc(var(--gcds-spacing-200) * -1)}.sc-gcds-label-h label.sc-gcds-label .required.sc-gcds-label{margin:0 0 0 var(--gcds-spacing-100)}";
+const gcdsLabelCss = ".sc-gcds-label-h label.sc-gcds-label{display:block;max-width:100%;font-size:inherit;font-weight:var(--gcds-font-weights-bold);line-height:inherit;margin:0 0 var(--gcds-spacing-50);color:inherit}.sc-gcds-label-h label.hidden.sc-gcds-label{overflow:hidden;opacity:0;width:0;height:0;margin:0}.sc-gcds-label-h label.sc-gcds-label .required.sc-gcds-label{margin:0 0 0 var(--gcds-spacing-100);color:var(--gcds-label-destructive-text)}";
 
 let GcdsLabel$1 = class extends HTMLElement {
   constructor() {
@@ -313,20 +313,7 @@ let GcdsLabel$1 = class extends HTMLElement {
   }
   async componentWillLoad() {
     // Define lang attribute
-    if (!this.el.getAttribute('lang')) {
-      if (document.documentElement.getAttribute('lang') == 'en' || !document.documentElement.getAttribute('lang')) {
-        this.lang = 'en';
-      }
-      else {
-        this.lang = 'fr';
-      }
-    }
-    else if (this.el.getAttribute('lang') == 'en') {
-      this.lang = 'en';
-    }
-    else {
-      this.lang = 'fr';
-    }
+    this.lang = assignLanguage(this.el);
   }
   render() {
     const { hideLabel, labelFor, label, required, lang } = this;
@@ -1578,7 +1565,7 @@ let GcdsSiteMenu$1 = class extends HTMLElement {
   static get style() { return gcdsSiteMenuCss; }
 };
 
-const gcdsTextareaCss = ".sc-gcds-textarea-h fieldset.sc-gcds-textarea{width:100%;max-width:75ch;font-family:var(--gcds-font-families-body);font-weight:var(--gcds-font-weights-regular);font-size:var(--gcds-font-sizes-paragraph);line-height:var(--gcds-line-heights-paragraph);color:var(--gcds-textarea-default-text);border:0;transition:color ease-in-out .15s}.sc-gcds-textarea-h fieldset.sc-gcds-textarea:focus-within{color:var(--gcds-textarea-focus)}.sc-gcds-textarea-h fieldset.disabled.sc-gcds-textarea{color:var(--gcds-textarea-disabled-text)}.sc-gcds-textarea-h fieldset.error.sc-gcds-textarea:not(:focus-within){color:var(--gcds-textarea-destructive)}.sc-gcds-textarea-h fieldset.sc-gcds-textarea .error-message-container.sc-gcds-textarea{display:block}.sc-gcds-textarea-h textarea.sc-gcds-textarea{display:block;min-width:50%;max-width:100%;height:auto;min-height:45px;font-family:inherit;font-size:inherit;line-height:var(--gcds-line-heights-paragraph);margin:0 0 var(--gcds-spacing-400);padding:var(--gcds-spacing-200) var(--gcds-spacing-300);background-color:var(--gcds-textarea-default-background);background-image:none;color:var(--gcds-textarea-default-text);border:2px solid currentColor;border-radius:var(--gcds-spacing-50);box-sizing:border-box;transition:border-color ease-in-out .15s, box-shadow ease-in-out .15s}.sc-gcds-textarea-h textarea.sc-gcds-textarea:not([cols]){width:100%}.sc-gcds-textarea-h textarea.sc-gcds-textarea:focus{outline:0;border-color:var(--gcds-textarea-focus);box-shadow:0 0 0 2.5px var(--gcds-textarea-focus)}.sc-gcds-textarea-h textarea.sc-gcds-textarea:disabled{cursor:not-allowed;background-color:var(--gcds-textarea-disabled-background);border-color:var(--gcds-textarea-disabled-text)}.sc-gcds-textarea-h textarea.error.sc-gcds-textarea:not(:focus){border-color:var(--gcds-textarea-destructive)}";
+const gcdsTextareaCss = ".sc-gcds-textarea-h fieldset.sc-gcds-textarea{width:100%;max-width:75ch;font-family:var(--gcds-font-families-body);font-weight:var(--gcds-font-weights-regular);font-size:var(--gcds-font-sizes-paragraph);line-height:var(--gcds-line-heights-paragraph);color:var(--gcds-textarea-default-text);margin:0;padding:0;border:0;transition:color ease-in-out .15s}.sc-gcds-textarea-h fieldset.sc-gcds-textarea:focus-within{color:var(--gcds-textarea-focus)}.sc-gcds-textarea-h fieldset.disabled.sc-gcds-textarea{color:var(--gcds-textarea-disabled-text)}.sc-gcds-textarea-h fieldset.error.sc-gcds-textarea:not(:focus-within){color:var(--gcds-textarea-destructive)}.sc-gcds-textarea-h fieldset.sc-gcds-textarea .error-message-container.sc-gcds-textarea{display:block}.sc-gcds-textarea-h textarea.sc-gcds-textarea{display:block;min-width:50%;max-width:100%;height:auto;min-height:45px;font-family:inherit;font-size:inherit;line-height:var(--gcds-line-heights-paragraph);margin:0 0 var(--gcds-spacing-400);padding:var(--gcds-spacing-200) var(--gcds-spacing-300);background-color:var(--gcds-textarea-default-background);background-image:none;color:var(--gcds-textarea-default-text);border:2px solid currentColor;border-radius:var(--gcds-spacing-50);box-sizing:border-box;transition:border-color ease-in-out .15s, box-shadow ease-in-out .15s}.sc-gcds-textarea-h textarea.sc-gcds-textarea:not([cols]){width:100%}.sc-gcds-textarea-h textarea.sc-gcds-textarea:focus{outline:0;border-color:var(--gcds-textarea-focus);box-shadow:0 0 0 2.5px var(--gcds-textarea-focus)}.sc-gcds-textarea-h textarea.sc-gcds-textarea:disabled{cursor:not-allowed;background-color:var(--gcds-textarea-disabled-background);border-color:var(--gcds-textarea-disabled-text)}.sc-gcds-textarea-h textarea.error.sc-gcds-textarea:not(:focus){border-color:var(--gcds-textarea-destructive)}";
 
 let GcdsTextarea$1 = class extends HTMLElement {
   constructor() {
@@ -1640,7 +1627,7 @@ let GcdsTextarea$1 = class extends HTMLElement {
 
 const GcdsButton = /*@__PURE__*/proxyCustomElement(GcdsButton$1, [1,"gcds-button",{"buttonType":[1025,"button-type"],"buttonRole":[1025,"button-role"],"buttonStyle":[1025,"button-style"],"name":[1],"disabled":[4],"href":[1],"rel":[1],"target":[1],"download":[1],"customBorderWeight":[1,"custom-border-weight"],"customBorderStyle":[1,"custom-border-style"],"customBorderColor":[1,"custom-border-color"],"customMargin":[1,"custom-margin"],"customDisplay":[1,"custom-display"],"customBackgroundColor":[1,"custom-background-color"],"customBoxShadow":[1,"custom-box-shadow"],"customCapitalization":[1,"custom-capitalization"],"inheritedAttributes":[32]}]);
 const GcdsErrorMessage = /*@__PURE__*/proxyCustomElement(GcdsErrorMessage$1, [1,"gcds-error-message",{"messageId":[1,"message-id"],"message":[1]}]);
-const GcdsGrid = /*@__PURE__*/proxyCustomElement(GcdsGrid$1, [1,"gcds-grid",{"display":[1],"container":[1],"gridTemplateColumns":[1,"grid-template-columns"],"gridTemplateColumnsTablet":[1,"grid-template-columns-tablet"],"gridTemplateColumnsDesktop":[1,"grid-template-columns-desktop"],"gap":[1],"alignContent":[1,"align-content"],"justifyContent":[1,"justify-content"],"placeContent":[1,"place-content"],"alignItems":[1,"align-items"],"justifyItems":[1,"justify-items"],"placeItems":[1,"place-items"],"tag":[1]}]);
+const GcdsGrid = /*@__PURE__*/proxyCustomElement(GcdsGrid$1, [1,"gcds-grid",{"gridContainer":[1,"grid-container"],"gridDisplay":[1,"grid-display"],"gridTag":[1,"grid-tag"],"gridTemplateColumns":[1,"grid-template-columns"],"gridTemplateColumnsTablet":[1,"grid-template-columns-tablet"],"gridTemplateColumnsDesktop":[1,"grid-template-columns-desktop"],"gap":[1],"alignContent":[1,"align-content"],"justifyContent":[1,"justify-content"],"placeContent":[1,"place-content"],"alignItems":[1,"align-items"],"justifyItems":[1,"justify-items"],"placeItems":[1,"place-items"]}]);
 const GcdsHint = /*@__PURE__*/proxyCustomElement(GcdsHint$1, [1,"gcds-hint",{"hint":[1],"hintId":[1,"hint-id"]}]);
 const GcdsInput = /*@__PURE__*/proxyCustomElement(GcdsInput$1, [2,"gcds-input",{"disabled":[4],"errorMessage":[1,"error-message"],"hideLabel":[4,"hide-label"],"hint":[1],"inputId":[1,"input-id"],"label":[1],"required":[4],"size":[2],"type":[1],"value":[1025]}]);
 const GcdsLabel = /*@__PURE__*/proxyCustomElement(GcdsLabel$1, [2,"gcds-label",{"hideLabel":[4,"hide-label"],"label":[1],"labelFor":[1,"label-for"],"required":[4]}]);

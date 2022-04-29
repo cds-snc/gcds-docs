@@ -5,21 +5,21 @@ export class GcdsGrid {
      * Grid props
      */
     /**
-     * Defines element as grid or inline-grid container
-     */
-    this.display = 'grid';
-    /**
      * Defines grid container size
      */
-    this.container = 'fluid';
+    this.gridContainer = 'fluid';
+    /**
+     * Defines element as grid or inline-grid container
+     */
+    this.gridDisplay = 'grid';
     /**
      * Set tag for grid container
      */
-    this.tag = 'div';
+    this.gridTag = 'div';
   }
   render() {
-    const { alignContent, alignItems, container, display, gap, gridTemplateColumns, gridTemplateColumnsDesktop, gridTemplateColumnsTablet, justifyContent, justifyItems, placeContent, placeItems, tag } = this;
-    const CustomTag = tag;
+    const { alignContent, alignItems, gap, gridContainer, gridDisplay, gridTag, gridTemplateColumns, gridTemplateColumnsDesktop, gridTemplateColumnsTablet, justifyContent, justifyItems, placeContent, placeItems } = this;
+    const Tag = gridTag;
     // Set gridTemplateColumns based on screen size
     const mediaQueryDesktop = window.matchMedia('(min-width: 991px)');
     const mediaQueryTablet = window.matchMedia('(min-width: 768px)');
@@ -35,13 +35,13 @@ export class GcdsGrid {
       }
     }
     return (h(Host, null,
-      h(CustomTag, { class: `
+      h(Tag, { class: `
             gcds-grid
             ${alignContent ? `align-content-${alignContent}` : ''}
             ${alignItems ? `align-items-${alignItems}` : ''}
-            ${container ? `container-${container}` : ''}
-            ${display ? `display-${display}` : ''}
             ${gap ? `gap-${gap}` : ''}
+            ${gridContainer ? `container-${gridContainer}` : ''}
+            ${gridDisplay ? `display-${gridDisplay}` : ''}
             ${justifyContent ? `justify-content-${justifyContent}` : ''}
             ${justifyItems ? `justify-items-${justifyItems}` : ''}
             ${placeContent ? `place-content-${placeContent}` : ''}
@@ -58,25 +58,7 @@ export class GcdsGrid {
     "$": ["gcds-grid.css"]
   }; }
   static get properties() { return {
-    "display": {
-      "type": "string",
-      "mutable": false,
-      "complexType": {
-        "original": "'grid' | 'inline-grid'",
-        "resolved": "\"grid\" | \"inline-grid\"",
-        "references": {}
-      },
-      "required": false,
-      "optional": true,
-      "docs": {
-        "tags": [],
-        "text": "Defines element as grid or inline-grid container"
-      },
-      "attribute": "display",
-      "reflect": false,
-      "defaultValue": "'grid'"
-    },
-    "container": {
+    "gridContainer": {
       "type": "string",
       "mutable": false,
       "complexType": {
@@ -90,9 +72,45 @@ export class GcdsGrid {
         "tags": [],
         "text": "Defines grid container size"
       },
-      "attribute": "container",
+      "attribute": "grid-container",
       "reflect": false,
       "defaultValue": "'fluid'"
+    },
+    "gridDisplay": {
+      "type": "string",
+      "mutable": false,
+      "complexType": {
+        "original": "'grid' | 'inline-grid'",
+        "resolved": "\"grid\" | \"inline-grid\"",
+        "references": {}
+      },
+      "required": false,
+      "optional": true,
+      "docs": {
+        "tags": [],
+        "text": "Defines element as grid or inline-grid container"
+      },
+      "attribute": "grid-display",
+      "reflect": false,
+      "defaultValue": "'grid'"
+    },
+    "gridTag": {
+      "type": "string",
+      "mutable": false,
+      "complexType": {
+        "original": "string",
+        "resolved": "string",
+        "references": {}
+      },
+      "required": false,
+      "optional": false,
+      "docs": {
+        "tags": [],
+        "text": "Set tag for grid container"
+      },
+      "attribute": "grid-tag",
+      "reflect": false,
+      "defaultValue": "'div'"
     },
     "gridTemplateColumns": {
       "type": "string",
@@ -263,24 +281,6 @@ export class GcdsGrid {
       },
       "attribute": "place-items",
       "reflect": false
-    },
-    "tag": {
-      "type": "string",
-      "mutable": false,
-      "complexType": {
-        "original": "string",
-        "resolved": "string",
-        "references": {}
-      },
-      "required": false,
-      "optional": false,
-      "docs": {
-        "tags": [],
-        "text": "Set tag for grid container"
-      },
-      "attribute": "tag",
-      "reflect": false,
-      "defaultValue": "'div'"
     }
   }; }
   static get elementRef() { return "el"; }

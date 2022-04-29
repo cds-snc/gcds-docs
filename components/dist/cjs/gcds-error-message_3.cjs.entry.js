@@ -3,6 +3,7 @@
 Object.defineProperty(exports, '__esModule', { value: true });
 
 const index = require('./index-faa8db83.js');
+const utils = require('./utils-17235bae.js');
 
 const gcdsErrorMessageCss = ":host{display:inline-block}:host .error-message{font-size:inherit;line-height:inherit;margin:0 0 var(--gcds-spacing-300);padding:var(--gcds-spacing-200);background:var(--gcds-error-message-background);color:var(--gcds-error-message-text);border-left:2px solid var(--gcds-error-message-border)}";
 
@@ -32,7 +33,7 @@ let GcdsHint = class {
 };
 GcdsHint.style = gcdsHintCss;
 
-const gcdsLabelCss = ".sc-gcds-label-h label.sc-gcds-label{display:block;max-width:100%;font-size:inherit;font-weight:var(--gcds-font-weights-bold);line-height:inherit;margin:0 0 var(--gcds-spacing-50);color:inherit}.sc-gcds-label-h label.hidden.sc-gcds-label{overflow:hidden;opacity:0;width:0;height:0;margin:0}.sc-gcds-label-h label.required.sc-gcds-label:before,.sc-gcds-label-h label.sc-gcds-label .required.sc-gcds-label{color:var(--gcds-label-destructive-text)}.sc-gcds-label-h label.required.sc-gcds-label:before{vertical-align:top;content:\"* \";margin-left:calc(var(--gcds-spacing-200) * -1)}.sc-gcds-label-h label.sc-gcds-label .required.sc-gcds-label{margin:0 0 0 var(--gcds-spacing-100)}";
+const gcdsLabelCss = ".sc-gcds-label-h label.sc-gcds-label{display:block;max-width:100%;font-size:inherit;font-weight:var(--gcds-font-weights-bold);line-height:inherit;margin:0 0 var(--gcds-spacing-50);color:inherit}.sc-gcds-label-h label.hidden.sc-gcds-label{overflow:hidden;opacity:0;width:0;height:0;margin:0}.sc-gcds-label-h label.sc-gcds-label .required.sc-gcds-label{margin:0 0 0 var(--gcds-spacing-100);color:var(--gcds-label-destructive-text)}";
 
 let GcdsLabel = class {
   constructor(hostRef) {
@@ -40,20 +41,7 @@ let GcdsLabel = class {
   }
   async componentWillLoad() {
     // Define lang attribute
-    if (!this.el.getAttribute('lang')) {
-      if (document.documentElement.getAttribute('lang') == 'en' || !document.documentElement.getAttribute('lang')) {
-        this.lang = 'en';
-      }
-      else {
-        this.lang = 'fr';
-      }
-    }
-    else if (this.el.getAttribute('lang') == 'en') {
-      this.lang = 'en';
-    }
-    else {
-      this.lang = 'fr';
-    }
+    this.lang = utils.assignLanguage(this.el);
   }
   render() {
     const { hideLabel, labelFor, label, required, lang } = this;

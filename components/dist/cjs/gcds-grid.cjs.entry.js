@@ -13,21 +13,21 @@ let GcdsGrid = class {
      * Grid props
      */
     /**
-     * Defines element as grid or inline-grid container
-     */
-    this.display = 'grid';
-    /**
      * Defines grid container size
      */
-    this.container = 'fluid';
+    this.gridContainer = 'fluid';
+    /**
+     * Defines element as grid or inline-grid container
+     */
+    this.gridDisplay = 'grid';
     /**
      * Set tag for grid container
      */
-    this.tag = 'div';
+    this.gridTag = 'div';
   }
   render() {
-    const { alignContent, alignItems, container, display, gap, gridTemplateColumns, gridTemplateColumnsDesktop, gridTemplateColumnsTablet, justifyContent, justifyItems, placeContent, placeItems, tag } = this;
-    const CustomTag = tag;
+    const { alignContent, alignItems, gap, gridContainer, gridDisplay, gridTag, gridTemplateColumns, gridTemplateColumnsDesktop, gridTemplateColumnsTablet, justifyContent, justifyItems, placeContent, placeItems } = this;
+    const Tag = gridTag;
     // Set gridTemplateColumns based on screen size
     const mediaQueryDesktop = window.matchMedia('(min-width: 991px)');
     const mediaQueryTablet = window.matchMedia('(min-width: 768px)');
@@ -42,13 +42,13 @@ let GcdsGrid = class {
         return { gridTemplateColumns: gridTemplateColumns };
       }
     }
-    return (index.h(index.Host, null, index.h(CustomTag, { class: `
+    return (index.h(index.Host, null, index.h(Tag, { class: `
             gcds-grid
             ${alignContent ? `align-content-${alignContent}` : ''}
             ${alignItems ? `align-items-${alignItems}` : ''}
-            ${container ? `container-${container}` : ''}
-            ${display ? `display-${display}` : ''}
             ${gap ? `gap-${gap}` : ''}
+            ${gridContainer ? `container-${gridContainer}` : ''}
+            ${gridDisplay ? `display-${gridDisplay}` : ''}
             ${justifyContent ? `justify-content-${justifyContent}` : ''}
             ${justifyItems ? `justify-items-${justifyItems}` : ''}
             ${placeContent ? `place-content-${placeContent}` : ''}
