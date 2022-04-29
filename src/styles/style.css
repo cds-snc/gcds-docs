@@ -53,10 +53,13 @@ ul li {
 h1,
 h2,
 h3,
-h4,
+h4 {
+  font-family: var(--gcds-font-families-heading), sans-serif;
+}
+
 h5,
 h6 {
-  font-family: var(--gcds-font-families-heading), sans-serif;
+  font-family: var(--gcds-font-families-body), sans-serif;
 }
 
 h1 {
