@@ -403,20 +403,38 @@
         <h3 id="message-derreur-intercale">
             <a class="anchor-link" href="#message-derreur-intercale">Message d’erreur intercalé
             </a>
-        </h3><p><gcds-error-message
-  message="Message d’erreur intercalé"
-  message-id="inline-error-message"
-></p>
+        </h3><div class="comp-show">
+  <gcds-input
+    label="Champ de saisie"
+    input-type="text"
+    input-id="input"
+    error-message="Message d’erreur"
+    size="45"
+  ></gcds-input>
+<p><gcds-textarea
+    label="Zone de texte"
+    textarea-id="textarea"
+    error-message="Message d’erreur"
+  ></gcds-textarea></p>
+</div>
 <p>On utilise le message d’erreur intercalé, près du champ de saisie invalide, pour mettre en évidence l’action requise. Cela permet de corriger le problème tout en consultant le message d’erreur.</p>
 <p><div class="code-showcase">
 <gcds-button button-type="button" button-role="secondary" button-style="text-only" aria-label="Voir le code - Message d’erreur intercalé" onclick="toggleCodeShowcase(this, 'view-inline');" aria-controls="view-inline" aria-expanded="false">Voir le code</gcds-button>
 <gcds-button button-type="button" button-role="secondary" button-style="text-only" onclick="copyCodeShowcase(this, 'view-inline', 'fr');" onblur="this.innerText = 'Copier le code'">Copier le code</gcds-button>
 <div class="showcase" id="view-inline" aria-hidden="true">
-<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>gcds-error-message</span><br>  <span class="token attr-name">message</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>Message d’erreur intercalé<span class="token punctuation">&quot;</span></span><br>  <span class="token attr-name">message-id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>inline-error-message<span class="token punctuation">&quot;</span></span><br><span class="token punctuation">&gt;</span></span></code></pre></p>
-<p><code class="copy-code" id="view-inline-copy">&lt;gcds-error-message
-message=&quot;Message d’erreur intercalé&quot;
-message-id=&quot;inline-error-message&quot;
-&gt;</code>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>gcds-input</span><br>  <span class="token attr-name">label</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>Champ de saisie<span class="token punctuation">&quot;</span></span><br>  <span class="token attr-name">input-type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>text<span class="token punctuation">&quot;</span></span><br>  <span class="token attr-name">input-id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>input<span class="token punctuation">&quot;</span></span><br>  <span class="token attr-name">error-message</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>Message d’erreur<span class="token punctuation">&quot;</span></span><br>  <span class="token attr-name">size</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>45<span class="token punctuation">&quot;</span></span><br><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>gcds-input</span><span class="token punctuation">&gt;</span></span><br><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>gcds-textarea</span><br>  <span class="token attr-name">label</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>Zone de texte<span class="token punctuation">&quot;</span></span><br>  <span class="token attr-name">textarea-id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>textarea<span class="token punctuation">&quot;</span></span><br>  <span class="token attr-name">error-message</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>Message d’erreur<span class="token punctuation">&quot;</span></span><br><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>gcds-textarea</span><span class="token punctuation">&gt;</span></span></code></pre></p>
+<p><code class="copy-code" id="view-inline-copy">&lt;gcds-input
+label=&quot;Champ de saisie&quot;
+input-type=&quot;text&quot;
+input-id=&quot;input&quot;
+error-message=&quot;Message d’erreur&quot;
+size=&quot;45&quot;
+&gt;&lt;/gcds-input&gt;</p>
+<p>&lt;gcds-textarea
+label=&quot;Zone de texte&quot;
+textarea-id=&quot;textarea&quot;
+error-message=&quot;Message d’erreur&quot;
+&gt;&lt;/gcds-textarea&gt;</code>
 </div>
 </div></p>
 </section>

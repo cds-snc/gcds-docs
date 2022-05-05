@@ -406,20 +406,38 @@
         <h3 id="inline-error-message">
             <a class="anchor-link" href="#inline-error-message">Inline error message
             </a>
-        </h3><p><gcds-error-message
-  message="Inline error message"
-  message-id="inline-error-message"
-></p>
+        </h3><div class="comp-show">
+  <gcds-input
+    label="Input label"
+    input-type="text"
+    input-id="input"
+    error-message="Error / Validation message"
+    size="45"
+  ></gcds-input>
+  <gcds-textarea
+    label="Text area label"
+    textarea-id="textarea"
+    error-message="Error / Validation message"
+  ></gcds-textarea>
+</div>
 <p>Use inline error messages to highlight the needed action close to the input where a person can make the change while directly referencing the message.</p>
 <p><div class="code-showcase">
 <gcds-button button-type="button" button-role="secondary" button-style="text-only" aria-label="View code - Inline error message" onclick="toggleCodeShowcase(this, 'view-inline');" aria-controls="view-inline" aria-expanded="false">View code</gcds-button>
 <gcds-button button-type="button" button-role="secondary" button-style="text-only" onclick="copyCodeShowcase(this, 'view-inline', 'en');" onblur="this.innerText = 'Copy code'">Copy code</gcds-button>
 <div class="showcase" id="view-inline" aria-hidden="true">
-<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>gcds-error-message</span><br>  <span class="token attr-name">message</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>Inline error message<span class="token punctuation">&quot;</span></span><br>  <span class="token attr-name">message-id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>inline-error-message<span class="token punctuation">&quot;</span></span><br><span class="token punctuation">&gt;</span></span></code></pre></p>
-<p><code class="copy-code" id="view-inline-copy">&lt;gcds-error-message
-message=&quot;Inline error message&quot;
-message-id=&quot;inline-error-message&quot;
-&gt;</code>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>gcds-input</span><br>  <span class="token attr-name">label</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>Input label<span class="token punctuation">&quot;</span></span><br>  <span class="token attr-name">input-type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>text<span class="token punctuation">&quot;</span></span><br>  <span class="token attr-name">input-id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>input<span class="token punctuation">&quot;</span></span><br>  <span class="token attr-name">error-message</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>Error / Validation message<span class="token punctuation">&quot;</span></span><br>  <span class="token attr-name">size</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>45<span class="token punctuation">&quot;</span></span><br><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>gcds-input</span><span class="token punctuation">&gt;</span></span><br><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>gcds-textarea</span><br>  <span class="token attr-name">label</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>Text area label<span class="token punctuation">&quot;</span></span><br>  <span class="token attr-name">textarea-id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>textarea<span class="token punctuation">&quot;</span></span><br>  <span class="token attr-name">error-message</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>Error / Validation message<span class="token punctuation">&quot;</span></span><br><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>gcds-textarea</span><span class="token punctuation">&gt;</span></span></code></pre></p>
+<p><code class="copy-code" id="view-inline-copy">&lt;gcds-input
+label=&quot;Input label&quot;
+input-type=&quot;text&quot;
+input-id=&quot;input&quot;
+error-message=&quot;Error / Validation message&quot;
+size=&quot;45&quot;
+&gt;&lt;/gcds-input&gt;</p>
+<p>&lt;gcds-textarea
+label=&quot;Text area label&quot;
+textarea-id=&quot;textarea&quot;
+error-message=&quot;Error / Validation message&quot;
+&gt;&lt;/gcds-textarea&gt;</code>
 </div>
 </div></p>
 </section>

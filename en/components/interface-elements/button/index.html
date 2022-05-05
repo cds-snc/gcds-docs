@@ -405,12 +405,14 @@
         <h3 id="primary-button">
             <a class="anchor-link" href="#primary-button">Primary button
             </a>
-        </h3><p><gcds-button
-  button-role="primary"
-  button-type="button"
->
-Primary
-</gcds-button></p>
+        </h3><div class="comp-show">
+  <gcds-button
+    button-role="primary"
+    button-type="button"
+  >
+    Primary
+  </gcds-button>
+</div>
 <p>Use a primary button for the most important action.</p>
 <p>Use it for critical actions in a flow or as the default button.</p>
 <p>Avoid more than one main call to action on the same page. It reduces impact and makes it harder for a person to know what to do next.</p>
@@ -431,12 +433,14 @@ Primary
         <h3 id="secondary-button">
             <a class="anchor-link" href="#secondary-button">Secondary button
             </a>
-        </h3><p><gcds-button
-  button-role="secondary"
-  button-type="button"
->
-Secondary
-</gcds-button></p>
+        </h3><div class="comp-show">
+  <gcds-button
+    button-role="secondary"
+    button-type="button"
+  >
+    Secondary
+  </gcds-button>
+</div>
 <p>Use a secondary button for supporting actions.</p>
 <p>Use it to highlight an important, common action but not the most important one.</p>
 <p>Use a secondary button more than once on a page for important alternative task options.</p>
@@ -457,12 +461,14 @@ Secondary
         <h3 id="destructive-button">
             <a class="anchor-link" href="#destructive-button">Destructive button
             </a>
-        </h3><p><gcds-button
-  button-role="destructive"
-  button-type="button"
->
-Destructive
-</gcds-button></p>
+        </h3><div class="comp-show">
+  <gcds-button
+    button-role="destructive"
+    button-type="button"
+  >
+    Destructive
+  </gcds-button>
+</div>
 <p>Use a destructive button to flag serious actions like removing, clearing, or deleting information.</p>
 <p>Use it for actions when changes may be difficult to reverse.</p>
 <p>Tip: For permanent actions, ask a second time so a person explicitly agrees before accepting.</p>
@@ -483,12 +489,15 @@ Destructive
         <h3 id="skiptocontent-button">
             <a class="anchor-link" href="#skiptocontent-button">Skip-to-content button
             </a>
-        </h3><p><gcds-button
-  button-role="skip-to-content"
-  button-type="button"
->
-Skip-to-content
-</gcds-button></p>
+        </h3><div class="comp-show">
+  <gcds-button
+    button-role="skip-to-content"
+    button-type="link"
+    href="#skiptocontent-button"
+  >
+    Skip-to-content
+  </gcds-button>
+</div>
 <p>Use a skip-to-content button (visible or hidden) to help a person jump to the main page content.</p>
 <p>Use it to support task success. It offers a shortcut past page navigation links or other navigation elements.</p>
 <p>Use it to help a person avoid tabbing or scrolling uneccesarily.</p>
@@ -496,10 +505,11 @@ Skip-to-content
 <gcds-button button-type="button" button-role="secondary" button-style="text-only" aria-label="View code - Skip-to-content" onclick="toggleCodeShowcase(this, 'skip-to-content');" aria-controls="skip-to-content" aria-expanded="false">View code</gcds-button>
 <gcds-button button-type="button" button-role="secondary" button-style="text-only" onclick="copyCodeShowcase(this, 'skip-to-content', 'en');" onblur="this.innerText = 'Copy code'">Copy code</gcds-button>
 <div class="showcase" id="skip-to-content" aria-hidden="true">
-<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>gcds-button</span><br>  <span class="token attr-name">button-role</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>skip-to-content<span class="token punctuation">&quot;</span></span><br>  <span class="token attr-name">button-type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>button<span class="token punctuation">&quot;</span></span><br><span class="token punctuation">&gt;</span></span><br>  Skip-to-content<br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>gcds-button</span><span class="token punctuation">&gt;</span></span></code></pre></p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>gcds-button</span><br>  <span class="token attr-name">button-role</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>skip-to-content<span class="token punctuation">&quot;</span></span><br>  <span class="token attr-name">button-type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>link<span class="token punctuation">&quot;</span></span><br>  <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>#skiptocontent-button<span class="token punctuation">&quot;</span></span><br><span class="token punctuation">&gt;</span></span><br>  Skip-to-content<br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>gcds-button</span><span class="token punctuation">&gt;</span></span></code></pre></p>
 <p><code class="copy-code" id="skip-to-content-copy">&lt;gcds-button
 button-role=&quot;skip-to-content&quot;
-button-type=&quot;button&quot;
+button-type=&quot;link&quot;
+href=&quot;#skiptocontent-button&quot;
 &gt;
 Skip-to-content
 &lt;/gcds-button&gt;</code>

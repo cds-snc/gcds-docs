@@ -406,11 +406,22 @@
         <h3 id="champ-de-type-text">
             <a class="anchor-link" href="#champ-de-type-text">Champ de type <span lang="en"><code>text</code> </span>
             </a>
-        </h3><p><gcds-input
-  type="text"
-  input-id="text"
-  label="Champ de type text"
-></gcds-input></p>
+        </h3><div class="comp-show">
+  <gcds-input
+    type="text"
+    input-id="codepostal"
+    label="Code postal"
+    hint="limite de 6 caractères"
+    size="6"
+  ></gcds-input>
+  <gcds-input
+    type="text"
+    input-id="prenom"
+    label="Prénom"
+    hint="limite de 50 caractères"
+    size="50"
+  ></gcds-input>
+</div>
 <p>À utiliser pour collecter des réponses textuelles courtes, tenant sur une ligne.</p>
 <p>À utiliser par défaut s’il n’y a pas d’autre type de champ plus approprié pour une réponse d’une seule ligne.</p>
 <p>À utiliser pour collecter le nom d’une personne (souvent le nom complet).</p>
@@ -419,11 +430,20 @@
 <gcds-button button-type="button" button-role="secondary" button-style="text-only" aria-label="Voir le code - Champ de type text" onclick="toggleCodeShowcase(this, 'view-text');" aria-controls="view-text" aria-expanded="false">Voir le code</gcds-button>
 <gcds-button button-type="button" button-role="secondary" button-style="text-only" onclick="copyCodeShowcase(this, 'view-text', 'fr');" onblur="this.innerText = 'Copier le code'">Copier le code</gcds-button>
 <div class="showcase" id="view-text" aria-hidden="true">
-<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>gcds-input</span><br>  <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>text<span class="token punctuation">&quot;</span></span><br>  <span class="token attr-name">input-id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>text<span class="token punctuation">&quot;</span></span><br>  <span class="token attr-name">label</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>Champ de type text<span class="token punctuation">&quot;</span></span><br><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>gcds-input</span><span class="token punctuation">&gt;</span></span></code></pre></p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>gcds-input</span><br>  <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>text<span class="token punctuation">&quot;</span></span><br>  <span class="token attr-name">input-id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>codepostal<span class="token punctuation">&quot;</span></span><br>  <span class="token attr-name">label</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>Code postal<span class="token punctuation">&quot;</span></span><br>  <span class="token attr-name">hint</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>Limite de 6 caractères<span class="token punctuation">&quot;</span></span><br>  <span class="token attr-name">size</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>6<span class="token punctuation">&quot;</span></span><br><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>gcds-input</span><span class="token punctuation">&gt;</span></span><br><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>gcds-input</span><br>  <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>text<span class="token punctuation">&quot;</span></span><br>  <span class="token attr-name">input-id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>prenom<span class="token punctuation">&quot;</span></span><br>  <span class="token attr-name">label</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>Prénom<span class="token punctuation">&quot;</span></span><br>  <span class="token attr-name">hint</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>Limite de 50 caractères<span class="token punctuation">&quot;</span></span><br>  <span class="token attr-name">size</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>50<span class="token punctuation">&quot;</span></span><br><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>gcds-input</span><span class="token punctuation">&gt;</span></span></code></pre></p>
 <p><code class="copy-code" id="view-text-copy">&lt;gcds-input
 type=&quot;text&quot;
-input-id=&quot;text&quot;
-label=&quot;Champ de type text&quot;
+input-id=&quot;codepostal&quot;
+label=&quot;Code postal&quot;
+hint=&quot;Limite de 6 caractères&quot;
+size=&quot;6&quot;
+&gt;&lt;/gcds-input&gt;</p>
+<p>&lt;gcds-input
+type=&quot;text&quot;
+input-id=&quot;prenom&quot;
+label=&quot;Prénom&quot;
+hint=&quot;Limite de 50 caractères&quot;
+size=&quot;50&quot;
 &gt;&lt;/gcds-input&gt;</code>
 </div>
 </div></p>
@@ -431,21 +451,27 @@ label=&quot;Champ de type text&quot;
         <h3 id="champ-de-type-email">
             <a class="anchor-link" href="#champ-de-type-email">Champ de type <span lang="en"><code>email</code> </span>
             </a>
-        </h3><p><gcds-input
-  type="email"
-  input-id="email"
-  label="Champ de type email"
-></gcds-input></p>
+        </h3><div class="comp-show">
+  <gcds-input
+    type="email"
+    input-id="email"
+    label="Adresse courriel"
+    hint="Exemple: hello@email.com"
+    size="50"
+  ></gcds-input>
+</div>
 <p>À utiliser pour collecter une adresse courriel.</p>
 <p><div class="code-showcase">
 <gcds-button button-type="button" button-role="secondary" button-style="text-only" aria-label="Voir le code - Champ de type email" onclick="toggleCodeShowcase(this, 'view-email');" aria-controls="view-email" aria-expanded="false">Voir le code</gcds-button>
 <gcds-button button-type="button" button-role="secondary" button-style="text-only" onclick="copyCodeShowcase(this, 'view-email', 'fr');" onblur="this.innerText = 'Copier le code'">Copier le code</gcds-button>
 <div class="showcase" id="view-email" aria-hidden="true">
-<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>gcds-input</span><br>  <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>email<span class="token punctuation">&quot;</span></span><br>  <span class="token attr-name">input-id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span><span class="token punctuation">&quot;</span></span><br>  <span class="token attr-name">label</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>Champ de type email<span class="token punctuation">&quot;</span></span><br><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>gcds-input</span><span class="token punctuation">&gt;</span></span></code></pre></p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>gcds-input</span><br>  <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>email<span class="token punctuation">&quot;</span></span><br>  <span class="token attr-name">input-id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>email<span class="token punctuation">&quot;</span></span><br>  <span class="token attr-name">label</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>Adresse courriel<span class="token punctuation">&quot;</span></span><br>  <span class="token attr-name">hint</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>Exemple: hello@email.com<span class="token punctuation">&quot;</span></span><br>  <span class="token attr-name">size</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>50<span class="token punctuation">&quot;</span></span><br><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>gcds-input</span><span class="token punctuation">&gt;</span></span></code></pre></p>
 <p><code class="copy-code" id="view-email-copy">&lt;gcds-input
 type=&quot;email&quot;
-input-id=&quot;&quot;
-label=&quot;Champ de type email&quot;
+input-id=&quot;email&quot;
+label=&quot;Adresse courriel&quot;
+hint=&quot;Exemple: hello@email.com&quot;
+size=&quot;50&quot;
 &gt;&lt;/gcds-input&gt;</code>
 </div>
 </div></p>
@@ -453,21 +479,25 @@ label=&quot;Champ de type email&quot;
         <h3 id="champ-de-type-password">
             <a class="anchor-link" href="#champ-de-type-password">Champ de type <span lang="en"><code>password</code> </span>
             </a>
-        </h3><p><gcds-input
-  type="password"
-  input-id="password"
-  label="Champ de type password"
-></gcds-input></p>
+        </h3><div class="comp-show">
+  <gcds-input
+    type="password"
+    input-id="password"
+    label="Password"
+    size="50"
+  ></gcds-input>
+</div>
 <p>À utiliser pour collecter et vérifier un mot de passe.</p>
 <p><div class="code-showcase">
 <gcds-button button-type="button" button-role="secondary" button-style="text-only" aria-label="Voir le code - Champ de type password" onclick="toggleCodeShowcase(this, 'view-password');" aria-controls="view-password" aria-expanded="false">Voir le code</gcds-button>
 <gcds-button button-type="button" button-role="secondary" button-style="text-only" onclick="copyCodeShowcase(this, 'view-password', 'fr');" onblur="this.innerText = 'Copier le code'">Copier le code</gcds-button>
 <div class="showcase" id="view-password" aria-hidden="true">
-<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>gcds-input</span><br>  <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>password<span class="token punctuation">&quot;</span></span><br>  <span class="token attr-name">input-id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>password<span class="token punctuation">&quot;</span></span><br>  <span class="token attr-name">label</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>Champ de type password<span class="token punctuation">&quot;</span></span><br><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>gcds-input</span><span class="token punctuation">&gt;</span></span></code></pre></p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>gcds-input</span><br>  <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>password<span class="token punctuation">&quot;</span></span><br>  <span class="token attr-name">input-id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>password<span class="token punctuation">&quot;</span></span><br>  <span class="token attr-name">label</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>Password<span class="token punctuation">&quot;</span></span><br>  <span class="token attr-name">size</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>50<span class="token punctuation">&quot;</span></span><br><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>gcds-input</span><span class="token punctuation">&gt;</span></span></code></pre></p>
 <p><code class="copy-code" id="view-password-copy">&lt;gcds-input
 type=&quot;password&quot;
 input-id=&quot;password&quot;
-label=&quot;Champ de type password&quot;
+label=&quot;Password&quot;
+size=&quot;50&quot;
 &gt;&lt;/gcds-input&gt;</code>
 </div>
 </div></p>
@@ -475,22 +505,28 @@ label=&quot;Champ de type password&quot;
         <h3 id="champ-de-type-number">
             <a class="anchor-link" href="#champ-de-type-number">Champ de type <span lang="en"><code>number</code> </span>
             </a>
-        </h3><p><gcds-input
-  type="number"
-  input-id="number"
-  label="Champ de type number"
-></gcds-input></p>
+        </h3><div class="comp-show">
+  <gcds-input
+    type="number"
+    input-id="number"
+    label="Numéro de téléphone"
+    hint="limite de 10 caractères"
+    size="10"
+  ></gcds-input>
+</div>
 <p>À utiliser pour refuser toute valeur qui n’est pas numérique.</p>
 <p>Bon à savoir : si vous imposez une contrainte, par exemple un intervalle de chiffres, communiquez-le avec un texte d’aide.</p>
 <p><div class="code-showcase">
 <gcds-button button-type="button" button-role="secondary" button-style="text-only" aria-label="Voir le code - Champ de type number" onclick="toggleCodeShowcase(this, 'view-number');" aria-controls="view-number" aria-expanded="false">Voir le code</gcds-button>
 <gcds-button button-type="button" button-role="secondary" button-style="text-only" onclick="copyCodeShowcase(this, 'view-number', 'fr');" onblur="this.innerText = 'Copier le code'">Copier le code</gcds-button>
 <div class="showcase" id="view-number" aria-hidden="true">
-<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>gcds-input</span><br>  <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>number<span class="token punctuation">&quot;</span></span><br>  <span class="token attr-name">input-id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>number<span class="token punctuation">&quot;</span></span><br>  <span class="token attr-name">label</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>Champ de type number<span class="token punctuation">&quot;</span></span><br><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>gcds-input</span><span class="token punctuation">&gt;</span></span></code></pre></p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>gcds-input</span><br>  <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>number<span class="token punctuation">&quot;</span></span><br>  <span class="token attr-name">input-id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>number<span class="token punctuation">&quot;</span></span><br>  <span class="token attr-name">label</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>Numéro de téléphone<span class="token punctuation">&quot;</span></span><br>  <span class="token attr-name">hint</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>limite de 10 caractères<span class="token punctuation">&quot;</span></span><br>  <span class="token attr-name">size</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>10<span class="token punctuation">&quot;</span></span><br><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>gcds-input</span><span class="token punctuation">&gt;</span></span></code></pre></p>
 <p><code class="copy-code" id="view-number-copy">&lt;gcds-input
 type=&quot;number&quot;
 input-id=&quot;number&quot;
-label=&quot;Champ de type number&quot;
+label=&quot;Numéro de téléphone&quot;
+hint=&quot;limite de 10 caractères&quot;
+size=&quot;10&quot;
 &gt;&lt;/gcds-input&gt;</code>
 </div>
 </div></p>
@@ -498,11 +534,13 @@ label=&quot;Champ de type number&quot;
         <h3 id="champ-de-type-search">
             <a class="anchor-link" href="#champ-de-type-search">Champ de type <span lang="en"><code>search</code> </span>
             </a>
-        </h3><p><gcds-input
-  type="search"
-  input-id="search"
-  label="Champ de type search"
-></gcds-input></p>
+        </h3><div class="comp-show">
+  <gcds-input
+    type="search"
+    input-id="search"
+    label="Champ de type search"
+  ></gcds-input>
+</div>
 <p>À utiliser pour collecter des termes de recherche.</p>
 <p><div class="code-showcase">
 <gcds-button button-type="button" button-role="secondary" button-style="text-only" aria-label="Voir le code - Champ de type search" onclick="toggleCodeShowcase(this, 'view-search');" aria-controls="view-search" aria-expanded="false">Voir le code</gcds-button>
@@ -520,21 +558,25 @@ label=&quot;Champ de type search&quot;
         <h3 id="champ-de-typeurl">
             <a class="anchor-link" href="#champ-de-typeurl">Champ de type<span lang="en"><code>url</code> </span>
             </a>
-        </h3><p><gcds-input
-  type="url"
-  input-id="url"
-  label="Champ de type url"
-></gcds-input></p>
+        </h3><div class="comp-show">
+  <gcds-input
+    type="url"
+    input-id="url"
+    label="Champ de type url"
+    hint="Exemple: https://design.alpha.canada.ca/fr"
+  ></gcds-input>
+</div>
 <p>À utiliser pour collecter une URL, comme une adresse Web.</p>
 <p><div class="code-showcase">
 <gcds-button button-type="button" button-role="secondary" button-style="text-only" aria-label="Voir le code - Champ de type url" onclick="toggleCodeShowcase(this, 'view-url');" aria-controls="view-url" aria-expanded="false">Voir le code</gcds-button>
 <gcds-button button-type="button" button-role="secondary" button-style="text-only" onclick="copyCodeShowcase(this, 'view-url', 'fr');" onblur="this.innerText = 'Copier le code'">Copier le code</gcds-button>
 <div class="showcase" id="view-url" aria-hidden="true">
-<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>gcds-input</span><br>  <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>url<span class="token punctuation">&quot;</span></span><br>  <span class="token attr-name">input-id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>url<span class="token punctuation">&quot;</span></span><br>  <span class="token attr-name">label</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>Champ de type url<span class="token punctuation">&quot;</span></span><br><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>gcds-input</span><span class="token punctuation">&gt;</span></span></code></pre></p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>gcds-input</span><br>  <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>url<span class="token punctuation">&quot;</span></span><br>  <span class="token attr-name">input-id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>url<span class="token punctuation">&quot;</span></span><br>  <span class="token attr-name">label</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>Champ de type url<span class="token punctuation">&quot;</span></span><br>  <span class="token attr-name">hint</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>Exemple: https://design.alpha.canada.ca/fr<span class="token punctuation">&quot;</span></span><br><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>gcds-input</span><span class="token punctuation">&gt;</span></span></code></pre></p>
 <p><code class="copy-code" id="view-url-copy">&lt;gcds-input
 type=&quot;url&quot;
 input-id=&quot;url&quot;
 label=&quot;Champ de type url&quot;
+hint=&quot;Exemple: https://design.alpha.canada.ca/fr&quot;
 &gt;&lt;/gcds-input&gt;</code>
 </div>
 </div></p>

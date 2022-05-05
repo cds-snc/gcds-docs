@@ -388,31 +388,33 @@
 <li>Group them thoughtfully</li>
 <li>Communicate the information you need with words they’ll understand</li>
 </ul>
-<form>
-  <gcds-input
-    label="Email address"
-    input-type="email"
-    input-id="email"
-    size="45"
-  ></gcds-input>
-  <gcds-textarea
-    label="Message"
-    textarea-id="message"
-  ></gcds-textarea>
-</form>
+<div class="comp-show">
+  <form>
+    <gcds-input
+      label="Email address"
+      input-type="email"
+      input-id="email"
+      size="45"
+    ></gcds-input>
+    <gcds-textarea
+      label="Message"
+      textarea-id="message"
+    ></gcds-textarea>
+  </form>
+</div>
 <p><div class="code-showcase">
 <gcds-button button-type="button" button-role="secondary" button-style="text-only" aria-label="View code - Make forms less daunting" onclick="toggleCodeShowcase(this, 'daunting');" aria-controls="daunting" aria-expanded="false">View code</gcds-button>
 <gcds-button button-type="button" button-role="secondary" button-style="text-only" onclick="copyCodeShowcase(this, 'daunting', 'en');" onblur="this.innerText = 'Copy code'">Copy code</gcds-button>
 <div class="showcase" id="daunting" aria-hidden="true">
-<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>form</span><span class="token punctuation">&gt;</span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>gcds-input</span><br>    <span class="token attr-name">label</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>Email address<span class="token punctuation">&quot;</span></span><br>    <span class="token attr-name">input-type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>email<span class="token punctuation">&quot;</span></span><br>    <span class="token attr-name">input-id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>email<span class="token punctuation">&quot;</span></span><br>    <span class="token attr-name">size</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>45<span class="token punctuation">&quot;</span></span><br>  <span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>gcds-input</span><span class="token punctuation">&gt;</span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>gcds-textarea</span><br>    <span class="token attr-name">label</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>Message<span class="token punctuation">&quot;</span></span><br>    <span class="token attr-name">textarea-id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>message<span class="token punctuation">&quot;</span></span><br>  <span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>gcds-textarea</span><span class="token punctuation">&gt;</span></span><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>form</span><span class="token punctuation">&gt;</span></span></code></pre></p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>form</span><span class="token punctuation">&gt;</span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>gcds-input</span><br>    <span class="token attr-name">label</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>Email address<span class="token punctuation">&quot;</span></span><br>    <span class="token attr-name">input-type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>email<span class="token punctuation">&quot;</span></span><br>    <span class="token attr-name">input-id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>email<span class="token punctuation">&quot;</span></span><br>    <span class="token attr-name">size</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>45<span class="token punctuation">&quot;</span></span><br>  <span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>gcds-input</span><span class="token punctuation">&gt;</span></span><br><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>gcds-textarea</span><br>    <span class="token attr-name">label</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>Message<span class="token punctuation">&quot;</span></span><br>    <span class="token attr-name">textarea-id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>message<span class="token punctuation">&quot;</span></span><br>  <span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>gcds-textarea</span><span class="token punctuation">&gt;</span></span><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>form</span><span class="token punctuation">&gt;</span></span></code></pre></p>
 <p><code class="copy-code" id="daunting-copy">&lt;form&gt;
 &lt;gcds-input
 label=&quot;Email address&quot;
 input-type=&quot;email&quot;
 input-id=&quot;email&quot;
 size=&quot;45&quot;
-&gt;&lt;/gcds-input&gt;
-&lt;gcds-textarea
+&gt;&lt;/gcds-input&gt;</p>
+<p>&lt;gcds-textarea
 label=&quot;Message&quot;
 textarea-id=&quot;message&quot;
 &gt;&lt;/gcds-textarea&gt;
@@ -470,11 +472,13 @@ textarea-id=&quot;message&quot;
         </h3><p>Use hint text to be more precise about formatting or missing info that will cause an error message. Place hint text between the label and the field where a person will get the instructions at the moment they need them.</p>
 <p>Avoid instructions the user will have to remember or record elsewhere. For example, a how-to guide outside of or at the top of the form or placeholder hint text that disappears when the user focuses on the field.</p>
 <p>Avoid disabling interface elements, like inputs, text areas and buttons. If you must disable, be sure the input or button receives focus as soon as it's enabled and provide feedback to make it obvious.</p>
-<p><gcds-input
-  label="Full name"
-  textarea-id="name"
-  hint="For example: Taryn Li"
-></gcds-input></p>
+<div class="comp-show">
+  <gcds-input
+    label="Full name"
+    textarea-id="name"
+    hint="For example: Taryn Li"
+  ></gcds-input>
+</div>
 <p><div class="code-showcase">
 <gcds-button button-type="button" button-role="secondary" button-style="text-only" aria-label="View code - Give just-in time instructions" onclick="toggleCodeShowcase(this, 'instructions');" aria-controls="instructions" aria-expanded="false">View code</gcds-button>
 <gcds-button button-type="button" button-role="secondary" button-style="text-only" onclick="copyCodeShowcase(this, 'instructions', 'en');" onblur="this.innerText = 'Copy code'">Copy code</gcds-button>
@@ -519,11 +523,13 @@ hint=&quot;For example: Taryn Li&quot;
         </h3><p>Place “required” at the end of the field label if information is required. Avoid red and additional symbols or punctuation, like the asterisk (*).</p>
 <p>If left blank or incomplete, an error message will remind a person to fill a required field and give specific instructions about what they need to do.</p>
 <p>Have a strong rationale for keeping an optional field on a form or remove it altogether.</p>
-<p><gcds-input
-  label="Input label"
-  input-id="input-required"
-  required
-></gcds-input></p>
+<div class="comp-show">
+  <gcds-input
+    label="Input label"
+    input-id="input-required"
+    required
+  ></gcds-input>
+</div>
 <p><div class="code-showcase">
 <gcds-button button-type="button" button-role="secondary" button-style="text-only" aria-label="View code - Handling required fields" onclick="toggleCodeShowcase(this, 'required');" aria-controls="required" aria-expanded="false">View code</gcds-button>
 <gcds-button button-type="button" button-role="secondary" button-style="text-only" onclick="copyCodeShowcase(this, 'required', 'en');" onblur="this.innerText = 'Copy code'">Copy code</gcds-button>

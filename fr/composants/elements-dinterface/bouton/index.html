@@ -401,12 +401,14 @@
         <h3 id="bouton-principal">
             <a class="anchor-link" href="#bouton-principal">Bouton principal
             </a>
-        </h3><p><gcds-button
-  button-role="primary"
-  button-type="button"
->
-Principal
-</gcds-button></p>
+        </h3><div class="comp-show">
+  <gcds-button
+    button-role="primary"
+    button-type="button"
+  >
+    Principal
+  </gcds-button>
+</div>
 <p>On utilise le bouton principal pour l’action la plus importante.</p>
 <p>Utilisez-le pour les actions essentielles dans un parcours utilisateur ou comme bouton par défaut.</p>
 <p>Évitez d’avoir plus d’un bouton principal par page. Cela diminuerait l’effet du bouton, en plus de créer une incertitude sur la prochaine action à faire.</p>
@@ -427,12 +429,14 @@ Principal
         <h3 id="bouton-secondaire">
             <a class="anchor-link" href="#bouton-secondaire">Bouton secondaire
             </a>
-        </h3><p><gcds-button
-  button-role="secondary"
-  button-type="button"
->
-Secondaire
-</gcds-button></p>
+        </h3><div class="comp-show">
+  <gcds-button
+    button-role="secondary"
+    button-type="button"
+  >
+    Secondaire
+  </gcds-button>
+</div>
 <p>On utilise le bouton secondaire pour les actions soutenant l’action principale.</p>
 <p>Utilisez-le pour attirer l’attention sur une action importante et fréquente, mais pas essentielle.</p>
 <p>Vous pouvez l’utiliser plus d’une fois par page pour les actions optionnelles importantes.</p>
@@ -453,12 +457,14 @@ Secondaire
         <h3 id="bouton-destructeur">
             <a class="anchor-link" href="#bouton-destructeur">Bouton destructeur
             </a>
-        </h3><p><gcds-button
-  button-role="destructive"
-  button-type="button"
->
-Destructeur
-</gcds-button></p>
+        </h3><div class="comp-show">
+  <gcds-button
+    button-role="destructive"
+    button-type="button"
+  >
+    Destructeur
+  </gcds-button>
+</div>
 <p>On utilise le bouton destructeur pour signaler la sévérité d’une action qui retire, efface ou supprime des informations.</p>
 <p>Utilisez-le pour les actions irréversibles ou difficilement réversibles.</p>
 <p>Bon à savoir : pour les actions irréversibles, demandez à la personne de confirmer son choix.</p>
@@ -479,12 +485,15 @@ Destructeur
         <h3 id="bouton-devitement-passer-au-contenu-">
             <a class="anchor-link" href="#bouton-devitement-passer-au-contenu-">Bouton d’évitement « Passer au contenu »
             </a>
-        </h3><p><gcds-button
-  button-role="skip-to-content"
-  button-type="button"
->
-Passer au contenu
-</gcds-button></p>
+        </h3><div class="comp-show">
+  <gcds-button
+    button-role="skip-to-content"
+    button-type="link"
+    href="#bouton-devitement-passer-au-contenu-"
+  >
+    Passer au contenu
+  </gcds-button>
+</div>
 <p>On utilise le bouton d’évitement (visible ou masqué) pour aider une personne à passer directement au contenu principal.</p>
 <p>Utilisez-le pour accélérer la navigation. C’est un raccourci qui saute les liens ou autres éléments de navigation d’une page.</p>
 <p>Ce bouton évite aux personnes d’appuyer sur Tabulation sans relâche ou de faire défiler longuement une page.</p>
@@ -492,10 +501,11 @@ Passer au contenu
 <gcds-button button-type="button" button-role="secondary" button-style="text-only" aria-label="Voir le code - Passer au contenu" onclick="toggleCodeShowcase(this, 'skip-to-content');" aria-controls="skip-to-content" aria-expanded="false">Voir le code</gcds-button>
 <gcds-button button-type="button" button-role="secondary" button-style="text-only" onclick="copyCodeShowcase(this, 'skip-to-content', 'fr');" onblur="this.innerText = 'Copier le code'">Copier le code</gcds-button>
 <div class="showcase" id="skip-to-content" aria-hidden="true">
-<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>gcds-button</span><br>  <span class="token attr-name">button-role</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>skip-to-content<span class="token punctuation">&quot;</span></span><br>  <span class="token attr-name">button-type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>button<span class="token punctuation">&quot;</span></span><br><span class="token punctuation">&gt;</span></span><br>  Passer au contenu<br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>gcds-button</span><span class="token punctuation">&gt;</span></span></code></pre></p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>gcds-button</span><br>  <span class="token attr-name">button-role</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>skip-to-content<span class="token punctuation">&quot;</span></span><br>  <span class="token attr-name">button-type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>link<span class="token punctuation">&quot;</span></span><br>  <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>#bouton-devitement-passer-au-contenu-<span class="token punctuation">&quot;</span></span><br><span class="token punctuation">&gt;</span></span><br>  Passer au contenu<br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>gcds-button</span><span class="token punctuation">&gt;</span></span></code></pre></p>
 <p><code class="copy-code" id="skip-to-content-copy">&lt;gcds-button
 button-role=&quot;skip-to-content&quot;
-button-type=&quot;button&quot;
+button-type=&quot;link&quot;
+href=&quot;#bouton-devitement-passer-au-contenu-&quot;
 &gt;
 Passer au contenu
 &lt;/gcds-button&gt;</code>

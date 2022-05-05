@@ -504,3 +504,9 @@ table tbody td {
 section {
   margin-bottom: 6rem;
 }
+
+.comp-show {
+  background-color: var(--gcds-color-grayscale-200);
+  padding: var(--gcds-spacing-400);
+  margin-bottom: var(--gcds-spacing-400);
+}
