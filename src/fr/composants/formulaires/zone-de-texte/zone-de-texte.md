@@ -42,10 +42,13 @@ Une zone de texte peut avoir divers états : de survol <span lang="en">(*hover*)
 
 ### Zone de texte
 
-<gcds-textarea
-  textarea-id="textarea"
-  label="Text area"
-></gcds-textarea>
+<div class="comp-show">
+  <gcds-textarea
+    textarea-id="textarea"
+    label="Text area"
+    rows="6"
+  ></gcds-textarea>
+</div>
 
 On utilise la zone de texte pour collecter des réponses détaillées tenant sur plusieurs lignes.
 
@@ -55,6 +58,7 @@ On utilise la zone de texte pour collecter des réponses détaillées tenant sur
 <gcds-textarea
   textarea-id="textarea"
   label="Zone de texte"
+  rows="6"
 ></gcds-textarea>
 ```
 

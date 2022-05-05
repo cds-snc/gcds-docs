@@ -33,18 +33,20 @@ On cherche à rendre les formulaires moins intimidants et moins frustrants. Il f
 - Regroupez-les judicieusement.
 - Communiquez les informations dont vous avez besoin avec des mots qu'ils comprendront.
 
-<form>
-  <gcds-input
-    label="Adresse courriel"
-    input-type="email"
-    input-id="email"
-    size="45"
-  ></gcds-input>
-  <gcds-textarea
-    label="Message"
-    textarea-id="message"
-  ></gcds-textarea>
-</form>
+<div class="comp-show">
+  <form>
+    <gcds-input
+      label="Adresse courriel"
+      input-type="email"
+      input-id="email"
+      size="45"
+    ></gcds-input>
+    <gcds-textarea
+      label="Message"
+      textarea-id="message"
+    ></gcds-textarea>
+  </form>
+</div>
 
 {% viewCode locale "daunting" "Make forms less daunting" %}
 
@@ -56,6 +58,7 @@ On cherche à rendre les formulaires moins intimidants et moins frustrants. Il f
     input-id="email"
     size="45"
   ></gcds-input>
+
   <gcds-textarea
     label="Message"
     textarea-id="message"
@@ -119,11 +122,13 @@ Utilisez le texte d’aide pour préciser le format requis ou signaler les élé
 
 Évitez de désactiver les éléments d’interface comme les champs de saisie, les zones de texte et les boutons. Si vous devez le faire, assurez-vous que ces éléments puissent accueillir la cible de saisie dès qu’ils sont réactivés, et faites-le savoir à l’utilisateur en fournissant une rétroaction.
 
-<gcds-input
-  label="Nom complet"
-  textarea-id="nom"
-  hint="Exemple : Taryn Li"
-></gcds-input>
+<div class="comp-show">
+  <gcds-input
+    label="Nom complet"
+    textarea-id="nom"
+    hint="Exemple : Taryn Li"
+  ></gcds-input>
+</div>
 
 {% viewCode locale "instructions" "Donner des instructions au bon moment" %}
 
@@ -171,11 +176,13 @@ Si un champ obligatoire reste vide ou est incomplet, un message d’erreur s’a
 
 Si un champ est facultatif, ayez une bonne raison de le garder. Sinon, supprimez-le.
 
-<gcds-input
-  label="Étiquette"
-  input-id="input-required"
-  required
-></gcds-input>
+<div class="comp-show">
+  <gcds-input
+    label="Étiquette"
+    input-id="input-required"
+    required
+  ></gcds-input>
+</div>
 
 {% viewCode locale "required" "Handling required fields" %}
 

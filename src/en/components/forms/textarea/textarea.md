@@ -2,7 +2,7 @@
 title: Text area - Components
 layout: "layouts/documentation.njk"
 eleventyNavigation:
-  key: inputsEN
+  key: textareaEN
   title: Text area
   locale: en
   parent: formsEN
@@ -42,10 +42,13 @@ Text areas have built in states that change when someone interacts with that fie
 
 ### Text area
 
-<gcds-textarea
-  textarea-id="textarea"
-  label="Text area"
-></gcds-textarea>
+<div class="comp-show">
+  <gcds-textarea
+    textarea-id="textarea"
+    label="Text area"
+    rows="6"
+  ></gcds-textarea>
+</div>
 
 Use the text area for longform, multi-line, response collection.
 
@@ -55,6 +58,7 @@ Use the text area for longform, multi-line, response collection.
 <gcds-textarea
   textarea-id="textarea"
   label="Text area"
+  rows="6"
 ></gcds-textarea>
 ```
 

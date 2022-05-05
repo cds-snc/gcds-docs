@@ -43,20 +43,40 @@ Planifiez-en un pour les champs de saisie ou les zones de texte marquées comme 
 
 ### Message d’erreur intercalé
 
-<gcds-error-message
-  message="Message d’erreur intercalé"
-  message-id="inline-error-message"
->
+<div class="comp-show">
+  <gcds-input
+    label="Champ de saisie"
+    input-type="text"
+    input-id="input"
+    error-message="Message d’erreur"
+    size="45"
+  ></gcds-input>
+
+  <gcds-textarea
+    label="Zone de texte"
+    textarea-id="textarea"
+    error-message="Message d’erreur"
+  ></gcds-textarea>
+</div>
 
 On utilise le message d’erreur intercalé, près du champ de saisie invalide, pour mettre en évidence l’action requise. Cela permet de corriger le problème tout en consultant le message d’erreur.
 
 {% viewCode locale "view-inline" "Message d’erreur intercalé" %}
 
 ``` html
-<gcds-error-message
-  message="Message d’erreur intercalé"
-  message-id="inline-error-message"
->
+<gcds-input
+  label="Champ de saisie"
+  input-type="text"
+  input-id="input"
+  error-message="Message d’erreur"
+  size="45"
+></gcds-input>
+
+<gcds-textarea
+  label="Zone de texte"
+  textarea-id="textarea"
+  error-message="Message d’erreur"
+></gcds-textarea>
 ```
 
 {% endviewCode %}

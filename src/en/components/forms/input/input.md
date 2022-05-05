@@ -42,11 +42,22 @@ Inputs have built in states that change when someone interacts with that field: 
 
 ### Text input
 
-<gcds-input
-  type="text"
-  input-id="text"
-  label="Text input"
-></gcds-input>
+<div class="comp-show">
+  <gcds-input
+    type="text"
+    input-id="postalcode"
+    label="Postal code"
+    hint="6 character limit"
+    size="6"
+  ></gcds-input>
+  <gcds-input
+    type="text"
+    input-id="firstname"
+    label="First name"
+    hint="50 character limit"
+    size="50"
+  ></gcds-input>
+</div>
 
 Use for short, single-line, text response collection.
 
@@ -61,8 +72,18 @@ Use instead of the number input for things like estimates that may include non-n
 ``` html
 <gcds-input
   type="text"
-  input-id="text"
-  label="Text input"
+  input-id="postalcode"
+  label="Postal code"
+  hint="6 character limit"
+  size="6"
+></gcds-input>
+
+<gcds-input
+  type="text"
+  input-id="firstname"
+  label="First name"
+  hint="50 character limit"
+  size="50"
 ></gcds-input>
 ```
 
@@ -70,11 +91,15 @@ Use instead of the number input for things like estimates that may include non-n
 
 ### Email input
 
-<gcds-input
-  type="email"
-  input-id="email"
-  label="Email input"
-></gcds-input>
+<div class="comp-show">
+  <gcds-input
+    type="email"
+    input-id="email"
+    label="Email address"
+    hint="Example: hello@email.com"
+    size="50"
+  ></gcds-input>
+</div>
 
 Use for email address collection.
 
@@ -84,7 +109,9 @@ Use for email address collection.
 <gcds-input
   type="email"
   input-id=""
-  label="Email input"
+  label="Email address"
+  hint="Example: hello@email.com"
+  size="50"
 ></gcds-input>
 ```
 
@@ -92,11 +119,14 @@ Use for email address collection.
 
 ### Password input
 
-<gcds-input
-  type="password"
-  input-id="password"
-  label="Password input"
-></gcds-input>
+<div class="comp-show">
+  <gcds-input
+    type="password"
+    input-id="password"
+    label="Password"
+    size="50"
+  ></gcds-input>
+</div>
 
 Use for password collection and validation.
 
@@ -106,7 +136,8 @@ Use for password collection and validation.
 <gcds-input
   type="password"
   input-id="password"
-  label="Password input"
+  label="Password"
+  size="50"
 ></gcds-input>
 ```
 
@@ -114,11 +145,15 @@ Use for password collection and validation.
 
 ### Number input
 
-<gcds-input
-  type="number"
-  input-id="number"
-  label="Number input"
-></gcds-input>
+<div class="comp-show">
+  <gcds-input
+    type="number"
+    input-id="number"
+    label="Phone number"
+    hint="10 character limit"
+    size="10"
+  ></gcds-input>
+</div>
 
 Use to reject values that are not numerical.
 
@@ -130,7 +165,9 @@ Tip: When you set a constraint, like a numerical range, use hint text to relay a
 <gcds-input
   type="number"
   input-id="number"
-  label="Number input"
+  label="Phone number"
+  hint="10 character limit"
+  size="10"
 ></gcds-input>
 ```
 
@@ -138,11 +175,13 @@ Tip: When you set a constraint, like a numerical range, use hint text to relay a
 
 ### Search input
 
-<gcds-input
-  type="search"
-  input-id="search"
-  label="Search input"
-></gcds-input>
+<div class="comp-show">
+  <gcds-input
+    type="search"
+    input-id="search"
+    label="Search input"
+  ></gcds-input>
+</div>
 
 Use to collect search queries.
 
@@ -160,11 +199,14 @@ Use to collect search queries.
 
 ### URL input
 
-<gcds-input
-  type="url"
-  input-id="url"
-  label="URL input"
-></gcds-input>
+<div class="comp-show">
+  <gcds-input
+    type="url"
+    input-id="url"
+    label="URL input"
+    hint="Example: https://design.alpha.canada.ca/en"
+  ></gcds-input>
+</div>
 
 Use to collect a URL, like a web address.
 
@@ -175,6 +217,7 @@ Use to collect a URL, like a web address.
   type="url"
   input-id="url"
   label="URL input"
+  hint="Example: https://design.alpha.canada.ca/en"
 ></gcds-input>
 ```
 
@@ -241,7 +284,7 @@ Use an input field to gather information by:
 
 ### Input width
 
-Use fixed width inputs for content you know has a specific length. For example, 6 characters for a postal code has 6 characters or 10 characters for a telephone number. An easy way to set this is by using the size attribute of the input (size="50" would be 50 characters).
+Use fixed width inputs for content you know has a specific length. For example, 6 characters for a postal code has 6 characters or 10 characters for a telephone number. An easy way to set this is by using the `size` attribute of the input (`size="50"` would be 50 characters).
 
 If you don’t know the character count of the response, set the input to span almost the entire container, like at 90%.
 
@@ -249,7 +292,7 @@ Use the maximum, 75 characters for responses without a fixed length.
 
 ### Visibility of input
 
-Check the visibility of both the label text and entry field line or border against the surface where you’re placing them. 
+Check the visibility of both the label text and entry field line or border against the surface where you’re placing them.
 
 Use built in or custom hover state to ensure good colour contrast.  
 

@@ -33,18 +33,20 @@ Your goal is to make forms less intimidating and frustrating. Help a person achi
 - Group them thoughtfully
 - Communicate the information you need with words they’ll understand
 
-<form>
-  <gcds-input
-    label="Email address"
-    input-type="email"
-    input-id="email"
-    size="45"
-  ></gcds-input>
-  <gcds-textarea
-    label="Message"
-    textarea-id="message"
-  ></gcds-textarea>
-</form>
+<div class="comp-show">
+  <form>
+    <gcds-input
+      label="Email address"
+      input-type="email"
+      input-id="email"
+      size="45"
+    ></gcds-input>
+    <gcds-textarea
+      label="Message"
+      textarea-id="message"
+    ></gcds-textarea>
+  </form>
+</div>
 
 {% viewCode locale "daunting" "Make forms less daunting" %}
 
@@ -56,6 +58,7 @@ Your goal is to make forms less intimidating and frustrating. Help a person achi
     input-id="email"
     size="45"
   ></gcds-input>
+
   <gcds-textarea
     label="Message"
     textarea-id="message"
@@ -119,11 +122,13 @@ Avoid instructions the user will have to remember or record elsewhere. For examp
 
 Avoid disabling interface elements, like inputs, text areas and buttons. If you must disable, be sure the input or button receives focus as soon as it's enabled and provide feedback to make it obvious.
 
-<gcds-input
-  label="Full name"
-  textarea-id="name"
-  hint="For example: Taryn Li"
-></gcds-input>
+<div class="comp-show">
+  <gcds-input
+    label="Full name"
+    textarea-id="name"
+    hint="For example: Taryn Li"
+  ></gcds-input>
+</div>
 
 {% viewCode locale "instructions" "Give just-in time instructions" %}
 
@@ -171,11 +176,13 @@ If left blank or incomplete, an error message will remind a person to fill a req
 
 Have a strong rationale for keeping an optional field on a form or remove it altogether.
 
-<gcds-input
-  label="Input label"
-  input-id="input-required"
-  required
-></gcds-input>
+<div class="comp-show">
+  <gcds-input
+    label="Input label"
+    input-id="input-required"
+    required
+  ></gcds-input>
+</div>
 
 {% viewCode locale "required" "Handling required fields" %}
 
