@@ -504,3 +504,9 @@ table tbody td {
 section {
   margin-bottom: 6rem;
 }
+
+.comp-show {
+  background-color: #E8E8E8;
+  padding: 30px;
+  margin-bottom: 20px;
+}

@@ -42,11 +42,22 @@ Un champ de saisie peut avoir divers états : de survol <span lang="en">(*hover*
 
 ### Champ de type <span lang="en">`text` </span>
 
-<gcds-input
-  type="text"
-  input-id="text"
-  label="Champ de type text"
-></gcds-input>
+<div class="comp-show">
+  <gcds-input
+    type="text"
+    input-id="codepostal"
+    label="Code postal"
+    hint="limite de 6 caractères"
+    size="6"
+  ></gcds-input>
+  <gcds-input
+    type="text"
+    input-id="prenom"
+    label="Prénom"
+    hint="limite de 50 caractères"
+    size="50"
+  ></gcds-input>
+</div>
 
 À utiliser pour collecter des réponses textuelles courtes, tenant sur une ligne.
 
@@ -61,8 +72,18 @@ Un champ de saisie peut avoir divers états : de survol <span lang="en">(*hover*
 ``` html
 <gcds-input
   type="text"
-  input-id="text"
-  label="Champ de type text"
+  input-id="codepostal"
+  label="Code postal"
+  hint="Limite de 6 caractères"
+  size="6"
+></gcds-input>
+
+<gcds-input
+  type="text"
+  input-id="prenom"
+  label="Prénom"
+  hint="Limite de 50 caractères"
+  size="50"
 ></gcds-input>
 ```
 
@@ -70,11 +91,15 @@ Un champ de saisie peut avoir divers états : de survol <span lang="en">(*hover*
 
 ### Champ de type <span lang="en">`email` </span>
 
-<gcds-input
-  type="email"
-  input-id="email"
-  label="Champ de type email"
-></gcds-input>
+<div class="comp-show">
+  <gcds-input
+    type="email"
+    input-id="email"
+    label="Adresse courriel"
+    hint="Exemple: hello@email.com"
+    size="50"
+  ></gcds-input>
+</div>
 
 À utiliser pour collecter une adresse courriel.
 
@@ -83,8 +108,10 @@ Un champ de saisie peut avoir divers états : de survol <span lang="en">(*hover*
 ``` html
 <gcds-input
   type="email"
-  input-id=""
-  label="Champ de type email"
+  input-id="email"
+  label="Adresse courriel"
+  hint="Exemple: hello@email.com"
+  size="50"
 ></gcds-input>
 ```
 
@@ -92,11 +119,14 @@ Un champ de saisie peut avoir divers états : de survol <span lang="en">(*hover*
 
 ### Champ de type <span lang="en">`password` </span>
 
-<gcds-input
-  type="password"
-  input-id="password"
-  label="Champ de type password"
-></gcds-input>
+<div class="comp-show">
+  <gcds-input
+    type="password"
+    input-id="password"
+    label="Password"
+    size="50"
+  ></gcds-input>
+</div>
 
 À utiliser pour collecter et vérifier un mot de passe.
 
@@ -106,7 +136,8 @@ Un champ de saisie peut avoir divers états : de survol <span lang="en">(*hover*
 <gcds-input
   type="password"
   input-id="password"
-  label="Champ de type password"
+  label="Password"
+  size="50"
 ></gcds-input>
 ```
 
@@ -114,11 +145,15 @@ Un champ de saisie peut avoir divers états : de survol <span lang="en">(*hover*
 
 ### Champ de type <span lang="en">`number` </span>
 
-<gcds-input
-  type="number"
-  input-id="number"
-  label="Champ de type number"
-></gcds-input>
+<div class="comp-show">
+  <gcds-input
+    type="number"
+    input-id="number"
+    label="Numéro de téléphone"
+    hint="limite de 10 caractères"
+    size="10"
+  ></gcds-input>
+</div>
 
 À utiliser pour refuser toute valeur qui n’est pas numérique.
 
@@ -130,7 +165,9 @@ Bon à savoir : si vous imposez une contrainte, par exemple un intervalle de chi
 <gcds-input
   type="number"
   input-id="number"
-  label="Champ de type number"
+  label="Numéro de téléphone"
+  hint="limite de 10 caractères"
+  size="10"
 ></gcds-input>
 ```
 
@@ -138,11 +175,13 @@ Bon à savoir : si vous imposez une contrainte, par exemple un intervalle de chi
 
 ### Champ de type <span lang="en">`search` </span>
 
-<gcds-input
-  type="search"
-  input-id="search"
-  label="Champ de type search"
-></gcds-input>
+<div class="comp-show">
+  <gcds-input
+    type="search"
+    input-id="search"
+    label="Champ de type search"
+  ></gcds-input>
+</div>
 
 À utiliser pour collecter des termes de recherche.
 
@@ -160,11 +199,14 @@ Bon à savoir : si vous imposez une contrainte, par exemple un intervalle de chi
 
 ### Champ de type<span lang="en">`url` </span>
 
-<gcds-input
-  type="url"
-  input-id="url"
-  label="Champ de type url"
-></gcds-input>
+<div class="comp-show">
+  <gcds-input
+    type="url"
+    input-id="url"
+    label="Champ de type url"
+    hint="Exemple: https://design.alpha.canada.ca/fr"
+  ></gcds-input>
+</div>
 
 À utiliser pour collecter une URL, comme une adresse Web.
 
@@ -175,6 +217,7 @@ Bon à savoir : si vous imposez une contrainte, par exemple un intervalle de chi
   type="url"
   input-id="url"
   label="Champ de type url"
+  hint="Exemple: https://design.alpha.canada.ca/fr"
 ></gcds-input>
 ```
 

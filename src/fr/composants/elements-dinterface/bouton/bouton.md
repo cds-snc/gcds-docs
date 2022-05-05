@@ -41,12 +41,14 @@ Un bouton peut avoir divers états prédéfinis : par défaut <span lang="en">(*
 
 ### Bouton principal
 
-<gcds-button
-  button-role="primary"
-  button-type="button"
->
-  Principal
-</gcds-button>
+<div class="comp-show">
+  <gcds-button
+    button-role="primary"
+    button-type="button"
+  >
+    Principal
+  </gcds-button>
+</div>
 
 On utilise le bouton principal pour l’action la plus importante.
 
@@ -69,12 +71,14 @@ Utilisez-le pour les actions essentielles dans un parcours utilisateur ou comme 
 
 ### Bouton secondaire
 
-<gcds-button
-  button-role="secondary"
-  button-type="button"
->
-  Secondaire
-</gcds-button>
+<div class="comp-show">
+  <gcds-button
+    button-role="secondary"
+    button-type="button"
+  >
+    Secondaire
+  </gcds-button>
+</div>
 
 On utilise le bouton secondaire pour les actions soutenant l’action principale.
 
@@ -97,12 +101,14 @@ Vous pouvez l’utiliser plus d’une fois par page pour les actions optionnelle
 
 ### Bouton destructeur
 
-<gcds-button
-  button-role="destructive"
-  button-type="button"
->
-  Destructeur
-</gcds-button>
+<div class="comp-show">
+  <gcds-button
+    button-role="destructive"
+    button-type="button"
+  >
+    Destructeur
+  </gcds-button>
+</div>
 
 On utilise le bouton destructeur pour signaler la sévérité d’une action qui retire, efface ou supprime des informations.
 
@@ -125,12 +131,15 @@ Bon à savoir : pour les actions irréversibles, demandez à la personne de conf
 
 ### Bouton d’évitement « Passer au contenu »
 
-<gcds-button
-  button-role="skip-to-content"
-  button-type="button"
->
-  Passer au contenu
-</gcds-button>
+<div class="comp-show">
+  <gcds-button
+    button-role="skip-to-content"
+    button-type="link"
+    href="#bouton-devitement-passer-au-contenu-"
+  >
+    Passer au contenu
+  </gcds-button>
+</div>
 
 On utilise le bouton d’évitement (visible ou masqué) pour aider une personne à passer directement au contenu principal.
 
@@ -143,7 +152,8 @@ Ce bouton évite aux personnes d’appuyer sur Tabulation sans relâche ou de fa
 ``` html
 <gcds-button
   button-role="skip-to-content"
-  button-type="button"
+  button-type="link"
+  href="#bouton-devitement-passer-au-contenu-"
 >
   Passer au contenu
 </gcds-button>

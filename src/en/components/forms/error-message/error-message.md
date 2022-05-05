@@ -43,20 +43,39 @@ Avoid using error messages and stick to positive feedback when you can.
 
 ### Inline error message
 
-<gcds-error-message
-  message="Inline error message"
-  message-id="inline-error-message"
->
+<div class="comp-show">
+  <gcds-input
+    label="Input label"
+    input-type="text"
+    input-id="input"
+    error-message="Error / Validation message"
+    size="45"
+  ></gcds-input>
+  <gcds-textarea
+    label="Text area label"
+    textarea-id="textarea"
+    error-message="Error / Validation message"
+  ></gcds-textarea>
+</div>
 
 Use inline error messages to highlight the needed action close to the input where a person can make the change while directly referencing the message.
 
 {% viewCode locale "view-inline" "Inline error message" %}
 
 ``` html
-<gcds-error-message
-  message="Inline error message"
-  message-id="inline-error-message"
->
+<gcds-input
+  label="Input label"
+  input-type="text"
+  input-id="input"
+  error-message="Error / Validation message"
+  size="45"
+></gcds-input>
+
+<gcds-textarea
+  label="Text area label"
+  textarea-id="textarea"
+  error-message="Error / Validation message"
+></gcds-textarea>
 ```
 
 {% endviewCode %}

@@ -40,12 +40,14 @@ Buttons have built in states that change when someone interacts with that button
 
 ### Primary button
 
-<gcds-button
-  button-role="primary"
-  button-type="button"
->
-  Primary
-</gcds-button>
+<div class="comp-show">
+  <gcds-button
+    button-role="primary"
+    button-type="button"
+  >
+    Primary
+  </gcds-button>
+</div>
 
 Use a primary button for the most important action.
 
@@ -68,12 +70,14 @@ Avoid more than one main call to action on the same page. It reduces impact and 
 
 ### Secondary button
 
-<gcds-button
-  button-role="secondary"
-  button-type="button"
->
-  Secondary
-</gcds-button>
+<div class="comp-show">
+  <gcds-button
+    button-role="secondary"
+    button-type="button"
+  >
+    Secondary
+  </gcds-button>
+</div>
 
 Use a secondary button for supporting actions.
 
@@ -96,12 +100,14 @@ Use a secondary button more than once on a page for important alternative task o
 
 ### Destructive button
 
-<gcds-button
-  button-role="destructive"
-  button-type="button"
->
-  Destructive
-</gcds-button>
+<div class="comp-show">
+  <gcds-button
+    button-role="destructive"
+    button-type="button"
+  >
+    Destructive
+  </gcds-button>
+</div>
 
 Use a destructive button to flag serious actions like removing, clearing, or deleting information.
 
@@ -124,12 +130,15 @@ Tip: For permanent actions, ask a second time so a person explicitly agrees befo
 
 ### Skip-to-content button
 
-<gcds-button
-  button-role="skip-to-content"
-  button-type="button"
->
-  Skip-to-content
-</gcds-button>
+<div class="comp-show">
+  <gcds-button
+    button-role="skip-to-content"
+    button-type="link"
+    href="#skiptocontent-button"
+  >
+    Skip-to-content
+  </gcds-button>
+</div>
 
 Use a skip-to-content button (visible or hidden) to help a person jump to the main page content.
 
@@ -142,7 +151,8 @@ Use it to help a person avoid tabbing or scrolling uneccesarily.
 ``` html
 <gcds-button
   button-role="skip-to-content"
-  button-type="button"
+  button-type="link"
+  href="#skiptocontent-button"
 >
   Skip-to-content
 </gcds-button>
