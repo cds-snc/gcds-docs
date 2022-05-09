@@ -17,7 +17,7 @@ BIENVENUE
 
 <ul>
     <li>
-        <a href="{{ "/fr/composants/formulaires/aide-a-la-conception/" | url }}">Design de formulaires</a>
+        <a href="{{ "/fr/composants/formulaires/aide-a-la-conception-de-formulaires/" | url }}">Design de formulaires</a>
     </li>
     <li>
         <a target="blank_" aria-label="Site Web Github.com (S'ouvre dans un nouvel onglet)" href="https://github.com/cds-snc/gcds-components">Dépôt GitHub</a>

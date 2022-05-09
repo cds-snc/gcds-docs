@@ -18,7 +18,7 @@ WELCOME
 
 <ul>
     <li>
-        <a href="{{ "/en/components/forms/forms-guidance/" | url }}">Form design</a>
+        <a href="{{ "/en/components/forms/form-guidance/" | url }}">Form design</a>
     </li>
     <li>
         <a target="_blank" aria-label="Github.com site (Opens in a new tab)" href="https://github.com/cds-snc/gcds-components">GitHub repo</a>
