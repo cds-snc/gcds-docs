@@ -39,7 +39,7 @@ Place the following code in the `<head>` element of your site.
 
 ``` html
 <script type="module">
-    import { defineCustomElements } from '/node_modules/gcds-components/loader/index.es2017.mjs';
+    import { defineCustomElements } from '/node_modules/gcds-components/loader/index.es2017.js';
     defineCustomElements();
 </script>
 <link rel="stylesheet" href="/node_modules/gcds-components/dist/gcds/gcds.css">
