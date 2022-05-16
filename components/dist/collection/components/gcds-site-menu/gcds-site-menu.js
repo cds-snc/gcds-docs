@@ -1,6 +1,6 @@
 import { Component, Element, Host, Prop, Watch, h } from '@stencil/core';
 import { assignLanguage } from '../../utils/utils';
-import { h2MenuAddUpDownArrowsToMainMenuItems, h2MenuTabOrder, h2MenuAddRightArrowToMainMenuItems, h2MenuEnableSubmenuTriggers, h2MenuAddMobileMenuTrigger, h2MenuAddPageAnchor } from "./utils/module";
+import { h2MenuAddUpDownArrowsToMainMenuItems, h2MenuTabOrder, h2MenuAddRightArrowToMainMenuItems, h2MenuEnableSubmenuTriggers, h2MenuAddMobileMenuTrigger, h2MenuAddPageAnchor } from "./utils/module.min";
 import I18N from './i18n/i18n';
 export class GcdsSiteMenu {
   constructor() {
@@ -76,7 +76,7 @@ export class GcdsSiteMenu {
       mainMenus[i].querySelectorAll("ul").forEach((list) => {
         this.setAttributes(list, { "data-h2-menulist": "", "role": "menu" });
       });
-      // Apply attrubutes to all li
+      // Apply attributes to all li
       mainMenus[i].querySelectorAll("li").forEach((listitem) => {
         listitem.setAttribute("role", "presentation");
         for (var x = 0; x < listitem.children.length; x++) {
@@ -132,8 +132,9 @@ export class GcdsSiteMenu {
     var mobileLayout = this.menuMobileLayout;
     const mediaQuery = window.matchMedia('screen and (min-width: 64em)');
     // Check if loaded in mobile size
-    if (!mediaQuery.matches && mobileLayout == "drawer") {
+    if (!mediaQuery.matches) {
       document.querySelector("body").style.paddingBottom = "3rem";
+      hostElement.shadowRoot.querySelector("[data-h2-menu-container]").setAttribute("data-mobile", "");
     }
     // Register event listener
     mediaQuery.addEventListener("change", function (e) {
@@ -150,11 +151,13 @@ export class GcdsSiteMenu {
         if (mobileLayout == "drawer") {
           document.querySelector("body").style.removeProperty("padding-bottom");
         }
+        hostElement.shadowRoot.querySelector("[data-h2-menu-container]").removeAttribute("data-mobile");
       }
       else {
         if (mobileLayout == "drawer") {
           document.querySelector("body").style.paddingBottom = "3rem";
         }
+        hostElement.shadowRoot.querySelector("[data-h2-menu-container]").setAttribute("data-mobile", "");
       }
     });
     h2MenuAddUpDownArrowsToMainMenuItems(this.el);

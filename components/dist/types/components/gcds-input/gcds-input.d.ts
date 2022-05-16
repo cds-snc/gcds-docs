@@ -35,8 +35,9 @@ export declare class GcdsInput {
   required?: boolean;
   /**
    * Size attribute for an input element.
+   * Defines max-length as well.
    */
-  size: number;
+  size?: number;
   /**
    * Set Input types
    */

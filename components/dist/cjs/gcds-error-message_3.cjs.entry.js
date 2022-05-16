@@ -5,7 +5,7 @@ Object.defineProperty(exports, '__esModule', { value: true });
 const index = require('./index-faa8db83.js');
 const utils = require('./utils-17235bae.js');
 
-const gcdsErrorMessageCss = ":host{display:inline-block}:host .error-message{font-size:inherit;line-height:inherit;margin:0 0 var(--gcds-spacing-300);padding:var(--gcds-spacing-200);background:var(--gcds-error-message-background);color:var(--gcds-error-message-text);border-left:2px solid var(--gcds-error-message-border)}";
+const gcdsErrorMessageCss = ":host{display:inline-block}:host .error-message{background:var(--gcds-error-message-background);border-left:2px solid var(--gcds-error-message-border);color:var(--gcds-error-message-text);font-size:inherit;line-height:inherit;margin:0 0 var(--gcds-spacing-300);padding:var(--gcds-spacing-200)}";
 
 let GcdsErrorMessage = class {
   constructor(hostRef) {
@@ -33,7 +33,7 @@ let GcdsHint = class {
 };
 GcdsHint.style = gcdsHintCss;
 
-const gcdsLabelCss = ".sc-gcds-label-h label.sc-gcds-label{display:block;max-width:100%;font-size:inherit;font-weight:var(--gcds-font-weights-bold);line-height:inherit;margin:0 0 var(--gcds-spacing-50);color:inherit}.sc-gcds-label-h label.hidden.sc-gcds-label{overflow:hidden;opacity:0;width:0;height:0;margin:0}.sc-gcds-label-h label.sc-gcds-label .required.sc-gcds-label{margin:0 0 0 var(--gcds-spacing-100);color:var(--gcds-label-destructive-text)}";
+const gcdsLabelCss = ".sc-gcds-label-h label.sc-gcds-label{color:inherit;display:block;font-size:inherit;font-weight:var(--gcds-font-weights-bold);line-height:inherit;margin:0 0 var(--gcds-spacing-50);max-width:100%}.sc-gcds-label-h label.hidden.sc-gcds-label{height:0;margin:0;opacity:0;overflow:hidden;width:0}.sc-gcds-label-h label.sc-gcds-label .required.sc-gcds-label{margin:0 0 0 var(--gcds-spacing-100)}";
 
 let GcdsLabel = class {
   constructor(hostRef) {

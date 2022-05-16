@@ -31,10 +31,13 @@ export class GcdsInput {
   }
   render() {
     const { disabled, errorMessage, hideLabel, hint, inputId, label, required, size, type, value, lang } = this;
+    // Use max-width instead of size attribute to keep field responsive
+    const style = {
+      maxWidth: `${size * 1.5}ch`
+    };
     const attrsInput = {
       disabled,
       required,
-      size,
       type,
       value,
     };
@@ -49,7 +52,7 @@ export class GcdsInput {
         errorMessage ?
           h("gcds-error-message", { "message-id": inputId, message: errorMessage })
           : null,
-        h("input", Object.assign({}, attrsInput, { class: errorMessage ? 'error' : null, id: inputId, name: inputId, onBlur: this.onBlur, onFocus: this.onFocus, onInput: (e) => this.handleChange(e), "aria-labelledby": `label-for-${inputId}`, "aria-describedby": `${hint ? `hint-${inputId}` : ''} ${errorMessage ? `error-message-${inputId}` : ''}`, "aria-invalid": errorMessage ? 'true' : 'false' })))));
+        h("input", Object.assign({}, attrsInput, { class: errorMessage ? 'error' : null, id: inputId, name: inputId, onBlur: this.onBlur, onFocus: this.onFocus, onInput: (e) => this.handleChange(e), "aria-labelledby": `label-for-${inputId}`, "aria-describedby": `${hint ? `hint-${inputId}` : ''} ${errorMessage ? `error-message-${inputId}` : ''}`, "aria-invalid": errorMessage ? 'true' : 'false', maxlength: size, style: size ? style : null })))));
   }
   static get is() { return "gcds-input"; }
   static get encapsulation() { return "scoped"; }
@@ -189,10 +192,10 @@ export class GcdsInput {
         "references": {}
       },
       "required": false,
-      "optional": false,
+      "optional": true,
       "docs": {
         "tags": [],
-        "text": "Size attribute for an input element."
+        "text": "Size attribute for an input element.\nDefines max-length as well."
       },
       "attribute": "size",
       "reflect": false
