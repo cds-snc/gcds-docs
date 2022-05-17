@@ -14,7 +14,7 @@ WELCOME
 
 </header>
 
-## Quick Links
+## Quick links
 
 <ul>
     <li>
