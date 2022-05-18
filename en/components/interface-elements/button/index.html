@@ -36,7 +36,7 @@
 
 <div class="banner">
     <p class="container">
-        <span class="banner__icon">Alpha</span> <span>This tool is currently being piloted on a small scale. Contact us if you&#39;d like to pilot this tool in your service.</span>
+        <span class="banner__icon">Alpha</span> <small>This tool is currently being piloted on a small scale. Contact us if you&#39;d like to pilot this tool in your service.</small>
     </p>
 </div>
 
@@ -417,8 +417,8 @@
 <p>Use it for critical actions in a flow or as the default button.</p>
 <p>Avoid more than one main call to action on the same page. It reduces impact and makes it harder for a person to know what to do next.</p>
 <p><div class="code-showcase">
-<gcds-button button-type="button" button-role="secondary" button-style="text-only" aria-label="View code - Primary" onclick="toggleCodeShowcase(this, 'primary');" aria-controls="primary" aria-expanded="false">View code</gcds-button>
-<gcds-button button-type="button" button-role="secondary" button-style="text-only" onclick="copyCodeShowcase(this, 'primary', 'en');" onblur="this.innerText = 'Copy code'">Copy code</gcds-button>
+<gcds-button button-type="button" button-role="primary" button-style="outline" aria-label="View code - Primary" onclick="toggleCodeShowcase(this, 'primary');" aria-controls="primary" aria-expanded="false">View code</gcds-button>
+<gcds-button button-type="button" button-role="primary" button-style="outline" onclick="copyCodeShowcase(this, 'primary', 'en');" onblur="this.innerText = 'Copy code'">Copy code</gcds-button>
 <div class="showcase" id="primary" aria-hidden="true">
 <pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>gcds-button</span><br>  <span class="token attr-name">button-role</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>primary<span class="token punctuation">&quot;</span></span><br>  <span class="token attr-name">button-type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>button<span class="token punctuation">&quot;</span></span><br><span class="token punctuation">&gt;</span></span><br>  Primary<br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>gcds-button</span><span class="token punctuation">&gt;</span></span></code></pre></p>
 <p><code class="copy-code" id="primary-copy">&lt;gcds-button
@@ -445,8 +445,8 @@ Primary
 <p>Use it to highlight an important, common action but not the most important one.</p>
 <p>Use a secondary button more than once on a page for important alternative task options.</p>
 <p><div class="code-showcase">
-<gcds-button button-type="button" button-role="secondary" button-style="text-only" aria-label="View code - Secondary" onclick="toggleCodeShowcase(this, 'secondary');" aria-controls="secondary" aria-expanded="false">View code</gcds-button>
-<gcds-button button-type="button" button-role="secondary" button-style="text-only" onclick="copyCodeShowcase(this, 'secondary', 'en');" onblur="this.innerText = 'Copy code'">Copy code</gcds-button>
+<gcds-button button-type="button" button-role="primary" button-style="outline" aria-label="View code - Secondary" onclick="toggleCodeShowcase(this, 'secondary');" aria-controls="secondary" aria-expanded="false">View code</gcds-button>
+<gcds-button button-type="button" button-role="primary" button-style="outline" onclick="copyCodeShowcase(this, 'secondary', 'en');" onblur="this.innerText = 'Copy code'">Copy code</gcds-button>
 <div class="showcase" id="secondary" aria-hidden="true">
 <pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>gcds-button</span><br>  <span class="token attr-name">button-role</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>secondary<span class="token punctuation">&quot;</span></span><br>  <span class="token attr-name">button-type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>button<span class="token punctuation">&quot;</span></span><br><span class="token punctuation">&gt;</span></span><br>  Secondary<br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>gcds-button</span><span class="token punctuation">&gt;</span></span></code></pre></p>
 <p><code class="copy-code" id="secondary-copy">&lt;gcds-button
@@ -473,8 +473,8 @@ Secondary
 <p>Use it for actions when changes may be difficult to reverse.</p>
 <p>Tip: For permanent actions, ask a second time so a person explicitly agrees before accepting.</p>
 <p><div class="code-showcase">
-<gcds-button button-type="button" button-role="secondary" button-style="text-only" aria-label="View code - Destructive" onclick="toggleCodeShowcase(this, 'destructive');" aria-controls="destructive" aria-expanded="false">View code</gcds-button>
-<gcds-button button-type="button" button-role="secondary" button-style="text-only" onclick="copyCodeShowcase(this, 'destructive', 'en');" onblur="this.innerText = 'Copy code'">Copy code</gcds-button>
+<gcds-button button-type="button" button-role="primary" button-style="outline" aria-label="View code - Destructive" onclick="toggleCodeShowcase(this, 'destructive');" aria-controls="destructive" aria-expanded="false">View code</gcds-button>
+<gcds-button button-type="button" button-role="primary" button-style="outline" onclick="copyCodeShowcase(this, 'destructive', 'en');" onblur="this.innerText = 'Copy code'">Copy code</gcds-button>
 <div class="showcase" id="destructive" aria-hidden="true">
 <pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>gcds-button</span><br>  <span class="token attr-name">button-role</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>destructive<span class="token punctuation">&quot;</span></span><br>  <span class="token attr-name">button-type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>button<span class="token punctuation">&quot;</span></span><br><span class="token punctuation">&gt;</span></span><br>  Destructive<br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>gcds-button</span><span class="token punctuation">&gt;</span></span></code></pre></p>
 <p><code class="copy-code" id="destructive-copy">&lt;gcds-button
@@ -502,8 +502,8 @@ Destructive
 <p>Use it to support task success. It offers a shortcut past page navigation links or other navigation elements.</p>
 <p>Use it to help a person avoid tabbing or scrolling uneccesarily.</p>
 <p><div class="code-showcase">
-<gcds-button button-type="button" button-role="secondary" button-style="text-only" aria-label="View code - Skip-to-content" onclick="toggleCodeShowcase(this, 'skip-to-content');" aria-controls="skip-to-content" aria-expanded="false">View code</gcds-button>
-<gcds-button button-type="button" button-role="secondary" button-style="text-only" onclick="copyCodeShowcase(this, 'skip-to-content', 'en');" onblur="this.innerText = 'Copy code'">Copy code</gcds-button>
+<gcds-button button-type="button" button-role="primary" button-style="outline" aria-label="View code - Skip-to-content" onclick="toggleCodeShowcase(this, 'skip-to-content');" aria-controls="skip-to-content" aria-expanded="false">View code</gcds-button>
+<gcds-button button-type="button" button-role="primary" button-style="outline" onclick="copyCodeShowcase(this, 'skip-to-content', 'en');" onblur="this.innerText = 'Copy code'">Copy code</gcds-button>
 <div class="showcase" id="skip-to-content" aria-hidden="true">
 <pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>gcds-button</span><br>  <span class="token attr-name">button-role</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>skip-to-content<span class="token punctuation">&quot;</span></span><br>  <span class="token attr-name">button-type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>link<span class="token punctuation">&quot;</span></span><br>  <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>#skiptocontent-button<span class="token punctuation">&quot;</span></span><br><span class="token punctuation">&gt;</span></span><br>  Skip-to-content<br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>gcds-button</span><span class="token punctuation">&gt;</span></span></code></pre></p>
 <p><code class="copy-code" id="skip-to-content-copy">&lt;gcds-button
