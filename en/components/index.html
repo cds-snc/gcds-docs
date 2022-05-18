@@ -442,5 +442,8 @@
 </footer>
 
         
+
+        <script>function showTooltip(o,e){o.trigger.className.includes("tooltipped")||(o.trigger.children[0].className="tooltipped tooltipped-s",o.trigger.children[0].ariaLabel=e)}window.onload=()=>{const o=new ClipboardJS(".code-copy");o.on("success",o=>showTooltip(o,"Copied!")),o.on("error",o=>showTooltip(o,"Failed..."))};</script>
+<script async src="https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.js">function showTooltip(o,e){o.trigger.className.includes("tooltipped")||(o.trigger.children[0].className="tooltipped tooltipped-s",o.trigger.children[0].ariaLabel=e)}window.onload=()=>{const o=new ClipboardJS(".code-copy");o.on("success",o=>showTooltip(o,"Copied!")),o.on("error",o=>showTooltip(o,"Failed..."))};</script>
     </body>
 </html>

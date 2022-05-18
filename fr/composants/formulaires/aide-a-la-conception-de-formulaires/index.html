@@ -402,21 +402,18 @@
 <p><div class="code-showcase">
 <gcds-button button-type="button" button-role="primary" button-style="outline" aria-label="Voir le code - Make forms less daunting" onclick="toggleCodeShowcase(this, 'daunting');" aria-controls="daunting" aria-expanded="false">Voir le code</gcds-button>
 <gcds-button button-type="button" button-role="primary" button-style="outline" onclick="copyCodeShowcase(this, 'daunting', 'fr');" onblur="this.innerText = 'Copier le code'">Copier le code</gcds-button>
-<div class="showcase" id="daunting" aria-hidden="true">
-<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>form</span><span class="token punctuation">&gt;</span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>gcds-input</span><br>    <span class="token attr-name">label</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>Adresse courriel<span class="token punctuation">&quot;</span></span><br>    <span class="token attr-name">input-type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>email<span class="token punctuation">&quot;</span></span><br>    <span class="token attr-name">input-id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>email<span class="token punctuation">&quot;</span></span><br>    <span class="token attr-name">size</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>45<span class="token punctuation">&quot;</span></span><br>  <span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>gcds-input</span><span class="token punctuation">&gt;</span></span><br><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>gcds-textarea</span><br>    <span class="token attr-name">label</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>Message<span class="token punctuation">&quot;</span></span><br>    <span class="token attr-name">textarea-id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>message<span class="token punctuation">&quot;</span></span><br>  <span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>gcds-textarea</span><span class="token punctuation">&gt;</span></span><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>form</span><span class="token punctuation">&gt;</span></span></code></pre></p>
-<p><code class="copy-code" id="daunting-copy">&lt;form&gt;
-&lt;gcds-input
-label=&quot;Adresse courriel&quot;
-input-type=&quot;email&quot;
-input-id=&quot;email&quot;
-size=&quot;45&quot;
-&gt;&lt;/gcds-input&gt;</p>
-<p>&lt;gcds-textarea
-label=&quot;Message&quot;
-textarea-id=&quot;message&quot;
-&gt;&lt;/gcds-textarea&gt;
-&lt;/form&gt;</code>
+<div class="showcase" id="daunting" aria-hidden="true"></p>
+<div style="position: relative">
+  <pre class="language-html"><code id="code-0"class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>form</span><span class="token punctuation">></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>gcds-input</span><br>    <span class="token attr-name">label</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>Adresse courriel<span class="token punctuation">"</span></span><br>    <span class="token attr-name">input-type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>email<span class="token punctuation">"</span></span><br>    <span class="token attr-name">input-id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>email<span class="token punctuation">"</span></span><br>    <span class="token attr-name">size</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>45<span class="token punctuation">"</span></span><br>  <span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>gcds-input</span><span class="token punctuation">></span></span><br><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>gcds-textarea</span><br>    <span class="token attr-name">label</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>Message<span class="token punctuation">"</span></span><br>    <span class="token attr-name">textarea-id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>message<span class="token punctuation">"</span></span><br>  <span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>gcds-textarea</span><span class="token punctuation">></span></span><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>form</span><span class="token punctuation">></span></span></code></pre>
+<p><button class="code-copy "
+    data-clipboard-target="#code-0"
+    style="position: absolute; top: 7.5px; right: 6px; cursor: pointer; outline: none; opacity: 0.8;" title="Copy">
+<span>
+<span style="font-size: 15px; opacity: 0.8;" class="mdi mdi-content-copy"></span>
+</span>
+</button></p>
 </div>
+<p></div>
 </div></p>
 </section>
 <section aria-label="Fournir une marche à suivre qui est claire">
@@ -479,14 +476,18 @@ textarea-id=&quot;message&quot;
 <p><div class="code-showcase">
 <gcds-button button-type="button" button-role="primary" button-style="outline" aria-label="Voir le code - Donner des instructions au bon moment" onclick="toggleCodeShowcase(this, 'instructions');" aria-controls="instructions" aria-expanded="false">Voir le code</gcds-button>
 <gcds-button button-type="button" button-role="primary" button-style="outline" onclick="copyCodeShowcase(this, 'instructions', 'fr');" onblur="this.innerText = 'Copier le code'">Copier le code</gcds-button>
-<div class="showcase" id="instructions" aria-hidden="true">
-<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>gcds-input</span><br>  <span class="token attr-name">label</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>Nom complet<span class="token punctuation">&quot;</span></span><br>  <span class="token attr-name">textarea-id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>nom<span class="token punctuation">&quot;</span></span><br>  <span class="token attr-name">hint</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>Exemple : Taryn Li<span class="token punctuation">&quot;</span></span><br><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>gcds-input</span><span class="token punctuation">&gt;</span></span></code></pre></p>
-<p><code class="copy-code" id="instructions-copy">&lt;gcds-input
-label=&quot;Nom complet&quot;
-textarea-id=&quot;nom&quot;
-hint=&quot;Exemple : Taryn Li&quot;
-&gt;&lt;/gcds-input&gt;</code>
+<div class="showcase" id="instructions" aria-hidden="true"></p>
+<div style="position: relative">
+  <pre class="language-html"><code id="code-0"class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>gcds-input</span><br>  <span class="token attr-name">label</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>Nom complet<span class="token punctuation">"</span></span><br>  <span class="token attr-name">textarea-id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>nom<span class="token punctuation">"</span></span><br>  <span class="token attr-name">hint</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>Exemple : Taryn Li<span class="token punctuation">"</span></span><br><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>gcds-input</span><span class="token punctuation">></span></span></code></pre>
+<p><button class="code-copy "
+    data-clipboard-target="#code-0"
+    style="position: absolute; top: 7.5px; right: 6px; cursor: pointer; outline: none; opacity: 0.8;" title="Copy">
+<span>
+<span style="font-size: 15px; opacity: 0.8;" class="mdi mdi-content-copy"></span>
+</span>
+</button></p>
 </div>
+<p></div>
 </div></p>
 
         <h3 id="bien-choisir-lordre-des-champs">
@@ -530,14 +531,18 @@ hint=&quot;Exemple : Taryn Li&quot;
 <p><div class="code-showcase">
 <gcds-button button-type="button" button-role="primary" button-style="outline" aria-label="Voir le code - Handling required fields" onclick="toggleCodeShowcase(this, 'required');" aria-controls="required" aria-expanded="false">Voir le code</gcds-button>
 <gcds-button button-type="button" button-role="primary" button-style="outline" onclick="copyCodeShowcase(this, 'required', 'fr');" onblur="this.innerText = 'Copier le code'">Copier le code</gcds-button>
-<div class="showcase" id="required" aria-hidden="true">
-<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>gcds-input</span><br>  <span class="token attr-name">label</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>Étiquette<span class="token punctuation">&quot;</span></span><br>  <span class="token attr-name">input-id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>input-required<span class="token punctuation">&quot;</span></span><br>  <span class="token attr-name">required</span><br><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>gcds-input</span><span class="token punctuation">&gt;</span></span></code></pre></p>
-<p><code class="copy-code" id="required-copy">&lt;gcds-input
-label=&quot;Étiquette&quot;
-input-id=&quot;input-required&quot;
-required
-&gt;&lt;/gcds-input&gt;</code>
+<div class="showcase" id="required" aria-hidden="true"></p>
+<div style="position: relative">
+  <pre class="language-html"><code id="code-0"class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>gcds-input</span><br>  <span class="token attr-name">label</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>Étiquette<span class="token punctuation">"</span></span><br>  <span class="token attr-name">input-id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>input-required<span class="token punctuation">"</span></span><br>  <span class="token attr-name">required</span><br><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>gcds-input</span><span class="token punctuation">></span></span></code></pre>
+<p><button class="code-copy "
+    data-clipboard-target="#code-0"
+    style="position: absolute; top: 7.5px; right: 6px; cursor: pointer; outline: none; opacity: 0.8;" title="Copy">
+<span>
+<span style="font-size: 15px; opacity: 0.8;" class="mdi mdi-content-copy"></span>
+</span>
+</button></p>
 </div>
+<p></div>
 </div></p>
 </section>
 
@@ -569,5 +574,8 @@ required
 </footer>
 
         
+
+        <script>function showTooltip(o,e){o.trigger.className.includes("tooltipped")||(o.trigger.children[0].className="tooltipped tooltipped-s",o.trigger.children[0].ariaLabel=e)}window.onload=()=>{const o=new ClipboardJS(".code-copy");o.on("success",o=>showTooltip(o,"Copied!")),o.on("error",o=>showTooltip(o,"Failed..."))};</script>
+<script async src="https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.js">function showTooltip(o,e){o.trigger.className.includes("tooltipped")||(o.trigger.children[0].className="tooltipped tooltipped-s",o.trigger.children[0].ariaLabel=e)}window.onload=()=>{const o=new ClipboardJS(".code-copy");o.on("success",o=>showTooltip(o,"Copied!")),o.on("error",o=>showTooltip(o,"Failed..."))};</script>
     </body>
 </html>

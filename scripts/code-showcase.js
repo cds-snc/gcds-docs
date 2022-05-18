@@ -10,9 +10,16 @@ function toggleCodeShowcase(trigger, id) {
 }
 
 function copyCodeShowcase(trigger, id, lang) {
-    const element = document.querySelector(`#${id}-copy`);
+    const parentElement = document.getElementById(id);
+    const codeElement = parentElement.querySelector("code");
+    const copyButton = parentElement.querySelector(".code-copy");
 
-    navigator.clipboard.writeText(element.innerText);
+    // Change values to slect right code element
+    // The ID attribute is not set properly due to how we render our code elements
+    codeElement.setAttribute("id", `code-${id}`);
+    copyButton.setAttribute("data-clipboard-target", `#code-${id}`);
+    copyButton.click();
+
     if (lang == "en") {
         trigger.innerText = "Copied";
     } else {

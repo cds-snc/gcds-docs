@@ -384,12 +384,24 @@ body > div.sidebar-layout,
  * Code showcase
  */
 
+.code-showcase > div.showcase[aria-hidden="true"] {
+  clip: rect(1px, 1px, 1px, 1px);
+  height: 1px;
+  left: 0px;
+  margin: 0px;
+  overflow: hidden;
+  position: absolute;
+  text-align: center;
+  top: 10px;
+  width: 1px;
+  z-index: 3;
+}
+
 .code-showcase gcds-button {
   margin: 0 var(--gcds-spacing-300) 0 0;
 }
 
-.code-showcase > div.showcase[aria-hidden="true"],
-.code-showcase code.copy-code {
+.code-copy {
   display: none;
   visibility: hidden;
 }

@@ -417,14 +417,18 @@
 <p><div class="code-showcase">
 <gcds-button button-type="button" button-role="primary" button-style="outline" aria-label="Voir le code - Zone de texte" onclick="toggleCodeShowcase(this, 'view-textarea');" aria-controls="view-textarea" aria-expanded="false">Voir le code</gcds-button>
 <gcds-button button-type="button" button-role="primary" button-style="outline" onclick="copyCodeShowcase(this, 'view-textarea', 'fr');" onblur="this.innerText = 'Copier le code'">Copier le code</gcds-button>
-<div class="showcase" id="view-textarea" aria-hidden="true">
-<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>gcds-textarea</span><br>  <span class="token attr-name">textarea-id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>textarea<span class="token punctuation">&quot;</span></span><br>  <span class="token attr-name">label</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>Zone de texte<span class="token punctuation">&quot;</span></span><br>  <span class="token attr-name">rows</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>6<span class="token punctuation">&quot;</span></span><br><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>gcds-textarea</span><span class="token punctuation">&gt;</span></span></code></pre></p>
-<p><code class="copy-code" id="view-textarea-copy">&lt;gcds-textarea
-textarea-id=&quot;textarea&quot;
-label=&quot;Zone de texte&quot;
-rows=&quot;6&quot;
-&gt;&lt;/gcds-textarea&gt;</code>
+<div class="showcase" id="view-textarea" aria-hidden="true"></p>
+<div style="position: relative">
+  <pre class="language-html"><code id="code-0"class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>gcds-textarea</span><br>  <span class="token attr-name">textarea-id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>textarea<span class="token punctuation">"</span></span><br>  <span class="token attr-name">label</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>Zone de texte<span class="token punctuation">"</span></span><br>  <span class="token attr-name">rows</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>6<span class="token punctuation">"</span></span><br><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>gcds-textarea</span><span class="token punctuation">></span></span></code></pre>
+<p><button class="code-copy "
+    data-clipboard-target="#code-0"
+    style="position: absolute; top: 7.5px; right: 6px; cursor: pointer; outline: none; opacity: 0.8;" title="Copy">
+<span>
+<span style="font-size: 15px; opacity: 0.8;" class="mdi mdi-content-copy"></span>
+</span>
+</button></p>
 </div>
+<p></div>
 </div></p>
 </section>
 <section aria-label="Comment modifier la zone de texte">
@@ -543,5 +547,8 @@ rows=&quot;6&quot;
 </footer>
 
         
+
+        <script>function showTooltip(o,e){o.trigger.className.includes("tooltipped")||(o.trigger.children[0].className="tooltipped tooltipped-s",o.trigger.children[0].ariaLabel=e)}window.onload=()=>{const o=new ClipboardJS(".code-copy");o.on("success",o=>showTooltip(o,"Copied!")),o.on("error",o=>showTooltip(o,"Failed..."))};</script>
+<script async src="https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.js">function showTooltip(o,e){o.trigger.className.includes("tooltipped")||(o.trigger.children[0].className="tooltipped tooltipped-s",o.trigger.children[0].ariaLabel=e)}window.onload=()=>{const o=new ClipboardJS(".code-copy");o.on("success",o=>showTooltip(o,"Copied!")),o.on("error",o=>showTooltip(o,"Failed..."))};</script>
     </body>
 </html>
