@@ -378,11 +378,19 @@ body > div.sidebar-layout,
  */
 
 .code-showcase > div.showcase[aria-hidden="true"] {
-  display: none;
-  visibility: hidden;
+  clip: rect(1px, 1px, 1px, 1px);
+  height: 1px;
+  left: 0px;
+  margin: 0px;
+  overflow: hidden;
+  position: absolute;
+  text-align: center;
+  top: 10px;
+  width: 1px;
+  z-index: 3;
 }
 
-.code-showcase code.copy-code {
+.code-copy {
   display: none;
   visibility: hidden;
 }

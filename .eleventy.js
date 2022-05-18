@@ -7,6 +7,7 @@ const slugify = require("./utils/slugify");
 const contextMenu = require("./utils/context-menu");
 const markdownAnchor = require("./utils/anchor");
 const svgContents = require("eleventy-plugin-svg-contents");
+const codeClipboard = require("eleventy-plugin-code-clipboard");
 
 module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("./src/styles/style.css");
@@ -26,6 +27,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPlugin(syntaxHighlight, {
     templateFormats: ['md']
   });
+  eleventyConfig.addPlugin(codeClipboard);
 
   eleventyConfig.addFilter("sortCollection", (arr) => {
     // get unsorted items
@@ -55,7 +57,7 @@ module.exports = function (eleventyConfig) {
     html: true,
     breaks: false,
     linkify: false
-  }).use(markdownAnchor);
+  }).use(markdownAnchor).use(codeClipboard.markdownItCopyButton);
   markdownLibrary.disable('blockquote');
   markdownLibrary.disable('code');
 
@@ -83,7 +85,6 @@ module.exports = function (eleventyConfig) {
       <gcds-button button-type="button" button-role="secondary" button-style="text-only" onclick="copyCodeShowcase(this, '${id}', '${lang}');" onblur="this.innerText = '${langStrings[lang].copy}'">${langStrings[lang].copy}</gcds-button>
       <div class="showcase" id="${id}" aria-hidden="true">
         ${content}
-        <code class="copy-code" id="${id}-copy">${copyCode}</code>
       </div>
     </div>
     `}
