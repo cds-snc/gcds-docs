@@ -12,7 +12,7 @@ onThisPage:
   1: Supported frameworks
   2: JavaScript
   3: React
-  4: Vue 
+  4: Vue
 ---
 
 # Installation
@@ -24,6 +24,16 @@ onThisPage:
 ``` js
 npm install gcds-components
 ```
+## Install with CDN
+Place the following code in the `<head>` element of your site.<br/>
+All gcds-components should now be ready to use in your site.
+
+``` html
+<link rel="stylesheet" href="https://unpkg.com/gcds-components/dist/gcds/gcds.css">
+<script type="module" src="https://unpkg.com/gcds-components/dist/gcds/gcds.esm.js"></script>
+<script nomodule src="https://unpkg.com/gcds-components/dist/gcds/gcds.js"></script>
+```
+<small>Note: &lt;script type="module"&gt; requires a server to load properly, if developing locally, please use &lt;script nomodule&gt;.</small>
 
 </section>
 
@@ -35,21 +45,20 @@ The gcds-component library works in multiple frameworks.
 
 ### JavaScript
 
-Place the following code in the `<head>` element of your site.
+Place the following code in the `<head>` element of your site.<br/>
+All gcds-components should now be ready to use in your site.
 
 ``` html
-<script type="module">
-    import { defineCustomElements } from '/node_modules/gcds-components/loader/index.es2017.js';
-    defineCustomElements();
-</script>
 <link rel="stylesheet" href="/node_modules/gcds-components/dist/gcds/gcds.css">
+<script type="module" src="/components/dist/gcds/gcds.esm.js"></script>
+<script nomodule src="/components/dist/gcds/gcds.js"></script>
 ```
 
-All gcds-components should now be ready to use in your site. 
 
 ### React
 
-Place the following code in the `index.js` file of your app.
+Place the following code in the `index.js` file of your app.<br/>
+All gcds-components should now be ready to use in your React app.
 
 ``` jsx
 import { applyPolyfills, defineCustomElements } from 'gcds-components/loader';
@@ -63,11 +72,10 @@ applyPolyfills().then(() => {
 
 ```
 
-All gcds-components should now be ready to use in your React app.
-
 ### Vue
 
-Place the following code in the `main.js` file of your app.
+Place the following code in the `main.js` file of your app.<br/>
+All gcds-components should now be ready to use in your Vue app.
 
 ``` js
 import { applyPolyfills, defineCustomElements } from 'gcds-components/loader';
@@ -77,7 +85,4 @@ applyPolyfills().then(() => {
   defineCustomElements();
 });
 ```
-
-All gcds-components should now be ready to use in your Vue app.
-
 </section>

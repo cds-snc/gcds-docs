@@ -12,7 +12,7 @@ onThisPage:
   1: Cadres d'application pris en charge
   2: JavaScript
   3: React
-  4: Vue 
+  4: Vue
 ---
 
 # Installation
@@ -23,27 +23,34 @@ onThisPage:
 npm install gcds-components
 ```
 
+## Installer le paquet avec CDN
+Insérez le code qui suit à l'intérieur de la balise `<head>` de votre site.<br/>
+Vous devriez maintenant pouvoir utiliser tous les composants de gcds-components sur votre site.
+
+``` js
+npm install gcds-components
+```
+<small>Remarque : Il faut un serveur pour que &lt;script type="module"&gt; se charge correctement. Si vous développez localement, utilisez plutôt &lt;script nomodule&gt;.</small>
+
 ## Cadres d'application pris en charge
 
 La bibliothèque gcds-components fonctionne sous plusieurs cadres d'application.
 
 ### JavaScript
 
-Insérez le code qui suit à l'intérieur de la balise `<head>` de votre site.
+Insérez le code qui suit à l'intérieur de la balise `<head>` de votre site.<br/>
+Vous devriez maintenant pouvoir utiliser tous les composants de gcds-components sur votre site.
 
 ``` html
-<script type="module">
-    import { defineCustomElements } from '/node_modules/gcds-components/loader/index.es2017.js';
-    defineCustomElements();
-</script>
 <link rel="stylesheet" href="/node_modules/gcds-components/dist/gcds/gcds.css">
+<script type="module" src="/components/dist/gcds/gcds.esm.js"></script>
+<script nomodule src="/components/dist/gcds/gcds.js"></script>
 ```
-
-Vous devriez maintenant pouvoir utiliser tous les composants de gcds-components sur votre site.
 
 ### React
 
-Insérez le code qui suit dans le fichier `index.js` de votre application.
+Insérez le code qui suit dans le fichier `index.js` de votre application.<br/>
+Vous devriez maintenant pouvoir utiliser tous les composants de gcds-components dans votre application React.
 
 ``` jsx
 import { applyPolyfills, defineCustomElements } from 'gcds-components/loader';
@@ -57,11 +64,10 @@ applyPolyfills().then(() => {
 
 ```
 
-Vous devriez maintenant pouvoir utiliser tous les composants de gcds-components dans votre application React.
-
 ### Vue
 
-Insérez le code qui suit dans le fichier `main.js` de votre application.
+Insérez le code qui suit dans le fichier `main.js` de votre application.<br/>
+Vous devriez maintenant pouvoir utiliser tous les composants de gcds-components dans votre application Vue.
 
 ``` js
 import { applyPolyfills, defineCustomElements } from 'gcds-components/loader';
@@ -71,5 +77,3 @@ applyPolyfills().then(() => {
   defineCustomElements();
 });
 ```
-
-Vous devriez maintenant pouvoir utiliser tous les composants de gcds-components dans votre application Vue.
