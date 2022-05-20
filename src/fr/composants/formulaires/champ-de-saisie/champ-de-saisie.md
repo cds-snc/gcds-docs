@@ -197,7 +197,7 @@ Bon à savoir : si vous imposez une contrainte, par exemple un intervalle de chi
 
 {% endviewCode %}
 
-### Champ de type<span lang="en">`url` </span>
+### Champ de type <span lang="en">`url` </span>
 
 <div class="comp-show">
   <gcds-input
