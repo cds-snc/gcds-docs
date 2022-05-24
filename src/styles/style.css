@@ -288,7 +288,7 @@ aside {
 
 @media screen and (min-width: 64rem) {
   div.sidebar-layout > aside {
-    display: inline-block;
+    display: table-cell;
     vertical-align: top;
     height: 100%;
     padding: 0 var(--gcds-spacing-300);
@@ -300,7 +300,7 @@ aside {
     top: 1rem;
   }
   div.sidebar-layout > aside + main {
-    display: inline-block;
+    display: table-cell;
     width: calc(96% - 18rem);
     padding: 0 var(--gcds-spacing-400);
     box-sizing: border-box;

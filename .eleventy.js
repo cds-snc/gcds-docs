@@ -75,8 +75,6 @@ module.exports = function (eleventyConfig) {
     if (lang != "en " && lang != "fr") {
       lang = "en";
     }
-    let copyCode = children;
-    copyCode = copyCode.toString().replace("``` html", "").replace("```", "").replaceAll("<", "&lt;").replaceAll(">", "&gt;").trim();
     const content = markdownLibrary.render(children);
 
     return `
