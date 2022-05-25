@@ -39,7 +39,7 @@ body {
 
 ul {
   list-style-position: inside;
-  margin-top: var(--gcds-spacing-300);
+  margin-block: var(--gcds-spacing-300);
 }
 
 ul li {
@@ -527,6 +527,6 @@ section {
 
 .comp-show {
   background-color: var(--gcds-color-grayscale-200);
+  margin-block: var(--gcds-spacing-400);
   padding: var(--gcds-spacing-400);
-  margin-bottom: var(--gcds-spacing-400);
 }

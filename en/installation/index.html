@@ -5,21 +5,20 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <title>Installation - GC Design System</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <script type="module">
-            import { defineCustomElements } from "/gcds-docs/components/loader/index.es2017.js";
-            defineCustomElements();
-        </script>
-        
+
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet">
-        
+
         <link rel="stylesheet" href="/gcds-docs/components/dist/gcds/gcds.css">
         <link rel="stylesheet" href="/gcds-docs/styles/prism.css">
         <link rel="stylesheet" href="/gcds-docs/styles/style.css">
         <script src="/gcds-docs/scripts/code-showcase.js"></script>
         <link rel="icon" type="image/png" sizes="96x96" href="/gcds-docs/images/common/favicon-mobile.png">
+
+        <script type="module" src="/components/dist/gcds/gcds.esm.js"></script>
+        <script nomodule src="/components/dist/gcds/gcds.js"></script>
     </head>
     <body>
         <nav>
@@ -386,6 +385,25 @@
     </span>
   </button>
 </div>
+
+        <h2 id="install-with-cdn">
+            <a class="anchor-link" href="#install-with-cdn">Install with CDN
+            </a>
+        </h2><p>Place the following code in the <code>&lt;head&gt;</code> element of your site.<br/>
+All gcds-components should now be ready to use in your site.</p>
+
+<div style="position: relative">
+  <pre class="language-html"><code id="code-14"class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>link</span> <span class="token attr-name">rel</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>stylesheet<span class="token punctuation">"</span></span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>https://unpkg.com/gcds-components/dist/gcds/gcds.css<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>module<span class="token punctuation">"</span></span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>https://unpkg.com/gcds-components/dist/gcds/gcds.esm.js<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token script"></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">nomodule</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>https://unpkg.com/gcds-components/dist/gcds/gcds.js<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token script"></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span></code></pre>
+
+  <button class="code-copy "
+    data-clipboard-target="#code-14"
+    style="position: absolute; top: 7.5px; right: 6px; cursor: pointer; outline: none; opacity: 0.8;" title="Copy">
+    <span>
+      <span style="font-size: 15px; opacity: 0.8;" class="mdi mdi-content-copy"></span>
+    </span>
+  </button>
+</div>
+<p><small>Note: &lt;script type=&quot;module&quot;&gt; requires a server to load properly, if developing locally, please use &lt;script nomodule&gt;.</small></p>
 </section>
 <section aria-label="Supported frameworks">
 
@@ -397,28 +415,11 @@
         <h3 id="javascript">
             <a class="anchor-link" href="#javascript">JavaScript
             </a>
-        </h3><p>Place the following code in the <code>&lt;head&gt;</code> element of your site.</p>
+        </h3><p>Place the following code in the <code>&lt;head&gt;</code> element of your site.<br/>
+All gcds-components should now be ready to use in your site.</p>
 
 <div style="position: relative">
-  <pre class="language-html"><code id="code-22"class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>module<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript"><br>    <span class="token keyword">import</span> <span class="token punctuation">{</span> defineCustomElements <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'/node_modules/gcds-components/loader/index.es2017.js'</span><span class="token punctuation">;</span><br>    <span class="token function">defineCustomElements</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>link</span> <span class="token attr-name">rel</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>stylesheet<span class="token punctuation">"</span></span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>/node_modules/gcds-components/dist/gcds/gcds.css<span class="token punctuation">"</span></span><span class="token punctuation">></span></span></code></pre>
-
-  <button class="code-copy "
-    data-clipboard-target="#code-22"
-    style="position: absolute; top: 7.5px; right: 6px; cursor: pointer; outline: none; opacity: 0.8;" title="Copy">
-    <span>
-      <span style="font-size: 15px; opacity: 0.8;" class="mdi mdi-content-copy"></span>
-    </span>
-  </button>
-</div>
-<p>All gcds-components should now be ready to use in your site.</p>
-
-        <h3 id="react">
-            <a class="anchor-link" href="#react">React
-            </a>
-        </h3><p>Place the following code in the <code>index.js</code> file of your app.</p>
-
-<div style="position: relative">
-  <pre class="language-jsx"><code id="code-32"class="language-jsx"><span class="token keyword">import</span> <span class="token punctuation">{</span> applyPolyfills<span class="token punctuation">,</span> defineCustomElements <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'gcds-components/loader'</span><span class="token punctuation">;</span><br><span class="token keyword">import</span> <span class="token string">'gcds-components/dist/gcds/gcds.css'</span><span class="token punctuation">;</span><br><br>ReactDOM<span class="token punctuation">.</span><span class="token function">render</span><span class="token punctuation">(</span><span class="token operator">...</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br><br><span class="token function">applyPolyfills</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span><br>  <span class="token function">defineCustomElements</span><span class="token punctuation">(</span>window<span class="token punctuation">)</span><span class="token punctuation">;</span><br><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br></code></pre>
+  <pre class="language-html"><code id="code-32"class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>link</span> <span class="token attr-name">rel</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>stylesheet<span class="token punctuation">"</span></span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>/node_modules/gcds-components/dist/gcds/gcds.css<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>module<span class="token punctuation">"</span></span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>/components/dist/gcds/gcds.esm.js<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token script"></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">nomodule</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>/components/dist/gcds/gcds.js<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token script"></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span></code></pre>
 
   <button class="code-copy "
     data-clipboard-target="#code-32"
@@ -428,25 +429,42 @@
     </span>
   </button>
 </div>
-<p>All gcds-components should now be ready to use in your React app.</p>
 
-        <h3 id="vue">
-            <a class="anchor-link" href="#vue">Vue
+        <h3 id="react">
+            <a class="anchor-link" href="#react">React
             </a>
-        </h3><p>Place the following code in the <code>main.js</code> file of your app.</p>
+        </h3><p>Place the following code in the <code>index.js</code> file of your app.<br/>
+All gcds-components should now be ready to use in your React app.</p>
 
 <div style="position: relative">
-  <pre class="language-js"><code id="code-42"class="language-js"><span class="token keyword">import</span> <span class="token punctuation">{</span> applyPolyfills<span class="token punctuation">,</span> defineCustomElements <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'gcds-components/loader'</span><span class="token punctuation">;</span><br><span class="token keyword">import</span> <span class="token string">'gcds-components/dist/gcds/gcds.css'</span><span class="token punctuation">;</span><br><br><span class="token function">applyPolyfills</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span><br>  <span class="token function">defineCustomElements</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+  <pre class="language-jsx"><code id="code-39"class="language-jsx"><span class="token keyword">import</span> <span class="token punctuation">{</span> applyPolyfills<span class="token punctuation">,</span> defineCustomElements <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'gcds-components/loader'</span><span class="token punctuation">;</span><br><span class="token keyword">import</span> <span class="token string">'gcds-components/dist/gcds/gcds.css'</span><span class="token punctuation">;</span><br><br>ReactDOM<span class="token punctuation">.</span><span class="token function">render</span><span class="token punctuation">(</span><span class="token operator">...</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br><br><span class="token function">applyPolyfills</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span><br>  <span class="token function">defineCustomElements</span><span class="token punctuation">(</span>window<span class="token punctuation">)</span><span class="token punctuation">;</span><br><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br></code></pre>
 
   <button class="code-copy "
-    data-clipboard-target="#code-42"
+    data-clipboard-target="#code-39"
     style="position: absolute; top: 7.5px; right: 6px; cursor: pointer; outline: none; opacity: 0.8;" title="Copy">
     <span>
       <span style="font-size: 15px; opacity: 0.8;" class="mdi mdi-content-copy"></span>
     </span>
   </button>
 </div>
-<p>All gcds-components should now be ready to use in your Vue app.</p>
+
+        <h3 id="vue">
+            <a class="anchor-link" href="#vue">Vue
+            </a>
+        </h3><p>Place the following code in the <code>main.js</code> file of your app.<br/>
+All gcds-components should now be ready to use in your Vue app.</p>
+
+<div style="position: relative">
+  <pre class="language-js"><code id="code-46"class="language-js"><span class="token keyword">import</span> <span class="token punctuation">{</span> applyPolyfills<span class="token punctuation">,</span> defineCustomElements <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'gcds-components/loader'</span><span class="token punctuation">;</span><br><span class="token keyword">import</span> <span class="token string">'gcds-components/dist/gcds/gcds.css'</span><span class="token punctuation">;</span><br><br><span class="token function">applyPolyfills</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span><br>  <span class="token function">defineCustomElements</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+
+  <button class="code-copy "
+    data-clipboard-target="#code-46"
+    style="position: absolute; top: 7.5px; right: 6px; cursor: pointer; outline: none; opacity: 0.8;" title="Copy">
+    <span>
+      <span style="font-size: 15px; opacity: 0.8;" class="mdi mdi-content-copy"></span>
+    </span>
+  </button>
+</div>
 </section>
 
             </main>

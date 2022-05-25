@@ -5,21 +5,20 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <title>Champ de saisie - Composants - Système de design GC</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <script type="module">
-            import { defineCustomElements } from "/gcds-docs/components/loader/index.es2017.js";
-            defineCustomElements();
-        </script>
-        
+
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet">
-        
+
         <link rel="stylesheet" href="/gcds-docs/components/dist/gcds/gcds.css">
         <link rel="stylesheet" href="/gcds-docs/styles/prism.css">
         <link rel="stylesheet" href="/gcds-docs/styles/style.css">
         <script src="/gcds-docs/scripts/code-showcase.js"></script>
         <link rel="icon" type="image/png" sizes="96x96" href="/gcds-docs/images/common/favicon-mobile.png">
+
+        <script type="module" src="/components/dist/gcds/gcds.esm.js"></script>
+        <script nomodule src="/components/dist/gcds/gcds.js"></script>
     </head>
     <body>
         <nav>
@@ -422,10 +421,6 @@
     size="50"
   ></gcds-input>
 </div>
-<p>À utiliser pour collecter des réponses textuelles courtes, tenant sur une ligne.</p>
-<p>À utiliser par défaut s’il n’y a pas d’autre type de champ plus approprié pour une réponse d’une seule ligne.</p>
-<p>À utiliser pour collecter le nom d’une personne (souvent le nom complet).</p>
-<p>À utiliser au lieu du type number si le champ peut comprendre à la fois des valeurs numériques et non numériques.</p>
 <p><div class="code-showcase">
 <gcds-button button-type="button" button-role="primary" button-style="outline" aria-label="Voir le code - Champ de type text" onclick="toggleCodeShowcase(this, 'view-text');" aria-controls="view-text" aria-expanded="false">Voir le code</gcds-button>
 <gcds-button button-type="button" button-role="primary" button-style="outline" onclick="copyCodeShowcase(this, 'view-text', 'fr');" onblur="this.innerText = 'Copier le code'">Copier le code</gcds-button>
@@ -442,6 +437,10 @@
 </div>
 <p></div>
 </div></p>
+<p>À utiliser pour collecter des réponses textuelles courtes, tenant sur une ligne.</p>
+<p>À utiliser par défaut s’il n’y a pas d’autre type de champ plus approprié pour une réponse d’une seule ligne.</p>
+<p>À utiliser pour collecter le nom d’une personne (souvent le nom complet).</p>
+<p>À utiliser au lieu du type number si le champ peut comprendre à la fois des valeurs numériques et non numériques.</p>
 
         <h3 id="champ-de-type-email">
             <a class="anchor-link" href="#champ-de-type-email">Champ de type <span lang="en"><code>email</code> </span>
@@ -455,7 +454,6 @@
     size="50"
   ></gcds-input>
 </div>
-<p>À utiliser pour collecter une adresse courriel.</p>
 <p><div class="code-showcase">
 <gcds-button button-type="button" button-role="primary" button-style="outline" aria-label="Voir le code - Champ de type email" onclick="toggleCodeShowcase(this, 'view-email');" aria-controls="view-email" aria-expanded="false">Voir le code</gcds-button>
 <gcds-button button-type="button" button-role="primary" button-style="outline" onclick="copyCodeShowcase(this, 'view-email', 'fr');" onblur="this.innerText = 'Copier le code'">Copier le code</gcds-button>
@@ -472,6 +470,7 @@
 </div>
 <p></div>
 </div></p>
+<p>À utiliser pour collecter une adresse courriel.</p>
 
         <h3 id="champ-de-type-password">
             <a class="anchor-link" href="#champ-de-type-password">Champ de type <span lang="en"><code>password</code> </span>
@@ -484,7 +483,6 @@
     size="50"
   ></gcds-input>
 </div>
-<p>À utiliser pour collecter et vérifier un mot de passe.</p>
 <p><div class="code-showcase">
 <gcds-button button-type="button" button-role="primary" button-style="outline" aria-label="Voir le code - Champ de type password" onclick="toggleCodeShowcase(this, 'view-password');" aria-controls="view-password" aria-expanded="false">Voir le code</gcds-button>
 <gcds-button button-type="button" button-role="primary" button-style="outline" onclick="copyCodeShowcase(this, 'view-password', 'fr');" onblur="this.innerText = 'Copier le code'">Copier le code</gcds-button>
@@ -501,6 +499,7 @@
 </div>
 <p></div>
 </div></p>
+<p>À utiliser pour collecter et vérifier un mot de passe.</p>
 
         <h3 id="champ-de-type-number">
             <a class="anchor-link" href="#champ-de-type-number">Champ de type <span lang="en"><code>number</code> </span>
@@ -514,8 +513,6 @@
     size="10"
   ></gcds-input>
 </div>
-<p>À utiliser pour refuser toute valeur qui n’est pas numérique.</p>
-<p>Bon à savoir : si vous imposez une contrainte, par exemple un intervalle de chiffres, communiquez-le avec un texte d’aide.</p>
 <p><div class="code-showcase">
 <gcds-button button-type="button" button-role="primary" button-style="outline" aria-label="Voir le code - Champ de type number" onclick="toggleCodeShowcase(this, 'view-number');" aria-controls="view-number" aria-expanded="false">Voir le code</gcds-button>
 <gcds-button button-type="button" button-role="primary" button-style="outline" onclick="copyCodeShowcase(this, 'view-number', 'fr');" onblur="this.innerText = 'Copier le code'">Copier le code</gcds-button>
@@ -532,6 +529,8 @@
 </div>
 <p></div>
 </div></p>
+<p>À utiliser pour refuser toute valeur qui n’est pas numérique.</p>
+<p>Bon à savoir : si vous imposez une contrainte, par exemple un intervalle de chiffres, communiquez-le avec un texte d’aide.</p>
 
         <h3 id="champ-de-type-search">
             <a class="anchor-link" href="#champ-de-type-search">Champ de type <span lang="en"><code>search</code> </span>
@@ -543,7 +542,6 @@
     label="Champ de type search"
   ></gcds-input>
 </div>
-<p>À utiliser pour collecter des termes de recherche.</p>
 <p><div class="code-showcase">
 <gcds-button button-type="button" button-role="primary" button-style="outline" aria-label="Voir le code - Champ de type search" onclick="toggleCodeShowcase(this, 'view-search');" aria-controls="view-search" aria-expanded="false">Voir le code</gcds-button>
 <gcds-button button-type="button" button-role="primary" button-style="outline" onclick="copyCodeShowcase(this, 'view-search', 'fr');" onblur="this.innerText = 'Copier le code'">Copier le code</gcds-button>
@@ -572,7 +570,6 @@
     hint="Exemple: https://design.alpha.canada.ca/fr"
   ></gcds-input>
 </div>
-<p>À utiliser pour collecter une URL, comme une adresse Web.</p>
 <p><div class="code-showcase">
 <gcds-button button-type="button" button-role="primary" button-style="outline" aria-label="Voir le code - Champ de type url" onclick="toggleCodeShowcase(this, 'view-url');" aria-controls="view-url" aria-expanded="false">Voir le code</gcds-button>
 <gcds-button button-type="button" button-role="primary" button-style="outline" onclick="copyCodeShowcase(this, 'view-url', 'fr');" onblur="this.innerText = 'Copier le code'">Copier le code</gcds-button>
@@ -589,6 +586,7 @@
 </div>
 <p></div>
 </div></p>
+<p>À utiliser pour collecter une URL, comme une adresse Web.</p>
 </section>
 <section aria-label="Comment modifier le champ de saisie">
 

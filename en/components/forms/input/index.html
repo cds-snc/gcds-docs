@@ -5,21 +5,20 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <title>Input - Components - GC Design System</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <script type="module">
-            import { defineCustomElements } from "/gcds-docs/components/loader/index.es2017.js";
-            defineCustomElements();
-        </script>
-        
+
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet">
-        
+
         <link rel="stylesheet" href="/gcds-docs/components/dist/gcds/gcds.css">
         <link rel="stylesheet" href="/gcds-docs/styles/prism.css">
         <link rel="stylesheet" href="/gcds-docs/styles/style.css">
         <script src="/gcds-docs/scripts/code-showcase.js"></script>
         <link rel="icon" type="image/png" sizes="96x96" href="/gcds-docs/images/common/favicon-mobile.png">
+
+        <script type="module" src="/components/dist/gcds/gcds.esm.js"></script>
+        <script nomodule src="/components/dist/gcds/gcds.js"></script>
     </head>
     <body>
         <nav>
@@ -425,10 +424,6 @@
     size="50"
   ></gcds-input>
 </div>
-<p>Use for short, single-line, text response collection.</p>
-<p>Use when no other specfic input type is available for single-line entry.</p>
-<p>Use to collect a person’s name, in most cases by full name.</p>
-<p>Use instead of the number input for things like estimates that may include non-numerical values.</p>
 <p><div class="code-showcase">
 <gcds-button button-type="button" button-role="primary" button-style="outline" aria-label="View code - Text input" onclick="toggleCodeShowcase(this, 'view-text');" aria-controls="view-text" aria-expanded="false">View code</gcds-button>
 <gcds-button button-type="button" button-role="primary" button-style="outline" onclick="copyCodeShowcase(this, 'view-text', 'en');" onblur="this.innerText = 'Copy code'">Copy code</gcds-button>
@@ -445,6 +440,10 @@
 </div>
 <p></div>
 </div></p>
+<p>Use for short, single-line, text response collection.</p>
+<p>Use when no other specfic input type is available for single-line entry.</p>
+<p>Use to collect a person’s name, in most cases by full name.</p>
+<p>Use instead of the number input for things like estimates that may include non-numerical values.</p>
 
         <h3 id="email-input">
             <a class="anchor-link" href="#email-input">Email input
@@ -458,7 +457,6 @@
     size="50"
   ></gcds-input>
 </div>
-<p>Use for email address collection.</p>
 <p><div class="code-showcase">
 <gcds-button button-type="button" button-role="primary" button-style="outline" aria-label="View code - Email input" onclick="toggleCodeShowcase(this, 'view-email');" aria-controls="view-email" aria-expanded="false">View code</gcds-button>
 <gcds-button button-type="button" button-role="primary" button-style="outline" onclick="copyCodeShowcase(this, 'view-email', 'en');" onblur="this.innerText = 'Copy code'">Copy code</gcds-button>
@@ -475,6 +473,7 @@
 </div>
 <p></div>
 </div></p>
+<p>Use for email address collection.</p>
 
         <h3 id="password-input">
             <a class="anchor-link" href="#password-input">Password input
@@ -487,7 +486,6 @@
     size="50"
   ></gcds-input>
 </div>
-<p>Use for password collection and validation.</p>
 <p><div class="code-showcase">
 <gcds-button button-type="button" button-role="primary" button-style="outline" aria-label="View code - Password input" onclick="toggleCodeShowcase(this, 'view-password');" aria-controls="view-password" aria-expanded="false">View code</gcds-button>
 <gcds-button button-type="button" button-role="primary" button-style="outline" onclick="copyCodeShowcase(this, 'view-password', 'en');" onblur="this.innerText = 'Copy code'">Copy code</gcds-button>
@@ -504,6 +502,7 @@
 </div>
 <p></div>
 </div></p>
+<p>Use for password collection and validation.</p>
 
         <h3 id="number-input">
             <a class="anchor-link" href="#number-input">Number input
@@ -517,8 +516,6 @@
     size="10"
   ></gcds-input>
 </div>
-<p>Use to reject values that are not numerical.</p>
-<p>Tip: When you set a constraint, like a numerical range, use hint text to relay an instruction.</p>
 <p><div class="code-showcase">
 <gcds-button button-type="button" button-role="primary" button-style="outline" aria-label="View code - Number input" onclick="toggleCodeShowcase(this, 'view-number');" aria-controls="view-number" aria-expanded="false">View code</gcds-button>
 <gcds-button button-type="button" button-role="primary" button-style="outline" onclick="copyCodeShowcase(this, 'view-number', 'en');" onblur="this.innerText = 'Copy code'">Copy code</gcds-button>
@@ -535,6 +532,8 @@
 </div>
 <p></div>
 </div></p>
+<p>Use to reject values that are not numerical.</p>
+<p>Tip: When you set a constraint, like a numerical range, use hint text to relay an instruction.</p>
 
         <h3 id="search-input">
             <a class="anchor-link" href="#search-input">Search input
@@ -546,7 +545,6 @@
     label="Search input"
   ></gcds-input>
 </div>
-<p>Use to collect search queries.</p>
 <p><div class="code-showcase">
 <gcds-button button-type="button" button-role="primary" button-style="outline" aria-label="View code - Search input" onclick="toggleCodeShowcase(this, 'view-search');" aria-controls="view-search" aria-expanded="false">View code</gcds-button>
 <gcds-button button-type="button" button-role="primary" button-style="outline" onclick="copyCodeShowcase(this, 'view-search', 'en');" onblur="this.innerText = 'Copy code'">Copy code</gcds-button>
@@ -563,6 +561,7 @@
 </div>
 <p></div>
 </div></p>
+<p>Use to collect search queries.</p>
 
         <h3 id="url-input">
             <a class="anchor-link" href="#url-input">URL input
@@ -575,7 +574,6 @@
     hint="Example: https://design.alpha.canada.ca/en"
   ></gcds-input>
 </div>
-<p>Use to collect a URL, like a web address.</p>
 <p><div class="code-showcase">
 <gcds-button button-type="button" button-role="primary" button-style="outline" aria-label="View code - URL input" onclick="toggleCodeShowcase(this, 'view-url');" aria-controls="view-url" aria-expanded="false">View code</gcds-button>
 <gcds-button button-type="button" button-role="primary" button-style="outline" onclick="copyCodeShowcase(this, 'view-url', 'en');" onblur="this.innerText = 'Copy code'">Copy code</gcds-button>
@@ -592,6 +590,7 @@
 </div>
 <p></div>
 </div></p>
+<p>Use to collect a URL, like a web address.</p>
 </section>
 <section aria-label="How to modify the input component">
 

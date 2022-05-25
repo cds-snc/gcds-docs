@@ -5,21 +5,20 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <title>Error message - Components - GC Design System</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <script type="module">
-            import { defineCustomElements } from "/gcds-docs/components/loader/index.es2017.js";
-            defineCustomElements();
-        </script>
-        
+
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet">
-        
+
         <link rel="stylesheet" href="/gcds-docs/components/dist/gcds/gcds.css">
         <link rel="stylesheet" href="/gcds-docs/styles/prism.css">
         <link rel="stylesheet" href="/gcds-docs/styles/style.css">
         <script src="/gcds-docs/scripts/code-showcase.js"></script>
         <link rel="icon" type="image/png" sizes="96x96" href="/gcds-docs/images/common/favicon-mobile.png">
+
+        <script type="module" src="/components/dist/gcds/gcds.esm.js"></script>
+        <script nomodule src="/components/dist/gcds/gcds.js"></script>
     </head>
     <body>
         <nav>
@@ -420,7 +419,6 @@
     error-message="Error / Validation message"
   ></gcds-textarea>
 </div>
-<p>Use inline error messages to highlight the needed action close to the input where a person can make the change while directly referencing the message.</p>
 <p><div class="code-showcase">
 <gcds-button button-type="button" button-role="primary" button-style="outline" aria-label="View code - Inline error message" onclick="toggleCodeShowcase(this, 'view-inline');" aria-controls="view-inline" aria-expanded="false">View code</gcds-button>
 <gcds-button button-type="button" button-role="primary" button-style="outline" onclick="copyCodeShowcase(this, 'view-inline', 'en');" onblur="this.innerText = 'Copy code'">Copy code</gcds-button>
@@ -437,6 +435,7 @@
 </div>
 <p></div>
 </div></p>
+<p>Use inline error messages to highlight the needed action close to the input where a person can make the change while directly referencing the message.</p>
 </section>
 <section aria-label="What problems error messages solve">
 
