@@ -11,21 +11,21 @@
     {{ content | safe }}
   <!-- Include the script that builds the page and powers Netlify CMS -->
   <script src="https://unpkg.com/netlify-cms@^2.0.0/dist/netlify-cms.js"></script>
-    <script src="https://unpkg.com/@netlify/netlify-cms-widget-parent@^1.0.0/dist/netlify-cms-widget-parent.js"></script>
-    <script>
-      const parentWidget = window.NetlifyCmsWidgetParent;
-      CMS.registerWidget('parent', parentWidget.control, parentWidget.preview);
-    </script>
-    <script>
-        if (window.netlifyIdentity) {
-            window.netlifyIdentity.on("init", user => {
+  <script src="https://unpkg.com/@netlify/netlify-cms-widget-parent@^1.0.0/dist/netlify-cms-widget-parent.js"></script>
+  <script>
+    const parentWidget = window.NetlifyCmsWidgetParent;
+    CMS.registerWidget('parent', parentWidget.control, parentWidget.preview);
+  </script>
+  <script>
+      if (window.netlifyIdentity) {
+          window.netlifyIdentity.on("init", user => {
             if (!user) {
                 window.netlifyIdentity.on("login", () => {
                 document.location.href = "/admin/";
                 });
             }
-            });
-        }
-    </script>
+          });
+      }
+  </script>
 </body>
 </html>

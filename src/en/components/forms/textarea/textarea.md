@@ -50,10 +50,7 @@ Text areas have built in states that change when someone interacts with that fie
   ></gcds-textarea>
 </div>
 
-Use the text area for longform, multi-line, response collection.
-
 {% viewCode locale "view-textarea" "Text area" %}
-
 ``` html
 <gcds-textarea
   textarea-id="textarea"
@@ -61,8 +58,9 @@ Use the text area for longform, multi-line, response collection.
   rows="6"
 ></gcds-textarea>
 ```
-
 {% endviewCode %}
+
+Use the text area for longform, multi-line, response collection.
 
 </section>
 
@@ -120,9 +118,9 @@ Make the height of a text area proportional to the amount of text you expect som
 
 Check the visibility of both the label text and entry field line or border against the surface where you’re placing them.
 
-Use built in or custom hover state to ensure good colour contrast.  
+Use built in or custom hover state to ensure good colour contrast.
 
-Mark fields as required using an asterisk and the word “required”.  
+Mark fields as required using an asterisk and the word “required”.
 
 Avoid placing hint text or error messages below the field where they might be hidden.
 

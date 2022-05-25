@@ -58,10 +58,7 @@ Avoid using error messages and stick to positive feedback when you can.
   ></gcds-textarea>
 </div>
 
-Use inline error messages to highlight the needed action close to the input where a person can make the change while directly referencing the message.
-
 {% viewCode locale "view-inline" "Inline error message" %}
-
 ``` html
 <gcds-input
   label="Input label"
@@ -77,8 +74,9 @@ Use inline error messages to highlight the needed action close to the input wher
   error-message="Error / Validation message"
 ></gcds-textarea>
 ```
-
 {% endviewCode %}
+
+Use inline error messages to highlight the needed action close to the input where a person can make the change while directly referencing the message.
 
 </section>
 
@@ -118,7 +116,7 @@ Use validations to contrast with error messages. Validations can help a person f
 
 ### Helping people avoid errors
 
-Avoid making an input or text area required if it’s not essential and clearly identify which fields are required. Marking a field as required lets a person know they can’t skip that one.  
+Avoid making an input or text area required if it’s not essential and clearly identify which fields are required. Marking a field as required lets a person know they can’t skip that one.
 
 Labels that are clear and intuitive help a person to provide the correct information and avoid an error. When a label is too long the person may not read the whole thing.
 
@@ -135,7 +133,7 @@ Useful hint text lets a person know about a format need or other criteria for an
 A person who receives an error message needs to:
 1. know where the error is
 2. know what to do to fix it
-3. be able to make the changes  
+3. be able to make the changes
 4. resubmit or revalidate without having to fill out the whole form again
 
 Use sentence case and avoid caps and exclamation marks. Don’t include the word error.
@@ -154,7 +152,7 @@ Tip: Think about whether the message could be interpreted another way.
 
 ### Be human
 
-Never blame the person for the error or imply it’s their fault. State exactly what’s needed and give a way to correct the issue and keep the user on task. You want to avoid frustrating a person with a repeat error.  
+Never blame the person for the error or imply it’s their fault. State exactly what’s needed and give a way to correct the issue and keep the user on task. You want to avoid frustrating a person with a repeat error.
 
 Talk the way the people using your product talk. Avoid jargon and negative words.
 

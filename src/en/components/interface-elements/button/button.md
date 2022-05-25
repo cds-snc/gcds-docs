@@ -11,7 +11,7 @@ onThisPage:
   0: The basic button component
   1: How to modify the button component
   2: What problems buttons solve
-  3: Related components 
+  3: Related components
   4: Where to place a button
   5: How to write a good button label
 github: https://github.com/cds-snc/gcds-components/tree/main/src/components/gcds-button
@@ -49,14 +49,7 @@ Buttons have built in states that change when someone interacts with that button
   </gcds-button>
 </div>
 
-Use a primary button for the most important action.
-
-Use it for critical actions in a flow or as the default button.
-
-Avoid more than one main call to action on the same page. It reduces impact and makes it harder for a person to know what to do next.
-
 {% viewCode locale "primary" "Primary" %}
-
 ``` html
 <gcds-button
   button-role="primary"
@@ -65,8 +58,13 @@ Avoid more than one main call to action on the same page. It reduces impact and 
   Primary
 </gcds-button>
 ```
-
 {% endviewCode %}
+
+Use a primary button for the most important action.
+
+Use it for critical actions in a flow or as the default button.
+
+Avoid more than one main call to action on the same page. It reduces impact and makes it harder for a person to know what to do next.
 
 ### Secondary button
 
@@ -79,14 +77,7 @@ Avoid more than one main call to action on the same page. It reduces impact and 
   </gcds-button>
 </div>
 
-Use a secondary button for supporting actions.
-
-Use it to highlight an important, common action but not the most important one.
-
-Use a secondary button more than once on a page for important alternative task options.
-
 {% viewCode locale "secondary" "Secondary" %}
-
 ``` html
 <gcds-button
   button-role="secondary"
@@ -95,8 +86,13 @@ Use a secondary button more than once on a page for important alternative task o
   Secondary
 </gcds-button>
 ```
-
 {% endviewCode %}
+
+Use a secondary button for supporting actions.
+
+Use it to highlight an important, common action but not the most important one.
+
+Use a secondary button more than once on a page for important alternative task options.
 
 ### Destructive button
 
@@ -109,14 +105,7 @@ Use a secondary button more than once on a page for important alternative task o
   </gcds-button>
 </div>
 
-Use a destructive button to flag serious actions like removing, clearing, or deleting information.
-
-Use it for actions when changes may be difficult to reverse.  
-
-Tip: For permanent actions, ask a second time so a person explicitly agrees before accepting.
-
 {% viewCode locale "destructive" "Destructive" %}
-
 ``` html
 <gcds-button
   button-role="destructive"
@@ -125,8 +114,13 @@ Tip: For permanent actions, ask a second time so a person explicitly agrees befo
   Destructive
 </gcds-button>
 ```
-
 {% endviewCode %}
+
+Use a destructive button to flag serious actions like removing, clearing, or deleting information.
+
+Use it for actions when changes may be difficult to reverse.
+
+Tip: For permanent actions, ask a second time so a person explicitly agrees before accepting.
 
 ### Skip-to-content button
 
@@ -140,14 +134,7 @@ Tip: For permanent actions, ask a second time so a person explicitly agrees befo
   </gcds-button>
 </div>
 
-Use a skip-to-content button (visible or hidden) to help a person jump to the main page content.
-
-Use it to support task success. It offers a shortcut past page navigation links or other navigation elements.
-
-Use it to help a person avoid tabbing or scrolling uneccesarily.
-
 {% viewCode locale "skip-to-content" "Skip-to-content" %}
-
 ``` html
 <gcds-button
   button-role="skip-to-content"
@@ -157,8 +144,13 @@ Use it to help a person avoid tabbing or scrolling uneccesarily.
   Skip-to-content
 </gcds-button>
 ```
-
 {% endviewCode %}
+
+Use a skip-to-content button (visible or hidden) to help a person jump to the main page content.
+
+Use it to support task success. It offers a shortcut past page navigation links or other navigation elements.
+
+Use it to help a person avoid tabbing or scrolling uneccesarily.
 
 </section>
 

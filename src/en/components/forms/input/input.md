@@ -36,9 +36,9 @@ An input is a space, usually a form field, for a person to enter short-form info
 
 ## The basic input component
 
-Use an input to collect single-line information from a person. 
+Use an input to collect single-line information from a person.
 
-Inputs have built in states that change when someone interacts with that field: hover, focus, active, disabled. 
+Inputs have built in states that change when someone interacts with that field: hover, focus, active, disabled.
 
 ### Text input
 
@@ -59,16 +59,7 @@ Inputs have built in states that change when someone interacts with that field: 
   ></gcds-input>
 </div>
 
-Use for short, single-line, text response collection.
-
-Use when no other specfic input type is available for single-line entry.
-
-Use to collect a person’s name, in most cases by full name.  
-
-Use instead of the number input for things like estimates that may include non-numerical values.
-
 {% viewCode locale "view-text" "Text input" %}
-
 ``` html
 <gcds-input
   type="text"
@@ -86,8 +77,15 @@ Use instead of the number input for things like estimates that may include non-n
   size="50"
 ></gcds-input>
 ```
-
 {% endviewCode %}
+
+Use for short, single-line, text response collection.
+
+Use when no other specfic input type is available for single-line entry.
+
+Use to collect a person’s name, in most cases by full name.
+
+Use instead of the number input for things like estimates that may include non-numerical values.
 
 ### Email input
 
@@ -101,10 +99,7 @@ Use instead of the number input for things like estimates that may include non-n
   ></gcds-input>
 </div>
 
-Use for email address collection.
-
 {% viewCode locale "view-email" "Email input" %}
-
 ``` html
 <gcds-input
   type="email"
@@ -114,8 +109,9 @@ Use for email address collection.
   size="50"
 ></gcds-input>
 ```
-
 {% endviewCode %}
+
+Use for email address collection.
 
 ### Password input
 
@@ -128,10 +124,7 @@ Use for email address collection.
   ></gcds-input>
 </div>
 
-Use for password collection and validation.
-
 {% viewCode locale "view-password" "Password input" %}
-
 ``` html
 <gcds-input
   type="password"
@@ -140,8 +133,9 @@ Use for password collection and validation.
   size="50"
 ></gcds-input>
 ```
-
 {% endviewCode %}
+
+Use for password collection and validation.
 
 ### Number input
 
@@ -155,12 +149,7 @@ Use for password collection and validation.
   ></gcds-input>
 </div>
 
-Use to reject values that are not numerical.
-
-Tip: When you set a constraint, like a numerical range, use hint text to relay an instruction.
-
 {% viewCode locale "view-number" "Number input" %}
-
 ``` html
 <gcds-input
   type="number"
@@ -170,8 +159,11 @@ Tip: When you set a constraint, like a numerical range, use hint text to relay a
   size="10"
 ></gcds-input>
 ```
-
 {% endviewCode %}
+
+Use to reject values that are not numerical.
+
+Tip: When you set a constraint, like a numerical range, use hint text to relay an instruction.
 
 ### Search input
 
@@ -183,10 +175,7 @@ Tip: When you set a constraint, like a numerical range, use hint text to relay a
   ></gcds-input>
 </div>
 
-Use to collect search queries.
-
 {% viewCode locale "view-search" "Search input" %}
-
 ``` html
 <gcds-input
   type="search"
@@ -194,8 +183,9 @@ Use to collect search queries.
   label="Search input"
 ></gcds-input>
 ```
-
 {% endviewCode %}
+
+Use to collect search queries.
 
 ### URL input
 
@@ -208,10 +198,7 @@ Use to collect search queries.
   ></gcds-input>
 </div>
 
-Use to collect a URL, like a web address.
-
 {% viewCode locale "view-url" "URL input" %}
-
 ``` html
 <gcds-input
   type="url"
@@ -220,8 +207,9 @@ Use to collect a URL, like a web address.
   hint="Example: https://design.alpha.canada.ca/en"
 ></gcds-input>
 ```
-
 {% endviewCode %}
+
+Use to collect a URL, like a web address.
 
 </section>
 
@@ -294,7 +282,7 @@ Use the maximum, 75 characters for responses without a fixed length.
 
 Check the visibility of both the label text and entry field line or border against the surface where you’re placing them.
 
-Use built in or custom hover state to ensure good colour contrast.  
+Use built in or custom hover state to ensure good colour contrast.
 
 Avoid placing hint text or error messages below the field where they might be hidden.
 

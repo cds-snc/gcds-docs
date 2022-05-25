@@ -24,7 +24,7 @@ github: https://github.com/cds-snc/gcds-components/tree/main/src/components/gcds
 
 `<gcds-error-message>`
 
-Un message d’erreur est un message qui informe une personne d’un problème et qui l’aide à y remédier.  
+Un message d’erreur est un message qui informe une personne d’un problème et qui l’aide à y remédier.
 
 {% docLinks locale stage figma github %}
 {% enddocLinks %}
@@ -59,10 +59,7 @@ Planifiez-en un pour les champs de saisie ou les zones de texte marquées comme 
   ></gcds-textarea>
 </div>
 
-On utilise le message d’erreur intercalé, près du champ de saisie invalide, pour mettre en évidence l’action requise. Cela permet de corriger le problème tout en consultant le message d’erreur.
-
 {% viewCode locale "view-inline" "Message d’erreur intercalé" %}
-
 ``` html
 <gcds-input
   label="Champ de saisie"
@@ -78,8 +75,9 @@ On utilise le message d’erreur intercalé, près du champ de saisie invalide, 
   error-message="Message d’erreur"
 ></gcds-textarea>
 ```
-
 {% endviewCode %}
+
+On utilise le message d’erreur intercalé, près du champ de saisie invalide, pour mettre en évidence l’action requise. Cela permet de corriger le problème tout en consultant le message d’erreur.
 
 </section>
 
@@ -157,7 +155,7 @@ Astuce : demandez-vous si le message pourrait être interprété autrement.
 
 Ne rejetez jamais la faute sur la personne qui remplit le formulaire. Dites-lui ce qu’il faut faire pour corriger la situation et revenir à sa tâche. Il faut éviter de recréer la même erreur, ce qui causerait de la frustration.
 
-Parlez comme le font les personnes utilisant votre produit. Évitez le jargon et les paroles négatives.  
+Parlez comme le font les personnes utilisant votre produit. Évitez le jargon et les paroles négatives.
 
 Astuce : pour donner un ton humain et convivial à vos messages d’erreur, imaginez que vous expliquez le problème à une personne devant vous. Le message d’erreur se dit-il bien dans une conversation?
 

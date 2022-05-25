@@ -36,7 +36,7 @@ Un champ de saisie est un espace, généralement dans un formulaire, où une per
 
 ## Le champ de saisie de base
 
-On utilise les champs de saisie pour collecter des informations qui tiennent sur une ligne. 
+On utilise les champs de saisie pour collecter des informations qui tiennent sur une ligne.
 
 Un champ de saisie peut avoir divers états : de survol <span lang="en">(*hover*)</span>, ciblé <span lang="en">(*focus*)</span>, actif <span lang="en">(*active*)</span> et désactivé <span lang="en">(*disabled*)</span>. Ces états changent quand une personne interagit avec le champ.
 
@@ -59,16 +59,7 @@ Un champ de saisie peut avoir divers états : de survol <span lang="en">(*hover*
   ></gcds-input>
 </div>
 
-À utiliser pour collecter des réponses textuelles courtes, tenant sur une ligne.
-
-À utiliser par défaut s’il n’y a pas d’autre type de champ plus approprié pour une réponse d’une seule ligne.  
-
-À utiliser pour collecter le nom d’une personne (souvent le nom complet).
-
-À utiliser au lieu du type number si le champ peut comprendre à la fois des valeurs numériques et non numériques.
-
 {% viewCode locale "view-text" "Champ de type text" %}
-
 ``` html
 <gcds-input
   type="text"
@@ -86,8 +77,15 @@ Un champ de saisie peut avoir divers états : de survol <span lang="en">(*hover*
   size="50"
 ></gcds-input>
 ```
-
 {% endviewCode %}
+
+À utiliser pour collecter des réponses textuelles courtes, tenant sur une ligne.
+
+À utiliser par défaut s’il n’y a pas d’autre type de champ plus approprié pour une réponse d’une seule ligne.
+
+À utiliser pour collecter le nom d’une personne (souvent le nom complet).
+
+À utiliser au lieu du type number si le champ peut comprendre à la fois des valeurs numériques et non numériques.
 
 ### Champ de type <span lang="en">`email` </span>
 
@@ -101,10 +99,7 @@ Un champ de saisie peut avoir divers états : de survol <span lang="en">(*hover*
   ></gcds-input>
 </div>
 
-À utiliser pour collecter une adresse courriel.
-
 {% viewCode locale "view-email" "Champ de type email" %}
-
 ``` html
 <gcds-input
   type="email"
@@ -114,8 +109,9 @@ Un champ de saisie peut avoir divers états : de survol <span lang="en">(*hover*
   size="50"
 ></gcds-input>
 ```
-
 {% endviewCode %}
+
+À utiliser pour collecter une adresse courriel.
 
 ### Champ de type <span lang="en">`password` </span>
 
@@ -128,10 +124,7 @@ Un champ de saisie peut avoir divers états : de survol <span lang="en">(*hover*
   ></gcds-input>
 </div>
 
-À utiliser pour collecter et vérifier un mot de passe.
-
 {% viewCode locale "view-password" "Champ de type password" %}
-
 ``` html
 <gcds-input
   type="password"
@@ -140,8 +133,9 @@ Un champ de saisie peut avoir divers états : de survol <span lang="en">(*hover*
   size="50"
 ></gcds-input>
 ```
-
 {% endviewCode %}
+
+À utiliser pour collecter et vérifier un mot de passe.
 
 ### Champ de type <span lang="en">`number` </span>
 
@@ -155,12 +149,7 @@ Un champ de saisie peut avoir divers états : de survol <span lang="en">(*hover*
   ></gcds-input>
 </div>
 
-À utiliser pour refuser toute valeur qui n’est pas numérique.
-
-Bon à savoir : si vous imposez une contrainte, par exemple un intervalle de chiffres, communiquez-le avec un texte d’aide.
-
 {% viewCode locale "view-number" "Champ de type number" %}
-
 ``` html
 <gcds-input
   type="number"
@@ -170,8 +159,11 @@ Bon à savoir : si vous imposez une contrainte, par exemple un intervalle de chi
   size="10"
 ></gcds-input>
 ```
-
 {% endviewCode %}
+
+À utiliser pour refuser toute valeur qui n’est pas numérique.
+
+Bon à savoir : si vous imposez une contrainte, par exemple un intervalle de chiffres, communiquez-le avec un texte d’aide.
 
 ### Champ de type <span lang="en">`search` </span>
 
@@ -183,10 +175,7 @@ Bon à savoir : si vous imposez une contrainte, par exemple un intervalle de chi
   ></gcds-input>
 </div>
 
-À utiliser pour collecter des termes de recherche.
-
 {% viewCode locale "view-search" "Champ de type search" %}
-
 ``` html
 <gcds-input
   type="search"
@@ -194,7 +183,6 @@ Bon à savoir : si vous imposez une contrainte, par exemple un intervalle de chi
   label="Champ de type search"
 ></gcds-input>
 ```
-
 {% endviewCode %}
 
 ### Champ de type <span lang="en">`url` </span>
@@ -208,10 +196,7 @@ Bon à savoir : si vous imposez une contrainte, par exemple un intervalle de chi
   ></gcds-input>
 </div>
 
-À utiliser pour collecter une URL, comme une adresse Web.
-
 {% viewCode locale "view-url" "Champ de type url" %}
-
 ``` html
 <gcds-input
   type="url"
@@ -220,8 +205,9 @@ Bon à savoir : si vous imposez une contrainte, par exemple un intervalle de chi
   hint="Exemple: https://design.alpha.canada.ca/fr"
 ></gcds-input>
 ```
-
 {% endviewCode %}
+
+À utiliser pour collecter une URL, comme une adresse Web.
 
 </section>
 
@@ -328,7 +314,7 @@ Ne demandez que les informations dont vous avez besoin. Pour vous aider à savoi
 
 ### Comment utiliser le texte d’aide
 
-Ajoutez un texte d’aide pour aider une personne à remplir un champ de façon attendue. 
+Ajoutez un texte d’aide pour aider une personne à remplir un champ de façon attendue.
 
 Rédigez le texte d’aide pour qu’il soit informatif, court et précis.
 
