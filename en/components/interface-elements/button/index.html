@@ -382,7 +382,8 @@
             <main id="mc">
                 
 <header>
-<h1>Button</h1><p><code>&lt;gcds-button&gt;</code></p>
+<h1 id="button">Button</h1>
+<p><code>&lt;gcds-button&gt;</code></p>
 <p>A button is an interactive object that highlights an important or common action for the person using your product.</p>
 <p><ul class="doc-links">
 <li class="github-link">
@@ -394,17 +395,11 @@
 </ul></p>
 </header>
 <section aria-label="The basic button component">
-
-        <h2 id="the-basic-button-component">
-            <a class="anchor-link" href="#the-basic-button-component">The basic button component
-            </a>
-        </h2><p>Use buttons for user-led actions.</p>
+<h2 id="the-basic-button-component">The basic button component</h2>
+<p>Use buttons for user-led actions.</p>
 <p>Buttons have built in states that change when someone interacts with that button: default, hover, focus, active, disabled.</p>
-
-        <h3 id="primary-button">
-            <a class="anchor-link" href="#primary-button">Primary button
-            </a>
-        </h3><div class="comp-show">
+<h3 id="primary-button">Primary button</h3>
+<div class="comp-show">
   <gcds-button
     button-role="primary"
     button-type="button"
@@ -431,11 +426,8 @@
 <p>Use a primary button for the most important action.</p>
 <p>Use it for critical actions in a flow or as the default button.</p>
 <p>Avoid more than one main call to action on the same page. It reduces impact and makes it harder for a person to know what to do next.</p>
-
-        <h3 id="secondary-button">
-            <a class="anchor-link" href="#secondary-button">Secondary button
-            </a>
-        </h3><div class="comp-show">
+<h3 id="secondary-button">Secondary button</h3>
+<div class="comp-show">
   <gcds-button
     button-role="secondary"
     button-type="button"
@@ -462,11 +454,8 @@
 <p>Use a secondary button for supporting actions.</p>
 <p>Use it to highlight an important, common action but not the most important one.</p>
 <p>Use a secondary button more than once on a page for important alternative task options.</p>
-
-        <h3 id="destructive-button">
-            <a class="anchor-link" href="#destructive-button">Destructive button
-            </a>
-        </h3><div class="comp-show">
+<h3 id="destructive-button">Destructive button</h3>
+<div class="comp-show">
   <gcds-button
     button-role="destructive"
     button-type="button"
@@ -493,11 +482,8 @@
 <p>Use a destructive button to flag serious actions like removing, clearing, or deleting information.</p>
 <p>Use it for actions when changes may be difficult to reverse.</p>
 <p>Tip: For permanent actions, ask a second time so a person explicitly agrees before accepting.</p>
-
-        <h3 id="skiptocontent-button">
-            <a class="anchor-link" href="#skiptocontent-button">Skip-to-content button
-            </a>
-        </h3><div class="comp-show">
+<h3 id="skiptocontent-button">Skip-to-content button</h3>
+<div class="comp-show">
   <gcds-button
     button-role="skip-to-content"
     button-type="link"
@@ -527,16 +513,11 @@
 <p>Use it to help a person avoid tabbing or scrolling uneccesarily.</p>
 </section>
 <section aria-label="How to modify the button component">
-
-        <h2 id="how-to-modify-the-button-component">
-            <a class="anchor-link" href="#how-to-modify-the-button-component">How to modify the button component
-            </a>
-        </h2><p>Occasionally, the default options may not meet the needs of the people using your product. You can modify the button component to create a custom button for a particular use case.</p>
-
-        <h3 id="button-component-type-style-and-role">
-            <a class="anchor-link" href="#button-component-type-style-and-role">Button component type, style, and role
-            </a>
-        </h3><h4>Button type</h4><p>Set the button type based on how the button will act.</p>
+<h2 id="how-to-modify-the-button-component">How to modify the button component</h2>
+<p>Occasionally, the default options may not meet the needs of the people using your product. You can modify the button component to create a custom button for a particular use case.</p>
+<h3 id="button-component-type-style-and-role">Button component type, style, and role</h3>
+<h4 id="button-type">Button type</h4>
+<p>Set the button type based on how the button will act.</p>
 <p>The button-type attribute, accepts the following options:</p>
 <ul>
 <li><code>button</code></li>
@@ -544,36 +525,29 @@
 <li><code>reset</code></li>
 <li><code>link</code></li>
 </ul>
-<h4>Button role</h4><p>The buttonRole property, button-role attribute, accepts the following options:</p>
+<h4 id="button-role">Button role</h4>
+<p>The buttonRole property, button-role attribute, accepts the following options:</p>
 <ul>
 <li><code>destructive</code></li>
 <li><code>primary</code></li>
 <li><code>secondary</code></li>
 <li><code>skip-to-content</code></li>
 </ul>
-<h4>Button style</h4><p>The buttonStyle property, button-style attribute, accepts the following options:</p>
+<h4 id="button-style">Button style</h4>
+<p>The buttonStyle property, button-style attribute, accepts the following options:</p>
 <ul>
 <li><code>outline</code></li>
 <li><code>solid</code></li>
 <li><code>text-only</code></li>
 </ul>
-
-        <h3 id="how-to-add-an-icon-to-your-button">
-            <a class="anchor-link" href="#how-to-add-an-icon-to-your-button">How to add an icon to your button
-            </a>
-        </h3><p>Icons can be a helpful visual aid when used sparingly and predictably. Avoid using an icon without text. When there’s an icon, align button text to the left.</p>
-
-        <h3 id="apply-design-system-foundations-to-buttons">
-            <a class="anchor-link" href="#apply-design-system-foundations-to-buttons">Apply design system foundations to buttons
-            </a>
-        </h3><p>Select typography tokens from the GC Design System <a href="/gcds-docs/en/foundations">foundations</a>. Colour and spacing tokens coming soon!</p>
+<h3 id="how-to-add-an-icon-to-your-button">How to add an icon to your button</h3>
+<p>Icons can be a helpful visual aid when used sparingly and predictably. Avoid using an icon without text. When there’s an icon, align button text to the left.</p>
+<h3 id="apply-design-system-foundations-to-buttons">Apply design system foundations to buttons</h3>
+<p>Select typography tokens from the GC Design System <a href="/gcds-docs/en/foundations">foundations</a>. Colour and spacing tokens coming soon!</p>
 </section>
 <section aria-label="What problems buttons solve">
-
-        <h2 id="what-problems-buttons-solve">
-            <a class="anchor-link" href="#what-problems-buttons-solve">What problems buttons solve
-            </a>
-        </h2><p>Use a button for important user-led actions like:</p>
+<h2 id="what-problems-buttons-solve">What problems buttons solve</h2>
+<p>Use a button for important user-led actions like:</p>
 <ul>
 <li>saving, deleting, copying, or downloading</li>
 <li>clearing entered data</li>
@@ -590,44 +564,26 @@
 </ul>
 </section>
 <section aria-label="Related components">
-
-        <h2 id="related-components">
-            <a class="anchor-link" href="#related-components">Related components
-            </a>
-        </h2><p><strong>Radio buttons or dropdowns</strong> when you can give someone a set of options for single selections.</p>
+<h2 id="related-components">Related components</h2>
+<p><strong>Radio buttons or dropdowns</strong> when you can give someone a set of options for single selections.</p>
 <p><strong>Checkboxes</strong> when you can give someone a set of options for multi selections.</p>
 </section>
 <section aria-label="Where to place a button">
-
-        <h2 id="where-to-place-a-button">
-            <a class="anchor-link" href="#where-to-place-a-button">Where to place a button
-            </a>
-        </h2><p>Place buttons in a regular and predictable way to help a person find the thing they want to do and take action.</p>
+<h2 id="where-to-place-a-button">Where to place a button</h2>
+<p>Place buttons in a regular and predictable way to help a person find the thing they want to do and take action.</p>
 <p>Avoid making a person needlessly scroll, tab, or type by providing the path to the next action early.</p>
 <p>Check the button border’s visibility against the surface where you’re placing it.</p>
-
-        <h3 id="adding-skiptocontent-buttons">
-            <a class="anchor-link" href="#adding-skiptocontent-buttons">Adding skip-to-content buttons
-            </a>
-        </h3><p>Let a person skip a cluster of navigation links with the skip-to-content button.</p>
+<h3 id="adding-skiptocontent-buttons">Adding skip-to-content buttons</h3>
+<p>Let a person skip a cluster of navigation links with the skip-to-content button.</p>
 <p>To avoid covering up content, configure the button to push down content so it’s not floating, For desktop, place skip-to-content button at top left of the page so it doesn’t interrupt the flow.</p>
 </section>
 <section aria-label="How to write a good button label">
-
-        <h2 id="how-to-write-a-good-button-label">
-            <a class="anchor-link" href="#how-to-write-a-good-button-label">How to write a good button label
-            </a>
-        </h2>
-        <h3 id="make-buttons-readable">
-            <a class="anchor-link" href="#make-buttons-readable">Make buttons readable
-            </a>
-        </h3><p>Keep label text visible by stating the button’s specific action in minimal words.</p>
+<h2 id="how-to-write-a-good-button-label">How to write a good button label</h2>
+<h3 id="make-buttons-readable">Make buttons readable</h3>
+<p>Keep label text visible by stating the button’s specific action in minimal words.</p>
 <p>Use sentence case.</p>
-
-        <h3 id="avoid-confusing-labels">
-            <a class="anchor-link" href="#avoid-confusing-labels">Avoid confusing labels
-            </a>
-        </h3><p>Keep label text unique to each button on a page. When you re-use labels, a person browsing buttons will hear the label text in rapid succession and won’t have cues to tell which button’s for which action.</p>
+<h3 id="avoid-confusing-labels">Avoid confusing labels</h3>
+<p>Keep label text unique to each button on a page. When you re-use labels, a person browsing buttons will hear the label text in rapid succession and won’t have cues to tell which button’s for which action.</p>
 <p>Avoid closely resembling language constructions across buttons, like sign up and sign in. Labels that are vague or closely resemble other labels make it difficult for someone to accomplish their task.</p>
 <p>Avoid using common verb phrases or expressions that may be unfamiliar to non-fluent speakers.</p>
 </section>

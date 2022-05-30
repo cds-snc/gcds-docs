@@ -378,7 +378,8 @@
 
             <main id="mc">
                 <header>
-<h1>Bouton</h1><p><code>&lt;gcds-button&gt;</code></p>
+<h1 id="bouton">Bouton</h1>
+<p><code>&lt;gcds-button&gt;</code></p>
 <p>Un bouton est un objet interactif visant à attirer l’attention d’une personne sur une action importante ou fréquente qu’elle peut réaliser.</p>
 <p><ul class="doc-links">
 <li class="github-link">
@@ -390,17 +391,11 @@
 </ul></p>
 </header>
 <section aria-label="Le bouton de base">
-
-        <h2 id="le-bouton-de-base">
-            <a class="anchor-link" href="#le-bouton-de-base">Le bouton de base
-            </a>
-        </h2><p>On utilise le bouton pour indiquer une action pouvant être effectuée par un utilisateur.</p>
+<h2 id="le-bouton-de-base">Le bouton de base</h2>
+<p>On utilise le bouton pour indiquer une action pouvant être effectuée par un utilisateur.</p>
 <p>Un bouton peut avoir divers états prédéfinis : par défaut <span lang="en">(<em>default</em>)</span>, de survol <span lang="en">(<em>hover</em>)</span>, ciblé <span lang="en">(<em>focus</em>)</span>, appuyé <span lang="en">(<em>active</em>)</span> et désactivé <span lang="en">(<em>disabled</em>)</span>. Ces états changent quand une personne interagit avec le bouton.</p>
-
-        <h3 id="bouton-principal">
-            <a class="anchor-link" href="#bouton-principal">Bouton principal
-            </a>
-        </h3><div class="comp-show">
+<h3 id="bouton-principal">Bouton principal</h3>
+<div class="comp-show">
   <gcds-button
     button-role="primary"
     button-type="button"
@@ -427,11 +422,8 @@
 <p>On utilise le bouton principal pour l’action la plus importante.</p>
 <p>Utilisez-le pour les actions essentielles dans un parcours utilisateur ou comme bouton par défaut.</p>
 <p>Évitez d’avoir plus d’un bouton principal par page. Cela diminuerait l’effet du bouton, en plus de créer une incertitude sur la prochaine action à faire.</p>
-
-        <h3 id="bouton-secondaire">
-            <a class="anchor-link" href="#bouton-secondaire">Bouton secondaire
-            </a>
-        </h3><div class="comp-show">
+<h3 id="bouton-secondaire">Bouton secondaire</h3>
+<div class="comp-show">
   <gcds-button
     button-role="secondary"
     button-type="button"
@@ -458,11 +450,8 @@
 <p>On utilise le bouton secondaire pour les actions soutenant l’action principale.</p>
 <p>Utilisez-le pour attirer l’attention sur une action importante et fréquente, mais pas essentielle.</p>
 <p>Vous pouvez l’utiliser plus d’une fois par page pour les actions optionnelles importantes.</p>
-
-        <h3 id="bouton-destructeur">
-            <a class="anchor-link" href="#bouton-destructeur">Bouton destructeur
-            </a>
-        </h3><div class="comp-show">
+<h3 id="bouton-destructeur">Bouton destructeur</h3>
+<div class="comp-show">
   <gcds-button
     button-role="destructive"
     button-type="button"
@@ -489,11 +478,8 @@
 <p>On utilise le bouton destructeur pour signaler la sévérité d’une action qui retire, efface ou supprime des informations.</p>
 <p>Utilisez-le pour les actions irréversibles ou difficilement réversibles.</p>
 <p>Bon à savoir : pour les actions irréversibles, demandez à la personne de confirmer son choix.</p>
-
-        <h3 id="bouton-devitement-passer-au-contenu-">
-            <a class="anchor-link" href="#bouton-devitement-passer-au-contenu-">Bouton d’évitement « Passer au contenu »
-            </a>
-        </h3><div class="comp-show">
+<h3 id="bouton-devitement-passer-au-contenu-">Bouton d’évitement « Passer au contenu »</h3>
+<div class="comp-show">
   <gcds-button
     button-role="skip-to-content"
     button-type="link"
@@ -523,16 +509,11 @@
 <p>Ce bouton évite aux personnes d’appuyer sur Tabulation sans relâche ou de faire défiler longuement une page.</p>
 </section>
 <section aria-label="Comment modifier le bouton">
-
-        <h2 id="comment-modifier-le-bouton">
-            <a class="anchor-link" href="#comment-modifier-le-bouton">Comment modifier le bouton
-            </a>
-        </h2><p>Il peut arriver que les options par défaut ne permettent pas de répondre aux besoins des personnes utilisant votre produit. Vous pouvez modifier le composant pour créer un bouton personnalisé, adapté à un cas particulier.</p>
-
-        <h3 id="type-style-et-role-des-boutons">
-            <a class="anchor-link" href="#type-style-et-role-des-boutons">Type, style et rôle des boutons
-            </a>
-        </h3><h4>Type du bouton</h4><p>Définissez le type de bouton en fonction du comportement désiré du bouton.</p>
+<h2 id="comment-modifier-le-bouton">Comment modifier le bouton</h2>
+<p>Il peut arriver que les options par défaut ne permettent pas de répondre aux besoins des personnes utilisant votre produit. Vous pouvez modifier le composant pour créer un bouton personnalisé, adapté à un cas particulier.</p>
+<h3 id="type-style-et-role-des-boutons">Type, style et rôle des boutons</h3>
+<h4 id="type-du-bouton">Type du bouton</h4>
+<p>Définissez le type de bouton en fonction du comportement désiré du bouton.</p>
 <p>L’attribut <code>button-type</code> peut prendre les valeurs suivantes :</p>
 <div lang="en">
 <ul>
@@ -542,7 +523,8 @@
 <li><code>link</code></li>
 </ul>
 </div>
-<h4>Rôle du bouton</h4><p>L’attribut <code>button-role</code> peut prendre les valeurs suivantes :</p>
+<h4 id="role-du-bouton">Rôle du bouton</h4>
+<p>L’attribut <code>button-role</code> peut prendre les valeurs suivantes :</p>
 <div lang="en">
 <ul>
 <li><code>destructive</code></li>
@@ -551,7 +533,8 @@
 <li><code>skip-to-content</code></li>
 </ul>
 </div>
-<h4>Style du bouton</h4><p>L’attribut <code>button-style</code> peut prendre les valeurs suivantes :</p>
+<h4 id="style-du-bouton">Style du bouton</h4>
+<p>L’attribut <code>button-style</code> peut prendre les valeurs suivantes :</p>
 <div lang="en">
 <ul>
 <li><code>outline</code></li>
@@ -559,23 +542,14 @@
 <li><code>text-only</code></li>
 </ul>
 </div>
-
-        <h3 id="ajouter-une-icone-aux-boutons">
-            <a class="anchor-link" href="#ajouter-une-icone-aux-boutons">Ajouter une icône aux boutons
-            </a>
-        </h3><p>Les icônes peuvent agir comme aide visuelle si elles sont utilisées avec parcimonie et de façon prévisible. Évitez d’utiliser une icône seule, sans texte. Si vous ajoutez une icône à un bouton, alignez le libellé à gauche.</p>
-
-        <h3 id="appliquer-les-bases-du-systeme-de-design">
-            <a class="anchor-link" href="#appliquer-les-bases-du-systeme-de-design">Appliquer les bases du système de design
-            </a>
-        </h3><p>Choisissez des unités de style pour la typographie parmi les <a href="/gcds-docs/fr/bases/">bases du système de design du GC</a>. Les unités de style pour la couleur et l’espacement seront bientôt disponibles!</p>
+<h3 id="ajouter-une-icone-aux-boutons">Ajouter une icône aux boutons</h3>
+<p>Les icônes peuvent agir comme aide visuelle si elles sont utilisées avec parcimonie et de façon prévisible. Évitez d’utiliser une icône seule, sans texte. Si vous ajoutez une icône à un bouton, alignez le libellé à gauche.</p>
+<h3 id="appliquer-les-bases-du-systeme-de-design">Appliquer les bases du système de design</h3>
+<p>Choisissez des unités de style pour la typographie parmi les <a href="/gcds-docs/fr/bases/">bases du système de design du GC</a>. Les unités de style pour la couleur et l’espacement seront bientôt disponibles!</p>
 </section>
 <section aria-label="Cas réglés par le bouton">
-
-        <h2 id="cas-regles-par-le-bouton">
-            <a class="anchor-link" href="#cas-regles-par-le-bouton">Cas réglés par le bouton
-            </a>
-        </h2><p>Utilisez les boutons pour des actions importantes effectuées par l’utilisateur comme :</p>
+<h2 id="cas-regles-par-le-bouton">Cas réglés par le bouton</h2>
+<p>Utilisez les boutons pour des actions importantes effectuées par l’utilisateur comme :</p>
 <ul>
 <li>enregistrer, supprimer, copier, télécharger</li>
 <li>effacer le texte saisi dans un champ</li>
@@ -592,44 +566,26 @@
 </ul>
 </section>
 <section aria-label="Composants apparentés">
-
-        <h2 id="composants-apparentes">
-            <a class="anchor-link" href="#composants-apparentes">Composants apparentés
-            </a>
-        </h2><p><strong>Boutons radio ou listes déroulantes</strong> : à utiliser quand vous offrez plusieurs options et qu’il faut en choisir une.</p>
+<h2 id="composants-apparentes">Composants apparentés</h2>
+<p><strong>Boutons radio ou listes déroulantes</strong> : à utiliser quand vous offrez plusieurs options et qu’il faut en choisir une.</p>
 <p><strong>Cases à cocher</strong> : à utiliser quand vous offrez plusieurs options et qu’on peut en choisir plusieurs.</p>
 </section>
 <section aria-label="Où placer les boutons">
-
-        <h2 id="ou-placer-les-boutons">
-            <a class="anchor-link" href="#ou-placer-les-boutons">Où placer les boutons
-            </a>
-        </h2><p>Placez les boutons à des endroits habituels et prévisibles de façon à ce qu’une personne trouve facilement l’action qu’elle veut faire.</p>
+<h2 id="ou-placer-les-boutons">Où placer les boutons</h2>
+<p>Placez les boutons à des endroits habituels et prévisibles de façon à ce qu’une personne trouve facilement l’action qu’elle veut faire.</p>
 <p>Offrez rapidement un chemin vers la prochaine action pour épargner aux personnes les longs défilements d’écran, les multiples tabulations ou les frappes de clavier inutiles.</p>
 <p>Vérifiez que l’emplacement du bouton assure un bon contraste entre le contour du bouton et l’arrière-plan.</p>
-
-        <h3 id="ajouter-un-bouton-devitement">
-            <a class="anchor-link" href="#ajouter-un-bouton-devitement">Ajouter un bouton d’évitement
-            </a>
-        </h3><p>Permettez aux personnes de sauter un groupe de liens de navigation grâce à un bouton d’évitement.</p>
+<h3 id="ajouter-un-bouton-devitement">Ajouter un bouton d’évitement</h3>
+<p>Permettez aux personnes de sauter un groupe de liens de navigation grâce à un bouton d’évitement.</p>
 <p>Pour que le bouton ne cache rien, configurez-le de sorte qu’il pousse le contenu vers le bas. En version bureau, placez le bouton d’évitement dans le coin supérieur gauche de la page pour ne pas entrecouper le contenu.</p>
 </section>
 <section aria-label="Rédiger un bon libellé de bouton">
-
-        <h2 id="rediger-un-bon-libelle-de-bouton">
-            <a class="anchor-link" href="#rediger-un-bon-libelle-de-bouton">Rédiger un bon libellé de bouton
-            </a>
-        </h2>
-        <h3 id="assurer-la-lisibilite-du-libelle">
-            <a class="anchor-link" href="#assurer-la-lisibilite-du-libelle">Assurer la lisibilité du libellé
-            </a>
-        </h3><p>Décrivez l’action du bouton à l’aide d’un libellé court et précis.</p>
+<h2 id="rediger-un-bon-libelle-de-bouton">Rédiger un bon libellé de bouton</h2>
+<h3 id="assurer-la-lisibilite-du-libelle">Assurer la lisibilité du libellé</h3>
+<p>Décrivez l’action du bouton à l’aide d’un libellé court et précis.</p>
 <p>Mettez une majuscule initiale au premier mot seulement.</p>
-
-        <h3 id="choisir-un-libelle-clair-et-descriptif">
-            <a class="anchor-link" href="#choisir-un-libelle-clair-et-descriptif">Choisir un libellé clair et descriptif
-            </a>
-        </h3><p>Rédigez un libellé spécifique à chaque bouton dans une même page. Si vous réutilisez les mêmes libellés, une personne naviguant d’un bouton à l’autre entendra les mêmes mots se répéter sans savoir à quelle action ils se rapportent.</p>
+<h3 id="choisir-un-libelle-clair-et-descriptif">Choisir un libellé clair et descriptif</h3>
+<p>Rédigez un libellé spécifique à chaque bouton dans une même page. Si vous réutilisez les mêmes libellés, une personne naviguant d’un bouton à l’autre entendra les mêmes mots se répéter sans savoir à quelle action ils se rapportent.</p>
 <p>Évitez les formules vagues et génériques ou celles qui se ressemblent trop d’un bouton à l’autre. Elles portent à confusion et nuisent aux personnes cherchant à accomplir une tâche.</p>
 <p>Évitez les expressions qui pourraient être étrangères à des personnes dont le français n’est pas la langue première.</p>
 </section>
