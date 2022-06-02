@@ -530,3 +530,12 @@ section {
   margin-block: var(--gcds-spacing-400);
   padding: var(--gcds-spacing-400);
 }
+
+code {
+  z-index: 5;
+}
+
+header,
+[role="banner"] {
+  z-index: 500;
+}
