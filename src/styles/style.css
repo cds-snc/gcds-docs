@@ -287,12 +287,19 @@ aside {
 }
 
 @media screen and (min-width: 64rem) {
+  div.sidebar-layout {
+    display: grid;
+    grid-gap: var(--gcds-spacing-300);
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-areas:
+        "sidebar main main main";
+  }
   div.sidebar-layout > aside {
-    display: table-cell;
-    vertical-align: top;
+    grid-area: sidebar;
+    display: block;
     height: 100%;
     padding: 0 var(--gcds-spacing-300);
-    max-width: 18rem;
+    max-width: 20rem;
     box-sizing: border-box;
   }
   div.sidebar-layout > aside > nav {
@@ -300,8 +307,8 @@ aside {
     top: 1rem;
   }
   div.sidebar-layout > aside + main {
-    display: table-cell;
-    width: calc(96% - 18rem);
+    display: block;
+    grid-area: main;
     padding: 0 var(--gcds-spacing-400);
     box-sizing: border-box;
   }
@@ -529,4 +536,13 @@ section {
   background-color: var(--gcds-color-grayscale-200);
   margin-block: var(--gcds-spacing-400);
   padding: var(--gcds-spacing-400);
+}
+
+code {
+  z-index: 5;
+}
+
+header,
+[role="banner"] {
+  z-index: 500;
 }
