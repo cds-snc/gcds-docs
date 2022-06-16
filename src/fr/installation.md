@@ -7,6 +7,7 @@ eleventyNavigation:
     title: Installation
     locale: fr
     order: 0
+    parent: homeFr
 onThisPage:
   0: Installer le paquet avec npm
   1: Cadres d'application pris en charge

@@ -1,12 +1,12 @@
 module.exports = {
     en : {
         linkText: "Home",
-        url: "/en",
+        url: "https://canada.ca/en.html",
         breadcrumb: "breadcrumb"
     },
     fr: {
         linkText: "Accueil",
-        url: "/fr",
+        url: "https://canada.ca/en.html",
         breadcrumb: "Fil d'Ariane"
     }
 }

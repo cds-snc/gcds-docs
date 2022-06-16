@@ -6,6 +6,7 @@ eleventyNavigation:
   title: Contact us
   locale: en
   order: 3
+  parent: homeEn
 translationKey: "contactus"
 contactForm: en
 ---

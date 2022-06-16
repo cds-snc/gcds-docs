@@ -1,14 +1,15 @@
 {% if eleventyNavigation %}
     {% set navPages = collections.all | getBreadcrumbs(eleventyNavigation.key) %}
-    <nav aria-label="{{ breadcrumbs[locale].breadcrumb }}" class="container breadcrumb">
+    <nav slot="breadcrumb" aria-label="{{ breadcrumbs[locale].breadcrumb }}" class="breadcrumb">
         <ol>
             <li>
-                <a href={{ breadcrumbs[locale].url | url }}>{{ breadcrumbs[locale].linkText }}</a>
+                <a href={{ breadcrumbs[locale].url }}>Canada.ca</a>
             </li>
             {% for item in navPages %}
-                {% if item.url %} 
+                {% set samePage = true if item.url == page.url else false %}
+                {% if not samePage and item.url %} 
                     <li>
-                        <a href="{{ item.url | url }}" {% if item.url == page.url %} aria-current="page" {% endif %} >{{ item.title }}</a>
+                        <a href="{{ item.url | url }}">{{ item.title }}</a>
                     </li>
                 {% endif %}
             {% endfor %}

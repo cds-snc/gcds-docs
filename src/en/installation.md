@@ -7,6 +7,7 @@ eleventyNavigation:
     title: Installation
     locale: en
     order: 0
+    parent: homeEn
 onThisPage:
   0: Install from npm
   1: Supported frameworks

@@ -1,8 +1,13 @@
-{% set navPages = collections.all | eleventyNavigation %}
+{% if locale == "en" %}
+    {% set navPages = collections.all | eleventyNavigation("homeEn") %}
+{% else %}
+    {% set navPages = collections.all | eleventyNavigation("homeFr") %}
+{% endif %}
+
 
 {% macro renderNavListItem(entry) -%}
 {% if not entry.hideMain %}
-    <li{% if entry.url == page.url %} class="my-active-class"{% endif %}>
+    <li>
     {% if entry.url %}
         <a href="{{ entry.url | url }}" {% if entry.url == page.url %} aria-current="page" {% endif %} >{{ entry.title }}</a>
     {% else %}
@@ -30,7 +35,8 @@
     </li>
 {% endif %}
 {%- endmacro %}
-<gcds-site-menu menu-alignment="right" class="header__nav">
+
+<gcds-site-menu menu-alignment="right" class="header__nav" slot="menu">
     <a href="{{ nav[locale].url | url }}" class="home-link" slot="left">{{ nav[locale].title }}</a>
     <ul >
     {%- for entry in navPages %}

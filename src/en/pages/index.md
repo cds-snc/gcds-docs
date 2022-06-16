@@ -4,6 +4,10 @@ layout: "layouts/home.njk"
 permalink: /en/
 translationKey: "index"
 redirect_from: /
+eleventyNavigation:
+  key: homeEn
+  title: Home
+  locale: en
 ---
 
 <header>

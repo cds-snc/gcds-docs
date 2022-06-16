@@ -3,6 +3,10 @@ title: Home
 layout: "layouts/home.njk"
 permalink: /fr/
 translationKey: "index"
+eleventyNavigation:
+  key: homeFr
+  title: Accueil
+  locale: fr
 ---
 
 <header>

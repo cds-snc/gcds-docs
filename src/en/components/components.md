@@ -6,6 +6,7 @@ eleventyNavigation:
   title: Components
   locale: en
   order: 2
+  parent: homeEn
 translationKey: "components"
 ---
 

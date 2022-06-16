@@ -6,6 +6,7 @@ eleventyNavigation:
   title: Bases
   locale: fr
   order: 1
+  parent: homeFr
 translationKey: "foundatons"
 github: https://github.com/cds-snc/gcds-tokens
 ---
