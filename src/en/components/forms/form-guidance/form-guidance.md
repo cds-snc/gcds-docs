@@ -188,7 +188,7 @@ Have a strong rationale for keeping an optional field on a form or remove it alt
 
 ``` html
 <gcds-input
-  label="Input label"
+  label="Input label "
   input-id="input-required"
   required
 ></gcds-input>
