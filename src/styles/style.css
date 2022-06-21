@@ -8,6 +8,11 @@
   box-sizing: border-box;
 }
 
+html {
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
 body {
   display: flex;
   min-height: 100vh;
@@ -34,7 +39,7 @@ body {
 }
 
 .no-aside {
-  max-width: 80ch;
+  max-width: 65ch;
 }
 
 ul {
@@ -65,6 +70,7 @@ h6 {
 h1 {
   font-size: var(--gcds-font-sizes-h1);
   line-height: var(--gcds-line-heights-h1);
+  margin-bottom: var(--gcds-spacing-400);
 }
 
 h1::after {
@@ -102,12 +108,18 @@ h6 {
 
 p {
   font-size: var(--gcds-font-sizes-paragraph);
-  line-height: var(--gcds-line-heights-paragraph);
+  line-height: 165%;
   margin-top: var(--gcds-spacing-50);
+  max-width: 65ch;
+  color: #333333;
 }
 
 p + p {
   margin-top: var(--gcds-spacing-400);
+}
+
+a {
+  color: #2b4380;
 }
 
 #mc h2,
