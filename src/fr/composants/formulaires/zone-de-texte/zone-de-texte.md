@@ -122,7 +122,7 @@ Vérifiez que l’emplacement du champ assure un bon contraste entre la ligne ou
 
 Utilisez l’état de survol intégré ou un état de survol personnalisé qui assure un bon contraste.
 
-Marquez les champs obligatoires d’une astéristique et du mot « obligatoire ».
+Marquez les champs obligatoires du mot « obligatoire ».
 
 Évitez de placer le texte d’aide ou les messages d’erreur après le champ, afin qu’ils soient lus.
 

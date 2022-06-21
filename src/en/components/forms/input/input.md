@@ -285,6 +285,8 @@ Use the maximum, 75 characters for responses without a fixed length.
 Check the visibility of both the label text and entry field line or border against the surface where you’re placing them.
 
 Use built in or custom hover state to ensure good colour contrast.
+  
+Mark fields as required using the word “required”.
 
 Avoid placing hint text or error messages below the field where they might be hidden.
 
