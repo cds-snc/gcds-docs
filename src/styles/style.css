@@ -247,16 +247,23 @@ nav.breadcrumb ol {
 }
 
 nav.breadcrumb li {
-  display: inline;
+  display: inline-block;
+  font-size: 1rem;
+  padding: var(--gcds-spacing-200) 0;
+}
+
+nav.breadcrumb li a {
+  margin: 0 var(--gcds-spacing-300);
+}
+
+nav.breadcrumb li:first-of-type a {
+  margin-left: 0;
 }
 
 nav.breadcrumb li + li::before {
   display: inline-block;
   margin: 0 var(--gcds-spacing-100);
-  transform: rotate(15deg);
-  border-right: 0.1em solid currentColor;
-  height: 0.8em;
-  content: "";
+  content: ">";
 }
 
 nav.breadcrumb [aria-current="page"] {
