@@ -1,6 +1,7 @@
 ---
 title: Case à cocher
 layout: "layouts/documentation.njk"
+date: "git Last Modified"
 eleventyNavigation:
   key: checkboxFR
   title: Case à cocher — à venir
@@ -11,6 +12,7 @@ eleventyNavigation:
   hideMain: true
 translationKey: "checkbox"
 permalink: false
+lastModified: true
 ---
 
 # Case à cocher

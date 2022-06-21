@@ -493,6 +493,14 @@ ul.doc-links li.github-link:before {
 }
 
 /*
+ * Date modified
+ */
+.date-modified {
+  font-size: 1rem;
+  margin: var(--gcds-spacing-500) 0 0;
+}
+
+/*
  * Misc
  */
 

@@ -1,6 +1,7 @@
 ---
 title: Radio button
 layout: "layouts/documentation.njk"
+date: "git Last Modified"
 eleventyNavigation:
   key: radioEN
   title: Radio button — coming soon
@@ -11,4 +12,5 @@ eleventyNavigation:
   hideMain: true
 translationKey: "radio"
 permalink: false
+lastModified: true
 ---

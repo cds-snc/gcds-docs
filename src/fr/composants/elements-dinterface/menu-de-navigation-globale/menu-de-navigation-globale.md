@@ -1,6 +1,7 @@
 ---
 title: Menu de navigation globale
 layout: "layouts/documentation.njk"
+date: "git Last Modified"
 eleventyNavigation:
   key: sitemenuFR
   title: Menu de navigation globale  — à venir
@@ -11,4 +12,5 @@ eleventyNavigation:
   hideMain: true
 translationKey: "sitemenu"
 permalink: false
+lastModified: true
 ---

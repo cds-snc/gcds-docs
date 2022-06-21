@@ -1,6 +1,7 @@
 ---
 title: Typographie - Bases
 layout: "layouts/documentation.njk"
+date: "git Last Modified"
 translationKey: "typography"
 eleventyNavigation:
   key: typographyFR
@@ -12,6 +13,7 @@ onThisPage:
   0: Unités de style pour la typographie
   1: Directives sur l’utilisation de la typographie
 github: https://github.com/cds-snc/gcds-tokens
+lastModified: true
 ---
 
 <header>

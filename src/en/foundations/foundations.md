@@ -1,6 +1,7 @@
 ---
 title: Foundations
 layout: "layouts/foundations-overview.njk"
+date: "git Last Modified"
 eleventyNavigation:
   key: foundationsEN
   title: Foundations
@@ -9,6 +10,7 @@ eleventyNavigation:
   parent: homeEn
 translationKey: "foundatons"
 github: https://github.com/cds-snc/gcds-tokens
+lastModified: true
 ---
 
 # Foundations

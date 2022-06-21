@@ -1,6 +1,7 @@
 ---
 title: Contact us
 layout: "layouts/base.njk"
+date: "git Last Modified"
 eleventyNavigation:
   key: contactusEN
   title: Contact us
@@ -9,6 +10,7 @@ eleventyNavigation:
   parent: homeEn
 translationKey: "contactus"
 contactForm: en
+lastModified: true
 ---
 
 # Contact us

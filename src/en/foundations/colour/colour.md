@@ -1,6 +1,7 @@
 ---
 title: Colour - Foundations
 layout: "layouts/documentation.njk"
+date: "git Last Modified"
 translationKey: "colour"
 eleventyNavigation:
   key: colourEN
@@ -11,6 +12,7 @@ eleventyNavigation:
   hideMain: true
   order: 2
 permalink: false
+lastModified: true
 ---
 
 # Colour

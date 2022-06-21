@@ -1,6 +1,7 @@
 ---
 title: Bouton - Composansts
 layout: "layouts/base.njk"
+date: "git Last Modified"
 eleventyNavigation:
   key: buttonFR
   title: Bouton
@@ -16,6 +17,7 @@ onThisPage:
   4: Où placer les boutons
   5: Rédiger un bon libellé de bouton
 github: https://github.com/cds-snc/gcds-components/tree/main/src/components/gcds-button
+lastModified: true
 ---
 
 <header>

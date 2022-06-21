@@ -1,6 +1,7 @@
 ---
 title: Installation
 translationKey: installation
+date: "git Last Modified"
 layout: "layouts/base.njk"
 eleventyNavigation:
     key: installationFR
@@ -14,6 +15,7 @@ onThisPage:
   2: JavaScript
   3: React
   4: Vue
+lastModified: true
 ---
 
 # Installation

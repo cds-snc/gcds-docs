@@ -1,6 +1,7 @@
 ---
 title: Form guidance - Components
 layout: "layouts/documentation.njk"
+date: "git Last Modified"
 eleventyNavigation:
   key: formsguidanceEN
   title: Form guidance
@@ -13,6 +14,7 @@ onThisPage:
   1: Provide a clear path to completion
   2: Make the form easy to understand
   3: Give clear interaction feedback
+lastModified: true
 ---
 
 <header>
@@ -86,7 +88,7 @@ Not a required field? Just remove it altogether. It’s probably not that import
 
 ### Choose form elements that match your use case
 
-Choose form components that fit the use case for your data needs. Prioritize the user experience.  
+Choose form components that fit the use case for your data needs. Prioritize the user experience.
 
 Consider the mental models of someone completing your form. They might be familiar with answering questions a certain way. Try to do what would be most comfortable for them.
 
@@ -108,7 +110,7 @@ Keep to one thing per page. One-page forms work well for a single task like a co
 
 ### Pick a good label
 
-The label is the first thing that tells a person what goes in the field. Understand how person using your form will see, hear, interact with, and understand each label.  
+The label is the first thing that tells a person what goes in the field. Understand how person using your form will see, hear, interact with, and understand each label.
 
 Keep your label text unique and short, to the essential minimum, using sentence case. Avoid repeating the same label text for a different field.
 

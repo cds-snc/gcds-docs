@@ -1,6 +1,7 @@
 ---
 title: Spacing - Foundations
 layout: "layouts/documentation.njk"
+date: "git Last Modified"
 translationKey: "spacing"
 eleventyNavigation:
   key: spacingEN
@@ -11,6 +12,7 @@ eleventyNavigation:
   hideMain: true
   order: 3
 permalink: false
+lastModified: true
 ---
 
 # Spacing

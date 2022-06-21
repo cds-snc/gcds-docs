@@ -1,6 +1,7 @@
 ---
 title: Form elements
 layout: "layouts/documentation.njk"
+date: "git Last Modified"
 eleventyNavigation:
   key: formsEN
   title: Forms
@@ -11,6 +12,7 @@ eleventyNavigation:
 translationKey: "forms"
 permalink: false
 tags: componentsOverview
+lastModified: true
 ---
 
 ## Form elements

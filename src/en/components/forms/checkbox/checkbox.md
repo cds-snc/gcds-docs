@@ -1,6 +1,7 @@
 ---
 title: Checkbox
 layout: "layouts/documentation.njk"
+date: "git Last Modified"
 eleventyNavigation:
   key: checkboxEN
   title: Checkbox — coming soon
@@ -11,4 +12,5 @@ eleventyNavigation:
   hideMain: true
 translationKey: "checkbox"
 permalink: false
+lastModified: true
 ---

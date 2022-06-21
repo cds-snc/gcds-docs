@@ -1,6 +1,7 @@
 ---
 title: Input - Components
 layout: "layouts/documentation.njk"
+date: "git Last Modified"
 eleventyNavigation:
   key: inputsEN
   title: Input
@@ -17,6 +18,7 @@ onThisPage:
   5: How to write a good input label
   6: When to use hint text and error messages
 github: https://github.com/cds-snc/gcds-components/tree/main/src/components/gcds-input
+lastModified: true
 ---
 
 <header>

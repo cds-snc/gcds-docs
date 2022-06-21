@@ -1,6 +1,7 @@
 ---
 title: Typography - Foundations
 layout: "layouts/documentation.njk"
+date: "git Last Modified"
 translationKey: "typography"
 eleventyNavigation:
   key: typographyEN
@@ -12,11 +13,12 @@ onThisPage:
   0: Typography design tokens
   1: Guidance on using typography
 github: https://github.com/cds-snc/gcds-tokens
+lastModified: true
 ---
 
 <header>
 
-# Typography tokens 
+# Typography tokens
 
 Typography is the presentation of text. It includes fonts, sizing, and spacing as applied to the style, arrangement, and appearance of letters, numbers, and symbols.
 

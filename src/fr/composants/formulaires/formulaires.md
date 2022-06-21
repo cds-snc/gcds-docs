@@ -1,6 +1,7 @@
 ---
 title: Éléments de formulaire
 layout: "layouts/documentation.njk"
+date: "git Last Modified"
 eleventyNavigation:
   key: formsFR
   title: Formulaires
@@ -11,6 +12,7 @@ eleventyNavigation:
 translationKey: "forms"
 permalink: false
 tags: componentsOverview
+lastModified: true
 ---
 
 ## Éléments de formulaire

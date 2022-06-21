@@ -1,6 +1,7 @@
 ---
 title: Espacement - Bases
 layout: "layouts/documentation.njk"
+date: "git Last Modified"
 translationKey: "spacing"
 eleventyNavigation:
   key: spacingFR
@@ -11,6 +12,7 @@ eleventyNavigation:
   hideMain: true
   order: 2
 permalink: false
+lastModified: true
 ---
 
 # Espacement

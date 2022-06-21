@@ -1,6 +1,7 @@
 ---
 title: Pied de page
 layout: "layouts/documentation.njk"
+date: "git Last Modified"
 eleventyNavigation:
   key: footerFR
   title: Pied de page  — à venir
@@ -11,4 +12,5 @@ eleventyNavigation:
   hideMain: true
 translationKey: "footer"
 permalink: false
+lastModified: true
 ---

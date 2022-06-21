@@ -1,6 +1,7 @@
 ---
 title: Text area - Components
 layout: "layouts/documentation.njk"
+date: "git Last Modified"
 eleventyNavigation:
   key: textareaEN
   title: Text area
@@ -17,6 +18,7 @@ onThisPage:
   5: How to write good text area labels
   6: When to use hint text and error messages
 github: https://github.com/cds-snc/gcds-components/tree/main/src/components/gcds-textarea
+lastModified: true
 ---
 
 <header>

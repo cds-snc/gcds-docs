@@ -1,6 +1,7 @@
 ---
 title: Éléments d’interface
 layout: "layouts/documentation.njk"
+date: "git Last Modified"
 eleventyNavigation:
   key: basicFR
   title: Éléments d’interface
@@ -10,6 +11,7 @@ eleventyNavigation:
   url: null
 permalink: false
 tags: componentsOverview
+lastModified: true
 ---
 
 ## Éléments d’interface

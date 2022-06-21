@@ -1,6 +1,7 @@
 ---
 title: Site menu
 layout: "layouts/documentation.njk"
+date: "git Last Modified"
 eleventyNavigation:
   key: sitemenuEN
   title: Site menu — coming soon
@@ -11,4 +12,5 @@ eleventyNavigation:
   hideMain: true
 translationKey: "sitemenu"
 permalink: false
+lastModified: true
 ---

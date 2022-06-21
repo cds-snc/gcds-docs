@@ -1,6 +1,7 @@
 ---
 title: Interface elements
 layout: "layouts/documentation.njk"
+date: "git Last Modified"
 eleventyNavigation:
   key: basicEN
   title: Interface elements
@@ -10,6 +11,7 @@ eleventyNavigation:
   url: null
 permalink: false
 tags: componentsOverview
+lastModified: true
 ---
 
 ## Interface elements

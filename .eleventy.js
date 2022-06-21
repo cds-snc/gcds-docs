@@ -52,6 +52,15 @@ module.exports = function (eleventyConfig) {
     return moment(date).format(format);
   });
 
+  /* Format last modified date */
+  eleventyConfig.addFilter("dateLastModified", function(value) {
+    return value.toLocaleDateString({
+      year: "numeric",
+      month: "2-digit",
+      day: "2-digit",
+    })
+  });
+
   /* Markdown Overrides */
   let markdownLibrary = markdownIt({
     html: true,

@@ -1,6 +1,7 @@
 ---
 title: Button - Components
 layout: "layouts/documentation.njk"
+date: "git Last Modified"
 eleventyNavigation:
   key: buttonsEN
   title: Button
@@ -15,6 +16,7 @@ onThisPage:
   4: Where to place a button
   5: How to write a good button label
 github: https://github.com/cds-snc/gcds-components/tree/main/src/components/gcds-button
+lastModified: true
 ---
 
 <header>

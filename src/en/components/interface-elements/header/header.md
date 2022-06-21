@@ -1,6 +1,7 @@
 ---
 title: Header
 layout: "layouts/documentation.njk"
+date: "git Last Modified"
 eleventyNavigation:
   key: headerEN
   title: Header — coming soon
@@ -11,4 +12,5 @@ eleventyNavigation:
   hideMain: true
 translationKey: "header"
 permalink: false
+lastModified: true
 ---

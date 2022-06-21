@@ -1,6 +1,7 @@
 ---
 title: Footer
 layout: "layouts/documentation.njk"
+date: "git Last Modified"
 eleventyNavigation:
   key: footerEN
   title: Footer — coming soon
@@ -11,4 +12,5 @@ eleventyNavigation:
   hideMain: true
 translationKey: "footer"
 permalink: false
+lastModified: true
 ---

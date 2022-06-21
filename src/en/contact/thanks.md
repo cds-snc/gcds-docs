@@ -1,7 +1,9 @@
 ---
 title: Thank you for reaching out!
 layout: "layouts/base.njk"
+date: "git Last Modified"
 eleventyExcludeFromCollections: true
+lastModified: true
 ---
 
 # Thank you for reaching out!

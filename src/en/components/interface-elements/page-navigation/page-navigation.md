@@ -1,6 +1,7 @@
 ---
 title: Page navigation
 layout: "layouts/documentation.njk"
+date: "git Last Modified"
 eleventyNavigation:
   key: pagenavigationEN
   title: Page navigation — coming soon
@@ -11,4 +12,5 @@ eleventyNavigation:
   hideMain: true
 translationKey: "pagenavigation"
 permalink: false
+lastModified: true
 ---

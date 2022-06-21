@@ -1,6 +1,7 @@
 ---
 title: Champ de saisie - Composants
 layout: "layouts/documentation.njk"
+date: "git Last Modified"
 eleventyNavigation:
   key: inputsFR
   title: Champ de saisie
@@ -17,6 +18,7 @@ onThisPage:
   5: Rédiger une bonne étiquette
   6: Texte d’aide et messages d’erreur
 github: https://github.com/cds-snc/gcds-components/tree/main/src/components/gcds-input
+lastModified: true
 ---
 
 <header>

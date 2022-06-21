@@ -1,6 +1,7 @@
 ---
 title: Error message - Components
 layout: "layouts/documentation.njk"
+date: "git Last Modified"
 eleventyNavigation:
   key: errormessageEN
   title: Error message
@@ -16,6 +17,7 @@ onThisPage:
   4: How to write a good error message
   5: Make the error state obvious
 github: https://github.com/cds-snc/gcds-components/tree/main/src/components/gcds-error-message
+lastModified: true
 ---
 
 <header>

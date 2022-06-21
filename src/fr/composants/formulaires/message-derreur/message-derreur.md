@@ -1,6 +1,7 @@
 ---
 title: Message d’erreur - Composants
 layout: "layouts/documentation.njk"
+date: "git Last Modified"
 eleventyNavigation:
   key: errormessageFR
   title: Message d’erreur
@@ -16,6 +17,7 @@ onThisPage:
   4: Rédiger un bon message d’erreur
   5: Assurer la visibilité de l’erreur
 github: https://github.com/cds-snc/gcds-components/tree/main/src/components/gcds-error-message
+lastModified: true
 ---
 
 <header>

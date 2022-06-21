@@ -1,6 +1,7 @@
 ---
 title: Aide à la conception de formulaires - Composants
 layout: "layouts/documentation.njk"
+date: "git Last Modified"
 eleventyNavigation:
   key: formsguidanceFR
   title: Aide à la conception de formulaires
@@ -13,6 +14,7 @@ onThisPage:
   1: Fournir une marche à suivre qui est claire
   2: Faciliter la compréhension du formulaire
   3: Donner une rétroaction claire sur l’interaction
+lastModified: true
 ---
 
 <header>
@@ -108,9 +110,9 @@ Limitez-vous à une notion par page. Les formulaires d’une seule page se prêt
 
 ### Miser sur une bonne étiquette
 
-Le libellé de l’étiquette est le premier élément d’information dont se sert une personne pour savoir quoi écrire dans un champ. Tenez compte de la façon dont l’étiquette peut être vue, entendue et comprise, et des interactions possibles. 
+Le libellé de l’étiquette est le premier élément d’information dont se sert une personne pour savoir quoi écrire dans un champ. Tenez compte de la façon dont l’étiquette peut être vue, entendue et comprise, et des interactions possibles.
 
-Rédigez des étiquettes concises et brèves, où seul le premier mot porte la majuscule. Veillez à ce que chaque étiquette soit unique et ne soit pas réutilisée pour plus d’un champ.  
+Rédigez des étiquettes concises et brèves, où seul le premier mot porte la majuscule. Veillez à ce que chaque étiquette soit unique et ne soit pas réutilisée pour plus d’un champ.
 
 Astuce : réduisez le nombre de mots des étiquettes en utilisant des titres plutôt que des questions.
 
