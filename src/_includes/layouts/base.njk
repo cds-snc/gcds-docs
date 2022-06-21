@@ -21,16 +21,6 @@
         <script nomodule src="/components/dist/gcds/gcds.js"></script>
     </head>
     <body>
-        <nav>
-            <gcds-button
-                button-type="link"
-                button-role="skip-to-content"
-                href="#mc"
-            >
-                {{ base[locale].skipTo }}
-            </gcds-button>
-        </nav>
-
         {% include "partials/header.njk" %}
 
         <div {% if onThisPage %}class="container sidebar-layout"{% else %}class="container general-layout"{% endif %}>

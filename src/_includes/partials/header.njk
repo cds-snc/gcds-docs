@@ -1,48 +1,23 @@
 {% set otherLang = "fr" if locale == "en" else "en" %}
+{% set translatedUrl = '' %}
 
-{% include "partials/experimentalbanner.njk" %}
+{# loop through all the content of the site #}
+{% for item in collections.all %}
+    {# for each item in the loop, check if
+    - its translationKey matches the current item translationKey
+    - its locale matches the code of the language we are looping through #}
+    {% if item.data.translationKey == translationKey and item.data.locale == otherLang %}
+        {% set translatedUrl = item.url %}
+    {% endif %}
+{% endfor %}
 
-<header class="header">
-    <div class="header__container">
-        <a class="header__logo" href="https://www.canada.ca/" target="_blank" aria-label="{% if locale == "en" %}Canada.ca site (Opens in a new tab){% else %}Site Web Canada.ca (S'ouvre dans un nouvel onglet){% endif %}">
-        {% if locale == "en" %}
-            {{ '/src/images/en/gov-canada-logo.svg' | svgContents | safe }}
-        {% else %}
-            {{ '/src/images/fr/gov-canada-logo.svg' | svgContents | safe }}
-        {% endif %}
-        </a>
-
-        {# loop though site.languages #}
-        {% for lgg in site.languages %}
-            {% if loop.first %}<ul>{% endif %}
-
-            {# set translatedUrl to the homepage of that language by default #}
-            {% set translatedUrl = "/" + lgg.code + "/" %}
-
-            {# Only render opposite language link #}
-            {% if lgg.code != locale %}
-                {# loop through all the content of the site #}
-                {% for item in collections.all %}
-                    {# for each item in the loop, check if
-                    - its translationKey matches the current item translationKey
-                    - its locale matches the code of the language we are looping through #}
-                    {% if item.data.translationKey == translationKey and item.data.locale == lgg.code %}
-                        {% set translatedUrl = item.url %}
-                    {% endif %}
-                {% endfor %}
-
-                <li>
-                    <a href="{{ translatedUrl | url }}" lang="{{ otherLang }}">
-                        {{ lgg.label }}
-                    </a>
-                </li>
-            {% endif %}
-
-            {% if loop.last %}</ul>{% endif %}
-        {% endfor %}
-    </div>
-
+<gcds-header
+    skip-to-href="#mc"
+    lang-href="{{ translatedUrl }}"
+    signature-has-link="true"
+    signature-variant="colour"
+>
+    {% include "partials/experimentalbanner.njk" %}
     {% include "partials/nav.njk" %}
-
     {% include "partials/breadcrumbs.njk" %}
-</header>
+</gcds-header>
