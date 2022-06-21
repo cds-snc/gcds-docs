@@ -67,6 +67,14 @@ h1 {
   line-height: var(--gcds-line-heights-h1);
 }
 
+h1::after {
+  border-bottom: 0.18em solid #af3c43;
+  content: "";
+  display: block;
+  padding-bottom: 8px;
+  width: 70px;
+}
+
 h2 {
   font-size: var(--gcds-font-sizes-h2);
   line-height: var(--gcds-line-heights-h2);
@@ -291,8 +299,7 @@ aside {
     display: grid;
     grid-gap: var(--gcds-spacing-300);
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-template-areas:
-        "sidebar main main main";
+    grid-template-areas: "sidebar main main main";
   }
   div.sidebar-layout > aside {
     grid-area: sidebar;
@@ -436,13 +443,15 @@ ul.doc-links li {
   background-color: var(--gcds-color-blue-800);
   border-top-left-radius: 20px;
   border-bottom-left-radius: 20px;
-  padding: var(--gcds-spacing-50) var(--gcds-spacing-100) var(--gcds-spacing-50) var(--gcds-spacing-300);
+  padding: var(--gcds-spacing-50) var(--gcds-spacing-100) var(--gcds-spacing-50)
+    var(--gcds-spacing-300);
 }
 .doc-links .stage-chip span:last-of-type {
   border: 1px solid var(--gcds-color-blue-800);
   border-top-right-radius: 20px;
   border-bottom-right-radius: 20px;
-  padding: var(--gcds-spacing-50) var(--gcds-spacing-300) var(--gcds-spacing-50) var(--gcds-spacing-100);
+  padding: var(--gcds-spacing-50) var(--gcds-spacing-300) var(--gcds-spacing-50)
+    var(--gcds-spacing-100);
 }
 
 ul.doc-links li.figma-link:before,
@@ -517,14 +526,14 @@ table > tbody td:nth-child(4) {
 
 table td,
 table th {
-	padding: 15px;
+  padding: 15px;
 }
 table thead th {
-	background-color: var(--gcds-color-grayscale-200);
-	border: 1px solid var(--gcds-color-grayscale-250);
+  background-color: var(--gcds-color-grayscale-200);
+  border: 1px solid var(--gcds-color-grayscale-250);
 }
 table tbody td {
-	border: 1px solid var(--gcds-color-grayscale-250);
+  border: 1px solid var(--gcds-color-grayscale-250);
 }
 
 #mc header,
