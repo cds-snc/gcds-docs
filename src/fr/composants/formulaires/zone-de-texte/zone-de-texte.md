@@ -118,7 +118,7 @@ Définissez une hauteur qui est proportionnelle à la quantité de texte attendu
 
 Vérifiez que l’emplacement du champ assure un bon contraste entre la ligne ou le contour du champ et l’arrière-plan, ainsi qu’entre l’étiquette et l’arrière-plan.
 
-Utilisez l’état de survol intégré ou un état de survol personnalisé qui assure un bon constraste.
+Utilisez l’état de survol intégré ou un état de survol personnalisé qui assure un bon contraste.
 
 Marquez les champs obligatoires d’une astéristique et du mot « obligatoire ».
 
