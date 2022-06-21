@@ -120,7 +120,7 @@ Check the visibility of both the label text and entry field line or border again
 
 Use built in or custom hover state to ensure good colour contrast.
 
-Mark fields as required using an asterisk and the word “required”.
+Mark fields as required using the word “required”.
 
 Avoid placing hint text or error messages below the field where they might be hidden.
 
