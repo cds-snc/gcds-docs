@@ -1,12 +1,14 @@
 ---
 title: Home
 layout: "layouts/home.njk"
+date: "git Last Modified"
 permalink: /fr/
 translationKey: "index"
 eleventyNavigation:
   key: homeFr
   title: Accueil
   locale: fr
+lastModified: true
 ---
 
 <header>

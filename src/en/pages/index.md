@@ -1,6 +1,7 @@
 ---
 title: Home
 layout: "layouts/home.njk"
+date: "git Last Modified"
 permalink: /en/
 translationKey: "index"
 redirect_from: /
@@ -8,6 +9,7 @@ eleventyNavigation:
   key: homeEn
   title: Home
   locale: en
+lastModified: true
 ---
 
 <header>

@@ -221,6 +221,10 @@ h3 > a.anchor-link:focus {
   display: block;
 }
 
+.banner small {
+  color: var(--gcds-color-grayscale-0);
+}
+
 .banner .banner__icon {
   font-size: 80%;
   display: block;
@@ -498,6 +502,11 @@ ul.doc-links li.github-link:before {
 .date-modified {
   font-size: 1rem;
   margin: var(--gcds-spacing-500) 0 0;
+}
+
+.date-modified dt,
+.date-modified dd {
+  display: inline;
 }
 
 /*

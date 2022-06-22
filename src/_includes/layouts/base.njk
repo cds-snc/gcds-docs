@@ -32,7 +32,12 @@
             </main>
 
             {% if lastModified %}
-                <p class="date-modified">{% if locale == "en" %}Date Modified{% else %}Date de modification{% endif %}: {{ page.date | dateLastModified}}</p>
+                <dl class="date-modified">
+                    <dt>{% if locale == "en" %}Date modified{% else %}Date de modification {% endif %}:</dt>
+                    <dd>
+                        <time>{{ page.date | dateLastModified}}</time>
+                    </dd>
+                </dl>
             {% endif %}
         </div>
 

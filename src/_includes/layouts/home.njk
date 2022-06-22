@@ -39,6 +39,15 @@
             </main>
         </div>
 
+        {% if lastModified %}
+            <dl class="date-modified">
+                <dt>{% if locale == "en" %}Date modified{% else %}Date de modification {% endif %}:</dt>
+                <dd>
+                    <time>{{ page.date | dateLastModified}}</time>
+                </dd>
+            </dl>
+        {% endif %}
+
         {% include "partials/footer.njk" %}
 
         {% if contactForm %}
