@@ -37,16 +37,16 @@
             <main id="mc" class="no-aside">
                 {{ content | safe }}
             </main>
-        </div>
 
-        {% if lastModified %}
-            <dl class="date-modified">
-                <dt>{% if locale == "en" %}Date modified{% else %}Date de modification {% endif %}:</dt>
-                <dd>
-                    <time>{{ page.date | dateLastModified}}</time>
-                </dd>
-            </dl>
-        {% endif %}
+            {% if lastModified %}
+                <dl class="date-modified">
+                    <dt>{% if locale == "en" %}Date modified{% else %}Date de modification {% endif %}:</dt>
+                    <dd>
+                        <time>{{ page.date | dateLastModified}}</time>
+                    </dd>
+                </dl>
+            {% endif %}
+        </div>
 
         {% include "partials/footer.njk" %}
 
