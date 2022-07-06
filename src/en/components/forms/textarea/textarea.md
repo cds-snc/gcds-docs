@@ -17,6 +17,7 @@ onThisPage:
   5: How to write good text area labels
   6: When to use hint text and error messages
 github: https://github.com/cds-snc/gcds-components/tree/main/src/components/gcds-textarea
+figma: https://www.figma.com/file/4KWj8wnnXoq6cA6yl0dnsR/GC-Components?node-id=3%3A599
 ---
 
 <header>

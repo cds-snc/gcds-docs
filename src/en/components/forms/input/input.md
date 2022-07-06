@@ -17,6 +17,7 @@ onThisPage:
   5: How to write a good input label
   6: When to use hint text and error messages
 github: https://github.com/cds-snc/gcds-components/tree/main/src/components/gcds-input
+figma: https://www.figma.com/file/4KWj8wnnXoq6cA6yl0dnsR/GC-Components?node-id=2%3A598
 ---
 
 <header>
