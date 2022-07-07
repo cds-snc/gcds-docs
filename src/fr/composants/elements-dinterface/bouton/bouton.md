@@ -16,6 +16,7 @@ onThisPage:
   4: Où placer les boutons
   5: Rédiger un bon libellé de bouton
 github: https://github.com/cds-snc/gcds-components/tree/main/src/components/gcds-button
+figma: https://www.figma.com/file/4KWj8wnnXoq6cA6yl0dnsR/GC-Components?node-id=40%3A56
 ---
 
 <header>
