@@ -17,7 +17,7 @@ onThisPage:
   5: Rédiger une bonne étiquette
   6: Texte d’aide et messages d’erreur
 github: https://github.com/cds-snc/gcds-components/tree/main/src/components/gcds-textarea
-figma: https://www.figma.com/file/4KWj8wnnXoq6cA6yl0dnsR/GC-Components?node-id=3%3A599
+figma: https://www.figma.com/community/file/1128687821123298228
 ---
 
 <header>
