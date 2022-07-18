@@ -9,14 +9,17 @@
 }
 
 body {
-  display: flex;
-  min-height: 100vh;
-  flex-direction: column;
   font-size: var(--gcds-font-sizes-paragraph);
   line-height: var(--gcds-line-heights-paragraph);
   color: var(--gcds-color-grayscale-1000);
   font-family: var(--gcds-font-families-body), sans-serif;
   margin: 0;
+}
+
+.content-wrapper {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
 }
 
 .container {

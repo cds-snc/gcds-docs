@@ -31,23 +31,25 @@
             </gcds-button>
         </nav>
 
-        {% include "partials/header.njk" %}
+        <div class="content-wrapper">
+            {% include "partials/header.njk" %}
 
-        <div {% if onThisPage %}class="container sidebar-layout"{% else %}class="container general-layout"{% endif %}>
-            {% if onThisPage %}
-                {% include "partials/onthispage.njk" %}
+            <div {% if onThisPage %}class="container sidebar-layout"{% else %}class="container general-layout"{% endif %}>
+                {% if onThisPage %}
+                    {% include "partials/onthispage.njk" %}
+                {% endif %}
+
+                <main id="mc">
+                    {{ content | safe }}
+                </main>
+            </div>
+
+            {% include "partials/footer.njk" %}
+
+            {% if contactForm %}
+                {% include "partials/contactform.njk" %}
             {% endif %}
-
-            <main id="mc">
-                {{ content | safe }}
-            </main>
         </div>
-
-        {% include "partials/footer.njk" %}
-
-        {% if contactForm %}
-            {% include "partials/contactform.njk" %}
-        {% endif %}
 
         {% initClipboardJS %}
     </body>

@@ -31,18 +31,20 @@
             </gcds-button>
         </nav>
 
-        {% include "partials/header.njk" %}
+        <div class="content-wrapper">
+            {% include "partials/header.njk" %}
 
-        <div class="container">
-            <main id="mc" class="no-aside">
-                {{ content | safe }}
-            </main>
+            <div class="container">
+                <main id="mc" class="no-aside">
+                    {{ content | safe }}
+                </main>
+            </div>
+
+            {% include "partials/footer.njk" %}
+
+            {% if contactForm %}
+                {% include "partials/contactform.njk" %}
+            {% endif %}
         </div>
-
-        {% include "partials/footer.njk" %}
-
-        {% if contactForm %}
-            {% include "partials/contactform.njk" %}
-        {% endif %}
     </body>
 </html>
