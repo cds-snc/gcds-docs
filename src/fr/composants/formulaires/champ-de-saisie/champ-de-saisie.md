@@ -237,7 +237,7 @@ L’attribut <span lang="en">`input-type`</span> peut prendre les valeurs suivan
 
 ### Appliquer les bases du système de design
 
-Choisissez des unités de style pour la typographie parmi les [bases du système de design du GC]({{ "/fr/bases/" | url }}). Les unités de style pour la couleur et l’espacement seront bientôt disponibles!
+Choisissez des unités de style pour la [typographie]({{ "/fr/bases/typographie/" | url }}) parmi les [bases du système de design du GC]({{ "/fr/bases/" | url }}). Les unités de style pour la couleur et l’espacement seront bientôt disponibles!
 
 </section>
 
@@ -263,7 +263,7 @@ Utilisez un champ de saisie pour collecter des informations comme :
 
 **Cases à cocher** : à utiliser quand vous offrez plusieurs options et qu’on peut en choisir plusieurs.
 
-**Boutons** : à utiliser quand vous demandez un consentement ou une autorisation, ou que vous offrez un choix entre 2 options.
+**[Boutons]({{ "/fr/composants/elements-dinterface/bouton/" | url }})** : à utiliser quand vous demandez un consentement ou une autorisation, ou que vous offrez un choix entre 2 options.
 
 **Sélecteurs de date** : à utiliser quand vous voulez qu’une personne choisisse une date, par exemple pour un rendez-vous.
 
@@ -288,8 +288,8 @@ Vérifiez que l’emplacement du champ assure un bon contraste entre la ligne ou
 Utilisez l’état de survol intégré ou un état de survol personnalisé qui assure un bon contraste.
 
 Marquez les champs obligatoires du mot « obligatoire ».
-  
-Évitez de placer le texte d’aide ou les messages d’erreur après le champ, afin qu’ils soient lus.
+
+Évitez de placer le texte d’aide ou les [messages d’erreur]({{ "/fr/composants/formulaires/message-derreur/" | url }}) après le champ, afin qu’ils soient lus.
 
 </section>
 
@@ -313,7 +313,7 @@ Ne demandez que les informations dont vous avez besoin. Pour vous aider à savoi
 
 <section aria-label="Texte d’aide et messages d’erreur">
 
-## Texte d’aide et messages d’erreur
+## Texte d’aide et [messages d’erreur]({{ "/fr/composants/formulaires/message-derreur/" | url }})
 
 ### Comment utiliser le texte d’aide
 
@@ -323,9 +323,9 @@ Rédigez le texte d’aide pour qu’il soit informatif, court et précis.
 
 Assurez-vous que le texte d’aide ne disparaisse pas au moment d’écrire.
 
-### Comment utiliser les messages d’erreur
+### Comment utiliser les [messages d’erreur]({{ "/fr/composants/formulaires/message-derreur/" | url }})
 
-Rédigez un message d’erreur pour tous les champs obligatoires dont la réponse est manquante ou invalide.
+Rédigez un [message d’erreur]({{ "/fr/composants/formulaires/message-derreur/" | url }}) pour tous les champs obligatoires dont la réponse est manquante ou invalide.
 
 Expliquez à la personne la nature du problème et comment elle peut y remédier pour accomplir son objectif. Évitez toute forme de reproche.
 

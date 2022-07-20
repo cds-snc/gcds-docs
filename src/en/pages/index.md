@@ -51,13 +51,13 @@ Contribute to the system, growing collective knowledge and resources. We're work
 
 ### Unified guidance
 
-Find reusable code for common components paired with best practice advice to build to the Canada.ca standard.
+Find reusable code for [common components]({{ "/en/components/" | url }}) paired with best practice advice to build to the Canada.ca standard.
 
 ### Codified decisions
 
-Apply brand and key aesthetics with decisions pre-built into code on typography, colour, and spacing.
+Apply brand and key aesthetics with decisions pre-built into code on [typography]({{ "/en/foundations/typography/" | url }}), colour, and spacing.
 
-### Component library
+### [Component library]({{ "/en/components/" | url }})
 
 Browse a library of tech agnostic, accessible, coded web components you can import and use as-is or modify to fit your needs.
 
@@ -75,4 +75,4 @@ We want to work with you, federal public servants on web and digital product tea
 
 ## Get a head start
 
-We’ve assembled guidance for each component so you’re caught up on Government of Canada required reading. Hop into the design system’s documentation to explore at your own speed.
+We’ve assembled [guidance]({{ "/en/components/" | url }}) for each component so you’re caught up on Government of Canada required reading. Hop into the design system’s documentation to explore at your own speed.

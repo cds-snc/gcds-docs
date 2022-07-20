@@ -207,7 +207,7 @@ Les icônes peuvent agir comme aide visuelle si elles sont utilisées avec parci
 
 ### Appliquer les bases du système de design
 
-Choisissez des unités de style pour la typographie parmi les [bases du système de design du GC]({{ "/fr/bases/" | url }}). Les unités de style pour la couleur et l’espacement seront bientôt disponibles!
+Choisissez des unités de style pour la [typographie]({{ "/fr/bases/typographie/" | url }}) parmi les [bases du système de design du GC]({{ "/fr/bases/" | url }}). Les unités de style pour la couleur et l’espacement seront bientôt disponibles!
 
 </section>
 

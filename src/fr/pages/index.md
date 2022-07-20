@@ -50,13 +50,13 @@ Contribuez au système de design, et enrichissez ainsi les connaissances et ress
 
 ### Toute l’info sur les composants
 
-Ayez à votre disposition à la fois le code de composants courants et les bonnes pratiques à suivre pour concevoir selon la norme de Canada.ca.
+Ayez à votre disposition à la fois le code de [composants courants]({{ "/fr/composants/" | url }}) et les bonnes pratiques à suivre pour concevoir selon la norme de Canada.ca.
 
 ### Décisions codifiées
 
-Observez facilement la marque et l'esthétique de Canada.ca grâce à des décisions sur la typographie, les couleurs et l'espacement déjà intégrées au code.
+Observez facilement la marque et l'esthétique de Canada.ca grâce à des décisions sur la [typographie]({{ "/fr/bases/typographie/" | url }}), les couleurs et l'espacement déjà intégrées au code.
 
-### Bibliothèque de composants
+### [Bibliothèque de composants]({{ "/fr/composants/" | url }})
 
 Parcourez une bibliothèque contenant le code de composants Web accessibles et interopérables, à importer tels quels ou à modifier selon vos besoins.
 
@@ -74,4 +74,4 @@ Nous souhaitons travailler avec vous — vous qui faites partie d'équipes de pr
 
 ## Partez avec une longueur d’avance
 
-Nous avons rassemblé pour vous les pratiques à suivre pour chacun des composants, donc vous serez déjà au fait des informations gouvernementales essentielles à connaître. Vous pouvez d’ores et déjà commencer à explorer la documentation du système de design.
+Nous avons rassemblé pour vous [les pratiques]({{ "/fr/composants/" | url }}) à suivre pour chacun des composants, donc vous serez déjà au fait des informations gouvernementales essentielles à connaître. Vous pouvez d’ores et déjà commencer à explorer la documentation du système de design.

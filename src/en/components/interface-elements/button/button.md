@@ -194,7 +194,7 @@ Icons can be a helpful visual aid when used sparingly and predictably. Avoid usi
 
 ### Apply design system foundations to buttons
 
-Select typography tokens from the GC Design System [foundations]({{ "/en/foundations" | url }}). Colour and spacing tokens coming soon!
+Select [typography]({{ "/en/foundations/typography/" | url }}) tokens from the GC Design System [foundations]({{ "/en/foundations" | url }}). Colour and spacing tokens coming soon!
 
 </section>
 

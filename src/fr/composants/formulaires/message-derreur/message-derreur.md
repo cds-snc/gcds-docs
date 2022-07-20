@@ -37,7 +37,7 @@ Un message d’erreur est un message qui informe une personne d’un problème e
 
 On utilise le message d’erreur pour informer une personne qu’elle doit intervenir quelque part avant de retourner à sa tâche.
 
-Planifiez-en un pour les champs de saisie ou les zones de texte marquées comme obligatoires.
+Planifiez-en un pour les [champs de saisie]({{ "/fr/composants/formulaires/champ-de-saisie/" | url }}) ou les [zones de texte]({{ "/fr/composants/formulaires/zone-de-texte/" | url }}) marquées comme obligatoires.
 
 Évitez d’utiliser les messages d’erreur quand vous le pouvez, et privilégiez la rétroaction positive.
 
@@ -167,7 +167,7 @@ Astuce : pour donner un ton humain et convivial à vos messages d’erreur, imag
 
 Si une erreur est déclenchée par l’envoi d’un formulaire, faites en sorte que l’étiquette et le contour du champ passent à une couleur « danger ».
 
-Placez le message d’erreur intercalé juste avant le champ de saisie (juste à gauche ou au-dessus) pour que les personnes le remarquent. La bannière du message d’erreur doit prendre toute la largeur du champ ou de la zone de texte.
+Placez le message d’erreur intercalé juste avant le [champ de saisie]({{ "/fr/composants/formulaires/champ-de-saisie/" | url }}) (juste à gauche ou au-dessus) pour que les personnes le remarquent. La bannière du message d’erreur doit prendre toute la largeur du champ ou de la [zone de texte]({{ "/fr/composants/formulaires/zone-de-texte/" | url }}).
 
 Utilisez les résumés d’erreurs en combinaison avec les messages d’erreur intercalés pour faire connaître toutes les interventions nécessaires. Cela évite aussi aux personnes de se demander quelle erreur de la liste correspond à quel champ plus loin dans la page.
 
