@@ -43,6 +43,10 @@ Text areas have built in states that change when someone interacts with that fie
 
 ### Text area
 
+<ul>
+  <li>Use the text area for longform, multi-line, response collection.</li>
+</ul>
+
 <div class="comp-show">
   <gcds-textarea
     textarea-id="textarea"
@@ -60,9 +64,6 @@ Text areas have built in states that change when someone interacts with that fie
 ></gcds-textarea>
 ```
 {% endviewCode %}
-
-Use the text area for longform, multi-line, response collection.
-
 </section>
 
 <section aria-label="How to modify the text area">
@@ -93,16 +94,13 @@ Use a text area field to gather information by:
 
 ## Related components
 
-**[Text input]({{ "/en/components/forms/input/" | url }})** for single-line responses.
-
-**Radio buttons or dropdowns** when you can give someone a set of options for single selections.
-
-**Checkboxes** when you can give someone a set of options for multi selections.
-
-**[Buttons]({{ "/en/components/interface-elements/button/" | url }})** when you’re asking consent or agreement or offering a binary choice.
-
-**Date selectors** when you want someone to choose a date, like for appointment scheduling.
-
+<ul>
+  <li><strong><a href="{{ "/en/components/forms/input/" | url }}">Text input</a></strong> for single-line responses.</li>
+  <li><strong>Radio buttons or dropdowns</strong> when you can give someone a set of options for single selections.</li>
+  <li><strong>Checkboxes</strong> when you can give someone a set of options for multi selections.</li>
+  <li><strong><a href="{{ "/en/components/interface-elements/button/" | url }}">Buttons</a></strong> when you’re asking consent or agreement or offering a binary choice.</li>
+  <li><strong>Date selectors</strong> when you want someone to choose a date, like for appointment scheduling.</li>
+</ul>
 </section>
 
 <section aria-label="Size and placement of text area">

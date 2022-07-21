@@ -43,6 +43,13 @@ Inputs have built in states that change when someone interacts with that field: 
 
 ### Text input
 
+<ul>
+  <li>Use for short, single-line, text response collection.</li>
+  <li>Use when no other specfic input type is available for single-line entry.</li>
+  <li>Use to collect a person’s name, in most cases by full name.</li>
+  <li>Use instead of the number input for things like estimates that may include non-numerical values.</li>
+</ul>
+
 <div class="comp-show">
   <gcds-input
     type="text"
@@ -80,15 +87,11 @@ Inputs have built in states that change when someone interacts with that field: 
 ```
 {% endviewCode %}
 
-Use for short, single-line, text response collection.
-
-Use when no other specfic input type is available for single-line entry.
-
-Use to collect a person’s name, in most cases by full name.
-
-Use instead of the number input for things like estimates that may include non-numerical values.
-
 ### Email input
+
+<ul>
+  <li>Use for email address collection.</li>
+</ul>
 
 <div class="comp-show">
   <gcds-input
@@ -112,9 +115,11 @@ Use instead of the number input for things like estimates that may include non-n
 ```
 {% endviewCode %}
 
-Use for email address collection.
-
 ### Password input
+
+<ul>
+  <li>Use for password collection and validation.</li>
+</ul>
 
 <div class="comp-show">
   <gcds-input
@@ -136,9 +141,12 @@ Use for email address collection.
 ```
 {% endviewCode %}
 
-Use for password collection and validation.
-
 ### Number input
+
+<ul>
+  <li>Use to reject values that are not numerical.</li>
+  <li>Tip: When you set a constraint, like a numerical range, use hint text to relay an instruction.</li>
+</ul>
 
 <div class="comp-show">
   <gcds-input
@@ -162,11 +170,11 @@ Use for password collection and validation.
 ```
 {% endviewCode %}
 
-Use to reject values that are not numerical.
-
-Tip: When you set a constraint, like a numerical range, use hint text to relay an instruction.
-
 ### Search input
+
+<ul>
+  <li>Use to collect search queries.</li>
+</ul>
 
 <div class="comp-show">
   <gcds-input
@@ -186,9 +194,11 @@ Tip: When you set a constraint, like a numerical range, use hint text to relay a
 ```
 {% endviewCode %}
 
-Use to collect search queries.
-
 ### URL input
+
+<ul>
+  <li>Use to collect a URL, like a web address.</li>
+</ul>
 
 <div class="comp-show">
   <gcds-input
@@ -209,8 +219,6 @@ Use to collect search queries.
 ></gcds-input>
 ```
 {% endviewCode %}
-
-Use to collect a URL, like a web address.
 
 </section>
 
@@ -257,16 +265,13 @@ Use an input field to gather information by:
 
 ## Related components
 
-**[Text areas]({{ "/en/components/forms/textarea/" | url }})** for multi-line responses.
-
-**Radio buttons or dropdowns** when you can give someone a set of options for single selections.
-
-**Checkboxes** when you can give someone a set of options for multi selections.
-
-**[Buttons]({{ "/en/components/interface-elements/button/" | url }})** when you’re asking consent or agreement or offering a binary choice.
-
-**Date selectors** when you want someone to choose a date, like for appointment scheduling.
-
+<ul>
+  <li><strong><a href="{{ "/en/components/forms/textarea/" | url }}">Text areas</a></strong> for multi-line responses.</li>
+  <li><strong>Radio buttons or dropdowns</strong> when you can give someone a set of options for single selections.</li>
+  <li><strong>Checkboxes</strong> when you can give someone a set of options for multi selections.</li>
+  <li><strong><a href="{{ "/en/components/interface-elements/button/" | url }}">Buttons</a></strong> when you’re asking consent or agreement or offering a binary choice.</li>
+  <li><strong>Date selectors</strong> when you want someone to choose a date, like for appointment scheduling.</li>
+</ul>
 </section>
 
 <section aria-label="Size and placement of inputs">

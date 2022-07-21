@@ -43,6 +43,10 @@ Avoid using error messages and stick to positive feedback when you can.
 
 ### Inline error message
 
+<ul>
+  <li>Use inline error messages to highlight the needed action close to the field where a person can make the change while directly referencing the message.</li>
+</ul>
+
 <div class="comp-show">
   <gcds-input
     label="Input label"
@@ -75,9 +79,6 @@ Avoid using error messages and stick to positive feedback when you can.
 ></gcds-textarea>
 ```
 {% endviewCode %}
-
-Use inline error messages to highlight the needed action close to the field where a person can make the change while directly referencing the message.
-
 </section>
 
 <section aria-label="What problems error messages solve">
@@ -98,10 +99,10 @@ Use an error message to draw attention to a needed action by:
 
 ## Related components
 
-Validation for signalling positively that a field response is valid and will be accepted.
-
-Alert for communicating an issue where a person may not need to take corrective action.
-
+<ul>
+  <li>Validation for signalling positively that a field response is valid and will be accepted.</li>
+  <li>Alert for communicating an issue where a person may not need to take corrective action.</li>
+</ul>
 </section>
 
 <section aria-label="Avoiding errors">

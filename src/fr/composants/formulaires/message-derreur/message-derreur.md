@@ -43,6 +43,10 @@ Planifiez-en un pour les [champs de saisie]({{ "/fr/composants/formulaires/champ
 
 ### Message d’erreur intercalé
 
+<ul>
+  <li>On utilise le message d’erreur intercalé, près du champ de saisie invalide, pour mettre en évidence l’action requise. Cela permet de corriger le problème tout en consultant le message d’erreur.</li>
+</ul>
+
 <div class="comp-show">
   <gcds-input
     label="Champ de saisie"
@@ -76,9 +80,6 @@ Planifiez-en un pour les [champs de saisie]({{ "/fr/composants/formulaires/champ
 ></gcds-textarea>
 ```
 {% endviewCode %}
-
-On utilise le message d’erreur intercalé, près du champ de saisie invalide, pour mettre en évidence l’action requise. Cela permet de corriger le problème tout en consultant le message d’erreur.
-
 </section>
 
 <section aria-label="Cas réglés par un message d’erreur">
@@ -99,10 +100,10 @@ Utilisez le message d’erreur pour :
 
 ## Composants apparentés
 
-**Formes de validation** : à utiliser pour marquer la validité d’un champ et faire savoir que la réponse sera acceptée.
-
-**Alertes** : à utiliser pour communiquer tout problème qu’une personne ne peut pas corriger par elle-même.
-
+<ul>
+  <li><strong>Formes de validation</strong>: à utiliser pour marquer la validité d’un champ et faire savoir que la réponse sera acceptée.</li>
+  <li><strong>Alertes</strong>: à utiliser pour communiquer tout problème qu’une personne ne peut pas corriger par elle-même.</li>
+</ul>
 </section>
 
 <section aria-label="Limiter les messages d’erreur">

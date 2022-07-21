@@ -43,6 +43,10 @@ Une zone de texte peut avoir divers états : de survol <span lang="en">(*hover*)
 
 ### Zone de texte
 
+<ul>
+  <li>On utilise la zone de texte pour collecter des réponses détaillées tenant sur plusieurs lignes.</li>
+</ul>
+
 <div class="comp-show">
   <gcds-textarea
     textarea-id="textarea"
@@ -60,9 +64,6 @@ Une zone de texte peut avoir divers états : de survol <span lang="en">(*hover*)
 ></gcds-textarea>
 ```
 {% endviewCode %}
-
-On utilise la zone de texte pour collecter des réponses détaillées tenant sur plusieurs lignes.
-
 </section>
 
 <section aria-label="Comment modifier la zone de texte">
@@ -93,16 +94,13 @@ Utilisez une zone de texte pour collecter des informations comme :
 
 ## Composants apparentés
 
-**[Champs de saisie texte]({{ "/fr/composants/formulaires/champ-de-saisie/" | url }})** : à utiliser pour les réponses d’une ligne.
-
-**Boutons radio ou listes déroulantes** : à utiliser quand vous offrez plusieurs options et qu’il faut en choisir une.
-
-**Cases à cocher** : à utiliser quand vous offrez plusieurs options et qu’on peut en choisir plusieurs.
-
-**[Boutons]({{ "/fr/composants/elements-dinterface/bouton/" | url }})** : à utiliser quand vous demandez un consentement ou une autorisation, ou que vous offrez un choix entre 2 options.
-
-**Sélecteurs de date** : à utiliser quand vous voulez qu’une personne choisisse une date, par exemple pour un rendez-vous.
-
+<ul>
+  <li><strong><a href="{{ "/fr/composants/formulaires/champ-de-saisie/" | url }}">Champs de saisie texte</a></strong>: à utiliser pour les réponses d’une ligne.</li>
+  <li><strong>Boutons radio ou listes déroulantes</strong>: à utiliser quand vous offrez plusieurs options et qu’il faut en choisir une.</li>
+  <li><strong>Cases à cocher</strong>: à utiliser quand vous offrez plusieurs options et qu’on peut en choisir plusieurs.</li>
+  <li><strong><a href="{{ "/fr/composants/elements-dinterface/bouton/" | url }}">Boutons</a></strong>:  à utiliser quand vous demandez un consentement ou une autorisation, ou que vous offrez un choix entre 2 options.</li>
+  <li><strong>Sélecteurs de date</strong>: à utiliser quand vous voulez qu’une personne choisisse une date, par exemple pour un rendez-vous.</li>
+</ul>
 </section>
 
 <section aria-label="Dimensions et emplacement des zones de texte">

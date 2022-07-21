@@ -41,7 +41,14 @@ On utilise les champs de saisie pour collecter des informations qui tiennent sur
 
 Un champ de saisie peut avoir divers états : de survol <span lang="en">(*hover*)</span>, ciblé <span lang="en">(*focus*)</span>, actif <span lang="en">(*active*)</span> et désactivé <span lang="en">(*disabled*)</span>. Ces états changent quand une personne interagit avec le champ.
 
-### Champ de type <span lang="en">`text` </span>
+### Champ de type <span lang="en">`text`</span>
+
+<ul>
+  <li>À utiliser pour collecter des réponses textuelles courtes, tenant sur une ligne.</li>
+  <li>À utiliser par défaut s’il n’y a pas d’autre type de champ plus approprié pour une réponse d’une seule ligne.</li>
+  <li>À utiliser pour collecter le nom d’une personne (souvent le nom complet).</li>
+  <li>À utiliser au lieu du type number si le champ peut comprendre à la fois des valeurs numériques et non numériques.</li>
+</ul>
 
 <div class="comp-show">
   <gcds-input
@@ -80,15 +87,11 @@ Un champ de saisie peut avoir divers états : de survol <span lang="en">(*hover*
 ```
 {% endviewCode %}
 
-À utiliser pour collecter des réponses textuelles courtes, tenant sur une ligne.
+### Champ de type <span lang="en">`email`</span>
 
-À utiliser par défaut s’il n’y a pas d’autre type de champ plus approprié pour une réponse d’une seule ligne.
-
-À utiliser pour collecter le nom d’une personne (souvent le nom complet).
-
-À utiliser au lieu du type number si le champ peut comprendre à la fois des valeurs numériques et non numériques.
-
-### Champ de type <span lang="en">`email` </span>
+<ul>
+  <li>À utiliser pour collecter une adresse courriel.</li>
+</ul>
 
 <div class="comp-show">
   <gcds-input
@@ -112,9 +115,11 @@ Un champ de saisie peut avoir divers états : de survol <span lang="en">(*hover*
 ```
 {% endviewCode %}
 
-À utiliser pour collecter une adresse courriel.
+### Champ de type <span lang="en">`password`</span>
 
-### Champ de type <span lang="en">`password` </span>
+<ul>
+  <li>À utiliser pour collecter et vérifier un mot de passe.</li>
+</ul>
 
 <div class="comp-show">
   <gcds-input
@@ -136,9 +141,12 @@ Un champ de saisie peut avoir divers états : de survol <span lang="en">(*hover*
 ```
 {% endviewCode %}
 
-À utiliser pour collecter et vérifier un mot de passe.
+### Champ de type <span lang="en">`number`</span>
 
-### Champ de type <span lang="en">`number` </span>
+<ul>
+  <li>À utiliser pour refuser toute valeur qui n’est pas numérique.</li>
+  <li>Bon à savoir : si vous imposez une contrainte, par exemple un intervalle de chiffres, communiquez-le avec un texte d’aide.</li>
+</ul>
 
 <div class="comp-show">
   <gcds-input
@@ -162,11 +170,11 @@ Un champ de saisie peut avoir divers états : de survol <span lang="en">(*hover*
 ```
 {% endviewCode %}
 
-À utiliser pour refuser toute valeur qui n’est pas numérique.
+### Champ de type <span lang="en">`search`</span>
 
-Bon à savoir : si vous imposez une contrainte, par exemple un intervalle de chiffres, communiquez-le avec un texte d’aide.
-
-### Champ de type <span lang="en">`search` </span>
+<ul>
+  <li>TO DO: Use to collect search queries.</li>
+</ul>
 
 <div class="comp-show">
   <gcds-input
@@ -186,7 +194,11 @@ Bon à savoir : si vous imposez une contrainte, par exemple un intervalle de chi
 ```
 {% endviewCode %}
 
-### Champ de type <span lang="en">`url` </span>
+### Champ de type <span lang="en">`url`</span>
+
+<ul>
+  <li>À utiliser pour collecter une URL, comme une adresse Web.</li>
+</ul>
 
 <div class="comp-show">
   <gcds-input
@@ -207,9 +219,6 @@ Bon à savoir : si vous imposez une contrainte, par exemple un intervalle de chi
 ></gcds-input>
 ```
 {% endviewCode %}
-
-À utiliser pour collecter une URL, comme une adresse Web.
-
 </section>
 
 <section aria-label="Comment modifier le champ de saisie">
@@ -259,13 +268,13 @@ Utilisez un champ de saisie pour collecter des informations comme :
 
 ## Composants apparentés
 
-**Boutons radio ou listes déroulantes** : à utiliser quand vous offrez plusieurs options et qu’il faut en choisir une.
-
-**Cases à cocher** : à utiliser quand vous offrez plusieurs options et qu’on peut en choisir plusieurs.
-
-**[Boutons]({{ "/fr/composants/elements-dinterface/bouton/" | url }})** : à utiliser quand vous demandez un consentement ou une autorisation, ou que vous offrez un choix entre 2 options.
-
-**Sélecteurs de date** : à utiliser quand vous voulez qu’une personne choisisse une date, par exemple pour un rendez-vous.
+<ul>
+  <li><strong><a href="{{ "/fr/composants/formulaires/zone-de-texte/" | url }}">Zone de texte</a></strong>: TO DO: for multi-line responses.</li>
+  <li><strong>Boutons radio ou listes déroulantes</strong>: à utiliser quand vous offrez plusieurs options et qu’il faut en choisir une.</li>
+  <li><strong>Cases à cocher</strong>: à utiliser quand vous offrez plusieurs options et qu’on peut en choisir plusieurs.</li>
+  <li><strong><a href="{{ "/fr/composants/elements-dinterface/bouton/" | url }}">Boutons</a></strong>:  à utiliser quand vous demandez un consentement ou une autorisation, ou que vous offrez un choix entre 2 options.</li>
+  <li><strong>Sélecteurs de date</strong>: à utiliser quand vous voulez qu’une personne choisisse une date, par exemple pour un rendez-vous.</li>
+</ul>
 
 </section>
 

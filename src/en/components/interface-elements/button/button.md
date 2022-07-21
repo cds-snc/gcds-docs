@@ -41,6 +41,12 @@ Buttons have built in states that change when someone interacts with that button
 
 ### Primary button
 
+<ul>
+  <li>Use a primary button for the most important action.</li>
+  <li>Use it for critical actions in a flow or as the default button.</li>
+  <li>Avoid more than one main call to action on the same page. It reduces impact and makes it harder for a person to know what to do next.</li>
+</ul>
+
 <div class="comp-show">
   <gcds-button
     button-role="primary"
@@ -61,13 +67,13 @@ Buttons have built in states that change when someone interacts with that button
 ```
 {% endviewCode %}
 
-Use a primary button for the most important action.
-
-Use it for critical actions in a flow or as the default button.
-
-Avoid more than one main call to action on the same page. It reduces impact and makes it harder for a person to know what to do next.
-
 ### Secondary button
+
+<ul>
+  <li>Use a secondary button for supporting actions.</li>
+  <li>Use it to highlight an important, common action but not the most important one.</li>
+  <li>Use a secondary button more than once on a page for important alternative task options.</li>
+</ul>
 
 <div class="comp-show">
   <gcds-button
@@ -89,13 +95,13 @@ Avoid more than one main call to action on the same page. It reduces impact and 
 ```
 {% endviewCode %}
 
-Use a secondary button for supporting actions.
-
-Use it to highlight an important, common action but not the most important one.
-
-Use a secondary button more than once on a page for important alternative task options.
-
 ### Destructive button
+
+<ul>
+  <li>Use a destructive button to flag serious actions like removing, clearing, or deleting information.</li>
+  <li>Use it for actions when changes may be difficult to reverse.</li>
+  <li>Tip: For permanent actions, ask a second time so a person explicitly agrees before accepting.</li>
+</ul>
 
 <div class="comp-show">
   <gcds-button
@@ -117,13 +123,13 @@ Use a secondary button more than once on a page for important alternative task o
 ```
 {% endviewCode %}
 
-Use a destructive button to flag serious actions like removing, clearing, or deleting information.
-
-Use it for actions when changes may be difficult to reverse.
-
-Tip: For permanent actions, ask a second time so a person explicitly agrees before accepting.
-
 ### Skip-to-content button
+
+<ul>
+  <li>Use a skip-to-content button (visible or hidden) to help a person jump to the main page content.</li>
+  <li>Use it to support task success. It offers a shortcut past page navigation links or other navigation elements.</li>
+  <li>Use it to help a person avoid tabbing or scrolling uneccesarily.</li>
+</ul>
 
 <div class="comp-show">
   <gcds-button
@@ -146,12 +152,6 @@ Tip: For permanent actions, ask a second time so a person explicitly agrees befo
 </gcds-button>
 ```
 {% endviewCode %}
-
-Use a skip-to-content button (visible or hidden) to help a person jump to the main page content.
-
-Use it to support task success. It offers a shortcut past page navigation links or other navigation elements.
-
-Use it to help a person avoid tabbing or scrolling uneccesarily.
 
 </section>
 
@@ -212,6 +212,8 @@ Use a button for important user-led actions like:
 - entering or exiting a secure area login, a form, or tutorial
 - skip-to-content link
 
+<br/>
+
 In apps, buttons replace text links for things like:
 
 - controlling movement, like going from one screen to another in a flow
@@ -223,9 +225,10 @@ In apps, buttons replace text links for things like:
 
 ## Related components
 
-**Radio buttons or dropdowns** when you can give someone a set of options for single selections.
-
-**Checkboxes** when you can give someone a set of options for multi selections.
+<ul>
+  <li><strong>Radio buttons or dropdowns</strong> when you can give someone a set of options for single selections.</li>
+  <li><strong>Checkboxes</strong> when you can give someone a set of options for multi selections.</li>
+</ul>
 
 </section>
 

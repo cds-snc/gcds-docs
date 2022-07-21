@@ -20,6 +20,7 @@ onThisPage:
 <section aria-label="Install from npm">
 
 ## Install from npm
+Navigate to the root folder of your project and run:
 
 ``` js
 npm install gcds-components
