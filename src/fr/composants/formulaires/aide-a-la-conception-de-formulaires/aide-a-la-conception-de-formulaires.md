@@ -98,7 +98,7 @@ Assemblez les composants de votre formulaire de manière logique, de façon à d
 
 Regroupez les éléments semblables en catégories, et divisez le formulaire en étapes. Pensez à ce qui relie certains champs : l’un est-il dépendant d’un autre? ou aborde-t-il des informations apparentées à un autre?
 
-Limitez-vous à une notion par page. Les formulaires d’une seule page se prêtent bien aux tâches uniques de type « Nous joindre ». Pour les longs formulaires, limitez-vous à une catégorie ou sous-tâche par page.
+Limitez-vous à une notion par page. Les formulaires d’une seule page se prêtent bien aux tâches uniques de type « [Nous joindre]({{ "/fr/contactez/" | url }}) ». Pour les longs formulaires, limitez-vous à une catégorie ou sous-tâche par page.
 
 </section>
 
@@ -108,19 +108,19 @@ Limitez-vous à une notion par page. Les formulaires d’une seule page se prêt
 
 ### Miser sur une bonne étiquette
 
-Le libellé de l’étiquette est le premier élément d’information dont se sert une personne pour savoir quoi écrire dans un champ. Tenez compte de la façon dont l’étiquette peut être vue, entendue et comprise, et des interactions possibles. 
+Le libellé de l’étiquette est le premier élément d’information dont se sert une personne pour savoir quoi écrire dans un champ. Tenez compte de la façon dont l’étiquette peut être vue, entendue et comprise, et des interactions possibles.
 
-Rédigez des étiquettes concises et brèves, où seul le premier mot porte la majuscule. Veillez à ce que chaque étiquette soit unique et ne soit pas réutilisée pour plus d’un champ.  
+Rédigez des étiquettes concises et brèves, où seul le premier mot porte la majuscule. Veillez à ce que chaque étiquette soit unique et ne soit pas réutilisée pour plus d’un champ.
 
 Astuce : réduisez le nombre de mots des étiquettes en utilisant des titres plutôt que des questions.
 
 ### Donner des instructions au bon moment
 
-Utilisez le texte d’aide pour préciser le format requis ou signaler les éléments qui provoqueraient un message d’erreur s’ils étaient manquants. Insérez le texte d’aide entre l’étiquette et le champ, là où les instructions peuvent être lues au moment où elles sont utiles.
+Utilisez le texte d’aide pour préciser le format requis ou signaler les éléments qui provoqueraient un [message d’erreur]({{ "/fr/composants/formulaires/message-derreur/" | url }}) s’ils étaient manquants. Insérez le texte d’aide entre l’étiquette et le champ, là où les instructions peuvent être lues au moment où elles sont utiles.
 
 Évitez de fournir des instructions qui doivent être mémorisées. Ne les placez donc pas dans une page externe ou dans le haut du formulaire. Évitez aussi de préremplir les champs avec du texte d’aide qui disparaît une fois le curseur dans le champ.
 
-Évitez de désactiver les éléments d’interface comme les champs de saisie, les zones de texte et les boutons. Si vous devez le faire, assurez-vous que ces éléments puissent accueillir la cible de saisie dès qu’ils sont réactivés, et faites-le savoir à l’utilisateur en fournissant une rétroaction.
+Évitez de désactiver les éléments d’interface comme les [champs de saisie]({{ "/fr/composants/formulaires/champ-de-saisie/" | url }}), les [zones de texte]({{ "/fr/composants/formulaires/zone-de-texte/" | url }}) et les [boutons]({{ "/fr/composants/elements-dinterface/bouton/" | url }}). Si vous devez le faire, assurez-vous que ces éléments puissent accueillir [la cible de saisie]({{ "/fr/composants/formulaires/champ-de-saisie/" | url }}) dès qu’ils sont réactivés, et faites-le savoir à l’utilisateur en fournissant une rétroaction.
 
 <div class="comp-show">
   <gcds-input
@@ -160,19 +160,19 @@ Alignez les champs sur la droite. Veillez à ce que la largeur des champs et le 
 
 ### Donner de la rétroaction
 
-Validez les champs de saisie en temps réel. Intégrez les formules de validation au contenu en question (affichez les erreurs à côté du champ).
+Validez les [champs de saisie]({{ "/fr/composants/formulaires/champ-de-saisie/" | url }}) en temps réel. Intégrez les formules de validation au contenu en question (affichez les  [erreurs]({{ "/fr/composants/formulaires/message-derreur/" | url }}) à côté du champ).
 
 Placez l’étiquette juste au-dessus du champ qu’elle désigne afin que les personnes utilisant un logiciel de grossissement de texte puissent la trouver sans avoir à faire défiler l’écran à plusieurs reprises.
 
 Assurez-vous que l’étiquette textuelle du champ est la même que celle qui est codée. Cela permet aux personnes utilisant des commandes vocales de cibler le bon champ.
 
-Souvent, les lecteurs d’écran ne lisent que le contenu des éléments de formulaire <span lang="en">`input`</span>, <span lang="en">`select`</span>, <span lang="en">`textarea`</span> et <span lang="en">`legend`</span>. Incorporez un texte d’aide en utilisant <span lang="en">aria-describedby</span>.
+Souvent, les lecteurs d’écran ne lisent que le contenu des éléments de formulaire <span lang="en">[`input`]({{ "/fr/composants/formulaires/champ-de-saisie/" | url }})</span>, <span lang="en">`select`</span>, <span lang="en">[`textarea`]({{ "/fr/composants/formulaires/zone-de-texte/" | url }})</span> et <span lang="en">`legend`</span>. Incorporez un texte d’aide en utilisant <span lang="en">aria-describedby</span>.
 
 ### Champs obligatoires
 
 Indiquez « obligatoire » à la fin de l’étiquette du champ si l’information est exigée. Évitez d’utiliser la couleur rouge et les symboles ou signes de ponctuation supplémentaires comme l’astérisque (*).
 
-Si un champ obligatoire reste vide ou est incomplet, un message d’erreur s’affichera pour rappeler à la personne qu’il doit être rempli. Le message fournira des instructions précises sur ce qu’il faut faire.
+Si un champ obligatoire reste vide ou est incomplet, un [message d’erreur]({{ "/fr/composants/formulaires/message-derreur/" | url }}) s’affichera pour rappeler à la personne qu’il doit être rempli. Le message fournira des instructions précises sur ce qu’il faut faire.
 
 Si un champ est facultatif, ayez une bonne raison de le garder. Sinon, supprimez-le.
 

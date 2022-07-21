@@ -37,11 +37,15 @@ An error message is a communication that tells a person about a problem to help 
 
 Use an error message to let a person know they need to do something before an action can continue.
 
-Use it for inputs or text areas marked as required.
+Use it for [inputs]({{ "/en/components/forms/input/" | url }}) or [text areas]({{ "/en/components/forms/textarea/" | url }}) marked as required.
 
 Avoid using error messages and stick to positive feedback when you can.
 
 ### Inline error message
+
+<ul>
+  <li>Use inline error messages to highlight the needed action close to the field where a person can make the change while directly referencing the message.</li>
+</ul>
 
 <div class="comp-show">
   <gcds-input
@@ -75,9 +79,6 @@ Avoid using error messages and stick to positive feedback when you can.
 ></gcds-textarea>
 ```
 {% endviewCode %}
-
-Use inline error messages to highlight the needed action close to the input where a person can make the change while directly referencing the message.
-
 </section>
 
 <section aria-label="What problems error messages solve">
@@ -88,7 +89,7 @@ Use an error message to let a person know what the problem is, why it happened, 
 
 Use an error message to draw attention to a needed action by:
 
-- flagging a required input that is incomplete or was left blank.
+- flagging a required field that is incomplete or was left blank.
 - offering additional formatting instructions, like a missing @ symbol in an email address.
 - giving a person extra details so they know what to enter into a field.
 
@@ -98,10 +99,10 @@ Use an error message to draw attention to a needed action by:
 
 ## Related components
 
-Validation for signalling positively that an input response is valid and will be accepted.
-
-Alert for communicating an issue where a person may not need to take corrective action.
-
+<ul>
+  <li>Validation for signalling positively that a field response is valid and will be accepted.</li>
+  <li>Alert for communicating an issue where a person may not need to take corrective action.</li>
+</ul>
 </section>
 
 <section aria-label="Avoiding errors">
@@ -116,7 +117,7 @@ Use validations to contrast with error messages. Validations can help a person f
 
 ### Helping people avoid errors
 
-Avoid making an input or text area required if it’s not essential and clearly identify which fields are required. Marking a field as required lets a person know they can’t skip that one.
+Avoid making a field required if it’s not essential and clearly identify which fields are required. Marking a field as required lets a person know they can’t skip that one.
 
 Labels that are clear and intuitive help a person to provide the correct information and avoid an error. When a label is too long the person may not read the whole thing.
 
@@ -164,9 +165,9 @@ Tip: A good way to incorporate a more human tone for more user-friendly error me
 
 ## Make the error state obvious
 
-If an error is activated upon form submission, set the the label and input border to change to a  danger colour.
+If an error is activated upon form submission, set the the label and field border to change to a  danger colour.
 
-Place an inline error message just before the input (either to its immediate left or above it) so it’s noticeable. The error message banner should span the width of the input or text areas.
+Place an inline error message just before the [input]({{ "/en/components/forms/input/" | url }}) (either to its immediate left or above it) so it’s noticeable. The error message banner should span the width of the [input]({{ "/en/components/forms/input/" | url }}) or [text areas]({{ "/en/components/forms/textarea/" | url }}).
 
 Inline error messages, in combination with an error summary, let a person know all the actions they need to do to move forward in a task. This reduces the cognitive load of mapping the errors in the list to inputs further down a page.
 

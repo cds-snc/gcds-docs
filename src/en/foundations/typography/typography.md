@@ -16,7 +16,7 @@ github: https://github.com/cds-snc/gcds-tokens
 
 <header>
 
-# Typography tokens 
+# Typography tokens
 
 Typography is the presentation of text. It includes fonts, sizing, and spacing as applied to the style, arrangement, and appearance of letters, numbers, and symbols.
 
@@ -72,7 +72,7 @@ Some components use font sizes, colours, and spacings different from the default
 
 ### Custom typography
 
-The design system provides components, patterns, and styles that meet most design needs. In rare instances, you may need custom typography.
+The design system provides [components]({{ "/en/components/" | url }}), patterns, and styles that meet most design needs. In rare instances, you may need custom typography.
 
 You can contribute to or modify the design system at the [design token repository in GitHub](https://github.com/cds-snc/gcds-tokens).
 
