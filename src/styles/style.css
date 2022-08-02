@@ -52,8 +52,9 @@ body {
 
 ol,
 ul {
-  list-style-position: inside;
+  list-style-position: outside;
   margin-block: var(--gcds-spacing-400);
+  padding: 0 0 0 var(--gcds-spacing-400);
 }
 
 ul li {
