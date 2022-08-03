@@ -19,8 +19,8 @@ Public servants building modern, accessible, beautiful government services
 
 ## Quick links
 
-Our quick links are a collection of links to frequently used pages, which allow users to complete common actions.
-
+Jump to a page to learn more. 
+    
 <br/>
 
 <gcds-grid class="quick-links" gap="spacing-400" grid-tag="ul" grid-template-columns="1fr" grid-template-columns-tablet="1fr 1fr">
