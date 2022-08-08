@@ -42,6 +42,12 @@ Un bouton peut avoir divers états prédéfinis : par défaut <span lang="en">(*
 
 ### Bouton principal
 
+<ul>
+  <li>On utilise le bouton principal pour l’action la plus importante.</li>
+  <li>Utilisez-le pour les actions essentielles dans un parcours utilisateur ou comme bouton par défaut.</li>
+  <li>Évitez d’avoir plus d’un bouton principal par page. Cela diminuerait l’effet du bouton, en plus de créer une incertitude sur la prochaine action à faire.</li>
+</ul>
+
 <div class="comp-show">
   <gcds-button
     button-role="primary"
@@ -62,13 +68,13 @@ Un bouton peut avoir divers états prédéfinis : par défaut <span lang="en">(*
 ```
 {% endviewCode %}
 
-On utilise le bouton principal pour l’action la plus importante.
-
-Utilisez-le pour les actions essentielles dans un parcours utilisateur ou comme bouton par défaut.
-
-Évitez d’avoir plus d’un bouton principal par page. Cela diminuerait l’effet du bouton, en plus de créer une incertitude sur la prochaine action à faire.
-
 ### Bouton secondaire
+
+<ul>
+  <li>On utilise le bouton secondaire pour les actions soutenant l’action principale.</li>
+  <li>Utilisez-le pour attirer l’attention sur une action importante et fréquente, mais pas essentielle.</li>
+  <li>Vous pouvez l’utiliser plus d’une fois par page pour les actions optionnelles importantes.</li>
+</ul>
 
 <div class="comp-show">
   <gcds-button
@@ -90,13 +96,13 @@ Utilisez-le pour les actions essentielles dans un parcours utilisateur ou comme 
 ```
 {% endviewCode %}
 
-On utilise le bouton secondaire pour les actions soutenant l’action principale.
-
-Utilisez-le pour attirer l’attention sur une action importante et fréquente, mais pas essentielle.
-
-Vous pouvez l’utiliser plus d’une fois par page pour les actions optionnelles importantes.
-
 ### Bouton destructeur
+
+<ul>
+  <li>On utilise le bouton destructeur pour signaler la sévérité d’une action qui retire, efface ou supprime des informations.</li>
+  <li>Utilisez-le pour les actions irréversibles ou difficilement réversibles.</li>
+  <li>Bon à savoir : pour les actions irréversibles, demandez à la personne de confirmer son choix.</li>
+</ul>
 
 <div class="comp-show">
   <gcds-button
@@ -118,13 +124,13 @@ Vous pouvez l’utiliser plus d’une fois par page pour les actions optionnelle
 ```
 {% endviewCode %}
 
-On utilise le bouton destructeur pour signaler la sévérité d’une action qui retire, efface ou supprime des informations.
-
-Utilisez-le pour les actions irréversibles ou difficilement réversibles.
-
-Bon à savoir : pour les actions irréversibles, demandez à la personne de confirmer son choix.
-
 ### Bouton d’évitement « Passer au contenu »
+
+<ul>
+  <li>On utilise le bouton d’évitement (visible ou masqué) pour aider une personne à passer directement au contenu principal.</li>
+  <li>Utilisez-le pour accélérer la navigation. C’est un raccourci qui saute les liens ou autres éléments de navigation d’une page.</li>
+  <li>Ce bouton évite aux personnes d’appuyer sur Tabulation sans relâche ou de faire défiler longuement une page.</li>
+</ul>
 
 <div class="comp-show">
   <gcds-button
@@ -147,12 +153,6 @@ Bon à savoir : pour les actions irréversibles, demandez à la personne de conf
 </gcds-button>
 ```
 {% endviewCode %}
-
-On utilise le bouton d’évitement (visible ou masqué) pour aider une personne à passer directement au contenu principal.
-
-Utilisez-le pour accélérer la navigation. C’est un raccourci qui saute les liens ou autres éléments de navigation d’une page.
-
-Ce bouton évite aux personnes d’appuyer sur Tabulation sans relâche ou de faire défiler longuement une page.
 
 </section>
 
@@ -207,7 +207,7 @@ Les icônes peuvent agir comme aide visuelle si elles sont utilisées avec parci
 
 ### Appliquer les bases du système de design
 
-Choisissez des unités de style pour la typographie parmi les [bases du système de design du GC]({{ "/fr/bases/" | url }}). Les unités de style pour la couleur et l’espacement seront bientôt disponibles!
+Choisissez des unités de style pour la [typographie]({{ "/fr/bases/typographie/" | url }}) parmi les [bases du système de design du GC]({{ "/fr/bases/" | url }}). Les unités de style pour la couleur et l’espacement seront bientôt disponibles!
 
 </section>
 
@@ -235,9 +235,10 @@ Dans les applications Web ou mobiles, les boutons remplacent les hyperliens pour
 
 ## Composants apparentés
 
-**Boutons radio ou listes déroulantes** : à utiliser quand vous offrez plusieurs options et qu’il faut en choisir une.
-
-**Cases à cocher** : à utiliser quand vous offrez plusieurs options et qu’on peut en choisir plusieurs.
+<ul>
+  <li><strong>utons radio ou listes déroulantes</strong> à utiliser quand vous offrez plusieurs options et qu’il faut en choisir une.</li>
+  <li><strong>Cases à cocher</strong> à utiliser quand vous offrez plusieurs options et qu’on peut en choisir plusieurs.</li>
+</ul>
 
 </section>
 

@@ -43,6 +43,10 @@ Une zone de texte peut avoir divers états : de survol <span lang="en">(*hover*)
 
 ### Zone de texte
 
+<ul>
+  <li>On utilise la zone de texte pour collecter des réponses détaillées tenant sur plusieurs lignes.</li>
+</ul>
+
 <div class="comp-show">
   <gcds-textarea
     textarea-id="textarea"
@@ -60,9 +64,6 @@ Une zone de texte peut avoir divers états : de survol <span lang="en">(*hover*)
 ></gcds-textarea>
 ```
 {% endviewCode %}
-
-On utilise la zone de texte pour collecter des réponses détaillées tenant sur plusieurs lignes.
-
 </section>
 
 <section aria-label="Comment modifier la zone de texte">
@@ -73,7 +74,7 @@ Il peut arriver que les options par défaut ne permettent pas de répondre aux b
 
 ### Appliquer les bases du système de design
 
-Choisissez des unités de style pour la typographie parmi les [bases du système de design du GC]({{ "/fr/bases/" | url }}). Les unités de style pour la couleur et l’espacement seront bientôt disponibles!
+Choisissez des unités de style pour la [typographie]({{ "/fr/bases/typographie/" | url }}) parmi les [bases du système de design du GC]({{ "/fr/bases/" | url }}). Les unités de style pour la couleur et l’espacement seront bientôt disponibles!
 
 </section>
 
@@ -93,16 +94,13 @@ Utilisez une zone de texte pour collecter des informations comme :
 
 ## Composants apparentés
 
-**Champs de saisie texte** : à utiliser pour les réponses d’une ligne.
-
-**Boutons radio ou listes déroulantes** : à utiliser quand vous offrez plusieurs options et qu’il faut en choisir une.
-
-**Cases à cocher** : à utiliser quand vous offrez plusieurs options et qu’on peut en choisir plusieurs.
-
-**Boutons** : à utiliser quand vous demandez un consentement ou une autorisation, ou que vous offrez un choix entre 2 options.
-
-**Sélecteurs de date** : à utiliser quand vous voulez qu’une personne choisisse une date, par exemple pour un rendez-vous.
-
+<ul>
+  <li><strong><a href="{{ "/fr/composants/formulaires/champ-de-saisie/" | url }}">Champs de saisie texte</a></strong>: à utiliser pour les réponses d’une ligne.</li>
+  <li><strong>Boutons radio ou listes déroulantes</strong>: à utiliser quand vous offrez plusieurs options et qu’il faut en choisir une.</li>
+  <li><strong>Cases à cocher</strong>: à utiliser quand vous offrez plusieurs options et qu’on peut en choisir plusieurs.</li>
+  <li><strong><a href="{{ "/fr/composants/elements-dinterface/bouton/" | url }}">Boutons</a></strong>:  à utiliser quand vous demandez un consentement ou une autorisation, ou que vous offrez un choix entre 2 options.</li>
+  <li><strong>Sélecteurs de date</strong>: à utiliser quand vous voulez qu’une personne choisisse une date, par exemple pour un rendez-vous.</li>
+</ul>
 </section>
 
 <section aria-label="Dimensions et emplacement des zones de texte">
@@ -123,7 +121,7 @@ Utilisez l’état de survol intégré ou un état de survol personnalisé qui a
 
 Marquez les champs obligatoires du mot « obligatoire ».
 
-Évitez de placer le texte d’aide ou les messages d’erreur après le champ, afin qu’ils soient lus.
+Évitez de placer le texte d’aide ou les [messages d’erreur]({{ "/fr/composants/formulaires/message-derreur/" | url }}) après le champ, afin qu’ils soient lus.
 
 </section>
 
@@ -147,7 +145,7 @@ Ne demandez que les informations dont vous avez besoin.
 
 <section aria-label="Texte d’aide et messages d’erreur">
 
-## Texte d’aide et messages d’erreur
+## Texte d’aide et [messages d’erreur]({{ "/fr/composants/formulaires/message-derreur/" | url }})
 
 ### Comment utiliser le texte d’aide
 
@@ -157,9 +155,9 @@ Rédigez le texte d’aide pour qu’il soit informatif, court et précis.
 
 Assurez-vous que le texte d’aide ne disparaisse pas au moment d’écrire.
 
-### Comment utiliser les messages d’erreur
+### Comment utiliser les [messages d’erreur]({{ "/fr/composants/formulaires/message-derreur/" | url }})
 
-Rédigez un message d’erreur pour tous les champs obligatoires dont la réponse est manquante ou invalide.
+Rédigez un [message d’erreur]({{ "/fr/composants/formulaires/message-derreur/" | url }}) pour tous les champs obligatoires dont la réponse est manquante ou invalide.
 
 Expliquez à la personne la nature du problème et comment elle peut y remédier pour accomplir son objectif. Évitez toute forme de reproche.
 

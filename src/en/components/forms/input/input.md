@@ -43,6 +43,13 @@ Inputs have built in states that change when someone interacts with that field: 
 
 ### Text input
 
+<ul>
+  <li>Use for short, single-line, text response collection.</li>
+  <li>Use when no other specfic input type is available for single-line entry.</li>
+  <li>Use to collect a person’s name, in most cases by full name.</li>
+  <li>Use instead of the number input for things like estimates that may include non-numerical values.</li>
+</ul>
+
 <div class="comp-show">
   <gcds-input
     type="text"
@@ -80,15 +87,11 @@ Inputs have built in states that change when someone interacts with that field: 
 ```
 {% endviewCode %}
 
-Use for short, single-line, text response collection.
-
-Use when no other specfic input type is available for single-line entry.
-
-Use to collect a person’s name, in most cases by full name.
-
-Use instead of the number input for things like estimates that may include non-numerical values.
-
 ### Email input
+
+<ul>
+  <li>Use for email address collection.</li>
+</ul>
 
 <div class="comp-show">
   <gcds-input
@@ -112,9 +115,11 @@ Use instead of the number input for things like estimates that may include non-n
 ```
 {% endviewCode %}
 
-Use for email address collection.
-
 ### Password input
+
+<ul>
+  <li>Use for password collection and validation.</li>
+</ul>
 
 <div class="comp-show">
   <gcds-input
@@ -136,9 +141,12 @@ Use for email address collection.
 ```
 {% endviewCode %}
 
-Use for password collection and validation.
-
 ### Number input
+
+<ul>
+  <li>Use to reject values that are not numerical.</li>
+  <li>Tip: When you set a constraint, like a numerical range, use hint text to relay an instruction.</li>
+</ul>
 
 <div class="comp-show">
   <gcds-input
@@ -162,11 +170,11 @@ Use for password collection and validation.
 ```
 {% endviewCode %}
 
-Use to reject values that are not numerical.
-
-Tip: When you set a constraint, like a numerical range, use hint text to relay an instruction.
-
 ### Search input
+
+<ul>
+  <li>Use to collect search queries.</li>
+</ul>
 
 <div class="comp-show">
   <gcds-input
@@ -186,9 +194,11 @@ Tip: When you set a constraint, like a numerical range, use hint text to relay a
 ```
 {% endviewCode %}
 
-Use to collect search queries.
-
 ### URL input
+
+<ul>
+  <li>Use to collect a URL, like a web address.</li>
+</ul>
 
 <div class="comp-show">
   <gcds-input
@@ -209,8 +219,6 @@ Use to collect search queries.
 ></gcds-input>
 ```
 {% endviewCode %}
-
-Use to collect a URL, like a web address.
 
 </section>
 
@@ -235,7 +243,7 @@ The input-type attribute accepts the following options:
 
 ### Apply design system foundations to inputs
 
-Select typography tokens from the GC Design System [foundations]({{ "/en/foundations" | url }}). Colour and spacing tokens coming soon!
+Select [typography tokens]({{ "/en/foundations/typography/" | url }}) from the GC Design System [foundations]({{ "/en/foundations" | url }}). Colour and spacing tokens coming soon!
 
 </section>
 
@@ -257,14 +265,13 @@ Use an input field to gather information by:
 
 ## Related components
 
-**Radio buttons or dropdowns** when you can give someone a set of options for single selections.
-
-**Checkboxes** when you can give someone a set of options for multi selections.
-
-**Buttons** when you’re asking consent or agreement or offering a binary choice.
-
-**Date selectors** when you want someone to choose a date, like for appointment scheduling.
-
+<ul>
+  <li><strong><a href="{{ "/en/components/forms/textarea/" | url }}">Text areas</a></strong> for multi-line responses.</li>
+  <li><strong>Radio buttons or dropdowns</strong> when you can give someone a set of options for single selections.</li>
+  <li><strong>Checkboxes</strong> when you can give someone a set of options for multi selections.</li>
+  <li><strong><a href="{{ "/en/components/interface-elements/button/" | url }}">Buttons</a></strong> when you’re asking consent or agreement or offering a binary choice.</li>
+  <li><strong>Date selectors</strong> when you want someone to choose a date, like for appointment scheduling.</li>
+</ul>
 </section>
 
 <section aria-label="Size and placement of inputs">
@@ -284,10 +291,10 @@ Use the maximum, 75 characters for responses without a fixed length.
 Check the visibility of both the label text and entry field line or border against the surface where you’re placing them.
 
 Use built in or custom hover state to ensure good colour contrast.
-  
+
 Mark fields as required using the word “required”.
 
-Avoid placing hint text or error messages below the field where they might be hidden.
+Avoid placing hint text or [error messages]({{ "/en/components/forms/error-message/" | url }}) below the field where they might be hidden.
 
 </section>
 
@@ -299,7 +306,7 @@ Group input fields by related category so it’s easier for a person to understa
 
 Write labels as short and specific requests for information. Phrasing as a question can make a label unnecessarily long. Use descriptive text for any icons or images.
 
-Avoid repeating input label text within the same page. A person browsing fields will hear the label text in rapid succession without cues to tell which label is for which context.
+Avoid repeating field label text within the same page. A person browsing fields will hear the label text in rapid succession without cues to tell which label is for which context.
 
 Avoid using technical jargon, like “subject email address” or “account ID”. Instead be specific and personal, “full name”, “child’s age”.
 
@@ -311,7 +318,7 @@ When creating inputs, only ask for the information you need. Using a question pr
 
 <section aria-label="When to use hint text and error messages">
 
-## When to use hint text and error messages
+## When to use hint text and [error messages]({{ "/en/components/forms/error-message/" | url }})
 
 ### Handling hint text
 
@@ -321,12 +328,12 @@ Write hint text to be instructional, brief and specific.
 
 Make sure your hint text is static, so it does not disappear.
 
-### Error messages for all required fields
+### [Error messages]({{ "/en/components/forms/error-message/" | url }}) for all required fields
 
-Use error messages to address missing and invalid entries for all required fields.
+Use [error messages]({{ "/en/components/forms/error-message/" | url }}) to address missing and invalid entries for all required fields.
 
 Tell the person what the problem is so they can accomplish their goals. Avoid blaming the person using the product. Let them know what they need to do to move forward.
 
-Consider affirmations like confirming valid entries instead when you can validate a correct input field entry instead of flagging an error.
+Consider affirmations like confirming valid entries instead when you can validate a correct field entry instead of flagging an error.
 
 </section>

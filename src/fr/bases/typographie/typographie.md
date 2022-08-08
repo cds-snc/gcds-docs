@@ -77,7 +77,7 @@ Certains composants utilisent des tailles de police, des couleurs et des espacem
 
 ### Typographie personnalisée
 
-Le système de design fournit des composants, des modèles et des styles qui répondent à la plupart des besoins de conception. Vous pourriez toutefois avoir besoin d’utiliser une typographie personnalisée dans certains cas.
+Le système de design fournit des [composants]({{ "/fr/composants/" | url }}), des modèles et des styles qui répondent à la plupart des besoins de conception. Vous pourriez toutefois avoir besoin d’utiliser une typographie personnalisée dans certains cas.
 Vous pouvez contribuer au système de conception ou le modifier directement dans notre [dépôt d’unités de style](https://github.com/cds-snc/gcds-tokens), sur GitHub.
 
 </section>

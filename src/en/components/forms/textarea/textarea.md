@@ -43,6 +43,10 @@ Text areas have built in states that change when someone interacts with that fie
 
 ### Text area
 
+<ul>
+  <li>Use the text area for longform, multi-line, response collection.</li>
+</ul>
+
 <div class="comp-show">
   <gcds-textarea
     textarea-id="textarea"
@@ -60,9 +64,6 @@ Text areas have built in states that change when someone interacts with that fie
 ></gcds-textarea>
 ```
 {% endviewCode %}
-
-Use the text area for longform, multi-line, response collection.
-
 </section>
 
 <section aria-label="How to modify the text area">
@@ -73,7 +74,7 @@ Occasionally, the default options may not meet the needs of the people using you
 
 ### Apply design system foundations to text areas
 
-Select typography tokens from the GC Design System [foundations]({{ "/en/foundations" | url }}). Colour and spacing tokens coming soon!
+Select [typography tokens]({{ "/en/foundations/typography/" | url }}) from the GC Design System [foundations]({{ "/en/foundations" | url }}). Colour and spacing tokens coming soon!
 
 </section>
 
@@ -81,7 +82,7 @@ Select typography tokens from the GC Design System [foundations]({{ "/en/foundat
 
 ## What problems text areas solve
 
-Use an input field to gather information by:
+Use a text area field to gather information by:
 
 - capturing a freeform response to a multi-line question
 - for descriptive entries, like describing a problem or concern
@@ -93,16 +94,13 @@ Use an input field to gather information by:
 
 ## Related components
 
-**Text input** for single-line responses.
-
-**Radio buttons or dropdowns** when you can give someone a set of options for single selections.
-
-**Checkboxes** when you can give someone a set of options for multi selections.
-
-**Buttons** when you’re asking consent or agreement or offering a binary choice.
-
-**Date selectors** when you want someone to choose a date, like for appointment scheduling.
-
+<ul>
+  <li><strong><a href="{{ "/en/components/forms/input/" | url }}">Text input</a></strong> for single-line responses.</li>
+  <li><strong>Radio buttons or dropdowns</strong> when you can give someone a set of options for single selections.</li>
+  <li><strong>Checkboxes</strong> when you can give someone a set of options for multi selections.</li>
+  <li><strong><a href="{{ "/en/components/interface-elements/button/" | url }}">Buttons</a></strong> when you’re asking consent or agreement or offering a binary choice.</li>
+  <li><strong>Date selectors</strong> when you want someone to choose a date, like for appointment scheduling.</li>
+</ul>
 </section>
 
 <section aria-label="Size and placement of text area">
@@ -123,7 +121,7 @@ Use built in or custom hover state to ensure good colour contrast.
 
 Mark fields as required using the word “required”.
 
-Avoid placing hint text or error messages below the field where they might be hidden.
+Avoid placing hint text or [error messages]({{ "/en/components/forms/error-message/" | url }}) below the field where they might be hidden.
 
 </section>
 
@@ -135,7 +133,7 @@ Group text areas by related category so it’s easier for a person to understand
 
 Write labels that are short and specific requests for information. Phrasing as a question can make a label unnecessarily long. Use descriptive text for any icons or images.
 
-Avoid repeating input field label text within the same page. A person browsing fields will hear the label text in rapid succession without cues to tell which label is for which context.
+Avoid repeating field label text within the same page. A person browsing fields will hear the label text in rapid succession without cues to tell which label is for which context.
 
 Avoid using technical jargon, like “subject email address” or “account ID”. Instead be specific and personal, “full name”, “child’s age”.
 
@@ -147,7 +145,7 @@ When creating text areas, only ask for the information you need.
 
 <section aria-label="When to use hint text and error messages">
 
-## When to use hint text and error messages
+## When to use hint text and [error messages]({{ "/en/components/forms/error-message/" | url }})
 
 ### Handling hint text
 
@@ -157,12 +155,12 @@ Write hint text to be instructional, brief, and specific.
 
 Make your hint text is static, so it does not disappear.
 
-### Error messages for all required fields
+### [Error messages]({{ "/en/components/forms/error-message/" | url }}) for all required fields
 
-Use error messages to address missing and invalid entries for all required fields.
+Use [error messages]({{ "/en/components/forms/error-message/" | url }}) to address missing and invalid entries for all required fields.
 
 Tell the person what the problem is so they can accomplish their goals. Avoid blaming the person using the product. Let them know what they need to do to move forward.
 
-Consider affirmations like confirming valid entries instead when you can validate a correct input field entry instead of flagging an error.
+Consider affirmations like confirming valid entries instead when you can validate a correct field entry instead of flagging an error.
 
 </section>
