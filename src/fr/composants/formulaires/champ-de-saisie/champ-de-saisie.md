@@ -173,7 +173,7 @@ Un champ de saisie peut avoir divers états : de survol <span lang="en">(*hover*
 ### Champ de type <span lang="en">`search`</span>
 
 <ul>
-  <li>TO DO: Use to collect search queries.</li>
+  <li>À utiliser pour recueillir des requêtes de recherche.</li>
 </ul>
 
 <div class="comp-show">
@@ -269,7 +269,7 @@ Utilisez un champ de saisie pour collecter des informations comme :
 ## Composants apparentés
 
 <ul>
-  <li><strong><a href="{{ "/fr/composants/formulaires/zone-de-texte/" | url }}">Zone de texte</a></strong>: TO DO: for multi-line responses.</li>
+  <li><strong><a href="{{ "/fr/composants/formulaires/zone-de-texte/" | url }}">Zone de texte</a></strong>: à utiliser pour les réponses sur plusieurs lignes.</li>
   <li><strong>Boutons radio ou listes déroulantes</strong>: à utiliser quand vous offrez plusieurs options et qu’il faut en choisir une.</li>
   <li><strong>Cases à cocher</strong>: à utiliser quand vous offrez plusieurs options et qu’on peut en choisir plusieurs.</li>
   <li><strong><a href="{{ "/fr/composants/elements-dinterface/bouton/" | url }}">Boutons</a></strong>:  à utiliser quand vous demandez un consentement ou une autorisation, ou que vous offrez un choix entre 2 options.</li>

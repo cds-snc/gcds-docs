@@ -14,42 +14,40 @@ BIENVENUE
 Vers la création de services fédéraux modernes, accessibles et esthétiques
 </header>
 
+Le système de design réunit dans un même endroit les politiques fédérales, les bonnes pratiques de conception et le code réutilisable des composants. Tout pour permettre aux petites comme aux grandes équipes de concevoir des services réfléchis et accessibles.
+
+Notre équipe est composée de personnes du Service numérique canadien, du Bureau de la transformation numérique et du Bureau du dirigeant principal de l’information. Nous faisons aussi appel à des conseillers de l’Éditeur principal.
+
+Nous souhaitons travailler avec vous — vous qui faites partie d'équipes de produits numériques et Web de la fonction publique fédérale — pour créer des services centrés sur les personnes vivant au Canada. [Contactez-nous]({{ "/fr/contactez/" | url }}) pour nous parler de vos besoins et défis.
+
 <div class="quick-links-container">
 
 ## Liens rapides
 
-TO DO: Our quick links are a collection of links to frequently used pages, which allow users to complete common actions.
+Passez rapidement à un sujet pour en savoir plus.
 
 <br/>
 
 <gcds-grid class="quick-links" gap="spacing-400" grid-tag="ul" grid-template-columns="1fr" grid-template-columns-tablet="1fr 1fr">
     <li>
         <h4><a href="{{ "/fr/installation/" | url }}">Installation</a></h4>
-        <p>TO DO: Get started by installing our design system.</p>
+        <p>Commencez par l’installation de la bibliothèque de composants codifiés.</p>
     </li>
     <li>
         <h4><a href="{{ "/fr/composants/" | url }}">Composants</a></h4>
-        <p>TO DO: Find components paired with best practice advice to build to the Canada.ca standard.</p>
+        <p>Parcourez les composants qui respectent les normes <a href="{{ "https://canada.ca/" | url }}" target="_blank">Canada.ca</a>.</p>
     </li>
     <li>
         <h4><a href="{{ "/fr/composants/formulaires/aide-a-la-conception-de-formulaires/" | url }}">Design de formulaires</a></h4>
-        <p>Il faut aider les personnes à atteindre leur objectif sans leur demander trop d’efforts ni les bloquer.</p>
+        <p>Aider les gens qui utilisent votre produit à atteindre leurs objectifs.</p>
     </li>
     <li>
         <h4><a href="{{ "/fr/bases/typographie/" | url }}">Typographie</a></h4>
-        <p>TO DO: Typography is the presentation of text. It includes fonts, sizing, spacing, etc.</p>
+        <p>Apprenez-en davantage sur les jetons de conception de la typographie qui assurent une expérience visuelle uniforme d’un produit du GC Numérique à l’autre.</p>
     </li>
 </gcds-grid>
 
 </div>
-
-## Les bons outils pour une conception réfléchie
-
-Le système de design réunit dans un même endroit les politiques fédérales, les bonnes pratiques de conception et le code réutilisable des composants. Tout pour permettre aux petites comme aux grandes équipes de concevoir des services réfléchis et accessibles.
-
-Notre équipe est composée de personnes du Service numérique canadien, du Bureau de la transformation numérique et du Bureau du dirigeant principal de l’information. Nous faisons aussi appel à des conseillers de l’Éditeur principal.
-
-Nous souhaitons travailler avec vous — vous qui faites partie d'équipes de produits numériques et Web de la fonction publique fédérale — pour créer des services centrés sur les personnes vivant au Canada. [Contactez-nous]({{ "/fr/contactez/" | url }}) pour nous parler de vos besoins et défis.
 
 ### Créez des produits modernes rapidement et facilement
 
@@ -60,7 +58,7 @@ Passez moins de temps à effectuer des tâches répétitives, et plus de temps �
 Développez des produits accessibles et intuitifs qui inspirent confiance. Vos usagers sentiront qu'ils sont au bon endroit pour obtenir l'aide dont ils ont besoin.
 
 <div class="features-container">
-    <h3>TO DO: Features</h3>
+    <h3>Fonctionnalités</h3>
     <gcds-grid class="features" gap="spacing-500" grid-tag="ul" grid-template-columns="1fr" grid-template-columns-tablet="1fr 1fr">
         <li>
             <h4>Toute l’info sur les composants</h4>

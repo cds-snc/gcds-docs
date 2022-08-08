@@ -19,7 +19,7 @@ onThisPage:
 
 ## Installer le paquet avec npm
 
-TO DO: Navigate to the root folder of your project and run:
+Naviguez au dossier racine de votre projet, puis exécutez la commande:
 
 ``` js
 npm install gcds-components

@@ -383,7 +383,7 @@ body > div.sidebar-layout,
 
 /* Quick Links */
 .quick-links-container {
-  margin: 0 0 var(--gcds-spacing-600);
+  margin-block: var(--gcds-spacing-600);
   padding: 0 0 var(--gcds-spacing-500);
   border-top: 1px solid var(--gcds-color-grayscale-400);
   border-bottom: 1px solid var(--gcds-color-grayscale-400);

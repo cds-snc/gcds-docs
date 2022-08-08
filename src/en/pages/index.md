@@ -15,12 +15,18 @@ WELCOME TO
 Public servants building modern, accessible, beautiful government services
 </header>
 
+The GC Design System brings together in one place federal policy, inclusive design best practice, and reusable code. Find ready-made solutions to common problems so you can design content, visual, and interactive elements for task success.
+
+The design system design and code for common interaction patterns to provide a foundation for teams of all sizes to build upon. Use it to make thoughtful, accessible, well-designed services that meet the needs of your users.
+
+We’re a team of people from the Canadian Digital Service, the Digital Transformation Office, and the central Office of the Chief Information Officer, with advisors from Principal Publisher.
+
 <div class="quick-links-container">
 
 ## Quick links
 
-Jump to a page to learn more. 
-    
+Jump to a page to learn more.
+
 <br/>
 
 <gcds-grid class="quick-links" gap="spacing-400" grid-tag="ul" grid-template-columns="1fr" grid-template-columns-tablet="1fr 1fr">
@@ -43,16 +49,6 @@ Jump to a page to learn more.
 </gcds-grid>
 
 </div>
-
-## 
-
-
-The GC Design System brings together in one place federal policy, inclusive design best practice, and reusable code. Find ready-made solutions to common problems so you can design content, visual, and interactive elements for task success.
-
-The design system design and code for common interaction patterns to provide a foundation for teams of all sizes to build upon. Use it to make thoughtful, accessible, well-designed services that meet the needs of your users. 
-
-We’re a team of people from the Canadian Digital Service, the Digital Transformation Office, and the central Office of the Chief Information Officer, with advisors from Principal Publisher.
-
 
 ## Ship modern products faster with less work
 
