@@ -93,4 +93,4 @@ We’ve assembled [guidance]({{ "/en/components/" | url }}) for each component s
 
 <br/>
 
-<gcds-button button-type="link" href="http://localhost:8080/en/installation/">Start now</gcds-button>
+<gcds-button button-type="link" href="/en/installation/">Start now</gcds-button>
