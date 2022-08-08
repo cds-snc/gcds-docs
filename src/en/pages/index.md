@@ -15,11 +15,11 @@ WELCOME TO
 Public servants building modern, accessible, beautiful government services
 </header>
 
-The GC Design System brings together in one place federal policy, inclusive design best practice, and reusable code. Find ready-made solutions to common problems so you can design content, visual, and interactive elements for task success.
+The GC Design System brings together federal policy, inclusive design best practice, and reusable code. Find ready-made solutions to common problems so you can design content, visual, and interactive elements for task success.
 
-The design system design and code for common interaction patterns to provide a foundation for teams of all sizes to build upon. Use it to make thoughtful, accessible, well-designed services that meet the needs of your users.
+The design system offers design and code packages for common interaction patterns to provide a foundation for teams of all sizes to build upon. Use it to make thoughtful, accessible, well-designed services that meet the needs of your users.
 
-We’re a team of people from the Canadian Digital Service, the Digital Transformation Office, and the central Office of the Chief Information Officer, with advisors from Principal Publisher.
+The GC Design System is being built by a team of people from the Canadian Digital Service, the Digital Transformation Office, and the central Office of the Chief Information Officer, with advisors from Principal Publisher.
 
 <div class="quick-links-container">
 
@@ -52,11 +52,17 @@ Jump to a page to learn more.
 
 ## Ship modern products faster with less work
 
-Spend less time doing repetitive work and more time shipping a product that meets the needs of people using your service.
+Spend less time doing repetitive work and more time shipping a product that meets the needs of the people using your service.
 
 ## An accessible, seamless Canada.ca
 
 Build accessible and predictable products your clients can trust. They'll know they're in the right place and can easily get the help they need.
+
+
+## Work in the open to learn from each other
+
+Contribute to the system, growing collective knowledge and resources. We want to work with you, federal public servants on web and digital product teams, to deliver human-centred services to people in Canada. [Get in touch]({{ "/en/contact" | url }}) to start a conversation about your needs.
+
 
 <div class="features-container">
     <h3>Features</h3>
@@ -67,7 +73,7 @@ Build accessible and predictable products your clients can trust. They'll know t
         </li>
         <li>
             <h4>Codified decisions</h4>
-            <p>Apply brand and key aesthetics with decisions pre-built into code on <a href="{{ "/en/foundations/typography/" | url }}">typography</a>, colour, and spacing.</p>
+            <p>Apply brand and key aesthetics with decisions built into code on <a href="{{ "/en/foundations/typography/" | url }}">typography</a>, colour, and spacing.</p>
         </li>
         <li>
             <h4>Component library</h4>
@@ -80,14 +86,6 @@ Build accessible and predictable products your clients can trust. They'll know t
     </gcds-grid>
 </div>
 
-
-## Human-centred design
-
-Find ready-made solutions to common problems so you can design content, visual, and interactive elements for task success for all clients.
-
-## Work in the open to learn from each other
-
-Contribute to the system, growing collective knowledge and resources. We want to work with you, federal public servants on web and digital product teams, to deliver human-centred services to people in Canada. [Get in touch]({{ "/en/contact" | url }}) to start a conversation about your needs.
 
 ## Get a head start
 
