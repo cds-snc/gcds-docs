@@ -6,7 +6,7 @@ eleventyNavigation:
   title: Site menu — coming soon
   locale: en
   parent: basicEN
-  order: 2
+  order: 7
   url: null
   hideMain: true
 translationKey: "sitemenu"

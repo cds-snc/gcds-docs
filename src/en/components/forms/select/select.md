@@ -1,14 +1,14 @@
 ---
-title: Radio button
+title: Select
 layout: "layouts/documentation.njk"
 eleventyNavigation:
-  key: radioEN
-  title: Radio button — coming soon
+  key: selectEN
+  title: Select — coming soon
   locale: en
   parent: formsEN
-  order: 8
+  order: 9
   url: null
   hideMain: true
-translationKey: "radio"
+translationKey: "select"
 permalink: false
 ---

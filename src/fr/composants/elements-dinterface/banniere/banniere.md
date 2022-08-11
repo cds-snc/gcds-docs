@@ -1,14 +1,14 @@
 ---
-title: Menu de navigation globale
+title: Bannière
 layout: "layouts/documentation.njk"
 eleventyNavigation:
-  key: sitemenuFR
-  title: Menu de navigation globale  — à venir
+  key: bannerFR
+  title: Bannière — à venir
   locale: fr
   parent: basicFR
-  order: 6
+  order: 2
   url: null
   hideMain: true
-translationKey: "sitemenu"
+translationKey: "banner"
 permalink: false
 ---

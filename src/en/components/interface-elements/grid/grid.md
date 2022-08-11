@@ -1,14 +1,14 @@
 ---
-title: Page navigation
+title: Grid
 layout: "layouts/documentation.njk"
 eleventyNavigation:
-  key: pagenavigationEN
-  title: Page navigation — coming soon
+  key: gridEN
+  title: Grid — coming soon
   locale: en
   parent: basicEN
-  order: 6
+  order: 4
   url: null
   hideMain: true
-translationKey: "pagenavigation"
+translationKey: "grid"
 permalink: false
 ---

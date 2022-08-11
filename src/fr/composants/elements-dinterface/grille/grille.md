@@ -1,14 +1,14 @@
 ---
-title: Menu de navigation globale
+title: Grille
 layout: "layouts/documentation.njk"
 eleventyNavigation:
-  key: sitemenuFR
-  title: Menu de navigation globale  — à venir
+  key: gridFR
+  title: Grille — à venir
   locale: fr
   parent: basicFR
-  order: 6
+  order: 5
   url: null
   hideMain: true
-translationKey: "sitemenu"
+translationKey: "grid"
 permalink: false
 ---

@@ -6,7 +6,7 @@ eleventyNavigation:
   title: Aide à la conception de formulaires
   locale: fr
   parent: formsFR
-  order: 0
+  order: 1
 translationKey: "formsguidance"
 onThisPage:
   0: Rendre les formulaires moins intimidants

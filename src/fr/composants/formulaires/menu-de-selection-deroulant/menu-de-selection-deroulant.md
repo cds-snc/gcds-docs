@@ -1,15 +1,15 @@
 ---
-title: Bouton radio
+title: Menu de sélection déroulant
 layout: "layouts/documentation.njk"
 eleventyNavigation:
-  key: radioFR
-  title: Bouton radio — à venir
+  key: selectFR
+  title: Menu de sélection déroulant — à venir
   locale: fr
   parent: formsFR
-  order: 5
+  order: 8
   url: null
   hideMain: true
-translationKey: "radio"
+translationKey: "select"
 permalink: false
 ---
 

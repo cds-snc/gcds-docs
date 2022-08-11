@@ -6,7 +6,7 @@ eleventyNavigation:
   title: Champ de saisie
   locale: fr
   parent: formsFR
-  order: 1
+  order: 2
 translationKey: "inputs"
 onThisPage:
   0: Le champ de saisie de base
