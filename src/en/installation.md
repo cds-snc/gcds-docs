@@ -30,6 +30,10 @@ Place the following code in the `<head>` element of your site.<br/>
 All [gcds-components]({{ "/en/components/" | url }}) should now be ready to use in your site.
 
 ``` html
+<!-- Font Awesome (Icons) -->
+<link href="https://unpkg.com/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+
+<!-- GC Design System -->
 <link rel="stylesheet" href="https://unpkg.com/gcds-components/dist/gcds/gcds.css">
 <script type="module" src="https://unpkg.com/gcds-components/dist/gcds/gcds.esm.js"></script>
 <script nomodule src="https://unpkg.com/gcds-components/dist/gcds/gcds.js"></script>
@@ -50,6 +54,10 @@ Place the following code in the `<head>` element of your site.<br/>
 All [gcds-components]({{ "/en/components/" | url }}) should now be ready to use in your site.
 
 ``` html
+<!-- Font Awesome (Icons) -->
+<link href="https://unpkg.com/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+
+<!-- GC Design System -->
 <link rel="stylesheet" href="/node_modules/gcds-components/dist/gcds/gcds.css">
 <script type="module" src="/components/dist/gcds/gcds.esm.js"></script>
 <script nomodule src="/components/dist/gcds/gcds.js"></script>
