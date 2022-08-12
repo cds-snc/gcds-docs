@@ -6,7 +6,7 @@ eleventyNavigation:
   title: Zone de texte
   locale: fr
   parent: formsFR
-  order: 2
+  order: 4
 translationKey: "textarea"
 onThisPage:
   0: La zone de texte de base

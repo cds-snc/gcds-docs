@@ -1,15 +1,15 @@
 ---
-title: Bouton radio
+title: Téléchargeur de fichiers
 layout: "layouts/documentation.njk"
 eleventyNavigation:
-  key: radioFR
-  title: Bouton radio — à venir
+  key: fileuploaderFR
+  title: Téléchargeur de fichiers — à venir
   locale: fr
   parent: formsFR
-  order: 5
+  order: 9
   url: null
   hideMain: true
-translationKey: "radio"
+translationKey: "fileuploader"
 permalink: false
 ---
 

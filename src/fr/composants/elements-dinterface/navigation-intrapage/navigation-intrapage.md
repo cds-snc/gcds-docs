@@ -6,7 +6,7 @@ eleventyNavigation:
   title: Navigation intrapage  — à venir
   locale: fr
   parent: basicFR
-  order: 3
+  order: 7
   url: null
   hideMain: true
 translationKey: "pagenavigation"

@@ -1,14 +1,14 @@
 ---
-title: Radio button
+title: Fieldset
 layout: "layouts/documentation.njk"
 eleventyNavigation:
-  key: radioEN
-  title: Radio button — coming soon
+  key: fieldsetEN
+  title: Fieldset — coming soon
   locale: en
   parent: formsEN
-  order: 8
+  order: 6
   url: null
   hideMain: true
-translationKey: "radio"
+translationKey: "fieldset"
 permalink: false
 ---

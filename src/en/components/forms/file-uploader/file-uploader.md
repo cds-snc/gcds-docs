@@ -1,14 +1,14 @@
 ---
-title: Radio button
+title: File Uploader
 layout: "layouts/documentation.njk"
 eleventyNavigation:
-  key: radioEN
-  title: Radio button — coming soon
+  key: fileuploaderEN
+  title: File Uploader — coming soon
   locale: en
   parent: formsEN
-  order: 8
+  order: 7
   url: null
   hideMain: true
-translationKey: "radio"
+translationKey: "fileuploader"
 permalink: false
 ---

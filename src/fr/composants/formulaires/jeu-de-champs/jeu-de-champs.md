@@ -1,16 +1,16 @@
 ---
-title: Case à cocher
+title: Jeu de champs
 layout: "layouts/documentation.njk"
 eleventyNavigation:
-  key: checkboxFR
-  title: Case à cocher — à venir
+  key: fieldsetFR
+  title: Jeu de champs — à venir
   locale: fr
   parent: formsFR
-  order: 6
+  order: 7
   url: null
   hideMain: true
-translationKey: "checkbox"
+translationKey: "fieldset"
 permalink: false
 ---
 
-# Case à cocher
+# Bouton radio

@@ -1,14 +1,14 @@
 ---
-title: Page navigation
+title: Banner
 layout: "layouts/documentation.njk"
 eleventyNavigation:
-  key: pagenavigationEN
-  title: Page navigation — coming soon
+  key: bannerEN
+  title: Banner — coming soon
   locale: en
   parent: basicEN
-  order: 6
+  order: 2
   url: null
   hideMain: true
-translationKey: "pagenavigation"
+translationKey: "banner"
 permalink: false
 ---
