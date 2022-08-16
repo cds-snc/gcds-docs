@@ -29,8 +29,14 @@ npm install gcds-components
 Insérez le code qui suit à l'intérieur de la balise `<head>` de votre site.<br/>
 Vous devriez maintenant pouvoir utiliser tous les composants de [gcds-components]({{ "/fr/composants/" | url }}) sur votre site.
 
-``` js
-npm install gcds-components
+``` html
+<!-- Font Awesome -->
+<link href="https://unpkg.com/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+
+<!-- GC Système de design -->
+<link rel="stylesheet" href="https://unpkg.com/gcds-components/dist/gcds/gcds.css">
+<script type="module" src="https://unpkg.com/gcds-components/dist/gcds/gcds.esm.js"></script>
+<script nomodule src="https://unpkg.com/gcds-components/dist/gcds/gcds.js"></script>
 ```
 <small>Remarque : Il faut un serveur pour que &lt;script type="module"&gt; se charge correctement. Si vous développez localement, utilisez plutôt &lt;script nomodule&gt;.</small>
 
@@ -44,6 +50,10 @@ Insérez le code qui suit à l'intérieur de la balise `<head>` de votre site.<b
 Vous devriez maintenant pouvoir utiliser tous les composants de [gcds-components]({{ "/fr/composants/" | url }}) sur votre site.
 
 ``` html
+<!-- Font Awesome -->
+<link href="https://unpkg.com/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+
+<!-- GC Système de design -->
 <link rel="stylesheet" href="/node_modules/gcds-components/dist/gcds/gcds.css">
 <script type="module" src="/components/dist/gcds/gcds.esm.js"></script>
 <script nomodule src="/components/dist/gcds/gcds.js"></script>
