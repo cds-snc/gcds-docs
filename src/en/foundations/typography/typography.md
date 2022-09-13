@@ -51,7 +51,7 @@ Font sizes are configured with rem units. All font sizes are relative to base si
 | Heading 4  | Lato  | 1.78  | 28  | bold  | 182%  |
 | Heading 5  | Noto sans  | 1.58  | 25  | regular  | 102%  |
 | Heading 6  | Noto sans  | 1.41  | 22  | regular  | 102%  |
-| Paragraph  | Noto sans  | 1.25  | 20  | regular  | 130%  |
+| Text  | Noto sans  | 1.25  | 20  | regular  | 130%  |
 | monospace  | Menlo  | 1.11  | 17  | regular  | 146%  |
 
 </section>

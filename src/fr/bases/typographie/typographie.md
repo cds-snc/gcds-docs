@@ -56,7 +56,7 @@ Les tailles de police sont configurées au moyen d’unités rem. Elles sont tou
 | Titre 4  | Lato  | 1.78  | 28  | Gras  | 182%  |
 | Titre 5  | Noto sans  | 1.58  | 25  | Normal  | 102%  |
 | Titre 6  | Noto sans  | 1.41  | 22  | Normal  | 102%  |
-| Paragraphe  | Noto sans  | 1.25  | 20  | Normal  | 130%  |
+| Texte  | Noto sans  | 1.25  | 20  | Normal  | 130%  |
 | monospace  | Menlo  | 1.11  | 17  | Normal  | 146%  |
 
 </section>
