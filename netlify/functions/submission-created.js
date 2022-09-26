@@ -1,7 +1,7 @@
 import fetch from 'node-fetch';
 const { EMAIL_TARGET, API_KEY, TEMPLATE_ID, ACCESS_TOKEN } = process.env;
 exports.handler = async event => {
-  console.log(event);
+  console.log(JSON.parse(event.body));
   const name = JSON.parse(event.body).payload.name;
   const email = JSON.parse(event.body).payload.email;
   const message = JSON.parse(event.body).payload.body;
