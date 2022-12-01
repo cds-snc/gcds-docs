@@ -25,7 +25,7 @@ jobs:
           mkdir -p ./_site/.github/workflows/
           cp -r ./.github/workflows/a11y-tests.yaml ./_site/.github/workflows/a11y-tests.yaml
       - name: Deploy
-        uses: peaceiris/actions-gh-pages@de7ea6f8efb354206b205ef54722213d99067935 # v3
+        uses: peaceiris/actions-gh-pages@de7ea6f8efb354206b205ef54722213d99067935 # v3.9.0
         with:
           publish_dir: ./_site
           github_token: ${{ secrets.ACCESS_TOKEN }}
