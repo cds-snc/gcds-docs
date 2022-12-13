@@ -3,3 +3,9 @@ layout: "layouts/base.njk"
 ---
 
 {{ content | safe }}
+
+{% set tabs = collections.all | tabs(eleventyNavigation.key) %}
+
+{{ tabs.usage.templateContent | safe }}
+{{ tabs.design.templateContent | safe }}
+{{ tabs.code.templateContent | safe }}

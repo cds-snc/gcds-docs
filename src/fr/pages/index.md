@@ -1,6 +1,6 @@
 ---
 title: Home
-layout: "layouts/home.njk"
+layout: "layouts/base.njk"
 permalink: /fr/
 translationKey: "index"
 ---

@@ -36,6 +36,21 @@ module.exports = function (eleventyConfig) {
     });
   });
 
+  eleventyConfig.addFilter("tabs", (arr, tag) => {
+    let pages = {};
+
+    arr.map( page => {
+      if (page.data.tags) {
+        page.data.tags.map(v => {
+          if (v == tag) {
+            pages[page.data.tags[1]] = page;
+          }
+        })
+      }
+    });
+    return pages;
+  });
+
   eleventyConfig.addFilter("getBreadcrumbs", contextMenu.findBreadcrumbEntries);
   eleventyConfig.addFilter("onThisPage", function(nodes) {
     let urls = {};
