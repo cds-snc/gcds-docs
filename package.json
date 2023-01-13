@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start": "eleventy --serve",
-    "build": "eleventy"
+    "build": "eleventy",
+    "create-component-page": "node scripts/gen-component-page.js"
   },
   "author": "",
   "license": "ISC",
@@ -22,6 +23,8 @@
     "@11ty/eleventy-plugin-syntaxhighlight": "^4.0.0",
     "@hydrogen-design-system/component-menu": "^0.0.16",
     "@quasibit/eleventy-plugin-sitemap": "^2.1.4",
-    "eleventy-plugin-svg-contents": "^0.7.0"
+    "eleventy-plugin-svg-contents": "^0.7.0",
+    "prompt-sync": "^4.2.0",
+    "replace-in-file": "^6.3.5"
   }
 }

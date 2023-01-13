@@ -1,7 +1,8 @@
 ---
-title: componentName - Components
+title: componentName - {Components}
 layout: "layouts/documentation.njk"
-tags: ['componentName{lang}', 'code']
+translationKey: "navKeyCode"
+tags: ['navKey{locale}', 'code']
 ---
 
 ## Code

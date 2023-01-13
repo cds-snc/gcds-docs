@@ -1,11 +1,11 @@
 module.exports = {
     en : {
-        usage: "Usage",
+        usage: "Use case",
         design: "Design",
         code: "Code"
     },
     fr: {
-        usage: "Usage",
+        usage: "Case d'usage",
         design: "Design",
         code: "Code"
     }
