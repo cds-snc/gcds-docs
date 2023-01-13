@@ -1,15 +1,22 @@
 {
-  "name": "alpha-ds-documentation",
-  "version": "0.1.3",
-  "description": "",
+  "name": "gcds-documentation",
+  "version": "0.1.4",
+  "author": "Government of Canada | Gouvernement du Canada",
+  "description": "GC Design System Documentation",
+  "homepage": "https://cds-snc-design.netlify.app/",
   "main": "index.js",
   "scripts": {
     "start": "eleventy --serve",
     "build": "eleventy",
     "create-component-page": "node scripts/gen-component-page.js"
   },
-  "author": "",
-  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cds-snc/gcds-docs"
+  },
+  "bugs": {
+    "url": "https://github.com/cds-snc/gcds-docs/issues"
+  },
   "dependencies": {
     "@11ty/eleventy": "^1.0.1",
     "@11ty/eleventy-navigation": "^0.3.2",
@@ -26,5 +33,6 @@
     "eleventy-plugin-svg-contents": "^0.7.0",
     "prompt-sync": "^4.2.0",
     "replace-in-file": "^6.3.5"
-  }
+  },
+  "license": "MIT"
 }
