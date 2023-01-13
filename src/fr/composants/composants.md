@@ -1,6 +1,6 @@
 ---
 title: Aperçu des composants
-layout: "layouts/overview.njk"
+layout: "layouts/base.njk"
 eleventyNavigation:
   key: componentsFR
   title: Composants
