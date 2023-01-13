@@ -2,10 +2,26 @@
 layout: "layouts/base.njk"
 ---
 
+{% set tabs = collections.all | tabs(tags[0]) %}
+
+{{ tabs.header.templateContent | safe }}
+
+<ul>
+  <li>
+    <a href={{tabs.usage.url}}>
+      {{ documentation[locale].usage }}
+    </a>
+  </li>
+  <li>
+    <a href={{tabs.design.url}}>
+      {{ documentation[locale].design }}
+    </a>
+  </li>
+  <li>
+    <a href={{tabs.code.url}}>
+      {{ documentation[locale].code }}
+    </a>
+  </li>
+</ul>
+
 {{ content | safe }}
-
-{% set tabs = collections.all | tabs(eleventyNavigation.key) %}
-
-{{ tabs.usage.templateContent | safe }}
-{{ tabs.design.templateContent | safe }}
-{{ tabs.code.templateContent | safe }}

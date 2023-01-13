@@ -1,17 +1,22 @@
 {% if eleventyNavigation %}
-    {% set navPages = collections.all | getBreadcrumbs(eleventyNavigation.key) %}
-    <nav aria-label="{{ breadcrumbs[locale].breadcrumb }}" class="container breadcrumb">
-        <ol>
-            <li>
-                <a href={{ breadcrumbs[locale].url | url }}>{{ breadcrumbs[locale].linkText }}</a>
-            </li>
-            {% for item in navPages %}
-                {% if item.url %} 
-                    <li>
-                        <a href="{{ item.url | url }}" {% if item.url == page.url %} aria-current="page" {% endif %} >{{ item.title }}</a>
-                    </li>
-                {% endif %}
-            {% endfor %}
-        </ol>
-    </nav>
+  {% set key = eleventyNavigation.key %}
+{% elif tags %}
+  {% set key = tags[0] %}
 {% endif %}
+
+
+{% set navPages = collections.all | getBreadcrumbs(key) %}
+<nav aria-label="{{ breadcrumbs[locale].breadcrumb }}" class="container breadcrumb">
+  <ol>
+    <li>
+      <a href={{ breadcrumbs[locale].url | url }}>{{ breadcrumbs[locale].linkText }}</a>
+    </li>
+      {% for item in navPages %}
+        {% if item.url %} 
+          <li>
+            <a href="{{ item.url | url }}" {% if item.url == page.url %} aria-current="page" {% endif %} >{{ item.title }}</a>
+          </li>
+      {% endif %}
+    {% endfor %}
+  </ol>
+</nav>
