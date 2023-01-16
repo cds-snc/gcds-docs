@@ -7,7 +7,7 @@ module.exports = {
         tokens: "Tokens"
     },
     fr: {
-        usecase: "Case d'usage",
+        usecase: "Cas d'utilisation",
         usage: "Usage",
         design: "Design",
         code: "Code",
