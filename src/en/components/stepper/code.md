@@ -1,6 +1,6 @@
 ---
 title: stepper - Components
-layout: "layouts/documentation.njk"
+layout: "layouts/component-documentation.njk"
 translationKey: "stepperCode"
 tags: ['stepperEN', 'code']
 ---

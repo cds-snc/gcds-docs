@@ -1,6 +1,6 @@
 ---
 title: details - Components
-layout: "layouts/documentation.njk"
+layout: "layouts/component-documentation.njk"
 translationKey: "detailsDesign"
 tags: ['detailsEN', 'design']
 ---

@@ -1,6 +1,6 @@
 ---
 title: alerte - Composants
-layout: "layouts/documentation.njk"
+layout: "layouts/component-documentation.njk"
 eleventyNavigation:
   key: alertFR
   title: alerte

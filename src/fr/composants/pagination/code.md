@@ -1,6 +1,6 @@
 ---
 title: pagination - Composants
-layout: "layouts/documentation.njk"
+layout: "layouts/component-documentation.njk"
 translationKey: "paginationCode"
 tags: ['paginationFR', 'code']
 ---

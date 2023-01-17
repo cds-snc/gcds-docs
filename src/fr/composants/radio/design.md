@@ -1,6 +1,6 @@
 ---
 title: radio - Composants
-layout: "layouts/documentation.njk"
+layout: "layouts/component-documentation.njk"
 translationKey: "radioDesign"
 tags: ['radioFR', 'design']
 ---

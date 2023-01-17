@@ -1,6 +1,6 @@
 ---
 title: grille - Composants
-layout: "layouts/documentation.njk"
+layout: "layouts/component-documentation.njk"
 translationKey: "gridDesign"
 tags: ['gridFR', 'design']
 ---

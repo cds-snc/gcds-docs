@@ -1,6 +1,6 @@
 ---
 title: details - Composants
-layout: "layouts/documentation.njk"
+layout: "layouts/component-documentation.njk"
 translationKey: "detailsCode"
 tags: ['detailsFR', 'code']
 ---

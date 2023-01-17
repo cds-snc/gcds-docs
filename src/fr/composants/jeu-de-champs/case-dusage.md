@@ -1,6 +1,6 @@
 ---
 title: jeu-de-champs - Composants
-layout: "layouts/documentation.njk"
+layout: "layouts/component-documentation.njk"
 eleventyNavigation:
   key: fieldsetFR
   title: jeu-de-champs

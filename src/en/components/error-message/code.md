@@ -1,6 +1,6 @@
 ---
 title: error-message - Components
-layout: "layouts/documentation.njk"
+layout: "layouts/component-documentation.njk"
 translationKey: "errormessageCode"
 tags: ['errormessageEN', 'code']
 ---

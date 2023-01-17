@@ -1,6 +1,6 @@
 ---
 title: televerseur-de-fichiers - Composants
-layout: "layouts/documentation.njk"
+layout: "layouts/component-documentation.njk"
 eleventyNavigation:
   key: fileuploaderFR
   title: televerseur-de-fichiers

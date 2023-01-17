@@ -1,6 +1,6 @@
 ---
 title: date-de-modification - Composants
-layout: "layouts/documentation.njk"
+layout: "layouts/component-documentation.njk"
 eleventyNavigation:
   key: datemodifiedFR
   title: date-de-modification

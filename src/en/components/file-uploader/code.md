@@ -1,6 +1,6 @@
 ---
 title: file-uploader - Components
-layout: "layouts/documentation.njk"
+layout: "layouts/component-documentation.njk"
 translationKey: "fileuploaderCode"
 tags: ['fileuploaderEN', 'code']
 ---

@@ -1,6 +1,6 @@
 ---
 title: pied-de-page - Composants
-layout: "layouts/documentation.njk"
+layout: "layouts/component-documentation.njk"
 translationKey: "footerCode"
 tags: ['footerFR', 'code']
 ---

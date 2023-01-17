@@ -8,7 +8,7 @@ eleventyNavigation:
   parent: componentsFR
 translationKey: "checkbox"
 tags: ['checkboxFR', 'usage']
-permalink: /fr/composants/case-a-cocher/
+permalink: /fr/composants/Case-a-cocher/
 ---
 
 ## Usage

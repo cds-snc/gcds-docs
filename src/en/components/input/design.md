@@ -1,6 +1,6 @@
 ---
 title: input - Components
-layout: "layouts/documentation.njk"
+layout: "layouts/component-documentation.njk"
 translationKey: "inputDesign"
 tags: ['inputEN', 'design']
 ---

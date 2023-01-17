@@ -1,6 +1,6 @@
 ---
 title: menu-du-site - Composants
-layout: "layouts/documentation.njk"
+layout: "layouts/component-documentation.njk"
 translationKey: "sitemenuCode"
 tags: ['sitemenuFR', 'code']
 ---

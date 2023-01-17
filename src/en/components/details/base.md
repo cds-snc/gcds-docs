@@ -6,7 +6,7 @@ permalink: false
 tags: ['detailsEN', 'header']
 ---
 
-# deatils
+# details
 
 This element will have the content below it
 

@@ -1,6 +1,6 @@
 ---
 title: icone - Composants
-layout: "layouts/documentation.njk"
+layout: "layouts/component-documentation.njk"
 eleventyNavigation:
   key: iconFR
   title: icone

@@ -1,6 +1,6 @@
 ---
 title: en-tete - Composants
-layout: "layouts/documentation.njk"
+layout: "layouts/component-documentation.njk"
 eleventyNavigation:
   key: headerFR
   title: en-tete

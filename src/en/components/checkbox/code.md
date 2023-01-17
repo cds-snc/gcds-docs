@@ -1,6 +1,6 @@
 ---
 title: checkbox - Components
-layout: "layouts/documentation.njk"
+layout: "layouts/component-documentation.njk"
 translationKey: "checkboxCode"
 tags: ['checkboxEN', 'code']
 ---

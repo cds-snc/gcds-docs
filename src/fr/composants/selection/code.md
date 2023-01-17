@@ -1,6 +1,6 @@
 ---
 title: selection - Composants
-layout: "layouts/documentation.njk"
+layout: "layouts/component-documentation.njk"
 translationKey: "selectCode"
 tags: ['selectFR', 'code']
 ---

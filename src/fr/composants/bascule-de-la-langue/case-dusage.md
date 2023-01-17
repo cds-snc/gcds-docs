@@ -1,6 +1,6 @@
 ---
 title: bascule-de-la-langue - Composants
-layout: "layouts/documentation.njk"
+layout: "layouts/component-documentation.njk"
 eleventyNavigation:
   key: langtoggleFR
   title: bascule-de-la-langue

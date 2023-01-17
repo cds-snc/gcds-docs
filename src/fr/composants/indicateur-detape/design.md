@@ -1,6 +1,6 @@
 ---
 title: indicateur-detape - Composants
-layout: "layouts/documentation.njk"
+layout: "layouts/component-documentation.njk"
 translationKey: "stepperDesign"
 tags: ['stepperFR', 'design']
 ---

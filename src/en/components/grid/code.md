@@ -1,6 +1,6 @@
 ---
 title: grid - Components
-layout: "layouts/documentation.njk"
+layout: "layouts/component-documentation.njk"
 translationKey: "gridCode"
 tags: ['gridEN', 'code']
 ---

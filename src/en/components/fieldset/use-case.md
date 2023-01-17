@@ -1,6 +1,6 @@
 ---
 title: fieldset - Components
-layout: "layouts/documentation.njk"
+layout: "layouts/component-documentation.njk"
 eleventyNavigation:
   key: fieldsetEN
   title: fieldset

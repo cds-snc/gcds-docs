@@ -1,6 +1,6 @@
 ---
 title: signature - Composants
-layout: "layouts/documentation.njk"
+layout: "layouts/component-documentation.njk"
 translationKey: "signatureCode"
 tags: ['signatureFR', 'code']
 ---

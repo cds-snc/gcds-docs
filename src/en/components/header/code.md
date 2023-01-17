@@ -1,6 +1,6 @@
 ---
 title: header - Components
-layout: "layouts/documentation.njk"
+layout: "layouts/component-documentation.njk"
 translationKey: "headerCode"
 tags: ['headerEN', 'code']
 ---

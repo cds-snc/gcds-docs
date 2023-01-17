@@ -1,6 +1,6 @@
 ---
 title: error-message - Components
-layout: "layouts/documentation.njk"
+layout: "layouts/component-documentation.njk"
 eleventyNavigation:
   key: errormessageEN
   title: error-message

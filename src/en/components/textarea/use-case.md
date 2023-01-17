@@ -1,6 +1,6 @@
 ---
 title: textarea - Components
-layout: "layouts/documentation.njk"
+layout: "layouts/component-documentation.njk"
 eleventyNavigation:
   key: textareaEN
   title: textarea

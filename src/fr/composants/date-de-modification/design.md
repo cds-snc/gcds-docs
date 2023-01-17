@@ -1,6 +1,6 @@
 ---
 title: date-de-modification - Composants
-layout: "layouts/documentation.njk"
+layout: "layouts/component-documentation.njk"
 translationKey: "datemodifiedDesign"
 tags: ['datemodifiedFR', 'design']
 ---

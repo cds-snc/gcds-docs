@@ -1,6 +1,6 @@
 ---
 title: Chemin-de-navigation - Composants
-layout: "layouts/documentation.njk"
+layout: "layouts/component-documentation.njk"
 translationKey: "breadcrumbsDesign"
 tags: ['breadcrumbsFR', 'design']
 ---

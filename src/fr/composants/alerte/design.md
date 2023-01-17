@@ -1,6 +1,6 @@
 ---
 title: alerte - Composants
-layout: "layouts/documentation.njk"
+layout: "layouts/component-documentation.njk"
 translationKey: "alertDesign"
 tags: ['alertFR', 'design']
 ---

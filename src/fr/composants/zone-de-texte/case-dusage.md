@@ -1,6 +1,6 @@
 ---
 title: zone-de-texte - Composants
-layout: "layouts/documentation.njk"
+layout: "layouts/component-documentation.njk"
 eleventyNavigation:
   key: textareaFR
   title: zone-de-texte

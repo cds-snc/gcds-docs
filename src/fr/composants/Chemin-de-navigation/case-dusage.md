@@ -1,9 +1,9 @@
 ---
 title: Chemin-de-navigation - Composants
-layout: "layouts/documentation.njk"
+layout: "layouts/component-documentation.njk"
 eleventyNavigation:
   key: breadcrumbsFR
-  title: fil-dariane
+  title: Chemin-de-navigation
   locale: fr
   parent: componentsFR
 translationKey: "breadcrumbs"

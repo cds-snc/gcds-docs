@@ -1,6 +1,6 @@
 ---
 title: bouton - Composants
-layout: "layouts/documentation.njk"
+layout: "layouts/component-documentation.njk"
 translationKey: "buttonDesign"
 tags: ['buttonFR', 'design']
 ---

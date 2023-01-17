@@ -1,6 +1,6 @@
 ---
 title: jeu-de-champs - Composants
-layout: "layouts/documentation.njk"
+layout: "layouts/component-documentation.njk"
 translationKey: "fieldsetDesign"
 tags: ['fieldsetFR', 'design']
 ---

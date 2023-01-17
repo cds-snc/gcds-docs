@@ -1,6 +1,6 @@
 ---
 title: lang-toggle - Components
-layout: "layouts/documentation.njk"
+layout: "layouts/component-documentation.njk"
 translationKey: "langtoggleCode"
 tags: ['langtoggleEN', 'code']
 ---
