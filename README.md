@@ -18,7 +18,6 @@ We are using [11ty](https://www.11ty.dev/docs/) and [Netlify](https://docs.netli
 - Run `npm install` to install all Node.js dependencies.
 - Run `npm start` to start a hot-reloading local web server.
 <br/>
-<br/>
 
 ## Formatting
 
@@ -34,7 +33,6 @@ Available frontmatter options:
     - `parent`: Parent node's key. Leave blank to create a top level link.
     - `title`: Text for navigation link.
     - `locale`: Language key to dictate which language the navigation item is available in. Expects **en** or **fr**.
-<br/>
 <br/>
 
 ## How to contribute
