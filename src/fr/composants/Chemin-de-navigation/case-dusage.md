@@ -1,5 +1,5 @@
 ---
-title: fil-dariane - Composants
+title: Chemin-de-navigation - Composants
 layout: "layouts/documentation.njk"
 eleventyNavigation:
   key: breadcrumbsFR
@@ -8,7 +8,7 @@ eleventyNavigation:
   parent: componentsFR
 translationKey: "breadcrumbs"
 tags: ['breadcrumbsFR', 'usage']
-permalink: /fr/composants/fil-dariane/
+permalink: /fr/composants/chemin-de-navigation/
 ---
 
 ## Usage
