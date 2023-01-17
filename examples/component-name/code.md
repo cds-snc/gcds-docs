@@ -1,6 +1,6 @@
 ---
 title: componentName - {Components}
-layout: "layouts/documentation.njk"
+layout: "layouts/component-documentation.njk"
 translationKey: "navKeyCode"
 tags: ['navKey{locale}', 'code']
 ---

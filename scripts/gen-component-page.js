@@ -12,19 +12,13 @@ let frenchDirectory = './src/fr/composants/';
 copyFolderSync('./examples/component-name', `${englishDirectory}${englishName}`);
 copyFolderSync('./examples/component-name', `${frenchDirectory}${frenchName}`);
 
-fs.rename(`${englishDirectory}${englishName}/component-name.md`, `${englishDirectory}${englishName}/${englishName}.md`, function(err) {
-  if ( err ) console.log('ERROR: ' + err);
-});
-fs.rename(`${frenchDirectory}${frenchName}/component-name.md`, `${frenchDirectory}${frenchName}/${frenchName}.md`, function(err) {
-  if ( err ) console.log('ERROR: ' + err);
-});
 fs.rename(`${frenchDirectory}${frenchName}/use-case.md`, `${frenchDirectory}${frenchName}/case-dusage.md`, function(err) {
   if ( err ) console.log('ERROR: ' + err);
 });
 
 let engOptions = {
   files: [
-    `${englishDirectory}${englishName}/${englishName}.md`,
+    `${englishDirectory}${englishName}/base.md`,
     `${englishDirectory}${englishName}/use-case.md`,
     `${englishDirectory}${englishName}/design.md`,
     `${englishDirectory}${englishName}/code.md`
@@ -34,7 +28,7 @@ let engOptions = {
 };
 let frOptions = {
   files: [
-    `${frenchDirectory}${frenchName}/${frenchName}.md`,
+    `${frenchDirectory}${frenchName}/base.md`,
     `${frenchDirectory}${frenchName}/case-dusage.md`,
     `${frenchDirectory}${frenchName}/design.md`,
     `${frenchDirectory}${frenchName}/code.md`

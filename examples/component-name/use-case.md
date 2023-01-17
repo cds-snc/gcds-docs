@@ -1,6 +1,6 @@
 ---
 title: componentName - {Components}
-layout: "layouts/documentation.njk"
+layout: "layouts/component-documentation.njk"
 eleventyNavigation:
   key: navKey{locale}
   title: componentName
