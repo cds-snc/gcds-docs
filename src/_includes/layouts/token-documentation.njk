@@ -1,0 +1,22 @@
+---
+layout: "layouts/base.njk"
+---
+
+{% set tabs = collections.all | tabs(tags[0]) %}
+
+{{ tabs.header.templateContent | safe }}
+
+<ul>
+  <li>
+    <a href={{tabs.usage.url}}>
+      {{ documentation[locale].usage }}
+    </a>
+  </li>
+  <li>
+    <a href={{tabs.tokens.url}}>
+      {{ documentation[locale].tokens }}
+    </a>
+  </li>
+</ul>
+
+{{ content | safe }}

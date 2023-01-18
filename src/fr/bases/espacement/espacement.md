@@ -1,6 +1,6 @@
 ---
 title: Espacement - Bases
-layout: "layouts/documentation.njk"
+layout: "layouts/base.njk"
 translationKey: "spacing"
 eleventyNavigation:
   key: spacingFR

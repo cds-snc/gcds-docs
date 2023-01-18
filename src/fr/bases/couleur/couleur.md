@@ -1,6 +1,6 @@
 ---
 title: Couleur - Bases
-layout: "layouts/documentation.njk"
+layout: "layouts/base.njk"
 translationKey: "colour"
 eleventyNavigation:
   key: colourFR

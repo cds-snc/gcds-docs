@@ -3,14 +3,14 @@
     <nav aria-label="{{ breadcrumbs[locale].breadcrumb }}" class="container breadcrumb">
         <ol>
             <li>
-                <a href={{ breadcrumbs[locale].url | url }}>{{ breadcrumbs[locale].linkText }}</a>
+            <a href={{ breadcrumbs[locale].url | url }}>{{ breadcrumbs[locale].linkText }}</a>
             </li>
             {% for item in navPages %}
                 {% if item.url %} 
-                    <li>
-                        <a href="{{ item.url | url }}" {% if item.url == page.url %} aria-current="page" {% endif %} >{{ item.title }}</a>
-                    </li>
-                {% endif %}
+                <li>
+                    <a href="{{ item.url | url }}" {% if item.url == page.url %} aria-current="page" {% endif %} >{{ item.title }}</a>
+                </li>
+            {% endif %}
             {% endfor %}
         </ol>
     </nav>
