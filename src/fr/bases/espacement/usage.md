@@ -1,16 +1,15 @@
 ---
 title: Espacement - Bases
-layout: "layouts/base.njk"
+layout: "layouts/token-documentation.njk"
 translationKey: "spacing"
 eleventyNavigation:
   key: spacingFR
-  title: Espacement — à venir
+  title: Espacement
   locale: fr
   parent: foundationsFR
-  url: null
-  hideMain: true
+#   hideMain: true
   order: 2
-permalink: false
+permalink: /fr/bases/espacement/
 ---
 
 # Espacement
