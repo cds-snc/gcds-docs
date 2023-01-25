@@ -6,9 +6,10 @@ eleventyNavigation:
   title: componentName
   locale: {localeLower}
   parent: components{locale}
+  otherNames: Component
   description: This is the componentName
   thumbnail: /images/{localeLower}/{components}/componentName.png
-  published: true
+  alt: This is an image of the component
 translationKey: "navKey"
 tags: ['navKey{locale}', 'usage']
 permalink: /{localeLower}/{components}/componentName/
