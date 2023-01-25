@@ -3,7 +3,7 @@ title: Chemin-de-navigation - Composants
 layout: "layouts/component-documentation.njk"
 eleventyNavigation:
   key: breadcrumbsFR
-  title: Chemin-de-navigation
+  title: chemin-de-navigation
   locale: fr
   parent: componentsFR
   otherNames:  Component

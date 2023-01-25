@@ -3,7 +3,7 @@ title: footer - Components
 layout: "layouts/component-documentation.njk"
 eleventyNavigation:
   key: footerEN
-  title: Footer
+  title: footer
   locale: en
   parent: componentsEN
   otherNames:  Component

@@ -4,13 +4,9 @@ layout: "layouts/base.njk"
 
 {{ content | safe }}
 
-{% if locale == "en" %}
-  {% set components = "componentsEN" %}
-{% else %}
-  {% set components = "componentsFR" %}
-{% endif %}
+{% set components = "componentsFR" if locale == "fr" else "componentsEN" %}
 
-{% set navPages = collections.all | eleventyNavigation(components) %}
+{% set navPages = collections.all | eleventyNavigation(components) | sortAlpha %}
 
 <select>
 {%- for entry in navPages %}

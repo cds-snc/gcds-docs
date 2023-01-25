@@ -4,11 +4,7 @@ layout: "layouts/base.njk"
 
 {{ content | safe }}
 
-{% if locale == "en" %}
-    {% set tokens = "foundationsEN" %}
-{% else %}
-    {% set tokens = "foundationsFR" %}
-{% endif %}
+{% set tokens = "foundationsFR" if locale == "fr" else "foundationsEN" %}
 
 {% set navPages = collections.all | eleventyNavigation(tokens) %}
 
