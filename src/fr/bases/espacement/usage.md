@@ -7,8 +7,10 @@ eleventyNavigation:
   title: Espacement
   locale: fr
   parent: foundationsFR
-#   hideMain: true
   order: 2
+  description: This is the foundation
+  thumbnail: /images/fr/bases/foundation.png
+  alt: This is an image of the foundation
 permalink: /fr/bases/espacement/
 ---
 
