@@ -6,6 +6,10 @@ eleventyNavigation:
   title: alerte
   locale: fr
   parent: componentsFR
+  otherNames:  Component
+  description: This is the component
+  thumbnail: /images/fr/composants/component.png
+  alt: This is an image of the component
 translationKey: "alert"
 tags: ['alertFR', 'usage']
 permalink: /fr/composants/alerte/

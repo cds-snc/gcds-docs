@@ -5,33 +5,33 @@ layout: "layouts/base.njk"
 {{ content | safe }}
 
 {% if locale == "en" %}
-    {% set components = "componentsEN" %}
+  {% set components = "componentsEN" %}
 {% else %}
-    {% set components = "componentsFR" %}
+  {% set components = "componentsFR" %}
 {% endif %}
 
 {% set navPages = collections.all | eleventyNavigation(components) %}
 
 <select>
 {%- for entry in navPages %}
-    {% if entry.published %}
-        <option value={{entry.url}}>
-            {{ entry.title }}
-        </option>
-    {% endif %}
+  {% if entry.url %}
+    <option value={{entry.url}}>
+      {{ entry.title }}
+    </option>
+  {% endif %}
 {%- endfor -%}
 </select>
 
 <ul>
 {%- for entry in navPages %}
-    {% if entry.published %}
-        <li>
-            <a href={{entry.url}}>
-                {{ entry.title }}
-                {{ entry.description }}
-                {{ entry.thumbnail }}
-            </a>
-        </li>
-    {% endif %}
+  {% if entry.url %}
+    <li>
+      <a href={{entry.url}}>
+        {{ entry.title }}
+        {{ entry.description }}
+        {{ entry.thumbnail }}
+      </a>
+    </li>
+  {% endif %}
 {%- endfor -%}
 </ul>

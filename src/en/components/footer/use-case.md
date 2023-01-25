@@ -3,12 +3,13 @@ title: footer - Components
 layout: "layouts/component-documentation.njk"
 eleventyNavigation:
   key: footerEN
-  title: footer
+  title: Footer
   locale: en
   parent: componentsEN
-  description: This is the footer
-  thumbnail: /images/en/components/footer.png
-  published: true
+  otherNames:  Component
+  description: This is the component
+  thumbnail: /images/en/components/component.png
+  alt: This is an image of the component
 translationKey: "footer"
 tags: ['footerEN', 'usage']
 permalink: /en/components/footer/

@@ -14,10 +14,12 @@ layout: "layouts/base.njk"
 
 <ul>
 {%- for entry in navPages %}
-    <li>
-        <a href={{entry.url}}>
-            {{ entry.title }}
-        </a>
-    </li>
+  <li>
+    <a href={{entry.url}}>
+      {{ entry.title }}
+      {{ entry.description }}
+      {{ entry.thumbnail }}
+    </a>
+  </li>
 {%- endfor -%}
 </ul>
