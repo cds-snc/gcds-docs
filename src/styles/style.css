@@ -2,12 +2,6 @@
  * General
  */
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
 @keyframes fade {
   from {
     opacity: 0;
@@ -35,7 +29,7 @@ body {
 .container {
   justify-content: space-between;
   width: 90%;
-  max-width: var(--gcds-container-400);
+  max-width: var(--gcds-container-xl);
   margin: 0 auto;
 }
 
