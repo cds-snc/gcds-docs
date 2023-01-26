@@ -35,7 +35,7 @@ body {
 .container {
   justify-content: space-between;
   width: 90%;
-  max-width: var(--gcds-container-400);
+  max-width: var(--gcds-container-xl);
   margin: 0 auto;
 }
 
