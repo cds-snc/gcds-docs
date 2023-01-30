@@ -7,6 +7,9 @@ eleventyNavigation:
   locale: en
   parent: foundationsEN
   order: 1
+  description: This is the foundation
+  thumbnail: /images/en/foundations/foundation.png
+  alt: This is an image of the foundation
 translationKey: "designtokens"
 ---
 

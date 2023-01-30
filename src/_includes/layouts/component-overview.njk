@@ -1,0 +1,33 @@
+---
+layout: "layouts/base.njk"
+---
+
+{{ content | safe }}
+
+{% set components = "componentsFR" if locale == "fr" else "componentsEN" %}
+
+{% set navPages = collections.all | eleventyNavigation(components) | sortAlpha %}
+
+<select>
+{%- for entry in navPages %}
+  {% if entry.url %}
+    <option value={{entry.url}}>
+      {{ entry.title }}
+    </option>
+  {% endif %}
+{%- endfor -%}
+</select>
+
+<ul>
+{%- for entry in navPages %}
+  {% if entry.url %}
+    <li>
+      <a href={{entry.url}}>
+        {{ entry.title }}
+        {{ entry.description }}
+        {{ entry.thumbnail }}
+      </a>
+    </li>
+  {% endif %}
+{%- endfor -%}
+</ul>

@@ -60,6 +60,17 @@ module.exports = function (eleventyConfig) {
     return urls;
   });
 
+  /*
+   * Filter to sort component navigation items
+   */
+  eleventyConfig.addFilter("sortAlpha", function(collection) {
+    return collection.sort(function(a, b) {
+        var textA = a.title.toUpperCase();
+        var textB = b.title.toUpperCase();
+        return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;
+    });
+  });
+
   // date filter (localized)
   eleventyConfig.addNunjucksFilter("date", function (date, format, locale) {
     locale = locale ? locale : "en";

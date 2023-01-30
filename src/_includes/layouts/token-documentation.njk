@@ -2,21 +2,23 @@
 layout: "layouts/base.njk"
 ---
 
-{% set tabs = collections.all | tabs(tags[0]) %}
+{% if tags %}
+    {% set tabs = collections.all | tabs(tags[0]) %}
 
-{{ tabs.header.templateContent | safe }}
+    {{ tabs.header.templateContent | safe }}
 
-<ul>
-  <li>
-    <a href={{tabs.usage.url}}>
-      {{ documentation[locale].usage }}
-    </a>
-  </li>
-  <li>
-    <a href={{tabs.tokens.url}}>
-      {{ documentation[locale].tokens }}
-    </a>
-  </li>
-</ul>
+    <ul>
+        <li>
+            <a href={{tabs.usage.url}}>
+            {{ documentation[locale].usage }}
+            </a>
+        </li>
+        <li>
+            <a href={{tabs.tokens.url}}>
+            {{ documentation[locale].tokens }}
+            </a>
+        </li>
+    </ul>
+{% endif %}
 
 {{ content | safe }}
