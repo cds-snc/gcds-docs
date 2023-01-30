@@ -9,16 +9,16 @@
     {# Font Awesome #}
     <link href="https://unpkg.com/font-awesome/css/font-awesome.min.css" rel="stylesheet">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet">
-
     <link rel="stylesheet" href="{{ '/styles/prism.css' | url }}">
     <link rel="stylesheet" href="{{ '/styles/style.css' | url }}">
     <script src="{{ '/scripts/code-showcase.js' | url }}"></script>
     <link rel="icon" type="image/x-icon" sizes="96x96" href="{{ '/favicon.ico' | url }}">
 
+    <!-- Utility framework -->
+    <!-- TO DO: replace with package, once package is published -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/cds-snc/gcds-utilities/dist/utilities.css" />
+
+    <!-- GC Design System  Components-->
     <link rel="stylesheet" href="{{ '/components/dist/gcds/gcds.css' | url }}">
     <script type="module" src="/components/dist/gcds/gcds.esm.js"></script>
     <script nomodule src="/components/dist/gcds/gcds.js"></script>
@@ -30,7 +30,7 @@
 
     <div class="content-wrapper">
 
-      <main id="mc" class="container general-layout">
+      <main id="mc" class="container-xl mx-auto general-layout">
         {{ content | safe }}
       </main>
 
