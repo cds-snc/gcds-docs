@@ -1,6 +1,6 @@
 ---
 permalink: false
-tags: ['couleurFR', 'header']
+tags: ['colourFR', 'header']
 ---
 
 # Couleur

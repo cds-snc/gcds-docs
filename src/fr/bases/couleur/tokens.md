@@ -2,7 +2,7 @@
 title: Typographie - Bases
 layout: "layouts/token-documentation.njk"
 translationKey: "colourTokens"
-tags: ['couleurFR', 'tokens']
+tags: ['colourFR', 'tokens']
 ---
 
 ## Tokens

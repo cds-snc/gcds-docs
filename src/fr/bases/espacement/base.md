@@ -1,6 +1,6 @@
 ---
 permalink: false
-tags: ['espacementFR', 'header']
+tags: ['spacingFR', 'header']
 ---
 
 # Espacement

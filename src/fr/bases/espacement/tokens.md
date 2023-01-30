@@ -1,8 +1,8 @@
 ---
 title: Espacement - Bases
 layout: "layouts/token-documentation.njk"
-translationKey: "espacementTokens"
-tags: ['espacementFR', 'tokens']
+translationKey: "spacingTokens"
+tags: ['spacingFR', 'tokens']
 ---
 
 ## Tokens

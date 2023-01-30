@@ -1,7 +1,7 @@
 ---
 title: Spacing - Foundations
 layout: "layouts/token-documentation.njk"
-translationKey: "displayTokens"
+translationKey: "spacingTokens"
 tags: ['spacingEN', 'tokens']
 ---
 

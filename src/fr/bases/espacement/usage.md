@@ -12,6 +12,7 @@ eleventyNavigation:
   thumbnail: /images/fr/bases/foundation.png
   alt: This is an image of the foundation
 permalink: /fr/bases/espacement/
+tags: ['spacingFR', 'usage']
 ---
 
 # Espacement

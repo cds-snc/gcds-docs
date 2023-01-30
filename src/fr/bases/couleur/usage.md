@@ -12,7 +12,7 @@ eleventyNavigation:
   thumbnail: /images/fr/bases/foundation.png
   alt: This is an image of the foundation
 permalink: /fr/bases/couleur/
-tags: ['couleurFR', 'usage']
+tags: ['colourFR', 'usage']
 ---
 
 # Couleur
