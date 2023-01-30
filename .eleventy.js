@@ -3,31 +3,46 @@ const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 const sitemap = require("@quasibit/eleventy-plugin-sitemap");
 const moment = require("moment");
 const markdownIt = require("markdown-it");
-const slugify = require("./utils/slugify");
-const contextMenu = require("./utils/context-menu");
-const markdownAnchor = require("./utils/anchor");
 const svgContents = require("eleventy-plugin-svg-contents");
 const codeClipboard = require("eleventy-plugin-code-clipboard");
 
+const contextMenu = require("./utils/context-menu");
+const displayTokens = require("./utils/display-tokens");
+const markdownAnchor = require("./utils/anchor");
+const slugify = require("./utils/slugify");
+
 module.exports = function (eleventyConfig) {
+
+  // Pass through copies
+
   eleventyConfig.addPassthroughCopy("./src/styles/style.css");
   eleventyConfig.addPassthroughCopy("./src/styles/prism.css");
   eleventyConfig.addPassthroughCopy("./src/images");
   eleventyConfig.addPassthroughCopy("./src/scripts/code-showcase.js");
   eleventyConfig.addPassthroughCopy("./src/admin/config.yml");
   eleventyConfig.addPassthroughCopy("./src/favicon.ico");
-  eleventyConfig.addPlugin(svgContents);
   eleventyConfig.addPassthroughCopy({"./src/variables/": "variables"});
   eleventyConfig.addPassthroughCopy({
     "./node_modules/gcds-components/": "components"
   });
   // Add copy fo a11y testing
   eleventyConfig.addPassthroughCopy("./.pa11yci.json");
+
+  // Plugins
+
+  eleventyConfig.addPlugin(svgContents);
   eleventyConfig.addPlugin(eleventyNavigationPlugin);
   eleventyConfig.addPlugin(syntaxHighlight, {
     templateFormats: ['md']
   });
   eleventyConfig.addPlugin(codeClipboard);
+  eleventyConfig.addPlugin(sitemap, {
+    sitemap: {
+      hostname: process.env.GITHUB_ORG ? `https://${process.env.GITHUB_ORG}.github.io/${process.env.PATH_PREFIX}` : "http://localhost:8080",
+    },
+  });
+
+  // Filters
 
   eleventyConfig.addFilter("sortCollection", (arr) => {
     // get unsorted items
@@ -75,6 +90,8 @@ module.exports = function (eleventyConfig) {
   }).use(markdownAnchor).use(codeClipboard.markdownItCopyButton);
   markdownLibrary.disable('blockquote');
   markdownLibrary.disable('code');
+
+  // Short codes
 
   eleventyConfig.addPairedShortcode('viewCode', (children, lang, id, name) => {
     const langStrings = {
@@ -152,13 +169,16 @@ module.exports = function (eleventyConfig) {
       </ul>`;
   });
 
-  eleventyConfig.setLibrary("md", markdownLibrary);
-
-  eleventyConfig.addPlugin(sitemap, {
-    sitemap: {
-      hostname: process.env.GITHUB_ORG ? `https://${process.env.GITHUB_ORG}.github.io/${process.env.PATH_PREFIX}` : "http://localhost:8080",
-    },
+  /*
+   * Display tokens in tables based on passed name
+   */
+  eleventyConfig.addShortcode('displayTokens', (token, subCategory, locale) => {
+    return displayTokens(token, subCategory, locale);
   });
+
+  // Misc
+
+  eleventyConfig.setLibrary("md", markdownLibrary);
 
   eleventyConfig.addCollection("sitemap", function(collectionApi) {
     return collectionApi

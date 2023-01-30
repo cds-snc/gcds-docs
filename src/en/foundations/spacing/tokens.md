@@ -8,3 +8,5 @@ tags: ['spacingEN', 'tokens']
 ## Tokens
 
 Display tokens here
+
+{% displayTokens "spacing" null locale %}
