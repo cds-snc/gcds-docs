@@ -9,36 +9,12 @@ tags: ['typographyEN', 'tokens']
 
 ### Headings
 
-#### Font family
-
-{% displayTokens "fontFamilies" "headings" locale %}
-
-#### Font sizes
-
-{% displayTokens "fontSizes" "headings" locale %}
-
-#### Font weights
-
-{% displayTokens "fontWeights" "headings" locale %}
-
-#### Line heights
-
-{% displayTokens "lineHeights" "headings" locale %}
+{% displayTokens "font" "headings" locale %}
 
 ### Paragraphs
 
-#### Font family
+{% displayTokens "font" "paragraphs" locale %}
 
-{% displayTokens "fontFamilies" "paragraphs" locale %}
+### Font weights
 
-#### Font sizes
-
-{% displayTokens "fontSizes" "paragraphs" locale %}
-
-#### Font weights
-
-{% displayTokens "fontWeights" "paragraphs" locale %}
-
-#### Line heights
-
-{% displayTokens "lineHeights" "paragraphs" locale %}
+{% displayTokens "fontWeights" null locale %}

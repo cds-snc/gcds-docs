@@ -2,12 +2,11 @@ const i18n = {
   "en": {
     "color": {
       "headers": {
-        preview: "Preview",
         name: "Colour name",
-        css: "CSS variable",
+        token: "Token name",
         contrast: "Contrast",
-        hex: "Value (Hex)",
-        rgb: "Value (RGB)"
+        hex: "Hex",
+        rgb: "RGB"
       },
       "body": {
         blue: "Blue",
@@ -20,65 +19,62 @@ const i18n = {
     "spacing": {
       "headers": {
         preview: "Preview",
-        css: "CSS variable",
-        sass: "SASS variable",
-        px: "Value (PX)",
-        rem: "Value (REM)"
+        token: "Token name",
+        px: "Pixel",
+        rem: "REM"
       },
       "body": {},
     },
-    "fontFamilies": {
+    "font": {
       "headers": {
         example: "Example",
-        css: "CSS variable",
-        sass: "SASS variable",
-        value: "Value"
+        token: "Token name",
+        value: "Value (rounded)"
       },
       "body": {
-        headings: "Heading",
-        paragraphs: "Paragraph"
-      },
-    },
-    "fontSizes": {
-      "headers": {
-        example: "Example",
-        css: "CSS variable",
-        sass: "SASS variable",
-        px: "Value (PX)",
-        rem: "Value (REM)"
-      },
-      "body": {
-        headings: "Heading",
-        paragraphs: "Paragraph"
+        heading: "Heading",
+        text: "Paragraph",
+        "text-long": "Paragraph",
+        caption: "Caption",
+        label: "Label",
       },
     },
     "fontWeights": {
       "headers": {
         example: "Example",
-        css: "CSS variable",
-        sass: "SASS variable",
+        token: "Token name",
         value: "Value"
       },
       "body": {
-        headings: "Heading",
-        paragraphs: "Paragraph"
+        light: "Light",
+        regular: "Regular",
+        medium: "Medium",
+        semibold: "Semibold",
+        bold: "Bold"
       },
     },
-    "lineHeights": {
+    "global": {
       "headers": {
-        example: "Example",
-        css: "CSS variable",
-        sass: "SASS variable",
-        value: "Value (%)"
+        token: "Token name",
+        hex: "Hex",
+        usecase: "Use case"
       },
       "body": {
-        headings: "Heading",
-        paragraphs: "Paragraph"
+        "text-primary": "",
+        "text-secondary": "",
+        "text-light": "",
+        "text-danger": "",
+        "link-default": "",
+        "link-hover": "",
+        "link-light": "",
+        "link-danger": "",
+        "border-default": "",
+        "border-danger": "",
+        "focus-color": "",
+        "state-danger": "",
+        "state-success": "",
+        "disabled-background": "",
       },
-    },
-    "other": {
-      "headers": {},
-      "body": {},
     }
   },
   "fr": { }

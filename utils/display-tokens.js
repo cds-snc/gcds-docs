@@ -16,23 +16,25 @@ const displayTokens = (token, subCategory, locale) => {
     case "color":
 
       tableHeading = `<tr>
-          <th>${i18n[locale][token].headers.preview}</th>
+          <th></th>
           <th>${i18n[locale][token].headers.name}</th>
-          <th>${i18n[locale][token].headers.css}</th>
+          <th>${i18n[locale][token].headers.token}</th>
           <th>${i18n[locale][token].headers.contrast}</th>
           <th>${i18n[locale][token].headers.hex}</th>
           <th>${i18n[locale][token].headers.rgb}</th>
         </tr>`;
 
       for (var i = 0; i < tokens.length; i++) {
+
+        let color = tokens[i].token.replace("gcds-color-", "").split("-");
         tableBody += `<tr>
             <td>
               <div
-                style="width: var(--gcds-spacing-500); height: var(--gcds-spacing-400); background-color: ${tokens[i].value}; border: 1px solid #EDEDED"
+                style="width: var(--gcds-spacing-500); height: var(--gcds-spacing-500); border-radius: var(--gcds-spacing-500); background-color: ${tokens[i].value}; border: 1px solid #EDEDED"
               >
               </div>
             </td>
-            <td>${tokens[i].name}</td>
+            <td>${i18n[locale][token].body[color[0]]} ${color[1]}</td>
             <td>--${tokens[i].token}</td>
             <td>${Math.floor(chroma.contrast(tokens[i].value, "#FFF") * 100) / 100}</td>
             <td>${tokens[i].value}</td>
@@ -46,8 +48,7 @@ const displayTokens = (token, subCategory, locale) => {
 
       tableHeading = `<tr>
           <th>${i18n[locale][token].headers.preview}</th>
-          <th>${i18n[locale][token].headers.css}</th>
-          <th>${i18n[locale][token].headers.sass}</th>
+          <th>${i18n[locale][token].headers.token}</th>
           <th>${i18n[locale][token].headers.px}</th>
           <th>${i18n[locale][token].headers.rem}</th>
         </tr>`;
@@ -61,103 +62,60 @@ const displayTokens = (token, subCategory, locale) => {
               </div>
             </td>
             <td>--${tokens[i].token}</td>
-            <td>$${tokens[i].token}</td>
-            <td>${tokens[i].value.replace('rem', '') * 16}px</td>
-            <td>${tokens[i].value}</td>
+            <td>${tokens[i].value.replace('rem', '') * 16}</td>
+            <td>${tokens[i].value.replace('rem', '')}</td>
           </tr>`;
       }
 
       break;
 
-    case 'fontFamilies':
+    case 'font':
 
+      if (subCategory == "paragraphs") {
+        tokens.reverse();
+      }
 
       tableHeading = `<tr>
-          <th>${i18n[locale][token].headers.example}</th>
-          <th>${i18n[locale][token].headers.css}</th>
-          <th>${i18n[locale][token].headers.sass}</th>
+          <th></th>
+          <th>${i18n[locale][token].headers.token}</th>
           <th>${i18n[locale][token].headers.value}</th>
         </tr>`;
 
       for (var i = 0; i < tokens.length; i++) {
-        if (subCategory == "headings" && tokens[i].token.replace("gcds-font-families-", "") == "heading") {
+        if (subCategory == "headings" && headings.includes(tokens[i].token.replace("gcds-font-", ""))) {
           tableBody += `<tr>
             <td>
               <div
-                style="font-family: ${tokens[i].value}"
+                style="font-family: ${tokens[i].value.fontFamily}; font-size: ${tokens[i].value.fontSize}; line-height: ${tokens[i].value.lineHeight}; font-weight: ${tokens[i].value.fontWeight};"
               >
-                ${i18n[locale][token].body.headings}
+                ${i18n[locale][token].body["heading"]} ${tokens[i].token.replace("gcds-font-h", "")}
               </div>
             </td>
             <td>--${tokens[i].token}</td>
-            <td>$${tokens[i].token}</td>
-            <td>${tokens[i].value}</td>
+            <td>
+            ${Math.round(tokens[i].value.fontSize.replace('rem', '') * 100) / 100}rem
+            ${Math.round(tokens[i].value.lineHeight.replace('%', '') * 10) / 10}%
+            ${tokens[i].value.fontFamily}
+            ${tokens[i].value.fontWeight}
+            </td>
           </tr>`;
-
-        } else if (subCategory == "paragraphs" && tokens[i].token.replace("gcds-font-families-", "") == "body") {
-
+        } else if (subCategory == "paragraphs" && !headings.includes(tokens[i].token.replace("gcds-font-", ""))) {
           tableBody += `<tr>
             <td>
               <div
-                style="font-family: ${tokens[i].value}"
+                style="font-family: ${tokens[i].value.fontFamily}; font-size: ${tokens[i].value.fontSize}; line-height: ${tokens[i].value.lineHeight}; font-weight: ${tokens[i].value.fontWeight};"
               >
-                Paragraph
+                ${i18n[locale][token].body[tokens[i].token.replace("gcds-font-", "")]}
               </div>
             </td>
             <td>--${tokens[i].token}</td>
-            <td>$${tokens[i].token}</td>
-            <td>${tokens[i].value}</td>
-          </tr>`;
-
-        }
-      }
-
-      break;
-
-    case 'fontSizes':
-
-      tokens.reverse();
-
-      tableHeading = `<tr>
-          <th>${i18n[locale][token].headers.example}</th>
-          <th>${i18n[locale][token].headers.css}</th>
-          <th>${i18n[locale][token].headers.sass}</th>
-          <th>${i18n[locale][token].headers.px}</th>
-          <th>${i18n[locale][token].headers.rem}</th>
-        </tr>`;
-
-      for (var i = 0; i < tokens.length; i++) {
-        if (subCategory == "headings" && headings.includes(tokens[i].token.replace("gcds-font-sizes-", ""))) {
-          tableBody += `<tr>
             <td>
-              <div
-                style="font-size: ${tokens[i].value};"
-              >
-                ${i18n[locale][token].body.headings} ${tokens[i].token.replace("gcds-font-sizes-h", "")}
-              </div>
+              ${Math.round(tokens[i].value.fontSize.replace('rem', '') * 100) / 100}rem
+              ${Math.round(tokens[i].value.lineHeight.replace('%', '') * 10) / 10}%
+              ${tokens[i].value.fontFamily}
+              ${tokens[i].value.fontWeight}
             </td>
-            <td>--${tokens[i].token}</td>
-            <td>$${tokens[i].token}</td>
-            <td>${tokens[i].value.replace('rem', '') * 16}px</td>
-            <td>${tokens[i].value}</td>
           </tr>`;
-
-        } else if (subCategory == "paragraphs" && !headings.includes(tokens[i].token.replace("gcds-font-sizes-", ""))) {
-
-          tableBody += `<tr>
-            <td>
-              <div
-                style="font-size: ${tokens[i].value};"
-              >
-                ${i18n[locale][token].body.paragraphs}
-              </div>
-            </td>
-            <td>--${tokens[i].token}</td>
-            <td>$${tokens[i].token}</td>
-            <td>${tokens[i].value.replace('rem', '') * 16}px</td>
-            <td>${tokens[i].value}</td>
-          </tr>`;
-
         }
       }
 
@@ -166,94 +124,57 @@ const displayTokens = (token, subCategory, locale) => {
     case 'fontWeights':
 
       tableHeading = `<tr>
-          <th>${i18n[locale][token].headers.example}</th>
-          <th>${i18n[locale][token].headers.css}</th>
-          <th>${i18n[locale][token].headers.sass}</th>
+          <th></th>
+          <th>${i18n[locale][token].headers.token}</th>
           <th>${i18n[locale][token].headers.value}</th>
         </tr>`;
 
       for (var i = 0; i < tokens.length; i++) {
-        if (subCategory == "headings" && tokens[i].token.replace("gcds-font-weights-", "") == "bold") {
-
           tableBody += `<tr>
             <td>
               <div
                 style="font-weight: ${tokens[i].value};"
               >
-                ${i18n[locale][token].body.headings} 1 - 6
+                ${i18n[locale][token].body[tokens[i].token.replace("gcds-font-weights-", "")]}
               </div>
             </td>
             <td>--${tokens[i].token}</td>
-            <td>$${tokens[i].token}</td>
             <td>${tokens[i].value}</td>
           </tr>`;
-
-        } else if (subCategory == "paragraphs") {
-
-          tableBody += `<tr>
-            <td>
-              <div
-                style="font-weight: ${tokens[i].value};"
-              >
-                ${i18n[locale][token].body.paragraphs}
-              </div>
-            </td>
-            <td>--${tokens[i].token}</td>
-            <td>$${tokens[i].token}</td>
-            <td>${tokens[i].value}</td>
-          </tr>`;
-
-        }
       }
 
       break;
 
-    case 'lineHeights':
-
-      tokens.reverse();
+    case 'text':
+    case 'link':
+    case 'border':
+    case 'focus':
+    case 'states':
+    case 'disabled':
 
       tableHeading = `<tr>
-          <th>${i18n[locale][token].headers.example}</th>
-          <th>${i18n[locale][token].headers.css}</th>
-          <th>${i18n[locale][token].headers.sass}</th>
-          <th>${i18n[locale][token].headers.value}</th>
+          <th></th>
+          <th>${i18n[locale].global.headers.token}</th>
+          <th>${i18n[locale].global.headers.hex}</th>
+          <th>${i18n[locale].global.headers.usecase}</th>
         </tr>`;
 
       for (var i = 0; i < tokens.length; i++) {
-        if (subCategory == "headings" && headings.includes(tokens[i].token.replace("gcds-line-heights-", ""))) {
-          tableBody += `<tr>
+        tableBody += `<tr>
             <td>
               <div
-                style="line-height: ${tokens[i].value}; font-size: var(--gcds-font-sizes-${tokens[i].token.replace("gcds-line-heights-", "")})"
+                style="width: var(--gcds-spacing-500); height: var(--gcds-spacing-500); border-radius: var(--gcds-spacing-500); background-color: ${tokens[i].value}; border: 1px solid #EDEDED"
               >
-              ${i18n[locale][token].body.headings} ${tokens[i].token.replace("gcds-line-heights-h", "")}
               </div>
             </td>
             <td>--${tokens[i].token}</td>
-            <td>$${tokens[i].token}</td>
             <td>${tokens[i].value}</td>
+            <td>use case text</td>
           </tr>`;
-
-        } else if (subCategory == "paragraphs" && !headings.includes(tokens[i].token.replace("gcds-line-heights-", ""))) {
-
-          tableBody += `<tr>
-            <td>
-              <div
-                style="line-height: ${tokens[i].value};"
-              >
-                Paragraph
-              </div>
-            </td>
-            <td>--${tokens[i].token}</td>
-            <td>$${tokens[i].token}</td>
-            <td>${tokens[i].value}</td>
-          </tr>`;
-
-        }
       }
 
       break;
-
+    
     default:
       // Build out a more generic table for later values?
       break;
