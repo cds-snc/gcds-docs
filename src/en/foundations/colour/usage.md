@@ -13,3 +13,27 @@ tags: ['colourEN', 'usage']
 ---
 
 ## Colour usage
+
+### Text
+
+{% displayTokens "text" null locale %}
+
+### Link
+
+{% displayTokens "link" null locale %}
+
+### Border
+
+{% displayTokens "border" "color" locale %}
+
+### Danger
+
+{% displayTokens "danger" null locale %}
+
+### Disabled
+
+{% displayTokens "disabled" null locale %}
+
+### Focus
+
+{% displayTokens "focus" null locale %}

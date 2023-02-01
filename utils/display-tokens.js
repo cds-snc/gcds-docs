@@ -5,12 +5,13 @@ const i18n = require("./display-tokens.i18n");
 
 const displayTokens = (token, subCategory, locale) => {
 
-  const tokens = getTokenValues(designTokens.Tokens, token, [], "", "gcds");
+  const tokens = getTokenValues(designTokens.Tokens, token, [], "gcds");
 
   let tableHeading = "";
   let tableBody = "";
   let headings = ["h1","h2","h3","h4","h5","h6"];
 
+  // Render the correct table for passed token and subCategory
   switch (token) {
 
     case "color":
@@ -93,10 +94,9 @@ const displayTokens = (token, subCategory, locale) => {
             </td>
             <td>--${tokens[i].token}</td>
             <td>
-            ${Math.round(tokens[i].value.fontSize.replace('rem', '') * 100) / 100}rem
-            ${Math.round(tokens[i].value.lineHeight.replace('%', '') * 10) / 10}%
-            ${tokens[i].value.fontFamily}
-            ${tokens[i].value.fontWeight}
+              ${tokens[i].value.fontWeight}
+              ${Math.round(tokens[i].value.fontSize.replace('rem', '') * 100) / 100}rem/${Math.round(tokens[i].value.lineHeight.replace('%', '') * 10) / 10}%
+              ${tokens[i].value.fontFamily}
             </td>
           </tr>`;
         } else if (subCategory == "paragraphs" && !headings.includes(tokens[i].token.replace("gcds-font-", ""))) {
@@ -110,10 +110,9 @@ const displayTokens = (token, subCategory, locale) => {
             </td>
             <td>--${tokens[i].token}</td>
             <td>
-              ${Math.round(tokens[i].value.fontSize.replace('rem', '') * 100) / 100}rem
-              ${Math.round(tokens[i].value.lineHeight.replace('%', '') * 10) / 10}%
-              ${tokens[i].value.fontFamily}
               ${tokens[i].value.fontWeight}
+              ${Math.round(tokens[i].value.fontSize.replace('rem', '') * 100) / 100}rem/${Math.round(tokens[i].value.lineHeight.replace('%', '') * 10) / 10}%
+              ${tokens[i].value.fontFamily}
             </td>
           </tr>`;
         }
@@ -145,11 +144,49 @@ const displayTokens = (token, subCategory, locale) => {
 
       break;
 
+    case 'border':
+
+      tableHeading = `<tr>
+          <th></th>
+          <th>${i18n[locale].global.headers.token}</th>
+          <th>${i18n[locale].global.headers.hex}</th>
+          <th>${i18n[locale].global.headers.usecase}</th>
+        </tr>`;
+
+      for (var i = 0; i < tokens.length; i++) {
+        if (subCategory == "color" && tokens[i].value.includes("#")) {
+          tableBody += `<tr>
+            <td>
+              <div
+                style="width: var(--gcds-spacing-500); height: var(--gcds-spacing-500); border-radius: var(--gcds-spacing-500); background-color: ${tokens[i].value}; border: 1px solid #EDEDED"
+              >
+              </div>
+            </td>
+            <td>--${tokens[i].token}</td>
+            <td>${tokens[i].value}</td>
+            <td>${i18n[locale].global.body[tokens[i].token.replace("gcds-", "")]}</td>
+          </tr>`;
+        } else if (subCategory == "size" && tokens[i].value.includes("rem")) {
+          tableBody += `<tr>
+              <td>
+                <div
+                  style="width: var(--gcds-spacing-500); height: var(--gcds-spacing-500); border-radius: var(--gcds-spacing-500); background-color: ${tokens[i].value}; border: 1px solid #EDEDED"
+                >
+                </div>
+              </td>
+              <td>--${tokens[i].token}</td>
+              <td>${tokens[i].value}</td>
+              <td>use case text</td>
+            </tr>`;
+        }
+      }
+
+      break;
+
     case 'text':
     case 'link':
-    case 'border':
     case 'focus':
-    case 'states':
+    case 'danger':
     case 'disabled':
 
       tableHeading = `<tr>
@@ -169,7 +206,7 @@ const displayTokens = (token, subCategory, locale) => {
             </td>
             <td>--${tokens[i].token}</td>
             <td>${tokens[i].value}</td>
-            <td>use case text</td>
+            <td><td>${i18n[locale].global.body[tokens[i].token.replace("gcds-", "")]}</td></td>
           </tr>`;
       }
 
@@ -189,7 +226,7 @@ const displayTokens = (token, subCategory, locale) => {
 /*
 * Load token values based off of passed token
 */
-function getTokenValues(object, token, tokenArray, name, tokenVar) {
+function getTokenValues(object, token, tokenArray, tokenVar) {
 
   let fixName = "";
 
@@ -201,16 +238,9 @@ function getTokenValues(object, token, tokenArray, name, tokenVar) {
 
   tokenVar = tokenVar + "-" + fixName;
 
-  if (name == "") {
-    name = fixName;
-  } else {
-    name = name + " " + fixName;
-  }
-
   if ("value" in object[token]) {
 
     tokenArray.push({
-      "name": name,
       "token": tokenVar,
       "value": object[token].value
     });
@@ -218,7 +248,7 @@ function getTokenValues(object, token, tokenArray, name, tokenVar) {
   } else {
 
     for (var key in object[token]) {
-      getTokenValues(object[token], key, tokenArray, name, tokenVar);
+      getTokenValues(object[token], key, tokenArray, tokenVar);
     }
 
   }
