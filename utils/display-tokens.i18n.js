@@ -87,6 +87,12 @@ const i18n = {
         "disabled-background": "",
         "disabled-text": "",
       },
+    },
+    "default": {
+      "headers": {
+        token: "Token name",
+        value: "Value"
+      }
     }
   },
   "fr": { }

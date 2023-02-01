@@ -237,7 +237,17 @@ const displayTokens = (token, subCategory, locale) => {
       break;
     
     default:
-      // Build out a more generic table for later values?
+      tableHeading = `<tr>
+          <th>${i18n[locale].default.headers.token}</th>
+          <th>${i18n[locale].default.headers.value}</th>
+        </tr>`;
+
+      for (var i = 0; i < tokens.length; i++) {
+          tableBody += `<tr>
+            <td>--${tokens[i].token}</td>
+            <td>${tokens[i].value}</td>
+          </tr>`;
+      }
       break;
   }
 
