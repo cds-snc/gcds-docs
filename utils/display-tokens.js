@@ -48,7 +48,7 @@ const displayTokens = (token, subCategory, locale) => {
     case "spacing":
 
       tableHeading = `<tr>
-          <th>${i18n[locale][token].headers.preview}</th>
+          <th></th>
           <th>${i18n[locale][token].headers.token}</th>
           <th>${i18n[locale][token].headers.px}</th>
           <th>${i18n[locale][token].headers.rem}</th>
@@ -87,7 +87,7 @@ const displayTokens = (token, subCategory, locale) => {
           tableBody += `<tr>
             <td>
               <div
-                style="font-family: ${tokens[i].value.fontFamily}; font-size: ${tokens[i].value.fontSize}; line-height: ${tokens[i].value.lineHeight}; font-weight: ${tokens[i].value.fontWeight};"
+                style='font: ${tokens[i].value.fontWeight} ${tokens[i].value.fontSize.replace('rem', '')}rem/${tokens[i].value.lineHeight.replace('%', '')}% ${tokens[i].value.fontFamily};'
               >
                 ${i18n[locale][token].body["heading"]} ${tokens[i].token.replace("gcds-font-h", "")}
               </div>
@@ -103,7 +103,7 @@ const displayTokens = (token, subCategory, locale) => {
           tableBody += `<tr>
             <td>
               <div
-                style="font-family: ${tokens[i].value.fontFamily}; font-size: ${tokens[i].value.fontSize}; line-height: ${tokens[i].value.lineHeight}; font-weight: ${tokens[i].value.fontWeight};"
+                style='font: ${tokens[i].value.fontWeight} ${tokens[i].value.fontSize.replace('rem', '')}rem/${tokens[i].value.lineHeight.replace('%', '')}% ${tokens[i].value.fontFamily};'
               >
                 ${i18n[locale][token].body[tokens[i].token.replace("gcds-font-", "")]}
               </div>
@@ -135,6 +135,30 @@ const displayTokens = (token, subCategory, locale) => {
                 style="font-weight: ${tokens[i].value};"
               >
                 ${i18n[locale][token].body[tokens[i].token.replace("gcds-font-weights-", "")]}
+              </div>
+            </td>
+            <td>--${tokens[i].token}</td>
+            <td>${tokens[i].value}</td>
+          </tr>`;
+      }
+
+      break;
+
+    case 'fontFamilies':
+
+      tableHeading = `<tr>
+          <th></th>
+          <th>${i18n[locale][token].headers.token}</th>
+          <th>${i18n[locale][token].headers.value}</th>
+        </tr>`;
+
+      for (var i = 0; i < tokens.length; i++) {
+          tableBody += `<tr>
+            <td>
+              <div
+                style='font-family: ${tokens[i].value};'
+              >
+                ${i18n[locale][token].body[tokens[i].token.replace("gcds-font-families-", "")]}
               </div>
             </td>
             <td>--${tokens[i].token}</td>

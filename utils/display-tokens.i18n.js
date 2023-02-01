@@ -18,7 +18,6 @@ const i18n = {
     },
     "spacing": {
       "headers": {
-        preview: "Preview",
         token: "Token name",
         px: "Pixel",
         rem: "REM"
@@ -27,7 +26,6 @@ const i18n = {
     },
     "font": {
       "headers": {
-        example: "Example",
         token: "Token name",
         value: "Value (rounded)"
       },
@@ -41,7 +39,6 @@ const i18n = {
     },
     "fontWeights": {
       "headers": {
-        example: "Example",
         token: "Token name",
         value: "Value"
       },
@@ -51,6 +48,18 @@ const i18n = {
         medium: "Medium",
         semibold: "Semibold",
         bold: "Bold"
+      },
+    },
+    "fontFamilies": {
+      "headers": {
+        token: "Token name",
+        value: "Value"
+      },
+      "body": {
+        heading: "Heading",
+        body: "Body",
+        monospace: "Monospace",
+        icons: "Icons",
       },
     },
     "global": {

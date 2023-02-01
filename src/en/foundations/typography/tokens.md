@@ -15,6 +15,10 @@ tags: ['typographyEN', 'tokens']
 
 {% displayTokens "font" "paragraphs" locale %}
 
+### Font families
+
+{% displayTokens "fontFamilies" null locale %}
+
 ### Font weights
 
 {% displayTokens "fontWeights" null locale %}
