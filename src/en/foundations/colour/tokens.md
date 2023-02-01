@@ -8,3 +8,5 @@ tags: ['colourEN', 'tokens']
 ## Tokens
 
 Display tokens here
+
+{% displayTokens "color" null locale %}
