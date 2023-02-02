@@ -13,6 +13,7 @@ const markdownAnchor = require("./utils/anchor");
 const slugify = require("./utils/slugify");
 
 module.exports = function (eleventyConfig) {
+
   // Pass through copies
 
   eleventyConfig.addPassthroughCopy("./src/styles/style.css");
@@ -21,9 +22,9 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("./src/scripts/code-showcase.js");
   eleventyConfig.addPassthroughCopy("./src/admin/config.yml");
   eleventyConfig.addPassthroughCopy("./src/favicon.ico");
-  eleventyConfig.addPassthroughCopy({ "./src/variables/": "variables" });
+  eleventyConfig.addPassthroughCopy({"./src/variables/": "variables"});
   eleventyConfig.addPassthroughCopy({
-    "./node_modules/gcds-components/": "components",
+    "./node_modules/gcds-components/": "components"
   });
   // Add copy fo a11y testing
   eleventyConfig.addPassthroughCopy("./.pa11yci.json");
@@ -33,14 +34,12 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPlugin(svgContents);
   eleventyConfig.addPlugin(eleventyNavigationPlugin);
   eleventyConfig.addPlugin(syntaxHighlight, {
-    templateFormats: ["md"],
+    templateFormats: ['md']
   });
   eleventyConfig.addPlugin(codeClipboard);
   eleventyConfig.addPlugin(sitemap, {
     sitemap: {
-      hostname: process.env.GITHUB_ORG
-        ? `https://${process.env.GITHUB_ORG}.github.io/${process.env.PATH_PREFIX}`
-        : "http://localhost:8080",
+      hostname: process.env.GITHUB_ORG ? `https://${process.env.GITHUB_ORG}.github.io/${process.env.PATH_PREFIX}` : "http://localhost:8080",
     },
   });
 
@@ -48,7 +47,7 @@ module.exports = function (eleventyConfig) {
 
   eleventyConfig.addFilter("sortCollection", (arr) => {
     // get unsorted items
-    return arr.sort(function (a, b) {
+    return arr.sort(function(a, b){
       return a.data.eleventyNavigation.order - b.data.eleventyNavigation.order;
     });
   });
@@ -56,20 +55,20 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addFilter("tabs", (arr, tag) => {
     let pages = {};
 
-    arr.map((page) => {
+    arr.map( page => {
       if (page.data.tags) {
-        page.data.tags.map((v) => {
+        page.data.tags.map(v => {
           if (v == tag) {
             pages[page.data.tags[1]] = page;
           }
-        });
+        })
       }
     });
     return pages;
   });
 
   eleventyConfig.addFilter("getBreadcrumbs", contextMenu.findBreadcrumbEntries);
-  eleventyConfig.addFilter("onThisPage", function (nodes) {
+  eleventyConfig.addFilter("onThisPage", function(nodes) {
     let urls = {};
     for (let key in nodes) {
       urls[nodes[key]] = slugify(nodes[key]);
@@ -80,11 +79,11 @@ module.exports = function (eleventyConfig) {
   /*
    * Filter to sort component navigation items
    */
-  eleventyConfig.addFilter("sortAlpha", function (collection) {
-    return collection.sort(function (a, b) {
-      var textA = a.title.toUpperCase();
-      var textB = b.title.toUpperCase();
-      return textA < textB ? -1 : textA > textB ? 1 : 0;
+  eleventyConfig.addFilter("sortAlpha", function(collection) {
+    return collection.sort(function(a, b) {
+        var textA = a.title.toUpperCase();
+        var textB = b.title.toUpperCase();
+        return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;
     });
   });
 
@@ -95,7 +94,7 @@ module.exports = function (eleventyConfig) {
     return moment(date).format(format);
   });
 
-  // Color filters
+   // Color filters
   eleventyConfig.addFilter("contrast", function (value, b = "#FFF") {
     let contrast = chroma.contrast(value, b);
     return Number.parseFloat(contrast).toFixed(2);
@@ -122,26 +121,24 @@ module.exports = function (eleventyConfig) {
   let markdownLibrary = markdownIt({
     html: true,
     breaks: false,
-    linkify: false,
-  })
-    .use(markdownAnchor)
-    .use(codeClipboard.markdownItCopyButton);
-  markdownLibrary.disable("blockquote");
-  markdownLibrary.disable("code");
+    linkify: false
+  }).use(markdownAnchor).use(codeClipboard.markdownItCopyButton);
+  markdownLibrary.disable('blockquote');
+  markdownLibrary.disable('code');
 
   // Short codes
 
-  eleventyConfig.addPairedShortcode("viewCode", (children, lang, id, name) => {
+  eleventyConfig.addPairedShortcode('viewCode', (children, lang, id, name) => {
     const langStrings = {
-      en: {
-        view: "View code",
-        copy: "Copy code",
+      "en": {
+        "view": "View code",
+        "copy": "Copy code"
       },
-      fr: {
-        view: "Voir le code",
-        copy: "Copier le code",
-      },
-    };
+      "fr": {
+        "view": "Voir le code",
+        "copy": "Copier le code"
+      }
+    }
     if (lang != "en " && lang != "fr") {
       lang = "en";
     }
@@ -155,65 +152,62 @@ module.exports = function (eleventyConfig) {
         ${content}
       </div>
     </div>
-    `;
-  });
+    `}
+  );
 
-  eleventyConfig.addPairedShortcode(
-    "docLinks",
-    (children, locale, stage, figma, github) => {
-      let stageChip = "";
-      let figmaLink = "";
-      let githubLink = "";
-      const langStrings = {
-        en: {
-          stage: "stage",
-          figma: "Figma",
-          github: "GitHub",
-          newtab: "(Opens in a new tab)",
-          comingsoon: "coming soon",
-        },
-        fr: {
-          stage: "phase",
-          figma: "Figma",
-          github: "GitHub",
-          newtab: "(S'ouvre dans un nouvel onglet)",
-          comingsoon: "à venir",
-        },
-      };
-      if (stage) {
-        stageChip = `<li class="stage-chip">
+  eleventyConfig.addPairedShortcode('docLinks', (children, locale, stage, figma, github) => {
+    let stageChip = "";
+    let figmaLink = "";
+    let githubLink = "";
+    const langStrings = {
+      "en": {
+        "stage": "stage",
+        "figma": "Figma",
+        "github": "GitHub",
+        "newtab": "(Opens in a new tab)",
+        "comingsoon": "coming soon"
+      },
+      "fr": {
+        "stage": "phase",
+        "figma": "Figma",
+        "github": "GitHub",
+        "newtab": "(S'ouvre dans un nouvel onglet)",
+        "comingsoon": "à venir"
+      }
+    }
+    if (stage) {
+      stageChip = `<li class="stage-chip">
           <span>${langStrings[locale].stage}</span><span>${stage}</span>
         </li>`;
-      }
-      if (figma) {
-        figmaLink = `
+    }
+    if (figma) {
+      figmaLink = `
         <li class="figma-link">
           <a href="${figma}" target="_blank" rel="nofollow" aria-label="${langStrings[locale].figma} ${langStrings[locale].newtab}">${langStrings[locale].figma}</a>
         </li>`;
-      } else {
-        figmaLink = `
+    } else {
+      figmaLink = `
         <li class="figma-link">
           <span>${langStrings[locale].figma} — ${langStrings[locale].comingsoon}</span>
         </li>`;
-      }
-      if (github) {
-        githubLink = github;
-      } else {
-        githubLink = "https://github.com/cds-snc/gcds-components";
-      }
-      return `
+    }
+    if (github) {
+      githubLink = github;
+    } else {
+      githubLink = "https://github.com/cds-snc/gcds-components";
+    }
+    return `
       <ul class="doc-links">
         ${stageChip} <li class="github-link">
           <a href="${githubLink}" target="_blank" rel="nofollow" aria-label="${langStrings[locale].github} ${langStrings[locale].newtab}">${langStrings[locale].github}</a>
         </li> ${figmaLink}
       </ul>`;
-    }
-  );
+  });
 
   /*
    * Display tokens in tables based on passed name
    */
-  eleventyConfig.addShortcode("displayTokens", (token, subCategory, locale) => {
+  eleventyConfig.addShortcode('displayTokens', (token, subCategory, locale) => {
     return displayTokens(token, subCategory, locale);
   });
 
@@ -221,22 +215,22 @@ module.exports = function (eleventyConfig) {
 
   eleventyConfig.setLibrary("md", markdownLibrary);
 
-  eleventyConfig.addCollection("sitemap", function (collectionApi) {
-    return collectionApi.getAll().map((item, index, all) => {
-      return {
-        url: process.env.PATH_PREFIX
-          ? `${process.env.PATH_PREFIX}${item.url}`
-          : item.url,
-        date: item.date,
-      };
-    });
+  eleventyConfig.addCollection("sitemap", function(collectionApi) {
+    return collectionApi
+      .getAll()
+      .map((item, index, all) => {
+          return {
+            url: process.env.PATH_PREFIX ? `${process.env.PATH_PREFIX}${item.url}` : item.url,
+            date: item.date
+          }
+      });
   });
 
   return {
     pathPrefix: process.env.PATH_PREFIX || "/",
     dir: {
       input: "src",
-      output: "_site",
+      output: "_site"
     },
   };
 };
