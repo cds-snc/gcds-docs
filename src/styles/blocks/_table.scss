@@ -42,4 +42,11 @@ table {
       width: 7ch;
     }
   }
+
+  // Special cells
+  .color-swatch {
+    width: var(--gcds-spacing-500);
+    height: var(--gcds-spacing-500);
+    border-radius: var(--gcds-spacing-500);
+  }
 }

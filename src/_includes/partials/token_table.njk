@@ -1,0 +1,22 @@
+<table class="table-display-token-{{token}}">
+    <tr>
+        {% for header in headers %}
+            <th>{{ header }}</th>
+        {% endfor %}
+    </tr>
+    {% assign stuff = token | split: '.' | dig: tokens['Tokens'] %}
+    {% for item in stuff %}
+    {% if item[1].type == type %}
+        <tr>
+            <td>
+                <div class="color-swatch" style="background-color: {{item[1].value}}; border: 1px solid {{ item[1].value | border }}"></div>
+            </td>
+            <td>--gcds-{{token}}-{{item[0]}}</td>
+            <td>{{item[1].value}}</td>
+            <td>{{item[1].value | hexTo: 'rgb' }}</td>
+            {% assign key = token | append: '-' | append: item[0] %}
+            <td>{{ useCases[key] }}</td>
+        </tr>
+    {% endif %}
+    {% endfor %}
+</table>

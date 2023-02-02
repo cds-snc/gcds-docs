@@ -12,31 +12,37 @@ eleventyNavigation:
   alt: This is an image of the foundation
 permalink: /en/foundations/colour/
 translationKey: "colour"
-tags: ['colourEN', 'usage']
+tags: ["colourEN", "usage"]
+type: color
+headers: ["", Token name, Hex, RGB, Use case]
+useCases:
+  text-primary: Use the primary text colour for all text on a white or 100 shade background.
+  text-secondary: Use the secondary text colour on white backgrounds only. Only use it to contrast with primary text.
+  text-light: Use the light text colour on 700 shade backgrounds or darker.
 ---
 
 ## Colour usage
 
 ### Text
 
-{% displayTokens "text" null locale %}
+{% include "partials/token_table.njk", token: 'text' %}
 
 ### Link
 
-{% displayTokens "link" null locale %}
+{% include "partials/token_table.njk", token: 'link' %}
 
 ### Border
 
-{% displayTokens "border" "color" locale %}
+{% include "partials/token_table.njk", token: 'border' %}
 
 ### Danger
 
-{% displayTokens "danger" null locale %}
+{% include "partials/token_table.njk", token: 'danger' %}
 
 ### Disabled
 
-{% displayTokens "disabled" null locale %}
+{% include "partials/token_table.njk", token: 'disabled' %}
 
 ### Focus
 
-{% displayTokens "focus" null locale %}
+{% include "partials/token_table.njk", token: 'focus' %}
