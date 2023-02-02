@@ -1,74 +1,74 @@
 const i18n = {
-  en: {
-    color: {
-      headers: {
+  "en": {
+    "color": {
+      "headers": {
         name: "Colour name",
         token: "Token name",
         contrast: "Contrast",
         hex: "Hex",
-        rgb: "RGB",
+        rgb: "RGB"
       },
-      body: {
+      "body": {
         blue: "Blue",
         grayscale: "Grayscale",
         red: "Red",
         green: "Green",
-        yellow: "Yellow",
+        yellow: "Yellow"
       },
     },
-    spacing: {
-      headers: {
+    "spacing": {
+      "headers": {
         token: "Token name",
         px: "Pixel",
-        rem: "REM",
+        rem: "REM"
       },
-      body: {},
+      "body": {},
     },
-    font: {
-      headers: {
+    "font": {
+      "headers": {
         token: "Token name",
-        value: "Value (rounded)",
+        value: "Value (rounded)"
       },
-      body: {
+      "body": {
         heading: "Heading",
-        text: "Text",
+        text: "Paragraph",
         "text-long": "Paragraph",
         caption: "Caption",
         label: "Label",
       },
     },
-    fontWeights: {
-      headers: {
+    "fontWeights": {
+      "headers": {
         token: "Token name",
-        value: "Value",
+        value: "Value"
       },
-      body: {
+      "body": {
         light: "Light",
         regular: "Regular",
         medium: "Medium",
         semibold: "Semibold",
-        bold: "Bold",
+        bold: "Bold"
       },
     },
-    fontFamilies: {
-      headers: {
+    "fontFamilies": {
+      "headers": {
         token: "Token name",
-        value: "Value",
+        value: "Value"
       },
-      body: {
+      "body": {
         heading: "Heading",
         body: "Body",
         monospace: "Monospace",
-        icons: "<gcds-icon name='tree'></gcds-icon>",
+        icons: "Icons",
       },
     },
-    global: {
-      headers: {
+    "global": {
+      "headers": {
         token: "Token name",
         hex: "Hex",
-        usecase: "Use case",
+        usecase: "Use case"
       },
-      body: {
+      "body": {
         "text-primary": "",
         "text-secondary": "",
         "text-light": "",
@@ -88,14 +88,14 @@ const i18n = {
         "disabled-text": "",
       },
     },
-    default: {
-      headers: {
+    "default": {
+      "headers": {
         token: "Token name",
-        value: "Value",
-      },
-    },
+        value: "Value"
+      }
+    }
   },
-  fr: {},
+  "fr": { }
 };
 
 module.exports = i18n;
