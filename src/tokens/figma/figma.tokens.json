@@ -225,7 +225,7 @@
         "type": "fontFamilies"
       },
       "icons": {
-        "value": "FontAwesome",
+        "value": "\"Font Awesome 6 Free\", FontAwesome",
         "type": "fontFamilies"
       }
     },
@@ -424,6 +424,10 @@
         "lg": {
           "value": "3rem",
           "type": "borderRadius"
+        },
+        "xl": {
+          "value": "100%",
+          "type": "borderRadius"
         }
       },
       "width": {
@@ -436,6 +440,10 @@
           "type": "borderWidth"
         },
         "lg": {
+          "value": "0.25rem",
+          "type": "borderWidth"
+        },
+        "xl": {
           "value": "0.375rem",
           "type": "borderWidth"
         }
@@ -495,11 +503,11 @@
     },
     "link": {
       "default": {
-        "value": "#26374A",
+        "value": "#425A76",
         "type": "color"
       },
       "hover": {
-        "value": "#31455C",
+        "value": "#26374A",
         "type": "color"
       },
       "light": {
@@ -638,7 +646,7 @@
             "type": "typography"
           },
           "margin": {
-            "value": "0.1875rem 0 0.5625rem",
+            "value": "0 0 0.5625rem",
             "type": "spacing"
           },
           "mobile": {
@@ -756,7 +764,7 @@
     "breadcrumbs": {
       "default": {
         "text": {
-          "value": "#26374A",
+          "value": "#425A76",
           "type": "color"
         }
       },
@@ -781,7 +789,7 @@
       },
       "hover": {
         "text": {
-          "value": "#31455C",
+          "value": "#26374A",
           "type": "color"
         }
       },
@@ -885,7 +893,7 @@
             "type": "color"
           },
           "text": {
-            "value": "#26374A",
+            "value": "#425A76",
             "type": "color"
           }
         },
@@ -997,10 +1005,6 @@
         "text": {
           "value": "#000",
           "type": "color"
-        },
-        "hint": {
-          "value": "#2F3238",
-          "type": "color"
         }
       },
       "disabled": {
@@ -1036,15 +1040,13 @@
         }
       },
       "font": {
-        "font": {
-          "value": {
-            "fontFamily": "\"Noto Sans\", sans-serif",
-            "fontWeight": "400",
-            "lineHeight": "120%",
-            "fontSize": "1.25rem"
-          },
-          "type": "typography"
-        }
+        "value": {
+          "fontFamily": "\"Noto Sans\", sans-serif",
+          "fontWeight": "400",
+          "lineHeight": "120%",
+          "fontSize": "1.25rem"
+        },
+        "type": "typography"
       },
       "input": {
         "border": {
@@ -1071,10 +1073,6 @@
             "fontSize": "1.1111111111111112rem"
           },
           "type": "typography"
-        },
-        "text": {
-          "value": "#2F3238",
-          "type": "color"
         }
       },
       "label": {
@@ -1120,7 +1118,7 @@
     "details": {
       "default": {
         "text": {
-          "value": "#26374A",
+          "value": "#425A76",
           "type": "color"
         }
       },
@@ -1164,7 +1162,7 @@
       },
       "hover": {
         "text": {
-          "value": "#31455C",
+          "value": "#26374A",
           "type": "color"
         }
       },
@@ -1346,7 +1344,7 @@
           "type": "spacing"
         },
         "text": {
-          "value": "#26374A",
+          "value": "#425A76",
           "type": "color"
         }
       },
@@ -1397,17 +1395,27 @@
           }
         },
         "icon": {
-          "default": {
-            "value": "#C24438",
+          "background": {
+            "default": {
+              "value": "#C24438",
+              "type": "color"
+            },
+            "hover": {
+              "value": "#822117",
+              "type": "color"
+            },
+            "active": {
+              "value": "#000",
+              "type": "color"
+            }
+          },
+          "text": {
+            "value": "#FFF",
             "type": "color"
           },
-          "hover": {
-            "value": "#822117",
-            "type": "color"
-          },
-          "active": {
-            "value": "#000",
-            "type": "color"
+          "padding": {
+            "value": "0.5625rem",
+            "type": "spacing"
           }
         },
         "margin": {
@@ -1433,7 +1441,7 @@
           }
         },
         "padding": {
-          "value": "0.9375rem 1.5rem",
+          "value": "0.75rem 0.75rem 0.75rem 1.5rem",
           "type": "spacing"
         }
       },
@@ -1577,7 +1585,7 @@
         },
         "hover": {
           "text": {
-            "value": "#31455C",
+            "value": "#26374A",
             "type": "color"
           }
         },
@@ -1624,7 +1632,7 @@
           }
         },
         "text": {
-          "value": "#26374A",
+          "value": "#425A76",
           "type": "color"
         }
       }
@@ -1797,52 +1805,110 @@
     "icon": {
       "font": {
         "family": {
-          "value": "FontAwesome",
+          "value": "\"Font Awesome 6 Free\", FontAwesome",
           "type": "fontFamilies"
         },
         "size": {
-          "xs": {
+          "caption": {
             "value": "1.1111111111111112rem",
             "type": "fontSizes"
           },
-          "sm": {
+          "text": {
             "value": "1.25rem",
             "type": "fontSizes"
           },
-          "md": {
+          "h6": {
+            "value": "1.40625rem",
+            "type": "fontSizes"
+          },
+          "h5": {
             "value": "1.58203125rem",
             "type": "fontSizes"
           },
-          "lg": {
+          "h4": {
+            "value": "1.77978515625rem",
+            "type": "fontSizes"
+          },
+          "h3": {
             "value": "2.00225830078125rem",
             "type": "fontSizes"
           },
-          "xl": {
+          "h2": {
+            "value": "2.2525405883789062rem",
+            "type": "fontSizes"
+          },
+          "h1": {
             "value": "2.5341081619262695rem",
             "type": "fontSizes"
           }
         }
       },
       "lineHeight": {
-        "xs": {
+        "caption": {
           "value": "135%",
           "type": "lineHeights"
         },
-        "sm": {
+        "text": {
           "value": "120%",
           "type": "lineHeights"
         },
-        "md": {
+        "h6": {
+          "value": "124.44444444444444%",
+          "type": "lineHeights"
+        },
+        "h5": {
           "value": "126.41975308641975%",
           "type": "lineHeights"
         },
-        "lg": {
+        "h4": {
+          "value": "126.41975308641973%",
+          "type": "lineHeights"
+        },
+        "h3": {
           "value": "124.85901539399482%",
           "type": "lineHeights"
         },
-        "xl": {
+        "h2": {
+          "value": "122.08437060746162%",
+          "type": "lineHeights"
+        },
+        "h1": {
           "value": "118.38484422541731%",
           "type": "lineHeights"
+        }
+      },
+      "fixedWidth": {
+        "caption": {
+          "value": 1.35,
+          "type": "dimensions"
+        },
+        "text": {
+          "value": 1.2,
+          "type": "dimensions"
+        },
+        "h6": {
+          "value": 1.2444444444444445,
+          "type": "dimensions"
+        },
+        "h5": {
+          "value": 1.2641975308641975,
+          "type": "dimensions"
+        },
+        "h4": {
+          "value": 1.2641975308641973,
+          "type": "dimensions"
+        },
+        "h3": {
+          "value": 1.2485901539399482,
+          "type": "dimensions"
+        },
+        "h2": {
+          "value": 1.2208437060746162,
+          "type": "dimensions"
+        },
+        "h1": {
+          "value": 1.183848442254173,
+          "type": "dimensions"
         }
       },
       "margin": {
@@ -2017,7 +2083,7 @@
       },
       "default": {
         "text": {
-          "value": "#26374A",
+          "value": "#425A76",
           "type": "color"
         }
       },
@@ -2042,7 +2108,7 @@
       },
       "hover": {
         "text": {
-          "value": "#31455C",
+          "value": "#26374A",
           "type": "color"
         }
       },
@@ -2064,7 +2130,7 @@
       },
       "border": {
         "color": {
-          "value": "#26374A",
+          "value": "#425A76",
           "type": "border"
         },
         "radius": {
@@ -2078,7 +2144,7 @@
       },
       "default": {
         "text": {
-          "value": "#26374A",
+          "value": "#425A76",
           "type": "color"
         }
       },
@@ -2130,7 +2196,7 @@
       "mobile": {
         "list": {
           "border": {
-            "value": "#26374A",
+            "value": "#425A76",
             "type": "border"
           },
           "item": {
@@ -2246,7 +2312,7 @@
     "radio": {
       "border": {
         "radius": {
-          "value": "3rem",
+          "value": "100%",
           "type": "borderRadius"
         }
       },
@@ -2338,10 +2404,6 @@
             "fontSize": "1.1111111111111112rem"
           },
           "type": "typography"
-        },
-        "text": {
-          "value": "#2F3238",
-          "type": "color"
         }
       },
       "label": {
@@ -2742,7 +2804,7 @@
       },
       "toggle": {
         "text": {
-          "value": "#26374A",
+          "value": "#425A76",
           "type": "color"
         },
         "fontWeight": {
