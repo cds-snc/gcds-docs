@@ -12,9 +12,16 @@ table {
   td,
   th {
     padding: var(--gcds-spacing-300) var(--gcds-spacing-250);
+    &:first-child {
+      padding-left: 0;
+    }
+    &:last-child {
+      padding-right: 0;
+    }
   }
 
   th {
+    font-weight: var(--gcds-font-weights-medium);
     padding-top: 0;
   }
 
