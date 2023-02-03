@@ -13,29 +13,29 @@ eleventyNavigation:
 permalink: /en/foundations/colour/
 translationKey: "colour"
 tags: ["colourEN", "usage"]
-type: color
-headers:
-  color-preview: ""
-  token-name: Token name
-  value: Hex
-  rgb: RGB
-  use-case: Use case
-useCases:
-  text-primary: Use the primary text colour for all text on a white or 100 shade background.
-  text-secondary: Use the secondary text colour on white backgrounds only. Only use it to contrast with primary text.
-  text-light: Use the light text colour on 700 shade backgrounds or darker.
-  link-default: Use the default link colour for links on white backgrounds.
-  link-hover: Use the hover link colour for links on white backgrounds.
-  link-light: Use the light link colour for links on 700 shade backgrounds or darker.
-  border-default: Use the default border colour for borders or icons on a white background.
-  danger-background: Use the danger background colour as background emphasis on destructive actions or critical feedback.
-  danger-border: Use the danger border colour for borders on destructive actions or critical feedback.
-  danger-text: Use the danger text colour on white or danger backgrounds to put emphasis on destructive actions or critical feedback.
-  disabled-background: Use the disabled background colour as little as possible. If you have to disable an interactive element, use the disabled colour as a background.
-  disabled-text: Use the disabled text colour for any text withing the disabled component.
-  focus-background: The focus background colour should only be applied when focusing on an interactive element.
-  focus-text: The focus text colour should only be applied when focusing on an interactive element.
-  focus-textForm: The focus text form colour should only be applied when focusing on form elements. Do not use this token for elements that aren’t form elements.
+tokenTable:
+  headers:
+    color-preview: ""
+    token-name: Token name
+    value: Hex
+    rgb: RGB
+    use-case: Use case
+  useCases:
+    text-primary: Use the primary text colour for all text on a white or 100 shade background.
+    text-secondary: Use the secondary text colour on white backgrounds only. Only use it to contrast with primary text.
+    text-light: Use the light text colour on 700 shade backgrounds or darker.
+    link-default: Use the default link colour for links on white backgrounds.
+    link-hover: Use the hover link colour for links on white backgrounds.
+    link-light: Use the light link colour for links on 700 shade backgrounds or darker.
+    border-default: Use the default border colour for borders or icons on a white background.
+    danger-background: Use the danger background colour as background emphasis on destructive actions or critical feedback.
+    danger-border: Use the danger border colour for borders on destructive actions or critical feedback.
+    danger-text: Use the danger text colour on white or danger backgrounds to put emphasis on destructive actions or critical feedback.
+    disabled-background: Use the disabled background colour as little as possible. If you have to disable an interactive element, use the disabled colour as a background.
+    disabled-text: Use the disabled text colour for any text withing the disabled component.
+    focus-background: The focus background colour should only be applied when focusing on an interactive element.
+    focus-text: The focus text colour should only be applied when focusing on an interactive element.
+    focus-textForm: The focus text form colour should only be applied when focusing on form elements. Do not use this token for elements that aren’t form elements.
 ---
 
 ## Accessibility and colour tokens
@@ -54,24 +54,24 @@ Only use the variables in the context they’re designed for. In all other cases
 
 ### Text
 
-{% include "partials/token_table.njk", token: 'text' %}
+{% include "partials/token_table.njk", token: 'text', type: 'color' %}
 
 ### Link
 
-{% include "partials/token_table.njk", token: 'link' %}
+{% include "partials/token_table.njk", token: 'link', type: 'color' %}
 
 ### Border
 
-{% include "partials/token_table.njk", token: 'border' %}
+{% include "partials/token_table.njk", token: 'border', type: 'color' %}
 
 ### Danger
 
-{% include "partials/token_table.njk", token: 'danger' %}
+{% include "partials/token_table.njk", token: 'danger', type: 'color' %}
 
 ### Disabled
 
-{% include "partials/token_table.njk", token: 'disabled' %}
+{% include "partials/token_table.njk", token: 'disabled', type: 'color' %}
 
 ### Focus
 
-{% include "partials/token_table.njk", token: 'focus' %}
+{% include "partials/token_table.njk", token: 'focus', type: 'color' %}

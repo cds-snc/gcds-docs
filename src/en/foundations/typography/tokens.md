@@ -3,31 +3,31 @@ title: Typography - Foundations
 layout: "layouts/token-documentation.njk"
 translationKey: "typographyTokens"
 tags: ["typographyEN", "tokens"]
-type: typography
-headers:
-  font-preview: ""
-  token-name: Token name
-  font-value: Value
-previews:
-  font-h1: Heading 1
-  font-h2: Heading 2
-  font-h3: Heading 3
-  font-h4: Heading 4
-  font-h5: Heading 5
-  font-h6: Heading 6
-  font-label: Label
-  font-text: Text
-  font-textLong: Paragraph
-  font-caption: Caption
-  fontFamilies-heading: Headings
-  fontFamilies-body: Text
-  fontFamilies-monospace: Monospace
-  fontFamilies-icons: icons
-  fontWeights-light: Light
-  fontWeights-regular: Regular
-  fontWeights-medium: Medium
-  fontWeights-semibold: Semibold
-  fontWeights-bold: Bold
+tokenTable:
+  headers:
+    font-preview: ""
+    token-name: Token name
+    font-value: Value
+  previews:
+    font-h1: Heading 1
+    font-h2: Heading 2
+    font-h3: Heading 3
+    font-h4: Heading 4
+    font-h5: Heading 5
+    font-h6: Heading 6
+    font-label: Label
+    font-text: Text
+    font-textLong: Paragraph
+    font-caption: Caption
+    fontFamilies-heading: Headings
+    fontFamilies-body: Text
+    fontFamilies-monospace: Monospace
+    fontFamilies-icons: icons
+    fontWeights-light: Light
+    fontWeights-regular: Regular
+    fontWeights-medium: Medium
+    fontWeights-semibold: Semibold
+    fontWeights-bold: Bold
 ---
 
 ## Tokens
@@ -36,11 +36,11 @@ Font values in the Text and Heading tables are read using the following template
 
 ### Headings
 
-{% include "partials/token_table.njk", token: 'font', subTokens: "h1 h2 h3 h4 h5 h6" %}
+{% include "partials/token_table.njk", token: 'font', subTokens: "h1 h2 h3 h4 h5 h6", type: 'typography' %}
 
 ### Paragraphs
 
-{% include "partials/token_table.njk", token: 'font', subTokens: "label text textLong caption" %}
+{% include "partials/token_table.njk", token: 'font', subTokens: "label text textLong caption", type: 'typography' %}
 
 ### Font families
 

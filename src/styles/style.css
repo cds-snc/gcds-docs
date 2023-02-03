@@ -12,8 +12,7 @@ body {
   animation: fade 0.05s normal forwards ease-in-out; }
 
 .general-layout {
-  margin-top: var(--gcds-spacing-500);
-  margin-bottom: var(--gcds-spacing-500); }
+  margin-block: var(--gcds-spacing-500); }
 
 h1,
 h2,
@@ -37,24 +36,24 @@ table {
   text-align: left;
   width: 100%; }
   table tr {
-    border-bottom: 1px solid var(--gcds-border-default);
+    border-block-end: 1px solid var(--gcds-border-default);
     vertical-align: baseline; }
   table tr:first-child {
-    border-bottom: 2px solid var(--gcds-border-default); }
+    border-block-end: 2px solid var(--gcds-border-default); }
   table td,
   table th {
     padding: var(--gcds-spacing-300) var(--gcds-spacing-250); }
     table td:first-child,
     table th:first-child {
-      padding-left: 0; }
+      padding-inline-start: 0; }
     table td:last-child,
     table th:last-child {
-      padding-right: 0; }
+      padding-inline-end: 0; }
   table th {
     font-weight: var(--gcds-font-weights-medium);
-    padding-top: 0; }
+    padding-block-start: 0; }
   table.table-display-token-text td:nth-child(1), table.table-display-token-link td:nth-child(1), table.table-display-token-border td:nth-child(1), table.table-display-token-danger td:nth-child(1), table.table-display-token-disabled td:nth-child(1), table.table-display-token-focus td:nth-child(1) {
-    padding-top: 0; }
+    padding-block-start: 0; }
   table.table-display-token-text th:nth-child(1), table.table-display-token-link th:nth-child(1), table.table-display-token-border th:nth-child(1), table.table-display-token-danger th:nth-child(1), table.table-display-token-disabled th:nth-child(1), table.table-display-token-focus th:nth-child(1) {
     width: var(--gcds-spacing-500); }
   table.table-display-token-text th:nth-child(2), table.table-display-token-link th:nth-child(2), table.table-display-token-border th:nth-child(2), table.table-display-token-danger th:nth-child(2), table.table-display-token-disabled th:nth-child(2), table.table-display-token-focus th:nth-child(2) {
