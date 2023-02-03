@@ -1,22 +1,58 @@
 <table class="table-display-token-{{token}}">
-    <tr>
-        {% for header in headers %}
-            <th>{{ header }}</th>
-        {% endfor %}
-    </tr>
-    {% assign stuff = token | split: '.' | dig: tokens['Tokens'] %}
-    {% for item in stuff %}
-    {% if item[1].type == type %}
-        <tr>
-            <td>
-                <div class="color-swatch" style="background-color: {{item[1].value}}; border: 1px solid {{ item[1].value | border }}"></div>
-            </td>
-            <td>--gcds-{{token}}-{{item[0]}}</td>
-            <td>{{item[1].value}}</td>
-            <td>{{item[1].value | hexTo: 'rgb' }}</td>
-            {% assign key = token | append: '-' | append: item[0] %}
-            <td>{{ useCases[key] }}</td>
-        </tr>
-    {% endif %}
-    {% endfor %}
+<tr>
+{% for header in headers %}
+<th>{{ header[1] }}</th>
+{% endfor %}
+</tr>
+{% comment %}
+tokens: all the tokens
+token: key
+filteredTokens: the filtered tokens
+subTokens: part of the filtered tokens
+{% endcomment %}
+{% assign filteredTokens = token | split: "." | dig: tokens['Tokens'] %}
+{% for item in filteredTokens %}
+{% if subTokens %}
+{% unless subTokens contains item[0] %}
+{% continue %}
+{% endunless %}
+{% endif %}
+{% if item[1].type == type %}
+<tr>
+{% for header in headers %}
+<td>
+{% case header[0] %}
+{% when 'color-preview' %}
+<div class="color-preview" style="background-color: {{item[1].value}}; border: 1px solid {{ item[1].value | border }}"></div>
+{% when 'font-preview' %}
+{% assign key = token | append: '-' | append: item[0] %}
+<span class="font-preview font-{{item[0]}} font-family-{{item[0]}}">{{ previews[key] }}</span>
+{% when 'spacing-preview' %}
+<div class="spacing-preview" style="width: {{item[1].value}}; height: {{item[1].value}};"></div>
+{% when 'token-name' %}
+--gcds-{{token}}-{{item[0]}}
+{% when 'value' %}
+{{item[1].value}}
+{% when 'rgb' %}
+{{item[1].value | hexTo: 'rgb' }}
+{% when 'font-value' %}
+{% case type %}
+{% when 'typography' %}
+{{ item[1].value.fontWeight }}
+{{ item[1].value.fontSize | replace: "rem", "" | round: 2 }}rem/{{ item[1].value.lineHeight | replace: "%", "" | round: 2 }}%
+{{ item[1].value.fontFamily }}
+{% else %}
+{{item[1].value}}
+{% endcase %}
+{% when 'use-case' %}
+{% assign key = token | append: '-' | append: item[0] %}
+{{ useCases[key] }}
+{% else %}
+{{item[1].value}}
+{% endcase %}
+</td>
+{% endfor %}
+</tr>
+{% endif %}
+{% endfor %}
 </table>
