@@ -10,7 +10,10 @@ token: key
 filteredTokens: the filtered tokens
 subTokens: part of the filtered tokens
 {% endcomment %}
-{% assign filteredTokens = token | split: "." | dig: tokens['Tokens'] %}
+{% assign concatTokens = token | split: " " %}
+{% for concatToken in concatTokens %}
+{{ concatToken | log }}
+{% assign filteredTokens = concatToken | split: "." | dig: tokens['Tokens'] %}
 {% for item in filteredTokens %}
 {% if subTokens %}
 {% unless subTokens contains item[0] %}
@@ -25,12 +28,12 @@ subTokens: part of the filtered tokens
 {% when 'color-preview' %}
 <div class="color-preview" style="background-color: {{item[1].value}}; border: 1px solid {{ item[1].value | border }}"></div>
 {% when 'font-preview' %}
-{% assign key = token | append: '-' | append: item[0] %}
+{% assign key = concatToken | append: '-' | append: item[0] %}
 <span class="font-preview font-{{item[0]}} font-family-{{item[0]}}">{{ previews[key] }}</span>
 {% when 'spacing-preview' %}
 <div class="spacing-preview" style="width: {{item[1].value}}; height: {{item[1].value}};"></div>
 {% when 'token-name' %}
---gcds-{{token}}-{{item[0]}}
+--gcds-{{concatToken | replace: ".", "-"}}-{{item[0]}}
 {% when 'value' %}
 {{item[1].value}}
 {% when 'rgb' %}
@@ -45,7 +48,7 @@ subTokens: part of the filtered tokens
 {{item[1].value}}
 {% endcase %}
 {% when 'use-case' %}
-{% assign key = token | append: '-' | append: item[0] %}
+{% assign key = concatToken | append: '-' | append: item[0] %}
 {{ useCases[key] }}
 {% else %}
 {{item[1].value}}
@@ -54,5 +57,6 @@ subTokens: part of the filtered tokens
 {% endfor %}
 </tr>
 {% endif %}
+{% endfor %}
 {% endfor %}
 </table>
