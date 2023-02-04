@@ -7,7 +7,8 @@ tokenTable:
   headers:
     spacing-preview: ""
     token-name: Token name
-    value: Value
+    px: Pixel
+    value: Rem
 ---
 
 ## Guidance on using spacing

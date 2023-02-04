@@ -37,6 +37,8 @@ subTokens: part of the filtered tokens
 {{ item[1].value }}
 {% when 'rgb' %}
 {{ item[1].value | hexTo: 'rgb' }}
+{% when 'px' %}
+{{ item[1].value | replace: "rem", "" | times: 16 }}px
 {% when 'font-value' %}
 {% case type %}
 {% when 'typography' %}
