@@ -1,6 +1,21 @@
+.table-overflow {
+  @media (max-width: 48rem) {
+    max-width: 100%;
+    overflow-x: scroll;
+    box-shadow: inset -6px 0 0 var(--gcds-color-grayscale-50),
+      inset 6px 0 0 var(--gcds-color-grayscale-50);
+  }
+}
+
 table {
   text-align: left;
   width: 100%;
+
+  .table-overflow & {
+    min-width: var(--gcds-container-md);
+    box-shadow: inset -6px 0 0 var(--gcds-color-grayscale-0),
+      inset 6px 0 0 var(--gcds-color-grayscale-0);
+  }
 
   tr {
     border-block-end: 1px solid var(--gcds-border-default);
@@ -50,6 +65,7 @@ table {
   &.table-display-token-fontWeights {
     th {
       width: 20%;
+      min-width: 210px;
     }
     th:nth-child(2) {
       width: 30%;

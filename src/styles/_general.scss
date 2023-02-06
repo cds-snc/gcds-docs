@@ -17,7 +17,9 @@ body {
 }
 
 .general-layout {
+  // Probably remove this if we start usingt he grid component?
   margin-block: var(--gcds-spacing-500);
+  padding-inline: var(--gcds-spacing-250);
 }
 
 h1,
