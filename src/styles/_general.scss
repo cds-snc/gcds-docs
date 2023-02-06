@@ -17,8 +17,8 @@ body {
 }
 
 .general-layout {
-  margin-top: var(--gcds-spacing-500);
-  margin-bottom: var(--gcds-spacing-500);
+  margin-block-start: var(--gcds-spacing-500);
+  margin-block-end: var(--gcds-spacing-500);
 }
 
 h1,

@@ -59,7 +59,7 @@ const i18n = {
         heading: "Heading",
         body: "Body",
         monospace: "Monospace",
-        icons: "<gcds-icon name='tree'></gcds-icon>",
+        icons: "Icon",
       },
     },
     global: {
