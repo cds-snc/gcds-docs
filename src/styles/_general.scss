@@ -29,6 +29,22 @@ h4 {
   --flow-spacing: var(--gcds-spacing-600);
 }
 
+p + ol,
+p + ul {
+  // Lists will naturally flow from a paragraph
+  --flow-spacing: 0;
+}
+
+a[href] {
+  color: var(--gcds-link-default);
+  text-underline-offset: -0.1em;
+  &:hover {
+    color: var(--gcds-hover-default);
+    text-underline-offset: 0em;
+    text-decoration-thickness: 2px;
+  }
+}
+
 p {
   font: var(--gcds-font-text-long);
   max-width: 65ch;

@@ -21,6 +21,19 @@ h3,
 h4 {
   --flow-spacing: var(--gcds-spacing-600); }
 
+p + ol,
+p + ul {
+  --flow-spacing: 0; }
+
+a[href] {
+  color: var(--gcds-link-default);
+  text-underline-offset: -0.1em; }
+
+a[href]:hover {
+  color: var(--gcds-hover-default);
+  text-underline-offset: 0em;
+  text-decoration-thickness: 2px; }
+
 p {
   font: var(--gcds-font-text-long);
   max-width: 65ch; }
@@ -42,51 +55,69 @@ code {
 table {
   text-align: left;
   width: 100%; }
-  .table-overflow table {
-    min-width: var(--gcds-container-md);
-    box-shadow: inset -6px 0 0 var(--gcds-color-grayscale-0), inset 6px 0 0 var(--gcds-color-grayscale-0); }
-  table tr {
-    border-block-end: 1px solid var(--gcds-border-default);
-    vertical-align: baseline; }
-  table tr:first-child {
-    border-block-end: 2px solid var(--gcds-border-default); }
-  table td,
-  table th {
-    padding: var(--gcds-spacing-300) var(--gcds-spacing-250); }
-    table td:first-child,
-    table th:first-child {
-      padding-inline-start: 0; }
-    table td:last-child,
-    table th:last-child {
-      padding-inline-end: 0; }
-  table th {
-    font-weight: var(--gcds-font-weights-medium);
-    padding-block-start: 0; }
-  table.table-display-token-color tr {
-    vertical-align: top; }
-  table.table-display-token-color td:nth-child(n + 1) > * {
-    padding-block-start: var(--gcds-spacing-150); }
-  table.table-display-token-color th:nth-child(1) {
-    width: var(--gcds-spacing-500); }
-  table.table-display-token-color th:nth-child(2) {
-    width: 33%; }
-  table.table-display-token-color th:nth-child(4) {
-    width: 7ch; }
-  table.table-display-token-typography th, table.table-display-token-fontFamilies th, table.table-display-token-fontWeights th {
-    width: 20%;
-    min-width: 210px; }
-  table.table-display-token-typography th:nth-child(2), table.table-display-token-fontFamilies th:nth-child(2), table.table-display-token-fontWeights th:nth-child(2) {
-    width: 30%; }
-  table.table-display-token-typography th:nth-child(3), table.table-display-token-fontFamilies th:nth-child(3), table.table-display-token-fontWeights th:nth-child(3) {
-    width: 50%; }
-  table.table-display-token-dimension tr {
-    vertical-align: top; }
-  table .color-preview {
-    width: var(--gcds-spacing-500);
-    height: var(--gcds-spacing-500);
-    border-radius: var(--gcds-spacing-500); }
-  table .spacing-preview {
-    background-color: var(--gcds-color-blue-500); }
+
+.table-overflow table {
+  min-width: var(--gcds-container-md);
+  box-shadow: inset -6px 0 0 var(--gcds-color-grayscale-0), inset 6px 0 0 var(--gcds-color-grayscale-0); }
+
+table tr {
+  border-block-end: 1px solid var(--gcds-border-default);
+  vertical-align: baseline; }
+
+table tr:first-child {
+  border-block-end: 2px solid var(--gcds-border-default); }
+
+table td,
+table th {
+  padding: var(--gcds-spacing-300) var(--gcds-spacing-250); }
+
+table td:first-child,
+table th:first-child {
+  padding-inline-start: 0; }
+
+table td:last-child,
+table th:last-child {
+  padding-inline-end: 0; }
+
+table th {
+  font-weight: var(--gcds-font-weights-medium);
+  padding-block-start: 0; }
+
+table.table-display-token-color tr {
+  vertical-align: top; }
+
+table.table-display-token-color td:nth-child(n + 1) > * {
+  padding-block-start: var(--gcds-spacing-150); }
+
+table.table-display-token-color th:nth-child(1) {
+  width: var(--gcds-spacing-500); }
+
+table.table-display-token-color th:nth-child(2) {
+  width: 33%; }
+
+table.table-display-token-color th:nth-child(4) {
+  width: 7ch; }
+
+table.table-display-token-typography th, table.table-display-token-fontFamilies th, table.table-display-token-fontWeights th {
+  width: 20%;
+  min-width: 210px; }
+
+table.table-display-token-typography th:nth-child(2), table.table-display-token-fontFamilies th:nth-child(2), table.table-display-token-fontWeights th:nth-child(2) {
+  width: 30%; }
+
+table.table-display-token-typography th:nth-child(3), table.table-display-token-fontFamilies th:nth-child(3), table.table-display-token-fontWeights th:nth-child(3) {
+  width: 50%; }
+
+table.table-display-token-dimension tr {
+  vertical-align: top; }
+
+table .color-preview {
+  width: var(--gcds-spacing-500);
+  height: var(--gcds-spacing-500);
+  border-radius: var(--gcds-spacing-500); }
+
+table .spacing-preview {
+  background-color: var(--gcds-color-blue-500); }
 
 .flow > * + * {
   margin-block-start: var(--flow-spacing, var(--gcds-spacing-400)); }
