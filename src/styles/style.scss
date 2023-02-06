@@ -1,9 +1,19 @@
+/* C.U.B.E
+ * C = Composition: Layouts and specific arrangements of components
+ * U = Utilities: specific helpers. Like tailwind, but without tailwind. Yet. 
+ * B = Blocks (components): Components. No margins when possible
+ * E = Exceptions: different states of a component. Exceptional circumstances. 
+ * 
+ * source: https://cube.fyi/
+*/
+
+// Utilities
+@import "utilities/flow";
+
 // Base
+@import "typography";
 @import "general";
 
 // Components
 @import "components/table";
 @import "components/tabs";
-
-// Utilities
-@import "utilities/flow";
