@@ -7,6 +7,7 @@ tokenTable:
   headers:
     color-preview: ""
     token-name: Token name
+    contrast: Contrast with white
     value: Hex
     rgb: RGB
 ---

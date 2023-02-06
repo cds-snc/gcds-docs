@@ -35,6 +35,8 @@ subTokens: part of the filtered tokens
 --gcds-{{concatToken | replace: ".", "-"}}-{{item[0]}}
 {% when 'value' %}
 {{ item[1].value }}
+{% when 'contrast' %}
+{{ item[1].value | contrast }}
 {% when 'rgb' %}
 {{ item[1].value | hexTo: 'rgb' }}
 {% when 'px' %}
