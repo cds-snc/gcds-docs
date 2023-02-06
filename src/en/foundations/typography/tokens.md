@@ -1,5 +1,6 @@
 ---
-title: Typography - Foundations
+title: Tokens
+order: 2
 layout: "layouts/token-documentation.njk"
 translationKey: "typographyTokens"
 tags: ["typographyEN", "tokens"]

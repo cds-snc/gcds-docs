@@ -1,6 +1,7 @@
 ---
+title: Typography
 permalink: false
-tags: ['typographyEN', 'header']
+tags: ["typographyEN", "header"]
 ---
 
 # Typography

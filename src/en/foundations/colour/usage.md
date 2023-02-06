@@ -1,5 +1,5 @@
 ---
-title: Colour - Foundations
+title: Use case
 layout: "layouts/token-documentation.njk"
 eleventyNavigation:
   key: colourEN
@@ -10,6 +10,7 @@ eleventyNavigation:
   description: This is the foundation
   thumbnail: /images/en/foundations/foundation.png
   alt: This is an image of the foundation
+order: 1
 permalink: /en/foundations/colour/
 translationKey: "colour"
 tags: ["colourEN", "usage"]

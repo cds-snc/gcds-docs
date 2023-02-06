@@ -1,8 +1,9 @@
 ---
-title: Colour - Foundations
+title: Tokens
 layout: "layouts/token-documentation.njk"
 translationKey: "colourTokens"
 tags: ["colourEN", "tokens"]
+order: 2
 tokenTable:
   headers:
     color-preview: ""
