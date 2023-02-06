@@ -38,10 +38,20 @@ p + ul {
 a[href] {
   color: var(--gcds-link-default);
   text-underline-offset: -0.1em;
+  text-decoration-color: currentColor;
+
   &:hover {
     color: var(--gcds-hover-default);
     text-underline-offset: 0em;
     text-decoration-thickness: 2px;
+  }
+
+  &:focus {
+    background-color: var(--gcds-focus-background);
+    color: var(--gcds-focus-text);
+    text-decoration: none;
+    // box-shadow: 0 0 0 2px var(--gcds-focus-background);
+    outline: 2px solid var(--gcds-focus-background);
   }
 }
 

@@ -27,12 +27,19 @@ p + ul {
 
 a[href] {
   color: var(--gcds-link-default);
-  text-underline-offset: -0.1em; }
+  text-underline-offset: -0.1em;
+  text-decoration-color: currentColor; }
 
 a[href]:hover {
   color: var(--gcds-hover-default);
   text-underline-offset: 0em;
   text-decoration-thickness: 2px; }
+
+a[href]:focus {
+  background-color: var(--gcds-focus-background);
+  color: var(--gcds-focus-text);
+  text-decoration: none;
+  outline: 2px solid var(--gcds-focus-background); }
 
 p {
   font: var(--gcds-font-text-long);
