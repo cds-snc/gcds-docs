@@ -97,7 +97,7 @@ module.exports = function (eleventyConfig) {
    // Token filters
   eleventyConfig.addFilter("contrast", function (value, b = "#FFF") {
     let contrast = chroma.contrast(value, b);
-    return Number(contrast.toFixed(2));
+    return Math.floor(contrast * 100) / 100;
   });
 
   eleventyConfig.addFilter("border", function (value, b = "#FFF") {
