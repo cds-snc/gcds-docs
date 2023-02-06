@@ -32,7 +32,7 @@ subTokens: part of the filtered tokens
 {% when 'spacing-preview' %}
 <div class="spacing-preview" style="width: {{item[1].value}}; height: {{item[1].value}};"></div>
 {% when 'token-name' %}
---gcds-{{concatToken | replace: ".", "-"}}-{{item[0]}}
+--gcds-{{ concatToken | replace: ".", "-" | fixTokenName }}-{{ item[0] }}
 {% when 'value' %}
 {{ item[1].value }}
 {% when 'contrast' %}

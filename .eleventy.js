@@ -94,7 +94,7 @@ module.exports = function (eleventyConfig) {
     return moment(date).format(format);
   });
 
-   // Color filters
+   // Token filters
   eleventyConfig.addFilter("contrast", function (value, b = "#FFF") {
     let contrast = chroma.contrast(value, b);
     return Number.parseFloat(contrast).toFixed(2);
@@ -107,6 +107,23 @@ module.exports = function (eleventyConfig) {
 
   eleventyConfig.addFilter("hexTo", function (value, mode = "hsl") {
     return chroma(value).css(mode);
+  });
+
+  eleventyConfig.addFilter("fixTokenName", function (value) {
+    let fixName = "";
+    function onlyCapitalLetters(str) {
+      return str.replace(/[^A-Z]+/g, "");
+    }
+
+    if (onlyCapitalLetters(value)) {
+      fixName = value.replace(
+        onlyCapitalLetters(value),
+        `-${onlyCapitalLetters(value).toLowerCase()}`
+      );
+    } else {
+      fixName = value;
+    }
+    return fixName;
   });
 
   eleventyConfig.addFilter("dig", function (value, object) {
