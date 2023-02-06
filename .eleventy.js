@@ -2,6 +2,7 @@ const eleventyNavigationPlugin = require("@11ty/eleventy-navigation");
 const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 const sitemap = require("@quasibit/eleventy-plugin-sitemap");
 const moment = require("moment");
+const chroma = require("chroma-js");
 const markdownIt = require("markdown-it");
 const svgContents = require("eleventy-plugin-svg-contents");
 const codeClipboard = require("eleventy-plugin-code-clipboard");
@@ -91,6 +92,46 @@ module.exports = function (eleventyConfig) {
     locale = locale ? locale : "en";
     moment.locale(locale);
     return moment(date).format(format);
+  });
+
+   // Token filters
+  eleventyConfig.addFilter("contrast", function (value, b = "#FFF") {
+    let contrast = chroma.contrast(value, b);
+    return Math.floor(contrast * 100) / 100;
+  });
+
+  eleventyConfig.addFilter("border", function (value, b = "#FFF") {
+    let contrast = chroma.contrast(value, b);
+    return contrast > 3 ? b : "black";
+  });
+
+  eleventyConfig.addFilter("hexTo", function (value, mode = "hsl") {
+    return chroma(value).css(mode);
+  });
+
+  eleventyConfig.addFilter("fixTokenName", function (value) {
+    let fixName = "";
+    function onlyCapitalLetters(str) {
+      return str.replace(/[^A-Z]+/g, "");
+    }
+
+    if (onlyCapitalLetters(value)) {
+      fixName = value.replace(
+        onlyCapitalLetters(value),
+        `-${onlyCapitalLetters(value).toLowerCase()}`
+      );
+    } else {
+      fixName = value;
+    }
+    return fixName;
+  });
+
+  eleventyConfig.addFilter("dig", function (value, object) {
+    let bottom = object;
+    value.forEach((element) => {
+      bottom = bottom[element];
+    });
+    return bottom;
   });
 
   /* Markdown Overrides */
