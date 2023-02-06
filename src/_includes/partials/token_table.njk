@@ -12,54 +12,54 @@ subTokens: part of the filtered tokens
 {% endcomment %}
 {% assign concatTokens = token | split: " " %}
 {% for concatToken in concatTokens %}
-{% assign filteredTokens = concatToken | split: "." | dig: tokens['Tokens'] %}
-{% for item in filteredTokens %}
-{% if subTokens %}
-{% unless subTokens contains item[0] %}
-{% continue %}
-{% endunless %}
-{% endif %}
-{% if item[1].type == type %}
-<tr>
-{% for header in tokenTable.headers %}
-<td>
-{% case header[0] %}
-{% when 'color-preview' %}
-<div class="color-preview" style="background-color: {{item[1].value}}; border: 1px solid {{ item[1].value | border }}"></div>
-{% when 'font-preview' %}
-{% assign key = concatToken | append: '-' | append: item[0] %}
-<span class="font-preview font-{{item[0]}} font-family-{{item[0]}}">{{ tokenTable.previews[key] }}</span>
-{% when 'spacing-preview' %}
-<div class="spacing-preview" style="width: {{item[1].value}}; height: {{item[1].value}};"></div>
-{% when 'token-name' %}
---gcds-{{ concatToken | replace: ".", "-" | fixTokenName }}-{{ item[0] }}
-{% when 'value' %}
-{{ item[1].value }}
-{% when 'contrast' %}
-{{ item[1].value | contrast }}
-{% when 'rgb' %}
-{{ item[1].value | hexTo: 'rgb' }}
-{% when 'px' %}
-{{ item[1].value | replace: "rem", "" | times: 16 }}px
-{% when 'font-value' %}
-{% case type %}
-{% when 'typography' %}
-{{ item[1].value.fontWeight }}
-{{ item[1].value.fontSize | replace: "rem", "" | round: 2 }}rem/{{ item[1].value.lineHeight | replace: "%", "" | round: 2 }}%
-{{ item[1].value.fontFamily }}
-{% else %}
-{{ item[1].value }}
-{% endcase %}
-{% when 'use-case' %}
-{% assign key = concatToken | append: '-' | append: item[0] %}
-{{ tokenTable.useCases[key] }}
-{% else %}
-{{ item[1].value }}
-{% endcase %}
-</td>
-{% endfor %}
-</tr>
-{% endif %}
-{% endfor %}
-{% endfor %}
+    {%- assign filteredTokens = concatToken | split: "." | dig: tokens['Tokens'] %}
+    {%- for item in filteredTokens %}
+        {%- if subTokens %}
+            {%- unless subTokens contains item[0] %}
+                {%- continue %}
+            {%- endunless %}
+        {%- endif %}
+        {%- if item[1].type == type -%}
+            <tr>
+            {%- for header in tokenTable.headers -%}
+                <td>
+                {%- case header[0] %}
+                {%- when 'color-preview' -%}
+                    <div class="color-preview" style="background-color: {{item[1].value}}; border: 1px solid {{ item[1].value | border }}"></div>
+                {%- when 'font-preview' -%}
+                    {%- assign key = concatToken | append: '-' | append: item[0] %}
+                    <span class="font-preview font-{{item[0]}} font-family-{{item[0]}}">{{ tokenTable.previews[key] }}</span>
+                {%- when 'spacing-preview' -%}
+                    <div class="spacing-preview" style="width: {{item[1].value}}; height: {{item[1].value}};"></div>
+                {%- when 'token-name' %}
+                    --gcds-{{ concatToken | replace: ".", "-" | fixTokenName }}-{{ item[0] }}
+                {%- when 'value' %}
+                    {{- item[1].value }}
+                {%- when 'contrast' %}
+                    {{- item[1].value | contrast }}
+                {%- when 'rgb' %}
+                    {{- item[1].value | hexTo: 'rgb' }}
+                {%- when 'px' %}
+                    {{- item[1].value | replace: "rem", "" | times: 16 }}px
+                {%- when 'font-value' %}
+                    {%- case type %}
+                    {%- when 'typography' %}
+                        {{- item[1].value.fontWeight }}
+                        {{- item[1].value.fontSize | replace: "rem", "" | round: 2 }}rem/{{ item[1].value.lineHeight | replace: "%", "" | round: 2 }}%
+                        {{- item[1].value.fontFamily }}
+                    {%- else %}
+                        {{- item[1].value }}
+                    {%- endcase %}
+                {%- when 'use-case' %}
+                    {%- assign key = concatToken | append: '-' | append: item[0] %}
+                    {{- tokenTable.useCases[key] }}
+                {%- else %}
+                    {{- item[1].value }}
+                {%- endcase -%}
+                </td>
+            {%- endfor -%}
+            </tr>
+        {%- endif %}
+    {%- endfor %}
+{%- endfor %}
 </table>
