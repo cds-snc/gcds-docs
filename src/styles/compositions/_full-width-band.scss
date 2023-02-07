@@ -1,0 +1,14 @@
+.full-width-band {
+  background: var(--c, var(--gcds-color-grayscale-50));
+  /* a big box-shadow */
+  box-shadow: 0 0 0 100vmax var(--c, var(--gcds-color-grayscale-50));
+  /* clip only the top and bottom part of it */
+  clip-path: inset(0 -100vmax);
+
+  --flow-spacing: var(--gcds-spacing-500);
+  padding: var(--gcds-spacing-500) 0;
+
+  > * {
+    --flow-spacing: var(--gcds-spacing-400);
+  }
+}

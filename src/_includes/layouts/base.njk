@@ -9,6 +9,7 @@
     <!-- Utility framework -->
     <!-- TO DO: replace with package, once package is published -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/cds-snc/gcds-utilities/dist/utilities.css" />
+    
 
     <link rel="stylesheet" href="{{ '/styles/prism.css' | url }}">
     <link rel="stylesheet" href="{{ '/styles/style.css' | url }}">
@@ -28,9 +29,6 @@
     {% include "partials/header.njk" %}
 
     <div class="content-wrapper">
-      <gcds-alert heading="Success alert" alert-role="success" container="xl">
-        <p>Example content</p>
-      </gcds-alert>
       
       <main id="mc" class="container-xl mx-auto general-layout flow">
         {% block content %}{{ content | safe }}{% endblock %}

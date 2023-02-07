@@ -1,18 +1,38 @@
 ---
-title: checkbox - Components
+title: Problems checkboxes solve
 layout: "layouts/component-documentation.njk"
 eleventyNavigation:
   key: checkboxEN
   title: checkbox
   locale: en
   parent: componentsEN
-  otherNames:  Component
+  otherNames: Component
   description: This is the component
   thumbnail: /images/en/components/component.png
   alt: This is an image of the component
 translationKey: "checkbox"
-tags: ['checkboxEN', 'usage']
+tags: ["checkboxEN", "usage"]
 permalink: /en/components/checkbox/
 ---
 
-## Usage
+Take a look at what checkboxes do to see if they fit the problem you’re solving for.
+
+## {{ title }}
+
+Use a checkbox to ask a question when you are expecting the user to select more than one option from a short list of items to:
+
+- limit the number of answers to your question.
+- let a person choose one or several answers from a contained list by checking off the right ones.
+- give a person the ability to answer without writing by selecting one or multiple items from a list.
+
+<section class="full-width-band flow text-light" style="--c:var(--gcds-color-blue-900)">
+
+## Related components
+
+[Radios](#todo) to give a single option from a larger set of options.
+
+[Select](#todo) to give a single or multiple options from a larger set in a dropdown format.
+
+[Inputs](#todo) for short, single-line responses.
+
+</section>
