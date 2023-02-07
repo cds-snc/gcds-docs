@@ -28,6 +28,10 @@ a[href] {
     color: var(--gcds-focus-text);
     text-decoration: none;
     outline: 2px solid var(--gcds-focus-background); }
+  .text-light a[href] {
+    color: currentColor; }
+    .text-light a[href]:hover {
+      color: currentColor; }
 
 p {
   font: var(--gcds-font-text-long);
@@ -36,6 +40,12 @@ p {
 p + ol,
 p + ul {
   --flow-spacing: 0; }
+
+ul:not([class]),
+ol:not([class]) {
+  list-style: revert;
+  margin-inline-start: var(--gcds-spacing-300);
+  font: var(--gcds-font-text-long); }
 
 code {
   font-family: var(--gcds-font-families-monospace);
@@ -61,6 +71,25 @@ body {
 .general-layout {
   margin-block: var(--gcds-spacing-500);
   padding-inline: var(--gcds-spacing-250); }
+
+h1 + p code {
+  font-size: var(--gcds-font-sizes-h1);
+  user-select: all; }
+
+.full-width-band {
+  background: var(--c, var(--gcds-color-grayscale-50));
+  /* a big box-shadow */
+  box-shadow: 0 0 0 100vmax var(--c, var(--gcds-color-grayscale-50));
+  /* clip only the top and bottom part of it */
+  clip-path: inset(0 -100vmax);
+  --flow-spacing: var(--gcds-spacing-500);
+  padding: var(--gcds-spacing-500) 0; }
+  .full-width-band > * {
+    --flow-spacing: var(--gcds-spacing-400); }
+
+.doc-links {
+  display: flex;
+  gap: var(--gcds-spacing-250); }
 
 @media (max-width: 48rem) {
   .table-overflow {
@@ -120,6 +149,8 @@ table {
 nav.tabs {
   --flow-spacing: var(--gcds-spacing-600); }
   nav.tabs ul {
+    list-style: none;
+    margin-inline: 0;
     width: 100%;
     display: flex;
     background-color: var(--gcds-color-grayscale-100);
