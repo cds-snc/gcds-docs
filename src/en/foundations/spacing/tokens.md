@@ -1,5 +1,5 @@
 ---
-title: Tokens
+title: Guidance on using spacing
 order: 2
 layout: "layouts/token-documentation.njk"
 translationKey: "spacingTokens"
@@ -12,7 +12,7 @@ tokenTable:
     value: Rem
 ---
 
-## Guidance on using spacing
+## {{ title }}
 
 Spacing of elements can be used to create visual hierarchy for content and guide focus to certain elements. Too dense information can be hard to digest for a user, so make sure to leave enough space in the user interfaces.
 

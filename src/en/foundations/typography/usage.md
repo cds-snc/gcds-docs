@@ -1,5 +1,5 @@
 ---
-title: Use case
+title: Typography usage
 order: 1
 layout: "layouts/token-documentation.njk"
 eleventyNavigation:
@@ -16,4 +16,4 @@ translationKey: "typography"
 tags: ["typographyEN", "usage"]
 ---
 
-## Typography usage
+## {{ title }}

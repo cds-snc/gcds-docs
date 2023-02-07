@@ -1,5 +1,5 @@
 ---
-title: Use case
+title: Spacing usage
 order: 1
 layout: "layouts/token-documentation.njk"
 eleventyNavigation:
@@ -16,4 +16,4 @@ translationKey: "spacing"
 tags: ["spacingEN", "usage"]
 ---
 
-## Spacing usage
+## {{ title }}

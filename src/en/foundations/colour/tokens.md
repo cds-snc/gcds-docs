@@ -3,7 +3,6 @@ title: Tokens
 layout: "layouts/token-documentation.njk"
 translationKey: "colourTokens"
 tags: ["colourEN", "tokens"]
-order: 2
 tokenTable:
   headers:
     color-preview: ""
@@ -13,7 +12,7 @@ tokenTable:
     rgb: RGB
 ---
 
-## Tokens
+## {{ title }}
 
 Display tokens here
 

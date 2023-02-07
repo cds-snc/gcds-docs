@@ -65,10 +65,6 @@ module.exports = function (eleventyConfig) {
       }
     });
 
-    arr.sort(function (a, b) {
-      return a.data.order - b.data.order;
-    });
-
     return pages;
   });
 

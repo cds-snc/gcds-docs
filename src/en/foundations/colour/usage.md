@@ -1,5 +1,5 @@
 ---
-title: Use case
+title: Accessibility and colour tokens
 layout: "layouts/token-documentation.njk"
 eleventyNavigation:
   key: colourEN
@@ -10,7 +10,6 @@ eleventyNavigation:
   description: This is the foundation
   thumbnail: /images/en/foundations/foundation.png
   alt: This is an image of the foundation
-order: 1
 permalink: /en/foundations/colour/
 translationKey: "colour"
 tags: ["colourEN", "usage"]
@@ -40,7 +39,7 @@ tokenTable:
     focus-textForm: The focus text form colour should only be applied when focusing on form elements. Do not use this token for elements that aren’t form elements.
 ---
 
-## Accessibility and colour tokens
+## {{ title }}
 
 Ensure that the contrast ratio of text and interactive elements meets level AA of the Web Content Accessibility Guidelines (WCAG 2.1).
 

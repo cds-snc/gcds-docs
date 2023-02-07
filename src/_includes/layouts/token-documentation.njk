@@ -12,11 +12,11 @@
         {{ tabs.header.templateContent | safe }}
         <nav class="tabs" aria-label="{{ navLabel or title }}">
             <ul>
-                {% for key, tab in tabs %}
-                    {% if tab.url %}
+                {% for key, tab in documentation[locale] %}
+                    {% if tabs[key].url %}
                         <li class="tab">
-                            <a href={{ tab.url }} {{ 'aria-current=page' if tab.url == page.url}}>
-                                {{ tab.data.title }}
+                            <a href={{ tabs[key].url }} {{ 'aria-current=page' if tabs[key].url == page.url}}>
+                                {{ tab }}
                             </a>
                         </li>
                     {% endif %}
