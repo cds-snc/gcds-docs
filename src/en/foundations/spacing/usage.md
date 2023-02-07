@@ -1,5 +1,5 @@
 ---
-title: Spacing - Foundations
+title: Spacing usage
 layout: "layouts/token-documentation.njk"
 eleventyNavigation:
   key: spacingEN
@@ -12,7 +12,7 @@ eleventyNavigation:
   alt: This is an image of the foundation
 permalink: /en/foundations/spacing/
 translationKey: "spacing"
-tags: ['spacingEN', 'usage']
+tags: ["spacingEN", "usage"]
 ---
 
-## Spacing usage
+## {{ title }}

@@ -64,6 +64,7 @@ module.exports = function (eleventyConfig) {
         })
       }
     });
+
     return pages;
   });
 
@@ -247,7 +248,7 @@ module.exports = function (eleventyConfig) {
     pathPrefix: process.env.PATH_PREFIX || "/",
     dir: {
       input: "src",
-      output: "_site"
+      output: "_site",
     },
   };
 };
