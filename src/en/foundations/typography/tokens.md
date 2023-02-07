@@ -1,5 +1,5 @@
 ---
-title: Typography - Foundations
+title: Tokens
 layout: "layouts/token-documentation.njk"
 translationKey: "typographyTokens"
 tags: ["typographyEN", "tokens"]
@@ -30,7 +30,7 @@ tokenTable:
     fontWeights-bold: Bold
 ---
 
-## Tokens
+## {{ title }}
 
 Font values in the Text and Heading tables are read using the following template: font weight, font size in rem, line height as a percentage of font size, and the font family. The font family also contains fallback values. The value of font tokens follow the [shorthand font property specification](https://w3c.github.io/csswg-drafts/css-fonts/#font-prop).
 

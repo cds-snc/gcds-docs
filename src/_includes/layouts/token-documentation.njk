@@ -1,24 +1,30 @@
----
-layout: "layouts/base.njk"
----
+{% extends "layouts/base.njk" %}
+
 
 {% if tags %}
     {% set tabs = collections.all | tabs(tags[0]) %}
-
-    {{ tabs.header.templateContent | safe }}
-
-    <ul>
-        <li>
-            <a href={{tabs.usage.url}}>
-            {{ documentation[locale].usage }}
-            </a>
-        </li>
-        <li>
-            <a href={{tabs.tokens.url}}>
-            {{ documentation[locale].tokens }}
-            </a>
-        </li>
-    </ul>
+    {% block page_title %}{{ title }} - {{ tabs.header.data.title }} - {{ base[locale].gcds }}{% endblock %}
 {% endif %}
 
-{{ content | safe }}
+{% block content %}
+    
+    {% if tabs %}
+        {{ tabs.header.templateContent | safe }}
+        <nav class="tabs" aria-label="{{ navLabel or title }}">
+            <ul>
+                {% for key, tab in documentation[locale] %}
+                    {% if tabs[key].url %}
+                        <li class="tab">
+                            <a href={{ tabs[key].url }} {{ 'aria-current=page' if tabs[key].url == page.url}}>
+                                {{ tab }}
+                            </a>
+                        </li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+        </nav>
+    {% endif %}
+    
+    {{ content | safe }}
+
+{% endblock %}

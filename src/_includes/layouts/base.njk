@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>{{ title }} - {{ base[locale].gcds }}</title>
+    <title>{% block page_title %}{{ title }} - {{ base[locale].gcds }}{% endblock %}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Utility framework -->
@@ -33,7 +33,7 @@
       </gcds-alert>
       
       <main id="mc" class="container-xl mx-auto general-layout flow">
-        {{ content | safe }}
+        {% block content %}{{ content | safe }}{% endblock %}
       </main>
 
       <gcds-footer display="compact" lang="{{ locale }}"></gcds-footer>

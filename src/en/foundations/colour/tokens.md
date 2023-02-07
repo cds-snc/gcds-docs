@@ -1,5 +1,5 @@
 ---
-title: Colour - Foundations
+title: Tokens
 layout: "layouts/token-documentation.njk"
 translationKey: "colourTokens"
 tags: ["colourEN", "tokens"]
@@ -12,7 +12,7 @@ tokenTable:
     rgb: RGB
 ---
 
-## Tokens
+## {{ title }}
 
 Display tokens here
 

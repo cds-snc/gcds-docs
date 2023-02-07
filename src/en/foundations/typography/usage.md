@@ -1,5 +1,5 @@
 ---
-title: Typography - Foundations
+title: Typography usage
 layout: "layouts/token-documentation.njk"
 eleventyNavigation:
   key: typographyEN
@@ -12,7 +12,7 @@ eleventyNavigation:
   alt: This is an image of the foundation
 permalink: /en/foundations/typography/
 translationKey: "typography"
-tags: ['typographyEN', 'usage']
+tags: ["typographyEN", "usage"]
 ---
 
-## Typography usage
+## {{ title }}
