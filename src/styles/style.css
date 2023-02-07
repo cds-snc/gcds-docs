@@ -1,3 +1,50 @@
+/* C.U.B.E
+ * C = Composition: Layouts and specific arrangements of components
+ * U = Utilities: specific helpers. Like tailwind, but without tailwind. Yet. 
+ * B = Blocks (components): Components. No margins when possible
+ * E = Exceptions: different states of a component. Exceptional circumstances. 
+ * 
+ * source: https://cube.fyi/
+*/
+.flow > * + * {
+  margin-block-start: var(--flow-spacing, var(--gcds-spacing-400)); }
+
+h1,
+h2,
+h3,
+h4 {
+  --flow-spacing: var(--gcds-spacing-600); }
+
+a[href] {
+  color: var(--gcds-link-default);
+  text-underline-offset: -0.1em;
+  text-decoration-color: currentColor; }
+  a[href]:hover {
+    color: var(--gcds-hover-default);
+    text-underline-offset: 0em;
+    text-decoration-thickness: 2px; }
+  a[href]:focus {
+    background-color: var(--gcds-focus-background);
+    color: var(--gcds-focus-text);
+    text-decoration: none;
+    outline: 2px solid var(--gcds-focus-background); }
+
+p {
+  font: var(--gcds-font-text-long);
+  max-width: 65ch; }
+
+p + ol,
+p + ul {
+  --flow-spacing: 0; }
+
+code {
+  font-family: var(--gcds-font-families-monospace);
+  color: var(--gcds-color-red-700);
+  background-color: var(--gcds-color-grayscale-50);
+  padding-inline: var(--gcds-spacing-100);
+  margin-inline: var(--gcds-spacing-50);
+  box-shadow: 0 0 0 2px var(--gcds-color-grayscale-100); }
+
 /*
  * General
  */
@@ -14,24 +61,6 @@ body {
 .general-layout {
   margin-block: var(--gcds-spacing-500);
   padding-inline: var(--gcds-spacing-250); }
-
-h1,
-h2,
-h3,
-h4 {
-  --flow-spacing: var(--gcds-spacing-600); }
-
-p {
-  font: var(--gcds-font-text-long);
-  max-width: 65ch; }
-
-code {
-  font-family: var(--gcds-font-families-monospace);
-  color: var(--gcds-color-red-700);
-  background-color: var(--gcds-color-grayscale-50);
-  padding-inline: var(--gcds-spacing-100);
-  margin-inline: var(--gcds-spacing-50);
-  box-shadow: 0 0 0 2px var(--gcds-color-grayscale-100); }
 
 @media (max-width: 48rem) {
   .table-overflow {
@@ -116,6 +145,3 @@ nav.tabs {
 
 nav.tabs + * {
   --flow-spacing: var(--gcds-spacing-400); }
-
-.flow > * + * {
-  margin-block-start: var(--flow-spacing, var(--gcds-spacing-400)); }
