@@ -1,6 +1,5 @@
 ---
 title: Spacing usage
-order: 1
 layout: "layouts/token-documentation.njk"
 eleventyNavigation:
   key: spacingEN

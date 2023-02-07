@@ -1,6 +1,5 @@
 ---
 title: Guidance on using spacing
-order: 2
 layout: "layouts/token-documentation.njk"
 translationKey: "spacingTokens"
 tags: ["spacingEN", "tokens"]

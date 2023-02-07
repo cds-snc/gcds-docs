@@ -1,6 +1,5 @@
 ---
 title: Typography usage
-order: 1
 layout: "layouts/token-documentation.njk"
 eleventyNavigation:
   key: typographyEN

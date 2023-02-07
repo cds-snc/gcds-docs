@@ -4,6 +4,6 @@ permalink: false
 tags: ["colourEN", "header"]
 ---
 
-# Colour
+# {{ title }}
 
 Colour tokens store the colour variables for styling components.
