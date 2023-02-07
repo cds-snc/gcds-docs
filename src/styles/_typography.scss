@@ -28,6 +28,15 @@ a[href] {
     // box-shadow: 0 0 0 2px var(--gcds-focus-background);
     outline: 2px solid var(--gcds-focus-background);
   }
+
+  // Exceptions
+
+  .text-light & {
+    color: currentColor;
+    &:hover {
+      color: currentColor;
+    }
+  }
 }
 
 // Paragraph and long form content
@@ -40,6 +49,13 @@ p + ol,
 p + ul {
   // Lists will naturally flow from a paragraph
   --flow-spacing: 0;
+}
+
+ul:not([class]),
+ol:not([class]) {
+  list-style: revert;
+  margin-inline-start: var(--gcds-spacing-300);
+  font: var(--gcds-font-text-long);
 }
 
 // Special typography components

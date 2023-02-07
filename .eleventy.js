@@ -201,7 +201,7 @@ module.exports = function (eleventyConfig) {
     if (figma) {
       figmaLink = `
         <li class="figma-link">
-          <a href="${figma}" target="_blank" rel="nofollow" aria-label="${langStrings[locale].figma} ${langStrings[locale].newtab}">${langStrings[locale].figma}</a>
+          <a href="${figma}" target="_blank" rel="nofollow" aria-label="${langStrings[locale].figma} ${langStrings[locale].newtab}">${langStrings[locale].figma}<gcds-icon name="up-right-from-square"></gcds-icon></a>
         </li>`;
     } else {
       figmaLink = `
@@ -217,7 +217,7 @@ module.exports = function (eleventyConfig) {
     return `
       <ul class="doc-links">
         ${stageChip} <li class="github-link">
-          <a href="${githubLink}" target="_blank" rel="nofollow" aria-label="${langStrings[locale].github} ${langStrings[locale].newtab}">${langStrings[locale].github}</a>
+          <a href="${githubLink}" target="_blank" rel="nofollow" aria-label="${langStrings[locale].github} ${langStrings[locale].newtab}">${langStrings[locale].github}<gcds-icon name="up-right-from-square"></gcds-icon></a>
         </li> ${figmaLink}
       </ul>`;
   });

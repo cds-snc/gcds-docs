@@ -2,6 +2,8 @@ nav.tabs {
   --flow-spacing: var(--gcds-spacing-600);
 
   ul {
+    list-style: none;
+    margin-inline: 0;
     width: 100%;
     display: flex;
     background-color: var(--gcds-color-grayscale-100);
