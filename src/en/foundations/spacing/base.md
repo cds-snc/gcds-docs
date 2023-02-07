@@ -1,6 +1,7 @@
 ---
+title: Spacing
 permalink: false
-tags: ['spacingEN', 'header']
+tags: ["spacingEN", "header"]
 ---
 
-# Spacing
+# {{ title }}

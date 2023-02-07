@@ -1,0 +1,41 @@
+nav.tabs {
+  --flow-spacing: var(--gcds-spacing-600);
+
+  ul {
+    width: 100%;
+    display: flex;
+    background-color: var(--gcds-color-grayscale-100);
+    gap: var(--gcds-spacing-100);
+    flex-wrap: wrap;
+    padding-block-start: var(--gcds-spacing-100);
+    padding-inline: var(--gcds-spacing-100);
+  }
+
+  a {
+    display: block;
+    border-radius: var(--gcds-button-border-radius)
+      var(--gcds-button-border-radius) 0 0;
+    padding: var(--gcds-spacing-150);
+    color: var(--gcds-text-default);
+
+    &:hover {
+      background-color: var(--gcds-color-grayscale-50);
+    }
+
+    &:focus {
+      border-radius: 0;
+      background-color: var(--gcds-focus-background);
+      color: var(--gcds-focus-text);
+      text-decoration: none;
+    }
+
+    &[aria-current="page"] {
+      background-color: var(--gcds-color-grayscale-0);
+      text-decoration: none;
+    }
+  }
+}
+
+nav.tabs + * {
+  --flow-spacing: var(--gcds-spacing-400);
+}
