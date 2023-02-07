@@ -33,6 +33,10 @@ code {
   margin-inline: var(--gcds-spacing-50);
   box-shadow: 0 0 0 2px var(--gcds-color-grayscale-100); }
 
+.doc-links {
+  display: flex;
+  gap: var(--gcds-spacing-250); }
+
 @media (max-width: 48rem) {
   .table-overflow {
     max-width: 100%;
