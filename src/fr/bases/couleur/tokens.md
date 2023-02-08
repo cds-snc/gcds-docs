@@ -5,6 +5,6 @@ translationKey: "colourTokens"
 tags: ['colourFR', 'tokens']
 ---
 
-<h2 class="mt-500 mb-400">{{ title }}</h2>
+## {{ title }}
 
-<p class="mb-400">Display tokens here</p>
+Display tokens here

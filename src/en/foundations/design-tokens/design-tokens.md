@@ -13,4 +13,4 @@ eleventyNavigation:
 translationKey: "designtokens"
 ---
 
-<h1  class="mb-500">{{ title }}</h1>
+# {{ title }}

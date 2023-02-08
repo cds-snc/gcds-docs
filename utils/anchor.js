@@ -11,7 +11,24 @@ const anchor = (md, options) => {
     const contentToken = tokens[index + 1];
     const slug = slugify(contentToken.content);
 
-    return `<${tokens[index].tag} id="${slug}">`;
+    if (tokens[index].tag === 'h1') {
+      return `<${tokens[index].tag} id="${slug}" class="mb-400">`;
+    } else if (tokens[index].tag === 'h2') {
+      return `<${tokens[index].tag} id="${slug}" class="mt-500 mb-400">`;
+    } else if (tokens[index].tag === 'h3') {
+      return `<${tokens[index].tag} id="${slug}" class="mt-500 mb-400">`;
+    } else if (tokens[index].tag === 'h4') {
+      return `<${tokens[index].tag} id="${slug}" class="mt-500 mb-400">`;
+    } else {
+      return `<${tokens[index].tag} id="${slug}">`;
+    }
+  };
+
+  md.renderer.rules.paragraph_open = function(tokens, index) {
+    const contentToken = tokens[index + 1];
+    const slug = slugify(contentToken.content);
+
+    return `<${tokens[index].tag} class="mb-400">`;
   };
 };
 

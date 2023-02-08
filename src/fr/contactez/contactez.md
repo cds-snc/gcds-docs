@@ -10,11 +10,11 @@ translationKey: "contactus"
 contactForm: fr
 ---
 
-<h1 class="mb-400 contact-us-heading">Contactez-nous</h1>
+# Contactez-nous
 
-<p class="mb-400">Renseignez-vous sur un composant du système auprès de l’équipe du système de design du GC ou informez-les d’un nouveau composant que vous aimeriez utiliser.</p>
+Renseignez-vous sur un composant du système auprès de l’équipe du système de design du GC ou informez-les d’un nouveau composant que vous aimeriez utiliser.
 
-<p class="mb-400">Remplissez les champs suivants ou ouvrez une issue sur GitHub dans le dépôt destiné aux <a href="https://github.com/cds-snc/gcds-tokens" target="_blank">unités de style</a>, aux <a href="https://github.com/cds-snc/gcds-components" target="_blank">composants</a> ou à la <A href="https://github.com/cds-snc/gcds-docs" target="_blank">documentation</a>.</p>
+Remplissez les champs suivants ou ouvrez une issue sur GitHub dans le dépôt destiné aux [unités de style]({{ "https://github.com/cds-snc/gcds-tokens" | url}}), aux [composants]({{ "https://github.com/cds-snc/gcds-components" | url}}) ou à la [documentation]({{ "https://github.com/cds-snc/gcds-docs" | url}}).
 
 <form class="mb-500 contact-us-form" name="contactFR" method="post">
   <input type="hidden" name="form-name" value="contactFR" />

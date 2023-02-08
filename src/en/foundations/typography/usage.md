@@ -15,4 +15,4 @@ translationKey: "typography"
 tags: ["typographyEN", "usage"]
 ---
 
-<h2  class="mt-500 mb-400">{{ title }}</h2>
+## {{ title }}
