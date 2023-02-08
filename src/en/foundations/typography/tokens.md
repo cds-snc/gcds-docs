@@ -28,6 +28,7 @@ tokenTable:
     fontWeights-medium: Medium
     fontWeights-semibold: Semibold
     fontWeights-bold: Bold
+date: "git Last Modified"
 ---
 
 ## {{ title }}

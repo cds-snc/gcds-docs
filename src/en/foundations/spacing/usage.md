@@ -13,6 +13,7 @@ eleventyNavigation:
 permalink: /en/foundations/spacing/
 translationKey: "spacing"
 tags: ["spacingEN", "usage"]
+date: "git Last Modified"
 ---
 
 ## {{ title }}

@@ -14,6 +14,7 @@ eleventyNavigation:
 github: https://github.com/cds-snc/gcds-tokens
 permalink: /fr/bases/typographie/
 tags: ['typographyFR', 'usage']
+date: "git Last Modified"
 ---
 
 ## {{ title }}

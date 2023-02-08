@@ -88,11 +88,24 @@ module.exports = function (eleventyConfig) {
     });
   });
 
-  // date filter (localized)
-  eleventyConfig.addNunjucksFilter("date", function (date, format, locale) {
-    locale = locale ? locale : "en";
-    moment.locale(locale);
-    return moment(date).format(format);
+  /* Format last modified date */
+  eleventyConfig.addFilter("dateLastModified", function(value) {
+    let dateTime = value.toLocaleDateString({
+      year: "numeric",
+      month: "2-digit",
+      day: "2-digit",
+    })
+
+    let dates = dateTime.split("/");
+
+    // Add zero at start of single digit values
+    for (var i = 0; i < dates.length; i++) {
+      if (dates[i].length == 1) {
+        dates[i] = `0${dates[i]}`;
+      }
+    }
+
+    return `${dates[2]}-${dates[0]}-${dates[1]}`;
   });
 
    // Token filters

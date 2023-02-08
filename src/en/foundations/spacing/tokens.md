@@ -9,6 +9,7 @@ tokenTable:
     token-name: Token name
     px: Pixel
     value: Rem
+date: "git Last Modified"
 ---
 
 ## {{ title }}

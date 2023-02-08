@@ -13,6 +13,7 @@ eleventyNavigation:
 permalink: /en/foundations/typography/
 translationKey: "typography"
 tags: ["typographyEN", "usage"]
+date: "git Last Modified"
 ---
 
 ## {{ title }}

@@ -10,6 +10,7 @@ tokenTable:
     contrast: Contrast with white
     value: Hex
     rgb: RGB
+date: "git Last Modified"
 ---
 
 ## {{ title }}

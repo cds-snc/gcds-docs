@@ -37,6 +37,7 @@ tokenTable:
     focus-background: The focus background colour should only be applied when focusing on an interactive element.
     focus-text: The focus text colour should only be applied when focusing on an interactive element.
     focus-textForm: The focus text form colour should only be applied when focusing on form elements. Do not use this token for elements that aren’t form elements.
+date: "git Last Modified"
 ---
 
 ## {{ title }}

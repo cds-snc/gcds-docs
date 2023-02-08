@@ -13,6 +13,7 @@ eleventyNavigation:
   alt: This is an image of the foundation
 permalink: /fr/bases/espacement/
 tags: ['spacingFR', 'usage']
+date: "git Last Modified"
 ---
 
 ## {{ title }}
