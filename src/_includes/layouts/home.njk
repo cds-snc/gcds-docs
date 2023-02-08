@@ -44,7 +44,7 @@
         </section>
 
         <section class="container-xl mx-auto xl:px-0 sm:px-500 px-300">
-          {{ content | safe }}
+          {% block content %}{{ content | safe }}{% endblock %}
         </section>
       </main>
 
