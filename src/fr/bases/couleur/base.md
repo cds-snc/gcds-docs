@@ -3,4 +3,4 @@ permalink: false
 tags: ['colourFR', 'header']
 ---
 
-# Couleur
+<h1  class="mb-500">Couleur</h1>

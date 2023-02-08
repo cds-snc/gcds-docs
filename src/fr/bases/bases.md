@@ -10,4 +10,4 @@ translationKey: "foundatons"
 github: https://github.com/cds-snc/gcds-tokens
 ---
 
-# Bases
+<h1  class="mb-500">{{ title }}</h1>

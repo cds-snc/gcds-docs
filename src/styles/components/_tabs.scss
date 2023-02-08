@@ -1,6 +1,4 @@
 nav.tabs {
-  margin-block-start: var(--gcds-spacing-600);
-
   ul {
     width: var(--gcds-container-full);
     display: flex;
@@ -34,8 +32,4 @@ nav.tabs {
       text-decoration: none;
     }
   }
-}
-
-nav.tabs + * {
-  margin-block-start: var(--gcds-spacing-400);
 }

@@ -39,40 +39,40 @@ tokenTable:
     focus-textForm: The focus text form colour should only be applied when focusing on form elements. Do not use this token for elements that aren’t form elements.
 ---
 
-## {{ title }}
+<h2 class="mt-500 mb-400">{{ title }}</h2>
 
-Ensure that the contrast ratio of text and interactive elements meets level AA of the Web Content Accessibility Guidelines (WCAG 2.1).
+<p class="mb-400">Ensure that the contrast ratio of text and interactive elements meets level AA of the Web Content Accessibility Guidelines (WCAG 2.1).</p>
 
-You can check the colour contrast on the Web Aim Contrast Checker.
+<p class="mb-400">You can check the colour contrast on the Web Aim Contrast Checker.</p>
 
 image
 
-## Global colours
+<h2 class="mt-500 mb-400">Global colours</h2>
 
-If you are using GC Design System, use our colour tokens instead of hardcoded values. For example, use var(--gcds-brand-default-text) instead of #000000. Using our colour tokens ensures that you are always using the latest colour palette and makes it easier to update colour values if necessary.
+<p class="mb-400">If you are using GC Design System, use our colour tokens instead of hardcoded values. For example, use var(--gcds-brand-default-text) instead of #000000. Using our colour tokens ensures that you are always using the latest colour palette and makes it easier to update colour values if necessary.</p>
 
-Only use the variables in the context they’re designed for. In all other cases, you should reference the colour tokens directly. For example, if you wanted to use blue, you should use `var(--gcds-color-blue-focus)` rather than `var(--gcds-brand-focus)`.
+<p class="mb-400">Only use the variables in the context they’re designed for. In all other cases, you should reference the colour tokens directly. For example, if you wanted to use blue, you should use <code>var(--gcds-color-blue-focus)</code> rather than <code>var(--gcds-brand-focus)</code>.</p>
 
-### Text
+<h3 class="mt-500 mb-400">Text</h3>
 
 {% include "partials/token_table.njk", token: 'text', type: 'color' %}
 
-### Link
+<h3 class="mt-500 mb-400">Link</h3>
 
 {% include "partials/token_table.njk", token: 'link', type: 'color' %}
 
-### Border
+<h3 class="mt-500 mb-400">Border</h3>
 
 {% include "partials/token_table.njk", token: 'border', type: 'color' %}
 
-### Danger
+<h3 class="mt-500 mb-400">Danger</h3>
 
 {% include "partials/token_table.njk", token: 'danger', type: 'color' %}
 
-### Disabled
+<h3 class="mt-500 mb-400">Disabled</h3>
 
 {% include "partials/token_table.njk", token: 'disabled', type: 'color' %}
 
-### Focus
+<h3 class="mt-500 mb-400">Focus</h3>
 
 {% include "partials/token_table.njk", token: 'focus', type: 'color' %}

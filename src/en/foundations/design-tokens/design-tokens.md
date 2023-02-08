@@ -1,5 +1,5 @@
 ---
-title: Design tokens - Foundations
+title: Design tokens
 layout: "layouts/base.njk"
 eleventyNavigation:
   key: tokensEN
@@ -13,4 +13,4 @@ eleventyNavigation:
 translationKey: "designtokens"
 ---
 
-# Design tokens
+<h1  class="mb-500">{{ title }}</h1>

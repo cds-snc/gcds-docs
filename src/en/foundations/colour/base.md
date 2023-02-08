@@ -4,6 +4,6 @@ permalink: false
 tags: ["colourEN", "header"]
 ---
 
-# {{ title }}
+<h1  class="mb-500">{{ title }}</h1>
 
-Colour tokens store the colour variables for styling components.
+<p class="mb-500">Colour tokens store the colour variables for styling components.</p>

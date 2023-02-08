@@ -1,10 +1,10 @@
 ---
-title: Typographie - Bases
+title: Tokens
 layout: "layouts/token-documentation.njk"
 translationKey: "typographyTokens"
 tags: ['typographyFR', 'tokens']
 ---
 
-## Tokens
+<h2 class="mt-500 mb-400">{{ title }}</h2>
 
-Display tokens here
+<p class="mb-400">Display tokens here</p>

@@ -160,9 +160,6 @@ table .color-preview {
 table .spacing-preview {
   background-color: var(--gcds-color-blue-500); }
 
-nav.tabs {
-  margin-block-start: var(--gcds-spacing-600); }
-
 nav.tabs ul {
   width: var(--gcds-container-full);
   display: flex;
@@ -190,9 +187,6 @@ nav.tabs a:focus {
 nav.tabs a[aria-current="page"] {
   background-color: var(--gcds-color-grayscale-0);
   text-decoration: none; }
-
-nav.tabs + * {
-  margin-block-start: var(--gcds-spacing-400); }
 
 .hero {
   margin: calc(-1 * var(--gcds-spacing-200));

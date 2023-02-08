@@ -12,8 +12,8 @@ tokenTable:
     rgb: RGB
 ---
 
-## {{ title }}
+<h2 class="mt-500 mb-400">{{ title }}</h2>
 
-Display tokens here
+<p class="mb-400">Display tokens here</p>
 
 {% include "partials/token_table.njk", token: 'color.grayscale color.blue color.red color.green color.yellow', type: 'color' %}

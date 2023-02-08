@@ -1,5 +1,5 @@
 ---
-title: Unités de style - Bases
+title: Unités de style
 layout: "layouts/token-documentation.njk"
 eleventyNavigation:
   key: tokensFR
@@ -13,4 +13,4 @@ eleventyNavigation:
 translationKey: "designtokens"
 ---
 
-# Unités de style
+<h1  class="mb-500">{{ title }}</h1>

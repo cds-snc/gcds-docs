@@ -4,4 +4,4 @@ permalink: false
 tags: ["spacingEN", "header"]
 ---
 
-# {{ title }}
+<h1  class="mb-500">{{ title }}</h1>

@@ -1,7 +1,7 @@
 ---
+title: Typographie
 permalink: false
 tags: ['typographyFR', 'header']
 ---
 
-# Typographie
-
+<h1  class="mb-500">{{ title }}</h1>

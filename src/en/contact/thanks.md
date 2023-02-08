@@ -4,8 +4,8 @@ layout: "layouts/base.njk"
 eleventyExcludeFromCollections: true
 ---
 
-# Thank you for reaching out!
+<h1  class="mb-400">Thank you for reaching out!</h1>
 
-We’ve received your message. A team member will get back to you shortly.
+<p class="mb-400">We’ve received your message. A team member will get back to you shortly.</p>
 
-We appreciate your feedback and questions.
+<p class="mb-400">We appreciate your feedback and questions.</p>

@@ -4,8 +4,8 @@ layout: "layouts/base.njk"
 eleventyExcludeFromCollections: true
 ---
 
-# Merci de nous avoir contactés!
+<h1 class="mb-400">Merci de nous avoir contactés!</h1>
 
-Nous avons bien reçu votre message. Nous ferons notre possible pour vous répondre d’ici 3 jours.
+<p class="mb-400">Nous avons bien reçu votre message. Nous ferons notre possible pour vous répondre d’ici 3 jours.</p>
 
-Merci pour vos commentaires et vos questions.
+<p class="mb-400">Merci pour vos commentaires et vos questions.</p>
