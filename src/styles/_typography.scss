@@ -1,45 +1,30 @@
-// Styles that go into this file should apply generally to the entire site. Specific component typography should be contained in components.
-
-// Headings
-h1,
-h2,
-h3,
-h4 {
-  // Spacing
-  --flow-spacing: var(--gcds-spacing-600);
-}
-
 // Links
 a[href] {
-  color: var(--gcds-link-default);
   text-underline-offset: -0.1em;
   text-decoration-color: currentColor;
 
   &:hover {
     color: var(--gcds-hover-default);
     text-underline-offset: 0em;
-    text-decoration-thickness: 2px;
+    text-decoration-thickness: var(--gcds-border-width-md);
   }
 
   &:focus {
     background-color: var(--gcds-focus-background);
     color: var(--gcds-focus-text);
     text-decoration: none;
-    // box-shadow: 0 0 0 2px var(--gcds-focus-background);
-    outline: 2px solid var(--gcds-focus-background);
+    outline: var(--gcds-border-width-md) solid var(--gcds-focus-background);
   }
+}
+
+a[href]:not([class*="link-inherit"]):not([class*="link-light"]):not(:focus):not(:hover) {
+  color: var(--gcds-link-default);
 }
 
 // Paragraph and long form content
 p {
   font: var(--gcds-font-text-long);
   max-width: 65ch;
-}
-
-p + ol,
-p + ul {
-  // Lists will naturally flow from a paragraph
-  --flow-spacing: 0;
 }
 
 // Special typography components
@@ -49,5 +34,5 @@ code {
   background-color: var(--gcds-color-grayscale-50);
   padding-inline: var(--gcds-spacing-100);
   margin-inline: var(--gcds-spacing-50);
-  box-shadow: 0 0 0 2px var(--gcds-color-grayscale-100);
+  box-shadow: 0 0 0 var(--gcds-border-width-md) var(--gcds-color-grayscale-100);
 }

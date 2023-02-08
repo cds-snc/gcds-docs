@@ -29,8 +29,7 @@
     {% include "partials/header.njk" %}
 
     <div class="content-wrapper">
-
-      <main id="mc" class="container-xl mx-auto general-layout flow">
+      <main id="mc" class="container-xl mx-auto xl:px-0 sm:px-500 px-300 general-layout">
         {% block content %}{{ content | safe }}{% endblock %}
       </main>
 

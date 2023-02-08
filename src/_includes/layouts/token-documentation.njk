@@ -7,10 +7,10 @@
 {% endif %}
 
 {% block content %}
-    
+
     {% if tabs %}
         {{ tabs.header.templateContent | safe }}
-        <nav class="tabs" aria-label="{{ navLabel or title }}">
+        <nav class="mb-400 tabs" aria-label="{{ navLabel or title }}">
             <ul>
                 {% for key, tab in documentation[locale] %}
                     {% if tabs[key].url %}
@@ -24,7 +24,7 @@
             </ul>
         </nav>
     {% endif %}
-    
+
     {{ content | safe }}
 
     {% include "partials/helpus.njk" %}

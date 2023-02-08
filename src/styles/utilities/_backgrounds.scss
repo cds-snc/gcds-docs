@@ -1,0 +1,55 @@
+// Backgrounds
+.bg-full-width {
+  position: relative;
+
+  &:before,
+  &:after {
+    position: absolute;
+    top: 0;
+    width: 100vw;
+    height: 100%;
+    content: '';
+  }
+
+  &:before {
+    left: calc(-100vw + 0.1px);
+  }
+
+  &:after {
+    right: calc(-100vw + 0.1px);
+  }
+}
+
+.bg-dark {
+  background-color: var(--gcds-color-blue-900);
+  color: var(--gcds-text-light);
+
+  &.bg-full-width {
+    &:before,
+    &:after {
+      background-color: var(--gcds-color-blue-900);
+    }
+  }
+}
+
+.bg-light {
+  background-color: var(--gcds-color-grayscale-50);
+
+  &.bg-full-width {
+    &:before,
+    &:after {
+      background-color: var(--gcds-color-grayscale-50);
+    }
+  }
+}
+
+.bg-white {
+  background-color: var(--gcds-color-grayscale-0);
+
+  &.bg-full-width {
+    &:before,
+    &:after {
+      background-color: var(--gcds-color-grayscale-0);
+    }
+  }
+}

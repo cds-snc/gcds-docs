@@ -1,10 +1,10 @@
 ---
-title: Espacement - Bases
+title: Tokens
 layout: "layouts/token-documentation.njk"
 translationKey: "spacingTokens"
 tags: ['spacingFR', 'tokens']
 ---
 
-## Tokens
+## {{ title }}
 
 Display tokens here

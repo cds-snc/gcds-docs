@@ -1,5 +1,5 @@
 ---
-title: Couleur - Bases
+title: Couleur
 layout: "layouts/token-documentation.njk"
 translationKey: "colour"
 eleventyNavigation:
@@ -15,4 +15,4 @@ permalink: /fr/bases/couleur/
 tags: ['colourFR', 'usage']
 ---
 
-# Couleur
+## {{ title }}

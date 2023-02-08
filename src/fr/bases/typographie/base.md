@@ -1,7 +1,7 @@
 ---
+title: Typographie
 permalink: false
 tags: ['typographyFR', 'header']
 ---
 
-# Typographie
-
+# {{ title }}
