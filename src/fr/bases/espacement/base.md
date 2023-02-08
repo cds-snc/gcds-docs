@@ -1,6 +1,7 @@
 ---
+title: Espacement
 permalink: false
 tags: ['spacingFR', 'header']
 ---
 
-# Espacement
+# {{ title }}

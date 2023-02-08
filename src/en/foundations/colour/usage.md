@@ -53,6 +53,7 @@ If you are using GC Design System, use our colour tokens instead of hardcoded va
 
 Only use the variables in the context they’re designed for. In all other cases, you should reference the colour tokens directly. For example, if you wanted to use blue, you should use `var(--gcds-color-blue-focus)` rather than `var(--gcds-brand-focus)`.
 
+
 ### Text
 
 {% include "partials/token_table.njk", token: 'text', type: 'color' %}

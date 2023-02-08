@@ -1,0 +1,23 @@
+.hero {
+  margin: calc(-1 * var(--gcds-spacing-200));
+  background: url(../../images/common/home/home-hero.png) top center no-repeat;
+  background-size: cover;
+
+  &:before {
+    display: block;
+    width: 0;
+    height: 0;
+    margin: 0;
+    overflow: hidden;
+    content: 'Image credit: John Lee, https://unsplash.com/photos/oMneOBYhJxY?utm_source=unsplash&utm_medium=referral&utm_content=creditShareLink';
+  }
+
+  .bg-full-width {
+    width: 80%;
+    max-width: 40.625rem;
+
+    &:after {
+      display: none;
+    }
+  }
+}
