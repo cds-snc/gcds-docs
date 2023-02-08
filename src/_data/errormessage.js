@@ -1,6 +1,6 @@
 module.exports = {
   en : {
-    heading: "Keep hint text static and perceivable",
+    heading: "Handling required fields and error messages",
     listitems: [
       "Use the required attribute for fields that must be filled in. This will place “required” at the end of the field label. Avoid adding red text and additional symbols or punctuation, like the asterisk (*).",
       "Use the error message component to address missing and invalid entries for all required inputs. Avoid using them for optional ones.",
@@ -9,7 +9,7 @@ module.exports = {
     ]
   },
   fr: {
-    heading: "Keep hint text static and perceivable",
+    heading: "Handling required fields and error messages",
     listitems: [
       "Use the required attribute for fields that must be filled in. This will place “required” at the end of the field label. Avoid adding red text and additional symbols or punctuation, like the asterisk (*).",
       "Use the error message component to address missing and invalid entries for all required inputs. Avoid using them for optional ones.",
