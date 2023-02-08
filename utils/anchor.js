@@ -25,9 +25,6 @@ const anchor = (md, options) => {
   };
 
   md.renderer.rules.paragraph_open = function(tokens, index) {
-    const contentToken = tokens[index + 1];
-    const slug = slugify(contentToken.content);
-
     return `<${tokens[index].tag} class="mb-400">`;
   };
 };
