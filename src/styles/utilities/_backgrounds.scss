@@ -12,11 +12,11 @@
   }
 
   &:before {
-    left: calc(-100vw + 1px);
+    left: calc(-100vw + 0.1px);
   }
 
   &:after {
-    right: calc(-100vw + 1px);
+    right: calc(-100vw + 0.1px);
   }
 }
 

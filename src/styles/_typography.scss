@@ -3,22 +3,25 @@
 
 // Links
 a[href] {
-  color: var(--gcds-link-default);
   text-underline-offset: -0.1em;
   text-decoration-color: currentColor;
 
   &:hover {
     color: var(--gcds-hover-default);
     text-underline-offset: 0em;
-    text-decoration-thickness: 2px;
+    text-decoration-thickness: 0.125rem;
   }
 
   &:focus {
     background-color: var(--gcds-focus-background);
     color: var(--gcds-focus-text);
     text-decoration: none;
-    outline: 2px solid var(--gcds-focus-background);
+    outline: 0.125rem solid var(--gcds-focus-background);
   }
+}
+
+a[href]:not([class*="link-"]) {
+  color: var(--gcds-link-default);
 }
 
 // Paragraph and long form content
@@ -34,5 +37,5 @@ code {
   background-color: var(--gcds-color-grayscale-50);
   padding-inline: var(--gcds-spacing-100);
   margin-inline: var(--gcds-spacing-50);
-  box-shadow: 0 0 0 2px var(--gcds-color-grayscale-100);
+  box-shadow: 0 0 0 0.125rem var(--gcds-color-grayscale-100);
 }
