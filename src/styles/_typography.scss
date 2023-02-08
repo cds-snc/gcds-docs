@@ -37,6 +37,10 @@ p {
   max-width: 65ch;
 }
 
+h1 + p code {
+  user-select: all;
+}
+
 // Special typography components
 code {
   font-family: var(--gcds-font-families-monospace);

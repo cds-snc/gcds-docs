@@ -8,7 +8,7 @@
     top: 0;
     width: 100vw;
     height: 100%;
-    content: '';
+    content: "";
   }
 
   &:before {
@@ -20,7 +20,7 @@
   }
 }
 
-.bg-dark {
+.bg-blue-900 {
   background-color: var(--gcds-color-blue-900);
   color: var(--gcds-text-light);
 
@@ -32,7 +32,7 @@
   }
 }
 
-.bg-light {
+.bg-grayscale-50 {
   background-color: var(--gcds-color-grayscale-50);
 
   &.bg-full-width {
@@ -43,7 +43,7 @@
   }
 }
 
-.bg-white {
+.bg-grayscale-0 {
   background-color: var(--gcds-color-grayscale-0);
 
   &.bg-full-width {
