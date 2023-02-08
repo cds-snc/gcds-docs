@@ -13,6 +13,7 @@ eleventyNavigation:
 translationKey: "fileuploader"
 tags: ['fileuploaderFR', 'usage']
 permalink: /fr/composants/televerseur-de-fichiers/
+date: "git Last Modified"
 ---
 
 ## Usage

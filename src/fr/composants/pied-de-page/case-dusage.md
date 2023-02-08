@@ -13,6 +13,7 @@ eleventyNavigation:
 translationKey: "footer"
 tags: ['footerFR', 'usage']
 permalink: /fr/composants/pied-de-page/
+date: "git Last Modified"
 ---
 
 ## Usage

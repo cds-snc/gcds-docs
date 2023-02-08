@@ -13,6 +13,7 @@ eleventyNavigation:
 translationKey: "input"
 tags: ['inputFR', 'usage']
 permalink: /fr/composants/champ-de-saisie/
+date: "git Last Modified"
 ---
 
 ## Usage

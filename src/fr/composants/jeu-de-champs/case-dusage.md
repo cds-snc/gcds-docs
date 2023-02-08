@@ -13,6 +13,7 @@ eleventyNavigation:
 translationKey: "fieldset"
 tags: ['fieldsetFR', 'usage']
 permalink: /fr/composants/jeu-de-champs/
+date: "git Last Modified"
 ---
 
 ## Usage

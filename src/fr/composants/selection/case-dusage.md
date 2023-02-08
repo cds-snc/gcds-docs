@@ -13,6 +13,7 @@ eleventyNavigation:
 translationKey: "select"
 tags: ['selectFR', 'usage']
 permalink: /fr/composants/selection/
+date: "git Last Modified"
 ---
 
 ## Usage

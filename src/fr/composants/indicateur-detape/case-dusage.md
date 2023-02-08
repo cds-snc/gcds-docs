@@ -13,6 +13,7 @@ eleventyNavigation:
 translationKey: "stepper"
 tags: ['stepperFR', 'usage']
 permalink: /fr/composants/indicateur-detape/
+date: "git Last Modified"
 ---
 
 ## Usage

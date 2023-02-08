@@ -13,6 +13,7 @@ eleventyNavigation:
 translationKey: "header"
 tags: ['headerFR', 'usage']
 permalink: /fr/composants/en-tete/
+date: "git Last Modified"
 ---
 
 ## Usage
