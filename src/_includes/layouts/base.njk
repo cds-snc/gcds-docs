@@ -29,9 +29,8 @@
     {% include "partials/header.njk" %}
 
     <div class="content-wrapper">
-
-      <main id="mc" class="container-xl mx-auto general-layout flow">
-        {% block content %}{{ content | safe }}{% endblock %}
+      <main id="mc" class="container-xl mx-auto xl:px-0 sm:px-500 px-300 general-layout">
+        {{ content | safe }}
       </main>
 
       <gcds-footer display="compact" lang="{{ locale }}"></gcds-footer>

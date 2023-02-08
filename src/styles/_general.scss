@@ -15,9 +15,3 @@ body {
   color: var(--gcds-color-grayscale-1000);
   animation: fade 0.05s normal forwards ease-in-out;
 }
-
-.general-layout {
-  // Probably remove this if we start usingt he grid component?
-  margin-block: var(--gcds-spacing-500);
-  padding-inline: var(--gcds-spacing-250);
-}

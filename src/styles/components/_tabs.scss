@@ -1,5 +1,5 @@
 nav.tabs {
-  --flow-spacing: var(--gcds-spacing-600);
+  margin-block-start: var(--gcds-spacing-600);
 
   ul {
     width: 100%;
@@ -37,5 +37,5 @@ nav.tabs {
 }
 
 nav.tabs + * {
-  --flow-spacing: var(--gcds-spacing-400);
+  margin-block-start: var(--gcds-spacing-400);
 }

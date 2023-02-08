@@ -1,13 +1,5 @@
-// Styles that go into this file should apply generally to the entire site. Specific component typography should be contained in components.
-
-// Headings
-h1,
-h2,
-h3,
-h4 {
-  // Spacing
-  --flow-spacing: var(--gcds-spacing-600);
-}
+// Styles that go into this file should apply generally to the entire site.
+// Specific component typography should be contained in components.
 
 // Links
 a[href] {
@@ -25,7 +17,6 @@ a[href] {
     background-color: var(--gcds-focus-background);
     color: var(--gcds-focus-text);
     text-decoration: none;
-    // box-shadow: 0 0 0 2px var(--gcds-focus-background);
     outline: 2px solid var(--gcds-focus-background);
   }
 }
@@ -34,12 +25,6 @@ a[href] {
 p {
   font: var(--gcds-font-text-long);
   max-width: 65ch;
-}
-
-p + ol,
-p + ul {
-  // Lists will naturally flow from a paragraph
-  --flow-spacing: 0;
 }
 
 // Special typography components
