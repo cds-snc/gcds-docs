@@ -17,7 +17,7 @@ a[href] {
   }
 }
 
-a[href]:not([class*="link-"]):not(:focus):not(:hover) {
+a[href]:not([class*="link-inherit"]):not([class*="link-light"]):not(:focus):not(:hover) {
   color: var(--gcds-link-default);
 }
 
