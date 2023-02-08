@@ -51,7 +51,7 @@ a[href]:focus {
   text-decoration: none;
   outline: var(--gcds-border-width-md) solid var(--gcds-focus-background); }
 
-a[href]:not([class*="link-"]) {
+a[href]:not([class*="link-"]):not(:focus):not(:hover) {
   color: var(--gcds-link-default); }
 
 p {

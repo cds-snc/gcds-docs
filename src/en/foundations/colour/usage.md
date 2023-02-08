@@ -51,7 +51,7 @@ image
 
 If you are using GC Design System, use our colour tokens instead of hardcoded values. For example, use var(--gcds-brand-default-text) instead of #000000. Using our colour tokens ensures that you are always using the latest colour palette and makes it easier to update colour values if necessary.
 
-Only use the variables in the context they’re designed for. In all other cases, you should reference the colour tokens directly. For example, if you wanted to use blue, you should use `var(--gcds-color-blue-focus)` rather than `var(--gcds-brand-focus)`.</p>
+Only use the variables in the context they’re designed for. In all other cases, you should reference the colour tokens directly. For example, if you wanted to use blue, you should use `var(--gcds-color-blue-focus)` rather than `var(--gcds-brand-focus)`.
 
 
 ### Text
