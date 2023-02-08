@@ -13,7 +13,7 @@
 {%- endmacro %}
 
 <gcds-site-menu alignment="right" class="header__nav" slot="menu">
-  <a href="{{ nav[locale].url | url }}" class="home-link" slot="left">{{ nav[locale].title }}</a>
+  <a href="{{ nav[locale].url | url }}" class="home-link link-inherit link-no-underline" slot="left">{{ nav[locale].title }}</a>
   <ul >
     {%- for entry in navPages %}
       {%- if entry.locale == locale %}{{ renderNavListItem(entry) }}{% endif -%}

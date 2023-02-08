@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="{{ locale }}" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>{{ title }} - {{ base[locale].gcds }}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Utility framework -->
+    <!-- TO DO: replace with package, once package is published -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/cds-snc/gcds-utilities/dist/utilities.css" />
+
+    <link rel="stylesheet" href="{{ '/styles/prism.css' | url }}">
+    <link rel="stylesheet" href="{{ '/styles/style.css' | url }}">
+    <script src="{{ '/scripts/code-showcase.js' | url }}"></script>
+    <link rel="icon" type="image/x-icon" sizes="96x96" href="{{ '/favicon.ico' | url }}">
+
+    {# Font awesome 6 kit for this doc website. Anyone can create a free kit for open source. #}
+    <script src="https://kit.fontawesome.com/892cb27850.js" crossorigin="anonymous"></script>
+
+    <!-- GC Design System  Components-->
+    <link rel="stylesheet" href="{{ '/components/dist/gcds/gcds.css' | url }}">
+    <script type="module" src="/components/dist/gcds/gcds.esm.js"></script>
+    <script nomodule src="/components/dist/gcds/gcds.js"></script>
+
+    <meta name="robots" content="noindex">
+  </head>
+  <body>
+    {% include "partials/header.njk" %}
+
+    <div class="content-wrapper">
+
+      <main id="mc" class="general-layout">
+        <section>
+            <div class="xl:py-900 md:py-800 py-600 hero">
+              <div class="container-xl mx-auto">
+                <article class="sm:py-550 py-450 xl:ps-0 sm:ps-500 ps-450 sm:pe-550 pe-400 bg-dark bg-full-width">
+                  <h1 class="mb-400">Canadian Digital Service<br/>GC Design System</h1>
+                  <p class="mb-400">Build modern, accessible, human government services people can use.</p>
+                  <a class="link-inherit" href="/en/contact/">About us</a>
+                </article>
+              </div>
+            </div>
+        </section>
+
+        <section class="container-xl mx-auto xl:px-0 sm:px-500 px-300">
+          {% block content %}{{ content | safe }}{% endblock %}
+        </section>
+      </main>
+
+      <gcds-footer display="compact" lang="{{ locale }}"></gcds-footer>
+
+      {% if contactForm %}
+        {% include "partials/contactform.njk" %}
+      {% endif %}
+    </div>
+
+    {% initClipboardJS %}
+  </body>
+</html>

@@ -1,96 +1,97 @@
 ---
 title: Home
-layout: "layouts/base.njk"
+layout: "layouts/home.njk"
 permalink: /en/
 translationKey: "index"
 redirect_from: /
 ---
 
-<header class="welcome-banner">
+<h2 class="py-450">Welcome to your design system</h2>
 
-WELCOME TO
-
-# The Government of Canada <br/> Design System
-
-Public servants building modern, accessible, beautiful government services
-</header>
-
-The GC Design System brings together federal policy, inclusive design best practice, and reusable code. Find ready-made solutions to common problems so you can design content, visual, and interactive elements for task success.
-
-The design system offers design and code packages for common interaction patterns to provide a foundation for teams of all sizes to build upon. Use it to make thoughtful, accessible, well-designed services that meet the needs of your users.
-
-The GC Design System is being built by a team of people from the Canadian Digital Service, the Digital Transformation Office, and the central Office of the Chief Information Officer, with advisors from Principal Publisher.
-
-<div class="quick-links-container">
-
-## Quick links
-
-Jump to a page to learn more.
-
-<br/>
-
-<gcds-grid class="quick-links" gap="spacing-400" grid-tag="ul" grid-template-columns="1fr" grid-template-columns-tablet="1fr 1fr">
-    <li>
-        <h4><a href="{{ "/en/installation/" | url }}">Installation</a></h4>
-        <p>Get started by installing the coded component library.</p>
+<article class="py-500 bg-dark bg-full-width">
+  <gcds-grid tag="ul" columns="1fr" columns-tablet="1fr 1fr" gap="450">
+    <li class="list-none md:mb-0 mb-500">
+      <img class="mb-400" src="../../images/common/home/icon-design.svg" alt="" />
+      <h3 class="mb-400">Design experiences</h3>
+      <p class="mb-400">Visit our Figma library to explore design assets.</p>
+      <a class="link-inherit" href="https://www.figma.com/file/mh2maMG2NBtk41k1O1UGHV/GC-Components-Main?node-id=4%3A1006&t=CVXODmuGNXkwGRmc-0" target="_blank">
+        Start designing
+        <gcds-icon name="external-link" label="Opens in a new tab." margin-left="200" />
+      </a>
     </li>
-    <li>
-        <h4><a href="{{ "/en/components/" | url }}">Components</a></h4>
-        <p>Browse components that meet the Canada.ca standard.</p>
+    <li class="list-none">
+      <img class="mb-400" src="../../images/common/home/icon-develop.svg" alt="" />
+      <h3 class="mb-400">Develop products</h3>
+      <p class="mb-400">Install the component package.</p>
+      <a class="link-inherit" href="/en/installation/">Start developing</a>
     </li>
-    <li>
-        <h4><a href="{{ "/en/components/forms/form-guidance/" | url }}">Form guidance</a></h4>
-        <p>Help a person using your product achieve their goal.</p>
+  </gcds-grid>
+</article>
+
+<article class="py-450">
+  <h2 class="mb-400">A design system just for you</h2>
+  <p class="mb-500">Take a look around. <a class="link-default" href="/en/contact/">Tell us what you think</a>.</p>
+  <gcds-grid tag="ul" columns="1fr" columns-tablet="1fr 1fr" columns-desktop="1fr 1fr 1fr" gap="450">
+    <li class="list-none">
+      <img class="mb-200" src="../../images/common/home/icon-components.svg" alt="" />
+      <h3 class="mb-400">Components</h3>
+      <p class="mb-400">User interface building blocks address different user objectives.</p>
+      <p class="mb-400">Select reusable code for common components, paired with best practice advice, for the framework you're using.</p>
+      <a class="link-default" href="/en/components/">View components</a>
     </li>
-    <li>
-        <h4><a href="{{ "/en/foundations/typography" | url }}">Typography</a></h4>
-        <p>Learn about typography design tokens that support a consistent visual experience across GC digital products.</p>
+    <li class="list-none">
+      <img class="mb-200" src="../../images/common/home/icon-patterns.svg" alt="" />
+      <h3 class="mb-400">Patterns</h3>
+      <p class="mb-400">Guidance on combining components to solve a problem and improve your service.</p>
+      <p class="mb-400">Start designing for government products and understand how words and interactions work together to create meaning.</p>
+      <p>Coming soon</p>
     </li>
-</gcds-grid>
+    <li class="list-none">
+      <img class="mb-200" src="../../images/common/home/icon-tokens.svg" alt="" />
+      <h3 class="mb-400">Design tokens</h3>
+      <p class="mb-400">Brand and design decisions built into code.</p>
+      <p class="mb-400">Learn how encoded decisions shape the design of government services for a consistent visual experience.</p>
+      <a class="link-default" href="/en/foundations/">View tokens</a>
+    </li>
+  </gcds-grid>
+</article>
 
-</div>
+<article class="py-500 bg-light bg-full-width">
+  <h2 class="mb-400">What's new</h2>
+  <gcds-grid tag="ul" columns="1fr" columns-tablet="1fr 1fr" columns-desktop="1fr 1fr 1fr" gap="450">
+    <li class="list-none bg-white px-250 py-450 radius-xs">
+      <h3 class="mb-400"><a class="link-inherit" href="/en/release-notes/">Release notes</a></h3>
+      <p>The latest additions.</p>
+    </li>
+    <li class="list-none bg-white px-250 py-450 radius-xs">
+      <h3 class="mb-400"><a class="link-inherit" href="/en/coming-soon/">Coming soon</a></h3>
+      <p>What we're working on.</p>
+    </li>
+  </gcds-grid>
+</article>
 
-## Ship modern products faster with less work
-
-Spend less time doing repetitive work and more time shipping a product that meets the needs of the people using your service.
-
-## An accessible, seamless Canada.ca
-
-Build accessible and predictable products your clients can trust. They'll know they're in the right place and can easily get the help they need.
-
-
-## Work in the open to learn from each other
-
-Contribute to the system, growing collective knowledge and resources. We want to work with you, federal public servants on web and digital product teams, to deliver human-centred services to people in Canada. [Get in touch]({{ "/en/contact" | url }}) to start a conversation about your needs.
-
-
-<div class="features-container">
-    <h3>Features</h3>
-    <gcds-grid class="features" gap="spacing-500" grid-tag="ul" grid-template-columns="1fr" grid-template-columns-tablet="1fr 1fr">
-        <li>
-            <h4>Unified guidance</h4>
-            <p>Find reusable code for <a href="{{ "/en/components/" | url }}">common components</a> paired with best practice advice to build to the Canada.ca standard.</p>
-        </li>
-        <li>
-            <h4>Codified decisions</h4>
-            <p>Apply brand and key aesthetics with decisions built into code on <a href="{{ "/en/foundations/typography/" | url }}">typography</a>, colour, and spacing.</p>
-        </li>
-        <li>
-            <h4>Component library</h4>
-            <p>Browse a <a href="{{ "/en/components/" | url }}">library</a> of tech agnostic, accessible, coded web components you can import and use as-is or modify to fit your needs.</p>
-        </li>
-        <li>
-            <h4>Design tooling</h4>
-            <p>Check out our <a href="{{ "https://www.figma.com/file/4KWj8wnnXoq6cA6yl0dnsR/GC-Components?node-id=4%3A1006" | url }}" target="_blank">design asset library</a> for designers!</p>
-        </li>
-    </gcds-grid>
-</div>
-
-
-## Get a head start
-
-We’ve assembled [guidance]({{ "/en/components/" | url }}) for each component so you’re caught up on Government of Canada required reading. Hop into the design system’s documentation to explore at your own speed.
-
-<br/>
-
-<gcds-button button-type="link" href="/en/installation/">Start now</gcds-button>
+<article class="py-450">
+  <h2 class="mb-400">Featured component</h2>
+  <h3 class="mb-400">Fieldset</h3>
+  <p class="mb-450">The fieldset component is used to perceive a group of related form elements. It improves usability and understanding by grouping elements in a logical and accessible way.</p>
+  <gcds-fieldset
+    fieldset-id="fieldset"
+    legend="Radio button group"
+    hint="They are in a fieldset"
+    class="mb-300"
+  >
+    <gcds-radio
+      radio-id="form-radio"
+      label="Radio 1 label"
+      hint="This is a hint."
+      name="radio"
+    ></gcds-radio>
+    <gcds-radio
+      radio-id="form-radio1"
+      label="Radio 2 label"
+      hint="This is a hint."
+      name="radio"
+    ></gcds-radio>
+  </gcds-fieldset>
+  <a href="/en/components/fieldset" class="d-block link-default">Read more about fieldset</a>
+</article>

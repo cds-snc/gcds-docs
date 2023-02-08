@@ -1,10 +1,6 @@
 nav.tabs {
-  --flow-spacing: var(--gcds-spacing-600);
-
   ul {
-    list-style: none;
-    margin-inline: 0;
-    width: 100%;
+    width: var(--gcds-container-full);
     display: flex;
     background-color: var(--gcds-color-grayscale-100);
     gap: var(--gcds-spacing-100);
@@ -36,8 +32,4 @@ nav.tabs {
       text-decoration: none;
     }
   }
-}
-
-nav.tabs + * {
-  --flow-spacing: var(--gcds-spacing-400);
 }

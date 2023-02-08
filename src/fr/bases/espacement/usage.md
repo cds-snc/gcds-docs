@@ -1,5 +1,5 @@
 ---
-title: Espacement - Bases
+title: Espacement
 layout: "layouts/token-documentation.njk"
 translationKey: "spacing"
 eleventyNavigation:
@@ -15,4 +15,4 @@ permalink: /fr/bases/espacement/
 tags: ['spacingFR', 'usage']
 ---
 
-# Espacement
+## {{ title }}

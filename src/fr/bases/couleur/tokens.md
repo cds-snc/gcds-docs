@@ -1,10 +1,10 @@
 ---
-title: Typographie - Bases
+title: Tokens
 layout: "layouts/token-documentation.njk"
 translationKey: "colourTokens"
 tags: ['colourFR', 'tokens']
 ---
 
-## Tokens
+## {{ title }}
 
 Display tokens here
