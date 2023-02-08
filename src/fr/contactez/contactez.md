@@ -16,7 +16,7 @@ Renseignez-vous sur un composant du système auprès de l’équipe du système 
 
 Remplissez les champs suivants ou ouvrez une issue sur GitHub dans le dépôt destiné aux [unités de style]({{ "https://github.com/cds-snc/gcds-tokens" | url}}), aux [composants]({{ "https://github.com/cds-snc/gcds-components" | url}}) ou à la [documentation]({{ "https://github.com/cds-snc/gcds-docs" | url}}).
 
-<form class="mb-500 contact-us-form" name="contactFR" method="post">
+<form class="my-500 contact-us-form" name="contactFR" method="post">
   <input type="hidden" name="form-name" value="contactFR" />
   <gcds-input type="text" input-id="name" label="Nom complet" required></gcds-input>
   <gcds-input type="email" input-id="email" label="Adresse courriel" required></gcds-input>
