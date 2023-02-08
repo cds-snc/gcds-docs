@@ -13,6 +13,7 @@ eleventyNavigation:
 translationKey: "stepper"
 tags: ['stepperEN', 'usage']
 permalink: /en/components/stepper/
+date: "git Last Modified"
 ---
 
 ## Usage

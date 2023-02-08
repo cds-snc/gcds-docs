@@ -13,6 +13,7 @@ eleventyNavigation:
 translationKey: "checkbox"
 tags: ['checkboxEN', 'usage']
 permalink: /en/components/checkbox/
+date: "git Last Modified"
 ---
 
 ## Usage

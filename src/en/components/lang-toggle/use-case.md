@@ -13,6 +13,7 @@ eleventyNavigation:
 translationKey: "langtoggle"
 tags: ['langtoggleEN', 'usage']
 permalink: /en/components/lang-toggle/
+date: "git Last Modified"
 ---
 
 ## Usage

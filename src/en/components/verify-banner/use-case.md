@@ -13,6 +13,7 @@ eleventyNavigation:
 translationKey: "verifybanner"
 tags: ['verifybannerEN', 'usage']
 permalink: /en/components/verify-banner/
+date: "git Last Modified"
 ---
 
 ## Usage

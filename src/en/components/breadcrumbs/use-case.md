@@ -13,6 +13,7 @@ eleventyNavigation:
 translationKey: "breadcrumbs"
 tags: ['breadcrumbsEN', 'usage']
 permalink: /en/components/breadcrumbs/
+date: "git Last Modified"
 ---
 
 ## Usage

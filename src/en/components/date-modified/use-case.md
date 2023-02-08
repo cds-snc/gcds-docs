@@ -13,6 +13,7 @@ eleventyNavigation:
 translationKey: "datemodified"
 tags: ['datemodifiedEN', 'usage']
 permalink: /en/components/date-modified/
+date: "git Last Modified"
 ---
 
 ## Usage

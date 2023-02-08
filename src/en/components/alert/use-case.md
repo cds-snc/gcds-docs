@@ -13,6 +13,7 @@ eleventyNavigation:
 translationKey: "alert"
 tags: ['alertEN', 'usage']
 permalink: /en/components/alert/
+date: "git Last Modified"
 ---
 
 ## Usage

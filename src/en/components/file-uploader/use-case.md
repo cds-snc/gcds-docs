@@ -13,6 +13,7 @@ eleventyNavigation:
 translationKey: "fileuploader"
 tags: ['fileuploaderEN', 'usage']
 permalink: /en/components/file-uploader/
+date: "git Last Modified"
 ---
 
 ## Usage

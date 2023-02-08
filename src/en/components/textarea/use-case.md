@@ -13,6 +13,7 @@ eleventyNavigation:
 translationKey: "textarea"
 tags: ['textareaEN', 'usage']
 permalink: /en/components/textarea/
+date: "git Last Modified"
 ---
 
 ## Usage
