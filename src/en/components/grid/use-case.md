@@ -3,13 +3,14 @@ title: grid - Components
 layout: "layouts/component-documentation.njk"
 eleventyNavigation:
   key: gridEN
-  title: grid
+  title: Grid
   locale: en
   parent: componentsEN
-  otherNames:  Component
+  otherNames:  Layout
   description: This is the component
-  thumbnail: /images/en/components/component.png
+  thumbnail: /images/common/components/preview-grid.svg
   alt: This is an image of the component
+  tag: Experimental
 translationKey: "grid"
 tags: ['gridEN', 'usage']
 permalink: /en/components/grid/

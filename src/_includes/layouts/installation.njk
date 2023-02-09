@@ -1,0 +1,63 @@
+---
+layout: "layouts/base.njk"
+---
+
+{{ content | safe }}
+
+<div class="mt-550 pt-550 pb-450 bg-full-width bg-light">
+  <h2 class="mb-400">1. Choose an option that works for you</h2>
+  <p class="mb-450">The GCDS-component library works in multiple frameworks and can be used framework free. Choose the environment you're building in and follow the instructions to get started.</p>
+  <gcds-select select-id="select-environment" label="Environment you're working in" hint="Select the option that most applies" default-value="Choose an option">
+    <option value="step-2-angular">Angular</option>
+    <option value="step-2-react">React</option>
+    <option value="step-2-vue">Vue</option>
+    <option value="step-2-node">No framework with node</option>
+    <option value="step-2-cdn">No framework without node</option>
+    <option value="step-2-figma">I'm a lost designer, just looking for Figma</option>
+    <option value="step-2-none">None of the above</option>
+  </gcds-select>
+</div>
+
+<div class="step-2-content-container">
+  {% include "partials/installation/step-2-choose.njk" %}
+  {% include "partials/installation/step-2-angular.njk" %}
+  {% include "partials/installation/step-2-react.njk" %}
+  {% include "partials/installation/step-2-vue.njk" %}
+  {% include "partials/installation/step-2-node.njk" %}
+  {% include "partials/installation/step-2-cdn.njk" %}
+  {% include "partials/installation/step-2-figma.njk" %}
+  {% include "partials/installation/step-2-none.njk" %}
+</div>
+
+<div class="py-550 bg-full-width bg-light">
+  <h2 class="mb-400">3. Next steps</h2>
+  <p class="mb-400">For each design, find code paired with guidance. We've pre-set colour, type, and spacing using design tokens that form the foundation of any design.</p>
+  <p class="mb-400">Start by browsing components and design tokens to find what you need for your product and users. Next, open the project you created, pull in the code, and get started.</p>
+  <gcds-button type="link" href="/en/components/">Browse components</gcds-button>
+</div>
+
+{% include "partials/helpus.njk" %}
+
+<script>
+  const select = document.querySelector('gcds-select');
+  const content = document.querySelectorAll('.step-2-content');
+
+  // Display choose section by default
+  content.forEach(function(element) {
+    if ( element.id != 'step-2-choose' ) {
+      element.classList.add('d-none');
+    }
+  })
+
+  select.addEventListener("change", function() {
+    // Hide all non selected sections
+    content.forEach(function(element) {
+      element.classList.remove('d-block');
+      element.classList.add('d-none');
+    })
+
+    // Show selected section
+    document.getElementById(select.value).classList.remove('d-none');
+    document.getElementById(select.value).classList.add('d-block');
+  });
+</script>

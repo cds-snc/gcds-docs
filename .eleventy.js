@@ -33,9 +33,7 @@ module.exports = function (eleventyConfig) {
 
   eleventyConfig.addPlugin(svgContents);
   eleventyConfig.addPlugin(eleventyNavigationPlugin);
-  eleventyConfig.addPlugin(syntaxHighlight, {
-    templateFormats: ['md']
-  });
+  eleventyConfig.addPlugin(syntaxHighlight);
   eleventyConfig.addPlugin(codeClipboard);
   eleventyConfig.addPlugin(sitemap, {
     sitemap: {

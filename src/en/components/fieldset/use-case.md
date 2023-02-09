@@ -3,12 +3,12 @@ title: fieldset - Components
 layout: "layouts/component-documentation.njk"
 eleventyNavigation:
   key: fieldsetEN
-  title: fieldset
+  title: Fieldset
   locale: en
   parent: componentsEN
-  otherNames:  Component
-  description: This is the component
-  thumbnail: /images/en/components/component.png
+  otherNames:  Form field
+  description: A group of multiple form components.
+  thumbnail: /images/common/components/preview-fieldset.svg
   alt: This is an image of the component
 translationKey: "fieldset"
 tags: ['fieldsetEN', 'usage']

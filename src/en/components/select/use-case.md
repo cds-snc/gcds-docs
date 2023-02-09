@@ -3,12 +3,12 @@ title: select - Components
 layout: "layouts/component-documentation.njk"
 eleventyNavigation:
   key: selectEN
-  title: select
+  title: Select
   locale: en
   parent: componentsEN
-  otherNames:  Component
-  description: This is the component
-  thumbnail: /images/en/components/component.png
+  otherNames:  Dropdown, Select menu
+  description: A list of options with a single-option choice.
+  thumbnail: /images/common/components/preview-select.svg
   alt: This is an image of the component
 translationKey: "select"
 tags: ['selectEN', 'usage']
