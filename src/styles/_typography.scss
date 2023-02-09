@@ -47,6 +47,11 @@ ol p {
   margin-block-start: 0 !important;
 }
 
+p + ul,
+p + ol {
+  margin-block-start: var(--gcds-spacing-200) !important;
+}
+
 // Special typography components
 p code {
   font-family: var(--gcds-font-families-monospace);

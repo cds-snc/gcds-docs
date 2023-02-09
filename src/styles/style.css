@@ -74,6 +74,10 @@ ul p,
 ol p {
   margin-block-start: 0 !important; }
 
+p + ul,
+p + ol {
+  margin-block-start: var(--gcds-spacing-200) !important; }
+
 p code {
   font-family: var(--gcds-font-families-monospace);
   color: var(--gcds-color-red-700);
