@@ -39,7 +39,7 @@ layout: "layouts/base.njk"
 {% include "partials/helpus.njk" %}
 
 <script>
-  const select = document.getElementById("select-environment");
+  const select = document.querySelector('gcds-select');
   const content = document.querySelectorAll('.step-2-content');
 
   // Display choose section by default
@@ -57,7 +57,7 @@ layout: "layouts/base.njk"
     })
 
     // Show selected section
-    document.getElementById(select.value).classList.remove("d-none");
-    document.getElementById(select.value).classList.add("d-block");
+    document.getElementById(select.value).classList.remove('d-none');
+    document.getElementById(select.value).classList.add('d-block');
   });
 </script>
