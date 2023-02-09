@@ -3,12 +3,12 @@ title: radio - Components
 layout: "layouts/component-documentation.njk"
 eleventyNavigation:
   key: radioEN
-  title: radio
+  title: Radio
   locale: en
   parent: componentsEN
-  otherNames:  Component
-  description: This is the component
-  thumbnail: /images/en/components/component.png
+  otherNames:  Radio button, Radio group
+  description: A question with a set of options for single selections.
+  thumbnail: /images/common/components/preview-radio.svg
   alt: This is an image of the component
 translationKey: "radio"
 tags: ['radioEN', 'usage']

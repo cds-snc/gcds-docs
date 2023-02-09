@@ -8,26 +8,26 @@ layout: "layouts/base.njk"
 
 {% set navPages = collections.all | eleventyNavigation(components) | sortAlpha %}
 
-<select>
-{%- for entry in navPages %}
-  {% if entry.url %}
-    <option value={{entry.url}}>
-      {{ entry.title }}
-    </option>
-  {% endif %}
-{%- endfor -%}
-</select>
-
-<ul>
-{%- for entry in navPages %}
-  {% if entry.url %}
-    <li>
-      <a href={{entry.url}}>
-        {{ entry.title }}
-        {{ entry.description }}
-        {{ entry.thumbnail }}
-      </a>
-    </li>
-  {% endif %}
-{%- endfor -%}
-</ul>
+<div class="bg-light mb-500 p-400">
+  <gcds-grid tag="ul" columns="1fr" columns-tablet="1fr 1fr" columns-desktop="1fr 1fr 1fr" gap="400">
+  {%- for entry in navPages %}
+    {% if entry.url %}
+      <li class="list-none bg-white p-400">
+        <a class="link-inherit link-no-underline" href={{entry.url}}>
+          <h3 class="d-flex align-items-start justify-content-between mb-150 pb-150 bb-sm">
+            {{ entry.title }}
+            {% if entry.tag %}
+              <span class="font-caption {% if entry.tag === 'Core' %}bg-black{% else %}bg-light-blue{% endif %} mt-100 ms-250 px-150 py-50 radius-md">
+                {{ entry.tag }}
+              </span>
+            {% endif %}
+          </h3>
+          <p class="mb-150 text-secondary"><small><em>Other names: {{ entry.otherNames }}</em></small></p>
+          <p class="mb-150">{{ entry.description }}</p>
+          <img src="{{ entry.thumbnail }}" alt="" />
+        </a>
+      </li>
+    {% endif %}
+  {%- endfor -%}
+  </gcds-grid>
+</div>
