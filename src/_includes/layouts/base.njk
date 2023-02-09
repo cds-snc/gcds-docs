@@ -32,7 +32,7 @@
       <main id="mc" class="container-xl mx-auto xl:px-0 sm:px-500 px-300 general-layout">
         {% block content %}{{ content | safe }}{% endblock %}
 
-        <gcds-date-modified class="mb-400 font-size-caption">
+        <gcds-date-modified class="mb-400 font-caption">
           {{ page.date | dateLastModified}}
         </gcds-date-modified>
       </main>
