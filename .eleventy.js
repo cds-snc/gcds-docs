@@ -215,7 +215,7 @@ module.exports = function (eleventyConfig) {
       githubLink = "https://github.com/cds-snc/gcds-components";
     }
     return `
-      <ul class="doc-links">
+      <ul class="d:flex flex-wrap gap-300">
         ${stageChip} <li class="github-link">
           <a href="${githubLink}" target="_blank" rel="nofollow" aria-label="${langStrings[locale].github} ${langStrings[locale].newtab}">${langStrings[locale].github}<gcds-icon name="up-right-from-square" margin-left="150"></gcds-icon></a>
         </li> ${figmaLink}
