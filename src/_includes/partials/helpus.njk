@@ -1,33 +1,33 @@
-<hr />
+<section class="py-400 mt-500 bt-sm text-secondary">
+	<h2 class="text-primary">
+	{{ helpus[locale].heading }}
+	</h2>
 
-<h2 class="mt-500 mb-400">
-  {{ helpus[locale].heading }}
-</h2>
+	<p class="mt-400 text-primary">
+		{{ helpus[locale].paragraph }}
+	</p>
 
-<p class="mb-400">
-	{{ helpus[locale].paragraph }}
-</p>
+	<ul class="mt-400 md:d-flex gap-250 text-primary">
+		<li class="py-400">
+			<gcds-button
+				type="link"
+				button-role="primary"
+				href="{{ helpus[locale].feedbackHref }}"
+			>
+				{{ helpus[locale].feedback }}
+			</gcds-button>
+		</li>
 
-<ul class="mb-600">
-	<li class="md:d-inline sm:d-block me-200">
-		<gcds-button
-			type="link"
-			button-role="primary"
-			href="{{ helpus[locale].feedbackHref }}"
-		>
-			{{ helpus[locale].feedback }}
-		</gcds-button>
-	</li>
-
-	<li class="md:d-inline sm:d-block mt-150 md:mt-0">
-		<gcds-button
-			type="link"
-			button-role="secondary"
-			target="_blank"
-			href="https://github.com/cds-snc/gcds-components"
-			lang="{{ locale }}"
-		>
-			{{ helpus[locale].github }}
-		</gcds-button>
-	</li>
-</ul>
+		<li class="py-400">
+			<gcds-button
+				type="link"
+				button-role="secondary"
+				target="_blank"
+				href="https://github.com/cds-snc/gcds-components"
+				lang="{{ locale }}"
+			>
+				{{ helpus[locale].github }}
+			</gcds-button>
+		</li>
+	</ul>
+</section>

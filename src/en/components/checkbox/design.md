@@ -13,7 +13,7 @@ tags: ["checkboxEN", "design"]
 - **The checkbox label** states the choice the checkbox represents.
 - **The checkbox hint** gives users additional information about the choice.
 
-<img class="b-sm text-secondary" src="/images/en/components/gcds-checkbox-anatomy.svg" alt=""/>
+<img class="b-sm text-secondary mt-400" src="/images/en/components/gcds-checkbox-anatomy.svg" alt=""/>
 
 ## Accesibility and design for checkboxes
 
