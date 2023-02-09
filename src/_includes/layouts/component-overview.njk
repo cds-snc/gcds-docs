@@ -12,7 +12,7 @@ layout: "layouts/base.njk"
   <gcds-grid tag="ul" columns="1fr" columns-tablet="1fr 1fr" columns-desktop="1fr 1fr 1fr" gap="400">
   {%- for entry in navPages %}
     {% if entry.url %}
-      <li class="list-none bg-white p-400">
+      <li class="list-none bg-white p-400 component-preview-box">
         <a class="link-inherit link-no-underline" href={{entry.url}}>
           <h3 class="d-flex align-items-start justify-content-between mb-150 pb-150 bb-sm">
             {{ entry.title }}
