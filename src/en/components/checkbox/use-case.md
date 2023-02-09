@@ -29,10 +29,10 @@ Use a checkbox to ask a question when you are expecting the user to select more 
 
 <h2 class="mt-0 mb-400">Related components</h2>
 
-[Radios](/en/components/radio) to give a single option from a larger set of options.
+<a href="/en/components/radio" class="link-light">Radios</a> to give a single option from a larger set of options.
 
-[Select](/en/components/select) to give a single or multiple options from a larger set in a dropdown format.
+<a href="/en/components/select" class="link-light">Select</a> to give a single or multiple options from a larger set in a dropdown format.
 
-[Inputs](/en/components/input) for short, single-line responses.
+<a href="/en/components/input" class="link-light">Inputs</a> for short, single-line responses.
 
 </section>
