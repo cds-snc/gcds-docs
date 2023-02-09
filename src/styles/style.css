@@ -70,7 +70,11 @@ p {
   font: var(--gcds-font-text-long);
   max-width: 65ch; }
 
-code {
+ul p,
+ol p {
+  margin-block-start: 0 !important; }
+
+p code {
   font-family: var(--gcds-font-families-monospace);
   color: var(--gcds-color-red-700);
   background-color: var(--gcds-color-grayscale-50);
@@ -169,6 +173,8 @@ table .spacing-preview {
   background-color: var(--gcds-color-blue-500); }
 
 nav.tabs ul {
+  list-style: none;
+  margin-inline-start: 0;
   width: var(--gcds-container-full);
   display: flex;
   background-color: var(--gcds-color-grayscale-100);
