@@ -28,11 +28,15 @@ p {
 }
 
 // Special typography components
-code {
+code:not([class*="language-"]) {
   font-family: var(--gcds-font-families-monospace);
   color: var(--gcds-color-red-700);
   background-color: var(--gcds-color-grayscale-50);
   padding-inline: var(--gcds-spacing-100);
   margin-inline: var(--gcds-spacing-50);
   box-shadow: 0 0 0 var(--gcds-border-width-md) var(--gcds-color-grayscale-100);
+}
+
+[class*="language-"] {
+  font-family: var(--gcds-font-families-monospace);
 }

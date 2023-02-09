@@ -3,12 +3,12 @@ title: stepper - Components
 layout: "layouts/component-documentation.njk"
 eleventyNavigation:
   key: stepperEN
-  title: stepper
+  title: Stepper
   locale: en
   parent: componentsEN
-  otherNames:  Component
-  description: This is the component
-  thumbnail: /images/en/components/component.png
+  otherNames:  Progress indicator, Steps
+  description: A progress tracker for a multi-step process.
+  thumbnail: /images/en/components/preview-stepper.svg
   alt: This is an image of the component
 translationKey: "stepper"
 tags: ['stepperEN', 'usage']

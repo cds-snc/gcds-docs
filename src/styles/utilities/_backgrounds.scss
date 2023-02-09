@@ -1,6 +1,9 @@
 // Backgrounds
 .bg-full-width {
   position: relative;
+  width: calc(100% + var(--gcds-spacing-300));
+  margin-inline: calc(-1 * var(--gcds-spacing-150));
+  padding-inline: var(--gcds-spacing-150);
 
   &:before,
   &:after {
@@ -12,11 +15,23 @@
   }
 
   &:before {
-    left: calc(-100vw + 0.1px);
+    left: calc(-100vw + 0.01px);
   }
 
   &:after {
-    right: calc(-100vw + 0.1px);
+    right: calc(-100vw + 0.01px);
+  }
+}
+
+.bg-black {
+  background-color: var(--gcds-color-grayscale-1000);
+  color: var(--gcds-text-light);
+
+  &.bg-full-width {
+    &:before,
+    &:after {
+      background-color: var(--gcds-color-grayscale-1000);
+    }
   }
 }
 
@@ -39,6 +54,18 @@
     &:before,
     &:after {
       background-color: var(--gcds-color-grayscale-50);
+    }
+  }
+}
+
+.bg-light-blue {
+  background-color: var(--gcds-color-blue-100);
+  color: var(--gcds-color-blue-800);
+
+  &.bg-full-width {
+    &:before,
+    &:after {
+      background-color: var(--gcds-color-blue-100);
     }
   }
 }
