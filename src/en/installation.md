@@ -1,98 +1,25 @@
 ---
 title: Installation
 translationKey: installation
-layout: "layouts/base.njk"
+layout: "layouts/installation.njk"
 eleventyNavigation:
-    key: installationEN
-    title: Installation
-    locale: en
-    order: 0
-onThisPage:
-  0: Install from npm
-  1: Supported frameworks
-  2: JavaScript
-  3: React
-  4: Vue
+  key: installationEN
+  title: Installation
+  locale: en
+  order: 0
 date: "git Last Modified"
 ---
 
-# Installation
+# Install GC Design System
 
-<section aria-label="Install from npm">
+Get to know a bit about GC Design System, install it, and try it out.
 
-## Install from npm
-Navigate to the root folder of your project and run:
+## Bring the GC brand to your Canadian Digital Service product
 
-``` js
-npm install gcds-components
-```
-## Install with CDN
-Place the following code in the `<head>` element of your site.<br/>
-All [gcds-components]({{ "/en/components/" | url }}) should now be ready to use in your site.
+GC Design System offers basic building blocks for transactional products and a common pattern language for product teams at the Canadian Digital Service and our partners.
 
-``` html
-<!-- Font Awesome (Icons) -->
-<link href="https://unpkg.com/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+Our components are developed with tokens designed to the Canada.ca standard to help you ship recognizable, predictable, and accessible products.
 
-<!-- GC Design System -->
-<link rel="stylesheet" href="https://unpkg.com/gcds-components/dist/gcds/gcds.css">
-<script type="module" src="https://unpkg.com/gcds-components/dist/gcds/gcds.esm.js"></script>
-<script nomodule src="https://unpkg.com/gcds-components/dist/gcds/gcds.js"></script>
-```
-<small>Note: &lt;script type="module"&gt; requires a server to load properly, if developing locally, please use &lt;script nomodule&gt;.</small>
+Changes to GC Design System (GCDS) come in a single version update with tokens, components, and non-breaking changes to existing ones. GC Design System is independent of the Web Experience Toolkit (WET) and GCWeb.
 
-</section>
-
-<section aria-label="Supported frameworks">
-
-## Supported frameworks
-
-The [gcds-component library]({{ "/en/components/" | url }}) works in multiple frameworks.
-
-### JavaScript
-
-Place the following code in the `<head>` element of your site.<br/>
-All [gcds-components]({{ "/en/components/" | url }}) should now be ready to use in your site.
-
-``` html
-<!-- Font Awesome (Icons) -->
-<link href="https://unpkg.com/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-
-<!-- GC Design System -->
-<link rel="stylesheet" href="/node_modules/gcds-components/dist/gcds/gcds.css">
-<script type="module" src="/components/dist/gcds/gcds.esm.js"></script>
-<script nomodule src="/components/dist/gcds/gcds.js"></script>
-```
-
-
-### React
-
-Place the following code in the `index.js` file of your app.<br/>
-All [gcds-components]({{ "/en/components/" | url }}) should now be ready to use in your React app.
-
-``` jsx
-import { applyPolyfills, defineCustomElements } from 'gcds-components/loader';
-import 'gcds-components/dist/gcds/gcds.css';
-
-ReactDOM.render(...);
-
-applyPolyfills().then(() => {
-  defineCustomElements(window);
-});
-
-```
-
-### Vue
-
-Place the following code in the `main.js` file of your app.<br/>
-All [gcds-components]({{ "/en/components/" | url }}) should now be ready to use in your Vue app.
-
-``` js
-import { applyPolyfills, defineCustomElements } from 'gcds-components/loader';
-import 'gcds-components/dist/gcds/gcds.css';
-
-applyPolyfills().then(() => {
-  defineCustomElements();
-});
-```
-</section>
+Install GC Design System and try it out!

@@ -1,0 +1,37 @@
+<div id="step-2-angular" class="py-550 step-2-content">
+  <h2 class="mb-400">2. Getting started</h2>
+  <p class="mb-400">Use these instructions to install GCDS components if you're using Angular.</p>
+
+  <h3 class="mt-500 mb-400">Install with npm</h3>
+  <p class="mb-400">Navigate to the root folder of your project and run:</p>
+
+  {% highlight "js" %}
+  npm install gcds-components gcds-components-angular
+  {% endhighlight %}
+
+  <p class="mt-500 mb-400">Place the following code in the <code>app.modules.ts</code> file of your app:</p>
+
+{% highlight "js" %}
+import { GcdsComponentsModule } from 'gcds-components-angular';
+
+@NgModule({
+  declarations: [
+    ...
+  ],
+  imports: [
+    ...,
+    GcdsComponentsModule
+  ],
+  providers: [],
+  bootstrap: [...]
+})
+
+export class AppModule { }
+{% endhighlight %}
+
+  <p class="mt-500 mb-400">Place the following code in the <code>styles.scss</code> file of your app:</p>
+
+  {% highlight "js" %}
+  @import '../node_modules/gcds-components/dist/gcds/gcds.css';
+  {% endhighlight %}
+</div>

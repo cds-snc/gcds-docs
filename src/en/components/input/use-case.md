@@ -3,12 +3,12 @@ title: input - Components
 layout: "layouts/component-documentation.njk"
 eleventyNavigation:
   key: inputEN
-  title: input
+  title: Input
   locale: en
   parent: componentsEN
-  otherNames:  Component
-  description: This is the component
-  thumbnail: /images/en/components/component.png
+  otherNames:  Text input, Text field
+  description: A space to enter short-form information.
+  thumbnail: /images/common/components/preview-input.svg
   alt: This is an image of the component
 translationKey: "input"
 tags: ['inputEN', 'usage']

@@ -3,12 +3,12 @@ title: icon - Components
 layout: "layouts/component-documentation.njk"
 eleventyNavigation:
   key: iconEN
-  title: icon
+  title: Icon
   locale: en
   parent: componentsEN
-  otherNames:  Component
-  description: This is the component
-  thumbnail: /images/en/components/component.png
+  otherNames:  Glyphs, Graphic, Symbol
+  description: A visual cue to help users understand the context.
+  thumbnail: /images/common/components/preview-icons.svg
   alt: This is an image of the component
 translationKey: "icon"
 tags: ['iconEN', 'usage']

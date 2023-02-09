@@ -3,12 +3,12 @@ title: error-message - Components
 layout: "layouts/component-documentation.njk"
 eleventyNavigation:
   key: errormessageEN
-  title: error-message
+  title: Error message
   locale: en
   parent: componentsEN
-  otherNames:  Component
-  description: This is the component
-  thumbnail: /images/en/components/component.png
+  otherNames:  Inline error
+  description: A description of a problem blocking a user goal.
+  thumbnail: /images/common/components/preview-error-message.svg
   alt: This is an image of the component
 translationKey: "errormessage"
 tags: ['errormessageEN', 'usage']

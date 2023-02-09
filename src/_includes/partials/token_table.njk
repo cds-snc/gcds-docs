@@ -13,7 +13,7 @@
     {%- endcomment -%}
     {% assign concatTokens = token | split: " " %}
     {% for concatToken in concatTokens %}
-        {%- assign filteredTokens = concatToken | split: "." | dig: tokens['Tokens'] %}
+        {%- assign filteredTokens = concatToken | split: "." | dig: tokens.figma['Tokens'] %}
         {%- for item in filteredTokens %}
             {%- if subTokens %}
                 {%- unless subTokens contains item[0] %}

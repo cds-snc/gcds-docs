@@ -1,0 +1,11 @@
+.component-preview-box {
+  &:focus-within {
+    background-color: var(--gcds-focus-background);
+    outline: var(----gcds-outline-width) solid var(--gcds-focus-background);
+    outline-offset: var(--gcds-border-width-md);
+
+    .text-secondary {
+      color: var(--gcds-focus-text);
+    }
+  }
+}

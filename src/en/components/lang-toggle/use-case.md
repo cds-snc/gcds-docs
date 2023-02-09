@@ -3,13 +3,14 @@ title: lang-toggle - Components
 layout: "layouts/component-documentation.njk"
 eleventyNavigation:
   key: langtoggleEN
-  title: lang-toggle
+  title: Language toggle
   locale: en
   parent: componentsEN
-  otherNames:  Component
-  description: This is the component
-  thumbnail: /images/en/components/component.png
+  otherNames:  Language toggle link
+  description: A switch for displaying either French or English site content.
+  thumbnail: /images/common/components/preview-lang-toggle.svg
   alt: This is an image of the component
+  tag: Core
 translationKey: "langtoggle"
 tags: ['langtoggleEN', 'usage']
 permalink: /en/components/lang-toggle/

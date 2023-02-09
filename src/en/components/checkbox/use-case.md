@@ -3,12 +3,12 @@ title: checkbox - Components
 layout: "layouts/component-documentation.njk"
 eleventyNavigation:
   key: checkboxEN
-  title: checkbox
+  title: Checkbox
   locale: en
   parent: componentsEN
-  otherNames:  Component
-  description: This is the component
-  thumbnail: /images/en/components/component.png
+  otherNames:  Checklist
+  description: A question where any available options can be selected.
+  thumbnail: /images/common/components/preview-checkbox.svg
   alt: This is an image of the component
 translationKey: "checkbox"
 tags: ['checkboxEN', 'usage']

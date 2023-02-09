@@ -1,6 +1,5 @@
 {% extends "layouts/base.njk" %}
 
-
 {% if tags %}
     {% set tabs = collections.all | tabs(tags[0]) %}
     {% block page_title %}{{ title }} - {{ tabs.header.data.title }} - {{ base[locale].gcds }}{% endblock %}
@@ -26,5 +25,7 @@
     {% endif %}
 
     {{ content | safe }}
+
+    {% include "partials/helpus.njk" %}
 
 {% endblock %}
