@@ -43,9 +43,7 @@ a[href] {
     text-decoration: none;
     outline: var(--gcds-border-width-md) solid var(--gcds-focus-background); }
 
-a[href]:not([class*="link-inherit"]):not([class*="link-light"]):not(:focus):not(
-:hover
-) {
+a[href]:not([class*="link-inherit"]):not([class*="link-light"]):not(:focus):not(:hover) {
   color: var(--gcds-link-default); }
 
 p {
