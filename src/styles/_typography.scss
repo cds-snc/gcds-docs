@@ -3,6 +3,10 @@ a[href] {
   text-underline-offset: -0.1em;
   text-decoration-color: currentColor;
 
+  &:not([class*="link-"]) {
+    color: var(--gcds-link-default);
+  }
+
   &:hover {
     color: var(--gcds-hover-default);
     text-underline-offset: 0em;
@@ -23,22 +27,19 @@ a[href] {
       color: currentColor;
     }
   }
-}
 
-a[href]:not([class*="link-inherit"]):not([class*="link-light"]):not(:focus):not(
-    :hover
-  ) {
-  color: var(--gcds-link-default);
+  .bg-blue-900 & {
+    color: var(--gcds-link-light);
+    &:hover {
+      color: var(--gcds-link-light);
+    }
+  }
 }
 
 // Paragraph and long form content
 p {
   font: var(--gcds-font-text-long);
   max-width: 65ch;
-}
-
-h1 + p code {
-  user-select: all;
 }
 
 // Special typography components

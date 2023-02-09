@@ -1,6 +1,6 @@
 ---
 title: Design tokens
-layout: "layouts/base.njk"
+layout: "layouts/token-documentation.njk"
 eleventyNavigation:
   key: tokensEN
   title: Design tokens

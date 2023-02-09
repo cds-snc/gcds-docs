@@ -201,7 +201,7 @@ module.exports = function (eleventyConfig) {
     if (figma) {
       figmaLink = `
         <li class="figma-link">
-          <a href="${figma}" target="_blank" rel="nofollow" aria-label="${langStrings[locale].figma} ${langStrings[locale].newtab}">${langStrings[locale].figma}<gcds-icon name="up-right-from-square"></gcds-icon></a>
+          <a href="${figma}" target="_blank" rel="nofollow" aria-label="${langStrings[locale].figma} ${langStrings[locale].newtab}">${langStrings[locale].figma}<gcds-icon name="up-right-from-square" margin-left="150"></gcds-icon></a>
         </li>`;
     } else {
       figmaLink = `
@@ -217,9 +217,28 @@ module.exports = function (eleventyConfig) {
     return `
       <ul class="doc-links">
         ${stageChip} <li class="github-link">
-          <a href="${githubLink}" target="_blank" rel="nofollow" aria-label="${langStrings[locale].github} ${langStrings[locale].newtab}">${langStrings[locale].github}<gcds-icon name="up-right-from-square"></gcds-icon></a>
+          <a href="${githubLink}" target="_blank" rel="nofollow" aria-label="${langStrings[locale].github} ${langStrings[locale].newtab}">${langStrings[locale].github}<gcds-icon name="up-right-from-square" margin-left="150"></gcds-icon></a>
         </li> ${figmaLink}
       </ul>`;
+  });
+
+  eleventyConfig.addPairedShortcode("relatedComponents", (children, locale) => {
+    const langStrings = {
+      en: {
+        related: "Related components ",
+      },
+      fr: {
+        related: "Composants connexes ",
+      },
+    };
+    const content = markdownIt().render(children);
+
+    return `
+      <section class="bg-full-width bg-blue-900 text-light py-500">
+      <h2 class="mt-0">${langStrings[locale].related}</h2>
+        ${content}
+      </section>
+    `;
   });
 
   /*

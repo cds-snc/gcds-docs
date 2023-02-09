@@ -25,14 +25,14 @@ Use a checkbox to ask a question when you are expecting the user to select more 
 - let a person choose one or several answers from a contained list by checking off the right ones.
 - give a person the ability to answer without writing by selecting one or multiple items from a list.
 
-<section class="bg-full-width bg-blue-900 text-light py-500">
+<section class="bg-full-width bg-blue-900 text-light py-500 mb-500">
 
-## Related components
+<h2 class="mt-0 mb-400">Related components</h2>
 
-[Radios](#todo) to give a single option from a larger set of options.
+[Radios](/en/components/radio) to give a single option from a larger set of options.
 
-[Select](#todo) to give a single or multiple options from a larger set in a dropdown format.
+[Select](/en/components/select) to give a single or multiple options from a larger set in a dropdown format.
 
-[Inputs](#todo) for short, single-line responses.
+[Inputs](/en/components/input) for short, single-line responses.
 
 </section>
