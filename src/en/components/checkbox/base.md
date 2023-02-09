@@ -7,9 +7,7 @@ permalink: false
 tags: ["checkboxEN", "header"]
 ---
 
-# {{ title }}
-
-`<gcds-checkbox>`
+# {{ title }} <br>&lt;gcds-checkbox&gt;
 
 _Also called: checklist, check list._
 
