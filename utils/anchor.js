@@ -31,7 +31,7 @@ const anchor = (md, options) => {
     return `<${tokens[index].tag} class="list-disc mb-400">`;
   };
 
-  md.renderer.rules.paragraph_open = function (tokens, index) {
+  md.renderer.rules.paragraph_open = function(tokens, index) {
     return `<${tokens[index].tag} class="mb-400">`;
   };
 };
