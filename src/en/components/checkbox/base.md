@@ -18,7 +18,7 @@ A checkbox is a question with a set of options for one or multiple selections.
 {% docLinks locale stage figma github %}
 {% enddocLinks %}
 
-<div class="b-sm text-secondary px-250 py-500 mt-400 mb-500">
+<div class="b-sm text-secondary px-250 py-200 mt-400 mb-500">
 
 <gcds-fieldset
           fieldset-id="fieldset"
