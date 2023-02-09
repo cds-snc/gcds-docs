@@ -1,0 +1,22 @@
+<svg width="320" height="147" viewBox="0 0 320 147" fill="none" xmlns="http://www.w3.org/2000/svg">
+<mask id="path-1-inside-1_2826_8647" fill="white">
+<path d="M0 0H68.75V147H0V0Z"/>
+</mask>
+<path d="M0 0H68.75V147H0V0Z" fill="#FAEDD1"/>
+<path d="M64.75 0V147H72.75V0H64.75ZM4 147V0H-4V147H4Z" fill="#B3800F" mask="url(#path-1-inside-1_2826_8647)"/>
+<mask id="path-3-inside-2_2826_8647" fill="white">
+<path d="M83.75 0H152.5V147H83.75V0Z"/>
+</mask>
+<path d="M83.75 0H152.5V147H83.75V0Z" fill="#FAEDD1"/>
+<path d="M148.5 0V147H156.5V0H148.5ZM87.75 147V0H79.75V147H87.75Z" fill="#B3800F" mask="url(#path-3-inside-2_2826_8647)"/>
+<mask id="path-5-inside-3_2826_8647" fill="white">
+<path d="M167.5 0H236.25V147H167.5V0Z"/>
+</mask>
+<path d="M167.5 0H236.25V147H167.5V0Z" fill="#FAEDD1"/>
+<path d="M232.25 0V147H240.25V0H232.25ZM171.5 147V0H163.5V147H171.5Z" fill="#B3800F" mask="url(#path-5-inside-3_2826_8647)"/>
+<mask id="path-7-inside-4_2826_8647" fill="white">
+<path d="M251.25 0H320V147H251.25V0Z"/>
+</mask>
+<path d="M251.25 0H320V147H251.25V0Z" fill="#FAEDD1"/>
+<path d="M316 0V147H324V0H316ZM255.25 147V0H247.25V147H255.25Z" fill="#B3800F" mask="url(#path-7-inside-4_2826_8647)"/>
+</svg>

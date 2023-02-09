@@ -1,5 +1,8 @@
 .bg-full-width {
-  position: relative; }
+  position: relative;
+  width: calc(100% + var(--gcds-spacing-300));
+  margin-inline: calc(-1 * var(--gcds-spacing-150));
+  padding-inline: var(--gcds-spacing-150); }
   .bg-full-width:before, .bg-full-width:after {
     position: absolute;
     top: 0;
@@ -7,9 +10,15 @@
     height: 100%;
     content: ''; }
   .bg-full-width:before {
-    left: calc(-100vw + 0.1px); }
+    left: calc(-100vw + 0.01px); }
   .bg-full-width:after {
-    right: calc(-100vw + 0.1px); }
+    right: calc(-100vw + 0.01px); }
+
+.bg-black {
+  background-color: var(--gcds-color-grayscale-1000);
+  color: var(--gcds-text-light); }
+  .bg-black.bg-full-width:before, .bg-black.bg-full-width:after {
+    background-color: var(--gcds-color-grayscale-1000); }
 
 .bg-dark {
   background-color: var(--gcds-color-blue-900);
@@ -22,6 +31,12 @@
   .bg-light.bg-full-width:before, .bg-light.bg-full-width:after {
     background-color: var(--gcds-color-grayscale-50); }
 
+.bg-light-blue {
+  background-color: var(--gcds-color-blue-100);
+  color: var(--gcds-color-blue-800); }
+  .bg-light-blue.bg-full-width:before, .bg-light-blue.bg-full-width:after {
+    background-color: var(--gcds-color-blue-100); }
+
 .bg-white {
   background-color: var(--gcds-color-grayscale-0); }
   .bg-white.bg-full-width:before, .bg-white.bg-full-width:after {
@@ -29,6 +44,9 @@
 
 .radius-xs {
   border-radius: var(--gcds-spacing-100); }
+
+.radius-md {
+  border-radius: var(--gcds-spacing-250); }
 
 a[href] {
   text-underline-offset: -0.1em;
@@ -50,13 +68,16 @@ p {
   font: var(--gcds-font-text-long);
   max-width: 65ch; }
 
-code {
+code:not([class*="language-"]) {
   font-family: var(--gcds-font-families-monospace);
   color: var(--gcds-color-red-700);
   background-color: var(--gcds-color-grayscale-50);
   padding-inline: var(--gcds-spacing-100);
   margin-inline: var(--gcds-spacing-50);
   box-shadow: 0 0 0 var(--gcds-border-width-md) var(--gcds-color-grayscale-100); }
+
+[class*="language-"] {
+  font-family: var(--gcds-font-families-monospace); }
 
 /*
  * General
@@ -70,6 +91,13 @@ code {
 body {
   color: var(--gcds-color-grayscale-1000);
   animation: fade 0.05s normal forwards ease-in-out; }
+
+.component-preview-box:focus-within {
+  background-color: var(--gcds-focus-background);
+  outline: var(----gcds-outline-width) solid var(--gcds-focus-background);
+  outline-offset: var(--gcds-border-width-md); }
+  .component-preview-box:focus-within .text-secondary {
+    color: var(--gcds-focus-text); }
 
 @media (max-width: 48rem) {
   .table-overflow {
