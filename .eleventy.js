@@ -222,25 +222,6 @@ module.exports = function (eleventyConfig) {
       </ul>`;
   });
 
-  eleventyConfig.addPairedShortcode("relatedComponents", (children, locale) => {
-    const langStrings = {
-      en: {
-        related: "Related components ",
-      },
-      fr: {
-        related: "Composants connexes ",
-      },
-    };
-    const content = markdownIt().render(children);
-
-    return `
-      <section class="bg-full-width bg-blue-900 text-light py-500">
-      <h2 class="mt-0">${langStrings[locale].related}</h2>
-        ${content}
-      </section>
-    `;
-  });
-
   /*
    * Display tokens in tables based on passed name
    */
