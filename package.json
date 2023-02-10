@@ -26,7 +26,6 @@
     "@11ty/eleventy-navigation": "^0.3.2",
     "axios": "^0.27.2",
     "eleventy-plugin-code-clipboard": "^0.0.9",
-    "gcds-components": "^0.1.17",
     "markdown-it": "^13.0.0",
     "moment": "^2.29.1",
     "node-sass": "^7.0.1",
@@ -34,6 +33,8 @@
   },
   "devDependencies": {
     "@11ty/eleventy-plugin-syntaxhighlight": "^4.0.0",
+    "@cdssnc/gcds-components": "^0.9.0",
+    "@cdssnc/gcds-utility": "^1.0.0",
     "@hydrogen-design-system/component-menu": "^0.0.16",
     "@quasibit/eleventy-plugin-sitemap": "^2.1.4",
     "chroma-js": "^2.4.2",
