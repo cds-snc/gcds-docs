@@ -25,7 +25,10 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("./src/favicon.ico");
   eleventyConfig.addPassthroughCopy({"./src/variables/": "variables"});
   eleventyConfig.addPassthroughCopy({
-    "./node_modules/gcds-components/": "components"
+    "./node_modules/@cdssnc/gcds-components/": "components"
+  });
+  eleventyConfig.addPassthroughCopy({
+    "./node_modules/@cdssnc/gcds-utility/dist/utilities.min.css": "utilities.min.css"
   });
   // Add copy fo a11y testing
   eleventyConfig.addPassthroughCopy("./.pa11yci.json");
