@@ -10,6 +10,7 @@ eleventyNavigation:
   description: A group of multiple form components.
   thumbnail: /images/common/components/preview-fieldset.svg
   alt: This is an image of the component
+  state: published
 translationKey: "fieldset"
 tags: ['fieldsetEN', 'usage']
 permalink: /en/components/fieldset/

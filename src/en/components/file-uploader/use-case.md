@@ -10,6 +10,7 @@ eleventyNavigation:
   description: A file selector for upload.
   thumbnail: /images/en/components/preview-file-uploader.svg
   alt: This is an image of the component
+  state: coming-soon
 translationKey: "fileuploader"
 tags: ['fileuploaderEN', 'usage']
 permalink: /en/components/file-uploader/

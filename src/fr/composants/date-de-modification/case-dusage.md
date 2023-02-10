@@ -10,6 +10,7 @@ eleventyNavigation:
   description: This is the component
   thumbnail: /images/fr/composants/component.png
   alt: This is an image of the component
+  state: coming-soon
 translationKey: "datemodified"
 tags: ['datemodifiedFR', 'usage']
 permalink: /fr/composants/date-de-modification/

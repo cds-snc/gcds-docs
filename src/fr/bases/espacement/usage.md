@@ -11,6 +11,7 @@ eleventyNavigation:
   description: This is the foundation
   thumbnail: /images/fr/bases/foundation.png
   alt: This is an image of the foundation
+  state: published
 permalink: /fr/bases/espacement/
 tags: ['spacingFR', 'usage']
 date: "git Last Modified"
