@@ -10,6 +10,7 @@ eleventyNavigation:
   description: This is the foundation
   thumbnail: /images/fr/bases/foundation.png
   alt: This is an image of the foundation
+  state: published
 translationKey: "designtokens"
 date: "git Last Modified"
 ---

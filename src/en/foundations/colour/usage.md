@@ -10,6 +10,7 @@ eleventyNavigation:
   description: This is the foundation
   thumbnail: /images/en/foundations/foundation.png
   alt: This is an image of the foundation
+  state: published
 permalink: /en/foundations/colour/
 translationKey: "colour"
 tags: ["colourEN", "usage"]

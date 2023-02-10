@@ -10,6 +10,7 @@ eleventyNavigation:
   description: A space to enter short-form information.
   thumbnail: /images/common/components/preview-input.svg
   alt: This is an image of the component
+  state: published
 translationKey: "input"
 tags: ['inputEN', 'usage']
 permalink: /en/components/input/

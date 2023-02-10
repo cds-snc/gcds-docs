@@ -8,8 +8,9 @@ eleventyNavigation:
   parent: componentsFR
   otherNames:  Component
   description: This is the component
-  thumbnail: /images/fr/composants/component.png
+  thumbnail: /images/common/components/preview-fieldset.svg
   alt: This is an image of the component
+  state: published
 translationKey: "fieldset"
 tags: ['fieldsetFR', 'usage']
 permalink: /fr/composants/jeu-de-champs/

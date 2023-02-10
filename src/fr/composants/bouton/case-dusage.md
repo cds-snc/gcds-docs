@@ -8,8 +8,9 @@ eleventyNavigation:
   parent: componentsFR
   otherNames:  Component
   description: This is the component
-  thumbnail: /images/fr/composants/component.png
+  thumbnail: /images/en/components/preview-button.svg
   alt: This is an image of the component
+  state: published
 translationKey: "button"
 tags: ['buttonFR', 'usage']
 permalink: /fr/composants/bouton/

@@ -8,8 +8,9 @@ eleventyNavigation:
   parent: componentsFR
   otherNames:  Component
   description: This is the component
-  thumbnail: /images/fr/composants/component.png
+  thumbnail: /images/common/components/preview-input.svg
   alt: This is an image of the component
+  state: published
 translationKey: "input"
 tags: ['inputFR', 'usage']
 permalink: /fr/composants/champ-de-saisie/

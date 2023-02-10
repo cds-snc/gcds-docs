@@ -11,6 +11,7 @@ eleventyNavigation:
   thumbnail: /images/common/components/preview-header.svg
   alt: This is an image of the component
   tag: Core
+  state: published
 translationKey: "header"
 tags: ['headerEN', 'usage']
 permalink: /en/components/header/

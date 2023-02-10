@@ -11,6 +11,7 @@ eleventyNavigation:
   thumbnail: /images/common/components/preview-footer.svg
   alt: This is an image of the component
   tag: Core
+  state: published
 translationKey: "footer"
 tags: ['footerEN', 'usage']
 permalink: /en/components/footer/

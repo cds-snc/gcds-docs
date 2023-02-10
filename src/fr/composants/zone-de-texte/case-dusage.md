@@ -8,8 +8,9 @@ eleventyNavigation:
   parent: componentsFR
   otherNames:  Component
   description: This is the component
-  thumbnail: /images/fr/composants/component.png
+  thumbnail: /images/common/components/preview-textarea.svg
   alt: This is an image of the component
+  state: published
 translationKey: "textarea"
 tags: ['textareaFR', 'usage']
 permalink: /fr/composants/zone-de-texte/
