@@ -13,6 +13,7 @@ eleventyNavigation:
 translationKey: "icon"
 tags: ['iconFR', 'usage']
 permalink: /fr/composants/icone/
+date: "git Last Modified"
 ---
 
 ## Usage

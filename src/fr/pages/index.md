@@ -3,6 +3,7 @@ title: Home
 layout: "layouts/base.njk"
 permalink: /fr/
 translationKey: "index"
+date: "git Last Modified"
 ---
 
 <header class="welcome-banner">

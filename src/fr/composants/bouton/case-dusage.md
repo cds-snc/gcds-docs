@@ -13,6 +13,7 @@ eleventyNavigation:
 translationKey: "button"
 tags: ['buttonFR', 'usage']
 permalink: /fr/composants/bouton/
+date: "git Last Modified"
 ---
 
 ## Usage

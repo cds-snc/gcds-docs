@@ -14,6 +14,7 @@ eleventyNavigation:
 translationKey: "header"
 tags: ['headerEN', 'usage']
 permalink: /en/components/header/
+date: "git Last Modified"
 ---
 
 ## Usage

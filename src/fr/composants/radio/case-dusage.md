@@ -13,6 +13,7 @@ eleventyNavigation:
 translationKey: "radio"
 tags: ['radioFR', 'usage']
 permalink: /fr/composants/radio/
+date: "git Last Modified"
 ---
 
 ## Usage

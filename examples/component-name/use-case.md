@@ -13,6 +13,7 @@ eleventyNavigation:
 translationKey: "navKey"
 tags: ['navKey{locale}', 'usage']
 permalink: /{localeLower}/{components}/componentName/
+date: "git Last Modified"
 ---
 
 ## Use case

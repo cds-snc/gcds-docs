@@ -6,6 +6,7 @@ const chroma = require("chroma-js");
 const markdownIt = require("markdown-it");
 const svgContents = require("eleventy-plugin-svg-contents");
 const codeClipboard = require("eleventy-plugin-code-clipboard");
+const { DateTime } = require("luxon");
 
 const contextMenu = require("./utils/context-menu");
 const displayTokens = require("./utils/display-tokens");
@@ -86,11 +87,9 @@ module.exports = function (eleventyConfig) {
     });
   });
 
-  // date filter (localized)
-  eleventyConfig.addNunjucksFilter("date", function (date, format, locale) {
-    locale = locale ? locale : "en";
-    moment.locale(locale);
-    return moment(date).format(format);
+  /* Format last modified date */
+  eleventyConfig.addFilter("dateLastModified", function(date) {
+    return moment(date).format('YYYY-MM-DD');
   });
 
    // Token filters

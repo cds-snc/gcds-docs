@@ -2,6 +2,7 @@
 title: Merci de nous avoir contactés!
 layout: "layouts/base.njk"
 eleventyExcludeFromCollections: true
+date: "git Last Modified"
 ---
 
 # Merci de nous avoir contactés!

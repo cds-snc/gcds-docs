@@ -7,6 +7,7 @@ eleventyNavigation:
   title: Installation
   locale: en
   order: 0
+date: "git Last Modified"
 ---
 
 # Install GC Design System

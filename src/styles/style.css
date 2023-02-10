@@ -228,5 +228,5 @@ nav.tabs a[aria-current="page"] {
   width: 80%;
   max-width: 40.625rem; }
 
-.hero .bg-full-width:after {
-  display: none; }
+  .hero .bg-full-width:after {
+    display: none; }

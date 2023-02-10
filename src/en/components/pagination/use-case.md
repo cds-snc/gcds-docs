@@ -13,6 +13,7 @@ eleventyNavigation:
 translationKey: "pagination"
 tags: ['paginationEN', 'usage']
 permalink: /en/components/pagination/
+date: "git Last Modified"
 ---
 
 ## Usage

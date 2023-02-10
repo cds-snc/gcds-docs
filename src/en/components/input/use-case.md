@@ -13,6 +13,7 @@ eleventyNavigation:
 translationKey: "input"
 tags: ['inputEN', 'usage']
 permalink: /en/components/input/
+date: "git Last Modified"
 ---
 
 ## Usage

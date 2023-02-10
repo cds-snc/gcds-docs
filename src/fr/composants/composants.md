@@ -7,6 +7,7 @@ eleventyNavigation:
   locale: fr
   order: 2
 translationKey: "components"
+date: "git Last Modified"
 ---
 
 # Composants

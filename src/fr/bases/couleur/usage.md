@@ -13,6 +13,7 @@ eleventyNavigation:
   alt: This is an image of the foundation
 permalink: /fr/bases/couleur/
 tags: ['colourFR', 'usage']
+date: "git Last Modified"
 ---
 
 ## {{ title }}

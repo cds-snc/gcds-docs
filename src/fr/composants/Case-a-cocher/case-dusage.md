@@ -13,6 +13,7 @@ eleventyNavigation:
 translationKey: "checkbox"
 tags: ['checkboxFR', 'usage']
 permalink: /fr/composants/case-a-cocher/
+date: "git Last Modified"
 ---
 
 ## Usage

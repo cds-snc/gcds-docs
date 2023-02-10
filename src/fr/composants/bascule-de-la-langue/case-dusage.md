@@ -13,6 +13,7 @@ eleventyNavigation:
 translationKey: "langtoggle"
 tags: ['langtoggleFR', 'usage']
 permalink: /fr/composants/bascule-de-la-langue/
+date: "git Last Modified"
 ---
 
 ## Usage

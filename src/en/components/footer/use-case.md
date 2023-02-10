@@ -14,6 +14,7 @@ eleventyNavigation:
 translationKey: "footer"
 tags: ['footerEN', 'usage']
 permalink: /en/components/footer/
+date: "git Last Modified"
 ---
 
 ## Usage
