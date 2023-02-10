@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="{{ locale }}" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>{{ title }} - {{ base[locale].gcds }}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Utility framework -->
+    <!-- TO DO: replace with package, once package is published -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/cds-snc/gcds-utilities/dist/utilities.css" />
+
+    <link rel="stylesheet" href="{{ '/styles/prism.css' | url }}">
+    <link rel="stylesheet" href="{{ '/styles/style.css' | url }}">
+    <script src="{{ '/scripts/code-showcase.js' | url }}"></script>
+    <link rel="icon" type="image/x-icon" sizes="96x96" href="{{ '/favicon.ico' | url }}">
+
+    {# Font awesome 6 kit for this doc website. Anyone can create a free kit for open source. #}
+    <script src="https://kit.fontawesome.com/892cb27850.js" crossorigin="anonymous"></script>
+
+    <!-- GC Design System  Components-->
+    <link rel="stylesheet" href="{{ '/components/dist/gcds/gcds.css' | url }}">
+    <script type="module" src="/components/dist/gcds/gcds.esm.js"></script>
+    <script nomodule src="/components/dist/gcds/gcds.js"></script>
+
+    <meta name="robots" content="noindex">
+  </head>
+  <body style="margin: 0">
+    {# ------------- Header ------------- #}
+
+    <gcds-header
+      lang="en"
+      lang-href="en"
+      signature-variant="colour"
+      skip-to-href="#"
+    >
+
+      {# ------------- Site menu ------------- #}
+
+      <gcds-site-menu slot="menu" alignment="right">
+        <h6 slot="left">GC Design System</h6>
+        <ul>
+          <li>
+            <a href="">Installation</a>
+          </li>
+          <li>
+            <a href="">Foundations</a>
+          </li>
+          <li>
+            <a href="">Components</a>
+          </li>
+          <li>
+            <a href="">Contact us</a>
+          </li>
+        </ul>
+      </gcds-site-menu>
+
+      {# ------------- Breadcrumbs ------------- #}
+
+      <!-- Breadcrumb without canada.ca link -->
+      <gcds-breadcrumbs slot="breadcrumb" hide-canada-link>
+        <gcds-breadcrumbs-item href="/">GC Design System</gcds-breadcrumbs-item>
+      </gcds-breadcrumbs>
+
+      <!-- Breadcrumb with canada.ca link -->
+      <!-- <gcds-breadcrumbs slot="breadcrumb">
+        <gcds-breadcrumbs-item href="#">Breadcrumb</gcds-breadcrumbs-item>
+        <gcds-breadcrumbs-item href="#">Breadcrumb</gcds-breadcrumbs-item>
+        <gcds-breadcrumbs-item href="#">Breadcrumb</gcds-breadcrumbs-item>
+      </gcds-breadcrumbs> -->
+    </gcds-header>
+
+    <section class="container-xl mx-auto py-600">
+      <h1 class="text-center mb-500">GC Design System Demo</h1>
+
+      <h2>Components</h2>
+
+      {# ------------- Alerts ------------- #}
+
+      <h3 class="mt-500 mb-400 bb-1">Alerts</h3>
+      <gcds-alert heading="Success alert" alert-role="success" container="xl">
+        <p>Example content</p>
+      </gcds-alert>
+      <gcds-alert heading="Info alert" alert-role="info" container="xl">
+        <p>Example content</p>
+      </gcds-alert>
+      <gcds-alert heading="Warning alert" alert-role="warning" container="xl">
+        <p>Example content</p>
+      </gcds-alert>
+      <gcds-alert heading="Danger alert" alert-role="danger" container="xl">
+        <p>Example content</p>
+      </gcds-alert>
+
+      {# ------------- Buttons ------------- #}
+
+      <h3 class="mt-700 mb-400 bb-1">Buttons</h3>
+      <gcds-button button-role="primary">Primary</gcds-button>
+      <gcds-button button-role="secondary">Secondary</gcds-button>
+      <gcds-button button-role="danger">Danger</gcds-button>
+      <gcds-button button-role="skip-to-content">Skip to content</gcds-button>
+      <gcds-button type="link" button-style="text-only" href="#">Link</gcds-button>
+      <gcds-button
+        type="link"
+        button-style="text-only"
+        href="#"
+        target="_blank"
+      >
+        External Link
+      </gcds-button>
+
+      {# ------------- Details ------------- #}
+
+      <h3 class="mt-700 mb-400 bb-1">Details</h3>
+      <gcds-details details-title="Find out more">
+        <p>Details about stuff.</p>
+      </gcds-details>
+
+      {# ------------- Stepper + Form elements ------------- #}
+
+      <h3 class="mt-700 mb-400 bb-1">Form elements (including stepper)</h3>
+      <gcds-stepper current-step="1" total-steps="3"></gcds-stepper>
+      <form>
+        <gcds-input
+          input-id="form-name"
+          label="Name"
+          hint="Please enter your full name."
+          required
+        ></gcds-input>
+
+        <gcds-input
+          input-id="form-number"
+          type="number"
+          size="10"
+          label="Phone number"
+          hint="Please enter a 10 digits number."
+          required
+        ></gcds-input>
+
+        <gcds-textarea
+          textarea-id="form-message"
+          label="Message"
+          hint="This is a hint."
+          character-count="400"
+        ></gcds-textarea>
+
+        <gcds-checkbox
+          checkbox-id="form-checkbox"
+          label="Do you like pizza?"
+          checked=""
+          hint="This answer is yes."
+        ></gcds-checkbox>
+
+        <gcds-fieldset
+          fieldset-id="fieldset"
+          legend="Radio button group"
+          hint="They are in a fieldset"
+        >
+          <gcds-radio
+            radio-id="form-radio"
+            label="Radio 1 label"
+            hint="This is a hint."
+            name="radio"
+          ></gcds-radio>
+          <gcds-radio
+            radio-id="form-radio1"
+            label="Radio 2 label"
+            hint="This is a hint."
+            name="radio"
+          ></gcds-radio>
+        </gcds-fieldset>
+
+        <gcds-select
+          select-id="form-select"
+          label="Name"
+          hint="Please enter your full name."
+          error-message="Example error message."
+          default-value="Please select an option"
+        >
+          <option>Option 1</option>
+          <option>Option 2</option>
+          <option>Option 3</option>
+        </gcds-select>
+
+        <gcds-file-uploader
+          uploader-id="form-uploader"
+          label="Upload"
+          hint="You can upload multiple files, but they have to be png's."
+          accept="image/png"
+          multiple
+        ></gcds-file-uploader>
+      </form>
+
+      {# ------------- Grid ------------- #}
+
+      <h3 class="mt-700 mb-400 bb-1">Grid</h3>
+      <gcds-grid
+        tag="article"
+        columns-desktop="1fr 1fr 1fr 1fr"
+        columns-tablet="1fr 1fr"
+        columns="1fr"
+        gap="500"
+      >
+        <p>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
+        <p>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
+        <p>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
+        <p>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
+      </gcds-grid>
+
+      {# ------------- Icons ------------- #}
+
+      <h3 class="mt-700 mb-400 bb-1">Icons</h3>
+      <gcds-icon name="close" size="caption" margin-right="200"></gcds-icon>
+      <gcds-icon name="cloud" size="text" margin-right="200"></gcds-icon>
+      <gcds-icon name="info-circle" size="h3" margin-right="200"></gcds-icon>
+      <gcds-icon name="tree" size="h2" margin-right="200"></gcds-icon>
+      <gcds-icon name="folder" size="h1"></gcds-icon>
+      <gcds-icon name="folder" icon-style="regular" size="h1"></gcds-icon>
+      </br>
+      <gcds-icon name="tree" size="text" fixed-width></gcds-icon>
+      <gcds-icon name="folder" size="text" fixed-width></gcds-icon>
+      <gcds-icon name="fire" size="text" fixed-width></gcds-icon>
+      <gcds-icon name="utensils" size="text" fixed-width></gcds-icon>
+      <gcds-icon name="arrow-left" size="text" fixed-width margin-left="500"></gcds-icon>
+      <span>Fixed width icons. Square ratio.</span>
+      </br>
+      <gcds-icon name="tree" size="text"></gcds-icon>
+      <gcds-icon name="folder" size="text"></gcds-icon>
+      <gcds-icon name="fire" size="text"></gcds-icon>
+      <gcds-icon name="utensils" size="text"></gcds-icon>
+      <gcds-icon name="arrow-left" size="text" margin-left="500"></gcds-icon>
+      <span>Variable width icons. Auto width.</span>
+
+      {# ------------- Pagination ------------- #}
+
+      <h3 class="mt-700 mb-400 bb-1">Pagination</h3>
+      <gcds-pagination
+        display="list"
+        label="List pagination"
+        type="list"
+        total-pages="22"
+        current-page="8"
+        url={}
+        pageChangeHandler={}
+      ></gcds-pagination>
+
+      <gcds-pagination
+        display="simple"
+        label="Simple Pagination"
+        previous-href="#"
+        previous-label="Previous"
+        next-href="#"
+        next-label="Next page"
+      ></gcds-pagination>
+
+      {# ------------- Phase banner ------------- #}
+
+      <h3 class="mt-700 mb-400 bb-1">Phase banner</h3>
+      <gcds-phase-banner banner-role="primary">
+        <gcds-icon name="tree" size="sm" slot="banner-icon-left"></gcds-icon>
+        <p slot="banner-text">Exciting announcement.</p>
+      </gcds-phase-banner>
+
+      {# ------------- Date modified ------------- #}
+
+      <h3 class="mt-700 mb-400 bb-1">Date modified</h3>
+      <gcds-date-modified>2023-01-26</gcds-date-modified>
+    </section>
+
+    {# ------------- Footer ------------- #}
+
+    <gcds-footer
+      display="full"
+      contextual-heading="Additional content"
+      contextual-links='{ "Components": "#","Tokens": "#", "Foundations": "#"}'
+    >
+    </gcds-footer>
+  </body>
+</html>
