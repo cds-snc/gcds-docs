@@ -2,6 +2,11 @@
 title: Coming soon
 translationKey: comingsoon
 layout: "layouts/component-overview.njk"
+eleventyNavigation:
+  key: comingsoonEN
+  title: Coming soon
+  locale: en
+  hideMain: true
 cardlist:
   type: components
   state: coming-soon

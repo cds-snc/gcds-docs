@@ -1,14 +1,14 @@
 ---
-title: date-de-modification - Composants
+title: Date de modification
 layout: "layouts/component-documentation.njk"
 eleventyNavigation:
   key: datemodifiedFR
-  title: date-de-modification
+  title: Date de modification
   locale: fr
   parent: componentsFR
   otherNames:  Component
   description: This is the component
-  thumbnail: /images/fr/composants/component.png
+  thumbnail: /images/common/components/preview-date-modified.svg
   alt: This is an image of the component
   state: coming-soon
 translationKey: "datemodified"

@@ -4,13 +4,15 @@ module.exports = {
         usage: "Usage",
         design: "Design",
         code: "Code",
-        tokens: "Tokens"
+        tokens: "Tokens",
+        "othernames": "Other names: "
     },
     fr: {
         usecase: "Cas d'utilisation",
         usage: "Usage",
         design: "Design",
         code: "Code",
-        tokens: "Tokens"
+        tokens: "Tokens",
+        "othernames": "Autres noms : "
     }
 }

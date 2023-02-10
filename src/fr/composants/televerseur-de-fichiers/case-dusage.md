@@ -1,14 +1,14 @@
 ---
-title: televerseur-de-fichiers - Composants
+title: Téléverseur de fichiers
 layout: "layouts/component-documentation.njk"
 eleventyNavigation:
   key: fileuploaderFR
-  title: televerseur-de-fichiers
+  title: Téléverseur de fichiers
   locale: fr
   parent: componentsFR
-  otherNames:  Component
-  description: This is the component
-  thumbnail: /images/fr/composants/component.png
+  otherNames: saisie de fichier, zone de dépôt
+  description: Un sélecteur de fichier en vue d’un téléversement.
+  thumbnail: /images/fr/components/preview-date-modified.svg
   alt: This is an image of the component
   state: coming-soon
 translationKey: "fileuploader"

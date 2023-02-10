@@ -25,7 +25,7 @@
             {% endif %}
           </h3>
           {% if entry.otherNames %}
-          <p class="mb-150 text-secondary"><small><em>Other names: {{ entry.otherNames }}</em></small></p>
+          <p class="mb-150 text-secondary"><small><em>{{ documentation[locale].othernames }}{{ entry.otherNames }}</em></small></p>
           {% endif %}
           <p class="mb-150">{{ entry.description }}</p>
           <img src="{{ entry.thumbnail }}" alt="" />
