@@ -19,8 +19,8 @@ Remplissez les champs suivants ou ouvrez une issue sur GitHub dans le dépôt de
 
 <form class="my-500 contact-us-form" name="contactFR" method="post">
   <input type="hidden" name="form-name" value="contactFR" />
-  <gcds-input type="text" input-id="name" label="Nom complet" required></gcds-input>
-  <gcds-input type="email" input-id="email" label="Adresse courriel" required></gcds-input>
+  <gcds-input type="text" input-id="name" label="Nom complet" size="30" required></gcds-input>
+  <gcds-input type="email" input-id="email" label="Adresse courriel" size="30" required></gcds-input>
   <gcds-textarea label="Message" textarea-id="message" required></gcds-textarea>
   <div hidden>
     <gcds-input type="text" input-id="bot-field" label="bot"></gcds-input>
