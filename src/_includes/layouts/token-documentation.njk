@@ -26,6 +26,10 @@
 
     {{ content | safe }}
 
+    {% if tags[1] == "tokens" %}
+        {% set removeBorder = true %}
+    {% endif %}
+
     {% include "partials/helpus.njk" %}
 
 {% endblock %}
