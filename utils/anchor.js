@@ -24,6 +24,13 @@ const anchor = (md, options) => {
     }
   };
 
+  md.renderer.rules.ordered_list_open = function (tokens, index) {
+    return `<${tokens[index].tag} class="list-decimal mb-400">`;
+  };
+  md.renderer.rules.bullet_list_open = function (tokens, index) {
+    return `<${tokens[index].tag} class="list-disc mb-400">`;
+  };
+
   md.renderer.rules.paragraph_open = function(tokens, index) {
     return `<${tokens[index].tag} class="mb-400">`;
   };
