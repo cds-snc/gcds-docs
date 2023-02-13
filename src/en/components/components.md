@@ -7,6 +7,10 @@ eleventyNavigation:
   locale: en
   order: 2
 translationKey: "components"
+date: "git Last Modified"
+cardlist:
+  type: components
+  state: published
 ---
 
 # {{ title }}

@@ -7,8 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Utility framework -->
-    <!-- TO DO: replace with package, once package is published -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/cds-snc/gcds-utilities/dist/utilities.css" />
+    <link rel="stylesheet" href="{{ '/utilities.min.css' | url }}" />
 
     <link rel="stylesheet" href="{{ '/styles/prism.css' | url }}">
     <link rel="stylesheet" href="{{ '/styles/style.css' | url }}">
@@ -37,7 +36,7 @@
                 <article class="sm:py-550 py-450 xl:ps-0 sm:ps-500 ps-450 sm:pe-550 pe-400 bg-dark bg-full-width">
                   <h1 class="mb-400">Canadian Digital Service<br/>GC Design System</h1>
                   <p class="mb-400">Build modern, accessible, human government services people can use.</p>
-                  <a class="link-inherit" href="/en/contact/">About us</a>
+                  <a class="link-inherit" href="/en/contact/#about-gc-design-system">About us</a>
                 </article>
               </div>
             </div>
@@ -45,6 +44,12 @@
 
         <section class="container-xl mx-auto xl:px-0 sm:px-500 px-300">
           {% block content %}{{ content | safe }}{% endblock %}
+
+          {% include "partials/helpus.njk" %}
+
+          <gcds-date-modified class="mb-400 font-caption">
+            {{ page.date | dateLastModified}}
+          </gcds-date-modified>
         </section>
       </main>
 

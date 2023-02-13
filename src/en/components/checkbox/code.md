@@ -2,7 +2,8 @@
 title: Build a checkbox
 layout: "layouts/component-documentation.njk"
 translationKey: "checkboxCode"
-tags: ["checkboxEN", "code"]
+tags: ['checkboxEN', 'code']
+date: "git Last Modified"
 ---
 
 ## {{ title }}

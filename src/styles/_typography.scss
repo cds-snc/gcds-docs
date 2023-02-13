@@ -26,6 +26,10 @@ p {
   font: var(--gcds-font-text-long);
   max-width: 65ch;
 }
+ul li p:last-child,
+ol li p:last-child {
+  margin-block-end: var(--gcds-spacing-0) !important;
+}
 
 // Special typography components
 code:not([class*="language-"]) {

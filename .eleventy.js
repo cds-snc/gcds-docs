@@ -6,6 +6,7 @@ const chroma = require("chroma-js");
 const markdownIt = require("markdown-it");
 const svgContents = require("eleventy-plugin-svg-contents");
 const codeClipboard = require("eleventy-plugin-code-clipboard");
+const { DateTime } = require("luxon");
 
 const contextMenu = require("./utils/context-menu");
 const displayTokens = require("./utils/display-tokens");
@@ -24,7 +25,10 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("./src/favicon.ico");
   eleventyConfig.addPassthroughCopy({"./src/variables/": "variables"});
   eleventyConfig.addPassthroughCopy({
-    "./node_modules/gcds-components/": "components"
+    "./node_modules/@cdssnc/gcds-components/": "components"
+  });
+  eleventyConfig.addPassthroughCopy({
+    "./node_modules/@cdssnc/gcds-utility/dist/utilities.min.css": "utilities.min.css"
   });
   // Add copy fo a11y testing
   eleventyConfig.addPassthroughCopy("./.pa11yci.json");
@@ -33,9 +37,7 @@ module.exports = function (eleventyConfig) {
 
   eleventyConfig.addPlugin(svgContents);
   eleventyConfig.addPlugin(eleventyNavigationPlugin);
-  eleventyConfig.addPlugin(syntaxHighlight, {
-    templateFormats: ['md']
-  });
+  eleventyConfig.addPlugin(syntaxHighlight);
   eleventyConfig.addPlugin(codeClipboard);
   eleventyConfig.addPlugin(sitemap, {
     sitemap: {
@@ -88,11 +90,9 @@ module.exports = function (eleventyConfig) {
     });
   });
 
-  // date filter (localized)
-  eleventyConfig.addNunjucksFilter("date", function (date, format, locale) {
-    locale = locale ? locale : "en";
-    moment.locale(locale);
-    return moment(date).format(format);
+  /* Format last modified date */
+  eleventyConfig.addFilter("dateLastModified", function(date) {
+    return moment(date).format('YYYY-MM-DD');
   });
 
    // Token filters

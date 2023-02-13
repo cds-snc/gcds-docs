@@ -13,6 +13,7 @@ eleventyNavigation:
 translationKey: "grid"
 tags: ['gridFR', 'usage']
 permalink: /fr/composants/grille/
+date: "git Last Modified"
 ---
 
 ## Usage

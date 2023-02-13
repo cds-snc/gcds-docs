@@ -14,6 +14,7 @@ eleventyNavigation:
 translationKey: "signature"
 tags: ['signatureEN', 'usage']
 permalink: /en/components/signature/
+date: "git Last Modified"
 ---
 
 ## Usage

@@ -11,9 +11,11 @@ eleventyNavigation:
   description: This is the foundation
   thumbnail: /images/fr/bases/foundation.png
   alt: This is an image of the foundation
+  state: published
 github: https://github.com/cds-snc/gcds-tokens
 permalink: /fr/bases/typographie/
 tags: ['typographyFR', 'usage']
+date: "git Last Modified"
 ---
 
 ## {{ title }}

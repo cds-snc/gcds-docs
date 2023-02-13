@@ -13,6 +13,7 @@ eleventyNavigation:
 translationKey: "errormessage"
 tags: ['errormessageFR', 'usage']
 permalink: /fr/composants/message-derreur/
+date: "git Last Modified"
 ---
 
 ## Usage

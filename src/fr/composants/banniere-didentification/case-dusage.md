@@ -13,6 +13,7 @@ eleventyNavigation:
 translationKey: "verifybanner"
 tags: ['verifybannerFR', 'usage']
 permalink: /fr/composants/banniere-didentification/
+date: "git Last Modified"
 ---
 
 ## Usage

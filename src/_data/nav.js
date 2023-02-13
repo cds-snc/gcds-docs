@@ -1,6 +1,6 @@
 module.exports = {
     en : {
-        title: "Design system",
+        title: "GC Design system",
         url: "/en"
     },
     fr: {

@@ -1,19 +1,21 @@
 ---
-title: date-modified - Components
+title: Date modified
 layout: "layouts/component-documentation.njk"
 eleventyNavigation:
   key: datemodifiedEN
   title: Date modified
   locale: en
   parent: componentsEN
-  otherNames:  Component
-  description: This is the component
+  otherNames:  last modified
+  description: A timestamp of the last -page update.
   thumbnail: /images/common/components/preview-date-modified.svg
   alt: This is an image of the component
   tag: Core
+  state: coming-soon
 translationKey: "datemodified"
 tags: ['datemodifiedEN', 'usage']
 permalink: /en/components/date-modified/
+date: "git Last Modified"
 ---
 
 ## Usage

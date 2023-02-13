@@ -10,9 +10,11 @@ eleventyNavigation:
   description: A navigation signpost for a series of non-process pages.
   thumbnail: /images/common/components/preview-pagination.svg
   alt: This is an image of the component
+  state: coming-soon
 translationKey: "pagination"
 tags: ['paginationEN', 'usage']
 permalink: /en/components/pagination/
+date: "git Last Modified"
 ---
 
 ## Usage

@@ -10,9 +10,11 @@ eleventyNavigation:
   description: A question where any available options can be selected.
   thumbnail: /images/common/components/preview-checkbox.svg
   alt: This is an image of the component
+  state: published
 translationKey: "checkbox"
 tags: ["checkboxEN", "usage"]
 permalink: /en/components/checkbox/
+date: "git Last Modified"
 ---
 
 Take a look at what checkboxes do to see if they fit the problem you’re solving for.
@@ -25,7 +27,7 @@ Use a checkbox to ask a question when you are expecting the user to select more 
 - let a person choose one or several answers from a contained list by checking off the right ones.
 - give a person the ability to answer without writing by selecting one or multiple items from a list.
 
-<section class="bg-full-width bg-dark text-light py-500 mt-500">
+<section class="bg-full-width bg-dark text-light py-500 my-500">
 
 <h2 class="mt-0 mb-400">Related components</h2>
 

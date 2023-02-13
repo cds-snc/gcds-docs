@@ -4,18 +4,6 @@ layout: "layouts/base.njk"
 
 {{ content | safe }}
 
-{% set tokens = "foundationsFR" if locale == "fr" else "foundationsEN" %}
+{% include "partials/card-list.njk" %}
 
-{% set navPages = collections.all | eleventyNavigation(tokens) %}
-
-<ul>
-{%- for entry in navPages %}
-  <li>
-    <a href={{entry.url}}>
-      {{ entry.title }}
-      {{ entry.description }}
-      {{ entry.thumbnail }}
-    </a>
-  </li>
-{%- endfor -%}
-</ul>
+{% include "partials/helpus.njk" %}

@@ -68,6 +68,10 @@ p {
   font: var(--gcds-font-text-long);
   max-width: 65ch; }
 
+ul li p:last-child,
+ol li p:last-child {
+  margin-block-end: var(--gcds-spacing-0) !important; }
+
 code:not([class*="language-"]) {
   font-family: var(--gcds-font-families-monospace);
   color: var(--gcds-color-red-700);

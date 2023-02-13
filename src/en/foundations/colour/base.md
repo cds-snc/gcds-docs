@@ -2,6 +2,7 @@
 title: Colour
 permalink: false
 tags: ["colourEN", "header"]
+date: "git Last Modified"
 ---
 
 # {{ title }}

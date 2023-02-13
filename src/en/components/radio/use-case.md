@@ -10,9 +10,11 @@ eleventyNavigation:
   description: A question with a set of options for single selections.
   thumbnail: /images/common/components/preview-radio.svg
   alt: This is an image of the component
+  state: published
 translationKey: "radio"
 tags: ['radioEN', 'usage']
 permalink: /en/components/radio/
+date: "git Last Modified"
 ---
 
 ## Usage

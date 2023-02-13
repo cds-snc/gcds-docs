@@ -8,11 +8,13 @@ eleventyNavigation:
   parent: componentsFR
   otherNames:  Component
   description: This is the component
-  thumbnail: /images/fr/composants/component.png
+  thumbnail: /images/en/components/preview-stepper.svg
   alt: This is an image of the component
+  state: published
 translationKey: "stepper"
 tags: ['stepperFR', 'usage']
 permalink: /fr/composants/indicateur-detape/
+date: "git Last Modified"
 ---
 
 ## Usage

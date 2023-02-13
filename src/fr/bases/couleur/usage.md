@@ -11,8 +11,10 @@ eleventyNavigation:
   description: This is the foundation
   thumbnail: /images/fr/bases/foundation.png
   alt: This is an image of the foundation
+  state: published
 permalink: /fr/bases/couleur/
 tags: ['colourFR', 'usage']
+date: "git Last Modified"
 ---
 
 ## {{ title }}

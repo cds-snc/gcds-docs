@@ -14,6 +14,7 @@ eleventyNavigation:
 translationKey: "grid"
 tags: ['gridEN', 'usage']
 permalink: /en/components/grid/
+date: "git Last Modified"
 ---
 
 ## Usage

@@ -10,9 +10,11 @@ eleventyNavigation:
   description: An interactive object that highlights an action.
   thumbnail: /images/en/components/preview-button.svg
   alt: This is an image of the component
+  state: published
 translationKey: "button"
 tags: ['buttonEN', 'usage']
 permalink: /en/components/button/
+date: "git Last Modified"
 ---
 
 ## Usage

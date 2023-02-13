@@ -13,6 +13,7 @@ eleventyNavigation:
 translationKey: "sitemenu"
 tags: ['sitemenuFR', 'usage']
 permalink: /fr/composants/menu-du-site/
+date: "git Last Modified"
 ---
 
 ## Usage

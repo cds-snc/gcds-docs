@@ -1,18 +1,20 @@
 ---
-title: selection - Composants
+title: Sélection
 layout: "layouts/component-documentation.njk"
 eleventyNavigation:
   key: selectFR
-  title: selection
+  title: Sélection
   locale: fr
   parent: componentsFR
-  otherNames:  Component
-  description: This is the component
-  thumbnail: /images/fr/composants/component.png
+  otherNames: menu déroulant, menu de sélection
+  description: Une liste d’options permettant de choisir une option unique. 
+  thumbnail: /images/common/components/preview-select.svg
   alt: This is an image of the component
+  state: coming-soon
 translationKey: "select"
 tags: ['selectFR', 'usage']
 permalink: /fr/composants/selection/
+date: "git Last Modified"
 ---
 
 ## Usage

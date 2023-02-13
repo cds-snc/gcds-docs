@@ -2,7 +2,8 @@
 title: Checkbox anatomy
 layout: "layouts/component-documentation.njk"
 translationKey: "checkboxDesign"
-tags: ["checkboxEN", "design"]
+tags: ['checkboxEN', 'design']
+date: "git Last Modified"
 ---
 
 ## {{ title }}

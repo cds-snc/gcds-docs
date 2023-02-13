@@ -7,8 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Utility framework -->
-    <!-- TO DO: replace with package, once package is published -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/cds-snc/gcds-utilities/dist/utilities.css" />
+    <link rel="stylesheet" href="{{ '/utilities.min.css' | url }}" />
 
     <link rel="stylesheet" href="{{ '/styles/prism.css' | url }}">
     <link rel="stylesheet" href="{{ '/styles/style.css' | url }}">
@@ -31,6 +30,10 @@
     <div class="content-wrapper">
       <main id="mc" class="container-xl mx-auto xl:px-0 sm:px-500 px-300 general-layout">
         {% block content %}{{ content | safe }}{% endblock %}
+
+        <gcds-date-modified class="mb-400 font-caption">
+          {{ page.date | dateLastModified}}
+        </gcds-date-modified>
       </main>
 
       <gcds-footer display="compact" lang="{{ locale }}"></gcds-footer>
