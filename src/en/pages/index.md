@@ -74,25 +74,7 @@ date: "git Last Modified"
 <article class="py-450">
   <h2 class="mb-400">Featured component</h2>
   <h3 class="mb-400">Fieldset</h3>
-  <p class="mb-450">The fieldset component is used to perceive a group of related form elements. It improves usability and understanding by grouping elements in a logical and accessible way.</p>
-  <gcds-fieldset
-    fieldset-id="fieldset"
-    legend="Radio button group"
-    hint="They are in a fieldset"
-    class="mb-300"
-  >
-    <gcds-radio
-      radio-id="form-radio"
-      label="Radio 1 label"
-      hint="This is a hint."
-      name="radio"
-    ></gcds-radio>
-    <gcds-radio
-      radio-id="form-radio1"
-      label="Radio 2 label"
-      hint="This is a hint."
-      name="radio"
-    ></gcds-radio>
-  </gcds-fieldset>
+  <p class="mb-450">The fieldset component associates related form elements so they can be perceived as a group. It improves usability and understanding of form elements by grouping them in a logical and accessible way.</p>
+  <img class="mb-450" src="../../images/common/components/preview-fieldset.svg" alt="UI preview of fieldset component using an input and a select field." />
   <a href="/en/components/fieldset" class="d-block link-default">Read more about fieldset</a>
 </article>
