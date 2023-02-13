@@ -14,4 +14,4 @@ cardlist:
 
 # {{ title }}
 
-We’re sharing components as we build them. Check out what components we’re currently working on and what’s on the way.
+We're sharing components as we build them. Check out what components we're currently working on and what's on the way.
