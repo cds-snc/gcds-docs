@@ -16,7 +16,9 @@ date: "git Last Modified"
       <p class="mb-400">Visitez notre bibliothèque Figma pour explorer nos ressources de conception.</p>
       <a class="link-inherit" href="https://www.figma.com/file/mh2maMG2NBtk41k1O1UGHV/GC-Components-Main?node-id=4%3A1006&t=CVXODmuGNXkwGRmc-0" target="_blank">
         Commencer à concevoir
-        <gcds-icon name="external-link" label="S'ouvre dans un nouvel onglet." margin-left="200" />
+        <span class="sr-only">S'ouvre dans un nouvel onglet.</span>
+        <span class="fa fa-solid fa-external-link ms-100" role="img"></span>
+        <!-- <gcds-icon name="external-link" label="S'ouvre dans un nouvel onglet." margin-left="200" /> -->
       </a>
     </li>
     <li class="list-none">

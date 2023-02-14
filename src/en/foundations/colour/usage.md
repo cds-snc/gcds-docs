@@ -43,9 +43,9 @@ date: "git Last Modified"
 
 ## {{ title }}
 
-Ensure that the contrast ratio of text and interactive elements meets level AA of the <a href="https://www.w3.org/TR/WCAG21/" target="_blank">Web Content Accessibility Guidelines (WCAG 2.1)<gcds-icon name="external-link" label="Opens in a new tab." margin-left="200" /></a>.
+Ensure that the contrast ratio of text and interactive elements meets level AA of the <a href="https://www.w3.org/TR/WCAG21/" target="_blank">Web Content Accessibility Guidelines (WCAG 2.1) <span class="sr-only">Opens in a new tab.</span><span class="fa fa-solid fa-external-link ms-100" role="img"></span></a>.
 
-You can check the colour contrast on the <a href="https://webaim.org/resources/contrastchecker/" target="_blank">WebAIM Contrast Checker <gcds-icon name="external-link" label="Opens in a new tab." margin-left="200" /></a>.
+You can check the colour contrast on the <a href="https://webaim.org/resources/contrastchecker/" target="_blank">WebAIM Contrast Checker <span class="sr-only">Opens in a new tab.</span><span class="fa fa-solid fa-external-link ms-100" role="img"></span></a>.
 
 image
 
