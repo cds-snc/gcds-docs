@@ -34,7 +34,10 @@
             <div class="xl:py-900 md:py-800 py-600 hero">
               <div class="container-xl mx-auto">
                 <article class="sm:py-550 py-450 xl:ps-0 sm:ps-500 ps-450 sm:pe-550 pe-400 bg-dark hero__content">
-                  <h1 class="{% if locale == "en" %}container-sm{% else %}{% endif %} mb-400">{{ homehero[locale].heading }}</h1>
+                  <h1 class="mb-400">
+                    <span class="d-block">{{ homehero[locale].cds }}</span>
+                    <span class="d-block">{{ homehero[locale].gcds }}</span>
+                  </h1>
                   <p class="mb-400">{{ homehero[locale].paragraph }}</p>
                   <a class="link-inherit" href="{{ homehero[locale].link }}">{{ homehero[locale].linkText }}</a>
                 </article>
