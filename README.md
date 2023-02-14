@@ -60,35 +60,3 @@ Code released under the [MIT License](https://github.com/cds-snc/gcds-docs/blob/
 # --------------------------------------------------------
 <br/>
 <br/>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-# GCDS Docs
-
-Experimental design system documentation website built with [11ty](https://www.11ty.dev/docs/) and [NetlifyCMS](https://docs.netlify.com/).
-
-## Local installation
-
-- git clone https://github.com/cds-snc/gcds-docs
-- cd alpha-design-system-documentation
-- npm install
-- npm start
-
-
