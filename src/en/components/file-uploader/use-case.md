@@ -1,12 +1,12 @@
 ---
-title: file-uploader - Components
+title: File uploader - Components
 layout: "layouts/component-documentation.njk"
 eleventyNavigation:
   key: fileuploaderEN
   title: File uploader
   locale: en
   parent: componentsEN
-  otherNames:  File input, Dropzone
+  otherNames: file input, dropzone.
   description: A file selector for document transfer.
   thumbnail: /images/en/components/preview-file-uploader.svg
   alt: This is an image of the component

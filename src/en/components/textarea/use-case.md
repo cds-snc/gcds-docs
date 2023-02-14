@@ -1,12 +1,12 @@
 ---
-title: textarea - Components
+title: Textarea - Components
 layout: "layouts/component-documentation.njk"
 eleventyNavigation:
   key: textareaEN
   title: Textarea
   locale: en
   parent: componentsEN
-  otherNames:  Textbox
+  otherNames: textbox.
   description: A space to enter long-form information.
   thumbnail: /images/common/components/preview-textarea.svg
   alt: This is an image of the component

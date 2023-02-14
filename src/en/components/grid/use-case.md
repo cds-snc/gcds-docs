@@ -1,12 +1,12 @@
 ---
-title: grid - Components
+title: Grid - Components
 layout: "layouts/component-documentation.njk"
 eleventyNavigation:
   key: gridEN
   title: Grid
   locale: en
   parent: componentsEN
-  otherNames:  Layout
+  otherNames: layout.
   description: A responsive layout to position elements on a page.
   thumbnail: /images/common/components/preview-grid.svg
   alt: This is an image of the component

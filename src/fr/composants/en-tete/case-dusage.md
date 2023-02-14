@@ -1,12 +1,12 @@
 ---
-title: En-tête
+title: En-tête - Composants
 layout: "layouts/component-documentation.njk"
 eleventyNavigation:
   key: headerFR
   title: En-tête
   locale: fr
   parent: componentsFR
-  otherNames: en-tête global
+  otherNames: en-tête global.
   description: L'en-tête portant l'image de marque du gouvernement du Canada.
   thumbnail: /images/common/components/preview-header.svg
   alt: This is an image of the component

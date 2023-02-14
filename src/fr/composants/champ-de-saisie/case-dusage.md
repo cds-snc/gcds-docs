@@ -1,12 +1,12 @@
 ---
-title: Champ de saisie
+title: Champ de saisie - Composants
 layout: "layouts/component-documentation.njk"
 eleventyNavigation:
   key: inputFR
   title: Champ de saisie
   locale: fr
   parent: componentsFR
-  otherNames: saisie de texte, champ de texte
+  otherNames: saisie de texte, champ de texte.
   description: Un espace où saisir des renseignements brefs.
   thumbnail: /images/common/components/preview-input.svg
   alt: This is an image of the component

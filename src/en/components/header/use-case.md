@@ -1,12 +1,12 @@
 ---
-title: header - Components
+title: Header - Components
 layout: "layouts/component-documentation.njk"
 eleventyNavigation:
   key: headerEN
   title: Header
   locale: en
   parent: componentsEN
-  otherNames:  Global header
+  otherNames: global header.
   description: The Government of Canada branded header landmark.
   thumbnail: /images/common/components/preview-header.svg
   alt: This is an image of the component

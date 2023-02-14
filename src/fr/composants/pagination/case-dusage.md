@@ -1,12 +1,12 @@
 ---
-title: Pagination
+title: Pagination - Composants
 layout: "layouts/component-documentation.njk"
 eleventyNavigation:
   key: paginationFR
   title: Pagination
   locale: fr
   parent: componentsFR
-  otherNames:  navigation entre les pages
+  otherNames: navigation entre les pages.
   description: Un sélecteur de page pour naviguer dans une série de page.
   thumbnail: /images/common/components/preview-pagination.svg
   alt: This is an image of the component

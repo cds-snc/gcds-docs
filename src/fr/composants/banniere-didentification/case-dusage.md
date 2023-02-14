@@ -1,12 +1,12 @@
 ---
-title: banniere-didentification - Composants
+title: Banniere didentification - Composants
 layout: "layouts/component-documentation.njk"
 eleventyNavigation:
   key: verifybannerFR
-  title: banniere-didentification
+  title: Banniere-didentification
   locale: fr
   parent: componentsFR
-  otherNames:  Component
+  otherNames: component.
   description: This is the component
   thumbnail: /images/fr/composants/component.png
   alt: This is an image of the component

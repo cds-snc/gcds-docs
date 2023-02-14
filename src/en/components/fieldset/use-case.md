@@ -1,12 +1,12 @@
 ---
-title: fieldset - Components
+title: Fieldset - Components
 layout: "layouts/component-documentation.njk"
 eleventyNavigation:
   key: fieldsetEN
   title: Fieldset
   locale: en
   parent: componentsEN
-  otherNames:  Form field
+  otherNames: form field.
   description: A group of multiple form elements.
   thumbnail: /images/common/components/preview-fieldset.svg
   alt: This is an image of the component

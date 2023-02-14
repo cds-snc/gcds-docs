@@ -1,15 +1,16 @@
 ---
-title: signature - Composants
+title: Signature - Composants
 layout: "layouts/component-documentation.njk"
 eleventyNavigation:
   key: signatureFR
-  title: signature
+  title: Signature
   locale: fr
   parent: componentsFR
-  otherNames:  Component
-  description: This is the component
+  otherNames: signature du GC.
+  description: L'image de marque pour le gouvernement du Canada.
   thumbnail: /images/fr/composants/component.png
   alt: This is an image of the component
+  tag: Core
 translationKey: "signature"
 tags: ['signatureFR', 'usage']
 permalink: /fr/composants/signature/

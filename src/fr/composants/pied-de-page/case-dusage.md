@@ -1,12 +1,12 @@
 ---
-title: Pied de page
+title: Pied de page - Composants
 layout: "layouts/component-documentation.njk"
 eleventyNavigation:
   key: footerFR
   title: Pied de page
   locale: fr
   parent: componentsFR
-  otherNames: pied de page du site
+  otherNames: pied de page du site.
   description: Le pied de page portant l'image de marque du gouvernement du Canada.
   thumbnail: /images/common/components/preview-footer.svg
   alt: This is an image of the component
