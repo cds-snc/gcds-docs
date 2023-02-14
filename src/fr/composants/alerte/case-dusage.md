@@ -1,14 +1,14 @@
 ---
-title: alerte - Composants
+title: Alerte - Composants
 layout: "layouts/component-documentation.njk"
 eleventyNavigation:
   key: alertFR
-  title: alerte
+  title: Alerte
   locale: fr
   parent: componentsFR
-  otherNames:  Component
-  description: This is the component
-  thumbnail: /images/fr/composants/component.png
+  otherNames: notification, rétroaction.
+  description: Un message relatif à une modification importante et urgente.
+  thumbnail: /images/common/components/preview-alert.svg
   alt: This is an image of the component
 translationKey: "alert"
 tags: ['alertFR', 'usage']

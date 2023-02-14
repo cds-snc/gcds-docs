@@ -1,13 +1,13 @@
 ---
-title: Case-a-cocher - Composants
+title: Case à cocher - Composants
 layout: "layouts/component-documentation.njk"
 eleventyNavigation:
   key: checkboxFR
-  title: case-a-cocher
+  title: Case à cocher
   locale: fr
   parent: componentsFR
-  otherNames:  Component
-  description: This is the component
+  otherNames: checklist.
+  description: Cases qui permettent la sélection d’une ou plusieurs options.
   thumbnail: /images/common/components/preview-checkbox.svg
   alt: This is an image of the component
   state: published

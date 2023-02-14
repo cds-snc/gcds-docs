@@ -1,18 +1,18 @@
 <div id="step-2-angular" class="py-550 step-2-content">
-  <h2 class="mb-400">2. Getting started</h2>
-  <p class="mb-400">Use these instructions to install GCDS components if you're using Angular.</p>
+  <h2 class="mb-400">{{ installation[locale].step2.heading }}</h2>
+  <p class="mb-400">{{ installation[locale].step2.angular.paragraph }}</p>
 
-  <h3 class="mt-500 mb-400">Install with npm</h3>
-  <p class="mb-400">Navigate to the root folder of your project and run:</p>
+  <h3 class="mt-500 mb-400">{{ installation[locale].step2.angular.heading }}</h3>
+  <p class="mb-400">{{ installation[locale].step2.angular.install }}</p>
 
   {% highlight "js" %}
-  npm install gcds-components gcds-components-angular
+  npm install @cdssnc/gcds-components @cdssnc/gcds-components-angular
   {% endhighlight %}
 
-  <p class="mt-500 mb-400">Place the following code in the <code>app.modules.ts</code> file of your app:</p>
+  <p class="mt-500 mb-400">{{ installation[locale].step2.angular.placeApp }}</p>
 
 {% highlight "js" %}
-import { GcdsComponentsModule } from 'gcds-components-angular';
+import { GcdsComponentsModule } from '@cdssnc/gcds-components-angular';
 
 @NgModule({
   declarations: [
@@ -29,9 +29,9 @@ import { GcdsComponentsModule } from 'gcds-components-angular';
 export class AppModule { }
 {% endhighlight %}
 
-  <p class="mt-500 mb-400">Place the following code in the <code>styles.scss</code> file of your app:</p>
+  <p class="mt-500 mb-400">{{ installation[locale].step2.angular.placeStyles }}</p>
 
   {% highlight "js" %}
-  @import '../node_modules/gcds-components/dist/gcds/gcds.css';
+  @import '../node_modules/@cdssnc/gcds-components/dist/gcds/gcds.css';
   {% endhighlight %}
 </div>

@@ -1,12 +1,12 @@
 ---
-title: button - Components
+title: Button - Components
 layout: "layouts/component-documentation.njk"
 eleventyNavigation:
   key: buttonEN
   title: Button
   locale: en
   parent: componentsEN
-  otherNames:  Call to action, CTA, Link
+  otherNames: call to action, CTA, link.
   description: An interactive object that highlights an action.
   thumbnail: /images/en/components/preview-button.svg
   alt: This is an image of the component

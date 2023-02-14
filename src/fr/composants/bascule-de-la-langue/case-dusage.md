@@ -1,15 +1,16 @@
 ---
-title: bascule-de-la-langue - Composants
+title: Bascule de la langue - Composants
 layout: "layouts/component-documentation.njk"
 eleventyNavigation:
   key: langtoggleFR
-  title: bascule-de-la-langue
+  title: Bascule de la langue
   locale: fr
   parent: componentsFR
-  otherNames:  Component
-  description: This is the component
+  otherNames: lien pour changer de langue.
+  description: Un bouton permettant d’afficher le contenu du site en français ou en anglais.
   thumbnail: /images/fr/composants/component.png
   alt: This is an image of the component
+  tag: Core
 translationKey: "langtoggle"
 tags: ['langtoggleFR', 'usage']
 permalink: /fr/composants/bascule-de-la-langue/

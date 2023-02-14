@@ -1,13 +1,13 @@
 ---
-title: breadcrumbs - Components
+title: Breadcrumbs - Components
 layout: "layouts/component-documentation.njk"
 eleventyNavigation:
   key: breadcrumbsEN
   title: Breadcrumbs
   locale: en
   parent: componentsEN
-  otherNames:  Component
-  description: This is the component
+  otherNames: breadcrumb trail.
+  description: A path from each level of the site's hierarchy to the current page.
   thumbnail: /images/common/components/preview-breadcrumbs.svg
   alt: This is an image of the component
   tag: Core

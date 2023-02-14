@@ -12,12 +12,19 @@
     content: 'Image credit: John Lee, https://unsplash.com/photos/oMneOBYhJxY?utm_source=unsplash&utm_medium=referral&utm_content=creditShareLink';
   }
 
-  .bg-full-width {
+  .hero__content {
+    position: relative;
     width: 80%;
     max-width: 40.625rem;
 
-    &:after {
-      display: none;
+    &:before {
+      position: absolute;
+      top: 0;
+      left: calc(-100vw + 0.01px);
+      width: 100vw;
+      height: 100%;
+      content: '';
+      background-color: var(--gcds-color-blue-900);
     }
   }
 }

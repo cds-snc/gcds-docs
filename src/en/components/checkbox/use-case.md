@@ -6,8 +6,8 @@ eleventyNavigation:
   title: Checkbox
   locale: en
   parent: componentsEN
-  otherNames:  Checklist
-  description: A question where any available options can be selected.
+  otherNames: checklist.
+  description: An option or set of options where any of the available boxes can be selected.
   thumbnail: /images/common/components/preview-checkbox.svg
   alt: This is an image of the component
   state: published

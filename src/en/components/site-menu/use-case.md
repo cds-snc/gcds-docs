@@ -1,12 +1,12 @@
 ---
-title: site-menu - Components
+title: Site menu - Components
 layout: "layouts/component-documentation.njk"
 eleventyNavigation:
   key: sitemenuEN
   title: Site menu
   locale: en
   parent: componentsEN
-  otherNames:  Navigation, Nav, Menu
+  otherNames: navigation, nav, menu.
   description: A main navigation for a site or application.
   thumbnail: /images/common/components/preview-site-menu.svg
   alt: This is an image of the component

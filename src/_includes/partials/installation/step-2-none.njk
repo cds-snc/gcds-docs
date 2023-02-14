@@ -1,5 +1,11 @@
 <div id="step-2-none" class="py-550 step-2-content">
-  <h2 class="mb-400">2. Getting started</h2>
-  <p class="mb-400">Not seeing any environment that matches? Reach out to us and we'll help you get started.</p>
-  <gcds-button type="link" button-role="secondary" href="/en/contact/">Contact us</gcds-button>
+  <h2 class="mb-400">{{ installation[locale].step2.heading }}</h2>
+  <p class="mb-400">{{ installation[locale].step2.other.paragraph }}</p>
+  <gcds-button
+    type="link"
+    button-role="secondary"
+    href="{{ installation[locale].step2.other.link }}"
+  >
+    {{ installation[locale].step2.other.buttonText }}
+  </gcds-button>
 </div>

@@ -1,13 +1,13 @@
 ---
-title: verify-banner - Components
+title: Verify banner - Components
 layout: "layouts/component-documentation.njk"
 eleventyNavigation:
   key: verifybannerEN
   title: Verify banner
   locale: en
   parent: componentsEN
-  otherNames:  Component
-  description: This is the component
+  otherNames: component.
+  description: This is the component.
   thumbnail: /images/en/components/component.png
   alt: This is an image of the component
   tag: Experimental

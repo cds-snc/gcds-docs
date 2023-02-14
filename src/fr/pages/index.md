@@ -1,93 +1,79 @@
 ---
 title: Home
-layout: "layouts/base.njk"
+layout: "layouts/home.njk"
 permalink: /fr/
 translationKey: "index"
 date: "git Last Modified"
 ---
 
-<header class="welcome-banner">
+<h2 class="py-450">Bienvenue dans votre système de design</h2>
 
-BIENVENUE
-
-# Système de design du <br/> gouvernement du Canada
-
-Vers la création de services fédéraux modernes, accessibles et esthétiques
-</header>
-
-Le système de design réunit dans un même endroit les politiques fédérales, les bonnes pratiques de conception et le code réutilisable des composants. Tout pour permettre aux petites comme aux grandes équipes de concevoir des services réfléchis et accessibles.
-
-Notre équipe est composée de personnes du Service numérique canadien, du Bureau de la transformation numérique et du Bureau du dirigeant principal de l’information. Nous faisons aussi appel à des conseillers de l’Éditeur principal.
-
-Nous souhaitons travailler avec vous — vous qui faites partie d'équipes de produits numériques et Web de la fonction publique fédérale — pour créer des services centrés sur les personnes vivant au Canada. [Contactez-nous]({{ "/fr/contactez/" | url }}) pour nous parler de vos besoins et défis.
-
-<div class="quick-links-container">
-
-## Liens rapides
-
-Passez rapidement à un sujet pour en savoir plus.
-
-<br/>
-
-<gcds-grid class="quick-links" gap="spacing-400" grid-tag="ul" grid-template-columns="1fr" grid-template-columns-tablet="1fr 1fr">
-    <li>
-        <h4><a href="{{ "/fr/installation/" | url }}">Installation</a></h4>
-        <p>Commencez par l’installation de la bibliothèque de composants codifiés.</p>
+<article class="py-500 bg-dark bg-full-width">
+  <gcds-grid tag="ul" columns="1fr" columns-tablet="1fr 1fr" gap="450">
+    <li class="list-none md:mb-0 mb-500">
+      <img class="mb-400" src="../../images/common/home/icon-design.svg" alt="" />
+      <h3 class="mb-400">Concevoir des expériences</h3>
+      <p class="mb-400">Visitez notre bibliothèque Figma pour explorer nos ressources de conception.</p>
+      <a class="link-inherit" href="https://www.figma.com/file/mh2maMG2NBtk41k1O1UGHV/GC-Components-Main?node-id=4%3A1006&t=CVXODmuGNXkwGRmc-0" target="_blank">
+        Commencer à concevoir
+        <gcds-icon name="external-link" label="S'ouvre dans un nouvel onglet." margin-left="200" />
+      </a>
     </li>
-    <li>
-        <h4><a href="{{ "/fr/composants/" | url }}">Composants</a></h4>
-        <p>Parcourez les composants qui respectent les normes <a href="{{ "https://canada.ca/" | url }}" target="_blank">Canada.ca</a>.</p>
+    <li class="list-none">
+      <img class="mb-400" src="../../images/common/home/icon-develop.svg" alt="" />
+      <h3 class="mb-400">Développer des produits</h3>
+      <p class="mb-400">Installez l'ensemble de composants.</p>
+      <a class="link-inherit" href="/fr/installation/">Commencer à développer</a>
     </li>
-    <li>
-        <h4><a href="{{ "/fr/composants/formulaires/aide-a-la-conception-de-formulaires/" | url }}">Design de formulaires</a></h4>
-        <p>Aider les gens qui utilisent votre produit à atteindre leurs objectifs.</p>
+  </gcds-grid>
+</article>
+
+<article class="py-450">
+  <h2 class="mb-400">Un système de design rien que pour vous</h2>
+  <p class="mb-500">Explorez notre outil de conception. <a class="link-default" href="/fr/contactez/">Donnez-nous votre avis</a>.</p>
+  <gcds-grid tag="ul" columns="1fr" columns-tablet="1fr 1fr" columns-desktop="1fr 1fr 1fr" gap="450">
+    <li class="list-none">
+      <img class="mb-200" src="../../images/common/home/icon-components.svg" alt="" />
+      <h3 class="mb-400">Composants</h3>
+      <p class="mb-400">Les blocs de construction de l'interface utilisateur servent différents objectifs.</p>
+      <p class="mb-400">Sélectionnez du code réutilisable pour les composants courants et obtenez des conseils relatifs aux meilleures pratiques pour l'infrastructure que vous utilisez.</p>
+      <a class="link-default" href="/fr/composants/">Découvrez les composants</a>
     </li>
-    <li>
-        <h4><a href="{{ "/fr/bases/typographie/" | url }}">Typographie</a></h4>
-        <p>Apprenez-en davantage sur les jetons de conception de la typographie qui assurent une expérience visuelle uniforme d’un produit du GC Numérique à l’autre.</p>
+    <li class="list-none">
+      <img class="mb-200" src="../../images/common/home/icon-patterns.svg" alt="" />
+      <h3 class="mb-400">Configurations</h3>
+      <p class="mb-400">Des conseils pour associer les composants afin de résoudre un problème et d'améliorer votre service.</p>
+      <p class="mb-400">Commencez à concevoir des produits pour le GC et découvrez comment les mots et les interactions s'associent pour créer du sens.</p>
+      <p>Développement en cours</p>
     </li>
-</gcds-grid>
+    <li class="list-none">
+      <img class="mb-200" src="../../images/common/home/icon-tokens.svg" alt="" />
+      <h3 class="mb-400">Unités de style</h3>
+      <p class="mb-400">Des décisions en matière d'image de marque et de conception directement intégrées dans le code.</p>
+      <p class="mb-400">Découvrez comment les décisions encodées façonnent la conception des services offerts par le gouvernement du Canada et permettent d'offrir une expérience visuelle uniforme.</p>
+      <a class="link-default" href="/fr/bases/">Découvrez les unités de style</a>
+    </li>
+  </gcds-grid>
+</article>
 
-</div>
+<article class="py-500 bg-light bg-full-width">
+  <h2 class="mb-400">Nouveautés</h2>
+  <gcds-grid tag="ul" columns="1fr" columns-tablet="1fr 1fr" columns-desktop="1fr 1fr 1fr" gap="450">
+    <li class="list-none bg-white px-250 py-450 radius-xs">
+      <h3 class="mb-400"><a class="link-inherit" href="/fr/notes-de-publication/">Notes de publication</a></h3>
+      <p>Les derniers ajouts.</p>
+    </li>
+    <li class="list-none bg-white px-250 py-450 radius-xs">
+      <h3 class="mb-400"><a class="link-inherit" href="/fr/developpement-en-cours/">Prochainement</a></h3>
+      <p>Ce sur quoi nous travaillons.</p>
+    </li>
+  </gcds-grid>
+</article>
 
-### Créez des produits modernes rapidement et facilement
-
-Passez moins de temps à effectuer des tâches répétitives, et plus de temps à expédier un produit qui répond aux besoins de vos usagers.
-
-### Tirez profit d'un site Canada.ca accessible
-
-Développez des produits accessibles et intuitifs qui inspirent confiance. Vos usagers sentiront qu'ils sont au bon endroit pour obtenir l'aide dont ils ont besoin.
-
-<div class="features-container">
-    <h3>Fonctionnalités</h3>
-    <gcds-grid class="features" gap="spacing-500" grid-tag="ul" grid-template-columns="1fr" grid-template-columns-tablet="1fr 1fr">
-        <li>
-            <h4>Toute l’info sur les composants</h4>
-            <p>Ayez à votre disposition à la fois le code de <a href="{{ "/fr/composants/" | url }}">composants courants</a> et les bonnes pratiques à suivre pour concevoir selon la norme de Canada.ca.</p>
-        </li>
-        <li>
-            <h4>Décisions codifiées</h4>
-            <p>Observez facilement la marque et l'esthétique de Canada.ca grâce à des décisions sur la <a href="{{ "/fr/bases/typographie/" | url }}">typographie</a>, les couleurs et l'espacement déjà intégrées au code.</p>
-        </li>
-        <li>
-            <h4>Bibliothèque de composants</h4>
-            <p>Parcourez une <a href="{{ "/fr/composants/" | url }}">bibliothèque</a> contenant le code de composants Web accessibles et interopérables, à importer tels quels ou à modifier selon vos besoins.</p>
-        </li>
-        <li>
-            <h4>Ressources de design</h4>
-            <p>Jetez un coup d’oeil à notre <a href="{{ "https://www.figma.com/file/4KWj8wnnXoq6cA6yl0dnsR/GC-Components?node-id=4%3A1006" | url }}" target="_blank">bibliothèque de ressources</a> pour designers!</p>
-        </li>
-    </gcds-grid>
-</div>
-
-### Placez l'humain au centre de votre conception
-
-Concevez du contenu, des visuels et des interactions qui permettent aux usagers d'accomplir leur objectif grâce à des solutions toutes faites à des problèmes courants.
-
-### Développez votre savoir-faire avec la communauté
-
-Contribuez au système de design, et enrichissez ainsi les connaissances et ressources collectives. Nous travaillons sur une plateforme publique pour pouvoir apprendre les uns des autres.
-
-## Partez avec une longueur d’avance
-
-Nous avons rassemblé pour vous [les pratiques]({{ "/fr/composants/" | url }}) à suivre pour chacun des composants, donc vous serez déjà au fait des informations gouvernementales essentielles à connaître. Vous pouvez d’ores et déjà commencer à explorer la documentation du système de design.
+<article class="py-450">
+  <h2 class="mb-400">Composant vedette</h2>
+  <h3 class="mb-400">Jeu de champs</h3>
+  <p class="mb-450">Le jeu de champs permet aux utilisateur·rice·s de percevoir un groupe d'éléments de formulaire connexes. Les éléments ainsi groupés, soit de façon logique et accessible, sont plus faciles à utiliser et comprendre.</p>
+  <img class="mb-450" src="../../images/common/components/preview-fieldset.svg" alt="UI preview of fieldset component using an input and a select field." />
+  <a href="/fr/composants/jeu-de-champs/" class="d-block link-default">En savoir plus sur le jeu de champs</a>
+</article>

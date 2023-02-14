@@ -1,12 +1,12 @@
 ---
-title: Icône
+title: Icône - Composants
 layout: "layouts/component-documentation.njk"
 eleventyNavigation:
   key: iconFR
   title: Icône
   locale: fr
   parent: componentsFR
-  otherNames: glyphe, image, symbole
+  otherNames: glyphe, image, symbole.
   description: Un repère visuel pour aider les utilisateur·rice·s à comprendre le contexte.
   thumbnail: /images/common/components/preview-icons.svg
   alt: This is an image of the component

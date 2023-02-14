@@ -1,13 +1,13 @@
 ---
-title: radio - Composants
+title: Radio - Composants
 layout: "layouts/component-documentation.njk"
 eleventyNavigation:
   key: radioFR
-  title: radio
+  title: Radio
   locale: fr
   parent: componentsFR
-  otherNames:  Component
-  description: This is the component
+  otherNames: bouton radio, groupe radio.
+  description: Une courte liste d'options permettant une sélection unique.
   thumbnail: /images/common/components/preview-radio.svg
   alt: This is an image of the component
   state: published

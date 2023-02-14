@@ -1,12 +1,12 @@
 ---
-title: signature - Components
+title: Signature - Components
 layout: "layouts/component-documentation.njk"
 eleventyNavigation:
   key: signatureEN
   title: Signature
   locale: en
   parent: componentsEN
-  otherNames:  GC signature
+  otherNames: GC signature.
   description: A corporate identity marker for the Government of Canada.
   thumbnail: /images/common/components/preview-signature.svg
   alt: This is an image of the component

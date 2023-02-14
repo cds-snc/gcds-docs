@@ -1,12 +1,12 @@
 ---
-title: Chemin-de-navigation - Composants
+title: Chemin de navigation - Composants
 layout: "layouts/component-documentation.njk"
 eleventyNavigation:
   key: breadcrumbsFR
-  title: chemin-de-navigation
+  title: Chemin de navigation
   locale: fr
   parent: componentsFR
-  otherNames:  Component
+  otherNames: component.
   description: This is the component
   thumbnail: /images/fr/composants/component.png
   alt: This is an image of the component

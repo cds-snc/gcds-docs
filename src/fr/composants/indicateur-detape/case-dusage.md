@@ -1,14 +1,14 @@
 ---
-title: indicateur-detape - Composants
+title: Indicateur d'étape - Composants
 layout: "layouts/component-documentation.njk"
 eleventyNavigation:
   key: stepperFR
-  title: indicateur-detape
+  title: Indicateur d'étape
   locale: fr
   parent: componentsFR
-  otherNames:  Component
-  description: This is the component
-  thumbnail: /images/en/components/preview-stepper.svg
+  otherNames: indicateur de progrès, étapes.
+  description: Un suivi de l'avancement pour un processus en plusieurs étapes.
+  thumbnail: /images/fr/components/preview-stepper.svg
   alt: This is an image of the component
   state: published
 translationKey: "stepper"

@@ -1,12 +1,12 @@
 ---
-title: alert - Components
+title: Alert - Components
 layout: "layouts/component-documentation.njk"
 eleventyNavigation:
   key: alertEN
   title: Alert
   locale: en
   parent: componentsEN
-  otherNames:  Notification, Feedback
+  otherNames: notification, feedback.
   description: A message about an important and time-sensitive change.
   thumbnail: /images/common/components/preview-alert.svg
   alt: This is an image of the component
