@@ -1,92 +1,25 @@
 ---
 title: Installation
 translationKey: installation
-layout: "layouts/base.njk"
+layout: "layouts/installation.njk"
 eleventyNavigation:
-    key: installationFR
-    title: Installation
-    locale: fr
-    order: 0
-onThisPage:
-  0: Installer le paquet avec npm
-  1: Cadres d'application pris en charge
-  2: JavaScript
-  3: React
-  4: Vue
+  key: installationFR
+  title: Installation
+  locale: fr
+  order: 0
 date: "git Last Modified"
 ---
 
-# Installation
+# Installation de Système de design GC
 
-## Installer le paquet avec npm
+Apprenez à connaître Système de design GC : installez-le pour l’essayer.
 
-Naviguez au dossier racine de votre projet, puis exécutez la commande:
+<h2 class="container-md mt-500 mb-400">Incorporez l’image de marque du GC à votre produit du Service numérique canadien</h2>
 
-``` js
-npm install gcds-components
-```
+Système de design GC offre des composants de base pour les produits transactionnels et un langage commun pour les équipes de produit du Service numérique canadien et pour nos partenaires.
 
-## Installer le paquet avec CDN
-Insérez le code qui suit à l'intérieur de la balise `<head>` de votre site.<br/>
-Vous devriez maintenant pouvoir utiliser tous les composants de [gcds-components]({{ "/fr/composants/" | url }}) sur votre site.
+Nos composants sont conçus avec des unités de style conformes à l’image de marque du gouvernement du Canada pour vous aider à lancer des produits reconnaissables, prévisibles et accessibles.
 
-``` html
-<!-- Font Awesome -->
-<link href="https://unpkg.com/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+Les changements apportés à Système de design GC (SDGC) se font en une seule mise à jour qui comprend les unités de style, les composants et les modifications non destructrices aux unités de style existantes. Système de design GC est indépendant de la Boîte à outils de l’expérience Web (BOEW) et de GCWeb.
 
-<!-- GC Système de design -->
-<link rel="stylesheet" href="https://unpkg.com/gcds-components/dist/gcds/gcds.css">
-<script type="module" src="https://unpkg.com/gcds-components/dist/gcds/gcds.esm.js"></script>
-<script nomodule src="https://unpkg.com/gcds-components/dist/gcds/gcds.js"></script>
-```
-<small>Remarque : Il faut un serveur pour que &lt;script type="module"&gt; se charge correctement. Si vous développez localement, utilisez plutôt &lt;script nomodule&gt;.</small>
-
-## Cadres d'application pris en charge
-
-La bibliothèque [gcds-components]({{ "/fr/composants/" | url }}) fonctionne sous plusieurs cadres d'application.
-
-### JavaScript
-
-Insérez le code qui suit à l'intérieur de la balise `<head>` de votre site.<br/>
-Vous devriez maintenant pouvoir utiliser tous les composants de [gcds-components]({{ "/fr/composants/" | url }}) sur votre site.
-
-``` html
-<!-- Font Awesome -->
-<link href="https://unpkg.com/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-
-<!-- GC Système de design -->
-<link rel="stylesheet" href="/node_modules/gcds-components/dist/gcds/gcds.css">
-<script type="module" src="/components/dist/gcds/gcds.esm.js"></script>
-<script nomodule src="/components/dist/gcds/gcds.js"></script>
-```
-
-### React
-
-Insérez le code qui suit dans le fichier `index.js` de votre application.<br/>
-Vous devriez maintenant pouvoir utiliser tous les composants de [gcds-components]({{ "/fr/composants/" | url }}) dans votre application React.
-
-``` jsx
-import { applyPolyfills, defineCustomElements } from 'gcds-components/loader';
-import 'gcds-components/dist/gcds/gcds.css';
-
-ReactDOM.render(...);
-
-applyPolyfills().then(() => {
-  defineCustomElements(window);
-});
-
-```
-
-### Vue
-
-Insérez le code qui suit dans le fichier `main.js` de votre application.<br/>
-Vous devriez maintenant pouvoir utiliser tous les composants de [gcds-components]({{ "/fr/composants/" | url }}) dans votre application Vue.
-
-``` js
-import { applyPolyfills, defineCustomElements } from 'gcds-components/loader';
-import 'gcds-components/dist/gcds/gcds.css';
-
-applyPolyfills().then(() => {
-  defineCustomElements();
-});
-```
+Installez Système de design GC et essayez-le!
