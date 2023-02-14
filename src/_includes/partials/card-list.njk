@@ -8,7 +8,7 @@
   {% set columnsDesktop = "1fr 1fr" %}
 {% endif %}
 
-<div class="bg-light mb-500 p-400">
+<div class="bg-light my-500 p-400">
   <gcds-grid tag="ul" columns="1fr" columns-tablet="1fr 1fr" columns-desktop="{{ columnsDesktop }}" gap="400">
   {%- for entry in navPages %}
     {% if entry.state == cardlist.state %}

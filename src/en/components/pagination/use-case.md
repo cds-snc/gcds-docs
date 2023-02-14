@@ -7,7 +7,7 @@ eleventyNavigation:
   locale: en
   parent: componentsEN
   otherNames:  Page navigation
-  description: A navigation signpost for a series of non-process pages.
+  description: A page selector for a range of pages.
   thumbnail: /images/common/components/preview-pagination.svg
   alt: This is an image of the component
   state: coming-soon

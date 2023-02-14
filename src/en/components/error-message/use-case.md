@@ -10,6 +10,7 @@ eleventyNavigation:
   description: A description of a problem blocking a user goal.
   thumbnail: /images/common/components/preview-error-message.svg
   alt: This is an image of the component
+  state: published
 translationKey: "errormessage"
 tags: ['errormessageEN', 'usage']
 permalink: /en/components/error-message/

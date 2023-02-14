@@ -1,13 +1,13 @@
 ---
-title: zone-de-texte - Composants
+title: Zone de texte
 layout: "layouts/component-documentation.njk"
 eleventyNavigation:
   key: textareaFR
-  title: zone-de-texte
+  title: Zone de texte
   locale: fr
   parent: componentsFR
-  otherNames:  Component
-  description: This is the component
+  otherNames: champ de texte
+  description: Un espace où saisir des renseignements détaillés.
   thumbnail: /images/common/components/preview-textarea.svg
   alt: This is an image of the component
   state: published

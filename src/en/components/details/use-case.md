@@ -7,7 +7,7 @@ eleventyNavigation:
   locale: en
   parent: componentsEN
   otherNames:  Accordion, Collapse
-  description: An interactive toggle to hide and expose content.
+  description: An interactive switch to expand or collapse content.
   thumbnail: /images/common/components/preview-details.svg
   alt: This is an image of the component
   state: published

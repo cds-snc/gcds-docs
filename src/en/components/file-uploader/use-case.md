@@ -7,7 +7,7 @@ eleventyNavigation:
   locale: en
   parent: componentsEN
   otherNames:  File input, Dropzone
-  description: A file selector for upload.
+  description: A file selector for document transfer.
   thumbnail: /images/en/components/preview-file-uploader.svg
   alt: This is an image of the component
   state: coming-soon

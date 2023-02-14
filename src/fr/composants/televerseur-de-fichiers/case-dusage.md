@@ -7,8 +7,8 @@ eleventyNavigation:
   locale: fr
   parent: componentsFR
   otherNames: saisie de fichier, zone de dépôt
-  description: Un sélecteur de fichier en vue d’un téléversement.
-  thumbnail: /images/fr/components/preview-date-modified.svg
+  description: Un sélecteur de fichier pour le transfert de fichiers.
+  thumbnail: /images/fr/components/preview-file-uploader.svg
   alt: This is an image of the component
   state: coming-soon
 translationKey: "fileuploader"

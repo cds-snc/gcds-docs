@@ -7,7 +7,7 @@ eleventyNavigation:
   locale: en
   parent: componentsEN
   otherNames:  Radio button, Radio group
-  description: A question with a set of options for single selections.
+  description: A short set of options for single selection.
   thumbnail: /images/common/components/preview-radio.svg
   alt: This is an image of the component
   state: published

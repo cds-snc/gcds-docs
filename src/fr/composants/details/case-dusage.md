@@ -1,13 +1,13 @@
 ---
-title: details - Composants
+title: Détails
 layout: "layouts/component-documentation.njk"
 eleventyNavigation:
   key: detailsFR
-  title: details
+  title: Détails
   locale: fr
   parent: componentsFR
-  otherNames:  Component
-  description: This is the component
+  otherNames:  accordéon, développer/réduire
+  description: Une bascule interactive permettant de dissimuler ou d’afficher du contenu.
   thumbnail: /images/common/components/preview-details.svg
   alt: This is an image of the component
   state: published

@@ -7,7 +7,7 @@ eleventyNavigation:
   locale: en
   parent: componentsEN
   otherNames:  Form field
-  description: A group of multiple form components.
+  description: A group of multiple form elements.
   thumbnail: /images/common/components/preview-fieldset.svg
   alt: This is an image of the component
   state: published

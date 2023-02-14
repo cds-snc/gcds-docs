@@ -11,14 +11,14 @@ module.exports = {
     gotocomingsoonhref: "/en/coming-soon/"
   },
   fr: {
-    heading: "Vous cherchez un autre composant?",
+    heading: "À la recherche d'un autre composant?",
     coparagraph: "Rendez vous sur notre <a href=\"/fr/composants/\">page de composants</a>. S'il y manque un composant, écrivez nous pour nous faire savoir les composants que vous souhaitez voir dans le futur.",
     csparagraph: "Faites-nous part de vos commentaires pour l'amélioration de Système de design GC ou découvrez nos futures fonctionnalités.",
     feedback: "Fournir des commentaires",
     feedbackHref: "/fr/contactez/#contacteznous",
     gotocomponents: "Passer au survol des composants",
     gotocomponentshref: "/fr/composants/",
-    gotocomingsoon: "Découvrir les prochaines nouveautés",
+    gotocomingsoon: "Composants en développement",
     gotocomingsoonhref: "/fr/developpement-en-cours/"
   }
 }

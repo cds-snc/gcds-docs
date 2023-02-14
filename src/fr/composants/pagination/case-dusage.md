@@ -7,7 +7,7 @@ eleventyNavigation:
   locale: fr
   parent: componentsFR
   otherNames:  navigation entre les pages
-  description: Un indicateur de navigation pour une série de pages sans processus.
+  description: Un sélecteur de page pour naviguer dans une série de page.
   thumbnail: /images/common/components/preview-pagination.svg
   alt: This is an image of the component
   state: coming-soon

@@ -1,13 +1,13 @@
 ---
-title: jeu-de-champs - Composants
+title: Jeu de champs
 layout: "layouts/component-documentation.njk"
 eleventyNavigation:
   key: fieldsetFR
-  title: jeu-de-champs
+  title: Jeu de champs
   locale: fr
   parent: componentsFR
-  otherNames:  Component
-  description: This is the component
+  otherNames: champ de formulaire
+  description: Un groupe de plusieurs éléments de formulaire.
   thumbnail: /images/common/components/preview-fieldset.svg
   alt: This is an image of the component
   state: published

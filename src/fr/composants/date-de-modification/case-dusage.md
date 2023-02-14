@@ -6,8 +6,8 @@ eleventyNavigation:
   title: Date de modification
   locale: fr
   parent: componentsFR
-  otherNames:  Component
-  description: This is the component
+  otherNames:  dernière mise à jour, version
+  description: Horodatage de la dernière mise à jour d’une page.
   thumbnail: /images/common/components/preview-date-modified.svg
   alt: This is an image of the component
   state: coming-soon
