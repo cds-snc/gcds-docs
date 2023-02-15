@@ -4,7 +4,7 @@ module.exports = {
         url: "/en"
     },
     fr: {
-        title: "Système de design",
+        title: "Système de design GC",
         url: "/fr"
     }
 }

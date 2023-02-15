@@ -1,14 +1,16 @@
 ---
+title: Site menu
 layout: "layouts/base.njk"
-github: https://github.com/cds-snc/gcds-components/tree/main/src/components/gcds-site-menu
-figma: https://www.figma.com/community/file/1128687821123298228
+github: https://github.com/cds-snc/gcds-components/tree/main/packages/web/src/components/gcds-site-menu
 permalink: false
 tags: ['sitemenuEN', 'header']
 ---
 
-# site-menu
+# Site menu <br>&lt;gcds-site-menu&gt;
 
-This element will have the content below it
+This component is coming soon.
 
 {% docLinks locale stage figma github %}
 {% enddocLinks %}
+
+<br/>

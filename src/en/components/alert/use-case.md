@@ -1,5 +1,5 @@
 ---
-title: Alert - Components
+title: Alert
 layout: "layouts/component-documentation.njk"
 eleventyNavigation:
   key: alertEN

@@ -1,5 +1,5 @@
 ---
-title: Footer - Components
+title: Footer
 layout: "layouts/component-documentation.njk"
 eleventyNavigation:
   key: footerEN
@@ -18,4 +18,20 @@ permalink: /en/components/footer/
 date: "git Last Modified"
 ---
 
-## Usage
+Take a look at what problems the footer solves to see if they fit the problem you’re solving for.
+
+## Problems footers solve
+
+Use this footer landmark  – as part of a trusted brand – for apps, forms, or other transactional digital services to communicate:
+
+- The end of a product or site page.
+- A Government of Canada digital service or product offering a broad range of services and information.
+- The Government of Canada identity through the wordmark.
+
+<article class="bg-full-width bg-dark text-light py-500 my-500">
+  <h2 class="mt-0 mb-400">Related components</h2>
+
+  <a href="/en/components/header" class="link-light">Header</a> for placing the Government of Canada branded header landmark.
+
+  Site menu for guiding navigation through an application or site using a navigation landmark.
+</article>

@@ -1,5 +1,5 @@
 ---
-title: File uploader - Components
+title: File uploader
 layout: "layouts/component-documentation.njk"
 eleventyNavigation:
   key: fileuploaderEN

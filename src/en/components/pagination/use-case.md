@@ -1,5 +1,5 @@
 ---
-title: Pagination - Components
+title: Pagination
 layout: "layouts/component-documentation.njk"
 eleventyNavigation:
   key: paginationEN

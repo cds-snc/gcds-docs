@@ -1,5 +1,5 @@
 ---
-title: Grid - Components
+title: Grid
 layout: "layouts/component-documentation.njk"
 eleventyNavigation:
   key: gridEN

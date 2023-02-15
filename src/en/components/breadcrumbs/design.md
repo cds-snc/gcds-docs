@@ -1,5 +1,5 @@
 ---
-title: breadcrumbs - Components
+title: Breadcrumbs
 layout: "layouts/component-documentation.njk"
 translationKey: "breadcrumbsDesign"
 tags: ['breadcrumbsEN', 'design']

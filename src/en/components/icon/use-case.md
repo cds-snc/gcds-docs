@@ -1,5 +1,5 @@
 ---
-title: Icon - Components
+title: Icon
 layout: "layouts/component-documentation.njk"
 eleventyNavigation:
   key: iconEN

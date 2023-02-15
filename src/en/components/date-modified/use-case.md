@@ -1,5 +1,5 @@
 ---
-title: Date modified - Components
+title: Date modified
 layout: "layouts/component-documentation.njk"
 eleventyNavigation:
   key: datemodifiedEN

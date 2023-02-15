@@ -1,5 +1,5 @@
 ---
-title: Language toggle - Components
+title: Language toggle
 layout: "layouts/component-documentation.njk"
 eleventyNavigation:
   key: langtoggleEN
