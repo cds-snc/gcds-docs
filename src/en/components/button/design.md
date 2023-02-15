@@ -12,7 +12,7 @@ date: "git Last Modified"
 - **The icon** is optional and can be a helpful visual aid when used sparingly and predictably. When there's an icon, align button text to the left.  Avoid using an icon without text.
 - **The container** can be omitted for styling a button as a link.
 
-<img class="b-sm b-gray mt-400" src="/images/en/anatomy/gcds-button-anatomy.svg" alt=""/>
+<img class="b-sm b-gray mt-400 p-400" src="/images/en/anatomy/gcds-button-anatomy.svg" alt=""/>
 
 ## Accessibility and design for buttons
 

@@ -1,12 +1,12 @@
 ---
-title: Checkbox anatomy
+title: Checkbox
 layout: "layouts/component-documentation.njk"
 translationKey: "checkboxDesign"
 tags: ['checkboxEN', 'design']
 date: "git Last Modified"
 ---
 
-## {{ title }}
+## Checkbox anatomy
 
 - **The legend** acts as a heading to identify the grouped checkboxes
 - **The hint text** gives a person additional information about the checkbox grouping.
@@ -14,9 +14,9 @@ date: "git Last Modified"
 - **The checkbox label** states the choice the checkbox represents.
 - **The checkbox hint** gives users additional information about the choice.
 
-<img class="b-sm text-secondary mt-400" src="/images/en/components/gcds-checkbox-anatomy.svg" alt=""/>
+<img class="b-sm b-gray mt-400 p-400" src="/images/en/anatomy/gcds-checkbox-anatomy.svg" alt=""/>
 
-## Accesibility and design for checkboxes
+## Accessibility and design for checkboxes
 
 ### Make checkboxes visible and options clear
 
