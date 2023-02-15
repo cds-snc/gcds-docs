@@ -1,5 +1,5 @@
 ---
-title: banniere-didentification - Composants
+title: Banniere didentification
 layout: "layouts/component-documentation.njk"
 translationKey: "verifybannerCode"
 tags: ['verifybannerFR', 'code']

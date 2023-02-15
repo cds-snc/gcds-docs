@@ -1,5 +1,5 @@
 ---
-title: Menu du site - Composants
+title: Menu du site
 layout: "layouts/component-documentation.njk"
 eleventyNavigation:
   key: sitemenuFR

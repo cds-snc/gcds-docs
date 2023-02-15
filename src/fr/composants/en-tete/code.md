@@ -1,5 +1,5 @@
 ---
-title: en-tete - Composants
+title: En-tête
 layout: "layouts/component-documentation.njk"
 translationKey: "headerCode"
 tags: ['headerFR', 'code']

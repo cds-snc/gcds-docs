@@ -23,8 +23,8 @@ Take a look at what text areas do to see if they fit the problem you're solving 
 
 Use a text area to collect multi-line information when you're expecting a person will write:
 
-- an individual or unique response.
-- to provide space for a long, freeform response.
+- An individual or unique response.
+- To provide space for a long, freeform response.
 
 Note: Only collect information you're authorized to handle and be sure to safeguard it to Government of Canada standards.
 

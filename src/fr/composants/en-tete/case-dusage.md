@@ -1,5 +1,5 @@
 ---
-title: En-tête - Composants
+title: En-tête
 layout: "layouts/component-documentation.njk"
 eleventyNavigation:
   key: headerFR

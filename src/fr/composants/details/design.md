@@ -1,5 +1,5 @@
 ---
-title: details - Composants
+title: Détails
 layout: "layouts/component-documentation.njk"
 translationKey: "detailsDesign"
 tags: ['detailsFR', 'design']

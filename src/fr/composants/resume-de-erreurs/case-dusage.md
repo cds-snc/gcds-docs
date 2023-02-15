@@ -1,5 +1,5 @@
 ---
-title: Résumé des erreurs - Composants
+title: Résumé des erreurs
 layout: "layouts/component-documentation.njk"
 eleventyNavigation:
   key: errorsummaryFR

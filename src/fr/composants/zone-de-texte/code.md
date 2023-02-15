@@ -1,5 +1,5 @@
 ---
-title: zone-de-texte - Composants
+title: Zone de texte
 layout: "layouts/component-documentation.njk"
 translationKey: "textareaCode"
 tags: ['textareaFR', 'code']

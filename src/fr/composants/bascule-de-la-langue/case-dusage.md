@@ -1,5 +1,5 @@
 ---
-title: Bascule de la langue - Composants
+title: Bascule de la langue
 layout: "layouts/component-documentation.njk"
 eleventyNavigation:
   key: langtoggleFR

@@ -1,5 +1,5 @@
 ---
-title: televerseur-de-fichiers - Composants
+title: Téléverseur de fichiers
 layout: "layouts/component-documentation.njk"
 translationKey: "fileuploaderDesign"
 tags: ['fileuploaderFR', 'design']

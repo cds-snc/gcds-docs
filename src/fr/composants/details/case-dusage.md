@@ -1,5 +1,5 @@
 ---
-title: Détails - Composants
+title: Détails
 layout: "layouts/component-documentation.njk"
 eleventyNavigation:
   key: detailsFR

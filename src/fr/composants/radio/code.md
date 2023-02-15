@@ -1,5 +1,5 @@
 ---
-title: radio - Composants
+title: Radio
 layout: "layouts/component-documentation.njk"
 translationKey: "radioCode"
 tags: ['radioFR', 'code']

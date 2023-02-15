@@ -1,5 +1,5 @@
 ---
-title: Banniere didentification - Composants
+title: Banniere didentification
 layout: "layouts/component-documentation.njk"
 eleventyNavigation:
   key: verifybannerFR

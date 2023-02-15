@@ -1,5 +1,5 @@
 ---
-title: Chemin-de-navigation - Composants
+title: Chemin de navigation
 layout: "layouts/component-documentation.njk"
 translationKey: "breadcrumbsCode"
 tags: ['breadcrumbsFR', 'code']

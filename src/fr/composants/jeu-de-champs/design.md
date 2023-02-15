@@ -1,5 +1,5 @@
 ---
-title: jeu-de-champs - Composants
+title: Jeu de champs
 layout: "layouts/component-documentation.njk"
 translationKey: "fieldsetDesign"
 tags: ['fieldsetFR', 'design']

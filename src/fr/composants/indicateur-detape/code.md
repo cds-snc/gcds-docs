@@ -1,5 +1,5 @@
 ---
-title: indicateur-detape - Composants
+title: Indicateur d'étape
 layout: "layouts/component-documentation.njk"
 translationKey: "stepperCode"
 tags: ['stepperFR', 'code']

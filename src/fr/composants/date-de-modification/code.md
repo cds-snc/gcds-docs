@@ -1,5 +1,5 @@
 ---
-title: date-de-modification - Composants
+title: Date de modification
 layout: "layouts/component-documentation.njk"
 translationKey: "datemodifiedCode"
 tags: ['datemodifiedFR', 'code']
