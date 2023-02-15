@@ -1,5 +1,5 @@
 ---
-title: Error message - Components
+title: Error message
 layout: "layouts/component-documentation.njk"
 eleventyNavigation:
   key: errormessageEN
@@ -17,4 +17,22 @@ permalink: /en/components/error-message/
 date: "git Last Modified"
 ---
 
-## Usage
+Take a look at what problems error messages solve to see if they fit the problem you’re solving for.
+
+## Problems error messages solve
+
+All GC Design System components come with default error handling for required form components.
+
+Use an error message for your components when you need to interrupt a flow because of a problem where:
+
+- A person needs to fix something before they can either continue an action or move on to the next task.
+- A form component is required.
+- You need to specify an incorrect response type or format and let a person know exactly what to do to fix the problem and move on.
+
+<article class="bg-full-width bg-dark text-light py-500 my-500">
+  <h2 class="mt-0 mb-400">Related components</h2>
+
+  Error summary for listing any problems to address to be able to submit a response.
+
+  Alert for communicating an issue where a person may not need to take corrective action.
+</article>
