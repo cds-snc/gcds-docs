@@ -1,5 +1,5 @@
 ---
-title: Signature - Components
+title: Signature
 layout: "layouts/component-documentation.njk"
 eleventyNavigation:
   key: signatureEN

@@ -1,5 +1,5 @@
 ---
-title: grid - Components
+title: Grid
 layout: "layouts/component-documentation.njk"
 translationKey: "gridDesign"
 tags: ['gridEN', 'design']

@@ -1,5 +1,5 @@
 ---
-title: Verify banner - Components
+title: Verify banner
 layout: "layouts/component-documentation.njk"
 eleventyNavigation:
   key: verifybannerEN

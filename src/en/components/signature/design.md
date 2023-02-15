@@ -1,5 +1,5 @@
 ---
-title: signature - Components
+title: Signature
 layout: "layouts/component-documentation.njk"
 translationKey: "signatureDesign"
 tags: ['signatureEN', 'design']

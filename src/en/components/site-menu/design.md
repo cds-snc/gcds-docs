@@ -1,5 +1,5 @@
 ---
-title: site-menu - Components
+title: Site menu
 layout: "layouts/component-documentation.njk"
 translationKey: "sitemenuDesign"
 tags: ['sitemenuEN', 'design']

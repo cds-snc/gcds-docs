@@ -1,14 +1,16 @@
 ---
+title: Grid
 layout: "layouts/base.njk"
-github: https://github.com/cds-snc/gcds-components/tree/main/src/components/gcds-grid
-figma: https://www.figma.com/community/file/1128687821123298228
+github: https://github.com/cds-snc/gcds-components/tree/main/packages/web/src/components/gcds-grid
 permalink: false
 tags: ['gridEN', 'header']
 ---
 
-# grid
+# Grid <br>&lt;gcds-grid&gt;
 
-This element will have the content below it
+This component is coming soon.
 
 {% docLinks locale stage figma github %}
 {% enddocLinks %}
+
+<br/>

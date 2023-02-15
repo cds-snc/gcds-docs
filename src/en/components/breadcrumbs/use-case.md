@@ -1,5 +1,5 @@
 ---
-title: Breadcrumbs - Components
+title: Breadcrumbs
 layout: "layouts/component-documentation.njk"
 eleventyNavigation:
   key: breadcrumbsEN

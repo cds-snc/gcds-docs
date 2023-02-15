@@ -1,5 +1,5 @@
 ---
-title: verify-banner - Components
+title: Verify banner
 layout: "layouts/component-documentation.njk"
 translationKey: "verifybannerDesign"
 tags: ['verifybannerEN', 'design']
