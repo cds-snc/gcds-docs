@@ -1,5 +1,5 @@
 ---
-title: pied-de-page - Composants
+title: Pied de page
 layout: "layouts/component-documentation.njk"
 translationKey: "footerDesign"
 tags: ['footerFR', 'design']

@@ -1,5 +1,5 @@
 ---
-title: Téléverseur de fichiers - Composants
+title: Téléverseur de fichiers
 layout: "layouts/component-documentation.njk"
 eleventyNavigation:
   key: fileuploaderFR

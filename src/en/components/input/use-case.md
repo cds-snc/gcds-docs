@@ -23,11 +23,11 @@ Take a look at what inputs do to see if they fit the problem you're solving for.
 
 Use an input to gather single-line information from a person when you're expecting a person will write:
 
-- an individual or unique response.
-- a short freeform response.
-- a response that needs constraints around text length or the format of the response.
-- essential identifying or contact information.
-- a date they already know, like a date of birth (for selection of an unknown date, use a date picker).
+- An individual or unique response.
+- A short freeform response.
+- A response that needs constraints around text length or the format of the response.
+- Essential identifying or contact information.
+- A date they already know, like a date of birth (for selection of an unknown date, use a date picker).
 
 Note: Only collect information you're authorized to handle and be sure to safeguard it to Government of Canada standards.
 
@@ -64,14 +64,14 @@ Tip:  Communicate any password constraints in the hint text for the input so the
 
 ### Number input
 
-- To reject values that are not numerical.
+To reject values that are not numerical.
 
 Tip: When you set a constraint, like a numerical range, use hint text to relay a precise instruction.
 
 ### Search input
 
-- To collect search queries.
+To collect search queries.
 
 ### URL input
 
-- To collect a URL, like a web address or domain name.
+To collect a URL, like a web address or domain name.

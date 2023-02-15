@@ -1,5 +1,5 @@
 ---
-title: Radio - Composants
+title: Radio
 layout: "layouts/component-documentation.njk"
 eleventyNavigation:
   key: radioFR

@@ -1,5 +1,5 @@
 ---
-title: grille - Composants
+title: Grille
 layout: "layouts/component-documentation.njk"
 translationKey: "gridCode"
 tags: ['gridFR', 'code']

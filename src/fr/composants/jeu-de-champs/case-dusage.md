@@ -1,5 +1,5 @@
 ---
-title: Jeu de champs - Composants
+title: Jeu de champs
 layout: "layouts/component-documentation.njk"
 eleventyNavigation:
   key: fieldsetFR

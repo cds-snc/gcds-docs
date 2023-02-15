@@ -1,5 +1,5 @@
 ---
-title: icone - Composants
+title: Icône
 layout: "layouts/component-documentation.njk"
 translationKey: "iconDesign"
 tags: ['iconFR', 'design']

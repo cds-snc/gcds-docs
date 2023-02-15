@@ -1,5 +1,5 @@
 ---
-title: selection - Composants
+title: Sélection
 layout: "layouts/component-documentation.njk"
 translationKey: "selectDesign"
 tags: ['selectFR', 'design']

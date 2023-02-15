@@ -1,5 +1,5 @@
 ---
-title: Case-a-cocher - Composants
+title: Case à cocher
 layout: "layouts/component-documentation.njk"
 translationKey: "checkboxCode"
 tags: ['checkboxFR', 'code']

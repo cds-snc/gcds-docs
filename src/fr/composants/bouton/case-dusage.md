@@ -1,5 +1,5 @@
 ---
-title: Bouton - Composants
+title: Bouton
 layout: "layouts/component-documentation.njk"
 eleventyNavigation:
   key: buttonFR

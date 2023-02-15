@@ -1,5 +1,5 @@
 ---
-title: Grille - Composants
+title: Grille
 layout: "layouts/component-documentation.njk"
 eleventyNavigation:
   key: gridFR

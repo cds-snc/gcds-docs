@@ -1,5 +1,5 @@
 ---
-title: Case à cocher - Composants
+title: Case à cocher
 layout: "layouts/component-documentation.njk"
 eleventyNavigation:
   key: checkboxFR

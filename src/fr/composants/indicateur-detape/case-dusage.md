@@ -1,5 +1,5 @@
 ---
-title: Indicateur d'étape - Composants
+title: Indicateur d'étape
 layout: "layouts/component-documentation.njk"
 eleventyNavigation:
   key: stepperFR

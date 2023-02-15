@@ -1,5 +1,5 @@
 ---
-title: Sélection - Composants
+title: Sélection
 layout: "layouts/component-documentation.njk"
 eleventyNavigation:
   key: selectFR
