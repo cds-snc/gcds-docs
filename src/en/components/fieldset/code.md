@@ -6,7 +6,7 @@ tags: ['fieldsetEN', 'code']
 date: "git Last Modified"
 ---
 
-## Build a fieldset component
+## Build a fieldset
 
 Use a fieldset to group together related form elements or components and make these groups perceivable. Also use them for components with multiple options, like radios and checkboxes.
 
