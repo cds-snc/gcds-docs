@@ -11,7 +11,7 @@ module.exports = {
           success: "Success alert",
           warning: "Warning alert",
         },
-        text: "Example content"
+        text: "Example content",
       }
     },
     breadcrumbs: {
@@ -19,7 +19,7 @@ module.exports = {
       content: {
         gc: "GC Design System",
         components: "Component",
-        componentsLink: "/en/components"
+        componentsLink: "/en/components",
       },
     },
     buttons: {
@@ -30,30 +30,42 @@ module.exports = {
         danger: "Danger",
         skipToContent: "Skip to content",
         link: "Link",
-        linkExternal: "External link"
+        linkExternal: "External link",
       }
+    },
+    dateModified: {
+      heading: "Date modified",
     },
     details: {
       heading: "Details",
       content: {
         heading: "Find out more",
-        text: "Details about stuff."
+        text: "Details about stuff.",
       }
+    },
+    footer: {
+      heading: "Footer",
+      content: {
+        contextualHeading: "Additional content",
+        contextualLink1: "Footer link 1",
+        contextualLink2: "Footer link 2",
+        contextualLink3: "Footer link 3",
+      },
     },
     form: {
       heading: "Form Elements (including stepper)",
       content: {
         input: {
           label: "Name",
-          hint: "Please enter your full name."
+          hint: "Please enter your full name.",
         },
         inputNumber: {
           label: "Phone number",
-          hint: "Please enter a 10 digits number."
+          hint: "Please enter a 10 digits number.",
         },
         textarea: {
           label: "Message",
-          hint: "This is a hint."
+          hint: "This is a hint.",
         },
         checkbox: {
           label: "Do you like pizza?",
@@ -61,15 +73,15 @@ module.exports = {
         },
         fieldset: {
           legend: "Radio button group",
-          hint: "They are in a fieldset."
+          hint: "They are in a fieldset.",
         },
         radio1: {
           label: "Radio 1 label",
-          hint: "This is a hint."
+          hint: "This is a hint.",
         },
         radio2: {
           label: "Radio 2 label",
-          hint: "This is a hint."
+          hint: "This is a hint.",
         },
         select: {
           label: "Animal",
@@ -78,42 +90,55 @@ module.exports = {
           defaultValue: "Please select an option.",
           option1: "Option 1.",
           option2: "Option 2.",
-          option3: "Option 3."
+          option3: "Option 3.",
         },
         fileUploader: {
           label: "Upload",
-          hint: "You can upload multiple files, but they have to be png's."
+          hint: "You can upload multiple files, but they have to be png's.",
         }
       }
     },
     grid: {
       heading: "Grid",
       content: {
-        text: "This is some example content to display the grid component."
+        text: "This is some example content to display the grid component.",
+      }
+    },
+    header: {
+      heading: "Header",
+      content: {
+        lang: "en",
+        logo: "GC Design system",
+        link: "Site menu link",
+        breadcrumb: "Home",
       }
     },
     icons: {
       heading: "Icons",
       content: {
         fixed: "Fixed width icons. Square ratio.",
-        variable: "Variable width icons. Auto width."
+        variable: "Variable width icons. Auto width.",
       }
     },
     pagination: {
       heading: "Pagination",
       content: {
         list: "List pagination:",
-        simple: "Simple pagination:"
+        simple: "Simple pagination:",
       }
     },
     phaseBanner: {
       heading: "Phase banner",
       content: {
-        text: "Exciting announcement."
+        text: "Exciting announcement.",
       }
     },
-    dateModified: {
-      heading: "Date modified"
+    siteMenu: {
+      heading: "Site menu",
+      content: {
+        logo: "GC Design system",
+        link: "Site menu link",
+      }
     },
   },
   fr: {
