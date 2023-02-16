@@ -15,7 +15,7 @@ A radio is a set of options for a single selection.
 {% docLinks locale stage figma github %}
 {% enddocLinks %}
 
-<div class="b-sm b-gray px-250 py-400 my-500">
+<div class="b-sm b-gray px-250 pb-200 my-500">
   <gcds-radio
     radio-id="form-radio"
     label="Radio option"

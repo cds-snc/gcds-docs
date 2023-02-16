@@ -15,7 +15,7 @@ An input is a space to enter short-form information in response to a question or
 {% docLinks locale stage figma github %}
 {% enddocLinks %}
 
-<div class="b-sm b-gray px-250 py-400 my-500">
+<div class="b-sm b-gray px-250 pt-400 my-500">
   <gcds-input
     input-id="input-example"
     label="Input label"

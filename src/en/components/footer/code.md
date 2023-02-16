@@ -16,20 +16,17 @@ Use the Government of Canada branded footer landmark for a consistent, accessibl
 
 Use the display property to choose one of the two display modes: compact or full.
 
-Choose the compact display to include:
-the footer links band and the Government of Canada wordmark.
+Choose the **compact display** to include:
+1. The footer links band and the Government of Canada wordmark.
 
-[ADD Footer compact- example]
+<img class="b-sm b-gray mt-400 mb-500 p-400" src="/images/en/components/example-footer-compact.svg" alt=""/>
 
-Include the full display if you need to include:
-the main band with a large selection of Government of Canada corporate links.
-the footer links band and the Government of Canada wordmark.
+Choose the **full display** if you need to include:
+1. The main band with a large selection of Government of Canada corporate links.
+2. The footer links band and the Government of Canada wordmark.
+3. Opt to include the contextual band to add up three footer links for your product.
 
-[ADD Footer compact- example]
-
-Opt to include the contextual band to add up three footer links for your product.
-
-[ADD Footer full- example]
+<img class="b-sm b-gray mt-400 mb-500 p-400" src="/images/en/components/example-footer-all.svg" alt=""/>
 
 ### Include the footer links band for Government of Canada sites and products
 

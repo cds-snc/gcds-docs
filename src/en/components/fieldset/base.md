@@ -15,7 +15,7 @@ A fieldset is a group of multiple form components or elements.
 {% docLinks locale stage figma github %}
 {% enddocLinks %}
 
-<div class="b-sm b-gray px-250 py-400 my-500">
+<div class="b-sm b-gray px-250 pt-400 my-500">
   <gcds-fieldset
     fieldset-id="fieldset"
     legend="Fieldset legend"

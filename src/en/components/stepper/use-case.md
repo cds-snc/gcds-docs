@@ -27,7 +27,7 @@ Use a stepper for a logical sequence split over three or more pages to:
 - Make the structure of a path clear by showing the total number of steps.
 - Providing a landmark so a person can get situated and track their progress.
 
-<article class="bg-full-width bg-dark text-light py-500 my-500">
+<article class="bg-full-width bg-dark text-light pt-500 pb-400 my-500">
   <h2 class="mt-0 mb-400">Related components</h2>
 
   Pagination when a user needs to navigate a range of pages that are not part of a multi-step process. It provides controls to select the next or previous page.

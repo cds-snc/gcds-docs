@@ -27,7 +27,7 @@ Use a checkbox to ask a question when you are expecting the user to select more 
 - Let a person choose one or several answers from a contained list by checking off the right ones.
 - Give a person the ability to answer without writing by selecting one or multiple items from a list.
 
-<article class="bg-full-width bg-dark text-light py-500 my-500">
+<article class="bg-full-width bg-dark text-light pt-500 pb-400 my-500">
   <h2 class="mt-0 mb-400">Related components</h2>
 
   <a href="/en/components/radio" class="link-light">Radios</a> to give a single option from a larger set of options.

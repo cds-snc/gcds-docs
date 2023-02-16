@@ -28,7 +28,7 @@ Use this footer landmark  – as part of a trusted brand – for apps, forms, or
 - A Government of Canada digital service or product offering a broad range of services and information.
 - The Government of Canada identity through the wordmark.
 
-<article class="bg-full-width bg-dark text-light py-500 my-500">
+<article class="bg-full-width bg-dark text-light pt-500 pb-400 my-500">
   <h2 class="mt-0 mb-400">Related components</h2>
 
   <a href="/en/components/header" class="link-light">Header</a> for placing the Government of Canada branded header landmark.
