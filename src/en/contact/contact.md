@@ -15,7 +15,7 @@ date: "git Last Modified"
 
 <h2 class="container-md mt-500 mb-400">Build modern, accessible, human government services people can use</h2>
 
-GC Design System pairs code with designs and guidance based on federal standards and accessibility best practice. [Reusable components](/en/components/) and [styles](/en/foundations/) help you to build forms, websites, and applications.
+GC Design System pairs code with designs and guidance based on federal standards and accessibility best practice. Reusable [components](/en/components/) and [styles](/en/foundations/) help you to build forms, websites, and applications.
 
 This is a design system for the Canadian Digital Service built by a small team of public servants. We believe modern, efficient design and development can improve the quality of people’s experiences with government services. We hope to raise the bar for consistent, inclusive user interfaces across digital products.
 

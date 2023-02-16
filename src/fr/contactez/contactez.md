@@ -15,7 +15,7 @@ date: "git Last Modified"
 
 <h2 class="container-md mt-500 mb-400">Créez de services gouvernementaux modernes, accessibles et humains destinés au public.</h2>
 
-Système de design GC associe code, modèles et conseils basés sur les normes fédérales et sur les meilleures pratiques en matière d’accessibilité. Composants et styles réutilisables vous permettent de créer des formulaires, des sites et des applications.
+Système de design GC associe code, modèles et conseils basés sur les normes fédérales et sur les meilleures pratiques en matière d’accessibilité. [Composants](/fr/composants/) et [styles](/fr/bases/) réutilisables vous permettent de créer des formulaires, des sites et des applications.
 
 Ce système de design a été conçu pour le Service numérique canadien par une petite équipe de fonctionnaires. Nous croyons qu’une approche de design et de développement moderne et efficace peut améliorer la qualité de l’expérience utilisateur pour les gens qui utilisent les services gouvernementaux. Nous cherchons à monter la barre en matière d’uniformité et d’accessibilité des interfaces utilisateur pour tout produit numérique. Système de design GC s’adapte à votre environnement de travail. Vous obtiendrez les mêmes configurations et styles, quels que soient le produit et le navigateur, et ce, sans avoir à écrire de code ni à redéfinir de valeurs. Vous pouvez l’utiliser indépendamment de Web GC et de la Boîte à outils de l’expérience Web (BOEW).
 
