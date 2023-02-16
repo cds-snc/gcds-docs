@@ -8,11 +8,13 @@ date: "git Last Modified"
 
 ## Text area anatomy
 
-- **The label** states the information the user should enter in the field. Label text is left aligned and in sentence case (only the initial letter is capitalized).
-- **The hint text** communicates specific requirements for each input to support task success.
-- **The field** is the container the user interacts with to provide their response.
+**The label** states the information the user should enter in the field. Label text is left aligned and in sentence case (only the initial letter is capitalized).
 
-<img class="b-sm b-gray mt-400 p-400" src="/images/en/anatomy/gcds-textarea-anatomy.svg" alt=""/>
+**The hint text** communicates specific requirements for each input to support task success.
+
+**The field** is the container the user interacts with to provide their response.
+
+<img class="b-sm b-gray p-400" src="/images/en/anatomy/gcds-textarea-anatomy.svg" alt=""/>
 
 ## Accessibility and design for text areas
 
@@ -20,9 +22,9 @@ date: "git Last Modified"
 
 - Ask only for the information you need using as few words as possible. Phrasing as a question can make a label unnecessarily long.
 - Choose unique labels for each text area and input within a page. A person browsing fields will hear the label text in rapid succession without cues to tell which label is for which context.
-- Avoid using technical jargon, like “subject email address” or “account ID”. Instead be specific and personal, “full name”, “child’s age”.
+- Avoid using technical jargon, like "subject email address" or "account ID". Instead be specific and personal, "full name", "child’s age".
 - Avoid using colloquialisms and common verb phrases that are unfamiliar to non-fluent speakers.
-- Explain any term that may not be clear. For example, “Bio (tell us a bit about your background).
+- Explain any term that may not be clear. For example, "Bio (tell us a bit about your background).
 
 ### Support task success for text areas with hint text
 

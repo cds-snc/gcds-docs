@@ -8,13 +8,17 @@ date: "git Last Modified"
 
 ## Checkbox anatomy
 
-- **The legend** acts as a heading to identify the grouped checkboxes
-- **The hint text** gives a person additional information about the checkbox grouping.
-- **The checkbox** shows, using the presence or absence of the checkmark, whether an option has been selected or not.
-- **The checkbox label** states the choice the checkbox represents.
-- **The checkbox hint** gives users additional information about the choice.
+**The legend** acts as a heading to identify the grouped checkboxes
 
-<img class="b-sm b-gray mt-400 p-400" src="/images/en/anatomy/gcds-checkbox-anatomy.svg" alt=""/>
+**The hint text** gives a person additional information about the checkbox grouping.
+
+**The checkbox** shows, using the presence or absence of the checkmark, whether an option has been selected or not.
+
+**The checkbox label** states the choice the checkbox represents.
+
+**The checkbox hint** gives users additional information about the choice.
+
+<img class="b-sm b-gray p-400" src="/images/en/anatomy/gcds-checkbox-anatomy.svg" alt=""/>
 
 ## Accessibility and design for checkboxes
 
@@ -28,5 +32,5 @@ date: "git Last Modified"
 ### Help people understand how to use checkboxes
 
 - Avoid assuming a person will know how to use a checkbox.
-- Include a cue for users unfamiliar with checkboxes so they know they can make multiple selections, like hint text explaining how to answer, For example, ‘Select all that apply’.
+- Include a cue for users unfamiliar with checkboxes so they know they can make multiple selections, like hint text explaining how to answer, for example, "Select all that apply".
 - Avoid pre-selecting checkbox options. This makes it more likely that users will miss a question and submit a wrong answer.
