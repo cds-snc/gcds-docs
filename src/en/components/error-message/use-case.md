@@ -29,7 +29,7 @@ Use an error message for your components when you need to interrupt a flow becau
 - A form component is required.
 - You need to specify an incorrect response type or format and let a person know exactly what to do to fix the problem and move on.
 
-<article class="bg-full-width bg-dark text-light py-500 my-500">
+<article class="bg-full-width bg-dark text-light pt-500 pb-400 my-500">
   <h2 class="mt-0 mb-400">Related components</h2>
 
   Error summary for listing any problems to address to be able to submit a response.
