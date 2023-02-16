@@ -3,7 +3,7 @@
   "version": "0.1.4",
   "author": "Government of Canada | Gouvernement du Canada",
   "description": "GC Design System Documentation",
-  "homepage": "https://cds-snc-design.netlify.app/",
+  "homepage": "https://cds-design-snc.netlify.app/",
   "main": "index.js",
   "scripts": {
     "watch:sass": "node-sass --watch -r src/styles -o src/styles",
