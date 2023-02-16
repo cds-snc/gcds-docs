@@ -8,17 +8,19 @@ date: "git Last Modified"
 
 ## Footer anatomy
 
-<strong>Recommended elements:</strong>
+### Recommended elements:
 
-- **The GC footer links band** spans the bottom of the page. It contains the official Government of Canada wordmark and links to product terms and conditions and privacy statements, as well as optional links to Canada.ca pages for social media, apps, and about.
-- **The Canada wordmark** is the global identifier of the Government of Canada and one of three official symbols of the Government of Canada's identity.
+**The GC footer links band** spans the bottom of the page. It contains the official Government of Canada wordmark and links to product terms and conditions and privacy statements, as well as optional links to Canada.ca pages for social media, apps, and about.
 
-<strong>Optional elements:</strong>
+**The Canada wordmark** is the global identifier of the Government of Canada and one of three official symbols of the Government of Canada's identity.
 
-- **The contextual band** lets you include three footer links for your site or product. It's the topmost band of the footer.
-- **The main band** with Government of Canada links provides a large selection of corporate links to Government of Canada services and products.
+### Optional elements:
 
-<img class="b-sm b-gray mt-400 p-400" src="/images/en/anatomy/gcds-footer-anatomy.svg" alt=""/>
+**The contextual band** lets you include three footer links for your site or product. It's the topmost band of the footer.
+
+**The main band** with Government of Canada links provides a large selection of corporate links to Government of Canada services and products.
+
+<img class="b-sm b-gray p-400" src="/images/en/anatomy/gcds-footer-anatomy.svg" alt=""/>
 
 ## Accessibility and design for footers
 

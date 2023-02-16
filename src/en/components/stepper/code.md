@@ -27,9 +27,9 @@ Pull that code into your environment and you'll have a component with all the co
 
 <iframe
   title="Overview of gcds-stepper properties and events."
-  src="https://cds-snc.github.io/gcds-components/?path=/docs/components-stepper--example&viewMode=docs&shortcuts=false&singleStory=true"
+  src="https://cds-snc.github.io/gcds-components/?path=/docs/components-stepper--default&viewMode=docs&shortcuts=false&singleStory=true"
   width="1200"
-  height="850"
+  height="800"
   style="display: block; margin: 0 auto;"
   frameBorder="0"
 ></iframe>

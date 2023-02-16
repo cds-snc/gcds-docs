@@ -8,11 +8,13 @@ date: "git Last Modified"
 
 ## Button anatomy
 
-- **The label** states the action that will follow when the user interacts with the button. Label text is left aligned, with any icon at the left-most point. Text is in sentence case (initial letter-only capitalized).
-- **The icon** is optional and can be a helpful visual aid when used sparingly and predictably. When there's an icon, align button text to the left.  Avoid using an icon without text.
-- **The container** can be omitted for styling a button as a link.
+**The label** states the action that will follow when the user interacts with the button. Label text is left aligned, with any icon at the left-most point. Text is in sentence case (initial letter-only capitalized).
 
-<img class="b-sm b-gray mt-400 p-400" src="/images/en/anatomy/gcds-button-anatomy.svg" alt=""/>
+**The icon** is optional and can be a helpful visual aid when used sparingly and predictably. When there's an icon, align button text to the left.  Avoid using an icon without text.
+
+**The container** can be omitted for styling a button as a link.
+
+<img class="b-sm b-gray p-400" src="/images/en/anatomy/gcds-button-anatomy.svg" alt=""/>
 
 ## Accessibility and design for buttons
 

@@ -26,8 +26,8 @@ Use this header landmark to communicate a Government of Canada digital service o
 
 ### Include the skip to content button
 
-- Include the skip-to-content button by setting the href of the “skip to content" link in the header's top navigation using the skipToHref attribute.
-- Use the topnav slot to replace the default top navigation with the “skip-to-content" link.
+- Include the skip-to-content button by setting the href of the "skip to content" link in the header's top navigation using the skipToHref attribute.
+- Use the topnav slot to replace the default top navigation with the "skip-to-content" link.
 - Pass an element with the slot="topnav" attribute will place the element first in the header.
 - Consider making the skip to content button visible so any person navigating the site can benefit from the shortcut.
 
@@ -50,7 +50,7 @@ Pull that code into your environment and you'll have a component with all the co
   title="Overview of gcds-header properties and events."
   src="https://cds-snc.github.io/gcds-components/?path=/docs/components-header--default&viewMode=docs&shortcuts=false&singleStory=true"
   width="1200"
-  height="1600"
+  height="1535"
   style="display: block; margin: 0 auto;"
   frameBorder="0"
 ></iframe>

@@ -8,22 +8,27 @@ date: "git Last Modified"
 
 ## Details anatomy
 
-**Closed**
+### Closed
 
-- **The icon** and **the details title** toggle the content display.
-- **The icon** indicates whether the component is currently open or closed.  When it's closed, the icon points to the details title.
-- **The details title** summarizes the details content.
+**The icon** and **the details title** toggle the content display.
 
-<img class="b-sm b-gray my-400 p-400" src="/images/en/anatomy/gcds-details-anatomy-closed.svg" alt=""/>
+**The icon** indicates whether the component is currently open or closed.  When it's closed, the icon points to the details title.
 
-**Open**
+**The details title** summarizes the details content.
 
-- **The icon** and **the details title** toggle the content display.
-- **The icon** indicates if the component is currently open or closed. When it's open, revealing the details text, the icon points to details content.
-- **The details title** summarizes the details content.
-- **The details content** displays any text and images that the reader can choose to expand or collapse.
+<img class="b-sm b-gray p-400" src="/images/en/anatomy/gcds-details-anatomy-closed.svg" alt=""/>
 
-<img class="b-sm b-gray mt-400 p-400" src="/images/en/anatomy/gcds-details-anatomy-open.svg" alt=""/>
+### Open
+
+**The icon** and **the details title** toggle the content display.
+
+**The icon** indicates if the component is currently open or closed. When it's open, revealing the details text, the icon points to details content.
+
+**The details title** summarizes the details content.
+
+**The details content** displays any text and images that the reader can choose to expand or collapse.
+
+<img class="b-sm b-gray p-400" src="/images/en/anatomy/gcds-details-anatomy-open.svg" alt=""/>
 
 ## Accessibility and design for details
 

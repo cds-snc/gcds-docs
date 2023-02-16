@@ -60,7 +60,7 @@ Pull that code into your environment and you'll have a component with all the co
   title="Overview of gcds-footer properties and events."
   src="https://cds-snc.github.io/gcds-components/?path=/docs/components-footer--default&viewMode=docs&shortcuts=false&singleStory=true"
   width="1200"
-  height="1200"
+  height="1110"
   style="display: block; margin: 0 auto;"
   frameBorder="0"
 ></iframe>

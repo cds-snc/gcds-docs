@@ -48,7 +48,7 @@ Pull that code into your environment and you'll have a component with all the co
   title="Overview of gcds-error-message properties and events."
   src="https://cds-snc.github.io/gcds-components/?path=/docs/components-error-message--default&viewMode=docs&shortcuts=false&singleStory=true"
   width="1200"
-  height="800"
+  height="675"
   style="display: block; margin: 0 auto;"
   frameBorder="0"
 ></iframe>

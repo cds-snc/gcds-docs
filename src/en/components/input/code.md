@@ -43,7 +43,7 @@ Pull that code into your environment and you'll have a component with all the co
   title="Overview of gcds-input properties and events."
   src="https://cds-snc.github.io/gcds-components/?path=/docs/components-input--default&viewMode=docs&shortcuts=false&singleStory=true"
   width="1200"
-  height="2050"
+  height="1985"
   style="display: block; margin: 0 auto;"
   frameBorder="0"
 ></iframe>

@@ -8,19 +8,21 @@ date: "git Last Modified"
 
 ## Error message anatomy
 
-- **The error message** cites the problem in context and includes a call to action to address it.
+**The error message** cites the problem in context and includes a call to action to address it.
 
-<img class="b-sm b-gray mt-400 p-400" src="/images/en/anatomy/gcds-error-message-anatomy.svg" alt=""/>
+<img class="b-sm b-gray p-400" src="/images/en/anatomy/gcds-error-message-anatomy.svg" alt=""/>
 
 ### Form component with error message
 
 All GC Design System components come with default error handling for required form components. For your components, add the error message component, and include the following:
 
-- **The required marker** shows a response area, a field or selection, needs to be completed. An incomplete response or omission will prompt an error message.
-- **The hint text** gives brief, specific instructions about the constraints of the response. It can give an example of an accepted response.
-- **The response area** takes on the appearance of the response format and error message state of the component it's attached to. For an input or text area, the box will be highlighted. For radios or checkboxes, the options will be highlighted.
+**The required marker** shows a response area, a field or selection, needs to be completed. An incomplete response or omission will prompt an error message.
 
-<img class="b-sm b-gray mt-400 p-400" src="/images/en/anatomy/gcds-error-message-anatomy-with-form-field.svg" alt=""/>
+**The hint text** gives brief, specific instructions about the constraints of the response. It can give an example of an accepted response.
+
+**The response area** takes on the appearance of the response format and error message state of the component it's attached to. For an input or text area, the box will be highlighted. For radios or checkboxes, the options will be highlighted.
+
+<img class="b-sm b-gray p-400" src="/images/en/anatomy/gcds-error-message-anatomy-with-form-field.svg" alt=""/>
 
 ## Accessibility and design for error messages
 

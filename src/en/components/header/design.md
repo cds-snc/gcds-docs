@@ -8,24 +8,29 @@ date: "git Last Modified"
 
 ## Header anatomy
 
-<strong>Recommended elements:</strong>
+### Recommended elements:
 
-- **The GC header** spans the top of the site and contains the Government of Canada branded signature and the divider bar.When the site language is set using the language attribute, the signature will reflect the Official Language of the page.
-- **The language toggle** component is a switch for French and English content. When the site language is set using the language attribute, the toggle will be available in the other Official Language.
-- **The skip to content button** lets a person bypass a cluster of navigation links and jump to the main page content. It may be visible or hidden.
+**The GC header** spans the top of the site and contains the Government of Canada branded signature and the divider bar.When the site language is set using the language attribute, the signature will reflect the Official Language of the page.
 
-<strong>Optional elements:</strong>
+**The language toggle** component is a switch for French and English content. When the site language is set using the language attribute, the toggle will be available in the other Official Language.
 
-- **The top bar** holds the site navigation, sometimes called the site menu. For transactional products or sites, like those with forms, flows, processes, or storefronts, it's optional to use a simplified or custom site menu or even no menu. Give visitors a sense of the website's purpose and priorities, Serves as a simplified site map.
-- **The phase banner**, when used, precedes the brand header. It's an optional element, to communicate the status of the site or page, for sites that are experimental, those in research, pilots, or products in trial mode.
-- **The search element** supports including a search that is local or global.
+**The skip to content button** lets a person bypass a cluster of navigation links and jump to the main page content. It may be visible or hidden.
 
-<img class="b-sm b-gray my-400 p-400" src="/images/en/anatomy/gcds-header-anatomy.svg" alt=""/>
+### Optional elements:
 
-- **The breadcrumb** lays a path from each level of the site's hierarchy to the current page, stated in the page title. The breadcrumb tells a person where they've been and lets them retrace their steps or jump between levels.
-- **The page title** tells readers what the page or site is about and acts a signpost, giving them a sense of place.
+**The top bar** holds the site navigation, sometimes called the site menu. For transactional products or sites, like those with forms, flows, processes, or storefronts, it's optional to use a simplified or custom site menu or even no menu. Give visitors a sense of the website's purpose and priorities, Serves as a simplified site map.
 
-<img class="b-sm b-gray mt-400 p-400" src="/images/en/anatomy/gcds-header-anatomy-with-additional-elements.svg" alt=""/>
+**The phase banner**, when used, precedes the brand header. It's an optional element, to communicate the status of the site or page, for sites that are experimental, those in research, pilots, or products in trial mode.
+
+**The search element** supports including a search that is local or global.
+
+<img class="b-sm b-gray mb-500 p-400" src="/images/en/anatomy/gcds-header-anatomy.svg" alt=""/>
+
+**The breadcrumb** lays a path from each level of the site's hierarchy to the current page, stated in the page title. The breadcrumb tells a person where they've been and lets them retrace their steps or jump between levels.
+
+**The page title** tells readers what the page or site is about and acts a signpost, giving them a sense of place.
+
+<img class="b-sm b-gray p-400" src="/images/en/anatomy/gcds-header-anatomy-with-additional-elements.svg" alt=""/>
 
 ## Accessibility and design for headers
 
