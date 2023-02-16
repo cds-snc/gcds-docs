@@ -12,9 +12,9 @@
   <gcds-grid tag="ul" columns="1fr" columns-tablet="1fr 1fr" columns-desktop="{{ columnsDesktop }}" gap="400">
   {%- for entry in navPages %}
     {% if entry.state == cardlist.state %}
-      <li class="list-none bg-white p-400 component-preview-box">
+      <li class="list-none bg-white {% if entry.state != "published" %}p-400{% endif %} component-preview-box">
         {% if entry.state == "published" %}
-        <a class="link-inherit link-no-underline" href={{entry.url}}>
+        <a class="d-block link-inherit link-no-underline p-400" href={{entry.url}}>
         {% endif %}
           <h3 class="d-flex align-items-start justify-content-between mb-150 pb-150 bb-sm">
             {{ entry.title }}

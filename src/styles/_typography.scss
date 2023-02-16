@@ -26,21 +26,24 @@ p {
   font: var(--gcds-font-text-long);
   max-width: 65ch;
 }
+
 ul li p:last-child,
 ol li p:last-child {
   margin-block-end: var(--gcds-spacing-0) !important;
 }
 
 // Special typography components
-code:not([class*="language-"]) {
-  font-family: var(--gcds-font-families-monospace);
-  color: var(--gcds-color-red-700);
-  background-color: var(--gcds-color-grayscale-50);
-  padding-inline: var(--gcds-spacing-100);
-  margin-inline: var(--gcds-spacing-50);
-  box-shadow: 0 0 0 var(--gcds-border-width-md) var(--gcds-color-grayscale-100);
-}
-
+code,
 [class*="language-"] {
   font-family: var(--gcds-font-families-monospace);
+}
+
+code:not([class*="language-"]) {
+  font-size: var(--gcds-font-sizes-caption);
+  line-height: var(--gcds-line-heights-caption);
+  margin-inline: var(--gcds-spacing-50);
+  padding-block: var(--gcds-spacing-50);
+  padding-inline: var(--gcds-spacing-100);
+  background-color: #262626;
+  color: var(--gcds-text-light);
 }

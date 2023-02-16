@@ -1,5 +1,13 @@
-.component-preview-box {
-  &:focus-within {
+.component-preview-box a {
+  height: 100%;
+  border: var(--gcds-border-width-md) solid transparent;
+  transition: all .35s;
+
+  &:hover {
+    border-color: var(--gcds-border-default);
+  }
+
+  &:focus {
     background-color: var(--gcds-focus-background);
     outline: var(----gcds-outline-width) solid var(--gcds-focus-background);
     outline-offset: var(--gcds-border-width-md);
