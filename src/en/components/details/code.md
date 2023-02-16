@@ -34,9 +34,9 @@ Pull that code into your environment and you'll have a component with all the co
 
 <iframe
   title="Overview of gcds-details properties and events."
-  src="https://cds-snc.github.io/gcds-components/?path=/docs/components-details--example&viewMode=docs&shortcuts=false&singleStory=true"
+  src="https://cds-snc.github.io/gcds-components/?path=/docs/components-details--default&viewMode=docs&shortcuts=false&singleStory=true"
   width="1200"
-  height="950"
+  height="865"
   style="display: block; margin: 0 auto;"
   frameBorder="0"
 ></iframe>

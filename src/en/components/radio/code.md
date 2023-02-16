@@ -33,7 +33,7 @@ Pull that code into your environment and you'll have a component with all the co
   title="Overview of gcds-radio properties and events."
   src="https://cds-snc.github.io/gcds-components/?path=/docs/components-radio--default&viewMode=docs&shortcuts=false&singleStory=true"
   width="1200"
-  height="1750"
+  height="1670"
   style="display: block; margin: 0 auto;"
   frameBorder="0"
 ></iframe>
