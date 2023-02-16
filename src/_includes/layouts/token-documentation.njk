@@ -1,35 +1,28 @@
 {% extends "layouts/base.njk" %}
 
-{% if tags %}
-    {% set tabs = collections.all | tabs(tags[0]) %}
-    {% block page_title %}{{ title }} - {{ tabs.header.data.title }} - {{ base[locale].gcds }}{% endblock %}
-{% endif %}
-
 {% block content %}
+  {% if tabs %}
+    {{ tabs.header.templateContent | safe }}
+    <nav class="mb-400 tabs" aria-label="{{ navLabel or title }}">
+      <ul>
+        {% for key, tab in documentation[locale] %}
+          {% if tabs[key].url %}
+            <li class="tab">
+              <a href={{ tabs[key].url }} {{ 'aria-current=page' if tabs[key].url == page.url}}>
+                {{ tab }}
+              </a>
+            </li>
+          {% endif %}
+        {% endfor %}
+      </ul>
+    </nav>
+  {% endif %}
 
-    {% if tabs %}
-        {{ tabs.header.templateContent | safe }}
-        <nav class="mb-400 tabs" aria-label="{{ navLabel or title }}">
-            <ul>
-                {% for key, tab in documentation[locale] %}
-                    {% if tabs[key].url %}
-                        <li class="tab">
-                            <a href={{ tabs[key].url }} {{ 'aria-current=page' if tabs[key].url == page.url}}>
-                                {{ tab }}
-                            </a>
-                        </li>
-                    {% endif %}
-                {% endfor %}
-            </ul>
-        </nav>
-    {% endif %}
+  {{ content | safe }}
 
-    {{ content | safe }}
+  {% if tags[1] == "tokens" %}
+    {% set removeBorder = true %}
+  {% endif %}
 
-    {% if tags[1] == "tokens" %}
-        {% set removeBorder = true %}
-    {% endif %}
-
-    {% include "partials/helpus.njk" %}
-
+  {% include "partials/helpus.njk" %}
 {% endblock %}
