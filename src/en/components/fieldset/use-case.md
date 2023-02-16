@@ -32,5 +32,5 @@ Use a fieldset to group together related form elements or components so they're 
 
   <a href="/en/components/input" class="link-light">Inputs</a> or <a href="/en/components/textarea" class="link-light">text areas</a> when you are requesting a written response from a person.
 
-  Pagination when you are spreading form elements across multiple pages.
+  <a href="/en/coming-soon" class="link-light">Pagination</a> when you are spreading form elements across multiple pages.
 </article>

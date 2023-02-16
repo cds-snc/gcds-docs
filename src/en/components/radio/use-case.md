@@ -32,5 +32,5 @@ Use radios with a [fieldset](/en/components/fieldset) to make a request for info
 
   <a href="/en/components/checkbox" class="link-light">Checkboxes</a> when you are expecting the user to select multiple options from a list of items.
 
-  Select when you can give someone a medium to large set of options for a known single selection.
+  <a href="/en/coming-soon" class="link-light">Select</a> when you can give someone a medium to large set of options for a known single selection.
 </article>
