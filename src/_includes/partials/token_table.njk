@@ -2,7 +2,11 @@
     <table class="table-display-token-{{type}}">
         <tr>
             {%- for header in tokenTable.headers -%}
+                {% if header[0] == "color-preview" or header[0] == "spacing-preview" or header[0] == "font-preview"  %}
+                <td>{{ header[1] }}</td>
+                {% else %}
                 <th>{{ header[1] }}</th>
+                {% endif %}
             {%- endfor -%}
         </tr>
     {%- comment -%}
