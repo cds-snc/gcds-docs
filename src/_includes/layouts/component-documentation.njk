@@ -1,5 +1,9 @@
 {% extends "layouts/base.njk" %}
 
+{% if tags %}
+  {% set tabs = collections.all | tabs(tags[0]) %}
+{% endif %}
+
 {% block content %}
   {% if tabs %}
     {{ tabs.header.templateContent | safe }}
