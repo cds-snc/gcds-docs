@@ -11,6 +11,7 @@ eleventyNavigation:
   thumbnail: /images/common/components/preview-lang-toggle.svg
   alt: This is an image of the component
   tag: Core
+  state: coming-soon
 translationKey: "langtoggle"
 tags: ['langtoggleEN', 'usage']
 permalink: /en/components/lang-toggle/

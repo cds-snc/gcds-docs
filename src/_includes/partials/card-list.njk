@@ -12,23 +12,25 @@
   <gcds-grid tag="ul" columns="1fr" columns-tablet="1fr 1fr" columns-desktop="{{ columnsDesktop }}" gap="400">
   {%- for entry in navPages %}
     {% if entry.state == cardlist.state %}
-      <li class="list-none bg-white {% if entry.state != "published" %}p-400{% endif %} component-preview-box">
+      <li class="list-none bg-white {% if entry.state != "published" %}d-flex flex-col p-400{% endif %} component-preview-box">
         {% if entry.state == "published" %}
-        <a class="d-block link-inherit link-no-underline p-400" href={{entry.url}}>
+        <a class="d-flex flex-col link-inherit link-no-underline p-400" href={{entry.url}}>
         {% endif %}
-          <h3 class="d-flex align-items-start justify-content-between mb-150 pb-150 bb-sm">
-            {{ entry.title }}
-            {% if entry.tag %}
-              <span class="font-caption {% if entry.tag === 'Core' %}bg-black{% else %}bg-light-blue{% endif %} mt-100 ms-250 px-150 py-50 radius-md">
-                {{ entry.tag }}
-              </span>
+          <h3>{{ entry.title }}</h3>
+          <div class="flex-1 mt-150 pt-250 {% if entry.tag %}mb-250 pb-250 by-sm{% else %}bt-sm{% endif %}">
+            {% if entry.otherNames %}
+              <p class="mb-150 text-secondary">
+                <small><em>{{ documentation[locale].othernames }}{{ entry.otherNames }}</em></small>
+              </p>
             {% endif %}
-          </h3>
-          {% if entry.otherNames %}
-          <p class="mb-150 text-secondary"><small><em>{{ documentation[locale].othernames }}{{ entry.otherNames }}</em></small></p>
+            <p class="mb-150">{{ entry.description }}</p>
+            <img src="{{ entry.thumbnail }}" alt="" />
+          </div>
+          {% if entry.tag %}
+            <span class="font-caption {% if entry.tag === 'Core' or entry.tag === 'De base' %}bg-black{% else %}bg-light-blue{% endif %} align-self-start px-150 py-50 radius-md">
+              {{ entry.tag }}
+            </span>
           {% endif %}
-          <p class="mb-150">{{ entry.description }}</p>
-          <img src="{{ entry.thumbnail }}" alt="" />
         {% if entry.state == "published" %}
         </a>
         {% endif %}

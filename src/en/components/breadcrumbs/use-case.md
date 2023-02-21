@@ -11,6 +11,7 @@ eleventyNavigation:
   thumbnail: /images/common/components/preview-breadcrumbs.svg
   alt: This is an image of the component
   tag: Core
+  state: coming-soon
 translationKey: "breadcrumbs"
 tags: ['breadcrumbsEN', 'usage']
 permalink: /en/components/breadcrumbs/
