@@ -9,7 +9,7 @@ module.exports = {
   },
   fr: {
     usecase: "Cas d'utilisation",
-    usage: "Usage",
+    usage: "Cas d'usage",
     design: "Design",
     code: "Code",
     tokens: "Tokens",
