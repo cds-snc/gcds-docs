@@ -41,9 +41,7 @@ code,
 code:not([class*="language-"]) {
   font-size: var(--gcds-font-sizes-caption);
   line-height: var(--gcds-line-heights-caption);
-  margin-inline: var(--gcds-spacing-50);
-  padding-block: var(--gcds-spacing-50);
-  padding-inline: var(--gcds-spacing-100);
+  padding: var(--gcds-spacing-50);
   background-color: #262626;
   color: var(--gcds-text-light);
 }

@@ -14,7 +14,7 @@ Use a stepper as a guide when a sequence (form or process) can be divided into l
 
 ### Use each step for a goal
 
-Use the current step to indicate the step that the user is on and the total steps to indicate the overall number of steps.
+Use the `current-step` attribute to indicate the step that the user is on and the `total-steps` attribute to indicate the overall number of steps.
 
 {% include "partials/getcode.njk" %}
 

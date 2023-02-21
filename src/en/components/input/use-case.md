@@ -60,7 +60,7 @@ The input-type attribute accepts the following options:
 - For password collection and validation.
 - To set specific password constraints.
 
-Tip:  Communicate any password constraints in the hint text for the input so the person choosing the password knows exactly what the rules are.
+Tip: Communicate any password constraints in the hint text for the input so the person choosing the password knows exactly what the rules are.
 
 ### Number input
 

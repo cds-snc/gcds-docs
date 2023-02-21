@@ -8,7 +8,7 @@ date: "git Last Modified"
 
 ## Build a fieldset
 
-Use a fieldset to group together related form elements or components and make these groups perceivable. Also use them for components with multiple options, like radios and checkboxes.
+Use a fieldset to group together related form elements or components and make these groups perceivable. Also use them for components with multiple options, like [radios](/en/components/radio/) and [checkboxes](/en/components/checkbox/).
 
 ## Accessibility and coding for fieldsets
 
@@ -16,20 +16,20 @@ Use a fieldset to group together related form elements or components and make th
 
 ### Keep hint text static and perceivable
 
-Maintain the default hint attribute to provide additional context so a person can provide a complete value and avoid an error state. This places hint text under the fieldset legend and above the grouping.
+Maintain the default `hint` attribute to provide additional context so a person can provide a complete value and avoid an error state. This places hint text under the fieldset `legend` and above the grouping.
 
 ### Support error message and hint text for radios and checkboxes
 
-- The required and error-message attributes for the fieldset work best with a group of checkboxes or radio buttons.
-- Maintain the fieldset's default hint text, validators, and error messages for radios and checkboxes.
-- For radios and checkboxes, making the legend the question or instruction (like an input label) helps people using assistive technology to understand the options are all related to that question.
+- The `required` and `error-message` attributes for the fieldset work best with a group of [checkboxes](/en/components/checkbox/) or [radio buttons](/en/components/radio/).
+- Maintain the fieldset's default `hint` text, validators, and error messages for [radios](/en/components/radio/) and [checkboxes](/en/components/checkbox/).
+- For [radios](/en/components/radio/) and [checkboxes](/en/components/checkbox/), making the `legend` the question or instruction (like an [input](/en/components/input/) label) helps people using assistive technology to understand the options are all related to that question.
 
 ### Validators
 
-The fieldset will only validate checkbox and radio button children.
+The fieldset will only validate [checkbox](/en/components/checkbox/) and [radio button](/en/components/radio/) children.
 
-- Use the required property to activate  the required validator. Validation will happen by default on the onBlur event.
-- If you need to change the validation event, use the validate-on attribute. Validation can happen on blur, when the element loses focus, or manually with the validate method.
+- Use the `required` attribute to activate  the required validator. Validation will happen by default on the `onBlur` event.
+- If you need to change the validation event, use the `validate-on` attribute. Validation can happen on blur, when the element loses focus, or manually with the validate method.
 
 {% include "partials/getcode.njk" %}
 

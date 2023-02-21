@@ -10,7 +10,7 @@ date: "git Last Modified"
 
 **The label** states the information the user should enter in the field. Label text is left aligned and in sentence case (only the initial letter is capitalized).
 
-**The hint text** communicates specific requirements for each input to support task success.
+**The hint text** communicates specific requirements for each text area to support task success.
 
 **The field** is the container the user interacts with to provide their response.
 
@@ -21,7 +21,7 @@ date: "git Last Modified"
 ### Write a short, specific, unique text area label
 
 - Ask only for the information you need using as few words as possible. Phrasing as a question can make a label unnecessarily long.
-- Choose unique labels for each text area and input within a page. A person browsing fields will hear the label text in rapid succession without cues to tell which label is for which context.
+- Choose unique labels for each text area and [input](/en/components/input/) within a page. A person browsing fields will hear the label text in rapid succession without cues to tell which label is for which context.
 - Avoid using technical jargon, like "subject email address" or "account ID". Instead be specific and personal, "full name", "child’s age".
 - Avoid using colloquialisms and common verb phrases that are unfamiliar to non-fluent speakers.
 - Explain any term that may not be clear. For example, "Bio (tell us a bit about your background).
@@ -33,6 +33,6 @@ date: "git Last Modified"
 
 ### Write error messages for required text areas
 
-- Use <a href="/en/components/error-message">error messages</a> to address missing and invalid entries.
-- Write an error message for all required inputs. If a field is optional, avoid using an error message.
+- Use [error messages](/en/components/error-message/) to address missing and invalid entries.
+- Write an [error message](/en/components/error-message/) for all required inputs. If a field is optional, avoid using an [error message](/en/components/error-message/).
 - Avoid blaming the person using the product. Instead, tell them exactly what to do to move forward.
