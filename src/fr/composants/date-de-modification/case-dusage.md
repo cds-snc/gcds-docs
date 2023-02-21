@@ -10,7 +10,7 @@ eleventyNavigation:
   description: Horodatage de la dernière mise à jour d'une page.
   thumbnail: /images/common/components/preview-date-modified.svg
   alt: This is an image of the component
-  tag: Core
+  tag: De base
   state: coming-soon
 translationKey: "datemodified"
 tags: ['datemodifiedFR', 'usage']

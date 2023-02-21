@@ -8,9 +8,10 @@ eleventyNavigation:
   parent: componentsFR
   otherNames: lien pour changer de langue.
   description: Un bouton permettant d’afficher le contenu du site en français ou en anglais.
-  thumbnail: /images/fr/composants/component.png
+  thumbnail: /images/common/components/preview-lang-toggle.svg
   alt: This is an image of the component
-  tag: Core
+  tag: De base
+  state: coming-soon
 translationKey: "langtoggle"
 tags: ['langtoggleFR', 'usage']
 permalink: /fr/composants/bascule-de-la-langue/

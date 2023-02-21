@@ -10,7 +10,7 @@ eleventyNavigation:
   description: L'image de marque pour le gouvernement du Canada.
   thumbnail: /images/fr/composants/component.png
   alt: This is an image of the component
-  tag: Core
+  tag: De base
 translationKey: "signature"
 tags: ['signatureFR', 'usage']
 permalink: /fr/composants/signature/

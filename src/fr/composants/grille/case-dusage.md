@@ -10,6 +10,7 @@ eleventyNavigation:
   description: Un guide réactif pour le positionnement d’éléments sur une page.
   thumbnail: /images/common/components/preview-grid.svg
   alt: This is an image of the component
+  tag: À l'essai
   state: coming-soon
 translationKey: "grid"
 tags: ['gridFR', 'usage']
