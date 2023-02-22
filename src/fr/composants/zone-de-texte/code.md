@@ -21,21 +21,11 @@ La zone de texte donne aux utilisateur·rice·s la possibilité de fournir les r
 - Évitez de définir une largeur inférieure à 50 % (1/2 largeur).
 - Utilisez le maximum pour les réponses sans longueur fixe.
 
-### Traitez les messages d'erreur et la validation
+{% include "partials/error-message.njk" %}
 
-- Utilisez la propriété « required » pour activer le validateur nécessaire. La validation s'effectuera par défaut pendant l'événement onBlur.
-- Si vous devez modifier l'événement de validation, utilisez l'attribut « validate-on ». Une validation onBlur est possible lorsque l'élément n'est plus ciblé. Il est également possible de procéder à une validation manuelle avec la méthode « validate ».
-- Employez l'attribut « required » pour les champs obligatoires. Cet attribut insérera la mention « (obligatoire) » à la fin de la case à cocher.
-- Conservez l'attribut « error-message » par défaut pour une zone de texte obligatoire qui doit être validée. Une entrée manquante ou non valide affichera un [message d'erreur](/fr/composants/message-derreur/) intercalé.
-- Supprimez l'attribut « error-message » par défaut si la zone de texte est facultative.
+{% include "partials/hint.njk" %}
 
-### Ajoutez du texte explicatif et un message d'erreur pour favoriser la réussite de la tâche
-
-- Incluez un [message d'erreur](/fr/composants/message-derreur/) pour toutes les zones de texte obligatoires. Évitez d'inclure des [messages d'erreur](/fr/composants/message-derreur/) pour les zones de texte facultatives.
-- Ajoutez du texte explicatif pour aider l'utilisateur·rice à fournir une valeur valide dans la zone de texte et ainsi éviter les erreurs.
-- Évitez d'ajouter du texte explicatif dans la boîte du champ, où il s'effacera une fois le champ sélectionné.
-
-## TO DO: Get code content
+{% include "partials/getcode.njk" %}
 
 <iframe
   title="Overview of gcds-textarea properties and events."

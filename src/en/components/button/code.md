@@ -23,13 +23,7 @@ Use a button for important actions a person using a product can initiate.
 - A skip-to-content button lets a person skip a cluster of navigation links and jump to the main content.
 - To avoid covering up content, configure the button to push down content so it's not floating, For desktop, place skip-to-content button at top left of the page so it doesn't interrupt the flow.
 
-## Get your code
-
-Generate code for a component instance by choosing properties in the values column, based on the code elements in the properties table.
-
-Select "Get code" once you have the properties you need. That will generate code for the instance you're building.
-
-Pull that code into your environment and you'll have a component with all the code values you chose.
+{% include "partials/getcode.njk" %}
 
 <iframe
   title="Overview of gcds-button properties and events."

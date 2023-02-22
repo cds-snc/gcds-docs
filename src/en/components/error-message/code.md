@@ -36,13 +36,7 @@ A person who receives an error message needs to:
 - Be able to make the changes.
 - Resubmit or revalidate without having to fill out the whole form again.
 
-## Get your code
-
-Generate code for a component instance by choosing properties in the values column, based on the code elements in the properties table.
-
-Select "Get code" once you have the properties you need. That will generate code for the instance you're building.
-
-Pull that code into your environment and you'll have a component with all the code values you chose.
+{% include "partials/getcode.njk" %}
 
 <iframe
   title="Overview of gcds-error-message properties and events."
