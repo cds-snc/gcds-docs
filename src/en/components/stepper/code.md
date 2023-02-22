@@ -14,16 +14,9 @@ Use a stepper as a guide when a sequence (form or process) can be divided into l
 
 ### Use each step for a goal
 
-
 Use the current step to indicate the step that the user is on and the total steps to indicate the overall number of steps.
 
-## Get your code
-
-Generate code for a component instance by choosing properties in the values column, based on the code elements in the properties table.
-
-Select "Get code" once you have the properties you need. That will generate code for the instance you're building.
-
-Pull that code into your environment and you'll have a component with all the code values you chose.
+{% include "partials/getcode.njk" %}
 
 <iframe
   title="Overview of gcds-stepper properties and events."

@@ -1,9 +1,7 @@
-<h3 class="mt-500 mb-400">{{ errormessage[locale].heading }}</h3>
+### {{ errormessage[locale].heading }}
 
-<ul class="list-disc">
-  {% for value in errormessage[locale].listitems %}
-    <li>
-      {{ value }}
-    </li>
-  {% endfor %}
-</ul>
+{% for value in errormessage[locale].listitems %}
+
+- {{ value }}
+
+{% endfor %}

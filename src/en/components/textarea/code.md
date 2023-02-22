@@ -21,27 +21,11 @@ The text area gives users the option to provide the information they want to sha
 - Avoid setting width any lower than 50% (1/2 width).
 - Use the maximum for responses without a fixed length.
 
-### Handle error messages and validation
+{% include "partials/error-message.njk" %}
 
-- Use the required property to activate the required validator. Validation will happen by default on the onBlur event.
-- If you need to change the validation event, use the validate-on attribute. Validation can happen on blur, when the element loses focus, or manually with the validate method.
-- Use the required attribute for fields that must be filled in. This places "(required)" at the end of the checkbox.
-- Keep the default error-message attribute for a required text area that needs validation. A missing or invalid entry will prompt an inline error message.
-- Remove the default error-message attribute if the text area is optional.
+{% include "partials/hint.njk" %}
 
-### Include hint text and error message text for task success
-
-- Include error message text for all required text areas. Avoid using error messages for optional ones.
-- Add hint text to help a person provide a complete value in the text area and avoid an error state.
-- Avoid adding hint text in the field container where it will disappear once the field is selected.
-
-## Get your code
-
-Generate code for a component instance by choosing properties in the values column, based on the code elements in the properties table.
-
-Select "Get code" once you have the properties you need. That will generate code for the instance you're building.
-
-Pull that code into your environment and you'll have a component with all the code values you chose.
+{% include "partials/getcode.njk" %}
 
 <iframe
   title="Overview of gcds-textarea properties and events."
