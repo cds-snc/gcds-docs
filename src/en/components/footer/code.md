@@ -32,7 +32,6 @@ Choose the **full display** if you need to include:
 
 - Always maintain the integrity of the signature. Absolutely avoid modifying the signature in any way. In particular avoid stretching or changing the colours or text.
 - Pass either the `colour` or `white` display mode of the Government of Canada signature using the `signature-variant` attribute. Choose the `colour` display for a white background.
-- Optionally, pass a boolean to set the Government of Canada signature link to Canada.ca using the `signature-has-link` attribute.
 
 ### Add optional elements to your footer
 
@@ -41,11 +40,13 @@ Choose the **full display** if you need to include:
 - Use the `contextual-heading` attribute to assign heading text and the navigational landmark label of the contextual band.
 - Use the `contextual-links` attribute to set a maximum of three links in the contextual band. Add support links for your product or service, such as contact details for a program.
 - Set the `contextual-links`, by passing an object or an object in a string in the following format.
-`{
+```js
+{
 "1st link label": "href"
 "2nd link label": "href"
 "3rd link label": "href"
-}`
+}
+```
 - Pass an element with the `slot="list"` attribute to replace the list element in the main band navigation landmark.
 
 {% include "partials/getcode.njk" %}
