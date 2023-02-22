@@ -20,8 +20,8 @@ The details component can add to a person's cognitive load if they are unfamilia
 
 To help a reader's experience accessing details content:
 
-- Use the open attribute to define if the details content is open by default or not. Limit one open by default for each page.
-- Make summary titles distinct so people know the difference. Identical or similar titles can be confused.
+- Use the `open` attribute to define if the details content is open by default or not. Limit one open by default for each page.
+- Make details titles distinct so people know the difference. Identical or similar titles can be confused.
 - Avoid placing one details component inside another, where no one would know to look for that content.
 
 {% include "partials/getcode.njk" %}

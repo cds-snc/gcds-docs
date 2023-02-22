@@ -10,7 +10,7 @@ date: "git Last Modified"
 
 ### Recommended elements:
 
-**The GC header** spans the top of the site and contains the Government of Canada branded signature and the divider bar.When the site language is set using the language attribute, the signature will reflect the Official Language of the page.
+**The GC header** spans the top of the site and contains the Government of Canada branded signature and the divider bar. When the site language is set using the language attribute, the signature will reflect the Official Language of the page.
 
 **The language toggle** component is a switch for French and English content. When the site language is set using the language attribute, the toggle will be available in the other Official Language.
 

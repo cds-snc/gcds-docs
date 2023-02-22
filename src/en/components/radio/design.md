@@ -32,5 +32,5 @@ date: "git Last Modified"
 ### Help a person understand how to use radios
 
 - Avoid assuming a person will know how to use a radio.
-- Use the fieldset's hint text to include a cue for users unfamiliar with radios so they know they can only make a single selection. For example, "Select the response that best applies".
+- Use the [fieldset's](/en/components/fieldset/) hint text to include a cue for users unfamiliar with radios so they know they can only make a single selection. For example, "Select the response that best applies".
 - Avoid pre-selecting a radio option. This makes it more likely that users will miss a question and submit a wrong answer.

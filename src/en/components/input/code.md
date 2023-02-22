@@ -13,8 +13,8 @@ Use an input to ask for information short, one-line response.
 
 ### Size inputs to fit response type
 
-- Set the size attribute of the input for responses you know have a specific length (size "50" = 50 characters). For example, 6 characters for a postal code or 10 characters for a phone number.
-- Set the input to span almost the entire container, like at 90%, when you're usure of the character count of the response.
+- Set the `size` attribute of the input for responses you know have a specific length (size "50" = 50 characters). For example, 6 characters for a postal code or 10 characters for a phone number.
+- Set the input to span almost the entire container, like at 90%, when you're unsure of the character count of the response.
 - Use the maximum 75 characters for responses without a fixed length.
 
 {% include "partials/error-message.njk" %}

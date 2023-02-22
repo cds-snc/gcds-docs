@@ -17,8 +17,8 @@ The text area gives users the option to provide the information they want to sha
 ### Size text areas to fit response type
 
 - Use text areas for responses that may need more than 75 characters.
-- Make the height of a text area proportionate to the amount of text you expect someone to enter. You can set the height of a text area by by specifying the rows attribute.
-- Avoid setting width any lower than 50% (1/2 width).
+- Make the height of a text area proportionate to the amount of text you expect someone to enter. You can set the height of a text area by specifying the `rows` attribute.
+- Avoid setting the width any lower than 50% (1/2 width).
 - Use the maximum for responses without a fixed length.
 
 {% include "partials/error-message.njk" %}
