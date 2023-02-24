@@ -34,7 +34,7 @@ Remarque : Ne recueillez que les renseignements que vous êtes autorisé·e à 
 <article class="bg-full-width bg-dark text-light pt-500 pb-400 my-500">
   <h2 class="mt-0 mb-400">Composants connexes</h2>
 
-  <a href="/fr/composants/zone-de-texte/" class="link-light">Zone de texte</a> : lorsque vous cherchez à obtenir une réponse libre de plusieurs lignes.
+  <a href="{{ links.textarea }}" class="link-light">Zone de texte</a> : lorsque vous cherchez à obtenir une réponse libre de plusieurs lignes.
 
   Sélecteur de date : lorsque vous souhaitez que l'utilisateur·rice choisisse une date, comme pour la prise de rendez-vous.
 </article>
