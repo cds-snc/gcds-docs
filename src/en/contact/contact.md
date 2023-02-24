@@ -15,7 +15,7 @@ date: "git Last Modified"
 
 <h2 class="container-md mt-500 mb-400">Build modern, accessible, human government services people can use</h2>
 
-GC Design System pairs code with designs and guidance based on federal standards and accessibility best practice. Reusable [components](/en/components/) and [styles](/en/foundations/) help you to build forms, websites, and applications.
+GC Design System pairs code with designs and guidance based on federal standards and accessibility best practice. Reusable [components]({{ links.components }}) and [styles]({{ links.foundations }}) help you to build forms, websites, and applications.
 
 This is a design system for the Canadian Digital Service built by a small team of public servants. We believe modern, efficient design and development can improve the quality of people’s experiences with government services. We hope to raise the bar for consistent, inclusive user interfaces across digital products.
 
@@ -29,7 +29,7 @@ Have questions? Something you’d change or you’d like to see? Share your feed
 
 Ask us about GC Design System, make a suggestion, or request a component you’d like to see.
 
-Fill out this form or submit an issue through GitHub for <a href="https://github.com/cds-snc/gcds-tokens" target="_blank">tokens <gcds-icon name="external-link" label="Opens in a new tab." margin-left="100" /></span></a>, <a href="https://github.com/cds-snc/gcds-components" target="_blank">components <gcds-icon name="external-link" label="Opens in a new tab." margin-left="100" /></span></a>, or <a href="https://github.com/cds-snc/gcds-docs" target="_blank">documentation <gcds-icon name="external-link" label="Opens in a new tab." margin-left="100" /></span></a>.
+Fill out this form or submit an issue through GitHub for <a href="{{ links.githubTokens }}" target="_blank">tokens <span class="sr-only">Opens in a new tab.</span><span class="fa fa-solid fa-external-link ms-100" role="img"></span></a>, <a href="{{ links.githubIssues }}" target="_blank">components <span class="sr-only">Opens in a new tab.</span><span class="fa fa-solid fa-external-link ms-100" role="img"></span></a>, or <a href="{{ links.githubDocs }}" target="_blank">documentation <span class="sr-only">Opens in a new tab.</span><span class="fa fa-solid fa-external-link ms-100" role="img"></span></a>.
 
 <form class="my-500 contact-us-form" name="contactEN" method="post">
   <input type="hidden" name="form-name" value="contactEN" />

@@ -1,3 +1,57 @@
 {
-    "locale": "en"
+  "locale": "en",
+  "links": {
+    "home": "/en",
+
+    "installation": "/en/installation",
+
+    "foundations": "/en/foundations",
+    "designTokens": "/en/foundations/design-tokens",
+    "colour": "/en/foundations/colour",
+    "spacing": "/en/foundations/spacing",
+    "typography": "/en/foundations/typography",
+
+    "components": "/en/components",
+    "alert": "/en/coming-soon",
+    "breadcrumbs": "/en/coming-soon",
+    "button": "/en/components/button",
+    "checkbox": "/en/components/checkbox",
+    "dateModified": "/en/coming-soon",
+    "details": "/en/components/details",
+    "errorMessage": "/en/components/error-message",
+    "errorSummary": "/en/coming-soon",
+    "fieldset": "/en/components/fieldset",
+    "fileUploader": "/en/coming-soon",
+    "footer": "/en/components/footer",
+    "grid": "/en/coming-soon",
+    "header": "/en/components/header",
+    "icon": "/en/coming-soon",
+    "input": "/en/components/input",
+    "langToggle": "/en/coming-soon",
+    "pagination": "/en/coming-soon",
+    "radio": "/en/components/radio",
+    "select": "/en/coming-soon",
+    "signature": "/en/coming-soon",
+    "siteMenu": "/en/coming-soon",
+    "stepper": "/en/components/stepper",
+    "textarea": "/en/components/textarea",
+    "verifyBanner": "/en/coming-soon",
+
+    "about": "/en/contact/#about-gc-design-system",
+    "contact": "/en/contact/#contact-us",
+
+    "comingSoon": "/en/coming-soon",
+    "demo": "/en/demo",
+    "releaseNotes": "/en/release-notes",
+
+    "figma": "https://www.figma.com/file/mh2maMG2NBtk41k1O1UGHV/Canadian-Digital-Service%E2%80%A8---GC-Design-System?node-id=4%3A1006&t=qguKsJtr1ityUsUN-0",
+
+    "github": "https://github.com/cds-snc/gcds-components",
+    "githubDocs": "https://github.com/cds-snc/gcds-docs",
+    "githubIssues": "https://github.com/cds-snc/gcds-components/issues",
+    "githubTokens": "https://github.com/cds-snc/gcds-tokens",
+
+    "wcag": "https://www.w3.org/TR/WCAG21/",
+    "webaim": "https://webaim.org/resources/contrastchecker/"
+  }
 }

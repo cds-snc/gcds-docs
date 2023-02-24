@@ -30,5 +30,5 @@ Use a stepper for a logical sequence split over three or more pages to:
 <article class="bg-full-width bg-dark text-light pt-500 pb-400 my-500">
   <h2 class="mt-0 mb-400">Related components</h2>
 
-  <a href="/en/coming-soon" class="link-light">Pagination</a> when a user needs to navigate a range of pages that are not part of a multi-step process. It provides controls to select the next or previous page.
+  <a href="{{ links.pagination }}" class="link-light">Pagination</a> when a user needs to navigate a range of pages that are not part of a multi-step process. It provides controls to select the next or previous page.
 </article>

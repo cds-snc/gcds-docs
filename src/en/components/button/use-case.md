@@ -35,7 +35,7 @@ Use a button for important actions a person using your product can initiate to:
 
   Toggle to offer a switch to choose between two options.
 
-  <a href="/en/components/details" class="link-light">Details</a> to provide a way to hide or show a section of content.
+  <a href="{{ links.details }}" class="link-light">Details</a> to provide a way to hide or show a section of content.
 </article>
 
 ## Choose a button type

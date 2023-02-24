@@ -34,7 +34,7 @@ Note: Only collect information you're authorized to handle and be sure to safegu
 <article class="bg-full-width bg-dark text-light pt-500 pb-400 my-500">
   <h2 class="mt-0 mb-400">Related components</h2>
 
-  <a href="/en/components/textarea" class="link-light">Text areas</a> for multi-line freeform responses.
+  <a href="{{ links.textarea }}" class="link-light">Text areas</a> for multi-line freeform responses.
 
   Date selectors when you want someone to choose a not-yet-known date, like for appointment scheduling.
 </article>

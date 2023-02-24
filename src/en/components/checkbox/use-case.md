@@ -30,9 +30,9 @@ Use a checkbox to ask a question when you are expecting the user to select more 
 <article class="bg-full-width bg-dark text-light pt-500 pb-400 my-500">
   <h2 class="mt-0 mb-400">Related components</h2>
 
-  <a href="/en/components/radio" class="link-light">Radios</a> to give a single option from a larger set of options.
+  <a href="{{ links.radio }}" class="link-light">Radios</a> to give a single option from a larger set of options.
 
-  <a href="/en/coming-soon" class="link-light">Select</a> to give a single or multiple options from a larger set in a dropdown format.
+  <a href="{{ links.select }}" class="link-light">Select</a> to give a single or multiple options from a larger set in a dropdown format.
 
-  <a href="/en/components/input" class="link-light">Inputs</a> for short, single-line responses.
+  <a href="{{ links.input }}" class="link-light">Inputs</a> for short, single-line responses.
 </article>
