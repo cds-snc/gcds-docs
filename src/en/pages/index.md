@@ -17,9 +17,7 @@ date: "git Last Modified"
       <p class="mb-400">Visit our Figma library to explore design assets.</p>
       <a class="link-inherit" href="https://www.figma.com/file/mh2maMG2NBtk41k1O1UGHV/GC-Components-Main?node-id=4%3A1006&t=CVXODmuGNXkwGRmc-0" target="_blank">
         Start designing
-        <span class="sr-only">Opens in a new tab.</span>
-        <span class="fa fa-solid fa-external-link ms-100" role="img"></span>
-        <!-- <gcds-icon name="external-link" label="Opens in a new tab." margin-left="200" /> -->
+        <gcds-icon name="external-link" label="Opens in a new tab." margin-left="200" />
       </a>
     </li>
     <li class="list-none">
