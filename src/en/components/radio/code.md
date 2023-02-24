@@ -8,7 +8,7 @@ date: "git Last Modified"
 
 ## Build a radio
 
-Use a checkbox with a [fieldset]({{ links.fieldset }}) when you're expecting the user to select only one option from a short list of items in response to a question or instruction.
+Use a radio with a [fieldset]({{ links.fieldset }}) when you're expecting the user to select only one option from a short list of items in response to a question or instruction.
 
 The radio helps users to make a choice by limiting their options.
 

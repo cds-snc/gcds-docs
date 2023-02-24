@@ -7,7 +7,7 @@ eleventyNavigation:
   locale: en
   parent: componentsEN
   otherNames: last updated, version date.
-  description: A timestamp of the last -page update.
+  description: A timestamp of the last page update.
   thumbnail: /images/common/components/preview-date-modified.svg
   alt: This is an image of the component
   tag: Core

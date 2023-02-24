@@ -42,7 +42,7 @@ Note: Only collect information you're authorized to handle and be sure to safegu
 ## Choose an input type
 
 Set the input type based on how the input will validate the values a person enters.
-The input-type attribute accepts the following options:
+The input `type` attribute accepts the following options:
 
 ### Text input uses
 
