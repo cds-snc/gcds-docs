@@ -29,7 +29,7 @@ The text area gives users the option to provide the information they want to sha
 
 <iframe
   title="Overview of gcds-textarea properties and events."
-  src="https://cds-snc.github.io/gcds-components/?path=/docs/components-textarea--default&viewMode=docs&shortcuts=false&singleStory=true"
+  src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&singleStory=true&id=components-textarea--default"
   width="1200"
   height="1825"
   style="display: block; margin: 0 auto;"

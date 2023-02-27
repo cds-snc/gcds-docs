@@ -25,7 +25,7 @@ Use an input to ask for information short, one-line response.
 
 <iframe
   title="Overview of gcds-input properties and events."
-  src="https://cds-snc.github.io/gcds-components/?path=/docs/components-input--default&viewMode=docs&shortcuts=false&singleStory=true"
+  src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&singleStory=true&id=components-input--default"
   width="1200"
   height="1985"
   style="display: block; margin: 0 auto;"

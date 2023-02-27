@@ -53,7 +53,7 @@ Choose the **full display** if you need to include:
 
 <iframe
   title="Overview of gcds-footer properties and events."
-  src="https://cds-snc.github.io/gcds-components/?path=/docs/components-footer--default&viewMode=docs&shortcuts=false&singleStory=true"
+  src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&singleStory=true&id=components-footer--default"
   width="1200"
   height="1110"
   style="display: block; margin: 0 auto;"

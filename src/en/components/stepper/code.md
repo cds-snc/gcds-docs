@@ -20,7 +20,7 @@ Use the `current-step` attribute to indicate the step that the user is on and th
 
 <iframe
   title="Overview of gcds-stepper properties and events."
-  src="https://cds-snc.github.io/gcds-components/?path=/docs/components-stepper--default&viewMode=docs&shortcuts=false&singleStory=true"
+  src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&singleStory=true&id=components-stepper--default"
   width="1200"
   height="800"
   style="display: block; margin: 0 auto;"
