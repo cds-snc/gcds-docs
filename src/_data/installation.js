@@ -76,7 +76,7 @@ module.exports = {
       paragraph: "La bibliothèque de composants SDGC fonctionne dans de multiples infrastructures ou peut être utilisée comme telle. Choisissez votre environnement de développement et suivez les instructions pour commencer votre projet.",
       label: "Votre environnement de travail ",
       hint: "Sélectionnez l'option la plus pertinente",
-      defaultValue: "Choose an option",
+      defaultValue: "Choissisez une option",
       angular: "Angular",
       react: "React",
       vue: "Vue",

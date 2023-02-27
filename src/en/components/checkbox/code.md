@@ -8,14 +8,15 @@ date: "git Last Modified"
 
 ## Build a checkbox
 
-Use a checkbox when you are expecting the user to select more than one option from a short list of items.
+Use a checkbox with a [fieldset]({{ links.fieldset }}) when you are expecting the user to select more than one option from a short list of items in response to a question or instruction.
 
 ## Accessibility and coding for checkboxes
 
-### Make checkboxes visible and usable
+### Use a fieldset and the required attribute
 
-- Position checkboxes to the left of their corresponding labels. This makes them easier to find, especially with screen magnifiers.
-- Avoid removing focus states in checkboxes.
+- Group checkbox options and name the group using the [fieldset component]({{ links.fieldset }}).  
+- Use the fieldset legend and hint text for the group name and instructions.
+- For required groups, set the required attribute in the fieldset. Setting the required attribute  applies validation and error handling to the checkbox group.
 
 {% include "partials/error-message.njk" %}
 

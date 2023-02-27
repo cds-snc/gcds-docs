@@ -56,7 +56,11 @@
         </section>
       </main>
 
-      <gcds-footer display="compact" lang="{{ locale }}"></gcds-footer>
+      <gcds-footer
+        display="compact"
+        sub-links='{ "{{ footer[locale].terms }}": "{{ footer[locale].termsurl }}", "{{ footer[locale].privacy }}": "{{ footer[locale].privacyurl }}" }'
+        lang="{{ locale }}"
+      ></gcds-footer>
 
       {% if contactForm %}
         {% include "partials/contactform.njk" %}
