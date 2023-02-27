@@ -8,7 +8,7 @@ date: "git Last Modified"
 
 ## Build a fieldset
 
-Use a fieldset to group together related form elements or components and make these groups perceivable. Also use them for components with multiple options, like [radios](/en/components/radio/) and [checkboxes](/en/components/checkbox/).
+Use a fieldset to group together related form elements or components and make these groups perceivable. Also use them for components with multiple options, like [radios]({{ links.radio }}) and [checkboxes]({{ links.checkbox }}).
 
 ## Accessibility and coding for fieldsets
 
@@ -20,13 +20,13 @@ Maintain the default `hint` attribute to provide additional context so a person 
 
 ### Support error message and hint text for radios and checkboxes
 
-- The `required` and `error-message` attributes for the fieldset work best with a group of [checkboxes](/en/components/checkbox/) or [radio buttons](/en/components/radio/).
-- Maintain the fieldset's default `hint` text, validators, and error messages for [radios](/en/components/radio/) and [checkboxes](/en/components/checkbox/).
-- For [radios](/en/components/radio/) and [checkboxes](/en/components/checkbox/), making the `legend` the question or instruction (like an [input](/en/components/input/) label) helps people using assistive technology to understand the options are all related to that question.
+- The `required` and `error-message` attributes for the fieldset work best with a group of [checkboxes]({{ links.checkbox }}) or [radio buttons]({{ links.radio }}).
+- Maintain the fieldset's default `hint` text, validators, and error messages for [radios]({{ links.radio }}) and [checkboxes]({{ links.checkbox }}).
+- For [radios]({{ links.radio }}) and [checkboxes]({{ links.checkbox }}), making the `legend` the question or instruction (like an [input]({{ links.input }}) label) helps people using assistive technology to understand the options are all related to that question.
 
 ### Validators
 
-The fieldset will only validate [checkbox](/en/components/checkbox/) and [radio button](/en/components/radio/) children.
+The fieldset will only validate [checkbox]({{ links.checkbox }}) and [radio button]({{ links.radio }}) children.
 
 - Use the `required` attribute to activate  the required validator. Validation will happen by default on the `onBlur` event.
 - If you need to change the validation event, use the `validate-on` attribute. Validation can happen on blur, when the element loses focus, or manually with the validate method.

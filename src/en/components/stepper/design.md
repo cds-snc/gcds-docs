@@ -20,7 +20,7 @@ date: "git Last Modified"
 
 ### Place the stepper above the page heading
 
-- Place the stepper over the main heading of the page, under the header and navigational elements.
+Place the stepper over the main heading of the page, under the header and navigational elements.
 
 ### Assign a goal to each step in your sequence
 

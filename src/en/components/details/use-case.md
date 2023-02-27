@@ -33,5 +33,5 @@ Use the details component to give a person a summary of more detailed content yo
 
   Tabs when you want to replace the entire content of a section or a page.
 
-  <a href="/en/components/button" class="link-light">Buttons or links</a> when you want to take a person to another page to access additional  content or move to the next step in a task.
+  <a href="{{ links.button }}" class="link-light">Buttons or links</a> when you want to take a person to another page to access additional  content or move to the next step in a task.
 </article>

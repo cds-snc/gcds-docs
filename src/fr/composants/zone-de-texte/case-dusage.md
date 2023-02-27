@@ -31,5 +31,5 @@ Note : Ne recueillez que les renseignements que vous êtes autorisé·e à trai
 <article class="bg-full-width bg-dark text-light pt-500 pb-400 my-500">
   <h2 class="mt-0 mb-400">Composants connexes</h2>
 
-  <a href="/fr/composants/champ-de-saisie/" class="link-light">Champs de saisie</a> : lorsque vous cherchez à obtenir des réponses courtes d'une seule ligne.
+  <a href="{{ links.input }}" class="link-light">Champs de saisie</a> : lorsque vous cherchez à obtenir des réponses courtes d'une seule ligne.
 </article>

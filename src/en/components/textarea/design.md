@@ -21,7 +21,7 @@ date: "git Last Modified"
 ### Write a short, specific, unique text area label
 
 - Ask only for the information you need using as few words as possible. Phrasing as a question can make a label unnecessarily long.
-- Choose unique labels for each text area and [input](/en/components/input/) within a page. A person browsing fields will hear the label text in rapid succession without cues to tell which label is for which context.
+- Choose unique labels for each text area and [input]({{ links.input }}) within a page. A person browsing fields will hear the label text in rapid succession without cues to tell which label is for which context.
 - Avoid using technical jargon, like "subject email address" or "account ID". Instead be specific and personal, "full name", "child’s age".
 - Avoid using colloquialisms and common verb phrases that are unfamiliar to non-fluent speakers.
 - Explain any term that may not be clear. For example, "Bio (tell us a bit about your background).
@@ -33,6 +33,6 @@ date: "git Last Modified"
 
 ### Write error messages for required text areas
 
-- Use [error messages](/en/components/error-message/) to address missing and invalid entries.
-- Write an [error message](/en/components/error-message/) for all required inputs. If a field is optional, avoid using an [error message](/en/components/error-message/).
+- Use [error messages]({{ links.errorMessage }}) to address missing and invalid entries.
+- Write an [error message]({{ links.errorMessage }}) for all required inputs. If a field is optional, avoid using an [error message]({{ links.errorMessage }}).
 - Avoid blaming the person using the product. Instead, tell them exactly what to do to move forward.

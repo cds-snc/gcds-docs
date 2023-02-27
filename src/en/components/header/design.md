@@ -38,13 +38,13 @@ date: "git Last Modified"
 
 - Include the GC brand header and language toggle for Government of Canada sites and products.
 - Always maintain the integrity of the signature. Absolutely avoid modifying the signature in any way. In particular avoid stretching or changing the colours or text.
-- Add a skip to content button to aid navigation for people using assistive devices.
-- Consider using the top bar bar for a simplified navigation alternative for a transactional product, like an app, a form, or a storefront.
+- Add a skip-to-content button to aid navigation for people using assistive devices.
+- Consider using the top bar for a simplified navigation alternative for a transactional product, like an app, a form, or a storefront.
 - Include the phase banner if your page or site is experimental. For example, if it's a pilot, you're using it for research purposes, or it's in trial mode.
 
 ### Improve the accessibility of the header
 
-- Consider making the skip to content button visible so any person navigating the site can benefit from the shortcut.
+- Consider making the skip-to-content button visible so any person navigating the site can benefit from the shortcut.
 - Avoid using jargon in the phase banner, like alpha and beta. Instead opt for specific terms in plain language that describe the site's status, like "This is a trial site, being used only for research purposes at this time."
 - Write header content in sentence case.
 

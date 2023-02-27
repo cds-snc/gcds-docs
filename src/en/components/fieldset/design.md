@@ -33,6 +33,6 @@ A fieldset combines the `<fieldset>` and `<legend>` elements to accessibly group
 
 ### Clarify the question or instruction for radios and checkboxes
 
-- For [radios](/en/components/radio/) and [checkboxes](/en/components/checkbox/), the `legend` plays the role of an [input](/en/components/input/) label. Replace a question in the `legend` with a statement for a shorter, clearer caption.
-- Use the fieldset `hint` text to give additional context to a person on how to respond. For a [checkbox](/en/components/checkbox/), the fieldset `hint` text could state, "Select all applicable options". For a [radio](/en/components/radio/), `hint` text could state "Select the response that best applies".
+- For [radios]({{ links.radio }}) and [checkboxes]({{ links.checkbox }}), the `legend` plays the role of an [input]({{ links.input }}) label. Replace a question in the `legend` with a statement for a shorter, clearer caption.
+- Use the fieldset `hint` text to give additional context to a person on how to respond. For a [checkbox]({{ links.checkbox }}), the fieldset `hint` text could state, "Select all applicable options". For a [radio]({{ links.radio }}), `hint` text could state "Select the response that best applies".
 - Avoid using a fieldset when a form component has a single option for response and no selection is required.

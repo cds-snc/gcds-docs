@@ -201,7 +201,7 @@ module.exports = function (eleventyConfig) {
     if (figma) {
       figmaLink = `
         <li class="figma-link">
-          <a href="${figma}" target="_blank" rel="nofollow" aria-label="${langStrings[locale].figma} ${langStrings[locale].newtab}">${langStrings[locale].figma}<span class="fa fa-solid fa-external-link ms-100" role="img"></span></a>
+          <a href="${figma}" target="_blank" rel="nofollow" aria-label="${langStrings[locale].figma} ${langStrings[locale].newtab}">${langStrings[locale].figma}<gcds-icon name="external-link" margin-left="100" /></a>
         </li>`;
     } else {
       figmaLink = `
@@ -217,7 +217,7 @@ module.exports = function (eleventyConfig) {
     return `
       <ul class="d-flex flex-wrap gap-400">
         ${stageChip} <li class="github-link">
-          <a href="${githubLink}" target="_blank" rel="nofollow" aria-label="${langStrings[locale].github} ${langStrings[locale].newtab}">${langStrings[locale].github}<span class="fa fa-solid fa-external-link ms-100" role="img"></span></a>
+          <a href="${githubLink}" target="_blank" rel="nofollow" aria-label="${langStrings[locale].github} ${langStrings[locale].newtab}">${langStrings[locale].github}<gcds-icon name="external-link" margin-left="100" /></a>
         </li> ${figmaLink}
       </ul>`;
   });

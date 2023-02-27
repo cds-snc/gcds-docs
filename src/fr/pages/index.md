@@ -14,7 +14,7 @@ date: "git Last Modified"
       <img class="mb-400" src="../../images/common/home/icon-design.svg" alt="" />
       <h3 class="mb-400">Concevoir des expériences</h3>
       <p class="mb-400">Visitez notre bibliothèque Figma pour explorer nos ressources de conception.</p>
-      <a class="link-inherit" href="https://www.figma.com/file/mh2maMG2NBtk41k1O1UGHV/GC-Components-Main?node-id=4%3A1006&t=CVXODmuGNXkwGRmc-0" target="_blank">
+      <a class="link-inherit" href="{{ links.figma }}" target="_blank">
         Commencer à concevoir
         <span class="sr-only">S'ouvre dans un nouvel onglet.</span>
         <span class="fa fa-solid fa-external-link ms-100" role="img"></span>
@@ -25,7 +25,7 @@ date: "git Last Modified"
       <img class="mb-400" src="../../images/common/home/icon-develop.svg" alt="" />
       <h3 class="mb-400">Développer des produits</h3>
       <p class="mb-400">Installez l'ensemble de composants.</p>
-      <a class="link-inherit" href="/fr/installation/">Commencer à développer</a>
+      <a class="link-inherit" href="{{ links.installation }}">Commencer à développer</a>
     </li>
   </gcds-grid>
 </article>
@@ -39,7 +39,7 @@ date: "git Last Modified"
       <h3 class="mb-400">Composants</h3>
       <p class="mb-400">Les blocs de construction de l'interface utilisateur servent différents objectifs.</p>
       <p class="mb-400">Sélectionnez du code réutilisable pour les composants courants et obtenez des conseils relatifs aux meilleures pratiques pour l'infrastructure que vous utilisez.</p>
-      <a class="link-default" href="/fr/composants/">Découvrez les composants</a>
+      <a class="link-default" href="{{ links.components }}">Découvrez les composants</a>
     </li>
     <li class="list-none">
       <img class="mb-200" src="../../images/common/home/icon-patterns.svg" alt="" />
@@ -53,7 +53,7 @@ date: "git Last Modified"
       <h3 class="mb-400">Unités de style</h3>
       <p class="mb-400">Des décisions en matière d'image de marque et de conception directement intégrées dans le code.</p>
       <p class="mb-400">Découvrez comment les décisions encodées façonnent la conception des services offerts par le gouvernement du Canada et permettent d'offrir une expérience visuelle uniforme.</p>
-      <a class="link-default" href="/fr/bases/">Découvrez les unités de style</a>
+      <a class="link-default" href="{{ links.designTokens }}">Découvrez les unités de style</a>
     </li>
   </gcds-grid>
 </article>
@@ -62,11 +62,11 @@ date: "git Last Modified"
   <h2 class="mb-400">Nouveautés</h2>
   <gcds-grid tag="ul" columns="1fr" columns-tablet="1fr 1fr" columns-desktop="1fr 1fr 1fr" gap="450">
     <li class="list-none bg-white px-250 py-450 radius-xs">
-      <h3 class="mb-400"><a class="link-inherit" href="/fr/notes-de-publication/">Notes de publication</a></h3>
+      <h3 class="mb-400"><a class="link-inherit" href="{{ links.releaseNotes }}">Notes de publication</a></h3>
       <p>Les derniers ajouts.</p>
     </li>
     <li class="list-none bg-white px-250 py-450 radius-xs">
-      <h3 class="mb-400"><a class="link-inherit" href="/fr/developpement-en-cours/">Prochainement</a></h3>
+      <h3 class="mb-400"><a class="link-inherit" href="{{ links.comingSoon }}">Prochainement</a></h3>
       <p>Ce sur quoi nous travaillons.</p>
     </li>
   </gcds-grid>
@@ -77,5 +77,5 @@ date: "git Last Modified"
   <h3 class="mb-400">Jeu de champs</h3>
   <p class="mb-450">Le jeu de champs permet aux utilisateur·rice·s de percevoir un groupe d'éléments de formulaire connexes. Les éléments ainsi groupés, soit de façon logique et accessible, sont plus faciles à utiliser et comprendre.</p>
   <img class="mb-450" src="../../images/common/components/preview-fieldset.svg" alt="UI preview of fieldset component using an input and a select field." />
-  <a href="/fr/composants/jeu-de-champs/" class="d-block link-default">En savoir plus sur le jeu de champs</a>
+  <a href="{{ links.fieldset }}" class="d-block link-default">En savoir plus sur le jeu de champs</a>
 </article>

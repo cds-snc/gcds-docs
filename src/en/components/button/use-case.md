@@ -35,7 +35,7 @@ Use a button for important actions a person using your product can initiate to:
 
   Toggle to offer a switch to choose between two options.
 
-  <a href="/en/components/details" class="link-light">Details</a> to provide a way to hide or show a section of content.
+  <a href="{{ links.details }}" class="link-light">Details</a> to provide a way to hide or show a section of content.
 </article>
 
 ## Choose a button type
@@ -83,9 +83,9 @@ A role is a button sub-type that has a specific use on a page.
   <div>
     <h3 class="mb-400">Primary button uses</h3>
     <ul class="list-disc mb-400">
-      <li>the most important action on a page.</li>
-      <li>critical actions in a flow or as the default button.</li>
-      <li>only use a single time.</li>
+      <li>The most important action on a page.</li>
+      <li>Critical actions in a flow or as the default button.</li>
+      <li>Only use a single time.</li>
     </ul>
     <p>Note: More than one main call to action on the same page reduces impact and makes it harder for a person to know what to do next.</p>
   </div>
@@ -98,9 +98,9 @@ A role is a button sub-type that has a specific use on a page.
   <div>
     <h3 class="mb-400">Secondary button uses</h3>
     <ul class="list-disc mb-400">
-      <li>supporting actions.</li>
-      <li>to highlight an important, common action but not the most important one.</li>
-      <li>if needed, more than once on a page for important alternative task options.</li>
+      <li>Supporting actions.</li>
+      <li>To highlight an important, common action but not the most important one.</li>
+      <li>If needed, more than once on a page for important alternative task options.</li>
     </ul>
   </div>
 </gcds-grid>
@@ -112,8 +112,8 @@ A role is a button sub-type that has a specific use on a page.
   <div>
     <h3 class="mb-400">Danger button uses</h3>
     <ul class="list-disc mb-400">
-      <li>to flag serious actions like removing, clearing, or deleting information.</li>
-      <li>for actions when changes may be difficult to reverse.</li>
+      <li>To flag serious actions like removing, clearing, or deleting information.</li>
+      <li>For actions when changes may be difficult to reverse.</li>
     </ul>
     <p>Tip: For permanent actions, ask a second time so a person explicitly agrees before accepting.</p>
   </div>
@@ -126,9 +126,9 @@ A role is a button sub-type that has a specific use on a page.
   <div>
     <h3 class="mb-400">Skip to content button uses</h3>
     <ul class="list-disc mb-400">
-      <li>to help a person jump to the main page content.</li>
-      <li>to support task success by offering shortcut past page navigation links or other navigation elements.</li>
-      <li>to help a person avoid tabbing or scrolling unnecessarily.</li>
+      <li>To help a person jump to the main page content.</li>
+      <li>To support task success by offering shortcut past page navigation links or other navigation elements.</li>
+      <li>To help a person avoid tabbing or scrolling unnecessarily.</li>
     </ul>
     <p>Note: A skip-to-content button can be visible or hidden.</p>
   </div>
