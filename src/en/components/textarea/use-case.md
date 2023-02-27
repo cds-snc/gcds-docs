@@ -31,5 +31,5 @@ Note: Only collect information you're authorized to handle and be sure to safegu
 <article class="bg-full-width bg-dark text-light pt-500 pb-400 my-500">
   <h2 class="mt-0 mb-400">Related components</h2>
 
-  <a href="/en/components/input" class="link-light">Input</a> for short, single-line responses.
+  <a href="{{ links.input }}" class="link-light">Input</a> for short, single-line responses.
 </article>

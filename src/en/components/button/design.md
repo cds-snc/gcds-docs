@@ -30,7 +30,8 @@ date: "git Last Modified"
 - Make the button's action obvious with a short, specific label in a call to action format, like "Start application" or "Save a copy".
 - Avoid re-using label text on the same page or using labels that sound a lot alike. A person browsing buttons using assistive technology will hear the label text repeated in rapid succession without cues to tell which button's for which action.
 - Stay away from verb phrases or expressions that may be unfamiliar to non-fluent speakers.
-- Tip: Language constructions like sign up and sign in can be confusing because the "up" and "in" add little meaning and alongside other they can be hard to tell apart.
+
+Tip: Language constructions like "sign up" and "sign in" can be confusing because the "up" and "in" add little meaning and alongside other they can be hard to tell apart.
 
 ### Write specific link text for the link type
 

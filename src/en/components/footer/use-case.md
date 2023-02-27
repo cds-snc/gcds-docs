@@ -31,7 +31,7 @@ Use this footer landmark  – as part of a trusted brand – for apps, forms, or
 <article class="bg-full-width bg-dark text-light pt-500 pb-400 my-500">
   <h2 class="mt-0 mb-400">Related components</h2>
 
-  <a href="/en/components/header" class="link-light">Header</a> for placing the Government of Canada branded header landmark.
+  <a href="{{ links.header }}" class="link-light">Header</a> for placing the Government of Canada branded header landmark.
 
   Site menu for guiding navigation through an application or site using a navigation landmark.
 </article>

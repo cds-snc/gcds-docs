@@ -29,7 +29,7 @@ Use this header landmark to communicate a Government of Canada digital service o
 - Include the skip-to-content button by setting the href of the "skip to content" link in the header's top navigation using the `skip-to-href` attribute.
 - Use the `topnav` slot to replace the default top navigation with the "skip-to-content" link.
 - Pass an element with the `slot="topnav"` attribute will place the element first in the header.
-- Consider making the skip to content button visible so any person navigating the site can benefit from the shortcut.
+- Consider making the skip-to-content button visible so any person navigating the site can benefit from the shortcut.
 
 ### Add optional elements to your header
 

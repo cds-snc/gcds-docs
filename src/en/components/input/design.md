@@ -21,7 +21,7 @@ date: "git Last Modified"
 ### Write a short, specific, unique input label
 
 - Ask for the information you need using as few words as possible. Phrasing as a question can make a label unnecessarily long and a person may not read the whole thing.
-- Choose unique labels for each input and [text area](/en/components/textarea/) within a page, like "Your full name", "Manager's name".
+- Choose unique labels for each input and [text area]({{ links.textarea }}) within a page, like "Your full name", "Manager's name".
 - Avoid using technical jargon, like "subject email address" or "account ID". Instead be specific and personal, like "full name", "child's age".
 - Avoid using colloquialisms and common verb phrases that are unfamiliar to non-fluent speakers.
 - Explain any term that may not be clear. For example, "Handle (name you'd like to go by)".
@@ -39,6 +39,6 @@ date: "git Last Modified"
 
 ### Write error messages for required inputs
 
-- Use [error messages](/en/components/error-message) to address missing and invalid entries.
-- Write an [error message](/en/components/error-message) for all required inputs. If a field is optional, avoid using an [error message](/en/components/error-message).
+- Use [error messages]({{ links.errorMessage }}) to address missing and invalid entries.
+- Write an [error message]({{ links.errorMessage }}) for all required inputs. If a field is optional, avoid using an [error message]({{ links.errorMessage }}).
 - Avoid blaming the person using the product. Instead, tell them exactly what to do to move forward.
