@@ -10,7 +10,7 @@ tags: ["checkboxEN", "header"]
 
 _Also called: checklist, check list._
 
-A checkbox is a question with a set of options for one or multiple selections.
+A checkbox is a set of options for one or multiple selections.
 
 {% docLinks locale stage figma github %}
 {% enddocLinks %}
