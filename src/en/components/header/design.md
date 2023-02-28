@@ -14,7 +14,7 @@ date: "git Last Modified"
 
 **The language toggle** component is a switch for French and English content. When the site language is set using the language attribute, the toggle will be available in the other Official Language.
 
-**The skip to content button** lets a person bypass a cluster of navigation links and jump to the main page content. It may be visible or hidden.
+**The skip to content button** lets a person bypass a cluster of navigation links and jump to the main page content.
 
 ### Optional elements:
 

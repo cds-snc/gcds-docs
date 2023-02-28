@@ -21,6 +21,6 @@ We're sharing components as we build them.
 
 ## Component tags
 
-Core tag flag components that help you meet federal identity standards for the Government of Canada in any product.
+Core components help you meet federal identity standards for the Government of Canada in any product.
 
-Experimental tags point out new features we're trying out or new components we think you might like to use.
+Experimental components point out new features we're trying out and think you might like to use.

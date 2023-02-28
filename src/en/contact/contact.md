@@ -21,7 +21,7 @@ This is a design system for the Canadian Digital Service built by a small team o
 
 GC Design System works in the environment you want to work in. You'll get the same patterns and styles across products and browsers without having to code from scratch or redefine values. It works independently of GC Web and the Web Experience Toolkit (WET).
 
-Have questions? Something you'd change or you'd like to see? Share your feedback with us to help improve GC Design System.
+Have questions? Something you'd change or you'd like to see? Share your feedback to help us improve GC Design System for you.
 
 <hr class="my-500" />
 

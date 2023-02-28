@@ -8,9 +8,9 @@ date: "git Last Modified"
 
 ## Radio anatomy
 
-**The legend** acts as a heading to identify the grouped radios.
+**The fieldset legend** acts as a heading to identify the grouped radios.
 
-**The hint text** gives users additional information about the radio grouping.
+**The fieldset hint** gives users additional information about the radio grouping.
 
 **The radio button** shows, by the presence or absence of the checked button, whether an option has been selected or not.
 

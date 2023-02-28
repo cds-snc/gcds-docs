@@ -46,6 +46,8 @@
 
     "figma": "https://www.figma.com/file/mh2maMG2NBtk41k1O1UGHV/Canadian-Digital-Service%E2%80%A8---GC-Design-System?node-id=4%3A1006&t=qguKsJtr1ityUsUN-0",
 
+    "fontAwesome": "https://kit.fontawesome.com/892cb27850.js",
+
     "github": "https://github.com/cds-snc/gcds-components",
     "githubDocsIssues": "https://github.com/cds-snc/gcds-docs/issues",
     "githubIssues": "https://github.com/cds-snc/gcds-components/issues",

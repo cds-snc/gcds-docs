@@ -21,6 +21,7 @@ Nous proposons de nouveaux composants au fur et à mesure que nous les construis
 
 ## Balises de composants
 
-Les balises « À l'essai » indiquent de nouvelles fonctionnalités que nous testons ou de nouveaux composants qui devraient vous plaire.
+Les composants « De base » vous aident à respecter les normes du gouvernement fédéral canadien en matière d'identité, quel que soit votre produit.
 
-Les balises « Composant de base » indiquent des composants qui vous aident à respecter les normes du gouvernement fédéral canadien en matière d'identité, quel que soit votre produit.
+Les composants « À l'essai » indiquent de nouvelles fonctionnalités que nous testons ou qui devraient vous plaire.
+

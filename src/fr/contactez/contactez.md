@@ -21,7 +21,7 @@ Ce système de design a été conçu pour le Service numérique canadien par une
 
 Système de design GC s’adapte à votre environnement de travail. Vous obtiendrez les mêmes configurations et styles, quels que soient le produit et le navigateur, et ce, sans avoir à écrire de code ni à redéfinir de valeurs. Vous pouvez l’utiliser indépendamment de Web GC et de la Boîte à outils de l’expérience Web (BOEW).
 
-Avez-vous des questions? Vous avez un changement à suggérer ou une fonctionnalité que vous aimeriez voir ? Faites-nous part de vos commentaires pour nous aider à améliorer Système de design GC.
+Avez-vous des questions? Vous avez un changement à suggérer ou une fonctionnalité que vous aimeriez voir ? Faites-nous part de vos commentaires pour nous aider à améliorer Système de design GC pour vous.
 
 <hr class="my-500" />
 
