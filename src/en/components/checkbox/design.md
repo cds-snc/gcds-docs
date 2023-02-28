@@ -12,7 +12,7 @@ date: "git Last Modified"
 
 **The fieldset hint** gives a person additional information about the checkbox grouping.
 
-**The checkbox** shows, by the presence or absence of the checked box, whether an option has been selected or not.
+**The checkbox** shows, by the presence or absence of the **checkmark**, whether an option has been selected or not.
 
 **The checkbox label** states the choice the checkbox represents.
 
