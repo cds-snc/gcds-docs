@@ -14,7 +14,7 @@ date: "git Last Modified"
 
 Get to know a bit about GC Design System, install it, and try it out.
 
-<h2 class="container-md mt-500 mb-400">Bring the GC brand to your Canadian Digital Service product</h2>
+## Bring the GC brand to your Canadian Digital Service product
 
 GC Design System offers basic building blocks for transactional products and a common pattern language for product teams at the Canadian Digital Service and our partners.
 

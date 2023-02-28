@@ -21,6 +21,30 @@ a[href]:not([class*="link-inherit"]):not([class*="link-light"]):not(:focus):not(
   color: var(--gcds-link-default);
 }
 
+h1 {
+  max-width: 32ch;
+}
+
+h2 {
+  max-width: 37ch;
+}
+
+h3 {
+  max-width: 42ch;
+}
+
+h4 {
+  max-width: 46ch;
+}
+
+h5 {
+  max-width: 53ch;
+}
+
+h6 {
+  max-width: 60ch;
+}
+
 // Paragraph and long form content
 p {
   font: var(--gcds-font-text-long);

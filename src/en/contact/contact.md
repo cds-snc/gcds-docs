@@ -13,7 +13,7 @@ date: "git Last Modified"
 
 # About GC Design System
 
-<h2 class="container-md mt-500 mb-400">Build modern, accessible, human government services people can use</h2>
+## Build modern, accessible, human government services people can use
 
 GC Design System pairs code with designs and guidance based on federal standards and accessibility best practice. Reusable [components]({{ links.components }}) and [styles]({{ links.foundations }}) help you to build forms, websites, and applications.
 
