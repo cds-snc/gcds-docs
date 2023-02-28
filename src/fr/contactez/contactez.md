@@ -19,7 +19,7 @@ Système de design GC associe code, modèles et conseils basés sur les normes f
 
 Ce système de design a été conçu pour le Service numérique canadien par une petite équipe de fonctionnaires. Nous croyons qu’une approche de design et de développement moderne et efficace peut améliorer la qualité de l’expérience utilisateur pour les gens qui utilisent les services gouvernementaux. Nous cherchons à monter la barre en matière d’uniformité et d’accessibilité des interfaces utilisateur pour tout produit numérique. Système de design GC s’adapte à votre environnement de travail. Vous obtiendrez les mêmes configurations et styles, quels que soient le produit et le navigateur, et ce, sans avoir à écrire de code ni à redéfinir de valeurs. Vous pouvez l’utiliser indépendamment de Web GC et de la Boîte à outils de l’expérience Web (BOEW).
 
-Avez-vous des questions? Vous avez un changement à suggérer ou une fonctionnalité que vous aimeriez voir ? Faites-nous part de vos commentaires pour nous aider à améliorer Système de design GC.
+Avez-vous des questions? Vous avez un changement à suggérer ou une fonctionnalité que vous aimeriez voir ? Faites-nous part de vos commentaires pour nous aider à améliorer Système de design GC pour vous.
 
 <hr class="my-500" />
 

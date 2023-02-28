@@ -13,4 +13,4 @@ eleventyNavigation:
 
 This is our first release!
 
-On this page you will get all the changes that occurred since the last release from each of our repositories on Github.
+Check this page for all changes in our GitHub repos since our last release.

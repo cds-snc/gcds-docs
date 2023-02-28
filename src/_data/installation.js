@@ -2,7 +2,7 @@ module.exports = {
   en : {
     step1: {
       heading: "1. Choose an option that works for you",
-      paragraph: "The GCDS-component library works in multiple frameworks and can be used framework free. Choose the environment you're building in and follow the instructions to get started.",
+      paragraph: "The GCDS-component library works in multiple frameworks and can also be used framework free. Choose the environment you're building in and follow the instructions to get started.",
       label: "Environment you're working in ",
       hint: "Select the option that most applies",
       defaultValue: "Choose an option",
@@ -64,7 +64,7 @@ module.exports = {
       heading: "3. Next steps",
       paragraphs: [
         "For each design, find code paired with guidance. We've pre-set colour, type, and spacing using design tokens that form the foundation of any design.",
-        "Start by browsing components and design tokens to find what you need for your product and users. Next, open the project you created, pull in the code, and get started."
+        "Start by browsing components to find what you need for your product and users. Next, open the project you created, pull in the code, and get started."
       ],
       buttonText: "Browse components",
       link: "/en/components"
@@ -135,7 +135,7 @@ module.exports = {
       heading: "3. Prochaines étapes",
       paragraphs: [
         "Pour chaque design, vous trouverez le code qu'il vous faut accompagné de lignes directrices. Nous avons prédéfini la couleur, le type et l'espacement à l'aide d'unités de style qui forment la base de tout design.",
-        "Commencez par parcourir la liste des composants et unités de style qui conviennent à votre produit et à vos utilisateur·rice·s. Ensuite, ouvrez le projet que vous avez créé, insérez le code et commencez à travailler."
+        "Commencez par parcourir la liste des composants qui conviennent à votre produit et à vos utilisateur·rice·s. Ensuite, ouvrez le projet que vous avez créé, insérez le code et commencez à travailler."
       ],
       buttonText: "Parcourir la liste des composants",
       link: "/fr/composants"

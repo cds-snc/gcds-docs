@@ -8,9 +8,9 @@ date: "git Last Modified"
 
 ## Checkbox anatomy
 
-**The legend** acts as a heading to identify the grouped checkboxes
+**The fieldset legend** acts as a heading to identify the grouped checkboxes
 
-**The hint text** gives a person additional information about the checkbox grouping.
+**The fieldset hint** gives a person additional information about the checkbox grouping.
 
 **The checkbox** shows, using the presence or absence of the checkmark, whether an option has been selected or not.
 

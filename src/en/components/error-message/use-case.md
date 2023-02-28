@@ -32,7 +32,7 @@ Use an error message for your components when you need to interrupt a flow becau
 <article class="bg-full-width bg-dark text-light pt-500 pb-400 my-500">
   <h2 class="mt-0 mb-400">Related components</h2>
 
-  <a href="{{ links.errorSummary }}" class="link-light">Error summary</a> for listing any problems to address to be able to submit a response.
+  <a href="{{ links.errorSummary }}" class="link-light">Error summary</a> for listing all problems to address for response submission.
 
-  Alert for communicating an issue where a person may not need to take corrective action.
+  Alert for communicating an important or time-sensitive change.
 </article>

@@ -10,9 +10,9 @@ date: "git Last Modified"
 
 A fieldset combines the `<fieldset>` and `<legend>` elements to accessibly group together related form fields or components – without solely relying on visual layout.
 
-**The legend** provides the caption for the content of the group of form components. The content of the legend can be a short descriptive statement or a call to action.
+**The fieldset legend** provides the caption for the content of the group of form components. The content of the legend can be a short descriptive statement or a call to action.
 
-**The hint text** provides more context to the fieldset's content.
+**The fieldset hint** provides more context to the fieldset's content.
 
 **The component grouping** is made up of the elements of each component within the fieldset.
 

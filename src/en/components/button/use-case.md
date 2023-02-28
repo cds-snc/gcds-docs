@@ -122,14 +122,14 @@ A role is a button sub-type that has a specific use on a page.
 <gcds-grid columns="1fr" columns-tablet="1fr 3fr" gap="500" align-items="start">
   <div class="b-sm b-gray px-250 py-400">
     <gcds-button button-role="skip-to-content">Skip to content</gcds-button>
+    <p><small>Hidden by default</small></p>
   </div>
   <div>
     <h3 class="mb-400">Skip to content button uses</h3>
     <ul class="list-disc mb-400">
-      <li>To help a person jump to the main page content.</li>
-      <li>To support task success by offering shortcut past page navigation links or other navigation elements.</li>
+      <li>To support task success by helping a person jump to the main page content. </li>
+      <li>To offer a shortcut past navigation links or other nav elements.</li>
       <li>To help a person avoid tabbing or scrolling unnecessarily.</li>
     </ul>
-    <p>Note: A skip-to-content button can be visible or hidden.</p>
   </div>
 </gcds-grid>

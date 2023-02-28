@@ -13,4 +13,4 @@ eleventyNavigation:
 
 C'est notre première publication!
 
-Sur cette page vous trouverez les changements effectués depuis la dernière publication pour chacun de nos dépôts sur Github.
+Consultez cette page pour trouver tous les changements effectués depuis la dernière publication.
