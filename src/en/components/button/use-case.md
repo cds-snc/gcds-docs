@@ -127,7 +127,7 @@ A role is a button sub-type that has a specific use on a page.
   <div>
     <h3 class="mb-400">Skip to content button uses</h3>
     <ul class="list-disc mb-400">
-      <li>To support task success by helping a person jump to the main page content. </li>
+      <li>To support task success by helping a person jump to the main page content.</li>
       <li>To offer a shortcut past navigation links or other nav elements.</li>
       <li>To help a person avoid tabbing or scrolling unnecessarily.</li>
     </ul>
