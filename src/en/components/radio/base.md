@@ -15,12 +15,26 @@ A radio is a set of options for a single selection.
 {% docLinks locale stage figma github %}
 {% enddocLinks %}
 
-<div class="b-sm b-gray px-250 pb-200 my-500">
-  <gcds-radio
-    radio-id="form-radio"
-    label="Radio option"
-    hint="This is a description or example to make it clearer."
-    name="radio"
+<div class="b-sm b-gray px-250 pt-400 pb-200 my-500">
+<gcds-fieldset
+    fieldset-id="fieldset"
+    legend="Fieldset legend"
+    hint="Fieldset hint"
   >
-  </gcds-radio>
+    <gcds-radio
+      radio-id="form-radio-1"
+      label="Radio label"
+      hint="This is a description or example to make it clearer."
+      name="radio"
+      checked
+    >
+    </gcds-radio>
+      <gcds-radio
+      radio-id="form-radio-2"
+      label="Radio label"
+      hint="This is a description or example to make it clearer."
+      name="radio"
+    >
+    </gcds-radio>
+  </gcds-fieldset>
 </div>

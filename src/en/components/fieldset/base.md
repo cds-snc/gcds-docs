@@ -24,14 +24,14 @@ A fieldset is a group of multiple form components or elements.
     <gcds-input
       input-id="form-input"
       label="Input label"
-      hint="Hint / example message."
+      hint="Hint / Example message."
       size="6"
     >
     </gcds-input>
     <gcds-select
       select-id="form-select"
       label="Select label"
-      hint="Hint / example message."
+      hint="Hint / Example message."
     >
       <option value="option-1">Option 1</option>
       <option value="option-2">Option 2</option>

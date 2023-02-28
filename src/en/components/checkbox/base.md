@@ -18,19 +18,19 @@ A checkbox is a question with a set of options for one or multiple selections.
 <div class="b-sm b-gray px-250 pt-400 my-500">
   <gcds-fieldset
     fieldset-id="fieldset"
-    legend="Checkbox legend"
+    legend="Fieldset legend"
     hint="Fieldset hint."
   >
     <gcds-checkbox
       checkbox-id="form-check-1"
-      label="Checkbox option"
+      label="Checkbox label"
       hint="This is a description or example to make it clearer."
       name="radio"
       checked
     ></gcds-checkbox>
     <gcds-checkbox
       checkbox-id="form-check-2"
-      label="Checkbox option"
+      label="Checkbox label"
       hint="This is a description or example to make it clearer."
       name="radio"
     ></gcds-checkbox>
