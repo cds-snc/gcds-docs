@@ -28,7 +28,7 @@ To help a reader's experience accessing details content:
 
 <iframe
   title="Overview of gcds-details properties and events."
-  src="https://cds-snc.github.io/gcds-components/?path=/docs/components-details--default&viewMode=docs&shortcuts=false&singleStory=true"
+  src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&singleStory=true&id=components-details--default"
   width="1200"
   height="865"
   style="display: block; margin: 0 auto;"

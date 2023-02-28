@@ -27,7 +27,7 @@ Use a button for important actions a person using a product can initiate.
 
 <iframe
   title="Overview of gcds-button properties and events."
-  src="https://cds-snc.github.io/gcds-components/?path=/docs/components-button--default&viewMode=docs&shortcuts=false&singleStory=true"
+  src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&singleStory=true&id=components-button--default"
   width="1200"
   height="1920"
   style="display: block; margin: 0 auto;"

@@ -42,7 +42,7 @@ Use this header landmark to communicate a Government of Canada digital service o
 
 <iframe
   title="Overview of gcds-header properties and events."
-  src="https://cds-snc.github.io/gcds-components/?path=/docs/components-header--default&viewMode=docs&shortcuts=false&singleStory=true"
+  src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&singleStory=true&id=components-header--default"
   width="1200"
   height="1535"
   style="display: block; margin: 0 auto;"

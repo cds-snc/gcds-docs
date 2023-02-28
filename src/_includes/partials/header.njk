@@ -1,7 +1,6 @@
+{% set itemUrl = '' %}
 
 {% for lgg in site.languages %}
-  {% set translatedUrl = "/" + lgg.code + "/" %}
-
   {# Only render opposite language link #}
   {% if lgg.code != locale %}
     {# loop through all the content of the site #}
@@ -9,18 +8,20 @@
       {# for each item in the loop, check if
       - its translationKey matches the current item translationKey
       - its locale matches the code of the language we are looping through #}
-      {% if item.data.translationKey == translationKey and item.data.locale == lgg.code %}
+      {% if item.data.translationKey == translationKey and item.data.locale == lgg.code and item.url %}
 
-        <gcds-header
-          lang="{{ locale }}"
-          skip-to-href="#mc"
-          lang-href='{{ item.url }}'
-        >
-          {% include "partials/nav.njk" %}
-          {% include "partials/breadcrumbs.njk" %}
-        </gcds-header>
+        {% set itemUrl = item.url %}
 
       {% endif %}
     {% endfor %}
   {% endif %}
 {% endfor %}
+
+<gcds-header
+  lang="{{ locale }}"
+  skip-to-href="#mc"
+  lang-href='{{ itemUrl }}'
+>
+  {% include "partials/nav.njk" %}
+  {% include "partials/breadcrumbs.njk" %}
+</gcds-header>
