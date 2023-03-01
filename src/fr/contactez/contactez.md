@@ -29,7 +29,7 @@ Avez-vous des questions? Vous avez un changement à suggérer ou une fonctionnal
 
 Renseignez-vous sur Système de design GC, faites une suggestion ou demandez un composant que vous aimeriez voir.
 
-Pour toute demande concernant <a href="{{ links.githubTokensIssues }}" target="_blank">les unités de style <span class="sr-only">S'ouvre dans un nouvel onglet.</span><span class="fa fa-solid fa-external-link ms-100" role="img"></span></a>, <a href="{{ links.githubIssues }}" target="_blank">les composants <span class="sr-only">S'ouvre dans un nouvel onglet.</span><span class="fa fa-solid fa-external-link ms-100" role="img"></span></a>, et <a href="{{ links.githubDocsIssues }}" target="_blank">la documentation <span class="sr-only">S'ouvre dans un nouvel onglet.</span><span class="fa fa-solid fa-external-link ms-100" role="img"></span></a>, remplissez ce formulaire ou envoyez une demande à l'aide de fonction « Issues » dans GitHub.
+Pour toute demande concernant <a href="{{ links.githubTokensIssues }}" target="_blank">les unités de style <gcds-icon name="external-link" label="S'ouvre dans un nouvel onglet." margin-left="200" /></a>, <a href="{{ links.githubIssues }}" target="_blank">les composants <gcds-icon name="external-link" label="S'ouvre dans un nouvel onglet." margin-left="200" /></a>, et <a href="{{ links.githubDocsIssues }}" target="_blank">la documentation <gcds-icon name="external-link" label="S'ouvre dans un nouvel onglet." margin-left="200" /></a>, remplissez ce formulaire ou envoyez une demande à l'aide de fonction « Issues » dans GitHub.
 
 <form class="my-500 contact-us-form" name="contactFR" method="post">
   <input type="hidden" name="form-name" value="contactFR" />

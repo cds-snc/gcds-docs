@@ -116,8 +116,8 @@ module.exports = {
     icons: {
       heading: "Icons",
       content: {
-        fixed: "Fixed width icons. Square ratio.",
-        variable: "Variable width icons. Auto width.",
+        fixed: "Fixed width icons (square ratio)",
+        variable: "Variable width icons (auto width)",
       }
     },
     pagination: {
