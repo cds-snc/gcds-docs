@@ -16,9 +16,7 @@ date: "git Last Modified"
       <p class="mb-400">Visitez notre bibliothèque Figma pour explorer nos ressources de conception.</p>
       <a class="link-inherit" href="{{ links.figma }}" target="_blank">
         Commencer à concevoir
-        <span class="sr-only">S'ouvre dans un nouvel onglet.</span>
-        <span class="fa fa-solid fa-external-link ms-100" role="img"></span>
-        <!-- <gcds-icon name="external-link" label="S'ouvre dans un nouvel onglet." margin-left="200" /> -->
+        <gcds-icon name="external-link" label="S'ouvre dans un nouvel onglet." margin-left="200" />
       </a>
     </li>
     <li class="list-none">

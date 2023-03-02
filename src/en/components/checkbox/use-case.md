@@ -17,11 +17,11 @@ permalink: /en/components/checkbox/
 date: "git Last Modified"
 ---
 
-Take a look at what checkboxes do to see if they fit the problem you’re solving for.
+Take a look at what checkboxes do to see if they fit the problem you're solving for.
 
 ## Problems checkboxes solve
 
-Use a checkbox to ask a question when you are expecting the user to select more than one option from a short list of items to:
+Use a checkbox with a [fieldset]({{ links.fieldset }}) to make a request for info with a set of options when you are expecting the user to select one or more options from a short list of items to:
 
 - Limit the number of answers to your question.
 - Let a person choose one or several answers from a contained list by checking off the right ones.
@@ -32,7 +32,7 @@ Use a checkbox to ask a question when you are expecting the user to select more 
 
   <a href="{{ links.radio }}" class="link-light">Radios</a> to give a single option from a larger set of options.
 
-  <a href="{{ links.select }}" class="link-light">Select</a> to give a single or multiple options from a larger set in a dropdown format.
+  <a href="{{ links.select }}" class="link-light">Select</a> to give a single or multiple options from a medium to long sized list in a dropdown format.
 
   <a href="{{ links.input }}" class="link-light">Inputs</a> for short, single-line responses.
 </article>

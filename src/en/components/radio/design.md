@@ -12,7 +12,7 @@ date: "git Last Modified"
 
 **The fieldset hint** gives users additional information about the radio grouping.
 
-**The radio button** shows, by the presence or absence of the checked button, whether an option has been selected or not.
+**The radio button** shows, by the presence or absence of the **checked button**, whether an option has been selected or not.
 
 **The radio label** states the choice the radio button represents.
 

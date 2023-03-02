@@ -12,14 +12,14 @@ date: "git Last Modified"
 
 # Installation de Système de design GC
 
-Apprenez à connaître Système de design GC : installez-le pour l’essayer.
+Apprenez à connaître Système de design GC : installez-le pour l'essayer.
 
-<h2 class="container-md mt-500 mb-400">Incorporez l’image de marque du GC à votre produit du Service numérique canadien</h2>
+## Incorporez l'image de marque du GC à votre produit du Service numérique canadien
 
 Système de design GC offre des composants de base pour les produits transactionnels et un langage commun pour les équipes de produit du Service numérique canadien et pour nos partenaires.
 
-Nos composants sont conçus avec des unités de style conformes à l’image de marque du gouvernement du Canada pour vous aider à lancer des produits reconnaissables, prévisibles et accessibles.
+Nos composants sont conçus avec des unités de style conformes à l'image de marque du gouvernement du Canada pour vous aider à lancer des produits reconnaissables, prévisibles et accessibles.
 
-Les changements apportés à Système de design GC (SDGC) se font en une seule mise à jour qui comprend les unités de style, les composants et les modifications non destructrices aux unités de style existantes. Système de design GC est indépendant de la Boîte à outils de l’expérience Web (BOEW) et de GCWeb.
+Les changements apportés à Système de design GC (SDGC) se font en une seule mise à jour qui comprend les unités de style, les composants et les modifications non destructrices aux unités de style existantes. Système de design GC est indépendant de la Boîte à outils de l'expérience Web (BOEW) et de GCWeb.
 
 Installez Système de design GC et essayez-le!

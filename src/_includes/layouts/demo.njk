@@ -3,7 +3,7 @@ layout: "layouts/base.njk"
 ---
 
 <section class="container-xl mx-auto py-600">
-  <h1 class="text-center mb-500">{{ demo[locale].heading }}</h1>
+  <h1 class="container-full text-center mb-500">{{ demo[locale].heading }}</h1>
 
   <h2>{{ demo[locale].subheading }}</h2>
 
@@ -72,7 +72,6 @@ layout: "layouts/base.njk"
     target="_blank"
   >
     {{ demo[locale].buttons.content.linkExternal }}
-    <span class="fa fa-solid fa-external-link ms-100" role="img"></span>
   </gcds-button>
 
   {# ------------- Date modified ------------- #}
@@ -218,27 +217,25 @@ layout: "layouts/base.njk"
 
   {# ------------- Icons ------------- #}
 
-  {# <h3 class="mt-700 mb-400 bb-sm">{{ demo[locale].icons.heading }}</h3>
+  <h3 class="mt-700 mb-400 bb-sm">{{ demo[locale].icons.heading }}</h3>
   <gcds-icon name="close" size="caption" margin-right="200"></gcds-icon>
   <gcds-icon name="cloud" size="text" margin-right="200"></gcds-icon>
   <gcds-icon name="info-circle" size="h3" margin-right="200"></gcds-icon>
   <gcds-icon name="tree" size="h2" margin-right="200"></gcds-icon>
-  <gcds-icon name="folder" size="h1"></gcds-icon>
+  <gcds-icon name="folder" size="h1" margin-right="200"></gcds-icon>
   <gcds-icon name="folder" icon-style="regular" size="h1"></gcds-icon>
-  </br>
+
+  <h4 class="mt-500 mb-300">{{ demo[locale].icons.content.fixed }}</h4>
   <gcds-icon name="tree" size="text" fixed-width></gcds-icon>
   <gcds-icon name="folder" size="text" fixed-width></gcds-icon>
   <gcds-icon name="fire" size="text" fixed-width></gcds-icon>
   <gcds-icon name="utensils" size="text" fixed-width></gcds-icon>
-  <gcds-icon name="arrow-left" size="text" fixed-width margin-left="500"></gcds-icon>
-  <span>{{ demo[locale].icons.content.fixed }}</span>
-  </br>
+
+  <h4 class="mt-500 mb-300">{{ demo[locale].icons.content.variable }}</h4>
   <gcds-icon name="tree" size="text"></gcds-icon>
   <gcds-icon name="folder" size="text"></gcds-icon>
   <gcds-icon name="fire" size="text"></gcds-icon>
   <gcds-icon name="utensils" size="text"></gcds-icon>
-  <gcds-icon name="arrow-left" size="text" margin-left="500"></gcds-icon>
-  <span>{{ demo[locale].icons.content.variable }}</span> #}
 
   {# ------------- Pagination ------------- #}
 

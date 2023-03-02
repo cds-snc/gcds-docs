@@ -13,7 +13,7 @@ date: "git Last Modified"
 
 # About GC Design System
 
-<h2 class="container-md mt-500 mb-400">Build modern, accessible, human government services people can use</h2>
+## Build modern, accessible, human government services people can use
 
 GC Design System pairs code with designs and guidance based on federal standards and accessibility best practice. Reusable [components]({{ links.components }}) and [styles]({{ links.foundations }}) help you to build forms, websites, and applications.
 
@@ -29,7 +29,7 @@ Have questions? Something you'd change or you'd like to see? Share your feedback
 
 Ask us about GC Design System, make a suggestion, or request a component you'd like to see.
 
-Fill out this form or submit an issue through GitHub for <a href="{{ links.githubTokensIssues }}" target="_blank">tokens <span class="sr-only">Opens in a new tab.</span><span class="fa fa-solid fa-external-link ms-100" role="img"></span></a>, <a href="{{ links.githubIssues }}" target="_blank">components <span class="sr-only">Opens in a new tab.</span><span class="fa fa-solid fa-external-link ms-100" role="img"></span></a>, or <a href="{{ links.githubDocsIssues }}" target="_blank">documentation <span class="sr-only">Opens in a new tab.</span><span class="fa fa-solid fa-external-link ms-100" role="img"></span></a>.
+Fill out this form or submit an issue through GitHub for <a href="{{ links.githubTokensIssues }}" target="_blank">tokens <gcds-icon name="external-link" label="Opens in a new tab." margin-left="200" /></a>, <a href="{{ links.githubIssues }}" target="_blank">components <gcds-icon name="external-link" label="Opens in a new tab." margin-left="200" /></a>, or <a href="{{ links.githubDocsIssues }}" target="_blank">documentation <gcds-icon name="external-link" label="Opens in a new tab." margin-left="200" /></a>.
 
 <form class="my-500 contact-us-form" name="contactEN" method="post">
   <input type="hidden" name="form-name" value="contactEN" />
