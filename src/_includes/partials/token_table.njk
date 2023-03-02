@@ -1,14 +1,12 @@
 <div class="mb-400 table-overflow">
     <table class="table-display-token-{{type}}">
-        <tr>
-            {%- for header in tokenTable.headers -%}
-                {% if header[0] == "color-preview" or header[0] == "spacing-preview" or header[0] == "font-preview"  %}
-                <td>{{ header[1] }}</td>
-                {% else %}
-                <th>{{ header[1] }}</th>
-                {% endif %}
-            {%- endfor -%}
-        </tr>
+        <thead>
+            <tr>
+                {%- for header in tokenTable.headers -%}
+                    <th>{{ header[1] }}</th>
+                {%- endfor -%}
+            </tr>
+        </thead>
     {%- comment -%}
     tokens: all the tokens
     token: key
@@ -25,7 +23,7 @@
                 {%- endunless %}
             {%- endif %}
             {%- if item[1].type == type -%}
-                <tr>
+                <tr class="row-{{item[0]}}">
                 {%- for header in tokenTable.headers -%}
                     <td>
                     {%- case header[0] %}
