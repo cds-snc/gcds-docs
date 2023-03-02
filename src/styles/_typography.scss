@@ -63,9 +63,9 @@ code,
 }
 
 code:not([class*="language-"]) {
-  font-size: var(--gcds-font-sizes-caption);
+  font-size: 80%;
   line-height: var(--gcds-line-heights-caption);
   padding: var(--gcds-spacing-50);
-  background-color: #262626;
-  color: var(--gcds-text-light);
+  background-color: var(--gcds-color-grayscale-50);
+  border-radius: var(--gcds-border-radius-sm);
 }
