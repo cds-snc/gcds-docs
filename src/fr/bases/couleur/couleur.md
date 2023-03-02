@@ -1,16 +1,21 @@
 ---
-title: Unités de style
+title: Couleur
 layout: "layouts/base.njk"
+translationKey: "colour"
 eleventyNavigation:
-  key: tokensFR
-  title: Unités de style
+  key: colourFR
+  title: Couleur
   locale: fr
   parent: foundationsFR
+  order: 1
   description: This is the foundation
   thumbnail: /images/fr/bases/foundation.png
   alt: This is an image of the foundation
-translationKey: "designtokens"
+  state: published
+permalink: /fr/bases/couleur/
 date: "git Last Modified"
 ---
 
-# {{ title }}
+## {{ title }}
+
+{% include "partials/helpus.njk" %}

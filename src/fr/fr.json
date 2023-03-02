@@ -51,9 +51,13 @@
     "github": "https://github.com/cds-snc/gcds-components",
     "githubDocsIssues": "https://github.com/cds-snc/gcds-docs/issues",
     "githubIssues": "https://github.com/cds-snc/gcds-components/issues",
+    "githubTokens": "https://github.com/cds-snc/gcds-tokens",
     "githubTokensIssues": "https://github.com/cds-snc/gcds-tokens/issues",
 
     "wcag": "https://www.w3.org/TR/WCAG21/",
+    "wcagTargetSize": "https://www.w3.org/TR/WCAG21/#target-size",
+    "wcagTextSpacing": "https://www.w3.org/TR/WCAG21/#text-spacing",
+
     "webaim": "https://webaim.org/resources/contrastchecker/"
   }
 }

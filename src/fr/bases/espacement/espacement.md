@@ -1,6 +1,6 @@
 ---
 title: Espacement
-layout: "layouts/token-documentation.njk"
+layout: "layouts/base.njk"
 translationKey: "spacing"
 eleventyNavigation:
   key: spacingFR
@@ -13,8 +13,9 @@ eleventyNavigation:
   alt: This is an image of the foundation
   state: published
 permalink: /fr/bases/espacement/
-tags: ['spacingFR', 'usage']
 date: "git Last Modified"
 ---
 
 ## {{ title }}
+
+{% include "partials/helpus.njk" %}

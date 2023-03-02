@@ -2,14 +2,12 @@
 
 {% if (cardlist.type == "components") %}
   {% set navPages = collections.all | eleventyNavigation(components) | sortAlpha %}
-  {% set columnsDesktop = "1fr 1fr 1fr" %}
 {% else %}
   {% set navPages = collections.all | eleventyNavigation(components) %}
-  {% set columnsDesktop = "1fr 1fr" %}
 {% endif %}
 
 <div class="bg-light my-500 p-400">
-  <gcds-grid tag="ul" columns="1fr" columns-tablet="1fr 1fr" columns-desktop="{{ columnsDesktop }}" gap="400">
+  <gcds-grid tag="ul" columns="1fr" columns-tablet="1fr 1fr" columns-desktop="1fr 1fr 1fr" gap="400">
   {%- for entry in navPages %}
     {% if entry.state == cardlist.state %}
       <li class="list-none bg-white {% if entry.state != "published" %}d-flex flex-col p-400{% endif %} component-preview-box">
