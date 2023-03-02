@@ -35,4 +35,4 @@ date: "git Last Modified"
 
 - Make link text clear and specific to help a person decide if they should leave the current page. Spell out where a person will go or what they'll find when they select a link.
 - Keep link text short and distinctive so a person can scan the links in the footer and find what they're looking for. Avoid using "click here" or "read more" as link text.
-- Limit the number of links in your footer. Too much information and increases cognitive load and can be overwhelming to some readers.
+- Limit the number of links in your footer. Too much information increases cognitive load and can be overwhelming to some readers.
