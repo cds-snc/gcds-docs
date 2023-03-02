@@ -9,7 +9,7 @@ layout: "layouts/base.njk"
 
   {# ------------- Alerts ------------- #}
 
-  <h3 class="mt-500 mb-400 bb-sm">{{ demo[locale].alerts.heading }}</h3>
+  <h3 class="container-full mt-500 mb-400 bb-sm">{{ demo[locale].alerts.heading }}</h3>
   <gcds-alert heading="{{ demo[locale].alerts.content.heading.success }}" alert-role="success" container="xl">
     <p>{{ demo[locale].alerts.content.text }}</p>
   </gcds-alert>
@@ -25,7 +25,7 @@ layout: "layouts/base.njk"
 
   {# ------------- Breadcrumbs ------------- #}
 
-  <h3 class="mt-500 mb-400 bb-sm">{{ demo[locale].breadcrumbs.heading }}</h3>
+  <h3 class="container-full mt-500 mb-400 bb-sm">{{ demo[locale].breadcrumbs.heading }}</h3>
 
   <!-- Breadcrumb without canada.ca link -->
   <gcds-breadcrumbs slot="breadcrumb" hide-canada-link>
@@ -49,7 +49,7 @@ layout: "layouts/base.njk"
 
   {# ------------- Buttons ------------- #}
 
-  <h3 class="mt-500 mb-400 bb-sm">{{ demo[locale].buttons.heading }}</h3>
+  <h3 class="container-full mt-500 mb-400 bb-sm">{{ demo[locale].buttons.heading }}</h3>
   <gcds-button button-role="primary">
     {{ demo[locale].buttons.content.primary }}
   </gcds-button>
@@ -76,19 +76,19 @@ layout: "layouts/base.njk"
 
   {# ------------- Date modified ------------- #}
 
-  <h3 class="mt-700 mb-400 bb-sm">{{ demo[locale].dateModified.heading }}</h3>
+  <h3 class="container-full mt-700 mb-400 bb-sm">{{ demo[locale].dateModified.heading }}</h3>
   <gcds-date-modified>2023-01-26</gcds-date-modified>
 
   {# ------------- Details ------------- #}
 
-  <h3 class="mt-700 mb-400 bb-sm">{{ demo[locale].details.heading }}</h3>
+  <h3 class="container-full mt-700 mb-400 bb-sm">{{ demo[locale].details.heading }}</h3>
   <gcds-details details-title="{{ demo[locale].details.content.heading }}">
     <p>{{ demo[locale].details.content.text }}</p>
   </gcds-details>
 
   {# ------------- Footer ------------- #}
 
-  <h3 class="mt-700 mb-400 bb-sm">{{ demo[locale].footer.heading }}</h3>
+  <h3 class="container-full mt-700 mb-400 bb-sm">{{ demo[locale].footer.heading }}</h3>
   <gcds-footer
     display="full"
     contextual-heading="{{ demo[locale].footer.content.contextualHeading }}"
@@ -98,7 +98,7 @@ layout: "layouts/base.njk"
 
   {# ------------- Stepper + Form elements ------------- #}
 
-  <h3 class="mt-700 mb-400 bb-sm">{{ demo[locale].form.heading }}</h3>
+  <h3 class="container-full mt-700 mb-400 bb-sm">{{ demo[locale].form.heading }}</h3>
   <gcds-stepper current-step="1" total-steps="3"></gcds-stepper>
   <form>
     <gcds-input
@@ -173,7 +173,7 @@ layout: "layouts/base.njk"
 
   {# ------------- Grid ------------- #}
 
-  <h3 class="mt-700 mb-400 bb-sm">{{ demo[locale].grid.heading }}</h3>
+  <h3 class="container-full mt-700 mb-400 bb-sm">{{ demo[locale].grid.heading }}</h3>
   <gcds-grid
     tag="article"
     columns-desktop="1fr 1fr 1fr 1fr"
@@ -189,7 +189,7 @@ layout: "layouts/base.njk"
 
   {# ------------- Header ------------- #}
 
-  <h3 class="mt-700 mb-400 bb-sm">{{ demo[locale].header.heading }}</h3>
+  <h3 class="container-full mt-700 mb-400 bb-sm">{{ demo[locale].header.heading }}</h3>
   <gcds-header
     lang="{{ demo[locale].header.content.lang }}"
     lang-href="#"
@@ -217,7 +217,7 @@ layout: "layouts/base.njk"
 
   {# ------------- Icons ------------- #}
 
-  <h3 class="mt-700 mb-400 bb-sm">{{ demo[locale].icons.heading }}</h3>
+  <h3 class="container-full mt-700 mb-400 bb-sm">{{ demo[locale].icons.heading }}</h3>
   <gcds-icon name="close" size="caption" margin-right="200"></gcds-icon>
   <gcds-icon name="cloud" size="text" margin-right="200"></gcds-icon>
   <gcds-icon name="info-circle" size="h3" margin-right="200"></gcds-icon>
@@ -239,7 +239,7 @@ layout: "layouts/base.njk"
 
   {# ------------- Pagination ------------- #}
 
-  <h3 class="mt-700 mb-400 bb-sm">{{ demo[locale].pagination.heading }}</h3>
+  <h3 class="container-full mt-700 mb-400 bb-sm">{{ demo[locale].pagination.heading }}</h3>
 
   <p>{{ demo[locale].pagination.content.list }}</p>
   <gcds-pagination
@@ -262,7 +262,7 @@ layout: "layouts/base.njk"
 
   {# ------------- Phase banner ------------- #}
 
-  <h3 class="mt-700 mb-400 bb-sm">{{ demo[locale].phaseBanner.heading }}</h3>
+  <h3 class="container-full mt-700 mb-400 bb-sm">{{ demo[locale].phaseBanner.heading }}</h3>
   <gcds-phase-banner banner-role="primary">
     <gcds-icon name="tree" size="sm" slot="banner-icon-left"></gcds-icon>
     <p slot="banner-text">{{ demo[locale].phaseBanner.content.text }}</p>
@@ -270,7 +270,7 @@ layout: "layouts/base.njk"
 
   {# ------------- Site menu ------------- #}
 
-  <h3 class="mt-700 mb-400 bb-sm">{{ demo[locale].siteMenu.heading }}</h3>
+  <h3 class="container-full mt-700 mb-400 bb-sm">{{ demo[locale].siteMenu.heading }}</h3>
   <gcds-site-menu slot="menu" alignment="right">
     <a href="#" class="home-link link-inherit link-no-underline" slot="left">{{ demo[locale].siteMenu.content.logo }}</a>
     <ul>
