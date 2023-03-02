@@ -34,5 +34,5 @@ date: "git Last Modified"
 ### Write error messages for required text areas
 
 - Use [error messages]({{ links.errorMessage }}) to address missing and invalid entries.
-- Write an [error message]({{ links.errorMessage }}) for all required inputs. If a field is optional, avoid using an [error message]({{ links.errorMessage }}).
+- Write an error message for all required inputs. If a field is optional, avoid using an error message.
 - Avoid blaming the person using the product. Instead, tell them exactly what to do to move forward.
