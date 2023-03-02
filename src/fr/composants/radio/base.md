@@ -6,7 +6,8 @@ permalink: false
 tags: ['radioFR', 'header']
 ---
 
-# Radio <br>&lt;gcds-radio&gt;
+<h1 class="mb-0">Radio</h1>
+<h2 class="mt-0 mb-400"><code>&lt;gcds-radio&gt;</code></h2>
 
 Ce composant est en cours de développement.
 

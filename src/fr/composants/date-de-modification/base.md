@@ -6,7 +6,8 @@ permalink: false
 tags: ['datemodifiedFR', 'header']
 ---
 
-# Date de modification <br>&lt;gcds-date-modified&gt;
+<h1 class="mb-0">Date de modification</h1>
+<h2 class="mt-0 mb-400"><code>&lt;gcds-date-modified&gt;</code></h2>
 
 Ce composant est en cours de développement.
 

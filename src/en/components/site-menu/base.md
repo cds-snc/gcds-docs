@@ -5,7 +5,8 @@ permalink: false
 tags: ['sitemenuEN', 'header']
 ---
 
-# Site menu <br>&lt;gcds-site-menu&gt;
+<h1 class="mb-0">Site menu</h1>
+<h2 class="mt-0 mb-400"><code>&lt;gcds-site-menu&gt;</code></h2>
 
 This component is coming soon.
 

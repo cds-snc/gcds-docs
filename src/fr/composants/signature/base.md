@@ -6,7 +6,8 @@ permalink: false
 tags: ['signatureFR', 'header']
 ---
 
-# Signature <br>&lt;gcds-signature&gt;
+<h1 class="mb-0">Signature</h1>
+<h2 class="mt-0 mb-400"><code>&lt;gcds-signature&gt;</code></h2>
 
 Ce composant est en cours de développement.
 

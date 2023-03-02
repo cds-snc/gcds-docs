@@ -6,7 +6,8 @@ permalink: false
 tags: ['footerFR', 'header']
 ---
 
-# Pied de page <br>&lt;gcds-footer&gt;
+<h1 class="mb-0">Pied de page</h1>
+<h2 class="mt-0 mb-400"><code>&lt;gcds-footer&gt;</code></h2>
 
 Ce composant est en cours de développement.
 

@@ -6,7 +6,8 @@ permalink: false
 tags: ['radioEN', 'header']
 ---
 
-# Radio <br>&lt;gcds-radio&gt;
+<h1 class="mb-0">Radio</h1>
+<h2 class="mt-0 mb-400"><code>&lt;gcds-radio&gt;</code></h2>
 
 _Also called: radio button, radio group._
 
@@ -15,26 +16,31 @@ A radio is a set of options for a single selection.
 {% docLinks locale stage figma github %}
 {% enddocLinks %}
 
-<div class="b-sm b-gray px-250 pt-400 pb-200 my-500">
-<gcds-fieldset
-    fieldset-id="fieldset"
-    legend="Fieldset legend"
-    hint="Fieldset hint"
-  >
-    <gcds-radio
-      radio-id="form-radio-1"
-      label="Radio label"
-      hint="This is a description or example to make it clearer."
-      name="radio"
-      checked
+<div class="my-500 b-sm b-gray">
+  <p class="container-full font-semibold px-300 py-200 bb-sm b-gray bg-light">
+    Radio component preview
+  </p>
+  <div class="px-300 pt-400 pb-200">
+    <gcds-fieldset
+      fieldset-id="fieldset"
+      legend="Fieldset legend"
+      hint="Fieldset hint"
     >
-    </gcds-radio>
       <gcds-radio
-      radio-id="form-radio-2"
-      label="Radio label"
-      hint="This is a description or example to make it clearer."
-      name="radio"
-    >
-    </gcds-radio>
-  </gcds-fieldset>
+        radio-id="form-radio-1"
+        label="Radio label"
+        hint="This is a description or example to make it clearer."
+        name="radio"
+        checked
+      >
+      </gcds-radio>
+        <gcds-radio
+        radio-id="form-radio-2"
+        label="Radio label"
+        hint="This is a description or example to make it clearer."
+        name="radio"
+      >
+      </gcds-radio>
+    </gcds-fieldset>
+  </div>
 </div>

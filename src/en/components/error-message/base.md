@@ -6,7 +6,8 @@ permalink: false
 tags: ['errormessageEN', 'header']
 ---
 
-# Error message <br>&lt;gcds-error-message&gt;
+<h1 class="mb-0">Error message</h1>
+<h2 class="mt-0 mb-400"><code>&lt;gcds-error-message&gt;</code></h2>
 
 _Also called: error, inline error._
 
@@ -15,7 +16,12 @@ An error message is a description of a problem blocking a user goal.
 {% docLinks locale stage figma github %}
 {% enddocLinks %}
 
-
-<div class="b-sm b-gray px-250 pt-400 pb-100 my-500">
-  <gcds-error-message message="Error message or validation message."></gcds-error-message>
+<div class="my-500 b-sm b-gray">
+  <p class="container-full font-semibold px-300 py-200 bb-sm b-gray bg-light">
+    Error message component preview
+  </p>
+  <div class="px-300 pt-400 pb-100">
+    <gcds-error-message message="Error message or validation message."></gcds-error-message>
+  </div>
 </div>
+

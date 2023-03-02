@@ -6,7 +6,8 @@ permalink: false
 tags: ['inputFR', 'header']
 ---
 
-# Champ de saisie<br>&lt;gcds-input&gt;
+<h1 class="mb-0">Champ de saisie</h1>
+<h2 class="mt-0 mb-400"><code>&lt;gcds-input&gt;</code></h2>
 
 _Également appelé : saisie de texte, zone d'entrée._
 
@@ -15,11 +16,16 @@ Un champ de saisie est un espace permettant de saisir une courte réponse à une
 {% docLinks locale stage figma github %}
 {% enddocLinks %}
 
-<div class="b-sm b-gray px-250 pt-400 my-500">
-  <gcds-input
-    input-id="input-example"
-    label="Étiquette de champ"
-    hint="Texte explicatif / Exemple de message."
-  >
-  </gcds-input>
+<div class="my-500 b-sm b-gray">
+  <p class="container-full font-semibold px-300 py-200 bb-sm b-gray bg-light">
+    Aperçu du composant de champ de saisie
+  </p>
+  <div class="px-300 pt-400">
+    <gcds-input
+      input-id="input-example"
+      label="Étiquette de champ"
+      hint="Texte explicatif / Exemple de message."
+    >
+    </gcds-input>
+  </div>
 </div>

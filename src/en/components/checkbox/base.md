@@ -6,7 +6,8 @@ permalink: false
 tags: ["checkboxEN", "header"]
 ---
 
-# Checkbox<br>&lt;gcds-checkbox&gt;
+<h1 class="mb-0">Checkbox</h1>
+<h2 class="mt-0 mb-400"><code>&lt;gcds-checkbox&gt;</code></h2>
 
 _Also called: checklist, check list._
 
@@ -15,24 +16,29 @@ A checkbox is a set of options for one or multiple selections.
 {% docLinks locale stage figma github %}
 {% enddocLinks %}
 
-<div class="b-sm b-gray px-250 pt-400 my-500">
-  <gcds-fieldset
-    fieldset-id="fieldset"
-    legend="Fieldset legend"
-    hint="Fieldset hint."
-  >
-    <gcds-checkbox
-      checkbox-id="form-check-1"
-      label="Checkbox label"
-      hint="This is a description or example to make it clearer."
-      name="radio"
-      checked
-    ></gcds-checkbox>
-    <gcds-checkbox
-      checkbox-id="form-check-2"
-      label="Checkbox label"
-      hint="This is a description or example to make it clearer."
-      name="radio"
-    ></gcds-checkbox>
-  </gcds-fieldset>
+<div class="my-500 b-sm b-gray">
+  <p class="container-full font-semibold px-300 py-200 bb-sm b-gray bg-light">
+    Checkbox component preview
+  </p>
+  <div class="px-300 pt-400">
+    <gcds-fieldset
+      fieldset-id="fieldset"
+      legend="Fieldset legend"
+      hint="Fieldset hint."
+    >
+      <gcds-checkbox
+        checkbox-id="form-check-1"
+        label="Checkbox label"
+        hint="This is a description or example to make it clearer."
+        name="radio"
+        checked
+      ></gcds-checkbox>
+      <gcds-checkbox
+        checkbox-id="form-check-2"
+        label="Checkbox label"
+        hint="This is a description or example to make it clearer."
+        name="radio"
+      ></gcds-checkbox>
+    </gcds-fieldset>
+  </div>
 </div>

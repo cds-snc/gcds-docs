@@ -6,7 +6,8 @@ permalink: false
 tags: ['langtoggleFR', 'header']
 ---
 
-# Bascule de la langue <br>&lt;gcds-lang-toggle&gt;
+<h1 class="mb-0">Bascule de la langue</h1>
+<h2 class="mt-0 mb-400"><code>&lt;gcds-lang-toggle&gt;</code></h2>
 
 Ce composant est en cours de développement.
 

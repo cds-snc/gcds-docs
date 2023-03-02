@@ -6,7 +6,8 @@ permalink: false
 tags: ['fileuploaderEN', 'header']
 ---
 
-# File uploader <br>&lt;gcds-file-uploader&gt;
+<h1 class="mb-0">File uploader</h1>
+<h2 class="mt-0 mb-400"><code>&lt;gcds-file-uploader&gt;</code></h2>
 
 This component is coming soon.
 

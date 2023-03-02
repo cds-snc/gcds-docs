@@ -6,7 +6,8 @@ permalink: false
 tags: ['selectFR', 'header']
 ---
 
-# Sélection <br>&lt;gcds-select&gt;
+<h1 class="mb-0">Sélection</h1>
+<h2 class="mt-0 mb-400"><code>&lt;gcds-select&gt;</code></h2>
 
 Ce composant est en cours de développement.
 

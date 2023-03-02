@@ -6,7 +6,8 @@ permalink: false
 tags: ['stepperFR', 'header']
 ---
 
-# Indicateur d’étape <br>&lt;gcds-stepper&gt;
+<h1 class="mb-0">Indicateur d'étape</h1>
+<h2 class="mt-0 mb-400"><code>&lt;gcds-stepper&gt;</code></h2>
 
 Ce composant est en cours de développement.
 

@@ -6,7 +6,8 @@ permalink: false
 tags: ['stepperEN', 'header']
 ---
 
-# Stepper <br>&lt;gcds-stepper&gt;
+<h1 class="mb-0">Stepper</h1>
+<h2 class="mt-0 mb-400"><code>&lt;gcds-stepper&gt;</code></h2>
 
 _Also called: progress indicator, steps._
 
@@ -15,6 +16,11 @@ A stepper is a progress tracker for a multi-step process.
 {% docLinks locale stage figma github %}
 {% enddocLinks %}
 
-<div class="b-sm b-gray px-250 pt-400 pb-100 my-500">
-  <gcds-stepper current-step="1" total-steps="4"></gcds-stepper>
+<div class="my-500 b-sm b-gray">
+  <p class="container-full font-semibold px-300 py-200 bb-sm b-gray bg-light">
+    Stepper component preview
+  </p>
+  <div class="px-300 pt-400 pb-100">
+    <gcds-stepper current-step="1" total-steps="4"></gcds-stepper>
+  </div>
 </div>
