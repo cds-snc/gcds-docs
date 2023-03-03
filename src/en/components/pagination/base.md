@@ -6,8 +6,7 @@ permalink: false
 tags: ['paginationEN', 'header']
 ---
 
-<h1 class="mb-0">Pagination</h1>
-<h2 class="mt-0 mb-400"><code>&lt;gcds-pagination&gt;</code></h2>
+# Pagination <br>`<gcds-pagination>`
 
 This component is coming soon.
 

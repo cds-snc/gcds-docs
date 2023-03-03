@@ -6,8 +6,7 @@ permalink: false
 tags: ['detailsFR', 'header']
 ---
 
-<h1 class="mb-0">Détails</h1>
-<h2 class="mt-0 mb-400"><code>&lt;gcds-details&gt;</code></h2>
+# Détails <br>`<gcds-details>`
 
 Ce composant est en cours de développement.
 

@@ -127,6 +127,12 @@ body {
   color: var(--gcds-color-grayscale-1000);
   animation: fade 0.05s normal forwards ease-in-out; }
 
+.remove-empty-p p:empty {
+  display: none; }
+
+.component-preview p {
+  margin-block-end: var(--gcds-spacing-0); }
+
 .component-preview-box a {
   height: 100%;
   border: var(--gcds-border-width-md) solid transparent;

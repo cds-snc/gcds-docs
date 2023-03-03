@@ -6,8 +6,7 @@ permalink: false
 tags: ['fileuploaderFR', 'header']
 ---
 
-<h1 class="mb-0">Téléverseur de fichiers</h1>
-<h2 class="mt-0 mb-400"><code>&lt;gcds-file-uploader&gt;</code></h2>
+# Téléverseur de fichiers <br>`<gcds-file-uploader>`
 
 Ce composant est en cours de développement.
 

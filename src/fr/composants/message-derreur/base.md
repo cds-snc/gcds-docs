@@ -6,8 +6,7 @@ permalink: false
 tags: ['errormessageFR', 'header']
 ---
 
-<h1 class="mb-0">Message d'erreur</h1>
-<h2 class="mt-0 mb-400"><code>&lt;gcds-error-message&gt;</code></h2>
+# Message d'erreur <br>`<gcds-error-message>`
 
 Ce composant est en cours de développement.
 

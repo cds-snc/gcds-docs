@@ -6,8 +6,7 @@ permalink: false
 tags: ['buttonFR', 'header']
 ---
 
-<h1 class="mb-0">Bouton</h1>
-<h2 class="mt-0 mb-400"><code>&lt;gcds-button&gt;</code></h2>
+# Bouton <br>`<gcds-button>`
 
 Ce composant est en cours de développement.
 

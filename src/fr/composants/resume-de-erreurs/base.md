@@ -4,8 +4,7 @@ permalink: false
 tags: ['errorsummaryFR', 'header']
 ---
 
-<h1 class="mb-0">Résumé des erreurs</h1>
-<h2 class="mt-0 mb-400"><code>&lt;gcds-error-summary&gt;</code></h2>
+# Résumé des erreurs <br>`<gcds-error-summary>`
 
 Ce composant est en cours de développement.
 

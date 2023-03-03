@@ -6,8 +6,7 @@ permalink: false
 tags: ['checkboxFR', 'header']
 ---
 
-<h1 class="mb-0">Case à cocher</h1>
-<h2 class="mt-0 mb-400"><code>&lt;gcds-checkbox&gt;</code></h2>
+# Case à cocher<br>`<gcds-checkbox>`
 
 Ce composant est en cours de développement.
 

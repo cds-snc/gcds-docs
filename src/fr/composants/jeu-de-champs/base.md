@@ -6,8 +6,7 @@ permalink: false
 tags: ['fieldsetFR', 'header']
 ---
 
-<h1 class="mb-0">Jeu de champs</h1>
-<h2 class="mt-0 mb-400"><code>&lt;gcds-fieldset&gt;</code></h2>
+# Jeu de champs <br>`<gcds-fieldset>`
 
 Ce composant est en cours de développement.
 

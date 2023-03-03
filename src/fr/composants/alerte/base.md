@@ -6,8 +6,7 @@ permalink: false
 tags: ['alertFR', 'header']
 ---
 
-<h1 class="mb-0">Alert</h1>
-<h2 class="mt-0 mb-400"><code>&lt;gcds-alert&gt;</code></h2>
+# Alert <br>`<gcds-alert>`
 
 Ce composant est en cours de développement.
 

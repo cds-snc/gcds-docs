@@ -6,8 +6,7 @@ permalink: false
 tags: ['inputEN', 'header']
 ---
 
-<h1 class="mb-0">Input</h1>
-<h2 class="mt-0 mb-400"><code>&lt;gcds-input&gt;</code></h2>
+# Input<br>`<gcds-input>`
 
 _Also called: text input, input field._
 
@@ -16,16 +15,11 @@ An input is a space to enter short-form information in response to a question or
 {% docLinks locale stage figma github %}
 {% enddocLinks %}
 
-<div class="my-500 b-sm b-gray">
-  <p class="container-full font-semibold px-300 py-200 bb-sm b-gray bg-light">
-    Input component preview
-  </p>
-  <div class="px-300 pt-400">
-    <gcds-input
-      input-id="input-example"
-      label="Input label"
-      hint="Hint / example message."
-    >
-    </gcds-input>
-  </div>
-</div>
+{% componentPreview "Input component preview" "pt-400" %}
+<gcds-input
+  input-id="input-example"
+  label="Input label"
+  hint="Hint / example message."
+>
+</gcds-input>
+{% endcomponentPreview %}

@@ -6,8 +6,8 @@ permalink: false
 tags: ['textareaEN', 'header']
 ---
 
-<h1 class="mb-0">Text area</h1>
-<h2 class="mt-0 mb-400"><code>&lt;gcds-textarea&gt;</code></h2>
+
+# Text area <br>`<gcds-textarea>`
 
 _Also called: text box._
 
@@ -16,17 +16,12 @@ A text area is a space to enter long-form information in response to a question 
 {% docLinks locale stage figma github %}
 {% enddocLinks %}
 
-<div class="my-500 b-sm b-gray">
-  <p class="container-full font-semibold px-300 py-200 bb-sm b-gray bg-light">
-    Text area component preview
-  </p>
-  <div class="px-300 pt-400">
-    <gcds-textarea
-      textarea-id="textarea-example"
-      label="Text area label"
-      hint="Hint / example message."
-      value="Text area content."
-    >
-    </gcds-textarea>
-  </div>
-</div>
+{% componentPreview "Text area component preview" "pt-400" %}
+<gcds-textarea
+  textarea-id="textarea-example"
+  label="Text area label"
+  hint="Hint / example message."
+  value="Text area content."
+>
+</gcds-textarea>
+{% endcomponentPreview %}

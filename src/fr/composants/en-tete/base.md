@@ -6,8 +6,7 @@ permalink: false
 tags: ['headerFR', 'header']
 ---
 
-<h1 class="mb-0">En-tête</h1>
-<h2 class="mt-0 mb-400"><code>&lt;gcds-header&gt;</code></h2>
+# En-tête <br>`<gcds-header>`
 
 Ce composant est en cours de développement.
 

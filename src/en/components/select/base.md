@@ -6,8 +6,7 @@ permalink: false
 tags: ['selectEN', 'header']
 ---
 
-<h1 class="mb-0">Select</h1>
-<h2 class="mt-0 mb-400"><code>&lt;gcds-select&gt;</code></h2>
+# Select <br>`<gcds-select>`
 
 This component is coming soon.
 

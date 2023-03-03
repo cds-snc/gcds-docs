@@ -6,8 +6,7 @@ permalink: false
 tags: ['langtoggleEN', 'header']
 ---
 
-<h1 class="mb-0">Language toggle</h1>
-<h2 class="mt-0 mb-400"><code>&lt;gcds-lang-toggle&gt;</code></h2>
+# Language toggle <br>`<gcds-lang-toggle>`
 
 This component is coming soon.
 

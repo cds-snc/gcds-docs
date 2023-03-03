@@ -6,8 +6,7 @@ permalink: false
 tags: ['iconEN', 'header']
 ---
 
-<h1 class="mb-0">Icon</h1>
-<h2 class="mt-0 mb-400"><code>&lt;gcds-icon&gt;</code></h2>
+# Icon <br>`<gcds-icon>`
 
 This component is coming soon.
 
