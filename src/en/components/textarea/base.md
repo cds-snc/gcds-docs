@@ -6,7 +6,6 @@ permalink: false
 tags: ['textareaEN', 'header']
 ---
 
-
 # Text area <br>`<gcds-textarea>`
 
 _Also called: text box._
