@@ -6,7 +6,7 @@ permalink: false
 tags: ['breadcrumbsEN', 'header']
 ---
 
-# Breadcrumbs <br>&lt;gcds-breadcrumbs&gt;
+# Breadcrumbs <br>`<gcds-breadcrumbs>`
 
 This component is coming soon.
 

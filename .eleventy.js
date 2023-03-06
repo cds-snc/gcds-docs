@@ -222,6 +222,21 @@ module.exports = function (eleventyConfig) {
       </ul>`;
   });
 
+  eleventyConfig.addPairedShortcode('componentPreview', (children, title, padding = "py-400", margin = "my-500") => {
+    const content = markdownLibrary.render(children);
+
+    return `
+      <div class="${margin} b-sm b-gray component-preview">
+        <p class="container-full font-semibold px-300 py-200 bb-sm b-gray bg-light">
+          ${title}
+        </p>
+        <div class="px-300 ${padding}">
+          ${content}
+        </div>
+      </div>
+    `}
+  );
+
   /*
    * Display tokens in tables based on passed name
    */

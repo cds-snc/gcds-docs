@@ -6,7 +6,7 @@ permalink: false
 tags: ['textareaFR', 'header']
 ---
 
-# Zone de texte <br>&lt;gcds-textarea&gt;
+# Zone de texte <br>`<gcds-textarea>`
 
 _Également appelé : saisie de texte, zone d'entrée._
 
@@ -15,12 +15,12 @@ Une zone de texte est un espace permettant de saisir une réponse détaillée à
 {% docLinks locale stage figma github %}
 {% enddocLinks %}
 
-<div class="b-sm b-gray px-250 pt-400 my-500">
-  <gcds-textarea
-    textarea-id="textarea-example"
-    label="Libellé de champ"
-    hint="Texte explicatif / Exemple de message."
-    value="Contenu de la zone de texte."
-  >
-  </gcds-textarea>
-</div>
+{% componentPreview "Aperçu du composant de zone de texte" "pt-400" %}
+<gcds-textarea
+  textarea-id="textarea-example"
+  label="Libellé de champ"
+  hint="Texte explicatif / Exemple de message."
+  value="Contenu de la zone de texte."
+>
+</gcds-textarea>
+{% endcomponentPreview %}

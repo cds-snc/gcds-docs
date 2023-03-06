@@ -5,7 +5,7 @@ permalink: false
 tags: ['gridEN', 'header']
 ---
 
-# Grid <br>&lt;gcds-grid&gt;
+# Grid <br>`<gcds-grid>`
 
 This component is coming soon.
 

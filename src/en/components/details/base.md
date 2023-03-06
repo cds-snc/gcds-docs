@@ -6,7 +6,7 @@ permalink: false
 tags: ['detailsEN', 'header']
 ---
 
-# Details <br>&lt;gcds-details&gt;
+# Details <br>`<gcds-details>`
 
 _Also called: accordion, collapse._
 
@@ -15,8 +15,6 @@ Details is an interactive switch for a person to expand or collapse content.
 {% docLinks locale stage figma github %}
 {% enddocLinks %}
 
-<div class="b-sm b-gray px-250 py-400 my-500">
-  <gcds-details details-title="Learn more about this topic">
-    <p>Additional information.</p>
-  </gcds-details>
-</div>
+{% componentPreview "Details component preview" %}
+<gcds-details details-title="Learn more about this topic">
+{% endcomponentPreview %}

@@ -27,7 +27,7 @@ date: "git Last Modified"
 - Limit the number of options to 6-7.
 - Limit text for each option to a few words or a short phrase and include hint text for more context.
 - Generally, order options alphabetically. In some cases, it can be helpful for you to order them from most to least common.
-- When possible, include an option like "None" or "None of the above". With radios, a selected option cannot be de-selected, or reversed, except by choosing another option within the group. When no options in a group, the respondent is forced to choose an incorrect response or abandon the task.
+- When possible, include an option like "None" or "None of the above". With radios, a selected option cannot be de-selected, or reversed, except by choosing another option within the group. When this happens, the respondent is forced to choose an incorrect response or abandon the task.
 
 ### Help a person understand how to use radios
 

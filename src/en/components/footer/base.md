@@ -6,7 +6,7 @@ permalink: false
 tags: ['footerEN', 'header']
 ---
 
-# Footer <br>&lt;gcds-footer&gt;
+# Footer <br>`<gcds-footer>`
 
 _Also called: site footer._
 
@@ -15,4 +15,6 @@ The footer is the responsive Government of Canada branded footer landmark.
 {% docLinks locale stage figma github %}
 {% enddocLinks %}
 
-<img class="b-sm b-gray px-250 py-400 my-500" src="/images/en/components/preview-footer.svg" alt=""/>
+{% componentPreview "Footer component preview" %}
+<img src="/images/en/components/preview-footer.svg" alt=""/>
+{% endcomponentPreview %}

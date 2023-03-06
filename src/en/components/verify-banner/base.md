@@ -5,7 +5,7 @@ permalink: false
 tags: ['verifybannerEN', 'header']
 ---
 
-# Verify banner <br>&lt;gcds-verify-banner&gt;
+# Verify banner <br>`<gcds-verify-banner>`
 
 This component is coming soon.
 

@@ -6,7 +6,7 @@ permalink: false
 tags: ['iconFR', 'header']
 ---
 
-# Icône <br>&lt;gcds-icon&gt;
+# Icône <br>`<gcds-icon>`
 
 Ce composant est en cours de développement.
 

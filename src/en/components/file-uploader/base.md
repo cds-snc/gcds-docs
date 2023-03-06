@@ -6,7 +6,7 @@ permalink: false
 tags: ['fileuploaderEN', 'header']
 ---
 
-# File uploader <br>&lt;gcds-file-uploader&gt;
+# File uploader <br>`<gcds-file-uploader>`
 
 This component is coming soon.
 

@@ -6,7 +6,7 @@ permalink: false
 tags: ['selectEN', 'header']
 ---
 
-# Select <br>&lt;gcds-select&gt;
+# Select <br>`<gcds-select>`
 
 This component is coming soon.
 

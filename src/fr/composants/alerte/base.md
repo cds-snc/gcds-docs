@@ -6,7 +6,7 @@ permalink: false
 tags: ['alertFR', 'header']
 ---
 
-# Alert <br>&lt;gcds-alert&gt;
+# Alert <br>`<gcds-alert>`
 
 Ce composant est en cours de développement.
 

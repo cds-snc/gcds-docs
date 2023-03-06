@@ -4,7 +4,7 @@ permalink: false
 tags: ['errorsummaryFR', 'header']
 ---
 
-# Résumé des erreurs <br>&lt;gcds-error-summary&gt;
+# Résumé des erreurs <br>`<gcds-error-summary>`
 
 Ce composant est en cours de développement.
 

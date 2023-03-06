@@ -5,7 +5,7 @@ permalink: false
 tags: ['verifybannerFR', 'header']
 ---
 
-# Banniere didentification <br>&lt;gcds-verify-banner&gt;
+# Banniere didentification <br>`<gcds-verify-banner>`
 
 Ce composant est en cours de développement.
 

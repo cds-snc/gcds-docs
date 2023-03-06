@@ -6,7 +6,7 @@ permalink: false
 tags: ['signatureEN', 'header']
 ---
 
-# Signature <br>&lt;gcds-signature&gt;
+# Signature <br>`<gcds-signature>`
 
 This component is coming soon.
 

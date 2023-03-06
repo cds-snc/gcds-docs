@@ -6,7 +6,7 @@ permalink: false
 tags: ['fieldsetEN', 'header']
 ---
 
-# Fieldset <br>&lt;gcds-fieldset&gt;
+# Fieldset <br>`<gcds-fieldset>`
 
 _Also called: form field._
 
@@ -15,27 +15,29 @@ A fieldset is a group of multiple form components or elements.
 {% docLinks locale stage figma github %}
 {% enddocLinks %}
 
-<div class="b-sm b-gray px-250 pt-400 my-500">
-  <gcds-fieldset
-    fieldset-id="fieldset"
-    legend="Fieldset legend"
-    hint="Fieldset hint."
+<div class="remove-empty-p">
+{% componentPreview "Fieldset component preview" "pt-400" %}
+<gcds-fieldset
+  fieldset-id="fieldset"
+  legend="Fieldset legend"
+  hint="Fieldset hint."
+>
+  <gcds-input
+    input-id="form-input"
+    label="Input label"
+    hint="Hint / Example message."
+    size="6"
   >
-    <gcds-input
-      input-id="form-input"
-      label="Input label"
-      hint="Hint / Example message."
-      size="6"
-    >
-    </gcds-input>
-    <gcds-select
-      select-id="form-select"
-      label="Select label"
-      hint="Hint / Example message."
-    >
-      <option value="option-1">Option 1</option>
-      <option value="option-2">Option 2</option>
-      <option value="option-3">Option 3</option>
-    </gcds-select>
-  </gcds-fieldset>
+  </gcds-input>
+  <gcds-select
+    select-id="form-select"
+    label="Select label"
+    hint="Hint / Example message."
+  >
+    <option value="option-1">Option 1</option>
+    <option value="option-2">Option 2</option>
+    <option value="option-3">Option 3</option>
+  </gcds-select>
+</gcds-fieldset>
+{% endcomponentPreview %}
 </div>

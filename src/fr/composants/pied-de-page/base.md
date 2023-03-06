@@ -6,7 +6,7 @@ permalink: false
 tags: ['footerFR', 'header']
 ---
 
-# Pied de page <br>&lt;gcds-footer&gt;
+# Pied de page <br>`<gcds-footer>`
 
 Ce composant est en cours de développement.
 

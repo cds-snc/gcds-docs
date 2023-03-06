@@ -6,7 +6,7 @@ permalink: false
 tags: ['datemodifiedFR', 'header']
 ---
 
-# Date de modification <br>&lt;gcds-date-modified&gt;
+# Date de modification <br>`<gcds-date-modified>`
 
 Ce composant est en cours de développement.
 

@@ -6,7 +6,7 @@ permalink: false
 tags: ['paginationFR', 'header']
 ---
 
-# Pagination <br>&lt;gcds-pagination&gt;
+# Pagination <br>`<gcds-pagination>`
 
 Ce composant est en cours de développement.
 

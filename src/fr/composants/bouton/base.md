@@ -6,7 +6,7 @@ permalink: false
 tags: ['buttonFR', 'header']
 ---
 
-# Bouton <br>&lt;gcds-button&gt;
+# Bouton <br>`<gcds-button>`
 
 Ce composant est en cours de développement.
 

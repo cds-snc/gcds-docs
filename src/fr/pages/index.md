@@ -16,7 +16,7 @@ date: "git Last Modified"
       <p class="mb-400">Visitez notre bibliothèque Figma pour explorer nos ressources de conception.</p>
       <a class="link-inherit" href="{{ links.figma }}" target="_blank">
         Commencer à concevoir
-        <gcds-icon name="external-link" label="S'ouvre dans un nouvel onglet." margin-left="200" />
+        <gcds-icon name="external-link" label="S'ouvre dans un nouvel onglet." margin-left="50" />
       </a>
     </li>
     <li class="list-none">

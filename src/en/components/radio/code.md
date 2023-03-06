@@ -17,9 +17,8 @@ The radio helps users to make a choice by limiting their options.
 ### Use a fieldset and the required attribute
 
 - Group radio options and name the group using the [fieldset component]({{ links.fieldset }}).
-- Use the [fieldset]({{ links.fieldset }}) `legend` and `hint` attributes for the group name and instructions.
-- For required groups, set the `required` attribute in the [fieldset]({{ links.fieldset }}). Setting the `required` attribute applies validation and error handling to the radio group.
-- For required radios, add the `required` attribute to the first and last of the set of radio buttons. This way a person using assistive technology can read the group from either the top or bottom and still see that it's required.
+- Use the fieldset `legend` and `hint` attributes for the group name and instructions.
+- For required groups, set the `required` attribute in the fieldset. Setting the `required` attribute applies validation and error handling to the radio group.
 
 {% include "partials/getcode.njk" %}
 

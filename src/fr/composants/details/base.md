@@ -6,7 +6,7 @@ permalink: false
 tags: ['detailsFR', 'header']
 ---
 
-# Détails <br>&lt;gcds-details&gt;
+# Détails <br>`<gcds-details>`
 
 Ce composant est en cours de développement.
 

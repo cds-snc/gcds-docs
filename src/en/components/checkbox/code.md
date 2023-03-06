@@ -15,8 +15,8 @@ Use a checkbox with a [fieldset]({{ links.fieldset }}) when you are expecting th
 ### Use a fieldset and the required attribute
 
 - Group checkbox options and name the group using the [fieldset component]({{ links.fieldset }}).
-- Use the [fieldset]({{ links.fieldset }}) `legend` and `hint` attributes for the group name and instructions.
-- For required groups, set the `required` attribute in the [fieldset]({{ links.fieldset }}). Setting the `required` attribute applies validation and error handling to the checkbox group.
+- Use the fieldset `legend` and `hint` attributes for the group name and instructions.
+- For required groups, set the `required` attribute in the fieldset. Setting the `required` attribute applies validation and error handling to the checkbox group.
 
 ### For a single checkbox
 

@@ -6,7 +6,7 @@ permalink: false
 tags: ['langtoggleEN', 'header']
 ---
 
-# Language toggle <br>&lt;gcds-lang-toggle&gt;
+# Language toggle <br>`<gcds-lang-toggle>`
 
 This component is coming soon.
 

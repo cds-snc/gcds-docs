@@ -15,3 +15,7 @@ body {
   color: var(--gcds-color-grayscale-1000);
   animation: fade 0.05s normal forwards ease-in-out;
 }
+
+.remove-empty-p p:empty {
+  display: none;
+}

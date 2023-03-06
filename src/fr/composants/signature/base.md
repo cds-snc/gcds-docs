@@ -6,7 +6,8 @@ permalink: false
 tags: ['signatureFR', 'header']
 ---
 
-# Signature <br>&lt;gcds-signature&gt;
+
+# Signature <br>`<gcds-signature>`
 
 Ce composant est en cours de développement.
 

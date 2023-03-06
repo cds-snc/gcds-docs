@@ -76,10 +76,11 @@ Use the link type when you're expecting a user to:
 
 A role is a button sub-type that has a specific use on a page.
 
-<gcds-grid columns="1fr" columns-tablet="1fr 3fr" gap="500" align-items="start">
-  <div class="b-sm b-gray px-250 py-400">
-    <gcds-button button-role="primary">Primary</gcds-button>
-  </div>
+<div class="remove-empty-p">
+<gcds-grid columns="1fr" columns-tablet="1fr 2fr" gap="500" align-items="start">
+  {% componentPreview "Primary button preview" "py-400" "" %}
+  <gcds-button button-role="primary">Primary</gcds-button>
+  {% endcomponentPreview %}
   <div>
     <h3 class="mb-400">Primary button uses</h3>
     <ul class="list-disc mb-400">
@@ -91,10 +92,10 @@ A role is a button sub-type that has a specific use on a page.
   </div>
 </gcds-grid>
 <br/>
-<gcds-grid columns="1fr" columns-tablet="1fr 3fr" gap="500" align-items="start">
-  <div class="b-sm b-gray px-250 py-400">
-    <gcds-button button-role="secondary">Secondary</gcds-button>
-  </div>
+<gcds-grid columns="1fr" columns-tablet="1fr 2fr" gap="500" align-items="start">
+  {% componentPreview "Secondary button preview" "py-400" "" %}
+  <gcds-button button-role="secondary">Secondary</gcds-button>
+  {% endcomponentPreview %}
   <div>
     <h3 class="mb-400">Secondary button uses</h3>
     <ul class="list-disc mb-400">
@@ -105,10 +106,10 @@ A role is a button sub-type that has a specific use on a page.
   </div>
 </gcds-grid>
 <br/>
-<gcds-grid columns="1fr" columns-tablet="1fr 3fr" gap="500" align-items="start">
-  <div class="b-sm b-gray px-250 py-400">
-    <gcds-button button-role="danger">danger</gcds-button>
-  </div>
+<gcds-grid columns="1fr" columns-tablet="1fr 2fr" gap="500" align-items="start">
+  {% componentPreview "Danger button preview" "py-400" "" %}
+  <gcds-button button-role="danger">Danger</gcds-button>
+  {% endcomponentPreview %}
   <div>
     <h3 class="mb-400">Danger button uses</h3>
     <ul class="list-disc mb-400">
@@ -119,11 +120,11 @@ A role is a button sub-type that has a specific use on a page.
   </div>
 </gcds-grid>
 <br/>
-<gcds-grid columns="1fr" columns-tablet="1fr 3fr" gap="500" align-items="start">
-  <div class="b-sm b-gray px-250 py-400">
-    <gcds-button button-role="skip-to-content">Skip to content</gcds-button>
-    <p><small>Hidden by default</small></p>
-  </div>
+<gcds-grid columns="1fr" columns-tablet="1fr 2fr" gap="500" align-items="start">
+  {% componentPreview "Skip-to-content button preview" "py-400" "" %}
+  <gcds-button button-role="skip-to-content">Skip-to-content</gcds-button>
+  <p><small>Hidden by default</small></p>
+  {% endcomponentPreview %}
   <div>
     <h3 class="mb-400">Skip to content button uses</h3>
     <ul class="list-disc mb-400">
@@ -133,3 +134,4 @@ A role is a button sub-type that has a specific use on a page.
     </ul>
   </div>
 </gcds-grid>
+</div>

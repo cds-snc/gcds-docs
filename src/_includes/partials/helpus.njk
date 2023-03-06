@@ -1,4 +1,4 @@
-<section class="pt-100 mt-400 {% if removeBorder %} {% else %}bt-sm b-dark {% endif %}">
+<section class="pt-100 mt-400 mb-600 {% if removeBorder %} {% else %}bt-sm b-dark {% endif %}">
   <h2 class="mt-300 mb-400">
     {{ helpus[locale].heading }}
   </h2>
@@ -7,27 +7,11 @@
     {{ helpus[locale].paragraph }}
   </p>
 
-  <ul class="mb-600">
-    <li class="md:d-inline sm:d-block me-200">
-      <gcds-button
-        type="link"
-        button-role="primary"
-        href="{{ helpus[locale].feedbackHref }}"
-      >
-        {{ helpus[locale].feedback }}
-      </gcds-button>
-    </li>
-
-    <li class="md:d-inline sm:d-block mt-150 md:mt-0">
-      <gcds-button
-        type="link"
-        button-role="secondary"
-        target="_blank"
-        href="{{ links.github }}"
-        lang="{{ locale }}"
-      >
-        {{ helpus[locale].github }}
-      </gcds-button>
-    </li>
-  </ul>
+  <gcds-button
+    type="link"
+    button-role="secondary"
+    href="{{ helpus[locale].feedbackHref }}"
+  >
+    {{ helpus[locale].feedback }}
+  </gcds-button>
 </section>

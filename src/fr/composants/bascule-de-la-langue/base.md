@@ -6,7 +6,7 @@ permalink: false
 tags: ['langtoggleFR', 'header']
 ---
 
-# Bascule de la langue <br>&lt;gcds-lang-toggle&gt;
+# Bascule de la langue <br>`<gcds-lang-toggle>`
 
 Ce composant est en cours de développement.
 

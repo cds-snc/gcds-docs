@@ -5,7 +5,7 @@ permalink: false
 tags: ['gridFR', 'header']
 ---
 
-# Grille <br>&lt;gcds-grid&gt;
+# Grille <br>`<gcds-grid>`
 
 Ce composant est en cours de développement.
 

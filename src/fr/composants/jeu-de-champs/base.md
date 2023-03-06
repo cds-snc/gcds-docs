@@ -6,7 +6,7 @@ permalink: false
 tags: ['fieldsetFR', 'header']
 ---
 
-# Jeu de champs <br>&lt;gcds-fieldset&gt;
+# Jeu de champs <br>`<gcds-fieldset>`
 
 Ce composant est en cours de développement.
 

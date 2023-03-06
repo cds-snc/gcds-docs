@@ -6,7 +6,7 @@ permalink: false
 tags: ['headerFR', 'header']
 ---
 
-# En-tête <br>&lt;gcds-header&gt;
+# En-tête <br>`<gcds-header>`
 
 Ce composant est en cours de développement.
 

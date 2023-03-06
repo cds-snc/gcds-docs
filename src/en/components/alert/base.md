@@ -6,7 +6,7 @@ permalink: false
 tags: ['alertEN', 'header']
 ---
 
-# Alert <br>&lt;gcds-alert&gt;
+# Alert <br>`<gcds-alert>`
 
 This component is coming soon.
 

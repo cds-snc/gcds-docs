@@ -6,7 +6,7 @@ permalink: false
 tags: ['radioFR', 'header']
 ---
 
-# Radio <br>&lt;gcds-radio&gt;
+# Radio <br>`<gcds-radio>`
 
 Ce composant est en cours de développement.
 

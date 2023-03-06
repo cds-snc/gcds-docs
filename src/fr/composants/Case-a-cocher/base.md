@@ -6,7 +6,7 @@ permalink: false
 tags: ['checkboxFR', 'header']
 ---
 
-# Case à cocher<br>&lt;gcds-checkbox&gt;
+# Case à cocher<br>`<gcds-checkbox>`
 
 Ce composant est en cours de développement.
 

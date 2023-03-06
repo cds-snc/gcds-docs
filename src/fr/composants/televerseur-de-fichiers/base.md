@@ -6,7 +6,7 @@ permalink: false
 tags: ['fileuploaderFR', 'header']
 ---
 
-# Téléverseur de fichiers <br>&lt;gcds-file-uploader&gt;
+# Téléverseur de fichiers <br>`<gcds-file-uploader>`
 
 Ce composant est en cours de développement.
 

@@ -6,7 +6,7 @@ permalink: false
 tags: ['breadcrumbsFR', 'header']
 ---
 
-# Chemin de navigation <br>&lt;gcds-breadcrumbs&gt;
+# Chemin de navigation <br>`<gcds-breadcrumbs>`
 
 Ce composant est en cours de développement.
 

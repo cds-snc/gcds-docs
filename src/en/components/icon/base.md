@@ -6,7 +6,7 @@ permalink: false
 tags: ['iconEN', 'header']
 ---
 
-# Icon <br>&lt;gcds-icon&gt;
+# Icon <br>`<gcds-icon>`
 
 This component is coming soon.
 
