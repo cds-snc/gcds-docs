@@ -39,7 +39,7 @@ Fill out this form or submit an issue through GitHub for <a href="{{ links.githu
   <div hidden>
     <gcds-input type="text" input-id="bot-field" label="bot"></gcds-input>
   </div>
-  <gcds-button button-role="primary" button-type="submit">
+  <gcds-button button-role="primary" type="submit">
     Send message
   </gcds-button>
 </form>

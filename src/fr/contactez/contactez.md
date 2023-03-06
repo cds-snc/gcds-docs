@@ -39,7 +39,7 @@ Pour toute demande concernant <a href="{{ links.githubTokensIssues }}" target="_
   <div hidden>
     <gcds-input type="text" input-id="bot-field" label="bot"></gcds-input>
   </div>
-  <gcds-button button-role="primary" button-type="submit">
+  <gcds-button button-role="primary" type="submit">
     Envoyer le message
   </gcds-button>
 </form>
