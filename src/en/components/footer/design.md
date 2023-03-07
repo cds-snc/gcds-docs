@@ -20,7 +20,7 @@ date: "git Last Modified"
 
 **The main band** with Government of Canada links provides a large selection of corporate links to Government of Canada services and products.
 
-<img class="b-sm b-gray p-400" src="/images/en/anatomy/gcds-footer-anatomy.svg" alt=""/>
+<img class="b-sm b-gray p-400" src="/images/en/anatomy/gcds-footer-anatomy.svg" alt="Website footer taxonomy with four sections. First section Contextual navigation in light dark blue banner with  Contextual Navigation as a Head title section link and Why GC Notify and Features as sub sections links. Second section is Main band GC links with Governement of Canada as the Head title section link with multiple sub sections links like All Contacts, Departments and agencies, Jobs, Taxes and so on. The thrid sections is the Footer links bands in a light grey banner with some links like Social media, Mobile applications, About Canada.ca and so on. The fourth section is the Canada workmark indicating Canada logo"/>
 
 ## Accessibility and design for footers
 

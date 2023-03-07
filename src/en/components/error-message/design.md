@@ -10,7 +10,7 @@ date: "git Last Modified"
 
 **The error message** cites the problem in context and includes a call to action to address it.
 
-<img class="b-sm b-gray p-400" src="/images/en/anatomy/gcds-error-message-anatomy.svg" alt=""/>
+<img class="b-sm b-gray p-400" src="/images/en/anatomy/gcds-error-message-anatomy.svg" alt="Error message label in a light pink box and red line at the start of the box with Error/ Validation message text."/>
 
 ### Form component with error message
 
@@ -22,7 +22,7 @@ All GC Design System components come with default error handling for required fo
 
 **The response area** takes on the appearance of the response format and error message state of the component it's attached to. For an input or text area, the box will be highlighted. For radios or checkboxes, the options will be highlighted.
 
-<img class="b-sm b-gray p-400" src="/images/en/anatomy/gcds-error-message-anatomy-with-form-field.svg" alt=""/>
+<img class="b-sm b-gray p-400" src="/images/en/anatomy/gcds-error-message-anatomy-with-form-field.svg" alt="Error message taxonomy with these two areas, Required and Error message. Required shows Lable or legend (required) in a red text and Hint text below it. The error message is in a light pink box and red line at the start of the box with Error/ Validation message text."/>
 
 ## Accessibility and design for error messages
 

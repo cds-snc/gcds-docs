@@ -14,7 +14,7 @@ date: "git Last Modified"
 
 **The field** is the container the user interacts with to provide their response.
 
-<img class="b-sm b-gray p-400" src="/images/en/anatomy/gcds-input-anatomy.svg" alt=""/>
+<img class="b-sm b-gray p-400" src="/images/en/anatomy/gcds-input-anatomy.svg" alt="Input anatomy showing the Input label, Hint text/ example message and dark blue outline white box for text input."/>
 
 ## Accessibility and design for inputs
 

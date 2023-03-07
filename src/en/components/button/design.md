@@ -14,7 +14,7 @@ date: "git Last Modified"
 
 **The container** can be omitted for styling a button as a link.
 
-<img class="b-sm b-gray p-400" src="/images/en/anatomy/gcds-button-anatomy.svg" alt=""/>
+<img class="b-sm b-gray p-400" src="/images/en/anatomy/gcds-button-anatomy.svg" alt="Button anatomy showing the Button label branching to the container and arrow icon."/>
 
 ## Accessibility and design for buttons
 

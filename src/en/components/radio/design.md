@@ -18,7 +18,7 @@ date: "git Last Modified"
 
 **The radio hint** gives users additional information about the choice.
 
-<img class="b-sm b-gray p-400" src="/images/en/anatomy/gcds-radio-anatomy.svg" alt=""/>
+<img class="b-sm b-gray p-400" src="/images/en/anatomy/gcds-radio-anatomy.svg" alt="Radio anatomy showing the labels Fieldset legend, Fieldset hint, Checkmark, Radio label, Radio button and Radio Hint."/>
 
 ## Accessibility and design for radios
 
