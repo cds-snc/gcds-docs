@@ -74,6 +74,6 @@ date: "git Last Modified"
   <h2 class="mb-400">Composant vedette</h2>
   <h3 class="mb-400">Jeu de champs</h3>
   <p class="mb-450">Le jeu de champs permet aux utilisateur·rice·s de percevoir un groupe d'éléments de formulaire connexes. Les éléments ainsi groupés, soit de façon logique et accessible, sont plus faciles à utiliser et comprendre.</p>
-  <img class="mb-450" src="../../images/common/components/preview-fieldset.svg" alt="UI preview of fieldset component using an input and a select field." />
+  <img class="mb-450" src="../../images/common/components/preview-fieldset.svg" alt="UI preview of fieldset component using an input and a select field." alt="Un aperçu du composant jeu de champ qui montre une suite de plusieurs éléments. Une boîte grise foncée représentant le titre du groupe suivi d'une boîte grise représentant du texte. On voit ensuite une boîte de texte vide avec le curseur à l'intérieur suivi d'une boîte grise représentatn du texte et une boîte de sélection avec une boîte grise à l'intérieur représentant du texte." />
   <a href="{{ links.fieldset }}" class="d-block link-default">En savoir plus sur le jeu de champs</a>
 </article>

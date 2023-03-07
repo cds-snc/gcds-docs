@@ -9,7 +9,7 @@ eleventyNavigation:
   otherNames: champ de texte.
   description: Un espace où saisir des renseignements détaillés.
   thumbnail: /images/common/components/preview-textarea.svg
-  alt: This is an image of the component
+  alt: Un aperçu du composant zone de texte qui montre deux boîtes grises en cascades représentants l'étiquette de la zone de texte et un message d'aide. Sous les boîtes une grande boîte multilignes avec un curseur à l'intérieur.
   state: published
 translationKey: "textarea"
 tags: ['textareaFR', 'usage']

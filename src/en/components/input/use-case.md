@@ -9,7 +9,7 @@ eleventyNavigation:
   otherNames: text input, text field.
   description: A space to enter short-form information.
   thumbnail: /images/common/components/preview-input.svg
-  alt: This is an image of the component
+  alt: Input component shows two cascading greyed boxes above a blank text input field with a cursor icon in it. The boxes represent the input's label and hint message.
   state: published
 translationKey: "input"
 tags: ['inputEN', 'usage']

@@ -9,7 +9,7 @@ eleventyNavigation:
   otherNames: glyphs, graphic, symbol.
   description: A visual cue to help users understand the context.
   thumbnail: /images/common/components/preview-icons.svg
-  alt: This is an image of the component
+  alt: Icon component shows a green check mark icon, orange triangle with a exclamation icon, blue circle  with an i for information, and an arrow
   state: coming-soon
 translationKey: "icon"
 tags: ['iconEN', 'usage']

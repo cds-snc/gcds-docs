@@ -9,7 +9,7 @@ eleventyNavigation:
   otherNames: form field.
   description: A group of multiple form elements.
   thumbnail: /images/common/components/preview-fieldset.svg
-  alt: This is an image of the component
+  alt: Fieldset component shows a grouping of multiple form elements. One is a text input field and the other is a select box. The grouping has a larger box above them which represents a fieldset legend.
   state: published
 translationKey: "fieldset"
 tags: ['fieldsetEN', 'usage']

@@ -22,7 +22,7 @@
               </p>
             {% endif %}
             <p class="mb-150">{{ entry.description }}</p>
-            <img src="{{ entry.thumbnail }}" alt="" />
+            <img src="{{ entry.thumbnail }}" alt="{{ entry.alt }}" />
           </div>
           {% if entry.tag %}
             <span class="font-caption {% if entry.tag === 'Core' or entry.tag === 'De base' %}bg-black{% else %}bg-light-blue{% endif %} align-self-start px-150 py-50 radius-md">

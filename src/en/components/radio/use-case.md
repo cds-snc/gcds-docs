@@ -9,7 +9,7 @@ eleventyNavigation:
   otherNames: radio button, radio group.
   description: A short set of options for single selection.
   thumbnail: /images/common/components/preview-radio.svg
-  alt: This is an image of the component
+  alt: Radio component shows radio selection with black outlined circle with a black circle selected followed by unselected two options
   state: published
 translationKey: "radio"
 tags: ['radioEN', 'usage']

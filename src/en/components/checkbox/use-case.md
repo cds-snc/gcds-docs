@@ -9,7 +9,7 @@ eleventyNavigation:
   otherNames: checklist.
   description: An option or set of options where any of the available boxes can be selected.
   thumbnail: /images/common/components/preview-checkbox.svg
-  alt: This is an image of the component
+  alt: Checkbox shows 3 checkboxes, the first one has a white box with a check mark beside two dark grey long rectangular boxes indicating text followed by two empty checkboxes. They are white boxes with a black border and two grey long rectangular boxes indicating text
   state: published
 translationKey: "checkbox"
 tags: ["checkboxEN", "usage"]
