@@ -258,7 +258,7 @@ nav.tabs ul {
   flex-wrap: wrap;
   padding-block-start: var(--gcds-spacing-100);
   padding-inline: var(--gcds-spacing-100);
-  border-bottom: 2px solid gray; }
+  border-bottom: var(--gcds-border-width-md) solid var(--gcds-color-grayscale-100); }
 
 nav.tabs a {
   display: block;
@@ -268,9 +268,9 @@ nav.tabs a {
 
 nav.tabs a[aria-current="page"] {
   background-color: var(--gcds-color-grayscale-0);
-  border: 2px solid gray;
-  border-bottom: 0 solid white;
-  box-shadow: 0 4px 0 -2px var(--gcds-color-grayscale-0);
+  border: var(--gcds-border-width-md) solid var(--gcds-color-grayscale-100);
+  border-bottom: 0 solid var(--gcds-color-grayscale-0);
+  box-shadow: 0 var(--gcds-border-width-xl) 0 calc(var(--gcds-border-width-md) * -1) var(--gcds-color-grayscale-0);
   text-decoration: none; }
 
 nav.tabs a:hover {
