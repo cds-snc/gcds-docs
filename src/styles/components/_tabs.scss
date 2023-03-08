@@ -4,11 +4,12 @@ nav.tabs {
     margin-inline-start: 0;
     width: var(--gcds-container-full);
     display: flex;
-    background-color: var(--gcds-color-grayscale-100);
+    background-color: var(--gcds-color-grayscale-0);
     gap: var(--gcds-spacing-100);
     flex-wrap: wrap;
     padding-block-start: var(--gcds-spacing-100);
     padding-inline: var(--gcds-spacing-100);
+    border-bottom: 2px solid gray;
   }
 
   a {
@@ -20,6 +21,9 @@ nav.tabs {
 
     &[aria-current="page"] {
       background-color: var(--gcds-color-grayscale-0);
+      border: 2px solid gray;
+      border-bottom: 0 solid white;
+      box-shadow: 0 4px 0 -2px var(--gcds-color-grayscale-0);
       text-decoration: none;
     }
 
