@@ -11,10 +11,13 @@ a[href] {
   }
 
   &:focus {
+    border-radius: var(--gcds-border-radius-sm);
     background-color: var(--gcds-focus-background);
     color: var(--gcds-focus-text);
     text-decoration: none;
-    outline: var(--gcds-border-width-md) solid var(--gcds-focus-background);
+    box-shadow: 0 0 0 var(--gcds-border-width-md) var(--gcds-color-grayscale-0);
+    outline-offset: var(--gcds-border-width-md);
+    outline: var(--gcds-spacing-50) solid var(--gcds-focus-background);
   }
 }
 

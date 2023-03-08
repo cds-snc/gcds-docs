@@ -70,10 +70,13 @@ a[href]:hover {
   text-decoration-thickness: var(--gcds-border-width-md); }
 
 a[href]:focus {
+  border-radius: var(--gcds-border-radius-sm);
   background-color: var(--gcds-focus-background);
   color: var(--gcds-focus-text);
   text-decoration: none;
-  outline: var(--gcds-border-width-md) solid var(--gcds-focus-background); }
+  box-shadow: 0 0 0 var(--gcds-border-width-md) var(--gcds-color-grayscale-0);
+  outline-offset: var(--gcds-border-width-md);
+  outline: var(--gcds-spacing-50) solid var(--gcds-focus-background); }
 
 a[href]:not([class*="link-inherit"]):not([class*="link-light"]):not(:focus):not(
 :hover
@@ -254,6 +257,7 @@ table .spacing-preview {
 nav.tabs ul {
   list-style: none;
   margin-inline-start: 0;
+  margin-bottom: var(--gcds-spacing-500);
   width: var(--gcds-container-full);
   display: flex;
   background-color: var(--gcds-color-grayscale-0);
@@ -285,10 +289,12 @@ nav.tabs a:hover {
   background-color: var(--gcds-color-grayscale-50); }
 
 nav.tabs a:focus {
-  border-radius: 0;
   background-color: var(--gcds-focus-background);
   color: var(--gcds-focus-text);
   text-decoration: none; }
+
+nav.tabs a[aria-current="page"]:focus {
+  border-color: var(--gcds-focus-background); }
 
 .hero {
   margin: calc(-1 * var(--gcds-spacing-200));

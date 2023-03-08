@@ -2,6 +2,7 @@ nav.tabs {
   ul {
     list-style: none;
     margin-inline-start: 0;
+    margin-bottom: var(--gcds-spacing-500);
     width: var(--gcds-container-full);
     display: flex;
     background-color: var(--gcds-color-grayscale-0);
@@ -41,10 +42,13 @@ nav.tabs {
     }
 
     &:focus {
-      border-radius: 0;
       background-color: var(--gcds-focus-background);
       color: var(--gcds-focus-text);
       text-decoration: none;
+    }
+
+    &[aria-current="page"]:focus {
+      border-color: var(--gcds-focus-background );
     }
   }
 }
