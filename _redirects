@@ -2,3 +2,4 @@ https://design-system.alpha.canada.ca/        https://design-system.alpha.canada
 https://systeme-design.alpha.canada.ca/       https://systeme-design.alpha.canada.ca/fr
 https://design-system.alpha.canada.ca/fr/*    https://systeme-design.alpha.canada.ca/fr/:splat 301!
 https://systeme-design.alpha.canada.ca/en/*   https://design-system.alpha.canada.ca/en/:splat 301!
+https://cds-design-snc.netlify.app/           https://design-system.alpha.canada.ca/en
