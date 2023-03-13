@@ -5,13 +5,13 @@
 # GC Design System Docs
 
 GC Design System Docs is a documentation website for GC Design System.
-You can find the full documentation on [https://cds-design-snc.netlify.app/](https://cds-design-snc.netlify.app/).
+You can find the full documentation on [https://design-system.alpha.canada.ca/](https://design-system.alpha.canada.ca/).
 <br/>
 <br/>
 
 ## Documentation
 
-You can find the full documentation for GC Design System Utility on [https://cds-design-snc.netlify.app/](https://cds-design-snc.netlify.app/).
+You can find the full documentation for GC Design System Utility on [https://design-system.alpha.canada.ca/](https://design-system.alpha.canada.ca/).
 <br/>
 <br/>
 
