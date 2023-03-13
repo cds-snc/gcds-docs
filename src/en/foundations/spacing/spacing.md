@@ -9,7 +9,7 @@ eleventyNavigation:
   order: 2
   description: Spacing tokens help position elements onscreen and in components.
   thumbnail: /images/en/foundations/preview/preview-spacing.svg
-  alt: This is an image of the foundation
+  alt:
   state: published
 permalink: /en/foundations/spacing/
 translationKey: "spacing"

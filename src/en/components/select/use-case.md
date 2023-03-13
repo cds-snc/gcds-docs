@@ -9,7 +9,7 @@ eleventyNavigation:
   otherNames: dropdown, select menu.
   description: A list of options with a single-option choice.
   thumbnail: /images/common/components/preview-select.svg
-  alt: This is an image of the component
+  alt: Select component shows two cascading greyed boxes above a select box. The select box is a box with a down arrow to indicate it will expand downwards. The boxes represent the input's label and hint message.
   state: coming-soon
 translationKey: "select"
 tags: ['selectEN', 'usage']

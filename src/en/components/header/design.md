@@ -24,13 +24,13 @@ date: "git Last Modified"
 
 **The search element** supports including a search that is local or global.
 
-<img class="b-sm b-gray mb-500 p-400" src="/images/en/anatomy/gcds-header-anatomy.svg" alt=""/>
+<img class="b-sm b-gray mb-500 p-400" src="/images/en/anatomy/gcds-header-anatomy.svg" alt="Home link Taxonomy has five parts. The skip to content - indicated by a bright blue double white lined box with label of Skip to main content. The Phase banner - indicated by a navy blue lined box with label of stages of the site. The stage 'pilot' is in a white navy blue outlined box. GC header banner with a Canadian Flag with Government of Canada  and Government du Canada. Language toggle pointing at Français to use to toggle to French. Top bar pointing at Home link in a light grey banner with Site menu link outlined by a dark grey link to indicate the selected link with unselected Site menu link with no line underneath it."/>
 
 **The breadcrumb** lays a path from each level of the site's hierarchy to the current page, stated in the page title. The breadcrumb tells a person where they've been and lets them retrace their steps or jump between levels.
 
 **The page title** tells readers what the page or site is about and acts a signpost, giving them a sense of place.
 
-<img class="b-sm b-gray p-400" src="/images/en/anatomy/gcds-header-anatomy-with-additional-elements.svg" alt=""/>
+<img class="b-sm b-gray p-400" src="/images/en/anatomy/gcds-header-anatomy-with-additional-elements.svg" alt="Current Page taxonomy has three parts. Top bar pointing at Home link in a light grey banner with Site menu link outlined by a dark grey link to indicate the selected link with unselected Site menu link with no line underneath it. Breadcrumbs indicating Home page right pointing arrow, Parent page link right pointing arrow. Page titles as heading one indicating Current page in Bold and heading one font size."/>
 
 ## Accessibility and design for headers
 

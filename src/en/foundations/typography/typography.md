@@ -9,7 +9,7 @@ eleventyNavigation:
   order: 3
   description: Typography tokens include   the style, arrangement, and appearance of letters, numbers, and symbols.
   thumbnail: /images/en/foundations/preview/preview-typography.svg
-  alt: This is an image of the foundation
+  alt:
   state: published
 permalink: /en/foundations/typography/
 translationKey: "typography"

@@ -9,7 +9,7 @@ eleventyNavigation:
   otherNames: GC signature.
   description: A corporate identity marker for the Government of Canada.
   thumbnail: /images/common/components/preview-signature.svg
-  alt: This is an image of the component
+  alt: Signature component shows Canadian Flag and grey boxes where signature text would be.
   tag: Core
 translationKey: "signature"
 tags: ['signatureEN', 'usage']

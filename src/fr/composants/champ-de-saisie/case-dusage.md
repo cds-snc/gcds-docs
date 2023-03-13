@@ -9,7 +9,7 @@ eleventyNavigation:
   otherNames: saisie de texte, champ de texte.
   description: Un espace où saisir des renseignements brefs.
   thumbnail: /images/common/components/preview-input.svg
-  alt: This is an image of the component
+  alt: Un aperçu du composant champ de saisie qui montre deux boîtes grises alignées verticalement au dessus d'un champ de saisie avec un curseur à l'intérieur. Les boîtes représentent l'étiquette du champ de saisie et le message d'aide.
   state: published
 translationKey: "input"
 tags: ['inputFR', 'usage']

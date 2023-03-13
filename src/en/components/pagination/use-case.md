@@ -9,7 +9,7 @@ eleventyNavigation:
   otherNames: page navigation.
   description: A page selector for a range of pages.
   thumbnail: /images/common/components/preview-pagination.svg
-  alt: This is an image of the component
+  alt: Pagination component shows pagination with grey boxes and one dark navy blue box to indicate the page selected sandwhiched by a left arrow and right arrow to allow for previous and next navigation. The boxes are separated by an ellipsis.
   state: coming-soon
 translationKey: "pagination"
 tags: ['paginationEN', 'usage']

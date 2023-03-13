@@ -16,7 +16,7 @@ date: "git Last Modified"
 
 **The details title** summarizes the details content.
 
-<img class="b-sm b-gray p-400" src="/images/en/anatomy/gcds-details-anatomy-closed.svg" alt=""/>
+<img class="b-sm b-gray p-400" src="/images/en/anatomy/gcds-details-anatomy-closed.svg" alt="Learn more about this topic taxonomy with two labels: details title and icon. The details title pointing at Learn more about this topic. Learn more about this topic is dark font underlined. Icon pointed at a dark blue triangle arrow infront of the details title."/>
 
 ### Open
 
@@ -28,7 +28,7 @@ date: "git Last Modified"
 
 **The details content** displays any text and images that the reader can choose to expand or collapse.
 
-<img class="b-sm b-gray p-400" src="/images/en/anatomy/gcds-details-anatomy-open.svg" alt=""/>
+<img class="b-sm b-gray p-400" src="/images/en/anatomy/gcds-details-anatomy-open.svg" alt="Learn more about this topic taxonomy with three labels: details title, icon and content.  Details title pointing at Learn more about this topic. Learn more about this topic is greyed blue font underlined. Icon pointed at a dark blue triangle arrow infront of the details title. When the arrow is selected it points down to show Additional information."/>
 
 ## Accessibility and design for details
 

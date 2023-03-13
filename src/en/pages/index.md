@@ -75,6 +75,6 @@ date: "git Last Modified"
   <h2 class="mb-400">Featured component</h2>
   <h3 class="mb-400">Fieldset</h3>
   <p class="mb-450">The fieldset component associates related form elements so they can be perceived as a group. It improves usability and understanding of form elements by grouping them in a logical and accessible way.</p>
-  <img class="mb-450" src="../../images/common/components/preview-fieldset.svg" alt="UI preview of fieldset component using an input and a select field." />
+  <img class="mb-450" src="../../images/common/components/preview-fieldset.svg" alt="UI preview of fieldset component using an input and a select field." alt="Fieldset component shows a grouping of multiple form elements. One is a text input field and the other is a select box. The grouping has a larger box above them which represents a fieldset legend." />
   <a href="{{ links.fieldset }}" class="d-block link-default">Read more about fieldset</a>
 </article>

@@ -9,7 +9,7 @@ eleventyNavigation:
   otherNames: textbox.
   description: A space to enter long-form information.
   thumbnail: /images/common/components/preview-textarea.svg
-  alt: This is an image of the component
+  alt: Text area component shows two cascading grey boxes followed by a large box spanning multiple lines in height and a cursor to show this is a textarea. The two gray boxes represent the textarea's label and hint message.
   state: published
 translationKey: "textarea"
 tags: ['textareaEN', 'usage']

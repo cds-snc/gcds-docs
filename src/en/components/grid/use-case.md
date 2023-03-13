@@ -9,7 +9,7 @@ eleventyNavigation:
   otherNames: layout.
   description: A responsive layout to position elements on a page.
   thumbnail: /images/common/components/preview-grid.svg
-  alt: This is an image of the component
+  alt: Grid component shows four light yellow brown lined vertical boxes to show the layout.
   tag: Experimental
   state: coming-soon
 translationKey: "grid"

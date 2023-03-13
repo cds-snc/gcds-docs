@@ -18,7 +18,7 @@ date: "git Last Modified"
 
 **The checkbox hint** gives users additional information about the choice.
 
-<img class="b-sm b-gray p-400" src="/images/en/anatomy/gcds-checkbox-anatomy.svg" alt=""/>
+<img class="b-sm b-gray p-400" src="/images/en/anatomy/gcds-checkbox-anatomy.svg" alt="Checkbox anatomy showing the labels Checkbox legend, Text area label, Fieldset Hint, Checkmark, Checkbox Label, Checkbox Button and Checkbox Hint."/>
 
 ## Accessibility and design for checkboxes
 
