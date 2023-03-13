@@ -16,7 +16,7 @@ A fieldset combines the `<fieldset>` and `<legend>` elements to accessibly group
 
 **The component grouping** is made up of the elements of each component within the fieldset.
 
-<img class="b-sm b-gray p-400" src="/images/en/anatomy/gcds-fieldset-anatomy.svg" alt="Fieldset legend anatomy showing these labels Legend, Hint text and component grouping. Hint test shows Fieldset legend. Component grouping has Input label underneath explain to give a Hint/ Example messge below is a dark blue boxed with six zero to indicate where the number label will be pout and the format. There is a Input Label with Hint/ Example message with a dark blue box selecting box with Select Option and arrow pointing down showing selection option."/>
+<img class="b-sm b-gray p-400" src="/images/en/anatomy/gcds-fieldset-anatomy.svg" alt="Fieldset legend anatomy showing the labels Legend, Hint text and component grouping. Hint text shows Fieldset legend. Component grouping has Input label underneath explain to give a Hint/Example message. Below is a dark blue boxed with six zeros to indicate where the number label will be put and the format. There is a Input Label with Hint/ Example message with a dark blue box selecting box with Select Option and arrow pointing down showing selection option."/>
 
 ## Accessibility and design for fieldsets
 

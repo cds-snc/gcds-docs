@@ -9,7 +9,7 @@ eleventyNavigation:
   otherNames: lien pour changer de langue.
   description: Un bouton permettant d’afficher le contenu du site en français ou en anglais.
   thumbnail: /images/common/components/preview-lang-toggle.svg
-  alt: Un aperçu du composant changement de langue qui montre les abbréviations f et r pour français suivi de e et n pour anglais, séparées d'une flèche pointant vers les deux abbréviations
+  alt: Un aperçu du composant changement de langue qui montre les abbréviations f et r pour français suivi de e et n pour anglais, séparées d'une flèche pointant vers les deux abbréviations.
   tag: De base
   state: coming-soon
 translationKey: "langtoggle"

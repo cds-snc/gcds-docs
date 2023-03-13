@@ -9,7 +9,7 @@ eleventyNavigation:
   otherNames: inline error.
   description: A description of a problem blocking a user goal.
   thumbnail: /images/common/components/preview-error-message.svg
-  alt: Error message component shows a light red box with a red box representing text
+  alt: Error message component shows a light red box with a red box representing text.
   state: published
 translationKey: "errormessage"
 tags: ['errormessageEN', 'usage']

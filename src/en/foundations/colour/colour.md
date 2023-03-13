@@ -9,7 +9,7 @@ eleventyNavigation:
   order: 1
   description: Colour tokens store the colour values for styling components.
   thumbnail: /images/en/foundations/preview/preview-colour.svg
-  alt: This is an image of the foundation
+  alt:
   state: published
 permalink: /en/foundations/colour/
 translationKey: "colour"
