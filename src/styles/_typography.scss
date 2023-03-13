@@ -2,22 +2,28 @@
 a[href] {
   text-underline-offset: -0.1em;
   text-decoration-color: currentColor;
+  text-decoration-thickness: var(--gcds-border-width-sm);
 
   &:hover {
     color: var(--gcds-hover-default);
-    text-underline-offset: 0em;
+    text-underline-offset: -0.1em;
     text-decoration-thickness: var(--gcds-border-width-md);
   }
 
   &:focus {
+    border-radius: var(--gcds-border-radius-sm);
     background-color: var(--gcds-focus-background);
     color: var(--gcds-focus-text);
     text-decoration: none;
-    outline: var(--gcds-border-width-md) solid var(--gcds-focus-background);
+    box-shadow: 0 0 0 var(--gcds-border-width-md) var(--gcds-color-grayscale-0);
+    outline-offset: var(--gcds-border-width-md);
+    outline: var(--gcds-spacing-50) solid var(--gcds-focus-background);
   }
 }
 
-a[href]:not([class*="link-inherit"]):not([class*="link-light"]):not(:focus):not(:hover) {
+a[href]:not([class*="link-inherit"]):not([class*="link-light"]):not(:focus):not(
+    :hover
+  ) {
   color: var(--gcds-link-default);
 }
 
