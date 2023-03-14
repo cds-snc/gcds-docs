@@ -18,7 +18,7 @@ permalink: /en/components/footer/
 date: "git Last Modified"
 ---
 
-Take a look at what problems the footer solves to see if they fit the problem you’re solving for.
+Take a look at what problems the footer solves to see if they fit the problem you're solving for.
 
 ## Problems footers solve
 

@@ -17,4 +17,6 @@ Details is an interactive switch for a person to expand or collapse content.
 
 {% componentPreview "Details component preview" %}
 <gcds-details details-title="Learn more about this topic">
+  <p>Additional information.</p>
+</gcds-details>
 {% endcomponentPreview %}

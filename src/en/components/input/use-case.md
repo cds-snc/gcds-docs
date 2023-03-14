@@ -64,7 +64,7 @@ Tip: Communicate any password constraints in the hint text for the input so the 
 
 ### Number input
 
-To reject values that are not numerical.
+To reject values that are non numerical.
 
 Tip: When you set a constraint, like a numerical range, use hint text to relay a precise instruction.
 

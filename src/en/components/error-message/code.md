@@ -12,7 +12,7 @@ Use an error message for each response constraint of a component, when that comp
 
 All GC Design System components already come with default error handling for required form components.
 
-## Accessibility and coding for error messages
+## Coding and accessibility for error messages
 
 ### Use error messages to support accessible task success
 

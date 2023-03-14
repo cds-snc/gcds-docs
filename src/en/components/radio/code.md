@@ -12,7 +12,7 @@ Use a radio with a [fieldset]({{ links.fieldset }}) when you're expecting the us
 
 The radio helps users to make a choice by limiting their options.
 
-## Accessibility and coding for radios
+## Coding and accessibility for radios
 
 ### Use a fieldset and the required attribute
 

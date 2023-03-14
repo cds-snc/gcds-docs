@@ -8,7 +8,7 @@ eleventyNavigation:
   parent: componentsEN
   otherNames: file input, dropzone.
   description: A file selector for document transfer.
-  thumbnail: /images/en/components/preview-file-uploader.svg
+  thumbnail: /images/en/components/preview/preview-file-uploader.svg
   alt: File uploader component shows grey boxes indicating text with an upload a file button, below is an uploaded file and a red remove button to remove the uploaded file.
   state: coming-soon
 translationKey: "fileuploader"

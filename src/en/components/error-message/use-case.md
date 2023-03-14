@@ -23,7 +23,7 @@ Take a look at what problems error messages solve to see if they fit the problem
 
 All GC Design System components come with default error handling for required form components.
 
-Use an error message for your components when you need to interrupt a flow because of a problem where:
+Use an error message for your own component instances when you need to interrupt a flow because of a problem where:
 
 - A person needs to fix something before they can either continue an action or move on to the next task.
 - A form component is required.

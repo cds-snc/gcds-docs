@@ -8,15 +8,15 @@ date: "git Last Modified"
 
 ## Input anatomy
 
-**The label** states the information the user should enter in the field. Label text is left aligned and in sentence case (only the initial letter is capitalized).
+The **input label** states the information a person should enter in the field. Label text is left aligned and in sentence case (only the initial letter is capitalized).
 
-**The hint** text communicates specific requirements for each input to support task success.
+The **hint text** communicates specific requirements for each input to support task success.
 
-**The field** is the container the user interacts with to provide their response.
+The **field** is the container a person interacts with to provide their response.
 
-<img class="b-sm b-gray p-400" src="/images/en/anatomy/gcds-input-anatomy.svg" alt="Input anatomy showing the Input label, Hint text/ example message and dark blue outline white box for text input."/>
+<img class="b-sm b-gray p-400" src="/images/en/components/anatomy/gcds-input-anatomy.svg" alt="Input anatomy showing the Input label, Hint text/ example message and dark blue outline white box for text input."/>
 
-## Accessibility and design for inputs
+## Design and accessibility for inputs
 
 ### Write a short, specific, unique input label
 

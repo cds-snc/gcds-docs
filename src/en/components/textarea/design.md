@@ -8,15 +8,15 @@ date: "git Last Modified"
 
 ## Text area anatomy
 
-**The label** states the information the user should enter in the field. Label text is left aligned and in sentence case (only the initial letter is capitalized).
+The **text area label** states the information a person should enter in the field. Label text is left aligned and in sentence case (only the initial letter is capitalized).
 
-**The hint text** communicates specific requirements for each text area to support task success.
+The **hint text** communicates specific requirements for each text area to support task success.
 
-**The field** is the container the user interacts with to provide their response.
+The **field** is the container a person interacts with to provide their response.
 
-<img class="b-sm b-gray p-400" src="/images/en/anatomy/gcds-textarea-anatomy.svg" alt="Text area anatomy showing the Text area label, Hint text/ example message and dark blue outline white box for text input."/>
+<img class="b-sm b-gray p-400" src="/images/en/components/anatomy/gcds-textarea-anatomy.svg" alt="Text area anatomy showing the Text area label, Hint text/ example message and dark blue outline white box for text input."/>
 
-## Accessibility and design for text areas
+## Design and accessibility for text areas
 
 ### Write a short, specific, unique text area label
 

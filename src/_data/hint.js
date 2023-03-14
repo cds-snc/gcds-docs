@@ -1,10 +1,9 @@
 module.exports = {
   en : {
-    heading: "Include hint text and error message text for task success",
+    heading: "Include a hint text for task success",
     listitems: [
-      "Include error message text for all required inputs. Avoid using error messages for optional ones.",
-      "Add hint text to help a person provide a complete value in the input and avoid an error state.",
-      "Avoid adding hint text in the field container where it will disappear once the field is selected.",
+      "Use the `hint` attribute to add hint text to help a person provide a complete value in the input and avoid an error state.",
+      "Avoid adding hint text in the field (sometimes called placeholder text) where it will disappear once the field is selected or a response starts to be entered.",
     ]
   },
   fr: {

@@ -12,17 +12,23 @@ Use the details component to give a person a summary of content you've hidden th
 
 Use details to let a person toggle the display of additional content related to the details title.
 
-## Accessibility and coding for details
+## Coding and accessibility for details
 
 ### Present the details component to support understanding
 
-The details component can add to a person's cognitive load if they are unfamiliar with the expand and collapse function.
+The details component can add to a person's cognitive load when it:
+
+1. Interrupts the flow of reading or scrolling.
+2. The content they need is difficult to find and search.
+3. They are unfamiliar with the expand and collapse function.
 
 To help a reader's experience accessing details content:
 
 - Use the `open` attribute to define if the details content is open by default or not.
-- Make details titles distinct so people know the difference. Identical or similar titles can be confused.
+- Make details titles clearly state what the content's about. Avoid non-descriptive titles such as "Read more". Instead, opt for a specific and descriptive summary, like "Maximum coverage amount for your physio benefit".
+- Make titles distinct so people know the difference. Identical or similar titles can be confused.
 - Avoid placing one details component inside another, where no one would know to look for that content.
+- Make details content searchable.
 
 {% include "partials/getcode.njk" %}
 

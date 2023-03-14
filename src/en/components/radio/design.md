@@ -6,21 +6,21 @@ tags: ['radioEN', 'design']
 date: "git Last Modified"
 ---
 
-## Radio anatomy
+## Radio anatomy – with fieldset
 
-**The fieldset legend** acts as a heading to identify the grouped radios.
+The **fieldset legend** acts as a heading to identify the grouped radios. Legend text is left aligned and in sentence case (only the initial letter is capitalized).
 
-**The fieldset hint** gives users additional information about the radio grouping.
+The **fieldset hint text** communicates specific requirements for the radio grouping to support task success.
 
-**The radio button** shows, by the presence or absence of the **checked button**, whether an option has been selected or not.
+The **radio button** shows, by the presence or absence of the **checked button**, whether an option has been selected or not.
 
-**The radio label** states the choice the radio button represents.
+The **radio label** states the choice the radio button represents. Label text is in sentence case.
 
-**The radio hint** gives users additional information about the choice.
+The **radio hint text** gives a person additional information about the choice.
 
-<img class="b-sm b-gray p-400" src="/images/en/anatomy/gcds-radio-anatomy.svg" alt="Radio anatomy showing the labels Fieldset legend, Fieldset hint, Checkmark, Radio label, Radio button and Radio Hint."/>
+<img class="b-sm b-gray p-400" src="/images/en/components/anatomy/gcds-radio-anatomy.svg" alt="Radio anatomy showing the labels Fieldset legend, Fieldset hint, Checkmark, Radio label, Radio button and Radio Hint."/>
 
-## Accessibility and design for radios
+## Design and accessibility for radios
 
 ### Make radios visible and options clear
 

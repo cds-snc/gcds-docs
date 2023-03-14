@@ -18,20 +18,20 @@ A checkbox is a set of options for one or multiple selections.
 {% componentPreview "Checkbox component preview" "pt-400" %}
 <gcds-fieldset
   fieldset-id="fieldset"
-  legend="Fieldset legend"
-  hint="Fieldset hint."
+  legend="Legend"
+  hint="Hint / Example message."
 >
   <gcds-checkbox
     checkbox-id="form-check-1"
-    label="Checkbox label"
-    hint="This is a description or example to make it clearer."
+    label="Label"
+    hint="Description or example to make the option clearer."
     name="radio"
     checked
   ></gcds-checkbox>
   <gcds-checkbox
     checkbox-id="form-check-2"
-    label="Checkbox label"
-    hint="This is a description or example to make it clearer."
+    label="Label"
+    hint="Description or example to make the option clearer."
     name="radio"
   ></gcds-checkbox>
 </gcds-fieldset>

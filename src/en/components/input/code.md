@@ -9,7 +9,7 @@ tags: ['inputEN', 'code']
 
 Use an input to ask for information short, one-line response.
 
-## Accessibility and coding for inputs
+## Coding and accessibility for inputs
 
 ### Size inputs to fit response type
 
