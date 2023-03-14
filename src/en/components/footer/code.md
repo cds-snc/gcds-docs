@@ -50,7 +50,7 @@ Opt to include the contextual band to add up to three footer links for your prod
 “3rd link label”: “href”
 }
 ```
-- For the main band, set the `sub-links`, by passing an object or an object in a string in the following format:
+- For the footer links band, set the `sub-links`, by passing an object or an object in a string in the following format:
 ```js
 {
 “1st link label”: “href”
