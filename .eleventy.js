@@ -224,7 +224,7 @@ module.exports = function (eleventyConfig) {
   });
 
   eleventyConfig.addPairedShortcode('componentPreview', (children, title, padding = "py-400", margin = "my-500") => {
-    const content = markdownLibrary.render(children);
+    const content = children;
 
     return `
       <div class="${margin} b-sm b-gray component-preview">

@@ -6,21 +6,27 @@ tags: ['checkboxEN', 'design']
 date: "git Last Modified"
 ---
 
-## Checkbox anatomy
+## Checkbox anatomy – with fieldset
 
-**The fieldset legend** acts as a heading to identify the grouped checkboxes.
+The **fieldset legend** acts as a heading to identify the grouped checkboxes. Legend text is left aligned and in sentence case (only the initial letter is capitalized).
 
-**The fieldset hint** gives a person additional information about the checkbox grouping.
+The **fieldset hint text** communicates specific requirements for the checkbox grouping to support task success.
 
-**The checkbox** shows, by the presence or absence of the **checkmark**, whether an option has been selected or not.
+The **checkbox** shows, by the presence or absence of the **checkmark** (also called the checked box), whether an option has been selected or not.
 
-**The checkbox label** states the choice the checkbox represents.
+The **checkbox label** states the choice the checkbox represents. Label text is in sentence case.
 
-**The checkbox hint** gives users additional information about the choice.
+The **checkbox hint text** gives users additional information about the choice.
 
-<img class="b-sm b-gray p-400" src="/images/en/anatomy/gcds-checkbox-anatomy.svg" alt="Checkbox anatomy showing the labels Checkbox legend, Text area label, Fieldset Hint, Checkmark, Checkbox Label, Checkbox Button and Checkbox Hint."/>
+<img class="b-sm b-gray p-400" src="/images/en/components/anatomy/gcds-checkbox-anatomy-with-fieldset.svg" alt="Checkbox anatomy showing the labels Fieldset legend, Fieldset Hint, Checkbox, Checkbox Label, Checkmark, and Checkbox Hint." />
 
-## Accessibility and design for checkboxes
+## Single checkbox anatomy
+
+Use the fieldset component with the checkbox, except for checkboxes with a single box to check.
+
+<img class="b-sm b-gray p-400" src="/images/en/components/anatomy/gcds-checkbox-anatomy-single.svg" alt="Checkbox anatomy showing the labels Checkbox, Checkbox Label, Checkmark, and Checkbox Hint." />
+
+## Design and accessibility for checkboxes
 
 ### Make checkboxes visible and options clear
 

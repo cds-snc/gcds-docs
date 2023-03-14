@@ -14,7 +14,7 @@ date: "git Last Modified"
 
 **Le champ** est la boîte avec laquelle l'utilisateur·rice interagit pour fournir sa réponse.
 
-<img class="b-sm b-gray p-400" src="/images/fr/anatomy/gcds-textarea-anatomy.svg" alt="L'anatomie de la zone de texte identifiant l'étiquette, le message d'aide et le champ qui forme le composant" />
+<img class="b-sm b-gray p-400" src="/images/fr/components/anatomy/gcds-textarea-anatomy.svg" alt="L'anatomie de la zone de texte identifiant l'étiquette, le message d'aide et le champ qui forme le composant" />
 
 ## Conception et accessibilité des zones de texte
 

@@ -10,7 +10,7 @@ date: "git Last Modified"
 
 Use a checkbox with a [fieldset]({{ links.fieldset }}) when you are expecting the user to select more than one option from a short list of items in response to a question or instruction.
 
-## Accessibility and coding for checkboxes
+## Coding and accessibility for checkboxes
 
 ### Use a fieldset and the required attribute
 

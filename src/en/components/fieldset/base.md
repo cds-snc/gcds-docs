@@ -15,12 +15,11 @@ A fieldset is a group of multiple form components or elements.
 {% docLinks locale stage figma github %}
 {% enddocLinks %}
 
-<div class="remove-empty-p">
 {% componentPreview "Fieldset component preview" "pt-400" %}
 <gcds-fieldset
   fieldset-id="fieldset"
-  legend="Fieldset legend"
-  hint="Fieldset hint."
+  legend="Legend"
+  hint="Hint / Example message."
 >
   <gcds-input
     input-id="form-input"
@@ -33,6 +32,7 @@ A fieldset is a group of multiple form components or elements.
     select-id="form-select"
     label="Select label"
     hint="Hint / Example message."
+    default-value="Select option"
   >
     <option value="option-1">Option 1</option>
     <option value="option-2">Option 2</option>
@@ -40,4 +40,3 @@ A fieldset is a group of multiple form components or elements.
   </gcds-select>
 </gcds-fieldset>
 {% endcomponentPreview %}
-</div>

@@ -8,23 +8,25 @@ date: "git Last Modified"
 
 ## Error message anatomy
 
-**The error message** cites the problem in context and includes a call to action to address it.
+The **error message** cites the problem in context and includes a call to action to address it.
 
-<img class="b-sm b-gray p-400" src="/images/en/anatomy/gcds-error-message-anatomy.svg" alt="Error message label in a light pink box and red line at the start of the box with Error/ Validation message text."/>
+<img class="b-sm b-gray p-400" src="/images/en/components/anatomy/gcds-error-message-anatomy.svg" alt="Error message label in a light pink box and red line at the start of the box with Error/ Validation message text."/>
 
-### Form component with error message
+### Error message applied to a form component
 
-All GC Design System components come with default error handling for required form components. For your components, add the error message component, and include the following:
+All GC Design System components come with default error handling for required form components.
 
-**The required marker** shows a response area, a field or selection, needs to be completed. An incomplete response or omission will prompt an error message.
+For your own component instances, add the error message component, and include the following:
 
-**The hint text** gives brief, specific instructions about the constraints of the response. It can give an example of an accepted response.
+The **required marker** shows a response area, a field or selection, needs to be completed. An incomplete response or omission will prompt an error message.
 
-**The response area** takes on the appearance of the response format and error message state of the component it's attached to. For an input or text area, the box will be highlighted. For radios or checkboxes, the options will be highlighted.
+The **hint text** gives brief, specific instructions about the constraints of the response. It can give an example of an accepted response.
 
-<img class="b-sm b-gray p-400" src="/images/en/anatomy/gcds-error-message-anatomy-with-form-field.svg" alt="Error message taxonomy with these two areas, Required and Error message. Required shows Lable or legend (required) in a red text and Hint text below it. The error message is in a light pink box and red line at the start of the box with Error/ Validation message text."/>
+The **response area** takes on the appearance of the response format and error message state of the component it’s attached to. For an input or text area, the box will be highlighted. For radios or checkboxes, the options will be highlighted.
 
-## Accessibility and design for error messages
+<img class="b-sm b-gray p-400" src="/images/en/components/anatomy/gcds-error-message-anatomy-with-form-field.svg" alt="Error message taxonomy with these two areas, Required and Error message. Required shows Lable or legend (required) in a red text and Hint text below it. The error message is in a light pink box and red line at the start of the box with Error/ Validation message text."/>
+
+## Design and accessibility for error messages
 
 When you interrupt the flow of a person's action in your product, make the error and recovery obvious to get them back on task and they can regain momentum.
 

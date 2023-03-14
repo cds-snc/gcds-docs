@@ -8,15 +8,15 @@ date: "git Last Modified"
 
 ## Button anatomy
 
-**The label** states the action that will follow when the user interacts with the button. Label text is left aligned, with any icon at the left-most point. Text is in sentence case (initial letter-only capitalized).
+The **label** states the action that will follow when someone interacts with the button. Label text is left aligned, with any icon at the right-most point. Text is in sentence case (only the initial letter is capitalized).
 
-**The icon** is optional and can be a helpful visual aid when used sparingly and predictably. When there's an icon, align button text to the left.  Avoid using an icon without text.
+The **container** gives the button its visually prominent appearance. It can be omitted for styling a button as a link.
 
-**The container** can be omitted for styling a button as a link.
+The **icon** is optional and can be a helpful visual aid when used sparingly and predictably. When there's an icon, align button text to the left.  Avoid using an icon without text.
 
-<img class="b-sm b-gray p-400" src="/images/en/anatomy/gcds-button-anatomy.svg" alt="Button anatomy showing the Button label branching to the container and arrow icon."/>
+<img class="b-sm b-gray p-400" src="/images/en/components/anatomy/gcds-button-anatomy.svg" alt="Button anatomy showing the Button label branching to the container and arrow icon." />
 
-## Accessibility and design for buttons
+## Design and accessibility for buttons
 
 ### Make the button findable
 

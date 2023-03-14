@@ -8,7 +8,7 @@ eleventyNavigation:
   parent: componentsEN
   otherNames: progress indicator, steps.
   description: A progress tracker for a multi-step process.
-  thumbnail: /images/en/components/preview-stepper.svg
+  thumbnail: /images/en/components/preview/preview-stepper.svg
   alt: Stepper component shows steps, Step 1 of 4 below there is grey box representing the title of the page.
   state: published
 translationKey: "stepper"

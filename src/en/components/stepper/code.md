@@ -10,7 +10,7 @@ date: "git Last Modified"
 
 Use a stepper as a guide when a sequence (form or process) can be divided into logical steps and will span three or more pages.
 
-## Accessibility and coding for steppers
+## Coding and accessibility for steppers
 
 ### Use each step for a goal
 

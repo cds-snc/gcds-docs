@@ -10,7 +10,7 @@ date: "git Last Modified"
 
 Use a button for important actions a person using a product can initiate.
 
-## Accessibility and coding for buttons
+## Coding and accessibility for buttons
 
 ### Make your buttons accessible
 

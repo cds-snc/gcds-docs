@@ -10,7 +10,7 @@ date: "git Last Modified"
 
 Use a fieldset to group together related form elements or components and make these groups perceivable. Also use them for components with multiple options, like [radios]({{ links.radio }}) and [checkboxes]({{ links.checkbox }}).
 
-## Accessibility and coding for fieldsets
+## Coding and accessibility for fieldsets
 
 {% include "partials/error-message.njk" %}
 

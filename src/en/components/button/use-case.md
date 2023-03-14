@@ -8,7 +8,7 @@ eleventyNavigation:
   parent: componentsEN
   otherNames: call to action, CTA, link.
   description: An interactive object that highlights an action.
-  thumbnail: /images/en/components/preview-button.svg
+  thumbnail: /images/en/components/preview/preview-button.svg
   alt: Button shows a dark blue box with a button and an arrow inside.
   state: published
 translationKey: "button"

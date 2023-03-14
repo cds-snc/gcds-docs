@@ -8,41 +8,28 @@ date: "git Last Modified"
 
 ## Details anatomy
 
-### Closed
+This is an anatomy of the open details component. By default, the content is collapsed.
 
-**The icon** and **the details title** toggle the content display.
+The **details title** summarizes the details content. Label text is in sentence case (only the initial letter is capitalized).
 
-**The icon** indicates whether the component is currently open or closed.  When it's closed, the icon points to the details title.
+The **icon** and the **details title** toggle the content display. The icon indicates if the component is currently open or closed. When it's open, revealing the details text, the icon points to details content.
 
-**The details title** summarizes the details content.
+The **content** displays any text and images that the reader can choose to expand or collapse.
 
-<img class="b-sm b-gray p-400" src="/images/en/anatomy/gcds-details-anatomy-closed.svg" alt="Learn more about this topic taxonomy with two labels: details title and icon. The details title pointing at Learn more about this topic. Learn more about this topic is dark font underlined. Icon pointed at a dark blue triangle arrow infront of the details title."/>
+### Open details
 
-### Open
+<img class="b-sm b-gray p-400" src="/images/en/components/anatomy/gcds-details-anatomy-open.svg" alt="Learn more about this topic taxonomy with three labels: details title, icon and content.  Details title pointing at Learn more about this topic. Learn more about this topic is greyed blue font underlined. Icon pointed at a dark blue triangle arrow infront of the details title. When the arrow is selected it points down to show Additional information."/>
 
-**The icon** and **the details title** toggle the content display.
+### Closed details
 
-**The icon** indicates if the component is currently open or closed. When it's open, revealing the details text, the icon points to details content.
+<img class="b-sm b-gray p-400" src="/images/en/components/anatomy/gcds-details-anatomy-closed.svg" alt="Learn more about this topic taxonomy with two labels: details title and icon. The details title pointing at Learn more about this topic. Learn more about this topic is dark font underlined. Icon pointed at a dark blue triangle arrow infront of the details title."/>
 
-**The details title** summarizes the details content.
+## Design and accessibility for details
 
-**The details content** displays any text and images that the reader can choose to expand or collapse.
+### Work to reduce cognitive load – not add to it
 
-<img class="b-sm b-gray p-400" src="/images/en/anatomy/gcds-details-anatomy-open.svg" alt="Learn more about this topic taxonomy with three labels: details title, icon and content.  Details title pointing at Learn more about this topic. Learn more about this topic is greyed blue font underlined. Icon pointed at a dark blue triangle arrow infront of the details title. When the arrow is selected it points down to show Additional information."/>
-
-## Accessibility and design for details
-
-### Reduce information overload
-
-- Reduce scrolling, tabbing, and listening time by hiding extra content that's relevant but less important.
-- Make important content more prominent by reducing secondary content to a summary the reader can choose to expand.
-- Warn users in the summary of potentially sensitive content. Conceal content that could cause distress, so the reader can choose to skip or return to the text at the moment that's right for them.
-
-### Help a person choose what to read with an informative summary
-
-- Keep the title clear and brief. Short titles are easier to scan and can help a person using assistive technology to navigate a set of details components.
-- Write a title that states what the content's about. Avoid non-descriptive titles such as "Read more". Instead, opt for a specific and descriptive summary, like "Maximum coverage amount for your physio benefit".
-- Avoid similar or identical titles. Distinct titles help people know the difference and choose the details they want to read.
+- Avoid concealing information with a list of details titles. This interrupts the flow of reading or scrolling for those using assisted technology.
+- Consider making the first details components open by default, to help the reader understand how they work and choose what to conceal.
 
 ### Select the type of content to include in a details component
 
@@ -51,6 +38,15 @@ First, remove any content that's not useful or important to the main task. Then 
 - Hide content the reader can choose to access for a task that involves some analysis to make a choice.
 - Segment content in a list so a person can select to read the part or parts most relevant to them.
 - Include supporting content that is important but secondary to the main task.
+- Use the details component to conceal content that could cause distress. The reader can choose to skip or return to the text at the moment that's right for them.
+- For sensitive content, use the title to warn users before they access that content.
+
+### Use the summary to make content findable
+
+- Keep the title clear and brief. Short titles are easier to scan and can help a person using assistive technology to navigate a set of details components.
+- Write a title that states what the content's about. Avoid non-descriptive titles such as "Read more". Instead, opt for a specific and descriptive summary, like "Maximum coverage amount for your physio benefit".
+- Avoid similar or identical titles. Distinct titles help people know the difference and choose the details they want to read.
+- Avoid increasing cognitive load with content that's difficult to discover or find.
 
 ### Avoid nesting details
 

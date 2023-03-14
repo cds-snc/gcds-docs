@@ -18,8 +18,8 @@ An input is a space to enter short-form information in response to a question or
 {% componentPreview "Input component preview" "pt-400" %}
 <gcds-input
   input-id="input-example"
-  label="Input label"
-  hint="Hint / example message."
+  label="Label"
+  hint="Hint / Example message."
 >
 </gcds-input>
 {% endcomponentPreview %}

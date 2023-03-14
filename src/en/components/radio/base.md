@@ -18,21 +18,21 @@ A radio is a set of options for a single selection.
 {% componentPreview "Radio component preview" "pt-400 pb-200" %}
 <gcds-fieldset
   fieldset-id="fieldset"
-  legend="Fieldset legend"
-  hint="Fieldset hint"
+  legend="Legend"
+  hint="Hint / Example message."
 >
   <gcds-radio
     radio-id="form-radio-1"
-    label="Radio label"
-    hint="This is a description or example to make it clearer."
+    label="Label"
+    hint="Description or example to make the option clearer."
     name="radio"
     checked
   >
   </gcds-radio>
     <gcds-radio
     radio-id="form-radio-2"
-    label="Radio label"
-    hint="This is a description or example to make it clearer."
+    label="Label"
+    hint="Description or example to make the option clearer."
     name="radio"
   >
   </gcds-radio>

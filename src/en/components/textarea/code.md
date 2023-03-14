@@ -12,7 +12,7 @@ Use text areas to ask for information when you're expecting a freeform response 
 
 The text area gives users the option to provide the information they want to share in a long form response.
 
-## Accessibility and coding for text areas
+## Coding and accessibility for text areas
 
 ### Size text areas to fit response type
 
