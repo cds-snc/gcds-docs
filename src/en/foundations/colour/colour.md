@@ -1,5 +1,5 @@
 ---
-title: Colour tokens
+title: Colour
 layout: "layouts/base.njk"
 eleventyNavigation:
   key: colourEN

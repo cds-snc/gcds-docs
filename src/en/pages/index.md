@@ -52,7 +52,7 @@ date: "git Last Modified"
       <h3 class="mb-400">Design tokens</h3>
       <p class="mb-400">Brand and design decisions built into code.</p>
       <p class="mb-400">Learn how encoded decisions shape the design of government services for a consistent visual experience.</p>
-      <a class="link-default" href="{{ links.designTokens }}">View tokens</a>
+      <a class="link-default" href="{{ links.foundations }}">View tokens</a>
     </li>
   </gcds-grid>
 </article>

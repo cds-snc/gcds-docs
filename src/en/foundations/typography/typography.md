@@ -1,5 +1,5 @@
 ---
-title: Typography tokens
+title: Typography
 layout: "layouts/base.njk"
 eleventyNavigation:
   key: typographyEN

@@ -51,7 +51,7 @@ date: "git Last Modified"
       <h3 class="mb-400">Unités de style</h3>
       <p class="mb-400">Des décisions en matière d'image de marque et de conception directement intégrées dans le code.</p>
       <p class="mb-400">Découvrez comment les décisions encodées façonnent la conception des services offerts par le gouvernement du Canada et permettent d'offrir une expérience visuelle uniforme.</p>
-      <a class="link-default" href="{{ links.designTokens }}">Découvrez les unités de style</a>
+      <a class="link-default" href="{{ links.foundations }}">Découvrez les unités de style</a>
     </li>
   </gcds-grid>
 </article>

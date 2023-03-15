@@ -1,7 +1,7 @@
 module.exports = {
   en : {
     usecase: "Use case",
-    usage: "Usage",
+    usage: "Use case",
     design: "Design",
     code: "Code",
     tokens: "Tokens",
@@ -9,7 +9,7 @@ module.exports = {
   },
   fr: {
     usecase: "Cas d'utilisation",
-    usage: "Cas d'usage",
+    usage: "Cas d'utilisation",
     design: "Design",
     code: "Code",
     tokens: "Tokens",
