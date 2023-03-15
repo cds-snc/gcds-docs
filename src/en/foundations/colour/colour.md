@@ -3,7 +3,7 @@ title: Colour
 layout: "layouts/base.njk"
 eleventyNavigation:
   key: colourEN
-  title: Colour tokens
+  title: Colour
   locale: en
   parent: foundationsEN
   order: 1
