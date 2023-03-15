@@ -1,9 +1,9 @@
 ---
-title: Typography tokens
+title: Typography
 layout: "layouts/base.njk"
 eleventyNavigation:
   key: typographyEN
-  title: Typography tokens
+  title: Typography
   locale: en
   parent: foundationsEN
   order: 3
