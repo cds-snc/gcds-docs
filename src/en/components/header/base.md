@@ -17,19 +17,5 @@ The header is the responsive Government of Canada branded header landmark.
 
 {% componentPreview "Header component preview" "pt-400 pb-200" %}
 <gcds-header lang-href="#" skip-to-href="#">
-  <gcds-site-menu alignment="right" slot="menu">
-    <a href="" class="home-link link-inherit link-no-underline" slot="left">
-      Home link
-    </a>
-    <ul >
-    <li><a href="">Site menu link</a></li>
-    <li><a href="">Site menu link</a></li>
-    <li><a href="">Site menu link</a></li>
-    </ul>
-  </gcds-site-menu>
-  <gcds-breadcrumbs hide-canada-link slot="menu">
-    <gcds-breadcrumbs-item href="#">Home</gcds-breadcrumbs-item>
-    <gcds-breadcrumbs-item href="#">Components</gcds-breadcrumbs-item>
-  </gcds-breadcrumbs>
 </gcds-header>
 {% endcomponentPreview %}
