@@ -8,11 +8,11 @@ date: "git Last Modified"
 
 ## Structure de l'indicateur d'étape – avec en-tête H1
 
-L'élément Étape actuelle indique l'étape à laquelle se trouve la personne dans le processus.
+L'élément **Étape actuelle** indique l'étape à laquelle se trouve la personne dans le processus.
 
-Le nombre total d'étapes indique le nombre d'étapes que compte le processus au total.
+Le **nombre total d'étapes** indique le nombre d'étapes que compte le processus au total.
 
-Le titre H1 est un élément distinct du composant Indicateur d'étape. Il est formulé comme un appel à l'action et indique l'objectif de cette étape particulière.
+Le **titre H1** est un élément distinct du composant Indicateur d'étape. Il est formulé comme un appel à l'action et indique l'objectif de cette étape particulière.
 
 <img class="b-sm b-gray p-400" src="/images/fr/components/anatomy/gcds-stepper-anatomy.svg" alt="L'anatomie du composant indicateur d'étape identifiant l'étape courante, le nombre total d'étapes et le titre de la page." />
 
