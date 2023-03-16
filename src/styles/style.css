@@ -130,7 +130,7 @@ code:not([class*="language-"]) {
     opacity: 1; } }
 
 body {
-  color: var(--gcds-color-grayscale-1000);
+  color: var(--gcds-text-primary);
   animation: fade 0.05s normal forwards ease-in-out; }
 
 .remove-empty-p p:empty {
@@ -219,7 +219,7 @@ table .spacing-preview {
   width: 7ch; }
 
 .table-display-token-color th:nth-child(5) {
-  width: 40%; }
+  width: 35%; }
 
 .table-base-colors th:nth-child(2) {
   width: 40%; }

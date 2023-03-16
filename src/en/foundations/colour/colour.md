@@ -17,7 +17,7 @@ tokenTable:
   headers:
     color-preview: Preview
     token-name: Token name
-    contrast: Contrast
+    contrast: Contrast ratio
     value: Hex
     use-case: Purpose
   useCases:
