@@ -8,9 +8,17 @@ tags: ['buttonFR', 'header']
 
 # Bouton <br>`<gcds-button>`
 
-Ce composant est en cours de développement.
+_Autres noms : appel à l’action, ATC, lien._
+
+Un bouton est un composant interactif qui met en évidence une action importante ou commune.
 
 {% docLinks locale stage figma github %}
 {% enddocLinks %}
 
-<br/>
+{% componentPreview "Aperçu du composant de bouton" %}
+<gcds-button button-role="primary">Principal</gcds-button>
+<gcds-button button-role="secondary">Secondaire</gcds-button>
+<gcds-button button-role="danger">Danger</gcds-button>
+<gcds-button button-role="skip-to-content">Aller au contenu</gcds-button>
+<gcds-button type="link" button-style="text-only" href="#">Text-only label</gcds-button>
+{% endcomponentPreview %}
