@@ -24,15 +24,7 @@ Utilisez un bouton pour les actions importantes que peut initier une personne ut
 - Pour éviter de dissimuler le contenu, configurez le bouton de manière à ce qu'il pousse le contenu vers le bas de manière à ce qu'il ne flotte pas.
 - Pour la version bureau, placez le bouton « Passer au contenu » en haut à gauche de la page afin qu'il n'interrompe pas le flux.
 
-## Obtenez votre code
-
-Générez une version du composant dont vous avez besoin en sélectionnant les propriétés de code correspondantes ou explorez les possibilités en choisissant différentes valeurs de code.  
-
-1. Choisissez des valeurs de code pour obtenir l'élément que vous voulez.
-2. Obtenez le code et intégrez-le dans votre environnement.
-3. Ajoutez tout contenu nécessaire au composant (comme le texte du libellé).
-
-Remarque : Le générateur de code utilise l'anglais pour tous les éléments de code.
+{% include "partials/getcode.njk" %}
 
 <iframe
   title="Overview of gcds-button properties and events."

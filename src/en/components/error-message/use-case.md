@@ -34,5 +34,5 @@ Use an error message for your own component instances when you need to interrupt
 
   <a href="{{ links.errorSummary }}" class="link-light">Error summary</a> for listing all problems to address for response submission.
 
-  Alert for communicating an important or time-sensitive change.
+  <a href="{{ links.errorSummary }}" class="link-light">Alert</a> for communicating an important or time-sensitive change.
 </article>

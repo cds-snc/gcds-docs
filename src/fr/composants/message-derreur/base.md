@@ -8,9 +8,13 @@ tags: ['errormessageFR', 'header']
 
 # Message d'erreur <br>`<gcds-error-message>`
 
-Ce composant est en cours de développement.
+_Autres noms : erreur ou indicateur d’erreur._
+
+Un message d’erreur est une description d’un problème représentant un obstacle à l’objectif de l’utilisateur·rice.
 
 {% docLinks locale stage figma github %}
 {% enddocLinks %}
 
-<br/>
+{% componentPreview "Aperçu du composant de message d'erreur" "pt-400 pb-100" %}
+<gcds-error-message message="Message d'erreur ou message de validation."></gcds-error-message>
+{% endcomponentPreview %}
