@@ -26,4 +26,5 @@ Placez l'indicateur d'étape avant le titre principal de la page, après l'en-t�
 
 - Formulez l'en-tête de la page comme un appel à l'action pour indiquer l'objectif de chaque étape.
 - Faites en sorte que les actions de chaque étape appuient l'objectif fixé.
-- Conseil : À la fin d'un processus, informez l'utilisateur·rice de ce qui se passera ensuite ou de ce à quoi il ou elle peut s'attendre.
+
+Conseil : À la fin d'un processus, informez l'utilisateur·rice de ce qui se passera ensuite ou de ce à quoi il ou elle peut s'attendre.
