@@ -17,4 +17,22 @@ permalink: /fr/composants/radio/
 date: "git Last Modified"
 ---
 
-## Usage
+Explorez les problèmes que les boutons radio règlent et découvrez s’ils peuvent servir à résoudre votre problème particulier.
+
+## Problèmes résolus par les boutons radio
+
+Utilisez les boutons radio avec un [jeu de champs]({{ links.fieldset }}) pour effectuer une demande de renseignements à l’aide d’une liste d’options  lorsque vous vous attendez à ce que l’utilisateur·rice choisisse une seule réponse pour :
+
+- Limiter le nombre de réponses possibles à votre question.
+- Déterminer les réponses possibles à votre question.
+- Lui donner la capacité de répondre sans avoir à écrire en sélectionnant une option parmi une liste.
+
+<article class="bg-full-width bg-dark text-light pt-500 pb-400 my-500">
+
+  <h2 class="mt-0 mb-400">Composants connexes</h2>
+
+  <a href="{{ links.checkbox }}" class="link-light">Cases à cocher</a> lorsque vous prévoyez que l’utilisateur·rice sélectionne plusieurs options parmi une liste d’éléments.
+
+  <a href="{{ links.select }}" class="link-light">Sélection</a> lorsque vous donnez à l’utilisateur·rice une moyenne ou grande quantité d’options pour une seule option connue.
+
+</article>
