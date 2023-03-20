@@ -11,7 +11,7 @@ eleventyNavigation:
   thumbnail: /images/common/components/preview-footer.svg
   alt: Un aperçu du composant de pied de page qui montre une boîte rectangulaire bleue foncée avec à l'intérieur six boîtes grises représentants du texte. Sous cette boîte apparait une boîte rectangulaire grise avec à l'intérieur une boîte de texte grise et le logo du gouvernement du Canada.
   tag: De base
-  state: published
+  state: coming-soon
 translationKey: "footer"
 tags: ['footerFR', 'usage']
 permalink: /fr/composants/pied-de-page/
