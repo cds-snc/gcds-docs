@@ -18,6 +18,7 @@ module.exports = {
       heading: "Breadcrumbs",
       content: {
         gc: "GC Design System",
+        gcLink: "/en",
         components: "Component",
         componentsLink: "/en/components",
       },
@@ -40,16 +41,16 @@ module.exports = {
       heading: "Details",
       content: {
         heading: "Find out more",
-        text: "Details about stuff.",
+        text: "The Details link allows you to expand or collapse the content section. Content is hidden by default.",
       }
     },
     footer: {
       heading: "Footer",
       content: {
-        contextualHeading: "Additional content",
-        contextualLink1: "Footer link 1",
-        contextualLink2: "Footer link 2",
-        contextualLink3: "Footer link 3",
+        contextualHeading: "Contextual navigation",
+        contextualLink1: "Why use GC Notify",
+        contextualLink2: "Features",
+        contextualLink3: "Activity on GC Notify",
       },
     },
     form: {
@@ -141,7 +142,147 @@ module.exports = {
       }
     },
   },
-  fr: {
-
+  fr : {
+    heading: "Démonstration de Système de design GC",
+    subheading: "Composants",
+    alerts: {
+      heading: "Alertes",
+      content: {
+        heading: {
+          danger: "Titre de notification",
+          info: "Titre de notification",
+          success: "Titre de notification",
+          warning: "Titre de notification",
+        },
+        text: "Emplacement du texte explicatif.",
+      }
+    },
+    breadcrumbs: {
+      heading: "Chemin de navigation",
+      content: {
+        gc: "Système de design GC",
+        gcLink: "/fr",
+        components: "Composants",
+        componentsLink: "/fr/composants",
+      },
+    },
+    buttons: {
+      heading: "Boutons",
+      content: {
+        primary: "Principal",
+        secondary: "Secondaire",
+        danger: "Danger",
+        skipToContent: "Aller au contenu",
+        link: "Lien",
+        linkExternal: "Lien externe",
+      }
+    },
+    dateModified: {
+      heading: "Date de modification",
+    },
+    details: {
+      heading: "Détails",
+      content: {
+        heading: "Apprenez-en plus sur ce sujet",
+        text: "Le lien Détails permet de développer ou de réduire la section du contenu. Le contenu est dissimulé par défaut.",
+      }
+    },
+    footer: {
+      heading: "Pied de page",
+      content: {
+        contextualHeading: "Navigation contextuelle",
+        contextualLink1: "Pourquoi utiliser Notification GC",
+        contextualLink2: "Fonctionnalités",
+        contextualLink3: "Activité sur Notification GC",
+      },
+    },
+    form: {
+      heading: "Éléments de formulaires (indicateur d'étape compris)",
+      content: {
+        input: {
+          label: "Nom",
+          hint: "Veuillez inscrire votre nom complet.",
+        },
+        inputNumber: {
+          label: "Numéro de téléphone",
+          hint: "Veuillez entrer un nombre à dix chiffres.",
+        },
+        textarea: {
+          label: "Message",
+          hint: "Ceci est un texte explicatif.",
+        },
+        checkbox: {
+          label: "Aimez-vous la pizza?",
+          hint: "La réponse est oui."
+        },
+        fieldset: {
+          legend: "Groupe bouton radio",
+          hint: "Il s'agit ici d'un fieldset.",
+        },
+        radio1: {
+          label: "Libellé radio 1",
+          hint: "Ceci est un texte explicatif.",
+        },
+        radio2: {
+          label: "Libellé radio 2",
+          hint: "Ceci est un texte explicatif.",
+        },
+        select: {
+          label: "Animal",
+          hint: "Sélectionnez votre animal favori.",
+          errorMessage: "Exemple de message d'erreur.",
+          defaultValue: "Veuillez sélectionner une option.",
+          option1: "Option 1.",
+          option2: "Option 2.",
+          option3: "Option 3.",
+        },
+        fileUploader: {
+          label: "Téléversement",
+          hint: "Vous pouvez téléverser plusieurs fichiers, mais il doit s'agir de fichiers au format .png.",
+        }
+      }
+    },
+    grid: {
+      heading: "Grille",
+      content: {
+        text: "Ceci est un exemple de contenu pour illustrer le composant Grille.",
+      }
+    },
+    header: {
+      heading: "En-tête",
+      content: {
+        lang: "fr",
+        logo: "Système de design GC",
+        link: "Lien vers le menu du site",
+        breadcrumb: "Accueil ",
+      }
+    },
+    icons: {
+      heading: "Icônes",
+      content: {
+        fixed: "Icônes de largeur fixe (ratio carré)",
+        variable: "Icônes de largeur variable (largeur automatique)",
+      }
+    },
+    pagination: {
+      heading: "Pagination",
+      content: {
+        list: "Pagination sous forme de liste :",
+        simple: "Pagination simple :",
+      }
+    },
+    phaseBanner: {
+      heading: "Bannière de statut",
+      content: {
+        text: "Annonce palpitante.",
+      }
+    },
+    siteMenu: {
+      heading: "Menu du site",
+      content: {
+        logo: "Système de design GC",
+        link: "Lien vers le menu du site",
+      }
+    },
   }
 }
