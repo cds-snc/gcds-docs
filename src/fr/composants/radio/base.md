@@ -8,9 +8,33 @@ tags: ['radioFR', 'header']
 
 # Radio <br>`<gcds-radio>`
 
-Ce composant est en cours de développement.
+_Autres noms : liste de contrôle, liste de vérification_
+
+La case à cocher permet de proposer un ensemble d’options en vue d’une sélection simple ou multiple.
 
 {% docLinks locale stage figma github %}
 {% enddocLinks %}
 
-<br/>
+{% componentPreview "Aperçu du composant de radio" "pt-400 pb-200" %}
+<gcds-fieldset
+  fieldset-id="fieldset"
+  legend="Légende"
+  hint="Texte explicatif/Exemple de message."
+>
+  <gcds-radio
+    radio-id="form-radio-1"
+    label="Libellé"
+    hint="Ceci est une description ou un exemple à titre de clarification."
+    name="radio"
+    checked
+  >
+  </gcds-radio>
+    <gcds-radio
+    radio-id="form-radio-2"
+    label="Libellé"
+    hint="Ceci est une description ou un exemple à titre de clarification."
+    name="radio"
+  >
+  </gcds-radio>
+</gcds-fieldset>
+{% endcomponentPreview %}

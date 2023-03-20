@@ -21,7 +21,8 @@ Use a button for important actions a person using a product can initiate.
 ### Add a skip-to-content button
 
 - A skip-to-content button lets a person skip a cluster of navigation links and jump to the main content.
-- To avoid covering up content, configure the button to push down content so it's not floating, For desktop, place skip-to-content button at top left of the page so it doesn't interrupt the flow.
+- To avoid covering up content, configure the button to push down content so it's not floating.
+- For desktop, place skip-to-content button at top left of the page so it doesn't interrupt the flow.
 
 {% include "partials/getcode.njk" %}
 

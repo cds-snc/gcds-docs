@@ -8,9 +8,31 @@ tags: ['checkboxFR', 'header']
 
 # Case à cocher<br>`<gcds-checkbox>`
 
-Ce composant est en cours de développement.
+_Autres noms : liste de contrôle, liste de vérification_
+
+La case à cocher permet de proposer un ensemble d’options en vue d’une sélection simple ou multiple.
 
 {% docLinks locale stage figma github %}
 {% enddocLinks %}
 
-<br/>
+{% componentPreview "Aperçu du composant de case à cocher" "pt-400" %}
+<gcds-fieldset
+  fieldset-id="fieldset"
+  legend="Légende"
+  hint="Texte explicatif/Exemple de message."
+>
+  <gcds-checkbox
+    checkbox-id="form-check-1"
+    label="Libellé"
+    hint="Ceci est une description ou un exemple à titre de clarification."
+    name="radio"
+    checked
+  ></gcds-checkbox>
+  <gcds-checkbox
+    checkbox-id="form-check-2"
+    label="Libellé"
+    hint="Ceci est une description ou un exemple à titre de clarification."
+    name="radio"
+  ></gcds-checkbox>
+</gcds-fieldset>
+{% endcomponentPreview %}
