@@ -33,7 +33,7 @@ Pour aider une personne à accéder au contenu du composant Détails :
 {% include "partials/getcode.njk" %}
 
 <iframe
-  title="Overview of gcds-details properties and events."
+  title="Survol des propriétés et des évènements relatifs à gcds-details."
   src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&singleStory=true&id=components-details--default"
   width="1200"
   height="865"

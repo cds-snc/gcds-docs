@@ -19,7 +19,7 @@ Utilisez l'attribut `current-step` pour indiquer l'étape à laquelle l'utilisat
 {% include "partials/getcode.njk" %}
 
 <iframe
-  title="Overview of gcds-stepper properties and events."
+  title="Survol des propriétés et des évènements relatifs à gcds-stepper."
   src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&singleStory=true&id=components-stepper--default"
   width="1200"
   height="800"
