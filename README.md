@@ -1,4 +1,4 @@
-[La version française suit.](#documentation-de-systeme-de-design-gc)
+[La version française suit.](#documentation-de-système-de-design-gc)
 <br/>
 <br/>
 
