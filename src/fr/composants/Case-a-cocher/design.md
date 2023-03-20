@@ -14,13 +14,13 @@ La **case à cocher** indique, par la présence ou l'absence de la **coche** (é
 Le **libellé de la case à cocher** indique le choix que représente la case à cocher. Le libellé du texte a la première lettre en majuscule.
 Le **texte explicatif** de la case à cocher communique aux utilisateur·rice·s des renseignements sur le choix.
 
-<img class="b-sm b-gray p-400" src="/images/en/components/anatomy/gcds-checkbox-anatomy-with-fieldset.svg" alt="L'anatomie de case à cocher identifiant la légende du jeu de champ et son message d'aide, la coche de sélection, le bouton à cocher, l'étiquette de la case à cocher et le message d'aide de la case à cocher qui forme le composant." />
+<img class="b-sm b-gray p-400" src="/images/fr/components/anatomy/gcds-checkbox-anatomy-with-fieldset.svg" alt="L'anatomie de case à cocher identifiant la légende du jeu de champ et son message d'aide, la coche de sélection, le bouton à cocher, l'étiquette de la case à cocher et le message d'aide de la case à cocher qui forme le composant." />
 
 ## Structure de la case à cocher individuelle
 
 Utilisez la composante de jeu de champs pour la case à cocher, sauf pour les cases à cocher qui ne demandent qu’une seule case à cocher.
 
-<img class="b-sm b-gray p-400" src="/images/en/components/anatomy/gcds-checkbox-anatomy-single.svg" alt="L'anatomie de case à cocher identifiant la coche de sélection, le bouton à cocher, l'étiquette de la case à cocher et le message d'aide de la case à cocher qui forme le composant." />
+<img class="b-sm b-gray p-400" src="/images/fr/components/anatomy/gcds-checkbox-anatomy-single.svg" alt="L'anatomie de case à cocher identifiant la coche de sélection, le bouton à cocher, l'étiquette de la case à cocher et le message d'aide de la case à cocher qui forme le composant." />
 
 ## Accessibilité et design des cases à cocher
 
