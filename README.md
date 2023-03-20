@@ -20,7 +20,6 @@ We are using [11ty](https://www.11ty.dev/docs/) and [Netlify](https://docs.netli
 - Run `npm install` to install all Node.js dependencies.
 - Run `npm start` to start a hot-reloading local web server.
 <br/>
-<br/>
 
 ## Formatting
 
@@ -37,7 +36,6 @@ Available frontmatter options:
     - `title`: Text for navigation link.
     - `locale`: Language key to dictate which language the navigation item is available in. Expects **en** or **fr**.
 <br/>
-<br/>
 
 ## How to contribute
 
@@ -50,7 +48,6 @@ Code released under the [MIT License](https://github.com/cds-snc/gcds-docs/blob/
 <br/>
 <br/>
 # --------------------------------------------------------
-<br/>
 <br/>
 
 # Documentation de Système de design GC
@@ -68,7 +65,6 @@ Nous utilisons [11ty](https://www.11ty.dev/docs/) et [Netlify](https://docs.netl
 - Copiez le référentiel `git clone https://github.com/cds-snc/gcds-docs`.
 - Exécutez ensuite `npm install` pour installer toutes les dépendances Node.js.
 - Exécutez `npm start` pour démarrer un serveur Web avec rechargement à chaud.
-<br/>
 <br/>
 
 ## Mise en forme
@@ -91,7 +87,6 @@ Options de liminaires disponibles :
 ## Apportez votre contribution
 
 Si vous souhaitez contribuer à la documentation de Système de design GC, veuillez lire nos [lignes directrices sur la contribution](https://github.com/cds-snc/gcds-docs/blob/main/CONTRIBUTING.md).
-<br/>
 <br/>
 
 ## Licence
