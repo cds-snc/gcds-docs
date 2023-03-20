@@ -23,21 +23,23 @@ Tous les composants du système de conception GC sont déjà livrés avec une ge
 
 ### Rédigez un message d'erreur classique
 
-- Fournissez une orientation simple et rapide qui se situe dans le contexte et interrompt le déroulement de l'action le moins possible par : un repérage clair de l'erreur;
-- une définition de l'erreur qui ne signale pas les actions de l'utilisateur·rice comme la source du problème;
-- un appel à l'action spécifique et exploitable.
+Fournissez une orientation simple et rapide qui se situe dans le contexte et interrompt le déroulement de l'action le moins possible par :
+
+- Un repérage clair de l'erreur;
+- Une définition de l'erreur qui ne signale pas les actions de l'utilisateur·rice comme la source du problème;
+- Un appel à l'action spécifique et exploitable.
 
 La personne qui reçoit un message d'erreur doit :
 
-- trouver l'erreur et être en mesure d'y avoir accès;
-- savoir quoi faire pour la corriger;
-- être en mesure de réaliser des modifications;
-- soumettre à nouveau les modifications ou les valider sans avoir à remplir à nouveau le formulaire complet.
+- Trouver l'erreur et être en mesure d'y avoir accès;
+- Savoir quoi faire pour la corriger;
+- Être en mesure de réaliser des modifications;
+- Soumettre à nouveau les modifications ou les valider sans avoir à remplir à nouveau le formulaire complet.
 
 {% include "partials/getcode.njk" %}
 
 <iframe
-  title="Overview of gcds-error-message properties and events."
+  title="Survol des propriétés et des évènements relatifs à gcds-error-message."
   src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&singleStory=true&id=components-error-message--default"
   width="1200"
   height="675"

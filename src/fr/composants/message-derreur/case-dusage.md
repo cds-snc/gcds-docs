@@ -25,14 +25,14 @@ Tous les composants de Système de design GC sont livrés avec une gestion des e
 
 Utilisez un message d'erreur pour vos propres composants lorsque l'une des situations suivantes se présente :
 
-- la personne doit corriger quelque chose avant de pouvoir poursuivre une action ou passer à la tâche suivante;
-- un composant de formulaire est requis;
-- vous devez spécifier un type ou un format de réponse incorrect et préciser à une personne ce qu'il faut faire pour résoudre le problème et passer à la tâche suivante.
+- La personne doit corriger quelque chose avant de pouvoir poursuivre une action ou passer à la tâche suivante;
+- Un composant de formulaire est requis;
+- Vous devez spécifier un type ou un format de réponse incorrect et préciser à une personne ce qu'il faut faire pour résoudre le problème et passer à la tâche suivante.
 
 <article class="bg-full-width bg-dark text-light pt-500 pb-400 my-500">
   <h2 class="mt-0 mb-400">Composants connexes </h2>
 
   <a href="{{ links.errorSummary }}" class="link-light">Résumé des erreurs</a> pour répertorier tous les problèmes à résoudre pour la soumission de la réponse.
 
-  <a href="{{ links.alert }}" class="link-light">Alerte</a> : pour communiquer un changement important ou urgent.
+  Alerte : pour communiquer un changement important ou urgent.
 </article>

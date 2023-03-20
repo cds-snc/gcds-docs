@@ -17,4 +17,24 @@ permalink: /fr/composants/case-a-cocher/
 date: "git Last Modified"
 ---
 
-## Usage
+Examinez ce que font les cases à cocher pour déterminer si elles répondent à vos besoins.
+
+## Problèmes résolus par les cases à cocher
+
+Utilisez la case à cocher avec un [jeu de champs]({{ links.fieldset }}) pour poser une question lorsque vous vous attendez à ce que l’utilisateur·rice sélectionne plusieurs options parmi une courte liste d’éléments. Vous pourrez ainsi :
+
+- Limiter le nombre de réponses à votre question.
+- Laisser une personne choisir une ou plusieurs réponses dans une liste définie en cochant les réponses applicables
+- Donner à la personne la possibilité de répondre à la question sans écrire en sélectionnant un ou plusieurs éléments dans une liste.
+
+<article class="bg-full-width bg-dark text-light pt-500 pb-400 my-500">
+
+  <h2 class="mt-0 mb-400">Composants connexes</h2>
+
+  Utilisez les <a href="{{ links.radio }}" class="link-light">boutons radio</a> pour obtenir une seule réponse parmi une liste d’options.
+
+  Le composant <a href="{{ links.select }}" class="link-light">sélection</a> permet à l’utilisateur·rice de sélectionner une option ou plusieurs dans une liste déroulante.
+
+  Utilisez les <a href="{{ links.input }}" class="link-light">champs de saisie</a> pour des réponses courtes d’une seule ligne.
+
+</article>

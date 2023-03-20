@@ -27,7 +27,7 @@ Utilisez un bouton pour les actions importantes que peut initier une personne ut
 {% include "partials/getcode.njk" %}
 
 <iframe
-  title="Overview of gcds-button properties and events."
+  title="Survol des propriétés et des évènements relatifs à gcds-button."
   src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&singleStory=true&id=components-button--default"
   width="1200"
   height="1920"

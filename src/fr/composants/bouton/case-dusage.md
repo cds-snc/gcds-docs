@@ -23,12 +23,12 @@ Jetez un coup d'œil à ce que font les boutons pour vérifier s'ils permettent 
 
 Utilisez un bouton pour les actions importantes qu'une personne utilisant votre produit peut entamer pour :
 
-- donner un ordre lié aux données d'un formulaire;
-- faire un choix ou donner son consentement;
-- entamer un processus, comme un tutoriel, ou se connecter à un espace sécurisé;
-- naviguer entre les différentes étapes d'une séquence;
-- sauter les éléments de navigation pour passer au contenu principal;
-- se rendre vers d'autres pages ou vers des sites externes à l'aide d'un bouton de type « Lien ».
+- Donner un ordre lié aux données d'un formulaire;
+- Faire un choix ou donner son consentement;
+- Entamer un processus, comme un tutoriel, ou se connecter à un espace sécurisé;
+- Naviguer entre les différentes étapes d'une séquence;
+- Sauter les éléments de navigation pour passer au contenu principal;
+- Se rendre vers d'autres pages ou vers des sites externes à l'aide d'un bouton de type « Lien ».
 
 <article class="bg-full-width bg-dark text-light pt-500 pb-400 my-500">
 
@@ -48,31 +48,31 @@ Définissez le type de bouton selon la fonction nécessaire et le contexte du pr
 
 Utilisez le type « Bouton » lorsque vous vous attendez à ce qu'une personne :
 
-- supprime, copie ou télécharge des renseignements;
-- choisisse entre deux options;
-- donne son consentement ou son accord.
+- Supprime, copie ou télécharge des renseignements;
+- Choisisse entre deux options;
+- Donne son consentement ou son accord.
 
 ### Type « Soumission »
 
 Utilisez le type « Soumission » lorsque vous vous attendez à ce qu'une personne :
 
-- envoie une formulaire ou une requête.
-- enregistre des renseignements;
-- se connecte ou se déconnecte d'un espace sécurisé.
+- Envoie une formulaire ou une requête.
+- Enregistre des renseignements;
+- Se connecte ou se déconnecte d'un espace sécurisé.
 
 ### Type « Réinitialisation »
 
 Utilisez le type « Réinitialisation » lorsque vous vous attendez à ce qu'une personne :
 
-- supprime les données saisies dans un formulaire.
+- Supprime les données saisies dans un formulaire.
 
 ### Type « Lien »
 
 Utilisez le type « Lien » lorsque vous vous attendez à ce qu'une personne :
 
-- visite une autre page;
-- visite un site externe;
-- ait besoin d'une alternative à un bouton pour une action pertinente, mais moins importante.
+- Visite une autre page;
+- Visite un site externe;
+- Ait besoin d'une alternative à un bouton pour une action pertinente, mais moins importante.
 
 ## Choisissez le rôle du bouton
 
