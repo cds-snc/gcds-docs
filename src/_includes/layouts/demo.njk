@@ -2,7 +2,7 @@
 layout: "layouts/base.njk"
 ---
 
-<section class="container-xl mx-auto py-600">
+<section class="py-600">
   <h1 class="container-full text-center mb-500">{{ demo[locale].heading }}</h1>
 
   <h2>{{ demo[locale].subheading }}</h2>
@@ -29,7 +29,7 @@ layout: "layouts/base.njk"
 
   <!-- Breadcrumb without canada.ca link -->
   <gcds-breadcrumbs slot="breadcrumb" hide-canada-link>
-    <gcds-breadcrumbs-item href="/">
+    <gcds-breadcrumbs-item href="{{ demo[locale].breadcrumbs.content.gcLink }}">
       {{ demo[locale].breadcrumbs.content.gc }}
     </gcds-breadcrumbs-item>
     <gcds-breadcrumbs-item href="{{ demo[locale].breadcrumbs.content.componentsLink }}">
@@ -39,10 +39,10 @@ layout: "layouts/base.njk"
 
   <!-- Breadcrumb with canada.ca link -->
   <gcds-breadcrumbs slot="breadcrumb">
-    <gcds-breadcrumbs-item href="/">
+    <gcds-breadcrumbs-item href="{{ demo[locale].breadcrumbs.content.gcLink }}">
       {{ demo[locale].breadcrumbs.content.gc }}
     </gcds-breadcrumbs-item>
-    <gcds-breadcrumbs-item href="/en/components">
+    <gcds-breadcrumbs-item href="{{ demo[locale].breadcrumbs.content.componentsLink }}">
       {{ demo[locale].breadcrumbs.content.components }}
     </gcds-breadcrumbs-item>
   </gcds-breadcrumbs>
@@ -141,6 +141,7 @@ layout: "layouts/base.njk"
         label="{{ demo[locale].form.content.radio1.label }}"
         hint="{{ demo[locale].form.content.radio1.hint }}"
         name="radio"
+        checked
       ></gcds-radio>
       <gcds-radio
         radio-id="form-radio-2"

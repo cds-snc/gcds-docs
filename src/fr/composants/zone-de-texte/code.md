@@ -28,7 +28,7 @@ La zone de texte donne aux utilisateur·rice·s la possibilité de fournir les r
 {% include "partials/getcode.njk" %}
 
 <iframe
-  title="Overview of gcds-textarea properties and events."
+  title="Survol des propriétés et des évènements relatifs à gcds-textarea."
   src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&singleStory=true&id=components-textarea--default"
   width="1200"
   height="1825"

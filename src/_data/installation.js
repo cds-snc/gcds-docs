@@ -82,7 +82,7 @@ module.exports = {
       vue: "Vue",
       node: "Aucune infrastructure, avec nœud",
       cdn: "Aucune infrastructure, sans noeud",
-      figma: "I'm a lost designer, looking for Figma",
+      figma: "Je suis un·e concepteur·rice à la recherche de Figma",
       other: "Autre chose"
     },
     step2: {
@@ -104,8 +104,8 @@ module.exports = {
         paragraph: "Sélectionnez une option à l'étape 1 pour obtenir les instructions d'installation.",
       },
       figma: {
-        paragraph: "Lost and looking for our Figma library? We got you:",
-        buttonText: "Go to Figma"
+        paragraph: "Vous ne trouvez pas notre bibliothèque Figma? Suivez le guide :",
+        buttonText: "Accéder à Figma"
       },
       node: {
         paragraph: "Si vous utilisez npm (node package manager) sans infrastructure, suivez ces instructions pour installer les composants SDGC.",
