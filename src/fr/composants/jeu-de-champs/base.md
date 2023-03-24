@@ -8,9 +8,35 @@ tags: ['fieldsetFR', 'header']
 
 # Jeu de champs <br>`<gcds-fieldset>`
 
-Ce composant est en cours de développement.
+_Aussi appelé : champ de formulaire._
+
+Un jeu de champs est un groupe de plusieurs composants ou éléments d’un formulaire.
 
 {% docLinks locale stage figma github %}
 {% enddocLinks %}
 
-<br/>
+{% componentPreview "Aperçu du composant de jeu de champs" "pt-400" %}
+<gcds-fieldset
+  fieldset-id="fieldset"
+  legend="Légende"
+  hint="Texte explicatif/Exemple de message."
+>
+  <gcds-input
+    input-id="form-input"
+    label="Étiquette de champ"
+    hint="Texte explicatif/Exemple de message."
+    size="6"
+  >
+  </gcds-input>
+  <gcds-select
+    select-id="form-select"
+    label="Étiquette de sélection"
+    hint="Texte explicatif/Exemple de message."
+    default-value="Sélectionnez l'option"
+  >
+    <option value="option-1">Option 1</option>
+    <option value="option-2">Option 2</option>
+    <option value="option-3">Option 3</option>
+  </gcds-select>
+</gcds-fieldset>
+{% endcomponentPreview %}
