@@ -10,7 +10,7 @@ date: "git Last Modified"
 
 The **top nav** includes the skip-to-content button to let a person bypass a cluster of navigation links and jump to the main page content.
 
-The **signature header** spans the top of the site and contains the Government of Canada branded signature and the language toggle. It can also include a search form. It has a divider line along the bottom edge. When the site language is set with the `language` attribute, the signature reflects the same Official Language as the page content.
+The **signature header** spans the top of the site and contains the Government of Canada branded signature and the language toggle. It can also include a search form. It has a divider line along the bottom edge. When the site language is set with the `lang` attribute, the signature reflects the same Official Language as the page content.
 
 The **language toggle** component is a switch for French and English content. When the site language is set using the language attribute, the toggle will be available in the other Official Language.
 
