@@ -298,7 +298,7 @@ nav.tabs a[aria-current="page"]:focus {
 
 .hero {
   margin: calc(-1 * var(--gcds-spacing-200));
-  background: url(../../images/common/home/home-hero.png) top center no-repeat;
+  background: url(../../images/common/home/home-hero.jpg) top center no-repeat;
   background-size: cover; }
 
 .hero:before {
