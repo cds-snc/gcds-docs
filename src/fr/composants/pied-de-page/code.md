@@ -63,3 +63,15 @@ Pour la bande de lien du pied de page, réglez l'élément `sub-links` en passan
 “Étiquette du 3e lien”: “href”
 }
 ```
+
+{% include "partials/getcode.njk" %}
+
+
+<iframe
+  title="Survol des propriétés et des évènements relatifs à gcds-footer."
+  src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&singleStory=true&id=components-footer--default"
+  width="1200"
+  height="1110"
+  style="display: block; margin: 0 auto;"
+  frameBorder="0"
+></iframe>
