@@ -34,7 +34,7 @@ Fill out this form or submit an issue through GitHub for <a href="{{ links.githu
 <form class="my-500 contact-us-form" name="contactEN" method="post" style="min-height: 32rem;">
   <input type="hidden" name="form-name" value="contactEN" />
   <gcds-input type="text" input-id="name" label="Full name" size="30" required></gcds-input>
-  <gcds-input type="email" input-id="email" label="Email address" size="30" required></gcds-input>
+  <gcds-input type="email" input-id="email" label="Email address" size="50" required></gcds-input>
   <gcds-textarea label="Message" textarea-id="message" hint="Write your question or comment." required></gcds-textarea>
   <div hidden>
     <gcds-input type="text" input-id="bot-field" label="bot"></gcds-input>
