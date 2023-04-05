@@ -40,4 +40,5 @@ Le jeu de champs ne validera que les [cases à cocher]({{ links.checkbox }}) et 
   height="1540"
   style="display: block; margin: 0 auto;"
   frameBorder="0"
+  allow="clipboard-write"
 ></iframe>

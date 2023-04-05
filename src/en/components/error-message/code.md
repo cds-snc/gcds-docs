@@ -45,4 +45,5 @@ A person who receives an error message needs to:
   height="675"
   style="display: block; margin: 0 auto;"
   frameBorder="0"
+  allow="clipboard-write"
 ></iframe>

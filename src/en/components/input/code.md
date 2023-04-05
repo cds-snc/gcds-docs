@@ -30,4 +30,5 @@ Use an input to ask for information short, one-line response.
   height="1985"
   style="display: block; margin: 0 auto;"
   frameBorder="0"
+  allow="clipboard-write"
 ></iframe>

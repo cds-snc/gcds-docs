@@ -74,4 +74,5 @@ Pour la bande de lien du pied de page, réglez l'élément `sub-links` en passan
   height="1110"
   style="display: block; margin: 0 auto;"
   frameBorder="0"
+  allow="clipboard-write"
 ></iframe>

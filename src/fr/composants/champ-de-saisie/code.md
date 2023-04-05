@@ -31,4 +31,5 @@ Utilisez un champ de saisie pour obtenir une réponse courte d'une ligne.
   height="1985"
   style="display: block; margin: 0 auto;"
   frameBorder="0"
+  allow="clipboard-write"
 ></iframe>

@@ -36,4 +36,5 @@ Utilisez une case à cocher avec un [jeu de champs]({{ links.fieldset }}) lorsqu
   height="1760"
   style="display: block; margin: 0 auto;"
   frameBorder="0"
+  allow="clipboard-write"
 ></iframe>

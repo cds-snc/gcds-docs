@@ -68,4 +68,5 @@ Opt to include the contextual band to add up to three footer links for your prod
   height="1110"
   style="display: block; margin: 0 auto;"
   frameBorder="0"
+  allow="clipboard-write"
 ></iframe>
