@@ -40,4 +40,5 @@ The fieldset will only validate [checkbox]({{ links.checkbox }}) and [radio butt
   height="1540"
   style="display: block; margin: 0 auto;"
   frameBorder="0"
+  allow="clipboard-write"
 ></iframe>

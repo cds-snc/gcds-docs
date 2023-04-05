@@ -39,4 +39,5 @@ Pour aider une personne à accéder au contenu du composant Détails :
   height="865"
   style="display: block; margin: 0 auto;"
   frameBorder="0"
+  allow="clipboard-write"
 ></iframe>

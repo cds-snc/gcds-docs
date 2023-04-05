@@ -29,4 +29,5 @@ The radio helps users to make a choice by limiting their options.
   height="1670"
   style="display: block; margin: 0 auto;"
   frameBorder="0"
+  allow="clipboard-write"
 ></iframe>

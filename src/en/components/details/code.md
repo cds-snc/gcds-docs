@@ -39,4 +39,5 @@ To help a reader's experience accessing details content:
   height="865"
   style="display: block; margin: 0 auto;"
   frameBorder="0"
+  allow="clipboard-write"
 ></iframe>

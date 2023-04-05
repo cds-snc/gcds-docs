@@ -33,4 +33,5 @@ Use a button for important actions a person using a product can initiate.
   height="1920"
   style="display: block; margin: 0 auto;"
   frameBorder="0"
+  allow="clipboard-write"
 ></iframe>

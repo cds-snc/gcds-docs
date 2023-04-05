@@ -29,4 +29,5 @@ Les boutons radio aident les utilisateur·rice·s a faire un choix en limitant l
   height="1670"
   style="display: block; margin: 0 auto;"
   frameBorder="0"
+  allow="clipboard-write"
 ></iframe>

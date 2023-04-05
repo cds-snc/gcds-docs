@@ -25,4 +25,5 @@ Utilisez l'attribut `current-step` pour indiquer l'étape à laquelle l'utilisat
   height="800"
   style="display: block; margin: 0 auto;"
   frameBorder="0"
+  allow="clipboard-write"
 ></iframe>

@@ -46,4 +46,5 @@ Utilisez ce point de repère pour transmettre de l'information sur un service du
   height="1535"
   style="display: block; margin: 0 auto;"
   frameBorder="0"
+  allow="clipboard-write"
 ></iframe>

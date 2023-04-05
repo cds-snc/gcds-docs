@@ -25,4 +25,5 @@ Use the `current-step` attribute to indicate the step that the user is on and th
   height="800"
   style="display: block; margin: 0 auto;"
   frameBorder="0"
+  allow="clipboard-write"
 ></iframe>

@@ -33,4 +33,5 @@ Utilisez un bouton pour les actions importantes que peut initier une personne ut
   height="1920"
   style="display: block; margin: 0 auto;"
   frameBorder="0"
+  allow="clipboard-write"
 ></iframe>

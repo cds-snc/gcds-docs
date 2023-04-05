@@ -34,4 +34,5 @@ The text area gives users the option to provide the information they want to sha
   height="1825"
   style="display: block; margin: 0 auto;"
   frameBorder="0"
+  allow="clipboard-write"
 ></iframe>

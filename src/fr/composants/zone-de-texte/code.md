@@ -34,4 +34,5 @@ La zone de texte donne aux utilisateur·rice·s la possibilité de fournir les r
   height="1825"
   style="display: block; margin: 0 auto;"
   frameBorder="0"
+  allow="clipboard-write"
 ></iframe>

@@ -46,4 +46,5 @@ Use this header landmark to communicate a Government of Canada digital service o
   height="1535"
   style="display: block; margin: 0 auto;"
   frameBorder="0"
+  allow="clipboard-write"
 ></iframe>
