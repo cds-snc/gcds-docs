@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Git Checkout
-        uses: actions/checkout@ac593985615ec2ede58e132d2e21d2b1cbd6127c # v3.3.0
+        uses: actions/checkout@24cb9080177205b6e8c946b17badbe402adc938f # v3.4.0
       - name: Install
         run: npm install
       - name: Build
@@ -25,7 +25,7 @@ jobs:
           mkdir -p ./_site/.github/workflows/
           cp -r ./.github/workflows/a11y-tests.yaml ./_site/.github/workflows/a11y-tests.yaml
       - name: Deploy
-        uses: peaceiris/actions-gh-pages@64b46b4226a4a12da2239ba3ea5aa73e3163c75b # v3.9.1
+        uses: peaceiris/actions-gh-pages@bd8c6b06eba6b3d25d72b7a1767993c0aeee42e7 # v3.9.2
         with:
           publish_dir: ./_site
           github_token: ${{ secrets.ACCESS_TOKEN }}

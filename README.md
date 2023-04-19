@@ -47,6 +47,7 @@ If you are interested in contributing to GC Design System Utility, please read o
 Code released under the [MIT License](https://github.com/cds-snc/gcds-docs/blob/main/LICENSE).
 <br/>
 <br/>
+
 # --------------------------------------------------------
 <br/>
 
