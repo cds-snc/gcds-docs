@@ -9,7 +9,7 @@ eleventyNavigation:
   parent: foundationsFR
   order: 3
   description: Les unités de style typographiques comprennent le style, la disposition et l'apparence des lettres, chiffres et symboles.
-  thumbnail: /images/fr/bases/foundation.png
+  thumbnail: /images/fr/foundations/preview/preview-typography.svg
   alt:
   state: published
 github: https://github.com/cds-snc/gcds-tokens
