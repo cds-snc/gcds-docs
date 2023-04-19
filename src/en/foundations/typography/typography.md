@@ -1,5 +1,5 @@
 ---
-title: Typography
+title: Typography tokens
 layout: "layouts/base.njk"
 eleventyNavigation:
   key: typographyEN
@@ -68,8 +68,6 @@ Heading tags for headings and subheadings give a page structure, organize conten
 - Match an H1 font size with an H1 line height, an H2 font size with an H2 line height, etc.
 - Use headings for calls to action and to create emphasis.
 - Make each heading distinctive and make it obvious what the content is about.
-
-### Headings
 
 {% include "partials/token_table.njk", token: 'font', subTokens: "h1 h2 h3 h4 h5 h6", type: 'typography' %}
 

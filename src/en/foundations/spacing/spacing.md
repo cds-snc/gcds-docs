@@ -1,5 +1,5 @@
 ---
-title: Spacing
+title: Spacing tokens
 layout: "layouts/base.njk"
 eleventyNavigation:
   key: spacingEN
