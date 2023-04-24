@@ -113,5 +113,7 @@ The font family contains fallback values. The fallback is a substitute value for
 
 <br/>
 
+{% assign removeBorder = true %}
+
 {% include "partials/helpus.njk" %}
 

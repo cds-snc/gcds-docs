@@ -48,4 +48,6 @@ Vertical rhythm aligns text to evenly spaced horizontal lines in repeated patter
 
 {% include "partials/token_table.njk", token: 'spacing', type: 'dimension' %}
 
+{% assign removeBorder = true %}
+
 {% include "partials/helpus.njk" %}

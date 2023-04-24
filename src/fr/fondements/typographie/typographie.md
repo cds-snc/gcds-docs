@@ -77,7 +77,7 @@ Remarque : La propriété de la police représente à la fois l'épaisseur, la t
 ### Texte
 
 - Pour la taille de police, conservez la longueur d'une ligne à moins de 75 caractères pour assurer une lecture aisée et accessible.
-- Insérez la valeur css <75ch> ou moins pour régler la largeur maximale de vos paragraphes.
+- Insérez la valeur css `75ch` ou moins pour régler la largeur maximale de vos paragraphes.
 
 {% include "partials/token_table.njk", token: 'font', subTokens: "label text textLong caption", type: 'typography' %}
 
@@ -113,5 +113,7 @@ La famille de police comprend des valeurs de rechange. Les valeurs de rechange s
 {% include "partials/token_table.njk", token: 'fontWeights', type: 'fontWeights' %}
 
 <br/>
+
+{% assign removeBorder = true %}
 
 {% include "partials/helpus.njk" %}
