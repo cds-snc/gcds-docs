@@ -1,5 +1,5 @@
 ---
-title: Typography
+title: Typography tokens
 layout: "layouts/base.njk"
 eleventyNavigation:
   key: typographyEN
@@ -69,8 +69,6 @@ Heading tags for headings and subheadings give a page structure, organize conten
 - Use headings for calls to action and to create emphasis.
 - Make each heading distinctive and make it obvious what the content is about.
 
-### Headings
-
 {% include "partials/token_table.njk", token: 'font', subTokens: "h1 h2 h3 h4 h5 h6", type: 'typography' %}
 
 Note: The font property is a shorthand property for font-weight, font-size/line-height, font-family.
@@ -114,6 +112,8 @@ The font family contains fallback values. The fallback is a substitute value for
 {% include "partials/token_table.njk", token: 'fontWeights', type: 'fontWeights' %}
 
 <br/>
+
+{% assign removeBorder = true %}
 
 {% include "partials/helpus.njk" %}
 

@@ -1,5 +1,5 @@
 ---
-title: Spacing
+title: Spacing tokens
 layout: "layouts/base.njk"
 eleventyNavigation:
   key: spacingEN
@@ -47,5 +47,7 @@ Vertical rhythm aligns text to evenly spaced horizontal lines in repeated patter
 - Whenever possible, line objects up both vertically and horizontally.
 
 {% include "partials/token_table.njk", token: 'spacing', type: 'dimension' %}
+
+{% assign removeBorder = true %}
 
 {% include "partials/helpus.njk" %}
