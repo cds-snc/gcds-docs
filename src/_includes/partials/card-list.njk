@@ -1,0 +1,39 @@
+{% set components = [cardlist.type, locale | upper] | join %}
+
+{% if (cardlist.type == "components") %}
+  {% set navPages = collections.all | eleventyNavigation(components) | sortAlpha %}
+{% else %}
+  {% set navPages = collections.all | eleventyNavigation(components) %}
+{% endif %}
+
+<div class="bg-light my-500 p-400">
+  <gcds-grid tag="ul" columns="1fr" columns-tablet="1fr 1fr" columns-desktop="1fr 1fr 1fr" gap="400">
+  {%- for entry in navPages %}
+    {% if entry.state == cardlist.state %}
+      <li class="list-none bg-white {% if entry.state != "published" %}d-flex flex-col p-400{% endif %} component-preview-box">
+        {% if entry.state == "published" %}
+        <a class="d-flex flex-col link-inherit link-no-underline p-400" href={{entry.url}}>
+        {% endif %}
+          <h3>{{ entry.title }}</h3>
+          <div class="flex-1 mt-150 pt-250 {% if entry.tag %}mb-250 pb-250 by-sm{% else %}bt-sm{% endif %}">
+            {% if entry.otherNames %}
+              <p class="mb-150 text-secondary">
+                <small><em>{{ documentation[locale].othernames }}{{ entry.otherNames }}</em></small>
+              </p>
+            {% endif %}
+            <p class="mb-150">{{ entry.description }}</p>
+            <img src="{{ entry.thumbnail }}" alt="{{ entry.alt }}" />
+          </div>
+          {% if entry.tag %}
+            <span class="font-caption {% if entry.tag === 'Core' or entry.tag === 'De base' %}bg-black{% else %}bg-light-blue{% endif %} align-self-start px-150 py-50 radius-md">
+              {{ entry.tag }}
+            </span>
+          {% endif %}
+        {% if entry.state == "published" %}
+        </a>
+        {% endif %}
+      </li>
+    {% endif %}
+  {%- endfor -%}
+  </gcds-grid>
+</div>

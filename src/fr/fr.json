@@ -1,3 +1,63 @@
 {
-    "locale": "fr"
+  "locale": "fr",
+  "links": {
+    "home": "/fr",
+
+    "installation": "/fr/installation",
+
+    "foundations": "/fr/fondements",
+    "designTokens": "/fr/fondements/unites-de-style",
+    "colour": "/fr/fondements/couleur",
+    "spacing": "/fr/fondements/espacement",
+    "typography": "/fr/fondements/typographie",
+
+    "components": "/fr/composants",
+    "alert": "/fr/developpement-en-cours",
+    "breadcrumbs": "/fr/developpement-en-cours",
+    "button": "/fr/composants/bouton",
+    "checkbox": "/fr/composants/case-a-cocher",
+    "dateModified": "/fr/developpement-en-cours",
+    "details": "/fr/composants/details",
+    "errorMessage": "/fr/composants/message-derreur",
+    "errorSummary": "/fr/developpement-en-cours",
+    "fieldset": "/fr/composants/jeu-de-champs",
+    "fileUploader": "/fr/developpement-en-cours",
+    "footer": "/fr/composants/pied-de-page",
+    "grid": "/fr/developpement-en-cours",
+    "header": "/fr/composants/en-tete",
+    "icon": "/fr/developpement-en-cours",
+    "input": "/fr/composants/champ-de-saisie",
+    "langToggle": "/fr/developpement-en-cours",
+    "pagination": "/fr/developpement-en-cours",
+    "radio": "/fr/composants/radio",
+    "select": "/fr/developpement-en-cours",
+    "signature": "/fr/developpement-en-cours",
+    "siteMenu": "/fr/developpement-en-cours",
+    "stepper": "/fr/composants/indicateur-detape",
+    "textarea": "/fr/composants/zone-de-texte",
+    "verifyBanner": "/fr/developpement-en-cours",
+
+    "about": "/fr/contactez/#a-propos-de-systeme-de-design-gc",
+    "contact": "/fr/contactez/#contacteznous",
+
+    "comingSoon": "/fr/developpement-en-cours",
+    "demo": "/fr/demo",
+    "releaseNotes": "/fr/notes-de-publication",
+
+    "figma": "https://www.figma.com/file/mh2maMG2NBtk41k1O1UGHV/Canadian-Digital-Service%E2%80%A8---GC-Design-System?node-id=4%3A1006&t=qguKsJtr1ityUsUN-0",
+
+    "fontAwesome": "https://kit.fontawesome.com/892cb27850.js",
+
+    "github": "https://github.com/cds-snc/gcds-components",
+    "githubDocsIssues": "https://github.com/cds-snc/gcds-docs/issues",
+    "githubIssues": "https://github.com/cds-snc/gcds-components/issues",
+    "githubTokens": "https://github.com/cds-snc/gcds-tokens",
+    "githubTokensIssues": "https://github.com/cds-snc/gcds-tokens/issues",
+
+    "wcag": "https://www.w3.org/TR/WCAG21/",
+    "wcagTargetSize": "https://www.w3.org/TR/WCAG21/#target-size",
+    "wcagTextSpacing": "https://www.w3.org/TR/WCAG21/#text-spacing",
+
+    "webaim": "https://webaim.org/resources/contrastchecker/"
+  }
 }

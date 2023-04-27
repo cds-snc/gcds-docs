@@ -1,0 +1,28 @@
+{% extends "layouts/base.njk" %}
+
+{% if tags %}
+  {% set tabs = collections.all | tabs(tags[0]) %}
+{% endif %}
+
+{% block content %}
+  {% if tabs %}
+    {{ tabs.header.templateContent | safe }}
+    <nav class="tabs mb-400" aria-label="{{ navLabel or title }}">
+      <ul>
+        {% for key, tab in documentation[locale] %}
+          {% if tabs[key].url %}
+            <li class="tab">
+              <a href={{ tabs[key].url }} {{ 'aria-current=page' if tabs[key].url == page.url}}>
+                {{ tab }}
+              </a>
+            </li>
+          {% endif %}
+        {% endfor %}
+      </ul>
+    </nav>
+  {% endif %}
+
+  {{ content | safe }}
+
+  {% include "partials/helpus.njk" %}
+{% endblock %}

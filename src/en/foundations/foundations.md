@@ -8,17 +8,26 @@ eleventyNavigation:
   order: 1
 translationKey: "foundatons"
 github: https://github.com/cds-snc/gcds-tokens
+date: "git Last Modified"
+cardlist:
+  type: foundations
+  state: published
 ---
 
-# Foundations
+# {{ title }}
 
-The GC Design System uses design tokens for basic elements like colour, [typography]({{ "/en/foundations/typography/" | url }}), and spacing.
+Design tokens make up the foundations of GC Design System.
 
-Our design tokens are coded to store design decisions for Canada.ca, so they meet Government of Canada requirements.
+Our tokens capture brand and design decisions in code for basic style elements like colours, typography, and spacing.
 
-You can choose from our tokens to style [components]({{ "/en/components/" | url }}) and patterns without having to write hard-coded values (like specific hex colours, rem, or pixel counts).
+## Design tokens support consistency and communication
 
-Tokens give you an exact match to a visual style. Any changes or corrections can be made at source and propagated across all products or platforms using that token.
+We're using design tokens to:
 
-{% docLinks locale stage figma github %}
-{% enddocLinks %}
+- **Create a consistent visual experience** by scaling design and brand decisions across components.
+- **Communicate meaning consistently** to establish a predictable and trustworthy experience for the people using your services.
+- **Improve communication between design and development** by defining each style decision with a name and visual representation.
+
+<gcds-button type="link" button-role="secondary" href="{{ links.designTokens }}">
+  Explore tokens
+</gcds-button>

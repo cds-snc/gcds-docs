@@ -2,39 +2,21 @@
 
 {% macro renderNavListItem(entry) -%}
 {% if not entry.hideMain %}
-    <li{% if entry.url == page.url %} class="my-active-class"{% endif %}>
+  <li>
     {% if entry.url %}
-        <a href="{{ entry.url | url }}" {% if entry.url == page.url %} aria-current="page" {% endif %} >{{ entry.title }}</a>
+      <a href="{{ entry.url | url }}">{{ entry.title }}</a>
     {% else %}
-        <span>{{ entry.title }}</span>
+      <span>{{ entry.title }}</span>
     {% endif %}
-
-    {%- if entry.children.length -%}
-    <ul>
-        {%- for child in entry.children %}
-            {% if child.locale == locale %}{{ renderNavListItem(child) }}{% endif %}
-        {% endfor -%}
-    </ul>
-    {%- endif -%}
-    {%- if entry.samePage -%}
-        <ul>
-            {%- for link in entry.samePage %}
-                <li>
-                    <a href="{{ entry.url | url }}#{{ link.url }}">
-                        {{ link.title }}
-                    </a>
-                </li>
-            {% endfor -%}
-        </ul>
-    {%- endif -%}
-    </li>
+  </li>
 {% endif %}
 {%- endmacro %}
-<gcds-site-menu menu-alignment="right" class="header__nav">
-    <a href="{{ nav[locale].url | url }}" class="home-link" slot="left">{{ nav[locale].title }}</a>
-    <ul >
+
+<gcds-site-menu alignment="right" class="header__nav" slot="menu">
+  <a href="{{ nav[locale].url | url }}" class="home-link link-inherit link-no-underline" slot="left">{{ nav[locale].title }}</a>
+  <ul >
     {%- for entry in navPages %}
-        {%- if entry.locale == locale %}{{ renderNavListItem(entry) }}{% endif -%}
+      {%- if entry.locale == locale %}{{ renderNavListItem(entry) }}{% endif -%}
     {%- endfor -%}
-    </ul>
+  </ul>
 </gcds-site-menu>

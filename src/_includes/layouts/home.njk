@@ -1,53 +1,72 @@
 <!DOCTYPE html>
-<html lang="{{ locale }}">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>{{ title }} - {{ base[locale].gcds }}</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+<html lang="{{ locale }}" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>{{ title }} - {{ base[locale].gcds }}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        {# Font Awesome #}
-        <link href="https://unpkg.com/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <!-- Utility framework -->
+    <link rel="stylesheet" href="{{ '/utilities.min.css' | url }}" />
 
-        <script type="module" src="/components/dist/gcds/gcds.esm.js"></script>
-        <script nomodule src="/components/dist/gcds/gcds.js"></script>
+    <link rel="stylesheet" href="{{ '/styles/prism.css' | url }}">
+    <link rel="stylesheet" href="{{ '/styles/style.css' | url }}">
+    <script src="{{ '/scripts/code-showcase.js' | url }}"></script>
+    <link rel="icon" type="image/x-icon" sizes="96x96" href="{{ '/favicon.ico' | url }}">
 
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet">
+    {# Font awesome 6 kit for this doc website. Anyone can create a free kit for open source. #}
+    <script src="https://kit.fontawesome.com/892cb27850.js" crossorigin="anonymous"></script>
 
-        <link rel="stylesheet" href="{{ '/components/dist/gcds/gcds.css' | url }}">
-        <link rel="stylesheet" href="{{ '/styles/prism.css' | url }}">
-        <link rel="stylesheet" href="{{ '/styles/style.css' | url }}">
-        <script src="{{ '/scripts/code-showcase.js' | url }}"></script>
-        <link rel="icon" type="image/png" sizes="96x96" href="{{ '/images/common/favicon-mobile.png' | url }}">
-    </head>
-    <body>
-        <nav>
-            <gcds-button
-                button-type="link"
-                button-role="skip-to-content"
-                href="#content"
-            >
-                {{ base[locale].skipTo }}
-            </gcds-button>
-        </nav>
+    <!-- GC Design System  Components-->
+    <link rel="stylesheet" href="{{ '/components/dist/gcds/gcds.css' | url }}">
+    <script type="module" src="/components/dist/gcds/gcds.esm.js"></script>
+    <script nomodule src="/components/dist/gcds/gcds.js"></script>
 
-        <div class="content-wrapper">
-            {% include "partials/header.njk" %}
+    <meta name="robots" content="noindex">
+  </head>
+  <body>
+    {% include "partials/header.njk" %}
 
-            <div class="container">
-                <main id="mc">
-                    {{ content | safe }}
-                </main>
+    <div class="content-wrapper">
+
+      <main id="mc" class="general-layout">
+        <section>
+            <div class="xl:py-900 md:py-800 py-600 hero">
+              <div class="container-xl mx-auto">
+                <article class="sm:py-550 py-450 xl:ps-0 sm:ps-500 ps-450 sm:pe-550 pe-400 bg-dark hero__content">
+                  <h1 class="mb-400">
+                    <span class="d-block">{{ homehero[locale].cds }}</span>
+                    <span class="d-block">{{ homehero[locale].gcds }}</span>
+                  </h1>
+                  <p class="mb-400">{{ homehero[locale].paragraph }}</p>
+                  <a class="link-inherit" href="{{ homehero[locale].link }}">{{ homehero[locale].linkText }}</a>
+                </article>
+              </div>
             </div>
+        </section>
 
-            {% include "partials/footer.njk" %}
+        <section class="container-xl mx-auto xl:px-0 sm:px-500 px-300">
+          {% block content %}{{ content | safe }}{% endblock %}
 
-            {% if contactForm %}
-                {% include "partials/contactform.njk" %}
-            {% endif %}
-        </div>
-    </body>
+          {% include "partials/helpus.njk" %}
+
+          <gcds-date-modified class="mb-400 font-caption">
+            {{ page.date | dateLastModified}}
+          </gcds-date-modified>
+        </section>
+      </main>
+
+      <gcds-footer
+        display="compact"
+        sub-links='{ "{{ footer[locale].terms }}": "{{ footer[locale].termsurl }}", "{{ footer[locale].privacy }}": "{{ footer[locale].privacyurl }}" }'
+        lang="{{ locale }}"
+      ></gcds-footer>
+
+      {% if contactForm %}
+        {% include "partials/contactform.njk" %}
+      {% endif %}
+    </div>
+
+    {% initClipboardJS %}
+  </body>
 </html>

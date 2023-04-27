@@ -8,23 +8,38 @@ eleventyNavigation:
   order: 3
 translationKey: "contactus"
 contactForm: en
+date: "git Last Modified"
 ---
 
-<h1 class="contact-us-heading">Contact us</h1>
+# About GC Design System
 
-Ask the GC Design System team about a component in the design system or request a component you'd like to see.
+## Build modern, accessible, human government services people can use
 
-Fill out the following form or submit an issue through GitHub for [tokens]({{ "https://github.com/cds-snc/gcds-tokens" | url}}), [components]({{ "https://github.com/cds-snc/gcds-components" | url}}), or [documentation]({{ "https://github.com/cds-snc/gcds-docs" | url}}).
+GC Design System pairs code with designs and guidance based on federal standards and accessibility best practice. Reusable [components]({{ links.components }}) and [styles]({{ links.foundations }}) help you to build forms, websites, and applications.
 
-<form class="contact-us-form" name="contactEN" method="post">
+This is a design system for the Canadian Digital Service built by a small team of public servants. We believe modern, efficient design and development can improve the quality of people's experiences with government services. We hope to raise the bar for consistent, inclusive user interfaces across digital products.
+
+GC Design System works in the environment you want to work in. You'll get the same patterns and styles across products and browsers without having to code from scratch or redefine values. It works independently of GC Web and the Web Experience Toolkit (WET).
+
+Have questions? Something you'd change or you'd like to see? Share your feedback to help us improve GC Design System for you.
+
+<hr class="my-500" />
+
+## Contact us
+
+Ask us about GC Design System, make a suggestion, or request a component you'd like to see.
+
+Fill out this form or submit an issue through GitHub for <a href="{{ links.githubTokensIssues }}" target="_blank">tokens <gcds-icon name="external-link" label="Opens in a new tab." margin-left="50" /></a>, <a href="{{ links.githubIssues }}" target="_blank">components <gcds-icon name="external-link" label="Opens in a new tab." margin-left="50" /></a>, or <a href="{{ links.githubDocsIssues }}" target="_blank">documentation <gcds-icon name="external-link" label="Opens in a new tab." margin-left="50" /></a>.
+
+<form class="my-500 contact-us-form" name="contactEN" method="post" style="min-height: 32rem;">
   <input type="hidden" name="form-name" value="contactEN" />
-  <gcds-input type="text" input-id="name" label="Full name" required></gcds-input>
-  <gcds-input type="email" input-id="email" label="Email address" required></gcds-input>
-  <gcds-textarea label="Message" textarea-id="message" required></gcds-textarea>
+  <gcds-input type="text" input-id="name" label="Full name" size="30" required></gcds-input>
+  <gcds-input type="email" input-id="email" label="Email address" size="50" required></gcds-input>
+  <gcds-textarea label="Message" textarea-id="message" hint="Write your question or comment." required></gcds-textarea>
   <div hidden>
     <gcds-input type="text" input-id="bot-field" label="bot"></gcds-input>
   </div>
-  <gcds-button button-role="primary" button-type="submit">
+  <gcds-button button-role="primary" type="submit">
     Send message
   </gcds-button>
 </form>

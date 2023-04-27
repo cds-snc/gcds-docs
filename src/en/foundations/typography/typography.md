@@ -1,79 +1,119 @@
 ---
-title: Typography - Foundations
-layout: "layouts/documentation.njk"
-translationKey: "typography"
+title: Typography tokens
+layout: "layouts/base.njk"
 eleventyNavigation:
   key: typographyEN
   title: Typography
   locale: en
   parent: foundationsEN
-  order: 0
-onThisPage:
-  0: Typography design tokens
-  1: Guidance on using typography
-github: https://github.com/cds-snc/gcds-tokens
+  order: 3
+  description: Typography tokens include   the style, arrangement, and appearance of letters, numbers, and symbols.
+  thumbnail: /images/en/foundations/preview/preview-typography.svg
+  alt:
+  state: published
+permalink: /en/foundations/typography/
+translationKey: "typography"
+tokenTable:
+  headers:
+    font-preview: Preview
+    token-name: Token name
+    font-value: Value
+  previews:
+    font-h1: Heading 1
+    font-h2: Heading 2
+    font-h3: Heading 3
+    font-h4: Heading 4
+    font-h5: Heading 5
+    font-h6: Heading 6
+    font-label: Label
+    font-text: Text
+    font-textLong: Paragraph
+    font-caption: Caption
+    fontFamilies-heading: Heading
+    fontFamilies-body: Text
+    fontFamilies-monospace: Monospace
+    fontFamilies-icons: icons
+    fontWeights-light: Light
+    fontWeights-regular: Regular
+    fontWeights-medium: Medium
+    fontWeights-semibold: Semibold
+    fontWeights-bold: Bold
+date: "git Last Modified"
 ---
 
-<header>
+# {{ title }}
 
-# Typography tokens
+Typography tokens include the style, arrangement, and appearance of letters, numbers, and symbols.
 
-Typography is the presentation of text. It includes fonts, sizing, and spacing as applied to the style, arrangement, and appearance of letters, numbers, and symbols.
+## Typography and and accessibility
 
-{% docLinks locale stage figma github %}
-{% enddocLinks %}
+GC Design System components meet <a href="{{ links.wcagTextSpacing }}" target="_blank">level AA of the Web Content Accessibility Guidelines (WCAG 2.1) <gcds-icon name="external-link" label="Opens in a new tab." margin-left="50" /></a> for text spacing and AAA for visual presentation.
 
-</header>
+## Vertical rhythm and rem spacing sizes
 
-<section aria-label="Typography design tokens">
+GC Design System typography spacing is based on vertical rhythm and calculated with the help of a base size.
 
-## Typography design tokens
+Vertical rhythm aligns text to evenly spaced horizontal lines in repeated patterns. Consistent vertical spacing helps make content easier to scan, read, and understand. Spacing sizes are configured with rem units. All spacing sizes are relative to a base size of 1.25rem (20px) and what we use to calculate all typography and spacing values.
 
-Default fonts, and styled size settings make digital products responsive, predictable, and readable across devices and platforms.
+## Global typography tokens
 
-Decisions about typography values (fonts, sizes, weights) are built into typography tokens in the GC Design System for a unified design.
+### Headings
 
-### Font defaults
+Heading tags for headings and subheadings give a page structure, organize content. They also  support navigation, especially for people using assistive technology.
 
-Font family tokens:
-- `$gcds-font-families-heading`
-- `$gcds-font-families-body`
-- `$gcds-font-families-monospace`
-- `$gcds-font-families-icons`
+- All headings and subheadings need a heading tag (`<h1>` - `<h6>`).
+- Start main content with an H1. Use no more than one H1 for each page.
+- Order heading levels numerically. H3 follows H2, H2 follows H1, and so on.
+- Avoid skipping hierarchical heading levels.
+- Match an H1 font size with an H1 line height, an H2 font size with an H2 line height, etc.
+- Use headings for calls to action and to create emphasis.
+- Make each heading distinctive and make it obvious what the content is about.
 
-Font sizes are configured with rem units. All font sizes are relative to base size 20px.
+{% include "partials/token_table.njk", token: 'font', subTokens: "h1 h2 h3 h4 h5 h6", type: 'typography' %}
 
-| Display  | Font type  | Size (rem)  | Size (px)  | Weight  | Line height  |
-|---|---|---|---|---|---|
-| Heading 1  | Lato  | 2.5  | 40  | bold  | 128%  |
-| Heading 2  | Lato  | 2.25  | 36  | bold  | 144%  |
-| Heading 3  | Lato  | 2.0  | 32  | bold  | 162%  |
-| Heading 4  | Lato  | 1.78  | 28  | bold  | 182%  |
-| Heading 5  | Noto sans  | 1.58  | 25  | regular  | 102%  |
-| Heading 6  | Noto sans  | 1.41  | 22  | regular  | 102%  |
-| Text  | Noto sans  | 1.25  | 20  | regular  | 130%  |
-| monospace  | Menlo  | 1.11  | 17  | regular  | 146%  |
+Note: The font property is a shorthand property for font-weight, font-size/line-height, font-family.
 
-</section>
+### Text
 
-<section aria-label="Guidance on using typography">
+- For font size, keep text line length below 75 characters for a comfortable, accessible reading length.
+- Use the css unit `75ch` or lower to set the maximum width of your paragraphs.
 
-## Guidance on using typography
+{% include "partials/token_table.njk", token: 'font', subTokens: "label text textLong caption", type: 'typography' %}
 
-### Line length and height
+### Font families
 
-Always use corresponding font size and and line height: match an H1 font size with an H1 line height.
+Headings use the font "Lato". Paragraphs and other text use the font "Noto Sans".
 
-In a line of text, keep text line length below 65 characters for a comfortable reading length. Page layouts may be wider than 65 characters.
+The font family contains fallback values. The fallback is a substitute value for font families only in case the font is not available.
 
-### Typography for components
+- Only use the heading tokens for headings. Everything else can be set in text.
+- Use text font family for most purposes.
+- Opt to use monospace when citing code to give specific code examples.
 
-Some components use font sizes, colours, and spacings different from the default settings that can be  modified. Components are designed and tested to display typography for these contexts. Customized CSS styling is not required.
+{% include "partials/token_table.njk", token: 'fontFamilies', type: 'fontFamilies' %}
 
-### Custom typography
+### Font weights
 
-The design system provides [components]({{ "/en/components/" | url }}), patterns, and styles that meet most design needs. In rare instances, you may need custom typography.
+- Limit the quantity of font weights you use in the same space to avoid compromising contrast. Only use two or three weights with as much contrast as possible.
+- Use font weights to emphasize words within a table, at the start of a paragraph, or in long blocks of text when you've exhausted available headings and other style elements.
+- Be mindful in establishing emphasis in an accessible way, many assistive technologies ignore font weights.
+- Instead of font weights, consider using bullets or increasing white space to break up text.
 
-You can contribute to or modify the design system at the [design token repository in GitHub](https://github.com/cds-snc/gcds-tokens).
+### Bold text
 
-</section>
+- Maintain the default bold setting for headings.
+- Overuse of bold text can create cognitive processing difficulties for sighted readers.
+
+### Italics
+
+- Use italics when referencing a Canadian law (Accessible Canada Act).
+- Limit your use of italics to short strings of text. Long passages in italics can create cognitive processing difficulties for sighted readers.
+
+{% include "partials/token_table.njk", token: 'fontWeights', type: 'fontWeights' %}
+
+<br/>
+
+{% assign removeBorder = true %}
+
+{% include "partials/helpus.njk" %}
+
