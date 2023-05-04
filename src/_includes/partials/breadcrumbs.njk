@@ -4,12 +4,12 @@
 
   {% set navPages = collections.all | eleventyNavigationBreadcrumb(key) %}
 
-  <gcds-breadcrumbs hide-canada-link lang="{{ locale }}" slot="breadcrumb">
+  <gcds-breadcrumbs lang="{{ locale }}" slot="breadcrumb">
     <gcds-breadcrumbs-item href={{ breadcrumbs[locale].url | url }}>
       {{ breadcrumbs[locale].linkText }}
     </gcds-breadcrumbs-item>
     {% for item in navPages %}
-      {% if item.url %} 
+      {% if item.url %}
         <gcds-breadcrumbs-item href={{ item.url | url }}>
           {{ item.title }}
         </gcds-breadcrumbs-item>
