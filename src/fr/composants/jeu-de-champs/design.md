@@ -16,7 +16,7 @@ Le **texte explicatif** fournit du contexte additionnel pour le contenu du jeu d
 
 Le **regroupement des composants** comprend des éléments de chaque composant du jeu de champs.
 
-<img class="b-sm b-gray p-400" src="/images/fr/components/anatomy/gcds-fieldset-anatomy.svg" alt="L'anatomie du composant jeu de champ identifiant la légende du jeu de champ et son message d'aide suivi de deux composants un à la suite de l'autre identifié comme un groupe de composants. Le premier un champ de texte et le deuxième un menu de sélection."/>
+<img class="b-sm b-default p-400" src="/images/fr/components/anatomy/gcds-fieldset-anatomy.svg" alt="L'anatomie du composant jeu de champ identifiant la légende du jeu de champ et son message d'aide suivi de deux composants un à la suite de l'autre identifié comme un groupe de composants. Le premier un champ de texte et le deuxième un menu de sélection."/>
 
 ## Design et accessibilité des jeux de champs
 

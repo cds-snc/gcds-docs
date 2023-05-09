@@ -18,13 +18,13 @@ The **checkbox label** states the choice the checkbox represents. Label text is 
 
 The **checkbox hint text** gives users additional information about the choice.
 
-<img class="b-sm b-gray p-400" src="/images/en/components/anatomy/gcds-checkbox-anatomy-with-fieldset.svg" alt="Checkbox anatomy showing the labels Fieldset legend, Fieldset Hint, Checkbox, Checkbox Label, Checkmark, and Checkbox Hint." />
+<img class="b-sm b-default p-400" src="/images/en/components/anatomy/gcds-checkbox-anatomy-with-fieldset.svg" alt="Checkbox anatomy showing the labels Fieldset legend, Fieldset Hint, Checkbox, Checkbox Label, Checkmark, and Checkbox Hint." />
 
 ## Single checkbox anatomy
 
 Use the fieldset component with the checkbox, except for checkboxes with a single box to check.
 
-<img class="b-sm b-gray p-400" src="/images/en/components/anatomy/gcds-checkbox-anatomy-single.svg" alt="Checkbox anatomy showing the labels Checkbox, Checkbox Label, Checkmark, and Checkbox Hint." />
+<img class="b-sm b-default p-400" src="/images/en/components/anatomy/gcds-checkbox-anatomy-single.svg" alt="Checkbox anatomy showing the labels Checkbox, Checkbox Label, Checkmark, and Checkbox Hint." />
 
 ## Design and accessibility for checkboxes
 

@@ -14,7 +14,7 @@ L'**en-tête de signature** s'étend sur la partie supérieure du site et contie
 
 Le composant de la **bascule de langue** est un commutateur du contenu en français et en anglais. Utilisez l'attribut `lang` pour définir la langue du site; le bouton à bascule proposera l'autre langue officielle.
 
-<img class="b-sm b-gray mb-500 p-400" src="/images/fr/components/anatomy/gcds-header-anatomy-recommended.svg" alt="L'anatomie des composants entête et menu du site identifiants le lien passer au contenu, et l'entête du gouvernement du Canada."/>
+<img class="b-sm b-default mb-500 p-400" src="/images/fr/components/anatomy/gcds-header-anatomy-recommended.svg" alt="L'anatomie des composants entête et menu du site identifiants le lien passer au contenu, et l'entête du gouvernement du Canada."/>
 
 ## Éléments facultatifs de l'en-tête — avec titre H1
 
@@ -22,13 +22,13 @@ Le **menu** ou le menu du site comprend les repères de navigation pour le site.
 
 Lorsque vous utilisez la **bannière**, placez-la devant l'en-tête de signature. Il s'agit d'un élément facultatif utilisé pour communiquer l'état du site ou de la page sur les sites expérimentaux, les sites utilisés à des fins de recherche, les projets pilotes et les produits en mode essai.
 
-L'élément de **recherche** permet d'inclure un champ de recherche locale ou générale.  
+L'élément de **recherche** permet d'inclure un champ de recherche locale ou générale.
 
 Le **chemin de navigation** établit une voie entre chaque niveau de la hiérarchie du site et la page actuelle, comme indiqué dans le titre de la page. Le chemin de navigation indique à une personne son parcours et lui permet de faire marche arrière ou de passer d'un niveau à un autre.
 
 Le **titre H1** est un élément séparé du composant d'en-tête. Il indique aux lecteur·rice·s la nature de la page ou du site et sert de repère.
 
-<img class="b-sm b-gray mb-500 p-400" src="/images/fr/components/anatomy/gcds-header-anatomy-optional.svg" alt="L'anatomie des composants entête et menu du site identifiants le lien passer au contenu, la bannière de phase, l'entête du gouvernement du Canada et le menu du site."/>
+<img class="b-sm b-default mb-500 p-400" src="/images/fr/components/anatomy/gcds-header-anatomy-optional.svg" alt="L'anatomie des composants entête et menu du site identifiants le lien passer au contenu, la bannière de phase, l'entête du gouvernement du Canada et le menu du site."/>
 
 ## Design et accessibilité de l'en-tête
 
@@ -37,12 +37,12 @@ Le **titre H1** est un élément séparé du composant d'en-tête. Il indique au
 - Incluez l'en-tête de signature du GC et la bascule de langue pour les sites et produits du gouvernement du Canada.
 - Maintenez toujours l'intégrité de la signature du gouvernement du Canada. Évitez à tout prix de modifier le mot-symbole. Évitez surtout d'étirer le texte ou de changer les couleurs.
 - Ajoutez un bouton « Passer au contenu » pour aider les personnes naviguant sur le site à l'aide de technologies d'assistance.
-- Pensez à utiliser le menu comme solution de navigation simplifiée pour un produit transactionnel, comme une application, un formulaire ou une vitrine virtuelle.  
+- Pensez à utiliser le menu comme solution de navigation simplifiée pour un produit transactionnel, comme une application, un formulaire ou une vitrine virtuelle.
 - Incluez la bannière de statut si votre page ou votre site est en stade expérimental. Par exemple, s'il s'agit d'un projet pilote, mentionnez que vous l'utilisez à des fins de recherche ou qu'il est en mode d'essai.
 
 ### Améliorer l'accessibilité de l'en-tête
 
-- Pensez à rendre le bouton « Passer au contenu » visible afin que toute personne naviguant sur le site puisse bénéficier du raccourci. 
+- Pensez à rendre le bouton « Passer au contenu » visible afin que toute personne naviguant sur le site puisse bénéficier du raccourci.
 - Écrivez le contenu H1 de l'en-tête avec une majuscule.
 
 ### Rédiger du texte de lien précis
@@ -53,6 +53,6 @@ Le **titre H1** est un élément séparé du composant d'en-tête. Il indique au
 
 ### Donnez un titre à votre page
 
-- Donnez à la page un titre qui indique aux lecteurs la nature de la page (ou de la page d'accueil sur laquelle porte le site), son utilisation ou les actions à faire sur celle-ci.  
-- Choisissez de faire correspondre le nom de la page à celui de la page affichée dans le navigateur, de sélectionner un nom similaire, mais légèrement plus long ou d'utiliser un appel à l'action sur les pages comprenant des tâches ou des actions à réaliser par l'utilisateur·rice. 
+- Donnez à la page un titre qui indique aux lecteurs la nature de la page (ou de la page d'accueil sur laquelle porte le site), son utilisation ou les actions à faire sur celle-ci.
+- Choisissez de faire correspondre le nom de la page à celui de la page affichée dans le navigateur, de sélectionner un nom similaire, mais légèrement plus long ou d'utiliser un appel à l'action sur les pages comprenant des tâches ou des actions à réaliser par l'utilisateur·rice.
 - Inscrivez le titre H1 en insérant les majuscules appropriées. Tous les autres éléments d'en-tête (autres que les noms propres) s'écrivent avec une majuscule.

@@ -227,8 +227,8 @@ module.exports = function (eleventyConfig) {
     const content = children;
 
     return `
-      <div class="${margin} b-sm b-gray component-preview">
-        <p class="container-full font-semibold px-300 py-200 bb-sm b-gray bg-light">
+      <div class="${margin} b-sm b-default component-preview">
+        <p class="container-full font-semibold px-300 py-200 bb-sm b-default bg-light">
           ${title}
         </p>
         <div class="px-300 ${padding}">

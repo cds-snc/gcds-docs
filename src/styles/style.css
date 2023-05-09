@@ -50,9 +50,6 @@
 .bg-white.bg-full-width:before, .bg-white.bg-full-width:after {
   background-color: var(--gcds-color-grayscale-0); }
 
-.b-gray {
-  border-color: var(--gcds-border-default); }
-
 a[href] {
   text-underline-offset: -0.1em;
   text-decoration-color: currentColor;

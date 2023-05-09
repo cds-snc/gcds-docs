@@ -35,7 +35,7 @@ GC Design System components have their own tokens. These component tokens are co
 
 When misused component tokens can change unexpectedly. They receive updates any time the component they're attached to gets updated.
 
-<img class="b-sm b-gray p-400" src="/images/en/foundations/tokens/design-tokens-component.svg" alt=""/>
+<img class="b-sm b-default p-400" src="/images/en/foundations/tokens/design-tokens-component.svg" alt=""/>
 
 ### Global design tokens
 
@@ -45,7 +45,7 @@ Global tokens are semantic. That means they have meanings or contexts associated
 
 Global tokens help you minimize future maintenance and establish a visual language for stronger communications.
 
-<img class="b-sm b-gray p-400" src="/images/en/foundations/tokens/design-tokens-global.svg" alt=""/>
+<img class="b-sm b-default p-400" src="/images/en/foundations/tokens/design-tokens-global.svg" alt=""/>
 
 ### Base design tokens
 
@@ -53,7 +53,7 @@ Base tokens are for you to use when you've run out of global token options. GC D
 
 Base tokens are not semantic so it's harder for everyone to understand what they represent. It's important to use them thoughtfully and consistently to support a familiar and predictable user experience for your service.
 
-<img class="b-sm b-gray p-400" src="/images/en/foundations/tokens/design-tokens-base.svg" alt=""/>
+<img class="b-sm b-default p-400" src="/images/en/foundations/tokens/design-tokens-base.svg" alt=""/>
 
 ## Token anatomy and naming progression
 
@@ -68,18 +68,18 @@ Tokens are characterized by a naming progression.
 
 ### Component design token
 
-<img class="b-sm b-gray p-400" src="/images/en/foundations/anatomy/anatomy-design-tokens-component.svg" alt=""/>
+<img class="b-sm b-default p-400" src="/images/en/foundations/anatomy/anatomy-design-tokens-component.svg" alt=""/>
 
 ### Global design token
 
-<img class="b-sm b-gray p-400" src="/images/en/foundations/anatomy/anatomy-design-tokens-global.svg" alt=""/>
+<img class="b-sm b-default p-400" src="/images/en/foundations/anatomy/anatomy-design-tokens-global.svg" alt=""/>
 
 ### Global design token – global state
 
-<img class="b-sm b-gray p-400" src="/images/en/foundations/anatomy/anatomy-design-tokens-global-state.svg" alt=""/>
+<img class="b-sm b-default p-400" src="/images/en/foundations/anatomy/anatomy-design-tokens-global-state.svg" alt=""/>
 
 ### Base design tokens
 
-<img class="b-sm b-gray mb-500 p-400" src="/images/en/foundations/anatomy/anatomy-design-tokens-base.svg" alt=""/>
+<img class="b-sm b-default mb-500 p-400" src="/images/en/foundations/anatomy/anatomy-design-tokens-base.svg" alt=""/>
 
 {% include "partials/helpus.njk" %}
