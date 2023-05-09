@@ -60,11 +60,11 @@ date: "git Last Modified"
 <article class="py-500 bg-light bg-full-width">
   <h2 class="mb-400">What's new</h2>
   <gcds-grid tag="ul" columns="1fr" columns-tablet="1fr 1fr" columns-desktop="1fr 1fr 1fr" gap="450">
-    <li class="list-none bg-white px-250 py-450 radius-xs">
+    <li class="list-none bg-white px-250 py-450 b-radius-md">
       <h3 class="mb-400"><a class="link-inherit" href="{{ links.releaseNotes }}">Release notes</a></h3>
       <p>The latest additions.</p>
     </li>
-    <li class="list-none bg-white px-250 py-450 radius-xs">
+    <li class="list-none bg-white px-250 py-450 b-radius-md">
       <h3 class="mb-400"><a class="link-inherit" href="{{ links.comingSoon }}">Coming soon</a></h3>
       <p>What we're working on.</p>
     </li>
