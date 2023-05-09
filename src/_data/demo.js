@@ -5,13 +5,8 @@ module.exports = {
     alerts: {
       heading: "Alerts",
       content: {
-        heading: {
-          danger: "Danger alert",
-          info: "Info alert",
-          success: "Success alert",
-          warning: "Warning alert",
-        },
-        text: "Example content",
+        heading: "Main notification title",
+        text: "Description text goes here.",
       }
     },
     breadcrumbs: {
@@ -19,7 +14,7 @@ module.exports = {
       content: {
         gc: "GC Design System",
         gcLink: "/en",
-        components: "Component",
+        components: "Components",
         componentsLink: "/en/components",
       },
     },
@@ -40,8 +35,8 @@ module.exports = {
     details: {
       heading: "Details",
       content: {
-        heading: "Find out more",
-        text: "The Details link allows you to expand or collapse the content section. Content is hidden by default.",
+        heading: "Learn more about this topic",
+        text: "The details link will expand and collapse the summary section. In its default state, the summary is hidden.",
       }
     },
     footer: {
@@ -58,15 +53,15 @@ module.exports = {
       content: {
         input: {
           label: "Name",
-          hint: "Please enter your full name.",
+          hint: "Enter your full name.",
         },
         inputNumber: {
           label: "Phone number",
-          hint: "Please enter a 10 digits number.",
+          hint: "Enter a 10 digit number.",
         },
         textarea: {
           label: "Message",
-          hint: "This is a hint.",
+          hint: "Enter your feedback.",
         },
         checkbox: {
           label: "Do you like pizza?",
@@ -87,7 +82,7 @@ module.exports = {
         select: {
           label: "Animal",
           hint: "Select your favourite animal.",
-          errorMessage: "Example error message.",
+          errorMessage: "Select one option to continue.",
           defaultValue: "Please select an option.",
           option1: "Option 1.",
           option2: "Option 2.",
@@ -95,7 +90,7 @@ module.exports = {
         },
         fileUploader: {
           label: "Upload",
-          hint: "You can upload multiple files, but they have to be png's.",
+          hint: "Select one or more files in png format.",
         }
       }
     },
@@ -124,8 +119,10 @@ module.exports = {
     pagination: {
       heading: "Pagination",
       content: {
-        list: "List pagination:",
-        simple: "Simple pagination:",
+        list: "List pagination",
+        simple: "Simple pagination",
+        nextLabel: "3 of 3",
+        previousLabel: "Title of page",
       }
     },
     phaseBanner: {
@@ -148,12 +145,7 @@ module.exports = {
     alerts: {
       heading: "Alertes",
       content: {
-        heading: {
-          danger: "Titre de notification",
-          info: "Titre de notification",
-          success: "Titre de notification",
-          warning: "Titre de notification",
-        },
+        heading: "Titre de notification",
         text: "Emplacement du texte explicatif.",
       }
     },
@@ -201,15 +193,15 @@ module.exports = {
       content: {
         input: {
           label: "Nom",
-          hint: "Veuillez inscrire votre nom complet.",
+          hint: "Inscrivez votre nom complet.",
         },
         inputNumber: {
           label: "Numéro de téléphone",
-          hint: "Veuillez entrer un nombre à dix chiffres.",
+          hint: "Saisissez un numéro à 10 chiffres.",
         },
         textarea: {
           label: "Message",
-          hint: "Ceci est un texte explicatif.",
+          hint: "Saisissez vos commentaires.",
         },
         checkbox: {
           label: "Aimez-vous la pizza?",
@@ -217,7 +209,7 @@ module.exports = {
         },
         fieldset: {
           legend: "Groupe bouton radio",
-          hint: "Il s'agit ici d'un fieldset.",
+          hint: "Il s'agit ici d'un jeu de champs.",
         },
         radio1: {
           label: "Libellé radio 1",
@@ -230,15 +222,15 @@ module.exports = {
         select: {
           label: "Animal",
           hint: "Sélectionnez votre animal favori.",
-          errorMessage: "Exemple de message d'erreur.",
-          defaultValue: "Veuillez sélectionner une option.",
+          errorMessage: "Sélectionnez une option pour continuer.",
+          defaultValue: "Sélectionner une option.",
           option1: "Option 1.",
           option2: "Option 2.",
           option3: "Option 3.",
         },
         fileUploader: {
           label: "Téléversement",
-          hint: "Vous pouvez téléverser plusieurs fichiers, mais il doit s'agir de fichiers au format .png.",
+          hint: "Sélectionnez un ou plusieurs fichiers au format png.",
         }
       }
     },
@@ -267,8 +259,10 @@ module.exports = {
     pagination: {
       heading: "Pagination",
       content: {
-        list: "Pagination sous forme de liste :",
-        simple: "Pagination simple :",
+        list: "Pagination sous forme de liste ",
+        simple: "Pagination simple ",
+        nextLabel: "3 de 3",
+        previousLabel: "Titre de la page",
       }
     },
     phaseBanner: {

@@ -10,16 +10,16 @@ layout: "layouts/base.njk"
   {# ------------- Alerts ------------- #}
 
   <h3 class="container-full mt-500 mb-400 bb-sm">{{ demo[locale].alerts.heading }}</h3>
-  <gcds-alert heading="{{ demo[locale].alerts.content.heading.success }}" alert-role="success" container="xl">
+  <gcds-alert heading="{{ demo[locale].alerts.content.heading }}" alert-role="success" container="xl">
     <p>{{ demo[locale].alerts.content.text }}</p>
   </gcds-alert>
-  <gcds-alert heading="{{ demo[locale].alerts.content.heading.info }}" alert-role="info" container="xl">
+  <gcds-alert heading="{{ demo[locale].alerts.content.heading }}" alert-role="info" container="xl">
     <p>{{ demo[locale].alerts.content.text }}</p>
   </gcds-alert>
-  <gcds-alert heading="{{ demo[locale].alerts.content.heading.warning }}" alert-role="warning" container="xl">
+  <gcds-alert heading="{{ demo[locale].alerts.content.heading }}" alert-role="warning" container="xl">
     <p>{{ demo[locale].alerts.content.text }}</p>
   </gcds-alert>
-  <gcds-alert heading="{{ demo[locale].alerts.content.heading.danger }}" alert-role="danger" container="xl">
+  <gcds-alert heading="{{ demo[locale].alerts.content.heading }}" alert-role="danger" container="xl">
     <p>{{ demo[locale].alerts.content.text }}</p>
   </gcds-alert>
 
@@ -27,17 +27,6 @@ layout: "layouts/base.njk"
 
   <h3 class="container-full mt-500 mb-400 bb-sm">{{ demo[locale].breadcrumbs.heading }}</h3>
 
-  <!-- Breadcrumb without canada.ca link -->
-  <gcds-breadcrumbs slot="breadcrumb" hide-canada-link>
-    <gcds-breadcrumbs-item href="{{ demo[locale].breadcrumbs.content.gcLink }}">
-      {{ demo[locale].breadcrumbs.content.gc }}
-    </gcds-breadcrumbs-item>
-    <gcds-breadcrumbs-item href="{{ demo[locale].breadcrumbs.content.componentsLink }}">
-      {{ demo[locale].breadcrumbs.content.components }}
-    </gcds-breadcrumbs-item>
-  </gcds-breadcrumbs>
-
-  <!-- Breadcrumb with canada.ca link -->
   <gcds-breadcrumbs slot="breadcrumb">
     <gcds-breadcrumbs-item href="{{ demo[locale].breadcrumbs.content.gcLink }}">
       {{ demo[locale].breadcrumbs.content.gc }}
@@ -99,7 +88,7 @@ layout: "layouts/base.njk"
   {# ------------- Stepper + Form elements ------------- #}
 
   <h3 class="container-full mt-700 mb-400 bb-sm">{{ demo[locale].form.heading }}</h3>
-  <gcds-stepper current-step="1" total-steps="3"></gcds-stepper>
+  <gcds-stepper current-step="1" total-steps="4"></gcds-stepper>
   <form>
     <gcds-input
       input-id="form-name"
@@ -121,7 +110,6 @@ layout: "layouts/base.njk"
       textarea-id="form-message"
       label="{{ demo[locale].form.content.textarea.label }}"
       hint="{{ demo[locale].form.content.textarea.hint }}"
-      character-count="400"
     ></gcds-textarea>
 
     <gcds-checkbox
@@ -211,7 +199,7 @@ layout: "layouts/base.njk"
         </li>
       </ul>
     </gcds-site-menu>
-    <gcds-breadcrumbs slot="breadcrumb" hide-canada-link>
+    <gcds-breadcrumbs slot="breadcrumb">
       <gcds-breadcrumbs-item href="#">{{ demo[locale].header.content.breadcrumb }}</gcds-breadcrumbs-item>
     </gcds-breadcrumbs>
   </gcds-header>
@@ -219,33 +207,43 @@ layout: "layouts/base.njk"
   {# ------------- Icons ------------- #}
 
   <h3 class="container-full mt-700 mb-400 bb-sm">{{ demo[locale].icons.heading }}</h3>
-  <gcds-icon name="close" size="caption" margin-right="200"></gcds-icon>
-  <gcds-icon name="cloud" size="text" margin-right="200"></gcds-icon>
-  <gcds-icon name="info-circle" size="h3" margin-right="200"></gcds-icon>
+  <gcds-icon name="tree" size="caption" margin-right="200"></gcds-icon>
+  <gcds-icon name="tree" size="text" margin-right="200"></gcds-icon>
+  <gcds-icon name="tree" size="h6" margin-right="200"></gcds-icon>
+  <gcds-icon name="tree" size="h5" margin-right="200"></gcds-icon>
+  <gcds-icon name="tree" size="h4" margin-right="200"></gcds-icon>
+  <gcds-icon name="tree" size="h3" margin-right="200"></gcds-icon>
   <gcds-icon name="tree" size="h2" margin-right="200"></gcds-icon>
-  <gcds-icon name="folder" size="h1" margin-right="200"></gcds-icon>
-  <gcds-icon name="folder" icon-style="regular" size="h1"></gcds-icon>
+  <gcds-icon name="tree" size="h1" margin-right="200"></gcds-icon>
 
   <h4 class="mt-500 mb-300">{{ demo[locale].icons.content.fixed }}</h4>
+  <gcds-icon name="tree" size="caption" fixed-width></gcds-icon>
   <gcds-icon name="tree" size="text" fixed-width></gcds-icon>
-  <gcds-icon name="folder" size="text" fixed-width></gcds-icon>
-  <gcds-icon name="fire" size="text" fixed-width></gcds-icon>
-  <gcds-icon name="utensils" size="text" fixed-width></gcds-icon>
+  <gcds-icon name="tree" size="h6" fixed-width></gcds-icon>
+  <gcds-icon name="tree" size="h5" fixed-width></gcds-icon>
+  <gcds-icon name="tree" size="h4" fixed-width></gcds-icon>
+  <gcds-icon name="tree" size="h3" fixed-width></gcds-icon>
+  <gcds-icon name="tree" size="h2" fixed-width></gcds-icon>
+  <gcds-icon name="tree" size="h1" fixed-width></gcds-icon>
 
   <h4 class="mt-500 mb-300">{{ demo[locale].icons.content.variable }}</h4>
+  <gcds-icon name="tree" size="caption"></gcds-icon>
   <gcds-icon name="tree" size="text"></gcds-icon>
-  <gcds-icon name="folder" size="text"></gcds-icon>
-  <gcds-icon name="fire" size="text"></gcds-icon>
-  <gcds-icon name="utensils" size="text"></gcds-icon>
+  <gcds-icon name="tree" size="h6"></gcds-icon>
+  <gcds-icon name="tree" size="h5"></gcds-icon>
+  <gcds-icon name="tree" size="h4"></gcds-icon>
+  <gcds-icon name="tree" size="h3"></gcds-icon>
+  <gcds-icon name="tree" size="h2"></gcds-icon>
+  <gcds-icon name="tree" size="h1"></gcds-icon>
 
   {# ------------- Pagination ------------- #}
 
   <h3 class="container-full mt-700 mb-400 bb-sm">{{ demo[locale].pagination.heading }}</h3>
 
-  <p>{{ demo[locale].pagination.content.list }}</p>
+  <p>{{ demo[locale].pagination.content.list }}:</p>
   <gcds-pagination
     display="list"
-    label="List pagination"
+    label="{{ demo[locale].pagination.content.list }}"
     type="list"
     total-pages="22"
     current-page="8"
@@ -253,12 +251,14 @@ layout: "layouts/base.njk"
     pageChangeHandler={}
   ></gcds-pagination>
 
-  <p class="mt-500">{{ demo[locale].pagination.content.simple }}</p>
+  <p class="mt-500">{{ demo[locale].pagination.content.simple }}:</p>
   <gcds-pagination
     display="simple"
-    label="Simple Pagination"
+    label="{{ demo[locale].pagination.content.simple }}"
     previous-href="#"
+    previous-label="{{ demo[locale].pagination.content.previousLabel }}"
     next-href="#"
+    next-label="{{ demo[locale].pagination.content.nextLabel }}"
   ></gcds-pagination>
 
   {# ------------- Phase banner ------------- #}
