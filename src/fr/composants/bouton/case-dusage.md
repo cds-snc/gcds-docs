@@ -30,7 +30,7 @@ Utilisez un bouton pour les actions importantes qu'une personne utilisant votre 
 - Sauter les éléments de navigation pour passer au contenu principal;
 - Se rendre vers d'autres pages ou vers des sites externes à l'aide d'un bouton de type « Lien ».
 
-<article class="bg-full-width bg-dark text-light pt-500 pb-400 my-500">
+<article class="bg-full-width bg-primary text-light pt-500 pb-400 my-500">
 
   <h2 class="mt-0 mb-400">Composants connexes</h2>
 

@@ -29,7 +29,7 @@ Utilisez un message d'erreur pour vos propres composants lorsque l'une des situa
 - Un composant de formulaire est requis;
 - Vous devez spécifier un type ou un format de réponse incorrect et préciser à une personne ce qu'il faut faire pour résoudre le problème et passer à la tâche suivante.
 
-<article class="bg-full-width bg-dark text-light pt-500 pb-400 my-500">
+<article class="bg-full-width bg-primary text-light pt-500 pb-400 my-500">
   <h2 class="mt-0 mb-400">Composants connexes </h2>
 
   <a href="{{ links.errorSummary }}" class="link-light">Résumé des erreurs</a> pour répertorier tous les problèmes à résoudre pour la soumission de la réponse.

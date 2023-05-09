@@ -19,7 +19,7 @@ Les unités de style de Système de design GC sont les plus petits blocs de cons
 
 ## Représenter des choix stylistiques en code
 
-Nous avons créé une unité de style qui définit chaque choix stylistique dans Système de design GC. Tous nos composants utilisent des unités de style.  
+Nous avons créé une unité de style qui définit chaque choix stylistique dans Système de design GC. Tous nos composants utilisent des unités de style.
 
 Les unités de style documentent les choix stylistiques à l'aide de variables dans des blocs de code réutilisables. Elles remplacent toute valeur codée en dur, comme les codes de couleur et les pixels.
 
@@ -37,7 +37,7 @@ Les composants de Système de design GC possèdent leurs propres unités de styl
 
 Si elles sont utilisées incorrectement, les unités de style de composant peuvent avoir des comportements imprévisibles. Elles sont mises à jour chaque fois que le composant associé est mis à jour.
 
-<img class="b-sm b-gray p-400" src="/images/fr/foundations/tokens/design-tokens-component.svg" alt=""/>
+<img class="b-sm b-default p-400" src="/images/fr/foundations/tokens/design-tokens-component.svg" alt=""/>
 
 ### Unités de style globales
 
@@ -47,7 +47,7 @@ Les unités de style globales suivent des règles sémantiques. C'est-à-dire qu
 
 Les unités de style globales aident à réduire les besoins futurs en maintenance et à établir un langage visuel pour une meilleure communication.
 
-<img class="b-sm b-gray p-400" src="/images/en/foundations/tokens/design-tokens-global.svg" alt=""/>
+<img class="b-sm b-default p-400" src="/images/en/foundations/tokens/design-tokens-global.svg" alt=""/>
 
 ## Structure et nomenclature progressive des unités de style
 
@@ -62,18 +62,18 @@ Les unités de style sont caractérisées par une nomenclature progressive.
 
  ### Unité de style de composant
 
-<img class="b-sm b-gray p-400" src="/images/fr/foundations/anatomy/anatomy-design-tokens-component.svg" alt=""/>
+<img class="b-sm b-default p-400" src="/images/fr/foundations/anatomy/anatomy-design-tokens-component.svg" alt=""/>
 
 ### Unité de style globale
 
-<img class="b-sm b-gray p-400" src="/images/fr/foundations/anatomy/anatomy-design-tokens-global.svg" alt=""/>
+<img class="b-sm b-default p-400" src="/images/fr/foundations/anatomy/anatomy-design-tokens-global.svg" alt=""/>
 
 ### Unité de style globale – état global
 
-<img class="b-sm b-gray p-400" src="/images/fr/foundations/anatomy/anatomy-design-tokens-global-state.svg" alt=""/>
+<img class="b-sm b-default p-400" src="/images/fr/foundations/anatomy/anatomy-design-tokens-global-state.svg" alt=""/>
 
 ### Unité de style de base
 
-<img class="b-sm b-gray mb-500 p-400" src="/images/fr/foundations/anatomy/anatomy-design-tokens-base.svg" alt=""/>
+<img class="b-sm b-default mb-500 p-400" src="/images/fr/foundations/anatomy/anatomy-design-tokens-base.svg" alt=""/>
 
 {% include "partials/helpus.njk" %}

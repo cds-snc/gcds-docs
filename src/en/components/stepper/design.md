@@ -14,7 +14,7 @@ The **total steps** indicates the number of steps overall in the process.
 
 The **H1 title** is a separate element from the stepper component. It's phrased as a call to action and states the goal of that particular step.
 
-<img class="b-sm b-gray p-400" src="/images/en/components/anatomy/gcds-stepper-anatomy.svg" alt="Page title taxonomy showing Page title in dark bolded text and above it Step 1 of 4 in grey text and smaller font. The taxonomy has these labels, Current step pointed at 1 of  Step 1 of 4. Stepper pointed at Step 1 of 4. Total Steps pointed at 4, Page H1 pointed at the Page title."/>
+<img class="b-sm b-default p-400" src="/images/en/components/anatomy/gcds-stepper-anatomy.svg" alt="Page title taxonomy showing Page title in dark bolded text and above it Step 1 of 4 in grey text and smaller font. The taxonomy has these labels, Current step pointed at 1 of  Step 1 of 4. Stepper pointed at Step 1 of 4. Total Steps pointed at 4, Page H1 pointed at the Page title."/>
 
 ## Design and accessibility for steppers
 

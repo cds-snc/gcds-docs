@@ -18,11 +18,11 @@ Le **contenu** comprend tout texte ou image que la personne peut choisir d'affic
 
 ### Composant Détails ouvert
 
-<img class="b-sm b-gray p-400" src="/images/fr/components/anatomy/gcds-details-anatomy-open.svg" alt="L'anatomie du composant en savoir plus identifiant l'icône, une flèche pointant vers le bas, le titre du lien en savoir plus sur ce sujet et le contenu représenté par du texte information additionnelle." />
+<img class="b-sm b-default p-400" src="/images/fr/components/anatomy/gcds-details-anatomy-open.svg" alt="L'anatomie du composant en savoir plus identifiant l'icône, une flèche pointant vers le bas, le titre du lien en savoir plus sur ce sujet et le contenu représenté par du texte information additionnelle." />
 
 ### Composant Détails fermé
 
-<img class="b-sm b-gray p-400" src="/images/fr/components/anatomy/gcds-details-anatomy-closed.svg" alt="L'anatomie du composant en savoir plus identifiant l'icône, une flèche pointant vers la droite et le titre du lien en savoir plus sur ce sujet." />
+<img class="b-sm b-default p-400" src="/images/fr/components/anatomy/gcds-details-anatomy-closed.svg" alt="L'anatomie du composant en savoir plus identifiant l'icône, une flèche pointant vers la droite et le titre du lien en savoir plus sur ce sujet." />
 
 ## Conception et accessibilité du composant Détails
 

@@ -27,7 +27,7 @@ Utilisez les boutons radio avec un [jeu de champs]({{ links.fieldset }}) pour ef
 - Déterminer les réponses possibles à votre question.
 - Lui donner la capacité de répondre sans avoir à écrire en sélectionnant une option parmi une liste.
 
-<article class="bg-full-width bg-dark text-light pt-500 pb-400 my-500">
+<article class="bg-full-width bg-primary text-light pt-500 pb-400 my-500">
 
   <h2 class="mt-0 mb-400">Composants connexes</h2>
 

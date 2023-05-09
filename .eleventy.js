@@ -29,7 +29,7 @@ module.exports = function (eleventyConfig) {
     "./node_modules/@cdssnc/gcds-components/": "components"
   });
   eleventyConfig.addPassthroughCopy({
-    "./node_modules/@cdssnc/gcds-utility/dist/utilities.min.css": "utilities.min.css"
+    "./node_modules/@cdssnc/gcds-utility/dist/gcds-utility.min.css": "gcds-utility.min.css"
   });
   // Add copy fo a11y testing
   eleventyConfig.addPassthroughCopy("./.pa11yci.json");
@@ -227,8 +227,8 @@ module.exports = function (eleventyConfig) {
     const content = children;
 
     return `
-      <div class="${margin} b-sm b-gray component-preview">
-        <p class="container-full font-semibold px-300 py-200 bb-sm b-gray bg-light">
+      <div class="${margin} b-sm b-default component-preview">
+        <p class="container-full font-semibold px-300 py-200 bb-sm b-default bg-light">
           ${title}
         </p>
         <div class="px-300 ${padding}">

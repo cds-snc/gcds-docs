@@ -1,13 +1,9 @@
 // Links
 a[href] {
-  text-underline-offset: -0.1em;
   text-decoration-color: currentColor;
-  text-decoration-thickness: var(--gcds-border-width-sm);
 
   &:hover {
     color: var(--gcds-hover-default);
-    text-underline-offset: -0.1em;
-    text-decoration-thickness: var(--gcds-border-width-md);
   }
 
   &:focus {

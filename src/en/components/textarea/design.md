@@ -14,7 +14,7 @@ The **hint text** communicates specific requirements for each text area to suppo
 
 The **field** is the container a person interacts with to provide their response.
 
-<img class="b-sm b-gray p-400" src="/images/en/components/anatomy/gcds-textarea-anatomy.svg" alt="Text area anatomy showing the Text area label, Hint text/ example message and dark blue outline white box for text input."/>
+<img class="b-sm b-default p-400" src="/images/en/components/anatomy/gcds-textarea-anatomy.svg" alt="Text area anatomy showing the Text area label, Hint text/ example message and dark blue outline white box for text input."/>
 
 ## Design and accessibility for text areas
 

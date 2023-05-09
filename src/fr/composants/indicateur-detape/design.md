@@ -14,7 +14,7 @@ Le **nombre total d'étapes** indique le nombre d'étapes que compte le processu
 
 Le **titre H1** est un élément distinct du composant Indicateur d'étape. Il est formulé comme un appel à l'action et indique l'objectif de cette étape particulière.
 
-<img class="b-sm b-gray p-400" src="/images/fr/components/anatomy/gcds-stepper-anatomy.svg" alt="L'anatomie du composant indicateur d'étape identifiant l'étape courante, le nombre total d'étapes et le titre de la page." />
+<img class="b-sm b-default p-400" src="/images/fr/components/anatomy/gcds-stepper-anatomy.svg" alt="L'anatomie du composant indicateur d'étape identifiant l'étape courante, le nombre total d'étapes et le titre de la page." />
 
 ## Conception et accessibilité des indicateurs d'étape
 

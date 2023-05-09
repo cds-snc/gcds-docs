@@ -8,7 +8,7 @@ date: "git Last Modified"
 
 <h2 class="py-450">Bienvenue dans votre système de design</h2>
 
-<article class="py-500 bg-dark bg-full-width">
+<article class="py-500 bg-primary text-light bg-full-width">
   <gcds-grid tag="ul" columns="1fr" columns-tablet="1fr 1fr" gap="450">
     <li class="list-none md:mb-0 mb-500">
       <img class="mb-400" src="../../images/common/home/icon-design.svg" alt="" />
@@ -59,11 +59,11 @@ date: "git Last Modified"
 <article class="py-500 bg-light bg-full-width">
   <h2 class="mb-400">Nouveautés</h2>
   <gcds-grid tag="ul" columns="1fr" columns-tablet="1fr 1fr" columns-desktop="1fr 1fr 1fr" gap="450">
-    <li class="list-none bg-white px-250 py-450 radius-xs">
+    <li class="list-none bg-white px-250 py-450 b-radius-md">
       <h3 class="mb-400"><a class="link-inherit" href="{{ links.releaseNotes }}">Notes de publication</a></h3>
       <p>Les derniers ajouts.</p>
     </li>
-    <li class="list-none bg-white px-250 py-450 radius-xs">
+    <li class="list-none bg-white px-250 py-450 b-radius-md">
       <h3 class="mb-400"><a class="link-inherit" href="{{ links.comingSoon }}">Prochainement</a></h3>
       <p>Ce sur quoi nous travaillons.</p>
     </li>
