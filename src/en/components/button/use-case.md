@@ -30,7 +30,7 @@ Use a button for important actions a person using your product can initiate to:
 - Skip past navigational elements to get to main content.
 - Link to other pages or external sites, using the link type.
 
-<article class="bg-full-width bg-dark text-light pt-500 pb-400 my-500">
+<article class="bg-full-width bg-primary text-light pt-500 pb-400 my-500">
   <h2 class="mt-0 mb-400">Related components</h2>
 
   Toggle to offer a switch to choose between two options.

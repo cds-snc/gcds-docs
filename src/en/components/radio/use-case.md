@@ -27,7 +27,7 @@ Use radios with a [fieldset]({{ links.fieldset }}) to make a request for info wi
 - Specify the possible answers to your question.
 - Give a person the ability to answer without writing by selecting one item from a list.
 
-<article class="bg-full-width bg-dark text-light pt-500 pb-400 my-500">
+<article class="bg-full-width bg-primary text-light pt-500 pb-400 my-500">
   <h2 class="mt-0 mb-400">Related components</h2>
 
   <a href="{{ links.checkbox }}" class="link-light">Checkboxes</a> when you are expecting the user to select multiple options from a list of items.

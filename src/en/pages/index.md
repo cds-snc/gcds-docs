@@ -9,7 +9,7 @@ date: "git Last Modified"
 
 <h2 class="py-450">Welcome to your design system</h2>
 
-<article class="py-500 bg-dark bg-full-width">
+<article class="py-500 bg-primary text-light bg-full-width">
   <gcds-grid tag="ul" columns="1fr" columns-tablet="1fr 1fr" gap="450">
     <li class="list-none md:mb-0 mb-500">
       <img class="mb-400" src="../../images/common/home/icon-design.svg" alt="" />

@@ -18,17 +18,17 @@ permalink: /fr/composants/pied-de-page/
 date: "git Last Modified"
 ---
 
-Explorez les problèmes que règlent les pieds de page et découvrez s'ils peuvent être utilisés pour résoudre votre problème particulier. 
+Explorez les problèmes que règlent les pieds de page et découvrez s'ils peuvent être utilisés pour résoudre votre problème particulier.
 
 ## Problèmes résolus par les pieds de page
 
 Pour les applications, formulaires et autres services numériques transactionnels de marques fiables, utilisez ce pied de page afin d'indiquer :
 
 - La fin d'une page de produit ou d'un site;
-- Un service ou produit numérique du gouvernement du Canada offrant une vaste gamme de services et de renseignements; 
+- Un service ou produit numérique du gouvernement du Canada offrant une vaste gamme de services et de renseignements;
 - Le mot-symbole pour représenter l'identité du gouvernement du Canada.
 
-<article class="bg-full-width bg-dark text-light pt-500 pb-400 my-500">
+<article class="bg-full-width bg-primary text-light pt-500 pb-400 my-500">
   <h2 class="mt-0 mb-400">Composants connexes</h2>
 
   <a href="{{ links.header }}" class="link-light">En-tête</a> : lorsque vous cherchez à placer l'image de marque du gouvernement du Canada dans l'en-tête de la page.

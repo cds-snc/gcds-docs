@@ -24,11 +24,11 @@ Explorez les problèmes réglés par les en-têtes et découvrez s'ils peuvent �
 
 Pour les applications, formulaires et autres services numériques transactionnels de marques fiables, utilisez cet en-tête afin de communiquer de façon cohérente :
 
-- Le début d'une page de produit ou d'un site; 
+- Le début d'une page de produit ou d'un site;
 - Un service ou produit numérique du gouvernement du Canada offrant une vaste gamme de services et de renseignements;
 - La signature du Programme fédéral de l'image de marque du gouvernement du Canada.
 
-<article class="bg-full-width bg-dark text-light pt-500 pb-400 my-500">
+<article class="bg-full-width bg-primary text-light pt-500 pb-400 my-500">
   <h2 class="mt-0 mb-400">Composants connexes</h2>
 
   <a href="{{ links.header }}" class="link-light">Pied de page</a> : lorsque vous cherchez à placer l'image de marque du gouvernement du Canada en pied de page.

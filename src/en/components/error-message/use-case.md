@@ -29,7 +29,7 @@ Use an error message for your own component instances when you need to interrupt
 - A form component is required.
 - You need to specify an incorrect response type or format and let a person know exactly what to do to fix the problem and move on.
 
-<article class="bg-full-width bg-dark text-light pt-500 pb-400 my-500">
+<article class="bg-full-width bg-primary text-light pt-500 pb-400 my-500">
   <h2 class="mt-0 mb-400">Related components</h2>
 
   <a href="{{ links.errorSummary }}" class="link-light">Error summary</a> for listing all problems to address for response submission.
