@@ -7,7 +7,7 @@ module.exports = {
         "2. Get the code and pull it into your environment.",
         "3. Add any copy you need to the component (like text for a label).",
       ],
-      note: "**Note:** The code builder uses English for all code elements."
+      note: "**Note:** Following standard practice, the code builder uses English for all code elements."
     },
     fr: {
       heading: "Obtenez votre code",
@@ -17,6 +17,6 @@ module.exports = {
         "2. Obtenez le code et intégrez-le dans votre environnement.",
         "3. Ajoutez tout contenu nécessaire au composant (comme le texte du libellé). ",
       ],
-      note: "**Remarque** : Le générateur de code utilise l'anglais pour tous les éléments de code."
+      note: "**Remarque** : Conformément à la pratique courante, le générateur de code utilise l'anglais pour tous les éléments de code."
     }
   }

@@ -37,7 +37,6 @@ Utilisez un bouton pour les actions importantes qu'une personne utilisant votre 
   Bouton bascule : lorsque vous cherchez à offrir un choix entre deux options.
 
   <a href="{{ links.details }}" class="link-light">Détails</a> : lorsque vous cherchez à masquer ou afficher une section de contenu.
-
 </article>
 
 ## Choisissez un type de bouton
