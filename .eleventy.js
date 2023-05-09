@@ -29,7 +29,7 @@ module.exports = function (eleventyConfig) {
     "./node_modules/@cdssnc/gcds-components/": "components"
   });
   eleventyConfig.addPassthroughCopy({
-    "./node_modules/@cdssnc/gcds-utility/dist/utilities.min.css": "utilities.min.css"
+    "./node_modules/@cdssnc/gcds-utility/dist/gcds-utility.min.css": "gcds-utility.min.css"
   });
   // Add copy fo a11y testing
   eleventyConfig.addPassthroughCopy("./.pa11yci.json");
