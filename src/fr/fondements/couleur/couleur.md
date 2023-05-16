@@ -10,7 +10,7 @@ eleventyNavigation:
   order: 1
   description: Les unités de style de couleur comprennent les valeurs nécessaires pour les composants de style.
   thumbnail: /images/en/foundations/preview/preview-colour.svg
-  alt: 
+  alt:
   state: published
 permalink: /fr/fondements/couleur/
 tokenTable:
@@ -24,9 +24,9 @@ tokenTable:
     text-primary: Couleur de texte principal pour les arrière-plans blancs ou à valeur 100 (p. ex. --gcds-color-blue-100).
     text-secondary: Couleur de texte contrastante (par rapport à la couleur du texte principal) sur un arrière-plan blanc.
     text-light: Couleur de texte pâle principal pour les arrière-plans à valeur 700 ou plus sombres (p. ex. --gcds-color-blue-700).
-    link-default: Couleur de lien par défaut pour les hyperliens sur un arrière-plan blanc. 
+    link-default: Couleur de lien par défaut pour les hyperliens sur un arrière-plan blanc.
     link-hover: Couleur de lien pointé pour les hyperliens sur un arrière-plan blanc.
-    link-light: Couleur d'hyperlien pâle par défaut pour les arrière-plans à valeur 700 ou plus sombres (p. ex. --gcds-color-blue-700). 
+    link-light: Couleur d'hyperlien pâle par défaut pour les arrière-plans à valeur 700 ou plus sombres (p. ex. --gcds-color-blue-700).
     border-default: Couleur par défaut pour les bordures et les icônes sur un arrière-plan blanc.
     danger-background: La couleur de l'arrière-plan de danger pour accentuer une action destructrice ou un retour d'expérience critique en arrière-plan.
     danger-border: La couleur de la bordure de danger sur blanc ou sur arrière-plans de danger pour accentuer une action destructrice ou un retour d'expérience critique.
@@ -35,7 +35,7 @@ tokenTable:
     disabled-text: Couleur du texte désactivé. Utiliser judicieusement pour un élément interactif désactivé.
     focus-background: Couleur du texte ciblé, exclusivement pour les éléments interactifs ciblés.
     focus-text: Couleur du texte ciblé, exclusivement pour les éléments interactifs ciblés.
-    focus-textForm: Couleur du texte de formulaire ciblé, exclusivement pour les éléments interactifs ciblés dans un formulaire. Évitez d'utiliser cette unité de style pour des éléments autres que ceux d'un formulaire. 
+    focus-textForm: Couleur du texte de formulaire ciblé, exclusivement pour les éléments interactifs ciblés dans un formulaire. Évitez d'utiliser cette unité de style pour des éléments autres que ceux d'un formulaire.
 # date: "git Last Modified"
 ---
 
@@ -45,7 +45,7 @@ Les unités de style de couleur définissent les couleurs pour les composants et
 
 ## Unités de style de couleur et accessibilité
 
-Les composants de Système de design GC sont conformes <a href="{{ links.wcag }}" target="_blank">au niveau AA des Règles pour l'accessibilité des contenus Web 2.1 (WCAG 2.1)  <gcds-icon name="external-link" label="S'ouvre dans un nouvel onglet." margin-left="50" /></a> (site anglais) en matière de contraste des couleurs des éléments texte et des éléments interactifs.  
+Les composants de Système de design GC sont conformes <a href="{{ links.wcag }}" target="_blank">au niveau AA des Règles pour l'accessibilité des contenus Web 2.1 (WCAG 2.1)  <gcds-icon name="external-link" label="S'ouvre dans un nouvel onglet." margin-left="50" /></a> (site anglais) en matière de contraste des couleurs des éléments texte et des éléments interactifs.
 
 Lorsque vous utilisez des unités de style de couleur, vérifiez si vos combinaisons de couleurs satisfont aux normes en matière d'accessibilité du contraste des couleurs à l'aide de l'outil <a href="{{ links.wcag }}" target="_blank">Web Aim Contrast Checker  <gcds-icon name="external-link" label="S'ouvre dans un nouvel onglet." margin-left="50" /></a> (site anglais).
 
@@ -91,15 +91,13 @@ Utilisez les unités de style d'état global pour :
 
 {% include "partials/token_table.njk", token: 'focus', type: 'color' %}
 
-Remarque : Les éléments de code utilisent l'orthographe américaine pour « colour » et « grey ».
-
 ## Unités de style de couleur de base
 
 Utilisez les unités de style de base lorsqu'il vous faut quelque chose de précis pour construire vos propres composants, unités de style ou images, mais vérifiez d'abord s'il existe des unités de style globales.
 
 Utilisez les unités de style de base pour :
 
-- Combler les lacunes lorsqu'il n'existe aucune unité de style globale.  
+- Combler les lacunes lorsqu'il n'existe aucune unité de style globale.
 - Concevoir un visuel personnalisé en faisant appel à la gamme de couleurs complète.
 - Prendre en charge vos propres composants.
 - Fournir une base pour construire (et potentiellement publier) vos propres unités de style.

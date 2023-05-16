@@ -91,8 +91,6 @@ Use global state tokens:
 
 {% include "partials/token_table.njk", token: 'focus', type: 'color' %}
 
-Note: Code elements take American spelling for "colour" and "grey".
-
 ## Base colour tokens
 
 Only use base tokens when you've already checked for global tokens and you need something else for building your own components, tokens, or even images.
