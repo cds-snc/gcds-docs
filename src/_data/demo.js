@@ -29,6 +29,14 @@ module.exports = {
         linkExternal: "External link",
       }
     },
+    containers: {
+      heading: "Containers",
+      content: {
+        full: "I'm a responsive container. My size is only limited by the size of my parent container.",
+        centered: "I'm a large, centred container. My max size is 64rem (1024px).",
+        xs: "I'm an extra-small container. My max size is 20rem (320px).",
+      }
+    },
     dateModified: {
       heading: "Date modified",
     },
@@ -167,6 +175,14 @@ module.exports = {
         skipToContent: "Aller au contenu",
         link: "Lien",
         linkExternal: "Lien externe",
+      }
+    },
+    containers: {
+      heading: "Boîtes",
+      content: {
+        full: "Je suis une boîte réactive. Ma taille est seulement limitée par la taille de la boîte parent.",
+        centered: "Je suis une grande boîte centrée. Ma taille maximale est de 64 rem (1024 px).",
+        xs: "Je suis une très petite boîte. Ma taille maximale est de 20 rem (320 px).",
       }
     },
     dateModified: {
