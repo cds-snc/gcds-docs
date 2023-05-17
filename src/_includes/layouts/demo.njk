@@ -63,6 +63,21 @@ layout: "layouts/base.njk"
     {{ demo[locale].buttons.content.linkExternal }}
   </gcds-button>
 
+  {# ------------- Container ------------- #}
+
+  <h3 class="container-full mt-700 mb-400 bb-sm">{{ demo[locale].containers.heading }}</h3>
+  <gcds-container container="full">
+    <div class="p-200 b-sm">{{ demo[locale].containers.content.full }}</div>
+  </gcds-container>
+  <br/>
+  <gcds-container container="lg" centered>
+    <div class="p-200 b-sm">{{ demo[locale].containers.content.centered }}</div>
+  </gcds-container>
+  <br/>
+  <gcds-container container="xs">
+    <div class="p-200 b-sm">{{ demo[locale].containers.content.xs }}</div>
+  </gcds-container>
+
   {# ------------- Date modified ------------- #}
 
   <h3 class="container-full mt-700 mb-400 bb-sm">{{ demo[locale].dateModified.heading }}</h3>
