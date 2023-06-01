@@ -19,3 +19,7 @@ body {
 .remove-empty-p p:empty {
   display: none;
 }
+
+iframe {
+  max-width: 100%;
+}
