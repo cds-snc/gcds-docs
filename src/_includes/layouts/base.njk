@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html lang="{{ locale }}" dir="ltr">
   <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5TBZBZVVK8"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-5TBZBZVVK8');
+    </script>
+
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>{% block page_title %}{{ title }} - {{ base[locale].gcds }}{% endblock %}</title>
@@ -21,8 +30,6 @@
     <link rel="stylesheet" href="{{ '/components/dist/gcds/gcds.css' | url }}">
     <script type="module" src="/components/dist/gcds/gcds.esm.js"></script>
     <script nomodule src="/components/dist/gcds/gcds.js"></script>
-
-    <meta name="robots" content="noindex">
   </head>
   <body>
     {% include "partials/header.njk" %}
