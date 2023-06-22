@@ -3,7 +3,7 @@ a[href] {
   text-decoration-color: currentColor;
 
   &:hover {
-    color: var(--gcds-hover-default);
+    color: var(--gcds-link-hover);
   }
 
   &:focus {
