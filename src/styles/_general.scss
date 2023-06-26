@@ -12,10 +12,13 @@
 }
 
 body {
-  color: var(--gcds-text-primary);
   animation: fade 0.05s normal forwards ease-in-out;
 }
 
 .remove-empty-p p:empty {
   display: none;
+}
+
+iframe {
+  max-width: 100%;
 }

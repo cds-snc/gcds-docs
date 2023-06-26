@@ -33,5 +33,5 @@ Use this header landmark – as part of a trusted brand – for apps, forms, or 
 
   <a href="{{ links.footer }}" class="link-light">Footer</a> for placing the Government of Canada branded footer landmark.
 
-  Site menu for guiding navigation through an application or site using a navigation landmark.
+  <a href="{{ links.siteMenu }}" class="link-light">Site menu</a> for guiding navigation through an application or site using a navigation landmark.
 </article>

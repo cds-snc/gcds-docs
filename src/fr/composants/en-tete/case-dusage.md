@@ -33,5 +33,5 @@ Pour les applications, formulaires et autres services numériques transactionnel
 
   <a href="{{ links.header }}" class="link-light">Pied de page</a> : lorsque vous cherchez à placer l'image de marque du gouvernement du Canada en pied de page.
 
-  Menu de navigation : lorsque vous souhaitez fournir un guide pour la navigation dans une application ou un site à l'aide de points de repère.
+  <a href="{{ links.siteMenu }}" class="link-light">Menu de navigation</a> : lorsque vous souhaitez fournir un guide pour la navigation dans une application ou un site à l'aide de points de repère.
 </article>
