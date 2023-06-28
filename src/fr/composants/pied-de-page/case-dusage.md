@@ -33,5 +33,5 @@ Pour les applications, formulaires et autres services numériques transactionnel
 
   <a href="{{ links.header }}" class="link-light">En-tête</a> : lorsque vous cherchez à placer l'image de marque du gouvernement du Canada dans l'en-tête de la page.
 
-  <a href="{{ links.siteMenu }}" class="link-light">Menu de navigation</a> : lorsque vous souhaitez fournir un guide pour la navigation dans une application ou un site à l'aide de points de repère.
+  <a href="{{ links.topNav }}" class="link-light">Barre de navigation supérieure</a> : pour guider la navigation au sein d'un site Web à l'aide d'un point de repère.
 </article>
