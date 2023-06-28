@@ -14,7 +14,7 @@ date: "git Last Modified"
       <img class="mb-400" src="../../images/common/home/icon-design.svg" alt="" />
       <h3 class="mb-400">Concevoir des expériences</h3>
       <p class="mb-400">Visitez notre bibliothèque Figma pour explorer nos ressources de conception.</p>
-      <a class="link-inherit" href="{{ links.figma }}" target="_blank">
+      <a class="link-light" href="{{ links.figma }}" target="_blank">
         Commencer à concevoir
         <gcds-icon name="external-link" label="S'ouvre dans un nouvel onglet." margin-left="50" />
       </a>
@@ -23,7 +23,7 @@ date: "git Last Modified"
       <img class="mb-400" src="../../images/common/home/icon-develop.svg" alt="" />
       <h3 class="mb-400">Développer des produits</h3>
       <p class="mb-400">Installez l'ensemble de composants.</p>
-      <a class="link-inherit" href="{{ links.installation }}">Commencer à développer</a>
+      <a class="link-light" href="{{ links.installation }}">Commencer à développer</a>
     </li>
   </gcds-grid>
 </article>

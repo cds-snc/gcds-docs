@@ -2,7 +2,7 @@
 a[href] {
   text-decoration-color: currentColor;
 
-  &:hover {
+  &:not([class*="link-light"]):hover {
     color: var(--gcds-link-hover);
   }
 
