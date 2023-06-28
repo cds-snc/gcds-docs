@@ -8,9 +8,16 @@ tags: ['breadcrumbsFR', 'header']
 
 # Chemin de navigation <br>`<gcds-breadcrumbs>`
 
-Ce composant est en cours de développement.
+_Autres noms : fil d’Ariane_
+
+Un chemin d'accès à la page actuelle à partir de chaque niveau précédent de la hiérarchie du site.
 
 {% docLinks locale stage figma github %}
 {% enddocLinks %}
 
-<br/>
+{% componentPreview "Aperçu du composant de chemin de navigation" %}
+<gcds-breadcrumbs>
+  <gcds-breadcrumbs-item href="#">Page d'accueil</gcds-breadcrumbs-item>
+  <gcds-breadcrumbs-item href="#">Lien vers la page parent</gcds-breadcrumbs-item>
+</gcds-breadcrumbs-item>
+{% endcomponentPreview %}
