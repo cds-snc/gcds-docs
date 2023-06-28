@@ -5,7 +5,7 @@ permalink: false
 tags: ['sitemenuFR', 'header']
 ---
 
-# Menu du site <br>`<gcds-site-menu>`
+# Barre de navigation supérieure <br>`<gcds-top-nav>`
 
 Ce composant est en cours de développement.
 

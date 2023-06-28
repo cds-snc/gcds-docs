@@ -1,5 +1,5 @@
 ---
-title: Site menu
+title: Top navigation
 layout: "layouts/component-documentation.njk"
 translationKey: "sitemenuCode"
 tags: ['sitemenuEN', 'code']
