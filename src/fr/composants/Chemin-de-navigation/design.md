@@ -14,7 +14,7 @@ Le **lien vers la page d'accueil** ramène à la page d'accueil de la page Web o
 
 Le **lien de la page parent** conduit vers la page parent de la page actuelle. Vous pouvez avoir jusqu'à trois liens vers des pages parents en plus de ceux vers la page d'accueil et la page d'accueil Canada.ca.
 
-<img class="b-sm b-default p-400" src="/images/fr/components/anatomy/gcds-breadcrumbs-anatomy.svg" alt="" />
+<img class="b-sm b-default p-400" src="/images/fr/components/anatomy/gcds-breadcrumbs-anatomy.svg" alt="La structure du chemin de navigation qui affiche trois liens de suite avec une icône de flèche entre chacun." />
 
 ### Structure du chemin de navigation — avec en-tête et titre H1
 
@@ -22,7 +22,7 @@ Le **lien de la page parent** conduit vers la page parent de la page actuelle. V
 
 Le **titre H1** est un élément distinct du composant Chemin de navigation. Il indique aux lecteur·rice·s la nature de la page ou du site et sert de repère.
 
-<img class="b-sm b-default p-400" src="/images/fr/components/anatomy/gcds-breadcrumbs-anatomy-with-header.svg" alt="" />
+<img class="b-sm b-default p-400" src="/images/fr/components/anatomy/gcds-breadcrumbs-anatomy-with-header.svg" alt="La structure du chemin de navigation qui affiche trois liens de suite sous l'en-tête avec une icône de flèche entre chacun." />
 
 ## Design et accessibilité du chemin de navigation
 
