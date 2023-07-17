@@ -63,7 +63,7 @@ Opt to include the contextual band to add up to three footer links for your prod
 
 <iframe
   title="Overview of gcds-footer properties and events."
-  src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&singleStory=true&id=components-footer--default"
+  src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&singleStory=true&id=components-footer--events-properties"
   width="1200"
   height="1110"
   style="display: block; margin: 0 auto;"

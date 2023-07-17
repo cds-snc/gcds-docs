@@ -36,7 +36,7 @@ Opt to make your error heading and subheading more specific by using the `headin
 
 <iframe
   title="Overview of gcds-error-summary properties and events."
-  src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&singleStory=true&id=components-error-summary--default"
+  src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&singleStory=true&id=components-error-summary--events-properties"
   width="1200"
   height="1400"
   style="display: block; margin: 0 auto;"
