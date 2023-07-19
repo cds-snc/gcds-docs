@@ -1,9 +1,9 @@
 ---
-title: Bascule de la langue
+title: Bascule de langue
 layout: "layouts/component-documentation.njk"
 eleventyNavigation:
   key: langtoggleFR
-  title: Bascule de la langue
+  title: Bascule de langue
   locale: fr
   parent: componentsFR
   otherNames: lien pour changer de langue.
@@ -14,7 +14,7 @@ eleventyNavigation:
   state: published
 translationKey: "langtoggle"
 tags: ['langtoggleFR', 'usage']
-permalink: /fr/composants/bascule-de-la-langue/
+permalink: /fr/composants/bascule-de-langue/
 date: "git Last Modified"
 ---
 

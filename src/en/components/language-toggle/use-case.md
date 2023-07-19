@@ -14,7 +14,7 @@ eleventyNavigation:
   state: published
 translationKey: "langtoggle"
 tags: ['langtoggleEN', 'usage']
-permalink: /en/components/lang-toggle/
+permalink: /en/components/language-toggle/
 date: "git Last Modified"
 ---
 

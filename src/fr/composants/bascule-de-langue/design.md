@@ -1,5 +1,5 @@
 ---
-title: Bascule de la langue
+title: Bascule de langue
 layout: "layouts/component-documentation.njk"
 translationKey: "langtoggleDesign"
 tags: ['langtoggleFR', 'design']
