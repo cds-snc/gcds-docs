@@ -13,7 +13,7 @@ date: "git Last Modified"
   <li>The <strong>Canada wordmark</strong> is the global identifier of the Government of Canada and one of three official symbols of the Government of Canada's identity.</li>
 </ol>
 
-<img class="b-sm b-default p-400" src="/images/en/components/anatomy/gcds-footer-anatomy-recommended.svg" alt="Website footer taxonomy with two sections. The first section is the Footer links bands in a light grey banner with some links like Social media, Mobile applications, About Canada.ca and so on. The second section is the Canada workmark indicating Canada logo." />
+<img class="b-sm b-default p-400" src="/images/en/components/anatomy/gcds-footer-anatomy-recommended.svg" alt="Website footer taxonomy with two sections. The first section is the Footer links bands in a light grey banner with some links like Social media, Mobile applications, About Canada.ca and so on. The second section is the Canada wordmark indicating Canada logo." />
 
 ## Optional footer elements
 
@@ -24,7 +24,7 @@ date: "git Last Modified"
   <li>The <strong>Canada wordmark</strong> is the global identifier of the Government of Canada and one of three official symbols of the Government of Canada's identity.</li>
 </ol>
 
-<img class="b-sm b-default p-400" src="/images/en/components/anatomy/gcds-footer-anatomy-optional.svg" alt="Website footer taxonomy with four sections. First section Contextual navigation in light dark blue banner with  Contextual Navigation as a Head title section link and Why GC Notify and Features as sub sections links. Second section is Main band GC links with Governement of Canada as the Head title section link with multiple sub sections links like All Contacts, Departments and agencies, Jobs, Taxes and so on. The third section is the Footer links bands in a light grey banner with some links like Social media, Mobile applications, About Canada.ca and so on. The fourth section is the Canada workmark indicating Canada logo." />
+<img class="b-sm b-default p-400" src="/images/en/components/anatomy/gcds-footer-anatomy-optional.svg" alt="Website footer taxonomy with four sections. First section Contextual navigation in light dark blue banner with  Contextual Navigation as a Head title section link and Why GC Notify and Features as sub sections links. Second section is Main band GC links with Governement of Canada as the Head title section link with multiple sub sections links like All Contacts, Departments and agencies, Jobs, Taxes and so on. The third section is the Footer links bands in a light grey banner with some links like Social media, Mobile applications, About Canada.ca and so on. The fourth section is the Canada wordmark indicating Canada logo." />
 
 ## Design and accessibility for footers
 

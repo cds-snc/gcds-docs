@@ -24,7 +24,7 @@ Les boutons radio aident les utilisateur·rice·s a faire un choix en limitant l
 
 <iframe
   title="Survol des propriétés et des évènements relatifs à gcds-radio."
-  src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&singleStory=true&id=components-radio--default"
+  src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&singleStory=true&id=components-radio--events-properties"
   width="1200"
   height="1670"
   style="display: block; margin: 0 auto;"
