@@ -8,25 +8,27 @@ date: "git Last Modified"
 
 ## Structure de l'en-tête — éléments recommandés
 
-La **navigation supérieure** comprend le bouton « Passer au contenu » qui permet à une personne de sauter un ensemble de liens de navigation et ainsi passer au contenu de la page principale.
-
-L'**en-tête de signature** s'étend sur la partie supérieure du site et contient la signature officielle du gouvernement du Canada et la bascule de lange. On peut également y insérer un champ de recherche. Une ligne séparatrice s'affiche au bas de l'en-tête. Lorsque la langue d'un site est réglée à l'aide de l'attribut `lang`, la signature reflète la langue officielle du contenu de la page.
-
-Le composant de la **bascule de langue** est un commutateur du contenu en français et en anglais. Utilisez l'attribut `lang` pour définir la langue du site; le bouton à bascule proposera l'autre langue officielle.
+<ol class="anatomy-list">
+  <li>La <strong>navigation supérieure</strong> comprend le bouton « Passer au contenu » qui permet à une personne de sauter un ensemble de liens de navigation et ainsi passer au contenu de la page principale.</li>
+  <li>L'<strong>en-tête de signature</strong> s'étend sur la partie supérieure du site et contient la signature officielle du gouvernement du Canada et la bascule de lange. On peut également y insérer un champ de recherche. Une ligne séparatrice s'affiche au bas de l'en-tête. Lorsque la langue d'un site est réglée à l'aide de l'attribut <code>lang</code>, la signature reflète la langue officielle du contenu de la page.</li>
+  <li>Le composant de la <strong>bascule de langue</strong> est un commutateur du contenu en français et en anglais. Utilisez l'attribut <code>lang</code> pour définir la langue du site; le bouton à bascule proposera l'autre langue officielle.</li>
+</ol>
 
 <img class="b-sm b-default mb-500 p-400" src="/images/fr/components/anatomy/gcds-header-anatomy-recommended.svg" alt="L'anatomie des composants entête et menu du site identifiants le lien passer au contenu, et l'entête du gouvernement du Canada."/>
 
 ## Éléments facultatifs de l'en-tête — avec titre H1
 
-Le **menu** ou le menu du site comprend les repères de navigation pour le site. Le menu sert de carte simplifiée du site et aide les visiteurs à comprendre l'objectif et les priorités du site. Pour les produits et sites transactionnels, comme ceux contenant des formulaires, des flux, des processus ou des vitrines, l'utilisation d'un menu de site simplifié ou personnalisé est facultative. L'ajout d'un menu est également facultatif.
-
-Lorsque vous utilisez la **bannière**, placez-la devant l'en-tête de signature. Il s'agit d'un élément facultatif utilisé pour communiquer l'état du site ou de la page sur les sites expérimentaux, les sites utilisés à des fins de recherche, les projets pilotes et les produits en mode essai.
+<ol class="anatomy-list">
+  <li>La <strong>navigation supérieure</strong> comprend le bouton « Passer au contenu » qui permet à une personne de sauter un ensemble de liens de navigation et ainsi passer au contenu de la page principale.</li>
+  <li>Lorsque vous utilisez la <strong>bannière</strong> , placez-la devant l'en-tête de signature. Il s'agit d'un élément facultatif utilisé pour communiquer l'état du site ou de la page sur les sites expérimentaux, les sites utilisés à des fins de recherche, les projets pilotes et les produits en mode essai.</li>
+  <li>L'<strong>en-tête de signature</strong> s'étend sur la partie supérieure du site et contient la signature officielle du gouvernement du Canada et la bascule de lange. On peut également y insérer un champ de recherche. Une ligne séparatrice s'affiche au bas de l'en-tête. Lorsque la langue d'un site est réglée à l'aide de l'attribut <code>lang</code>, la signature reflète la langue officielle du contenu de la page.</li>
+  <li>Le composant de la <strong>bascule de langue</strong> est un commutateur du contenu en français et en anglais. Utilisez l'attribut <code>lang</code> pour définir la langue du site; le bouton à bascule proposera l'autre langue officielle.</li>
+  <li>Le <strong>menu</strong> ou le menu du site comprend les repères de navigation pour le site. Le menu sert de carte simplifiée du site et aide les visiteurs à comprendre l'objectif et les priorités du site. Pour les produits et sites transactionnels, comme ceux contenant des formulaires, des flux, des processus ou des vitrines, l'utilisation d'un menu de site simplifié ou personnalisé est facultative. L'ajout d'un menu est également facultatif.</li>
+  <li>Le <strong>chemin de navigation</strong> établit une voie entre chaque niveau de la hiérarchie du site et la page actuelle, comme indiqué dans le titre de la page. Le chemin de navigation indique à une personne son parcours et lui permet de faire marche arrière ou de passer d'un niveau à un autre.</li>
+  <li>Le <strong>titre H1</strong> est un élément séparé du composant d'en-tête. Il indique aux lecteur·rice·s la nature de la page ou du site et sert de repère.</li>
+</ol>
 
 L'élément de **recherche** permet d'inclure un champ de recherche locale ou générale.
-
-Le **chemin de navigation** établit une voie entre chaque niveau de la hiérarchie du site et la page actuelle, comme indiqué dans le titre de la page. Le chemin de navigation indique à une personne son parcours et lui permet de faire marche arrière ou de passer d'un niveau à un autre.
-
-Le **titre H1** est un élément séparé du composant d'en-tête. Il indique aux lecteur·rice·s la nature de la page ou du site et sert de repère.
 
 <img class="b-sm b-default mb-500 p-400" src="/images/fr/components/anatomy/gcds-header-anatomy-optional.svg" alt="L'anatomie des composants entête et menu du site identifiants le lien passer au contenu, la bannière de phase, l'entête du gouvernement du Canada et le menu du site."/>
 

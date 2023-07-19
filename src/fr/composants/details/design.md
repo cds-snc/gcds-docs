@@ -10,11 +10,11 @@ date: "git Last Modified"
 
 Voici la structure du composant Détails ouvert. Le contenu est réduit par défaut.
 
-Le **titre du composant Détail** résume le contenu correspondant. Le texte du libellé est en minuscules (il n'y a que la lettre initiale qui est en majuscule).
-
-L'**icône** et le **titre du composant Détails** permettent d'activer l'affichage du contenu. L'icône indique si le composant est actuellement ouvert ou fermé. Lorsque le composant est ouvert, affichant ainsi le texte correspondant, l'icône est dirigée vers le contenu en question.
-
-Le **contenu** comprend tout texte ou image que la personne peut choisir d'afficher ou de dissimuler.
+<ol class="anatomy-list">
+  <li>Le <strong>titre du composant Détail</strong> résume le contenu correspondant. Le texte du libellé est en minuscules (il n'y a que la lettre initiale qui est en majuscule).</li>
+  <li>L'<strong>icône</strong> et le <strong>titre du composant Détails</strong> permettent d'activer l'affichage du contenu. L'icône indique si le composant est actuellement ouvert ou fermé. Lorsque le composant est ouvert, affichant ainsi le texte correspondant, l'icône est dirigée vers le contenu en question.</li>
+  <li>Le <strong>contenu</strong> comprend tout texte ou image que la personne peut choisir d'afficher ou de dissimuler.</li>
+</ol>
 
 ### Composant Détails ouvert
 

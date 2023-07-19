@@ -8,25 +8,27 @@ date: "git Last Modified"
 
 ## Header anatomy – recommended elements
 
-The **top nav** includes the skip-to-content button to let a person bypass a cluster of navigation links and jump to the main page content.
-
-The **signature header** spans the top of the site and contains the Government of Canada branded signature and the language toggle. It can also include a search form. It has a divider line along the bottom edge. When the site language is set with the `lang` attribute, the signature reflects the same Official Language as the page content.
-
-The **language toggle** component is a switch for French and English content. When the site language is set using the language attribute, the toggle will be available in the other Official Language.
+<ol class="anatomy-list">
+  <li>The <strong>top nav</strong> includes the skip-to-content button to let a person bypass a cluster of navigation links and jump to the main page content.</li>
+  <li>The <strong>signature header</strong> spans the top of the site and contains the Government of Canada branded signature and the language toggle. It can also include a search form. It has a divider line along the bottom edge. When the site language is set with the <code>lang</code> attribute, the signature reflects the same Official Language as the page content.</li>
+  <li>The <strong>language toggle</strong> component is a switch for French and English content. When the site language is set using the <code>lang</code> attribute, the toggle will be available in the other Official Language.</li>
+</ol>
 
 <img class="b-sm b-default mb-500 p-400" src="/images/en/components/anatomy/gcds-header-anatomy-recommended.svg" alt="Home link Taxonomy has three parts. The skip to content - indicated by a bright blue double white lined box with label of Skip to main content. GC header banner with a Canadian Flag with Government of Canada  and Government du Canada. Language toggle pointing at Français to use to toggle to French. Top bar pointing at Home link in a light grey banner with Site menu link outlined by a dark grey link to indicate the selected link with unselected Site menu link with no line underneath it."/>
 
 ## Optional header elements – with H1 title
 
-The **menu**, or site menu, holds the site navigation. The menu serves as a simplified site map and helps give visitors a sense of a site's purpose and priorities. For transactional products or sites, like those with forms, flows, processes, or storefronts, it's optional to use a simplified or custom site menu or even no menu.
-
-The **banner**, when used, precedes the signature header. It's an optional element to communicate the status of the site or page, for sites that are experimental, those in research, pilots, or products in trial mode.
+<ol class="anatomy-list">
+  <li>The <strong>top nav</strong> includes the skip-to-content button to let a person bypass a cluster of navigation links and jump to the main page content.</li>
+  <li>The <strong>banner</strong>, when used, precedes the signature header. It's an optional element to communicate the status of the site or page, for sites that are experimental, those in research, pilots, or products in trial mode.</li>
+  <li>The <strong>signature header</strong> spans the top of the site and contains the Government of Canada branded signature and the language toggle. It can also include a search form. It has a divider line along the bottom edge. When the site language is set with the `lang` attribute, the signature reflects the same Official Language as the page content.</li>
+  <li>The <strong>language toggle</strong> component is a switch for French and English content. When the site language is set using the language attribute, the toggle will be available in the other Official Language.</li>
+  <li>The <strong>menu</strong>, or site menu, holds the site navigation. The menu serves as a simplified site map and helps give visitors a sense of a site's purpose and priorities. For transactional products or sites, like those with forms, flows, processes, or storefronts, it's optional to use a simplified or custom site menu or even no menu.</li>
+  <li>The <strong>breadcrumbs</strong> lay a path from each level of the site's hierarchy to the current page, stated in the page title. The breadcrumbs tell a person where they've been and let them retrace their steps or jump between levels.</li>
+  <li>The <strong>H1 title</strong> is a separate element from the header component. It tells readers what the page or site is about and acts a signpost, giving them a sense of place.</li>
+</ol>
 
 The **search** element supports including a search form that is local or global.
-
-The **breadcrumbs** lay a path from each level of the site's hierarchy to the current page, stated in the page title. The breadcrumbs tell a person where they've been and let them retrace their steps or jump between levels.
-
-The **H1 title** is a separate element from the header component. It tells readers what the page or site is about and acts a signpost, giving them a sense of place.
 
 <img class="b-sm b-default mb-500 p-400" src="/images/en/components/anatomy/gcds-header-anatomy-optional.svg" alt="Home link Taxonomy has five parts. The skip to content - indicated by a bright blue double white lined box with label of Skip to main content. The Phase banner - indicated by a navy blue lined box with label of stages of the site. The stage 'pilot' is in a white navy blue outlined box. GC header banner with a Canadian Flag with Government of Canada  and Government du Canada. Language toggle pointing at Français to use to toggle to French. Top bar pointing at Home link in a light grey banner with Site menu link outlined by a dark grey link to indicate the selected link with unselected Site menu link with no line underneath it."/>
 

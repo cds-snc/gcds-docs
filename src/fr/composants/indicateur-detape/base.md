@@ -8,7 +8,7 @@ tags: ['stepperFR', 'header']
 
 # Indicateur d'étape <br>`<gcds-stepper>`
 
-_Autres noms : indicateur de progrès, étapes_
+_Autres noms : indicateur de progrès, étapes._
 
 Un indicateur d'étape offre un suivi de l'avancement d'un processus comportant plusieurs étapes.
 

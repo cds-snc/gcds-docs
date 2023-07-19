@@ -7,11 +7,12 @@ tags: ['errorsummaryEN', 'design']
 
 ## Error summary anatomy
 
-The **heading** communicates that there's a problem and the **subheading** tells a person to address the errors to move on. These are set by default and can be edited to be more specific.
-
-The **error summary** is a collection of error messages on the page, listed in order of their appearance on the form.
-
-The **error summary item** links to the error context and includes the same text as the error message (a call to action statement to address the error).
+<ol class="anatomy-list">
+  <li>The <strong>heading</strong> communicates that there's a problem. This is set by default and can be edited to be more specific.</li>
+  <li>The <strong>subheading</strong> tells a person to address the errors to move on. This is set by default and can be edited to be more specific.</li>
+  <li>The <strong>error summary</strong> is a collection of error messages on the page, listed in order of their appearance on the form.</li>
+  <li>The <strong>error summary item</strong> links to the error context and includes the same text as the error message (a call to action statement to address the error).</li>
+</ol>
 
 <img class="b-sm b-default p-400" src="/images/en/components/anatomy/gcds-error-summary-anatomy.svg" alt="Button anatomy showing the Button label branching to the container and arrow icon." />
 

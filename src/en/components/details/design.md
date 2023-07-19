@@ -10,11 +10,11 @@ date: "git Last Modified"
 
 This is an anatomy of the open details component. By default, the content is collapsed.
 
-The **details title** summarizes the details content. Label text is in sentence case (only the initial letter is capitalized).
-
-The **icon** and the **details title** toggle the content display. The icon indicates if the component is currently open or closed. When it's open, revealing the details text, the icon points to details content.
-
-The **content** displays any text and images that the reader can choose to expand or collapse.
+<ol class="anatomy-list">
+  <li>The <strong>details title</strong> summarizes the details content. Label text is in sentence case (only the initial letter is capitalized).</li>
+  <li>The <strong>icon</strong> and the <strong>details title</strong> toggle the content display. The icon indicates if the component is currently open or closed. When it's open, revealing the details text, the icon points to details content.</li>
+  <li>The <strong>content</strong> displays any text and images that the reader can choose to expand or collapse.</li>
+</ol>
 
 ### Open details
 

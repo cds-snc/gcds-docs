@@ -8,7 +8,9 @@ date: "git Last Modified"
 
 ## Structure du message d'erreur
 
-Le **message d'erreur** cite le problème dans son contexte et comprend un appel à l'action pour le corriger.
+<ol class="anatomy-list">
+  <li>Le <strong>message d'erreur</strong> cite le problème dans son contexte et comprend un appel à l'action pour le corriger.</li>
+</ol>
 
 <img class="b-sm b-default p-400" src="/images/fr/components/anatomy/gcds-error-message-anatomy.svg" alt="L'anatomie du composant message d'erreur identifiant le message d'erreur représenté d'une longue boîte grise avec un contour rouge à son extrémité gauche et le texte erreur / message de validation à l'intérieur."/>
 
@@ -18,11 +20,12 @@ Tous les composants de Système de design GC sont livrés avec une gestion des e
 
 Pour vos propres composants, ajoutez le composant Message d'erreur ainsi que les éléments suivants :
 
-Le **marqueur requis** indique qu'un champ de réponse, un champ ou une sélection doit être rempli. Un message d'erreur s'affichera en cas de réponse incomplète ou d'omission.
-
-Le **texte explicatif** fournit des précisions sur la forme qui doit avoir la réponse. Il peut fournir un exemple de bonne réponse.
-
-Le **champ de réponse** adopte l'apparence du format de réponse et de l'état du message d'erreur du composant auquel il est rattaché. Les cases de champs de saisie et des champs de texte sont surlignées. Les options des boutons radio ou des cases à cocher sont surlignées.
+<ol class="anatomy-list">
+  <li>Le <strong>marqueur requis</strong> indique qu'un champ de réponse, un champ ou une sélection doit être rempli. Un message d'erreur s'affichera en cas de réponse incomplète ou d'omission.</li>
+  <li>Le <strong>texte explicatif</strong> fournit des précisions sur la forme qui doit avoir la réponse. Il peut fournir un exemple de bonne réponse.</li>
+  <li>Le <strong>message d'erreur</strong> cite le problème dans son contexte et comprend un appel à l'action pour le corriger.</li>
+  <li>Le <strong>champ de réponse</strong> adopte l'apparence du format de réponse et de l'état du message d'erreur du composant auquel il est rattaché. Les cases de champs de saisie et des champs de texte sont surlignées. Les options des boutons radio ou des cases à cocher sont surlignées.</li>
+</ol>
 
 <img class="b-sm b-default p-400" src="/images/fr/components/anatomy/gcds-error-message-anatomy-with-form-field.svg" alt="L'anatomie du composant message d'erreur requis identifiant l'étiquette requis et son message d'aide suivi du message d'erreur représenté d'une longue boîte grise avec un contour rouge à son extrémité gauche et le texte erreur / message de validation à l'intérieur."/>
 
