@@ -27,7 +27,7 @@
     "header": "/fr/composants/en-tete",
     "icon": "/fr/developpement-en-cours",
     "input": "/fr/composants/champ-de-saisie",
-    "langToggle": "/fr/developpement-en-cours",
+    "langToggle": "/fr/composants/bascule-de-langue/",
     "pagination": "/fr/developpement-en-cours",
     "radio": "/fr/composants/radio",
     "select": "/fr/developpement-en-cours",
