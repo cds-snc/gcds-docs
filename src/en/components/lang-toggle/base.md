@@ -8,9 +8,16 @@ tags: ['langtoggleEN', 'header']
 
 # Language toggle <br>`<gcds-lang-toggle>`
 
-This component is coming soon.
+_Also called: language switch, language selector._
+
+The language toggle is a link to the same content in the other Official Language.
 
 {% docLinks locale stage figma github %}
 {% enddocLinks %}
 
-<br/>
+{% componentPreview "Language toggle component preview" %}
+<gcds-lang-toggle
+  href="#"
+  lang="en"
+></gcds-lang-toggle>
+{% endcomponentPreview %}
