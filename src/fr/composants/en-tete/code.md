@@ -41,7 +41,7 @@ Utilisez ce point de repère pour transmettre de l'information sur un service du
 
 <iframe
   title="Survol des propriétés et des évènements relatifs à gcds-header."
-  src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&singleStory=true&id=components-header--default"
+  src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&singleStory=true&id=components-header--events-properties"
   width="1200"
   height="1535"
   style="display: block; margin: 0 auto;"
