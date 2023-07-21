@@ -22,12 +22,12 @@ Examinez les cas d'utilisation des chemins de navigation pour déterminer s'ils 
 
 ## Problèmes résolus par les chemins de navigation
 
-Utilisez le chemin de navigation pour signaler à un·e visiteur·se sa localisation actuelle et l'aider à se repérer au sein du modèle de navigation du site Canada.ca. Utilisez ce composant pour :
+En plus de signaler à un·e visiteur·se son emplacement actuel sur le site et l'aider à se repérer dans le modèle de navigation du site, utilisez le chemin de navigation pour :
 
 - Offrir un moyen linéaire de naviguer entre les différents niveaux d'un site Web;
 - Présenter une partie de la structure du site Web pour aider les gens à comprendre où trouver les éléments recherchés;
 - Situer la page actuelle par rapport à sa page parent dans la structure du site;
-- Organiser les sites Web en une hiérarchie de plus de deux niveaux.
+- Organiser les sites Web selon une hiérarchie à plus de deux niveaux.
 
 <article class="bg-full-width bg-primary text-light pt-500 pb-400 my-500">
   <h2 class="mt-0 mb-400">Composants connexes</h2>

@@ -8,41 +8,50 @@ date: "git Last Modified"
 
 ## Breadcrumbs anatomy
 
-The **Canada.ca link** navigates to the Canada.ca home page in the current language.
-
-The **home page link** navigates back to the home page of the current webpage or site.
-
-The **parent page link** navigates to the parent page of the current page. You can have up to three parent page links in addition to the homepage and the Canada.ca home.
+<ol class="anatomy-list">
+  <li>The <strong>Canada.ca link</strong> navigates to the Canada.ca home page in the current language.</li>
+  <li>The <strong>chevron</strong> sits between each link and points to the next/subordinate link.</li>
+  <li>The <strong>home page link</strong> navigates back to the home page of the current webpage or site.</li>
+  <li>The <strong>parent page link</strong> navigates to the parent page of the current page. You can have up to three parent page links in addition to the homepage and the Canada.ca home or 5 in total.</li>
+</ol>
 
 <img class="b-sm b-default p-400" src="/images/en/components/anatomy/gcds-breadcrumbs-anatomy.svg" alt="Breadcrumbs anatomy showing three links in a row with an arrow icon between them." />
 
 ### Breadcrumbs anatomy – with header and H1 title
 
-The  <a href="{{ links.header }}"><strong>header</strong></a> is part of a trusted brand – for apps, forms, or other transactional digital services.
-
-The **H1 title** is a separate element from the breadcrumbs component. It tells readers what the page or site is about and acts a signpost, giving them a sense of place.
+<ol class="anatomy-list">
+  <li>The <a href="{{ links.header }}"><strong>header</strong></a> is part of a trusted brand — for apps, forms, or other transactional digital services.</li>
+  <li>The <strong>home page link</strong> navigates back to the home page of the current webpage or site.</li>
+  <li>The <strong>parent page link</strong> navigates to the parent page of the current page. You can have up to three parent page links in addition to the homepage and the Canada.ca home or 5 in total.</li>
+  <li>The <strong>H1 title</strong> is a separate element from the breadcrumbs component. It tells readers what the page or site is about and acts a signpost, giving them a sense of place.</li>
+</ol>
 
 <img class="b-sm b-default p-400" src="/images/en/components/anatomy/gcds-breadcrumbs-anatomy-with-header.svg" alt="Breadcrumbs anatomy showing three links in a row with an arrow icon between them below the header component." />
 
 ## Design and accessibility for breadcrumbs
 
-### Avoid too many breadcrumbs levels
-
-Limit breadcrumbs to five levels. Displaying too many levels of breadcrumb items can be overwhelming for some people.
-
-Tip: If using with other navigation components, like the <a href="{{ links.topNav }}">top navigation</a> and <a href="{{ links.sideNav }}">side navigation</a>, align them with the breadcrumb hierarchy, so elements reflect a person's path through the site. This provides a consistent navigation experience and helps users understand their current location.
-
 ### Include the right links in your breadcrumbs
 
-- Add up to three parent page links after the Canada.ca home and home page links.
 - Include only parent page links and leave out the current page. It's stated in the page title, just beneath the breadcrumbs.
-- Avoid using the breadcrumbs component to show progress through user journey.
+- Add up to 3 parent page links if using both the Canada.ca and home page links, for a maximum of 5 breadcrumbs links.
+- Avoid duplication by linking each breadcrumb to a unique page.
+
+### Structure breadcrumb levels based on site navigation
+
+Breadcrumbs represent the location of the current page in relation to the site's navigation model.
+
+- Order breadcrumb levels by their corresponding level in the site's hierarchy.
+- Avoid using the breadcrumbs component to show progress through the user journey.
+- Limit breadcrumbs to 5 levels. Displaying too many levels of breadcrumbs items can be overwhelming.
+
+Tip: If using with other navigation components, like the <a href="{{ links.topNav }}">top navigation</a> and <a href="{{ links.sideNav }}">side navigation</a>, align both sets of links, so elements reflect a similar path through the site. This provides a consistent navigation experience and helps visitors understand their current location.
 
 ### Write specific parent page link text
 
 - Make link text clear and specific to help a person decide if they should leave the current page. Spell out where a person will go or what they'll find when they select a link.
 - Keep parent link text short (ideally under 20 characters) and distinctive so a person can scan the links in the breadcrumbs and find what they're looking for.
+- Shorten parent page link text to improve readability and reduce space. Where possible, reflect the title of the page in the breadcrumb without including the full page name.
 
-### Place breadcrumbs before the `<main>` element
+### Place breadcrumbs before the main element
 
-Place breadcrumbs at the top of a page, before the `<main>` element. This way the 'Skip to main content' link can work to let the user skip all navigation links, including breadcrumbs.
+Place breadcrumbs at the top of a page, before the main content. This way the <a href="{{ links.button }}">skip-to-content button</a> can work to let a person skip all navigation links, including breadcrumbs.

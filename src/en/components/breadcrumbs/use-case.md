@@ -22,7 +22,7 @@ Check out use cases for breadcrumbs to see if they fit the problem you're solvin
 
 ## Problems breadcrumbs solve
 
-Use breadcrumbs to signal a visitor's current location and give them a sense of place in the Canada.ca navigation model. Use this component to:
+Use breadcrumbs to signal a visitor's current location and give them a sense of place in the  navigation model, and to:
 
 - Provide a linear way to move between multiple levels of a website.
 - Surface part of the site's structure to help people understand where to find what they need.
