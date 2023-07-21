@@ -1,5 +1,5 @@
 ---
-title: barre-de-navigation-superieure - Composants
+title: Barre de navigation supérieure
 layout: "layouts/component-documentation.njk"
 translationKey: "topnavCode"
 tags: ['topnavFR', 'code']

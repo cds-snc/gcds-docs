@@ -1,15 +1,16 @@
 ---
-title: barre-de-navigation-superieure - Composants
+title: Barre de navigation supérieure
 layout: "layouts/component-documentation.njk"
 eleventyNavigation:
   key: topnavFR
-  title: barre-de-navigation-superieure
+  title: Barre de navigation supérieure
   locale: fr
   parent: componentsFR
-  otherNames: Component
-  description: This is the barre-de-navigation-superieure
-  thumbnail: /images/fr/composants/barre-de-navigation-superieure.png
-  alt: This is an image of the component
+  otherNames: menu du site, navigation, barre de navigation
+  description: Une barre de navigation supérieure est une liste horizontale de liens de page.
+  thumbnail: /images/common/components/preview-top-nav.svg
+  alt: Un aperçu du composant barre de navigation supérieure qui montre la navigation du site représentée par des boîtes grises alignés horizontalement. Une boîte bleue suivi de deux boîtes grises représentent les liens où la dernière boîte est surlignée afin de représenter le lien actif.
+  state: coming-soon
 translationKey: "topnav"
 tags: ['topnavFR', 'usage']
 permalink: /fr/composants/barre-de-navigation-superieure/

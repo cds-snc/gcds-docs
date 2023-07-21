@@ -139,13 +139,6 @@ module.exports = {
         text: "Exciting announcement.",
       }
     },
-    siteMenu: {
-      heading: "Site menu",
-      content: {
-        logo: "GC Design system",
-        link: "Site menu link",
-      }
-    },
   },
   fr : {
     heading: "Démonstration de Système de design GC",
@@ -285,13 +278,6 @@ module.exports = {
       heading: "Bannière de statut",
       content: {
         text: "Annonce palpitante.",
-      }
-    },
-    siteMenu: {
-      heading: "Menu du site",
-      content: {
-        logo: "Système de design GC",
-        link: "Lien vers le menu du site",
       }
     },
   }

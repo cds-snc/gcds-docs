@@ -283,22 +283,4 @@ layout: "layouts/base.njk"
     <gcds-icon name="tree" size="sm" slot="banner-icon-left"></gcds-icon>
     <p slot="banner-text">{{ demo[locale].phaseBanner.content.text }}</p>
   </gcds-phase-banner>
-
-  {# ------------- Site menu ------------- #}
-
-  <h3 class="container-full mt-700 mb-400 bb-sm">{{ demo[locale].siteMenu.heading }}</h3>
-  <gcds-site-menu slot="menu" alignment="right">
-    <a href="#" class="home-link link-inherit link-no-underline" slot="left">{{ demo[locale].siteMenu.content.logo }}</a>
-    <ul>
-      <li>
-        <a href="#">{{ demo[locale].siteMenu.content.link }}</a>
-      </li>
-      <li>
-        <a href="#">{{ demo[locale].siteMenu.content.link }}</a>
-      </li>
-      <li>
-        <a href="#">{{ demo[locale].siteMenu.content.link }}</a>
-      </li>
-    </ul>
-  </gcds-site-menu>
 </section>
