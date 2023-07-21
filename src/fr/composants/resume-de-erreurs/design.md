@@ -7,11 +7,12 @@ tags: ['errorsummaryFR', 'design']
 
 ## Structure du résumé des erreurs
 
-L'**en-tête** indique qu'il y a un problème; le **sous-titre**, qu'il faut le régler pour passer à la prochaine étape. Les deux sont définis par défaut et peuvent être modifiés pour être plus spécifiques.
-
-Le **résumé des erreurs** consiste en un ensemble de messages d'erreur sur la page, énumérés par ordre d'apparition sur le formulaire.
-
-L'**élément du résumé des erreurs** est lié au contexte d'erreur et comporte le même texte que le message d'erreur (un énoncé d'appel à l'action pour le corriger).
+<ol class="anatomy-list">
+  <li>L'<strong>en-tête</strong> indique qu'il y a un problème. Les deux sont définis par défaut et peuvent être modifiés pour être plus spécifiques.</li>
+  <li>Le <strong>texte incitatif</strong> indique à une personne de corriger les erreurs pour passer à la prochaine étape. Les deux sont définis par défaut et peuvent être modifiés pour être plus spécifiques.</li>
+  <li>Le <strong>résumé des erreurs</strong> consiste en un ensemble de messages d'erreur sur la page, énumérés par ordre d'apparition sur le formulaire.</li>
+  <li>L'<strong>élément du résumé des erreurs</strong> est lié au contexte d'erreur et comporte le même texte que le message d'erreur (un énoncé d'appel à l'action pour le corriger).</li>
+</ol>
 
 <img class="b-sm b-default p-400" src="/images/fr/components/anatomy/gcds-error-summary-anatomy.svg" alt="L'anatomie d'un bouton identifiant l'étiquette, le conteneur et l'icone qui forme le composant." />
 

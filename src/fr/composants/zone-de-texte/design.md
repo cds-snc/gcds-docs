@@ -8,11 +8,11 @@ date: "git Last Modified"
 
 ## Structure d'une zone de texte
 
-**L'étiquette** indique les renseignements que l'utilisateur doit saisir dans le champ.
-
-**Le texte explicatif** précise les exigences spécifiques pour chaque zone de texte afin de favoriser la réussite de la tâche.
-
-**Le champ** est la boîte avec laquelle l'utilisateur·rice interagit pour fournir sa réponse.
+<ol class="anatomy-list">
+  <li>L'<strong>étiquette</strong> indique les renseignements que l'utilisateur doit saisir dans le champ.</li>
+  <li>Le <strong>texte explicatif</strong> précise les exigences spécifiques pour chaque zone de texte afin de favoriser la réussite de la tâche.</li>
+  <li>Le <strong>champ</strong> est la boîte avec laquelle l'utilisateur·rice interagit pour fournir sa réponse.</li>
+</ol>
 
 <img class="b-sm b-default p-400" src="/images/fr/components/anatomy/gcds-textarea-anatomy.svg" alt="L'anatomie de la zone de texte identifiant l'étiquette, le message d'aide et le champ qui forme le composant" />
 

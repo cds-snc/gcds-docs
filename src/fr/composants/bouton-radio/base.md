@@ -6,11 +6,11 @@ permalink: false
 tags: ['radioFR', 'header']
 ---
 
-# Radio <br>`<gcds-radio>`
+# Bouton radio <br>`<gcds-radio>`
 
-_Autres noms : liste de contrôle, liste de vérification_
+_Autres noms : case d’option, groupe radio._
 
-La case à cocher permet de proposer un ensemble d’options en vue d’une sélection simple ou multiple.
+Un bouton radio permet de proposer plusieurs options de réponse pour un choix unique.
 
 {% docLinks locale stage figma github %}
 {% enddocLinks %}

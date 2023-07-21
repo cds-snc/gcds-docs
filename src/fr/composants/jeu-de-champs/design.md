@@ -10,11 +10,11 @@ date: "git Last Modified"
 
 Un jeu de champs combine les éléments `<fieldset>` et `<legend>` afin de regrouper de façon accessible les champs ou composants de formulaire connexes sans se fier uniquement à la mise en page visuelle.
 
-La **légende** décrit le contenu du groupe de composants de formulaire. La légende peut être un bref énoncé descriptif ou un appel à l'action.
-
-Le **texte explicatif** fournit du contexte additionnel pour le contenu du jeu de champs.
-
-Le **regroupement des composants** comprend des éléments de chaque composant du jeu de champs.
+<ol class="anatomy-list">
+  <li>La <strong>légende du jeu de champs</strong> décrit le contenu du groupe de composants de formulaire. La légende peut être un bref énoncé descriptif ou un appel à l'action.</li>
+  <li>Le <strong>texte explicatif du jeu de champs</strong> fournit du contexte additionnel pour le contenu du jeu de champs.</li>
+  <li>Le <strong>regroupement des composants</strong> comprend des éléments de chaque composant du jeu de champs.</li>
+</ol>
 
 <img class="b-sm b-default p-400" src="/images/fr/components/anatomy/gcds-fieldset-anatomy.svg" alt="L'anatomie du composant jeu de champ identifiant la légende du jeu de champ et son message d'aide suivi de deux composants un à la suite de l'autre identifié comme un groupe de composants. Le premier un champ de texte et le deuxième un menu de sélection."/>
 

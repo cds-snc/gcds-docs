@@ -1,5 +1,5 @@
 ---
-title: Radio
+title: Bouton radio
 layout: "layouts/component-documentation.njk"
 translationKey: "radioCode"
 tags: ['radioFR', 'code']
@@ -16,7 +16,7 @@ Les boutons radio aident les utilisateur·rice·s a faire un choix en limitant l
 
 ### Utilisez un jeu de champs et l’attribut obligatoire
 
-- Regrouper les boutons radio et nommer ce groupe en utilisant les [composantes de jeu de champs]({{ links.fieldset }}).  
+- Regrouper les boutons radio et nommer ce groupe en utilisant les [composantes de jeu de champs]({{ links.fieldset }}).
 - Utilisez le jeu de champs `legend` et l’attribut `hint` pour le nom du groupe et ses instructions.
 - Pour les groupes obligatoires, sélectionnez l’attribut `required` dans le jeu de champs. La sélection de l’attribut `required` permet la validation et la gestion des erreurs dans le groupe des boutons radio.
 

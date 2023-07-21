@@ -9,7 +9,7 @@ tags: ['errorsummaryFR', 'header']
 
 _Autres noms : liste d’erreurs._
 
-Un résumé des erreurs consiste en une liste des erreurs de saisie dans un formulaire.
+Un résumé des erreurs consiste en une liste des erreurs rencontrées par les utilisateur·rice·s dans un formulaire.
 
 {% docLinks locale stage figma github %}
 {% enddocLinks %}

@@ -1,0 +1,27 @@
+.anatomy-list {
+  counter-reset: item;
+  margin-block-end: var(--gcds-spacing-450);
+
+  li {
+    position: relative;
+    max-width: 65ch;
+    counter-increment: item;
+    margin-block-end: var(--gcds-spacing-400);
+    padding-inline-start: var(--gcds-spacing-450);
+
+    &:before {
+      position: absolute;
+      left: 0;
+      display: inline-block;
+      width: var(--gcds-spacing-400);
+      height: var(--gcds-spacing-400);
+      font-size: var(--gcds-font-sizes-caption);
+      text-align: center;
+      content: counter(item);
+      margin-inline-end: var(--gcds-spacing-200);
+      background: #C54600;
+      color: var(--gcds-text-light);
+      border-radius: var(--gcds-border-radius-xl);
+    }
+  }
+}

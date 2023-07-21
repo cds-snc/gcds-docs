@@ -8,9 +8,9 @@ tags: ['checkboxFR', 'header']
 
 # Case à cocher<br>`<gcds-checkbox>`
 
-_Autres noms : liste de contrôle, liste de vérification_
+_Autres noms : liste de contrôle, liste de vérification._
 
-La case à cocher permet de proposer un ensemble d’options en vue d’une sélection simple ou multiple.
+La case à cocher permet de proposer un ensemble d'options en vue d'une sélection simple ou multiple.
 
 {% docLinks locale stage figma github %}
 {% enddocLinks %}

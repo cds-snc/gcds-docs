@@ -8,11 +8,11 @@ date: "git Last Modified"
 
 ## Input anatomy
 
-The **input label** states the information a person should enter in the field. Label text is left aligned and in sentence case (only the initial letter is capitalized).
-
-The **hint text** communicates specific requirements for each input to support task success.
-
-The **field** is the container a person interacts with to provide their response.
+<ol class="anatomy-list">
+  <li>The <strong>input label</strong> states the information a person should enter in the field. Label text is left aligned and in sentence case (only the initial letter is capitalized).</li>
+  <li>The <strong>hint text</strong> communicates specific requirements for each input to support task success.</li>
+  <li>The <strong>field</strong> is the container a person interacts with to provide their response.</li>
+</ol>
 
 <img class="b-sm b-default p-400" src="/images/en/components/anatomy/gcds-input-anatomy.svg" alt="Input anatomy showing the Input label, Hint text/ example message and dark blue outline white box for text input."/>
 
