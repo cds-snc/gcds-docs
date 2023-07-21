@@ -13,7 +13,7 @@ date: "git Last Modified"
   <li>Le <strong>mot-symbole Canada</strong> est l'identificateur mondial du gouvernement du Canada et l'un des trois symboles officiels de l'identité du gouvernement du Canada.</li>
 </ol>
 
-<img class="b-sm b-default p-400" src="/images/fr/components/anatomy/gcds-footer-anatomy-recommended.svg" alt="Website footer taxonomy with two sections. The first section is the Footer links bands in a light grey banner with some links like Social media, Mobile applications, About Canada.ca and so on. The second section is the Canada workmark indicating Canada logo." />
+<img class="b-sm b-default p-400" src="/images/fr/components/anatomy/gcds-footer-anatomy-recommended.svg" alt="Taxonomie du pied de page de site Web illustrant deux sections. La première section est composée de liens de pied de page situés dans une bannière grise, par exemple « Médias sociaux », « Applications mobiles », « À propos de Canada.ca ». La deuxième section est composée du mot-symbole Canada.ca." />
 
 ## Éléments de pied de page facultatifs
 
