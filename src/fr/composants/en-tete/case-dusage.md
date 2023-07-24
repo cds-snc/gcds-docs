@@ -31,7 +31,7 @@ Pour les applications, formulaires et autres services numériques transactionnel
 <article class="bg-full-width bg-primary text-light pt-500 pb-400 my-500">
   <h2 class="mt-0 mb-400">Composants connexes</h2>
 
-  <a href="{{ links.header }}" class="link-light">Pied de page</a> : lorsque vous cherchez à placer l'image de marque du gouvernement du Canada en pied de page.
+  <a href="{{ links.footer }}" class="link-light">Pied de page</a> : lorsque vous cherchez à placer l'image de marque du gouvernement du Canada en pied de page.
 
   <a href="{{ links.siteMenu }}" class="link-light">Menu de navigation</a> : lorsque vous souhaitez fournir un guide pour la navigation dans une application ou un site à l'aide de points de repère.
 </article>

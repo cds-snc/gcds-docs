@@ -27,7 +27,7 @@
     "header": "/en/components/header",
     "icon": "/en/coming-soon",
     "input": "/en/components/input",
-    "langToggle": "/en/coming-soon",
+    "langToggle": "/en/components/language-toggle/",
     "pagination": "/en/coming-soon",
     "radio": "/en/components/radio",
     "select": "/en/coming-soon",
