@@ -28,9 +28,9 @@ If you’re using some of your own form components:
 - Match the error summary item content to each of your error messages.
 - Order errors in the error summary in the same order that they appear on the form.
 
-### Opt to change the error heading and subheading
+### Opt to change the error heading
 
-Opt to make your error heading and subheading more specific by using the `heading` and `subheading` attributes.
+Opt to make your error heading more specific by using the `heading` attributes.
 
 {% include "partials/getcode.njk" %}
 

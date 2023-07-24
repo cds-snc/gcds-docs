@@ -9,7 +9,6 @@ tags: ['errorsummaryFR', 'design']
 
 <ol class="anatomy-list">
   <li>L'<strong>en-tête</strong> indique qu'il y a un problème. Les deux sont définis par défaut et peuvent être modifiés pour être plus spécifiques.</li>
-  <li>Le <strong>texte incitatif</strong> indique à une personne de corriger les erreurs pour passer à la prochaine étape. Les deux sont définis par défaut et peuvent être modifiés pour être plus spécifiques.</li>
   <li>Le <strong>résumé des erreurs</strong> consiste en un ensemble de messages d'erreur sur la page, énumérés par ordre d'apparition sur le formulaire.</li>
   <li>L'<strong>élément du résumé des erreurs</strong> est lié au contexte d'erreur et comporte le même texte que le message d'erreur (un énoncé d'appel à l'action pour le corriger).</li>
 </ol>
