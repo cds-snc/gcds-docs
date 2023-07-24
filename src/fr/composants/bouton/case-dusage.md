@@ -31,7 +31,6 @@ Utilisez un bouton pour les actions importantes qu'une personne utilisant votre 
 - Se rendre vers d'autres pages ou vers des sites externes à l'aide d'un bouton de type « Lien ».
 
 <article class="bg-full-width bg-primary text-light pt-500 pb-400 my-500">
-
   <h2 class="mt-0 mb-400">Composants connexes</h2>
 
   Bouton bascule : lorsque vous cherchez à offrir un choix entre deux options.

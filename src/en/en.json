@@ -13,7 +13,7 @@
 
     "components": "/en/components",
     "alert": "/en/coming-soon",
-    "breadcrumbs": "/en/coming-soon",
+    "breadcrumbs": "/en/components/breadcrumbs",
     "button": "/en/components/button",
     "checkbox": "/en/components/checkbox",
     "dateModified": "/en/coming-soon",
@@ -31,10 +31,11 @@
     "pagination": "/en/coming-soon",
     "radio": "/en/components/radio",
     "select": "/en/coming-soon",
+    "sideNav": "/en/coming-soon",
     "signature": "/en/coming-soon",
-    "siteMenu": "/en/coming-soon",
     "stepper": "/en/components/stepper",
     "textarea": "/en/components/textarea",
+    "topNav": "/en/coming-soon",
     "verifyBanner": "/en/coming-soon",
 
     "about": "/en/contact/#about-gc-design-system",

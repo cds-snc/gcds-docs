@@ -15,7 +15,7 @@ date: "git Last Modified"
       <img class="mb-400" src="../../images/common/home/icon-design.svg" alt="" />
       <h3 class="mb-400">Design experiences</h3>
       <p class="mb-400">Visit our Figma library to explore design assets.</p>
-      <a class="link-inherit" href="{{ links.figma }}" target="_blank">
+      <a class="link-light" href="{{ links.figma }}" target="_blank">
         Start designing
         <gcds-icon name="external-link" label="Opens in a new tab." margin-left="50" />
       </a>
@@ -24,7 +24,7 @@ date: "git Last Modified"
       <img class="mb-400" src="../../images/common/home/icon-develop.svg" alt="" />
       <h3 class="mb-400">Develop products</h3>
       <p class="mb-400">Install the component package.</p>
-      <a class="link-inherit" href="{{ links.installation }}">Start developing</a>
+      <a class="link-light" href="{{ links.installation }}">Start developing</a>
     </li>
   </gcds-grid>
 </article>

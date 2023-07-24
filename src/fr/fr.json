@@ -13,7 +13,7 @@
 
     "components": "/fr/composants",
     "alert": "/fr/developpement-en-cours",
-    "breadcrumbs": "/fr/developpement-en-cours",
+    "breadcrumbs": "/fr/composants/chemin-de-navigation",
     "button": "/fr/composants/bouton",
     "checkbox": "/fr/composants/case-a-cocher",
     "dateModified": "/fr/developpement-en-cours",
@@ -31,10 +31,11 @@
     "pagination": "/fr/developpement-en-cours",
     "radio": "/fr/composants/bouton-radio",
     "select": "/fr/developpement-en-cours",
+    "sideNav": "/fr/developpement-en-cours",
     "signature": "/fr/developpement-en-cours",
-    "siteMenu": "/fr/developpement-en-cours",
     "stepper": "/fr/composants/indicateur-detape",
     "textarea": "/fr/composants/zone-de-texte",
+    "topNav": "/fr/developpement-en-cours",
     "verifyBanner": "/fr/developpement-en-cours",
 
     "about": "/fr/contactez/#a-propos-de-systeme-de-design-gc",
