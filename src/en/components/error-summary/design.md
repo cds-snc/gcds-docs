@@ -9,7 +9,6 @@ tags: ['errorsummaryEN', 'design']
 
 <ol class="anatomy-list">
   <li>The <strong>heading</strong> communicates that there's a problem. This is set by default and can be edited to be more specific.</li>
-  <li>The <strong>subheading</strong> tells a person to address the errors to move on. This is set by default and can be edited to be more specific.</li>
   <li>The <strong>error summary</strong> is a collection of error messages on the page, listed in order of their appearance on the form.</li>
   <li>The <strong>error summary item</strong> links to the error context and includes the same text as the error message (a call to action statement to address the error).</li>
 </ol>

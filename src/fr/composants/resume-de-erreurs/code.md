@@ -28,9 +28,9 @@ Si vous utilisez certains de vos propres composants de formulaire :
 - Associez le contenu de l'élément du résumé des erreurs à chacun des messages d'erreur.
 - Classez les erreurs du résumé des erreurs dans le même ordre qu'elles apparaissent sur le formulaire.
 
-### Modifier la position des en-têtes et des sous-titres d'erreur
+### Choisir de modifier le contenu de l'entente d'erreur
 
-Rédigez des en-têtes et des sous-titres d'erreur plus précis en utilisant les attributs `heading` et `subheading`.
+Rédigez des en-têtes d'erreur plus précis en utilisant l'attribut `heading`.
 
 {% include "partials/getcode.njk" %}
 
