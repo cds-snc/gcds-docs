@@ -41,6 +41,10 @@ nav.tabs {
       background-color: var(--gcds-color-grayscale-50);
     }
 
+    &:active {
+      color: var(--gcds-focus-text) !important;
+    }
+
     &:focus {
       background-color: var(--gcds-focus-background);
       color: var(--gcds-focus-text);
