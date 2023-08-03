@@ -18,7 +18,7 @@ Une barre de navigation latérale consiste en une liste de liens de navigation s
 <gcds-side-nav label="Aperçu du composant barre de navigation latérale" lang="fr">
   <gcds-nav-link href="#">Top level link 1</gcds-nav-link>
   <gcds-nav-link href="#">Top level link 2</gcds-nav-link>
-  <gcds-nav-group>
+  <gcds-nav-group menu-label="Preview menu" open-trigger="Top level link 3">
     <gcds-nav-link href="#">Sub level link 1</gcds-nav-link>
     <gcds-nav-link href="#">Sub level link 2</gcds-nav-link>
   </gcds-nav-group>

@@ -10,6 +10,7 @@ eleventyNavigation:
   description: A side navigation is a vertical list of page links on the left side of the screen.
   thumbnail: /images/en/components/side-navigation.png
   alt:
+  state: published
 translationKey: "sidenavigation"
 tags: ['sidenavigationEN', 'usage']
 permalink: /en/components/side-navigation/

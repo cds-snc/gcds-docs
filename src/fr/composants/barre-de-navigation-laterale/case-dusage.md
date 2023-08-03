@@ -10,6 +10,7 @@ eleventyNavigation:
   description: This is the barre-de-navigation-laterale
   thumbnail: /images/fr/composants/barre-de-navigation-laterale.png
   alt: This is an image of the component
+  state: published
 translationKey: "sidenavigation"
 tags: ['sidenavigationFR', 'usage']
 permalink: /fr/composants/barre-de-navigation-laterale/
