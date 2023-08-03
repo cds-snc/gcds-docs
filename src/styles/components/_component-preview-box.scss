@@ -5,6 +5,10 @@
 
   &:hover {
     border-color: var(--gcds-border-default);
+
+    .text-secondary {
+      color: inherit;
+    }
   }
 
   &:focus {
