@@ -37,6 +37,3 @@ La barre de navigation supérieure permet aux visiteur·se·s d'avoir une idée 
 
   <a href="{{ links.breadcrumbs }}" class="link-light">Chemin de navigation</a> : pour une voie entre chaque niveau de la hiérarchie du site et la page actuelle.
 </article>
-
-
-
