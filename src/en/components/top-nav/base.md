@@ -14,4 +14,15 @@ A top navigation is a horizontal list of page links.
 {% docLinks locale stage figma github %}
 {% enddocLinks %}
 
-<br/>
+{% componentPreview "Top navigation component preview" %}
+<gcds-top-nav label="topbar" alignment="right" lang="en">
+  <gcds-nav-link href="#red" slot="home">Home</gcds-nav-link>
+  <gcds-nav-link href="#red">Installation</gcds-nav-link>
+  <gcds-nav-link href="#red">Foundations</gcds-nav-link>
+  <gcds-nav-link href="#red" current >Components</gcds-nav-link>
+  <gcds-nav-group menu-label="Contact us submenu"  open-trigger="Contact us">
+    <gcds-nav-link href="#red">GitHub</gcds-nav-link>
+    <gcds-nav-link href="#red">Slack</gcds-nav-link>
+  </gcds-nav-group>
+</gcds-top-nav>
+{% endcomponentPreview %}

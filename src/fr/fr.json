@@ -35,7 +35,7 @@
     "signature": "/fr/developpement-en-cours",
     "stepper": "/fr/composants/indicateur-detape",
     "textarea": "/fr/composants/zone-de-texte",
-    "topNav": "/fr/developpement-en-cours",
+    "topNav": "/fr/composants/barre-de-navigation-superieure",
     "verifyBanner": "/fr/developpement-en-cours",
 
     "about": "/fr/contactez/#a-propos-de-systeme-de-design-gc",
