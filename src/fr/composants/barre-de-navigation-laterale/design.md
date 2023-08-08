@@ -9,16 +9,15 @@ date: "git Last Modified"
 ## Side navigation anatomy
 
 <ol class="anatomy-list">
-  <li>Le <strong>nom du site</strong> identifie le site du produit à l’aide d’un élément texte ou d’un logo.</li>
-  <li>Le <strong>lien d’accueil</strong> sert à naviguer vers la page d’accueil.</li>
-  <li>L’<strong>icône de chevron</strong> pointe vers le haut lorsque la liste est réduite et vers le bas lorsqu’elle est développée.</li>
-  <li>Le <strong>nom du groupe de navigation</strong> identifie le groupe de navigation et agit à titre de bouton pour développer et réduire le groupe de navigation en question.</li>
-  <li>L’<strong>indicateur de page active</strong> met en évidence la page actuelle.</li>
-  <li>Le <strong>groupe de navigation</strong> est une collection de liens de navigation liés au nom du groupe de navigation. Il peut être développé et réduit.</li>
+  <li>Le <strong>libellé</strong> identifie le site du produit à l’aide d’un élément texte ou d’un logo. Il indique également le point de repère de navigation qui sera utilisé par les technologies d'assistance.</li>
   <li>Le <strong>lien de navigation</strong> est un lien qui mène vers une page ou une section du site de produit.</li>
+  <li>Le <strong>groupe de navigation</strong> est une collection de liens de navigation liés au nom du groupe de navigation. Il peut être développé et réduit.</li>
+  <li>Le <strong>libellé du groupe de navigation</strong> identifie le groupe de navigation et agit à titre de bouton pour développer et réduire le groupe de navigation en question.</li>
+  <li>L’<strong>icône de chevron du groupe de navigation</strong> pointe vers le haut lorsque la liste est réduite et vers le bas lorsqu’elle est développée.</li>
+  <li>Le <strong>lien de navigation avec indicateur de page active</strong> met en évidence la page actuelle.</li>
 </ol>
 
-<img class="b-sm b-default p-400" src="/images/en/components/anatomy/gcds-side-nav-anatomy.svg" alt="L'anatomie du composant barre de navigation latérale identifiant le nom du site, le lien d'accueil, l’icône de chevron, le nom du groupe de navigation, l’indicateur de page active, le groupe de navigation, et le lien de navigation."/>
+<img class="b-sm b-default p-400" src="/images/fr/components/anatomy/gcds-side-nav-anatomy.svg" alt="L'anatomie du composant barre de navigation latérale identifiant le libellé, le lien de navigation, le groupe de navigation, le libellé du groupe de navigation, l'icône de chevron du groupe de navigation, le lien de navigation avec indicateur de page active."/>
 
 ## Design et accessibilité de la barre de navigation latérale
 

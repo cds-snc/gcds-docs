@@ -16,11 +16,11 @@ A side navigation is a vertical list of page links on the left side of the scree
 
 {% componentPreview "Side navigation component preview" "pt-400 pb-200" %}
 <gcds-side-nav label="Side navigation component preview">
-  <gcds-nav-link href="#">Top level link 1</gcds-nav-link>
-  <gcds-nav-link href="#">Top level link 2</gcds-nav-link>
-  <gcds-nav-group menu-label="Preview menu" open-trigger="Top level link 3">
-    <gcds-nav-link href="#">Sub level link 1</gcds-nav-link>
-    <gcds-nav-link href="#">Sub level link 2</gcds-nav-link>
+  <gcds-nav-link href="#">Nav link 1</gcds-nav-link>
+  <gcds-nav-link href="#">Nav link 2</gcds-nav-link>
+  <gcds-nav-group menu-label="nav-group" open-trigger="Nav group">
+    <gcds-nav-link href="#">Nav link 3</gcds-nav-link>
+    <gcds-nav-link href="#">Nav link 4</gcds-nav-link>
   </gcds-nav-group>
 </gcds-side-nav>
 {% endcomponentPreview %}

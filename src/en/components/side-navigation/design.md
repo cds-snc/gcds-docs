@@ -9,16 +9,15 @@ date: "git Last Modified"
 ## Side navigation anatomy
 
 <ol class="anatomy-list">
-  <li>The <strong>site name</strong> identifies the product site using text or a logo.</li>
-  <li>The <strong>home link</strong> navigates the user to the home page.</li>
-  <li>The <strong>chevron icon</strong> points up when the list is collapsed and down when it’s expanded.</li>
-  <li>The <strong>nav group name</strong> identifies the nav group and acts as a button to expand and collapse the nav group.</li>
-  <li>The <strong>active indicator</strong> gives visual prominence to the current page.</li>
-  <li>The <strong>nav group</strong> is a collection of nav links related to the nav group name. It can be collapsed and expanded.</li>
+  <li>The <strong>label</strong> identifies the product site using text or a logo. It also labels the navigation landmark which will be used by assistive technologies. </li>
   <li>The <strong>nav link</strong> is a link to a page or section on the product site.</li>
+  <li>The <strong>nav group</strong> is a collection of nav links related to the nav group name. It can be collapsed and expanded.</li>
+  <li>The <strong>nav group label</strong> identifies the nav group and acts as a button to expand and collapse the nav group.</li>
+  <li>The <strong>nav group chevron icon</strong> points up when the nav group is collapsed and down when it’s expanded.</li>
+  <li>The <strong>nav link with active indicator</strong> gives visual prominence to the current page.</li>
 </ol>
 
-<img class="b-sm b-default p-400" src="/images/en/components/anatomy/gcds-side-nav-anatomy.svg" alt="Side navigation anatomy showing the labels Site name, Home link, Chevron icon, Nav group name, Active indicator, Nav group, and Nav link."/>
+<img class="b-sm b-default p-400" src="/images/en/components/anatomy/gcds-side-nav-anatomy.svg" alt="Side navigation anatomy showing the labels the label, the nav link, the nav group, the nav group label, the nav group chevron icon, the nav link with active indicator."/>
 
 ## Design and accessibility for side navigation
 
