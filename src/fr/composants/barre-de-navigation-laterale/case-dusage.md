@@ -8,8 +8,8 @@ eleventyNavigation:
   parent: componentsFR
   otherNames: Component
   description: This is the barre-de-navigation-laterale
-  thumbnail: /images/fr/composants/barre-de-navigation-laterale.png
-  alt: This is an image of the component
+  thumbnail: /images/common/components/preview-side-nav.svg
+  alt: Barre de navigation latérale montre une navigation verticale du site avec des cases grises les unes au-dessus des autres, l'avant-dernière surlignée en bleu pour montrer la sélection.
   state: published
 translationKey: "sidenavigation"
 tags: ['sidenavigationFR', 'usage']

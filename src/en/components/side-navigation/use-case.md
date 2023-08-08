@@ -8,8 +8,8 @@ eleventyNavigation:
   parent: componentsEN
   otherNames: sidebar menu, lefhand nav, vertical navigation
   description: A side navigation is a vertical list of page links on the left side of the screen.
-  thumbnail: /images/en/components/side-navigation.png
-  alt:
+  thumbnail: /images/common/components/preview-side-nav.svg
+  alt: Side navigation shows a vertical site navigation with grey boxes on top of eachother, the second last highlighted in blue to show selection.
   state: published
 translationKey: "sidenavigation"
 tags: ['sidenavigationEN', 'usage']
