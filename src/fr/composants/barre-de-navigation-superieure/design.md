@@ -22,12 +22,12 @@ vers le bas lorsqu'il est développé.</li>
 
 ## Design et accessibilité de la barre de navigation supérieure
 
-### Définir le nom du site
+### Définir le lien d'accueil
 
 - Vous pouvez utiliser une forme raccourcie du nom complet.
 - Pour les logos, ajoutez du texte descriptif.
 
-Remarque : Sur les appareils mobiles, le nom du site n'est pas un hyperlien vers la page d'accueil.
+Remarque : Sur les appareils mobiles, le lien d'accueil n'est pas un hyperlien vers la page d'accueil.
 
 ### Choisissez du texte pertinent pour les liens de navigation
 
