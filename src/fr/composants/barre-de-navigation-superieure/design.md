@@ -1,8 +1,8 @@
 ---
 title: Barre de navigation supérieure
 layout: "layouts/component-documentation.njk"
-translationKey: "topnavDesign"
-tags: ['topnavFR', 'design']
+translationKey: "topnavigationDesign"
+tags: ['topnavigationFR', 'design']
 date: "git Last Modified"
 ---
 

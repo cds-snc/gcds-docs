@@ -1,8 +1,8 @@
 ---
 title: Top navigation
 layout: "layouts/component-documentation.njk"
-translationKey: "topnavDesign"
-tags: ['topnavEN', 'design']
+translationKey: "topnavigationDesign"
+tags: ['topnavigationEN', 'design']
 date: "git Last Modified"
 ---
 

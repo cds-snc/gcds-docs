@@ -2,7 +2,7 @@
 title: Top navigation
 layout: "layouts/component-documentation.njk"
 eleventyNavigation:
-  key: topnavEN
+  key: topnavigationEN
   title: Top navigation
   locale: en
   parent: componentsEN
@@ -11,9 +11,9 @@ eleventyNavigation:
   thumbnail: /images/common/components/preview-top-nav.svg
   alt: Top navigation shows site navigation with a dark blue box followed by two greyed boxes, the last having a dark blue line underneath to show selection.
   state: published
-translationKey: "topnav"
-tags: ['topnavEN', 'usage']
-permalink: /en/components/top-nav/
+translationKey: "topnavigation"
+tags: ['topnavigationEN', 'usage']
+permalink: /en/components/top-navigation/
 date: "git Last Modified"
 ---
 
@@ -37,4 +37,3 @@ The top navigation helps give visitors a sense of a site's structure, purpose, a
 
   <a href="{{ links.breadcrumbs }}" class="link-light">Breadcrumbs</a> for a path from each level of the site's hierarchy to the current page.
 </article>
-

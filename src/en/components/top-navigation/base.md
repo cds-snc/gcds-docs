@@ -2,7 +2,7 @@
 github: https://github.com/cds-snc/gcds-components/tree/main/packages/web/src/components/gcds-top-nav
 figma: https://www.figma.com/file/mh2maMG2NBtk41k1O1UGHV/Canadian-Digital-Service%E2%80%A8---GC-Design-System?type=design&node-id=4738-10759&mode=design&t=PaKRkbpFLPNx99bv-0
 permalink: false
-tags: ['topnavEN', 'header']
+tags: ['topnavigationEN', 'header']
 ---
 
 # Top navigation <br>`<gcds-top-nav>`
