@@ -21,12 +21,12 @@ date: "git Last Modified"
 
 ## Design and accessibility for side navigation
 
-### Set the site name
+### Set the label
 
-- The site name can be a shorter version of the full name.
+- The label can be a shorter version of the full name.
 - For logos, include descriptive text.
 
-Note: On mobile, the site name does not link to the homepage.
+Note: On mobile, the label does not link to the homepage.
 
 ### Choose meaningful nav link text
 

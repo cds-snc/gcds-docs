@@ -3,7 +3,7 @@ title: Barre de navigation latérale
 layout: "layouts/component-documentation.njk"
 eleventyNavigation:
   key: sidenavigationFR
-  title: barre-de-navigation-laterale
+  title: Barre de navigation latérale
   locale: fr
   parent: componentsFR
   otherNames: Component
