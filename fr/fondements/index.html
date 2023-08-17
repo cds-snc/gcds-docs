@@ -1,0 +1,901 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+  <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5TBZBZVVK8"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-5TBZBZVVK8');
+    </script>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Fondements - Système de design GC</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Utility framework -->
+    <link rel="stylesheet" href="/gcds-docs/gcds-utility.min.css" />
+
+    <link rel="stylesheet" href="/gcds-docs/styles/prism.css">
+    <link rel="stylesheet" href="/gcds-docs/styles/style.css">
+    <script src="/gcds-docs/scripts/code-showcase.js"></script>
+    <link rel="icon" type="image/x-icon" sizes="96x96" href="/gcds-docs/favicon.ico">
+
+    
+    <script src="https://kit.fontawesome.com/892cb27850.js" crossorigin="anonymous"></script>
+
+    <!-- GC Design System  Components-->
+    <link rel="stylesheet" href="/gcds-docs/components/dist/gcds/gcds.css">
+    <script type="module" src="/components/dist/gcds/gcds.esm.js"></script>
+    <script nomodule src="/components/dist/gcds/gcds.js"></script>
+  </head>
+  <body>
+    
+
+
+  
+  
+    
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+
+        
+
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+  
+
+  
+  
+
+
+<gcds-header
+  lang="fr"
+  skip-to-href="#mc"
+  lang-href='/en/foundations/'
+>
+  
+
+
+
+<gcds-top-nav slot="menu" label="Principal" alignment="right">
+  <gcds-nav-link slot="home" href="/gcds-docs/fr" class="home-link link-inherit link-no-underline" slot="left">Système de design GC</gcds-nav-link>
+  
+    <gcds-nav-link
+      href="/gcds-docs/fr/installation/"
+      
+    >
+      Installation
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/gcds-docs/fr/fondements/"
+      current
+    >
+      Fondements
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/gcds-docs/fr/composants/"
+      
+    >
+      Composants
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/gcds-docs/fr/contactez/"
+      
+    >
+      Nous joindre
+    </gcds-nav-link>
+  
+</gcds-top-nav>
+  
+
+  
+
+  
+
+  <gcds-breadcrumbs lang="fr" slot="breadcrumb">
+    <gcds-breadcrumbs-item href=/gcds-docs/fr>
+      Accueil
+    </gcds-breadcrumbs-item>
+    
+  </gcds-breadcrumbs>
+
+</gcds-header>
+
+    <div class="content-wrapper">
+      <main id="mc" class="container-xl mx-auto xl:px-0 sm:px-500 px-300 general-layout">
+        
+<h1 id="fondements" class="mb-400">Fondements</h1>
+<p class="mb-400">Les unités de style sont à la base de Système de design GC.</p>
+<p class="mb-400">Nos unités de style permettent de représenter des choix de design et d'image de marque de base comme les couleurs, la typographie et l'espacement sous forme de code.</p>
+<h2 id="les-unites-de-style-soutiennent-luniformite-et-la-communication" class="mt-500 mb-400">Les unités de style soutiennent l'uniformité et la communication</h2>
+<p class="mb-400">Nous utilisons les unités de style pour :</p>
+<ul class="list-disc mb-400"><li><p class="mb-400"><strong>Créer une expérience visuelle uniforme</strong> en reproduisant des choix de design et d'image de marque à l'échelle des composants;</li>
+<li><p class="mb-400"><strong>Communiquer le sens des éléments de façon uniforme</strong> afin d'établir une expérience prévisible et digne de confiance pour les gens qui utilisent votre service;</li>
+<li><p class="mb-400"><strong>Améliorer la communication entre les équipes de design et de développement</strong> en définissant chaque choix stylistique à l'aide d'un nom et d'une représentation visuelle.</li>
+</ul>
+<gcds-button type="link" button-role="secondary" href="/fr/fondements/unites-de-style">
+  En apprendre plus sur les unités de style
+</gcds-button>
+
+
+
+
+
+  
+
+
+<div class="bg-light my-500 p-400">
+  <gcds-grid tag="ul" columns="1fr" columns-tablet="1fr 1fr" columns-desktop="1fr 1fr 1fr" gap="400">
+    
+    
+      <li class="list-none bg-white  component-preview-box">
+        
+        <a class="d-flex flex-col link-inherit link-no-underline p-400" href=/fr/fondements/couleur/>
+        
+          <h3>Couleur</h3>
+          <div class="flex-1 mt-150 pt-250 bt-sm">
+            
+            <p class="mb-150">Les unités de style de couleur comprennent les valeurs nécessaires pour les composants de style.</p>
+            <img src="/images/en/foundations/preview/preview-colour.svg" alt="" />
+          </div>
+          
+        
+        </a>
+        
+      </li>
+    
+    
+      <li class="list-none bg-white  component-preview-box">
+        
+        <a class="d-flex flex-col link-inherit link-no-underline p-400" href=/fr/bases/espacement/>
+        
+          <h3>Espacement</h3>
+          <div class="flex-1 mt-150 pt-250 bt-sm">
+            
+            <p class="mb-150">Les unités de style d&#39;espacement aident à disposer les éléments à l&#39;écran et dans les composants.</p>
+            <img src="/images/en/foundations/preview/preview-spacing.svg" alt="" />
+          </div>
+          
+        
+        </a>
+        
+      </li>
+    
+    
+      <li class="list-none bg-white  component-preview-box">
+        
+        <a class="d-flex flex-col link-inherit link-no-underline p-400" href=/fr/bases/typographie/>
+        
+          <h3>Typographie</h3>
+          <div class="flex-1 mt-150 pt-250 bt-sm">
+            
+            <p class="mb-150">Les unités de style typographiques comprennent le style, la disposition et l&#39;apparence des lettres, chiffres et symboles.</p>
+            <img src="/images/fr/foundations/preview/preview-typography.svg" alt="" />
+          </div>
+          
+        
+        </a>
+        
+      </li>
+    </gcds-grid>
+</div>
+
+<section class="pt-100 mt-400 mb-600 bt-sm b-dark ">
+  <h2 class="mt-300 mb-400">
+    Aidez-nous à nous améliorer
+  </h2>
+
+  <p class="mb-400">
+    Avez-vous des questions? Y a-t-il quelque chose que vous changeriez ou ajouteriez? Faites-nous part de vos commentaires pour nous aider à améliorer Système de design GC.
+  </p>
+
+  <gcds-button
+    type="link"
+    button-role="secondary"
+    href="/fr/contactez/#contactez-nous"
+  >
+    Fournir des commentaires
+  </gcds-button>
+</section>
+
+
+
+        <gcds-date-modified class="mb-400 font-caption">
+          2023-08-17
+        </gcds-date-modified>
+      </main>
+
+      <gcds-footer
+        display="compact"
+        lang="fr"
+      ></gcds-footer>
+
+      
+    </div>
+
+    <script>function showTooltip(o,e){o.trigger.className.includes("tooltipped")||(o.trigger.children[0].className="tooltipped tooltipped-s",o.trigger.children[0].ariaLabel=e)}window.addEventListener("load",()=>{var o=new ClipboardJS(".code-copy");o.on("success",o=>showTooltip(o,"Copied!")),o.on("error",o=>showTooltip(o,"Failed..."))});</script>
+<script async src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script>
+  </body>
+</html>

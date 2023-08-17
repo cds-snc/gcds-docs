@@ -1,0 +1,918 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5TBZBZVVK8"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-5TBZBZVVK8');
+    </script>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Error summary - GC Design System</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Utility framework -->
+    <link rel="stylesheet" href="/gcds-docs/gcds-utility.min.css" />
+
+    <link rel="stylesheet" href="/gcds-docs/styles/prism.css">
+    <link rel="stylesheet" href="/gcds-docs/styles/style.css">
+    <script src="/gcds-docs/scripts/code-showcase.js"></script>
+    <link rel="icon" type="image/x-icon" sizes="96x96" href="/gcds-docs/favicon.ico">
+
+    
+    <script src="https://kit.fontawesome.com/892cb27850.js" crossorigin="anonymous"></script>
+
+    <!-- GC Design System  Components-->
+    <link rel="stylesheet" href="/gcds-docs/components/dist/gcds/gcds.css">
+    <script type="module" src="/components/dist/gcds/gcds.esm.js"></script>
+    <script nomodule src="/components/dist/gcds/gcds.js"></script>
+  </head>
+  <body>
+    
+
+
+  
+  
+
+  
+  
+    
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+
+        
+
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+  
+
+
+<gcds-header
+  lang="en"
+  skip-to-href="#mc"
+  lang-href='/fr/composants/resume-de-erreurs/design/'
+>
+  
+
+
+
+<gcds-top-nav slot="menu" label="Main" alignment="right">
+  <gcds-nav-link slot="home" href="/gcds-docs/en" class="home-link link-inherit link-no-underline" slot="left">GC Design system</gcds-nav-link>
+  
+    <gcds-nav-link
+      href="/gcds-docs/en/installation/"
+      
+    >
+      Installation
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/gcds-docs/en/foundations/"
+      
+    >
+      Foundations
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/gcds-docs/en/components/"
+      
+    >
+      Components
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/gcds-docs/en/contact/"
+      
+    >
+      Contact us
+    </gcds-nav-link>
+  
+</gcds-top-nav>
+  
+
+  
+
+  
+
+  <gcds-breadcrumbs lang="en" slot="breadcrumb">
+    <gcds-breadcrumbs-item href=/gcds-docs/en>
+      Home
+    </gcds-breadcrumbs-item>
+    
+      
+        <gcds-breadcrumbs-item href=/gcds-docs/en/components/>
+          Components
+        </gcds-breadcrumbs-item>
+      
+    
+  </gcds-breadcrumbs>
+
+</gcds-header>
+
+    <div class="content-wrapper">
+      <main id="mc" class="container-xl mx-auto xl:px-0 sm:px-500 px-300 general-layout">
+        
+  
+    <h1 id="error-summary-brgcdserrorsummary" class="mb-400">Error summary <br><code>&lt;gcds-error-summary&gt;</code></h1>
+<p class="mb-400"><em>Also called: error list.</em></p>
+<p class="mb-400">An error summary is a list of user errors in a form.</p>
+<p class="mb-400"><ul class="d-flex flex-wrap gap-400">
+<li class="github-link">
+<a href="https://github.com/cds-snc/gcds-components/tree/main/packages/web/src/components/gcds-error-summary" target="_blank" rel="nofollow" aria-label="GitHub (Opens in a new tab)">GitHub<gcds-icon name="external-link" margin-left="100" /></a>
+</li>
+<li class="figma-link">
+<a href="https://www.figma.com/file/mh2maMG2NBtk41k1O1UGHV/Canadian-Digital-Service%E2%80%A8---GC-Design-System?node-id=953%3A2237&t=CNFu5vZBMMrGho6u-0" target="_blank" rel="nofollow" aria-label="Figma (Opens in a new tab)">Figma<gcds-icon name="external-link" margin-left="100" /></a>
+</li>
+</ul></p>
+<p class="mb-400"><div class="my-500 b-sm b-default component-preview">
+<p class="container-full font-semibold px-300 py-200 bb-sm b-default bg-light">
+Error summary component preview
+</p>
+<div class="px-300 py-400"></p>
+<p class="mb-400"><gcds-error-summary
+  error-links='{
+    "error-href-1": "Error summary item.",
+    "error-href-2": "Error summary item.",
+    "error-href-3": "Error summary item."
+  }'
+>
+</gcds-error-summary></p>
+<p class="mb-400"></div>
+</div></p>
+
+    <nav class="tabs mb-400" aria-label="Error summary">
+      <ul>
+        
+          
+        
+          
+            <li class="tab">
+              <a href=/en/components/error-summary/ >
+                Use case
+              </a>
+            </li>
+          
+        
+          
+            <li class="tab">
+              <a href=/en/components/error-summary/design/ aria-current=page>
+                Design
+              </a>
+            </li>
+          
+        
+          
+            <li class="tab">
+              <a href=/en/components/error-summary/code/ >
+                Code
+              </a>
+            </li>
+          
+        
+          
+        
+          
+        
+      </ul>
+    </nav>
+  
+
+  <h2 id="error-summary-anatomy" class="mt-500 mb-400">Error summary anatomy</h2>
+<ol class="anatomy-list">
+  <li>The <strong>heading</strong> communicates that there's a problem. This is set by default and can be edited to be more specific.</li>
+  <li>The <strong>error summary</strong> is a collection of error messages on the page, listed in order of their appearance on the form.</li>
+  <li>The <strong>error summary item</strong> links to the error context and includes the same text as the error message (a call to action statement to address the error).</li>
+</ol>
+<img class="b-sm b-default p-400" src="/images/en/components/anatomy/gcds-error-summary-anatomy.svg" alt="Button anatomy showing the Button label branching to the container and arrow icon." />
+<h2 id="design-and-accessibility-for-error-summaries" class="mt-500 mb-400">Design and accessibility for error summaries</h2>
+<h3 id="create-usable-error-summaries" class="mt-500 mb-400">Create usable error summaries</h3>
+<p class="mb-400">Keep in mind that errors interrupt the flow of a person's action in your product. This can be jarring and uncomfortable.</p>
+<ul class="list-disc mb-400"><li><p class="mb-400">Provide a clear path to fixing the error. Errors elicit an emotional response that is heightened when the problem is difficult or impossible to resolve.</li>
+<li><p class="mb-400">Make the  <a href="/en/components/error-message">error message</a> and recovery obvious to get a person back on task and regain momentum.</li>
+<li><p class="mb-400">Keep the error summary list readable with short and specific error messages.</li>
+<li><p class="mb-400">Limit the number of form components on a page that require a response.</li>
+</ul>
+<h3 id="use-the-error-summary-with-your-own-component-instances" class="mt-500 mb-400">Use the error summary with your own component instances</h3>
+<ul class="list-disc mb-400"><li><p class="mb-400">Add error messages for your own (non-GC Design System) component instances in your forms.</li>
+<li><p class="mb-400">Match the error summary item content to each of your error messages.</li>
+<li><p class="mb-400">Order errors in the error summary in the same order that they appear on the form.</li>
+</ul>
+
+
+  <section class="pt-100 mt-400 mb-600 bt-sm b-dark ">
+  <h2 class="mt-300 mb-400">
+    Help us improve
+  </h2>
+
+  <p class="mb-400">
+    Have questions? Something you&#39;d change or you&#39;d like to see? Share your feedback with us to help improve GC Design System.
+  </p>
+
+  <gcds-button
+    type="link"
+    button-role="secondary"
+    href="/en/contact/#contact-us"
+  >
+    Give feedback
+  </gcds-button>
+</section>
+
+
+
+        <gcds-date-modified class="mb-400 font-caption">
+          2023-08-17
+        </gcds-date-modified>
+      </main>
+
+      <gcds-footer
+        display="compact"
+        lang="en"
+      ></gcds-footer>
+
+      
+    </div>
+
+    <script>function showTooltip(o,e){o.trigger.className.includes("tooltipped")||(o.trigger.children[0].className="tooltipped tooltipped-s",o.trigger.children[0].ariaLabel=e)}window.addEventListener("load",()=>{var o=new ClipboardJS(".code-copy");o.on("success",o=>showTooltip(o,"Copied!")),o.on("error",o=>showTooltip(o,"Failed..."))});</script>
+<script async src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script>
+  </body>
+</html>

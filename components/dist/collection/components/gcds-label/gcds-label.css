@@ -1,0 +1,1 @@
+:host .gcds-label{color:inherit;display:block;font:var(--gcds-label-font);margin:var(--gcds-label-margin);max-width:100%}:host .gcds-label.label--hidden{height:0;margin:0;opacity:0;overflow:hidden;width:0}:host .gcds-label .label--required{margin:var(--gcds-label-required-margin)}gcds-checkbox :host label,gcds-radio :host label{cursor:pointer}

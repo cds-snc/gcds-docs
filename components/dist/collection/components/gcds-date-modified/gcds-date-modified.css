@@ -1,0 +1,1 @@
+:host{color:var(--gcds-date-modified-text);display:block;font:var(--gcds-date-modified-font);margin:var(--gcds-date-modified-margin)}:host .gcds-date-modified dd,:host .gcds-date-modified dt{display:inline}:host .gcds-date-modified dd{margin:var(--gcds-date-modified-description-margin)}

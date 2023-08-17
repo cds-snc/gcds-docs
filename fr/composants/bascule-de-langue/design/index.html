@@ -1,0 +1,905 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+  <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5TBZBZVVK8"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-5TBZBZVVK8');
+    </script>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Bascule de langue - Système de design GC</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Utility framework -->
+    <link rel="stylesheet" href="/gcds-docs/gcds-utility.min.css" />
+
+    <link rel="stylesheet" href="/gcds-docs/styles/prism.css">
+    <link rel="stylesheet" href="/gcds-docs/styles/style.css">
+    <script src="/gcds-docs/scripts/code-showcase.js"></script>
+    <link rel="icon" type="image/x-icon" sizes="96x96" href="/gcds-docs/favicon.ico">
+
+    
+    <script src="https://kit.fontawesome.com/892cb27850.js" crossorigin="anonymous"></script>
+
+    <!-- GC Design System  Components-->
+    <link rel="stylesheet" href="/gcds-docs/components/dist/gcds/gcds.css">
+    <script type="module" src="/components/dist/gcds/gcds.esm.js"></script>
+    <script nomodule src="/components/dist/gcds/gcds.js"></script>
+  </head>
+  <body>
+    
+
+
+  
+  
+    
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+
+        
+
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+  
+
+  
+  
+
+
+<gcds-header
+  lang="fr"
+  skip-to-href="#mc"
+  lang-href='/en/components/language-toggle/design/'
+>
+  
+
+
+
+<gcds-top-nav slot="menu" label="Principal" alignment="right">
+  <gcds-nav-link slot="home" href="/gcds-docs/fr" class="home-link link-inherit link-no-underline" slot="left">Système de design GC</gcds-nav-link>
+  
+    <gcds-nav-link
+      href="/gcds-docs/fr/installation/"
+      
+    >
+      Installation
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/gcds-docs/fr/fondements/"
+      
+    >
+      Fondements
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/gcds-docs/fr/composants/"
+      
+    >
+      Composants
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/gcds-docs/fr/contactez/"
+      
+    >
+      Nous joindre
+    </gcds-nav-link>
+  
+</gcds-top-nav>
+  
+
+  
+
+  
+
+  <gcds-breadcrumbs lang="fr" slot="breadcrumb">
+    <gcds-breadcrumbs-item href=/gcds-docs/fr>
+      Accueil
+    </gcds-breadcrumbs-item>
+    
+      
+        <gcds-breadcrumbs-item href=/gcds-docs/fr/composants/>
+          Composants
+        </gcds-breadcrumbs-item>
+      
+    
+  </gcds-breadcrumbs>
+
+</gcds-header>
+
+    <div class="content-wrapper">
+      <main id="mc" class="container-xl mx-auto xl:px-0 sm:px-500 px-300 general-layout">
+        
+  
+    <h1 id="bascule-de-langue-brgcdslangtoggle" class="mb-400">Bascule de langue <br><code>&lt;gcds-lang-toggle&gt;</code></h1>
+<p class="mb-400"><em>Autres noms : commutateur de langue, sélecteur de langue.</em></p>
+<p class="mb-400">La bascule de langue est un lien menant vers le même contenu dans l’autre langue officielle.</p>
+<p class="mb-400"><ul class="d-flex flex-wrap gap-400">
+<li class="github-link">
+<a href="https://github.com/cds-snc/gcds-components/tree/main/packages/web/src/components/gcds-lang-toggle" target="_blank" rel="nofollow" aria-label="GitHub (S'ouvre dans un nouvel onglet)">GitHub<gcds-icon name="external-link" margin-left="100" /></a>
+</li>
+<li class="figma-link">
+<a href="https://www.figma.com/file/mh2maMG2NBtk41k1O1UGHV/Canadian-Digital-Service%E2%80%A8---GC-Design-System?node-id=1792%3A4992&t=ciEmm7GYyGAY73zZ-0" target="_blank" rel="nofollow" aria-label="Figma (S'ouvre dans un nouvel onglet)">Figma<gcds-icon name="external-link" margin-left="100" /></a>
+</li>
+</ul></p>
+<p class="mb-400"><div class="my-500 b-sm b-default component-preview">
+<p class="container-full font-semibold px-300 py-200 bb-sm b-default bg-light">
+Aperçu du de bascule de langue
+</p>
+<div class="px-300 py-400"></p>
+<p class="mb-400"><gcds-lang-toggle
+  href="#"
+  lang="fr"
+></gcds-lang-toggle></p>
+<p class="mb-400"></div>
+</div></p>
+
+    <nav class="tabs mb-400" aria-label="Bascule de langue">
+      <ul>
+        
+          
+        
+          
+            <li class="tab">
+              <a href=/fr/composants/bascule-de-langue/ >
+                Cas d&#39;utilisation
+              </a>
+            </li>
+          
+        
+          
+            <li class="tab">
+              <a href=/fr/composants/bascule-de-langue/design/ aria-current=page>
+                Design
+              </a>
+            </li>
+          
+        
+          
+            <li class="tab">
+              <a href=/fr/composants/bascule-de-langue/code/ >
+                Code
+              </a>
+            </li>
+          
+        
+          
+        
+          
+        
+      </ul>
+    </nav>
+  
+
+  <h2 id="structure-de-la-bascule-de-langue" class="mt-500 mb-400">Structure de la bascule de langue</h2>
+<p class="mb-400">La bascule de langue est un lien menant vers la même page dans l’autre langue officielle.</p>
+<ol class="anatomy-list">
+  <li>La <strong>bascule de langue</strong> est présenté en entier sur de grands écrans.</li>
+  <li>La <strong>bascule de langue</strong> est abrégé sur les petits écrans</li>
+</ol>
+<img class="b-sm b-default p-400" src="/images/fr/components/anatomy/gcds-lang-toggle-anatomy.svg" alt="Sur les grands écrans, un lien « English ». Sur les plus petits écrans, un lien abrégé « EN »."/>
+<h2 id="design-et-accessibilite-de-la-bascule-de-langue" class="mt-500 mb-400">Design et accessibilité de la bascule de langue</h2>
+<ul class="list-disc mb-400"><li><p class="mb-400">Placez la bascule de langue en haut à droite de l’en-tête. Cet emplacement prévisible la rendra plus facile à trouver.</li>
+<li><p class="mb-400">Dans le lien correspondant à la bascule de langue, incluez le lien de la page actuelle dans l’autre langue officielle.</li>
+</ul>
+
+
+  <section class="pt-100 mt-400 mb-600 bt-sm b-dark ">
+  <h2 class="mt-300 mb-400">
+    Aidez-nous à nous améliorer
+  </h2>
+
+  <p class="mb-400">
+    Avez-vous des questions? Y a-t-il quelque chose que vous changeriez ou ajouteriez? Faites-nous part de vos commentaires pour nous aider à améliorer Système de design GC.
+  </p>
+
+  <gcds-button
+    type="link"
+    button-role="secondary"
+    href="/fr/contactez/#contactez-nous"
+  >
+    Fournir des commentaires
+  </gcds-button>
+</section>
+
+
+
+        <gcds-date-modified class="mb-400 font-caption">
+          2023-08-17
+        </gcds-date-modified>
+      </main>
+
+      <gcds-footer
+        display="compact"
+        lang="fr"
+      ></gcds-footer>
+
+      
+    </div>
+
+    <script>function showTooltip(o,e){o.trigger.className.includes("tooltipped")||(o.trigger.children[0].className="tooltipped tooltipped-s",o.trigger.children[0].ariaLabel=e)}window.addEventListener("load",()=>{var o=new ClipboardJS(".code-copy");o.on("success",o=>showTooltip(o,"Copied!")),o.on("error",o=>showTooltip(o,"Failed..."))});</script>
+<script async src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script>
+  </body>
+</html>
