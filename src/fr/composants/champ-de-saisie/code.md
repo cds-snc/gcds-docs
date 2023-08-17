@@ -24,12 +24,14 @@ Utilisez un champ de saisie pour obtenir une réponse courte d'une ligne.
 
 {% include "partials/getcode.njk" %}
 
-<iframe
-  title="Survol des propriétés et des évènements relatifs à gcds-input."
-  src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&singleStory=true&id=components-input--events-properties"
-  width="1200"
-  height="1985"
-  style="display: block; margin: 0 auto;"
-  frameBorder="0"
-  allow="clipboard-write"
-></iframe>
+<div class="iframe-container">
+  <iframe
+    title="Survol des propriétés et des évènements relatifs à gcds-input."
+    src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&singleStory=true&id=components-input--events-properties"
+    width="1200"
+    height="1900"
+    style="display: block; margin: 0 auto;"
+    frameBorder="0"
+    allow="clipboard-write"
+  ></iframe>
+</div>

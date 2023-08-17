@@ -27,12 +27,14 @@ La zone de texte donne aux utilisateur·rice·s la possibilité de fournir les r
 
 {% include "partials/getcode.njk" %}
 
-<iframe
-  title="Survol des propriétés et des évènements relatifs à gcds-textarea."
-  src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&singleStory=true&id=components-textarea--events-properties"
-  width="1200"
-  height="1825"
-  style="display: block; margin: 0 auto;"
-  frameBorder="0"
-  allow="clipboard-write"
-></iframe>
+<div class="iframe-container">
+  <iframe
+    title="Survol des propriétés et des évènements relatifs à gcds-textarea."
+    src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&singleStory=true&id=components-textarea--events-properties"
+    width="1200"
+    height="1800"
+    style="display: block; margin: 0 auto;"
+    frameBorder="0"
+    allow="clipboard-write"
+  ></iframe>
+</div>

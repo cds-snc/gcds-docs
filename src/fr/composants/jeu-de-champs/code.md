@@ -21,7 +21,7 @@ Ajoutez du texte explicatif par défaut pour fournir du contexte supplémentaire
 ### Prendre en charge les messages d'erreur et le texte explicatif pour les boutons radio et les cases à cocher
 
 - Les attributs `required` et `error-message` fonctionnent mieux avec un groupe de [cases à cocher]({{ links.checkbox }}) ou de [boutons radio]({{ links.radio }}).
-- Conservez le texte explicatif, les validateurs et les messages d'erreur par défaut dans le jeu de champs pour les boutons radio et les cases à cocher.  
+- Conservez le texte explicatif, les validateurs et les messages d'erreur par défaut dans le jeu de champs pour les boutons radio et les cases à cocher.
 - Pour les boutons radio et les [cases à cocher]({{ links.input }}), insérez la question dans la légende afin d'aider les utilisateur·rice·s de lecteurs d'écran à comprendre que les entrées sont toutes liées.
 
 ### Validateurs
@@ -33,12 +33,14 @@ Le jeu de champs ne validera que les [cases à cocher]({{ links.checkbox }}) et 
 
 {% include "partials/getcode.njk" %}
 
-<iframe
-  title="Survol des propriétés et des évènements relatifs à gcds-fieldset."
-  src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&singleStory=true&id=components-fieldset--events-properties"
-  width="1200"
-  height="1540"
-  style="display: block; margin: 0 auto;"
-  frameBorder="0"
-  allow="clipboard-write"
-></iframe>
+<div class="iframe-container">
+  <iframe
+    title="Survol des propriétés et des évènements relatifs à gcds-fieldset."
+    src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&singleStory=true&id=components-fieldset--events-properties"
+    width="1200"
+    height="1600"
+    style="display: block; margin: 0 auto;"
+    frameBorder="0"
+    allow="clipboard-write"
+  ></iframe>
+</div>

@@ -66,13 +66,14 @@ Pour la bande de lien du pied de page, réglez l'élément `sub-links` en passan
 
 {% include "partials/getcode.njk" %}
 
-
-<iframe
-  title="Survol des propriétés et des évènements relatifs à gcds-footer."
-  src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&singleStory=true&id=components-footer--events-properties"
-  width="1200"
-  height="1110"
-  style="display: block; margin: 0 auto;"
-  frameBorder="0"
-  allow="clipboard-write"
-></iframe>
+<div class="iframe-container">
+  <iframe
+    title="Survol des propriétés et des évènements relatifs à gcds-footer."
+    src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&singleStory=true&id=components-footer--events-properties"
+    width="1200"
+    height="1110"
+    style="display: block; margin: 0 auto;"
+    frameBorder="0"
+    allow="clipboard-write"
+  ></iframe>
+</div>

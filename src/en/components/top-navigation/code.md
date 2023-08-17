@@ -24,12 +24,14 @@ Use a top navigation to help a person find their way around your web page or sit
 
 {% include "partials/getcode.njk" %}
 
-<iframe
-  title="Overview of gcds-top-nav properties and events."
-  src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&singleStory=true&id=components-top-navigation--events-properties"
-  width="1200"
-  height="1650"
-  style="display: block; margin: 0 auto;"
-  frameBorder="0"
-  allow="clipboard-write"
-></iframe>
+<div class="iframe-container">
+  <iframe
+    title="Overview of gcds-top-nav properties and events."
+    src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&singleStory=true&id=components-top-navigation--events-properties"
+    width="1200"
+    height="1650"
+    style="display: block; margin: 0 auto;"
+    frameBorder="0"
+    allow="clipboard-write"
+  ></iframe>
+</div>

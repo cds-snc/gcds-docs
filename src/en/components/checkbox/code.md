@@ -29,12 +29,14 @@ Use a checkbox with a [fieldset]({{ links.fieldset }}) when you are expecting th
 
 {% include "partials/getcode.njk" %}
 
-<iframe
-  title="Overview of gcds-checkbox properties and events."
-  src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&singleStory=true&id=components-checkbox--events-properties"
-  width="1200"
-  height="1760"
-  style="display: block; margin: 0 auto;"
-  frameBorder="0"
-  allow="clipboard-write"
-></iframe>
+<div class="iframe-container">
+  <iframe
+    title="Overview of gcds-checkbox properties and events."
+    src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&singleStory=true&id=components-checkbox--events-properties"
+    width="1200"
+    height="1650"
+    style="display: block; margin: 0 auto;"
+    frameBorder="0"
+    allow="clipboard-write"
+  ></iframe>
+</div>

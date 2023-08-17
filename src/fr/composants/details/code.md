@@ -32,12 +32,14 @@ Pour aider une personne à accéder au contenu du composant Détails :
 
 {% include "partials/getcode.njk" %}
 
-<iframe
-  title="Survol des propriétés et des évènements relatifs à gcds-details."
-  src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&singleStory=true&id=components-details--events-properties"
-  width="1200"
-  height="865"
-  style="display: block; margin: 0 auto;"
-  frameBorder="0"
-  allow="clipboard-write"
-></iframe>
+<div class="iframe-container">
+  <iframe
+    title="Survol des propriétés et des évènements relatifs à gcds-details."
+    src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&singleStory=true&id=components-details--events-properties"
+    width="1200"
+    height="950"
+    style="display: block; margin: 0 auto;"
+    frameBorder="0"
+    allow="clipboard-write"
+  ></iframe>
+</div>

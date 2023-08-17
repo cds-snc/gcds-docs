@@ -39,12 +39,14 @@ Use this header landmark to communicate a Government of Canada digital service o
 
 {% include "partials/getcode.njk" %}
 
-<iframe
-  title="Overview of gcds-header properties and events."
-  src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&singleStory=true&id=components-header--events-properties"
-  width="1200"
-  height="1535"
-  style="display: block; margin: 0 auto;"
-  frameBorder="0"
-  allow="clipboard-write"
-></iframe>
+<div class="iframe-container">
+  <iframe
+    title="Overview of gcds-header properties and events."
+    src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&singleStory=true&id=components-header--events-properties"
+    width="1200"
+    height="1535"
+    style="display: block; margin: 0 auto;"
+    frameBorder="0"
+    allow="clipboard-write"
+  ></iframe>
+</div>

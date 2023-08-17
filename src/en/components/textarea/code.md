@@ -27,12 +27,14 @@ The text area gives users the option to provide the information they want to sha
 
 {% include "partials/getcode.njk" %}
 
-<iframe
-  title="Overview of gcds-textarea properties and events."
-  src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&singleStory=true&id=components-textarea--events-properties"
-  width="1200"
-  height="1825"
-  style="display: block; margin: 0 auto;"
-  frameBorder="0"
-  allow="clipboard-write"
-></iframe>
+<div class="iframe-container">
+  <iframe
+    title="Overview of gcds-textarea properties and events."
+    src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&singleStory=true&id=components-textarea--events-properties"
+    width="1200"
+    height="1800"
+    style="display: block; margin: 0 auto;"
+    frameBorder="0"
+    allow="clipboard-write"
+  ></iframe>
+</div>

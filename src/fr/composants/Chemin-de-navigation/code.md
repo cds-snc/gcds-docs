@@ -29,12 +29,14 @@ Ajoutez un nouveau lien au composant Chemin de navigation à l'aide du composant
 
 {% include "partials/getcode.njk" %}
 
-<iframe
-  title="Survol des propriétés et des évènements relatifs à gcds-breadcrumbs."
-  src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&id=components-breadcrumbs--events-properties"
-  width="1200"
-  height="1050"
-  style="display: block; margin: 0 auto;"
-  frameBorder="0"
-  allow="clipboard-write"
-></iframe>
+<div class="iframe-container">
+  <iframe
+    title="Survol des propriétés et des évènements relatifs à gcds-breadcrumbs."
+    src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&id=components-breadcrumbs--events-properties"
+    width="1200"
+    height="1050"
+    style="display: block; margin: 0 auto;"
+    frameBorder="0"
+    allow="clipboard-write"
+  ></iframe>
+</div>
