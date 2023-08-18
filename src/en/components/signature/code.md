@@ -2,8 +2,25 @@
 title: Signature
 layout: "layouts/component-documentation.njk"
 translationKey: "signatureCode"
-tags: ['signatureEN', 'code']
+tags: ["signatureEN", "code"]
 date: "git Last Modified"
 ---
 
-## Code
+## Main use case
+
+Use the signature component for a clear and identifiable Government of Canada landmark identifier for your site or product.
+
+## Coding and accessibility for the signature
+
+### Apply the signature or wordmark types
+
+Use the signature type in the site’s header and the wordmark type in the site’s footer.
+
+- Set the `<type>` attribute to `<signature>`.
+- Set the `<type>` attribute to `<wordmark>`.
+
+### Set the language and colour
+
+- Set the page’s language settings using the `<lang>` attribute. `<En>` will render the English version for an English page and `<Fr>` will render the French version for a French page.
+- Link the signature to the Canada.ca homepage in the same Official Language as the current page. Set `<has-link>` attribute to `<true`> to link to Canada.ca.
+- Set the component to either `<color>` or `<white>` using the `<variant>` attribute.
