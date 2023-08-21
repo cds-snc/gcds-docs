@@ -74,6 +74,6 @@ date: "git Last Modified"
   <h2 class="mb-400">Composant vedette</h2>
   <h3 class="mb-400">Barre de navigation supérieure</h3>
   <p class="mb-450">Une barre de navigation supérieure est une liste horizontale de liens de page. Utilisez une barre de navigation supérieure pour aider une personne à se repérer sur votre page Web ou site Web.</p>
-  <img class="d-block mb-450" src="../../images/common/components/preview-top-nav.svg" alt="UUn aperçu du composant barre de navigation supérieure qui montre la navigation du site représentée par des boîtes grises alignés horizontalement. Une boîte bleue suivi de deux boîtes grises représentent les liens où la dernière boîte est surlignée afin de représenter le lien actif." />
+  <img class="d-block mb-450" src="../../images/common/components/preview-top-nav.svg" alt="Un aperçu du composant barre de navigation supérieure qui montre la navigation du site représentée par des boîtes grises alignés horizontalement. Une boîte bleue suivi de deux boîtes grises représentent les liens où la dernière boîte est surlignée afin de représenter le lien actif." />
   <a href="{{ links.topNav }}">En savoir plus sur la barre de navigation supérieure</a>
 </article>
