@@ -21,4 +21,10 @@ body {
 
 iframe {
   max-width: 100%;
+  margin-block-start: -7.35rem !important;
+}
+
+.iframe-container {
+  overflow-y: hidden;
+  margin-block-start: var(--gcds-spacing-550);
 }
