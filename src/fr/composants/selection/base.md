@@ -8,9 +8,22 @@ tags: ['selectFR', 'header']
 
 # Sélection <br>`<gcds-select>`
 
-Ce composant est en cours de développement.
+_Autres noms : menu déroulant, menu de sélection._
+
+Une sélection présente une longue liste d’options parmi lesquelles un seul choix est fait.
 
 {% docLinks locale stage figma github %}
 {% enddocLinks %}
 
-<br/>
+{% componentPreview "Aperçu du composant de sélection" %}
+<gcds-select select-id="select-preview" label="Libellé" hint="Texte explicatif / Exemple de message." default-value="Sélectionner une option">
+  <option>Option 1</option>
+  <option>Option 2</option>
+  <option>Option 3</option>
+  <option>Option 4</option>
+  <option>Option 5</option>
+  <option>Option 6</option>
+  <option>Option 7</option>
+  <option>Option 8</option>
+</gcds-select>
+{% endcomponentPreview %}
