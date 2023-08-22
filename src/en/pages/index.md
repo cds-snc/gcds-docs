@@ -73,8 +73,8 @@ date: "git Last Modified"
 
 <article class="py-450">
   <h2 class="mb-400">Featured component</h2>
-  <h3 class="mb-400">Fieldset</h3>
-  <p class="mb-450">The fieldset component associates related form elements so they can be perceived as a group. It improves usability and understanding of form elements by grouping them in a logical and accessible way.</p>
-  <img class="d-block mb-450" src="../../images/common/components/preview-fieldset.svg" alt="UI preview of fieldset component using an input and a select field." alt="Fieldset component shows a grouping of multiple form elements. One is a text input field and the other is a select box. The grouping has a larger box above them which represents a fieldset legend." />
-  <a href="{{ links.fieldset }}">Read more about fieldset</a>
+  <h3 class="mb-400">Top navigation</h3>
+  <p class="mb-450">A top navigation is a horizontal list of page links. Use a top navigation to help a person find their way around your web page or site.</p>
+  <img class="d-block mb-450" src="../../images/common/components/preview-top-nav.svg" alt="Top navigation shows site navigation with a dark blue box followed by two greyed boxes, the last having a dark blue line underneath to show selection." />
+  <a href="{{ links.topNav }}">Read more about top navigation</a>
 </article>
