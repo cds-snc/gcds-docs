@@ -21,7 +21,7 @@
     "errorMessage": "/fr/composants/message-derreur",
     "errorSummary": "/fr/composants/resume-de-erreurs",
     "fieldset": "/fr/composants/jeu-de-champs",
-    "fileUploader": "/fr/developpement-en-cours",
+    "fileUploader": "/fr/composants/televerseur-de-fichiers",
     "footer": "/fr/composants/pied-de-page",
     "grid": "/fr/developpement-en-cours",
     "header": "/fr/composants/en-tete",
