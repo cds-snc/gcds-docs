@@ -17,7 +17,7 @@ date: "git Last Modified"
   <li>Le <strong>pied de page de la carte</strong> peut appeler à l’action si un bouton y est inclus, ou contenir des métadonnées. Les métadonnées peuvent inclure une date, un lieu, un auteur ou une autrice ou tout autre renseignement pertinent.</li>
 </ol>
 
-<img class="b-sm b-default p-400" src="/images/en/components/anatomy/gcds-card-anatomy.svg" alt="Une image détaillant la structure d’une carte."/>
+<img class="b-sm b-default p-400" src="/images/fr/components/anatomy/gcds-card-anatomy.svg" alt="Une image détaillant la structure d’une carte."/>
 
 ## Design et accessibilité des cartes
 
