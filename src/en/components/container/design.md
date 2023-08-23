@@ -10,6 +10,7 @@ date: "git Last Modified"
 
 <ol class="anatomy-list">
   <li>The <strong>container</strong> groups content together in a limited space that can hold text, images or other components. The width can be adjusted, for example, to limit the length of a line of text.</li>
+  <li>The <strong>optional border</strong> </li>
 </ol>
 
 <img class="b-sm b-default p-400" src="/images/en/components/anatomy/gcds-container-anatomy.svg" alt="Rectangle with border on the left and right side of the rectangle representing the width of the container." />
@@ -34,5 +35,7 @@ The `size` property sets the size of the container. It comes in 6 sizes:
 | `md` | 48rem | 768px |
 | `sm` | 30rem | 480px |
 | `xs` | 20rem | 320px |
+
+<br/>
 
 By default, the container size will be set to `full` which means it will take up the entire width of the parent container.

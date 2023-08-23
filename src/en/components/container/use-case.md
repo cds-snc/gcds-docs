@@ -10,6 +10,7 @@ eleventyNavigation:
   description: A container is a basic box layout with a set width for its contents.
   thumbnail: /images/en/components/container.png
   alt: Rectangle with border on the left and right sides representing the width of the container.
+  state: published
 translationKey: "container"
 tags: ['containerEN', 'usage']
 permalink: /en/components/container/
@@ -23,6 +24,7 @@ Check out container use cases to see if they fit the problem you’re solving fo
 Containers group related content in a space.
 
 Use containers to:
+
 - Arrange content and components in a basic vertical layout using a wrapper. 
 - Limit the width of content in a given space within a site or product.  
 - Support readability and scannability by reducing the overall length of a line of text and presenting smaller chunks of content at a time.

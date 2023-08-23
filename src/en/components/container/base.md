@@ -7,15 +7,30 @@ tags: ['containerEN', 'header']
 
 # Container<br>`<gcds-container>`
 
-_Also called: checklist, check list._
+_Also called: wrapper, box._
 
 A container is a basic box layout with a set width for its contents.
 
 {% docLinks locale stage figma github %}
 {% enddocLinks %}
 
-{% componentPreview "Container component preview" "pt-400" %}
-<gcds-container border>
-  Container
+{% componentPreview "Container component preview" %}
+<gcds-container border margin="250" padding="250" size="full">
+  Full container
+</gcds-container>
+<gcds-container border margin="250" padding="250" size="xl">
+  Extra large container
+</gcds-container>
+<gcds-container border margin="250" padding="250" size="lg">
+  Large container
+</gcds-container>
+<gcds-container border margin="250" padding="250" size="md">
+  Medium container
+</gcds-container>
+<gcds-container border margin="250" padding="250" size="sm">
+  Small container
+</gcds-container>
+<gcds-container border margin="250" padding="250" size="xs">
+  Extra small container
 </gcds-container>
 {% endcomponentPreview %}
