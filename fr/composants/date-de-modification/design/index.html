@@ -794,16 +794,24 @@
         
   
     <h1 id="date-de-modification-brgcdsdatemodified" class="mb-400">Date de modification <br><code>&lt;gcds-date-modified&gt;</code></h1>
-<p class="mb-400">Ce composant est en cours de développement.</p>
+<p class="mb-400"><em>Autres noms : Dernière mise à jour, version.</em></p>
+<p class="mb-400">La date de modification est un indicateur de la dernière mise à jour apportée à une page Web ou à une application.</p>
 <p class="mb-400"><ul class="d-flex flex-wrap gap-400">
 <li class="github-link">
 <a href="https://github.com/cds-snc/gcds-components/tree/main/packages/web/src/components/gcds-date-modified" target="_blank" rel="nofollow" aria-label="GitHub (S'ouvre dans un nouvel onglet)">GitHub<gcds-icon name="external-link" margin-left="100" /></a>
 </li>
 <li class="figma-link">
-<a href="https://www.figma.com/file/mh2maMG2NBtk41k1O1UGHV/Canadian-Digital-Service%E2%80%A8---GC-Design-System?node-id=3471%3A11133&t=ciEmm7GYyGAY73zZ-0" target="_blank" rel="nofollow" aria-label="Figma (S'ouvre dans un nouvel onglet)">Figma<gcds-icon name="external-link" margin-left="100" /></a>
+<a href="https://www.figma.com/file/mh2maMG2NBtk41k1O1UGHV/Canadian-Digital-Service%E2%80%A8---GC-Design-System?type=design&node-id=3471-9955&mode=design&t=4uA1VfR0YnyStZyZ-0" target="_blank" rel="nofollow" aria-label="Figma (S'ouvre dans un nouvel onglet)">Figma<gcds-icon name="external-link" margin-left="100" /></a>
 </li>
 </ul></p>
-<br/>
+<p class="mb-400"><div class="my-500 b-sm b-default component-preview">
+<p class="container-full font-semibold px-300 py-200 bb-sm b-default bg-light">
+Aperçu du composant de date de modification
+</p>
+<div class="px-300 py-400"></p>
+<p class="mb-400"><gcds-date-modified>2023-08-22</gcds-date-modified></p>
+<p class="mb-400"></div>
+</div></p>
 
     <nav class="tabs mb-400" aria-label="Date de modification">
       <ul>
@@ -842,7 +850,21 @@
     </nav>
   
 
-  <h2 id="design" class="mt-500 mb-400">Design</h2>
+  <h2 id="structure-de-la-date-de-modification" class="mt-500 mb-400">Structure de la date de modification</h2>
+<ol class="anatomy-list">
+  <li>Le <strong>libellé</strong> décrit le type précisé dans la valeur et affiche soit « Date de modification » ou « Version » selon le type de composant.</li>
+  <li>La <strong>valeur</strong> correspond soit à une date numérique au format AAAA-MM-JJ, soit à un numéro de version.</li>
+</ol>
+<img class="b-sm b-default p-400" src="/images/fr/components/anatomy/gcds-date-modified-anatomy.svg" alt="Une image du composant date de modification." />
+<h2 id="design-et-accessibilite-de-la-date-de-modification" class="mt-500 mb-400">Design et accessibilité de la date de modification</h2>
+<h3 id="veillez-a-luniformite-du-placement" class="mt-500 mb-400">Veillez à l'uniformité du placement</h3>
+<ul class="list-disc mb-400"><li><p class="mb-400">Placez le composant date de modification entre le corps, soit le contenu principal de la page, et le pied de page.</li>
+<li><p class="mb-400">Placez le composant date de modification au même endroit d'une page Web à l'autre à fin qu'il soit repérable.</li>
+</ul>
+<h3 id="veillez-a-luniformite-du-formatage" class="mt-500 mb-400">Veillez à l'uniformité du formatage</h3>
+<ul class="list-disc mb-400"><li><p class="mb-400">Utilisez le format de la date AAAA-MM-JJ sur toutes vos pages Web.</li>
+<li><p class="mb-400">Si vous utilisez le composant en type version, veillez à utiliser un format de numéro de version uniforme pour tous vos produits.</li>
+</ul>
 
 
   <section class="pt-100 mt-400 mb-600 bt-sm b-dark ">
