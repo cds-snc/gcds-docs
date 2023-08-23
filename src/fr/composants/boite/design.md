@@ -10,10 +10,10 @@ date: "git Last Modified"
 
 <ol class="anatomy-list">
   <li>Le <strong>boîte</strong> regroupe du contenu dans un espace limité pouvant contenir du texte, des images et d’autres composants. La largeur peut être ajustée, notamment pour limiter la longueur d’une ligne de texte.</li>
-  <li>Le <strong>optional border</strong> </li>
+  <li>La <strong>bordure optionnelle</strong> entoure la boîte en indiquant la largeur.</li>
 </ol>
 
-<img class="b-sm b-default p-400" src="/images/en/components/anatomy/gcds-container-anatomy.svg" alt="Un rectangle doté de bordures des côtés gauche et droit représentent la largeur d’une boîte." />
+<img class="b-sm b-default p-400" src="/images/en/components/anatomy/gcds-container-anatomy.svg" alt="Le composant de boîte avec des numéros indiquant les différentes parties de la structure de la boîte." />
 
 ## Design et accessibilité des boîtes
 

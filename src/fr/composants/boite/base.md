@@ -15,12 +15,6 @@ Il s’agit d’un modèle de boîte simple associé à une largeur de contenu f
 {% enddocLinks %}
 
 {% componentPreview "Aperçu du composant de la boîte" %}
-<gcds-container border margin="250" padding="250" size="full">
-  Boîte pleine
-</gcds-container>
-<gcds-container border margin="250" padding="250" size="xl">
-  Extra-grande boîte
-</gcds-container>
 <gcds-container border margin="250" padding="250" size="lg">
   Grande boîte
 </gcds-container>
@@ -29,8 +23,5 @@ Il s’agit d’un modèle de boîte simple associé à une largeur de contenu f
 </gcds-container>
 <gcds-container border margin="250" padding="250" size="sm">
   Petite boîte
-</gcds-container>
-<gcds-container border margin="250" padding="250" size="xs">
-  Boîte extra-petite
 </gcds-container>
 {% endcomponentPreview %}

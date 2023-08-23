@@ -10,10 +10,10 @@ date: "git Last Modified"
 
 <ol class="anatomy-list">
   <li>The <strong>container</strong> groups content together in a limited space that can hold text, images or other components. The width can be adjusted, for example, to limit the length of a line of text.</li>
-  <li>The <strong>optional border</strong> </li>
+  <li>The <strong>optional border</strong> surrounds the container showing the width.</li>
 </ol>
 
-<img class="b-sm b-default p-400" src="/images/en/components/anatomy/gcds-container-anatomy.svg" alt="Rectangle with border on the left and right side of the rectangle representing the width of the container." />
+<img class="b-sm b-default p-400" src="/images/en/components/anatomy/gcds-container-anatomy.svg" alt="The container component with numbers pointing to individual parts of the container anatomy." />
 
 ## Design and accessibility for containers
 
