@@ -43,7 +43,7 @@ Containers are not centered automatically. To centre a container on a page, add 
 
 <iframe
   title="Overview of gcds-container properties and events."
-  src="http://localhost:6006/iframe.html?viewMode=docs&singleStory=true&id=components-theme-and-topic-menu--events-properties"
+  src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&singleStory=true&id=components-container--events-properties"
   width="1200"
   height="1400"
   style="display: block; margin: 0 auto;"

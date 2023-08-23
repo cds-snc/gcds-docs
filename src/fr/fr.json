@@ -17,6 +17,7 @@
     "button": "/fr/composants/bouton",
     "card": "/fr/developpement-en-cours",
     "checkbox": "/fr/composants/case-a-cocher",
+    "container": "/fr/composants/boite",
     "dateModified": "/fr/developpement-en-cours",
     "details": "/fr/composants/details",
     "errorMessage": "/fr/composants/message-derreur",

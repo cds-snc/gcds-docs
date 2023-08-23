@@ -1,5 +1,5 @@
 ---
-title: boite - Composants
+title: boîte
 layout: "layouts/component-documentation.njk"
 translationKey: "containerCode"
 tags: ['containerFR', 'code']

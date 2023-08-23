@@ -10,6 +10,7 @@ eleventyNavigation:
   description: Il s’agit d’un modèle de boîte simple associé à une largeur de contenu fixe.
   thumbnail: /images/common/components/preview-container.svg
   alt: Un rectangle avec une bordure entourant des rectangles gris représentant le contenu.
+  state: published
 translationKey: "container"
 tags: ['containerFR', 'usage']
 permalink: /fr/composants/boite/
