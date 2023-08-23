@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 const replace = require('replace-in-file');
 const prompt = require('prompt-sync')();
-const slugify = require("./utils/slugify");
+const slugify = require("../utils/slugify");
 
 let englishName = prompt('English name: ');
 let frenchName = prompt('French name: ');
@@ -21,19 +21,19 @@ fs.rename(`${frenchDirectory}${frenchNameSlug}/use-case.md`, `${frenchDirectory}
 });
 
 let templateKeys = [
-  /componentName/g,
+  /{componentName}/g,
   /{componentNameSlug}/g,
-  /navKey/g,
+  /{navKey}/g,
   /{locale}/g,
-  /alsoCalled/g,
-  /componentPreview/g,
+  /{alsoCalled}/g,
+  /{componentPreview}/g,
   /{components}/g,
   /{localeLower}/g,
-  /related/g,
-  /anatomy/g,
-  /designA11y/g,
-  /buildComponent/g,
-  /codeA11y/g,
+  /{relatedComponents}/g,
+  /{anatomy}/g,
+  /{designA11y}/g,
+  /{buildComponent}/g,
+  /{codeA11y}/g,
   /{componentNameSlugEN}/g
 ];
 
@@ -54,8 +54,7 @@ let engOptions = {
     `${englishName} component preview`,
     "components",
     "en",
-    englishNameSlug,
-    "Related components"
+    "Related components",
     `${englishName} anatomy`,
     `Design and accessibility for ${englishName}`,
     `Build a ${englishName}`,
@@ -80,7 +79,6 @@ let frOptions = {
     `Aperçu du composant de ${frenchName}`,
     "composants",
     "fr",
-    frenchNameSlug,
     "Composants connexes",
     `Structure de la ${frenchName}`,
     `Accessibilité et design des ${frenchName}`,

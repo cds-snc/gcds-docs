@@ -1,14 +1,14 @@
 ---
-title: componentName
+title: {componentName}
 layout: "layouts/component-documentation.njk"
-translationKey: "navKeyCode"
-tags: ['navKey{locale}', 'code']
+translationKey: "{navKey}Code"
+tags: ['{navKey}{locale}', 'code']
 # date: "git Last Modified"
 ---
 
-## buildComponent
+## {buildComponent}
 
-## codeA11y
+## {codeA11y}
 
 {% include "partials/getcode.njk" %}
 
