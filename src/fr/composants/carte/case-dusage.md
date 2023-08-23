@@ -3,12 +3,12 @@ title: carte - Composants
 layout: "layouts/component-documentation.njk"
 eleventyNavigation:
   key: cardFR
-  title: carte
+  title: Carte
   locale: fr
   parent: componentsFR
-  otherNames: Component
-  description: This is the carte
-  thumbnail: /images/fr/composants/carte.png
+  otherNames: tuile, carte de contenu.
+  description: Un encadré contenant du contenu structuré et exploitable sur un sujet unique.
+  thumbnail: /images/common/components/preview-card.svg
   alt: This is an image of the component
   state: published
 translationKey: "card"
@@ -33,7 +33,7 @@ Remarque : Pour Canada.ca, évitez d’utiliser des cartes au lieu des élément
 <div>
   <h2>Types de composants</h2>
   <h3 class="mb-400 mt-400">Carte « Lien »</h3>
-  {% componentPreview "Primary button preview" "py-400" "" %}
+  {% componentPreview "Aperçu de carte « Lien »" "py-400" "" %}
   <gcds-card
   card-title="Title of the article"
   href="#"
@@ -46,7 +46,6 @@ Remarque : Pour Canada.ca, évitez d’utiliser des cartes au lieu des élément
   {% endcomponentPreview %}
 
   <div>
-    
     <p>Utilisez la carte « Lien » aux fins suivantes :</p>
     <ul class="list-disc mb-400">
       <li>Structurer des renseignements relatifs à un même thème pour offrir au lectorat davantage de détails de manière progressive.</li>
@@ -55,7 +54,7 @@ Remarque : Pour Canada.ca, évitez d’utiliser des cartes au lieu des élément
     </ul>
   </div>
 
-  {% componentPreview "Primary button preview" "py-400" "" %}
+  {% componentPreview "Aperçu de carte « Action »" "py-400" "" %}
   <gcds-card
   card-title="Title of the article"
   href="#"

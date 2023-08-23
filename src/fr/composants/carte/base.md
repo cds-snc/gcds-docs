@@ -14,6 +14,6 @@ Une carte est un encadré contenant du contenu structuré et exploitable sur un 
 {% docLinks locale stage figma github %}
 {% enddocLinks %}
 
-{% componentPreview "Card component preview" %}
+{% componentPreview "Aperçu du composant de carte" %}
 <gcds-card card-title="Title of the article" href="#"></gcds-card>
 {% endcomponentPreview %}
