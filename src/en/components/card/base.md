@@ -5,9 +5,15 @@ permalink: false
 tags: ['cardEN', 'header']
 ---
 
-# card
+# Card <br>`<gcds-card>`
 
-This element will have the content below it
+_Also called: tile, content card._
+
+A card is a box containing structured, actionable content on a single topic. 
 
 {% docLinks locale stage figma github %}
 {% enddocLinks %}
+
+{% componentPreview "Card component preview" %}
+<gcds-card card-title="Title of the article" href="#"></gcds-card>
+{% endcomponentPreview %}
