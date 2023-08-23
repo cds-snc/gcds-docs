@@ -9,7 +9,7 @@ date: "git Last Modified"
 ## Header anatomy – recommended elements
 
 <ol class="anatomy-list">
-  <li>The <strong>top nav</strong> includes the skip-to-content button to let a person bypass a cluster of navigation links and jump to the main page content.</li>
+  <li>The <strong>skip-to-nav</strong> includes the skip-to-content button to let a person bypass a cluster of navigation links and jump to the main page content.</li>
   <li>The <strong>signature header</strong> spans the top of the site and contains the Government of Canada branded signature and the language toggle. It can also include a search form. It has a divider line along the bottom edge. When the site language is set with the <code>lang</code> attribute, the signature reflects the same Official Language as the page content.</li>
   <li>The <strong>language toggle</strong> component is a switch for French and English content. When the site language is set using the <code>lang</code> attribute, the toggle will be available in the other Official Language.</li>
 </ol>
@@ -19,7 +19,7 @@ date: "git Last Modified"
 ## Optional header elements – with H1 title
 
 <ol class="anatomy-list">
-  <li>The <strong>top nav</strong> includes the skip-to-content button to let a person bypass a cluster of navigation links and jump to the main page content.</li>
+  <li>The <strong>skip-to-nav</strong> includes the skip-to-content button to let a person bypass a cluster of navigation links and jump to the main page content.</li>
   <li>The <strong>banner</strong>, when used, precedes the signature header. It's an optional element to communicate the status of the site or page, for sites that are experimental, those in research, pilots, or products in trial mode.</li>
   <li>The <strong>signature header</strong> spans the top of the site and contains the Government of Canada branded signature and the language toggle. It can also include a search form. It has a divider line along the bottom edge. When the site language is set with the `lang` attribute, the signature reflects the same Official Language as the page content.</li>
   <li>The <strong>language toggle</strong> component is a switch for French and English content. When the site language is set using the language attribute, the toggle will be available in the other Official Language.</li>
