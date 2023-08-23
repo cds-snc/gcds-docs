@@ -7,8 +7,8 @@ eleventyNavigation:
   locale: en
   parent: componentsEN
   otherNames: tile, content card
-  description: A card is a box containing structured, actionable content on a single topic.
-  thumbnail: /images/en/components/card.png
+  description: A box containing structured, actionable content on a single topic.
+  thumbnail: /images/common/components/preview-card.svg
   alt: This is an image of the component
   state: published
 translationKey: "card"
@@ -33,20 +33,13 @@ Note: For Canada.ca, avoid using cards in place of the doormats specified in the
 
 <div>
   <h2>Component types</h2>
-  {% componentPreview "Primary button preview" "py-400" "" %}
-  <gcds-card
-  card-title="Title of the article"
-  href="#"
-  tag="tag"
-  description="This is a description"
-  img-alt="#"
->
-  <div slot="footer">Metadata</div>
-</gcds-card>
-  {% endcomponentPreview %}
-
   <div>
     <h3 class="mb-400 mt-400">Link card</h3>
+      {% componentPreview "Link card preview" "py-400" %}
+<gcds-card card-title="Title of the article" href="#" description="This is a description">
+<div slot="footer">footer</div>
+</gcds-card>
+{% endcomponentPreview %}
     <p>Use the link card to:</p>
     <ul class="list-disc mb-400">
       <li>Structure information on the same topic to progressively offer the reader more details</li>
@@ -55,7 +48,9 @@ Note: For Canada.ca, avoid using cards in place of the doormats specified in the
     </ul>
   </div>
 
-  {% componentPreview "Primary button preview" "py-400" "" %}
+<div>
+<h3 class="mb-400 mt-400">Action card</h3>
+  {% componentPreview "Action card preview" "py-400" "" %}
   <gcds-card
   card-title="Title of the article"
   href="#"
@@ -67,9 +62,6 @@ Note: For Canada.ca, avoid using cards in place of the doormats specified in the
   <div slot="footer"></div>
 </gcds-card>
   {% endcomponentPreview %}
-
-  <div>
-    <h3 class="mb-400 mt-400">Action card</h3>
     <p>use the action card to:</p>
     <ul class="list-disc mb-400">
       <li>Group information that supports a task. The main action features on a button in the card footer.</li>
