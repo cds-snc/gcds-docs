@@ -8,8 +8,8 @@ eleventyNavigation:
   parent: componentsFR
   otherNames: conteneur, encadré.
   description: Il s’agit d’un modèle de boîte simple associé à une largeur de contenu fixe.
-  thumbnail: /images/fr/composants/boite.png
-  alt: Un rectangle doté de bordures des côtés gauche et droit représentent la largeur d’une boîte.
+  thumbnail: /images/common/components/preview-container.svg
+  alt: Un rectangle avec une bordure entourant des rectangles gris représentant le contenu.
 translationKey: "container"
 tags: ['containerFR', 'usage']
 permalink: /fr/composants/boite/

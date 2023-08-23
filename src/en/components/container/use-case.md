@@ -8,8 +8,8 @@ eleventyNavigation:
   parent: componentsEN
   otherNames: wrapper, box.
   description: A container is a basic box layout with a set width for its contents.
-  thumbnail: /images/en/components/container.png
-  alt: Rectangle with border on the left and right sides representing the width of the container.
+  thumbnail: /images/common/components/preview-container.svg
+  alt: A rectangle with a border surrounding grey rectangles representing content.
   state: published
 translationKey: "container"
 tags: ['containerEN', 'usage']
