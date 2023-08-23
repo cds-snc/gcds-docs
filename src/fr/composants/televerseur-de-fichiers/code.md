@@ -6,7 +6,7 @@ tags: ['fileuploaderFR', 'code']
 date: "git Last Modified"
 ---
 
-## Cas d'utilisation principal
+## Création d'un téléverseur de fichiers
 
 Utilisez le téléverseur de fichiers pour permettre à une personne de sélectionner et de valider les fichiers qu'elle souhaiterait inclure dans sa soumission.
 

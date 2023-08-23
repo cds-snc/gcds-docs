@@ -6,7 +6,7 @@ tags: ['fileuploaderEN', 'code']
 date: "git Last Modified"
 ---
 
-## Main use case
+## Build a file uploader
 
 Use the file uploader to allow a person to select and review files they’d like to include with their submission.
 
