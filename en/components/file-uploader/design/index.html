@@ -794,7 +794,8 @@
         
   
     <h1 id="file-uploader-brgcdsfileuploader" class="mb-400">File uploader <br><code>&lt;gcds-file-uploader&gt;</code></h1>
-<p class="mb-400">This component is coming soon.</p>
+<p class="mb-400"><em>Also called: file upload, file input, dropzone.</em></p>
+<p class="mb-400">A file uploader is a space to select and add supporting documentation.</p>
 <p class="mb-400"><ul class="d-flex flex-wrap gap-400">
 <li class="github-link">
 <a href="https://github.com/cds-snc/gcds-components/tree/main/packages/web/src/components/gcds-file-uploader" target="_blank" rel="nofollow" aria-label="GitHub (Opens in a new tab)">GitHub<gcds-icon name="external-link" margin-left="100" /></a>
@@ -803,7 +804,18 @@
 <a href="https://www.figma.com/file/mh2maMG2NBtk41k1O1UGHV/Canadian-Digital-Service%E2%80%A8---GC-Design-System?node-id=963%3A2472&t=ciEmm7GYyGAY73zZ-0" target="_blank" rel="nofollow" aria-label="Figma (Opens in a new tab)">Figma<gcds-icon name="external-link" margin-left="100" /></a>
 </li>
 </ul></p>
-<br/>
+<p class="mb-400"><div class="my-500 b-sm b-default component-preview">
+<p class="container-full font-semibold px-300 py-200 bb-sm b-default bg-light">
+File uploader component preview
+</p>
+<div class="px-300 py-400"></p>
+<p class="mb-400"><gcds-file-uploader
+  uploader-id="file-uploader-preview"
+  label="Label"
+  hint="Hint / Example message."
+></gcds-file-uploader></p>
+<p class="mb-400"></div>
+</div></p>
 
     <nav class="tabs mb-400" aria-label="File uploader">
       <ul>
@@ -842,7 +854,21 @@
     </nav>
   
 
-  <h2 id="design" class="mt-500 mb-400">Design</h2>
+  <h2 id="file-uploader-anatomy" class="mt-500 mb-400">File uploader anatomy</h2>
+<ol class="anatomy-list">
+  <li>The <strong>label</strong> provides the instruction for the component.</li>
+  <li>The <strong>hint text</strong> presents the types of files and other requirements, like maximum file size.</li>
+  <li>The <strong>button</strong> initiates the interface for file selection.</li>
+  <li>The <strong>file list item</strong> is a container showing an uploaded file.</li>
+  <li>The <strong>file name</strong> shows the name of the file that was added.</li>
+  <li>The <strong>remove</strong> button allows an uploaded file to be removed prior to submission.</li>
+</ol>
+<img class="b-sm b-default p-400" src="/images/en/components/anatomy/gcds-file-uploader-anatomy.svg" alt="An image of the file uploader component’s anatomy." />
+<h2 id="design-and-accessibility-for-file-uploader" class="mt-500 mb-400">Design and accessibility for file uploader</h2>
+<h3 id="write-clear-labels-and-hints" class="mt-500 mb-400">Write clear labels and hints</h3>
+<ul class="list-disc mb-400"><li><p class="mb-400">Use the input label to set clear expectations about the kind of file a person can or needs to upload.</li>
+<li><p class="mb-400">Use the hint to specify any upload limitations.</li>
+</ul>
 
 
   <section class="pt-100 mt-400 mb-600 bt-sm b-dark ">

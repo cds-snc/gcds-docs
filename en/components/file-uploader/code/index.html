@@ -794,7 +794,8 @@
         
   
     <h1 id="file-uploader-brgcdsfileuploader" class="mb-400">File uploader <br><code>&lt;gcds-file-uploader&gt;</code></h1>
-<p class="mb-400">This component is coming soon.</p>
+<p class="mb-400"><em>Also called: file upload, file input, dropzone.</em></p>
+<p class="mb-400">A file uploader is a space to select and add supporting documentation.</p>
 <p class="mb-400"><ul class="d-flex flex-wrap gap-400">
 <li class="github-link">
 <a href="https://github.com/cds-snc/gcds-components/tree/main/packages/web/src/components/gcds-file-uploader" target="_blank" rel="nofollow" aria-label="GitHub (Opens in a new tab)">GitHub<gcds-icon name="external-link" margin-left="100" /></a>
@@ -803,7 +804,18 @@
 <a href="https://www.figma.com/file/mh2maMG2NBtk41k1O1UGHV/Canadian-Digital-Service%E2%80%A8---GC-Design-System?node-id=963%3A2472&t=ciEmm7GYyGAY73zZ-0" target="_blank" rel="nofollow" aria-label="Figma (Opens in a new tab)">Figma<gcds-icon name="external-link" margin-left="100" /></a>
 </li>
 </ul></p>
-<br/>
+<p class="mb-400"><div class="my-500 b-sm b-default component-preview">
+<p class="container-full font-semibold px-300 py-200 bb-sm b-default bg-light">
+File uploader component preview
+</p>
+<div class="px-300 py-400"></p>
+<p class="mb-400"><gcds-file-uploader
+  uploader-id="file-uploader-preview"
+  label="Label"
+  hint="Hint / Example message."
+></gcds-file-uploader></p>
+<p class="mb-400"></div>
+</div></p>
 
     <nav class="tabs mb-400" aria-label="File uploader">
       <ul>
@@ -842,7 +854,9 @@
     </nav>
   
 
-  <h2 id="code" class="mt-500 mb-400">Code</h2>
+  <h2 id="build-a-file-uploader" class="mt-500 mb-400">Build a file uploader</h2>
+<p class="mb-400">Use the file uploader to allow a person to select and review files they’d like to include with their submission.</p>
+<h2 id="code-and-accessibility-for-file-uploader" class="mt-500 mb-400">Code and accessibility for file uploader</h2>
 <h3 id="handle-error-messages-and-validation" class="mt-500 mb-400">Handle error messages and validation</h3>
 <ul class="list-disc mb-400"><li>
 <p class="mb-400">Use the <code>required</code> attribute to activate the required validator. Validation will happen by default on the <code>onBlur</code> event. A missing or invalid entry will prompt an inline error message with preset text.</p>
@@ -863,14 +877,10 @@
 <p class="mb-400">For an optional field that needs validation based on user input (like validating an email address format), opt to add custom validation with a custom error message.</p>
 </li>
 </ul>
-<h3 id="include-a-hint-text-for-task-success" class="mt-500 mb-400">Include a hint text for task success</h3>
-<ul class="list-disc mb-400"><li>
-<p class="mb-400">Use the <code>hint</code> attribute to add hint text to help a person provide a complete value in the input and avoid an error state.</p>
-</li>
-<li>
-<p class="mb-400">Avoid adding hint text in the field (sometimes called placeholder text) where it will disappear once the field is selected or a response starts to be entered.</p>
-</li>
-</ul>
+<h3 id="upload-multiple-files" class="mt-500 mb-400">Upload multiple files</h3>
+<p class="mb-400">Allow the selection of more than one file using the <code>multiple</code> attribute.</p>
+<h3 id="validate-file-types-for-upload" class="mt-500 mb-400">Validate file types for upload</h3>
+<p class="mb-400">Define the file types the file uploader accepts using the <code>accept</code> attribute.</p>
 <h3 id="get-your-code" class="mt-500 mb-400">Get your code</h3>
 <p class="mb-400">Generate an instance of the component you need by selecting its code properties.</p>
 <ol class="list-decimal mb-400"><li>
@@ -884,6 +894,15 @@
 </li>
 </ol>
 <p class="mb-400"><strong>Note:</strong> Following standard practice, the code builder uses English for all code elements.</p>
+<iframe
+  title="Overview of gcds-file-uploader properties and events."
+  src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&singleStory=true&id=components-file-uploader--events-properties"
+  width="1200"
+  height="1650"
+  style="display: block; margin: 0 auto;"
+  frameBorder="0"
+  allow="clipboard-write"
+></iframe>
 
 
   <section class="pt-100 mt-400 mb-600 bt-sm b-dark ">

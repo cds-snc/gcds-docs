@@ -794,7 +794,8 @@
         
   
     <h1 id="televerseur-de-fichiers-brgcdsfileuploader" class="mb-400">Téléverseur de fichiers <br><code>&lt;gcds-file-uploader&gt;</code></h1>
-<p class="mb-400">Ce composant est en cours de développement.</p>
+<p class="mb-400"><em>Autres noms : fichiers téléversés, saisie de fichier, zone de dépôt</em></p>
+<p class="mb-400">Un téléverseur de fichier est un espace où il est possible de sélectionner et d’ajouter des documents à l’appui.</p>
 <p class="mb-400"><ul class="d-flex flex-wrap gap-400">
 <li class="github-link">
 <a href="https://github.com/cds-snc/gcds-components/tree/main/packages/web/src/components/gcds-file-uploader" target="_blank" rel="nofollow" aria-label="GitHub (S'ouvre dans un nouvel onglet)">GitHub<gcds-icon name="external-link" margin-left="100" /></a>
@@ -803,7 +804,18 @@
 <a href="https://www.figma.com/file/mh2maMG2NBtk41k1O1UGHV/Canadian-Digital-Service%E2%80%A8---GC-Design-System?node-id=963%3A2472&t=ciEmm7GYyGAY73zZ-0" target="_blank" rel="nofollow" aria-label="Figma (S'ouvre dans un nouvel onglet)">Figma<gcds-icon name="external-link" margin-left="100" /></a>
 </li>
 </ul></p>
-<br/>
+<p class="mb-400"><div class="my-500 b-sm b-default component-preview">
+<p class="container-full font-semibold px-300 py-200 bb-sm b-default bg-light">
+Aperçu du composant de téléverseur de fichiers
+</p>
+<div class="px-300 py-400"></p>
+<p class="mb-400"><gcds-file-uploader
+  uploader-id="file-uploader-preview"
+  label="Libellé"
+  hint="Texte explicatif / Exemple de message."
+></gcds-file-uploader></p>
+<p class="mb-400"></div>
+</div></p>
 
     <nav class="tabs mb-400" aria-label="Téléverseur de fichiers">
       <ul>
@@ -842,7 +854,52 @@
     </nav>
   
 
-  <h2 id="code" class="mt-500 mb-400">Code</h2>
+  <h2 id="creation-dun-televerseur-de-fichiers" class="mt-500 mb-400">Création d'un téléverseur de fichiers</h2>
+<p class="mb-400">Utilisez le téléverseur de fichiers pour permettre à une personne de sélectionner et de valider les fichiers qu'elle souhaiterait inclure dans sa soumission.</p>
+<h2 id="codage-et-accessibilite-du-televerseur-de-fichiers" class="mt-500 mb-400">Codage et accessibilité du téléverseur de fichiers</h2>
+<h3 id="traitez-les-messages-derreur-et-la-validation" class="mt-500 mb-400">Traitez les messages d'erreur et la validation</h3>
+<ul class="list-disc mb-400"><li>
+<p class="mb-400">Utilisez l'attribut <code>required</code> pour activer le validateur nécessaire. La validation s'effectuera par défaut pendant l'événement <code>onBlur</code>.</p>
+</li>
+<li>
+<p class="mb-400">Si vous devez modifier l'événement de validation, utilisez l'attribut <code>validate-on</code>. Une validation onBlur est possible lorsque l'élément n'est plus ciblé. Il est également possible de procéder à une validation manuelle avec la méthode <code>validate()</code>.</p>
+</li>
+<li>
+<p class="mb-400">Employez l'attribut <code>required</code> pour les champs obligatoires. Cet attribut insérera la mention « (obligatoire) » à la fin de la case à cocher.</p>
+</li>
+<li>
+<p class="mb-400">Conservez l'attribut <code>error-message</code> par défaut pour une zone de texte obligatoire qui doit être validée. Une entrée manquante ou non valide affichera un message d'erreur intercalé.</p>
+</li>
+<li>
+<p class="mb-400">Supprimez l'attribut <code>error-message</code> par défaut si la zone de texte est facultative.</p>
+</li>
+</ul>
+<h3 id="telechargez-plusieurs-fichiers" class="mt-500 mb-400">Téléchargez plusieurs fichiers</h3>
+<p class="mb-400">Utilisez l'attribut <code>multiple</code> pour permettre la sélection de plus d'un fichier.</p>
+<h3 id="validez-les-types-de-fichiers-a-televerser" class="mt-500 mb-400">Validez les types de fichiers à téléverser</h3>
+<p class="mb-400">Utilisez l'attribut <code>accept</code> pour définir les types de fichiers acceptés par le téléverseur de fichiers.</p>
+<h3 id="obtenez-votre-code" class="mt-500 mb-400">Obtenez votre code</h3>
+<p class="mb-400">Générez une version du composant dont vous avez besoin en sélectionnant les propriétés de code correspondantes ou explorez les possibilités en choisissant différentes valeurs de code.</p>
+<ol class="list-decimal mb-400"><li>
+<p class="mb-400">Choisissez des valeurs de code pour obtenir l'élément que vous voulez.</p>
+</li>
+<li>
+<p class="mb-400">Obtenez le code et intégrez-le dans votre environnement.</p>
+</li>
+<li>
+<p class="mb-400">Ajoutez tout contenu nécessaire au composant (comme le texte du libellé).</p>
+</li>
+</ol>
+<p class="mb-400"><strong>Remarque</strong> : Conformément à la pratique courante, le générateur de code utilise l'anglais pour tous les éléments de code.</p>
+<iframe
+  title="Survol des propriétés et des évènements relatifs à gcds-file-uploader."
+  src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&singleStory=true&id=components-file-uploader--events-properties"
+  width="1200"
+  height="1650"
+  style="display: block; margin: 0 auto;"
+  frameBorder="0"
+  allow="clipboard-write"
+></iframe>
 
 
   <section class="pt-100 mt-400 mb-600 bt-sm b-dark ">

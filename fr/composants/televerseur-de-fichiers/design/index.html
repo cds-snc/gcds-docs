@@ -794,7 +794,8 @@
         
   
     <h1 id="televerseur-de-fichiers-brgcdsfileuploader" class="mb-400">Téléverseur de fichiers <br><code>&lt;gcds-file-uploader&gt;</code></h1>
-<p class="mb-400">Ce composant est en cours de développement.</p>
+<p class="mb-400"><em>Autres noms : fichiers téléversés, saisie de fichier, zone de dépôt</em></p>
+<p class="mb-400">Un téléverseur de fichier est un espace où il est possible de sélectionner et d’ajouter des documents à l’appui.</p>
 <p class="mb-400"><ul class="d-flex flex-wrap gap-400">
 <li class="github-link">
 <a href="https://github.com/cds-snc/gcds-components/tree/main/packages/web/src/components/gcds-file-uploader" target="_blank" rel="nofollow" aria-label="GitHub (S'ouvre dans un nouvel onglet)">GitHub<gcds-icon name="external-link" margin-left="100" /></a>
@@ -803,7 +804,18 @@
 <a href="https://www.figma.com/file/mh2maMG2NBtk41k1O1UGHV/Canadian-Digital-Service%E2%80%A8---GC-Design-System?node-id=963%3A2472&t=ciEmm7GYyGAY73zZ-0" target="_blank" rel="nofollow" aria-label="Figma (S'ouvre dans un nouvel onglet)">Figma<gcds-icon name="external-link" margin-left="100" /></a>
 </li>
 </ul></p>
-<br/>
+<p class="mb-400"><div class="my-500 b-sm b-default component-preview">
+<p class="container-full font-semibold px-300 py-200 bb-sm b-default bg-light">
+Aperçu du composant de téléverseur de fichiers
+</p>
+<div class="px-300 py-400"></p>
+<p class="mb-400"><gcds-file-uploader
+  uploader-id="file-uploader-preview"
+  label="Libellé"
+  hint="Texte explicatif / Exemple de message."
+></gcds-file-uploader></p>
+<p class="mb-400"></div>
+</div></p>
 
     <nav class="tabs mb-400" aria-label="Téléverseur de fichiers">
       <ul>
@@ -842,7 +854,21 @@
     </nav>
   
 
-  <h2 id="design" class="mt-500 mb-400">Design</h2>
+  <h2 id="structure-du-televerseur-de-fichiers" class="mt-500 mb-400">Structure du téléverseur de fichiers</h2>
+<ol class="anatomy-list">
+  <li>Le <strong>libellé</strong> fournit les instructions sur le composant.</li>
+  <li>Le <strong>texte explicatif</strong> indique les types de fichiers acceptés et toute autre exigence, comme la taille maximum des fichiers.</li>
+  <li>Le <strong>bouton</strong> lance l'interface pour la sélection des fichiers.</li>
+  <li>L'<strong>élément de la liste des fichiers</strong> est une boîte affichant le fichier téléversé.</li>
+  <li>Le <strong>nom du fichier</strong> affiche le nom du fichier qui a été ajouté.</li>
+  <li>Le bouton <strong>supprimer</strong> permet de supprimer un fichier téléversé avant la soumission.</li>
+</ol>
+<img class="b-sm b-default p-400" src="/images/fr/components/anatomy/gcds-file-uploader-anatomy.svg" alt="Une image de la structure du composant téléverseur de fichiers." />
+<h2 id="design-et-accessibilite-du-televerseur-de-fichiers" class="mt-500 mb-400">Design et accessibilité du téléverseur de fichiers</h2>
+<h3 id="redigez-des-libelles-et-des-textes-explicatifs-clairs" class="mt-500 mb-400">Rédigez des libellés et des textes explicatifs clairs</h3>
+<ul class="list-disc mb-400"><li><p class="mb-400">Utilisez le libellé de champ pour formuler des attentes claires sur le type de fichier qu'une personne peut ou doit télécharger.</li>
+<li><p class="mb-400">Utilisez le texte explicatif pour préciser toute limite de téléversement.</li>
+</ul>
 
 
   <section class="pt-100 mt-400 mb-600 bt-sm b-dark ">
