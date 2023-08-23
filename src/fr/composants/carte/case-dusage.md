@@ -34,18 +34,12 @@ Remarque : Pour Canada.ca, évitez d’utiliser des cartes au lieu des élément
   <h2>Types de composants</h2>
   <h3 class="mb-400 mt-400">Carte « Lien »</h3>
   {% componentPreview "Aperçu de carte « Lien »" "py-400" "" %}
-  <gcds-card
-  card-title="Title of the article"
-  href="#"
-  tag="tag"
-  description="This is a description"
-  img-alt="#"
->
-  <div slot="footer">Metadata</div>
+  <gcds-card card-title="Titre de la carte" tag="Balise" href="#" description="Description destinée à accompagner le titre. Les textes plus longs seront tronqués avec ...">
+<div slot="footer">Infos contextuelles • metadonnées</div>
 </gcds-card>
   {% endcomponentPreview %}
 
-  <div>
+  <div class="mt-400">
     <p>Utilisez la carte « Lien » aux fins suivantes :</p>
     <ul class="list-disc mb-400">
       <li>Structurer des renseignements relatifs à un même thème pour offrir au lectorat davantage de détails de manière progressive.</li>
@@ -54,21 +48,15 @@ Remarque : Pour Canada.ca, évitez d’utiliser des cartes au lieu des élément
     </ul>
   </div>
 
+<div>
+    <h3 class="mb-400 mt-400">Carte « Action »</h3>
   {% componentPreview "Aperçu de carte « Action »" "py-400" "" %}
-  <gcds-card
-  card-title="Title of the article"
-  href="#"
-  type="action"
-  tag="tag"
-  description="This is a description"
-  img-alt="#"
->
-  <div slot="footer"></div>
+  <gcds-card card-title="Titre de la carte" href="#" type="action" tag="Balise" description="Description destinée à accompagner le titre. Les textes plus longs seront tronqués avec ..." img-alt="#">
+  <div slot="footer">
+    <gcds-button>Libellé du bouton</gcds-button>
+  </div>
 </gcds-card>
   {% endcomponentPreview %}
-
-  <div>
-    <h3 class="mb-400 mt-400">Carte « Action »</h3>
     <p>Utilisez la carte « Action » aux fins suivantes :</p>
     <ul class="list-disc mb-400">
       <li>Regrouper des renseignements permettant d’accomplir une tâche. La carte action compte un bouton dans le pied de page. </li>

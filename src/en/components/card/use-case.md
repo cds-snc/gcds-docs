@@ -36,8 +36,8 @@ Note: For Canada.ca, avoid using cards in place of the doormats specified in the
   <div>
     <h3 class="mb-400 mt-400">Link card</h3>
       {% componentPreview "Link card preview" "py-400" %}
-<gcds-card card-title="Title of the article" href="#" description="This is a description">
-<div slot="footer">footer</div>
+<gcds-card card-title="Title of the article" tag="Tag" href="#" description="Description or supporting text relating to the headline. Longer text will be truncated with ...">
+<div slot="footer">Context info • metadata</div>
 </gcds-card>
 {% endcomponentPreview %}
     <p>Use the link card to:</p>
@@ -51,15 +51,10 @@ Note: For Canada.ca, avoid using cards in place of the doormats specified in the
 <div>
 <h3 class="mb-400 mt-400">Action card</h3>
   {% componentPreview "Action card preview" "py-400" "" %}
-  <gcds-card
-  card-title="Title of the article"
-  href="#"
-  type="action"
-  tag="tag"
-  description="This is a description"
-  img-alt="#"
->
-  <div slot="footer"></div>
+  <gcds-card card-title="Title of the article" href="#" type="action" tag="tag" description="Description or supporting text relating to the headline. Longer text will be truncated with ..." img-alt="#">
+  <div slot="footer">
+    <gcds-button>Button label</gcds-button>
+  </div>
 </gcds-card>
   {% endcomponentPreview %}
     <p>use the action card to:</p>

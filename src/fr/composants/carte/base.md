@@ -15,5 +15,7 @@ Une carte est un encadré contenant du contenu structuré et exploitable sur un 
 {% enddocLinks %}
 
 {% componentPreview "Aperçu du composant de carte" %}
-<gcds-card card-title="Title of the article" href="#"></gcds-card>
+<gcds-card card-title="Titre de la carte" tag="Balise" description="Description destinée à accompagner le titre. Les textes plus longs seront tronqués avec ..." href="#">
+<div slot="footer">Infos contextuelles • metadonnées</div>
+</gcds-card>
 {% endcomponentPreview %}
