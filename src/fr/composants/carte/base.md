@@ -5,9 +5,15 @@ permalink: false
 tags: ['cardFR', 'header']
 ---
 
-# carte
+# Carte <br>`<gcds-card>`
 
-This element will have the content below it
+_Autres noms : tuile, carte de contenu._
+
+Une carte est un encadré contenant du contenu structuré et exploitable sur un sujet unique. 
 
 {% docLinks locale stage figma github %}
 {% enddocLinks %}
+
+{% componentPreview "Card component preview" %}
+<gcds-card card-title="Title of the article" href="#"></gcds-card>
+{% endcomponentPreview %}
