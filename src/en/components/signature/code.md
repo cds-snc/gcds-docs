@@ -14,7 +14,7 @@ Use the signature component for a clear and identifiable Government of Canada la
 
 ### Apply the signature or wordmark types
 
-Use the signature type in the site’s header and the wordmark type in the site’s footer.
+Use the signature type in the site’s <a href="{{ links.header }}">header</a> and the wordmark type in the site’s <a href="{{ links.footer }}">footer</a>.
 
 - Set the `<type>` attribute to `<signature>`.
 - Set the `<type>` attribute to `<wordmark>`.
