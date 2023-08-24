@@ -25,6 +25,8 @@ Utilisez la signature dans <a href="{{ links.header }}">l’en-tête</a> du site
 - Utilisez un lien hypertexte dans la signature pour qu’elle puisse mener à la page d’accueil Canada.ca dans la même langue officielle que la page actuelle. Définissez l’attribut `has-link` à `true` pour créer un lien hypertexte vers Canada.ca.
 - Définissez le composant comme `colour` ou `white` en utilisant l’attribut `variant`.
 
+{% include "partials/getcode.njk" %}
+
 <iframe
   title="Survol des propriétés et des évènements relatifs à gcds-signature."
   src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&singleStory=true&id=components-signature--events-properties#events--properties"
