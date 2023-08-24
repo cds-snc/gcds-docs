@@ -47,7 +47,8 @@ h6 {
   max-width: 60ch;
 }
 
-// Paragraph and long form content
+// Text and long form content
+ul li,
 p {
   font: var(--gcds-font-text-long);
   max-width: 65ch;

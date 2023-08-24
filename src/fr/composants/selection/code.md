@@ -26,7 +26,7 @@ Utilisez l'attribut `default-value` pour configurer la première option dans la 
   title="Survol des propriétés et des évènements relatifs à gcds-select."
   src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&singleStory=true&id=components-select--events-properties"
   width="1200"
-  height="1850"
+  height="2100"
   style="display: block; margin: 0 auto;"
   frameBorder="0"
   allow="clipboard-write"

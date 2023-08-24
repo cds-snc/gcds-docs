@@ -26,7 +26,7 @@ Si vous utilisez un composant Chemin de navigation, uniformisez la hiérarchie d
   title="Survol des propriétés et des évènements relatifs à gcds-side-nav."
   src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&singleStory=true&id=components-side-navigation--events-properties"
   width="1200"
-  height="1670"
+  height="1700"
   style="display: block; margin: 0 auto;"
   frameBorder="0"
   allow="clipboard-write"

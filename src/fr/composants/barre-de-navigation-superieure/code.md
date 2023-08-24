@@ -28,7 +28,7 @@ Utilisez une barre de navigation supérieure pour aider une personne à se repé
   title="Survol des propriétés et des évènements relatifs à gcds-top-nav."
   src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&singleStory=true&id=components-top-navigation--events-properties"
   width="1200"
-  height="1650"
+  height="1750"
   style="display: block; margin: 0 auto;"
   frameBorder="0"
   allow="clipboard-write"
