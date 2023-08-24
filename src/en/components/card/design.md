@@ -1,5 +1,5 @@
 ---
-title: card - Components
+title: Card
 layout: "layouts/component-documentation.njk"
 translationKey: "cardDesign"
 tags: ['cardEN', 'design']

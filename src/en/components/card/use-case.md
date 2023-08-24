@@ -1,5 +1,5 @@
 ---
-title: card - Components
+title: Card
 layout: "layouts/component-documentation.njk"
 eleventyNavigation:
   key: cardEN
@@ -36,11 +36,11 @@ Note: For Canada.ca, avoid using cards in place of the doormats specified in the
   <div>
     <h3 class="mb-400 mt-400">Link card</h3>
       {% componentPreview "Link card preview" "py-400" %}
-<gcds-card card-title="Title of the article" tag="Tag" href="#" description="Description or supporting text relating to the headline. Longer text will be truncated with ...">
+<gcds-card card-title="Card title link" tag="Tag" href="#" description="Description or supporting text relating to the headline. Longer text will be truncated with ...">
 <div slot="footer">Context info • metadata</div>
 </gcds-card>
 {% endcomponentPreview %}
-    <p>Use the link card to:</p>
+    <p class="mb-400">Use the link card to:</p>
     <ul class="list-disc mb-400">
       <li>Structure information on the same topic to progressively offer the reader more details</li>
       <li>Include a link when there’s further information. Adding a link makes the entire card interactive as a large clickable target.</li>
@@ -51,13 +51,13 @@ Note: For Canada.ca, avoid using cards in place of the doormats specified in the
 <div>
 <h3 class="mb-400 mt-400">Action card</h3>
   {% componentPreview "Action card preview" "py-400" "" %}
-  <gcds-card card-title="Title of the article" href="#" type="action" tag="tag" description="Description or supporting text relating to the headline. Longer text will be truncated with ..." img-alt="#">
+  <gcds-card card-title="Card title link" href="#" type="action" tag="tag" description="Description or supporting text relating to the headline. Longer text will be truncated with ..." img-alt="#">
   <div slot="footer">
     <gcds-button>Button label</gcds-button>
   </div>
 </gcds-card>
   {% endcomponentPreview %}
-    <p>use the action card to:</p>
+    <p class="mb-400">Use the action card to:</p>
     <ul class="list-disc mb-400">
       <li>Group information that supports a task. The main action features on a button in the card footer.</li>
       <li>Highlight an immediate action a person can take using the button.</li>

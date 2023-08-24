@@ -1,5 +1,5 @@
 ---
-title: card - Components
+title: Card
 layout: "layouts/component-documentation.njk"
 translationKey: "cardCode"
 tags: ['cardEN', 'code']
@@ -24,7 +24,7 @@ When you have more than 1 card on a page:
   title="Overview of gcds-card properties and events."
   src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&singleStory=true&id=components-card--events-properties"
   width="1200"
-  height="1920"
+  height="1700"
   style="display: block; margin: 0 auto;"
   frameBorder="0"
   allow="clipboard-write"

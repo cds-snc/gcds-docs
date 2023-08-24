@@ -15,7 +15,7 @@ A card is a box containing structured, actionable content on a single topic.
 {% enddocLinks %}
 
 {% componentPreview "Card component preview" %}
-<gcds-card card-title="Title of the article" tag="Tag" href="#" description="This is a description">
+<gcds-card card-title="Card title link" tag="Tag" href="#" description="Description or supporting text relating to the headline. Longer text will be truncated with ...">
 <div slot="footer">Context info • metadata</div>
 </gcds-card>
 {% endcomponentPreview %}

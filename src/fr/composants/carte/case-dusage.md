@@ -1,5 +1,5 @@
 ---
-title: carte - Composants
+title: Carte
 layout: "layouts/component-documentation.njk"
 eleventyNavigation:
   key: cardFR
@@ -40,7 +40,7 @@ Remarque : Pour Canada.ca, évitez d’utiliser des cartes au lieu des élément
   {% endcomponentPreview %}
 
   <div class="mt-400">
-    <p>Utilisez la carte « Lien » aux fins suivantes :</p>
+    <p class="mb-400">Utilisez la carte « Lien » aux fins suivantes :</p>
     <ul class="list-disc mb-400">
       <li>Structurer des renseignements relatifs à un même thème pour offrir au lectorat davantage de détails de manière progressive.</li>
       <li>Inclure un lien permettant d’accéder à davantage d’informations. Ajouter un lien rendant l’ensemble de la carte interactive et cliquable.</li>
@@ -57,7 +57,7 @@ Remarque : Pour Canada.ca, évitez d’utiliser des cartes au lieu des élément
   </div>
 </gcds-card>
   {% endcomponentPreview %}
-    <p>Utilisez la carte « Action » aux fins suivantes :</p>
+    <p class="mb-400">Utilisez la carte « Action » aux fins suivantes :</p>
     <ul class="list-disc mb-400">
       <li>Regrouper des renseignements permettant d’accomplir une tâche. La carte action compte un bouton dans le pied de page. </li>
       <li>Souligner une action immédiate que peut entreprendre la personne à l’aide du bouton.</li>
