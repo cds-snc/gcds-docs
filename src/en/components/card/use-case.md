@@ -17,16 +17,16 @@ permalink: /en/components/card/
 date: "git Last Modified"
 ---
 
-Review these common uses for cards to see if they match the problem you’re solving for. 
+Review these common uses for cards to see if they match the problem you’re solving for.
 
-## Problems cards solve 
+## Problems cards solve
 
-Cards organize information on the same subject in a static box shaped like a playing card.   
+Cards organize information on the same subject in a static box shaped like a playing card.
 
 Use a card to:
 
 - Group small pieces of related information as a single unit.
-- Present bite-sized previews and summaries of information with a means to obtain more details elsewhere. 
+- Present bite-sized previews and summaries of information with a means to obtain more details elsewhere.
 - Support content discovery by creating more visual interest.
 
 Note: For Canada.ca, avoid using cards in place of the doormats specified in the templates for landing page and theme and topic page.
@@ -51,7 +51,7 @@ Note: For Canada.ca, avoid using cards in place of the doormats specified in the
 <div>
 <h3 class="mb-400 mt-400">Action card</h3>
   {% componentPreview "Action card preview" "py-400" "" %}
-  <gcds-card card-title="Card title link" href="#" type="action" tag="tag" description="Description or supporting text relating to the headline. Longer text will be truncated with ..." img-alt="#">
+  <gcds-card card-title="Card title link" href="#" type="action" tag="Tag" description="Description or supporting text relating to the headline. Longer text will be truncated with ..." img-alt="#">
   <div slot="footer">
     <gcds-button>Button label</gcds-button>
   </div>
