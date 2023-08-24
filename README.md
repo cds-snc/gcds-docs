@@ -21,20 +21,41 @@ We are using [11ty](https://www.11ty.dev/docs/) and [Netlify](https://docs.netli
 - Run `npm start` to start a hot-reloading local web server.
 <br/>
 
-## Formatting
+## Adding new pages
+
+### Components
+
+To add a new component page, run the command `npm run create-component-page`. A prompt for English name and French name of the component will appear, continue by entering the name of the component in both languages. This will generate the directories `/src/en/components/<english-name>/` and `/src/fr/composants/<french-name>/` with `base.md`, `use-case.md`, `design.md` and `code.md` files in them.
+
+The component created by `create-component-page` will be placed in the coming soon section of the site by default. This can be updated by updating the `state` to `published` in `use-case.md` and `case-usage.md` files.
+
+The author will also need to manually add `"componentName": "url"` to `src/en/en.json` and `src/fr/fr.json`. Coming soon components will link to the coming soon page.
+
+#### Component pages frontmatter
 
 Each page has [Frontmatter](https://www.scribendi.com/academy/articles/front_matter.en.html#:~:text=Front%20matter%20is%20the%20first,a%20preface%2C%20and%20much%20more.) placed at the top of the file to help format the placment, template and navigational elements of the page.
 
-Available frontmatter options:
+The frontmatter listed below will need to be updated when creating a component page.
 
-- `title`: Name of the page (required).
-- `layout`: Chosen template layout (required).
-- `translationKey`: Unique key to link to French page.
-- `eleventyNavigation`: Object to place page into main navigation. Don't include if the current page doesn't need to be in the main navigation.
-    - `key`: Unique key for navigation
-    - `parent`: Parent node's key. Leave blank to create a top level link.
-    - `title`: Text for navigation link.
-    - `locale`: Language key to dictate which language the navigation item is available in. Expects **en** or **fr**.
+##### base.md
+
+- `github`: GitHub link to component on main branch
+- `figma`: Figma link to component page
+
+#### use-case.md / case-dusage.md
+
+- `eleventyNavigation`: Object to render navigation for component
+  - `otherNames`: For overview page
+  - `description`: For overview page
+  - `thumbnail`: Thumbnail image path for overview page
+  - `alt`: Image alt text for overview page
+  - `state`: Defaults to `coming-soon`, will need to be switched to `published` if publishing component guidance
+- `date`: Commented out by default, uncomment after first commit or when ready to publish
+
+### design.md / code.md
+
+- `date`: Commented out by default, uncomment after first commit or when ready to publish
+
 <br/>
 
 ## How to contribute
