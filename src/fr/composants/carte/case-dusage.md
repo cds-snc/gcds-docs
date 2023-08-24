@@ -17,18 +17,26 @@ permalink: /fr/composants/carte/
 date: "git Last Modified"
 ---
 
-Examinez les cas d’utilisation des cartes pour déterminer si elles répondent à vos besoins. 
+Examinez les cas d’utilisation des cartes pour déterminer si elles répondent à vos besoins.
 
-## Problèmes résolus par les cartes 
+## Problèmes résolus par les cartes
 
-Les cartes permettent d’organiser des renseignements relatifs à un même sujet dans une boîte fixe ayant la forme d’une carte à jouer.   
+Les cartes permettent d’organiser des renseignements relatifs à un même sujet dans une boîte fixe ayant la forme d’une carte à jouer.
 
-Utilisez une carte aux fins suivantes :  
+Utilisez une carte aux fins suivantes :
 - Regrouper de petits éléments informatifs en un seul élément.
-- Présenter des aperçus et résumés permettant d’obtenir davantage de renseignements ailleurs. 
+- Présenter des aperçus et résumés permettant d’obtenir davantage de renseignements ailleurs.
 - Encourager la découverte de contenu en créant des éléments visuellement intéressants pour le lectorat.
 
 Remarque : Pour Canada.ca, évitez d’utiliser des cartes au lieu des éléments de navigation thématique indiqués dans les gabarits pour la page d’accueil et les pages consacrées au thème et au sujet.
+
+<article class="bg-full-width bg-primary text-light pt-500 pb-400 my-500">
+  <h2 class="mt-0 mb-400">Related components</h2>
+
+  <a href="{{ links.details }}" class="link-light">Détails</a> pour dissimuler des renseignements secondaires qu’une personne peut développer sur la même page.
+
+  <a href="{{ links.container }}" class="link-light">Boîte</a> pour des affichages simples à largeur définie.
+</article>
 
 <div>
   <h2>Types de composants</h2>
@@ -66,12 +74,3 @@ Remarque : Pour Canada.ca, évitez d’utiliser des cartes au lieu des élément
     <p>Remarque : Dans la carte « Action », seuls le lien du titre et le bouton sont interactifs. Le bouton est consacré à une action spécifique.</p>
   </div>
 </div>
-
-<article class="bg-full-width bg-primary text-light pt-500 pb-400 my-500">
-  <h2 class="mt-0 mb-400">Related components</h2>
-
-  <a href="{{ links.details }}" class="link-light">Détails</a> pour dissimuler des renseignements secondaires qu’une personne peut développer sur la même page.
-
-  <a href="{{ links.container }}" class="link-light">Boîte</a> pour des affichages simples à largeur définie.
-</article>
-

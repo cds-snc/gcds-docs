@@ -31,6 +31,14 @@ Use a card to:
 
 Note: For Canada.ca, avoid using cards in place of the doormats specified in the templates for landing page and theme and topic page.
 
+<article class="bg-full-width bg-primary text-light pt-500 pb-400 my-500">
+  <h2 class="mt-0 mb-400">Related components</h2>
+
+  <a href="{{ links.details }}" class="link-light">Details</a> to hide secondary information that a person can expand on the same page.
+
+  <a href="{{ links.container }}" class="link-light">Container</a> for basic layouts with a set width.
+</article>
+
 <div>
   <h2>Component types</h2>
   <div>
@@ -66,12 +74,3 @@ Note: For Canada.ca, avoid using cards in place of the doormats specified in the
     <p>Note: In the action card, only the card title headline link and the button are interactive. The button is for a specific action</p>
   </div>
 </div>
-
-<article class="bg-full-width bg-primary text-light pt-500 pb-400 my-500">
-  <h2 class="mt-0 mb-400">Related components</h2>
-
-  <a href="{{ links.details }}" class="link-light">Details</a> to hide secondary information that a person can expand on the same page.
-
-  <a href="{{ links.container }}" class="link-light">Container</a> for basic layouts with a set width.
-</article>
-
