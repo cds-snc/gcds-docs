@@ -32,7 +32,7 @@
     "radio": "/fr/composants/bouton-radio",
     "select": "/fr/developpement-en-cours",
     "sideNav": "/fr/composants/barre-de-navigation-laterale",
-    "signature": "/fr/developpement-en-cours",
+    "signature": "/fr/composants/signature",
     "stepper": "/fr/composants/indicateur-detape",
     "textarea": "/fr/composants/zone-de-texte",
     "topNav": "/fr/composants/barre-de-navigation-superieure",

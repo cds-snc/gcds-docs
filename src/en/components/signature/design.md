@@ -39,7 +39,7 @@ The standard colour style uses black text and a red flag applied to a white back
 
 The reversed colour style uses white text and a red flag applied to a black backdrop.
 
-<img class="b-sm b-default p-400 mt-500 mb-400" src="/images/en/components/example/example-signature-bw-en.svg" alt="An image presenting two signature and wordmark pairings. One where the signature and wordmark are all black on a white backdrop and the second where the signature is all white on a black backdrop." />
+<img class="b-sm b-default p-400 mt-500 mb-400" src="/images/en/components/example/example-signature-bw-en.svg" alt="An image presenting two signature and wordmark pairings. One where the signature and wordmark are all black on a white backdrop and the second where the signature and wordmark are all white on a black backdrop." />
 
 The black and white style uses all black or all white. All black is the more common use.
 
