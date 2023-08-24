@@ -15,7 +15,7 @@ Use cards to help a person discover and scan summaries or progressive, bite-size
 When you have more than 1 card on a page:
 
 - Organize multiple cards within a grid component.
-- Use the same card type within a section on a page. Choose the link card type or the action card type for all cards rather than mixing types. 
+- Use the same card type within a section on a page. Choose the link card type or the action card type for all cards rather than mixing types.
 - Try to include the same properties for each card within a section on a page. For example, if one card has an image then all cards get an image.
 
 {% include "partials/getcode.njk" %}
@@ -24,7 +24,7 @@ When you have more than 1 card on a page:
   title="Overview of gcds-card properties and events."
   src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&singleStory=true&id=components-card--events-properties"
   width="1200"
-  height="1700"
+  height="1800"
   style="display: block; margin: 0 auto;"
   frameBorder="0"
   allow="clipboard-write"

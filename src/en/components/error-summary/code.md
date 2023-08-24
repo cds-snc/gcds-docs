@@ -38,7 +38,7 @@ Opt to make your error heading more specific by using the `heading` attributes.
   title="Overview of gcds-error-summary properties and events."
   src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&singleStory=true&id=components-error-summary--events-properties"
   width="1200"
-  height="1400"
+  height="1500"
   style="display: block; margin: 0 auto;"
   frameBorder="0"
   allow="clipboard-write"
