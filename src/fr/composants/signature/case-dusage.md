@@ -39,7 +39,7 @@ Placez la **signature** dans l’en-tête à côté de la bascule de langue pour
 - Afficher la signature de marque du gouvernement du Canada;
 - Fournir un point de repère aux utilisateur·rice·s qui souhaiteraient retourner à la page d’accueil du site.
 
-<img class="b-sm b-default mt-400 mb-100 p-400" src="/images/fr/components/example/example-signature-signature-type-fr.svg" alt="La signature du gouvernement du Canada. La signature comprend l’unifolié rouge, suivi par le texte « Government of Canada / Gouvernement du Canada »" />
+<img class="b-sm b-default mt-400 mb-100 p-400" src="/images/fr/components/example/example-signature-signature-type-fr.svg" alt="La signature du gouvernement du Canada. La signature comprend l’unifolié rouge, suivi par le texte « Gouvernement du Canada / Government of Canada »" />
 
 ### Type de mot-symbole
 
