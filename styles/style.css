@@ -55,6 +55,7 @@ h5 {
 h6 {
   max-width: 60ch; }
 
+ul li,
 p {
   font: var(--gcds-font-text-long);
   max-width: 65ch; }
