@@ -31,7 +31,7 @@ Utilisez une carte aux fins suivantes :
 Remarque : Pour Canada.ca, évitez d’utiliser des cartes au lieu des éléments de navigation thématique indiqués dans les gabarits pour la page d’accueil et les pages consacrées au thème et au sujet.
 
 <article class="bg-full-width bg-primary text-light pt-500 pb-400 my-500">
-  <h2 class="mt-0 mb-400">Related components</h2>
+  <h2 class="mt-0 mb-400">Composants connexes</h2>
 
   <a href="{{ links.details }}" class="link-light">Détails</a> pour dissimuler des renseignements secondaires qu’une personne peut développer sur la même page.
 
