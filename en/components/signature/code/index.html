@@ -842,7 +842,8 @@
         
   
     <h1 id="signature-brgcdssignature" class="mb-400">Signature <br><code>&lt;gcds-signature&gt;</code></h1>
-<p class="mb-400">This component is coming soon.</p>
+<p class="mb-400"><em>Also called: wordmark.</em></p>
+<p class="mb-400">The signature is the Government of Canada landmark identifier found in the header or footer.</p>
 <p class="mb-400"><ul class="d-flex flex-wrap gap-400">
 <li class="github-link">
 <a href="https://github.com/cds-snc/gcds-components/tree/main/packages/web/src/components/gcds-signature" target="_blank" rel="nofollow" aria-label="GitHub (Opens in a new tab)">GitHub<gcds-icon name="external-link" margin-left="100" /></a>
@@ -851,6 +852,19 @@
 <a href="https://www.figma.com/file/mh2maMG2NBtk41k1O1UGHV/Canadian-Digital-Service%E2%80%A8---GC-Design-System?node-id=2319%3A8211&t=ciEmm7GYyGAY73zZ-0" target="_blank" rel="nofollow" aria-label="Figma (Opens in a new tab)">Figma<gcds-icon name="external-link" margin-left="100" /></a>
 </li>
 </ul></p>
+<p class="mb-400"><div class="my-500 b-sm b-default component-preview">
+<p class="container-full font-semibold px-300 py-200 bb-sm b-default bg-light">
+Signature component preview
+</p>
+<div class="px-300 py-400"></p>
+<div class="d-inline-block me-400">
+<gcds-signature type="signature"></gcds-signature>
+</div>
+<div class="d-inline-block">
+<gcds-signature class="px-400" type="wordmark"></gcds-signature>
+</div>
+<p class="mb-400"></div>
+</div></p>
 <br/>
 
     <nav class="tabs mb-400" aria-label="Signature">
@@ -890,8 +904,41 @@
     </nav>
   
 
-  <h2 id="code" class="mt-500 mb-400">Code</h2>
-
+  <h2 id="main-use-case" class="mt-500 mb-400">Main use case</h2>
+<p class="mb-400">Use the signature component for a clear and identifiable Government of Canada landmark identifier for your site or product.</p>
+<h2 id="coding-and-accessibility-for-the-signature" class="mt-500 mb-400">Coding and accessibility for the signature</h2>
+<h3 id="apply-the-signature-or-wordmark-types" class="mt-500 mb-400">Apply the signature or wordmark types</h3>
+<p class="mb-400">Use the signature type in the site’s <a href="/en/components/header">header</a> and the wordmark type in the site’s <a href="/en/components/footer">footer</a>.</p>
+<ul class="list-disc mb-400"><li><p class="mb-400">Set the <code>type</code> attribute to <code>signature</code>.</li>
+<li><p class="mb-400">Set the <code>type</code> attribute to <code>wordmark</code>.</li>
+</ul>
+<h3 id="set-the-language-and-colour" class="mt-500 mb-400">Set the language and colour</h3>
+<ul class="list-disc mb-400"><li><p class="mb-400">Set the page’s language settings using the <code>lang</code> attribute. <code>En</code> will render the English version for an English page and <code>Fr</code> will render the French version for a French page.</li>
+<li><p class="mb-400">Link the signature to the Canada.ca homepage in the same Official Language as the current page. Set <code>has-link</code> attribute to <code>true</code> to link to Canada.ca.</li>
+<li><p class="mb-400">Set the component to either <code>colour</code> or <code>white</code> using the <code>variant</code> attribute.</li>
+</ul>
+<h3 id="get-your-code" class="mt-500 mb-400">Get your code</h3>
+<p class="mb-400">Generate an instance of the component you need by selecting its code properties.</p>
+<ol class="list-decimal mb-400"><li>
+<p class="mb-400">Explore by choosing different code values to generate the instance you want.</p>
+</li>
+<li>
+<p class="mb-400">Get the code and pull it into your environment.</p>
+</li>
+<li>
+<p class="mb-400">Add any copy you need to the component (like text for a label).</p>
+</li>
+</ol>
+<p class="mb-400"><strong>Note:</strong> Following standard practice, the code builder uses English for all code elements.</p>
+<iframe
+  title="Overview of gcds-side-nav properties and events."
+  src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&singleStory=true&id=components-signature--events-properties#events--properties"
+  width="1200"
+  height="1100"
+  style="display: block; margin: 0 auto;"
+  frameBorder="0"
+  allow="clipboard-write"
+></iframe>
 
   <section class="pt-100 mt-400 mb-600 bt-sm b-dark ">
   <h2 class="mt-300 mb-400">
@@ -914,7 +961,7 @@
 
 
         <gcds-date-modified class="mb-400 font-caption">
-          2023-08-24
+          2023-08-28
         </gcds-date-modified>
       </main>
 

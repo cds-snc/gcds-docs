@@ -842,7 +842,8 @@
         
   
     <h1 id="signature-brgcdssignature" class="mb-400">Signature <br><code>&lt;gcds-signature&gt;</code></h1>
-<p class="mb-400">This component is coming soon.</p>
+<p class="mb-400"><em>Also called: wordmark.</em></p>
+<p class="mb-400">The signature is the Government of Canada landmark identifier found in the header or footer.</p>
 <p class="mb-400"><ul class="d-flex flex-wrap gap-400">
 <li class="github-link">
 <a href="https://github.com/cds-snc/gcds-components/tree/main/packages/web/src/components/gcds-signature" target="_blank" rel="nofollow" aria-label="GitHub (Opens in a new tab)">GitHub<gcds-icon name="external-link" margin-left="100" /></a>
@@ -851,6 +852,19 @@
 <a href="https://www.figma.com/file/mh2maMG2NBtk41k1O1UGHV/Canadian-Digital-Service%E2%80%A8---GC-Design-System?node-id=2319%3A8211&t=ciEmm7GYyGAY73zZ-0" target="_blank" rel="nofollow" aria-label="Figma (Opens in a new tab)">Figma<gcds-icon name="external-link" margin-left="100" /></a>
 </li>
 </ul></p>
+<p class="mb-400"><div class="my-500 b-sm b-default component-preview">
+<p class="container-full font-semibold px-300 py-200 bb-sm b-default bg-light">
+Signature component preview
+</p>
+<div class="px-300 py-400"></p>
+<div class="d-inline-block me-400">
+<gcds-signature type="signature"></gcds-signature>
+</div>
+<div class="d-inline-block">
+<gcds-signature class="px-400" type="wordmark"></gcds-signature>
+</div>
+<p class="mb-400"></div>
+</div></p>
 <br/>
 
     <nav class="tabs mb-400" aria-label="Signature">
@@ -890,7 +904,31 @@
     </nav>
   
 
-  <h2 id="design" class="mt-500 mb-400">Design</h2>
+  <h2 id="signature-anatomy" class="mt-500 mb-400">Signature anatomy</h2>
+<ol class="anatomy-list">
+  <li>The <strong>Government of Canada Signature</strong> is a brand identifier found in the site’s <a href="/en/components/header">header</a>. The signature is used as a global link to the site’s homepage.</li>
+  <li>The <strong>Canada Wordmark</strong> is a brand identifier found in the site’s <a href="/en/components/footer">footer</a>. It reinforces the brand by communicating to a site visitor that they’re reading content from the Government of Canada.</li>
+</ol>
+<img class="b-sm b-default p-400" src="/images/en/components/anatomy/gcds-signature-anatomy-en.svg" alt="Signature anatomy showing the labels 1 (Government of Canada Signature) and 2 (Canada Wordmark)" />
+<h2 id="design-and-accessibility-for-the-signature" class="mt-500 mb-400">Design and accessibility for the signature</h2>
+<h3 id="set-the-language-order-in-the-signature" class="mt-500 mb-400">Set the language order in the signature</h3>
+<p class="mb-400">Display the French-first signature on French pages and the English-first on English pages.</p>
+<p class="mb-400"><strong>Note:</strong> The image is hyperlinked to the Canada.ca homepage in the same Official Language as the current page.</p>
+<h3 id="apply-nonstandard-colours-accessibly" class="mt-500 mb-400">Apply non-standard colours accessibly</h3>
+<ul class="list-disc mb-400"><li><p class="mb-400">Opt to apply non-standard colours when a higher level of contrast with the background is needed, like for dark mode.</li>
+<li><p class="mb-400">Opt to apply non-standard colours when a single colour is used in a product, like in black and white.</li>
+<li><p class="mb-400">When making changes to the flag colour, always match the colour of the flag symbol in the signature and in the wordmark.</li>
+<li><p class="mb-400">Always apply the same colour combination in the signature and wordmark. For example, if one is black and white, the other needs to be as well.</li>
+<li><p class="mb-400">For single colour, check the contrast ratio between the signature elements for, at minimum, WCAG AA compliance.</li>
+</ul>
+<img class="b-sm b-default p-400 mt-400 mb-400" src="/images/en/components/example/example-signature-side-by-side-en.svg" alt="An image presenting both variations of the signature component. The signature type is on the left and the wordmark type is on the right." />
+<p class="mb-400">The standard colour style uses black text and a red flag applied to a white backdrop.</p>
+<img class="b-sm b-default p-400 mt-500 mb-400" src="/images/en/components/example/example-signature-side-by-side-reversed-en.svg" alt="An image presenting both variations of the signature component. The signature type is on the left and the wordmark type is on the right. This variation has white text on a black back drop" />
+<p class="mb-400">The reversed colour style uses white text and a red flag applied to a black backdrop.</p>
+<img class="b-sm b-default p-400 mt-500 mb-400" src="/images/en/components/example/example-signature-bw-en.svg" alt="An image presenting two signature and wordmark pairings. One where the signature and wordmark are all black on a white backdrop and the second where the signature and wordmark are all white on a black backdrop." />
+<p class="mb-400">The black and white style uses all black or all white. All black is the more common use.</p>
+<img class="b-sm b-default p-400 mt-500 mb-400" src="/images/en/components/example/example-signature-single-colour-style-en.svg" alt="An image showing the the signature and wordmark in dark purple on a light purple backdrop. There are bars and boxes simulating text and pictures, you are to assume this is a mock webpage. The text and pictures boxes are also dark purple." />
+<p class="mb-400">Single colour style uses another colour if that colour is the only colour used in the product.</p>
 
 
   <section class="pt-100 mt-400 mb-600 bt-sm b-dark ">
@@ -914,7 +952,7 @@
 
 
         <gcds-date-modified class="mb-400 font-caption">
-          2023-08-24
+          2023-08-28
         </gcds-date-modified>
       </main>
 

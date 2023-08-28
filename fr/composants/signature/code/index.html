@@ -842,7 +842,8 @@
         
   
     <h1 id="signature-brgcdssignature" class="mb-400">Signature <br><code>&lt;gcds-signature&gt;</code></h1>
-<p class="mb-400">Ce composant est en cours de développement.</p>
+<p class="mb-400"><em>Autre nom : mot-symbole.</em></p>
+<p class="mb-400">La signature est l’image de marque du gouvernement du Canada placée dans l’en-tête ou le pied de la page.</p>
 <p class="mb-400"><ul class="d-flex flex-wrap gap-400">
 <li class="github-link">
 <a href="https://github.com/cds-snc/gcds-components/tree/main/packages/web/src/components/gcds-signature" target="_blank" rel="nofollow" aria-label="GitHub (S'ouvre dans un nouvel onglet)">GitHub<gcds-icon name="external-link" margin-left="100" /></a>
@@ -851,6 +852,19 @@
 <a href="https://www.figma.com/file/mh2maMG2NBtk41k1O1UGHV/Canadian-Digital-Service%E2%80%A8---GC-Design-System?node-id=2319%3A8211&t=ciEmm7GYyGAY73zZ-0" target="_blank" rel="nofollow" aria-label="Figma (S'ouvre dans un nouvel onglet)">Figma<gcds-icon name="external-link" margin-left="100" /></a>
 </li>
 </ul></p>
+<p class="mb-400"><div class="my-500 b-sm b-default component-preview">
+<p class="container-full font-semibold px-300 py-200 bb-sm b-default bg-light">
+Aperçu du composant de la signature
+</p>
+<div class="px-300 py-400"></p>
+<div class="d-inline-block me-400">
+<gcds-signature type="signature"></gcds-signature>
+</div>
+<div class="d-inline-block">
+<gcds-signature class="px-400" type="wordmark"></gcds-signature>
+</div>
+<p class="mb-400"></div>
+</div></p>
 <br/>
 
     <nav class="tabs mb-400" aria-label="Signature">
@@ -890,7 +904,41 @@
     </nav>
   
 
-  <h2 id="code" class="mt-500 mb-400">Code</h2>
+  <h2 id="cas-dutilisation-principal" class="mt-500 mb-400">Cas d’utilisation principal</h2>
+<p class="mb-400">Utilisez la signature comme image de marque claire et reconnaissable du gouvernement du Canada pour votre site ou produit.</p>
+<h2 id="codage-et-accessibilite-de-la-signature" class="mt-500 mb-400">Codage et accessibilité de la signature</h2>
+<h3 id="utilisation-des-types-de-signature-et-de-motsymbole" class="mt-500 mb-400">Utilisation des types de signature et de mot-symbole</h3>
+<p class="mb-400">Utilisez la signature dans <a href="/fr/composants/en-tete">l’en-tête</a> du site et le mot-symbole dans <a href="/fr/composants/pied-de-page">le pied de page</a> du site.</p>
+<ul class="list-disc mb-400"><li><p class="mb-400">Utilisez l’attribut <code>type</code> pour définir la <code>signature</code>.</li>
+<li><p class="mb-400">Utilisez l’attribut <code>type</code> pour définir le <code>wordmark</code>.</li>
+</ul>
+<h3 id="definir-la-langue-et-la-couleur" class="mt-500 mb-400">Définir la langue et la couleur</h3>
+<ul class="list-disc mb-400"><li><p class="mb-400">Définissez les paramètres de langue de la page en utilisant l’attribut <code>lang</code>. L’attribut <code>Fr</code> définira le français comme la langue de la page et l’attribut <code>En</code> définira l’anglais comme la langue de la page.</li>
+<li><p class="mb-400">Utilisez un lien hypertexte dans la signature pour qu’elle puisse mener à la page d’accueil Canada.ca dans la même langue officielle que la page actuelle. Définissez l’attribut <code>has-link</code> à <code>true</code> pour créer un lien hypertexte vers Canada.ca.</li>
+<li><p class="mb-400">Définissez le composant comme <code>colour</code> ou <code>white</code> en utilisant l’attribut <code>variant</code>.</li>
+</ul>
+<h3 id="obtenez-votre-code" class="mt-500 mb-400">Obtenez votre code</h3>
+<p class="mb-400">Générez une version du composant dont vous avez besoin en sélectionnant les propriétés de code correspondantes ou explorez les possibilités en choisissant différentes valeurs de code.</p>
+<ol class="list-decimal mb-400"><li>
+<p class="mb-400">Choisissez des valeurs de code pour obtenir l'élément que vous voulez.</p>
+</li>
+<li>
+<p class="mb-400">Obtenez le code et intégrez-le dans votre environnement.</p>
+</li>
+<li>
+<p class="mb-400">Ajoutez tout contenu nécessaire au composant (comme le texte du libellé).</p>
+</li>
+</ol>
+<p class="mb-400"><strong>Remarque</strong> : Conformément à la pratique courante, le générateur de code utilise l'anglais pour tous les éléments de code.</p>
+<iframe
+  title="Survol des propriétés et des évènements relatifs à gcds-signature."
+  src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&singleStory=true&id=components-signature--events-properties#events--properties"
+  width="1200"
+  height="1100"
+  style="display: block; margin: 0 auto;"
+  frameBorder="0"
+  allow="clipboard-write"
+></iframe>
 
 
   <section class="pt-100 mt-400 mb-600 bt-sm b-dark ">
@@ -914,7 +962,7 @@
 
 
         <gcds-date-modified class="mb-400 font-caption">
-          2023-08-24
+          2023-08-28
         </gcds-date-modified>
       </main>
 
