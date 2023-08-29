@@ -94,7 +94,7 @@ iframe {
   max-width: 100%; }
 
 .anatomy-list {
-  counter-reset: item;
+  counter-reset: item calc(var(--start-value, 1) - 1);
   margin-block-end: var(--gcds-spacing-450); }
   .anatomy-list li {
     position: relative;
