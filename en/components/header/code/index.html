@@ -914,14 +914,14 @@ Header component preview
 </ul>
 <h3 id="include-the-skiptocontent-button" class="mt-500 mb-400">Include the skip-to-content button</h3>
 <ul class="list-disc mb-400"><li><p class="mb-400">Include the skip-to-content button by setting the <code>href</code> of the <strong>skip-to-content</strong> link in the header's top navigation using the <code>skip-to-href</code> attribute.</li>
-<li><p class="mb-400">Use the <code>topnav</code> slot to replace the default top navigation with the <code>skip-to-content</code> link.</li>
-<li><p class="mb-400">Pass a child element with the <code>slot=&quot;topnav&quot;</code> attribute to place the element first in the header.</li>
+<li><p class="mb-400">Use the <code>skip-to-nav</code> slot to replace the default top navigation with the <code>skip-to-content</code> link.</li>
+<li><p class="mb-400">Pass a child element with the <code>slot=&quot;skip-to-nav&quot;</code> attribute to place the element first in the header.</li>
 </ul>
 <h3 id="add-optional-elements-to-your-header" class="mt-500 mb-400">Add optional elements to your header</h3>
 <ul class="list-disc mb-400"><li><p class="mb-400">Add a menu by passing a child element with the <code>slot=&quot;menu&quot;</code> attribute. This will place the element in the header below the language toggle, signature and search slots.</li>
 <li><p class="mb-400">Add a search form by passing a child element with the <code>slot=&quot;search&quot;</code> attribute. This will place the element under the language toggle and beside the signature in the header.</li>
 <li><p class="mb-400">Add a breadcrumb component by passing a child element with the <code>slot=&quot;breadcrumb&quot;</code> attribute. This will place the breadcrumb in the header below the language toggle, signature and search slot.</li>
-<li><p class="mb-400">Add a banner by passing a child element with the <code>slot=&quot;banner&quot;</code> attribute. This will place the element across the top of the header under the <code>topnav</code> element.</li>
+<li><p class="mb-400">Add a banner by passing a child element with the <code>slot=&quot;banner&quot;</code> attribute. This will place the element across the top of the header under the <code>skip-to-nav</code> element.</li>
 </ul>
 <h3 id="get-your-code" class="mt-500 mb-400">Get your code</h3>
 <p class="mb-400">Generate an instance of the component you need by selecting its code properties.</p>
@@ -968,7 +968,7 @@ Header component preview
 
 
         <gcds-date-modified class="mb-400 font-caption">
-          2023-08-28
+          2023-08-29
         </gcds-date-modified>
       </main>
 

@@ -25,7 +25,7 @@ export declare class GcdsHeader {
   lang: string;
   updateLang(): void;
   componentWillLoad(): Promise<void>;
-  private get renderTopNav();
+  private get renderSkipToNav();
   private get renderToggle();
   private get renderSignature();
   private get renderSearch();

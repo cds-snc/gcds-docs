@@ -25,6 +25,7 @@ export { GcdsNavLink as GcdsNavLink } from '../types/components/gcds-nav-link/gc
 export { GcdsPagination as GcdsPagination } from '../types/components/gcds-pagination/gcds-pagination';
 export { GcdsPhaseBanner as GcdsPhaseBanner } from '../types/components/gcds-phase-banner/gcds-phase-banner';
 export { GcdsRadio as GcdsRadio } from '../types/components/gcds-radio/gcds-radio';
+export { GcdsSearch as GcdsSearch } from '../types/components/gcds-search/gcds-search';
 export { GcdsSelect as GcdsSelect } from '../types/components/gcds-select/gcds-select';
 export { GcdsSideNav as GcdsSideNav } from '../types/components/gcds-side-nav/gcds-side-nav';
 export { GcdsSignature as GcdsSignature } from '../types/components/gcds-signature/gcds-signature';

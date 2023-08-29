@@ -197,6 +197,7 @@ Error.args = {
   type: 'text',
   label: 'Label',
   hint: 'Hint / example message.',
+  required: true,
   errorMessage: 'Error message or validation message.',
   lang: 'en',
   autocomplete: 'off',

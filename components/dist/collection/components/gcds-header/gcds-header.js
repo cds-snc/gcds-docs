@@ -32,12 +32,12 @@ export class GcdsHeader {
     this.lang = assignLanguage(this.el);
     this.updateLang();
   }
-  get renderTopNav() {
-    if (!!this.el.querySelector('[slot="topnav"]')) {
-      return h("slot", { name: "topnav" });
+  get renderSkipToNav() {
+    if (!!this.el.querySelector('[slot="skip-to-nav"]')) {
+      return h("slot", { name: "skip-to-nav" });
     }
     else if (this.skipToHref) {
-      return (h("nav", { "aria-label": i18n[this.lang].skip, class: "gcds-header__topnav" }, h("gcds-button", { type: "link", "button-role": "skip-to-content", href: this.skipToHref }, i18n[this.lang].skip)));
+      return (h("nav", { "aria-label": i18n[this.lang].skip, class: "gcds-header__skip-to-nav" }, h("gcds-button", { type: "link", "button-role": "skip-to-content", href: this.skipToHref }, i18n[this.lang].skip)));
     }
     else {
       return;
@@ -65,7 +65,7 @@ export class GcdsHeader {
   }
   get renderSearch() {
     if (!!this.el.querySelector('[slot="search"]')) {
-      return h("slot", { name: "search" });
+      return h("div", { class: "brand__search" }, h("slot", { name: "search" }));
     }
     else {
       return;
@@ -81,8 +81,8 @@ export class GcdsHeader {
     return !!this.el.querySelector('[slot="breadcrumb"]');
   }
   render() {
-    const { renderTopNav, renderToggle, renderSignature, renderSearch, hasSearch, hasBanner, hasBreadcrumb } = this;
-    return (h(Host, { role: "banner" }, renderTopNav, hasBanner ?
+    const { renderSkipToNav, renderToggle, renderSignature, renderSearch, hasSearch, hasBanner, hasBreadcrumb } = this;
+    return (h(Host, { role: "banner" }, renderSkipToNav, hasBanner ?
       h("slot", { name: "banner" })
       :
         null, h("div", { class: "gcds-header__brand" }, h("div", { class: `brand__container ${!hasSearch ? 'container--simple' : ''}` }, renderToggle, renderSignature, renderSearch)), h("slot", { name: "menu" }), hasBreadcrumb ?

@@ -54,5 +54,5 @@ export const Default = Template.bind({});
 Default.args = {
   href: '#link',
   current: false,
-  default: "Link"
+  default: "Nav link"
 };

@@ -25,6 +25,7 @@ export { GcdsNavLink, defineCustomElement as defineCustomElementGcdsNavLink } fr
 export { GcdsPagination, defineCustomElement as defineCustomElementGcdsPagination } from './gcds-pagination.js';
 export { GcdsPhaseBanner, defineCustomElement as defineCustomElementGcdsPhaseBanner } from './gcds-phase-banner.js';
 export { GcdsRadio, defineCustomElement as defineCustomElementGcdsRadio } from './gcds-radio.js';
+export { GcdsSearch, defineCustomElement as defineCustomElementGcdsSearch } from './gcds-search.js';
 export { GcdsSelect, defineCustomElement as defineCustomElementGcdsSelect } from './gcds-select.js';
 export { GcdsSideNav, defineCustomElement as defineCustomElementGcdsSideNav } from './gcds-side-nav.js';
 export { GcdsSignature, defineCustomElement as defineCustomElementGcdsSignature } from './gcds-signature.js';

@@ -95,5 +95,7 @@ export declare const SizeMd: any;
 export declare const SizeSm: any;
 export declare const SizeXs: any;
 export declare const Centered: any;
+export declare const Margin: any;
+export declare const Padding: any;
 export declare const Props: any;
 export declare const Playground: any;

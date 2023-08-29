@@ -120,9 +120,9 @@ const Template = (args) => (`
 export const Default = Template.bind({});
 Default.args = {
   radioId: 'radio',
-  label: 'Radio label',
+  label: 'Label',
   name: 'radio',
-  hint: '',
+  hint: 'Description or example to make the option clearer.',
   required: false,
   disabled: false,
   value: '',

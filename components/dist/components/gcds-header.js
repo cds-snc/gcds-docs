@@ -5,7 +5,7 @@ import { d as defineCustomElement$4 } from './gcds-icon2.js';
 import { d as defineCustomElement$3 } from './gcds-lang-toggle2.js';
 import { d as defineCustomElement$2 } from './gcds-signature2.js';
 
-const gcdsHeaderCss = ":host{display:block;margin:var(--gcds-header-margin)!important}:host .gcds-header__container{-ms-flex-pack:justify;justify-content:space-between;margin:0 auto;max-width:var(--gcds-header-container-max-width);width:90%}:host .gcds-header__brand{-webkit-border-after:var(--gcds-header-brand-border-width) solid var(--gcds-header-brand-border-color);border-block-end:var(--gcds-header-brand-border-width) solid var(--gcds-header-brand-border-color);margin:var(--gcds-header-brand-margin);padding:var(--gcds-header-brand-padding)}:host .gcds-header__brand .brand__container{grid-gap:var(--gcds-header-brand-grid-gap);display:grid;grid-template-areas:\"signature toggle\" \"search search\";grid-template-columns:1fr .1fr;margin:0 auto;max-width:var(--gcds-header-container-max-width);width:90%}:host .gcds-header__brand .brand__container.container--simple{grid-template-areas:\"signature toggle\"}:host .gcds-header__brand .brand__container .brand__toggle,:host .gcds-header__brand .brand__container slot[name=toggle]{grid-area:toggle;padding:var(--gcds-header-brand-toggle-padding);text-align:right}:host .gcds-header__brand .brand__container .brand__signature,:host .gcds-header__brand .brand__container slot[name=signature]{grid-area:signature}:host .gcds-header__brand .brand__container .brand__search,:host .gcds-header__brand .brand__container slot[name=search]{display:block;grid-area:search;max-width:100%}@media screen and (min-width:64em){:host .gcds-header__brand .brand__container{grid-template-areas:\"toggle toggle\" \"signature search\";grid-template-columns:1fr 1fr}:host .gcds-header__brand .brand__container .brand__search,:host .gcds-header__brand .brand__container slot[name=search]{width:var(--gcds-header-brand-search-width)}}:host .gcds-header__topnav{margin-inline:auto;position:absolute;text-align:center;top:var(--gcds-header-topnav-top);width:100%}";
+const gcdsHeaderCss = ":host{display:block;margin:var(--gcds-header-margin)!important}:host .gcds-header__container{-ms-flex-pack:justify;justify-content:space-between;margin:0 auto;max-width:var(--gcds-header-container-max-width);width:90%}:host .gcds-header__brand{-webkit-border-after:var(--gcds-header-brand-border-width) solid var(--gcds-header-brand-border-color);border-block-end:var(--gcds-header-brand-border-width) solid var(--gcds-header-brand-border-color);margin:var(--gcds-header-brand-margin);padding:var(--gcds-header-brand-padding)}:host .gcds-header__brand .brand__container{grid-gap:var(--gcds-header-brand-grid-gap);display:grid;grid-template-areas:\"signature toggle\" \"search search\";grid-template-columns:1fr .1fr;margin:0 auto;max-width:var(--gcds-header-container-max-width);width:90%}:host .gcds-header__brand .brand__container.container--simple{grid-template-areas:\"signature toggle\"}:host .gcds-header__brand .brand__container .brand__toggle,:host .gcds-header__brand .brand__container slot[name=toggle]{grid-area:toggle;text-align:right}:host .gcds-header__brand .brand__container .brand__signature,:host .gcds-header__brand .brand__container slot[name=signature]{grid-area:signature}:host .gcds-header__brand .brand__container .brand__signature gcds-signature,:host .gcds-header__brand .brand__container slot[name=signature] gcds-signature{margin:var( --gcds-header-brand-signature-margin)}:host .gcds-header__brand .brand__container .brand__search{display:block;grid-area:search;max-width:100%}@media screen and (min-width:64em){:host .gcds-header__brand .brand__container{grid-template-areas:\"toggle toggle\" \"signature search\";grid-template-columns:1fr 1fr}:host .gcds-header__brand .brand__container .brand__search,:host .gcds-header__brand .brand__container slot[name=search]{-webkit-margin-start:auto;margin-inline-start:auto;width:-webkit-fit-content;width:-moz-fit-content;width:fit-content}}:host .gcds-header__skip-to-nav{margin-inline:auto;position:absolute;text-align:center;top:var(--gcds-header-skiptonav-top);width:100%}";
 
 const i18n = {
   "en": {
@@ -42,12 +42,12 @@ const GcdsHeader$1 = /*@__PURE__*/ proxyCustomElement(class extends HTMLElement 
     this.lang = assignLanguage(this.el);
     this.updateLang();
   }
-  get renderTopNav() {
-    if (!!this.el.querySelector('[slot="topnav"]')) {
-      return h("slot", { name: "topnav" });
+  get renderSkipToNav() {
+    if (!!this.el.querySelector('[slot="skip-to-nav"]')) {
+      return h("slot", { name: "skip-to-nav" });
     }
     else if (this.skipToHref) {
-      return (h("nav", { "aria-label": i18n[this.lang].skip, class: "gcds-header__topnav" }, h("gcds-button", { type: "link", "button-role": "skip-to-content", href: this.skipToHref }, i18n[this.lang].skip)));
+      return (h("nav", { "aria-label": i18n[this.lang].skip, class: "gcds-header__skip-to-nav" }, h("gcds-button", { type: "link", "button-role": "skip-to-content", href: this.skipToHref }, i18n[this.lang].skip)));
     }
     else {
       return;
@@ -75,7 +75,7 @@ const GcdsHeader$1 = /*@__PURE__*/ proxyCustomElement(class extends HTMLElement 
   }
   get renderSearch() {
     if (!!this.el.querySelector('[slot="search"]')) {
-      return h("slot", { name: "search" });
+      return h("div", { class: "brand__search" }, h("slot", { name: "search" }));
     }
     else {
       return;
@@ -91,8 +91,8 @@ const GcdsHeader$1 = /*@__PURE__*/ proxyCustomElement(class extends HTMLElement 
     return !!this.el.querySelector('[slot="breadcrumb"]');
   }
   render() {
-    const { renderTopNav, renderToggle, renderSignature, renderSearch, hasSearch, hasBanner, hasBreadcrumb } = this;
-    return (h(Host, { role: "banner" }, renderTopNav, hasBanner ?
+    const { renderSkipToNav, renderToggle, renderSignature, renderSearch, hasSearch, hasBanner, hasBreadcrumb } = this;
+    return (h(Host, { role: "banner" }, renderSkipToNav, hasBanner ?
       h("slot", { name: "banner" })
       :
         null, h("div", { class: "gcds-header__brand" }, h("div", { class: `brand__container ${!hasSearch ? 'container--simple' : ''}` }, renderToggle, renderSignature, renderSearch)), h("slot", { name: "menu" }), hasBreadcrumb ?

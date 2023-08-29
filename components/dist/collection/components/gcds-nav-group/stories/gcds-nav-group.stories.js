@@ -49,9 +49,9 @@ const Template = (args) => (`
   ${args.open ? `open` : null}
   ${args.lang != "en" ? `lang="${args.lang}"` : null}
 >
-  <gcds-nav-link href="#">Form</gcds-nav-link>
-  <gcds-nav-link href="#">GitHub</gcds-nav-link>
-  <gcds-nav-link href="#">Slack</gcds-nav-link>
+  <gcds-nav-link href="#">Nav link</gcds-nav-link>
+  <gcds-nav-link href="#">Nav link</gcds-nav-link>
+  <gcds-nav-link href="#">Nav link</gcds-nav-link>
 </gcds-nav-group>
 
 <!-- React code -->
@@ -62,9 +62,9 @@ const Template = (args) => (`
   ${args.open ? `open` : null}
   ${args.lang != "en" ? `lang="${args.lang}"` : null}
 >
-  <GcdsNavLink href="#">Form</GcdsNavLink>
-  <GcdsNavLink href="#">GitHub</GcdsNavLink>
-  <GcdsNavLink href="#">Slack</GcdsNavLink>
+  <GcdsNavLink href="#">Nav link</GcdsNavLink>
+  <GcdsNavLink href="#">Nav link</GcdsNavLink>
+  <GcdsNavLink href="#">Nav link</GcdsNavLink>
 </GcdsNavGroup>
 `).replace(/\s\snull\n/g, '');
 export const Default = Template.bind({});

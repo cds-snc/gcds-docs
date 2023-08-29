@@ -51,17 +51,17 @@ const TemplatePlayground = (args) => (`
 export const Default = Template.bind({});
 Default.args = {
   messageId: 'message-id',
-  message: 'This is an error message.',
+  message: 'Error message or validation message.',
 };
 // ------ Error message events & props ------
 export const Props = Template.bind({});
 Props.args = {
   messageId: 'message-id',
-  message: 'This is an error message.',
+  message: 'Error message or validation message.',
 };
 // ------ Error message playground ------
 export const Playground = TemplatePlayground.bind({});
 Playground.args = {
   messageId: '',
-  message: 'This is an error message.',
+  message: 'Error message or validation message.',
 };

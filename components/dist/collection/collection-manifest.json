@@ -26,6 +26,7 @@
     "./components/gcds-pagination/gcds-pagination.js",
     "./components/gcds-phase-banner/gcds-phase-banner.js",
     "./components/gcds-radio/gcds-radio.js",
+    "./components/gcds-search/gcds-search.js",
     "./components/gcds-select/gcds-select.js",
     "./components/gcds-side-nav/gcds-side-nav.js",
     "./components/gcds-signature/gcds-signature.js",

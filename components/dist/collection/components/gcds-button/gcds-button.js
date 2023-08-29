@@ -123,7 +123,7 @@ export class GcdsButton {
       target,
       download
     };
-    return (h(Host, null, h(Tag, Object.assign({}, attrs, { id: buttonId, onBlur: (e) => this.onBlur(e), onFocus: (e) => this.onFocus(e), onClick: (e) => this.handleClick(e), class: `button--role-${buttonRole} button--${buttonStyle} button--${size}`, ref: element => this.shadowElement = element }, inheritedAttributes), h("slot", { name: "left" }), h("slot", null), type === 'link' && target === '_blank' ?
+    return (h(Host, null, h(Tag, Object.assign({}, attrs, { id: buttonId, onBlur: (e) => this.onBlur(e), onFocus: (e) => this.onFocus(e), onClick: (e) => this.handleClick(e), class: `button--role-${buttonRole} button--${buttonStyle} button--${size}`, ref: element => this.shadowElement = element }, inheritedAttributes, { part: "button" }), h("slot", { name: "left" }), h("slot", null), type === 'link' && target === '_blank' ?
       h("gcds-icon", { name: "external-link", label: i18n[lang].label, "margin-left": "200" })
       : h("slot", { name: "right" }))));
   }
