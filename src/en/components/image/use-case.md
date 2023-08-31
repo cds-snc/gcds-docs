@@ -10,6 +10,7 @@ eleventyNavigation:
   description: An element for displaying optimized responsive visual content.
   thumbnail: /images/common/components/preview-image.svg
   alt: The image component shows a light grey rectangle with a dark grey circle in it, representing the sun and 2 dark grey triangles representing mountains.
+  tag: Experimental
   state: coming-soon
 translationKey: "image"
 tags: ['imageEN', 'usage']
