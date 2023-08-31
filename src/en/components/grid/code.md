@@ -38,8 +38,30 @@ Opt out of setting the minimum and maximum width when you want to design equal-w
 
 **Example displaying 3 columns for desktop, 2 columns for tablet, and 1 column for mobile:**
 
-<div class="b-sm p-400">
+Desktop
+
+<div class="b-sm mb-400 p-400">
   <gcds-grid tag="article" columns-desktop="1fr 1fr 1fr" columns-tablet="1fr 1fr" columns="1fr" gap="300">
+    <p>This is some example content to display the grid component.</p>
+    <p>This is some example content to display the grid component.</p>
+    <p>This is some example content to display the grid component.</p>
+  </gcds-grid>
+</div>
+
+Tablet
+
+<div class="b-sm mb-400 p-400">
+  <gcds-grid tag="article" columns-tablet="1fr 1fr" columns="1fr" gap="300">
+    <p>This is some example content to display the grid component.</p>
+    <p>This is some example content to display the grid component.</p>
+    <p>This is some example content to display the grid component.</p>
+  </gcds-grid>
+</div>
+
+Mobile
+
+<div class="b-sm p-400">
+  <gcds-grid tag="article" columns="1fr" gap="300">
     <p>This is some example content to display the grid component.</p>
     <p>This is some example content to display the grid component.</p>
     <p>This is some example content to display the grid component.</p>
