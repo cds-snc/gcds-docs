@@ -164,11 +164,13 @@ module.exports = function (eleventyConfig) {
     const content = markdownLibrary.render(children);
 
     return `
-    <div class="code-showcase">
-      <gcds-button button-type="button" button-role="primary" button-style="outline" aria-label="${langStrings[lang].view} - ${name}" onclick="toggleCodeShowcase(this, '${id}');" aria-controls="${id}" aria-expanded="false">${langStrings[lang].view}</gcds-button>
-      <gcds-button button-type="button" button-role="primary" button-style="outline" onclick="copyCodeShowcase(this, '${id}', '${lang}');" onblur="this.innerText = '${langStrings[lang].copy}'">${langStrings[lang].copy}</gcds-button>
-      <div class="showcase" id="${id}" aria-hidden="true">
+    <div class="code-showcase mb-400">
+      <div class="showcase mb-400 p-400" id="${id}" aria-hidden="true">
         ${content}
+      </div>
+      <div>
+        <gcds-button button-type="button" button-role="secondary" aria-label="${langStrings[lang].view} - ${name}" onclick="toggleCodeShowcase(this, '${id}');" aria-controls="${id}" aria-expanded="false">${langStrings[lang].view}</gcds-button>
+        <gcds-button button-type="button" button-role="secondary" onclick="copyCodeShowcase(this, '${id}', '${lang}');" onblur="this.innerText = '${langStrings[lang].copy}'">${langStrings[lang].copy}</gcds-button>
       </div>
     </div>
     `}

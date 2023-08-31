@@ -22,3 +22,14 @@ body {
 iframe {
   max-width: 100%;
 }
+
+ul li {
+  p.mb-400:has(+ ul),
+  ul.mb-400 {
+    margin-block-end: 0;
+  }
+
+  ul li {
+    list-style: circle;
+  }
+}

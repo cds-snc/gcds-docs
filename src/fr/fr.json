@@ -25,7 +25,7 @@
     "fieldset": "/fr/composants/jeu-de-champs",
     "fileUploader": "/fr/composants/televerseur-de-fichiers",
     "footer": "/fr/composants/pied-de-page",
-    "grid": "/fr/developpement-en-cours",
+    "grid": "/fr/composants/grille",
     "header": "/fr/composants/en-tete",
     "icon": "/fr/developpement-en-cours",
     "input": "/fr/composants/champ-de-saisie",
