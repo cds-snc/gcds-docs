@@ -1,5 +1,5 @@
 .anatomy-list {
-  counter-reset: item calc(var(--start-value, 1) - 1);
+  counter-reset: item;
   margin-block-end: var(--gcds-spacing-450);
 
   li {

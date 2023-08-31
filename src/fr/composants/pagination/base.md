@@ -21,8 +21,8 @@ La pagination est une division du contenu entre plusieurs pages liées.
   display="simple"
   previous-href="#"
   next-href="#"
-  previous-label="Title of page"
-  next-label="3 of 3"
+  previous-label="Titre de la page"
+  next-label="3 de 3"
   lang="fr"
 >
 </gcds-pagination>

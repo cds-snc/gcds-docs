@@ -22,7 +22,7 @@ date: "git Last Modified"
 
 #### Next link
 
-<ol class="anatomy-list" style="--start-value: 4">
+<ol class="anatomy-list">
   <li>The <strong>next text</strong> is the text that accompanies the next arrow and indicates that the user would be navigating to the next page in the flow.</li>
   <li>The <strong>next arrow</strong> is a visual aid indicating that you would be navigating forwards in the page flow.</li>
   <li>The <strong>next label</strong> indicates the label of the previous page to the user.</li>
@@ -67,7 +67,7 @@ date: "git Last Modified"
 
 #### Next link
 
-<ol class="anatomy-list" style="--start-value: 3">
+<ol class="anatomy-list">
   <li>The <strong>next text</strong> is the text that accompanies the next arrow and indicates that the user would be navigating to the next page in the flow.</li>
   <li>The <strong>next arrow</strong> is a visual aid indicating that you would be navigating forwards in the page flow.</li>
 </ol>

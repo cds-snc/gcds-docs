@@ -22,7 +22,7 @@ date: "git Last Modified"
 
 #### Lien suivant
 
-<ol class="anatomy-list" style="--start-value: 4">
+<ol class="anatomy-list">
   <li>Le <strong>texte suivant</strong> est le texte qui accompagne la flèche suivante, indiquant que l’utilisateur·rice navigue vers la page suivante dans le flux.</li>
   <li>La <strong>flèche suivante</strong> est une aide visuelle qui indique qu’on navigue en avant dans le flux de pages.</li>
   <li>Le <strong>libellé suivant</strong> indique à l’utilisateur·rice le libellé de la page suivante.</li>
@@ -67,7 +67,7 @@ date: "git Last Modified"
 
 #### Lien suivant
 
-<ol class="anatomy-list" style="--start-value: 3">
+<ol class="anatomy-list">
   <li>Le <strong>texte suivant</strong> est le texte qui accompagne la flèche suivante, indiquant que l’utilisateur·rice navigue vers la page suivante dans le flux.</li>
   <li>La <strong>flèche suivante</strong> est une aide visuelle qui indique qu’on navigue en avant dans le flux de pages.</li>
 </ol>
