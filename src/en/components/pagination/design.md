@@ -6,49 +6,73 @@ tags: ['paginationEN', 'design']
 date: "git Last Modified"
 ---
 
-## Simple pagination anatomy
+## Pagination anatomy
 
-### Previous link
+### Simple pagination anatomy
+
+#### Previous link
 
 <ol class="anatomy-list">
   <li>The <strong>previous arrow</strong> is a visual aid to indicate navigating backward, to previous pages in the page flow.</li>
-  <li>The <strong>previous text</strong> is text that accompanies the left arrow and leads to the page that comes before in the flow.</li>
-  <li>The <strong>previous label</strong> title states the title of the page before the current page to help a person decide if they’d like to go to that page.</li>
+  <li>The <strong>previous text</strong> is the text that accompanies the previous arrow and indicates that the user would be navigating to the previous page in the flow.</li>
+  <li>The <strong>previous label</strong> indicates the label of the previous page to the user.</li>
 </ol>
 
-<img class="b-sm b-default p-400 mb-500" src="/images/en/components/anatomy/gcds-pagination-simple-previous-anatomy.svg" alt="An image of the anatomy." />
+<img class="b-sm b-default p-400" src="/images/en/components/anatomy/gcds-pagination-simple-previous-anatomy.svg" alt="The pagination component with numbers pointing to individual parts of the simple pagination's previous link anatomy." />
 
-### Next link
+#### Next link
 
 <ol class="anatomy-list" style="--start-value: 4">
-  <li>The <strong>left arrow</strong> is a visual aid to indicate navigating backward, to previous pages in the page flow.</li>
-  <li>The <strong>previous label</strong> is text that accompanies the left arrow and leads to the page that comes before in the flow.</li>
-  <li>The <strong>previous page</strong> title states the title of the page before the current page to help a person decide if they’d like to go to that page.</li>
+  <li>The <strong>next text</strong> is the text that accompanies the next arrow and indicates that the user would be navigating to the next page in the flow.</li>
+  <li>The <strong>next arrow</strong> is a visual aid indicating that you would be navigating forwards in the page flow.</li>
+  <li>The <strong>next label</strong> indicates the label of the previous page to the user.</li>
 </ol>
 
-<img class="b-sm b-default p-400" src="/images/en/components/anatomy/gcds-pagination-simple-previous-anatomy.svg" alt="An image of the anatomy." />
+<img class="b-sm b-default p-400" src="/images/en/components/anatomy/gcds-pagination-simple-next-anatomy.svg" alt="The pagination component with numbers pointing to individual parts of the simple pagination's next link anatomy." />
 
-## List styled pagination anatomy
+### List styled pagination anatomy
 
-### Large screens
+#### Large screens
+
+<ol class="anatomy-list">
+  <li>The <strong>previous link</strong> navigates to the previous page in the flow when selected.</li>
+  <li>A <strong>page link</strong> navigates to it’s corresponding page in the flow.</li>
+  <li>The <strong>current page</strong> indicates the page the user is currently on.</li>
+  <li>An <strong>ellipsis</strong> replaces any pages that are being skipped.</li>
+  <li>The <strong>next link</strong> navigates to the next page in the flow when selected.</li>
+</ol>
+
+<img class="b-sm b-default p-400" src="/images/en/components/anatomy/gcds-pagination-list-large-anatomy.svg" alt="The pagination component with numbers pointing to individual parts of the large screen list pagination anatomy." />
+
+#### Small screens
+
+<ol class="anatomy-list">
+  <li>A <strong>page link</strong> navigates to it’s corresponding page in the flow.</li>
+  <li>The <strong>current page</strong> indicates the page the user is currently on.</li>
+  <li>An <strong>ellipsis</strong> replaces any pages that are being skipped.</li>
+  <li>The <strong>previous link</strong> navigates to the previous page in the flow when selected.</li>
+  <li>The <strong>next link</strong> navigates to the next page in the flow when selected.</li>
+</ol>
+
+<img class="b-sm b-default p-400" src="/images/en/components/anatomy/gcds-pagination-list-small-anatomy.svg" alt="The pagination component with numbers pointing to individual parts of the small screen list pagination anatomy." />
+
+#### Previous link
 
 <ol class="anatomy-list">
   <li>The <strong>previous arrow</strong> is a visual aid to indicate navigating backward, to previous pages in the page flow.</li>
-  <li>The <strong>previous text</strong> is text that accompanies the left arrow and leads to the page that comes before in the flow.</li>
-  <li>The <strong>previous label</strong> title states the title of the page before the current page to help a person decide if they’d like to go to that page.</li>
+  <li>The <strong>previous text</strong> is the text that accompanies the previous arrow and indicates that the user would be navigating to the previous page in the flow.</li>
 </ol>
 
-<img class="b-sm b-default p-400 mb-500" src="/images/en/components/anatomy/gcds-pagination-simple-previous-anatomy.svg" alt="An image of the anatomy." />
+<img class="b-sm b-default p-400" src="/images/en/components/anatomy/gcds-pagination-list-previous-anatomy.svg" alt="The pagination component with numbers pointing to individual parts of the list pagination's previous link anatomy." />
 
-### Small screens
+#### Next link
 
-<ol class="anatomy-list">
-  <li>The <strong>previous arrow</strong> is a visual aid to indicate navigating backward, to previous pages in the page flow.</li>
-  <li>The <strong>previous text</strong> is text that accompanies the left arrow and leads to the page that comes before in the flow.</li>
-  <li>The <strong>previous label</strong> title states the title of the page before the current page to help a person decide if they’d like to go to that page.</li>
+<ol class="anatomy-list" style="--start-value: 3">
+  <li>The <strong>next text</strong> is the text that accompanies the next arrow and indicates that the user would be navigating to the next page in the flow.</li>
+  <li>The <strong>next arrow</strong> is a visual aid indicating that you would be navigating forwards in the page flow.</li>
 </ol>
 
-<img class="b-sm b-default p-400 mb-500" src="/images/en/components/anatomy/gcds-pagination-simple-previous-anatomy.svg" alt="An image of the anatomy." />
+<img class="b-sm b-default p-400" src="/images/en/components/anatomy/gcds-pagination-list-next-anatomy.svg" alt="The pagination component with numbers pointing to individual parts of the list pagination's next link anatomy." />
 
 ## Design and accessibility for pagination
 

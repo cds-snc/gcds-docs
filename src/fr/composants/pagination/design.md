@@ -6,9 +6,73 @@ tags: ['paginationFR', 'design']
 date: "git Last Modified"
 ---
 
-## Structure de la pagination simple
+## Structure de la pagination
 
+### Structure de la pagination simple
 
+#### Lien précédent
+
+<ol class="anatomy-list">
+  <li>La <strong>flèche précédente</strong> est une aide visuelle qui indique qu’on navigue en arrière dans le flux de pages.</li>
+  <li>Le <strong>texte précédent</strong> est le texte qui accompagne la flèche précédente, indiquant que l’utilisateur·rice navigue vers la page précédente dans le flux.</li>
+  <li>Le <strong>libellé précédent</strong> indique à l’utilisateur·rice le libellé de la page précédente.</li>
+</ol>
+
+<img class="b-sm b-default p-400" src="/images/fr/components/anatomy/gcds-pagination-simple-previous-anatomy.svg" alt="Le composant de pagination avec des nombres pointant vers des parties individuelles de l’anatomie du lien précédent de la pagination simple." />
+
+#### Lien suivant
+
+<ol class="anatomy-list" style="--start-value: 4">
+  <li>Le <strong>texte suivant</strong> est le texte qui accompagne la flèche suivante, indiquant que l’utilisateur·rice navigue vers la page suivante dans le flux.</li>
+  <li>La <strong>flèche suivante</strong> est une aide visuelle qui indique qu’on navigue en avant dans le flux de pages.</li>
+  <li>Le <strong>libellé suivant</strong> indique à l’utilisateur·rice le libellé de la page suivante.</li>
+</ol>
+
+<img class="b-sm b-default p-400" src="/images/fr/components/anatomy/gcds-pagination-simple-next-anatomy.svg" alt="Le composant de pagination avec des nombres pointant vers des parties individuelles de l’anatomie du lien suivant de la pagination simple." />
+
+### Structure de la pagination sous forme de liste
+
+#### Grands écrans
+
+<ol class="anatomy-list">
+  <li>Le <strong>lien précédent</strong> mène vers la page précédente du flux lorsqu’il est sélectionné.</li>
+  <li>Un <strong>lien de page</strong> mène vers la page correspondante dans le flux.</li>
+  <li>La <strong>page active</strong> indique la page sur laquelle la personne se trouve actuellement.</li>
+  <li>Les <strong>points de suspension</strong> remplacent toutes les pages qui ne s’affichent pas.</li>
+  <li>Le <strong>lien suivant</strong> mène vers la page suivante du flux lorsqu’il est sélectionné.</li>
+</ol>
+
+<img class="b-sm b-default p-400" src="/images/fr/components/anatomy/gcds-pagination-list-large-anatomy.svg" alt="Le composant de pagination avec des nombres pointant vers des parties individuelles de l’anatomie de la pagination sous forme de liste sur grand écran." />
+
+#### Petits écrans
+
+<ol class="anatomy-list">
+  <li>Un <strong>lien de page</strong> mène vers la page correspondante dans le flux.</li>
+  <li>La <strong>page active</strong> indique la page sur laquelle la personne se trouve actuellement.</li>
+  <li>Les <strong>points de suspension</strong> remplacent toutes les pages qui ne s’affichent pas.</li>
+  <li>Le <strong>lien précédent</strong> mène vers la page précédente du flux lorsqu’il est sélectionné.</li>
+  <li>Le <strong>lien suivant</strong> mène vers la page suivante du flux lorsqu’il est sélectionné.</li>
+</ol>
+
+<img class="b-sm b-default p-400" src="/images/fr/components/anatomy/gcds-pagination-list-small-anatomy.svg" alt="Le composant de pagination avec des nombres pointant vers des parties individuelles de l’anatomie de la pagination sous forme de liste sur petits écran." />
+
+#### Lien précédent
+
+<ol class="anatomy-list">
+  <li>La <strong>flèche précédente</strong> est une aide visuelle qui indique qu’on navigue en arrière dans le flux de pages.</li>
+  <li>Le <strong>texte précédent</strong> est le texte qui accompagne la flèche précédente, indiquant que l’utilisateur·rice navigue vers la page précédente dans le flux.</li>
+</ol>
+
+<img class="b-sm b-default p-400" src="/images/fr/components/anatomy/gcds-pagination-list-previous-anatomy.svg" alt="Le composant de pagination avec des nombres pointant vers des parties individuelles de l'anatomie du lien précédent de la pagination sous forme de liste." />
+
+#### Lien suivant
+
+<ol class="anatomy-list" style="--start-value: 3">
+  <li>Le <strong>texte suivant</strong> est le texte qui accompagne la flèche suivante, indiquant que l’utilisateur·rice navigue vers la page suivante dans le flux.</li>
+  <li>La <strong>flèche suivante</strong> est une aide visuelle qui indique qu’on navigue en avant dans le flux de pages.</li>
+</ol>
+
+<img class="b-sm b-default p-400" src="/images/fr/components/anatomy/gcds-pagination-list-next-anatomy.svg" alt="Le composant de pagination avec des nombres pointant vers des parties individuelles de l'anatomie du lien suivant de la pagination sous forme de liste." />
 
 ## Design et accessibilité pour le composant pagination
 
