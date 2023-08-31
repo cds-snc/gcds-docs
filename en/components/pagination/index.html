@@ -842,16 +842,39 @@
         
   
     <h1 id="pagination-brgcdspagination" class="mb-400">Pagination <br><code>&lt;gcds-pagination&gt;</code></h1>
-<p class="mb-400">This component is coming soon.</p>
+<p class="mb-400"><em>Also called: page index, page navigation.</em></p>
+<p class="mb-400">Pagination is a division of content into multiple linked pages.</p>
 <p class="mb-400"><ul class="d-flex flex-wrap gap-400">
 <li class="github-link">
 <a href="https://github.com/cds-snc/gcds-components/tree/main/packages/web/src/components/gcds-pagination" target="_blank" rel="nofollow" aria-label="GitHub (Opens in a new tab)">GitHub<gcds-icon name="external-link" margin-left="100" /></a>
 </li>
 <li class="figma-link">
-<a href="https://www.figma.com/file/mh2maMG2NBtk41k1O1UGHV/Canadian-Digital-Service%E2%80%A8---GC-Design-System?node-id=1431%3A5269&t=ciEmm7GYyGAY73zZ-0" target="_blank" rel="nofollow" aria-label="Figma (Opens in a new tab)">Figma<gcds-icon name="external-link" margin-left="100" /></a>
+<a href="https://www.figma.com/file/mh2maMG2NBtk41k1O1UGHV/Canadian-Digital-Service%E2%80%A8---GC-Design-System?type=design&node-id=1431-4617&mode=design&t=Z9AVq2wKmGmXJc7j-0" target="_blank" rel="nofollow" aria-label="Figma (Opens in a new tab)">Figma<gcds-icon name="external-link" margin-left="100" /></a>
 </li>
 </ul></p>
-<br/>
+<p class="mb-400"><div class="my-500 b-sm b-default component-preview">
+<p class="container-full font-semibold px-300 py-200 bb-sm b-default bg-light">
+Pagination component preview
+</p>
+<div class="px-300 py-400"></p>
+<p class="mb-400"><gcds-pagination
+  label="Simple pagination example"
+  display="simple"
+  previous-href="#"
+  next-href="#"
+  previous-label="Title of page"
+  next-label="3 of 3"
+>
+</gcds-pagination></p>
+<p class="mb-400"><gcds-pagination
+  label="List pagination example"
+  display="list"
+  total-pages="15"
+  current-page="9"
+>
+</gcds-pagination></p>
+<p class="mb-400"></div>
+</div></p>
 
     <nav class="tabs mb-400" aria-label="Pagination">
       <ul>
@@ -890,7 +913,19 @@
     </nav>
   
 
-  <h2 id="usage" class="mt-500 mb-400">Usage</h2>
+  <p class="mb-400">Review common uses for pagination to see if they match the problem you’re solving for.</p>
+<h2 id="pagination-use-cases" class="mt-500 mb-400">Pagination use cases</h2>
+<p class="mb-400">Use pagination for very lengthy content on a single page that might be difficult to navigate, to reduce cognitive load, and to:</p>
+<ul class="list-disc mb-400"><li><p class="mb-400">Display search results when there’s a long list of returns, reducing the time it takes to load and amount of scrolling.</li>
+<li><p class="mb-400">Allow users to move through indexed content using next, previous, and page links.</li>
+<li><p class="mb-400">Split into sections any long documents, like reports, that have chapters or other natural divisions.</li>
+<li><p class="mb-400">Highlight the reader’s position in a sequence of content.</li>
+</ul>
+<article class="bg-full-width bg-primary text-light pt-500 pb-400 my-500">
+  <h2 class="mt-0 mb-400">Related components</h2>
+<p class="mb-400"><a href="/en/components/stepper" class="link-light">Stepper</a>  to track progress in a multi-step process.</p>
+<p class="mb-400">Links in the <a href="/en/components/button" class="link-light">button</a> component to navigate between non-sequential pages or to external sites.</p>
+</article>
 
 
   <section class="pt-100 mt-400 mb-600 bt-sm b-dark ">
@@ -914,7 +949,7 @@
 
 
         <gcds-date-modified class="mb-400 font-caption">
-          2023-08-29
+          2023-08-31
         </gcds-date-modified>
       </main>
 

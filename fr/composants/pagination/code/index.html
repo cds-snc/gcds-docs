@@ -842,16 +842,41 @@
         
   
     <h1 id="pagination-brgcdspagination" class="mb-400">Pagination <br><code>&lt;gcds-pagination&gt;</code></h1>
-<p class="mb-400">Ce composant est en cours de développement.</p>
+<p class="mb-400"><em>Autres noms : index de pages, navigation de pages.</em></p>
+<p class="mb-400">La pagination est une division du contenu entre plusieurs pages liées.</p>
 <p class="mb-400"><ul class="d-flex flex-wrap gap-400">
 <li class="github-link">
 <a href="https://github.com/cds-snc/gcds-components/tree/main/packages/web/src/components/gcds-pagination" target="_blank" rel="nofollow" aria-label="GitHub (S'ouvre dans un nouvel onglet)">GitHub<gcds-icon name="external-link" margin-left="100" /></a>
 </li>
 <li class="figma-link">
-<a href="https://www.figma.com/file/mh2maMG2NBtk41k1O1UGHV/Canadian-Digital-Service%E2%80%A8---GC-Design-System?node-id=1431%3A5269&t=ciEmm7GYyGAY73zZ-0" target="_blank" rel="nofollow" aria-label="Figma (S'ouvre dans un nouvel onglet)">Figma<gcds-icon name="external-link" margin-left="100" /></a>
+<a href="https://www.figma.com/file/mh2maMG2NBtk41k1O1UGHV/Canadian-Digital-Service%E2%80%A8---GC-Design-System?type=design&node-id=1431-4617&mode=design&t=Z9AVq2wKmGmXJc7j-0" target="_blank" rel="nofollow" aria-label="Figma (S'ouvre dans un nouvel onglet)">Figma<gcds-icon name="external-link" margin-left="100" /></a>
 </li>
 </ul></p>
-<br/>
+<p class="mb-400"><div class="my-500 b-sm b-default component-preview">
+<p class="container-full font-semibold px-300 py-200 bb-sm b-default bg-light">
+Aperçu du composant de la pagination
+</p>
+<div class="px-300 py-400"></p>
+<p class="mb-400"><gcds-pagination
+  label="pagination simple"
+  display="simple"
+  previous-href="#"
+  next-href="#"
+  previous-label="Titre de la page"
+  next-label="3 de 3"
+  lang="fr"
+>
+</gcds-pagination></p>
+<p class="mb-400"><gcds-pagination
+  label="pagination sous forme de liste"
+  display="list"
+  total-pages="15"
+  current-page="9"
+  lang="fr"
+>
+</gcds-pagination></p>
+<p class="mb-400"></div>
+</div></p>
 
     <nav class="tabs mb-400" aria-label="Pagination">
       <ul>
@@ -890,7 +915,93 @@
     </nav>
   
 
-  <h2 id="code" class="mt-500 mb-400">Code</h2>
+  <h2 id="creer-un-composant-de-pagination" class="mt-500 mb-400">Créer un composant de pagination</h2>
+<p class="mb-400">Utilisez la pagination pour séparer le contenu et le répartir sur plusieurs pages. Cela peut faciliter la lecture de sections de contenu importantes et permettre à une personne de se repérer dans les documents.</p>
+<h2 id="codage-et-accessibilite-pour-le-composant-pagination" class="mt-500 mb-400">Codage et accessibilité pour le composant pagination</h2>
+<h3 id="configurez-la-pagination-simple" class="mt-500 mb-400">Configurez la pagination simple</h3>
+<p class="mb-400">Utilisez la pagination simple lorsque le nombre de pages est peu important.</p>
+<ul class="list-disc mb-400"><li><p class="mb-400">Réglez l’attribut <code>display</code> sur <code>simple</code>.</li>
+<li><p class="mb-400">Définissez l’URL de la page précédente à l’aide de l’attribut <code>previous-href</code>.</li>
+<li><p class="mb-400">Définissez le libellé de la page précédente à l’aide de l’attribut <code>previous-label</code>.</li>
+<li><p class="mb-400">Définissez l’URL de la page suivante à l’aide de l’attribut <code>next-href</code>.</li>
+<li><p class="mb-400">Définissez le libellé de la page suivante à l’aide de l’attribut <code>next-label</code>.</li>
+</ul>
+<h3 id="configurez-la-pagination-sous-forme-de-liste" class="mt-500 mb-400">Configurez la pagination sous forme de liste</h3>
+<p class="mb-400">Utilisez la pagination sous forme de liste si votre contenu est étendu sur un plus grand nombre de pages.</p>
+<ul class="list-disc mb-400"><li><p class="mb-400">Réglez l’attribut <code>display</code> sur <code>list</code>.</li>
+<li><p class="mb-400">Définissez le nombre total de pages pour votre séquence à l’aide de l’attribut <code>total-pages</code> en utilisant un nombre.</li>
+<li><p class="mb-400">Définissez la page actuelle ou active à l’aide de l’attribut <code>current-page</code> en utilisant un nombre.</li>
+<li><p class="mb-400">Choisissez d’utiliser l’attribut <code>url</code> pour fournir au composant un groupe de liens de pages. Il peut s’agir d’un objet si vous travaillez dans un environnement JS ou d’une chaîne si vous utilisez HTML.</li>
+<li><p class="mb-400">L’attribut <code>pageChangeHandler</code> est utilisé pour le suivi des modifications de pages.</li>
+</ul>
+<h4 id="appliquez-lobjet-de-lurl-pour-la-pagination-sous-forme-de-liste" class="mt-500 mb-400">Appliquez l’objet de l’URL pour la pagination sous forme de liste.</h4>
+<p class="mb-400">Utilisez l’objet <code>url</code> pour générer les chaînes de requête et les fragments pour les liens de la pagination sous forme de liste.</p>
+
+<div style="position: relative">
+  <pre class="language-js"><code id="code-81" class="language-js">url <span class="token operator">=</span> <span class="token punctuation">{</span><br>  <span class="token literal-property property">queryStrings</span><span class="token operator">:</span> <span class="token punctuation">{</span><br>    <span class="token comment">// Key value pairs</span><br>    <span class="token literal-property property">key</span><span class="token operator">:</span> value<span class="token punctuation">,</span><br>  <span class="token punctuation">}</span><span class="token punctuation">,</span><br>  <span class="token literal-property property">fragment</span><span class="token operator">:</span> string<span class="token punctuation">,</span> <span class="token comment">// Target id</span><br><span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre>
+
+  <button class="code-copy "
+    data-clipboard-target="#code-81"
+    style="position: absolute; top: 7.5px; right: 6px; padding-top: 3px; cursor: pointer; outline: none; opacity: 0.8;" title="Copy">
+    <span style="display:inline-block;background:url(https://api.iconify.design/mdi/content-copy.svg) no-repeat center center / contain;width: 16px; height: 16px;" class=""></span>
+  </button>
+</div>
+<p class="mb-400">Pour modifier la valeur en fonction du lien de page visualisé, ajoutez les modificateurs <code>::offset</code> ou <code>::match</code> à une clé dans l’objet queryStrings.</p>
+<p class="mb-400"><code>::offset</code> entame le décompte depuis la valeur donnée en commençant par le lien de la deuxième page.</p>
+
+<div style="position: relative">
+  <pre class="language-js"><code id="code-88" class="language-js">url<span class="token operator">=</span><span class="token punctuation">{</span><br>  queryStrings<span class="token operator">:</span> <span class="token punctuation">{</span><br>    <span class="token string">"index::offset"</span><span class="token operator">:</span> <span class="token number">100</span><br>  <span class="token punctuation">}</span><span class="token punctuation">,</span><br><span class="token punctuation">}</span></code></pre>
+
+  <button class="code-copy "
+    data-clipboard-target="#code-88"
+    style="position: absolute; top: 7.5px; right: 6px; padding-top: 3px; cursor: pointer; outline: none; opacity: 0.8;" title="Copy">
+    <span style="display:inline-block;background:url(https://api.iconify.design/mdi/content-copy.svg) no-repeat center center / contain;width: 16px; height: 16px;" class=""></span>
+  </button>
+</div>
+<p class="mb-400">Utilisez <code>::match</code> pour le lien de page actuellement visualisée afin de multiplier ce dernier par la valeur fournie.</p>
+
+<div style="position: relative">
+  <pre class="language-js"><code id="code-92" class="language-js">url<span class="token operator">=</span><span class="token punctuation">{</span><br>  queryStrings<span class="token operator">:</span> <span class="token punctuation">{</span><br>    <span class="token string-property property">"page::match"</span><span class="token operator">:</span> <span class="token number">1</span><br>  <span class="token punctuation">}</span><span class="token punctuation">,</span><br><span class="token punctuation">}</span></code></pre>
+
+  <button class="code-copy "
+    data-clipboard-target="#code-92"
+    style="position: absolute; top: 7.5px; right: 6px; padding-top: 3px; cursor: pointer; outline: none; opacity: 0.8;" title="Copy">
+    <span style="display:inline-block;background:url(https://api.iconify.design/mdi/content-copy.svg) no-repeat center center / contain;width: 16px; height: 16px;" class=""></span>
+  </button>
+</div>
+<p class="mb-400">Utilisez <code>::offset</code> ou <code>::match</code> pour permettre l’injection d’un nombre dans une chaîne. Utilisez <code>{{#}}</code> pour que l’élément modificateur injecte le nombre modifié en fonction de la méthode de comptage dans la chaîne au moment de la visualisation.</p>
+
+<div style="position: relative">
+  <pre class="language-js"><code id="code-96" class="language-js">url<span class="token operator">=</span><span class="token punctuation">{</span><br>  queryStrings<span class="token operator">:</span> <span class="token punctuation">{</span><br>    <span class="token string-property property">"index::offset"</span><span class="token operator">:</span> <span class="token string">"index_{{100}}"</span><span class="token punctuation">,</span><br>    <span class="token string-property property">"page::match"</span><span class="token operator">:</span> <span class="token string">"page_{{1}}"</span><br>  <span class="token punctuation">}</span><span class="token punctuation">,</span><br><span class="token punctuation">}</span></code></pre>
+
+  <button class="code-copy "
+    data-clipboard-target="#code-96"
+    style="position: absolute; top: 7.5px; right: 6px; padding-top: 3px; cursor: pointer; outline: none; opacity: 0.8;" title="Copy">
+    <span style="display:inline-block;background:url(https://api.iconify.design/mdi/content-copy.svg) no-repeat center center / contain;width: 16px; height: 16px;" class=""></span>
+  </button>
+</div>
+<h3 id="obtenez-votre-code" class="mt-500 mb-400">Obtenez votre code</h3>
+<p class="mb-400">Générez une version du composant dont vous avez besoin en sélectionnant les propriétés de code correspondantes ou explorez les possibilités en choisissant différentes valeurs de code.</p>
+<ol class="list-decimal mb-400"><li>
+<p class="mb-400">Choisissez des valeurs de code pour obtenir l'élément que vous voulez.</p>
+</li>
+<li>
+<p class="mb-400">Obtenez le code et intégrez-le dans votre environnement.</p>
+</li>
+<li>
+<p class="mb-400">Ajoutez tout contenu nécessaire au composant (comme le texte du libellé).</p>
+</li>
+</ol>
+<p class="mb-400"><strong>Remarque</strong> : Conformément à la pratique courante, le générateur de code utilise l'anglais pour tous les éléments de code.</p>
+<iframe
+  title="Survol des propriétés et des évènements relatifs à gcds-pagination."
+  src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&singleStory=true&id=components-pagination--events-properties"
+  width="1200"
+  height="1400"
+  style="display: block; margin: 0 auto;"
+  frameBorder="0"
+  allow="clipboard-write"
+></iframe>
 
 
   <section class="pt-100 mt-400 mb-600 bt-sm b-dark ">
@@ -914,7 +1025,7 @@
 
 
         <gcds-date-modified class="mb-400 font-caption">
-          2023-08-29
+          2023-08-31
         </gcds-date-modified>
       </main>
 
