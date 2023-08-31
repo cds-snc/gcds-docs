@@ -83,19 +83,45 @@ Set the minimum and maximum width to design equal-width columns with restriction
 - Set a minimum width when you want to prevent a column from being too narrow in smaller viewports.
 - Set a maximum width when you want to prevent a column from being too wide in larger viewports.
 
-**Example uses equal-width columns with a minimum width of 6.25rem (100px) and a maximum width of 15.624rem (250px) for all screen sizes:**
+**Example uses equal-width columns with a minimum width of 6.25rem (100px) and a maximum width of 18.75rem (300px) for all screen sizes:**
 
-<div class="showcase-preview b-sm p-400">
-  <gcds-grid tag="article" columns="repeat(auto-fit, minmax(100px, 250px))" gap="300">
+Desktop
+
+<div class="showcase-preview b-sm mb-400 p-400">
+  <gcds-grid tag="article" columns="repeat(auto-fit, minmax(100px, 300px))" gap="500">
     <p>This is some example content to display the grid component.</p>
     <p>This is some example content to display the grid component.</p>
     <p>This is some example content to display the grid component.</p>
   </gcds-grid>
 </div>
 
+Tablet
+
+<div class="showcase-preview b-sm mb-400 p-400">
+  <div class="container-md">
+    <gcds-grid tag="article" columns="repeat(auto-fit, minmax(100px, 300px))" gap="500">
+      <p>This is some example content to display the grid component.</p>
+      <p>This is some example content to display the grid component.</p>
+      <p>This is some example content to display the grid component.</p>
+    </gcds-grid>
+  </div>
+</div>
+
+Mobile
+
+<div class="showcase-preview b-sm p-400">
+  <div class="container-sm">
+    <gcds-grid tag="article" columns="repeat(auto-fit, minmax(100px, 300px))" gap="500">
+      <p>This is some example content to display the grid component.</p>
+      <p>This is some example content to display the grid component.</p>
+      <p>This is some example content to display the grid component.</p>
+    </gcds-grid>
+  </div>
+</div>
+
 {% viewCode "en" "preview-grid-fixed-width" "gcds-grid" %}
 ```
-<gcds-grid tag="article" columns-desktop="1fr 1fr 1fr" columns-tablet="1fr 1fr" columns="1fr" gap="300">
+<gcds-grid tag="article" columns="repeat(auto-fit, minmax(100px, 300px))" gap="500">
     <p>This is some example content to display the grid component.</p>
     <p>This is some example content to display the grid component.</p>
     <p>This is some example content to display the grid component.</p>
@@ -107,7 +133,7 @@ Set the minimum and maximum width to design equal-width columns with restriction
 
 <iframe
   title="Overview of gcds-grid properties and events."
-  src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&demo=true&singleStory=true&id=components-grid--events-properties"
+  src="https://cds-snc.github.io/gcds-components/staging/iframe.html?viewMode=docs&demo=true&singleStory=true&id=components-grid--events-properties"
   width="1200"
   height="2100"
   style="display: block; margin: 0 auto;"

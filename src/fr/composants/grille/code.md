@@ -36,10 +36,32 @@ Conseil : Visez la simplicité pour vos mises en page. Envisagez d'optimiser ch
 
 Désactivez la définition de la largeur minimale et de la largeur maximale lorsque vous souhaitez concevoir des colonnes de largeur égale sans restrictions de largeur. Cela permettra à la grille et à ses colonnes de s'adapter à la fenêtre d'affichage.
 
-**Exemple d'affichage avec trois colonnes sur un ordinateur de bureau, deux colonnes sur la tablette et une colonne sur appareil mobile. :**
+**Exemple d'affichage avec trois colonnes sur un ordinateur de bureau, deux colonnes sur la tablette et une colonne sur appareil mobile :**
+
+Ordinateur de bureau
+
+<div class="b-sm mb-400 p-400">
+  <gcds-grid tag="article" columns-desktop="1fr 1fr 1fr" columns-tablet="1fr 1fr" columns="1fr" gap="300">
+    <p>Ceci est un exemple de contenu pour illustrer le composant Grille.</p>
+    <p>Ceci est un exemple de contenu pour illustrer le composant Grille.</p>
+    <p>Ceci est un exemple de contenu pour illustrer le composant Grille.</p>
+  </gcds-grid>
+</div>
+
+Tablette
+
+<div class="b-sm mb-400 p-400">
+  <gcds-grid tag="article" columns-tablet="1fr 1fr" columns="1fr" gap="300">
+    <p>Ceci est un exemple de contenu pour illustrer le composant Grille.</p>
+    <p>Ceci est un exemple de contenu pour illustrer le composant Grille.</p>
+    <p>Ceci est un exemple de contenu pour illustrer le composant Grille.</p>
+  </gcds-grid>
+</div>
+
+Mobile
 
 <div class="b-sm p-400">
-  <gcds-grid tag="article" columns-desktop="1fr 1fr 1fr" columns-tablet="1fr 1fr" columns="1fr" gap="300">
+  <gcds-grid tag="article" columns="1fr" gap="300">
     <p>Ceci est un exemple de contenu pour illustrer le composant Grille.</p>
     <p>Ceci est un exemple de contenu pour illustrer le composant Grille.</p>
     <p>Ceci est un exemple de contenu pour illustrer le composant Grille.</p>
@@ -61,19 +83,45 @@ Définissez la largeur minimale et la largeur maximale pour concevoir des colonn
 - Définissez une largeur minimale lorsque vous voulez éviter qu'une colonne soit trop étroite dans les plus petites fenêtres d'affichage.
 - Définissez une largeur maximale lorsque vous voulez éviter qu'une colonne soit trop large dans les plus grandes fenêtres d'affichage.
 
-**Un exemple utilisant des colonnes de largeur égale avec une largeur minimale de 6,25rem (100px) et une largeur maximale de 15,624rem (250px) :**
+**Un exemple utilisant des colonnes de largeur égale avec une largeur minimale de 6,25rem (100px) et une largeur maximale de 18,75rem (300px):**
 
-<div class="showcase-preview b-sm p-400">
-  <gcds-grid tag="article" columns="repeat(auto-fit, minmax(100px, 250px))" gap="300">
+Ordinateur de bureau
+
+<div class="showcase-preview b-sm mb-400 p-400">
+  <gcds-grid tag="article" columns="repeat(auto-fit, minmax(100px, 300px))" gap="500">
     <p>Ceci est un exemple de contenu pour illustrer le composant Grille.</p>
     <p>Ceci est un exemple de contenu pour illustrer le composant Grille.</p>
     <p>Ceci est un exemple de contenu pour illustrer le composant Grille.</p>
   </gcds-grid>
 </div>
 
+Tablette
+
+<div class="showcase-preview b-sm mb-400 p-400">
+  <div class="container-md">
+    <gcds-grid tag="article" columns="repeat(auto-fit, minmax(100px, 300px))" gap="500">
+      <p>Ceci est un exemple de contenu pour illustrer le composant Grille.</p>
+      <p>Ceci est un exemple de contenu pour illustrer le composant Grille.</p>
+      <p>Ceci est un exemple de contenu pour illustrer le composant Grille.</p>
+    </gcds-grid>
+  </div>
+</div>
+
+Mobile
+
+<div class="showcase-preview b-sm p-400">
+  <div class="container-sm">
+    <gcds-grid tag="article" columns="repeat(auto-fit, minmax(100px, 300px))" gap="500">
+      <p>Ceci est un exemple de contenu pour illustrer le composant Grille.</p>
+      <p>Ceci est un exemple de contenu pour illustrer le composant Grille.</p>
+      <p>Ceci est un exemple de contenu pour illustrer le composant Grille.</p>
+    </gcds-grid>
+  </div>
+</div>
+
 {% viewCode "fr" "preview-grid-fixed-width" "gcds-grid" %}
 ```
-<gcds-grid tag="article" columns-desktop="1fr 1fr 1fr" columns-tablet="1fr 1fr" columns="1fr" gap="300">
+<gcds-grid tag="article" columns="repeat(auto-fit, minmax(100px, 300px))" gap="500">
     <p>Ceci est un exemple de contenu pour illustrer le composant Grille.</p>
     <p>Ceci est un exemple de contenu pour illustrer le composant Grille.</p>
     <p>Ceci est un exemple de contenu pour illustrer le composant Grille.</p>
@@ -85,7 +133,7 @@ Définissez la largeur minimale et la largeur maximale pour concevoir des colonn
 
 <iframe
   title="Survol des propriétés et des évènements relatifs à gcds-grid."
-  src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&demo=true&singleStory=true&id=components-grid--events-properties"
+  src="https://cds-snc.github.io/gcds-components/staging/iframe.html?viewMode=docs&demo=true&singleStory=true&id=components-grid--events-properties"
   width="1200"
   height="2100"
   style="display: block; margin: 0 auto;"
