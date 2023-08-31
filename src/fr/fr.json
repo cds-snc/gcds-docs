@@ -30,7 +30,7 @@
     "icon": "/fr/developpement-en-cours",
     "input": "/fr/composants/champ-de-saisie",
     "langToggle": "/fr/composants/bascule-de-langue/",
-    "pagination": "/fr/developpement-en-cours",
+    "pagination": "/fr/composants/pagination",
     "radio": "/fr/composants/bouton-radio",
     "select": "/fr/composants/selection",
     "sideNav": "/fr/composants/barre-de-navigation-laterale",
