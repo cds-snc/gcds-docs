@@ -10,6 +10,7 @@ eleventyNavigation:
   description: Un élément permettant d'afficher un contenu visuel optimisé et réactif.
   thumbnail: /images/common/components/preview-image.svg
   alt: Le composant Image montre un rectangle gris clair avec, à l'intérieur, un cercle gris foncé représentant le soleil et 2 triangles gris foncé représentant des montagnes.
+  tag: À l'essai
   state: coming-soon
 translationKey: "image"
 tags: ['imageFR', 'usage']

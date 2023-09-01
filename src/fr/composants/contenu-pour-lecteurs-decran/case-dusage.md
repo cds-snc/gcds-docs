@@ -10,7 +10,7 @@ eleventyNavigation:
   description: Information accessible par les technologies d'assistance, comme les lecteurs d'écran, mais invisible pour les utilisateur·rice·s voyant·e·s.
   thumbnail: /images/common/components/preview-screenreader-content.svg
   alt: Le composant Contenu pour lecteurs d'écran montre un rectangle avec une bordure en ligne pointillée. À l'intérieur de ce rectangle se trouve une icône barrée de couleur bleu foncé d'un œil, ainsi que 3 rectangles plus petits de couleur gris clair représentant le texte.
-  tag: Experimental
+  tag: À l'essai
   state: coming-soon
 translationKey: "screenreadercontent"
 tags: ['screenreadercontentFR', 'usage']
