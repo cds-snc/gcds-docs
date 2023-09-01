@@ -11,7 +11,7 @@ date: "git Last Modified"
 <ol class="anatomy-list">
   <li>La <strong>légende du jeu de champs</strong> agit comme un titre pour discerner les boutons radio groupés. Le texte de la légende est aligné à gauche avec la première lettre en majuscule.</li>
   <li>Le <strong>texte explicatif du jeu de champs</strong> communique des exigences spécifiques pour les cases à cocher groupés afin d'assurer la réussite de la tâche.</li>
-  <li>La <strong>case à cocher</strong> indique, par la présence ou l'absence de la <strong>coche</strong> (également appelée case cochée), si une option a été sélectionnée ou non.</li>
+  <li>La <strong>case à cocher</strong> indique, par la présence ou l'absence de la <strong>coche</strong> (pelée case cochée), si une option a été sélectionnée ou non.</li>
   <li>Le <strong>case cochée</strong> indique qu'une option a été sélectionnée.</li>
   <li>Le <strong>libellé de la case à cocher</strong> indique le choix que représente la case à cocher. Le libellé du texte a la première lettre en majuscule.</li>
   <li>Le <strong>texte explicatif de la case à cocher</strong> communique aux utilisateur·rice·s des renseignements sur le choix.</li>

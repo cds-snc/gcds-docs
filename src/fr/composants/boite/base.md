@@ -7,7 +7,7 @@ tags: ['containerFR', 'header']
 
 # Boîte<br>`<gcds-container>`
 
-_Also called: conteneur, encadré._
+_Autres noms : conteneur, encadré._
 
 Il s’agit d’un modèle de boîte simple associé à une largeur de contenu fixe.
 

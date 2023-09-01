@@ -8,7 +8,7 @@ tags: ['inputFR', 'header']
 
 # Champ de saisie<br>`<gcds-input>`
 
-_Également appelé : saisie de texte, zone d'entrée._
+_Autres noms : saisie de texte, zone d'entrée._
 
 Un champ de saisie est un espace permettant de saisir une courte réponse à une question ou à une directive.
 
