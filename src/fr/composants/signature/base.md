@@ -8,7 +8,7 @@ tags: ["signatureFR", "header"]
 
 # Signature <br>`<gcds-signature>`
 
-_Autre nom : mot-symbole._
+_Autres noms : mot-symbole._
 
 La signature est l’image de marque du gouvernement du Canada placée dans l’en-tête ou le pied de la page.
 

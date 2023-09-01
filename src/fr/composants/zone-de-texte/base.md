@@ -8,7 +8,7 @@ tags: ['textareaFR', 'header']
 
 # Zone de texte <br>`<gcds-textarea>`
 
-_Également appelé : saisie de texte, zone d'entrée._
+_Autres noms : saisie de texte, zone d'entrée._
 
 Une zone de texte est un espace permettant de saisir une réponse détaillée à une question ou à une directive.
 
