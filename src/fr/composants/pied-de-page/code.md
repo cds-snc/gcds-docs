@@ -69,9 +69,9 @@ Pour la bande de lien du pied de page, réglez l'élément `sub-links` en passan
 
 <iframe
   title="Survol des propriétés et des évènements relatifs à gcds-footer."
-  src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&singleStory=true&id=components-footer--events-properties"
+  src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&demo=true&singleStory=true&id=components-footer--events-properties"
   width="1200"
-  height="2050"
+  height="2000"
   style="display: block; margin: 0 auto;"
   frameBorder="0"
   allow="clipboard-write"

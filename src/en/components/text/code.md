@@ -14,7 +14,7 @@ tags: ['textEN', 'code']
 
 <iframe
   title="iframeTitle"
-  src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&singleStory=true&id=components-text--events-properties"
+  src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&demo=true&singleStory=true&id=components-text--events-properties"
   width="1200"
   height="1650"
   style="display: block; margin: 0 auto;"

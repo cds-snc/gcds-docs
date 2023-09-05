@@ -133,7 +133,7 @@ Mobile
 
 <iframe
   title="Survol des propriétés et des évènements relatifs à gcds-grid."
-  src="https://cds-snc.github.io/gcds-components/staging/iframe.html?viewMode=docs&demo=true&singleStory=true&id=components-grid--events-properties"
+  src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&demo=true&singleStory=true&id=components-grid--events-properties"
   width="1200"
   height="2100"
   style="display: block; margin: 0 auto;"

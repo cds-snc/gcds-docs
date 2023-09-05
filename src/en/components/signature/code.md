@@ -29,9 +29,9 @@ Use the signature type in the site’s <a href="{{ links.header }}">header</a> a
 
 <iframe
   title="Overview of gcds-side-nav properties and events."
-  src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&singleStory=true&id=components-signature--events-properties#events--properties"
+  src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&demo=true&singleStory=true&id=components-signature--events-properties#events--properties"
   width="1200"
-  height="1100"
+  height="1050"
   style="display: block; margin: 0 auto;"
   frameBorder="0"
   allow="clipboard-write"
