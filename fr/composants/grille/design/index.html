@@ -986,7 +986,8 @@
         
   
     <h1 id="grille-brgcdsgrid" class="mb-400">Grille <br><code>&lt;gcds-grid&gt;</code></h1>
-<p class="mb-400">Ce composant est en cours de développement.</p>
+<p class="mb-400"><em>Autres noms : mise en page, colonnes, disposition en colonnes, boîte de style grille.</em></p>
+<p class="mb-400">Une grille est une mise en page réactive et flexible.</p>
 <p class="mb-400"><ul class="d-flex flex-wrap gap-400">
 <li class="github-link">
 <a href="https://github.com/cds-snc/gcds-components/tree/main/packages/web/src/components/gcds-grid" target="_blank" rel="nofollow" aria-label="GitHub (S'ouvre dans un nouvel onglet)">GitHub<gcds-icon name="external-link" margin-left="100" /></a>
@@ -995,7 +996,19 @@
 <span>Figma — à venir</span>
 </li>
 </ul></p>
-<br/>
+<p class="mb-400"><div class="my-500 b-sm b-default component-preview">
+<p class="container-full font-semibold px-300 py-200 bb-sm b-default bg-light">
+Aperçu du composant de grille
+</p>
+<div class="px-300 py-400"></p>
+<gcds-grid tag="article" columns-desktop="1fr 1fr 1fr 1fr" columns-tablet="1fr 1fr" columns="1fr" gap="500">
+  <p>Ceci est un exemple de contenu pour illustrer le composant Grille.</p>
+  <p>Ceci est un exemple de contenu pour illustrer le composant Grille.</p>
+  <p>Ceci est un exemple de contenu pour illustrer le composant Grille.</p>
+  <p>Ceci est un exemple de contenu pour illustrer le composant Grille.</p>
+</gcds-grid>
+<p class="mb-400"></div>
+</div></p>
 
     <nav class="tabs mb-400" aria-label="Grille">
       <ul>
@@ -1034,7 +1047,38 @@
     </nav>
   
 
-  <h2 id="design" class="mt-500 mb-400">Design</h2>
+  <h2 id="structure-dune-grille" class="mt-500 mb-400">Structure d'une grille</h2>
+<ol class="anatomy-list">
+  <li>La <strong>boîte</strong> contient tous les éléments de la grille et s'étend sur leur largeur combinée. Elle est réactive et peut être centrée.</li>
+  <li>La <strong>colonne</strong> , également appelée élément de grille, définit une limite autour de son contenu pour le maintenir dans la largeur définie pour cette colonne.</li>
+  <li>L'<strong>écart</strong> , parfois appelé gouttière, définit la largeur de l'espace entre les colonnes.</li>
+</ol>
+<img class="b-sm b-default p-400" src="/images/fr/components/anatomy/gcds-grid-anatomy.svg" alt="Image montrant la structure d'une grille avec quatre rectangles distincts représentant les colonnes d'une grille." />
+<h2 id="design-et-accessibilite-des-grilles" class="mt-500 mb-400">Design et accessibilité des grilles</h2>
+<h3 id="ajustez-les-mises-en-page-pour-optimiser-lexperience-sur-differentes-tailles-decran" class="mt-500 mb-400">Ajustez les mises en page pour optimiser l'expérience sur différentes tailles d'écran</h3>
+<ul class="list-disc mb-400"><li><p class="mb-400">Optimisez chaque composant Grille pour les différentes tailles d'écran qu'une personne utilisera (y compris en passant d'un écran à l'autre) lorsqu'elle visitera votre site ou utilisera votre produit.</li>
+<li><p class="mb-400">Adaptez votre contenu aux appareils mobiles, aux tablettes et aux grands écrans en définissant la mise en page de chaque fenêtre d'affichage pour ce composant.<ul class="list-disc mb-400"><li><p class="mb-400">Les petits écrans, comme ceux des appareils mobiles, affichent généralement une mise en page à une colonne.</li>
+<li><p class="mb-400">Les écrans de taille moyenne, comme les tablettes, affichent généralement une mise en page d'une à deux colonnes.</li>
+<li><p class="mb-400">Les écrans plus grands, comme ceux des ordinateurs de bureau, affichent généralement une mise en page de trois ou quatre colonnes.</li>
+</ul>
+</li>
+</ul>
+<p class="mb-400">Conseil : Visez la simplicité pour la disposition des grilles en concevant des expériences pour les appareils mobiles, tablettes et ordinateurs de bureau compatibles avec n'importe quelle taille d'écran.</p>
+<h3 id="limitez-la-largeur-du-contenu" class="mt-500 mb-400">Limitez la largeur du contenu</h3>
+<ul class="list-disc mb-400"><li><p class="mb-400">Veillez à ce que les lignes de texte n'excèdent pas 75 caractères pour que la lecture reste accessible.</li>
+<li><p class="mb-400">Limitez la largeur des colonnes pour éviter que les grands écrans n'affichent des lignes de texte trop longues et difficiles à lire.</li>
+<li><p class="mb-400">Évitez de dépasser la largeur maximale de 71,25 rem (1140 px).</li>
+</ul>
+<h3 id="ajoutez-un-espacement-entre-les-colonnes" class="mt-500 mb-400">Ajoutez un espacement entre les colonnes</h3>
+<ul class="list-disc mb-400"><li><p class="mb-400">Ajoutez de l'espace entre les colonnes pour réduire la charge cognitive liée à la lecture d'un contenu trop dense.</li>
+<li><p class="mb-400">Dans la mesure du possible, alignez les objets verticalement et horizontalement.</li>
+<li><p class="mb-400">Sélectionnez la taille de l'écart, ou l'espacement entre les colonnes, en choisissant une option de mesure parmi nos <a href="/fr/fondements/espacement">unités d'espacement</a>.</li>
+</ul>
+<h3 id="utilisez-lespacement-pour-vehiculer-un-sens-particulier" class="mt-500 mb-400">Utilisez l'espacement pour véhiculer un sens particulier</h3>
+<p class="mb-400">Choisissez l'espacement pour faciliter la lecture et aider les utilisateurs à mieux comprendre les messages que vous communiquez.</p>
+<ul class="list-disc mb-400"><li><p class="mb-400">Utilisez de plus petites unités de style d'espacement pour regrouper des éléments connexes.</li>
+<li><p class="mb-400">Employez de plus grandes unités de style d'espacement pour former des groupes logiques d'éléments.</li>
+</ul>
 
 
   <section class="pt-100 mt-400 mb-600 bt-sm b-dark ">

@@ -986,7 +986,8 @@
         
   
     <h1 id="grid-brgcdsgrid" class="mb-400">Grid <br><code>&lt;gcds-grid&gt;</code></h1>
-<p class="mb-400">This component is coming soon.</p>
+<p class="mb-400"><em>Also called: layout, columns, columns layout, grid container.</em></p>
+<p class="mb-400">A grid is a responsive, flexible column layout to position elements on a page.</p>
 <p class="mb-400"><ul class="d-flex flex-wrap gap-400">
 <li class="github-link">
 <a href="https://github.com/cds-snc/gcds-components/tree/main/packages/web/src/components/gcds-grid" target="_blank" rel="nofollow" aria-label="GitHub (Opens in a new tab)">GitHub<gcds-icon name="external-link" margin-left="100" /></a>
@@ -995,7 +996,19 @@
 <span>Figma — coming soon</span>
 </li>
 </ul></p>
-<br/>
+<p class="mb-400"><div class="my-500 b-sm b-default component-preview">
+<p class="container-full font-semibold px-300 py-200 bb-sm b-default bg-light">
+Grid component preview
+</p>
+<div class="px-300 py-400"></p>
+<gcds-grid tag="article" columns-desktop="1fr 1fr 1fr 1fr" columns-tablet="1fr 1fr" columns="1fr" gap="500">
+  <p>This is some example content to display the grid component.</p>
+  <p>This is some example content to display the grid component.</p>
+  <p>This is some example content to display the grid component.</p>
+  <p>This is some example content to display the grid component.</p>
+</gcds-grid>
+<p class="mb-400"></div>
+</div></p>
 
     <nav class="tabs mb-400" aria-label="Grid">
       <ul>
@@ -1034,7 +1047,38 @@
     </nav>
   
 
-  <h2 id="design" class="mt-500 mb-400">Design</h2>
+  <h2 id="grid-anatomy" class="mt-500 mb-400">Grid anatomy</h2>
+<ol class="anatomy-list">
+  <li>The <strong>container</strong> holds all elements within the grid and spans their combined width. The container is  responsive and can be centred.</li>
+  <li>The <strong>column</strong>, also called grid item, sets a boundary around its contents to contain it within the width set for that column.</li>
+  <li>The <strong>gap</strong>, sometimes called the gutter, defines the width of the space between the columns.</li>
+</ol>
+<img class="b-sm b-default p-400" src="/images/en/components/anatomy/gcds-grid-anatomy.svg" alt="Image showing the grid anatomy with four separate rectangles representing the columns of a grid" />
+<h2 id="design-and-accessibility-for-grids" class="mt-500 mb-400">Design and accessibility for grids</h2>
+<h3 id="adjust-layouts-to-optimize-the-experience-on-different-screen-sizes" class="mt-500 mb-400">Adjust layouts to optimize the experience on different screen sizes</h3>
+<ul class="list-disc mb-400"><li><p class="mb-400">Optimize each grid component for the different screen sizes a person will use — or switch between — when they visit your site or use your product.</li>
+<li><p class="mb-400">Adapt for mobile, tablet, and large screens by defining each viewport layout for that grid component.<ul class="list-disc mb-400"><li><p class="mb-400">Smaller screens, like mobile devices, typically display a single column layout.</li>
+<li><p class="mb-400">Medium-sized screens, like tablets, a single or 2-column layout.</li>
+<li><p class="mb-400">Larger screens, like desktop, a 3- or 4- column layout.</li>
+</ul>
+</li>
+</ul>
+<p class="mb-400">Tip: Keep grid layouts simple by designing for mobile, tablet, and desktop experiences that work with any screen size.</p>
+<h3 id="limit-width-of-content" class="mt-500 mb-400">Limit width of content</h3>
+<ul class="list-disc mb-400"><li><p class="mb-400">Keep text line length below 75 characters for a comfortable, accessible reading length.</li>
+<li><p class="mb-400">Limit column width to stop large screens from displaying lines of text that are overly long and difficult to read.</li>
+<li><p class="mb-400">Avoid exceeding the maximum width of 71.25rem (1140px) wide.</li>
+</ul>
+<h3 id="add-spacing-between-columns" class="mt-500 mb-400">Add spacing between columns</h3>
+<ul class="list-disc mb-400"><li><p class="mb-400">Add space between columns to reduce the cognitive load of reading content too densely packed together.</li>
+<li><p class="mb-400">Whenever possible, align objects both vertically and horizontally.</li>
+<li><p class="mb-400">Select the gap size, or space between columns, by choosing a measurement option from our <a href="/en/foundations/spacing">spacing tokens</a>.</li>
+</ul>
+<h3 id="communicate-meaning-by-adjusting-spacing" class="mt-500 mb-400">Communicate meaning by adjusting spacing</h3>
+<p class="mb-400">Choose spacing to support ease of reading and help users better understand the messages your communicating.</p>
+<ul class="list-disc mb-400"><li><p class="mb-400">Use smaller spacing tokens to group related concepts together.</li>
+<li><p class="mb-400">Use larger spacing tokens to separate elements into logical groups.</li>
+</ul>
 
 
   <section class="pt-100 mt-400 mb-600 bt-sm b-dark ">

@@ -986,7 +986,8 @@
         
   
     <h1 id="grid-brgcdsgrid" class="mb-400">Grid <br><code>&lt;gcds-grid&gt;</code></h1>
-<p class="mb-400">This component is coming soon.</p>
+<p class="mb-400"><em>Also called: layout, columns, columns layout, grid container.</em></p>
+<p class="mb-400">A grid is a responsive, flexible column layout to position elements on a page.</p>
 <p class="mb-400"><ul class="d-flex flex-wrap gap-400">
 <li class="github-link">
 <a href="https://github.com/cds-snc/gcds-components/tree/main/packages/web/src/components/gcds-grid" target="_blank" rel="nofollow" aria-label="GitHub (Opens in a new tab)">GitHub<gcds-icon name="external-link" margin-left="100" /></a>
@@ -995,7 +996,19 @@
 <span>Figma — coming soon</span>
 </li>
 </ul></p>
-<br/>
+<p class="mb-400"><div class="my-500 b-sm b-default component-preview">
+<p class="container-full font-semibold px-300 py-200 bb-sm b-default bg-light">
+Grid component preview
+</p>
+<div class="px-300 py-400"></p>
+<gcds-grid tag="article" columns-desktop="1fr 1fr 1fr 1fr" columns-tablet="1fr 1fr" columns="1fr" gap="500">
+  <p>This is some example content to display the grid component.</p>
+  <p>This is some example content to display the grid component.</p>
+  <p>This is some example content to display the grid component.</p>
+  <p>This is some example content to display the grid component.</p>
+</gcds-grid>
+<p class="mb-400"></div>
+</div></p>
 
     <nav class="tabs mb-400" aria-label="Grid">
       <ul>
@@ -1034,7 +1047,137 @@
     </nav>
   
 
-  <h2 id="code" class="mt-500 mb-400">Code</h2>
+  <h2 id="build-a-grid" class="mt-500 mb-400">Build a grid</h2>
+<p class="mb-400">Use grids to create flexible and responsive layouts for various screen sizes. The grid component uses CSS grid to allow for more complex layouts.</p>
+<h2 id="code-and-accessibility-for-grids" class="mt-500 mb-400">Code and accessibility for grids</h2>
+<h3 id="adjust-layouts-to-optimize-the-experience-on-different-screen-sizes" class="mt-500 mb-400">Adjust layouts to optimize the experience on different screen sizes</h3>
+<ul class="list-disc mb-400"><li><p class="mb-400">Optimize each grid component for the different screen sizes a person will use — or switch between — when they visit your site or use your product.</li>
+<li><p class="mb-400">Adapt for mobile, tablet, and large screens by defining each viewport layout for that grid component.<ul class="list-disc mb-400"><li><p class="mb-400">Smaller screens, like mobile devices, typically display a single column layout.</li>
+<li><p class="mb-400">Medium-sized screens, like tablets, a single or 2-column layout.</li>
+<li><p class="mb-400">Larger screens, like desktop, a 3- or 4- column layout.</li>
+</ul>
+</li>
+<li><p class="mb-400">Use the <code>columns</code> property to add your layout for smaller screens or if you are using the same layout for all screens.</li>
+<li><p class="mb-400">Use the <code>columns-tablet</code> property to set your tablet layout <strong>(48em and 768px and above)</strong> or if you are using the same layout for medium and large screens.</li>
+<li><p class="mb-400">Use the <code>columns-desktop</code> property to define your layout for larger screens <strong>(64em and 1024px and above)</strong>.</li>
+</ul>
+<p class="mb-400">Tip: Keep layouts simple. Consider optimizing each layout for mobile, tablet, and desktop to provide a better user experience for all viewports.</p>
+<h3 id="add-spacing-between-columns" class="mt-500 mb-400">Add spacing between columns</h3>
+<ul class="list-disc mb-400"><li><p class="mb-400">Add space between columns to reduce the cognitive load of reading content too densely packed together.</li>
+<li><p class="mb-400">Whenever possible, align objects both vertically and horizontally.</li>
+<li><p class="mb-400">Use the <code>gap</code> property to add spacing between your <code>columns</code> in the grid.</li>
+<li><p class="mb-400">Use GC Design System <a href="/en/foundations/design-tokens">design tokens</a> as a reference for the size of the <code>gap</code> in the grid. The tokens measurements match up with the spacing values for the <code>gap</code> attribute.</li>
+</ul>
+<h3 id="choose-an-option-for-equal-width-columns" class="mt-500 mb-400">Choose an option for equal width columns</h3>
+<p class="mb-400">Opt out of setting the minimum and maximum width when you want to design equal-width columns without width restrictions. This will allow the grid and its columns to scale to the size of the viewport.</p>
+<p class="mb-400"><strong>Example displaying 3 columns for desktop, 2 columns for tablet, and 1 column for mobile:</strong></p>
+<p class="mb-400">Desktop</p>
+<div class="b-sm mb-400 p-400">
+  <gcds-grid tag="article" columns-desktop="1fr 1fr 1fr" columns-tablet="1fr 1fr" columns="1fr" gap="300">
+    <p>This is some example content to display the grid component.</p>
+    <p>This is some example content to display the grid component.</p>
+    <p>This is some example content to display the grid component.</p>
+  </gcds-grid>
+</div>
+<p class="mb-400">Tablet</p>
+<div class="b-sm mb-400 p-400">
+  <gcds-grid tag="article" columns-tablet="1fr 1fr" columns="1fr" gap="300">
+    <p>This is some example content to display the grid component.</p>
+    <p>This is some example content to display the grid component.</p>
+    <p>This is some example content to display the grid component.</p>
+  </gcds-grid>
+</div>
+<p class="mb-400">Mobile</p>
+<div class="b-sm p-400">
+  <gcds-grid tag="article" columns="1fr" gap="300">
+    <p>This is some example content to display the grid component.</p>
+    <p>This is some example content to display the grid component.</p>
+    <p>This is some example content to display the grid component.</p>
+  </gcds-grid>
+</div>
+<p class="mb-400"><div class="code-showcase mb-400">
+<div class="showcase mb-400 p-400" id="preview-grid-flexible" aria-hidden="true">
+<pre><code>&lt;gcds-grid tag=&quot;article&quot; columns-desktop=&quot;1fr 1fr 1fr&quot; columns-tablet=&quot;1fr 1fr&quot; columns=&quot;1fr&quot; gap=&quot;300&quot;&gt;
+&lt;p&gt;This is some example content to display the grid component.&lt;/p&gt;
+&lt;p&gt;This is some example content to display the grid component.&lt;/p&gt;
+&lt;p&gt;This is some example content to display the grid component.&lt;/p&gt;
+&lt;/gcds-grid&gt;
+</code></pre></p>
+<p class="mb-400"></div>
+<div>
+<gcds-button button-type="button" button-role="secondary" aria-label="View code - gcds-grid" onclick="toggleCodeShowcase(this, 'preview-grid-flexible');" aria-controls="preview-grid-flexible" aria-expanded="false">View code</gcds-button>
+<gcds-button button-type="button" button-role="secondary" onclick="copyCodeShowcase(this, 'preview-grid-flexible', 'en');" onblur="this.innerText = 'Copy code'">Copy code</gcds-button>
+</div>
+</div></p>
+<p class="mb-400">Set the minimum and maximum width to design equal-width columns with restrictions to limit how wide they will span on any screen size.</p>
+<ul class="list-disc mb-400"><li><p class="mb-400">Set a minimum width when you want to prevent a column from being too narrow in smaller viewports.</li>
+<li><p class="mb-400">Set a maximum width when you want to prevent a column from being too wide in larger viewports.</li>
+</ul>
+<p class="mb-400"><strong>Example uses equal-width columns with a minimum width of 6.25rem (100px) and a maximum width of 18.75rem (300px) for all screen sizes:</strong></p>
+<p class="mb-400">Desktop</p>
+<div class="showcase-preview b-sm mb-400 p-400">
+  <gcds-grid tag="article" columns="repeat(auto-fit, minmax(100px, 300px))" gap="500">
+    <p>This is some example content to display the grid component.</p>
+    <p>This is some example content to display the grid component.</p>
+    <p>This is some example content to display the grid component.</p>
+  </gcds-grid>
+</div>
+<p class="mb-400">Tablet</p>
+<div class="showcase-preview b-sm mb-400 p-400">
+  <div class="container-md">
+    <gcds-grid tag="article" columns="repeat(auto-fit, minmax(100px, 300px))" gap="500">
+      <p>This is some example content to display the grid component.</p>
+      <p>This is some example content to display the grid component.</p>
+      <p>This is some example content to display the grid component.</p>
+    </gcds-grid>
+  </div>
+</div>
+<p class="mb-400">Mobile</p>
+<div class="showcase-preview b-sm p-400">
+  <div class="container-sm">
+    <gcds-grid tag="article" columns="repeat(auto-fit, minmax(100px, 300px))" gap="500">
+      <p>This is some example content to display the grid component.</p>
+      <p>This is some example content to display the grid component.</p>
+      <p>This is some example content to display the grid component.</p>
+    </gcds-grid>
+  </div>
+</div>
+<p class="mb-400"><div class="code-showcase mb-400">
+<div class="showcase mb-400 p-400" id="preview-grid-fixed-width" aria-hidden="true">
+<pre><code>&lt;gcds-grid tag=&quot;article&quot; columns=&quot;repeat(auto-fit, minmax(100px, 300px))&quot; gap=&quot;500&quot;&gt;
+&lt;p&gt;This is some example content to display the grid component.&lt;/p&gt;
+&lt;p&gt;This is some example content to display the grid component.&lt;/p&gt;
+&lt;p&gt;This is some example content to display the grid component.&lt;/p&gt;
+&lt;/gcds-grid&gt;
+</code></pre></p>
+<p class="mb-400"></div>
+<div>
+<gcds-button button-type="button" button-role="secondary" aria-label="View code - gcds-grid" onclick="toggleCodeShowcase(this, 'preview-grid-fixed-width');" aria-controls="preview-grid-fixed-width" aria-expanded="false">View code</gcds-button>
+<gcds-button button-type="button" button-role="secondary" onclick="copyCodeShowcase(this, 'preview-grid-fixed-width', 'en');" onblur="this.innerText = 'Copy code'">Copy code</gcds-button>
+</div>
+</div></p>
+<h3 id="get-your-code" class="mt-500 mb-400">Get your code</h3>
+<p class="mb-400">Generate an instance of the component you need by selecting its code properties.</p>
+<ol class="list-decimal mb-400"><li>
+<p class="mb-400">Explore by choosing different code values to generate the instance you want.</p>
+</li>
+<li>
+<p class="mb-400">Get the code and pull it into your environment.</p>
+</li>
+<li>
+<p class="mb-400">Add any copy you need to the component (like text for a label).</p>
+</li>
+</ol>
+<p class="mb-400"><strong>Note:</strong> Following standard practice, the code builder uses English for all code elements.</p>
+<iframe
+  title="Overview of gcds-grid properties and events."
+  src="https://cds-snc.github.io/gcds-components/staging/iframe.html?viewMode=docs&demo=true&singleStory=true&id=components-grid--events-properties"
+  width="1200"
+  height="2100"
+  style="display: block; margin: 0 auto;"
+  frameBorder="0"
+  allow="clipboard-write"
+></iframe>
 
 
   <section class="pt-100 mt-400 mb-600 bt-sm b-dark ">

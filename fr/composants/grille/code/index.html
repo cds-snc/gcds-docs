@@ -986,7 +986,8 @@
         
   
     <h1 id="grille-brgcdsgrid" class="mb-400">Grille <br><code>&lt;gcds-grid&gt;</code></h1>
-<p class="mb-400">Ce composant est en cours de développement.</p>
+<p class="mb-400"><em>Autres noms : mise en page, colonnes, disposition en colonnes, boîte de style grille.</em></p>
+<p class="mb-400">Une grille est une mise en page réactive et flexible.</p>
 <p class="mb-400"><ul class="d-flex flex-wrap gap-400">
 <li class="github-link">
 <a href="https://github.com/cds-snc/gcds-components/tree/main/packages/web/src/components/gcds-grid" target="_blank" rel="nofollow" aria-label="GitHub (S'ouvre dans un nouvel onglet)">GitHub<gcds-icon name="external-link" margin-left="100" /></a>
@@ -995,7 +996,19 @@
 <span>Figma — à venir</span>
 </li>
 </ul></p>
-<br/>
+<p class="mb-400"><div class="my-500 b-sm b-default component-preview">
+<p class="container-full font-semibold px-300 py-200 bb-sm b-default bg-light">
+Aperçu du composant de grille
+</p>
+<div class="px-300 py-400"></p>
+<gcds-grid tag="article" columns-desktop="1fr 1fr 1fr 1fr" columns-tablet="1fr 1fr" columns="1fr" gap="500">
+  <p>Ceci est un exemple de contenu pour illustrer le composant Grille.</p>
+  <p>Ceci est un exemple de contenu pour illustrer le composant Grille.</p>
+  <p>Ceci est un exemple de contenu pour illustrer le composant Grille.</p>
+  <p>Ceci est un exemple de contenu pour illustrer le composant Grille.</p>
+</gcds-grid>
+<p class="mb-400"></div>
+</div></p>
 
     <nav class="tabs mb-400" aria-label="Grille">
       <ul>
@@ -1034,7 +1047,137 @@
     </nav>
   
 
-  <h2 id="code" class="mt-500 mb-400">Code</h2>
+  <h2 id="creer-une-grille" class="mt-500 mb-400">Créer une grille</h2>
+<p class="mb-400">Utilisez des grilles pour créer des mises en page flexibles et réactives pour différentes tailles d'écran. Le composant Grille utilise la grille CSS pour permettre des mises en page plus complexes.</p>
+<h2 id="codage-et-accessibilite-des-grilles" class="mt-500 mb-400">Codage et accessibilité des grilles</h2>
+<h3 id="ajustez-les-mises-en-page-pour-optimiser-lexperience-sur-differentes-tailles-decran" class="mt-500 mb-400">Ajustez les mises en page pour optimiser l'expérience sur différentes tailles d'écran</h3>
+<ul class="list-disc mb-400"><li><p class="mb-400">Optimisez chaque composant Grille pour les différentes tailles d'écran qu'une personne utilisera lorsqu'elle visitera votre site ou utilisera votre produit, y compris en passant d'un écran à l'autre.</li>
+<li><p class="mb-400">Adaptez votre contenu aux appareils mobiles, aux tablettes et aux grands écrans en définissant la mise en page de chaque fenêtre d'affichage pour ce composant.<ul class="list-disc mb-400"><li><p class="mb-400">Les petits écrans, comme ceux des appareils mobiles, affichent généralement une mise en page à une colonne.</li>
+<li><p class="mb-400">Les écrans de taille moyenne, comme les tablettes, affichent généralement une mise en page d'une à deux colonnes.</li>
+<li><p class="mb-400">Les écrans plus grands, comme ceux des ordinateurs de bureau, affichent généralement une mise en page de trois ou quatre colonnes.</li>
+</ul>
+</li>
+<li><p class="mb-400">Utilisez la propriété <code>columns</code> pour ajouter votre mise en page pour les plus petits écrans ou si vous utilisez la même disposition pour tous les écrans.</li>
+<li><p class="mb-400">Utilisez la propriété <code>columns-tablet</code> pour définir la mise en page sur tablette <strong>(48 rem et 768 px et au-delà)</strong> ou si vous utilisez la même disposition pour les moyens et grands écrans.</li>
+<li><p class="mb-400">Utilisez la propriété <code>columns-desktop</code> pour définir la mise en page pour les écrans plus grands <strong>(64 rem et 1024 px et au-delà)</strong>.</li>
+</ul>
+<p class="mb-400">Conseil : Visez la simplicité pour vos mises en page. Envisagez d'optimiser chaque mise en page pour les écrans d'appareils mobiles, de tablettes et d'ordinateur. Vous offrirez ainsi une meilleure expérience utilisateur, quelle que soit la fenêtre d'affichage.</p>
+<h3 id="ajoutez-un-espacement-entre-les-colonnes" class="mt-500 mb-400">Ajoutez un espacement entre les colonnes</h3>
+<ul class="list-disc mb-400"><li><p class="mb-400">Ajoutez de l'espace entre les colonnes pour réduire la charge cognitive liée à la lecture d'un contenu trop dense.</li>
+<li><p class="mb-400">Dans la mesure du possible, alignez les objets verticalement et horizontalement.</li>
+<li><p class="mb-400">Utilisez la propriété <code>gap</code> pour ajouter de l'espacement entre vos <code>columns</code> dans la grille.</li>
+<li><p class="mb-400">Utilisez les <a href="/fr/fondements/unites-de-style">unités de style</a> de Système de design GC comme référence pour la taille de votre <code>gap</code> dans la grille. Les mesures des unités correspondent aux valeurs d'espacement de l'attribut <code>gap</code>.</li>
+</ul>
+<h3 id="choisissez-une-option-pour-des-colonnes-de-largeur-egale" class="mt-500 mb-400">Choisissez une option pour des colonnes de largeur égale</h3>
+<p class="mb-400">Désactivez la définition de la largeur minimale et de la largeur maximale lorsque vous souhaitez concevoir des colonnes de largeur égale sans restrictions de largeur. Cela permettra à la grille et à ses colonnes de s'adapter à la fenêtre d'affichage.</p>
+<p class="mb-400"><strong>Exemple d'affichage avec trois colonnes sur un ordinateur de bureau, deux colonnes sur la tablette et une colonne sur appareil mobile :</strong></p>
+<p class="mb-400">Ordinateur de bureau</p>
+<div class="b-sm mb-400 p-400">
+  <gcds-grid tag="article" columns-desktop="1fr 1fr 1fr" columns-tablet="1fr 1fr" columns="1fr" gap="300">
+    <p>Ceci est un exemple de contenu pour illustrer le composant Grille.</p>
+    <p>Ceci est un exemple de contenu pour illustrer le composant Grille.</p>
+    <p>Ceci est un exemple de contenu pour illustrer le composant Grille.</p>
+  </gcds-grid>
+</div>
+<p class="mb-400">Tablette</p>
+<div class="b-sm mb-400 p-400">
+  <gcds-grid tag="article" columns-tablet="1fr 1fr" columns="1fr" gap="300">
+    <p>Ceci est un exemple de contenu pour illustrer le composant Grille.</p>
+    <p>Ceci est un exemple de contenu pour illustrer le composant Grille.</p>
+    <p>Ceci est un exemple de contenu pour illustrer le composant Grille.</p>
+  </gcds-grid>
+</div>
+<p class="mb-400">Mobile</p>
+<div class="b-sm p-400">
+  <gcds-grid tag="article" columns="1fr" gap="300">
+    <p>Ceci est un exemple de contenu pour illustrer le composant Grille.</p>
+    <p>Ceci est un exemple de contenu pour illustrer le composant Grille.</p>
+    <p>Ceci est un exemple de contenu pour illustrer le composant Grille.</p>
+  </gcds-grid>
+</div>
+<p class="mb-400"><div class="code-showcase mb-400">
+<div class="showcase mb-400 p-400" id="preview-grid-flexible" aria-hidden="true">
+<pre><code>&lt;gcds-grid tag=&quot;article&quot; columns-desktop=&quot;1fr 1fr 1fr&quot; columns-tablet=&quot;1fr 1fr&quot; columns=&quot;1fr&quot; gap=&quot;300&quot;&gt;
+&lt;p&gt;Ceci est un exemple de contenu pour illustrer le composant Grille.&lt;/p&gt;
+&lt;p&gt;Ceci est un exemple de contenu pour illustrer le composant Grille.&lt;/p&gt;
+&lt;p&gt;Ceci est un exemple de contenu pour illustrer le composant Grille.&lt;/p&gt;
+&lt;/gcds-grid&gt;
+</code></pre></p>
+<p class="mb-400"></div>
+<div>
+<gcds-button button-type="button" button-role="secondary" aria-label="Voir le code - gcds-grid" onclick="toggleCodeShowcase(this, 'preview-grid-flexible');" aria-controls="preview-grid-flexible" aria-expanded="false">Voir le code</gcds-button>
+<gcds-button button-type="button" button-role="secondary" onclick="copyCodeShowcase(this, 'preview-grid-flexible', 'fr');" onblur="this.innerText = 'Copier le code'">Copier le code</gcds-button>
+</div>
+</div></p>
+<p class="mb-400">Définissez la largeur minimale et la largeur maximale pour concevoir des colonnes de largeur égale afin de limiter la largeur des colonnes sur n'importe quelle taille d'écran.</p>
+<ul class="list-disc mb-400"><li><p class="mb-400">Définissez une largeur minimale lorsque vous voulez éviter qu'une colonne soit trop étroite dans les plus petites fenêtres d'affichage.</li>
+<li><p class="mb-400">Définissez une largeur maximale lorsque vous voulez éviter qu'une colonne soit trop large dans les plus grandes fenêtres d'affichage.</li>
+</ul>
+<p class="mb-400"><strong>Un exemple utilisant des colonnes de largeur égale avec une largeur minimale de 6,25rem (100px) et une largeur maximale de 18,75rem (300px) pour toutes les tailles d'écran :</strong></p>
+<p class="mb-400">Ordinateur de bureau</p>
+<div class="showcase-preview b-sm mb-400 p-400">
+  <gcds-grid tag="article" columns="repeat(auto-fit, minmax(100px, 300px))" gap="500">
+    <p>Ceci est un exemple de contenu pour illustrer le composant Grille.</p>
+    <p>Ceci est un exemple de contenu pour illustrer le composant Grille.</p>
+    <p>Ceci est un exemple de contenu pour illustrer le composant Grille.</p>
+  </gcds-grid>
+</div>
+<p class="mb-400">Tablette</p>
+<div class="showcase-preview b-sm mb-400 p-400">
+  <div class="container-md">
+    <gcds-grid tag="article" columns="repeat(auto-fit, minmax(100px, 300px))" gap="500">
+      <p>Ceci est un exemple de contenu pour illustrer le composant Grille.</p>
+      <p>Ceci est un exemple de contenu pour illustrer le composant Grille.</p>
+      <p>Ceci est un exemple de contenu pour illustrer le composant Grille.</p>
+    </gcds-grid>
+  </div>
+</div>
+<p class="mb-400">Mobile</p>
+<div class="showcase-preview b-sm p-400">
+  <div class="container-sm">
+    <gcds-grid tag="article" columns="repeat(auto-fit, minmax(100px, 300px))" gap="500">
+      <p>Ceci est un exemple de contenu pour illustrer le composant Grille.</p>
+      <p>Ceci est un exemple de contenu pour illustrer le composant Grille.</p>
+      <p>Ceci est un exemple de contenu pour illustrer le composant Grille.</p>
+    </gcds-grid>
+  </div>
+</div>
+<p class="mb-400"><div class="code-showcase mb-400">
+<div class="showcase mb-400 p-400" id="preview-grid-fixed-width" aria-hidden="true">
+<pre><code>&lt;gcds-grid tag=&quot;article&quot; columns=&quot;repeat(auto-fit, minmax(100px, 300px))&quot; gap=&quot;500&quot;&gt;
+&lt;p&gt;Ceci est un exemple de contenu pour illustrer le composant Grille.&lt;/p&gt;
+&lt;p&gt;Ceci est un exemple de contenu pour illustrer le composant Grille.&lt;/p&gt;
+&lt;p&gt;Ceci est un exemple de contenu pour illustrer le composant Grille.&lt;/p&gt;
+&lt;/gcds-grid&gt;
+</code></pre></p>
+<p class="mb-400"></div>
+<div>
+<gcds-button button-type="button" button-role="secondary" aria-label="Voir le code - gcds-grid" onclick="toggleCodeShowcase(this, 'preview-grid-fixed-width');" aria-controls="preview-grid-fixed-width" aria-expanded="false">Voir le code</gcds-button>
+<gcds-button button-type="button" button-role="secondary" onclick="copyCodeShowcase(this, 'preview-grid-fixed-width', 'fr');" onblur="this.innerText = 'Copier le code'">Copier le code</gcds-button>
+</div>
+</div></p>
+<h3 id="obtenez-votre-code" class="mt-500 mb-400">Obtenez votre code</h3>
+<p class="mb-400">Générez une version du composant dont vous avez besoin en sélectionnant les propriétés de code correspondantes ou explorez les possibilités en choisissant différentes valeurs de code.</p>
+<ol class="list-decimal mb-400"><li>
+<p class="mb-400">Choisissez des valeurs de code pour obtenir l'élément que vous voulez.</p>
+</li>
+<li>
+<p class="mb-400">Obtenez le code et intégrez-le dans votre environnement.</p>
+</li>
+<li>
+<p class="mb-400">Ajoutez tout contenu nécessaire au composant (comme le texte du libellé).</p>
+</li>
+</ol>
+<p class="mb-400"><strong>Remarque</strong> : Conformément à la pratique courante, le générateur de code utilise l'anglais pour tous les éléments de code.</p>
+<iframe
+  title="Survol des propriétés et des évènements relatifs à gcds-grid."
+  src="https://cds-snc.github.io/gcds-components/staging/iframe.html?viewMode=docs&demo=true&singleStory=true&id=components-grid--events-properties"
+  width="1200"
+  height="2100"
+  style="display: block; margin: 0 auto;"
+  frameBorder="0"
+  allow="clipboard-write"
+></iframe>
 
 
   <section class="pt-100 mt-400 mb-600 bt-sm b-dark ">
