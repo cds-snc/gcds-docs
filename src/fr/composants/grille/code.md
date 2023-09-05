@@ -83,7 +83,7 @@ Définissez la largeur minimale et la largeur maximale pour concevoir des colonn
 - Définissez une largeur minimale lorsque vous voulez éviter qu'une colonne soit trop étroite dans les plus petites fenêtres d'affichage.
 - Définissez une largeur maximale lorsque vous voulez éviter qu'une colonne soit trop large dans les plus grandes fenêtres d'affichage.
 
-**Un exemple utilisant des colonnes de largeur égale avec une largeur minimale de 6,25rem (100px) et une largeur maximale de 18,75rem (300px):**
+**Un exemple utilisant des colonnes de largeur égale avec une largeur minimale de 6,25rem (100px) et une largeur maximale de 18,75rem (300px) pour toutes les tailles d'écran :**
 
 Ordinateur de bureau
 
