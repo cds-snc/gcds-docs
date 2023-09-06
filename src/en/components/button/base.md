@@ -20,5 +20,5 @@ A button is an interactive object that highlights an important or common action.
 <gcds-button button-role="secondary">Secondary label</gcds-button>
 <gcds-button button-role="danger">Danger label</gcds-button>
 <gcds-button button-role="skip-to-content">Skip-to-content label</gcds-button>
-<gcds-button type="link" button-style="text-only" href="#">Text-only label</gcds-button>
+<gcds-button button-style="text-only">Text-only label</gcds-button>
 {% endcomponentPreview %}
