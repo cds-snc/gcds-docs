@@ -15,6 +15,6 @@ Un message d’erreur est une description d’un problème représentant un obst
 {% docLinks locale stage figma github %}
 {% enddocLinks %}
 
-{% componentPreview "Aperçu du composant de message d'erreur" "pt-400 pb-100" %}
+{% componentPreview "Aperçu du composant de message d'erreur" "px-300 pt-400 pb-100" %}
 <gcds-error-message message="Message d'erreur ou message de validation."></gcds-error-message>
 {% endcomponentPreview %}

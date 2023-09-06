@@ -15,6 +15,6 @@ Un indicateur d'étape offre un suivi de l'avancement d'un processus comportant 
 {% docLinks locale stage figma github %}
 {% enddocLinks %}
 
-{% componentPreview "Aperçu du composant indicateur d'étape" "pt-400 pb-100" %}
+{% componentPreview "Aperçu du composant indicateur d'étape" "px-300 pt-400 pb-100" %}
 <gcds-stepper current-step="1" total-steps="4"></gcds-stepper>
 {% endcomponentPreview %}

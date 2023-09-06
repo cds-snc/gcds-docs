@@ -15,7 +15,7 @@ The header is the responsive Government of Canada branded header landmark.
 {% docLinks locale stage figma github %}
 {% enddocLinks %}
 
-{% componentPreview "Header component preview" "pt-400 pb-200" %}
+{% componentPreview "Header component preview" "px-300 pt-400 pb-200" %}
 <gcds-header lang-href="#" skip-to-href="#">
 </gcds-header>
 {% endcomponentPreview %}

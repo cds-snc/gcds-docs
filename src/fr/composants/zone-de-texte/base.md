@@ -15,7 +15,7 @@ Une zone de texte est un espace permettant de saisir une réponse détaillée à
 {% docLinks locale stage figma github %}
 {% enddocLinks %}
 
-{% componentPreview "Aperçu du composant de zone de texte" "pt-400" %}
+{% componentPreview "Aperçu du composant de zone de texte" "px-300 pt-400" %}
 <gcds-textarea
   textarea-id="textarea-example"
   label="Libellé de champ"

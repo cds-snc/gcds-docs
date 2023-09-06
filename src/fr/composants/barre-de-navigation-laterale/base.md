@@ -14,7 +14,7 @@ Une barre de navigation latérale consiste en une liste de liens de navigation s
 {% docLinks locale stage figma github %}
 {% enddocLinks %}
 
-{% componentPreview "Aperçu du composant barre de navigation latérale" "pt-400 pb-200" %}
+{% componentPreview "Aperçu du composant barre de navigation latérale" "px-300 pt-400 pb-200" %}
 <gcds-side-nav label="Aperçu du composant barre de navigation latérale" lang="fr">
   <gcds-nav-link href="#">Lien de navigation 1</gcds-nav-link>
   <gcds-nav-link href="#">Lien de navigation 2</gcds-nav-link>

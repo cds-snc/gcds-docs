@@ -14,7 +14,7 @@ A side navigation is a vertical list of page links on the left side of the scree
 {% docLinks locale stage figma github %}
 {% enddocLinks %}
 
-{% componentPreview "Side navigation component preview" "pt-400 pb-200" %}
+{% componentPreview "Side navigation component preview" "px-300 pt-400 pb-200" %}
 <gcds-side-nav label="Side navigation component preview">
   <gcds-nav-link href="#">Nav link 1</gcds-nav-link>
   <gcds-nav-link href="#">Nav link 2</gcds-nav-link>

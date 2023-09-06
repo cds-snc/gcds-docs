@@ -15,7 +15,7 @@ Un bouton radio permet de proposer plusieurs options de réponse pour un choix u
 {% docLinks locale stage figma github %}
 {% enddocLinks %}
 
-{% componentPreview "Aperçu du composant de radio" "pt-400 pb-200" %}
+{% componentPreview "Aperçu du composant de radio" "px-300 pt-400 pb-200" %}
 <gcds-fieldset
   fieldset-id="fieldset"
   legend="Légende"
