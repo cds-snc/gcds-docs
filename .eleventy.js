@@ -225,7 +225,7 @@ module.exports = function (eleventyConfig) {
       </ul>`;
   });
 
-  eleventyConfig.addPairedShortcode('componentPreview', (children, title, padding = "py-400", margin = "my-500") => {
+  eleventyConfig.addPairedShortcode('componentPreview', (children, title, padding = "px-300 py-400", margin = "my-500") => {
     const content = children;
 
     return `
@@ -233,7 +233,7 @@ module.exports = function (eleventyConfig) {
         <p class="container-full font-semibold px-300 py-200 bb-sm b-default bg-light">
           ${title}
         </p>
-        <div class="px-300 ${padding}">
+        <div class="${padding}">
           ${content}
         </div>
       </div>
