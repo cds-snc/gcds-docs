@@ -17,7 +17,7 @@ Utilisez la pagination pour séparer le contenu et le répartir sur plusieurs pa
 Utilisez la pagination simple lorsque le nombre de pages est peu important.
 
 - Réglez l’attribut `display` sur `simple`.
-- Définissez l’URL de la page précédente à l’aide de l’attribut `previous-href`.  
+- Définissez l’URL de la page précédente à l’aide de l’attribut `previous-href`.
 - Définissez le libellé de la page précédente à l’aide de l’attribut `previous-label`.
 - Définissez l’URL de la page suivante à l’aide de l’attribut `next-href`.
 - Définissez le libellé de la page suivante à l’aide de l’attribut `next-label`.
@@ -86,9 +86,9 @@ url={
 
 <iframe
   title="Survol des propriétés et des évènements relatifs à gcds-pagination."
-  src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&singleStory=true&id=components-pagination--events-properties"
+  src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&demo=true&singleStory=true&id=components-pagination--events-properties"
   width="1200"
-  height="1400"
+  height="1350"
   style="display: block; margin: 0 auto;"
   frameBorder="0"
   allow="clipboard-write"

@@ -35,9 +35,9 @@ Le jeu de champs ne validera que les [cases à cocher]({{ links.checkbox }}) et 
 
 <iframe
   title="Survol des propriétés et des évènements relatifs à gcds-fieldset."
-  src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&singleStory=true&id=components-fieldset--events-properties"
+  src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&demo=true&singleStory=true&id=components-fieldset--events-properties"
   width="1200"
-  height="2200"
+  height="2150"
   style="display: block; margin: 0 auto;"
   frameBorder="0"
   allow="clipboard-write"

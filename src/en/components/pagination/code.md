@@ -17,7 +17,7 @@ Use pagination to break up content and spread it over numerous pages. This can h
 Use simple pagination for a smaller number of pages.
 
 - Set the `display` attribute to `simple`.
-- Set the previous page’s URL with the `previous-href` attribute.  
+- Set the previous page’s URL with the `previous-href` attribute.
 - Set the previous page’s label with the `previous-label` attribute.
 - Set the next page’s URL with the `next-href` attribute.
 - Set the next page’s label with the `next-label` attribute.
@@ -86,9 +86,9 @@ url={
 
 <iframe
   title="Overview of gcds-pagination properties and events."
-  src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&singleStory=true&id=components-pagination--events-properties"
+  src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&demo=true&singleStory=true&id=components-pagination--events-properties"
   width="1200"
-  height="1400"
+  height="1350"
   style="display: block; margin: 0 auto;"
   frameBorder="0"
   allow="clipboard-write"

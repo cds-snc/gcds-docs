@@ -21,9 +21,9 @@ Use the date modified component to identify the date a web page was last updated
 
 <iframe
   title="Overview of gcds-date-modified properties and events."
-  src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&singleStory=true&id=components-date-modified--events-properties"
+  src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&demo=true&singleStory=true&id=components-date-modified--events-properties"
   width="1200"
-  height="1000"
+  height="950"
   style="display: block; margin: 0 auto;"
   frameBorder="0"
   allow="clipboard-write"

@@ -26,9 +26,9 @@ Use a top navigation to help a person find their way around your web page or sit
 
 <iframe
   title="Overview of gcds-top-nav properties and events."
-  src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&singleStory=true&id=components-top-navigation--events-properties"
+  src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&demo=true&singleStory=true&id=components-top-navigation--events-properties"
   width="1200"
-  height="1750"
+  height="1700"
   style="display: block; margin: 0 auto;"
   frameBorder="0"
   allow="clipboard-write"

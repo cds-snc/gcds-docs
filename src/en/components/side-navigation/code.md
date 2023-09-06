@@ -24,9 +24,9 @@ If using breadcrumbs, align the content hierarchy in both sets of links, so the 
 
 <iframe
   title="Overview of gcds-side-nav properties and events."
-  src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&singleStory=true&id=components-side-navigation--events-properties"
+  src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&demo=true&singleStory=true&id=components-side-navigation--events-properties"
   width="1200"
-  height="1700"
+  height="1650"
   style="display: block; margin: 0 auto;"
   frameBorder="0"
   allow="clipboard-write"

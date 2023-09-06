@@ -31,9 +31,9 @@ Utilisez une case à cocher avec un [jeu de champs]({{ links.fieldset }}) lorsqu
 
 <iframe
   title="Survol des propriétés et des évènements relatifs à gcds-checkbox."
-  src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&singleStory=true&id=components-checkbox--events-properties"
+  src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&demo=true&singleStory=true&id=components-checkbox--events-properties"
   width="1200"
-  height="1850"
+  height="1800"
   style="display: block; margin: 0 auto;"
   frameBorder="0"
   allow="clipboard-write"
