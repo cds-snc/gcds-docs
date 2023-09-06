@@ -20,5 +20,5 @@ Un bouton est un composant interactif qui met en évidence une action importante
 <gcds-button button-role="secondary">Secondaire</gcds-button>
 <gcds-button button-role="danger">Danger</gcds-button>
 <gcds-button button-role="skip-to-content">Aller au contenu</gcds-button>
-<gcds-button type="link" button-style="text-only" href="#">Text-only label</gcds-button>
+<gcds-button button-style="text-only">Text-only label</gcds-button>
 {% endcomponentPreview %}
