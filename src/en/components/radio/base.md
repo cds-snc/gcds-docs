@@ -15,7 +15,7 @@ A radio is a set of options for a single selection.
 {% docLinks locale stage figma github %}
 {% enddocLinks %}
 
-{% componentPreview "Radio component preview" "pt-400 pb-200" %}
+{% componentPreview "Radio component preview" "px-300 pt-400 pb-200" %}
 <gcds-fieldset
   fieldset-id="fieldset"
   legend="Legend"

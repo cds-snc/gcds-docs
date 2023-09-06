@@ -15,7 +15,7 @@ Pagination is a division of content into multiple linked pages.
 {% docLinks locale stage figma github %}
 {% enddocLinks %}
 
-{% componentPreview "Pagination component preview" %}
+{% componentPreview "Pagination component preview" "px-0 lg:px-300 xl:px-300 py-400" %}
 <gcds-pagination
   label="Simple pagination example"
   display="simple"

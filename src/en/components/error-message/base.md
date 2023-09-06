@@ -15,6 +15,6 @@ An error message is a description of a problem blocking a user goal.
 {% docLinks locale stage figma github %}
 {% enddocLinks %}
 
-{% componentPreview "Error message component preview" "pt-400 pb-100" %}
+{% componentPreview "Error message component preview" "px-300 pt-400 pb-100" %}
 <gcds-error-message message="Error message or validation message."></gcds-error-message>
 {% endcomponentPreview %}

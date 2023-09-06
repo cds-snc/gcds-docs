@@ -15,7 +15,7 @@ A checkbox is a set of options for one or multiple selections.
 {% docLinks locale stage figma github %}
 {% enddocLinks %}
 
-{% componentPreview "Checkbox component preview" "pt-400" %}
+{% componentPreview "Checkbox component preview" "px-300 pt-400" %}
 <gcds-fieldset
   fieldset-id="fieldset"
   legend="Legend"

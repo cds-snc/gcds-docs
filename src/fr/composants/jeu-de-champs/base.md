@@ -15,7 +15,7 @@ Un jeu de champs est un groupe de plusieurs composants ou éléments d’un form
 {% docLinks locale stage figma github %}
 {% enddocLinks %}
 
-{% componentPreview "Aperçu du composant de jeu de champs" "pt-400" %}
+{% componentPreview "Aperçu du composant de jeu de champs" "px-300 pt-400" %}
 <gcds-fieldset
   fieldset-id="fieldset"
   legend="Légende"

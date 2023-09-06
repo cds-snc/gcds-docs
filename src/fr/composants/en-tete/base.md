@@ -15,7 +15,7 @@ L'en-tête porte l'image de marque réactive du gouvernement du Canada.
 {% docLinks locale stage figma github %}
 {% enddocLinks %}
 
-{% componentPreview "Aperçu du composant de l'en-tête" "pt-400 pb-200" %}
+{% componentPreview "Aperçu du composant de l'en-tête" "px-300 pt-400 pb-200" %}
 <gcds-header lang-href="#" skip-to-href="#">
 </gcds-header>
 {% endcomponentPreview %}
