@@ -1,6 +1,6 @@
 ---
 title: Zone de texte
-layout: "layouts/component-documentation.njk"
+layout: 'layouts/component-documentation.njk'
 eleventyNavigation:
   key: textareaFR
   title: Zone de texte
@@ -11,10 +11,10 @@ eleventyNavigation:
   thumbnail: /images/common/components/preview-textarea.svg
   alt: Un aperçu du composant zone de texte qui montre deux boîtes grises en cascades représentants l'étiquette de la zone de texte et un message d'aide. Sous les boîtes une grande boîte multilignes avec un curseur à l'intérieur.
   state: published
-translationKey: "textarea"
+translationKey: 'textarea'
 tags: ['textareaFR', 'usage']
 permalink: /fr/composants/zone-de-texte/
-date: "git Last Modified"
+date: 'git Last Modified'
 ---
 
 Examinez ce que font les zones de texte pour déterminer si elles répondent à vos besoins.
@@ -31,5 +31,6 @@ Note : Ne recueillez que les renseignements que vous êtes autorisé·e à trai
 <article class="bg-full-width bg-primary text-light pt-500 pb-400 my-500">
   <h2 class="mt-0 mb-400">Composants connexes</h2>
 
-  <a href="{{ links.input }}" class="link-light">Champs de saisie</a> : lorsque vous cherchez à obtenir des réponses courtes d'une seule ligne.
+<a href="{{ links.input }}" class="link-light">Champs de saisie</a> : lorsque vous cherchez à obtenir des réponses courtes d'une seule ligne.
+
 </article>

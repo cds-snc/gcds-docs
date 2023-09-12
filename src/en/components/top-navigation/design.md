@@ -1,9 +1,9 @@
 ---
 title: Top navigation
-layout: "layouts/component-documentation.njk"
-translationKey: "topnavigationDesign"
+layout: 'layouts/component-documentation.njk'
+translationKey: 'topnavigationDesign'
 tags: ['topnavigationEN', 'design']
-date: "git Last Modified"
+date: 'git Last Modified'
 ---
 
 ## Top navigation anatomy – on desktop
@@ -33,7 +33,7 @@ Note: On mobile, the home nav link does not link to the homepage.
 - Make link text clear and specific to help a person decide if they should leave the current page. Spell out where a person will go or what they'll find when they select a link.
 - Keep link text short and distinctive so a person can scan the links and find what they're looking for.
 - Limit the number of links in your top navigation. Too much information increases cognitive load and can be overwhelming to some readers.
-- If using breadcrumbs, align the content hierarchy in both set of links, so both components reflect a similar path through the site.  
+- If using breadcrumbs, align the content hierarchy in both set of links, so both components reflect a similar path through the site.
 
 Tip: Read top navigation link text aloud in sequence to note similarities in how link text sounds when read by an assistive device.
 

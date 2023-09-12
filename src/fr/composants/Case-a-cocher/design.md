@@ -1,9 +1,9 @@
 ---
 title: Case à cocher
-layout: "layouts/component-documentation.njk"
-translationKey: "checkboxDesign"
+layout: 'layouts/component-documentation.njk'
+translationKey: 'checkboxDesign'
 tags: ['checkboxFR', 'design']
-date: "git Last Modified"
+date: 'git Last Modified'
 ---
 
 ## Structure de la case à cocher — avec jeu de champs
@@ -44,5 +44,5 @@ Utilisez le composant Jeu de champs pour la case à cocher, sauf pour les cases 
 
 - Ne supposez pas qu'une personne saura comment utiliser une case à cocher.
 - Utilisez le texte explicatif du [jeu de champs]({{ links.fieldset }}) pour indiquer aux utilisateur·rice·s qui ne sont pas à l'aise avec les boutons radio qu'ils ne peuvent choisir qu'une seule option. Par exemple, « Sélectionnez l'option la plus pertinente ».
-- Utilisez le texte explicatif du jeu de champs afin d'indiquer aux utilisateur·rice·s qui ne sont pas à l'aise avec les cases à cocher qu'ils peuvent faire plus qu'un choix.  Par exemple, « cochez toutes les cases qui s'appliquent ».
+- Utilisez le texte explicatif du jeu de champs afin d'indiquer aux utilisateur·rice·s qui ne sont pas à l'aise avec les cases à cocher qu'ils peuvent faire plus qu'un choix. Par exemple, « cochez toutes les cases qui s'appliquent ».
 - Évitez de présélectionner les options de case à cocher. Cela augmente les risques que les utilisateur·rice·s sautent une question ou soumettent une mauvaise réponse.

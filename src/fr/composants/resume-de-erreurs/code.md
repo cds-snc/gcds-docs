@@ -1,7 +1,7 @@
 ---
 title: Résumé des erreurs
-layout: "layouts/component-documentation.njk"
-translationKey: "errorsummaryCode"
+layout: 'layouts/component-documentation.njk'
+translationKey: 'errorsummaryCode'
 tags: ['errorsummaryFR', 'code']
 ---
 
@@ -15,7 +15,7 @@ Tous les composants de Système de design GC sont livrés avec une gestion des e
 
 ### Utiliser le résumé des erreurs avec les composants de Système de design GC
 
-Le résumé des erreurs de Système de design GC utilise l'attribut `listen` pour recueillir les erreurs. Lors de l'exécution de l'opération `onSubmit`, le résumé des erreurs dressera la liste des erreurs provenant des composants de Système de design GC.  Les erreurs seront répertoriées dans le même ordre qu'elles apparaissent sur la page.
+Le résumé des erreurs de Système de design GC utilise l'attribut `listen` pour recueillir les erreurs. Lors de l'exécution de l'opération `onSubmit`, le résumé des erreurs dressera la liste des erreurs provenant des composants de Système de design GC. Les erreurs seront répertoriées dans le même ordre qu'elles apparaissent sur la page.
 
 - Activez tous les contrôles nécessaires pour résoudre l'une ou l'autre des erreurs.
 - Envisagez de remplacer tout <a href="{{ links.errorMessage }}">message d'erreur</a> générique par défaut par un texte qui définit le problème concret et la façon de le résoudre.

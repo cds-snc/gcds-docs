@@ -1,9 +1,9 @@
 ---
 title: Signature
-layout: "layouts/component-documentation.njk"
-translationKey: "signatureDesign"
-tags: ["signatureFR", "design"]
-date: "git Last Modified"
+layout: 'layouts/component-documentation.njk'
+translationKey: 'signatureDesign'
+tags: ['signatureFR', 'design']
+date: 'git Last Modified'
 ---
 
 ## Structure de la signature

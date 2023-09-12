@@ -1,7 +1,7 @@
 ---
 title: Image
-layout: "layouts/component-documentation.njk"
-translationKey: "imageDesign"
+layout: 'layouts/component-documentation.njk'
+translationKey: 'imageDesign'
 tags: ['imageFR', 'design']
 # date: "git Last Modified"
 ---

@@ -1,9 +1,9 @@
 ---
 title: Pagination
-layout: "layouts/component-documentation.njk"
-translationKey: "paginationCode"
+layout: 'layouts/component-documentation.njk'
+translationKey: 'paginationCode'
 tags: ['paginationEN', 'code']
-date: "git Last Modified"
+date: 'git Last Modified'
 ---
 
 ## Build a pagination component
@@ -51,33 +51,33 @@ To modify the value based on the page link being rendered, add the object modifi
 `::offset` counts up with the given value starting from the second page link.
 
 ```js
-url={
-  queryStrings: {
-    "index::offset": 100
-  },
-}
+url = {
+  queryStrings: {
+    'index::offset': 100,
+  },
+};
 ```
 
 Using `::match` on the current page link being rendered, multiplies it by the value provided.
 
 ```js
-url={
-  queryStrings: {
-    "page::match": 1
-  },
-}
+url = {
+  queryStrings: {
+    'page::match': 1,
+  },
+};
 ```
 
 {% raw %}
 Using either `::offset` or `::match`, allows a number to be injected into a string. Using `{{#}}`, the modifier will inject the modified number based on the counting method into the string when rendering.
 
 ```js
-url={
-  queryStrings: {
-    "index::offset": "index_{{100}}",
-    "page::match": "page_{{1}}"
-  },
-}
+url = {
+  queryStrings: {
+    'index::offset': 'index_{{100}}',
+    'page::match': 'page_{{1}}',
+  },
+};
 ```
 
 {% endraw %}

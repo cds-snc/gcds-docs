@@ -1,9 +1,9 @@
 ---
 title: Button
-layout: "layouts/component-documentation.njk"
-translationKey: "buttonDesign"
+layout: 'layouts/component-documentation.njk'
+translationKey: 'buttonDesign'
 tags: ['buttonEN', 'design']
-date: "git Last Modified"
+date: 'git Last Modified'
 ---
 
 ## Button anatomy

@@ -1,9 +1,9 @@
 ---
 title: Fieldset
-layout: "layouts/component-documentation.njk"
-translationKey: "fieldsetDesign"
+layout: 'layouts/component-documentation.njk'
+translationKey: 'fieldsetDesign'
 tags: ['fieldsetEN', 'design']
-date: "git Last Modified"
+date: 'git Last Modified'
 ---
 
 ## Fieldset anatomy

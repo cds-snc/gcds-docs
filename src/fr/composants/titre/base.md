@@ -15,5 +15,5 @@ This element will have the content below it
 {% enddocLinks %}
 
 {% componentPreview "Aperçu du composant de Titre" %}
-  Insert component here
+Insert component here
 {% endcomponentPreview %}

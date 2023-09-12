@@ -1,9 +1,9 @@
 ---
 title: Home
-layout: "layouts/home.njk"
+layout: 'layouts/home.njk'
 permalink: /fr/
-translationKey: "index"
-date: "git Last Modified"
+translationKey: 'index'
+date: 'git Last Modified'
 ---
 
 <h2 class="py-450">Bienvenue dans votre système de design</h2>

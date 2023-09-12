@@ -1,6 +1,6 @@
 ---
 title: Image
-layout: "layouts/component-documentation.njk"
+layout: 'layouts/component-documentation.njk'
 eleventyNavigation:
   key: imageFR
   title: Image
@@ -12,7 +12,7 @@ eleventyNavigation:
   alt: Le composant Image montre un rectangle gris clair avec, à l'intérieur, un cercle gris foncé représentant le soleil et 2 triangles gris foncé représentant des montagnes.
   tag: À l'essai
   state: coming-soon
-translationKey: "image"
+translationKey: 'image'
 tags: ['imageFR', 'usage']
 permalink: /fr/composants/image/
 # date: "git Last Modified"
@@ -27,5 +27,6 @@ Use a Image
 <article class="bg-full-width bg-primary text-light pt-500 pb-400 my-500">
   <h2 class="mt-0 mb-400">Composants connexes</h2>
 
-  <a href="" class="link-light">component</a>
+<a href="" class="link-light">component</a>
+
 </article>

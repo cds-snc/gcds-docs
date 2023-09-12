@@ -1,6 +1,6 @@
 ---
 title: Side navigation
-layout: "layouts/component-documentation.njk"
+layout: 'layouts/component-documentation.njk'
 eleventyNavigation:
   key: sidenavigationEN
   title: Side navigation
@@ -11,10 +11,10 @@ eleventyNavigation:
   thumbnail: /images/common/components/preview-side-nav.svg
   alt: Side navigation shows a vertical site navigation with grey boxes on top of eachother, the second last highlighted in blue to show selection.
   state: published
-translationKey: "sidenavigation"
+translationKey: 'sidenavigation'
 tags: ['sidenavigationEN', 'usage']
 permalink: /en/components/side-navigation/
-date: "git Last Modified"
+date: 'git Last Modified'
 ---
 
 Check out side navigation use cases to see if they fit the problem you’re solving for.
@@ -31,5 +31,6 @@ It’s optional to use side navigation in products for:
 <article class="bg-full-width bg-primary text-light pt-500 pb-400 my-500">
   <h2 class="mt-0 mb-400">Related components</h2>
 
-  <a href="{{ links.topNav }}" class="link-light">Top navigation</a> for websites with up to 2 levels in their information architecture.
+<a href="{{ links.topNav }}" class="link-light">Top navigation</a> for websites with up to 2 levels in their information architecture.
+
 </article>

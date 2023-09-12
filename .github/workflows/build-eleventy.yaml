@@ -1,5 +1,5 @@
 name: Eleventy Build
-on: 
+on:
   push:
     paths-ignore:
       - README.md

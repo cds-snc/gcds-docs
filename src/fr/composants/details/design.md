@@ -1,9 +1,9 @@
 ---
 title: Détails
-layout: "layouts/component-documentation.njk"
-translationKey: "detailsDesign"
+layout: 'layouts/component-documentation.njk'
+translationKey: 'detailsDesign'
 tags: ['detailsFR', 'design']
-date: "git Last Modified"
+date: 'git Last Modified'
 ---
 
 ## Structure du composant Détails

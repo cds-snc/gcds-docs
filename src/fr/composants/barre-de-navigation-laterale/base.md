@@ -16,23 +16,23 @@ Une barre de navigation latérale consiste en une liste de liens de navigation s
 
 {% componentPreview "Aperçu du composant barre de navigation latérale" "px-300 pt-400 pb-200" %}
 <gcds-side-nav label="Aperçu du composant barre de navigation latérale" lang="fr">
-  <gcds-nav-link href="#">Lien de navigation 1</gcds-nav-link>
-  <gcds-nav-link href="#">Lien de navigation 2</gcds-nav-link>
-  <gcds-nav-group menu-label="Libellé du groupe de navigation" open-trigger="Libellé du groupe de navigation">
-    <gcds-nav-group menu-label="Libellé du groupe de navigation" open-trigger="Libellé du groupe de navigation">
-      <gcds-nav-link href="#">Lien de navigation 1</gcds-nav-link>
-      <gcds-nav-link href="#">Lien de navigation 2</gcds-nav-link>
-    </gcds-nav-group>
-    <gcds-nav-group menu-label="Libellé du groupe de navigation" open-trigger="Libellé du groupe de navigation">
-      <gcds-nav-link href="#">Lien de navigation 1</gcds-nav-link>
-      <gcds-nav-link href="#">Lien de navigation 2</gcds-nav-link>
-    </gcds-nav-group>
-    <gcds-nav-group menu-label="Libellé du groupe de navigation" open-trigger="Libellé du groupe de navigation">
-      <gcds-nav-link href="#">Lien de navigation 1</gcds-nav-link>
-      <gcds-nav-link href="#">Lien de navigation 2</gcds-nav-link>
-      <gcds-nav-link href="#">Lien de navigation 3</gcds-nav-link>
-    </gcds-nav-group>
-  </gcds-nav-group>
-  <gcds-nav-link href="#">Lien de navigation 3</gcds-nav-link>
+<gcds-nav-link href="#">Lien de navigation 1</gcds-nav-link>
+<gcds-nav-link href="#">Lien de navigation 2</gcds-nav-link>
+<gcds-nav-group menu-label="Libellé du groupe de navigation" open-trigger="Libellé du groupe de navigation">
+<gcds-nav-group menu-label="Libellé du groupe de navigation" open-trigger="Libellé du groupe de navigation">
+<gcds-nav-link href="#">Lien de navigation 1</gcds-nav-link>
+<gcds-nav-link href="#">Lien de navigation 2</gcds-nav-link>
+</gcds-nav-group>
+<gcds-nav-group menu-label="Libellé du groupe de navigation" open-trigger="Libellé du groupe de navigation">
+<gcds-nav-link href="#">Lien de navigation 1</gcds-nav-link>
+<gcds-nav-link href="#">Lien de navigation 2</gcds-nav-link>
+</gcds-nav-group>
+<gcds-nav-group menu-label="Libellé du groupe de navigation" open-trigger="Libellé du groupe de navigation">
+<gcds-nav-link href="#">Lien de navigation 1</gcds-nav-link>
+<gcds-nav-link href="#">Lien de navigation 2</gcds-nav-link>
+<gcds-nav-link href="#">Lien de navigation 3</gcds-nav-link>
+</gcds-nav-group>
+</gcds-nav-group>
+<gcds-nav-link href="#">Lien de navigation 3</gcds-nav-link>
 </gcds-side-nav>
 {% endcomponentPreview %}

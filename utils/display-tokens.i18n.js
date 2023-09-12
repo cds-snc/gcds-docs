@@ -1,101 +1,101 @@
 const i18n = {
-  "en": {
-    "color": {
-      "headers": {
-        name: "Colour name",
-        token: "Token name",
-        contrast: "Contrast",
-        hex: "Hex",
-        rgb: "RGB"
+  en: {
+    color: {
+      headers: {
+        name: 'Colour name',
+        token: 'Token name',
+        contrast: 'Contrast',
+        hex: 'Hex',
+        rgb: 'RGB',
       },
-      "body": {
-        blue: "Blue",
-        grayscale: "Grayscale",
-        red: "Red",
-        green: "Green",
-        yellow: "Yellow"
-      },
-    },
-    "spacing": {
-      "headers": {
-        token: "Token name",
-        px: "Pixel",
-        rem: "REM"
-      },
-      "body": {},
-    },
-    "font": {
-      "headers": {
-        token: "Token name",
-        value: "Value (rounded)"
-      },
-      "body": {
-        heading: "Heading",
-        text: "Paragraph",
-        "text-long": "Paragraph",
-        caption: "Caption",
-        label: "Label",
+      body: {
+        blue: 'Blue',
+        grayscale: 'Grayscale',
+        red: 'Red',
+        green: 'Green',
+        yellow: 'Yellow',
       },
     },
-    "fontWeights": {
-      "headers": {
-        token: "Token name",
-        value: "Value"
+    spacing: {
+      headers: {
+        token: 'Token name',
+        px: 'Pixel',
+        rem: 'REM',
       },
-      "body": {
-        light: "Light",
-        regular: "Regular",
-        medium: "Medium",
-        semibold: "Semibold",
-        bold: "Bold"
+      body: {},
+    },
+    font: {
+      headers: {
+        token: 'Token name',
+        value: 'Value (rounded)',
+      },
+      body: {
+        'heading': 'Heading',
+        'text': 'Paragraph',
+        'text-long': 'Paragraph',
+        'caption': 'Caption',
+        'label': 'Label',
       },
     },
-    "fontFamilies": {
-      "headers": {
-        token: "Token name",
-        value: "Value"
+    fontWeights: {
+      headers: {
+        token: 'Token name',
+        value: 'Value',
       },
-      "body": {
-        heading: "Heading",
-        body: "Body",
-        monospace: "Monospace",
-        icons: "Icons",
-      },
-    },
-    "global": {
-      "headers": {
-        token: "Token name",
-        hex: "Hex",
-        usecase: "Use case"
-      },
-      "body": {
-        "text-primary": "",
-        "text-secondary": "",
-        "text-light": "",
-        "text-danger": "",
-        "link-default": "",
-        "link-hover": "",
-        "link-light": "",
-        "link-default": "",
-        "border-default": "",
-        "focus-text-form": "",
-        "focus-background": "",
-        "focus-text": "",
-        "danger-background": "",
-        "danger-border": "",
-        "danger-text": "",
-        "disabled-background": "",
-        "disabled-text": "",
+      body: {
+        light: 'Light',
+        regular: 'Regular',
+        medium: 'Medium',
+        semibold: 'Semibold',
+        bold: 'Bold',
       },
     },
-    "default": {
-      "headers": {
-        token: "Token name",
-        value: "Value"
-      }
-    }
+    fontFamilies: {
+      headers: {
+        token: 'Token name',
+        value: 'Value',
+      },
+      body: {
+        heading: 'Heading',
+        body: 'Body',
+        monospace: 'Monospace',
+        icons: 'Icons',
+      },
+    },
+    global: {
+      headers: {
+        token: 'Token name',
+        hex: 'Hex',
+        usecase: 'Use case',
+      },
+      body: {
+        'text-primary': '',
+        'text-secondary': '',
+        'text-light': '',
+        'text-danger': '',
+        'link-default': '',
+        'link-hover': '',
+        'link-light': '',
+        'link-default': '',
+        'border-default': '',
+        'focus-text-form': '',
+        'focus-background': '',
+        'focus-text': '',
+        'danger-background': '',
+        'danger-border': '',
+        'danger-text': '',
+        'disabled-background': '',
+        'disabled-text': '',
+      },
+    },
+    default: {
+      headers: {
+        token: 'Token name',
+        value: 'Value',
+      },
+    },
   },
-  "fr": { }
+  fr: {},
 };
 
 module.exports = i18n;

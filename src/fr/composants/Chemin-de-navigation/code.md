@@ -1,9 +1,9 @@
 ---
 title: Chemin de navigation
-layout: "layouts/component-documentation.njk"
-translationKey: "breadcrumbsCode"
+layout: 'layouts/component-documentation.njk'
+translationKey: 'breadcrumbsCode'
 tags: ['breadcrumbsFR', 'code']
-date: "git Last Modified"
+date: 'git Last Modified'
 ---
 
 ## Créer un composant Chemin de navigation

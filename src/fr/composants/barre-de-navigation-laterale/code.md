@@ -1,9 +1,9 @@
 ---
 title: Barre de navigation latérale
-layout: "layouts/component-documentation.njk"
-translationKey: "sidenavigationCode"
+layout: 'layouts/component-documentation.njk'
+translationKey: 'sidenavigationCode'
 tags: ['sidenavigationFR', 'code']
-date: "git Last Modified"
+date: 'git Last Modified'
 ---
 
 ## Création d’une barre de navigation latérale

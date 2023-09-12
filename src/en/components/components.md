@@ -1,13 +1,13 @@
 ---
 title: Components
-layout: "layouts/component-overview.njk"
+layout: 'layouts/component-overview.njk'
 eleventyNavigation:
   key: componentsEN
   title: Components
   locale: en
   order: 2
-translationKey: "components"
-date: "git Last Modified"
+translationKey: 'components'
+date: 'git Last Modified'
 cardlist:
   type: components
   state: published

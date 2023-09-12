@@ -1,9 +1,9 @@
 ---
 title: Barre de navigation latérale
-layout: "layouts/component-documentation.njk"
-translationKey: "sidenavigationDesign"
+layout: 'layouts/component-documentation.njk'
+translationKey: 'sidenavigationDesign'
 tags: ['sidenavigationFR', 'design']
-date: "git Last Modified"
+date: 'git Last Modified'
 ---
 
 ## Side navigation anatomy
@@ -32,14 +32,14 @@ Remarque : Sur les appareils mobiles, le libellé n’est pas un hyperlien vers 
 
 - Rendez le texte du lien clair et précis pour aider une personne à décider si elle doit quitter la page actuelle. Indiquez l’endroit où une personne sera redirigée ou ce qu’elle trouvera en cliquant sur un lien.
 - Gardez le texte des liens court et précis afin qu’une personne puisse parcourir les liens et trouver ce qu’elle cherche.
-- Si vous utilisez un composant Chemin de navigation, uniformisez la hiérarchie dans les deux ensembles de liens afin que chaque composant reflète le même cheminement sur le site.  
+- Si vous utilisez un composant Chemin de navigation, uniformisez la hiérarchie dans les deux ensembles de liens afin que chaque composant reflète le même cheminement sur le site.
 
 Conseil : Lisez le texte des liens de navigation tout haut dans leur séquence d’affichage afin de repérer les similarités dans la sonorité des textes qui seront lus par une technologie d’assistance.
 
 ### Ajoutez des groupes de navigation à la barre de navigation latérale
 
 - Envisagez d’inclure à la barre de navigation latérale un deuxième ou troisième niveau à l’aide d’un groupe de navigation.
-- Employez une structure hiérarchique de 1 à 3 niveaux afin de catégoriser et classer les éléments de groupes de navigation de façon logique.  
+- Employez une structure hiérarchique de 1 à 3 niveaux afin de catégoriser et classer les éléments de groupes de navigation de façon logique.
 - Imbriquez les éléments selon des catégories correspondant à l’architecture d’information du produit.
 
 ### Classez les éléments de groupe de navigation par ordre alphabétique

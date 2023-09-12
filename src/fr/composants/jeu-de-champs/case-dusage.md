@@ -1,6 +1,6 @@
 ---
 title: Jeu de champs
-layout: "layouts/component-documentation.njk"
+layout: 'layouts/component-documentation.njk'
 eleventyNavigation:
   key: fieldsetFR
   title: Jeu de champs
@@ -11,10 +11,10 @@ eleventyNavigation:
   thumbnail: /images/common/components/preview-fieldset.svg
   alt: Un aperçu du composant jeu de champ qui montre une suite de plusieurs éléments. Une boîte grise foncée représentant le titre du groupe suivi d'une boîte grise représentant du texte. On voit ensuite une boîte de texte vide avec le curseur à l'intérieur suivi d'une boîte grise représentatn du texte et une boîte de sélection avec une boîte grise à l'intérieur représentant du texte.
   state: published
-translationKey: "fieldset"
+translationKey: 'fieldset'
 tags: ['fieldsetFR', 'usage']
 permalink: /fr/composants/jeu-de-champs/
-date: "git Last Modified"
+date: 'git Last Modified'
 ---
 
 Explorez les problèmes réglés par les jeux de champs et découvrez s’ils peuvent être utilisés pour résoudre votre problème particulier.
@@ -30,7 +30,8 @@ Utilisez un jeu de champs pour regrouper les éléments ou composants d’un for
 <article class="bg-full-width bg-primary text-light pt-500 pb-400 my-500">
   <h2 class="mt-0 mb-400">Composants connexes</h2>
 
-  <a href="{{ links.input }}" class="link-light">Champs de saisie</a> ou <a href="{{ links.textarea }}" class="link-light">zones de texte</a> : lorsqu’une réponse écrite est demandée.
+<a href="{{ links.input }}" class="link-light">Champs de saisie</a> ou <a href="{{ links.textarea }}" class="link-light">zones de texte</a> : lorsqu’une réponse écrite est demandée.
 
-  <a href="{{ links.pagination }}" class="link-light">Pagination</a> : lorsque des éléments du formulaire sont répartis sur plusieurs pages.
+<a href="{{ links.pagination }}" class="link-light">Pagination</a> : lorsque des éléments du formulaire sont répartis sur plusieurs pages.
+
 </article>

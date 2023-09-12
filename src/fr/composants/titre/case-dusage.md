@@ -1,6 +1,6 @@
 ---
 title: Titre
-layout: "layouts/component-documentation.njk"
+layout: 'layouts/component-documentation.njk'
 eleventyNavigation:
   key: headingFR
   title: Titre
@@ -11,7 +11,7 @@ eleventyNavigation:
   thumbnail: /images/common/components/preview-heading.svg
   alt: Le composant Titre affiche une boîte surlignée de couleur bleu foncé qui représente un titre sous laquelle se trouvent 3 boîtes grises plus petites représentant un bloc de texte.
   state: coming-soon
-translationKey: "heading"
+translationKey: 'heading'
 tags: ['headingFR', 'usage']
 permalink: /fr/composants/titre/
 # date: "git Last Modified"
@@ -26,5 +26,6 @@ Use a Titre
 <article class="bg-full-width bg-primary text-light pt-500 pb-400 my-500">
   <h2 class="mt-0 mb-400">Composants connexes</h2>
 
-  <a href="" class="link-light">component</a>
+<a href="" class="link-light">component</a>
+
 </article>

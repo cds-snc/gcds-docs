@@ -1,9 +1,9 @@
 ---
 title: Chemin de navigation
-layout: "layouts/component-documentation.njk"
-translationKey: "breadcrumbsDesign"
+layout: 'layouts/component-documentation.njk'
+translationKey: 'breadcrumbsDesign'
 tags: ['breadcrumbsFR', 'design']
-date: "git Last Modified"
+date: 'git Last Modified'
 ---
 
 ## Structure d'un chemin de navigation

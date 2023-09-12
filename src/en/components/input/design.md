@@ -1,9 +1,9 @@
 ---
 title: Input
-layout: "layouts/component-documentation.njk"
-translationKey: "inputDesign"
+layout: 'layouts/component-documentation.njk'
+translationKey: 'inputDesign'
 tags: ['inputEN', 'design']
-date: "git Last Modified"
+date: 'git Last Modified'
 ---
 
 ## Input anatomy

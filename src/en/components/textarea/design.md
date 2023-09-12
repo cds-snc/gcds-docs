@@ -1,9 +1,9 @@
 ---
 title: Textarea
-layout: "layouts/component-documentation.njk"
-translationKey: "textareaDesign"
+layout: 'layouts/component-documentation.njk'
+translationKey: 'textareaDesign'
 tags: ['textareaEN', 'design']
-date: "git Last Modified"
+date: 'git Last Modified'
 ---
 
 ## Text area anatomy

@@ -1,6 +1,6 @@
 ---
 title: Details
-layout: "layouts/component-documentation.njk"
+layout: 'layouts/component-documentation.njk'
 eleventyNavigation:
   key: detailsEN
   title: Details
@@ -11,10 +11,10 @@ eleventyNavigation:
   thumbnail: /images/common/components/preview-details.svg
   alt: Details shows dark grey box with a triangle arrow pointing down to show the content is expanded, followed by dark grey boxes indicating text.
   state: published
-translationKey: "details"
+translationKey: 'details'
 tags: ['detailsEN', 'usage']
 permalink: /en/components/details/
-date: "git Last Modified"
+date: 'git Last Modified'
 ---
 
 Take a look at what problems the details component solves to see if they fit the problem you're solving for.
@@ -31,7 +31,8 @@ Use the details component to give a person a summary of more detailed content yo
 <article class="bg-full-width bg-primary text-light pt-500 pb-400 my-500">
   <h2 class="mt-0 mb-400">Related components</h2>
 
-  Tabs when you want to replace the entire content of a section or a page.
+Tabs when you want to replace the entire content of a section or a page.
 
-  <a href="{{ links.button }}" class="link-light">Buttons or links</a> when you want to take a person to another page to access additional  content or move to the next step in a task.
+<a href="{{ links.button }}" class="link-light">Buttons or links</a> when you want to take a person to another page to access additional content or move to the next step in a task.
+
 </article>

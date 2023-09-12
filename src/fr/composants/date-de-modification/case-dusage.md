@@ -1,6 +1,6 @@
 ---
 title: Date de modification
-layout: "layouts/component-documentation.njk"
+layout: 'layouts/component-documentation.njk'
 eleventyNavigation:
   key: datemodifiedFR
   title: Date de modification
@@ -12,10 +12,10 @@ eleventyNavigation:
   alt: Un aperçu du composant date modifiée qui montre une date de la dernière modification de la page.
   tag: De base
   state: published
-translationKey: "datemodified"
+translationKey: 'datemodified'
 tags: ['datemodifiedFR', 'usage']
 permalink: /fr/composants/date-de-modification/
-date: "git Last Modified"
+date: 'git Last Modified'
 ---
 
 ## Cas d'utilisation
@@ -30,7 +30,8 @@ Utilisez la date de modification pour :
 <article class="bg-full-width bg-primary text-light pt-500 pb-400 my-500">
   <h2 class="mt-0 mb-400">Composants connexes</h2>
 
-  <a href="{{ links.footer }}" class="link-light">Pied de page</a> : pour placer le pied de page portant l'image de marque du gouvernement du Canada.
+<a href="{{ links.footer }}" class="link-light">Pied de page</a> : pour placer le pied de page portant l'image de marque du gouvernement du Canada.
+
 </article>
 
 ## Types de composants

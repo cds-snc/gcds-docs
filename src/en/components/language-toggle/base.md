@@ -1,5 +1,5 @@
 ---
-layout: "layouts/base.njk"
+layout: 'layouts/base.njk'
 github: https://github.com/cds-snc/gcds-components/tree/main/packages/web/src/components/gcds-lang-toggle
 figma: https://www.figma.com/file/mh2maMG2NBtk41k1O1UGHV/Canadian-Digital-Service%E2%80%A8---GC-Design-System?node-id=1792%3A4992&t=ciEmm7GYyGAY73zZ-0
 permalink: false
@@ -17,7 +17,8 @@ The language toggle is a link to the same content in the other Official Language
 
 {% componentPreview "Language toggle component preview" %}
 <gcds-lang-toggle
-  href="#"
-  lang="en"
-></gcds-lang-toggle>
-{% endcomponentPreview %}
+href="#"
+lang="en"
+
+> </gcds-lang-toggle>
+> {% endcomponentPreview %}

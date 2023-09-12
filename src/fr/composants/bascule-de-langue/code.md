@@ -1,9 +1,9 @@
 ---
 title: Bascule de langue
-layout: "layouts/component-documentation.njk"
-translationKey: "langtoggleCode"
+layout: 'layouts/component-documentation.njk'
+translationKey: 'langtoggleCode'
 tags: ['langtoggleFR', 'code']
-date: "git Last Modified"
+date: 'git Last Modified'
 ---
 
 ## Créer une bascule de langue

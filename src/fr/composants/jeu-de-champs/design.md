@@ -1,9 +1,9 @@
 ---
 title: Jeu de champs
-layout: "layouts/component-documentation.njk"
-translationKey: "fieldsetDesign"
+layout: 'layouts/component-documentation.njk'
+translationKey: 'fieldsetDesign'
 tags: ['fieldsetFR', 'design']
-date: "git Last Modified"
+date: 'git Last Modified'
 ---
 
 ## Structure du jeu de champs

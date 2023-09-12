@@ -1,6 +1,6 @@
 ---
 title: Stepper
-layout: "layouts/component-documentation.njk"
+layout: 'layouts/component-documentation.njk'
 eleventyNavigation:
   key: stepperEN
   title: Stepper
@@ -11,10 +11,10 @@ eleventyNavigation:
   thumbnail: /images/en/components/preview/preview-stepper.svg
   alt: Stepper component shows steps, Step 1 of 4 below there is grey box representing the title of the page.
   state: published
-translationKey: "stepper"
+translationKey: 'stepper'
 tags: ['stepperEN', 'usage']
 permalink: /en/components/stepper/
-date: "git Last Modified"
+date: 'git Last Modified'
 ---
 
 Take a look at what problems steppers solve to see if they fit the problem you're solving for.
@@ -30,5 +30,6 @@ Use a stepper for a logical sequence split over three or more pages to:
 <article class="bg-full-width bg-primary text-light pt-500 pb-400 my-500">
   <h2 class="mt-0 mb-400">Related components</h2>
 
-  <a href="{{ links.pagination }}" class="link-light">Pagination</a> when a user needs to navigate a range of pages that are not part of a multi-step process. It provides controls to select the next or previous page.
+<a href="{{ links.pagination }}" class="link-light">Pagination</a> when a user needs to navigate a range of pages that are not part of a multi-step process. It provides controls to select the next or previous page.
+
 </article>

@@ -1,7 +1,7 @@
 ---
 title: Contenu pour lecteurs d'écran
-layout: "layouts/component-documentation.njk"
-translationKey: "screenreadercontentDesign"
+layout: 'layouts/component-documentation.njk'
+translationKey: 'screenreadercontentDesign'
 tags: ['screenreadercontentFR', 'design']
 # date: "git Last Modified"
 ---

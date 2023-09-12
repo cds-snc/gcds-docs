@@ -1,6 +1,6 @@
 ---
 title: Boîte
-layout: "layouts/component-documentation.njk"
+layout: 'layouts/component-documentation.njk'
 eleventyNavigation:
   key: containerFR
   title: Boîte
@@ -11,10 +11,10 @@ eleventyNavigation:
   thumbnail: /images/common/components/preview-container.svg
   alt: Un rectangle avec une bordure entourant des rectangles gris représentant le contenu.
   state: published
-translationKey: "container"
+translationKey: 'container'
 tags: ['containerFR', 'usage']
 permalink: /fr/composants/boite/
-date: "git Last Modified"
+date: 'git Last Modified'
 ---
 
 Examinez les cas d’utilisation des boîtes pour déterminer si elles répondent à vos besoins.
@@ -33,7 +33,8 @@ Utilisez les boîtes pour :
 <article class="bg-full-width bg-primary text-light pt-500 pb-400 my-500">
   <h2 class="mt-0 mb-400">Composants connexes</h2>
 
-  <a href="{{ links.grid }}" class="link-light">Grille</a> pour une colonne réactive et flexible permettant de positionner du contenu sur une page.
+<a href="{{ links.grid }}" class="link-light">Grille</a> pour une colonne réactive et flexible permettant de positionner du contenu sur une page.
 
-  <a href="{{ links.card }}" class="link-light">Carte</a> pour regrouper de petits éléments informatifs en un seul élément.
+<a href="{{ links.card }}" class="link-light">Carte</a> pour regrouper de petits éléments informatifs en un seul élément.
+
 </article>

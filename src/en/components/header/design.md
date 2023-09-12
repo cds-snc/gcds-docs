@@ -1,9 +1,9 @@
 ---
 title: Header
-layout: "layouts/component-documentation.njk"
-translationKey: "headerDesign"
+layout: 'layouts/component-documentation.njk'
+translationKey: 'headerDesign'
 tags: ['headerEN', 'design']
-date: "git Last Modified"
+date: 'git Last Modified'
 ---
 
 ## Header anatomy – recommended elements

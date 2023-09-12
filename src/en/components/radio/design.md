@@ -1,9 +1,9 @@
 ---
 title: Radio
-layout: "layouts/component-documentation.njk"
-translationKey: "radioDesign"
+layout: 'layouts/component-documentation.njk'
+translationKey: 'radioDesign'
 tags: ['radioEN', 'design']
-date: "git Last Modified"
+date: 'git Last Modified'
 ---
 
 ## Radio anatomy – with fieldset

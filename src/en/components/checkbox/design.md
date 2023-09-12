@@ -1,9 +1,9 @@
 ---
 title: Checkbox
-layout: "layouts/component-documentation.njk"
-translationKey: "checkboxDesign"
+layout: 'layouts/component-documentation.njk'
+translationKey: 'checkboxDesign'
 tags: ['checkboxEN', 'design']
-date: "git Last Modified"
+date: 'git Last Modified'
 ---
 
 ## Checkbox anatomy – with fieldset
@@ -44,5 +44,5 @@ Use the fieldset component with the checkbox, except for checkboxes with a singl
 
 - Avoid assuming a person will know how to use a checkbox.
 - Use the [fieldset's]({{ links.fieldset }}) hint text to include a cue for users unfamiliar with radios so they know they can only make a single selection. For example, "Select the response that best applies".
-- Include fieldset's hint text to include a cue for users unfamiliar with checkboxes so they know they can make multiple selections.  For example, "Select all that apply".
+- Include fieldset's hint text to include a cue for users unfamiliar with checkboxes so they know they can make multiple selections. For example, "Select all that apply".
 - Avoid pre-selecting checkbox options. This makes it more likely that users will miss a question and submit a wrong answer.

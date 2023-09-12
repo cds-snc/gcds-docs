@@ -1,6 +1,6 @@
 ---
 title: Carte
-layout: "layouts/component-documentation.njk"
+layout: 'layouts/component-documentation.njk'
 eleventyNavigation:
   key: cardFR
   title: Carte
@@ -11,10 +11,10 @@ eleventyNavigation:
   thumbnail: /images/common/components/preview-card.svg
   alt: This is an image of the component
   state: published
-translationKey: "card"
+translationKey: 'card'
 tags: ['cardFR', 'usage']
 permalink: /fr/composants/carte/
-date: "git Last Modified"
+date: 'git Last Modified'
 ---
 
 Examinez les cas d’utilisation des cartes pour déterminer si elles répondent à vos besoins.
@@ -24,6 +24,7 @@ Examinez les cas d’utilisation des cartes pour déterminer si elles répondent
 Les cartes permettent d’organiser des renseignements relatifs à un même sujet dans une boîte fixe ayant la forme d’une carte à jouer.
 
 Utilisez une carte aux fins suivantes :
+
 - Regrouper de petits éléments informatifs en un seul élément.
 - Présenter des aperçus et résumés permettant d’obtenir davantage de renseignements ailleurs.
 - Encourager la découverte de contenu en créant des éléments visuellement intéressants pour le lectorat.
@@ -33,9 +34,10 @@ Remarque : Pour Canada.ca, évitez d’utiliser des cartes au lieu des élément
 <article class="bg-full-width bg-primary text-light pt-500 pb-400 my-500">
   <h2 class="mt-0 mb-400">Composants connexes</h2>
 
-  <a href="{{ links.details }}" class="link-light">Détails</a> pour dissimuler des renseignements secondaires qu’une personne peut développer sur la même page.
+<a href="{{ links.details }}" class="link-light">Détails</a> pour dissimuler des renseignements secondaires qu’une personne peut développer sur la même page.
 
-  <a href="{{ links.container }}" class="link-light">Boîte</a> pour des affichages simples à largeur définie.
+<a href="{{ links.container }}" class="link-light">Boîte</a> pour des affichages simples à largeur définie.
+
 </article>
 
 <div>

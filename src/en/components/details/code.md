@@ -1,9 +1,9 @@
 ---
 title: Details
-layout: "layouts/component-documentation.njk"
-translationKey: "detailsCode"
+layout: 'layouts/component-documentation.njk'
+translationKey: 'detailsCode'
 tags: ['detailsEN', 'code']
-date: "git Last Modified"
+date: 'git Last Modified'
 ---
 
 ## Build a details component

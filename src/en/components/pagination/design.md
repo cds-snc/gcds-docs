@@ -1,9 +1,9 @@
 ---
 title: Pagination
-layout: "layouts/component-documentation.njk"
-translationKey: "paginationDesign"
+layout: 'layouts/component-documentation.njk'
+translationKey: 'paginationDesign'
 tags: ['paginationEN', 'design']
-date: "git Last Modified"
+date: 'git Last Modified'
 ---
 
 ## Pagination anatomy

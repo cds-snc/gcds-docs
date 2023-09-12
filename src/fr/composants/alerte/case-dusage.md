@@ -1,6 +1,6 @@
 ---
 title: Alerte
-layout: "layouts/component-documentation.njk"
+layout: 'layouts/component-documentation.njk'
 eleventyNavigation:
   key: alertFR
   title: Alerte
@@ -11,10 +11,10 @@ eleventyNavigation:
   thumbnail: /images/common/components/preview-alert.svg
   alt: Le composant Alerte affiche une boîte bleu clair avec une bordure bleue foncée sur le côté gauche. À côté de la bordure se trouve un « i » dans un cercle qui représente une icône d'information. Sous la bordure se trouvent deux boîtes bleu foncé affichant du texte.
   state: coming-soon
-translationKey: "alert"
+translationKey: 'alert'
 tags: ['alertFR', 'usage']
 permalink: /fr/composants/alerte/
-date: "git Last Modified"
+date: 'git Last Modified'
 ---
 
 ## Usage

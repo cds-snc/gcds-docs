@@ -1,9 +1,9 @@
 ---
 title: Grille
-layout: "layouts/component-documentation.njk"
-translationKey: "gridDesign"
+layout: 'layouts/component-documentation.njk'
+translationKey: 'gridDesign'
 tags: ['gridFR', 'design']
-date: "git Last Modified"
+date: 'git Last Modified'
 ---
 
 ## Structure d'une grille

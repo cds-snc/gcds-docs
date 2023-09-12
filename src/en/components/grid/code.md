@@ -1,9 +1,9 @@
 ---
 title: Grid
-layout: "layouts/component-documentation.njk"
-translationKey: "gridCode"
+layout: 'layouts/component-documentation.njk'
+translationKey: 'gridCode'
 tags: ['gridEN', 'code']
-date: "git Last Modified"
+date: 'git Last Modified'
 ---
 
 ## Build a grid
@@ -69,6 +69,7 @@ Mobile
 </div>
 
 {% viewCode "en" "preview-grid-flexible" "gcds-grid" %}
+
 ```
 <gcds-grid tag="article" columns-desktop="1fr 1fr 1fr" columns-tablet="1fr 1fr" columns="1fr" gap="300">
     <p>This is some example content to display the grid component.</p>
@@ -76,6 +77,7 @@ Mobile
     <p>This is some example content to display the grid component.</p>
 </gcds-grid>
 ```
+
 {% endviewCode %}
 
 Set the minimum and maximum width to design equal-width columns with restrictions to limit how wide they will span on any screen size.
@@ -120,6 +122,7 @@ Mobile
 </div>
 
 {% viewCode "en" "preview-grid-fixed-width" "gcds-grid" %}
+
 ```
 <gcds-grid tag="article" columns="repeat(auto-fit, minmax(100px, 300px))" gap="500">
     <p>This is some example content to display the grid component.</p>
@@ -127,6 +130,7 @@ Mobile
     <p>This is some example content to display the grid component.</p>
 </gcds-grid>
 ```
+
 {% endviewCode %}
 
 {% include "partials/getcode.njk" %}
