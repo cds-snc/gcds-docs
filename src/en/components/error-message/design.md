@@ -1,9 +1,9 @@
 ---
 title: Error message
-layout: "layouts/component-documentation.njk"
-translationKey: "errormessageDesign"
+layout: 'layouts/component-documentation.njk'
+translationKey: 'errormessageDesign'
 tags: ['errormessageEN', 'design']
-date: "git Last Modified"
+date: 'git Last Modified'
 ---
 
 ## Error message anatomy

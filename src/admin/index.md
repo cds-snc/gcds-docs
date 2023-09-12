@@ -1,8 +1,8 @@
 ---
 title: Admin
-layout: "layouts/admin.njk"
+layout: 'layouts/admin.njk'
 sitemap:
-    ignore: true
+  ignore: true
 permalink: /admin/
 eleventyExcludeFromCollections: true
 ---

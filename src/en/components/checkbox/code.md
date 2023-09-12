@@ -1,9 +1,9 @@
 ---
 title: Checkbox
-layout: "layouts/component-documentation.njk"
-translationKey: "checkboxCode"
+layout: 'layouts/component-documentation.njk'
+translationKey: 'checkboxCode'
 tags: ['checkboxEN', 'code']
-date: "git Last Modified"
+date: 'git Last Modified'
 ---
 
 ## Build a checkbox
@@ -21,7 +21,7 @@ Use a checkbox with a [fieldset]({{ links.fieldset }}) when you are expecting th
 ### For a single checkbox
 
 - Avoid using a [fieldset]({{ links.fieldset }}) for checkboxes with a single box to check, like for a confirmation the terms of reference was read prior to registration.
-- Use the `required` attribute to activate  the required validator. Validation will happen by default on the `onBlur` event.
+- Use the `required` attribute to activate the required validator. Validation will happen by default on the `onBlur` event.
 - If you need to change the validation event, use the `validate-on` attribute. Validation can happen on blur, when the element loses focus, or manually with the `validate` method.
 - Use the `required` attribute when a single checkbox need to be filled in. This places "(required)" at the end of the checkbox .
 - Keep the default `error-message` attribute for a required single checkbox that needs validation. Missing entry will prompt an inline error message.

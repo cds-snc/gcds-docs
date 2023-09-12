@@ -16,11 +16,11 @@ Un résumé des erreurs consiste en une liste des erreurs rencontrées par les u
 
 {% componentPreview "Aperçu du composant de résumé des erreurs" %}
 <gcds-error-summary
-  error-links='{
-    "error-href-1": "Élément du résumé des erreurs.",
-    "error-href-2": "Élément du résumé des erreurs.",
-    "error-href-3": "Élément du résumé des erreurs."
-  }'
->
-</gcds-error-summary>
-{% endcomponentPreview %}
+error-links='{
+"error-href-1": "Élément du résumé des erreurs.",
+"error-href-2": "Élément du résumé des erreurs.",
+"error-href-3": "Élément du résumé des erreurs."
+}'
+
+> </gcds-error-summary>
+> {% endcomponentPreview %}

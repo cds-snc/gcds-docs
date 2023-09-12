@@ -1,9 +1,9 @@
 ---
 title: Top navigation
-layout: "layouts/component-documentation.njk"
-translationKey: "topnavigationCode"
+layout: 'layouts/component-documentation.njk'
+translationKey: 'topnavigationCode'
 tags: ['topnavigationEN', 'code']
-date: "git Last Modified"
+date: 'git Last Modified'
 ---
 
 ## Build a top navigation
@@ -19,8 +19,8 @@ Use a top navigation to help a person find their way around your web page or sit
 
 ### Use the top navigation with other components
 
-- If using  <a href="{{ links.breadcrumbs }}">breadcrumbs</a>, align the content hierarchy in both set of links, so both components reflect a similar path through the site.
-- If you're using the  <a href="{{ links.header }}">header</a> component, add the top navigation directly to the header by passing a child element with the `slot="menu"` attribute into the header. This will place the top nav in the header after the language toggle, signature, and search slots.
+- If using <a href="{{ links.breadcrumbs }}">breadcrumbs</a>, align the content hierarchy in both set of links, so both components reflect a similar path through the site.
+- If you're using the <a href="{{ links.header }}">header</a> component, add the top navigation directly to the header by passing a child element with the `slot="menu"` attribute into the header. This will place the top nav in the header after the language toggle, signature, and search slots.
 
 {% include "partials/getcode.njk" %}
 

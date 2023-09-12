@@ -1,6 +1,6 @@
 ---
 title: Bascule de langue
-layout: "layouts/component-documentation.njk"
+layout: 'layouts/component-documentation.njk'
 eleventyNavigation:
   key: langtoggleFR
   title: Bascule de langue
@@ -12,10 +12,10 @@ eleventyNavigation:
   alt: Un aperçu du composant changement de langue qui montre les abbréviations f et r pour français suivi de e et n pour anglais, séparées d'une flèche pointant vers les deux abbréviations.
   tag: De base
   state: published
-translationKey: "langtoggle"
+translationKey: 'langtoggle'
 tags: ['langtoggleFR', 'usage']
 permalink: /fr/composants/bascule-de-langue/
-date: "git Last Modified"
+date: 'git Last Modified'
 ---
 
 Examinez les cas d’utilisation des bascules de langue pour déterminer si elles répondent à vos besoins.
@@ -25,10 +25,11 @@ Examinez les cas d’utilisation des bascules de langue pour déterminer si elle
 Utilisez la bascule de langue pour :
 
 - permettre aux gens de passer d’une langue à l’autre sans que cela ne les détourne de leur parcours;
-- soutenir les langues officielles en proposant un contenu tout aussi accessible en français qu’en anglais. 
+- soutenir les langues officielles en proposant un contenu tout aussi accessible en français qu’en anglais.
 
 <article class="bg-full-width bg-primary text-light pt-500 pb-400 my-500">
   <h2 class="mt-0 mb-400">Composants connexes</h2>
 
-  <a href="{{ links.header }}" class="link-light">En-tête</a> : lorsque vous cherchez à placer l'image de marque du gouvernement du Canada dans l'en-tête de la page.
+<a href="{{ links.header }}" class="link-light">En-tête</a> : lorsque vous cherchez à placer l'image de marque du gouvernement du Canada dans l'en-tête de la page.
+
 </article>

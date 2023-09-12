@@ -1,9 +1,9 @@
 ---
 title: Fieldset
-layout: "layouts/component-documentation.njk"
-translationKey: "fieldsetCode"
+layout: 'layouts/component-documentation.njk'
+translationKey: 'fieldsetCode'
 tags: ['fieldsetEN', 'code']
-date: "git Last Modified"
+date: 'git Last Modified'
 ---
 
 ## Build a fieldset
@@ -28,7 +28,7 @@ Maintain the default `hint` attribute to provide additional context so a person 
 
 The fieldset will only validate [checkbox]({{ links.checkbox }}) and [radio button]({{ links.radio }}) children.
 
-- Use the `required` attribute to activate  the required validator. Validation will happen by default on the `onBlur` event.
+- Use the `required` attribute to activate the required validator. Validation will happen by default on the `onBlur` event.
 - If you need to change the validation event, use the `validate-on` attribute. Validation can happen on blur, when the element loses focus, or manually with the validate method.
 
 {% include "partials/getcode.njk" %}

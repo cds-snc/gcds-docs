@@ -1,9 +1,9 @@
 ---
 title: Détails
-layout: "layouts/component-documentation.njk"
-translationKey: "detailsCode"
+layout: 'layouts/component-documentation.njk'
+translationKey: 'detailsCode'
 tags: ['detailsFR', 'code']
-date: "git Last Modified"
+date: 'git Last Modified'
 ---
 
 ## Création d'un composant Détails
@@ -28,7 +28,7 @@ Pour aider une personne à accéder au contenu du composant Détails :
 - Faites en sorte que les titres utilisés dans le composant Détails indiquent clairement la nature du contenu. Évitez les titres non descriptifs tels que « En savoir plus ». Au lieu de cela, optez pour un résumé spécifique et descriptif, comme « Montant de couverture maximal pour vos prestations de physiothérapie ».
 - Choisissez des titres distinctifs pour que les gens comprennent la différence. Les titres identiques ou similaires peuvent prêter à confusion.
 - Évitez de placer un composant Détails dans un autre, là où personne ne penserait à chercher ce contenu.
-0 Faites en sorte que le contenu du composant Détails puisse faire l'objet d'une recherche.
+  0 Faites en sorte que le contenu du composant Détails puisse faire l'objet d'une recherche.
 
 {% include "partials/getcode.njk" %}
 

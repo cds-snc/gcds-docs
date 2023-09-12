@@ -1,9 +1,9 @@
 ---
 title: Indicateur d'étape
-layout: "layouts/component-documentation.njk"
-translationKey: "stepperCode"
+layout: 'layouts/component-documentation.njk'
+translationKey: 'stepperCode'
 tags: ['stepperFR', 'code']
-date: "git Last Modified"
+date: 'git Last Modified'
 ---
 
 ## Création d'un indicateur d'étape

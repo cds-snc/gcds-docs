@@ -1,9 +1,9 @@
 ---
 title: Grid
-layout: "layouts/component-documentation.njk"
-translationKey: "gridDesign"
+layout: 'layouts/component-documentation.njk'
+translationKey: 'gridDesign'
 tags: ['gridEN', 'design']
-date: "git Last Modified"
+date: 'git Last Modified'
 ---
 
 ## Grid anatomy

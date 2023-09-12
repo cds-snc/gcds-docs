@@ -1,6 +1,6 @@
 ---
 title: Barre de navigation latérale
-layout: "layouts/component-documentation.njk"
+layout: 'layouts/component-documentation.njk'
 eleventyNavigation:
   key: sidenavigationFR
   title: Barre de navigation latérale
@@ -11,10 +11,10 @@ eleventyNavigation:
   thumbnail: /images/common/components/preview-side-nav.svg
   alt: Barre de navigation latérale montre une navigation verticale du site avec des cases grises les unes au-dessus des autres, l'avant-dernière surlignée en bleu pour montrer la sélection.
   state: published
-translationKey: "sidenavigation"
+translationKey: 'sidenavigation'
 tags: ['sidenavigationFR', 'usage']
 permalink: /fr/composants/barre-de-navigation-laterale/
-date: "git Last Modified"
+date: 'git Last Modified'
 ---
 
 Examinez les cas d'utilisation de la barre de navigation latérale pour déterminer si elle répond à vos besoins.
@@ -31,5 +31,6 @@ L'utilisation d'une barre de navigation latérale dans un produit est optionnell
 <article class="bg-full-width bg-primary text-light pt-500 pb-400 my-500">
   <h2 class="mt-0 mb-400">Composants connexes</h2>
 
-  <a href="{{ links.topNav }}" class="link-light">Barre de navigation supérieure</a> pour les sites Web dont l'architecture d'information comporte 1 à 2 niveaux.
+<a href="{{ links.topNav }}" class="link-light">Barre de navigation supérieure</a> pour les sites Web dont l'architecture d'information comporte 1 à 2 niveaux.
+
 </article>

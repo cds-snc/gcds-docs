@@ -1,4 +1,4 @@
-const slugify = require("./slugify");
+const slugify = require('./slugify');
 
 const defaultOptions = {
   anchorClass: 'anchor-link',
@@ -7,7 +7,7 @@ const defaultOptions = {
 const anchor = (md, options) => {
   options = Object.assign({}, defaultOptions, options);
 
-  md.renderer.rules.heading_open = function(tokens, index) {
+  md.renderer.rules.heading_open = function (tokens, index) {
     const contentToken = tokens[index + 1];
     const slug = slugify(contentToken.content);
 
@@ -31,7 +31,7 @@ const anchor = (md, options) => {
     return `<${tokens[index].tag} class="list-disc mb-400">`;
   };
 
-  md.renderer.rules.paragraph_open = function(tokens, index) {
+  md.renderer.rules.paragraph_open = function (tokens, index) {
     return `<${tokens[index].tag} class="mb-400">`;
   };
 };

@@ -1,12 +1,12 @@
 ---
 title: Fondements
-layout: "layouts/foundations-overview.njk"
+layout: 'layouts/foundations-overview.njk'
 eleventyNavigation:
   key: foundationsFR
   title: Fondements
   locale: fr
   order: 1
-translationKey: "foundatons"
+translationKey: 'foundatons'
 github: https://github.com/cds-snc/gcds-tokens
 cardlist:
   type: foundations
@@ -24,8 +24,8 @@ Nos unités de style permettent de représenter des choix de design et d'image d
 
 Nous utilisons les unités de style pour :
 
-- **Créer une expérience visuelle uniforme** en reproduisant des choix de design et d'image de marque à l'échelle des composants; 
-- **Communiquer le sens des éléments de façon uniforme** afin d'établir une expérience prévisible et digne de confiance pour les gens qui utilisent votre service;  
+- **Créer une expérience visuelle uniforme** en reproduisant des choix de design et d'image de marque à l'échelle des composants;
+- **Communiquer le sens des éléments de façon uniforme** afin d'établir une expérience prévisible et digne de confiance pour les gens qui utilisent votre service;
 - **Améliorer la communication entre les équipes de design et de développement** en définissant chaque choix stylistique à l'aide d'un nom et d'une représentation visuelle.
 
 <gcds-button type="link" button-role="secondary" href="{{ links.designTokens }}">

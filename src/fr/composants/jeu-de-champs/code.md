@@ -1,9 +1,9 @@
 ---
 title: Jeu de champs
-layout: "layouts/component-documentation.njk"
-translationKey: "fieldsetCode"
+layout: 'layouts/component-documentation.njk'
+translationKey: 'fieldsetCode'
 tags: ['fieldsetFR', 'code']
-date: "git Last Modified"
+date: 'git Last Modified'
 ---
 
 ## Créer un composant de jeu de champs

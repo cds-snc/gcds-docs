@@ -1,6 +1,6 @@
 ---
 title: Champ de saisie
-layout: "layouts/component-documentation.njk"
+layout: 'layouts/component-documentation.njk'
 eleventyNavigation:
   key: inputFR
   title: Champ de saisie
@@ -11,10 +11,10 @@ eleventyNavigation:
   thumbnail: /images/common/components/preview-input.svg
   alt: Un aperçu du composant champ de saisie qui montre deux boîtes grises alignées verticalement au dessus d'un champ de saisie avec un curseur à l'intérieur. Les boîtes représentent l'étiquette du champ de saisie et le message d'aide.
   state: published
-translationKey: "input"
+translationKey: 'input'
 tags: ['inputFR', 'usage']
 permalink: /fr/composants/champ-de-saisie/
-date: "git Last Modified"
+date: 'git Last Modified'
 ---
 
 Examinez ce que font les champs de saisie pour déterminer s'ils répondent à vos besoins. Sélectionnez ensuite le meilleur type de champ de saisie qui répond à votre cas d'utilisation.
@@ -34,9 +34,10 @@ Remarque : Ne recueillez que les renseignements que vous êtes autorisé·e à 
 <article class="bg-full-width bg-primary text-light pt-500 pb-400 my-500">
   <h2 class="mt-0 mb-400">Composants connexes</h2>
 
-  <a href="{{ links.textarea }}" class="link-light">Zone de texte</a> : lorsque vous cherchez à obtenir une réponse libre de plusieurs lignes.
+<a href="{{ links.textarea }}" class="link-light">Zone de texte</a> : lorsque vous cherchez à obtenir une réponse libre de plusieurs lignes.
 
-  Sélecteur de date : lorsque vous souhaitez que l'utilisateur·rice choisisse une date, comme pour la prise de rendez-vous.
+Sélecteur de date : lorsque vous souhaitez que l'utilisateur·rice choisisse une date, comme pour la prise de rendez-vous.
+
 </article>
 
 ## Choisissez un type de champ de saisie

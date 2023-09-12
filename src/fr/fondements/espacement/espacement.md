@@ -1,7 +1,7 @@
 ---
 title: Unités de style d'espacement
-layout: "layouts/base.njk"
-translationKey: "spacing"
+layout: 'layouts/base.njk'
+translationKey: 'spacing'
 eleventyNavigation:
   key: spacingFR
   title: Espacement

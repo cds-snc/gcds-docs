@@ -1,7 +1,7 @@
 ---
 title: Data table
-layout: "layouts/component-documentation.njk"
-translationKey: "datatableCode"
+layout: 'layouts/component-documentation.njk'
+translationKey: 'datatableCode'
 tags: ['datatableEN', 'code']
 # date: "git Last Modified"
 ---

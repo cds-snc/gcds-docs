@@ -1,6 +1,6 @@
 ---
 title: Card
-layout: "layouts/component-documentation.njk"
+layout: 'layouts/component-documentation.njk'
 eleventyNavigation:
   key: cardEN
   title: Card
@@ -11,10 +11,10 @@ eleventyNavigation:
   thumbnail: /images/common/components/preview-card.svg
   alt: This is an image of the component
   state: published
-translationKey: "card"
+translationKey: 'card'
 tags: ['cardEN', 'usage']
 permalink: /en/components/card/
-date: "git Last Modified"
+date: 'git Last Modified'
 ---
 
 Review these common uses for cards to see if they match the problem you’re solving for.
@@ -34,9 +34,10 @@ Note: For Canada.ca, avoid using cards in place of the doormats specified in the
 <article class="bg-full-width bg-primary text-light pt-500 pb-400 my-500">
   <h2 class="mt-0 mb-400">Related components</h2>
 
-  <a href="{{ links.details }}" class="link-light">Details</a> to hide secondary information that a person can expand on the same page.
+<a href="{{ links.details }}" class="link-light">Details</a> to hide secondary information that a person can expand on the same page.
 
-  <a href="{{ links.container }}" class="link-light">Container</a> for basic layouts with a set width.
+<a href="{{ links.container }}" class="link-light">Container</a> for basic layouts with a set width.
+
 </article>
 
 <div>

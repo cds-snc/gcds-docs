@@ -1,9 +1,9 @@
 ---
 title: Side navigation
-layout: "layouts/component-documentation.njk"
-translationKey: "sidenavigationCode"
+layout: 'layouts/component-documentation.njk'
+translationKey: 'sidenavigationCode'
 tags: ['sidenavigationEN', 'code']
-date: "git Last Modified"
+date: 'git Last Modified'
 ---
 
 ## Build a side navigation

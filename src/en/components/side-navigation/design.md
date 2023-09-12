@@ -1,9 +1,9 @@
 ---
 title: Side navigation
-layout: "layouts/component-documentation.njk"
-translationKey: "sidenavigationDesign"
+layout: 'layouts/component-documentation.njk'
+translationKey: 'sidenavigationDesign'
 tags: ['sidenavigationEN', 'design']
-date: "git Last Modified"
+date: 'git Last Modified'
 ---
 
 ## Side navigation anatomy
@@ -32,7 +32,7 @@ Note: On mobile, the label does not link to the homepage.
 
 - Make link text clear and specific to help a person decide if they should leave the current page. Spell out where a person will go or what they’ll find when they select a link.
 - Keep link text short and distinctive so a person can scan the links and find what they’re looking for.
-- If using breadcrumbs, align the content hierarchy in both sets of links, so each component reflects a similar path through the site.  
+- If using breadcrumbs, align the content hierarchy in both sets of links, so each component reflects a similar path through the site.
 
 Tip: Read nav link text aloud in sequence to note similarities in how link text sounds when read by an assistive device.
 

@@ -1,5 +1,5 @@
 name: A11y test
-on: 
+on:
   push:
     paths-ignore:
       - 'reports/**'
@@ -29,4 +29,4 @@ jobs:
         uses: ad-m/github-push-action@29f05e01bb17e6f28228b47437e03a7b69e1f9ef
         with:
           github_token: ${{ secrets.ACCESS_TOKEN }}
-          branch: 'gh-pages' 
+          branch: 'gh-pages'

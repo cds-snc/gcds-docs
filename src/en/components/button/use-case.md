@@ -1,6 +1,6 @@
 ---
 title: Button
-layout: "layouts/component-documentation.njk"
+layout: 'layouts/component-documentation.njk'
 eleventyNavigation:
   key: buttonEN
   title: Button
@@ -11,10 +11,10 @@ eleventyNavigation:
   thumbnail: /images/en/components/preview/preview-button.svg
   alt: Button shows a dark blue box with a button and an arrow inside.
   state: published
-translationKey: "button"
+translationKey: 'button'
 tags: ['buttonEN', 'usage']
 permalink: /en/components/button/
-date: "git Last Modified"
+date: 'git Last Modified'
 ---
 
 Take a look at what buttons do to see if they fit the problem you're solving for. Then select the best subtype, called the button role, for the use case you need to meet.
@@ -33,9 +33,10 @@ Use a button for important actions a person using your product can initiate to:
 <article class="bg-full-width bg-primary text-light pt-500 pb-400 my-500">
   <h2 class="mt-0 mb-400">Related components</h2>
 
-  Toggle to offer a switch to choose between two options.
+Toggle to offer a switch to choose between two options.
 
-  <a href="{{ links.details }}" class="link-light">Details</a> to provide a way to hide or show a section of content.
+<a href="{{ links.details }}" class="link-light">Details</a> to provide a way to hide or show a section of content.
+
 </article>
 
 ## Choose a button type

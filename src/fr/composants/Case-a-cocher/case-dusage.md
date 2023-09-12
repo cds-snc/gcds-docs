@@ -1,6 +1,6 @@
 ---
 title: Case à cocher
-layout: "layouts/component-documentation.njk"
+layout: 'layouts/component-documentation.njk'
 eleventyNavigation:
   key: checkboxFR
   title: Case à cocher
@@ -11,10 +11,10 @@ eleventyNavigation:
   thumbnail: /images/common/components/preview-checkbox.svg
   alt: Un aperçu du composant case à cocher avec trois options. La première option a une boîte blanche au contour noir avec une coche à l'intérieur suivi de deux longues boîtes grises rectangulaires qui représentent du texte. Les deux autres options sont représentées d'une boîte blanche au contour noir, vide, suivie de deux longues boites grises représentant du texte.
   state: published
-translationKey: "checkbox"
+translationKey: 'checkbox'
 tags: ['checkboxFR', 'usage']
 permalink: /fr/composants/case-a-cocher/
-date: "git Last Modified"
+date: 'git Last Modified'
 ---
 
 Examinez ce que font les cases à cocher pour déterminer si elles répondent à vos besoins.
@@ -31,10 +31,10 @@ Utilisez la case à cocher avec un [jeu de champs]({{ links.fieldset }}) pour po
 
   <h2 class="mt-0 mb-400">Composants connexes</h2>
 
-  Utilisez les <a href="{{ links.radio }}" class="link-light">boutons radio</a> pour obtenir une seule réponse parmi une liste d’options.
+Utilisez les <a href="{{ links.radio }}" class="link-light">boutons radio</a> pour obtenir une seule réponse parmi une liste d’options.
 
-  Le composant <a href="{{ links.select }}" class="link-light">sélection</a> permet à l’utilisateur·rice de sélectionner une option ou plusieurs dans une liste déroulante.
+Le composant <a href="{{ links.select }}" class="link-light">sélection</a> permet à l’utilisateur·rice de sélectionner une option ou plusieurs dans une liste déroulante.
 
-  Utilisez les <a href="{{ links.input }}" class="link-light">champs de saisie</a> pour des réponses courtes d’une seule ligne.
+Utilisez les <a href="{{ links.input }}" class="link-light">champs de saisie</a> pour des réponses courtes d’une seule ligne.
 
 </article>

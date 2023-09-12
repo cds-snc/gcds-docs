@@ -1,9 +1,9 @@
 ---
 title: Sélection
-layout: "layouts/component-documentation.njk"
-translationKey: "selectCode"
+layout: 'layouts/component-documentation.njk'
+translationKey: 'selectCode'
 tags: ['selectFR', 'code']
-date: "git Last Modified"
+date: 'git Last Modified'
 ---
 
 ## Créer une sélection

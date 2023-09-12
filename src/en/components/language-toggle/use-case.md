@@ -1,6 +1,6 @@
 ---
 title: Language toggle
-layout: "layouts/component-documentation.njk"
+layout: 'layouts/component-documentation.njk'
 eleventyNavigation:
   key: langtoggleEN
   title: Language toggle
@@ -12,10 +12,10 @@ eleventyNavigation:
   alt: Language toggle component shows FR for French icon double ended arrows to EN for English.
   tag: Core
   state: published
-translationKey: "langtoggle"
+translationKey: 'langtoggle'
 tags: ['langtoggleEN', 'usage']
 permalink: /en/components/language-toggle/
-date: "git Last Modified"
+date: 'git Last Modified'
 ---
 
 Take a look at use cases for the language toggle to see if it fits the problem you're solving for.
@@ -28,9 +28,11 @@ Use the language toggle to:
 - Support Official Languages by offering equitable access in French and English.
 
 Related components
-Header for placing the Government of Canada 
+Header for placing the Government of Canada
+
 <article class="bg-full-width bg-primary text-light pt-500 pb-400 my-500">
   <h2 class="mt-0 mb-400">Related components</h2>
 
-  <a href="{{ links.header }}" class="link-light">Header</a> for placing the Government of Canada branded header landmark.
+<a href="{{ links.header }}" class="link-light">Header</a> for placing the Government of Canada branded header landmark.
+
 </article>

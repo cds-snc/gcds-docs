@@ -6,7 +6,7 @@
   .showcase {
     background-color: #262626;
 
-    &[aria-hidden="true"] {
+    &[aria-hidden='true'] {
       display: block;
       width: 0;
       height: 0;
@@ -15,7 +15,7 @@
       overflow: hidden;
     }
 
-    &[aria-hidden="false"] {
+    &[aria-hidden='false'] {
       margin-top: calc(-1 * var(--gcds-spacing-400));
     }
 

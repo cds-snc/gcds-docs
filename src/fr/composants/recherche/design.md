@@ -1,7 +1,7 @@
 ---
 title: Recherche
-layout: "layouts/component-documentation.njk"
-translationKey: "searchDesign"
+layout: 'layouts/component-documentation.njk'
+translationKey: 'searchDesign'
 tags: ['searchFR', 'design']
 # date: "git Last Modified"
 ---

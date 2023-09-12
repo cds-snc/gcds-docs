@@ -1,9 +1,9 @@
 ---
 title: Button
-layout: "layouts/component-documentation.njk"
-translationKey: "buttonCode"
+layout: 'layouts/component-documentation.njk'
+translationKey: 'buttonCode'
 tags: ['buttonEN', 'code']
-date: "git Last Modified"
+date: 'git Last Modified'
 ---
 
 ## Build a button

@@ -1,6 +1,6 @@
 ---
 title: Bouton
-layout: "layouts/component-documentation.njk"
+layout: 'layouts/component-documentation.njk'
 eleventyNavigation:
   key: buttonFR
   title: Bouton
@@ -11,10 +11,10 @@ eleventyNavigation:
   thumbnail: /images/fr/components/preview/preview-button.svg
   alt: Un aperçu du composant bouton qui montre une boîte bleue foncée avec le texte en blanc et une flèche blanche à l'intérieur.
   state: published
-translationKey: "button"
+translationKey: 'button'
 tags: ['buttonFR', 'usage']
 permalink: /fr/composants/bouton/
-date: "git Last Modified"
+date: 'git Last Modified'
 ---
 
 Jetez un coup d'œil à ce que font les boutons pour vérifier s'ils permettent de résoudre votre problème. Sélectionnez ensuite le meilleur sous-type, appelé « rôle du bouton », pour le cas d'utilisation dont vous avez besoin.
@@ -33,9 +33,10 @@ Utilisez un bouton pour les actions importantes qu'une personne utilisant votre 
 <article class="bg-full-width bg-primary text-light pt-500 pb-400 my-500">
   <h2 class="mt-0 mb-400">Composants connexes</h2>
 
-  Bouton bascule : lorsque vous cherchez à offrir un choix entre deux options.
+Bouton bascule : lorsque vous cherchez à offrir un choix entre deux options.
 
-  <a href="{{ links.details }}" class="link-light">Détails</a> : lorsque vous cherchez à masquer ou afficher une section de contenu.
+<a href="{{ links.details }}" class="link-light">Détails</a> : lorsque vous cherchez à masquer ou afficher une section de contenu.
+
 </article>
 
 ## Choisissez un type de bouton

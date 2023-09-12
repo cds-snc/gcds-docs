@@ -1,9 +1,9 @@
 ---
 title: En-tête
-layout: "layouts/component-documentation.njk"
-translationKey: "headerDesign"
+layout: 'layouts/component-documentation.njk'
+translationKey: 'headerDesign'
 tags: ['headerFR', 'design']
-date: "git Last Modified"
+date: 'git Last Modified'
 ---
 
 ## Structure de l'en-tête — éléments recommandés

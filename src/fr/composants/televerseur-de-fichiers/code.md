@@ -1,9 +1,9 @@
 ---
 title: Téléverseur de fichiers
-layout: "layouts/component-documentation.njk"
-translationKey: "fileuploaderCode"
+layout: 'layouts/component-documentation.njk'
+translationKey: 'fileuploaderCode'
 tags: ['fileuploaderFR', 'code']
-date: "git Last Modified"
+date: 'git Last Modified'
 ---
 
 ## Création d'un téléverseur de fichiers

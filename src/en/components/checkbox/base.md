@@ -1,9 +1,9 @@
 ---
-layout: "layouts/base.njk"
+layout: 'layouts/base.njk'
 github: https://github.com/cds-snc/gcds-components/tree/main/packages/web/src/components/gcds-checkbox
 figma: https://www.figma.com/file/mh2maMG2NBtk41k1O1UGHV/Canadian-Digital-Service%E2%80%A8---GC-Design-System?node-id=2760%3A8318&t=ciEmm7GYyGAY73zZ-0
 permalink: false
-tags: ["checkboxEN", "header"]
+tags: ['checkboxEN', 'header']
 ---
 
 # Checkbox<br>`<gcds-checkbox>`
@@ -17,22 +17,26 @@ A checkbox is a set of options for one or multiple selections.
 
 {% componentPreview "Checkbox component preview" "px-300 pt-400" %}
 <gcds-fieldset
-  fieldset-id="fieldset"
-  legend="Legend"
-  hint="Hint / Example message."
->
-  <gcds-checkbox
+fieldset-id="fieldset"
+legend="Legend"
+hint="Hint / Example message."
+
+> <gcds-checkbox
+
     checkbox-id="form-check-1"
     label="Label"
     hint="Description or example to make the option clearer."
     name="radio"
     checked
-  ></gcds-checkbox>
-  <gcds-checkbox
+
+> </gcds-checkbox>
+>   <gcds-checkbox
+
     checkbox-id="form-check-2"
     label="Label"
     hint="Description or example to make the option clearer."
     name="radio"
-  ></gcds-checkbox>
-</gcds-fieldset>
-{% endcomponentPreview %}
+
+> </gcds-checkbox>
+> </gcds-fieldset>
+> {% endcomponentPreview %}

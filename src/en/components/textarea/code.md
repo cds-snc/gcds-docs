@@ -1,9 +1,9 @@
 ---
 title: Textarea
-layout: "layouts/component-documentation.njk"
-translationKey: "textareaCode"
+layout: 'layouts/component-documentation.njk'
+translationKey: 'textareaCode'
 tags: ['textareaEN', 'code']
-date: "git Last Modified"
+date: 'git Last Modified'
 ---
 
 ## Build a text area

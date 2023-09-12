@@ -2,23 +2,33 @@ const fs = require('fs');
 const path = require('path');
 const replace = require('replace-in-file');
 const prompt = require('prompt-sync')();
-const slugify = require("../utils/slugify");
+const slugify = require('../utils/slugify');
 
 let englishName = prompt('English name: ');
 let frenchName = prompt('French name: ');
 
-let englishNameSlug =slugify(englishName);
-let frenchNameSlug =slugify(frenchName);
+let englishNameSlug = slugify(englishName);
+let frenchNameSlug = slugify(frenchName);
 
 let englishDirectory = './src/en/components/';
 let frenchDirectory = './src/fr/composants/';
 
-copyFolderSync('./examples/component-name', `${englishDirectory}${englishNameSlug}`);
-copyFolderSync('./examples/component-name', `${frenchDirectory}${frenchNameSlug}`);
+copyFolderSync(
+  './examples/component-name',
+  `${englishDirectory}${englishNameSlug}`,
+);
+copyFolderSync(
+  './examples/component-name',
+  `${frenchDirectory}${frenchNameSlug}`,
+);
 
-fs.rename(`${frenchDirectory}${frenchNameSlug}/use-case.md`, `${frenchDirectory}${frenchNameSlug}/case-dusage.md`, function(err) {
-  if ( err ) console.log('ERROR: ' + err);
-});
+fs.rename(
+  `${frenchDirectory}${frenchNameSlug}/use-case.md`,
+  `${frenchDirectory}${frenchNameSlug}/case-dusage.md`,
+  function (err) {
+    if (err) console.log('ERROR: ' + err);
+  },
+);
 
 let templateKeys = [
   /{componentName}/g,
@@ -34,7 +44,7 @@ let templateKeys = [
   /{designA11y}/g,
   /{buildComponent}/g,
   /{codeA11y}/g,
-  /{componentNameSlugEN}/g
+  /{componentNameSlugEN}/g,
 ];
 
 let engOptions = {
@@ -42,60 +52,58 @@ let engOptions = {
     `${englishDirectory}${englishNameSlug}/base.md`,
     `${englishDirectory}${englishNameSlug}/use-case.md`,
     `${englishDirectory}${englishNameSlug}/design.md`,
-    `${englishDirectory}${englishNameSlug}/code.md`
+    `${englishDirectory}${englishNameSlug}/code.md`,
   ],
   from: templateKeys,
   to: [
     englishName,
     englishNameSlug,
     englishNameSlug.replace('-', ''),
-    "EN",
-    "Also called",
+    'EN',
+    'Also called',
     `${englishName} component preview`,
-    "components",
-    "en",
-    "Related components",
+    'components',
+    'en',
+    'Related components',
     `${englishName} anatomy`,
     `Design and accessibility for ${englishName}`,
     `Build a ${englishName}`,
     `Coding and accessibility for ${englishName}`,
-    englishNameSlug
-  ]
+    englishNameSlug,
+  ],
 };
 let frOptions = {
   files: [
     `${frenchDirectory}${frenchNameSlug}/base.md`,
     `${frenchDirectory}${frenchNameSlug}/case-dusage.md`,
     `${frenchDirectory}${frenchNameSlug}/design.md`,
-    `${frenchDirectory}${frenchNameSlug}/code.md`
+    `${frenchDirectory}${frenchNameSlug}/code.md`,
   ],
   from: templateKeys,
   to: [
     frenchName,
     frenchNameSlug,
     englishNameSlug.replace('-', ''),
-    "FR",
-    "Autres noms ",
+    'FR',
+    'Autres noms ',
     `Aperçu du composant de ${frenchName}`,
-    "composants",
-    "fr",
-    "Composants connexes",
+    'composants',
+    'fr',
+    'Composants connexes',
     `Structure de la ${frenchName}`,
     `Accessibilité et design des ${frenchName}`,
     `Créer une case à ${frenchName}`,
     `Accessibilité et codage des cases à ${frenchName}`,
-    englishNameSlug
-  ]
+    englishNameSlug,
+  ],
 };
 
 try {
   replace.sync(engOptions);
   replace.sync(frOptions);
-}
-catch (error) {
+} catch (error) {
   console.error('Error occurred:', error);
 }
-
 
 function copyFolderSync(from, to) {
   fs.mkdirSync(to);

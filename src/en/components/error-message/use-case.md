@@ -1,6 +1,6 @@
 ---
 title: Error message
-layout: "layouts/component-documentation.njk"
+layout: 'layouts/component-documentation.njk'
 eleventyNavigation:
   key: errormessageEN
   title: Error message
@@ -11,10 +11,10 @@ eleventyNavigation:
   thumbnail: /images/common/components/preview-error-message.svg
   alt: Error message component shows a light red box with a red box representing text.
   state: published
-translationKey: "errormessage"
+translationKey: 'errormessage'
 tags: ['errormessageEN', 'usage']
 permalink: /en/components/error-message/
-date: "git Last Modified"
+date: 'git Last Modified'
 ---
 
 Take a look at what problems error messages solve to see if they fit the problem you’re solving for.
@@ -32,7 +32,8 @@ Use an error message for your own component instances when you need to interrupt
 <article class="bg-full-width bg-primary text-light pt-500 pb-400 my-500">
   <h2 class="mt-0 mb-400">Related components</h2>
 
-  <a href="{{ links.errorSummary }}" class="link-light">Error summary</a> for listing all problems to address for response submission.
+<a href="{{ links.errorSummary }}" class="link-light">Error summary</a> for listing all problems to address for response submission.
 
-  Alert for communicating an important or time-sensitive change.
+Alert for communicating an important or time-sensitive change.
+
 </article>

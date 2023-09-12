@@ -1,6 +1,6 @@
 ---
 title: Input
-layout: "layouts/component-documentation.njk"
+layout: 'layouts/component-documentation.njk'
 eleventyNavigation:
   key: inputEN
   title: Input
@@ -11,10 +11,10 @@ eleventyNavigation:
   thumbnail: /images/common/components/preview-input.svg
   alt: Input component shows two cascading greyed boxes above a blank text input field with a cursor icon in it. The boxes represent the input's label and hint message.
   state: published
-translationKey: "input"
+translationKey: 'input'
 tags: ['inputEN', 'usage']
 permalink: /en/components/input/
-date: "git Last Modified"
+date: 'git Last Modified'
 ---
 
 Take a look at what inputs do to see if they fit the problem you're solving for. Then select the best input type for the use case you need to meet.
@@ -34,9 +34,10 @@ Note: Only collect information you're authorized to handle and be sure to safegu
 <article class="bg-full-width bg-primary text-light pt-500 pb-400 my-500">
   <h2 class="mt-0 mb-400">Related components</h2>
 
-  <a href="{{ links.textarea }}" class="link-light">Text areas</a> for multi-line freeform responses.
+<a href="{{ links.textarea }}" class="link-light">Text areas</a> for multi-line freeform responses.
 
-  Date selectors when you want someone to choose a not-yet-known date, like for appointment scheduling.
+Date selectors when you want someone to choose a not-yet-known date, like for appointment scheduling.
+
 </article>
 
 ## Choose an input type

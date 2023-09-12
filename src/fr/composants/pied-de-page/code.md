@@ -1,9 +1,9 @@
 ---
 title: Pied de page
-layout: "layouts/component-documentation.njk"
-translationKey: "footerCode"
+layout: 'layouts/component-documentation.njk'
+translationKey: 'footerCode'
 tags: ['footerFR', 'code']
-date: "git Last Modified"
+date: 'git Last Modified'
 ---
 
 ## Créer un pied de page
@@ -65,7 +65,6 @@ Pour la bande de lien du pied de page, réglez l'élément `sub-links` en passan
 ```
 
 {% include "partials/getcode.njk" %}
-
 
 <iframe
   title="Survol des propriétés et des évènements relatifs à gcds-footer."

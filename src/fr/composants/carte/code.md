@@ -1,9 +1,9 @@
 ---
 title: Carte
-layout: "layouts/component-documentation.njk"
-translationKey: "cardCode"
+layout: 'layouts/component-documentation.njk'
+translationKey: 'cardCode'
 tags: ['cardFR', 'code']
-date: "git Last Modified"
+date: 'git Last Modified'
 ---
 
 ## Créer une carte
@@ -29,4 +29,3 @@ Lorsque votre page comprend plusieurs cartes :
   frameBorder="0"
   allow="clipboard-write"
 ></iframe>
-

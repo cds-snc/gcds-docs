@@ -1,9 +1,9 @@
 ---
 title: Date de modification
-layout: "layouts/component-documentation.njk"
-translationKey: "datemodifiedCode"
+layout: 'layouts/component-documentation.njk'
+translationKey: 'datemodifiedCode'
 tags: ['datemodifiedFR', 'code']
-date: "git Last Modified"
+date: 'git Last Modified'
 ---
 
 ## Construire un composant date de modification

@@ -1,6 +1,6 @@
 ---
 title: Signature
-layout: "layouts/component-documentation.njk"
+layout: 'layouts/component-documentation.njk'
 eleventyNavigation:
   key: signatureEN
   title: Signature
@@ -12,10 +12,10 @@ eleventyNavigation:
   alt: Signature component shows Canadian Flag and grey boxes where signature text would be.
   tag: Core
   state: published
-translationKey: "signature"
-tags: ["signatureEN", "usage"]
+translationKey: 'signature'
+tags: ['signatureEN', 'usage']
 permalink: /en/components/signature/
-date: "git Last Modified"
+date: 'git Last Modified'
 ---
 
 Check out use cases for the signature to see if they fit the problem you're solving for.

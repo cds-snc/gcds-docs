@@ -22,7 +22,7 @@ nav.tabs {
     margin-block-start: var(--gcds-spacing-150);
     margin-block-end: var(--gcds-spacing-50);
 
-    &[aria-current="page"] {
+    &[aria-current='page'] {
       background-color: var(--gcds-color-grayscale-0);
       border: var(--gcds-border-width-md) solid var(--gcds-color-grayscale-100);
       border-block-end: 0 solid var(--gcds-color-grayscale-0);
@@ -51,8 +51,8 @@ nav.tabs {
       text-decoration: none;
     }
 
-    &[aria-current="page"]:focus {
-      border-color: var(--gcds-focus-background );
+    &[aria-current='page']:focus {
+      border-color: var(--gcds-focus-background);
     }
   }
 }

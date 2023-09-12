@@ -1,6 +1,6 @@
 ---
 title: Header
-layout: "layouts/component-documentation.njk"
+layout: 'layouts/component-documentation.njk'
 eleventyNavigation:
   key: headerEN
   title: Header
@@ -12,10 +12,10 @@ eleventyNavigation:
   alt: Header component shows three banners layered on top of each other where the first one, the phase banner a dark blue box with white outlined box representing the phase of the site followed by a light blue box representing text explaining the phase. The second banner shows the federal identity composed of the Canada flag with boxes representing the text, followed by a grey box underlined in blue representing the language toggle. The last banner shows the site menu displayed by a large grey box, that has a dark blue box and 2 grey boxes representing the menu links.
   tag: Core
   state: published
-translationKey: "header"
+translationKey: 'header'
 tags: ['headerEN', 'usage']
 permalink: /en/components/header/
-date: "git Last Modified"
+date: 'git Last Modified'
 ---
 
 Take a look at what problems the header solves to see if they fit the problem you're solving for.
@@ -31,7 +31,8 @@ Use this header landmark – as part of a trusted brand – for apps, forms, or 
 <article class="bg-full-width bg-primary text-light pt-500 pb-400 my-500">
   <h2 class="mt-0 mb-400">Related components</h2>
 
-  <a href="{{ links.footer }}" class="link-light">Footer</a> for placing the Government of Canada branded footer landmark.
+<a href="{{ links.footer }}" class="link-light">Footer</a> for placing the Government of Canada branded footer landmark.
 
-  <a href="{{ links.topNav }}" class="link-light">Top navigation</a> for guiding navigation through a website using a landmark.
+<a href="{{ links.topNav }}" class="link-light">Top navigation</a> for guiding navigation through a website using a landmark.
+
 </article>

@@ -1,9 +1,9 @@
 ---
 title: Case à cocher
-layout: "layouts/component-documentation.njk"
-translationKey: "checkboxCode"
+layout: 'layouts/component-documentation.njk'
+translationKey: 'checkboxCode'
 tags: ['checkboxFR', 'code']
-date: "git Last Modified"
+date: 'git Last Modified'
 ---
 
 ## Créer une case à cocher

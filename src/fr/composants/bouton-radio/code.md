@@ -1,9 +1,9 @@
 ---
 title: Bouton radio
-layout: "layouts/component-documentation.njk"
-translationKey: "radioCode"
+layout: 'layouts/component-documentation.njk'
+translationKey: 'radioCode'
 tags: ['radioFR', 'code']
-date: "git Last Modified"
+date: 'git Last Modified'
 ---
 
 ## Créer un bouton radio

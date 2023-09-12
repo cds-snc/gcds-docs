@@ -1,9 +1,9 @@
 ---
 title: Barre de navigation supérieure
-layout: "layouts/component-documentation.njk"
-translationKey: "topnavigationDesign"
+layout: 'layouts/component-documentation.njk'
+translationKey: 'topnavigationDesign'
 tags: ['topnavigationFR', 'design']
-date: "git Last Modified"
+date: 'git Last Modified'
 ---
 
 ## Structure de la barre de navigation supérieure — sur un ordinateur de bureau

@@ -1,9 +1,9 @@
 ---
 title: Indicateur d'étape
-layout: "layouts/component-documentation.njk"
-translationKey: "stepperDesign"
+layout: 'layouts/component-documentation.njk'
+translationKey: 'stepperDesign'
 tags: ['stepperFR', 'design']
-date: "git Last Modified"
+date: 'git Last Modified'
 ---
 
 ## Structure de l'indicateur d'étape – avec en-tête H1

@@ -1,6 +1,6 @@
 ---
 title: Grille
-layout: "layouts/component-documentation.njk"
+layout: 'layouts/component-documentation.njk'
 eleventyNavigation:
   key: gridFR
   title: Grille
@@ -12,10 +12,10 @@ eleventyNavigation:
   alt: Un aperçu du composant grille qui montre quatre boîtes jaunes verticales alignées horizontalement représentant des colonnes sur une page.
   tag: À l'essai
   state: published
-translationKey: "grid"
+translationKey: 'grid'
 tags: ['gridFR', 'usage']
 permalink: /fr/composants/grille/
-date: "git Last Modified"
+date: 'git Last Modified'
 ---
 
 Examinez les cas d'utilisation des grilles pour déterminer si elles répondent à vos besoins.
@@ -35,7 +35,8 @@ Utilisez des grilles pour :
 <article class="bg-full-width bg-primary text-light pt-500 pb-400 my-500">
   <h2 class="mt-0 mb-400">Composants connexes</h2>
 
-  <a href="{{ links.container }}" class="link-light">Boîte</a> : pour appliquer une disposition de base à une seule colonne sur toutes les fenêtres d'affichage.
+<a href="{{ links.container }}" class="link-light">Boîte</a> : pour appliquer une disposition de base à une seule colonne sur toutes les fenêtres d'affichage.
 
-  <a href="{{ links.card }}" class="link-light">Carte</a> : pour structurer du contenu exploitable dans un même groupe consacré à un seul et même thème.
+<a href="{{ links.card }}" class="link-light">Carte</a> : pour structurer du contenu exploitable dans un même groupe consacré à un seul et même thème.
+
 </article>
