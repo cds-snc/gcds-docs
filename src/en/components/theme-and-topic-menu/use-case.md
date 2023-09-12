@@ -14,7 +14,7 @@ eleventyNavigation:
 translationKey: "themeand-topic-menu"
 tags: ['themeand-topic-menuEN', 'usage']
 permalink: /en/components/theme-and-topic-menu/
-# date: "git Last Modified"
+date: "git Last Modified"
 ---
 
 ## Problems the theme and topic menu solves

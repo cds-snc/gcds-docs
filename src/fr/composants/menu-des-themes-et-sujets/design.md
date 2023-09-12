@@ -3,7 +3,7 @@ title: Menu des thèmes et sujets
 layout: "layouts/component-documentation.njk"
 translationKey: "themeand-topic-menuDesign"
 tags: ['themeand-topic-menuFR', 'design']
-# date: "git Last Modified"
+date: "git Last Modified"
 ---
 
 ## Structure de la Menu des thèmes et sujets

@@ -14,7 +14,7 @@ eleventyNavigation:
 translationKey: "themeand-topic-menu"
 tags: ['themeand-topic-menuFR', 'usage']
 permalink: /fr/composants/menu-des-themes-et-sujets/
-# date: "git Last Modified"
+date: "git Last Modified"
 ---
 
 ## Problèmes résolus par le menu des thèmes et sujets

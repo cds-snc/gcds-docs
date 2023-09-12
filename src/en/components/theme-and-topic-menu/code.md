@@ -3,7 +3,7 @@ title: Theme and topic menu
 layout: "layouts/component-documentation.njk"
 translationKey: "themeand-topic-menuCode"
 tags: ['themeand-topic-menuEN', 'code']
-# date: "git Last Modified"
+date: "git Last Modified"
 ---
 
 ## Build a theme and topic menu
