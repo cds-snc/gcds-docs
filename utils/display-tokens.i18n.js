@@ -76,7 +76,6 @@ const i18n = {
         'link-default': '',
         'link-hover': '',
         'link-light': '',
-        'link-default': '',
         'border-default': '',
         'focus-text-form': '',
         'focus-background': '',
