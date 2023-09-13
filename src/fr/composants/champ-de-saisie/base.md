@@ -16,10 +16,6 @@ Un champ de saisie est un espace permettant de saisir une courte réponse à une
 {% enddocLinks %}
 
 {% componentPreview "Aperçu du composant de champ de saisie" "px-300 pt-400" %}
-<gcds-input
-input-id="input-example"
-label="Étiquette de champ"
-hint="Texte explicatif / Exemple de message."
-
-> </gcds-input>
-> {% endcomponentPreview %}
+<gcds-input input-id="input-example" label="Étiquette de champ" hint="Texte explicatif / Exemple de message.">
+</gcds-input>
+{% endcomponentPreview %}

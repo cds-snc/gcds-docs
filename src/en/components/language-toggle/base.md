@@ -16,9 +16,5 @@ The language toggle is a link to the same content in the other Official Language
 {% enddocLinks %}
 
 {% componentPreview "Language toggle component preview" %}
-<gcds-lang-toggle
-href="#"
-lang="en"
-
-> </gcds-lang-toggle>
-> {% endcomponentPreview %}
+<gcds-lang-toggle href="#" lang="en"></gcds-lang-toggle>
+{% endcomponentPreview %}

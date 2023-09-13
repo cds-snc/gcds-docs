@@ -7,7 +7,7 @@ tags: ['errorsummaryFR', 'header']
 
 # Résumé des erreurs <br>`<gcds-error-summary>`
 
-_Autres noms : liste d’erreurs._
+_Autres noms : liste d'erreurs._
 
 Un résumé des erreurs consiste en une liste des erreurs rencontrées par les utilisateur·rice·s dans un formulaire.
 
@@ -15,12 +15,10 @@ Un résumé des erreurs consiste en une liste des erreurs rencontrées par les u
 {% enddocLinks %}
 
 {% componentPreview "Aperçu du composant de résumé des erreurs" %}
-<gcds-error-summary
-error-links='{
-"error-href-1": "Élément du résumé des erreurs.",
-"error-href-2": "Élément du résumé des erreurs.",
-"error-href-3": "Élément du résumé des erreurs."
-}'
-
-> </gcds-error-summary>
-> {% endcomponentPreview %}
+<gcds-error-summary error-links='{
+  "error-href-1": "Élément du résumé des erreurs.",
+  "error-href-2": "Élément du résumé des erreurs.",
+  "error-href-3": "Élément du résumé des erreurs."
+}'>
+</gcds-error-summary>
+{% endcomponentPreview %}

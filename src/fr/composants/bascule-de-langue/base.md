@@ -10,15 +10,11 @@ tags: ['langtoggleFR', 'header']
 
 _Autres noms : commutateur de langue, sélecteur de langue._
 
-La bascule de langue est un lien menant vers le même contenu dans l’autre langue officielle.
+La bascule de langue est un lien menant vers le même contenu dans l'autre langue officielle.
 
 {% docLinks locale stage figma github %}
 {% enddocLinks %}
 
 {% componentPreview "Aperçu du de bascule de langue" %}
-<gcds-lang-toggle
-href="#"
-lang="fr"
-
-> </gcds-lang-toggle>
-> {% endcomponentPreview %}
+<gcds-lang-toggle href="#" lang="fr"></gcds-lang-toggle>
+{% endcomponentPreview %}

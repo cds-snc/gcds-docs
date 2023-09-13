@@ -16,11 +16,6 @@ Une zone de texte est un espace permettant de saisir une réponse détaillée à
 {% enddocLinks %}
 
 {% componentPreview "Aperçu du composant de zone de texte" "px-300 pt-400" %}
-<gcds-textarea
-textarea-id="textarea-example"
-label="Libellé de champ"
-hint="Texte explicatif / Exemple de message."
-value="Contenu de la zone de texte."
-
-> </gcds-textarea>
-> {% endcomponentPreview %}
+<gcds-textarea textarea-id="textarea-example" label="Libellé de champ" hint="Texte explicatif / Exemple de message." value="Contenu de la zone de texte.">
+</gcds-textarea>
+{% endcomponentPreview %}

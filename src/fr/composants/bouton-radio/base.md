@@ -16,27 +16,11 @@ Un bouton radio permet de proposer plusieurs options de réponse pour un choix u
 {% enddocLinks %}
 
 {% componentPreview "Aperçu du composant de radio" "px-300 pt-400 pb-200" %}
-<gcds-fieldset
-fieldset-id="fieldset"
-legend="Légende"
-hint="Texte explicatif/Exemple de message."
+<gcds-fieldset fieldset-id="fieldset" legend="Légende" hint="Texte explicatif/Exemple de message.">
+<gcds-radio radio-id="form-radio-1" label="Libellé" hint="Ceci est une description ou un exemple à titre de clarification." name="radio" checked>
+</gcds-radio>
 
-> <gcds-radio
-
-    radio-id="form-radio-1"
-    label="Libellé"
-    hint="Ceci est une description ou un exemple à titre de clarification."
-    name="radio"
-    checked
-
->   </gcds-radio>
-
-    <gcds-radio
-    radio-id="form-radio-2"
-    label="Libellé"
-    hint="Ceci est une description ou un exemple à titre de clarification."
-    name="radio"
-
->   </gcds-radio>
-> </gcds-fieldset>
-> {% endcomponentPreview %}
+<gcds-radio radio-id="form-radio-2" label="Libellé" hint="Ceci est une description ou un exemple à titre de clarification." name="radio">
+</gcds-radio>
+</gcds-fieldset>
+{% endcomponentPreview %}

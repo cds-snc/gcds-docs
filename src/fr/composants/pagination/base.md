@@ -16,23 +16,9 @@ La pagination est une division du contenu entre plusieurs pages liées.
 {% enddocLinks %}
 
 {% componentPreview "Aperçu du composant de la pagination" "px-0 lg:px-300 xl:px-300 py-400" %}
-<gcds-pagination
-label="pagination simple"
-display="simple"
-previous-href="#"
-next-href="#"
-previous-label="Titre de la page"
-next-label="3 de 3"
-lang="fr"
+<gcds-pagination label="pagination simple" display="simple" previous-href="#" next-href="#" previous-label="Titre de la page" next-label="3 de 3" lang="fr">
+</gcds-pagination>
 
-> </gcds-pagination>
-
-<gcds-pagination
-label="pagination sous forme de liste"
-display="list"
-total-pages="15"
-current-page="9"
-lang="fr"
-
-> </gcds-pagination>
-> {% endcomponentPreview %}
+<gcds-pagination label="pagination sous forme de liste" display="list" total-pages="15" current-page="9" lang="fr">
+</gcds-pagination>
+{% endcomponentPreview %}
