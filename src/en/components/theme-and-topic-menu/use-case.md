@@ -6,7 +6,7 @@ eleventyNavigation:
   title: Theme and topic menu
   locale: en
   parent: componentsEN
-  otherNames:
+  otherNames: global navigation, theme-based navigation.
   description: The theme and topic menu is a navigation to the top tasks of Government of Canada websites.
   thumbnail: /images/common/components/preview-topic-menu.svg
   alt: Theme and topic menu shows a grey menu button above an expanded vertical list of menu options.
