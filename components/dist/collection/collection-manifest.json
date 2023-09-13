@@ -33,6 +33,7 @@
     "./components/gcds-stepper/gcds-stepper.js",
     "./components/gcds-textarea/gcds-textarea.js",
     "./components/gcds-top-nav/gcds-top-nav.js",
+    "./components/gcds-topic-menu/gcds-topic-menu.js",
     "./components/gcds-verify-banner/gcds-verify-banner.js"
   ],
   "compiler": {

@@ -6,7 +6,7 @@ export class GcdsDetails {
   }
   render() {
     const { detailsTitle, open } = this;
-    return (h(Host, null, h("details", { class: "gcds-details", open: open ? true : false }, h("summary", null, h("p", null, detailsTitle)), h("div", { class: "details__panel" }, h("slot", null)))));
+    return (h(Host, null, h("button", { "aria-expanded": open.toString(), "aria-controls": "details__panel", onClick: () => this.open = !open, class: "details__summary", id: "details__summary" }, detailsTitle), h("div", { id: "details__panel", class: "details__panel", "aria-labelledby": "details__summary" }, h("slot", null))));
   }
   static get is() { return "gcds-details"; }
   static get encapsulation() { return "shadow"; }
@@ -41,7 +41,7 @@ export class GcdsDetails {
       },
       "open": {
         "type": "boolean",
-        "mutable": false,
+        "mutable": true,
         "complexType": {
           "original": "boolean",
           "resolved": "boolean",
@@ -54,7 +54,7 @@ export class GcdsDetails {
           "text": "Defines if the details panel is open by default or not."
         },
         "attribute": "open",
-        "reflect": false,
+        "reflect": true,
         "defaultValue": "false"
       }
     };

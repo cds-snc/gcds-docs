@@ -67,7 +67,7 @@ export class GcdsPagination {
       return (h("li", null, end === "next" ?
         h("a", Object.assign({}, linkAttrs, { class: !mobile ? "gcds-pagination-end-button" : "gcds-pagination-end-button-mobile" }), I18N[this.lang].next, h("gcds-icon", { "margin-left": "200", name: "arrow-right" }))
         :
-          h("a", Object.assign({}, linkAttrs, { class: !mobile ? "gcds-pagination-end-button" : "gcds-pagination-end-button-mobile" }), h("gcds-icon", { "margin-right": "200", name: "arrow-left" }), I18N[this.lang].previous)));
+          h("a", Object.assign({}, linkAttrs, { class: !mobile ? "gcds-pagination-end-button" : "gcds-pagination-end-button-mobile" }), h("gcds-icon", { "margin-right": "200", name: "arrow-left" }), mobile ? I18N[this.lang].previousMobile : I18N[this.lang].previous)));
     }
     else {
       return (h("li", { class: page != 1 && page != this.totalPages ? constructClasses(page, this.currentPage, this.totalPages) : "" }, h("a", Object.assign({}, linkAttrs), page)));

@@ -1,6 +1,5 @@
 import { Host, h } from '@stencil/core';
 import { assignLanguage, observerConfig } from '../../utils/utils';
-import I18N from './i18n/i18n';
 export class GcdsNavGroup {
   constructor() {
     this.closeTrigger = undefined;
@@ -57,11 +56,17 @@ export class GcdsNavGroup {
     }
   }
   render() {
-    const { closeTrigger, menuLabel, open, openTrigger, lang } = this;
-    return (h(Host, { role: "presentation", open: open, class: open && "gcds-nav-group-expanded" }, h("button", { "aria-haspopup": "true", "aria-expanded": open.toString(), role: "menuitem", "aria-describedby": "trigger-controls", ref: element => this.triggerElement = element, class: `gcds-nav-group__trigger gcds-trigger--${this.navStyle}`, onClick: () => {
+    const { closeTrigger, menuLabel, open, openTrigger } = this;
+    let roleAttr = {
+      role: "menuitem"
+    };
+    if (this.el.classList.contains("gcds-mobile-nav")) {
+      delete roleAttr["role"];
+    }
+    return (h(Host, { role: "presentation", open: open, class: open && "gcds-nav-group-expanded" }, h("button", Object.assign({ "aria-haspopup": "true", "aria-expanded": open.toString() }, roleAttr, { ref: element => this.triggerElement = element, class: `gcds-nav-group__trigger gcds-trigger--${this.navStyle}`, onClick: () => {
         this.toggleNav();
         this.gcdsClick.emit();
-      } }, h("gcds-icon", { name: open ? 'angle-up' : 'angle-down' }), closeTrigger && open ? closeTrigger : openTrigger), h("ul", { role: "menu", "aria-label": menuLabel, class: `gcds-nav-group__list gcds-nav--${this.navStyle}` }, h("slot", null)), h("span", { "aria-hidden": "true", id: `trigger-controls`, class: "gcds-nav-group__trigger-desc" }, I18N[lang].submenu.replace('{$t}', menuLabel))));
+      } }), h("gcds-icon", { name: open ? 'angle-up' : 'angle-down' }), closeTrigger && open ? closeTrigger : openTrigger), h("ul", { role: "menu", "aria-label": menuLabel, class: `gcds-nav-group__list gcds-nav--${this.navStyle}` }, h("slot", null))));
   }
   static get is() { return "gcds-nav-group"; }
   static get encapsulation() { return "shadow"; }

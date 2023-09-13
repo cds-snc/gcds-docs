@@ -71,8 +71,8 @@ export class GcdsGrid {
           "resolved": "string",
           "references": {}
         },
-        "required": false,
-        "optional": true,
+        "required": true,
+        "optional": false,
         "docs": {
           "tags": [],
           "text": "Defines the columns of the grid\nOption to set different layouts for desktop | tablet | default (includes mobile)"

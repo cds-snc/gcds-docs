@@ -36,7 +36,7 @@ async function handleKeyDownNav(event, nav, queue) {
     // Right arrow
     case 'ArrowRight':
       event.preventDefault();
-      if (activeElement.nodeName == "GCDS-NAV-GROUP") {
+      if (activeElement.nodeName == "GCDS-NAV-GROUP" && !activeElement.hasAttribute("open")) {
         await toggleNavGroup(activeElement, nav);
       }
       break;

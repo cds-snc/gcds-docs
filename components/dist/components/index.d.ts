@@ -32,6 +32,7 @@ export { GcdsSignature as GcdsSignature } from '../types/components/gcds-signatu
 export { GcdsStepper as GcdsStepper } from '../types/components/gcds-stepper/gcds-stepper';
 export { GcdsTextarea as GcdsTextarea } from '../types/components/gcds-textarea/gcds-textarea';
 export { GcdsTopNav as GcdsTopNav } from '../types/components/gcds-top-nav/gcds-top-nav';
+export { GcdsTopicMenu as GcdsTopicMenu } from '../types/components/gcds-topic-menu/gcds-topic-menu';
 export { GcdsVerifyBanner as GcdsVerifyBanner } from '../types/components/gcds-verify-banner/gcds-verify-banner';
 
 /**

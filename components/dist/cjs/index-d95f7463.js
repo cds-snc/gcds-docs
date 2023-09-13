@@ -2015,10 +2015,10 @@ const loadModule = (cmpMeta, hostRef, hmrVersionId) => {
       }
       switch(bundleId) {
         
-        case 'gcds-alert_34.cjs':
+        case 'gcds-alert_35.cjs':
           return Promise.resolve().then(function () { return /*#__PURE__*/_interopNamespace(require(
             /* webpackMode: "lazy" */
-            './gcds-alert_34.cjs.entry.js')); }).then(processMod, consoleError);
+            './gcds-alert_35.cjs.entry.js')); }).then(processMod, consoleError);
       }
     }
     return Promise.resolve().then(function () { return /*#__PURE__*/_interopNamespace(require(

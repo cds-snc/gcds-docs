@@ -32,4 +32,5 @@ export { GcdsSignature, defineCustomElement as defineCustomElementGcdsSignature 
 export { GcdsStepper, defineCustomElement as defineCustomElementGcdsStepper } from './gcds-stepper.js';
 export { GcdsTextarea, defineCustomElement as defineCustomElementGcdsTextarea } from './gcds-textarea.js';
 export { GcdsTopNav, defineCustomElement as defineCustomElementGcdsTopNav } from './gcds-top-nav.js';
+export { GcdsTopicMenu, defineCustomElement as defineCustomElementGcdsTopicMenu } from './gcds-topic-menu.js';
 export { GcdsVerifyBanner, defineCustomElement as defineCustomElementGcdsVerifyBanner } from './gcds-verify-banner.js';

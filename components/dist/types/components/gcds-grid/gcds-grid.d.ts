@@ -7,7 +7,7 @@ export declare class GcdsGrid {
    * Defines the columns of the grid
    * Option to set different layouts for desktop | tablet | default (includes mobile)
    */
-  columns?: string;
+  columns: string;
   columnsTablet?: string;
   columnsDesktop?: string;
   /**
