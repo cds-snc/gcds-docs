@@ -9,7 +9,7 @@ eleventyNavigation:
   otherNames:
   description: Le menu des thèmes et sujets est un mécanisme de navigation vers les tâches les plus importantes des sites Web du gouvernement du Canada.
   thumbnail: /images/common/components/preview-topic-menu.svg
-  alt: This is an image of the component
+  alt: Le menu des thèmes et sujets affiche un bouton de menu gris au-dessus d'une liste verticale étendue d'options de menu.
   state: published
 translationKey: "themeand-topic-menu"
 tags: ['themeand-topic-menuFR', 'usage']
