@@ -30,7 +30,7 @@ Use a button for important actions a person using a product can initiate.
   title="Overview of gcds-button properties and events."
   src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&demo=true&singleStory=true&id=components-button--events-properties"
   width="1200"
-  height="1650"
+  height="1800"
   style="display: block; margin: 0 auto;"
   frameBorder="0"
   allow="clipboard-write"

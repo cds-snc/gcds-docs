@@ -31,7 +31,7 @@ La zone de texte donne aux utilisateur·rice·s la possibilité de fournir les r
   title="Survol des propriétés et des évènements relatifs à gcds-textarea."
   src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&demo=true&singleStory=true&id=components-textarea--events-properties"
   width="1200"
-  height="1900"
+  height="2050"
   style="display: block; margin: 0 auto;"
   frameBorder="0"
   allow="clipboard-write"
