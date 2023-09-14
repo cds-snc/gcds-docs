@@ -52,7 +52,7 @@
 
     "comingSoon": "/fr/developpement-en-cours",
     "demo": "/fr/demo",
-    "releaseNotes": "/fr/notes-de-publication",
+    "releaseNotes": "https://github.com/cds-snc/gcds-components/blob/main/CHANGELOG.md",
 
     "figma": "https://www.figma.com/file/mh2maMG2NBtk41k1O1UGHV/Canadian-Digital-Service%E2%80%A8---GC-Design-System?node-id=4%3A1006&t=qguKsJtr1ityUsUN-0",
 
