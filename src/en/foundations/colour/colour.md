@@ -1,6 +1,6 @@
 ---
 title: Colour tokens
-layout: "layouts/base.njk"
+layout: 'layouts/base.njk'
 eleventyNavigation:
   key: colourEN
   title: Colour
@@ -12,7 +12,7 @@ eleventyNavigation:
   alt:
   state: published
 permalink: /en/foundations/colour/
-translationKey: "colour"
+translationKey: 'colour'
 tokenTable:
   headers:
     color-preview: Preview
@@ -36,7 +36,7 @@ tokenTable:
     focus-background: Focus background colour, exclusively for focus on an interactive element.
     focus-text: Focus text colour, exclusively for focus on an interactive element.
     focus-textForm: Focus text-form colour, exclusively for focus on a form interactive element. Avoid using for non-form elements.
-date: "git Last Modified"
+date: 'git Last Modified'
 ---
 
 # {{ title }}

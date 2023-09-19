@@ -1,7 +1,7 @@
 ---
-title: {componentName}
-layout: "layouts/component-documentation.njk"
-translationKey: "{navKey}Code"
+title: { componentName }
+layout: 'layouts/component-documentation.njk'
+translationKey: '{navKey}Code'
 tags: ['{navKey}{locale}', 'code']
 # date: "git Last Modified"
 ---

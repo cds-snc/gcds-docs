@@ -1,9 +1,9 @@
 ---
 title: Pied de page
-layout: "layouts/component-documentation.njk"
-translationKey: "footerDesign"
+layout: 'layouts/component-documentation.njk'
+translationKey: 'footerDesign'
 tags: ['footerFR', 'design']
-date: "git Last Modified"
+date: 'git Last Modified'
 ---
 
 ## Structure du pied de page — éléments recommandés

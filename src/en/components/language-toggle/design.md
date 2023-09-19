@@ -1,9 +1,9 @@
 ---
 title: Language toggle
-layout: "layouts/component-documentation.njk"
-translationKey: "langtoggleDesign"
+layout: 'layouts/component-documentation.njk'
+translationKey: 'langtoggleDesign'
 tags: ['langtoggleEN', 'design']
-date: "git Last Modified"
+date: 'git Last Modified'
 ---
 
 ## Language toggle anatomy

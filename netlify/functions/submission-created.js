@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios from 'axios';
 const { EMAIL_TARGET, API_KEY, TEMPLATE_ID, ACCESS_TOKEN } = process.env;
 exports.handler = async (event, context) => {
   const name = JSON.parse(event.body).payload.name;
@@ -8,30 +8,38 @@ exports.handler = async (event, context) => {
 
   const headData = {
     'Authorization': `ApiKey-v1 ${API_KEY}`,
-    'Content-Type': 'application/json'
-  }
+    'Content-Type': 'application/json',
+  };
 
   const postData = JSON.stringify({
-    "email_address": EMAIL_TARGET,
-    "template_id": TEMPLATE_ID,
-    "personalisation":  {
-        "name": name,
-        "email": email,
-        "message": message
-      }
+    email_address: EMAIL_TARGET,
+    template_id: TEMPLATE_ID,
+    personalisation: {
+      name: name,
+      email: email,
+      message: message,
+    },
   });
 
-  await axios.post('https://api.notification.canada.ca/v2/notifications/email', postData, {headers: headData})
-  .then((res) => {
-    console.log("RESPONSE RECEIVED: ", res);
-  })
-  .catch((err) => {
-    console.log("AXIOS ERROR: ", err);
-  })
+  await axios
+    .post(
+      'https://api.notification.canada.ca/v2/notifications/email',
+      postData,
+      { headers: headData },
+    )
+    .then(res => {
+      console.log('RESPONSE RECEIVED: ', res);
+    })
+    .catch(err => {
+      console.log('AXIOS ERROR: ', err);
+    });
 
   const deleteHeader = {
-    'Authorization': `Bearer ${ACCESS_TOKEN}`
-  }
+    Authorization: `Bearer ${ACCESS_TOKEN}`,
+  };
 
-  const res = await axios.delete(`https://api.netlify.com/api/v1/submissions/${submission_id}`, { headers: deleteHeader });
-}
+  const res = await axios.delete(
+    `https://api.netlify.com/api/v1/submissions/${submission_id}`,
+    { headers: deleteHeader },
+  );
+};

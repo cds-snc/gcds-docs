@@ -1,14 +1,14 @@
 ---
 title: Design tokens
-layout: "layouts/base.njk"
+layout: 'layouts/base.njk'
 eleventyNavigation:
   key: tokensEN
   title: Design tokens
   locale: en
   parent: foundationsEN
   description: GC Design System tokens are the smallest building blocks of the design system.
-translationKey: "designtokens"
-date: "git Last Modified"
+translationKey: 'designtokens'
+date: 'git Last Modified'
 ---
 
 # {{ title }}
@@ -63,7 +63,7 @@ Tokens are characterized by a naming progression.
 - **The category** states the component, property, state, or colour depending on the type of token.
 - **The role** specifies the component sub-type, like primary, secondary, danger, etc.
 - **The state** cites the interaction or data state, like default, hover, focus, etc.
-- **The property** refers to the specific CSS property the token's being applied to, like  `background`, `border`, `color`, etc.
+- **The property** refers to the specific CSS property the token's being applied to, like `background`, `border`, `color`, etc.
 - **The scale** refers to one of a set of proportionally increasing shades, sizes, or weights.
 
 ### Component design token

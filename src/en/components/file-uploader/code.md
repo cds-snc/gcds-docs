@@ -1,9 +1,9 @@
 ---
 title: File uploader
-layout: "layouts/component-documentation.njk"
-translationKey: "fileuploaderCode"
+layout: 'layouts/component-documentation.njk'
+translationKey: 'fileuploaderCode'
 tags: ['fileuploaderEN', 'code']
-date: "git Last Modified"
+date: 'git Last Modified'
 ---
 
 ## Build a file uploader

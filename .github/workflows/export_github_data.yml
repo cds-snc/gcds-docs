@@ -2,7 +2,7 @@ name: GitHub repository metadata exporter
 on:
   workflow_dispatch:
   schedule:
-    - cron: "20 7 * * *"
+    - cron: '20 7 * * *'
 
 jobs:
   export-data:
@@ -11,7 +11,7 @@ jobs:
       - name: Audit DNS requests
         uses: cds-snc/dns-proxy-action@main
         env:
-          DNS_PROXY_FORWARDTOSENTINEL: "true"
+          DNS_PROXY_FORWARDTOSENTINEL: 'true'
           DNS_PROXY_LOGANALYTICSWORKSPACEID: ${{ secrets.LOG_ANALYTICS_WORKSPACE_ID }}
           DNS_PROXY_LOGANALYTICSSHAREDKEY: ${{ secrets.LOG_ANALYTICS_WORKSPACE_KEY }}
       - uses: actions/checkout@3df4ab11eba7bda6032a0b82a6bb43b11571feac # v4.0.0

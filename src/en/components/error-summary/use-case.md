@@ -1,6 +1,6 @@
 ---
 title: Error summary
-layout: "layouts/component-documentation.njk"
+layout: 'layouts/component-documentation.njk'
 eleventyNavigation:
   key: errorsummaryEN
   title: Error summary
@@ -8,10 +8,10 @@ eleventyNavigation:
   parent: componentsEN
   otherNames: error overview.
   description: A list of user errors on a page or in a flow.
-  thumbnail:  /images/common/components/preview-error-summary.svg
+  thumbnail: /images/common/components/preview-error-summary.svg
   alt: Error Summary component shows a red outlined box with two big cascading grey boxes and three bulleted grey small boxes indicating text.
   state: published
-translationKey: "errorsummary"
+translationKey: 'errorsummary'
 tags: ['errorsummaryEN', 'usage']
 permalink: /en/components/error-summary/
 ---
@@ -30,5 +30,6 @@ Use an error summary to interrupt a person who's submitting a form when there is
 <article class="bg-full-width bg-primary text-light pt-500 pb-400 my-500">
   <h2 class="mt-0 mb-400">Related components</h2>
 
-  <a href="{{ links.errorMessage }}" class="link-light">Error message</a> for describing a problem blocking a user action, related to a single component.
+<a href="{{ links.errorMessage }}" class="link-light">Error message</a> for describing a problem blocking a user action, related to a single component.
+
 </article>

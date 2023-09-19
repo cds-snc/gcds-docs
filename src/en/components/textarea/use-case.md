@@ -1,6 +1,6 @@
 ---
 title: Textarea
-layout: "layouts/component-documentation.njk"
+layout: 'layouts/component-documentation.njk'
 eleventyNavigation:
   key: textareaEN
   title: Textarea
@@ -11,10 +11,10 @@ eleventyNavigation:
   thumbnail: /images/common/components/preview-textarea.svg
   alt: Text area component shows two cascading grey boxes followed by a large box spanning multiple lines in height and a cursor to show this is a textarea. The two gray boxes represent the textarea's label and hint message.
   state: published
-translationKey: "textarea"
+translationKey: 'textarea'
 tags: ['textareaEN', 'usage']
 permalink: /en/components/textarea/
-date: "git Last Modified"
+date: 'git Last Modified'
 ---
 
 Take a look at what text areas do to see if they fit the problem you're solving for.
@@ -31,5 +31,6 @@ Note: Only collect information you're authorized to handle and be sure to safegu
 <article class="bg-full-width bg-primary text-light pt-500 pb-400 my-500">
   <h2 class="mt-0 mb-400">Related components</h2>
 
-  <a href="{{ links.input }}" class="link-light">Input</a> for short, single-line responses.
+<a href="{{ links.input }}" class="link-light">Input</a> for short, single-line responses.
+
 </article>

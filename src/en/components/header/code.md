@@ -1,9 +1,9 @@
 ---
 title: Header
-layout: "layouts/component-documentation.njk"
-translationKey: "headerCode"
+layout: 'layouts/component-documentation.njk'
+translationKey: 'headerCode'
 tags: ['headerEN', 'code']
-date: "git Last Modified"
+date: 'git Last Modified'
 ---
 
 ## Build a header component

@@ -1,7 +1,7 @@
 ---
 title: Screenreader content
-layout: "layouts/component-documentation.njk"
-translationKey: "screenreadercontentDesign"
+layout: 'layouts/component-documentation.njk'
+translationKey: 'screenreadercontentDesign'
 tags: ['screenreadercontentEN', 'design']
 # date: "git Last Modified"
 ---

@@ -1,9 +1,9 @@
 ---
 title: Card
-layout: "layouts/component-documentation.njk"
-translationKey: "cardDesign"
+layout: 'layouts/component-documentation.njk'
+translationKey: 'cardDesign'
 tags: ['cardEN', 'design']
-date: "git Last Modified"
+date: 'git Last Modified'
 ---
 
 ## Card anatomy
@@ -24,29 +24,29 @@ date: "git Last Modified"
 ### Write a scannable card title
 
 - Use a title as a signpost to let a person know what they’ll find in the card.
-- Make the title scannable by keeping it concise. 
-- Choose a brief description or call-to-action statement for the title. 
-- Write a meaningful title to help a person choose what to read.  
+- Make the title scannable by keeping it concise.
+- Choose a brief description or call-to-action statement for the title.
+- Write a meaningful title to help a person choose what to read.
 
 ### Choose what information to add to the card
 
 - Consider adding an image related to the title to make individual cards more identifiable.
-- Include a tag to identify the subject and support the scannability of the card.  
-- Opt to display relevant metadata about the card, as additional context to the primary information in the title and description. 
+- Include a tag to identify the subject and support the scannability of the card.
+- Opt to display relevant metadata about the card, as additional context to the primary information in the title and description.
 
 ### Select which metadata to include
 
-If you include metadata, choose the 1 piece of information most important to your readers. For example: 
+If you include metadata, choose the 1 piece of information most important to your readers. For example:
 
 - Estimated length or reading time.
-- Source, reference, or author. 
-- Rating or number of likes or saves. 
-- Date or location. 
+- Source, reference, or author.
+- Rating or number of likes or saves.
+- Date or location.
 
 ### Group multiple cards for visual consistency
 
 When you have more than 1 card on a page:
 
 - Organize multiple cards within a grid component.
-- Use the same card type within a section on a page. Choose the link card type or the action card type for all cards rather than mixing types. 
+- Use the same card type within a section on a page. Choose the link card type or the action card type for all cards rather than mixing types.
 - Try to include the same properties for each card within a section on a page. For example, if one card has an image then all cards get an image.

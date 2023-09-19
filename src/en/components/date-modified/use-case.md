@@ -1,6 +1,6 @@
 ---
 title: Date modified
-layout: "layouts/component-documentation.njk"
+layout: 'layouts/component-documentation.njk'
 eleventyNavigation:
   key: datemodifiedEN
   title: Date modified
@@ -12,10 +12,10 @@ eleventyNavigation:
   alt: Date Modified showing timestamp of the last page update.
   tag: Core
   state: published
-translationKey: "datemodified"
+translationKey: 'datemodified'
 tags: ['datemodifiedEN', 'usage']
 permalink: /en/components/date-modified/
-date: "git Last Modified"
+date: 'git Last Modified'
 ---
 
 ## Problems date modified solves
@@ -28,7 +28,8 @@ Use date modified to:
 <article class="bg-full-width bg-primary text-light pt-500 pb-400 my-500">
   <h2 class="mt-0 mb-400">Related components</h2>
 
-  <a href="{{ links.footer }}" class="link-light">Footer</a> for placing the Government of Canada branded footer landmark.
+<a href="{{ links.footer }}" class="link-light">Footer</a> for placing the Government of Canada branded footer landmark.
+
 </article>
 
 ## Component types

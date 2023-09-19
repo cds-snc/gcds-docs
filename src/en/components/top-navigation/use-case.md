@@ -1,6 +1,6 @@
 ---
 title: Top navigation
-layout: "layouts/component-documentation.njk"
+layout: 'layouts/component-documentation.njk'
 eleventyNavigation:
   key: topnavigationEN
   title: Top navigation
@@ -11,10 +11,10 @@ eleventyNavigation:
   thumbnail: /images/common/components/preview-top-nav.svg
   alt: Top navigation shows site navigation with a dark blue box followed by two greyed boxes, the last having a dark blue line underneath to show selection.
   state: published
-translationKey: "topnavigation"
+translationKey: 'topnavigation'
 tags: ['topnavigationEN', 'usage']
 permalink: /en/components/top-navigation/
-date: "git Last Modified"
+date: 'git Last Modified'
 ---
 
 Check out top navigation use cases to see if they fit the problem you're solving for.
@@ -31,9 +31,10 @@ The top navigation helps give visitors a sense of a site's structure, purpose, a
 <article class="bg-full-width bg-primary text-light pt-500 pb-400 my-500">
   <h2 class="mt-0 mb-400">Related components</h2>
 
-  <a href="{{ links.sideNav }}" class="link-light">Side navigation</a> for products with up to three levels of navigation when the main content fits a narrow page width.
+<a href="{{ links.sideNav }}" class="link-light">Side navigation</a> for products with up to three levels of navigation when the main content fits a narrow page width.
 
-  <a href="{{ links.header }}" class="link-light">Header</a> for placing the Government of Canada branded header landmark.
+<a href="{{ links.header }}" class="link-light">Header</a> for placing the Government of Canada branded header landmark.
 
-  <a href="{{ links.breadcrumbs }}" class="link-light">Breadcrumbs</a> for a path from each level of the site's hierarchy to the current page.
+<a href="{{ links.breadcrumbs }}" class="link-light">Breadcrumbs</a> for a path from each level of the site's hierarchy to the current page.
+
 </article>

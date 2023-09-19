@@ -1,10 +1,10 @@
 ---
 title: Home
-layout: "layouts/home.njk"
+layout: 'layouts/home.njk'
 permalink: /en/
-translationKey: "index"
+translationKey: 'index'
 redirect_from: /
-date: "git Last Modified"
+date: 'git Last Modified'
 ---
 
 <h2 class="py-450">Welcome to your design system</h2>

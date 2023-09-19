@@ -1,6 +1,6 @@
 ---
 title: Pied de page
-layout: "layouts/component-documentation.njk"
+layout: 'layouts/component-documentation.njk'
 eleventyNavigation:
   key: footerFR
   title: Pied de page
@@ -12,10 +12,10 @@ eleventyNavigation:
   alt: Un aperçu du composant de pied de page qui montre une boîte rectangulaire bleue foncée avec à l'intérieur six boîtes grises représentants du texte. Sous cette boîte apparait une boîte rectangulaire grise avec à l'intérieur une boîte de texte grise et le logo du gouvernement du Canada.
   tag: De base
   state: published
-translationKey: "footer"
+translationKey: 'footer'
 tags: ['footerFR', 'usage']
 permalink: /fr/composants/pied-de-page/
-date: "git Last Modified"
+date: 'git Last Modified'
 ---
 
 Explorez les problèmes que règlent les pieds de page et découvrez s'ils peuvent être utilisés pour résoudre votre problème particulier.
@@ -31,7 +31,8 @@ Pour les applications, formulaires et autres services numériques transactionnel
 <article class="bg-full-width bg-primary text-light pt-500 pb-400 my-500">
   <h2 class="mt-0 mb-400">Composants connexes</h2>
 
-  <a href="{{ links.header }}" class="link-light">En-tête</a> : lorsque vous cherchez à placer l'image de marque du gouvernement du Canada dans l'en-tête de la page.
+<a href="{{ links.header }}" class="link-light">En-tête</a> : lorsque vous cherchez à placer l'image de marque du gouvernement du Canada dans l'en-tête de la page.
 
-  <a href="{{ links.topNav }}" class="link-light">Barre de navigation supérieure</a> : pour guider la navigation au sein d'un site Web à l'aide d'un point de repère.
+<a href="{{ links.topNav }}" class="link-light">Barre de navigation supérieure</a> : pour guider la navigation au sein d'un site Web à l'aide d'un point de repère.
+
 </article>

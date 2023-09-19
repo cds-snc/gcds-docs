@@ -15,12 +15,10 @@ An error summary is a list of user errors in a form.
 {% enddocLinks %}
 
 {% componentPreview "Error summary component preview" %}
-<gcds-error-summary
-  error-links='{
-    "error-href-1": "Error summary item.",
-    "error-href-2": "Error summary item.",
-    "error-href-3": "Error summary item."
-  }'
->
+<gcds-error-summary error-links='{
+  "error-href-1": "Error summary item.",
+  "error-href-2": "Error summary item.",
+  "error-href-3": "Error summary item."
+}'>
 </gcds-error-summary>
 {% endcomponentPreview %}

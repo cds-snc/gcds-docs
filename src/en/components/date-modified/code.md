@@ -1,9 +1,9 @@
 ---
 title: Date modified
-layout: "layouts/component-documentation.njk"
-translationKey: "datemodifiedCode"
+layout: 'layouts/component-documentation.njk'
+translationKey: 'datemodifiedCode'
 tags: ['datemodifiedEN', 'code']
-date: "git Last Modified"
+date: 'git Last Modified'
 ---
 
 ## Build a date modified component

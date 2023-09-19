@@ -1,9 +1,9 @@
 ---
 title: Boîte
-layout: "layouts/component-documentation.njk"
-translationKey: "containerDesign"
+layout: 'layouts/component-documentation.njk'
+translationKey: 'containerDesign'
 tags: ['containerFR', 'design']
-date: "git Last Modified"
+date: 'git Last Modified'
 ---
 
 ## Structure d’une boîte
@@ -27,14 +27,14 @@ date: "git Last Modified"
 
 La propriété `size` définit la taille d’une boîte. Six tailles sont disponibles :
 
-| Taille | REM | Pixels (px) |
-| ---- | --- | ----------- |
-| `full` | 100% | 100% |
-| `xl` | 71.25rem | 1140px |
-| `lg` | 62rem | 992px |
-| `md` | 48rem | 768px |
-| `sm` | 30rem | 480px |
-| `xs` | 20rem | 320px |
+| Taille | REM      | Pixels (px) |
+| ------ | -------- | ----------- |
+| `full` | 100%     | 100%        |
+| `xl`   | 71.25rem | 1140px      |
+| `lg`   | 62rem    | 992px       |
+| `md`   | 48rem    | 768px       |
+| `sm`   | 30rem    | 480px       |
+| `xs`   | 20rem    | 320px       |
 
 <br/>
 

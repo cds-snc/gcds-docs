@@ -1,6 +1,6 @@
 ---
 title: Message d'erreur
-layout: "layouts/component-documentation.njk"
+layout: 'layouts/component-documentation.njk'
 eleventyNavigation:
   key: errormessageFR
   title: Message d'erreur
@@ -11,10 +11,10 @@ eleventyNavigation:
   thumbnail: /images/common/components/preview-error-message.svg
   alt: Un aperçu du composant message d'erreur qui montre une boîte rouge pâle avec à l'intérieur une boîte rouge foncée représentant du texte.
   state: published
-translationKey: "errormessage"
+translationKey: 'errormessage'
 tags: ['errormessageFR', 'usage']
 permalink: /fr/composants/message-derreur/
-date: "git Last Modified"
+date: 'git Last Modified'
 ---
 
 Examinez les situations dans lesquelles on utilise les messages d'erreur pour voir si elles correspondent au problème que vous cherchez à résoudre.
@@ -32,7 +32,8 @@ Utilisez un message d'erreur pour vos propres composants lorsque l'une des situa
 <article class="bg-full-width bg-primary text-light pt-500 pb-400 my-500">
   <h2 class="mt-0 mb-400">Composants connexes </h2>
 
-  <a href="{{ links.errorSummary }}" class="link-light">Résumé des erreurs</a> pour répertorier tous les problèmes à résoudre pour la soumission de la réponse.
+<a href="{{ links.errorSummary }}" class="link-light">Résumé des erreurs</a> pour répertorier tous les problèmes à résoudre pour la soumission de la réponse.
 
-  Alerte : pour communiquer un changement important ou urgent.
+Alerte : pour communiquer un changement important ou urgent.
+
 </article>

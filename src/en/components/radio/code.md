@@ -1,9 +1,9 @@
 ---
 title: Radio
-layout: "layouts/component-documentation.njk"
-translationKey: "radioCode"
+layout: 'layouts/component-documentation.njk'
+translationKey: 'radioCode'
 tags: ['radioEN', 'code']
-date: "git Last Modified"
+date: 'git Last Modified'
 ---
 
 ## Build a radio

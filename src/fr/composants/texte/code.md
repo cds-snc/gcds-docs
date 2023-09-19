@@ -1,7 +1,7 @@
 ---
 title: Texte
-layout: "layouts/component-documentation.njk"
-translationKey: "textCode"
+layout: 'layouts/component-documentation.njk'
+translationKey: 'textCode'
 tags: ['textFR', 'code']
 # date: "git Last Modified"
 ---

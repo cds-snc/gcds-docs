@@ -1,6 +1,6 @@
 ---
 title: Icon
-layout: "layouts/component-documentation.njk"
+layout: 'layouts/component-documentation.njk'
 eleventyNavigation:
   key: iconEN
   title: Icon
@@ -11,10 +11,10 @@ eleventyNavigation:
   thumbnail: /images/common/components/preview-icons.svg
   alt: Icon component shows a green check mark icon, orange triangle with an exclamation icon, blue circle  with an i for information, and an arrow.
   state: coming-soon
-translationKey: "icon"
+translationKey: 'icon'
 tags: ['iconEN', 'usage']
 permalink: /en/components/icon/
-date: "git Last Modified"
+date: 'git Last Modified'
 ---
 
 ## Usage

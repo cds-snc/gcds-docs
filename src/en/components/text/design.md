@@ -1,7 +1,7 @@
 ---
 title: Text
-layout: "layouts/component-documentation.njk"
-translationKey: "textDesign"
+layout: 'layouts/component-documentation.njk'
+translationKey: 'textDesign'
 tags: ['textEN', 'design']
 # date: "git Last Modified"
 ---

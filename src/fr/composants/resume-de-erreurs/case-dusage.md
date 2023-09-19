@@ -1,6 +1,6 @@
 ---
 title: Résumé des erreurs
-layout: "layouts/component-documentation.njk"
+layout: 'layouts/component-documentation.njk'
 eleventyNavigation:
   key: errorsummaryFR
   title: Résumé des erreurs
@@ -11,7 +11,7 @@ eleventyNavigation:
   thumbnail: /images/common/components/preview-error-summary.svg
   alt: Un aperçu du composant sommaire d'erreurs qui montre une boîte blanche encadrée d'une ligne rouge avec à l'intérieur 2 grandes boîtes grises représentant du texte et une liste à puce de trois options représentées par des petites boîtes grises.
   state: published
-translationKey: "errorsummary"
+translationKey: 'errorsummary'
 tags: ['errorsummaryFR', 'usage']
 permalink: /fr/composants/resume-de-erreurs/
 ---
@@ -31,5 +31,6 @@ Utilisez le résumé des erreurs pour interrompre l'envoi d'un formulaire lorsqu
 
   <h2 class="mt-0 mb-400">Composants connexes</h2>
 
-  <a href="{{ links.errorMessage }}" class="link-light">Message d'erreur</a> lorsque vous cherchez à décrire un problème représentant un obstacle à une action menée par l'utilisateur·rice, lié à un seul composant.
+<a href="{{ links.errorMessage }}" class="link-light">Message d'erreur</a> lorsque vous cherchez à décrire un problème représentant un obstacle à une action menée par l'utilisateur·rice, lié à un seul composant.
+
 </article>

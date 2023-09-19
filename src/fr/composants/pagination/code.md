@@ -1,9 +1,9 @@
 ---
 title: Pagination
-layout: "layouts/component-documentation.njk"
-translationKey: "paginationCode"
+layout: 'layouts/component-documentation.njk'
+translationKey: 'paginationCode'
 tags: ['paginationFR', 'code']
-date: "git Last Modified"
+date: 'git Last Modified'
 ---
 
 ## Créer un composant de pagination
@@ -51,33 +51,33 @@ Pour modifier la valeur en fonction du lien de page visualisé, ajoutez les modi
 `::offset` entame le décompte depuis la valeur donnée en commençant par le lien de la deuxième page.
 
 ```js
-url={
-  queryStrings: {
-    "index::offset": 100
-  },
-}
+url = {
+  queryStrings: {
+    'index::offset': 100,
+  },
+};
 ```
 
 Utilisez `::match` pour le lien de page actuellement visualisée afin de multiplier ce dernier par la valeur fournie.
 
 ```js
-url={
-  queryStrings: {
-    "page::match": 1
-  },
-}
+url = {
+  queryStrings: {
+    'page::match': 1,
+  },
+};
 ```
 
 {% raw %}
 Utilisez `::offset` ou `::match` pour permettre l’injection d’un nombre dans une chaîne. Utilisez `{{#}}` pour que l’élément modificateur injecte le nombre modifié en fonction de la méthode de comptage dans la chaîne au moment de la visualisation.
 
 ```js
-url={
-  queryStrings: {
-    "index::offset": "index_{{100}}",
-    "page::match": "page_{{1}}"
-  },
-}
+url = {
+  queryStrings: {
+    'index::offset': 'index_{{100}}',
+    'page::match': 'page_{{1}}',
+  },
+};
 ```
 
 {% endraw %}

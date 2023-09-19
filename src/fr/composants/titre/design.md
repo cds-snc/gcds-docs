@@ -1,7 +1,7 @@
 ---
 title: Titre
-layout: "layouts/component-documentation.njk"
-translationKey: "headingDesign"
+layout: 'layouts/component-documentation.njk'
+translationKey: 'headingDesign'
 tags: ['headingFR', 'design']
 # date: "git Last Modified"
 ---

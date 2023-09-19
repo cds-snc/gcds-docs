@@ -1,6 +1,6 @@
 ---
 title: Unités de style
-layout: "layouts/base.njk"
+layout: 'layouts/base.njk'
 eleventyNavigation:
   key: tokensFR
   title: Unités de style
@@ -9,7 +9,7 @@ eleventyNavigation:
   description: This is the foundation
   thumbnail: /images/fr/bases/foundation.png
   alt:
-translationKey: "designtokens"
+translationKey: 'designtokens'
 # date: "git Last Modified"
 ---
 
@@ -60,7 +60,7 @@ Les unités de style sont caractérisées par une nomenclature progressive.
 - **La propriété** représente la propriété CSS à laquelle l'unité de style est appliquée, p. ex. `background`, `border`, `color`, etc.
 - **L'échelle** indique un ensemble de nuances de couleurs, de tailles ou d'épaisseurs à croissance proportionnelle.
 
- ### Unité de style de composant
+### Unité de style de composant
 
 <img class="b-sm b-default p-400" src="/images/fr/foundations/anatomy/anatomy-design-tokens-component.svg" alt=""/>
 

@@ -1,6 +1,6 @@
 ---
 title: Signature
-layout: "layouts/component-documentation.njk"
+layout: 'layouts/component-documentation.njk'
 eleventyNavigation:
   key: signatureFR
   title: Signature
@@ -12,10 +12,10 @@ eleventyNavigation:
   alt: Un aperçu du composant signature qui montre l'image de marque du gouvernement fédéral incluant le drapeau du Canada suivi de boîtes de texte représentants le texte en anglais et en français.
   tag: De base
   state: published
-translationKey: "signature"
+translationKey: 'signature'
 tags: ['signatureFR', 'usage']
 permalink: /fr/composants/signature/
-date: "git Last Modified"
+date: 'git Last Modified'
 ---
 
 Examinez les cas d'utilisation de la signature pour déterminer s'ils répondent à vos besoins.

@@ -2,7 +2,7 @@
 a[href] {
   text-decoration-color: currentColor;
 
-  &:not([class*="link-light"]):hover:not(:focus) {
+  &:not([class*='link-light']):hover:not(:focus) {
     color: var(--gcds-link-hover);
   }
 
@@ -17,7 +17,7 @@ a[href] {
   }
 }
 
-a[href]:not([class*="link-inherit"]):not([class*="link-light"]):not(:focus):not(
+a[href]:not([class*='link-inherit']):not([class*='link-light']):not(:focus):not(
     :hover
   ) {
   color: var(--gcds-link-default);
@@ -61,11 +61,11 @@ ol li p:last-child {
 
 // Special typography components
 code,
-[class*="language-"] {
+[class*='language-'] {
   font-family: var(--gcds-font-families-monospace);
 }
 
-code:not([class*="language-"]) {
+code:not([class*='language-']) {
   font-size: 80%;
   line-height: var(--gcds-line-heights-caption);
   padding: var(--gcds-spacing-50);

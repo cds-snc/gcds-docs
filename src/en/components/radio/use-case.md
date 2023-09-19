@@ -1,6 +1,6 @@
 ---
 title: Radio
-layout: "layouts/component-documentation.njk"
+layout: 'layouts/component-documentation.njk'
 eleventyNavigation:
   key: radioEN
   title: Radio
@@ -11,10 +11,10 @@ eleventyNavigation:
   thumbnail: /images/common/components/preview-radio.svg
   alt: Radio component shows radio selection with black outlined circle with a black circle selected followed by unselected two options.
   state: published
-translationKey: "radio"
+translationKey: 'radio'
 tags: ['radioEN', 'usage']
 permalink: /en/components/radio/
-date: "git Last Modified"
+date: 'git Last Modified'
 ---
 
 Take a look at what problems radios solve to see if they fit the problem you're solving for.
@@ -30,7 +30,8 @@ Use radios with a [fieldset]({{ links.fieldset }}) to make a request for info wi
 <article class="bg-full-width bg-primary text-light pt-500 pb-400 my-500">
   <h2 class="mt-0 mb-400">Related components</h2>
 
-  <a href="{{ links.checkbox }}" class="link-light">Checkboxes</a> when you are expecting the user to select multiple options from a list of items.
+<a href="{{ links.checkbox }}" class="link-light">Checkboxes</a> when you are expecting the user to select multiple options from a list of items.
 
-  <a href="{{ links.select }}" class="link-light">Select</a> when you can give someone a medium to large set of options for a known single selection.
+<a href="{{ links.select }}" class="link-light">Select</a> when you can give someone a medium to large set of options for a known single selection.
+
 </article>

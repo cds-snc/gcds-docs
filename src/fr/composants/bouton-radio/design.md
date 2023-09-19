@@ -1,9 +1,9 @@
 ---
 title: Bouton radio
-layout: "layouts/component-documentation.njk"
-translationKey: "radioDesign"
+layout: 'layouts/component-documentation.njk'
+translationKey: 'radioDesign'
 tags: ['radioFR', 'design']
-date: "git Last Modified"
+date: 'git Last Modified'
 ---
 
 ## Structure du bouton radio - avec jeu de champ

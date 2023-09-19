@@ -1,9 +1,9 @@
 ---
 title: Card
-layout: "layouts/component-documentation.njk"
-translationKey: "cardCode"
+layout: 'layouts/component-documentation.njk'
+translationKey: 'cardCode'
 tags: ['cardEN', 'code']
-date: "git Last Modified"
+date: 'git Last Modified'
 ---
 
 ## Build a card

@@ -1,6 +1,6 @@
 ---
 title: Grid
-layout: "layouts/component-documentation.njk"
+layout: 'layouts/component-documentation.njk'
 eleventyNavigation:
   key: gridEN
   title: Grid
@@ -12,10 +12,10 @@ eleventyNavigation:
   alt: Grid component shows four light yellow brown lined vertical boxes to show the layout.
   tag: Experimental
   state: published
-translationKey: "grid"
+translationKey: 'grid'
 tags: ['gridEN', 'usage']
 permalink: /en/components/grid/
-date: "git Last Modified"
+date: 'git Last Modified'
 ---
 
 Check out the problems grids solve to see if they fit the problem you're solving for.
@@ -35,7 +35,8 @@ Use grids to:
 <article class="bg-full-width bg-primary text-light pt-500 pb-400 my-500">
   <h2 class="mt-0 mb-400">Related components</h2>
 
-  <a href="{{ links.container }}" class="link-light">Container</a> for applying a basic, single column layout across all viewports.
+<a href="{{ links.container }}" class="link-light">Container</a> for applying a basic, single column layout across all viewports.
 
-  <a href="{{ links.card }}" class="link-light">Card</a> for structuring actionable content in a group on a single topic.
+<a href="{{ links.card }}" class="link-light">Card</a> for structuring actionable content in a group on a single topic.
+
 </article>

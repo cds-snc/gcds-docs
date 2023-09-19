@@ -1,9 +1,9 @@
 ---
 title: Verify banner
-layout: "layouts/component-documentation.njk"
-translationKey: "verifybannerCode"
+layout: 'layouts/component-documentation.njk'
+translationKey: 'verifybannerCode'
 tags: ['verifybannerEN', 'code']
-date: "git Last Modified"
+date: 'git Last Modified'
 ---
 
 ## Code

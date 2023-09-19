@@ -1,9 +1,9 @@
 ---
 title: Stepper
-layout: "layouts/component-documentation.njk"
-translationKey: "stepperCode"
+layout: 'layouts/component-documentation.njk'
+translationKey: 'stepperCode'
 tags: ['stepperEN', 'code']
-date: "git Last Modified"
+date: 'git Last Modified'
 ---
 
 ## Build a stepper

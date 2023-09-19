@@ -1,7 +1,7 @@
 ---
 title: Unités de style typographiques
-layout: "layouts/base.njk"
-translationKey: "typography"
+layout: 'layouts/base.njk'
+translationKey: 'typography'
 eleventyNavigation:
   key: typographyFR
   title: Typographie

@@ -1,9 +1,9 @@
 ---
 title: Message d'erreur
-layout: "layouts/component-documentation.njk"
-translationKey: "errormessageCode"
+layout: 'layouts/component-documentation.njk'
+translationKey: 'errormessageCode'
 tags: ['errormessageFR', 'code']
-date: "git Last Modified"
+date: 'git Last Modified'
 ---
 
 ## Création d'un message d'erreur

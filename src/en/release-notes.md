@@ -1,7 +1,7 @@
 ---
 title: Release notes
 translationKey: release
-layout: "layouts/base.njk"
+layout: 'layouts/base.njk'
 eleventyNavigation:
   key: releaseEN
   title: Release notes

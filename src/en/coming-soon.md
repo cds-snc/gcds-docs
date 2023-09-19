@@ -1,7 +1,7 @@
 ---
 title: Coming soon
 translationKey: comingsoon
-layout: "layouts/component-overview.njk"
+layout: 'layouts/component-overview.njk'
 eleventyNavigation:
   key: comingsoonEN
   title: Coming soon

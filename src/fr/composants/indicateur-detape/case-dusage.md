@@ -1,6 +1,6 @@
 ---
 title: Indicateur d'étape
-layout: "layouts/component-documentation.njk"
+layout: 'layouts/component-documentation.njk'
 eleventyNavigation:
   key: stepperFR
   title: Indicateur d'étape
@@ -11,10 +11,10 @@ eleventyNavigation:
   thumbnail: /images/fr/components/preview/preview-stepper.svg
   alt: Un aperçu du composant indicateur d'étape qui montre le texte Étape 1 de 4 avec une boîte grise en dessous représentant le titre de la page.
   state: published
-translationKey: "stepper"
+translationKey: 'stepper'
 tags: ['stepperFR', 'usage']
 permalink: /fr/composants/indicateur-detape/
-date: "git Last Modified"
+date: 'git Last Modified'
 ---
 
 Explorez les problèmes réglés par les indicateurs d'étape et découvrez s'ils peuvent être utilisés pour résoudre votre problème particulier.
@@ -30,5 +30,6 @@ Utilisez un indicateur d'étape pour une séquence logique répartie sur trois p
 <article class="bg-full-width bg-primary text-light pt-500 pb-400 my-500">
   <h2 class="mt-0 mb-400">Composants connexes</h2>
 
-  <a href="{{ links.pagination }}" class="link-light">Le composant Pagination</a> est utilisé lorsqu'un·e utilisateur·rice doit naviguer dans une liste de pages qui ne font pas partie d'un processus à plusieurs étapes. Il permet de naviguer à la page suivante ou précédente.
+<a href="{{ links.pagination }}" class="link-light">Le composant Pagination</a> est utilisé lorsqu'un·e utilisateur·rice doit naviguer dans une liste de pages qui ne font pas partie d'un processus à plusieurs étapes. Il permet de naviguer à la page suivante ou précédente.
+
 </article>
