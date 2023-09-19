@@ -1025,22 +1025,10 @@
 Pagination component preview
 </p>
 <div class="px-0 lg:px-300 xl:px-300 py-400"></p>
-<p class="mb-400"><gcds-pagination
-  label="Simple pagination example"
-  display="simple"
-  previous-href="#"
-  next-href="#"
-  previous-label="Title of page"
-  next-label="3 of 3"
->
-</gcds-pagination></p>
-<p class="mb-400"><gcds-pagination
-  label="List pagination example"
-  display="list"
-  total-pages="15"
-  current-page="9"
->
-</gcds-pagination></p>
+<gcds-pagination label="Simple pagination example" display="simple" previous-href="#" next-href="#" previous-label="Title of page" next-label="3 of 3">
+</gcds-pagination>
+<gcds-pagination label="List pagination example" display="list" total-pages="15" current-page="9">
+</gcds-pagination>
 <p class="mb-400"></div>
 </div></p>
 
@@ -1122,11 +1110,11 @@ Pagination component preview
 <p class="mb-400"><code>::offset</code> counts up with the given value starting from the second page link.</p>
 
 <div style="position: relative">
-  <pre class="language-js"><code id="code-88" class="language-js">url<span class="token operator">=</span><span class="token punctuation">{</span>
-  queryStrings<span class="token operator">:</span> <span class="token punctuation">{</span>
-    <span class="token string">"index::offset"</span><span class="token operator">:</span> <span class="token number">100</span>
+  <pre class="language-js"><code id="code-88" class="language-js">url <span class="token operator">=</span> <span class="token punctuation">{</span>
+  <span class="token literal-property property">queryStrings</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token string-property property">'index::offset'</span><span class="token operator">:</span> <span class="token number">100</span><span class="token punctuation">,</span>
   <span class="token punctuation">}</span><span class="token punctuation">,</span>
-<span class="token punctuation">}</span></code></pre>
+<span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre>
 
   <button class="code-copy "
     data-clipboard-target="#code-88"
@@ -1137,11 +1125,11 @@ Pagination component preview
 <p class="mb-400">Using <code>::match</code> on the current page link being rendered, multiplies it by the value provided.</p>
 
 <div style="position: relative">
-  <pre class="language-js"><code id="code-92" class="language-js">url<span class="token operator">=</span><span class="token punctuation">{</span>
-  queryStrings<span class="token operator">:</span> <span class="token punctuation">{</span>
-    <span class="token string-property property">"page::match"</span><span class="token operator">:</span> <span class="token number">1</span>
+  <pre class="language-js"><code id="code-92" class="language-js">url <span class="token operator">=</span> <span class="token punctuation">{</span>
+  <span class="token literal-property property">queryStrings</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token string-property property">'page::match'</span><span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
   <span class="token punctuation">}</span><span class="token punctuation">,</span>
-<span class="token punctuation">}</span></code></pre>
+<span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre>
 
   <button class="code-copy "
     data-clipboard-target="#code-92"
@@ -1152,12 +1140,12 @@ Pagination component preview
 <p class="mb-400">Using either <code>::offset</code> or <code>::match</code>, allows a number to be injected into a string. Using <code>{{#}}</code>, the modifier will inject the modified number based on the counting method into the string when rendering.</p>
 
 <div style="position: relative">
-  <pre class="language-js"><code id="code-96" class="language-js">url<span class="token operator">=</span><span class="token punctuation">{</span>
-  queryStrings<span class="token operator">:</span> <span class="token punctuation">{</span>
-    <span class="token string-property property">"index::offset"</span><span class="token operator">:</span> <span class="token string">"index_{{100}}"</span><span class="token punctuation">,</span>
-    <span class="token string-property property">"page::match"</span><span class="token operator">:</span> <span class="token string">"page_{{1}}"</span>
+  <pre class="language-js"><code id="code-96" class="language-js">url <span class="token operator">=</span> <span class="token punctuation">{</span>
+  <span class="token literal-property property">queryStrings</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token string-property property">'index::offset'</span><span class="token operator">:</span> <span class="token string">'index_{{100}}'</span><span class="token punctuation">,</span>
+    <span class="token string-property property">'page::match'</span><span class="token operator">:</span> <span class="token string">'page_{{1}}'</span><span class="token punctuation">,</span>
   <span class="token punctuation">}</span><span class="token punctuation">,</span>
-<span class="token punctuation">}</span></code></pre>
+<span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre>
 
   <button class="code-copy "
     data-clipboard-target="#code-96"
@@ -1210,7 +1198,7 @@ Pagination component preview
 
 
         <gcds-date-modified class="mb-400 font-caption">
-          2023-09-13
+          2023-09-19
         </gcds-date-modified>
       </main>
 

@@ -1025,25 +1025,21 @@
 Checkbox component preview
 </p>
 <div class="px-300 pt-400"></p>
-<p class="mb-400"><gcds-fieldset
-  fieldset-id="fieldset"
-  legend="Legend"
-  hint="Hint / Example message."
->
+<gcds-fieldset fieldset-id="fieldset" legend="Legend" hint="Hint / Example message.">
 <gcds-checkbox
-    checkbox-id="form-check-1"
-    label="Label"
-    hint="Description or example to make the option clearer."
-    name="radio"
-    checked
-  ></gcds-checkbox>
+  checkbox-id="form-check-1"
+  label="Label"
+  hint="Description or example to make the option clearer."
+  name="radio"
+  checked>
+</gcds-checkbox>
 <gcds-checkbox
-    checkbox-id="form-check-2"
-    label="Label"
-    hint="Description or example to make the option clearer."
-    name="radio"
-  ></gcds-checkbox>
-</gcds-fieldset></p>
+  checkbox-id="form-check-2"
+  label="Label"
+  hint="Description or example to make the option clearer."
+  name="radio">
+</gcds-checkbox>
+</gcds-fieldset>
 <p class="mb-400"></div>
 </div></p>
 
@@ -1094,7 +1090,7 @@ Checkbox component preview
 </ul>
 <h3 id="for-a-single-checkbox" class="mt-500 mb-400">For a single checkbox</h3>
 <ul class="list-disc mb-400"><li><p class="mb-400">Avoid using a <a href="/en/components/fieldset">fieldset</a> for checkboxes with a single box to check, like for a confirmation the terms of reference was read prior to registration.</li>
-<li><p class="mb-400">Use the <code>required</code> attribute to activate  the required validator. Validation will happen by default on the <code>onBlur</code> event.</li>
+<li><p class="mb-400">Use the <code>required</code> attribute to activate the required validator. Validation will happen by default on the <code>onBlur</code> event.</li>
 <li><p class="mb-400">If you need to change the validation event, use the <code>validate-on</code> attribute. Validation can happen on blur, when the element loses focus, or manually with the <code>validate</code> method.</li>
 <li><p class="mb-400">Use the <code>required</code> attribute when a single checkbox need to be filled in. This places &quot;(required)&quot; at the end of the checkbox .</li>
 <li><p class="mb-400">Keep the default <code>error-message</code> attribute for a required single checkbox that needs validation. Missing entry will prompt an inline error message.</li>
@@ -1145,7 +1141,7 @@ Checkbox component preview
 
 
         <gcds-date-modified class="mb-400 font-caption">
-          2023-09-13
+          2023-09-19
         </gcds-date-modified>
       </main>
 

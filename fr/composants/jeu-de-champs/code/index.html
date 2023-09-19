@@ -1011,7 +1011,7 @@
   
     <h1 id="jeu-de-champs-brgcdsfieldset" class="mb-400">Jeu de champs <br><code>&lt;gcds-fieldset&gt;</code></h1>
 <p class="mb-400"><em>Autres noms : champ de formulaire.</em></p>
-<p class="mb-400">Un jeu de champs est un groupe de plusieurs composants ou éléments d’un formulaire.</p>
+<p class="mb-400">Un jeu de champs est un groupe de plusieurs composants ou éléments d'un formulaire.</p>
 <p class="mb-400"><ul class="d-flex flex-wrap gap-400">
 <li class="github-link">
 <a href="https://github.com/cds-snc/gcds-components/tree/main/packages/web/src/components/gcds-fieldset" target="_blank" rel="nofollow" aria-label="GitHub (S'ouvre dans un nouvel onglet)">GitHub<gcds-icon name="external-link" margin-left="100" /></a>
@@ -1025,29 +1025,15 @@
 Aperçu du composant de jeu de champs
 </p>
 <div class="px-300 pt-400"></p>
-<p class="mb-400"><gcds-fieldset
-  fieldset-id="fieldset"
-  legend="Légende"
-  hint="Texte explicatif/Exemple de message."
->
-<gcds-input
-    input-id="form-input"
-    label="Étiquette de champ"
-    hint="Texte explicatif/Exemple de message."
-    size="6"
-  >
+<gcds-fieldset fieldset-id="fieldset" legend="Légende" hint="Texte explicatif/Exemple de message.">
+<gcds-input input-id="form-input" label="Étiquette de champ" hint="Texte explicatif/Exemple de message." size="6">
 </gcds-input>
-<gcds-select
-    select-id="form-select"
-    label="Étiquette de sélection"
-    hint="Texte explicatif/Exemple de message."
-    default-value="Sélectionnez l'option"
-  >
-<option value="option-1">Option 1</option>
-<option value="option-2">Option 2</option>
-<option value="option-3">Option 3</option>
+<gcds-select select-id="form-select" label="Étiquette de sélection" hint="Texte explicatif/Exemple de message." default-value="Sélectionnez l'option">
+  <option value="option-1">Option 1</option>
+  <option value="option-2">Option 2</option>
+  <option value="option-3">Option 3</option>
 </gcds-select>
-</gcds-fieldset></p>
+</gcds-fieldset>
 <p class="mb-400"></div>
 </div></p>
 
@@ -1165,7 +1151,7 @@ Aperçu du composant de jeu de champs
 
 
         <gcds-date-modified class="mb-400 font-caption">
-          2023-09-13
+          2023-09-19
         </gcds-date-modified>
       </main>
 
