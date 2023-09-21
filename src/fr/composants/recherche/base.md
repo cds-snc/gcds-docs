@@ -5,15 +5,15 @@ permalink: false
 tags: ['searchFR', 'header']
 ---
 
-# Recherche <br>`<gcds-component-name>`
+# Recherche <br>`<gcds-search>`
 
-_Autres noms : ._
+_Autres noms : barre de recherche, boîte de recherche sur le site, champ de recherche._
 
-This element will have the content below it
+Le composant recherche est un espace où entrer des mots-clés pour chercher des renseignements pertinents.
 
 {% docLinks locale stage figma github %}
 {% enddocLinks %}
 
-{% componentPreview "Aperçu du composant de Recherche" %}
-Insert component here
+{% componentPreview "Aperçu du composant de recherche" %}
+<gcds-search lang="fr"></gcds-search>
 {% endcomponentPreview %}

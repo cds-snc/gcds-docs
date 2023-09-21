@@ -23,7 +23,7 @@ Use the search component so people can find information based on keywords.
 ### Opt to replace the search endpoint for applications or transactional sites
 
 - Opt to replace the search endpoint for an application or a transactional site when leaving the site would interrupt a person’s task or flow.
-- Use the component’s default HTTP request method, `GET`, or opt to use `POST` by setting the method attribute.
+- Use the component’s default HTTP request method, `GET`, or opt to use `POST` by setting the `method` attribute.
 - Set the `action` attribute to an endpoint of your choice and set the placeholder attribute, so the text of the search prompt reflects the scope of search. The set placeholder text will also populate the label text.
 
 {% include "partials/getcode.njk" %}

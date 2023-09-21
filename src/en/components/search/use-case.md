@@ -6,7 +6,7 @@ eleventyNavigation:
   title: Search
   locale: en
   parent: componentsEN
-  otherNames: search bar, site search box, search field, lookup.
+  otherNames: search bar, site search box, search field.
   description: A space for entering keywords to find relevant information.
   thumbnail: /images/common/components/preview-search.svg
   alt: The search component shows a blank search input field with a cursor in it. At the end of the input field is a dark blue rectangle representing a button with a search icon in it.
@@ -29,6 +29,6 @@ Use search to help a person on your website or page find information:
 
   <a href="{{ links.header }}" class="link-light">Header</a> for placing the Government of Canada branded header landmark.
 
-<a href="{{ links.input }}" class="link-light">Input</a>  for requesting a short written response from a person.
+<a href="{{ links.input }}" class="link-light">Input</a> for requesting a short written response from a person.
 
 </article>
