@@ -21,7 +21,7 @@ Add the theme and topic menu directly to the <a href="{{ links.header }}">header
 {% include "partials/getcode.njk" %}
 
 <iframe
-  title="iframeTitle"
+  title="Overview of gcds-topic-menu properties and events."
   src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&demo=true&singleStory=true&id=components-theme-and-topic-menu--events-properties"
   width="1200"
   height="1700"
