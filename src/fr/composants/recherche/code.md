@@ -32,7 +32,7 @@ Utilisez le composant recherche pour aider les gens à trouver des renseignement
   title="Survol des propriétés et des évènements relatifs à gcds-search."
   src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&demo=true&singleStory=true&id=components-search--events-properties"
   width="1200"
-  height="1650"
+  height="1000"
   style="display: block; margin: 0 auto;"
   frameBorder="0"
   allow="clipboard-write"
