@@ -3,7 +3,7 @@ title: Recherche
 layout: 'layouts/component-documentation.njk'
 translationKey: 'searchCode'
 tags: ['searchFR', 'code']
-date: "git Last Modified"
+date: 'git Last Modified'
 ---
 
 ## Créer un composant recherche
@@ -18,7 +18,7 @@ Utilisez le composant recherche pour aider les gens à trouver des renseignement
 ### Configurer le composant recherche pour chercher du contenu sur Canada.ca
 
 - Utilisez le composant recherche pour effectuer une recherche globale sur Canada.ca. Par défaut, le composant est configuré pour effectuer une recherche sur Canada.ca.
-- Optez de limiter la  recherche à un domaine  spécifique à un organisme ou un programme.
+- Optez de limiter la recherche à un domaine spécifique à un organisme ou un programme.
 
 ### Optez pour la modification du point de terminaison de la recherche pour les applications ou sites transactionnels
 
@@ -32,7 +32,7 @@ Utilisez le composant recherche pour aider les gens à trouver des renseignement
   title="Survol des propriétés et des évènements relatifs à gcds-search."
   src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&demo=true&singleStory=true&id=components-search--events-properties"
   width="1200"
-  height="1000"
+  height="1150"
   style="display: block; margin: 0 auto;"
   frameBorder="0"
   allow="clipboard-write"

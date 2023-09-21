@@ -24,7 +24,7 @@ When you have more than 1 card on a page:
   title="Overview of gcds-card properties and events."
   src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&demo=true&singleStory=true&id=components-card--events-properties"
   width="1200"
-  height="1750"
+  height="1900"
   style="display: block; margin: 0 auto;"
   frameBorder="0"
   allow="clipboard-write"

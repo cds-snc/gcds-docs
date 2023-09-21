@@ -36,7 +36,7 @@ Pour aider une personne à accéder au contenu du composant Détails :
   title="Survol des propriétés et des évènements relatifs à gcds-details."
   src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&demo=true&singleStory=true&id=components-details--events-properties"
   width="1200"
-  height="900"
+  height="1050"
   style="display: block; margin: 0 auto;"
   frameBorder="0"
   allow="clipboard-write"

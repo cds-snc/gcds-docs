@@ -1,9 +1,9 @@
 ---
 title: Theme and topic menu
-layout: "layouts/component-documentation.njk"
-translationKey: "themeand-topic-menuCode"
+layout: 'layouts/component-documentation.njk'
+translationKey: 'themeand-topic-menuCode'
 tags: ['themeand-topic-menuEN', 'code']
-date: "git Last Modified"
+date: 'git Last Modified'
 ---
 
 ## Build a theme and topic menu
@@ -24,7 +24,7 @@ Add the theme and topic menu directly to the <a href="{{ links.header }}">header
   title="Overview of gcds-topic-menu properties and events."
   src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&demo=true&singleStory=true&id=components-theme-and-topic-menu--events-properties"
   width="1200"
-  height="1700"
+  height="1850"
   style="display: block; margin: 0 auto;"
   frameBorder="0"
   allow="clipboard-write"

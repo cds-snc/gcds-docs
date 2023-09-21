@@ -3,7 +3,7 @@ title: Search
 layout: 'layouts/component-documentation.njk'
 translationKey: 'searchCode'
 tags: ['searchEN', 'code']
-date: "git Last Modified"
+date: 'git Last Modified'
 ---
 
 ## Build a search component
@@ -17,7 +17,7 @@ Use the search component so people can find information based on keywords.
 
 ### Set up search for content on Canada.ca
 
-- Use the search component to perform a global search on Canada.ca. By default, the component is set to search Canada.ca.  
+- Use the search component to perform a global search on Canada.ca. By default, the component is set to search Canada.ca.
 - Opt to set the search to an institution or program specific area.
 
 ### Opt to replace the search endpoint for applications or transactional sites
@@ -32,7 +32,7 @@ Use the search component so people can find information based on keywords.
   title="Overview of gcds-search properties and events."
   src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&demo=true&singleStory=true&id=components-search--events-properties"
   width="1200"
-  height="1000"
+  height="1150"
   style="display: block; margin: 0 auto;"
   frameBorder="0"
   allow="clipboard-write"

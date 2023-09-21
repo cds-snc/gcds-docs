@@ -43,7 +43,7 @@ Use this header landmark to communicate a Government of Canada digital service o
   title="Overview of gcds-header properties and events."
   src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&demo=true&singleStory=true&id=components-header--events-properties"
   width="1200"
-  height="1450"
+  height="1600"
   style="display: block; margin: 0 auto;"
   frameBorder="0"
   allow="clipboard-write"

@@ -1,9 +1,9 @@
 ---
 title: Menu des thèmes et sujets
-layout: "layouts/component-documentation.njk"
-translationKey: "themeand-topic-menuCode"
+layout: 'layouts/component-documentation.njk'
+translationKey: 'themeand-topic-menuCode'
 tags: ['themeand-topic-menuFR', 'code']
-date: "git Last Modified"
+date: 'git Last Modified'
 ---
 
 ## Création d’un menu des thèmes et sujets
@@ -24,7 +24,7 @@ Remarque : Si vous souhaitez ajouter un menu de thèmes et sujets à la page d�
   title="Survol des propriétés et des évènements relatifs à gcds-topic-menu."
   src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&demo=true&singleStory=true&id=components-theme-and-topic-menu--events-properties"
   width="1200"
-  height="1800"
+  height="1850"
   style="display: block; margin: 0 auto;"
   frameBorder="0"
   allow="clipboard-write"
