@@ -19,7 +19,7 @@ We are using [11ty](https://www.11ty.dev/docs/) and [Netlify](https://docs.netli
 - Clone the repo `git clone https://github.com/cds-snc/gcds-docs`.
 - Run `npm install` to install all Node.js dependencies.
 - Run `npm start` to start a hot-reloading local web server.
-- The site will be accesible on http://localhost:8080/en or http://localhost:8080/fr. You have to append the `/en` and `/fr` as there is no page available at the base url
+- The site will be accessible on http://localhost:8080/en or http://localhost:8080/fr. You have to append the `/en` and `/fr` as there is no page available at the base url
   <br/>
 
 ## Formatting
