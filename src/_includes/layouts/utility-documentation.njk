@@ -1,0 +1,32 @@
+{% extends "layouts/base.njk" %}
+
+{% block content %}
+<h1 class="mb-400">{{ prop.name }} - {{ prop.category }}</h1>
+
+<p class="mb-400">{{ prop.description }}</p>
+
+<h2 class="mt-500 mb-400">Overview</h2>
+
+<table>
+  <tr>
+    <th>Class</th>
+    <th>Property</th>
+  </tr>
+  {% for property in prop.properties %}
+  <tr>
+    <td>{{ property.class }}</td>
+    <td>{{ property.property }}</td>
+  </tr>
+  {% endfor %}
+</table>
+
+<h2 class="mt-500 mb-400">Usage</h2>
+
+{% for property in prop.properties %}
+  <h3 class="mt-500 mb-400">{{ property.name }}</h3>
+
+  <p class="mb-400">{{ property.description }}</p>
+
+  [Some example not yet built]
+{% endfor %}
+{% endblock content %}
