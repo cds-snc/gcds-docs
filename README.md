@@ -19,7 +19,8 @@ We are using [11ty](https://www.11ty.dev/docs/) and [Netlify](https://docs.netli
 - Clone the repo `git clone https://github.com/cds-snc/gcds-docs`.
 - Run `npm install` to install all Node.js dependencies.
 - Run `npm start` to start a hot-reloading local web server.
-<br/>
+- The site will be accessible on http://localhost:8080/en or http://localhost:8080/fr. You have to append the `/en` and `/fr` as there is no page available at the base url
+  <br/>
 
 ## Adding new pages
 
@@ -31,13 +32,13 @@ The component created by `create-component-page` will be placed in the coming so
 
 The author will also need to manually add `"componentName": "url"` to `src/en/en.json` and `src/fr/fr.json`. Coming soon components will link to the coming soon page.
 
-#### Component pages frontmatter
+### Frontmatter
 
 Each page has [Frontmatter](https://www.scribendi.com/academy/articles/front_matter.en.html#:~:text=Front%20matter%20is%20the%20first,a%20preface%2C%20and%20much%20more.) placed at the top of the file to help format the placment, template and navigational elements of the page.
 
 The frontmatter listed below will need to be updated when creating a component page.
 
-##### base.md
+#### base.md
 
 - `github`: GitHub link to component on main branch
 - `figma`: Figma link to component page
@@ -52,7 +53,7 @@ The frontmatter listed below will need to be updated when creating a component p
   - `state`: Defaults to `coming-soon`, will need to be switched to `published` if publishing component guidance
 - `date`: Commented out by default, uncomment after first commit or when ready to publish
 
-### design.md / code.md
+#### design.md / code.md
 
 - `date`: Commented out by default, uncomment after first commit or when ready to publish
 
@@ -65,11 +66,13 @@ If you are interested in contributing to GC Design System Utility, please read o
 <br/>
 
 ## License
+
 Code released under the [MIT License](https://github.com/cds-snc/gcds-docs/blob/main/LICENSE).
 <br/>
 <br/>
 
 # --------------------------------------------------------
+
 <br/>
 
 # Documentation de Système de design GC
@@ -87,24 +90,47 @@ Nous utilisons [11ty](https://www.11ty.dev/docs/) et [Netlify](https://docs.netl
 - Copiez le référentiel `git clone https://github.com/cds-snc/gcds-docs`.
 - Exécutez ensuite `npm install` pour installer toutes les dépendances Node.js.
 - Exécutez `npm start` pour démarrer un serveur Web avec rechargement à chaud.
-<br/>
+- Le site sera accessible sur http://localhost:8080/fr or http://localhost:8080/en. Vous devrez ajouter `/fr` ou `/en` en suffixe car il n'y a pas de page disponible à l'URL de base.
+    
+  <br/>
 
-## Mise en forme
+## Ajouter de nouvelles pages
+
+### Composants
+
+Pour ajouter une nouvelle page de composant, exécutez la commande `npm run create-component-page`. Lorsque cela vous sera demandé, indiquez le nom du composant en anglais et en français. Cela générera les répertoires `/src/en/components/<nom anglais>/` et `/src/fr/composants/<nom français>/` comprenant les fichiers `base.md`, `use-case.md`, `design.md` et `code.md`.
+
+Par défaut, le composant créé par `create-component-page` sera placé dans la section du site consacrée aux éléments à venir. Vous pouvez modifier cela en choisissant `published` pour `state` dans les fichiers `use-case.md` et `case-usage.md`.
+
+L’auteur·rice devra également ajouter manuellement "componentName": "url" à `src/en/en.json` et à `src/fr/fr.json`. Les composants à venir offrent un lien vers la page des éléments à venir.
+
+### Frontmatter
 
 Chaque page contient des [liminaires](https://www.scribendi.com/academy/articles/front_matter.en.html#:~:text=Front%20matter%20is%20the%20first,a%20preface%2C%20and%20much%20more.) placés au haut du document afin d’aider à formater le positionnement, le modèle et les éléments de navigation de la page.
 
-Options de liminaires disponibles :
+Le « frontmatter » répertorié ci-dessous devra être mis à jour lors de la création d'une page de composant.
 
-- `title` : Nom de la page (obligatoire).
-- `layout` : Configuration du modèle choisi (obligatoire).
-- `translationKey` : Clé unique pour lier la page à sa version française.
-- `eleventyNavigation` : Élément utilisé pour placer la page dans la navigation principale. Ne pas l’inclure si la page actuelle n’a pas besoin d’être incluse dans la navigation principale.
-    - `key` : Clé unique pour la navigation.
-    - `parent` : Clé du nœud parent. Ne rien écrire pour créer un lien de premier niveau.
-    - `title` : Texte pour le lien de navigation.
-    - `locale` : Clé de langue pour déterminer la langue dans laquelle l’élément de navigation est disponible. Langues disponibles : EN ou FR.
-<br/>
-<br/>
+#### base.md
+
+- `github` : Lien GitHub pour le composant sur la branche principale
+- `figma`: Lien Figma vers la page du composant
+
+#### use-case.md / case-dusage.md
+
+- `eleventyNavigation` : Objet pour afficher la navigation pour le composant
+  - `otherNames` : Pour la page de survol
+  - `description`: Pour la page de survol
+  - `thumbnail` : Chemin en image miniature pour la page de survol
+  - `alt` : Texte de remplacement d’image pour la page de survol.
+  - `state` : `coming-soon` par défaut. En cas de publication des lignes directrices sur le composant, il sera nécessaire de passer à `published`.
+- `date` : Code mis en commentaire par défaut. Modifiez cela après la première validation ou lorsque vous êtes sur le point de publier.
+
+#### design.md / code.md
+
+- `date` : Code mis en commentaire par défaut. Modifiez cela après la première validation ou lorsque vous êtes sur le point de publier.
+
+  <br/>
+  <br/>
 
 ## Apportez votre contribution
 
@@ -112,4 +138,5 @@ Si vous souhaitez contribuer à la documentation de Système de design GC, veuil
 <br/>
 
 ## Licence
+
 Code publié en vertu de la [licence MIT](https://github.com/cds-snc/gcds-docs/blob/main/LICENSE).

@@ -1,9 +1,9 @@
 ---
 title: Zone de texte
-layout: "layouts/component-documentation.njk"
-translationKey: "textareaCode"
+layout: 'layouts/component-documentation.njk'
+translationKey: 'textareaCode'
 tags: ['textareaFR', 'code']
-date: "git Last Modified"
+date: 'git Last Modified'
 ---
 
 ## Créer une zone de texte
@@ -29,9 +29,9 @@ La zone de texte donne aux utilisateur·rice·s la possibilité de fournir les r
 
 <iframe
   title="Survol des propriétés et des évènements relatifs à gcds-textarea."
-  src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&singleStory=true&id=components-textarea--events-properties"
+  src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&demo=true&singleStory=true&id=components-textarea--events-properties"
   width="1200"
-  height="1825"
+  height="2050"
   style="display: block; margin: 0 auto;"
   frameBorder="0"
   allow="clipboard-write"

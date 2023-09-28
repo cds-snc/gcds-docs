@@ -1,9 +1,9 @@
 ---
 title: Stepper
-layout: "layouts/component-documentation.njk"
-translationKey: "stepperDesign"
+layout: 'layouts/component-documentation.njk'
+translationKey: 'stepperDesign'
 tags: ['stepperEN', 'design']
-date: "git Last Modified"
+date: 'git Last Modified'
 ---
 
 ## Stepper anatomy – with H1 title
@@ -20,7 +20,7 @@ date: "git Last Modified"
 
 ### Place the stepper before the page heading
 
-Place the stepper ahead of  the main heading of the page, after the page header and navigational elements.
+Place the stepper ahead of the main heading of the page, after the page header and navigational elements.
 
 ### Assign a goal to each step in your sequence
 

@@ -1,7 +1,7 @@
 ---
 title: Input
-layout: "layouts/component-documentation.njk"
-translationKey: "inputCode"
+layout: 'layouts/component-documentation.njk'
+translationKey: 'inputCode'
 tags: ['inputEN', 'code']
 ---
 
@@ -25,9 +25,9 @@ Use an input to ask for information short, one-line response.
 
 <iframe
   title="Overview of gcds-input properties and events."
-  src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&singleStory=true&id=components-input--events-properties"
+  src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&demo=true&singleStory=true&id=components-input--events-properties"
   width="1200"
-  height="1985"
+  height="2075"
   style="display: block; margin: 0 auto;"
   frameBorder="0"
   allow="clipboard-write"

@@ -1,7 +1,7 @@
 .component-preview-box a {
   height: 100%;
   border: var(--gcds-border-width-md) solid transparent;
-  transition: all .35s;
+  transition: all 0.35s;
 
   &:hover {
     border-color: var(--gcds-border-default);

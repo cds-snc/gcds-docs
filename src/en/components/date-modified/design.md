@@ -1,9 +1,9 @@
 ---
 title: Date modified
-layout: "layouts/component-documentation.njk"
-translationKey: "datemodifiedDesign"
+layout: 'layouts/component-documentation.njk'
+translationKey: 'datemodifiedDesign'
 tags: ['datemodifiedEN', 'design']
-date: "git Last Modified"
+date: 'git Last Modified'
 ---
 
 ## Date modified anatomy

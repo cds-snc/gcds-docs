@@ -1,9 +1,9 @@
 ---
 title: Fieldset
-layout: "layouts/component-documentation.njk"
-translationKey: "fieldsetCode"
+layout: 'layouts/component-documentation.njk'
+translationKey: 'fieldsetCode'
 tags: ['fieldsetEN', 'code']
-date: "git Last Modified"
+date: 'git Last Modified'
 ---
 
 ## Build a fieldset
@@ -28,16 +28,16 @@ Maintain the default `hint` attribute to provide additional context so a person 
 
 The fieldset will only validate [checkbox]({{ links.checkbox }}) and [radio button]({{ links.radio }}) children.
 
-- Use the `required` attribute to activate  the required validator. Validation will happen by default on the `onBlur` event.
+- Use the `required` attribute to activate the required validator. Validation will happen by default on the `onBlur` event.
 - If you need to change the validation event, use the `validate-on` attribute. Validation can happen on blur, when the element loses focus, or manually with the validate method.
 
 {% include "partials/getcode.njk" %}
 
 <iframe
   title="Overview of gcds-fieldset properties and events."
-  src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&singleStory=true&id=components-fieldset--events-properties"
+  src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&demo=true&singleStory=true&id=components-fieldset--events-properties"
   width="1200"
-  height="1540"
+  height="2300"
   style="display: block; margin: 0 auto;"
   frameBorder="0"
   allow="clipboard-write"

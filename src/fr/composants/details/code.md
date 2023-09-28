@@ -1,9 +1,9 @@
 ---
 title: Détails
-layout: "layouts/component-documentation.njk"
-translationKey: "detailsCode"
+layout: 'layouts/component-documentation.njk'
+translationKey: 'detailsCode'
 tags: ['detailsFR', 'code']
-date: "git Last Modified"
+date: 'git Last Modified'
 ---
 
 ## Création d'un composant Détails
@@ -28,15 +28,15 @@ Pour aider une personne à accéder au contenu du composant Détails :
 - Faites en sorte que les titres utilisés dans le composant Détails indiquent clairement la nature du contenu. Évitez les titres non descriptifs tels que « En savoir plus ». Au lieu de cela, optez pour un résumé spécifique et descriptif, comme « Montant de couverture maximal pour vos prestations de physiothérapie ».
 - Choisissez des titres distinctifs pour que les gens comprennent la différence. Les titres identiques ou similaires peuvent prêter à confusion.
 - Évitez de placer un composant Détails dans un autre, là où personne ne penserait à chercher ce contenu.
-0 Faites en sorte que le contenu du composant Détails puisse faire l'objet d'une recherche.
+  0 Faites en sorte que le contenu du composant Détails puisse faire l'objet d'une recherche.
 
 {% include "partials/getcode.njk" %}
 
 <iframe
   title="Survol des propriétés et des évènements relatifs à gcds-details."
-  src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&singleStory=true&id=components-details--events-properties"
+  src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&demo=true&singleStory=true&id=components-details--events-properties"
   width="1200"
-  height="865"
+  height="1050"
   style="display: block; margin: 0 auto;"
   frameBorder="0"
   allow="clipboard-write"

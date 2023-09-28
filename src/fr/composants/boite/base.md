@@ -7,7 +7,7 @@ tags: ['containerFR', 'header']
 
 # Boîte<br>`<gcds-container>`
 
-_Also called: conteneur, encadré._
+_Autres noms : conteneur, encadré._
 
 Il s’agit d’un modèle de boîte simple associé à une largeur de contenu fixe.
 
@@ -16,12 +16,12 @@ Il s’agit d’un modèle de boîte simple associé à une largeur de contenu f
 
 {% componentPreview "Aperçu du composant de la boîte" %}
 <gcds-container border margin="250" padding="250" size="lg">
-  Grande boîte
+Grande boîte
 </gcds-container>
 <gcds-container border margin="250" padding="250" size="md">
-  Boîte moyenne
+Boîte moyenne
 </gcds-container>
 <gcds-container border margin="250" padding="250" size="sm">
-  Petite boîte
+Petite boîte
 </gcds-container>
 {% endcomponentPreview %}

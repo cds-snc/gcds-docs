@@ -1,9 +1,9 @@
 ---
 title: Case à cocher
-layout: "layouts/component-documentation.njk"
-translationKey: "checkboxCode"
+layout: 'layouts/component-documentation.njk'
+translationKey: 'checkboxCode'
 tags: ['checkboxFR', 'code']
-date: "git Last Modified"
+date: 'git Last Modified'
 ---
 
 ## Créer une case à cocher
@@ -14,7 +14,7 @@ Utilisez une case à cocher avec un [jeu de champs]({{ links.fieldset }}) lorsqu
 
 ### Utilisez un jeu de champs et l’attribut obligatoire
 
-- Regroupez les options de cases à cocher et nommer le groupe en utilisant la [composante de jeu de champs]({{ links.fieldset }}).  
+- Regroupez les options de cases à cocher et nommer le groupe en utilisant la [composante de jeu de champs]({{ links.fieldset }}).
 - Utilisez le jeu de champs `legend` et l’attribut `hint` pour le nom du groupe et ses instructions.
 - Pour les groupes obligatoires, sélectionnez l’attribut `required` dans le jeu de champs. La sélection de l’attribut `required` permet la validation et la gestion des erreurs pour le groupe de cases à cocher.
 
@@ -31,9 +31,9 @@ Utilisez une case à cocher avec un [jeu de champs]({{ links.fieldset }}) lorsqu
 
 <iframe
   title="Survol des propriétés et des évènements relatifs à gcds-checkbox."
-  src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&singleStory=true&id=components-checkbox--events-properties"
+  src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&demo=true&singleStory=true&id=components-checkbox--events-properties"
   width="1200"
-  height="1760"
+  height="1950"
   style="display: block; margin: 0 auto;"
   frameBorder="0"
   allow="clipboard-write"

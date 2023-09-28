@@ -1,9 +1,9 @@
 ---
 title: Details
-layout: "layouts/component-documentation.njk"
-translationKey: "detailsCode"
+layout: 'layouts/component-documentation.njk'
+translationKey: 'detailsCode'
 tags: ['detailsEN', 'code']
-date: "git Last Modified"
+date: 'git Last Modified'
 ---
 
 ## Build a details component
@@ -34,9 +34,9 @@ To help a reader's experience accessing details content:
 
 <iframe
   title="Overview of gcds-details properties and events."
-  src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&singleStory=true&id=components-details--events-properties"
+  src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&demo=true&singleStory=true&id=components-details--events-properties"
   width="1200"
-  height="865"
+  height="1050"
   style="display: block; margin: 0 auto;"
   frameBorder="0"
   allow="clipboard-write"

@@ -1,6 +1,6 @@
 ---
 title: Détails
-layout: "layouts/component-documentation.njk"
+layout: 'layouts/component-documentation.njk'
 eleventyNavigation:
   key: detailsFR
   title: Détails
@@ -11,10 +11,10 @@ eleventyNavigation:
   thumbnail: /images/common/components/preview-details.svg
   alt: Un aperçu du composant détails qui montre une flèche bleue foncée pointant vers le bas suivie d'une boîte grise foncée soulignée de bleu foncé qui montre que le texte est développé et visible sur la page. Le texte est représenté par trois boîtes grises foncées.
   state: published
-translationKey: "details"
+translationKey: 'details'
 tags: ['detailsFR', 'usage']
 permalink: /fr/composants/details/
-date: "git Last Modified"
+date: 'git Last Modified'
 ---
 
 Explorez les problèmes réglés par le composant Détails et découvrez s'ils peuvent être utilisés pour résoudre votre problème particulier.
@@ -31,7 +31,8 @@ Utilisez le composant Détails pour offrir un aperçu du contenu plus détaillé
 <article class="bg-full-width bg-primary text-light pt-500 pb-400 my-500">
   <h2 class="mt-0 mb-400">Composants connexes </h2>
 
-  Onglets : lorsque vous souhaitez remplacer tout le contenu d'une section ou d'une page.
+Onglets : lorsque vous souhaitez remplacer tout le contenu d'une section ou d'une page.
 
-  <a href="{{ links.button }}" class="link-light">Boutons ou liens</a> lorsque vous souhaitez amener une personne vers une autre page pour qu'elle y accède à du contenu supplémentaire ou qu'elle passe à l'étape suivante d'une tâche.
+<a href="{{ links.button }}" class="link-light">Boutons ou liens</a> lorsque vous souhaitez amener une personne vers une autre page pour qu'elle y accède à du contenu supplémentaire ou qu'elle passe à l'étape suivante d'une tâche.
+
 </article>

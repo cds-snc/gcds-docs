@@ -1,9 +1,9 @@
 ---
 title: Indicateur d'étape
-layout: "layouts/component-documentation.njk"
-translationKey: "stepperCode"
+layout: 'layouts/component-documentation.njk'
+translationKey: 'stepperCode'
 tags: ['stepperFR', 'code']
-date: "git Last Modified"
+date: 'git Last Modified'
 ---
 
 ## Création d'un indicateur d'étape
@@ -20,9 +20,9 @@ Utilisez l'attribut `current-step` pour indiquer l'étape à laquelle l'utilisat
 
 <iframe
   title="Survol des propriétés et des évènements relatifs à gcds-stepper."
-  src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&singleStory=true&id=components-stepper--events-properties"
+  src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&demo=true&singleStory=true&id=components-stepper--events-properties"
   width="1200"
-  height="800"
+  height="950"
   style="display: block; margin: 0 auto;"
   frameBorder="0"
   allow="clipboard-write"

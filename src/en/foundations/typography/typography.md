@@ -1,6 +1,6 @@
 ---
 title: Typography tokens
-layout: "layouts/base.njk"
+layout: 'layouts/base.njk'
 eleventyNavigation:
   key: typographyEN
   title: Typography
@@ -12,7 +12,7 @@ eleventyNavigation:
   alt:
   state: published
 permalink: /en/foundations/typography/
-translationKey: "typography"
+translationKey: 'typography'
 tokenTable:
   headers:
     font-preview: Preview
@@ -38,7 +38,7 @@ tokenTable:
     fontWeights-medium: Medium
     fontWeights-semibold: Semibold
     fontWeights-bold: Bold
-date: "git Last Modified"
+date: 'git Last Modified'
 ---
 
 # {{ title }}
@@ -59,7 +59,7 @@ Vertical rhythm aligns text to evenly spaced horizontal lines in repeated patter
 
 ### Headings
 
-Heading tags for headings and subheadings give a page structure, organize content. They also  support navigation, especially for people using assistive technology.
+Heading tags for headings and subheadings give a page structure, organize content. They also support navigation, especially for people using assistive technology.
 
 - All headings and subheadings need a heading tag (`<h1>` - `<h6>`).
 - Start main content with an H1. Use no more than one H1 for each page.
@@ -116,4 +116,3 @@ The font family contains fallback values. The fallback is a substitute value for
 {% assign removeBorder = true %}
 
 {% include "partials/helpus.njk" %}
-

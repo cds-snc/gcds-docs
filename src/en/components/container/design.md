@@ -1,9 +1,9 @@
 ---
 title: Container
-layout: "layouts/component-documentation.njk"
-translationKey: "containerDesign"
+layout: 'layouts/component-documentation.njk'
+translationKey: 'containerDesign'
 tags: ['containerEN', 'design']
-date: "git Last Modified"
+date: 'git Last Modified'
 ---
 
 ## Container anatomy
@@ -27,14 +27,14 @@ date: "git Last Modified"
 
 The `size` property sets the size of the container. It comes in 6 sizes:
 
-| Size | REM | Pixels (Px) |
-| ---- | --- | ----------- |
-| `full` | 100% | 100% |
-| `xl` | 71.25rem | 1140px |
-| `lg` | 62rem | 992px |
-| `md` | 48rem | 768px |
-| `sm` | 30rem | 480px |
-| `xs` | 20rem | 320px |
+| Size   | REM      | Pixels (Px) |
+| ------ | -------- | ----------- |
+| `full` | 100%     | 100%        |
+| `xl`   | 71.25rem | 1140px      |
+| `lg`   | 62rem    | 992px       |
+| `md`   | 48rem    | 768px       |
+| `sm`   | 30rem    | 480px       |
+| `xs`   | 20rem    | 320px       |
 
 <br/>
 

@@ -1,9 +1,9 @@
 ---
 title: Boîte
-layout: "layouts/component-documentation.njk"
-translationKey: "containerCode"
+layout: 'layouts/component-documentation.njk'
+translationKey: 'containerCode'
 tags: ['containerFR', 'code']
-date: "git Last Modified"
+date: 'git Last Modified'
 ---
 
 ## Créer une boîte
@@ -22,14 +22,14 @@ Utilisez les boîtes pour ajouter un élément enveloppant associé à une large
 
 La propriété `size` définit la taille d’une boîte. Six tailles sont disponibles :
 
-| Taille | REM | Pixels (px) |
-| ---- | --- | ----------- |
-| `full` | 100% | 100% |
-| `xl` | 71.25rem | 1140px |
-| `lg` | 62rem | 992px |
-| `md` | 48rem | 768px |
-| `sm` | 30rem | 480px |
-| `xs` | 20rem | 320px |
+| Taille | REM      | Pixels (px) |
+| ------ | -------- | ----------- |
+| `full` | 100%     | 100%        |
+| `xl`   | 71.25rem | 1140px      |
+| `lg`   | 62rem    | 992px       |
+| `md`   | 48rem    | 768px       |
+| `sm`   | 30rem    | 480px       |
+| `xs`   | 20rem    | 320px       |
 
 <br/>
 
@@ -43,9 +43,9 @@ Les boîtes ne sont pas automatiquement centrées. Pour centrer une boîte sur u
 
 <iframe
   title="Survol des propriétés et des évènements relatifs à gcds-container."
-  src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&singleStory=true&id=components-container--events-properties"
+  src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&demo=true&singleStory=true&id=components-container--events-properties"
   width="1200"
-  height="1400"
+  height="1500"
   style="display: block; margin: 0 auto;"
   frameBorder="0"
   allow="clipboard-write"

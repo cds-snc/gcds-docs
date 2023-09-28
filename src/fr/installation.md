@@ -1,13 +1,13 @@
 ---
 title: Installation
 translationKey: installation
-layout: "layouts/installation.njk"
+layout: 'layouts/installation.njk'
 eleventyNavigation:
   key: installationFR
   title: Installation
   locale: fr
   order: 0
-date: "git Last Modified"
+date: 'git Last Modified'
 ---
 
 # Installation de Système de design GC

@@ -1,9 +1,9 @@
 ---
 title: Téléverseur de fichiers
-layout: "layouts/component-documentation.njk"
-translationKey: "fileuploaderCode"
+layout: 'layouts/component-documentation.njk'
+translationKey: 'fileuploaderCode'
 tags: ['fileuploaderFR', 'code']
-date: "git Last Modified"
+date: 'git Last Modified'
 ---
 
 ## Création d'un téléverseur de fichiers
@@ -26,9 +26,9 @@ Utilisez l'attribut `accept` pour définir les types de fichiers acceptés par l
 
 <iframe
   title="Survol des propriétés et des évènements relatifs à gcds-file-uploader."
-  src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&singleStory=true&id=components-file-uploader--events-properties"
+  src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&demo=true&singleStory=true&id=components-file-uploader--events-properties"
   width="1200"
-  height="1650"
+  height="1850"
   style="display: block; margin: 0 auto;"
   frameBorder="0"
   allow="clipboard-write"

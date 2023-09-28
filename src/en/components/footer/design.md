@@ -1,9 +1,9 @@
 ---
 title: Footer
-layout: "layouts/component-documentation.njk"
-translationKey: "footerDesign"
+layout: 'layouts/component-documentation.njk'
+translationKey: 'footerDesign'
 tags: ['footerEN', 'design']
-date: "git Last Modified"
+date: 'git Last Modified'
 ---
 
 ## Footer anatomy – recommended elements

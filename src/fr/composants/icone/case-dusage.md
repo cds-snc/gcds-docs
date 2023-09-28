@@ -1,6 +1,6 @@
 ---
 title: Icône
-layout: "layouts/component-documentation.njk"
+layout: 'layouts/component-documentation.njk'
 eleventyNavigation:
   key: iconFR
   title: Icône
@@ -11,10 +11,10 @@ eleventyNavigation:
   thumbnail: /images/common/components/preview-icons.svg
   alt: Un aperçu du composant icône qui montre quatre icônes alignés horizontalement. Le premier, est composé d'un cercle vert avec une coche blanche à l'intérieur. Le second un triangle orange avec un point d'exclamation à l'intérieur. Le troisième un cercle bleu avec la lettre i pour information à l'intérieur et le dernier une flèche bleue pointant vers la droite.
   state: coming-soon
-translationKey: "icon"
+translationKey: 'icon'
 tags: ['iconFR', 'usage']
 permalink: /fr/composants/icone/
-date: "git Last Modified"
+date: 'git Last Modified'
 ---
 
 ## Usage

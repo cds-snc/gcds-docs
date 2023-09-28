@@ -1,9 +1,9 @@
 ---
 title: Sélection
-layout: "layouts/component-documentation.njk"
-translationKey: "selectDesign"
+layout: 'layouts/component-documentation.njk'
+translationKey: 'selectDesign'
 tags: ['selectFR', 'design']
-date: "git Last Modified"
+date: 'git Last Modified'
 ---
 
 ## Structure de la sélection
@@ -33,5 +33,6 @@ date: "git Last Modified"
 - Lorsque possible, ajoutez une option telle que « Aucun » ou « Aucun des éléments ci-dessus ». Une fois sélectionnée, une option ne peut être désélectionnée, ou inversée, à moins de choisir une autre option dans le groupe. Le cas échéant, le ou la répondant·e est obligé·e de sélectionner une mauvaise option ou d'abandonner la tâche.
 
 ### Utilisez d'autres questions pour réduire le nombre d'options de sélection
+
 - Essayez de poser des questions aux utilisateur·rice·s avant d'utiliser la sélection afin de réduire le nombre d'options.
 - Si une liste d'éléments contient moins d'options (6-7 éléments ou moins), envisagez plutôt l'utilisation de <a href="{{ links.radio }}">boutons radio</a>.

@@ -1,9 +1,9 @@
 ---
 title: File uploader
-layout: "layouts/component-documentation.njk"
-translationKey: "fileuploaderCode"
+layout: 'layouts/component-documentation.njk'
+translationKey: 'fileuploaderCode'
 tags: ['fileuploaderEN', 'code']
-date: "git Last Modified"
+date: 'git Last Modified'
 ---
 
 ## Build a file uploader
@@ -26,9 +26,9 @@ Define the file types the file uploader accepts using the `accept` attribute.
 
 <iframe
   title="Overview of gcds-file-uploader properties and events."
-  src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&singleStory=true&id=components-file-uploader--events-properties"
+  src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&demo=true&singleStory=true&id=components-file-uploader--events-properties"
   width="1200"
-  height="1650"
+  height="1850"
   style="display: block; margin: 0 auto;"
   frameBorder="0"
   allow="clipboard-write"

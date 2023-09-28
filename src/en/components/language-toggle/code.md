@@ -1,9 +1,9 @@
 ---
 title: Language toggle
-layout: "layouts/component-documentation.njk"
-translationKey: "langtoggleCode"
+layout: 'layouts/component-documentation.njk'
+translationKey: 'langtoggleCode'
 tags: ['langtoggleEN', 'code']
-date: "git Last Modified"
+date: 'git Last Modified'
 ---
 
 ## Build a language toggle
@@ -23,9 +23,9 @@ Note: If using the header component, the language toggle can be assigned using t
 
 <iframe
   title="Overview of gcds-footer properties and events."
-  src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&singleStory=true&id=components-language-toggle--events-properties"
+  src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&demo=true&singleStory=true&id=components-language-toggle--events-properties"
   width="1200"
-  height="1110"
+  height="850"
   style="display: block; margin: 0 auto;"
   frameBorder="0"
   allow="clipboard-write"

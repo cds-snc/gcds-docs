@@ -1,9 +1,9 @@
 ---
 title: Header
-layout: "layouts/component-documentation.njk"
-translationKey: "headerCode"
+layout: 'layouts/component-documentation.njk'
+translationKey: 'headerCode'
 tags: ['headerEN', 'code']
-date: "git Last Modified"
+date: 'git Last Modified'
 ---
 
 ## Build a header component
@@ -27,23 +27,23 @@ Use this header landmark to communicate a Government of Canada digital service o
 ### Include the skip-to-content button
 
 - Include the skip-to-content button by setting the `href` of the **skip-to-content** link in the header's top navigation using the `skip-to-href` attribute.
-- Use the `topnav` slot to replace the default top navigation with the `skip-to-content` link.
-- Pass a child element with the `slot="topnav"` attribute to place the element first in the header.
+- Use the `skip-to-nav` slot to replace the default top navigation with the `skip-to-content` link.
+- Pass a child element with the `slot="skip-to-nav"` attribute to place the element first in the header.
 
 ### Add optional elements to your header
 
 - Add a menu by passing a child element with the `slot="menu"` attribute. This will place the element in the header below the language toggle, signature and search slots.
 - Add a search form by passing a child element with the `slot="search"` attribute. This will place the element under the language toggle and beside the signature in the header.
 - Add a breadcrumb component by passing a child element with the `slot="breadcrumb"` attribute. This will place the breadcrumb in the header below the language toggle, signature and search slot.
-- Add a banner by passing a child element with the `slot="banner"` attribute. This will place the element across the top of the header under the `topnav` element.
+- Add a banner by passing a child element with the `slot="banner"` attribute. This will place the element across the top of the header under the `skip-to-nav` element.
 
 {% include "partials/getcode.njk" %}
 
 <iframe
   title="Overview of gcds-header properties and events."
-  src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&singleStory=true&id=components-header--events-properties"
+  src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&demo=true&singleStory=true&id=components-header--events-properties"
   width="1200"
-  height="1535"
+  height="1600"
   style="display: block; margin: 0 auto;"
   frameBorder="0"
   allow="clipboard-write"

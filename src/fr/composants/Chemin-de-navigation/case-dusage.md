@@ -1,6 +1,6 @@
 ---
 title: Chemin de navigation
-layout: "layouts/component-documentation.njk"
+layout: 'layouts/component-documentation.njk'
 eleventyNavigation:
   key: breadcrumbsFR
   title: Chemin de navigation
@@ -12,10 +12,10 @@ eleventyNavigation:
   alt: Deux boîtes grises soulignées de bleu foncé avec une flèche bleu à leurs droite. Ces boîtes représentent les liens du chemin de navigation.
   tag: De base
   state: published
-translationKey: "breadcrumbs"
+translationKey: 'breadcrumbs'
 tags: ['breadcrumbsFR', 'usage']
 permalink: /fr/composants/chemin-de-navigation/
-date: "git Last Modified"
+date: 'git Last Modified'
 ---
 
 Examinez les cas d'utilisation des chemins de navigation pour déterminer s'ils répondent à vos besoins.
@@ -32,9 +32,10 @@ En plus de signaler à un·e visiteur·se son emplacement actuel sur le site et 
 <article class="bg-full-width bg-primary text-light pt-500 pb-400 my-500">
   <h2 class="mt-0 mb-400">Composants connexes</h2>
 
-  <a href="{{ links.footer }}" class="link-light">Pied de page</a> : pour placer le pied de page portant l'image de marque du gouvernement du Canada.
+<a href="{{ links.footer }}" class="link-light">Pied de page</a> : pour placer le pied de page portant l'image de marque du gouvernement du Canada.
 
-  <a href="{{ links.header }}" class="link-light">En-tête</a> : pour placer l'en-tête portant l'image de marque du gouvernement du Canada.
+<a href="{{ links.header }}" class="link-light">En-tête</a> : pour placer l'en-tête portant l'image de marque du gouvernement du Canada.
 
-  <a href="{{ links.topNav }}" class="link-light">Barre de navigation supérieure</a> : pour guider la navigation au sein d'un site Web à l'aide d'un point de repère.
+<a href="{{ links.topNav }}" class="link-light">Barre de navigation supérieure</a> : pour guider la navigation au sein d'un site Web à l'aide d'un point de repère.
+
 </article>

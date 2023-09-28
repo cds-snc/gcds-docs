@@ -1,7 +1,7 @@
 ---
 title: Résumé des erreurs
-layout: "layouts/component-documentation.njk"
-translationKey: "errorsummaryCode"
+layout: 'layouts/component-documentation.njk'
+translationKey: 'errorsummaryCode'
 tags: ['errorsummaryFR', 'code']
 ---
 
@@ -15,7 +15,7 @@ Tous les composants de Système de design GC sont livrés avec une gestion des e
 
 ### Utiliser le résumé des erreurs avec les composants de Système de design GC
 
-Le résumé des erreurs de Système de design GC utilise l'attribut `listen` pour recueillir les erreurs. Lors de l'exécution de l'opération `onSubmit`, le résumé des erreurs dressera la liste des erreurs provenant des composants de Système de design GC.  Les erreurs seront répertoriées dans le même ordre qu'elles apparaissent sur la page.
+Le résumé des erreurs de Système de design GC utilise l'attribut `listen` pour recueillir les erreurs. Lors de l'exécution de l'opération `onSubmit`, le résumé des erreurs dressera la liste des erreurs provenant des composants de Système de design GC. Les erreurs seront répertoriées dans le même ordre qu'elles apparaissent sur la page.
 
 - Activez tous les contrôles nécessaires pour résoudre l'une ou l'autre des erreurs.
 - Envisagez de remplacer tout <a href="{{ links.errorMessage }}">message d'erreur</a> générique par défaut par un texte qui définit le problème concret et la façon de le résoudre.
@@ -36,9 +36,9 @@ Rédigez des en-têtes d'erreur plus précis en utilisant l'attribut `heading`.
 
 <iframe
   title="Survol des propriétés et des évènements relatifs à gcds-error-summary."
-  src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&singleStory=true&id=components-error-summary--events-properties"
+  src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&demo=true&singleStory=true&id=components-error-summary--events-properties"
   width="1200"
-  height="1400"
+  height="1600"
   style="display: block; margin: 0 auto;"
   frameBorder="0"
   allow="clipboard-write"

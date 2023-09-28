@@ -1,9 +1,9 @@
 ---
 title: Barre de navigation supérieure
-layout: "layouts/component-documentation.njk"
-translationKey: "topnavigationCode"
+layout: 'layouts/component-documentation.njk'
+translationKey: 'topnavigationCode'
 tags: ['topnavigationFR', 'code']
-date: "git Last Modified"
+date: 'git Last Modified'
 ---
 
 ## Créer une barre de navigation supérieure
@@ -19,16 +19,16 @@ Utilisez une barre de navigation supérieure pour aider une personne à se repé
 
 ### Utilisez la barre de navigation supérieure avec d'autres composants.
 
-- Si vous utilisez un composant <a href="{{ links.breadcrumbs }}">chemin de navigation</a>, uniformisez la hiérarchie dans les deux ensembles sur le site.  
-- Si vous utilisez le  composant <a href="{{ links.header }}">en-tête</a>, ajoutez la barre de navigation supérieure directement dans l'en-tête en insérant un élément enfant à l'aide de l'attribut `slot="menu"` dans l'en-tête. Cela placera la barre de navigation supérieure dans l'en-tête, après la bascule de langue, la signature et la barre de recherche.
+- Si vous utilisez un composant <a href="{{ links.breadcrumbs }}">chemin de navigation</a>, uniformisez la hiérarchie dans les deux ensembles sur le site.
+- Si vous utilisez le composant <a href="{{ links.header }}">en-tête</a>, ajoutez la barre de navigation supérieure directement dans l'en-tête en insérant un élément enfant à l'aide de l'attribut `slot="menu"` dans l'en-tête. Cela placera la barre de navigation supérieure dans l'en-tête, après la bascule de langue, la signature et la barre de recherche.
 
 {% include "partials/getcode.njk" %}
 
 <iframe
   title="Survol des propriétés et des évènements relatifs à gcds-top-nav."
-  src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&singleStory=true&id=components-top-navigation--events-properties"
+  src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&demo=true&singleStory=true&id=components-top-navigation--events-properties"
   width="1200"
-  height="1650"
+  height="1850"
   style="display: block; margin: 0 auto;"
   frameBorder="0"
   allow="clipboard-write"

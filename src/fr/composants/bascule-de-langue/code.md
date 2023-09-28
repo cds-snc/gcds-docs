@@ -1,9 +1,9 @@
 ---
 title: Bascule de langue
-layout: "layouts/component-documentation.njk"
-translationKey: "langtoggleCode"
+layout: 'layouts/component-documentation.njk'
+translationKey: 'langtoggleCode'
 tags: ['langtoggleFR', 'code']
-date: "git Last Modified"
+date: 'git Last Modified'
 ---
 
 ## Créer une bascule de langue
@@ -22,10 +22,10 @@ Remarque : Si vous utilisez le composant En-tête, la bascule de langue peut êt
 {% include "partials/getcode.njk" %}
 
 <iframe
-  title="Overview of gcds-footer properties and events."
-  src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&singleStory=true&id=components-language-toggle--events-properties"
+  title="Overview of gcds-lang-toggle properties and events."
+  src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&demo=true&singleStory=true&id=components-language-toggle--events-properties"
   width="1200"
-  height="1110"
+  height="850"
   style="display: block; margin: 0 auto;"
   frameBorder="0"
   allow="clipboard-write"

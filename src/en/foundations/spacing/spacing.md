@@ -1,6 +1,6 @@
 ---
 title: Spacing tokens
-layout: "layouts/base.njk"
+layout: 'layouts/base.njk'
 eleventyNavigation:
   key: spacingEN
   title: Spacing
@@ -12,14 +12,14 @@ eleventyNavigation:
   alt:
   state: published
 permalink: /en/foundations/spacing/
-translationKey: "spacing"
+translationKey: 'spacing'
 tokenTable:
   headers:
     spacing-preview: Preview
     token-name: Token name
     px: Pixel
     value: Rem
-date: "git Last Modified"
+date: 'git Last Modified'
 ---
 
 # {{ title }}

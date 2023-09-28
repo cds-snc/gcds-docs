@@ -1,7 +1,7 @@
 ---
 title: Unités de style typographiques
-layout: "layouts/base.njk"
-translationKey: "typography"
+layout: 'layouts/base.njk'
+translationKey: 'typography'
 eleventyNavigation:
   key: typographyFR
   title: Typographie
@@ -38,7 +38,7 @@ tokenTable:
     fontWeights-medium: Moyen
     fontWeights-semibold: Semi-gras
     fontWeights-bold: Gras
-permalink: /fr/bases/typographie/
+permalink: /fr/fondements/typographie/
 # date: "git Last Modified"
 ---
 
@@ -67,7 +67,7 @@ Les balises d'en-tête pour les en-têtes et sous-titres donnent la structure à
 - Organisez les niveaux d'en-tête par ordre numérique. H1 est suivi de H2, qui est suivi de H3 et ainsi de suite.
 - Évitez de sauter des niveaux d'en-tête hiérarchiques.
 - Assurez-vous que la taille de police et la hauteur de ligne correspondent (taille de police H1 avec la hauteur de ligne H1, etc.).
-- Employez des en-têtes pour les appels à l'action pour accentuer du contenu.  
+- Employez des en-têtes pour les appels à l'action pour accentuer du contenu.
 - Assurez-vous que les en-têtes sont uniques et qu'ils indiquent clairement la nature du contenu qui suit.
 
 {% include "partials/token_table.njk", token: 'font', subTokens: "h1 h2 h3 h4 h5 h6", type: 'typography' %}
@@ -95,14 +95,14 @@ La famille de police comprend des valeurs de rechange. Les valeurs de rechange s
 
 ### Épaisseurs de police
 
-- Limitez le nombre de modifications de l'épaisseur de police dans votre conception afin de ne pas nuire au contraste. N'utilisez que deux ou trois épaisseurs de police en assurant un maximum de contraste. 
+- Limitez le nombre de modifications de l'épaisseur de police dans votre conception afin de ne pas nuire au contraste. N'utilisez que deux ou trois épaisseurs de police en assurant un maximum de contraste.
 - Employez différentes épaisseurs de police pour accentuer des mots dans un tableau, en début de paragraphe ou dans de longs blocs de texte lorsque les autres options d'en-tête et de style ne sont pas appropriées.
 - Veillez à accentuer des éléments de façon accessible, car plusieurs technologies d'assistance ne tiennent pas compte de l'épaisseur de la police.
 - Plutôt que de modifier l'épaisseur de la police, envisagez d'utiliser des puces ou des alinéas pour découper le texte.
 
 ### Caractères gras
 
-- Conservez le réglage des caractères gras par défaut pour les en-têtes. 
+- Conservez le réglage des caractères gras par défaut pour les en-têtes.
 - Une surutilisation de texte en caractères gras peut rendre difficile le traitement cognitif pour certains lecteurs.
 
 ### Italiques

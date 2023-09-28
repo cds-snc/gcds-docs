@@ -1,14 +1,14 @@
 ---
 title: Contact us
-layout: "layouts/base.njk"
+layout: 'layouts/base.njk'
 eleventyNavigation:
   key: contactusEN
   title: Contact us
   locale: en
   order: 3
-translationKey: "contactus"
+translationKey: 'contactus'
 contactForm: en
-date: "git Last Modified"
+date: 'git Last Modified'
 ---
 
 # About GC Design System

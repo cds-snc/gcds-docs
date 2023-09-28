@@ -1,7 +1,7 @@
 ---
 title: Unités de style de couleur
-layout: "layouts/base.njk"
-translationKey: "colour"
+layout: 'layouts/base.njk'
+translationKey: 'colour'
 eleventyNavigation:
   key: colourFR
   title: Couleur
@@ -45,9 +45,9 @@ Les unités de style de couleur définissent les couleurs pour les composants et
 
 ## Unités de style de couleur et accessibilité
 
-Les composants de Système de design GC sont conformes <a href="{{ links.wcag }}" target="_blank">au niveau AA des Règles pour l'accessibilité des contenus Web 2.1 (WCAG 2.1)  <gcds-icon name="external-link" label="S'ouvre dans un nouvel onglet." margin-left="50" /></a> (site anglais) en matière de contraste des couleurs des éléments texte et des éléments interactifs.
+Les composants de Système de design GC sont conformes <a href="{{ links.wcag }}" target="_blank">au niveau AA des Règles pour l'accessibilité des contenus Web 2.1 (WCAG 2.1) <gcds-icon name="external-link" label="S'ouvre dans un nouvel onglet." margin-left="50" /></a> (site anglais) en matière de contraste des couleurs des éléments texte et des éléments interactifs.
 
-Lorsque vous utilisez des unités de style de couleur, vérifiez si vos combinaisons de couleurs satisfont aux normes en matière d'accessibilité du contraste des couleurs à l'aide de l'outil <a href="{{ links.wcag }}" target="_blank">Web Aim Contrast Checker  <gcds-icon name="external-link" label="S'ouvre dans un nouvel onglet." margin-left="50" /></a> (site anglais).
+Lorsque vous utilisez des unités de style de couleur, vérifiez si vos combinaisons de couleurs satisfont aux normes en matière d'accessibilité du contraste des couleurs à l'aide de l'outil <a href="{{ links.wcag }}" target="_blank">Web Aim Contrast Checker <gcds-icon name="external-link" label="S'ouvre dans un nouvel onglet." margin-left="50" /></a> (site anglais).
 
 ## Soyez judicieux dans votre choix d'unités de style de couleur
 

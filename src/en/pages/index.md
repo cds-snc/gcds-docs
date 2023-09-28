@@ -1,10 +1,10 @@
 ---
 title: Home
-layout: "layouts/home.njk"
+layout: 'layouts/home.njk'
 permalink: /en/
-translationKey: "index"
+translationKey: 'index'
 redirect_from: /
-date: "git Last Modified"
+date: 'git Last Modified'
 ---
 
 <h2 class="py-450">Welcome to your design system</h2>
@@ -61,7 +61,7 @@ date: "git Last Modified"
   <h2 class="mb-400">What's new</h2>
   <gcds-grid tag="ul" columns="1fr" columns-tablet="1fr 1fr" columns-desktop="1fr 1fr 1fr" gap="450">
     <li class="list-none bg-white px-250 py-450 b-radius-md">
-      <h3 class="mb-400"><a class="link-inherit" href="{{ links.releaseNotes }}">Release notes</a></h3>
+      <h3 class="mb-400"><a class="link-inherit" href="{{ links.releaseNotes }}" target="_blank">Release notes <gcds-icon name="external-link" label="Opens in a new tab." margin-left="50" /></a></h3>
       <p>The latest additions.</p>
     </li>
     <li class="list-none bg-white px-250 py-450 b-radius-md">

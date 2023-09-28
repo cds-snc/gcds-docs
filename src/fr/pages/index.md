@@ -1,9 +1,9 @@
 ---
 title: Home
-layout: "layouts/home.njk"
+layout: 'layouts/home.njk'
 permalink: /fr/
-translationKey: "index"
-date: "git Last Modified"
+translationKey: 'index'
+date: 'git Last Modified'
 ---
 
 <h2 class="py-450">Bienvenue dans votre système de design</h2>
@@ -60,7 +60,7 @@ date: "git Last Modified"
   <h2 class="mb-400">Nouveautés</h2>
   <gcds-grid tag="ul" columns="1fr" columns-tablet="1fr 1fr" columns-desktop="1fr 1fr 1fr" gap="450">
     <li class="list-none bg-white px-250 py-450 b-radius-md">
-      <h3 class="mb-400"><a class="link-inherit" href="{{ links.releaseNotes }}">Notes de publication</a></h3>
+      <h3 class="mb-400"><a class="link-inherit" href="{{ links.releaseNotes }}" target="_blank">Notes de publication <gcds-icon name="external-link" label="Opens in a new tab." margin-left="50" /></a></h3></a></h3>
       <p>Les derniers ajouts.</p>
     </li>
     <li class="list-none bg-white px-250 py-450 b-radius-md">

@@ -1,9 +1,9 @@
 ---
 title: Error message
-layout: "layouts/component-documentation.njk"
-translationKey: "errormessageCode"
+layout: 'layouts/component-documentation.njk'
+translationKey: 'errormessageCode'
 tags: ['errormessageEN', 'code']
-date: "git Last Modified"
+date: 'git Last Modified'
 ---
 
 ## Build an error message
@@ -40,9 +40,9 @@ A person who receives an error message needs to:
 
 <iframe
   title="Overview of gcds-error-message properties and events."
-  src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&singleStory=true&id=components-error-message--events-properties"
+  src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&demo=true&singleStory=true&id=components-error-message--events-properties"
   width="1200"
-  height="675"
+  height="1000"
   style="display: block; margin: 0 auto;"
   frameBorder="0"
   allow="clipboard-write"

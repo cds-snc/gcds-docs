@@ -1,6 +1,6 @@
 ---
 title: Barre de navigation supérieure
-layout: "layouts/component-documentation.njk"
+layout: 'layouts/component-documentation.njk'
 eleventyNavigation:
   key: topnavigationFR
   title: Barre de navigation supérieure
@@ -11,10 +11,10 @@ eleventyNavigation:
   thumbnail: /images/common/components/preview-top-nav.svg
   alt: Un aperçu du composant barre de navigation supérieure qui montre la navigation du site représentée par des boîtes grises alignés horizontalement. Une boîte bleue suivi de deux boîtes grises représentent les liens où la dernière boîte est surlignée afin de représenter le lien actif.
   state: published
-translationKey: "topnavigation"
+translationKey: 'topnavigation'
 tags: ['topnavigationFR', 'usage']
 permalink: /fr/composants/barre-de-navigation-superieure/
-date: "git Last Modified"
+date: 'git Last Modified'
 ---
 
 Examinez les cas d'utilisation de la barre de navigation supérieure pour déterminer si elle répond à vos besoins.
@@ -31,9 +31,10 @@ La barre de navigation supérieure permet aux visiteur·se·s d'avoir une idée 
 <article class="bg-full-width bg-primary text-light pt-500 pb-400 my-500">
   <h2 class="mt-0 mb-400">Composants connexes</h2>
 
-  <a href="{{ links.sideNav }}" class="link-light">Barre de navigation latérale</a> : pour les produits avec jusqu'à trois niveaux de navigation, lorsque le contenu principal correspond à une largeur de page étroite.
+<a href="{{ links.sideNav }}" class="link-light">Barre de navigation latérale</a> : pour les produits avec jusqu'à trois niveaux de navigation, lorsque le contenu principal correspond à une largeur de page étroite.
 
-  <a href="{{ links.header }}" class="link-light">En-tête</a> : pour le placement de l'en-tête portant l'image de marque du gouvernement du Canada.
+<a href="{{ links.header }}" class="link-light">En-tête</a> : pour le placement de l'en-tête portant l'image de marque du gouvernement du Canada.
 
-  <a href="{{ links.breadcrumbs }}" class="link-light">Chemin de navigation</a> : pour une voie entre chaque niveau de la hiérarchie du site et la page actuelle.
+<a href="{{ links.breadcrumbs }}" class="link-light">Chemin de navigation</a> : pour une voie entre chaque niveau de la hiérarchie du site et la page actuelle.
+
 </article>
