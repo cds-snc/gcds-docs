@@ -9,7 +9,7 @@ eleventyNavigation:
   otherNames: tile, content card
   description: A box containing structured, actionable content on a single topic.
   thumbnail: /images/common/components/preview-card.svg
-  alt: This is an image of the component
+  alt: The card component shows a box containing a rectangular image in the top half. Immediately below is a blue rectangular bar running across three quarters of the box representing the card title. Two longer grey bars are stacked just below the blue bar, representing the card description and context area/metadata sections.
   state: published
 translationKey: 'card'
 tags: ['cardEN', 'usage']
