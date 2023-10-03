@@ -33,7 +33,7 @@ Utilisez la case à cocher avec un [jeu de champs]({{ links.fieldset }}) pour po
 
 Utilisez les <a href="{{ links.radio }}" class="link-light">boutons radio</a> pour obtenir une seule réponse parmi une liste d’options.
 
-Le composant <a href="{{ links.select }}" class="link-light">sélection</a> permet à l’utilisateur·rice de sélectionner une option ou plusieurs dans une liste déroulante.
+Le composant <a href="{{ links.select }}" class="link-light">sélection</a> permet à l’utilisateur·rice de sélectionner une option dans une liste déroulante.
 
 Utilisez les <a href="{{ links.input }}" class="link-light">champs de saisie</a> pour des réponses courtes d’une seule ligne.
 
