@@ -32,7 +32,7 @@ Use a checkbox with a [fieldset]({{ links.fieldset }}) to make a request for inf
 
 <a href="{{ links.radio }}" class="link-light">Radios</a> to give a single option from a larger set of options.
 
-<a href="{{ links.select }}" class="link-light">Select</a> to give a single or multiple options from a medium to long sized list in a dropdown format.
+<a href="{{ links.select }}" class="link-light">Select</a> to give a single option from a medium to long sized list in a dropdown format.
 
 <a href="{{ links.input }}" class="link-light">Inputs</a> for short, single-line responses.
 
