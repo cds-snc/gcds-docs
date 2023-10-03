@@ -8,7 +8,7 @@ tags: ['buttonFR', 'header']
 
 # Bouton <br>`<gcds-button>`
 
-_Autres noms : appel à l’action, ATC, lien._
+_Autres noms : appel à l’action, lien._
 
 Un bouton est un composant interactif qui met en évidence une action importante ou commune.
 
