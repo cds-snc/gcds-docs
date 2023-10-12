@@ -6,34 +6,63 @@
   {% set navPages = collections.all | eleventyNavigation(components) %}
 {% endif %}
 
-<div class="bg-light my-500 p-400">
-  <gcds-grid tag="ul" columns="1fr" columns-tablet="1fr 1fr" columns-desktop="1fr 1fr 1fr" gap="400">
-  {%- for entry in navPages %}
-    {% if entry.state == cardlist.state %}
-      <li class="list-none bg-white {% if entry.state != "published" %}d-flex flex-col p-400{% endif %} component-preview-box">
-        {% if entry.state == "published" %}
-        <a class="d-flex flex-col link-inherit link-no-underline p-400" href={{entry.url}}>
-        {% endif %}
-          <h3>{{ entry.title }}</h3>
-          <div class="flex-1 mt-150 pt-250 {% if entry.tag %}mb-250 pb-250 by-sm{% else %}bt-sm{% endif %}">
+{% if cardlist.type === 'components' and cardlist.state === 'published' %}
+  <div class="my-500">
+    <gcds-grid tag="ul" columns="1fr" columns-tablet="1fr 1fr" columns-desktop="1fr 1fr 1fr" gap="400">
+    {%- for entry in navPages %}
+      {% if entry.state == cardlist.state %}
+        <gcds-card
+          card-title="{{ entry.title }}"
+          type="{% if entry.state == 'coming-soon' %}action{%else %}link{%endif %}"
+          href="{% if entry.state == 'published' %}{{entry.url}}{%else %}null{%endif %}"
+          title-element="h3"
+          tag="{% if entry.tag %}{{ entry.tag }}{% endif %}"
+          description="{{ entry.description }}"
+          img-src="{{ entry.thumbnail }}"
+          img-alt="{{ entry.alt }}"
+        >
+          <div slot="footer">
             {% if entry.otherNames %}
-              <p class="mb-150 text-secondary">
+              <p class="text-secondary">
                 <small><em>{{ documentation[locale].othernames }}{{ entry.otherNames }}</em></small>
               </p>
             {% endif %}
-            <p class="mb-150">{{ entry.description }}</p>
-            <img src="{{ entry.thumbnail }}" alt="{{ entry.alt }}" />
           </div>
-          {% if entry.tag %}
-            <span class="font-caption {% if entry.tag === 'Core' or entry.tag === 'De base' %}bg-black text-light{% else %}bg-light-blue{% endif %} align-self-start px-150 py-50 b-radius-lg">
-              {{ entry.tag }}
-            </span>
+        </gcds-card>
+      {% endif %}
+    {%- endfor -%}
+    </gcds-grid>
+  </div>
+{% else %}
+  <div class="bg-light my-500 p-400">
+    <gcds-grid tag="ul" columns="1fr" columns-tablet="1fr 1fr" columns-desktop="1fr 1fr 1fr" gap="400">
+    {%- for entry in navPages %}
+      {% if entry.state == cardlist.state %}
+        <li class="list-none bg-white {% if entry.state != "published" %}d-flex flex-col p-400{% endif %} component-preview-box">
+          {% if entry.state == "published" %}
+          <a class="d-flex flex-col link-inherit link-no-underline p-400" href={{entry.url}}>
           {% endif %}
-        {% if entry.state == "published" %}
-        </a>
-        {% endif %}
-      </li>
-    {% endif %}
-  {%- endfor -%}
-  </gcds-grid>
-</div>
+            <h3>{{ entry.title }}</h3>
+            <div class="flex-1 mt-150 pt-250 {% if entry.tag %}mb-250 pb-250 by-sm{% else %}bt-sm{% endif %}">
+              {% if entry.otherNames %}
+                <p class="mb-150 text-secondary">
+                  <small><em>{{ documentation[locale].othernames }}{{ entry.otherNames }}</em></small>
+                </p>
+              {% endif %}
+              <p class="mb-150">{{ entry.description }}</p>
+              <img src="{{ entry.thumbnail }}" alt="{{ entry.alt }}" />
+            </div>
+            {% if entry.tag %}
+              <span class="font-caption {% if entry.tag === 'Core' or entry.tag === 'De base' %}bg-black text-light{% else %}bg-light-blue{% endif %} align-self-start px-150 py-50 b-radius-lg">
+                {{ entry.tag }}
+              </span>
+            {% endif %}
+          {% if entry.state == "published" %}
+          </a>
+          {% endif %}
+        </li>
+      {% endif %}
+    {%- endfor -%}
+    </gcds-grid>
+  </div>
+{% endif %}

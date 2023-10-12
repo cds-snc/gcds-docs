@@ -8,7 +8,7 @@ eleventyNavigation:
   parent: componentsFR
   otherNames: appel à l'action, lien.
   description: Un objet interactif mettant en évidence une action.
-  thumbnail: /images/fr/components/preview/preview-button.svg
+  thumbnail: /images/common/components/preview-button.svg
   alt: Un aperçu du composant bouton qui montre une boîte bleue foncée avec le texte en blanc et une flèche blanche à l'intérieur.
   state: published
 translationKey: 'button'
