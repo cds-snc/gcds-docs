@@ -24,3 +24,5 @@ We're sharing components as we build them.
 Core components help you meet federal identity standards for the Government of Canada in any product.
 
 Experimental components point out new features we're trying out and think you might like to use.
+
+## Browse components
