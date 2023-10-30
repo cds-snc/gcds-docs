@@ -38,7 +38,7 @@ Tip: Read nav link text aloud in sequence to note similarities in how link text 
 
 ### Add navigation groups to the side navigation
 
-- Opt to include a second or third level with a navigaßtion group to the side navigation.
+- Opt to include a second or third level with a navigation group to the side navigation.
 - Use a hierarchical structure of up to 3 levels to categorize and order nav group items in a logical manner.
 - Nest items into categories consistent with the product’s information architecture.
 
