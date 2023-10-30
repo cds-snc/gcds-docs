@@ -1,4 +1,4 @@
-import { Host, h, Fragment } from '@stencil/core';
+import { Host, h, Fragment } from "@stencil/core";
 export class GcdsCard {
   constructor() {
     this.type = 'link';
@@ -14,16 +14,9 @@ export class GcdsCard {
     return !!this.el.querySelector('[slot="footer"]');
   }
   render() {
-    const { type, cardTitle, titleElement, href, description, tag, imgSrc, imgAlt, hasCardFooter } = this;
+    const { type, cardTitle, titleElement, href, description, tag, imgSrc, imgAlt, hasCardFooter, } = this;
     const Element = titleElement;
-    return (h(Host, null, h("div", { class: `gcds-card gcds-card--${type}` }, imgSrc &&
-      h("img", { src: imgSrc, alt: imgAlt ? imgAlt : "", class: "gcds-card__image" }), tag &&
-      h("span", { class: "gcds-card__tag" }, tag), Element != 'a' ?
-      h(Element, { class: "gcds-card__title" }, h("a", { href: href }, cardTitle))
-      :
-        h("a", { href: href, class: "gcds-card__title" }, cardTitle), description &&
-      h("p", { class: "gcds-card__description" }, description), hasCardFooter &&
-      h(Fragment, null, h("div", { class: "gcds-card__spacer" }), h("slot", { name: "footer" })))));
+    return (h(Host, null, h("div", { class: `gcds-card gcds-card--${type}` }, imgSrc && (h("img", { src: imgSrc, alt: imgAlt ? imgAlt : '', class: "gcds-card__image" })), tag && h("span", { class: "gcds-card__tag" }, tag), Element != 'a' ? (h(Element, { class: "gcds-card__title" }, h("a", { href: href }, cardTitle))) : (h("a", { href: href, class: "gcds-card__title" }, cardTitle)), description && h("p", { class: "gcds-card__description" }, description), hasCardFooter && (h(Fragment, null, h("div", { class: "gcds-card__spacer" }), h("slot", { name: "footer" }))))));
   }
   static get is() { return "gcds-card"; }
   static get encapsulation() { return "shadow"; }
@@ -181,3 +174,4 @@ export class GcdsCard {
   }
   static get elementRef() { return "el"; }
 }
+//# sourceMappingURL=gcds-card.js.map

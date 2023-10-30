@@ -3,28 +3,28 @@ import { o as observerConfig, a as assignLanguage, i as inheritAttributes, e as 
 import { d as defineCustomElement$3 } from './gcds-hint2.js';
 import { d as defineCustomElement$2 } from './gcds-label2.js';
 
-const gcdsRadioCss = ".sc-gcds-radio-h .gcds-radio.sc-gcds-radio{border:0;color:var(--gcds-radio-default-text);font:var(--gcds-radio-font);margin:var(--gcds-radio-margin);max-width:90%;padding:0;position:relative;-webkit-transition:color .15s ease-in-out;transition:color .15s ease-in-out}.sc-gcds-radio-h .gcds-radio.sc-gcds-radio:focus-within{color:var(--gcds-radio-focus-text)}.sc-gcds-radio-h .gcds-radio.sc-gcds-radio:focus-within gcds-hint.sc-gcds-radio{color:currentColor}.sc-gcds-radio-h .gcds-radio.gcds-radio--disabled.sc-gcds-radio{color:var(--gcds-radio-disabled-text)}.sc-gcds-radio-h .gcds-radio.gcds-radio--disabled.sc-gcds-radio input[type=radio].sc-gcds-radio+gcds-label.sc-gcds-radio{color:var(--gcds-radio-disabled-text)}.sc-gcds-radio-h .gcds-radio.gcds-radio--disabled.sc-gcds-radio input[type=radio].sc-gcds-radio+gcds-label.sc-gcds-radio:before{background-color:var(--gcds-radio-disabled-background);border-color:var(--gcds-radio-disabled-border);cursor:not-allowed}.sc-gcds-radio-h .gcds-radio.gcds-radio--disabled.sc-gcds-radio input[type=radio].sc-gcds-radio+gcds-label.sc-gcds-radio:after{cursor:not-allowed}.sc-gcds-radio-h .gcds-radio.gcds-radio--disabled.sc-gcds-radio gcds-hint.sc-gcds-radio{color:currentColor}.sc-gcds-radio-h .gcds-radio.gcds-radio--error.sc-gcds-radio:not(:focus-within) input[type=radio].sc-gcds-radio+gcds-label.sc-gcds-radio:before{border-color:var(--gcds-radio-danger-border)}.sc-gcds-radio-h .gcds-radio.gcds-radio--error.sc-gcds-radio:not(:focus-within) input[type=radio].sc-gcds-radio+gcds-label.sc-gcds-radio:after{background-color:var(--gcds-radio-danger-border);color:var(--gcds-radio-danger-border)}.sc-gcds-radio-h .gcds-radio.sc-gcds-radio input[type=radio].sc-gcds-radio{height:var(--gcds-radio-input-height);left:0;opacity:0;position:absolute;top:var(--gcds-radio-top);width:var(--gcds-radio-input-width)}.sc-gcds-radio-h .gcds-radio.sc-gcds-radio input[type=radio].sc-gcds-radio:checked+gcds-label.sc-gcds-radio:after{opacity:1}.sc-gcds-radio-h .gcds-radio.sc-gcds-radio input[type=radio].sc-gcds-radio+gcds-label.sc-gcds-radio{width:-webkit-fit-content;width:-moz-fit-content;width:fit-content}.sc-gcds-radio-h .gcds-radio.sc-gcds-radio input[type=radio].sc-gcds-radio+gcds-label.sc-gcds-radio:after,.sc-gcds-radio-h .gcds-radio.sc-gcds-radio input[type=radio].sc-gcds-radio+gcds-label.sc-gcds-radio:before{border-radius:var(--gcds-radio-border-radius);-webkit-box-sizing:border-box;box-sizing:border-box;content:\"\";cursor:pointer;position:absolute}.sc-gcds-radio-h .gcds-radio.sc-gcds-radio input[type=radio].sc-gcds-radio+gcds-label.sc-gcds-radio:before{border:var(--gcds-radio-input-border-width) solid;height:var(--gcds-radio-input-height-and-width);left:0;top:var(--gcds-radio-top);width:var(--gcds-radio-input-height-and-width)}.sc-gcds-radio-h .gcds-radio.sc-gcds-radio input[type=radio].sc-gcds-radio+gcds-label.sc-gcds-radio:after{background-color:currentcolor;color:currentcolor;height:var(--gcds-radio-check-height-and-width);left:var(--gcds-radio-check-left);opacity:0;top:var(--gcds-radio-check-top);-webkit-transition:opacity .2s ease-in-out;transition:opacity .2s ease-in-out;width:var(--gcds-radio-check-height-and-width)}.sc-gcds-radio-h .gcds-radio.sc-gcds-radio input[type=radio].sc-gcds-radio:focus+gcds-label.sc-gcds-radio{color:var(--gcds-radio-focus-text)}.sc-gcds-radio-h .gcds-radio.sc-gcds-radio input[type=radio].sc-gcds-radio:focus+gcds-label.sc-gcds-radio:before{outline:var( --gcds-radio-focus-outline-width) solid currentcolor;outline-offset:var(--gcds-radio-input-border-width)}.sc-gcds-radio-h .gcds-radio.sc-gcds-radio input[type=radio].sc-gcds-radio:focus+gcds-label.sc-gcds-radio:after{background-color:currentcolor;color:var(--gcds-radio-focus-text)}.sc-gcds-radio-h .gcds-radio.sc-gcds-radio gcds-hint.sc-gcds-radio,.sc-gcds-radio-h .gcds-radio.sc-gcds-radio gcds-label.sc-gcds-radio{display:block;padding:var(--gcds-radio-label-padding)}.sc-gcds-radio-h .gcds-radio.sc-gcds-radio gcds-hint.sc-gcds-radio{font:var(--gcds-radio-hint-font)}";
+const gcdsRadioCss = ".sc-gcds-radio-h .gcds-radio.sc-gcds-radio{border:0;color:var(--gcds-radio-default-text);font:var(--gcds-radio-font);margin:var(--gcds-radio-margin);max-width:90%;padding:0;position:relative;-webkit-transition:color .15s ease-in-out;transition:color .15s ease-in-out}.sc-gcds-radio-h .gcds-radio.sc-gcds-radio:focus-within{color:var(--gcds-radio-focus-text)}.sc-gcds-radio-h .gcds-radio.sc-gcds-radio:focus-within gcds-hint.sc-gcds-radio{color:currentColor}.sc-gcds-radio-h .gcds-radio.gcds-radio--disabled.sc-gcds-radio{color:var(--gcds-radio-disabled-text)}.sc-gcds-radio-h .gcds-radio.gcds-radio--disabled.sc-gcds-radio input[type=radio].sc-gcds-radio+gcds-label.sc-gcds-radio{color:var(--gcds-radio-disabled-text)}.sc-gcds-radio-h .gcds-radio.gcds-radio--disabled.sc-gcds-radio input[type=radio].sc-gcds-radio+gcds-label.sc-gcds-radio:before{background-color:var(--gcds-radio-disabled-background);border-color:var(--gcds-radio-disabled-border);cursor:not-allowed}.sc-gcds-radio-h .gcds-radio.gcds-radio--disabled.sc-gcds-radio input[type=radio].sc-gcds-radio+gcds-label.sc-gcds-radio:after{cursor:not-allowed}.sc-gcds-radio-h .gcds-radio.gcds-radio--disabled.sc-gcds-radio gcds-hint.sc-gcds-radio{color:currentColor}.sc-gcds-radio-h .gcds-radio.gcds-radio--error.sc-gcds-radio:not(:focus-within) input[type=radio].sc-gcds-radio+gcds-label.sc-gcds-radio:before{border-color:var(--gcds-radio-danger-border)}.sc-gcds-radio-h .gcds-radio.gcds-radio--error.sc-gcds-radio:not(:focus-within) input[type=radio].sc-gcds-radio+gcds-label.sc-gcds-radio:after{background-color:var(--gcds-radio-danger-border);color:var(--gcds-radio-danger-border)}.sc-gcds-radio-h .gcds-radio.sc-gcds-radio input[type=radio].sc-gcds-radio{height:var(--gcds-radio-input-height);left:0;opacity:0;position:absolute;top:var(--gcds-radio-top);width:var(--gcds-radio-input-width)}.sc-gcds-radio-h .gcds-radio.sc-gcds-radio input[type=radio].sc-gcds-radio:checked+gcds-label.sc-gcds-radio:after{opacity:1}.sc-gcds-radio-h .gcds-radio.sc-gcds-radio input[type=radio].sc-gcds-radio+gcds-label.sc-gcds-radio{width:-webkit-fit-content;width:-moz-fit-content;width:fit-content}.sc-gcds-radio-h .gcds-radio.sc-gcds-radio input[type=radio].sc-gcds-radio+gcds-label.sc-gcds-radio:after,.sc-gcds-radio-h .gcds-radio.sc-gcds-radio input[type=radio].sc-gcds-radio+gcds-label.sc-gcds-radio:before{border-radius:var(--gcds-radio-border-radius);-webkit-box-sizing:border-box;box-sizing:border-box;content:\"\";cursor:pointer;position:absolute}.sc-gcds-radio-h .gcds-radio.sc-gcds-radio input[type=radio].sc-gcds-radio+gcds-label.sc-gcds-radio:before{border:var(--gcds-radio-input-border-width) solid;height:var(--gcds-radio-input-height-and-width);left:0;top:var(--gcds-radio-top);-webkit-transition:border-color .15s ease-in-out,outline .15s ease-in-out,-webkit-box-shadow .15s ease-in-out;transition:border-color .15s ease-in-out,outline .15s ease-in-out,-webkit-box-shadow .15s ease-in-out;transition:border-color .15s ease-in-out,box-shadow .15s ease-in-out,outline .15s ease-in-out;transition:border-color .15s ease-in-out,box-shadow .15s ease-in-out,outline .15s ease-in-out,-webkit-box-shadow .15s ease-in-out;width:var(--gcds-radio-input-height-and-width)}.sc-gcds-radio-h .gcds-radio.sc-gcds-radio input[type=radio].sc-gcds-radio+gcds-label.sc-gcds-radio:after{background-color:currentcolor;color:currentcolor;height:var(--gcds-radio-check-height-and-width);left:var(--gcds-radio-check-left);opacity:0;top:var(--gcds-radio-check-top);-webkit-transition:opacity .2s ease-in-out;transition:opacity .2s ease-in-out;width:var(--gcds-radio-check-height-and-width)}.sc-gcds-radio-h .gcds-radio.sc-gcds-radio input[type=radio].sc-gcds-radio:focus+gcds-label.sc-gcds-radio{color:var(--gcds-radio-focus-text)}.sc-gcds-radio-h .gcds-radio.sc-gcds-radio input[type=radio].sc-gcds-radio:focus+gcds-label.sc-gcds-radio:before{background:var(--gcds-radio-focus-background);-webkit-box-shadow:var(--gcds-radio-focus-box-shadow);box-shadow:var(--gcds-radio-focus-box-shadow);outline:var( --gcds-radio-focus-outline-width) solid currentcolor;outline-offset:var(--gcds-radio-input-border-width)}.sc-gcds-radio-h .gcds-radio.sc-gcds-radio input[type=radio].sc-gcds-radio:focus+gcds-label.sc-gcds-radio:after{background-color:currentcolor;color:var(--gcds-radio-focus-text)}.sc-gcds-radio-h .gcds-radio.sc-gcds-radio gcds-hint.sc-gcds-radio,.sc-gcds-radio-h .gcds-radio.sc-gcds-radio gcds-label.sc-gcds-radio{display:block;padding:var(--gcds-radio-label-padding)}.sc-gcds-radio-h .gcds-radio.sc-gcds-radio gcds-hint.sc-gcds-radio{font:var(--gcds-radio-hint-font)}";
 
-const GcdsRadio$1 = /*@__PURE__*/ proxyCustomElement(class extends HTMLElement {
+const GcdsRadio$1 = /*@__PURE__*/ proxyCustomElement(class GcdsRadio extends HTMLElement {
   constructor() {
     super();
     this.__registerHost();
     this.gcdsRadioChange = createEvent(this, "gcdsRadioChange", 7);
     this.gcdsFocus = createEvent(this, "gcdsFocus", 7);
     this.gcdsBlur = createEvent(this, "gcdsBlur", 7);
-    this.onFocus = (e) => {
+    this.onFocus = e => {
       if (this.focusHandler) {
         this.focusHandler(e);
       }
       this.gcdsFocus.emit();
     };
-    this.onBlur = (e) => {
+    this.onBlur = e => {
       if (this.blurHandler) {
         this.blurHandler(e);
       }
       this.gcdsBlur.emit();
     };
-    this.onChange = (name) => {
+    this.onChange = name => {
       this.gcdsRadioChange.emit(name);
       this.checked = this.shadowElement.checked;
     };
@@ -50,10 +50,10 @@ const GcdsRadio$1 = /*@__PURE__*/ proxyCustomElement(class extends HTMLElement {
     }
   }
   /*
-  * Observe lang attribute change
-  */
+   * Observe lang attribute change
+   */
   updateLang() {
-    const observer = new MutationObserver((mutations) => {
+    const observer = new MutationObserver(mutations => {
       if (mutations[0].oldValue != this.el.lang) {
         this.lang = this.el.lang;
       }
@@ -74,8 +74,8 @@ const GcdsRadio$1 = /*@__PURE__*/ proxyCustomElement(class extends HTMLElement {
     }
   }
   /**
-  * Event listener for gcds-fieldset errors
-  */
+   * Event listener for gcds-fieldset errors
+   */
   gcdsGroupError(e) {
     if (e.srcElement.contains(this.el) && elementGroupCheck(this.name)) {
       this.hasError = true;
@@ -83,31 +83,35 @@ const GcdsRadio$1 = /*@__PURE__*/ proxyCustomElement(class extends HTMLElement {
     }
     else if (!elementGroupCheck(this.name)) {
       this.hasError = false;
-      this.parentError = "";
+      this.parentError = '';
     }
   }
   gcdsGroupErrorClear(e) {
     if (e.srcElement.contains(this.el) && this.hasError) {
       this.hasError = false;
-      this.parentError = "";
+      this.parentError = '';
     }
   }
   render() {
-    const { lang, radioId, label, name, required, disabled, value, checked, hint, hasError, parentError, inheritedAttributes } = this;
+    const { lang, radioId, label, name, required, disabled, value, checked, hint, hasError, parentError, inheritedAttributes, } = this;
     const attrsInput = Object.assign({ name,
       disabled,
       required,
       value,
       checked }, inheritedAttributes);
     if (hint || parentError) {
-      let hintID = hint ? `hint-${radioId} ` : "";
-      let errorID = parentError ? `parent-error-${radioId} ` : "";
-      attrsInput["aria-describedby"] = `${hintID}${errorID}${attrsInput["aria-describedby"] ? `${attrsInput["aria-describedby"]}` : ""}`;
+      const hintID = hint ? `hint-${radioId} ` : '';
+      const errorID = parentError ? `parent-error-${radioId} ` : '';
+      attrsInput['aria-describedby'] = `${hintID}${errorID}${attrsInput['aria-describedby']
+        ? `${attrsInput['aria-describedby']}`
+        : ''}`;
     }
     if (hasError) {
-      attrsInput["aria-invalid"] = "true";
+      attrsInput['aria-invalid'] = 'true';
     }
-    return (h(Host, null, h("div", { class: `gcds-radio ${disabled ? 'gcds-radio--disabled' : ''} ${hasError ? 'gcds-radio--error' : ''}` }, h("input", Object.assign({ id: radioId, type: "radio" }, attrsInput, { onChange: () => this.onChange(name), onBlur: (e) => this.onBlur(e), onFocus: (e) => this.onFocus(e), onClick: (e) => { this.clickHandler && this.clickHandler(e); }, ref: element => this.shadowElement = element })), h("gcds-label", { label: label, "label-for": radioId, lang: lang }), hint ? h("gcds-hint", { hint: hint, "hint-id": radioId }) : null, parentError && h("span", { id: `parent-error-${radioId}`, hidden: true }, parentError))));
+    return (h(Host, null, h("div", { class: `gcds-radio ${disabled ? 'gcds-radio--disabled' : ''} ${hasError ? 'gcds-radio--error' : ''}` }, h("input", Object.assign({ id: radioId, type: "radio" }, attrsInput, { onChange: () => this.onChange(name), onBlur: e => this.onBlur(e), onFocus: e => this.onFocus(e), onClick: e => {
+        this.clickHandler && this.clickHandler(e);
+      }, ref: element => (this.shadowElement = element) })), h("gcds-label", { label: label, "label-for": radioId, lang: lang }), hint ? h("gcds-hint", { hint: hint, "hint-id": radioId }) : null, parentError && (h("span", { id: `parent-error-${radioId}`, hidden: true }, parentError)))));
   }
   get el() { return this; }
   static get watchers() { return {
@@ -159,3 +163,5 @@ const GcdsRadio = GcdsRadio$1;
 const defineCustomElement = defineCustomElement$1;
 
 export { GcdsRadio, defineCustomElement };
+
+//# sourceMappingURL=gcds-radio.js.map

@@ -4,56 +4,56 @@ export declare class GcdsTopicMenu {
   private themeList?;
   private menuButton?;
   /**
-  * Props
-  */
+   * Props
+   */
   /**
-  * Sets the homepage styling
-  */
+   * Sets the homepage styling
+   */
   home: boolean;
   /**
-  * States
-  */
+   * States
+   */
   /**
-  * Open state of menu
-  */
+   * Open state of menu
+   */
   open: boolean;
   /**
-  * Language of rendered component
-  */
+   * Language of rendered component
+   */
   lang: string;
   /**
-  * Queue of nav items for keyboard navigation
-  */
+   * Queue of nav items for keyboard navigation
+   */
   navItems: any[];
   /**
-  * Current size based on window size
-  */
+   * Current size based on window size
+   */
   navSize: 'desktop' | 'mobile';
   /**
-  * Listen for focusout of theme and topic menu to close menu
-  */
+   * Listen for focusout of theme and topic menu to close menu
+   */
   focusOutListener(e: any): Promise<void>;
   /**
-  * Keyboard controls of theme and topic menu
-  */
+   * Keyboard controls of theme and topic menu
+   */
   keyDownListener(e: any): Promise<void>;
   /**
-  * Close all theme menus
-  */
+   * Close all theme menus
+   */
   closeAllMenus(): Promise<void>;
   /**
-  * Toggle open theme and topic menu
-  */
+   * Toggle open theme and topic menu
+   */
   toggleNav(): Promise<void>;
   updateNavSize(size: any): Promise<void>;
   getNavSize(): Promise<"desktop" | "mobile">;
   /**
-  * Update keyboard focus queue
-  */
+   * Update keyboard focus queue
+   */
   updateNavItemQueue(parent: any): Promise<void>;
   /**
-  * Focus menu link
-  */
+   * Focus menu link
+   */
   private focusMenuLink;
   updateLang(): void;
   componentWillLoad(): Promise<void>;

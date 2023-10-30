@@ -1,14 +1,15 @@
-import { Host, h } from '@stencil/core';
-import { assignLanguage, observerConfig } from '../../utils/utils';
-import SignatureEn from './assets/sig-blk-en.svg';
-import SignatureFr from './assets/sig-blk-fr.svg';
-import WordmarkEn from './assets/wmms-spl-en.svg';
-import WordmarkFr from './assets/wmms-spl-fr.svg';
+import { Host, h } from "@stencil/core";
+import { assignLanguage, observerConfig } from "../../utils/utils";
+import i18n from "./i18n/i18n";
+import SignatureEn from "./assets/sig-blk-en.svg";
+import SignatureFr from "./assets/sig-blk-fr.svg";
+import WordmarkEn from "./assets/wmms-spl-en.svg";
+import WordmarkFr from "./assets/wmms-spl-fr.svg";
 export class GcdsSignature {
   constructor() {
-    this.type = undefined;
-    this.variant = undefined;
-    this.hasLink = undefined;
+    this.type = 'signature';
+    this.variant = 'colour';
+    this.hasLink = false;
     this.lang = undefined;
   }
   validateType(newValue) {
@@ -22,10 +23,10 @@ export class GcdsSignature {
     }
   }
   /*
-  * Observe lang attribute change
-  */
+   * Observe lang attribute change
+   */
   updateLang() {
-    const observer = new MutationObserver((mutations) => {
+    const observer = new MutationObserver(mutations => {
       if (mutations[0].oldValue != this.el.lang) {
         this.lang = this.el.lang;
       }
@@ -60,8 +61,9 @@ export class GcdsSignature {
   }
   render() {
     const { type, hasLink, lang, selectSVG } = this;
-    const linkText = lang == "en" ? "https://canada.ca/en.html" : "https://canada.ca/fr.html";
-    return (h(Host, null, hasLink && type === 'signature' ? (h("a", { href: linkText, innerHTML: selectSVG })) : (h("div", { class: "gcds-signature", innerHTML: selectSVG }))));
+    return (h(Host, null, hasLink && type === 'signature' ? (
+    // eslint-disable-next-line jsx-a11y/anchor-has-content
+    h("a", { href: i18n[lang].link, innerHTML: selectSVG })) : (h("div", { class: "gcds-signature", innerHTML: selectSVG }))));
   }
   static get is() { return "gcds-signature"; }
   static get originalStyleUrls() {
@@ -91,7 +93,8 @@ export class GcdsSignature {
           "text": "The type of graphic to render"
         },
         "attribute": "type",
-        "reflect": true
+        "reflect": true,
+        "defaultValue": "'signature'"
       },
       "variant": {
         "type": "string",
@@ -108,7 +111,8 @@ export class GcdsSignature {
           "text": "The colour variant to render"
         },
         "attribute": "variant",
-        "reflect": true
+        "reflect": true,
+        "defaultValue": "'colour'"
       },
       "hasLink": {
         "type": "boolean",
@@ -125,7 +129,8 @@ export class GcdsSignature {
           "text": "Has link to canada.ca. Only applies to signature"
         },
         "attribute": "has-link",
-        "reflect": false
+        "reflect": false,
+        "defaultValue": "false"
       }
     };
   }
@@ -145,3 +150,4 @@ export class GcdsSignature {
       }];
   }
 }
+//# sourceMappingURL=gcds-signature.js.map

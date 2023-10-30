@@ -115,15 +115,11 @@ DOMTokenList
   var resourcesUrl = scriptElm ? scriptElm.getAttribute('data-resources-url') || scriptElm.src : '';
   var start = function() {
     // if src is not present then origin is "null", and new URL() throws TypeError: Failed to construct 'URL': Invalid base URL
-    var url = new URL('./p-98ac22f5.system.js', new URL(resourcesUrl, window.location.origin !== 'null' ? window.location.origin : undefined));
+    var url = new URL('./p-2a16ac88.system.js', new URL(resourcesUrl, window.location.origin !== 'null' ? window.location.origin : undefined));
     System.import(url.href);
   };
 
-  if (window.__cssshim) {
-    window.__cssshim.i().then(start);
-  } else {
-    start();
-  }
+  start();
 
   // Note: using .call(window) here because the self-executing function needs
   // to be scoped to the window object for the ES6Promise polyfill to work

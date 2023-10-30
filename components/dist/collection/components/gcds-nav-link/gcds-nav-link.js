@@ -1,14 +1,14 @@
-import { Host, h } from '@stencil/core';
-import { assignLanguage, observerConfig } from '../../utils/utils';
+import { Host, h, } from "@stencil/core";
+import { assignLanguage, observerConfig } from "../../utils/utils";
 export class GcdsNavLink {
   constructor() {
-    this.onClick = (e) => {
+    this.onClick = e => {
       this.gcdsClick.emit(e);
     };
-    this.onFocus = (e) => {
+    this.onFocus = e => {
       this.gcdsFocus.emit(e);
     };
-    this.onBlur = (e) => {
+    this.onBlur = e => {
       this.gcdsBlur.emit(e);
     };
     this.href = undefined;
@@ -17,16 +17,16 @@ export class GcdsNavLink {
     this.navStyle = undefined;
   }
   /**
-  * Focus the link element
-  */
+   * Focus the link element
+   */
   async focusLink() {
     this.linkElement.focus();
   }
   /*
-  * Observe lang attribute change
-  */
+   * Observe lang attribute change
+   */
   updateLang() {
-    const observer = new MutationObserver((mutations) => {
+    const observer = new MutationObserver(mutations => {
       if (mutations[0].oldValue != this.el.lang) {
         this.lang = this.el.lang;
       }
@@ -37,25 +37,26 @@ export class GcdsNavLink {
     // Define lang attribute
     this.lang = assignLanguage(this.el);
     this.updateLang();
-    if (this.el.closest("gcds-top-nav")) {
-      if (this.el.parentNode.nodeName == "GCDS-TOP-NAV") {
-        this.navStyle = this.el.slot == "home" ? "topnav gcds-nav-link--home" : "topnav";
+    if (this.el.closest('gcds-top-nav')) {
+      if (this.el.parentNode.nodeName == 'GCDS-TOP-NAV') {
+        this.navStyle =
+          this.el.slot == 'home' ? 'topnav gcds-nav-link--home' : 'topnav';
       }
       else {
-        this.navStyle = "dropdown";
+        this.navStyle = 'dropdown';
       }
     }
     else {
-      this.navStyle = "sidenav";
+      this.navStyle = 'sidenav';
     }
   }
   render() {
     const { current, href } = this;
-    let linkAttrs = {};
+    const linkAttrs = {};
     if (current) {
-      linkAttrs["aria-current"] = "page";
+      linkAttrs['aria-current'] = 'page';
     }
-    return (h(Host, { role: "presentation", class: `gcds-nav-link--${this.navStyle}` }, h("a", Object.assign({ class: "gcds-nav-link", href: href }, linkAttrs, { role: "menuitem", onBlur: (e) => this.onBlur(e), onFocus: (e) => this.onFocus(e), onClick: (e) => this.onClick(e), ref: element => this.linkElement = element }), h("slot", null))));
+    return (h(Host, { role: "presentation", class: `gcds-nav-link--${this.navStyle}` }, h("a", Object.assign({ class: "gcds-nav-link", href: href }, linkAttrs, { role: "menuitem", onBlur: e => this.onBlur(e), onFocus: e => this.onFocus(e), onClick: e => this.onClick(e), ref: element => (this.linkElement = element) }), h("slot", null))));
   }
   static get is() { return "gcds-nav-link"; }
   static get encapsulation() { return "shadow"; }
@@ -169,7 +170,8 @@ export class GcdsNavLink {
           "parameters": [],
           "references": {
             "Promise": {
-              "location": "global"
+              "location": "global",
+              "id": "global::Promise"
             }
           },
           "return": "Promise<void>"
@@ -183,3 +185,4 @@ export class GcdsNavLink {
   }
   static get elementRef() { return "el"; }
 }
+//# sourceMappingURL=gcds-nav-link.js.map

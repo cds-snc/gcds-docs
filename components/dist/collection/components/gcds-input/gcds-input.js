@@ -1,21 +1,21 @@
-import { Host, h } from '@stencil/core';
-import { assignLanguage, inheritAttributes, observerConfig } from '../../utils/utils';
-import { defaultValidator, getValidator, requiredValidator } from '../../validators';
+import { Host, h, } from "@stencil/core";
+import { assignLanguage, inheritAttributes, observerConfig, } from "../../utils/utils";
+import { defaultValidator, getValidator, requiredValidator, } from "../../validators";
 export class GcdsInput {
   constructor() {
     this._validator = defaultValidator;
-    this.onFocus = (e) => {
+    this.onFocus = e => {
       if (this.focusHandler) {
         this.focusHandler(e);
       }
       this.gcdsFocus.emit();
     };
-    this.onBlur = (e) => {
+    this.onBlur = e => {
       if (this.blurHandler) {
         this.blurHandler(e);
       }
       else {
-        if (this.validateOn == "blur") {
+        if (this.validateOn == 'blur') {
           this.validate();
         }
       }
@@ -48,18 +48,18 @@ export class GcdsInput {
   }
   validateErrorMessage() {
     if (this.disabled) {
-      this.errorMessage = "";
+      this.errorMessage = '';
     }
     else if (!this.hasError && this.errorMessage) {
       this.hasError = true;
     }
-    else if (this.errorMessage == "") {
+    else if (this.errorMessage == '') {
       this.hasError = false;
     }
   }
   validateValidator() {
     if (this.validator && !this.validateOn) {
-      this.validateOn = "blur";
+      this.validateOn = 'blur';
     }
   }
   validateHasError() {
@@ -68,21 +68,24 @@ export class GcdsInput {
     }
   }
   /**
-    * Call any active validators
-    */
+   * Call any active validators
+   */
   async validate() {
     if (!this._validator.validate(this.value) && this._validator.errorMessage) {
       this.errorMessage = this._validator.errorMessage[this.lang];
-      this.gcdsError.emit({ id: `#${this.inputId}`, message: `${this.label} - ${this.errorMessage}` });
+      this.gcdsError.emit({
+        id: `#${this.inputId}`,
+        message: `${this.label} - ${this.errorMessage}`,
+      });
     }
     else {
-      this.errorMessage = "";
+      this.errorMessage = '';
       this.gcdsValid.emit({ id: `#${this.inputId}` });
     }
   }
   submitListener(e) {
-    if (e.target == this.el.closest("form")) {
-      if (this.validateOn && this.validateOn != "other") {
+    if (e.target == this.el.closest('form')) {
+      if (this.validateOn && this.validateOn != 'other') {
         this.validate();
       }
       if (this.hasError) {
@@ -95,16 +98,16 @@ export class GcdsInput {
       this.changeHandler(e);
     }
     else {
-      let val = e.target && e.target.value;
+      const val = e.target && e.target.value;
       this.value = val;
     }
     this.gcdsChange.emit(this.value);
   }
   /*
-  * Observe lang attribute change
-  */
+   * Observe lang attribute change
+   */
   updateLang() {
-    const observer = new MutationObserver((mutations) => {
+    const observer = new MutationObserver(mutations => {
       if (mutations[0].oldValue != this.el.lang) {
         this.lang = this.el.lang;
       }
@@ -120,11 +123,13 @@ export class GcdsInput {
     this.validateErrorMessage();
     this.validateValidator();
     // Assign required validator if needed
-    requiredValidator(this.el, "input", this.type);
+    requiredValidator(this.el, 'input', this.type);
     if (this.validator) {
       this._validator = getValidator(this.validator);
     }
-    this.inheritedAttributes = inheritAttributes(this.el, this.shadowElement, ['placeholder']);
+    this.inheritedAttributes = inheritAttributes(this.el, this.shadowElement, [
+      'placeholder',
+    ]);
   }
   componentWillUpdate() {
     if (this.validator) {
@@ -132,10 +137,10 @@ export class GcdsInput {
     }
   }
   render() {
-    const { disabled, errorMessage, hideLabel, hint, inputId, label, required, size, type, value, hasError, autocomplete, inheritedAttributes, lang } = this;
+    const { disabled, errorMessage, hideLabel, hint, inputId, label, required, size, type, value, hasError, autocomplete, inheritedAttributes, lang, } = this;
     // Use max-width instead of size attribute to keep field responsive
     const style = {
-      maxWidth: `${size * 1.5}ch`
+      maxWidth: `${size * 1.5}ch`,
     };
     const attrsInput = Object.assign({ disabled,
       required,
@@ -147,13 +152,13 @@ export class GcdsInput {
       required,
     };
     if (hint || errorMessage) {
-      let hintID = hint ? `hint-${inputId} ` : "";
-      let errorID = errorMessage ? `error-message-${inputId} ` : "";
-      attrsInput["aria-describedby"] = `${hintID}${errorID}${attrsInput["aria-describedby"] ? ` ${attrsInput["aria-describedby"]}` : ""}`;
+      const hintID = hint ? `hint-${inputId} ` : '';
+      const errorID = errorMessage ? `error-message-${inputId} ` : '';
+      attrsInput['aria-describedby'] = `${hintID}${errorID}${attrsInput['aria-describedby']
+        ? ` ${attrsInput['aria-describedby']}`
+        : ''}`;
     }
-    return (h(Host, null, h("div", { class: `gcds-input-wrapper ${disabled ? 'gcds-disabled' : ''} ${hasError ? 'gcds-error' : ''}` }, h("gcds-label", Object.assign({}, attrsLabel, { "hide-label": hideLabel, "label-for": inputId, lang: lang })), hint ? h("gcds-hint", { hint: hint, "hint-id": inputId }) : null, errorMessage ?
-      h("gcds-error-message", { messageId: inputId, message: errorMessage })
-      : null, h("input", Object.assign({}, attrsInput, { class: hasError ? 'gcds-error' : null, id: inputId, name: inputId, onBlur: (e) => this.onBlur(e), onFocus: (e) => this.onFocus(e), onInput: (e) => this.handleChange(e), "aria-labelledby": `label-for-${inputId}`, "aria-invalid": errorMessage ? 'true' : 'false', maxlength: size, style: size ? style : null, ref: element => this.shadowElement = element })))));
+    return (h(Host, null, h("div", { class: `gcds-input-wrapper ${disabled ? 'gcds-disabled' : ''} ${hasError ? 'gcds-error' : ''}` }, h("gcds-label", Object.assign({}, attrsLabel, { "hide-label": hideLabel, "label-for": inputId, lang: lang })), hint ? h("gcds-hint", { hint: hint, "hint-id": inputId }) : null, errorMessage ? (h("gcds-error-message", { messageId: inputId, message: errorMessage })) : null, h("input", Object.assign({}, attrsInput, { class: hasError ? 'gcds-error' : null, id: inputId, name: inputId, onBlur: e => this.onBlur(e), onFocus: e => this.onFocus(e), onInput: e => this.handleChange(e), "aria-labelledby": `label-for-${inputId}`, "aria-invalid": errorMessage ? 'true' : 'false', maxlength: size, style: size ? style : null, ref: element => (this.shadowElement = element) })))));
   }
   static get is() { return "gcds-input"; }
   static get encapsulation() { return "scoped"; }
@@ -368,7 +373,8 @@ export class GcdsInput {
           "resolved": "Function",
           "references": {
             "Function": {
-              "location": "global"
+              "location": "global",
+              "id": "global::Function"
             }
           }
         },
@@ -387,7 +393,8 @@ export class GcdsInput {
           "resolved": "Function",
           "references": {
             "Function": {
-              "location": "global"
+              "location": "global",
+              "id": "global::Function"
             }
           }
         },
@@ -406,7 +413,8 @@ export class GcdsInput {
           "resolved": "Function",
           "references": {
             "Function": {
-              "location": "global"
+              "location": "global",
+              "id": "global::Function"
             }
           }
         },
@@ -421,19 +429,22 @@ export class GcdsInput {
         "type": "unknown",
         "mutable": true,
         "complexType": {
-          "original": "Array<string | ValidatorEntry | Validator<string>>",
+          "original": "Array<\n    string | ValidatorEntry | Validator<string>\n  >",
           "resolved": "(string | ValidatorEntry | Validator<string>)[]",
           "references": {
             "Array": {
-              "location": "global"
+              "location": "global",
+              "id": "global::Array"
             },
             "ValidatorEntry": {
               "location": "import",
-              "path": "../../validators"
+              "path": "../../validators",
+              "id": "src/validators/index.ts::ValidatorEntry"
             },
             "Validator": {
               "location": "import",
-              "path": "../../validators"
+              "path": "../../validators",
+              "id": "src/validators/index.ts::Validator"
             }
           }
         },
@@ -556,7 +567,8 @@ export class GcdsInput {
           "parameters": [],
           "references": {
             "Promise": {
-              "location": "global"
+              "location": "global",
+              "id": "global::Promise"
             }
           },
           "return": "Promise<void>"
@@ -594,3 +606,4 @@ export class GcdsInput {
       }];
   }
 }
+//# sourceMappingURL=gcds-input.js.map

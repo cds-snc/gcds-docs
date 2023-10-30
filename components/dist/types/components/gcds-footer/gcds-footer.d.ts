@@ -4,21 +4,20 @@ export declare class GcdsFooter {
    * Props
    */
   /**
-  * Display mode of the footer
-  */
-  display: 'compact' | 'full';
-  validateDisplay(newValue: string): void;
+   * Display mode of the footer
+   */
+  display?: 'compact' | 'full';
   /**
-  * GcdsSignature - The variant of the Government of Canada wordmark
-  */
+   * GcdsSignature - The variant of the Government of Canada wordmark
+   */
   wordmarkVariant: 'colour' | 'white';
   /**
-  * Heading for contextual slot and nav landmark
-  */
+   * Heading for contextual slot and nav landmark
+   */
   contextualHeading: string;
   /**
-  * Object of list items for contextual band. Format: { link-label: link-href }
-  */
+   * Object of list items for contextual band. Format: { link-label: link-href }
+   */
   contextualLinks: string | object;
   contextualLinksObject: object;
   /**
@@ -27,8 +26,8 @@ export declare class GcdsFooter {
    */
   contextualLinksChanged(newContextualLinks: string | object): void;
   /**
-  * Object of list items for sub-footer. Format: { link-label: link-href }
-  */
+   * Object of list items for sub-footer. Format: { link-label: link-href }
+   */
   subLinks: string | object;
   subLinksObject: object;
   /**
@@ -37,8 +36,8 @@ export declare class GcdsFooter {
    */
   subLinksChanged(newSubLinks: string | object): void;
   /**
-  * Language of rendered component
-  */
+   * Language of rendered component
+   */
   lang: string;
   updateLang(): void;
   componentWillLoad(): Promise<void>;

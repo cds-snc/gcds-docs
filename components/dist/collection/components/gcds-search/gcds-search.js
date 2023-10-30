@@ -1,21 +1,21 @@
-import { Host, h } from '@stencil/core';
-import { assignLanguage, observerConfig } from '../../utils/utils';
-import I18N from './i18n/I18N';
+import { Host, h, } from "@stencil/core";
+import { assignLanguage, observerConfig } from "../../utils/utils";
+import I18N from "./i18n/I18N";
 export class GcdsSearch {
   constructor() {
-    this.placeholder = "Canada.ca";
-    this.action = "/sr/srb.html";
-    this.method = "get";
-    this.name = "q";
-    this.searchId = "search";
+    this.placeholder = 'Canada.ca';
+    this.action = '/sr/srb.html';
+    this.method = 'get';
+    this.name = 'q';
+    this.searchId = 'search';
     this.suggested = undefined;
     this.lang = undefined;
   }
   /*
-  * Observe lang attribute change
-  */
+   * Observe lang attribute change
+   */
   updateLang() {
-    const observer = new MutationObserver((mutations) => {
+    const observer = new MutationObserver(mutations => {
       if (mutations[0].oldValue != this.el.lang) {
         this.lang = this.el.lang;
       }
@@ -28,14 +28,15 @@ export class GcdsSearch {
   }
   render() {
     const { placeholder, action, method, name, lang, searchId, suggested } = this;
-    let labelText = `${I18N[lang].searchLabel.replace("{$}", placeholder)}`;
+    const labelText = `${I18N[lang].searchLabel.replace('{$}', placeholder)}`;
     const attrsInput = {
       name,
-      placeholder: labelText
+      placeholder: labelText,
     };
-    let formAction = action === '/sr/srb.html' ? `https://www.canada.ca/${lang}/sr/srb.html` : action;
-    return (h(Host, null, h("div", { class: "gcds-search" }, h("h2", { class: "gcds-search__header" }, I18N[lang].search), h("form", { action: formAction, method: method, role: "search", onSubmit: () => this.gcdsSubmit.emit(), class: "gcds-search__form" }, h("gcds-label", { label: labelText, "label-for": searchId, "hide-label": true }), h("input", Object.assign({ type: "search", id: searchId, list: "search-list", size: 34, maxLength: 170, onChange: () => this.gcdsChange.emit(), onFocus: () => this.gcdsFocus.emit(), onBlur: () => this.gcdsBlur.emit() }, attrsInput, { class: "gcds-search__input" })), suggested &&
-      h("datalist", { id: "search-list" }, suggested.map((k, v) => h("option", { value: k, key: v }))), h("gcds-button", { type: "submit", class: "gcds-search__button", exportparts: "button" }, h("gcds-icon", { name: "search", label: I18N[lang].search, "fixed-width": true }))))));
+    const formAction = action === '/sr/srb.html'
+      ? `https://www.canada.ca/${lang}/sr/srb.html`
+      : action;
+    return (h(Host, null, h("div", { class: "gcds-search" }, h("h2", { class: "gcds-search__header" }, I18N[lang].search), h("form", { action: formAction, method: method, role: "search", onSubmit: () => this.gcdsSubmit.emit(), class: "gcds-search__form" }, h("gcds-label", { label: labelText, "label-for": searchId, "hide-label": true }), h("input", Object.assign({ type: "search", id: searchId, list: "search-list", size: 34, maxLength: 170, onChange: () => this.gcdsChange.emit(), onFocus: () => this.gcdsFocus.emit(), onBlur: () => this.gcdsBlur.emit() }, attrsInput, { class: "gcds-search__input" })), suggested && (h("datalist", { id: "search-list" }, suggested.map((k, v) => (h("option", { value: k, key: v }))))), h("gcds-button", { type: "submit", class: "gcds-search__button", exportparts: "button" }, h("gcds-icon", { name: "search", label: I18N[lang].search, "fixed-width": true }))))));
   }
   static get is() { return "gcds-search"; }
   static get encapsulation() { return "scoped"; }
@@ -67,7 +68,7 @@ export class GcdsSearch {
         },
         "attribute": "placeholder",
         "reflect": false,
-        "defaultValue": "\"Canada.ca\""
+        "defaultValue": "'Canada.ca'"
       },
       "action": {
         "type": "string",
@@ -85,13 +86,13 @@ export class GcdsSearch {
         },
         "attribute": "action",
         "reflect": false,
-        "defaultValue": "\"/sr/srb.html\""
+        "defaultValue": "'/sr/srb.html'"
       },
       "method": {
         "type": "string",
         "mutable": false,
         "complexType": {
-          "original": "\"get\" | \"post\"",
+          "original": "'get' | 'post'",
           "resolved": "\"get\" | \"post\"",
           "references": {}
         },
@@ -103,7 +104,7 @@ export class GcdsSearch {
         },
         "attribute": "method",
         "reflect": false,
-        "defaultValue": "\"get\""
+        "defaultValue": "'get'"
       },
       "name": {
         "type": "string",
@@ -121,7 +122,7 @@ export class GcdsSearch {
         },
         "attribute": "name",
         "reflect": false,
-        "defaultValue": "\"q\""
+        "defaultValue": "'q'"
       },
       "searchId": {
         "type": "string",
@@ -139,7 +140,7 @@ export class GcdsSearch {
         },
         "attribute": "search-id",
         "reflect": false,
-        "defaultValue": "\"search\""
+        "defaultValue": "'search'"
       },
       "suggested": {
         "type": "unknown",
@@ -149,7 +150,8 @@ export class GcdsSearch {
           "resolved": "string[]",
           "references": {
             "Array": {
-              "location": "global"
+              "location": "global",
+              "id": "global::Array"
             }
           }
         },
@@ -232,3 +234,4 @@ export class GcdsSearch {
   }
   static get elementRef() { return "el"; }
 }
+//# sourceMappingURL=gcds-search.js.map

@@ -1,8 +1,8 @@
-import { Host, h } from '@stencil/core';
-import { assignLanguage, observerConfig, inheritAttributes } from '../../utils/utils';
-import { defaultValidator, getValidator, requiredValidator } from '../../validators';
-import { validateFieldsetElements } from '../../validators/fieldset-validators/fieldset-validators';
-import i18n from './i18n/i18n';
+import { Host, h, } from "@stencil/core";
+import { assignLanguage, observerConfig, inheritAttributes, } from "../../utils/utils";
+import { defaultValidator, getValidator, requiredValidator, } from "../../validators";
+import { validateFieldsetElements } from "../../validators/fieldset-validators/fieldset-validators";
+import i18n from "./i18n/i18n";
 export class GcdsFieldset {
   constructor() {
     this._validator = defaultValidator;
@@ -20,12 +20,12 @@ export class GcdsFieldset {
   }
   validateErrorMessage() {
     if (this.disabled) {
-      this.errorMessage = "";
+      this.errorMessage = '';
     }
     else if (!this.hasError && this.errorMessage) {
       this.hasError = true;
     }
-    else if (this.errorMessage == "") {
+    else if (this.errorMessage == '') {
       this.hasError = false;
     }
   }
@@ -34,40 +34,46 @@ export class GcdsFieldset {
       this.disabled = false;
     }
     if (this.disabled == true) {
-      for (var i = 0; i < this.el.children.length; i++) {
-        this.el.children[i].setAttribute("disabled", "");
+      for (let i = 0; i < this.el.children.length; i++) {
+        this.el.children[i].setAttribute('disabled', '');
       }
     }
   }
   handleDisabledChange(newValue, _oldValue) {
     if (_oldValue && newValue != _oldValue) {
-      for (var i = 0; i < this.el.children.length; i++) {
-        this.el.children[i].removeAttribute("disabled");
+      for (let i = 0; i < this.el.children.length; i++) {
+        this.el.children[i].removeAttribute('disabled');
       }
     }
   }
   validateValidator() {
     if (this.validator && !this.validateOn) {
-      this.validateOn = "blur";
+      this.validateOn = 'blur';
     }
   }
   /**
    * Call any active validators
    */
   async validate() {
-    if (!this._validator.validate(this.fieldsetId) && this._validator.errorMessage) {
+    if (!this._validator.validate(this.fieldsetId) &&
+      this._validator.errorMessage) {
       this.errorMessage = this._validator.errorMessage[this.lang];
       this.gcdsGroupError.emit(this.errorMessage);
-      this.gcdsError.emit({ id: `#${this.fieldsetId}`, message: `${this.legend} - ${this.errorMessage}` });
+      this.gcdsError.emit({
+        id: `#${this.fieldsetId}`,
+        message: `${this.legend} - ${this.errorMessage}`,
+      });
     }
     else {
-      this.errorMessage = "";
+      this.errorMessage = '';
       this.gcdsGroupErrorClear.emit();
       this.gcdsValid.emit({ id: `#${this.fieldsetId}` });
     }
   }
   blurValidate() {
-    if (this.validator && this.validateOn == "blur" && !this.el.matches(':focus-within')) {
+    if (this.validator &&
+      this.validateOn == 'blur' &&
+      !this.el.matches(':focus-within')) {
       this.validate();
     }
   }
@@ -75,7 +81,8 @@ export class GcdsFieldset {
    * Event listener for gcds-fieldset errors
    */
   gcdsParentGroupError(e) {
-    if (e.srcElement == this.el && validateFieldsetElements(this.el, this.el.children).includes(false)) {
+    if (e.srcElement == this.el &&
+      validateFieldsetElements(this.el, this.el.children).includes(false)) {
       this.hasError = true;
     }
   }
@@ -85,8 +92,8 @@ export class GcdsFieldset {
     }
   }
   submitListener(e) {
-    if (e.target == this.el.closest("form")) {
-      if (this.validateOn && this.validateOn != "other") {
+    if (e.target == this.el.closest('form')) {
+      if (this.validateOn && this.validateOn != 'other') {
         this.validate();
       }
       if (this.hasError) {
@@ -95,10 +102,10 @@ export class GcdsFieldset {
     }
   }
   /*
-  * Observe lang attribute change
-  */
+   * Observe lang attribute change
+   */
   updateLang() {
-    const observer = new MutationObserver((mutations) => {
+    const observer = new MutationObserver(mutations => {
       if (mutations[0].oldValue != this.el.lang) {
         this.lang = this.el.lang;
       }
@@ -113,7 +120,7 @@ export class GcdsFieldset {
     this.validateErrorMessage();
     this.validateValidator();
     // Assign required validator if needed
-    requiredValidator(this.el, "fieldset");
+    requiredValidator(this.el, 'fieldset');
     if (this.validator) {
       this._validator = getValidator(this.validator);
     }
@@ -125,14 +132,16 @@ export class GcdsFieldset {
     }
   }
   render() {
-    const { lang, fieldsetId, legend, required, errorMessage, hasError, hint, disabled, inheritedAttributes } = this;
+    const { lang, fieldsetId, legend, required, errorMessage, hasError, hint, disabled, inheritedAttributes, } = this;
     const fieldsetAttrs = Object.assign({ disabled }, inheritedAttributes);
     if (errorMessage) {
-      fieldsetAttrs["aria-describedby"] = `error-message-${fieldsetId} ${fieldsetAttrs["aria-describedby"] ? ` ${fieldsetAttrs["aria-describedby"]}` : ""}`;
+      fieldsetAttrs['aria-describedby'] = `error-message-${fieldsetId} ${fieldsetAttrs['aria-describedby']
+        ? ` ${fieldsetAttrs['aria-describedby']}`
+        : ''}`;
     }
-    return (h(Host, null, h("fieldset", Object.assign({ class: `gcds-fieldset ${hasError ? "gcds-fieldset--error" : ''}`, id: fieldsetId }, fieldsetAttrs, { "aria-labelledby": hint ? `legend-${fieldsetId} hint-${fieldsetId}` : `legend-${fieldsetId}`, tabindex: "-1", ref: element => this.shadowElement = element }), h("legend", { id: `legend-${fieldsetId}` }, legend, required ?
-      h("strong", { class: "legend__required" }, "(", i18n[lang].required, ")")
-      : null), hint ? h("gcds-hint", { hint: hint, "hint-id": fieldsetId }) : null, errorMessage ? h("gcds-error-message", { messageId: fieldsetId, message: errorMessage }) : null, h("slot", null))));
+    return (h(Host, null, h("fieldset", Object.assign({ class: `gcds-fieldset ${hasError ? 'gcds-fieldset--error' : ''}`, id: fieldsetId }, fieldsetAttrs, { "aria-labelledby": hint
+        ? `legend-${fieldsetId} hint-${fieldsetId}`
+        : `legend-${fieldsetId}`, tabindex: "-1", ref: element => (this.shadowElement = element) }), h("legend", { id: `legend-${fieldsetId}` }, legend, required ? (h("strong", { class: "legend__required" }, "(", i18n[lang].required, ")")) : null), hint ? h("gcds-hint", { hint: hint, "hint-id": fieldsetId }) : null, errorMessage ? (h("gcds-error-message", { messageId: fieldsetId, message: errorMessage })) : null, h("slot", null))));
   }
   static get is() { return "gcds-fieldset"; }
   static get encapsulation() { return "scoped"; }
@@ -254,19 +263,22 @@ export class GcdsFieldset {
         "type": "unknown",
         "mutable": true,
         "complexType": {
-          "original": "Array<string | ValidatorEntry | Validator<string>>",
+          "original": "Array<\n    string | ValidatorEntry | Validator<string>\n  >",
           "resolved": "(string | ValidatorEntry | Validator<string>)[]",
           "references": {
             "Array": {
-              "location": "global"
+              "location": "global",
+              "id": "global::Array"
             },
             "ValidatorEntry": {
               "location": "import",
-              "path": "../../validators"
+              "path": "../../validators",
+              "id": "src/validators/index.ts::ValidatorEntry"
             },
             "Validator": {
               "location": "import",
-              "path": "../../validators"
+              "path": "../../validators",
+              "id": "src/validators/index.ts::Validator"
             }
           }
         },
@@ -374,7 +386,8 @@ export class GcdsFieldset {
           "parameters": [],
           "references": {
             "Promise": {
-              "location": "global"
+              "location": "global",
+              "id": "global::Promise"
             }
           },
           "return": "Promise<void>"
@@ -430,3 +443,4 @@ export class GcdsFieldset {
       }];
   }
 }
+//# sourceMappingURL=gcds-fieldset.js.map

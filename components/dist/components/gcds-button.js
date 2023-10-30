@@ -4,3 +4,5 @@ const GcdsButton = GcdsButton$1;
 const defineCustomElement = defineCustomElement$1;
 
 export { GcdsButton, defineCustomElement };
+
+//# sourceMappingURL=gcds-button.js.map

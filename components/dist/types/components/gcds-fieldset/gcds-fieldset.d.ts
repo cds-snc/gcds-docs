@@ -48,8 +48,8 @@ export declare class GcdsFieldset {
    */
   hasError: boolean;
   /**
-  * Language of rendered component
-  */
+   * Language of rendered component
+   */
   lang: string;
   /**
    * Set additional HTML attributes not available in component properties
@@ -77,12 +77,12 @@ export declare class GcdsFieldset {
   gcdsParentGroupError(e: any): void;
   gcdsParentGroupErrorClear(e: any): void;
   /**
-    * Emitted when the fieldset has a validation error.
-    */
+   * Emitted when the fieldset has a validation error.
+   */
   gcdsError: EventEmitter<object>;
   /**
-    * Emitted when the fieldset has a validation error.
-    */
+   * Emitted when the fieldset has a validation error.
+   */
   gcdsValid: EventEmitter<object>;
   submitListener(e: any): void;
   updateLang(): void;

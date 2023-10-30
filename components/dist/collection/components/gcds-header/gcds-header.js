@@ -1,13 +1,6 @@
-import { Host, h } from '@stencil/core';
-import { assignLanguage, observerConfig } from '../../utils/utils';
-const i18n = {
-  "en": {
-    "skip": "Skip to main content"
-  },
-  "fr": {
-    "skip": "Passer au contenu principal"
-  }
-};
+import { Host, h } from "@stencil/core";
+import { assignLanguage, observerConfig } from "../../utils/utils";
+import i18n from "./i18n/i18n";
 export class GcdsHeader {
   constructor() {
     this.langHref = undefined;
@@ -17,10 +10,10 @@ export class GcdsHeader {
     this.lang = undefined;
   }
   /*
-  * Observe lang attribute change
-  */
+   * Observe lang attribute change
+   */
   updateLang() {
-    const observer = new MutationObserver((mutations) => {
+    const observer = new MutationObserver(mutations => {
       if (mutations[0].oldValue != this.el.lang) {
         this.lang = this.el.lang;
       }
@@ -33,18 +26,18 @@ export class GcdsHeader {
     this.updateLang();
   }
   get renderSkipToNav() {
-    if (!!this.el.querySelector('[slot="skip-to-nav"]')) {
+    if (this.el.querySelector('[slot="skip-to-nav"]')) {
       return h("slot", { name: "skip-to-nav" });
     }
     else if (this.skipToHref) {
-      return (h("nav", { "aria-label": i18n[this.lang].skip, class: "gcds-header__skip-to-nav" }, h("gcds-button", { type: "link", "button-role": "skip-to-content", href: this.skipToHref }, i18n[this.lang].skip)));
+      return (h("nav", { class: "gcds-header__skip-to-nav" }, h("gcds-button", { type: "link", "button-role": "skip-to-content", href: this.skipToHref }, i18n[this.lang].skip)));
     }
     else {
       return;
     }
   }
   get renderToggle() {
-    if (!!this.el.querySelector('[slot="toggle"]')) {
+    if (this.el.querySelector('[slot="toggle"]')) {
       return h("slot", { name: "toggle" });
     }
     else if (this.langHref) {
@@ -55,8 +48,10 @@ export class GcdsHeader {
     }
   }
   get renderSignature() {
-    let signVariant = this.signatureVariant ? this.signatureVariant : "colour";
-    if (!!this.el.querySelector('[slot="signature"]')) {
+    const signVariant = this.signatureVariant
+      ? this.signatureVariant
+      : 'colour';
+    if (this.el.querySelector('[slot="signature"]')) {
       return h("slot", { name: "signature" });
     }
     else {
@@ -64,8 +59,8 @@ export class GcdsHeader {
     }
   }
   get renderSearch() {
-    if (!!this.el.querySelector('[slot="search"]')) {
-      return h("div", { class: "brand__search" }, h("slot", { name: "search" }));
+    if (this.el.querySelector('[slot="search"]')) {
+      return (h("div", { class: "brand__search" }, h("slot", { name: "search" })));
     }
     else {
       return;
@@ -81,14 +76,8 @@ export class GcdsHeader {
     return !!this.el.querySelector('[slot="breadcrumb"]');
   }
   render() {
-    const { renderSkipToNav, renderToggle, renderSignature, renderSearch, hasSearch, hasBanner, hasBreadcrumb } = this;
-    return (h(Host, { role: "banner" }, renderSkipToNav, hasBanner ?
-      h("slot", { name: "banner" })
-      :
-        null, h("div", { class: "gcds-header__brand" }, h("div", { class: `brand__container ${!hasSearch ? 'container--simple' : ''}` }, renderToggle, renderSignature, renderSearch)), h("slot", { name: "menu" }), hasBreadcrumb ?
-      h("div", { class: "gcds-header__container" }, h("slot", { name: "breadcrumb" }))
-      :
-        null));
+    const { renderSkipToNav, renderToggle, renderSignature, renderSearch, hasSearch, hasBanner, hasBreadcrumb, } = this;
+    return (h(Host, { role: "banner" }, renderSkipToNav, hasBanner ? h("slot", { name: "banner" }) : null, h("div", { class: "gcds-header__brand" }, h("div", { class: `brand__container ${!hasSearch ? 'container--simple' : ''}` }, renderToggle, renderSignature, renderSearch)), h("slot", { name: "menu" }), hasBreadcrumb ? (h("div", { class: "gcds-header__container" }, h("slot", { name: "breadcrumb" }))) : null));
   }
   static get is() { return "gcds-header"; }
   static get encapsulation() { return "shadow"; }
@@ -125,7 +114,7 @@ export class GcdsHeader {
         "type": "string",
         "mutable": false,
         "complexType": {
-          "original": "'colour' | 'white'",
+          "original": "| 'colour'\n    | 'white'",
           "resolved": "\"colour\" | \"white\"",
           "references": {}
         },
@@ -182,3 +171,4 @@ export class GcdsHeader {
   }
   static get elementRef() { return "el"; }
 }
+//# sourceMappingURL=gcds-header.js.map

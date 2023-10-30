@@ -8,10 +8,10 @@ export interface CustomElementsDefineOptions {
   ael?: (el: EventTarget, eventName: string, listener: EventListenerOrEventListenerObject, options: boolean | AddEventListenerOptions) => void;
   rel?: (el: EventTarget, eventName: string, listener: EventListenerOrEventListenerObject, options: boolean | AddEventListenerOptions) => void;
 }
-export declare function defineCustomElements(win?: Window, opts?: CustomElementsDefineOptions): Promise<void>;
+export declare function defineCustomElements(win?: Window, opts?: CustomElementsDefineOptions): void;
 export declare function applyPolyfills(): Promise<void>;
 
-/** 
+/**
  * Used to specify a nonce value that corresponds with an application's CSP.
  * When set, the nonce will be added to all dynamically created script and style tags at runtime.
  * Alternatively, the nonce value can be set on a meta tag in the DOM head

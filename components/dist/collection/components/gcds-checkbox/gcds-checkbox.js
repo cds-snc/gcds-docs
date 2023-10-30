@@ -1,21 +1,21 @@
-import { Host, h } from '@stencil/core';
-import { assignLanguage, elementGroupCheck, inheritAttributes, observerConfig } from '../../utils/utils';
-import { defaultValidator, getValidator, requiredValidator } from '../../validators';
+import { Host, h, } from "@stencil/core";
+import { assignLanguage, elementGroupCheck, inheritAttributes, observerConfig, } from "../../utils/utils";
+import { defaultValidator, getValidator, requiredValidator, } from "../../validators";
 export class GcdsCheckbox {
   constructor() {
     this._validator = defaultValidator;
-    this.onFocus = (e) => {
+    this.onFocus = e => {
       if (this.focusHandler) {
         this.focusHandler(e);
       }
       this.gcdsFocus.emit();
     };
-    this.onBlur = (e) => {
+    this.onBlur = e => {
       if (this.blurHandler) {
         this.blurHandler(e);
       }
       else {
-        if (this.validateOn == "blur") {
+        if (this.validateOn == 'blur') {
           this.validate();
         }
       }
@@ -51,23 +51,23 @@ export class GcdsCheckbox {
   }
   validateErrorMessage() {
     if (this.disabled) {
-      this.errorMessage = "";
+      this.errorMessage = '';
     }
     else if (!this.hasError && this.errorMessage) {
       this.hasError = true;
     }
-    else if (this.errorMessage == "") {
+    else if (this.errorMessage == '') {
       this.hasError = false;
     }
   }
   validateValidator() {
     if (this.validator && !this.validateOn) {
-      this.validateOn = "blur";
+      this.validateOn = 'blur';
     }
   }
   /**
-  * Event listener for gcds-fieldset errors
-  */
+   * Event listener for gcds-fieldset errors
+   */
   gcdsGroupError(e) {
     if (e.srcElement.contains(this.el) && elementGroupCheck(this.name)) {
       this.hasError = true;
@@ -75,13 +75,13 @@ export class GcdsCheckbox {
     }
     else if (!elementGroupCheck(this.name)) {
       this.hasError = false;
-      this.parentError = "";
+      this.parentError = '';
     }
   }
   gcdsGroupErrorClear(e) {
     if (e.srcElement.contains(this.el) && this.hasError) {
       this.hasError = false;
-      this.parentError = "";
+      this.parentError = '';
     }
   }
   validateHasError() {
@@ -93,18 +93,22 @@ export class GcdsCheckbox {
    * Call any active validators
    */
   async validate() {
-    if (!this._validator.validate(this.checked) && this._validator.errorMessage) {
+    if (!this._validator.validate(this.checked) &&
+      this._validator.errorMessage) {
       this.errorMessage = this._validator.errorMessage[this.lang];
-      this.gcdsError.emit({ id: `#${this.checkboxId}`, message: `${this.label} - ${this.errorMessage}` });
+      this.gcdsError.emit({
+        id: `#${this.checkboxId}`,
+        message: `${this.label} - ${this.errorMessage}`,
+      });
     }
     else {
-      this.errorMessage = "";
+      this.errorMessage = '';
       this.gcdsValid.emit({ id: `#${this.checkboxId}` });
     }
   }
   submitListener(e) {
-    if (e.target == this.el.closest("form")) {
-      if (this.validateOn && this.validateOn != "other") {
+    if (e.target == this.el.closest('form')) {
+      if (this.validateOn && this.validateOn != 'other') {
         this.validate();
       }
       if (this.hasError) {
@@ -113,10 +117,10 @@ export class GcdsCheckbox {
     }
   }
   /*
-  * Observe lang attribute change
-  */
+   * Observe lang attribute change
+   */
   updateLang() {
-    const observer = new MutationObserver((mutations) => {
+    const observer = new MutationObserver(mutations => {
       if (mutations[0].oldValue != this.el.lang) {
         this.lang = this.el.lang;
       }
@@ -132,7 +136,7 @@ export class GcdsCheckbox {
     this.validateErrorMessage();
     this.validateValidator();
     // Assign required validator if needed
-    requiredValidator(this.el, "checkbox");
+    requiredValidator(this.el, 'checkbox');
     if (this.validator) {
       this._validator = getValidator(this.validator);
     }
@@ -144,7 +148,7 @@ export class GcdsCheckbox {
     }
   }
   render() {
-    const { lang, checkboxId, label, name, required, disabled, value, checked, hint, errorMessage, hasError, parentError, inheritedAttributes } = this;
+    const { lang, checkboxId, label, name, required, disabled, value, checked, hint, errorMessage, hasError, parentError, inheritedAttributes, } = this;
     const attrsInput = Object.assign({ name,
       disabled,
       required,
@@ -155,15 +159,19 @@ export class GcdsCheckbox {
       required,
     };
     if (hint || errorMessage || parentError) {
-      let hintID = hint ? `hint-${checkboxId} ` : "";
-      let errorID = errorMessage ? `error-message-${checkboxId} ` : "";
-      let parentErrorID = parentError ? `parent-error-${checkboxId} ` : "";
-      attrsInput["aria-describedby"] = `${hintID}${errorID}${parentErrorID}${attrsInput["aria-describedby"] ? `${attrsInput["aria-describedby"]}` : ""}`;
+      const hintID = hint ? `hint-${checkboxId} ` : '';
+      const errorID = errorMessage ? `error-message-${checkboxId} ` : '';
+      const parentErrorID = parentError ? `parent-error-${checkboxId} ` : '';
+      attrsInput['aria-describedby'] = `${hintID}${errorID}${parentErrorID}${attrsInput['aria-describedby']
+        ? `${attrsInput['aria-describedby']}`
+        : ''}`;
     }
     if (hasError) {
-      attrsInput["aria-invalid"] = "true";
+      attrsInput['aria-invalid'] = 'true';
     }
-    return (h(Host, null, h("div", { class: `gcds-checkbox ${disabled ? 'gcds-checkbox--disabled' : ''} ${hasError ? 'gcds-checkbox--error' : ''}` }, h("input", Object.assign({ id: checkboxId, type: "checkbox" }, attrsInput, { onBlur: (e) => this.onBlur(e), onFocus: (e) => this.onFocus(e), onChange: () => this.onChange(), onClick: (e) => { this.clickHandler && this.clickHandler(e); }, ref: element => this.shadowElement = element })), h("gcds-label", Object.assign({}, attrsLabel, { "label-for": checkboxId, lang: lang })), hint ? h("gcds-hint", { hint: hint, "hint-id": checkboxId }) : null, errorMessage ? h("gcds-error-message", { messageId: checkboxId, message: errorMessage }) : null, parentError ? h("span", { id: `parent-error-${checkboxId}`, hidden: true }, parentError) : null)));
+    return (h(Host, null, h("div", { class: `gcds-checkbox ${disabled ? 'gcds-checkbox--disabled' : ''} ${hasError ? 'gcds-checkbox--error' : ''}` }, h("input", Object.assign({ id: checkboxId, type: "checkbox" }, attrsInput, { onBlur: e => this.onBlur(e), onFocus: e => this.onFocus(e), onChange: () => this.onChange(), onClick: e => {
+        this.clickHandler && this.clickHandler(e);
+      }, ref: element => (this.shadowElement = element) })), h("gcds-label", Object.assign({}, attrsLabel, { "label-for": checkboxId, lang: lang })), hint ? h("gcds-hint", { hint: hint, "hint-id": checkboxId }) : null, errorMessage ? (h("gcds-error-message", { messageId: checkboxId, message: errorMessage })) : null, parentError ? (h("span", { id: `parent-error-${checkboxId}`, hidden: true }, parentError)) : null)));
   }
   static get is() { return "gcds-checkbox"; }
   static get encapsulation() { return "scoped"; }
@@ -336,19 +344,22 @@ export class GcdsCheckbox {
         "type": "unknown",
         "mutable": true,
         "complexType": {
-          "original": "Array<string | ValidatorEntry | Validator<string>>",
+          "original": "Array<\n    string | ValidatorEntry | Validator<string>\n  >",
           "resolved": "(string | ValidatorEntry | Validator<string>)[]",
           "references": {
             "Array": {
-              "location": "global"
+              "location": "global",
+              "id": "global::Array"
             },
             "ValidatorEntry": {
               "location": "import",
-              "path": "../../validators"
+              "path": "../../validators",
+              "id": "src/validators/index.ts::ValidatorEntry"
             },
             "Validator": {
               "location": "import",
-              "path": "../../validators"
+              "path": "../../validators",
+              "id": "src/validators/index.ts::Validator"
             }
           }
         },
@@ -384,7 +395,8 @@ export class GcdsCheckbox {
           "resolved": "Function",
           "references": {
             "Function": {
-              "location": "global"
+              "location": "global",
+              "id": "global::Function"
             }
           }
         },
@@ -403,7 +415,8 @@ export class GcdsCheckbox {
           "resolved": "Function",
           "references": {
             "Function": {
-              "location": "global"
+              "location": "global",
+              "id": "global::Function"
             }
           }
         },
@@ -422,7 +435,8 @@ export class GcdsCheckbox {
           "resolved": "Function",
           "references": {
             "Function": {
-              "location": "global"
+              "location": "global",
+              "id": "global::Function"
             }
           }
         },
@@ -529,7 +543,8 @@ export class GcdsCheckbox {
           "parameters": [],
           "references": {
             "Promise": {
-              "location": "global"
+              "location": "global",
+              "id": "global::Promise"
             }
           },
           "return": "Promise<void>"
@@ -579,3 +594,4 @@ export class GcdsCheckbox {
       }];
   }
 }
+//# sourceMappingURL=gcds-checkbox.js.map

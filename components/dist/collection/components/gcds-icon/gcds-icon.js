@@ -1,4 +1,4 @@
-import { Host, h } from '@stencil/core';
+import { Host, h } from "@stencil/core";
 export class GcdsIcon {
   constructor() {
     this.iconStyle = 'solid';
@@ -10,7 +10,7 @@ export class GcdsIcon {
     this.size = 'text';
   }
   render() {
-    const { iconStyle, label, marginLeft, marginRight, name, fixedWidth, size } = this;
+    const { iconStyle, label, marginLeft, marginRight, name, fixedWidth, size, } = this;
     return (h(Host, null, h("span", { class: `
             gcds-icon fa fa-${iconStyle} fa-${name}
             ${marginLeft ? `ml-${marginLeft}` : ''}
@@ -72,7 +72,7 @@ export class GcdsIcon {
         "type": "string",
         "mutable": false,
         "complexType": {
-          "original": "'0' | '50' | '100' | '150' | '200' | '250' | '300' | '400' | '450' | '500' | '550' | '600' | '700' | '800' | '900' | '1000'",
+          "original": "| '0'\n    | '50'\n    | '100'\n    | '150'\n    | '200'\n    | '250'\n    | '300'\n    | '400'\n    | '450'\n    | '500'\n    | '550'\n    | '600'\n    | '700'\n    | '800'\n    | '900'\n    | '1000'",
           "resolved": "\"0\" | \"100\" | \"1000\" | \"150\" | \"200\" | \"250\" | \"300\" | \"400\" | \"450\" | \"50\" | \"500\" | \"550\" | \"600\" | \"700\" | \"800\" | \"900\"",
           "references": {}
         },
@@ -89,7 +89,7 @@ export class GcdsIcon {
         "type": "string",
         "mutable": false,
         "complexType": {
-          "original": "'0' | '50' | '100' | '150' | '200' | '250' | '300' | '400' | '450' | '500' | '550' | '600' | '700' | '800' | '900' | '1000'",
+          "original": "| '0'\n    | '50'\n    | '100'\n    | '150'\n    | '200'\n    | '250'\n    | '300'\n    | '400'\n    | '450'\n    | '500'\n    | '550'\n    | '600'\n    | '700'\n    | '800'\n    | '900'\n    | '1000'",
           "resolved": "\"0\" | \"100\" | \"1000\" | \"150\" | \"200\" | \"250\" | \"300\" | \"400\" | \"450\" | \"50\" | \"500\" | \"550\" | \"600\" | \"700\" | \"800\" | \"900\"",
           "references": {}
         },
@@ -141,7 +141,7 @@ export class GcdsIcon {
         "type": "string",
         "mutable": false,
         "complexType": {
-          "original": "'inherit' | 'caption' | 'text' | 'h6' | 'h5' | 'h4' | 'h3' | 'h2' | 'h1'",
+          "original": "| 'inherit'\n    | 'caption'\n    | 'text'\n    | 'h6'\n    | 'h5'\n    | 'h4'\n    | 'h3'\n    | 'h2'\n    | 'h1'",
           "resolved": "\"caption\" | \"h1\" | \"h2\" | \"h3\" | \"h4\" | \"h5\" | \"h6\" | \"inherit\" | \"text\"",
           "references": {}
         },
@@ -159,3 +159,4 @@ export class GcdsIcon {
   }
   static get elementRef() { return "el"; }
 }
+//# sourceMappingURL=gcds-icon.js.map

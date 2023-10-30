@@ -1,6 +1,15 @@
 import { proxyCustomElement, HTMLElement, h, Host } from '@stencil/core/internal/client';
 import { o as observerConfig, a as assignLanguage } from './utils.js';
 
+const I18N = {
+  en: {
+    link: 'https://canada.ca/en.html',
+  },
+  fr: {
+    link: 'https://canada.ca/fr.html',
+  },
+};
+
 const SignatureEn = `<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 819 75.97" preserveAspectRatio="xMinYMin meet" role="img" aria-labelledby="signature-en-title">
 	<title id="signature-en-title">Government of Canada</title>
 	<path d="M0,0 36.84,0 36.84,75.01 0,75.01z M118.54,0 155.38,0 155.38,75.01 118.54,75.01z M72.58,15.61,77.84,4.9l5.22,10.32c.65,1.09,1.18,1,2.22.48l4.49-2.22L86.85,27.89c-.61,2.83,1,3.66,2.75,1.74L96,22.79l1.7,3.87c.57,1.17,1.43,1,2.57.79l6.61-1.39-2.22,8.35,0,.18c-.26,1.09-.78,2,.44,2.53l2.35,1.17L93.77,49.82c-1.39,1.43-.91,1.87-.39,3.48l1.26,3.87-12.71-2.3c-1.57-.39-2.66-.39-2.7.87l.52,14.58H75.93l.52-14.54c0-1.43-1.09-1.39-3.66-.86L61,57.18l1.52-3.87c.52-1.48.66-2.48-.52-3.48L48.11,38.46l2.57-1.57c.74-.57.78-1.17.39-2.44L48.46,26l6.7,1.43c1.87.44,2.39,0,2.87-1l1.87-3.83L66.52,30c1.17,1.39,2.83.48,2.31-1.52L65.65,12.86l4.92,2.83c.78.48,1.61.61,2.09-.3" class="fip_flag" />
@@ -35,13 +44,13 @@ const WordmarkFr = `<svg version="1.1" xmlns="http://www.w3.org/2000/svg" width=
 
 const gcdsSignatureCss = "gcds-signature{display:block;width:-webkit-fit-content;width:-moz-fit-content;width:fit-content}gcds-signature .gcds-signature{display:-ms-flexbox;display:flex}gcds-signature svg{max-width:100%}gcds-signature:not([type=wordmark]) svg{height:var(--gcds-signature-signature-height)}@media screen and (min-width:64em){gcds-signature:not([type=wordmark]) svg{height:2.125rem}}gcds-signature[type=wordmark] svg{height:var(--gcds-signature-wordmark-height);width:auto}gcds-signature:not([variant=white]) svg .fip_text{fill:var( --gcds-signature-color-text)}gcds-signature:not([variant=white]) svg .fip_flag{fill:var(--gcds-signature-color-flag)}gcds-signature[variant=white] svg .fip_flag,gcds-signature[variant=white] svg .fip_text{fill:var(--gcds-signature-white-default)}";
 
-const GcdsSignature = /*@__PURE__*/ proxyCustomElement(class extends HTMLElement {
+const GcdsSignature = /*@__PURE__*/ proxyCustomElement(class GcdsSignature extends HTMLElement {
   constructor() {
     super();
     this.__registerHost();
-    this.type = undefined;
-    this.variant = undefined;
-    this.hasLink = undefined;
+    this.type = 'signature';
+    this.variant = 'colour';
+    this.hasLink = false;
     this.lang = undefined;
   }
   validateType(newValue) {
@@ -55,10 +64,10 @@ const GcdsSignature = /*@__PURE__*/ proxyCustomElement(class extends HTMLElement
     }
   }
   /*
-  * Observe lang attribute change
-  */
+   * Observe lang attribute change
+   */
   updateLang() {
-    const observer = new MutationObserver((mutations) => {
+    const observer = new MutationObserver(mutations => {
       if (mutations[0].oldValue != this.el.lang) {
         this.lang = this.el.lang;
       }
@@ -91,8 +100,9 @@ const GcdsSignature = /*@__PURE__*/ proxyCustomElement(class extends HTMLElement
   }
   render() {
     const { type, hasLink, lang, selectSVG } = this;
-    const linkText = lang == "en" ? "https://canada.ca/en.html" : "https://canada.ca/fr.html";
-    return (h(Host, null, hasLink && type === 'signature' ? (h("a", { href: linkText, innerHTML: selectSVG })) : (h("div", { class: "gcds-signature", innerHTML: selectSVG }))));
+    return (h(Host, null, hasLink && type === 'signature' ? (
+    // eslint-disable-next-line jsx-a11y/anchor-has-content
+    h("a", { href: I18N[lang].link, innerHTML: selectSVG })) : (h("div", { class: "gcds-signature", innerHTML: selectSVG }))));
   }
   get el() { return this; }
   static get watchers() { return {
@@ -121,3 +131,5 @@ function defineCustomElement() {
 }
 
 export { GcdsSignature as G, defineCustomElement as d };
+
+//# sourceMappingURL=gcds-signature2.js.map

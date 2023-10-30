@@ -85,37 +85,37 @@ export declare class GcdsInput {
   hasError: boolean;
   validateHasError(): void;
   /**
-  * Language of rendered component
-  */
+   * Language of rendered component
+   */
   lang: string;
   /**
    * Events
    */
   /**
-    * Emitted when the input has focus.
-    */
+   * Emitted when the input has focus.
+   */
   gcdsFocus: EventEmitter<void>;
   private onFocus;
   /**
-    * Emitted when the input loses focus.
-    */
+   * Emitted when the input loses focus.
+   */
   gcdsBlur: EventEmitter<void>;
   private onBlur;
   /**
-    * Update value based on user input.
-    */
+   * Update value based on user input.
+   */
   gcdsChange: EventEmitter;
   /**
-    * Call any active validators
-    */
+   * Call any active validators
+   */
   validate(): Promise<void>;
   /**
-    * Emitted when the input has a validation error.
-    */
+   * Emitted when the input has a validation error.
+   */
   gcdsError: EventEmitter<object>;
   /**
-    * Emitted when the input has a validation error.
-    */
+   * Emitted when the input has a validation error.
+   */
   gcdsValid: EventEmitter<object>;
   submitListener(e: any): void;
   handleChange(e: any): void;

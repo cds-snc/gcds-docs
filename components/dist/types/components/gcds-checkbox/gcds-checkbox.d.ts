@@ -3,7 +3,7 @@ import { Validator, ValidatorEntry } from '../../validators';
 export declare class GcdsCheckbox {
   el: HTMLElement;
   private shadowElement?;
-  _validator: Validator<any>;
+  _validator: Validator<unknown>;
   /**
    * Props
    */
@@ -51,12 +51,12 @@ export declare class GcdsCheckbox {
   validator: Array<string | ValidatorEntry | Validator<string>>;
   validateValidator(): void;
   /**
-  * Set event to call validator
-  */
+   * Set event to call validator
+   */
   validateOn: 'blur' | 'submit' | 'other';
   /**
-  * Event listener for gcds-fieldset errors
-  */
+   * Event listener for gcds-fieldset errors
+   */
   gcdsGroupError(e: any): void;
   gcdsGroupErrorClear(e: any): void;
   /**
@@ -64,12 +64,12 @@ export declare class GcdsCheckbox {
    */
   clickHandler: Function;
   /**
-  * Custom callback function on focus event
-  */
+   * Custom callback function on focus event
+   */
   focusHandler: Function;
   /**
-  * Custom callback function on blur event
-  */
+   * Custom callback function on blur event
+   */
   blurHandler: Function;
   /**
    * State to handle when errors are passed down to component
@@ -85,8 +85,8 @@ export declare class GcdsCheckbox {
   hasError: boolean;
   validateHasError(): void;
   /**
-  * Language of rendered component
-  */
+   * Language of rendered component
+   */
   lang: string;
   /**
    * Events
@@ -110,12 +110,12 @@ export declare class GcdsCheckbox {
    */
   validate(): Promise<void>;
   /**
-    * Emitted when the input has a validation error.
-    */
+   * Emitted when the input has a validation error.
+   */
   gcdsError: EventEmitter<object>;
   /**
-    * Emitted when the input has a validation error.
-    */
+   * Emitted when the input has a validation error.
+   */
   gcdsValid: EventEmitter<object>;
   submitListener(e: any): void;
   updateLang(): void;

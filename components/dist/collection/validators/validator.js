@@ -1,5 +1,5 @@
 export const defaultValidator = {
-  validate: (_x) => true
+  validate: (_x) => true,
 };
 export function combineValidators(v1, v2) {
   let combined;
@@ -22,64 +22,64 @@ export function requiredValidator(element, type, subtype) {
   if (element.required) {
     switch (type) {
       // Components all validate the "value" property
-      case ("input"):
+      case 'input':
         switch (subtype) {
-          case ("email"):
+          case 'email':
             if (element.validator) {
-              element.validator.unshift("requiredEmailField");
+              element.validator.unshift('requiredEmailField');
             }
             else {
-              element.validator = ["requiredEmailField"];
+              element.validator = ['requiredEmailField'];
             }
             break;
           default:
             if (element.validator) {
-              element.validator.unshift("requiredField");
+              element.validator.unshift('requiredField');
             }
             else {
-              element.validator = ["requiredField"];
+              element.validator = ['requiredField'];
             }
             break;
         }
         break;
-      case ("select"):
+      case 'select':
         if (element.validator) {
-          element.validator.unshift("requiredSelectField");
+          element.validator.unshift('requiredSelectField');
         }
         else {
-          element.validator = ["requiredSelectField"];
+          element.validator = ['requiredSelectField'];
         }
         break;
-      case ("textarea"):
+      case 'textarea':
         if (element.validator) {
-          element.validator.unshift("requiredField");
+          element.validator.unshift('requiredField');
         }
         else {
-          element.validator = ["requiredField"];
+          element.validator = ['requiredField'];
         }
         break;
-      case ("file"):
+      case 'file':
         if (element.validator) {
-          element.validator.unshift("requiredFileInput");
+          element.validator.unshift('requiredFileInput');
         }
         else {
-          element.validator = ["requiredFileInput"];
+          element.validator = ['requiredFileInput'];
         }
         break;
-      case ("checkbox"):
+      case 'checkbox':
         if (element.validator) {
-          element.validator.unshift("requiredCheck");
+          element.validator.unshift('requiredCheck');
         }
         else {
-          element.validator = ["requiredCheck"];
+          element.validator = ['requiredCheck'];
         }
         break;
-      case ("fieldset"):
+      case 'fieldset':
         if (element.validator) {
-          element.validator.unshift("requiredFieldset");
+          element.validator.unshift('requiredFieldset');
         }
         else {
-          element.validator = ["requiredFieldset"];
+          element.validator = ['requiredFieldset'];
         }
         break;
     }
@@ -119,3 +119,4 @@ export function getLengthValidator(min: number, max: number): Validator<string> 
     };
 }
 */
+//# sourceMappingURL=validator.js.map

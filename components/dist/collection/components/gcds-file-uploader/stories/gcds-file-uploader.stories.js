@@ -1,11 +1,11 @@
-import { langProp, validatorProps } from '../../../utils/storybook/component-properties';
+import { langProp, validatorProps, } from "../../../utils/storybook/component-properties";
 export default {
   title: 'Components/File uploader',
   parameters: {
     actions: {
       argTypesRegex: '^on.*',
-      handles: ['change', 'focus', 'blur']
-    }
+      handles: ['change', 'focus', 'blur'],
+    },
   },
   argTypes: Object.assign(Object.assign(Object.assign({
     // Props
@@ -13,63 +13,63 @@ export default {
       control: 'text',
       table: {
         type: { summary: 'string' },
-        defaultValue: { summary: '-' }
+        defaultValue: { summary: '-' },
       },
     }, multiple: {
       control: 'boolean',
       table: {
         type: { summary: 'boolean' },
-        defaultValue: { summary: '-' }
+        defaultValue: { summary: '-' },
       },
     }, uploaderId: {
       name: 'uploader-id',
       control: 'text',
       table: {
         type: { summary: 'string' },
-        defaultValue: { summary: '-' }
+        defaultValue: { summary: '-' },
       },
       type: {
-        required: true
-      }
+        required: true,
+      },
     }, disabled: {
       control: 'boolean',
       table: {
         type: { summary: 'boolean' },
-        defaultValue: { summary: false }
+        defaultValue: { summary: false },
       },
     }, errorMessage: {
       name: 'error-message',
       control: 'text',
       table: {
         type: { summary: 'string' },
-        defaultValue: { summary: '-' }
+        defaultValue: { summary: '-' },
       },
     }, hint: {
       control: 'text',
       table: {
         type: { summary: 'string' },
-        defaultValue: { summary: '-' }
+        defaultValue: { summary: '-' },
       },
     }, label: {
       control: 'text',
       table: {
         type: { summary: 'string' },
-        defaultValue: { summary: '-' }
+        defaultValue: { summary: '-' },
       },
       type: {
-        required: true
-      }
+        required: true,
+      },
     }, required: {
       control: 'boolean',
       table: {
         type: { summary: 'boolean' },
-        defaultValue: { summary: false }
+        defaultValue: { summary: false },
       },
     }, value: {
       control: 'text',
       table: {
         type: { summary: 'string' },
-        defaultValue: { summary: '-' }
+        defaultValue: { summary: '-' },
       },
     }
   }, validatorProps), langProp), {
@@ -78,21 +78,21 @@ export default {
       action: 'change',
       table: {
         category: 'Events | Événements',
-      }
+      },
     }, gcdsFocus: {
       action: 'focus',
       table: {
         category: 'Events | Événements',
-      }
+      },
     }, gcdsBlur: {
       action: 'blur',
       table: {
         category: 'Events | Événements',
-      }
+      },
     }
   }),
 };
-const Template = (args) => (`
+const Template = args => `
 <!-- Web component code (Angular, Vue) -->
 <gcds-file-uploader
   uploader-id="${args.uploaderId}"
@@ -104,8 +104,8 @@ const Template = (args) => (`
   ${args.value ? `value="${args.value}"` : null}
   ${args.accept ? `accept="${args.accept}"` : null}
   ${args.multiple ? `multiple` : null}
-  ${args.validateOn != "blur" ? `validate-on="${args.validateOn}"` : null}
-  ${args.lang != "en" ? `lang="${args.lang}"` : null}
+  ${args.validateOn != 'blur' ? `validate-on="${args.validateOn}"` : null}
+  ${args.lang != 'en' ? `lang="${args.lang}"` : null}
 >
 </gcds-file-uploader>
 
@@ -120,12 +120,12 @@ const Template = (args) => (`
   ${args.value ? `value="${args.value}"` : null}
   ${args.accept ? `accept="${args.accept}"` : null}
   ${args.multiple ? `multiple` : null}
-  ${args.validateOn != "blur" ? `validateOn="${args.validateOn}"` : null}
-  ${args.lang != "en" ? `lang="${args.lang}"` : null}
+  ${args.validateOn != 'blur' ? `validateOn="${args.validateOn}"` : null}
+  ${args.lang != 'en' ? `lang="${args.lang}"` : null}
 >
 </GcdsFileUploader>
-`).replace(/\s\snull\n/g, '');
-const TemplatePlayground = (args) => (`
+`.replace(/\s\snull\n/g, '');
+const TemplatePlayground = args => `
 <gcds-file-uploader
   uploader-id="${args.uploaderId}"
   label="${args.label}"
@@ -140,7 +140,7 @@ const TemplatePlayground = (args) => (`
   lang="${args.lang}"
 >
 </gcds-file-uploader>
-`);
+`;
 // ------ File uploader default ------
 export const Default = Template.bind({});
 Default.args = {
@@ -283,3 +283,4 @@ Playground.args = {
   validateOn: 'blur',
   lang: 'en',
 };
+//# sourceMappingURL=gcds-file-uploader.stories.js.map

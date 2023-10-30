@@ -4,24 +4,24 @@ export declare class GcdsHeader {
    * Props
    */
   /**
-  * GcdsLangToggle - The href attribute specifies the URL of the opposite language page
-  */
+   * GcdsLangToggle - The href attribute specifies the URL of the opposite language page
+   */
   langHref: string;
   /**
-  * GcdsSignature - The variant of the Government of Canada signature
-  */
+   * GcdsSignature - The variant of the Government of Canada signature
+   */
   signatureVariant: 'colour' | 'white';
   /**
-  * GcdsSignature - GCDS signature links to Canada.ca
-  */
+   * GcdsSignature - GCDS signature links to Canada.ca
+   */
   signatureHasLink: boolean;
   /**
-  * Top navigation - Skip to content href
-  */
+   * Top navigation - Skip to content href
+   */
   skipToHref: string;
   /**
-  * Language of rendered component
-  */
+   * Language of rendered component
+   */
   lang: string;
   updateLang(): void;
   componentWillLoad(): Promise<void>;

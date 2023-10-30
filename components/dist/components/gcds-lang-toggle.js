@@ -4,3 +4,5 @@ const GcdsLangToggle = GcdsLangToggle$1;
 const defineCustomElement = defineCustomElement$1;
 
 export { GcdsLangToggle, defineCustomElement };
+
+//# sourceMappingURL=gcds-lang-toggle.js.map

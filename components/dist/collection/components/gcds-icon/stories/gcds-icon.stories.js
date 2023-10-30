@@ -8,72 +8,116 @@ export default {
       options: ['regular', 'solid'],
       table: {
         type: { summary: 'string' },
-        defaultValue: { summary: 'solid' }
+        defaultValue: { summary: 'solid' },
       },
     },
     label: {
       control: 'text',
       table: {
         type: { summary: 'string' },
-        defaultValue: { summary: '-' }
+        defaultValue: { summary: '-' },
       },
     },
     marginLeft: {
       name: 'margin-left',
       control: { type: 'select' },
-      options: ['0', '50', '100', '150', '200', '250', '300', '400', '450', '500', '550', '600', '700', '800', '900', '1000'],
+      options: [
+        '0',
+        '50',
+        '100',
+        '150',
+        '200',
+        '250',
+        '300',
+        '400',
+        '450',
+        '500',
+        '550',
+        '600',
+        '700',
+        '800',
+        '900',
+        '1000',
+      ],
       table: {
         type: { summary: 'string' },
-        defaultValue: { summary: '-' }
+        defaultValue: { summary: '-' },
       },
     },
     marginRight: {
       name: 'margin-right',
       control: { type: 'select' },
-      options: ['0', '50', '100', '150', '200', '250', '300', '400', '450', '500', '550', '600', '700', '800', '900', '1000'],
+      options: [
+        '0',
+        '50',
+        '100',
+        '150',
+        '200',
+        '250',
+        '300',
+        '400',
+        '450',
+        '500',
+        '550',
+        '600',
+        '700',
+        '800',
+        '900',
+        '1000',
+      ],
       table: {
         type: { summary: 'string' },
-        defaultValue: { summary: '-' }
+        defaultValue: { summary: '-' },
       },
     },
     name: {
       control: 'text',
       table: {
         type: { summary: 'string' },
-        defaultValue: { summary: '-' }
+        defaultValue: { summary: '-' },
       },
       type: {
-        required: true
-      }
+        required: true,
+      },
     },
     fixedWidth: {
       name: 'fixed-width',
       control: 'boolean',
       table: {
         type: { summary: 'boolean' },
-        defaultValue: { summary: false }
-      }
+        defaultValue: { summary: false },
+      },
     },
     size: {
       control: { type: 'select' },
-      options: ['inherit', 'caption', 'text', 'h6', 'h5', 'h4', 'h3', 'h2', 'h1'],
+      options: [
+        'inherit',
+        'caption',
+        'text',
+        'h6',
+        'h5',
+        'h4',
+        'h3',
+        'h2',
+        'h1',
+      ],
       table: {
         type: { summary: 'string' },
-        defaultValue: { summary: 'text' }
+        defaultValue: { summary: 'text' },
       },
     },
   },
 };
-const Template = (args) => (`
+const Template = args => `
 <!-- Web component code (Angular, Vue) -->
-<gcds-icon ${args.label ? `label="${args.label}"` : null} name="${args.name}" ${args.iconStyle != 'solid' ? `icon-style="${args.iconStyle}"` : null} ${args.marginLeft ? `margin-left="${args.marginLeft}"` : null} ${args.marginRight ? `margin-right="${args.marginRight}"` : null} ${args.size != "text" ? `size="${args.size}"` : null} ${args.fixedWidth ? `fixed-width="${args.fixedWidth}"` : null}>
+<gcds-icon ${args.label ? `label="${args.label}"` : null} name="${args.name}" ${args.iconStyle != 'solid' ? `icon-style="${args.iconStyle}"` : null} ${args.marginLeft ? `margin-left="${args.marginLeft}"` : null} ${args.marginRight ? `margin-right="${args.marginRight}"` : null} ${args.size != 'text' ? `size="${args.size}"` : null} ${args.fixedWidth ? `fixed-width="${args.fixedWidth}"` : null}>
 </gcds-icon>
 
 <!-- React code -->
-<GcdsIcon ${args.label ? `label="${args.label}"` : null} name="${args.name}" ${args.iconStyle != 'solid' ? `iconStyle="${args.iconStyle}"` : null} ${args.marginLeft ? `marginLeft="${args.marginLeft}"` : null} ${args.marginRight ? `marginRight="${args.marginRight}"` : null} ${args.size != "text" ? `size="${args.size}"` : null} ${args.fixedWidth ? `fixedWidth="${args.fixedWidth}"` : null}>
+<GcdsIcon ${args.label ? `label="${args.label}"` : null} name="${args.name}" ${args.iconStyle != 'solid' ? `iconStyle="${args.iconStyle}"` : null} ${args.marginLeft ? `marginLeft="${args.marginLeft}"` : null} ${args.marginRight ? `marginRight="${args.marginRight}"` : null} ${args.size != 'text' ? `size="${args.size}"` : null} ${args.fixedWidth ? `fixedWidth="${args.fixedWidth}"` : null}>
 </GcdsIcon>
-`).replace(/ null/g, '');
-const TemplateMargin = (args) => (`
+`.replace(/ null/g, '');
+const TemplateMargin = args => `
 <!-- Web component code (Angular, Vue) -->
 <gcds-icon name="${args.name}" ${args.marginLeft0 ? `margin-left="${args.marginLeft0}"` : null} ${args.marginRight0 ? `margin-right="${args.marginRight0}"` : null}></gcds-icon>
 <gcds-icon name="${args.name}" ${args.marginLeft50 ? `margin-left="${args.marginLeft50}"` : null} ${args.marginRight50 ? `margin-right="${args.marginRight50}"` : null}></gcds-icon>
@@ -108,51 +152,51 @@ const TemplateMargin = (args) => (`
 <GcdsIcon name="${args.name}" margin-left="800"></GcdsIcon>
 <GcdsIcon name="${args.name}" margin-left="900"></GcdsIcon>
 <GcdsIcon name="${args.name}" margin-left="1000"></GcdsIcon>
-`).replace(/ null/g, '');
-const TemplateMultiple = (args) => (`
+`.replace(/ null/g, '');
+const TemplateMultiple = args => `
 <!-- Web component code (Angular, Vue) -->
-<gcds-icon name="${args.name1}" ${args.size1 != "text" ? `size="${args.size1}"` : null}></gcds-icon>
-<gcds-icon name="${args.name2}" ${args.size2 != "text" ? `size="${args.size2}"` : null}></gcds-icon>
-<gcds-icon name="${args.name3}" ${args.size3 != "text" ? `size="${args.size3}"` : null}></gcds-icon>
-<gcds-icon name="${args.name4}" ${args.size4 != "text" ? `size="${args.size4}"` : null}></gcds-icon>
-<gcds-icon name="${args.name5}" ${args.size5 != "text" ? `size="${args.size5}"` : null}></gcds-icon>
-<gcds-icon name="${args.name6}" ${args.size6 != "text" ? `size="${args.size6}"` : null}></gcds-icon>
-<gcds-icon name="${args.name7}" ${args.size7 != "text" ? `size="${args.size7}"` : null}></gcds-icon>
-<gcds-icon name="${args.name8}" ${args.size8 != "text" ? `size="${args.size8}"` : null}></gcds-icon>
-<gcds-icon name="${args.name9}" ${args.size9 != "text" ? `size="${args.size9}"` : null}></gcds-icon>
+<gcds-icon name="${args.name1}" ${args.size1 != 'text' ? `size="${args.size1}"` : null}></gcds-icon>
+<gcds-icon name="${args.name2}" ${args.size2 != 'text' ? `size="${args.size2}"` : null}></gcds-icon>
+<gcds-icon name="${args.name3}" ${args.size3 != 'text' ? `size="${args.size3}"` : null}></gcds-icon>
+<gcds-icon name="${args.name4}" ${args.size4 != 'text' ? `size="${args.size4}"` : null}></gcds-icon>
+<gcds-icon name="${args.name5}" ${args.size5 != 'text' ? `size="${args.size5}"` : null}></gcds-icon>
+<gcds-icon name="${args.name6}" ${args.size6 != 'text' ? `size="${args.size6}"` : null}></gcds-icon>
+<gcds-icon name="${args.name7}" ${args.size7 != 'text' ? `size="${args.size7}"` : null}></gcds-icon>
+<gcds-icon name="${args.name8}" ${args.size8 != 'text' ? `size="${args.size8}"` : null}></gcds-icon>
+<gcds-icon name="${args.name9}" ${args.size9 != 'text' ? `size="${args.size9}"` : null}></gcds-icon>
 
 <!-- React code -->
-<GcdsIcon name="${args.name1}" ${args.size1 != "text" ? `size="${args.size1}"` : null}></GcdsIcon>
-<GcdsIcon name="${args.name2}" ${args.size2 != "text" ? `size="${args.size2}"` : null}></GcdsIcon>
-<GcdsIcon name="${args.name3}" ${args.size3 != "text" ? `size="${args.size3}"` : null}></GcdsIcon>
-<GcdsIcon name="${args.name4}" ${args.size4 != "text" ? `size="${args.size4}"` : null}></GcdsIcon>
-<GcdsIcon name="${args.name5}" ${args.size5 != "text" ? `size="${args.size5}"` : null}></GcdsIcon>
-<GcdsIcon name="${args.name6}" ${args.size6 != "text" ? `size="${args.size6}"` : null}></GcdsIcon>
-<GcdsIcon name="${args.name7}" ${args.size7 != "text" ? `size="${args.size7}"` : null}></GcdsIcon>
-<GcdsIcon name="${args.name8}" ${args.size8 != "text" ? `size="${args.size8}"` : null}></GcdsIcon>
-<GcdsIcon name="${args.name9}" ${args.size9 != "text" ? `size="${args.size9}"` : null}></GcdsIcon>
-`).replace(/ null/g, '');
-const TemplateTwo = (args) => (`
+<GcdsIcon name="${args.name1}" ${args.size1 != 'text' ? `size="${args.size1}"` : null}></GcdsIcon>
+<GcdsIcon name="${args.name2}" ${args.size2 != 'text' ? `size="${args.size2}"` : null}></GcdsIcon>
+<GcdsIcon name="${args.name3}" ${args.size3 != 'text' ? `size="${args.size3}"` : null}></GcdsIcon>
+<GcdsIcon name="${args.name4}" ${args.size4 != 'text' ? `size="${args.size4}"` : null}></GcdsIcon>
+<GcdsIcon name="${args.name5}" ${args.size5 != 'text' ? `size="${args.size5}"` : null}></GcdsIcon>
+<GcdsIcon name="${args.name6}" ${args.size6 != 'text' ? `size="${args.size6}"` : null}></GcdsIcon>
+<GcdsIcon name="${args.name7}" ${args.size7 != 'text' ? `size="${args.size7}"` : null}></GcdsIcon>
+<GcdsIcon name="${args.name8}" ${args.size8 != 'text' ? `size="${args.size8}"` : null}></GcdsIcon>
+<GcdsIcon name="${args.name9}" ${args.size9 != 'text' ? `size="${args.size9}"` : null}></GcdsIcon>
+`.replace(/ null/g, '');
+const TemplateTwo = args => `
 <!-- Web component code (Angular, Vue) -->
-<gcds-icon name="${args.name}" ${args.size != "text" ? `size="${args.size}"` : null} ${args.fixedWidth1 ? `fixed-width="${args.fixedWidth1}"` : null}></gcds-icon>
-<gcds-icon name="${args.name}" ${args.size != "text" ? `size="${args.size}"` : null} ${args.fixedWidth2 ? `fixed-width="${args.fixedWidth2}"` : null}></gcds-icon>
+<gcds-icon name="${args.name}" ${args.size != 'text' ? `size="${args.size}"` : null} ${args.fixedWidth1 ? `fixed-width="${args.fixedWidth1}"` : null}></gcds-icon>
+<gcds-icon name="${args.name}" ${args.size != 'text' ? `size="${args.size}"` : null} ${args.fixedWidth2 ? `fixed-width="${args.fixedWidth2}"` : null}></gcds-icon>
 
 <!-- React code -->
-<GcdsIcon name="${args.name}" ${args.size != "text" ? `size="${args.size}"` : null} ${args.fixedWidth1 ? `fixedWidth="${args.fixedWidth1}"` : null}></GcdsIcon>
-<GcdsIcon name="${args.name}" ${args.size != "text" ? `size="${args.size}"` : null} ${args.fixedWidth2 ? `fixedWidth="${args.fixedWidth2}"` : null}></GcdsIcon>
-`).replace(/ null/g, '');
-const TemplatePlayground = (args) => (`
+<GcdsIcon name="${args.name}" ${args.size != 'text' ? `size="${args.size}"` : null} ${args.fixedWidth1 ? `fixedWidth="${args.fixedWidth1}"` : null}></GcdsIcon>
+<GcdsIcon name="${args.name}" ${args.size != 'text' ? `size="${args.size}"` : null} ${args.fixedWidth2 ? `fixedWidth="${args.fixedWidth2}"` : null}></GcdsIcon>
+`.replace(/ null/g, '');
+const TemplatePlayground = args => `
 <gcds-icon
   ${args.label ? `label="${args.label}"` : null}
   name="${args.name}"
   ${args.marginLeft ? `margin-left="${args.marginLeft}"` : null}
   ${args.marginRight ? `margin-right="${args.marginRight}"` : null}
-  ${args.size != "text" ? `size="${args.size}"` : null}
+  ${args.size != 'text' ? `size="${args.size}"` : null}
   ${args.fixedWidth ? `fixed-width="${args.fixedWidth}"` : null}
   ${args.iconStyle != 'solid' ? `iconStyle="${args.iconStyle}"` : null}
 >
 </gcds-icon>
-`);
+`;
 // ------ Icon default ------
 export const Default = Template.bind({});
 Default.args = {
@@ -285,3 +329,4 @@ Playground.args = {
   name: 'tree',
   size: 'text',
 };
+//# sourceMappingURL=gcds-icon.stories.js.map

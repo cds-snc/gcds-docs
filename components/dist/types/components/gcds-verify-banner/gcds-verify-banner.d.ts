@@ -12,8 +12,8 @@ export declare class GcdsVerifyBanner {
    */
   isFixed?: boolean;
   /**
-  * Language of rendered component
-  */
+   * Language of rendered component
+   */
   lang: string;
   updateLang(): void;
   componentWillLoad(): Promise<void>;

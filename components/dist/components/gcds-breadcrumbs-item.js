@@ -4,3 +4,5 @@ const GcdsBreadcrumbsItem = GcdsBreadcrumbsItem$1;
 const defineCustomElement = defineCustomElement$1;
 
 export { GcdsBreadcrumbsItem, defineCustomElement };
+
+//# sourceMappingURL=gcds-breadcrumbs-item.js.map

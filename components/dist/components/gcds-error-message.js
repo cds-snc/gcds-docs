@@ -4,3 +4,5 @@ const GcdsErrorMessage = GcdsErrorMessage$1;
 const defineCustomElement = defineCustomElement$1;
 
 export { GcdsErrorMessage, defineCustomElement };
+
+//# sourceMappingURL=gcds-error-message.js.map

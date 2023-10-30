@@ -4,3 +4,5 @@ const GcdsSignature = GcdsSignature$1;
 const defineCustomElement = defineCustomElement$1;
 
 export { GcdsSignature, defineCustomElement };
+
+//# sourceMappingURL=gcds-signature.js.map

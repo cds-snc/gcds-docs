@@ -3,7 +3,7 @@ import { Validator, ValidatorEntry } from '../../validators';
 export declare class GcdsFileUploader {
   el: HTMLElement;
   private shadowElement?;
-  _validator: Validator<any>;
+  _validator: Validator<unknown>;
   /**
    * Props
    */
@@ -51,20 +51,20 @@ export declare class GcdsFileUploader {
   validator: Array<string | ValidatorEntry | Validator<string>>;
   validateValidator(): void;
   /**
-    * Set event to call validator
-    */
+   * Set event to call validator
+   */
   validateOn: 'blur' | 'submit' | 'other';
   /**
    * Custom callback function on change event
    */
   changeHandler: Function;
   /**
-  * Custom callback function on focus event
-  */
+   * Custom callback function on focus event
+   */
   focusHandler: Function;
   /**
-  * Custom callback function on blur event
-  */
+   * Custom callback function on blur event
+   */
   blurHandler: Function;
   /**
    * Specifies if the file uploader is invalid.
@@ -76,8 +76,8 @@ export declare class GcdsFileUploader {
    */
   inheritedAttributes: Object;
   /**
-  * Language of rendered component
-  */
+   * Language of rendered component
+   */
   lang: string;
   /**
    * Events
@@ -107,12 +107,12 @@ export declare class GcdsFileUploader {
    */
   validate(): Promise<void>;
   /**
-    * Emitted when the input has a validation error.
-    */
+   * Emitted when the input has a validation error.
+   */
   gcdsError: EventEmitter<object>;
   /**
-    * Emitted when the input has a validation error.
-    */
+   * Emitted when the input has a validation error.
+   */
   gcdsValid: EventEmitter<object>;
   submitListener(e: any): void;
   updateLang(): void;

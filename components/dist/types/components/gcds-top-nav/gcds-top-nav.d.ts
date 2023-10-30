@@ -13,16 +13,16 @@ export declare class GcdsTopNav {
    * Sticky navigation flag
    */
   /**
-  * Language of rendered component
-  */
+   * Language of rendered component
+   */
   lang: string;
   /**
-  * Queue of nav items for keyboard navigation
-  */
+   * Queue of nav items for keyboard navigation
+   */
   navItems: any[];
   /**
-  * Current size state based on widnow size
-  */
+   * Current size state based on widnow size
+   */
   navSize: 'desktop' | 'mobile';
   focusOutListener(e: any): Promise<void>;
   keyDownListener(e: any): Promise<void>;

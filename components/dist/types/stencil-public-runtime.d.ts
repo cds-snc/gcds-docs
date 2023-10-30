@@ -62,7 +62,7 @@ export interface PropOptions {
     /**
      * The name of the associated DOM attribute.
      * Stencil uses different heuristics to determine the default name of the attribute,
-     * but using this property, you can override the default behaviour.
+     * but using this property, you can override the default behavior.
      */
     attribute?: string | null;
     /**
@@ -128,7 +128,7 @@ export interface ListenOptions {
      * By default, Stencil uses several heuristics to determine if
      * it must attach a `passive` event listener or not.
      *
-     * Using the `passive` option can be used to change the default behaviour.
+     * Using the `passive` option can be used to change the default behavior.
      * Please see https://developers.google.com/web/updates/2016/06/passive-event-listeners for further information.
      */
     passive?: boolean;
@@ -432,7 +432,7 @@ export interface QueueApi {
 /**
  * Host
  */
-interface HostAttributes {
+export interface HostAttributes {
     class?: string | {
         [className: string]: boolean;
     };
@@ -471,7 +471,7 @@ export interface FunctionalUtilities {
     /**
      * Utility for reading the children of a functional component at runtime.
      * Since the Stencil runtime uses a different interface for children it is
-     * not recommendeded to read the children directly, and is preferable to use
+     * not recommended to read the children directly, and is preferable to use
      * this utility to, for instance, perform a side effect for each child.
      */
     forEach: (children: VNode[], cb: (vnode: ChildNode, index: number, array: ChildNode[]) => void) => void;
@@ -812,6 +812,7 @@ export declare namespace JSXBase {
         datetime?: string;
     }
     interface DialogHTMLAttributes<T> extends HTMLAttributes<T> {
+        onCancel?: (event: Event) => void;
         onClose?: (event: Event) => void;
         open?: boolean;
         returnValue?: string;
@@ -871,6 +872,8 @@ export declare namespace JSXBase {
     }
     interface ImgHTMLAttributes<T> extends HTMLAttributes<T> {
         alt?: string;
+        crossOrigin?: string;
+        crossorigin?: string;
         decoding?: 'async' | 'auto' | 'sync';
         importance?: 'low' | 'auto' | 'high';
         height?: number | string;
@@ -892,8 +895,8 @@ export declare namespace JSXBase {
         accept?: string;
         allowdirs?: boolean;
         alt?: string;
-        autoCapitalize?: any;
-        autocapitalize?: any;
+        autoCapitalize?: string;
+        autocapitalize?: string;
         autoComplete?: string;
         autocomplete?: string;
         autoFocus?: boolean;
@@ -929,6 +932,8 @@ export declare namespace JSXBase {
         minlength?: number | string;
         multiple?: boolean;
         name?: string;
+        onSelect?: (event: Event) => void;
+        onselect?: (event: Event) => void;
         pattern?: string;
         placeholder?: string;
         readOnly?: boolean;
@@ -1130,6 +1135,8 @@ export declare namespace JSXBase {
         summary?: string;
     }
     interface TextareaHTMLAttributes<T> extends HTMLAttributes<T> {
+        autoComplete?: string;
+        autocomplete?: string;
         autoFocus?: boolean;
         autofocus?: boolean | string;
         cols?: number;
@@ -1140,6 +1147,8 @@ export declare namespace JSXBase {
         minLength?: number;
         minlength?: number | string;
         name?: string;
+        onSelect?: (event: Event) => void;
+        onselect?: (event: Event) => void;
         placeholder?: string;
         readOnly?: boolean;
         readonly?: boolean | string;
@@ -1217,8 +1226,8 @@ export declare namespace JSXBase {
         resource?: string;
         typeof?: string;
         vocab?: string;
-        autoCapitalize?: any;
-        autocapitalize?: any;
+        autoCapitalize?: string;
+        autocapitalize?: string;
         autoCorrect?: string;
         autocorrect?: string;
         autoSave?: string;
@@ -1286,7 +1295,7 @@ export declare namespace JSXBase {
         clipPathUnits?: number | string;
         'clip-rule'?: number | string;
         'color-interpolation'?: number | string;
-        'color-interpolation-filters'?: 'auto' | 's-rGB' | 'linear-rGB' | 'inherit';
+        'color-interpolation-filters'?: 'auto' | 'sRGB' | 'linearRGB';
         'color-profile'?: number | string;
         'color-rendering'?: number | string;
         contentScriptType?: number | string;
@@ -1509,12 +1518,12 @@ export declare namespace JSXBase {
         onCutCapture?: (event: ClipboardEvent) => void;
         onPaste?: (event: ClipboardEvent) => void;
         onPasteCapture?: (event: ClipboardEvent) => void;
-        onCompositionEnd?: (event: CompositionEvent) => void;
-        onCompositionEndCapture?: (event: CompositionEvent) => void;
-        onCompositionStart?: (event: CompositionEvent) => void;
-        onCompositionStartCapture?: (event: CompositionEvent) => void;
-        onCompositionUpdate?: (event: CompositionEvent) => void;
-        onCompositionUpdateCapture?: (event: CompositionEvent) => void;
+        onCompositionend?: (event: CompositionEvent) => void;
+        onCompositionendCapture?: (event: CompositionEvent) => void;
+        onCompositionstart?: (event: CompositionEvent) => void;
+        onCompositionstartCapture?: (event: CompositionEvent) => void;
+        onCompositionupdate?: (event: CompositionEvent) => void;
+        onCompositionupdateCapture?: (event: CompositionEvent) => void;
         onFocus?: (event: FocusEvent) => void;
         onFocusCapture?: (event: FocusEvent) => void;
         onFocusin?: (event: FocusEvent) => void;
@@ -1525,8 +1534,8 @@ export declare namespace JSXBase {
         onBlurCapture?: (event: FocusEvent) => void;
         onChange?: (event: Event) => void;
         onChangeCapture?: (event: Event) => void;
-        onInput?: (event: Event) => void;
-        onInputCapture?: (event: Event) => void;
+        onInput?: (event: InputEvent) => void;
+        onInputCapture?: (event: InputEvent) => void;
         onReset?: (event: Event) => void;
         onResetCapture?: (event: Event) => void;
         onSubmit?: (event: Event) => void;
@@ -1616,8 +1625,14 @@ export declare namespace JSXBase {
         onAnimationEndCapture?: (event: AnimationEvent) => void;
         onAnimationIteration?: (event: AnimationEvent) => void;
         onAnimationIterationCapture?: (event: AnimationEvent) => void;
+        onTransitionCancel?: (event: TransitionEvent) => void;
+        onTransitionCancelCapture?: (event: TransitionEvent) => void;
         onTransitionEnd?: (event: TransitionEvent) => void;
         onTransitionEndCapture?: (event: TransitionEvent) => void;
+        onTransitionRun?: (event: TransitionEvent) => void;
+        onTransitionRunCapture?: (event: TransitionEvent) => void;
+        onTransitionStart?: (event: TransitionEvent) => void;
+        onTransitionStartCapture?: (event: TransitionEvent) => void;
     }
 }
 export interface JSXAttributes<T = Element> {

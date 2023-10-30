@@ -47,20 +47,20 @@ export declare class GcdsSelect {
   validator: Array<string | ValidatorEntry | Validator<string>>;
   validateValidator(): void;
   /**
-  * Set event to call validator
-  */
+   * Set event to call validator
+   */
   validateOn: 'blur' | 'submit' | 'other';
   /**
-  * Custom callback function on change event
-  */
+   * Custom callback function on change event
+   */
   changeHandler: Function;
   /**
-  * Custom callback function on focus event
-  */
+   * Custom callback function on focus event
+   */
   focusHandler: Function;
   /**
-  * Custom callback function on blur event
-  */
+   * Custom callback function on blur event
+   */
   blurHandler: Function;
   /**
    * Specifies if the select is invalid.
@@ -72,19 +72,19 @@ export declare class GcdsSelect {
    */
   inheritedAttributes: Object;
   /**
-  * Language of rendered component
-  */
+   * Language of rendered component
+   */
   lang: string;
   /**
    * Events
    */
   /**
-    * Update value based on user selection.
-    */
+   * Update value based on user selection.
+   */
   gcdsSelectChange: EventEmitter;
   /**
-  * Emitted when the select has focus.
-  */
+   * Emitted when the select has focus.
+   */
   gcdsFocus: EventEmitter<void>;
   private onFocus;
   /**
@@ -97,12 +97,12 @@ export declare class GcdsSelect {
    */
   validate(): Promise<void>;
   /**
-    * Emitted when the select has a validation error.
-    */
+   * Emitted when the select has a validation error.
+   */
   gcdsError: EventEmitter<object>;
   /**
-    * Emitted when the select has a validation error.
-    */
+   * Emitted when the select has a validation error.
+   */
   gcdsValid: EventEmitter<object>;
   submitListener(e: any): void;
   handleChange: (e: any) => void;

@@ -1,11 +1,11 @@
-import { langProp, validatorProps } from '../../../utils/storybook/component-properties';
+import { langProp, validatorProps, } from "../../../utils/storybook/component-properties";
 export default {
   title: 'Components/Select',
   parameters: {
     actions: {
       argTypesRegex: '^on.*',
-      handles: ['change', 'focus', 'blur']
-    }
+      handles: ['change', 'focus', 'blur'],
+    },
   },
   argTypes: Object.assign(Object.assign(Object.assign({
     // Props
@@ -14,57 +14,57 @@ export default {
       control: 'text',
       table: {
         type: { summary: 'string' },
-        defaultValue: { summary: '-' }
+        defaultValue: { summary: '-' },
       },
       type: {
-        required: true
-      }
+        required: true,
+      },
     }, defaultValue: {
       name: 'default-value',
       control: 'text',
       table: {
         type: { summary: 'string' },
-        defaultValue: { summary: '-' }
+        defaultValue: { summary: '-' },
       },
     }, disabled: {
       control: 'boolean',
       table: {
         type: { summary: 'boolean' },
-        defaultValue: { summary: false }
+        defaultValue: { summary: false },
       },
     }, errorMessage: {
       name: 'error-message',
       control: 'text',
       table: {
         type: { summary: 'string' },
-        defaultValue: { summary: '-' }
+        defaultValue: { summary: '-' },
       },
     }, hint: {
       control: 'text',
       table: {
         type: { summary: 'string' },
-        defaultValue: { summary: '-' }
+        defaultValue: { summary: '-' },
       },
     }, label: {
       control: 'text',
       table: {
         type: { summary: 'string' },
-        defaultValue: { summary: '-' }
+        defaultValue: { summary: '-' },
       },
       type: {
-        required: true
-      }
+        required: true,
+      },
     }, required: {
       control: 'boolean',
       table: {
         type: { summary: 'boolean' },
-        defaultValue: { summary: false }
+        defaultValue: { summary: false },
       },
     }, value: {
       control: 'text',
       table: {
         type: { summary: 'string' },
-        defaultValue: { summary: '-' }
+        defaultValue: { summary: '-' },
       },
     }
   }, validatorProps), langProp), {
@@ -73,21 +73,21 @@ export default {
       action: 'change',
       table: {
         category: 'Events | Événements',
-      }
+      },
     }, gcdsFocus: {
       action: 'focus',
       table: {
         category: 'Events | Événements',
-      }
+      },
     }, gcdsBlur: {
       action: 'blur',
       table: {
         category: 'Events | Événements',
-      }
+      },
     }
   }),
 };
-const Template = (args) => (`
+const Template = args => `
 <!-- Web component code (Angular, Vue) -->
 <gcds-select
   select-id="${args.selectId}"
@@ -98,8 +98,8 @@ const Template = (args) => (`
   ${args.required ? `required` : null}
   ${args.errorMessage ? `error-message="${args.errorMessage}"` : null}
   ${args.disabled ? `disabled` : null}
-  ${args.validateOn != "blur" ? `validate-on="${args.validateOn}"` : null}
-  ${args.lang != "en" ? `lang="${args.lang}"` : null}
+  ${args.validateOn != 'blur' ? `validate-on="${args.validateOn}"` : null}
+  ${args.lang != 'en' ? `lang="${args.lang}"` : null}
 >
   <option value="1">Option 1</option>
   <option value="2">Option 2</option>
@@ -121,8 +121,8 @@ const Template = (args) => (`
   ${args.required ? `required` : null}
   ${args.errorMessage ? `errorMessage="${args.errorMessage}"` : null}
   ${args.disabled ? `disabled` : null}
-  ${args.validateOn != "blur" ? `validateOn="${args.validateOn}"` : null}
-  ${args.lang != "en" ? `lang="${args.lang}"` : null}
+  ${args.validateOn != 'blur' ? `validateOn="${args.validateOn}"` : null}
+  ${args.lang != 'en' ? `lang="${args.lang}"` : null}
 >
   <option value="1">Option 1</option>
   <option value="2">Option 2</option>
@@ -133,8 +133,8 @@ const Template = (args) => (`
   <option value="7">Option 7</option>
   <option value="8">Option 8</option>
 </GcdsSelect>
-`).replace(/\s\snull\n/g, '');
-const TemplatePlayground = (args) => (`
+`.replace(/\s\snull\n/g, '');
+const TemplatePlayground = args => `
 <gcds-select
   select-id="${args.selectId}"
   label="${args.label}"
@@ -144,8 +144,8 @@ const TemplatePlayground = (args) => (`
   ${args.required ? `required` : null}
   ${args.errorMessage ? `error-message="${args.errorMessage}"` : null}
   ${args.disabled ? `disabled` : null}
-  ${args.validateOn != "blur" ? `validate-on="${args.validateOn}"` : null}
-  ${args.lang != "en" ? `lang="${args.lang}"` : null}
+  ${args.validateOn != 'blur' ? `validate-on="${args.validateOn}"` : null}
+  ${args.lang != 'en' ? `lang="${args.lang}"` : null}
 >
   <option value="1">Option 1</option>
   <option value="2">Option 2</option>
@@ -156,7 +156,7 @@ const TemplatePlayground = (args) => (`
   <option value="7">Option 7</option>
   <option value="8">Option 8</option>
 </gcds-select>
-`);
+`;
 // ------ Select default ------
 export const Default = Template.bind({});
 Default.args = {
@@ -240,3 +240,4 @@ Playground.args = {
   lang: 'en',
   validateOn: 'blur',
 };
+//# sourceMappingURL=gcds-select.stories.js.map

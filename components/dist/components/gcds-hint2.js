@@ -2,7 +2,7 @@ import { proxyCustomElement, HTMLElement, h, Host } from '@stencil/core/internal
 
 const gcdsHintCss = ".sc-gcds-hint-h .gcds-hint.sc-gcds-hint{font:var(--gcds-hint-font);margin:var(--gcds-hint-margin)}";
 
-const GcdsHint = /*@__PURE__*/ proxyCustomElement(class extends HTMLElement {
+const GcdsHint = /*@__PURE__*/ proxyCustomElement(class GcdsHint extends HTMLElement {
   constructor() {
     super();
     this.__registerHost();
@@ -34,3 +34,5 @@ function defineCustomElement() {
 }
 
 export { GcdsHint as G, defineCustomElement as d };
+
+//# sourceMappingURL=gcds-hint2.js.map

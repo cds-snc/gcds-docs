@@ -4,3 +4,5 @@ const GcdsContainer = GcdsContainer$1;
 const defineCustomElement = defineCustomElement$1;
 
 export { GcdsContainer, defineCustomElement };
+
+//# sourceMappingURL=gcds-container.js.map

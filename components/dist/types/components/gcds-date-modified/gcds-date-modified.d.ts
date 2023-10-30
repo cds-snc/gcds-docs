@@ -8,8 +8,8 @@ export declare class GcdsDateModified {
    */
   type: 'date' | 'version';
   /**
-  * Language of rendered component
-  */
+   * Language of rendered component
+   */
   lang: string;
   updateLang(): void;
   componentWillLoad(): Promise<void>;

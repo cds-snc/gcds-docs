@@ -1,11 +1,11 @@
-import { langProp, validatorProps } from '../../../utils/storybook/component-properties';
+import { langProp, validatorProps, } from "../../../utils/storybook/component-properties";
 export default {
   title: 'Components/Textarea',
   parameters: {
     actions: {
       argTypesRegex: '^on.*',
-      handles: ['change', 'focus', 'blur']
-    }
+      handles: ['change', 'focus', 'blur'],
+    },
   },
   argTypes: Object.assign(Object.assign(Object.assign({
     // Props
@@ -14,70 +14,70 @@ export default {
       control: 'boolean',
       table: {
         type: { summary: 'boolean' },
-        defaultValue: { summary: false }
+        defaultValue: { summary: false },
       },
     }, textareaId: {
       name: 'textarea-id',
       control: 'text',
       table: {
         type: { summary: 'string' },
-        defaultValue: { summary: '-' }
+        defaultValue: { summary: '-' },
       },
       type: {
-        required: true
-      }
+        required: true,
+      },
     }, characterCount: {
       name: 'character-count',
       control: 'number',
       table: {
         type: { summary: 'number' },
-        defaultValue: { summary: '-' }
+        defaultValue: { summary: '-' },
       },
     }, rows: {
       control: 'number',
       table: {
         type: { summary: 'number' },
-        defaultValue: { summary: '5' }
+        defaultValue: { summary: '5' },
       },
     }, disabled: {
       control: 'boolean',
       table: {
         type: { summary: 'boolean' },
-        defaultValue: { summary: false }
+        defaultValue: { summary: false },
       },
     }, errorMessage: {
       name: 'error-message',
       control: 'text',
       table: {
         type: { summary: 'string' },
-        defaultValue: { summary: '-' }
+        defaultValue: { summary: '-' },
       },
     }, hint: {
       control: 'text',
       table: {
         type: { summary: 'string' },
-        defaultValue: { summary: '-' }
+        defaultValue: { summary: '-' },
       },
     }, label: {
       control: 'text',
       table: {
         type: { summary: 'string' },
-        defaultValue: { summary: '-' }
+        defaultValue: { summary: '-' },
       },
       type: {
-        required: true
-      }
+        required: true,
+      },
     }, required: {
       control: 'boolean',
       table: {
         type: { summary: 'boolean' },
-        defaultValue: { summary: false }
+        defaultValue: { summary: false },
       },
     }, value: {
       control: 'text',
       table: {
         type: { summary: 'string' },
-        defaultValue: { summary: '-' }
+        defaultValue: { summary: '-' },
       },
     }
   }, validatorProps), langProp), {
@@ -86,21 +86,21 @@ export default {
       action: 'change',
       table: {
         category: 'Events | Événements',
-      }
+      },
     }, gcdsFocus: {
       action: 'focus',
       table: {
         category: 'Events | Événements',
-      }
+      },
     }, gcdsBlur: {
       action: 'blur',
       table: {
         category: 'Events | Événements',
-      }
+      },
     }
   }),
 };
-const Template = (args) => (`
+const Template = args => `
 <!-- Web component code (Angular, Vue) -->
 <gcds-textarea
   textarea-id="${args.textareaId}"
@@ -113,8 +113,8 @@ const Template = (args) => (`
   ${args.characterCount ? `character-count="${args.characterCount}"` : null}
   ${args.rows ? `rows="${args.rows}"` : null}
   ${args.hideLabel ? `hide-label` : null}
-  ${args.validateOn != "blur" ? `validate-on="${args.validateOn}"` : null}
-  ${args.lang != "en" ? `lang="${args.lang}"` : null}
+  ${args.validateOn != 'blur' ? `validate-on="${args.validateOn}"` : null}
+  ${args.lang != 'en' ? `lang="${args.lang}"` : null}
 >
 </gcds-textarea>
 
@@ -130,12 +130,13 @@ const Template = (args) => (`
   ${args.characterCount ? `characterCount="${args.characterCount}"` : null}
   ${args.rows ? `rows="${args.rows}"` : null}
   ${args.hideLabel ? `hideLabel` : null}
-  ${args.validateOn != "blur" ? `validateOn="${args.validateOn}"` : null}
-  ${args.lang != "en" ? `lang="${args.lang}"` : null}
+  ${args.validateOn != 'blur' ? `validateOn="${args.validateOn}"` : null}
+  ${args.lang != 'en' ? `lang="${args.lang}"` : null}
 >
 </GcdsTextarea>
-`).replace(/\s\snull\n/g, '');
-const TemplatePlayground = (args) => (`
+`.replace(/\s\snull\n/g, '');
+// ------ Textarea default ------
+const TemplatePlayground = args => `
 <gcds-textarea
   textarea-id="${args.textareaId}"
   label="${args.label}"
@@ -147,11 +148,11 @@ const TemplatePlayground = (args) => (`
   ${args.characterCount ? `character-count="${args.characterCount}"` : null}
   ${args.rows ? `rows="${args.rows}"` : null}
   ${args.hideLabel ? `hide-label` : null}
-  ${args.validateOn != "blur" ? `validate-on="${args.validateOn}"` : null}
-  ${args.lang != "en" ? `lang="${args.lang}"` : null}
+  ${args.validateOn != 'blur' ? `validate-on="${args.validateOn}"` : null}
+  ${args.lang != 'en' ? `lang="${args.lang}"` : null}
 >
 </gcds-textarea>
-`);
+`;
 // ------ Textarea default ------
 export const Default = Template.bind({});
 Default.args = {
@@ -242,3 +243,4 @@ Playground.args = {
   validateOn: 'blur',
   lang: 'en',
 };
+//# sourceMappingURL=gcds-textarea.stories.js.map

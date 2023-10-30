@@ -1,4 +1,4 @@
-import { Host, h } from '@stencil/core';
+import { Host, h } from "@stencil/core";
 export class GcdsErrorMessage {
   constructor() {
     this.messageId = undefined;
@@ -60,3 +60,4 @@ export class GcdsErrorMessage {
   }
   static get elementRef() { return "el"; }
 }
+//# sourceMappingURL=gcds-error-message.js.map

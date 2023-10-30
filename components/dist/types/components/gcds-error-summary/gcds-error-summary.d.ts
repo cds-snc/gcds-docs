@@ -11,8 +11,8 @@ export declare class GcdsErrorSummary {
   listen?: boolean;
   listenChanged(): void;
   /**
-  * Object of list items for error list. Format: { link-href: link-label }
-  */
+   * Object of list items for error list. Format: { link-href: link-label }
+   */
   errorLinks: string | object;
   errorLinksObject: object;
   /**
@@ -21,12 +21,12 @@ export declare class GcdsErrorSummary {
    */
   errorLinksChanged(newErrorLinks: string | object): void;
   /**
-  * Language of rendered component
-  */
+   * Language of rendered component
+   */
   lang: string;
   /**
-  * Queue of erros
-  */
+   * Queue of erros
+   */
   errorQueue: object;
   hasSubmitted: boolean;
   errorListener(e: any): void;

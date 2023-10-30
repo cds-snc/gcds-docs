@@ -1,4 +1,4 @@
-import { langProp } from '../../../utils/storybook/component-properties';
+import { langProp } from "../../../utils/storybook/component-properties";
 export default {
   title: 'Components/Error summary',
   argTypes: Object.assign({
@@ -7,7 +7,7 @@ export default {
       control: 'boolean',
       table: {
         type: { summary: 'boolean' },
-        defaultValue: { summary: true }
+        defaultValue: { summary: true },
       },
     }, errorLinks: {
       name: 'error-links',
@@ -15,18 +15,18 @@ export default {
       description: '{ "error-href": "error message" }',
       table: {
         type: { summary: 'string/object' },
-        defaultValue: { summary: '-' }
+        defaultValue: { summary: '-' },
       },
     }, heading: {
       control: 'text',
       table: {
         type: { summary: 'string' },
-        defaultValue: { summary: '-' }
-      }
+        defaultValue: { summary: '-' },
+      },
     }
   }, langProp),
 };
-const Template = (args) => (`
+const Template = args => `
 <!-- Web component code (Angular, Vue) -->
 <gcds-error-summary
   ${args.listen && !args.errorLinks ? `listen` : null}
@@ -42,15 +42,15 @@ const Template = (args) => (`
   ${args.heading ? `heading="${args.heading}"` : null}
 >
 </GcdsErrorSummary>
-`).replace(/\s\snull\n/g, '');
-const TemplatePlayground = (args) => (`
+`.replace(/\s\snull\n/g, '');
+const TemplatePlayground = args => `
 <gcds-error-summary
   ${args.listen && !args.errorLinks ? `listen` : null}
   ${args.errorLinks ? `error-links='${args.errorLinks}'` : null}
   ${args.heading ? `heading="${args.heading}"` : null}
 >
 </gcds-error-summary>
-`);
+`;
 // ------ Error summary default ------
 export const Default = Template.bind({});
 Default.args = {
@@ -61,7 +61,7 @@ Default.args = {
     "error-href-3": "Error summary item."
   }`,
   heading: '',
-  lang: 'en'
+  lang: 'en',
 };
 // ------ Error summary events & props ------
 export const Props = Template.bind({});
@@ -73,7 +73,7 @@ Props.args = {
     "error-href-3": "Error summary item."
   }`,
   heading: '',
-  lang: 'en'
+  lang: 'en',
 };
 // ------ Error summary playground ------
 export const Playground = TemplatePlayground.bind({});
@@ -85,5 +85,6 @@ Playground.args = {
     "error-href-3": "Error summary item."
   }`,
   heading: '',
-  lang: 'en'
+  lang: 'en',
 };
+//# sourceMappingURL=gcds-error-summary.stories.js.map

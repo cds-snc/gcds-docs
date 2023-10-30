@@ -1,4 +1,4 @@
-import { langProp } from '../../../utils/storybook/component-properties';
+import { langProp } from "../../../utils/storybook/component-properties";
 export default {
   title: 'Components/Search',
   argTypes: Object.assign({
@@ -8,40 +8,40 @@ export default {
       control: 'text',
       table: {
         type: { summary: 'string' },
-        defaultValue: { summary: '/sr/srb.html' }
-      }
+        defaultValue: { summary: '/sr/srb.html' },
+      },
     }, name: {
       name: 'name',
       control: 'text',
       table: {
         type: { summary: 'string' },
-        defaultValue: { summary: 'q' }
-      }
+        defaultValue: { summary: 'q' },
+      },
     }, placeholder: {
       name: 'placeholder',
       control: 'text',
       table: {
         type: { summary: 'string' },
-        defaultValue: { summary: 'Canada.ca' }
-      }
+        defaultValue: { summary: 'Canada.ca' },
+      },
     }, method: {
       control: 'radio',
       options: ['get', 'post'],
       table: {
         type: { summary: 'string' },
-        defaultValue: { summary: 'get' }
+        defaultValue: { summary: 'get' },
       },
     }, searchId: {
       name: 'search-id',
       control: 'text',
       table: {
         type: { summary: 'string' },
-        defaultValue: { summary: 'search' }
-      }
+        defaultValue: { summary: 'search' },
+      },
     }
   }, langProp),
 };
-const Template = (args) => (`
+const Template = args => `
 <!-- Web component code (Angular, Vue) -->
 <gcds-search
   ${args.action != '/sr/srb.html' ? `action="${args.action}"` : null}
@@ -63,8 +63,8 @@ const Template = (args) => (`
   ${args.lang != 'en' ? `lang="${args.lang}"` : null}
 >
 </GcdsSearch>
-`).replace(/\s\snull\n/g, '');
-const TemplatePlayground = (args) => (`
+`.replace(/\s\snull\n/g, '');
+const TemplatePlayground = args => `
 <gcds-search
   ${args.action != '/sr/srb.html' ? `action="${args.action}"` : null}
   ${args.method != 'get' ? `method="${args.method}"` : null}
@@ -74,7 +74,7 @@ const TemplatePlayground = (args) => (`
   ${args.lang != 'en' ? `lang="${args.lang}"` : null}
 >
 </gcds-search>
-`);
+`;
 // ------ Search default ------
 export const Default = Template.bind({});
 Default.args = {
@@ -83,7 +83,7 @@ Default.args = {
   name: 'q',
   placeholder: 'Canada.ca',
   searchId: 'search',
-  lang: 'en'
+  lang: 'en',
 };
 // ------ Search default ------
 export const French = Template.bind({});
@@ -93,7 +93,7 @@ French.args = {
   name: 'q',
   placeholder: 'Canada.ca',
   searchId: 'search',
-  lang: 'fr'
+  lang: 'fr',
 };
 // ------ Search default ------
 export const Custom = Template.bind({});
@@ -103,7 +103,7 @@ Custom.args = {
   name: 'search',
   placeholder: 'sitename',
   searchId: 'searchform',
-  lang: 'en'
+  lang: 'en',
 };
 // ------ Search events & props ------
 export const Props = Template.bind({});
@@ -113,7 +113,7 @@ Props.args = {
   name: 'q',
   placeholder: 'Canada.ca',
   searchId: 'search',
-  lang: 'en'
+  lang: 'en',
 };
 // ------ Search playground ------
 export const Playground = TemplatePlayground.bind({});
@@ -123,5 +123,6 @@ Playground.args = {
   name: 'q',
   placeholder: 'Canada.ca',
   searchId: 'search',
-  lang: 'en'
+  lang: 'en',
 };
+//# sourceMappingURL=gcds-search.stories.js.map

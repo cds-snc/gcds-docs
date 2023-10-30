@@ -1,4 +1,4 @@
-import { Host, h } from '@stencil/core';
+import { Host, h } from "@stencil/core";
 export class GcdsDetails {
   constructor() {
     this.detailsTitle = undefined;
@@ -6,7 +6,7 @@ export class GcdsDetails {
   }
   render() {
     const { detailsTitle, open } = this;
-    return (h(Host, null, h("button", { "aria-expanded": open.toString(), "aria-controls": "details__panel", onClick: () => this.open = !open, class: "details__summary", id: "details__summary" }, detailsTitle), h("div", { id: "details__panel", class: "details__panel", "aria-labelledby": "details__summary" }, h("slot", null))));
+    return (h(Host, null, h("button", { "aria-expanded": open.toString(), "aria-controls": "details__panel", onClick: () => (this.open = !open), class: "details__summary", id: "details__summary" }, detailsTitle), h("div", { id: "details__panel", class: "details__panel", "aria-labelledby": "details__summary" }, h("slot", null))));
   }
   static get is() { return "gcds-details"; }
   static get encapsulation() { return "shadow"; }
@@ -61,3 +61,4 @@ export class GcdsDetails {
   }
   static get elementRef() { return "el"; }
 }
+//# sourceMappingURL=gcds-details.js.map

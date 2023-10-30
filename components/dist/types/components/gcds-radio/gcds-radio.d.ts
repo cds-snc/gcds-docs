@@ -42,12 +42,12 @@ export declare class GcdsRadio {
    */
   clickHandler: Function;
   /**
-  * Custom callback function on focus event
-  */
+   * Custom callback function on focus event
+   */
   focusHandler: Function;
   /**
-  * Custom callback function on blur event
-  */
+   * Custom callback function on blur event
+   */
   blurHandler: Function;
   /**
    * Specifies if the radio is invalid.
@@ -63,8 +63,8 @@ export declare class GcdsRadio {
    */
   inheritedAttributes: Object;
   /**
-  * Language of rendered component
-  */
+   * Language of rendered component
+   */
   lang: string;
   /**
    * Events
@@ -79,8 +79,8 @@ export declare class GcdsRadio {
   gcdsFocus: EventEmitter<void>;
   private onFocus;
   /**
-  * Emitted when the radio loses focus.
-  */
+   * Emitted when the radio loses focus.
+   */
   gcdsBlur: EventEmitter<void>;
   private onBlur;
   updateLang(): void;
@@ -88,8 +88,8 @@ export declare class GcdsRadio {
   private onChange;
   gcdsradioChangeEventHandler(event: any): void;
   /**
-  * Event listener for gcds-fieldset errors
-  */
+   * Event listener for gcds-fieldset errors
+   */
   gcdsGroupError(e: any): void;
   gcdsGroupErrorClear(e: any): void;
   render(): any;

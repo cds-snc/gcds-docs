@@ -2,19 +2,19 @@ import { proxyCustomElement, HTMLElement, h, Host } from '@stencil/core/internal
 import { o as observerConfig, a as assignLanguage } from './utils.js';
 
 const I18N = {
-  "en": {
-    step: "Step",
-    of: "of",
+  en: {
+    step: 'Step',
+    of: 'of',
   },
-  "fr": {
-    step: "Étape",
-    of: "sur",
-  }
+  fr: {
+    step: 'Étape',
+    of: 'sur',
+  },
 };
 
 const gcdsStepperCss = ":host .gcds-stepper{color:var(--gcds-stepper-text);font:var(--gcds-stepper-font);margin:var(--gcds-stepper-margin)}";
 
-const GcdsStepper$1 = /*@__PURE__*/ proxyCustomElement(class extends HTMLElement {
+const GcdsStepper$1 = /*@__PURE__*/ proxyCustomElement(class GcdsStepper extends HTMLElement {
   constructor() {
     super();
     this.__registerHost();
@@ -24,10 +24,10 @@ const GcdsStepper$1 = /*@__PURE__*/ proxyCustomElement(class extends HTMLElement
     this.lang = undefined;
   }
   /*
-  * Observe lang attribute change
-  */
+   * Observe lang attribute change
+   */
   updateLang() {
-    const observer = new MutationObserver((mutations) => {
+    const observer = new MutationObserver(mutations => {
       if (mutations[0].oldValue != this.el.lang) {
         this.lang = this.el.lang;
       }
@@ -68,3 +68,5 @@ const GcdsStepper = GcdsStepper$1;
 const defineCustomElement = defineCustomElement$1;
 
 export { GcdsStepper, defineCustomElement };
+
+//# sourceMappingURL=gcds-stepper.js.map

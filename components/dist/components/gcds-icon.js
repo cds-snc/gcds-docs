@@ -4,3 +4,5 @@ const GcdsIcon = GcdsIcon$1;
 const defineCustomElement = defineCustomElement$1;
 
 export { GcdsIcon, defineCustomElement };
+
+//# sourceMappingURL=gcds-icon.js.map

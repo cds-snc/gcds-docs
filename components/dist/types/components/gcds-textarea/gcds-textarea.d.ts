@@ -38,8 +38,8 @@ export declare class GcdsTextarea {
    */
   label: string;
   /**
-    * Specifies if a form field is required or not.
-    */
+   * Specifies if a form field is required or not.
+   */
   required?: boolean;
   /**
    * Default value for textarea rows.
@@ -67,12 +67,12 @@ export declare class GcdsTextarea {
    */
   changeHandler: Function;
   /**
-    * Custom callback function on focus event
-    */
+   * Custom callback function on focus event
+   */
   focusHandler: Function;
   /**
-    * Custom callback function on blur event
-    */
+   * Custom callback function on blur event
+   */
   blurHandler: Function;
   /**
    * Set additional HTML attributes not available in component properties
@@ -84,38 +84,38 @@ export declare class GcdsTextarea {
   hasError: boolean;
   validateHasError(): void;
   /**
-  * Language of rendered component
-  */
+   * Language of rendered component
+   */
   lang: string;
   /**
    * Events
    */
   /**
-    * Emitted when the textarea has focus.
-    */
+   * Emitted when the textarea has focus.
+   */
   gcdsFocus: EventEmitter<void>;
   private onFocus;
   /**
-    * Emitted when the textarea loses focus.
-    */
+   * Emitted when the textarea loses focus.
+   */
   gcdsBlur: EventEmitter<void>;
   private onBlur;
   /**
-    * Update value based on user input.
-    */
+   * Update value based on user input.
+   */
   gcdsChange: EventEmitter;
   /**
-  * Call any active validators
-  */
+   * Call any active validators
+   */
   validate(): Promise<void>;
   handleChange(e: any): void;
   /**
-    * Emitted when the textarea has a validation error.
-    */
+   * Emitted when the textarea has a validation error.
+   */
   gcdsError: EventEmitter<object>;
   /**
-    * Emitted when the textarea has a validation error.
-    */
+   * Emitted when the textarea has a validation error.
+   */
   gcdsValid: EventEmitter<object>;
   submitListener(e: any): void;
   updateLang(): void;

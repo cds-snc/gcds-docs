@@ -1,20 +1,20 @@
-import { Host, h } from '@stencil/core';
-import { assignLanguage, elementGroupCheck, inheritAttributes, observerConfig } from '../../utils/utils';
+import { Host, h, } from "@stencil/core";
+import { assignLanguage, elementGroupCheck, inheritAttributes, observerConfig, } from "../../utils/utils";
 export class GcdsRadio {
   constructor() {
-    this.onFocus = (e) => {
+    this.onFocus = e => {
       if (this.focusHandler) {
         this.focusHandler(e);
       }
       this.gcdsFocus.emit();
     };
-    this.onBlur = (e) => {
+    this.onBlur = e => {
       if (this.blurHandler) {
         this.blurHandler(e);
       }
       this.gcdsBlur.emit();
     };
-    this.onChange = (name) => {
+    this.onChange = name => {
       this.gcdsRadioChange.emit(name);
       this.checked = this.shadowElement.checked;
     };
@@ -40,10 +40,10 @@ export class GcdsRadio {
     }
   }
   /*
-  * Observe lang attribute change
-  */
+   * Observe lang attribute change
+   */
   updateLang() {
-    const observer = new MutationObserver((mutations) => {
+    const observer = new MutationObserver(mutations => {
       if (mutations[0].oldValue != this.el.lang) {
         this.lang = this.el.lang;
       }
@@ -64,8 +64,8 @@ export class GcdsRadio {
     }
   }
   /**
-  * Event listener for gcds-fieldset errors
-  */
+   * Event listener for gcds-fieldset errors
+   */
   gcdsGroupError(e) {
     if (e.srcElement.contains(this.el) && elementGroupCheck(this.name)) {
       this.hasError = true;
@@ -73,31 +73,35 @@ export class GcdsRadio {
     }
     else if (!elementGroupCheck(this.name)) {
       this.hasError = false;
-      this.parentError = "";
+      this.parentError = '';
     }
   }
   gcdsGroupErrorClear(e) {
     if (e.srcElement.contains(this.el) && this.hasError) {
       this.hasError = false;
-      this.parentError = "";
+      this.parentError = '';
     }
   }
   render() {
-    const { lang, radioId, label, name, required, disabled, value, checked, hint, hasError, parentError, inheritedAttributes } = this;
+    const { lang, radioId, label, name, required, disabled, value, checked, hint, hasError, parentError, inheritedAttributes, } = this;
     const attrsInput = Object.assign({ name,
       disabled,
       required,
       value,
       checked }, inheritedAttributes);
     if (hint || parentError) {
-      let hintID = hint ? `hint-${radioId} ` : "";
-      let errorID = parentError ? `parent-error-${radioId} ` : "";
-      attrsInput["aria-describedby"] = `${hintID}${errorID}${attrsInput["aria-describedby"] ? `${attrsInput["aria-describedby"]}` : ""}`;
+      const hintID = hint ? `hint-${radioId} ` : '';
+      const errorID = parentError ? `parent-error-${radioId} ` : '';
+      attrsInput['aria-describedby'] = `${hintID}${errorID}${attrsInput['aria-describedby']
+        ? `${attrsInput['aria-describedby']}`
+        : ''}`;
     }
     if (hasError) {
-      attrsInput["aria-invalid"] = "true";
+      attrsInput['aria-invalid'] = 'true';
     }
-    return (h(Host, null, h("div", { class: `gcds-radio ${disabled ? 'gcds-radio--disabled' : ''} ${hasError ? 'gcds-radio--error' : ''}` }, h("input", Object.assign({ id: radioId, type: "radio" }, attrsInput, { onChange: () => this.onChange(name), onBlur: (e) => this.onBlur(e), onFocus: (e) => this.onFocus(e), onClick: (e) => { this.clickHandler && this.clickHandler(e); }, ref: element => this.shadowElement = element })), h("gcds-label", { label: label, "label-for": radioId, lang: lang }), hint ? h("gcds-hint", { hint: hint, "hint-id": radioId }) : null, parentError && h("span", { id: `parent-error-${radioId}`, hidden: true }, parentError))));
+    return (h(Host, null, h("div", { class: `gcds-radio ${disabled ? 'gcds-radio--disabled' : ''} ${hasError ? 'gcds-radio--error' : ''}` }, h("input", Object.assign({ id: radioId, type: "radio" }, attrsInput, { onChange: () => this.onChange(name), onBlur: e => this.onBlur(e), onFocus: e => this.onFocus(e), onClick: e => {
+        this.clickHandler && this.clickHandler(e);
+      }, ref: element => (this.shadowElement = element) })), h("gcds-label", { label: label, "label-for": radioId, lang: lang }), hint ? h("gcds-hint", { hint: hint, "hint-id": radioId }) : null, parentError && (h("span", { id: `parent-error-${radioId}`, hidden: true }, parentError)))));
   }
   static get is() { return "gcds-radio"; }
   static get encapsulation() { return "scoped"; }
@@ -257,7 +261,8 @@ export class GcdsRadio {
           "resolved": "Function",
           "references": {
             "Function": {
-              "location": "global"
+              "location": "global",
+              "id": "global::Function"
             }
           }
         },
@@ -276,7 +281,8 @@ export class GcdsRadio {
           "resolved": "Function",
           "references": {
             "Function": {
-              "location": "global"
+              "location": "global",
+              "id": "global::Function"
             }
           }
         },
@@ -295,7 +301,8 @@ export class GcdsRadio {
           "resolved": "Function",
           "references": {
             "Function": {
-              "location": "global"
+              "location": "global",
+              "id": "global::Function"
             }
           }
         },
@@ -393,3 +400,4 @@ export class GcdsRadio {
       }];
   }
 }
+//# sourceMappingURL=gcds-radio.js.map

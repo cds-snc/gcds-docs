@@ -1,4 +1,4 @@
-import { Host, h } from '@stencil/core';
+import { Host, h } from "@stencil/core";
 export class GcdsGrid {
   constructor() {
     this.columns = undefined;
@@ -17,7 +17,7 @@ export class GcdsGrid {
     this.placeItems = undefined;
   }
   render() {
-    const { alignContent, alignItems, columns, columnsDesktop, columnsTablet, container, centered, display, gap, justifyContent, justifyItems, placeContent, placeItems, tag } = this;
+    const { alignContent, alignItems, columns, columnsDesktop, columnsTablet, container, centered, display, gap, justifyContent, justifyItems, placeContent, placeItems, tag, } = this;
     const Tag = tag;
     const classNames = `
       gcds-grid
@@ -32,22 +32,19 @@ export class GcdsGrid {
     `;
     // Set CSS variables in style attribute based on passed column properties
     function handleColumns() {
-      let responsiveColumns = {};
+      const responsiveColumns = {};
       if (columnsDesktop) {
-        responsiveColumns["--gcds-grid-columns-desktop"] = columnsDesktop;
+        responsiveColumns['--gcds-grid-columns-desktop'] = columnsDesktop;
       }
       if (columnsTablet) {
-        responsiveColumns["--gcds-grid-columns-tablet"] = columnsTablet;
+        responsiveColumns['--gcds-grid-columns-tablet'] = columnsTablet;
       }
       if (columns) {
-        responsiveColumns["--gcds-grid-columns"] = columns;
+        responsiveColumns['--gcds-grid-columns'] = columns;
       }
       return responsiveColumns;
     }
-    return (h(Host, null, container ?
-      h("gcds-container", { size: container, centered: centered }, h(Tag, { class: classNames, style: handleColumns() }, h("slot", null)))
-      :
-        h(Tag, { class: classNames, style: handleColumns() }, h("slot", null))));
+    return (h(Host, null, container ? (h("gcds-container", { size: container, centered: centered }, h(Tag, { class: classNames, style: handleColumns() }, h("slot", null)))) : (h(Tag, { class: classNames, style: handleColumns() }, h("slot", null)))));
   }
   static get is() { return "gcds-grid"; }
   static get encapsulation() { return "shadow"; }
@@ -171,7 +168,7 @@ export class GcdsGrid {
         "type": "string",
         "mutable": false,
         "complexType": {
-          "original": "'0' | '50' | '100' | '150' | '200' | '250' | '300' | '400' | '450' | '500' | '550' | '600' | '700' | '800' | '900' | '1000'",
+          "original": "| '0'\n    | '50'\n    | '100'\n    | '150'\n    | '200'\n    | '250'\n    | '300'\n    | '400'\n    | '450'\n    | '500'\n    | '550'\n    | '600'\n    | '700'\n    | '800'\n    | '900'\n    | '1000'",
           "resolved": "\"0\" | \"100\" | \"1000\" | \"150\" | \"200\" | \"250\" | \"300\" | \"400\" | \"450\" | \"50\" | \"500\" | \"550\" | \"600\" | \"700\" | \"800\" | \"900\"",
           "references": {}
         },
@@ -206,7 +203,7 @@ export class GcdsGrid {
         "type": "string",
         "mutable": false,
         "complexType": {
-          "original": "'center' | 'end' | 'space-around' | 'space-between' | 'space-evenly' | 'start' | 'stretch'",
+          "original": "| 'center'\n    | 'end'\n    | 'space-around'\n    | 'space-between'\n    | 'space-evenly'\n    | 'start'\n    | 'stretch'",
           "resolved": "\"center\" | \"end\" | \"space-around\" | \"space-between\" | \"space-evenly\" | \"start\" | \"stretch\"",
           "references": {}
         },
@@ -223,7 +220,7 @@ export class GcdsGrid {
         "type": "string",
         "mutable": false,
         "complexType": {
-          "original": "'center' | 'end' | 'space-around' | 'space-between' | 'space-evenly' | 'start' | 'stretch'",
+          "original": "| 'center'\n    | 'end'\n    | 'space-around'\n    | 'space-between'\n    | 'space-evenly'\n    | 'start'\n    | 'stretch'",
           "resolved": "\"center\" | \"end\" | \"space-around\" | \"space-between\" | \"space-evenly\" | \"start\" | \"stretch\"",
           "references": {}
         },
@@ -240,7 +237,7 @@ export class GcdsGrid {
         "type": "string",
         "mutable": false,
         "complexType": {
-          "original": "'center' | 'end' | 'space-around' | 'space-between' | 'space-evenly' | 'start' | 'stretch'",
+          "original": "| 'center'\n    | 'end'\n    | 'space-around'\n    | 'space-between'\n    | 'space-evenly'\n    | 'start'\n    | 'stretch'",
           "resolved": "\"center\" | \"end\" | \"space-around\" | \"space-between\" | \"space-evenly\" | \"start\" | \"stretch\"",
           "references": {}
         },
@@ -308,3 +305,4 @@ export class GcdsGrid {
   }
   static get elementRef() { return "el"; }
 }
+//# sourceMappingURL=gcds-grid.js.map

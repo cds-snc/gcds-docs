@@ -1,4 +1,4 @@
-import { Host, h } from '@stencil/core';
+import { Host, h } from "@stencil/core";
 export class GcdsHint {
   constructor() {
     this.hint = undefined;
@@ -60,3 +60,4 @@ export class GcdsHint {
   }
   static get elementRef() { return "el"; }
 }
+//# sourceMappingURL=gcds-hint.js.map

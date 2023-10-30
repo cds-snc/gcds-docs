@@ -1,7 +1,7 @@
-import { Host, h } from '@stencil/core';
-import { assignLanguage, observerConfig } from '../../utils/utils';
-import { inheritAttributes } from '../../utils/utils';
-import i18n from './i18n/i18n';
+import { Host, h, } from "@stencil/core";
+import { assignLanguage, observerConfig } from "../../utils/utils";
+import { inheritAttributes } from "../../utils/utils";
+import i18n from "./i18n/i18n";
 export class GcdsButton {
   constructor() {
     this.handleClick = (e) => {
@@ -29,13 +29,13 @@ export class GcdsButton {
       // Has any inherited attributes changed on click
       this.inheritedAttributes = inheritAttributes(this.el, this.shadowElement);
     };
-    this.onFocus = (e) => {
+    this.onFocus = e => {
       if (this.focusHandler) {
         this.focusHandler(e);
       }
       this.gcdsFocus.emit();
     };
-    this.onBlur = (e) => {
+    this.onBlur = e => {
       if (this.blurHandler) {
         this.blurHandler(e);
       }
@@ -83,10 +83,10 @@ export class GcdsButton {
     }
   }
   /*
-  * Observe lang attribute change
-  */
+   * Observe lang attribute change
+   */
   updateLang() {
-    const observer = new MutationObserver((mutations) => {
+    const observer = new MutationObserver(mutations => {
       if (mutations[0].oldValue != this.el.lang) {
         this.lang = this.el.lang;
       }
@@ -105,27 +105,27 @@ export class GcdsButton {
     this.updateLang();
   }
   /**
-    * Focus element
-    */
+   * Focus element
+   */
   async focusElement() {
     this.shadowElement.focus();
   }
   render() {
-    const { type, buttonRole, buttonStyle, size, buttonId, disabled, lang, name, href, rel, target, download, inheritedAttributes } = this;
+    const { type, buttonRole, buttonStyle, size, buttonId, disabled, lang, name, href, rel, target, download, inheritedAttributes, } = this;
     const Tag = type != 'link' ? 'button' : 'a';
-    const attrs = (Tag === 'button') ? {
-      type: type,
-      ariaDisabled: disabled,
-      name
-    } : {
-      href,
-      rel,
-      target,
-      download
-    };
-    return (h(Host, null, h(Tag, Object.assign({}, attrs, { id: buttonId, onBlur: (e) => this.onBlur(e), onFocus: (e) => this.onFocus(e), onClick: (e) => this.handleClick(e), class: `button--role-${buttonRole} button--${buttonStyle} button--${size}`, ref: element => this.shadowElement = element }, inheritedAttributes, { part: "button" }), h("slot", { name: "left" }), h("slot", null), type === 'link' && target === '_blank' ?
-      h("gcds-icon", { name: "external-link", label: i18n[lang].label, "margin-left": "200" })
-      : h("slot", { name: "right" }))));
+    const attrs = Tag === 'button'
+      ? {
+        type: type,
+        ariaDisabled: disabled,
+        name,
+      }
+      : {
+        href,
+        rel,
+        target,
+        download,
+      };
+    return (h(Host, null, h(Tag, Object.assign({}, attrs, { id: buttonId, onBlur: e => this.onBlur(e), onFocus: e => this.onFocus(e), onClick: e => this.handleClick(e), class: `button--role-${buttonRole} button--${buttonStyle} button--${size}`, ref: element => (this.shadowElement = element) }, inheritedAttributes, { part: "button" }), h("slot", { name: "left" }), h("slot", null), type === 'link' && target === '_blank' ? (h("gcds-icon", { name: "external-link", label: i18n[lang].label, "margin-left": "200" })) : (h("slot", { name: "right" })))));
   }
   static get is() { return "gcds-button"; }
   static get encapsulation() { return "shadow"; }
@@ -163,7 +163,7 @@ export class GcdsButton {
         "type": "string",
         "mutable": true,
         "complexType": {
-          "original": "'primary' | 'secondary' | 'danger' | 'skip-to-content'",
+          "original": "| 'primary'\n    | 'secondary'\n    | 'danger'\n    | 'skip-to-content'",
           "resolved": "\"danger\" | \"primary\" | \"secondary\" | \"skip-to-content\"",
           "references": {}
         },
@@ -340,7 +340,8 @@ export class GcdsButton {
           "resolved": "Function",
           "references": {
             "Function": {
-              "location": "global"
+              "location": "global",
+              "id": "global::Function"
             }
           }
         },
@@ -359,7 +360,8 @@ export class GcdsButton {
           "resolved": "Function",
           "references": {
             "Function": {
-              "location": "global"
+              "location": "global",
+              "id": "global::Function"
             }
           }
         },
@@ -378,7 +380,8 @@ export class GcdsButton {
           "resolved": "Function",
           "references": {
             "Function": {
-              "location": "global"
+              "location": "global",
+              "id": "global::Function"
             }
           }
         },
@@ -438,7 +441,8 @@ export class GcdsButton {
           "parameters": [],
           "references": {
             "Promise": {
-              "location": "global"
+              "location": "global",
+              "id": "global::Promise"
             }
           },
           "return": "Promise<void>"
@@ -467,3 +471,4 @@ export class GcdsButton {
       }];
   }
 }
+//# sourceMappingURL=gcds-button.js.map

@@ -4,3 +4,5 @@ const GcdsNavGroup = GcdsNavGroup$1;
 const defineCustomElement = defineCustomElement$1;
 
 export { GcdsNavGroup, defineCustomElement };
+
+//# sourceMappingURL=gcds-nav-group.js.map

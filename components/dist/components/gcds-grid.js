@@ -4,3 +4,5 @@ const GcdsGrid = GcdsGrid$1;
 const defineCustomElement = defineCustomElement$1;
 
 export { GcdsGrid, defineCustomElement };
+
+//# sourceMappingURL=gcds-grid.js.map

@@ -5,17 +5,17 @@ import { d as defineCustomElement$3 } from './gcds-error-message2.js';
 import { d as defineCustomElement$2 } from './gcds-hint2.js';
 
 const I18N = {
-  "en": {
-    required: "required",
+  en: {
+    required: 'required',
   },
-  "fr": {
-    required: "obligatoire",
-  }
+  fr: {
+    required: 'obligatoire',
+  },
 };
 
 const gcdsFieldsetCss = ".sc-gcds-fieldset-h{display:block}.sc-gcds-fieldset-h .gcds-fieldset.sc-gcds-fieldset{border:none;color:var(--gcds-fieldset-default-text);padding:0}.sc-gcds-fieldset-h .gcds-fieldset.sc-gcds-fieldset>legend.sc-gcds-fieldset{color:inherit;font:var(--gcds-fieldset-font);margin:var(--gcds-fieldset-legend-margin)}.sc-gcds-fieldset-h .gcds-fieldset.sc-gcds-fieldset:focus-within{color:var(--gcds-fieldset-focus-text)}.sc-gcds-fieldset-h .gcds-fieldset.sc-gcds-fieldset:disabled{color:var(--gcds-fieldset-disabled-text)}.sc-gcds-fieldset-h .legend__required.sc-gcds-fieldset{margin:var(--gcds-fieldset-legend-required-margin)}.sc-gcds-fieldset-h slot.sc-gcds-fieldset{display:block;margin:0}";
 
-const GcdsFieldset$1 = /*@__PURE__*/ proxyCustomElement(class extends HTMLElement {
+const GcdsFieldset$1 = /*@__PURE__*/ proxyCustomElement(class GcdsFieldset extends HTMLElement {
   constructor() {
     super();
     this.__registerHost();
@@ -38,12 +38,12 @@ const GcdsFieldset$1 = /*@__PURE__*/ proxyCustomElement(class extends HTMLElemen
   }
   validateErrorMessage() {
     if (this.disabled) {
-      this.errorMessage = "";
+      this.errorMessage = '';
     }
     else if (!this.hasError && this.errorMessage) {
       this.hasError = true;
     }
-    else if (this.errorMessage == "") {
+    else if (this.errorMessage == '') {
       this.hasError = false;
     }
   }
@@ -52,40 +52,46 @@ const GcdsFieldset$1 = /*@__PURE__*/ proxyCustomElement(class extends HTMLElemen
       this.disabled = false;
     }
     if (this.disabled == true) {
-      for (var i = 0; i < this.el.children.length; i++) {
-        this.el.children[i].setAttribute("disabled", "");
+      for (let i = 0; i < this.el.children.length; i++) {
+        this.el.children[i].setAttribute('disabled', '');
       }
     }
   }
   handleDisabledChange(newValue, _oldValue) {
     if (_oldValue && newValue != _oldValue) {
-      for (var i = 0; i < this.el.children.length; i++) {
-        this.el.children[i].removeAttribute("disabled");
+      for (let i = 0; i < this.el.children.length; i++) {
+        this.el.children[i].removeAttribute('disabled');
       }
     }
   }
   validateValidator() {
     if (this.validator && !this.validateOn) {
-      this.validateOn = "blur";
+      this.validateOn = 'blur';
     }
   }
   /**
    * Call any active validators
    */
   async validate() {
-    if (!this._validator.validate(this.fieldsetId) && this._validator.errorMessage) {
+    if (!this._validator.validate(this.fieldsetId) &&
+      this._validator.errorMessage) {
       this.errorMessage = this._validator.errorMessage[this.lang];
       this.gcdsGroupError.emit(this.errorMessage);
-      this.gcdsError.emit({ id: `#${this.fieldsetId}`, message: `${this.legend} - ${this.errorMessage}` });
+      this.gcdsError.emit({
+        id: `#${this.fieldsetId}`,
+        message: `${this.legend} - ${this.errorMessage}`,
+      });
     }
     else {
-      this.errorMessage = "";
+      this.errorMessage = '';
       this.gcdsGroupErrorClear.emit();
       this.gcdsValid.emit({ id: `#${this.fieldsetId}` });
     }
   }
   blurValidate() {
-    if (this.validator && this.validateOn == "blur" && !this.el.matches(':focus-within')) {
+    if (this.validator &&
+      this.validateOn == 'blur' &&
+      !this.el.matches(':focus-within')) {
       this.validate();
     }
   }
@@ -93,7 +99,8 @@ const GcdsFieldset$1 = /*@__PURE__*/ proxyCustomElement(class extends HTMLElemen
    * Event listener for gcds-fieldset errors
    */
   gcdsParentGroupError(e) {
-    if (e.srcElement == this.el && validateFieldsetElements(this.el, this.el.children).includes(false)) {
+    if (e.srcElement == this.el &&
+      validateFieldsetElements(this.el, this.el.children).includes(false)) {
       this.hasError = true;
     }
   }
@@ -103,8 +110,8 @@ const GcdsFieldset$1 = /*@__PURE__*/ proxyCustomElement(class extends HTMLElemen
     }
   }
   submitListener(e) {
-    if (e.target == this.el.closest("form")) {
-      if (this.validateOn && this.validateOn != "other") {
+    if (e.target == this.el.closest('form')) {
+      if (this.validateOn && this.validateOn != 'other') {
         this.validate();
       }
       if (this.hasError) {
@@ -113,10 +120,10 @@ const GcdsFieldset$1 = /*@__PURE__*/ proxyCustomElement(class extends HTMLElemen
     }
   }
   /*
-  * Observe lang attribute change
-  */
+   * Observe lang attribute change
+   */
   updateLang() {
-    const observer = new MutationObserver((mutations) => {
+    const observer = new MutationObserver(mutations => {
       if (mutations[0].oldValue != this.el.lang) {
         this.lang = this.el.lang;
       }
@@ -131,7 +138,7 @@ const GcdsFieldset$1 = /*@__PURE__*/ proxyCustomElement(class extends HTMLElemen
     this.validateErrorMessage();
     this.validateValidator();
     // Assign required validator if needed
-    requiredValidator(this.el, "fieldset");
+    requiredValidator(this.el, 'fieldset');
     if (this.validator) {
       this._validator = getValidator(this.validator);
     }
@@ -143,14 +150,16 @@ const GcdsFieldset$1 = /*@__PURE__*/ proxyCustomElement(class extends HTMLElemen
     }
   }
   render() {
-    const { lang, fieldsetId, legend, required, errorMessage, hasError, hint, disabled, inheritedAttributes } = this;
+    const { lang, fieldsetId, legend, required, errorMessage, hasError, hint, disabled, inheritedAttributes, } = this;
     const fieldsetAttrs = Object.assign({ disabled }, inheritedAttributes);
     if (errorMessage) {
-      fieldsetAttrs["aria-describedby"] = `error-message-${fieldsetId} ${fieldsetAttrs["aria-describedby"] ? ` ${fieldsetAttrs["aria-describedby"]}` : ""}`;
+      fieldsetAttrs['aria-describedby'] = `error-message-${fieldsetId} ${fieldsetAttrs['aria-describedby']
+        ? ` ${fieldsetAttrs['aria-describedby']}`
+        : ''}`;
     }
-    return (h(Host, null, h("fieldset", Object.assign({ class: `gcds-fieldset ${hasError ? "gcds-fieldset--error" : ''}`, id: fieldsetId }, fieldsetAttrs, { "aria-labelledby": hint ? `legend-${fieldsetId} hint-${fieldsetId}` : `legend-${fieldsetId}`, tabindex: "-1", ref: element => this.shadowElement = element }), h("legend", { id: `legend-${fieldsetId}` }, legend, required ?
-      h("strong", { class: "legend__required" }, "(", I18N[lang].required, ")")
-      : null), hint ? h("gcds-hint", { hint: hint, "hint-id": fieldsetId }) : null, errorMessage ? h("gcds-error-message", { messageId: fieldsetId, message: errorMessage }) : null, h("slot", null))));
+    return (h(Host, null, h("fieldset", Object.assign({ class: `gcds-fieldset ${hasError ? 'gcds-fieldset--error' : ''}`, id: fieldsetId }, fieldsetAttrs, { "aria-labelledby": hint
+        ? `legend-${fieldsetId} hint-${fieldsetId}`
+        : `legend-${fieldsetId}`, tabindex: "-1", ref: element => (this.shadowElement = element) }), h("legend", { id: `legend-${fieldsetId}` }, legend, required ? (h("strong", { class: "legend__required" }, "(", I18N[lang].required, ")")) : null), hint ? h("gcds-hint", { hint: hint, "hint-id": fieldsetId }) : null, errorMessage ? (h("gcds-error-message", { messageId: fieldsetId, message: errorMessage })) : null, h("slot", null))));
   }
   get el() { return this; }
   static get watchers() { return {
@@ -201,3 +210,5 @@ const GcdsFieldset = GcdsFieldset$1;
 const defineCustomElement = defineCustomElement$1;
 
 export { GcdsFieldset, defineCustomElement };
+
+//# sourceMappingURL=gcds-fieldset.js.map

@@ -50,12 +50,12 @@ export declare class GcdsGrid {
    */
   alignItems?: 'baseline' | 'center' | 'end' | 'start' | 'stretch';
   /**
-    * Aligns grid items along the inline (row) axis
-    */
+   * Aligns grid items along the inline (row) axis
+   */
   justifyItems?: 'center' | 'end' | 'start' | 'stretch';
   /**
-    * Sets both the align-items + justify-items properties
-    */
+   * Sets both the align-items + justify-items properties
+   */
   placeItems?: 'center' | 'end' | 'start' | 'stretch';
   render(): any;
 }

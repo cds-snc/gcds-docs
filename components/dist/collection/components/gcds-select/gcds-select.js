@@ -1,32 +1,32 @@
-import { Host, h } from '@stencil/core';
-import { assignLanguage, inheritAttributes, observerConfig } from '../../utils/utils';
-import { defaultValidator, getValidator, requiredValidator } from '../../validators';
+import { Host, h, } from "@stencil/core";
+import { assignLanguage, inheritAttributes, observerConfig, } from "../../utils/utils";
+import { defaultValidator, getValidator, requiredValidator, } from "../../validators";
 export class GcdsSelect {
   constructor() {
     this._validator = defaultValidator;
-    this.onFocus = (e) => {
+    this.onFocus = e => {
       if (this.focusHandler) {
         this.focusHandler(e);
       }
       this.gcdsFocus.emit();
     };
-    this.onBlur = (e) => {
+    this.onBlur = e => {
       if (this.focusHandler) {
         this.focusHandler(e);
       }
       else {
-        if (this.validateOn == "blur") {
+        if (this.validateOn == 'blur') {
           this.validate();
         }
       }
       this.gcdsBlur.emit();
     };
-    this.handleChange = (e) => {
+    this.handleChange = e => {
       if (this.changeHandler) {
         this.changeHandler(e);
       }
       else {
-        let val = e.target && e.target.value;
+        const val = e.target && e.target.value;
         this.value = val;
       }
       this.gcdsSelectChange.emit(this.value);
@@ -55,18 +55,18 @@ export class GcdsSelect {
   }
   validateErrorMessage() {
     if (this.disabled) {
-      this.errorMessage = "";
+      this.errorMessage = '';
     }
     else if (!this.hasError && this.errorMessage) {
       this.hasError = true;
     }
-    else if (this.errorMessage == "") {
+    else if (this.errorMessage == '') {
       this.hasError = false;
     }
   }
   validateValidator() {
     if (this.validator && !this.validateOn) {
-      this.validateOn = "blur";
+      this.validateOn = 'blur';
     }
   }
   validateHasError() {
@@ -80,16 +80,19 @@ export class GcdsSelect {
   async validate() {
     if (!this._validator.validate(this.value) && this._validator.errorMessage) {
       this.errorMessage = this._validator.errorMessage[this.lang];
-      this.gcdsError.emit({ id: `#${this.selectId}`, message: `${this.label} - ${this.errorMessage}` });
+      this.gcdsError.emit({
+        id: `#${this.selectId}`,
+        message: `${this.label} - ${this.errorMessage}`,
+      });
     }
     else {
-      this.errorMessage = "";
+      this.errorMessage = '';
       this.gcdsValid.emit({ id: `#${this.selectId}` });
     }
   }
   submitListener(e) {
-    if (e.target == this.el.closest("form")) {
-      if (this.validateOn && this.validateOn != "other") {
+    if (e.target == this.el.closest('form')) {
+      if (this.validateOn && this.validateOn != 'other') {
         this.validate();
       }
       if (this.hasError) {
@@ -98,10 +101,10 @@ export class GcdsSelect {
     }
   }
   /*
-  * Observe lang attribute change
-  */
+   * Observe lang attribute change
+   */
   updateLang() {
-    const observer = new MutationObserver((mutations) => {
+    const observer = new MutationObserver(mutations => {
       if (mutations[0].oldValue != this.el.lang) {
         this.lang = this.el.lang;
       }
@@ -117,7 +120,7 @@ export class GcdsSelect {
     this.validateErrorMessage();
     this.validateValidator();
     // Assign required validator if needed
-    requiredValidator(this.el, "select");
+    requiredValidator(this.el, 'select');
     if (this.validator) {
       this._validator = getValidator(this.validator);
     }
@@ -129,7 +132,7 @@ export class GcdsSelect {
     }
   }
   render() {
-    const { lang, selectId, label, required, disabled, defaultValue, value, hint, errorMessage, inheritedAttributes, hasError } = this;
+    const { lang, selectId, label, required, disabled, defaultValue, value, hint, errorMessage, inheritedAttributes, hasError, } = this;
     const attrsSelect = Object.assign({ disabled,
       required,
       value }, inheritedAttributes);
@@ -138,15 +141,13 @@ export class GcdsSelect {
       required,
     };
     if (hint || errorMessage) {
-      let hintID = hint ? `hint-${selectId} ` : "";
-      let errorID = errorMessage ? `error-message-${selectId} ` : "";
-      attrsSelect["aria-describedby"] = `${hintID}${errorID}${attrsSelect["aria-describedby"] ? `${attrsSelect["aria-describedby"]}` : ""}`;
+      const hintID = hint ? `hint-${selectId} ` : '';
+      const errorID = errorMessage ? `error-message-${selectId} ` : '';
+      attrsSelect['aria-describedby'] = `${hintID}${errorID}${attrsSelect['aria-describedby']
+        ? `${attrsSelect['aria-describedby']}`
+        : ''}`;
     }
-    return (h(Host, null, h("div", { class: `gcds-select-wrapper ${disabled ? 'gcds-disabled' : ''} ${hasError ? 'gcds-error' : ''}` }, h("gcds-label", Object.assign({}, attrsLabel, { "label-for": selectId, lang: lang })), hint ? h("gcds-hint", { hint: hint, "hint-id": selectId }) : null, errorMessage ?
-      h("gcds-error-message", { messageId: selectId, message: errorMessage })
-      : null, h("select", Object.assign({}, attrsSelect, { id: selectId, name: selectId, onBlur: (e) => this.onBlur(e), onFocus: (e) => this.onFocus(e), onChange: (e) => this.handleChange(e), "aria-invalid": hasError ? 'true' : 'false', ref: element => this.shadowElement = element }), defaultValue ?
-      h("option", { value: "", disabled: true, selected: true }, defaultValue)
-      : null, h("slot", null)))));
+    return (h(Host, null, h("div", { class: `gcds-select-wrapper ${disabled ? 'gcds-disabled' : ''} ${hasError ? 'gcds-error' : ''}` }, h("gcds-label", Object.assign({}, attrsLabel, { "label-for": selectId, lang: lang })), hint ? h("gcds-hint", { hint: hint, "hint-id": selectId }) : null, errorMessage ? (h("gcds-error-message", { messageId: selectId, message: errorMessage })) : null, h("select", Object.assign({}, attrsSelect, { id: selectId, name: selectId, onBlur: e => this.onBlur(e), onFocus: e => this.onFocus(e), onChange: e => this.handleChange(e), "aria-invalid": hasError ? 'true' : 'false', ref: element => (this.shadowElement = element) }), defaultValue ? (h("option", { value: "", disabled: true, selected: true }, defaultValue)) : null, h("slot", null)))));
   }
   static get is() { return "gcds-select"; }
   static get encapsulation() { return "scoped"; }
@@ -304,19 +305,22 @@ export class GcdsSelect {
         "type": "unknown",
         "mutable": true,
         "complexType": {
-          "original": "Array<string | ValidatorEntry | Validator<string>>",
+          "original": "Array<\n    string | ValidatorEntry | Validator<string>\n  >",
           "resolved": "(string | ValidatorEntry | Validator<string>)[]",
           "references": {
             "Array": {
-              "location": "global"
+              "location": "global",
+              "id": "global::Array"
             },
             "ValidatorEntry": {
               "location": "import",
-              "path": "../../validators"
+              "path": "../../validators",
+              "id": "src/validators/index.ts::ValidatorEntry"
             },
             "Validator": {
               "location": "import",
-              "path": "../../validators"
+              "path": "../../validators",
+              "id": "src/validators/index.ts::Validator"
             }
           }
         },
@@ -352,7 +356,8 @@ export class GcdsSelect {
           "resolved": "Function",
           "references": {
             "Function": {
-              "location": "global"
+              "location": "global",
+              "id": "global::Function"
             }
           }
         },
@@ -371,7 +376,8 @@ export class GcdsSelect {
           "resolved": "Function",
           "references": {
             "Function": {
-              "location": "global"
+              "location": "global",
+              "id": "global::Function"
             }
           }
         },
@@ -390,7 +396,8 @@ export class GcdsSelect {
           "resolved": "Function",
           "references": {
             "Function": {
-              "location": "global"
+              "location": "global",
+              "id": "global::Function"
             }
           }
         },
@@ -496,7 +503,8 @@ export class GcdsSelect {
           "parameters": [],
           "references": {
             "Promise": {
-              "location": "global"
+              "location": "global",
+              "id": "global::Promise"
             }
           },
           "return": "Promise<void>"
@@ -534,3 +542,4 @@ export class GcdsSelect {
       }];
   }
 }
+//# sourceMappingURL=gcds-select.js.map

@@ -110,3 +110,7 @@ declare const _default: {
 };
 export default _default;
 export declare const Default: any;
+export declare const Link: any;
+export declare const Action: any;
+export declare const Image: any;
+export declare const Playground: any;

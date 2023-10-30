@@ -6,7 +6,7 @@ export declare class GcdsPagination {
   /**
    * Navigation element label
    */
-  display: "list" | "simple";
+  display: 'list' | 'simple';
   /**
    * Navigation element label
    */
@@ -52,8 +52,8 @@ export declare class GcdsPagination {
   pageChangeHandler: Function;
   currentStep: number;
   /**
-  * Language of rendered component
-  */
+   * Language of rendered component
+   */
   lang: string;
   watchLang(): void;
   /**

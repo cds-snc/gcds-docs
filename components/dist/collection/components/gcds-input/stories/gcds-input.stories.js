@@ -1,11 +1,11 @@
-import { langProp, validatorProps } from '../../../utils/storybook/component-properties';
+import { langProp, validatorProps, } from "../../../utils/storybook/component-properties";
 export default {
   title: 'Components/Input',
   parameters: {
     actions: {
       argTypesRegex: '^on.*',
-      handles: ['change', 'focus', 'blur']
-    }
+      handles: ['change', 'focus', 'blur'],
+    },
   },
   argTypes: Object.assign(Object.assign(Object.assign({
     // Props
@@ -14,77 +14,77 @@ export default {
       control: 'boolean',
       table: {
         type: { summary: 'boolean' },
-        defaultValue: { summary: false }
+        defaultValue: { summary: false },
       },
     }, inputId: {
       name: 'input-id',
       control: 'text',
       table: {
         type: { summary: 'string' },
-        defaultValue: { summary: '-' }
+        defaultValue: { summary: '-' },
       },
       type: {
-        required: true
-      }
+        required: true,
+      },
     }, size: {
       control: 'number',
       table: {
         type: { summary: 'number' },
-        defaultValue: { summary: '-' }
+        defaultValue: { summary: '-' },
       },
     }, type: {
       control: { type: 'select' },
       options: ['email', 'number', 'password', 'search', 'text', 'url'],
       table: {
         type: { summary: 'string' },
-        defaultValue: { summary: 'text' }
-      }
+        defaultValue: { summary: 'text' },
+      },
     }, autocomplete: {
       control: { type: 'select' },
       options: ['on', 'off'],
       table: {
         type: { summary: 'string' },
-        defaultValue: { summary: '-' }
-      }
+        defaultValue: { summary: '-' },
+      },
     }, disabled: {
       control: 'boolean',
       table: {
         type: { summary: 'boolean' },
-        defaultValue: { summary: false }
+        defaultValue: { summary: false },
       },
     }, errorMessage: {
       name: 'error-message',
       control: 'text',
       table: {
         type: { summary: 'string' },
-        defaultValue: { summary: '-' }
+        defaultValue: { summary: '-' },
       },
     }, hint: {
       control: 'text',
       table: {
         type: { summary: 'string' },
-        defaultValue: { summary: '-' }
+        defaultValue: { summary: '-' },
       },
     }, label: {
       control: 'text',
       table: {
         type: { summary: 'string' },
-        defaultValue: { summary: '-' }
+        defaultValue: { summary: '-' },
       },
       type: {
-        required: true
-      }
+        required: true,
+      },
     }, required: {
       control: 'boolean',
       table: {
         type: { summary: 'boolean' },
-        defaultValue: { summary: false }
+        defaultValue: { summary: false },
       },
     }, value: {
       control: 'text',
       table: {
         type: { summary: 'string' },
-        defaultValue: { summary: '-' }
+        defaultValue: { summary: '-' },
       },
     }
   }, validatorProps), langProp), {
@@ -93,36 +93,36 @@ export default {
       action: 'change',
       table: {
         category: 'Events | Événements',
-      }
+      },
     }, gcdsFocus: {
       action: 'focus',
       table: {
         category: 'Events | Événements',
-      }
+      },
     }, gcdsBlur: {
       action: 'blur',
       table: {
         category: 'Events | Événements',
-      }
+      },
     }
   }),
 };
-const Template = (args) => (`
+const Template = args => `
 <!-- Web component code (Angular, Vue) -->
 <gcds-input
   input-id="${args.inputId}"
   label="${args.label}"
-  ${args.type != "text" ? `type="${args.type}"` : null}
+  ${args.type != 'text' ? `type="${args.type}"` : null}
   ${args.hint ? `hint="${args.hint}"` : null}
   ${args.errorMessage ? `error-message="${args.errorMessage}"` : null}
   ${args.required ? `required` : null}
   ${args.disabled ? `disabled` : null}
   ${args.value ? `value="${args.value}"` : null}
   ${args.size ? `size="${args.size}"` : null}
-  ${args.autocomplete != "off" ? `autocomplete="${args.autocomplete}"` : null}
+  ${args.autocomplete != 'off' ? `autocomplete="${args.autocomplete}"` : null}
   ${args.hideLabel ? `hide-label` : null}
-  ${args.validateOn != "blur" ? `validate-on="${args.validateOn}"` : null}
-  ${args.lang != "en" ? `lang="${args.lang}"` : null}
+  ${args.validateOn != 'blur' ? `validate-on="${args.validateOn}"` : null}
+  ${args.lang != 'en' ? `lang="${args.lang}"` : null}
 >
 </gcds-input>
 
@@ -130,38 +130,38 @@ const Template = (args) => (`
 <GcdsInput
   inputId="${args.inputId}"
   label="${args.label}"
-  ${args.type != "text" ? `type="${args.type}"` : null}
+  ${args.type != 'text' ? `type="${args.type}"` : null}
   ${args.hint ? `hint="${args.hint}"` : null}
   ${args.errorMessage ? `errorMessage="${args.errorMessage}"` : null}
   ${args.required ? `required` : null}
   ${args.disabled ? `disabled` : null}
   ${args.value ? `value="${args.value}"` : null}
   ${args.size ? `size="${args.size}"` : null}
-  ${args.autocomplete != "off" ? `autocomplete="${args.autocomplete}"` : null}
+  ${args.autocomplete != 'off' ? `autocomplete="${args.autocomplete}"` : null}
   ${args.hideLabel ? ` hideLabel` : null}
-  ${args.validateOn != "blur" ? `validateOn="${args.validateOn}"` : null}
-  ${args.lang != "en" ? `lang="${args.lang}"` : null}
+  ${args.validateOn != 'blur' ? `validateOn="${args.validateOn}"` : null}
+  ${args.lang != 'en' ? `lang="${args.lang}"` : null}
 >
 </GcdsInput>
-`).replace(/\s\snull\n/g, '');
-const TemplatePlayground = (args) => (`
+`.replace(/\s\snull\n/g, '');
+const TemplatePlayground = args => `
 <gcds-input
   input-id="${args.inputId}"
   label="${args.label}"
-  ${args.type != "text" ? `type="${args.type}"` : null}
+  ${args.type != 'text' ? `type="${args.type}"` : null}
   ${args.hint ? `hint="${args.hint}"` : null}
   ${args.errorMessage ? `error-message="${args.errorMessage}"` : null}
   ${args.required ? `required` : null}
   ${args.disabled ? `disabled` : null}
   ${args.value ? `value="${args.value}"` : null}
   ${args.size ? `size="${args.size}"` : null}
-  ${args.autocomplete != "off" ? `autocomplete="${args.autocomplete}"` : null}
+  ${args.autocomplete != 'off' ? `autocomplete="${args.autocomplete}"` : null}
   ${args.hideLabel ? `hide-label` : null}
-  ${args.validateOn != "blur" ? `validate-on="${args.validateOn}"` : null}
-  ${args.lang != "en" ? `lang="${args.lang}"` : null}
+  ${args.validateOn != 'blur' ? `validate-on="${args.validateOn}"` : null}
+  ${args.lang != 'en' ? `lang="${args.lang}"` : null}
 >
 </gcds-input>
-`);
+`;
 // ------ Input default ------
 export const Default = Template.bind({});
 Default.args = {
@@ -315,3 +315,4 @@ Playground.args = {
   validateOn: 'blur',
   lang: 'en',
 };
+//# sourceMappingURL=gcds-input.stories.js.map

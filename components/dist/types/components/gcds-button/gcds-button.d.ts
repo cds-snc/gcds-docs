@@ -61,20 +61,20 @@ export declare class GcdsButton {
    */
   clickHandler: Function;
   /**
-  * Custom callback function on focus event
-  */
+   * Custom callback function on focus event
+   */
   focusHandler: Function;
   /**
-  * Custom callback function on blur event
-  */
+   * Custom callback function on blur event
+   */
   blurHandler: Function;
   /**
    * Set additional HTML attributes not available in component properties
    */
   inheritedAttributes: Object;
   /**
-  * Language of rendered component
-  */
+   * Language of rendered component
+   */
   lang: string;
   /**
    * Events
@@ -84,14 +84,14 @@ export declare class GcdsButton {
    */
   gcdsFocus: EventEmitter<void>;
   /**
-    * Emitted when the button loses focus.
-    */
+   * Emitted when the button loses focus.
+   */
   gcdsBlur: EventEmitter<void>;
   updateLang(): void;
   componentWillLoad(): void;
   /**
-    * Focus element
-    */
+   * Focus element
+   */
   focusElement(): Promise<void>;
   private handleClick;
   private onFocus;

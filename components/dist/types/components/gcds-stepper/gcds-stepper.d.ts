@@ -12,8 +12,8 @@ export declare class GcdsStepper {
    */
   totalSteps: number;
   /**
-  * Language of rendered component
-  */
+   * Language of rendered component
+   */
   lang: string;
   updateLang(): void;
   componentWillLoad(): Promise<void>;

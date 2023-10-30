@@ -5,9 +5,9 @@ import { d as defineCustomElement$4 } from './gcds-error-message2.js';
 import { d as defineCustomElement$3 } from './gcds-hint2.js';
 import { d as defineCustomElement$2 } from './gcds-label2.js';
 
-const gcdsInputCss = ".sc-gcds-input-h .gcds-input-wrapper.sc-gcds-input{border:0;color:var(--gcds-input-default-text);font:var(--gcds-input-font);margin:0;max-width:90%;padding:0;-webkit-transition:color .15s ease-in-out;transition:color .15s ease-in-out;width:75ch}.sc-gcds-input-h .gcds-input-wrapper.sc-gcds-input:focus-within{color:var(--gcds-input-focus-text)}.sc-gcds-input-h .gcds-input-wrapper.gcds-disabled.sc-gcds-input{color:var(--gcds-input-disabled-text)}.sc-gcds-input-h input.sc-gcds-input{background-color:var(--gcds-input-default-background);background-image:none;border:var(--gcds-input-border-width) solid;border-radius:var(--gcds-input-border-radius);-webkit-box-sizing:border-box;box-sizing:border-box;color:var(--gcds-input-default-text);display:block;font:inherit;height:auto;margin:var(--gcds-input-margin);max-width:100%;min-height:var(--gcds-input-min-width-and-height);min-width:var(--gcds-input-min-width-and-height);padding:var(--gcds-input-padding);-webkit-transition:border-color .15s ease-in-out,-webkit-box-shadow .15s ease-in-out;transition:border-color .15s ease-in-out,-webkit-box-shadow .15s ease-in-out;transition:border-color .15s ease-in-out,box-shadow .15s ease-in-out;transition:border-color .15s ease-in-out,box-shadow .15s ease-in-out,-webkit-box-shadow .15s ease-in-out;width:100%}.sc-gcds-input-h input.sc-gcds-input:focus{border-color:var(--gcds-input-focus-text);outline:var(--gcds-input-outline-width) solid var(--gcds-input-focus-text);outline-offset:var(--gcds-input-border-width)}.sc-gcds-input-h input.sc-gcds-input:disabled{background-color:var(--gcds-input-disabled-background);border-color:var(--gcds-input-disabled-text);cursor:not-allowed}.sc-gcds-input-h input.gcds-error.sc-gcds-input:not(:focus){border-color:var(--gcds-input-danger-border)}";
+const gcdsInputCss = ".sc-gcds-input-h .gcds-input-wrapper.sc-gcds-input{border:0;color:var(--gcds-input-default-text);font:var(--gcds-input-font);margin:0;max-width:90%;padding:0;-webkit-transition:color .15s ease-in-out;transition:color .15s ease-in-out;width:75ch}.sc-gcds-input-h .gcds-input-wrapper.sc-gcds-input:focus-within{color:var(--gcds-input-focus-text)}.sc-gcds-input-h .gcds-input-wrapper.gcds-disabled.sc-gcds-input{color:var(--gcds-input-disabled-text)}.sc-gcds-input-h input.sc-gcds-input{background-color:var(--gcds-input-default-background);background-image:none;border:var(--gcds-input-border-width) solid;border-radius:var(--gcds-input-border-radius);-webkit-box-sizing:border-box;box-sizing:border-box;color:var(--gcds-input-default-text);display:block;font:inherit;height:auto;margin:var(--gcds-input-margin);max-width:100%;min-height:var(--gcds-input-min-width-and-height);min-width:var(--gcds-input-min-width-and-height);padding:var(--gcds-input-padding);-webkit-transition:border-color .15s ease-in-out,outline .15s ease-in-out,-webkit-box-shadow .15s ease-in-out;transition:border-color .15s ease-in-out,outline .15s ease-in-out,-webkit-box-shadow .15s ease-in-out;transition:border-color .15s ease-in-out,box-shadow .15s ease-in-out,outline .15s ease-in-out;transition:border-color .15s ease-in-out,box-shadow .15s ease-in-out,outline .15s ease-in-out,-webkit-box-shadow .15s ease-in-out;width:100%}.sc-gcds-input-h input.sc-gcds-input:focus{border-color:var(--gcds-input-focus-text);-webkit-box-shadow:var(--gcds-input-focus-box-shadow);box-shadow:var(--gcds-input-focus-box-shadow);outline:var(--gcds-input-outline-width) solid var(--gcds-input-focus-text);outline-offset:var(--gcds-input-border-width)}.sc-gcds-input-h input.sc-gcds-input:disabled{background-color:var(--gcds-input-disabled-background);border-color:var(--gcds-input-disabled-text);cursor:not-allowed}.sc-gcds-input-h input.gcds-error.sc-gcds-input:not(:focus){border-color:var(--gcds-input-danger-border)}";
 
-const GcdsInput$1 = /*@__PURE__*/ proxyCustomElement(class extends HTMLElement {
+const GcdsInput$1 = /*@__PURE__*/ proxyCustomElement(class GcdsInput extends HTMLElement {
   constructor() {
     super();
     this.__registerHost();
@@ -17,18 +17,18 @@ const GcdsInput$1 = /*@__PURE__*/ proxyCustomElement(class extends HTMLElement {
     this.gcdsError = createEvent(this, "gcdsError", 7);
     this.gcdsValid = createEvent(this, "gcdsValid", 7);
     this._validator = defaultValidator;
-    this.onFocus = (e) => {
+    this.onFocus = e => {
       if (this.focusHandler) {
         this.focusHandler(e);
       }
       this.gcdsFocus.emit();
     };
-    this.onBlur = (e) => {
+    this.onBlur = e => {
       if (this.blurHandler) {
         this.blurHandler(e);
       }
       else {
-        if (this.validateOn == "blur") {
+        if (this.validateOn == 'blur') {
           this.validate();
         }
       }
@@ -61,18 +61,18 @@ const GcdsInput$1 = /*@__PURE__*/ proxyCustomElement(class extends HTMLElement {
   }
   validateErrorMessage() {
     if (this.disabled) {
-      this.errorMessage = "";
+      this.errorMessage = '';
     }
     else if (!this.hasError && this.errorMessage) {
       this.hasError = true;
     }
-    else if (this.errorMessage == "") {
+    else if (this.errorMessage == '') {
       this.hasError = false;
     }
   }
   validateValidator() {
     if (this.validator && !this.validateOn) {
-      this.validateOn = "blur";
+      this.validateOn = 'blur';
     }
   }
   validateHasError() {
@@ -81,21 +81,24 @@ const GcdsInput$1 = /*@__PURE__*/ proxyCustomElement(class extends HTMLElement {
     }
   }
   /**
-    * Call any active validators
-    */
+   * Call any active validators
+   */
   async validate() {
     if (!this._validator.validate(this.value) && this._validator.errorMessage) {
       this.errorMessage = this._validator.errorMessage[this.lang];
-      this.gcdsError.emit({ id: `#${this.inputId}`, message: `${this.label} - ${this.errorMessage}` });
+      this.gcdsError.emit({
+        id: `#${this.inputId}`,
+        message: `${this.label} - ${this.errorMessage}`,
+      });
     }
     else {
-      this.errorMessage = "";
+      this.errorMessage = '';
       this.gcdsValid.emit({ id: `#${this.inputId}` });
     }
   }
   submitListener(e) {
-    if (e.target == this.el.closest("form")) {
-      if (this.validateOn && this.validateOn != "other") {
+    if (e.target == this.el.closest('form')) {
+      if (this.validateOn && this.validateOn != 'other') {
         this.validate();
       }
       if (this.hasError) {
@@ -108,16 +111,16 @@ const GcdsInput$1 = /*@__PURE__*/ proxyCustomElement(class extends HTMLElement {
       this.changeHandler(e);
     }
     else {
-      let val = e.target && e.target.value;
+      const val = e.target && e.target.value;
       this.value = val;
     }
     this.gcdsChange.emit(this.value);
   }
   /*
-  * Observe lang attribute change
-  */
+   * Observe lang attribute change
+   */
   updateLang() {
-    const observer = new MutationObserver((mutations) => {
+    const observer = new MutationObserver(mutations => {
       if (mutations[0].oldValue != this.el.lang) {
         this.lang = this.el.lang;
       }
@@ -133,11 +136,13 @@ const GcdsInput$1 = /*@__PURE__*/ proxyCustomElement(class extends HTMLElement {
     this.validateErrorMessage();
     this.validateValidator();
     // Assign required validator if needed
-    requiredValidator(this.el, "input", this.type);
+    requiredValidator(this.el, 'input', this.type);
     if (this.validator) {
       this._validator = getValidator(this.validator);
     }
-    this.inheritedAttributes = inheritAttributes(this.el, this.shadowElement, ['placeholder']);
+    this.inheritedAttributes = inheritAttributes(this.el, this.shadowElement, [
+      'placeholder',
+    ]);
   }
   componentWillUpdate() {
     if (this.validator) {
@@ -145,10 +150,10 @@ const GcdsInput$1 = /*@__PURE__*/ proxyCustomElement(class extends HTMLElement {
     }
   }
   render() {
-    const { disabled, errorMessage, hideLabel, hint, inputId, label, required, size, type, value, hasError, autocomplete, inheritedAttributes, lang } = this;
+    const { disabled, errorMessage, hideLabel, hint, inputId, label, required, size, type, value, hasError, autocomplete, inheritedAttributes, lang, } = this;
     // Use max-width instead of size attribute to keep field responsive
     const style = {
-      maxWidth: `${size * 1.5}ch`
+      maxWidth: `${size * 1.5}ch`,
     };
     const attrsInput = Object.assign({ disabled,
       required,
@@ -160,13 +165,13 @@ const GcdsInput$1 = /*@__PURE__*/ proxyCustomElement(class extends HTMLElement {
       required,
     };
     if (hint || errorMessage) {
-      let hintID = hint ? `hint-${inputId} ` : "";
-      let errorID = errorMessage ? `error-message-${inputId} ` : "";
-      attrsInput["aria-describedby"] = `${hintID}${errorID}${attrsInput["aria-describedby"] ? ` ${attrsInput["aria-describedby"]}` : ""}`;
+      const hintID = hint ? `hint-${inputId} ` : '';
+      const errorID = errorMessage ? `error-message-${inputId} ` : '';
+      attrsInput['aria-describedby'] = `${hintID}${errorID}${attrsInput['aria-describedby']
+        ? ` ${attrsInput['aria-describedby']}`
+        : ''}`;
     }
-    return (h(Host, null, h("div", { class: `gcds-input-wrapper ${disabled ? 'gcds-disabled' : ''} ${hasError ? 'gcds-error' : ''}` }, h("gcds-label", Object.assign({}, attrsLabel, { "hide-label": hideLabel, "label-for": inputId, lang: lang })), hint ? h("gcds-hint", { hint: hint, "hint-id": inputId }) : null, errorMessage ?
-      h("gcds-error-message", { messageId: inputId, message: errorMessage })
-      : null, h("input", Object.assign({}, attrsInput, { class: hasError ? 'gcds-error' : null, id: inputId, name: inputId, onBlur: (e) => this.onBlur(e), onFocus: (e) => this.onFocus(e), onInput: (e) => this.handleChange(e), "aria-labelledby": `label-for-${inputId}`, "aria-invalid": errorMessage ? 'true' : 'false', maxlength: size, style: size ? style : null, ref: element => this.shadowElement = element })))));
+    return (h(Host, null, h("div", { class: `gcds-input-wrapper ${disabled ? 'gcds-disabled' : ''} ${hasError ? 'gcds-error' : ''}` }, h("gcds-label", Object.assign({}, attrsLabel, { "hide-label": hideLabel, "label-for": inputId, lang: lang })), hint ? h("gcds-hint", { hint: hint, "hint-id": inputId }) : null, errorMessage ? (h("gcds-error-message", { messageId: inputId, message: errorMessage })) : null, h("input", Object.assign({}, attrsInput, { class: hasError ? 'gcds-error' : null, id: inputId, name: inputId, onBlur: e => this.onBlur(e), onFocus: e => this.onFocus(e), onInput: e => this.handleChange(e), "aria-labelledby": `label-for-${inputId}`, "aria-invalid": errorMessage ? 'true' : 'false', maxlength: size, style: size ? style : null, ref: element => (this.shadowElement = element) })))));
   }
   get el() { return this; }
   static get watchers() { return {
@@ -231,3 +236,5 @@ const GcdsInput = GcdsInput$1;
 const defineCustomElement = defineCustomElement$1;
 
 export { GcdsInput, defineCustomElement };
+
+//# sourceMappingURL=gcds-input.js.map

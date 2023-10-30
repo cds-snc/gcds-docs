@@ -1,9 +1,9 @@
-import { Host, h } from '@stencil/core';
-import { assignLanguage, observerConfig } from '../../utils/utils';
-import i18n from './i18n/i18n';
+import { Host, h, } from "@stencil/core";
+import { assignLanguage, observerConfig } from "../../utils/utils";
+import i18n from "./i18n/i18n";
 export class GcdsAlert {
   constructor() {
-    this.onDismiss = (e) => {
+    this.onDismiss = e => {
       this.gcdsDismiss.emit();
       if (this.dismissHandler) {
         this.dismissHandler(e);
@@ -23,10 +23,10 @@ export class GcdsAlert {
     this.lang = undefined;
   }
   /*
-  * Observe lang attribute change
-  */
+   * Observe lang attribute change
+   */
   updateLang() {
-    const observer = new MutationObserver((mutations) => {
+    const observer = new MutationObserver(mutations => {
       if (mutations[0].oldValue != this.el.lang) {
         this.lang = this.el.lang;
       }
@@ -39,20 +39,24 @@ export class GcdsAlert {
     this.updateLang();
   }
   render() {
-    const { alertRole, container, heading, hideCloseBtn, hideRoleIcon, isFixed, isOpen, lang } = this;
-    return (h(Host, null, isOpen ?
-      h("div", { class: `gcds-alert alert--role-${alertRole} ${isFixed ? 'alert--is-fixed' : ''}`, role: "alert", "aria-label": alertRole === 'danger' ? i18n[lang].label.danger
-          : alertRole === 'info' ? i18n[lang].label.info
-            : alertRole === 'success' ? i18n[lang].label.success
-              : alertRole === 'warning' ? i18n[lang].label.warning
-                : null }, h("gcds-container", { size: isFixed ? container : 'full', centered: true }, h("div", { class: "alert__container" }, (!hideRoleIcon &&
-        h("gcds-icon", { "aria-hidden": "true", class: "alert__icon", size: "h5", name: alertRole === 'danger' ? 'exclamation-circle'
-            : alertRole === 'info' ? 'info-circle'
-              : alertRole === 'success' ? 'check-circle'
-                : alertRole === 'warning' ? 'exclamation-triangle'
-                  : null })), h("div", { class: "alert__content" }, h("p", { class: "alert__heading" }, h("strong", null, heading)), h("slot", null)), (!hideCloseBtn &&
-        h("button", { class: "alert__close-btn", onClick: (e) => this.onDismiss(e), "aria-label": i18n[lang].closeBtn }, h("gcds-icon", { "aria-hidden": "true", name: "times", size: "text" }))))))
-      : null));
+    const { alertRole, container, heading, hideCloseBtn, hideRoleIcon, isFixed, isOpen, lang, } = this;
+    return (h(Host, null, isOpen ? (h("div", { class: `gcds-alert alert--role-${alertRole} ${isFixed ? 'alert--is-fixed' : ''}`, role: "alert", "aria-label": alertRole === 'danger'
+        ? i18n[lang].label.danger
+        : alertRole === 'info'
+          ? i18n[lang].label.info
+          : alertRole === 'success'
+            ? i18n[lang].label.success
+            : alertRole === 'warning'
+              ? i18n[lang].label.warning
+              : null }, h("gcds-container", { size: isFixed ? container : 'full', centered: true }, h("div", { class: "alert__container" }, !hideRoleIcon && (h("gcds-icon", { "aria-hidden": "true", class: "alert__icon", size: "h5", name: alertRole === 'danger'
+        ? 'exclamation-circle'
+        : alertRole === 'info'
+          ? 'info-circle'
+          : alertRole === 'success'
+            ? 'check-circle'
+            : alertRole === 'warning'
+              ? 'exclamation-triangle'
+              : null })), h("div", { class: "alert__content" }, h("p", { class: "alert__heading" }, h("strong", null, heading)), h("slot", null)), !hideCloseBtn && (h("button", { class: "alert__close-btn", onClick: e => this.onDismiss(e), "aria-label": i18n[lang].closeBtn }, h("gcds-icon", { "aria-hidden": "true", name: "times", size: "text" }))))))) : null));
   }
   static get is() { return "gcds-alert"; }
   static get encapsulation() { return "shadow"; }
@@ -112,7 +116,8 @@ export class GcdsAlert {
           "resolved": "Function",
           "references": {
             "Function": {
-              "location": "global"
+              "location": "global",
+              "id": "global::Function"
             }
           }
         },
@@ -222,3 +227,4 @@ export class GcdsAlert {
   }
   static get elementRef() { return "el"; }
 }
+//# sourceMappingURL=gcds-alert.js.map

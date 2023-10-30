@@ -1,4 +1,4 @@
-import { langProp } from '../../../utils/storybook/component-properties';
+import { langProp } from "../../../utils/storybook/component-properties";
 export default {
   title: 'Components/Side navigation',
   argTypes: Object.assign({
@@ -8,19 +8,19 @@ export default {
       control: 'text',
       table: {
         type: { summary: 'string' },
-        defaultValue: { summary: '-' }
+        defaultValue: { summary: '-' },
       },
       type: {
-        required: true
-      }
+        required: true,
+      },
     }
   }, langProp),
 };
-const Template = (args) => (`
+const Template = args => `
 <!-- Web component code (Angular, Vue) -->
 <gcds-side-nav
   label="${args.label}"
-  ${args.lang != "en" ? `lang="${args.lang}"` : null}
+  ${args.lang != 'en' ? `lang="${args.lang}"` : null}
 >
   <gcds-nav-link href="#">Nav link</gcds-nav-link>
   <gcds-nav-link href="#">Nav link</gcds-nav-link>
@@ -42,7 +42,7 @@ const Template = (args) => (`
 <!-- React code -->
 <GcdsSideNav
   label="${args.label}"
-  ${args.lang != "en" ? `lang="${args.lang}"` : null}
+  ${args.lang != 'en' ? `lang="${args.lang}"` : null}
 >
   <GcdsNavLink href="#">Nav link</GcdsNavLink>
   <GcdsNavLink href="#">Nav link</GcdsNavLink>
@@ -60,9 +60,48 @@ const Template = (args) => (`
     </GcdsNavGroup>
   </GcdsNavGroup>
 </GcdsSideNav>
-`).replace(/\s\snull\n/g, '');
+`.replace(/\s\snull\n/g, '');
+const TemplatePlayground = args => `
+<!-- Web component code (Angular, Vue) -->
+<gcds-side-nav
+  label="${args.label}"
+  ${args.lang != 'en' ? `lang="${args.lang}"` : null}
+>
+  <gcds-nav-link href="#">Nav link</gcds-nav-link>
+  <gcds-nav-link href="#">Nav link</gcds-nav-link>
+  <gcds-nav-link href="#">Nav link</gcds-nav-link>
+
+  <gcds-nav-group open-trigger="Nav group label" menu-label="Nav group label">
+    <gcds-nav-link href="#">Nav link</gcds-nav-link>
+    <gcds-nav-link href="#">Nav link</gcds-nav-link>
+    <gcds-nav-link href="#">Nav link</gcds-nav-link>
+
+    <gcds-nav-group open-trigger="Nav group label" menu-label="Nav group label sublevel">
+      <gcds-nav-link href="#">Nav link</gcds-nav-link>
+      <gcds-nav-link href="#">Nav link</gcds-nav-link>
+      <gcds-nav-link href="#">Nav link</gcds-nav-link>
+    </gcds-nav-group>
+  </gcds-nav-group>
+</gcds-side-nav>
+`.replace(/\s\snull\n/g, '');
 export const Default = Template.bind({});
 Default.args = {
   label: 'Label',
-  lang: 'en'
+  lang: 'en',
 };
+export const Props = Template.bind({});
+Props.args = {
+  label: 'Label',
+  lang: 'en',
+};
+export const Label = Template.bind({});
+Label.args = {
+  label: 'Side navigation label',
+  lang: 'en',
+};
+export const Playground = TemplatePlayground.bind({});
+Playground.args = {
+  label: 'Label',
+  lang: 'en',
+};
+//# sourceMappingURL=gcds-side-nav.stories.js.map

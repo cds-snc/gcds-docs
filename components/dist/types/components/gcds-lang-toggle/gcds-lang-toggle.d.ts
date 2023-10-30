@@ -8,8 +8,8 @@ export declare class GcdsLangToggle {
    */
   href: string;
   /**
-  * Language of rendered component
-  */
+   * Language of rendered component
+   */
   lang: string;
   updateLang(): void;
   componentWillLoad(): Promise<void>;

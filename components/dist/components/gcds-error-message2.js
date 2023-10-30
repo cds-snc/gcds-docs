@@ -2,7 +2,7 @@ import { proxyCustomElement, HTMLElement, h, Host } from '@stencil/core/internal
 
 const gcdsErrorMessageCss = ":host{display:inline-block}:host .error-message{background:var(--gcds-error-message-background);-webkit-border-start:var(--gcds-error-message-border-width) solid var(--gcds-error-message-border-color);border-inline-start:var(--gcds-error-message-border-width) solid var(--gcds-error-message-border-color);color:var(--gcds-error-message-text);font:var(--gcds-error-message-font);margin:var(--gcds-error-message-margin);padding:var(--gcds-error-message-padding)}";
 
-const GcdsErrorMessage = /*@__PURE__*/ proxyCustomElement(class extends HTMLElement {
+const GcdsErrorMessage = /*@__PURE__*/ proxyCustomElement(class GcdsErrorMessage extends HTMLElement {
   constructor() {
     super();
     this.__registerHost();
@@ -35,3 +35,5 @@ function defineCustomElement() {
 }
 
 export { GcdsErrorMessage as G, defineCustomElement as d };
+
+//# sourceMappingURL=gcds-error-message2.js.map

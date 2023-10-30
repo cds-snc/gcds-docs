@@ -1,16 +1,16 @@
-import { Host, h } from '@stencil/core';
-import { assignLanguage, observerConfig } from '../../utils/utils';
-import i18n from './i18n/i18n';
+import { Host, h } from "@stencil/core";
+import { assignLanguage, observerConfig } from "../../utils/utils";
+import i18n from "./i18n/i18n";
 export class GcdsBreadcrumbs {
   constructor() {
     this.hideCanadaLink = false;
     this.lang = undefined;
   }
   /*
-  * Observe lang attribute change
-  */
+   * Observe lang attribute change
+   */
   updateLang() {
-    const observer = new MutationObserver((mutations) => {
+    const observer = new MutationObserver(mutations => {
       if (mutations[0].oldValue != this.el.lang) {
         this.lang = this.el.lang;
       }
@@ -24,9 +24,7 @@ export class GcdsBreadcrumbs {
   }
   render() {
     const { hideCanadaLink, lang } = this;
-    return (h(Host, null, h("nav", { "aria-label": i18n[lang].label, class: "gcds-breadcrumbs" }, h("ol", { class: hideCanadaLink ? '' : 'has-canada-link' }, !hideCanadaLink ?
-      h("gcds-breadcrumbs-item", { href: `https://www.canada.ca/${lang == 'fr' ? 'fr' : 'en'}.html` }, "Canada.ca")
-      : null, h("slot", null)))));
+    return (h(Host, null, h("nav", { "aria-label": i18n[lang].label, class: "gcds-breadcrumbs" }, h("ol", { class: hideCanadaLink ? '' : 'has-canada-link' }, !hideCanadaLink ? (h("gcds-breadcrumbs-item", { href: i18n[lang].link }, "Canada.ca")) : null, h("slot", null)))));
   }
   static get is() { return "gcds-breadcrumbs"; }
   static get encapsulation() { return "shadow"; }
@@ -69,3 +67,4 @@ export class GcdsBreadcrumbs {
   }
   static get elementRef() { return "el"; }
 }
+//# sourceMappingURL=gcds-breadcrumbs.js.map

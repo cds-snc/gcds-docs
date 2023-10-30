@@ -1,16 +1,16 @@
-import { Host, h } from '@stencil/core';
-import { assignLanguage, observerConfig } from '../../utils/utils';
-import i18n from './i18n/i18n';
+import { Host, h } from "@stencil/core";
+import { assignLanguage, observerConfig } from "../../utils/utils";
+import i18n from "./i18n/i18n";
 export class GcdsLangToggle {
   constructor() {
     this.href = undefined;
     this.lang = undefined;
   }
   /*
-  * Observe lang attribute change
-  */
+   * Observe lang attribute change
+   */
   updateLang() {
-    const observer = new MutationObserver((mutations) => {
+    const observer = new MutationObserver(mutations => {
       if (mutations[0].oldValue != this.el.lang) {
         this.lang = this.el.lang;
       }
@@ -66,3 +66,4 @@ export class GcdsLangToggle {
   }
   static get elementRef() { return "el"; }
 }
+//# sourceMappingURL=gcds-lang-toggle.js.map

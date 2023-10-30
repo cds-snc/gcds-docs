@@ -1,7 +1,7 @@
-import { defaultValidator, combineValidators } from './validator';
-import { requiredField, requiredEmailField, requiredFileInput, requiredSelectField } from './input-validators/input-validators';
-import { requiredCheck } from './checkbox-validators/checkbox-validators';
-import { requiredFieldset } from './fieldset-validators/fieldset-validators';
+import { defaultValidator, combineValidators, } from "./validator";
+import { requiredField, requiredEmailField, requiredFileInput, requiredSelectField, } from "./input-validators/input-validators";
+import { requiredCheck } from "./checkbox-validators/checkbox-validators";
+import { requiredFieldset } from "./fieldset-validators/fieldset-validators";
 export var ValidatorsName;
 (function (ValidatorsName) {
   ValidatorsName["requiredField"] = "requiredField";
@@ -12,7 +12,8 @@ export var ValidatorsName;
   ValidatorsName["requiredSelectField"] = "requiredSelectField";
 })(ValidatorsName || (ValidatorsName = {}));
 export function getValidator(list) {
-  return (list || []).map(v => {
+  return (list || [])
+    .map(v => {
     if (typeof v === 'string') {
       return validatorFactory(v, null);
     }
@@ -23,30 +24,26 @@ export function getValidator(list) {
     else {
       return v;
     }
-  }).reduce(combineValidators, defaultValidator);
+  })
+    .reduce(combineValidators, defaultValidator);
 }
 export function validatorFactory(name, options) {
   options ? options : {};
   switch (name) {
-    case (ValidatorsName.requiredField):
+    case ValidatorsName.requiredField:
       return requiredField;
-    case (ValidatorsName.requiredEmailField):
+    case ValidatorsName.requiredEmailField:
       return requiredEmailField;
-    case (ValidatorsName.requiredSelectField):
+    case ValidatorsName.requiredSelectField:
       return requiredSelectField;
-    case (ValidatorsName.requiredCheck):
+    case ValidatorsName.requiredCheck:
       return requiredCheck;
-    case (ValidatorsName.requiredFieldset):
+    case ValidatorsName.requiredFieldset:
       return requiredFieldset;
-    case (ValidatorsName.requiredFileInput):
+    case ValidatorsName.requiredFileInput:
       return requiredFileInput;
-    /*
-    Formatting for parameter validator
-    
-    case (ValidatorsName.length):
-        return getLengthValidator(options.min, options.max);
-    */
     default:
       return defaultValidator;
   }
 }
+//# sourceMappingURL=validator.factory.js.map

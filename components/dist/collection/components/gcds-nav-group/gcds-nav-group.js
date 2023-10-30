@@ -1,5 +1,5 @@
-import { Host, h } from '@stencil/core';
-import { assignLanguage, observerConfig } from '../../utils/utils';
+import { Host, h, } from "@stencil/core";
+import { assignLanguage, observerConfig } from "../../utils/utils";
 export class GcdsNavGroup {
   constructor() {
     this.closeTrigger = undefined;
@@ -10,28 +10,29 @@ export class GcdsNavGroup {
     this.navStyle = undefined;
   }
   /**
-  * Focus button element
-  */
+   * Focus button element
+   */
   async focusTrigger() {
     this.triggerElement.focus();
   }
   /**
-  * Toggle the nav open or closed
-  */
+   * Toggle the nav open or closed
+   */
   async toggleNav() {
     this.open = !this.open;
     // Close any child nav-groups
     for (let i = 0; i < this.el.children.length; i++) {
-      if (this.el.children[i].nodeName == "GCDS-NAV-GROUP" && (this.el.children[i].hasAttribute("open"))) {
+      if (this.el.children[i].nodeName == 'GCDS-NAV-GROUP' &&
+        this.el.children[i].hasAttribute('open')) {
         this.el.children[i].toggleNav();
       }
     }
   }
   /*
-  * Observe lang attribute change
-  */
+   * Observe lang attribute change
+   */
   updateLang() {
-    const observer = new MutationObserver((mutations) => {
+    const observer = new MutationObserver(mutations => {
       if (mutations[0].oldValue != this.el.lang) {
         this.lang = this.el.lang;
       }
@@ -42,28 +43,30 @@ export class GcdsNavGroup {
     // Define lang attribute
     this.lang = assignLanguage(this.el);
     this.updateLang();
-    if (this.el.parentNode.nodeName == "GCDS-TOP-NAV") {
-      this.navStyle = "dropdown";
+    if (this.el.parentNode.nodeName == 'GCDS-TOP-NAV') {
+      this.navStyle = 'dropdown';
       if (this.open) {
         this.open = false;
       }
     }
     else {
-      this.navStyle = "expandable";
+      this.navStyle = 'expandable';
     }
-    if (this.el.parentNode.nodeName == "GCDS-NAV-GROUP" && !this.el.parentNode.classList.contains("gcds-mobile-nav") && this.el.closest("gcds-top-nav")) {
+    if (this.el.parentNode.nodeName == 'GCDS-NAV-GROUP' &&
+      !this.el.parentNode.classList.contains('gcds-mobile-nav') &&
+      this.el.closest('gcds-top-nav')) {
       this.el.remove();
     }
   }
   render() {
     const { closeTrigger, menuLabel, open, openTrigger } = this;
-    let roleAttr = {
-      role: "menuitem"
+    const roleAttr = {
+      role: 'menuitem',
     };
-    if (this.el.classList.contains("gcds-mobile-nav")) {
-      delete roleAttr["role"];
+    if (this.el.classList.contains('gcds-mobile-nav')) {
+      delete roleAttr['role'];
     }
-    return (h(Host, { role: "presentation", open: open, class: open && "gcds-nav-group-expanded" }, h("button", Object.assign({ "aria-haspopup": "true", "aria-expanded": open.toString() }, roleAttr, { ref: element => this.triggerElement = element, class: `gcds-nav-group__trigger gcds-trigger--${this.navStyle}`, onClick: () => {
+    return (h(Host, { role: "presentation", open: open, class: open && 'gcds-nav-group-expanded' }, h("button", Object.assign({ "aria-haspopup": "true", "aria-expanded": open.toString() }, roleAttr, { ref: element => (this.triggerElement = element), class: `gcds-nav-group__trigger gcds-trigger--${this.navStyle}`, onClick: () => {
         this.toggleNav();
         this.gcdsClick.emit();
       } }), h("gcds-icon", { name: open ? 'angle-up' : 'angle-down' }), closeTrigger && open ? closeTrigger : openTrigger), h("ul", { role: "menu", "aria-label": menuLabel, class: `gcds-nav-group__list gcds-nav--${this.navStyle}` }, h("slot", null))));
@@ -185,7 +188,8 @@ export class GcdsNavGroup {
           "parameters": [],
           "references": {
             "Promise": {
-              "location": "global"
+              "location": "global",
+              "id": "global::Promise"
             }
           },
           "return": "Promise<void>"
@@ -201,10 +205,12 @@ export class GcdsNavGroup {
           "parameters": [],
           "references": {
             "Promise": {
-              "location": "global"
+              "location": "global",
+              "id": "global::Promise"
             },
             "HTMLGcdsNavGroupElement": {
-              "location": "global"
+              "location": "global",
+              "id": "global::HTMLGcdsNavGroupElement"
             }
           },
           "return": "Promise<void>"
@@ -218,3 +224,4 @@ export class GcdsNavGroup {
   }
   static get elementRef() { return "el"; }
 }
+//# sourceMappingURL=gcds-nav-group.js.map

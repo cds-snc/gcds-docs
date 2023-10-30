@@ -7,18 +7,18 @@ export default {
       control: 'text',
       table: {
         type: { summary: 'string' },
-        defaultValue: { summary: '-' }
+        defaultValue: { summary: '-' },
       },
       type: {
-        required: true
-      }
+        required: true,
+      },
     },
     open: {
       control: 'boolean',
       table: {
         type: { summary: 'boolean' },
-        defaultValue: { summary: false }
-      }
+        defaultValue: { summary: false },
+      },
     },
     // Slots
     default: {
@@ -27,11 +27,11 @@ export default {
       },
       table: {
         category: 'Slots | Fentes',
-      }
+      },
     },
   },
 };
-const Template = (args) => (`
+const Template = args => `
 <!-- Web component code (Angular, Vue) -->
 <gcds-details details-title="${args.detailsTitle}" ${args.open ? `open` : null}>
   ${args.default}
@@ -41,12 +41,12 @@ const Template = (args) => (`
 <GcdsDetails detailsTitle="${args.detailsTitle}" ${args.open ? `open` : null}>
   ${args.default}
 </GcdsDetails>
-`).replace(/ null/g, '');
-const TemplatePlayground = (args) => (`
+`.replace(/ null/g, '');
+const TemplatePlayground = args => `
 <gcds-details details-title="${args.detailsTitle}" ${args.open ? `open` : null}>
   ${args.default}
 </gcds-details>
-`);
+`;
 // ------ Details default ------
 export const Default = Template.bind({});
 Default.args = {
@@ -75,3 +75,4 @@ Playground.args = {
   open: false,
   default: 'Additional information.',
 };
+//# sourceMappingURL=gcds-details.stories.js.map

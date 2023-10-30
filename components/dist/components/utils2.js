@@ -1,12 +1,14 @@
 /**
-* Handle event for keyboard control of nav
-* @param {Event} event
-* @param {Element} nav
-* @param {any[]} queue
-*/
+ * Handle event for keyboard control of nav
+ * @param {Event} event
+ * @param {Element} nav
+ * @param {any[]} queue
+ */
 async function handleKeyDownNav(event, nav, queue) {
   const key = event.key;
-  const currentIndex = queue.indexOf(document.activeElement == nav ? document.activeElement.shadowRoot.activeElement : document.activeElement);
+  const currentIndex = queue.indexOf(document.activeElement == nav
+    ? document.activeElement.shadowRoot.activeElement
+    : document.activeElement);
   const activeElement = queue[currentIndex];
   switch (key) {
     // Down arrow
@@ -36,7 +38,8 @@ async function handleKeyDownNav(event, nav, queue) {
     // Right arrow
     case 'ArrowRight':
       event.preventDefault();
-      if (activeElement.nodeName == "GCDS-NAV-GROUP" && !activeElement.hasAttribute("open")) {
+      if (activeElement.nodeName == 'GCDS-NAV-GROUP' &&
+        !activeElement.hasAttribute('open')) {
         await toggleNavGroup(activeElement, nav);
       }
       break;
@@ -45,27 +48,30 @@ async function handleKeyDownNav(event, nav, queue) {
     case 'Escape':
       event.preventDefault();
       // Currently focusing a gcds-nav-group
-      if (activeElement.nodeName == "GCDS-NAV-GROUP" && activeElement.hasAttribute("open")) {
+      if (activeElement.nodeName == 'GCDS-NAV-GROUP' &&
+        activeElement.hasAttribute('open')) {
         await toggleNavGroup(activeElement, nav);
         // Currently focus within a gcds-nav-group
       }
-      else if (activeElement.parentNode.nodeName == "GCDS-NAV-GROUP") {
+      else if (activeElement.parentNode.nodeName == 'GCDS-NAV-GROUP') {
         await toggleNavGroup(activeElement.parentNode, nav);
       }
-      else if ((activeElement.parentNode == nav) && await activeElement.parentNode.getNavSize() == "mobile") {
+      else if (activeElement.parentNode == nav &&
+        (await activeElement.parentNode.getNavSize()) == 'mobile') {
         await toggleNavGroup(queue[queue.length - 1], nav);
       }
       break;
     // Tab - only in top-nav
     case 'Tab':
-      if (nav.nodeName != "GCDS-SIDE-NAV") {
+      if (nav.nodeName != 'GCDS-SIDE-NAV') {
         // On open nav trigger
-        if (activeElement.nodeName == "GCDS-NAV-GROUP" && activeElement.hasAttribute("open")) {
+        if (activeElement.nodeName == 'GCDS-NAV-GROUP' &&
+          activeElement.hasAttribute('open')) {
           event.preventDefault();
           await toggleNavGroup(activeElement, nav);
           // In open nav group
         }
-        else if (activeElement.parentNode.nodeName == "GCDS-NAV-GROUP") {
+        else if (activeElement.parentNode.nodeName == 'GCDS-NAV-GROUP') {
           event.preventDefault();
           await toggleNavGroup(activeElement.parentNode, nav);
         }
@@ -74,7 +80,7 @@ async function handleKeyDownNav(event, nav, queue) {
     // ENTER || SPACEBAR
     case 'Enter':
     case ' ':
-      if (activeElement.nodeName == "GCDS-NAV-GROUP") {
+      if (activeElement.nodeName == 'GCDS-NAV-GROUP') {
         event.preventDefault();
         await toggleNavGroup(activeElement, nav);
       }
@@ -82,27 +88,27 @@ async function handleKeyDownNav(event, nav, queue) {
   }
 }
 /**
-* Focus nav element
-* @param {Number} index
-* @param {any[]} queue
-*/
+ * Focus nav element
+ * @param {Number} index
+ * @param {any[]} queue
+ */
 async function focusNavItem(index, queue) {
-  if (queue[index].nodeName == "GCDS-NAV-LINK") {
+  if (queue[index].nodeName == 'GCDS-NAV-LINK') {
     queue[index].focusLink();
   }
-  else if (queue[index].nodeName == "GCDS-NAV-GROUP") {
+  else if (queue[index].nodeName == 'GCDS-NAV-GROUP') {
     queue[index].focusTrigger();
   }
 }
 /**
-*
-* @param {Element} group
-* @param {Element} nav
-*/
+ *
+ * @param {Element} group
+ * @param {Element} nav
+ */
 async function toggleNavGroup(group, nav) {
   const navGroup = group;
   // Close nav group
-  if (navGroup.hasAttribute("open")) {
+  if (navGroup.hasAttribute('open')) {
     await navGroup.toggleNav();
     navGroup.focusTrigger();
     nav.updateNavItemQueue(nav);
@@ -113,7 +119,7 @@ async function toggleNavGroup(group, nav) {
     setTimeout(async () => {
       await focusNavItem(0, document.activeElement == nav ? nav.children : navGroup.children);
     }, 10);
-    if (nav.nodeName == "GCDS-SIDE-NAV") {
+    if (nav.nodeName == 'GCDS-SIDE-NAV') {
       nav.updateNavItemQueue(nav);
     }
     else {
@@ -122,15 +128,16 @@ async function toggleNavGroup(group, nav) {
   }
 }
 /**
-* Return array of child elements of passed element
-* @param {Element} el
-* @return {any[]} indexedItems
-*/
+ * Return array of child elements of passed element
+ * @param {Element} el
+ * @return {any[]} indexedItems
+ */
 async function getNavItems(el) {
-  let indexedItems = Array.from(el.children);
+  const indexedItems = Array.from(el.children);
   indexedItems.forEach(async (item) => {
-    if (item.nodeName == "GCDS-NAV-GROUP" && item.open) {
-      let groupChildren = await getNavItems(item);
+    if (item.nodeName == 'GCDS-NAV-GROUP' &&
+      item.open) {
+      const groupChildren = await getNavItems(item);
       indexedItems.splice(indexedItems.indexOf(item) + 1, 0, ...groupChildren);
     }
   });
@@ -138,3 +145,5 @@ async function getNavItems(el) {
 }
 
 export { getNavItems as g, handleKeyDownNav as h };
+
+//# sourceMappingURL=utils2.js.map

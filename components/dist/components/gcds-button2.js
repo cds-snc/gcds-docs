@@ -3,17 +3,17 @@ import { i as inheritAttributes, o as observerConfig, a as assignLanguage } from
 import { d as defineCustomElement$1 } from './gcds-icon2.js';
 
 const I18N = {
-  "en": {
-    label: "Opens in a new tab.",
+  en: {
+    label: 'Opens in a new tab.',
   },
-  "fr": {
+  fr: {
     label: "S'ouvre dans un nouvel onglet.",
-  }
+  },
 };
 
-const gcdsButtonCss = ":host a,:host button{border:var(--gcds-button-border-width) solid transparent;border-radius:var(--gcds-button-border-radius);-webkit-box-sizing:border-box;box-sizing:border-box;cursor:pointer;display:inline-block;font:var(--gcds-button-font);padding:var(--gcds-button-padding);text-align:center;text-decoration:none;-webkit-transition:all .15s ease-in-out;transition:all .15s ease-in-out;width:var(--gcds-button-width)}:host a.button--role-danger,:host button.button--role-danger{background-color:var(--gcds-button-danger-default-background);color:var(--gcds-button-danger-default-text)}:host a.button--role-danger:hover,:host button.button--role-danger:hover{background-color:var(--gcds-button-danger-hover-background)}:host a.button--role-danger:focus,:host button.button--role-danger:focus{background-color:var(--gcds-button-shared-focus-background);border-color:var(--gcds-button-shared-focus-background);color:var(--gcds-button-shared-focus-text);outline:var(--gcds-button-shared-focus-outline-width) solid var(--gcds-button-shared-focus-background);outline-offset:var(--gcds-button-border-width)}:host a.button--role-danger:active,:host button.button--role-danger:active{background-color:var(--gcds-button-shared-active-background);border-color:var(--gcds-button-shared-active-background)}:host a.button--role-primary,:host button.button--role-primary{background-color:var(--gcds-button-primary-default-background);color:var(--gcds-button-primary-default-text)}:host a.button--role-primary:hover,:host button.button--role-primary:hover{background-color:var(--gcds-button-primary-hover-background)}:host a.button--role-primary:focus,:host button.button--role-primary:focus{background-color:var(--gcds-button-shared-focus-background);border-color:var(--gcds-button-shared-focus-background);color:var(--gcds-button-shared-focus-text);outline:var(--gcds-button-shared-focus-outline-width) solid var(--gcds-button-shared-focus-background);outline-offset:var(--gcds-button-border-width)}:host a.button--role-primary:active,:host button.button--role-primary:active{background-color:var(--gcds-button-shared-active-background);border-color:var(--gcds-button-shared-active-background)}:host a.button--role-secondary,:host button.button--role-secondary{background-color:var(--gcds-button-secondary-default-background);border:var(--gcds-button-border-width) solid;color:var(--gcds-button-secondary-default-text)}:host a.button--role-secondary:hover,:host button.button--role-secondary:hover{background-color:var(--gcds-button-secondary-hover-background);border-color:var(--gcds-button-secondary-default-text);color:var(--gcds-button-secondary-default-text)}:host a.button--role-secondary:focus,:host button.button--role-secondary:focus{background-color:var(--gcds-button-shared-focus-background);border-color:var(--gcds-button-shared-focus-background);color:var(--gcds-button-shared-focus-text);outline:var(--gcds-button-shared-focus-outline-width) solid var(--gcds-button-shared-focus-background);outline-offset:var(--gcds-button-border-width)}:host a.button--role-secondary:focus:hover,:host button.button--role-secondary:focus:hover{border-color:var(--gcds-button-shared-focus-background)}:host a.button--role-secondary:active,:host button.button--role-secondary:active{background-color:var(--gcds-button-shared-active-background);border-color:var(--gcds-button-shared-active-background)!important}:host a.button--text-only,:host button.button--text-only{background-color:var(--gcds-button-text-only-default-background);color:var(--gcds-button-text-only-default-text)}:host a.button--text-only:not([aria-disabled=true]),:host button.button--text-only:not([aria-disabled=true]){text-decoration:underline;-webkit-text-decoration-color:currentColor;text-decoration-color:currentColor;text-decoration-thickness:var(--gcds-button-text-only-default-decoration-thickness);text-underline-offset:.2em}:host a.button--text-only:hover,:host button.button--text-only:hover{background-color:var(--gcds-button-text-only-default-background);color:var(--gcds-button-text-only-hover-text);text-decoration-thickness:var(--gcds-button-text-only-hover-decoration-thickness)}:host a.button--text-only:focus,:host button.button--text-only:focus{background-color:var(--gcds-button-shared-focus-background);border-color:var(--gcds-button-shared-focus-background);color:var(--gcds-button-shared-focus-text);outline:var(--gcds-button-shared-focus-outline-width) solid var(--gcds-button-shared-focus-background);outline-offset:var(--gcds-button-border-width);text-decoration:none}:host a.button--text-only:active,:host button.button--text-only:active{background-color:var(--gcds-button-shared-active-background);border-color:var(--gcds-button-shared-active-background)}:host a.button--role-skip-to-content,:host button.button--role-skip-to-content{left:0;position:absolute;top:var(--gcds-button-skip-top);width:inherit;z-index:3}:host a.button--role-skip-to-content:not(:focus),:host button.button--role-skip-to-content:not(:focus){clip:rect(0,0,0,0);height:0;margin:0;overflow:hidden;padding:0;width:0}:host a.button--role-skip-to-content:focus,:host button.button--role-skip-to-content:focus{background-color:var(--gcds-button-shared-focus-background);border-color:var(--gcds-button-shared-focus-background);color:var(--gcds-button-shared-focus-text);outline:var(--gcds-button-shared-focus-outline-width) solid var(--gcds-button-shared-focus-background);outline-offset:var(--gcds-button-border-width);text-decoration:none}:host a.button--role-skip-to-content:active,:host button.button--role-skip-to-content:active{background-color:var(--gcds-button-shared-active-background);border-color:var(--gcds-button-shared-active-background)}:host a[aria-disabled=true],:host button[aria-disabled=true]{background-color:var(--gcds-button-shared-disabled-background);border:var(--gcds-button-border-width) solid;color:var(--gcds-button-shared-disabled-text);cursor:not-allowed;pointer-events:none}:host a.button--small,:host button.button--small{font:var(--gcds-button-small-font);padding:var(--gcds-button-small-padding)}@media screen and (max-width:30rem){:host a:not(.button--text-only),:host button:not(.button--text-only){margin:var(--gcds-button-mobile-margin);width:var(--gcds-button-mobile-width)}}";
+const gcdsButtonCss = ":host a,:host button{border:var(--gcds-button-border-width) solid transparent;border-radius:var(--gcds-button-border-radius);-webkit-box-sizing:border-box;box-sizing:border-box;cursor:pointer;display:inline-block;font:var(--gcds-button-font);padding:var(--gcds-button-padding);text-align:center;text-decoration:none;-webkit-transition:all .15s ease-in-out;transition:all .15s ease-in-out;width:var(--gcds-button-width)}:host a slot,:host button slot{display:inherit}:host a.button--role-danger,:host button.button--role-danger{background-color:var(--gcds-button-danger-default-background);color:var(--gcds-button-danger-default-text)}:host a.button--role-danger:hover,:host button.button--role-danger:hover{background-color:var(--gcds-button-danger-hover-background)}:host a.button--role-danger:focus,:host button.button--role-danger:focus{background-color:var(--gcds-button-shared-focus-background);border-color:var(--gcds-button-shared-focus-background);-webkit-box-shadow:var(--gcds-button-shared-focus-box-shadow);box-shadow:var(--gcds-button-shared-focus-box-shadow);color:var(--gcds-button-shared-focus-text);outline:var(--gcds-button-shared-focus-outline-width) solid var(--gcds-button-shared-focus-background);outline-offset:var(--gcds-button-border-width)}:host a.button--role-danger:active,:host button.button--role-danger:active{background-color:var(--gcds-button-shared-active-background);border-color:var(--gcds-button-shared-active-background)}:host a.button--role-primary,:host button.button--role-primary{background-color:var(--gcds-button-primary-default-background);color:var(--gcds-button-primary-default-text)}:host a.button--role-primary:hover,:host button.button--role-primary:hover{background-color:var(--gcds-button-primary-hover-background)}:host a.button--role-primary:focus,:host button.button--role-primary:focus{background-color:var(--gcds-button-shared-focus-background);border-color:var(--gcds-button-shared-focus-background);-webkit-box-shadow:var(--gcds-button-shared-focus-box-shadow);box-shadow:var(--gcds-button-shared-focus-box-shadow);color:var(--gcds-button-shared-focus-text);outline:var(--gcds-button-shared-focus-outline-width) solid var(--gcds-button-shared-focus-background);outline-offset:var(--gcds-button-border-width)}:host a.button--role-primary:active,:host button.button--role-primary:active{background-color:var(--gcds-button-shared-active-background);border-color:var(--gcds-button-shared-active-background)}:host a.button--role-secondary,:host button.button--role-secondary{background-color:var(--gcds-button-secondary-default-background);border:var(--gcds-button-border-width) solid;color:var(--gcds-button-secondary-default-text)}:host a.button--role-secondary:hover,:host button.button--role-secondary:hover{background-color:var(--gcds-button-secondary-hover-background);border-color:var(--gcds-button-secondary-default-text);color:var(--gcds-button-secondary-default-text)}:host a.button--role-secondary:focus,:host button.button--role-secondary:focus{background-color:var(--gcds-button-shared-focus-background);border-color:var(--gcds-button-shared-focus-background);-webkit-box-shadow:var(--gcds-button-shared-focus-box-shadow);box-shadow:var(--gcds-button-shared-focus-box-shadow);color:var(--gcds-button-shared-focus-text);outline:var(--gcds-button-shared-focus-outline-width) solid var(--gcds-button-shared-focus-background);outline-offset:var(--gcds-button-border-width)}:host a.button--role-secondary:focus:hover,:host button.button--role-secondary:focus:hover{border-color:var(--gcds-button-shared-focus-background)}:host a.button--role-secondary:active,:host button.button--role-secondary:active{background-color:var(--gcds-button-shared-active-background);border-color:var(--gcds-button-shared-active-background)!important}:host a.button--text-only,:host button.button--text-only{background-color:var(--gcds-button-text-only-default-background);color:var(--gcds-button-text-only-default-text)}:host a.button--text-only:not([aria-disabled=true]),:host button.button--text-only:not([aria-disabled=true]){text-decoration:underline;-webkit-text-decoration-color:currentColor;text-decoration-color:currentColor;text-decoration-thickness:var(--gcds-button-text-only-default-decoration-thickness);text-underline-offset:.2em}:host a.button--text-only:hover,:host button.button--text-only:hover{background-color:var(--gcds-button-text-only-default-background);color:var(--gcds-button-text-only-hover-text);text-decoration-thickness:var(--gcds-button-text-only-hover-decoration-thickness)}:host a.button--text-only:focus,:host button.button--text-only:focus{background-color:var(--gcds-button-shared-focus-background);border-color:var(--gcds-button-shared-focus-background);-webkit-box-shadow:var(--gcds-button-shared-focus-box-shadow);box-shadow:var(--gcds-button-shared-focus-box-shadow);color:var(--gcds-button-shared-focus-text);outline:var(--gcds-button-shared-focus-outline-width) solid var(--gcds-button-shared-focus-background);outline-offset:var(--gcds-button-border-width);text-decoration:none}:host a.button--text-only:active,:host button.button--text-only:active{background-color:var(--gcds-button-shared-active-background);border-color:var(--gcds-button-shared-active-background)}:host a.button--role-skip-to-content,:host button.button--role-skip-to-content{left:0;position:absolute;top:var(--gcds-button-skip-top);width:inherit;z-index:3}:host a.button--role-skip-to-content:not(:focus),:host button.button--role-skip-to-content:not(:focus){clip:rect(0,0,0,0);height:0;margin:0;overflow:hidden;padding:0;width:0}:host a.button--role-skip-to-content:focus,:host button.button--role-skip-to-content:focus{background-color:var(--gcds-button-shared-focus-background);border-color:var(--gcds-button-shared-focus-background);-webkit-box-shadow:var(--gcds-button-shared-focus-box-shadow);box-shadow:var(--gcds-button-shared-focus-box-shadow);color:var(--gcds-button-shared-focus-text);outline:var(--gcds-button-shared-focus-outline-width) solid var(--gcds-button-shared-focus-background);outline-offset:var(--gcds-button-border-width);text-decoration:none}:host a.button--role-skip-to-content:active,:host button.button--role-skip-to-content:active{background-color:var(--gcds-button-shared-active-background);border-color:var(--gcds-button-shared-active-background)}:host a[aria-disabled=true],:host button[aria-disabled=true]{background-color:var(--gcds-button-shared-disabled-background);border:var(--gcds-button-border-width) solid;color:var(--gcds-button-shared-disabled-text);cursor:not-allowed;pointer-events:none}:host a.button--small,:host button.button--small{font:var(--gcds-button-small-font);padding:var(--gcds-button-small-padding)}@media screen and (max-width:30rem){:host a:not(.button--text-only),:host button:not(.button--text-only){margin:var(--gcds-button-mobile-margin);width:var(--gcds-button-mobile-width)}}";
 
-const GcdsButton = /*@__PURE__*/ proxyCustomElement(class extends HTMLElement {
+const GcdsButton = /*@__PURE__*/ proxyCustomElement(class GcdsButton extends HTMLElement {
   constructor() {
     super();
     this.__registerHost();
@@ -45,13 +45,13 @@ const GcdsButton = /*@__PURE__*/ proxyCustomElement(class extends HTMLElement {
       // Has any inherited attributes changed on click
       this.inheritedAttributes = inheritAttributes(this.el, this.shadowElement);
     };
-    this.onFocus = (e) => {
+    this.onFocus = e => {
       if (this.focusHandler) {
         this.focusHandler(e);
       }
       this.gcdsFocus.emit();
     };
-    this.onBlur = (e) => {
+    this.onBlur = e => {
       if (this.blurHandler) {
         this.blurHandler(e);
       }
@@ -99,10 +99,10 @@ const GcdsButton = /*@__PURE__*/ proxyCustomElement(class extends HTMLElement {
     }
   }
   /*
-  * Observe lang attribute change
-  */
+   * Observe lang attribute change
+   */
   updateLang() {
-    const observer = new MutationObserver((mutations) => {
+    const observer = new MutationObserver(mutations => {
       if (mutations[0].oldValue != this.el.lang) {
         this.lang = this.el.lang;
       }
@@ -121,27 +121,27 @@ const GcdsButton = /*@__PURE__*/ proxyCustomElement(class extends HTMLElement {
     this.updateLang();
   }
   /**
-    * Focus element
-    */
+   * Focus element
+   */
   async focusElement() {
     this.shadowElement.focus();
   }
   render() {
-    const { type, buttonRole, buttonStyle, size, buttonId, disabled, lang, name, href, rel, target, download, inheritedAttributes } = this;
+    const { type, buttonRole, buttonStyle, size, buttonId, disabled, lang, name, href, rel, target, download, inheritedAttributes, } = this;
     const Tag = type != 'link' ? 'button' : 'a';
-    const attrs = (Tag === 'button') ? {
-      type: type,
-      ariaDisabled: disabled,
-      name
-    } : {
-      href,
-      rel,
-      target,
-      download
-    };
-    return (h(Host, null, h(Tag, Object.assign({}, attrs, { id: buttonId, onBlur: (e) => this.onBlur(e), onFocus: (e) => this.onFocus(e), onClick: (e) => this.handleClick(e), class: `button--role-${buttonRole} button--${buttonStyle} button--${size}`, ref: element => this.shadowElement = element }, inheritedAttributes, { part: "button" }), h("slot", { name: "left" }), h("slot", null), type === 'link' && target === '_blank' ?
-      h("gcds-icon", { name: "external-link", label: I18N[lang].label, "margin-left": "200" })
-      : h("slot", { name: "right" }))));
+    const attrs = Tag === 'button'
+      ? {
+        type: type,
+        ariaDisabled: disabled,
+        name,
+      }
+      : {
+        href,
+        rel,
+        target,
+        download,
+      };
+    return (h(Host, null, h(Tag, Object.assign({}, attrs, { id: buttonId, onBlur: e => this.onBlur(e), onFocus: e => this.onFocus(e), onClick: e => this.handleClick(e), class: `button--role-${buttonRole} button--${buttonStyle} button--${size}`, ref: element => (this.shadowElement = element) }, inheritedAttributes, { part: "button" }), h("slot", { name: "left" }), h("slot", null), type === 'link' && target === '_blank' ? (h("gcds-icon", { name: "external-link", label: I18N[lang].label, "margin-left": "200" })) : (h("slot", { name: "right" })))));
   }
   get el() { return this; }
   static get watchers() { return {
@@ -190,3 +190,5 @@ function defineCustomElement() {
 }
 
 export { GcdsButton as G, defineCustomElement as d };
+
+//# sourceMappingURL=gcds-button2.js.map

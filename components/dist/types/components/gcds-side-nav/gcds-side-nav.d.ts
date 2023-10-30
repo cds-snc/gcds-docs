@@ -9,16 +9,16 @@ export declare class GcdsSideNav {
    * Sticky navigation flag
    */
   /**
-  * Language of rendered component
-  */
+   * Language of rendered component
+   */
   lang: string;
   /**
-  * Queue of nav items for keyboard navigation
-  */
+   * Queue of nav items for keyboard navigation
+   */
   navItems: any[];
   /**
-  * Current size based on window size
-  */
+   * Current size based on window size
+   */
   navSize: 'desktop' | 'mobile';
   focusOutListener(e: any): Promise<void>;
   keyDownListener(e: any): Promise<void>;

@@ -1,7 +1,7 @@
-import { Host, Fragment, h } from '@stencil/core';
-import { assignLanguage, observerConfig } from '../../utils/utils';
-import I18N from './i18n/i18n';
-import backup from './backup/backup.min';
+import { Host, Fragment, h, } from "@stencil/core";
+import { assignLanguage, observerConfig } from "../../utils/utils";
+import I18N from "./i18n/i18n";
+import backup from "./backup/backup.min";
 export class GcdsTopicMenu {
   constructor() {
     this.home = false;
@@ -11,23 +11,24 @@ export class GcdsTopicMenu {
     this.navSize = undefined;
   }
   /**
-  * Listen for focusout of theme and topic menu to close menu
-  */
+   * Listen for focusout of theme and topic menu to close menu
+   */
   async focusOutListener(e) {
     if (!this.el.contains(e.relatedTarget) && this.open) {
       this.toggleNav();
     }
   }
   /**
-  * Keyboard controls of theme and topic menu
-  */
+   * Keyboard controls of theme and topic menu
+   */
   async keyDownListener(e) {
-    if (this.el == document.activeElement && this.themeList.contains(document.activeElement.shadowRoot.activeElement)) {
+    if (this.el == document.activeElement &&
+      this.themeList.contains(document.activeElement.shadowRoot.activeElement)) {
       const key = e.key;
       const currentIndex = this.navItems.indexOf(document.activeElement.shadowRoot.activeElement);
       const activeElement = this.navItems[currentIndex];
       switch (key) {
-        case "ArrowDown":
+        case 'ArrowDown':
           e.preventDefault();
           // If on last item, jump to first item
           if (currentIndex + 1 > this.navItems.length - 1) {
@@ -38,7 +39,7 @@ export class GcdsTopicMenu {
             await this.focusMenuLink(this.navItems, activeElement, currentIndex + 1);
           }
           break;
-        case "ArrowUp":
+        case 'ArrowUp':
           e.preventDefault();
           // If on first item, jump to last
           if (currentIndex - 1 < 0) {
@@ -49,42 +50,49 @@ export class GcdsTopicMenu {
             await this.focusMenuLink(this.navItems, activeElement, currentIndex - 1);
           }
           break;
-        case "ArrowRight":
+        case 'ArrowRight':
           e.preventDefault();
           // Theme links
-          if (activeElement.hasAttribute('aria-haspopup') && !activeElement.hasAttribute('data-keep-expanded')) {
+          if (activeElement.hasAttribute('aria-haspopup') &&
+            !activeElement.hasAttribute('data-keep-expanded')) {
             await this.updateNavItemQueue(activeElement.parentNode.children[1]);
             activeElement.setAttribute('aria-expanded', 'true');
             this.navItems[0].focus();
             // Most requested link - desktop
           }
-          else if (activeElement.hasAttribute('aria-haspopup') && this.navSize == "desktop") {
+          else if (activeElement.hasAttribute('aria-haspopup') &&
+            this.navSize == 'desktop') {
             await this.focusMenuLink(this.navItems, activeElement, currentIndex + 1);
             // Most requested link - mobile
           }
-          else if (activeElement.hasAttribute('aria-haspopup') && this.navSize == "mobile") {
+          else if (activeElement.hasAttribute('aria-haspopup') &&
+            this.navSize == 'mobile') {
             await this.updateNavItemQueue(activeElement.parentNode.children[1]);
             activeElement.setAttribute('aria-expanded', 'true');
             this.navItems[0].focus();
           }
           break;
-        case "Enter":
+        case 'Enter':
           if (activeElement.closest('ul').hasAttribute('data-top-menu')) {
             await this.updateNavItemQueue(activeElement.parentNode.children[1]);
             this.navItems[0].focus();
           }
           break;
-        case "ArrowLeft":
-        case "Escape":
+        case 'ArrowLeft':
+        case 'Escape': {
           e.preventDefault();
-          let parentList = activeElement.closest('ul');
+          const parentList = activeElement.closest('ul');
           // In most requested menu
-          if (parentList.parentNode.querySelector('a').hasAttribute('data-keep-expanded')) {
+          if (parentList.parentNode
+            .querySelector('a')
+            .hasAttribute('data-keep-expanded')) {
             await this.updateNavItemQueue(parentList.parentNode.closest('ul'));
             await this.focusMenuLink(this.navItems, activeElement, this.navItems.indexOf(parentList.parentNode.querySelector('a')));
             // on mobile, close expandable area
             if (this.navSize == 'mobile') {
-              parentList.parentNode.querySelector('a').setAttribute('aria-expanded', 'false');
+              parentList.parentNode
+                .querySelector('a')
+                .setAttribute('aria-expanded', 'false');
             }
             // Exit menu
           }
@@ -92,7 +100,9 @@ export class GcdsTopicMenu {
             await this.updateNavItemQueue(parentList.parentNode.closest('ul'));
             await this.focusMenuLink(this.navItems, activeElement, this.navItems.indexOf(parentList.parentNode.querySelector('a')));
             if (this.navSize == 'mobile') {
-              parentList.parentNode.querySelector('a').setAttribute('aria-expanded', 'false');
+              parentList.parentNode
+                .querySelector('a')
+                .setAttribute('aria-expanded', 'false');
             }
             // Close theme and topic menu, focus menu button
           }
@@ -101,24 +111,25 @@ export class GcdsTopicMenu {
             await this.toggleNav();
           }
           break;
-        case "Tab":
+        }
+        case 'Tab':
           await this.toggleNav();
           break;
       }
     }
   }
   /**
-  * Close all theme menus
-  */
+   * Close all theme menus
+   */
   async closeAllMenus() {
     for (let x = 0; x < this.themeList.children.length; x++) {
-      let themeLink = this.themeList.children[x].querySelector("a");
+      const themeLink = this.themeList.children[x].querySelector('a');
       themeLink.setAttribute('aria-expanded', 'false');
     }
   }
   /**
-  * Toggle open theme and topic menu
-  */
+   * Toggle open theme and topic menu
+   */
   async toggleNav() {
     this.open = !this.open;
     if (this.open) {
@@ -127,7 +138,9 @@ export class GcdsTopicMenu {
       }
       else {
         // Close most requested on mobile
-        this.el.shadowRoot.querySelectorAll('[data-keep-expanded]').forEach((el) => {
+        this.el.shadowRoot
+          .querySelectorAll('[data-keep-expanded]')
+          .forEach(el => {
           el.setAttribute('aria-expanded', 'false');
         });
       }
@@ -141,27 +154,28 @@ export class GcdsTopicMenu {
     }
   }
   /*
-  * Pass new window size: desktop or mobile
-  */
+   * Pass new window size: desktop or mobile
+   */
   async updateNavSize(size) {
     this.navSize = size;
   }
   /*
-  * Get current navSize state
-  */
+   * Get current navSize state
+   */
   async getNavSize() {
     return this.navSize;
   }
   /**
-  * Update keyboard focus queue
-  */
+   * Update keyboard focus queue
+   */
   async updateNavItemQueue(parent) {
-    let focusableElements = [];
+    const focusableElements = [];
     for (let x = 0; x < parent.children.length; x++) {
-      let link = parent.children[x].querySelector('a');
+      const link = parent.children[x].querySelector('a');
       if (link) {
         focusableElements.push(link);
-        if (link.hasAttribute('data-keep-expanded') && this.navSize == 'desktop') {
+        if (link.hasAttribute('data-keep-expanded') &&
+          this.navSize == 'desktop') {
           for (let c = 0; c < link.parentNode.children[1].children.length; c++) {
             focusableElements.push(link.parentNode.children[1].children[c].querySelector('a'));
           }
@@ -171,25 +185,29 @@ export class GcdsTopicMenu {
     this.navItems = focusableElements;
   }
   /**
-  * Focus menu link
-  */
+   * Focus menu link
+   */
   focusMenuLink(queue, activeElement, nextStep) {
-    if (activeElement.closest('ul').hasAttribute('data-top-menu') && activeElement.hasAttribute('aria-haspopup') && !activeElement.hasAttribute('data-keep-expanded')) {
+    if (activeElement.closest('ul').hasAttribute('data-top-menu') &&
+      activeElement.hasAttribute('aria-haspopup') &&
+      !activeElement.hasAttribute('data-keep-expanded')) {
       this.closeAllMenus();
     }
-    else if (activeElement.hasAttribute('aria-haspopup') && !activeElement.hasAttribute('data-keep-expanded')) {
+    else if (activeElement.hasAttribute('aria-haspopup') &&
+      !activeElement.hasAttribute('data-keep-expanded')) {
       activeElement.setAttribute('aria-expanded', 'false');
     }
     queue[nextStep].focus();
-    if (queue[nextStep].hasAttribute('aria-haspopup') && this.navSize == 'desktop') {
+    if (queue[nextStep].hasAttribute('aria-haspopup') &&
+      this.navSize == 'desktop') {
       queue[nextStep].setAttribute('aria-expanded', 'true');
     }
   }
   /*
-  * Observe lang attribute change
-  */
+   * Observe lang attribute change
+   */
   updateLang() {
-    const observer = new MutationObserver((mutations) => {
+    const observer = new MutationObserver(mutations => {
       if (mutations[0].oldValue != this.el.lang) {
         this.lang = this.el.lang;
       }
@@ -216,16 +234,16 @@ export class GcdsTopicMenu {
     }
   }
   async componentDidLoad() {
-    let hostElement = this.el;
+    const hostElement = this.el;
     let menuEnterTimer;
-    // Since we load the HTML, loop through elements and add event listeners to add functionality 
+    // Since we load the HTML, loop through elements and add event listeners to add functionality
     for (let x = 0; x < this.themeList.children.length; x++) {
-      let themeLink = this.themeList.children[x].querySelector("a");
+      const themeLink = this.themeList.children[x].querySelector('a');
       // Click
-      themeLink.addEventListener("click", async (e) => {
+      themeLink.addEventListener('click', async (e) => {
         e.preventDefault();
         // Open topic lists
-        if (await hostElement.getNavSize() == 'desktop') {
+        if ((await hostElement.getNavSize()) == 'desktop') {
           await hostElement.closeAllMenus();
           themeLink.setAttribute('aria-expanded', 'true');
         }
@@ -234,7 +252,9 @@ export class GcdsTopicMenu {
             themeLink.setAttribute('aria-expanded', 'true');
             await hostElement.updateNavItemQueue(themeLink.parentNode.children[1]);
             setTimeout(() => {
-              themeLink.parentNode.children[1].children[0].querySelector('a').focus();
+              themeLink.parentNode.children[1].children[0]
+                .querySelector('a')
+                .focus();
             }, 50);
           }
           else {
@@ -247,9 +267,9 @@ export class GcdsTopicMenu {
         }
       });
       // Hover actions
-      themeLink.addEventListener("mouseenter", async () => {
+      themeLink.addEventListener('mouseenter', async () => {
         // Change active theme if hovering on menuitem
-        if (await hostElement.getNavSize() == 'desktop') {
+        if ((await hostElement.getNavSize()) == 'desktop') {
           menuEnterTimer = setTimeout(async function () {
             await hostElement.closeAllMenus();
             themeLink.setAttribute('aria-expanded', 'true');
@@ -257,20 +277,22 @@ export class GcdsTopicMenu {
         }
       });
       // Cancel hover timer if mouseut before completes
-      themeLink.addEventListener("mouseleave", () => {
+      themeLink.addEventListener('mouseleave', () => {
         clearTimeout(menuEnterTimer);
       });
       // Most requested click
-      let mostRequested = this.themeList.children[x].querySelector('ul').querySelector('[aria-haspopup]');
-      mostRequested.addEventListener("click", async (e) => {
+      const mostRequested = this.themeList.children[x]
+        .querySelector('ul')
+        .querySelector('[aria-haspopup]');
+      mostRequested.addEventListener('click', async (e) => {
         e.preventDefault();
-        if (await hostElement.getNavSize() == 'mobile') {
+        if ((await hostElement.getNavSize()) == 'mobile') {
           if (mostRequested.getAttribute('aria-expanded') == 'true') {
             mostRequested.setAttribute('aria-expanded', 'false');
           }
           else {
             mostRequested.setAttribute('aria-expanded', 'true');
-            let mostRequestedList = mostRequested.parentNode.querySelector('ul');
+            const mostRequestedList = mostRequested.parentNode.querySelector('ul');
             mostRequestedList.children[0].querySelector('a').focus();
             await hostElement.updateNavItemQueue(mostRequestedList);
           }
@@ -280,16 +302,16 @@ export class GcdsTopicMenu {
     // Mobile responsiveness
     const mediaQuery = window.matchMedia('screen and (max-width: 991px)');
     const nav = this.el;
-    mediaQuery.addEventListener("change", async (e) => {
+    mediaQuery.addEventListener('change', async (e) => {
       if (e.matches) {
-        nav.updateNavSize("mobile");
-        nav.shadowRoot.querySelectorAll('[data-keep-expanded]').forEach((el) => {
+        nav.updateNavSize('mobile');
+        nav.shadowRoot.querySelectorAll('[data-keep-expanded]').forEach(el => {
           el.setAttribute('aria-expanded', 'false');
         });
       }
       else {
-        nav.updateNavSize("desktop");
-        nav.shadowRoot.querySelectorAll('[data-keep-expanded]').forEach((el) => {
+        nav.updateNavSize('desktop');
+        nav.shadowRoot.querySelectorAll('[data-keep-expanded]').forEach(el => {
           el.setAttribute('aria-expanded', 'true');
         });
       }
@@ -297,10 +319,7 @@ export class GcdsTopicMenu {
   }
   render() {
     const { home, lang } = this;
-    return (h(Host, null, h("nav", { class: "gcds-topic-menu" }, h("h2", { class: "gcds-topic-menu__heading" }, "Menu"), h("button", { "aria-haspopup": "true", "aria-expanded": this.open.toString(), "aria-label": I18N[lang].buttonLabel, onClick: async () => await this.toggleNav(), ref: element => this.menuButton = element, class: home && 'gcds-topic-menu--home' }, this.lang == 'en' ?
-      h(Fragment, null, h("span", { class: "gcds-topic-menu__main" }, "Main "), "Menu")
-      :
-        h(Fragment, null, "Menu", h("span", { class: "gcds-topic-menu__main" }, " principal")), h("gcds-icon", { name: "chevron-down", "margin-left": "150", size: "caption" })), h("ul", { role: "menu", "aria-orientation": "vertical", "data-top-menu": true, innerHTML: this.listItems, ref: element => this.themeList = element }))));
+    return (h(Host, null, h("nav", { class: "gcds-topic-menu" }, h("h2", { class: "gcds-topic-menu__heading" }, "Menu"), h("button", { "aria-haspopup": "true", "aria-expanded": this.open.toString(), "aria-label": I18N[lang].buttonLabel, onClick: async () => await this.toggleNav(), ref: element => (this.menuButton = element), class: home && 'gcds-topic-menu--home' }, this.lang == 'en' ? (h(Fragment, null, h("span", { class: "gcds-topic-menu__main" }, "Main "), "Menu")) : (h(Fragment, null, "Menu", h("span", { class: "gcds-topic-menu__main" }, " principal"))), h("gcds-icon", { name: "chevron-down", "margin-left": "150", size: "caption" })), h("ul", { role: "menu", "aria-orientation": "vertical", "data-top-menu": true, innerHTML: this.listItems, ref: element => (this.themeList = element) }))));
   }
   static get is() { return "gcds-topic-menu"; }
   static get encapsulation() { return "shadow"; }
@@ -352,7 +371,8 @@ export class GcdsTopicMenu {
           "parameters": [],
           "references": {
             "Promise": {
-              "location": "global"
+              "location": "global",
+              "id": "global::Promise"
             }
           },
           "return": "Promise<void>"
@@ -368,7 +388,8 @@ export class GcdsTopicMenu {
           "parameters": [],
           "references": {
             "Promise": {
-              "location": "global"
+              "location": "global",
+              "id": "global::Promise"
             }
           },
           "return": "Promise<void>"
@@ -387,7 +408,8 @@ export class GcdsTopicMenu {
             }],
           "references": {
             "Promise": {
-              "location": "global"
+              "location": "global",
+              "id": "global::Promise"
             }
           },
           "return": "Promise<void>"
@@ -403,7 +425,8 @@ export class GcdsTopicMenu {
           "parameters": [],
           "references": {
             "Promise": {
-              "location": "global"
+              "location": "global",
+              "id": "global::Promise"
             }
           },
           "return": "Promise<\"desktop\" | \"mobile\">"
@@ -422,7 +445,8 @@ export class GcdsTopicMenu {
             }],
           "references": {
             "Promise": {
-              "location": "global"
+              "location": "global",
+              "id": "global::Promise"
             }
           },
           "return": "Promise<void>"
@@ -451,3 +475,4 @@ export class GcdsTopicMenu {
       }];
   }
 }
+//# sourceMappingURL=gcds-topic-menu.js.map

@@ -1,10 +1,10 @@
-import { Host, h } from '@stencil/core';
-import { assignLanguage, observerConfig } from '../../utils/utils';
-import i18n from './i18n/i18n';
+import { Host, h } from "@stencil/core";
+import { assignLanguage, observerConfig } from "../../utils/utils";
+import i18n from "./i18n/i18n";
 export class GcdsLabel {
   constructor() {
     this.onClick = (ev) => {
-      if (ev.srcElement.tagName == "GCDS-LABEL") {
+      if (ev.srcElement.tagName == 'GCDS-LABEL') {
         this.clickEl();
       }
     };
@@ -15,10 +15,10 @@ export class GcdsLabel {
     this.lang = undefined;
   }
   /*
-  * Observe lang attribute change
-  */
+   * Observe lang attribute change
+   */
   updateLang() {
-    const observer = new MutationObserver((mutations) => {
+    const observer = new MutationObserver(mutations => {
       if (mutations[0].oldValue != this.el.lang) {
         this.lang = this.el.lang;
       }
@@ -40,9 +40,7 @@ export class GcdsLabel {
   }
   render() {
     const { hideLabel, labelFor, label, required, lang } = this;
-    return (h(Host, { id: `label-for-${labelFor}`, onClick: this.onClick }, h("label", { htmlFor: labelFor, class: `gcds-label ${hideLabel ? 'label--hidden' : ''}`, ref: (focusEl) => (this.focusEl = focusEl) }, h("span", null, label), required ?
-      h("span", { "aria-hidden": "true", class: "label--required" }, "(", i18n[lang].required, ")")
-      : null)));
+    return (h(Host, { id: `label-for-${labelFor}`, onClick: this.onClick }, h("label", { htmlFor: labelFor, class: `gcds-label ${hideLabel ? 'label--hidden' : ''}`, ref: focusEl => (this.focusEl = focusEl) }, h("span", null, label), required ? (h("span", { "aria-hidden": "true", class: "label--required" }, "(", i18n[lang].required, ")")) : null)));
   }
   static get is() { return "gcds-label"; }
   static get encapsulation() { return "scoped"; }
@@ -135,3 +133,4 @@ export class GcdsLabel {
   }
   static get elementRef() { return "el"; }
 }
+//# sourceMappingURL=gcds-label.js.map

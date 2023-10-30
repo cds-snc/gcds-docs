@@ -16,8 +16,8 @@ export declare class GcdsPhaseBanner {
    */
   isFixed?: boolean;
   /**
-  * Language of rendered component
-  */
+   * Language of rendered component
+   */
   lang: string;
   /**
    * Events

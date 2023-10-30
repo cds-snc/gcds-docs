@@ -1,7 +1,7 @@
-import { Host, h } from '@stencil/core';
-import { assignLanguage, observerConfig } from '../../utils/utils';
-import { handleKeyDownNav, getNavItems } from '../../utils/menus/utils';
-import I18N from './i18n/i18n';
+import { Host, h, } from "@stencil/core";
+import { assignLanguage, observerConfig } from "../../utils/utils";
+import { handleKeyDownNav, getNavItems } from "../../utils/menus/utils";
+import I18N from "./i18n/i18n";
 export class GcdsTopNav {
   constructor() {
     this.label = undefined;
@@ -12,14 +12,15 @@ export class GcdsTopNav {
   }
   async focusOutListener(e) {
     if (!this.el.contains(e.relatedTarget)) {
-      if (this.navSize == "mobile") {
-        if (this.mobile.hasAttribute("open")) {
+      if (this.navSize == 'mobile') {
+        if (this.mobile.hasAttribute('open')) {
           await this.mobile.toggleNav();
         }
       }
       else {
         for (let i = 0; i < this.el.children.length; i++) {
-          if (this.el.children[i].nodeName == "GCDS-NAV-GROUP" && (this.el.children[i].hasAttribute("open"))) {
+          if (this.el.children[i].nodeName == 'GCDS-NAV-GROUP' &&
+            this.el.children[i].hasAttribute('open')) {
             await this.el.children[i].toggleNav();
             await this.updateNavItemQueue(this.el);
           }
@@ -35,21 +36,22 @@ export class GcdsTopNav {
   async gcdsClickListener(e) {
     if (this.el.contains(e.target)) {
       // Update tab queue when clicking mobile menu
-      if (e.target == this.el && this.navSize == "mobile") {
+      if (e.target == this.el && this.navSize == 'mobile') {
         await this.updateNavItemQueue(e.target);
         // Update tab queue when clicking dropdown
       }
-      else if (e.target.nodeName == "GCDS-NAV-GROUP" && !e.target.hasAttribute("open")) {
+      else if (e.target.nodeName == 'GCDS-NAV-GROUP' &&
+        !e.target.hasAttribute('open')) {
         await this.updateNavItemQueue(e.target, true);
         e.target.focusTrigger();
       }
     }
   }
   /*
-  * Observe lang attribute change
-  */
+   * Observe lang attribute change
+   */
   updateLang() {
-    const observer = new MutationObserver((mutations) => {
+    const observer = new MutationObserver(mutations => {
       if (mutations[0].oldValue != this.el.lang) {
         this.lang = this.el.lang;
       }
@@ -57,29 +59,29 @@ export class GcdsTopNav {
     observer.observe(this.el, observerConfig);
   }
   /*
-  * Get current navSize state
-  */
+   * Get current navSize state
+   */
   async getNavSize() {
     return this.navSize;
   }
   /*
-  * Pass new window size: desktop or mobile
-  */
+   * Pass new window size: desktop or mobile
+   */
   async updateNavSize(size) {
     this.navSize = size;
   }
   /*
-  * Update item queue for keyboard navigation based on passed element
-  */
+   * Update item queue for keyboard navigation based on passed element
+   */
   async updateNavItemQueue(el, includeElement) {
     if (includeElement) {
-      let childElements = await getNavItems(el);
+      const childElements = await getNavItems(el);
       this.navItems = [el, ...childElements];
     }
     else {
       this.navItems = await getNavItems(el);
     }
-    if (el == this.el && this.navSize == "mobile") {
+    if (el == this.el && this.navSize == 'mobile') {
       this.navItems = [...this.navItems, this.mobile];
     }
   }
@@ -100,23 +102,23 @@ export class GcdsTopNav {
     const nav = this.el;
     const mobileTrigger = this.mobile;
     await this.updateNavItemQueue(this.el);
-    mediaQuery.addEventListener("change", async function (e) {
+    mediaQuery.addEventListener('change', async function (e) {
       if (e.matches) {
-        nav.updateNavSize("desktop");
+        nav.updateNavSize('desktop');
         await nav.updateNavItemQueue(nav);
-        if (mobileTrigger.hasAttribute("open")) {
+        if (mobileTrigger.hasAttribute('open')) {
           mobileTrigger.toggleNav();
         }
       }
       else {
-        nav.updateNavSize("mobile");
+        nav.updateNavSize('mobile');
         await nav.updateNavItemQueue(nav);
       }
     });
   }
   render() {
     const { label, alignment, lang } = this;
-    return (h(Host, null, h("nav", { "aria-label": `${label}${I18N[lang].navLabel}`, class: "gcds-top-nav__container" }, h("gcds-nav-group", { menuLabel: "Menu", closeTrigger: lang == 'fr' ? 'Fermer' : 'Close', openTrigger: "Menu", class: "gcds-mobile-nav gcds-mobile-nav-topnav", ref: element => this.mobile = element, lang: lang }, h("slot", { name: "home" }), h("ul", { role: "menu", class: `nav-container__list nav-list--${alignment}` }, h("slot", null))))));
+    return (h(Host, null, h("nav", { "aria-label": `${label}${I18N[lang].navLabel}`, class: "gcds-top-nav__container" }, h("gcds-nav-group", { menuLabel: "Menu", closeTrigger: lang == 'fr' ? 'Fermer' : 'Close', openTrigger: "Menu", class: "gcds-mobile-nav gcds-mobile-nav-topnav", ref: element => (this.mobile = element), lang: lang }, h("slot", { name: "home" }), h("ul", { role: "menu", class: `nav-container__list nav-list--${alignment}` }, h("slot", null))))));
   }
   static get is() { return "gcds-top-nav"; }
   static get encapsulation() { return "shadow"; }
@@ -184,7 +186,8 @@ export class GcdsTopNav {
           "parameters": [],
           "references": {
             "Promise": {
-              "location": "global"
+              "location": "global",
+              "id": "global::Promise"
             }
           },
           "return": "Promise<\"desktop\" | \"mobile\">"
@@ -203,7 +206,8 @@ export class GcdsTopNav {
             }],
           "references": {
             "Promise": {
-              "location": "global"
+              "location": "global",
+              "id": "global::Promise"
             }
           },
           "return": "Promise<void>"
@@ -225,7 +229,8 @@ export class GcdsTopNav {
             }],
           "references": {
             "Promise": {
-              "location": "global"
+              "location": "global",
+              "id": "global::Promise"
             }
           },
           "return": "Promise<void>"
@@ -260,3 +265,4 @@ export class GcdsTopNav {
       }];
   }
 }
+//# sourceMappingURL=gcds-top-nav.js.map

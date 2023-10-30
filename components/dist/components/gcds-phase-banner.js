@@ -3,17 +3,17 @@ import { o as observerConfig, a as assignLanguage } from './utils.js';
 import { d as defineCustomElement$2 } from './gcds-container2.js';
 
 const I18N = {
-  "en": {
-    label: "Banner",
+  en: {
+    label: 'Banner',
   },
-  "fr": {
-    label: "Bannière",
-  }
+  fr: {
+    label: 'Bannière',
+  },
 };
 
-const gcdsPhaseBannerCss = ":host .gcds-phase-banner{font:var(--gcds-phase-banner-font);line-height:var(--gcds-phase-banner-line-height)}:host .gcds-phase-banner.banner-is-fixed{position:-webkit-sticky;position:sticky;top:0;width:100%;z-index:9999}:host .gcds-phase-banner.banner--role-primary{background-color:var(--gcds-phase-banner-primary-background);color:var(--gcds-phase-banner-primary-text)}:host .gcds-phase-banner.banner--role-secondary{background-color:var(--gcds-phase-banner-secondary-background);color:var(--gcds-phase-banner-secondary-text)}:host .gcds-phase-banner .banner__content{padding:var(--gcds-phase-banner-padding)}@media only screen and (min-width:35em){:host .gcds-phase-banner .banner__content{display:-ms-flexbox;display:flex}}:host .gcds-phase-banner .banner__icon{display:-ms-flexbox;display:flex;margin:0}:host .gcds-phase-banner .banner__icon.icon--left{-webkit-margin-end:var(--gcds-phase-banner-icon-margin);margin-inline-end:var(--gcds-phase-banner-icon-margin)}:host .gcds-phase-banner .banner__icon.icon--right{-webkit-margin-start:var(--gcds-phase-banner-icon-margin);margin-inline-start:var(--gcds-phase-banner-icon-margin)}@media only screen and (max-width:34.99em){:host .gcds-phase-banner .banner__icon{display:none}}:host .gcds-phase-banner .banner__icon ::slotted(img),:host .gcds-phase-banner .banner__icon ::slotted(svg){max-height:var(--gcds-phase-banner-icon-max-height)}:host .gcds-phase-banner .banner__details{-ms-flex-align:baseline;align-items:baseline;display:-ms-flexbox;display:flex;-ms-flex-wrap:wrap;flex-wrap:wrap}:host .gcds-phase-banner .banner__details ::slotted(a),:host .gcds-phase-banner .banner__details ::slotted(gcds-button){-ms-flex:0 0 auto;flex:0 0 auto}:host .gcds-phase-banner .banner__details ::slotted(a),:host .gcds-phase-banner .banner__details ::slotted(small),:host .gcds-phase-banner .banner__details ::slotted(span){font-size:80%!important}:host .gcds-phase-banner .banner__details ::slotted(p){font:var(--gcds-phase-banner-font);margin:0}:host .gcds-phase-banner .banner__details ::slotted(a){color:inherit}:host .gcds-phase-banner .banner__details ::slotted(gcds-button){margin:var(--gcds-phase-banner-details-cta-margin);-webkit-transform:scale(90%);transform:scale(90%)}";
+const gcdsPhaseBannerCss = ":host .gcds-phase-banner{font:var(--gcds-phase-banner-font);line-height:var(--gcds-phase-banner-line-height)}:host .gcds-phase-banner slot{display:inherit}:host .gcds-phase-banner.banner-is-fixed{position:-webkit-sticky;position:sticky;top:0;width:100%;z-index:9999}:host .gcds-phase-banner.banner--role-primary{background-color:var(--gcds-phase-banner-primary-background);color:var(--gcds-phase-banner-primary-text)}:host .gcds-phase-banner.banner--role-secondary{background-color:var(--gcds-phase-banner-secondary-background);color:var(--gcds-phase-banner-secondary-text)}:host .gcds-phase-banner .banner__content{padding:var(--gcds-phase-banner-padding)}@media only screen and (min-width:35em){:host .gcds-phase-banner .banner__content{display:-ms-flexbox;display:flex}}:host .gcds-phase-banner .banner__icon{display:-ms-flexbox;display:flex;margin:0}:host .gcds-phase-banner .banner__icon.icon--left{-webkit-margin-end:var(--gcds-phase-banner-icon-margin);margin-inline-end:var(--gcds-phase-banner-icon-margin)}:host .gcds-phase-banner .banner__icon.icon--right{-webkit-margin-start:var(--gcds-phase-banner-icon-margin);margin-inline-start:var(--gcds-phase-banner-icon-margin)}@media only screen and (max-width:34.99em){:host .gcds-phase-banner .banner__icon{display:none}}:host .gcds-phase-banner .banner__icon ::slotted(img),:host .gcds-phase-banner .banner__icon ::slotted(svg){max-height:var(--gcds-phase-banner-icon-max-height)}:host .gcds-phase-banner .banner__details{-ms-flex-align:baseline;align-items:baseline;display:-ms-flexbox;display:flex;-ms-flex-wrap:wrap;flex-wrap:wrap}:host .gcds-phase-banner .banner__details ::slotted(a),:host .gcds-phase-banner .banner__details ::slotted(gcds-button){-ms-flex:0 0 auto;flex:0 0 auto}:host .gcds-phase-banner .banner__details ::slotted(a),:host .gcds-phase-banner .banner__details ::slotted(small),:host .gcds-phase-banner .banner__details ::slotted(span){font-size:80%!important}:host .gcds-phase-banner .banner__details ::slotted(p){font:var(--gcds-phase-banner-font);margin:0}:host .gcds-phase-banner .banner__details ::slotted(a){color:inherit}:host .gcds-phase-banner .banner__details ::slotted(gcds-button){margin:var(--gcds-phase-banner-details-cta-margin);-webkit-transform:scale(90%);transform:scale(90%)}";
 
-const GcdsPhaseBanner$1 = /*@__PURE__*/ proxyCustomElement(class extends HTMLElement {
+const GcdsPhaseBanner$1 = /*@__PURE__*/ proxyCustomElement(class GcdsPhaseBanner extends HTMLElement {
   constructor() {
     super();
     this.__registerHost();
@@ -27,10 +27,10 @@ const GcdsPhaseBanner$1 = /*@__PURE__*/ proxyCustomElement(class extends HTMLEle
    * Events
    */
   /*
-  * Observe lang attribute change
-  */
+   * Observe lang attribute change
+   */
   updateLang() {
-    const observer = new MutationObserver((mutations) => {
+    const observer = new MutationObserver(mutations => {
       if (mutations[0].oldValue != this.el.lang) {
         this.lang = this.el.lang;
       }
@@ -77,3 +77,5 @@ const GcdsPhaseBanner = GcdsPhaseBanner$1;
 const defineCustomElement = defineCustomElement$1;
 
 export { GcdsPhaseBanner, defineCustomElement };
+
+//# sourceMappingURL=gcds-phase-banner.js.map

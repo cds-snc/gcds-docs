@@ -4,3 +4,5 @@ const GcdsLabel = GcdsLabel$1;
 const defineCustomElement = defineCustomElement$1;
 
 export { GcdsLabel, defineCustomElement };
+
+//# sourceMappingURL=gcds-label.js.map

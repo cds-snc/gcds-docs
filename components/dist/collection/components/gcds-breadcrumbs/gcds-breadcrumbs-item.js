@@ -1,4 +1,4 @@
-import { Host, h } from '@stencil/core';
+import { Host, h } from "@stencil/core";
 export class GcdsBreadcrumbsItem {
   constructor() {
     this.href = undefined;
@@ -42,3 +42,4 @@ export class GcdsBreadcrumbsItem {
   }
   static get elementRef() { return "el"; }
 }
+//# sourceMappingURL=gcds-breadcrumbs-item.js.map

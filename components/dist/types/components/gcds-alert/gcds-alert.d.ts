@@ -40,8 +40,8 @@ export declare class GcdsAlert {
    */
   isOpen: boolean;
   /**
-  * Language of rendered component
-  */
+   * Language of rendered component
+   */
   lang: string;
   /**
    * Events
