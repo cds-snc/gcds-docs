@@ -40,38 +40,39 @@ Note: For Canada.ca, avoid using cards in place of the doormats specified in the
 
 </article>
 
-<div>
-  <h2>Component types</h2>
-  <div>
-    <h3 class="mb-400 mt-400">Link card</h3>
-      {% componentPreview "Link card preview" "py-400" %}
+## Component types
+
+### Link card
+
+{% componentPreview "Link card preview" "px-300 py-400" "my-400" %}
 <gcds-card card-title="Card title link" tag="Tag" href="#" description="Description or supporting text relating to the headline. Longer text will be truncated with ...">
-<div slot="footer">Context info • metadata</div>
+
+  <div slot="footer">Context info • metadata</div>
 </gcds-card>
 {% endcomponentPreview %}
-    <p class="mb-400">Use the link card to:</p>
-    <ul class="list-disc mb-400">
-      <li>Structure information on the same topic to progressively offer the reader more details</li>
-      <li>Include a link when there’s further information. Adding a link makes the entire card interactive as a large clickable target.</li>
-      <li>Provide a large, clickable target leading to more information.</li>
-    </ul>
-  </div>
 
-<div>
-<h3 class="mb-400 mt-400">Action card</h3>
-  {% componentPreview "Action card preview" "py-400" "" %}
-  <gcds-card card-title="Card title link" href="#" type="action" tag="Tag" description="Description or supporting text relating to the headline. Longer text will be truncated with ..." img-alt="#">
+<p class="mb-400">Use the link card to:</p>
+<ul class="list-disc mb-400">
+  <li>Structure information on the same topic to progressively offer the reader more details</li>
+  <li>Include a link when there’s further information. Adding a link makes the entire card interactive as a large clickable target.</li>
+  <li>Provide a large, clickable target leading to more information.</li>
+</ul>
+
+### Action card
+
+{% componentPreview "Action card preview" "px-300 py-400" "my-400" %}
+<gcds-card card-title="Card title link" href="#" type="action" tag="Tag" description="Description or supporting text relating to the headline. Longer text will be truncated with ..." img-alt="#">
+
   <div slot="footer">
     <gcds-button>Button label</gcds-button>
   </div>
 </gcds-card>
-  {% endcomponentPreview %}
-    <p class="mb-400">Use the action card to:</p>
-    <ul class="list-disc mb-400">
-      <li>Group information that supports a task. The main action features on a button in the card footer.</li>
-      <li>Highlight an immediate action a person can take using the button.</li>
-      <li>Give a person the choice to learn more by selecting the card title headline link before moving to action.</li>
-    </ul>
-    <p>Note: In the action card, only the card title headline link and the button are interactive. The button is for a specific action</p>
-  </div>
-</div>
+{% endcomponentPreview %}
+
+<p class="mb-400">Use the action card to:</p>
+<ul class="list-disc mb-400">
+  <li>Group information that supports a task. The main action features on a button in the card footer.</li>
+  <li>Highlight an immediate action a person can take using the button.</li>
+  <li>Give a person the choice to learn more by selecting the card title headline link before moving to action.</li>
+</ul>
+<p>Note: In the action card, only the card title headline link and the button are interactive. The button is for a specific action</p>

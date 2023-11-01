@@ -40,39 +40,39 @@ Remarque : Pour Canada.ca, évitez d'utiliser des cartes au lieu des éléments 
 
 </article>
 
-<div>
-  <h2>Types de composants</h2>
-  <h3 class="mb-400 mt-400">Carte « Lien »</h3>
-  {% componentPreview "Aperçu de carte « Lien »" "py-400" "" %}
-  <gcds-card card-title="Titre de la carte" tag="Balise" href="#" description="Description destinée à accompagner le titre. Les textes plus longs seront tronqués avec ...">
-<div slot="footer">Infos contextuelles • metadonnées</div>
+## Types de composants
+
+### Carte « Lien »
+
+{% componentPreview "Aperçu de carte « Lien »" "px-300 py-400" "my-400" %}
+<gcds-card card-title="Titre de la carte" tag="Balise" href="#" description="Description destinée à accompagner le titre. Les textes plus longs seront tronqués avec ...">
+
+  <div slot="footer">Infos contextuelles • metadonnées</div>
 </gcds-card>
-  {% endcomponentPreview %}
+{% endcomponentPreview %}
 
-  <div class="mt-400">
-    <p class="mb-400">Utilisez la carte « Lien » aux fins suivantes :</p>
-    <ul class="list-disc mb-400">
-      <li>Structurer des renseignements relatifs à un même thème pour offrir au lectorat davantage de détails de manière progressive.</li>
-      <li>Inclure un lien permettant d'accéder à davantage d'informations. Ajouter un lien rendant l'ensemble de la carte interactive et cliquable.</li>
-      <li>Offrir une large cible cliquable permettant d'accéder à d'autres renseignements.</li>
-    </ul>
-  </div>
+<p class="mb-400">Utilisez la carte « Lien » aux fins suivantes :</p>
+<ul class="list-disc mb-400">
+  <li>Structurer des renseignements relatifs à un même thème pour offrir au lectorat davantage de détails de manière progressive.</li>
+  <li>Inclure un lien permettant d'accéder à davantage d'informations. Ajouter un lien rendant l'ensemble de la carte interactive et cliquable.</li>
+  <li>Offrir une large cible cliquable permettant d'accéder à d'autres renseignements.</li>
+</ul>
 
-<div>
-    <h3 class="mb-400 mt-400">Carte « Action »</h3>
-  {% componentPreview "Aperçu de carte « Action »" "py-400" "" %}
-  <gcds-card card-title="Titre de la carte" href="#" type="action" tag="Balise" description="Description destinée à accompagner le titre. Les textes plus longs seront tronqués avec ..." img-alt="#">
+### Carte « Action »
+
+{% componentPreview "Aperçu de carte « Action »" "px-300 py-400" "my-400" %}
+<gcds-card card-title="Titre de la carte" href="#" type="action" tag="Balise" description="Description destinée à accompagner le titre. Les textes plus longs seront tronqués avec ..." img-alt="#">
+
   <div slot="footer">
     <gcds-button>Libellé du bouton</gcds-button>
   </div>
 </gcds-card>
-  {% endcomponentPreview %}
-    <p class="mb-400">Utilisez la carte « Action » aux fins suivantes :</p>
-    <ul class="list-disc mb-400">
-      <li>Regrouper des renseignements permettant d'accomplir une tâche. La carte action compte un bouton dans le pied de page. </li>
-      <li>Souligner une action immédiate que peut entreprendre la personne à l'aide du bouton.</li>
-      <li>Offrir à une personne la possibilité d'en savoir plus en sélectionnant le titre avant de passer à l'action.</li>
-    </ul>
-    <p>Remarque : Dans la carte « Action », seuls le lien du titre et le bouton sont interactifs. Le bouton est consacré à une action spécifique.</p>
-  </div>
-</div>
+{% endcomponentPreview %}
+
+<p class="mb-400">Utilisez la carte « Action » aux fins suivantes :</p>
+<ul class="list-disc mb-400">
+  <li>Regrouper des renseignements permettant d'accomplir une tâche. La carte action compte un bouton dans le pied de page. </li>
+  <li>Souligner une action immédiate que peut entreprendre la personne à l'aide du bouton.</li>
+  <li>Offrir à une personne la possibilité d'en savoir plus en sélectionnant le titre avant de passer à l'action.</li>
+</ul>
+<p>Remarque : Dans la carte « Action », seuls le lien du titre et le bouton sont interactifs. Le bouton est consacré à une action spécifique.</p>
