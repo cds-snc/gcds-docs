@@ -1,0 +1,14 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: gcds-docs
+  description: >-
+    GC Design System Docs is a documentation website for GC Design System. |
+    Docs de Système de design GC est un site Web contenant de la documentation
+    portant sur Système de design GC.
+  labels:
+    license: MIT
+spec:
+  type: website
+  lifecycle: experimental
+  owner: cds-snc
