@@ -35,4 +35,4 @@ date: 'git Last Modified'
 ### Utilisez d'autres questions pour réduire le nombre d'options de sélection
 
 - Essayez de poser des questions aux utilisateur·rice·s avant d'utiliser la sélection afin de réduire le nombre d'options.
-- Si une liste d'éléments contient moins d'options (6-7 éléments ou moins), envisagez plutôt l'utilisation de <a href="{{ links.radio }}">boutons radio</a>.
+- Si une liste d'éléments contient moins d'options (6-7 éléments ou moins), envisagez plutôt l'utilisation de <gcds-link href="{{ links.radio }}">boutons radio</gcds-link>.

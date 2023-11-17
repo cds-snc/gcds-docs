@@ -35,4 +35,4 @@ date: 'git Last Modified'
 ### Use other questions to reduce select option size
 
 - Try asking the users other questions before using the select in order to reduce the amount of options.
-- If the list of items is smaller (6-7 items or less), consider using <a href="{{ links.radio }}">radio buttons</a> instead.
+- If the list of items is smaller (6-7 items or less), consider using <gcds-link href="{{ links.radio }}">radio buttons</gcds-link> instead.

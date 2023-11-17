@@ -10,7 +10,7 @@ date: 'git Last Modified'
 
 Use the search component so people can find information based on keywords.
 
-- Place the search component in the <a href="{{ links.header }}">header</a> below the language toggle and in line with the <a href="{{ links.signature }}">Government of Canada signature</a>.
+- Place the search component in the <gcds-link href="{{ links.header }}">header</gcds-link> below the language toggle and in line with the <gcds-link href="{{ links.signature }}">Government of Canada signature</gcds-link>.
 - Ensure the header is responsive so that the search appears below both the signature and the language toggle on mobile devices.
 
 ## Coding and accessibility for search

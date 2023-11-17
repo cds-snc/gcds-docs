@@ -30,7 +30,7 @@ Conseil : Visez la simplicité pour vos mises en page. Envisagez d'optimiser ch
 - Ajoutez de l'espace entre les colonnes pour réduire la charge cognitive liée à la lecture d'un contenu trop dense.
 - Dans la mesure du possible, alignez les objets verticalement et horizontalement.
 - Utilisez la propriété `gap` pour ajouter de l'espacement entre vos `columns` dans la grille.
-- Utilisez les <a href="{{ links.designTokens }}">unités de style</a> de Système de design GC comme référence pour la taille de votre `gap` dans la grille. Les mesures des unités correspondent aux valeurs d'espacement de l'attribut `gap`.
+- Utilisez les <gcds-link href="{{ links.designTokens }}">unités de style</gcds-link> de Système de design GC comme référence pour la taille de votre `gap` dans la grille. Les mesures des unités correspondent aux valeurs d'espacement de l'attribut `gap`.
 
 ### Choisissez une option pour des colonnes de largeur égale
 

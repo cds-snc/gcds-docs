@@ -38,7 +38,7 @@ Conseil : Visez la simplicité pour la disposition des grilles en concevant des
 
 - Ajoutez de l'espace entre les colonnes pour réduire la charge cognitive liée à la lecture d'un contenu trop dense.
 - Dans la mesure du possible, alignez les objets verticalement et horizontalement.
-- Sélectionnez la taille de l'écart, ou l'espacement entre les colonnes, en choisissant une option de mesure parmi nos <a href="{{ links.spacing }}">unités d'espacement</a>.
+- Sélectionnez la taille de l'écart, ou l'espacement entre les colonnes, en choisissant une option de mesure parmi nos <gcds-link href="{{ links.spacing }}">unités d'espacement</gcds-link>.
 
 ### Utilisez l'espacement pour véhiculer un sens particulier
 

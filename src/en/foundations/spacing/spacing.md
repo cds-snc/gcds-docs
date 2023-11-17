@@ -28,7 +28,7 @@ Spacing tokens help position elements onscreen and in components.
 
 ## Spacing tokens and accessibility
 
-GC Design System components meet level AAA of the <a href="{{ links.wcagTargetSize }}" target="_blank">Web Content Accessibility Guidelines (WCAG 2.1) <gcds-icon name="external-link" label="Opens in a new tab." margin-left="50" /></a> for both tap targets and visual presentation.
+GC Design System components meet level AAA of the <gcds-link external href="{{ links.wcagTargetSize }}" target="_blank">Web Content Accessibility Guidelines (WCAG 2.1)</gcds-link> for both tap targets and visual presentation.
 
 Spacing establishes visual hierarchy for content and guides focus to certain elements. Information that's too densely packed is difficult to read and increases cognitive load.
 

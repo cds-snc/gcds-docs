@@ -22,7 +22,7 @@ tags: ['errorsummaryEN', 'design']
 Keep in mind that errors interrupt the flow of a person's action in your product. This can be jarring and uncomfortable.
 
 - Provide a clear path to fixing the error. Errors elicit an emotional response that is heightened when the problem is difficult or impossible to resolve.
-- Make the <a href="{{ links.errorMessage }}">error message</a> and recovery obvious to get a person back on task and regain momentum.
+- Make the <gcds-link href="{{ links.errorMessage }}">error message</gcds-link> and recovery obvious to get a person back on task and regain momentum.
 - Keep the error summary list readable with short and specific error messages.
 - Limit the number of form components on a page that require a response.
 

@@ -18,7 +18,7 @@ Tous les composants de Système de design GC sont livrés avec une gestion des e
 Le résumé des erreurs de Système de design GC utilise l'attribut `listen` pour recueillir les erreurs. Lors de l'exécution de l'opération `onSubmit`, le résumé des erreurs dressera la liste des erreurs provenant des composants de Système de design GC. Les erreurs seront répertoriées dans le même ordre qu'elles apparaissent sur la page.
 
 - Activez tous les contrôles nécessaires pour résoudre l'une ou l'autre des erreurs.
-- Envisagez de remplacer tout <a href="{{ links.errorMessage }}">message d'erreur</a> générique par défaut par un texte qui définit le problème concret et la façon de le résoudre.
+- Envisagez de remplacer tout <gcds-link href="{{ links.errorMessage }}">message d'erreur</gcds-link> générique par défaut par un texte qui définit le problème concret et la façon de le résoudre.
 
 ### Utiliser le résumé des erreurs avec vos propres composants
 

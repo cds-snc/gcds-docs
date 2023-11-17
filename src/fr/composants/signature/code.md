@@ -14,7 +14,7 @@ Utilisez la signature comme image de marque claire et reconnaissable du gouverne
 
 ### Utilisation des types de signature et de mot-symbole
 
-Utilisez la signature dans <a href="{{ links.header }}">l'en-tête</a> du site et le mot-symbole dans <a href="{{ links.footer }}">le pied de page</a> du site.
+Utilisez la signature dans <gcds-link href="{{ links.header }}">l'en-tête</gcds-link> du site et le mot-symbole dans <gcds-link href="{{ links.footer }}">le pied de page</gcds-link> du site.
 
 - Utilisez l'attribut `type` pour définir la `signature`.
 - Utilisez l'attribut `type` pour définir le `wordmark`.

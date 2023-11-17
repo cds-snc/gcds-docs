@@ -25,7 +25,7 @@ Les composants de Système de design GC sont livrés avec une gestion des erreur
 Utilisez le résumé des erreurs pour interrompre l'envoi d'un formulaire lorsqu'on constate le besoin de :
 
 - Rendre les erreurs évidentes pour que l'on sache les reconnaître et y remédier;
-- Dresser une liste <a href="{{ links.errorMessage }}">des messages d'erreur</a> lorsqu'une personne doit ajouter des renseignements ou apporter des modifications à deux ou plusieurs éléments avant de pouvoir soumettre un formulaire.
+- Dresser une liste <gcds-link href="{{ links.errorMessage }}">des messages d'erreur</gcds-link> lorsqu'une personne doit ajouter des renseignements ou apporter des modifications à deux ou plusieurs éléments avant de pouvoir soumettre un formulaire.
 
 <article class="bg-full-width bg-primary text-light pt-500 pb-400 my-500">
 

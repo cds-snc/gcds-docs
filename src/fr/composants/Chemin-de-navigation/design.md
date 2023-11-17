@@ -20,7 +20,7 @@ date: 'git Last Modified'
 ### Structure du chemin de navigation — avec en-tête et titre H1
 
 <ol class="anatomy-list">
-  <li>L'<a href="{{ links.header }}"><strong>en-tête</strong></a> constitue un élément d'une image de marque fiable — pour les applications, les formulaires ou d'autres services numériques transactionnels.</li>
+  <li>L'<gcds-link href="{{ links.header }}"><strong>en-tête</strong></gcds-link> constitue un élément d'une image de marque fiable — pour les applications, les formulaires ou d'autres services numériques transactionnels.</li>
   <li>Le <strong>lien vers la page d'accueil</strong> ramène à la page d'accueil de la page Web ou du site actuel.</li>
   <li>Le <strong>lien de la page parent</strong> conduit vers la page parent de la page actuelle. Vous pouvez avoir jusqu'à trois liens vers des pages parents en plus de ceux vers la page d'accueil et la page d'accueil Canada.ca.</li>
   <li>Le  <strong>titre H1</strong> est un élément distinct du composant Chemin de navigation. Il indique aux lecteur·rice·s la nature de la page ou du site et sert de repère.</li>
@@ -44,7 +44,7 @@ Le chemin de navigation représente l'emplacement de la page courante par rappor
 - Évitez d'utiliser le composant Chemin de navigation pour illustrer l'évolution du parcours de l'utilisateur·rice.
 - Limitez le chemin de navigation à cinq niveaux. Un trop grand nombre de niveaux dans le chemin de navigation peut être accablant pour certaines personnes.
 
-Conseil : Si vous utilisez également d'autres composants de navigation, comme la <a href="{{ links.topNav }}">barre de navigation supérieure</a> et la <a href="{{ links.sideNav }}">barre de navigation latérale</a>, harmonisez-les de façon à ce que les éléments reflètent le parcours d'une personne sur le site. Cela offre une expérience de navigation uniforme et aide les utilisateur·rice·s à comprendre leur emplacement actuel.
+Conseil : Si vous utilisez également d'autres composants de navigation, comme la <gcds-link href="{{ links.topNav }}">barre de navigation supérieure</gcds-link> et la <gcds-link href="{{ links.sideNav }}">barre de navigation latérale</gcds-link>, harmonisez-les de façon à ce que les éléments reflètent le parcours d'une personne sur le site. Cela offre une expérience de navigation uniforme et aide les utilisateur·rice·s à comprendre leur emplacement actuel.
 
 ### Écrivez du texte spécifique pour le lien vers la page parent
 
@@ -54,4 +54,4 @@ Conseil : Si vous utilisez également d'autres composants de navigation, comme 
 
 ### Placez le chemin de navigation avant le contenu principal
 
-Placez le chemin de navigation en haut d'une page, avant le contenu principal. De cette façon, <a href="{{ links.button }}">le bouton « Passer au contenu principal »</a> permettra à l'utilisateur·rice d'ignorer tous les liens de navigation, y compris les chemins de navigation.
+Placez le chemin de navigation en haut d'une page, avant le contenu principal. De cette façon, <gcds-link href="{{ links.button }}">le bouton « Passer au contenu principal »</gcds-link> permettra à l'utilisateur·rice d'ignorer tous les liens de navigation, y compris les chemins de navigation.

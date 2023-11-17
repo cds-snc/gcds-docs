@@ -3,7 +3,7 @@ title: Search
 layout: 'layouts/component-documentation.njk'
 translationKey: 'searchDesign'
 tags: ['searchEN', 'design']
-date: "git Last Modified"
+date: 'git Last Modified'
 ---
 
 ## Search anatomy
@@ -21,5 +21,5 @@ date: "git Last Modified"
 
 ### Place the search in a predictable location in the header
 
-- Place the search component in the <a href="{{ links.header }}">header</a> below the language toggle and in line with the <a href="{{ links.signature }}">Government of Canada signature</a>.
+- Place the search component in the <gcds-link href="{{ links.header }}">header</gcds-link> below the language toggle and in line with the <gcds-link href="{{ links.signature }}">Government of Canada signature</gcds-link>.
 - Ensure the header is responsive so that the search appears below both the signature and the language toggle on mobile devices.

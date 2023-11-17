@@ -20,7 +20,7 @@ date: 'git Last Modified'
 ### Breadcrumbs anatomy – with header and H1 title
 
 <ol class="anatomy-list">
-  <li>The <a href="{{ links.header }}"><strong>header</strong></a> is part of a trusted brand — for apps, forms, or other transactional digital services.</li>
+  <li>The <gcds-link href="{{ links.header }}"><strong>header</strong></gcds-link> is part of a trusted brand — for apps, forms, or other transactional digital services.</li>
   <li>The <strong>home page link</strong> navigates back to the home page of the current webpage or site.</li>
   <li>The <strong>parent page link</strong> navigates to the parent page of the current page. You can have up to three parent page links in addition to the homepage and the Canada.ca home or 5 in total.</li>
   <li>The <strong>H1 title</strong> is a separate element from the breadcrumbs component. It tells readers what the page or site is about and acts a signpost, giving them a sense of place.</li>
@@ -44,7 +44,7 @@ Breadcrumbs represent the location of the current page in relation to the site's
 - Avoid using the breadcrumbs component to show progress through the user journey.
 - Limit breadcrumbs to 5 levels. Displaying too many levels of breadcrumbs items can be overwhelming.
 
-Tip: If using with other navigation components, like the <a href="{{ links.topNav }}">top navigation</a> and <a href="{{ links.sideNav }}">side navigation</a>, align both sets of links, so elements reflect a similar path through the site. This provides a consistent navigation experience and helps visitors understand their current location.
+Tip: If using with other navigation components, like the <gcds-link href="{{ links.topNav }}">top navigation</gcds-link> and <gcds-link href="{{ links.sideNav }}">side navigation</gcds-link>, align both sets of links, so elements reflect a similar path through the site. This provides a consistent navigation experience and helps visitors understand their current location.
 
 ### Write specific parent page link text
 
@@ -54,4 +54,4 @@ Tip: If using with other navigation components, like the <a href="{{ links.topNa
 
 ### Place breadcrumbs before the main element
 
-Place breadcrumbs at the top of a page, before the main content. This way the <a href="{{ links.button }}">skip-to-content button</a> can work to let a person skip all navigation links, including breadcrumbs.
+Place breadcrumbs at the top of a page, before the main content. This way the <gcds-link href="{{ links.button }}">skip-to-content button</gcds-link> can work to let a person skip all navigation links, including breadcrumbs.

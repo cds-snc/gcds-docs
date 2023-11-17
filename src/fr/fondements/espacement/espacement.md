@@ -28,7 +28,7 @@ Les unités de style d'espacement aident à disposer les éléments à l'écran 
 
 ## Unités de style d'espacement et accessibilité
 
-Les composants de Système de design GC sont conformes au niveau AAA des <a href="{{ links.wcagTargetSize }}" target="_blank">Règles pour l'accessibilité des contenus Web 2.1 (WCAG 2.1)<gcds-icon name="external-link" label="S'ouvre dans un nouvel onglet." margin-left="50" /></a> (site Web anglais) en matière de cibles pour les pointeurs d'entrée et de présentation visuelle.
+Les composants de Système de design GC sont conformes au niveau AAA des <gcds-link external href="{{ links.wcagTargetSize }}" target="_blank">Règles pour l'accessibilité des contenus Web 2.1 (WCAG 2.1)</gcds-link> (site Web anglais) en matière de cibles pour les pointeurs d'entrée et de présentation visuelle.
 
 L'espacement permet d'établir une hiérarchie visuelle dans le contenu et d'attirer l'attention vers certains éléments. Un contenu trop dense est plus difficile à lire et augmente la charge cognitive du lecteur.
 

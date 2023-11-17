@@ -48,7 +48,7 @@ Les unités de style typographiques comprennent le style, la disposition et l'ap
 
 ## Typographie et accessibilité
 
-Les composants de Système de design GC <a href="{{ links.wcagTextSpacing }}" target="_blank">sont conformes au niveau AA des Règles pour l'accessibilité des contenus Web 2.1 (WCAG 2.1) <gcds-icon name="external-link" label="S'ouvre dans un nouvel onglet." margin-left="50" /></a> (site Web anglais) en matière d'espacement du texte et au niveau AAA en matière de présentation visuelle.
+Les composants de Système de design GC <gcds-link external href="{{ links.wcagTextSpacing }}" target="_blank">sont conformes au niveau AA des Règles pour l'accessibilité des contenus Web 2.1 (WCAG 2.1)</gcds-link> (site Web anglais) en matière d'espacement du texte et au niveau AAA en matière de présentation visuelle.
 
 ## Rythme vertical et tailles d'espacement en rem
 

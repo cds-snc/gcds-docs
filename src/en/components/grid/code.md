@@ -30,7 +30,7 @@ Tip: Keep layouts simple. Consider optimizing each layout for mobile, tablet, an
 - Add space between columns to reduce the cognitive load of reading content too densely packed together.
 - Whenever possible, align objects both vertically and horizontally.
 - Use the `gap` property to add spacing between your `columns` in the grid.
-- Use GC Design System <a href="{{ links.designTokens }}">design tokens</a> as a reference for the size of the `gap` in the grid. The tokens measurements match up with the spacing values for the `gap` attribute.
+- Use GC Design System <gcds-link href="{{ links.designTokens }}">design tokens</gcds-link> as a reference for the size of the `gap` in the grid. The tokens measurements match up with the spacing values for the `gap` attribute.
 
 ### Choose an option for equal width columns
 
