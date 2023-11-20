@@ -202,7 +202,12 @@ const GcdsInput$1 = /*@__PURE__*/ proxyCustomElement(class GcdsInput extends HTM
     "hasError": [32],
     "lang": [32],
     "validate": [64]
-  }, [[4, "submit", "submitListener"]]]);
+  }, [[4, "submit", "submitListener"]], {
+    "disabled": ["validateDisabledInput"],
+    "errorMessage": ["validateErrorMessage"],
+    "validator": ["validateValidator"],
+    "hasError": ["validateHasError"]
+  }]);
 function defineCustomElement$1() {
   if (typeof customElements === "undefined") {
     return;

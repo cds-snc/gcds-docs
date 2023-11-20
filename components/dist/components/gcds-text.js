@@ -10,8 +10,8 @@ const GcdsText$1 = /*@__PURE__*/ proxyCustomElement(class GcdsText extends HTMLE
     this.textRole = 'primary';
     this.characterLimit = true;
     this.display = 'block';
-    this.marginTop = undefined;
-    this.marginBottom = undefined;
+    this.marginTop = '0';
+    this.marginBottom = '400';
     this.size = 'body';
   }
   validateTextRole(newValue) {
@@ -52,8 +52,8 @@ const GcdsText$1 = /*@__PURE__*/ proxyCustomElement(class GcdsText extends HTMLE
       '900',
       '1000',
     ];
-    if (this.marginTop && !values.includes(newValue)) {
-      console.error('Not a valid margin.');
+    if (!values.includes(newValue)) {
+      this.marginTop = '0';
     }
   }
   validateMarginBottom(newValue) {
@@ -75,8 +75,8 @@ const GcdsText$1 = /*@__PURE__*/ proxyCustomElement(class GcdsText extends HTMLE
       '900',
       '1000',
     ];
-    if (this.marginBottom && !values.includes(newValue)) {
-      console.error('Not a valid margin.');
+    if (!values.includes(newValue)) {
+      this.marginBottom = '400';
     }
   }
   validateSize(newValue) {
@@ -119,6 +119,12 @@ const GcdsText$1 = /*@__PURE__*/ proxyCustomElement(class GcdsText extends HTMLE
     "marginTop": [1025, "margin-top"],
     "marginBottom": [1025, "margin-bottom"],
     "size": [1025]
+  }, undefined, {
+    "textRole": ["validateTextRole"],
+    "display": ["validateDisplay"],
+    "marginTop": ["validateMarginTop"],
+    "marginBottom": ["validateMarginBottom"],
+    "size": ["validateSize"]
   }]);
 function defineCustomElement$1() {
   if (typeof customElements === "undefined") {

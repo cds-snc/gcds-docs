@@ -4,7 +4,7 @@ export default {
   argTypes: Object.assign({
     // Props
     display: {
-      control: 'radio',
+      control: 'select',
       options: ['compact', 'full'],
       table: {
         type: { summary: 'string' },

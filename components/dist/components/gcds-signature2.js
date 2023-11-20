@@ -115,6 +115,9 @@ const GcdsSignature = /*@__PURE__*/ proxyCustomElement(class GcdsSignature exten
     "variant": [1537],
     "hasLink": [1028, "has-link"],
     "lang": [32]
+  }, undefined, {
+    "type": ["validateType"],
+    "variant": ["validateVariant"]
   }]);
 function defineCustomElement() {
   if (typeof customElements === "undefined") {

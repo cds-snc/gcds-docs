@@ -16,7 +16,8 @@ export default {
         defaultValue: { summary: '-' },
       },
     }, multiple: {
-      control: 'boolean',
+      control: { type: 'select' },
+      options: [false, true],
       table: {
         type: { summary: 'boolean' },
         defaultValue: { summary: '-' },
@@ -32,7 +33,8 @@ export default {
         required: true,
       },
     }, disabled: {
-      control: 'boolean',
+      control: { type: 'select' },
+      options: [false, true],
       table: {
         type: { summary: 'boolean' },
         defaultValue: { summary: false },
@@ -60,7 +62,8 @@ export default {
         required: true,
       },
     }, required: {
-      control: 'boolean',
+      control: { type: 'select' },
+      options: [false, true],
       table: {
         type: { summary: 'boolean' },
         defaultValue: { summary: false },

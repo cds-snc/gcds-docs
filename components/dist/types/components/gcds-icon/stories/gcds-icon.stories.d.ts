@@ -73,7 +73,10 @@ declare const _default: {
     };
     fixedWidth: {
       name: string;
-      control: string;
+      control: {
+        type: string;
+      };
+      options: boolean[];
       table: {
         type: {
           summary: string;

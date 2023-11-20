@@ -181,7 +181,11 @@ const GcdsFieldset$1 = /*@__PURE__*/ proxyCustomElement(class GcdsFieldset exten
     "lang": [32],
     "inheritedAttributes": [32],
     "validate": [64]
-  }, [[0, "gcdsBlur", "blurValidate"], [16, "gcdsGroupError", "gcdsParentGroupError"], [16, "gcdsGroupErrorClear", "gcdsParentGroupErrorClear"], [4, "submit", "submitListener"]]]);
+  }, [[0, "gcdsBlur", "blurValidate"], [16, "gcdsGroupError", "gcdsParentGroupError"], [16, "gcdsGroupErrorClear", "gcdsParentGroupErrorClear"], [4, "submit", "submitListener"]], {
+    "errorMessage": ["validateErrorMessage"],
+    "disabled": ["validateDisabledFieldset", "handleDisabledChange"],
+    "validator": ["validateValidator"]
+  }]);
 function defineCustomElement$1() {
   if (typeof customElements === "undefined") {
     return;

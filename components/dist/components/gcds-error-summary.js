@@ -159,7 +159,10 @@ const GcdsErrorSummary$1 = /*@__PURE__*/ proxyCustomElement(class GcdsErrorSumma
     "lang": [32],
     "errorQueue": [32],
     "hasSubmitted": [32]
-  }, [[4, "gcdsError", "errorListener"], [4, "gcdsValid", "validListener"], [4, "submit", "submitListener"]]]);
+  }, [[4, "gcdsError", "errorListener"], [4, "gcdsValid", "validListener"], [4, "submit", "submitListener"]], {
+    "listen": ["listenChanged"],
+    "errorLinks": ["errorLinksChanged"]
+  }]);
 function defineCustomElement$1() {
   if (typeof customElements === "undefined") {
     return;

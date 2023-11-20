@@ -214,7 +214,12 @@ const GcdsCheckbox$1 = /*@__PURE__*/ proxyCustomElement(class GcdsCheckbox exten
     "hasError": [32],
     "lang": [32],
     "validate": [64]
-  }, [[16, "gcdsGroupError", "gcdsGroupError"], [16, "gcdsGroupErrorClear", "gcdsGroupErrorClear"], [4, "submit", "submitListener"]]]);
+  }, [[16, "gcdsGroupError", "gcdsGroupError"], [16, "gcdsGroupErrorClear", "gcdsGroupErrorClear"], [4, "submit", "submitListener"]], {
+    "disabled": ["validateDisabledCheckbox"],
+    "errorMessage": ["validateErrorMessage"],
+    "validator": ["validateValidator"],
+    "hasError": ["validateHasError"]
+  }]);
 function defineCustomElement$1() {
   if (typeof customElements === "undefined") {
     return;

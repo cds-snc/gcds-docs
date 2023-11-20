@@ -2,7 +2,10 @@ declare const _default: {
   title: string;
   argTypes: {
     border: {
-      control: string;
+      control: {
+        type: string;
+      };
+      options: boolean[];
       table: {
         type: {
           summary: string;
@@ -13,7 +16,10 @@ declare const _default: {
       };
     };
     centered: {
-      control: string;
+      control: {
+        type: string;
+      };
+      options: boolean[];
       table: {
         type: {
           summary: string;

@@ -25,7 +25,7 @@ export default {
         defaultValue: { summary: 'Canada.ca' },
       },
     }, method: {
-      control: 'radio',
+      control: 'select',
       options: ['get', 'post'],
       table: {
         type: { summary: 'string' },

@@ -16,11 +16,13 @@
     "components/gcds-footer/gcds-footer.js",
     "components/gcds-grid/gcds-grid.js",
     "components/gcds-header/gcds-header.js",
+    "components/gcds-heading/gcds-heading.js",
     "components/gcds-hint/gcds-hint.js",
     "components/gcds-icon/gcds-icon.js",
     "components/gcds-input/gcds-input.js",
     "components/gcds-label/gcds-label.js",
     "components/gcds-lang-toggle/gcds-lang-toggle.js",
+    "components/gcds-link/gcds-link.js",
     "components/gcds-nav-group/gcds-nav-group.js",
     "components/gcds-nav-link/gcds-nav-link.js",
     "components/gcds-pagination/gcds-pagination.js",
@@ -40,8 +42,8 @@
   ],
   "compiler": {
     "name": "@stencil/core",
-    "version": "4.2.1",
-    "typescriptVersion": "5.1.6"
+    "version": "4.7.0",
+    "typescriptVersion": "5.2.2"
   },
   "collections": [],
   "bundles": []

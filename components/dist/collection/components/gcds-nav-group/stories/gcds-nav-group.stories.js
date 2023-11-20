@@ -32,7 +32,8 @@ export default {
       },
     }, open: {
       name: 'open',
-      control: 'boolean',
+      control: { type: 'select' },
+      options: [false, true],
       table: {
         type: { summary: 'boolean' },
         defaultValue: { summary: false },

@@ -4,7 +4,8 @@ export default {
   argTypes: Object.assign({
     // Props
     listen: {
-      control: 'boolean',
+      control: { type: 'select' },
+      options: [false, true],
       table: {
         type: { summary: 'boolean' },
         defaultValue: { summary: true },

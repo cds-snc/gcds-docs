@@ -17,7 +17,10 @@ declare const _default: {
       };
     };
     open: {
-      control: string;
+      control: {
+        type: string;
+      };
+      options: boolean[];
       table: {
         type: {
           summary: string;

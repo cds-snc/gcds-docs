@@ -5,7 +5,8 @@ export default {
     // Props
     hideCanadaLink: {
       name: 'hide-canada-link',
-      control: 'boolean',
+      control: { type: 'select' },
+      options: [false, true],
       table: {
         type: { summary: 'boolean' },
         defaultValue: { summary: false },

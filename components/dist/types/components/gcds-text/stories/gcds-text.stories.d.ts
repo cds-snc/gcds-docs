@@ -3,7 +3,10 @@ declare const _default: {
   argTypes: {
     characterLimit: {
       name: string;
-      control: string;
+      control: {
+        type: string;
+      };
+      options: boolean[];
       table: {
         type: {
           summary: string;

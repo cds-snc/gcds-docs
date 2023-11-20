@@ -169,6 +169,11 @@ const GcdsButton = /*@__PURE__*/ proxyCustomElement(class GcdsButton extends HTM
     "inheritedAttributes": [32],
     "lang": [32],
     "focusElement": [64]
+  }, undefined, {
+    "type": ["validateType"],
+    "buttonRole": ["validateButtonRole"],
+    "buttonStyle": ["validateButtonStyle"],
+    "size": ["validateSize"]
   }]);
 function defineCustomElement() {
   if (typeof customElements === "undefined") {

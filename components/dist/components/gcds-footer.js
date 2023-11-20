@@ -363,6 +363,9 @@ const GcdsFooter$1 = /*@__PURE__*/ proxyCustomElement(class GcdsFooter extends H
     "contextualLinks": [1025, "contextual-links"],
     "subLinks": [1025, "sub-links"],
     "lang": [32]
+  }, undefined, {
+    "contextualLinks": ["contextualLinksChanged"],
+    "subLinks": ["subLinksChanged"]
   }]);
 function defineCustomElement$1() {
   if (typeof customElements === "undefined") {

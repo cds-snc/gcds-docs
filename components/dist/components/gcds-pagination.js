@@ -346,6 +346,10 @@ const GcdsPagination$1 = /*@__PURE__*/ proxyCustomElement(class GcdsPagination e
     "pageChangeHandler": [16],
     "currentStep": [32],
     "lang": [32]
+  }, undefined, {
+    "currentPage": ["watchCurrentPage"],
+    "url": ["urlChanged"],
+    "lang": ["watchLang"]
   }]);
 function defineCustomElement$1() {
   if (typeof customElements === "undefined") {

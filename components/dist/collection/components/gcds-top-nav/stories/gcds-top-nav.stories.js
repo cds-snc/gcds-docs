@@ -14,7 +14,7 @@ export default {
         required: true,
       },
     }, alignment: {
-      control: { type: 'radio' },
+      control: { type: 'select' },
       options: ['right', 'left', 'center'],
       table: {
         type: { summary: 'string' },

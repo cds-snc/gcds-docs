@@ -134,7 +134,9 @@ const GcdsRadio$1 = /*@__PURE__*/ proxyCustomElement(class GcdsRadio extends HTM
     "parentError": [32],
     "inheritedAttributes": [32],
     "lang": [32]
-  }, [[4, "gcdsRadioChange", "gcdsradioChangeEventHandler"], [16, "gcdsGroupError", "gcdsGroupError"], [16, "gcdsGroupErrorClear", "gcdsGroupErrorClear"]]]);
+  }, [[4, "gcdsRadioChange", "gcdsradioChangeEventHandler"], [16, "gcdsGroupError", "gcdsGroupError"], [16, "gcdsGroupErrorClear", "gcdsGroupErrorClear"]], {
+    "hasError": ["validateHasError"]
+  }]);
 function defineCustomElement$1() {
   if (typeof customElements === "undefined") {
     return;

@@ -4,6 +4,16 @@ export interface ComponentDecorator {
 }
 export interface ComponentOptions {
     /**
+     * When set to `true` this component will be form-associated. See
+     * https://stenciljs.com/docs/next/form-associated documentation on how to
+     * build form-associated Stencil components that integrate into forms like
+     * native browser elements such as `<input>` and `<textarea>`.
+     *
+     * The {@link AttachInternals} decorator allows for access to the
+     * `ElementInternals` object to modify the associated form.
+     */
+    formAssociated?: boolean;
+    /**
      * Tag name of the web component. Ideally, the tag name must be globally unique,
      * so it's recommended to choose an unique prefix for all your components within the same collection.
      *
@@ -107,6 +117,9 @@ export interface EventOptions {
      */
     composed?: boolean;
 }
+export interface AttachInternalsDecorator {
+    (): PropertyDecorator;
+}
 export interface ListenDecorator {
     (eventName: string, opts?: ListenOptions): CustomMethodDecorator<any>;
 }
@@ -175,6 +188,12 @@ export declare const Element: ElementDecorator;
  * https://stenciljs.com/docs/events
  */
 export declare const Event: EventDecorator;
+/**
+ * If the `formAssociated` option is set in options passed to the
+ * `@Component()` decorator then this decorator may be used to get access to the
+ * `ElementInternals` instance associated with the component.
+ */
+export declare const AttachInternals: AttachInternalsDecorator;
 /**
  * The `Listen()` decorator is for listening DOM events, including the ones
  * dispatched from `@Events()`.
@@ -1115,11 +1134,13 @@ export declare namespace JSXBase {
         autocomplete?: string;
     }
     interface SourceHTMLAttributes<T> extends HTMLAttributes<T> {
+        height?: number;
         media?: string;
         sizes?: string;
         src?: string;
         srcSet?: string;
         type?: string;
+        width?: number;
     }
     interface StyleHTMLAttributes<T> extends HTMLAttributes<T> {
         media?: string;

@@ -18,7 +18,10 @@ declare const _default: {
     };
     current: {
       name: string;
-      control: string;
+      control: {
+        type: string;
+      };
+      options: boolean[];
       table: {
         type: {
           summary: string;

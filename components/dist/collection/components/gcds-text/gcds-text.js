@@ -4,8 +4,8 @@ export class GcdsText {
     this.textRole = 'primary';
     this.characterLimit = true;
     this.display = 'block';
-    this.marginTop = undefined;
-    this.marginBottom = undefined;
+    this.marginTop = '0';
+    this.marginBottom = '400';
     this.size = 'body';
   }
   validateTextRole(newValue) {
@@ -46,8 +46,8 @@ export class GcdsText {
       '900',
       '1000',
     ];
-    if (this.marginTop && !values.includes(newValue)) {
-      console.error('Not a valid margin.');
+    if (!values.includes(newValue)) {
+      this.marginTop = '0';
     }
   }
   validateMarginBottom(newValue) {
@@ -69,8 +69,8 @@ export class GcdsText {
       '900',
       '1000',
     ];
-    if (this.marginBottom && !values.includes(newValue)) {
-      console.error('Not a valid margin.');
+    if (!values.includes(newValue)) {
+      this.marginBottom = '400';
     }
   }
   validateSize(newValue) {
@@ -180,7 +180,8 @@ export class GcdsText {
           "text": "Adds margin above the text."
         },
         "attribute": "margin-top",
-        "reflect": false
+        "reflect": false,
+        "defaultValue": "'0'"
       },
       "marginBottom": {
         "type": "string",
@@ -197,7 +198,8 @@ export class GcdsText {
           "text": "Adds margin below the text."
         },
         "attribute": "margin-bottom",
-        "reflect": false
+        "reflect": false,
+        "defaultValue": "'400'"
       },
       "size": {
         "type": "string",
