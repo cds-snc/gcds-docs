@@ -45,9 +45,9 @@ Colour tokens define colour for components and global styles.
 
 ## Colour tokens and accessibility
 
-GC Design System components meet level AA of the <a href="{{ links.wcag }}" target="_blank">Web Content Accessibility Guidelines (WCAG 2.1) <gcds-icon name="external-link" label="Opens in a new tab." margin-left="50" /></a> colour contrast standards for text and interactive elements.
+GC Design System components meet level AA of the <gcds-link external href="{{ links.wcag }}" target="_blank">Web Content Accessibility Guidelines (WCAG 2.1)</gcds-link> colour contrast standards for text and interactive elements.
 
-When you use global tokens, check if your colour combinations meet standards for accessible colour contrast using <a href="{{ links.webaim }}" target="_blank">WebAIM Contrast Checker <gcds-icon name="external-link" label="Opens in a new tab." margin-left="50" /></a>.
+When you use global tokens, check if your colour combinations meet standards for accessible colour contrast using <gcds-link external href="{{ links.webaim }}" target="_blank">WebAIM Contrast Checker</gcds-link>.
 
 ## Select colour tokens purposefully
 

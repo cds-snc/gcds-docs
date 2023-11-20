@@ -29,7 +29,7 @@ Have questions? Something you'd change or you'd like to see? Share your feedback
 
 Ask us about GC Design System, make a suggestion, or request a component you'd like to see.
 
-Fill out this form or submit an issue through GitHub for <a href="{{ links.githubTokensIssues }}" target="_blank">tokens <gcds-icon name="external-link" label="Opens in a new tab." margin-left="50" /></a>, <a href="{{ links.githubIssues }}" target="_blank">components <gcds-icon name="external-link" label="Opens in a new tab." margin-left="50" /></a>, or <a href="{{ links.githubDocsIssues }}" target="_blank">documentation <gcds-icon name="external-link" label="Opens in a new tab." margin-left="50" /></a>.
+Fill out this form or submit an issue through GitHub for <gcds-link external href="{{ links.githubTokensIssues }}" target="_blank">tokens</gcds-link>, <gcds-link external href="{{ links.githubIssues }}" target="_blank">components</gcds-link>, or <gcds-link external href="{{ links.githubDocsIssues }}" target="_blank">documentation</gcds-link>.
 
 <form class="my-500 contact-us-form" name="contactEN" method="post" style="min-height: 32rem;">
   <input type="hidden" name="form-name" value="contactEN" />

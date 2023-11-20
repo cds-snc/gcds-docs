@@ -14,7 +14,7 @@ Use the theme and topic menu to provide global navigation to Government of Canad
 
 ### Use the theme and topic menu with other components
 
-Add the theme and topic menu directly to the <a href="{{ links.header }}">header</a> component by passing a child element with the `slot="menu"` attribute in the header. This will place the theme and topic menu in the header after the language toggle, signature, and search slots.
+Add the theme and topic menu directly to the <gcds-link href="{{ links.header }}">header</gcds-link> component by passing a child element with the `slot="menu"` attribute in the header. This will place the theme and topic menu in the header after the language toggle, signature, and search slots.
 
 **Note**: If applying the theme and topic menu to the front page of Canada.ca, use the `home` attribute to render with the correct styling.
 

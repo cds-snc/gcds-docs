@@ -47,7 +47,7 @@ Typography tokens include the style, arrangement, and appearance of letters, num
 
 ## Typography and and accessibility
 
-GC Design System components meet <a href="{{ links.wcagTextSpacing }}" target="_blank">level AA of the Web Content Accessibility Guidelines (WCAG 2.1) <gcds-icon name="external-link" label="Opens in a new tab." margin-left="50" /></a> for text spacing and AAA for visual presentation.
+GC Design System components meet <gcds-link external href="{{ links.wcagTextSpacing }}" target="_blank">level AA of the Web Content Accessibility Guidelines (WCAG 2.1)</gcds-link> for text spacing and AAA for visual presentation.
 
 ## Vertical rhythm and rem spacing sizes
 

@@ -18,7 +18,7 @@ All GC Design System components come with default error handling for required fo
 The GC Design System error summary uses the `listen` attribute to collect errors. The error summary will list errors from GC Design System components `onSubmit`. Errors are listed in the same order as they appear on the page.
 
 - Enable any controls the person will need to access to recover from any of the errors.
-- Consider replacing any generic default <a href="{{ links.errorMessage }}">error message</a> with text that defines the specific problem and how a person can fix it.
+- Consider replacing any generic default <gcds-link href="{{ links.errorMessage }}">error message</gcds-link> with text that defines the specific problem and how a person can fix it.
 
 ### Opt to use the error summary with your own component instances
 

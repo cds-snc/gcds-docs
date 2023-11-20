@@ -31,14 +31,14 @@ date: 'git Last Modified'
 
 <article class="py-450">
   <h2 class="mb-400">A design system just for you</h2>
-  <p class="mb-500">Take a look around. <a class="link-default" href="{{ links.about }}">Tell us what you think</a>.</p>
+  <p class="mb-500">Take a look around. <gcds-link href="{{ links.about }}">Tell us what you think</gcds-link>.</p>
   <gcds-grid tag="ul" columns="1fr" columns-tablet="1fr 1fr" columns-desktop="1fr 1fr 1fr" gap="450">
     <li class="list-none">
       <img class="mb-200" src="../../images/common/home/icon-components.svg" alt="" />
       <h3 class="mb-400">Components</h3>
       <p class="mb-400">User interface building blocks address different user objectives.</p>
       <p class="mb-400">Select reusable code for common components, paired with best practice advice, for the framework you're using.</p>
-      <a class="link-default" href="{{ links.components }}">View components</a>
+      <gcds-link href="{{ links.components }}">View components</gcds-link>
     </li>
     <li class="list-none">
       <img class="mb-200" src="../../images/common/home/icon-patterns.svg" alt="" />
@@ -52,7 +52,7 @@ date: 'git Last Modified'
       <h3 class="mb-400">Design tokens</h3>
       <p class="mb-400">Brand and design decisions built into code.</p>
       <p class="mb-400">Learn how encoded decisions shape the design of government services for a consistent visual experience.</p>
-      <a class="link-default" href="{{ links.foundations }}">View tokens</a>
+      <gcds-link href="{{ links.foundations }}">View tokens</gcds-link>
     </li>
   </gcds-grid>
 </article>
@@ -61,11 +61,15 @@ date: 'git Last Modified'
   <h2 class="mb-400">What's new</h2>
   <gcds-grid tag="ul" columns="1fr" columns-tablet="1fr 1fr" columns-desktop="1fr 1fr 1fr" gap="450">
     <li class="list-none bg-white px-250 py-450 b-radius-md">
-      <h3 class="mb-400"><a class="link-inherit" href="{{ links.releaseNotes }}" target="_blank">Release notes <gcds-icon name="external-link" label="Opens in a new tab." margin-left="50" /></a></h3>
+      <h3 class="mb-400">
+        <gcds-link external href="{{ links.releaseNotes }}">Release notes</gcds-link>
+      </h3>
       <p>The latest additions.</p>
     </li>
     <li class="list-none bg-white px-250 py-450 b-radius-md">
-      <h3 class="mb-400"><a class="link-inherit" href="{{ links.comingSoon }}">Coming soon</a></h3>
+      <h3 class="mb-400">
+        <gcds-link href="{{ links.comingSoon }}">Coming soon</gcds-link>
+      </h3>
       <p>What we're working on.</p>
     </li>
   </gcds-grid>
@@ -76,5 +80,5 @@ date: 'git Last Modified'
   <h3 class="mb-400">Top navigation</h3>
   <p class="mb-450">A top navigation is a horizontal list of page links. Use a top navigation to help a person find their way around your web page or site.</p>
   <img class="d-block mb-450" src="../../images/common/components/preview-top-nav.svg" alt="Top navigation shows site navigation with a dark blue box followed by two greyed boxes, the last having a dark blue line underneath to show selection." />
-  <a href="{{ links.topNav }}">Read more about top navigation</a>
+  <gcds-link href="{{ links.topNav }}">Read more about top navigation</gcds-link>
 </article>

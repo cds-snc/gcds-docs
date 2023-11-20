@@ -38,7 +38,7 @@ Tip: Keep grid layouts simple by designing for mobile, tablet, and desktop exper
 
 - Add space between columns to reduce the cognitive load of reading content too densely packed together.
 - Whenever possible, align objects both vertically and horizontally.
-- Select the gap size, or space between columns, by choosing a measurement option from our <a href="{{ links.spacing }}">spacing tokens</a>.
+- Select the gap size, or space between columns, by choosing a measurement option from our <gcds-link href="{{ links.spacing }}">spacing tokens</gcds-link>.
 
 ### Communicate meaning by adjusting spacing
 

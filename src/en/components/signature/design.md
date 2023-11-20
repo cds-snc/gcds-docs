@@ -9,8 +9,8 @@ date: 'git Last Modified'
 ## Signature anatomy
 
 <ol class="anatomy-list">
-  <li>The <strong>Government of Canada Signature</strong> is a brand identifier found in the site’s <a href="{{ links.header }}">header</a>. The signature is used as a global link to the site’s homepage.</li>
-  <li>The <strong>Canada Wordmark</strong> is a brand identifier found in the site’s <a href="{{ links.footer }}">footer</a>. It reinforces the brand by communicating to a site visitor that they’re reading content from the Government of Canada.</li>
+  <li>The <strong>Government of Canada Signature</strong> is a brand identifier found in the site's <gcds-link href="{{ links.header }}">header</gcds-link>. The signature is used as a global link to the site's homepage.</li>
+  <li>The <strong>Canada Wordmark</strong> is a brand identifier found in the site's <gcds-link href="{{ links.footer }}">footer</gcds-link>. It reinforces the brand by communicating to a site visitor that they're reading content from the Government of Canada.</li>
 </ol>
 
 <img class="b-sm b-default p-400" src="/images/en/components/anatomy/gcds-signature-anatomy-en.svg" alt="Signature anatomy showing the labels 1 (Government of Canada Signature) and 2 (Canada Wordmark)" />

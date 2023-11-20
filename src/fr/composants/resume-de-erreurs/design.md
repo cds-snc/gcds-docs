@@ -22,7 +22,7 @@ tags: ['errorsummaryFR', 'design']
 N'oubliez pas que les erreurs interrompent le déroulement d'une action. Cette situation peut s'avérer dérangeante et désagréable pour vos utilisateur·rice·s.
 
 - Clarifiez la démarche à suivre pour corriger l'erreur. Les erreurs suscitent une réaction émotionnelle d'autant plus forte que le problème est difficile ou impossible à résoudre.
-- Rédigez un <a href="{{ links.errorMessage }}">message d'erreur</a> clair et expliquez comment y remédier pour permettre à la personne de se remettre à la tâche.
+- Rédigez un <gcds-link href="{{ links.errorMessage }}">message d'erreur</gcds-link> clair et expliquez comment y remédier pour permettre à la personne de se remettre à la tâche.
 - Assurez-vous de rédiger des messages d'erreur courts et précis afin de rendre la liste des erreurs lisible.
 - Limitez le nombre de composants de formulaire par page nécessitant une réponse.
 

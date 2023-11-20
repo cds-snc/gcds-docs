@@ -25,7 +25,7 @@ GC Design System form components come with default error handling. When a person
 Use an error summary to interrupt a person who's submitting a form when there is a problem or a series of problems to:
 
 - Make errors obvious so a person knows about them and how to address them.
-- List <a href="{{ links.errorMessage }}">error messages</a> when a person needs to add information or make a correction to two or more components before they can submit a form.
+- List <gcds-link href="{{ links.errorMessage }}">error messages</gcds-link> when a person needs to add information or make a correction to two or more components before they can submit a form.
 
 <article class="bg-full-width bg-primary text-light pt-500 pb-400 my-500">
   <h2 class="mt-0 mb-400">Related components</h2>

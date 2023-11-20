@@ -36,7 +36,7 @@ Use date modified to:
 
 <div class="remove-empty-p">
 <gcds-grid columns="1fr" columns-tablet="1fr 2fr" gap="500" align-items="start">
-  {% componentPreview "Date type preview" "py-400" "" %}
+  {% componentPreview "Date type preview" "px-300 py-400" "" %}
   <gcds-date-modified>2023-08-22</gcds-date-modified>
   {% endcomponentPreview %}
   <div>
@@ -49,7 +49,7 @@ Use date modified to:
 </gcds-grid>
 <br/>
 <gcds-grid columns="1fr" columns-tablet="1fr 2fr" gap="500" align-items="start">
-  {% componentPreview "Version type preview" "py-400" "" %}
+  {% componentPreview "Version type preview" "px-300 py-400" "" %}
   <gcds-date-modified type="version">1.0.0</gcds-date-modified>
   {% endcomponentPreview %}
   <div>
