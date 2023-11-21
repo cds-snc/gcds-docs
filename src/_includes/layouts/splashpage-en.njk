@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8"/>
+		<title>{% block page_title %}{{ title }} - {{ base[locale].gcds }}{% endblock %}</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+		<link rel="schema.dcterms" href="http://purl.org/dc/terms/" />
+		<meta name="description" content="{{ page.description-en }}" />
+		<meta name="dcterms.description" content="{{ page.description-en }}" />
+		<meta name="dcterms.creator" content="{{ page.creator-en }}" />
+		<meta name="dcterms.title" content="{{ page.title }}" />
+		<meta name="dcterms.issued" title="W3CDTF" content="{{ page.dateIssued }}" />
+		<meta name="dcterms.modified" title="W3CDTF" content="{{ page.date }}" />
+		<meta name="dcterms.subject" content="{{ page.subject-en }}" />
+		<meta name="dcterms.language" title="ISO639-2" content="eng" />
+		<meta name="robots" content="noindex, follow" />
+
+		<meta property="dcterms:issued" content="{{ page.dateIssued }}">
+		<meta property="dcterms:modified" content="{{ page.date }}">
+		<meta property="dcterms:title" lang="en" content="{{ page.title }}" />
+		<meta property="dcterms:creator" lang="en" content="{{ page.creator-en }}">
+		<meta property="dcterms:subject" lang="en" title="gccore" content="{{ page.subject-en }}" />
+		<meta property="dcterms:description" lang="en" content="{{ page.description-en }}" />
+		<meta property="dcterms:title" lang="fr" content="{{ page.title }}" />
+		<meta property="dcterms:creator" lang="fr" content="{{ page.creator-fr }}">
+		<meta property="dcterms:subject" lang="fr" title="gccore" content="{{ page.subject-fr }}" />
+		<meta property="dcterms:description" lang="fr" content="{{ page.description-fr }}" />
+
+    <!-- Utility framework -->
+    <link rel="stylesheet" href="{{ '/gcds-utility.min.css' | url }}" />
+    <link rel="stylesheet" href="{{ '/styles/prism.css' | url }}">
+    <link rel="stylesheet" href="{{ '/styles/style.css' | url }}">
+    <script src="{{ '/scripts/code-showcase.js' | url }}"></script>
+    <link rel="icon" type="image/x-icon" sizes="96x96" href="{{ '/favicon.ico' | url }}">
+
+    {# Font awesome 6 kit for this doc website. Anyone can create a free kit for open source. #}
+    <script src="https://kit.fontawesome.com/892cb27850.js" crossorigin="anonymous"></script>
+
+    <!-- GC Design System  Components-->
+    <link rel="stylesheet" href="{{ '/components/dist/gcds/gcds.css' | url }}">
+    <script type="module" src="/components/dist/gcds/gcds.esm.js"></script>
+    <script nomodule src="/components/dist/gcds/gcds.js"></script>
+	</head>
+
+	<body class="splash" vocab="http://schema.org/" resource="#wb-webpage" typeof="WebPage">
+		<div id="bg" data-wb-randomize='{ "shuffle": true, "selector": "img", "toggle": "hide" }'>
+			{%- if page.images -%}
+			{%- for i in page.images -%}
+			<img class="hide" src="{{ i }}" alt="" />
+			{%- endfor -%}
+			{%- endif -%}
+		</div>
+		<main property="mainContentOfPage" resource="#wb-main" typeof="WebPageElement" id="mc" class="container-xl mx-auto xl:px-0 sm:px-500 px-300 general-layout">
+			<div class="sp-hb">
+				<div class="sp-bx col-xs-12">
+					<h1 property="name" class="wb-inv">{{ page.title }}</h1>
+					<div class="row">
+						<div class="col-xs-11 col-md-8" property="publisher" resource="#wb-publisher" typeof="GovernmentOrganization">
+							<img src="/images/en/gov-canada-logo.svg" width="283" alt="Government of Canada" property="logo" /><span class="wb-inv"> / <span lang="fr">Gouvernement du Canada</span></span>
+							<meta property="name" content="Government of Canada" />
+							<meta property="name" lang="fr" content="Gouvernement du Canada"/>
+							<meta property="areaServed" typeof="Country" content="Canada" />
+						</div>
+					</div>
+          {% block content %}
+  					{{ content | safe }}
+          {% endblock %}
+				</div>
+				<div class="sp-bx-bt col-xs-12">
+					<div class="row">
+						<div class="col-xs-7 col-md-8">
+							<a href="https://www.canada.ca/en/transparency/terms.html" class="sp-lk">Terms and conditions</a> <span class="glyphicon glyphicon-asterisk"></span> <a href="https://www.canada.ca/fr/transparence/avis.html" class="sp-lk" lang="fr">Avis</a>
+						</div>
+						<div class="col-xs-5 col-md-4 text-right mrgn-bttm-md">
+							<img src="/images/en/gov-canada-wordmark.svg" width="127" alt="Symbol of the Government of Canada" /><span class="wb-inv"> / <span lang="fr">Symbole du gouvernement du Canada</span></span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</main>
+		{% include resources-inc/footer.html %}
+	</body>
+</html>

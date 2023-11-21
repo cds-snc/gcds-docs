@@ -1,23 +1,13 @@
 <!DOCTYPE html>
 <html lang="{{ locale }}" dir="ltr">
   <head>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5TBZBZVVK8"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-5TBZBZVVK8');
-    </script>
-
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>{% block page_title %}{{ title }} - {{ base[locale].gcds }}{% endblock %}</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Utility framework -->
     <link rel="stylesheet" href="{{ '/gcds-utility.min.css' | url }}" />
-
     <link rel="stylesheet" href="{{ '/styles/prism.css' | url }}">
     <link rel="stylesheet" href="{{ '/styles/style.css' | url }}">
     <script src="{{ '/scripts/code-showcase.js' | url }}"></script>
@@ -36,8 +26,9 @@
 
     <div class="content-wrapper">
       <main id="mc" class="container-xl mx-auto xl:px-0 sm:px-500 px-300 general-layout">
-        {% block content %}{{ content | safe }}{% endblock %}
-
+        {% block content %}
+          {{ content | safe }}
+        {% endblock %}
         <gcds-date-modified class="mb-400 font-caption">
           {{ page.date | dateLastModified}}
         </gcds-date-modified>
