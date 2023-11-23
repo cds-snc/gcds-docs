@@ -33,6 +33,7 @@ module.exports = {
         heading: 'Add the code',
         place:
           'Place the following code in the <head> element of your project:',
+        icons: 'to access icons, import Font Awesome',
         note: 'Note: <script type="module"> requires a server to load properly. If developing locally, please use <script nomodule>.',
       },
       choose: {
@@ -49,6 +50,7 @@ module.exports = {
         heading: 'Install with npm',
         install: 'Navigate to the root folder of your project and run:',
         place: 'Place the following code in the <head> element of your site:',
+        icons: 'to access icons, import Font Awesome',
       },
       other: {
         paragraph:
@@ -116,6 +118,7 @@ module.exports = {
         heading: 'Ajoutez le code',
         place:
           "Insérez le code suivant dans l'élément <head> de votre projet :",
+        icons: 'pour avoir accès aux icônes, installer Font Awesome',
         note: 'Remarque : <script type="module"> nécessite un serveur pour le chargement. Pour le développement local, veuillez utiliser <script nomodule>.',
       },
       choose: {
@@ -134,6 +137,7 @@ module.exports = {
         install:
           "Naviguez jusqu'au dossier racine de votre projet et exécutez :",
         place: "Insérez le code suivant dans l'élément <head> de votre site :",
+        icons: 'pour avoir accès aux icônes, installer Font Awesome',
       },
       other: {
         paragraph:
