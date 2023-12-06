@@ -1,11 +1,8 @@
-const dotenv = require('dotenv');
 const express = require('express')
 const axios = require("axios");
 
 const app = express()
 const port = process.env['PORT'] || 8080
-
-dotenv.config();
 
 app.use(express.json()) // for parsing application/json
 app.use(express.urlencoded({ extended: true })) // for parsing application/x-www-form-urlencoded
@@ -31,7 +28,15 @@ app.post('/submission', async (req, res) => {
 
     const { EMAIL_TARGET, NOTIFY_API_KEY, NOTIFY_TEMPLATE_ID } = process.env;
 
-    const {name, email, message} = body
+    const {name, email, message, reasonForContact, honeypot} = body
+
+
+    // Honeypot check
+    if (honeypot && honeypot.length > 0) {
+        console.log('Honeypot detected')
+        res.status(400).send('Bad Request')
+        return
+    }
 
     // Send to Notify
     const headData = {
@@ -46,6 +51,7 @@ app.post('/submission', async (req, res) => {
             name: name,
             email: email,
             message: message,
+            reasonForContact: reasonForContact
         },
     });
 
