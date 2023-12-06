@@ -15,7 +15,7 @@ const I18N = {
   },
 };
 
-const gcdsSideNavCss = "@layer reset, defaults;@layer reset{:host *{-webkit-box-sizing:border-box;box-sizing:border-box;margin:0}}@layer defaults{:host{display:block;width:100%}@media only screen and (width >= 64em){:host{max-width:var(--gcds-side-nav-max-width)}}:host .gcds-side-nav__heading{font:var(--gcds-side-nav-heading-font);-webkit-margin-after:var(--gcds-side-nav-heading-margin);margin-block-end:var(--gcds-side-nav-heading-margin);padding:var(--gcds-side-nav-heading-padding)}@media only screen and (width < 64em){:host .gcds-side-nav__heading{display:block;height:0;margin:0;overflow:hidden;padding:0;width:0}}}";
+const gcdsSideNavCss = "@layer reset, defaults;@layer reset{:host *{box-sizing:border-box;margin:0}}@layer defaults{:host{display:block;width:100%}@media only screen and (width >= 64em){:host{max-width:var(--gcds-side-nav-max-width)}}:host .gcds-side-nav__heading{font:var(--gcds-side-nav-heading-font);margin-block-end:var(--gcds-side-nav-heading-margin);padding:var(--gcds-side-nav-heading-padding)}@media only screen and (width < 64em){:host .gcds-side-nav__heading{display:block;height:0;margin:0;overflow:hidden;padding:0;width:0}}}";
 
 const GcdsSideNav$1 = /*@__PURE__*/ proxyCustomElement(class GcdsSideNav extends HTMLElement {
   constructor() {

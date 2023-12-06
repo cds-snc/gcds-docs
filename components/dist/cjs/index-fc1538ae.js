@@ -1,3 +1,25 @@
+'use strict';
+
+function _interopNamespace(e) {
+  if (e && e.__esModule) return e;
+  var n = Object.create(null);
+  if (e) {
+    Object.keys(e).forEach(function (k) {
+      if (k !== 'default') {
+        var d = Object.getOwnPropertyDescriptor(e, k);
+        Object.defineProperty(n, k, d.get ? d : {
+          enumerable: true,
+          get: function () {
+            return e[k];
+          }
+        });
+      }
+    });
+  }
+  n['default'] = e;
+  return Object.freeze(n);
+}
+
 const NAMESPACE = 'gcds';
 const BUILD = /* gcds */ { allRenderFn: true, appendChildSlotFix: false, asyncLoading: true, asyncQueue: false, attachStyles: true, cloneNodeFix: false, cmpDidLoad: true, cmpDidRender: false, cmpDidUnload: false, cmpDidUpdate: true, cmpShouldUpdate: false, cmpWillLoad: true, cmpWillRender: false, cmpWillUpdate: true, connectedCallback: false, constructableCSS: true, cssAnnotations: true, devTools: false, disconnectedCallback: false, element: false, event: true, experimentalSlotFixes: false, formAssociated: false, hasRenderFn: true, hostListener: true, hostListenerTarget: true, hostListenerTargetBody: true, hostListenerTargetDocument: true, hostListenerTargetParent: false, hostListenerTargetWindow: false, hotModuleReplacement: false, hydrateClientSide: false, hydrateServerSide: false, hydratedAttribute: false, hydratedClass: true, initializeNextTick: false, invisiblePrehydration: true, isDebug: false, isDev: false, isTesting: false, lazyLoad: true, lifecycle: true, lifecycleDOMEvents: false, member: true, method: true, mode: false, observeAttribute: true, profile: false, prop: true, propBoolean: true, propMutable: true, propNumber: true, propString: true, reflect: true, scoped: true, scopedSlotTextContentFix: false, scriptDataOpts: false, shadowDelegatesFocus: false, shadowDom: true, slot: true, slotChildNodesFix: false, slotRelocation: true, state: true, style: true, svg: false, taskQueue: true, transformTagName: false, updatable: true, vdomAttribute: true, vdomClass: true, vdomFunctional: true, vdomKey: true, vdomListener: true, vdomPropOrAttr: true, vdomRef: true, vdomRender: true, vdomStyle: true, vdomText: true, vdomXlink: true, watchCallback: true };
 
@@ -32,6 +54,13 @@ const uniqueTime = (key, measureText) => {
     }
 };
 const HYDRATED_CSS = '{visibility:hidden}.hydrated{visibility:inherit}';
+/**
+ * Constant for styles to be globally applied to `slot-fb` elements for pseudo-slot behavior.
+ *
+ * Two cascading rules must be used instead of a `:not()` selector due to Stencil browser
+ * support as of Stencil v4.
+ */
+const SLOT_FB_CSS = 'slot-fb{display:contents}slot-fb[hidden]{display:none}';
 const XLINK_NS = 'http://www.w3.org/1999/xlink';
 /**
  * Default style mode id
@@ -346,6 +375,10 @@ const addStyle = (styleContainerNode, cmpMeta, mode) => {
                         styleElm.setAttribute('nonce', nonce);
                     }
                     styleContainerNode.insertBefore(styleElm, styleContainerNode.querySelector('link'));
+                }
+                // Add styles for `slot-fb` elements if we're using slots outside the Shadow DOM
+                if (cmpMeta.$flags$ & 4 /* CMP_FLAGS.hasSlotRelocation */) {
+                    styleElm.innerHTML += SLOT_FB_CSS;
                 }
                 if (appliedStyles) {
                     appliedStyles.add(scopeId);
@@ -2094,12 +2127,13 @@ const bootstrapLazy = (lazyBundles, options = {}) => {
     const customElements = win.customElements;
     const head = doc.head;
     const metaCharset = /*@__PURE__*/ head.querySelector('meta[charset]');
-    const visibilityStyle = /*@__PURE__*/ doc.createElement('style');
+    const dataStyles = /*@__PURE__*/ doc.createElement('style');
     const deferredConnectedCallbacks = [];
     let appLoadFallback;
     let isBootstrapping = true;
     Object.assign(plt, options);
     plt.$resourcesUrl$ = new URL(options.resourcesUrl || './', doc.baseURI).href;
+    let hasSlotRelocation = false;
     lazyBundles.map((lazyBundle) => {
         lazyBundle[1].map((compactMeta) => {
             var _a;
@@ -2109,6 +2143,11 @@ const bootstrapLazy = (lazyBundles, options = {}) => {
                 $members$: compactMeta[2],
                 $listeners$: compactMeta[3],
             };
+            // Check if we are using slots outside the shadow DOM in this component.
+            // We'll use this information later to add styles for `slot-fb` elements
+            if (cmpMeta.$flags$ & 4 /* CMP_FLAGS.hasSlotRelocation */) {
+                hasSlotRelocation = true;
+            }
             {
                 cmpMeta.$members$ = compactMeta[2];
             }
@@ -2168,15 +2207,23 @@ const bootstrapLazy = (lazyBundles, options = {}) => {
             }
         });
     });
+    // Add styles for `slot-fb` elements if any of our components are using slots outside the Shadow DOM
+    if (hasSlotRelocation) {
+        dataStyles.innerHTML += SLOT_FB_CSS;
+    }
+    // Add hydration styles
     {
-        visibilityStyle.innerHTML = cmpTags + HYDRATED_CSS;
-        visibilityStyle.setAttribute('data-styles', '');
+        dataStyles.innerHTML += cmpTags + HYDRATED_CSS;
+    }
+    // If we have styles, add them to the DOM
+    if (dataStyles.innerHTML.length) {
+        dataStyles.setAttribute('data-styles', '');
+        head.insertBefore(dataStyles, metaCharset ? metaCharset.nextSibling : head.firstChild);
         // Apply CSP nonce to the style tag if it exists
         const nonce = (_a = plt.$nonce$) !== null && _a !== void 0 ? _a : queryNonceMetaTagContent(doc);
         if (nonce != null) {
-            visibilityStyle.setAttribute('nonce', nonce);
+            dataStyles.setAttribute('nonce', nonce);
         }
-        head.insertBefore(visibilityStyle, metaCharset ? metaCharset.nextSibling : head.firstChild);
     }
     // Process deferred connectedCallbacks now all components have been registered
     isBootstrapping = false;
@@ -2302,18 +2349,18 @@ const loadModule = (cmpMeta, hostRef, hmrVersionId) => {
       }
       switch(bundleId) {
         
-        case 'gcds-alert_39':
-          return import(
+        case 'gcds-alert_39.cjs':
+          return Promise.resolve().then(function () { return /*#__PURE__*/_interopNamespace(require(
             /* webpackMode: "lazy" */
-            './gcds-alert_39.entry.js').then(processMod, consoleError);
+            './gcds-alert_39.cjs.entry.js')); }).then(processMod, consoleError);
       }
     }
-    return import(
+    return Promise.resolve().then(function () { return /*#__PURE__*/_interopNamespace(require(
     /* @vite-ignore */
     /* webpackInclude: /\.entry\.js$/ */
     /* webpackExclude: /\.system\.entry\.js$/ */
     /* webpackMode: "lazy" */
-    `./${bundleId}.entry.js${''}`).then((importedModule) => {
+    `./${bundleId}.entry.js${''}`)); }).then((importedModule) => {
         {
             cmpModules.set(bundleId, importedModule);
         }
@@ -2382,9 +2429,17 @@ const flush = () => {
         }
     }
 };
-const nextTick = /*@__PURE__*/ (cb) => promiseResolve().then(cb);
+const nextTick = (cb) => promiseResolve().then(cb);
 const writeTask = /*@__PURE__*/ queueTask(queueDomWrites, true);
 
-export { Fragment as F, Host as H, bootstrapLazy as b, createEvent as c, getElement as g, h, promiseResolve as p, registerInstance as r, setNonce as s };
+exports.Fragment = Fragment;
+exports.Host = Host;
+exports.bootstrapLazy = bootstrapLazy;
+exports.createEvent = createEvent;
+exports.getElement = getElement;
+exports.h = h;
+exports.promiseResolve = promiseResolve;
+exports.registerInstance = registerInstance;
+exports.setNonce = setNonce;
 
-//# sourceMappingURL=index-22a4f5b2.js.map
+//# sourceMappingURL=index-fc1538ae.js.map

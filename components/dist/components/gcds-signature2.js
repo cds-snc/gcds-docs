@@ -42,7 +42,7 @@ const WordmarkFr = `<svg version="1.1" xmlns="http://www.w3.org/2000/svg" width=
 	</g>
 </svg>`;
 
-const gcdsSignatureCss = "gcds-signature{display:block;width:-webkit-fit-content;width:-moz-fit-content;width:fit-content}gcds-signature .gcds-signature{display:-ms-flexbox;display:flex}gcds-signature svg{max-width:100%}gcds-signature:not([type=wordmark]) svg{height:var(--gcds-signature-signature-height)}@media screen and (min-width:64em){gcds-signature:not([type=wordmark]) svg{height:2.125rem}}gcds-signature[type=wordmark] svg{height:var(--gcds-signature-wordmark-height);width:auto}gcds-signature:not([variant=white]) svg .fip_text{fill:var( --gcds-signature-color-text)}gcds-signature:not([variant=white]) svg .fip_flag{fill:var(--gcds-signature-color-flag)}gcds-signature[variant=white] svg .fip_flag,gcds-signature[variant=white] svg .fip_text{fill:var(--gcds-signature-white-default)}";
+const gcdsSignatureCss = "gcds-signature{display:block;width:fit-content}gcds-signature .gcds-signature{display:flex}gcds-signature svg{max-width:100%}gcds-signature:not([type=wordmark]) svg{height:var(--gcds-signature-signature-height)}@media screen and (min-width:64em){gcds-signature:not([type=wordmark]) svg{height:2.125rem}}gcds-signature[type=wordmark] svg{height:var(--gcds-signature-wordmark-height);width:auto}gcds-signature:not([variant=white]) svg .fip_text{fill:var( --gcds-signature-color-text)}gcds-signature:not([variant=white]) svg .fip_flag{fill:var(--gcds-signature-color-flag)}gcds-signature[variant=white] svg .fip_flag,gcds-signature[variant=white] svg .fip_text{fill:var(--gcds-signature-white-default)}";
 
 const GcdsSignature = /*@__PURE__*/ proxyCustomElement(class GcdsSignature extends HTMLElement {
   constructor() {

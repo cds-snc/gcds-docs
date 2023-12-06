@@ -1,6 +1,6 @@
 import { proxyCustomElement, HTMLElement, h, Host } from '@stencil/core/internal/client';
 
-const gcdsSrOnlyCss = "@layer default{:host{display:block;height:0;margin:0;overflow:hidden;width:0}:host slot{display:inherit}}";
+const gcdsSrOnlyCss = "@layer default{:host{display:block;height:0;margin:0;overflow:hidden;width:0}:host slot{display:initial}}";
 
 const GcdsSrOnly$1 = /*@__PURE__*/ proxyCustomElement(class GcdsSrOnly extends HTMLElement {
   constructor() {

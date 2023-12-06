@@ -4,20 +4,20 @@ import { d as defineCustomElement$2 } from './gcds-icon2.js';
 
 const I18N = {
   en: {
-    external: 'Opens destination in a new tab.',
-    phone: 'Attempts to open a phone app.',
-    download: 'Attempts to download a file to the device.',
-    email: 'Opens new message in email program.',
+    external: ' (Opens destination in a new tab.)',
+    phone: ' (Attempts to open a phone app.)',
+    download: ' (Attempts to download a file to the device.)',
+    email: ' (Opens new message in email program.)',
   },
   fr: {
-    external: "Ouvre l'emplacement dans un nouvel onglet.",
-    phone: "Tente d'ouvrir une application de téléphonie",
-    download: "Tente de télécharger un fichier sur l'appareil.",
-    email: 'Ouvre un nouveau message dans le logiciel de messagerie.',
+    external: " (Ouvre l'emplacement dans un nouvel onglet.)",
+    phone: " (Tente d'ouvrir une application de téléphonie.)",
+    download: " (Tente de télécharger un fichier sur l'appareil.)",
+    email: ' (Ouvre un nouveau message dans le logiciel de messagerie.)',
   },
 };
 
-const gcdsLinkCss = ":host a{color:var(--gcds-link-default);cursor:pointer;text-decoration:underline;-webkit-text-decoration-color:currentColor;text-decoration-color:currentColor;text-decoration-thickness:var(--gcds-link-decoration-thickness);text-underline-offset:var(--gcds-link-underline-offset)}:host a:hover{color:var(--gcds-link-hover);text-decoration-thickness:var(--gcds-link-hover-decoration-thickness)}:host a:focus{background-color:var(--gcds-link-focus-background);border-color:var(--gcds-link-focus-background);border-radius:var(--gcds-link-focus-border-radius);-webkit-box-shadow:var(--gcds-link-focus-box-shadow);box-shadow:var(--gcds-link-focus-box-shadow);color:var(--gcds-link-focus-text);outline:var(--gcds-link-focus-outline-width) solid var(--gcds-link-focus-background);outline-offset:var(--gcds-link-focus-outline-offset);text-decoration:none}:host a.link--small{font:var(--gcds-link-font-small)}:host a.link--regular{font:var(--gcds-link-font-regular)}:host a.link--inherit{font:inherit}:host a.d-block{display:block}:host a slot{display:initial}";
+const gcdsLinkCss = ":host a{color:var(--gcds-link-default);cursor:pointer;text-decoration:underline;text-decoration-color:currentColor;text-decoration-thickness:var(--gcds-link-decoration-thickness);text-underline-offset:var(--gcds-link-underline-offset)}:host a:hover{color:var(--gcds-link-hover);text-decoration-thickness:var(--gcds-link-hover-decoration-thickness)}:host a:focus{background-color:var(--gcds-link-focus-background);border-color:var(--gcds-link-focus-background);border-radius:var(--gcds-link-focus-border-radius);box-shadow:var(--gcds-link-focus-box-shadow);color:var(--gcds-link-focus-text);outline:var(--gcds-link-focus-outline-width) solid var(--gcds-link-focus-background);outline-offset:var(--gcds-link-focus-outline-offset);text-decoration:none}:host a.link--small{font:var(--gcds-link-font-small)}:host a.link--regular{font:var(--gcds-link-font-regular)}:host a.link--inherit{font:inherit}:host a.d-block{display:block}:host a slot{display:initial}";
 
 const GcdsLink$1 = /*@__PURE__*/ proxyCustomElement(class GcdsLink extends HTMLElement {
   constructor() {
