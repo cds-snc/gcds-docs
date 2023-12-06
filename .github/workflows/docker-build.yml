@@ -1,0 +1,41 @@
+name: Docker build
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  changes:
+    runs-on: ubuntu-latest
+    outputs:
+      images: ${{ steps.filter.outputs.changes }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
+
+      - uses: dorny/paths-filter@4512585405083f25c027a35db413c2b3b9006d50 # tag=v2.11.1
+        id: filter
+        with:
+          filters: |
+            api: 'api/**'
+
+  build:
+    if: needs.changes.outputs.images != '[]'
+    runs-on: ubuntu-latest
+    needs: changes
+    strategy:
+      fail-fast: false
+      matrix:
+        image: ${{ fromJSON(needs.changes.outputs.images) }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
+
+      - name: Build image
+        working-directory: ./${{ matrix.image }}
+        run: |
+          docker build \
+          --build-arg GIT_SHA=${{ github.sha }} \
+          -t ${{ matrix.image }}:latest .
