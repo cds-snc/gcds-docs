@@ -15,6 +15,4 @@ RUN apt-get update && apt-get install -y \
 COPY bin/entry.sh ./entry.sh
 
 RUN chmod +x ./entry.sh
-#CMD ["node", "index.js"]
-#CMD ["/entry.sh"]
 CMD exec ./entry.sh
