@@ -4,8 +4,8 @@ const axios = require("axios");
 const app = express()
 const port = process.env['PORT'] || 8080
 
-const DOMAIN_EN = 'https://design-system.alpha.canada.ca/'
-const DOMAIN_FR = 'https://systeme-design.alpha.canada.ca/'
+const DOMAIN_EN = 'https://design-system.alpha.canada.ca'
+const DOMAIN_FR = 'https://systeme-design.alpha.canada.ca'
 
 app.use(express.json()) // for parsing application/json
 app.use(express.urlencoded({ extended: true })) // for parsing application/x-www-form-urlencoded
