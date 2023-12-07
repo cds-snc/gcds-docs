@@ -33,8 +33,8 @@ app.post('/submission', async (req, res) => {
 
     // Honeypot check
     if (honeypot && honeypot.length > 0) {
-        console.log('Honeypot detected')
-        res.status(400).send('Bad Request')
+        console.error('Honeypot detected')
+        res.status(204).send()
         return
     }
 
