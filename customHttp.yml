@@ -26,5 +26,5 @@ customHeaders:
           img-src 'self' data: https: www.w3.org;
           style-src 'unsafe-inline' https: 'strict-dynamic' 'self' https://fonts.googleapis.com;
           base-uri 'self';
-          form-action 'self';
+          form-action 'self' https://qao6j5zrqcys7evf2azwko4ju40xvfjy.lambda-url.ca-central-1.on.aws;
           object-src 'none'

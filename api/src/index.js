@@ -68,7 +68,8 @@ app.post('/submission', async (req, res) => {
             console.log('AXIOS ERROR: ', err);
         });
 
-    const redirectTo = origin + '/' + lang + '/contact/thanks/'
+    const contactPath = lang == 'en' ? '/en/contact/thanks' : '/fr/contactez/merci'
+    const redirectTo = origin + contactPath
     res.redirect(303, redirectTo)
 })
 
