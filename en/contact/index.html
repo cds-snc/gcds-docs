@@ -1005,11 +1005,18 @@
 <h2 id="contact-us" class="mt-500 mb-400">Contact us</h2>
 <p class="mb-400">Ask us about GC Design System, make a suggestion, or request a component you'd like to see.</p>
 <p class="mb-400">Fill out this form or submit an issue through GitHub for <gcds-link external href="https://github.com/cds-snc/gcds-tokens/issues" target="_blank">tokens</gcds-link>, <gcds-link external href="https://github.com/cds-snc/gcds-components/issues" target="_blank">components</gcds-link>, or <gcds-link external href="https://github.com/cds-snc/gcds-docs/issues" target="_blank">documentation</gcds-link>.</p>
-<form class="my-500 contact-us-form" name="contactEN" method="post" style="min-height: 32rem;">
+<form class="my-500 contact-us-form" name="contactEN" method="post" style="min-height: 32rem;" action="https://qao6j5zrqcys7evf2azwko4ju40xvfjy.lambda-url.ca-central-1.on.aws/submission">
   <input type="hidden" name="form-name" value="contactEN" />
-  <gcds-input type="text" input-id="name" label="Full name" size="30" required></gcds-input>
-  <gcds-input type="email" input-id="email" label="Email address" size="50" required></gcds-input>
-  <gcds-textarea label="Message" textarea-id="message" hint="Write your question or comment." required></gcds-textarea>
+  <input name="honeypot" type="text" aria-label="bot" hidden/>
+<p class="mb-400"><gcds-input type="text" input-id="name" label="Full name" size="30" required></gcds-input>
+<gcds-input type="email" input-id="email" label="Email address" size="50" required></gcds-input>
+<gcds-fieldset fieldset-id="reasonForContact" legend="Reason for your communication" required>
+<gcds-radio radio-id="requestADemo" name="reasonForContact" label="Request a demo" value="Request a demo" hint="Book a demo of GC Design System for your team."></gcds-radio>
+<gcds-radio radio-id="reportAnIssue" name="reasonForContact" label="Report an issue" value="Report an issue" hint="Communicate a problem you've found."></gcds-radio>
+<gcds-radio radio-id="participateInUserResearch" name="reasonForContact" label="Participate in user research" value="Participate in user research" hint="We'll add your email to a list for user interviews and research."></gcds-radio>
+<gcds-radio radio-id="other" name="reasonForContact" label="Other" value="Other" hint="Provide a reason in the message field."></gcds-radio>
+</gcds-fieldset>
+<gcds-textarea label="Message" textarea-id="message" hint="Write your question or comment." required></gcds-textarea></p>
   <div hidden>
     <gcds-input type="text" input-id="bot-field" label="bot"></gcds-input>
   </div>
@@ -1029,17 +1036,6 @@
         lang="en"
       ></gcds-footer>
 
-      
-        
-  <form name="contactEN" data-netlify="true" netlify-honeypot="bot-field" action="/en/contact/thanks" hidden>
-    <input type="text" name="name" aria-label="Full name"/>
-    <input type="email" name="email" aria-label="Email address"/>
-    <textarea name="message" aria-label="message"></textarea>
-    <input name="bot-field" aria-label="bot" hidden/>
-  </form>
-
-
-      
     </div>
 
     <script>function showTooltip(o,e){o.trigger.className.includes("tooltipped")||(o.trigger.children[0].className="tooltipped tooltipped-s",o.trigger.children[0].ariaLabel=e)}window.addEventListener("load",()=>{var o=new ClipboardJS(".code-copy");o.on("success",o=>showTooltip(o,"Copied!")),o.on("error",o=>showTooltip(o,"Failed..."))});</script>
