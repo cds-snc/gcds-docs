@@ -31,8 +31,10 @@ Renseignez-vous sur Système de design GC, faites une suggestion ou demandez un 
 
 Pour toute demande concernant <gcds-link external href="{{ links.githubTokensIssues }}" target="_blank">les unités de style</gcds-link>, <gcds-link external href="{{ links.githubIssues }}" target="_blank">les composants</gcds-link>, et <gcds-link external href="{{ links.githubDocsIssues }}" target="_blank">la documentation</gcds-link>, remplissez ce formulaire ou envoyez une demande à l'aide de fonction « Issues » dans GitHub.
 
-<form class="my-500 contact-us-form" name="contactFR" method="post" style="min-height: 32rem;">
+<form class="my-500 contact-us-form" name="contactFR" method="post" style="min-height: 32rem;" action="http://localhost:8080/submission">
   <input type="hidden" name="form-name" value="contactFR" />
+  <input name="honeypot" type="text" aria-label="bot" hidden/>
+
   <gcds-input type="text" input-id="name" label="Nom complet" size="30" required></gcds-input>
   <gcds-input type="email" input-id="email" label="Adresse courriel" size="50" required></gcds-input>
   <gcds-textarea label="Message" textarea-id="message" hint="Écrivez votre question ou commentaire." required></gcds-textarea>

@@ -31,8 +31,10 @@ Ask us about GC Design System, make a suggestion, or request a component you'd l
 
 Fill out this form or submit an issue through GitHub for <gcds-link external href="{{ links.githubTokensIssues }}" target="_blank">tokens</gcds-link>, <gcds-link external href="{{ links.githubIssues }}" target="_blank">components</gcds-link>, or <gcds-link external href="{{ links.githubDocsIssues }}" target="_blank">documentation</gcds-link>.
 
-<form class="my-500 contact-us-form" name="contactEN" method="post" style="min-height: 32rem;">
+<form class="my-500 contact-us-form" name="contactEN" method="post" style="min-height: 32rem;" action="https://g6g2mfbhzp4ry5yyq7eect2bxe0nyzni.lambda-url.ca-central-1.on.aws/submission">
   <input type="hidden" name="form-name" value="contactEN" />
+  <input name="honeypot" type="text" aria-label="bot" hidden/>
+
   <gcds-input type="text" input-id="name" label="Full name" size="30" required></gcds-input>
   <gcds-input type="email" input-id="email" label="Email address" size="50" required></gcds-input>
   <gcds-textarea label="Message" textarea-id="message" hint="Write your question or comment." required></gcds-textarea>
