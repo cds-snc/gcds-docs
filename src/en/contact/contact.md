@@ -31,12 +31,18 @@ Ask us about GC Design System, make a suggestion, or request a component you'd l
 
 Fill out this form or submit an issue through GitHub for <gcds-link external href="{{ links.githubTokensIssues }}" target="_blank">tokens</gcds-link>, <gcds-link external href="{{ links.githubIssues }}" target="_blank">components</gcds-link>, or <gcds-link external href="{{ links.githubDocsIssues }}" target="_blank">documentation</gcds-link>.
 
-<form class="my-500 contact-us-form" name="contactEN" method="post" style="min-height: 32rem;" action="https://g6g2mfbhzp4ry5yyq7eect2bxe0nyzni.lambda-url.ca-central-1.on.aws/submission">
+<form class="my-500 contact-us-form" name="contactEN" method="post" style="min-height: 32rem;" action="https://qao6j5zrqcys7evf2azwko4ju40xvfjy.lambda-url.ca-central-1.on.aws/submission">
   <input type="hidden" name="form-name" value="contactEN" />
   <input name="honeypot" type="text" aria-label="bot" hidden/>
 
   <gcds-input type="text" input-id="name" label="Full name" size="30" required></gcds-input>
   <gcds-input type="email" input-id="email" label="Email address" size="50" required></gcds-input>
+  <gcds-fieldset fieldset-id="reasonForContact" legend="Reason for your communication" required>
+    <gcds-radio radio-id="requestADemo" name="reasonForContact" label="Request a demo" value="Request a demo" hint="Book a demo of GC Design System for your team."></gcds-radio>
+    <gcds-radio radio-id="reportAnIssue" name="reasonForContact" label="Report an issue" value="Report an issue" hint="Communicate a problem you've found."></gcds-radio>
+    <gcds-radio radio-id="participateInUserResearch" name="reasonForContact" label="Participate in user research" value="Participate in user research" hint="We'll add your email to a list for user interviews and research."></gcds-radio>
+    <gcds-radio radio-id="other" name="reasonForContact" label="Other" value="Other" hint="Provide a reason in the message field."></gcds-radio>
+  </gcds-fieldset>
   <gcds-textarea label="Message" textarea-id="message" hint="Write your question or comment." required></gcds-textarea>
   <div hidden>
     <gcds-input type="text" input-id="bot-field" label="bot"></gcds-input>
