@@ -4,6 +4,9 @@ const axios = require("axios");
 const app = express()
 const port = process.env['PORT'] || 8080
 
+const DOMAIN_EN = 'https://design-system.alpha.canada.ca'
+const DOMAIN_FR = 'https://systeme-design.alpha.canada.ca'
+
 app.use(express.json()) // for parsing application/json
 app.use(express.urlencoded({ extended: true })) // for parsing application/x-www-form-urlencoded
 
@@ -20,7 +23,7 @@ process.on('SIGTERM', async () => {
 });
 
 app.post('/submission', async (req, res) => {
-    const origin = req.get('origin');
+    let origin = req.get('origin');
     const body = req.body
 
     // Form name is in the format "contactEN" or "contactFR"
@@ -68,6 +71,7 @@ app.post('/submission', async (req, res) => {
             console.log('AXIOS ERROR: ', err);
         });
 
+    origin = origin ? origin : lang === 'en' ? DOMAIN_EN : DOMAIN_FR
     const contactPath = lang == 'en' ? '/en/contact/thanks' : '/fr/contactez/merci'
     const redirectTo = origin + contactPath
     res.redirect(303, redirectTo)
