@@ -5,11 +5,11 @@
 
     "installation": "/fr/installation",
 
-    "styles": "/fr/fondements",
-    "designTokens": "/fr/fondements/unites-de-style",
-    "colour": "/fr/fondements/couleur",
-    "spacing": "/fr/fondements/espacement",
-    "typography": "/fr/fondements/typographie",
+    "styles": "/fr/styles",
+    "designTokens": "/fr/styles/unites-de-style",
+    "colour": "/fr/styles/couleur",
+    "spacing": "/fr/styles/espacement",
+    "typography": "/fr/styles/typographie",
 
     "components": "/fr/composants",
     "alert": "/fr/developpement-en-cours",

@@ -38,7 +38,7 @@ tokenTable:
     fontWeights-medium: Moyen
     fontWeights-semibold: Semi-gras
     fontWeights-bold: Gras
-permalink: /fr/fondements/typographie/
+permalink: /fr/styles/typographie/
 # date: "git Last Modified"
 ---
 

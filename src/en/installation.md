@@ -6,7 +6,7 @@ eleventyNavigation:
   key: installationEN
   title: Installation
   locale: en
-  order: 0
+  order: 1
 date: 'git Last Modified'
 ---
 

@@ -5,7 +5,7 @@ eleventyNavigation:
   key: componentsEN
   title: Components
   locale: en
-  order: 2
+  order: 0
 translationKey: 'components'
 date: 'git Last Modified'
 cardlist:

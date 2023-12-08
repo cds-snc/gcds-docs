@@ -11,7 +11,7 @@ eleventyNavigation:
   thumbnail: /images/en/foundations/preview/preview-typography.svg
   alt:
   state: published
-permalink: /en/foundations/typography/
+permalink: /en/styles/typography/
 translationKey: 'typography'
 tokenTable:
   headers:
