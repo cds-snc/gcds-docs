@@ -25,6 +25,10 @@ process.on('SIGTERM', async () => {
 app.post('/submission', async (req, res) => {
     let origin = req.get('origin');
     const body = req.body
+    const forwardedHost = req.get('x-forwarded-host')
+    const forwardedProto = req.get('x-forwarded-proto')
+
+    const forwardedOrigin = forwardedHost && forwardedProto ? `${forwardedProto}://${forwardedHost}` : null
 
     // Form name is in the format "contactEN" or "contactFR"
     const lang = body["form-name"].slice(-2).toLowerCase()
@@ -71,9 +75,13 @@ app.post('/submission', async (req, res) => {
             console.log('AXIOS ERROR: ', err);
         });
 
-    origin = origin ? origin : lang === 'en' ? DOMAIN_EN : DOMAIN_FR
+    // Attempt to get origin URL from request. If origin is null, use the default domains
+    origin = origin && origin !== 'null' ? origin : forwardedOrigin
+    origin = origin && origin !== 'null' ? origin : lang === 'en' ? DOMAIN_EN : DOMAIN_FR
+
     const contactPath = lang == 'en' ? '/en/contact/thanks' : '/fr/contactez/merci'
     const redirectTo = origin + contactPath
+    console.log(`Redirecting to ${redirectTo}`)
     res.redirect(303, redirectTo)
 })
 
