@@ -5,7 +5,7 @@
 
     "installation": "/fr/installation",
 
-    "foundations": "/fr/fondements",
+    "styles": "/fr/fondements",
     "designTokens": "/fr/fondements/unites-de-style",
     "colour": "/fr/fondements/couleur",
     "spacing": "/fr/fondements/espacement",
@@ -47,8 +47,8 @@
     "topicmenu": "/fr/composants/menu-des-themes-et-sujets/",
     "verifyBanner": "/fr/developpement-en-cours",
 
-    "about": "/fr/contactez/#a-propos-de-systeme-de-design-gc",
-    "contact": "/fr/contactez/#contacteznous",
+    "about": "/fr/a-propos",
+    "contact": "/fr/contactez",
 
     "comingSoon": "/fr/developpement-en-cours",
     "demo": "/fr/demo",
