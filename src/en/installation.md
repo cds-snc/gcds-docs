@@ -24,4 +24,4 @@ Use GC Design System to meet Government of Canada requirements for digital servi
 
 ## How our updates work
 
-Changes to GC Design System (GCDS-) come in a single version update with tokens, components, and (usually) non-breaking changes. GC Design System is independent of the Web Experience Toolkit (WET) and GCWeb.
+Changes to GC Design System (GCDS) come in a single version update with tokens, components, and (usually) non-breaking changes. GC Design System is independent of the Web Experience Toolkit (WET) and GCWeb.
