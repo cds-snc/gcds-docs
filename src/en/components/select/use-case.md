@@ -17,7 +17,7 @@ permalink: /en/components/select/
 date: 'git Last Modified'
 ---
 
-## Problems buttons solve
+## Problems select solves
 
 Use select within a form to:
 
