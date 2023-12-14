@@ -31,7 +31,7 @@ Ask us about GC Design System, make a suggestion, or request a component you'd l
 
 Fill out this form or submit an issue through GitHub for <gcds-link external href="{{ links.githubTokensIssues }}" target="_blank">tokens</gcds-link>, <gcds-link external href="{{ links.githubIssues }}" target="_blank">components</gcds-link>, or <gcds-link external href="{{ links.githubDocsIssues }}" target="_blank">documentation</gcds-link>.
 
-<form class="my-500 contact-us-form" name="contactEN" method="post" style="min-height: 32rem;" action="https://design-system.cdssandbox.xyz/api/submission">
+<form class="my-500 contact-us-form" name="contactEN" method="post" style="min-height: 32rem;" action="/api/submission">
   <input type="hidden" name="form-name" value="contactEN" />
   <input name="honeypot" type="text" aria-label="bot" hidden/>
 
