@@ -12,7 +12,7 @@
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Design tokens - GC Design System</title>
+    <title>About GC Design System - GC Design System</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Utility framework -->
@@ -752,180 +752,186 @@
     
       
       
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
 
         
 
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
       
     
   
@@ -934,7 +940,7 @@
 <gcds-header
   lang="en"
   skip-to-href="#mc"
-  lang-href='/fr/fondements/unites-de-style/'
+  lang-href='/fr/a-propos/'
 >
   
 
@@ -942,6 +948,15 @@
 
 <gcds-top-nav slot="menu" label="Main" alignment="right">
   <gcds-nav-link slot="home" href="/gcds-docs/en" class="home-link link-inherit link-no-underline" slot="left">GC Design system</gcds-nav-link>
+  
+    <gcds-nav-link
+      href="/gcds-docs/en/components/"
+      
+    >
+      Components
+    </gcds-nav-link>
+  
+
   
     <gcds-nav-link
       href="/gcds-docs/en/installation/"
@@ -953,19 +968,10 @@
 
   
     <gcds-nav-link
-      href="/gcds-docs/en/foundations/"
+      href="/gcds-docs/en/styles/"
       
     >
-      Foundations
-    </gcds-nav-link>
-  
-
-  
-    <gcds-nav-link
-      href="/gcds-docs/en/components/"
-      
-    >
-      Components
+      Styles
     </gcds-nav-link>
   
 
@@ -989,76 +995,49 @@
       Home
     </gcds-breadcrumbs-item>
     
-      
-        <gcds-breadcrumbs-item href=/gcds-docs/en/foundations/>
-          Foundations
-        </gcds-breadcrumbs-item>
-      
-    
   </gcds-breadcrumbs>
 
 </gcds-header>
 
     <div class="content-wrapper">
       <main id="mc" class="container-xl mx-auto xl:px-0 sm:px-500 px-300 general-layout">
-        <h1 id="design-tokens" class="mb-400">Design tokens</h1>
-<p class="mb-400">GC Design System tokens are the smallest building blocks of the design system.</p>
-<h2 id="capturing-design-decisions-in-code" class="mt-500 mb-400">Capturing design decisions in code</h2>
-<p class="mb-400">We've created a token to define each style decision in GC Design System. All of our components use tokens.</p>
-<p class="mb-400">Design tokens are the documentation of design decisions in variables, reusable pieces of code. They replace any hard-coded values, like colour codes and pixels.</p>
-<h2 id="scaling-styles-across-your-code" class="mt-500 mb-400">Scaling styles across your code</h2>
-<p class="mb-400">Design tokens are made for reuse throughout the entire code base. When we update a <a href="https://github.com/cds-snc/gcds-tokens">gcds-token</a>, the change is passed on to every component and block of code using that token.</p>
-<p class="mb-400"><a href="/en/foundations/colour">Colour</a>, <a href="/en/foundations/spacing">spacing</a>, and <a href="/en/foundations/typography">typography</a> tokens are applied consistently across components, pages, and products. The token gives you the exact match for your purpose without chart lookups or guesswork.</p>
-<h2 id="design-token-types" class="mt-500 mb-400">Design token types</h2>
-<h3 id="component-design-tokens" class="mt-500 mb-400">Component design tokens</h3>
-<p class="mb-400">GC Design System components have their own tokens. These component tokens are component-specific. Using them elsewhere can cause you problems.</p>
-<p class="mb-400">When misused component tokens can change unexpectedly. They receive updates any time the component they're attached to gets updated.</p>
-<img class="b-sm b-default p-400" src="/images/en/foundations/tokens/design-tokens-component.svg" alt=""/>
-<h3 id="global-design-tokens" class="mt-500 mb-400">Global design tokens</h3>
-<p class="mb-400">Global design tokens (including tokens for states) are made to be used by component tokens and by you. They often form part of component tokens.</p>
-<p class="mb-400">Global tokens are semantic. That means they have meanings or contexts associated with them. You can use them based on their stated purpose for your product design.</p>
-<p class="mb-400">Global tokens help you minimize future maintenance and establish a visual language for stronger communications.</p>
-<img class="b-sm b-default p-400" src="/images/en/foundations/tokens/design-tokens-global.svg" alt=""/>
-<h3 id="base-design-tokens" class="mt-500 mb-400">Base design tokens</h3>
-<p class="mb-400">Base tokens are for you to use when you've run out of global token options. GC Design System base tokens offer a range of style options to complement the global colour tokens palette.</p>
-<p class="mb-400">Base tokens are not semantic so it's harder for everyone to understand what they represent. It's important to use them thoughtfully and consistently to support a familiar and predictable user experience for your service.</p>
-<img class="b-sm b-default p-400" src="/images/en/foundations/tokens/design-tokens-base.svg" alt=""/>
-<h2 id="token-anatomy-and-naming-progression" class="mt-500 mb-400">Token anatomy and naming progression</h2>
-<p class="mb-400">Tokens are characterized by a naming progression.</p>
-<ul class="list-disc mb-400"><li><p class="mb-400"><strong>The prefix</strong> <code>--gcds-</code> differentiates GC Design System tokens from other, external tokens or variables.</li>
-<li><p class="mb-400"><strong>The category</strong> states the component, property, state, or colour depending on the type of token.</li>
-<li><p class="mb-400"><strong>The role</strong> specifies the component sub-type, like primary, secondary, danger, etc.</li>
-<li><p class="mb-400"><strong>The state</strong> cites the interaction or data state, like default, hover, focus, etc.</li>
-<li><p class="mb-400"><strong>The property</strong> refers to the specific CSS property the token's being applied to, like <code>background</code>, <code>border</code>, <code>color</code>, etc.</li>
-<li><p class="mb-400"><strong>The scale</strong> refers to one of a set of proportionally increasing shades, sizes, or weights.</li>
+        <h1 id="about-gc-design-system" class="mb-400">About GC Design System</h1>
+<h2 id="why-gc-design-system-is-right-for-you" class="mt-500 mb-400">Why GC Design System is right for you</h2>
+<p class="mb-400">GC Design System offers basic building blocks and a common pattern language for frontline digital services. Components and tokens provide standard Government of Canada branding and experiences for any framework you’re using.</p>
+<p class="mb-400">Use GC Design System to meet Government of Canada requirements for digital service delivery and communication:</p>
+<ul class="list-disc mb-400"><li><p class="mb-400">Ship recognizable, predictable, and accessible products.</li>
+<li><p class="mb-400">Build and design a trusted, unified experience for the people using your services.</li>
 </ul>
-<h3 id="component-design-token" class="mt-500 mb-400">Component design token</h3>
-<img class="b-sm b-default p-400" src="/images/en/foundations/anatomy/anatomy-design-tokens-component.svg" alt=""/>
-<h3 id="global-design-token" class="mt-500 mb-400">Global design token</h3>
-<img class="b-sm b-default p-400" src="/images/en/foundations/anatomy/anatomy-design-tokens-global.svg" alt=""/>
-<h3 id="global-design-token-global-state" class="mt-500 mb-400">Global design token – global state</h3>
-<img class="b-sm b-default p-400" src="/images/en/foundations/anatomy/anatomy-design-tokens-global-state.svg" alt=""/>
-<h3 id="base-design-tokens" class="mt-500 mb-400">Base design tokens</h3>
-<img class="b-sm b-default mb-500 p-400" src="/images/en/foundations/anatomy/anatomy-design-tokens-base.svg" alt=""/>
-<section class="pt-100 mt-400 mb-600 bt-sm b-dark ">
-  <h2 class="mt-300 mb-400">
-    Help us improve
-  </h2>
-  <p class="mb-400">
-    Have questions? Something you'd change or you'd like to see? Share your feedback with us to help improve GC Design System.
-  </p>
-<p class="mb-400"><gcds-button
-    type="link"
-    button-role="secondary"
-    href="/en/contact/#contact-us"
-  >
-Give feedback
-</gcds-button></p>
-</section>
+<h3 id="simplify-your-digital-delivery" class="mt-500 mb-400">Simplify your digital delivery</h3>
+<p class="mb-400">At the Canadian Digital Service, we’re here to support modern service delivery. GC Design System helps you ship faster by:</p>
+<ul class="list-disc mb-400"><li><p class="mb-400"><strong>Reducing manual, repetitive work</strong> with reusable <gcds-link href="/en/components">components</gcds-link> and <gcds-link href="/en/styles">styles</gcds-link>, as well as Figma assets for rapid prototyping.</li>
+<li><p class="mb-400"><strong>Defaulting to federal standards</strong> and accessibility best practice.</li>
+<li><p class="mb-400"><strong>Uniting code, design, and guidance</strong>, so you have all the basics for creating usable, inclusive experiences.</li>
+</ul>
+<h3 id="work-in-the-framework-you-want-to-work-in" class="mt-500 mb-400">Work in the framework you want to work in</h3>
+<p class="mb-400">With our components and styles, you get:</p>
+<ul class="list-disc mb-400"><li><p class="mb-400"><strong>The same result</strong> in any framework or environment you’re using.</li>
+<li><p class="mb-400"><strong>Minimal coding</strong> and redefining of values: spacing, typography and colour tokens reduce manual updates.</li>
+<li><p class="mb-400"><strong>An accessible starting point</strong>: We’ve built in accessibility from the start and offer tips for the implementation decisions you’ll make.</li>
+</ul>
+<h3 id="help-create-seamless-gc-service-experiences" class="mt-500 mb-400">Help create seamless GC service experiences</h3>
+<p class="mb-400">GC Design System supports a seamless service experience with:</p>
+<ul class="list-disc mb-400"><li><p class="mb-400"><strong>Predictable interaction elements</strong> designed to support task success.</li>
+<li><p class="mb-400"><strong>Inclusive design</strong> for bilingual, equitable digital service delivery.</li>
+<li><p class="mb-400"><strong>Accessibility guidance</strong> for cognitive and physical considerations: from coding to clear requests and communicating errors.</li>
+</ul>
+<h2 id="the-cds-team-building-gc-design-system" class="mt-500 mb-400">The CDS team building GC Design System</h2>
+<p class="mb-400">We’re a team of public servants at the Canadian Digital Service building and improving GC Design System. We’ve recently begun growing our team and increasing collaboration.</p>
+<p class="mb-400">Our goal is to improve the quality of people's experiences with government by scaling recognizable, predictable, and inclusive user interfaces across digital services.</p>
+<h3 id="collaboration-and-support-channels" class="mt-500 mb-400">Collaboration and support channels</h3>
+<ul class="list-disc mb-400"><li><p class="mb-400">Submit an issue through GitHub for <gcds-link href="https://github.com/cds-snc/gcds-tokens/issues">tokens</gcds-link>, <gcds-link href="https://github.com/cds-snc/gcds-components/issues">components</gcds-link>, or <gcds-link href="https://github.com/cds-snc/gcds-docs/issues">documentation</gcds-link>.</li>
+<li><p class="mb-400">Use our <gcds-link href="/en/contact">contact form</gcds-link> to sign up for usability and accessibility testing, request a demos, or to meet with us.</li>
+</ul>
+<p class="mb-400">Have questions? Something you’d change or you’d like to see? Share your feedback with us to help improve GC Design System.</p>
 
 
         <gcds-date-modified class="mb-400 font-caption">
-          2023-12-18
+          2024-01-04
         </gcds-date-modified>
       </main>
 

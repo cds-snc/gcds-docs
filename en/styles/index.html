@@ -12,7 +12,7 @@
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Spacing tokens - GC Design System</title>
+    <title>Styles - GC Design System</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Utility framework -->
@@ -914,12 +914,18 @@
     
       
       
-
-        
-
+    
+      
       
     
       
+      
+    
+      
+      
+
+        
+
       
     
       
@@ -934,7 +940,7 @@
 <gcds-header
   lang="en"
   skip-to-href="#mc"
-  lang-href='/fr/fondements/espacement/'
+  lang-href='/fr/styles/'
 >
   
 
@@ -942,6 +948,15 @@
 
 <gcds-top-nav slot="menu" label="Main" alignment="right">
   <gcds-nav-link slot="home" href="/gcds-docs/en" class="home-link link-inherit link-no-underline" slot="left">GC Design system</gcds-nav-link>
+  
+    <gcds-nav-link
+      href="/gcds-docs/en/components/"
+      
+    >
+      Components
+    </gcds-nav-link>
+  
+
   
     <gcds-nav-link
       href="/gcds-docs/en/installation/"
@@ -953,19 +968,10 @@
 
   
     <gcds-nav-link
-      href="/gcds-docs/en/foundations/"
-      
+      href="/gcds-docs/en/styles/"
+      current
     >
-      Foundations
-    </gcds-nav-link>
-  
-
-  
-    <gcds-nav-link
-      href="/gcds-docs/en/components/"
-      
-    >
-      Components
+      Styles
     </gcds-nav-link>
   
 
@@ -989,74 +995,114 @@
       Home
     </gcds-breadcrumbs-item>
     
-      
-        <gcds-breadcrumbs-item href=/gcds-docs/en/foundations/>
-          Foundations
-        </gcds-breadcrumbs-item>
-      
-    
   </gcds-breadcrumbs>
 
 </gcds-header>
 
     <div class="content-wrapper">
       <main id="mc" class="container-xl mx-auto xl:px-0 sm:px-500 px-300 general-layout">
-        <h1 id="spacing-tokens" class="mb-400">Spacing tokens</h1>
-<p class="mb-400">Spacing tokens help position elements onscreen and in components.</p>
-<h2 id="spacing-tokens-and-accessibility" class="mt-500 mb-400">Spacing tokens and accessibility</h2>
-<p class="mb-400">GC Design System components meet level AAA of the <gcds-link external href="https://www.w3.org/TR/WCAG21/#target-size" target="_blank">Web Content Accessibility Guidelines (WCAG 2.1)</gcds-link> for both tap targets and visual presentation.</p>
-<p class="mb-400">Spacing establishes visual hierarchy for content and guides focus to certain elements. Information that's too densely packed is difficult to read and increases cognitive load.</p>
-<h2 id="vertical-rhythm-and-rem-spacing-sizes" class="mt-500 mb-400">Vertical rhythm and rem spacing sizes</h2>
-<p class="mb-400">GC Design System spacing is based on vertical rhythm and calculated with the help of a base size.</p>
-<p class="mb-400">Vertical rhythm aligns text to evenly spaced horizontal lines in repeated patterns. Consistent vertical spacing helps make content easier to scan, read, and understand. Spacing sizes are configured with rem units. All spacing sizes are relative to a base size of 1.25rem (20px) and what we use to calculate all typography and spacing values.</p>
-<h2 id="global-spacing-tokens" class="mt-500 mb-400">Global spacing tokens</h2>
-<h3 id="alignment-and-spacing" class="mt-500 mb-400">Alignment and spacing</h3>
-<ul class="list-disc mb-400"><li><p class="mb-400">Use smaller spacing tokens to group related concepts together.</li>
-<li><p class="mb-400">Use larger spacing tokens to separate elements into logical groups.</li>
-<li><p class="mb-400">Whenever possible, line objects up both vertically and horizontally.</li>
+        
+<h1 id="styles" class="mb-400">Styles</h1>
+<p class="mb-400">Design tokens make up the foundations of GC Design System.</p>
+<p class="mb-400">Our tokens capture brand and design decisions in code for basic style elements like colours, typography, and spacing.</p>
+<h2 id="design-tokens-support-consistency-and-communication" class="mt-500 mb-400">Design tokens support consistency and communication</h2>
+<p class="mb-400">We're using design tokens to:</p>
+<ul class="list-disc mb-400"><li><p class="mb-400"><strong>Create a consistent visual experience</strong> by scaling design and brand decisions across components.</li>
+<li><p class="mb-400"><strong>Communicate meaning consistently</strong> to establish a predictable and trustworthy experience for the people using your services.</li>
+<li><p class="mb-400"><strong>Improve communication between design and development</strong> by defining each style decision with a name and visual representation.</li>
 </ul>
-<div class="mb-400 table-overflow">
-    <table class="table-display-token-dimension">
-        <thead>
-            <tr><th>Preview</th><th>Token name</th><th>Pixel</th><th>Rem</th></tr>
-        </thead>
-    <tr class="row-0"><td><div class="spacing-preview" style="width: 0; height: 0;"></div></td><td>
-                        --gcds-spacing-0</td><td>0px</td><td>0</td></tr><tr class="row-50"><td><div class="spacing-preview" style="width: 0.1875rem; height: 0.1875rem;"></div></td><td>
-                        --gcds-spacing-50</td><td>3px</td><td>0.1875rem</td></tr><tr class="row-100"><td><div class="spacing-preview" style="width: 0.375rem; height: 0.375rem;"></div></td><td>
-                        --gcds-spacing-100</td><td>6px</td><td>0.375rem</td></tr><tr class="row-150"><td><div class="spacing-preview" style="width: 0.5625rem; height: 0.5625rem;"></div></td><td>
-                        --gcds-spacing-150</td><td>9px</td><td>0.5625rem</td></tr><tr class="row-200"><td><div class="spacing-preview" style="width: 0.75rem; height: 0.75rem;"></div></td><td>
-                        --gcds-spacing-200</td><td>12px</td><td>0.75rem</td></tr><tr class="row-250"><td><div class="spacing-preview" style="width: 0.9375rem; height: 0.9375rem;"></div></td><td>
-                        --gcds-spacing-250</td><td>15px</td><td>0.9375rem</td></tr><tr class="row-300"><td><div class="spacing-preview" style="width: 1.125rem; height: 1.125rem;"></div></td><td>
-                        --gcds-spacing-300</td><td>18px</td><td>1.125rem</td></tr><tr class="row-400"><td><div class="spacing-preview" style="width: 1.5rem; height: 1.5rem;"></div></td><td>
-                        --gcds-spacing-400</td><td>24px</td><td>1.5rem</td></tr><tr class="row-450"><td><div class="spacing-preview" style="width: 2.25rem; height: 2.25rem;"></div></td><td>
-                        --gcds-spacing-450</td><td>36px</td><td>2.25rem</td></tr><tr class="row-500"><td><div class="spacing-preview" style="width: 3rem; height: 3rem;"></div></td><td>
-                        --gcds-spacing-500</td><td>48px</td><td>3rem</td></tr><tr class="row-550"><td><div class="spacing-preview" style="width: 3.75rem; height: 3.75rem;"></div></td><td>
-                        --gcds-spacing-550</td><td>60px</td><td>3.75rem</td></tr><tr class="row-600"><td><div class="spacing-preview" style="width: 4.5rem; height: 4.5rem;"></div></td><td>
-                        --gcds-spacing-600</td><td>72px</td><td>4.5rem</td></tr><tr class="row-700"><td><div class="spacing-preview" style="width: 6rem; height: 6rem;"></div></td><td>
-                        --gcds-spacing-700</td><td>96px</td><td>6rem</td></tr><tr class="row-800"><td><div class="spacing-preview" style="width: 7.5rem; height: 7.5rem;"></div></td><td>
-                        --gcds-spacing-800</td><td>120px</td><td>7.5rem</td></tr><tr class="row-900"><td><div class="spacing-preview" style="width: 9rem; height: 9rem;"></div></td><td>
-                        --gcds-spacing-900</td><td>144px</td><td>9rem</td></tr><tr class="row-1000"><td><div class="spacing-preview" style="width: 10.5rem; height: 10.5rem;"></div></td><td>
-                        --gcds-spacing-1000</td><td>168px</td><td>10.5rem</td></tr></table>
-</div>
-<section class="pt-100 mt-400 mb-600  ">
+<gcds-button type="link" button-role="secondary" href="/en/styles/design-tokens">
+  Explore tokens
+</gcds-button>
+
+
+
+
+
+  
+
+
+
+  <div class="bg-light my-500 p-400">
+    <gcds-grid tag="ul" columns="1fr" columns-tablet="1fr 1fr" columns-desktop="1fr 1fr 1fr" gap="400">
+      
+      
+        <li class="list-none bg-white  component-preview-box">
+          
+          <a class="d-flex flex-col link-inherit link-no-underline p-400" href=/en/styles/colour/>
+          
+            <h3>Colour</h3>
+            <div class="flex-1 mt-150 pt-250 bt-sm">
+              
+              <p class="mb-150">Colour tokens store the colour values for styling components.</p>
+              <img src="/images/en/foundations/preview/preview-colour.svg" alt="" />
+            </div>
+            
+          
+          </a>
+          
+        </li>
+      
+      
+        <li class="list-none bg-white  component-preview-box">
+          
+          <a class="d-flex flex-col link-inherit link-no-underline p-400" href=/en/styles/spacing/>
+          
+            <h3>Spacing</h3>
+            <div class="flex-1 mt-150 pt-250 bt-sm">
+              
+              <p class="mb-150">Spacing tokens help position elements onscreen and in components.</p>
+              <img src="/images/en/foundations/preview/preview-spacing.svg" alt="" />
+            </div>
+            
+          
+          </a>
+          
+        </li>
+      
+      
+        <li class="list-none bg-white  component-preview-box">
+          
+          <a class="d-flex flex-col link-inherit link-no-underline p-400" href=/en/styles/typography/>
+          
+            <h3>Typography</h3>
+            <div class="flex-1 mt-150 pt-250 bt-sm">
+              
+              <p class="mb-150">Typography tokens include   the style, arrangement, and appearance of letters, numbers, and symbols.</p>
+              <img src="/images/en/foundations/preview/preview-typography.svg" alt="" />
+            </div>
+            
+          
+          </a>
+          
+        </li>
+      </gcds-grid>
+  </div>
+
+
+
+<section class="pt-100 mt-400 mb-600 bt-sm b-dark ">
   <h2 class="mt-300 mb-400">
     Help us improve
   </h2>
+
   <p class="mb-400">
-    Have questions? Something you'd change or you'd like to see? Share your feedback with us to help improve GC Design System.
+    Have questions? Something you&#39;d change or you&#39;d like to see? Share your feedback with us to help improve GC Design System.
   </p>
-<p class="mb-400"><gcds-button
+
+  <gcds-button
     type="link"
     button-role="secondary"
     href="/en/contact/#contact-us"
   >
-Give feedback
-</gcds-button></p>
+    Give feedback
+  </gcds-button>
 </section>
 
 
+
         <gcds-date-modified class="mb-400 font-caption">
-          2023-12-18
+          2024-01-04
         </gcds-date-modified>
       </main>
 
