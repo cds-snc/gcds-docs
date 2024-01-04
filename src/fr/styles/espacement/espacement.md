@@ -18,7 +18,7 @@ tokenTable:
     token-name: Nom de l'unité de style
     px: Pixel
     value: Rem
-permalink: /fr/fondements/espacement/
+permalink: /fr/styles/espacement/
 # date: "git Last Modified"
 ---
 

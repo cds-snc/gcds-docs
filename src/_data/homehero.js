@@ -4,7 +4,7 @@ module.exports = {
     gcds: 'GC Design System',
     paragraph:
       'Build modern, accessible, human government services people can use.',
-    link: '/en/contact/#about-gc-design-system',
+    link: '/en/about-us',
     linkText: 'About us',
   },
   fr: {
@@ -12,7 +12,7 @@ module.exports = {
     gcds: 'Système de design GC',
     paragraph:
       'Créez des services gouvernementaux modernes accessibles et humains destinés au public.',
-    link: '/fr/contactez/#a-propos-de-systeme-de-design-gc',
+    link: '/fr/a-propos',
     linkText: 'À propos',
   },
 };

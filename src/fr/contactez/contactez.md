@@ -3,7 +3,7 @@ title: Contactez-nous
 layout: 'layouts/base.njk'
 eleventyNavigation:
   key: contactusFR
-  title: Nous joindre
+  title: Contactez-nous
   locale: fr
   order: 3
 translationKey: 'contactus'
@@ -11,25 +11,21 @@ contactForm: fr
 date: 'git Last Modified'
 ---
 
-# À propos de Système de design GC
+# Contactez-nous
 
-## Créez de services gouvernementaux modernes, accessibles et humains destinés au public.
+Système de design GC est en cours d’élaboration par le Service numérique canadien. En cette phase d’essai, les fonctionnaires y ont accès et peuvent l’utiliser. 
 
-Système de design GC associe code, modèles et conseils basés sur les normes fédérales et sur les meilleures pratiques en matière d'accessibilité. [Composants]({{ links.components }}) et [styles]({{ links.foundations }}) réutilisables vous permettent de créer des formulaires, des sites et des applications.
+Consultez notre page <gcds-link href="{{ links.about }}">À propos</gcds-link> pour en savoir plus.
 
-Ce système de design a été conçu pour le Service numérique canadien par une petite équipe de fonctionnaires. Nous croyons qu'une approche de design et de développement moderne et efficace peut améliorer la qualité de l'expérience utilisateur pour les gens qui utilisent les services gouvernementaux. Nous cherchons à monter la barre en matière d'uniformité et d'accessibilité des interfaces utilisateur pour tout produit numérique.
+## Collaborez avec nous
 
-Système de design GC s'adapte à votre environnement de travail. Vous obtiendrez les mêmes configurations et styles, quels que soient le produit et le navigateur, et ce, sans avoir à écrire de code ni à redéfinir de valeurs. Vous pouvez l'utiliser indépendamment de Web GC et de la Boîte à outils de l'expérience Web (BOEW).
-
-Avez-vous des questions? Vous avez un changement à suggérer ou une fonctionnalité que vous aimeriez voir ? Faites-nous part de vos commentaires pour nous aider à améliorer Système de design GC pour vous.
+Nous nous engageons à construire avec les personnes qui utilisent nos produits. Nous améliorons notre produit en fonction de vos besoins et de ceux des personnes que vous servez.
 
 <hr class="my-500" />
 
-## Contactez-nous
+## Faites-nous part de vos commentaires pour nous aider à améliorer Système de design GC
 
-Renseignez-vous sur Système de design GC, faites une suggestion ou demandez un composant que vous aimeriez voir.
-
-Pour toute demande concernant <gcds-link external href="{{ links.githubTokensIssues }}" target="_blank">les unités de style</gcds-link>, <gcds-link external href="{{ links.githubIssues }}" target="_blank">les composants</gcds-link>, et <gcds-link external href="{{ links.githubDocsIssues }}" target="_blank">la documentation</gcds-link>, remplissez ce formulaire ou envoyez une demande à l'aide de fonction « Issues » dans GitHub.
+Nous sommes à l’écoute. Contactez-nous pour demander une démonstration, poser une question ou nous rencontrer.
 
 <form class="my-500 contact-us-form" name="contactFR" method="post" style="min-height: 32rem;" action="/api/submission">
   <input type="hidden" name="form-name" value="contactFR" />

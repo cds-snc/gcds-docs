@@ -11,7 +11,7 @@ eleventyNavigation:
   thumbnail: /images/en/foundations/preview/preview-colour.svg
   alt:
   state: published
-permalink: /en/foundations/colour/
+permalink: /en/styles/colour/
 translationKey: 'colour'
 tokenTable:
   headers:

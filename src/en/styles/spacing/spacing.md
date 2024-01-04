@@ -11,7 +11,7 @@ eleventyNavigation:
   thumbnail: /images/en/foundations/preview/preview-spacing.svg
   alt:
   state: published
-permalink: /en/foundations/spacing/
+permalink: /en/styles/spacing/
 translationKey: 'spacing'
 tokenTable:
   headers:

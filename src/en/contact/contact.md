@@ -11,25 +11,21 @@ contactForm: en
 date: 'git Last Modified'
 ---
 
-# About GC Design System
+# Contact us
 
-## Build modern, accessible, human government services people can use
+GC Design System is being built by the Canadian Digital Service. In this testing phase, public servants can try out and use the design system.
 
-GC Design System pairs code with designs and guidance based on federal standards and accessibility best practice. Reusable [components]({{ links.components }}) and [styles]({{ links.foundations }}) help you to build forms, websites, and applications.
+Learn more <gcds-link href="{{ links.about }}">about us</gcds-link>.
 
-This is a design system for the Canadian Digital Service built by a small team of public servants. We believe modern, efficient design and development can improve the quality of people's experiences with government services. We hope to raise the bar for consistent, inclusive user interfaces across digital products.
+## Collaborate with us
 
-GC Design System works in the environment you want to work in. You'll get the same patterns and styles across products and browsers without having to code from scratch or redefine values. It works independently of GC Web and the Web Experience Toolkit (WET).
-
-Have questions? Something you'd change or you'd like to see? Share your feedback to help us improve GC Design System for you.
+We’re committed to building with the people who use our products. We’re iterating based on your needs and those of the people you serve.
 
 <hr class="my-500" />
 
-## Contact us
+## Share your feedback to help improve GC Design System
 
-Ask us about GC Design System, make a suggestion, or request a component you'd like to see.
-
-Fill out this form or submit an issue through GitHub for <gcds-link external href="{{ links.githubTokensIssues }}" target="_blank">tokens</gcds-link>, <gcds-link external href="{{ links.githubIssues }}" target="_blank">components</gcds-link>, or <gcds-link external href="{{ links.githubDocsIssues }}" target="_blank">documentation</gcds-link>.
+We’d like to talk to you. Get in touch to request a demo, ask a question, or meet with us.
 
 <form class="my-500 contact-us-form" name="contactEN" method="post" style="min-height: 32rem;" action="/api/submission">
   <input type="hidden" name="form-name" value="contactEN" />

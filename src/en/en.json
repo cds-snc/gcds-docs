@@ -5,11 +5,11 @@
 
     "installation": "/en/installation",
 
-    "foundations": "/en/foundations",
-    "designTokens": "/en/foundations/design-tokens",
-    "colour": "/en/foundations/colour",
-    "spacing": "/en/foundations/spacing",
-    "typography": "/en/foundations/typography",
+    "styles": "/en/styles",
+    "designTokens": "/en/styles/design-tokens",
+    "colour": "/en/styles/colour",
+    "spacing": "/en/styles/spacing",
+    "typography": "/en/styles/typography",
 
     "components": "/en/components",
     "alert": "/en/coming-soon",
@@ -47,8 +47,8 @@
     "topicmenu": "/en/components/theme-and-topic-menu/",
     "verifyBanner": "/en/coming-soon",
 
-    "about": "/en/contact/#about-gc-design-system",
-    "contact": "/en/contact/#contact-us",
+    "about": "/en/about-us",
+    "contact": "/en/contact",
 
     "comingSoon": "/en/coming-soon",
     "demo": "/en/demo",

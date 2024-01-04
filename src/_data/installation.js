@@ -1,7 +1,7 @@
 module.exports = {
   en: {
     step1: {
-      heading: '1. Choose an option that works for you',
+      heading: '1. Choose the option that works best for you',
       paragraph:
         "The GCDS-component library works in multiple frameworks and can also be used framework free. Choose the environment you're building in and follow the instructions to get started.",
       label: "Environment you're working in ",
@@ -85,7 +85,7 @@ module.exports = {
   },
   fr: {
     step1: {
-      heading: '1. Choissisez une option qui vous convient',
+      heading: '1. Choisissez l’option qui vous convient le mieux',
       paragraph:
         'La bibliothèque de composants SDGC fonctionne dans de multiples infrastructures ou peut être utilisée comme telle. Choisissez votre environnement de développement et suivez les instructions pour commencer votre projet.',
       label: 'Votre environnement de travail ',

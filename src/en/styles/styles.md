@@ -1,11 +1,11 @@
 ---
-title: Foundations
+title: Styles
 layout: 'layouts/foundations-overview.njk'
 eleventyNavigation:
   key: foundationsEN
-  title: Foundations
+  title: Styles
   locale: en
-  order: 1
+  order: 2
 translationKey: 'foundatons'
 github: https://github.com/cds-snc/gcds-tokens
 date: 'git Last Modified'

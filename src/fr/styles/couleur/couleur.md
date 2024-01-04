@@ -12,7 +12,7 @@ eleventyNavigation:
   thumbnail: /images/en/foundations/preview/preview-colour.svg
   alt:
   state: published
-permalink: /fr/fondements/couleur/
+permalink: /fr/styles/couleur/
 tokenTable:
   headers:
     color-preview: Aperçu
