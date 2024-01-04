@@ -33,17 +33,17 @@ Le Service numérique canadien est là pour appuyer la prestation de services mo
 
 Nos composants et nos styles vous offrent :
 
-- Un même résultat, peu importe l’infrastructure ou l’environnement que vous utilisez.
-- Des efforts minimaux de codage et de redéfinition des valeurs : les unités de style pour l’espacement, la typographie et les couleurs réduisent les mises à jour manuelles.
-- Un point de départ accessible : Nous avons intégré l’accessibilité dès le départ et offrons des conseils pour toutes vos décisions de mise en œuvre.
+- <strong>Un même résultat</strong>, peu importe l’infrastructure ou l’environnement que vous utilisez.
+- <strong>Des efforts minimaux de codage</strong> et de redéfinition des valeurs : les unités de style pour l’espacement, la typographie et les couleurs réduisent les mises à jour manuelles.
+- <strong>Un point de départ accessible</strong> : Nous avons intégré l’accessibilité dès le départ et offrons des conseils pour toutes vos décisions de mise en œuvre.
 
 ### Aidez à créer des expériences de service du GC uniformes
 
 Système de design GC soutient une expérience de service uniforme grâce aux éléments suivants :
 
-- Des éléments d’interaction prévisibles conçus pour favoriser la réussite des tâches.
-- Une conception inclusive pour une prestation de services numériques bilingue et équitable.
-- Des conseils d’accessibilité sur les plans cognitif et physique, notamment sur le codage, la clarification des demandes et la communication des erreurs.
+- <strong>Des éléments d’interaction prévisibles</strong> conçus pour favoriser la réussite des tâches.
+- <strong>Une conception inclusive</strong> pour une prestation de services numériques bilingue et équitable.
+- <strong>Des conseils d’accessibilité</strong> sur les plans cognitif et physique, notamment sur le codage, la clarification des demandes et la communication des erreurs.
 
 ## L’équipe du SNC qui élabore Système de design GC
 
