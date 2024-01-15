@@ -26,7 +26,7 @@ jobs:
           git commit -m "A11y report"
       - name: Push changes
         if: always()
-        uses: ad-m/github-push-action@c8e916676288f4db183792490450557e2d4296ef
+        uses: ad-m/github-push-action@fc0cf17cf360e4df1e3d7964847365fdc40ae03f
         with:
           github_token: ${{ secrets.ACCESS_TOKEN }}
           branch: 'gh-pages'
