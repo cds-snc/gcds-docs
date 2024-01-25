@@ -9,7 +9,7 @@ eleventyNavigation:
   otherNames: title, section heading, subheading.
   description: A heading is a title that establishes levels of hierarchy to organize page content into a structure.
   thumbnail: /images/common/components/preview-heading.svg
-  alt: The heading component shows a highlighted dark blue box representing a heading and 3 smaller grey boxes below representing a text block.
+  alt: An abstract representation of a large, prominent line of text using 1 larger, darker rectangular row above a short red line. Beneath these are 3 smaller grey rectangular rows stacked one on top of another, representing text.
   state: published
 translationKey: 'heading'
 tags: ['headingEN', 'usage']
