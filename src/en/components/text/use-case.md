@@ -9,7 +9,7 @@ eleventyNavigation:
   otherNames: text block, copy, caption, body text, paragraph.
   description: Text is a styled and formatted paragraph that displays written content in an accessible way.
   thumbnail: /images/common/components/preview-text.svg
-  alt: TO DO.
+  alt: An abstract representation of 3 lines of text using 3 grey rectangular rows stacked one on top of another.
   state: published
 translationKey: 'text'
 tags: ['textEN', 'usage']

@@ -39,7 +39,7 @@ Text displays non-heading content with matching GC Design System styles to provi
 {% include "partials/getcode.njk" %}
 
 <iframe
-  title="iframeTitle"
+  title="Overview of gcds-text properties and events."
   src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&demo=true&singleStory=true&id=components-text--events-properties"
   width="1200"
   height="1350"

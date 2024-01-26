@@ -9,12 +9,11 @@ tags: ['textEN', 'design']
 ## Text anatomy
 
 <ol class="anatomy-list">
-  <li><strong>Margin top</strong> TO DO</li>
   <li><strong>Text</strong> is non-heading content. Its subject matter is related to the idea outlined in its corresponding heading.</li>
-  <li><strong>Margin bottom</strong> TO DO</li>
+  <li><strong>Heading</strong> is a prominent line of text that introduces the paragraph or other body content that immediately follows it. The visual prominence of the heading decreases based on its level in the hierarchical order.</li>
 </ol>
 
-<img class="b-sm b-default p-400" src="/images/en/components/anatomy/gcds-text-anatomy.svg" alt="TO DO" />
+<img class="b-sm b-default p-400" src="/images/en/components/anatomy/gcds-text-anatomy.svg" alt="A line of large bold text above a block of smaller text. The bold text reads “This is a heading” and the block of written content reads “This is text that’s related to the heading and describes in further detail the heading’s subject or action. Text is typically one or several lines or paragraphs that form a section’s content or introduce a bulleted list, table, or other content, like an image or video.” A label with a “1” points to the smaller block of text and a label with “2” points to the larger bold text." />
 
 ## Design and accessibility for text
 
