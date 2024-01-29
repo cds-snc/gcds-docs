@@ -1009,15 +1009,15 @@
       <main id="mc" class="container-xl mx-auto xl:px-0 sm:px-500 px-300 general-layout">
         
   
-    <h1 id="heading-brgcdscomponentname" class="mb-400">Heading <br><code>&lt;gcds-component-name&gt;</code></h1>
-<p class="mb-400"><em>Also called: .</em></p>
-<p class="mb-400">This element will have the content below it</p>
+    <h1 id="heading-brgcdsheading" class="mb-400">Heading <br><code>&lt;gcds-heading&gt;</code></h1>
+<p class="mb-400"><em>Also called: title, section heading, subheading.</em></p>
+<p class="mb-400">A heading is a title that establishes levels of hierarchy to organize page content into a structure.</p>
 <p class="mb-400"><ul class="d-flex flex-wrap gap-400">
 <li class="github-link">
-<gcds-link external href="https://github.com/cds-snc/gcds-components/tree/main/packages/web/src/components/gcds-enter-component-name">GitHub</gcds-link>
+<gcds-link external href="https://github.com/cds-snc/gcds-components/tree/main/packages/web/src/components/gcds-heading">GitHub</gcds-link>
 </li>
 <li class="figma-link">
-<gcds-link external href="insert figma url">Figma</gcds-link>
+<gcds-link external href="https://www.figma.com/file/mh2maMG2NBtk41k1O1UGHV/Canadian-Digital-Service%E2%80%A8---GC-Design-System?type=design&node-id=9439-44&mode=design&t=E0XGUkSN8iUhsIDS-0">Figma</gcds-link>
 </li>
 </ul></p>
 <p class="mb-400"><div class="my-500 b-sm b-default component-preview">
@@ -1025,7 +1025,7 @@
 Heading component preview
 </p>
 <div class="px-300 py-400"></p>
-<p class="mb-400">Insert component here</p>
+<p class="mb-400"><gcds-heading tag="h2">Heading</gcds-heading></p>
 <p class="mb-400"></div>
 </div></p>
 
@@ -1067,7 +1067,35 @@ Heading component preview
   
 
   <h2 id="build-a-heading" class="mt-500 mb-400">Build a Heading</h2>
-<h2 id="coding-and-accessibility-for-heading" class="mt-500 mb-400">Coding and accessibility for Heading</h2>
+<p class="mb-400">Headings structure content by establishing levels of hierarchy that organize page content.</p>
+<h2 id="coding-and-accessibility-for-headings" class="mt-500 mb-400">Coding and accessibility for headings</h2>
+<h3 id="order-heading-levels-hierarchically" class="mt-500 mb-400">Order heading levels hierarchically</h3>
+<p class="mb-400">Heading levels follow a sequential, hierarchical order: higher levels have larger display text than lower ones.</p>
+<ul class="list-disc mb-400"><li><p class="mb-400">Set correct and consistent heading levels to align the coded and visual headings on a page. Consistent headings support an equitable experience for people who use assistive technologies.</li>
+<li><p class="mb-400">Order headings sequentially from lowest to highest (H1–H6).</li>
+<li><p class="mb-400">Avoid skipping heading levels. Instead, restructure content so headings are used sequentially, from largest (H1) to smallest (H6).</li>
+<li><p class="mb-400">Only use an H1 heading once on a page. Other heading types can be used multiple times.</li>
+<li><p class="mb-400">Use H2 headings to describe individual sections. Each section should have one H2 heading.</li>
+<li><p class="mb-400">Opt to use H3–H6 headings within sections. Sections can contain multiple H3–H6 headings, as long as they are placed in hierarchical order.</li>
+</ul>
+<h3 id="maintain-accessible-character-limits" class="mt-500 mb-400">Maintain accessible character limits</h3>
+<ul class="list-disc mb-400"><li><p class="mb-400">Maintain the default <code>character-limit</code> for each heading line by keeping the attribute set to <code>true</code> for a comfortable and accessible reading length. These defaults create a balanced, consistent line length across heading font sizes.</li>
+<li><p class="mb-400">Keep character limits to the following lengths to maintain a visual balance across headings on a page:<ul class="list-disc mb-400"><li><p class="mb-400">31 characters for H1.</li>
+<li><p class="mb-400">35 characters for H2.</li>
+<li><p class="mb-400">40 characters for H3.</li>
+<li><p class="mb-400">45 characters for H4.</li>
+<li><p class="mb-400">50 characters for H5.</li>
+<li><p class="mb-400">57 characters for H6.</li>
+</ul>
+</li>
+</ul>
+<h3 id="use-consistent-spacing" class="mt-500 mb-400">Use consistent spacing</h3>
+<ul class="list-disc mb-400"><li><p class="mb-400">Maintain default spacing for a comfortable and accessible reading experience. These defaults create visual breaks and separation between different sections.</li>
+<li><p class="mb-400">Keep spacing values to the following to maintain a visual balance across headings on a page:<ul class="list-disc mb-400"><li><p class="mb-400">Default <code>margin-bottom</code>: <code>400</code> for all</li>
+<li><p class="mb-400">Default <code>margin-top</code>: <code>0</code> for H1 and <code>500</code> for H2–3</li>
+</ul>
+</li>
+</ul>
 <h3 id="get-your-code" class="mt-500 mb-400">Get your code</h3>
 <p class="mb-400">Generate an instance of the component you need by selecting its code properties.</p>
 <ol class="list-decimal mb-400"><li>
@@ -1082,10 +1110,10 @@ Heading component preview
 </ol>
 <p class="mb-400"><strong>Note:</strong> Following standard practice, the code builder uses English for all code elements.</p>
 <iframe
-  title="iframeTitle"
+  title="Overview of gcds-heading properties and events."
   src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&demo=true&singleStory=true&id=components-heading--events-properties"
   width="1200"
-  height="1650"
+  height="1300"
   style="display: block; margin: 0 auto;"
   frameBorder="0"
   allow="clipboard-write"

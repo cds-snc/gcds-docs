@@ -1009,23 +1009,23 @@
       <main id="mc" class="container-xl mx-auto xl:px-0 sm:px-500 px-300 general-layout">
         
   
-    <h1 id="titre-brgcdscomponentname" class="mb-400">Titre <br><code>&lt;gcds-component-name&gt;</code></h1>
-<p class="mb-400"><em>Autres noms : .</em></p>
-<p class="mb-400">This element will have the content below it</p>
+    <h1 id="titre-brgcdsheading" class="mb-400">Titre <br><code>&lt;gcds-heading&gt;</code></h1>
+<p class="mb-400"><em>Autres noms : titre de la section, sous-titre.</em></p>
+<p class="mb-400">Un titre établit les niveaux d’une structure hiérarchique pour organiser le contenu d’une page.</p>
 <p class="mb-400"><ul class="d-flex flex-wrap gap-400">
 <li class="github-link">
-<gcds-link external href="https://github.com/cds-snc/gcds-components/tree/main/packages/web/src/components/gcds-enter-component-name">GitHub</gcds-link>
+<gcds-link external href="https://github.com/cds-snc/gcds-components/tree/main/packages/web/src/components/gcds-heading">GitHub</gcds-link>
 </li>
 <li class="figma-link">
-<gcds-link external href="insert figma url">Figma</gcds-link>
+<gcds-link external href="https://www.figma.com/file/mh2maMG2NBtk41k1O1UGHV/Canadian-Digital-Service%E2%80%A8---GC-Design-System?type=design&node-id=9439-44&mode=design&t=E0XGUkSN8iUhsIDS-0">Figma</gcds-link>
 </li>
 </ul></p>
 <p class="mb-400"><div class="my-500 b-sm b-default component-preview">
 <p class="container-full font-semibold px-300 py-200 bb-sm b-default bg-light">
-Aperçu du composant de Titre
+Aperçu du composant de titre
 </p>
 <div class="px-300 py-400"></p>
-<p class="mb-400">Insert component here</p>
+<p class="mb-400"><gcds-heading tag="h2">Titre</gcds-heading></p>
 <p class="mb-400"></div>
 </div></p>
 
@@ -1066,8 +1066,36 @@ Aperçu du composant de Titre
     </nav>
   
 
-  <h2 id="creer-une-case-a-titre" class="mt-500 mb-400">Créer une case à Titre</h2>
-<h2 id="accessibilite-et-codage-des-cases-a-titre" class="mt-500 mb-400">Accessibilité et codage des cases à Titre</h2>
+  <h2 id="creer-un-titre" class="mt-500 mb-400">Créer un titre</h2>
+<p class="mb-400">Les titres établissent des niveaux hiérarchiques qui organisent le contenu d'une page.</p>
+<h2 id="codage-et-accessibilite-du-composant-titre" class="mt-500 mb-400">Codage et accessibilité du composant titre</h2>
+<h3 id="classez-les-niveaux-de-titre-de-maniere-hierarchique" class="mt-500 mb-400">Classez les niveaux de titre de manière hiérarchique</h3>
+<p class="mb-400">Les niveaux de titre suivent un ordre séquentiel et hiérarchique : les niveaux supérieurs ont un texte d'affichage plus grand que les niveaux inférieurs.</p>
+<ul class="list-disc mb-400"><li><p class="mb-400">Définissez des niveaux de titre corrects et cohérents pour aligner les titres codés et visuels sur une page. Des titres cohérents favorisent une expérience équitable pour les personnes qui utilisent des technologies d'assistance.</li>
+<li><p class="mb-400">Classez les titres de manière séquentielle, du plus bas au plus élevé (H1 à H6).</li>
+<li><p class="mb-400">Évitez de sauter des niveaux de titre. Restructurez plutôt le contenu de manière à ce que les titres soient utilisés de manière séquentielle, du plus grand (H1) au plus petit (H6).</li>
+<li><p class="mb-400">N'utilisez un titre H1 qu'une seule fois sur une page. D'autres types de titres peuvent être utilisés plusieurs fois.</li>
+<li><p class="mb-400">Utilisez les titres H2 pour décrire les sections individuelles. Chaque section doit avoir un titre H2.</li>
+<li><p class="mb-400">Utilisez les titres H3 à H6 dans les sections. Les sections peuvent contenir plusieurs titres H3-H6, à condition qu'ils soient placés dans l'ordre hiérarchique.</li>
+</ul>
+<h3 id="maintenez-des-limites-de-caracteres-accessibles" class="mt-500 mb-400">Maintenez des limites de caractères accessibles</h3>
+<ul class="list-disc mb-400"><li><p class="mb-400">Conservez la valeur <code>character-limit</code> par défaut pour chaque ligne de titre en réglant l'attribut à <code>true</code> pour une expérience de lecture agréable et accessible. Ces valeurs par défaut créent une longueur de ligne équilibrée et cohérente entre les tailles de police des titres.</li>
+<li><p class="mb-400">Limitez les limites de caractères aux longueurs suivantes pour maintenir un équilibre visuel entre les titres d'une page :<ul class="list-disc mb-400"><li><p class="mb-400">31 caractères pour H1.</li>
+<li><p class="mb-400">35 caractères pour H2.</li>
+<li><p class="mb-400">40 caractères pour H3.</li>
+<li><p class="mb-400">45 caractères pour H4.</li>
+<li><p class="mb-400">50 caractères pour H5.</li>
+<li><p class="mb-400">57 caractères pour H6.</li>
+</ul>
+</li>
+</ul>
+<h3 id="utilisez-un-espacement-coherent" class="mt-500 mb-400">Utilisez un espacement cohérent</h3>
+<ul class="list-disc mb-400"><li><p class="mb-400">Conservez l'espacement par défaut pour une expérience de lecture agréable et accessible. Ces valeurs par défaut créent des espaces visuels et des séparations entre les différentes sections.</li>
+<li><p class="mb-400">Conservez les valeurs d'espacement suivantes pour maintenir un équilibre visuel entre les titres d'une page :<ul class="list-disc mb-400"><li><p class="mb-400">Par défaut <code>margin-bottom</code>: <code>400</code> pour tous les niveaux</li>
+<li><p class="mb-400">Par défaut <code>margin-top</code>: <code>0</code> pour H1 et <code>500</code> pour H2 et 3</li>
+</ul>
+</li>
+</ul>
 <h3 id="obtenez-votre-code" class="mt-500 mb-400">Obtenez votre code</h3>
 <p class="mb-400">Générez une version du composant dont vous avez besoin en sélectionnant les propriétés de code correspondantes ou explorez les possibilités en choisissant différentes valeurs de code.</p>
 <ol class="list-decimal mb-400"><li>
@@ -1082,10 +1110,10 @@ Aperçu du composant de Titre
 </ol>
 <p class="mb-400"><strong>Remarque</strong> : Conformément à la pratique courante, le générateur de code utilise l'anglais pour tous les éléments de code.</p>
 <iframe
-  title="iframeTitle"
+  title="Survol des propriétés et des évènements relatifs à gcds-heading."
   src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&demo=true&singleStory=true&id=components-heading--events-properties"
   width="1200"
-  height="1650"
+  height="1300"
   style="display: block; margin: 0 auto;"
   frameBorder="0"
   allow="clipboard-write"
