@@ -1,19 +1,19 @@
 ---
-github: https://github.com/cds-snc/gcds-components/tree/main/packages/web/src/components/gcds-enter-component-name
-figma: insert figma url
+github: https://github.com/cds-snc/gcds-components/tree/main/packages/web/src/components/gcds-heading
+figma: https://www.figma.com/file/mh2maMG2NBtk41k1O1UGHV/Canadian-Digital-Service%E2%80%A8---GC-Design-System?type=design&node-id=9439-44&mode=design&t=E0XGUkSN8iUhsIDS-0
 permalink: false
 tags: ['headingEN', 'header']
 ---
 
-# Heading <br>`<gcds-component-name>`
+# Heading <br>`<gcds-heading>`
 
-_Also called: ._
+_Also called: title, section heading, subheading._
 
-This element will have the content below it
+A heading is a title that establishes levels of hierarchy to organize page content into a structure.
 
 {% docLinks locale stage figma github %}
 {% enddocLinks %}
 
 {% componentPreview "Heading component preview" %}
-Insert component here
+<gcds-heading tag="h2">Heading</gcds-heading>
 {% endcomponentPreview %}
