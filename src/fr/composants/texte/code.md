@@ -8,7 +8,7 @@ tags: ['textFR', 'code']
 
 ## Créer un composant de texte
 
-Le composant texte affiche du contenu sans en-tête avec les styles correspondants de Système de design GC pour fournir une taille de police et un contraste des couleurs accessibles.
+Le composant texte affiche du contenu sans titre avec les styles correspondants de Système de design GC pour fournir une taille de police et un contraste des couleurs accessibles.
 
 ## Codage et accessibilité du composant texte
 
@@ -28,7 +28,7 @@ Le composant texte affiche du contenu sans en-tête avec les styles correspondan
 
 - Ne soulignez que les liens.
 - Utilisez le texte en caractères gras avec prudence.
-- Évitez d'utiliser du texte en gras comme titre. L'en-tête est le composant accessible permettant d'identifier les sections de contenu.
+- Évitez d'utiliser du texte en gras comme titre. Le titre est le composant accessible permettant d'identifier les sections de contenu.
 - Pour le texte en caractères gras, utilisez la balise `strong` dans le composant `gcds-text` pour mettre en évidence les termes et souligner les points clés.
 - Utilisez uniquement les caractères en italiques dans les cas suivants :
   - Références juridiques, comme la _Loi canadienne sur l'accessibilité_.

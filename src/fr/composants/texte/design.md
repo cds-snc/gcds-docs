@@ -9,11 +9,11 @@ tags: ['textFR', 'design']
 ## Structure du composant texte
 
 <ol class="anatomy-list">
-  <li>Le composant <strong>texte</strong> ne contient pas d'en-tête. Son sujet est lié à l'idée principale de l'en-tête correspondant.</li>
-  <li>L'<strong>en-tête</strong> est une ligne de texte mis en évidence qui introduit le paragraphe ou tout autre contenu du corps qui le suit immédiatement. L'en-tête structure les sections de texte selon un ordre hiérarchique.</li>
+  <li>Le composant <strong>texte</strong> ne contient pas de titre. Son sujet est lié à l'idée principale du titre correspondant.</li>
+  <li>Le <strong>titre</strong> est une ligne de texte mis en évidence qui introduit le paragraphe ou tout autre contenu du corps qui le suit immédiatement. Le titre donne une structure aux sections de texte selon un ordre hiérarchique.</li>
 </ol>
 
-<img class="b-sm b-default p-400" src="/images/fr/components/anatomy/gcds-text-anatomy.svg" alt="Une ligne de grand texte en caractères gras au-dessus d'un bloc de texte plus petit. Le texte en gras indique « Ceci est un en-tête » et le bloc de contenu écrit indique « Il s'agit d'un texte lié à l'en-tête qui décrit plus en détail le sujet ou l'action de l'en-tête. Le texte est généralement une ou plusieurs lignes ou paragraphes qui forment le contenu d'une section ou introduisent une liste à puces, un tableau ou tout autre contenu, comme une image ou une vidéo. » Un libellé avec un « 1 » pointe vers le plus petit bloc de texte et un libellé avec « 2 » pointe vers le texte gras plus grand." />
+<img class="b-sm b-default p-400" src="/images/fr/components/anatomy/gcds-text-anatomy.svg" alt="Une ligne de grand texte en caractères gras au-dessus d'un bloc de texte plus petit. Le texte en gras indique « Ceci est un titre » et le bloc de contenu écrit indique « Il s'agit d'un texte lié au titre qui décrit plus en détail le sujet ou l'action du titre. Le texte est généralement une ou plusieurs lignes ou paragraphes qui forment le contenu d'une section ou introduisent une liste à puces, un tableau ou tout autre contenu, comme une image ou une vidéo. » Un libellé avec un « 1 » pointe vers le plus petit bloc de texte et un libellé avec « 2 » pointe vers le texte gras plus grand." />
 
 ## Conception et accessibilité du composant texte
 
@@ -40,7 +40,7 @@ Conseil : Pour adopter un ton plus humain, faites comme si vous parliez à quelq
 ### Choisissez un texte ordinaire ou une légende
 
 - Définissez la taille du texte en fonction du rôle du contenu et du contexte du produit.
-- Utilisez du texte ordinaire pour la plupart du contenu qui n'est pas un en-tête. Le texte normal utilise la taille de police par défaut.
+- Utilisez du texte ordinaire pour la plupart du contenu qui n'est pas un titre. Le texte normal utilise la taille de police par défaut.
 - Choisissez une légende pour présenter brièvement le contexte d'une section ou d'un élément de contenu. Le texte de la légende s'affiche avec une taille de police plus petite.
 
 ### Utilisez des styles de texte avec prudence
@@ -48,7 +48,7 @@ Conseil : Pour adopter un ton plus humain, faites comme si vous parliez à quelq
 - Ne soulignez que les liens.
 - Utilisez du texte en caractères gras plutôt qu'en italiques pour mettre en évidence des points clés ou des termes dans le contenu.
 - Limitez votre utilisation de caractères en gras pour éviter de compromettre la lisibilité et l'accessibilité.
-- Évitez d'utiliser du texte en gras comme titre. L'[en-tête]({{ links.heading }}) est le composant accessible permettant d'identifier les sections de contenu.
+- Évitez d'utiliser du texte en gras comme titre. Le [titre]({{ links.heading }}) est le composant accessible permettant d'identifier les sections de contenu.
 - Évitez de mettre en italiques de gros blocs de texte, des paragraphes entiers ou de longs contenus. Le contenu en italiques est souvent difficile à lire pour les personnes ayant une déficience visuelle ou une déficience cognitive.
 - Utilisez uniquement les caractères en italiques dans les cas suivants :
   - Références juridiques, comme la _Loi canadienne sur l'accessibilité_.

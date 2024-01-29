@@ -15,5 +15,5 @@ Le composant texte est un paragraphe stylisé et formaté qui affiche du contenu
 {% enddocLinks %}
 
 {% componentPreview "Aperçu du composant de Texte" %}
-<gcds-text>Il s'agit d'un texte lié à l'en-tête qui décrit plus en détail le sujet ou l'action de l'en-tête. Le texte est généralement une ou plusieurs lignes ou paragraphes qui forment le contenu d'une section ou introduisent une liste à puces, un tableau ou tout autre contenu, comme une image ou une vidéo.</gcds-text>
+<gcds-text>Il s'agit d'un texte lié au titre qui décrit plus en détail le sujet ou l'action du titre. Le texte est généralement une ou plusieurs lignes ou paragraphes qui forment le contenu d'une section ou introduisent une liste à puces, un tableau ou tout autre contenu, comme une image ou une vidéo.</gcds-text>
 {% endcomponentPreview %}
