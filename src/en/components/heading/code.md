@@ -32,7 +32,7 @@ Heading levels follow a sequential, hierarchical order: higher levels have large
   - 40 characters for H3.
   - 45 characters for H4.
   - 50 characters for H5.
-    -57 characters for H6.
+  - 57 characters for H6.
 
 ### Use consistent spacing
 
