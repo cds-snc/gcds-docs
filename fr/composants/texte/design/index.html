@@ -1009,15 +1009,15 @@
       <main id="mc" class="container-xl mx-auto xl:px-0 sm:px-500 px-300 general-layout">
         
   
-    <h1 id="texte-brgcdscomponentname" class="mb-400">Texte <br><code>&lt;gcds-component-name&gt;</code></h1>
-<p class="mb-400"><em>Autres noms : .</em></p>
-<p class="mb-400">This element will have the content below it</p>
+    <h1 id="texte-brgcdstext" class="mb-400">Texte <br><code>&lt;gcds-text&gt;</code></h1>
+<p class="mb-400"><em>Autres noms : bloc de texte, version, légende, corps du texte, paragraphe.</em></p>
+<p class="mb-400">Le composant texte est un paragraphe stylisé et formaté qui affiche du contenu écrit de manière accessible.</p>
 <p class="mb-400"><ul class="d-flex flex-wrap gap-400">
 <li class="github-link">
-<gcds-link external href="https://github.com/cds-snc/gcds-components/tree/main/packages/web/src/components/gcds-enter-component-name">GitHub</gcds-link>
+<gcds-link external href="https://github.com/cds-snc/gcds-components/tree/main/packages/web/src/components/gcds-text">GitHub</gcds-link>
 </li>
 <li class="figma-link">
-<gcds-link external href="insert figma url">Figma</gcds-link>
+<gcds-link external href="https://www.figma.com/file/mh2maMG2NBtk41k1O1UGHV/Canadian-Digital-Service%E2%80%A8---GC-Design-System?type=design&node-id=10053-348&mode=design&t=E0XGUkSN8iUhsIDS-0">Figma</gcds-link>
 </li>
 </ul></p>
 <p class="mb-400"><div class="my-500 b-sm b-default component-preview">
@@ -1025,7 +1025,7 @@
 Aperçu du composant de Texte
 </p>
 <div class="px-300 py-400"></p>
-<p class="mb-400">Insert component here</p>
+<p class="mb-400"><gcds-text>Il s'agit d'un texte lié au titre qui décrit plus en détail le sujet ou l'action du titre. Le texte est généralement une ou plusieurs lignes ou paragraphes qui forment le contenu d'une section ou introduisent une liste à puces, un tableau ou tout autre contenu, comme une image ou une vidéo.</gcds-text></p>
 <p class="mb-400"></div>
 </div></p>
 
@@ -1066,12 +1066,46 @@ Aperçu du composant de Texte
     </nav>
   
 
-  <h2 id="structure-de-la-texte" class="mt-500 mb-400">Structure de la Texte</h2>
+  <h2 id="structure-du-composant-texte" class="mt-500 mb-400">Structure du composant texte</h2>
 <ol class="anatomy-list">
-  <li><strong>list</strong></li>
+  <li>Le composant <strong>texte</strong> ne contient pas de titre. Son sujet est lié à l'idée principale du titre correspondant.</li>
+  <li>Le <strong>titre</strong> est une ligne de texte mis en évidence qui introduit le paragraphe ou tout autre contenu du corps qui le suit immédiatement. Le titre donne une structure aux sections de texte selon un ordre hiérarchique.</li>
 </ol>
-<img class="b-sm b-default p-400" src="/images/{local}/components/anatomy/gcds-text-anatomy.svg" alt="An image of the anatomy." />
-<h2 id="accessibilite-et-design-des-texte" class="mt-500 mb-400">Accessibilité et design des Texte</h2>
+<img class="b-sm b-default p-400" src="/images/fr/components/anatomy/gcds-text-anatomy.svg" alt="Une ligne de grand texte en caractères gras au-dessus d'un bloc de texte plus petit. Le texte en gras indique « Ceci est un titre » et le bloc de contenu écrit indique « Il s'agit d'un texte lié au titre qui décrit plus en détail le sujet ou l'action du titre. Le texte est généralement une ou plusieurs lignes ou paragraphes qui forment le contenu d'une section ou introduisent une liste à puces, un tableau ou tout autre contenu, comme une image ou une vidéo. » Un libellé avec un « 1 » pointe vers le plus petit bloc de texte et un libellé avec « 2 » pointe vers le texte gras plus grand." />
+<h2 id="conception-et-accessibilite-du-composant-texte" class="mt-500 mb-400">Conception et accessibilité du composant texte</h2>
+<h3 id="redigez-du-contenu-facile-a-lire-en-un-coup-doeil" class="mt-500 mb-400">Rédigez du contenu facile à lire en un coup d'oeil</h3>
+<ul class="list-disc mb-400"><li><p class="mb-400">Structurez le contenu de manière à placer les informations les plus importantes pour la tâche en premier.</li>
+<li><p class="mb-400">Gardez le contenu bref et axé sur les tâches. Notre « besoin de dire » n'est pas égal au « besoin de savoir » d'un lecteur.</li>
+<li><p class="mb-400">Supprimez les détails et les explications inutiles. Incluez uniquement les renseignements dont une personne a besoin.</li>
+<li><p class="mb-400">Utilisez des phrases courtes qui communiquent une seule idée. Indiquez clairement le sujet de l'action dans chaque phrase.</li>
+<li><p class="mb-400">Évitez le chargement frontal de contenu qui pourrait plutôt être placé là où une personne en a besoin. Plutôt que d'expliquer un processus, faites que le processus est plus facile à suivre et à comprendre.</li>
+</ul>
+<p class="mb-400">Conseil : Demandez-vous si le message risque d'être interprété autrement.</p>
+<h3 id="adoptez-un-ton-humain" class="mt-500 mb-400">Adoptez un ton humain</h3>
+<ul class="list-disc mb-400"><li><p class="mb-400">Utilisez le langage parlé par les personnes qui utilisent votre produit. Renseignez-vous sur eux et leur langage en lisant leurs demandes ou problèmes et en testant vos messages avec eux dans le cadre d'une recherche sur les utilisateurs.</li>
+<li><p class="mb-400">Utilisez un langage simple et accessible, comme si vous décriviez la situation directement à la personne.</li>
+<li><p class="mb-400">Autant que possible, remplacez la terminologie et le jargon du codage (code non valide, champ non reconnu, obligatoire et périphérique) par des termes plus simples.</li>
+<li><p class="mb-400">S'ils doivent être utilisés, donnez une brève définition après l'utilisation du terme.</li>
+<li><p class="mb-400">Utilisez la majuscule seulement en début de phrase et évitez les points d'exclamation.</li>
+</ul>
+<p class="mb-400">Conseil : Pour adopter un ton plus humain, faites comme si vous parliez à quelqu'un à voix haute. Que pensez-vous du contenu lorsque vous le prononcez de vive voix?</p>
+<h3 id="choisissez-un-texte-ordinaire-ou-une-legende" class="mt-500 mb-400">Choisissez un texte ordinaire ou une légende</h3>
+<ul class="list-disc mb-400"><li><p class="mb-400">Définissez la taille du texte en fonction du rôle du contenu et du contexte du produit.</li>
+<li><p class="mb-400">Utilisez du texte ordinaire pour la plupart du contenu qui n'est pas un titre. Le texte normal utilise la taille de police par défaut.</li>
+<li><p class="mb-400">Choisissez une légende pour présenter brièvement le contexte d'une section ou d'un élément de contenu. Le texte de la légende s'affiche avec une taille de police plus petite.</li>
+</ul>
+<h3 id="utilisez-des-styles-de-texte-avec-prudence" class="mt-500 mb-400">Utilisez des styles de texte avec prudence</h3>
+<ul class="list-disc mb-400"><li><p class="mb-400">Ne soulignez que les liens.</li>
+<li><p class="mb-400">Utilisez du texte en caractères gras plutôt qu'en italiques pour mettre en évidence des points clés ou des termes dans le contenu.</li>
+<li><p class="mb-400">Limitez votre utilisation de caractères en gras pour éviter de compromettre la lisibilité et l'accessibilité.</li>
+<li><p class="mb-400">Évitez d'utiliser du texte en gras comme titre. Le <a href="/fr/composants/titre">titre</a> est le composant accessible permettant d'identifier les sections de contenu.</li>
+<li><p class="mb-400">Évitez de mettre en italiques de gros blocs de texte, des paragraphes entiers ou de longs contenus. Le contenu en italiques est souvent difficile à lire pour les personnes ayant une déficience visuelle ou une déficience cognitive.</li>
+<li><p class="mb-400">Utilisez uniquement les caractères en italiques dans les cas suivants :<ul class="list-disc mb-400"><li><p class="mb-400">Références juridiques, comme la <em>Loi canadienne sur l'accessibilité</em>.</li>
+<li><p class="mb-400">Mots dans d'autres langues, y compris le latin.</li>
+<li><p class="mb-400">Titres de publications, d'œuvres d'art et de matériel mathématique et scientifique.</li>
+</ul>
+</li>
+</ul>
 
 
   <section class="pt-100 mt-400 mb-600 bt-sm b-dark ">

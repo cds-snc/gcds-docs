@@ -1009,15 +1009,15 @@
       <main id="mc" class="container-xl mx-auto xl:px-0 sm:px-500 px-300 general-layout">
         
   
-    <h1 id="text-brgcdscomponentname" class="mb-400">Text <br><code>&lt;gcds-component-name&gt;</code></h1>
-<p class="mb-400"><em>Also called: .</em></p>
-<p class="mb-400">This element will have the content below it</p>
+    <h1 id="text-brgcdstext" class="mb-400">Text <br><code>&lt;gcds-text&gt;</code></h1>
+<p class="mb-400"><em>Also called: text block, copy, caption, body text, paragraph.</em></p>
+<p class="mb-400">Text is a styled and formatted paragraph that displays written content in an accessible way.</p>
 <p class="mb-400"><ul class="d-flex flex-wrap gap-400">
 <li class="github-link">
-<gcds-link external href="https://github.com/cds-snc/gcds-components/tree/main/packages/web/src/components/gcds-enter-component-name">GitHub</gcds-link>
+<gcds-link external href="https://github.com/cds-snc/gcds-components/tree/main/packages/web/src/components/gcds-text">GitHub</gcds-link>
 </li>
 <li class="figma-link">
-<gcds-link external href="insert figma url">Figma</gcds-link>
+<gcds-link external href="https://www.figma.com/file/mh2maMG2NBtk41k1O1UGHV/Canadian-Digital-Service%E2%80%A8---GC-Design-System?type=design&node-id=10053-348&mode=design&t=E0XGUkSN8iUhsIDS-0">Figma</gcds-link>
 </li>
 </ul></p>
 <p class="mb-400"><div class="my-500 b-sm b-default component-preview">
@@ -1025,7 +1025,7 @@
 Text component preview
 </p>
 <div class="px-300 py-400"></p>
-<p class="mb-400">Insert component here</p>
+<p class="mb-400"><gcds-text>This is text that's related to the heading and describes in further detail the heading's subject or action. Text is typically one or several lines or paragraphs that form a section's content or introduce a bulleted list, table, or other content, like an image or video.</gcds-text></p>
 <p class="mb-400"></div>
 </div></p>
 
@@ -1066,8 +1066,31 @@ Text component preview
     </nav>
   
 
-  <h2 id="build-a-text" class="mt-500 mb-400">Build a Text</h2>
-<h2 id="coding-and-accessibility-for-text" class="mt-500 mb-400">Coding and accessibility for Text</h2>
+  <h2 id="build-a-text-component" class="mt-500 mb-400">Build a text component</h2>
+<p class="mb-400">Text displays non-heading content with matching GC Design System styles to provide accessible text sizes and colour contrast.</p>
+<h2 id="coding-and-accessibility-for-text" class="mt-500 mb-400">Coding and accessibility for text</h2>
+<h3 id="ensure-accessible-character-limits" class="mt-500 mb-400">Ensure accessible character limits</h3>
+<ul class="list-disc mb-400"><li><p class="mb-400">Maintain the default line length maximum of 65 characters for each line of text to ensure a comfortable, accessible reading length.</li>
+<li><p class="mb-400">Opt to shorten the line length by setting the <code>character-limit</code> attribute to <code>false</code>.</li>
+</ul>
+<h3 id="set-the-text-size" class="mt-500 mb-400">Set the text size</h3>
+<ul class="list-disc mb-400"><li><p class="mb-400">Set the text <code>size</code> attribute to <code>body</code> or <code>caption</code>.</li>
+<li><p class="mb-400">Use the default <code>body</code> <code>size</code> value to render a <code>p</code> element with the recommended font size and colour contrast.</li>
+<li><p class="mb-400">Choose a caption to present brief context about a section or piece of content.</li>
+<li><p class="mb-400">Opt to display smaller text by setting the <code>size</code> attribute to <code>caption</code> to render a <code>small</code> element inside a <code>p</code> element.</li>
+</ul>
+<h3 id="use-text-styling-sparingly" class="mt-500 mb-400">Use text styling sparingly</h3>
+<ul class="list-disc mb-400"><li><p class="mb-400">Only use underline for links.</li>
+<li><p class="mb-400">Use bold text sparingly.</li>
+<li><p class="mb-400">Avoid using bold text as a heading. <a href="/en/components/heading">Headings</a> are the accessible component for identifying content sections.</li>
+<li><p class="mb-400">For bold text, use the <code>strong</code> tag within the <code>gcds-text</code> component to highlight terms and emphasize key points.</li>
+<li><p class="mb-400">Only use italics for:<ul class="list-disc mb-400"><li><p class="mb-400">Legal reference, like the <em>Accessible Canada Act</em>.</li>
+<li><p class="mb-400">Words in other languages, including Latin.</li>
+<li><p class="mb-400">Titles of publications, works of art, and mathematical and scientific material.</li>
+</ul>
+</li>
+<li><p class="mb-400">Use the <code>em</code> tag within the <code>gcds-text</code> component to emphasize specific words or phrases.</li>
+</ul>
 <h3 id="get-your-code" class="mt-500 mb-400">Get your code</h3>
 <p class="mb-400">Generate an instance of the component you need by selecting its code properties.</p>
 <ol class="list-decimal mb-400"><li>
@@ -1082,10 +1105,10 @@ Text component preview
 </ol>
 <p class="mb-400"><strong>Note:</strong> Following standard practice, the code builder uses English for all code elements.</p>
 <iframe
-  title="iframeTitle"
+  title="Overview of gcds-text properties and events."
   src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&demo=true&singleStory=true&id=components-text--events-properties"
   width="1200"
-  height="1650"
+  height="1350"
   style="display: block; margin: 0 auto;"
   frameBorder="0"
   allow="clipboard-write"
