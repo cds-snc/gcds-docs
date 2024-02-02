@@ -9,10 +9,5 @@ COPY src ${FUNCTION_DIR}
 
 RUN npm install --omit=dev
 
-RUN apt-get update && apt-get install -y \
-    awscli
-
-COPY bin/entry.sh ./entry.sh
-
-RUN chmod +x ./entry.sh
 CMD exec ./entry.sh
+CMD ["node", "index.js"]
