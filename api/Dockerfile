@@ -9,5 +9,4 @@ COPY src ${FUNCTION_DIR}
 
 RUN npm install --omit=dev
 
-CMD exec ./entry.sh
 CMD ["node", "index.js"]
