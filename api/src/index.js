@@ -1,5 +1,7 @@
-const express = require('express')
-const axios = require("axios");
+import { getParametersByName } from '@aws-lambda-powertools/parameters/ssm';
+
+import express from 'express';
+import axios from 'axios';
 
 const app = express()
 const port = process.env['PORT'] || 8080
@@ -33,10 +35,13 @@ app.post('/submission', async (req, res) => {
     // Form name is in the format "contactEN" or "contactFR"
     const lang = body["form-name"].slice(-2).toLowerCase()
 
-    const { EMAIL_TARGET, NOTIFY_API_KEY, NOTIFY_TEMPLATE_ID } = process.env;
+    const parameters = await getParametersByName({
+        'gc-design-system-config': { transform: 'json' }
+    }, { decrypt: true });
+
+    const { EMAIL_TARGET, NOTIFY_API_KEY, NOTIFY_TEMPLATE_ID } = parameters['gc-design-system-config'];
 
     const {name, email, message, reasonForContact, honeypot} = body
-
 
     // Honeypot check
     if (honeypot && honeypot.length > 0) {
