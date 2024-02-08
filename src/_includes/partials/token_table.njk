@@ -28,14 +28,16 @@
                     <td>
                     {%- case header[0] %}
                     {%- when 'color-preview' -%}
-                        <div class="color-preview" style="background-color: {{item[1].value}}; border: 1px solid {{ item[1].value | border }}"></div>
+                        {%- assign colour = item[1].value | colourFromValue: tokens.figma['Tokens']['color'] %}
+                        {%- assign colourName = colour | split: "-" -%}
+                        <div role="img" aria-label="{{ tokentable[locale][colourName[0]] }} {{ colourName[1] }}" class="color-preview" style="background-color: {{item[1].value}}; border: 1px solid {{ item[1].value | border }}"></div>
                     {%- when 'font-preview' -%}
                         {%- assign key = concatToken | append: '-' | append: item[0] %}
                         <span class="font-preview font-{{item[0]}} font-family-{{item[0]}}">{{ tokenTable.previews[key] }}</span>
                     {%- when 'spacing-preview' -%}
                         <div class="spacing-preview" style="width: {{item[1].value}}; height: {{item[1].value}};"></div>
                     {%- when 'token-name' %}
-                        --gcds-{{ concatToken | replace: ".", "-" | fixTokenName }}-{{ item[0] }}
+                        <span lang="en">--gcds-{{ concatToken | replace: ".", "-" | fixTokenName }}-{{ item[0] }}</span>
                     {%- when 'value' %}
                         {{- item[1].value }}
                     {%- when 'contrast' %}
