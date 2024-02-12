@@ -8,7 +8,7 @@ tags: ['buttonFR', 'header']
 
 # Bouton <br>`<gcds-button>`
 
-_Autres noms : appel à l’action, lien._
+_Autres noms : appel à l’action._
 
 Un bouton est un composant interactif qui met en évidence une action importante ou commune.
 
@@ -16,9 +16,7 @@ Un bouton est un composant interactif qui met en évidence une action importante
 {% enddocLinks %}
 
 {% componentPreview "Aperçu du composant de bouton" %}
-<gcds-button button-role="primary">Principal</gcds-button>
-<gcds-button button-role="secondary">Secondaire</gcds-button>
-<gcds-button button-role="danger">Danger</gcds-button>
-<gcds-button button-role="skip-to-content">Aller au contenu</gcds-button>
-<gcds-button button-style="text-only">Text-only label</gcds-button>
+<gcds-button class="me-400" button-role="primary">Principal</gcds-button>
+<gcds-button class="me-400" button-role="secondary">Secondaire</gcds-button>
+<gcds-button class="me-400" button-role="danger">Danger</gcds-button>
 {% endcomponentPreview %}

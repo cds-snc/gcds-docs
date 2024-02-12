@@ -9,7 +9,7 @@ date: 'git Last Modified'
 ## Structure de l'en-tête — éléments recommandés
 
 <ol class="anatomy-list">
-  <li>L'emplacement <strong>skip-to-nav</strong> comprend le bouton « Passer au contenu » qui permet à une personne de sauter un ensemble de liens de navigation et ainsi passer au contenu de la page principale.</li>
+  <li>L'emplacement <strong>skip-to-nav</strong> comprend le lien « Passer au contenu » qui permet à une personne de sauter un ensemble de liens de navigation et ainsi passer au contenu de la page principale.</li>
   <li>L'<strong>en-tête de signature</strong> s'étend sur la partie supérieure du site et contient la signature officielle du gouvernement du Canada et la bascule de lange. On peut également y insérer un champ de recherche. Une ligne séparatrice s'affiche au bas de l'en-tête. Lorsque la langue d'un site est réglée à l'aide de l'attribut <code>lang</code>, la signature reflète la langue officielle du contenu de la page.</li>
   <li>Le composant de la <strong>bascule de langue</strong> est un commutateur du contenu en français et en anglais. Utilisez l'attribut <code>lang</code> pour définir la langue du site; le bouton à bascule proposera l'autre langue officielle.</li>
 </ol>
@@ -19,7 +19,7 @@ date: 'git Last Modified'
 ## Éléments facultatifs de l'en-tête — avec titre H1
 
 <ol class="anatomy-list">
-  <li>L'emplacement <strong>skip-to-nav</strong> comprend le bouton « Passer au contenu » qui permet à une personne de sauter un ensemble de liens de navigation et ainsi passer au contenu de la page principale.</li>
+  <li>L'emplacement <strong>skip-to-nav</strong> comprend le lien « Passer au contenu » qui permet à une personne de sauter un ensemble de liens de navigation et ainsi passer au contenu de la page principale.</li>
   <li>Lorsque vous utilisez la <strong>bannière</strong> , placez-la devant l'en-tête de signature. Il s'agit d'un élément facultatif utilisé pour communiquer l'état du site ou de la page sur les sites expérimentaux, les sites utilisés à des fins de recherche, les projets pilotes et les produits en mode essai.</li>
   <li>L'<strong>en-tête de signature</strong> s'étend sur la partie supérieure du site et contient la signature officielle du gouvernement du Canada et la bascule de lange. On peut également y insérer un champ de recherche. Une ligne séparatrice s'affiche au bas de l'en-tête. Lorsque la langue d'un site est réglée à l'aide de l'attribut <code>lang</code>, la signature reflète la langue officielle du contenu de la page.</li>
   <li>Le composant de la <strong>bascule de langue</strong> est un commutateur du contenu en français et en anglais. Utilisez l'attribut <code>lang</code> pour définir la langue du site; le bouton à bascule proposera l'autre langue officielle.</li>
@@ -38,13 +38,13 @@ L'élément de **recherche** permet d'inclure un champ de recherche locale ou g�
 
 - Incluez l'en-tête de signature du GC et la bascule de langue pour les sites et produits du gouvernement du Canada.
 - Maintenez toujours l'intégrité de la signature du gouvernement du Canada. Évitez à tout prix de modifier le mot-symbole. Évitez surtout d'étirer le texte ou de changer les couleurs.
-- Ajoutez un bouton « Passer au contenu » pour aider les personnes naviguant sur le site à l'aide de technologies d'assistance.
+- Ajoutez un lien « Passer au contenu » pour aider les personnes naviguant sur le site à l'aide de technologies d'assistance.
 - Pensez à utiliser le menu comme solution de navigation simplifiée pour un produit transactionnel, comme une application, un formulaire ou une vitrine virtuelle.
 - Incluez la bannière de statut si votre page ou votre site est en stade expérimental. Par exemple, s'il s'agit d'un projet pilote, mentionnez que vous l'utilisez à des fins de recherche ou qu'il est en mode d'essai.
 
 ### Améliorer l'accessibilité de l'en-tête
 
-- Pensez à rendre le bouton « Passer au contenu » visible afin que toute personne naviguant sur le site puisse bénéficier du raccourci.
+- Pensez à rendre le lien « Passer au contenu » visible afin que toute personne naviguant sur le site puisse bénéficier du raccourci.
 - Écrivez le contenu H1 de l'en-tête avec une majuscule.
 
 ### Rédiger du texte de lien précis

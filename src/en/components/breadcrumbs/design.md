@@ -54,4 +54,4 @@ Tip: If using with other navigation components, like the <gcds-link href="{{ lin
 
 ### Place breadcrumbs before the main element
 
-Place breadcrumbs at the top of a page, before the main content. This way the <gcds-link href="{{ links.button }}">skip-to-content button</gcds-link> can work to let a person skip all navigation links, including breadcrumbs.
+Place breadcrumbs at the top of a page, before the main content. This way a skip-to-content link can work to let a person skip all navigation links, including breadcrumbs.

@@ -9,7 +9,7 @@ date: 'git Last Modified'
 ## Header anatomy – recommended elements
 
 <ol class="anatomy-list">
-  <li>The <strong>skip-to-nav</strong> includes the skip-to-content button to let a person bypass a cluster of navigation links and jump to the main page content.</li>
+  <li>The <strong>skip-to-nav</strong> includes the skip-to-content link to let a person bypass a cluster of navigation links and jump to the main page content.</li>
   <li>The <strong>signature header</strong> spans the top of the site and contains the Government of Canada branded signature and the language toggle. It can also include a search form. It has a divider line along the bottom edge. When the site language is set with the <code>lang</code> attribute, the signature reflects the same Official Language as the page content.</li>
   <li>The <strong>language toggle</strong> component is a switch for French and English content. When the site language is set using the <code>lang</code> attribute, the toggle will be available in the other Official Language.</li>
 </ol>
@@ -19,7 +19,7 @@ date: 'git Last Modified'
 ## Optional header elements – with H1 title
 
 <ol class="anatomy-list">
-  <li>The <strong>skip-to-nav</strong> includes the skip-to-content button to let a person bypass a cluster of navigation links and jump to the main page content.</li>
+  <li>The <strong>skip-to-nav</strong> includes the skip-to-content link to let a person bypass a cluster of navigation links and jump to the main page content.</li>
   <li>The <strong>banner</strong>, when used, precedes the signature header. It's an optional element to communicate the status of the site or page, for sites that are experimental, those in research, pilots, or products in trial mode.</li>
   <li>The <strong>signature header</strong> spans the top of the site and contains the Government of Canada branded signature and the language toggle. It can also include a search form. It has a divider line along the bottom edge. When the site language is set with the `lang` attribute, the signature reflects the same Official Language as the page content.</li>
   <li>The <strong>language toggle</strong> component is a switch for French and English content. When the site language is set using the language attribute, the toggle will be available in the other Official Language.</li>
@@ -38,13 +38,13 @@ The **search** element supports including a search form that is local or global.
 
 - Include the signature header with the language toggle for Government of Canada sites and products.
 - Always maintain the integrity of the Government of Canada signature. Absolutely avoid modifying it in any way. In particular avoid stretching or changing the colours or text.
-- Add a skip-to-content button to aid navigation for people using assistive devices.
+- Add a skip-to-content link to aid navigation for people using assistive devices.
 - Consider using the menu as a simple navigation for a transactional product, like an app, a form, or a storefront.
 - Include the banner if your page or site is experimental. For example, if it's a pilot, you're using it for research purposes, or it's in trial mode.
 
 ### Improve the accessibility of the header
 
-- Consider making the skip-to-content button visible so any person navigating the site can benefit from the shortcut.
+- Consider making the skip-to-content link visible so any person navigating the site can benefit from the shortcut.
 - Write H1 heading content in sentence case.
 
 ### Write specific link text

@@ -18,12 +18,6 @@ Use a button for important actions a person using a product can initiate.
 - Make the button's action obvious with a short, specific label in a call to action format, like "Start application" or "Save a copy".
 - Avoid re-using label text on the same page or using labels that sound a lot alike. A person browsing buttons with assistive technology will hear the label text repeated in rapid succession without cues to tell which button's for which action.
 
-### Add a skip-to-content button
-
-- A skip-to-content button lets a person skip a cluster of navigation links and jump to the main content.
-- To avoid covering up content, configure the button to push down content so it's not floating.
-- For desktop, place skip-to-content button at top left of the page so it doesn't interrupt the flow.
-
 {% include "partials/getcode.njk" %}
 
 <iframe
