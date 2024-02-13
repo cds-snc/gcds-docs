@@ -9,7 +9,7 @@ eleventyNavigation:
   otherNames: site footer.
   description: The Government of Canada branded footer landmark.
   thumbnail: /images/common/components/preview-footer.svg
-  alt: Core Footer component shows blue box showing the way text would be filled, at the bottom there is a government of Canada logo.
+  alt: Footer component shows blue box showing the way text would be filled, at the bottom there is a government of Canada logo.
   tag: Core
   state: published
 translationKey: 'footer'

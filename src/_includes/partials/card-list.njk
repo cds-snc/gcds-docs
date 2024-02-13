@@ -6,7 +6,7 @@
   {% set navPages = collections.all | eleventyNavigation(components) %}
 {% endif %}
 
-{% if cardlist.type === 'components' and cardlist.state === 'published' %}
+{% if (cardlist.type === 'components' or cardlist.type === 'foundations') and cardlist.state === 'published' %}
   <div class="my-500">
     <gcds-grid tag="ul" columns="1fr" columns-tablet="1fr 1fr" columns-desktop="1fr 1fr 1fr" gap="400">
     {%- for entry in navPages %}
@@ -20,6 +20,7 @@
           description="{{ entry.description }}"
           img-src="{{ entry.thumbnail }}"
           img-alt="{{ entry.alt }}"
+          role="listitem"
         >
           <div slot="footer">
             {% if entry.otherNames %}
@@ -42,7 +43,7 @@
           {% if entry.state == "published" %}
           <a class="d-flex flex-col link-inherit link-no-underline p-400" href={{entry.url}}>
           {% endif %}
-            <h3>{{ entry.title }}</h3>
+            <h2>{{ entry.title }}</h2>
             <div class="flex-1 mt-150 pt-250 {% if entry.tag %}mb-250 pb-250 by-sm{% else %}bt-sm{% endif %}">
               {% if entry.otherNames %}
                 <p class="mb-150 text-secondary">

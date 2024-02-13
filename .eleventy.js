@@ -138,6 +138,18 @@ module.exports = function (eleventyConfig) {
     return bottom;
   });
 
+  eleventyConfig.addFilter('colourFromValue', function(value, tokens) {
+    let colourName = "";
+    Object.keys(tokens).forEach(colour => {
+      Object.keys(tokens[colour]).forEach(weightValue => {
+        if (tokens[colour][weightValue]["value"] === value) {
+          colourName = `${colour}-${weightValue}`;
+        }
+      });
+    });
+    return colourName
+  });
+
   /* Markdown Overrides */
   let markdownLibrary = markdownIt({
     html: true,
