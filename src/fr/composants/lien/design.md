@@ -6,11 +6,11 @@ tags: ['linkFR', 'design']
 # date: "git Last Modified"
 ---
 
-## Structure de la Lien (TO DO)
+## Structure du lien
 
 <ol class="anatomy-list">
   <li>Le <strong>texte du lien</strong> mène à une nouvelle page, à une section de la page actuelle ou à un autre site Web. Le texte indique la destination du lien ou, pour les téléchargements, le type et la taille du fichier. Remarque : L'ouverture de liens dans un nouvel onglet ou une nouvelle fenêtre peut être désorientant et causer des problèmes d'accessibilité. </li>
-  <li>L'<strong>icône</strong> du lien est liée à certains types de liens, comme les liens de téléchargement, téléphoniques et courriels.</li>
+  <li>L'<strong>icône du lien</strong> est liée à certains types de liens, comme les liens de téléchargement, téléphoniques et courriels.</li>
   <ul>
     <li>L'icône de téléchargement, ainsi que le texte du lien de téléchargement, informe une personne que sélectionner le lien déclenchera un téléchargement.</li>
     <li>Le lien téléphonique identifie le numéro de téléphone et le sélectionner déclenche un appel téléphonique.</li>
@@ -18,7 +18,7 @@ tags: ['linkFR', 'design']
   </ul>
 </ol>
 
-<img class="b-sm b-default p-400" src="/images/fr/components/anatomy/gcds-link-anatomy.svg" alt="Une étiquette soulignée pour indiquer qu'il s'agit d'un lien interactif que l'on peut suivre." />
+<img class="b-sm b-default p-400" src="/images/fr/components/anatomy/gcds-link-anatomy.svg" alt="Une étiquette soulignée pour indiquer qu'il s'agit d'un lien interactif que l'on peut suivre. Une icône avec une flèche pointant vers le bas se trouve à droite du lien." />
 
 ## Accessibilité et design des liens
 

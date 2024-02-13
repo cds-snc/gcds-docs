@@ -39,19 +39,19 @@ Utilisez des liens pour :
 
 </article>
 
-## TO DO
+## Choisissez la variante du lien
 
-TO DO
+Une variante sert à définir le style principal du lien.
 
-### Default - TO DO
+### Variante Default (par défaut)
 
-Utilisez le rôle `default` `variant` pour :
+Utilisez la variante `default` `variant` pour :
 
 - La plupart des liens.
 - Les liens placés sur un fond clair.
 
-### Light - TO DO
+### Variante Light (clair)
 
-Utilisez le rôle `light` `variant` pour :
+Utilisez la variante `light` `variant` pour :
 
 Les liens qui doivent apparaître sur un fond sombre. Faites en sorte que le rapport de contraste entre le lien clair et l'arrière-plan sombre soit conforme aux normes WCAG (Web Content Accessibility Guidelines).

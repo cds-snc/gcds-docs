@@ -10,7 +10,7 @@ tags: ['linkEN', 'design']
 
 <ol class="anatomy-list">
   <li>The <strong>link text</strong> navigates to a new page, website, or section on the current page. It specifies the link's destination or, for downloads, identifies the file type, and size. Note: Opening links in a new tab or window can be disorienting for people and can cause accessibility issues.</li>
-  <li>The <strong>icon</strong> is attached to certain link types, like download, phone, and email. Otherwise, it's optional to add an icon.</li>
+  <li>The <strong>link icon</strong> is attached to certain link types, like download, phone, and email. Otherwise, it’s optional to add an icon.</li>
   <ul>
     <li>The download icon lets a person know that selecting the link will initiate a download.</li>
     <li>The phone icon identifies the phone number and selecting it initiates a phone call.</li>
@@ -18,7 +18,7 @@ tags: ['linkEN', 'design']
   </ul>
 </ol>
 
-<img class="b-sm b-default p-400" src="/images/en/components/anatomy/gcds-link-anatomy.svg" alt="An image of the anatomy." />
+<img class="b-sm b-default p-400" src="/images/en/components/anatomy/gcds-link-anatomy.svg" alt="A label with an underline to signal that it's an interactive link that can be followed. An icon wth a downward pointing arrow sits to the right of the link." />
 
 ## Accessibility and design for links
 
