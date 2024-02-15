@@ -8,7 +8,7 @@ tags: ['buttonEN', 'header']
 
 # Button <br>`<gcds-button>`
 
-_Also called: call to action, CTA, link._
+_Also called: call to action, CTA._
 
 A button is an interactive object that highlights an important or common action.
 
@@ -16,9 +16,7 @@ A button is an interactive object that highlights an important or common action.
 {% enddocLinks %}
 
 {% componentPreview "Button component preview" %}
-<gcds-button button-role="primary">Primary label</gcds-button>
-<gcds-button button-role="secondary">Secondary label</gcds-button>
-<gcds-button button-role="danger">Danger label</gcds-button>
-<gcds-button button-role="skip-to-content">Skip-to-content label</gcds-button>
-<gcds-button button-style="text-only">Text-only label</gcds-button>
+<gcds-button class="me-400" button-role="primary">Primary label</gcds-button>
+<gcds-button class="me-400" button-role="secondary">Secondary label</gcds-button>
+<gcds-button class="me-400" button-role="danger">Danger label</gcds-button>
 {% endcomponentPreview %}

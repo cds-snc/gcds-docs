@@ -24,9 +24,9 @@ Use this header landmark to communicate a Government of Canada digital service o
 - Use the `lang` attribute to set the site language and the toggle will offer the other Official Language.
 - If your site is multilingual: Create an option to select other languages by using this header slot for an internationalization pattern. To do so, pass an element with the `slot="toggle"` attribute to replace the language toggle element in the header.
 
-### Include the skip-to-content button
+### Include the skip-to-content link
 
-- Include the skip-to-content button by setting the `href` of the **skip-to-content** link in the header's top navigation using the `skip-to-href` attribute.
+- Include the skip-to-content link by setting the `href` of the **skip-to-content** link in the header's top navigation using the `skip-to-href` attribute.
 - Use the `skip-to-nav` slot to replace the default top navigation with the `skip-to-content` link.
 - Pass a child element with the `slot="skip-to-nav"` attribute to place the element first in the header.
 

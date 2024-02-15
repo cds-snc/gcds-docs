@@ -54,4 +54,4 @@ Conseil : Si vous utilisez également d'autres composants de navigation, comme 
 
 ### Placez le chemin de navigation avant le contenu principal
 
-Placez le chemin de navigation en haut d'une page, avant le contenu principal. De cette façon, <gcds-link href="{{ links.button }}">le bouton « Passer au contenu principal »</gcds-link> permettra à l'utilisateur·rice d'ignorer tous les liens de navigation, y compris les chemins de navigation.
+Placez le chemin de navigation en haut d'une page, avant le contenu principal. De cette façon, un lien « Passer au contenu principal » permettra à l'utilisateur·rice d'ignorer tous les liens de navigation, y compris les chemins de navigation.

@@ -6,7 +6,7 @@ eleventyNavigation:
   title: Button
   locale: en
   parent: componentsEN
-  otherNames: call to action, CTA, link.
+  otherNames: call to action, CTA.
   description: An interactive object that highlights an action.
   thumbnail: /images/common/components/preview-button.svg
   alt: Button shows a dark blue box with a button and an arrow inside.
@@ -28,12 +28,11 @@ Use a button for important actions a person using your product can initiate to:
 - Starting a flow, like a tutorial, or sign in to a secure space.
 - Move between steps in a sequence.
 - Skip past navigational elements to get to main content.
-- Link to other pages or external sites, using the link type.
 
 <article class="bg-full-width bg-primary text-light pt-500 pb-400 my-500">
   <h2 class="mt-0 mb-400">Related components</h2>
 
-Toggle to offer a switch to choose between two options.
+<a href="{{ links.link }}" class="link-light">Links</a> to provide navigation to a new page, website, or section on the current page or files for download.
 
 <a href="{{ links.details }}" class="link-light">Details</a> to provide a way to hide or show a section of content.
 
@@ -45,7 +44,7 @@ Set the button type based on the function you need and your product context.
 
 ### Button type
 
-Use the button type when you're expecting a user to:
+Use the button type when you're expecting a person to:
 
 - Delete, copy, or download information.
 - Make a binary choice.
@@ -53,7 +52,7 @@ Use the button type when you're expecting a user to:
 
 ### Submit type
 
-Use the submit type when you're expecting a user to:
+Use the submit type when you're expecting a person to:
 
 - Send a form or a request.
 - Save information.
@@ -61,17 +60,17 @@ Use the submit type when you're expecting a user to:
 
 ### Reset type
 
-Use the reset type when you're expecting a user to:
+Use the reset type when you're expecting a person to:
 
 - Clear data entered on a form.
 
 ### Link type
 
-Use the link type when you're expecting a user to:
+Use the link type when you're expecting a person to:
 
-- Visit another page.
-- Go to an external site.
-- Need an alternative to a button for a relevant but less important action.
+- Link to other pages or external sites, using the link type.
+
+Note: Always use the [link component]({{ links.link }}) when you need to embed a link in body or paragraph text.
 
 ## Choose a button role
 
@@ -118,21 +117,6 @@ A role is a button sub-type that has a specific use on a page.
       <li>For actions when changes may be difficult to reverse.</li>
     </ul>
     <p>Tip: For permanent actions, ask a second time so a person explicitly agrees before accepting.</p>
-  </div>
-</gcds-grid>
-<br/>
-<gcds-grid columns="1fr" columns-tablet="1fr 2fr" gap="500" align-items="start">
-  {% componentPreview "Skip-to-content button preview" "px-300 py-400" "" %}
-  <gcds-button button-role="skip-to-content">Skip-to-content</gcds-button>
-  <p><small>Hidden by default</small></p>
-  {% endcomponentPreview %}
-  <div>
-    <h3 class="mb-400">Skip to content button uses</h3>
-    <ul class="list-disc mb-400">
-      <li>To support task success by helping a person jump to the main page content.</li>
-      <li>To offer a shortcut past navigation links or other nav elements.</li>
-      <li>To help a person avoid tabbing or scrolling unnecessarily.</li>
-    </ul>
   </div>
 </gcds-grid>
 </div>

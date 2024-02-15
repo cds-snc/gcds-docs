@@ -21,7 +21,7 @@ Conseil : Lorsqu'un processus n'a pas de page d'accueil traditionnelle, insére
 
 ### Placez le chemin de navigation avant l'élément `<main>`
 
-Placez le chemin de navigation en haut d'une page, avant l'élément `<main>`. De cette façon, le <gcds-link href="{{ links.button }}">bouton « Passer au contenu principal »</gcds-link> permettra à l'utilisateur·rice d'ignorer tous les liens de navigation, y compris les chemins de navigation.
+Placez le chemin de navigation en haut d'une page, avant l'élément `<main>`. De cette façon, un lien « Passer au contenu principal » permettra à l'utilisateur·rice d'ignorer tous les liens de navigation, y compris les chemins de navigation.
 
 ### Utiliser les éléments du chemin de navigation pour les liens du chemin de navigation
 

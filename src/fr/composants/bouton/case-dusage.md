@@ -6,7 +6,7 @@ eleventyNavigation:
   title: Bouton
   locale: fr
   parent: componentsFR
-  otherNames: appel à l'action, lien.
+  otherNames: appel à l'action.
   description: Un objet interactif mettant en évidence une action.
   thumbnail: /images/common/components/preview-button.svg
   alt: Un aperçu du composant bouton qui montre une boîte bleue foncée avec le texte en blanc et une flèche blanche à l'intérieur.
@@ -28,12 +28,11 @@ Utilisez un bouton pour les actions importantes qu'une personne utilisant votre 
 - Entamer un processus, comme un tutoriel, ou se connecter à un espace sécurisé;
 - Naviguer entre les différentes étapes d'une séquence;
 - Sauter les éléments de navigation pour passer au contenu principal;
-- Se rendre vers d'autres pages ou vers des sites externes à l'aide d'un bouton de type « Lien ».
 
 <article class="bg-full-width bg-primary text-light pt-500 pb-400 my-500">
   <h2 class="mt-0 mb-400">Composants connexes</h2>
 
-Bouton bascule : lorsque vous cherchez à offrir un choix entre deux options.
+<a href="{{ links.link }}" class="link-light">Liens</a> : pour permettre de naviguer à une nouvelle page, à un autre site Web, à un fichier ou à une nouvelle section de la page actuelle et de lancer un téléchargement de fichiers.
 
 <a href="{{ links.details }}" class="link-light">Détails</a> : lorsque vous cherchez à masquer ou afficher une section de contenu.
 
@@ -69,9 +68,9 @@ Utilisez le type « Réinitialisation » lorsque vous vous attendez à ce qu'un
 
 Utilisez le type « Lien » lorsque vous vous attendez à ce qu'une personne :
 
-- Visite une autre page;
-- Visite un site externe;
-- Ait besoin d'une alternative à un bouton pour une action pertinente, mais moins importante.
+- se rendre vers d'autres pages ou vers des sites externes à l'aide d'un bouton de type « lien ».
+
+Remarque : Utilisez le [composant lien]({{ links.link }}) lorsque vous devez insérer un lien dans le texte d'un paragraphe ou dans le corp du texte.
 
 ## Choisissez le rôle du bouton
 
@@ -118,21 +117,6 @@ Un rôle est un sous-type de bouton à usage spécifique sur une page.
       <li>Pour les actions entraînant des changements difficiles à inverser.</li>
     </ul>
     <p>Conseil : Pour les actions permanentes, confirmez deux fois l'action afin qu'une personne accepte explicitement de la poursuivre.</p>
-  </div>
-</gcds-grid>
-<br/>
-<gcds-grid columns="1fr" columns-tablet="1fr 2fr" gap="500" align-items="start">
-  {% componentPreview "Aperçu du bouton « Aller au contenu »" "px-300 py-400" "" %}
-  <gcds-button button-role="skip-to-content">Aller au contenu</gcds-button>
-  <p><small>Masqué par défaut</small></p>
-  {% endcomponentPreview %}
-  <div>
-    <h3 class="mb-400">Utilisations du bouton « Aller au contenu »</h3>
-    <ul class="list-disc mb-400">
-      <li>Aide à passer au contenu de la page principale; </li>
-      <li>Favorise le succès d'une tâche en offrant un raccourci de navigation;</li>
-      <li>Permet d'éviter l'utilisation des tabulations ou le défilement inutile de la page.</li>
-    </ul>
   </div>
 </gcds-grid>
 </div>

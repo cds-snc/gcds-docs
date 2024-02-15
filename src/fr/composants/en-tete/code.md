@@ -24,9 +24,9 @@ Utilisez ce point de repère pour transmettre de l'information sur un service du
 - Utilisez l'attribut `lang` pour définir la langue du site; le bouton à bascule proposera l'autre langue officielle.
 - Si votre site est multilingue : Créez une option pour sélectionner d'autres langues en utilisant cet emplacement d'en-tête pour un modèle d'internationalisation. Pour ce faire, passez un élément avec l'attribut `slot="toggle"` afin de remplacer l'élément de la bascule de langue dans l'en-tête.
 
-### Inclure le bouton « Passer au contenu »
+### Inclure le lien « Passer au contenu »
 
-- Inclure un bouton « Passer au contenu » en définissant l'élément `href` du lien **passer au contenu** dans la navigation supérieure de l'en-tête à l'aide de l'attribut `skip-to-href`.
+- Inclure un lien « Passer au contenu » en définissant l'élément `href` du lien **passer au contenu** dans la navigation supérieure de l'en-tête à l'aide de l'attribut `skip-to-href`.
 - Utilisez l'emplacement `skip-to-nav` pour remplacer la navigation supérieure par défaut par le lien « Passer au contenu ».
 - Passez un élément enfant avec l'attribut `slot="skip-to-nav"` pour placer l'élément en première position dans l'en-tête.
 

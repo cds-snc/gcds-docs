@@ -33,6 +33,7 @@
     "image": "/fr/developpement-en-cours",
     "input": "/fr/composants/champ-de-saisie",
     "langToggle": "/fr/composants/bascule-de-langue/",
+    "link": "/fr/composants/lien",
     "pagination": "/fr/composants/pagination",
     "radio": "/fr/composants/bouton-radio",
     "screenreaderContent": "/fr/developpement-en-cours",

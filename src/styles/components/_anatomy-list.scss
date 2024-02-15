@@ -2,7 +2,7 @@
   counter-reset: item;
   margin-block-end: var(--gcds-spacing-450);
 
-  li {
+  > li {
     position: relative;
     max-width: 65ch;
     counter-increment: item;
@@ -23,5 +23,10 @@
       color: var(--gcds-text-light);
       border-radius: var(--gcds-border-radius-xl);
     }
+  }
+
+  ul {
+    list-style: disc;
+    margin-inline-start: var(--gcds-spacing-550);
   }
 }
