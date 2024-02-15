@@ -3,7 +3,7 @@ title: Link
 layout: 'layouts/component-documentation.njk'
 translationKey: 'linkDesign'
 tags: ['linkEN', 'design']
-# date: "git Last Modified"
+date: 'git Last Modified'
 ---
 
 ## Link anatomy

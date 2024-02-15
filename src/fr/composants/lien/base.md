@@ -15,8 +15,8 @@ Un lien est un élément de navigation qui amène une personne à une nouvelle p
 {% enddocLinks %}
 
 {% componentPreview "Aperçu du composant de lien" %}
-<gcds-link class="me-400" href="#">Lien</gcds-link>
-<gcds-link class="me-400" href="long-filename.pdf" download="file.pdf" type="application/pdf">Lien</gcds-link>
-<gcds-link class="me-400" href="mailto:test@test.com?subject=Test%20Email">Lien</gcds-link>
-<gcds-link class="me-400" href="tel:1234567890">Lien</gcds-link>
+<gcds-link class="d-block mb-400" href="#">Lien de navigation</gcds-link>
+<gcds-link class="d-block mb-400" href="long-filename.pdf" download="file.pdf" type="application/pdf">Télécharger le document (PDF, 1,5 Mb)</gcds-link>
+<gcds-link class="d-block mb-400" href="mailto:test@test.com?subject=Test%20Email">Envoyer un courriel</gcds-link>
+<gcds-link class="d-block" href="tel:1234567890">Appeler</gcds-link>
 {% endcomponentPreview %}

@@ -14,7 +14,7 @@ eleventyNavigation:
 translationKey: 'link'
 tags: ['linkEN', 'usage']
 permalink: /en/components/link/
-# date: "git Last Modified"
+date: 'git Last Modified'
 ---
 
 A link is a navigational element that takes a person to a website or opens a source, like a pdf.

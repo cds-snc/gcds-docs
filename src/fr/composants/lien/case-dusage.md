@@ -14,7 +14,7 @@ eleventyNavigation:
 translationKey: 'link'
 tags: ['linkFR', 'usage']
 permalink: /fr/composants/lien/
-# date: "git Last Modified"
+date: 'git Last Modified'
 ---
 
 Un lien est un élément de navigation qui amène une personne à un site Web ou ouvre un fichier source, comme un pdf.

@@ -3,7 +3,7 @@ title: Link
 layout: 'layouts/component-documentation.njk'
 translationKey: 'linkCode'
 tags: ['linkEN', 'code']
-# date: "git Last Modified"
+date: 'git Last Modified'
 ---
 
 ## Build a Link

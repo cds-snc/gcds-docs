@@ -3,7 +3,7 @@ title: Lien
 layout: 'layouts/component-documentation.njk'
 translationKey: 'linkDesign'
 tags: ['linkFR', 'design']
-# date: "git Last Modified"
+date: 'git Last Modified'
 ---
 
 ## Structure du lien
