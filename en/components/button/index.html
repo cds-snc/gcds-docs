@@ -401,9 +401,33 @@
     
       
       
+    
+      
+      
+    
+      
+      
+    
+      
+      
 
         
 
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
       
     
       
@@ -1010,7 +1034,7 @@
         
   
     <h1 id="button-brgcdsbutton" class="mb-400">Button <br><code>&lt;gcds-button&gt;</code></h1>
-<p class="mb-400"><em>Also called: call to action, CTA, link.</em></p>
+<p class="mb-400"><em>Also called: call to action, CTA.</em></p>
 <p class="mb-400">A button is an interactive object that highlights an important or common action.</p>
 <p class="mb-400"><ul class="d-flex flex-wrap gap-400">
 <li class="github-link">
@@ -1025,11 +1049,9 @@
 Button component preview
 </p>
 <div class="px-300 py-400"></p>
-<p class="mb-400"><gcds-button button-role="primary">Primary label</gcds-button>
-<gcds-button button-role="secondary">Secondary label</gcds-button>
-<gcds-button button-role="danger">Danger label</gcds-button>
-<gcds-button button-role="skip-to-content">Skip-to-content label</gcds-button>
-<gcds-button button-style="text-only">Text-only label</gcds-button></p>
+<p class="mb-400"><gcds-button class="me-400" button-role="primary">Primary label</gcds-button>
+<gcds-button class="me-400" button-role="secondary">Secondary label</gcds-button>
+<gcds-button class="me-400" button-role="danger">Danger label</gcds-button></p>
 <p class="mb-400"></div>
 </div></p>
 
@@ -1078,37 +1100,35 @@ Button component preview
 <li><p class="mb-400">Starting a flow, like a tutorial, or sign in to a secure space.</li>
 <li><p class="mb-400">Move between steps in a sequence.</li>
 <li><p class="mb-400">Skip past navigational elements to get to main content.</li>
-<li><p class="mb-400">Link to other pages or external sites, using the link type.</li>
 </ul>
 <article class="bg-full-width bg-primary text-light pt-500 pb-400 my-500">
   <h2 class="mt-0 mb-400">Related components</h2>
-<p class="mb-400">Toggle to offer a switch to choose between two options.</p>
+<p class="mb-400"><a href="/en/components/link" class="link-light">Links</a> to provide navigation to a new page, website, or section on the current page or files for download.</p>
 <p class="mb-400"><a href="/en/components/details" class="link-light">Details</a> to provide a way to hide or show a section of content.</p>
 </article>
 <h2 id="choose-a-button-type" class="mt-500 mb-400">Choose a button type</h2>
 <p class="mb-400">Set the button type based on the function you need and your product context.</p>
 <h3 id="button-type" class="mt-500 mb-400">Button type</h3>
-<p class="mb-400">Use the button type when you're expecting a user to:</p>
+<p class="mb-400">Use the button type when you're expecting a person to:</p>
 <ul class="list-disc mb-400"><li><p class="mb-400">Delete, copy, or download information.</li>
 <li><p class="mb-400">Make a binary choice.</li>
 <li><p class="mb-400">Give consent or agreement.</li>
 </ul>
 <h3 id="submit-type" class="mt-500 mb-400">Submit type</h3>
-<p class="mb-400">Use the submit type when you're expecting a user to:</p>
+<p class="mb-400">Use the submit type when you're expecting a person to:</p>
 <ul class="list-disc mb-400"><li><p class="mb-400">Send a form or a request.</li>
 <li><p class="mb-400">Save information.</li>
 <li><p class="mb-400">Sign in or sign out of a secure space.</li>
 </ul>
 <h3 id="reset-type" class="mt-500 mb-400">Reset type</h3>
-<p class="mb-400">Use the reset type when you're expecting a user to:</p>
+<p class="mb-400">Use the reset type when you're expecting a person to:</p>
 <ul class="list-disc mb-400"><li><p class="mb-400">Clear data entered on a form.</li>
 </ul>
 <h3 id="link-type" class="mt-500 mb-400">Link type</h3>
-<p class="mb-400">Use the link type when you're expecting a user to:</p>
-<ul class="list-disc mb-400"><li><p class="mb-400">Visit another page.</li>
-<li><p class="mb-400">Go to an external site.</li>
-<li><p class="mb-400">Need an alternative to a button for a relevant but less important action.</li>
+<p class="mb-400">Use the link type when you're expecting a person to:</p>
+<ul class="list-disc mb-400"><li><p class="mb-400">Link to other pages or external sites, using the link type.</li>
 </ul>
+<p class="mb-400">Note: Always use the <a href="/en/components/link">link component</a> when you need to embed a link in body or paragraph text.</p>
 <h2 id="choose-a-button-role" class="mt-500 mb-400">Choose a button role</h2>
 <p class="mb-400">A role is a button sub-type that has a specific use on a page.</p>
 <div class="remove-empty-p">
@@ -1169,26 +1189,6 @@ Danger button preview
     <p>Tip: For permanent actions, ask a second time so a person explicitly agrees before accepting.</p>
   </div>
 </gcds-grid>
-<br/>
-<gcds-grid columns="1fr" columns-tablet="1fr 2fr" gap="500" align-items="start">
-<p class="mb-400"><div class=" b-sm b-default component-preview">
-<p class="container-full font-semibold px-300 py-200 bb-sm b-default bg-light">
-Skip-to-content button preview
-</p>
-<div class="px-300 py-400"></p>
-<p class="mb-400"><gcds-button button-role="skip-to-content">Skip-to-content</gcds-button></p>
-  <p><small>Hidden by default</small></p>
-<p class="mb-400"></div>
-</div></p>
-  <div>
-    <h3 class="mb-400">Skip to content button uses</h3>
-    <ul class="list-disc mb-400">
-      <li>To support task success by helping a person jump to the main page content.</li>
-      <li>To offer a shortcut past navigation links or other nav elements.</li>
-      <li>To help a person avoid tabbing or scrolling unnecessarily.</li>
-    </ul>
-  </div>
-</gcds-grid>
 </div>
 
 
@@ -1213,7 +1213,7 @@ Skip-to-content button preview
 
 
         <gcds-date-modified class="mb-400 font-caption">
-          2024-02-13
+          2024-02-15
         </gcds-date-modified>
       </main>
 

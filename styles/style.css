@@ -103,13 +103,13 @@ ul li ul li {
 .anatomy-list {
   counter-reset: item;
   margin-block-end: var(--gcds-spacing-450); }
-  .anatomy-list li {
+  .anatomy-list > li {
     position: relative;
     max-width: 65ch;
     counter-increment: item;
     margin-block-end: var(--gcds-spacing-400);
     padding-inline-start: var(--gcds-spacing-450); }
-    .anatomy-list li:before {
+    .anatomy-list > li:before {
       position: absolute;
       left: 0;
       display: inline-block;
@@ -122,6 +122,9 @@ ul li ul li {
       background: #c54600;
       color: var(--gcds-text-light);
       border-radius: var(--gcds-border-radius-xl); }
+  .anatomy-list ul {
+    list-style: disc;
+    margin-inline-start: var(--gcds-spacing-550); }
 
 /*
  * Code showcase
@@ -150,6 +153,9 @@ ul li ul li {
 
 .component-preview p {
   margin-block-end: var(--gcds-spacing-0); }
+
+.component-preview div > p {
+  max-width: none; }
 
 .component-preview-box a {
   height: 100%;

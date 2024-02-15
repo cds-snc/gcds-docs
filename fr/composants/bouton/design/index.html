@@ -931,6 +931,30 @@
       
       
     
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
   
 
   
@@ -1010,7 +1034,7 @@
         
   
     <h1 id="bouton-brgcdsbutton" class="mb-400">Bouton <br><code>&lt;gcds-button&gt;</code></h1>
-<p class="mb-400"><em>Autres noms : appel à l’action, lien.</em></p>
+<p class="mb-400"><em>Autres noms : appel à l’action.</em></p>
 <p class="mb-400">Un bouton est un composant interactif qui met en évidence une action importante ou commune.</p>
 <p class="mb-400"><ul class="d-flex flex-wrap gap-400">
 <li class="github-link">
@@ -1025,11 +1049,9 @@
 Aperçu du composant de bouton
 </p>
 <div class="px-300 py-400"></p>
-<p class="mb-400"><gcds-button button-role="primary">Principal</gcds-button>
-<gcds-button button-role="secondary">Secondaire</gcds-button>
-<gcds-button button-role="danger">Danger</gcds-button>
-<gcds-button button-role="skip-to-content">Aller au contenu</gcds-button>
-<gcds-button button-style="text-only">Text-only label</gcds-button></p>
+<p class="mb-400"><gcds-button class="me-400" button-role="primary">Principal</gcds-button>
+<gcds-button class="me-400" button-role="secondary">Secondaire</gcds-button>
+<gcds-button class="me-400" button-role="danger">Danger</gcds-button></p>
 <p class="mb-400"></div>
 </div></p>
 
@@ -1072,7 +1094,7 @@ Aperçu du composant de bouton
 
   <h2 id="structure-du-bouton" class="mt-500 mb-400">Structure du bouton</h2>
 <ol class="anatomy-list">
-  <li>La <strong>boîte</strong> met le bouton en évidence sur le plan visuel. Elle peut être omise pour donner au bouton l'apparence d'un lien.</li>
+  <li>La <strong>boîte</strong> met le bouton en évidence sur le plan visuel.</li>
   <li>Le <strong>libellé</strong> indique l'action qui s'effectuera si quelqu'un interagit avec le bouton. Le texte des étiquettes s'aligne à gauche avec toute icône au point le plus à droite. En français, le texte est en minuscules (il n'y a que la lettre initiale qui est en majuscule).</li>
   <li>L'<strong>icône</strong> est facultative et peut être utile comme support visuel lorsqu'elle utilisée de manière uniforme et modérée. Lorsqu'il y a une icône, alignez le texte du bouton à la gauche.  Évitez d'utiliser une icône sans texte.</li>
 </ol>
@@ -1082,24 +1104,13 @@ Aperçu du composant de bouton
 <ul class="list-disc mb-400"><li><p class="mb-400">Placez les boutons de manière uniforme.</li>
 <li><p class="mb-400">Offrez aux utilisateur·rice·s l'option de passer rapidement à l'action suivante afin d'éviter les défilements, les tabulations ou les saisies inutiles.</li>
 <li><p class="mb-400">Vérifiez la visibilité de la bordure du bouton par rapport à la surface où vous le placez.</li>
+<li><p class="mb-400">Limitez le nombre de boutons sur une page donnée. Utilisez-les seulement pour les actions les plus importantes.</li>
 </ul>
-<h3 id="assurezvous-que-le-bouton-est-lisible" class="mt-500 mb-400">Assurez-vous que le bouton est lisible</h3>
+<h3 id="ecrivez-un-libelle-de-bouton-court-specifique-et-descriptif" class="mt-500 mb-400">Écrivez un libellé de bouton court, spécifique et descriptif</h3>
 <ul class="list-disc mb-400"><li><p class="mb-400">Veillez à la visibilité du texte du libellé en indiquant l'action spécifique au bouton en un minimum de mots, le tout, en minuscules.</li>
 <li><p class="mb-400">Explicitez clairement l'action correspondant au bouton grâce à un libellé court et spécifique dans un format d'appel à l'action, comme « Démarrer l'application » ou « Enregistrer une copie ».</li>
-<li><p class="mb-400">Évitez de réutiliser le texte du libellé sur la même page ou d'utiliser des libellés qui se ressemblent beaucoup. Une personne parcourant les champs à l'aide d'une technologie d'assistance entendra le texte de l'étiquette en succession rapide et n'aura pas d'indication pour associer le bouton à son action.</li>
+<li><p class="mb-400">Évitez de réutiliser le texte du libellé sur la même page ou d'utiliser des libellés qui se ressemblent beaucoup. Une personne une technologie d'assistance entendra le texte de l'étiquette en succession rapide et n'aura pas d'indication pour associer le bouton à son action.</li>
 <li><p class="mb-400">Évitez d'employer des phrases verbales ou des expressions verbales inconnues aux locuteur·rice·s qui ne parlent pas couramment le français.</li>
-</ul>
-<p class="mb-400">Conseil : Les constructions linguistiques telles que « Sign up » et « Sign in » peuvent être troublantes, car les suffixes « up » et « in » n'ajoutent que peu de sens et peuvent être difficiles à différencier.</p>
-<h3 id="ecrivez-un-texte-de-lien-specifique-pour-le-type-lien-" class="mt-500 mb-400">Écrivez un texte de lien spécifique pour le type « Lien »</h3>
-<ul class="list-disc mb-400"><li><p class="mb-400">Faites en sorte que le texte du lien soit clair et précis pour aider une personne à prévoir où le lien la mènera et ce qu'elle y trouvera. Indiquez clairement où mènera le lien, afin qu'une personne puisse décider si elle doit quitter la page où elle se trouve.</li>
-<li><p class="mb-400">Gardez le texte du lien court et distinctif afin qu'une personne puisse rapidement lire les liens sur votre page.</li>
-<li><p class="mb-400">Éviter d'utiliser du texte générique ou vague pour les liens, comme « Cliquez ici », « En savoir plus » ou encore « Accueil ».</li>
-<li><p class="mb-400">Limitez le nombre de liens que contient votre texte. Lorsqu'il y a trop d'information, cela augmente la charge cognitive. Certain·e·s lecteur·rice·s peuvent alors éprouver de la difficulté à se repérer.</li>
-</ul>
-<h3 id="ajoutez-un-bouton-passer-au-contenu-" class="mt-500 mb-400">Ajoutez un bouton «  Passer au contenu  »</h3>
-<ul class="list-disc mb-400"><li><p class="mb-400">Un bouton « Passer au contenu » permet à une personne de sauter un ensemble de liens de navigation pour passer au contenu principal.</li>
-<li><p class="mb-400">Pour éviter de dissimuler le contenu, configurez le bouton de manière à ce qu'il pousse le contenu vers le bas et ne flotte pas.</li>
-<li><p class="mb-400">Pour la version bureau, placez le bouton « Passer au contenu » en haut à gauche de la page afin qu'il n'interrompe pas le flux.</li>
 </ul>
 
 
@@ -1124,7 +1135,7 @@ Aperçu du composant de bouton
 
 
         <gcds-date-modified class="mb-400 font-caption">
-          2024-02-13
+          2024-02-15
         </gcds-date-modified>
       </main>
 
