@@ -36,7 +36,7 @@ Rédigez des en-têtes d'erreur plus précis en utilisant l'attribut `heading`.
 
 <iframe
   title="Survol des propriétés et des évènements relatifs à gcds-error-summary."
-  src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&demo=true&singleStory=true&id=components-error-summary--events-properties"
+  src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&demo=true&singleStory=true&id=components-error-summary--events-properties&lang=fr"
   width="1200"
   height="1600"
   style="display: block; margin: 0 auto;"

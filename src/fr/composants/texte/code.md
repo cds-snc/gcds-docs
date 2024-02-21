@@ -40,7 +40,7 @@ Le composant texte affiche du contenu sans titre avec les styles correspondants 
 
 <iframe
   title="Survol des propriétés et des évènements relatifs à gcds-text."
-  src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&demo=true&singleStory=true&id=components-text--events-properties"
+  src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&demo=true&singleStory=true&id=components-text--events-properties&lang=fr"
   width="1200"
   height="1650"
   style="display: block; margin: 0 auto;"

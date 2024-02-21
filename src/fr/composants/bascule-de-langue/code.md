@@ -23,7 +23,7 @@ Remarque : Si vous utilisez le composant En-tête, la bascule de langue peut êt
 
 <iframe
   title="Overview of gcds-lang-toggle properties and events."
-  src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&demo=true&singleStory=true&id=components-language-toggle--events-properties"
+  src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&demo=true&singleStory=true&id=components-language-toggle--events-properties&lang=fr"
   width="1200"
   height="850"
   style="display: block; margin: 0 auto;"

@@ -35,7 +35,7 @@ The fieldset will only validate [checkbox]({{ links.checkbox }}) and [radio butt
 
 <iframe
   title="Overview of gcds-fieldset properties and events."
-  src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&demo=true&singleStory=true&id=components-fieldset--events-properties"
+  src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&demo=true&singleStory=true&id=components-fieldset--events-properties&lang=en"
   width="1200"
   height="2300"
   style="display: block; margin: 0 auto;"

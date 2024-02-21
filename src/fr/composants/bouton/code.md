@@ -22,7 +22,7 @@ Utilisez un bouton pour les actions importantes que peut initier une personne ut
 
 <iframe
   title="Survol des propriétés et des évènements relatifs à gcds-button."
-  src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&demo=true&singleStory=true&id=components-button--events-properties"
+  src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&demo=true&singleStory=true&id=components-button--events-properties&lang=fr"
   width="1200"
   height="1800"
   style="display: block; margin: 0 auto;"

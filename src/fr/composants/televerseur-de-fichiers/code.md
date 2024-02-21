@@ -26,7 +26,7 @@ Utilisez l'attribut `accept` pour définir les types de fichiers acceptés par l
 
 <iframe
   title="Survol des propriétés et des évènements relatifs à gcds-file-uploader."
-  src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&demo=true&singleStory=true&id=components-file-uploader--events-properties"
+  src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&demo=true&singleStory=true&id=components-file-uploader--events-properties&lang=fr"
   width="1200"
   height="1850"
   style="display: block; margin: 0 auto;"

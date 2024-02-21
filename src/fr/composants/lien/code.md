@@ -40,7 +40,7 @@ Remarque : Seuls les fichiers dont l'URL est de la même origine que le site We
 
 <iframe
   title="Survol des propriétés et des évènements relatifs à gcds-link."
-  src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&demo=true&singleStory=true&id=components-link--events-properties"
+  src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&demo=true&singleStory=true&id=components-link--events-properties&lang=fr"
   width="1200"
   height="1300"
   style="display: block; margin: 0 auto;"

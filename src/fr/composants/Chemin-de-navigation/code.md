@@ -31,7 +31,7 @@ Ajoutez un nouveau lien au composant Chemin de navigation à l'aide du composant
 
 <iframe
   title="Survol des propriétés et des évènements relatifs à gcds-breadcrumbs."
-  src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&demo=true&id=components-breadcrumbs--events-properties"
+  src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&demo=true&id=components-breadcrumbs--events-properties&lang=fr"
   width="1200"
   height="1150"
   style="display: block; margin: 0 auto;"

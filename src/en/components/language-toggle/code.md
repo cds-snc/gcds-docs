@@ -23,7 +23,7 @@ Note: If using the header component, the language toggle can be assigned using t
 
 <iframe
   title="Overview of gcds-footer properties and events."
-  src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&demo=true&singleStory=true&id=components-language-toggle--events-properties"
+  src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&demo=true&singleStory=true&id=components-language-toggle--events-properties&lang=en"
   width="1200"
   height="850"
   style="display: block; margin: 0 auto;"

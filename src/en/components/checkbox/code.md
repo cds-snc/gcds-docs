@@ -31,7 +31,7 @@ Use a checkbox with a [fieldset]({{ links.fieldset }}) when you are expecting th
 
 <iframe
   title="Overview of gcds-checkbox properties and events."
-  src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&demo=true&singleStory=true&id=components-checkbox--events-properties"
+  src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&demo=true&singleStory=true&id=components-checkbox--events-properties&lang=en"
   width="1200"
   height="1950"
   style="display: block; margin: 0 auto;"

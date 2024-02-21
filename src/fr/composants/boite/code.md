@@ -43,7 +43,7 @@ Les boîtes ne sont pas automatiquement centrées. Pour centrer une boîte sur u
 
 <iframe
   title="Survol des propriétés et des évènements relatifs à gcds-container."
-  src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&demo=true&singleStory=true&id=components-container--events-properties"
+  src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&demo=true&singleStory=true&id=components-container--events-properties&lang=fr"
   width="1200"
   height="1500"
   style="display: block; margin: 0 auto;"

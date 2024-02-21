@@ -31,7 +31,7 @@ Add a new breadcrumbs link to the breadcrumbs component by using the `<gcds-brea
 
 <iframe
   title="Overview of gcds-breadcrumbs properties and events."
-  src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&demo=true&id=components-breadcrumbs--events-properties"
+  src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&demo=true&id=components-breadcrumbs--events-properties&lang=en"
   width="1200"
   height="1150"
   style="display: block; margin: 0 auto;"
