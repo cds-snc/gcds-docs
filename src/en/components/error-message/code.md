@@ -40,7 +40,7 @@ A person who receives an error message needs to:
 
 <iframe
   title="Overview of gcds-error-message properties and events."
-  src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&demo=true&singleStory=true&id=components-error-message--events-properties"
+  src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&demo=true&singleStory=true&id=components-error-message--events-properties&lang=en"
   width="1200"
   height="1000"
   style="display: block; margin: 0 auto;"

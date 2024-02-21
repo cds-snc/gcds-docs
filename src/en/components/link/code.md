@@ -40,7 +40,7 @@ Note: Only files with URLs of the same origin as the website will be downloaded 
 
 <iframe
   title="Overview of gcds-link properties and events."
-  src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&demo=true&singleStory=true&id=components-link--events-properties"
+  src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&demo=true&singleStory=true&id=components-link--events-properties&lang=en"
   width="1200"
   height="1300"
   style="display: block; margin: 0 auto;"

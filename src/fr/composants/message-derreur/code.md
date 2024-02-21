@@ -40,7 +40,7 @@ La personne qui reçoit un message d'erreur doit :
 
 <iframe
   title="Survol des propriétés et des évènements relatifs à gcds-error-message."
-  src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&demo=true&singleStory=true&id=components-error-message--events-properties"
+  src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&demo=true&singleStory=true&id=components-error-message--events-properties&lang=fr"
   width="1200"
   height="1000"
   style="display: block; margin: 0 auto;"

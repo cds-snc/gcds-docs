@@ -26,7 +26,7 @@ Define the file types the file uploader accepts using the `accept` attribute.
 
 <iframe
   title="Overview of gcds-file-uploader properties and events."
-  src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&demo=true&singleStory=true&id=components-file-uploader--events-properties"
+  src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&demo=true&singleStory=true&id=components-file-uploader--events-properties&lang=en"
   width="1200"
   height="1850"
   style="display: block; margin: 0 auto;"

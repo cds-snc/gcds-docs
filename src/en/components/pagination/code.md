@@ -86,7 +86,7 @@ url = {
 
 <iframe
   title="Overview of gcds-pagination properties and events."
-  src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&demo=true&singleStory=true&id=components-pagination--events-properties"
+  src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&demo=true&singleStory=true&id=components-pagination--events-properties&lang=en"
   width="1200"
   height="1500"
   style="display: block; margin: 0 auto;"
