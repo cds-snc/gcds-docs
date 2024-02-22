@@ -5,11 +5,9 @@ const moment = require('moment');
 const chroma = require('chroma-js');
 const markdownIt = require('markdown-it');
 const svgContents = require('eleventy-plugin-svg-contents');
-const codeClipboard = require('eleventy-plugin-code-clipboard');
 const { DateTime } = require('luxon');
 
 const contextMenu = require('./utils/context-menu');
-const displayTokens = require('./utils/display-tokens');
 const markdownAnchor = require('./utils/anchor');
 const slugify = require('./utils/slugify');
 
@@ -20,7 +18,6 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy('./src/styles/style.css');
   eleventyConfig.addPassthroughCopy('./src/styles/prism.css');
   eleventyConfig.addPassthroughCopy('./src/images');
-  eleventyConfig.addPassthroughCopy('./src/scripts/code-showcase.js');
   eleventyConfig.addPassthroughCopy('./src/admin/config.yml');
   eleventyConfig.addPassthroughCopy('./src/favicon.ico');
   eleventyConfig.addPassthroughCopy({ './src/variables/': 'variables' });
@@ -39,7 +36,6 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPlugin(svgContents);
   eleventyConfig.addPlugin(eleventyNavigationPlugin);
   eleventyConfig.addPlugin(syntaxHighlight);
-  eleventyConfig.addPlugin(codeClipboard);
   eleventyConfig.addPlugin(sitemap, {
     sitemap: {
       hostname: process.env.GITHUB_ORG
@@ -74,13 +70,6 @@ module.exports = function (eleventyConfig) {
   });
 
   eleventyConfig.addFilter('getBreadcrumbs', contextMenu.findBreadcrumbEntries);
-  eleventyConfig.addFilter('onThisPage', function (nodes) {
-    let urls = {};
-    for (let key in nodes) {
-      urls[nodes[key]] = slugify(nodes[key]);
-    }
-    return urls;
-  });
 
   /*
    * Filter to sort component navigation items
@@ -155,9 +144,7 @@ module.exports = function (eleventyConfig) {
     html: true,
     breaks: false,
     linkify: false,
-  })
-    .use(markdownAnchor)
-    .use(codeClipboard.markdownItCopyButton);
+  }).use(markdownAnchor);
   markdownLibrary.disable('blockquote');
   markdownLibrary.disable('code');
 
@@ -259,13 +246,6 @@ module.exports = function (eleventyConfig) {
     `;
     },
   );
-
-  /*
-   * Display tokens in tables based on passed name
-   */
-  eleventyConfig.addShortcode('displayTokens', (token, subCategory, locale) => {
-    return displayTokens(token, subCategory, locale);
-  });
 
   // Misc
 
