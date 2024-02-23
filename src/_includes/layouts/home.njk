@@ -1,42 +1,25 @@
-<!DOCTYPE html>
-<html lang="{{ locale }}" dir="ltr">
-  <head>
-    {% include "partials/head.njk" %}
-  </head>
-  <body>
-    {% include "partials/header.njk" %}
+{% extends "layouts/base.njk" %}
+{% set example = ["example", locale | upper] | join %}
 
-    <div class="content-wrapper">
+{% block content %}
 
-      <main id="mc" class="general-layout">
-        <section>
-            <div class="xl:py-900 md:py-800 py-600 hero">
-              <div class="container-xl mx-auto">
-                <article class="sm:py-550 py-450 xl:ps-0 sm:ps-500 ps-450 sm:pe-550 pe-400 bg-primary text-light hero__content">
-                  <h1 class="mb-400">
-                    <span class="d-block">{{ homehero[locale].gcds }}</span>
-                  </h1>
-                  <p class="mb-400">{{ homehero[locale].paragraph }}</p>
-                  <a class="link-light" href="{{ homehero[locale].link }}">{{ homehero[locale].linkText }}</a>
-                </article>
-              </div>
-            </div>
-        </section>
+  {{ content | safe }}
 
-        <section class="container-xl mx-auto xl:px-0 sm:px-500 px-300">
-          {% block content %}{{ content | safe }}{% endblock %}
+{# Use collections to load pages. These pages were added to a collection using the tag in frontmatter.
+This can also be acomplished with eleventyNavigation if you want to only load child pages. #}
 
-          <gcds-date-modified class="mb-400 font-caption">
-            {{ page.date | dateLastModified}}
-          </gcds-date-modified>
-        </section>
-      </main>
+<gcds-grid tag="ul" columns="1fr" columns-tablet="1fr 1fr" columns-desktop="1fr 1fr 1fr" gap="400">
+{%- for post in collections[example] -%}
+  <gcds-card
+    href="{{ post.url }}"
+    card-title="{{ post.data.title }}"
+    title-element="h2"
+    description="{{ post.data.description }}"
+  >
+  </gcds-card>
+{%- endfor -%}
+</gcds-grid>
 
-      <gcds-footer
-        display="full"
-        lang="{{ locale }}"
-      ></gcds-footer>
+{% include "partials/example.njk" %}
 
-    </div>
-  </body>
-</html>
+{% endblock %}
