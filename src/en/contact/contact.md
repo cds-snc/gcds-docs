@@ -31,8 +31,8 @@ We’d like to talk to you. Get in touch to request a demo, ask a question, or m
   <input type="hidden" name="form-name" value="contactEN" />
   <input name="honeypot" type="text" aria-label="bot" hidden/>
 
-  <gcds-input type="text" input-id="name" label="Full name" size="30" required></gcds-input>
-  <gcds-input type="email" input-id="email" label="Email address" size="50" required></gcds-input>
+  <gcds-input type="text" input-id="name" label="Full name" size="30" autocomplete="name" required></gcds-input>
+  <gcds-input type="email" input-id="email" label="Email address" size="50" autocomplete="email" required></gcds-input>
   <gcds-fieldset fieldset-id="reasonForContact" legend="Reason for your communication" required>
     <gcds-radio radio-id="requestADemo" name="reasonForContact" label="Request a demo" value="Request a demo" hint="Book a demo of GC Design System for your team."></gcds-radio>
     <gcds-radio radio-id="reportAnIssue" name="reasonForContact" label="Report an issue" value="Report an issue" hint="Communicate a problem you've found."></gcds-radio>
