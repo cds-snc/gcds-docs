@@ -1,29 +1,29 @@
 export default {
-  title: 'Components/Error message',
-  argTypes: {
-    // Props
-    messageId: {
-      name: 'message-id',
-      control: 'text',
-      table: {
-        type: { summary: 'string' },
-        defaultValue: { summary: '-' },
-      },
-      type: {
-        required: true,
-      },
+    title: 'Components/Error message',
+    argTypes: {
+        // Props
+        messageId: {
+            name: 'message-id',
+            control: 'text',
+            table: {
+                type: { summary: 'string' },
+                defaultValue: { summary: '-' },
+            },
+            type: {
+                required: true,
+            },
+        },
+        message: {
+            control: 'text',
+            table: {
+                type: { summary: 'string' },
+                defaultValue: { summary: '-' },
+            },
+            type: {
+                required: true,
+            },
+        },
     },
-    message: {
-      control: 'text',
-      table: {
-        type: { summary: 'string' },
-        defaultValue: { summary: '-' },
-      },
-      type: {
-        required: true,
-      },
-    },
-  },
 };
 const Template = args => `
 <!-- Web component code (Angular, Vue) -->
@@ -50,19 +50,19 @@ const TemplatePlayground = args => `
 // ------ Error message default ------
 export const Default = Template.bind({});
 Default.args = {
-  messageId: 'message-id',
-  message: 'Error message or validation message.',
+    messageId: 'message-id',
+    message: 'Error message or validation message.',
 };
 // ------ Error message events & props ------
 export const Props = Template.bind({});
 Props.args = {
-  messageId: 'message-id',
-  message: 'Error message or validation message.',
+    messageId: 'message-id',
+    message: 'Error message or validation message.',
 };
 // ------ Error message playground ------
 export const Playground = TemplatePlayground.bind({});
 Playground.args = {
-  messageId: '',
-  message: 'Error message or validation message.',
+    messageId: '',
+    message: 'Error message or validation message.',
 };
 //# sourceMappingURL=gcds-error-message.stories.js.map

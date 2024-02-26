@@ -1,102 +1,102 @@
 import { langProp, validatorProps, } from "../../../utils/storybook/component-properties";
 export default {
-  title: 'Components/Checkbox',
-  parameters: {
-    actions: {
-      argTypesRegex: '^gcds.*',
-      handles: ['change', 'focus', 'blur'],
+    title: 'Components/Checkbox',
+    parameters: {
+        actions: {
+            argTypesRegex: '^gcds.*',
+            handles: ['change', 'focus', 'blur'],
+        },
     },
-  },
-  argTypes: Object.assign(Object.assign(Object.assign({
-    // Props
-    checkboxId: {
-      name: 'checkbox-id',
-      control: 'text',
-      table: {
-        type: { summary: 'string' },
-        defaultValue: { summary: '-' },
-      },
-      type: {
-        required: true,
-      },
-    }, name: {
-      control: 'text',
-      table: {
-        type: { summary: 'string' },
-        defaultValue: { summary: '-' },
-      },
-      type: {
-        required: true,
-      },
-    }, checked: {
-      control: { type: 'select' },
-      options: [false, true],
-      table: {
-        type: { summary: 'boolean' },
-        defaultValue: { summary: false },
-      },
-    }, disabled: {
-      control: { type: 'select' },
-      options: [false, true],
-      table: {
-        type: { summary: 'boolean' },
-        defaultValue: { summary: false },
-      },
-    }, errorMessage: {
-      name: 'error-message',
-      control: 'text',
-      table: {
-        type: { summary: 'string' },
-        defaultValue: { summary: '-' },
-      },
-    }, hint: {
-      control: 'text',
-      table: {
-        type: { summary: 'string' },
-        defaultValue: { summary: '-' },
-      },
-    }, label: {
-      control: 'text',
-      table: {
-        type: { summary: 'string' },
-        defaultValue: { summary: '-' },
-      },
-      type: {
-        required: true,
-      },
-    }, required: {
-      control: { type: 'select' },
-      options: [false, true],
-      table: {
-        type: { summary: 'boolean' },
-        defaultValue: { summary: false },
-      },
-    }, value: {
-      control: 'text',
-      table: {
-        type: { summary: 'string' },
-        defaultValue: { summary: '-' },
-      },
-    }
-  }, validatorProps), langProp), {
-    // Events
-    gcdsChange: {
-      action: 'change',
-      table: {
-        category: 'Events | Événements',
-      },
-    }, gcdsFocus: {
-      action: 'focus',
-      table: {
-        category: 'Events | Événements',
-      },
-    }, gcdsBlur: {
-      action: 'blur',
-      table: {
-        category: 'Events | Événements',
-      },
-    }
-  }),
+    argTypes: Object.assign(Object.assign(Object.assign({
+        // Props
+        checkboxId: {
+            name: 'checkbox-id',
+            control: 'text',
+            table: {
+                type: { summary: 'string' },
+                defaultValue: { summary: '-' },
+            },
+            type: {
+                required: true,
+            },
+        }, name: {
+            control: 'text',
+            table: {
+                type: { summary: 'string' },
+                defaultValue: { summary: '-' },
+            },
+            type: {
+                required: true,
+            },
+        }, checked: {
+            control: { type: 'select' },
+            options: [false, true],
+            table: {
+                type: { summary: 'boolean' },
+                defaultValue: { summary: false },
+            },
+        }, disabled: {
+            control: { type: 'select' },
+            options: [false, true],
+            table: {
+                type: { summary: 'boolean' },
+                defaultValue: { summary: false },
+            },
+        }, errorMessage: {
+            name: 'error-message',
+            control: 'text',
+            table: {
+                type: { summary: 'string' },
+                defaultValue: { summary: '-' },
+            },
+        }, hint: {
+            control: 'text',
+            table: {
+                type: { summary: 'string' },
+                defaultValue: { summary: '-' },
+            },
+        }, label: {
+            control: 'text',
+            table: {
+                type: { summary: 'string' },
+                defaultValue: { summary: '-' },
+            },
+            type: {
+                required: true,
+            },
+        }, required: {
+            control: { type: 'select' },
+            options: [false, true],
+            table: {
+                type: { summary: 'boolean' },
+                defaultValue: { summary: false },
+            },
+        }, value: {
+            control: 'text',
+            table: {
+                type: { summary: 'string' },
+                defaultValue: { summary: '-' },
+            },
+        }
+    }, validatorProps), langProp), {
+        // Events
+        gcdsChange: {
+            action: 'change',
+            table: {
+                category: 'Events | Événements',
+            },
+        }, gcdsFocus: {
+            action: 'focus',
+            table: {
+                category: 'Events | Événements',
+            },
+        }, gcdsBlur: {
+            action: 'blur',
+            table: {
+                category: 'Events | Événements',
+            },
+        }
+    }),
 };
 const Template = args => `
 <!-- Web component code (Angular, Vue) -->
@@ -150,86 +150,86 @@ const TemplatePlayground = args => `
 `.replace(/\s\snull\n/g, '');
 export const Default = Template.bind({});
 Default.args = {
-  checkboxId: 'checkboxState',
-  label: 'Label',
-  name: 'checkbox',
-  hint: 'Description or example to make the option clearer.',
-  errorMessage: '',
-  required: false,
-  disabled: false,
-  value: '',
-  checked: false,
-  validateOn: 'blur',
-  lang: 'en',
+    checkboxId: 'checkboxState',
+    label: 'Label',
+    name: 'checkbox',
+    hint: 'Description or example to make the option clearer.',
+    errorMessage: '',
+    required: false,
+    disabled: false,
+    value: '',
+    checked: false,
+    validateOn: 'blur',
+    lang: 'en',
 };
 export const Required = Template.bind({});
 Required.args = {
-  checkboxId: 'checkboxRequired',
-  label: 'Label',
-  name: 'checkbox',
-  hint: 'Description or example to make the option clearer.',
-  errorMessage: '',
-  required: true,
-  disabled: false,
-  value: '',
-  checked: false,
-  validateOn: 'other',
-  lang: 'en',
+    checkboxId: 'checkboxRequired',
+    label: 'Label',
+    name: 'checkbox',
+    hint: 'Description or example to make the option clearer.',
+    errorMessage: '',
+    required: true,
+    disabled: false,
+    value: '',
+    checked: false,
+    validateOn: 'other',
+    lang: 'en',
 };
 export const Disabled = Template.bind({});
 Disabled.args = {
-  checkboxId: 'checkboxDisabled',
-  label: 'Label',
-  name: 'checkbox',
-  hint: 'Description or example to make the option clearer.',
-  errorMessage: '',
-  required: false,
-  disabled: true,
-  value: '',
-  checked: false,
-  validateOn: 'blur',
-  lang: 'en',
+    checkboxId: 'checkboxDisabled',
+    label: 'Label',
+    name: 'checkbox',
+    hint: 'Description or example to make the option clearer.',
+    errorMessage: '',
+    required: false,
+    disabled: true,
+    value: '',
+    checked: false,
+    validateOn: 'blur',
+    lang: 'en',
 };
 export const Error = Template.bind({});
 Error.args = {
-  checkboxId: 'checkboxError',
-  label: 'Label',
-  name: 'checkbox',
-  hint: 'Description or example to make the option clearer.',
-  errorMessage: 'You must check the box to continue.',
-  required: false,
-  disabled: false,
-  value: '',
-  checked: false,
-  validateOn: 'blur',
-  lang: 'en',
+    checkboxId: 'checkboxError',
+    label: 'Label',
+    name: 'checkbox',
+    hint: 'Description or example to make the option clearer.',
+    errorMessage: 'You must check the box to continue.',
+    required: false,
+    disabled: false,
+    value: '',
+    checked: false,
+    validateOn: 'blur',
+    lang: 'en',
 };
 export const Checked = Template.bind({});
 Checked.args = {
-  checkboxId: 'checkboxError',
-  label: 'Label',
-  name: 'checkbox',
-  hint: 'Description or example to make the option clearer.',
-  errorMessage: '',
-  required: false,
-  disabled: false,
-  value: '',
-  checked: true,
-  validateOn: 'other',
-  lang: 'en',
+    checkboxId: 'checkboxError',
+    label: 'Label',
+    name: 'checkbox',
+    hint: 'Description or example to make the option clearer.',
+    errorMessage: '',
+    required: false,
+    disabled: false,
+    value: '',
+    checked: true,
+    validateOn: 'other',
+    lang: 'en',
 };
 export const Playground = TemplatePlayground.bind({});
 Playground.args = {
-  checkboxId: 'checkboxDisabled',
-  label: 'Label',
-  name: 'checkbox',
-  hint: 'Description or example to make the option clearer.',
-  errorMessage: '',
-  required: false,
-  disabled: false,
-  value: '',
-  checked: false,
-  validateOn: 'blur',
-  lang: 'en',
+    checkboxId: 'checkboxDisabled',
+    label: 'Label',
+    name: 'checkbox',
+    hint: 'Description or example to make the option clearer.',
+    errorMessage: '',
+    required: false,
+    disabled: false,
+    value: '',
+    checked: false,
+    validateOn: 'blur',
+    lang: 'en',
 };
 //# sourceMappingURL=gcds-checkbox.stories.js.map

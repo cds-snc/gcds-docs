@@ -1,37 +1,37 @@
 export default {
-  title: 'Components/Navigation link',
-  argTypes: {
-    // Props
-    href: {
-      name: 'href',
-      control: 'text',
-      table: {
-        type: { summary: 'string' },
-        defaultValue: { summary: '-' },
-      },
-      type: {
-        required: true,
-      },
+    title: 'Components/Navigation link',
+    argTypes: {
+        // Props
+        href: {
+            name: 'href',
+            control: 'text',
+            table: {
+                type: { summary: 'string' },
+                defaultValue: { summary: '-' },
+            },
+            type: {
+                required: true,
+            },
+        },
+        current: {
+            name: 'current',
+            control: { type: 'select' },
+            options: [false, true],
+            table: {
+                type: { summary: 'boolean' },
+                defaultValue: { summary: false },
+            },
+        },
+        // Slots
+        default: {
+            control: {
+                type: 'text',
+            },
+            table: {
+                category: 'Slots | Fentes',
+            },
+        },
     },
-    current: {
-      name: 'current',
-      control: { type: 'select' },
-      options: [false, true],
-      table: {
-        type: { summary: 'boolean' },
-        defaultValue: { summary: false },
-      },
-    },
-    // Slots
-    default: {
-      control: {
-        type: 'text',
-      },
-      table: {
-        category: 'Slots | Fentes',
-      },
-    },
-  },
 };
 const Template = args => `
 <!-- Web component code (Angular, Vue) -->
@@ -82,38 +82,38 @@ const TemplatePlayground = args => `
 `.replace(/\s\snull\n/g, '');
 export const Default = Template.bind({});
 Default.args = {
-  href: '#link',
-  current: false,
-  default: 'Nav link',
+    href: '#link',
+    current: false,
+    default: 'Nav link',
 };
 export const Props = Template.bind({});
 Props.args = {
-  href: '#link',
-  current: false,
-  default: 'Nav link',
+    href: '#link',
+    current: false,
+    default: 'Nav link',
 };
 export const Current = Template.bind({});
 Current.args = {
-  href: '#link',
-  current: true,
-  default: 'Nav link',
+    href: '#link',
+    current: true,
+    default: 'Nav link',
 };
 export const DefaultTopNav = TemplateTopNav.bind({});
 DefaultTopNav.args = {
-  href: '#link',
-  current: false,
-  default: 'Nav link',
+    href: '#link',
+    current: false,
+    default: 'Nav link',
 };
 export const CurrentTopNav = TemplateTopNav.bind({});
 CurrentTopNav.args = {
-  href: '#link',
-  current: true,
-  default: 'Nav link',
+    href: '#link',
+    current: true,
+    default: 'Nav link',
 };
 export const Playground = TemplatePlayground.bind({});
 Playground.args = {
-  href: '#link',
-  current: false,
-  default: 'Nav link',
+    href: '#link',
+    current: false,
+    default: 'Nav link',
 };
 //# sourceMappingURL=gcds-nav-link.stories.js.map

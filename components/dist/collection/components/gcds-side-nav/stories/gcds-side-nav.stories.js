@@ -1,20 +1,20 @@
 import { langProp } from "../../../utils/storybook/component-properties";
 export default {
-  title: 'Components/Side navigation',
-  argTypes: Object.assign({
-    // Props
-    label: {
-      name: 'label',
-      control: 'text',
-      table: {
-        type: { summary: 'string' },
-        defaultValue: { summary: '-' },
-      },
-      type: {
-        required: true,
-      },
-    }
-  }, langProp),
+    title: 'Components/Side navigation',
+    argTypes: Object.assign({
+        // Props
+        label: {
+            name: 'label',
+            control: 'text',
+            table: {
+                type: { summary: 'string' },
+                defaultValue: { summary: '-' },
+            },
+            type: {
+                required: true,
+            },
+        }
+    }, langProp),
 };
 const Template = args => `
 <!-- Web component code (Angular, Vue) -->
@@ -86,22 +86,22 @@ const TemplatePlayground = args => `
 `.replace(/\s\snull\n/g, '');
 export const Default = Template.bind({});
 Default.args = {
-  label: 'Label',
-  lang: 'en',
+    label: 'Label',
+    lang: 'en',
 };
 export const Props = Template.bind({});
 Props.args = {
-  label: 'Label',
-  lang: 'en',
+    label: 'Label',
+    lang: 'en',
 };
 export const Label = Template.bind({});
 Label.args = {
-  label: 'Side navigation label',
-  lang: 'en',
+    label: 'Side navigation label',
+    lang: 'en',
 };
 export const Playground = TemplatePlayground.bind({});
 Playground.args = {
-  label: 'Label',
-  lang: 'en',
+    label: 'Label',
+    lang: 'en',
 };
 //# sourceMappingURL=gcds-side-nav.stories.js.map

@@ -1,89 +1,89 @@
 export const defaultValidator = {
-  validate: (_x) => true,
+    validate: (_x) => true,
 };
 export function combineValidators(v1, v2) {
-  let combined;
-  combined = {
-    validate: (x) => {
-      const res1 = v1.validate(x);
-      const res2 = v2.validate(x);
-      if (!res1) {
-        combined.errorMessage = v1.errorMessage;
-      }
-      else if (!res2) {
-        combined.errorMessage = v2.errorMessage;
-      }
-      return res1 && res2;
-    },
-  };
-  return combined;
+    let combined;
+    combined = {
+        validate: (x) => {
+            const res1 = v1.validate(x);
+            const res2 = v2.validate(x);
+            if (!res1) {
+                combined.errorMessage = v1.errorMessage;
+            }
+            else if (!res2) {
+                combined.errorMessage = v2.errorMessage;
+            }
+            return res1 && res2;
+        },
+    };
+    return combined;
 }
 export function requiredValidator(element, type, subtype) {
-  if (element.required) {
-    switch (type) {
-      // Components all validate the "value" property
-      case 'input':
-        switch (subtype) {
-          case 'email':
-            if (element.validator) {
-              element.validator.unshift('requiredEmailField');
-            }
-            else {
-              element.validator = ['requiredEmailField'];
-            }
-            break;
-          default:
-            if (element.validator) {
-              element.validator.unshift('requiredField');
-            }
-            else {
-              element.validator = ['requiredField'];
-            }
-            break;
+    if (element.required) {
+        switch (type) {
+            // Components all validate the "value" property
+            case 'input':
+                switch (subtype) {
+                    case 'email':
+                        if (element.validator) {
+                            element.validator.unshift('requiredEmailField');
+                        }
+                        else {
+                            element.validator = ['requiredEmailField'];
+                        }
+                        break;
+                    default:
+                        if (element.validator) {
+                            element.validator.unshift('requiredField');
+                        }
+                        else {
+                            element.validator = ['requiredField'];
+                        }
+                        break;
+                }
+                break;
+            case 'select':
+                if (element.validator) {
+                    element.validator.unshift('requiredSelectField');
+                }
+                else {
+                    element.validator = ['requiredSelectField'];
+                }
+                break;
+            case 'textarea':
+                if (element.validator) {
+                    element.validator.unshift('requiredField');
+                }
+                else {
+                    element.validator = ['requiredField'];
+                }
+                break;
+            case 'file':
+                if (element.validator) {
+                    element.validator.unshift('requiredFileInput');
+                }
+                else {
+                    element.validator = ['requiredFileInput'];
+                }
+                break;
+            case 'checkbox':
+                if (element.validator) {
+                    element.validator.unshift('requiredCheck');
+                }
+                else {
+                    element.validator = ['requiredCheck'];
+                }
+                break;
+            case 'fieldset':
+                if (element.validator) {
+                    element.validator.unshift('requiredFieldset');
+                }
+                else {
+                    element.validator = ['requiredFieldset'];
+                }
+                break;
         }
-        break;
-      case 'select':
-        if (element.validator) {
-          element.validator.unshift('requiredSelectField');
-        }
-        else {
-          element.validator = ['requiredSelectField'];
-        }
-        break;
-      case 'textarea':
-        if (element.validator) {
-          element.validator.unshift('requiredField');
-        }
-        else {
-          element.validator = ['requiredField'];
-        }
-        break;
-      case 'file':
-        if (element.validator) {
-          element.validator.unshift('requiredFileInput');
-        }
-        else {
-          element.validator = ['requiredFileInput'];
-        }
-        break;
-      case 'checkbox':
-        if (element.validator) {
-          element.validator.unshift('requiredCheck');
-        }
-        else {
-          element.validator = ['requiredCheck'];
-        }
-        break;
-      case 'fieldset':
-        if (element.validator) {
-          element.validator.unshift('requiredFieldset');
-        }
-        else {
-          element.validator = ['requiredFieldset'];
-        }
-        break;
     }
-  }
 }
 /*
 Example of parameter validator

@@ -1,31 +1,31 @@
 import { langProp } from "../../../utils/storybook/component-properties";
 export default {
-  title: 'Components/Signature',
-  argTypes: Object.assign({
-    // Props
-    type: {
-      control: 'select',
-      options: ['signature', 'wordmark'],
-      table: {
-        type: { summary: 'string' },
-        defaultValue: { summary: 'signature' },
-      },
-    }, hasLink: {
-      control: { type: 'select' },
-      options: [false, true],
-      table: {
-        type: { summary: 'boolean' },
-        defaultValue: { summary: false },
-      },
-    }, variant: {
-      control: 'select',
-      options: ['colour', 'white'],
-      table: {
-        type: { summary: 'string' },
-        defaultValue: { summary: 'colour' },
-      },
-    }
-  }, langProp),
+    title: 'Components/Signature',
+    argTypes: Object.assign({
+        // Props
+        type: {
+            control: 'select',
+            options: ['signature', 'wordmark'],
+            table: {
+                type: { summary: 'string' },
+                defaultValue: { summary: 'signature' },
+            },
+        }, hasLink: {
+            control: { type: 'select' },
+            options: [false, true],
+            table: {
+                type: { summary: 'boolean' },
+                defaultValue: { summary: false },
+            },
+        }, variant: {
+            control: 'select',
+            options: ['colour', 'white'],
+            table: {
+                type: { summary: 'string' },
+                defaultValue: { summary: 'colour' },
+            },
+        }
+    }, langProp),
 };
 const Template = args => `
 <!-- Web component code (Angular, Vue) -->
@@ -47,65 +47,65 @@ const TemplatePlayground = args => `
 `;
 export const Default = Template.bind({});
 Default.args = {
-  type: 'signature',
-  hasLink: false,
-  variant: 'colour',
-  lang: 'en',
+    type: 'signature',
+    hasLink: false,
+    variant: 'colour',
+    lang: 'en',
 };
 export const Wordmark = Template.bind({});
 Wordmark.args = {
-  type: 'wordmark',
-  hasLink: false,
-  variant: 'colour',
-  lang: 'en',
+    type: 'wordmark',
+    hasLink: false,
+    variant: 'colour',
+    lang: 'en',
 };
 export const SignatureFrench = Template.bind({});
 SignatureFrench.args = {
-  type: 'signature',
-  hasLink: false,
-  variant: 'colour',
-  lang: 'fr',
+    type: 'signature',
+    hasLink: false,
+    variant: 'colour',
+    lang: 'fr',
 };
 export const WordmarkFrench = Template.bind({});
 WordmarkFrench.args = {
-  type: 'wordmark',
-  hasLink: false,
-  variant: 'colour',
-  lang: 'fr',
+    type: 'wordmark',
+    hasLink: false,
+    variant: 'colour',
+    lang: 'fr',
 };
 export const HasLinkTrue = Template.bind({});
 HasLinkTrue.args = {
-  type: 'signature',
-  hasLink: 'true',
-  variant: 'colour',
-  lang: 'en',
+    type: 'signature',
+    hasLink: 'true',
+    variant: 'colour',
+    lang: 'en',
 };
 export const SignatureWhite = Template.bind({});
 SignatureWhite.args = {
-  type: 'signature',
-  hasLink: false,
-  variant: 'white',
-  lang: 'en',
+    type: 'signature',
+    hasLink: false,
+    variant: 'white',
+    lang: 'en',
 };
 export const WordmarkWhite = Template.bind({});
 WordmarkWhite.args = {
-  type: 'wordmark',
-  hasLink: false,
-  variant: 'white',
-  lang: 'en',
+    type: 'wordmark',
+    hasLink: false,
+    variant: 'white',
+    lang: 'en',
 };
 export const Props = Template.bind({});
 Props.args = {
-  type: 'signature',
-  hasLink: false,
-  variant: 'colour',
-  lang: 'en',
+    type: 'signature',
+    hasLink: false,
+    variant: 'colour',
+    lang: 'en',
 };
 export const Playground = TemplatePlayground.bind({});
 Playground.args = {
-  type: 'signature',
-  hasLink: false,
-  variant: 'colour',
-  lang: 'en',
+    type: 'signature',
+    hasLink: false,
+    variant: 'colour',
+    lang: 'en',
 };
 //# sourceMappingURL=gcds-signature.stories.js.map

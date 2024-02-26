@@ -1,31 +1,31 @@
 import { langProp } from "../../../utils/storybook/component-properties";
 export default {
-  title: 'Components/Error summary',
-  argTypes: Object.assign({
-    // Props
-    listen: {
-      control: { type: 'select' },
-      options: [false, true],
-      table: {
-        type: { summary: 'boolean' },
-        defaultValue: { summary: true },
-      },
-    }, errorLinks: {
-      name: 'error-links',
-      control: 'text',
-      description: '{ "error-href": "error message" }',
-      table: {
-        type: { summary: 'string/object' },
-        defaultValue: { summary: '-' },
-      },
-    }, heading: {
-      control: 'text',
-      table: {
-        type: { summary: 'string' },
-        defaultValue: { summary: '-' },
-      },
-    }
-  }, langProp),
+    title: 'Components/Error summary',
+    argTypes: Object.assign({
+        // Props
+        listen: {
+            control: { type: 'select' },
+            options: [false, true],
+            table: {
+                type: { summary: 'boolean' },
+                defaultValue: { summary: true },
+            },
+        }, errorLinks: {
+            name: 'error-links',
+            control: 'text',
+            description: '{ "error-href": "error message" }',
+            table: {
+                type: { summary: 'string/object' },
+                defaultValue: { summary: '-' },
+            },
+        }, heading: {
+            control: 'text',
+            table: {
+                type: { summary: 'string' },
+                defaultValue: { summary: '-' },
+            },
+        }
+    }, langProp),
 };
 const Template = args => `
 <!-- Web component code (Angular, Vue) -->
@@ -55,37 +55,37 @@ const TemplatePlayground = args => `
 // ------ Error summary default ------
 export const Default = Template.bind({});
 Default.args = {
-  listen: true,
-  errorLinks: `{
+    listen: true,
+    errorLinks: `{
     "error-href-1": "Error summary item.",
     "error-href-2": "Error summary item.",
     "error-href-3": "Error summary item."
   }`,
-  heading: '',
-  lang: 'en',
+    heading: '',
+    lang: 'en',
 };
 // ------ Error summary events & props ------
 export const Props = Template.bind({});
 Props.args = {
-  listen: true,
-  errorLinks: `{
+    listen: true,
+    errorLinks: `{
     "error-href-1": "Error summary item.",
     "error-href-2": "Error summary item.",
     "error-href-3": "Error summary item."
   }`,
-  heading: '',
-  lang: 'en',
+    heading: '',
+    lang: 'en',
 };
 // ------ Error summary playground ------
 export const Playground = TemplatePlayground.bind({});
 Playground.args = {
-  listen: true,
-  errorLinks: `{
+    listen: true,
+    errorLinks: `{
     "error-href-1": "Error summary item.",
     "error-href-2": "Error summary item.",
     "error-href-3": "Error summary item."
   }`,
-  heading: '',
-  lang: 'en',
+    heading: '',
+    lang: 'en',
 };
 //# sourceMappingURL=gcds-error-summary.stories.js.map

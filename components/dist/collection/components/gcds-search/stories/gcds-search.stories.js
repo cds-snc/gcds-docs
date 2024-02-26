@@ -1,45 +1,45 @@
 import { langProp } from "../../../utils/storybook/component-properties";
 export default {
-  title: 'Components/Search',
-  argTypes: Object.assign({
-    // Props
-    action: {
-      name: 'action',
-      control: 'text',
-      table: {
-        type: { summary: 'string' },
-        defaultValue: { summary: '/sr/srb.html' },
-      },
-    }, name: {
-      name: 'name',
-      control: 'text',
-      table: {
-        type: { summary: 'string' },
-        defaultValue: { summary: 'q' },
-      },
-    }, placeholder: {
-      name: 'placeholder',
-      control: 'text',
-      table: {
-        type: { summary: 'string' },
-        defaultValue: { summary: 'Canada.ca' },
-      },
-    }, method: {
-      control: 'select',
-      options: ['get', 'post'],
-      table: {
-        type: { summary: 'string' },
-        defaultValue: { summary: 'get' },
-      },
-    }, searchId: {
-      name: 'search-id',
-      control: 'text',
-      table: {
-        type: { summary: 'string' },
-        defaultValue: { summary: 'search' },
-      },
-    }
-  }, langProp),
+    title: 'Components/Search',
+    argTypes: Object.assign({
+        // Props
+        action: {
+            name: 'action',
+            control: 'text',
+            table: {
+                type: { summary: 'string' },
+                defaultValue: { summary: '/sr/srb.html' },
+            },
+        }, name: {
+            name: 'name',
+            control: 'text',
+            table: {
+                type: { summary: 'string' },
+                defaultValue: { summary: 'q' },
+            },
+        }, placeholder: {
+            name: 'placeholder',
+            control: 'text',
+            table: {
+                type: { summary: 'string' },
+                defaultValue: { summary: 'Canada.ca' },
+            },
+        }, method: {
+            control: 'select',
+            options: ['get', 'post'],
+            table: {
+                type: { summary: 'string' },
+                defaultValue: { summary: 'get' },
+            },
+        }, searchId: {
+            name: 'search-id',
+            control: 'text',
+            table: {
+                type: { summary: 'string' },
+                defaultValue: { summary: 'search' },
+            },
+        }
+    }, langProp),
 };
 const Template = args => `
 <!-- Web component code (Angular, Vue) -->
@@ -78,51 +78,51 @@ const TemplatePlayground = args => `
 // ------ Search default ------
 export const Default = Template.bind({});
 Default.args = {
-  action: '/sr/srb.html',
-  method: 'get',
-  name: 'q',
-  placeholder: 'Canada.ca',
-  searchId: 'search',
-  lang: 'en',
+    action: '/sr/srb.html',
+    method: 'get',
+    name: 'q',
+    placeholder: 'Canada.ca',
+    searchId: 'search',
+    lang: 'en',
 };
 // ------ Search default ------
 export const French = Template.bind({});
 French.args = {
-  action: '/sr/srb.html',
-  method: 'get',
-  name: 'q',
-  placeholder: 'Canada.ca',
-  searchId: 'search',
-  lang: 'fr',
+    action: '/sr/srb.html',
+    method: 'get',
+    name: 'q',
+    placeholder: 'Canada.ca',
+    searchId: 'search',
+    lang: 'fr',
 };
 // ------ Search default ------
 export const Custom = Template.bind({});
 Custom.args = {
-  action: 'search.html',
-  method: 'post',
-  name: 'search',
-  placeholder: 'sitename',
-  searchId: 'searchform',
-  lang: 'en',
+    action: 'search.html',
+    method: 'post',
+    name: 'search',
+    placeholder: 'sitename',
+    searchId: 'searchform',
+    lang: 'en',
 };
 // ------ Search events & props ------
 export const Props = Template.bind({});
 Props.args = {
-  action: '/sr/srb.html',
-  method: 'get',
-  name: 'q',
-  placeholder: 'Canada.ca',
-  searchId: 'search',
-  lang: 'en',
+    action: '/sr/srb.html',
+    method: 'get',
+    name: 'q',
+    placeholder: 'Canada.ca',
+    searchId: 'search',
+    lang: 'en',
 };
 // ------ Search playground ------
 export const Playground = TemplatePlayground.bind({});
 Playground.args = {
-  action: '/sr/srb.html',
-  method: 'get',
-  name: 'q',
-  placeholder: 'Canada.ca',
-  searchId: 'search',
-  lang: 'en',
+    action: '/sr/srb.html',
+    method: 'get',
+    name: 'q',
+    placeholder: 'Canada.ca',
+    searchId: 'search',
+    lang: 'en',
 };
 //# sourceMappingURL=gcds-search.stories.js.map

@@ -1,36 +1,36 @@
 export default {
-  title: 'Components/Details',
-  argTypes: {
-    // Props
-    detailsTitle: {
-      name: 'details-title',
-      control: 'text',
-      table: {
-        type: { summary: 'string' },
-        defaultValue: { summary: '-' },
-      },
-      type: {
-        required: true,
-      },
+    title: 'Components/Details',
+    argTypes: {
+        // Props
+        detailsTitle: {
+            name: 'details-title',
+            control: 'text',
+            table: {
+                type: { summary: 'string' },
+                defaultValue: { summary: '-' },
+            },
+            type: {
+                required: true,
+            },
+        },
+        open: {
+            control: { type: 'select' },
+            options: [false, true],
+            table: {
+                type: { summary: 'boolean' },
+                defaultValue: { summary: false },
+            },
+        },
+        // Slots
+        default: {
+            control: {
+                type: 'text',
+            },
+            table: {
+                category: 'Slots | Fentes',
+            },
+        },
     },
-    open: {
-      control: { type: 'select' },
-      options: [false, true],
-      table: {
-        type: { summary: 'boolean' },
-        defaultValue: { summary: false },
-      },
-    },
-    // Slots
-    default: {
-      control: {
-        type: 'text',
-      },
-      table: {
-        category: 'Slots | Fentes',
-      },
-    },
-  },
 };
 const Template = args => `
 <!-- Web component code (Angular, Vue) -->
@@ -51,29 +51,29 @@ const TemplatePlayground = args => `
 // ------ Details default ------
 export const Default = Template.bind({});
 Default.args = {
-  detailsTitle: 'Learn more about this topic',
-  open: false,
-  default: 'Additional information.',
+    detailsTitle: 'Learn more about this topic',
+    open: false,
+    default: 'Additional information.',
 };
 // ------ Details open ------
 export const Open = Template.bind({});
 Open.args = {
-  detailsTitle: 'Learn more about this topic',
-  open: true,
-  default: 'Additional information.',
+    detailsTitle: 'Learn more about this topic',
+    open: true,
+    default: 'Additional information.',
 };
 // ------ Details events & props ------
 export const Props = Template.bind({});
 Props.args = {
-  detailsTitle: 'Learn more about this topic',
-  open: false,
-  default: 'Additional information.',
+    detailsTitle: 'Learn more about this topic',
+    open: false,
+    default: 'Additional information.',
 };
 // ------ Details playground ------
 export const Playground = TemplatePlayground.bind({});
 Playground.args = {
-  detailsTitle: 'Learn more about this topic',
-  open: false,
-  default: 'Additional information.',
+    detailsTitle: 'Learn more about this topic',
+    open: false,
+    default: 'Additional information.',
 };
 //# sourceMappingURL=gcds-details.stories.js.map

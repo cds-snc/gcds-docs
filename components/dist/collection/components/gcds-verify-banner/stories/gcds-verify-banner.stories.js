@@ -1,25 +1,25 @@
 import { langProp } from "../../../utils/storybook/component-properties";
 export default {
-  title: 'Components/Verify banner',
-  argTypes: Object.assign({
-    // Props
-    container: {
-      control: { type: 'select' },
-      options: ['full', 'xl', 'lg', 'md', 'sm', 'xs'],
-      table: {
-        type: { summary: 'string' },
-        defaultValue: { summary: 'xl' },
-      },
-    }, isFixed: {
-      name: 'is-fixed',
-      control: { type: 'select' },
-      options: [false, true],
-      table: {
-        type: { summary: 'boolean' },
-        defaultValue: { summary: false },
-      },
-    }
-  }, langProp),
+    title: 'Components/Verify banner',
+    argTypes: Object.assign({
+        // Props
+        container: {
+            control: { type: 'select' },
+            options: ['full', 'xl', 'lg', 'md', 'sm', 'xs'],
+            table: {
+                type: { summary: 'string' },
+                defaultValue: { summary: 'xl' },
+            },
+        }, isFixed: {
+            name: 'is-fixed',
+            control: { type: 'select' },
+            options: [false, true],
+            table: {
+                type: { summary: 'boolean' },
+                defaultValue: { summary: false },
+            },
+        }
+    }, langProp),
 };
 const Template = args => `
 <!-- Web component code (Angular, Vue) -->
@@ -41,66 +41,66 @@ const TemplatePlayground = args => `
 // ------ Verify banner default ------
 export const Default = Template.bind({});
 Default.args = {
-  container: 'xl',
-  isFixed: false,
-  lang: 'en',
+    container: 'xl',
+    isFixed: false,
+    lang: 'en',
 };
 // ------ Verify banner french ------
 export const French = Template.bind({});
 French.args = {
-  container: 'xl',
-  isFixed: false,
-  lang: 'fr',
+    container: 'xl',
+    isFixed: false,
+    lang: 'fr',
 };
 // ------ Verify banner container ------
 export const Full = Template.bind({});
 Full.args = {
-  container: 'full',
-  isFixed: false,
-  lang: 'en',
+    container: 'full',
+    isFixed: false,
+    lang: 'en',
 };
 export const Xl = Template.bind({});
 Xl.args = {
-  container: 'xl',
-  isFixed: false,
-  lang: 'en',
+    container: 'xl',
+    isFixed: false,
+    lang: 'en',
 };
 export const Lg = Template.bind({});
 Lg.args = {
-  container: 'lg',
-  isFixed: false,
-  lang: 'en',
+    container: 'lg',
+    isFixed: false,
+    lang: 'en',
 };
 export const Md = Template.bind({});
 Md.args = {
-  container: 'md',
-  isFixed: false,
-  lang: 'en',
+    container: 'md',
+    isFixed: false,
+    lang: 'en',
 };
 export const Sm = Template.bind({});
 Sm.args = {
-  container: 'sm',
-  isFixed: false,
-  lang: 'en',
+    container: 'sm',
+    isFixed: false,
+    lang: 'en',
 };
 export const Xs = Template.bind({});
 Xs.args = {
-  container: 'xs',
-  isFixed: false,
-  lang: 'en',
+    container: 'xs',
+    isFixed: false,
+    lang: 'en',
 };
 // ------ Verify banner events & props ------
 export const Props = Template.bind({});
 Props.args = {
-  container: 'xl',
-  isFixed: false,
-  lang: 'en',
+    container: 'xl',
+    isFixed: false,
+    lang: 'en',
 };
 // ------ Verify banner playground ------
 export const Playground = TemplatePlayground.bind({});
 Playground.args = {
-  container: 'xl',
-  isFixed: false,
-  lang: 'en',
+    container: 'xl',
+    isFixed: false,
+    lang: 'en',
 };
 //# sourceMappingURL=gcds-verify-banner.stories.js.map

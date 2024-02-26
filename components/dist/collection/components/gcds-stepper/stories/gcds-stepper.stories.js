@@ -1,30 +1,30 @@
 import { langProp } from "../../../utils/storybook/component-properties";
 export default {
-  title: 'Components/Stepper',
-  argTypes: Object.assign({
-    // Props
-    currentStep: {
-      name: 'current-step',
-      control: 'number',
-      table: {
-        type: { summary: 'number' },
-        defaultValue: { summary: '-' },
-      },
-      type: {
-        required: true,
-      },
-    }, totalSteps: {
-      name: 'total-steps',
-      control: 'number',
-      table: {
-        type: { summary: 'number' },
-        defaultValue: { summary: '-' },
-      },
-      type: {
-        required: true,
-      },
-    }
-  }, langProp),
+    title: 'Components/Stepper',
+    argTypes: Object.assign({
+        // Props
+        currentStep: {
+            name: 'current-step',
+            control: 'number',
+            table: {
+                type: { summary: 'number' },
+                defaultValue: { summary: '-' },
+            },
+            type: {
+                required: true,
+            },
+        }, totalSteps: {
+            name: 'total-steps',
+            control: 'number',
+            table: {
+                type: { summary: 'number' },
+                defaultValue: { summary: '-' },
+            },
+            type: {
+                required: true,
+            },
+        }
+    }, langProp),
 };
 const Template = args => `
 <!-- Web component code (Angular, Vue) -->
@@ -46,29 +46,29 @@ const TemplatePlayground = args => `
 // ------ Stepper default ------
 export const Default = Template.bind({});
 Default.args = {
-  lang: 'en',
-  currentStep: 1,
-  totalSteps: 4,
+    lang: 'en',
+    currentStep: 1,
+    totalSteps: 4,
 };
 // ------ Stepper french ------
 export const French = Template.bind({});
 French.args = {
-  lang: 'fr',
-  currentStep: 1,
-  totalSteps: 4,
+    lang: 'fr',
+    currentStep: 1,
+    totalSteps: 4,
 };
 // ------ Stepper events & props ------
 export const Props = Template.bind({});
 Props.args = {
-  lang: 'en',
-  currentStep: 1,
-  totalSteps: 4,
+    lang: 'en',
+    currentStep: 1,
+    totalSteps: 4,
 };
 // ------ Stepper playground ------
 export const Playground = TemplatePlayground.bind({});
 Playground.args = {
-  lang: 'en',
-  currentStep: 1,
-  totalSteps: 4,
+    lang: 'en',
+    currentStep: 1,
+    totalSteps: 4,
 };
 //# sourceMappingURL=gcds-stepper.stories.js.map

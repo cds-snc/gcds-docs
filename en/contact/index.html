@@ -1036,8 +1036,8 @@
 <form class="my-500 contact-us-form" name="contactEN" method="post" style="min-height: 32rem;" action="/api/submission">
   <input type="hidden" name="form-name" value="contactEN" />
   <input name="honeypot" type="text" aria-label="bot" hidden/>
-<p class="mb-400"><gcds-input type="text" input-id="name" label="Full name" size="30" required></gcds-input>
-<gcds-input type="email" input-id="email" label="Email address" size="50" required></gcds-input>
+<p class="mb-400"><gcds-input type="text" input-id="name" label="Full name" size="30" autocomplete="name" required></gcds-input>
+<gcds-input type="email" input-id="email" label="Email address" size="50" autocomplete="email" required></gcds-input>
 <gcds-fieldset fieldset-id="reasonForContact" legend="Reason for your communication" required>
 <gcds-radio radio-id="requestADemo" name="reasonForContact" label="Request a demo" value="Request a demo" hint="Book a demo of GC Design System for your team."></gcds-radio>
 <gcds-radio radio-id="reportAnIssue" name="reasonForContact" label="Report an issue" value="Report an issue" hint="Communicate a problem you've found."></gcds-radio>
@@ -1055,7 +1055,7 @@
 
 
         <gcds-date-modified class="mb-400 font-caption">
-          2024-02-21
+          2024-02-26
         </gcds-date-modified>
       </main>
 

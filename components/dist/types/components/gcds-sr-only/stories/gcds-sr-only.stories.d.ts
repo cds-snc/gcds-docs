@@ -1,15 +1,15 @@
 declare const _default: {
-  title: string;
-  argTypes: {
-    default: {
-      control: {
-        type: string;
-      };
-      table: {
-        category: string;
-      };
+    title: string;
+    argTypes: {
+        default: {
+            control: {
+                type: string;
+            };
+            table: {
+                category: string;
+            };
+        };
     };
-  };
 };
 export default _default;
 export declare const Default: any;

@@ -1,10 +1,10 @@
 import { newSpecPage } from "@stencil/core/testing";
 import { GcdsPagination } from "../gcds-pagination";
 describe('gcds-pagination', () => {
-  it('render simple label - English', async () => {
-    const page = await newSpecPage({
-      components: [GcdsPagination],
-      html: `
+    it('render simple label - English', async () => {
+        const page = await newSpecPage({
+            components: [GcdsPagination],
+            html: `
       <gcds-pagination
         display="simple"
         previous-href="#previous"
@@ -13,8 +13,8 @@ describe('gcds-pagination', () => {
         next-label="Next label"
         lang="en"
       ></gcds-pagination>`,
-    });
-    expect(page.root).toEqualHtml(`
+        });
+        expect(page.root).toEqualHtml(`
       <gcds-pagination display="simple" lang="en" next-href="#next" next-label="Next label" previous-href="#previous" previous-label="Previous label" role="navigation">
         <ul class="gcds-pagination-simple">
           <li class="gcds-pagination-simple-previous">
@@ -42,19 +42,19 @@ describe('gcds-pagination', () => {
         </ul>
       </gcds-pagination>
     `);
-  });
-  it('render simple no label - English', async () => {
-    const page = await newSpecPage({
-      components: [GcdsPagination],
-      html: `
+    });
+    it('render simple no label - English', async () => {
+        const page = await newSpecPage({
+            components: [GcdsPagination],
+            html: `
       <gcds-pagination
         display="simple"
         previous-href="#previous"
         next-href="#next"
         lang="en"
       ></gcds-pagination>`,
-    });
-    expect(page.root).toEqualHtml(`
+        });
+        expect(page.root).toEqualHtml(`
       <gcds-pagination display="simple" lang="en" next-href="#next" previous-href="#previous" role="navigation">
         <ul class="gcds-pagination-simple">
           <li class="gcds-pagination-simple-previous">
@@ -80,11 +80,11 @@ describe('gcds-pagination', () => {
         </ul>
       </gcds-pagination>
     `);
-  });
-  it('render simple label - French', async () => {
-    const page = await newSpecPage({
-      components: [GcdsPagination],
-      html: `
+    });
+    it('render simple label - French', async () => {
+        const page = await newSpecPage({
+            components: [GcdsPagination],
+            html: `
       <gcds-pagination
         display="simple"
         previous-href="#previous"
@@ -93,8 +93,8 @@ describe('gcds-pagination', () => {
         next-label="Next label"
         lang="fr"
       ></gcds-pagination>`,
-    });
-    expect(page.root).toEqualHtml(`
+        });
+        expect(page.root).toEqualHtml(`
       <gcds-pagination display="simple" lang="fr" next-href="#next" next-label="Next label" previous-href="#previous" previous-label="Previous label" role="navigation">
         <ul class="gcds-pagination-simple">
           <li class="gcds-pagination-simple-previous">
@@ -122,19 +122,19 @@ describe('gcds-pagination', () => {
         </ul>
       </gcds-pagination>
     `);
-  });
-  it('render simple no label - French', async () => {
-    const page = await newSpecPage({
-      components: [GcdsPagination],
-      html: `
+    });
+    it('render simple no label - French', async () => {
+        const page = await newSpecPage({
+            components: [GcdsPagination],
+            html: `
       <gcds-pagination
         display="simple"
         previous-href="#previous"
         next-href="#next"
         lang="fr"
       ></gcds-pagination>`,
-    });
-    expect(page.root).toEqualHtml(`
+        });
+        expect(page.root).toEqualHtml(`
       <gcds-pagination display="simple" lang="fr" next-href="#next" previous-href="#previous" role="navigation">
         <ul class="gcds-pagination-simple">
           <li class="gcds-pagination-simple-previous">
@@ -160,11 +160,11 @@ describe('gcds-pagination', () => {
         </ul>
       </gcds-pagination>
     `);
-  });
-  it('render list - under 10 items - English', async () => {
-    const page = await newSpecPage({
-      components: [GcdsPagination],
-      html: `
+    });
+    it('render list - under 10 items - English', async () => {
+        const page = await newSpecPage({
+            components: [GcdsPagination],
+            html: `
       <gcds-pagination
         display="list"
         current-page="5"
@@ -172,8 +172,8 @@ describe('gcds-pagination', () => {
         label="Search results"
         lang="en"
       ></gcds-pagination>`,
-    });
-    expect(page.root).toEqualHtml(`
+        });
+        expect(page.root).toEqualHtml(`
       <gcds-pagination aria-label="Search results" current-page="5" display="list" label="Search results" lang="en" role="navigation" total-pages="9">
         <div>
           <ul class="gcds-pagination-list">
@@ -262,11 +262,11 @@ describe('gcds-pagination', () => {
         </div>
       </gcds-pagination>
     `);
-  });
-  it('render list - 20 items - English', async () => {
-    const page = await newSpecPage({
-      components: [GcdsPagination],
-      html: `
+    });
+    it('render list - 20 items - English', async () => {
+        const page = await newSpecPage({
+            components: [GcdsPagination],
+            html: `
       <gcds-pagination
         display="list"
         current-page="10"
@@ -274,8 +274,8 @@ describe('gcds-pagination', () => {
         label="Search results"
         lang="en"
       ></gcds-pagination>`,
-    });
-    expect(page.root).toEqualHtml(`
+        });
+        expect(page.root).toEqualHtml(`
       <gcds-pagination aria-label="Search results" current-page="10" display="list" label="Search results" lang="en" role="navigation" total-pages="20">
         <div>
           <ul class="gcds-pagination-list">
@@ -354,11 +354,11 @@ describe('gcds-pagination', () => {
         </div>
       </gcds-pagination>
     `);
-  });
-  it('render list - under 10 items - French', async () => {
-    const page = await newSpecPage({
-      components: [GcdsPagination],
-      html: `
+    });
+    it('render list - under 10 items - French', async () => {
+        const page = await newSpecPage({
+            components: [GcdsPagination],
+            html: `
       <gcds-pagination
         display="list"
         current-page="5"
@@ -366,8 +366,8 @@ describe('gcds-pagination', () => {
         label="Search results"
         lang="fr"
       ></gcds-pagination>`,
-    });
-    expect(page.root).toEqualHtml(`
+        });
+        expect(page.root).toEqualHtml(`
       <gcds-pagination aria-label="Search results" current-page="5" display="list" label="Search results" lang="fr" role="navigation" total-pages="9">
         <div>
           <ul class="gcds-pagination-list">
@@ -456,11 +456,11 @@ describe('gcds-pagination', () => {
         </div>
       </gcds-pagination>
     `);
-  });
-  it('render list - 20 items - French', async () => {
-    const page = await newSpecPage({
-      components: [GcdsPagination],
-      html: `
+    });
+    it('render list - 20 items - French', async () => {
+        const page = await newSpecPage({
+            components: [GcdsPagination],
+            html: `
       <gcds-pagination
         display="list"
         current-page="10"
@@ -468,8 +468,8 @@ describe('gcds-pagination', () => {
         label="Search results"
         lang="fr"
       ></gcds-pagination>`,
-    });
-    expect(page.root).toEqualHtml(`
+        });
+        expect(page.root).toEqualHtml(`
       <gcds-pagination aria-label="Search results" current-page="10" display="list" label="Search results" lang="fr" role="navigation" total-pages="20">
         <div>
           <ul class="gcds-pagination-list">
@@ -548,6 +548,6 @@ describe('gcds-pagination', () => {
         </div>
       </gcds-pagination>
     `);
-  });
+    });
 });
 //# sourceMappingURL=gcds-pagination.spec.js.map

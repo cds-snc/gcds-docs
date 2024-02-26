@@ -1,75 +1,75 @@
 import { langProp, validatorProps, } from "../../../utils/storybook/component-properties";
 export default {
-  title: 'Components/Fieldset',
-  parameters: {
-    actions: {
-      argTypesRegex: '^gcds.*',
-      handles: ['GroupError', 'GroupErrorClear'],
+    title: 'Components/Fieldset',
+    parameters: {
+        actions: {
+            argTypesRegex: '^gcds.*',
+            handles: ['GroupError', 'GroupErrorClear'],
+        },
     },
-  },
-  argTypes: Object.assign(Object.assign(Object.assign({
-    // Props
-    fieldsetId: {
-      name: 'fieldset-id',
-      control: 'text',
-      table: {
-        type: { summary: 'string' },
-        defaultValue: { summary: '-' },
-      },
-      type: {
-        required: true,
-      },
-    }, legend: {
-      control: 'text',
-      table: {
-        type: { summary: 'string' },
-        defaultValue: { summary: '-' },
-      },
-      type: {
-        required: true,
-      },
-    }, disabled: {
-      control: { type: 'select' },
-      options: [false, true],
-      table: {
-        type: { summary: 'boolean' },
-        defaultValue: { summary: false },
-      },
-    }, errorMessage: {
-      name: 'error-message',
-      control: 'text',
-      table: {
-        type: { summary: 'string' },
-        defaultValue: { summary: '-' },
-      },
-    }, hint: {
-      control: 'text',
-      table: {
-        type: { summary: 'string' },
-        defaultValue: { summary: '-' },
-      },
-    }, required: {
-      control: { type: 'select' },
-      options: [false, true],
-      table: {
-        type: { summary: 'boolean' },
-        defaultValue: { summary: false },
-      },
-    }
-  }, validatorProps), langProp), {
-    // Events
-    gcdsGroupError: {
-      action: 'GroupError',
-      table: {
-        category: 'Events | Événements',
-      },
-    }, gcdsGroupErrorClear: {
-      action: 'GroupErrorClear',
-      table: {
-        category: 'Events | Événements',
-      },
-    }
-  }),
+    argTypes: Object.assign(Object.assign(Object.assign({
+        // Props
+        fieldsetId: {
+            name: 'fieldset-id',
+            control: 'text',
+            table: {
+                type: { summary: 'string' },
+                defaultValue: { summary: '-' },
+            },
+            type: {
+                required: true,
+            },
+        }, legend: {
+            control: 'text',
+            table: {
+                type: { summary: 'string' },
+                defaultValue: { summary: '-' },
+            },
+            type: {
+                required: true,
+            },
+        }, disabled: {
+            control: { type: 'select' },
+            options: [false, true],
+            table: {
+                type: { summary: 'boolean' },
+                defaultValue: { summary: false },
+            },
+        }, errorMessage: {
+            name: 'error-message',
+            control: 'text',
+            table: {
+                type: { summary: 'string' },
+                defaultValue: { summary: '-' },
+            },
+        }, hint: {
+            control: 'text',
+            table: {
+                type: { summary: 'string' },
+                defaultValue: { summary: '-' },
+            },
+        }, required: {
+            control: { type: 'select' },
+            options: [false, true],
+            table: {
+                type: { summary: 'boolean' },
+                defaultValue: { summary: false },
+            },
+        }
+    }, validatorProps), langProp), {
+        // Events
+        gcdsGroupError: {
+            action: 'GroupError',
+            table: {
+                category: 'Events | Événements',
+            },
+        }, gcdsGroupErrorClear: {
+            action: 'GroupErrorClear',
+            table: {
+                category: 'Events | Événements',
+            },
+        }
+    }),
 };
 const Template = args => `
 <!-- Web component code (Angular, Vue) -->
@@ -202,57 +202,57 @@ const TemplatePlayground = args => `
 `.replace(/\s\snull\n/g, '');
 export const Default = Template.bind({});
 Default.args = {
-  fieldsetId: 'fieldset',
-  legend: 'Legend',
-  hint: 'Hint / Example message.',
-  errorMessage: '',
-  required: false,
-  disabled: false,
-  validateOn: 'blur',
-  lang: 'en',
+    fieldsetId: 'fieldset',
+    legend: 'Legend',
+    hint: 'Hint / Example message.',
+    errorMessage: '',
+    required: false,
+    disabled: false,
+    validateOn: 'blur',
+    lang: 'en',
 };
 export const Required = TemplateRequired.bind({});
 Required.args = {
-  fieldsetId: 'fieldset',
-  legend: 'Legend',
-  hint: 'Hint / Example message.',
-  errorMessage: '',
-  required: true,
-  disabled: false,
-  validateOn: 'blur',
-  lang: 'en',
+    fieldsetId: 'fieldset',
+    legend: 'Legend',
+    hint: 'Hint / Example message.',
+    errorMessage: '',
+    required: true,
+    disabled: false,
+    validateOn: 'blur',
+    lang: 'en',
 };
 export const Disabled = Template.bind({});
 Disabled.args = {
-  fieldsetId: 'fieldset',
-  legend: 'Legend',
-  hint: 'Hint / Example message.',
-  errorMessage: '',
-  required: false,
-  disabled: true,
-  validateOn: 'blur',
-  lang: 'en',
+    fieldsetId: 'fieldset',
+    legend: 'Legend',
+    hint: 'Hint / Example message.',
+    errorMessage: '',
+    required: false,
+    disabled: true,
+    validateOn: 'blur',
+    lang: 'en',
 };
 export const Error = Template.bind({});
 Error.args = {
-  fieldsetId: 'fieldset',
-  legend: 'Legend',
-  hint: 'Hint / Example message.',
-  errorMessage: 'This is an error message',
-  required: false,
-  disabled: false,
-  validateOn: 'blur',
-  lang: 'en',
+    fieldsetId: 'fieldset',
+    legend: 'Legend',
+    hint: 'Hint / Example message.',
+    errorMessage: 'This is an error message',
+    required: false,
+    disabled: false,
+    validateOn: 'blur',
+    lang: 'en',
 };
 export const Playground = TemplatePlayground.bind({});
 Playground.args = {
-  fieldsetId: 'fieldset',
-  legend: 'Legend',
-  hint: 'Hint / Example message.',
-  errorMessage: '',
-  required: false,
-  disabled: false,
-  validateOn: 'blur',
-  lang: 'en',
+    fieldsetId: 'fieldset',
+    legend: 'Legend',
+    hint: 'Hint / Example message.',
+    errorMessage: '',
+    required: false,
+    disabled: false,
+    validateOn: 'blur',
+    lang: 'en',
 };
 //# sourceMappingURL=gcds-fieldset.stories.js.map

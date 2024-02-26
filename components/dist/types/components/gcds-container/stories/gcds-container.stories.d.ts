@@ -1,96 +1,96 @@
 declare const _default: {
-  title: string;
-  argTypes: {
-    border: {
-      control: {
-        type: string;
-      };
-      options: boolean[];
-      table: {
-        type: {
-          summary: string;
+    title: string;
+    argTypes: {
+        border: {
+            control: {
+                type: string;
+            };
+            options: boolean[];
+            table: {
+                type: {
+                    summary: string;
+                };
+                defaultValue: {
+                    summary: boolean;
+                };
+            };
         };
-        defaultValue: {
-          summary: boolean;
+        centered: {
+            control: {
+                type: string;
+            };
+            options: boolean[];
+            table: {
+                type: {
+                    summary: string;
+                };
+                defaultValue: {
+                    summary: boolean;
+                };
+            };
         };
-      };
+        margin: {
+            control: {
+                type: string;
+            };
+            options: string[];
+            table: {
+                type: {
+                    summary: string;
+                };
+                defaultValue: {
+                    summary: string;
+                };
+            };
+        };
+        padding: {
+            control: {
+                type: string;
+            };
+            options: string[];
+            table: {
+                type: {
+                    summary: string;
+                };
+                defaultValue: {
+                    summary: string;
+                };
+            };
+        };
+        size: {
+            control: {
+                type: string;
+            };
+            options: string[];
+            table: {
+                type: {
+                    summary: string;
+                };
+                defaultValue: {
+                    summary: string;
+                };
+            };
+        };
+        tag: {
+            control: string;
+            table: {
+                type: {
+                    summary: string;
+                };
+                defaultValue: {
+                    summary: string;
+                };
+            };
+        };
+        default: {
+            control: {
+                type: string;
+            };
+            table: {
+                category: string;
+            };
+        };
     };
-    centered: {
-      control: {
-        type: string;
-      };
-      options: boolean[];
-      table: {
-        type: {
-          summary: string;
-        };
-        defaultValue: {
-          summary: boolean;
-        };
-      };
-    };
-    margin: {
-      control: {
-        type: string;
-      };
-      options: string[];
-      table: {
-        type: {
-          summary: string;
-        };
-        defaultValue: {
-          summary: string;
-        };
-      };
-    };
-    padding: {
-      control: {
-        type: string;
-      };
-      options: string[];
-      table: {
-        type: {
-          summary: string;
-        };
-        defaultValue: {
-          summary: string;
-        };
-      };
-    };
-    size: {
-      control: {
-        type: string;
-      };
-      options: string[];
-      table: {
-        type: {
-          summary: string;
-        };
-        defaultValue: {
-          summary: string;
-        };
-      };
-    };
-    tag: {
-      control: string;
-      table: {
-        type: {
-          summary: string;
-        };
-        defaultValue: {
-          summary: string;
-        };
-      };
-    };
-    default: {
-      control: {
-        type: string;
-      };
-      table: {
-        category: string;
-      };
-    };
-  };
 };
 export default _default;
 export declare const Default: any;

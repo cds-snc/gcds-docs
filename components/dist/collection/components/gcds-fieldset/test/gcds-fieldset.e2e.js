@@ -1,14 +1,14 @@
 import { newE2EPage } from "@stencil/core/testing";
 describe('gcds-fieldset', () => {
-  it('renders', async () => {
-    const page = await newE2EPage();
-    await page.setContent('<gcds-fieldset></gcds-fieldset>');
-    const element = await page.find('gcds-fieldset');
-    expect(element).toHaveClass('hydrated');
-  });
-  it('disable passed inputs', async () => {
-    const page = await newE2EPage();
-    await page.setContent(`
+    it('renders', async () => {
+        const page = await newE2EPage();
+        await page.setContent('<gcds-fieldset></gcds-fieldset>');
+        const element = await page.find('gcds-fieldset');
+        expect(element).toHaveClass('hydrated');
+    });
+    it('disable passed inputs', async () => {
+        const page = await newE2EPage();
+        await page.setContent(`
     <gcds-fieldset
       legend="Fieldset legend"
       fieldset-id="field"
@@ -18,9 +18,9 @@ describe('gcds-fieldset', () => {
       <gcds-radio label="Choice 2" name="radio" radio-id="choice2"></gcds-radio>
     </gcds-fieldset>
     `);
-    const element = await page.find('gcds-fieldset');
-    const elementChild = await element.find('gcds-radio');
-    expect(elementChild).toHaveAttribute('disabled');
-  });
+        const element = await page.find('gcds-fieldset');
+        const elementChild = await element.find('gcds-radio');
+        expect(elementChild).toHaveAttribute('disabled');
+    });
 });
 //# sourceMappingURL=gcds-fieldset.e2e.js.map

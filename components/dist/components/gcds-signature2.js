@@ -43,94 +43,95 @@ const WordmarkFr = `<svg version="1.1" xmlns="http://www.w3.org/2000/svg" width=
 </svg>`;
 
 const gcdsSignatureCss = "gcds-signature{display:block;width:fit-content}gcds-signature .gcds-signature{display:flex}gcds-signature svg{max-width:100%}gcds-signature:not([type=wordmark]) svg{height:var(--gcds-signature-signature-height)}@media screen and (min-width:64em){gcds-signature:not([type=wordmark]) svg{height:2.125rem}}gcds-signature[type=wordmark] svg{height:var(--gcds-signature-wordmark-height);width:auto}gcds-signature:not([variant=white]) svg .fip_text{fill:var( --gcds-signature-color-text)}gcds-signature:not([variant=white]) svg .fip_flag{fill:var(--gcds-signature-color-flag)}gcds-signature[variant=white] svg .fip_flag,gcds-signature[variant=white] svg .fip_text{fill:var(--gcds-signature-white-default)}";
+const GcdsSignatureStyle0 = gcdsSignatureCss;
 
 const GcdsSignature = /*@__PURE__*/ proxyCustomElement(class GcdsSignature extends HTMLElement {
-  constructor() {
-    super();
-    this.__registerHost();
-    this.type = 'signature';
-    this.variant = 'colour';
-    this.hasLink = false;
-    this.lang = undefined;
-  }
-  validateType(newValue) {
-    if (newValue != 'signature' && newValue != 'wordmark') {
-      this.type = 'signature';
+    constructor() {
+        super();
+        this.__registerHost();
+        this.type = 'signature';
+        this.variant = 'colour';
+        this.hasLink = false;
+        this.lang = undefined;
     }
-  }
-  validateVariant(newValue) {
-    if (newValue != 'colour' && newValue != 'white') {
-      this.variant = 'colour';
-    }
-  }
-  /*
-   * Observe lang attribute change
-   */
-  updateLang() {
-    const observer = new MutationObserver(mutations => {
-      if (mutations[0].oldValue != this.el.lang) {
-        this.lang = this.el.lang;
-      }
-    });
-    observer.observe(this.el, observerConfig);
-  }
-  async componentWillLoad() {
-    // Define lang attribute
-    this.lang = assignLanguage(this.el);
-    this.updateLang();
-  }
-  get selectSVG() {
-    switch (this.type) {
-      case 'wordmark':
-        if (this.lang == 'en') {
-          return WordmarkEn;
-        }
-        else {
-          return WordmarkFr;
-        }
-      case 'signature':
-      default:
-        if (this.lang == 'en') {
-          return SignatureEn;
-        }
-        else {
-          return SignatureFr;
+    validateType(newValue) {
+        if (newValue != 'signature' && newValue != 'wordmark') {
+            this.type = 'signature';
         }
     }
-  }
-  render() {
-    const { type, hasLink, lang, selectSVG } = this;
-    return (h(Host, null, hasLink && type === 'signature' ? (
-    // eslint-disable-next-line jsx-a11y/anchor-has-content
-    h("a", { href: I18N[lang].link, innerHTML: selectSVG })) : (h("div", { class: "gcds-signature", innerHTML: selectSVG }))));
-  }
-  get el() { return this; }
-  static get watchers() { return {
-    "type": ["validateType"],
-    "variant": ["validateVariant"]
-  }; }
-  static get style() { return gcdsSignatureCss; }
+    validateVariant(newValue) {
+        if (newValue != 'colour' && newValue != 'white') {
+            this.variant = 'colour';
+        }
+    }
+    /*
+     * Observe lang attribute change
+     */
+    updateLang() {
+        const observer = new MutationObserver(mutations => {
+            if (mutations[0].oldValue != this.el.lang) {
+                this.lang = this.el.lang;
+            }
+        });
+        observer.observe(this.el, observerConfig);
+    }
+    async componentWillLoad() {
+        // Define lang attribute
+        this.lang = assignLanguage(this.el);
+        this.updateLang();
+    }
+    get selectSVG() {
+        switch (this.type) {
+            case 'wordmark':
+                if (this.lang == 'en') {
+                    return WordmarkEn;
+                }
+                else {
+                    return WordmarkFr;
+                }
+            case 'signature':
+            default:
+                if (this.lang == 'en') {
+                    return SignatureEn;
+                }
+                else {
+                    return SignatureFr;
+                }
+        }
+    }
+    render() {
+        const { type, hasLink, lang, selectSVG } = this;
+        return (h(Host, null, hasLink && type === 'signature' ? (
+        // eslint-disable-next-line jsx-a11y/anchor-has-content
+        h("a", { href: I18N[lang].link, innerHTML: selectSVG })) : (h("div", { class: "gcds-signature", innerHTML: selectSVG }))));
+    }
+    get el() { return this; }
+    static get watchers() { return {
+        "type": ["validateType"],
+        "variant": ["validateVariant"]
+    }; }
+    static get style() { return GcdsSignatureStyle0; }
 }, [0, "gcds-signature", {
-    "type": [1537],
-    "variant": [1537],
-    "hasLink": [1028, "has-link"],
-    "lang": [32]
-  }, undefined, {
-    "type": ["validateType"],
-    "variant": ["validateVariant"]
-  }]);
+        "type": [1537],
+        "variant": [1537],
+        "hasLink": [1028, "has-link"],
+        "lang": [32]
+    }, undefined, {
+        "type": ["validateType"],
+        "variant": ["validateVariant"]
+    }]);
 function defineCustomElement() {
-  if (typeof customElements === "undefined") {
-    return;
-  }
-  const components = ["gcds-signature"];
-  components.forEach(tagName => { switch (tagName) {
-    case "gcds-signature":
-      if (!customElements.get(tagName)) {
-        customElements.define(tagName, GcdsSignature);
-      }
-      break;
-  } });
+    if (typeof customElements === "undefined") {
+        return;
+    }
+    const components = ["gcds-signature"];
+    components.forEach(tagName => { switch (tagName) {
+        case "gcds-signature":
+            if (!customElements.get(tagName)) {
+                customElements.define(tagName, GcdsSignature);
+            }
+            break;
+    } });
 }
 
 export { GcdsSignature as G, defineCustomElement as d };

@@ -1,6 +1,6 @@
 declare const _default: {
-  title: string;
-  argTypes: any;
+    title: string;
+    argTypes: any;
 };
 export default _default;
 export declare const English: any;

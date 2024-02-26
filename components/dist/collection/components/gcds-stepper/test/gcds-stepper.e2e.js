@@ -1,35 +1,35 @@
 import { newE2EPage } from "@stencil/core/testing";
 const { AxePuppeteer } = require('@axe-core/puppeteer');
 describe('gcds-stepper', () => {
-  it('renders', async () => {
-    const page = await newE2EPage();
-    await page.setContent('<gcds-stepper></gcds-stepper>');
-    const element = await page.find('gcds-stepper');
-    expect(element).toHaveClass('hydrated');
-  });
+    it('renders', async () => {
+        const page = await newE2EPage();
+        await page.setContent('<gcds-stepper></gcds-stepper>');
+        const element = await page.find('gcds-stepper');
+        expect(element).toHaveClass('hydrated');
+    });
 });
 /**
  * Accessibility tests
  * Axe-core rules: https://github.com/dequelabs/axe-core/blob/develop/doc/rule-descriptions.md#wcag-21-level-a--aa-rules
  */
 describe('gcds-stepper a11y tests', () => {
-  /**
-   * Colour contrast test
-   */
-  it('colour contrast', async () => {
-    const page = await newE2EPage();
-    await page.setContent(`
+    /**
+     * Colour contrast test
+     */
+    it('colour contrast', async () => {
+        const page = await newE2EPage();
+        await page.setContent(`
       <gcds-stepper>
         <nav class="gcds-stepper" role="navigation">
           <h6>Step 2 of 6</h6>
         </nav>
       </gcds-stepper>
     `);
-    const colorContrastTest = new AxePuppeteer(page)
-      .withRules('color-contrast')
-      .analyze();
-    const results = await colorContrastTest;
-    expect(results.violations.length).toBe(0);
-  });
+        const colorContrastTest = new AxePuppeteer(page)
+            .withRules('color-contrast')
+            .analyze();
+        const results = await colorContrastTest;
+        expect(results.violations.length).toBe(0);
+    });
 });
 //# sourceMappingURL=gcds-stepper.e2e.js.map

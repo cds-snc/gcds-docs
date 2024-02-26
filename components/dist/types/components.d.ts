@@ -6,7 +6,9 @@
  */
 import { HTMLStencilElement, JSXBase } from "./stencil-public-runtime";
 import { Validator, ValidatorEntry } from "./validators";
+import { ContentValues } from "./components/gcds-grid/gcds-grid";
 export { Validator, ValidatorEntry } from "./validators";
+export { ContentValues } from "./components/gcds-grid/gcds-grid";
 export namespace Components {
     interface GcdsAlert {
         /**
@@ -66,10 +68,6 @@ export namespace Components {
     | 'secondary'
     | 'danger'
     | 'skip-to-content';
-        /**
-          * Set the style variant
-         */
-        "buttonStyle": 'solid' | 'text-only';
         /**
           * Custom callback function on click event
          */
@@ -439,13 +437,7 @@ export namespace Components {
         /**
           * If total grid size is less than the size of its grid container, this property aligns the grid along the block (column) axis
          */
-        "alignContent"?: | 'center'
-    | 'end'
-    | 'space-around'
-    | 'space-between'
-    | 'space-evenly'
-    | 'start'
-    | 'stretch';
+        "alignContent"?: ContentValues;
         /**
           * Aligns grid items along the block (column) axis
          */
@@ -457,7 +449,7 @@ export namespace Components {
         /**
           * Defines the columns of the grid Option to set different layouts for desktop | tablet | default (includes mobile)
          */
-        "columns": string;
+        "columns"?: string;
         "columnsDesktop"?: string;
         "columnsTablet"?: string;
         /**
@@ -469,34 +461,13 @@ export namespace Components {
          */
         "display"?: 'grid' | 'inline-grid';
         /**
-          * Shorthand for column-gap + row-gap Specifies the width of the gutters between columns and rows
+          * Sets all grid items to have an equal height, based on the tallest item.
          */
-        "gap"?: | '0'
-    | '50'
-    | '100'
-    | '150'
-    | '200'
-    | '250'
-    | '300'
-    | '400'
-    | '450'
-    | '500'
-    | '550'
-    | '600'
-    | '700'
-    | '800'
-    | '900'
-    | '1000';
+        "equalRowHeight"?: boolean;
         /**
           * If total grid size is less than the size of its grid container, this property aligns the grid along the inline (row) axis
          */
-        "justifyContent"?: | 'center'
-    | 'end'
-    | 'space-around'
-    | 'space-between'
-    | 'space-evenly'
-    | 'start'
-    | 'stretch';
+        "justifyContent"?: ContentValues;
         /**
           * Aligns grid items along the inline (row) axis
          */
@@ -504,19 +475,38 @@ export namespace Components {
         /**
           * Sets both the align-content + justify-content properties
          */
-        "placeContent"?: | 'center'
-    | 'end'
-    | 'space-around'
-    | 'space-between'
-    | 'space-evenly'
-    | 'start'
-    | 'stretch';
+        "placeContent"?: ContentValues;
         /**
           * Sets both the align-items + justify-items properties
          */
         "placeItems"?: 'center' | 'end' | 'start' | 'stretch';
         /**
           * Set tag for grid container
+         */
+        "tag"?: string;
+    }
+    interface GcdsGridCol {
+        /**
+          * Optimize grid column size for desktop (1024px and above). Desktop grid column sizes are based on a 12 column grid.
+         */
+        "desktop"?: | 1
+    | 2
+    | 3
+    | 4
+    | 5
+    | 6
+    | 7
+    | 8
+    | 9
+    | 10
+    | 11
+    | 12;
+        /**
+          * Optimize grid column size for tablet (768px - 1023px). Tablet grid column sizes are based on a 6 column grid. The tablet size will also be used for desktop, if desktop is undefined.
+         */
+        "tablet"?: 1 | 2 | 3 | 4 | 5 | 6;
+        /**
+          * Set tag for grid column
          */
         "tag"?: string;
     }
@@ -669,7 +659,7 @@ export namespace Components {
         /**
           * String to have autocomplete enabled
          */
-        "autocomplete"?: 'on' | 'off';
+        "autocomplete"?: string;
         /**
           * Custom callback function on blur event
          */
@@ -794,6 +784,10 @@ export namespace Components {
           * The type specifies the media type of the linked document
          */
         "type"?: string | undefined;
+        /**
+          * Sets the main style of the link.
+         */
+        "variant"?: 'default' | 'light';
     }
     interface GcdsNavGroup {
         /**
@@ -1450,6 +1444,12 @@ declare global {
         prototype: HTMLGcdsGridElement;
         new (): HTMLGcdsGridElement;
     };
+    interface HTMLGcdsGridColElement extends Components.GcdsGridCol, HTMLStencilElement {
+    }
+    var HTMLGcdsGridColElement: {
+        prototype: HTMLGcdsGridColElement;
+        new (): HTMLGcdsGridColElement;
+    };
     interface HTMLGcdsHeaderElement extends Components.GcdsHeader, HTMLStencilElement {
     }
     var HTMLGcdsHeaderElement: {
@@ -1730,6 +1730,7 @@ declare global {
         "gcds-file-uploader": HTMLGcdsFileUploaderElement;
         "gcds-footer": HTMLGcdsFooterElement;
         "gcds-grid": HTMLGcdsGridElement;
+        "gcds-grid-col": HTMLGcdsGridColElement;
         "gcds-header": HTMLGcdsHeaderElement;
         "gcds-heading": HTMLGcdsHeadingElement;
         "gcds-hint": HTMLGcdsHintElement;
@@ -1819,10 +1820,6 @@ declare namespace LocalJSX {
     | 'secondary'
     | 'danger'
     | 'skip-to-content';
-        /**
-          * Set the style variant
-         */
-        "buttonStyle"?: 'solid' | 'text-only';
         /**
           * Custom callback function on click event
          */
@@ -2244,13 +2241,7 @@ declare namespace LocalJSX {
         /**
           * If total grid size is less than the size of its grid container, this property aligns the grid along the block (column) axis
          */
-        "alignContent"?: | 'center'
-    | 'end'
-    | 'space-around'
-    | 'space-between'
-    | 'space-evenly'
-    | 'start'
-    | 'stretch';
+        "alignContent"?: ContentValues;
         /**
           * Aligns grid items along the block (column) axis
          */
@@ -2262,7 +2253,7 @@ declare namespace LocalJSX {
         /**
           * Defines the columns of the grid Option to set different layouts for desktop | tablet | default (includes mobile)
          */
-        "columns": string;
+        "columns"?: string;
         "columnsDesktop"?: string;
         "columnsTablet"?: string;
         /**
@@ -2274,34 +2265,13 @@ declare namespace LocalJSX {
          */
         "display"?: 'grid' | 'inline-grid';
         /**
-          * Shorthand for column-gap + row-gap Specifies the width of the gutters between columns and rows
+          * Sets all grid items to have an equal height, based on the tallest item.
          */
-        "gap"?: | '0'
-    | '50'
-    | '100'
-    | '150'
-    | '200'
-    | '250'
-    | '300'
-    | '400'
-    | '450'
-    | '500'
-    | '550'
-    | '600'
-    | '700'
-    | '800'
-    | '900'
-    | '1000';
+        "equalRowHeight"?: boolean;
         /**
           * If total grid size is less than the size of its grid container, this property aligns the grid along the inline (row) axis
          */
-        "justifyContent"?: | 'center'
-    | 'end'
-    | 'space-around'
-    | 'space-between'
-    | 'space-evenly'
-    | 'start'
-    | 'stretch';
+        "justifyContent"?: ContentValues;
         /**
           * Aligns grid items along the inline (row) axis
          */
@@ -2309,19 +2279,38 @@ declare namespace LocalJSX {
         /**
           * Sets both the align-content + justify-content properties
          */
-        "placeContent"?: | 'center'
-    | 'end'
-    | 'space-around'
-    | 'space-between'
-    | 'space-evenly'
-    | 'start'
-    | 'stretch';
+        "placeContent"?: ContentValues;
         /**
           * Sets both the align-items + justify-items properties
          */
         "placeItems"?: 'center' | 'end' | 'start' | 'stretch';
         /**
           * Set tag for grid container
+         */
+        "tag"?: string;
+    }
+    interface GcdsGridCol {
+        /**
+          * Optimize grid column size for desktop (1024px and above). Desktop grid column sizes are based on a 12 column grid.
+         */
+        "desktop"?: | 1
+    | 2
+    | 3
+    | 4
+    | 5
+    | 6
+    | 7
+    | 8
+    | 9
+    | 10
+    | 11
+    | 12;
+        /**
+          * Optimize grid column size for tablet (768px - 1023px). Tablet grid column sizes are based on a 6 column grid. The tablet size will also be used for desktop, if desktop is undefined.
+         */
+        "tablet"?: 1 | 2 | 3 | 4 | 5 | 6;
+        /**
+          * Set tag for grid column
          */
         "tag"?: string;
     }
@@ -2474,7 +2463,7 @@ declare namespace LocalJSX {
         /**
           * String to have autocomplete enabled
          */
-        "autocomplete"?: 'on' | 'off';
+        "autocomplete"?: string;
         /**
           * Custom callback function on blur event
          */
@@ -2627,6 +2616,10 @@ declare namespace LocalJSX {
           * The type specifies the media type of the linked document
          */
         "type"?: string | undefined;
+        /**
+          * Sets the main style of the link.
+         */
+        "variant"?: 'default' | 'light';
     }
     interface GcdsNavGroup {
         /**
@@ -3131,6 +3124,7 @@ declare namespace LocalJSX {
         "gcds-file-uploader": GcdsFileUploader;
         "gcds-footer": GcdsFooter;
         "gcds-grid": GcdsGrid;
+        "gcds-grid-col": GcdsGridCol;
         "gcds-header": GcdsHeader;
         "gcds-heading": GcdsHeading;
         "gcds-hint": GcdsHint;
@@ -3176,6 +3170,7 @@ declare module "@stencil/core" {
             "gcds-file-uploader": LocalJSX.GcdsFileUploader & JSXBase.HTMLAttributes<HTMLGcdsFileUploaderElement>;
             "gcds-footer": LocalJSX.GcdsFooter & JSXBase.HTMLAttributes<HTMLGcdsFooterElement>;
             "gcds-grid": LocalJSX.GcdsGrid & JSXBase.HTMLAttributes<HTMLGcdsGridElement>;
+            "gcds-grid-col": LocalJSX.GcdsGridCol & JSXBase.HTMLAttributes<HTMLGcdsGridColElement>;
             "gcds-header": LocalJSX.GcdsHeader & JSXBase.HTMLAttributes<HTMLGcdsHeaderElement>;
             "gcds-heading": LocalJSX.GcdsHeading & JSXBase.HTMLAttributes<HTMLGcdsHeadingElement>;
             "gcds-hint": LocalJSX.GcdsHint & JSXBase.HTMLAttributes<HTMLGcdsHintElement>;

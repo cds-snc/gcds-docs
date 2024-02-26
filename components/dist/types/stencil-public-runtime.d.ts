@@ -810,6 +810,9 @@ export declare namespace JSXBase {
         name?: string;
         type?: string;
         value?: string | string[] | number;
+        popoverTargetAction?: string;
+        popoverTargetElement?: Element | null;
+        popoverTarget?: string;
     }
     interface CanvasHTMLAttributes<T> extends HTMLAttributes<T> {
         height?: number | string;
@@ -971,6 +974,9 @@ export declare namespace JSXBase {
         webkitdirectory?: boolean;
         webkitEntries?: any;
         width?: number | string;
+        popoverTargetAction?: string;
+        popoverTargetElement?: Element | null;
+        popoverTarget?: string;
     }
     interface KeygenHTMLAttributes<T> extends HTMLAttributes<T> {
         autoFocus?: boolean;
@@ -1223,6 +1229,7 @@ export declare namespace JSXBase {
         draggable?: boolean;
         hidden?: boolean;
         id?: string;
+        inert?: boolean;
         lang?: string;
         spellcheck?: 'true' | 'false' | any;
         style?: {
@@ -1231,6 +1238,7 @@ export declare namespace JSXBase {
         tabIndex?: number;
         tabindex?: number | string;
         title?: string;
+        popover?: string | null;
         inputMode?: string;
         inputmode?: string;
         enterKeyHint?: string;

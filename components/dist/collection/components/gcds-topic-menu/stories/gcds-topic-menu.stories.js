@@ -1,17 +1,17 @@
 import { langProp } from "../../../utils/storybook/component-properties";
 export default {
-  title: 'Components/Theme and topic menu',
-  argTypes: Object.assign({
-    // Props
-    home: {
-      control: { type: 'select' },
-      options: [false, true],
-      table: {
-        type: { summary: 'boolean' },
-        defaultValue: { summary: false },
-      },
-    }
-  }, langProp),
+    title: 'Components/Theme and topic menu',
+    argTypes: Object.assign({
+        // Props
+        home: {
+            control: { type: 'select' },
+            options: [false, true],
+            table: {
+                type: { summary: 'boolean' },
+                defaultValue: { summary: false },
+            },
+        }
+    }, langProp),
 };
 const Template = args => `
 <!-- Web component code (Angular, Vue) -->
@@ -32,31 +32,31 @@ const TemplatePlayground = args => `
 // ------ Theme and topic menu - English ------
 export const English = Template.bind({});
 English.args = {
-  home: false,
-  lang: 'en',
+    home: false,
+    lang: 'en',
 };
 // ------ Theme and topic menu - French ------
 export const French = Template.bind({});
 French.args = {
-  home: false,
-  lang: 'fr',
+    home: false,
+    lang: 'fr',
 };
 // ------ Theme and topic menu - Home ------
 export const Home = Template.bind({});
 Home.args = {
-  home: true,
-  lang: 'en',
+    home: true,
+    lang: 'en',
 };
 // ------ Theme and topic menu events & props ------
 export const Props = Template.bind({});
 Props.args = {
-  home: false,
-  lang: 'en',
+    home: false,
+    lang: 'en',
 };
 // ------ Theme and topic menu playground ------
 export const Playground = TemplatePlayground.bind({});
 Playground.args = {
-  home: false,
-  lang: 'en',
+    home: false,
+    lang: 'en',
 };
 //# sourceMappingURL=gcds-topic-menu.stories.js.map

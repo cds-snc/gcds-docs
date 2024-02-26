@@ -3,12 +3,12 @@ jest.mock('../assets/canada-flag.svg', () => 'Canada Flag');
 jest.mock('../assets/content-toggle-arrow.svg', () => 'Content Toggle Arrow');
 import { GcdsVerifyBanner } from "../gcds-verify-banner";
 describe('gcds-verify-banner', () => {
-  it('renders in EN', async () => {
-    const page = await newSpecPage({
-      components: [GcdsVerifyBanner],
-      html: `<gcds-verify-banner></gcds-verify-banner>`,
-    });
-    expect(page.root).toEqualHtml(`
+    it('renders in EN', async () => {
+        const page = await newSpecPage({
+            components: [GcdsVerifyBanner],
+            html: `<gcds-verify-banner></gcds-verify-banner>`,
+        });
+        expect(page.root).toEqualHtml(`
       <gcds-verify-banner>
         <mock:shadow-root>
           <details class="gcds-verify-banner">
@@ -48,13 +48,13 @@ describe('gcds-verify-banner', () => {
         </mock:shadow-root>
       </gcds-verify-banner>
     `);
-  });
-  it('renders in FR', async () => {
-    const page = await newSpecPage({
-      components: [GcdsVerifyBanner],
-      html: `<gcds-verify-banner lang="fr"></gcds-verify-banner>`,
     });
-    expect(page.root).toEqualHtml(`
+    it('renders in FR', async () => {
+        const page = await newSpecPage({
+            components: [GcdsVerifyBanner],
+            html: `<gcds-verify-banner lang="fr"></gcds-verify-banner>`,
+        });
+        expect(page.root).toEqualHtml(`
       <gcds-verify-banner lang="fr">
         <mock:shadow-root>
           <details class="gcds-verify-banner">
@@ -94,16 +94,16 @@ describe('gcds-verify-banner', () => {
         </mock:shadow-root>
       </gcds-verify-banner>
     `);
-  });
-  /**
-   * Fixed position test
-   */
-  it('renders with position fixed', async () => {
-    const page = await newSpecPage({
-      components: [GcdsVerifyBanner],
-      html: `<gcds-verify-banner is-fixed></gcds-verify-banner>`,
     });
-    expect(page.root).toEqualHtml(`
+    /**
+     * Fixed position test
+     */
+    it('renders with position fixed', async () => {
+        const page = await newSpecPage({
+            components: [GcdsVerifyBanner],
+            html: `<gcds-verify-banner is-fixed></gcds-verify-banner>`,
+        });
+        expect(page.root).toEqualHtml(`
       <gcds-verify-banner is-fixed>
         <mock:shadow-root>
           <details class="gcds-verify-banner verify-banner--is-fixed">
@@ -143,13 +143,13 @@ describe('gcds-verify-banner', () => {
         </mock:shadow-root>
       </gcds-verify-banner>
     `);
-  });
-  it('renders without position fixed', async () => {
-    const page = await newSpecPage({
-      components: [GcdsVerifyBanner],
-      html: `<gcds-verify-banner></gcds-verify-banner>`,
     });
-    expect(page.root).toEqualHtml(`
+    it('renders without position fixed', async () => {
+        const page = await newSpecPage({
+            components: [GcdsVerifyBanner],
+            html: `<gcds-verify-banner></gcds-verify-banner>`,
+        });
+        expect(page.root).toEqualHtml(`
       <gcds-verify-banner>
         <mock:shadow-root>
           <details class="gcds-verify-banner">
@@ -189,16 +189,16 @@ describe('gcds-verify-banner', () => {
         </mock:shadow-root>
       </gcds-verify-banner>
     `);
-  });
-  /**
-   * Container width tests
-   */
-  it('renders container width full', async () => {
-    const page = await newSpecPage({
-      components: [GcdsVerifyBanner],
-      html: `<gcds-verify-banner container="full"></gcds-verify-banner>`,
     });
-    expect(page.root).toEqualHtml(`
+    /**
+     * Container width tests
+     */
+    it('renders container width full', async () => {
+        const page = await newSpecPage({
+            components: [GcdsVerifyBanner],
+            html: `<gcds-verify-banner container="full"></gcds-verify-banner>`,
+        });
+        expect(page.root).toEqualHtml(`
       <gcds-verify-banner container="full">
         <mock:shadow-root>
           <details class="gcds-verify-banner">
@@ -238,13 +238,13 @@ describe('gcds-verify-banner', () => {
         </mock:shadow-root>
       </gcds-verify-banner>
     `);
-  });
-  it('renders container width xl', async () => {
-    const page = await newSpecPage({
-      components: [GcdsVerifyBanner],
-      html: `<gcds-verify-banner container="xl"></gcds-verify-banner>`,
     });
-    expect(page.root).toEqualHtml(`
+    it('renders container width xl', async () => {
+        const page = await newSpecPage({
+            components: [GcdsVerifyBanner],
+            html: `<gcds-verify-banner container="xl"></gcds-verify-banner>`,
+        });
+        expect(page.root).toEqualHtml(`
       <gcds-verify-banner container="xl">
         <mock:shadow-root>
           <details class="gcds-verify-banner">
@@ -284,13 +284,13 @@ describe('gcds-verify-banner', () => {
         </mock:shadow-root>
       </gcds-verify-banner>
     `);
-  });
-  it('renders container width lg', async () => {
-    const page = await newSpecPage({
-      components: [GcdsVerifyBanner],
-      html: `<gcds-verify-banner container="lg"></gcds-verify-banner>`,
     });
-    expect(page.root).toEqualHtml(`
+    it('renders container width lg', async () => {
+        const page = await newSpecPage({
+            components: [GcdsVerifyBanner],
+            html: `<gcds-verify-banner container="lg"></gcds-verify-banner>`,
+        });
+        expect(page.root).toEqualHtml(`
       <gcds-verify-banner container="lg">
         <mock:shadow-root>
           <details class="gcds-verify-banner">
@@ -330,13 +330,13 @@ describe('gcds-verify-banner', () => {
         </mock:shadow-root>
       </gcds-verify-banner>
     `);
-  });
-  it('renders container width md', async () => {
-    const page = await newSpecPage({
-      components: [GcdsVerifyBanner],
-      html: `<gcds-verify-banner container="md"></gcds-verify-banner>`,
     });
-    expect(page.root).toEqualHtml(`
+    it('renders container width md', async () => {
+        const page = await newSpecPage({
+            components: [GcdsVerifyBanner],
+            html: `<gcds-verify-banner container="md"></gcds-verify-banner>`,
+        });
+        expect(page.root).toEqualHtml(`
       <gcds-verify-banner container="md">
         <mock:shadow-root>
           <details class="gcds-verify-banner">
@@ -376,13 +376,13 @@ describe('gcds-verify-banner', () => {
         </mock:shadow-root>
       </gcds-verify-banner>
     `);
-  });
-  it('renders container width sm', async () => {
-    const page = await newSpecPage({
-      components: [GcdsVerifyBanner],
-      html: `<gcds-verify-banner container="sm"></gcds-verify-banner>`,
     });
-    expect(page.root).toEqualHtml(`
+    it('renders container width sm', async () => {
+        const page = await newSpecPage({
+            components: [GcdsVerifyBanner],
+            html: `<gcds-verify-banner container="sm"></gcds-verify-banner>`,
+        });
+        expect(page.root).toEqualHtml(`
       <gcds-verify-banner container="sm">
         <mock:shadow-root>
           <details class="gcds-verify-banner">
@@ -422,13 +422,13 @@ describe('gcds-verify-banner', () => {
         </mock:shadow-root>
       </gcds-verify-banner>
     `);
-  });
-  it('renders container width xs', async () => {
-    const page = await newSpecPage({
-      components: [GcdsVerifyBanner],
-      html: `<gcds-verify-banner container="xs"></gcds-verify-banner>`,
     });
-    expect(page.root).toEqualHtml(`
+    it('renders container width xs', async () => {
+        const page = await newSpecPage({
+            components: [GcdsVerifyBanner],
+            html: `<gcds-verify-banner container="xs"></gcds-verify-banner>`,
+        });
+        expect(page.root).toEqualHtml(`
       <gcds-verify-banner container="xs">
         <mock:shadow-root>
           <details class="gcds-verify-banner">
@@ -468,6 +468,6 @@ describe('gcds-verify-banner', () => {
         </mock:shadow-root>
       </gcds-verify-banner>
     `);
-  });
+    });
 });
 //# sourceMappingURL=gcds-verify-banner.spec.js.map

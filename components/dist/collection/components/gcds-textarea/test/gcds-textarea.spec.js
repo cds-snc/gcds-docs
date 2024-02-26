@@ -1,12 +1,12 @@
 import { newSpecPage } from "@stencil/core/testing";
 import { GcdsTextarea } from "../gcds-textarea";
 describe('gcds-textarea', () => {
-  it('renders with minimum required properties', async () => {
-    const { root } = await newSpecPage({
-      components: [GcdsTextarea],
-      html: '<gcds-textarea label="Label" textarea-id="textarea-renders" />',
-    });
-    expect(root).toEqualHtml(`
+    it('renders with minimum required properties', async () => {
+        const { root } = await newSpecPage({
+            components: [GcdsTextarea],
+            html: '<gcds-textarea label="Label" textarea-id="textarea-renders" />',
+        });
+        expect(root).toEqualHtml(`
       <gcds-textarea label="Label" textarea-id="textarea-renders">
         <div class="gcds-textarea-wrapper">
           <gcds-label label-for="textarea-renders" label="Label" lang="en"></gcds-label>
@@ -20,16 +20,16 @@ describe('gcds-textarea', () => {
         </div>
       </gcds-textarea>
     `);
-  });
-  /**
-   * Character count
-   */
-  it('renders textarea with character count in EN', async () => {
-    const { root } = await newSpecPage({
-      components: [GcdsTextarea],
-      html: '<gcds-textarea label="Label" textarea-id="character-count" value="Value Test" character-count="22" />',
     });
-    expect(root).toEqualHtml(`
+    /**
+     * Character count
+     */
+    it('renders textarea with character count in EN', async () => {
+        const { root } = await newSpecPage({
+            components: [GcdsTextarea],
+            html: '<gcds-textarea label="Label" textarea-id="character-count" value="Value Test" character-count="22" />',
+        });
+        expect(root).toEqualHtml(`
       <gcds-textarea label="Label" textarea-id="character-count" value="Value Test" character-count="22">
         <div class="gcds-textarea-wrapper">
           <gcds-label label-for="character-count" label="Label" lang="en"></gcds-label>
@@ -46,13 +46,13 @@ describe('gcds-textarea', () => {
         </div>
       </gcds-textarea>
     `);
-  });
-  it('renders textarea with character count in FR', async () => {
-    const { root } = await newSpecPage({
-      components: [GcdsTextarea],
-      html: '<gcds-textarea lang="fr" label="Label" textarea-id="character-count" value="Value Test" character-count="22" />',
     });
-    expect(root).toEqualHtml(`
+    it('renders textarea with character count in FR', async () => {
+        const { root } = await newSpecPage({
+            components: [GcdsTextarea],
+            html: '<gcds-textarea lang="fr" label="Label" textarea-id="character-count" value="Value Test" character-count="22" />',
+        });
+        expect(root).toEqualHtml(`
       <gcds-textarea lang="fr" label="Label" textarea-id="character-count" value="Value Test" character-count="22">
         <div class="gcds-textarea-wrapper">
           <gcds-label label-for="character-count" label="Label" lang="fr"></gcds-label>
@@ -69,16 +69,16 @@ describe('gcds-textarea', () => {
         </div>
       </gcds-textarea>
     `);
-  });
-  /**
-   * Disabled test
-   */
-  it('renders disabled', async () => {
-    const { root } = await newSpecPage({
-      components: [GcdsTextarea],
-      html: '<gcds-textarea label="Label" textarea-id="textarea-disabled" disabled />',
     });
-    expect(root).toEqualHtml(`
+    /**
+     * Disabled test
+     */
+    it('renders disabled', async () => {
+        const { root } = await newSpecPage({
+            components: [GcdsTextarea],
+            html: '<gcds-textarea label="Label" textarea-id="textarea-disabled" disabled />',
+        });
+        expect(root).toEqualHtml(`
       <gcds-textarea label="Label" textarea-id="textarea-disabled" disabled="">
         <div class="gcds-textarea-wrapper gcds-disabled">
           <gcds-label label-for="textarea-disabled" label="Label" lang="en"></gcds-label>
@@ -93,16 +93,16 @@ describe('gcds-textarea', () => {
         </div>
       </gcds-textarea>
     `);
-  });
-  /**
-   * Error message test
-   */
-  it('renders error message', async () => {
-    const { root } = await newSpecPage({
-      components: [GcdsTextarea],
-      html: '<gcds-textarea label="Label" textarea-id="textarea-with-error" error-message="This is an error message." />',
     });
-    expect(root).toEqualHtml(`
+    /**
+     * Error message test
+     */
+    it('renders error message', async () => {
+        const { root } = await newSpecPage({
+            components: [GcdsTextarea],
+            html: '<gcds-textarea label="Label" textarea-id="textarea-with-error" error-message="This is an error message." />',
+        });
+        expect(root).toEqualHtml(`
       <gcds-textarea label="Label" textarea-id="textarea-with-error" error-message="This is an error message.">
         <div class="gcds-textarea-wrapper gcds-error">
           <gcds-label label-for="textarea-with-error" label="Label" lang="en"></gcds-label>
@@ -119,16 +119,16 @@ describe('gcds-textarea', () => {
         </div>
       </gcds-textarea>
     `);
-  });
-  /**
-   * Hide label
-   */
-  it('renders with label hidden', async () => {
-    const { root } = await newSpecPage({
-      components: [GcdsTextarea],
-      html: '<gcds-textarea label="Label" textarea-id="textarea-label-hidden" hide-label />',
     });
-    expect(root).toEqualHtml(`
+    /**
+     * Hide label
+     */
+    it('renders with label hidden', async () => {
+        const { root } = await newSpecPage({
+            components: [GcdsTextarea],
+            html: '<gcds-textarea label="Label" textarea-id="textarea-label-hidden" hide-label />',
+        });
+        expect(root).toEqualHtml(`
       <gcds-textarea label="Label" textarea-id="textarea-label-hidden" hide-label>
         <div class="gcds-textarea-wrapper">
           <gcds-label label-for="textarea-label-hidden" label="Label" hide-label lang="en"></gcds-label>
@@ -142,16 +142,16 @@ describe('gcds-textarea', () => {
         </div>
       </gcds-textarea>
     `);
-  });
-  /**
-   * Label test
-   */
-  it('renders label', async () => {
-    const { root } = await newSpecPage({
-      components: [GcdsTextarea],
-      html: '<gcds-textarea label="Label" textarea-id="textarea-renders-label" />',
     });
-    expect(root).toEqualHtml(`
+    /**
+     * Label test
+     */
+    it('renders label', async () => {
+        const { root } = await newSpecPage({
+            components: [GcdsTextarea],
+            html: '<gcds-textarea label="Label" textarea-id="textarea-renders-label" />',
+        });
+        expect(root).toEqualHtml(`
       <gcds-textarea label="Label" textarea-id="textarea-renders-label">
         <div class="gcds-textarea-wrapper">
           <gcds-label label-for="textarea-renders-label" label="Label" lang="en"></gcds-label>
@@ -165,16 +165,16 @@ describe('gcds-textarea', () => {
         </div>
       </gcds-textarea>
     `);
-  });
-  /**
-   * Required test
-   */
-  it('renders required', async () => {
-    const { root } = await newSpecPage({
-      components: [GcdsTextarea],
-      html: '<gcds-textarea label="Label" textarea-id="textarea-required" required />',
     });
-    expect(root).toEqualHtml(`
+    /**
+     * Required test
+     */
+    it('renders required', async () => {
+        const { root } = await newSpecPage({
+            components: [GcdsTextarea],
+            html: '<gcds-textarea label="Label" textarea-id="textarea-required" required />',
+        });
+        expect(root).toEqualHtml(`
       <gcds-textarea label="Label" textarea-id="textarea-required" required>
         <div class="gcds-textarea-wrapper">
           <gcds-label label-for="textarea-required" label="Label" required lang="en"></gcds-label>
@@ -189,16 +189,16 @@ describe('gcds-textarea', () => {
         </div>
       </gcds-textarea>
     `);
-  });
-  /**
-   * Textarea cols test
-   */
-  it('renders textarea cols', async () => {
-    const { root } = await newSpecPage({
-      components: [GcdsTextarea],
-      html: '<gcds-textarea label="Label" textarea-id="textarea-cols" cols="10" />',
     });
-    expect(root).toEqualHtml(`
+    /**
+     * Textarea cols test
+     */
+    it('renders textarea cols', async () => {
+        const { root } = await newSpecPage({
+            components: [GcdsTextarea],
+            html: '<gcds-textarea label="Label" textarea-id="textarea-cols" cols="10" />',
+        });
+        expect(root).toEqualHtml(`
       <gcds-textarea label="Label" textarea-id="textarea-cols" cols="10">
         <div class="gcds-textarea-wrapper">
           <gcds-label label-for="textarea-cols" label="Label" lang="en"></gcds-label>
@@ -213,16 +213,16 @@ describe('gcds-textarea', () => {
         </div>
       </gcds-textarea>
     `);
-  });
-  /**
-   * Textarea hint test
-   */
-  it('renders textarea hint', async () => {
-    const { root } = await newSpecPage({
-      components: [GcdsTextarea],
-      html: '<gcds-textarea label="Label" textarea-id="textarea-with-hint" hint="This is a textarea hint." />',
     });
-    expect(root).toEqualHtml(`
+    /**
+     * Textarea hint test
+     */
+    it('renders textarea hint', async () => {
+        const { root } = await newSpecPage({
+            components: [GcdsTextarea],
+            html: '<gcds-textarea label="Label" textarea-id="textarea-with-hint" hint="This is a textarea hint." />',
+        });
+        expect(root).toEqualHtml(`
       <gcds-textarea label="Label" textarea-id="textarea-with-hint" hint="This is a textarea hint.">
         <div class="gcds-textarea-wrapper">
           <gcds-label label-for="textarea-with-hint" label="Label" lang="en"></gcds-label>
@@ -238,16 +238,16 @@ describe('gcds-textarea', () => {
         </div>
       </gcds-textarea>
     `);
-  });
-  /**
-   * Textarea ID test
-   */
-  it('renders textarea id', async () => {
-    const { root } = await newSpecPage({
-      components: [GcdsTextarea],
-      html: '<gcds-textarea label="Label" textarea-id="textarea-renders-id" />',
     });
-    expect(root).toEqualHtml(`
+    /**
+     * Textarea ID test
+     */
+    it('renders textarea id', async () => {
+        const { root } = await newSpecPage({
+            components: [GcdsTextarea],
+            html: '<gcds-textarea label="Label" textarea-id="textarea-renders-id" />',
+        });
+        expect(root).toEqualHtml(`
       <gcds-textarea label="Label" textarea-id="textarea-renders-id">
         <div class="gcds-textarea-wrapper">
           <gcds-label label-for="textarea-renders-id" label="Label" lang="en"></gcds-label>
@@ -261,16 +261,16 @@ describe('gcds-textarea', () => {
         </div>
       </gcds-textarea>
     `);
-  });
-  /**
-   * Textarea rows test
-   */
-  it('renders textarea rows', async () => {
-    const { root } = await newSpecPage({
-      components: [GcdsTextarea],
-      html: '<gcds-textarea label="Label" textarea-id="textarea-rows" rows="2" />',
     });
-    expect(root).toEqualHtml(`
+    /**
+     * Textarea rows test
+     */
+    it('renders textarea rows', async () => {
+        const { root } = await newSpecPage({
+            components: [GcdsTextarea],
+            html: '<gcds-textarea label="Label" textarea-id="textarea-rows" rows="2" />',
+        });
+        expect(root).toEqualHtml(`
       <gcds-textarea label="Label" textarea-id="textarea-rows" rows="2">
         <div class="gcds-textarea-wrapper">
           <gcds-label label-for="textarea-rows" label="Label" lang="en"></gcds-label>
@@ -284,16 +284,16 @@ describe('gcds-textarea', () => {
         </div>
       </gcds-textarea>
     `);
-  });
-  /**
-   * Textarea value test
-   */
-  it('renders textarea value', async () => {
-    const { root } = await newSpecPage({
-      components: [GcdsTextarea],
-      html: '<gcds-textarea label="Label" textarea-id="textarea-with-value" value="Textarea value" />',
     });
-    expect(root).toEqualHtml(`
+    /**
+     * Textarea value test
+     */
+    it('renders textarea value', async () => {
+        const { root } = await newSpecPage({
+            components: [GcdsTextarea],
+            html: '<gcds-textarea label="Label" textarea-id="textarea-with-value" value="Textarea value" />',
+        });
+        expect(root).toEqualHtml(`
       <gcds-textarea label="Label" textarea-id="textarea-with-value" value="Textarea value">
         <div class="gcds-textarea-wrapper">
           <gcds-label label-for="textarea-with-value" label="Label" lang="en"></gcds-label>
@@ -307,6 +307,6 @@ describe('gcds-textarea', () => {
         </div>
       </gcds-textarea>
     `);
-  });
+    });
 });
 //# sourceMappingURL=gcds-textarea.spec.js.map

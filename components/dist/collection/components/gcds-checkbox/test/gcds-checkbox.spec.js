@@ -1,16 +1,16 @@
 import { newSpecPage } from "@stencil/core/testing";
 import { GcdsCheckbox } from "../gcds-checkbox";
 describe('gcds-checkbox', () => {
-  it('renders', async () => {
-    const page = await newSpecPage({
-      components: [GcdsCheckbox],
-      html: `<gcds-checkbox
+    it('renders', async () => {
+        const page = await newSpecPage({
+            components: [GcdsCheckbox],
+            html: `<gcds-checkbox
           label="checkbox"
           name="checkbox"
           checkbox-id="checkbox"
         ></gcds-checkbox>`,
-    });
-    expect(page.root).toEqualHtml(`
+        });
+        expect(page.root).toEqualHtml(`
       <gcds-checkbox checkbox-id="checkbox" label="checkbox" name="checkbox">
         <div class="gcds-checkbox">
            <input id="checkbox" name="checkbox" type="checkbox">
@@ -18,19 +18,19 @@ describe('gcds-checkbox', () => {
          </div>
       </gcds-checkbox>
     `);
-  });
-  it('renders checked w/ value', async () => {
-    const page = await newSpecPage({
-      components: [GcdsCheckbox],
-      html: `<gcds-checkbox
+    });
+    it('renders checked w/ value', async () => {
+        const page = await newSpecPage({
+            components: [GcdsCheckbox],
+            html: `<gcds-checkbox
           label="checkbox"
           name="checkbox"
           checkbox-id="checkbox"
           value="terms"
           checked
         ></gcds-checkbox>`,
-    });
-    expect(page.root).toEqualHtml(`
+        });
+        expect(page.root).toEqualHtml(`
       <gcds-checkbox checkbox-id="checkbox" checked="" label="checkbox" name="checkbox" value="terms">
         <div class="gcds-checkbox">
            <input checked="" id="checkbox" name="checkbox" type="checkbox" value="terms">
@@ -38,18 +38,18 @@ describe('gcds-checkbox', () => {
          </div>
       </gcds-checkbox>
     `);
-  });
-  it('renders w/ hint', async () => {
-    const page = await newSpecPage({
-      components: [GcdsCheckbox],
-      html: `<gcds-checkbox
+    });
+    it('renders w/ hint', async () => {
+        const page = await newSpecPage({
+            components: [GcdsCheckbox],
+            html: `<gcds-checkbox
           label="checkbox"
           name="checkbox"
           checkbox-id="checkbox"
           hint="this is a hint"
         ></gcds-checkbox>`,
-    });
-    expect(page.root).toEqualHtml(`
+        });
+        expect(page.root).toEqualHtml(`
       <gcds-checkbox checkbox-id="checkbox" hint="this is a hint" label="checkbox" name="checkbox">
         <div class="gcds-checkbox">
            <input aria-describedby="hint-checkbox " id="checkbox" name="checkbox" type="checkbox">
@@ -58,18 +58,18 @@ describe('gcds-checkbox', () => {
          </div>
       </gcds-checkbox>
     `);
-  });
-  it('renders w/ error message', async () => {
-    const page = await newSpecPage({
-      components: [GcdsCheckbox],
-      html: `<gcds-checkbox
+    });
+    it('renders w/ error message', async () => {
+        const page = await newSpecPage({
+            components: [GcdsCheckbox],
+            html: `<gcds-checkbox
           label="checkbox"
           name="checkbox"
           checkbox-id="checkbox"
           error-message="This needs to be checked"
         ></gcds-checkbox>`,
-    });
-    expect(page.root).toEqualHtml(`
+        });
+        expect(page.root).toEqualHtml(`
       <gcds-checkbox checkbox-id="checkbox" error-message="This needs to be checked" label="checkbox" name="checkbox">
         <div class="gcds-checkbox gcds-checkbox--error">
            <input aria-describedby="error-message-checkbox " aria-invalid="true" id="checkbox" name="checkbox" type="checkbox">
@@ -78,18 +78,18 @@ describe('gcds-checkbox', () => {
          </div>
       </gcds-checkbox>
     `);
-  });
-  it('renders disabled', async () => {
-    const page = await newSpecPage({
-      components: [GcdsCheckbox],
-      html: `<gcds-checkbox
+    });
+    it('renders disabled', async () => {
+        const page = await newSpecPage({
+            components: [GcdsCheckbox],
+            html: `<gcds-checkbox
           label="checkbox"
           name="checkbox"
           checkbox-id="checkbox"
           disabled
         ></gcds-checkbox>`,
-    });
-    expect(page.root).toEqualHtml(`
+        });
+        expect(page.root).toEqualHtml(`
       <gcds-checkbox checkbox-id="checkbox" disabled="" error-message="" label="checkbox" name="checkbox">
         <div class="gcds-checkbox gcds-checkbox--disabled">
            <input disabled="" id="checkbox" name="checkbox" type="checkbox">
@@ -97,6 +97,6 @@ describe('gcds-checkbox', () => {
          </div>
       </gcds-checkbox>
     `);
-  });
+    });
 });
 //# sourceMappingURL=gcds-checkbox.spec.js.map

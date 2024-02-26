@@ -1,12 +1,12 @@
 import { newSpecPage } from "@stencil/core/testing";
 import { GcdsSearch } from "../gcds-search";
 describe('gcds-search', () => {
-  it('renders w/ defaults', async () => {
-    const page = await newSpecPage({
-      components: [GcdsSearch],
-      html: `<gcds-search></gcds-search>`,
-    });
-    expect(page.root).toEqualHtml(`
+    it('renders w/ defaults', async () => {
+        const page = await newSpecPage({
+            components: [GcdsSearch],
+            html: `<gcds-search></gcds-search>`,
+        });
+        expect(page.root).toEqualHtml(`
       <gcds-search>
         <div class="gcds-search">
           <h2 class="gcds-search__header">
@@ -22,13 +22,13 @@ describe('gcds-search', () => {
         </div>
       </gcds-search>
     `);
-  });
-  it('renders french', async () => {
-    const page = await newSpecPage({
-      components: [GcdsSearch],
-      html: `<gcds-search lang="fr"></gcds-search>`,
     });
-    expect(page.root).toEqualHtml(`
+    it('renders french', async () => {
+        const page = await newSpecPage({
+            components: [GcdsSearch],
+            html: `<gcds-search lang="fr"></gcds-search>`,
+        });
+        expect(page.root).toEqualHtml(`
       <gcds-search lang="fr">
       <div class="gcds-search">
           <h2 class="gcds-search__header">
@@ -44,19 +44,19 @@ describe('gcds-search', () => {
         </div>
       </gcds-search>
     `);
-  });
-  it('renders w/ custom properties', async () => {
-    const page = await newSpecPage({
-      components: [GcdsSearch],
-      html: `<gcds-search
+    });
+    it('renders w/ custom properties', async () => {
+        const page = await newSpecPage({
+            components: [GcdsSearch],
+            html: `<gcds-search
         search-id="searchForm"
         name="s"
         method="post"
         action="submit.html"
         placeholder="Text.ca"
       ></gcds-search>`,
-    });
-    expect(page.root).toEqualHtml(`
+        });
+        expect(page.root).toEqualHtml(`
       <gcds-search action="submit.html" method="post" name="s" placeholder="Text.ca" search-id="searchForm">
         <div class="gcds-search">
           <h2 class="gcds-search__header">
@@ -72,6 +72,6 @@ describe('gcds-search', () => {
         </div>
       </gcds-search>
     `);
-  });
+    });
 });
 //# sourceMappingURL=gcds-search.spec.js.map

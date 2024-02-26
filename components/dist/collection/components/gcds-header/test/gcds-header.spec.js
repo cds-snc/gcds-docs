@@ -1,12 +1,12 @@
 import { newSpecPage } from "@stencil/core/testing";
 import { GcdsHeader } from "../gcds-header";
 describe('gcds-header', () => {
-  it('renders', async () => {
-    const page = await newSpecPage({
-      components: [GcdsHeader],
-      html: `<gcds-header></gcds-header>`,
-    });
-    expect(page.root).toEqualHtml(`
+    it('renders', async () => {
+        const page = await newSpecPage({
+            components: [GcdsHeader],
+            html: `<gcds-header></gcds-header>`,
+        });
+        expect(page.root).toEqualHtml(`
       <gcds-header role="banner">
         <mock:shadow-root>
           <div class="gcds-header__brand">
@@ -20,19 +20,19 @@ describe('gcds-header', () => {
         </mock:shadow-root>
       </gcds-header>
     `);
-  });
-  it('renders interfaced components', async () => {
-    const page = await newSpecPage({
-      components: [GcdsHeader],
-      html: `<gcds-header lang-href="/fr/" skip-to-href="#main" signature-variant="colour" signature-has-link="true"></gcds-header>`,
     });
-    expect(page.root).toEqualHtml(`
+    it('renders interfaced components', async () => {
+        const page = await newSpecPage({
+            components: [GcdsHeader],
+            html: `<gcds-header lang-href="/fr/" skip-to-href="#main" signature-variant="colour" signature-has-link="true"></gcds-header>`,
+        });
+        expect(page.root).toEqualHtml(`
       <gcds-header lang-href="/fr/" role="banner" signature-has-link="true" signature-variant="colour" skip-to-href="#main">
         <mock:shadow-root>
           <nav class="gcds-header__skip-to-nav">
-            <gcds-button button-role="skip-to-content" type="link" href="#main">
+            <gcds-link href="#main">
               Skip to main content
-            </gcds-button>
+            </gcds-link>
           </nav>
           <div class="gcds-header__brand">
             <div class="brand__container container--simple">
@@ -48,19 +48,19 @@ describe('gcds-header', () => {
         </mock:shadow-root>
       </gcds-header>
     `);
-  });
-  it('renders with slotted elements', async () => {
-    const page = await newSpecPage({
-      components: [GcdsHeader],
-      html: `
+    });
+    it('renders with slotted elements', async () => {
+        const page = await newSpecPage({
+            components: [GcdsHeader],
+            html: `
       <gcds-header>
         <div slot="banner"></div>
         <form slot="search"></form>
         <ul slot="menu"></ul>
         <ul slot="breadcrumbs"></ul>
       </gcds-header>`,
-    });
-    expect(page.root).toEqualHtml(`
+        });
+        expect(page.root).toEqualHtml(`
       <gcds-header role="banner">
         <mock:shadow-root>
           <slot name="banner"></slot>
@@ -82,11 +82,11 @@ describe('gcds-header', () => {
         <ul slot="breadcrumbs"></ul>
       </gcds-header>
     `);
-  });
-  it('renders all slotted elements', async () => {
-    const page = await newSpecPage({
-      components: [GcdsHeader],
-      html: `
+    });
+    it('renders all slotted elements', async () => {
+        const page = await newSpecPage({
+            components: [GcdsHeader],
+            html: `
       <gcds-header>
         <ul slot="skip-to-nav"></ul>
         <div slot="banner"></div>
@@ -96,8 +96,8 @@ describe('gcds-header', () => {
         <ul slot="menu"></ul>
         <ul slot="breadcrumbs"></ul>
       </gcds-header>`,
-    });
-    expect(page.root).toEqualHtml(`
+        });
+        expect(page.root).toEqualHtml(`
       <gcds-header role="banner">
         <mock:shadow-root>
           <slot name="skip-to-nav"></slot>
@@ -124,6 +124,6 @@ describe('gcds-header', () => {
         <ul slot="breadcrumbs"></ul>
       </gcds-header>
     `);
-  });
+    });
 });
 //# sourceMappingURL=gcds-header.spec.js.map

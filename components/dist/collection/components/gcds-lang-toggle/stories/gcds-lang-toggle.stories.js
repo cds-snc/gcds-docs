@@ -1,20 +1,20 @@
 import { langProp } from "../../../utils/storybook/component-properties";
 export default {
-  title: 'Components/Language toggle',
-  argTypes: Object.assign({
-    // Props
-    href: {
-      name: 'href',
-      control: 'text',
-      table: {
-        type: { summary: 'string' },
-        defaultValue: { summary: '-' },
-      },
-      type: {
-        required: true,
-      },
-    }
-  }, langProp),
+    title: 'Components/Language toggle',
+    argTypes: Object.assign({
+        // Props
+        href: {
+            name: 'href',
+            control: 'text',
+            table: {
+                type: { summary: 'string' },
+                defaultValue: { summary: '-' },
+            },
+            type: {
+                required: true,
+            },
+        }
+    }, langProp),
 };
 const Template = args => `
 <!-- Web component code (Angular, Vue) -->
@@ -35,25 +35,25 @@ const TemplatePlayground = args => `
 // ------ Language toggle default ------
 export const Default = Template.bind({});
 Default.args = {
-  href: '#',
-  lang: 'en',
+    href: '#',
+    lang: 'en',
 };
 // ------ Language toggle french ------
 export const French = Template.bind({});
 French.args = {
-  href: '#',
-  lang: 'fr',
+    href: '#',
+    lang: 'fr',
 };
 // ------ Language toggle events & props ------
 export const Props = Template.bind({});
 Props.args = {
-  href: '#',
-  lang: 'en',
+    href: '#',
+    lang: 'en',
 };
 // ------ Language toggle playground ------
 export const Playground = TemplatePlayground.bind({});
 Playground.args = {
-  href: '#',
-  lang: 'en',
+    href: '#',
+    lang: 'en',
 };
 //# sourceMappingURL=gcds-lang-toggle.stories.js.map

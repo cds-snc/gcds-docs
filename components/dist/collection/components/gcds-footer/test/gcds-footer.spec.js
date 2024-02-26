@@ -1,19 +1,19 @@
 import { newSpecPage } from "@stencil/core/testing";
 import { GcdsFooter } from "../gcds-footer";
 describe('gcds-footer', () => {
-  it('renders compact - English', async () => {
-    const page = await newSpecPage({
-      components: [GcdsFooter],
-      html: `<gcds-footer display="compact" lang="en"></gcds-footer>`,
-    });
-    expect(page.root).toEqualHtml(`
+    it('renders compact - English', async () => {
+        const page = await newSpecPage({
+            components: [GcdsFooter],
+            html: `<gcds-footer display="compact" lang="en"></gcds-footer>`,
+        });
+        expect(page.root).toEqualHtml(`
       <gcds-footer role="contentinfo" display="compact" lang="en">
         <mock:shadow-root>
           <h2 class="gcds-footer__header">About this site</h2>
           <div class="gcds-footer__sub">
             <div class="sub__container">
-              <nav aria-label="Government of Canada Corporate">
-                <h3 class="sub__header">
+              <nav aria-labelledby="sub__header">
+                <h3 class="sub__header" id="sub__header">
                   Government of Canada Corporate
                 </h3>
                 <ul>
@@ -52,20 +52,20 @@ describe('gcds-footer', () => {
         </mock:shadow-root>
       </gcds-footer>
     `);
-  });
-  it('renders full - English', async () => {
-    const page = await newSpecPage({
-      components: [GcdsFooter],
-      html: `<gcds-footer display="full" lang="en"></gcds-footer>`,
     });
-    expect(page.root).toEqualHtml(`
+    it('renders full - English', async () => {
+        const page = await newSpecPage({
+            components: [GcdsFooter],
+            html: `<gcds-footer display="full" lang="en"></gcds-footer>`,
+        });
+        expect(page.root).toEqualHtml(`
       <gcds-footer role="contentinfo" display="full" lang="en">
         <mock:shadow-root>
           <h2 class="gcds-footer__header">About this site</h2>
           <div class="gcds-footer__main">
             <div class="main__container">
-              <nav aria-label="Government of Canada" class="main__govnav">
-                <h3>
+              <nav aria-labelledby="govnav__header" class="main__govnav">
+                <h3 id="govnav__header">
                   Government of Canada
                 </h3>
                 <ul class="govnav__list">
@@ -86,8 +86,8 @@ describe('gcds-footer', () => {
                   </li>
                 </ul>
               </nav>
-              <nav aria-label="Themes and topics" class="main__themenav">
-                <h4 class="themenav__header">
+              <nav aria-labelledby="themenav__header" class="main__themenav">
+                <h4 class="themenav__header" id="themenav__header">
                   Themes and topics
                 </h4>
                 <ul class="themenav__list">
@@ -187,8 +187,8 @@ describe('gcds-footer', () => {
           </div>
           <div class="gcds-footer__sub">
             <div class="sub__container">
-              <nav aria-label="Government of Canada Corporate">
-                <h3 class="sub__header">
+              <nav aria-labelledby="sub__header">
+                <h3 class="sub__header" id="sub__header">
                   Government of Canada Corporate
                 </h3>
                 <ul>
@@ -227,20 +227,20 @@ describe('gcds-footer', () => {
         </mock:shadow-root>
       </gcds-footer>
     `);
-  });
-  it('renders compact - French', async () => {
-    const page = await newSpecPage({
-      components: [GcdsFooter],
-      html: `<gcds-footer display="compact" lang="fr"></gcds-footer>`,
     });
-    expect(page.root).toEqualHtml(`
+    it('renders compact - French', async () => {
+        const page = await newSpecPage({
+            components: [GcdsFooter],
+            html: `<gcds-footer display="compact" lang="fr"></gcds-footer>`,
+        });
+        expect(page.root).toEqualHtml(`
       <gcds-footer role="contentinfo" display="compact" lang="fr">
         <mock:shadow-root>
           <h2 class="gcds-footer__header">À propos de ce site</h2>
           <div class="gcds-footer__sub">
             <div class="sub__container">
-              <nav aria-label="Organisation du gouvernement du Canada">
-                <h3 class="sub__header">
+              <nav aria-labelledby="sub__header">
+                <h3 class="sub__header" id="sub__header">
                   Organisation du gouvernement du Canada
                 </h3>
                 <ul>
@@ -279,20 +279,20 @@ describe('gcds-footer', () => {
         </mock:shadow-root>
       </gcds-footer>
     `);
-  });
-  it('renders full - French', async () => {
-    const page = await newSpecPage({
-      components: [GcdsFooter],
-      html: `<gcds-footer display="full" lang="fr"></gcds-footer>`,
     });
-    expect(page.root).toEqualHtml(`
+    it('renders full - French', async () => {
+        const page = await newSpecPage({
+            components: [GcdsFooter],
+            html: `<gcds-footer display="full" lang="fr"></gcds-footer>`,
+        });
+        expect(page.root).toEqualHtml(`
       <gcds-footer role="contentinfo" display="full" lang="fr">
         <mock:shadow-root>
           <h2 class="gcds-footer__header">À propos de ce site</h2>
           <div class="gcds-footer__main">
             <div class="main__container">
-              <nav aria-label="Gouvernement du Canada" class="main__govnav">
-                <h3>
+              <nav aria-labelledby="govnav__header" class="main__govnav">
+                <h3 id="govnav__header">
                   Gouvernement du Canada
                 </h3>
                 <ul class="govnav__list">
@@ -313,8 +313,8 @@ describe('gcds-footer', () => {
                   </li>
                 </ul>
               </nav>
-              <nav aria-label="Thèmes et sujets" class="main__themenav">
-                <h4 class="themenav__header">
+              <nav aria-labelledby="themenav__header" class="main__themenav">
+                <h4 class="themenav__header" id="themenav__header">
                   Thèmes et sujets
                 </h4>
                 <ul class="themenav__list">
@@ -414,8 +414,8 @@ describe('gcds-footer', () => {
           </div>
           <div class="gcds-footer__sub">
             <div class="sub__container">
-              <nav aria-label="Organisation du gouvernement du Canada">
-                <h3 class="sub__header">
+              <nav aria-labelledby="sub__header">
+                <h3 class="sub__header" id="sub__header">
                   Organisation du gouvernement du Canada
                 </h3>
                 <ul>
@@ -454,25 +454,25 @@ describe('gcds-footer', () => {
         </mock:shadow-root>
       </gcds-footer>
     `);
-  });
-  it('renders full with contextual - English', async () => {
-    const page = await newSpecPage({
-      components: [GcdsFooter],
-      html: `<gcds-footer
+    });
+    it('renders full with contextual - English', async () => {
+        const page = await newSpecPage({
+            components: [GcdsFooter],
+            html: `<gcds-footer
         display="full"
         lang="en"
         contextual-heading="Heading"
         contextual-links='{ "Link 1": "#red", "Link 2": "#green", "Link 3": "#blue" }'
       ></gcds-footer>`,
-    });
-    expect(page.root).toEqualHtml(`
+        });
+        expect(page.root).toEqualHtml(`
       <gcds-footer contextual-heading="Heading" contextual-links="{ &quot;Link 1&quot;: &quot;#red&quot;, &quot;Link 2&quot;: &quot;#green&quot;, &quot;Link 3&quot;: &quot;#blue&quot; }" display="full" lang="en" role="contentinfo">
         <mock:shadow-root>
           <h2 class="gcds-footer__header">About this site</h2>
           <div class="gcds-footer__contextual">
             <div class="contextual__container">
-              <nav aria-label="Heading">
-                <h3 class="contextual__header">
+              <nav aria-labelledby="contextual__header">
+                <h3 class="contextual__header" id="contextual__header">
                   Heading
                 </h3>
                 <ul class="contextual__list">
@@ -497,8 +497,8 @@ describe('gcds-footer', () => {
           </div>
           <div class="gcds-footer__main">
             <div class="main__container">
-              <nav aria-label="Government of Canada" class="main__govnav">
-                <h3>
+              <nav aria-labelledby="govnav__header" class="main__govnav">
+                <h3 id="govnav__header">
                   Government of Canada
                 </h3>
                 <ul class="govnav__list">
@@ -519,8 +519,8 @@ describe('gcds-footer', () => {
                   </li>
                 </ul>
               </nav>
-              <nav aria-label="Themes and topics" class="main__themenav">
-                <h4 class="themenav__header">
+              <nav aria-labelledby="themenav__header" class="main__themenav">
+                <h4 class="themenav__header" id="themenav__header">
                   Themes and topics
                 </h4>
                 <ul class="themenav__list">
@@ -620,8 +620,8 @@ describe('gcds-footer', () => {
           </div>
           <div class="gcds-footer__sub">
             <div class="sub__container">
-              <nav aria-label="Government of Canada Corporate">
-                <h3 class="sub__header">
+              <nav aria-labelledby="sub__header">
+                <h3 class="sub__header" id="sub__header">
                   Government of Canada Corporate
                 </h3>
                 <ul>
@@ -660,24 +660,24 @@ describe('gcds-footer', () => {
         </mock:shadow-root>
       </gcds-footer>
     `);
-  });
-  it('renders with sub links - English', async () => {
-    const page = await newSpecPage({
-      components: [GcdsFooter],
-      html: `<gcds-footer
+    });
+    it('renders with sub links - English', async () => {
+        const page = await newSpecPage({
+            components: [GcdsFooter],
+            html: `<gcds-footer
           display="compact"
           lang="en"
           sub-links='{ "Link 1": "#red", "Link 2": "#green", "Link 3": "#blue" }'
         ></gcds-footer>`,
-    });
-    expect(page.root).toEqualHtml(`
+        });
+        expect(page.root).toEqualHtml(`
       <gcds-footer role="contentinfo" display="compact" lang="en" sub-links="{ &quot;Link 1&quot;: &quot;#red&quot;, &quot;Link 2&quot;: &quot;#green&quot;, &quot;Link 3&quot;: &quot;#blue&quot; }">
         <mock:shadow-root>
           <h2 class="gcds-footer__header">About this site</h2>
           <div class="gcds-footer__sub">
             <div class="sub__container">
-              <nav aria-label="Government of Canada Corporate">
-                <h3 class="sub__header">
+              <nav aria-labelledby="sub__header">
+                <h3 class="sub__header" id="sub__header">
                   Government of Canada Corporate
                 </h3>
                 <ul>
@@ -706,6 +706,6 @@ describe('gcds-footer', () => {
         </mock:shadow-root>
       </gcds-footer>
     `);
-  });
+    });
 });
 //# sourceMappingURL=gcds-footer.spec.js.map

@@ -67,65 +67,66 @@ const ContentToggleArrow = `<svg xmlns="http://www.w3.org/2000/svg"  width="12" 
 </svg>`;
 
 const gcdsVerifyBannerCss = ":host .gcds-verify-banner{background-color:var(--gcds-verify-banner-background);color:var(--gcds-verify-banner-text);font:var(--gcds-verify-banner-font)}:host .gcds-verify-banner.verify-banner--is-fixed{position:sticky;top:0;width:var(--gcds-verify-banner-max-content-width-full);z-index:9999}:host .gcds-verify-banner .container-lg,:host .gcds-verify-banner .container-md,:host .gcds-verify-banner .container-sm,:host .gcds-verify-banner .container-xl,:host .gcds-verify-banner .container-xs{width:90%}:host .gcds-verify-banner .container-full{max-width:var(--gcds-verify-banner-container-full);padding-inline:var(--gcds-verify-banner-container-padding)}:host .gcds-verify-banner .container-xl{max-width:var(--gcds-verify-banner-container-xl)}:host .gcds-verify-banner .container-lg{max-width:var(--gcds-verify-banner-container-lg)}:host .gcds-verify-banner .container-md{max-width:var(--gcds-verify-banner-container-md)}:host .gcds-verify-banner .container-sm{max-width:var(--gcds-verify-banner-container-sm)}:host .gcds-verify-banner .container-xs{max-width:var(--gcds-verify-banner-container-xs)}:host .gcds-verify-banner .verify-banner__content,:host .gcds-verify-banner summary{font-size:90%}:host .gcds-verify-banner summary{display:flex;margin-inline:auto;padding-block:var(--gcds-verify-banner-summary-padding)}:host .gcds-verify-banner summary:hover{cursor:pointer}:host .gcds-verify-banner summary .svg-container,:host .gcds-verify-banner summary p small{margin:var(--gcds-verify-banner-summary-content-margin)}:host .gcds-verify-banner summary p{align-items:center;display:flex;flex-wrap:wrap;line-height:var(--gcds-verify-banner-line-height);margin:0}:host .gcds-verify-banner summary .verify-banner__toggle{background:none;border:0;color:var(--gcds-verify-banner-toggle-text);flex:0 0 auto;font-weight:var(--gcds-verify-banner-toggle-font-weight);padding:0;pointer-events:none;text-decoration:underline}:host .gcds-verify-banner summary .verify-banner__toggle .svg-container path{fill:var(--gcds-verify-banner-toggle-text)}:host .gcds-verify-banner .verify-banner__content{border-block-start:var(--gcds-verify-banner-content-border-width) solid var(--gcds-verify-banner-content-border-color);margin:0 auto;padding-block-end:var(--gcds-verify-banner-content-padding-block-end);padding-block-start:var(--gcds-verify-banner-content-padding-block-start)}:host .gcds-verify-banner .verify-banner__content li{list-style:none;margin:var(--gcds-verify-banner-content-list-margin)}:host .gcds-verify-banner .verify-banner__content li h4,:host .gcds-verify-banner .verify-banner__content li p{width:90%}:host .gcds-verify-banner .verify-banner__content li p .svg-container{margin-inline:var(--gcds-verify-banner-content-list-svg-margin)}:host .gcds-verify-banner .verify-banner__content h4{margin:var(--gcds-verify-banner-content-heading-margin)}:host .gcds-verify-banner .verify-banner__content p{line-height:var(--gcds-verify-banner-line-height);margin:0}:host .gcds-verify-banner[open] summary .verify-banner__toggle svg{transform:rotate(-180deg)}";
+const GcdsVerifyBannerStyle0 = gcdsVerifyBannerCss;
 
 const GcdsVerifyBanner$1 = /*@__PURE__*/ proxyCustomElement(class GcdsVerifyBanner extends HTMLElement {
-  constructor() {
-    super();
-    this.__registerHost();
-    this.__attachShadow();
-    this.container = 'xl';
-    this.isFixed = false;
-    this.lang = undefined;
-  }
-  /*
-   * Observe lang attribute change
-   */
-  updateLang() {
-    const observer = new MutationObserver(mutations => {
-      if (mutations[0].oldValue != this.el.lang) {
-        this.lang = this.el.lang;
-      }
-    });
-    observer.observe(this.el, observerConfig);
-  }
-  async componentWillLoad() {
-    // Define lang attribute
-    this.lang = assignLanguage(this.el);
-    this.updateLang();
-  }
-  render() {
-    const { container, isFixed, lang } = this;
-    return (h(Host, null, h("details", { class: `gcds-verify-banner ${isFixed ? 'verify-banner--is-fixed' : ''}` }, h("summary", { class: container ? `container-${container}` : '', "aria-expanded": "false", role: "button" }, h("span", { class: "svg-container", innerHTML: CanadaFlag }), h("p", null, h("small", null, I18N[lang].summary.text), h("button", { class: "verify-banner__toggle" }, h("small", null, I18N[lang].summary.link), h("span", { class: "svg-container", innerHTML: ContentToggleArrow })))), h("div", { class: `verify-banner__content ${container ? `container-${container}` : ''}` }, h("p", null, h("small", null, I18N[lang].content.description)), h("br", null), h("gcds-grid", { tag: "ul", container: "lg", columns: "1fr", "columns-tablet": container === 'xs' || container === 'sm' ? '1fr' : '1fr 1fr' }, h("li", null, h("h4", null, I18N[lang].content.url.heading), h("p", null, h("small", null, I18N[lang].content.url.text))), h("li", null, h("h4", null, I18N[lang].content.languages.heading), h("p", null, h("small", null, I18N[lang].content.languages.text))), h("li", null, h("h4", null, I18N[lang].content.https.heading), h("p", null, h("small", null, I18N[lang].content.https.text, " ", h("strong", null, "https://"), "."))), h("li", null, h("h4", null, I18N[lang].content.contact.heading), h("p", null, h("small", null, I18N[lang].content.contact.text))))))));
-  }
-  get el() { return this; }
-  static get style() { return gcdsVerifyBannerCss; }
+    constructor() {
+        super();
+        this.__registerHost();
+        this.__attachShadow();
+        this.container = 'xl';
+        this.isFixed = false;
+        this.lang = undefined;
+    }
+    /*
+     * Observe lang attribute change
+     */
+    updateLang() {
+        const observer = new MutationObserver(mutations => {
+            if (mutations[0].oldValue != this.el.lang) {
+                this.lang = this.el.lang;
+            }
+        });
+        observer.observe(this.el, observerConfig);
+    }
+    async componentWillLoad() {
+        // Define lang attribute
+        this.lang = assignLanguage(this.el);
+        this.updateLang();
+    }
+    render() {
+        const { container, isFixed, lang } = this;
+        return (h(Host, null, h("details", { class: `gcds-verify-banner ${isFixed ? 'verify-banner--is-fixed' : ''}` }, h("summary", { class: container ? `container-${container}` : '', "aria-expanded": "false", role: "button" }, h("span", { class: "svg-container", innerHTML: CanadaFlag }), h("p", null, h("small", null, I18N[lang].summary.text), h("button", { class: "verify-banner__toggle" }, h("small", null, I18N[lang].summary.link), h("span", { class: "svg-container", innerHTML: ContentToggleArrow })))), h("div", { class: `verify-banner__content ${container ? `container-${container}` : ''}` }, h("p", null, h("small", null, I18N[lang].content.description)), h("br", null), h("gcds-grid", { tag: "ul", container: "lg", columns: "1fr", "columns-tablet": container === 'xs' || container === 'sm' ? '1fr' : '1fr 1fr' }, h("li", null, h("h4", null, I18N[lang].content.url.heading), h("p", null, h("small", null, I18N[lang].content.url.text))), h("li", null, h("h4", null, I18N[lang].content.languages.heading), h("p", null, h("small", null, I18N[lang].content.languages.text))), h("li", null, h("h4", null, I18N[lang].content.https.heading), h("p", null, h("small", null, I18N[lang].content.https.text, " ", h("strong", null, "https://"), "."))), h("li", null, h("h4", null, I18N[lang].content.contact.heading), h("p", null, h("small", null, I18N[lang].content.contact.text))))))));
+    }
+    get el() { return this; }
+    static get style() { return GcdsVerifyBannerStyle0; }
 }, [1, "gcds-verify-banner", {
-    "container": [1],
-    "isFixed": [4, "is-fixed"],
-    "lang": [32]
-  }]);
+        "container": [1],
+        "isFixed": [4, "is-fixed"],
+        "lang": [32]
+    }]);
 function defineCustomElement$1() {
-  if (typeof customElements === "undefined") {
-    return;
-  }
-  const components = ["gcds-verify-banner", "gcds-container", "gcds-grid"];
-  components.forEach(tagName => { switch (tagName) {
-    case "gcds-verify-banner":
-      if (!customElements.get(tagName)) {
-        customElements.define(tagName, GcdsVerifyBanner$1);
-      }
-      break;
-    case "gcds-container":
-      if (!customElements.get(tagName)) {
-        defineCustomElement$3();
-      }
-      break;
-    case "gcds-grid":
-      if (!customElements.get(tagName)) {
-        defineCustomElement$2();
-      }
-      break;
-  } });
+    if (typeof customElements === "undefined") {
+        return;
+    }
+    const components = ["gcds-verify-banner", "gcds-container", "gcds-grid"];
+    components.forEach(tagName => { switch (tagName) {
+        case "gcds-verify-banner":
+            if (!customElements.get(tagName)) {
+                customElements.define(tagName, GcdsVerifyBanner$1);
+            }
+            break;
+        case "gcds-container":
+            if (!customElements.get(tagName)) {
+                defineCustomElement$3();
+            }
+            break;
+        case "gcds-grid":
+            if (!customElements.get(tagName)) {
+                defineCustomElement$2();
+            }
+            break;
+    } });
 }
 
 const GcdsVerifyBanner = GcdsVerifyBanner$1;

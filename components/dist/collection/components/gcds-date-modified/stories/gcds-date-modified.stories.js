@@ -1,27 +1,27 @@
 import { langProp } from "../../../utils/storybook/component-properties";
 export default {
-  title: 'Components/Date modified',
-  argTypes: Object.assign(Object.assign({
-    // Props
-    type: {
-      control: { type: 'select' },
-      options: ['date', 'version'],
-      table: {
-        type: { summary: 'string' },
-        defaultValue: { summary: 'date' },
-      },
-    }
-  }, langProp), {
-    // Slots
-    default: {
-      control: {
-        type: 'text',
-      },
-      table: {
-        category: 'Slots | Fentes',
-      },
-    }
-  }),
+    title: 'Components/Date modified',
+    argTypes: Object.assign(Object.assign({
+        // Props
+        type: {
+            control: { type: 'select' },
+            options: ['date', 'version'],
+            table: {
+                type: { summary: 'string' },
+                defaultValue: { summary: 'date' },
+            },
+        }
+    }, langProp), {
+        // Slots
+        default: {
+            control: {
+                type: 'text',
+            },
+            table: {
+                category: 'Slots | Fentes',
+            },
+        }
+    }),
 };
 const Template = args => `
 <!-- Web component code (Angular, Vue) -->
@@ -45,36 +45,36 @@ const TemplatePlayground = args => `
 // ------ Date modified default ------
 export const Default = Template.bind({});
 Default.args = {
-  lang: 'en',
-  type: 'date',
-  default: '2023-01-26',
+    lang: 'en',
+    type: 'date',
+    default: '2023-01-26',
 };
 // ------ Date modified french ------
 export const French = Template.bind({});
 French.args = {
-  lang: 'fr',
-  type: 'date',
-  default: '2023-01-26',
+    lang: 'fr',
+    type: 'date',
+    default: '2023-01-26',
 };
 // ------ Date modified version ------
 export const Version = Template.bind({});
 Version.args = {
-  lang: 'en',
-  type: 'version',
-  default: '1.2.3',
+    lang: 'en',
+    type: 'version',
+    default: '1.2.3',
 };
 // ------ Date modified events & props ------
 export const Props = Template.bind({});
 Props.args = {
-  lang: 'en',
-  type: 'date',
-  default: '2023-01-26',
+    lang: 'en',
+    type: 'date',
+    default: '2023-01-26',
 };
 // ------ Date modified playground ------
 export const Playground = TemplatePlayground.bind({});
 Playground.args = {
-  lang: 'en',
-  type: 'date',
-  default: '2023-01-26',
+    lang: 'en',
+    type: 'date',
+    default: '2023-01-26',
 };
 //# sourceMappingURL=gcds-date-modified.stories.js.map

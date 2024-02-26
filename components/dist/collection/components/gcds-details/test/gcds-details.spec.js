@@ -1,12 +1,12 @@
 import { newSpecPage } from "@stencil/core/testing";
 import { GcdsDetails } from "../gcds-details";
 describe('gcds-details', () => {
-  it('renders', async () => {
-    const page = await newSpecPage({
-      components: [GcdsDetails],
-      html: `<gcds-details details-title="Learn more about this topic"></gcds-details>`,
-    });
-    expect(page.root).toEqualHtml(`
+    it('renders', async () => {
+        const page = await newSpecPage({
+            components: [GcdsDetails],
+            html: `<gcds-details details-title="Learn more about this topic"></gcds-details>`,
+        });
+        expect(page.root).toEqualHtml(`
       <gcds-details details-title="Learn more about this topic">
         <mock:shadow-root>
           <button id="details__summary" class="details__summary" aria-expanded="false" aria-controls="details__panel">
@@ -18,13 +18,13 @@ describe('gcds-details', () => {
         </mock:shadow-root>
       </gcds-details>
     `);
-  });
-  it('displays the details panel open', async () => {
-    const page = await newSpecPage({
-      components: [GcdsDetails],
-      html: `<gcds-details details-title="Learn more about this topic" open></gcds-details>`,
     });
-    expect(page.root).toEqualHtml(`
+    it('displays the details panel open', async () => {
+        const page = await newSpecPage({
+            components: [GcdsDetails],
+            html: `<gcds-details details-title="Learn more about this topic" open></gcds-details>`,
+        });
+        expect(page.root).toEqualHtml(`
       <gcds-details details-title="Learn more about this topic" open>
         <mock:shadow-root>
         <button id="details__summary" class="details__summary" aria-expanded="true" aria-controls="details__panel">
@@ -36,6 +36,6 @@ describe('gcds-details', () => {
         </mock:shadow-root>
       </gcds-details>
     `);
-  });
+    });
 });
 //# sourceMappingURL=gcds-details.spec.js.map

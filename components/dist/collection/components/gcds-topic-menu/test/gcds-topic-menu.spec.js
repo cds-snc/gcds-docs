@@ -2,12 +2,12 @@ import { newSpecPage } from "@stencil/core/testing";
 import { GcdsTopicMenu } from "../gcds-topic-menu";
 import "../../../utils/test/matchMedia.mock";
 describe('gcds-topic-menu', () => {
-  it('renders - English', async () => {
-    const page = await newSpecPage({
-      components: [GcdsTopicMenu],
-      html: `<gcds-topic-menu></gcds-topic-menu>`,
-    });
-    expect(page.root).toEqualHtml(`
+    it('renders - English', async () => {
+        const page = await newSpecPage({
+            components: [GcdsTopicMenu],
+            html: `<gcds-topic-menu></gcds-topic-menu>`,
+        });
+        expect(page.root).toEqualHtml(`
       <gcds-topic-menu>
         <mock:shadow-root>
           <nav class="gcds-topic-menu">
@@ -81,13 +81,13 @@ describe('gcds-topic-menu', () => {
         </mock:shadow-root>
       </gcds-topic-menu>
     `);
-  });
-  it('renders - French', async () => {
-    const page = await newSpecPage({
-      components: [GcdsTopicMenu],
-      html: `<gcds-topic-menu lang="fr"></gcds-topic-menu>`,
     });
-    expect(page.root).toEqualHtml(`
+    it('renders - French', async () => {
+        const page = await newSpecPage({
+            components: [GcdsTopicMenu],
+            html: `<gcds-topic-menu lang="fr"></gcds-topic-menu>`,
+        });
+        expect(page.root).toEqualHtml(`
       <gcds-topic-menu lang="fr">
         <mock:shadow-root>
           <nav class="gcds-topic-menu">
@@ -161,13 +161,13 @@ describe('gcds-topic-menu', () => {
         </mock:shadow-root>
       </gcds-topic-menu>
     `);
-  });
-  it('renders - Home', async () => {
-    const page = await newSpecPage({
-      components: [GcdsTopicMenu],
-      html: `<gcds-topic-menu home></gcds-topic-menu>`,
     });
-    expect(page.root).toEqualHtml(`
+    it('renders - Home', async () => {
+        const page = await newSpecPage({
+            components: [GcdsTopicMenu],
+            html: `<gcds-topic-menu home></gcds-topic-menu>`,
+        });
+        expect(page.root).toEqualHtml(`
       <gcds-topic-menu home>
         <mock:shadow-root>
           <nav class="gcds-topic-menu">
@@ -241,6 +241,6 @@ describe('gcds-topic-menu', () => {
         </mock:shadow-root>
       </gcds-topic-menu>
     `);
-  });
+    });
 });
 //# sourceMappingURL=gcds-topic-menu.spec.js.map

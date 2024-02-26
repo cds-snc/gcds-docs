@@ -1,103 +1,103 @@
 declare const _default: {
-  title: string;
-  argTypes: {
-    characterLimit: {
-      name: string;
-      control: {
-        type: string;
-      };
-      options: boolean[];
-      table: {
-        type: {
-          summary: string;
+    title: string;
+    argTypes: {
+        characterLimit: {
+            name: string;
+            control: {
+                type: string;
+            };
+            options: boolean[];
+            table: {
+                type: {
+                    summary: string;
+                };
+                defaultValue: {
+                    summary: boolean;
+                };
+            };
         };
-        defaultValue: {
-          summary: boolean;
+        display: {
+            control: {
+                type: string;
+            };
+            options: string[];
+            table: {
+                type: {
+                    summary: string;
+                };
+                defaultValue: {
+                    summary: string;
+                };
+            };
         };
-      };
+        marginTop: {
+            name: string;
+            control: {
+                type: string;
+            };
+            options: string[];
+            table: {
+                type: {
+                    summary: string;
+                };
+                defaultValue: {
+                    summary: string;
+                };
+            };
+        };
+        marginBottom: {
+            name: string;
+            control: {
+                type: string;
+            };
+            options: string[];
+            table: {
+                type: {
+                    summary: string;
+                };
+                defaultValue: {
+                    summary: string;
+                };
+            };
+        };
+        size: {
+            control: {
+                type: string;
+            };
+            options: string[];
+            table: {
+                type: {
+                    summary: string;
+                };
+                defaultValue: {
+                    summary: string;
+                };
+            };
+        };
+        textRole: {
+            name: string;
+            control: {
+                type: string;
+            };
+            options: string[];
+            table: {
+                type: {
+                    summary: string;
+                };
+                defaultValue: {
+                    summary: string;
+                };
+            };
+        };
+        default: {
+            control: {
+                type: string;
+            };
+            table: {
+                category: string;
+            };
+        };
     };
-    display: {
-      control: {
-        type: string;
-      };
-      options: string[];
-      table: {
-        type: {
-          summary: string;
-        };
-        defaultValue: {
-          summary: string;
-        };
-      };
-    };
-    marginTop: {
-      name: string;
-      control: {
-        type: string;
-      };
-      options: string[];
-      table: {
-        type: {
-          summary: string;
-        };
-        defaultValue: {
-          summary: string;
-        };
-      };
-    };
-    marginBottom: {
-      name: string;
-      control: {
-        type: string;
-      };
-      options: string[];
-      table: {
-        type: {
-          summary: string;
-        };
-        defaultValue: {
-          summary: string;
-        };
-      };
-    };
-    size: {
-      control: {
-        type: string;
-      };
-      options: string[];
-      table: {
-        type: {
-          summary: string;
-        };
-        defaultValue: {
-          summary: string;
-        };
-      };
-    };
-    textRole: {
-      name: string;
-      control: {
-        type: string;
-      };
-      options: string[];
-      table: {
-        type: {
-          summary: string;
-        };
-        defaultValue: {
-          summary: string;
-        };
-      };
-    };
-    default: {
-      control: {
-        type: string;
-      };
-      table: {
-        category: string;
-      };
-    };
-  };
 };
 export default _default;
 export declare const Default: any;

@@ -19,360 +19,361 @@ const snapshots = {
 };
 
 const gcdsTopicMenuCss = "@layer reset, default, mobile, xs-mobile, focus;@layer reset{:host *{box-sizing:border-box;margin:0}}@layer default{:host{display:block}:host .gcds-topic-menu__heading,:host .gcds-topic-menu__main{display:inherit;height:0;margin:0;overflow:hidden;width:0}:host .visible-sm-inline{display:none}:host .gcds-topic-menu{font:var(--gcds-topic-menu-font);margin-inline:auto;max-width:var(--gcds-topic-menu-max-width);position:relative;width:90%}:host .gcds-topic-menu button[aria-haspopup=true]{background-color:var(--gcds-topic-menu-button-background);border:var(--gcds-topic-menu-border-width) solid var(--gcds-topic-menu-button-border);color:var(--gcds-topic-menu-button-text);cursor:pointer;font:var(--gcds-topic-menu-button-font);margin-inline-start:0;padding:var(--gcds-topic-menu-button-padding);text-transform:uppercase}:host .gcds-topic-menu button[aria-haspopup=true].gcds-topic-menu--home{background-color:var(--gcds-topic-menu-button-home-background);border-color:var(--gcds-topic-menu-button-home-border-color);color:var(--gcds-topic-menu-button-home-text)}:host .gcds-topic-menu button[aria-haspopup=true]:hover,:host .gcds-topic-menu button[aria-haspopup=true][aria-expanded=true]{background-color:var(--gcds-topic-menu-button-expanded-background);border-color:var(--gcds-topic-menu-button-expanded-border-color);color:var(--gcds-topic-menu-button-expanded-text)}:host .gcds-topic-menu [aria-haspopup=true][aria-expanded=false]+[role=menu]{display:none}:host .gcds-topic-menu button[aria-haspopup=true][aria-expanded=true]+[role=menu]{z-index:9999}:host .gcds-topic-menu button[aria-haspopup=true][aria-expanded=true]+[role=menu] [role=menuitem]{position:relative;z-index:9999}:host .gcds-topic-menu [aria-haspopup=true][aria-expanded=true]+[role=menu]{z-index:9998}:host .gcds-topic-menu [role=menu]{background-color:var(--gcds-topic-menu-themelist-background);color:var(--gcds-topic-menu-themelist-text);list-style:none;margin:0;padding:0;position:absolute;width:var(--gcds-topic-menu-themelist-width)}:host .gcds-topic-menu [role=menu]>li{border-inline-start:var(--gcds-topic-menu-border-width) solid var(--gcds-topic-menu-themelist-item-border)}:host .gcds-topic-menu [role=menu]>li:first-child{border-block-start:var(--gcds-topic-menu-border-width) solid var(--gcds-topic-menu-themelist-item-border)}:host .gcds-topic-menu [role=menu]>li:last-child{border-block-end:var(--gcds-topic-menu-border-width) solid var(--gcds-topic-menu-themelist-item-border)}:host .gcds-topic-menu [role=menu] [role=menu]{background-color:var(--gcds-topic-menu-topiclist-background);border-block-start:var(--gcds-topic-menu-border-width) solid var(--gcds-topic-menu-topiclist-border);-webkit-box-shadow:var(--gcds-topic-menu-topiclist-box-shadow);box-shadow:var(--gcds-topic-menu-topiclist-box-shadow);color:var(--gcds-topic-menu-topiclist-text);left:var(--gcds-topic-menu-topiclist-left);margin-block-end:var(--gcds-topic-menu-topiclist-margin-block-end);min-height:var(--gcds-topic-menu-topiclist-min-height);padding:var(--gcds-topic-menu-topiclist-padding);top:0;width:var(--gcds-topic-menu-topiclist-width)}:host .gcds-topic-menu [role=menu] [role=menu] li{border:none;width:45%}:host .gcds-topic-menu [role=menu] [role=menu] li [role=menuitem]{border-block-end:none;border-inline-end:none;color:var(--gcds-topic-menu-topiclist-menuitem-text);padding:var(--gcds-topic-menu-topiclist-menuitem-padding);text-decoration:underline;width:auto}:host .gcds-topic-menu [role=menu] [role=menu] li [role=menuitem][aria-haspopup=true],:host .gcds-topic-menu [role=menu] [role=menu] li [role=menuitem][aria-haspopup=true]:hover{color:var(--gcds-topic-menu-topiclist-menuitem-popup-text);font:var(--gcds-topic-menu-topiclist-menuitem-popup-font);text-decoration:none}:host .gcds-topic-menu [role=menu] [role=menu] li [role=menuitem]:hover{color:var(--gcds-topic-menu-topiclist-menuitem-hover-text);text-decoration-thickness:var(\n                  --gcds-topic-menu-topiclist-menuitem-hover-text-decoration-thickness\n                )}:host .gcds-topic-menu [role=menu] [role=menu] li:first-child{margin-block-end:var(\n                --gcds-topic-menu-topiclist-item-first-margin-block-end\n              );width:100%}:host .gcds-topic-menu [role=menu] [role=menu] li:first-child [role=menuitem]{font:var(--gcds-topic-menu-topiclist-item-first-font);text-decoration:underline}:host .gcds-topic-menu [role=menu] [role=menu] li:last-child{left:var(--gcds-topic-menu-topiclist-item-last-left);position:absolute;top:var(--gcds-topic-menu-topiclist-item-last-top)}:host .gcds-topic-menu [role=menu] [role=menu] li:last-child [aria-expanded=true]{background:transparent}:host .gcds-topic-menu [role=menu] [role=menu] li:last-child [role=menu]{list-style:disc;padding-block-start:0}:host .gcds-topic-menu [role=menu] [role=menu] [role=menu]{background:transparent;border-block-start:none;-webkit-box-shadow:none;box-shadow:none;left:auto;min-height:auto;top:auto;width:auto}:host .gcds-topic-menu [role=menu] [role=menu] [role=menu] li{width:var(--gcds-topic-menu-mostrequested-item-width)}:host .gcds-topic-menu [role=menu] [role=menu] [role=menu] li:first-child{margin-block-end:var(\n                  --gcds-topic-menu-mostrequested-item-first-margin-block-end\n                )}:host .gcds-topic-menu [role=menu] [role=menu] [role=menu] li:first-child [role=menuitem]{font:var(--gcds-topic-menu-mostrequested-item-first-font);text-decoration:underline;width:auto}:host .gcds-topic-menu [role=menu] [role=menu] [role=menu] li:last-child{left:auto;position:relative;top:auto}@media screen and (min-width:61.9375rem) and (max-width:74.9375rem){:host .gcds-topic-menu [role=menu] [role=menu] li{width:auto}:host .gcds-topic-menu [role=menu] [role=menu] li:last-child{left:auto;margin-block-start:var(\n                --gcds-topic-menu-mostrequested-item-last-margin-block-start\n              );position:relative;top:auto}:host .gcds-topic-menu [role=menu] [role=menu] [role=menu]{margin-block-end:0;padding-block-end:0;position:relative}:host .gcds-topic-menu [role=menu] [role=menu] [role=menu] li:last-child{margin-block-start:0}}:host .gcds-topic-menu [role=menuitem],:host .gcds-topic-menu [role=menuitem]:visited{border-block-end:var(--gcds-topic-menu-border-width) solid var(--gcds-topic-menu-menuitem-border-block-end);border-inline-end:var(--gcds-topic-menu-border-width) solid var(--gcds-topic-menu-menuitem-border-inline-end);box-sizing:border-box;color:var(--gcds-topic-menu-menuitem-text);display:block;font:var(--gcds-topic-menu-menuitem-font);padding:var(--gcds-topic-menu-menuitem-padding);text-decoration:none;text-underline-offset:var(\n          --gcds-topic-menu-menuitem-text-underline-offset\n        );width:var(--gcds-topic-menu-menuitem-width)}:host .gcds-topic-menu [role=menuitem]:hover,:host .gcds-topic-menu [role=menuitem]:visited:hover,:host .gcds-topic-menu [role=menuitem]:visited[aria-expanded=true],:host .gcds-topic-menu [role=menuitem][aria-expanded=true]{background-color:var(--gcds-topic-menu-menuitem-expanded-background);color:var(--gcds-topic-menu-menuitem-expanded-text)}}@layer mobile{@media screen and (max-width:61.9375rem){:host .gcds-topic-menu .visible-sm-inline{display:inline-block;text-decoration:underline}:host .gcds-topic-menu .hidden-sm{display:none}:host .gcds-topic-menu [role=menu]{margin-block-end:var(\n            --gcds-topic-menu-mobile-themelist-margin-block-start\n          );position:static;width:auto}:host .gcds-topic-menu [role=menu] [role=menu]{border-block-start:none;-webkit-box-shadow:none;box-shadow:none;margin-block-end:0;min-height:auto;padding:0;width:auto}:host .gcds-topic-menu [role=menu] [role=menu] li{width:auto}:host .gcds-topic-menu [role=menu] [role=menu] li [role=menuitem]{border-block-end:var(--gcds-topic-menu-border-width) solid var(\n                    --gcds-topic-menu-mobile-topiclist-menuitem-border-block-end\n                  );padding:var(\n                  --gcds-topic-menu-mobile-topiclist-menuitem-padding\n                )}:host .gcds-topic-menu [role=menu] [role=menu] li [role=menuitem]:hover{background-color:transparent;color:var(\n                    --gcds-topic-menu-mobile-topiclist-menuitem-hover-text\n                  )}:host .gcds-topic-menu [role=menu] [role=menu] li [role=menuitem][aria-haspopup]{font:var(\n                    --gcds-topic-menu-mobile-topiclist-menuitem-haspopup-font\n                  )}:host .gcds-topic-menu [role=menu] [role=menu] li:first-child{margin-block-end:0}:host .gcds-topic-menu [role=menu] [role=menu] li:first-child [role=menuitem]{border-block-end:var(--gcds-topic-menu-border-width) solid var(\n                    --gcds-topic-menu-mobile-topiclist-item-first-menuitem-border\n                  );color:var(\n                  --gcds-topic-menu-mobile-topiclist-item-first-menuitem-text\n                );font:var(\n                  --gcds-topic-menu-mobile-topiclist-menuitem-haspopup-font\n                );text-decoration:underline;width:auto}:host .gcds-topic-menu [role=menu] [role=menu] li:last-child{left:auto;position:static;top:auto}:host .gcds-topic-menu [role=menu] [role=menu] li:last-child [role=menuitem]{border-block-end:var(--gcds-topic-menu-border-width) solid var(--gcds-topic-menu-mobile-mostrequested-border);color:var(\n                  --gcds-topic-menu-mobile-topiclist-item-last-menuitem-text\n                );text-decoration:none}:host .gcds-topic-menu [role=menu] [role=menu] li:last-child [role=menuitem]:hover{color:var(\n                    --gcds-topic-menu-mobile-topiclist-item-last-menuitem-hover-text\n                  );text-decoration:underline}:host .gcds-topic-menu [role=menu] [role=menu] li:last-child [role=menu]{list-style:none;padding-block-start:0}:host .gcds-topic-menu [role=menu] [role=menu] li:last-child [role=menu] li{width:auto}:host .gcds-topic-menu [role=menu] [role=menu] li:last-child [role=menu] li [role=menuitem]{border-block-end:var(--gcds-topic-menu-border-width) solid var(--gcds-topic-menu-mobile-mostrequested-border)}:host .gcds-topic-menu [role=menu] [role=menu] li:last-child [role=menu] li [role=menuitem]:hover{color:var(\n                        --gcds-topic-menu-mobile-mostrequested-hover-text\n                      );text-decoration:underline}:host .gcds-topic-menu [role=menu] [role=menu] li:first-child,:host .gcds-topic-menu [role=menu] [role=menu] li:last-child{background-color:var(\n                --gcds-topic-menu-mobile-mostrequested-background\n              )}:host .gcds-topic-menu [role=menuitem]{width:auto}:host .gcds-topic-menu [aria-expanded=true]:not(button)+[role=menu] li{margin-inline-start:var(\n                --gcds-topic-menu-mobile-item-expanded-margin-inline-start\n              )}:host .gcds-topic-menu [aria-expanded=true]:not(button)+[role=menu] li:first-child,:host .gcds-topic-menu [aria-expanded=true]:not(button)+[role=menu] li:last-child{margin-inline-start:0}:host .gcds-topic-menu [aria-expanded=true]:not(button)+[role=menu] li:first-child [role=menuitem],:host .gcds-topic-menu [aria-expanded=true]:not(button)+[role=menu] li:last-child [role=menuitem]{padding-inline-start:var(\n                    --gcds-topic-menu-mobile-item-expanded-padding-inline-start\n                  )}:host .gcds-topic-menu [aria-expanded=true]:not(button)+[role=menu] li:last-child [role=menu] [role=menuitem]{padding-inline-start:0}:host .gcds-topic-menu [aria-expanded=true]:not(button)+[role=menu] [role=menu] li{margin-inline-start:var(\n                --gcds-topic-menu-mobile-mostrequested-expanded-margin-inline-start\n              )}:host .gcds-topic-menu [aria-expanded=true]+[role=menu] [role=menu] [role=menu]{background-color:var(\n              --gcds-topic-menu-mobile-mostrequested-background\n            )}:host .gcds-topic-menu [aria-haspopup]:not(button):before{content:\"\\25BA\\a0\"}:host .gcds-topic-menu [aria-haspopup][aria-expanded=true]:not(button):before{content:\"\\25BC\\a0\"}:host .gcds-topic-menu button[aria-haspopup=true][aria-expanded=true]+[role=menu]{border-inline-end:var(--gcds-topic-menu-border-width) solid var(--gcds-topic-menu-mobile-themelist-border)}}}@layer xs-mobile{@media screen and (max-width:47.9375rem){:host .gcds-topic-menu>[role=menu]{margin-inline:calc(-50vw - -50%)}}}@layer focus{:host .gcds-topic-menu [role=menuitem]:focus,:host .gcds-topic-menu button[aria-haspopup=true]:focus{background-color:var(--gcds-topic-menu-focus-background);border-color:var(--gcds-topic-menu-focus-background);border-inline-end:none;border-radius:var(--gcds-topic-menu-focus-border-radius);box-shadow:var(--gcds-topic-menu-focus-box-shadow);color:var(--gcds-topic-menu-focus-text);outline:var(--gcds-topic-menu-focus-outline);outline-offset:var(--gcds-topic-menu-focus-outline-offset)}}";
+const GcdsTopicMenuStyle0 = gcdsTopicMenuCss;
 
 const GcdsTopicMenu$1 = /*@__PURE__*/ proxyCustomElement(class GcdsTopicMenu extends HTMLElement {
-  constructor() {
-    super();
-    this.__registerHost();
-    this.__attachShadow();
-    this.home = false;
-    this.open = false;
-    this.lang = undefined;
-    this.navItems = [];
-    this.navSize = undefined;
-  }
-  /**
-   * Listen for focusout of theme and topic menu to close menu
-   */
-  async focusOutListener(e) {
-    if (!this.el.contains(e.relatedTarget) && this.open) {
-      this.toggleNav();
+    constructor() {
+        super();
+        this.__registerHost();
+        this.__attachShadow();
+        this.home = false;
+        this.open = false;
+        this.lang = undefined;
+        this.navItems = [];
+        this.navSize = undefined;
     }
-  }
-  /**
-   * Keyboard controls of theme and topic menu
-   */
-  async keyDownListener(e) {
-    if (this.el == document.activeElement &&
-      this.themeList.contains(document.activeElement.shadowRoot.activeElement)) {
-      const key = e.key;
-      const currentIndex = this.navItems.indexOf(document.activeElement.shadowRoot.activeElement);
-      const activeElement = this.navItems[currentIndex];
-      switch (key) {
-        case 'ArrowDown':
-          e.preventDefault();
-          // If on last item, jump to first item
-          if (currentIndex + 1 > this.navItems.length - 1) {
-            await this.focusMenuLink(this.navItems, activeElement, 0);
-            // Jump to next item
-          }
-          else {
-            await this.focusMenuLink(this.navItems, activeElement, currentIndex + 1);
-          }
-          break;
-        case 'ArrowUp':
-          e.preventDefault();
-          // If on first item, jump to last
-          if (currentIndex - 1 < 0) {
-            await this.focusMenuLink(this.navItems, activeElement, this.navItems.length - 1);
-            // Jump to next item
-          }
-          else {
-            await this.focusMenuLink(this.navItems, activeElement, currentIndex - 1);
-          }
-          break;
-        case 'ArrowRight':
-          e.preventDefault();
-          // Theme links
-          if (activeElement.hasAttribute('aria-haspopup') &&
-            !activeElement.hasAttribute('data-keep-expanded')) {
-            await this.updateNavItemQueue(activeElement.parentNode.children[1]);
-            activeElement.setAttribute('aria-expanded', 'true');
-            this.navItems[0].focus();
-            // Most requested link - desktop
-          }
-          else if (activeElement.hasAttribute('aria-haspopup') &&
-            this.navSize == 'desktop') {
-            await this.focusMenuLink(this.navItems, activeElement, currentIndex + 1);
-            // Most requested link - mobile
-          }
-          else if (activeElement.hasAttribute('aria-haspopup') &&
-            this.navSize == 'mobile') {
-            await this.updateNavItemQueue(activeElement.parentNode.children[1]);
-            activeElement.setAttribute('aria-expanded', 'true');
-            this.navItems[0].focus();
-          }
-          break;
-        case 'Enter':
-          if (activeElement.closest('ul').hasAttribute('data-top-menu')) {
-            await this.updateNavItemQueue(activeElement.parentNode.children[1]);
-            this.navItems[0].focus();
-          }
-          break;
-        case 'ArrowLeft':
-        case 'Escape': {
-          e.preventDefault();
-          const parentList = activeElement.closest('ul');
-          // In most requested menu
-          if (parentList.parentNode
-            .querySelector('a')
-            .hasAttribute('data-keep-expanded')) {
-            await this.updateNavItemQueue(parentList.parentNode.closest('ul'));
-            await this.focusMenuLink(this.navItems, activeElement, this.navItems.indexOf(parentList.parentNode.querySelector('a')));
-            // on mobile, close expandable area
-            if (this.navSize == 'mobile') {
-              parentList.parentNode
-                .querySelector('a')
-                .setAttribute('aria-expanded', 'false');
-            }
-            // Exit menu
-          }
-          else if (parentList.parentNode.closest('ul')) {
-            await this.updateNavItemQueue(parentList.parentNode.closest('ul'));
-            await this.focusMenuLink(this.navItems, activeElement, this.navItems.indexOf(parentList.parentNode.querySelector('a')));
-            if (this.navSize == 'mobile') {
-              parentList.parentNode
-                .querySelector('a')
-                .setAttribute('aria-expanded', 'false');
-            }
-            // Close theme and topic menu, focus menu button
-          }
-          else {
-            this.menuButton.focus();
-            await this.toggleNav();
-          }
-          break;
+    /**
+     * Listen for focusout of theme and topic menu to close menu
+     */
+    async focusOutListener(e) {
+        if (!this.el.contains(e.relatedTarget) && this.open) {
+            this.toggleNav();
         }
-        case 'Tab':
-          await this.toggleNav();
-          break;
-      }
     }
-  }
-  /**
-   * Close all theme menus
-   */
-  async closeAllMenus() {
-    for (let x = 0; x < this.themeList.children.length; x++) {
-      const themeLink = this.themeList.children[x].querySelector('a');
-      themeLink.setAttribute('aria-expanded', 'false');
-    }
-  }
-  /**
-   * Toggle open theme and topic menu
-   */
-  async toggleNav() {
-    this.open = !this.open;
-    if (this.open) {
-      if (this.navSize == 'desktop') {
-        this.themeList.children[0].children[0].setAttribute('aria-expanded', 'true');
-      }
-      else {
-        // Close most requested on mobile
-        this.el.shadowRoot
-          .querySelectorAll('[data-keep-expanded]')
-          .forEach(el => {
-          el.setAttribute('aria-expanded', 'false');
-        });
-      }
-      setTimeout(() => {
-        this.themeList.children[0].querySelector('a').focus();
-      }, 50);
-      await this.updateNavItemQueue(this.themeList);
-    }
-    else {
-      this.closeAllMenus();
-    }
-  }
-  /*
-   * Pass new window size: desktop or mobile
-   */
-  async updateNavSize(size) {
-    this.navSize = size;
-  }
-  /*
-   * Get current navSize state
-   */
-  async getNavSize() {
-    return this.navSize;
-  }
-  /**
-   * Update keyboard focus queue
-   */
-  async updateNavItemQueue(parent) {
-    const focusableElements = [];
-    for (let x = 0; x < parent.children.length; x++) {
-      const link = parent.children[x].querySelector('a');
-      if (link) {
-        focusableElements.push(link);
-        if (link.hasAttribute('data-keep-expanded') &&
-          this.navSize == 'desktop') {
-          for (let c = 0; c < link.parentNode.children[1].children.length; c++) {
-            focusableElements.push(link.parentNode.children[1].children[c].querySelector('a'));
-          }
+    /**
+     * Keyboard controls of theme and topic menu
+     */
+    async keyDownListener(e) {
+        if (this.el == document.activeElement &&
+            this.themeList.contains(document.activeElement.shadowRoot.activeElement)) {
+            const key = e.key;
+            const currentIndex = this.navItems.indexOf(document.activeElement.shadowRoot.activeElement);
+            const activeElement = this.navItems[currentIndex];
+            switch (key) {
+                case 'ArrowDown':
+                    e.preventDefault();
+                    // If on last item, jump to first item
+                    if (currentIndex + 1 > this.navItems.length - 1) {
+                        await this.focusMenuLink(this.navItems, activeElement, 0);
+                        // Jump to next item
+                    }
+                    else {
+                        await this.focusMenuLink(this.navItems, activeElement, currentIndex + 1);
+                    }
+                    break;
+                case 'ArrowUp':
+                    e.preventDefault();
+                    // If on first item, jump to last
+                    if (currentIndex - 1 < 0) {
+                        await this.focusMenuLink(this.navItems, activeElement, this.navItems.length - 1);
+                        // Jump to next item
+                    }
+                    else {
+                        await this.focusMenuLink(this.navItems, activeElement, currentIndex - 1);
+                    }
+                    break;
+                case 'ArrowRight':
+                    e.preventDefault();
+                    // Theme links
+                    if (activeElement.hasAttribute('aria-haspopup') &&
+                        !activeElement.hasAttribute('data-keep-expanded')) {
+                        await this.updateNavItemQueue(activeElement.parentNode.children[1]);
+                        activeElement.setAttribute('aria-expanded', 'true');
+                        this.navItems[0].focus();
+                        // Most requested link - desktop
+                    }
+                    else if (activeElement.hasAttribute('aria-haspopup') &&
+                        this.navSize == 'desktop') {
+                        await this.focusMenuLink(this.navItems, activeElement, currentIndex + 1);
+                        // Most requested link - mobile
+                    }
+                    else if (activeElement.hasAttribute('aria-haspopup') &&
+                        this.navSize == 'mobile') {
+                        await this.updateNavItemQueue(activeElement.parentNode.children[1]);
+                        activeElement.setAttribute('aria-expanded', 'true');
+                        this.navItems[0].focus();
+                    }
+                    break;
+                case 'Enter':
+                    if (activeElement.closest('ul').hasAttribute('data-top-menu')) {
+                        await this.updateNavItemQueue(activeElement.parentNode.children[1]);
+                        this.navItems[0].focus();
+                    }
+                    break;
+                case 'ArrowLeft':
+                case 'Escape': {
+                    e.preventDefault();
+                    const parentList = activeElement.closest('ul');
+                    // In most requested menu
+                    if (parentList.parentNode
+                        .querySelector('a')
+                        .hasAttribute('data-keep-expanded')) {
+                        await this.updateNavItemQueue(parentList.parentNode.closest('ul'));
+                        await this.focusMenuLink(this.navItems, activeElement, this.navItems.indexOf(parentList.parentNode.querySelector('a')));
+                        // on mobile, close expandable area
+                        if (this.navSize == 'mobile') {
+                            parentList.parentNode
+                                .querySelector('a')
+                                .setAttribute('aria-expanded', 'false');
+                        }
+                        // Exit menu
+                    }
+                    else if (parentList.parentNode.closest('ul')) {
+                        await this.updateNavItemQueue(parentList.parentNode.closest('ul'));
+                        await this.focusMenuLink(this.navItems, activeElement, this.navItems.indexOf(parentList.parentNode.querySelector('a')));
+                        if (this.navSize == 'mobile') {
+                            parentList.parentNode
+                                .querySelector('a')
+                                .setAttribute('aria-expanded', 'false');
+                        }
+                        // Close theme and topic menu, focus menu button
+                    }
+                    else {
+                        this.menuButton.focus();
+                        await this.toggleNav();
+                    }
+                    break;
+                }
+                case 'Tab':
+                    await this.toggleNav();
+                    break;
+            }
         }
-      }
     }
-    this.navItems = focusableElements;
-  }
-  /**
-   * Focus menu link
-   */
-  focusMenuLink(queue, activeElement, nextStep) {
-    if (activeElement.closest('ul').hasAttribute('data-top-menu') &&
-      activeElement.hasAttribute('aria-haspopup') &&
-      !activeElement.hasAttribute('data-keep-expanded')) {
-      this.closeAllMenus();
+    /**
+     * Close all theme menus
+     */
+    async closeAllMenus() {
+        for (let x = 0; x < this.themeList.children.length; x++) {
+            const themeLink = this.themeList.children[x].querySelector('a');
+            themeLink.setAttribute('aria-expanded', 'false');
+        }
     }
-    else if (activeElement.hasAttribute('aria-haspopup') &&
-      !activeElement.hasAttribute('data-keep-expanded')) {
-      activeElement.setAttribute('aria-expanded', 'false');
-    }
-    queue[nextStep].focus();
-    if (queue[nextStep].hasAttribute('aria-haspopup') &&
-      this.navSize == 'desktop') {
-      queue[nextStep].setAttribute('aria-expanded', 'true');
-    }
-  }
-  /*
-   * Observe lang attribute change
-   */
-  updateLang() {
-    const observer = new MutationObserver(mutations => {
-      if (mutations[0].oldValue != this.el.lang) {
-        this.lang = this.el.lang;
-      }
-    });
-    observer.observe(this.el, observerConfig);
-  }
-  async componentWillLoad() {
-    // Define lang attribute
-    this.lang = assignLanguage(this.el);
-    this.updateLang();
-    const mediaQuery = window.matchMedia('screen and (max-width: 991px)');
-    if (mediaQuery.matches) {
-      this.navSize = 'mobile';
-    }
-    else {
-      this.navSize = 'desktop';
-    }
-    try {
-      const response = await fetch(`https://www.canada.ca/content/dam/canada/sitemenu/sitemenu-v2-${this.lang}.html`);
-      this.listItems = await response.text();
-    }
-    catch (error) {
-      this.listItems = snapshots[this.lang];
-    }
-  }
-  async componentDidLoad() {
-    const hostElement = this.el;
-    let menuEnterTimer;
-    // Since we load the HTML, loop through elements and add event listeners to add functionality
-    for (let x = 0; x < this.themeList.children.length; x++) {
-      const themeLink = this.themeList.children[x].querySelector('a');
-      // Click
-      themeLink.addEventListener('click', async (e) => {
-        e.preventDefault();
-        // Open topic lists
-        if ((await hostElement.getNavSize()) == 'desktop') {
-          await hostElement.closeAllMenus();
-          themeLink.setAttribute('aria-expanded', 'true');
+    /**
+     * Toggle open theme and topic menu
+     */
+    async toggleNav() {
+        this.open = !this.open;
+        if (this.open) {
+            if (this.navSize == 'desktop') {
+                this.themeList.children[0].children[0].setAttribute('aria-expanded', 'true');
+            }
+            else {
+                // Close most requested on mobile
+                this.el.shadowRoot
+                    .querySelectorAll('[data-keep-expanded]')
+                    .forEach(el => {
+                    el.setAttribute('aria-expanded', 'false');
+                });
+            }
+            setTimeout(() => {
+                this.themeList.children[0].querySelector('a').focus();
+            }, 50);
+            await this.updateNavItemQueue(this.themeList);
         }
         else {
-          if (themeLink.getAttribute('aria-expanded') == 'false') {
-            themeLink.setAttribute('aria-expanded', 'true');
-            await hostElement.updateNavItemQueue(themeLink.parentNode.children[1]);
-            setTimeout(() => {
-              themeLink.parentNode.children[1].children[0]
-                .querySelector('a')
-                .focus();
-            }, 50);
-          }
-          else {
-            await hostElement.closeAllMenus();
-            await hostElement.updateNavItemQueue(themeLink.closest('ul'));
-            setTimeout(() => {
-              themeLink.focus();
-            }, 50);
-          }
+            this.closeAllMenus();
         }
-      });
-      // Hover actions
-      themeLink.addEventListener('mouseenter', async () => {
-        // Change active theme if hovering on menuitem
-        if ((await hostElement.getNavSize()) == 'desktop') {
-          menuEnterTimer = setTimeout(async function () {
-            await hostElement.closeAllMenus();
-            themeLink.setAttribute('aria-expanded', 'true');
-          }, 400);
-        }
-      });
-      // Cancel hover timer if mouseut before completes
-      themeLink.addEventListener('mouseleave', () => {
-        clearTimeout(menuEnterTimer);
-      });
-      // Most requested click
-      const mostRequested = this.themeList.children[x]
-        .querySelector('ul')
-        .querySelector('[aria-haspopup]');
-      mostRequested.addEventListener('click', async (e) => {
-        e.preventDefault();
-        if ((await hostElement.getNavSize()) == 'mobile') {
-          if (mostRequested.getAttribute('aria-expanded') == 'true') {
-            mostRequested.setAttribute('aria-expanded', 'false');
-          }
-          else {
-            mostRequested.setAttribute('aria-expanded', 'true');
-            const mostRequestedList = mostRequested.parentNode.querySelector('ul');
-            mostRequestedList.children[0].querySelector('a').focus();
-            await hostElement.updateNavItemQueue(mostRequestedList);
-          }
-        }
-      });
     }
-    // Mobile responsiveness
-    const mediaQuery = window.matchMedia('screen and (max-width: 991px)');
-    const nav = this.el;
-    mediaQuery.addEventListener('change', async (e) => {
-      if (e.matches) {
-        nav.updateNavSize('mobile');
-        nav.shadowRoot.querySelectorAll('[data-keep-expanded]').forEach(el => {
-          el.setAttribute('aria-expanded', 'false');
+    /*
+     * Pass new window size: desktop or mobile
+     */
+    async updateNavSize(size) {
+        this.navSize = size;
+    }
+    /*
+     * Get current navSize state
+     */
+    async getNavSize() {
+        return this.navSize;
+    }
+    /**
+     * Update keyboard focus queue
+     */
+    async updateNavItemQueue(parent) {
+        const focusableElements = [];
+        for (let x = 0; x < parent.children.length; x++) {
+            const link = parent.children[x].querySelector('a');
+            if (link) {
+                focusableElements.push(link);
+                if (link.hasAttribute('data-keep-expanded') &&
+                    this.navSize == 'desktop') {
+                    for (let c = 0; c < link.parentNode.children[1].children.length; c++) {
+                        focusableElements.push(link.parentNode.children[1].children[c].querySelector('a'));
+                    }
+                }
+            }
+        }
+        this.navItems = focusableElements;
+    }
+    /**
+     * Focus menu link
+     */
+    focusMenuLink(queue, activeElement, nextStep) {
+        if (activeElement.closest('ul').hasAttribute('data-top-menu') &&
+            activeElement.hasAttribute('aria-haspopup') &&
+            !activeElement.hasAttribute('data-keep-expanded')) {
+            this.closeAllMenus();
+        }
+        else if (activeElement.hasAttribute('aria-haspopup') &&
+            !activeElement.hasAttribute('data-keep-expanded')) {
+            activeElement.setAttribute('aria-expanded', 'false');
+        }
+        queue[nextStep].focus();
+        if (queue[nextStep].hasAttribute('aria-haspopup') &&
+            this.navSize == 'desktop') {
+            queue[nextStep].setAttribute('aria-expanded', 'true');
+        }
+    }
+    /*
+     * Observe lang attribute change
+     */
+    updateLang() {
+        const observer = new MutationObserver(mutations => {
+            if (mutations[0].oldValue != this.el.lang) {
+                this.lang = this.el.lang;
+            }
         });
-      }
-      else {
-        nav.updateNavSize('desktop');
-        nav.shadowRoot.querySelectorAll('[data-keep-expanded]').forEach(el => {
-          el.setAttribute('aria-expanded', 'true');
+        observer.observe(this.el, observerConfig);
+    }
+    async componentWillLoad() {
+        // Define lang attribute
+        this.lang = assignLanguage(this.el);
+        this.updateLang();
+        const mediaQuery = window.matchMedia('screen and (max-width: 991px)');
+        if (mediaQuery.matches) {
+            this.navSize = 'mobile';
+        }
+        else {
+            this.navSize = 'desktop';
+        }
+        try {
+            const response = await fetch(`https://www.canada.ca/content/dam/canada/sitemenu/sitemenu-v2-${this.lang}.html`);
+            this.listItems = await response.text();
+        }
+        catch (error) {
+            this.listItems = snapshots[this.lang];
+        }
+    }
+    async componentDidLoad() {
+        const hostElement = this.el;
+        let menuEnterTimer;
+        // Since we load the HTML, loop through elements and add event listeners to add functionality
+        for (let x = 0; x < this.themeList.children.length; x++) {
+            const themeLink = this.themeList.children[x].querySelector('a');
+            // Click
+            themeLink.addEventListener('click', async (e) => {
+                e.preventDefault();
+                // Open topic lists
+                if ((await hostElement.getNavSize()) == 'desktop') {
+                    await hostElement.closeAllMenus();
+                    themeLink.setAttribute('aria-expanded', 'true');
+                }
+                else {
+                    if (themeLink.getAttribute('aria-expanded') == 'false') {
+                        themeLink.setAttribute('aria-expanded', 'true');
+                        await hostElement.updateNavItemQueue(themeLink.parentNode.children[1]);
+                        setTimeout(() => {
+                            themeLink.parentNode.children[1].children[0]
+                                .querySelector('a')
+                                .focus();
+                        }, 50);
+                    }
+                    else {
+                        await hostElement.closeAllMenus();
+                        await hostElement.updateNavItemQueue(themeLink.closest('ul'));
+                        setTimeout(() => {
+                            themeLink.focus();
+                        }, 50);
+                    }
+                }
+            });
+            // Hover actions
+            themeLink.addEventListener('mouseenter', async () => {
+                // Change active theme if hovering on menuitem
+                if ((await hostElement.getNavSize()) == 'desktop') {
+                    menuEnterTimer = setTimeout(async function () {
+                        await hostElement.closeAllMenus();
+                        themeLink.setAttribute('aria-expanded', 'true');
+                    }, 400);
+                }
+            });
+            // Cancel hover timer if mouseut before completes
+            themeLink.addEventListener('mouseleave', () => {
+                clearTimeout(menuEnterTimer);
+            });
+            // Most requested click
+            const mostRequested = this.themeList.children[x]
+                .querySelector('ul')
+                .querySelector('[aria-haspopup]');
+            mostRequested.addEventListener('click', async (e) => {
+                e.preventDefault();
+                if ((await hostElement.getNavSize()) == 'mobile') {
+                    if (mostRequested.getAttribute('aria-expanded') == 'true') {
+                        mostRequested.setAttribute('aria-expanded', 'false');
+                    }
+                    else {
+                        mostRequested.setAttribute('aria-expanded', 'true');
+                        const mostRequestedList = mostRequested.parentNode.querySelector('ul');
+                        mostRequestedList.children[0].querySelector('a').focus();
+                        await hostElement.updateNavItemQueue(mostRequestedList);
+                    }
+                }
+            });
+        }
+        // Mobile responsiveness
+        const mediaQuery = window.matchMedia('screen and (max-width: 991px)');
+        const nav = this.el;
+        mediaQuery.addEventListener('change', async (e) => {
+            if (e.matches) {
+                nav.updateNavSize('mobile');
+                nav.shadowRoot.querySelectorAll('[data-keep-expanded]').forEach(el => {
+                    el.setAttribute('aria-expanded', 'false');
+                });
+            }
+            else {
+                nav.updateNavSize('desktop');
+                nav.shadowRoot.querySelectorAll('[data-keep-expanded]').forEach(el => {
+                    el.setAttribute('aria-expanded', 'true');
+                });
+            }
         });
-      }
-    });
-  }
-  render() {
-    const { home, lang } = this;
-    return (h(Host, null, h("nav", { class: "gcds-topic-menu" }, h("h2", { class: "gcds-topic-menu__heading" }, "Menu"), h("button", { "aria-haspopup": "true", "aria-expanded": this.open.toString(), "aria-label": I18N[lang].buttonLabel, onClick: async () => await this.toggleNav(), ref: element => (this.menuButton = element), class: home && 'gcds-topic-menu--home' }, this.lang == 'en' ? (h(Fragment, null, h("span", { class: "gcds-topic-menu__main" }, "Main "), "Menu")) : (h(Fragment, null, "Menu", h("span", { class: "gcds-topic-menu__main" }, " principal"))), h("gcds-icon", { name: "chevron-down", "margin-left": "150", size: "caption" })), h("ul", { role: "menu", "aria-orientation": "vertical", "data-top-menu": true, innerHTML: this.listItems, ref: element => (this.themeList = element) }))));
-  }
-  get el() { return this; }
-  static get style() { return gcdsTopicMenuCss; }
+    }
+    render() {
+        const { home, lang } = this;
+        return (h(Host, null, h("nav", { class: "gcds-topic-menu" }, h("h2", { class: "gcds-topic-menu__heading" }, "Menu"), h("button", { "aria-haspopup": "true", "aria-expanded": this.open.toString(), "aria-label": I18N[lang].buttonLabel, onClick: async () => await this.toggleNav(), ref: element => (this.menuButton = element), class: home && 'gcds-topic-menu--home' }, this.lang == 'en' ? (h(Fragment, null, h("span", { class: "gcds-topic-menu__main" }, "Main "), "Menu")) : (h(Fragment, null, "Menu", h("span", { class: "gcds-topic-menu__main" }, " principal"))), h("gcds-icon", { name: "chevron-down", "margin-left": "150", size: "caption" })), h("ul", { role: "menu", "aria-orientation": "vertical", "data-top-menu": true, innerHTML: this.listItems, ref: element => (this.themeList = element) }))));
+    }
+    get el() { return this; }
+    static get style() { return GcdsTopicMenuStyle0; }
 }, [1, "gcds-topic-menu", {
-    "home": [4],
-    "open": [32],
-    "lang": [32],
-    "navItems": [32],
-    "navSize": [32],
-    "closeAllMenus": [64],
-    "toggleNav": [64],
-    "updateNavSize": [64],
-    "getNavSize": [64],
-    "updateNavItemQueue": [64]
-  }, [[4, "focusout", "focusOutListener"], [4, "keydown", "keyDownListener"]]]);
+        "home": [4],
+        "open": [32],
+        "lang": [32],
+        "navItems": [32],
+        "navSize": [32],
+        "closeAllMenus": [64],
+        "toggleNav": [64],
+        "updateNavSize": [64],
+        "getNavSize": [64],
+        "updateNavItemQueue": [64]
+    }, [[4, "focusout", "focusOutListener"], [4, "keydown", "keyDownListener"]]]);
 function defineCustomElement$1() {
-  if (typeof customElements === "undefined") {
-    return;
-  }
-  const components = ["gcds-topic-menu", "gcds-icon"];
-  components.forEach(tagName => { switch (tagName) {
-    case "gcds-topic-menu":
-      if (!customElements.get(tagName)) {
-        customElements.define(tagName, GcdsTopicMenu$1);
-      }
-      break;
-    case "gcds-icon":
-      if (!customElements.get(tagName)) {
-        defineCustomElement$2();
-      }
-      break;
-  } });
+    if (typeof customElements === "undefined") {
+        return;
+    }
+    const components = ["gcds-topic-menu", "gcds-icon"];
+    components.forEach(tagName => { switch (tagName) {
+        case "gcds-topic-menu":
+            if (!customElements.get(tagName)) {
+                customElements.define(tagName, GcdsTopicMenu$1);
+            }
+            break;
+        case "gcds-icon":
+            if (!customElements.get(tagName)) {
+                defineCustomElement$2();
+            }
+            break;
+    } });
 }
 
 const GcdsTopicMenu = GcdsTopicMenu$1;
