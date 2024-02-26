@@ -31,8 +31,8 @@ Nous sommes à l’écoute. Contactez-nous pour demander une démonstration, pos
   <input type="hidden" name="form-name" value="contactFR" />
   <input name="honeypot" type="text" aria-label="bot" hidden/>
 
-  <gcds-input type="text" input-id="name" label="Nom complet" size="30" required></gcds-input>
-  <gcds-input type="email" input-id="email" label="Adresse courriel" size="50" required></gcds-input>
+  <gcds-input type="text" input-id="name" label="Nom complet" size="30" autocomplete="name" required></gcds-input>
+  <gcds-input type="email" input-id="email" label="Adresse courriel" size="50" autocomplete="email" required></gcds-input>
   <gcds-fieldset fieldset-id="reasonForContact" legend="Raison de votre communication" required>
     <gcds-radio radio-id="requestADemo" name="reasonForContact" label="Demander une démonstration" value="Request a demo | Demander une démonstration" hint="Réservez une démonstration de Système de design GC pour votre équipe."></gcds-radio>
     <gcds-radio radio-id="reportAnIssue" name="reasonForContact" label="Signaler un problème" value="Report an issue | Signaler un problème" hint="Communiquez un problème que vous avez trouvé."></gcds-radio>
