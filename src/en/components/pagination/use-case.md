@@ -9,7 +9,7 @@ eleventyNavigation:
   otherNames: page index, page navigation
   description: A page selector for a range of pages.
   thumbnail: /images/common/components/preview-pagination.svg
-  alt: Pagination component shows pagination with grey boxes and one dark navy blue box to indicate the page selected sandwhiched by a left arrow and right arrow to allow for previous and next navigation. The boxes are separated by an ellipsis.
+  alt: A row of four squares between two arrows, each pointing outward. The first square is blue and holds the number 1, representing selection of the first page. Between the two middle boxes is an ellipsis to indicate additional pages besides those represented by the squares.
   state: published
 translationKey: 'pagination'
 tags: ['paginationEN', 'usage']

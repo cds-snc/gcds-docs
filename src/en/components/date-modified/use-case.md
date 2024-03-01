@@ -9,7 +9,7 @@ eleventyNavigation:
   otherNames: last updated, version date.
   description: A timestamp of the last page update.
   thumbnail: /images/common/components/preview-date-modified.svg
-  alt: Date Modified showing timestamp of the last page update.
+  alt: A thick grey line, above a representation the page footer, represents the last page update text. 
   tag: Core
   state: published
 translationKey: 'datemodified'

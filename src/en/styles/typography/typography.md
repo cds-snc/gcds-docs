@@ -9,7 +9,7 @@ eleventyNavigation:
   order: 3
   description: Typography tokens include   the style, arrangement, and appearance of letters, numbers, and symbols.
   thumbnail: /images/en/foundations/preview/preview-typography.svg
-  alt:
+  alt: An upper and lowercase A appear above the word Typography on a baseline grid with four lines.
   state: published
 permalink: /en/styles/typography/
 translationKey: 'typography'

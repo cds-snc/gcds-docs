@@ -9,7 +9,7 @@ eleventyNavigation:
   order: 2
   description: Spacing tokens help position elements onscreen and in components.
   thumbnail: /images/en/foundations/preview/preview-spacing.svg
-  alt:
+  alt: A red line vertical line with two darker horizontal lines at either end shows the size of the token, labelled to its right --gcds-spacing-500.
   state: published
 permalink: /en/styles/spacing/
 translationKey: 'spacing'

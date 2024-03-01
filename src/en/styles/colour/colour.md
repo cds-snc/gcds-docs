@@ -9,7 +9,7 @@ eleventyNavigation:
   order: 1
   description: Colour tokens store the colour values for styling components.
   thumbnail: /images/en/foundations/preview/preview-colour.svg
-  alt:
+  alt: Coloured squares in a four by three grid arrangement, with each column progressively shifting to a deeper hue of the initial square's colour. The first row has blue squares, the second row has grey squares, and the third row has red squares.
   state: published
 permalink: /en/styles/colour/
 translationKey: 'colour'

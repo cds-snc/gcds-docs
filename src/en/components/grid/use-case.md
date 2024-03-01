@@ -9,7 +9,7 @@ eleventyNavigation:
   otherNames: layout, columns, columns layout, grid container.
   description: A grid is a responsive, flexible column layout to position elements on a page.
   thumbnail: /images/common/components/preview-grid.svg
-  alt: Grid component shows four light yellow brown lined vertical boxes to show the layout.
+  alt: Three columns, separated by two dotted lines, hold thick grey lines representing text.
   tag: Experimental
   state: published
 translationKey: 'grid'
