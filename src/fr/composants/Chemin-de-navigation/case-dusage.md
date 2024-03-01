@@ -9,7 +9,7 @@ eleventyNavigation:
   otherNames: fil d'ariane.
   description: Un chemin d'accès à la page actuelle à partir de chaque niveau précédent de la hiérarchie du site.
   thumbnail: /images/common/components/preview-breadcrumbs.svg
-  alt: Deux boîtes grises soulignées de bleu foncé avec une flèche bleu à leurs droite. Ces boîtes représentent les liens du chemin de navigation.
+  alt: Deux épaisses lignes grises côte à côte, séparées par un chevron, représentent les liens d’un chemin de navigation.
   tag: De base
   state: published
 translationKey: 'breadcrumbs'

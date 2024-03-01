@@ -9,7 +9,7 @@ eleventyNavigation:
   otherNames: appel à l'action.
   description: Un objet interactif mettant en évidence une action.
   thumbnail: /images/common/components/preview-button.svg
-  alt: Un aperçu du composant bouton qui montre une boîte bleue foncée avec le texte en blanc et une flèche blanche à l'intérieur.
+  alt: Une boîte bleu foncé renfermant une épaisse ligne blanche représente un bouton et son libellé.
   state: published
 translationKey: 'button'
 tags: ['buttonFR', 'usage']
