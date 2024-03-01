@@ -49,6 +49,14 @@ Les unités de style globales aident à réduire les besoins futurs en maintenan
 
 <img class="b-sm b-default p-400" src="/images/en/foundations/tokens/design-tokens-global.svg" alt="Trois lignes de texte montrent respectivement un exemple d’unité de style globale pour la taille de police, l’espacement et la couleur de police. La première ligne affiche une taille de police de 1.25rem suivie d’une flèche pointant vers l’unité de style --gcds-font-sizes-text. La deuxième ligne affiche un espacement de 3rem suivi d’une flèche pointant vers l’unité de style --gcds-spacing-500. La troisième ligne affiche une couleur de police #333333 suivie d’une flèche pointant vers l’unité de style --gcds-text-primary."/>
 
+## Unités de style de base
+
+Utilisez les unités de style de base lorsque vous avez épuisé toutes les options d’unités de style globales. Les unités de style de base de Système de design GC offrent une gamme de styles qui permet d’agencer votre contenu à la palette des unités de style de couleur globales.
+
+Les unités de style de base n’emploient aucune structure sémantique et sont donc plus difficiles à interpréter. Il est important de les utiliser judicieusement et de façon uniforme afin d’assurer une expérience utilisateur familière et prévisible pour votre service.
+
+<img class="b-sm b-default p-400" src="/images/fr/foundations/tokens/design-tokens-base.svg" alt="Trois lignes de texte montrent des exemples d’unités de style de base pour des niveaux de gris. La première ligne affiche un niveau de gris 50 suivi d’une flèche pointant vers l’unité de style --gcds-color-grayscale-50. La deuxième ligne affiche un niveau de gris 100 suivi d’une flèche pointant vers l’unité de style --gcds-color-grayscale-100. La troisième ligne affiche un niveau de gris 300 suivi d’une flèche pointant vers l’unité de style --gcds-color-grayscale-300."/>
+
 ## Structure et nomenclature progressive des unités de style
 
 Les unités de style sont caractérisées par une nomenclature progressive.

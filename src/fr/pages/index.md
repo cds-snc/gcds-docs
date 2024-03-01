@@ -1,5 +1,5 @@
 ---
-title: Home
+title: Accueil
 layout: 'layouts/home.njk'
 permalink: /fr/
 translationKey: 'index'
