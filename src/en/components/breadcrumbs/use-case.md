@@ -9,7 +9,7 @@ eleventyNavigation:
   otherNames: breadcrumb trail.
   description: A path to the current page from each preceding level of the site's hierarchy.
   thumbnail: /images/common/components/preview-breadcrumbs.svg
-  alt: Two gray boxes with navy blue underlines with an arrow between them. These boxes represent breadcrumb links.
+  alt: Two thick grey lines with a chevron between them represent breadcrumb links.
   tag: Core
   state: published
 translationKey: 'breadcrumbs'

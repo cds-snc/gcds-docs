@@ -9,7 +9,7 @@ eleventyNavigation:
   otherNames: dernière mise à jour, version.
   description: Horodatage de la dernière mise à jour d'une page.
   thumbnail: /images/common/components/preview-date-modified.svg
-  alt: Un aperçu du composant date modifiée qui montre une date de la dernière modification de la page.
+  alt: Une épaisse ligne grise surmontant une représentation du pied-de-page représente le libellé pour la date de dernière mise à jour de la page.
   tag: De base
   state: published
 translationKey: 'datemodified'

@@ -9,7 +9,7 @@ eleventyNavigation:
   otherNames: navigation entre les pages.
   description: Un sélecteur de page pour naviguer dans une série de page.
   thumbnail: /images/common/components/preview-pagination.svg
-  alt: Un aperçu du composant pagination qui montre des boîtes carrées alignées horizontalement qui représentant les liens vers les pages. Les boîtes sont précédées d'une flèche vers la gauche représentant un lien vers la page précédante et suivies d'une flèche pointant vers la droite représentant le lien vers la prochaine page. Au milieu des boîtes on y voit trois petits points pour démontrer qu'il y a des liens disponibles non visibles.
+  alt: Une rangée de quatre carrés précédée et suivie d’une flèche pointant vers l’extérieur. Le premier carré est bleu et affiche le chiffre 1, et représente la sélection de la page 1. Des points de suspension séparent les carrés du milieu pour indiquer la présence de pages supplémentaires non visibles.
   state: published
 translationKey: 'pagination'
 tags: ['paginationFR', 'usage']

@@ -9,7 +9,7 @@ eleventyNavigation:
   otherNames: indicateur de progrès, étapes.
   description: Un suivi de l'avancement pour un processus en plusieurs étapes.
   thumbnail: /images/fr/components/preview/preview-stepper.svg
-  alt: Un aperçu du composant indicateur d'étape qui montre le texte Étape 1 de 4 avec une boîte grise en dessous représentant le titre de la page.
+  alt: Le composant Indicateur d’étape affiche « Étape 1 de 4 ».
   state: published
 translationKey: 'stepper'
 tags: ['stepperFR', 'usage']

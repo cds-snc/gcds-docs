@@ -10,7 +10,7 @@ eleventyNavigation:
   order: 3
   description: Les unités de style typographiques comprennent le style, la disposition et l'apparence des lettres, chiffres et symboles.
   thumbnail: /images/fr/foundations/preview/preview-typography.svg
-  alt:
+  alt: Un A majuscule et un A minuscule sont écrits au-dessus du mot Typographie, le tout dans une grille composée de quatre lignes de base.
   state: published
 github: https://github.com/cds-snc/gcds-tokens
 tokenTable:

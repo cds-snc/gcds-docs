@@ -9,7 +9,7 @@ eleventyNavigation:
   otherNames: accordion, collapse.
   description: An interactive switch to expand or collapse content.
   thumbnail: /images/common/components/preview-details.svg
-  alt: Details shows dark grey box with a triangle arrow pointing down to show the content is expanded, followed by dark grey boxes indicating text.
+  alt: A thick dark blue line with a triangle arrow pointing down to a dark grey vertical line represents the open details component. Two thick light grey lines stacked underneath the blue line represent lines of text.
   state: published
 translationKey: 'details'
 tags: ['detailsEN', 'usage']

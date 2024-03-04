@@ -10,7 +10,7 @@ eleventyNavigation:
   order: 1
   description: Les unités de style de couleur comprennent les valeurs nécessaires pour les composants de style.
   thumbnail: /images/en/foundations/preview/preview-colour.svg
-  alt:
+  alt: Des carrés colorés répartis en quatre colonnes de trois carrés, la première colonne étant de teinte pâle, et les suivantes devenant progressivement plus foncées. La première rangée montre des carrés bleus, la deuxième montre des carrés gris et la troisième montre des carrés rouges.
   state: published
 permalink: /fr/styles/couleur/
 tokenTable:

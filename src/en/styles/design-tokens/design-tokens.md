@@ -35,7 +35,7 @@ GC Design System components have their own tokens. These component tokens are co
 
 When misused component tokens can change unexpectedly. They receive updates any time the component they're attached to gets updated.
 
-<img class="b-sm b-default p-400" src="/images/en/foundations/tokens/design-tokens-component.svg" alt=""/>
+<img class="b-sm b-default p-400" src="/images/en/foundations/tokens/design-tokens-component.svg" alt="Three blue squares represent three steps to create the component design token for the default button background colour. To the right of the topmost square, the text reads colour #26374a. The first arrow points down to the next square whose text reads --gcds-color-blue-900. Another arrow points down from the second to the third square, whose text reads --gcds-button-primary-default-background. A third arrow points from the last square to a button with a dark blue background, showing the result of the new component design token."/>
 
 ### Global design tokens
 
@@ -45,7 +45,7 @@ Global tokens are semantic. That means they have meanings or contexts associated
 
 Global tokens help you minimize future maintenance and establish a visual language for stronger communications.
 
-<img class="b-sm b-default p-400" src="/images/en/foundations/tokens/design-tokens-global.svg" alt=""/>
+<img class="b-sm b-default p-400" src="/images/en/foundations/tokens/design-tokens-global.svg" alt="Three lines of text list examples of global design tokens for font size, spacing measurements, and font colour. On the first line, an arrow points from the font size 1.25rem to the token --gcds-font-sizes-text. On the second line, an arow points from the spacing length 3rem to the token --gcds-spacing-500. On the third line, an arrow points from the font colour #333333 to the token --gcds-text-primary."/>
 
 ### Base design tokens
 
@@ -53,7 +53,7 @@ Base tokens are for you to use when you've run out of global token options. GC D
 
 Base tokens are not semantic so it's harder for everyone to understand what they represent. It's important to use them thoughtfully and consistently to support a familiar and predictable user experience for your service.
 
-<img class="b-sm b-default p-400" src="/images/en/foundations/tokens/design-tokens-base.svg" alt=""/>
+<img class="b-sm b-default p-400" src="/images/en/foundations/tokens/design-tokens-base.svg" alt="Three lines of text list examples of base design tokens for greyscale colours. On the first line, an arrow points from the colour Grayscale 50 to the token --gcds-color-grayscale-50. On the second line, an arow points from the colour Grayscale 100 to the token --gcds-color-grayscale-100. On the third line, an arrow points from the colour Grayscale 300 to the token --gcds-color-grayscale-300."/>
 
 ## Token anatomy and naming progression
 
@@ -68,18 +68,18 @@ Tokens are characterized by a naming progression.
 
 ### Component design token
 
-<img class="b-sm b-default p-400" src="/images/en/foundations/anatomy/anatomy-design-tokens-component.svg" alt=""/>
+<img class="b-sm b-default p-400" src="/images/en/foundations/anatomy/anatomy-design-tokens-component.svg" alt="A line of five words, each highlighted in a different colour and underlined. Before the first word are two dashes with one dash between each word. A label tag beneath each connects each word to their name type. The first is the prefix: gcds. The second is the category (component): button. The third is the role: primary. The fourth is the state: default. The fifth is the property: background. The token name as a whole reads: --gcds-button-primary-default-background."/>
 
 ### Global design token
 
-<img class="b-sm b-default p-400" src="/images/en/foundations/anatomy/anatomy-design-tokens-global.svg" alt=""/>
+<img class="b-sm b-default p-400" src="/images/en/foundations/anatomy/anatomy-design-tokens-global.svg" alt="A line of three words, each highlighted in a different colour and underlined. Before the first word are two dashes with one dash between each word. A label tag beneath each connects each word to their name type. The first is the prefix: gcds. The second is the category (property): text. The third is the role or state: primary. The token name as a whole reads: --gcds-text-primary."/>
 
 ### Global design token – global state
 
-<img class="b-sm b-default p-400" src="/images/en/foundations/anatomy/anatomy-design-tokens-global-state.svg" alt=""/>
+<img class="b-sm b-default p-400" src="/images/en/foundations/anatomy/anatomy-design-tokens-global-state.svg" alt="A line of three words, each highlighted in a different colour and underlined. Before the first word are two dashes with one dash between each word. A label tag beneath each connects each word to their name type. The first is the prefix: gcds. The second is the category (state): focus. The third is the property: text. The token name as a whole reads: --gcds-focus-text."/>
 
 ### Base design tokens
 
-<img class="b-sm b-default mb-500 p-400" src="/images/en/foundations/anatomy/anatomy-design-tokens-base.svg" alt=""/>
+<img class="b-sm b-default mb-500 p-400" src="/images/en/foundations/anatomy/anatomy-design-tokens-base.svg" alt="A line of three words, each highlighted in a different colour and underlined. Before the first word are two dashes with one dash between each word. A label tag beneath each connects each word to their name type. The first is the prefix: gcds. The second is the category (colour): grayscale. The third is the scale: 100. The token name as a whole reads: --gcds-grayscale-100."/>
 
 {% include "partials/helpus.njk" %}

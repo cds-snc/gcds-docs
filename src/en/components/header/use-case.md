@@ -9,7 +9,7 @@ eleventyNavigation:
   otherNames: global header.
   description: The Government of Canada branded header landmark.
   thumbnail: /images/common/components/preview-header.svg
-  alt: Header component shows three banners layered on top of each other where the first one, the phase banner a dark blue box with white outlined box representing the phase of the site followed by a light blue box representing text explaining the phase. The second banner shows the federal identity composed of the Canada flag with boxes representing the text, followed by a grey box underlined in blue representing the language toggle. The last banner shows the site menu displayed by a large grey box, that has a dark blue box and 2 grey boxes representing the menu links.
+  alt: Three horizontal banners stacked on top of each other. The first is a grey banner with three dots on the left, representing a browser banner. The second is a dark blue banner with a white outline representing a phase banner. The third is white banner holding a Canada flag and two stacked, thick grey lines that represent lines of text. 
   tag: Core
   state: published
 translationKey: 'header'

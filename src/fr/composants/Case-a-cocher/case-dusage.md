@@ -9,7 +9,7 @@ eleventyNavigation:
   otherNames: liste de contrôle, liste de vérification.
   description: Cases qui permettent la sélection d’une ou plusieurs options.
   thumbnail: /images/common/components/preview-checkbox.svg
-  alt: Un aperçu du composant case à cocher avec trois options. La première option a une boîte blanche au contour noir avec une coche à l'intérieur suivi de deux longues boîtes grises rectangulaires qui représentent du texte. Les deux autres options sont représentées d'une boîte blanche au contour noir, vide, suivie de deux longues boites grises représentant du texte.
+  alt: Une suite verticale de trois cases à cocher, chacune ayant une bordure gris pâle et un remplissage blanc, et étant accompagnée d’une épaisse ligne grise représentant un libellé. Deux des trois cases sont cochées par un crochet.
   state: published
 translationKey: 'checkbox'
 tags: ['checkboxFR', 'usage']

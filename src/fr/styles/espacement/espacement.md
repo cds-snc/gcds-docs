@@ -10,7 +10,7 @@ eleventyNavigation:
   order: 2
   description: Les unités de style d'espacement aident à disposer les éléments à l'écran et dans les composants.
   thumbnail: /images/en/foundations/preview/preview-spacing.svg
-  alt:
+  alt: Une ligne rouge verticale terminée à chaque extrémité par une courte ligne horizontale plus sombre montre la taille de l’espacement correspondant à l’unité de style écrite à sa droite, --gcds-spacing-500.
   state: published
 tokenTable:
   headers:

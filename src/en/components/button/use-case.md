@@ -9,7 +9,7 @@ eleventyNavigation:
   otherNames: call to action, CTA.
   description: An interactive object that highlights an action.
   thumbnail: /images/common/components/preview-button.svg
-  alt: Button shows a dark blue box with a button and an arrow inside.
+  alt: A dark blue box with a white box inside of it represents a button with a label.
   state: published
 translationKey: 'button'
 tags: ['buttonEN', 'usage']

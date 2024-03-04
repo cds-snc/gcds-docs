@@ -9,7 +9,7 @@ eleventyNavigation:
   otherNames: menu du site, navigation, barre de navigation
   description: Une barre de navigation supérieure est une liste horizontale de liens de page.
   thumbnail: /images/common/components/preview-top-nav.svg
-  alt: Un aperçu du composant barre de navigation supérieure qui montre la navigation du site représentée par des boîtes grises alignés horizontalement. Une boîte bleue suivi de deux boîtes grises représentent les liens où la dernière boîte est surlignée afin de représenter le lien actif.
+  alt: La barre de navigation supérieure d’un site Web a un arrière-plan gris pâle et renferme trois petites lignes gris foncé, côte à côte, représentant des éléments du menu.
   state: published
 translationKey: 'topnavigation'
 tags: ['topnavigationFR', 'usage']

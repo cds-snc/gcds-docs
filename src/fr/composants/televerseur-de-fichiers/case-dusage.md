@@ -9,7 +9,7 @@ eleventyNavigation:
   otherNames: saisie de fichier, zone de dépôt.
   description: Un sélecteur de fichier pour le transfert de fichiers.
   thumbnail: /images/fr/components/preview/preview-file-uploader.svg
-  alt: Un aperçu du composant télécharger un fichier qui montre deux petites boîtes grises représentant du texte au dessus d'un bouton blanc de choisir un fichier avec contour bleu foncé et un icône formé d'une flèche bleue pointant vers le haut. Sous le bouton apparait une boîte grise au coin rond avec à l'intérieur une boîte rectangulaire grise foncée représentant le nom du fichier ainsi qu'un bouton rond rouge foncé avec un x à l'intérieur pour enlever le fichier.
+  alt: Deux épaisses lignes grises représentent le texte surmontant un bouton de sélection de fichier.
   state: published
 translationKey: 'fileuploader'
 tags: ['fileuploaderFR', 'usage']
