@@ -6,7 +6,7 @@ tags: ['sidenavigationFR', 'design']
 date: 'git Last Modified'
 ---
 
-## Side navigation anatomy
+## Structure de la barre de navigation latérale
 
 <ol class="anatomy-list">
   <li>Le <strong>libellé</strong> identifie le site du produit à l’aide d’un élément texte ou d’un logo. Il indique également le point de repère de navigation qui sera utilisé par les technologies d'assistance.</li>
