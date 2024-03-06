@@ -9,7 +9,7 @@ tags: ['sidenavigationFR', 'header']
 
 _Autres noms : menu latéral, navigation à gauche, navigation verticale_
 
-Une barre de navigation latérale consiste en une liste de liens de navigation située du côté gauche de l'écran.
+La barre de navigation latérale est une liste de liens de navigation située du côté gauche de l'écran.
 
 {% docLinks locale stage figma github %}
 {% enddocLinks %}
