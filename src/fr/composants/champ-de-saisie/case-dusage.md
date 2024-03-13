@@ -42,37 +42,38 @@ Sélecteur de date : lorsque vous souhaitez que l'utilisateur·rice choisisse u
 
 ## Choisissez un type de champ de saisie
 
-Set the input type based on how the input will validate the values a person enters.
-The input-type attribute accepts the following options:
+Définissez le type de champ de saisie en fonction de la méthode de validation des valeurs saisies par une personne.
+L’attribut input-type (type de champ de saisie) accepte les options suivantes :
 
 ### Saisie textuelle
 
-Use when no other specfic input type is available for single-line entry.
+Utilisez cette option s'il n'existe pas déjà un autre type de champ de saisie approprié pour la réponse à ligne unique.
 
-- To collect a person's name, in most cases by full name.
-- Instead of the number input, for things like estimates that can have non-numerical values.
+- Pour recueillir le nom d’une personne (son nom complet dans la plupart des cas).
+- En remplacement de la saisie numérique, pour des réponses à valeurs non numériques comme des estimations.
 
 ### Saisie d'une adresse courriel
 
-- For email address collection.
-- To require an email address format.
+- Pour recueillir des adresses courriel.
+- Pour exiger un format d’adresse courriel.
 
 ### Saisie de mot de passe
 
-- For password collection and validation.
-- To set specific password constraints.
+- Pour la collecte et la validation de mots de passe.
+- Pour définir des contraintes spécifiques aux mots de passe.  
 
-Tip: Communicate any password constraints in the hint text for the input so the person choosing the password knows exactly what the rules are.
+Conseil :  Indiquez toute contrainte liée au mot de passe dans le texte explicatif du champ de saisie afin que les personnes sachent exactement quelles sont les règles.
 
 ### Saisie numérique
 
-- Utiliser pour rejeter les valeurs qui ne sont pas numériques.
-- Conseil : Lorsque vous définissez une contrainte, comme une fourchette numérique, utilisez le texte explicatif pour transmettre une directive précise.
+À utiliser pour rejeter les valeurs qui ne sont pas numériques.
+
+Conseil : Lorsque vous définissez une contrainte, comme une fourchette numérique, utilisez le texte explicatif pour transmettre une directive précise.
 
 ### Saisie d'une clé de recherche
 
-Utiliser pour collecter une valeur à rechercher.
+- Pour collecter une valeur à rechercher.
 
 ### Saisie d'une URL
 
-Utiliser pour collecter une URL, comme une adresse Web ou un nom de domaine.
+- Pour collecter une URL, comme une adresse Web ou un nom de domaine.
