@@ -6,13 +6,13 @@
   "homepage": "https://design-system.alpha.canada.ca/",
   "main": "index.js",
   "scripts": {
-    "build:sass": "sass src/styles:src/styles",
+    "build:sass": "node-sass src/styles -o src/styles",
     "build:eleventy": "eleventy",
     "build": "npm-run-all build:sass --parallel build:*",
     "create-component-page": "node scripts/gen-component-page.js",
     "format": "npx prettier --write .",
     "start": "npm-run-all build:sass --parallel watch:*",
-    "watch:sass": "sass --watch src/styles:src/styles",
+    "watch:sass": "node-sass --watch -r src/styles -o src/styles",
     "watch:eleventy": "eleventy --serve"
   },
   "repository": {
@@ -29,6 +29,7 @@
     "eleventy-plugin-code-clipboard": "^0.1.0",
     "markdown-it": "^13.0.0",
     "moment": "^2.29.1",
+    "node-sass": "^9.0.0",
     "npm-run-all2": "^5.0.0"
   },
   "devDependencies": {
@@ -41,8 +42,7 @@
     "eleventy-plugin-svg-contents": "^0.7.0",
     "prettier": "3.2.5",
     "prompt-sync": "^4.2.0",
-    "replace-in-file": "^7.0.0",
-    "sass": "^1.72.0"
+    "replace-in-file": "^7.0.0"
   },
   "license": "MIT"
 }
