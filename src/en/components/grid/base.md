@@ -6,8 +6,6 @@ permalink: false
 tags: ['gridEN', 'header']
 ---
 
-{{ locale }}
-
 # Grid <br>`<gcds-grid>`
 
 _Also called: layout, columns, columns layout, grid container._

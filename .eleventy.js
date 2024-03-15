@@ -138,16 +138,16 @@ module.exports = function (eleventyConfig) {
     return bottom;
   });
 
-  eleventyConfig.addFilter('colourFromValue', function(value, tokens) {
-    let colourName = "";
+  eleventyConfig.addFilter('colourFromValue', function (value, tokens) {
+    let colourName = '';
     Object.keys(tokens).forEach(colour => {
       Object.keys(tokens[colour]).forEach(weightValue => {
-        if (tokens[colour][weightValue]["value"] === value) {
+        if (tokens[colour][weightValue]['value'] === value) {
           colourName = `${colour}-${weightValue}`;
         }
       });
     });
-    return colourName
+    return colourName;
   });
 
   /* Markdown Overrides */
@@ -163,7 +163,7 @@ module.exports = function (eleventyConfig) {
 
   // Short codes
 
-  eleventyConfig.addPairedShortcode('viewCode', (children, lang, id, name) => {
+  eleventyConfig.addPairedShortcode('viewCode', (content, lang, id, name) => {
     const langStrings = {
       en: {
         view: 'View code',
@@ -177,18 +177,15 @@ module.exports = function (eleventyConfig) {
     if (lang != 'en ' && lang != 'fr') {
       lang = 'en';
     }
-    const content = markdownLibrary.render(children);
 
     return `
-    <div class="code-showcase mb-400">
-      <div class="showcase mb-400 p-400" id="${id}" aria-hidden="true">
-        ${content}
-      </div>
-      <div>
-        <gcds-button button-type="button" button-role="secondary" aria-label="${langStrings[lang].view} - ${name}" onclick="toggleCodeShowcase(this, '${id}');" aria-controls="${id}" aria-expanded="false">${langStrings[lang].view}</gcds-button>
-        <gcds-button button-type="button" button-role="secondary" onclick="copyCodeShowcase(this, '${id}', '${lang}');" onblur="this.innerText = '${langStrings[lang].copy}'">${langStrings[lang].copy}</gcds-button>
-      </div>
-    </div>
+        <div class="code-showcase mb-400">
+          <textarea class="showcase text-light mb-400 p-400" id="${id}" rows="8" aria-hidden="true">${content}</textarea>
+          <div>
+            <gcds-button button-type="button" button-role="secondary" aria-label="${langStrings[lang].view} - ${name}" onclick="toggleCodeShowcase(this, '${id}');" aria-controls="${id}" aria-expanded="false">${langStrings[lang].view}</gcds-button>
+            <gcds-button button-type="button" button-role="secondary" onclick="copyCodeShowcase(this, '${id}', '${lang}');" onblur="this.innerText = '${langStrings[lang].copy}'">${langStrings[lang].copy}</gcds-button>
+          </div>
+        </div>
     `;
   });
 
