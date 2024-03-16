@@ -3,9 +3,8 @@
   background-color: var(--gcds-textarea-default-background);
   border: var(--gcds-border-width-sm) solid var(--gcds-border-default);
   z-index: 9999;
-  margin-top: 100px;
-  margin-left: 20px;
-  padding: var(--gcds-spacing-300);
+  margin-top: calc(var(--gcds-input-min-width-and-height) + var(--gcds-input-outline-width));
+  //margin-left: 20px;
   padding: var(--gcds-textarea-padding);
 
   div {

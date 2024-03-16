@@ -10,12 +10,20 @@ function onElementAvailable(selector, callback) {
 }
 
 function addResult(result) {
-    // console.log(result);
     let results = document.querySelector('#results');
     let resultElement = document.createElement('div');
-    console.log('title is...', encodeURIComponent(result.meta.title);
-    resultElement.innerHTML = `<gcds-link href="${result.url}">${encodeURIComponent(result.meta.title)}</gcds-link>`;
-    resultElement.innerHTML += `<gcds-text size="caption" role="secondary" character-limit="false" margin-bottom="0">${result.excerpt}</gcds-text>`;
+    let link = document.createElement('gcds-link');
+    link.setAttribute('href', result.url);
+    link.innerText = result.meta.title;
+    resultElement.appendChild(link);
+
+    let gcdsText = document.createElement('gcds-text');
+    gcdsText.setAttribute('size', 'caption');
+    gcdsText.setAttribute('role', 'secondary');
+    gcdsText.setAttribute('character-limit', 'false');
+    gcdsText.setAttribute('margin-bottom', '0');
+    gcdsText.innerHTML = result.excerpt;
+    resultElement.appendChild(gcdsText);
     results.appendChild(resultElement);
 }
 
@@ -30,7 +38,6 @@ onElementAvailable('gcds-search', async () => {
     baseUrl: "/",
   });
 
-
   let searchComponent = document.querySelector('gcds-search');
 
   // search on submit event
@@ -42,7 +49,6 @@ onElementAvailable('gcds-search', async () => {
     // length could also be from search.unfilteredResultCount
     for (const result of search.results) {
         let data = await result.data();
-        console.log('data is', data);
         addResult(data);
     }
   })
