@@ -1,0 +1,18 @@
+.search-results {
+  position: absolute;
+  background-color: var(--gcds-textarea-default-background);
+  border: var(--gcds-border-width-sm) solid var(--gcds-border-default);
+  z-index: 9999;
+  margin-top: 100px;
+  margin-left: 20px;
+  padding: var(--gcds-spacing-300);
+  padding: var(--gcds-textarea-padding);
+
+  div {
+    margin-bottom: var(--gcds-spacing-300);
+  }
+}
+
+.search-results:empty {
+  display: none;
+}
