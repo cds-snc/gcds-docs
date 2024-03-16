@@ -363,6 +363,24 @@ nav.tabs a[aria-current=page]:focus {
   border-color: var(--gcds-focus-background);
 }
 
+.search-results {
+  position: absolute;
+  background-color: var(--gcds-textarea-default-background);
+  border: var(--gcds-border-width-sm) solid var(--gcds-border-default);
+  z-index: 9999;
+  margin-top: 100px;
+  margin-left: 20px;
+  padding: var(--gcds-spacing-300);
+  padding: var(--gcds-textarea-padding);
+}
+.search-results div {
+  margin-bottom: var(--gcds-spacing-300);
+}
+
+.search-results:empty {
+  display: none;
+}
+
 .hero {
   margin: calc(-1 * var(--gcds-spacing-200));
   background: url(../../images/common/home/home-hero.jpg) top center no-repeat;

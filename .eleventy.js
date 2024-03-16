@@ -13,6 +13,8 @@ const displayTokens = require('./utils/display-tokens');
 const markdownAnchor = require('./utils/anchor');
 const slugify = require('./utils/slugify');
 
+const { execSync } = require('child_process')
+
 module.exports = function (eleventyConfig) {
   // Pass through copies
 
@@ -21,6 +23,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy('./src/styles/prism.css');
   eleventyConfig.addPassthroughCopy('./src/images');
   eleventyConfig.addPassthroughCopy('./src/scripts/code-showcase.js');
+  eleventyConfig.addPassthroughCopy('./src/scripts/search.js');
   eleventyConfig.addPassthroughCopy('./src/admin/config.yml');
   eleventyConfig.addPassthroughCopy('./src/favicon.ico');
   eleventyConfig.addPassthroughCopy({ './src/variables/': 'variables' });
@@ -281,6 +284,10 @@ module.exports = function (eleventyConfig) {
       };
     });
   });
+
+  eleventyConfig.on('eleventy.after', () => {
+    execSync(`npx pagefind --site _site --glob \"**/*.html\"`, { encoding: 'utf-8' })
+  })
 
   return {
     pathPrefix: process.env.PATH_PREFIX || '/',
