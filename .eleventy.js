@@ -180,10 +180,27 @@ module.exports = function (eleventyConfig) {
 
     return `
         <div class="code-showcase mb-400">
-          <textarea class="showcase text-light mb-400 p-400" id="${id}" rows="8" aria-hidden="true">${content}</textarea>
+          <textarea class="showcase text-light mb-400 p-400" id="${id}" rows="8" aria-hidden="true" readonly>${content}</textarea>
           <div>
-            <gcds-button button-type="button" button-role="secondary" aria-label="${langStrings[lang].view} - ${name}" onclick="toggleCodeShowcase(this, '${id}');" aria-controls="${id}" aria-expanded="false">${langStrings[lang].view}</gcds-button>
-            <gcds-button button-type="button" button-role="secondary" onclick="copyCodeShowcase(this, '${id}', '${lang}');" onblur="this.innerText = '${langStrings[lang].copy}'">${langStrings[lang].copy}</gcds-button>
+            <gcds-button
+              class="showcase-view-button"
+              button-type="button"
+              button-role="secondary"
+              aria-label="${langStrings[lang].view} - ${name}"
+              aria-controls="${id}"
+              aria-expanded="false"
+            >
+              ${langStrings[lang].view}
+            </gcds-button>
+            <gcds-button
+              class="showcase-copy-button"
+              button-type="button"
+              button-role="secondary"
+              onblur="this.innerText = '${langStrings[lang].copy}'"
+              lang="${lang}"
+            >
+              ${langStrings[lang].copy}
+            </gcds-button>
           </div>
         </div>
     `;
