@@ -196,7 +196,6 @@ module.exports = function (eleventyConfig) {
               class="showcase-copy-button"
               button-type="button"
               button-role="secondary"
-              onblur="this.innerText = '${langStrings[lang].copy}'"
               lang="${lang}"
             >
               ${langStrings[lang].copy}
