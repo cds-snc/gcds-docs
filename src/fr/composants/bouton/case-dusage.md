@@ -79,7 +79,7 @@ Un rôle est un sous-type de bouton à usage spécifique sur une page.
 <div class="remove-empty-p">
 <gcds-grid columns="1fr" columns-tablet="1fr 2fr" gap="500" align-items="start">
   {% componentPreview "Aperçu du bouton principal" "px-300 py-400" "" %}
-  <gcds-button button-role="primary">Principal</gcds-button>
+  <gcds-button button-role="primary">Soumettre</gcds-button>
   {% endcomponentPreview %}
   <div>
     <h3 class="mb-400">Utilisations du bouton principal</h3>
@@ -94,7 +94,7 @@ Un rôle est un sous-type de bouton à usage spécifique sur une page.
 <br/>
 <gcds-grid columns="1fr" columns-tablet="1fr 2fr" gap="500" align-items="start">
   {% componentPreview "Aperçu du bouton secondaire" "px-300 py-400" "" %}
-  <gcds-button button-role="secondary">Secondaire</gcds-button>
+  <gcds-button button-role="secondary">Annuler</gcds-button>
   {% endcomponentPreview %}
   <div>
     <h3 class="mb-400">Utilisations du bouton secondaire</h3>
@@ -108,7 +108,7 @@ Un rôle est un sous-type de bouton à usage spécifique sur une page.
 <br/>
 <gcds-grid columns="1fr" columns-tablet="1fr 2fr" gap="500" align-items="start">
   {% componentPreview "Aperçu du bouton « Danger »" "px-300 py-400" "" %}
-  <gcds-button button-role="danger">Danger</gcds-button>
+  <gcds-button button-role="danger">Supprimer</gcds-button>
   {% endcomponentPreview %}
   <div>
     <h3 class="mb-400">Utilisations du bouton « Danger »</h3>
