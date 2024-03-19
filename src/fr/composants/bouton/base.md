@@ -16,7 +16,7 @@ Un bouton est un composant interactif qui met en évidence une action importante
 {% enddocLinks %}
 
 {% componentPreview "Aperçu du composant de bouton" %}
-<gcds-button class="me-400" button-role="primary">Principal</gcds-button>
-<gcds-button class="me-400" button-role="secondary">Secondaire</gcds-button>
-<gcds-button class="me-400" button-role="danger">Danger</gcds-button>
+<gcds-button class="me-400" button-role="primary">Soumettre</gcds-button>
+<gcds-button class="me-400" button-role="secondary">Annuler</gcds-button>
+<gcds-button class="me-400" button-role="danger">Supprimer</gcds-button>
 {% endcomponentPreview %}
