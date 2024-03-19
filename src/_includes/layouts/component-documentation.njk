@@ -7,7 +7,7 @@
 {% block content %}
   {% if tabs %}
     {{ tabs.header.templateContent | safe }}
-    <nav class="tabs mb-400" aria-label="{{ navLabel or title }}">
+    <nav class="tabs mb-400" aria-label="{{ tabsnav[locale].label }}">
       <ul>
         {% for key, tab in documentation[locale] %}
           {% if tabs[key].url %}
