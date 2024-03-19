@@ -166,10 +166,12 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPairedShortcode('viewCode', (content, lang, id, name) => {
     const langStrings = {
       en: {
+        code: 'Code display',
         view: 'View code',
         copy: 'Copy code',
       },
       fr: {
+        code: 'TO DO',
         view: 'Voir le code',
         copy: 'Copier le code',
       },
@@ -180,7 +182,7 @@ module.exports = function (eleventyConfig) {
 
     return `
         <div class="code-showcase mb-400">
-          <textarea class="showcase text-light mb-400 p-400" id="${id}" rows="8" aria-hidden="true" readonly>${content}</textarea>
+          <textarea class="showcase text-light mb-400 p-400" id="${id}" rows="8" aria-label="${langStrings[lang].code} - ${name}" aria-hidden="true" readonly>${content}</textarea>
           <div>
             <gcds-button
               class="showcase-view-button"
