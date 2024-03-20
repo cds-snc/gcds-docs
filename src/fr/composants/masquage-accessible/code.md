@@ -3,7 +3,7 @@ title: Masquage accessible
 layout: 'layouts/component-documentation.njk'
 translationKey: 'screenreaderonlyCode'
 tags: ['screenreaderonlyFR', 'code']
-# date: "git Last Modified"
+date: 'git Last Modified'
 ---
 
 ## Création d'un masquage accessible

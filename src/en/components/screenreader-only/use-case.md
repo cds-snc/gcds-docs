@@ -15,7 +15,7 @@ eleventyNavigation:
 translationKey: 'screenreaderonly'
 tags: ['screenreaderonlyEN', 'usage']
 permalink: /en/components/screenreader-only/
-# date: "git Last Modified"
+date: 'git Last Modified'
 ---
 
 ## Problems screenreader-only solves
