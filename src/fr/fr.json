@@ -36,7 +36,7 @@
     "link": "/fr/composants/lien",
     "pagination": "/fr/composants/pagination",
     "radio": "/fr/composants/bouton-radio",
-    "screenreaderContent": "/fr/developpement-en-cours",
+    "screenreaderOnly": "/fr/composants/masquage-accessible",
     "search": "/fr/composants/recherche",
     "select": "/fr/composants/selection",
     "sideNav": "/fr/composants/barre-de-navigation-laterale",
