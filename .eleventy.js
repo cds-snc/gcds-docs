@@ -171,7 +171,7 @@ module.exports = function (eleventyConfig) {
         copy: 'Copy code',
       },
       fr: {
-        code: 'TO DO',
+        code: 'Affichage du code',
         view: 'Voir le code',
         copy: 'Copier le code',
       },
