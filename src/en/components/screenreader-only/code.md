@@ -3,7 +3,7 @@ title: Screenreader-only
 layout: 'layouts/component-documentation.njk'
 translationKey: 'screenreaderonlyCode'
 tags: ['screenreaderonlyEN', 'code']
-# date: "git Last Modified"
+date: 'git Last Modified'
 ---
 
 ## Build a screenreader-only

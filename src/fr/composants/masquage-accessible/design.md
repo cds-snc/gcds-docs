@@ -3,7 +3,7 @@ title: Masquage accessible
 layout: 'layouts/component-documentation.njk'
 translationKey: 'screenreaderonlyDesign'
 tags: ['screenreaderonlyFR', 'design']
-# date: "git Last Modified"
+date: 'git Last Modified'
 ---
 
 ## Structure

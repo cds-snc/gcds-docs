@@ -3,7 +3,7 @@ title: Screenreader-only
 layout: 'layouts/component-documentation.njk'
 translationKey: 'screenreaderonlyDesign'
 tags: ['screenreaderonlyEN', 'design']
-# date: 'git Last Modified'
+date: 'git Last Modified'
 ---
 
 ## Screenreader-only anatomy

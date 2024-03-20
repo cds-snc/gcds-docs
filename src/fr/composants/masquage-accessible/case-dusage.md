@@ -14,7 +14,7 @@ eleventyNavigation:
 translationKey: 'screenreaderonly'
 tags: ['screenreaderonlyFR', 'usage']
 permalink: /fr/composants/masquage-accessible/
-# date: "git Last Modified"
+date: 'git Last Modified'
 ---
 
 ## Problèmes résolus par le masquage accessible
