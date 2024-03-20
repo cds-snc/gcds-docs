@@ -1,28 +1,36 @@
-function toggleCodeShowcase(trigger, id) {
-  const element = document.querySelector(`#${id}`);
-  if (element.getAttribute('aria-hidden') == 'true') {
-    element.setAttribute('aria-hidden', false);
-    trigger.setAttribute('aria-expanded', 'true');
-  } else {
-    element.setAttribute('aria-hidden', true);
-    trigger.setAttribute('aria-expanded', 'false');
+document.addEventListener('DOMContentLoaded', function () {
+  // Toggle code visibility
+  document.querySelectorAll('.showcase-view-button').forEach(button => {
+    button.addEventListener('click', toggleCodeVisibility);
+  });
+
+  function toggleCodeVisibility() {
+    const code = this.closest('.code-showcase').querySelector('.showcase');
+    const isHidden = code.getAttribute('aria-hidden') === 'true';
+
+    code.setAttribute('aria-hidden', !isHidden);
+    this.setAttribute('aria-expanded', String(isHidden));
   }
-}
 
-function copyCodeShowcase(trigger, id, lang) {
-  const parentElement = document.getElementById(id);
-  const codeElement = parentElement.querySelector('code');
-  const copyButton = parentElement.querySelector('.code-copy');
+  // Copy code showcase
+  document.querySelectorAll('.code-showcase').forEach(codeShowcase => {
+    codeShowcase
+      .querySelector('.showcase-copy-button')
+      .addEventListener('click', copyCode);
+  });
 
-  // Change values to slect right code element
-  // The ID attribute is not set properly due to how we render our code elements
-  codeElement.setAttribute('id', `code-${id}`);
-  copyButton.setAttribute('data-clipboard-target', `#code-${id}`);
-  copyButton.click();
+  function copyCode() {
+    const codeElement =
+      this.closest('.code-showcase').querySelector('.showcase');
+    const lang = this.getAttribute('lang');
 
-  if (lang == 'en') {
-    trigger.innerText = 'Copied';
-  } else {
-    trigger.innerText = 'Copié';
+    navigator.clipboard
+      .writeText(codeElement.value)
+      .then(() => {
+        this.innerText = lang === 'en' ? 'Copied' : 'Copié';
+      })
+      .catch(error => {
+        console.error('Failed to copy text: ', error);
+      });
   }
-}
+});

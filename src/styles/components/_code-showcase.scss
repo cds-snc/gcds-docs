@@ -4,6 +4,7 @@
 
 .code-showcase {
   .showcase {
+    width: 100%;
     background-color: #262626;
 
     &[aria-hidden='true'] {
@@ -12,16 +13,12 @@
       height: 0;
       margin: 0;
       padding: 0;
+      border: 0;
       overflow: hidden;
     }
 
     &[aria-hidden='false'] {
       margin-top: calc(-1 * var(--gcds-spacing-400));
-    }
-
-    code {
-      background-color: transparent;
-      color: var(--gcds-text-light);
     }
   }
 

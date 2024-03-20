@@ -157,6 +157,7 @@ ul li ul li {
  * Code showcase
  */
 .code-showcase .showcase {
+  width: 100%;
   background-color: #262626;
 }
 .code-showcase .showcase[aria-hidden=true] {
@@ -165,14 +166,11 @@ ul li ul li {
   height: 0;
   margin: 0;
   padding: 0;
+  border: 0;
   overflow: hidden;
 }
 .code-showcase .showcase[aria-hidden=false] {
   margin-top: calc(-1 * var(--gcds-spacing-400));
-}
-.code-showcase .showcase code {
-  background-color: transparent;
-  color: var(--gcds-text-light);
 }
 .code-showcase gcds-button {
   margin: 0 var(--gcds-spacing-300) 0 0;
