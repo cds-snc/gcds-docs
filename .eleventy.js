@@ -255,7 +255,7 @@ module.exports = function (eleventyConfig) {
         <p class="container-full font-semibold px-300 py-200 bb-sm b-default bg-light">
           ${title}
         </p>
-        <div class="${padding}">
+        <div class="${padding}" data-pagefind-ignore="all">
           ${content}
         </div>
       </div>
