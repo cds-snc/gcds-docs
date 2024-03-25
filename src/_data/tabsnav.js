@@ -1,8 +1,8 @@
 module.exports = {
   en: {
-    label: 'Content tabs',
+    label: 'Guidance tabs',
   },
   fr: {
-    label: 'TO DO',
+    label: 'Onglet de consignes',
   },
 };
