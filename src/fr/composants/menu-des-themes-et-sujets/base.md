@@ -15,6 +15,9 @@ Le menu des thèmes et sujets est un mécanisme de navigation vers les tâches l
 {% enddocLinks %}
 
 {% componentPreview "Aperçu du composant de menu des thèmes et sujets" "px-0 py-400" %}
+
+<div aria-hidden="true">
   <gcds-topic-menu>
   </gcds-topic-menu>
+</div>
 {% endcomponentPreview %}
