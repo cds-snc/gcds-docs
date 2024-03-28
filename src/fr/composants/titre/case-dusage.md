@@ -34,6 +34,6 @@ Utilisez des titres pour :
 
 <a href="{{ links.text }}" class="link-light">Texte</a> pour des paragraphes affichant du contenu autre qu'un titre avec les styles correspondants de Système de design GC.
 
-<a href="{{ links.screenreaderContent }}" class="link-light">Contenu de lecteur d'écran</a> pour de l'information détectable avec les technologies d'assistance telles que les lecteurs d'écran, mais invisibles pour les utilisateur·rice·s voyant·e·s.
+<a href="{{ links.screenreaderOnly }}" class="link-light">Masquage accessible</a> pour de l'information détectable avec les technologies d'assistance telles que les lecteurs d'écran, mais invisibles pour les utilisateur·rice·s voyant·e·s.
 
 </article>

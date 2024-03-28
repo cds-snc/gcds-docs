@@ -34,6 +34,6 @@ Use headings to:
 
 <a href="{{ links.text }}" class="link-light">Text</a> for paragraphs displaying non-heading content with matching GC Design System styles.
 
-<a href="{{ links.screenreaderContent }}" class="link-light">Screenreader content</a> for information that's detectable with assistive technologies like screen readers, but invisible to sighted users.
+<a href="{{ links.screenreaderOnly }}" class="link-light">Screenreader-only</a> for information that's detectable with assistive technologies like screen readers, but invisible to sighted users.
 
 </article>
