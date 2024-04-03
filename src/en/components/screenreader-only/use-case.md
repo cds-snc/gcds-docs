@@ -8,7 +8,7 @@ eleventyNavigation:
   parent: componentsEN
   otherNames: visually hidden, assistive text.
   description: The screenreader-only component is text information only accessible with assistive technologies.
-  thumbnail: /images/common
+  thumbnail: /images/common/components/preview-screenreader-only.svg
   alt: TO DO
   tag: Experimental
   state: published

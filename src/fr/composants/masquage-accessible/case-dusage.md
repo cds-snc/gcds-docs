@@ -8,7 +8,7 @@ eleventyNavigation:
   parent: componentsFR
   otherNames: masquage visuel, lecteur d'écran uniquement.
   description: Le masquage accessible est une façon de rendre l'information textuelle uniquement accessible à des technologies d'assistance.
-  thumbnail: /images/common
+  thumbnail: /images/common/components/preview-screenreader-only.svg
   alt: TO DO
   state: published
 translationKey: 'screenreaderonly'
