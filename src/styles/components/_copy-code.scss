@@ -1,0 +1,12 @@
+/*
+ * Copy code button
+ */
+
+.code-copy-button {
+  --gcds-button-secondary-default-text: white;
+  width: fit-content;
+}
+
+.code-copy-button:hover {
+  --gcds-button-secondary-default-text: var(--gcds-link-default);
+}
