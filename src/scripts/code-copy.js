@@ -7,6 +7,17 @@ document.addEventListener('DOMContentLoaded', function () {
     lang = 'fr';
   }
 
+  const buttonText = {
+    'en' : {
+      copy: 'Copy',
+      copied: 'Copied'
+    },
+    'fr' : {
+      copy: 'Copie',
+      copied: 'Copié'
+    }
+  }
+
   const buttonClasses = [
     'd-block',
     'mt-200',
@@ -19,26 +30,14 @@ document.addEventListener('DOMContentLoaded', function () {
     button.setAttribute('button-role', 'secondary');
     button.setAttribute('size', 'small');
 
-    if (lang === 'en') {
-      button.innerHTML = 'Copy';
-    } else {
-      button.innerHTML = 'Copie';
-    }
+    button.innerHTML = buttonText[lang].copy;
 
     button.addEventListener('click', () => {
       navigator.clipboard.writeText(pre.querySelector('code').textContent);
-      if (lang === 'en') {
-        button.innerHTML = 'Copied';
-      } else {
-        button.innerHTML = 'Copié';
-      }
+      button.innerHTML = buttonText[lang].copied;
     });
     button.addEventListener('blur', () => {
-      if (lang === 'en') {
-        button.innerHTML = 'Copy';
-      } else {
-        button.innerHTML = 'Copie';
-      }
+      button.innerHTML = buttonText[lang].copy;
     });
     pre.append(button);
   });
