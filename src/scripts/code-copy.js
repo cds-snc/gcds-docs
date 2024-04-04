@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', function () {
     button.setAttribute('button-role', 'secondary');
     button.setAttribute('size', 'small');
 
-    if (lang = 'en') {
+    if (lang === 'en') {
       button.innerHTML = 'Copy';
     } else {
       button.innerHTML = 'Copie';
@@ -27,14 +27,14 @@ document.addEventListener('DOMContentLoaded', function () {
 
     button.addEventListener('click', () => {
       navigator.clipboard.writeText(pre.querySelector('code').textContent);
-      if (lang = 'en') {
+      if (lang === 'en') {
         button.innerHTML = 'Copied';
       } else {
         button.innerHTML = 'Copié';
       }
     });
     button.addEventListener('blur', () => {
-      if (lang = 'en') {
+      if (lang === 'en') {
         button.innerHTML = 'Copy';
       } else {
         button.innerHTML = 'Copie';
