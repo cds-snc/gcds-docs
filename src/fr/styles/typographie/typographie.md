@@ -107,7 +107,7 @@ La famille de police comprend des valeurs de rechange. Les valeurs de rechange s
 
 ### Italiques
 
-- Mettez toute référence à un projet de loi canadien en caractères italiques (Loi canadienne sur l'accessibilité).
+- Mettez toute référence à un projet de loi canadien en caractères italiques, par example, _Loi canadienne sur l'accessibilité_.
 - N'utilisez les caractères en italiques que pour de courts passages. Un gros volume de texte en caractères italiques peut rendre difficile le traitement cognitif pour certains lecteurs.
 
 {% include "partials/token_table.njk", token: 'fontWeights', type: 'fontWeights' %}
