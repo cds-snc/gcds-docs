@@ -106,7 +106,7 @@ The font family contains fallback values. The fallback is a substitute value for
 
 ### Italics
 
-- Use italics when referencing a Canadian law (Accessible Canada Act).
+- Use italics when referencing a Canadian law, as in _Accessible Canada Act_.
 - Limit your use of italics to short strings of text. Long passages in italics can create cognitive processing difficulties for sighted readers.
 
 {% include "partials/token_table.njk", token: 'fontWeights', type: 'fontWeights' %}
