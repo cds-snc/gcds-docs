@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', function () {
       copied: 'Copied'
     },
     'fr' : {
-      copy: 'Copie',
+      copy: 'Copier',
       copied: 'Copié'
     }
   }
