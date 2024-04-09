@@ -1,14 +1,3 @@
-function onElementAvailable(selector, callback) {
-  const observer = new MutationObserver(mutations => {
-    if (document.querySelector(selector)) {
-      observer.disconnect();
-      callback();
-    }
-  });
-
-  observer.observe(document.documentElement, { childList: true, subtree: true });
-}
-
 function addResult(result) {
     let results = document.querySelector('#results');
     
@@ -16,34 +5,29 @@ function addResult(result) {
     resultElement.classList.add('search-result');
 
     let heading = document.createElement('gcds-heading');
-    heading.setAttribute('tag', 'h3');
-    heading.setAttribute('margin-top', '300');
-    heading.setAttribute('margin-bottom', '150');
+    heading.tag = 'h3';
+    heading.marginBottom = '150';
+    heading.marginTop = '300'
 
     let link = document.createElement('gcds-link');
-    link.setAttribute('href', result.url);
+    link.href = result.url;
     link.innerText = result.meta.title;
     heading.append(link);
     resultElement.appendChild(heading);
 
     let url = document.createElement('gcds-text');
     url.setAttribute('style', '--gcds-text-role-primary: var(--gcds-color-green-700);');
-    url.setAttribute('margin-bottom', '150');
+    url.marginBottom = '150';
     url.innerHTML = result.url;
 
     let excerpt = document.createElement('gcds-text');
-    excerpt.setAttribute('margin-bottom', '100');
+    excerpt.marginBottom = '100';
     excerpt.innerHTML = result.excerpt;
 
     resultElement.appendChild(url);
     resultElement.appendChild(excerpt);
     results.appendChild(resultElement);
 }
-
-// function clearResults() {
-//     let results = document.querySelector('#results');
-//     results.innerHTML = '';
-// }
 
 import * as pagefind from "/pagefind/pagefind.js";
 const url = new URLSearchParams(window.location.search);
@@ -53,46 +37,51 @@ pagefind.options({
 });
 
 const searchTerm = url.get('q');
-const index = url.get('idx');
+let index = url.get('page');
+
+if (!index) {
+  index = 1;
+}
 
 if (searchTerm) {
   // I realized we don't have a value property for gcds-search, want to add that
   // document.getElementById('searchbar').value = searchTerm;
   const search = await pagefind.search(searchTerm);
+  const results = search.results;
 
   // Results length
-  if (search.results.length > 0) {
+  if (results.length > 0) {
+    // Results heading
     let resultsHeading = document.createElement('gcds-heading');
     resultsHeading.setAttribute('tag', 'h2');
-    resultsHeading.innerHTML = `${search.results.length} search results for "${searchTerm}"`;
-  
+    resultsHeading.id = 'rh';
+    resultsHeading.tabIndex = '-1';
+    resultsHeading.innerHTML = `${results.length} search results for "${searchTerm}"`;
     document.getElementById('results-count').append(resultsHeading);
+
+    const totalPages = Math.ceil(results.length / 10);
+
+    let pageResults = results.slice(10*(index-1), (10*index)+1);
     
     // length could also be from search.unfilteredResultCount
-    for (const result of search.results) {
+    for (const result of pageResults) {
         let data = await result.data();
         addResult(data);
     }
+
+    if (totalPages > 1) {
+      const pagination = document.createElement('gcds-pagination');
+      pagination.display = 'list';
+      pagination.currentPage = index;
+      pagination.totalPages = totalPages;
+      pagination.url = {
+        queryStrings: {
+          'q': searchTerm,
+          'page::match': '{{1}}' 
+        }
+      };
+      pagination.classList.add('mt-400');
+      document.getElementById('pagination').appendChild(pagination);
+    }
   }
 }
-
-// onElementAvailable('gcds-search', async () => {
-//   await pagefind.options({
-//     baseUrl: "/",
-//   });
-
-//   let searchComponent = document.querySelector('gcds-search');
-
-//   // search on submit event
-//   searchComponent.addEventListener('gcdsSubmit', async function (e) {
-//     clearResults();
-//     const searchTerm = searchComponent.querySelector('input').value
-//     const search = await pagefind.search(searchTerm);
-
-//     // length could also be from search.unfilteredResultCount
-//     for (const result of search.results) {
-//         let data = await result.data();
-//         addResult(data);
-//     }
-//   })
-// });

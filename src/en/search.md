@@ -3,7 +3,6 @@ title: Search results
 translationKey: searchresults
 layout: 'layouts/base.njk'
 search: true
-# eleventyExcludeFromCollections: true
 eleventyNavigation:
   key: searchresultsEN
   title: Search
@@ -26,3 +25,4 @@ eleventyNavigation:
 <div id="results-count"></div>
 
 <div id="results"></div>
+<div id="pagination"></div>
