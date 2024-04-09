@@ -8,6 +8,11 @@ pagefind.options({
 
 const searchTerm = url.get('q');
 let index = url.get('page');
+let lang = 'en';
+
+if (window.location.href.includes('/fr/')) {
+  lang = 'fr';
+}
 
 if (!index) {
   index = 1;
@@ -22,11 +27,15 @@ if (searchTerm) {
   // Results length
   if (results.length > 0) {
     // Results heading
+    const langObject = {
+      en: `${results.length} search results for "${searchTerm}"`,
+      fr: `${results.length} résultats de recherche pour « ${searchTerm} »`,
+    }
     let resultsHeading = document.createElement('gcds-heading');
     resultsHeading.setAttribute('tag', 'h2');
     resultsHeading.id = 'rh';
     resultsHeading.tabIndex = '-1';
-    resultsHeading.innerHTML = `${results.length} search results for "${searchTerm}"`;
+    resultsHeading.innerHTML = langObject[lang];
     document.getElementById('results-count').append(resultsHeading);
 
     const totalPages = Math.ceil(results.length / 10);
