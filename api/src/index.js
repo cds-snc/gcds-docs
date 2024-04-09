@@ -26,18 +26,42 @@ process.on('SIGTERM', async () => {
 
 app.post('/submission', async (req, res) => {
     let origin = req.get('origin');
-    const body = req.body
+
+    const body = (req.body) ? req.body : {}
     const forwardedHost = req.get('x-forwarded-host')
     const forwardedProto = req.get('x-forwarded-proto')
 
     const forwardedOrigin = forwardedHost && forwardedProto ? `${forwardedProto}://${forwardedHost}` : null
 
+    // Get the language to figure out which domain to redirect the user to
     // Form name is in the format "contactEN" or "contactFR"
-    const lang = body["form-name"].slice(-2).toLowerCase()
+    let lang = "en"
+    try {
+        lang = body["form-name"].slice(-2).toLowerCase()
+    } catch (e) {
+        console.warn(`[WARN] Unable to determine language from form name, using default ${lang}`)
+    }
 
-    const parameters = await getParametersByName({
-        'gc-design-system-config': { transform: 'json' }
-    }, { decrypt: true });
+    let parameters
+    if( process.env['NODE_ENV'] === 'development' ) {
+        parameters = {
+            'gc-design-system-config': {
+                EMAIL_TARGET: '',
+                NOTIFY_API_KEY: '',
+                NOTIFY_TEMPLATE_ID: ''
+            }
+        }
+    } else {
+        try {
+            parameters = await getParametersByName({
+                'gc-design-system-config': {transform: 'json'}
+            }, {decrypt: true});
+        } catch (e) {
+            console.error('[ERROR] Failed to get parameters from SSM', e)
+            res.status(500).send()
+            return
+        }
+    }
 
     const { EMAIL_TARGET, NOTIFY_API_KEY, NOTIFY_TEMPLATE_ID } = parameters['gc-design-system-config'];
 
@@ -45,7 +69,7 @@ app.post('/submission', async (req, res) => {
 
     // Honeypot check
     if (honeypot && honeypot.length > 0) {
-        console.error('Honeypot detected')
+        console.warn('[WARN] Honeypot detected')
         res.status(204).send()
         return
     }
@@ -67,6 +91,8 @@ app.post('/submission', async (req, res) => {
         },
     });
 
+    console.log('[INFO] Sending to Notify: ', postData)
+
     await axios
         .post(
             'https://api.notification.canada.ca/v2/notifications/email',
@@ -74,10 +100,10 @@ app.post('/submission', async (req, res) => {
             {headers: headData},
         )
         .then(res => {
-            console.log('RESPONSE RECEIVED: ', res);
+            console.log('[INFO] Successfully sent to Notify. Status: ', res.status);
         })
         .catch(err => {
-            console.log('AXIOS ERROR: ', err);
+            console.error('[ERROR] Failed to send to Notify', err)
         });
 
     // Attempt to get origin URL from request. If origin is null, use the default domains
@@ -86,10 +112,10 @@ app.post('/submission', async (req, res) => {
 
     const contactPath = lang == 'en' ? '/en/contact/thanks' : '/fr/contactez/merci'
     const redirectTo = origin + contactPath
-    console.log(`Redirecting to ${redirectTo}`)
+    console.log(`[INFO] Redirecting to ${redirectTo}`)
     res.redirect(303, redirectTo)
 })
 
 app.listen(port, () => {
-    console.log(`API listening at http://localhost:${port}`)
+    console.log(`[INFO] API listening at http://localhost:${port}`)
 })
