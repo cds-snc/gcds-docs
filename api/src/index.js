@@ -24,6 +24,17 @@ process.on('SIGTERM', async () => {
     process.exit(0)
 });
 
+const redirectUser = (origin, forwardedOrigin, lang, res) => {
+    // Attempt to get origin URL from request. If origin is null, use the default domains (en or fr) based on language
+    origin = origin && origin !== 'null' ? origin : forwardedOrigin
+    origin = origin && origin !== 'null' ? origin : lang === 'en' ? DOMAIN_EN : DOMAIN_FR
+
+    const contactPath = lang == 'en' ? '/en/contact/thanks' : '/fr/contactez/merci'
+    const redirectTo = origin + contactPath
+    console.log(`[INFO] Redirecting to ${redirectTo}`)
+    res.redirect(303, redirectTo)
+}
+
 app.post('/submission', async (req, res) => {
     let origin = req.get('origin');
 
@@ -57,9 +68,9 @@ app.post('/submission', async (req, res) => {
                 'gc-design-system-config': {transform: 'json'}
             }, {decrypt: true});
         } catch (e) {
+            // Log the error, but return the user back to the site (thank you page)
             console.error('[ERROR] Failed to get parameters from SSM', e)
-            res.status(500).send()
-            return
+            redirectUser(origin, forwardedOrigin, lang, res)
         }
     }
 
@@ -106,14 +117,7 @@ app.post('/submission', async (req, res) => {
             console.error('[ERROR] Failed to send to Notify', err)
         });
 
-    // Attempt to get origin URL from request. If origin is null, use the default domains
-    origin = origin && origin !== 'null' ? origin : forwardedOrigin
-    origin = origin && origin !== 'null' ? origin : lang === 'en' ? DOMAIN_EN : DOMAIN_FR
-
-    const contactPath = lang == 'en' ? '/en/contact/thanks' : '/fr/contactez/merci'
-    const redirectTo = origin + contactPath
-    console.log(`[INFO] Redirecting to ${redirectTo}`)
-    res.redirect(303, redirectTo)
+    redirectUser(origin, forwardedOrigin, lang, res)
 })
 
 app.listen(port, () => {
