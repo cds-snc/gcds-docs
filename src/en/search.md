@@ -3,6 +3,8 @@ title: Search
 translationKey: searchresults
 layout: 'layouts/base.njk'
 search: true
+nocrawl: true
+date: 'git Last Modified'
 eleventyNavigation:
   key: searchresultsEN
   title: Search

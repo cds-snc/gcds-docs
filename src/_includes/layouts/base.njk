@@ -40,7 +40,7 @@
     {% include "partials/header.njk" %}
 
     <div class="content-wrapper">
-      <main id="mc" class="container-xl mx-auto xl:px-0 sm:px-500 px-300 general-layout" data-pagefind-body>
+      <main id="mc" class="container-xl mx-auto xl:px-0 sm:px-500 px-300 general-layout" {% if not nocrawl %}data-pagefind-body{% endif %}>
         {% block content %}{{ content | safe }}{% endblock %}
 
         <gcds-date-modified class="mb-400 font-caption">
