@@ -1,0 +1,10 @@
+.search-result {
+  border-bottom: solid 1px #000;
+  padding-bottom: var(--gcds-spacing-400);
+
+  mark {
+    background-color: inherit;
+    font-weight: 700;
+  }
+}
+

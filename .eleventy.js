@@ -251,11 +251,11 @@ module.exports = function (eleventyConfig) {
       const content = children;
 
       return `
-      <div class="${margin} b-sm b-default component-preview">
+      <div class="${margin} b-sm b-default component-preview" id="component-preview">
         <p class="container-full font-semibold px-300 py-200 bb-sm b-default bg-light">
           ${title}
         </p>
-        <div class="${padding}" data-pagefind-ignore="all">
+        <div class="${padding}">
           ${content}
         </div>
       </div>
@@ -286,7 +286,7 @@ module.exports = function (eleventyConfig) {
   });
 
   eleventyConfig.on('eleventy.after', () => {
-    execSync(`npx pagefind --site _site --glob \"**/*.html\"`, { encoding: 'utf-8' })
+    execSync(`npx pagefind --site _site --exclude-selectors "gcds-side-nav, gcds-top-nav, gcds-breadcrumbs, .github-link, .figma-link, h1 > code, .component-preview" --glob \"**/*.html\"`, { encoding: 'utf-8' })
   })
 
   return {

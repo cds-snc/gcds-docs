@@ -407,4 +407,13 @@ nav.tabs a[aria-current=page]:focus {
   background-color: var(--gcds-color-blue-900);
 }
 
+.search-result {
+  border-bottom: solid 1px #000;
+  padding-bottom: var(--gcds-spacing-400);
+}
+.search-result mark {
+  background-color: inherit;
+  font-weight: 700;
+}
+
 /*# sourceMappingURL=style.css.map */
