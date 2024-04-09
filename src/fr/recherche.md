@@ -18,9 +18,12 @@ eleventyNavigation:
   search-id="ds-search"
   placeholder="Système de design GC"
   id="searchbar"
-></gcds-search>
+>
+</gcds-search>
 
-<gcds-text size="caption">N'incluez pas de renseignements personnels (téléphone, courriel, NAS, renseignements financiers, médicaux ou professionnels).</gcds-text>
+<gcds-text size="caption">
+  N'incluez pas de renseignements personnels (téléphone, courriel, NAS, renseignements financiers, médicaux ou professionnels).
+</gcds-text>
 
 <div id="results-count"></div>
 

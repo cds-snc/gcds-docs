@@ -24,18 +24,46 @@ if (searchTerm) {
   const search = await pagefind.search(searchTerm);
   const results = search.results;
 
+  const langObject = {
+    en: {
+      results: `${results.length} search results for "${searchTerm}"`,
+      noresults: 'No results',
+      noresultsbody: `
+        <p class="mb-400">No pages were found that match your search terms.</p>
+
+        <p class="mb-400">Suggestions:</p>
+
+        <ul class="list-disc mb-400">
+          <li>Make sure all search terms are spelled correctly</li>
+          <li>Try different search terms</li>
+          <li>Try more general search terms</li>
+        </ul>
+      `,
+    },
+      
+    fr: {
+      results: `${results.length} résultats de recherche pour « ${searchTerm} »`,
+      noresults: 'Aucun résultat',
+      noresultsbody: `
+        <p class="mb-400">Aucun résultat ne correspond à vos critères de recherche.</p>
+
+        <p class="mb-400">Suggestions:</p>
+
+        <ul class="list-disc mb-400">
+          <li>Assurez-vous que tous vos termes de recherches sont bien orthographiés</li>
+          <li>Utilisez de différents termes de recherche</li>
+          <li>Utilisez des termes de recherche plus généraux</li>
+        </ul>
+      `,
+    }
+  }
+
   // Results length
   if (results.length > 0) {
     // Results heading
-    const langObject = {
-      en: `${results.length} search results for "${searchTerm}"`,
-      fr: `${results.length} résultats de recherche pour « ${searchTerm} »`,
-    }
     let resultsHeading = document.createElement('gcds-heading');
     resultsHeading.setAttribute('tag', 'h2');
-    resultsHeading.id = 'rh';
-    resultsHeading.tabIndex = '-1';
-    resultsHeading.innerHTML = langObject[lang];
+    resultsHeading.innerHTML = langObject[lang].results;
     document.getElementById('results-count').append(resultsHeading);
 
     const totalPages = Math.ceil(results.length / 10);
@@ -62,6 +90,13 @@ if (searchTerm) {
       pagination.classList.add('mt-400');
       document.getElementById('pagination').appendChild(pagination);
     }
+  } else if (searchTerm && results.length === 0) {
+    let resultsHeading = document.createElement('gcds-heading');
+    resultsHeading.setAttribute('tag', 'h2');
+    resultsHeading.innerHTML = langObject[lang].noresults;
+    document.getElementById('results-count').append(resultsHeading);
+
+    document.getElementById('results').innerHTML = langObject[lang].noresultsbody;
   }
 }
 
