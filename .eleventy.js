@@ -24,6 +24,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy('./src/images');
   eleventyConfig.addPassthroughCopy('./src/scripts/code-showcase.js');
   eleventyConfig.addPassthroughCopy('./src/scripts/search.js');
+  eleventyConfig.addPassthroughCopy('./src/scripts/code-copy.js');
   eleventyConfig.addPassthroughCopy('./src/admin/config.yml');
   eleventyConfig.addPassthroughCopy('./src/favicon.ico');
   eleventyConfig.addPassthroughCopy({ './src/variables/': 'variables' });
@@ -141,16 +142,16 @@ module.exports = function (eleventyConfig) {
     return bottom;
   });
 
-  eleventyConfig.addFilter('colourFromValue', function(value, tokens) {
-    let colourName = "";
+  eleventyConfig.addFilter('colourFromValue', function (value, tokens) {
+    let colourName = '';
     Object.keys(tokens).forEach(colour => {
       Object.keys(tokens[colour]).forEach(weightValue => {
-        if (tokens[colour][weightValue]["value"] === value) {
+        if (tokens[colour][weightValue]['value'] === value) {
           colourName = `${colour}-${weightValue}`;
         }
       });
     });
-    return colourName
+    return colourName;
   });
 
   /* Markdown Overrides */
@@ -166,13 +167,15 @@ module.exports = function (eleventyConfig) {
 
   // Short codes
 
-  eleventyConfig.addPairedShortcode('viewCode', (children, lang, id, name) => {
+  eleventyConfig.addPairedShortcode('viewCode', (content, lang, id, name) => {
     const langStrings = {
       en: {
+        code: 'Code display',
         view: 'View code',
         copy: 'Copy code',
       },
       fr: {
+        code: 'Affichage du code',
         view: 'Voir le code',
         copy: 'Copier le code',
       },
@@ -180,18 +183,31 @@ module.exports = function (eleventyConfig) {
     if (lang != 'en ' && lang != 'fr') {
       lang = 'en';
     }
-    const content = markdownLibrary.render(children);
 
     return `
-    <div class="code-showcase mb-400">
-      <div class="showcase mb-400 p-400" id="${id}" aria-hidden="true">
-        ${content}
-      </div>
-      <div>
-        <gcds-button button-type="button" button-role="secondary" aria-label="${langStrings[lang].view} - ${name}" onclick="toggleCodeShowcase(this, '${id}');" aria-controls="${id}" aria-expanded="false">${langStrings[lang].view}</gcds-button>
-        <gcds-button button-type="button" button-role="secondary" onclick="copyCodeShowcase(this, '${id}', '${lang}');" onblur="this.innerText = '${langStrings[lang].copy}'">${langStrings[lang].copy}</gcds-button>
-      </div>
-    </div>
+        <div class="code-showcase mb-400">
+          <textarea class="showcase text-light mb-400 p-400" id="${id}" rows="8" aria-label="${langStrings[lang].code} - ${name}" aria-hidden="true" readonly>${content}</textarea>
+          <div>
+            <gcds-button
+              class="showcase-view-button"
+              button-type="button"
+              button-role="secondary"
+              aria-label="${langStrings[lang].view} - ${name}"
+              aria-controls="${id}"
+              aria-expanded="false"
+            >
+              ${langStrings[lang].view}
+            </gcds-button>
+            <gcds-button
+              class="showcase-copy-button"
+              button-type="button"
+              button-role="secondary"
+              lang="${lang}"
+            >
+              ${langStrings[lang].copy}
+            </gcds-button>
+          </div>
+        </div>
     `;
   });
 

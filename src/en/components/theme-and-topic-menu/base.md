@@ -15,6 +15,9 @@ The theme and topic menu is a navigation to the top tasks of Government of Canad
 {% enddocLinks %}
 
 {% componentPreview "Theme and topic menu component preview" "px-0 py-400" %}
+
+<div aria-hidden="true">
   <gcds-topic-menu>
   </gcds-topic-menu>
+</div>
 {% endcomponentPreview %}

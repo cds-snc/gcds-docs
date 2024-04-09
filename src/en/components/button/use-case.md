@@ -79,7 +79,7 @@ A role is a button sub-type that has a specific use on a page.
 <div class="remove-empty-p">
 <gcds-grid columns="1fr" columns-tablet="1fr 2fr" gap="500" align-items="start">
   {% componentPreview "Primary button preview" "px-300 py-400" "" %}
-  <gcds-button button-role="primary">Primary</gcds-button>
+  <gcds-button button-role="primary">Submit</gcds-button>
   {% endcomponentPreview %}
   <div>
     <h3 class="mb-400">Primary button uses</h3>
@@ -94,7 +94,7 @@ A role is a button sub-type that has a specific use on a page.
 <br/>
 <gcds-grid columns="1fr" columns-tablet="1fr 2fr" gap="500" align-items="start">
   {% componentPreview "Secondary button preview" "px-300 py-400" "" %}
-  <gcds-button button-role="secondary">Secondary</gcds-button>
+  <gcds-button button-role="secondary">Cancel</gcds-button>
   {% endcomponentPreview %}
   <div>
     <h3 class="mb-400">Secondary button uses</h3>
@@ -108,7 +108,7 @@ A role is a button sub-type that has a specific use on a page.
 <br/>
 <gcds-grid columns="1fr" columns-tablet="1fr 2fr" gap="500" align-items="start">
   {% componentPreview "Danger button preview" "px-300 py-400" "" %}
-  <gcds-button button-role="danger">Danger</gcds-button>
+  <gcds-button button-role="danger">Delete</gcds-button>
   {% endcomponentPreview %}
   <div>
     <h3 class="mb-400">Danger button uses</h3>

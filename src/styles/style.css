@@ -157,6 +157,7 @@ ul li ul li {
  * Code showcase
  */
 .code-showcase .showcase {
+  width: 100%;
   background-color: #262626;
 }
 .code-showcase .showcase[aria-hidden=true] {
@@ -165,14 +166,11 @@ ul li ul li {
   height: 0;
   margin: 0;
   padding: 0;
+  border: 0;
   overflow: hidden;
 }
 .code-showcase .showcase[aria-hidden=false] {
   margin-top: calc(-1 * var(--gcds-spacing-400));
-}
-.code-showcase .showcase code {
-  background-color: transparent;
-  color: var(--gcds-text-light);
 }
 .code-showcase gcds-button {
   margin: 0 var(--gcds-spacing-300) 0 0;
@@ -180,6 +178,18 @@ ul li ul li {
 .code-showcase .code-copy {
   display: none;
   visibility: hidden;
+}
+
+/*
+ * Copy code button
+ */
+.code-copy-button {
+  --gcds-button-secondary-default-text: white;
+  width: fit-content;
+}
+
+.code-copy-button:hover {
+  --gcds-button-secondary-default-text: var(--gcds-link-default);
 }
 
 .component-preview p {
@@ -361,22 +371,6 @@ nav.tabs a:focus {
 }
 nav.tabs a[aria-current=page]:focus {
   border-color: var(--gcds-focus-background);
-}
-
-.search-results {
-  position: absolute;
-  background-color: var(--gcds-textarea-default-background);
-  border: var(--gcds-border-width-sm) solid var(--gcds-border-default);
-  z-index: 9999;
-  margin-top: calc(var(--gcds-input-min-width-and-height) + var(--gcds-input-outline-width));
-  padding: var(--gcds-textarea-padding);
-}
-.search-results div {
-  margin-bottom: var(--gcds-spacing-300);
-}
-
-.search-results:empty {
-  display: none;
 }
 
 .hero {

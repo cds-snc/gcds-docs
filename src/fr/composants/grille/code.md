@@ -32,6 +32,13 @@ Conseil : Visez la simplicité pour vos mises en page. Envisagez d'optimiser ch
 - Utilisez la propriété `gap` pour ajouter de l'espacement entre vos `columns` dans la grille.
 - Utilisez les <gcds-link href="{{ links.designTokens }}">unités de style</gcds-link> de Système de design GC comme référence pour la taille de votre `gap` dans la grille. Les mesures des unités correspondent aux valeurs d'espacement de l'attribut `gap`.
 
+### Veillez à l'accessibilité en utilisant des balises standards
+
+La propriété `tag` utilise une balise `div` par défaut.
+
+- Vous pouvez remplacer la balise par une valeur adaptée au contexte à l'aide de balises standards. Par exemple, pour insérer une liste non ordonnée, définissez la propriété de balise à `ul`.
+- Choisissez une balise dans la liste des options disponibles pour la grille dans le générateur de code. L'utilisation de balises HTML qui respectent les normes établies et les règles sémantiques augmente l'accessibilité du contenu et améliore l'expérience d'utilisation.
+
 ### Choisissez une option pour des colonnes de largeur égale
 
 Désactivez la définition de la largeur minimale et de la largeur maximale lorsque vous souhaitez concevoir des colonnes de largeur égale sans restrictions de largeur. Cela permettra à la grille et à ses colonnes de s'adapter à la fenêtre d'affichage.
@@ -69,15 +76,12 @@ Mobile
 </div>
 
 {% viewCode "fr" "preview-grid-flexible" "gcds-grid" %}
-
-```
 <gcds-grid tag="article" columns-desktop="1fr 1fr 1fr" columns-tablet="1fr 1fr" columns="1fr" gap="300">
-    <p>Ceci est un exemple de contenu pour illustrer le composant Grille.</p>
-    <p>Ceci est un exemple de contenu pour illustrer le composant Grille.</p>
-    <p>Ceci est un exemple de contenu pour illustrer le composant Grille.</p>
-</gcds-grid>
-```
 
+  <p>Ceci est un exemple de contenu pour illustrer le composant Grille.</p>
+  <p>Ceci est un exemple de contenu pour illustrer le composant Grille.</p>
+  <p>Ceci est un exemple de contenu pour illustrer le composant Grille.</p>
+</gcds-grid>
 {% endviewCode %}
 
 Définissez la largeur minimale et la largeur maximale pour concevoir des colonnes de largeur égale afin de limiter la largeur des colonnes sur n'importe quelle taille d'écran.
@@ -122,15 +126,12 @@ Mobile
 </div>
 
 {% viewCode "fr" "preview-grid-fixed-width" "gcds-grid" %}
-
-```
 <gcds-grid tag="article" columns="repeat(auto-fit, minmax(100px, 300px))" gap="500">
-    <p>Ceci est un exemple de contenu pour illustrer le composant Grille.</p>
-    <p>Ceci est un exemple de contenu pour illustrer le composant Grille.</p>
-    <p>Ceci est un exemple de contenu pour illustrer le composant Grille.</p>
-</gcds-grid>
-```
 
+  <p>Ceci est un exemple de contenu pour illustrer le composant Grille.</p>
+  <p>Ceci est un exemple de contenu pour illustrer le composant Grille.</p>
+  <p>Ceci est un exemple de contenu pour illustrer le composant Grille.</p>
+</gcds-grid>
 {% endviewCode %}
 
 {% include "partials/getcode.njk" %}

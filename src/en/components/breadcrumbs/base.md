@@ -10,14 +10,18 @@ tags: ['breadcrumbsEN', 'header']
 
 _Also called: breadcrumb trail._
 
-A path to the current page from each preceding level of the site's hierarchy.
+Breadcrumbs is a path to the current page from each preceding level of the site's hierarchy.
 
 {% docLinks locale stage figma github %}
 {% enddocLinks %}
 
 {% componentPreview "Breadcrumbs component preview" %}
-<gcds-breadcrumbs>
-<gcds-breadcrumbs-item href="#">Home page</gcds-breadcrumbs-item>
-<gcds-breadcrumbs-item href="#">Parent page link</gcds-breadcrumbs-item>
-</gcds-breadcrumbs-item>
+
+<div aria-hidden="true">
+  <gcds-breadcrumbs>
+    <gcds-breadcrumbs-item href="#">Home page</gcds-breadcrumbs-item>
+    <gcds-breadcrumbs-item href="#">Parent page link</gcds-breadcrumbs-item>
+    </gcds-breadcrumbs-item>
+  </gcds-breadcrumbs>
+</div>
 {% endcomponentPreview %}
