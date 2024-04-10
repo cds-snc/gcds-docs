@@ -2,7 +2,7 @@
 title: Recherche
 translationKey: searchresults
 layout: 'layouts/base.njk'
-search: true
+hidesearch: true
 nocrawl: true
 date: 'git Last Modified'
 eleventyNavigation:

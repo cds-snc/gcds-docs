@@ -1,5 +1,4 @@
-{% if not search %}
-<gcds-search search-id="search" slot="search" placeholder="GC Design System" action="/en/search">
-    <div id="results" class="search-results"></div>
+{% if not hidesearch %}
+<gcds-search search-id="search" slot="search" placeholder="{{ search[locale].placeholder}}" action="{{ search[locale].action}}">
 </gcds-search>
 {% endif %}
