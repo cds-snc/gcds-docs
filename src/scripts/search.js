@@ -9,6 +9,7 @@ pagefind.options({
 const searchTerm = url.get('q');
 let index = url.get('page');
 let lang = 'en';
+const pageSize = 10;
 
 if (window.location.href.includes('/fr/')) {
   lang = 'fr';
@@ -66,14 +67,16 @@ if (searchTerm) {
     resultsHeading.innerHTML = langObject[lang].results;
     document.getElementById('results-count').append(resultsHeading);
 
-    const totalPages = Math.ceil(results.length / 10);
-
-    let pageResults = results.slice(10 * (index - 1), 10 * index + 1);
+    const totalPages = Math.ceil(results.length / pageSize);
+    let pageResults = results.slice(pageSize * (index - 1), pageSize * index + 1);
+    const resultSection = document.querySelector('#results');
 
     // length could also be from search.unfilteredResultCount
     for (const result of pageResults) {
-      let data = await result.data();
-      addResult(data);
+      const data = await result.data();
+      const res = formatResult(data);
+
+      resultSection.appendChild(res);
     }
 
     if (totalPages > 1) {
@@ -100,9 +103,7 @@ if (searchTerm) {
   }
 }
 
-function addResult(result) {
-  let results = document.querySelector('#results');
-
+function formatResult(result) {
   let resultElement = document.createElement('section');
   resultElement.classList.add('search-result');
 
@@ -131,5 +132,6 @@ function addResult(result) {
 
   resultElement.appendChild(url);
   resultElement.appendChild(excerpt);
-  results.appendChild(resultElement);
+  
+  return resultElement;
 }
