@@ -1,5 +1,5 @@
 ---
-title: About GC Design System
+title: About
 translationKey: aboutus
 layout: 'layouts/base.njk'
 eleventyNavigation:
@@ -14,7 +14,7 @@ eleventyNavigation:
 
 ## Why GC Design System is right for you
 
-GC Design System offers basic building blocks and a common pattern language for frontline digital services. Components and tokens provide standard Government of Canada branding and experiences for any framework you’re using.  
+GC Design System offers basic building blocks and a common pattern language for frontline digital services. Components and tokens provide standard Government of Canada branding and experiences for any framework you’re using.
 
 Use GC Design System to meet Government of Canada requirements for digital service delivery and communication:
 
@@ -49,7 +49,7 @@ GC Design System supports a seamless service experience with:
 
 We’re a team of public servants at the Canadian Digital Service building and improving GC Design System. We’ve recently begun growing our team and increasing collaboration.
 
-Our goal is to improve the quality of people's experiences with government by scaling recognizable, predictable, and inclusive user interfaces across digital services.  
+Our goal is to improve the quality of people's experiences with government by scaling recognizable, predictable, and inclusive user interfaces across digital services.
 
 ### Collaboration and support channels
 
