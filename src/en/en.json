@@ -51,14 +51,37 @@
 
     "about": "/en/about-us",
     "contact": "/en/contact",
+    "contactMail": "mailto:cds-snc@servicecanada.gc.ca",
 
     "comingSoon": "/en/coming-soon",
     "demo": "/en/demo",
     "releaseNotes": "https://github.com/cds-snc/gcds-components/blob/main/CHANGELOG.md",
+    "privacy": "/en/privacy-notice",
 
     "figma": "https://www.figma.com/file/mh2maMG2NBtk41k1O1UGHV/Canadian-Digital-Service%E2%80%A8---GC-Design-System?node-id=4%3A1006&t=qguKsJtr1ityUsUN-0",
 
     "fontAwesome": "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css",
+
+    "accessToInformationAct": "https://laws-lois.justice.gc.ca/eng/acts/a-1/page-1.html",
+    "airtable": "https://www.airtable.com/",
+    "airtablePrivacy": "https://www.airtable.com/company/privacy",
+    "airtableTermsOfService": "https://www.airtable.com/company/tos",
+    "cds": "https://digital.canada.ca/",
+    "cdsPrivacy": "https://digital.canada.ca/privacy/",
+    "cdsSecurityNotice": "https://digital.canada.ca/security-notice/",
+    "directivePrivacyPractices": "https://www.tbs-sct.canada.ca/pol/doc-eng.aspx?id=18309",
+    "electronicNetworkMonitoringLogs": "https://www.canada.ca/en/treasury-board-secretariat/services/access-information-privacy/access-information/info-source/standard-personal-information-banks.html#psu905",
+    "esdc": "https://www.canada.ca/en/employment-social-development.html",
+    "esdcAct": "https://laws-lois.justice.gc.ca/eng/acts/h-5.7/FullText.html",
+    "freshdesk": "https://www.freshworks.com/freshdesk/",
+    "freshworks": "https://www.freshworks.com/",
+    "freshworksPrivacy": "https://www.freshworks.com/privacy/",
+    "gcPrivacy": "https://www.canada.ca/en/transparency/privacy.html",
+    "gcNotify": "https://notification.canada.ca/",
+    "gcNotifyTermsOfUse": "https://notification.canada.ca/terms",
+    "outreachActivities": "https://www.canada.ca/en/treasury-board-secretariat/services/access-information-privacy/access-information/info-source/standard-personal-information-banks.html#psu938",
+    "privacyAct": "https://laws-lois.justice.gc.ca/ENG/ACTS/P-21/index.html",
+    "privacyCommissionerCanada": "https://www.priv.gc.ca/en/for-individuals/",
 
     "github": "https://github.com/cds-snc/gcds-components",
     "githubDocsIssues": "https://github.com/cds-snc/gcds-docs/issues",

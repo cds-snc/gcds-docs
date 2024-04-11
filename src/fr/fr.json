@@ -51,14 +51,37 @@
 
     "about": "/fr/a-propos",
     "contact": "/fr/contactez",
+    "contactMail": "mailto:cds-snc@servicecanada.gc.ca",
 
     "comingSoon": "/fr/developpement-en-cours",
     "demo": "/fr/demo",
     "releaseNotes": "https://github.com/cds-snc/gcds-components/blob/main/CHANGELOG.md",
+    "privacy": "/fr/avis-de-confidentialite/",
 
     "figma": "https://www.figma.com/file/mh2maMG2NBtk41k1O1UGHV/Canadian-Digital-Service%E2%80%A8---GC-Design-System?node-id=4%3A1006&t=qguKsJtr1ityUsUN-0",
 
     "fontAwesome": "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css",
+
+    "accessToInformationAct": "https://laws-lois.justice.gc.ca/fra/lois/a-1/page-1.html",
+    "airtable": "https://www.airtable.com/",
+    "airtablePrivacy": "https://www.airtable.com/company/privacy/fr",
+    "airtableTermsOfService": "https://www.airtable.com/company/tos/fr",
+    "cds": "https://numerique.canada.ca/",
+    "cdsPrivacy": "https://numerique.canada.ca/confidentialite/",
+    "cdsSecurityNotice": "https://numerique.canada.ca/avis-de-securite/",
+    "directivePrivacyPractices": "https://www.tbs-sct.canada.ca/pol/doc-fra.aspx?id=18309",
+    "electronicNetworkMonitoringLogs": "https://www.canada.ca/fr/secretariat-conseil-tresor/services/acces-information-protection-reseignements-personnels/acces-information/info-source/fichiers-renseignements-personnels-ordinaires.html#pou905",
+    "esdc": "https://www.canada.ca/fr/emploi-developpement-social.html",
+    "esdcAct": "https://laws-lois.justice.gc.ca/fra/lois/h-5.7/TexteComplet.html",
+    "freshdesk": "https://www.freshworks.com/freshdesk/",
+    "freshworks": "https://www.freshworks.com/",
+    "freshworksPrivacy": "https://www.freshworks.com/privacy/",
+    "gcPrivacy": "https://www.canada.ca/fr/transparence/confidentialite.html",
+    "gcNotify": "https://notification.canada.ca/accueil",
+    "gcNotifyTermsOfUse": "https://notification.canada.ca/conditions-dutilisation",
+    "outreachActivities": "https://www.canada.ca/fr/secretariat-conseil-tresor/services/acces-information-protection-reseignements-personnels/acces-information/info-source/fichiers-renseignements-personnels-ordinaires.html#pou938",
+    "privacyAct": "https://laws-lois.justice.gc.ca/fra/lois/p-21/index.html",
+    "privacyCommissionerCanada": "https://www.priv.gc.ca/fr/pour-les-individus/",
 
     "github": "https://github.com/cds-snc/gcds-components",
     "githubDocsIssues": "https://github.com/cds-snc/gcds-docs/issues",

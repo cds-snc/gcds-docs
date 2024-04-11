@@ -43,7 +43,7 @@ The frontmatter listed below will need to be updated when creating a component p
 - `github`: GitHub link to component on main branch
 - `figma`: Figma link to component page
 
-#### use-case.md / case-dusage.md
+#### use-case.md / cas-dutilisation.md
 
 - `eleventyNavigation`: Object to render navigation for component
   - `otherNames`: For overview page
@@ -115,7 +115,7 @@ Le « frontmatter » répertorié ci-dessous devra être mis à jour lors de la 
 - `github` : Lien GitHub pour le composant sur la branche principale
 - `figma`: Lien Figma vers la page du composant
 
-#### use-case.md / case-dusage.md
+#### use-case.md / cas-dutilisation.md
 
 - `eleventyNavigation` : Objet pour afficher la navigation pour le composant
   - `otherNames` : Pour la page de survol

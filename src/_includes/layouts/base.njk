@@ -44,9 +44,11 @@
         </gcds-date-modified>
       </main>
 
+
       <gcds-footer
-        display="compact"
+        display="full"
         lang="{{ locale }}"
+        sub-links='{ "{{ footer[locale].social }}": "{{ footer[locale].socialurl }}", "{{ footer[locale].mobile }}": "{{ footer[locale].mobileurl }}", "{{ footer[locale].about }}": "{{ footer[locale].abouturl }}", "{{ footer[locale].terms }}": "{{ footer[locale].termsurl }}", "{{ footer[locale].privacy }}": "{{ links.privacy }}" }'
       ></gcds-footer>
 
     </div>
