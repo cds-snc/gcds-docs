@@ -10,15 +10,15 @@ date: 'git Last Modified'
 
 Use the file uploader to allow a person to select and review files they’d like to include with their submission.
 
-## Apply required attributes
+## Code and accessibility for file uploader
+
+### Apply required attributes
 
 For the file uploader to function properly, always use the following attributes with `<gcds-file-uploader>`:
 
 - `name`
 - `label`
 - `uploader-id`
-
-## Code and accessibility for file uploader
 
 {% include "partials/error-message.njk" %}
 

@@ -9,15 +9,15 @@ tags: ['inputEN', 'code']
 
 Use an input to ask for information short, one-line response.
 
-## Apply required attributes
+## Coding and accessibility for inputs
+
+### Apply required attributes
 
 For the input to function properly, always use the following attributes with `<gcds-input>`:
 
 - `name`
 - `label`
 - `input-id`
-
-## Coding and accessibility for inputs
 
 ### Size inputs to fit response type
 

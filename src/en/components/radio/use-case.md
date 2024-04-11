@@ -10,7 +10,8 @@ eleventyNavigation:
   description: A short set of options for single selection.
   thumbnail: /images/common/components/preview-radio.svg
   alt: Radio component shows radio selection with black outlined circle with a black circle selected followed by unselected two options.
-  state: published
+  state: deprecated
+  lastVersion: v0.20.0
 translationKey: 'radio'
 tags: ['radioEN', 'usage']
 permalink: /en/components/radio/

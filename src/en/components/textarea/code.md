@@ -12,15 +12,15 @@ Use text areas to ask for information when you're expecting a freeform response 
 
 The text area gives users the option to provide the information they want to share in a long form response.
 
-## Apply required attributes
+## Coding and accessibility for text areas
+
+### Apply required attributes
 
 For the text area to function properly, always use the following attributes with `<gcds-textarea>`:
 
 - `name`
 - `label`
 - `textarea-id`
-
-## Coding and accessibility for text areas
 
 ### Size text areas to fit response type
 

@@ -30,6 +30,6 @@ Use select within a form to:
 
 <a href="{{ links.checkbox }}" class="link-light">Checkboxes</a> when you are expecting the user to select 1 or more options from a list of items.
 
-<a href="{{ links.radio }}" class="link-light">Radio buttons</a> when you can give someone a small set of options for a known single selection with less than 7 options.
+<a href="{{ links.radioGroup }}" class="link-light">Radio groups</a> when you can give someone a small set of options for a known single selection with less than 7 options.
 
 </article>
