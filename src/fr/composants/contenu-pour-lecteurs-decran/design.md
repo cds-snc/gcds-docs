@@ -4,6 +4,7 @@ layout: 'layouts/component-documentation.njk'
 translationKey: 'screenreadercontentDesign'
 tags: ['screenreadercontentFR', 'design']
 # date: "git Last Modified"
+nocrawl: true
 ---
 
 ## Structure de la Contenu pour lecteurs d'écran

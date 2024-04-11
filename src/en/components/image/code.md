@@ -4,6 +4,7 @@ layout: 'layouts/component-documentation.njk'
 translationKey: 'imageCode'
 tags: ['imageEN', 'code']
 # date: "git Last Modified"
+nocrawl: true
 ---
 
 ## Build a Image

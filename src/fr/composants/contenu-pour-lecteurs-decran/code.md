@@ -4,6 +4,7 @@ layout: 'layouts/component-documentation.njk'
 translationKey: 'screenreadercontentCode'
 tags: ['screenreadercontentFR', 'code']
 # date: "git Last Modified"
+nocrawl: true
 ---
 
 ## Créer une case à Contenu pour lecteurs d'écran

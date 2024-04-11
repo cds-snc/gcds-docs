@@ -16,6 +16,7 @@ translationKey: 'screenreadercontent'
 tags: ['screenreadercontentEN', 'usage']
 permalink: /en/components/screenreader-content/
 # date: "git Last Modified"
+nocrawl: true
 ---
 
 ## Problems component solves

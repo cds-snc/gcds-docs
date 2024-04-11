@@ -4,6 +4,7 @@ layout: 'layouts/component-documentation.njk'
 translationKey: 'imageCode'
 tags: ['imageFR', 'code']
 # date: "git Last Modified"
+nocrawl: true
 ---
 
 ## Créer une case à Image

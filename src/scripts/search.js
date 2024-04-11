@@ -20,10 +20,15 @@ if (!index) {
 }
 
 if (searchTerm) {
+  let results = {};
   // I realized we don't have a value property for gcds-search, want to add that
   // document.getElementById('searchbar').value = searchTerm;
-  const search = await pagefind.search(searchTerm);
-  const results = search.results;
+  try {
+    const search = await pagefind.search(searchTerm);
+    results = search.results;
+  } catch(error) {
+    console.log('Error:', error);
+  }
 
   const langObject = {
     en: {

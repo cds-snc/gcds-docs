@@ -4,6 +4,7 @@ layout: 'layouts/component-documentation.njk'
 translationKey: 'datatableDesign'
 tags: ['datatableFR', 'design']
 # date: "git Last Modified"
+nocrawl: true
 ---
 
 ## Structure de la Tableau de données

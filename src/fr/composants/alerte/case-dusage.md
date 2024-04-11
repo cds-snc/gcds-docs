@@ -15,6 +15,7 @@ translationKey: 'alert'
 tags: ['alertFR', 'usage']
 permalink: /fr/composants/alerte/
 date: 'git Last Modified'
+nocrawl: true
 ---
 
 ## Usage

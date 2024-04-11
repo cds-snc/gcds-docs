@@ -16,6 +16,7 @@ translationKey: 'screenreadercontent'
 tags: ['screenreadercontentFR', 'usage']
 permalink: /fr/composants/contenu-pour-lecteurs-decran/
 # date: "git Last Modified"
+nocrawl: true
 ---
 
 ## Problems component solves
