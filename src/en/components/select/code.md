@@ -10,6 +10,14 @@ date: 'git Last Modified'
 
 Use the select to give multiple (7 or more) options to answer a single question. The select helps users make a choice by limiting their options.
 
+## Apply required attributes
+
+For the select to function properly, always use the following attributes with `<gcds-select>`:
+
+- `name`
+- `label`
+- `select-id`
+
 ## Code and accessibility for select
 
 ### Set the default value
