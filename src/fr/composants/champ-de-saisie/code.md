@@ -12,6 +12,14 @@ Utilisez un champ de saisie pour obtenir une réponse courte d'une ligne.
 
 ## Codage et accessibilité des champs de saisie
 
+### Appliquez les attributs requis
+
+Pour que le champ de saisie fonctionne correctement, utilisez toujours les attributs suivants avec `<gcds-input>`:
+
+- `name`
+- `label`
+- `input-id`
+
 ### Adaptez le champ de saisie au type de réponse
 
 - Définissez l'attribut de la taille du champ de saisie pour les réponses dont vous connaissez la longueur précise (taille "50" = 50 caractères). Par exemple, 6 caractères pour un code postal ou 10 caractères pour un numéro de téléphone.

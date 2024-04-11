@@ -12,6 +12,14 @@ Utilisez la sélection pour fournir des options multiples (7 ou plus) à répond
 
 ## Codage et accessibilité de la sélection
 
+### Appliquez les attributs requis
+
+Pour que la zone de texte fonctionne correctement, utilisez toujours les attributs suivants avec `<gcds-select>`:
+
+- `name`
+- `label`
+- `select-id`
+
 ### Configuration de la valeur par défaut
 
 Utilisez l'attribut `default-value` pour configurer la première option dans la liste de sélection. Cela empêche la présélection d'une option.

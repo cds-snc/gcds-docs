@@ -3,6 +3,7 @@ title: Input
 layout: 'layouts/component-documentation.njk'
 translationKey: 'inputCode'
 tags: ['inputEN', 'code']
+date: 'git Last Modified'
 ---
 
 ## Build an input

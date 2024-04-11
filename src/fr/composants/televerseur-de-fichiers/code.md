@@ -12,6 +12,14 @@ Utilisez le téléverseur de fichiers pour permettre à une personne de sélecti
 
 ## Codage et accessibilité du téléverseur de fichiers
 
+### Appliquez les attributs requis
+
+Pour que le téléverseur de fichiers fonctionne correctement, utilisez toujours les attributs suivants avec `<gcds-file-uploader>`:
+
+- `name`
+- `label`
+- `uploader-id`
+
 {% include "partials/error-message.njk" %}
 
 ### Téléchargez plusieurs fichiers
