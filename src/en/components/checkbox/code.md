@@ -10,15 +10,15 @@ date: 'git Last Modified'
 
 Use a checkbox with a [fieldset]({{ links.fieldset }}) when you are expecting the user to select more than one option from a short list of items in response to a question or instruction.
 
-## Apply required attributes
+## Coding and accessibility for checkboxes
+
+### Apply required attributes
 
 For the checkbox to function properly, always use the following attributes with `<gcds-checkbox>`:
 
 - `name`
 - `label`
 - `checkbox-id`
-
-## Coding and accessibility for checkboxes
 
 ### Use a fieldset and the required attribute
 
