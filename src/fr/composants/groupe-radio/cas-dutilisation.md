@@ -8,7 +8,8 @@ eleventyNavigation:
   parent: componentsFR
   otherNames: case d'option, radio.
   description: Un groupe de boutons radio permet de proposer plusieurs options de réponse pour un choix unique.
-  thumbnail: /images/common/components/preview-radio.svg    alt: Une colonne de trois sélections sous forme de bouton radio. Chaque cercle de bouton radio a une mince bordure noire et un remplissage blanc. Une épaisse ligne grise se trouve à côté, représentant le libellé. L’un des trois cercles est sélectionné et est rempli par un cercle noir foncé.
+  thumbnail: /images/common/components/preview-radio.svg
+  alt: Une colonne de trois sélections sous forme de bouton radio. Chaque cercle de bouton radio a une mince bordure noire et un remplissage blanc. Une épaisse ligne grise se trouve à côté, représentant le libellé. L’un des trois cercles est sélectionné et est rempli par un cercle noir foncé.
   state: published
 translationKey: "radiogroup"
 tags: ['radiogroupFR', 'usage']
