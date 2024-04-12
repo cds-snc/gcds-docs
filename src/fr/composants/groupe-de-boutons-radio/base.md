@@ -6,7 +6,7 @@ permalink: false
 tags: ['radiogroupFR', 'header']
 ---
 
-# Groupe Radio <br>`<gcds-radio-group>`
+# Groupe de Boutons Radio <br>`<gcds-radio-group>`
 
 _Autres noms : radio button, radio._
 

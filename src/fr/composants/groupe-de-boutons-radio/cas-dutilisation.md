@@ -13,7 +13,7 @@ eleventyNavigation:
   state: published
 translationKey: "radiogroup"
 tags: ['radiogroupFR', 'usage']
-permalink: /fr/composants/groupe-radio/
+permalink: /fr/composants/groupe-de-boutons-radio/
 # date: "git Last Modified"
 ---
 
