@@ -8,6 +8,11 @@ tags: ['radiogroupFR', 'code']
 
 ## Créer un groupe de boutons radio
 
+Utilisez un groupe de boutons radio avec un [jeu de champs]({{ links.fieldset }}) lorsque vous attendez d’une personne qu’elle ne sélectionne qu’une réponse parmi une courte liste d’options.
+
+Le groupe de boutons radio aide les gens à faire un choix grâce à un nombre limité d’options.
+
+
 ## Codage et accessibilité du groupe de boutons radio
 
 ### Appliquez les attributs requis
