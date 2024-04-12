@@ -3,8 +3,7 @@ title: Radio Group
 layout: 'layouts/component-documentation.njk'
 translationKey: 'radiogroupCode'
 tags: ['radiogroupEN', 'code']
-# TODO: update this after in git
-# date: "git Last Modified"
+date: "git Last Modified"
 ---
 
 ## Build a Radio Group

@@ -3,8 +3,7 @@ title: Radio Group
 layout: 'layouts/component-documentation.njk'
 translationKey: 'radiogroupDesign'
 tags: ['radiogroupEN', 'design']
-# TODO: update this after in git
-# date: "git Last Modified"
+date: "git Last Modified"
 ---
 
 ## Radio Group anatomy - with fieldset

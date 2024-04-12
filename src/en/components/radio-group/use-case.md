@@ -14,8 +14,7 @@ eleventyNavigation:
 translationKey: "radiogroup"
 tags: ['radiogroupEN', 'usage']
 permalink: /en/components/radio-group/
-# TODO: update this after in git
-# date: 'git Last Modified'
+date: 'git Last Modified'
 ---
 
 Take a look at what problems radio groups solve to see if they fit the problem you're solving for.
