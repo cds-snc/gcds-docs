@@ -30,6 +30,6 @@ Utilisez la sélection dans un formulaire afin de :
 
 <a href="{{ links.checkbox }}" class="link-light">Cases à cocher</a> : lorsque vous prévoyez que l'utilisateur·rice sélectionne une ou plusieurs options parmi une liste d'éléments.
 
-<a href="{{ links.radio }}" class="link-light">Boutons radio</a> : lorsque vous proposez à l'utilisateur·rice un petit ensemble d'options pour une seule sélection connue comportant moins de 7 options.
+<a href="{{ links.radioGroup }}" class="link-light">Groupe de boutons radio</a> : pour proposer à une personne un petit ensemble d’options (moins de 7 options) permettant la sélection d’une seule réponse qu’elle connaît déjà.
 
 </article>

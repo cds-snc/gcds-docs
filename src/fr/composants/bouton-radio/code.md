@@ -8,9 +8,9 @@ date: 'git Last Modified'
 
 ## Créer un bouton radio
 
-Utilisez un bouton radio avec un jeu de champs lorsque vous vous attendez à ce que l’utilisateur·rice choisisse une seule option d’une courte liste d’éléments en réponse à une question ou à une instruction.
+Utilisez un groupe de boutons radio avec un [jeu de champs]({{ links.fieldset }}) lorsque vous attendez d’une personne qu’elle ne sélectionne qu’une réponse parmi une courte liste d’options.
 
-Les boutons radio aident les utilisateur·rice·s a faire un choix en limitant leurs options.
+Le groupe de boutons radio aide les gens à faire un choix grâce à un nombre limité d’options.
 
 ## Accessibilité et codage pour les boutons radio
 

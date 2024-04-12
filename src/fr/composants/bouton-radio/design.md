@@ -17,7 +17,7 @@ date: 'git Last Modified'
   <li>Le <strong>texte explicatif du bouton radio</strong> donne plus de renseignements sur le choix.</li>
 </ol>
 
-<img class="b-sm b-default p-400" src="/images/fr/components/anatomy/gcds-radio-anatomy-group.svg" alt="L'anatomie du composant radio identifiant la légende du jeu de champ et son message d'aide, un bouton radio sélectionné, un bouton radio, l'étiquette du bouton radio et son message d'aide qui forme le composant."/>
+<img class="b-sm b-default p-400" src="/images/fr/components/anatomy/gcds-radio-anatomy.svg" alt="L'anatomie du composant radio identifiant la légende du jeu de champ et son message d'aide, un bouton radio sélectionné, un bouton radio, l'étiquette du bouton radio et son message d'aide qui forme le composant."/>
 
 ## Accessibilité et design des boutons radio
 
