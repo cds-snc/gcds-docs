@@ -13,6 +13,21 @@ let frenchNameSlug = slugify(frenchName);
 let englishDirectory = './src/en/components/';
 let frenchDirectory = './src/fr/composants/';
 
+const fileNames = {
+  en: {
+    base: 'base.md',
+    useCase: 'use-case.md',
+    design: 'design.md',
+    code: 'code.md',
+  },
+  fr: {
+    base: 'base.md',
+    useCase: 'cas-dutilisation.md',
+    design: 'design.md',
+    code: 'code.md',
+  },
+}
+
 copyFolderSync(
   './examples/component-name',
   `${englishDirectory}${englishNameSlug}`,
@@ -23,8 +38,8 @@ copyFolderSync(
 );
 
 fs.rename(
-  `${frenchDirectory}${frenchNameSlug}/use-case.md`,
-  `${frenchDirectory}${frenchNameSlug}/case-dusage.md`,
+  `${frenchDirectory}${frenchNameSlug}/${fileNames.en.useCase}`,
+  `${frenchDirectory}${frenchNameSlug}/${fileNames.fr.useCase}`,
   function (err) {
     if (err) console.log('ERROR: ' + err);
   },
@@ -49,10 +64,10 @@ let templateKeys = [
 
 let engOptions = {
   files: [
-    `${englishDirectory}${englishNameSlug}/base.md`,
-    `${englishDirectory}${englishNameSlug}/use-case.md`,
-    `${englishDirectory}${englishNameSlug}/design.md`,
-    `${englishDirectory}${englishNameSlug}/code.md`,
+    `${englishDirectory}${englishNameSlug}/${fileNames.en.base}`,
+    `${englishDirectory}${englishNameSlug}/${fileNames.en.useCase}`,
+    `${englishDirectory}${englishNameSlug}/${fileNames.en.design}`,
+    `${englishDirectory}${englishNameSlug}/${fileNames.en.code}`,
   ],
   from: templateKeys,
   to: [
@@ -74,10 +89,10 @@ let engOptions = {
 };
 let frOptions = {
   files: [
-    `${frenchDirectory}${frenchNameSlug}/base.md`,
-    `${frenchDirectory}${frenchNameSlug}/case-dusage.md`,
-    `${frenchDirectory}${frenchNameSlug}/design.md`,
-    `${frenchDirectory}${frenchNameSlug}/code.md`,
+    `${frenchDirectory}${frenchNameSlug}/${fileNames.fr.base}`,
+    `${frenchDirectory}${frenchNameSlug}/${fileNames.fr.useCase}`,
+    `${frenchDirectory}${frenchNameSlug}/${fileNames.fr.design}`,
+    `${frenchDirectory}${frenchNameSlug}/${fileNames.fr.code}`,
   ],
   from: templateKeys,
   to: [

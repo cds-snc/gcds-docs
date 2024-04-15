@@ -1,5 +1,5 @@
 ---
-title: { componentName }
+title: {componentName}
 layout: 'layouts/component-documentation.njk'
 translationKey: '{navKey}Design'
 tags: ['{navKey}{locale}', 'design']

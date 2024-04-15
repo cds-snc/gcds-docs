@@ -27,7 +27,6 @@ Utilisez un bouton pour les actions importantes qu'une personne utilisant votre 
 - Faire un choix ou donner son consentement;
 - Entamer un processus, comme un tutoriel, ou se connecter à un espace sécurisé;
 - Naviguer entre les différentes étapes d'une séquence;
-- Sauter les éléments de navigation pour passer au contenu principal;
 
 <article class="bg-full-width bg-primary text-light pt-500 pb-400 my-500">
   <h2 class="mt-0 mb-400">Composants connexes</h2>
