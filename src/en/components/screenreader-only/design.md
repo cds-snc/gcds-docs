@@ -6,14 +6,6 @@ tags: ['screenreaderonlyEN', 'design']
 date: 'git Last Modified'
 ---
 
-## Screenreader-only anatomy
-
-<ol class="anatomy-list">
-  <li><strong>list</strong></li>
-</ol>
-
-<img class="b-sm b-default p-400" src="/images/en/components/anatomy/gcds-screenreader-only-anatomy.svg" alt="TO DO" />
-
 ## Design and accessibility for the screenreader-only component
 
 ### Write helpful screenreader-only content

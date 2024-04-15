@@ -6,14 +6,6 @@ tags: ['screenreaderonlyFR', 'design']
 date: 'git Last Modified'
 ---
 
-## Structure
-
-<ol class="anatomy-list">
-  <li><strong>list</strong></li>
-</ol>
-
-<img class="b-sm b-default p-400" src="/images/fr/components/anatomy/gcds-screenreader-only-anatomy.svg" alt="TO DO" />
-
 ## Conception et accessibilité du masquage accessible
 
 ### Écrivez du texte utile pour le masquage accessible
