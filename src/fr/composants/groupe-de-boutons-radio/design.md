@@ -1,5 +1,5 @@
 ---
-title: Groupe de Boutons Radio
+title: Groupe de boutons radio
 layout: 'layouts/component-documentation.njk'
 translationKey: 'radiogroupDesign'
 tags: ['radiogroupFR', 'design']

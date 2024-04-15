@@ -1,9 +1,11 @@
 ---
-title: Groupe de Boutons Radio
+title: Groupe de boutons radio
+
+
 layout: "layouts/component-documentation.njk"
 eleventyNavigation:
   key: radiogroupFR
-  title: Groupe de Boutons Radio
+  title: Groupe de boutons radio
   locale: fr
   parent: componentsFR
   otherNames: case d'option, radio.

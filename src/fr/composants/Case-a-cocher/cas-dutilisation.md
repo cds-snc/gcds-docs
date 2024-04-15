@@ -31,7 +31,7 @@ Utilisez la case à cocher avec un [jeu de champs]({{ links.fieldset }}) pour po
 
   <h2 class="mt-0 mb-400">Composants connexes</h2>
 
-Utilisez les <a href="{{ links.radioGroup }}" class="link-light">Groupe de boutons radio</a> pour solliciter un choix unique parmi un plus grand ensemble d’options.
+Utilisez les <a href="{{ links.radioGroup }}" class="link-light">groupes de boutons radio</a> pour solliciter un choix unique parmi un plus grand ensemble d’options.
 
 Le composant <a href="{{ links.select }}" class="link-light">sélection</a> permet à l’utilisateur·rice de sélectionner une option dans une liste déroulante.
 

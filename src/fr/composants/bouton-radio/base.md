@@ -7,9 +7,9 @@ tags: ['radioFR', 'header']
 ---
 
 # Bouton radio <br>`<gcds-radio>`
-<gcds-error-message message="[FR] This component is deprecated as of v0.21.0"></gcds-error-message>
+<gcds-error-message message="Ce composant est obsolète à partir de la version 0.21.0."></gcds-error-message>
 
-[FR] Please see <gcds-link href="https://github.com/cds-snc/gcds-components/releases/tag/gcds-components-v0.21.0">Release v0.21.0</gcds-link> for details
+Consultez les <gcds-link href="https://github.com/cds-snc/gcds-components/releases/tag/gcds-components-v0.21.0">notes de publication v0.21.0</gcds-link> pour plus d'information.
 
 _Autres noms : case d’option, groupe radio._
 
