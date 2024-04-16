@@ -3,7 +3,7 @@ title: Groupe de boutons radio
 layout: 'layouts/component-documentation.njk'
 translationKey: 'radiogroupCode'
 tags: ['radiogroupFR', 'code']
-# date: "git Last Modified"
+date: "git Last Modified"
 ---
 
 ## Créer un groupe de boutons radio

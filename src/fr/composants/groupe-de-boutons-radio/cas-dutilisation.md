@@ -16,7 +16,7 @@ eleventyNavigation:
 translationKey: "radiogroup"
 tags: ['radiogroupFR', 'usage']
 permalink: /fr/composants/groupe-de-boutons-radio/
-# date: "git Last Modified"
+date: "git Last Modified"
 ---
 
 Explorez les problèmes que les groupes de boutons radio règlent et découvrez s’ils peuvent servir à résoudre votre problème particulier.
