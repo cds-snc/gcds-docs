@@ -3,7 +3,7 @@ title: Groupe de boutons radio
 layout: 'layouts/component-documentation.njk'
 translationKey: 'radiogroupDesign'
 tags: ['radiogroupFR', 'design']
-# date: "git Last Modified"
+date: "git Last Modified"
 ---
 
 ## Structure du groupe de boutons radio — avec jeu de champs
