@@ -1,18 +1,18 @@
 ---
-title: Radio Group
+title: Radio group
 layout: 'layouts/component-documentation.njk'
 translationKey: 'radiogroupCode'
 tags: ['radiogroupEN', 'code']
 date: "git Last Modified"
 ---
 
-## Build a Radio Group
+## Build a radio group
 
 Use a radio group with a [fieldset]({{ links.fieldset }})  when you're expecting a person to select only one option from a short list of responses.
 
 The radio group helps a person to make a choice by limiting their options.
 
-## Coding and accessibility for Radio Group
+## Coding and accessibility for radio group
 
 ### Apply required attributes
 For the radio group to function properly, always use the following attributes with `<gcds-radio-group>`:

@@ -1,9 +1,9 @@
 ---
-title: Radio Group
+title: Radio group
 layout: "layouts/component-documentation.njk"
 eleventyNavigation:
   key: radiogroupEN
-  title: Radio Group
+  title: Radio group
   locale: en
   parent: componentsEN
   otherNames: radio, radio button

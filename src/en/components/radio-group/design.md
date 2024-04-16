@@ -1,12 +1,12 @@
 ---
-title: Radio Group
+title: Radio group
 layout: 'layouts/component-documentation.njk'
 translationKey: 'radiogroupDesign'
 tags: ['radiogroupEN', 'design']
 date: "git Last Modified"
 ---
 
-## Radio Group anatomy - with fieldset
+## Radio group anatomy - with fieldset
 
 <ol class="anatomy-list">
   <li>The <strong>fieldset legend</strong> acts as a heading to identify the grouped radios. Legend text is left aligned and in sentence case (only the initial letter is capitalized).</li>
@@ -19,7 +19,7 @@ date: "git Last Modified"
 
 <img class="b-sm b-default p-400" src="/images/en/components/anatomy/gcds-radio-group-anatomy.svg" alt="Radio group anatomy showing the labels Fieldset legend, Fieldset hint, Checkmark, Radio label, Radio button, and Radio hint."/>
 
-## Design and accessibility for Radio Group
+## Design and accessibility for radio group
 
 ### Make radios visible and options clear
 
