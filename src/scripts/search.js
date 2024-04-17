@@ -30,10 +30,13 @@ if (searchTerm) {
     console.log('Error:', error);
   }
 
+  const resultSection = document.querySelector('#results');
+
   const langObject = {
     en: {
       results: `${results.length} search results for "${searchTerm}"`,
       noresults: 'No results',
+      loading: 'Loading search results.',
       noresultsbody: `
         <p class="mb-400">No pages were found that match your search terms.</p>
 
@@ -50,6 +53,7 @@ if (searchTerm) {
     fr: {
       results: `${results.length} résultats de recherche pour « ${searchTerm} »`,
       noresults: 'Aucun résultat',
+      loading: 'Chargement des résultats de recherche.',
       noresultsbody: `
         <p class="mb-400">Aucun résultat ne correspond à vos critères de recherche.</p>
 
@@ -64,6 +68,11 @@ if (searchTerm) {
     }
   }
 
+  const spinnerText = document.createElement('gcds-sr-only');
+  spinnerText.innerHTML = langObject[lang].loading;
+  resultSection.appendChild(spinnerText);
+  resultSection.classList.add('results-loader');
+
   // Results length
   if (results.length > 0) {
     // Results heading
@@ -74,7 +83,6 @@ if (searchTerm) {
 
     const totalPages = Math.ceil(results.length / pageSize);
     let pageResults = results.slice(pageSize * (index - 1), pageSize * index + 1);
-    const resultSection = document.querySelector('#results');
     const bulkResults = document.createElement('div');
 
     // length could also be from search.unfilteredResultCount

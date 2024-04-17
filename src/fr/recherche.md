@@ -30,4 +30,5 @@ eleventyNavigation:
 <div id="results-count"></div>
 
 <div id="results"></div>
+
 <div id="pagination"></div>
