@@ -75,14 +75,18 @@ if (searchTerm) {
     const totalPages = Math.ceil(results.length / pageSize);
     let pageResults = results.slice(pageSize * (index - 1), pageSize * index + 1);
     const resultSection = document.querySelector('#results');
+    const bulkResults = document.createElement('div');
 
     // length could also be from search.unfilteredResultCount
     for (const result of pageResults) {
       const data = await result.data();
       const res = formatResult(data);
 
-      resultSection.appendChild(res);
+      bulkResults.appendChild(res);
     }
+
+    // Add group of search results to page
+    resultSection.replaceWith(bulkResults);
 
     if (totalPages > 1) {
       const pagination = document.createElement('gcds-pagination');
