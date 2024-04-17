@@ -9,7 +9,7 @@ eleventyNavigation:
   otherNames: error overview.
   description: A list of user errors on a page or in a flow.
   thumbnail: /images/common/components/preview-error-summary.svg
-  alt: A red outlined box holds one thick grey line above a stack of  three smaller thick red lines representing a heading and text.
+  alt: A red outlined box holds one thick grey line above a stack of three smaller thick blue lines representing a heading and text.
   state: published
 translationKey: 'errorsummary'
 tags: ['errorsummaryEN', 'usage']
