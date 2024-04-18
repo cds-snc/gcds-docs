@@ -111,12 +111,14 @@ if (searchTerm) {
       document.getElementById('pagination').appendChild(pagination);
     }
   } else if (searchTerm && results.length === 0) {
-    let resultsHeading = document.createElement('gcds-heading');
+    const resultsHeading = document.createElement('gcds-heading');
     resultsHeading.setAttribute('tag', 'h2');
     resultsHeading.innerHTML = langObject[lang].noresults;
     document.getElementById('results-count').append(resultsHeading);
 
-    document.getElementById('results').innerHTML = langObject[lang].noresultsbody;
+    const resultSection = document.getElementById('results');
+    resultSection.classList.remove('results-loader');
+    resultSection.innerHTML = langObject[lang].noresultsbody;
   }
 }
 
