@@ -15,8 +15,5 @@ Le masquage accessible est une façon de rendre l'information textuelle uniqueme
 {% enddocLinks %}
 
 {% componentPreview "Aperçu du composant de masquage accessible" %}
-
-TO DO - ADD TRANSLATION
-
-<gcds-sr-only>Text only seen by assistive technologies</gcds-sr-only>
+<gcds-sr-only>Texte consultable seulement par les technologies d'assistance.</gcds-sr-only>
 {% endcomponentPreview %}

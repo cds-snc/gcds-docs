@@ -15,5 +15,5 @@ The screenreader-only component is text information only accessible with assisti
 {% enddocLinks %}
 
 {% componentPreview "Screenreader-only component preview" %}
-<gcds-sr-only>Text only seen by assistive technologies</gcds-sr-only>
+<gcds-sr-only>Text only seen by assistive technologies.</gcds-sr-only>
 {% endcomponentPreview %}

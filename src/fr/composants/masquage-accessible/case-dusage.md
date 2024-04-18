@@ -9,7 +9,7 @@ eleventyNavigation:
   otherNames: masquage visuel, lecteur d'écran uniquement.
   description: Le masquage accessible est une façon de rendre l'information textuelle uniquement accessible à des technologies d'assistance.
   thumbnail: /images/common/components/preview-screenreader-only.svg
-  alt: TO DO
+  alt: Une ligne bleu-gris avec bordure en pointillé au-dessus de deux lignes grises. Sur chaque ligne, la couleur s'efface au blanc de gauche à droite. Une icône de haut-parleur est superposée sur les deux lignes du bas.
   state: published
 translationKey: 'screenreaderonly'
 tags: ['screenreaderonlyFR', 'usage']
