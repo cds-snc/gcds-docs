@@ -1,18 +1,18 @@
 .search-result {
-  border-bottom: solid 1px #000;
-  padding-bottom: var(--gcds-spacing-400);
+  border-block-end: solid 1px #000;
+  padding-block-end: var(--gcds-spacing-400);
 
   mark {
     background-color: inherit;
-    font-weight: 700;
+    font-weight: var(--gcds-font-weights-bold);
   }
 }
 
 .results-loader {
-  width: 3rem;
+  width: var(--gcds-spacing-500);
   aspect-ratio: 1;
-  border-radius: 50%;
-  border: 0.5rem solid #333;
+  border-radius: var(--gcds-border-radius-xl);
+  border: var(--gcds-border-width-xl) solid var(--gcds-text-primary);
   animation:
     l20-1 0.8s infinite linear alternate,
     l20-2 1.6s infinite linear;
