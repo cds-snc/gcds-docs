@@ -34,7 +34,7 @@ The author will also need to manually add `"componentName": "url"` to `src/en/en
 
 ### Frontmatter
 
-Each page has [Frontmatter](https://www.scribendi.com/academy/articles/front_matter.en.html#:~:text=Front%20matter%20is%20the%20first,a%20preface%2C%20and%20much%20more.) placed at the top of the file to help format the placment, template and navigational elements of the page.
+Each page has [Frontmatter](https://www.scribendi.com/academy/articles/front_matter.en.html#:~:text=Front%20matter%20is%20the%20first,a%20preface%2C%20and%20much%20more.) placed at the top of the file to help format the placement, template and navigational elements of the page.
 
 The frontmatter listed below will need to be updated when creating a component page.
 

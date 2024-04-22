@@ -32,7 +32,7 @@ Utilisez le composant texte pour :
 
 <a href="{{ links.heading }}" class="link-light">Titre</a> pour structurer le contenu en créant des niveaux hiérarchiques qui permettent l'organisation visuelle et mentale du contenu de la page à l'aide des styles de Système de design GC.
 
-<a href="{{ links.screenreaderContent }}" class="link-light">Contenu de lecteur d'écran</a> pour fournir de l'Information accessible par les technologies d'assistance, comme les lecteurs d'écran, mais invisible pour les utilisateur·rice·s voyant·e·s.
+<a href="{{ links.screenreaderOnly }}" class="link-light">Masquage accessible</a> pour fournir de l'Information accessible par les technologies d'assistance, comme les lecteurs d'écran, mais invisible pour les utilisateur·rice·s voyant·e·s.
 
 </article>
 

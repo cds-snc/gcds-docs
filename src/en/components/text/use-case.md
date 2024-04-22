@@ -32,7 +32,7 @@ Use the text component to:
 
 <a href="{{ links.heading }}" class="link-light">Headings</a> for structuring content by creating levels of hierarchy that organize page content visually and mentally, using GC Design System styles.
 
-<a href="{{ links.screenreaderContent }}" class="link-light">Screenreader content</a> for information that is accessible for assistive technologies like screen readers, but invisible for sighted users.
+<a href="{{ links.screenreaderOnly }}" class="link-light">Screenreader-only</a> for information that is accessible for assistive technologies like screen readers, but invisible for sighted users.
 
 </article>
 
