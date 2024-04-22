@@ -37,7 +37,7 @@
     "pagination": "/en/components/pagination",
     "radio": "/en/components/radio",
     "radioGroup": "/en/components/radio-group",
-    "screenreaderContent": "/en/coming-soon",
+    "screenreaderOnly": "/en/components/screenreader-only",
     "search": "/en/components/search",
     "select": "/en/components/select",
     "sideNav": "/en/components/side-navigation",
