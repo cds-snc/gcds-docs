@@ -402,7 +402,7 @@ nav.tabs a[aria-current=page]:focus {
 }
 
 .search-result {
-  border-block-end: solid 1px #000;
+  border-block-end: solid 1px var(--gcds-color-grayscale-1000);
   padding-block-end: var(--gcds-spacing-400);
 }
 .search-result mark {
