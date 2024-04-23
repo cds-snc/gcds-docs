@@ -31,6 +31,11 @@
     <link rel="stylesheet" href="/gcds-docs/components/dist/gcds/gcds.css">
     <script type="module" src="/components/dist/gcds/gcds.esm.js"></script>
     <script nomodule src="/components/dist/gcds/gcds.js"></script>
+
+    <!-- Pagefind -->
+    <script src="/pagefind/pagefind.js" type="module"></script>
+    <script src="/gcds-docs/scripts/search.js" type="module"></script>
+
   </head>
   <body>
     
@@ -39,6 +44,12 @@
   
   
     
+    
+      
+      
+    
+      
+      
     
       
       
@@ -968,6 +979,8 @@
   
 
 
+
+
 <gcds-header
   lang="fr"
   skip-to-href="#mc"
@@ -1028,10 +1041,15 @@
     
   </gcds-breadcrumbs>
 
+  
+<gcds-search search-id="search" slot="search" placeholder="Système de design GC" action="/fr/recherche">
+</gcds-search>
+
+
 </gcds-header>
 
     <div class="content-wrapper">
-      <main id="mc" class="container-xl mx-auto xl:px-0 sm:px-500 px-300 general-layout">
+      <main id="mc" class="container-xl mx-auto xl:px-0 sm:px-500 px-300 general-layout" data-pagefind-body>
         <h1 id="avis-de-confidentialite" class="mb-400">Avis de confidentialité</h1>
 <p class="mb-400">Système de design GC est développé par le <gcds-link href="https://numerique.canada.ca/" target="_blank">Service numérique canadien</gcds-link> au sein d'<gcds-link href="https://www.canada.ca/fr/emploi-developpement-social.html" target="_blank">Emploi et développement social Canada</gcds-link>. Le <gcds-link href="https://www.canada.ca/fr/transparence/confidentialite.html" target="_blank">site Web du gouvernement du Canada (Canada.ca)</gcds-link> et le <gcds-link href="https://numerique.canada.ca/confidentialite/" target="_blank">site Web du Service numérique canadien</gcds-link> bénéficient chacun de leurs propres pratiques de protection des renseignements personnels. Celles-ci sont décrites dans les documents joints.</p>
 <p class="mb-400">Vous n'avez pas besoin de vous inscrire ou de fournir des renseignements personnels pour utiliser Système de design GC. Nous recueillons néanmoins certaines informations de façon automatique lorsque vous visitez notre site Web. Il se peut également que vous décidiez de nous fournir volontairement des renseignements additionnels dans certains cas.</p>
@@ -1068,7 +1086,7 @@
 
 
         <gcds-date-modified class="mb-400 font-caption">
-          2024-04-22
+          2024-04-23
         </gcds-date-modified>
       </main>
 

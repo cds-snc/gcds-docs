@@ -31,6 +31,11 @@
     <link rel="stylesheet" href="/gcds-docs/components/dist/gcds/gcds.css">
     <script type="module" src="/components/dist/gcds/gcds.esm.js"></script>
     <script nomodule src="/components/dist/gcds/gcds.js"></script>
+
+    <!-- Pagefind -->
+    <script src="/pagefind/pagefind.js" type="module"></script>
+    <script src="/gcds-docs/scripts/search.js" type="module"></script>
+
   </head>
   <body>
     
@@ -42,6 +47,12 @@
   
   
     
+    
+      
+      
+    
+      
+      
     
       
       
@@ -968,6 +979,8 @@
   
 
 
+
+
 <gcds-header
   lang="en"
   skip-to-href="#mc"
@@ -1028,10 +1041,15 @@
     
   </gcds-breadcrumbs>
 
+  
+<gcds-search search-id="search" slot="search" placeholder="GC Design System" action="/en/search">
+</gcds-search>
+
+
 </gcds-header>
 
     <div class="content-wrapper">
-      <main id="mc" class="container-xl mx-auto xl:px-0 sm:px-500 px-300 general-layout">
+      <main id="mc" class="container-xl mx-auto xl:px-0 sm:px-500 px-300 general-layout" data-pagefind-body>
         <h1 id="privacy-notice" class="mb-400">Privacy Notice</h1>
 <p class="mb-400">GC Design System is built by the <gcds-link href="https://digital.canada.ca/" target="_blank">Canadian Digital Service</gcds-link>, part of <gcds-link href="https://www.canada.ca/en/employment-social-development.html" target="_blank">Employment and Social Development Canada</gcds-link>. The <gcds-link href="https://www.canada.ca/en/transparency/privacy.html" target="_blank">Government of Canada website (Canada.ca)</gcds-link> and <gcds-link href="https://digital.canada.ca/privacy/" target="_blank">the Canadian Digital Service website</gcds-link> have their own privacy practices, which are described in the linked documents.</p>
 <p class="mb-400">You do not have to sign up or provide personal information to use GC Design System. However, we collect some information automatically when you visit our website and in some cases you may choose to voluntarily provide more information to us.</p>
@@ -1068,7 +1086,7 @@
 
 
         <gcds-date-modified class="mb-400 font-caption">
-          2024-04-22
+          2024-04-23
         </gcds-date-modified>
       </main>
 

@@ -31,6 +31,11 @@
     <link rel="stylesheet" href="/gcds-docs/components/dist/gcds/gcds.css">
     <script type="module" src="/components/dist/gcds/gcds.esm.js"></script>
     <script nomodule src="/components/dist/gcds/gcds.js"></script>
+
+    <!-- Pagefind -->
+    <script src="/pagefind/pagefind.js" type="module"></script>
+    <script src="/gcds-docs/scripts/search.js" type="module"></script>
+
   </head>
   <body>
     
@@ -960,12 +965,20 @@
     
       
       
+    
+      
+      
+    
+      
+      
 
         
 
       
     
   
+
+
 
 
 <gcds-header
@@ -1034,10 +1047,15 @@
     
   </gcds-breadcrumbs>
 
+  
+<gcds-search search-id="search" slot="search" placeholder="GC Design System" action="/en/search">
+</gcds-search>
+
+
 </gcds-header>
 
     <div class="content-wrapper">
-      <main id="mc" class="container-xl mx-auto xl:px-0 sm:px-500 px-300 general-layout">
+      <main id="mc" class="container-xl mx-auto xl:px-0 sm:px-500 px-300 general-layout" data-pagefind-body>
         <h1 id="design-tokens" class="mb-400">Design tokens</h1>
 <p class="mb-400">GC Design System tokens are the smallest building blocks of the design system.</p>
 <h2 id="capturing-design-decisions-in-code" class="mt-500 mb-400">Capturing design decisions in code</h2>
@@ -1077,7 +1095,7 @@
 <img class="b-sm b-default p-400" src="/images/en/foundations/anatomy/anatomy-design-tokens-global-state.svg" alt="A line of three words, each highlighted in a different colour and underlined. Before the first word are two dashes with one dash between each word. A label tag beneath each connects each word to their name type. The first is the prefix: gcds. The second is the category (state): focus. The third is the property: text. The token name as a whole reads: --gcds-focus-text."/>
 <h3 id="base-design-tokens" class="mt-500 mb-400">Base design tokens</h3>
 <img class="b-sm b-default mb-500 p-400" src="/images/en/foundations/anatomy/anatomy-design-tokens-base.svg" alt="A line of three words, each highlighted in a different colour and underlined. Before the first word are two dashes with one dash between each word. A label tag beneath each connects each word to their name type. The first is the prefix: gcds. The second is the category (colour): grayscale. The third is the scale: 100. The token name as a whole reads: --gcds-grayscale-100."/>
-<section class="pt-100 mt-400 mb-600 bt-sm b-dark ">
+<section data-pagefind-ignore class="pt-100 mt-400 mb-600 bt-sm b-dark ">
   <h2 class="mt-300 mb-400">
     Help us improve
   </h2>
@@ -1095,7 +1113,7 @@ Give feedback
 
 
         <gcds-date-modified class="mb-400 font-caption">
-          2024-04-22
+          2024-04-23
         </gcds-date-modified>
       </main>
 

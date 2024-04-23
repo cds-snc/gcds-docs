@@ -31,6 +31,11 @@
     <link rel="stylesheet" href="/gcds-docs/components/dist/gcds/gcds.css">
     <script type="module" src="/components/dist/gcds/gcds.esm.js"></script>
     <script nomodule src="/components/dist/gcds/gcds.js"></script>
+
+    <!-- Pagefind -->
+    <script src="/pagefind/pagefind.js" type="module"></script>
+    <script src="/gcds-docs/scripts/search.js" type="module"></script>
+
   </head>
   <body>
     
@@ -330,6 +335,9 @@
     
       
       
+    
+      
+      
 
         
 
@@ -962,10 +970,15 @@
       
       
     
+      
+      
+    
   
 
   
   
+
+
 
 
 <gcds-header
@@ -1028,10 +1041,15 @@
     
   </gcds-breadcrumbs>
 
+  
+<gcds-search search-id="search" slot="search" placeholder="Système de design GC" action="/fr/recherche">
+</gcds-search>
+
+
 </gcds-header>
 
     <div class="content-wrapper">
-      <main id="mc" class="container-xl mx-auto xl:px-0 sm:px-500 px-300 general-layout">
+      <main id="mc" class="container-xl mx-auto xl:px-0 sm:px-500 px-300 general-layout" data-pagefind-body>
         
 <h1 id="styles" class="mb-400">Styles</h1>
 <p class="mb-400">Les unités de style sont à la base de Système de design GC.</p>
@@ -1112,7 +1130,7 @@
 
 
 
-<section class="pt-100 mt-400 mb-600 bt-sm b-dark ">
+<section data-pagefind-ignore class="pt-100 mt-400 mb-600 bt-sm b-dark ">
   <h2 class="mt-300 mb-400">
     Aidez-nous à nous améliorer
   </h2>
@@ -1133,7 +1151,7 @@
 
 
         <gcds-date-modified class="mb-400 font-caption">
-          2024-04-22
+          2024-04-23
         </gcds-date-modified>
       </main>
 

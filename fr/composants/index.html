@@ -31,6 +31,11 @@
     <link rel="stylesheet" href="/gcds-docs/components/dist/gcds/gcds.css">
     <script type="module" src="/components/dist/gcds/gcds.esm.js"></script>
     <script nomodule src="/components/dist/gcds/gcds.js"></script>
+
+    <!-- Pagefind -->
+    <script src="/pagefind/pagefind.js" type="module"></script>
+    <script src="/gcds-docs/scripts/search.js" type="module"></script>
+
   </head>
   <body>
     
@@ -962,10 +967,18 @@
       
       
     
+      
+      
+    
+      
+      
+    
   
 
   
   
+
+
 
 
 <gcds-header
@@ -1028,10 +1041,15 @@
     
   </gcds-breadcrumbs>
 
+  
+<gcds-search search-id="search" slot="search" placeholder="Système de design GC" action="/fr/recherche">
+</gcds-search>
+
+
 </gcds-header>
 
     <div class="content-wrapper">
-      <main id="mc" class="container-xl mx-auto xl:px-0 sm:px-500 px-300 general-layout">
+      <main id="mc" class="container-xl mx-auto xl:px-0 sm:px-500 px-300 general-layout" >
         
 <h1 id="composants" class="mb-400">Composants</h1>
 <p class="mb-400">Les composants du Système de design GC sont des blocs de construction d'interface utilisateur répondant à différents objectifs. Chaque composant s'accompagne de code réutilisable, de conseils relatifs aux meilleures pratiques et d'astuces en matière d'accessibilité.</p>
@@ -1730,7 +1748,7 @@
 </section>
 
         <gcds-date-modified class="mb-400 font-caption">
-          2024-04-22
+          2024-04-23
         </gcds-date-modified>
       </main>
 

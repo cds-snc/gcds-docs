@@ -31,6 +31,11 @@
     <link rel="stylesheet" href="/gcds-docs/components/dist/gcds/gcds.css">
     <script type="module" src="/components/dist/gcds/gcds.esm.js"></script>
     <script nomodule src="/components/dist/gcds/gcds.js"></script>
+
+    <!-- Pagefind -->
+    <script src="/pagefind/pagefind.js" type="module"></script>
+    <script src="/gcds-docs/scripts/search.js" type="module"></script>
+
   </head>
   <body>
     
@@ -39,6 +44,9 @@
   
   
     
+    
+      
+      
     
       
       
@@ -962,10 +970,15 @@
       
       
     
+      
+      
+    
   
 
   
   
+
+
 
 
 <gcds-header
@@ -1034,10 +1047,15 @@
     
   </gcds-breadcrumbs>
 
+  
+<gcds-search search-id="search" slot="search" placeholder="Système de design GC" action="/fr/recherche">
+</gcds-search>
+
+
 </gcds-header>
 
     <div class="content-wrapper">
-      <main id="mc" class="container-xl mx-auto xl:px-0 sm:px-500 px-300 general-layout">
+      <main id="mc" class="container-xl mx-auto xl:px-0 sm:px-500 px-300 general-layout" data-pagefind-body>
         <h2 id="unites-de-style-despacement" class="mt-500 mb-400">Unités de style d'espacement</h2>
 <p class="mb-400">Les unités de style d'espacement aident à disposer les éléments à l'écran et dans les composants.</p>
 <h2 id="unites-de-style-despacement-et-accessibilite" class="mt-500 mb-400">Unités de style d'espacement et accessibilité</h2>
@@ -1075,7 +1093,7 @@
                         <span lang="en">--gcds-spacing-900</span></td><td>144px</td><td>9rem</td></tr><tr class="row-1000"><td><div class="spacing-preview" style="width: 10.5rem; height: 10.5rem;"></div></td><td>
                         <span lang="en">--gcds-spacing-1000</span></td><td>168px</td><td>10.5rem</td></tr></table>
 </div>
-<section class="pt-100 mt-400 mb-600  ">
+<section data-pagefind-ignore class="pt-100 mt-400 mb-600  ">
   <h2 class="mt-300 mb-400">
     Aidez-nous à nous améliorer
   </h2>
@@ -1093,7 +1111,7 @@ Fournir des commentaires
 
 
         <gcds-date-modified class="mb-400 font-caption">
-          2024-04-22
+          2024-04-23
         </gcds-date-modified>
       </main>
 

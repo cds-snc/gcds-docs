@@ -31,6 +31,11 @@
     <link rel="stylesheet" href="/gcds-docs/components/dist/gcds/gcds.css">
     <script type="module" src="/components/dist/gcds/gcds.esm.js"></script>
     <script nomodule src="/components/dist/gcds/gcds.js"></script>
+
+    <!-- Pagefind -->
+    <script src="/pagefind/pagefind.js" type="module"></script>
+    <script src="/gcds-docs/scripts/search.js" type="module"></script>
+
   </head>
   <body>
     
@@ -39,6 +44,9 @@
   
   
     
+    
+      
+      
     
       
       
@@ -962,10 +970,15 @@
       
       
     
+      
+      
+    
   
 
   
   
+
+
 
 
 <gcds-header
@@ -1034,10 +1047,15 @@
     
   </gcds-breadcrumbs>
 
+  
+<gcds-search search-id="search" slot="search" placeholder="Système de design GC" action="/fr/recherche">
+</gcds-search>
+
+
 </gcds-header>
 
     <div class="content-wrapper">
-      <main id="mc" class="container-xl mx-auto xl:px-0 sm:px-500 px-300 general-layout">
+      <main id="mc" class="container-xl mx-auto xl:px-0 sm:px-500 px-300 general-layout" data-pagefind-body>
         <h1 id="unites-de-style" class="mb-400">Unités de style</h1>
 <p class="mb-400">Les unités de style de Système de design GC sont les plus petits blocs de construction du système de design.</p>
 <h2 id="representer-des-choix-stylistiques-en-code" class="mt-500 mb-400">Représenter des choix stylistiques en code</h2>
@@ -1077,7 +1095,7 @@
 <img class="b-sm b-default p-400" src="/images/fr/foundations/anatomy/anatomy-design-tokens-global-state.svg" alt="Une ligne de trois mots où chaque mot est surligné et souligné d’une couleur différente. Deux traits d’union précèdent le premier mot, et un trait d’union sépare chaque mot. Chaque mot est rattaché à une étiquette affichant son type de nom. Le type de nom du premier mot est un préfixe : gcds. Le type de nom du deuxième mot est une catégorie (état) : focus. Le type de nom du troisième mot est une propriété : text. L’unité de style entière se lit comme suit : --gcds-focus-text."/>
 <h3 id="unite-de-style-de-base" class="mt-500 mb-400">Unité de style de base</h3>
 <img class="b-sm b-default mb-500 p-400" src="/images/fr/foundations/anatomy/anatomy-design-tokens-base.svg" alt="Une ligne de trois mots où chaque mot est surligné et souligné d’une couleur différente. Deux traits d’union précèdent le premier mot, et un trait d’union sépare chaque mot. Chaque mot est rattaché à une étiquette affichant son type de nom. Le type de nom du premier mot est un préfixe : gcds. Le type de nom du deuxième mot est une catégorie (couleur) : grayscale. Le type de nom du troisième mot est une échelle : 100. L’unité de style entière se lit comme suit : --gcds-grayscale-100."/>
-<section class="pt-100 mt-400 mb-600 bt-sm b-dark ">
+<section data-pagefind-ignore class="pt-100 mt-400 mb-600 bt-sm b-dark ">
   <h2 class="mt-300 mb-400">
     Aidez-nous à nous améliorer
   </h2>
@@ -1095,7 +1113,7 @@ Fournir des commentaires
 
 
         <gcds-date-modified class="mb-400 font-caption">
-          2024-04-22
+          2024-04-23
         </gcds-date-modified>
       </main>
 

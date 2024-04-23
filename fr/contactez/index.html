@@ -31,6 +31,11 @@
     <link rel="stylesheet" href="/gcds-docs/components/dist/gcds/gcds.css">
     <script type="module" src="/components/dist/gcds/gcds.esm.js"></script>
     <script nomodule src="/components/dist/gcds/gcds.js"></script>
+
+    <!-- Pagefind -->
+    <script src="/pagefind/pagefind.js" type="module"></script>
+    <script src="/gcds-docs/scripts/search.js" type="module"></script>
+
   </head>
   <body>
     
@@ -962,10 +967,18 @@
       
       
     
+      
+      
+    
+      
+      
+    
   
 
   
   
+
+
 
 
 <gcds-header
@@ -1028,10 +1041,15 @@
     
   </gcds-breadcrumbs>
 
+  
+<gcds-search search-id="search" slot="search" placeholder="Système de design GC" action="/fr/recherche">
+</gcds-search>
+
+
 </gcds-header>
 
     <div class="content-wrapper">
-      <main id="mc" class="container-xl mx-auto xl:px-0 sm:px-500 px-300 general-layout">
+      <main id="mc" class="container-xl mx-auto xl:px-0 sm:px-500 px-300 general-layout" data-pagefind-body>
         <h1 id="contacteznous" class="mb-400">Contactez-nous</h1>
 <p class="mb-400">Système de design GC est en cours d’élaboration par le Service numérique canadien. En cette phase d’essai, les fonctionnaires y ont accès et peuvent l’utiliser.</p>
 <p class="mb-400">Consultez notre page <gcds-link href="/fr/a-propos">À propos</gcds-link> pour en savoir plus.</p>
@@ -1062,7 +1080,7 @@
 
 
         <gcds-date-modified class="mb-400 font-caption">
-          2024-04-22
+          2024-04-23
         </gcds-date-modified>
       </main>
 

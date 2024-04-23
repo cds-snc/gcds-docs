@@ -31,6 +31,11 @@
     <link rel="stylesheet" href="/gcds-docs/components/dist/gcds/gcds.css">
     <script type="module" src="/components/dist/gcds/gcds.esm.js"></script>
     <script nomodule src="/components/dist/gcds/gcds.js"></script>
+
+    <!-- Pagefind -->
+    <script src="/pagefind/pagefind.js" type="module"></script>
+    <script src="/gcds-docs/scripts/search.js" type="module"></script>
+
   </head>
   <body>
     
@@ -429,6 +434,9 @@
     
       
       
+    
+      
+      
 
         
 
@@ -965,7 +973,12 @@
       
       
     
+      
+      
+    
   
+
+
 
 
 <gcds-header
@@ -1034,10 +1047,15 @@
     
   </gcds-breadcrumbs>
 
+  
+<gcds-search search-id="search" slot="search" placeholder="GC Design System" action="/en/search">
+</gcds-search>
+
+
 </gcds-header>
 
     <div class="content-wrapper">
-      <main id="mc" class="container-xl mx-auto xl:px-0 sm:px-500 px-300 general-layout">
+      <main id="mc" class="container-xl mx-auto xl:px-0 sm:px-500 px-300 general-layout" data-pagefind-body>
         
   
     <h1 id="card-brgcdscard" class="mb-400">Card <br><code>&lt;gcds-card&gt;</code></h1>
@@ -1051,7 +1069,7 @@
 <gcds-link external href="https://www.figma.com/file/mh2maMG2NBtk41k1O1UGHV/Canadian-Digital-Service%E2%80%A8---GC-Design-System?type=design&node-id=5757-12701&mode=design&t=qwNFRgCKhnoUtRXO-0">Figma</gcds-link>
 </li>
 </ul></p>
-<p class="mb-400"><div class="my-500 b-sm b-default component-preview">
+<p class="mb-400"><div class="my-500 b-sm b-default component-preview" id="component-preview">
 <p class="container-full font-semibold px-300 py-200 bb-sm b-default bg-light">
 Card component preview
 </p>
@@ -1115,7 +1133,7 @@ Card component preview
 </article>
 <h2 id="component-types" class="mt-500 mb-400">Component types</h2>
 <h3 id="link-card" class="mt-500 mb-400">Link card</h3>
-<p class="mb-400"><div class="my-400 b-sm b-default component-preview">
+<p class="mb-400"><div class="my-400 b-sm b-default component-preview" id="component-preview">
 <p class="container-full font-semibold px-300 py-200 bb-sm b-default bg-light">
 Link card preview
 </p>
@@ -1132,7 +1150,7 @@ Link card preview
   <li>Provide a large, clickable target leading to more information.</li>
 </ul>
 <h3 id="action-card" class="mt-500 mb-400">Action card</h3>
-<p class="mb-400"><div class="my-400 b-sm b-default component-preview">
+<p class="mb-400"><div class="my-400 b-sm b-default component-preview" id="component-preview">
 <p class="container-full font-semibold px-300 py-200 bb-sm b-default bg-light">
 Action card preview
 </p>
@@ -1153,7 +1171,7 @@ Action card preview
 <p>Note: In the action card, only the card title headline link and the button are interactive. The button is for a specific action</p>
 
 
-  <section class="pt-100 mt-400 mb-600 bt-sm b-dark ">
+  <section data-pagefind-ignore class="pt-100 mt-400 mb-600 bt-sm b-dark ">
   <h2 class="mt-300 mb-400">
     Help us improve
   </h2>
@@ -1174,7 +1192,7 @@ Action card preview
 
 
         <gcds-date-modified class="mb-400 font-caption">
-          2024-04-22
+          2024-04-23
         </gcds-date-modified>
       </main>
 
