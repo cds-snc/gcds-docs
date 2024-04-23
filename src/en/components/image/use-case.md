@@ -16,6 +16,7 @@ translationKey: 'image'
 tags: ['imageEN', 'usage']
 permalink: /en/components/image/
 # date: "git Last Modified"
+nocrawl: true
 ---
 
 ## Problems component solves

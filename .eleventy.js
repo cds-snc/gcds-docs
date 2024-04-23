@@ -13,6 +13,8 @@ const displayTokens = require('./utils/display-tokens');
 const markdownAnchor = require('./utils/anchor');
 const slugify = require('./utils/slugify');
 
+const { execSync } = require('child_process')
+
 module.exports = function (eleventyConfig) {
   // Pass through copies
 
@@ -21,6 +23,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy('./src/styles/prism.css');
   eleventyConfig.addPassthroughCopy('./src/images');
   eleventyConfig.addPassthroughCopy('./src/scripts/code-showcase.js');
+  eleventyConfig.addPassthroughCopy('./src/scripts/search.js');
   eleventyConfig.addPassthroughCopy('./src/scripts/code-copy.js');
   eleventyConfig.addPassthroughCopy('./src/admin/config.yml');
   eleventyConfig.addPassthroughCopy('./src/favicon.ico');
@@ -264,7 +267,7 @@ module.exports = function (eleventyConfig) {
       const content = children;
 
       return `
-      <div class="${margin} b-sm b-default component-preview">
+      <div class="${margin} b-sm b-default component-preview" id="component-preview">
         <p class="container-full font-semibold px-300 py-200 bb-sm b-default bg-light">
           ${title}
         </p>
@@ -297,6 +300,10 @@ module.exports = function (eleventyConfig) {
       };
     });
   });
+
+  eleventyConfig.on('eleventy.after', () => {
+    execSync(`npx pagefind --site _site --exclude-selectors "gcds-side-nav, gcds-top-nav, gcds-breadcrumbs, .github-link, .figma-link, h1 > code, .component-preview" --glob \"**/*.html\"`, { encoding: 'utf-8' })
+  })
 
   return {
     pathPrefix: process.env.PATH_PREFIX || '/',

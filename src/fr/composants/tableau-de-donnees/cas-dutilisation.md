@@ -15,6 +15,7 @@ translationKey: 'datatable'
 tags: ['datatableFR', 'usage']
 permalink: /fr/composants/tableau-de-donnees/
 # date: "git Last Modified"
+nocrawl: true
 ---
 
 ## Problems component solves

@@ -8,6 +8,7 @@ eleventyNavigation:
   order: 0
 translationKey: 'components'
 date: 'git Last Modified'
+nocrawl: true
 cardlist:
   type: components
   state: published
