@@ -10,7 +10,7 @@ tags: ['buttonFR', 'header']
 
 _Autres noms : appel à l’action._
 
-Un bouton est un composant interactif qui met en évidence une action importante ou commune.
+Le bouton est un composant interactif qui met en évidence une action importante ou commune.
 
 {% docLinks locale stage figma github %}
 {% enddocLinks %}
