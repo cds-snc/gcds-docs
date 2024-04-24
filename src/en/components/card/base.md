@@ -9,7 +9,7 @@ tags: ['cardEN', 'header']
 
 _Also called: tile, content card._
 
-A card is a box containing structured, actionable content on a single topic.
+The card is a box containing structured, actionable content on a single topic.
 
 {% docLinks locale stage figma github %}
 {% enddocLinks %}
