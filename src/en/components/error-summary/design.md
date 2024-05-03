@@ -13,7 +13,7 @@ tags: ['errorsummaryEN', 'design']
   <li>The <strong>error summary item</strong> links to the error context and includes the same text as the error message (a call to action statement to address the error).</li>
 </ol>
 
-<img class="b-sm b-default p-400" src="/images/en/components/anatomy/gcds-error-summary-anatomy.svg" alt="Button anatomy showing the Button label branching to the container and arrow icon." />
+<img class="b-sm b-default p-400" src="/images/en/components/anatomy/gcds-error-summary-anatomy.svg" alt="A red rectangle frames a prominent heading that reads "There's a problem" and a numbered list of 3 links with error summary items in the link text." />
 
 ## Design and accessibility for error summaries
 
