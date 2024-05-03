@@ -1,15 +1,15 @@
 ---
-title: Menu des thèmes et sujets
+title: Menu thématique
 layout: "layouts/component-documentation.njk"
 eleventyNavigation:
   key: themeand-topic-menuFR
-  title: Menu des thèmes et sujets
+  title: Menu thématique
   locale: fr
   parent: componentsFR
   otherNames: navigation globale, navigation par thème.
-  description: Le menu des thèmes et sujets est un mécanisme de navigation vers les tâches les plus importantes des sites Web du gouvernement du Canada.
+  description: Le menu thématique est un mécanisme de navigation vers les tâches les plus importantes des sites Web du gouvernement du Canada.
   thumbnail: /images/common/components/preview-topic-menu.svg
-  alt: Le menu des thèmes et sujets affiche un bouton de menu gris au-dessus d'une liste verticale étendue d'options de menu.
+  alt: Le menu thématique affiche un bouton de menu gris au-dessus d'une liste verticale étendue d'options de menu.
   state: published
 translationKey: "themeand-topic-menu"
 tags: ['themeand-topic-menuFR', 'usage']
@@ -17,9 +17,9 @@ permalink: /fr/composants/menu-des-themes-et-sujets/
 date: "git Last Modified"
 ---
 
-## Problèmes résolus par le menu des thèmes et sujets
+## Problèmes résolus par le thématique
 
-Utilisez le menu des thèmes et sujets pour :
+Utilisez le menu thématique pour :
 
 - Permettre aux utilisateur·rice·s de naviguer dans l’ensemble des pages Web du gouvernement du Canada, notamment pour les pages accédées fréquemment à partir de votre site Web.
 
