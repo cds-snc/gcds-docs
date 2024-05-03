@@ -9,7 +9,7 @@ eleventyNavigation:
   otherNames: error overview.
   description: A list of user errors on a page or in a flow.
   thumbnail: /images/common/components/preview-error-summary.svg
-  alt: A red rectangle frames a prominent heading that reads "There's a problem" followed by a numbered list of 3 links with error summary items in the link text.
+  alt: A red rectangle frames a prominent heading that reads "There's a problem" and a numbered list of 3 links with error summary items in the link text.
   state: published
 translationKey: 'errorsummary'
 tags: ['errorsummaryEN', 'usage']
