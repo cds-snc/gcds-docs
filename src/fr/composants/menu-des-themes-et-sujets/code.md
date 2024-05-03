@@ -1,20 +1,20 @@
 ---
-title: Menu des thèmes et sujets
+title: Menu thématique
 layout: 'layouts/component-documentation.njk'
 translationKey: 'themeand-topic-menuCode'
 tags: ['themeand-topic-menuFR', 'code']
 date: 'git Last Modified'
 ---
 
-## Création d'un menu des thèmes et sujets
+## Création d'un menu thématique
 
-Utilisez le menu des thèmes et sujets pour permettre aux utilisateur·rice·s de naviguer à travers l'ensemble des sites du gouvernement du Canada.
+Utilisez le menu thématique pour permettre aux utilisateur·rice·s de naviguer à travers l'ensemble des sites du gouvernement du Canada.
 
-## Codage et accessibilité du menu des thèmes et sujets
+## Codage et accessibilité du menu thématique
 
-### Utilisation du menu des thèmes et sujets avec d'autres composants
+### Utilisation du menu thématique avec d'autres composants
 
-Ajoutez directement le menu des thèmes et sujets à l'<gcds-link href="{{ links.header }}">en-tête</gcds-link> en passant un élément secondaire avec l'attribut `slot="menu"` dans l'en-tête. Cela placera le menu des thèmes et sujets dans l'en-tête, à la suite de la bascule de la langue, la signature et la barre de recherche.
+Ajoutez directement le menu thématique à l'<gcds-link href="{{ links.header }}">en-tête</gcds-link> en passant un élément secondaire avec l'attribut `slot="menu"` dans l'en-tête. Cela placera le menu thématique dans l'en-tête, à la suite de la bascule de la langue, la signature et la barre de recherche.
 
 Remarque : Si vous souhaitez ajouter un menu de thèmes et sujets à la page d'accueil de Canada.ca, utilisez l'attribut `home` pour utiliser le style approprié.
 
