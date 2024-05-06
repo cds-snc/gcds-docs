@@ -1,6 +1,6 @@
 ---
 github: https://github.com/cds-snc/gcds-components/tree/main/packages/web/src/components/gcds-topic-menu
-figma: https://www.figma.com/file/mh2maMG2NBtk41k1O1UGHV/Canadian-Digital-Service%E2%80%A8---GC-Design-System?type=design&node-id=8424-2028&mode=design&t=hrO7Ny2trtHm84aD-0
+figma: https://www.figma.com/file/o4SguSZdar2CCFzSkWNrmB/Syst%C3%A8me-de-design-GC?type=design&node-id=114-2818&mode=design&t=1DaL24vHpjRRfHHm-0
 permalink: false
 tags: ['themeand-topic-menuFR', 'header']
 ---
