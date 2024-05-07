@@ -1,7 +1,7 @@
 ---
 layout: 'layouts/base.njk'
 github: https://github.com/cds-snc/gcds-components/tree/main/packages/web/src/components/gcds-date-modified
-figma: https://www.figma.com/file/mh2maMG2NBtk41k1O1UGHV/Canadian-Digital-Service%E2%80%A8---GC-Design-System?type=design&node-id=3471-9955&mode=design&t=4uA1VfR0YnyStZyZ-0
+figma: https://www.figma.com/file/o4SguSZdar2CCFzSkWNrmB/Syst%C3%A8me-de-design-GC?type=design&node-id=48-6634&mode=design&t=1DaL24vHpjRRfHHm-0
 permalink: false
 tags: ['datemodifiedFR', 'header']
 ---
