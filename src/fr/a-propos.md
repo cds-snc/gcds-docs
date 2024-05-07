@@ -18,7 +18,7 @@ Nous accordons la priorité aux composants et aux configurations utiles à la pl
 
 Le [Service numérique canadien](https://numerique.canada.ca/) crée et entretient Système de design GC avec l’aide de l’équipe du système de conception de Canada.ca. 
 
-### Notre collaboration avec le système de conception de Canada.ca
+## Notre collaboration avec le système de conception de Canada.ca
 
 Système de design GC intègre les éléments obligatoires de Canada.ca. Nous collaborons avec le Bureau de la transformation numérique (BTN) au sein du Service numérique canadien afin d’évaluer le système de design et d’ajouter des éléments à notre feuille de route. Le BTN continue à offrir ses conseils et son soutien aux praticiens et praticiennes du Web et du numérique au sein du GC.
 
@@ -32,7 +32,7 @@ Système de design GC vous aide à livrer plus rapidement vos produits dans l’
 
 ### Des expériences reconnaissables : des sites Web du GC faciles à reconnaître et inspirant confiance
 
-Nos composants et styles Web vous offrent : 
+Nos <gcds-link href="{{ links.components }}">composants</gcds-link> et <gcds-link href="{{ links.styles }}">styles</gcds-link> Web vous offrent :
 
 - Un respect par défaut des normes fédérales et des bonnes pratiques d’utilisabilité;
 - Un même résultat final, peu importe l’infrastructure ou l’environnement que vous utilisez;
