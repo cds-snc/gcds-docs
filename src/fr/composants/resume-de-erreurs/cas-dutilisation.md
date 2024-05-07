@@ -9,7 +9,7 @@ eleventyNavigation:
   otherNames: liste d'erreurs.
   description: Un résumé des erreurs consiste en une liste des erreurs de saisie dans un formulaire.
   thumbnail: /images/common/components/preview-error-summary.svg
-  alt: Un encadré à la bordure rouge renferme une épaisse ligne grise qui représente un titre et qui surmonte trois épaisses lignes rouges plus courtes représentant du texte.
+  alt: Un rectangle rouge encadre un titre proéminent lisant "Il y a un problème" ainsi qu'une liste numérotée comprenant 3 liens avec des éléments du résumé des erreurs dans le texte de lien.
   state: published
 translationKey: 'errorsummary'
 tags: ['errorsummaryFR', 'usage']
