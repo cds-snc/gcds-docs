@@ -19,5 +19,3 @@ The radio helps users to make a choice by limiting their options.
 - Group radio options and name the group using the [fieldset component]({{ links.fieldset }}).
 - Use the fieldset `legend` and `hint` attributes for the group name and instructions.
 - For required groups, set the `required` attribute in the fieldset. Setting the `required` attribute applies validation and error handling to the radio group.
-
-{% include "partials/getcode.njk" %}
