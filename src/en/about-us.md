@@ -18,7 +18,7 @@ We’re prioritizing common components and patterns that most GC teams can use. 
 
 The [Canadian Digital Service](https://digital.canada.ca) builds and maintains GC Design System in consultation with the Canada.ca design system team.
 
-### How we're working with Canada.ca design system
+## How we're working with Canada.ca design system
 
 GC Design System is incorporating the mandatory elements of Canada.ca. We’re working together with the Digital Transformation Office at the Canadian Digital Service to evaluate the design system and add to the roadmap. They continue to provide guidance and support to web and digital practitioners in the GC.
 
