@@ -21,12 +21,16 @@ tokenTable:
     value: Valeur hex
     use-case: Utilisation
   useCases:
-    text-primary: Couleur de texte principal pour les arrière-plans blancs ou à valeur 100 (p. ex. --gcds-color-blue-100).
-    text-secondary: Couleur de texte contrastante (par rapport à la couleur du texte principal) sur un arrière-plan blanc.
-    text-light: Couleur de texte pâle principal pour les arrière-plans à valeur 700 ou plus sombres (p. ex. --gcds-color-blue-700).
+    text-light: Couleur claire principale du texte. À utiliser sur un arrière-plan de nuance 700 ou plus foncé (comme --gcds-bg-dark).
+    text-primary: Couleur principale du texte. À utiliser sur un arrière-plan de nuance 50 ou plus clair (comme --gcds-bg-white).
+    text-secondary: Couleur de texte contrastante (alternative à --gcds-text-primary). À utiliser sur un arrière-plan de nuance 50 ou plus clair (comme --gcds-bg-white).
     link-default: Couleur de lien par défaut pour les hyperliens sur un arrière-plan blanc.
     link-hover: Couleur de lien pointé pour les hyperliens sur un arrière-plan blanc.
     link-light: Couleur d'hyperlien pâle par défaut pour les arrière-plans à valeur 700 ou plus sombres (p. ex. --gcds-color-blue-700).
+    bg-dark: Couleur foncée principale de l'arrière-plan. À utiliser avec du texte de nuance 100 ou plus clair (comme --gcds-text-light).
+    bg-light: Couleur claire d'arrière plan (alternative à --gcds-bg-white). À utiliser avec du texte de nuance 700 ou plus foncé (comme --gcds-text-primary).
+    bg-primary: Couleur de surbrillance de l'arrière-plan. À utiliser avec du texte de nuance 100 ou plus clair (comme --gcds-text-light).
+    bg-white: Couleur principale de l'arrière-plan. À utiliser avec du texte de nuance 700 ou plus foncé (comme --gcds-text-primary).
     border-default: Couleur par défaut pour les bordures et les icônes sur un arrière-plan blanc.
     danger-background: La couleur de l'arrière-plan de danger pour accentuer une action destructrice ou un retour d'expérience critique en arrière-plan.
     danger-border: La couleur de la bordure de danger sur blanc ou sur arrière-plans de danger pour accentuer une action destructrice ou un retour d'expérience critique.
@@ -74,6 +78,10 @@ Utilisez les unités de style d'état global pour :
 ### Lien
 
 {% include "partials/token_table.njk", token: 'link', type: 'color' %}
+
+### Arrière-plan
+
+{% include "partials/token_table.njk", token: 'bg', type: 'color' %}
 
 ### Bordure
 
