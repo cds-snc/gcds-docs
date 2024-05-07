@@ -13,7 +13,7 @@ eleventyNavigation:
   state: published
 translationKey: 'themeand-topic-menu'
 tags: ['themeand-topic-menuFR', 'usage']
-permalink: /fr/composants/menu-des-themes-et-sujets/
+permalink: /fr/composants/menu-thematique/
 date: 'git Last Modified'
 ---
 
