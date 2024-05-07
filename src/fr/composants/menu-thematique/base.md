@@ -5,16 +5,16 @@ permalink: false
 tags: ['themeand-topic-menuFR', 'header']
 ---
 
-# Menu des thèmes et sujets <br>`<gcds-component-name>`
+# Menu thématique <br>`<gcds-topic-menu>`
 
 _Autres noms : navigation globale, navigation par thème._
 
-Le menu des thèmes et sujets est un mécanisme de navigation vers les tâches les plus importantes des sites Web du gouvernement du Canada.
+Le menu thématique est un mécanisme de navigation vers les tâches les plus importantes des sites Web du gouvernement du Canada.
 
 {% docLinks locale stage figma github %}
 {% enddocLinks %}
 
-{% componentPreview "Aperçu du composant de menu des thèmes et sujets" "px-0 py-400" %}
+{% componentPreview "Aperçu du composant de menu thématique" "px-0 py-400" %}
 
 <div aria-hidden="true">
   <gcds-topic-menu>
