@@ -34,7 +34,7 @@ We’d like to talk to you. Get in touch to request a demo, ask a question, or m
   <gcds-input type="text" name="name" input-id="name" label="Full name" size="30" autocomplete="name" required></gcds-input>
   <gcds-input type="email" name="email" input-id="email" label="Email address" size="50" autocomplete="email" required></gcds-input>
   <gcds-fieldset fieldset-id="reasonForContact" legend="Reason for your communication" required>
-    <gcds-radio-group name="reasonForContact" options='[{{ contactus[locale].options | contactStringify }}]'>
+    <gcds-radio-group name="reasonForContact" options='[{{ contactus[locale].options | stringify }}]'>
     </gcds-radio-group>
   </gcds-fieldset>
   <gcds-textarea name="message" label="Message" textarea-id="message" hint="Write your question or comment." required></gcds-textarea>
