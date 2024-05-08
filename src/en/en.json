@@ -36,6 +36,7 @@
     "link": "/en/components/link",
     "pagination": "/en/components/pagination",
     "radio": "/en/components/radio",
+    "radioGroup": "/en/components/radio-group",
     "screenreaderOnly": "/en/components/screenreader-only",
     "search": "/en/components/search",
     "select": "/en/components/select",

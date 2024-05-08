@@ -16,5 +16,7 @@ An error message is a description of a problem blocking a user goal.
 {% enddocLinks %}
 
 {% componentPreview "Error message component preview" "px-300 pt-400 pb-100" %}
-<gcds-error-message message="Error message or validation message."></gcds-error-message>
+<gcds-error-message message-id="example-message">
+Error message or validation message.
+</gcds-error-message>
 {% endcomponentPreview %}

@@ -14,6 +14,13 @@ La zone de texte donne aux utilisateur·rice·s la possibilité de fournir les r
 
 ## Codage et accessibilité des zones de texte
 
+### Appliquez les attributs requis
+Pour que la zone de texte fonctionne correctement, utilisez toujours les attributs suivants avec `<gcds-textarea>`:
+
+- `name`
+- `label`
+- `textarea-id`
+
 ### Adaptez la zone de texte au type de réponse
 
 - Utilisez des zones de texte pour les réponses qui peuvent nécessiter plus de 75 caractères.

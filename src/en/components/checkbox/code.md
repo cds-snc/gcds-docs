@@ -12,6 +12,14 @@ Use a checkbox with a [fieldset]({{ links.fieldset }}) when you are expecting th
 
 ## Coding and accessibility for checkboxes
 
+### Apply required attributes
+
+For the checkbox to function properly, always use the following attributes with `<gcds-checkbox>`:
+
+- `name`
+- `label`
+- `checkbox-id`
+
 ### Use a fieldset and the required attribute
 
 - Group checkbox options and name the group using the [fieldset component]({{ links.fieldset }}).

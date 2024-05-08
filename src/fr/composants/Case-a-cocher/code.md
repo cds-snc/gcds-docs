@@ -12,6 +12,12 @@ Utilisez une case à cocher avec un [jeu de champs]({{ links.fieldset }}) lorsqu
 
 ## Accessibilité et codage des cases à cocher
 
+Pour que la case à cocher fonctionne correctement, utilisez toujours les attributs suivants avec `<gcds-checkbox>`:
+
+- `name`
+- `label`
+- `checkbox-id`
+
 ### Utilisez un jeu de champs et l’attribut obligatoire
 
 - Regroupez les options de cases à cocher et nommer le groupe en utilisant la [composante de jeu de champs]({{ links.fieldset }}).

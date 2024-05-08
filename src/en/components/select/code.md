@@ -12,6 +12,14 @@ Use the select to give multiple (7 or more) options to answer a single question.
 
 ## Code and accessibility for select
 
+### Apply required attributes
+
+For the select to function properly, always use the following attributes with `<gcds-select>`:
+
+- `name`
+- `label`
+- `select-id`
+
 ### Set the default value
 
 Use the `default-value` attribute to set the first option in the select list. This avoids pre-selection of an option.

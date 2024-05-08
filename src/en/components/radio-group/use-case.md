@@ -1,28 +1,27 @@
 ---
-title: Radio
-layout: 'layouts/component-documentation.njk'
+title: Radio group
+layout: "layouts/component-documentation.njk"
 eleventyNavigation:
-  key: radioEN
-  title: Radio
+  key: radiogroupEN
+  title: Radio group
   locale: en
   parent: componentsEN
-  otherNames: radio button, radio group.
+  otherNames: radio, radio button
   description: A short set of options for single selection.
   thumbnail: /images/common/components/preview-radio.svg
-  alt: Radio component shows radio selection with black outlined circle with a black circle selected followed by unselected two options.
-  state: deprecated
-  lastVersion: v0.20.0
-translationKey: 'radio'
-tags: ['radioEN', 'usage']
-permalink: /en/components/radio/
+  alt: A column of three radio selections. Each radio button circle has a thin grey border and white fill beside a thick grey line to represent the label. One of the three circles is selected and has a single dark grey circle inside of it.
+  state: published 
+translationKey: "radiogroup"
+tags: ['radiogroupEN', 'usage']
+permalink: /en/components/radio-group/
 date: 'git Last Modified'
 ---
 
-Take a look at what problems radios solve to see if they fit the problem you're solving for.
+Take a look at what problems radio groups solve to see if they fit the problem you're solving for.
 
-## Problems radios solve
+## Problems radio groups solves
 
-Use radios with a [fieldset]({{ links.fieldset }}) to make a request for info with a set of options when you're expecting the user to only select one option to:
+Use radio groups with a [fieldset]({{ links.fieldset }}). Use a radio group to request a single-option response within a short set and to:
 
 - Limit the number of possible answers to your question.
 - Specify the possible answers to your question.

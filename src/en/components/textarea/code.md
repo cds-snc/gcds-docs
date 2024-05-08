@@ -14,6 +14,14 @@ The text area gives users the option to provide the information they want to sha
 
 ## Coding and accessibility for text areas
 
+### Apply required attributes
+
+For the text area to function properly, always use the following attributes with `<gcds-textarea>`:
+
+- `name`
+- `label`
+- `textarea-id`
+
 ### Size text areas to fit response type
 
 - Use text areas for responses that may need more than 75 characters.

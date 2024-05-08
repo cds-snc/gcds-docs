@@ -8,6 +8,10 @@ tags: ['radioEN', 'header']
 
 # Radio <br>`<gcds-radio>`
 
+<gcds-error-message message-id="component-deprecated">
+This component is deprecated as of v0.21.0. Please see <gcds-link href="https://github.com/cds-snc/gcds-components/releases/tag/gcds-components-v0.21.0">Release v0.21.0</gcds-link> for details.
+</gcds-error-message>
+
 _Also called: radio button, radio group._
 
 A radio is a set of options for a single selection.
@@ -15,12 +19,4 @@ A radio is a set of options for a single selection.
 {% docLinks locale stage figma github %}
 {% enddocLinks %}
 
-{% componentPreview "Radio component preview" "px-300 pt-400 pb-200" %}
-<gcds-fieldset fieldset-id="fieldset" legend="Legend" hint="Hint / Example message.">
-<gcds-radio radio-id="form-radio-1" label="Label" hint="Description or example to make the option clearer." name="radio" checked>
-</gcds-radio>
-
-<gcds-radio radio-id="form-radio-2" label="Label" hint="Description or example to make the option clearer." name="radio">
-</gcds-radio>
-</gcds-fieldset>
-{% endcomponentPreview %}
+<br/>

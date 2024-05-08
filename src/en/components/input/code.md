@@ -3,6 +3,7 @@ title: Input
 layout: 'layouts/component-documentation.njk'
 translationKey: 'inputCode'
 tags: ['inputEN', 'code']
+date: 'git Last Modified'
 ---
 
 ## Build an input
@@ -10,6 +11,14 @@ tags: ['inputEN', 'code']
 Use an input to ask for information short, one-line response.
 
 ## Coding and accessibility for inputs
+
+### Apply required attributes
+
+For the input to function properly, always use the following attributes with `<gcds-input>`:
+
+- `name`
+- `label`
+- `input-id`
 
 ### Size inputs to fit response type
 

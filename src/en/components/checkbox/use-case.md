@@ -30,7 +30,7 @@ Use a checkbox with a [fieldset]({{ links.fieldset }}) to make a request for inf
 <article class="bg-full-width bg-primary text-light pt-500 pb-400 my-500">
   <h2 class="mt-0 mb-400">Related components</h2>
 
-<a href="{{ links.radio }}" class="link-light">Radios</a> to give a single option from a larger set of options.
+<a href="{{ links.radioGroup }}" class="link-light">Radio groups</a> to give a single option from a larger set of options.
 
 <a href="{{ links.select }}" class="link-light">Select</a> to give a single option from a medium to long sized list in a dropdown format.
 

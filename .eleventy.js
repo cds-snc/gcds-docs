@@ -154,6 +154,11 @@ module.exports = function (eleventyConfig) {
     return colourName;
   });
 
+  eleventyConfig.addFilter('stringify', (data) => {
+    return JSON.stringify(data, null, "\t")
+  })
+
+
   /* Markdown Overrides */
   let markdownLibrary = markdownIt({
     html: true,

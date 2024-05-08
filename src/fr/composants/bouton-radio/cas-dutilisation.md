@@ -10,7 +10,8 @@ eleventyNavigation:
   description: Un bouton radio permet de proposer plusieurs options de réponse pour un choix unique.
   thumbnail: /images/common/components/preview-radio.svg
   alt: Un aperçu du composant radio qui montre trois options de sélection formées de cercle blanc au contour noir ainsi que de boîtes grises représentant du texte. La première option a un point noir à l'intérieur du cercle pour identifier sa sélection.
-  state: published
+  state: deprecated
+  lastVersion: v0.20.0
 translationKey: 'radio'
 tags: ['radioFR', 'usage']
 permalink: /fr/composants/bouton-radio/
