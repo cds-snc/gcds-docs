@@ -1,6 +1,6 @@
 ---
 github: https://github.com/cds-snc/gcds-components/tree/main/packages/web/src/components/gcds-sr-only
-figma:
+figma: https://www.figma.com/design/o4SguSZdar2CCFzSkWNrmB/Syst%C3%A8me-de-design-GC?node-id=792-681
 permalink: false
 tags: ['screenreaderonlyFR', 'header']
 ---
