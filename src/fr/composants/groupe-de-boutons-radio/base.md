@@ -17,7 +17,7 @@ Le groupe de boutons radio est un ensemble d’options permettant une sélection
 
 {% componentPreview "Aperçu du composant du groupe de boutons radio" "px-300 pt-400 pb-200" %}
 <gcds-fieldset fieldset-id="fieldset" legend="Legend" hint="Texte explicatif/Exemple de message.">
-<gcds-group-radio name="radio" options="[{'id':'form-radio-1', 'label': 'Libellé 1', 'hint':'Ceci est une description ou un exemple à titre de clarification.'},{'id':'form-radio-2', 'label': 'Libellé 2', 'hint':'Ceci est une description ou un exemple à titre de clarification.' }]">
+<gcds-group-radio name="radio" options='[{"id":"form-radio-1","label":"Libellé 1","hint":"Ceci est une description ou un exemple à titre de clarification."},{"id":"form-radio-2","label":"Libellé 2","hint":"Ceci est une description ou un exemple à titre de clarification."}]'>
 </gcds-group-radio>
 </gcds-fieldset>
 {% endcomponentPreview %}
