@@ -5,10 +5,12 @@ figma: https://www.figma.com/file/mh2maMG2NBtk41k1O1UGHV/Canadian-Digital-Servic
 permalink: false
 tags: ['radioEN', 'header']
 ---
-# Radio <br>`<gcds-radio>`
-<gcds-error-message message="This component is deprecated as of v0.21.0"></gcds-error-message>
 
-Please see <gcds-link href="https://github.com/cds-snc/gcds-components/releases/tag/gcds-components-v0.21.0">Release v0.21.0</gcds-link> for details
+# Radio <br>`<gcds-radio>`
+
+<gcds-error-message message-id="component-deprecated">
+This component is deprecated as of v0.21.0. Please see <gcds-link href="https://github.com/cds-snc/gcds-components/releases/tag/gcds-components-v0.21.0">Release v0.21.0</gcds-link> for details.
+</gcds-error-message>
 
 _Also called: radio button, radio group._
 
