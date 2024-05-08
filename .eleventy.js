@@ -151,6 +151,15 @@ module.exports = function (eleventyConfig) {
     return colourName;
   });
 
+  eleventyConfig.addFilter('contactStringify', function (value) {
+    let string = '';
+    for (let x = 0; x < value.length; x++) {
+      string += `${JSON.stringify(value[x])}${x !== value.length - 1 ? ',' : ''}`;
+    }
+
+    return string;
+  });
+
   /* Markdown Overrides */
   let markdownLibrary = markdownIt({
     html: true,

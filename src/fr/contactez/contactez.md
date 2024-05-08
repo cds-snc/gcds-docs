@@ -34,7 +34,7 @@ Nous sommes à l’écoute. Contactez-nous pour demander une démonstration, pos
   <gcds-input type="text" name="name" input-id="name" label="Nom complet" size="30" autocomplete="name" required></gcds-input>
   <gcds-input type="email" name="email" input-id="email" label="Adresse courriel" size="50" autocomplete="email" required></gcds-input>
   <gcds-fieldset fieldset-id="reasonForContact" legend="Raison de votre communication" required>
-    <gcds-radio-group name="reasonForContact" options="{% contactus[locale].options %}">
+    <gcds-radio-group name="reasonForContact" options='[{{ contactus[locale].options | contactStringify }}]'>
     </gcds-radio-group>
   </gcds-fieldset>
   <gcds-textarea name="message" label="Message" textarea-id="message" hint="Écrivez votre question ou commentaire." required></gcds-textarea>
