@@ -1080,9 +1080,9 @@
             <tr><th>Aperçu</th><th>Nom de l'unité de style</th><th>Rapport de contraste</th><th>Valeur hex</th><th>Utilisation</th></tr>
         </thead>
     <tr class="row-light"><td><div role="img" aria-label="Gris 0" class="color-preview" style="background-color: #FFF; border: 1px solid black"></div></td><td>
-                        <span lang="en">--gcds-text-light</span></td><td>1</td><td>#FFF</td><td>Couleur de texte pâle principal pour les arrière-plans à valeur 700 ou plus sombres (p. ex. --gcds-color-blue-700).</td></tr><tr class="row-primary"><td><div role="img" aria-label="Gris 900" class="color-preview" style="background-color: #333333; border: 1px solid #FFF"></div></td><td>
-                        <span lang="en">--gcds-text-primary</span></td><td>12.63</td><td>#333333</td><td>Couleur de texte principal pour les arrière-plans blancs ou à valeur 100 (p. ex. --gcds-color-blue-100).</td></tr><tr class="row-secondary"><td><div role="img" aria-label="Gris 800" class="color-preview" style="background-color: #43474E; border: 1px solid #FFF"></div></td><td>
-                        <span lang="en">--gcds-text-secondary</span></td><td>9.33</td><td>#43474E</td><td>Couleur de texte contrastante (par rapport à la couleur du texte principal) sur un arrière-plan blanc.</td></tr></table>
+                        <span lang="en">--gcds-text-light</span></td><td>1</td><td>#FFF</td><td>Couleur claire principale du texte. À utiliser sur un arrière-plan de nuance 700 ou plus foncé (comme --gcds-bg-dark).</td></tr><tr class="row-primary"><td><div role="img" aria-label="Gris 900" class="color-preview" style="background-color: #333333; border: 1px solid #FFF"></div></td><td>
+                        <span lang="en">--gcds-text-primary</span></td><td>12.63</td><td>#333333</td><td>Couleur principale du texte. À utiliser sur un arrière-plan de nuance 50 ou plus clair (comme --gcds-bg-white).</td></tr><tr class="row-secondary"><td><div role="img" aria-label="Gris 800" class="color-preview" style="background-color: #43474E; border: 1px solid #FFF"></div></td><td>
+                        <span lang="en">--gcds-text-secondary</span></td><td>9.33</td><td>#43474E</td><td>Couleur de texte contrastante (alternative à --gcds-text-primary). À utiliser sur un arrière-plan de nuance 50 ou plus clair (comme --gcds-bg-white).</td></tr></table>
 </div>
 <h3 id="lien" class="mt-500 mb-400">Lien</h3>
 <div class="mb-400 table-overflow">
@@ -1094,6 +1094,18 @@
                         <span lang="en">--gcds-link-default</span></td><td>9.47</td><td>#2b4380</td><td>Couleur de lien par défaut pour les hyperliens sur un arrière-plan blanc.</td></tr><tr class="row-hover"><td><div role="img" aria-label="Bleu 850" class="color-preview" style="background-color: #0535d2; border: 1px solid #FFF"></div></td><td>
                         <span lang="en">--gcds-link-hover</span></td><td>8.58</td><td>#0535d2</td><td>Couleur de lien pointé pour les hyperliens sur un arrière-plan blanc.</td></tr><tr class="row-light"><td><div role="img" aria-label="Gris 0" class="color-preview" style="background-color: #FFF; border: 1px solid black"></div></td><td>
                         <span lang="en">--gcds-link-light</span></td><td>1</td><td>#FFF</td><td>Couleur d'hyperlien pâle par défaut pour les arrière-plans à valeur 700 ou plus sombres (p. ex. --gcds-color-blue-700).</td></tr></table>
+</div>
+<h3 id="arriereplan" class="mt-500 mb-400">Arrière-plan</h3>
+<div class="mb-400 table-overflow">
+    <table class="table-display-token-color">
+        <thead>
+            <tr><th>Aperçu</th><th>Nom de l'unité de style</th><th>Rapport de contraste</th><th>Valeur hex</th><th>Utilisation</th></tr>
+        </thead>
+    <tr class="row-dark"><td><div role="img" aria-label="Gris 900" class="color-preview" style="background-color: #333333; border: 1px solid #FFF"></div></td><td>
+                        <span lang="en">--gcds-bg-dark</span></td><td>12.63</td><td>#333333</td><td>Couleur foncée principale de l'arrière-plan. À utiliser avec du texte de nuance 100 ou plus clair (comme --gcds-text-light).</td></tr><tr class="row-light"><td><div role="img" aria-label="Gris 50" class="color-preview" style="background-color: #F1F2F3; border: 1px solid black"></div></td><td>
+                        <span lang="en">--gcds-bg-light</span></td><td>1.12</td><td>#F1F2F3</td><td>Couleur claire d'arrière plan (alternative à --gcds-bg-white). À utiliser avec du texte de nuance 700 ou plus foncé (comme --gcds-text-primary).</td></tr><tr class="row-primary"><td><div role="img" aria-label="Bleu 900" class="color-preview" style="background-color: #26374A; border: 1px solid #FFF"></div></td><td>
+                        <span lang="en">--gcds-bg-primary</span></td><td>12.15</td><td>#26374A</td><td>Couleur de surbrillance de l'arrière-plan. À utiliser avec du texte de nuance 100 ou plus clair (comme --gcds-text-light).</td></tr><tr class="row-white"><td><div role="img" aria-label="Gris 0" class="color-preview" style="background-color: #FFF; border: 1px solid black"></div></td><td>
+                        <span lang="en">--gcds-bg-white</span></td><td>1</td><td>#FFF</td><td>Couleur principale de l'arrière-plan. À utiliser avec du texte de nuance 700 ou plus foncé (comme --gcds-text-primary).</td></tr></table>
 </div>
 <h3 id="bordure" class="mt-500 mb-400">Bordure</h3>
 <div class="mb-400 table-overflow">
@@ -1197,7 +1209,7 @@ Fournir des commentaires
 
 
         <gcds-date-modified class="mb-400 font-caption">
-          2024-05-07
+          2024-05-08
         </gcds-date-modified>
       </main>
 
