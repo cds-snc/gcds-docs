@@ -19,12 +19,4 @@ A radio is a set of options for a single selection.
 {% docLinks locale stage figma github %}
 {% enddocLinks %}
 
-{% componentPreview "Radio component preview" "px-300 pt-400 pb-200" %}
-<gcds-fieldset fieldset-id="fieldset" legend="Legend" hint="Hint / Example message.">
-<gcds-radio radio-id="form-radio-1" label="Label" hint="Description or example to make the option clearer." name="radio" checked>
-</gcds-radio>
-
-<gcds-radio radio-id="form-radio-2" label="Label" hint="Description or example to make the option clearer." name="radio">
-</gcds-radio>
-</gcds-fieldset>
-{% endcomponentPreview %}
+<br/>
