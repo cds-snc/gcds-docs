@@ -1,14 +1,12 @@
 import { Host, h, } from "@stencil/core";
 import { assignLanguage, observerConfig } from "../../utils/utils";
-import { inheritAttributes } from "../../utils/utils";
+import { inheritAttributes, emitEvent } from "../../utils/utils";
 import i18n from "./i18n/i18n";
 export class GcdsButton {
     constructor() {
         this.handleClick = (e) => {
-            if (this.clickHandler) {
-                this.clickHandler(e);
-            }
-            else {
+            const event = emitEvent(e, this.gcdsClick);
+            if (event) {
                 if (!this.disabled && this.type != 'button' && this.type != 'link') {
                     // Attach button to form
                     const form = this.el.closest('form');
@@ -25,21 +23,9 @@ export class GcdsButton {
                         formButton.remove();
                     }
                 }
+                // Has any inherited attributes changed on click
+                this.inheritedAttributes = inheritAttributes(this.el, this.shadowElement);
             }
-            // Has any inherited attributes changed on click
-            this.inheritedAttributes = inheritAttributes(this.el, this.shadowElement);
-        };
-        this.onFocus = e => {
-            if (this.focusHandler) {
-                this.focusHandler(e);
-            }
-            this.gcdsFocus.emit();
-        };
-        this.onBlur = e => {
-            if (this.blurHandler) {
-                this.blurHandler(e);
-            }
-            this.gcdsBlur.emit();
         };
         this.type = 'button';
         this.buttonRole = 'primary';
@@ -51,9 +37,6 @@ export class GcdsButton {
         this.rel = undefined;
         this.target = undefined;
         this.download = undefined;
-        this.clickHandler = undefined;
-        this.focusHandler = undefined;
-        this.blurHandler = undefined;
         this.inheritedAttributes = {};
         this.lang = undefined;
     }
@@ -64,7 +47,7 @@ export class GcdsButton {
         }
     }
     validateButtonRole(newValue) {
-        const values = ['primary', 'secondary', 'danger', 'skip-to-content'];
+        const values = ['primary', 'secondary', 'danger'];
         if (!values.includes(newValue)) {
             this.buttonRole = 'primary';
         }
@@ -96,12 +79,6 @@ export class GcdsButton {
         this.lang = assignLanguage(this.el);
         this.updateLang();
     }
-    /**
-     * Focus element
-     */
-    async focusElement() {
-        this.shadowElement.focus();
-    }
     render() {
         const { type, buttonRole, size, buttonId, disabled, lang, name, href, rel, target, download, inheritedAttributes, } = this;
         const Tag = type != 'link' ? 'button' : 'a';
@@ -117,10 +94,11 @@ export class GcdsButton {
                 target,
                 download,
             };
-        return (h(Host, null, h(Tag, Object.assign({}, attrs, { id: buttonId, onBlur: e => this.onBlur(e), onFocus: e => this.onFocus(e), onClick: e => this.handleClick(e), class: `gcds-button button--role-${buttonRole} button--${size}`, ref: element => (this.shadowElement = element) }, inheritedAttributes, { part: "button" }), h("slot", null), type === 'link' && target === '_blank' ? (h("gcds-icon", { name: "external-link", label: i18n[lang].label, "margin-left": "200" })) : null)));
+        return (h(Host, null, h(Tag, Object.assign({}, attrs, { id: buttonId, onBlur: () => this.gcdsBlur.emit(), onFocus: () => this.gcdsFocus.emit(), onClick: e => this.handleClick(e), class: `gcds-button button--role-${buttonRole} button--${size}`, ref: element => (this.shadowElement = element) }, inheritedAttributes, { part: "button" }), h("slot", null), type === 'link' && target === '_blank' ? (h("gcds-icon", { name: "external-link", label: i18n[lang].label, "margin-left": "200" })) : null)));
     }
     static get is() { return "gcds-button"; }
     static get encapsulation() { return "shadow"; }
+    static get delegatesFocus() { return true; }
     static get originalStyleUrls() {
         return {
             "$": ["gcds-button.css"]
@@ -155,8 +133,8 @@ export class GcdsButton {
                 "type": "string",
                 "mutable": true,
                 "complexType": {
-                    "original": "| 'primary'\n    | 'secondary'\n    | 'danger'\n    | 'skip-to-content'",
-                    "resolved": "\"danger\" | \"primary\" | \"secondary\" | \"skip-to-content\"",
+                    "original": "'primary' | 'secondary' | 'danger'",
+                    "resolved": "\"danger\" | \"primary\" | \"secondary\"",
                     "references": {}
                 },
                 "required": false,
@@ -305,66 +283,6 @@ export class GcdsButton {
                 },
                 "attribute": "download",
                 "reflect": false
-            },
-            "clickHandler": {
-                "type": "unknown",
-                "mutable": false,
-                "complexType": {
-                    "original": "Function",
-                    "resolved": "Function",
-                    "references": {
-                        "Function": {
-                            "location": "global",
-                            "id": "global::Function"
-                        }
-                    }
-                },
-                "required": false,
-                "optional": false,
-                "docs": {
-                    "tags": [],
-                    "text": "Custom callback function on click event"
-                }
-            },
-            "focusHandler": {
-                "type": "unknown",
-                "mutable": false,
-                "complexType": {
-                    "original": "Function",
-                    "resolved": "Function",
-                    "references": {
-                        "Function": {
-                            "location": "global",
-                            "id": "global::Function"
-                        }
-                    }
-                },
-                "required": false,
-                "optional": false,
-                "docs": {
-                    "tags": [],
-                    "text": "Custom callback function on focus event"
-                }
-            },
-            "blurHandler": {
-                "type": "unknown",
-                "mutable": false,
-                "complexType": {
-                    "original": "Function",
-                    "resolved": "Function",
-                    "references": {
-                        "Function": {
-                            "location": "global",
-                            "id": "global::Function"
-                        }
-                    }
-                },
-                "required": false,
-                "optional": false,
-                "docs": {
-                    "tags": [],
-                    "text": "Custom callback function on blur event"
-                }
             }
         };
     }
@@ -376,6 +294,21 @@ export class GcdsButton {
     }
     static get events() {
         return [{
+                "method": "gcdsClick",
+                "name": "gcdsClick",
+                "bubbles": true,
+                "cancelable": true,
+                "composed": true,
+                "docs": {
+                    "tags": [],
+                    "text": "Emitted when the button has been clicked."
+                },
+                "complexType": {
+                    "original": "void",
+                    "resolved": "void",
+                    "references": {}
+                }
+            }, {
                 "method": "gcdsFocus",
                 "name": "gcdsFocus",
                 "bubbles": true,
@@ -406,27 +339,6 @@ export class GcdsButton {
                     "references": {}
                 }
             }];
-    }
-    static get methods() {
-        return {
-            "focusElement": {
-                "complexType": {
-                    "signature": "() => Promise<void>",
-                    "parameters": [],
-                    "references": {
-                        "Promise": {
-                            "location": "global",
-                            "id": "global::Promise"
-                        }
-                    },
-                    "return": "Promise<void>"
-                },
-                "docs": {
-                    "text": "Focus element",
-                    "tags": []
-                }
-            }
-        };
     }
     static get elementRef() { return "el"; }
     static get watchers() {

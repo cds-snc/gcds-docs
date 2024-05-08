@@ -24,10 +24,10 @@ export class GcdsDateModified {
     }
     render() {
         const { lang, type } = this;
-        return (h(Host, null, h("dl", { class: "gcds-date-modified" }, h("dt", null, type === 'version' ? 'Version ' : i18n[lang].term), h("dd", null, type === 'version' ? (h("slot", null)) : (h("time", null, h("slot", null)))))));
+        return (h(Host, null, h("dl", { class: "gcds-date-modified" }, h("dt", null, h("gcds-text", { display: "inline", "margin-bottom": "0" }, type === 'version' ? 'Version ' : i18n[lang].term)), h("dd", null, h("gcds-text", { display: "inline", "margin-bottom": "0" }, type === 'version' ? (h("slot", null)) : (h("time", null, h("slot", null))))))));
     }
     static get is() { return "gcds-date-modified"; }
-    static get encapsulation() { return "scoped"; }
+    static get encapsulation() { return "shadow"; }
     static get originalStyleUrls() {
         return {
             "$": ["gcds-date-modified.css"]

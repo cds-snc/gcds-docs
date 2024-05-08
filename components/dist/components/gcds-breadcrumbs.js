@@ -1,6 +1,8 @@
 import { proxyCustomElement, HTMLElement, h, Host } from '@stencil/core/internal/client';
 import { o as observerConfig, a as assignLanguage } from './utils.js';
-import { d as defineCustomElement$2 } from './gcds-breadcrumbs-item2.js';
+import { d as defineCustomElement$4 } from './gcds-breadcrumbs-item2.js';
+import { d as defineCustomElement$3 } from './gcds-icon2.js';
+import { d as defineCustomElement$2 } from './gcds-link2.js';
 
 const I18N = {
   en: {
@@ -13,7 +15,7 @@ const I18N = {
   },
 };
 
-const gcdsBreadcrumbsCss = ":host .gcds-breadcrumbs ol{font:var(--gcds-breadcrumbs-font);list-style:none;margin:var(--gcds-breadcrumbs-margin);overflow-x:hidden;padding:var(--gcds-breadcrumbs-padding)}:host .gcds-breadcrumbs ol.has-canada-link gcds-breadcrumbs-item:first-child,:host .gcds-breadcrumbs ol:not(.has-canada-link) ::slotted(:first-child){margin:var(--gcds-breadcrumbs-item-first-child-margin)!important}:host .gcds-breadcrumbs ol.has-canada-link gcds-breadcrumbs-item:first-child:before{display:none}";
+const gcdsBreadcrumbsCss = "@layer reset, default;@layer reset{:host{display:block}:host .gcds-breadcrumbs ol{list-style:none;overflow-x:hidden}}@layer default{:host .gcds-breadcrumbs ol{margin:var(--gcds-breadcrumbs-margin);padding:var(--gcds-breadcrumbs-padding)}:host .gcds-breadcrumbs ol.has-canada-link gcds-breadcrumbs-item:first-child,:host .gcds-breadcrumbs ol:not(.has-canada-link) ::slotted(:first-child){margin:var(--gcds-breadcrumbs-item-first-child-margin)!important}:host .gcds-breadcrumbs ol.has-canada-link gcds-breadcrumbs-item:first-child:before{display:none}}";
 const GcdsBreadcrumbsStyle0 = gcdsBreadcrumbsCss;
 
 const GcdsBreadcrumbs$1 = /*@__PURE__*/ proxyCustomElement(class GcdsBreadcrumbs extends HTMLElement {
@@ -54,7 +56,7 @@ function defineCustomElement$1() {
     if (typeof customElements === "undefined") {
         return;
     }
-    const components = ["gcds-breadcrumbs", "gcds-breadcrumbs-item"];
+    const components = ["gcds-breadcrumbs", "gcds-breadcrumbs-item", "gcds-icon", "gcds-link"];
     components.forEach(tagName => { switch (tagName) {
         case "gcds-breadcrumbs":
             if (!customElements.get(tagName)) {
@@ -62,6 +64,16 @@ function defineCustomElement$1() {
             }
             break;
         case "gcds-breadcrumbs-item":
+            if (!customElements.get(tagName)) {
+                defineCustomElement$4();
+            }
+            break;
+        case "gcds-icon":
+            if (!customElements.get(tagName)) {
+                defineCustomElement$3();
+            }
+            break;
+        case "gcds-link":
             if (!customElements.get(tagName)) {
                 defineCustomElement$2();
             }

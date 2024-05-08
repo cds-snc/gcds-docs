@@ -4,10 +4,6 @@ export declare class GcdsHint {
      * Props
      */
     /**
-     * Hint displayed below the label and above the input field.
-     */
-    hint?: string;
-    /**
      * Id attribute for the hint.
      */
     hintId: string;

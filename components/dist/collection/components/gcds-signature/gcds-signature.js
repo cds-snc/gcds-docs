@@ -63,9 +63,10 @@ export class GcdsSignature {
         const { type, hasLink, lang, selectSVG } = this;
         return (h(Host, null, hasLink && type === 'signature' ? (
         // eslint-disable-next-line jsx-a11y/anchor-has-content
-        h("a", { href: i18n[lang].link, innerHTML: selectSVG })) : (h("div", { class: "gcds-signature", innerHTML: selectSVG }))));
+        h("a", { class: "gcds-signature", href: i18n[lang].link, innerHTML: selectSVG })) : (h("div", { class: "gcds-signature", innerHTML: selectSVG }))));
     }
     static get is() { return "gcds-signature"; }
+    static get encapsulation() { return "shadow"; }
     static get originalStyleUrls() {
         return {
             "$": ["gcds-signature.css"]

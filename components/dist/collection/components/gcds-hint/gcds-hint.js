@@ -1,15 +1,14 @@
 import { Host, h } from "@stencil/core";
 export class GcdsHint {
     constructor() {
-        this.hint = undefined;
         this.hintId = undefined;
     }
     render() {
-        const { hint, hintId } = this;
-        return (h(Host, { id: `hint-${hintId}` }, h("p", { class: "gcds-hint" }, hint)));
+        const { hintId } = this;
+        return (h(Host, { id: `hint-${hintId}` }, h("gcds-text", { class: "gcds-hint", "margin-bottom": "0", part: "hint" }, h("slot", null))));
     }
     static get is() { return "gcds-hint"; }
-    static get encapsulation() { return "scoped"; }
+    static get encapsulation() { return "shadow"; }
     static get originalStyleUrls() {
         return {
             "$": ["gcds-hint.css"]
@@ -22,23 +21,6 @@ export class GcdsHint {
     }
     static get properties() {
         return {
-            "hint": {
-                "type": "string",
-                "mutable": false,
-                "complexType": {
-                    "original": "string",
-                    "resolved": "string",
-                    "references": {}
-                },
-                "required": false,
-                "optional": true,
-                "docs": {
-                    "tags": [],
-                    "text": "Hint displayed below the label and above the input field."
-                },
-                "attribute": "hint",
-                "reflect": false
-            },
             "hintId": {
                 "type": "string",
                 "mutable": false,

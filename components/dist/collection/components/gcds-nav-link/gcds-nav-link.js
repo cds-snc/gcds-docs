@@ -1,16 +1,7 @@
 import { Host, h, } from "@stencil/core";
-import { assignLanguage, observerConfig } from "../../utils/utils";
+import { assignLanguage, observerConfig, emitEvent } from "../../utils/utils";
 export class GcdsNavLink {
     constructor() {
-        this.onClick = e => {
-            this.gcdsClick.emit(e);
-        };
-        this.onFocus = e => {
-            this.gcdsFocus.emit(e);
-        };
-        this.onBlur = e => {
-            this.gcdsBlur.emit(e);
-        };
         this.href = undefined;
         this.current = undefined;
         this.lang = undefined;
@@ -39,8 +30,7 @@ export class GcdsNavLink {
         this.updateLang();
         if (this.el.closest('gcds-top-nav')) {
             if (this.el.parentNode.nodeName == 'GCDS-TOP-NAV') {
-                this.navStyle =
-                    this.el.slot == 'home' ? 'topnav gcds-nav-link--home' : 'topnav';
+                this.navStyle = 'topnav';
             }
             else {
                 this.navStyle = 'dropdown';
@@ -56,7 +46,7 @@ export class GcdsNavLink {
         if (current) {
             linkAttrs['aria-current'] = 'page';
         }
-        return (h(Host, { role: "presentation", class: `gcds-nav-link--${this.navStyle}` }, h("a", Object.assign({ class: "gcds-nav-link", href: href }, linkAttrs, { role: "menuitem", onBlur: e => this.onBlur(e), onFocus: e => this.onFocus(e), onClick: e => this.onClick(e), ref: element => (this.linkElement = element) }), h("slot", null))));
+        return (h(Host, { role: "listitem" }, h("a", Object.assign({ class: `gcds-nav-link gcds-nav-link--${this.navStyle}`, href: href }, linkAttrs, { onBlur: () => this.gcdsBlur.emit(), onFocus: () => this.gcdsFocus.emit(), onClick: e => emitEvent(e, this.gcdsClick, href), ref: element => (this.linkElement = element) }), h("slot", null))));
     }
     static get is() { return "gcds-nav-link"; }
     static get encapsulation() { return "shadow"; }

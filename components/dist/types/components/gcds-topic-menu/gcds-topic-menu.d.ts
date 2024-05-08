@@ -30,10 +30,6 @@ export declare class GcdsTopicMenu {
      */
     navSize: 'desktop' | 'mobile';
     /**
-     * Listen for focusout of theme and topic menu to close menu
-     */
-    focusOutListener(e: any): Promise<void>;
-    /**
      * Keyboard controls of theme and topic menu
      */
     keyDownListener(e: any): Promise<void>;

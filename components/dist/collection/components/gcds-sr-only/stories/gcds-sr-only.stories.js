@@ -1,6 +1,18 @@
 export default {
     title: 'Components/Screen reader only',
     argTypes: {
+        // Props
+        tag: {
+            control: { type: 'select' },
+            options: ['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'p', 'span'],
+            table: {
+                type: { summary: 'string' },
+                defaultValue: { summary: 'p' },
+            },
+            type: {
+                required: false,
+            },
+        },
         // Slots
         default: {
             control: {
@@ -14,17 +26,17 @@ export default {
 };
 const Template = args => `
 <!-- Web component code (Angular, Vue) -->
-<gcds-sr-only>
+<gcds-sr-only ${args.tag != 'p' ? `tag="${args.tag}"` : null}>
   ${args.default}
 </gcds-sr-only>
 
 <!-- React code -->
-<GcdsSrOnly>
+<GcdsSrOnly ${args.tag != 'p' ? `tag="${args.tag}"` : null}>
   ${args.default}
 </GcdsSrOnly>
 `.replace(/ null/g, '');
 const TemplatePlayground = args => `
-<gcds-sr-only>
+<gcds-sr-only ${args.tag != 'p' ? `tag="${args.tag}"` : null}>
   ${args.default}
 </gcds-sr-only>
 `;
@@ -32,15 +44,24 @@ const TemplatePlayground = args => `
 export const Default = Template.bind({});
 Default.args = {
     default: 'Text only seen by assistive technologies',
+    tag: 'p',
+};
+// ------ Screen reader only tag ------
+export const Tag = Template.bind({});
+Tag.args = {
+    default: 'Text only seen by assistive technologies',
+    tag: 'h2',
 };
 // ------ Screen reader only  events & props ------
 export const Props = Template.bind({});
 Props.args = {
     default: 'Text only seen by assistive technologies',
+    tag: 'p',
 };
 // ------ Screen reader only  playground ------
 export const Playground = TemplatePlayground.bind({});
 Playground.args = {
     default: 'Text only seen by assistive technologies',
+    tag: 'p',
 };
 //# sourceMappingURL=gcds-sr-only.stories.js.map

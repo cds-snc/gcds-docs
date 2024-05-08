@@ -35,9 +35,6 @@ export declare class GcdsNavLink {
      */
     focusLink(): Promise<void>;
     updateLang(): void;
-    private onClick;
-    private onFocus;
-    private onBlur;
     componentWillLoad(): Promise<void>;
     render(): any;
 }

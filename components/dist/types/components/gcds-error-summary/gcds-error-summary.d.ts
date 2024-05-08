@@ -33,7 +33,7 @@ export declare class GcdsErrorSummary {
     validListener(e: any): void;
     submitListener(e: any): void;
     sortErrors(): {};
-    focusElement(event: any, id: any): void;
+    focusElement(id: any): void;
     updateLang(): void;
     componentWillLoad(): Promise<void>;
     render(): any;

@@ -4,35 +4,21 @@ import { defaultValidator, getValidator, requiredValidator, } from "../../valida
 export class GcdsSelect {
     constructor() {
         this._validator = defaultValidator;
-        this.onFocus = e => {
-            if (this.focusHandler) {
-                this.focusHandler(e);
-            }
-            this.gcdsFocus.emit();
+        this.handleInput = (e, customEvent) => {
+            const val = e.target && e.target.value;
+            this.value = val;
+            this.internals.setFormValue(val);
+            customEvent.emit(this.value);
         };
-        this.onBlur = e => {
-            if (this.focusHandler) {
-                this.focusHandler(e);
-            }
-            else {
-                if (this.validateOn == 'blur') {
-                    this.validate();
-                }
+        this.onBlur = () => {
+            if (this.validateOn === 'blur') {
+                this.validate();
             }
             this.gcdsBlur.emit();
         };
-        this.handleChange = e => {
-            if (this.changeHandler) {
-                this.changeHandler(e);
-            }
-            else {
-                const val = e.target && e.target.value;
-                this.value = val;
-            }
-            this.gcdsSelectChange.emit(this.value);
-        };
         this.selectId = undefined;
         this.label = undefined;
+        this.name = undefined;
         this.required = false;
         this.disabled = false;
         this.defaultValue = undefined;
@@ -41,12 +27,10 @@ export class GcdsSelect {
         this.hint = undefined;
         this.validator = undefined;
         this.validateOn = undefined;
-        this.changeHandler = undefined;
-        this.focusHandler = undefined;
-        this.blurHandler = undefined;
         this.hasError = undefined;
         this.inheritedAttributes = {};
         this.lang = undefined;
+        this.options = undefined;
     }
     validateDisabledSelect() {
         if (this.required) {
@@ -100,6 +84,34 @@ export class GcdsSelect {
             }
         }
     }
+    /**
+     * Check if an option is selected or value matches an option's value
+     */
+    checkValueOrSelected(option) {
+        const value = option.getAttribute('value');
+        if (this.value === value) {
+            option.setAttribute('selected', 'true');
+            this.internals.setFormValue(value);
+            this.initialValue = this.value;
+        }
+        if (option.hasAttribute('selected')) {
+            this.value = value;
+            this.initialValue = this.value ? this.value : null;
+        }
+    }
+    /*
+     * Form internal functions
+     */
+    formResetCallback() {
+        if (this.value != this.initialValue) {
+            this.internals.setFormValue(this.initialValue);
+            this.value = this.initialValue;
+        }
+    }
+    formStateRestoreCallback(state) {
+        this.internals.setFormValue(state);
+        this.value = state;
+    }
     /*
      * Observe lang attribute change
      */
@@ -125,6 +137,20 @@ export class GcdsSelect {
             this._validator = getValidator(this.validator);
         }
         this.inheritedAttributes = inheritAttributes(this.el, this.shadowElement);
+        if (this.el.children) {
+            this.options = Array.from(this.el.children);
+            this.options.forEach(option => {
+                if (option.nodeName === 'OPTION') {
+                    this.checkValueOrSelected(option);
+                }
+                else if (option.nodeName === 'OPTGROUP') {
+                    const subOptions = Array.from(option.children);
+                    subOptions.map(sub => {
+                        this.checkValueOrSelected(sub);
+                    });
+                }
+            });
+        }
     }
     componentWillUpdate() {
         if (this.validator) {
@@ -132,8 +158,9 @@ export class GcdsSelect {
         }
     }
     render() {
-        const { lang, selectId, label, required, disabled, defaultValue, value, hint, errorMessage, inheritedAttributes, hasError, } = this;
-        const attrsSelect = Object.assign({ disabled,
+        const { lang, selectId, label, required, disabled, defaultValue, value, hint, errorMessage, inheritedAttributes, hasError, name, options, } = this;
+        const attrsSelect = Object.assign({ name,
+            disabled,
             required,
             value }, inheritedAttributes);
         const attrsLabel = {
@@ -147,10 +174,28 @@ export class GcdsSelect {
                 ? `${attrsSelect['aria-describedby']}`
                 : ''}`;
         }
-        return (h(Host, null, h("div", { class: `gcds-select-wrapper ${disabled ? 'gcds-disabled' : ''} ${hasError ? 'gcds-error' : ''}` }, h("gcds-label", Object.assign({}, attrsLabel, { "label-for": selectId, lang: lang })), hint ? h("gcds-hint", { hint: hint, "hint-id": selectId }) : null, errorMessage ? (h("gcds-error-message", { messageId: selectId, message: errorMessage })) : null, h("select", Object.assign({}, attrsSelect, { id: selectId, name: selectId, onBlur: e => this.onBlur(e), onFocus: e => this.onFocus(e), onChange: e => this.handleChange(e), "aria-invalid": hasError ? 'true' : 'false', ref: element => (this.shadowElement = element) }), defaultValue ? (h("option", { value: "", disabled: true, selected: true }, defaultValue)) : null, h("slot", null)))));
+        return (h(Host, null, h("div", { class: `gcds-select-wrapper ${disabled ? 'gcds-disabled' : ''} ${hasError ? 'gcds-error' : ''}` }, h("gcds-label", Object.assign({}, attrsLabel, { "label-for": selectId, lang: lang })), hint ? h("gcds-hint", { "hint-id": selectId }, hint) : null, errorMessage ? (h("gcds-error-message", { messageId: selectId }, errorMessage)) : null, h("select", Object.assign({}, attrsSelect, { id: selectId, onBlur: () => this.onBlur(), onFocus: () => this.gcdsFocus.emit(), onInput: e => this.handleInput(e, this.gcdsInput), onChange: e => this.handleInput(e, this.gcdsChange), "aria-invalid": hasError ? 'true' : 'false', ref: element => (this.shadowElement = element) }), defaultValue ? (h("option", { value: "", disabled: true, selected: true }, defaultValue)) : null, options.map(opt => {
+            if (opt.nodeName === 'OPTION') {
+                const selected = opt.hasAttribute('selected')
+                    ? { selected: true }
+                    : null;
+                return (h("option", Object.assign({ value: opt.getAttribute('value') }, selected), opt.innerHTML));
+            }
+            else if (opt.nodeName === 'OPTGROUP') {
+                const optGroupChildren = Array.from(opt.children).map(sub => {
+                    const selected = sub.hasAttribute('selected')
+                        ? { selected: true }
+                        : null;
+                    return (h("option", Object.assign({ value: sub.getAttribute('value') }, selected), sub.innerHTML));
+                });
+                return (h("optgroup", { label: opt.getAttribute('label') }, optGroupChildren));
+            }
+        })))));
     }
     static get is() { return "gcds-select"; }
-    static get encapsulation() { return "scoped"; }
+    static get encapsulation() { return "shadow"; }
+    static get delegatesFocus() { return true; }
+    static get formAssociated() { return true; }
     static get originalStyleUrls() {
         return {
             "$": ["gcds-select.css"]
@@ -195,6 +240,23 @@ export class GcdsSelect {
                     "text": "Form field label."
                 },
                 "attribute": "label",
+                "reflect": true
+            },
+            "name": {
+                "type": "string",
+                "mutable": false,
+                "complexType": {
+                    "original": "string",
+                    "resolved": "string",
+                    "references": {}
+                },
+                "required": true,
+                "optional": false,
+                "docs": {
+                    "tags": [],
+                    "text": "Name attribute for select form element."
+                },
+                "attribute": "name",
                 "reflect": true
             },
             "required": {
@@ -347,66 +409,6 @@ export class GcdsSelect {
                 },
                 "attribute": "validate-on",
                 "reflect": false
-            },
-            "changeHandler": {
-                "type": "unknown",
-                "mutable": false,
-                "complexType": {
-                    "original": "Function",
-                    "resolved": "Function",
-                    "references": {
-                        "Function": {
-                            "location": "global",
-                            "id": "global::Function"
-                        }
-                    }
-                },
-                "required": false,
-                "optional": false,
-                "docs": {
-                    "tags": [],
-                    "text": "Custom callback function on change event"
-                }
-            },
-            "focusHandler": {
-                "type": "unknown",
-                "mutable": false,
-                "complexType": {
-                    "original": "Function",
-                    "resolved": "Function",
-                    "references": {
-                        "Function": {
-                            "location": "global",
-                            "id": "global::Function"
-                        }
-                    }
-                },
-                "required": false,
-                "optional": false,
-                "docs": {
-                    "tags": [],
-                    "text": "Custom callback function on focus event"
-                }
-            },
-            "blurHandler": {
-                "type": "unknown",
-                "mutable": false,
-                "complexType": {
-                    "original": "Function",
-                    "resolved": "Function",
-                    "references": {
-                        "Function": {
-                            "location": "global",
-                            "id": "global::Function"
-                        }
-                    }
-                },
-                "required": false,
-                "optional": false,
-                "docs": {
-                    "tags": [],
-                    "text": "Custom callback function on blur event"
-                }
             }
         };
     }
@@ -414,19 +416,35 @@ export class GcdsSelect {
         return {
             "hasError": {},
             "inheritedAttributes": {},
-            "lang": {}
+            "lang": {},
+            "options": {}
         };
     }
     static get events() {
         return [{
-                "method": "gcdsSelectChange",
-                "name": "gcdsSelectChange",
+                "method": "gcdsChange",
+                "name": "gcdsChange",
                 "bubbles": true,
                 "cancelable": true,
                 "composed": true,
                 "docs": {
                     "tags": [],
-                    "text": "Update value based on user selection."
+                    "text": "Emitted when the select value has changed."
+                },
+                "complexType": {
+                    "original": "any",
+                    "resolved": "any",
+                    "references": {}
+                }
+            }, {
+                "method": "gcdsInput",
+                "name": "gcdsInput",
+                "bubbles": true,
+                "cancelable": true,
+                "composed": true,
+                "docs": {
+                    "tags": [],
+                    "text": "Emitted when the select has received input."
                 },
                 "complexType": {
                     "original": "any",
@@ -541,5 +559,6 @@ export class GcdsSelect {
                 "passive": false
             }];
     }
+    static get attachInternalsMemberName() { return "internals"; }
 }
 //# sourceMappingURL=gcds-select.js.map

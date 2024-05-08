@@ -1,8 +1,9 @@
 import { proxyCustomElement, HTMLElement, createEvent, h, Host } from '@stencil/core/internal/client';
 import { o as observerConfig, a as assignLanguage, i as inheritAttributes } from './utils.js';
 import { d as defaultValidator, v as validateFieldsetElements, r as requiredValidator, g as getValidator } from './validator.factory.js';
-import { d as defineCustomElement$3 } from './gcds-error-message2.js';
-import { d as defineCustomElement$2 } from './gcds-hint2.js';
+import { d as defineCustomElement$4 } from './gcds-error-message2.js';
+import { d as defineCustomElement$3 } from './gcds-hint2.js';
+import { d as defineCustomElement$2 } from './gcds-text2.js';
 
 const I18N = {
   en: {
@@ -13,13 +14,14 @@ const I18N = {
   },
 };
 
-const gcdsFieldsetCss = ".sc-gcds-fieldset-h{display:block}.sc-gcds-fieldset-h .gcds-fieldset.sc-gcds-fieldset{border:none;color:var(--gcds-fieldset-default-text);padding:0}.sc-gcds-fieldset-h .gcds-fieldset.sc-gcds-fieldset>legend.sc-gcds-fieldset{color:inherit;font:var(--gcds-fieldset-font);margin:var(--gcds-fieldset-legend-margin)}.sc-gcds-fieldset-h .gcds-fieldset.sc-gcds-fieldset:focus-within{color:var(--gcds-fieldset-focus-text)}.sc-gcds-fieldset-h .gcds-fieldset.sc-gcds-fieldset:disabled{color:var(--gcds-fieldset-disabled-text)}.sc-gcds-fieldset-h .legend__required.sc-gcds-fieldset{margin:var(--gcds-fieldset-legend-required-margin)}.sc-gcds-fieldset-h slot.sc-gcds-fieldset{display:block;margin:0}";
+const gcdsFieldsetCss = "@layer reset, default, disabled, focus;@layer reset{:host{display:block}:host .gcds-fieldset{border:0;padding:0}:host slot{display:block;margin:0}}@layer default{.gcds-fieldset{color:var(--gcds-fieldset-default-text)}.gcds-fieldset legend{font:var(--gcds-fieldset-font-desktop);margin:var(--gcds-fieldset-legend-margin)!important}@media only screen and (width < 48em){.gcds-fieldset legend{font:var(--gcds-fieldset-font-mobile)}}.gcds-fieldset legend .legend__required{margin:var(--gcds-fieldset-legend-required-margin)!important}}@layer disabled{:host .gcds-fieldset:disabled{color:var(--gcds-fieldset-disabled-text)}}@layer focus{:host .gcds-fieldset:focus-within{color:var(--gcds-fieldset-focus-text)}}";
 const GcdsFieldsetStyle0 = gcdsFieldsetCss;
 
 const GcdsFieldset$1 = /*@__PURE__*/ proxyCustomElement(class GcdsFieldset extends HTMLElement {
     constructor() {
         super();
         this.__registerHost();
+        this.__attachShadow();
         this.gcdsGroupError = createEvent(this, "gcdsGroupError", 7);
         this.gcdsGroupErrorClear = createEvent(this, "gcdsGroupErrorClear", 7);
         this.gcdsError = createEvent(this, "gcdsError", 7);
@@ -160,8 +162,9 @@ const GcdsFieldset$1 = /*@__PURE__*/ proxyCustomElement(class GcdsFieldset exten
         }
         return (h(Host, null, h("fieldset", Object.assign({ class: `gcds-fieldset ${hasError ? 'gcds-fieldset--error' : ''}`, id: fieldsetId }, fieldsetAttrs, { "aria-labelledby": hint
                 ? `legend-${fieldsetId} hint-${fieldsetId}`
-                : `legend-${fieldsetId}`, tabindex: "-1", ref: element => (this.shadowElement = element) }), h("legend", { id: `legend-${fieldsetId}` }, legend, required ? (h("strong", { class: "legend__required" }, "(", I18N[lang].required, ")")) : null), hint ? h("gcds-hint", { hint: hint, "hint-id": fieldsetId }) : null, errorMessage ? (h("gcds-error-message", { messageId: fieldsetId, message: errorMessage })) : null, h("slot", null))));
+                : `legend-${fieldsetId}`, tabindex: "-1", ref: element => (this.shadowElement = element) }), h("legend", { id: `legend-${fieldsetId}` }, legend, required ? (h("strong", { class: "legend__required" }, "(", I18N[lang].required, ")")) : null), hint ? h("gcds-hint", { "hint-id": fieldsetId }, hint) : null, errorMessage ? (h("gcds-error-message", { messageId: fieldsetId }, errorMessage)) : null, h("slot", null))));
     }
+    static get delegatesFocus() { return true; }
     get el() { return this; }
     static get watchers() { return {
         "errorMessage": ["validateErrorMessage"],
@@ -169,7 +172,7 @@ const GcdsFieldset$1 = /*@__PURE__*/ proxyCustomElement(class GcdsFieldset exten
         "validator": ["validateValidator"]
     }; }
     static get style() { return GcdsFieldsetStyle0; }
-}, [6, "gcds-fieldset", {
+}, [17, "gcds-fieldset", {
         "fieldsetId": [513, "fieldset-id"],
         "legend": [513],
         "required": [516],
@@ -191,7 +194,7 @@ function defineCustomElement$1() {
     if (typeof customElements === "undefined") {
         return;
     }
-    const components = ["gcds-fieldset", "gcds-error-message", "gcds-hint"];
+    const components = ["gcds-fieldset", "gcds-error-message", "gcds-hint", "gcds-text"];
     components.forEach(tagName => { switch (tagName) {
         case "gcds-fieldset":
             if (!customElements.get(tagName)) {
@@ -200,10 +203,15 @@ function defineCustomElement$1() {
             break;
         case "gcds-error-message":
             if (!customElements.get(tagName)) {
-                defineCustomElement$3();
+                defineCustomElement$4();
             }
             break;
         case "gcds-hint":
+            if (!customElements.get(tagName)) {
+                defineCustomElement$3();
+            }
+            break;
+        case "gcds-text":
             if (!customElements.get(tagName)) {
                 defineCustomElement$2();
             }

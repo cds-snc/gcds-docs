@@ -5,22 +5,17 @@ import i18n from "./i18n/i18n";
 export class GcdsTextarea {
     constructor() {
         this._validator = defaultValidator;
-        this.onFocus = e => {
-            if (this.focusHandler) {
-                this.focusHandler(e);
-            }
-            this.gcdsFocus.emit();
-        };
-        this.onBlur = e => {
-            if (this.blurHandler) {
-                this.blurHandler(e);
-            }
-            else {
-                if (this.validateOn == 'blur') {
-                    this.validate();
-                }
+        this.onBlur = () => {
+            if (this.validateOn == 'blur') {
+                this.validate();
             }
             this.gcdsBlur.emit();
+        };
+        this.handleInput = (e, customEvent) => {
+            const val = e.target && e.target.value;
+            this.value = val;
+            this.internals.setFormValue(val ? val : null);
+            customEvent.emit(this.value);
         };
         this.characterCount = undefined;
         this.cols = undefined;
@@ -29,15 +24,13 @@ export class GcdsTextarea {
         this.hideLabel = false;
         this.hint = undefined;
         this.label = undefined;
+        this.name = undefined;
         this.required = false;
         this.rows = 5;
         this.textareaId = undefined;
         this.value = undefined;
         this.validator = undefined;
         this.validateOn = undefined;
-        this.changeHandler = undefined;
-        this.focusHandler = undefined;
-        this.blurHandler = undefined;
         this.inheritedAttributes = {};
         this.hasError = undefined;
         this.lang = undefined;
@@ -84,16 +77,6 @@ export class GcdsTextarea {
             this.gcdsValid.emit({ id: `#${this.textareaId}` });
         }
     }
-    handleChange(e) {
-        if (this.changeHandler) {
-            this.changeHandler(e);
-        }
-        else {
-            const val = e.target && e.target.value;
-            this.value = val;
-        }
-        this.gcdsChange.emit(this.value);
-    }
     submitListener(e) {
         if (e.target == this.el.closest('form')) {
             if (this.validateOn && this.validateOn != 'other') {
@@ -103,6 +86,20 @@ export class GcdsTextarea {
                 e.preventDefault();
             }
         }
+    }
+    /*
+     * Form internal functions
+     */
+    formResetCallback() {
+        if (this.value != this.initialValue) {
+            this.internals.setFormValue(this.initialValue);
+            this.value = this.initialValue;
+            this.shadowElement.value = this.initialValue;
+        }
+    }
+    formStateRestoreCallback(state) {
+        this.internals.setFormValue(state);
+        this.value = state;
     }
     /*
      * Observe lang attribute change
@@ -131,6 +128,8 @@ export class GcdsTextarea {
         this.inheritedAttributes = inheritAttributes(this.el, this.shadowElement, [
             'placeholder',
         ]);
+        this.internals.setFormValue(this.value ? this.value : null);
+        this.initialValue = this.value ? this.value : null;
     }
     componentWillUpdate() {
         if (this.validator) {
@@ -138,7 +137,7 @@ export class GcdsTextarea {
         }
     }
     render() {
-        const { characterCount, cols, disabled, errorMessage, hideLabel, hint, label, required, rows, textareaId, value, hasError, inheritedAttributes, lang, } = this;
+        const { characterCount, cols, disabled, errorMessage, hideLabel, hint, label, required, rows, textareaId, value, hasError, inheritedAttributes, lang, name, } = this;
         // Use max-width instead of cols attribute to keep field responsive
         const style = {
             maxWidth: `${cols * 1.5}ch`,
@@ -147,7 +146,8 @@ export class GcdsTextarea {
             label,
             required,
         };
-        const attrsTextarea = Object.assign({ disabled,
+        const attrsTextarea = Object.assign({ name,
+            disabled,
             required,
             rows }, inheritedAttributes);
         if (hint || errorMessage || characterCount) {
@@ -158,12 +158,14 @@ export class GcdsTextarea {
                 ? `${attrsTextarea['aria-describedby']}`
                 : ''}`;
         }
-        return (h(Host, null, h("div", { class: `gcds-textarea-wrapper ${disabled ? 'gcds-disabled' : ''} ${hasError ? 'gcds-error' : ''}` }, h("gcds-label", Object.assign({}, attrsLabel, { "hide-label": hideLabel, "label-for": textareaId, lang: lang })), hint ? h("gcds-hint", { hint: hint, "hint-id": textareaId }) : null, errorMessage ? (h("gcds-error-message", { messageId: textareaId, message: errorMessage })) : null, h("textarea", Object.assign({}, attrsTextarea, { class: hasError ? 'gcds-error' : null, id: textareaId, name: textareaId, onBlur: e => this.onBlur(e), onFocus: e => this.onFocus(e), onInput: e => this.handleChange(e), "aria-labelledby": `label-for-${textareaId}`, "aria-invalid": errorMessage ? 'true' : 'false', maxlength: characterCount ? characterCount : null, style: cols ? style : null, ref: element => (this.shadowElement = element) }), value), characterCount ? (h("p", { id: `textarea__count-${textareaId}`, "aria-live": "polite" }, value == undefined
+        return (h(Host, null, h("div", { class: `gcds-textarea-wrapper ${disabled ? 'gcds-disabled' : ''} ${hasError ? 'gcds-error' : ''}` }, h("gcds-label", Object.assign({}, attrsLabel, { "hide-label": hideLabel, "label-for": textareaId, lang: lang })), hint ? h("gcds-hint", { "hint-id": textareaId }, hint) : null, errorMessage ? (h("gcds-error-message", { messageId: textareaId }, errorMessage)) : null, h("textarea", Object.assign({}, attrsTextarea, { class: hasError ? 'gcds-error' : null, id: textareaId, onBlur: () => this.onBlur(), onFocus: () => this.gcdsFocus.emit(), onInput: e => this.handleInput(e, this.gcdsInput), onChange: e => this.handleInput(e, this.gcdsChange), "aria-labelledby": `label-for-${textareaId}`, "aria-invalid": errorMessage ? 'true' : 'false', maxlength: characterCount ? characterCount : null, style: cols ? style : null, ref: element => (this.shadowElement = element) }), value), characterCount ? (h("gcds-text", { id: `textarea__count-${textareaId}`, "aria-live": "polite" }, value == undefined
             ? `${characterCount} ${i18n[lang].characters.allowed}`
             : `${characterCount - value.length} ${i18n[lang].characters.left}`)) : null)));
     }
     static get is() { return "gcds-textarea"; }
-    static get encapsulation() { return "scoped"; }
+    static get encapsulation() { return "shadow"; }
+    static get delegatesFocus() { return true; }
+    static get formAssociated() { return true; }
     static get originalStyleUrls() {
         return {
             "$": ["gcds-textarea.css"]
@@ -297,6 +299,23 @@ export class GcdsTextarea {
                 "attribute": "label",
                 "reflect": false
             },
+            "name": {
+                "type": "string",
+                "mutable": false,
+                "complexType": {
+                    "original": "string",
+                    "resolved": "string",
+                    "references": {}
+                },
+                "required": true,
+                "optional": false,
+                "docs": {
+                    "tags": [],
+                    "text": "Name attribute for a textarea element."
+                },
+                "attribute": "name",
+                "reflect": false
+            },
             "required": {
                 "type": "boolean",
                 "mutable": false,
@@ -345,7 +364,7 @@ export class GcdsTextarea {
                 "optional": false,
                 "docs": {
                     "tags": [],
-                    "text": "Id + name attribute for a textarea element."
+                    "text": "Id attribute for a textarea element."
                 },
                 "attribute": "textarea-id",
                 "reflect": false
@@ -413,66 +432,6 @@ export class GcdsTextarea {
                 },
                 "attribute": "validate-on",
                 "reflect": false
-            },
-            "changeHandler": {
-                "type": "unknown",
-                "mutable": false,
-                "complexType": {
-                    "original": "Function",
-                    "resolved": "Function",
-                    "references": {
-                        "Function": {
-                            "location": "global",
-                            "id": "global::Function"
-                        }
-                    }
-                },
-                "required": false,
-                "optional": false,
-                "docs": {
-                    "tags": [],
-                    "text": "Custom callback function on change event"
-                }
-            },
-            "focusHandler": {
-                "type": "unknown",
-                "mutable": false,
-                "complexType": {
-                    "original": "Function",
-                    "resolved": "Function",
-                    "references": {
-                        "Function": {
-                            "location": "global",
-                            "id": "global::Function"
-                        }
-                    }
-                },
-                "required": false,
-                "optional": false,
-                "docs": {
-                    "tags": [],
-                    "text": "Custom callback function on focus event"
-                }
-            },
-            "blurHandler": {
-                "type": "unknown",
-                "mutable": false,
-                "complexType": {
-                    "original": "Function",
-                    "resolved": "Function",
-                    "references": {
-                        "Function": {
-                            "location": "global",
-                            "id": "global::Function"
-                        }
-                    }
-                },
-                "required": false,
-                "optional": false,
-                "docs": {
-                    "tags": [],
-                    "text": "Custom callback function on blur event"
-                }
             }
         };
     }
@@ -522,7 +481,22 @@ export class GcdsTextarea {
                 "composed": true,
                 "docs": {
                     "tags": [],
-                    "text": "Update value based on user input."
+                    "text": "Emitted when the textarea has changed."
+                },
+                "complexType": {
+                    "original": "any",
+                    "resolved": "any",
+                    "references": {}
+                }
+            }, {
+                "method": "gcdsInput",
+                "name": "gcdsInput",
+                "bubbles": true,
+                "cancelable": true,
+                "composed": true,
+                "docs": {
+                    "tags": [],
+                    "text": "Emitted when the textarea has received input."
                 },
                 "complexType": {
                     "original": "any",
@@ -607,5 +581,6 @@ export class GcdsTextarea {
                 "passive": false
             }];
     }
+    static get attachInternalsMemberName() { return "internals"; }
 }
 //# sourceMappingURL=gcds-textarea.js.map

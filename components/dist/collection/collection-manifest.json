@@ -1,6 +1,7 @@
 {
   "entries": [
     "components/gcds-grid/gcds-grid.js",
+    "components/gcds-radio-group/gcds-radio-group.js",
     "components/gcds-alert/gcds-alert.js",
     "components/gcds-breadcrumbs/gcds-breadcrumbs-item.js",
     "components/gcds-breadcrumbs/gcds-breadcrumbs.js",
@@ -28,7 +29,6 @@
     "components/gcds-nav-link/gcds-nav-link.js",
     "components/gcds-pagination/gcds-pagination.js",
     "components/gcds-phase-banner/gcds-phase-banner.js",
-    "components/gcds-radio/gcds-radio.js",
     "components/gcds-search/gcds-search.js",
     "components/gcds-select/gcds-select.js",
     "components/gcds-side-nav/gcds-side-nav.js",

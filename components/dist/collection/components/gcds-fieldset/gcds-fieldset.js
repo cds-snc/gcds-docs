@@ -141,10 +141,11 @@ export class GcdsFieldset {
         }
         return (h(Host, null, h("fieldset", Object.assign({ class: `gcds-fieldset ${hasError ? 'gcds-fieldset--error' : ''}`, id: fieldsetId }, fieldsetAttrs, { "aria-labelledby": hint
                 ? `legend-${fieldsetId} hint-${fieldsetId}`
-                : `legend-${fieldsetId}`, tabindex: "-1", ref: element => (this.shadowElement = element) }), h("legend", { id: `legend-${fieldsetId}` }, legend, required ? (h("strong", { class: "legend__required" }, "(", i18n[lang].required, ")")) : null), hint ? h("gcds-hint", { hint: hint, "hint-id": fieldsetId }) : null, errorMessage ? (h("gcds-error-message", { messageId: fieldsetId, message: errorMessage })) : null, h("slot", null))));
+                : `legend-${fieldsetId}`, tabindex: "-1", ref: element => (this.shadowElement = element) }), h("legend", { id: `legend-${fieldsetId}` }, legend, required ? (h("strong", { class: "legend__required" }, "(", i18n[lang].required, ")")) : null), hint ? h("gcds-hint", { "hint-id": fieldsetId }, hint) : null, errorMessage ? (h("gcds-error-message", { messageId: fieldsetId }, errorMessage)) : null, h("slot", null))));
     }
     static get is() { return "gcds-fieldset"; }
-    static get encapsulation() { return "scoped"; }
+    static get encapsulation() { return "shadow"; }
+    static get delegatesFocus() { return true; }
     static get originalStyleUrls() {
         return {
             "$": ["gcds-fieldset.css"]

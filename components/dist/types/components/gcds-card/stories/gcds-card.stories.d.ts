@@ -113,4 +113,5 @@ export declare const Default: any;
 export declare const Link: any;
 export declare const Action: any;
 export declare const Image: any;
+export declare const Props: any;
 export declare const Playground: any;

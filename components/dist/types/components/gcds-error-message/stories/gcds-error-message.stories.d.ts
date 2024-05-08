@@ -16,18 +16,12 @@ declare const _default: {
                 required: boolean;
             };
         };
-        message: {
-            control: string;
-            table: {
-                type: {
-                    summary: string;
-                };
-                defaultValue: {
-                    summary: string;
-                };
+        default: {
+            control: {
+                type: string;
             };
-            type: {
-                required: boolean;
+            table: {
+                category: string;
             };
         };
     };

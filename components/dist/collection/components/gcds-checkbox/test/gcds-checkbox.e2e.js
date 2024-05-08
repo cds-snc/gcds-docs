@@ -19,7 +19,7 @@ describe('gcds-checkbox a11y tests', () => {
     it('aria-invalid', async () => {
         const page = await newE2EPage();
         await page.setContent('<gcds-checkbox label="Label" checkbox-id="aria-invalid" error-message="Has error" />');
-        const element = await await page.find('gcds-checkbox input');
+        const element = await await page.find('gcds-checkbox >>> input');
         expect(element.getAttribute('aria-invalid')).toEqual('true');
     });
     /**
@@ -78,9 +78,9 @@ describe('gcds-checkbox a11y tests', () => {
         await page.setContent(`
       <gcds-checkbox label="Label" checkbox-id="keyboard-focus" />
     `);
-        const inputField = await (await page.find('gcds-checkbox input')).innerText;
+        const inputField = await (await page.find('gcds-checkbox >>> input')).innerText;
         await page.keyboard.press('Tab');
-        expect(await page.evaluate(() => window.document.activeElement.textContent)).toEqual(inputField);
+        expect(await page.evaluate(() => window.document.activeElement.shadowRoot.activeElement.textContent)).toEqual(inputField);
     });
     /**
      * Input label test
@@ -88,7 +88,7 @@ describe('gcds-checkbox a11y tests', () => {
     it('checkbox contains label', async () => {
         const page = await newE2EPage();
         await page.setContent('<gcds-checkbox label="Label" checkbox-id="contains-label" />');
-        const element = await await page.find('gcds-checkbox gcds-label');
+        const element = await await page.find('gcds-checkbox >>> gcds-label');
         expect(element.getAttribute('id')).toEqual('label-for-contains-label');
     });
 });

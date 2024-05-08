@@ -80,7 +80,10 @@ declare const _default: {
             };
         };
         tag: {
-            control: string;
+            control: {
+                type: string;
+            };
+            options: string[];
             table: {
                 type: {
                     summary: string;
@@ -199,5 +202,6 @@ export declare const Fluid: any;
 export declare const Fixed: any;
 export declare const Hybrid: any;
 export declare const Individual: any;
+export declare const Tag: any;
 export declare const Props: any;
 export declare const Playground: any;

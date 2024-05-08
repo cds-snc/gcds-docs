@@ -10,7 +10,7 @@ const I18N = {
   },
 };
 
-const gcdsLabelCss = ".sc-gcds-label-h .gcds-label.sc-gcds-label{color:inherit;display:block;font:var(--gcds-label-font);margin:var(--gcds-label-margin);max-width:100%}.sc-gcds-label-h .gcds-label.label--hidden.sc-gcds-label{height:0;margin:0;opacity:0;overflow:hidden;width:0}.sc-gcds-label-h .gcds-label.sc-gcds-label .label--required.sc-gcds-label{margin:var(--gcds-label-required-margin)}gcds-checkbox .sc-gcds-label-h label.sc-gcds-label,gcds-radio .sc-gcds-label-h label.sc-gcds-label{cursor:pointer}";
+const gcdsLabelCss = "@layer reset, default;@layer reset{.sc-gcds-label-h{display:block}.sc-gcds-label-h .gcds-label{color:inherit}}@layer default{.sc-gcds-label-h .gcds-label{cursor:pointer;display:block;font:var(--gcds-label-font-desktop);margin:var(--gcds-label-margin)!important;max-width:100%}@media only screen and (width < 48em){.sc-gcds-label-h .gcds-label{font:var(--gcds-label-font-mobile)}}.sc-gcds-label-h .gcds-label.label--hidden{height:0;margin:0;opacity:0;overflow:hidden;width:0}.sc-gcds-label-h .gcds-label .label--required{margin:var(--gcds-label-required-margin)!important}}";
 const GcdsLabelStyle0 = gcdsLabelCss;
 
 const GcdsLabel = /*@__PURE__*/ proxyCustomElement(class GcdsLabel extends HTMLElement {

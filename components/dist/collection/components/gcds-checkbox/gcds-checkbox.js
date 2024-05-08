@@ -1,28 +1,21 @@
 import { Host, h, } from "@stencil/core";
-import { assignLanguage, elementGroupCheck, inheritAttributes, observerConfig, } from "../../utils/utils";
+import { assignLanguage, elementGroupCheck, emitEvent, inheritAttributes, observerConfig, } from "../../utils/utils";
 import { defaultValidator, getValidator, requiredValidator, } from "../../validators";
 export class GcdsCheckbox {
     constructor() {
         this._validator = defaultValidator;
-        this.onFocus = e => {
-            if (this.focusHandler) {
-                this.focusHandler(e);
-            }
-            this.gcdsFocus.emit();
-        };
-        this.onBlur = e => {
-            if (this.blurHandler) {
-                this.blurHandler(e);
-            }
-            else {
-                if (this.validateOn == 'blur') {
-                    this.validate();
-                }
+        this.onBlur = () => {
+            if (this.validateOn == 'blur') {
+                this.validate();
             }
             this.gcdsBlur.emit();
         };
-        this.onChange = () => {
+        this.onChange = e => {
             this.checked = !this.checked;
+            this.internals.setFormValue(e.target.value, 'checked');
+            if (!this.checked) {
+                this.internals.setFormValue(null, 'checked');
+            }
             this.gcdsChange.emit(this.checked);
         };
         this.checkboxId = undefined;
@@ -36,9 +29,6 @@ export class GcdsCheckbox {
         this.hint = undefined;
         this.validator = undefined;
         this.validateOn = undefined;
-        this.clickHandler = undefined;
-        this.focusHandler = undefined;
-        this.blurHandler = undefined;
         this.parentError = undefined;
         this.inheritedAttributes = {};
         this.hasError = undefined;
@@ -117,6 +107,18 @@ export class GcdsCheckbox {
         }
     }
     /*
+     * Form internal functions
+     */
+    formResetCallback() {
+        if (this.checked != this.initialState) {
+            this.checked = this.initialState;
+        }
+    }
+    formStateRestoreCallback(state) {
+        this.internals.setFormValue(state);
+        this.checked = state;
+    }
+    /*
      * Observe lang attribute change
      */
     updateLang() {
@@ -141,6 +143,8 @@ export class GcdsCheckbox {
             this._validator = getValidator(this.validator);
         }
         this.inheritedAttributes = inheritAttributes(this.el, this.shadowElement);
+        this.internals.setFormValue(this.checked ? this.value : null);
+        this.initialState = this.checked ? this.checked : null;
     }
     componentWillUpdate() {
         if (this.validator) {
@@ -169,12 +173,12 @@ export class GcdsCheckbox {
         if (hasError) {
             attrsInput['aria-invalid'] = 'true';
         }
-        return (h(Host, null, h("div", { class: `gcds-checkbox ${disabled ? 'gcds-checkbox--disabled' : ''} ${hasError ? 'gcds-checkbox--error' : ''}` }, h("input", Object.assign({ id: checkboxId, type: "checkbox" }, attrsInput, { onBlur: e => this.onBlur(e), onFocus: e => this.onFocus(e), onChange: () => this.onChange(), onClick: e => {
-                this.clickHandler && this.clickHandler(e);
-            }, ref: element => (this.shadowElement = element) })), h("gcds-label", Object.assign({}, attrsLabel, { "label-for": checkboxId, lang: lang })), hint ? h("gcds-hint", { hint: hint, "hint-id": checkboxId }) : null, errorMessage ? (h("gcds-error-message", { messageId: checkboxId, message: errorMessage })) : null, parentError ? (h("span", { id: `parent-error-${checkboxId}`, hidden: true }, parentError)) : null)));
+        return (h(Host, null, h("div", { class: `gcds-checkbox ${disabled ? 'gcds-checkbox--disabled' : ''} ${hasError ? 'gcds-checkbox--error' : ''}` }, h("input", Object.assign({ id: checkboxId, type: "checkbox" }, attrsInput, { onBlur: () => this.onBlur(), onFocus: () => this.gcdsFocus.emit(), onChange: e => this.onChange(e), onClick: e => emitEvent(e, this.gcdsClick), ref: element => (this.shadowElement = element) })), h("gcds-label", Object.assign({}, attrsLabel, { "label-for": checkboxId, lang: lang })), hint ? h("gcds-hint", { "hint-id": checkboxId }, hint) : null, errorMessage ? (h("gcds-error-message", { messageId: checkboxId }, errorMessage)) : null, parentError ? (h("span", { id: `parent-error-${checkboxId}`, hidden: true }, parentError)) : null)));
     }
     static get is() { return "gcds-checkbox"; }
-    static get encapsulation() { return "scoped"; }
+    static get encapsulation() { return "shadow"; }
+    static get delegatesFocus() { return true; }
+    static get formAssociated() { return true; }
     static get originalStyleUrls() {
         return {
             "$": ["gcds-checkbox.css"]
@@ -386,66 +390,6 @@ export class GcdsCheckbox {
                 },
                 "attribute": "validate-on",
                 "reflect": false
-            },
-            "clickHandler": {
-                "type": "unknown",
-                "mutable": false,
-                "complexType": {
-                    "original": "Function",
-                    "resolved": "Function",
-                    "references": {
-                        "Function": {
-                            "location": "global",
-                            "id": "global::Function"
-                        }
-                    }
-                },
-                "required": false,
-                "optional": false,
-                "docs": {
-                    "tags": [],
-                    "text": "Custom callback function on click event"
-                }
-            },
-            "focusHandler": {
-                "type": "unknown",
-                "mutable": false,
-                "complexType": {
-                    "original": "Function",
-                    "resolved": "Function",
-                    "references": {
-                        "Function": {
-                            "location": "global",
-                            "id": "global::Function"
-                        }
-                    }
-                },
-                "required": false,
-                "optional": false,
-                "docs": {
-                    "tags": [],
-                    "text": "Custom callback function on focus event"
-                }
-            },
-            "blurHandler": {
-                "type": "unknown",
-                "mutable": false,
-                "complexType": {
-                    "original": "Function",
-                    "resolved": "Function",
-                    "references": {
-                        "Function": {
-                            "location": "global",
-                            "id": "global::Function"
-                        }
-                    }
-                },
-                "required": false,
-                "optional": false,
-                "docs": {
-                    "tags": [],
-                    "text": "Custom callback function on blur event"
-                }
             }
         };
     }
@@ -459,6 +403,21 @@ export class GcdsCheckbox {
     }
     static get events() {
         return [{
+                "method": "gcdsClick",
+                "name": "gcdsClick",
+                "bubbles": true,
+                "cancelable": true,
+                "composed": true,
+                "docs": {
+                    "tags": [],
+                    "text": "Emitted when the checkbox has been clicked."
+                },
+                "complexType": {
+                    "original": "void",
+                    "resolved": "void",
+                    "references": {}
+                }
+            }, {
                 "method": "gcdsFocus",
                 "name": "gcdsFocus",
                 "bubbles": true,
@@ -593,5 +552,6 @@ export class GcdsCheckbox {
                 "passive": false
             }];
     }
+    static get attachInternalsMemberName() { return "internals"; }
 }
 //# sourceMappingURL=gcds-checkbox.js.map

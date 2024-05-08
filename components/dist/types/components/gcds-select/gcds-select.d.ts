@@ -2,6 +2,8 @@ import { EventEmitter } from '../../stencil-public-runtime';
 import { Validator, ValidatorEntry } from '../../validators';
 export declare class GcdsSelect {
     el: HTMLElement;
+    internals: ElementInternals;
+    private initialValue?;
     private shadowElement?;
     _validator: Validator<string>;
     /**
@@ -15,6 +17,10 @@ export declare class GcdsSelect {
      * Form field label.
      */
     label: string;
+    /**
+     * Name attribute for select form element.
+     */
+    name: string;
     /**
      * Specifies if a form field is required or not.
      */
@@ -51,18 +57,6 @@ export declare class GcdsSelect {
      */
     validateOn: 'blur' | 'submit' | 'other';
     /**
-     * Custom callback function on change event
-     */
-    changeHandler: Function;
-    /**
-     * Custom callback function on focus event
-     */
-    focusHandler: Function;
-    /**
-     * Custom callback function on blur event
-     */
-    blurHandler: Function;
-    /**
      * Specifies if the select is invalid.
      */
     hasError: boolean;
@@ -76,17 +70,25 @@ export declare class GcdsSelect {
      */
     lang: string;
     /**
+     * List of passed options
+     */
+    options: Element[];
+    /**
      * Events
      */
     /**
-     * Update value based on user selection.
+     * Emitted when the select value has changed.
      */
-    gcdsSelectChange: EventEmitter;
+    gcdsChange: EventEmitter;
+    /**
+     * Emitted when the select has received input.
+     */
+    gcdsInput: EventEmitter;
+    private handleInput;
     /**
      * Emitted when the select has focus.
      */
     gcdsFocus: EventEmitter<void>;
-    private onFocus;
     /**
      * Emitted when the select loses focus.
      */
@@ -105,7 +107,12 @@ export declare class GcdsSelect {
      */
     gcdsValid: EventEmitter<object>;
     submitListener(e: any): void;
-    handleChange: (e: any) => void;
+    /**
+     * Check if an option is selected or value matches an option's value
+     */
+    private checkValueOrSelected;
+    formResetCallback(): void;
+    formStateRestoreCallback(state: any): void;
     updateLang(): void;
     componentWillLoad(): Promise<void>;
     componentWillUpdate(): void;

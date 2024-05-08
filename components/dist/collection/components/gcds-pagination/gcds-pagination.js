@@ -1,17 +1,11 @@
 import { Host, h, } from "@stencil/core";
-import { assignLanguage, observerConfig } from "../../utils/utils";
+import { assignLanguage, observerConfig, emitEvent } from "../../utils/utils";
 import I18N from "./i18n/i18n";
 import { constructHref, constructClasses } from "./utils/render";
 export class GcdsPagination {
     constructor() {
         this.listitems = [];
         this.mobilePrevNext = [];
-        this.onPageChange = e => {
-            if (this.pageChangeHandler) {
-                this.pageChangeHandler(e);
-            }
-            this.gcdsPageChange.emit();
-        };
         this.display = 'list';
         this.label = undefined;
         this.previousHref = undefined;
@@ -21,7 +15,6 @@ export class GcdsPagination {
         this.totalPages = undefined;
         this.currentPage = undefined;
         this.url = undefined;
-        this.pageChangeHandler = undefined;
         this.currentStep = undefined;
         this.lang = undefined;
     }
@@ -49,11 +42,11 @@ export class GcdsPagination {
      * Function to constuct <li> and <a> tags for display="list" pagination
      */
     configurePaginationStep(page, end, mobile) {
+        const href = this.urlObject
+            ? constructHref(this.urlObject, page, end)
+            : 'javascript:void(0)';
         const linkAttrs = {
-            'onClick': e => this.onPageChange(e),
-            'href': this.urlObject
-                ? constructHref(this.urlObject, page, end)
-                : 'javascript:void(0)',
+            'href': href,
             'aria-label': !end
                 ? I18N[this.lang].pageNumberOf
                     .replace('{#}', page)
@@ -68,6 +61,9 @@ export class GcdsPagination {
                         .replace('{#}', --page)
                         .replace('{total}', this.totalPages)
                         .replace('{label}', this.label)}`,
+            'onBlur': () => this.gcdsBlur.emit(),
+            'onFocus': () => this.gcdsFocus.emit(),
+            'onClick': e => emitEvent(e, this.gcdsClick, { page: page, href }),
         };
         if (page == this.currentPage && !end) {
             linkAttrs['aria-current'] = 'page';
@@ -190,10 +186,10 @@ export class GcdsPagination {
     }
     render() {
         const { display, label, previousHref, previousLabel, nextHref, nextLabel, lang, } = this;
-        return (h(Host, { role: "navigation", "aria-label": label }, display === 'list' ? (h("div", null, h("ul", { class: "gcds-pagination-list" }, this.listitems), h("ul", { class: "gcds-pagination-list-mobile-prevnext" }, this.mobilePrevNext))) : (h("ul", { class: "gcds-pagination-simple" }, previousHref && (h("li", { class: "gcds-pagination-simple-previous" }, h("a", { href: previousHref, "aria-label": `${I18N[lang].previousPage}${previousLabel ? `: ${previousLabel}` : ''}`, onClick: e => this.onPageChange(e) }, h("gcds-icon", { "margin-right": "200", name: "arrow-left" }), h("div", { class: "gcds-pagination-simple-text" }, I18N[lang].previous), h("span", null, previousLabel)))), nextHref && (h("li", { class: "gcds-pagination-simple-next" }, h("a", { href: nextHref, "aria-label": `${I18N[lang].nextPage}${nextLabel ? `: ${nextLabel}` : ''}`, onClick: e => this.onPageChange(e) }, h("div", { class: "gcds-pagination-simple-text" }, I18N[lang].next), h("span", null, nextLabel), h("gcds-icon", { "margin-left": "200", name: "arrow-right" }))))))));
+        return (h(Host, { role: "navigation", "aria-label": label }, h("div", { class: "gcds-pagination" }, display === 'list' ? (h("div", null, h("ul", { class: "gcds-pagination-list" }, this.listitems), h("ul", { class: "gcds-pagination-list-mobile-prevnext" }, this.mobilePrevNext))) : (h("ul", { class: "gcds-pagination-simple" }, previousHref && (h("li", { class: "gcds-pagination-simple-previous" }, h("a", { href: previousHref, "aria-label": `${I18N[lang].previousPage}${previousLabel ? `: ${previousLabel}` : ''}`, onBlur: () => this.gcdsBlur.emit(), onFocus: () => this.gcdsFocus.emit(), onClick: e => emitEvent(e, this.gcdsClick, previousHref) }, h("gcds-icon", { "margin-right": "200", name: "arrow-left" }), h("div", { class: "gcds-pagination-simple-text" }, I18N[lang].previous), h("span", null, previousLabel)))), nextHref && (h("li", { class: "gcds-pagination-simple-next" }, h("a", { href: nextHref, "aria-label": `${I18N[lang].nextPage}${nextLabel ? `: ${nextLabel}` : ''}`, onBlur: () => this.gcdsBlur.emit(), onFocus: () => this.gcdsFocus.emit(), onClick: e => emitEvent(e, this.gcdsClick, nextHref) }, h("div", { class: "gcds-pagination-simple-text" }, I18N[lang].next), h("span", null, nextLabel), h("gcds-icon", { "margin-left": "200", name: "arrow-right" })))))))));
     }
     static get is() { return "gcds-pagination"; }
-    static get encapsulation() { return "scoped"; }
+    static get encapsulation() { return "shadow"; }
     static get originalStyleUrls() {
         return {
             "$": ["gcds-pagination.css"]
@@ -359,26 +355,6 @@ export class GcdsPagination {
                 },
                 "attribute": "url",
                 "reflect": false
-            },
-            "pageChangeHandler": {
-                "type": "unknown",
-                "mutable": false,
-                "complexType": {
-                    "original": "Function",
-                    "resolved": "Function",
-                    "references": {
-                        "Function": {
-                            "location": "global",
-                            "id": "global::Function"
-                        }
-                    }
-                },
-                "required": false,
-                "optional": false,
-                "docs": {
-                    "tags": [],
-                    "text": "Function to fire when pageChange event is called"
-                }
             }
         };
     }
@@ -390,14 +366,44 @@ export class GcdsPagination {
     }
     static get events() {
         return [{
-                "method": "gcdsPageChange",
-                "name": "gcdsPageChange",
+                "method": "gcdsFocus",
+                "name": "gcdsFocus",
                 "bubbles": true,
                 "cancelable": true,
                 "composed": true,
                 "docs": {
                     "tags": [],
-                    "text": "Update value based on user input."
+                    "text": "Emitted when the link has focus."
+                },
+                "complexType": {
+                    "original": "void",
+                    "resolved": "void",
+                    "references": {}
+                }
+            }, {
+                "method": "gcdsBlur",
+                "name": "gcdsBlur",
+                "bubbles": true,
+                "cancelable": true,
+                "composed": true,
+                "docs": {
+                    "tags": [],
+                    "text": "Emitted when the link loses focus."
+                },
+                "complexType": {
+                    "original": "void",
+                    "resolved": "void",
+                    "references": {}
+                }
+            }, {
+                "method": "gcdsClick",
+                "name": "gcdsClick",
+                "bubbles": true,
+                "cancelable": true,
+                "composed": true,
+                "docs": {
+                    "tags": [],
+                    "text": "Emitted when the link has been clicked."
                 },
                 "complexType": {
                     "original": "void",

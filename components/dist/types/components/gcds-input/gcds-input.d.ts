@@ -2,6 +2,8 @@ import { EventEmitter } from '../../stencil-public-runtime';
 import { Validator, ValidatorEntry } from '../../validators';
 export declare class GcdsInput {
     el: HTMLElement;
+    internals: ElementInternals;
+    private initialValue?;
     private shadowElement?;
     _validator: Validator<string>;
     /**
@@ -26,9 +28,13 @@ export declare class GcdsInput {
      */
     hint?: string;
     /**
-     * Id + name attribute for an input element.
+     * Id  attribute for an input element.
      */
     inputId: string;
+    /**
+     * Name attribute for an input element.
+     */
+    name: string;
     /**
      * Form field label
      */
@@ -54,18 +60,6 @@ export declare class GcdsInput {
      * String to have autocomplete enabled
      */
     autocomplete?: string;
-    /**
-     * Custom callback function on change event
-     */
-    changeHandler: Function;
-    /**
-     * Custom callback function on focus event
-     */
-    focusHandler: Function;
-    /**
-     * Custom callback function on blur event
-     */
-    blurHandler: Function;
     /**
      * Array of validators
      */
@@ -95,14 +89,18 @@ export declare class GcdsInput {
      * Emitted when the input has focus.
      */
     gcdsFocus: EventEmitter<void>;
-    private onFocus;
     /**
      * Emitted when the input loses focus.
      */
     gcdsBlur: EventEmitter<void>;
     private onBlur;
     /**
-     * Update value based on user input.
+     * Emitted when the element has received input.
+     */
+    gcdsInput: EventEmitter;
+    private handleInput;
+    /**
+     * Emitted when the input has changed.
      */
     gcdsChange: EventEmitter;
     /**
@@ -118,7 +116,9 @@ export declare class GcdsInput {
      */
     gcdsValid: EventEmitter<object>;
     submitListener(e: any): void;
-    handleChange(e: any): void;
+    keyDownListener(e: any): void;
+    formResetCallback(): void;
+    formStateRestoreCallback(state: any): void;
     updateLang(): void;
     componentWillLoad(): Promise<void>;
     componentWillUpdate(): void;

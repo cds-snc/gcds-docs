@@ -19,6 +19,16 @@ export default {
             type: {
                 required: true,
             },
+        }, name: {
+            name: 'name',
+            control: 'text',
+            table: {
+                type: { summary: 'string' },
+                defaultValue: { summary: '-' },
+            },
+            type: {
+                required: true,
+            },
         }, defaultValue: {
             name: 'default-value',
             control: 'text',
@@ -94,6 +104,7 @@ const Template = args => `
 <gcds-select
   select-id="${args.selectId}"
   label="${args.label}"
+  name="${args.name}"
   ${args.hint ? `hint="${args.hint}"` : null}
   ${args.value ? `value="${args.value}"` : null}
   ${args.defaultValue ? `default-value="${args.defaultValue}"` : null}
@@ -117,6 +128,7 @@ const Template = args => `
 <GcdsSelect
   selectId="${args.selectId}"
   label="${args.label}"
+  name="${args.name}"
   ${args.hint ? `hint="${args.hint}"` : null}
   ${args.value ? `value="${args.value}"` : null}
   ${args.defaultValue ? `defaultValue="${args.defaultValue}"` : null}
@@ -140,6 +152,7 @@ const TemplatePlayground = args => `
 <gcds-select
   select-id="${args.selectId}"
   label="${args.label}"
+  name="${args.name}"
   ${args.hint ? `hint="${args.hint}"` : null}
   ${args.value ? `value="${args.value}"` : null}
   ${args.defaultValue ? `default-value="${args.defaultValue}"` : null}
@@ -162,8 +175,9 @@ const TemplatePlayground = args => `
 // ------ Select default ------
 export const Default = Template.bind({});
 Default.args = {
-    selectId: 'example-default',
+    selectId: 'select-default',
     label: 'Label',
+    name: 'select',
     hint: 'Hint / Example message.',
     value: '',
     defaultValue: 'Select option.',
@@ -176,8 +190,9 @@ Default.args = {
 // ------ Select states ------
 export const Disabled = Template.bind({});
 Disabled.args = {
-    selectId: 'example-disabled',
+    selectId: 'select-disabled',
     label: 'Label',
+    name: 'select',
     hint: 'Hint / Example message.',
     defaultValue: 'Select option.',
     disabled: true,
@@ -186,8 +201,9 @@ Disabled.args = {
 };
 export const Error = Template.bind({});
 Error.args = {
-    selectId: 'example-error',
+    selectId: 'select-error',
     label: 'Label',
+    name: 'select',
     hint: 'Hint / Example message.',
     defaultValue: 'Select option.',
     required: true,
@@ -197,8 +213,9 @@ Error.args = {
 };
 export const Required = Template.bind({});
 Required.args = {
-    selectId: 'example-required',
+    selectId: 'select-required',
     label: 'Label',
+    name: 'select',
     hint: 'Hint / Example message.',
     defaultValue: 'Select option.',
     required: true,
@@ -208,8 +225,9 @@ Required.args = {
 // ------ Select without default value ------
 export const WithoutDefaultValue = Template.bind({});
 WithoutDefaultValue.args = {
-    selectId: 'example-default',
+    selectId: 'select-default-value',
     label: 'Label',
+    name: 'select',
     hint: 'Hint / Example message.',
     lang: 'en',
     validateOn: 'blur',
@@ -217,8 +235,9 @@ WithoutDefaultValue.args = {
 // ------ Select events & properties ------
 export const Props = Template.bind({});
 Props.args = {
-    selectId: 'example-default',
+    selectId: 'select-props',
     label: 'Label',
+    name: 'select',
     hint: 'Hint / Example message.',
     value: '',
     defaultValue: 'Select option.',
@@ -231,8 +250,9 @@ Props.args = {
 // ------ Select playground ------
 export const Playground = TemplatePlayground.bind({});
 Playground.args = {
-    selectId: 'example-playground',
+    selectId: 'select-playground',
     label: 'Label',
+    name: 'select',
     hint: 'Hint / Example message.',
     value: '',
     defaultValue: 'Select option.',

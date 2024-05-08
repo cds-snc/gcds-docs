@@ -1,13 +1,19 @@
 import { Host, h, } from "@stencil/core";
-import { assignLanguage, observerConfig } from "../../utils/utils";
+import { assignLanguage, observerConfig, emitEvent } from "../../utils/utils";
 import I18N from "./i18n/I18N";
 export class GcdsSearch {
     constructor() {
+        this.handleInput = (e, customEvent) => {
+            const input = e.target;
+            this.value = input.value;
+            customEvent.emit(this.value);
+        };
         this.placeholder = 'Canada.ca';
         this.action = '/sr/srb.html';
         this.method = 'get';
         this.name = 'q';
         this.searchId = 'search';
+        this.value = undefined;
         this.suggested = undefined;
         this.lang = undefined;
     }
@@ -27,7 +33,7 @@ export class GcdsSearch {
         this.lang = assignLanguage(this.el);
     }
     render() {
-        const { placeholder, action, method, name, lang, searchId, suggested } = this;
+        const { placeholder, action, method, name, value, lang, searchId, suggested, } = this;
         const labelText = `${I18N[lang].searchLabel.replace('{$}', placeholder)}`;
         const attrsInput = {
             name,
@@ -36,10 +42,10 @@ export class GcdsSearch {
         const formAction = action === '/sr/srb.html'
             ? `https://www.canada.ca/${lang}/sr/srb.html`
             : action;
-        return (h(Host, null, h("div", { class: "gcds-search" }, h("h2", { class: "gcds-search__header" }, I18N[lang].search), h("form", { action: formAction, method: method, role: "search", onSubmit: () => this.gcdsSubmit.emit(), class: "gcds-search__form" }, h("gcds-label", { label: labelText, "label-for": searchId, "hide-label": true }), h("input", Object.assign({ type: "search", id: searchId, list: "search-list", size: 34, maxLength: 170, onChange: () => this.gcdsChange.emit(), onFocus: () => this.gcdsFocus.emit(), onBlur: () => this.gcdsBlur.emit() }, attrsInput, { class: "gcds-search__input" })), suggested && (h("datalist", { id: "search-list" }, suggested.map((k, v) => (h("option", { value: k, key: v }))))), h("gcds-button", { type: "submit", class: "gcds-search__button", exportparts: "button" }, h("gcds-icon", { name: "search", label: I18N[lang].search, "fixed-width": true }))))));
+        return (h(Host, null, h("div", { class: "gcds-search" }, h("gcds-sr-only", { tag: "h2" }, I18N[lang].search), h("form", { action: formAction, method: method, role: "search", onSubmit: e => emitEvent(e, this.gcdsSubmit, this.value), class: "gcds-search__form" }, h("gcds-label", { label: labelText, "label-for": searchId, "hide-label": true }), h("input", Object.assign({ type: "search", id: searchId, list: "search-list", size: 34, maxLength: 170, onInput: e => this.handleInput(e, this.gcdsInput), onChange: e => this.handleInput(e, this.gcdsChange), onFocus: () => this.gcdsFocus.emit(), onBlur: () => this.gcdsBlur.emit() }, attrsInput, { class: "gcds-search__input", value: value })), suggested && (h("datalist", { id: "search-list" }, suggested.map((k, v) => (h("option", { value: k, key: v }))))), h("gcds-button", { type: "submit", class: "gcds-search__button", exportparts: "button" }, h("gcds-icon", { name: "search", label: I18N[lang].search, "fixed-width": true }))))));
     }
     static get is() { return "gcds-search"; }
-    static get encapsulation() { return "scoped"; }
+    static get encapsulation() { return "shadow"; }
     static get originalStyleUrls() {
         return {
             "$": ["gcds-search.css"]
@@ -136,11 +142,28 @@ export class GcdsSearch {
                 "optional": false,
                 "docs": {
                     "tags": [],
-                    "text": "Set the name of the search input"
+                    "text": "Set the id of the search input"
                 },
                 "attribute": "search-id",
                 "reflect": false,
                 "defaultValue": "'search'"
+            },
+            "value": {
+                "type": "string",
+                "mutable": true,
+                "complexType": {
+                    "original": "string",
+                    "resolved": "string",
+                    "references": {}
+                },
+                "required": false,
+                "optional": false,
+                "docs": {
+                    "tags": [],
+                    "text": "Set the value of the search input"
+                },
+                "attribute": "value",
+                "reflect": false
             },
             "suggested": {
                 "type": "unknown",
@@ -171,6 +194,21 @@ export class GcdsSearch {
     }
     static get events() {
         return [{
+                "method": "gcdsInput",
+                "name": "gcdsInput",
+                "bubbles": true,
+                "cancelable": true,
+                "composed": true,
+                "docs": {
+                    "tags": [],
+                    "text": "Emitted when the search element has recieved input."
+                },
+                "complexType": {
+                    "original": "string",
+                    "resolved": "string",
+                    "references": {}
+                }
+            }, {
                 "method": "gcdsChange",
                 "name": "gcdsChange",
                 "bubbles": true,
@@ -181,8 +219,8 @@ export class GcdsSearch {
                     "text": "Emitted when the search input value has changed."
                 },
                 "complexType": {
-                    "original": "object",
-                    "resolved": "object",
+                    "original": "string",
+                    "resolved": "string",
                     "references": {}
                 }
             }, {

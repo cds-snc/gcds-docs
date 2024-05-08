@@ -1,20 +1,10 @@
 import { Host, h, } from "@stencil/core";
-import { assignLanguage, observerConfig } from "../../utils/utils";
+import { assignLanguage, observerConfig, emitEvent } from "../../utils/utils";
 import i18n from "./i18n/i18n";
 export class GcdsAlert {
     constructor() {
-        this.onDismiss = e => {
-            this.gcdsDismiss.emit();
-            if (this.dismissHandler) {
-                this.dismissHandler(e);
-            }
-            else {
-                this.isOpen = false;
-            }
-        };
         this.alertRole = 'info';
         this.container = 'full';
-        this.dismissHandler = undefined;
         this.heading = undefined;
         this.hideCloseBtn = false;
         this.hideRoleIcon = false;
@@ -48,7 +38,7 @@ export class GcdsAlert {
                         ? i18n[lang].label.success
                         : alertRole === 'warning'
                             ? i18n[lang].label.warning
-                            : null }, h("gcds-container", { size: isFixed ? container : 'full', centered: true }, h("div", { class: "alert__container" }, !hideRoleIcon && (h("gcds-icon", { "aria-hidden": "true", class: "alert__icon", size: "h5", name: alertRole === 'danger'
+                            : null }, h("gcds-container", { size: isFixed ? container : 'full', centered: true }, h("div", { class: "alert__container" }, !hideRoleIcon && (h("gcds-icon", { "aria-hidden": "true", class: "alert__icon", size: "h5", "margin-right": "250", name: alertRole === 'danger'
                 ? 'exclamation-circle'
                 : alertRole === 'info'
                     ? 'info-circle'
@@ -56,7 +46,12 @@ export class GcdsAlert {
                         ? 'check-circle'
                         : alertRole === 'warning'
                             ? 'exclamation-triangle'
-                            : null })), h("div", { class: "alert__content" }, h("p", { class: "alert__heading" }, h("strong", null, heading)), h("slot", null)), !hideCloseBtn && (h("button", { class: "alert__close-btn", onClick: e => this.onDismiss(e), "aria-label": i18n[lang].closeBtn }, h("gcds-icon", { "aria-hidden": "true", name: "times", size: "text" }))))))) : null));
+                            : null })), h("div", { class: "alert__content" }, h("p", { class: "alert__heading" }, h("strong", null, heading)), h("slot", null)), !hideCloseBtn && (h("button", { class: "alert__close-btn", onClick: e => {
+                const event = emitEvent(e, this.gcdsDismiss);
+                if (event) {
+                    this.isOpen = false;
+                }
+            }, "aria-label": i18n[lang].closeBtn }, h("gcds-icon", { "aria-hidden": "true", name: "times", size: "text" }))))))) : null));
     }
     static get is() { return "gcds-alert"; }
     static get encapsulation() { return "shadow"; }
@@ -107,26 +102,6 @@ export class GcdsAlert {
                 "attribute": "container",
                 "reflect": false,
                 "defaultValue": "'full'"
-            },
-            "dismissHandler": {
-                "type": "unknown",
-                "mutable": false,
-                "complexType": {
-                    "original": "Function",
-                    "resolved": "Function",
-                    "references": {
-                        "Function": {
-                            "location": "global",
-                            "id": "global::Function"
-                        }
-                    }
-                },
-                "required": false,
-                "optional": false,
-                "docs": {
-                    "tags": [],
-                    "text": "Callback when the close button is clicked."
-                }
             },
             "heading": {
                 "type": "string",

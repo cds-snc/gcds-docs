@@ -10,4 +10,5 @@ export declare const ListEn: any;
 export declare const ListFr: any;
 export declare const UrlOffset: any;
 export declare const UrlMatch: any;
+export declare const Props: any;
 export declare const Playground: any;

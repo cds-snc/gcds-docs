@@ -19,9 +19,17 @@ export declare class GcdsNavGroup {
      */
     open: boolean;
     /**
-     * Emitted when the button has focus.
+     * Emitted when the button has been clicked.
      */
     gcdsClick: EventEmitter<void>;
+    /**
+     * Emitted when the button has been focus.
+     */
+    gcdsFocus: EventEmitter<void>;
+    /**
+     * Emitted when the button blurs.
+     */
+    gcdsBlur: EventEmitter<void>;
     /**
      * Language of rendered component
      */

@@ -170,6 +170,18 @@ Image.args = {
     imgAlt: 'An image with the card component',
     footer: '',
 };
+export const Props = Template.bind({});
+Props.args = {
+    cardTitle: 'Card title link',
+    href: '#',
+    type: 'link',
+    titleElement: 'a',
+    tag: 'Tag',
+    description: 'Description or supporting text relating to the headline. Longer text will be truncated with ...',
+    imgSrc: '',
+    imgAlt: '',
+    footer: '',
+};
 export const Playground = TemplatePlayground.bind({});
 Playground.args = {
     cardTitle: 'Card title link',

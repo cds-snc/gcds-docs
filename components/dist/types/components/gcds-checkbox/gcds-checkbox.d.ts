@@ -2,6 +2,8 @@ import { EventEmitter } from '../../stencil-public-runtime';
 import { Validator, ValidatorEntry } from '../../validators';
 export declare class GcdsCheckbox {
     el: HTMLElement;
+    internals: ElementInternals;
+    private initialState?;
     private shadowElement?;
     _validator: Validator<unknown>;
     /**
@@ -60,18 +62,6 @@ export declare class GcdsCheckbox {
     gcdsGroupError(e: any): void;
     gcdsGroupErrorClear(e: any): void;
     /**
-     * Custom callback function on click event
-     */
-    clickHandler: Function;
-    /**
-     * Custom callback function on focus event
-     */
-    focusHandler: Function;
-    /**
-     * Custom callback function on blur event
-     */
-    blurHandler: Function;
-    /**
      * State to handle when errors are passed down to component
      */
     parentError: string;
@@ -92,10 +82,13 @@ export declare class GcdsCheckbox {
      * Events
      */
     /**
+     * Emitted when the checkbox has been clicked.
+     */
+    gcdsClick: EventEmitter<void>;
+    /**
      * Emitted when the checkbox has focus.
      */
     gcdsFocus: EventEmitter<void>;
-    private onFocus;
     /**
      * Emitted when the checkbox loses focus.
      */
@@ -106,10 +99,6 @@ export declare class GcdsCheckbox {
      */
     gcdsChange: EventEmitter;
     /**
-     * Call any active validators
-     */
-    validate(): Promise<void>;
-    /**
      * Emitted when the input has a validation error.
      */
     gcdsError: EventEmitter<object>;
@@ -117,7 +106,13 @@ export declare class GcdsCheckbox {
      * Emitted when the input has a validation error.
      */
     gcdsValid: EventEmitter<object>;
+    /**
+     * Call any active validators
+     */
+    validate(): Promise<void>;
     submitListener(e: any): void;
+    formResetCallback(): void;
+    formStateRestoreCallback(state: any): void;
     updateLang(): void;
     componentWillLoad(): Promise<void>;
     componentWillUpdate(): void;

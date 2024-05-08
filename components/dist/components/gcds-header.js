@@ -1,20 +1,23 @@
 import { proxyCustomElement, HTMLElement, h, Host } from '@stencil/core/internal/client';
 import { o as observerConfig, a as assignLanguage } from './utils.js';
-import { d as defineCustomElement$5 } from './gcds-icon2.js';
-import { d as defineCustomElement$4 } from './gcds-lang-toggle2.js';
-import { d as defineCustomElement$3 } from './gcds-link2.js';
-import { d as defineCustomElement$2 } from './gcds-signature2.js';
+import { d as defineCustomElement$6 } from './gcds-icon2.js';
+import { d as defineCustomElement$5 } from './gcds-lang-toggle2.js';
+import { d as defineCustomElement$4 } from './gcds-link2.js';
+import { d as defineCustomElement$3 } from './gcds-signature2.js';
+import { d as defineCustomElement$2 } from './gcds-sr-only2.js';
 
 const I18N = {
   en: {
     skip: 'Skip to main content',
+    skipLabel: 'Skip to',
   },
   fr: {
     skip: 'Passer au contenu principal',
+    skipLabel: 'Passer au',
   },
 };
 
-const gcdsHeaderCss = ":host{display:block;margin:var(--gcds-header-margin)!important}:host slot{display:initial}:host .gcds-header__container{justify-content:space-between;margin:0 auto;max-width:var(--gcds-header-container-max-width);width:90%}:host .gcds-header__brand{border-block-end:var(--gcds-header-brand-border-width) solid var(--gcds-header-brand-border-color);margin:var(--gcds-header-brand-margin);padding:var(--gcds-header-brand-padding)}:host .gcds-header__brand .brand__container{display:grid;grid-gap:var(--gcds-header-brand-grid-gap);grid-template-areas:\"signature toggle\" \"search search\";grid-template-columns:1fr .1fr;margin:0 auto;max-width:var(--gcds-header-container-max-width);width:90%}:host .gcds-header__brand .brand__container.container--simple{grid-template-areas:\"signature toggle\"}:host .gcds-header__brand .brand__container .brand__toggle,:host .gcds-header__brand .brand__container slot[name=toggle]{grid-area:toggle;text-align:right}:host .gcds-header__brand .brand__container .brand__signature,:host .gcds-header__brand .brand__container slot[name=signature]{grid-area:signature}:host .gcds-header__brand .brand__container .brand__signature gcds-signature,:host .gcds-header__brand .brand__container slot[name=signature] gcds-signature{margin:var(--gcds-header-brand-signature-margin)}:host .gcds-header__brand .brand__container .brand__search{display:block;grid-area:search;max-width:100%}@media screen and (min-width:64em){:host .gcds-header__brand .brand__container{grid-template-areas:\"toggle toggle\" \"signature search\";grid-template-columns:1fr 1fr}:host .gcds-header__brand .brand__container .brand__search,:host .gcds-header__brand .brand__container slot[name=search]{margin-inline-start:auto;width:fit-content}}:host .gcds-header__skip-to-nav{margin-inline:auto;position:absolute;text-align:center;top:var(--gcds-header-skiptonav-top);width:100%}:host .gcds-header__skip-to-nav gcds-link{left:0;position:absolute;top:var(--gcds-header-skiptonav-top);width:inherit;z-index:3}:host .gcds-header__skip-to-nav gcds-link:not(:focus){height:0;overflow:hidden;width:0;clip:rect(0,0,0,0)}";
+const gcdsHeaderCss = "@layer reset, default, brand, wide;@layer reset{:host{display:block}:host slot{display:initial}}@layer default{:host{margin:var(--gcds-header-margin)!important}:host .gcds-header__container{justify-content:space-between;margin:0 auto;max-width:var(--gcds-header-container-max-width);width:90%}:host .gcds-header__skip-to-nav{margin-inline:auto;position:absolute;text-align:center;top:var(--gcds-header-skiptonav-top);width:100%}:host .gcds-header__skip-to-nav gcds-link{left:0;position:absolute;top:var(--gcds-header-skiptonav-top);width:inherit;z-index:3}:host .gcds-header__skip-to-nav gcds-link:not(:focus){height:0;overflow:hidden;width:0;clip:rect(0,0,0,0)}}@layer brand{:host .gcds-header__brand{border-block-end:var(--gcds-header-brand-border-width) solid var(--gcds-header-brand-border-color);container:component brand/inline-size;margin:var(--gcds-header-brand-margin);padding:var(--gcds-header-brand-padding)}:host .gcds-header__brand .brand__container{display:grid;grid-gap:var(--gcds-header-brand-grid-gap);grid-template-areas:\"signature toggle\" \"search search\";grid-template-columns:1fr .1fr;margin:0 auto;max-width:var(--gcds-header-container-max-width);width:90%}:host .gcds-header__brand .brand__container.container--simple{grid-template-areas:\"signature toggle\"}:host .gcds-header__brand .brand__container :is(.brand__toggle,slot[name=toggle]){grid-area:toggle;text-align:right}:host .gcds-header__brand .brand__container :is(.brand__signature,slot[name=signature]){grid-area:signature}:host .gcds-header__brand .brand__container :is(.brand__signature,slot[name=signature]) gcds-signature{margin:var(--gcds-header-brand-signature-margin)}:host .gcds-header__brand .brand__container .brand__search{display:block;grid-area:search;max-width:100%}}@layer wide{@container brand (width >= 51em){:host .gcds-header__brand .brand__container{grid-template-areas:\"toggle toggle\" \"signature search\";grid-template-columns:1fr 1fr}:host .gcds-header__brand .brand__container .brand__search,:host .gcds-header__brand .brand__container slot[name=search]{margin-inline-start:auto;width:fit-content}}}";
 const GcdsHeaderStyle0 = gcdsHeaderCss;
 
 const GcdsHeader$1 = /*@__PURE__*/ proxyCustomElement(class GcdsHeader extends HTMLElement {
@@ -49,7 +52,7 @@ const GcdsHeader$1 = /*@__PURE__*/ proxyCustomElement(class GcdsHeader extends H
             return h("slot", { name: "skip-to-nav" });
         }
         else if (this.skipToHref) {
-            return (h("nav", { class: "gcds-header__skip-to-nav" }, h("gcds-link", { href: this.skipToHref }, I18N[this.lang].skip)));
+            return (h("nav", { class: "gcds-header__skip-to-nav", "aria-label": I18N[this.lang].skipLabel }, h("gcds-link", { href: this.skipToHref }, I18N[this.lang].skip)));
         }
         else {
             return;
@@ -111,7 +114,7 @@ function defineCustomElement$1() {
     if (typeof customElements === "undefined") {
         return;
     }
-    const components = ["gcds-header", "gcds-icon", "gcds-lang-toggle", "gcds-link", "gcds-signature"];
+    const components = ["gcds-header", "gcds-icon", "gcds-lang-toggle", "gcds-link", "gcds-signature", "gcds-sr-only"];
     components.forEach(tagName => { switch (tagName) {
         case "gcds-header":
             if (!customElements.get(tagName)) {
@@ -120,20 +123,25 @@ function defineCustomElement$1() {
             break;
         case "gcds-icon":
             if (!customElements.get(tagName)) {
-                defineCustomElement$5();
+                defineCustomElement$6();
             }
             break;
         case "gcds-lang-toggle":
             if (!customElements.get(tagName)) {
-                defineCustomElement$4();
+                defineCustomElement$5();
             }
             break;
         case "gcds-link":
             if (!customElements.get(tagName)) {
-                defineCustomElement$3();
+                defineCustomElement$4();
             }
             break;
         case "gcds-signature":
+            if (!customElements.get(tagName)) {
+                defineCustomElement$3();
+            }
+            break;
+        case "gcds-sr-only":
             if (!customElements.get(tagName)) {
                 defineCustomElement$2();
             }

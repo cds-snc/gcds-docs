@@ -15,7 +15,7 @@ const I18N = {
   },
 };
 
-const gcdsSideNavCss = "@layer reset, defaults;@layer reset{:host *{box-sizing:border-box;margin:0}}@layer defaults{:host{display:block;width:100%}@media only screen and (width >= 64em){:host{max-width:var(--gcds-side-nav-max-width)}}:host .gcds-side-nav__heading{font:var(--gcds-side-nav-heading-font);margin-block-end:var(--gcds-side-nav-heading-margin);padding:var(--gcds-side-nav-heading-padding)}@media only screen and (width < 64em){:host .gcds-side-nav__heading{display:block;height:0;margin:0;overflow:hidden;padding:0;width:0}}}";
+const gcdsSideNavCss = "@layer reset, default, desktop, mobile;@layer reset{:host{display:block}:host *{box-sizing:border-box;margin:0;padding:0}}@layer default{:host{width:100%}:host .gcds-side-nav__heading{font:var(--gcds-side-nav-heading-font);margin-block-end:var(--gcds-side-nav-heading-margin);padding:var(--gcds-side-nav-heading-padding)}}@layer desktop{@media only screen and (width >= 64em){:host .gcds-side-nav{max-width:var(--gcds-side-nav-max-width)}}}@layer mobile{@media only screen and (width < 64em){:host .gcds-side-nav__heading{display:block;height:0;margin:0;overflow:hidden;padding:0;width:0}}}";
 const GcdsSideNavStyle0 = gcdsSideNavCss;
 
 const GcdsSideNav$1 = /*@__PURE__*/ proxyCustomElement(class GcdsSideNav extends HTMLElement {
@@ -27,6 +27,33 @@ const GcdsSideNav$1 = /*@__PURE__*/ proxyCustomElement(class GcdsSideNav extends
         this.lang = undefined;
         this.navItems = [];
         this.navSize = undefined;
+    }
+    async focusInListener(e) {
+        if (this.el.contains(e.target) && !this.navSize) {
+            const mediaQuery = window.matchMedia('screen and (min-width: 64em)');
+            const nav = this.el;
+            const mobileTrigger = this.mobile;
+            if (mediaQuery.matches) {
+                this.navSize = 'desktop';
+            }
+            else {
+                this.navSize = 'mobile';
+            }
+            await this.updateNavItemQueue(this.el);
+            mediaQuery.addEventListener('change', async function (e) {
+                if (e.matches) {
+                    nav.updateNavSize('desktop');
+                    await nav.updateNavItemQueue(nav);
+                    if (mobileTrigger.hasAttribute('open')) {
+                        mobileTrigger.toggleNav();
+                    }
+                }
+                else {
+                    nav.updateNavSize('mobile');
+                    await nav.updateNavItemQueue(nav);
+                }
+            });
+        }
     }
     async focusOutListener(e) {
         if (!this.el.contains(e.relatedTarget)) {
@@ -97,36 +124,10 @@ const GcdsSideNav$1 = /*@__PURE__*/ proxyCustomElement(class GcdsSideNav extends
         // Define lang attribute
         this.lang = assignLanguage(this.el);
         this.updateLang();
-        const mediaQuery = window.matchMedia('screen and (min-width: 64em)');
-        if (mediaQuery.matches) {
-            this.navSize = 'desktop';
-        }
-        else {
-            this.navSize = 'mobile';
-        }
-    }
-    async componentDidLoad() {
-        const mediaQuery = window.matchMedia('screen and (min-width: 64em)');
-        const nav = this.el;
-        const mobileTrigger = this.mobile;
-        await this.updateNavItemQueue(this.el);
-        mediaQuery.addEventListener('change', async function (e) {
-            if (e.matches) {
-                nav.updateNavSize('desktop');
-                await nav.updateNavItemQueue(nav);
-                if (mobileTrigger.hasAttribute('open')) {
-                    mobileTrigger.toggleNav();
-                }
-            }
-            else {
-                nav.updateNavSize('mobile');
-                await nav.updateNavItemQueue(nav);
-            }
-        });
     }
     render() {
         const { label, lang } = this;
-        return (h(Host, null, h("nav", { "aria-label": `${label}${I18N[lang].navLabel}` }, h("h2", { class: "gcds-side-nav__heading" }, label), h("gcds-nav-group", { menuLabel: "Menu", closeTrigger: lang == 'fr' ? 'Fermer' : 'Close', openTrigger: "Menu", class: "gcds-mobile-nav", role: "menu", ref: element => (this.mobile = element), lang: lang }, h("slot", null)))));
+        return (h(Host, null, h("nav", { "aria-label": `${label}${I18N[lang].navLabel}`, class: "gcds-side-nav" }, h("h2", { class: "gcds-side-nav__heading" }, label), h("ul", null, h("gcds-nav-group", { menuLabel: "Menu", closeTrigger: lang == 'fr' ? 'Fermer' : 'Close', openTrigger: "Menu", class: "gcds-mobile-nav", ref: element => (this.mobile = element), lang: lang }, h("slot", null))))));
     }
     get el() { return this; }
     static get style() { return GcdsSideNavStyle0; }
@@ -138,7 +139,7 @@ const GcdsSideNav$1 = /*@__PURE__*/ proxyCustomElement(class GcdsSideNav extends
         "getNavSize": [64],
         "updateNavSize": [64],
         "updateNavItemQueue": [64]
-    }, [[4, "focusout", "focusOutListener"], [4, "keydown", "keyDownListener"], [4, "gcdsClick", "gcdsClickListener"]]]);
+    }, [[4, "focusin", "focusInListener"], [4, "focusout", "focusOutListener"], [4, "keydown", "keyDownListener"], [4, "gcdsClick", "gcdsClickListener"]]]);
 function defineCustomElement$1() {
     if (typeof customElements === "undefined") {
         return;

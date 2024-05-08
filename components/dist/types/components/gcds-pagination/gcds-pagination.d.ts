@@ -46,10 +46,6 @@ export declare class GcdsPagination {
      * (Object props get treated as string when using Stencil components without a framework)
      */
     urlChanged(newUrl: string | object): void;
-    /**
-     * Function to fire when pageChange event is called
-     */
-    pageChangeHandler: Function;
     currentStep: number;
     /**
      * Language of rendered component
@@ -57,10 +53,20 @@ export declare class GcdsPagination {
     lang: string;
     watchLang(): void;
     /**
-     * Update value based on user input.
+     * Events
      */
-    gcdsPageChange: EventEmitter<void>;
-    private onPageChange;
+    /**
+     * Emitted when the link has focus.
+     */
+    gcdsFocus: EventEmitter<void>;
+    /**
+     * Emitted when the link loses focus.
+     */
+    gcdsBlur: EventEmitter<void>;
+    /**
+     * Emitted when the link has been clicked.
+     */
+    gcdsClick: EventEmitter<void>;
     /**
      * Function to constuct <li> and <a> tags for display="list" pagination
      */

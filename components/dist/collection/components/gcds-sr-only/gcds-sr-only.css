@@ -1,1 +1,1 @@
-@layer default{:host{display:block;height:0;margin:0;overflow:hidden;width:0}:host slot{display:initial}}
+@layer reset, default;@layer reset{:host slot{display:initial}}@layer default{:host{display:block;height:0;margin:0;overflow:hidden;width:0}}

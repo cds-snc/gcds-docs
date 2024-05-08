@@ -16,6 +16,26 @@ export class GcdsGrid {
         this.justifyItems = undefined;
         this.placeItems = undefined;
     }
+    validateTag(newValue) {
+        const values = [
+            'article',
+            'aside',
+            'div',
+            'dl',
+            'main',
+            'nav',
+            'ol',
+            'section',
+            'ul',
+        ];
+        if (!values.includes(newValue)) {
+            this.tag = 'div';
+        }
+    }
+    componentWillLoad() {
+        // Validate attributes and set defaults
+        this.validateTag(this.tag);
+    }
     render() {
         const { alignContent, alignItems, columns, columnsDesktop, columnsTablet, container, centered, display, equalRowHeight, justifyContent, justifyItems, placeContent, placeItems, tag, } = this;
         const Tag = tag;
@@ -186,10 +206,10 @@ export class GcdsGrid {
             },
             "tag": {
                 "type": "string",
-                "mutable": false,
+                "mutable": true,
                 "complexType": {
-                    "original": "string",
-                    "resolved": "string",
+                    "original": "| 'article'\n    | 'aside'\n    | 'div'\n    | 'dl'\n    | 'main'\n    | 'nav'\n    | 'ol'\n    | 'section'\n    | 'ul'",
+                    "resolved": "\"article\" | \"aside\" | \"div\" | \"dl\" | \"main\" | \"nav\" | \"ol\" | \"section\" | \"ul\"",
                     "references": {}
                 },
                 "required": false,
@@ -325,5 +345,11 @@ export class GcdsGrid {
         };
     }
     static get elementRef() { return "el"; }
+    static get watchers() {
+        return [{
+                "propName": "tag",
+                "methodName": "validateTag"
+            }];
+    }
 }
 //# sourceMappingURL=gcds-grid.js.map

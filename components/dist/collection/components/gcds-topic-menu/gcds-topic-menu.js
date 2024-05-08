@@ -11,14 +11,6 @@ export class GcdsTopicMenu {
         this.navSize = undefined;
     }
     /**
-     * Listen for focusout of theme and topic menu to close menu
-     */
-    async focusOutListener(e) {
-        if (!this.el.contains(e.relatedTarget) && this.open) {
-            this.toggleNav();
-        }
-    }
-    /**
      * Keyboard controls of theme and topic menu
      */
     async keyDownListener(e) {
@@ -133,6 +125,34 @@ export class GcdsTopicMenu {
     async toggleNav() {
         this.open = !this.open;
         if (this.open) {
+            // Check window size to set the state
+            const mediaQuery = window.matchMedia('screen and (max-width: 991px)');
+            const nav = this.el;
+            if (mediaQuery.matches) {
+                this.navSize = 'mobile';
+            }
+            else {
+                this.navSize = 'desktop';
+            }
+            // Add change event listener to keep track of window changing size
+            mediaQuery.addEventListener('change', async (e) => {
+                if (e.matches) {
+                    nav.updateNavSize('mobile');
+                    nav.shadowRoot
+                        .querySelectorAll('[data-keep-expanded]')
+                        .forEach(el => {
+                        el.setAttribute('aria-expanded', 'false');
+                    });
+                }
+                else {
+                    nav.updateNavSize('desktop');
+                    nav.shadowRoot
+                        .querySelectorAll('[data-keep-expanded]')
+                        .forEach(el => {
+                        el.setAttribute('aria-expanded', 'true');
+                    });
+                }
+            });
             if (this.navSize == 'desktop') {
                 this.themeList.children[0].children[0].setAttribute('aria-expanded', 'true');
             }
@@ -218,13 +238,6 @@ export class GcdsTopicMenu {
         // Define lang attribute
         this.lang = assignLanguage(this.el);
         this.updateLang();
-        const mediaQuery = window.matchMedia('screen and (max-width: 991px)');
-        if (mediaQuery.matches) {
-            this.navSize = 'mobile';
-        }
-        else {
-            this.navSize = 'desktop';
-        }
         try {
             const response = await fetch(`https://www.canada.ca/content/dam/canada/sitemenu/sitemenu-v2-${this.lang}.html`);
             this.listItems = await response.text();
@@ -299,27 +312,10 @@ export class GcdsTopicMenu {
                 }
             });
         }
-        // Mobile responsiveness
-        const mediaQuery = window.matchMedia('screen and (max-width: 991px)');
-        const nav = this.el;
-        mediaQuery.addEventListener('change', async (e) => {
-            if (e.matches) {
-                nav.updateNavSize('mobile');
-                nav.shadowRoot.querySelectorAll('[data-keep-expanded]').forEach(el => {
-                    el.setAttribute('aria-expanded', 'false');
-                });
-            }
-            else {
-                nav.updateNavSize('desktop');
-                nav.shadowRoot.querySelectorAll('[data-keep-expanded]').forEach(el => {
-                    el.setAttribute('aria-expanded', 'true');
-                });
-            }
-        });
     }
     render() {
         const { home, lang } = this;
-        return (h(Host, null, h("nav", { class: "gcds-topic-menu" }, h("h2", { class: "gcds-topic-menu__heading" }, "Menu"), h("button", { "aria-haspopup": "true", "aria-expanded": this.open.toString(), "aria-label": I18N[lang].buttonLabel, onClick: async () => await this.toggleNav(), ref: element => (this.menuButton = element), class: home && 'gcds-topic-menu--home' }, this.lang == 'en' ? (h(Fragment, null, h("span", { class: "gcds-topic-menu__main" }, "Main "), "Menu")) : (h(Fragment, null, "Menu", h("span", { class: "gcds-topic-menu__main" }, " principal"))), h("gcds-icon", { name: "chevron-down", "margin-left": "150", size: "caption" })), h("ul", { role: "menu", "aria-orientation": "vertical", "data-top-menu": true, innerHTML: this.listItems, ref: element => (this.themeList = element) }))));
+        return (h(Host, null, h("nav", { class: "gcds-topic-menu", "aria-labelledby": "gcds-topic-menu__heading" }, h("gcds-sr-only", { id: "gcds-topic-menu__heading", tag: "h2" }, I18N[lang].menuLabelFull), h("button", { "aria-haspopup": "true", "aria-expanded": this.open.toString(), "aria-label": I18N[lang].buttonLabel, onClick: async () => await this.toggleNav(), ref: element => (this.menuButton = element), class: home && 'gcds-topic-menu--home' }, this.lang == 'en' ? (h(Fragment, null, h("gcds-sr-only", { tag: "span" }, I18N[lang].menuLabelHidden), I18N[lang].menuToggle)) : (h(Fragment, null, I18N[lang].menuToggle, h("gcds-sr-only", { tag: "span" }, I18N[lang].menuLabelHidden))), h("gcds-icon", { name: "chevron-down", "margin-left": "150", size: "caption" })), h("ul", { role: "menu", "aria-orientation": "vertical", "data-top-menu": true, innerHTML: this.listItems, ref: element => (this.themeList = element) }))));
     }
     static get is() { return "gcds-topic-menu"; }
     static get encapsulation() { return "shadow"; }
@@ -390,6 +386,10 @@ export class GcdsTopicMenu {
                         "Promise": {
                             "location": "global",
                             "id": "global::Promise"
+                        },
+                        "HTMLGcdsTopicMenuElement": {
+                            "location": "global",
+                            "id": "global::HTMLGcdsTopicMenuElement"
                         }
                     },
                     "return": "Promise<void>"
@@ -463,12 +463,6 @@ export class GcdsTopicMenu {
     static get elementRef() { return "el"; }
     static get listeners() {
         return [{
-                "name": "focusout",
-                "method": "focusOutListener",
-                "target": "document",
-                "capture": false,
-                "passive": false
-            }, {
                 "name": "keydown",
                 "method": "keyDownListener",
                 "target": "document",

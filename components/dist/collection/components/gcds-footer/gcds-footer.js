@@ -79,20 +79,20 @@ export class GcdsFooter {
         const siteNav = I18N[lang].site.menu;
         let contextualLinkCount = 0;
         let subLinkCount = 0;
-        return (h(Host, { role: "contentinfo" }, h("h2", { class: "gcds-footer__header" }, I18N[lang].about), contextualLinksObject && contextualHeading && (h("div", { class: "gcds-footer__contextual" }, h("div", { class: "contextual__container" }, h("nav", { "aria-labelledby": "contextual__header" }, h("h3", { id: "contextual__header", class: "contextual__header" }, contextualHeading), h("ul", { class: "contextual__list" }, Object.keys(contextualLinksObject).map(key => {
+        return (h(Host, { role: "contentinfo", "aria-label": "Footer" }, h("gcds-sr-only", { tag: "h2" }, I18N[lang].about), contextualLinksObject && contextualHeading && (h("div", { class: "gcds-footer__contextual" }, h("div", { class: "contextual__container" }, h("nav", { "aria-labelledby": "contextual__heading" }, h("h3", { id: "contextual__heading", class: "contextual__heading" }, contextualHeading), h("ul", { class: "contextual__list" }, Object.keys(contextualLinksObject).map(key => {
             if (contextualLinkCount < 3) {
                 contextualLinkCount++;
-                return (h("li", null, h("a", { href: contextualLinksObject[key] }, key)));
+                return (h("li", null, h("gcds-link", { size: "small", href: contextualLinksObject[key] }, key)));
             }
-        })))))), display === 'full' ? (h("div", { class: "gcds-footer__main" }, h("div", { class: "main__container" }, h("nav", { class: "main__govnav", "aria-labelledby": "govnav__header" }, h("h3", { id: "govnav__header" }, I18N[lang].gov.heading), h("ul", { class: "govnav__list" }, Object.keys(govNav).map(value => (h("li", null, h("a", { href: govNav[value].link }, govNav[value].text)))))), h("nav", { class: "main__themenav", "aria-labelledby": "themenav__header" }, h("h4", { id: "themenav__header", class: "themenav__header" }, I18N[lang].themes.heading), h("ul", { class: "themenav__list" }, Object.keys(themeNav).map(value => (h("li", null, h("a", { href: themeNav[value].link }, themeNav[value].text))))))))) : null, h("div", { class: "gcds-footer__sub" }, h("div", { class: "sub__container" }, h("nav", { "aria-labelledby": "sub__header" }, h("h3", { id: "sub__header", class: "sub__header" }, I18N[lang].site.heading), h("ul", null, subLinks
+        })))))), display === 'full' ? (h("div", { class: "gcds-footer__main" }, h("div", { class: "main__container" }, h("nav", { class: "main__govnav", "aria-labelledby": "govnav__heading" }, h("h3", { id: "govnav__heading" }, I18N[lang].gov.heading), h("ul", { class: "govnav__list" }, Object.keys(govNav).map(value => (h("li", null, h("gcds-link", { size: "small", href: govNav[value].link }, govNav[value].text)))))), h("nav", { class: "main__themenav", "aria-labelledby": "themenav__heading" }, h("gcds-sr-only", { tag: "h4", id: "themenav__heading" }, I18N[lang].themes.heading), h("ul", { class: "themenav__list" }, Object.keys(themeNav).map(value => (h("li", null, h("gcds-link", { size: "small", href: themeNav[value].link }, themeNav[value].text))))))))) : null, h("div", { class: "gcds-footer__sub" }, h("div", { class: "sub__container" }, h("nav", { "aria-labelledby": "sub__heading" }, h("gcds-sr-only", { tag: "h3", id: "sub__heading" }, I18N[lang].site.heading), h("ul", null, subLinks
             ? Object.keys(subLinksObject).map(key => {
                 if (subLinkCount < 5) {
                     subLinkCount++;
-                    return (h("li", null, h("a", { href: subLinksObject[key] }, key)));
+                    return (h("li", null, h("gcds-link", { size: "small", href: subLinksObject[key] }, key)));
                 }
             })
             : Object.keys(siteNav).map(value => {
-                return (h("li", null, h("a", { href: siteNav[value].link }, siteNav[value].text)));
+                return (h("li", null, h("gcds-link", { size: "small", href: siteNav[value].link }, siteNav[value].text)));
             }))), renderSignature))));
     }
     static get is() { return "gcds-footer"; }

@@ -2,6 +2,8 @@ import { EventEmitter } from '../../stencil-public-runtime';
 import { Validator, ValidatorEntry } from '../../validators';
 export declare class GcdsTextarea {
     el: HTMLElement;
+    internals: ElementInternals;
+    private initialValue?;
     private shadowElement?;
     _validator: Validator<string>;
     /**
@@ -38,6 +40,10 @@ export declare class GcdsTextarea {
      */
     label: string;
     /**
+     * Name attribute for a textarea element.
+     */
+    name: string;
+    /**
      * Specifies if a form field is required or not.
      */
     required?: boolean;
@@ -46,7 +52,7 @@ export declare class GcdsTextarea {
      */
     rows?: number;
     /**
-     * Id + name attribute for a textarea element.
+     * Id attribute for a textarea element.
      */
     textareaId: string;
     /**
@@ -62,18 +68,6 @@ export declare class GcdsTextarea {
      * Set event to call validator
      */
     validateOn: 'blur' | 'submit' | 'other';
-    /**
-     * Custom callback function on change event
-     */
-    changeHandler: Function;
-    /**
-     * Custom callback function on focus event
-     */
-    focusHandler: Function;
-    /**
-     * Custom callback function on blur event
-     */
-    blurHandler: Function;
     /**
      * Set additional HTML attributes not available in component properties
      */
@@ -94,21 +88,24 @@ export declare class GcdsTextarea {
      * Emitted when the textarea has focus.
      */
     gcdsFocus: EventEmitter<void>;
-    private onFocus;
     /**
      * Emitted when the textarea loses focus.
      */
     gcdsBlur: EventEmitter<void>;
     private onBlur;
     /**
-     * Update value based on user input.
+     * Emitted when the textarea has changed.
      */
     gcdsChange: EventEmitter;
+    /**
+     * Emitted when the textarea has received input.
+     */
+    gcdsInput: EventEmitter;
+    private handleInput;
     /**
      * Call any active validators
      */
     validate(): Promise<void>;
-    handleChange(e: any): void;
     /**
      * Emitted when the textarea has a validation error.
      */
@@ -118,6 +115,8 @@ export declare class GcdsTextarea {
      */
     gcdsValid: EventEmitter<object>;
     submitListener(e: any): void;
+    formResetCallback(): void;
+    formStateRestoreCallback(state: any): void;
     updateLang(): void;
     componentWillLoad(): Promise<void>;
     componentWillUpdate(): void;

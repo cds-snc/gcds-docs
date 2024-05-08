@@ -2,14 +2,14 @@
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
-const index = require('./index-2c1b788c.js');
+const index = require('./index-467dd89b.js');
 
 const inheritAttributes = (el, shadowElement, attributes = []) => {
     const attributeObject = {};
     // Check for any aria or data attributes
     for (let i = 0; i < el.attributes.length; i++) {
         const attr = el.attributes[i];
-        if (attr.name.includes('aria-') || attr.name.includes('data-')) {
+        if (attr.name.includes('aria-')) {
             attributeObject[attr.name] = attr.value;
             el.removeAttribute(attr.name);
         }
@@ -29,10 +29,11 @@ const inheritAttributes = (el, shadowElement, attributes = []) => {
     return attributeObject;
 };
 const assignLanguage = (el) => {
+    var _a;
     let lang = '';
     if (!el.getAttribute('lang')) {
-        if (document.documentElement.getAttribute('lang') == 'en' ||
-            !document.documentElement.getAttribute('lang')) {
+        const closestLangAttribute = (_a = closestElement('[lang]', el)) === null || _a === void 0 ? void 0 : _a.getAttribute('lang');
+        if (closestLangAttribute == 'en' || !closestLangAttribute) {
             lang = 'en';
         }
         else {
@@ -46,6 +47,14 @@ const assignLanguage = (el) => {
         lang = 'fr';
     }
     return lang;
+};
+// Allows use of closest() function across shadow boundaries
+const closestElement = (selector, el) => {
+    if (el) {
+        return ((el && el != document && el != window && el.closest(selector)) ||
+            closestElement(selector, el.getRootNode().host));
+    }
+    return null;
 };
 const observerConfig = {
     attributes: true,
@@ -62,6 +71,18 @@ const elementGroupCheck = name => {
         }
     }
     return !hasCheck;
+};
+// Emit event with logic to cancel HTML events
+// Returns false if event has been prevented
+const emitEvent = (e, customEvent, value) => {
+    const event = customEvent.emit(value);
+    // Was the custom or native event interrupted
+    if (event.defaultPrevented || e.defaultPrevented) {
+        // Stop native HTML event in shadow-dom
+        e.preventDefault();
+        return false;
+    }
+    return true;
 };
 
 const I18N$m = {
@@ -85,25 +106,15 @@ const I18N$m = {
   },
 };
 
-const gcdsAlertCss = ":host .gcds-alert{border-inline-start:var(--gcds-alert-border-width) solid transparent;box-sizing:border-box;color:var(--gcds-alert-text);font:var(--gcds-alert-font);padding:var(--gcds-alert-padding);text-align:left}:host .gcds-alert slot{display:initial}:host .gcds-alert.alert--is-fixed{border:0;position:sticky;top:0;width:100%;z-index:9999}:host .gcds-alert.alert--role-danger{background-color:var(--gcds-alert-danger-background);border-color:var(--gcds-alert-danger-icon);color:var(--gcds-alert-danger-text)}:host .gcds-alert.alert--role-danger .alert__icon{color:var(--gcds-alert-danger-icon)}:host .gcds-alert.alert--role-info{background-color:var(--gcds-alert-info-background);border-color:var(--gcds-alert-info-icon);color:var(--gcds-alert-info-text)}:host .gcds-alert.alert--role-info .alert__icon{color:var(--gcds-alert-info-icon)}:host .gcds-alert.alert--role-success{background-color:var(--gcds-alert-success-background);border-color:var(--gcds-alert-success-icon);color:var(--gcds-alert-success-text)}:host .gcds-alert.alert--role-success .alert__icon{color:var(--gcds-alert-success-icon)}:host .gcds-alert.alert--role-warning{background-color:var(--gcds-alert-warning-background);border-color:var(--gcds-alert-warning-icon);color:var(--gcds-alert-warning-text)}:host .gcds-alert.alert--role-warning .alert__icon{color:var(--gcds-alert-warning-icon)}@media only screen and (width >= 36em){:host .gcds-alert .alert__container{align-items:flex-start;display:flex}}:host .gcds-alert .alert__icon{display:inline-block;margin:var(--gcds-alert-icon-margin)}@media only screen and (width < 36em){:host .gcds-alert .alert__icon{margin:var(--gcds-alert-icon-mobile-margin)}}:host .gcds-alert .alert__content{flex:1 1 auto}:host .gcds-alert .alert__content .alert__heading{font:var(--gcds-alert-content-heading-font);margin:var(--gcds-alert-content-heading-margin)}@media only screen and (width < 36em){:host .gcds-alert .alert__content .alert__heading{margin:var(--gcds-alert-content-heading-mobile-margin)}}:host .gcds-alert .alert__content ::slotted(*){margin-block-start:0}:host .gcds-alert .alert__content ::slotted(:last-child){margin-block-end:0}:host .gcds-alert .alert__content ::slotted(:not(:last-child)){margin-block-end:var(--gcds-alert-content-slotted-margin)}:host .gcds-alert .alert__content ::slotted(ol),:host .gcds-alert .alert__content ::slotted(ul){margin-inline-start:var(--gcds-alert-content-slotted-list-margin);padding:0}:host .gcds-alert .alert__close-btn{background-color:var(--gcds-alert-button-default-background);border:var(--gcds-alert-button-border-width) solid transparent;border-radius:var(--gcds-alert-button-border-radius);box-sizing:border-box;color:var(--gcds-alert-button-default-text);cursor:pointer;margin:var(--gcds-alert-button-margin);padding:0;transition:all .15s ease-in-out}@media only screen and (width < 36em){:host .gcds-alert .alert__close-btn{margin:var(--gcds-alert-button-mobile-margin)}}:host .gcds-alert .alert__close-btn gcds-icon{align-items:center;display:flex;height:var(--gcds-alert-button-icon-width-and-height);justify-content:center;padding:var(--gcds-alert-button-icon-padding);width:var(--gcds-alert-button-icon-width-and-height)}:host .gcds-alert .alert__close-btn:active,:host .gcds-alert .alert__close-btn:hover{border-color:currentColor}:host .gcds-alert .alert__close-btn:focus{background-color:var(--gcds-alert-button-focus-background);border-color:var(--gcds-alert-button-focus-background);box-shadow:0 0 0 var(--gcds-alert-button-border-width) var(--gcds-alert-button-focus-text);color:var(--gcds-alert-button-focus-text);outline:var(--gcds-alert-button-outline-width) solid var(--gcds-alert-button-focus-background);outline-offset:var(--gcds-alert-button-border-width)}";
+const gcdsAlertCss = "@layer reset, default, fixed, role, wide, compact, hover, focus;@layer reset{:host{display:block}:host .gcds-alert{box-sizing:border-box;text-align:left}:host .gcds-alert .alert__close-btn{box-sizing:border-box;cursor:pointer;padding:0}:host .gcds-alert slot{display:initial}}@layer default{:host .gcds-alert{border-inline-start:var(--gcds-alert-border-width) solid transparent;color:var(--gcds-alert-text);container:component alert/inline-size;font:var(--gcds-alert-font);padding:var(--gcds-alert-padding)}:host .gcds-alert .alert__content{flex:1 1 auto}:host .gcds-alert .alert__content .alert__heading{font:var(--gcds-alert-content-heading-font);margin:var(--gcds-alert-content-heading-margin)}:host .gcds-alert .alert__content ::slotted(*){margin-block-start:0}:host .gcds-alert .alert__content ::slotted(:last-child){margin-block-end:0}:host .gcds-alert .alert__content ::slotted(:not(:last-child)){margin-block-end:var(--gcds-alert-content-slotted-margin)}:host .gcds-alert .alert__content ::slotted(ol),:host .gcds-alert .alert__content ::slotted(ul){margin-inline-start:var(--gcds-alert-content-slotted-list-margin);padding:0}:host .gcds-alert .alert__close-btn{background-color:var(--gcds-alert-button-default-background);border:var(--gcds-alert-button-border-width) solid transparent;border-radius:var(--gcds-alert-button-border-radius);color:var(--gcds-alert-button-default-text);margin:var(--gcds-alert-button-margin);transition:all .15s ease-in-out}:host .gcds-alert .alert__close-btn gcds-icon{align-items:center;display:flex;height:var(--gcds-alert-button-icon-width-and-height);justify-content:center;padding:var(--gcds-alert-button-icon-padding);width:var(--gcds-alert-button-icon-width-and-height)}}@layer fixed{:host .gcds-alert.alert--is-fixed{border:0;position:sticky;top:0;width:100%;z-index:9999}}@layer role{:host .gcds-alert.alert--role-danger{background-color:var(--gcds-alert-danger-background);border-color:var(--gcds-alert-danger-icon);color:var(--gcds-alert-danger-text)}:host .gcds-alert.alert--role-danger .alert__icon{color:var(--gcds-alert-danger-icon)}:host .gcds-alert.alert--role-info{background-color:var(--gcds-alert-info-background);border-color:var(--gcds-alert-info-icon);color:var(--gcds-alert-info-text)}:host .gcds-alert.alert--role-info .alert__icon{color:var(--gcds-alert-info-icon)}:host .gcds-alert.alert--role-success{background-color:var(--gcds-alert-success-background);border-color:var(--gcds-alert-success-icon);color:var(--gcds-alert-success-text)}:host .gcds-alert.alert--role-success .alert__icon{color:var(--gcds-alert-success-icon)}:host .gcds-alert.alert--role-warning{background-color:var(--gcds-alert-warning-background);border-color:var(--gcds-alert-warning-icon);color:var(--gcds-alert-warning-text)}:host .gcds-alert.alert--role-warning .alert__icon{color:var(--gcds-alert-warning-icon)}}@layer wide{@container alert (width >= 36em){:host .gcds-alert .alert__container{align-items:flex-start;display:flex}}}@layer compact{@container alert (width < 36em){:host .gcds-alert .alert__icon{margin:var(--gcds-alert-icon-mobile-margin)}:host .gcds-alert .alert__heading{margin:var(--gcds-alert-content-heading-mobile-margin)}:host .gcds-alert .alert__close-btn{margin:var(--gcds-alert-button-mobile-margin)}}}@layer hover{:is(:host .gcds-alert .alert__close-btn:active,:host .gcds-alert .alert__close-btn:hover){border-color:currentColor}}@layer focus{:host .gcds-alert .alert__close-btn:focus{background-color:var(--gcds-alert-button-focus-background);border-color:var(--gcds-alert-button-focus-background);box-shadow:0 0 0 var(--gcds-alert-button-border-width) var(--gcds-alert-button-focus-text);color:var(--gcds-alert-button-focus-text);outline:var(--gcds-alert-button-outline-width) solid var(--gcds-alert-button-focus-background);outline-offset:var(--gcds-alert-button-border-width)}}";
 const GcdsAlertStyle0 = gcdsAlertCss;
 
 const GcdsAlert = class {
     constructor(hostRef) {
         index.registerInstance(this, hostRef);
         this.gcdsDismiss = index.createEvent(this, "gcdsDismiss", 7);
-        this.onDismiss = e => {
-            this.gcdsDismiss.emit();
-            if (this.dismissHandler) {
-                this.dismissHandler(e);
-            }
-            else {
-                this.isOpen = false;
-            }
-        };
         this.alertRole = 'info';
         this.container = 'full';
-        this.dismissHandler = undefined;
         this.heading = undefined;
         this.hideCloseBtn = false;
         this.hideRoleIcon = false;
@@ -137,7 +148,7 @@ const GcdsAlert = class {
                         ? I18N$m[lang].label.success
                         : alertRole === 'warning'
                             ? I18N$m[lang].label.warning
-                            : null }, index.h("gcds-container", { size: isFixed ? container : 'full', centered: true }, index.h("div", { class: "alert__container" }, !hideRoleIcon && (index.h("gcds-icon", { "aria-hidden": "true", class: "alert__icon", size: "h5", name: alertRole === 'danger'
+                            : null }, index.h("gcds-container", { size: isFixed ? container : 'full', centered: true }, index.h("div", { class: "alert__container" }, !hideRoleIcon && (index.h("gcds-icon", { "aria-hidden": "true", class: "alert__icon", size: "h5", "margin-right": "250", name: alertRole === 'danger'
                 ? 'exclamation-circle'
                 : alertRole === 'info'
                     ? 'info-circle'
@@ -145,7 +156,12 @@ const GcdsAlert = class {
                         ? 'check-circle'
                         : alertRole === 'warning'
                             ? 'exclamation-triangle'
-                            : null })), index.h("div", { class: "alert__content" }, index.h("p", { class: "alert__heading" }, index.h("strong", null, heading)), index.h("slot", null)), !hideCloseBtn && (index.h("button", { class: "alert__close-btn", onClick: e => this.onDismiss(e), "aria-label": I18N$m[lang].closeBtn }, index.h("gcds-icon", { "aria-hidden": "true", name: "times", size: "text" }))))))) : null));
+                            : null })), index.h("div", { class: "alert__content" }, index.h("p", { class: "alert__heading" }, index.h("strong", null, heading)), index.h("slot", null)), !hideCloseBtn && (index.h("button", { class: "alert__close-btn", onClick: e => {
+                const event = emitEvent(e, this.gcdsDismiss);
+                if (event) {
+                    this.isOpen = false;
+                }
+            }, "aria-label": I18N$m[lang].closeBtn }, index.h("gcds-icon", { "aria-hidden": "true", name: "times", size: "text" }))))))) : null));
     }
     get el() { return index.getElement(this); }
 };
@@ -162,7 +178,7 @@ const I18N$l = {
   },
 };
 
-const gcdsBreadcrumbsCss = ":host .gcds-breadcrumbs ol{font:var(--gcds-breadcrumbs-font);list-style:none;margin:var(--gcds-breadcrumbs-margin);overflow-x:hidden;padding:var(--gcds-breadcrumbs-padding)}:host .gcds-breadcrumbs ol.has-canada-link gcds-breadcrumbs-item:first-child,:host .gcds-breadcrumbs ol:not(.has-canada-link) ::slotted(:first-child){margin:var(--gcds-breadcrumbs-item-first-child-margin)!important}:host .gcds-breadcrumbs ol.has-canada-link gcds-breadcrumbs-item:first-child:before{display:none}";
+const gcdsBreadcrumbsCss = "@layer reset, default;@layer reset{:host{display:block}:host .gcds-breadcrumbs ol{list-style:none;overflow-x:hidden}}@layer default{:host .gcds-breadcrumbs ol{margin:var(--gcds-breadcrumbs-margin);padding:var(--gcds-breadcrumbs-padding)}:host .gcds-breadcrumbs ol.has-canada-link gcds-breadcrumbs-item:first-child,:host .gcds-breadcrumbs ol:not(.has-canada-link) ::slotted(:first-child){margin:var(--gcds-breadcrumbs-item-first-child-margin)!important}:host .gcds-breadcrumbs ol.has-canada-link gcds-breadcrumbs-item:first-child:before{display:none}}";
 const GcdsBreadcrumbsStyle0 = gcdsBreadcrumbsCss;
 
 const GcdsBreadcrumbs = class {
@@ -195,7 +211,7 @@ const GcdsBreadcrumbs = class {
 };
 GcdsBreadcrumbs.style = GcdsBreadcrumbsStyle0;
 
-const gcdsBreadcrumbsItemCss = ":host(.gcds-breadcrumbs-item){display:inline-block;padding:var(--gcds-breadcrumbs-item-padding)!important;position:relative}:host(.gcds-breadcrumbs-item):before{content:url('data:image/svg+xml;charset=utf-8,<svg xmlns=\"http://www.w3.org/2000/svg\" height=\"12\" viewBox=\"0 0 8 14\"><path fill=\"26374a\" d=\"M7.7 6.3c.4.4.4 1 0 1.4l-6 6c-.4.4-1 .4-1.4 0s-.4-1 0-1.4L5.6 7 .3 1.7C-.1 1.3-.1.7.3.3s1-.4 1.4 0z\"/></svg>');left:var(--gcds-breadcrumbs-item-arrow-left);position:absolute;top:var(--gcds-breadcrumbs-item-arrow-top)}:host(.gcds-breadcrumbs-item) a{color:var(--gcds-breadcrumbs-default-text);display:inline-block;margin:var(--gcds-breadcrumbs-item-margin);outline:0;padding:var(--gcds-breadcrumbs-item-link-padding);text-decoration-color:currentColor;text-decoration-thickness:var(--gcds-breadcrumbs-default-decoration-thickness);text-underline-offset:.2em;transition:background .15s ease-in-out,color .15s ease-in-out;white-space:normal}:host(.gcds-breadcrumbs-item) a slot{display:block}:host(:focus) a{background-color:var(--gcds-breadcrumbs-focus-background);border-radius:var(--gcds-breadcrumbs-focus-border-radius);box-shadow:var(--gcds-breadcrumbs-focus-box-shadow);color:var(--gcds-breadcrumbs-focus-text);outline:var(--gcds-breadcrumbs-focus-outline);outline-offset:var(--gcds-breadcrumbs-focus-outline-offset);text-decoration:none}:host(:not(:focus)) a:hover{color:var(--gcds-breadcrumbs-hover-text);text-decoration-thickness:var(--gcds-breadcrumbs-hover-decoration-thickness)}";
+const gcdsBreadcrumbsItemCss = "@layer reset, default, hover, focus;@layer reset{:host(.gcds-breadcrumbs-item){display:inline-block}:host(.gcds-breadcrumbs-item) gcds-link::part(link){display:inline-block;white-space:normal}:host(.gcds-breadcrumbs-item) slot{display:block}}@layer default{:host(.gcds-breadcrumbs-item){padding:var(--gcds-breadcrumbs-item-padding)!important;position:relative}:host(.gcds-breadcrumbs-item):before{content:url('data:image/svg+xml;charset=utf-8,<svg xmlns=\"http://www.w3.org/2000/svg\" height=\"12\" viewBox=\"0 0 8 14\"><path fill=\"26374a\" d=\"M7.7 6.3c.4.4.4 1 0 1.4l-6 6c-.4.4-1 .4-1.4 0s-.4-1 0-1.4L5.6 7 .3 1.7C-.1 1.3-.1.7.3.3s1-.4 1.4 0z\"/></svg>');left:var(--gcds-breadcrumbs-item-arrow-left);position:absolute;top:var(--gcds-breadcrumbs-item-arrow-top)}:host(.gcds-breadcrumbs-item) gcds-link::part(link){margin:var(--gcds-breadcrumbs-item-margin);padding:var(--gcds-breadcrumbs-item-link-padding)}}";
 const GcdsBreadcrumbsItemStyle0 = gcdsBreadcrumbsItemCss;
 
 const GcdsBreadcrumbsItem = class {
@@ -205,7 +221,7 @@ const GcdsBreadcrumbsItem = class {
     }
     render() {
         const { href } = this;
-        return (index.h(index.Host, { role: "listitem", class: "gcds-breadcrumbs-item" }, index.h("a", { href: href }, index.h("slot", null))));
+        return (index.h(index.Host, { role: "listitem", class: "gcds-breadcrumbs-item" }, index.h("gcds-link", { size: "regular", href: href }, index.h("slot", null))));
     }
     get el() { return index.getElement(this); }
 };
@@ -220,19 +236,18 @@ const I18N$k = {
   },
 };
 
-const gcdsButtonCss = "@layer reset, default, roles, size, disabled, hover, focus, active, mobile;@layer reset{:host{display:inline-block}:host .gcds-button{box-sizing:border-box;cursor:pointer;text-decoration:none}:host slot{display:initial}}@layer default{:host .gcds-button{display:inline-block;font:var(--gcds-button-font);text-align:center;width:var(--gcds-button-width);text-wrap:balance;border:var(--gcds-button-border-width) solid transparent;border-radius:var(--gcds-button-border-radius);padding:var(--gcds-button-padding);transition:all .15s ease-in-out}}@layer roles{:host .gcds-button.button--role-danger{background-color:var(--gcds-button-danger-default-background);color:var(--gcds-button-danger-default-text)}:host .gcds-button.button--role-primary{background-color:var(--gcds-button-primary-default-background);color:var(--gcds-button-primary-default-text)}:host .gcds-button.button--role-secondary{background-color:var(--gcds-button-secondary-default-background);border:var(--gcds-button-border-width) solid;color:var(--gcds-button-secondary-default-text)}:host .gcds-button.button--role-skip-to-content{left:0;position:absolute;top:var(--gcds-button-skip-top);width:inherit;z-index:3}:host .gcds-button.button--role-skip-to-content:not(:focus){clip:rect(0,0,0,0);height:0;margin:0;overflow:hidden;padding:0;width:0}}@layer size{:host .gcds-button.button--small{font:var(--gcds-button-small-font);padding:var(--gcds-button-small-padding)}}@layer disabled{:host .gcds-button[aria-disabled=true]{background-color:var(--gcds-button-shared-disabled-background);border:var(--gcds-button-border-width) solid;color:var(--gcds-button-shared-disabled-text);cursor:not-allowed;pointer-events:none}}@layer hover{@media (hover:hover){:host .gcds-button:hover.button--role-danger{background-color:var(--gcds-button-danger-hover-background)}:host .gcds-button:hover.button--role-primary{background-color:var(--gcds-button-primary-hover-background)}:host .gcds-button:hover.button--role-secondary{background-color:var(--gcds-button-secondary-hover-background)}}}@layer focus{:host .gcds-button:focus{background-color:var(--gcds-button-shared-focus-background);border-color:var(--gcds-button-shared-focus-background);box-shadow:var(--gcds-button-shared-focus-box-shadow);color:var(--gcds-button-shared-focus-text);outline:var(--gcds-button-shared-focus-outline-width) solid var(--gcds-button-shared-focus-background);outline-offset:var(--gcds-button-border-width)}}@layer active{:host .gcds-button:active{background-color:var(--gcds-button-shared-active-background);border-color:var(--gcds-button-shared-active-background)}}@layer mobile{@media screen and (max-width:30rem){:host{display:block}:host .gcds-button{margin:var(--gcds-button-mobile-margin);width:var(--gcds-button-mobile-width)}}}";
+const gcdsButtonCss = "@layer reset, default, roles, size, disabled, hover, focus, active, mobile;@layer reset{:host{display:inline-block}:host .gcds-button{box-sizing:border-box;cursor:pointer;text-decoration:none}:host slot{display:initial}}@layer default{:host .gcds-button{display:inline-block;font:var(--gcds-button-font);text-align:center;width:var(--gcds-button-width);text-wrap:balance;border:var(--gcds-button-border-width) solid transparent;border-radius:var(--gcds-button-border-radius);padding:var(--gcds-button-padding);transition:all .15s ease-in-out}}@layer roles{:host .gcds-button.button--role-danger{background-color:var(--gcds-button-danger-default-background);color:var(--gcds-button-danger-default-text)}:host .gcds-button.button--role-primary{background-color:var(--gcds-button-primary-default-background);color:var(--gcds-button-primary-default-text)}:host .gcds-button.button--role-secondary{background-color:var(--gcds-button-secondary-default-background);border:var(--gcds-button-border-width) solid;color:var(--gcds-button-secondary-default-text)}}@layer size{:host .gcds-button.button--small{font:var(--gcds-button-small-font);padding:var(--gcds-button-small-padding)}}@layer disabled{:host .gcds-button[aria-disabled=true]{background-color:var(--gcds-button-shared-disabled-background);border:var(--gcds-button-border-width) solid;color:var(--gcds-button-shared-disabled-text);cursor:not-allowed;pointer-events:none}}@layer hover{@media (hover:hover){:host .gcds-button:hover.button--role-danger{background-color:var(--gcds-button-danger-hover-background)}:host .gcds-button:hover.button--role-primary{background-color:var(--gcds-button-primary-hover-background)}:host .gcds-button:hover.button--role-secondary{background-color:var(--gcds-button-secondary-hover-background)}}}@layer focus{:host .gcds-button:focus{background-color:var(--gcds-button-shared-focus-background);border-color:var(--gcds-button-shared-focus-background);box-shadow:var(--gcds-button-shared-focus-box-shadow);color:var(--gcds-button-shared-focus-text);outline:var(--gcds-button-shared-focus-outline-width) solid var(--gcds-button-shared-focus-background);outline-offset:var(--gcds-button-border-width)}}@layer active{:host .gcds-button:active{background-color:var(--gcds-button-shared-active-background);border-color:var(--gcds-button-shared-active-background)}}@layer mobile{@media screen and (max-width:30rem){:host{display:block}:host .gcds-button{margin:var(--gcds-button-mobile-margin);width:var(--gcds-button-mobile-width)}}}";
 const GcdsButtonStyle0 = gcdsButtonCss;
 
 const GcdsButton = class {
     constructor(hostRef) {
         index.registerInstance(this, hostRef);
+        this.gcdsClick = index.createEvent(this, "gcdsClick", 7);
         this.gcdsFocus = index.createEvent(this, "gcdsFocus", 7);
         this.gcdsBlur = index.createEvent(this, "gcdsBlur", 7);
         this.handleClick = (e) => {
-            if (this.clickHandler) {
-                this.clickHandler(e);
-            }
-            else {
+            const event = emitEvent(e, this.gcdsClick);
+            if (event) {
                 if (!this.disabled && this.type != 'button' && this.type != 'link') {
                     // Attach button to form
                     const form = this.el.closest('form');
@@ -249,21 +264,9 @@ const GcdsButton = class {
                         formButton.remove();
                     }
                 }
+                // Has any inherited attributes changed on click
+                this.inheritedAttributes = inheritAttributes(this.el, this.shadowElement);
             }
-            // Has any inherited attributes changed on click
-            this.inheritedAttributes = inheritAttributes(this.el, this.shadowElement);
-        };
-        this.onFocus = e => {
-            if (this.focusHandler) {
-                this.focusHandler(e);
-            }
-            this.gcdsFocus.emit();
-        };
-        this.onBlur = e => {
-            if (this.blurHandler) {
-                this.blurHandler(e);
-            }
-            this.gcdsBlur.emit();
         };
         this.type = 'button';
         this.buttonRole = 'primary';
@@ -275,9 +278,6 @@ const GcdsButton = class {
         this.rel = undefined;
         this.target = undefined;
         this.download = undefined;
-        this.clickHandler = undefined;
-        this.focusHandler = undefined;
-        this.blurHandler = undefined;
         this.inheritedAttributes = {};
         this.lang = undefined;
     }
@@ -288,7 +288,7 @@ const GcdsButton = class {
         }
     }
     validateButtonRole(newValue) {
-        const values = ['primary', 'secondary', 'danger', 'skip-to-content'];
+        const values = ['primary', 'secondary', 'danger'];
         if (!values.includes(newValue)) {
             this.buttonRole = 'primary';
         }
@@ -320,12 +320,6 @@ const GcdsButton = class {
         this.lang = assignLanguage(this.el);
         this.updateLang();
     }
-    /**
-     * Focus element
-     */
-    async focusElement() {
-        this.shadowElement.focus();
-    }
     render() {
         const { type, buttonRole, size, buttonId, disabled, lang, name, href, rel, target, download, inheritedAttributes, } = this;
         const Tag = type != 'link' ? 'button' : 'a';
@@ -341,8 +335,9 @@ const GcdsButton = class {
                 target,
                 download,
             };
-        return (index.h(index.Host, null, index.h(Tag, Object.assign({}, attrs, { id: buttonId, onBlur: e => this.onBlur(e), onFocus: e => this.onFocus(e), onClick: e => this.handleClick(e), class: `gcds-button button--role-${buttonRole} button--${size}`, ref: element => (this.shadowElement = element) }, inheritedAttributes, { part: "button" }), index.h("slot", null), type === 'link' && target === '_blank' ? (index.h("gcds-icon", { name: "external-link", label: I18N$k[lang].label, "margin-left": "200" })) : null)));
+        return (index.h(index.Host, null, index.h(Tag, Object.assign({}, attrs, { id: buttonId, onBlur: () => this.gcdsBlur.emit(), onFocus: () => this.gcdsFocus.emit(), onClick: e => this.handleClick(e), class: `gcds-button button--role-${buttonRole} button--${size}`, ref: element => (this.shadowElement = element) }, inheritedAttributes, { part: "button" }), index.h("slot", null), type === 'link' && target === '_blank' ? (index.h("gcds-icon", { name: "external-link", label: I18N$k[lang].label, "margin-left": "200" })) : null)));
     }
+    static get delegatesFocus() { return true; }
     get el() { return index.getElement(this); }
     static get watchers() { return {
         "type": ["validateType"],
@@ -361,7 +356,7 @@ const I18N$j = {
   },
 };
 
-const gcdsCardCss = "@layer reset, defaults, slot, link, state.hover, state.focus;@layer reset{:host *{box-sizing:border-box;margin:0;padding:0}}@layer defaults{:host{display:block}:host .gcds-card{background-color:var(--gcds-card-background-color);border:var(--gcds-card-border);border-radius:var(--gcds-card-border-radius);color:var(--gcds-card-color);display:block;height:100%;padding:var(--gcds-card-padding);position:relative}:host .gcds-card>:not(slot):not(.gcds-card__spacer){display:block;margin:var(--gcds-card-margin)}:host .gcds-card .gcds-card__image{width:100%}:host .gcds-card .gcds-card__tag{color:var(--gcds-card-tag-color);font:var(--gcds-card-tag-font)}:host .gcds-card .gcds-card__title,:host .gcds-card .gcds-card__title>a{color:var(--gcds-card-title-color);font:var(--gcds-card-title-font);text-decoration-color:currentColor;text-decoration-thickness:var(\n          --gcds-card-title-text-decoration-thickness\n        );text-underline-offset:var(--gcds-card-title-text-underline-offset);width:fit-content}:host .gcds-card .gcds-card__description{max-width:var(--gcds-card-description-max-width)}}@layer slot{:host .gcds-card:has(slot){display:flex;flex-direction:column}:host .gcds-card:has(slot) .gcds-card__spacer{flex:1}:host .gcds-card:has(slot) ::slotted(*){color:var(--gcds-card-slot-color);font:var(--gcds-card-slot-font)!important;z-index:2}}@layer link{:host .gcds-card--link .gcds-card__title>a:after,:host .gcds-card--link a.gcds-card__title:after{bottom:0;content:\"\";left:0;pointer-events:auto;position:absolute;right:0;top:0;z-index:1}:host slot{display:initial}}@layer state.hover{:host .gcds-card--link:hover{background-color:var(--gcds-card-hover-background-color);box-shadow:var(--gcds-card-hover-box-shadow);cursor:pointer}:host .gcds-card--link:hover .gcds-card__title>a,:host .gcds-card--link:hover a.gcds-card__title{color:var(--gcds-card-hover-title-color);text-decoration-thickness:var(\n          --gcds-card-hover-title-text-decoration-thickness\n        )}:host .gcds-card__title>a:hover,:host a.gcds-card__title:hover{color:var(--gcds-card-hover-title-color);text-decoration-thickness:var(\n        --gcds-card-hover-title-text-decoration-thickness\n      )}}@layer state.focus{:host .gcds-card__title>a:focus,:host a.gcds-card__title:focus{background-color:var(--gcds-card-focus-background);border-radius:var(--gcds-card-focus-border-radius);box-shadow:var(--gcds-card-focus-box-shadow);color:var(--gcds-card-focus-color);outline:var(--gcds-card-focus-outline);outline-offset:var(--gcds-card-focus-outline-offset);text-decoration:none}}";
+const gcdsCardCss = "@layer reset, default, slot, link, hover;@layer reset{:host{display:block}:host *{box-sizing:border-box;margin:0;padding:0}:host slot{display:initial}}@layer default{:host .gcds-card{background-color:var(--gcds-card-background-color);border:var(--gcds-card-border);border-radius:var(--gcds-card-border-radius);color:var(--gcds-card-color);display:block;height:100%;padding:var(--gcds-card-padding);position:relative}:host .gcds-card>:not(slot):not(.gcds-card__spacer){display:block;margin:var(--gcds-card-margin)}:host .gcds-card .gcds-card__image{width:100%}:host .gcds-card .gcds-card__title{font:var(--gcds-card-title-font);width:fit-content}}@layer slot{:host .gcds-card:has(slot){display:flex;flex-direction:column}:host .gcds-card:has(slot) .gcds-card__spacer{flex:1}:host .gcds-card:has(slot) ::slotted(*){color:var(--gcds-card-slot-color);font:var(--gcds-card-slot-font)!important;z-index:2}}@layer link{:host .gcds-card.gcds-card--link gcds-link::part(link):after{bottom:0;content:\"\";left:0;pointer-events:auto;position:absolute;right:0;top:0;z-index:1}}@layer hover{@media (hover:hover){:host .gcds-card.gcds-card--link:hover{background-color:var(--gcds-card-hover-background-color);box-shadow:var(--gcds-card-hover-box-shadow);cursor:pointer}}}";
 const GcdsCardStyle0 = gcdsCardCss;
 
 const GcdsCard = class {
@@ -397,13 +392,13 @@ const GcdsCard = class {
         return !!this.el.querySelector('[slot="footer"]');
     }
     render() {
-        const { type, cardTitle, titleElement, href, description, tag, imgSrc, imgAlt, hasCardFooter, lang } = this;
+        const { type, cardTitle, titleElement, href, description, tag, imgSrc, imgAlt, hasCardFooter, lang, } = this;
         const Element = titleElement;
         const taggedAttr = {};
         if (tag) {
             taggedAttr['aria-describedby'] = 'gcds-card__tag';
         }
-        return (index.h(index.Host, null, index.h("div", { class: `gcds-card gcds-card--${type}` }, imgSrc && (index.h("img", { src: imgSrc, alt: imgAlt ? imgAlt : '', class: "gcds-card__image" })), tag && (index.h("span", { id: "gcds-card__tag", class: "gcds-card__tag" }, index.h("gcds-sr-only", null, I18N$j[lang].tagged), tag)), Element != 'a' ? (index.h(Element, Object.assign({ class: "gcds-card__title" }, taggedAttr), index.h("a", { href: href }, cardTitle))) : (index.h("a", Object.assign({ href: href, class: "gcds-card__title" }, taggedAttr), cardTitle)), description && index.h("p", { class: "gcds-card__description" }, description), hasCardFooter && (index.h(index.Fragment, null, index.h("div", { class: "gcds-card__spacer" }), index.h("slot", { name: "footer" }))))));
+        return (index.h(index.Host, null, index.h("div", { class: `gcds-card gcds-card--${type}` }, imgSrc && (index.h("img", { src: imgSrc, alt: imgAlt ? imgAlt : '', class: "gcds-card__image" })), tag && (index.h("gcds-text", { id: "gcds-card__tag", class: "gcds-card__tag", "text-role": "secondary", size: "caption" }, index.h("gcds-sr-only", null, I18N$j[lang].tagged), tag)), Element != 'a' ? (index.h(Element, Object.assign({ class: "gcds-card__title" }, taggedAttr), index.h("gcds-link", { href: href }, cardTitle))) : (index.h("gcds-link", Object.assign({ href: href, class: "gcds-card__title" }, taggedAttr), cardTitle)), description && (index.h("gcds-text", { class: "gcds-card__description" }, description)), hasCardFooter && (index.h(index.Fragment, null, index.h("div", { class: "gcds-card__spacer" }), index.h("slot", { name: "footer" }))))));
     }
     get el() { return index.getElement(this); }
 };
@@ -573,7 +568,7 @@ const requiredCheck = {
 
 const requiredFieldset = {
     validate: (id) => {
-        const el = document.querySelector(`#${id}`);
+        const el = document.querySelector(`[fieldset-id=${id}]`);
         const elChildren = el.children;
         const isValid = validateFieldsetElements(el, elChildren);
         return !isValid.includes(false);
@@ -592,9 +587,8 @@ function validateFieldsetElements(element, nodeList) {
                 isValid = isValid.concat(validFieldsetChildren);
                 break;
             }
-            case 'GCDS-CHECKBOX':
-            case 'GCDS-RADIO': {
-                // Radio/checkbox can share name property
+            case 'GCDS-CHECKBOX': {
+                // Checkboxes can share name property
                 const inputName = nodeList[i].getAttribute('name');
                 // Find all inputs with shared name
                 const sameNameInputs = element.querySelectorAll(`[name=${inputName}]`);
@@ -613,6 +607,20 @@ function validateFieldsetElements(element, nodeList) {
                     // Validate as single input
                     isValid.push(nodeList[i].hasAttribute('checked') ? true : false);
                 }
+                break;
+            }
+            case 'GCDS-RADIO-GROUP': {
+                const inputName = nodeList[i].getAttribute('name');
+                // Find all inputs with shared name
+                const sameNameInputs = element.querySelector(`[name=${inputName}]`);
+                const shadowInputs = sameNameInputs.shadowRoot.querySelectorAll('input');
+                let childGroupValid = false;
+                for (let r = 0; r < shadowInputs.length; r++) {
+                    if (shadowInputs[r].checked) {
+                        childGroupValid = true;
+                    }
+                }
+                isValid.push(childGroupValid);
                 break;
             }
         }
@@ -664,37 +672,38 @@ function validatorFactory(name, options) {
     }
 }
 
-const gcdsCheckboxCss = ".sc-gcds-checkbox-h .gcds-checkbox.sc-gcds-checkbox{color:var(--gcds-checkbox-default-text);font:var(--gcds-checkbox-font);margin:var(--gcds-checkbox-margin);max-width:90%;padding:0;position:relative;transition:color .15s ease-in-out}.sc-gcds-checkbox-h .gcds-checkbox.sc-gcds-checkbox:focus-within{color:var(--gcds-checkbox-focus-text)}.sc-gcds-checkbox-h .gcds-checkbox.sc-gcds-checkbox:focus-within gcds-hint.sc-gcds-checkbox{color:currentColor}.sc-gcds-checkbox-h .gcds-checkbox.gcds-checkbox--disabled.sc-gcds-checkbox{color:var(--gcds-checkbox-disabled-text)}.sc-gcds-checkbox-h .gcds-checkbox.gcds-checkbox--disabled.sc-gcds-checkbox input[type=checkbox].sc-gcds-checkbox+gcds-label.sc-gcds-checkbox{color:var(--gcds-checkbox-disabled-text)}.sc-gcds-checkbox-h .gcds-checkbox.gcds-checkbox--disabled.sc-gcds-checkbox input[type=checkbox].sc-gcds-checkbox+gcds-label.sc-gcds-checkbox:before{background-color:var(--gcds-checkbox-disabled-background);border-color:currentcolor;cursor:not-allowed}.sc-gcds-checkbox-h .gcds-checkbox.gcds-checkbox--disabled.sc-gcds-checkbox input[type=checkbox].sc-gcds-checkbox+gcds-label.sc-gcds-checkbox:after{cursor:not-allowed}.sc-gcds-checkbox-h .gcds-checkbox.gcds-checkbox--disabled.sc-gcds-checkbox gcds-hint.sc-gcds-checkbox{color:currentColor}.sc-gcds-checkbox-h .gcds-checkbox.gcds-checkbox--error.sc-gcds-checkbox:not(:focus-within) input[type=checkbox].sc-gcds-checkbox+gcds-label.sc-gcds-checkbox:before{border-color:var(--gcds-checkbox-danger-border)}.sc-gcds-checkbox-h .gcds-checkbox.gcds-checkbox--error.sc-gcds-checkbox:not(:focus-within) input[type=checkbox].sc-gcds-checkbox+gcds-label.sc-gcds-checkbox:after{color:var(--gcds-checkbox-danger-border)}.sc-gcds-checkbox-h .gcds-checkbox.sc-gcds-checkbox input[type=checkbox].sc-gcds-checkbox{height:var(--gcds-checkbox-input-height-and-width);left:0;opacity:0;position:absolute;top:var(--gcds-checkbox-top);width:var(--gcds-checkbox-input-height-and-width)}.sc-gcds-checkbox-h .gcds-checkbox.sc-gcds-checkbox input[type=checkbox].sc-gcds-checkbox:checked+gcds-label.sc-gcds-checkbox:after{opacity:1}.sc-gcds-checkbox-h .gcds-checkbox.sc-gcds-checkbox input[type=checkbox].sc-gcds-checkbox+gcds-label.sc-gcds-checkbox{width:fit-content}.sc-gcds-checkbox-h .gcds-checkbox.sc-gcds-checkbox input[type=checkbox].sc-gcds-checkbox+gcds-label.sc-gcds-checkbox:after,.sc-gcds-checkbox-h .gcds-checkbox.sc-gcds-checkbox input[type=checkbox].sc-gcds-checkbox+gcds-label.sc-gcds-checkbox:before{box-sizing:border-box;content:\"\";cursor:pointer;position:absolute}.sc-gcds-checkbox-h .gcds-checkbox.sc-gcds-checkbox input[type=checkbox].sc-gcds-checkbox+gcds-label.sc-gcds-checkbox:before{border:var(--gcds-checkbox-input-border-width) solid;border-radius:var(--gcds-checkbox-input-border-radius);height:var(--gcds-checkbox-input-height-and-width);left:0;top:var(--gcds-checkbox-top);transition:border-color .15s ease-in-out,box-shadow .15s ease-in-out,outline .15s ease-in-out;width:var(--gcds-checkbox-input-height-and-width)}.sc-gcds-checkbox-h .gcds-checkbox.sc-gcds-checkbox input[type=checkbox].sc-gcds-checkbox+gcds-label.sc-gcds-checkbox:after{border:var(--gcds-checkbox-check-border-width) solid;border-left:0;border-top:0;color:currentcolor;height:var(--gcds-checkbox-check-height);left:var(--gcds-checkbox-check-left);opacity:0;top:var(--gcds-checkbox-check-top);transform:rotate(40deg);transition:opacity .2s ease-in-out;width:var(--gcds-checkbox-check-width)}.sc-gcds-checkbox-h .gcds-checkbox.sc-gcds-checkbox input[type=checkbox].sc-gcds-checkbox:focus+gcds-label.sc-gcds-checkbox:before{background:var(--gcds-checkbox-focus-background);box-shadow:var(--gcds-checkbox-focus-box-shadow);outline:var( --gcds-checkbox-focus-outline-width) solid currentcolor;outline-offset:var(--gcds-checkbox-input-border-width)}.sc-gcds-checkbox-h .gcds-checkbox.sc-gcds-checkbox input[type=checkbox].sc-gcds-checkbox:focus+gcds-label.sc-gcds-checkbox:after{color:var(--gcds-checkbox-focus-text)}.sc-gcds-checkbox-h .gcds-checkbox.sc-gcds-checkbox gcds-hint.sc-gcds-checkbox,.sc-gcds-checkbox-h .gcds-checkbox.sc-gcds-checkbox gcds-label.sc-gcds-checkbox{display:block;padding:var(--gcds-checkbox-label-padding)}.sc-gcds-checkbox-h .gcds-checkbox.sc-gcds-checkbox gcds-hint.sc-gcds-checkbox{font:var(--gcds-checkbox-hint-font);line-height:var(--gcds-checkbox-hint-line-height)}.sc-gcds-checkbox-h .gcds-checkbox.sc-gcds-checkbox gcds-error-message.sc-gcds-checkbox{display:inline-block;padding:var(--gcds-checkbox-error-padding)}";
+const gcdsCheckboxCss = "@layer reset, default, disabled, error, focus;@layer reset{:host{display:block}:host .gcds-checkbox{padding:0}:host .gcds-checkbox gcds-label:after,:host .gcds-checkbox gcds-label:before{box-sizing:border-box;content:\"\";cursor:pointer}}@layer default{:host .gcds-checkbox{color:var(--gcds-checkbox-default-text);font:var(--gcds-checkbox-font);margin:var(--gcds-checkbox-margin)!important;max-width:var(--gcds-checkbox-max-width);min-height:calc(var(--gcds-checkbox-input-height-and-width) - var(--gcds-checkbox-padding));padding:var(--gcds-checkbox-padding) 0 0;position:relative;transition:color .15s ease-in-out}:host .gcds-checkbox :is(gcds-label,gcds-hint,gcds-error-message){padding:var(--gcds-checkbox-label-padding)!important}:host .gcds-checkbox gcds-hint::part(hint){margin:0}:host .gcds-checkbox gcds-label:after,:host .gcds-checkbox gcds-label:before,:host .gcds-checkbox input{position:absolute}:host .gcds-checkbox gcds-label:before,:host .gcds-checkbox input{height:var(--gcds-checkbox-input-height-and-width);left:0;top:0;width:var(--gcds-checkbox-input-height-and-width)}:host .gcds-checkbox input{opacity:0}:host .gcds-checkbox gcds-label{width:fit-content}:host .gcds-checkbox gcds-label:before{border:var(--gcds-checkbox-input-border-width) solid;border-radius:var(--gcds-checkbox-input-border-radius);transition:border-color .15s ease-in-out,box-shadow .15s ease-in-out,outline .15s ease-in-out}:host .gcds-checkbox gcds-label:after{border:var(--gcds-checkbox-check-border-width) solid;border-block-start:0!important;border-inline-start:0!important;height:var(--gcds-checkbox-check-height);left:var(--gcds-checkbox-check-left);opacity:0;top:var(--gcds-checkbox-check-top);transform:rotate(40deg);transition:opacity .2s ease-in-out;width:var(--gcds-checkbox-check-width)}:host .gcds-checkbox input:checked+gcds-label:after{opacity:1}}@layer disabled{:host .gcds-checkbox.gcds-checkbox--disabled{color:var(--gcds-checkbox-disabled-text)}:host .gcds-checkbox.gcds-checkbox--disabled gcds-label{color:var(--gcds-checkbox-disabled-text)}:host .gcds-checkbox.gcds-checkbox--disabled gcds-label:after,:host .gcds-checkbox.gcds-checkbox--disabled gcds-label:before{cursor:not-allowed}:host .gcds-checkbox.gcds-checkbox--disabled gcds-label:before{background-color:var(--gcds-checkbox-disabled-background);border-color:currentcolor}}@layer error{:host .gcds-checkbox.gcds-checkbox--error:not(:focus-within) gcds-label:before{border-color:var(--gcds-checkbox-danger-border)}:host .gcds-checkbox.gcds-checkbox--error:not(:focus-within) gcds-label:after{color:var(--gcds-checkbox-danger-border)}}@layer focus{:host .gcds-checkbox:focus-within{color:var(--gcds-checkbox-focus-text)}:host .gcds-checkbox:focus-within input:focus+gcds-label:before{background:var(--gcds-checkbox-focus-background);box-shadow:var(--gcds-checkbox-focus-box-shadow);outline:var(--gcds-checkbox-focus-outline-width) solid currentcolor;outline-offset:var(--gcds-checkbox-input-border-width)}}";
 const GcdsCheckboxStyle0 = gcdsCheckboxCss;
 
 const GcdsCheckbox = class {
     constructor(hostRef) {
         index.registerInstance(this, hostRef);
+        this.gcdsClick = index.createEvent(this, "gcdsClick", 7);
         this.gcdsFocus = index.createEvent(this, "gcdsFocus", 7);
         this.gcdsBlur = index.createEvent(this, "gcdsBlur", 7);
         this.gcdsChange = index.createEvent(this, "gcdsChange", 7);
         this.gcdsError = index.createEvent(this, "gcdsError", 7);
         this.gcdsValid = index.createEvent(this, "gcdsValid", 7);
+        if (hostRef.$hostElement$["s-ei"]) {
+            this.internals = hostRef.$hostElement$["s-ei"];
+        }
+        else {
+            this.internals = hostRef.$hostElement$.attachInternals();
+            hostRef.$hostElement$["s-ei"] = this.internals;
+        }
         this._validator = defaultValidator;
-        this.onFocus = e => {
-            if (this.focusHandler) {
-                this.focusHandler(e);
-            }
-            this.gcdsFocus.emit();
-        };
-        this.onBlur = e => {
-            if (this.blurHandler) {
-                this.blurHandler(e);
-            }
-            else {
-                if (this.validateOn == 'blur') {
-                    this.validate();
-                }
+        this.onBlur = () => {
+            if (this.validateOn == 'blur') {
+                this.validate();
             }
             this.gcdsBlur.emit();
         };
-        this.onChange = () => {
+        this.onChange = e => {
             this.checked = !this.checked;
+            this.internals.setFormValue(e.target.value, 'checked');
+            if (!this.checked) {
+                this.internals.setFormValue(null, 'checked');
+            }
             this.gcdsChange.emit(this.checked);
         };
         this.checkboxId = undefined;
@@ -708,9 +717,6 @@ const GcdsCheckbox = class {
         this.hint = undefined;
         this.validator = undefined;
         this.validateOn = undefined;
-        this.clickHandler = undefined;
-        this.focusHandler = undefined;
-        this.blurHandler = undefined;
         this.parentError = undefined;
         this.inheritedAttributes = {};
         this.hasError = undefined;
@@ -789,6 +795,18 @@ const GcdsCheckbox = class {
         }
     }
     /*
+     * Form internal functions
+     */
+    formResetCallback() {
+        if (this.checked != this.initialState) {
+            this.checked = this.initialState;
+        }
+    }
+    formStateRestoreCallback(state) {
+        this.internals.setFormValue(state);
+        this.checked = state;
+    }
+    /*
      * Observe lang attribute change
      */
     updateLang() {
@@ -813,6 +831,8 @@ const GcdsCheckbox = class {
             this._validator = getValidator(this.validator);
         }
         this.inheritedAttributes = inheritAttributes(this.el, this.shadowElement);
+        this.internals.setFormValue(this.checked ? this.value : null);
+        this.initialState = this.checked ? this.checked : null;
     }
     componentWillUpdate() {
         if (this.validator) {
@@ -841,10 +861,10 @@ const GcdsCheckbox = class {
         if (hasError) {
             attrsInput['aria-invalid'] = 'true';
         }
-        return (index.h(index.Host, null, index.h("div", { class: `gcds-checkbox ${disabled ? 'gcds-checkbox--disabled' : ''} ${hasError ? 'gcds-checkbox--error' : ''}` }, index.h("input", Object.assign({ id: checkboxId, type: "checkbox" }, attrsInput, { onBlur: e => this.onBlur(e), onFocus: e => this.onFocus(e), onChange: () => this.onChange(), onClick: e => {
-                this.clickHandler && this.clickHandler(e);
-            }, ref: element => (this.shadowElement = element) })), index.h("gcds-label", Object.assign({}, attrsLabel, { "label-for": checkboxId, lang: lang })), hint ? index.h("gcds-hint", { hint: hint, "hint-id": checkboxId }) : null, errorMessage ? (index.h("gcds-error-message", { messageId: checkboxId, message: errorMessage })) : null, parentError ? (index.h("span", { id: `parent-error-${checkboxId}`, hidden: true }, parentError)) : null)));
+        return (index.h(index.Host, null, index.h("div", { class: `gcds-checkbox ${disabled ? 'gcds-checkbox--disabled' : ''} ${hasError ? 'gcds-checkbox--error' : ''}` }, index.h("input", Object.assign({ id: checkboxId, type: "checkbox" }, attrsInput, { onBlur: () => this.onBlur(), onFocus: () => this.gcdsFocus.emit(), onChange: e => this.onChange(e), onClick: e => emitEvent(e, this.gcdsClick), ref: element => (this.shadowElement = element) })), index.h("gcds-label", Object.assign({}, attrsLabel, { "label-for": checkboxId, lang: lang })), hint ? index.h("gcds-hint", { "hint-id": checkboxId }, hint) : null, errorMessage ? (index.h("gcds-error-message", { messageId: checkboxId }, errorMessage)) : null, parentError ? (index.h("span", { id: `parent-error-${checkboxId}`, hidden: true }, parentError)) : null)));
     }
+    static get delegatesFocus() { return true; }
+    static get formAssociated() { return true; }
     get el() { return index.getElement(this); }
     static get watchers() { return {
         "disabled": ["validateDisabledCheckbox"],
@@ -855,7 +875,7 @@ const GcdsCheckbox = class {
 };
 GcdsCheckbox.style = GcdsCheckboxStyle0;
 
-const gcdsContainerCss = ":host .gcds-container{box-sizing:border-box;display:block;margin:0;padding:0}:host .gcds-container slot{display:initial}:host .gcds-container.container-border{border:var(--gcds-container-border)}:host .gcds-container.container-centered{margin-inline:auto!important}:host .gcds-container.m-0{margin:var(--gcds-container-spacing-0)}:host .gcds-container.m-50{margin:var(--gcds-container-spacing-50)}:host .gcds-container.m-100{margin:var(--gcds-container-spacing-100)}:host .gcds-container.m-150{margin:var(--gcds-container-spacing-150)}:host .gcds-container.m-200{margin:var(--gcds-container-spacing-200)}:host .gcds-container.m-250{margin:var(--gcds-container-spacing-250)}:host .gcds-container.m-300{margin:var(--gcds-container-spacing-300)}:host .gcds-container.m-400{margin:var(--gcds-container-spacing-400)}:host .gcds-container.m-450{margin:var(--gcds-container-spacing-450)}:host .gcds-container.m-500{margin:var(--gcds-container-spacing-500)}:host .gcds-container.m-550{margin:var(--gcds-container-spacing-550)}:host .gcds-container.m-600{margin:var(--gcds-container-spacing-600)}:host .gcds-container.m-700{margin:var(--gcds-container-spacing-700)}:host .gcds-container.m-800{margin:var(--gcds-container-spacing-800)}:host .gcds-container.m-900{margin:var(--gcds-container-spacing-900)}:host .gcds-container.m-1000{margin:var(--gcds-container-spacing-1000)}:host .gcds-container.p-0{padding:var(--gcds-container-spacing-0)}:host .gcds-container.p-50{padding:var(--gcds-container-spacing-50)}:host .gcds-container.p-100{padding:var(--gcds-container-spacing-100)}:host .gcds-container.p-150{padding:var(--gcds-container-spacing-150)}:host .gcds-container.p-200{padding:var(--gcds-container-spacing-200)}:host .gcds-container.p-250{padding:var(--gcds-container-spacing-250)}:host .gcds-container.p-300{padding:var(--gcds-container-spacing-300)}:host .gcds-container.p-400{padding:var(--gcds-container-spacing-400)}:host .gcds-container.p-450{padding:var(--gcds-container-spacing-450)}:host .gcds-container.p-500{padding:var(--gcds-container-spacing-500)}:host .gcds-container.p-550{padding:var(--gcds-container-spacing-550)}:host .gcds-container.p-600{padding:var(--gcds-container-spacing-600)}:host .gcds-container.p-700{padding:var(--gcds-container-spacing-700)}:host .gcds-container.p-800{padding:var(--gcds-container-spacing-800)}:host .gcds-container.p-900{padding:var(--gcds-container-spacing-900)}:host .gcds-container.p-1000{padding:var(--gcds-container-spacing-1000)}:host .gcds-container[class*=size]{width:var(--gcds-container-size-full)}:host .gcds-container.size-xl{max-width:var(--gcds-container-size-xl)}:host .gcds-container.size-lg{max-width:var(--gcds-container-size-lg)}:host .gcds-container.size-md{max-width:var(--gcds-container-size-md)}:host .gcds-container.size-sm{max-width:var(--gcds-container-size-sm)}:host .gcds-container.size-xs{max-width:var(--gcds-container-size-xs)}";
+const gcdsContainerCss = "@layer reset, default, border, centered, margin, padding, size;@layer reset{:host{display:block}:host .gcds-container{box-sizing:border-box;display:block;margin:0;padding:0}:host .gcds-container slot{display:initial}}@layer default{:host .gcds-container[class*=size]{width:var(--gcds-container-size-full)}}@layer border{:host .gcds-container.container-border{border:var(--gcds-container-border)}}@layer centered{:host .gcds-container.container-centered{margin-inline:auto!important}}@layer margin{:host .gcds-container.m-0{margin:var(--gcds-container-spacing-0)}:host .gcds-container.m-50{margin:var(--gcds-container-spacing-50)}:host .gcds-container.m-100{margin:var(--gcds-container-spacing-100)}:host .gcds-container.m-150{margin:var(--gcds-container-spacing-150)}:host .gcds-container.m-200{margin:var(--gcds-container-spacing-200)}:host .gcds-container.m-250{margin:var(--gcds-container-spacing-250)}:host .gcds-container.m-300{margin:var(--gcds-container-spacing-300)}:host .gcds-container.m-400{margin:var(--gcds-container-spacing-400)}:host .gcds-container.m-450{margin:var(--gcds-container-spacing-450)}:host .gcds-container.m-500{margin:var(--gcds-container-spacing-500)}:host .gcds-container.m-550{margin:var(--gcds-container-spacing-550)}:host .gcds-container.m-600{margin:var(--gcds-container-spacing-600)}:host .gcds-container.m-700{margin:var(--gcds-container-spacing-700)}:host .gcds-container.m-800{margin:var(--gcds-container-spacing-800)}:host .gcds-container.m-900{margin:var(--gcds-container-spacing-900)}:host .gcds-container.m-1000{margin:var(--gcds-container-spacing-1000)}}@layer padding{:host .gcds-container.p-0{padding:var(--gcds-container-spacing-0)}:host .gcds-container.p-50{padding:var(--gcds-container-spacing-50)}:host .gcds-container.p-100{padding:var(--gcds-container-spacing-100)}:host .gcds-container.p-150{padding:var(--gcds-container-spacing-150)}:host .gcds-container.p-200{padding:var(--gcds-container-spacing-200)}:host .gcds-container.p-250{padding:var(--gcds-container-spacing-250)}:host .gcds-container.p-300{padding:var(--gcds-container-spacing-300)}:host .gcds-container.p-400{padding:var(--gcds-container-spacing-400)}:host .gcds-container.p-450{padding:var(--gcds-container-spacing-450)}:host .gcds-container.p-500{padding:var(--gcds-container-spacing-500)}:host .gcds-container.p-550{padding:var(--gcds-container-spacing-550)}:host .gcds-container.p-600{padding:var(--gcds-container-spacing-600)}:host .gcds-container.p-700{padding:var(--gcds-container-spacing-700)}:host .gcds-container.p-800{padding:var(--gcds-container-spacing-800)}:host .gcds-container.p-900{padding:var(--gcds-container-spacing-900)}:host .gcds-container.p-1000{padding:var(--gcds-container-spacing-1000)}}@layer size{:host .gcds-container.size-xl{max-width:var(--gcds-container-size-xl)}:host .gcds-container.size-lg{max-width:var(--gcds-container-size-lg)}:host .gcds-container.size-md{max-width:var(--gcds-container-size-md)}:host .gcds-container.size-sm{max-width:var(--gcds-container-size-sm)}:host .gcds-container.size-xs{max-width:var(--gcds-container-size-xs)}}";
 const GcdsContainerStyle0 = gcdsContainerCss;
 
 const GcdsContainer = class {
@@ -893,7 +913,7 @@ const I18N$i = {
   },
 };
 
-const gcdsDateModifiedCss = ".sc-gcds-date-modified-h{color:var(--gcds-date-modified-text);display:block;font:var(--gcds-date-modified-font);margin:var(--gcds-date-modified-margin)}.sc-gcds-date-modified-h .gcds-date-modified.sc-gcds-date-modified dd.sc-gcds-date-modified,.sc-gcds-date-modified-h .gcds-date-modified.sc-gcds-date-modified dt.sc-gcds-date-modified{display:inline}.sc-gcds-date-modified-h .gcds-date-modified.sc-gcds-date-modified dd.sc-gcds-date-modified{margin:var(--gcds-date-modified-description-margin)}";
+const gcdsDateModifiedCss = "@layer reset, default;@layer reset{:host{display:block}:host dl{margin:0}:host slot{display:initial}}@layer default{:host .gcds-date-modified{margin:var(--gcds-date-modified-margin)}:host .gcds-date-modified :is(dt,gcds-text,dd){display:inline}:host .gcds-date-modified dd{margin:var(--gcds-date-modified-description-margin)}}";
 const GcdsDateModifiedStyle0 = gcdsDateModifiedCss;
 
 const GcdsDateModified = class {
@@ -920,41 +940,57 @@ const GcdsDateModified = class {
     }
     render() {
         const { lang, type } = this;
-        return (index.h(index.Host, null, index.h("dl", { class: "gcds-date-modified" }, index.h("dt", null, type === 'version' ? 'Version ' : I18N$i[lang].term), index.h("dd", null, type === 'version' ? (index.h("slot", null)) : (index.h("time", null, index.h("slot", null)))))));
+        return (index.h(index.Host, null, index.h("dl", { class: "gcds-date-modified" }, index.h("dt", null, index.h("gcds-text", { display: "inline", "margin-bottom": "0" }, type === 'version' ? 'Version ' : I18N$i[lang].term)), index.h("dd", null, index.h("gcds-text", { display: "inline", "margin-bottom": "0" }, type === 'version' ? (index.h("slot", null)) : (index.h("time", null, index.h("slot", null))))))));
     }
     get el() { return index.getElement(this); }
 };
 GcdsDateModified.style = GcdsDateModifiedStyle0;
 
-const gcdsDetailsCss = ":host .details__summary{background-color:transparent;border-color:transparent;color:var(--gcds-details-default-text);cursor:pointer;display:block;font:var(--gcds-details-font);padding:var(--gcds-details-summary-padding);position:relative;text-align:start;text-decoration:underline var(--gcds-details-default-decoration-thickness);text-underline-offset:.2em;transition:background-color .15s ease-in-out,color .15s ease-in-out}:host .details__summary:hover:not(:focus){color:var(--gcds-details-hover-text);text-decoration-thickness:var(--gcds-details-hover-decoration-thickness);text-underline-offset:.2em}:host .details__summary:hover:not(:focus):before{color:var(--gcds-details-hover-text)}:host .details__summary:focus{background-color:var(--gcds-details-focus-background);border-radius:var(--gcds-details-focus-border-radius);box-shadow:var(--gcds-details-focus-box-shadow);color:var(--gcds-details-focus-text);outline:var(--gcds-details-focus-outline);outline-offset:var(--gcds-details-focus-outline-offset);text-decoration:none}:host .details__summary:before{border-block-end:var(--gcds-details-summary-arrow-border-top-bottom) solid transparent;border-block-start:var(--gcds-details-summary-arrow-border-top-bottom) solid transparent;border-inline-start:var(--gcds-details-summary-arrow-border-left) solid currentColor;content:\"\";height:0;left:var(--gcds-details-summary-arrow-left);position:absolute;top:var(--gcds-details-summary-arrow-top);transition:transform .15s ease-in-out;width:0}:host .details__summary[aria-expanded=false]+.details__panel{display:none}:host .details__summary[aria-expanded=true]:before{transform:rotate(90deg)}:host .details__panel{border-inline-start:var(--gcds-details-panel-border-width) solid var(--gcds-details-panel-border-color);margin:var(--gcds-details-panel-margin);padding:var(--gcds-details-panel-padding)}:host .details__panel slot{display:initial}:host .details__panel ::slotted(*){font:var(--gcds-details-font);margin:0 0 var(--gcds-details-panel-slotted-margin)}:host .details__panel ::slotted(:first-child){margin-block-start:0}:host .details__panel ::slotted(:last-child){margin-block-end:0}:host .details__panel ::slotted(ol),:host .details__panel ::slotted(ul){margin-inline-start:var(--gcds-details-panel-slotted-margin);padding:0}:host .details__panel ::slotted(small){font:var(--gcds-details-font-small)}";
+const gcdsDetailsCss = "@layer reset, default, hover, focus;@layer reset{:host{display:block}:host .details__summary{background-color:transparent;border-color:transparent;cursor:pointer;display:block}:host .details__panel slot{display:initial}:host .details__panel ::slotted(:first-child){margin-block-start:0}:host .details__panel ::slotted(:last-child){margin-block-end:0}:host .details__panel ::slotted(ol),:host .details__panel ::slotted(ul){padding:0}}@layer default{:host .gcds-details .details__summary{color:var(--gcds-details-default-text);font:var(--gcds-details-font);padding:var(--gcds-details-summary-padding);position:relative;text-decoration:underline var(--gcds-details-default-decoration-thickness);text-underline-offset:.2em;transition:background-color .15s ease-in-out,color .15s ease-in-out}:host .gcds-details .details__summary:before{border-block-end:var(--gcds-details-summary-arrow-border-top-bottom) solid transparent;border-block-start:var(--gcds-details-summary-arrow-border-top-bottom) solid transparent;border-inline-start:var(--gcds-details-summary-arrow-border-left) solid currentColor;content:\"\";height:0;left:var(--gcds-details-summary-arrow-left);position:absolute;top:var(--gcds-details-summary-arrow-top);transition:transform .15s ease-in-out;width:0}:host .gcds-details .details__summary[aria-expanded=false]+.details__panel{display:none}:host .gcds-details .details__summary[aria-expanded=true]:before{transform:rotate(90deg)}:host .gcds-details .details__panel{border-inline-start:var(--gcds-details-panel-border-width) solid var(--gcds-details-panel-border-color);margin:var(--gcds-details-panel-margin);padding:var(--gcds-details-panel-padding)}:host .gcds-details .details__panel ::slotted(*){font:var(--gcds-details-font)}:host .gcds-details .details__panel ::slotted(:not(:last-child)){margin:0 0 var(--gcds-details-panel-slotted-margin)!important}:host .gcds-details .details__panel ::slotted(ol),:host .gcds-details .details__panel ::slotted(ul){margin-inline-start:var(\n          --gcds-details-panel-slotted-margin\n        )!important}:host .gcds-details .details__panel ::slotted(small){font:var(--gcds-details-font-small)}}@layer hover{@media (hover:hover){:host .gcds-details .details__summary:hover:not(:focus){color:var(--gcds-details-hover-text);text-decoration-thickness:var(--gcds-details-hover-decoration-thickness);text-underline-offset:.2em}:host .gcds-details .details__summary:hover:not(:focus):before{color:var(--gcds-details-hover-text)}}}@layer focus{:host .gcds-details .details__summary:focus{background-color:var(--gcds-details-focus-background);border-radius:var(--gcds-details-focus-border-radius);box-shadow:var(--gcds-details-focus-box-shadow);color:var(--gcds-details-focus-text);outline:var(--gcds-details-focus-outline);outline-offset:var(--gcds-details-focus-outline-offset);text-decoration:none}}";
 const GcdsDetailsStyle0 = gcdsDetailsCss;
 
 const GcdsDetails = class {
     constructor(hostRef) {
         index.registerInstance(this, hostRef);
+        this.gcdsFocus = index.createEvent(this, "gcdsFocus", 7);
+        this.gcdsBlur = index.createEvent(this, "gcdsBlur", 7);
+        this.gcdsClick = index.createEvent(this, "gcdsClick", 7);
         this.detailsTitle = undefined;
         this.open = false;
     }
+    /**
+     * Methods
+     */
+    /*
+     * Toggle details open or closed
+     */
+    async toggle() {
+        this.open = !this.open;
+    }
     render() {
         const { detailsTitle, open } = this;
-        return (index.h(index.Host, null, index.h("button", { "aria-expanded": open.toString(), "aria-controls": "details__panel", onClick: () => (this.open = !open), class: "details__summary", id: "details__summary" }, detailsTitle), index.h("div", { id: "details__panel", class: "details__panel", "aria-labelledby": "details__summary" }, index.h("slot", null))));
+        return (index.h(index.Host, null, index.h("div", { class: "gcds-details" }, index.h("button", { "aria-expanded": open.toString(), "aria-controls": "details__panel", onBlur: () => this.gcdsBlur.emit(), onFocus: () => this.gcdsFocus.emit(), onClick: e => {
+                const event = emitEvent(e, this.gcdsClick);
+                if (event) {
+                    this.toggle();
+                }
+            }, class: "details__summary", id: "details__summary" }, detailsTitle), index.h("div", { id: "details__panel", class: "details__panel", "aria-labelledby": "details__summary" }, index.h("slot", null)))));
     }
     get el() { return index.getElement(this); }
 };
 GcdsDetails.style = GcdsDetailsStyle0;
 
-const gcdsErrorMessageCss = ":host{display:inline-block}:host .error-message{background:var(--gcds-error-message-background);border-inline-start:var(--gcds-error-message-border-width) solid var(--gcds-error-message-border-color);color:var(--gcds-error-message-text);font:var(--gcds-error-message-font);margin:var(--gcds-error-message-margin);padding:var(--gcds-error-message-padding)}";
+const gcdsErrorMessageCss = "@layer reset, default;@layer reset{:host{display:inline-block}:host slot{display:initial}}@layer default{:host .error-message{background:var(--gcds-error-message-background);border-inline-start:var(--gcds-error-message-border-width) solid var(--gcds-error-message-border-color);margin:var(--gcds-error-message-margin);padding:var(--gcds-error-message-padding)}}";
 const GcdsErrorMessageStyle0 = gcdsErrorMessageCss;
 
 const GcdsErrorMessage = class {
     constructor(hostRef) {
         index.registerInstance(this, hostRef);
         this.messageId = undefined;
-        this.message = undefined;
     }
     render() {
-        const { messageId, message } = this;
-        return (index.h(index.Host, { id: `error-message-${messageId}`, class: "gcds-error-message-wrapper" }, index.h("p", { class: "error-message", role: "alert" }, message)));
+        const { messageId } = this;
+        return (index.h(index.Host, { id: `error-message-${messageId}`, class: "gcds-error-message-wrapper" }, index.h("gcds-text", { class: "error-message", role: "alert", "margin-bottom": "0" }, index.h("slot", null))));
     }
     get el() { return index.getElement(this); }
 };
@@ -971,7 +1007,7 @@ const I18N$h = {
   },
 };
 
-const gcdsErrorSummaryCss = ":host .gcds-error-summary{border:var(--gcds-error-summary-border-width) solid var(--gcds-error-summary-border-color);color:var(--gcds-error-summary-text);display:none;margin:var(--gcds-error-summary-margin);padding:var( --gcds-error-summary-padding);transition:background .15s ease-in-out,border .15s ease-in-out,color .15s ease-in-out}:host .gcds-error-summary.gcds-show{display:block}:host .gcds-error-summary:focus,:host .gcds-error-summary:has(:focus-within){border-color:var(--gcds-error-summary-focus-color)}:host .gcds-error-summary:focus .summary__heading,:host .gcds-error-summary:has(:focus-within) .summary__heading{color:var(--gcds-error-summary-focus-color)}:host .gcds-error-summary .summary__heading{font:var(--gcds-error-summary-heading-font);margin:0;padding-block-end:var(--gcds-error-summary-heading-padding-bottom)}:host .gcds-error-summary .summary__errorlist{margin:var(--gcds-error-summary-list-margin);padding:0}:host .gcds-error-summary .summary__errorlist .summary__listitem{max-width:var(--gcds-error-summary-max-width)}:host .gcds-error-summary .summary__errorlist .summary__listitem:not(:last-child){padding:var(--gcds-error-summary-list-item-padding)}:host .gcds-error-summary .summary__errorlist .summary__listitem .summary__link{color:var(--gcds-error-summary-link-color);text-decoration-thickness:var(--gcds-error-summary-link-thickness)}:host .gcds-error-summary .summary__errorlist .summary__listitem .summary__link:hover{text-decoration-thickness:var(--gcds-error-summary-hover-link-thickness)}:host .gcds-error-summary .summary__errorlist .summary__listitem .summary__link:focus{background-color:var(--gcds-error-summary-focus-link-background-color);border-radius:var(--gcds-error-summary-focus-link-border-radius);box-shadow:none;color:var(--gcds-error-summary-focus-link-text);outline:var(--gcds-error-summary-focus-link-outline);outline-offset:var(--gcds-error-summary-focus-link-outline-offset);text-decoration:none}@media screen and (max-width:30rem){:host .gcds-error-summary{padding:var(--gcds-error-summary-mobile-padding)}}";
+const gcdsErrorSummaryCss = "@layer reset, default, compact;@layer reset{:host{display:block}}@layer default{:host{container:component summary/inline-size}:host .gcds-error-summary{border:var(--gcds-error-summary-border-width) solid var(--gcds-error-summary-border-color);color:var(--gcds-error-summary-text);display:none;margin:var(--gcds-error-summary-margin);padding:var(--gcds-error-summary-padding);transition:background .15s ease-in-out,border .15s ease-in-out,color .15s ease-in-out}:host .gcds-error-summary.gcds-show{display:block}:host .gcds-error-summary .summary__errorlist{margin:var(--gcds-error-summary-list-margin);padding:0}:host .gcds-error-summary .summary__errorlist .summary__listitem{max-width:var(--gcds-error-summary-max-width)}:host .gcds-error-summary .summary__errorlist .summary__listitem:not(:last-child){padding:var(--gcds-error-summary-list-item-padding)}:host .gcds-error-summary .summary__errorlist .summary__listitem gcds-link::part(link):not(:focus){color:var(--gcds-error-summary-link-color)}}@layer compact{@container summary (width < 24em){:host .gcds-error-summary{padding:var(--gcds-error-summary-mobile-padding)}}}";
 const GcdsErrorSummaryStyle0 = gcdsErrorSummaryCss;
 
 const GcdsErrorSummary = class {
@@ -1001,6 +1037,7 @@ const GcdsErrorSummary = class {
         else if (typeof newErrorLinks == 'object') {
             this.errorLinks = newErrorLinks;
         }
+        this.errorQueue = this.errorLinks;
         // Turn off listen if error-links is being used
         if (this.listen) {
             this.listen = false;
@@ -1008,13 +1045,15 @@ const GcdsErrorSummary = class {
     }
     errorListener(e) {
         if (this.listen && e.target.closest('form') == this.el.closest('form')) {
-            this.errorLinksObject[e.detail.id] = e.detail.message;
+            this.errorLinksObject[e.detail.message] = e.target;
         }
     }
     validListener(e) {
         if (this.listen && e.target.closest('form') == this.el.closest('form')) {
-            if (this.errorLinksObject && this.errorLinksObject[e.detail.id]) {
-                delete this.errorLinksObject[e.detail.id];
+            for (const [key, value] of Object.entries(this.errorLinksObject)) {
+                if (value == e.target) {
+                    delete this.errorLinksObject[key];
+                }
             }
             if (this.errorQueue) {
                 const sortedErrorList = this.sortErrors();
@@ -1040,14 +1079,11 @@ const GcdsErrorSummary = class {
      * Sort error object based on the order form compoennts appear in the form
      */
     sortErrors() {
-        const sortable = [];
-        for (const id in this.errorLinksObject) {
-            sortable.push([
-                id,
-                this.errorLinksObject[id],
-                document.querySelector(id).getBoundingClientRect().y,
-            ]);
-        }
+        const sortable = Object.entries(this.errorLinksObject).map(([key, value]) => [
+            key,
+            value,
+            value.getBoundingClientRect().y,
+        ]);
         sortable.sort(function (a, b) {
             return a[2] - b[2];
         });
@@ -1060,8 +1096,7 @@ const GcdsErrorSummary = class {
     /*
      * Focus element on error link click with label visible
      */
-    focusElement(event, id) {
-        event.preventDefault();
+    focusElement(id) {
         const element = document.querySelector(id);
         let target = `[for=${id.replace('#', '')}]`;
         if (element.nodeName == 'FIELDSET') {
@@ -1098,10 +1133,15 @@ const GcdsErrorSummary = class {
         const { heading, errorQueue, lang, hasSubmitted, errorLinks } = this;
         return (index.h(index.Host, null, index.h("div", { role: "alert", tabindex: "-1", ref: element => (this.shadowElement = element), class: `gcds-error-summary ${(hasSubmitted || errorLinks) && Object.keys(errorQueue).length > 0
                 ? 'gcds-show'
-                : ''}` }, index.h("h2", { class: "summary__heading" }, heading !== null && heading !== void 0 ? heading : I18N$h[lang].heading), index.h("ol", { class: "summary__errorlist" }, (hasSubmitted || errorLinks) &&
+                : ''}` }, index.h("gcds-heading", { tag: "h2", "margin-top": "0", "margin-bottom": "300" }, heading !== null && heading !== void 0 ? heading : I18N$h[lang].heading), index.h("ol", { class: "summary__errorlist" }, (hasSubmitted || errorLinks) &&
             Object.keys(errorQueue).length > 0 &&
             Object.keys(errorQueue).map(key => {
-                return (index.h("li", { class: "summary__listitem" }, index.h("a", { onClick: e => this.focusElement(e, key), class: "summary__link", href: key }, errorQueue[key])));
+                return (index.h("li", { class: "summary__listitem" }, index.h("gcds-link", { size: "regular", href: errorLinks ? key : '#', onClick: e => {
+                        e.preventDefault();
+                        errorLinks
+                            ? this.focusElement(key)
+                            : errorQueue[key].focus();
+                    } }, errorLinks ? errorQueue[key] : key)));
             })))));
     }
     get el() { return index.getElement(this); }
@@ -1121,7 +1161,7 @@ const I18N$g = {
   },
 };
 
-const gcdsFieldsetCss = ".sc-gcds-fieldset-h{display:block}.sc-gcds-fieldset-h .gcds-fieldset.sc-gcds-fieldset{border:none;color:var(--gcds-fieldset-default-text);padding:0}.sc-gcds-fieldset-h .gcds-fieldset.sc-gcds-fieldset>legend.sc-gcds-fieldset{color:inherit;font:var(--gcds-fieldset-font);margin:var(--gcds-fieldset-legend-margin)}.sc-gcds-fieldset-h .gcds-fieldset.sc-gcds-fieldset:focus-within{color:var(--gcds-fieldset-focus-text)}.sc-gcds-fieldset-h .gcds-fieldset.sc-gcds-fieldset:disabled{color:var(--gcds-fieldset-disabled-text)}.sc-gcds-fieldset-h .legend__required.sc-gcds-fieldset{margin:var(--gcds-fieldset-legend-required-margin)}.sc-gcds-fieldset-h slot.sc-gcds-fieldset{display:block;margin:0}";
+const gcdsFieldsetCss = "@layer reset, default, disabled, focus;@layer reset{:host{display:block}:host .gcds-fieldset{border:0;padding:0}:host slot{display:block;margin:0}}@layer default{.gcds-fieldset{color:var(--gcds-fieldset-default-text)}.gcds-fieldset legend{font:var(--gcds-fieldset-font-desktop);margin:var(--gcds-fieldset-legend-margin)!important}@media only screen and (width < 48em){.gcds-fieldset legend{font:var(--gcds-fieldset-font-mobile)}}.gcds-fieldset legend .legend__required{margin:var(--gcds-fieldset-legend-required-margin)!important}}@layer disabled{:host .gcds-fieldset:disabled{color:var(--gcds-fieldset-disabled-text)}}@layer focus{:host .gcds-fieldset:focus-within{color:var(--gcds-fieldset-focus-text)}}";
 const GcdsFieldsetStyle0 = gcdsFieldsetCss;
 
 const GcdsFieldset = class {
@@ -1267,8 +1307,9 @@ const GcdsFieldset = class {
         }
         return (index.h(index.Host, null, index.h("fieldset", Object.assign({ class: `gcds-fieldset ${hasError ? 'gcds-fieldset--error' : ''}`, id: fieldsetId }, fieldsetAttrs, { "aria-labelledby": hint
                 ? `legend-${fieldsetId} hint-${fieldsetId}`
-                : `legend-${fieldsetId}`, tabindex: "-1", ref: element => (this.shadowElement = element) }), index.h("legend", { id: `legend-${fieldsetId}` }, legend, required ? (index.h("strong", { class: "legend__required" }, "(", I18N$g[lang].required, ")")) : null), hint ? index.h("gcds-hint", { hint: hint, "hint-id": fieldsetId }) : null, errorMessage ? (index.h("gcds-error-message", { messageId: fieldsetId, message: errorMessage })) : null, index.h("slot", null))));
+                : `legend-${fieldsetId}`, tabindex: "-1", ref: element => (this.shadowElement = element) }), index.h("legend", { id: `legend-${fieldsetId}` }, legend, required ? (index.h("strong", { class: "legend__required" }, "(", I18N$g[lang].required, ")")) : null), hint ? index.h("gcds-hint", { "hint-id": fieldsetId }, hint) : null, errorMessage ? (index.h("gcds-error-message", { messageId: fieldsetId }, errorMessage)) : null, index.h("slot", null))));
     }
+    static get delegatesFocus() { return true; }
     get el() { return index.getElement(this); }
     static get watchers() { return {
         "errorMessage": ["validateErrorMessage"],
@@ -1303,7 +1344,7 @@ const I18N$f = {
   },
 };
 
-const gcdsFileUploaderCss = ".sc-gcds-file-uploader-h .gcds-file-uploader-wrapper.sc-gcds-file-uploader{align-items:flex-start;border:0;color:var(--gcds-file-uploader-default-text);display:flex;flex-direction:column;font:var(--gcds-file-uploader-font);margin:0;max-width:90%;padding:0;transition:color .15s ease-in-out}.sc-gcds-file-uploader-h .gcds-file-uploader-wrapper.sc-gcds-file-uploader:focus-within{color:var(--gcds-file-uploader-focus-text)}.sc-gcds-file-uploader-h .gcds-file-uploader-wrapper.gcds-disabled.sc-gcds-file-uploader{color:var(--gcds-file-uploader-disabled-text)}.sc-gcds-file-uploader-h .gcds-file-uploader-wrapper.gcds-disabled.sc-gcds-file-uploader .file-uploader__input.sc-gcds-file-uploader input.sc-gcds-file-uploader,.sc-gcds-file-uploader-h .gcds-file-uploader-wrapper.gcds-disabled.sc-gcds-file-uploader .file-uploader__uploaded-file.sc-gcds-file-uploader,.sc-gcds-file-uploader-h .gcds-file-uploader-wrapper.gcds-disabled.sc-gcds-file-uploader .file-uploader__uploaded-file.sc-gcds-file-uploader gcds-icon.sc-gcds-file-uploader{cursor:not-allowed}.sc-gcds-file-uploader-h .gcds-file-uploader-wrapper.gcds-disabled.sc-gcds-file-uploader .file-uploader__input.sc-gcds-file-uploader button.sc-gcds-file-uploader{background-color:var(--gcds-file-uploader-disabled-background);border-color:var(--gcds-file-uploader-disabled-text);color:inherit;outline:0}.sc-gcds-file-uploader-h .gcds-file-uploader-wrapper.gcds-disabled.sc-gcds-file-uploader .file-uploader__uploaded-file.sc-gcds-file-uploader{color:inherit}.sc-gcds-file-uploader-h .gcds-file-uploader-wrapper.gcds-disabled.sc-gcds-file-uploader .file-uploader__uploaded-file.sc-gcds-file-uploader button.sc-gcds-file-uploader{color:inherit}.sc-gcds-file-uploader-h .gcds-file-uploader-wrapper.gcds-disabled.sc-gcds-file-uploader .file-uploader__uploaded-file.sc-gcds-file-uploader button.sc-gcds-file-uploader:focus{background:transparent}.sc-gcds-file-uploader-h .gcds-file-uploader-wrapper.gcds-error.sc-gcds-file-uploader .file-uploader__uploaded-file.sc-gcds-file-uploader:not(:focus){border-color:var(--gcds-file-uploader-file-danger-border-color)}.sc-gcds-file-uploader-h .gcds-file-uploader-wrapper.sc-gcds-file-uploader .file-uploader__uploaded-file.sc-gcds-file-uploader:focus-within,.sc-gcds-file-uploader-h .gcds-file-uploader-wrapper.gcds-error.sc-gcds-file-uploader .file-uploader__uploaded-file.sc-gcds-file-uploader:focus-within{border-color:var(--gcds-file-uploader-file-focus-border-color)}.sc-gcds-file-uploader-h .file-uploader__input.sc-gcds-file-uploader{display:inline-block;position:relative}.sc-gcds-file-uploader-h .file-uploader__input.uploaded-files.sc-gcds-file-uploader{margin:var(--gcds-file-uploader-button-margin)}.sc-gcds-file-uploader-h .file-uploader__input.sc-gcds-file-uploader button.sc-gcds-file-uploader{background-color:var(--gcds-file-uploader-button-background);border:var(--gcds-file-uploader-button-border-width) solid var(--gcds-file-uploader-button-text);border-radius:var(--gcds-file-uploader-button-border-radius);color:var(--gcds-file-uploader-button-text);font-family:inherit;font-size:inherit;font-weight:var(--gcds-file-uploader-button-font-weight);line-height:inherit;padding:var(--gcds-file-uploader-button-padding);transition:all .15s ease-in-out}.sc-gcds-file-uploader-h .file-uploader__input.sc-gcds-file-uploader input.sc-gcds-file-uploader{cursor:pointer;height:100%;left:0;opacity:0;position:absolute;top:0;width:100%}.sc-gcds-file-uploader-h .file-uploader__input.sc-gcds-file-uploader #file-uploader__summary.sc-gcds-file-uploader{height:0;margin:0;overflow:hidden;visibility:hidden}.sc-gcds-file-uploader-h .file-uploader__input.sc-gcds-file-uploader:hover button.sc-gcds-file-uploader{background-color:var(--gcds-file-uploader-hover-button-background)}.sc-gcds-file-uploader-h .file-uploader__input.sc-gcds-file-uploader:focus-within button.sc-gcds-file-uploader{background-color:var(--gcds-file-uploader-focus-button-background);border-color:currentColor;color:var(--gcds-file-uploader-focus-button-text);outline:var(--gcds-file-uploader-button-outline-width) solid var(--gcds-file-uploader-focus-button-background)}.sc-gcds-file-uploader-h .file-uploader__input.sc-gcds-file-uploader:active button.sc-gcds-file-uploader{background-color:var(--gcds-file-uploader-active-button-background);color:var(--gcds-file-uploader-active-button-text)}.sc-gcds-file-uploader-h .file-uploader__uploaded-file.sc-gcds-file-uploader{align-items:center;border:var(--gcds-file-uploader-file-border-width) solid var(--gcds-file-uploader-file-border-color);color:var(--gcds-file-uploader-default-text);cursor:pointer;display:flex;font:inherit;font-weight:var(--gcds-file-uploader-button-font-weight);justify-content:space-between;max-width:var(--gcds-file-uploader-file-max-width);padding:var(--gcds-file-uploader-file-padding);width:100%}.sc-gcds-file-uploader-h .file-uploader__uploaded-file.sc-gcds-file-uploader:not(:last-of-type){border-block-end:0}.sc-gcds-file-uploader-h .file-uploader__uploaded-file.sc-gcds-file-uploader span.sc-gcds-file-uploader{overflow:hidden;padding-inline-end:0;text-overflow:ellipsis;white-space:nowrap}.sc-gcds-file-uploader-h .file-uploader__uploaded-file.sc-gcds-file-uploader button.sc-gcds-file-uploader{align-items:center;background:transparent;border-radius:var(--gcds-file-uploader-file-button-border-radius);color:var(--gcds-file-uploader-file-button-default-text);display:flex;font:inherit;margin:var(--gcds-file-uploader-file-button-margin);outline:0;padding:var(--gcds-file-uploader-file-button-padding);transition:color .35s}.sc-gcds-file-uploader-h .file-uploader__uploaded-file.sc-gcds-file-uploader button.sc-gcds-file-uploader:not(:focus) span.sc-gcds-file-uploader{overflow:visible;text-decoration:underline;text-decoration-thickness:var(--gcds-file-uploader-file-button-default-decoration-thickness);text-underline-offset:var(--gcds-file-uploader-file-button-underline-offset);transition:box-shadow .35s}.sc-gcds-file-uploader-h .file-uploader__uploaded-file.sc-gcds-file-uploader button.sc-gcds-file-uploader:hover{color:var(--gcds-file-uploader-file-button-hover-text)}.sc-gcds-file-uploader-h .file-uploader__uploaded-file.sc-gcds-file-uploader button.sc-gcds-file-uploader:hover span.sc-gcds-file-uploader{text-decoration-thickness:var(--gcds-file-uploader-file-button-hover-decoration-thickness)}.sc-gcds-file-uploader-h .file-uploader__uploaded-file.sc-gcds-file-uploader button.sc-gcds-file-uploader:focus{background-color:var(--gcds-file-uploader-focus-button-background);border-color:var(--gcds-file-uploader-focus-button-background);color:var(--gcds-file-uploader-focus-button-text);outline:var(--gcds-file-uploader-focus-button-outline-width) solid var(--gcds-file-uploader-focus-button-background);outline-offset:var(--gcds-file-uploader-focus-button-outline-offset);text-decoration-color:transparent}";
+const gcdsFileUploaderCss = "@layer reset, default, input, files, disabled, error, focus, active;@layer reset{:host{display:block}:host .gcds-file-uploader-wrapper{border:0;margin:0;padding:0}:host .gcds-file-uploader-wrapper button{cursor:pointer;font:inherit;outline:0}}@layer default{:host .gcds-file-uploader-wrapper{align-items:flex-start;color:var(--gcds-file-uploader-default-text);display:flex;flex-direction:column;font:var(--gcds-file-uploader-font);max-width:90%;transition:color .15s ease-in-out}:host .gcds-file-uploader-wrapper button{border-radius:var(--gcds-file-uploader-file-button-border-radius);transition:all .15s ease-in-out}}@layer input{:host .gcds-file-uploader-wrapper .file-uploader__input{display:inline-block;position:relative}:host .gcds-file-uploader-wrapper .file-uploader__input button{background-color:var(--gcds-file-uploader-button-background);border:var(--gcds-file-uploader-button-border-width) solid var(--gcds-file-uploader-button-text);color:var(--gcds-file-uploader-button-text);font-weight:var(--gcds-file-uploader-button-font-weight);margin:var(--gcds-file-uploader-button-margin);padding:var(--gcds-file-uploader-button-padding)}:host .gcds-file-uploader-wrapper .file-uploader__input input{cursor:pointer;height:100%;left:0;opacity:0;position:absolute;top:0;width:100%}:host .gcds-file-uploader-wrapper .file-uploader__input #file-uploader__summary{height:0;margin:0;overflow:hidden;visibility:hidden}}@layer files{:host .gcds-file-uploader-wrapper .file-uploader__uploaded-file{align-items:center;border:var(--gcds-file-uploader-file-border-width) solid var(--gcds-file-uploader-file-border-color);cursor:pointer;display:flex;justify-content:space-between;max-width:var(--gcds-file-uploader-file-max-width);padding:var(--gcds-file-uploader-file-padding);width:100%}:host .gcds-file-uploader-wrapper .file-uploader__uploaded-file:not(:last-of-type){border-block-end:0}:host .gcds-file-uploader-wrapper .file-uploader__uploaded-file:last-of-type{margin:var(--gcds-file-uploader-button-margin)}:host .gcds-file-uploader-wrapper .file-uploader__uploaded-file gcds-text{overflow:auto}:host .gcds-file-uploader-wrapper .file-uploader__uploaded-file gcds-text::part(text){overflow:hidden;text-overflow:ellipsis;white-space:nowrap}:host .gcds-file-uploader-wrapper .file-uploader__uploaded-file button{align-items:center;background:transparent;border:0;color:var(--gcds-file-uploader-file-button-default-text);display:flex;font-weight:var(--gcds-file-uploader-button-font-weight);margin:var(--gcds-file-uploader-file-button-margin);padding:var(--gcds-file-uploader-file-button-padding)}:host .gcds-file-uploader-wrapper .file-uploader__uploaded-file button:not(:focus) span{overflow:visible;text-decoration:underline var(--gcds-file-uploader-file-button-default-decoration-thickness);text-underline-offset:var(\n          --gcds-file-uploader-file-button-underline-offset\n        )}}@layer disabled{:host .gcds-file-uploader-wrapper.gcds-disabled{color:var(--gcds-file-uploader-disabled-text)}:host .gcds-file-uploader-wrapper.gcds-disabled :is(.file-uploader__input,.file-uploader__uploaded-file){pointer-events:none}:host .gcds-file-uploader-wrapper.gcds-disabled .file-uploader__input button,:host .gcds-file-uploader-wrapper.gcds-disabled .file-uploader__uploaded-file,:host .gcds-file-uploader-wrapper.gcds-disabled .file-uploader__uploaded-file button{color:inherit}:host .gcds-file-uploader-wrapper.gcds-disabled .file-uploader__input button{background-color:var(--gcds-file-uploader-disabled-background);border-color:currentColor}}@layer error{:host .gcds-file-uploader-wrapper.gcds-error .file-uploader__uploaded-file{border-color:var(--gcds-file-uploader-file-danger-border-color)}}@layer hover{@media (hover:hover){:host .gcds-file-uploader-wrapper .file-uploader__input:not(:focus-within):hover button{background-color:var(--gcds-file-uploader-hover-button-background)}:host .gcds-file-uploader-wrapper .file-uploader__uploaded-file button:not(:focus):hover{color:var(--gcds-file-uploader-file-button-hover-text)}:host .gcds-file-uploader-wrapper .file-uploader__uploaded-file button:not(:focus):hover span{text-decoration-thickness:var(\n            --gcds-file-uploader-file-button-hover-decoration-thickness\n          )}}}@layer focus{:host .gcds-file-uploader-wrapper:focus-within{color:var(--gcds-file-uploader-focus-text)}:host .gcds-file-uploader-wrapper:focus-within .file-uploader__uploaded-file:focus-within{border-color:var(--gcds-file-uploader-file-focus-border-color)}:host .gcds-file-uploader-wrapper:focus-within .file-uploader__input:focus-within button,:host .gcds-file-uploader-wrapper:focus-within .file-uploader__uploaded-file button:focus{background-color:var(--gcds-file-uploader-focus-button-background);border-color:var(--gcds-file-uploader-focus-button-background);color:var(--gcds-file-uploader-focus-button-text);outline:var(--gcds-file-uploader-button-outline-width) solid var(--gcds-file-uploader-focus-button-background);outline-offset:var(--gcds-file-uploader-focus-button-outline-offset)}}@layer active{:host .gcds-file-uploader-wrapper .file-uploader__input:has(input:active) button{background-color:var(--gcds-file-uploader-active-button-background);border-color:var(--gcds-file-uploader-active-button-background);color:var(--gcds-file-uploader-active-button-text)}}";
 const GcdsFileUploaderStyle0 = gcdsFileUploaderCss;
 
 const GcdsFileUploader = class {
@@ -1311,60 +1352,74 @@ const GcdsFileUploader = class {
         index.registerInstance(this, hostRef);
         this.gcdsFocus = index.createEvent(this, "gcdsFocus", 7);
         this.gcdsBlur = index.createEvent(this, "gcdsBlur", 7);
-        this.gcdsFileUploaderChange = index.createEvent(this, "gcdsFileUploaderChange", 7);
+        this.gcdsChange = index.createEvent(this, "gcdsChange", 7);
+        this.gcdsInput = index.createEvent(this, "gcdsInput", 7);
         this.gcdsRemoveFile = index.createEvent(this, "gcdsRemoveFile", 7);
         this.gcdsError = index.createEvent(this, "gcdsError", 7);
         this.gcdsValid = index.createEvent(this, "gcdsValid", 7);
+        if (hostRef.$hostElement$["s-ei"]) {
+            this.internals = hostRef.$hostElement$["s-ei"];
+        }
+        else {
+            this.internals = hostRef.$hostElement$.attachInternals();
+            hostRef.$hostElement$["s-ei"] = this.internals;
+        }
         this._validator = defaultValidator;
-        this.onFocus = e => {
-            if (this.focusHandler) {
-                this.focusHandler(e);
-            }
-            this.gcdsFocus.emit();
-        };
-        this.onBlur = e => {
-            if (this.blurHandler) {
-                this.blurHandler(e);
-            }
-            else {
-                if (this.validateOn == 'blur') {
-                    this.validate();
-                }
+        this.onBlur = () => {
+            if (this.validateOn == 'blur') {
+                this.validate();
             }
             this.gcdsBlur.emit();
         };
-        this.handleChange = e => {
-            if (this.changeHandler) {
-                this.changeHandler(e);
+        this.handleInput = (e, customEvent) => {
+            const filesContainer = [];
+            const files = Array.from(e.target.files);
+            files.map(file => {
+                filesContainer.push(file['name']);
+            });
+            this.addFilesToFormData(files);
+            this.value = [...filesContainer];
+            // Validate since the input loses focus when dialog opens
+            if (this.validateOn == 'blur') {
+                setTimeout(() => {
+                    this.validate();
+                }, 100);
             }
-            else {
-                const filesContainer = [];
-                const files = e.target.files;
-                for (let i = 0; i < files.length; i++) {
-                    filesContainer.push(files[i].name);
-                }
-                this.value = [...filesContainer];
-                // Validate since the input loses focus when dialog opens
-                if (this.validateOn == 'blur') {
-                    setTimeout(() => {
-                        this.validate();
-                    }, 100);
-                }
-            }
-            this.gcdsFileUploaderChange.emit(this.value);
+            customEvent.emit(this.value);
         };
         this.removeFile = e => {
             e.preventDefault();
+            const fileName = e.target.closest('.file-uploader__uploaded-file')
+                .childNodes[0].textContent;
             const filesContainer = this.value;
-            const file = filesContainer.indexOf(e.target.closest('.file-uploader__uploaded-file').childNodes[0]
-                .textContent);
+            const file = filesContainer.indexOf(fileName);
             if (file > -1) {
                 filesContainer.splice(file, 1);
+                // Add additional logic to remove file from input
+                const dt = new DataTransfer();
+                for (let f = 0; f < this.shadowElement.files.length; f++) {
+                    if (this.shadowElement.files[f].name != fileName) {
+                        dt.items.add(this.shadowElement.files[f]);
+                    }
+                }
+                this.shadowElement.files = dt.files;
+                this.addFilesToFormData(this.shadowElement.files);
             }
             this.value = [...filesContainer];
             this.gcdsRemoveFile.emit(this.value);
         };
+        /*
+         * Set form data for internals
+         */
+        this.addFilesToFormData = files => {
+            const formData = new FormData();
+            files.forEach(file => {
+                formData.append(this.name, file, file.name);
+            });
+            this.internals.setFormValue(formData);
+        };
         this.uploaderId = undefined;
+        this.name = undefined;
         this.label = undefined;
         this.required = false;
         this.disabled = false;
@@ -1375,9 +1430,6 @@ const GcdsFileUploader = class {
         this.hint = undefined;
         this.validator = undefined;
         this.validateOn = undefined;
-        this.changeHandler = undefined;
-        this.focusHandler = undefined;
-        this.blurHandler = undefined;
         this.hasError = undefined;
         this.inheritedAttributes = {};
         this.lang = undefined;
@@ -1436,6 +1488,17 @@ const GcdsFileUploader = class {
         }
     }
     /*
+     * Form internal functions
+     */
+    formResetCallback() {
+        this.internals.setFormValue('');
+        this.value = [];
+    }
+    formStateRestoreCallback(state) {
+        this.internals.setFormValue(state);
+        this.value = state;
+    }
+    /*
      * Observe lang attribute change
      */
     updateLang() {
@@ -1467,10 +1530,11 @@ const GcdsFileUploader = class {
         }
     }
     render() {
-        const { accept, disabled, errorMessage, hasError, hint, label, lang, multiple, required, uploaderId, value, inheritedAttributes, } = this;
+        const { accept, disabled, errorMessage, hasError, hint, label, lang, multiple, name, required, uploaderId, value, inheritedAttributes, } = this;
         const attrsInput = Object.assign(Object.assign({ accept,
             disabled,
             multiple,
+            name,
             required,
             value }, inheritedAttributes), { 'aria-describedby': `${inheritedAttributes['aria-describedby']
                 ? `${inheritedAttributes['aria-describedby']} `
@@ -1482,12 +1546,15 @@ const GcdsFileUploader = class {
         if (hint || errorMessage) {
             const hintID = hint ? `hint-${uploaderId} ` : '';
             const errorID = errorMessage ? `error-message-${uploaderId} ` : '';
-            attrsInput['aria-describedby'] = `${hintID}${errorID}${attrsInput['aria-describedby']}`;
+            attrsInput['aria-describedby'] =
+                `${hintID}${errorID}${attrsInput['aria-describedby']}`;
         }
-        return (index.h(index.Host, null, index.h("div", { class: `gcds-file-uploader-wrapper ${disabled ? 'gcds-disabled' : ''} ${hasError ? 'gcds-error' : ''}` }, index.h("gcds-label", Object.assign({}, attrsLabel, { "label-for": uploaderId, lang: lang })), hint ? index.h("gcds-hint", { hint: hint, "hint-id": uploaderId }) : null, errorMessage ? (index.h("gcds-error-message", { messageId: uploaderId, message: errorMessage })) : null, index.h("div", { class: `file-uploader__input ${value.length > 0 ? 'uploaded-files' : ''}` }, index.h("button", { type: "button", tabindex: "-1", onClick: () => this.shadowElement.click() }, I18N$f[lang].button.upload), index.h("input", Object.assign({ type: "file", id: uploaderId, name: uploaderId }, attrsInput, { onBlur: e => this.onBlur(e), onFocus: e => this.onFocus(e), onChange: e => this.handleChange(e), "aria-invalid": hasError ? 'true' : 'false', ref: element => (this.shadowElement = element) })), value.length > 0 ? (index.h("p", { id: "file-uploader__summary" }, index.h("span", null, I18N$f[lang].summary.selected, " "), value.map(file => (index.h("span", null, file, " "))))) : (index.h("p", { id: "file-uploader__summary" }, I18N$f[lang].summary.unselected))), value.length > 0
-            ? value.map(file => (index.h("div", { class: "file-uploader__uploaded-file", "aria-label": `${I18N$f[lang].removeFile} ${file}.` }, index.h("span", null, file), index.h("button", { onClick: e => this.removeFile(e) }, index.h("span", null, I18N$f[lang].button.remove), index.h("gcds-icon", { name: "times", size: "text", "margin-left": "200" })))))
+        return (index.h(index.Host, null, index.h("div", { class: `gcds-file-uploader-wrapper ${disabled ? 'gcds-disabled' : ''} ${hasError ? 'gcds-error' : ''}` }, index.h("gcds-label", Object.assign({}, attrsLabel, { "label-for": uploaderId, lang: lang })), hint ? index.h("gcds-hint", { "hint-id": uploaderId }, hint) : null, errorMessage ? (index.h("gcds-error-message", { messageId: uploaderId }, errorMessage)) : null, index.h("div", { class: `file-uploader__input ${value.length > 0 ? 'uploaded-files' : ''}` }, index.h("button", { type: "button", tabindex: "-1", onClick: () => this.shadowElement.click() }, I18N$f[lang].button.upload), index.h("input", Object.assign({ type: "file", id: uploaderId }, attrsInput, { onBlur: () => this.onBlur(), onFocus: () => this.gcdsFocus.emit(), onInput: e => this.handleInput(e, this.gcdsInput), onChange: e => this.handleInput(e, this.gcdsChange), "aria-invalid": hasError ? 'true' : 'false', ref: element => (this.shadowElement = element) })), value.length > 0 ? (index.h("gcds-sr-only", { id: "file-uploader__summary" }, index.h("span", null, I18N$f[lang].summary.selected, " "), value.map(file => (index.h("span", null, file, " "))))) : (index.h("gcds-sr-only", { id: "file-uploader__summary" }, I18N$f[lang].summary.unselected))), value.length > 0
+            ? value.map(file => (index.h("div", { class: "file-uploader__uploaded-file", "aria-label": `${I18N$f[lang].removeFile} ${file}.` }, index.h("gcds-text", { "margin-bottom": "0" }, file), index.h("button", { onClick: e => this.removeFile(e) }, index.h("span", null, I18N$f[lang].button.remove), index.h("gcds-icon", { name: "times", size: "text", "margin-left": "200" })))))
             : null)));
     }
+    static get delegatesFocus() { return true; }
+    static get formAssociated() { return true; }
     get el() { return index.getElement(this); }
     static get watchers() { return {
         "disabled": ["validateDisabledSelect"],
@@ -1747,7 +1814,7 @@ const I18N$e = {
   },
 };
 
-const gcdsFooterCss = ":host{display:block;font:var(--gcds-footer-font)}:host slot{display:initial}:host .gcds-footer__header,:host .sub__header,:host .themenav__header{clip:rect(1px,1px,1px,1px);height:1px;margin:0;overflow:hidden;position:absolute;width:1px}:host [class$=__container]{justify-content:space-between;margin:var(--gcds-footer-container-margin);max-width:var(--gcds-footer-container-width);width:90%}:host nav{position:relative}:host nav li{margin:var(--gcds-footer-listitem-margin)}:host [class$=__list]{display:grid;grid-template-columns:1fr;list-style:none;padding:var(--gcds-footer-list-padding);grid-gap:var(--gcds-footer-list-grid-gap)}:host [class$=__list] li a{color:var(--gcds-footer-main-text);text-underline-position:under}:host [class$=__list] li a:not(:hover){text-decoration:none}:host [class$=__list] li a:focus{background-color:var(--gcds-footer-link-focus-background);border-radius:var(--gcds-footer-link-focus-radius);box-shadow:var(--gcds-footer-link-focus-box-shadow);color:var(--gcds-footer-link-focus-text);outline:var(--gcds-footer-link-focus-outline);outline-offset:var(--gcds-footer-link-focus-outline-offset);text-decoration:none}@media screen and (min-width:48em){:host [class$=__list]{grid-template-columns:1fr 1fr}}@media screen and (min-width:64em){:host [class$=__list]{grid-template-columns:1fr 1fr 1fr}}:host .gcds-footer__contextual{background-color:var(--gcds-footer-contextual-background);color:var(--gcds-footer-contextual-text);padding:var(--gcds-footer-contextual-padding)}:host .gcds-footer__main{background-color:var(--gcds-footer-main-background);background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAmgAAAC9CAMAAAAwXXHOAAAAe1BMVEUAAAAYJjgbKDogIDkcOTkgMDgoKEMdJzgdKDcAAAAgKTkfLj4gKDgfKjgeJjgeKjgcKDgfJzhAQEAfKzceKDgdKDcdKjcAVVUhN0MeKDceKzcAAFUdKjgcKzkeLTwaMzMdKjcfKTYZJjIcKzkaKDgcKDgYKjgbKTgYKDjo9/gwAAAAKXRSTlMASTkoCSATe/8BUCHNSWXct1sEU+D9nQMXeIoD8zYiCsN1PST/bZK221OBjhQAAA8qSURBVHgB7NVVAUNRDAWwPr5jZp5/jwMR/Us0HAgAAAAAAAAAAAAAAAAAAAAgS1U3TRt/XdNHEqiGUurReBIxLUOQSNBm88VytRa0ZIK22Zbd/iBo2Vzn8XS+hKCRqDpdr7e4PyKe11ckger9Zdc+bGULYSAMj2uZMab/Bl/mJoWXLiuvNV8HiH/PYgSGMIdmFvhjZg7NHJoZEcRtZmQEbjOj5NDMoZlDM3No1kxIidvMUlowuy2lgtltS9qE2WUlTwN2H7fGTQMkrBtqYGhBWDMhjRs7KcKaSWnc2BkOrZ8lSRujpALWMjQOW1PCmil9F8PWtNCQbzekHLamgvUSmhda9DsLWOqHmramgHUMbU+bbxLWypLGjZ3V7wraSj/FsPmm0JCHTimHzTc7YI2E5oWWjRfk0Na00AKNWOqXcmgX2ZLuj50OzUoHh/14Em1Y5NaRgSGq26HTUm/UrBubTZhDe8CiAheZQ1uPuBk0hxaPGKPNobHZciz4PjSmv2gXWOmDTQ8DduMa4KOYFFqiBQsdVXvQ3lTPZwJ+xL1IxJzbdO53w42RPUJbQACsKXsTzU6cDm3pbEec/dl4fvn+xGmMZIPQCj9D45TQlo6EgVnKDjuyfjQ/KLTSsWAAI7PLXyeCI/46480scE6cRAs+o+ln7lwDQstz1nwzDSR6cGh7EYilIV+01KtoFJpDk3bVloZ80ZZeJcBEEw7teP7QikDp1QJi+bl+Ep/NoXHrVQFZvt8Ih/a5vrJ3J8iJK0EQQCvPkplVdf8T/rBFB61vYYStMWCTMYA2b82j1Qti2A5rSuMFLcKMOwZVvQGtKhnPGmpAG0HkayIK94Vm5AY0w4xnDVSRmpNRr4moRNw3/m2nTqtZmlPsF7QXtKNjbcWvXide0A5NvqBthDIfAFq5ytnv988OrbSV+vPQKh4AGoLjH+u5obG1lWbcP68ajXFOqn9dE+31/kf/ROvhBe3VSKsXtB9oor0aaUjJeEE7LmhtpxF/ON5TqTv8gnZ7hdZlzcn4u2G9oP2TPmdXGkEtsV1/u9+JXZ/mWd0vaHuTGn8Ps7WEoy38Z2MT16u0Ur2g3dbpBJylke7uPz2+wUKA14bS2Gq+oO0MtJ0/DQ1CICj5WtE5vpoXtHb/dWi5QCMyLoeWlIwb8oJWTI048o9DY5FEIGB+7kwy/ym0mtK/ABrCtE7mgv23oUEIMBCQr54K/Hqb0A3QGAyfCy7/MDRGpDygZQTvCq0M1/vdnaBhvfJtaDGgYSz+VWhkyeEIBGHyvtAQEXBEsO4DzeuVY6CNRfxlaJKIBVqAKdwVGge0uBO05LzygnZYqKJjQAsLsRVCOro3AD4gtMJ5mfUNsBehOf5koIwFmhnmJWjQiOOo2I8Hje0YCTe/DvYitPqr0IpFNqIcKf1xaFDOvxIOaAnkq0abBRmdURfLAVLa6d8OzXOFk/KrjfYPhq8a/Rk0RAR/O7RUcyyzlS9ox0Jrd7sq+97QAMAJAPeBVhMESv2CdiC0ZmZUhSvqX0LjuF/CLnyA5rekfaeZAc6vNEjNx4BGgPF0sWOEASnDiHIgwxL+GTSP+yUp1aVTJxZoxTu0WHP+jXBEZ+AAaBLj6QLEEhphyZGMdLACljfn1iFVZta3oPEtu6ClluAODYmah8L8GNAs5RPXaBTYSkZFlCOKkSpCvNDrtOsb0Fpvae6AVlriO0BLTtBya84udgRHQmNLxXi2ZK4Ko4K5QLNHk3z71ImI/DY07YDGPvqKIe+/Sgdz8xUbFnFcG42xI6xeGhLxXGHVqjAc9glajuuh7gvtH1xtm/t7nZwaRrVFsWIz4M3QiJuGOhlPFai5LoxEvN/YDO+p0bhoI/GFSx25vJBRUuEKtGZ8P+Q7NB8AjWGpHdysNG+GBt801Il4qiw9y3PrgWySCZICKUn5CbQ0gx0Rkb2cWjjcxhL6tM7zIyLQo7jYCL6v1SVoR5YtHChGHQDNWZIqt4AUbm6juX4ztJSWko+l0LIqz3fVkvoTaNKAVpISgI33JN5CuPiezOWxEJERqSUZkIPaBc3x/djVatfuNtrlcTRfbjuyfTO0auzDv8RPd1V6BevcrbLfln2qypFS7YHm1s50MokeazxD6/bn0PK4WbY6YHjDl9uOVt06qc7eY4edlqRMM54oXJ7rikCDzYjigLbwIwufQatgB7P19VTmkPQ5tIrvp3Z/ugprOo4tqbgJrRng5VnSwUsgUHpPvmUNzbv+PmRw+TriCWfRmyyHvehaoC3mkOHiJ9Aa7Codk21oR/YGsH+sBJokbI30pE5BJDcnr0a84wLi2qMfVcSpyZHJZ/wM3yKLEfYZ2gKPkb4IbeRnoMk2D/qDi/ug5apOiiksnWK2Pw71fnYBcb1FkjDblHe/TipsxBNCay+eEmdoyIhwBhv3hzaCoz5L1vtq+5oLynFJjz8Ua/MytI3OgPe1DWZoT/kGtAo2Y7kb0FjvdwwXfwZafXz3Rh4KzRpR3QStPpxv2RegjV3YD21Ibvx6aFhwOeMMLZLLJpZ/CFqeUroUHPURn43boXnjzLmk/OEE50+hcQVtsM1fD62rGRGJGZodSyWHRkzJ46Ft5Xhobp2T+9tom52B1Bx/8MxPoeWAtjqi+cuhjZIqztCQY9o9ay62flZoqSnNPdD8BWi+XqO5sYKWV/88cgWNzwUNGilOb+UoTxMpaIPKGGHpSaGxt2wcX6NRb8m9n4+GStZ2NevyWMx2eK6S8zmheSF1AjbA1fu9iu7yVAsOaOXM0V7PsdynhXTXer9G1JnLv/pBaNYqxX3Q3N09+uZ7oGHUmPvG0WY97VVSg1OWHP20n+jtdYU2iqtrnn7D22qNP5k9QcsAhlaM5Qpw6TDUej9XzwsjOCZi0EvRWWN1PC5uM13O+jo0AhG1H+0MDXMt4vRWZ0Bd57QkMLu6q97u+lNo0TtGfEoyW3Pq2Wq0ZLVXb+PrHA651NoMdGFZ0QwN9kmHPJbrtGBUrfdvVABYlNcYY1mqgtTyWEt5EhGIwJehoVS31WhTrxMzp1ZXdXW3Pg0itSMgydbllAe0D2k+WY3GcMdiiOOSpIhJHoSIHKfXGdrN2YZ2+lYZUWN1PC7Q/C1orJJMUqs49kCDSzdnQDsgnbwATc8HLTNIogTAdqr9FljJt8gRHLPCzwctv9TcS30nRumTJOq20cXe2sHngobwtTNBV5VGjoCWPiUljT5BZfZYPf/QApyAAR8KrXk0tP0pBkvfzvNBU6XtUgIArSLeYtl2tmoN8bmGN3gBWtwPmiPC+ka6+qmgYfmrfRquFdafokNhtN2I1BTDQOlH0tXVN0IDpmXdAVqxr1RF0MWYLTWtOY1pPQP9dNBwGVpjQIvwsXhqvCyvJgNRRdB7odFlg2P5SGiVWVlVWedfvqpWt7dk9Mbez6E1OXaXlAHNqeDsOOoZT50DGtfQYgx7XIZWrrHY6ezTQvWy0/OG+ZAgu4KLdBCWigBLTYA5VsdHWFfc0BkYw3Ek0tIx0Exa8scZejPI6ZaSTqOrydUeXoEWu6FpBzQ8HrS8Bg2XqvriAKj2fN2cW0pGcN7QY0F9GhbGVOy5PL01X/af16DBhZjDjUbZMdAi1tDyvGOEY/uAFqv8KLTsR4NGtBwR7P4/tMrlqOIlaOftOb6jV9eqcWzI88IZGr8HjU6J6w2gtSfNGCHSV6FVVUk9ZexYZ1TmvbHrMrQVpXRJ5dScct4Cza0HnIJaoKljA9rAw3ECAQ6DNmagAEsFAKUGgByry49kFkmvoY2qC4kATSCQ2h/O3wY/2uvcbopUWntT1VegSfEwQc8TtD5DqwGtlsPW/6cM90DLz6GNfGt4g1qSJ7BZX/lWbkkwgjSJa52BVme936RyjW2n28hYHijKdRXakeNozAeC5p6bVyz5/1clun2SlhHuAe37NZoyO6uzDoFmWrcn17PjRUqS19DM1hKAHj0nywEta2pGje0aWfaryK5lf34JWldfh0YsRW1yHk94OGfKpbybA9pYOk+3N5ai91sOqNEYDjqgkXOvEzBLSp78NNBmJlMSGOdY30luVouFNbSoM3FIDAjB99uypgq6GRaDGsGynBGZERY9gyFWv3yyB+qmNdK0KnLynqwBeRpHQypP7VVj6ZO47wmNxLSSvWoWW8qPl7+WihHBvjBrUnbeCs1LG80Ra2g5/c/GOdWdFVEIYzl4ftXWhp6sL0KrU4HcBo1SZakjLHwCbbMLO4LI5aFWfcsMqsf7wmscOJ6yAS2yJJDQW8oEy6U7QqNV2JqX8ekE4o8X9KeEsxJrM9+Axv9/g7wGTUozgsSWMyGsnSkjIgitU7wIjVvQ3nIztMK8jZHjIcPb0HL113VwQMvWhcR9gpREbjR1x1Pqc42GiJUOS833e9tuzfnJGm1Qy9R2TGp3ENxwSeKWU+eoYSwE9kLTRWiTm+Jn0LQUMEsPBW38QpUkQdRoBEg9RnUcLOP0LC8Z9Rwk5Tu0ZeuqF7Yk8ZaUjLfUacHnDedD1EACxg3QDOvgmOnSxyQHNJ0PSNuSnUpb6dSyNvbWqmeZ9qlpUTWOmtPchLZx3DVoejRoWjLXzfW+XEMSAlKaE7ScoBVT6mF2eiUflK6q6vGgestpe1f1MW8E25cB7YeyDW1kExoHND8uNGjEYalBBi3J5ocxJsmrrkOTqM1e54PEAX07noc3Nh2XS4cFN0IbIeF6NGj+2C0zF0j8WGr48KldpTnfhVakpSRTByeD+nZyo42mJtQMH+d5xK7boY08ADQmyLkrsD1NzPpkXPRwaOsuXEAHx5n/ClpANQoSpI4OXNeg8RGhwWPYiUB//taLi9BqQOsngXZI0t6G1oTukanqfzho41ezndrOdWgsJf8eNKm8eep8qsQPhLFtaO/oJhkRXCrFdETwAjTAvwza/k7sCxozsaeAMlIX0mmjRs8rgjo0/x6aXol/HLoOuYLiHAd9NDRSAuH/2rtXI4tiIAaidizSfPKPcGvBpQ9ZrA+ZBLqGykg5YeXXpsdv7a4Rlv9nSSC0K527jgKhadw1TgCh6buSY0BodWtuSe0cENr9xlvbOSA0+V/XHceA0DROA6HptNNAaJoqh4HQ1E4CoamqZ9c5IDTVrMNAaBrHgdDuOg+E1s4DoWmcBkJTrdNAaGrngdDaT4DQ9jc/AULzM8Af2qL98u71t1EAAAAASUVORK5CYII=);background-position:100% 100%;background-repeat:no-repeat;color:var(--gcds-footer-main-text)}:host .gcds-footer__main nav:first-of-type:after{border-bottom:var(--gcds-footer-main-nav-first-after-border-width) solid var(--gcds-footer-main-nav-first-after-border-color);content:\"\";display:block;width:var(--gcds-footer-main-nav-first-after-width)}:host .gcds-footer__main nav.main__govnav{padding:var(--gcds-footer-main-govnav-padding)}:host .gcds-footer__main nav.main__themenav{padding:var(--gcds-footer-main-themenav-padding)}:host .gcds-footer__main nav.main__themenav .themenav__list{display:grid;grid-auto-flow:column;grid-template-rows:repeat(18,1fr)}@media screen and (min-width:48em){:host .gcds-footer__main nav.main__themenav .themenav__list{grid-template-rows:repeat(9,1fr)}}@media screen and (min-width:64em){:host .gcds-footer__main nav.main__themenav .themenav__list{grid-template-rows:repeat(6,1fr)}}:host .gcds-footer__sub{background-color:var(--gcds-footer-sub-background)}:host .gcds-footer__sub .sub__container{display:grid;grid-gap:var(--gcds-footer-sub-grid-gap);grid-template-areas:\"list wordmark\";grid-template-columns:3fr 1fr}:host .gcds-footer__sub .sub__container nav{align-items:center;display:flex;grid-area:list;padding:var(--gcds-footer-sub-nav-padding)}:host .gcds-footer__sub .sub__container .sub__wordmark,:host .gcds-footer__sub .sub__container slot[name=wordmark]{display:flex;grid-area:wordmark}:host .gcds-footer__sub .sub__container .sub__wordmark gcds-signature,:host .gcds-footer__sub .sub__container slot[name=wordmark] gcds-signature{align-self:end;width:var(--gcds-footer-sub-signature-md-width)}@media screen and (min-width:30em){:host .gcds-footer__sub .sub__container .sub__wordmark gcds-signature,:host .gcds-footer__sub .sub__container slot[name=wordmark] gcds-signature{margin:var(--gcds-footer-sub-signature-margin);min-width:var(--gcds-footer-sub-signature-lg-min-width);width:var(--gcds-footer-sub-signature-lg-width)}}@media screen and (max-width:20em){:host .gcds-footer__sub .sub__container .sub__wordmark gcds-signature,:host .gcds-footer__sub .sub__container slot[name=wordmark] gcds-signature{width:var(--gcds-footer-sub-signature-sm-width)}}@media screen and (min-width:64em){:host .gcds-footer__sub .sub__container .sub__wordmark,:host .gcds-footer__sub .sub__container slot[name=wordmark]{display:inline-block}:host .gcds-footer__sub .sub__container .sub__wordmark gcds-signature,:host .gcds-footer__sub .sub__container slot[name=wordmark] gcds-signature{margin:var(--gcds-footer-sub-signature-lg-margin)}}:host .gcds-footer__sub .sub__container a{color:var(--gcds-footer-sub-text);text-decoration:none}:host .gcds-footer__sub .sub__container a:hover{color:var(--gcds-footer-sub-hover-text);text-decoration:underline;text-decoration-thickness:var(\n            --gcds-footer-sub-hover-decoration-thickness\n          );text-underline-offset:.2em}:host .gcds-footer__sub .sub__container a:focus{background-color:var(--gcds-footer-link-focus-background);border-radius:var(--gcds-footer-link-focus-radius);box-shadow:var(--gcds-footer-link-focus-box-shadow);color:var(--gcds-footer-link-focus-text);outline:var(--gcds-footer-link-focus-outline);outline-offset:var(--gcds-footer-link-focus-outline-offset);text-decoration:none}:host .gcds-footer__sub ul{list-style-type:none;margin:0;padding:0}:host .gcds-footer__sub ul li{display:block}@media screen and (min-width:64em){:host .gcds-footer__sub ul li{display:inline-block;margin-bottom:0}}@media screen and (min-width:64em){:host .gcds-footer__sub ul li:first-of-type:before{content:\"\";margin:0}:host .gcds-footer__sub ul li:before{content:\"\\2022\";display:inline;margin:var(--gcds-footer-sub-listitem-before-margin)}}:host .gcds-footer__sub ul li a{text-decoration:none;transition:color .15s}";
+const gcdsFooterCss = "@layer reset, default, contextual, main, sub, small, compact, medium, wide;@layer reset{:host{display:block}:host slot{display:initial}:host gcds-link::part(link):not(:hover){text-decoration:none}:host .gcds-footer__sub ul{list-style-type:none;margin:0;padding:0}:host .gcds-footer__sub ul li{display:block}}@layer default{:host{font:var(--gcds-footer-font)}:host .gcds-footer__header,:host .sub__header,:host .themenav__header{clip:rect(1px,1px,1px,1px);height:1px;margin:0;overflow:hidden;position:absolute;width:1px}:host [class$=__container]{justify-content:space-between;margin:var(--gcds-footer-container-margin);max-width:var(--gcds-footer-container-width);width:90%}:host nav{position:relative}:host nav li{margin:var(--gcds-footer-listitem-margin)}:host [class$=__list]{display:grid;grid-template-columns:1fr;list-style:none;padding:var(--gcds-footer-list-padding);grid-gap:var(--gcds-footer-list-grid-gap)}:host [class$=__list] li gcds-link::part(link){color:var(--gcds-footer-main-text)}}@layer contextual{:host .gcds-footer__contextual{background-color:var(--gcds-footer-contextual-background);color:var(--gcds-footer-contextual-text);container:component contextual/inline-size;padding:var(--gcds-footer-contextual-padding)}}@layer main{:host .gcds-footer__main{background-color:var(--gcds-footer-main-background);background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAmgAAAC9CAMAAAAwXXHOAAAAe1BMVEUAAAAYJjgbKDogIDkcOTkgMDgoKEMdJzgdKDcAAAAgKTkfLj4gKDgfKjgeJjgeKjgcKDgfJzhAQEAfKzceKDgdKDcdKjcAVVUhN0MeKDceKzcAAFUdKjgcKzkeLTwaMzMdKjcfKTYZJjIcKzkaKDgcKDgYKjgbKTgYKDjo9/gwAAAAKXRSTlMASTkoCSATe/8BUCHNSWXct1sEU+D9nQMXeIoD8zYiCsN1PST/bZK221OBjhQAAA8qSURBVHgB7NVVAUNRDAWwPr5jZp5/jwMR/Us0HAgAAAAAAAAAAAAAAAAAAAAgS1U3TRt/XdNHEqiGUurReBIxLUOQSNBm88VytRa0ZIK22Zbd/iBo2Vzn8XS+hKCRqDpdr7e4PyKe11ckger9Zdc+bGULYSAMj2uZMab/Bl/mJoWXLiuvNV8HiH/PYgSGMIdmFvhjZg7NHJoZEcRtZmQEbjOj5NDMoZlDM3No1kxIidvMUlowuy2lgtltS9qE2WUlTwN2H7fGTQMkrBtqYGhBWDMhjRs7KcKaSWnc2BkOrZ8lSRujpALWMjQOW1PCmil9F8PWtNCQbzekHLamgvUSmhda9DsLWOqHmramgHUMbU+bbxLWypLGjZ3V7wraSj/FsPmm0JCHTimHzTc7YI2E5oWWjRfk0Na00AKNWOqXcmgX2ZLuj50OzUoHh/14Em1Y5NaRgSGq26HTUm/UrBubTZhDe8CiAheZQ1uPuBk0hxaPGKPNobHZciz4PjSmv2gXWOmDTQ8DduMa4KOYFFqiBQsdVXvQ3lTPZwJ+xL1IxJzbdO53w42RPUJbQACsKXsTzU6cDm3pbEec/dl4fvn+xGmMZIPQCj9D45TQlo6EgVnKDjuyfjQ/KLTSsWAAI7PLXyeCI/46480scE6cRAs+o+ln7lwDQstz1nwzDSR6cGh7EYilIV+01KtoFJpDk3bVloZ80ZZeJcBEEw7teP7QikDp1QJi+bl+Ep/NoXHrVQFZvt8Ih/a5vrJ3J8iJK0EQQCvPkplVdf8T/rBFB61vYYStMWCTMYA2b82j1Qti2A5rSuMFLcKMOwZVvQGtKhnPGmpAG0HkayIK94Vm5AY0w4xnDVSRmpNRr4moRNw3/m2nTqtZmlPsF7QXtKNjbcWvXide0A5NvqBthDIfAFq5ytnv988OrbSV+vPQKh4AGoLjH+u5obG1lWbcP68ajXFOqn9dE+31/kf/ROvhBe3VSKsXtB9oor0aaUjJeEE7LmhtpxF/ON5TqTv8gnZ7hdZlzcn4u2G9oP2TPmdXGkEtsV1/u9+JXZ/mWd0vaHuTGn8Ps7WEoy38Z2MT16u0Ur2g3dbpBJylke7uPz2+wUKA14bS2Gq+oO0MtJ0/DQ1CICj5WtE5vpoXtHb/dWi5QCMyLoeWlIwb8oJWTI048o9DY5FEIGB+7kwy/ym0mtK/ABrCtE7mgv23oUEIMBCQr54K/Hqb0A3QGAyfCy7/MDRGpDygZQTvCq0M1/vdnaBhvfJtaDGgYSz+VWhkyeEIBGHyvtAQEXBEsO4DzeuVY6CNRfxlaJKIBVqAKdwVGge0uBO05LzygnZYqKJjQAsLsRVCOro3AD4gtMJ5mfUNsBehOf5koIwFmhnmJWjQiOOo2I8Hje0YCTe/DvYitPqr0IpFNqIcKf1xaFDOvxIOaAnkq0abBRmdURfLAVLa6d8OzXOFk/KrjfYPhq8a/Rk0RAR/O7RUcyyzlS9ox0Jrd7sq+97QAMAJAPeBVhMESv2CdiC0ZmZUhSvqX0LjuF/CLnyA5rekfaeZAc6vNEjNx4BGgPF0sWOEASnDiHIgwxL+GTSP+yUp1aVTJxZoxTu0WHP+jXBEZ+AAaBLj6QLEEhphyZGMdLACljfn1iFVZta3oPEtu6ClluAODYmah8L8GNAs5RPXaBTYSkZFlCOKkSpCvNDrtOsb0Fpvae6AVlriO0BLTtBya84udgRHQmNLxXi2ZK4Ko4K5QLNHk3z71ImI/DY07YDGPvqKIe+/Sgdz8xUbFnFcG42xI6xeGhLxXGHVqjAc9glajuuh7gvtH1xtm/t7nZwaRrVFsWIz4M3QiJuGOhlPFai5LoxEvN/YDO+p0bhoI/GFSx25vJBRUuEKtGZ8P+Q7NB8AjWGpHdysNG+GBt801Il4qiw9y3PrgWySCZICKUn5CbQ0gx0Rkb2cWjjcxhL6tM7zIyLQo7jYCL6v1SVoR5YtHChGHQDNWZIqt4AUbm6juX4ztJSWko+l0LIqz3fVkvoTaNKAVpISgI33JN5CuPiezOWxEJERqSUZkIPaBc3x/djVatfuNtrlcTRfbjuyfTO0auzDv8RPd1V6BevcrbLfln2qypFS7YHm1s50MokeazxD6/bn0PK4WbY6YHjDl9uOVt06qc7eY4edlqRMM54oXJ7rikCDzYjigLbwIwufQatgB7P19VTmkPQ5tIrvp3Z/ugprOo4tqbgJrRng5VnSwUsgUHpPvmUNzbv+PmRw+TriCWfRmyyHvehaoC3mkOHiJ9Aa7Codk21oR/YGsH+sBJokbI30pE5BJDcnr0a84wLi2qMfVcSpyZHJZ/wM3yKLEfYZ2gKPkb4IbeRnoMk2D/qDi/ug5apOiiksnWK2Pw71fnYBcb1FkjDblHe/TipsxBNCay+eEmdoyIhwBhv3hzaCoz5L1vtq+5oLynFJjz8Ua/MytI3OgPe1DWZoT/kGtAo2Y7kb0FjvdwwXfwZafXz3Rh4KzRpR3QStPpxv2RegjV3YD21Ibvx6aFhwOeMMLZLLJpZ/CFqeUroUHPURn43boXnjzLmk/OEE50+hcQVtsM1fD62rGRGJGZodSyWHRkzJ46Ft5Xhobp2T+9tom52B1Bx/8MxPoeWAtjqi+cuhjZIqztCQY9o9ay62flZoqSnNPdD8BWi+XqO5sYKWV/88cgWNzwUNGilOb+UoTxMpaIPKGGHpSaGxt2wcX6NRb8m9n4+GStZ2NevyWMx2eK6S8zmheSF1AjbA1fu9iu7yVAsOaOXM0V7PsdynhXTXer9G1JnLv/pBaNYqxX3Q3N09+uZ7oGHUmPvG0WY97VVSg1OWHP20n+jtdYU2iqtrnn7D22qNP5k9QcsAhlaM5Qpw6TDUej9XzwsjOCZi0EvRWWN1PC5uM13O+jo0AhG1H+0MDXMt4vRWZ0Bd57QkMLu6q97u+lNo0TtGfEoyW3Pq2Wq0ZLVXb+PrHA651NoMdGFZ0QwN9kmHPJbrtGBUrfdvVABYlNcYY1mqgtTyWEt5EhGIwJehoVS31WhTrxMzp1ZXdXW3Pg0itSMgydbllAe0D2k+WY3GcMdiiOOSpIhJHoSIHKfXGdrN2YZ2+lYZUWN1PC7Q/C1orJJMUqs49kCDSzdnQDsgnbwATc8HLTNIogTAdqr9FljJt8gRHLPCzwctv9TcS30nRumTJOq20cXe2sHngobwtTNBV5VGjoCWPiUljT5BZfZYPf/QApyAAR8KrXk0tP0pBkvfzvNBU6XtUgIArSLeYtl2tmoN8bmGN3gBWtwPmiPC+ka6+qmgYfmrfRquFdafokNhtN2I1BTDQOlH0tXVN0IDpmXdAVqxr1RF0MWYLTWtOY1pPQP9dNBwGVpjQIvwsXhqvCyvJgNRRdB7odFlg2P5SGiVWVlVWedfvqpWt7dk9Mbez6E1OXaXlAHNqeDsOOoZT50DGtfQYgx7XIZWrrHY6ezTQvWy0/OG+ZAgu4KLdBCWigBLTYA5VsdHWFfc0BkYw3Ek0tIx0Exa8scZejPI6ZaSTqOrydUeXoEWu6FpBzQ8HrS8Bg2XqvriAKj2fN2cW0pGcN7QY0F9GhbGVOy5PL01X/af16DBhZjDjUbZMdAi1tDyvGOEY/uAFqv8KLTsR4NGtBwR7P4/tMrlqOIlaOftOb6jV9eqcWzI88IZGr8HjU6J6w2gtSfNGCHSV6FVVUk9ZexYZ1TmvbHrMrQVpXRJ5dScct4Cza0HnIJaoKljA9rAw3ECAQ6DNmagAEsFAKUGgByry49kFkmvoY2qC4kATSCQ2h/O3wY/2uvcbopUWntT1VegSfEwQc8TtD5DqwGtlsPW/6cM90DLz6GNfGt4g1qSJ7BZX/lWbkkwgjSJa52BVme936RyjW2n28hYHijKdRXakeNozAeC5p6bVyz5/1clun2SlhHuAe37NZoyO6uzDoFmWrcn17PjRUqS19DM1hKAHj0nywEta2pGje0aWfaryK5lf34JWldfh0YsRW1yHk94OGfKpbybA9pYOk+3N5ai91sOqNEYDjqgkXOvEzBLSp78NNBmJlMSGOdY30luVouFNbSoM3FIDAjB99uypgq6GRaDGsGynBGZERY9gyFWv3yyB+qmNdK0KnLynqwBeRpHQypP7VVj6ZO47wmNxLSSvWoWW8qPl7+WihHBvjBrUnbeCs1LG80Ra2g5/c/GOdWdFVEIYzl4ftXWhp6sL0KrU4HcBo1SZakjLHwCbbMLO4LI5aFWfcsMqsf7wmscOJ6yAS2yJJDQW8oEy6U7QqNV2JqX8ekE4o8X9KeEsxJrM9+Axv9/g7wGTUozgsSWMyGsnSkjIgitU7wIjVvQ3nIztMK8jZHjIcPb0HL113VwQMvWhcR9gpREbjR1x1Pqc42GiJUOS833e9tuzfnJGm1Qy9R2TGp3ENxwSeKWU+eoYSwE9kLTRWiTm+Jn0LQUMEsPBW38QpUkQdRoBEg9RnUcLOP0LC8Z9Rwk5Tu0ZeuqF7Yk8ZaUjLfUacHnDedD1EACxg3QDOvgmOnSxyQHNJ0PSNuSnUpb6dSyNvbWqmeZ9qlpUTWOmtPchLZx3DVoejRoWjLXzfW+XEMSAlKaE7ScoBVT6mF2eiUflK6q6vGgestpe1f1MW8E25cB7YeyDW1kExoHND8uNGjEYalBBi3J5ocxJsmrrkOTqM1e54PEAX07noc3Nh2XS4cFN0IbIeF6NGj+2C0zF0j8WGr48KldpTnfhVakpSRTByeD+nZyo42mJtQMH+d5xK7boY08ADQmyLkrsD1NzPpkXPRwaOsuXEAHx5n/ClpANQoSpI4OXNeg8RGhwWPYiUB//taLi9BqQOsngXZI0t6G1oTukanqfzho41ezndrOdWgsJf8eNKm8eep8qsQPhLFtaO/oJhkRXCrFdETwAjTAvwza/k7sCxozsaeAMlIX0mmjRs8rgjo0/x6aXol/HLoOuYLiHAd9NDRSAuH/2rtXI4tiIAaidizSfPKPcGvBpQ9ZrA+ZBLqGykg5YeXXpsdv7a4Rlv9nSSC0K527jgKhadw1TgCh6buSY0BodWtuSe0cENr9xlvbOSA0+V/XHceA0DROA6HptNNAaJoqh4HQ1E4CoamqZ9c5IDTVrMNAaBrHgdDuOg+E1s4DoWmcBkJTrdNAaGrngdDaT4DQ9jc/AULzM8Af2qL98u71t1EAAAAASUVORK5CYII=);background-position:100% 100%;background-repeat:no-repeat;color:var(--gcds-footer-main-text);container:component main/inline-size}:host .gcds-footer__main nav:first-of-type:after{border-block-end:var(--gcds-footer-main-nav-first-after-border-width) solid var(--gcds-footer-main-nav-first-after-border-color);content:\"\";display:block;width:var(--gcds-footer-main-nav-first-after-width)}:host .gcds-footer__main nav.main__govnav{padding:var(--gcds-footer-main-govnav-padding)}:host .gcds-footer__main nav.main__themenav{padding:var(--gcds-footer-main-themenav-padding)}:host .gcds-footer__main nav.main__themenav .themenav__list{display:grid;grid-auto-flow:column;grid-template-rows:repeat(18,1fr)}}@layer sub{:host .gcds-footer__sub{background-color:var(--gcds-footer-sub-background);container:component sub/inline-size}:host .gcds-footer__sub .sub__container{display:grid;grid-gap:var(--gcds-footer-sub-grid-gap);grid-template-areas:\"list wordmark\";grid-template-columns:3fr 1fr}:host .gcds-footer__sub .sub__container nav{align-items:center;display:flex;grid-area:list;padding:var(--gcds-footer-sub-nav-padding)}:host .gcds-footer__sub .sub__container .sub__wordmark,:host .gcds-footer__sub .sub__container slot[name=wordmark]{display:flex;grid-area:wordmark}:host .gcds-footer__sub .sub__container .sub__wordmark gcds-signature,:host .gcds-footer__sub .sub__container slot[name=wordmark] gcds-signature{align-self:end;width:var(--gcds-footer-sub-signature-md-width)}}@layer small{@layer compact{@container sub (width <= 19em){:host .gcds-footer__sub .sub__container .sub__wordmark gcds-signature,:host .gcds-footer__sub .sub__container slot[name=wordmark] gcds-signature{width:var(--gcds-footer-sub-signature-sm-width)}}}}@layer compact{@container sub (width >= 28.2em){:host .gcds-footer__sub .sub__container .sub__wordmark gcds-signature,:host .gcds-footer__sub .sub__container slot[name=wordmark] gcds-signature{margin:var(--gcds-footer-sub-signature-margin);min-width:var(--gcds-footer-sub-signature-lg-min-width);width:var(--gcds-footer-sub-signature-lg-width)!important}}}@layer medium{@container contextual (width >= 45em){:host .gcds-footer__contextual [class$=__list]{grid-template-columns:1fr 1fr}}@container main (width >= 45em){:host .gcds-footer__main [class$=__list]{grid-template-columns:1fr 1fr}:host .gcds-footer__main nav.main__themenav .themenav__list{grid-template-rows:repeat(9,1fr)}}}@layer wide{@container contextual (width >= 60.2em){:host .gcds-footer__contextual [class$=__list]{grid-template-columns:1fr 1fr 1fr}}@container main (width >= 60.2em){:host .gcds-footer__main [class$=__list]{grid-template-columns:1fr 1fr 1fr}:host .gcds-footer__main nav.main__themenav .themenav__list{grid-template-rows:repeat(6,1fr)}}@container sub (width >= 60.2em){:host .gcds-footer__sub .sub__container ul li{display:inline-block;margin-block-end:0}:host .gcds-footer__sub .sub__container ul li:first-of-type:before{content:\"\";margin:0}:host .gcds-footer__sub .sub__container ul li:before{content:\"\\2022\";display:inline;margin:var(--gcds-footer-sub-listitem-before-margin)}:host .gcds-footer__sub .sub__container .sub__wordmark,:host .gcds-footer__sub .sub__container slot[name=wordmark]{display:inline-block}:host .gcds-footer__sub .sub__container .sub__wordmark gcds-signature,:host .gcds-footer__sub .sub__container slot[name=wordmark] gcds-signature{margin:var(--gcds-footer-sub-signature-lg-margin)}}}";
 const GcdsFooterStyle0 = gcdsFooterCss;
 
 const GcdsFooter = class {
@@ -1829,20 +1896,20 @@ const GcdsFooter = class {
         const siteNav = I18N$e[lang].site.menu;
         let contextualLinkCount = 0;
         let subLinkCount = 0;
-        return (index.h(index.Host, { role: "contentinfo" }, index.h("h2", { class: "gcds-footer__header" }, I18N$e[lang].about), contextualLinksObject && contextualHeading && (index.h("div", { class: "gcds-footer__contextual" }, index.h("div", { class: "contextual__container" }, index.h("nav", { "aria-labelledby": "contextual__header" }, index.h("h3", { id: "contextual__header", class: "contextual__header" }, contextualHeading), index.h("ul", { class: "contextual__list" }, Object.keys(contextualLinksObject).map(key => {
+        return (index.h(index.Host, { role: "contentinfo", "aria-label": "Footer" }, index.h("gcds-sr-only", { tag: "h2" }, I18N$e[lang].about), contextualLinksObject && contextualHeading && (index.h("div", { class: "gcds-footer__contextual" }, index.h("div", { class: "contextual__container" }, index.h("nav", { "aria-labelledby": "contextual__heading" }, index.h("h3", { id: "contextual__heading", class: "contextual__heading" }, contextualHeading), index.h("ul", { class: "contextual__list" }, Object.keys(contextualLinksObject).map(key => {
             if (contextualLinkCount < 3) {
                 contextualLinkCount++;
-                return (index.h("li", null, index.h("a", { href: contextualLinksObject[key] }, key)));
+                return (index.h("li", null, index.h("gcds-link", { size: "small", href: contextualLinksObject[key] }, key)));
             }
-        })))))), display === 'full' ? (index.h("div", { class: "gcds-footer__main" }, index.h("div", { class: "main__container" }, index.h("nav", { class: "main__govnav", "aria-labelledby": "govnav__header" }, index.h("h3", { id: "govnav__header" }, I18N$e[lang].gov.heading), index.h("ul", { class: "govnav__list" }, Object.keys(govNav).map(value => (index.h("li", null, index.h("a", { href: govNav[value].link }, govNav[value].text)))))), index.h("nav", { class: "main__themenav", "aria-labelledby": "themenav__header" }, index.h("h4", { id: "themenav__header", class: "themenav__header" }, I18N$e[lang].themes.heading), index.h("ul", { class: "themenav__list" }, Object.keys(themeNav).map(value => (index.h("li", null, index.h("a", { href: themeNav[value].link }, themeNav[value].text))))))))) : null, index.h("div", { class: "gcds-footer__sub" }, index.h("div", { class: "sub__container" }, index.h("nav", { "aria-labelledby": "sub__header" }, index.h("h3", { id: "sub__header", class: "sub__header" }, I18N$e[lang].site.heading), index.h("ul", null, subLinks
+        })))))), display === 'full' ? (index.h("div", { class: "gcds-footer__main" }, index.h("div", { class: "main__container" }, index.h("nav", { class: "main__govnav", "aria-labelledby": "govnav__heading" }, index.h("h3", { id: "govnav__heading" }, I18N$e[lang].gov.heading), index.h("ul", { class: "govnav__list" }, Object.keys(govNav).map(value => (index.h("li", null, index.h("gcds-link", { size: "small", href: govNav[value].link }, govNav[value].text)))))), index.h("nav", { class: "main__themenav", "aria-labelledby": "themenav__heading" }, index.h("gcds-sr-only", { tag: "h4", id: "themenav__heading" }, I18N$e[lang].themes.heading), index.h("ul", { class: "themenav__list" }, Object.keys(themeNav).map(value => (index.h("li", null, index.h("gcds-link", { size: "small", href: themeNav[value].link }, themeNav[value].text))))))))) : null, index.h("div", { class: "gcds-footer__sub" }, index.h("div", { class: "sub__container" }, index.h("nav", { "aria-labelledby": "sub__heading" }, index.h("gcds-sr-only", { tag: "h3", id: "sub__heading" }, I18N$e[lang].site.heading), index.h("ul", null, subLinks
             ? Object.keys(subLinksObject).map(key => {
                 if (subLinkCount < 5) {
                     subLinkCount++;
-                    return (index.h("li", null, index.h("a", { href: subLinksObject[key] }, key)));
+                    return (index.h("li", null, index.h("gcds-link", { size: "small", href: subLinksObject[key] }, key)));
                 }
             })
             : Object.keys(siteNav).map(value => {
-                return (index.h("li", null, index.h("a", { href: siteNav[value].link }, siteNav[value].text)));
+                return (index.h("li", null, index.h("gcds-link", { size: "small", href: siteNav[value].link }, siteNav[value].text)));
             }))), renderSignature))));
     }
     get el() { return index.getElement(this); }
@@ -1853,7 +1920,7 @@ const GcdsFooter = class {
 };
 GcdsFooter.style = GcdsFooterStyle0;
 
-const gcdsGridCss = ":host .gcds-grid{box-sizing:border-box;gap:var(--gcds-grid-gap);grid-template-columns:var(--gcds-grid-columns,1fr);margin:0;padding:0}:host .gcds-grid.display-grid-with-cols{display:grid;grid-template-columns:1fr}:host .gcds-grid.display-grid{display:grid}:host .gcds-grid.display-inline-grid{display:inline-grid}:host .gcds-grid.align-content-center{align-content:center}:host .gcds-grid.align-content-end{align-content:end}:host .gcds-grid.align-content-space-around{align-content:space-around}:host .gcds-grid.align-content-space-between{align-content:space-between}:host .gcds-grid.align-content-space-evenly{align-content:space-evenly}:host .gcds-grid.align-content-start{align-content:start}:host .gcds-grid.align-content-stretch{align-content:stretch}:host .gcds-grid.justify-content-center{justify-content:center}:host .gcds-grid.justify-content-end{justify-content:end}:host .gcds-grid.justify-content-space-around{justify-content:space-around}:host .gcds-grid.justify-content-space-between{justify-content:space-between}:host .gcds-grid.justify-content-space-evenly{justify-content:space-evenly}:host .gcds-grid.justify-content-start{justify-content:start}:host .gcds-grid.justify-content-stretch{justify-content:stretch}:host .gcds-grid.place-content-center{place-content:center}:host .gcds-grid.place-content-end{place-content:end}:host .gcds-grid.place-content-space-around{place-content:space-around}:host .gcds-grid.place-content-space-between{place-content:space-between}:host .gcds-grid.place-content-space-evenly{place-content:space-evenly}:host .gcds-grid.place-content-start{place-content:start}:host .gcds-grid.place-content-stretch{place-content:stretch}:host .gcds-grid.align-items-baseline{align-items:baseline}:host .gcds-grid.align-items-center{align-items:center}:host .gcds-grid.align-items-end{align-items:end}:host .gcds-grid.align-items-start{align-items:start}:host .gcds-grid.align-items-stretch{align-items:stretch}:host .gcds-grid.justify-items-center{justify-items:center}:host .gcds-grid.justify-items-end{justify-items:end}:host .gcds-grid.justify-items-start{justify-items:start}:host .gcds-grid.justify-items-stretch{justify-items:stretch}:host .gcds-grid.place-items-center{place-items:center}:host .gcds-grid.place-items-end{place-items:end}:host .gcds-grid.place-items-start{place-items:start}:host .gcds-grid.place-items-stretch{place-items:stretch}:host .gcds-grid.equal-row-height{align-items:stretch;grid-auto-rows:1fr}@media screen and (min-width:48em){:host .gcds-grid{grid-template-columns:var(\n      --gcds-grid-columns-tablet,var(--gcds-grid-columns,1fr)\n    )}:host .gcds-grid.display-grid-with-cols{grid-template-columns:repeat(var(--gcds-grid-columns-default-tablet),minmax(0,1fr))}}@media screen and (min-width:64em){:host .gcds-grid{grid-template-columns:var(\n      --gcds-grid-columns-desktop,var(--gcds-grid-columns-tablet,var(--gcds-grid-columns,1fr))\n    )}:host .gcds-grid.display-grid-with-cols{grid-template-columns:repeat(var(--gcds-grid-columns-default-desktop),minmax(0,1fr))}}";
+const gcdsGridCss = "@layer reset, default, display, align, justify, place, equalHeight, tablet, desktop;@layer reset{:host{display:block}:host .gcds-grid{box-sizing:border-box;margin:0;padding:0}}@layer default{:host .gcds-grid{gap:var(--gcds-grid-gap);grid-template-columns:var(--gcds-grid-columns,1fr)}}@layer display{:host .gcds-grid.display-grid-with-cols{display:grid;grid-template-columns:1fr}:host .gcds-grid.display-grid{display:grid}:host .gcds-grid.display-inline-grid{display:inline-grid}}@layer align{:host .gcds-grid.align-content-center{align-content:center}:host .gcds-grid.align-content-end{align-content:end}:host .gcds-grid.align-content-space-around{align-content:space-around}:host .gcds-grid.align-content-space-between{align-content:space-between}:host .gcds-grid.align-content-space-evenly{align-content:space-evenly}:host .gcds-grid.align-content-start{align-content:start}:host .gcds-grid.align-content-stretch{align-content:stretch}:host .gcds-grid.align-items-baseline{align-items:baseline}:host .gcds-grid.align-items-center{align-items:center}:host .gcds-grid.align-items-end{align-items:end}:host .gcds-grid.align-items-start{align-items:start}:host .gcds-grid.align-items-stretch{align-items:stretch}}@layer justify{:host .gcds-grid.justify-content-center{justify-content:center}:host .gcds-grid.justify-content-end{justify-content:end}:host .gcds-grid.justify-content-space-around{justify-content:space-around}:host .gcds-grid.justify-content-space-between{justify-content:space-between}:host .gcds-grid.justify-content-space-evenly{justify-content:space-evenly}:host .gcds-grid.justify-content-start{justify-content:start}:host .gcds-grid.justify-content-stretch{justify-content:stretch}:host .gcds-grid.justify-items-center{justify-items:center}:host .gcds-grid.justify-items-end{justify-items:end}:host .gcds-grid.justify-items-start{justify-items:start}:host .gcds-grid.justify-items-stretch{justify-items:stretch}}@layer place{:host .gcds-grid.place-content-center{place-content:center}:host .gcds-grid.place-content-end{place-content:end}:host .gcds-grid.place-content-space-around{place-content:space-around}:host .gcds-grid.place-content-space-between{place-content:space-between}:host .gcds-grid.place-content-space-evenly{place-content:space-evenly}:host .gcds-grid.place-content-start{place-content:start}:host .gcds-grid.place-content-stretch{place-content:stretch}:host .gcds-grid.place-items-center{place-items:center}:host .gcds-grid.place-items-end{place-items:end}:host .gcds-grid.place-items-start{place-items:start}:host .gcds-grid.place-items-stretch{place-items:stretch}}@layer equalHeight{:host .gcds-grid.equal-row-height{align-items:stretch;grid-auto-rows:1fr}}@layer tablet{@media screen and (width >= 48em){:host .gcds-grid{grid-template-columns:var(\n        --gcds-grid-columns-tablet,var(--gcds-grid-columns,1fr)\n      )}:host .gcds-grid.display-grid-with-cols{grid-template-columns:repeat(var(--gcds-grid-columns-default-tablet),minmax(0,1fr))}}}@layer desktop{@media screen and (width >= 64em){:host .gcds-grid{grid-template-columns:var(\n        --gcds-grid-columns-desktop,var(--gcds-grid-columns-tablet,var(--gcds-grid-columns,1fr))\n      )}:host .gcds-grid.display-grid-with-cols{grid-template-columns:repeat(var(--gcds-grid-columns-default-desktop),minmax(0,1fr))}}}";
 const GcdsGridStyle0 = gcdsGridCss;
 
 const GcdsGrid = class {
@@ -1873,6 +1940,26 @@ const GcdsGrid = class {
         this.alignItems = undefined;
         this.justifyItems = undefined;
         this.placeItems = undefined;
+    }
+    validateTag(newValue) {
+        const values = [
+            'article',
+            'aside',
+            'div',
+            'dl',
+            'main',
+            'nav',
+            'ol',
+            'section',
+            'ul',
+        ];
+        if (!values.includes(newValue)) {
+            this.tag = 'div';
+        }
+    }
+    componentWillLoad() {
+        // Validate attributes and set defaults
+        this.validateTag(this.tag);
     }
     render() {
         const { alignContent, alignItems, columns, columnsDesktop, columnsTablet, container, centered, display, equalRowHeight, justifyContent, justifyItems, placeContent, placeItems, tag, } = this;
@@ -1907,10 +1994,13 @@ const GcdsGrid = class {
         return (index.h(index.Host, null, container ? (index.h("gcds-container", { size: container, centered: centered }, index.h(Tag, { class: classNames, style: handleColumns() }, index.h("slot", null)))) : (index.h(Tag, { class: classNames, style: handleColumns() }, index.h("slot", null)))));
     }
     get el() { return index.getElement(this); }
+    static get watchers() { return {
+        "tag": ["validateTag"]
+    }; }
 };
 GcdsGrid.style = GcdsGridStyle0;
 
-const gcdsGridColCss = ":host{display:block;grid-column:span var(--gcds-grid-columns-default-base) /span var(--gcds-grid-columns-default-base)}:host .gcds-grid-col{box-sizing:border-box;display:block;height:100%;margin:0;padding:0;width:100%}@media screen and (min-width:48em){:host{grid-column:span var(--gcds-grid-col-tablet,var(--gcds-grid-columns-default-tablet)) /span var(---gcds-grid-col-tablet,var(--gcds-grid-columns-default-tablet))}}@media screen and (min-width:64em){:host{grid-column:span var(--gcds-grid-col-desktop,var(--gcds-grid-columns-default-desktop)) /span var(--gcds-grid-col-desktop,var(--gcds-grid-columns-default-desktop))}}";
+const gcdsGridColCss = "@layer reset, default, tablet, desktop;@layer reset{:host{display:block}:host .gcds-grid-col{box-sizing:border-box;display:block;margin:0;padding:0}}@layer default{:host{grid-column:span var(--gcds-grid-columns-default-base) /span var(--gcds-grid-columns-default-base)}:host .gcds-grid-col{height:100%;width:100%}}@layer tablet{@media screen and (width >= 48em){:host{grid-column:span var(--gcds-grid-col-tablet,var(--gcds-grid-columns-default-tablet)) /span var(---gcds-grid-col-tablet,var(--gcds-grid-columns-default-tablet))}}}@layer desktop{@media screen and (width >= 64em){:host{grid-column:span var(--gcds-grid-col-desktop,var(--gcds-grid-columns-default-desktop)) /span var(--gcds-grid-col-desktop,var(--gcds-grid-columns-default-desktop))}}}";
 const GcdsGridColStyle0 = gcdsGridColCss;
 
 const GcdsGridCol = class {
@@ -1966,13 +2056,15 @@ GcdsGridCol.style = GcdsGridColStyle0;
 const I18N$d = {
   en: {
     skip: 'Skip to main content',
+    skipLabel: 'Skip to',
   },
   fr: {
     skip: 'Passer au contenu principal',
+    skipLabel: 'Passer au',
   },
 };
 
-const gcdsHeaderCss = ":host{display:block;margin:var(--gcds-header-margin)!important}:host slot{display:initial}:host .gcds-header__container{justify-content:space-between;margin:0 auto;max-width:var(--gcds-header-container-max-width);width:90%}:host .gcds-header__brand{border-block-end:var(--gcds-header-brand-border-width) solid var(--gcds-header-brand-border-color);margin:var(--gcds-header-brand-margin);padding:var(--gcds-header-brand-padding)}:host .gcds-header__brand .brand__container{display:grid;grid-gap:var(--gcds-header-brand-grid-gap);grid-template-areas:\"signature toggle\" \"search search\";grid-template-columns:1fr .1fr;margin:0 auto;max-width:var(--gcds-header-container-max-width);width:90%}:host .gcds-header__brand .brand__container.container--simple{grid-template-areas:\"signature toggle\"}:host .gcds-header__brand .brand__container .brand__toggle,:host .gcds-header__brand .brand__container slot[name=toggle]{grid-area:toggle;text-align:right}:host .gcds-header__brand .brand__container .brand__signature,:host .gcds-header__brand .brand__container slot[name=signature]{grid-area:signature}:host .gcds-header__brand .brand__container .brand__signature gcds-signature,:host .gcds-header__brand .brand__container slot[name=signature] gcds-signature{margin:var(--gcds-header-brand-signature-margin)}:host .gcds-header__brand .brand__container .brand__search{display:block;grid-area:search;max-width:100%}@media screen and (min-width:64em){:host .gcds-header__brand .brand__container{grid-template-areas:\"toggle toggle\" \"signature search\";grid-template-columns:1fr 1fr}:host .gcds-header__brand .brand__container .brand__search,:host .gcds-header__brand .brand__container slot[name=search]{margin-inline-start:auto;width:fit-content}}:host .gcds-header__skip-to-nav{margin-inline:auto;position:absolute;text-align:center;top:var(--gcds-header-skiptonav-top);width:100%}:host .gcds-header__skip-to-nav gcds-link{left:0;position:absolute;top:var(--gcds-header-skiptonav-top);width:inherit;z-index:3}:host .gcds-header__skip-to-nav gcds-link:not(:focus){height:0;overflow:hidden;width:0;clip:rect(0,0,0,0)}";
+const gcdsHeaderCss = "@layer reset, default, brand, wide;@layer reset{:host{display:block}:host slot{display:initial}}@layer default{:host{margin:var(--gcds-header-margin)!important}:host .gcds-header__container{justify-content:space-between;margin:0 auto;max-width:var(--gcds-header-container-max-width);width:90%}:host .gcds-header__skip-to-nav{margin-inline:auto;position:absolute;text-align:center;top:var(--gcds-header-skiptonav-top);width:100%}:host .gcds-header__skip-to-nav gcds-link{left:0;position:absolute;top:var(--gcds-header-skiptonav-top);width:inherit;z-index:3}:host .gcds-header__skip-to-nav gcds-link:not(:focus){height:0;overflow:hidden;width:0;clip:rect(0,0,0,0)}}@layer brand{:host .gcds-header__brand{border-block-end:var(--gcds-header-brand-border-width) solid var(--gcds-header-brand-border-color);container:component brand/inline-size;margin:var(--gcds-header-brand-margin);padding:var(--gcds-header-brand-padding)}:host .gcds-header__brand .brand__container{display:grid;grid-gap:var(--gcds-header-brand-grid-gap);grid-template-areas:\"signature toggle\" \"search search\";grid-template-columns:1fr .1fr;margin:0 auto;max-width:var(--gcds-header-container-max-width);width:90%}:host .gcds-header__brand .brand__container.container--simple{grid-template-areas:\"signature toggle\"}:host .gcds-header__brand .brand__container :is(.brand__toggle,slot[name=toggle]){grid-area:toggle;text-align:right}:host .gcds-header__brand .brand__container :is(.brand__signature,slot[name=signature]){grid-area:signature}:host .gcds-header__brand .brand__container :is(.brand__signature,slot[name=signature]) gcds-signature{margin:var(--gcds-header-brand-signature-margin)}:host .gcds-header__brand .brand__container .brand__search{display:block;grid-area:search;max-width:100%}}@layer wide{@container brand (width >= 51em){:host .gcds-header__brand .brand__container{grid-template-areas:\"toggle toggle\" \"signature search\";grid-template-columns:1fr 1fr}:host .gcds-header__brand .brand__container .brand__search,:host .gcds-header__brand .brand__container slot[name=search]{margin-inline-start:auto;width:fit-content}}}";
 const GcdsHeaderStyle0 = gcdsHeaderCss;
 
 const GcdsHeader = class {
@@ -2005,7 +2097,7 @@ const GcdsHeader = class {
             return index.h("slot", { name: "skip-to-nav" });
         }
         else if (this.skipToHref) {
-            return (index.h("nav", { class: "gcds-header__skip-to-nav" }, index.h("gcds-link", { href: this.skipToHref }, I18N$d[this.lang].skip)));
+            return (index.h("nav", { class: "gcds-header__skip-to-nav", "aria-label": I18N$d[this.lang].skipLabel }, index.h("gcds-link", { href: this.skipToHref }, I18N$d[this.lang].skip)));
         }
         else {
             return;
@@ -2058,7 +2150,7 @@ const GcdsHeader = class {
 };
 GcdsHeader.style = GcdsHeaderStyle0;
 
-const gcdsHeadingCss = "@layer reset,\ndefaults,\nvariants;@layer reset{:host{color:var(--gcds-heading-default-text);display:block}:host h1,:host h2,:host h3,:host h4,:host h5,:host h6{box-sizing:border-box;margin:0}:host slot{display:initial}}@layer defaults{:host h1,:host h2,:host h3,:host h4,:host h5,:host h6{text-wrap:balance}:host h1.gcds-heading{font:var(--gcds-heading-h1-desktop)}@media only screen and (width < 48em){:host h1.gcds-heading{font:var(--gcds-heading-h1-mobile)}}:host h1.gcds-heading:after{background-color:var(--gcds-heading-h1-border-background);content:\"\";display:block;height:var(--gcds-heading-h1-border-height);margin-block-start:var(--gcds-heading-h1-border-margin);width:var(--gcds-heading-h1-border-width)}:host h2.gcds-heading{font:var(--gcds-heading-h2-desktop)}@media only screen and (width < 48em){:host h2.gcds-heading{font:var(--gcds-heading-h2-mobile)}}:host h3.gcds-heading{font:var(--gcds-heading-h3-desktop)}@media only screen and (width < 48em){:host h3.gcds-heading{font:var(--gcds-heading-h3-mobile)}}:host h4.gcds-heading{font:var(--gcds-heading-h4-desktop)}@media only screen and (width < 48em){:host h4.gcds-heading{font:var(--gcds-heading-h4-mobile)}}:host h5.gcds-heading{font:var(--gcds-heading-h5-desktop)}@media only screen and (width < 48em){:host h5.gcds-heading{font:var(--gcds-heading-h5-mobile)}}:host h6.gcds-heading{font:var(--gcds-heading-h6-desktop)}@media only screen and (width < 48em){:host h6.gcds-heading{font:var(--gcds-heading-h6-mobile)}}}@layer variants{:host h1.mt-0,:host h2.mt-0,:host h3.mt-0,:host h4.mt-0,:host h5.mt-0,:host h6.mt-0{margin-block-start:var(--gcds-heading-spacing-0)}:host h1.mt-50,:host h2.mt-50,:host h3.mt-50,:host h4.mt-50,:host h5.mt-50,:host h6.mt-50{margin-block-start:var(--gcds-heading-spacing-50)}:host h1.mt-100,:host h2.mt-100,:host h3.mt-100,:host h4.mt-100,:host h5.mt-100,:host h6.mt-100{margin-block-start:var(--gcds-heading-spacing-100)}:host h1.mt-150,:host h2.mt-150,:host h3.mt-150,:host h4.mt-150,:host h5.mt-150,:host h6.mt-150{margin-block-start:var(--gcds-heading-spacing-150)}:host h1.mt-200,:host h2.mt-200,:host h3.mt-200,:host h4.mt-200,:host h5.mt-200,:host h6.mt-200{margin-block-start:var(--gcds-heading-spacing-200)}:host h1.mt-250,:host h2.mt-250,:host h3.mt-250,:host h4.mt-250,:host h5.mt-250,:host h6.mt-250{margin-block-start:var(--gcds-heading-spacing-250)}:host h1.mt-300,:host h2.mt-300,:host h3.mt-300,:host h4.mt-300,:host h5.mt-300,:host h6.mt-300{margin-block-start:var(--gcds-heading-spacing-300)}:host h1.mt-400,:host h2.mt-400,:host h3.mt-400,:host h4.mt-400,:host h5.mt-400,:host h6.mt-400{margin-block-start:var(--gcds-heading-spacing-400)}:host h1.mt-450,:host h2.mt-450,:host h3.mt-450,:host h4.mt-450,:host h5.mt-450,:host h6.mt-450{margin-block-start:var(--gcds-heading-spacing-450)}:host h1.mt-500,:host h2.mt-500,:host h3.mt-500,:host h4.mt-500,:host h5.mt-500,:host h6.mt-500{margin-block-start:var(--gcds-heading-spacing-500)}:host h1.mt-550,:host h2.mt-550,:host h3.mt-550,:host h4.mt-550,:host h5.mt-550,:host h6.mt-550{margin-block-start:var(--gcds-heading-spacing-550)}:host h1.mt-600,:host h2.mt-600,:host h3.mt-600,:host h4.mt-600,:host h5.mt-600,:host h6.mt-600{margin-block-start:var(--gcds-heading-spacing-600)}:host h1.mt-700,:host h2.mt-700,:host h3.mt-700,:host h4.mt-700,:host h5.mt-700,:host h6.mt-700{margin-block-start:var(--gcds-heading-spacing-700)}:host h1.mt-800,:host h2.mt-800,:host h3.mt-800,:host h4.mt-800,:host h5.mt-800,:host h6.mt-800{margin-block-start:var(--gcds-heading-spacing-800)}:host h1.mt-900,:host h2.mt-900,:host h3.mt-900,:host h4.mt-900,:host h5.mt-900,:host h6.mt-900{margin-block-start:var(--gcds-heading-spacing-900)}:host h1.mt-1000,:host h2.mt-1000,:host h3.mt-1000,:host h4.mt-1000,:host h5.mt-1000,:host h6.mt-1000{margin-block-start:var(--gcds-heading-spacing-1000)}:host h1.mb-0,:host h2.mb-0,:host h3.mb-0,:host h4.mb-0,:host h5.mb-0,:host h6.mb-0{margin-block-end:var(--gcds-heading-spacing-0)}:host h1.mb-50,:host h2.mb-50,:host h3.mb-50,:host h4.mb-50,:host h5.mb-50,:host h6.mb-50{margin-block-end:var(--gcds-heading-spacing-50)}:host h1.mb-100,:host h2.mb-100,:host h3.mb-100,:host h4.mb-100,:host h5.mb-100,:host h6.mb-100{margin-block-end:var(--gcds-heading-spacing-100)}:host h1.mb-150,:host h2.mb-150,:host h3.mb-150,:host h4.mb-150,:host h5.mb-150,:host h6.mb-150{margin-block-end:var(--gcds-heading-spacing-150)}:host h1.mb-200,:host h2.mb-200,:host h3.mb-200,:host h4.mb-200,:host h5.mb-200,:host h6.mb-200{margin-block-end:var(--gcds-heading-spacing-200)}:host h1.mb-250,:host h2.mb-250,:host h3.mb-250,:host h4.mb-250,:host h5.mb-250,:host h6.mb-250{margin-block-end:var(--gcds-heading-spacing-250)}:host h1.mb-300,:host h2.mb-300,:host h3.mb-300,:host h4.mb-300,:host h5.mb-300,:host h6.mb-300{margin-block-end:var(--gcds-heading-spacing-300)}:host h1.mb-400,:host h2.mb-400,:host h3.mb-400,:host h4.mb-400,:host h5.mb-400,:host h6.mb-400{margin-block-end:var(--gcds-heading-spacing-400)}:host h1.mb-450,:host h2.mb-450,:host h3.mb-450,:host h4.mb-450,:host h5.mb-450,:host h6.mb-450{margin-block-end:var(--gcds-heading-spacing-450)}:host h1.mb-500,:host h2.mb-500,:host h3.mb-500,:host h4.mb-500,:host h5.mb-500,:host h6.mb-500{margin-block-end:var(--gcds-heading-spacing-500)}:host h1.mb-550,:host h2.mb-550,:host h3.mb-550,:host h4.mb-550,:host h5.mb-550,:host h6.mb-550{margin-block-end:var(--gcds-heading-spacing-550)}:host h1.mb-600,:host h2.mb-600,:host h3.mb-600,:host h4.mb-600,:host h5.mb-600,:host h6.mb-600{margin-block-end:var(--gcds-heading-spacing-600)}:host h1.mb-700,:host h2.mb-700,:host h3.mb-700,:host h4.mb-700,:host h5.mb-700,:host h6.mb-700{margin-block-end:var(--gcds-heading-spacing-700)}:host h1.mb-800,:host h2.mb-800,:host h3.mb-800,:host h4.mb-800,:host h5.mb-800,:host h6.mb-800{margin-block-end:var(--gcds-heading-spacing-800)}:host h1.mb-900,:host h2.mb-900,:host h3.mb-900,:host h4.mb-900,:host h5.mb-900,:host h6.mb-900{margin-block-end:var(--gcds-heading-spacing-900)}:host h1.mb-1000,:host h2.mb-1000,:host h3.mb-1000,:host h4.mb-1000,:host h5.mb-1000,:host h6.mb-1000{margin-block-end:var(--gcds-heading-spacing-1000)}:host h1.limit{max-width:var(--gcds-heading-character-limit-h1)}:host h2.limit{max-width:var(--gcds-heading-character-limit-h2)}:host h3.limit{max-width:var(--gcds-heading-character-limit-h3)}:host h4.limit{max-width:var(--gcds-heading-character-limit-h4)}:host h5.limit{max-width:var(--gcds-heading-character-limit-h5)}:host h6.limit{max-width:var(--gcds-heading-character-limit-h6)}}";
+const gcdsHeadingCss = "@layer reset, default, limit, margin;@layer reset{:host{color:var(--gcds-heading-default-text);display:block}:host :is(h1,h2,h3,h4,h5,h6){box-sizing:border-box;margin:0}:host slot{display:initial}}@layer default{:host :is(h1,h2,h3,h4,h5,h6){text-wrap:balance}:host h1.gcds-heading{font:var(--gcds-heading-h1-desktop)}@media only screen and (width < 48em){:host h1.gcds-heading{font:var(--gcds-heading-h1-mobile)}}:host h1.gcds-heading:after{background-color:var(--gcds-heading-h1-border-background);content:\"\";display:block;height:var(--gcds-heading-h1-border-height);margin-block-start:var(--gcds-heading-h1-border-margin);width:var(--gcds-heading-h1-border-width)}:host h2.gcds-heading{font:var(--gcds-heading-h2-desktop)}@media only screen and (width < 48em){:host h2.gcds-heading{font:var(--gcds-heading-h2-mobile)}}:host h3.gcds-heading{font:var(--gcds-heading-h3-desktop)}@media only screen and (width < 48em){:host h3.gcds-heading{font:var(--gcds-heading-h3-mobile)}}:host h4.gcds-heading{font:var(--gcds-heading-h4-desktop)}@media only screen and (width < 48em){:host h4.gcds-heading{font:var(--gcds-heading-h4-mobile)}}:host h5.gcds-heading{font:var(--gcds-heading-h5-desktop)}@media only screen and (width < 48em){:host h5.gcds-heading{font:var(--gcds-heading-h5-mobile)}}:host h6.gcds-heading{font:var(--gcds-heading-h6-desktop)}@media only screen and (width < 48em){:host h6.gcds-heading{font:var(--gcds-heading-h6-mobile)}}}@layer limit{:host h1.limit{max-width:var(--gcds-heading-character-limit-h1)}:host h2.limit{max-width:var(--gcds-heading-character-limit-h2)}:host h3.limit{max-width:var(--gcds-heading-character-limit-h3)}:host h4.limit{max-width:var(--gcds-heading-character-limit-h4)}:host h5.limit{max-width:var(--gcds-heading-character-limit-h5)}:host h6.limit{max-width:var(--gcds-heading-character-limit-h6)}}@layer margin{:host :is(h1,h2,h3,h4,h5,h6).mt-0{margin-block-start:var(--gcds-heading-spacing-0)}:host :is(h1,h2,h3,h4,h5,h6).mt-50{margin-block-start:var(--gcds-heading-spacing-50)}:host :is(h1,h2,h3,h4,h5,h6).mt-100{margin-block-start:var(--gcds-heading-spacing-100)}:host :is(h1,h2,h3,h4,h5,h6).mt-150{margin-block-start:var(--gcds-heading-spacing-150)}:host :is(h1,h2,h3,h4,h5,h6).mt-200{margin-block-start:var(--gcds-heading-spacing-200)}:host :is(h1,h2,h3,h4,h5,h6).mt-250{margin-block-start:var(--gcds-heading-spacing-250)}:host :is(h1,h2,h3,h4,h5,h6).mt-300{margin-block-start:var(--gcds-heading-spacing-300)}:host :is(h1,h2,h3,h4,h5,h6).mt-400{margin-block-start:var(--gcds-heading-spacing-400)}:host :is(h1,h2,h3,h4,h5,h6).mt-450{margin-block-start:var(--gcds-heading-spacing-450)}:host :is(h1,h2,h3,h4,h5,h6).mt-500{margin-block-start:var(--gcds-heading-spacing-500)}:host :is(h1,h2,h3,h4,h5,h6).mt-550{margin-block-start:var(--gcds-heading-spacing-550)}:host :is(h1,h2,h3,h4,h5,h6).mt-600{margin-block-start:var(--gcds-heading-spacing-600)}:host :is(h1,h2,h3,h4,h5,h6).mt-700{margin-block-start:var(--gcds-heading-spacing-700)}:host :is(h1,h2,h3,h4,h5,h6).mt-800{margin-block-start:var(--gcds-heading-spacing-800)}:host :is(h1,h2,h3,h4,h5,h6).mt-900{margin-block-start:var(--gcds-heading-spacing-900)}:host :is(h1,h2,h3,h4,h5,h6).mt-1000{margin-block-start:var(--gcds-heading-spacing-1000)}:host :is(h1,h2,h3,h4,h5,h6).mb-0{margin-block-end:var(--gcds-heading-spacing-0)}:host :is(h1,h2,h3,h4,h5,h6).mb-50{margin-block-end:var(--gcds-heading-spacing-50)}:host :is(h1,h2,h3,h4,h5,h6).mb-100{margin-block-end:var(--gcds-heading-spacing-100)}:host :is(h1,h2,h3,h4,h5,h6).mb-150{margin-block-end:var(--gcds-heading-spacing-150)}:host :is(h1,h2,h3,h4,h5,h6).mb-200{margin-block-end:var(--gcds-heading-spacing-200)}:host :is(h1,h2,h3,h4,h5,h6).mb-250{margin-block-end:var(--gcds-heading-spacing-250)}:host :is(h1,h2,h3,h4,h5,h6).mb-300{margin-block-end:var(--gcds-heading-spacing-300)}:host :is(h1,h2,h3,h4,h5,h6).mb-400{margin-block-end:var(--gcds-heading-spacing-400)}:host :is(h1,h2,h3,h4,h5,h6).mb-450{margin-block-end:var(--gcds-heading-spacing-450)}:host :is(h1,h2,h3,h4,h5,h6).mb-500{margin-block-end:var(--gcds-heading-spacing-500)}:host :is(h1,h2,h3,h4,h5,h6).mb-550{margin-block-end:var(--gcds-heading-spacing-550)}:host :is(h1,h2,h3,h4,h5,h6).mb-600{margin-block-end:var(--gcds-heading-spacing-600)}:host :is(h1,h2,h3,h4,h5,h6).mb-700{margin-block-end:var(--gcds-heading-spacing-700)}:host :is(h1,h2,h3,h4,h5,h6).mb-800{margin-block-end:var(--gcds-heading-spacing-800)}:host :is(h1,h2,h3,h4,h5,h6).mb-900{margin-block-end:var(--gcds-heading-spacing-900)}:host :is(h1,h2,h3,h4,h5,h6).mb-1000{margin-block-end:var(--gcds-heading-spacing-1000)}}";
 const GcdsHeadingStyle0 = gcdsHeadingCss;
 
 const GcdsHeading = class {
@@ -2151,18 +2243,17 @@ const GcdsHeading = class {
 };
 GcdsHeading.style = GcdsHeadingStyle0;
 
-const gcdsHintCss = ".sc-gcds-hint-h .gcds-hint.sc-gcds-hint{font:var(--gcds-hint-font);margin:var(--gcds-hint-margin)}";
+const gcdsHintCss = "@layer reset, default;@layer reset{:host{display:block}:host slot{display:initial}}@layer default{:host .gcds-hint,:host gcds-text::part(text){color:inherit}:host .gcds-hint{margin:var(--gcds-hint-margin)}}";
 const GcdsHintStyle0 = gcdsHintCss;
 
 const GcdsHint = class {
     constructor(hostRef) {
         index.registerInstance(this, hostRef);
-        this.hint = undefined;
         this.hintId = undefined;
     }
     render() {
-        const { hint, hintId } = this;
-        return (index.h(index.Host, { id: `hint-${hintId}` }, index.h("p", { class: "gcds-hint" }, hint)));
+        const { hintId } = this;
+        return (index.h(index.Host, { id: `hint-${hintId}` }, index.h("gcds-text", { class: "gcds-hint", "margin-bottom": "0", part: "hint" }, index.h("slot", null))));
     }
     get el() { return index.getElement(this); }
 };
@@ -2196,7 +2287,7 @@ const GcdsIcon = class {
 };
 GcdsIcon.style = GcdsIconStyle0;
 
-const gcdsInputCss = ".sc-gcds-input-h .gcds-input-wrapper.sc-gcds-input{border:0;color:var(--gcds-input-default-text);font:var(--gcds-input-font);margin:0;max-width:90%;padding:0;transition:color .15s ease-in-out;width:75ch}.sc-gcds-input-h .gcds-input-wrapper.sc-gcds-input:focus-within{color:var(--gcds-input-focus-text)}.sc-gcds-input-h .gcds-input-wrapper.gcds-disabled.sc-gcds-input{color:var(--gcds-input-disabled-text)}.sc-gcds-input-h input.sc-gcds-input{background-color:var(--gcds-input-default-background);background-image:none;border:var(--gcds-input-border-width) solid;border-radius:var(--gcds-input-border-radius);box-sizing:border-box;color:var(--gcds-input-default-text);display:block;font:inherit;height:auto;margin:var(--gcds-input-margin);max-width:100%;min-height:var(--gcds-input-min-width-and-height);min-width:var(--gcds-input-min-width-and-height);padding:var(--gcds-input-padding);transition:border-color .15s ease-in-out,box-shadow .15s ease-in-out,outline .15s ease-in-out;width:100%}.sc-gcds-input-h input.sc-gcds-input:focus{border-color:var(--gcds-input-focus-text);box-shadow:var(--gcds-input-focus-box-shadow);outline:var(--gcds-input-outline-width) solid var(--gcds-input-focus-text);outline-offset:var(--gcds-input-border-width)}.sc-gcds-input-h input.sc-gcds-input:disabled{background-color:var(--gcds-input-disabled-background);border-color:var(--gcds-input-disabled-text);cursor:not-allowed}.sc-gcds-input-h input.gcds-error.sc-gcds-input:not(:focus){border-color:var(--gcds-input-danger-border)}";
+const gcdsInputCss = "@layer reset, default, disabled, error, focus;@layer reset{:host{display:block}:host .gcds-input-wrapper{border:0;margin:0;padding:0}:host .gcds-input-wrapper input{box-sizing:border-box}}@layer default{:host .gcds-input-wrapper{color:var(--gcds-input-default-text);font:var(--gcds-input-font);max-width:90%;transition:color .15s ease-in-out;width:75ch}:host .gcds-input-wrapper input{background-color:var(--gcds-input-default-background);background-image:none;border:var(--gcds-input-border-width) solid;border-radius:var(--gcds-input-border-radius);color:var(--gcds-input-default-text);display:block;font:inherit!important;height:auto;margin:var(--gcds-input-margin)!important;max-width:100%;min-height:var(--gcds-input-min-width-and-height);min-width:var(--gcds-input-min-width-and-height);padding:var(--gcds-input-padding)!important;transition:border-color .15s ease-in-out,box-shadow .15s ease-in-out,outline .15s ease-in-out;width:100%}:host .gcds-input-wrapper input[type=number]{-moz-appearance:textfield}:host .gcds-input-wrapper input[type=number]::-webkit-inner-spin-button,:host .gcds-input-wrapper input[type=number]::-webkit-outer-spin-button{-webkit-appearance:none}}@layer disabled{:host .gcds-input-wrapper.gcds-disabled{color:var(--gcds-input-disabled-text)}:host .gcds-input-wrapper.gcds-disabled input:disabled{background-color:var(--gcds-input-disabled-background);border-color:var(--gcds-input-disabled-text);cursor:not-allowed}}@layer error{:host .gcds-input-wrapper input.gcds-error:not(:focus){border-color:var(--gcds-input-danger-border)}}@layer focus{:host .gcds-input-wrapper:focus-within{color:var(--gcds-input-focus-text)}:host .gcds-input-wrapper:focus-within input:focus{border-color:var(--gcds-input-focus-text);box-shadow:var(--gcds-input-focus-box-shadow);outline:var(--gcds-input-outline-width) solid var(--gcds-input-focus-text);outline-offset:var(--gcds-input-border-width)}}";
 const GcdsInputStyle0 = gcdsInputCss;
 
 const GcdsInput = class {
@@ -2204,41 +2295,42 @@ const GcdsInput = class {
         index.registerInstance(this, hostRef);
         this.gcdsFocus = index.createEvent(this, "gcdsFocus", 7);
         this.gcdsBlur = index.createEvent(this, "gcdsBlur", 7);
+        this.gcdsInput = index.createEvent(this, "gcdsInput", 7);
         this.gcdsChange = index.createEvent(this, "gcdsChange", 7);
         this.gcdsError = index.createEvent(this, "gcdsError", 7);
         this.gcdsValid = index.createEvent(this, "gcdsValid", 7);
+        if (hostRef.$hostElement$["s-ei"]) {
+            this.internals = hostRef.$hostElement$["s-ei"];
+        }
+        else {
+            this.internals = hostRef.$hostElement$.attachInternals();
+            hostRef.$hostElement$["s-ei"] = this.internals;
+        }
         this._validator = defaultValidator;
-        this.onFocus = e => {
-            if (this.focusHandler) {
-                this.focusHandler(e);
-            }
-            this.gcdsFocus.emit();
-        };
-        this.onBlur = e => {
-            if (this.blurHandler) {
-                this.blurHandler(e);
-            }
-            else {
-                if (this.validateOn == 'blur') {
-                    this.validate();
-                }
+        this.onBlur = () => {
+            if (this.validateOn == 'blur') {
+                this.validate();
             }
             this.gcdsBlur.emit();
+        };
+        this.handleInput = (e, customEvent) => {
+            const val = e.target && e.target.value;
+            this.value = val;
+            this.internals.setFormValue(val ? val : null);
+            customEvent.emit(this.value);
         };
         this.disabled = false;
         this.errorMessage = undefined;
         this.hideLabel = false;
         this.hint = undefined;
         this.inputId = undefined;
+        this.name = undefined;
         this.label = undefined;
         this.required = false;
         this.size = undefined;
         this.type = 'text';
         this.value = undefined;
         this.autocomplete = undefined;
-        this.changeHandler = undefined;
-        this.focusHandler = undefined;
-        this.blurHandler = undefined;
         this.validator = undefined;
         this.validateOn = undefined;
         this.inheritedAttributes = {};
@@ -2297,15 +2389,28 @@ const GcdsInput = class {
             }
         }
     }
-    handleChange(e) {
-        if (this.changeHandler) {
-            this.changeHandler(e);
+    keyDownListener(e) {
+        if (e.target == this.el && e.key === 'Enter') {
+            const formButton = document.createElement('button');
+            formButton.type = 'submit';
+            formButton.style.display = 'none';
+            this.el.closest('form').appendChild(formButton);
+            formButton.click();
+            formButton.remove();
         }
-        else {
-            const val = e.target && e.target.value;
-            this.value = val;
+    }
+    /*
+     * Form internal functions
+     */
+    formResetCallback() {
+        if (this.value != this.initialValue) {
+            this.internals.setFormValue(this.initialValue);
+            this.value = this.initialValue;
         }
-        this.gcdsChange.emit(this.value);
+    }
+    formStateRestoreCallback(state) {
+        this.internals.setFormValue(state);
+        this.value = state;
     }
     /*
      * Observe lang attribute change
@@ -2334,6 +2439,8 @@ const GcdsInput = class {
         this.inheritedAttributes = inheritAttributes(this.el, this.shadowElement, [
             'placeholder',
         ]);
+        this.internals.setFormValue(this.value ? this.value : null);
+        this.initialValue = this.value ? this.value : null;
     }
     componentWillUpdate() {
         if (this.validator) {
@@ -2341,10 +2448,10 @@ const GcdsInput = class {
         }
     }
     render() {
-        const { disabled, errorMessage, hideLabel, hint, inputId, label, required, size, type, value, hasError, autocomplete, inheritedAttributes, lang, } = this;
+        const { disabled, errorMessage, hideLabel, hint, inputId, name, label, required, size, type, value, hasError, autocomplete, inheritedAttributes, lang, } = this;
         // Use max-width instead of size attribute to keep field responsive
         const style = {
-            maxWidth: `${size * 1.5}ch`,
+            maxWidth: `${size + (type === 'number' ? 2.5 : 3.75)}ch`,
         };
         const attrsInput = Object.assign({ disabled,
             required,
@@ -2362,8 +2469,10 @@ const GcdsInput = class {
                 ? ` ${attrsInput['aria-describedby']}`
                 : ''}`;
         }
-        return (index.h(index.Host, null, index.h("div", { class: `gcds-input-wrapper ${disabled ? 'gcds-disabled' : ''} ${hasError ? 'gcds-error' : ''}` }, index.h("gcds-label", Object.assign({}, attrsLabel, { "hide-label": hideLabel, "label-for": inputId, lang: lang })), hint ? index.h("gcds-hint", { hint: hint, "hint-id": inputId }) : null, errorMessage ? (index.h("gcds-error-message", { messageId: inputId, message: errorMessage })) : null, index.h("input", Object.assign({}, attrsInput, { class: hasError ? 'gcds-error' : null, id: inputId, name: inputId, onBlur: e => this.onBlur(e), onFocus: e => this.onFocus(e), onInput: e => this.handleChange(e), "aria-labelledby": `label-for-${inputId}`, "aria-invalid": errorMessage ? 'true' : 'false', maxlength: size, style: size ? style : null, ref: element => (this.shadowElement = element) })))));
+        return (index.h(index.Host, null, index.h("div", { class: `gcds-input-wrapper ${disabled ? 'gcds-disabled' : ''} ${hasError ? 'gcds-error' : ''}` }, index.h("gcds-label", Object.assign({}, attrsLabel, { "hide-label": hideLabel, "label-for": inputId, lang: lang })), hint ? index.h("gcds-hint", { "hint-id": inputId }, hint) : null, errorMessage ? (index.h("gcds-error-message", { messageId: inputId }, errorMessage)) : null, index.h("input", Object.assign({}, attrsInput, { class: hasError ? 'gcds-error' : null, id: inputId, name: name, onBlur: () => this.onBlur(), onFocus: () => this.gcdsFocus.emit(), onInput: e => this.handleInput(e, this.gcdsInput), onChange: e => this.handleInput(e, this.gcdsChange), "aria-labelledby": `label-for-${inputId}`, "aria-invalid": errorMessage ? 'true' : 'false', maxlength: size, style: size ? style : null, ref: element => (this.shadowElement = element) })))));
     }
+    static get delegatesFocus() { return true; }
+    static get formAssociated() { return true; }
     get el() { return index.getElement(this); }
     static get watchers() { return {
         "disabled": ["validateDisabledInput"],
@@ -2383,7 +2492,7 @@ const I18N$c = {
   },
 };
 
-const gcdsLabelCss = ".sc-gcds-label-h .gcds-label.sc-gcds-label{color:inherit;display:block;font:var(--gcds-label-font);margin:var(--gcds-label-margin);max-width:100%}.sc-gcds-label-h .gcds-label.label--hidden.sc-gcds-label{height:0;margin:0;opacity:0;overflow:hidden;width:0}.sc-gcds-label-h .gcds-label.sc-gcds-label .label--required.sc-gcds-label{margin:var(--gcds-label-required-margin)}gcds-checkbox .sc-gcds-label-h label.sc-gcds-label,gcds-radio .sc-gcds-label-h label.sc-gcds-label{cursor:pointer}";
+const gcdsLabelCss = "@layer reset, default;@layer reset{.sc-gcds-label-h{display:block}.sc-gcds-label-h .gcds-label{color:inherit}}@layer default{.sc-gcds-label-h .gcds-label{cursor:pointer;display:block;font:var(--gcds-label-font-desktop);margin:var(--gcds-label-margin)!important;max-width:100%}@media only screen and (width < 48em){.sc-gcds-label-h .gcds-label{font:var(--gcds-label-font-mobile)}}.sc-gcds-label-h .gcds-label.label--hidden{height:0;margin:0;opacity:0;overflow:hidden;width:0}.sc-gcds-label-h .gcds-label .label--required{margin:var(--gcds-label-required-margin)!important}}";
 const GcdsLabelStyle0 = gcdsLabelCss;
 
 const GcdsLabel = class {
@@ -2435,7 +2544,7 @@ GcdsLabel.style = GcdsLabelStyle0;
 const I18N$b = {
   en: {
     abbreviation: 'fr',
-    heading: 'Language Selection',
+    heading: 'Language selection',
     language: 'Français',
   },
   fr: {
@@ -2445,7 +2554,7 @@ const I18N$b = {
   },
 };
 
-const gcdsLangToggleCss = ":host{display:block;font:var(--gcds-lang-toggle-font)}:host h2{margin:0;overflow:hidden;position:absolute;width:0}:host a{color:var(--gcds-lang-toggle-default-text);padding:var(--gcds-lang-toggle-padding);text-decoration:underline;text-decoration-color:currentColor;text-decoration-thickness:var(\n      --gcds-lang-toggle-default-decoration-thickness\n    );text-underline-offset:.2em}:host a span{display:none}:host a abbr{text-decoration:none;text-transform:uppercase}:host a:hover{color:var(--gcds-lang-toggle-hover-text);text-decoration-thickness:var(\n        --gcds-lang-toggle-hover-decoration-thickness\n      )}:host a:focus{background-color:var(--gcds-lang-toggle-focus-background);border-radius:var(--gcds-lang-toggle-focus-border-radius);box-shadow:var(--gcds-lang-toggle-focus-box-shadow);color:var(--gcds-lang-toggle-focus-text);outline:var(--gcds-lang-toggle-focus-outline);outline-offset:var(--gcds-lang-toggle-focus-outline-offset);text-decoration:none}@media screen and (min-width:64em){:host a{padding:0}:host a span{display:initial}:host a abbr{display:none}}";
+const gcdsLangToggleCss = "@layer reset, default, desktop;@layer reset{:host{display:block}:host .gcds-lang-toggle h2{margin:0;overflow:hidden;position:absolute;width:0}}@layer default{:host .gcds-lang-toggle gcds-link::part(link){padding:var(--gcds-lang-toggle-padding)}:host .gcds-lang-toggle span{display:none}:host .gcds-lang-toggle abbr{text-decoration:none;text-transform:uppercase}}@layer desktop{@media screen and (width >= 64em){:host .gcds-lang-toggle gcds-link::part(link){padding:0}:host .gcds-lang-toggle span{display:initial}:host .gcds-lang-toggle abbr{display:none}}}";
 const GcdsLangToggleStyle0 = gcdsLangToggleCss;
 
 const GcdsLangToggle = class {
@@ -2472,7 +2581,7 @@ const GcdsLangToggle = class {
     }
     render() {
         const { lang, href } = this;
-        return (index.h(index.Host, null, index.h("div", null, index.h("h2", null, I18N$b[lang].heading), index.h("a", { href: href, lang: I18N$b[lang].abbreviation }, index.h("span", null, I18N$b[lang].language), index.h("abbr", { title: I18N$b[lang].language }, I18N$b[lang].abbreviation)))));
+        return (index.h(index.Host, null, index.h("div", { class: "gcds-lang-toggle" }, index.h("gcds-sr-only", { id: "lang-toggle__heading", tag: "h2" }, I18N$b[lang].heading), index.h("gcds-link", { size: "regular", href: href, lang: I18N$b[lang].abbreviation }, index.h("span", null, I18N$b[lang].language), index.h("abbr", { title: I18N$b[lang].language }, I18N$b[lang].abbreviation)))));
     }
     get el() { return index.getElement(this); }
 };
@@ -2493,7 +2602,7 @@ const I18N$a = {
   },
 };
 
-const gcdsLinkCss = ":host a{color:var(--gcds-link-default);cursor:pointer;text-decoration:underline;text-decoration-color:currentColor;text-decoration-thickness:var(--gcds-link-decoration-thickness);text-underline-offset:var(--gcds-link-underline-offset)}:host a:hover{color:var(--gcds-link-hover);text-decoration-thickness:var(--gcds-link-hover-decoration-thickness)}:host a:focus{background-color:var(--gcds-link-focus-background);border-color:var(--gcds-link-focus-background);border-radius:var(--gcds-link-focus-border-radius);box-shadow:var(--gcds-link-focus-box-shadow);color:var(--gcds-link-focus-text);outline:var(--gcds-link-focus-outline-width) solid var(--gcds-link-focus-background);outline-offset:var(--gcds-link-focus-outline-offset);text-decoration:none}:host a.link--small{font:var(--gcds-link-font-small)}:host a.link--regular{font:var(--gcds-link-font-regular)}:host a.link--inherit{font:inherit}:host a.variant-light{color:var(--gcds-link-light)}:host a.d-block{display:block}:host a slot{display:initial}";
+const gcdsLinkCss = "@layer reset, default, display, size, variant, hover, focus;@layer reset{:host{display:inline-block}:host slot{display:initial}}@layer default{:host .gcds-link{color:var(--gcds-link-default);cursor:pointer;text-decoration:underline currentColor var(--gcds-link-decoration-thickness);text-underline-offset:var(--gcds-link-underline-offset);transition:all .35s}}@layer display{:host .gcds-link.d-block{display:block}}@layer size{:host .gcds-link.link--small{font:var(--gcds-link-font-small-desktop)}@media only screen and (width < 48em){:host .gcds-link.link--small{font:var(--gcds-link-font-small-mobile)}}:host .gcds-link.link--regular{font:var(--gcds-link-font-regular-desktop)}@media only screen and (width < 48em){:host .gcds-link.link--regular{font:var(--gcds-link-font-regular-mobile)}}:host .gcds-link.link--inherit{font:inherit}}@layer variant{:host .gcds-link.variant-light{color:var(--gcds-link-light)}}@layer hover{@media (hover:hover){:host .gcds-link:hover{text-decoration-thickness:var(--gcds-link-hover-decoration-thickness)}:host .gcds-link:hover:not(.variant-light){color:var(--gcds-link-hover)}}}@layer focus{:host .gcds-link:focus{background-color:var(--gcds-link-focus-background);border-radius:var(--gcds-link-focus-border-radius);box-shadow:var(--gcds-link-focus-box-shadow);color:var(--gcds-link-focus-text);outline:var(--gcds-link-focus-outline-width) solid var(--gcds-link-focus-background);outline-offset:var(--gcds-link-focus-outline-offset);text-decoration:none}}";
 const GcdsLinkStyle0 = gcdsLinkCss;
 
 const GcdsLink = class {
@@ -2565,7 +2674,8 @@ const GcdsLink = class {
             type,
         };
         const isExternal = target === '_blank' || external;
-        return (index.h(index.Host, null, index.h("a", Object.assign({ role: "link", tabIndex: 0 }, attrs, { class: `link--${size} ${display != 'inline' ? `d-${display}` : ''} ${variant != 'default' ? `variant-${variant}` : ''}`, ref: element => (this.shadowElement = element), target: isExternal ? '_blank' : target, rel: isExternal ? 'noopener noreferrer' : rel }, inheritedAttributes, { part: "link", onBlur: () => this.gcdsBlur.emit(), onFocus: () => this.gcdsFocus.emit(), onClick: () => this.gcdsClick.emit() }), index.h("slot", null), target === '_blank' || external ? (index.h("gcds-icon", { name: "external-link", label: I18N$a[lang].external, "margin-left": "100" })) : download !== undefined ? (index.h("gcds-icon", { name: "download", label: I18N$a[lang].download, "margin-left": "100" })) : href.toLowerCase().startsWith('mailto:') ? (index.h("gcds-icon", { "icon-style": "regular", name: "envelope", label: I18N$a[lang].email, "margin-left": "100" })) : (href.toLowerCase().startsWith('tel:') && (index.h("gcds-icon", { name: "phone", label: I18N$a[lang].phone, "margin-left": "100" }))))));
+        return (index.h(index.Host, null, index.h("a", Object.assign({ role: "link", tabIndex: 0 }, attrs, { class: `gcds-link link--${size} ${display != 'inline' ? `d-${display}` : ''} ${variant != 'default' ? `variant-${variant}` : ''}`, ref: element => (this.shadowElement = element), target: isExternal ? '_blank' : target, rel: isExternal ? 'noopener noreferrer' : rel }, inheritedAttributes, { part: "link", onBlur: () => this.gcdsBlur.emit(), onFocus: () => this.gcdsFocus.emit(), onClick: e => emitEvent(e, this.gcdsClick, href) }), index.h("slot", null), target === '_blank' || external ? (index.h("gcds-icon", { name: "external-link", label: I18N$a[lang].external, "margin-left": "100" })) : download !== undefined ? (index.h("gcds-icon", { name: "download", label: I18N$a[lang].download, "margin-left": "100" })) : href && href.toLowerCase().startsWith('mailto:') ? (index.h("gcds-icon", { "icon-style": "regular", name: "envelope", label: I18N$a[lang].email, "margin-left": "100" })) : (href &&
+            href.toLowerCase().startsWith('tel:') && (index.h("gcds-icon", { name: "phone", label: I18N$a[lang].phone, "margin-left": "100" }))))));
     }
     get el() { return index.getElement(this); }
     static get watchers() { return {
@@ -2576,13 +2686,15 @@ const GcdsLink = class {
 };
 GcdsLink.style = GcdsLinkStyle0;
 
-const gcdsNavGroupCss = "@layer reset, defaults, variants, mobile, state.hover, state.focus;@layer reset{:host *{box-sizing:border-box;margin:0;padding:0}}@layer defaults{:host{align-self:flex-end;display:flex;flex-direction:column;position:relative}:host .gcds-nav-group__trigger{align-items:center;background:transparent;border:none;color:var(--gcds-nav-group-trigger-text);cursor:pointer;display:flex;font:var(--gcds-nav-group-trigger-font);padding:var(--gcds-nav-group-trigger-padding);text-align:left;width:100%}@media only screen and (width >= 64em){:host .gcds-nav-group__trigger{max-width:var(--gcds-nav-group-trigger-max-width)}}:host .gcds-nav-group__trigger[aria-expanded=false]+.gcds-nav-group__list{display:none}:host .gcds-nav-group__trigger-desc{display:none}}@layer variants{:host .gcds-trigger--dropdown{border-block-end:var(--gcds-nav-group-top-nav-trigger-border-width) solid transparent;margin-inline-start:var(--gcds-nav-group-top-nav-trigger-margin-inline-start);padding:var(--gcds-nav-group-top-nav-trigger-padding);text-decoration:underline solid currentColor var(--gcds-nav-group-top-nav-trigger-decoration-thickness);text-decoration-color:transparent;text-underline-offset:var(--gcds-nav-group-top-nav-trigger-underline-offset);transition:all .25s ease-in-out}:host .gcds-trigger--dropdown gcds-icon{margin-inline-start:var(--gcds-nav-group-top-nav-trigger-icon-margin);order:2}:host .gcds-trigger--dropdown[aria-expanded=true]{background-color:var(--gcds-nav-group-top-nav-trigger-expanded-background-color)}@media only screen and (width >= 64em){:host .gcds-nav--dropdown{background-color:var(--gcds-nav-group-top-nav-dropdown-background);border-radius:var(--gcds-border-radius-md);box-shadow:var(--gcds-nav-group-top-nav-dropdown-box-shadow);margin-block-start:var(--gcds-spacing-200);padding:var(--gcds-nav-group-top-nav-dropdown-padding);position:absolute;top:100%;width:var(--gcds-nav-group-top-nav-dropdown-width);z-index:1}}@media only screen and (width >= 64em) and (width < 96em){:host .gcds-nav--dropdown{right:0}}:host .gcds-trigger--expandable{font-weight:var(--gcds-nav-group-side-nav-trigger-font-weight);margin-block-end:var(--gcds-nav-group-side-nav-trigger-margin)}:host .gcds-trigger--expandable gcds-icon{margin-inline-end:var(--gcds-nav-group-side-nav-trigger-icon-margin)}@media only screen and (width >= 64em){:host .gcds-nav--expandable{padding-inline-start:var(--gcds-nav-group-side-nav-dropdown-padding)}}}@layer mobile{:host(.gcds-mobile-nav){width:100%}:host(.gcds-mobile-nav.gcds-nav-group-expanded){background-color:var(--gcds-nav-group-mobile-background);height:100vh;left:0;overflow-y:scroll;padding:var(--gcds-nav-group-mobile-padding);position:fixed;top:0;width:100%;z-index:100}@media only screen and (width < 64em){:host(.gcds-nav-group-expanded:not(.gcds-mobile-nav)) .gcds-nav-group__list{padding-inline-start:var(--gcds-nav-group-side-nav-dropdown-padding)}}:host(.gcds-mobile-nav) .gcds-trigger--expandable{border:var(--gcds-nav-group-mobile-trigger-border-width) solid;border-radius:var(--gcds-nav-group-mobile-trigger-border-radius);color:var(--gcds-nav-group-mobile-trigger-text);flex-direction:row-reverse;justify-content:center;margin-block-start:var(--gcds-nav-group-mobile-trigger-margin);text-align:center}@media only screen and (width >= 64em){:host(.gcds-mobile-nav) .gcds-trigger--expandable{display:none}}@media only screen and (48em < width < 64em){:host(.gcds-mobile-nav) .gcds-trigger--expandable{align-self:flex-start;width:auto}}:host(.gcds-mobile-nav) .gcds-trigger--expandable gcds-icon{display:none}@media only screen and (width >= 64em){:host(.gcds-mobile-nav)>.gcds-nav--expandable{display:block;padding:0}}@media only screen and (width < 64em){:host(.gcds-mobile-nav)>.gcds-nav--expandable{margin:var(--gcds-nav-group-mobile-list-margin)}}@media only screen and (width >= 64em){:host(.gcds-mobile-nav-topnav)>.gcds-nav--expandable{display:flex}}}@layer state.hover{@media (hover:hover){:host .gcds-nav-group__trigger:hover{color:var(--gcds-nav-group-trigger-hover-text)}:host .gcds-trigger--dropdown:hover{color:var(--gcds-nav-group-top-nav-trigger-hover-text);text-decoration-color:var(--gcds-nav-group-top-nav-trigger-hover-text);text-decoration-thickness:var(--gcds-nav-group-top-nav-trigger-hover-decoration-thickness)}:host .gcds-trigger--expandable:hover{background-color:var(--gcds-nav-group-side-nav-trigger-hover-background)}}}@layer state.focus{:host .gcds-nav-group__trigger:focus{background-color:var(--gcds-nav-group-trigger-focus-background);border-color:var(--gcds-nav-group-trigger-focus-background);border-radius:var(--gcds-nav-group-trigger-focus-border-radius);box-shadow:var(--gcds-nav-group-trigger-focus-box-shadow);color:var(--gcds-nav-group-trigger-focus-text);outline:var(--gcds-nav-group-trigger-focus-outline);outline-offset:var(--gcds-nav-group-trigger-focus-outline-offset);text-decoration:none}}";
+const gcdsNavGroupCss = "@layer reset, defaults, sideNav, topNav, mobileNav, desktop, mobile, hover, focus;@layer reset{:host *{box-sizing:border-box;margin:0;padding:0}}@layer defaults{:host{align-self:flex-end;display:flex;flex-direction:column;position:relative}:host .gcds-nav-group__trigger{align-items:center;background:transparent;border:0;color:var(--gcds-nav-group-trigger-text);cursor:pointer;display:flex;font:var(--gcds-nav-group-trigger-font);padding:var(--gcds-nav-group-trigger-padding);text-align:left;width:100%}:host .gcds-nav-group__trigger[aria-expanded=false]+.gcds-nav-group__list{display:none}:host .gcds-nav-group__trigger-desc{display:none}}@layer sideNav{:host .gcds-trigger--expandable{font-weight:var(--gcds-nav-group-side-nav-trigger-font-weight);margin-block-end:var(--gcds-nav-group-side-nav-trigger-margin)}:host .gcds-trigger--expandable gcds-icon{margin-inline-end:var(--gcds-nav-group-side-nav-trigger-icon-margin)}}@layer topNav{:host .gcds-trigger--dropdown{border-block-end:var(--gcds-nav-group-top-nav-trigger-border-width) solid transparent;margin-inline-start:var(\n      --gcds-nav-group-top-nav-trigger-margin-inline-start\n    );padding:var(--gcds-nav-group-top-nav-trigger-padding);text-decoration:underline solid currentColor var(--gcds-nav-group-top-nav-trigger-decoration-thickness);text-decoration-color:transparent;text-underline-offset:var(\n      --gcds-nav-group-top-nav-trigger-underline-offset\n    );transition:all .25s ease-in-out}:host .gcds-trigger--dropdown[aria-expanded=true]{background-color:var(\n        --gcds-nav-group-top-nav-trigger-expanded-background-color\n      )}:host .gcds-trigger--dropdown gcds-icon{margin-inline-start:var(--gcds-nav-group-top-nav-trigger-icon-margin);order:2}}@layer mobileNav{:host(.gcds-mobile-nav){width:100%}:host(.gcds-mobile-nav) .gcds-trigger--expandable{border:var(--gcds-nav-group-mobile-trigger-border-width) solid;border-radius:var(--gcds-nav-group-mobile-trigger-border-radius);color:var(--gcds-nav-group-mobile-trigger-text);flex-direction:row-reverse;justify-content:center;margin-block-start:var(--gcds-nav-group-mobile-trigger-margin);text-align:center}:host(.gcds-mobile-nav) .gcds-trigger--expandable gcds-icon{display:none}:host([open].gcds-mobile-nav){background-color:var(--gcds-nav-group-mobile-background);height:100vh;left:0;overflow-y:scroll;padding:var(--gcds-nav-group-mobile-padding);position:fixed;top:0;width:100%;z-index:100}}@layer desktop{@media only screen and (width >= 64em){:host .gcds-nav-group__trigger{max-width:var(--gcds-nav-group-trigger-max-width)}:host .gcds-nav--expandable{padding-inline-start:var(--gcds-nav-group-side-nav-dropdown-padding)}:host .gcds-nav--dropdown{background-color:var(--gcds-nav-group-top-nav-dropdown-background);border-radius:var(--gcds-border-radius-md);box-shadow:var(--gcds-nav-group-top-nav-dropdown-box-shadow);margin-block-start:var(--gcds-spacing-200);padding:var(--gcds-nav-group-top-nav-dropdown-padding);position:absolute;top:100%;width:var(--gcds-nav-group-top-nav-dropdown-width);z-index:1}:host(.gcds-mobile-nav)>.gcds-nav--expandable{display:block;padding:0}:host(.gcds-mobile-nav) .gcds-trigger--expandable{display:none}:host(.gcds-mobile-nav-topnav)>.gcds-nav--expandable{display:flex}}@media only screen and (width >= 64em) and (width < 96em){:host .gcds-nav--dropdown{right:0}}}@layer mobile{@media only screen and (width < 64em){:host(.gcds-mobile-nav)>.gcds-nav--expandable{margin:var(--gcds-nav-group-mobile-list-margin)}:host([open]:not(.gcds-mobile-nav)) .gcds-nav-group__list{padding-inline-start:var(--gcds-nav-group-side-nav-dropdown-padding)}}@media only screen and (48em < width < 64em){:host(.gcds-mobile-nav) .gcds-trigger--expandable{align-self:flex-start;width:auto}}}@layer hover{@media (hover:hover){:host .gcds-nav-group__trigger:hover{color:var(--gcds-nav-group-trigger-hover-text)}:host .gcds-trigger--dropdown:hover{color:var(--gcds-nav-group-top-nav-trigger-hover-text);text-decoration-color:var(--gcds-nav-group-top-nav-trigger-hover-text);text-decoration-thickness:var(\n          --gcds-nav-group-top-nav-trigger-hover-decoration-thickness\n        )}:host .gcds-trigger--expandable:hover{background-color:var(\n          --gcds-nav-group-side-nav-trigger-hover-background\n        )}}}@layer focus{:host .gcds-nav-group__trigger:focus{background-color:var(--gcds-nav-group-trigger-focus-background);border-color:var(--gcds-nav-group-trigger-focus-background);border-radius:var(--gcds-nav-group-trigger-focus-border-radius);box-shadow:var(--gcds-nav-group-trigger-focus-box-shadow);color:var(--gcds-nav-group-trigger-focus-text);outline:var(--gcds-nav-group-trigger-focus-outline);outline-offset:var(--gcds-nav-group-trigger-focus-outline-offset);text-decoration:none}}";
 const GcdsNavGroupStyle0 = gcdsNavGroupCss;
 
 const GcdsNavGroup = class {
     constructor(hostRef) {
         index.registerInstance(this, hostRef);
         this.gcdsClick = index.createEvent(this, "gcdsClick", 7);
+        this.gcdsFocus = index.createEvent(this, "gcdsFocus", 7);
+        this.gcdsBlur = index.createEvent(this, "gcdsBlur", 7);
         this.closeTrigger = undefined;
         this.menuLabel = undefined;
         this.openTrigger = undefined;
@@ -2649,22 +2761,18 @@ const GcdsNavGroup = class {
     }
     render() {
         const { closeTrigger, menuLabel, open, openTrigger } = this;
-        const roleAttr = {
-            role: 'menuitem',
-        };
-        if (this.el.classList.contains('gcds-mobile-nav')) {
-            delete roleAttr['role'];
-        }
-        return (index.h(index.Host, { role: "presentation", open: open, class: open && 'gcds-nav-group-expanded' }, index.h("button", Object.assign({ "aria-haspopup": "true", "aria-expanded": open.toString() }, roleAttr, { ref: element => (this.triggerElement = element), class: `gcds-nav-group__trigger gcds-trigger--${this.navStyle}`, onClick: () => {
-                this.toggleNav();
-                this.gcdsClick.emit();
-            } }), index.h("gcds-icon", { name: open ? 'angle-up' : 'angle-down' }), closeTrigger && open ? closeTrigger : openTrigger), index.h("ul", { role: "menu", "aria-label": menuLabel, class: `gcds-nav-group__list gcds-nav--${this.navStyle}` }, index.h("slot", null))));
+        return (index.h(index.Host, { role: "listitem", open: open }, index.h("button", { "aria-haspopup": "true", "aria-expanded": open.toString(), ref: element => (this.triggerElement = element), class: `gcds-nav-group__trigger gcds-trigger--${this.navStyle}`, onBlur: () => this.gcdsBlur.emit(), onFocus: () => this.gcdsFocus.emit(), onClick: e => {
+                const event = emitEvent(e, this.gcdsClick);
+                if (event) {
+                    this.toggleNav();
+                }
+            } }, index.h("gcds-icon", { name: open ? 'angle-up' : 'angle-down' }), closeTrigger && open ? closeTrigger : openTrigger), index.h("ul", { "aria-label": menuLabel, class: `gcds-nav-group__list gcds-nav--${this.navStyle}` }, index.h("slot", null))));
     }
     get el() { return index.getElement(this); }
 };
 GcdsNavGroup.style = GcdsNavGroupStyle0;
 
-const gcdsNavLinkCss = "@layer reset, defaults, variants, state.hover, state.active, state.focus;@layer reset{:host a{box-sizing:border-box}:host a slot{display:initial}}@layer defaults{:host a{border-inline:var(--gcds-nav-link-border-width) solid transparent;color:var(--gcds-nav-link-default-text);display:flex;font:var(---gcds-nav-link-font);margin-block-end:var(--gcds-nav-link-margin);padding:var(--gcds-nav-link-padding);text-decoration:underline solid currentColor var(--gcds-nav-link-default-decoration-thickness);text-underline-offset:var(--gcds-nav-link-default-underline-offset);transition:all .25s ease-in-out}@media only screen and (width < 64em){:host a{min-width:50%}}@media only screen and (width > 48em){:host a{max-width:var(--gcds-nav-link-default-max-width)}}:host a[aria-current=page]{pointer-events:none;text-decoration:none}}@layer variants{@media only screen and (width >= 64em){:host(.gcds-nav-link--topnav)>a{border-block-end:var(--gcds-nav-link-border-width) solid transparent;border-inline:0;color:var(--gcds-nav-link-top-nav-text);margin:var(--gcds-nav-link-top-nav-margin);padding:var(--gcds-nav-link-top-nav-padding)}:host(.gcds-nav-link--topnav)>a:not(:hover){text-decoration-color:transparent}:host(.gcds-nav-link--home)>a{font:var(--gcds-nav-link-top-nav-home-font);padding:var(--gcds-nav-link-top-nav-home-padding)}}:host(.gcds-nav-link--sidenav)>a{padding:var(--gcds-nav-link-side-nav-padding)}}@layer state.hover{@media (hover:hover){:host a:hover{color:var(--gcds-nav-link-hover-text);text-decoration-thickness:var(\n        --gcds-nav-link-hover-decoration-thickness\n      )}:host(.gcds-nav-link--dropdown)>a:hover,:host(.gcds-nav-link--sidenav)>a:hover{color:var(--gcds-nav-link-hover-text)}:host(.gcds-nav-link--sidenav)>a:hover{background-color:var(--gcds-nav-link-side-nav-hover-background)}:host(.gcds-nav-link--dropdown)>a:hover{background-color:var(--gcds-nav-link-top-nav-hover-background)}}}@layer state.active{:host a[aria-current=page]{background-color:var(--gcds-nav-link-active-background);border-inline-start-color:var(--gcds-nav-link-active-border-color);color:var(--gcds-nav-link-active-text);font-weight:var(--gcds-nav-link-active-font-weight)}@media only screen and (width >= 64em){:host(.gcds-nav-link--topnav)>a[aria-current=page]{background-color:transparent;border-block-end-color:var(--gcds-nav-link-active-border-color);color:var(--gcds-nav-link-top-nav-text);font:var(--gcds-nav-link-font)}}}@layer state.focus{:host a:focus{background-color:var(--gcds-nav-link-focus-background);border-color:var(--gcds-nav-link-focus-background);border-radius:var(--gcds-nav-link-focus-border-radius);box-shadow:var(--gcds-nav-link-focus-box-shadow);color:var(--gcds-nav-link-focus-text);outline:var(--gcds-nav-link-focus-outline);outline-offset:var(--gcds-nav-link-focus-outline-offset);text-decoration:none}}";
+const gcdsNavLinkCss = "@layer reset, default, variants, hover, active, focus;@layer reset{:host .gcds-nav-link{box-sizing:border-box}:host .gcds-nav-link slot{display:initial}}@layer default{:host .gcds-nav-link{border-inline:var(--gcds-nav-link-border-width) solid transparent;color:var(--gcds-nav-link-default-text);display:flex;font:var(---gcds-nav-link-font);margin-block-end:var(--gcds-nav-link-margin);padding:var(--gcds-nav-link-padding);text-decoration:underline solid currentColor var(--gcds-nav-link-default-decoration-thickness);text-underline-offset:var(--gcds-nav-link-default-underline-offset);transition:all .25s ease-in-out}@media only screen and (width < 64em){:host .gcds-nav-link{min-width:50%}}@media only screen and (width > 48em){:host .gcds-nav-link{max-width:var(--gcds-nav-link-default-max-width)}}:host .gcds-nav-link[aria-current=page]{pointer-events:none;text-decoration:none}}@layer variants{@media only screen and (width >= 64em){:host>.gcds-nav-link--topnav.gcds-nav-link{border-block-end:var(--gcds-nav-link-border-width) solid transparent;border-inline:0;color:var(--gcds-nav-link-top-nav-text);margin:var(--gcds-nav-link-top-nav-margin);padding:var(--gcds-nav-link-top-nav-padding)}:host>.gcds-nav-link--topnav.gcds-nav-link:not(:hover){text-decoration-color:transparent}:host([slot=home])>.gcds-nav-link{font:var(--gcds-nav-link-top-nav-home-font);padding:var(--gcds-nav-link-top-nav-home-padding)}}:host>.gcds-nav-link--sidenav.gcds-nav-link{padding:var(--gcds-nav-link-side-nav-padding)}}@layer hover{@media (hover:hover){:host .gcds-nav-link:hover{color:var(--gcds-nav-link-hover-text);text-decoration-thickness:var(\n        --gcds-nav-link-hover-decoration-thickness\n      )}:host>.gcds-nav-link--dropdown.gcds-nav-link:hover,:host>.gcds-nav-link--sidenav.gcds-nav-link:hover{color:var(--gcds-nav-link-hover-text)}:host>.gcds-nav-link--sidenav.gcds-nav-link:hover{background-color:var(--gcds-nav-link-side-nav-hover-background)}:host>.gcds-nav-link--dropdown.gcds-nav-link:hover{background-color:var(--gcds-nav-link-top-nav-hover-background)}}}@layer active{:host .gcds-nav-link[aria-current=page]{background-color:var(--gcds-nav-link-active-background);border-inline-start-color:var(--gcds-nav-link-active-border-color);color:var(--gcds-nav-link-active-text);font-weight:var(--gcds-nav-link-active-font-weight)}@media only screen and (width >= 64em){:host>.gcds-nav-link--topnav.gcds-nav-link[aria-current=page]{background-color:transparent;border-block-end-color:var(--gcds-nav-link-active-border-color);color:var(--gcds-nav-link-top-nav-text);font:var(--gcds-nav-link-font)}}}@layer focus{:host .gcds-nav-link:focus{background-color:var(--gcds-nav-link-focus-background);border-color:var(--gcds-nav-link-focus-background);border-radius:var(--gcds-nav-link-focus-border-radius);box-shadow:var(--gcds-nav-link-focus-box-shadow);color:var(--gcds-nav-link-focus-text);outline:var(--gcds-nav-link-focus-outline);outline-offset:var(--gcds-nav-link-focus-outline-offset);text-decoration:none}}";
 const GcdsNavLinkStyle0 = gcdsNavLinkCss;
 
 const GcdsNavLink = class {
@@ -2673,15 +2781,6 @@ const GcdsNavLink = class {
         this.gcdsClick = index.createEvent(this, "gcdsClick", 7);
         this.gcdsFocus = index.createEvent(this, "gcdsFocus", 7);
         this.gcdsBlur = index.createEvent(this, "gcdsBlur", 7);
-        this.onClick = e => {
-            this.gcdsClick.emit(e);
-        };
-        this.onFocus = e => {
-            this.gcdsFocus.emit(e);
-        };
-        this.onBlur = e => {
-            this.gcdsBlur.emit(e);
-        };
         this.href = undefined;
         this.current = undefined;
         this.lang = undefined;
@@ -2710,8 +2809,7 @@ const GcdsNavLink = class {
         this.updateLang();
         if (this.el.closest('gcds-top-nav')) {
             if (this.el.parentNode.nodeName == 'GCDS-TOP-NAV') {
-                this.navStyle =
-                    this.el.slot == 'home' ? 'topnav gcds-nav-link--home' : 'topnav';
+                this.navStyle = 'topnav';
             }
             else {
                 this.navStyle = 'dropdown';
@@ -2727,7 +2825,7 @@ const GcdsNavLink = class {
         if (current) {
             linkAttrs['aria-current'] = 'page';
         }
-        return (index.h(index.Host, { role: "presentation", class: `gcds-nav-link--${this.navStyle}` }, index.h("a", Object.assign({ class: "gcds-nav-link", href: href }, linkAttrs, { role: "menuitem", onBlur: e => this.onBlur(e), onFocus: e => this.onFocus(e), onClick: e => this.onClick(e), ref: element => (this.linkElement = element) }), index.h("slot", null))));
+        return (index.h(index.Host, { role: "listitem" }, index.h("a", Object.assign({ class: `gcds-nav-link gcds-nav-link--${this.navStyle}`, href: href }, linkAttrs, { onBlur: () => this.gcdsBlur.emit(), onFocus: () => this.gcdsFocus.emit(), onClick: e => emitEvent(e, this.gcdsClick, href), ref: element => (this.linkElement = element) }), index.h("slot", null))));
     }
     get el() { return index.getElement(this); }
 };
@@ -2821,62 +2919,58 @@ function constructClasses(page, current, total) {
     }
     else if (current == 1 || current == total) {
         if (current - page == 4 || current - page == -4) {
-            return 'gcds-pagination-list-breakpoint-360';
+            return 'gcds-pagination-list-breakpoint-xxs';
         }
         else if (current - page == 5 || current - page == -5) {
-            return 'gcds-pagination-list-breakpoint-420';
+            return 'gcds-pagination-list-breakpoint-xs';
         }
         else if (current - page > 5 || current - page < -5) {
-            return 'gcds-pagination-list-breakpoint-488';
+            return 'gcds-pagination-list-breakpoint-sm';
         }
     }
     else if (current == 2 || current == total - 1) {
         if (current - page == 3 || current - page == -3) {
-            return 'gcds-pagination-list-breakpoint-360';
+            return 'gcds-pagination-list-breakpoint-xxs';
         }
         else if (current - page == 4 || current - page == -4) {
-            return 'gcds-pagination-list-breakpoint-420';
+            return 'gcds-pagination-list-breakpoint-xs';
         }
         else if (current - page > 4 || current - page < -4) {
-            return 'gcds-pagination-list-breakpoint-488';
+            return 'gcds-pagination-list-breakpoint-sm';
         }
     }
     else if (current > 2 && current < total - 1 && total < 10 && current == 5) {
         if (current - page == 2 || current - page == -2) {
-            return 'gcds-pagination-list-breakpoint-420';
+            return 'gcds-pagination-list-breakpoint-xs';
         }
         else if (current - page >= 3 || current - page <= -3) {
-            return 'gcds-pagination-list-breakpoint-488';
+            return 'gcds-pagination-list-breakpoint-sm';
         }
     }
     else if (current > 2 && current < total - 1) {
         if (current - page == 2 || current - page == -2) {
-            return 'gcds-pagination-list-breakpoint-420';
+            return 'gcds-pagination-list-breakpoint-xxs';
         }
         else if (current - page == 3 || current - page == -3) {
-            return 'gcds-pagination-list-breakpoint-460';
+            return 'gcds-pagination-list-breakpoint-xs';
         }
         else if (current - page > 3 || current - page < -3) {
-            return 'gcds-pagination-list-breakpoint-488';
+            return 'gcds-pagination-list-breakpoint-sm';
         }
     }
 }
 
-const gcdsPaginationCss = ".sc-gcds-pagination-h{display:block}.sc-gcds-pagination-h ul.sc-gcds-pagination{list-style:none;padding:0}.sc-gcds-pagination-h ul.sc-gcds-pagination li.sc-gcds-pagination{margin:var(--gcds-pagination-listitem-margin)}.sc-gcds-pagination-h ul.sc-gcds-pagination li.sc-gcds-pagination a.sc-gcds-pagination{border-radius:var(--gcds-pagination-border-radius);color:var(--gcds-pagination-default-text);font:var(--gcds-pagination-font)}.sc-gcds-pagination-h ul.sc-gcds-pagination li.sc-gcds-pagination a.sc-gcds-pagination:hover{background:var(--gcds-pagination-hover-background);color:var(--gcds-pagination-hover-text)}.sc-gcds-pagination-h ul.sc-gcds-pagination li.sc-gcds-pagination a.sc-gcds-pagination:focus{background-color:var(--gcds-pagination-focus-background);box-shadow:var(--gcds-pagination-focus-box-shadow);color:var(--gcds-pagination-focus-text);outline:var(--gcds-pagination-focus-outline-width) solid var(--gcds-pagination-focus-background);outline-offset:var(--gcds-pagination-border-width);text-decoration:none}.sc-gcds-pagination-h ul.sc-gcds-pagination li.sc-gcds-pagination a.sc-gcds-pagination:active:not(:focus),.sc-gcds-pagination-h ul.sc-gcds-pagination li.sc-gcds-pagination a[aria-current*=page].sc-gcds-pagination:not(:focus){background:var(--gcds-pagination-active-background);border-color:var(--gcds-pagination-active-background);color:var(--gcds-pagination-active-text);pointer-events:none;text-decoration:none}@media screen and (max-width:24em){.sc-gcds-pagination-h ul.sc-gcds-pagination li.sc-gcds-pagination{margin:var(--gcds-pagination-mobile-list-item-margin)}}.sc-gcds-pagination-h ul.gcds-pagination-list.sc-gcds-pagination,.sc-gcds-pagination-h ul.gcds-pagination-list-mobile-prevnext.sc-gcds-pagination{display:flex;flex-direction:row;margin:0 auto;width:fit-content}.sc-gcds-pagination-h ul.gcds-pagination-list.sc-gcds-pagination li.sc-gcds-pagination a.sc-gcds-pagination,.sc-gcds-pagination-h ul.gcds-pagination-list.sc-gcds-pagination li.sc-gcds-pagination>span.gcds-pagination-list-ellipses.sc-gcds-pagination,.sc-gcds-pagination-h ul.gcds-pagination-list-mobile-prevnext.sc-gcds-pagination li.sc-gcds-pagination a.sc-gcds-pagination,.sc-gcds-pagination-h ul.gcds-pagination-list-mobile-prevnext.sc-gcds-pagination li.sc-gcds-pagination>span.gcds-pagination-list-ellipses.sc-gcds-pagination{align-items:center;display:flex;height:2.75rem;justify-content:center;min-width:2.75rem}.sc-gcds-pagination-h ul.gcds-pagination-list.sc-gcds-pagination li.sc-gcds-pagination a.gcds-pagination-end-button.sc-gcds-pagination,.sc-gcds-pagination-h ul.gcds-pagination-list.sc-gcds-pagination li.sc-gcds-pagination a.gcds-pagination-end-button-mobile.sc-gcds-pagination,.sc-gcds-pagination-h ul.gcds-pagination-list.sc-gcds-pagination li.sc-gcds-pagination>span.gcds-pagination-list-ellipses.gcds-pagination-end-button.sc-gcds-pagination,.sc-gcds-pagination-h ul.gcds-pagination-list.sc-gcds-pagination li.sc-gcds-pagination>span.gcds-pagination-list-ellipses.gcds-pagination-end-button-mobile.sc-gcds-pagination,.sc-gcds-pagination-h ul.gcds-pagination-list-mobile-prevnext.sc-gcds-pagination li.sc-gcds-pagination a.gcds-pagination-end-button.sc-gcds-pagination,.sc-gcds-pagination-h ul.gcds-pagination-list-mobile-prevnext.sc-gcds-pagination li.sc-gcds-pagination a.gcds-pagination-end-button-mobile.sc-gcds-pagination,.sc-gcds-pagination-h ul.gcds-pagination-list-mobile-prevnext.sc-gcds-pagination li.sc-gcds-pagination>span.gcds-pagination-list-ellipses.gcds-pagination-end-button.sc-gcds-pagination,.sc-gcds-pagination-h ul.gcds-pagination-list-mobile-prevnext.sc-gcds-pagination li.sc-gcds-pagination>span.gcds-pagination-list-ellipses.gcds-pagination-end-button-mobile.sc-gcds-pagination{height:auto;min-width:auto;padding:var(--gcds-pagination-list-end-button-padding);width:auto}.sc-gcds-pagination-h ul.gcds-pagination-list.sc-gcds-pagination li.gcds-pagination-mobile-prevnext.sc-gcds-pagination,.sc-gcds-pagination-h ul.gcds-pagination-list-mobile-prevnext.sc-gcds-pagination li.gcds-pagination-mobile-prevnext.sc-gcds-pagination{display:none}.sc-gcds-pagination-h ul.gcds-pagination-list.sc-gcds-pagination li.gcds-pagination-list-mobile-ellipses.sc-gcds-pagination,.sc-gcds-pagination-h ul.gcds-pagination-list-mobile-prevnext.sc-gcds-pagination li.gcds-pagination-list-mobile-ellipses.sc-gcds-pagination{display:none}@media screen and (max-width:55.625em){.sc-gcds-pagination-h ul.gcds-pagination-list.sc-gcds-pagination li.sc-gcds-pagination a.sc-gcds-pagination,.sc-gcds-pagination-h ul.gcds-pagination-list-mobile-prevnext.sc-gcds-pagination li.sc-gcds-pagination a.sc-gcds-pagination{border:var(--gcds-pagination-border-width) solid}.sc-gcds-pagination-h ul.gcds-pagination-list.sc-gcds-pagination li.sc-gcds-pagination a.sc-gcds-pagination:focus,.sc-gcds-pagination-h ul.gcds-pagination-list-mobile-prevnext.sc-gcds-pagination li.sc-gcds-pagination a.sc-gcds-pagination:focus{border-color:var(--gcds-pagination-focus-background)}.sc-gcds-pagination-h ul.gcds-pagination-list.sc-gcds-pagination li.sc-gcds-pagination>span.gcds-pagination-list-ellipses.sc-gcds-pagination,.sc-gcds-pagination-h ul.gcds-pagination-list-mobile-prevnext.sc-gcds-pagination li.sc-gcds-pagination>span.gcds-pagination-list-ellipses.sc-gcds-pagination{min-width:auto}.sc-gcds-pagination-h ul.gcds-pagination-list.sc-gcds-pagination li.sc-gcds-pagination:has(>a.gcds-pagination-end-button).sc-gcds-pagination,.sc-gcds-pagination-h ul.gcds-pagination-list-mobile-prevnext.sc-gcds-pagination li.sc-gcds-pagination:has(>a.gcds-pagination-end-button).sc-gcds-pagination{margin:0}.sc-gcds-pagination-h ul.gcds-pagination-list.sc-gcds-pagination li.sc-gcds-pagination .gcds-pagination-end-button.sc-gcds-pagination,.sc-gcds-pagination-h ul.gcds-pagination-list-mobile-prevnext.sc-gcds-pagination li.sc-gcds-pagination .gcds-pagination-end-button.sc-gcds-pagination{display:none}.sc-gcds-pagination-h ul.gcds-pagination-list.sc-gcds-pagination li.gcds-pagination-mobile-prevnext.sc-gcds-pagination,.sc-gcds-pagination-h ul.gcds-pagination-list-mobile-prevnext.sc-gcds-pagination li.gcds-pagination-mobile-prevnext.sc-gcds-pagination{display:block}}@media screen and (max-width:34.75em){.sc-gcds-pagination-h ul.gcds-pagination-list.sc-gcds-pagination li.gcds-pagination-list-breakpoint-488.sc-gcds-pagination,.sc-gcds-pagination-h ul.gcds-pagination-list-mobile-prevnext.sc-gcds-pagination li.gcds-pagination-list-breakpoint-488.sc-gcds-pagination{display:none}.sc-gcds-pagination-h ul.gcds-pagination-list.sc-gcds-pagination li.gcds-pagination-list-breakpoint-488.sc-gcds-pagination+.gcds-pagination-list-mobile-ellipses.sc-gcds-pagination,.sc-gcds-pagination-h ul.gcds-pagination-list.sc-gcds-pagination li.gcds-pagination-list-mobile-ellipses.sc-gcds-pagination:has(+.gcds-pagination-list-breakpoint-488).sc-gcds-pagination,.sc-gcds-pagination-h ul.gcds-pagination-list-mobile-prevnext.sc-gcds-pagination li.gcds-pagination-list-breakpoint-488.sc-gcds-pagination+.gcds-pagination-list-mobile-ellipses.sc-gcds-pagination,.sc-gcds-pagination-h ul.gcds-pagination-list-mobile-prevnext.sc-gcds-pagination li.gcds-pagination-list-mobile-ellipses.sc-gcds-pagination:has(+.gcds-pagination-list-breakpoint-488).sc-gcds-pagination{display:list-item}}@media screen and (max-width:32.5em){.sc-gcds-pagination-h ul.gcds-pagination-list.sc-gcds-pagination li.gcds-pagination-list-breakpoint-460.sc-gcds-pagination,.sc-gcds-pagination-h ul.gcds-pagination-list-mobile-prevnext.sc-gcds-pagination li.gcds-pagination-list-breakpoint-460.sc-gcds-pagination{display:none;margin:0}.sc-gcds-pagination-h ul.gcds-pagination-list.sc-gcds-pagination li.gcds-pagination-list-breakpoint-460.sc-gcds-pagination+.gcds-pagination-list-mobile-ellipses.sc-gcds-pagination,.sc-gcds-pagination-h ul.gcds-pagination-list.sc-gcds-pagination li.gcds-pagination-list-mobile-ellipses.sc-gcds-pagination:has(+.gcds-pagination-list-breakpoint-460).sc-gcds-pagination,.sc-gcds-pagination-h ul.gcds-pagination-list-mobile-prevnext.sc-gcds-pagination li.gcds-pagination-list-breakpoint-460.sc-gcds-pagination+.gcds-pagination-list-mobile-ellipses.sc-gcds-pagination,.sc-gcds-pagination-h ul.gcds-pagination-list-mobile-prevnext.sc-gcds-pagination li.gcds-pagination-list-mobile-ellipses.sc-gcds-pagination:has(+.gcds-pagination-list-breakpoint-460).sc-gcds-pagination{display:list-item}}@media screen and (max-width:31em){.sc-gcds-pagination-h ul.gcds-pagination-list.sc-gcds-pagination li.gcds-pagination-list-breakpoint-420.sc-gcds-pagination,.sc-gcds-pagination-h ul.gcds-pagination-list-mobile-prevnext.sc-gcds-pagination li.gcds-pagination-list-breakpoint-420.sc-gcds-pagination{display:none}.sc-gcds-pagination-h ul.gcds-pagination-list.sc-gcds-pagination li.gcds-pagination-list-breakpoint-420.sc-gcds-pagination+.gcds-pagination-list-mobile-ellipses.sc-gcds-pagination,.sc-gcds-pagination-h ul.gcds-pagination-list.sc-gcds-pagination li.gcds-pagination-list-mobile-ellipses.sc-gcds-pagination:has(+.gcds-pagination-list-breakpoint-420).sc-gcds-pagination,.sc-gcds-pagination-h ul.gcds-pagination-list-mobile-prevnext.sc-gcds-pagination li.gcds-pagination-list-breakpoint-420.sc-gcds-pagination+.gcds-pagination-list-mobile-ellipses.sc-gcds-pagination,.sc-gcds-pagination-h ul.gcds-pagination-list-mobile-prevnext.sc-gcds-pagination li.gcds-pagination-list-mobile-ellipses.sc-gcds-pagination:has(+.gcds-pagination-list-breakpoint-420).sc-gcds-pagination{display:list-item}}@media screen and (max-width:25.75em){.sc-gcds-pagination-h ul.gcds-pagination-list.sc-gcds-pagination li.gcds-pagination-list-breakpoint-360.sc-gcds-pagination,.sc-gcds-pagination-h ul.gcds-pagination-list-mobile-prevnext.sc-gcds-pagination li.gcds-pagination-list-breakpoint-360.sc-gcds-pagination{display:none}.sc-gcds-pagination-h ul.gcds-pagination-list.sc-gcds-pagination li.gcds-pagination-list-breakpoint-360.sc-gcds-pagination+.gcds-pagination-list-mobile-ellipses.sc-gcds-pagination,.sc-gcds-pagination-h ul.gcds-pagination-list.sc-gcds-pagination li.gcds-pagination-list-mobile-ellipses.sc-gcds-pagination:has(+.gcds-pagination-list-breakpoint-360).sc-gcds-pagination,.sc-gcds-pagination-h ul.gcds-pagination-list-mobile-prevnext.sc-gcds-pagination li.gcds-pagination-list-breakpoint-360.sc-gcds-pagination+.gcds-pagination-list-mobile-ellipses.sc-gcds-pagination,.sc-gcds-pagination-h ul.gcds-pagination-list-mobile-prevnext.sc-gcds-pagination li.gcds-pagination-list-mobile-ellipses.sc-gcds-pagination:has(+.gcds-pagination-list-breakpoint-360).sc-gcds-pagination{display:list-item}}.sc-gcds-pagination-h ul.gcds-pagination-list-mobile-prevnext.sc-gcds-pagination{display:none;margin:var(--gcds-pagination-mobile-list-prevnext-margin)}@media screen and (max-width:55.625em){.sc-gcds-pagination-h ul.gcds-pagination-list-mobile-prevnext.sc-gcds-pagination{display:flex}}.sc-gcds-pagination-h ul.gcds-pagination-simple.sc-gcds-pagination li.sc-gcds-pagination{display:inline-block;justify-content:space-between;margin:var(--gcds-pagination-simple-listitem-margin);width:fit-content}.sc-gcds-pagination-h ul.gcds-pagination-simple.sc-gcds-pagination li.sc-gcds-pagination a.sc-gcds-pagination{display:grid;padding:var(--gcds-pagination-simple-padding)}.sc-gcds-pagination-h ul.gcds-pagination-simple.sc-gcds-pagination li.sc-gcds-pagination a.sc-gcds-pagination>gcds-icon.sc-gcds-pagination{grid-area:icon}.sc-gcds-pagination-h ul.gcds-pagination-simple.sc-gcds-pagination li.sc-gcds-pagination a.sc-gcds-pagination>.gcds-pagination-simple-text.sc-gcds-pagination{grid-area:text;margin:var(--gcds-pagination-simple-listitem-text-margin)}.sc-gcds-pagination-h ul.gcds-pagination-simple.sc-gcds-pagination li.sc-gcds-pagination a.sc-gcds-pagination>span.sc-gcds-pagination{font-weight:var(--gcds-pagination-simple-label-font-weight);grid-area:label}.sc-gcds-pagination-h ul.gcds-pagination-simple.sc-gcds-pagination li.gcds-pagination-simple-previous.sc-gcds-pagination a.sc-gcds-pagination{grid-template-areas:\"icon text\" \"icon label\";grid-template-columns:.25fr 1fr}.sc-gcds-pagination-h ul.gcds-pagination-simple.sc-gcds-pagination li.gcds-pagination-simple-next.sc-gcds-pagination{float:right}.sc-gcds-pagination-h ul.gcds-pagination-simple.sc-gcds-pagination li.gcds-pagination-simple-next.sc-gcds-pagination a.sc-gcds-pagination{grid-template-areas:\"text icon\" \"label icon\";grid-template-columns:1fr .25fr}@media screen and (max-width:25.75em){.sc-gcds-pagination-h ul.gcds-pagination-simple.sc-gcds-pagination li.sc-gcds-pagination{display:block}.sc-gcds-pagination-h ul.gcds-pagination-simple.sc-gcds-pagination li.sc-gcds-pagination:last-of-type{float:none}}";
+const gcdsPaginationCss = "@layer reset, default, list, simple, wide, compact, hover, active, focus;@layer reset{:host{display:block}:host .gcds-pagination ul{list-style:none;padding:0}}@layer default{:host .gcds-pagination{container:component pagination/inline-size}:host .gcds-pagination li{margin:var(--gcds-pagination-listitem-margin)}:host .gcds-pagination li a{border-radius:var(--gcds-pagination-border-radius);color:var(--gcds-pagination-default-text);font:var(--gcds-pagination-font)}}@layer list{:host .gcds-pagination :is(.gcds-pagination-list,.gcds-pagination-list-mobile-prevnext){display:flex;flex-direction:row;margin:0 auto;width:fit-content}:host .gcds-pagination :is(.gcds-pagination-list,.gcds-pagination-list-mobile-prevnext) li a,:host .gcds-pagination :is(.gcds-pagination-list,.gcds-pagination-list-mobile-prevnext) li>span.gcds-pagination-list-ellipses{align-items:center;display:flex;height:2.75rem;justify-content:center;min-width:2.75rem}:host .gcds-pagination :is(.gcds-pagination-list,.gcds-pagination-list-mobile-prevnext) li a.gcds-pagination-end-button,:host .gcds-pagination :is(.gcds-pagination-list,.gcds-pagination-list-mobile-prevnext) li a.gcds-pagination-end-button-mobile,:host .gcds-pagination :is(.gcds-pagination-list,.gcds-pagination-list-mobile-prevnext) li>span.gcds-pagination-list-ellipses.gcds-pagination-end-button,:host .gcds-pagination :is(.gcds-pagination-list,.gcds-pagination-list-mobile-prevnext) li>span.gcds-pagination-list-ellipses.gcds-pagination-end-button-mobile{height:auto;min-width:auto;padding:var(--gcds-pagination-list-end-button-padding);width:auto}:host .gcds-pagination :is(.gcds-pagination-list,.gcds-pagination-list-mobile-prevnext) li.gcds-pagination-mobile-prevnext{display:none}:host .gcds-pagination :is(.gcds-pagination-list,.gcds-pagination-list-mobile-prevnext) li.gcds-pagination-list-mobile-ellipses{display:none}:host .gcds-pagination .gcds-pagination-list-mobile-prevnext{display:flex;margin:var(--gcds-pagination-mobile-list-prevnext-margin)}}@layer simple{:host .gcds-pagination-simple{display:flex;flex-direction:column;justify-content:space-between}:host .gcds-pagination-simple li{display:inline-block;justify-content:space-between;margin:var(--gcds-pagination-simple-listitem-margin);width:fit-content}:host .gcds-pagination-simple li a{display:grid;padding:var(--gcds-pagination-simple-padding)}:host .gcds-pagination-simple li a>gcds-icon{grid-area:icon}:host .gcds-pagination-simple li a>.gcds-pagination-simple-text{grid-area:text;margin:var(--gcds-pagination-simple-listitem-text-margin)}:host .gcds-pagination-simple li a>span{font-weight:var(--gcds-pagination-simple-label-font-weight);grid-area:label}:host .gcds-pagination-simple .gcds-pagination-simple-previous a{grid-template-areas:\"icon text\" \"icon label\";grid-template-columns:.25fr 1fr}:host .gcds-pagination-simple .gcds-pagination-simple-next a{grid-template-areas:\"text icon\" \"label icon\";grid-template-columns:1fr .25fr}}@layer wide{@container pagination (width > 44em){:host .gcds-pagination-list-mobile-prevnext{display:none}}@container pagination (width > 20em){:host .gcds-pagination-simple{flex-direction:row}:host .gcds-pagination-simple .gcds-pagination-simple-next{margin-left:auto}}}@layer compact{@container pagination (width <= 44em){:host .gcds-pagination :is(.gcds-pagination-list,.gcds-pagination-list-mobile-prevnext) li a{border:var(--gcds-pagination-border-width) solid}:host .gcds-pagination :is(.gcds-pagination-list,.gcds-pagination-list-mobile-prevnext) li>span.gcds-pagination-list-ellipses{min-width:auto}:host .gcds-pagination :is(.gcds-pagination-list,.gcds-pagination-list-mobile-prevnext) li:has(>a.gcds-pagination-end-button){margin:0}:host .gcds-pagination :is(.gcds-pagination-list,.gcds-pagination-list-mobile-prevnext) li .gcds-pagination-end-button{display:none}:host .gcds-pagination :is(.gcds-pagination-list,.gcds-pagination-list-mobile-prevnext) li.gcds-pagination-mobile-prevnext{display:block}}@container pagination (width <= 30em){:host .gcds-pagination-list .gcds-pagination-list-breakpoint-sm{display:none}}@container pagination (width <= 27.5em){:host .gcds-pagination-list .gcds-pagination-list-breakpoint-xs{display:none}}@container pagination (width <= 25em){:host .gcds-pagination-list .gcds-pagination-list-breakpoint-xxs{display:none}}@container pagination (width <= 19em){:host .gcds-pagination-list li{margin:var(--gcds-pagination-mobile-list-item-margin)}}}@layer hover{@media (hover:hover){:host .gcds-pagination ul li a:hover{background:var(--gcds-pagination-hover-background);color:var(--gcds-pagination-hover-text)}}}@layer active{:host .gcds-pagination ul li a:active:not(:focus),:host .gcds-pagination ul li a[aria-current*=page]:not(:focus){background:var(--gcds-pagination-active-background);border-color:var(--gcds-pagination-active-background);color:var(--gcds-pagination-active-text);pointer-events:none;text-decoration:none}}@layer focus{:host .gcds-pagination ul li a:focus{background-color:var(--gcds-pagination-focus-background);border-color:var(--gcds-pagination-focus-background);box-shadow:var(--gcds-pagination-focus-box-shadow);color:var(--gcds-pagination-focus-text);outline:var(--gcds-pagination-focus-outline-width) solid var(--gcds-pagination-focus-background);outline-offset:var(--gcds-pagination-border-width);text-decoration:none}}";
 const GcdsPaginationStyle0 = gcdsPaginationCss;
 
 const GcdsPagination = class {
     constructor(hostRef) {
         index.registerInstance(this, hostRef);
-        this.gcdsPageChange = index.createEvent(this, "gcdsPageChange", 7);
+        this.gcdsFocus = index.createEvent(this, "gcdsFocus", 7);
+        this.gcdsBlur = index.createEvent(this, "gcdsBlur", 7);
+        this.gcdsClick = index.createEvent(this, "gcdsClick", 7);
         this.listitems = [];
         this.mobilePrevNext = [];
-        this.onPageChange = e => {
-            if (this.pageChangeHandler) {
-                this.pageChangeHandler(e);
-            }
-            this.gcdsPageChange.emit();
-        };
         this.display = 'list';
         this.label = undefined;
         this.previousHref = undefined;
@@ -2886,7 +2980,6 @@ const GcdsPagination = class {
         this.totalPages = undefined;
         this.currentPage = undefined;
         this.url = undefined;
-        this.pageChangeHandler = undefined;
         this.currentStep = undefined;
         this.lang = undefined;
     }
@@ -2914,11 +3007,11 @@ const GcdsPagination = class {
      * Function to constuct <li> and <a> tags for display="list" pagination
      */
     configurePaginationStep(page, end, mobile) {
+        const href = this.urlObject
+            ? constructHref(this.urlObject, page, end)
+            : 'javascript:void(0)';
         const linkAttrs = {
-            'onClick': e => this.onPageChange(e),
-            'href': this.urlObject
-                ? constructHref(this.urlObject, page, end)
-                : 'javascript:void(0)',
+            'href': href,
             'aria-label': !end
                 ? I18N$9[this.lang].pageNumberOf
                     .replace('{#}', page)
@@ -2933,6 +3026,9 @@ const GcdsPagination = class {
                         .replace('{#}', --page)
                         .replace('{total}', this.totalPages)
                         .replace('{label}', this.label)}`,
+            'onBlur': () => this.gcdsBlur.emit(),
+            'onFocus': () => this.gcdsFocus.emit(),
+            'onClick': e => emitEvent(e, this.gcdsClick, { page: page, href }),
         };
         if (page == this.currentPage && !end) {
             linkAttrs['aria-current'] = 'page';
@@ -3055,7 +3151,7 @@ const GcdsPagination = class {
     }
     render() {
         const { display, label, previousHref, previousLabel, nextHref, nextLabel, lang, } = this;
-        return (index.h(index.Host, { role: "navigation", "aria-label": label }, display === 'list' ? (index.h("div", null, index.h("ul", { class: "gcds-pagination-list" }, this.listitems), index.h("ul", { class: "gcds-pagination-list-mobile-prevnext" }, this.mobilePrevNext))) : (index.h("ul", { class: "gcds-pagination-simple" }, previousHref && (index.h("li", { class: "gcds-pagination-simple-previous" }, index.h("a", { href: previousHref, "aria-label": `${I18N$9[lang].previousPage}${previousLabel ? `: ${previousLabel}` : ''}`, onClick: e => this.onPageChange(e) }, index.h("gcds-icon", { "margin-right": "200", name: "arrow-left" }), index.h("div", { class: "gcds-pagination-simple-text" }, I18N$9[lang].previous), index.h("span", null, previousLabel)))), nextHref && (index.h("li", { class: "gcds-pagination-simple-next" }, index.h("a", { href: nextHref, "aria-label": `${I18N$9[lang].nextPage}${nextLabel ? `: ${nextLabel}` : ''}`, onClick: e => this.onPageChange(e) }, index.h("div", { class: "gcds-pagination-simple-text" }, I18N$9[lang].next), index.h("span", null, nextLabel), index.h("gcds-icon", { "margin-left": "200", name: "arrow-right" }))))))));
+        return (index.h(index.Host, { role: "navigation", "aria-label": label }, index.h("div", { class: "gcds-pagination" }, display === 'list' ? (index.h("div", null, index.h("ul", { class: "gcds-pagination-list" }, this.listitems), index.h("ul", { class: "gcds-pagination-list-mobile-prevnext" }, this.mobilePrevNext))) : (index.h("ul", { class: "gcds-pagination-simple" }, previousHref && (index.h("li", { class: "gcds-pagination-simple-previous" }, index.h("a", { href: previousHref, "aria-label": `${I18N$9[lang].previousPage}${previousLabel ? `: ${previousLabel}` : ''}`, onBlur: () => this.gcdsBlur.emit(), onFocus: () => this.gcdsFocus.emit(), onClick: e => emitEvent(e, this.gcdsClick, previousHref) }, index.h("gcds-icon", { "margin-right": "200", name: "arrow-left" }), index.h("div", { class: "gcds-pagination-simple-text" }, I18N$9[lang].previous), index.h("span", null, previousLabel)))), nextHref && (index.h("li", { class: "gcds-pagination-simple-next" }, index.h("a", { href: nextHref, "aria-label": `${I18N$9[lang].nextPage}${nextLabel ? `: ${nextLabel}` : ''}`, onBlur: () => this.gcdsBlur.emit(), onFocus: () => this.gcdsFocus.emit(), onClick: e => emitEvent(e, this.gcdsClick, nextHref) }, index.h("div", { class: "gcds-pagination-simple-text" }, I18N$9[lang].next), index.h("span", null, nextLabel), index.h("gcds-icon", { "margin-left": "200", name: "arrow-right" })))))))));
     }
     get el() { return index.getElement(this); }
     static get watchers() { return {
@@ -3075,7 +3171,7 @@ const I18N$8 = {
   },
 };
 
-const gcdsPhaseBannerCss = ":host .gcds-phase-banner{font:var(--gcds-phase-banner-font);line-height:var(--gcds-phase-banner-line-height)}:host .gcds-phase-banner slot{display:initial}:host .gcds-phase-banner.banner-is-fixed{position:sticky;top:0;width:100%;z-index:9999}:host .gcds-phase-banner.banner--role-primary{background-color:var(--gcds-phase-banner-primary-background);color:var(--gcds-phase-banner-primary-text)}:host .gcds-phase-banner.banner--role-secondary{background-color:var(--gcds-phase-banner-secondary-background);color:var(--gcds-phase-banner-secondary-text)}:host .gcds-phase-banner .banner__content{padding:var(--gcds-phase-banner-padding)}@media only screen and (min-width:35em){:host .gcds-phase-banner .banner__content{display:flex}}:host .gcds-phase-banner .banner__icon{display:flex;margin:0}:host .gcds-phase-banner .banner__icon.icon--left{margin-inline-end:var(--gcds-phase-banner-icon-margin)}:host .gcds-phase-banner .banner__icon.icon--right{margin-inline-start:var(--gcds-phase-banner-icon-margin)}@media only screen and (max-width:34.99em){:host .gcds-phase-banner .banner__icon{display:none}}:host .gcds-phase-banner .banner__icon ::slotted(img),:host .gcds-phase-banner .banner__icon ::slotted(svg){max-height:var(--gcds-phase-banner-icon-max-height)}:host .gcds-phase-banner .banner__details{align-items:baseline;display:flex;flex-wrap:wrap}:host .gcds-phase-banner .banner__details ::slotted(a),:host .gcds-phase-banner .banner__details ::slotted(gcds-button){flex:0 0 auto}:host .gcds-phase-banner .banner__details ::slotted(a),:host .gcds-phase-banner .banner__details ::slotted(small),:host .gcds-phase-banner .banner__details ::slotted(span){font-size:80%!important}:host .gcds-phase-banner .banner__details ::slotted(p){font:var(--gcds-phase-banner-font);margin:0}:host .gcds-phase-banner .banner__details ::slotted(a){color:inherit}:host .gcds-phase-banner .banner__details ::slotted(gcds-button){margin:var(--gcds-phase-banner-details-cta-margin);transform:scale(90%)}";
+const gcdsPhaseBannerCss = "@layer reset, default, fixed, role, wide, compact;@layer reset{:host{display:block}:host slot{display:initial}}@layer default{:host .gcds-phase-banner{container:component banner/inline-size;font:var(--gcds-phase-banner-font);line-height:var(--gcds-phase-banner-line-height)}:host .gcds-phase-banner .banner__content{padding:var(--gcds-phase-banner-padding)}:host .gcds-phase-banner .banner__icon{display:flex;margin:0}:host .gcds-phase-banner .banner__icon.icon--left{margin-inline-end:var(--gcds-phase-banner-icon-margin)}:host .gcds-phase-banner .banner__icon.icon--right{margin-inline-start:var(--gcds-phase-banner-icon-margin)}:host .gcds-phase-banner .banner__icon ::slotted(img),:host .gcds-phase-banner .banner__icon ::slotted(svg){max-height:var(--gcds-phase-banner-icon-max-height)}:host .gcds-phase-banner .banner__details{align-items:baseline;display:flex;flex-wrap:wrap}:host .gcds-phase-banner .banner__details ::slotted(a),:host .gcds-phase-banner .banner__details ::slotted(gcds-button){flex:0 0 auto}:host .gcds-phase-banner .banner__details ::slotted(a),:host .gcds-phase-banner .banner__details ::slotted(small),:host .gcds-phase-banner .banner__details ::slotted(span){font-size:80%!important}:host .gcds-phase-banner .banner__details ::slotted(p){font:var(--gcds-phase-banner-font);margin:0}:host .gcds-phase-banner .banner__details ::slotted(a){color:inherit}:host .gcds-phase-banner .banner__details ::slotted(gcds-button){margin:var(--gcds-phase-banner-details-cta-margin);transform:scale(90%)}}@layer fixed{:host .gcds-phase-banner.banner-is-fixed{position:sticky;top:0;width:100%;z-index:9999}}@layer role{:host .gcds-phase-banner.banner--role-primary{background-color:var(--gcds-phase-banner-primary-background);color:var(--gcds-phase-banner-primary-text)}:host .gcds-phase-banner.banner--role-secondary{background-color:var(--gcds-phase-banner-secondary-background);color:var(--gcds-phase-banner-secondary-text)}}@layer wide{@container banner (width >= 36em){:host .gcds-phase-banner .banner__content{display:flex}}}@layer compact{@container banner (width < 36em){:host .gcds-phase-banner .banner__content .banner__icon{display:none}}}";
 const GcdsPhaseBannerStyle0 = gcdsPhaseBannerCss;
 
 const GcdsPhaseBanner = class {
@@ -3113,50 +3209,42 @@ const GcdsPhaseBanner = class {
 };
 GcdsPhaseBanner.style = GcdsPhaseBannerStyle0;
 
-const gcdsRadioCss = ".sc-gcds-radio-h .gcds-radio.sc-gcds-radio{border:0;color:var(--gcds-radio-default-text);font:var(--gcds-radio-font);margin:var(--gcds-radio-margin);max-width:90%;padding:0;position:relative;transition:color .15s ease-in-out}.sc-gcds-radio-h .gcds-radio.sc-gcds-radio:focus-within{color:var(--gcds-radio-focus-text)}.sc-gcds-radio-h .gcds-radio.sc-gcds-radio:focus-within gcds-hint.sc-gcds-radio{color:currentColor}.sc-gcds-radio-h .gcds-radio.gcds-radio--disabled.sc-gcds-radio{color:var(--gcds-radio-disabled-text)}.sc-gcds-radio-h .gcds-radio.gcds-radio--disabled.sc-gcds-radio input[type=radio].sc-gcds-radio+gcds-label.sc-gcds-radio{color:var(--gcds-radio-disabled-text)}.sc-gcds-radio-h .gcds-radio.gcds-radio--disabled.sc-gcds-radio input[type=radio].sc-gcds-radio+gcds-label.sc-gcds-radio:before{background-color:var(--gcds-radio-disabled-background);border-color:var(--gcds-radio-disabled-border);cursor:not-allowed}.sc-gcds-radio-h .gcds-radio.gcds-radio--disabled.sc-gcds-radio input[type=radio].sc-gcds-radio+gcds-label.sc-gcds-radio:after{cursor:not-allowed}.sc-gcds-radio-h .gcds-radio.gcds-radio--disabled.sc-gcds-radio gcds-hint.sc-gcds-radio{color:currentColor}.sc-gcds-radio-h .gcds-radio.gcds-radio--error.sc-gcds-radio:not(:focus-within) input[type=radio].sc-gcds-radio+gcds-label.sc-gcds-radio:before{border-color:var(--gcds-radio-danger-border)}.sc-gcds-radio-h .gcds-radio.gcds-radio--error.sc-gcds-radio:not(:focus-within) input[type=radio].sc-gcds-radio+gcds-label.sc-gcds-radio:after{background-color:var(--gcds-radio-danger-border);color:var(--gcds-radio-danger-border)}.sc-gcds-radio-h .gcds-radio.sc-gcds-radio input[type=radio].sc-gcds-radio{height:var(--gcds-radio-input-height);left:0;opacity:0;position:absolute;top:var(--gcds-radio-top);width:var(--gcds-radio-input-width)}.sc-gcds-radio-h .gcds-radio.sc-gcds-radio input[type=radio].sc-gcds-radio:checked+gcds-label.sc-gcds-radio:after{opacity:1}.sc-gcds-radio-h .gcds-radio.sc-gcds-radio input[type=radio].sc-gcds-radio+gcds-label.sc-gcds-radio{width:fit-content}.sc-gcds-radio-h .gcds-radio.sc-gcds-radio input[type=radio].sc-gcds-radio+gcds-label.sc-gcds-radio:after,.sc-gcds-radio-h .gcds-radio.sc-gcds-radio input[type=radio].sc-gcds-radio+gcds-label.sc-gcds-radio:before{border-radius:var(--gcds-radio-border-radius);box-sizing:border-box;content:\"\";cursor:pointer;position:absolute}.sc-gcds-radio-h .gcds-radio.sc-gcds-radio input[type=radio].sc-gcds-radio+gcds-label.sc-gcds-radio:before{border:var(--gcds-radio-input-border-width) solid;height:var(--gcds-radio-input-height-and-width);left:0;top:var(--gcds-radio-top);transition:border-color .15s ease-in-out,box-shadow .15s ease-in-out,outline .15s ease-in-out;width:var(--gcds-radio-input-height-and-width)}.sc-gcds-radio-h .gcds-radio.sc-gcds-radio input[type=radio].sc-gcds-radio+gcds-label.sc-gcds-radio:after{background-color:currentcolor;color:currentcolor;height:var(--gcds-radio-check-height-and-width);left:var(--gcds-radio-check-left);opacity:0;top:var(--gcds-radio-check-top);transition:opacity .2s ease-in-out;width:var(--gcds-radio-check-height-and-width)}.sc-gcds-radio-h .gcds-radio.sc-gcds-radio input[type=radio].sc-gcds-radio:focus+gcds-label.sc-gcds-radio{color:var(--gcds-radio-focus-text)}.sc-gcds-radio-h .gcds-radio.sc-gcds-radio input[type=radio].sc-gcds-radio:focus+gcds-label.sc-gcds-radio:before{background:var(--gcds-radio-focus-background);box-shadow:var(--gcds-radio-focus-box-shadow);outline:var( --gcds-radio-focus-outline-width) solid currentcolor;outline-offset:var(--gcds-radio-input-border-width)}.sc-gcds-radio-h .gcds-radio.sc-gcds-radio input[type=radio].sc-gcds-radio:focus+gcds-label.sc-gcds-radio:after{background-color:currentcolor;color:var(--gcds-radio-focus-text)}.sc-gcds-radio-h .gcds-radio.sc-gcds-radio gcds-hint.sc-gcds-radio,.sc-gcds-radio-h .gcds-radio.sc-gcds-radio gcds-label.sc-gcds-radio{display:block;padding:var(--gcds-radio-label-padding)}.sc-gcds-radio-h .gcds-radio.sc-gcds-radio gcds-hint.sc-gcds-radio{font:var(--gcds-radio-hint-font)}";
-const GcdsRadioStyle0 = gcdsRadioCss;
+const gcdsRadioGroupCss = "@layer reset, default, disabled, error, focus;@layer reset{:host{display:block}:host .gcds-radio{border:0;padding:0}:host .gcds-radio gcds-label:after,:host .gcds-radio gcds-label:before{box-sizing:border-box;content:\"\";cursor:pointer}}@layer default{:host .gcds-radio{color:var(--gcds-radio-default-text);font:var(--gcds-radio-font);margin:var(--gcds-radio-margin)!important;max-width:var(--gcds-radio-max-width);min-height:calc(var(--gcds-radio-input-height-and-width) - var(--gcds-radio-padding));padding:var(--gcds-radio-padding) 0 0;position:relative;transition:color .15s ease-in-out}:host .gcds-radio :is(gcds-label,gcds-hint){padding:var(--gcds-radio-label-padding)!important}:host .gcds-radio gcds-hint::part(hint){margin:0}:host .gcds-radio gcds-label:after,:host .gcds-radio gcds-label:before,:host .gcds-radio input{position:absolute}:host .gcds-radio gcds-label:before,:host .gcds-radio input{height:var(--gcds-radio-input-height-and-width);left:0;top:0;width:var(--gcds-radio-input-height-and-width)}:host .gcds-radio input{opacity:0}:host .gcds-radio gcds-label{width:fit-content}:host .gcds-radio gcds-label:after,:host .gcds-radio gcds-label:before{border-radius:var(--gcds-radio-border-radius)}:host .gcds-radio gcds-label:before{border:var(--gcds-radio-input-border-width) solid;transition:border-color .15s ease-in-out,box-shadow .15s ease-in-out,outline .15s ease-in-out}:host .gcds-radio gcds-label:after{background-color:currentcolor;height:var(--gcds-radio-check-height-and-width);left:var(--gcds-radio-check-left);opacity:0;top:var(--gcds-radio-check-top);transition:opacity .2s ease-in-out;width:var(--gcds-radio-check-height-and-width)}:host .gcds-radio input:checked+gcds-label:after{opacity:1}}@layer disabled{:host .gcds-radio.gcds-radio--disabled{color:var(--gcds-radio-disabled-text)}:host .gcds-radio.gcds-radio--disabled gcds-label:after,:host .gcds-radio.gcds-radio--disabled gcds-label:before{cursor:not-allowed}:host .gcds-radio.gcds-radio--disabled gcds-label:before{background-color:var(--gcds-radio-disabled-background);border-color:var(--gcds-radio-disabled-border)}}@layer error{:host .gcds-radio.gcds-radio--error:not(:focus-within) gcds-label:before{border-color:var(--gcds-radio-danger-border)}:host .gcds-radio.gcds-radio--error:not(:focus-within) gcds-label:after{background-color:var(--gcds-radio-danger-border)}}@layer focus{:host .gcds-radio:focus-within{color:var(--gcds-radio-focus-text)}:host .gcds-radio:focus-within input:focus+gcds-label:before{background:var(--gcds-radio-focus-background);box-shadow:var(--gcds-radio-focus-box-shadow);outline:var(--gcds-radio-focus-outline-width) solid currentcolor;outline-offset:var(--gcds-radio-input-border-width)}:host .gcds-radio:focus-within input:focus+gcds-label:after{background-color:currentcolor}}";
+const GcdsRadioGroupStyle0 = gcdsRadioGroupCss;
 
-const GcdsRadio = class {
+const GcdsRadioGroup = class {
     constructor(hostRef) {
         index.registerInstance(this, hostRef);
-        this.gcdsRadioChange = index.createEvent(this, "gcdsRadioChange", 7);
+        this.gcdsChange = index.createEvent(this, "gcdsChange", 7);
         this.gcdsFocus = index.createEvent(this, "gcdsFocus", 7);
         this.gcdsBlur = index.createEvent(this, "gcdsBlur", 7);
-        this.onFocus = e => {
-            if (this.focusHandler) {
-                this.focusHandler(e);
-            }
-            this.gcdsFocus.emit();
-        };
-        this.onBlur = e => {
-            if (this.blurHandler) {
-                this.blurHandler(e);
-            }
+        if (hostRef.$hostElement$["s-ei"]) {
+            this.internals = hostRef.$hostElement$["s-ei"];
+        }
+        else {
+            this.internals = hostRef.$hostElement$.attachInternals();
+            hostRef.$hostElement$["s-ei"] = this.internals;
+        }
+        this.onBlur = () => {
             this.gcdsBlur.emit();
         };
-        this.onChange = name => {
-            this.gcdsRadioChange.emit(name);
-            this.checked = this.shadowElement.checked;
+        this.onChange = e => {
+            this.gcdsChange.emit(e.target.value);
+            this.internals.setFormValue(e.target.value, 'checked');
         };
-        this.radioId = undefined;
-        this.label = undefined;
+        this.options = undefined;
         this.name = undefined;
-        this.required = undefined;
-        this.disabled = undefined;
-        this.checked = undefined;
-        this.value = undefined;
-        this.hint = undefined;
-        this.clickHandler = undefined;
-        this.focusHandler = undefined;
-        this.blurHandler = undefined;
         this.hasError = undefined;
         this.parentError = undefined;
         this.inheritedAttributes = {};
         this.lang = undefined;
     }
-    validateHasError() {
-        if (this.disabled) {
-            this.hasError = false;
+    validateOptions() {
+        if (typeof this.options == 'object') {
+            this.optionObject = this.options;
+        }
+        else if (typeof this.options == 'string') {
+            this.optionObject = JSON.parse(this.options);
         }
     }
     /*
@@ -3174,26 +3262,22 @@ const GcdsRadio = class {
         // Define lang attribute
         this.lang = assignLanguage(this.el);
         this.updateLang();
+        this.validateOptions();
         this.inheritedAttributes = inheritAttributes(this.el, this.shadowElement);
-    }
-    gcdsradioChangeEventHandler(event) {
-        if (event.detail == this.name && event.srcElement != this.shadowElement) {
-            if (this.checked) {
-                this.checked = false;
-            }
-        }
+        this.optionObject &&
+            this.optionObject.map(radio => {
+                if (radio.checked) {
+                    this.internals.setFormValue(radio.value, 'checked');
+                }
+            });
     }
     /**
      * Event listener for gcds-fieldset errors
      */
     gcdsGroupError(e) {
-        if (e.srcElement.contains(this.el) && elementGroupCheck(this.name)) {
+        if (e.srcElement.contains(this.el)) {
             this.hasError = true;
             this.parentError = e.detail;
-        }
-        else if (!elementGroupCheck(this.name)) {
-            this.hasError = false;
-            this.parentError = '';
         }
     }
     gcdsGroupErrorClear(e) {
@@ -3203,32 +3287,31 @@ const GcdsRadio = class {
         }
     }
     render() {
-        const { lang, radioId, label, name, required, disabled, value, checked, hint, hasError, parentError, inheritedAttributes, } = this;
-        const attrsInput = Object.assign({ name,
-            disabled,
-            required,
-            value,
-            checked }, inheritedAttributes);
-        if (hint || parentError) {
-            const hintID = hint ? `hint-${radioId} ` : '';
-            const errorID = parentError ? `parent-error-${radioId} ` : '';
-            attrsInput['aria-describedby'] = `${hintID}${errorID}${attrsInput['aria-describedby']
-                ? `${attrsInput['aria-describedby']}`
-                : ''}`;
-        }
-        if (hasError) {
-            attrsInput['aria-invalid'] = 'true';
-        }
-        return (index.h(index.Host, null, index.h("div", { class: `gcds-radio ${disabled ? 'gcds-radio--disabled' : ''} ${hasError ? 'gcds-radio--error' : ''}` }, index.h("input", Object.assign({ id: radioId, type: "radio" }, attrsInput, { onChange: () => this.onChange(name), onBlur: e => this.onBlur(e), onFocus: e => this.onFocus(e), onClick: e => {
-                this.clickHandler && this.clickHandler(e);
-            }, ref: element => (this.shadowElement = element) })), index.h("gcds-label", { label: label, "label-for": radioId, lang: lang }), hint ? index.h("gcds-hint", { hint: hint, "hint-id": radioId }) : null, parentError && (index.h("span", { id: `parent-error-${radioId}`, hidden: true }, parentError)))));
+        const { lang, name, hasError, parentError, inheritedAttributes } = this;
+        return (index.h(index.Host, null, this.optionObject &&
+            this.optionObject.map(radio => {
+                const attrsInput = Object.assign({ name, disabled: radio.disabled, required: radio.required, value: radio.value, checked: radio.checked }, inheritedAttributes);
+                if (radio.hint || parentError) {
+                    const hintID = radio.hint ? `hint-${radio.id} ` : '';
+                    const errorID = parentError ? `parent-error ` : '';
+                    attrsInput['aria-describedby'] = `${hintID}${errorID}${attrsInput['aria-describedby']
+                        ? `${attrsInput['aria-describedby']}`
+                        : ''}`;
+                }
+                if (hasError) {
+                    attrsInput['aria-invalid'] = 'true';
+                }
+                return (index.h("div", { class: `gcds-radio ${radio.disabled ? 'gcds-radio--disabled' : ''} ${hasError ? 'gcds-radio--error' : ''}` }, index.h("input", Object.assign({ id: radio.id, type: "radio" }, attrsInput, { onChange: e => this.onChange(e), onBlur: () => this.onBlur(), onFocus: () => this.gcdsFocus.emit(), ref: element => (this.shadowElement = element) })), index.h("gcds-label", { label: radio.label, "label-for": radio.id, lang: lang }), radio.hint ? (index.h("gcds-hint", { "hint-id": radio.id }, radio.hint)) : null));
+            }), parentError && (index.h("span", { id: `parent-error`, hidden: true }, parentError))));
     }
+    static get delegatesFocus() { return true; }
+    static get formAssociated() { return true; }
     get el() { return index.getElement(this); }
     static get watchers() { return {
-        "hasError": ["validateHasError"]
+        "options": ["validateOptions"]
     }; }
 };
-GcdsRadio.style = GcdsRadioStyle0;
+GcdsRadioGroup.style = GcdsRadioGroupStyle0;
 
 const I18N$7 = {
   en: {
@@ -3241,21 +3324,28 @@ const I18N$7 = {
   },
 };
 
-const gcdsSearchCss = "@layer defaults, state.focus;@layer defaults{.sc-gcds-search-h .gcds-search .gcds-search__header{display:block;height:0;margin:0;overflow:hidden;width:0}.sc-gcds-search-h .gcds-search .gcds-search__form{display:flex;margin:var(--gcds-search-margin)!important}.sc-gcds-search-h .gcds-search input.gcds-search__input{background-color:var(--gcds-search-default-background);background-image:none;border:var(--gcds-search-border-width) solid;border-radius:var(--gcds-search-border-radius);box-sizing:border-box;color:var(--gcds-search-default-text);font:var(--gcds-search-font);height:auto;min-height:var(--gcds-search-min-width-and-height);padding:var(--gcds-search-padding)!important;transition:border-color .15s ease-in-out,box-shadow .15s ease-in-out;width:100%}.sc-gcds-search-h .gcds-search ::part(button){border-end-start-radius:0;border-start-start-radius:0;margin:0}.sc-gcds-search-h [type=search]::-webkit-search-cancel-button,.sc-gcds-search-h [type=search]::-webkit-search-decoration{-webkit-appearance:none;appearance:none}}@layer state.focus{.sc-gcds-search-h input.gcds-search__input:focus{border-color:var(--gcds-search-focus-text);border-radius:var(--gcds-search-focus-border-radius);box-shadow:var(--gcds-search-focus-box-shadow);outline:var(--gcds-search-outline-width) solid var(--gcds-search-focus-text);outline-offset:var(--gcds-search-border-width);z-index:30}.sc-gcds-search-h ::part(button):focus{border-radius:var(--gcds-search-focus-border-radius);box-shadow:var(--gcds-search-focus-box-shadow)}}";
+const gcdsSearchCss = "@layer reset, default, focus;@layer reset{:host{display:block}:host .gcds-search input{background-image:none;box-sizing:border-box}:host [type=search]::-webkit-search-cancel-button,:host [type=search]::-webkit-search-decoration{-webkit-appearance:none;appearance:none}}@layer default{:host .gcds-search .gcds-search__header{display:block;height:0;margin:0;overflow:hidden;width:0}:host .gcds-search .gcds-search__form{display:flex;margin:var(--gcds-search-margin)!important}:host .gcds-search input{background-color:var(--gcds-search-default-background);border:var(--gcds-search-border-width) solid;border-radius:var(--gcds-search-border-radius);color:var(--gcds-search-default-text);font:var(--gcds-search-font);height:auto;min-height:var(--gcds-search-min-width-and-height);padding:var(--gcds-search-padding)!important;transition:border-color .15s ease-in-out,box-shadow .15s ease-in-out;width:100%}:host .gcds-search ::part(button){border-end-start-radius:0;border-start-start-radius:0;height:100%;margin:0}}@layer focus{:host .gcds-search input:focus{border-color:var(--gcds-search-focus-text);border-radius:var(--gcds-search-focus-border-radius);box-shadow:var(--gcds-search-focus-box-shadow);outline:var(--gcds-search-outline-width) solid var(--gcds-search-focus-text);outline-offset:var(--gcds-search-border-width);z-index:30}:host .gcds-search ::part(button):focus{border-radius:var(--gcds-search-focus-border-radius);box-shadow:var(--gcds-search-focus-box-shadow)}}";
 const GcdsSearchStyle0 = gcdsSearchCss;
 
 const GcdsSearch = class {
     constructor(hostRef) {
         index.registerInstance(this, hostRef);
+        this.gcdsInput = index.createEvent(this, "gcdsInput", 7);
         this.gcdsChange = index.createEvent(this, "gcdsChange", 7);
         this.gcdsFocus = index.createEvent(this, "gcdsFocus", 7);
         this.gcdsBlur = index.createEvent(this, "gcdsBlur", 7);
         this.gcdsSubmit = index.createEvent(this, "gcdsSubmit", 7);
+        this.handleInput = (e, customEvent) => {
+            const input = e.target;
+            this.value = input.value;
+            customEvent.emit(this.value);
+        };
         this.placeholder = 'Canada.ca';
         this.action = '/sr/srb.html';
         this.method = 'get';
         this.name = 'q';
         this.searchId = 'search';
+        this.value = undefined;
         this.suggested = undefined;
         this.lang = undefined;
     }
@@ -3275,7 +3365,7 @@ const GcdsSearch = class {
         this.lang = assignLanguage(this.el);
     }
     render() {
-        const { placeholder, action, method, name, lang, searchId, suggested } = this;
+        const { placeholder, action, method, name, value, lang, searchId, suggested, } = this;
         const labelText = `${I18N$7[lang].searchLabel.replace('{$}', placeholder)}`;
         const attrsInput = {
             name,
@@ -3284,53 +3374,47 @@ const GcdsSearch = class {
         const formAction = action === '/sr/srb.html'
             ? `https://www.canada.ca/${lang}/sr/srb.html`
             : action;
-        return (index.h(index.Host, null, index.h("div", { class: "gcds-search" }, index.h("h2", { class: "gcds-search__header" }, I18N$7[lang].search), index.h("form", { action: formAction, method: method, role: "search", onSubmit: () => this.gcdsSubmit.emit(), class: "gcds-search__form" }, index.h("gcds-label", { label: labelText, "label-for": searchId, "hide-label": true }), index.h("input", Object.assign({ type: "search", id: searchId, list: "search-list", size: 34, maxLength: 170, onChange: () => this.gcdsChange.emit(), onFocus: () => this.gcdsFocus.emit(), onBlur: () => this.gcdsBlur.emit() }, attrsInput, { class: "gcds-search__input" })), suggested && (index.h("datalist", { id: "search-list" }, suggested.map((k, v) => (index.h("option", { value: k, key: v }))))), index.h("gcds-button", { type: "submit", class: "gcds-search__button", exportparts: "button" }, index.h("gcds-icon", { name: "search", label: I18N$7[lang].search, "fixed-width": true }))))));
+        return (index.h(index.Host, null, index.h("div", { class: "gcds-search" }, index.h("gcds-sr-only", { tag: "h2" }, I18N$7[lang].search), index.h("form", { action: formAction, method: method, role: "search", onSubmit: e => emitEvent(e, this.gcdsSubmit, this.value), class: "gcds-search__form" }, index.h("gcds-label", { label: labelText, "label-for": searchId, "hide-label": true }), index.h("input", Object.assign({ type: "search", id: searchId, list: "search-list", size: 34, maxLength: 170, onInput: e => this.handleInput(e, this.gcdsInput), onChange: e => this.handleInput(e, this.gcdsChange), onFocus: () => this.gcdsFocus.emit(), onBlur: () => this.gcdsBlur.emit() }, attrsInput, { class: "gcds-search__input", value: value })), suggested && (index.h("datalist", { id: "search-list" }, suggested.map((k, v) => (index.h("option", { value: k, key: v }))))), index.h("gcds-button", { type: "submit", class: "gcds-search__button", exportparts: "button" }, index.h("gcds-icon", { name: "search", label: I18N$7[lang].search, "fixed-width": true }))))));
     }
     get el() { return index.getElement(this); }
 };
 GcdsSearch.style = GcdsSearchStyle0;
 
-const gcdsSelectCss = ".sc-gcds-select-h .gcds-select-wrapper.sc-gcds-select{border:0;color:var(--gcds-select-default-text);font:var(--gcds-select-font);margin:0;max-width:90%;padding:0;transition:color .15s ease-in-out}.sc-gcds-select-h .gcds-select-wrapper.sc-gcds-select slot.sc-gcds-select{display:initial}.sc-gcds-select-h .gcds-select-wrapper.sc-gcds-select:focus-within{color:var(--gcds-select-focus-text)}.sc-gcds-select-h .gcds-select-wrapper.gcds-disabled.sc-gcds-select{color:var(--gcds-select-disabled-text)}.sc-gcds-select-h .gcds-select-wrapper.gcds-error.sc-gcds-select:not(:focus-within) select.sc-gcds-select{border-color:var(--gcds-select-danger-border)}.sc-gcds-select-h select.sc-gcds-select{-webkit-appearance:none;-moz-appearance:none;background-color:var(--gcds-select-default-background);background-image:url(\"data:image/svg+xml;utf8,<svg width='16' height='10' viewBox='0 0 16 10' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M0.799988 0.900024L7.79999 7.90003L14.8 0.900024' stroke='currentColor' stroke-width='2'/></svg>\");background-position-x:var(--gcds-select-arrow-position-x);background-position-y:50%;background-repeat:no-repeat;border:var(--gcds-select-border-width) solid;border-radius:var(--gcds-select-border-radius);box-sizing:border-box;color:var(--gcds-select-default-text);display:block;font:inherit;height:auto;margin:var(--gcds-select-margin);max-width:100%;min-height:var(--gcds-select-min-width-and-height);min-width:var(--gcds-select-min-width-and-height);padding:var(--gcds-select-padding);transition:all .15s ease-in-out}.sc-gcds-select-h select.sc-gcds-select:focus{border-color:var(--gcds-select-focus-text);box-shadow:var(--gcds-select-focus-box-shadow);outline:var(--gcds-select-outline-width) solid var(--gcds-select-focus-text);outline-offset:var(--gcds-select-border-width)}.sc-gcds-select-h select.sc-gcds-select:disabled{background-color:var(--gcds-select-disabled-background);border-color:var(--gcds-select-disabled-text);cursor:not-allowed}";
+const gcdsSelectCss = "@layer reset, default, disabled, error, focus;@layer reset{:host{display:block}:host .gcds-select-wrapper{border:0;margin:0;padding:0}:host .gcds-select-wrapper select{box-sizing:border-box}:host .gcds-select-wrapper slot{display:initial}}@layer default{:host .gcds-select-wrapper{color:var(--gcds-select-default-text);font:var(--gcds-select-font);max-width:90%;transition:color .15s ease-in-out}:host .gcds-select-wrapper select{-webkit-appearance:none;-moz-appearance:none;background-color:var(--gcds-select-default-background);background-image:url(\"data:image/svg+xml;utf8,<svg width='16' height='10' viewBox='0 0 16 10' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M0.799988 0.900024L7.79999 7.90003L14.8 0.900024' stroke='currentColor' stroke-width='2'/></svg>\");background-position-x:var(--gcds-select-arrow-position-x);background-position-y:50%;background-repeat:no-repeat;border:var(--gcds-select-border-width) solid;border-radius:var(--gcds-select-border-radius);box-sizing:border-box;color:var(--gcds-select-default-text);display:block;font:inherit;height:auto;margin:var(--gcds-select-margin)!important;max-width:100%;min-height:var(--gcds-select-min-width-and-height);min-width:var(--gcds-select-min-width-and-height);padding:var(--gcds-select-padding)!important;transition:all .15s ease-in-out}}@layer disabled{:host .gcds-select-wrapper.gcds-disabled{color:var(--gcds-select-disabled-text)}:host .gcds-select-wrapper.gcds-disabled select:disabled{background-color:var(--gcds-select-disabled-background);border-color:var(--gcds-select-disabled-text);cursor:not-allowed}}@layer error{:host .gcds-select-wrapper.gcds-error:not(:focus-within) select{border-color:var(--gcds-select-danger-border)}}@layer focus{:host .gcds-select-wrapper:focus-within{color:var(--gcds-select-focus-text)}:host .gcds-select-wrapper:focus-within select:focus{border-color:var(--gcds-select-focus-text);box-shadow:var(--gcds-select-focus-box-shadow);outline:var(--gcds-select-outline-width) solid var(--gcds-select-focus-text);outline-offset:var(--gcds-select-border-width)}}";
 const GcdsSelectStyle0 = gcdsSelectCss;
 
 const GcdsSelect = class {
     constructor(hostRef) {
         index.registerInstance(this, hostRef);
-        this.gcdsSelectChange = index.createEvent(this, "gcdsSelectChange", 7);
+        this.gcdsChange = index.createEvent(this, "gcdsChange", 7);
+        this.gcdsInput = index.createEvent(this, "gcdsInput", 7);
         this.gcdsFocus = index.createEvent(this, "gcdsFocus", 7);
         this.gcdsBlur = index.createEvent(this, "gcdsBlur", 7);
         this.gcdsError = index.createEvent(this, "gcdsError", 7);
         this.gcdsValid = index.createEvent(this, "gcdsValid", 7);
+        if (hostRef.$hostElement$["s-ei"]) {
+            this.internals = hostRef.$hostElement$["s-ei"];
+        }
+        else {
+            this.internals = hostRef.$hostElement$.attachInternals();
+            hostRef.$hostElement$["s-ei"] = this.internals;
+        }
         this._validator = defaultValidator;
-        this.onFocus = e => {
-            if (this.focusHandler) {
-                this.focusHandler(e);
-            }
-            this.gcdsFocus.emit();
+        this.handleInput = (e, customEvent) => {
+            const val = e.target && e.target.value;
+            this.value = val;
+            this.internals.setFormValue(val);
+            customEvent.emit(this.value);
         };
-        this.onBlur = e => {
-            if (this.focusHandler) {
-                this.focusHandler(e);
-            }
-            else {
-                if (this.validateOn == 'blur') {
-                    this.validate();
-                }
+        this.onBlur = () => {
+            if (this.validateOn === 'blur') {
+                this.validate();
             }
             this.gcdsBlur.emit();
         };
-        this.handleChange = e => {
-            if (this.changeHandler) {
-                this.changeHandler(e);
-            }
-            else {
-                const val = e.target && e.target.value;
-                this.value = val;
-            }
-            this.gcdsSelectChange.emit(this.value);
-        };
         this.selectId = undefined;
         this.label = undefined;
+        this.name = undefined;
         this.required = false;
         this.disabled = false;
         this.defaultValue = undefined;
@@ -3339,12 +3423,10 @@ const GcdsSelect = class {
         this.hint = undefined;
         this.validator = undefined;
         this.validateOn = undefined;
-        this.changeHandler = undefined;
-        this.focusHandler = undefined;
-        this.blurHandler = undefined;
         this.hasError = undefined;
         this.inheritedAttributes = {};
         this.lang = undefined;
+        this.options = undefined;
     }
     validateDisabledSelect() {
         if (this.required) {
@@ -3398,6 +3480,34 @@ const GcdsSelect = class {
             }
         }
     }
+    /**
+     * Check if an option is selected or value matches an option's value
+     */
+    checkValueOrSelected(option) {
+        const value = option.getAttribute('value');
+        if (this.value === value) {
+            option.setAttribute('selected', 'true');
+            this.internals.setFormValue(value);
+            this.initialValue = this.value;
+        }
+        if (option.hasAttribute('selected')) {
+            this.value = value;
+            this.initialValue = this.value ? this.value : null;
+        }
+    }
+    /*
+     * Form internal functions
+     */
+    formResetCallback() {
+        if (this.value != this.initialValue) {
+            this.internals.setFormValue(this.initialValue);
+            this.value = this.initialValue;
+        }
+    }
+    formStateRestoreCallback(state) {
+        this.internals.setFormValue(state);
+        this.value = state;
+    }
     /*
      * Observe lang attribute change
      */
@@ -3423,6 +3533,20 @@ const GcdsSelect = class {
             this._validator = getValidator(this.validator);
         }
         this.inheritedAttributes = inheritAttributes(this.el, this.shadowElement);
+        if (this.el.children) {
+            this.options = Array.from(this.el.children);
+            this.options.forEach(option => {
+                if (option.nodeName === 'OPTION') {
+                    this.checkValueOrSelected(option);
+                }
+                else if (option.nodeName === 'OPTGROUP') {
+                    const subOptions = Array.from(option.children);
+                    subOptions.map(sub => {
+                        this.checkValueOrSelected(sub);
+                    });
+                }
+            });
+        }
     }
     componentWillUpdate() {
         if (this.validator) {
@@ -3430,8 +3554,9 @@ const GcdsSelect = class {
         }
     }
     render() {
-        const { lang, selectId, label, required, disabled, defaultValue, value, hint, errorMessage, inheritedAttributes, hasError, } = this;
-        const attrsSelect = Object.assign({ disabled,
+        const { lang, selectId, label, required, disabled, defaultValue, value, hint, errorMessage, inheritedAttributes, hasError, name, options, } = this;
+        const attrsSelect = Object.assign({ name,
+            disabled,
             required,
             value }, inheritedAttributes);
         const attrsLabel = {
@@ -3445,8 +3570,26 @@ const GcdsSelect = class {
                 ? `${attrsSelect['aria-describedby']}`
                 : ''}`;
         }
-        return (index.h(index.Host, null, index.h("div", { class: `gcds-select-wrapper ${disabled ? 'gcds-disabled' : ''} ${hasError ? 'gcds-error' : ''}` }, index.h("gcds-label", Object.assign({}, attrsLabel, { "label-for": selectId, lang: lang })), hint ? index.h("gcds-hint", { hint: hint, "hint-id": selectId }) : null, errorMessage ? (index.h("gcds-error-message", { messageId: selectId, message: errorMessage })) : null, index.h("select", Object.assign({}, attrsSelect, { id: selectId, name: selectId, onBlur: e => this.onBlur(e), onFocus: e => this.onFocus(e), onChange: e => this.handleChange(e), "aria-invalid": hasError ? 'true' : 'false', ref: element => (this.shadowElement = element) }), defaultValue ? (index.h("option", { value: "", disabled: true, selected: true }, defaultValue)) : null, index.h("slot", null)))));
+        return (index.h(index.Host, null, index.h("div", { class: `gcds-select-wrapper ${disabled ? 'gcds-disabled' : ''} ${hasError ? 'gcds-error' : ''}` }, index.h("gcds-label", Object.assign({}, attrsLabel, { "label-for": selectId, lang: lang })), hint ? index.h("gcds-hint", { "hint-id": selectId }, hint) : null, errorMessage ? (index.h("gcds-error-message", { messageId: selectId }, errorMessage)) : null, index.h("select", Object.assign({}, attrsSelect, { id: selectId, onBlur: () => this.onBlur(), onFocus: () => this.gcdsFocus.emit(), onInput: e => this.handleInput(e, this.gcdsInput), onChange: e => this.handleInput(e, this.gcdsChange), "aria-invalid": hasError ? 'true' : 'false', ref: element => (this.shadowElement = element) }), defaultValue ? (index.h("option", { value: "", disabled: true, selected: true }, defaultValue)) : null, options.map(opt => {
+            if (opt.nodeName === 'OPTION') {
+                const selected = opt.hasAttribute('selected')
+                    ? { selected: true }
+                    : null;
+                return (index.h("option", Object.assign({ value: opt.getAttribute('value') }, selected), opt.innerHTML));
+            }
+            else if (opt.nodeName === 'OPTGROUP') {
+                const optGroupChildren = Array.from(opt.children).map(sub => {
+                    const selected = sub.hasAttribute('selected')
+                        ? { selected: true }
+                        : null;
+                    return (index.h("option", Object.assign({ value: sub.getAttribute('value') }, selected), sub.innerHTML));
+                });
+                return (index.h("optgroup", { label: opt.getAttribute('label') }, optGroupChildren));
+            }
+        })))));
     }
+    static get delegatesFocus() { return true; }
+    static get formAssociated() { return true; }
     get el() { return index.getElement(this); }
     static get watchers() { return {
         "disabled": ["validateDisabledSelect"],
@@ -3614,7 +3757,7 @@ const I18N$6 = {
   },
 };
 
-const gcdsSideNavCss = "@layer reset, defaults;@layer reset{:host *{box-sizing:border-box;margin:0}}@layer defaults{:host{display:block;width:100%}@media only screen and (width >= 64em){:host{max-width:var(--gcds-side-nav-max-width)}}:host .gcds-side-nav__heading{font:var(--gcds-side-nav-heading-font);margin-block-end:var(--gcds-side-nav-heading-margin);padding:var(--gcds-side-nav-heading-padding)}@media only screen and (width < 64em){:host .gcds-side-nav__heading{display:block;height:0;margin:0;overflow:hidden;padding:0;width:0}}}";
+const gcdsSideNavCss = "@layer reset, default, desktop, mobile;@layer reset{:host{display:block}:host *{box-sizing:border-box;margin:0;padding:0}}@layer default{:host{width:100%}:host .gcds-side-nav__heading{font:var(--gcds-side-nav-heading-font);margin-block-end:var(--gcds-side-nav-heading-margin);padding:var(--gcds-side-nav-heading-padding)}}@layer desktop{@media only screen and (width >= 64em){:host .gcds-side-nav{max-width:var(--gcds-side-nav-max-width)}}}@layer mobile{@media only screen and (width < 64em){:host .gcds-side-nav__heading{display:block;height:0;margin:0;overflow:hidden;padding:0;width:0}}}";
 const GcdsSideNavStyle0 = gcdsSideNavCss;
 
 const GcdsSideNav = class {
@@ -3624,6 +3767,33 @@ const GcdsSideNav = class {
         this.lang = undefined;
         this.navItems = [];
         this.navSize = undefined;
+    }
+    async focusInListener(e) {
+        if (this.el.contains(e.target) && !this.navSize) {
+            const mediaQuery = window.matchMedia('screen and (min-width: 64em)');
+            const nav = this.el;
+            const mobileTrigger = this.mobile;
+            if (mediaQuery.matches) {
+                this.navSize = 'desktop';
+            }
+            else {
+                this.navSize = 'mobile';
+            }
+            await this.updateNavItemQueue(this.el);
+            mediaQuery.addEventListener('change', async function (e) {
+                if (e.matches) {
+                    nav.updateNavSize('desktop');
+                    await nav.updateNavItemQueue(nav);
+                    if (mobileTrigger.hasAttribute('open')) {
+                        mobileTrigger.toggleNav();
+                    }
+                }
+                else {
+                    nav.updateNavSize('mobile');
+                    await nav.updateNavItemQueue(nav);
+                }
+            });
+        }
     }
     async focusOutListener(e) {
         if (!this.el.contains(e.relatedTarget)) {
@@ -3694,36 +3864,10 @@ const GcdsSideNav = class {
         // Define lang attribute
         this.lang = assignLanguage(this.el);
         this.updateLang();
-        const mediaQuery = window.matchMedia('screen and (min-width: 64em)');
-        if (mediaQuery.matches) {
-            this.navSize = 'desktop';
-        }
-        else {
-            this.navSize = 'mobile';
-        }
-    }
-    async componentDidLoad() {
-        const mediaQuery = window.matchMedia('screen and (min-width: 64em)');
-        const nav = this.el;
-        const mobileTrigger = this.mobile;
-        await this.updateNavItemQueue(this.el);
-        mediaQuery.addEventListener('change', async function (e) {
-            if (e.matches) {
-                nav.updateNavSize('desktop');
-                await nav.updateNavItemQueue(nav);
-                if (mobileTrigger.hasAttribute('open')) {
-                    mobileTrigger.toggleNav();
-                }
-            }
-            else {
-                nav.updateNavSize('mobile');
-                await nav.updateNavItemQueue(nav);
-            }
-        });
     }
     render() {
         const { label, lang } = this;
-        return (index.h(index.Host, null, index.h("nav", { "aria-label": `${label}${I18N$6[lang].navLabel}` }, index.h("h2", { class: "gcds-side-nav__heading" }, label), index.h("gcds-nav-group", { menuLabel: "Menu", closeTrigger: lang == 'fr' ? 'Fermer' : 'Close', openTrigger: "Menu", class: "gcds-mobile-nav", role: "menu", ref: element => (this.mobile = element), lang: lang }, index.h("slot", null)))));
+        return (index.h(index.Host, null, index.h("nav", { "aria-label": `${label}${I18N$6[lang].navLabel}`, class: "gcds-side-nav" }, index.h("h2", { class: "gcds-side-nav__heading" }, label), index.h("ul", null, index.h("gcds-nav-group", { menuLabel: "Menu", closeTrigger: lang == 'fr' ? 'Fermer' : 'Close', openTrigger: "Menu", class: "gcds-mobile-nav", ref: element => (this.mobile = element), lang: lang }, index.h("slot", null))))));
     }
     get el() { return index.getElement(this); }
 };
@@ -3770,7 +3914,7 @@ const WordmarkFr = `<svg version="1.1" xmlns="http://www.w3.org/2000/svg" width=
 	</g>
 </svg>`;
 
-const gcdsSignatureCss = "gcds-signature{display:block;width:fit-content}gcds-signature .gcds-signature{display:flex}gcds-signature svg{max-width:100%}gcds-signature:not([type=wordmark]) svg{height:var(--gcds-signature-signature-height)}@media screen and (min-width:64em){gcds-signature:not([type=wordmark]) svg{height:2.125rem}}gcds-signature[type=wordmark] svg{height:var(--gcds-signature-wordmark-height);width:auto}gcds-signature:not([variant=white]) svg .fip_text{fill:var( --gcds-signature-color-text)}gcds-signature:not([variant=white]) svg .fip_flag{fill:var(--gcds-signature-color-flag)}gcds-signature[variant=white] svg .fip_flag,gcds-signature[variant=white] svg .fip_text{fill:var(--gcds-signature-white-default)}";
+const gcdsSignatureCss = "@layer reset, default, type.signature, type.wordmark, variant.colour, variant.white, desktop;@layer reset{:host{display:block;width:fit-content}}@layer default{:host .gcds-signature{display:flex}:host svg{max-width:100%}:host svg .fip_flag{fill:var(--gcds-signature-color-flag)}}@layer type.signature{:host(:not([type=wordmark])) svg{height:var(--gcds-signature-signature-height)}}@layer type.wordmark{:host([type=wordmark]) svg{height:var(--gcds-signature-wordmark-height);width:auto}}@layer variant.colour{:host(:not([variant=white])) svg .fip_text{fill:var(--gcds-signature-color-text)}}@layer variant.white{:host([variant=white]) svg :is(.fip_text){fill:var(--gcds-signature-white-default)}}@layer desktop{@media screen and (width >= 64em){:host(:not([type=wordmark])) svg{height:2.125rem}}}";
 const GcdsSignatureStyle0 = gcdsSignatureCss;
 
 const GcdsSignature = class {
@@ -3830,7 +3974,7 @@ const GcdsSignature = class {
         const { type, hasLink, lang, selectSVG } = this;
         return (index.h(index.Host, null, hasLink && type === 'signature' ? (
         // eslint-disable-next-line jsx-a11y/anchor-has-content
-        index.h("a", { href: I18N$5[lang].link, innerHTML: selectSVG })) : (index.h("div", { class: "gcds-signature", innerHTML: selectSVG }))));
+        index.h("a", { class: "gcds-signature", href: I18N$5[lang].link, innerHTML: selectSVG })) : (index.h("div", { class: "gcds-signature", innerHTML: selectSVG }))));
     }
     get el() { return index.getElement(this); }
     static get watchers() { return {
@@ -3840,16 +3984,31 @@ const GcdsSignature = class {
 };
 GcdsSignature.style = GcdsSignatureStyle0;
 
-const gcdsSrOnlyCss = "@layer default{:host{display:block;height:0;margin:0;overflow:hidden;width:0}:host slot{display:initial}}";
+const gcdsSrOnlyCss = "@layer reset, default;@layer reset{:host slot{display:initial}}@layer default{:host{display:block;height:0;margin:0;overflow:hidden;width:0}}";
 const GcdsSrOnlyStyle0 = gcdsSrOnlyCss;
 
 const GcdsSrOnly = class {
     constructor(hostRef) {
         index.registerInstance(this, hostRef);
+        this.tag = 'p';
+    }
+    validateTag(newValue) {
+        const values = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'p', 'span'];
+        if (!values.includes(newValue)) {
+            this.tag = 'p';
+        }
+    }
+    componentWillLoad() {
+        // Validate attributes and set defaults
+        this.validateTag(this.tag);
     }
     render() {
-        return (index.h(index.Host, null, index.h("slot", null)));
+        const Tag = this.tag;
+        return (index.h(index.Host, null, index.h(Tag, null, index.h("slot", null))));
     }
+    static get watchers() { return {
+        "tag": ["validateTag"]
+    }; }
 };
 GcdsSrOnly.style = GcdsSrOnlyStyle0;
 
@@ -3864,7 +4023,7 @@ const I18N$4 = {
   },
 };
 
-const gcdsStepperCss = ":host .gcds-stepper{color:var(--gcds-stepper-text);font:var(--gcds-stepper-font);margin:var(--gcds-stepper-margin)}";
+const gcdsStepperCss = "@layer reset, default;@layer reset{:host{display:block}}@layer default{:host .gcds-stepper{color:var(--gcds-stepper-text)}}";
 const GcdsStepperStyle0 = gcdsStepperCss;
 
 const GcdsStepper = class {
@@ -3892,13 +4051,13 @@ const GcdsStepper = class {
     }
     render() {
         const { currentStep, lang, totalSteps } = this;
-        return (index.h(index.Host, null, index.h("h6", { class: "gcds-stepper" }, `${I18N$4[lang].step} ${currentStep} ${I18N$4[lang].of} ${totalSteps}`)));
+        return (index.h(index.Host, null, index.h("gcds-heading", { tag: "h6", class: "gcds-stepper", "margin-top": "0", "margin-bottom": "300" }, `${I18N$4[lang].step} ${currentStep} ${I18N$4[lang].of} ${totalSteps}`)));
     }
     get el() { return index.getElement(this); }
 };
 GcdsStepper.style = GcdsStepperStyle0;
 
-const gcdsTextCss = "@layer reset,\ndefaults,\nvariants.display,\nvariants.limit,\nvariants.margin,\nvariants.role,\nvariants.size,\nvariants.style,\nvariants.weight;@layer reset{:host{color:var(--gcds-text-role-primary);display:block}:host .gcds-text{box-sizing:border-box;display:inherit;margin:0}:host .gcds-text slot{display:initial}}@layer defaults{:host .gcds-text{font:var(--gcds-text-size-body-desktop)}@media only screen and (width < 48em){:host .gcds-text{font:var(--gcds-text-size-body-mobile)}}}@layer variants.display{:host.d-block{display:block}:host.d-flex{display:flex}:host.d-inline{display:inline}:host.d-inline-block{display:inline-block}:host.d-inline-flex{display:inline-flex}:host.d-none{display:none}}@layer variants.limit{:host .gcds-text.limit{max-width:var(--gcds-text-character-limit)}}@layer variants.margin{:host .gcds-text.mt-0{margin-block-start:var(--gcds-text-spacing-0)}:host .gcds-text.mt-50{margin-block-start:var(--gcds-text-spacing-50)}:host .gcds-text.mt-100{margin-block-start:var(--gcds-text-spacing-100)}:host .gcds-text.mt-150{margin-block-start:var(--gcds-text-spacing-150)}:host .gcds-text.mt-200{margin-block-start:var(--gcds-text-spacing-200)}:host .gcds-text.mt-250{margin-block-start:var(--gcds-text-spacing-250)}:host .gcds-text.mt-300{margin-block-start:var(--gcds-text-spacing-300)}:host .gcds-text.mt-400{margin-block-start:var(--gcds-text-spacing-400)}:host .gcds-text.mt-450{margin-block-start:var(--gcds-text-spacing-450)}:host .gcds-text.mt-500{margin-block-start:var(--gcds-text-spacing-500)}:host .gcds-text.mt-550{margin-block-start:var(--gcds-text-spacing-550)}:host .gcds-text.mt-600{margin-block-start:var(--gcds-text-spacing-600)}:host .gcds-text.mt-700{margin-block-start:var(--gcds-text-spacing-700)}:host .gcds-text.mt-800{margin-block-start:var(--gcds-text-spacing-800)}:host .gcds-text.mt-900{margin-block-start:var(--gcds-text-spacing-900)}:host .gcds-text.mt-1000{margin-block-start:var(--gcds-text-spacing-1000)}:host .gcds-text.mb-0{margin-block-end:var(--gcds-text-spacing-0)}:host .gcds-text.mb-50{margin-block-end:var(--gcds-text-spacing-50)}:host .gcds-text.mb-100{margin-block-end:var(--gcds-text-spacing-100)}:host .gcds-text.mb-150{margin-block-end:var(--gcds-text-spacing-150)}:host .gcds-text.mb-200{margin-block-end:var(--gcds-text-spacing-200)}:host .gcds-text.mb-250{margin-block-end:var(--gcds-text-spacing-250)}:host .gcds-text.mb-300{margin-block-end:var(--gcds-text-spacing-300)}:host .gcds-text.mb-400{margin-block-end:var(--gcds-text-spacing-400)}:host .gcds-text.mb-450{margin-block-end:var(--gcds-text-spacing-450)}:host .gcds-text.mb-500{margin-block-end:var(--gcds-text-spacing-500)}:host .gcds-text.mb-550{margin-block-end:var(--gcds-text-spacing-550)}:host .gcds-text.mb-600{margin-block-end:var(--gcds-text-spacing-600)}:host .gcds-text.mb-700{margin-block-end:var(--gcds-text-spacing-700)}:host .gcds-text.mb-800{margin-block-end:var(--gcds-text-spacing-800)}:host .gcds-text.mb-900{margin-block-end:var(--gcds-text-spacing-900)}:host .gcds-text.mb-1000{margin-block-end:var(--gcds-text-spacing-1000)}}@layer variants.role{:host .gcds-text.role-primary{color:var(--gcds-text-role-primary)}:host .gcds-text.role-secondary{color:var(--gcds-text-role-secondary)}:host .gcds-text.role-light{color:var(--gcds-text-role-light)}}@layer variants.size{:host .gcds-text ::slotted(small),:host .gcds-text small{font:var(--gcds-text-size-caption-desktop)}@media only screen and (width < 48em){:host .gcds-text ::slotted(small),:host .gcds-text small{font:var(--gcds-text-size-caption-mobile)}}}@layer variants.style{:host .gcds-text ::slotted(em){font-style:italic}}@layer variants.weight{:host .gcds-text ::slotted(strong){font-weight:var(--gcds-text-weight-bold)}}";
+const gcdsTextCss = "@layer reset, default, display, limit, margin, role, size, style, weight;@layer reset{:host{color:var(--gcds-text-role-primary);display:block}:host .gcds-text{box-sizing:border-box;display:inherit;margin:0}:host .gcds-text slot{display:initial}}@layer default{:host .gcds-text{font:var(--gcds-text-size-body-desktop)}@media only screen and (width < 48em){:host .gcds-text{font:var(--gcds-text-size-body-mobile)}}}@layer display{:host.d-block{display:block}:host.d-flex{display:flex}:host.d-inline{display:inline}:host.d-inline-block{display:inline-block}:host.d-inline-flex{display:inline-flex}:host.d-none{display:none}}@layer limit{:host .gcds-text.limit{max-width:var(--gcds-text-character-limit)}}@layer margin{:host .gcds-text.mt-0{margin-block-start:var(--gcds-text-spacing-0)}:host .gcds-text.mt-50{margin-block-start:var(--gcds-text-spacing-50)}:host .gcds-text.mt-100{margin-block-start:var(--gcds-text-spacing-100)}:host .gcds-text.mt-150{margin-block-start:var(--gcds-text-spacing-150)}:host .gcds-text.mt-200{margin-block-start:var(--gcds-text-spacing-200)}:host .gcds-text.mt-250{margin-block-start:var(--gcds-text-spacing-250)}:host .gcds-text.mt-300{margin-block-start:var(--gcds-text-spacing-300)}:host .gcds-text.mt-400{margin-block-start:var(--gcds-text-spacing-400)}:host .gcds-text.mt-450{margin-block-start:var(--gcds-text-spacing-450)}:host .gcds-text.mt-500{margin-block-start:var(--gcds-text-spacing-500)}:host .gcds-text.mt-550{margin-block-start:var(--gcds-text-spacing-550)}:host .gcds-text.mt-600{margin-block-start:var(--gcds-text-spacing-600)}:host .gcds-text.mt-700{margin-block-start:var(--gcds-text-spacing-700)}:host .gcds-text.mt-800{margin-block-start:var(--gcds-text-spacing-800)}:host .gcds-text.mt-900{margin-block-start:var(--gcds-text-spacing-900)}:host .gcds-text.mt-1000{margin-block-start:var(--gcds-text-spacing-1000)}:host .gcds-text.mb-0{margin-block-end:var(--gcds-text-spacing-0)}:host .gcds-text.mb-50{margin-block-end:var(--gcds-text-spacing-50)}:host .gcds-text.mb-100{margin-block-end:var(--gcds-text-spacing-100)}:host .gcds-text.mb-150{margin-block-end:var(--gcds-text-spacing-150)}:host .gcds-text.mb-200{margin-block-end:var(--gcds-text-spacing-200)}:host .gcds-text.mb-250{margin-block-end:var(--gcds-text-spacing-250)}:host .gcds-text.mb-300{margin-block-end:var(--gcds-text-spacing-300)}:host .gcds-text.mb-400{margin-block-end:var(--gcds-text-spacing-400)}:host .gcds-text.mb-450{margin-block-end:var(--gcds-text-spacing-450)}:host .gcds-text.mb-500{margin-block-end:var(--gcds-text-spacing-500)}:host .gcds-text.mb-550{margin-block-end:var(--gcds-text-spacing-550)}:host .gcds-text.mb-600{margin-block-end:var(--gcds-text-spacing-600)}:host .gcds-text.mb-700{margin-block-end:var(--gcds-text-spacing-700)}:host .gcds-text.mb-800{margin-block-end:var(--gcds-text-spacing-800)}:host .gcds-text.mb-900{margin-block-end:var(--gcds-text-spacing-900)}:host .gcds-text.mb-1000{margin-block-end:var(--gcds-text-spacing-1000)}}@layer variants.role{:host .gcds-text.role-primary{color:var(--gcds-text-role-primary)}:host .gcds-text.role-secondary{color:var(--gcds-text-role-secondary)}:host .gcds-text.role-light{color:var(--gcds-text-role-light)}}@layer variants.size{:host .gcds-text :is(small,::slotted(small)){font:var(--gcds-text-size-caption-desktop)}@media only screen and (width < 48em){:host .gcds-text :is(small,::slotted(small)){font:var(--gcds-text-size-caption-mobile)}}}@layer variants.style{:host .gcds-text ::slotted(em){font-style:italic}}@layer variants.weight{:host .gcds-text ::slotted(strong){font-weight:var(--gcds-text-weight-bold)}}";
 const GcdsTextStyle0 = gcdsTextCss;
 
 const GcdsText = class {
@@ -3998,7 +4157,7 @@ const GcdsText = class {
             ${characterLimit ? 'limit' : ''}
             ${marginTop ? `mt-${marginTop}` : ''}
             ${marginBottom ? `mb-${marginBottom}` : ''}
-          ` }, size === 'caption' ? (index.h("small", null, index.h("slot", null))) : (index.h("slot", null)))));
+          `, part: "text" }, size === 'caption' ? (index.h("small", null, index.h("slot", null))) : (index.h("slot", null)))));
     }
     get el() { return index.getElement(this); }
     static get watchers() { return {
@@ -4026,7 +4185,7 @@ const I18N$3 = {
   },
 };
 
-const gcdsTextareaCss = ".sc-gcds-textarea-h .gcds-textarea-wrapper.sc-gcds-textarea{border:0;color:var(--gcds-textarea-default-text);font:var(--gcds-textarea-font);margin:0;max-width:75ch;padding:0;transition:color .15s ease-in-out;width:100%}.sc-gcds-textarea-h .gcds-textarea-wrapper.sc-gcds-textarea:focus-within{color:var(--gcds-textarea-focus-text)}.sc-gcds-textarea-h .gcds-textarea-wrapper.gcds-disabled.sc-gcds-textarea{color:var(--gcds-textarea-disabled-text)}.sc-gcds-textarea-h .gcds-textarea-wrapper.sc-gcds-textarea .error-message-container.sc-gcds-textarea{display:block}.sc-gcds-textarea-h textarea.sc-gcds-textarea{background-color:var(--gcds-textarea-default-background);background-image:none;border:var(--gcds-textarea-border-width) solid;border-radius:var(--gcds-textarea-border-radius);box-sizing:border-box;color:var(--gcds-textarea-default-text);display:block;font:inherit;height:auto;margin:var(--gcds-textarea-margin);max-width:100%;min-height:var(--gcds-textarea-min-height);min-width:50%;padding:var(--gcds-textarea-padding);transition:border-color .15s ease-in-out,box-shadow .15s ease-in-out,outline .15s ease-in-out;width:100%}.sc-gcds-textarea-h textarea.sc-gcds-textarea:focus{border-color:var(--gcds-textarea-focus-text);box-shadow:var(--gcds-textarea-focus-box-shadow);outline:var(--gcds-textarea-outline-width) solid var(--gcds-textarea-focus-text);outline-offset:var(--gcds-textarea-border-width)}.sc-gcds-textarea-h textarea.sc-gcds-textarea:disabled{background-color:var(--gcds-textarea-disabled-background);border-color:var(--gcds-textarea-disabled-text);cursor:not-allowed}.sc-gcds-textarea-h textarea.gcds-error.sc-gcds-textarea:not(:focus){border-color:var(--gcds-textarea-danger-border)}";
+const gcdsTextareaCss = "@layer reset, default, disabled, error, focus;@layer reset{:host{display:block}:host .gcds-textarea-wrapper{border:0;margin:0;padding:0}:host .gcds-textarea-wrapper textarea{box-sizing:border-box}}@layer default{:host .gcds-textarea-wrapper{color:var(--gcds-textarea-default-text);font:var(--gcds-textarea-font);max-width:75ch;transition:color .15s ease-in-out;width:100%}:host .gcds-textarea-wrapper textarea{background-color:var(--gcds-textarea-default-background);background-image:none;border:var(--gcds-textarea-border-width) solid;border-radius:var(--gcds-textarea-border-radius);color:var(--gcds-textarea-default-text);display:block;font:inherit;height:auto;margin:var(--gcds-textarea-margin)!important;max-width:100%;min-height:var(--gcds-textarea-min-height);min-width:50%;padding:var(--gcds-textarea-padding)!important;transition:border-color .15s ease-in-out,box-shadow .15s ease-in-out,outline .15s ease-in-out;width:100%}}@layer disabled{:host .gcds-textarea-wrapper.gcds-disabled{color:var(--gcds-textarea-disabled-text)}:host .gcds-textarea-wrapper.gcds-disabled textarea:disabled{background-color:var(--gcds-textarea-disabled-background);border-color:var(--gcds-textarea-disabled-text);cursor:not-allowed}}@layer error{:host .gcds-textarea-wrapper .error-message-container{display:block}:host .gcds-textarea-wrapper textarea.gcds-error:not(:focus){border-color:var(--gcds-textarea-danger-border)}}@layer focus{:host .gcds-textarea-wrapper:focus-within{color:var(--gcds-textarea-focus-text)}:host .gcds-textarea-wrapper:focus-within textarea:focus{border-color:var(--gcds-textarea-focus-text);box-shadow:var(--gcds-textarea-focus-box-shadow);outline:var(--gcds-textarea-outline-width) solid var(--gcds-textarea-focus-text);outline-offset:var(--gcds-textarea-border-width)}}";
 const GcdsTextareaStyle0 = gcdsTextareaCss;
 
 const GcdsTextarea = class {
@@ -4035,25 +4194,28 @@ const GcdsTextarea = class {
         this.gcdsFocus = index.createEvent(this, "gcdsFocus", 7);
         this.gcdsBlur = index.createEvent(this, "gcdsBlur", 7);
         this.gcdsChange = index.createEvent(this, "gcdsChange", 7);
+        this.gcdsInput = index.createEvent(this, "gcdsInput", 7);
         this.gcdsError = index.createEvent(this, "gcdsError", 7);
         this.gcdsValid = index.createEvent(this, "gcdsValid", 7);
+        if (hostRef.$hostElement$["s-ei"]) {
+            this.internals = hostRef.$hostElement$["s-ei"];
+        }
+        else {
+            this.internals = hostRef.$hostElement$.attachInternals();
+            hostRef.$hostElement$["s-ei"] = this.internals;
+        }
         this._validator = defaultValidator;
-        this.onFocus = e => {
-            if (this.focusHandler) {
-                this.focusHandler(e);
-            }
-            this.gcdsFocus.emit();
-        };
-        this.onBlur = e => {
-            if (this.blurHandler) {
-                this.blurHandler(e);
-            }
-            else {
-                if (this.validateOn == 'blur') {
-                    this.validate();
-                }
+        this.onBlur = () => {
+            if (this.validateOn == 'blur') {
+                this.validate();
             }
             this.gcdsBlur.emit();
+        };
+        this.handleInput = (e, customEvent) => {
+            const val = e.target && e.target.value;
+            this.value = val;
+            this.internals.setFormValue(val ? val : null);
+            customEvent.emit(this.value);
         };
         this.characterCount = undefined;
         this.cols = undefined;
@@ -4062,15 +4224,13 @@ const GcdsTextarea = class {
         this.hideLabel = false;
         this.hint = undefined;
         this.label = undefined;
+        this.name = undefined;
         this.required = false;
         this.rows = 5;
         this.textareaId = undefined;
         this.value = undefined;
         this.validator = undefined;
         this.validateOn = undefined;
-        this.changeHandler = undefined;
-        this.focusHandler = undefined;
-        this.blurHandler = undefined;
         this.inheritedAttributes = {};
         this.hasError = undefined;
         this.lang = undefined;
@@ -4117,16 +4277,6 @@ const GcdsTextarea = class {
             this.gcdsValid.emit({ id: `#${this.textareaId}` });
         }
     }
-    handleChange(e) {
-        if (this.changeHandler) {
-            this.changeHandler(e);
-        }
-        else {
-            const val = e.target && e.target.value;
-            this.value = val;
-        }
-        this.gcdsChange.emit(this.value);
-    }
     submitListener(e) {
         if (e.target == this.el.closest('form')) {
             if (this.validateOn && this.validateOn != 'other') {
@@ -4136,6 +4286,20 @@ const GcdsTextarea = class {
                 e.preventDefault();
             }
         }
+    }
+    /*
+     * Form internal functions
+     */
+    formResetCallback() {
+        if (this.value != this.initialValue) {
+            this.internals.setFormValue(this.initialValue);
+            this.value = this.initialValue;
+            this.shadowElement.value = this.initialValue;
+        }
+    }
+    formStateRestoreCallback(state) {
+        this.internals.setFormValue(state);
+        this.value = state;
     }
     /*
      * Observe lang attribute change
@@ -4164,6 +4328,8 @@ const GcdsTextarea = class {
         this.inheritedAttributes = inheritAttributes(this.el, this.shadowElement, [
             'placeholder',
         ]);
+        this.internals.setFormValue(this.value ? this.value : null);
+        this.initialValue = this.value ? this.value : null;
     }
     componentWillUpdate() {
         if (this.validator) {
@@ -4171,7 +4337,7 @@ const GcdsTextarea = class {
         }
     }
     render() {
-        const { characterCount, cols, disabled, errorMessage, hideLabel, hint, label, required, rows, textareaId, value, hasError, inheritedAttributes, lang, } = this;
+        const { characterCount, cols, disabled, errorMessage, hideLabel, hint, label, required, rows, textareaId, value, hasError, inheritedAttributes, lang, name, } = this;
         // Use max-width instead of cols attribute to keep field responsive
         const style = {
             maxWidth: `${cols * 1.5}ch`,
@@ -4180,7 +4346,8 @@ const GcdsTextarea = class {
             label,
             required,
         };
-        const attrsTextarea = Object.assign({ disabled,
+        const attrsTextarea = Object.assign({ name,
+            disabled,
             required,
             rows }, inheritedAttributes);
         if (hint || errorMessage || characterCount) {
@@ -4191,10 +4358,12 @@ const GcdsTextarea = class {
                 ? `${attrsTextarea['aria-describedby']}`
                 : ''}`;
         }
-        return (index.h(index.Host, null, index.h("div", { class: `gcds-textarea-wrapper ${disabled ? 'gcds-disabled' : ''} ${hasError ? 'gcds-error' : ''}` }, index.h("gcds-label", Object.assign({}, attrsLabel, { "hide-label": hideLabel, "label-for": textareaId, lang: lang })), hint ? index.h("gcds-hint", { hint: hint, "hint-id": textareaId }) : null, errorMessage ? (index.h("gcds-error-message", { messageId: textareaId, message: errorMessage })) : null, index.h("textarea", Object.assign({}, attrsTextarea, { class: hasError ? 'gcds-error' : null, id: textareaId, name: textareaId, onBlur: e => this.onBlur(e), onFocus: e => this.onFocus(e), onInput: e => this.handleChange(e), "aria-labelledby": `label-for-${textareaId}`, "aria-invalid": errorMessage ? 'true' : 'false', maxlength: characterCount ? characterCount : null, style: cols ? style : null, ref: element => (this.shadowElement = element) }), value), characterCount ? (index.h("p", { id: `textarea__count-${textareaId}`, "aria-live": "polite" }, value == undefined
+        return (index.h(index.Host, null, index.h("div", { class: `gcds-textarea-wrapper ${disabled ? 'gcds-disabled' : ''} ${hasError ? 'gcds-error' : ''}` }, index.h("gcds-label", Object.assign({}, attrsLabel, { "hide-label": hideLabel, "label-for": textareaId, lang: lang })), hint ? index.h("gcds-hint", { "hint-id": textareaId }, hint) : null, errorMessage ? (index.h("gcds-error-message", { messageId: textareaId }, errorMessage)) : null, index.h("textarea", Object.assign({}, attrsTextarea, { class: hasError ? 'gcds-error' : null, id: textareaId, onBlur: () => this.onBlur(), onFocus: () => this.gcdsFocus.emit(), onInput: e => this.handleInput(e, this.gcdsInput), onChange: e => this.handleInput(e, this.gcdsChange), "aria-labelledby": `label-for-${textareaId}`, "aria-invalid": errorMessage ? 'true' : 'false', maxlength: characterCount ? characterCount : null, style: cols ? style : null, ref: element => (this.shadowElement = element) }), value), characterCount ? (index.h("gcds-text", { id: `textarea__count-${textareaId}`, "aria-live": "polite" }, value == undefined
             ? `${characterCount} ${I18N$3[lang].characters.allowed}`
             : `${characterCount - value.length} ${I18N$3[lang].characters.left}`)) : null)));
     }
+    static get delegatesFocus() { return true; }
+    static get formAssociated() { return true; }
     get el() { return index.getElement(this); }
     static get watchers() { return {
         "disabled": ["validateDisabledTextarea"],
@@ -4216,7 +4385,7 @@ const I18N$2 = {
   },
 };
 
-const gcdsTopNavCss = "@layer reset, defaults;@layer reset{:host *{box-sizing:border-box;margin:0}:host ul{padding:0}}@layer defaults{:host{display:block}@media only screen and (width >= 64em){:host{background-color:var(--gcds-top-nav-background)}}:host .gcds-top-nav__container{display:flex;flex-direction:column;margin-inline:auto;max-width:var(--gcds-top-nav-max-width);width:90%}@media only screen and (width >= 64em){:host .gcds-top-nav__container{align-items:flex-end;flex-direction:row}}@media only screen and (width >= 64em){:host .gcds-top-nav__container .nav-container__list{align-items:flex-end;display:flex;width:fit-content}:host .gcds-top-nav__container .nav-container__list.nav-list--right{margin-inline-start:auto}:host .gcds-top-nav__container .nav-container__list.nav-list--center{margin-inline:auto}}}";
+const gcdsTopNavCss = "@layer reset, default, desktop;@layer reset{:host{display:block}:host *{box-sizing:border-box;margin:0}:host ul{padding:0}}@layer default{:host .gcds-top-nav .gcds-top-nav__container{display:flex;flex-direction:column;margin-inline:auto;max-width:var(--gcds-top-nav-max-width);width:90%}}@layer desktop{@media only screen and (width >= 64em){:host .gcds-top-nav{background-color:var(--gcds-top-nav-background)}:host .gcds-top-nav .gcds-top-nav__container{align-items:flex-end;flex-direction:row}:host .gcds-top-nav .nav-container__list{align-items:flex-end;display:flex;width:fit-content}:host .gcds-top-nav .nav-container__list.nav-list--right{margin-inline-start:auto}:host .gcds-top-nav .nav-container__list.nav-list--center{margin-inline:auto}}}";
 const GcdsTopNavStyle0 = gcdsTopNavCss;
 
 const GcdsTopNav = class {
@@ -4227,6 +4396,33 @@ const GcdsTopNav = class {
         this.lang = undefined;
         this.navItems = [];
         this.navSize = undefined;
+    }
+    async focusInListener(e) {
+        if (this.el.contains(e.target) && !this.navSize) {
+            const mediaQuery = window.matchMedia('screen and (min-width: 64em)');
+            const nav = this.el;
+            const mobileTrigger = this.mobile;
+            if (mediaQuery.matches) {
+                this.navSize = 'desktop';
+            }
+            else {
+                this.navSize = 'mobile';
+            }
+            await this.updateNavItemQueue(this.el);
+            mediaQuery.addEventListener('change', async function (e) {
+                if (e.matches) {
+                    nav.updateNavSize('desktop');
+                    await nav.updateNavItemQueue(nav);
+                    if (mobileTrigger.hasAttribute('open')) {
+                        mobileTrigger.toggleNav();
+                    }
+                }
+                else {
+                    nav.updateNavSize('mobile');
+                    await nav.updateNavItemQueue(nav);
+                }
+            });
+        }
     }
     async focusOutListener(e) {
         if (!this.el.contains(e.relatedTarget)) {
@@ -4298,36 +4494,10 @@ const GcdsTopNav = class {
         // Define lang attribute
         this.lang = assignLanguage(this.el);
         this.updateLang();
-        const mediaQuery = window.matchMedia('screen and (min-width: 64em)');
-        if (mediaQuery.matches) {
-            this.navSize = 'desktop';
-        }
-        else {
-            this.navSize = 'mobile';
-        }
-    }
-    async componentDidLoad() {
-        const mediaQuery = window.matchMedia('screen and (min-width: 64em)');
-        const nav = this.el;
-        const mobileTrigger = this.mobile;
-        await this.updateNavItemQueue(this.el);
-        mediaQuery.addEventListener('change', async function (e) {
-            if (e.matches) {
-                nav.updateNavSize('desktop');
-                await nav.updateNavItemQueue(nav);
-                if (mobileTrigger.hasAttribute('open')) {
-                    mobileTrigger.toggleNav();
-                }
-            }
-            else {
-                nav.updateNavSize('mobile');
-                await nav.updateNavItemQueue(nav);
-            }
-        });
     }
     render() {
         const { label, alignment, lang } = this;
-        return (index.h(index.Host, null, index.h("nav", { "aria-label": `${label}${I18N$2[lang].navLabel}`, class: "gcds-top-nav__container" }, index.h("gcds-nav-group", { menuLabel: "Menu", closeTrigger: lang == 'fr' ? 'Fermer' : 'Close', openTrigger: "Menu", class: "gcds-mobile-nav gcds-mobile-nav-topnav", ref: element => (this.mobile = element), lang: lang }, index.h("slot", { name: "home" }), index.h("ul", { role: "menu", class: `nav-container__list nav-list--${alignment}` }, index.h("slot", null))))));
+        return (index.h(index.Host, null, index.h("div", { class: "gcds-top-nav" }, index.h("nav", { "aria-label": `${label}${I18N$2[lang].navLabel}` }, index.h("ul", { class: "gcds-top-nav__container" }, index.h("gcds-nav-group", { menuLabel: "Menu", closeTrigger: lang == 'fr' ? 'Fermer' : 'Close', openTrigger: "Menu", class: "gcds-mobile-nav gcds-mobile-nav-topnav", ref: element => (this.mobile = element), lang: lang }, index.h("slot", { name: "home" }), index.h("li", { class: `nav-container__list nav-list--${alignment}` }, index.h("ul", { class: `nav-container__list nav-list--${alignment}` }, index.h("slot", null)))))))));
     }
     get el() { return index.getElement(this); }
 };
@@ -4337,10 +4507,16 @@ const I18N$1 = {
   en: {
     buttonLabel:
       'Press the SPACEBAR to expand or the escape key to collapse this menu. Use the Up and Down arrow keys to choose a submenu item. Press the Enter or Right arrow key to expand it, or the Left arrow or Escape key to collapse it. Use the Up and Down arrow keys to choose an item on that level and the Enter key to access it.',
+    menuLabelFull: 'Main menu',
+    menuLabelHidden: 'Main ',
+    menuToggle: 'Menu',
   },
   fr: {
     buttonLabel:
       "Appuyez sur la barre d'espacement pour ouvrir ou sur la touche d'échappement pour fermer le menu. Utilisez les flèches haut et bas pour choisir un élément de sous-menu. Appuyez sur la touche Entrée ou sur la flèche vers la droite pour le développer, ou sur la flèche vers la gauche ou la touche Échap pour le réduire. Utilisez les flèches haut et bas pour choisir un élément de ce niveau et la touche Entrée pour y accéder.",
+    menuLabelFull: 'Menu principal',
+    menuLabelHidden: ' principal',
+    menuToggle: 'Menu',
   },
 };
 
@@ -4349,7 +4525,7 @@ const snapshots = {
   fr: '<li role="presentation"><a role="menuitem" tabindex="-1" aria-haspopup="true" aria-controls="gc-mnu-jobs" aria-expanded="false" href="#">Emplois et milieu de travail</a><ul id="gc-mnu-jobs" role="menu" aria-orientation="vertical"><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/emplois.html">Emplois<span class="visible-xs-inline visible-sm-inline">: accueil</span></a></li><li role="separator"></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/emplois/opportunites.html">Trouver un emploi</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/emplois/formation.html">Formation</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/gestion-entreprise">Embauche et gestion de personnel</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/demarrage-entreprise">Démarrage d\'entreprise</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/emplois/milieu-travail.html">Normes en milieu de travail</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/finance/pensions.html">Pensions et retraite</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/prestations/ae.html">Prestations d\'assurance-emploi et congés</a></li><li role="separator" aria-orientation="vertical"></li><li role="presentation"><a data-keep-expanded="md-min" href="#" role="menuitem" tabindex="-1" aria-haspopup="true" aria-controls="gc-mnu-jobs-sub" aria-expanded="true">En demande</a><ul id="gc-mnu-jobs-sub" role="menu" aria-orientation="vertical"><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/emploi-developpement-social/programmes/assurance-emploi/ae-liste/assurance-emploi-re/acceder-re.html">Voir vos Relevés d’emploi</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/emploi-developpement-social/services/numero-assurance-sociale.html">Demander un numéro d’assurance-sociale</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/emploi-developpement-social/services/travailleurs-etrangers.html">Embaucher un travailleur étranger temporaire</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/immigration-refugies-citoyennete/services/immigrer-canada/entree-express.html">Immigrer en tant que travailleur qualifié</a></li></ul></li></ul></li><li role="presentation"><a role="menuitem" tabindex="-1" aria-haspopup="true" aria-controls="gc-mnu-cit" aria-expanded="false" href="#">Immigration et citoyenneté</a><ul id="gc-mnu-cit" role="menu" aria-orientation="vertical"><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/immigration-citoyennete.html">Immigration<span class="hidden-xs hidden-sm">et citoyenneté</span><span class="visible-xs-inline visible-sm-inline">: accueil</span></a></li><li role="separator"></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/immigration-refugies-citoyennete/services/demande.html">Ma demande</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/immigration-refugies-citoyennete/services/visiter-canada.html">Visiter</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/immigration-refugies-citoyennete/services/immigrer-canada.html">Immigrer</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/immigration-refugies-citoyennete/services/travailler-canada.html">Travailler</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/immigration-refugies-citoyennete/services/etudier-canada.html">Étudier</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/immigration-refugies-citoyennete/services/citoyennete-canadienne.html">Citoyenneté</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/immigration-refugies-citoyennete/services/nouveaux-immigrants.html">Nouveaux immigrants</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/immigration-refugies-citoyennete/services/canadiens.html">Canadiens</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/immigration-refugies-citoyennete/services/refugies.html">Réfugiés et octroi de l’asile</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/immigration-citoyennete/application-loi-infractions.html">Application de la loi et infractions</a></li><li role="separator" aria-orientation="vertical"></li><li role="presentation"><a data-keep-expanded="md-min" href="#" role="menuitem" tabindex="-1" aria-haspopup="true" aria-controls="gc-mnu-cit-sub" aria-expanded="true">En demande</a><ul id="gc-mnu-cit-sub" role="menu" aria-orientation="vertical"><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/immigration-refugies-citoyennete/services/demande/compte.html">Se connecter ou créer un compte pour présenter une demande en ligne</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/immigration-refugies-citoyennete/services/demande/verifier-etat.html">Vérifier l’état de sa demande</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="http://www.cic.gc.ca/francais/information/delais/index.asp">Vérifier les délais de traitement des demandes</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/immigration-refugies-citoyennete/services/demande/formulaires-demande-guides.html">Trouver un formulaire de demande</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="http://www.cic.gc.ca/francais/information/frais/index.asp">Payer les frais</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="http://www.cic.gc.ca/francais/visiter/visas.asp">Déterminer si vous avez besoin d’une AVE ou d’un visa pour visiter le Canada</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="http://www.cic.gc.ca/francais/centre-aide/index-en-vedette-can.asp">Trouver réponse à ses questions dans le Centre d’aide</a></li></ul></li></ul></li><li role="presentation"><a role="menuitem" tabindex="-1" aria-haspopup="true" aria-controls="gc-mnu-travel" aria-expanded="false" href="#">Voyage et tourisme</a><ul id="gc-mnu-travel" role="menu" aria-orientation="vertical"><li role="presentation"><a role="menuitem" tabindex="-1" href="https://voyage.gc.ca/">Voyage<span class="hidden-xs hidden-sm">et tourisme</span><span class="visible-xs-inline visible-sm-inline">: accueil</span></a></li><li role="separator"></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://voyage.gc.ca/voyager/avertissements">Conseils aux voyageurs et avertissements</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://voyage.gc.ca/voyage-covid">COVID-19 : voyage, dépistage et frontières</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/immigration-refugies-citoyennete/services/visiter-canada.html?outside">Visiter le Canada</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://voyage.gc.ca/voyager">Voyager à l’étranger</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://voyage.gc.ca/avion">Voyager en avion</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://voyage.gc.ca/retour">Retour au Canada</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/immigration-refugies-citoyennete/services/passeports-canadiens.html">Passeports et documents de voyage canadiens</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://voyage.gc.ca/tourisme-canadien">Attraits touristiques, événements et expériences au Canada</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://voyage.gc.ca/assistance">Assistance à l’extérieur du Canada</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://voyage.gc.ca/restez-branches">Restez branchés</a></li><li role="separator" aria-orientation="vertical"></li><li role="presentation"><a data-keep-expanded="md-min" href="#" role="menuitem" tabindex="-1" aria-haspopup="true" aria-controls="gc-mnu-travel-sub" aria-expanded="true">En demande</a><ul id="gc-mnu-travel-sub" role="menu" aria-orientation="vertical"><li role="presentation"><a role="menuitem" tabindex="-1" href="https://voyage.gc.ca/assistance/assistance-d-urgence">Assistance d\'urgence à l\'étranger</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.cic.gc.ca/francais/visiter/visas.asp">Vérifiez si vous avez besoin d’un visa pour voyager au Canada</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/immigration-refugies-citoyennete/services/visiter-canada/ave.html">Présentez une demande d’Autorisation de voyage électronique (AVE)</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.cbsa-asfc.gc.ca/services/travel-voyage/prog/nexus/menu-fra.html">Adhérez à NEXUS</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://voyage.gc.ca/voyager/inscription">Inscrivez-vous comme Canadien à l’étranger</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://voyage.gc.ca/voyager/documents/assurance-voyage">Assurance voyage</a></li></ul></li></ul></li><li role="presentation"><a role="menuitem" tabindex="-1" aria-haspopup="true" aria-controls="gc-mnu-biz" aria-expanded="false" href="#">Entreprises et industrie</a><ul id="gc-mnu-biz" role="menu" aria-orientation="vertical"><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/entreprises.html">Entreprises<span class="hidden-xs hidden-sm">et industrie</span><span class="visible-xs-inline visible-sm-inline">: accueil</span></a></li><li role="separator"></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/entreprises/lancer.html">Démarrage d\'entreprise</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/entreprises/subventions.html">Subventions et financement pour les entreprises</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/entreprises/impots.html">Taxes et impôt des entreprises</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/entreprises/societes-de-regime-federal.html">Sociétés de régime fédéral</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/entreprises/engager.html">Embauche et gestion de personnel</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/entreprises/commerce.html">Commerce international et investissements</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/entreprises/permis.html">Permis, licences et règlements</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/entreprises/faire-affaire.html">Faire affaire avec le gouvernement</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/science/innovation.html">Recherche-développement et innovation</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/entreprises/recherche.html">Recherche et renseignements d\'affaires</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/entreprises/pi.html">Propriété intellectuelle et droit d\'auteur</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/entreprises/maintenirfairecroitreameliorerentreprise.html">Administration de votre entreprise</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/entreprises/proteger.html">Protection de votre entreprise</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/entreprises/faillites.html">Insolvabilité pour les entreprises</a></li><li role="separator" aria-orientation="vertical"></li><li role="presentation"><a data-keep-expanded="md-min" href="#" role="menuitem" tabindex="-1" aria-haspopup="true" aria-controls="gc-mnu-biz-sub" aria-expanded="true">En demande</a><ul id="gc-mnu-biz-sub" role="menu" aria-orientation="vertical"><li role="presentation"><a role="menuitem" tabindex="-1" href="https://ised-isde.canada.ca/cc/lgcy/fdrlCrpSrch.html?lang=fra">Trouver une société</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.cbsa-asfc.gc.ca/prog/manif/portal-portail-fra.html">Déclarer vos produits importés</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://ised-isde.canada.ca/opic/recherche-marques/srch?null=&lang=fre">Chercher des marques de commerce</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.cbsa-asfc.gc.ca/trade-commerce/tariff-tarif/2018/html/tblmod-1-fra.html">Réviser les tarifs des douanes pour l’importation de produits</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.ic.gc.ca/opic-cipo/cpd/fra/introduction.html">Trouver un brevet</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.cbsa-asfc.gc.ca/comm-fra.html">Importer et exporter à partir du Canada</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://ic.gc.ca/eic/site/cd-dgc.nsf/fra/h_cs03922.html">Trouver un nom pour votre compagnie</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://ised-isde.canada.ca/cc/lgcy/hm.html?locale=fr_CA">Apporter des changements à votre société (Centre de dépôt en ligne)</a></li></ul></li></ul></li><li role="presentation"><a role="menuitem" tabindex="-1" aria-haspopup="true" aria-controls="gc-mnu-benny" aria-expanded="false" href="#">Prestations</a><ul id="gc-mnu-benny" role="menu" aria-orientation="vertical"><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/prestations.html">Prestations<span class="visible-xs-inline visible-sm-inline">: accueil</span></a></li><li role="separator"></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/prestations/ae.html">Prestations d&#39;assurance-emploi et cong&eacute;s</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/prestations/famille.html">Prestations pour les familles et les proches aidants</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/prestations/pensionspubliques.html">Pensions publiques</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/prestations/etudes.html">Aide financière aux étudiants et planification des études</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/prestations/logement.html">Prestations relatives au logement</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/prestations/handicap.html">Prestations d’invalidité</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="http://www.canada.ca/fr/services/prestations/clientele.html">Prestations par clientèle</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/prestations/calendrier.html">Dates de paiement des prestations</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://benefitsfinder.services.gc.ca/hm?GoCTemplateCulture=fr-CA&cl=true">Chercheur de prestations</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/prestations/aviser-gouvernement-deces.html">Aviser le gouvernement d’un décès</a></li><li role="separator" aria-orientation="vertical"></li><li role="presentation"><a data-keep-expanded="md-min" href="#" role="menuitem" tabindex="-1" aria-haspopup="true" aria-controls="gc-mnu-benny-sub" aria-expanded="true">En demande</a><ul id="gc-mnu-benny-sub" role="menu" aria-orientation="vertical"><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/prestations/ae/assurance-emploi-reguliere.html">Présenter une demande d’assurance-emploi</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/prestations/education/aide-etudiants/bourses-prets.html">Faire une demande de bourses et de prêts d’études</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/gouvernement/ouvrir-session-dossier-compte-en-ligne.html">Ouvrir une session pour un compte en ligne du gouvernement du Canada</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.tpsgc-pwgsc.gc.ca/recgen/txt/depot-deposit-fra.html">Inscrivez-vous au dépôt direct</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/agence-revenu/services/prestations-enfants-familles/calculateur-prestations-enfants-familles.html">Calculateur de prestations pour enfants et familles</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/prestations/ae/assurance-emploi-declaration-internet.html">Soumettre une déclaration d’assurance-emploi</a></li></ul></li></ul></li><li role="presentation"><a role="menuitem" tabindex="-1" aria-haspopup="true" aria-controls="gc-mnu-health" aria-expanded="false" href="#">Santé</a><ul id="gc-mnu-health" role="menu" aria-orientation="vertical"><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/sante.html">Santé<span class="visible-xs-inline visible-sm-inline">: accueil</span></a></li><li role="separator"></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/sante/aliments-et-nutrition.html">Aliments et nutrition</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/sante-publique/services/maladies.html">Maladies et affections</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/sante-publique/sujets/immunisation-et-vaccins.html">Vaccins et immunisation</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/sante/medicaments-et-produits-sante.html">Médicaments et produits de santé</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/sante/securite-produits.html">Sécurité des produits</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/sante/securite-et-risque-pour-sante.html">Sécurité et risque pour la santé</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/sante/vie-saine.html">Vie saine</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/sante/sante-autochtones.html">Santé des Autochtones</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/sante/systeme-et-services-sante.html">Système et services de santé</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/sante/science-recherche-et-donnees.html">Science, recherche et données</a></li><li role="separator" aria-orientation="vertical"></li><li role="presentation"><a data-keep-expanded="md-min" href="#" role="menuitem" tabindex="-1" aria-haspopup="true" aria-controls="gc-mnu-health-sub" aria-expanded="true">En demande</a><ul id="gc-mnu-health-sub" role="menu" aria-orientation="vertical"><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/sante-canada/services/drogues-medicaments/cannabis/titulaires-licences-demandeurs-industrie/cultivateurs-transformateurs-vendeurs-autorises.html">Cultivateurs, transformateurs et vendeurs de cannabis qui détiennent une licence</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="http://www.canadiensensante.gc.ca/recall-alert-rappel-avis/index-fra.php">Rappels d\'aliments et de produits et alertes de sécurité</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/sante-canada/services/guides-alimentaires-canada.html">Guide alimentaire du Canada</a></li></ul></li></ul></li><li role="presentation"><a role="menuitem" tabindex="-1" aria-haspopup="true" aria-controls="gc-mnu-taxes" aria-expanded="false" href="#">Impôts</a><ul id="gc-mnu-taxes" role="menu" aria-orientation="vertical"><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/impots.html">Impôts<span class="visible-xs-inline visible-sm-inline">: accueil</span></a></li><li role="separator"></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/impots/impot-sur-le-revenu.html">Impôt sur le revenu</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/agence-revenu/services/impot/entreprises/sujets/tps-tvh-entreprises.html">TPS/TVH</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/agence-revenu/services/impot/entreprises/sujets/retenues-paie.html">Retenues sur la paie</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/impots/numero-dentreprise.html">Numéro d\'entreprise</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/impots/regimes-depargne-et-de-pension.html">Régimes d’épargne et de pension</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/impots/prestations-pour-enfants-et-familles.html">Crédits d’impôt et prestations pour les particuliers</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/impots/taxes-daccise-droits-et-prelevements.html">Taxes d’accise, droits et prélèvements</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/impots/bienfaisance.html">Organismes de bienfaisance et dons</a></li><li role="separator" aria-orientation="vertical"></li><li role="presentation"><a data-keep-expanded="md-min" href="#" role="menuitem" tabindex="-1" aria-haspopup="true" aria-controls="gc-mnu-taxes-sub" aria-expanded="true">En demande</a><ul id="gc-mnu-taxes-sub" role="menu" aria-orientation="vertical"><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/agence-revenu/services/services-electroniques/services-numeriques-particuliers/dossier-particuliers.html">Mon dossier</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/agence-revenu/services/services-electroniques/services-numeriques-entreprises/dossier-entreprise.html">Mon dossier d\'entreprise</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/agence-revenu/services/services-electroniques/representer-client.html">Représenter un client</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/agence-revenu/services/services-electroniques/services-numeriques-entreprises/impotnet-tps-tvh.html">Transmettre une déclaration de TPS/TVH (IMPÔTNET)</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/agence-revenu/services/faire-paiement-a-agence-revenu-canada.html">Faire un paiement à l\'Agence du revenu du Canada</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/agence-revenu/services/prestations-enfants-familles/dates-versement-prestations.html">Trouver la date du prochain versement des prestations</a></li></ul></li></ul></li><li role="presentation"><a role="menuitem" tabindex="-1" aria-haspopup="true" aria-controls="gc-mnu-enviro" aria-expanded="false" href="#">Environnement et ressources naturelles</a><ul id="gc-mnu-enviro" role="menu" aria-orientation="vertical"><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/environnement.html">Environnement<span class="hidden-xs hidden-sm">et ressources naturelles</span><span class="visible-xs-inline visible-sm-inline">: accueil</span></a></li><li role="separator"></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/environnement/meteo.html">Météo, climat et catastrophes naturelles</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/environnement/energie.html">Énergie</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/environnement/ressources-naturelles.html">Ressources naturelles</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://agriculture.canada.ca/fr/agriculture-environnement">Agriculture et environnement</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/environnement/peches.html">Pêches</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/environnement/faune-flore-especes.html">Faune, flore et espèces</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/environnement/pollution-gestion-dechets.html">Pollution et gestion des déchets</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/environnement/conservation.html">Conservation et protection de l\'environnement</a></li><li role="separator" aria-orientation="vertical"></li><li role="presentation"><a data-keep-expanded="md-min" href="#" role="menuitem" tabindex="-1" aria-haspopup="true" aria-controls="gc-mnu-enviro-sub" aria-expanded="true">En demande</a><ul id="gc-mnu-enviro-sub" role="menu" aria-orientation="vertical"><li role="presentation"><a role="menuitem" tabindex="-1" href="https://meteo.gc.ca/canada_f.html">Prévisions météo locales</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.rncan.gc.ca/energie/efficacite/transports/20997">Véhicules écoénergétiques</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.rncan.gc.ca/maisons">Efficacité énergétique des maisons</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/environnement-changement-climatique/services/registre-public-especes-peril.html">Espèces en péril</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/environnement-changement-climatique/services/meteo-saisonniere-dangereuse.html">Préparation aux conditions météorologiques dangereuses</a></li></ul></li></ul></li><li role="presentation"><a role="menuitem" tabindex="-1" aria-haspopup="true" aria-controls="gc-mnu-defence" aria-expanded="false" href="#">Sécurité nationale et défense</a><ul id="gc-mnu-defence" role="menu" aria-orientation="vertical"><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/defense.html"><span class="hidden-xs hidden-sm">Sécurité nationale et défense</span><span class="visible-xs-inline visible-sm-inline">Défense : accueil</span></a></li><li role="separator"></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/defense/securitenationale.html">Sécurité nationale</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/defense/fac.html">Forces armées canadiennes</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/defense/achat-mise-a-niveau-equipement-defense.html">Achat et mise à niveau d’équipement de la Défense</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="http://www.tc.gc.ca/fr/services/surete-transports.html">Sûreté des transports</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/defense/securiserfrontiere.html">Sécuriser la frontière</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/defense/cybersecurite.html">Cybersécurité</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/defense/emplois.html">Emplois en sécurité nationale et en défense</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/gouvernement/fonctionpublique/avantagesmilitaires.html">Services et avantages sociaux du personnel militaire</a></li><li role="separator" aria-orientation="vertical"></li><li role="presentation"><a data-keep-expanded="md-min" href="#" role="menuitem" tabindex="-1" aria-haspopup="true" aria-controls="gc-mnu-defence-sub" aria-expanded="true">En demande</a><ul id="gc-mnu-defence-sub" role="menu" aria-orientation="vertical"><li role="presentation"><a role="menuitem" tabindex="-1" href="https://forces.ca/fr/carrieres/">Emplois dans les Forces armées canadiennes</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/ministere-defense-nationale/services/histoire-militaire/histoire-patrimoine/insignes-drapeaux/grades/insignes-grade-fonction.html">Grades militaires</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/defense/fac/equipement.html">Équipement de la Défense</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/ministere-defense-nationale/services/cadets-rangers-juniors-canadiens/cadets/rejoignez-nous.html">Joignez-vous aux cadets</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="http://dgpaapp.forces.gc.ca/fr/politique-defense-canada/index.asp">Politique de défense du Canada</a></li></ul></li></ul></li><li role="presentation"><a role="menuitem" tabindex="-1" aria-haspopup="true" aria-controls="gc-mnu-culture" aria-expanded="false" href="#">Culture, histoire et sport</a><ul id="gc-mnu-culture" role="menu" aria-orientation="vertical"><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/culture.html">Culture<span class="hidden-xs hidden-sm">, histoire et sport</span><span class="visible-xs-inline visible-sm-inline">: accueil</span></a></li><li role="separator"></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/patrimoine-canadien/services/financement.html">Financement - Culture, histoire et sport</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/culture/evenements-celebrations-commemorations.html">Événements, célébrations et commémorations</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/culture/attraits-culturels.html">Lieux et attraits culturels</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/culture/identite-canadienne-societe.html">Identité canadienne et société</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/culture/sport.html">Sport</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/culture/histoire-patrimoine.html">Histoire et patrimoine</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/culture/arts-media.html">Arts et média</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/culture/programmes-culturels-jeunes.html">Programmes culturels pour les jeunes</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/culture/commerce-investissement-culturels.html">Commerce et investissement culturels</a></li><li role="separator" aria-orientation="vertical"></li><li role="presentation"><a data-keep-expanded="md-min" href="#" role="menuitem" tabindex="-1" aria-haspopup="true" aria-controls="gc-mnu-culture-sub" aria-expanded="true">En demande</a><ul id="gc-mnu-culture-sub" role="menu" aria-orientation="vertical"><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.veterans.gc.ca/fra/remembrance/memorials/canadian-virtual-war-memorial">Visitez le Mémorial virtuel de guerre du Canada</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/culture/identite-canadienne-societe/hymnes-symboles.html">Hymnes et symboles du Canada</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://crtc.gc.ca/fra/8045/d2018.htm">Trouvez une décision du CRTC</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://bibliotheque-archives.canada.ca/fra/collection/aide-recherche/genealogie-histoire-famille/Pages/genealogie-histoire-famille.aspx">Faites des recherches sur votre histoire familiale</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.bac-lac.gc.ca/fra/recensements/Pages/recensements.aspx">Cherchez des documents de recensement</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/culture/attraits-culturels/attraits-capitale-canada.html">Lieux et attraits dans la capitale du Canada</a></li></ul></li></ul></li><li role="presentation"><a role="menuitem" tabindex="-1" aria-haspopup="true" aria-controls="gc-mnu-policing" aria-expanded="false" href="#">Services de police, justice et urgences</a><ul id="gc-mnu-policing" role="menu" aria-orientation="vertical"><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/police.html">Services de police<span class="hidden-xs hidden-sm">, justice et urgences</span><span class="visible-xs-inline visible-sm-inline">: accueil</span></a></li><li role="separator"></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/police/servicespolice.html">Services de police</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/police/justice.html">Justice</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/police/urgences.html">Urgences</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/police/correctionnels.html">Services correctionnels</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/police/liberationconditionnelle.html">Libération conditionnelle, suspension du casier, radiation et clémence</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/police/victimes.html">Victimes d\'actes criminels</a></li><li role="separator" aria-orientation="vertical"></li><li role="presentation"><a data-keep-expanded="md-min" href="#" role="menuitem" tabindex="-1" aria-haspopup="true" aria-controls="gc-mnu-policing-sub" aria-expanded="true">En demande</a><ul id="gc-mnu-policing-sub" role="menu" aria-orientation="vertical"><li role="presentation"><a role="menuitem" tabindex="-1" href="http://www.rcmp-grc.gc.ca/cfp-pcaf/online_en-ligne/index-fra.htm">Demander ou renouveler un permis d\'arme à feu</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="http://www.rcmp-grc.gc.ca/fr/verification-casier-judiciaire">Obtenir une attestation de vérification de casier judiciaire</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/commission-liberations-conditionnelles/services/suspension-du-casier/guide-et-formulaires-de-demande.html">Demander la suspension d’un casier judiciaire</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.preparez-vous.gc.ca/cnt/hzd/drng-fr.aspx">Que faire durant une urgence</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/police/servicespolice/securite-communautaire-police/conduite-facultes-affaiblies.html">Connaissez la loi sur la conduite avec facultés affaiblies</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/police/servicespolice/aider-resoudre-un-crime.html">Aidez à résoudre un crime</a></li></ul></li></ul></li><li role="presentation"><a role="menuitem" tabindex="-1" aria-haspopup="true" aria-controls="gc-mnu-trans" aria-expanded="false" href="#">Transport et infrastructure</a><ul id="gc-mnu-trans" role="menu" aria-orientation="vertical"><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/transport.html">Transport<span class="hidden-xs hidden-sm">et infrastructure</span><span class="visible-xs-inline visible-sm-inline">: accueil</span></a></li><li role="separator"></li><li role="presentation"><a role="menuitem" tabindex="-1" href="http://www.tc.gc.ca/fr/services/aviation.html">Aviation</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="http://www.tc.gc.ca/fr/services/maritime.html">Transport maritime</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="http://www.tc.gc.ca/fr/services/routier.html">Transport routier</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="http://www.tc.gc.ca/fr/services/ferroviaire.html">Transport ferroviaire</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="http://www.tc.gc.ca/fr/services/marchandises-dangereuses.html">Marchandises dangereuses</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="http://www.tc.gc.ca/fr/services/infrastructures.html">Infrastructure</a></li><li role="separator" aria-orientation="vertical"></li><li role="presentation"><a data-keep-expanded="md-min" href="#" role="menuitem" tabindex="-1" aria-haspopup="true" aria-controls="gc-mnu-trans-sub" aria-expanded="true">En demande</a><ul id="gc-mnu-trans-sub" role="menu" aria-orientation="vertical"><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/transport/vehicules-zero-emission.html">Véhicules zéro émission</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="http://www.tc.gc.ca/fr/services/aviation/securite-drones.html">Sécurité des drones</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="http://www.tc.gc.ca/fr/services/surete-transports/aerienne/articles-interdits-bord-avion.html">Articles interdits à bord d’un avion</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="http://www.tc.gc.ca/fra/securitemaritime/epe-immabatiments-menu-728.htm">Immatriculer votre bâtiment</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="http://www.tc.gc.ca/fr/services/routier/securite-sieges-auto-enfants.html">Sécurité des sièges d\'auto pour enfants</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="http://www.tc.gc.ca/fra/tmd/clair-tdesm-211.htm">Transporter des marchandises dangereuses - Règlements</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="http://www.tc.gc.ca/fr/transports-canada/organisation/lois-reglements/reglements/sor-96-433.html">Règlement de l’aviation canadien</a></li></ul></li></ul></li><li role="presentation"><a role="menuitem" tabindex="-1" aria-haspopup="true" aria-controls="gc-mnu-canworld" aria-expanded="false" href="#">Canada et le monde</a><ul id="gc-mnu-canworld" role="menu" aria-orientation="vertical"><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.international.gc.ca/world-monde/index.aspx?lang=fra">Le Canada et le monde<span class="visible-xs-inline visible-sm-inline">: accueil</span></a></li><li role="separator"></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.international.gc.ca/world-monde/offices-bureaux/index.aspx?lang=fra">Bureaux internationaux et contacts d’urgence</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.international.gc.ca/world-monde/study_work_travel-etude_travail_voyage/index.aspx?lang=fra">Étude, travail et voyage partout dans le monde</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.international.gc.ca/world-monde/country-pays/index.aspx?lang=fra">Information par pays et territoires</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.international.gc.ca/world-monde/stories-histoires/index.aspx?lang=fra">Histoires</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.international.gc.ca/world-monde/international_relations-relations_internationales/index.aspx?lang=fra">Relations internationales</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.international.gc.ca/world-monde/issues_development-enjeux_developpement/index.aspx?lang=fra">Enjeux mondiaux et aide internationale</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.international.gc.ca/world-monde/funding-financement/index.aspx?lang=fra">Financement d’initiatives internationales</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/entreprises/commerce.html">Commerce international et investissement</a></li><li role="separator" aria-orientation="vertical"></li><li role="presentation"><a data-keep-expanded="md-min" href="#" role="menuitem" tabindex="-1" aria-haspopup="true" aria-controls="gc-mnu-canworld-sub" aria-expanded="true">En demande</a><ul id="gc-mnu-canworld-sub" role="menu" aria-orientation="vertical"><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.educanada.ca/scholarships-bourses/non_can/index.aspx?lang=fra">Trouver une bourse d’études canadienne en tant qu’étudiant international</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://treaty-accord.gc.ca/index.aspx?Lang=fra">Traités internationaux signés par le Canada</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.educanada.ca/index.aspx?lang=fra">Trouver des occasions d’étude ou de recherche au Canada</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://voyage.gc.ca/assistance/ambassades-consulats">Communiquer avec une ambassade ou un consulat</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.international.gc.ca/protocol-protocole/reps.aspx?lang=fra">Communiquer avec un représentant étranger au Canada</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.international.gc.ca/gac-amc/about-a_propos/services/authentication-authentification/step-etape-1.aspx?lang=fra">Authentifier un document</a></li></ul></li></ul></li><li role="presentation"><a role="menuitem" tabindex="-1" aria-haspopup="true" aria-controls="gc-mnu-money" aria-expanded="false" href="#">Argent et finances</a><ul id="gc-mnu-money" role="menu" aria-orientation="vertical"><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/finance.html"><span class="hidden-xs hidden-sm">Argent et finances</span><span class="visible-xs-inline visible-sm-inline">Finances : accueil</span></a></li><li role="separator"></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/finance/gerer.html">Gérer votre argent</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/finance/dettes.html">Dettes et emprunts</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/finance/epargne.html">Épargne et investissement</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/finance/financementetudes.html">Financement des études</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/finance/pensions.html">Pensions et retraite</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/finance/fraude.html">Protection contre la fraude et les escroqueries</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/finance/outils.html">Calculatrices et outils financiers</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/agence-consommation-matiere-financiere/services/programmes-litteratie-financiere.html">Programmes de littératie financière</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/finance/questions-consommation.html">Questions de consommation</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/finance/faillite.html">Insolvabilité</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/impots.html">Impôts</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/gouvernement/systeme/finances.html">Finances publiques</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/entreprises/subventions.html">Subventions et financement pour les entreprises</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/entreprises/permis/secteursindustriereglementationfederale/regleservicesfinanciers.html">Réglementation des services financiers et monétaires</a></li><li role="separator" aria-orientation="vertical"></li><li role="presentation"><a data-keep-expanded="md-min" href="#" role="menuitem" tabindex="-1" aria-haspopup="true" aria-controls="gc-mnu-money-sub" aria-expanded="true">En demande</a><ul id="gc-mnu-money-sub" role="menu" aria-orientation="vertical"><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.ic.gc.ca/app/scr/bsf-osb/ins/connexion.html?lang=fra">Trouver un dossier de faillite ou d’insolvabilité</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/emplois/education/aide-financiere-etudiants/pret-etudiants.html">Prêts étudiants</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.tpsgc-pwgsc.gc.ca/recgen/txt/depot-deposit-fra.html">Inscrivez-vous au dépôt direct</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/agence-consommation-matiere-financiere/services/hypotheques.html">Obtenir des renseignements sur les hypothèques</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/agence-consommation-matiere-financiere/services/dossier-pointage-credit.html">Dossiers et cotes de crédit</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://itools-ioutils.fcac-acfc.gc.ca/BP-PB/planificateur-budgetaire">Faire un budget</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/agence-revenu/services/impot/administrateurs-regimes-enregistres/fesp/plafonds-cd-reer-rpdb-celi-mgap.html">Taux et limites de contribution</a></li></ul></li></ul></li><li role="presentation"><a role="menuitem" tabindex="-1" aria-haspopup="true" aria-controls="gc-mnu-science" aria-expanded="false" href="#">Science et innovation</a><ul id="gc-mnu-science" role="menu" aria-orientation="vertical"><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/science.html">Science<span class="hidden-xs hidden-sm">et innovation</span><span class="visible-xs-inline visible-sm-inline">: accueil</span></a></li><li role="separator"></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/science/financementrecherche.html">Financement, subventions et prix pour la recherche</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/science/themesscientifiques.html">Thèmes scientifiques</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/science/donnees-ouvertes.html">Données ouvertes, statistiques et archives</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/science/instituts.html">Instituts et établissements de recherches</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/science/innovation.html">R-D et innovation</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/entreprises/pi.html">Propriété intellectuelle et droit d\'auteur</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/science/repertoirescientifiques.html">Répertoire des scientifiques et des professionnels de la recherche</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/science/ressourcespedagogiques.html">Ressources pédagogiques scientifiques</a></li><li role="separator" aria-orientation="vertical"></li><li role="presentation"><a data-keep-expanded="md-min" href="#" role="menuitem" tabindex="-1" aria-haspopup="true" aria-controls="gc-mnu-science-sub" aria-expanded="true">En demande</a><ul id="gc-mnu-science-sub" role="menu" aria-orientation="vertical"><li role="presentation"><a role="menuitem" tabindex="-1" href="https://cnrc.canada.ca/fr/certifications-evaluations-normes/codes-canada/publications-codes-canada">Code national du bâtiment</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://cnrc.canada.ca/fr/horloge-web/">Heures officielles au Canada</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://cnrc.canada.ca/fr/recherche-developpement/produits-services/logiciels-applications/calculatrice-soleil/">Trouver les heures de levers et de couchers du soleil</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://cnrc.canada.ca/fr/soutien-linnovation-technologique/soutien-financier-linnovation-technologique-pari-cnrc">Bourses pour l’innovation technologique (PARI)</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://science-libraries.canada.ca/fra/accueil/">Bibliothèque scientifique fédérale</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="http://asc-csa.gc.ca/fra/astronomie/auroramax/hd-480.asp">Aurores boréales en direct</a></li></ul></li></ul></li>',
 };
 
-const gcdsTopicMenuCss = "@layer reset, default, mobile, xs-mobile, focus;@layer reset{:host *{box-sizing:border-box;margin:0}}@layer default{:host{display:block}:host .gcds-topic-menu__heading,:host .gcds-topic-menu__main{display:inherit;height:0;margin:0;overflow:hidden;width:0}:host .visible-sm-inline{display:none}:host .gcds-topic-menu{font:var(--gcds-topic-menu-font);margin-inline:auto;max-width:var(--gcds-topic-menu-max-width);position:relative;width:90%}:host .gcds-topic-menu button[aria-haspopup=true]{background-color:var(--gcds-topic-menu-button-background);border:var(--gcds-topic-menu-border-width) solid var(--gcds-topic-menu-button-border);color:var(--gcds-topic-menu-button-text);cursor:pointer;font:var(--gcds-topic-menu-button-font);margin-inline-start:0;padding:var(--gcds-topic-menu-button-padding);text-transform:uppercase}:host .gcds-topic-menu button[aria-haspopup=true].gcds-topic-menu--home{background-color:var(--gcds-topic-menu-button-home-background);border-color:var(--gcds-topic-menu-button-home-border-color);color:var(--gcds-topic-menu-button-home-text)}:host .gcds-topic-menu button[aria-haspopup=true]:hover,:host .gcds-topic-menu button[aria-haspopup=true][aria-expanded=true]{background-color:var(--gcds-topic-menu-button-expanded-background);border-color:var(--gcds-topic-menu-button-expanded-border-color);color:var(--gcds-topic-menu-button-expanded-text)}:host .gcds-topic-menu [aria-haspopup=true][aria-expanded=false]+[role=menu]{display:none}:host .gcds-topic-menu button[aria-haspopup=true][aria-expanded=true]+[role=menu]{z-index:9999}:host .gcds-topic-menu button[aria-haspopup=true][aria-expanded=true]+[role=menu] [role=menuitem]{position:relative;z-index:9999}:host .gcds-topic-menu [aria-haspopup=true][aria-expanded=true]+[role=menu]{z-index:9998}:host .gcds-topic-menu [role=menu]{background-color:var(--gcds-topic-menu-themelist-background);color:var(--gcds-topic-menu-themelist-text);list-style:none;margin:0;padding:0;position:absolute;width:var(--gcds-topic-menu-themelist-width)}:host .gcds-topic-menu [role=menu]>li{border-inline-start:var(--gcds-topic-menu-border-width) solid var(--gcds-topic-menu-themelist-item-border)}:host .gcds-topic-menu [role=menu]>li:first-child{border-block-start:var(--gcds-topic-menu-border-width) solid var(--gcds-topic-menu-themelist-item-border)}:host .gcds-topic-menu [role=menu]>li:last-child{border-block-end:var(--gcds-topic-menu-border-width) solid var(--gcds-topic-menu-themelist-item-border)}:host .gcds-topic-menu [role=menu] [role=menu]{background-color:var(--gcds-topic-menu-topiclist-background);border-block-start:var(--gcds-topic-menu-border-width) solid var(--gcds-topic-menu-topiclist-border);-webkit-box-shadow:var(--gcds-topic-menu-topiclist-box-shadow);box-shadow:var(--gcds-topic-menu-topiclist-box-shadow);color:var(--gcds-topic-menu-topiclist-text);left:var(--gcds-topic-menu-topiclist-left);margin-block-end:var(--gcds-topic-menu-topiclist-margin-block-end);min-height:var(--gcds-topic-menu-topiclist-min-height);padding:var(--gcds-topic-menu-topiclist-padding);top:0;width:var(--gcds-topic-menu-topiclist-width)}:host .gcds-topic-menu [role=menu] [role=menu] li{border:none;width:45%}:host .gcds-topic-menu [role=menu] [role=menu] li [role=menuitem]{border-block-end:none;border-inline-end:none;color:var(--gcds-topic-menu-topiclist-menuitem-text);padding:var(--gcds-topic-menu-topiclist-menuitem-padding);text-decoration:underline;width:auto}:host .gcds-topic-menu [role=menu] [role=menu] li [role=menuitem][aria-haspopup=true],:host .gcds-topic-menu [role=menu] [role=menu] li [role=menuitem][aria-haspopup=true]:hover{color:var(--gcds-topic-menu-topiclist-menuitem-popup-text);font:var(--gcds-topic-menu-topiclist-menuitem-popup-font);text-decoration:none}:host .gcds-topic-menu [role=menu] [role=menu] li [role=menuitem]:hover{color:var(--gcds-topic-menu-topiclist-menuitem-hover-text);text-decoration-thickness:var(\n                  --gcds-topic-menu-topiclist-menuitem-hover-text-decoration-thickness\n                )}:host .gcds-topic-menu [role=menu] [role=menu] li:first-child{margin-block-end:var(\n                --gcds-topic-menu-topiclist-item-first-margin-block-end\n              );width:100%}:host .gcds-topic-menu [role=menu] [role=menu] li:first-child [role=menuitem]{font:var(--gcds-topic-menu-topiclist-item-first-font);text-decoration:underline}:host .gcds-topic-menu [role=menu] [role=menu] li:last-child{left:var(--gcds-topic-menu-topiclist-item-last-left);position:absolute;top:var(--gcds-topic-menu-topiclist-item-last-top)}:host .gcds-topic-menu [role=menu] [role=menu] li:last-child [aria-expanded=true]{background:transparent}:host .gcds-topic-menu [role=menu] [role=menu] li:last-child [role=menu]{list-style:disc;padding-block-start:0}:host .gcds-topic-menu [role=menu] [role=menu] [role=menu]{background:transparent;border-block-start:none;-webkit-box-shadow:none;box-shadow:none;left:auto;min-height:auto;top:auto;width:auto}:host .gcds-topic-menu [role=menu] [role=menu] [role=menu] li{width:var(--gcds-topic-menu-mostrequested-item-width)}:host .gcds-topic-menu [role=menu] [role=menu] [role=menu] li:first-child{margin-block-end:var(\n                  --gcds-topic-menu-mostrequested-item-first-margin-block-end\n                )}:host .gcds-topic-menu [role=menu] [role=menu] [role=menu] li:first-child [role=menuitem]{font:var(--gcds-topic-menu-mostrequested-item-first-font);text-decoration:underline;width:auto}:host .gcds-topic-menu [role=menu] [role=menu] [role=menu] li:last-child{left:auto;position:relative;top:auto}@media screen and (min-width:61.9375rem) and (max-width:74.9375rem){:host .gcds-topic-menu [role=menu] [role=menu] li{width:auto}:host .gcds-topic-menu [role=menu] [role=menu] li:last-child{left:auto;margin-block-start:var(\n                --gcds-topic-menu-mostrequested-item-last-margin-block-start\n              );position:relative;top:auto}:host .gcds-topic-menu [role=menu] [role=menu] [role=menu]{margin-block-end:0;padding-block-end:0;position:relative}:host .gcds-topic-menu [role=menu] [role=menu] [role=menu] li:last-child{margin-block-start:0}}:host .gcds-topic-menu [role=menuitem],:host .gcds-topic-menu [role=menuitem]:visited{border-block-end:var(--gcds-topic-menu-border-width) solid var(--gcds-topic-menu-menuitem-border-block-end);border-inline-end:var(--gcds-topic-menu-border-width) solid var(--gcds-topic-menu-menuitem-border-inline-end);box-sizing:border-box;color:var(--gcds-topic-menu-menuitem-text);display:block;font:var(--gcds-topic-menu-menuitem-font);padding:var(--gcds-topic-menu-menuitem-padding);text-decoration:none;text-underline-offset:var(\n          --gcds-topic-menu-menuitem-text-underline-offset\n        );width:var(--gcds-topic-menu-menuitem-width)}:host .gcds-topic-menu [role=menuitem]:hover,:host .gcds-topic-menu [role=menuitem]:visited:hover,:host .gcds-topic-menu [role=menuitem]:visited[aria-expanded=true],:host .gcds-topic-menu [role=menuitem][aria-expanded=true]{background-color:var(--gcds-topic-menu-menuitem-expanded-background);color:var(--gcds-topic-menu-menuitem-expanded-text)}}@layer mobile{@media screen and (max-width:61.9375rem){:host .gcds-topic-menu .visible-sm-inline{display:inline-block;text-decoration:underline}:host .gcds-topic-menu .hidden-sm{display:none}:host .gcds-topic-menu [role=menu]{margin-block-end:var(\n            --gcds-topic-menu-mobile-themelist-margin-block-start\n          );position:static;width:auto}:host .gcds-topic-menu [role=menu] [role=menu]{border-block-start:none;-webkit-box-shadow:none;box-shadow:none;margin-block-end:0;min-height:auto;padding:0;width:auto}:host .gcds-topic-menu [role=menu] [role=menu] li{width:auto}:host .gcds-topic-menu [role=menu] [role=menu] li [role=menuitem]{border-block-end:var(--gcds-topic-menu-border-width) solid var(\n                    --gcds-topic-menu-mobile-topiclist-menuitem-border-block-end\n                  );padding:var(\n                  --gcds-topic-menu-mobile-topiclist-menuitem-padding\n                )}:host .gcds-topic-menu [role=menu] [role=menu] li [role=menuitem]:hover{background-color:transparent;color:var(\n                    --gcds-topic-menu-mobile-topiclist-menuitem-hover-text\n                  )}:host .gcds-topic-menu [role=menu] [role=menu] li [role=menuitem][aria-haspopup]{font:var(\n                    --gcds-topic-menu-mobile-topiclist-menuitem-haspopup-font\n                  )}:host .gcds-topic-menu [role=menu] [role=menu] li:first-child{margin-block-end:0}:host .gcds-topic-menu [role=menu] [role=menu] li:first-child [role=menuitem]{border-block-end:var(--gcds-topic-menu-border-width) solid var(\n                    --gcds-topic-menu-mobile-topiclist-item-first-menuitem-border\n                  );color:var(\n                  --gcds-topic-menu-mobile-topiclist-item-first-menuitem-text\n                );font:var(\n                  --gcds-topic-menu-mobile-topiclist-menuitem-haspopup-font\n                );text-decoration:underline;width:auto}:host .gcds-topic-menu [role=menu] [role=menu] li:last-child{left:auto;position:static;top:auto}:host .gcds-topic-menu [role=menu] [role=menu] li:last-child [role=menuitem]{border-block-end:var(--gcds-topic-menu-border-width) solid var(--gcds-topic-menu-mobile-mostrequested-border);color:var(\n                  --gcds-topic-menu-mobile-topiclist-item-last-menuitem-text\n                );text-decoration:none}:host .gcds-topic-menu [role=menu] [role=menu] li:last-child [role=menuitem]:hover{color:var(\n                    --gcds-topic-menu-mobile-topiclist-item-last-menuitem-hover-text\n                  );text-decoration:underline}:host .gcds-topic-menu [role=menu] [role=menu] li:last-child [role=menu]{list-style:none;padding-block-start:0}:host .gcds-topic-menu [role=menu] [role=menu] li:last-child [role=menu] li{width:auto}:host .gcds-topic-menu [role=menu] [role=menu] li:last-child [role=menu] li [role=menuitem]{border-block-end:var(--gcds-topic-menu-border-width) solid var(--gcds-topic-menu-mobile-mostrequested-border)}:host .gcds-topic-menu [role=menu] [role=menu] li:last-child [role=menu] li [role=menuitem]:hover{color:var(\n                        --gcds-topic-menu-mobile-mostrequested-hover-text\n                      );text-decoration:underline}:host .gcds-topic-menu [role=menu] [role=menu] li:first-child,:host .gcds-topic-menu [role=menu] [role=menu] li:last-child{background-color:var(\n                --gcds-topic-menu-mobile-mostrequested-background\n              )}:host .gcds-topic-menu [role=menuitem]{width:auto}:host .gcds-topic-menu [aria-expanded=true]:not(button)+[role=menu] li{margin-inline-start:var(\n                --gcds-topic-menu-mobile-item-expanded-margin-inline-start\n              )}:host .gcds-topic-menu [aria-expanded=true]:not(button)+[role=menu] li:first-child,:host .gcds-topic-menu [aria-expanded=true]:not(button)+[role=menu] li:last-child{margin-inline-start:0}:host .gcds-topic-menu [aria-expanded=true]:not(button)+[role=menu] li:first-child [role=menuitem],:host .gcds-topic-menu [aria-expanded=true]:not(button)+[role=menu] li:last-child [role=menuitem]{padding-inline-start:var(\n                    --gcds-topic-menu-mobile-item-expanded-padding-inline-start\n                  )}:host .gcds-topic-menu [aria-expanded=true]:not(button)+[role=menu] li:last-child [role=menu] [role=menuitem]{padding-inline-start:0}:host .gcds-topic-menu [aria-expanded=true]:not(button)+[role=menu] [role=menu] li{margin-inline-start:var(\n                --gcds-topic-menu-mobile-mostrequested-expanded-margin-inline-start\n              )}:host .gcds-topic-menu [aria-expanded=true]+[role=menu] [role=menu] [role=menu]{background-color:var(\n              --gcds-topic-menu-mobile-mostrequested-background\n            )}:host .gcds-topic-menu [aria-haspopup]:not(button):before{content:\"\\25BA\\a0\"}:host .gcds-topic-menu [aria-haspopup][aria-expanded=true]:not(button):before{content:\"\\25BC\\a0\"}:host .gcds-topic-menu button[aria-haspopup=true][aria-expanded=true]+[role=menu]{border-inline-end:var(--gcds-topic-menu-border-width) solid var(--gcds-topic-menu-mobile-themelist-border)}}}@layer xs-mobile{@media screen and (max-width:47.9375rem){:host .gcds-topic-menu>[role=menu]{margin-inline:calc(-50vw - -50%)}}}@layer focus{:host .gcds-topic-menu [role=menuitem]:focus,:host .gcds-topic-menu button[aria-haspopup=true]:focus{background-color:var(--gcds-topic-menu-focus-background);border-color:var(--gcds-topic-menu-focus-background);border-inline-end:none;border-radius:var(--gcds-topic-menu-focus-border-radius);box-shadow:var(--gcds-topic-menu-focus-box-shadow);color:var(--gcds-topic-menu-focus-text);outline:var(--gcds-topic-menu-focus-outline);outline-offset:var(--gcds-topic-menu-focus-outline-offset)}}";
+const gcdsTopicMenuCss = "@layer reset, default, mobile, xsMobile, focus;@layer reset{:host{display:block}:host *{box-sizing:border-box;margin:0}}@layer default{:host .gcds-topic-menu__heading,:host .gcds-topic-menu__main{display:inherit;height:0;margin:0;overflow:hidden;width:0}:host .visible-sm-inline{display:none}:host .gcds-topic-menu{font:var(--gcds-topic-menu-font);margin-inline:auto;max-width:var(--gcds-topic-menu-max-width);position:relative;width:90%}:host .gcds-topic-menu button[aria-haspopup=true]{background-color:var(--gcds-topic-menu-button-background);border:var(--gcds-topic-menu-border-width) solid var(--gcds-topic-menu-button-border);color:var(--gcds-topic-menu-button-text);cursor:pointer;font:var(--gcds-topic-menu-button-font);margin-inline-start:0;padding:var(--gcds-topic-menu-button-padding);text-transform:uppercase}:host .gcds-topic-menu button[aria-haspopup=true].gcds-topic-menu--home{background-color:var(--gcds-topic-menu-button-home-background);border-color:var(--gcds-topic-menu-button-home-border-color);color:var(--gcds-topic-menu-button-home-text)}:host .gcds-topic-menu button[aria-haspopup=true]:hover,:host .gcds-topic-menu button[aria-haspopup=true][aria-expanded=true]{background-color:var(--gcds-topic-menu-button-expanded-background);border-color:var(--gcds-topic-menu-button-expanded-border-color);color:var(--gcds-topic-menu-button-expanded-text)}:host .gcds-topic-menu [aria-haspopup=true][aria-expanded=false]+[role=menu]{display:none}:host .gcds-topic-menu button[aria-haspopup=true][aria-expanded=true]+[role=menu]{z-index:9999}:host .gcds-topic-menu button[aria-haspopup=true][aria-expanded=true]+[role=menu] [role=menuitem]{position:relative;z-index:9999}:host .gcds-topic-menu [aria-haspopup=true][aria-expanded=true]+[role=menu]{z-index:9998}:host .gcds-topic-menu [role=menu]{background-color:var(--gcds-topic-menu-themelist-background);color:var(--gcds-topic-menu-themelist-text);list-style:none;margin:0;padding:0;position:absolute;width:var(--gcds-topic-menu-themelist-width)}:host .gcds-topic-menu [role=menu]>li{border-inline-start:var(--gcds-topic-menu-border-width) solid var(--gcds-topic-menu-themelist-item-border)}:host .gcds-topic-menu [role=menu]>li:first-child{border-block-start:var(--gcds-topic-menu-border-width) solid var(--gcds-topic-menu-themelist-item-border)}:host .gcds-topic-menu [role=menu]>li:last-child{border-block-end:var(--gcds-topic-menu-border-width) solid var(--gcds-topic-menu-themelist-item-border)}:host .gcds-topic-menu [role=menu] [role=menu]{background-color:var(--gcds-topic-menu-topiclist-background);border-block-start:var(--gcds-topic-menu-border-width) solid var(--gcds-topic-menu-topiclist-border);-webkit-box-shadow:var(--gcds-topic-menu-topiclist-box-shadow);box-shadow:var(--gcds-topic-menu-topiclist-box-shadow);color:var(--gcds-topic-menu-topiclist-text);left:var(--gcds-topic-menu-topiclist-left);margin-block-end:var(--gcds-topic-menu-topiclist-margin-block-end);min-height:var(--gcds-topic-menu-topiclist-min-height);padding:var(--gcds-topic-menu-topiclist-padding);top:0;width:var(--gcds-topic-menu-topiclist-width)}:host .gcds-topic-menu [role=menu] [role=menu] li{border:0;width:45%}:host .gcds-topic-menu [role=menu] [role=menu] li [role=menuitem]{border-block-end:0;border-inline-end:0;color:var(--gcds-topic-menu-topiclist-menuitem-text);padding:var(--gcds-topic-menu-topiclist-menuitem-padding);text-decoration:underline;width:auto}:host .gcds-topic-menu [role=menu] [role=menu] li [role=menuitem][aria-haspopup=true],:host .gcds-topic-menu [role=menu] [role=menu] li [role=menuitem][aria-haspopup=true]:hover{color:var(--gcds-topic-menu-topiclist-menuitem-popup-text);font:var(--gcds-topic-menu-topiclist-menuitem-popup-font);text-decoration:none}@media (hover:hover){:host .gcds-topic-menu [role=menu] [role=menu] li [role=menuitem]:hover{color:var(--gcds-topic-menu-topiclist-menuitem-hover-text);text-decoration-thickness:var(\n                    --gcds-topic-menu-topiclist-menuitem-hover-text-decoration-thickness\n                  )}}:host .gcds-topic-menu [role=menu] [role=menu] li:first-child{margin-block-end:var(\n                --gcds-topic-menu-topiclist-item-first-margin-block-end\n              );width:100%}:host .gcds-topic-menu [role=menu] [role=menu] li:first-child [role=menuitem]{font:var(--gcds-topic-menu-topiclist-item-first-font);text-decoration:underline}:host .gcds-topic-menu [role=menu] [role=menu] li:last-child{left:var(--gcds-topic-menu-topiclist-item-last-left);position:absolute;top:var(--gcds-topic-menu-topiclist-item-last-top)}:host .gcds-topic-menu [role=menu] [role=menu] li:last-child [aria-expanded=true]{background:transparent}:host .gcds-topic-menu [role=menu] [role=menu] li:last-child [role=menu]{list-style:disc;padding-block-start:0}:host .gcds-topic-menu [role=menu] [role=menu] [role=menu]{background:transparent;border-block-start:0;-webkit-box-shadow:none;box-shadow:none;left:auto;min-height:auto;top:auto;width:auto}:host .gcds-topic-menu [role=menu] [role=menu] [role=menu] li{width:var(--gcds-topic-menu-mostrequested-item-width)}:host .gcds-topic-menu [role=menu] [role=menu] [role=menu] li:first-child{margin-block-end:var(\n                  --gcds-topic-menu-mostrequested-item-first-margin-block-end\n                )}:host .gcds-topic-menu [role=menu] [role=menu] [role=menu] li:first-child [role=menuitem]{font:var(--gcds-topic-menu-mostrequested-item-first-font);text-decoration:underline;width:auto}:host .gcds-topic-menu [role=menu] [role=menu] [role=menu] li:last-child{left:auto;position:relative;top:auto}@media screen and (61.9375rem <= width <= 74.9375rem){:host .gcds-topic-menu [role=menu] [role=menu] li{width:auto}:host .gcds-topic-menu [role=menu] [role=menu] li:last-child{left:auto;margin-block-start:var(\n                --gcds-topic-menu-mostrequested-item-last-margin-block-start\n              );position:relative;top:auto}:host .gcds-topic-menu [role=menu] [role=menu] [role=menu]{margin-block-end:0;padding-block-end:0;position:relative}:host .gcds-topic-menu [role=menu] [role=menu] [role=menu] li:last-child{margin-block-start:0}}:host .gcds-topic-menu [role=menuitem],:host .gcds-topic-menu [role=menuitem]:visited{border-block-end:var(--gcds-topic-menu-border-width) solid var(--gcds-topic-menu-menuitem-border-block-end);border-inline-end:var(--gcds-topic-menu-border-width) solid var(--gcds-topic-menu-menuitem-border-inline-end);box-sizing:border-box;color:var(--gcds-topic-menu-menuitem-text);display:block;font:var(--gcds-topic-menu-menuitem-font);padding:var(--gcds-topic-menu-menuitem-padding);text-decoration:none;text-underline-offset:var(\n          --gcds-topic-menu-menuitem-text-underline-offset\n        );width:var(--gcds-topic-menu-menuitem-width)}:host .gcds-topic-menu [role=menuitem]:hover,:host .gcds-topic-menu [role=menuitem]:visited:hover,:host .gcds-topic-menu [role=menuitem]:visited[aria-expanded=true],:host .gcds-topic-menu [role=menuitem][aria-expanded=true]{background-color:var(--gcds-topic-menu-menuitem-expanded-background);color:var(--gcds-topic-menu-menuitem-expanded-text)}}@layer mobile{@media screen and (width <= 61.9375rem){:host .gcds-topic-menu .visible-sm-inline{display:inline-block;text-decoration:underline}:host .gcds-topic-menu .hidden-sm{display:none}:host .gcds-topic-menu [role=menu]{margin-block-end:var(\n          --gcds-topic-menu-mobile-themelist-margin-block-start\n        );position:static;width:auto}:host .gcds-topic-menu [role=menu] [role=menu]{border-block-start:0;-webkit-box-shadow:none;box-shadow:none;margin-block-end:0;min-height:auto;padding:0;width:auto}:host .gcds-topic-menu [role=menu] [role=menu] li{width:auto}:host .gcds-topic-menu [role=menu] [role=menu] li [role=menuitem]{border-block-end:var(--gcds-topic-menu-border-width) solid var(\n                  --gcds-topic-menu-mobile-topiclist-menuitem-border-block-end\n                );padding:var(--gcds-topic-menu-mobile-topiclist-menuitem-padding)}@media (hover:hover){:host .gcds-topic-menu [role=menu] [role=menu] li [role=menuitem]:hover{background-color:transparent;color:var(\n                    --gcds-topic-menu-mobile-topiclist-menuitem-hover-text\n                  )}}:host .gcds-topic-menu [role=menu] [role=menu] li [role=menuitem][aria-haspopup]{font:var(\n                  --gcds-topic-menu-mobile-topiclist-menuitem-haspopup-font\n                )}:host .gcds-topic-menu [role=menu] [role=menu] li:first-child{margin-block-end:0}:host .gcds-topic-menu [role=menu] [role=menu] li:first-child [role=menuitem]{border-block-end:var(--gcds-topic-menu-border-width) solid var(\n                  --gcds-topic-menu-mobile-topiclist-item-first-menuitem-border\n                );color:var(\n                --gcds-topic-menu-mobile-topiclist-item-first-menuitem-text\n              );font:var(\n                --gcds-topic-menu-mobile-topiclist-menuitem-haspopup-font\n              );text-decoration:underline;width:auto}:host .gcds-topic-menu [role=menu] [role=menu] li:last-child{left:auto;position:static;top:auto}:host .gcds-topic-menu [role=menu] [role=menu] li:last-child [role=menuitem]{border-block-end:var(--gcds-topic-menu-border-width) solid var(--gcds-topic-menu-mobile-mostrequested-border);color:var(\n                --gcds-topic-menu-mobile-topiclist-item-last-menuitem-text\n              );text-decoration:none}@media (hover:hover){:host .gcds-topic-menu [role=menu] [role=menu] li:last-child [role=menuitem]:hover{color:var(\n                    --gcds-topic-menu-mobile-topiclist-item-last-menuitem-hover-text\n                  );text-decoration:underline}}:host .gcds-topic-menu [role=menu] [role=menu] li:last-child [role=menu]{list-style:none;padding-block-start:0}:host .gcds-topic-menu [role=menu] [role=menu] li:last-child [role=menu] li{width:auto}:host .gcds-topic-menu [role=menu] [role=menu] li:last-child [role=menu] li [role=menuitem]{border-block-end:var(--gcds-topic-menu-border-width) solid var(--gcds-topic-menu-mobile-mostrequested-border)}@media (hover:hover){:host .gcds-topic-menu [role=menu] [role=menu] li:last-child [role=menu] li [role=menuitem]:hover{color:var(\n                        --gcds-topic-menu-mobile-mostrequested-hover-text\n                      );text-decoration:underline}}:host .gcds-topic-menu [role=menu] [role=menu] li:first-child,:host .gcds-topic-menu [role=menu] [role=menu] li:last-child{background-color:var(\n              --gcds-topic-menu-mobile-mostrequested-background\n            )}:host .gcds-topic-menu [role=menuitem]{width:auto}:host .gcds-topic-menu [aria-expanded=true]:not(button)+[role=menu] li{margin-inline-start:var(\n              --gcds-topic-menu-mobile-item-expanded-margin-inline-start\n            )}:host .gcds-topic-menu [aria-expanded=true]:not(button)+[role=menu] li:first-child,:host .gcds-topic-menu [aria-expanded=true]:not(button)+[role=menu] li:last-child{margin-inline-start:0}:host .gcds-topic-menu [aria-expanded=true]:not(button)+[role=menu] li:first-child [role=menuitem],:host .gcds-topic-menu [aria-expanded=true]:not(button)+[role=menu] li:last-child [role=menuitem]{padding-inline-start:var(\n                  --gcds-topic-menu-mobile-item-expanded-padding-inline-start\n                )}:host .gcds-topic-menu [aria-expanded=true]:not(button)+[role=menu] li:last-child [role=menu] [role=menuitem]{padding-inline-start:0}:host .gcds-topic-menu [aria-expanded=true]:not(button)+[role=menu] [role=menu] li{margin-inline-start:var(\n              --gcds-topic-menu-mobile-mostrequested-expanded-margin-inline-start\n            )}:host .gcds-topic-menu [aria-expanded=true]+[role=menu] [role=menu] [role=menu]{background-color:var(\n            --gcds-topic-menu-mobile-mostrequested-background\n          )}:host .gcds-topic-menu [aria-haspopup]:not(button):before{content:\"\\25BA\\a0\"}:host .gcds-topic-menu [aria-haspopup][aria-expanded=true]:not(button):before{content:\"\\25BC\\a0\"}:host .gcds-topic-menu button[aria-haspopup=true][aria-expanded=true]+[role=menu]{border-inline-end:var(--gcds-topic-menu-border-width) solid var(--gcds-topic-menu-mobile-themelist-border)}}}@layer xsMobile{@media screen and (width <= 47.9375rem){:host .gcds-topic-menu>[role=menu]{margin-inline:calc(-50vw - -50%)}}}@layer focus{:host .gcds-topic-menu :is(button[aria-haspopup=true],[role=menuitem]):focus{background-color:var(--gcds-topic-menu-focus-background);border-color:var(--gcds-topic-menu-focus-background);border-inline-end:0;border-radius:var(--gcds-topic-menu-focus-border-radius);box-shadow:var(--gcds-topic-menu-focus-box-shadow);color:var(--gcds-topic-menu-focus-text);outline:var(--gcds-topic-menu-focus-outline);outline-offset:var(--gcds-topic-menu-focus-outline-offset)}}";
 const GcdsTopicMenuStyle0 = gcdsTopicMenuCss;
 
 const GcdsTopicMenu = class {
@@ -4360,14 +4536,6 @@ const GcdsTopicMenu = class {
         this.lang = undefined;
         this.navItems = [];
         this.navSize = undefined;
-    }
-    /**
-     * Listen for focusout of theme and topic menu to close menu
-     */
-    async focusOutListener(e) {
-        if (!this.el.contains(e.relatedTarget) && this.open) {
-            this.toggleNav();
-        }
     }
     /**
      * Keyboard controls of theme and topic menu
@@ -4484,6 +4652,34 @@ const GcdsTopicMenu = class {
     async toggleNav() {
         this.open = !this.open;
         if (this.open) {
+            // Check window size to set the state
+            const mediaQuery = window.matchMedia('screen and (max-width: 991px)');
+            const nav = this.el;
+            if (mediaQuery.matches) {
+                this.navSize = 'mobile';
+            }
+            else {
+                this.navSize = 'desktop';
+            }
+            // Add change event listener to keep track of window changing size
+            mediaQuery.addEventListener('change', async (e) => {
+                if (e.matches) {
+                    nav.updateNavSize('mobile');
+                    nav.shadowRoot
+                        .querySelectorAll('[data-keep-expanded]')
+                        .forEach(el => {
+                        el.setAttribute('aria-expanded', 'false');
+                    });
+                }
+                else {
+                    nav.updateNavSize('desktop');
+                    nav.shadowRoot
+                        .querySelectorAll('[data-keep-expanded]')
+                        .forEach(el => {
+                        el.setAttribute('aria-expanded', 'true');
+                    });
+                }
+            });
             if (this.navSize == 'desktop') {
                 this.themeList.children[0].children[0].setAttribute('aria-expanded', 'true');
             }
@@ -4569,13 +4765,6 @@ const GcdsTopicMenu = class {
         // Define lang attribute
         this.lang = assignLanguage(this.el);
         this.updateLang();
-        const mediaQuery = window.matchMedia('screen and (max-width: 991px)');
-        if (mediaQuery.matches) {
-            this.navSize = 'mobile';
-        }
-        else {
-            this.navSize = 'desktop';
-        }
         try {
             const response = await fetch(`https://www.canada.ca/content/dam/canada/sitemenu/sitemenu-v2-${this.lang}.html`);
             this.listItems = await response.text();
@@ -4650,27 +4839,10 @@ const GcdsTopicMenu = class {
                 }
             });
         }
-        // Mobile responsiveness
-        const mediaQuery = window.matchMedia('screen and (max-width: 991px)');
-        const nav = this.el;
-        mediaQuery.addEventListener('change', async (e) => {
-            if (e.matches) {
-                nav.updateNavSize('mobile');
-                nav.shadowRoot.querySelectorAll('[data-keep-expanded]').forEach(el => {
-                    el.setAttribute('aria-expanded', 'false');
-                });
-            }
-            else {
-                nav.updateNavSize('desktop');
-                nav.shadowRoot.querySelectorAll('[data-keep-expanded]').forEach(el => {
-                    el.setAttribute('aria-expanded', 'true');
-                });
-            }
-        });
     }
     render() {
         const { home, lang } = this;
-        return (index.h(index.Host, null, index.h("nav", { class: "gcds-topic-menu" }, index.h("h2", { class: "gcds-topic-menu__heading" }, "Menu"), index.h("button", { "aria-haspopup": "true", "aria-expanded": this.open.toString(), "aria-label": I18N$1[lang].buttonLabel, onClick: async () => await this.toggleNav(), ref: element => (this.menuButton = element), class: home && 'gcds-topic-menu--home' }, this.lang == 'en' ? (index.h(index.Fragment, null, index.h("span", { class: "gcds-topic-menu__main" }, "Main "), "Menu")) : (index.h(index.Fragment, null, "Menu", index.h("span", { class: "gcds-topic-menu__main" }, " principal"))), index.h("gcds-icon", { name: "chevron-down", "margin-left": "150", size: "caption" })), index.h("ul", { role: "menu", "aria-orientation": "vertical", "data-top-menu": true, innerHTML: this.listItems, ref: element => (this.themeList = element) }))));
+        return (index.h(index.Host, null, index.h("nav", { class: "gcds-topic-menu", "aria-labelledby": "gcds-topic-menu__heading" }, index.h("gcds-sr-only", { id: "gcds-topic-menu__heading", tag: "h2" }, I18N$1[lang].menuLabelFull), index.h("button", { "aria-haspopup": "true", "aria-expanded": this.open.toString(), "aria-label": I18N$1[lang].buttonLabel, onClick: async () => await this.toggleNav(), ref: element => (this.menuButton = element), class: home && 'gcds-topic-menu--home' }, this.lang == 'en' ? (index.h(index.Fragment, null, index.h("gcds-sr-only", { tag: "span" }, I18N$1[lang].menuLabelHidden), I18N$1[lang].menuToggle)) : (index.h(index.Fragment, null, I18N$1[lang].menuToggle, index.h("gcds-sr-only", { tag: "span" }, I18N$1[lang].menuLabelHidden))), index.h("gcds-icon", { name: "chevron-down", "margin-left": "150", size: "caption" })), index.h("ul", { role: "menu", "aria-orientation": "vertical", "data-top-menu": true, innerHTML: this.listItems, ref: element => (this.themeList = element) }))));
     }
     get el() { return index.getElement(this); }
 };
@@ -4739,7 +4911,7 @@ const ContentToggleArrow = `<svg xmlns="http://www.w3.org/2000/svg"  width="12" 
   <path d="M10.6,0L6,4.6L1.4,0L0,1.4l6,6l6-6L10.6,0z" />
 </svg>`;
 
-const gcdsVerifyBannerCss = ":host .gcds-verify-banner{background-color:var(--gcds-verify-banner-background);color:var(--gcds-verify-banner-text);font:var(--gcds-verify-banner-font)}:host .gcds-verify-banner.verify-banner--is-fixed{position:sticky;top:0;width:var(--gcds-verify-banner-max-content-width-full);z-index:9999}:host .gcds-verify-banner .container-lg,:host .gcds-verify-banner .container-md,:host .gcds-verify-banner .container-sm,:host .gcds-verify-banner .container-xl,:host .gcds-verify-banner .container-xs{width:90%}:host .gcds-verify-banner .container-full{max-width:var(--gcds-verify-banner-container-full);padding-inline:var(--gcds-verify-banner-container-padding)}:host .gcds-verify-banner .container-xl{max-width:var(--gcds-verify-banner-container-xl)}:host .gcds-verify-banner .container-lg{max-width:var(--gcds-verify-banner-container-lg)}:host .gcds-verify-banner .container-md{max-width:var(--gcds-verify-banner-container-md)}:host .gcds-verify-banner .container-sm{max-width:var(--gcds-verify-banner-container-sm)}:host .gcds-verify-banner .container-xs{max-width:var(--gcds-verify-banner-container-xs)}:host .gcds-verify-banner .verify-banner__content,:host .gcds-verify-banner summary{font-size:90%}:host .gcds-verify-banner summary{display:flex;margin-inline:auto;padding-block:var(--gcds-verify-banner-summary-padding)}:host .gcds-verify-banner summary:hover{cursor:pointer}:host .gcds-verify-banner summary .svg-container,:host .gcds-verify-banner summary p small{margin:var(--gcds-verify-banner-summary-content-margin)}:host .gcds-verify-banner summary p{align-items:center;display:flex;flex-wrap:wrap;line-height:var(--gcds-verify-banner-line-height);margin:0}:host .gcds-verify-banner summary .verify-banner__toggle{background:none;border:0;color:var(--gcds-verify-banner-toggle-text);flex:0 0 auto;font-weight:var(--gcds-verify-banner-toggle-font-weight);padding:0;pointer-events:none;text-decoration:underline}:host .gcds-verify-banner summary .verify-banner__toggle .svg-container path{fill:var(--gcds-verify-banner-toggle-text)}:host .gcds-verify-banner .verify-banner__content{border-block-start:var(--gcds-verify-banner-content-border-width) solid var(--gcds-verify-banner-content-border-color);margin:0 auto;padding-block-end:var(--gcds-verify-banner-content-padding-block-end);padding-block-start:var(--gcds-verify-banner-content-padding-block-start)}:host .gcds-verify-banner .verify-banner__content li{list-style:none;margin:var(--gcds-verify-banner-content-list-margin)}:host .gcds-verify-banner .verify-banner__content li h4,:host .gcds-verify-banner .verify-banner__content li p{width:90%}:host .gcds-verify-banner .verify-banner__content li p .svg-container{margin-inline:var(--gcds-verify-banner-content-list-svg-margin)}:host .gcds-verify-banner .verify-banner__content h4{margin:var(--gcds-verify-banner-content-heading-margin)}:host .gcds-verify-banner .verify-banner__content p{line-height:var(--gcds-verify-banner-line-height);margin:0}:host .gcds-verify-banner[open] summary .verify-banner__toggle svg{transform:rotate(-180deg)}";
+const gcdsVerifyBannerCss = "@layer reset, default, fixed, container;@layer reset{:host{display:block}}@layer default{:host .gcds-verify-banner{background-color:var(--gcds-verify-banner-background);color:var(--gcds-verify-banner-text);font:var(--gcds-verify-banner-font)}:host .gcds-verify-banner :is(summary,.verify-banner__content){font-size:90%}:host .gcds-verify-banner summary{cursor:pointer;display:flex;margin-inline:auto;padding-block:var(--gcds-verify-banner-summary-padding)}:host .gcds-verify-banner summary :is(.svg-container,p small){margin:var(--gcds-verify-banner-summary-content-margin)}:host .gcds-verify-banner summary p{align-items:center;display:flex;flex-wrap:wrap;line-height:var(--gcds-verify-banner-line-height);margin:0}:host .gcds-verify-banner summary .verify-banner__toggle{background:none;border:0;color:var(--gcds-verify-banner-toggle-text);flex:0 0 auto;font-weight:var(--gcds-verify-banner-toggle-font-weight);padding:0;pointer-events:none;text-decoration:underline}:host .gcds-verify-banner summary .verify-banner__toggle .svg-container path{fill:var(--gcds-verify-banner-toggle-text)}:host .gcds-verify-banner .verify-banner__content{border-block-start:var(--gcds-verify-banner-content-border-width) solid var(--gcds-verify-banner-content-border-color);margin:0 auto;padding-block-end:var(--gcds-verify-banner-content-padding-block-end);padding-block-start:var(\n        --gcds-verify-banner-content-padding-block-start\n      )}:host .gcds-verify-banner .verify-banner__content li{list-style:none}:host .gcds-verify-banner .verify-banner__content li :is(h4,p){width:90%}:host .gcds-verify-banner .verify-banner__content h4{margin:var(--gcds-verify-banner-content-heading-margin)}:host .gcds-verify-banner .verify-banner__content p{line-height:var(--gcds-verify-banner-line-height);margin:0}:host .gcds-verify-banner[open] summary .verify-banner__toggle svg{transform:rotate(-180deg)}}@layer fixed{:host .gcds-verify-banner.verify-banner--is-fixed{position:sticky;top:0;width:var(--gcds-verify-banner-max-content-width-full);z-index:9999}}@layer container{:host .gcds-verify-banner .container-lg,:host .gcds-verify-banner .container-md,:host .gcds-verify-banner .container-sm,:host .gcds-verify-banner .container-xl,:host .gcds-verify-banner .container-xs{width:90%}:host .gcds-verify-banner .container-full{max-width:var(--gcds-verify-banner-container-full);padding-inline:var(--gcds-verify-banner-container-padding)}:host .gcds-verify-banner .container-xl{max-width:var(--gcds-verify-banner-container-xl)}:host .gcds-verify-banner .container-lg{max-width:var(--gcds-verify-banner-container-lg)}:host .gcds-verify-banner .container-md{max-width:var(--gcds-verify-banner-container-md)}:host .gcds-verify-banner .container-sm{max-width:var(--gcds-verify-banner-container-sm)}:host .gcds-verify-banner .container-xs{max-width:var(--gcds-verify-banner-container-xs)}}";
 const GcdsVerifyBannerStyle0 = gcdsVerifyBannerCss;
 
 const GcdsVerifyBanner = class {
@@ -4801,7 +4973,7 @@ exports.gcds_nav_group = GcdsNavGroup;
 exports.gcds_nav_link = GcdsNavLink;
 exports.gcds_pagination = GcdsPagination;
 exports.gcds_phase_banner = GcdsPhaseBanner;
-exports.gcds_radio = GcdsRadio;
+exports.gcds_radio_group = GcdsRadioGroup;
 exports.gcds_search = GcdsSearch;
 exports.gcds_select = GcdsSelect;
 exports.gcds_side_nav = GcdsSideNav;

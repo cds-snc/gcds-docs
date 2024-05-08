@@ -5,7 +5,7 @@ export class GcdsBreadcrumbsItem {
     }
     render() {
         const { href } = this;
-        return (h(Host, { role: "listitem", class: "gcds-breadcrumbs-item" }, h("a", { href: href }, h("slot", null))));
+        return (h(Host, { role: "listitem", class: "gcds-breadcrumbs-item" }, h("gcds-link", { size: "regular", href: href }, h("slot", null))));
     }
     static get is() { return "gcds-breadcrumbs-item"; }
     static get encapsulation() { return "shadow"; }

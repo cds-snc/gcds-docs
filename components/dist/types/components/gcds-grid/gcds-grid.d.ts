@@ -31,7 +31,8 @@ export declare class GcdsGrid {
     /**
      * Set tag for grid container
      */
-    tag?: string;
+    tag?: 'article' | 'aside' | 'div' | 'dl' | 'main' | 'nav' | 'ol' | 'section' | 'ul';
+    validateTag(newValue: string): void;
     /**
      * If total grid size is less than the size of its grid container,
      * this property aligns the grid along the block (column) axis
@@ -58,5 +59,6 @@ export declare class GcdsGrid {
      * Sets both the align-items + justify-items properties
      */
     placeItems?: 'center' | 'end' | 'start' | 'stretch';
+    componentWillLoad(): void;
     render(): any;
 }

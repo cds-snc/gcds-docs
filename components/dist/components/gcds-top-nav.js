@@ -15,7 +15,7 @@ const I18N = {
   },
 };
 
-const gcdsTopNavCss = "@layer reset, defaults;@layer reset{:host *{box-sizing:border-box;margin:0}:host ul{padding:0}}@layer defaults{:host{display:block}@media only screen and (width >= 64em){:host{background-color:var(--gcds-top-nav-background)}}:host .gcds-top-nav__container{display:flex;flex-direction:column;margin-inline:auto;max-width:var(--gcds-top-nav-max-width);width:90%}@media only screen and (width >= 64em){:host .gcds-top-nav__container{align-items:flex-end;flex-direction:row}}@media only screen and (width >= 64em){:host .gcds-top-nav__container .nav-container__list{align-items:flex-end;display:flex;width:fit-content}:host .gcds-top-nav__container .nav-container__list.nav-list--right{margin-inline-start:auto}:host .gcds-top-nav__container .nav-container__list.nav-list--center{margin-inline:auto}}}";
+const gcdsTopNavCss = "@layer reset, default, desktop;@layer reset{:host{display:block}:host *{box-sizing:border-box;margin:0}:host ul{padding:0}}@layer default{:host .gcds-top-nav .gcds-top-nav__container{display:flex;flex-direction:column;margin-inline:auto;max-width:var(--gcds-top-nav-max-width);width:90%}}@layer desktop{@media only screen and (width >= 64em){:host .gcds-top-nav{background-color:var(--gcds-top-nav-background)}:host .gcds-top-nav .gcds-top-nav__container{align-items:flex-end;flex-direction:row}:host .gcds-top-nav .nav-container__list{align-items:flex-end;display:flex;width:fit-content}:host .gcds-top-nav .nav-container__list.nav-list--right{margin-inline-start:auto}:host .gcds-top-nav .nav-container__list.nav-list--center{margin-inline:auto}}}";
 const GcdsTopNavStyle0 = gcdsTopNavCss;
 
 const GcdsTopNav$1 = /*@__PURE__*/ proxyCustomElement(class GcdsTopNav extends HTMLElement {
@@ -28,6 +28,33 @@ const GcdsTopNav$1 = /*@__PURE__*/ proxyCustomElement(class GcdsTopNav extends H
         this.lang = undefined;
         this.navItems = [];
         this.navSize = undefined;
+    }
+    async focusInListener(e) {
+        if (this.el.contains(e.target) && !this.navSize) {
+            const mediaQuery = window.matchMedia('screen and (min-width: 64em)');
+            const nav = this.el;
+            const mobileTrigger = this.mobile;
+            if (mediaQuery.matches) {
+                this.navSize = 'desktop';
+            }
+            else {
+                this.navSize = 'mobile';
+            }
+            await this.updateNavItemQueue(this.el);
+            mediaQuery.addEventListener('change', async function (e) {
+                if (e.matches) {
+                    nav.updateNavSize('desktop');
+                    await nav.updateNavItemQueue(nav);
+                    if (mobileTrigger.hasAttribute('open')) {
+                        mobileTrigger.toggleNav();
+                    }
+                }
+                else {
+                    nav.updateNavSize('mobile');
+                    await nav.updateNavItemQueue(nav);
+                }
+            });
+        }
     }
     async focusOutListener(e) {
         if (!this.el.contains(e.relatedTarget)) {
@@ -99,36 +126,10 @@ const GcdsTopNav$1 = /*@__PURE__*/ proxyCustomElement(class GcdsTopNav extends H
         // Define lang attribute
         this.lang = assignLanguage(this.el);
         this.updateLang();
-        const mediaQuery = window.matchMedia('screen and (min-width: 64em)');
-        if (mediaQuery.matches) {
-            this.navSize = 'desktop';
-        }
-        else {
-            this.navSize = 'mobile';
-        }
-    }
-    async componentDidLoad() {
-        const mediaQuery = window.matchMedia('screen and (min-width: 64em)');
-        const nav = this.el;
-        const mobileTrigger = this.mobile;
-        await this.updateNavItemQueue(this.el);
-        mediaQuery.addEventListener('change', async function (e) {
-            if (e.matches) {
-                nav.updateNavSize('desktop');
-                await nav.updateNavItemQueue(nav);
-                if (mobileTrigger.hasAttribute('open')) {
-                    mobileTrigger.toggleNav();
-                }
-            }
-            else {
-                nav.updateNavSize('mobile');
-                await nav.updateNavItemQueue(nav);
-            }
-        });
     }
     render() {
         const { label, alignment, lang } = this;
-        return (h(Host, null, h("nav", { "aria-label": `${label}${I18N[lang].navLabel}`, class: "gcds-top-nav__container" }, h("gcds-nav-group", { menuLabel: "Menu", closeTrigger: lang == 'fr' ? 'Fermer' : 'Close', openTrigger: "Menu", class: "gcds-mobile-nav gcds-mobile-nav-topnav", ref: element => (this.mobile = element), lang: lang }, h("slot", { name: "home" }), h("ul", { role: "menu", class: `nav-container__list nav-list--${alignment}` }, h("slot", null))))));
+        return (h(Host, null, h("div", { class: "gcds-top-nav" }, h("nav", { "aria-label": `${label}${I18N[lang].navLabel}` }, h("ul", { class: "gcds-top-nav__container" }, h("gcds-nav-group", { menuLabel: "Menu", closeTrigger: lang == 'fr' ? 'Fermer' : 'Close', openTrigger: "Menu", class: "gcds-mobile-nav gcds-mobile-nav-topnav", ref: element => (this.mobile = element), lang: lang }, h("slot", { name: "home" }), h("li", { class: `nav-container__list nav-list--${alignment}` }, h("ul", { class: `nav-container__list nav-list--${alignment}` }, h("slot", null)))))))));
     }
     get el() { return this; }
     static get style() { return GcdsTopNavStyle0; }
@@ -141,7 +142,7 @@ const GcdsTopNav$1 = /*@__PURE__*/ proxyCustomElement(class GcdsTopNav extends H
         "getNavSize": [64],
         "updateNavSize": [64],
         "updateNavItemQueue": [64]
-    }, [[4, "focusout", "focusOutListener"], [4, "keydown", "keyDownListener"], [4, "gcdsClick", "gcdsClickListener"]]]);
+    }, [[4, "focusin", "focusInListener"], [4, "focusout", "focusOutListener"], [4, "keydown", "keyDownListener"], [4, "gcdsClick", "gcdsClickListener"]]]);
 function defineCustomElement$1() {
     if (typeof customElements === "undefined") {
         return;

@@ -2,6 +2,7 @@ import { EventEmitter } from '../../stencil-public-runtime';
 import { Validator, ValidatorEntry } from '../../validators';
 export declare class GcdsFileUploader {
     el: HTMLElement;
+    internals: ElementInternals;
     private shadowElement?;
     _validator: Validator<unknown>;
     /**
@@ -11,6 +12,10 @@ export declare class GcdsFileUploader {
      * Id attribute for a file uploader element.
      */
     uploaderId: string;
+    /**
+     * Name attribute for file input element.
+     */
+    name: string;
     /**
      * Form field label.
      */
@@ -55,18 +60,6 @@ export declare class GcdsFileUploader {
      */
     validateOn: 'blur' | 'submit' | 'other';
     /**
-     * Custom callback function on change event
-     */
-    changeHandler: Function;
-    /**
-     * Custom callback function on focus event
-     */
-    focusHandler: Function;
-    /**
-     * Custom callback function on blur event
-     */
-    blurHandler: Function;
-    /**
      * Specifies if the file uploader is invalid.
      */
     hasError: boolean;
@@ -86,17 +79,20 @@ export declare class GcdsFileUploader {
      * Emitted when the uploader has focus.
      */
     gcdsFocus: EventEmitter<void>;
-    private onFocus;
     /**
      * Emitted when the uploader loses focus.
      */
     gcdsBlur: EventEmitter<void>;
     private onBlur;
     /**
-     * Update value based on user selection.
+     * Emitted when the user has made a file selection.
      */
-    gcdsFileUploaderChange: EventEmitter;
-    handleChange: (e: any) => void;
+    gcdsChange: EventEmitter;
+    /**
+     * Emitted when the user has uploaded a file.
+     */
+    gcdsInput: EventEmitter;
+    private handleInput;
     /**
      * Remove file and update value.
      */
@@ -115,6 +111,9 @@ export declare class GcdsFileUploader {
      */
     gcdsValid: EventEmitter<object>;
     submitListener(e: any): void;
+    formResetCallback(): void;
+    formStateRestoreCallback(state: any): void;
+    private addFilesToFormData;
     updateLang(): void;
     componentWillLoad(): Promise<void>;
     componentWillUpdate(): void;

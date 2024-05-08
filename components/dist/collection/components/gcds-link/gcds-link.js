@@ -1,6 +1,6 @@
 import { Host, h, } from "@stencil/core";
 import { assignLanguage, observerConfig } from "../../utils/utils";
-import { inheritAttributes } from "../../utils/utils";
+import { inheritAttributes, emitEvent } from "../../utils/utils";
 import i18n from "./i18n/i18n";
 export class GcdsLink {
     constructor() {
@@ -67,7 +67,8 @@ export class GcdsLink {
             type,
         };
         const isExternal = target === '_blank' || external;
-        return (h(Host, null, h("a", Object.assign({ role: "link", tabIndex: 0 }, attrs, { class: `link--${size} ${display != 'inline' ? `d-${display}` : ''} ${variant != 'default' ? `variant-${variant}` : ''}`, ref: element => (this.shadowElement = element), target: isExternal ? '_blank' : target, rel: isExternal ? 'noopener noreferrer' : rel }, inheritedAttributes, { part: "link", onBlur: () => this.gcdsBlur.emit(), onFocus: () => this.gcdsFocus.emit(), onClick: () => this.gcdsClick.emit() }), h("slot", null), target === '_blank' || external ? (h("gcds-icon", { name: "external-link", label: i18n[lang].external, "margin-left": "100" })) : download !== undefined ? (h("gcds-icon", { name: "download", label: i18n[lang].download, "margin-left": "100" })) : href.toLowerCase().startsWith('mailto:') ? (h("gcds-icon", { "icon-style": "regular", name: "envelope", label: i18n[lang].email, "margin-left": "100" })) : (href.toLowerCase().startsWith('tel:') && (h("gcds-icon", { name: "phone", label: i18n[lang].phone, "margin-left": "100" }))))));
+        return (h(Host, null, h("a", Object.assign({ role: "link", tabIndex: 0 }, attrs, { class: `gcds-link link--${size} ${display != 'inline' ? `d-${display}` : ''} ${variant != 'default' ? `variant-${variant}` : ''}`, ref: element => (this.shadowElement = element), target: isExternal ? '_blank' : target, rel: isExternal ? 'noopener noreferrer' : rel }, inheritedAttributes, { part: "link", onBlur: () => this.gcdsBlur.emit(), onFocus: () => this.gcdsFocus.emit(), onClick: e => emitEvent(e, this.gcdsClick, href) }), h("slot", null), target === '_blank' || external ? (h("gcds-icon", { name: "external-link", label: i18n[lang].external, "margin-left": "100" })) : download !== undefined ? (h("gcds-icon", { name: "download", label: i18n[lang].download, "margin-left": "100" })) : href && href.toLowerCase().startsWith('mailto:') ? (h("gcds-icon", { "icon-style": "regular", name: "envelope", label: i18n[lang].email, "margin-left": "100" })) : (href &&
+            href.toLowerCase().startsWith('tel:') && (h("gcds-icon", { name: "phone", label: i18n[lang].phone, "margin-left": "100" }))))));
     }
     static get is() { return "gcds-link"; }
     static get encapsulation() { return "shadow"; }

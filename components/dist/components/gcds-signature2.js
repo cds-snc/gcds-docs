@@ -42,13 +42,14 @@ const WordmarkFr = `<svg version="1.1" xmlns="http://www.w3.org/2000/svg" width=
 	</g>
 </svg>`;
 
-const gcdsSignatureCss = "gcds-signature{display:block;width:fit-content}gcds-signature .gcds-signature{display:flex}gcds-signature svg{max-width:100%}gcds-signature:not([type=wordmark]) svg{height:var(--gcds-signature-signature-height)}@media screen and (min-width:64em){gcds-signature:not([type=wordmark]) svg{height:2.125rem}}gcds-signature[type=wordmark] svg{height:var(--gcds-signature-wordmark-height);width:auto}gcds-signature:not([variant=white]) svg .fip_text{fill:var( --gcds-signature-color-text)}gcds-signature:not([variant=white]) svg .fip_flag{fill:var(--gcds-signature-color-flag)}gcds-signature[variant=white] svg .fip_flag,gcds-signature[variant=white] svg .fip_text{fill:var(--gcds-signature-white-default)}";
+const gcdsSignatureCss = "@layer reset, default, type.signature, type.wordmark, variant.colour, variant.white, desktop;@layer reset{:host{display:block;width:fit-content}}@layer default{:host .gcds-signature{display:flex}:host svg{max-width:100%}:host svg .fip_flag{fill:var(--gcds-signature-color-flag)}}@layer type.signature{:host(:not([type=wordmark])) svg{height:var(--gcds-signature-signature-height)}}@layer type.wordmark{:host([type=wordmark]) svg{height:var(--gcds-signature-wordmark-height);width:auto}}@layer variant.colour{:host(:not([variant=white])) svg .fip_text{fill:var(--gcds-signature-color-text)}}@layer variant.white{:host([variant=white]) svg :is(.fip_text){fill:var(--gcds-signature-white-default)}}@layer desktop{@media screen and (width >= 64em){:host(:not([type=wordmark])) svg{height:2.125rem}}}";
 const GcdsSignatureStyle0 = gcdsSignatureCss;
 
 const GcdsSignature = /*@__PURE__*/ proxyCustomElement(class GcdsSignature extends HTMLElement {
     constructor() {
         super();
         this.__registerHost();
+        this.__attachShadow();
         this.type = 'signature';
         this.variant = 'colour';
         this.hasLink = false;
@@ -103,7 +104,7 @@ const GcdsSignature = /*@__PURE__*/ proxyCustomElement(class GcdsSignature exten
         const { type, hasLink, lang, selectSVG } = this;
         return (h(Host, null, hasLink && type === 'signature' ? (
         // eslint-disable-next-line jsx-a11y/anchor-has-content
-        h("a", { href: I18N[lang].link, innerHTML: selectSVG })) : (h("div", { class: "gcds-signature", innerHTML: selectSVG }))));
+        h("a", { class: "gcds-signature", href: I18N[lang].link, innerHTML: selectSVG })) : (h("div", { class: "gcds-signature", innerHTML: selectSVG }))));
     }
     get el() { return this; }
     static get watchers() { return {
@@ -111,7 +112,7 @@ const GcdsSignature = /*@__PURE__*/ proxyCustomElement(class GcdsSignature exten
         "variant": ["validateVariant"]
     }; }
     static get style() { return GcdsSignatureStyle0; }
-}, [0, "gcds-signature", {
+}, [1, "gcds-signature", {
         "type": [1537],
         "variant": [1537],
         "hasLink": [1028, "has-link"],

@@ -18,9 +18,13 @@ export declare class GcdsSearch {
      */
     name: string;
     /**
-     * Set the name of the search input
+     * Set the id of the search input
      */
     searchId: string;
+    /**
+     * Set the value of the search input
+     */
+    value: string;
     /**
      * Set a list of predefined search terms
      */
@@ -29,9 +33,13 @@ export declare class GcdsSearch {
      * Events
      */
     /**
+     * Emitted when the search element has recieved input.
+     */
+    gcdsInput: EventEmitter<string>;
+    /**
      * Emitted when the search input value has changed.
      */
-    gcdsChange: EventEmitter<object>;
+    gcdsChange: EventEmitter<string>;
     /**
      * Emitted when the search input value has gained focus.
      */
@@ -48,6 +56,7 @@ export declare class GcdsSearch {
      * Language of rendered component
      */
     lang: string;
+    private handleInput;
     updateLang(): void;
     componentWillLoad(): Promise<void>;
     render(): any;

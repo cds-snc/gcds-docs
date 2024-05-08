@@ -4,37 +4,30 @@ import { defaultValidator, getValidator, requiredValidator, } from "../../valida
 export class GcdsInput {
     constructor() {
         this._validator = defaultValidator;
-        this.onFocus = e => {
-            if (this.focusHandler) {
-                this.focusHandler(e);
-            }
-            this.gcdsFocus.emit();
-        };
-        this.onBlur = e => {
-            if (this.blurHandler) {
-                this.blurHandler(e);
-            }
-            else {
-                if (this.validateOn == 'blur') {
-                    this.validate();
-                }
+        this.onBlur = () => {
+            if (this.validateOn == 'blur') {
+                this.validate();
             }
             this.gcdsBlur.emit();
+        };
+        this.handleInput = (e, customEvent) => {
+            const val = e.target && e.target.value;
+            this.value = val;
+            this.internals.setFormValue(val ? val : null);
+            customEvent.emit(this.value);
         };
         this.disabled = false;
         this.errorMessage = undefined;
         this.hideLabel = false;
         this.hint = undefined;
         this.inputId = undefined;
+        this.name = undefined;
         this.label = undefined;
         this.required = false;
         this.size = undefined;
         this.type = 'text';
         this.value = undefined;
         this.autocomplete = undefined;
-        this.changeHandler = undefined;
-        this.focusHandler = undefined;
-        this.blurHandler = undefined;
         this.validator = undefined;
         this.validateOn = undefined;
         this.inheritedAttributes = {};
@@ -93,15 +86,28 @@ export class GcdsInput {
             }
         }
     }
-    handleChange(e) {
-        if (this.changeHandler) {
-            this.changeHandler(e);
+    keyDownListener(e) {
+        if (e.target == this.el && e.key === 'Enter') {
+            const formButton = document.createElement('button');
+            formButton.type = 'submit';
+            formButton.style.display = 'none';
+            this.el.closest('form').appendChild(formButton);
+            formButton.click();
+            formButton.remove();
         }
-        else {
-            const val = e.target && e.target.value;
-            this.value = val;
+    }
+    /*
+     * Form internal functions
+     */
+    formResetCallback() {
+        if (this.value != this.initialValue) {
+            this.internals.setFormValue(this.initialValue);
+            this.value = this.initialValue;
         }
-        this.gcdsChange.emit(this.value);
+    }
+    formStateRestoreCallback(state) {
+        this.internals.setFormValue(state);
+        this.value = state;
     }
     /*
      * Observe lang attribute change
@@ -130,6 +136,8 @@ export class GcdsInput {
         this.inheritedAttributes = inheritAttributes(this.el, this.shadowElement, [
             'placeholder',
         ]);
+        this.internals.setFormValue(this.value ? this.value : null);
+        this.initialValue = this.value ? this.value : null;
     }
     componentWillUpdate() {
         if (this.validator) {
@@ -137,10 +145,10 @@ export class GcdsInput {
         }
     }
     render() {
-        const { disabled, errorMessage, hideLabel, hint, inputId, label, required, size, type, value, hasError, autocomplete, inheritedAttributes, lang, } = this;
+        const { disabled, errorMessage, hideLabel, hint, inputId, name, label, required, size, type, value, hasError, autocomplete, inheritedAttributes, lang, } = this;
         // Use max-width instead of size attribute to keep field responsive
         const style = {
-            maxWidth: `${size * 1.5}ch`,
+            maxWidth: `${size + (type === 'number' ? 2.5 : 3.75)}ch`,
         };
         const attrsInput = Object.assign({ disabled,
             required,
@@ -158,10 +166,12 @@ export class GcdsInput {
                 ? ` ${attrsInput['aria-describedby']}`
                 : ''}`;
         }
-        return (h(Host, null, h("div", { class: `gcds-input-wrapper ${disabled ? 'gcds-disabled' : ''} ${hasError ? 'gcds-error' : ''}` }, h("gcds-label", Object.assign({}, attrsLabel, { "hide-label": hideLabel, "label-for": inputId, lang: lang })), hint ? h("gcds-hint", { hint: hint, "hint-id": inputId }) : null, errorMessage ? (h("gcds-error-message", { messageId: inputId, message: errorMessage })) : null, h("input", Object.assign({}, attrsInput, { class: hasError ? 'gcds-error' : null, id: inputId, name: inputId, onBlur: e => this.onBlur(e), onFocus: e => this.onFocus(e), onInput: e => this.handleChange(e), "aria-labelledby": `label-for-${inputId}`, "aria-invalid": errorMessage ? 'true' : 'false', maxlength: size, style: size ? style : null, ref: element => (this.shadowElement = element) })))));
+        return (h(Host, null, h("div", { class: `gcds-input-wrapper ${disabled ? 'gcds-disabled' : ''} ${hasError ? 'gcds-error' : ''}` }, h("gcds-label", Object.assign({}, attrsLabel, { "hide-label": hideLabel, "label-for": inputId, lang: lang })), hint ? h("gcds-hint", { "hint-id": inputId }, hint) : null, errorMessage ? (h("gcds-error-message", { messageId: inputId }, errorMessage)) : null, h("input", Object.assign({}, attrsInput, { class: hasError ? 'gcds-error' : null, id: inputId, name: name, onBlur: () => this.onBlur(), onFocus: () => this.gcdsFocus.emit(), onInput: e => this.handleInput(e, this.gcdsInput), onChange: e => this.handleInput(e, this.gcdsChange), "aria-labelledby": `label-for-${inputId}`, "aria-invalid": errorMessage ? 'true' : 'false', maxlength: size, style: size ? style : null, ref: element => (this.shadowElement = element) })))));
     }
     static get is() { return "gcds-input"; }
-    static get encapsulation() { return "scoped"; }
+    static get encapsulation() { return "shadow"; }
+    static get delegatesFocus() { return true; }
+    static get formAssociated() { return true; }
     static get originalStyleUrls() {
         return {
             "$": ["gcds-input.css"]
@@ -256,9 +266,26 @@ export class GcdsInput {
                 "optional": false,
                 "docs": {
                     "tags": [],
-                    "text": "Id + name attribute for an input element."
+                    "text": "Id  attribute for an input element."
                 },
                 "attribute": "input-id",
+                "reflect": false
+            },
+            "name": {
+                "type": "string",
+                "mutable": false,
+                "complexType": {
+                    "original": "string",
+                    "resolved": "string",
+                    "references": {}
+                },
+                "required": true,
+                "optional": false,
+                "docs": {
+                    "tags": [],
+                    "text": "Name attribute for an input element."
+                },
+                "attribute": "name",
                 "reflect": false
             },
             "label": {
@@ -365,66 +392,6 @@ export class GcdsInput {
                 "attribute": "autocomplete",
                 "reflect": false
             },
-            "changeHandler": {
-                "type": "unknown",
-                "mutable": false,
-                "complexType": {
-                    "original": "Function",
-                    "resolved": "Function",
-                    "references": {
-                        "Function": {
-                            "location": "global",
-                            "id": "global::Function"
-                        }
-                    }
-                },
-                "required": false,
-                "optional": false,
-                "docs": {
-                    "tags": [],
-                    "text": "Custom callback function on change event"
-                }
-            },
-            "focusHandler": {
-                "type": "unknown",
-                "mutable": false,
-                "complexType": {
-                    "original": "Function",
-                    "resolved": "Function",
-                    "references": {
-                        "Function": {
-                            "location": "global",
-                            "id": "global::Function"
-                        }
-                    }
-                },
-                "required": false,
-                "optional": false,
-                "docs": {
-                    "tags": [],
-                    "text": "Custom callback function on focus event"
-                }
-            },
-            "blurHandler": {
-                "type": "unknown",
-                "mutable": false,
-                "complexType": {
-                    "original": "Function",
-                    "resolved": "Function",
-                    "references": {
-                        "Function": {
-                            "location": "global",
-                            "id": "global::Function"
-                        }
-                    }
-                },
-                "required": false,
-                "optional": false,
-                "docs": {
-                    "tags": [],
-                    "text": "Custom callback function on blur event"
-                }
-            },
             "validator": {
                 "type": "unknown",
                 "mutable": true,
@@ -513,6 +480,21 @@ export class GcdsInput {
                     "references": {}
                 }
             }, {
+                "method": "gcdsInput",
+                "name": "gcdsInput",
+                "bubbles": true,
+                "cancelable": true,
+                "composed": true,
+                "docs": {
+                    "tags": [],
+                    "text": "Emitted when the element has received input."
+                },
+                "complexType": {
+                    "original": "any",
+                    "resolved": "any",
+                    "references": {}
+                }
+            }, {
                 "method": "gcdsChange",
                 "name": "gcdsChange",
                 "bubbles": true,
@@ -520,7 +502,7 @@ export class GcdsInput {
                 "composed": true,
                 "docs": {
                     "tags": [],
-                    "text": "Update value based on user input."
+                    "text": "Emitted when the input has changed."
                 },
                 "complexType": {
                     "original": "any",
@@ -603,7 +585,14 @@ export class GcdsInput {
                 "target": "document",
                 "capture": false,
                 "passive": false
+            }, {
+                "name": "keydown",
+                "method": "keyDownListener",
+                "target": "document",
+                "capture": false,
+                "passive": false
             }];
     }
+    static get attachInternalsMemberName() { return "internals"; }
 }
 //# sourceMappingURL=gcds-input.js.map

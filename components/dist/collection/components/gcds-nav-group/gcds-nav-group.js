@@ -1,5 +1,5 @@
 import { Host, h, } from "@stencil/core";
-import { assignLanguage, observerConfig } from "../../utils/utils";
+import { assignLanguage, observerConfig, emitEvent } from "../../utils/utils";
 export class GcdsNavGroup {
     constructor() {
         this.closeTrigger = undefined;
@@ -68,16 +68,12 @@ export class GcdsNavGroup {
     }
     render() {
         const { closeTrigger, menuLabel, open, openTrigger } = this;
-        const roleAttr = {
-            role: 'menuitem',
-        };
-        if (this.el.classList.contains('gcds-mobile-nav')) {
-            delete roleAttr['role'];
-        }
-        return (h(Host, { role: "presentation", open: open, class: open && 'gcds-nav-group-expanded' }, h("button", Object.assign({ "aria-haspopup": "true", "aria-expanded": open.toString() }, roleAttr, { ref: element => (this.triggerElement = element), class: `gcds-nav-group__trigger gcds-trigger--${this.navStyle}`, onClick: () => {
-                this.toggleNav();
-                this.gcdsClick.emit();
-            } }), h("gcds-icon", { name: open ? 'angle-up' : 'angle-down' }), closeTrigger && open ? closeTrigger : openTrigger), h("ul", { role: "menu", "aria-label": menuLabel, class: `gcds-nav-group__list gcds-nav--${this.navStyle}` }, h("slot", null))));
+        return (h(Host, { role: "listitem", open: open }, h("button", { "aria-haspopup": "true", "aria-expanded": open.toString(), ref: element => (this.triggerElement = element), class: `gcds-nav-group__trigger gcds-trigger--${this.navStyle}`, onBlur: () => this.gcdsBlur.emit(), onFocus: () => this.gcdsFocus.emit(), onClick: e => {
+                const event = emitEvent(e, this.gcdsClick);
+                if (event) {
+                    this.toggleNav();
+                }
+            } }, h("gcds-icon", { name: open ? 'angle-up' : 'angle-down' }), closeTrigger && open ? closeTrigger : openTrigger), h("ul", { "aria-label": menuLabel, class: `gcds-nav-group__list gcds-nav--${this.navStyle}` }, h("slot", null))));
     }
     static get is() { return "gcds-nav-group"; }
     static get encapsulation() { return "shadow"; }
@@ -179,7 +175,37 @@ export class GcdsNavGroup {
                 "composed": true,
                 "docs": {
                     "tags": [],
-                    "text": "Emitted when the button has focus."
+                    "text": "Emitted when the button has been clicked."
+                },
+                "complexType": {
+                    "original": "void",
+                    "resolved": "void",
+                    "references": {}
+                }
+            }, {
+                "method": "gcdsFocus",
+                "name": "gcdsFocus",
+                "bubbles": true,
+                "cancelable": true,
+                "composed": true,
+                "docs": {
+                    "tags": [],
+                    "text": "Emitted when the button has been focus."
+                },
+                "complexType": {
+                    "original": "void",
+                    "resolved": "void",
+                    "references": {}
+                }
+            }, {
+                "method": "gcdsBlur",
+                "name": "gcdsBlur",
+                "bubbles": true,
+                "cancelable": true,
+                "composed": true,
+                "docs": {
+                    "tags": [],
+                    "text": "Emitted when the button blurs."
                 },
                 "complexType": {
                     "original": "void",

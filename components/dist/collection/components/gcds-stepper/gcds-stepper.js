@@ -25,7 +25,7 @@ export class GcdsStepper {
     }
     render() {
         const { currentStep, lang, totalSteps } = this;
-        return (h(Host, null, h("h6", { class: "gcds-stepper" }, `${i18n[lang].step} ${currentStep} ${i18n[lang].of} ${totalSteps}`)));
+        return (h(Host, null, h("gcds-heading", { tag: "h6", class: "gcds-stepper", "margin-top": "0", "margin-bottom": "300" }, `${i18n[lang].step} ${currentStep} ${i18n[lang].of} ${totalSteps}`)));
     }
     static get is() { return "gcds-stepper"; }
     static get encapsulation() { return "shadow"; }

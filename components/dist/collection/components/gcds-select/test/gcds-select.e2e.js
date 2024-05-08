@@ -3,7 +3,7 @@ const { AxePuppeteer } = require('@axe-core/puppeteer');
 describe('gcds-select', () => {
     it('renders', async () => {
         const page = await newE2EPage();
-        await page.setContent('<gcds-select label="select label" select-id="select" />');
+        await page.setContent('<gcds-select label="select label" select-id="select" name="select" />');
         const element = await page.find('gcds-select');
         expect(element).toHaveClass('hydrated');
     });
@@ -18,8 +18,8 @@ describe('gcds-select a11y tests', () => {
      */
     it('aria-invalid', async () => {
         const page = await newE2EPage();
-        await page.setContent('<gcds-select label="Label" select-id="aria-invalid" error-message="Field required" />');
-        const element = await await page.find('gcds-select select');
+        await page.setContent('<gcds-select label="Label" select-id="aria-invalid" name="select" error-message="Field required" />');
+        const element = await await page.find('gcds-select >>> select');
         expect(element.getAttribute('aria-invalid')).toEqual('true');
     });
     /**
@@ -28,7 +28,7 @@ describe('gcds-select a11y tests', () => {
     it('colour contrast', async () => {
         const page = await newE2EPage();
         await page.setContent(`
-      <gcds-select label="Label" select-id="colour-contrast">
+      <gcds-select label="Label" select-id="colour-contrast" name="select">
         <option>This is option 1</option>
         <option>This is option 2</option>
         <option>This is option 3</option>
@@ -46,19 +46,19 @@ describe('gcds-select a11y tests', () => {
     it('select keyboard focus', async () => {
         const page = await newE2EPage();
         await page.setContent(`
-      <gcds-select label="Label" select-id="keyboard-focus" />
+      <gcds-select label="Label" select-id="keyboard-focus" name="select"/>
     `);
-        const selectField = await (await page.find('gcds-select select')).innerText;
+        const selectField = await (await page.find('gcds-select >>> select')).innerText;
         await page.keyboard.press('Tab');
-        expect(await page.evaluate(() => window.document.activeElement.textContent)).toEqual(selectField);
+        expect(await page.evaluate(() => window.document.activeElement.shadowRoot.activeElement.textContent)).toEqual(selectField);
     });
     /**
      * select label test
      */
     it('select contains label', async () => {
         const page = await newE2EPage();
-        await page.setContent('<gcds-select label="Label" select-id="contains-label" />');
-        const element = await await page.find('gcds-select gcds-label');
+        await page.setContent('<gcds-select label="Label" select-id="contains-label" name="select"/>');
+        const element = await await page.find('gcds-select >>> gcds-label');
         expect(element.getAttribute('id')).toEqual('label-for-contains-label');
     });
 });

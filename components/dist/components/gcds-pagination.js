@@ -1,5 +1,5 @@
 import { proxyCustomElement, HTMLElement, createEvent, h, Host } from '@stencil/core/internal/client';
-import { o as observerConfig, a as assignLanguage } from './utils.js';
+import { e as emitEvent, o as observerConfig, a as assignLanguage } from './utils.js';
 import { d as defineCustomElement$2 } from './gcds-icon2.js';
 
 const I18N = {
@@ -90,63 +90,60 @@ function constructClasses(page, current, total) {
     }
     else if (current == 1 || current == total) {
         if (current - page == 4 || current - page == -4) {
-            return 'gcds-pagination-list-breakpoint-360';
+            return 'gcds-pagination-list-breakpoint-xxs';
         }
         else if (current - page == 5 || current - page == -5) {
-            return 'gcds-pagination-list-breakpoint-420';
+            return 'gcds-pagination-list-breakpoint-xs';
         }
         else if (current - page > 5 || current - page < -5) {
-            return 'gcds-pagination-list-breakpoint-488';
+            return 'gcds-pagination-list-breakpoint-sm';
         }
     }
     else if (current == 2 || current == total - 1) {
         if (current - page == 3 || current - page == -3) {
-            return 'gcds-pagination-list-breakpoint-360';
+            return 'gcds-pagination-list-breakpoint-xxs';
         }
         else if (current - page == 4 || current - page == -4) {
-            return 'gcds-pagination-list-breakpoint-420';
+            return 'gcds-pagination-list-breakpoint-xs';
         }
         else if (current - page > 4 || current - page < -4) {
-            return 'gcds-pagination-list-breakpoint-488';
+            return 'gcds-pagination-list-breakpoint-sm';
         }
     }
     else if (current > 2 && current < total - 1 && total < 10 && current == 5) {
         if (current - page == 2 || current - page == -2) {
-            return 'gcds-pagination-list-breakpoint-420';
+            return 'gcds-pagination-list-breakpoint-xs';
         }
         else if (current - page >= 3 || current - page <= -3) {
-            return 'gcds-pagination-list-breakpoint-488';
+            return 'gcds-pagination-list-breakpoint-sm';
         }
     }
     else if (current > 2 && current < total - 1) {
         if (current - page == 2 || current - page == -2) {
-            return 'gcds-pagination-list-breakpoint-420';
+            return 'gcds-pagination-list-breakpoint-xxs';
         }
         else if (current - page == 3 || current - page == -3) {
-            return 'gcds-pagination-list-breakpoint-460';
+            return 'gcds-pagination-list-breakpoint-xs';
         }
         else if (current - page > 3 || current - page < -3) {
-            return 'gcds-pagination-list-breakpoint-488';
+            return 'gcds-pagination-list-breakpoint-sm';
         }
     }
 }
 
-const gcdsPaginationCss = ".sc-gcds-pagination-h{display:block}.sc-gcds-pagination-h ul.sc-gcds-pagination{list-style:none;padding:0}.sc-gcds-pagination-h ul.sc-gcds-pagination li.sc-gcds-pagination{margin:var(--gcds-pagination-listitem-margin)}.sc-gcds-pagination-h ul.sc-gcds-pagination li.sc-gcds-pagination a.sc-gcds-pagination{border-radius:var(--gcds-pagination-border-radius);color:var(--gcds-pagination-default-text);font:var(--gcds-pagination-font)}.sc-gcds-pagination-h ul.sc-gcds-pagination li.sc-gcds-pagination a.sc-gcds-pagination:hover{background:var(--gcds-pagination-hover-background);color:var(--gcds-pagination-hover-text)}.sc-gcds-pagination-h ul.sc-gcds-pagination li.sc-gcds-pagination a.sc-gcds-pagination:focus{background-color:var(--gcds-pagination-focus-background);box-shadow:var(--gcds-pagination-focus-box-shadow);color:var(--gcds-pagination-focus-text);outline:var(--gcds-pagination-focus-outline-width) solid var(--gcds-pagination-focus-background);outline-offset:var(--gcds-pagination-border-width);text-decoration:none}.sc-gcds-pagination-h ul.sc-gcds-pagination li.sc-gcds-pagination a.sc-gcds-pagination:active:not(:focus),.sc-gcds-pagination-h ul.sc-gcds-pagination li.sc-gcds-pagination a[aria-current*=page].sc-gcds-pagination:not(:focus){background:var(--gcds-pagination-active-background);border-color:var(--gcds-pagination-active-background);color:var(--gcds-pagination-active-text);pointer-events:none;text-decoration:none}@media screen and (max-width:24em){.sc-gcds-pagination-h ul.sc-gcds-pagination li.sc-gcds-pagination{margin:var(--gcds-pagination-mobile-list-item-margin)}}.sc-gcds-pagination-h ul.gcds-pagination-list.sc-gcds-pagination,.sc-gcds-pagination-h ul.gcds-pagination-list-mobile-prevnext.sc-gcds-pagination{display:flex;flex-direction:row;margin:0 auto;width:fit-content}.sc-gcds-pagination-h ul.gcds-pagination-list.sc-gcds-pagination li.sc-gcds-pagination a.sc-gcds-pagination,.sc-gcds-pagination-h ul.gcds-pagination-list.sc-gcds-pagination li.sc-gcds-pagination>span.gcds-pagination-list-ellipses.sc-gcds-pagination,.sc-gcds-pagination-h ul.gcds-pagination-list-mobile-prevnext.sc-gcds-pagination li.sc-gcds-pagination a.sc-gcds-pagination,.sc-gcds-pagination-h ul.gcds-pagination-list-mobile-prevnext.sc-gcds-pagination li.sc-gcds-pagination>span.gcds-pagination-list-ellipses.sc-gcds-pagination{align-items:center;display:flex;height:2.75rem;justify-content:center;min-width:2.75rem}.sc-gcds-pagination-h ul.gcds-pagination-list.sc-gcds-pagination li.sc-gcds-pagination a.gcds-pagination-end-button.sc-gcds-pagination,.sc-gcds-pagination-h ul.gcds-pagination-list.sc-gcds-pagination li.sc-gcds-pagination a.gcds-pagination-end-button-mobile.sc-gcds-pagination,.sc-gcds-pagination-h ul.gcds-pagination-list.sc-gcds-pagination li.sc-gcds-pagination>span.gcds-pagination-list-ellipses.gcds-pagination-end-button.sc-gcds-pagination,.sc-gcds-pagination-h ul.gcds-pagination-list.sc-gcds-pagination li.sc-gcds-pagination>span.gcds-pagination-list-ellipses.gcds-pagination-end-button-mobile.sc-gcds-pagination,.sc-gcds-pagination-h ul.gcds-pagination-list-mobile-prevnext.sc-gcds-pagination li.sc-gcds-pagination a.gcds-pagination-end-button.sc-gcds-pagination,.sc-gcds-pagination-h ul.gcds-pagination-list-mobile-prevnext.sc-gcds-pagination li.sc-gcds-pagination a.gcds-pagination-end-button-mobile.sc-gcds-pagination,.sc-gcds-pagination-h ul.gcds-pagination-list-mobile-prevnext.sc-gcds-pagination li.sc-gcds-pagination>span.gcds-pagination-list-ellipses.gcds-pagination-end-button.sc-gcds-pagination,.sc-gcds-pagination-h ul.gcds-pagination-list-mobile-prevnext.sc-gcds-pagination li.sc-gcds-pagination>span.gcds-pagination-list-ellipses.gcds-pagination-end-button-mobile.sc-gcds-pagination{height:auto;min-width:auto;padding:var(--gcds-pagination-list-end-button-padding);width:auto}.sc-gcds-pagination-h ul.gcds-pagination-list.sc-gcds-pagination li.gcds-pagination-mobile-prevnext.sc-gcds-pagination,.sc-gcds-pagination-h ul.gcds-pagination-list-mobile-prevnext.sc-gcds-pagination li.gcds-pagination-mobile-prevnext.sc-gcds-pagination{display:none}.sc-gcds-pagination-h ul.gcds-pagination-list.sc-gcds-pagination li.gcds-pagination-list-mobile-ellipses.sc-gcds-pagination,.sc-gcds-pagination-h ul.gcds-pagination-list-mobile-prevnext.sc-gcds-pagination li.gcds-pagination-list-mobile-ellipses.sc-gcds-pagination{display:none}@media screen and (max-width:55.625em){.sc-gcds-pagination-h ul.gcds-pagination-list.sc-gcds-pagination li.sc-gcds-pagination a.sc-gcds-pagination,.sc-gcds-pagination-h ul.gcds-pagination-list-mobile-prevnext.sc-gcds-pagination li.sc-gcds-pagination a.sc-gcds-pagination{border:var(--gcds-pagination-border-width) solid}.sc-gcds-pagination-h ul.gcds-pagination-list.sc-gcds-pagination li.sc-gcds-pagination a.sc-gcds-pagination:focus,.sc-gcds-pagination-h ul.gcds-pagination-list-mobile-prevnext.sc-gcds-pagination li.sc-gcds-pagination a.sc-gcds-pagination:focus{border-color:var(--gcds-pagination-focus-background)}.sc-gcds-pagination-h ul.gcds-pagination-list.sc-gcds-pagination li.sc-gcds-pagination>span.gcds-pagination-list-ellipses.sc-gcds-pagination,.sc-gcds-pagination-h ul.gcds-pagination-list-mobile-prevnext.sc-gcds-pagination li.sc-gcds-pagination>span.gcds-pagination-list-ellipses.sc-gcds-pagination{min-width:auto}.sc-gcds-pagination-h ul.gcds-pagination-list.sc-gcds-pagination li.sc-gcds-pagination:has(>a.gcds-pagination-end-button).sc-gcds-pagination,.sc-gcds-pagination-h ul.gcds-pagination-list-mobile-prevnext.sc-gcds-pagination li.sc-gcds-pagination:has(>a.gcds-pagination-end-button).sc-gcds-pagination{margin:0}.sc-gcds-pagination-h ul.gcds-pagination-list.sc-gcds-pagination li.sc-gcds-pagination .gcds-pagination-end-button.sc-gcds-pagination,.sc-gcds-pagination-h ul.gcds-pagination-list-mobile-prevnext.sc-gcds-pagination li.sc-gcds-pagination .gcds-pagination-end-button.sc-gcds-pagination{display:none}.sc-gcds-pagination-h ul.gcds-pagination-list.sc-gcds-pagination li.gcds-pagination-mobile-prevnext.sc-gcds-pagination,.sc-gcds-pagination-h ul.gcds-pagination-list-mobile-prevnext.sc-gcds-pagination li.gcds-pagination-mobile-prevnext.sc-gcds-pagination{display:block}}@media screen and (max-width:34.75em){.sc-gcds-pagination-h ul.gcds-pagination-list.sc-gcds-pagination li.gcds-pagination-list-breakpoint-488.sc-gcds-pagination,.sc-gcds-pagination-h ul.gcds-pagination-list-mobile-prevnext.sc-gcds-pagination li.gcds-pagination-list-breakpoint-488.sc-gcds-pagination{display:none}.sc-gcds-pagination-h ul.gcds-pagination-list.sc-gcds-pagination li.gcds-pagination-list-breakpoint-488.sc-gcds-pagination+.gcds-pagination-list-mobile-ellipses.sc-gcds-pagination,.sc-gcds-pagination-h ul.gcds-pagination-list.sc-gcds-pagination li.gcds-pagination-list-mobile-ellipses.sc-gcds-pagination:has(+.gcds-pagination-list-breakpoint-488).sc-gcds-pagination,.sc-gcds-pagination-h ul.gcds-pagination-list-mobile-prevnext.sc-gcds-pagination li.gcds-pagination-list-breakpoint-488.sc-gcds-pagination+.gcds-pagination-list-mobile-ellipses.sc-gcds-pagination,.sc-gcds-pagination-h ul.gcds-pagination-list-mobile-prevnext.sc-gcds-pagination li.gcds-pagination-list-mobile-ellipses.sc-gcds-pagination:has(+.gcds-pagination-list-breakpoint-488).sc-gcds-pagination{display:list-item}}@media screen and (max-width:32.5em){.sc-gcds-pagination-h ul.gcds-pagination-list.sc-gcds-pagination li.gcds-pagination-list-breakpoint-460.sc-gcds-pagination,.sc-gcds-pagination-h ul.gcds-pagination-list-mobile-prevnext.sc-gcds-pagination li.gcds-pagination-list-breakpoint-460.sc-gcds-pagination{display:none;margin:0}.sc-gcds-pagination-h ul.gcds-pagination-list.sc-gcds-pagination li.gcds-pagination-list-breakpoint-460.sc-gcds-pagination+.gcds-pagination-list-mobile-ellipses.sc-gcds-pagination,.sc-gcds-pagination-h ul.gcds-pagination-list.sc-gcds-pagination li.gcds-pagination-list-mobile-ellipses.sc-gcds-pagination:has(+.gcds-pagination-list-breakpoint-460).sc-gcds-pagination,.sc-gcds-pagination-h ul.gcds-pagination-list-mobile-prevnext.sc-gcds-pagination li.gcds-pagination-list-breakpoint-460.sc-gcds-pagination+.gcds-pagination-list-mobile-ellipses.sc-gcds-pagination,.sc-gcds-pagination-h ul.gcds-pagination-list-mobile-prevnext.sc-gcds-pagination li.gcds-pagination-list-mobile-ellipses.sc-gcds-pagination:has(+.gcds-pagination-list-breakpoint-460).sc-gcds-pagination{display:list-item}}@media screen and (max-width:31em){.sc-gcds-pagination-h ul.gcds-pagination-list.sc-gcds-pagination li.gcds-pagination-list-breakpoint-420.sc-gcds-pagination,.sc-gcds-pagination-h ul.gcds-pagination-list-mobile-prevnext.sc-gcds-pagination li.gcds-pagination-list-breakpoint-420.sc-gcds-pagination{display:none}.sc-gcds-pagination-h ul.gcds-pagination-list.sc-gcds-pagination li.gcds-pagination-list-breakpoint-420.sc-gcds-pagination+.gcds-pagination-list-mobile-ellipses.sc-gcds-pagination,.sc-gcds-pagination-h ul.gcds-pagination-list.sc-gcds-pagination li.gcds-pagination-list-mobile-ellipses.sc-gcds-pagination:has(+.gcds-pagination-list-breakpoint-420).sc-gcds-pagination,.sc-gcds-pagination-h ul.gcds-pagination-list-mobile-prevnext.sc-gcds-pagination li.gcds-pagination-list-breakpoint-420.sc-gcds-pagination+.gcds-pagination-list-mobile-ellipses.sc-gcds-pagination,.sc-gcds-pagination-h ul.gcds-pagination-list-mobile-prevnext.sc-gcds-pagination li.gcds-pagination-list-mobile-ellipses.sc-gcds-pagination:has(+.gcds-pagination-list-breakpoint-420).sc-gcds-pagination{display:list-item}}@media screen and (max-width:25.75em){.sc-gcds-pagination-h ul.gcds-pagination-list.sc-gcds-pagination li.gcds-pagination-list-breakpoint-360.sc-gcds-pagination,.sc-gcds-pagination-h ul.gcds-pagination-list-mobile-prevnext.sc-gcds-pagination li.gcds-pagination-list-breakpoint-360.sc-gcds-pagination{display:none}.sc-gcds-pagination-h ul.gcds-pagination-list.sc-gcds-pagination li.gcds-pagination-list-breakpoint-360.sc-gcds-pagination+.gcds-pagination-list-mobile-ellipses.sc-gcds-pagination,.sc-gcds-pagination-h ul.gcds-pagination-list.sc-gcds-pagination li.gcds-pagination-list-mobile-ellipses.sc-gcds-pagination:has(+.gcds-pagination-list-breakpoint-360).sc-gcds-pagination,.sc-gcds-pagination-h ul.gcds-pagination-list-mobile-prevnext.sc-gcds-pagination li.gcds-pagination-list-breakpoint-360.sc-gcds-pagination+.gcds-pagination-list-mobile-ellipses.sc-gcds-pagination,.sc-gcds-pagination-h ul.gcds-pagination-list-mobile-prevnext.sc-gcds-pagination li.gcds-pagination-list-mobile-ellipses.sc-gcds-pagination:has(+.gcds-pagination-list-breakpoint-360).sc-gcds-pagination{display:list-item}}.sc-gcds-pagination-h ul.gcds-pagination-list-mobile-prevnext.sc-gcds-pagination{display:none;margin:var(--gcds-pagination-mobile-list-prevnext-margin)}@media screen and (max-width:55.625em){.sc-gcds-pagination-h ul.gcds-pagination-list-mobile-prevnext.sc-gcds-pagination{display:flex}}.sc-gcds-pagination-h ul.gcds-pagination-simple.sc-gcds-pagination li.sc-gcds-pagination{display:inline-block;justify-content:space-between;margin:var(--gcds-pagination-simple-listitem-margin);width:fit-content}.sc-gcds-pagination-h ul.gcds-pagination-simple.sc-gcds-pagination li.sc-gcds-pagination a.sc-gcds-pagination{display:grid;padding:var(--gcds-pagination-simple-padding)}.sc-gcds-pagination-h ul.gcds-pagination-simple.sc-gcds-pagination li.sc-gcds-pagination a.sc-gcds-pagination>gcds-icon.sc-gcds-pagination{grid-area:icon}.sc-gcds-pagination-h ul.gcds-pagination-simple.sc-gcds-pagination li.sc-gcds-pagination a.sc-gcds-pagination>.gcds-pagination-simple-text.sc-gcds-pagination{grid-area:text;margin:var(--gcds-pagination-simple-listitem-text-margin)}.sc-gcds-pagination-h ul.gcds-pagination-simple.sc-gcds-pagination li.sc-gcds-pagination a.sc-gcds-pagination>span.sc-gcds-pagination{font-weight:var(--gcds-pagination-simple-label-font-weight);grid-area:label}.sc-gcds-pagination-h ul.gcds-pagination-simple.sc-gcds-pagination li.gcds-pagination-simple-previous.sc-gcds-pagination a.sc-gcds-pagination{grid-template-areas:\"icon text\" \"icon label\";grid-template-columns:.25fr 1fr}.sc-gcds-pagination-h ul.gcds-pagination-simple.sc-gcds-pagination li.gcds-pagination-simple-next.sc-gcds-pagination{float:right}.sc-gcds-pagination-h ul.gcds-pagination-simple.sc-gcds-pagination li.gcds-pagination-simple-next.sc-gcds-pagination a.sc-gcds-pagination{grid-template-areas:\"text icon\" \"label icon\";grid-template-columns:1fr .25fr}@media screen and (max-width:25.75em){.sc-gcds-pagination-h ul.gcds-pagination-simple.sc-gcds-pagination li.sc-gcds-pagination{display:block}.sc-gcds-pagination-h ul.gcds-pagination-simple.sc-gcds-pagination li.sc-gcds-pagination:last-of-type{float:none}}";
+const gcdsPaginationCss = "@layer reset, default, list, simple, wide, compact, hover, active, focus;@layer reset{:host{display:block}:host .gcds-pagination ul{list-style:none;padding:0}}@layer default{:host .gcds-pagination{container:component pagination/inline-size}:host .gcds-pagination li{margin:var(--gcds-pagination-listitem-margin)}:host .gcds-pagination li a{border-radius:var(--gcds-pagination-border-radius);color:var(--gcds-pagination-default-text);font:var(--gcds-pagination-font)}}@layer list{:host .gcds-pagination :is(.gcds-pagination-list,.gcds-pagination-list-mobile-prevnext){display:flex;flex-direction:row;margin:0 auto;width:fit-content}:host .gcds-pagination :is(.gcds-pagination-list,.gcds-pagination-list-mobile-prevnext) li a,:host .gcds-pagination :is(.gcds-pagination-list,.gcds-pagination-list-mobile-prevnext) li>span.gcds-pagination-list-ellipses{align-items:center;display:flex;height:2.75rem;justify-content:center;min-width:2.75rem}:host .gcds-pagination :is(.gcds-pagination-list,.gcds-pagination-list-mobile-prevnext) li a.gcds-pagination-end-button,:host .gcds-pagination :is(.gcds-pagination-list,.gcds-pagination-list-mobile-prevnext) li a.gcds-pagination-end-button-mobile,:host .gcds-pagination :is(.gcds-pagination-list,.gcds-pagination-list-mobile-prevnext) li>span.gcds-pagination-list-ellipses.gcds-pagination-end-button,:host .gcds-pagination :is(.gcds-pagination-list,.gcds-pagination-list-mobile-prevnext) li>span.gcds-pagination-list-ellipses.gcds-pagination-end-button-mobile{height:auto;min-width:auto;padding:var(--gcds-pagination-list-end-button-padding);width:auto}:host .gcds-pagination :is(.gcds-pagination-list,.gcds-pagination-list-mobile-prevnext) li.gcds-pagination-mobile-prevnext{display:none}:host .gcds-pagination :is(.gcds-pagination-list,.gcds-pagination-list-mobile-prevnext) li.gcds-pagination-list-mobile-ellipses{display:none}:host .gcds-pagination .gcds-pagination-list-mobile-prevnext{display:flex;margin:var(--gcds-pagination-mobile-list-prevnext-margin)}}@layer simple{:host .gcds-pagination-simple{display:flex;flex-direction:column;justify-content:space-between}:host .gcds-pagination-simple li{display:inline-block;justify-content:space-between;margin:var(--gcds-pagination-simple-listitem-margin);width:fit-content}:host .gcds-pagination-simple li a{display:grid;padding:var(--gcds-pagination-simple-padding)}:host .gcds-pagination-simple li a>gcds-icon{grid-area:icon}:host .gcds-pagination-simple li a>.gcds-pagination-simple-text{grid-area:text;margin:var(--gcds-pagination-simple-listitem-text-margin)}:host .gcds-pagination-simple li a>span{font-weight:var(--gcds-pagination-simple-label-font-weight);grid-area:label}:host .gcds-pagination-simple .gcds-pagination-simple-previous a{grid-template-areas:\"icon text\" \"icon label\";grid-template-columns:.25fr 1fr}:host .gcds-pagination-simple .gcds-pagination-simple-next a{grid-template-areas:\"text icon\" \"label icon\";grid-template-columns:1fr .25fr}}@layer wide{@container pagination (width > 44em){:host .gcds-pagination-list-mobile-prevnext{display:none}}@container pagination (width > 20em){:host .gcds-pagination-simple{flex-direction:row}:host .gcds-pagination-simple .gcds-pagination-simple-next{margin-left:auto}}}@layer compact{@container pagination (width <= 44em){:host .gcds-pagination :is(.gcds-pagination-list,.gcds-pagination-list-mobile-prevnext) li a{border:var(--gcds-pagination-border-width) solid}:host .gcds-pagination :is(.gcds-pagination-list,.gcds-pagination-list-mobile-prevnext) li>span.gcds-pagination-list-ellipses{min-width:auto}:host .gcds-pagination :is(.gcds-pagination-list,.gcds-pagination-list-mobile-prevnext) li:has(>a.gcds-pagination-end-button){margin:0}:host .gcds-pagination :is(.gcds-pagination-list,.gcds-pagination-list-mobile-prevnext) li .gcds-pagination-end-button{display:none}:host .gcds-pagination :is(.gcds-pagination-list,.gcds-pagination-list-mobile-prevnext) li.gcds-pagination-mobile-prevnext{display:block}}@container pagination (width <= 30em){:host .gcds-pagination-list .gcds-pagination-list-breakpoint-sm{display:none}}@container pagination (width <= 27.5em){:host .gcds-pagination-list .gcds-pagination-list-breakpoint-xs{display:none}}@container pagination (width <= 25em){:host .gcds-pagination-list .gcds-pagination-list-breakpoint-xxs{display:none}}@container pagination (width <= 19em){:host .gcds-pagination-list li{margin:var(--gcds-pagination-mobile-list-item-margin)}}}@layer hover{@media (hover:hover){:host .gcds-pagination ul li a:hover{background:var(--gcds-pagination-hover-background);color:var(--gcds-pagination-hover-text)}}}@layer active{:host .gcds-pagination ul li a:active:not(:focus),:host .gcds-pagination ul li a[aria-current*=page]:not(:focus){background:var(--gcds-pagination-active-background);border-color:var(--gcds-pagination-active-background);color:var(--gcds-pagination-active-text);pointer-events:none;text-decoration:none}}@layer focus{:host .gcds-pagination ul li a:focus{background-color:var(--gcds-pagination-focus-background);border-color:var(--gcds-pagination-focus-background);box-shadow:var(--gcds-pagination-focus-box-shadow);color:var(--gcds-pagination-focus-text);outline:var(--gcds-pagination-focus-outline-width) solid var(--gcds-pagination-focus-background);outline-offset:var(--gcds-pagination-border-width);text-decoration:none}}";
 const GcdsPaginationStyle0 = gcdsPaginationCss;
 
 const GcdsPagination$1 = /*@__PURE__*/ proxyCustomElement(class GcdsPagination extends HTMLElement {
     constructor() {
         super();
         this.__registerHost();
-        this.gcdsPageChange = createEvent(this, "gcdsPageChange", 7);
+        this.__attachShadow();
+        this.gcdsFocus = createEvent(this, "gcdsFocus", 7);
+        this.gcdsBlur = createEvent(this, "gcdsBlur", 7);
+        this.gcdsClick = createEvent(this, "gcdsClick", 7);
         this.listitems = [];
         this.mobilePrevNext = [];
-        this.onPageChange = e => {
-            if (this.pageChangeHandler) {
-                this.pageChangeHandler(e);
-            }
-            this.gcdsPageChange.emit();
-        };
         this.display = 'list';
         this.label = undefined;
         this.previousHref = undefined;
@@ -156,7 +153,6 @@ const GcdsPagination$1 = /*@__PURE__*/ proxyCustomElement(class GcdsPagination e
         this.totalPages = undefined;
         this.currentPage = undefined;
         this.url = undefined;
-        this.pageChangeHandler = undefined;
         this.currentStep = undefined;
         this.lang = undefined;
     }
@@ -184,11 +180,11 @@ const GcdsPagination$1 = /*@__PURE__*/ proxyCustomElement(class GcdsPagination e
      * Function to constuct <li> and <a> tags for display="list" pagination
      */
     configurePaginationStep(page, end, mobile) {
+        const href = this.urlObject
+            ? constructHref(this.urlObject, page, end)
+            : 'javascript:void(0)';
         const linkAttrs = {
-            'onClick': e => this.onPageChange(e),
-            'href': this.urlObject
-                ? constructHref(this.urlObject, page, end)
-                : 'javascript:void(0)',
+            'href': href,
             'aria-label': !end
                 ? I18N[this.lang].pageNumberOf
                     .replace('{#}', page)
@@ -203,6 +199,9 @@ const GcdsPagination$1 = /*@__PURE__*/ proxyCustomElement(class GcdsPagination e
                         .replace('{#}', --page)
                         .replace('{total}', this.totalPages)
                         .replace('{label}', this.label)}`,
+            'onBlur': () => this.gcdsBlur.emit(),
+            'onFocus': () => this.gcdsFocus.emit(),
+            'onClick': e => emitEvent(e, this.gcdsClick, { page: page, href }),
         };
         if (page == this.currentPage && !end) {
             linkAttrs['aria-current'] = 'page';
@@ -325,7 +324,7 @@ const GcdsPagination$1 = /*@__PURE__*/ proxyCustomElement(class GcdsPagination e
     }
     render() {
         const { display, label, previousHref, previousLabel, nextHref, nextLabel, lang, } = this;
-        return (h(Host, { role: "navigation", "aria-label": label }, display === 'list' ? (h("div", null, h("ul", { class: "gcds-pagination-list" }, this.listitems), h("ul", { class: "gcds-pagination-list-mobile-prevnext" }, this.mobilePrevNext))) : (h("ul", { class: "gcds-pagination-simple" }, previousHref && (h("li", { class: "gcds-pagination-simple-previous" }, h("a", { href: previousHref, "aria-label": `${I18N[lang].previousPage}${previousLabel ? `: ${previousLabel}` : ''}`, onClick: e => this.onPageChange(e) }, h("gcds-icon", { "margin-right": "200", name: "arrow-left" }), h("div", { class: "gcds-pagination-simple-text" }, I18N[lang].previous), h("span", null, previousLabel)))), nextHref && (h("li", { class: "gcds-pagination-simple-next" }, h("a", { href: nextHref, "aria-label": `${I18N[lang].nextPage}${nextLabel ? `: ${nextLabel}` : ''}`, onClick: e => this.onPageChange(e) }, h("div", { class: "gcds-pagination-simple-text" }, I18N[lang].next), h("span", null, nextLabel), h("gcds-icon", { "margin-left": "200", name: "arrow-right" }))))))));
+        return (h(Host, { role: "navigation", "aria-label": label }, h("div", { class: "gcds-pagination" }, display === 'list' ? (h("div", null, h("ul", { class: "gcds-pagination-list" }, this.listitems), h("ul", { class: "gcds-pagination-list-mobile-prevnext" }, this.mobilePrevNext))) : (h("ul", { class: "gcds-pagination-simple" }, previousHref && (h("li", { class: "gcds-pagination-simple-previous" }, h("a", { href: previousHref, "aria-label": `${I18N[lang].previousPage}${previousLabel ? `: ${previousLabel}` : ''}`, onBlur: () => this.gcdsBlur.emit(), onFocus: () => this.gcdsFocus.emit(), onClick: e => emitEvent(e, this.gcdsClick, previousHref) }, h("gcds-icon", { "margin-right": "200", name: "arrow-left" }), h("div", { class: "gcds-pagination-simple-text" }, I18N[lang].previous), h("span", null, previousLabel)))), nextHref && (h("li", { class: "gcds-pagination-simple-next" }, h("a", { href: nextHref, "aria-label": `${I18N[lang].nextPage}${nextLabel ? `: ${nextLabel}` : ''}`, onBlur: () => this.gcdsBlur.emit(), onFocus: () => this.gcdsFocus.emit(), onClick: e => emitEvent(e, this.gcdsClick, nextHref) }, h("div", { class: "gcds-pagination-simple-text" }, I18N[lang].next), h("span", null, nextLabel), h("gcds-icon", { "margin-left": "200", name: "arrow-right" })))))))));
     }
     get el() { return this; }
     static get watchers() { return {
@@ -334,7 +333,7 @@ const GcdsPagination$1 = /*@__PURE__*/ proxyCustomElement(class GcdsPagination e
         "lang": ["watchLang"]
     }; }
     static get style() { return GcdsPaginationStyle0; }
-}, [2, "gcds-pagination", {
+}, [1, "gcds-pagination", {
         "display": [1],
         "label": [1],
         "previousHref": [1, "previous-href"],
@@ -344,7 +343,6 @@ const GcdsPagination$1 = /*@__PURE__*/ proxyCustomElement(class GcdsPagination e
         "totalPages": [2, "total-pages"],
         "currentPage": [514, "current-page"],
         "url": [1],
-        "pageChangeHandler": [16],
         "currentStep": [32],
         "lang": [32]
     }, undefined, {

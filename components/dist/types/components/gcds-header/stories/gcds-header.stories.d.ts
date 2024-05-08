@@ -10,4 +10,5 @@ export declare const Toggle: any;
 export declare const Menu: any;
 export declare const Breadcrumbs: any;
 export declare const All: any;
+export declare const Props: any;
 export declare const Playground: any;

@@ -208,6 +208,19 @@ UrlMatch.args = {
     nextLabel: '',
     lang: 'en',
 };
+export const Props = Template.bind({});
+Props.args = {
+    display: 'list',
+    label: 'Pagination',
+    currentPage: '9',
+    totalPages: '15',
+    url: '',
+    previousHref: '#previous',
+    previousLabel: '',
+    nextHref: '#next',
+    nextLabel: '',
+    lang: 'en',
+};
 export const Playground = TemplatePlayground.bind({});
 Playground.args = {
     display: 'list',

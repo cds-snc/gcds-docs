@@ -27,6 +27,7 @@ export class GcdsErrorSummary {
         else if (typeof newErrorLinks == 'object') {
             this.errorLinks = newErrorLinks;
         }
+        this.errorQueue = this.errorLinks;
         // Turn off listen if error-links is being used
         if (this.listen) {
             this.listen = false;
@@ -34,13 +35,15 @@ export class GcdsErrorSummary {
     }
     errorListener(e) {
         if (this.listen && e.target.closest('form') == this.el.closest('form')) {
-            this.errorLinksObject[e.detail.id] = e.detail.message;
+            this.errorLinksObject[e.detail.message] = e.target;
         }
     }
     validListener(e) {
         if (this.listen && e.target.closest('form') == this.el.closest('form')) {
-            if (this.errorLinksObject && this.errorLinksObject[e.detail.id]) {
-                delete this.errorLinksObject[e.detail.id];
+            for (const [key, value] of Object.entries(this.errorLinksObject)) {
+                if (value == e.target) {
+                    delete this.errorLinksObject[key];
+                }
             }
             if (this.errorQueue) {
                 const sortedErrorList = this.sortErrors();
@@ -66,14 +69,11 @@ export class GcdsErrorSummary {
      * Sort error object based on the order form compoennts appear in the form
      */
     sortErrors() {
-        const sortable = [];
-        for (const id in this.errorLinksObject) {
-            sortable.push([
-                id,
-                this.errorLinksObject[id],
-                document.querySelector(id).getBoundingClientRect().y,
-            ]);
-        }
+        const sortable = Object.entries(this.errorLinksObject).map(([key, value]) => [
+            key,
+            value,
+            value.getBoundingClientRect().y,
+        ]);
         sortable.sort(function (a, b) {
             return a[2] - b[2];
         });
@@ -86,8 +86,7 @@ export class GcdsErrorSummary {
     /*
      * Focus element on error link click with label visible
      */
-    focusElement(event, id) {
-        event.preventDefault();
+    focusElement(id) {
         const element = document.querySelector(id);
         let target = `[for=${id.replace('#', '')}]`;
         if (element.nodeName == 'FIELDSET') {
@@ -124,10 +123,15 @@ export class GcdsErrorSummary {
         const { heading, errorQueue, lang, hasSubmitted, errorLinks } = this;
         return (h(Host, null, h("div", { role: "alert", tabindex: "-1", ref: element => (this.shadowElement = element), class: `gcds-error-summary ${(hasSubmitted || errorLinks) && Object.keys(errorQueue).length > 0
                 ? 'gcds-show'
-                : ''}` }, h("h2", { class: "summary__heading" }, heading !== null && heading !== void 0 ? heading : i18n[lang].heading), h("ol", { class: "summary__errorlist" }, (hasSubmitted || errorLinks) &&
+                : ''}` }, h("gcds-heading", { tag: "h2", "margin-top": "0", "margin-bottom": "300" }, heading !== null && heading !== void 0 ? heading : i18n[lang].heading), h("ol", { class: "summary__errorlist" }, (hasSubmitted || errorLinks) &&
             Object.keys(errorQueue).length > 0 &&
             Object.keys(errorQueue).map(key => {
-                return (h("li", { class: "summary__listitem" }, h("a", { onClick: e => this.focusElement(e, key), class: "summary__link", href: key }, errorQueue[key])));
+                return (h("li", { class: "summary__listitem" }, h("gcds-link", { size: "regular", href: errorLinks ? key : '#', onClick: e => {
+                        e.preventDefault();
+                        errorLinks
+                            ? this.focusElement(key)
+                            : errorQueue[key].focus();
+                    } }, errorLinks ? errorQueue[key] : key)));
             })))));
     }
     static get is() { return "gcds-error-summary"; }

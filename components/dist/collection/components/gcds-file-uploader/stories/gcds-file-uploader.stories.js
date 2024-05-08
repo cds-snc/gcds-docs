@@ -32,6 +32,16 @@ export default {
             type: {
                 required: true,
             },
+        }, name: {
+            name: 'name',
+            control: 'text',
+            table: {
+                type: { summary: 'string' },
+                defaultValue: { summary: '-' },
+            },
+            type: {
+                required: true,
+            },
         }, disabled: {
             control: { type: 'select' },
             options: [false, true],
@@ -100,6 +110,7 @@ const Template = args => `
 <gcds-file-uploader
   uploader-id="${args.uploaderId}"
   label="${args.label}"
+  name="${args.name}"
   ${args.hint ? `hint="${args.hint}"` : null}
   ${args.errorMessage ? `error-message="${args.errorMessage}"` : null}
   ${args.required ? `required` : null}
@@ -116,6 +127,7 @@ const Template = args => `
 <GcdsFileUploader
   uploaderId="${args.uploaderId}"
   label="${args.label}"
+  name="${args.name}"
   ${args.hint ? `hint="${args.hint}"` : null}
   ${args.errorMessage ? `errorMessage="${args.errorMessage}"` : null}
   ${args.required ? `required` : null}
@@ -132,6 +144,7 @@ const TemplatePlayground = args => `
 <gcds-file-uploader
   uploader-id="${args.uploaderId}"
   label="${args.label}"
+  name="${args.name}"
   hint="${args.hint}"
   error-message="${args.errorMessage}"
   ${args.required ? `required` : null}
@@ -147,7 +160,8 @@ const TemplatePlayground = args => `
 // ------ File uploader default ------
 export const Default = Template.bind({});
 Default.args = {
-    uploaderId: 'uploader',
+    uploaderId: 'uploader-default',
+    name: 'file-uploader',
     label: 'Label',
     hint: 'Hint / Example message.',
     validateOn: 'blur',
@@ -156,7 +170,8 @@ Default.args = {
 // ------ File uploader states ------
 export const Disabled = Template.bind({});
 Disabled.args = {
-    uploaderId: 'uploader',
+    uploaderId: 'uploader-disabled',
+    name: 'file-uploader',
     label: 'Label',
     hint: 'Hint / Example message.',
     disabled: true,
@@ -165,7 +180,8 @@ Disabled.args = {
 };
 export const Error = Template.bind({});
 Error.args = {
-    uploaderId: 'uploader',
+    uploaderId: 'uploader-error',
+    name: 'file-uploader',
     label: 'Label',
     hint: 'Hint / Example message.',
     errorMessage: 'Error message or validation message.',
@@ -175,7 +191,8 @@ Error.args = {
 };
 export const Required = Template.bind({});
 Required.args = {
-    uploaderId: 'uploader',
+    uploaderId: 'uploader-required',
+    name: 'file-uploader',
     label: 'Label',
     hint: 'Hint / Example message.',
     required: true,
@@ -185,7 +202,8 @@ Required.args = {
 // ------ File uploader multiple ------
 export const Multiple = Template.bind({});
 Multiple.args = {
-    uploaderId: 'uploader',
+    uploaderId: 'uploader-multiple',
+    name: 'file-uploader',
     label: 'Label',
     hint: 'Hint / Example message.',
     multiple: true,
@@ -195,7 +213,8 @@ Multiple.args = {
 // ------ File uploader accept ------
 export const AcceptAudio = Template.bind({});
 AcceptAudio.args = {
-    uploaderId: 'uploader',
+    uploaderId: 'uploader-audio',
+    name: 'file-uploader',
     label: 'Label',
     hint: 'Hint / Example message.',
     accept: 'audio/*',
@@ -204,7 +223,8 @@ AcceptAudio.args = {
 };
 export const AcceptImages = Template.bind({});
 AcceptImages.args = {
-    uploaderId: 'uploader',
+    uploaderId: 'uploader-images',
+    name: 'file-uploader',
     label: 'Label',
     hint: 'Hint / Example message.',
     accept: 'image/*',
@@ -213,7 +233,8 @@ AcceptImages.args = {
 };
 export const AcceptJpg = Template.bind({});
 AcceptJpg.args = {
-    uploaderId: 'uploader',
+    uploaderId: 'uploader-jpg',
+    name: 'file-uploader',
     label: 'Label',
     hint: 'Hint / Example message.',
     accept: 'image/jpeg',
@@ -222,7 +243,8 @@ AcceptJpg.args = {
 };
 export const AcceptPdf = Template.bind({});
 AcceptPdf.args = {
-    uploaderId: 'uploader',
+    uploaderId: 'uploader-pdf',
+    name: 'file-uploader',
     label: 'Label',
     hint: 'Hint / Example message.',
     accept: 'application/pdf',
@@ -231,7 +253,8 @@ AcceptPdf.args = {
 };
 export const AcceptPng = Template.bind({});
 AcceptPng.args = {
-    uploaderId: 'uploader',
+    uploaderId: 'uploader-png',
+    name: 'file-uploader',
     label: 'Label',
     hint: 'Hint / Example message.',
     accept: 'image/png',
@@ -240,7 +263,8 @@ AcceptPng.args = {
 };
 export const AcceptSvg = Template.bind({});
 AcceptSvg.args = {
-    uploaderId: 'uploader',
+    uploaderId: 'uploader-svg',
+    name: 'file-uploader',
     label: 'Label',
     hint: 'Hint / Example message.',
     accept: 'image/svg+xml',
@@ -249,7 +273,8 @@ AcceptSvg.args = {
 };
 export const AcceptVideos = Template.bind({});
 AcceptVideos.args = {
-    uploaderId: 'uploader',
+    uploaderId: 'uploader-videos',
+    name: 'file-uploader',
     label: 'Label',
     hint: 'Hint / Example message.',
     accept: 'video/*',
@@ -260,6 +285,7 @@ AcceptVideos.args = {
 export const Props = Template.bind({});
 Props.args = {
     uploaderId: 'uploader',
+    name: 'file-uploader',
     label: 'Label',
     hint: 'Hint / Example message.',
     errorMessage: '',
@@ -274,7 +300,8 @@ Props.args = {
 // ------ File uploader playground ------
 export const Playground = TemplatePlayground.bind({});
 Playground.args = {
-    uploaderId: 'uploader',
+    uploaderId: 'uploader-playground',
+    name: 'file-uploader',
     label: 'Label',
     hint: 'Hint / Example message.',
     errorMessage: '',

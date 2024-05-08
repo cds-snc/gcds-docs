@@ -13,7 +13,7 @@ export declare class GcdsButton {
     /**
      * Set the main style
      */
-    buttonRole: 'primary' | 'secondary' | 'danger' | 'skip-to-content';
+    buttonRole: 'primary' | 'secondary' | 'danger';
     validateButtonRole(newValue: string): void;
     /**
      * Set the button size
@@ -52,18 +52,6 @@ export declare class GcdsButton {
      */
     download: string | undefined;
     /**
-     * Custom callback function on click event
-     */
-    clickHandler: Function;
-    /**
-     * Custom callback function on focus event
-     */
-    focusHandler: Function;
-    /**
-     * Custom callback function on blur event
-     */
-    blurHandler: Function;
-    /**
      * Set additional HTML attributes not available in component properties
      */
     inheritedAttributes: Object;
@@ -75,6 +63,10 @@ export declare class GcdsButton {
      * Events
      */
     /**
+     * Emitted when the button has been clicked.
+     */
+    gcdsClick: EventEmitter<void>;
+    /**
      * Emitted when the button has focus.
      */
     gcdsFocus: EventEmitter<void>;
@@ -84,12 +76,6 @@ export declare class GcdsButton {
     gcdsBlur: EventEmitter<void>;
     updateLang(): void;
     componentWillLoad(): void;
-    /**
-     * Focus element
-     */
-    focusElement(): Promise<void>;
     private handleClick;
-    private onFocus;
-    private onBlur;
     render(): any;
 }

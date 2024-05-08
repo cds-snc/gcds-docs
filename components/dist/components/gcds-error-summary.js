@@ -1,5 +1,8 @@
 import { proxyCustomElement, HTMLElement, h, Host } from '@stencil/core/internal/client';
 import { o as observerConfig, a as assignLanguage } from './utils.js';
+import { d as defineCustomElement$4 } from './gcds-heading2.js';
+import { d as defineCustomElement$3 } from './gcds-icon2.js';
+import { d as defineCustomElement$2 } from './gcds-link2.js';
 
 const I18N = {
   en: {
@@ -12,7 +15,7 @@ const I18N = {
   },
 };
 
-const gcdsErrorSummaryCss = ":host .gcds-error-summary{border:var(--gcds-error-summary-border-width) solid var(--gcds-error-summary-border-color);color:var(--gcds-error-summary-text);display:none;margin:var(--gcds-error-summary-margin);padding:var( --gcds-error-summary-padding);transition:background .15s ease-in-out,border .15s ease-in-out,color .15s ease-in-out}:host .gcds-error-summary.gcds-show{display:block}:host .gcds-error-summary:focus,:host .gcds-error-summary:has(:focus-within){border-color:var(--gcds-error-summary-focus-color)}:host .gcds-error-summary:focus .summary__heading,:host .gcds-error-summary:has(:focus-within) .summary__heading{color:var(--gcds-error-summary-focus-color)}:host .gcds-error-summary .summary__heading{font:var(--gcds-error-summary-heading-font);margin:0;padding-block-end:var(--gcds-error-summary-heading-padding-bottom)}:host .gcds-error-summary .summary__errorlist{margin:var(--gcds-error-summary-list-margin);padding:0}:host .gcds-error-summary .summary__errorlist .summary__listitem{max-width:var(--gcds-error-summary-max-width)}:host .gcds-error-summary .summary__errorlist .summary__listitem:not(:last-child){padding:var(--gcds-error-summary-list-item-padding)}:host .gcds-error-summary .summary__errorlist .summary__listitem .summary__link{color:var(--gcds-error-summary-link-color);text-decoration-thickness:var(--gcds-error-summary-link-thickness)}:host .gcds-error-summary .summary__errorlist .summary__listitem .summary__link:hover{text-decoration-thickness:var(--gcds-error-summary-hover-link-thickness)}:host .gcds-error-summary .summary__errorlist .summary__listitem .summary__link:focus{background-color:var(--gcds-error-summary-focus-link-background-color);border-radius:var(--gcds-error-summary-focus-link-border-radius);box-shadow:none;color:var(--gcds-error-summary-focus-link-text);outline:var(--gcds-error-summary-focus-link-outline);outline-offset:var(--gcds-error-summary-focus-link-outline-offset);text-decoration:none}@media screen and (max-width:30rem){:host .gcds-error-summary{padding:var(--gcds-error-summary-mobile-padding)}}";
+const gcdsErrorSummaryCss = "@layer reset, default, compact;@layer reset{:host{display:block}}@layer default{:host{container:component summary/inline-size}:host .gcds-error-summary{border:var(--gcds-error-summary-border-width) solid var(--gcds-error-summary-border-color);color:var(--gcds-error-summary-text);display:none;margin:var(--gcds-error-summary-margin);padding:var(--gcds-error-summary-padding);transition:background .15s ease-in-out,border .15s ease-in-out,color .15s ease-in-out}:host .gcds-error-summary.gcds-show{display:block}:host .gcds-error-summary .summary__errorlist{margin:var(--gcds-error-summary-list-margin);padding:0}:host .gcds-error-summary .summary__errorlist .summary__listitem{max-width:var(--gcds-error-summary-max-width)}:host .gcds-error-summary .summary__errorlist .summary__listitem:not(:last-child){padding:var(--gcds-error-summary-list-item-padding)}:host .gcds-error-summary .summary__errorlist .summary__listitem gcds-link::part(link):not(:focus){color:var(--gcds-error-summary-link-color)}}@layer compact{@container summary (width < 24em){:host .gcds-error-summary{padding:var(--gcds-error-summary-mobile-padding)}}}";
 const GcdsErrorSummaryStyle0 = gcdsErrorSummaryCss;
 
 const GcdsErrorSummary$1 = /*@__PURE__*/ proxyCustomElement(class GcdsErrorSummary extends HTMLElement {
@@ -44,6 +47,7 @@ const GcdsErrorSummary$1 = /*@__PURE__*/ proxyCustomElement(class GcdsErrorSumma
         else if (typeof newErrorLinks == 'object') {
             this.errorLinks = newErrorLinks;
         }
+        this.errorQueue = this.errorLinks;
         // Turn off listen if error-links is being used
         if (this.listen) {
             this.listen = false;
@@ -51,13 +55,15 @@ const GcdsErrorSummary$1 = /*@__PURE__*/ proxyCustomElement(class GcdsErrorSumma
     }
     errorListener(e) {
         if (this.listen && e.target.closest('form') == this.el.closest('form')) {
-            this.errorLinksObject[e.detail.id] = e.detail.message;
+            this.errorLinksObject[e.detail.message] = e.target;
         }
     }
     validListener(e) {
         if (this.listen && e.target.closest('form') == this.el.closest('form')) {
-            if (this.errorLinksObject && this.errorLinksObject[e.detail.id]) {
-                delete this.errorLinksObject[e.detail.id];
+            for (const [key, value] of Object.entries(this.errorLinksObject)) {
+                if (value == e.target) {
+                    delete this.errorLinksObject[key];
+                }
             }
             if (this.errorQueue) {
                 const sortedErrorList = this.sortErrors();
@@ -83,14 +89,11 @@ const GcdsErrorSummary$1 = /*@__PURE__*/ proxyCustomElement(class GcdsErrorSumma
      * Sort error object based on the order form compoennts appear in the form
      */
     sortErrors() {
-        const sortable = [];
-        for (const id in this.errorLinksObject) {
-            sortable.push([
-                id,
-                this.errorLinksObject[id],
-                document.querySelector(id).getBoundingClientRect().y,
-            ]);
-        }
+        const sortable = Object.entries(this.errorLinksObject).map(([key, value]) => [
+            key,
+            value,
+            value.getBoundingClientRect().y,
+        ]);
         sortable.sort(function (a, b) {
             return a[2] - b[2];
         });
@@ -103,8 +106,7 @@ const GcdsErrorSummary$1 = /*@__PURE__*/ proxyCustomElement(class GcdsErrorSumma
     /*
      * Focus element on error link click with label visible
      */
-    focusElement(event, id) {
-        event.preventDefault();
+    focusElement(id) {
         const element = document.querySelector(id);
         let target = `[for=${id.replace('#', '')}]`;
         if (element.nodeName == 'FIELDSET') {
@@ -141,10 +143,15 @@ const GcdsErrorSummary$1 = /*@__PURE__*/ proxyCustomElement(class GcdsErrorSumma
         const { heading, errorQueue, lang, hasSubmitted, errorLinks } = this;
         return (h(Host, null, h("div", { role: "alert", tabindex: "-1", ref: element => (this.shadowElement = element), class: `gcds-error-summary ${(hasSubmitted || errorLinks) && Object.keys(errorQueue).length > 0
                 ? 'gcds-show'
-                : ''}` }, h("h2", { class: "summary__heading" }, heading !== null && heading !== void 0 ? heading : I18N[lang].heading), h("ol", { class: "summary__errorlist" }, (hasSubmitted || errorLinks) &&
+                : ''}` }, h("gcds-heading", { tag: "h2", "margin-top": "0", "margin-bottom": "300" }, heading !== null && heading !== void 0 ? heading : I18N[lang].heading), h("ol", { class: "summary__errorlist" }, (hasSubmitted || errorLinks) &&
             Object.keys(errorQueue).length > 0 &&
             Object.keys(errorQueue).map(key => {
-                return (h("li", { class: "summary__listitem" }, h("a", { onClick: e => this.focusElement(e, key), class: "summary__link", href: key }, errorQueue[key])));
+                return (h("li", { class: "summary__listitem" }, h("gcds-link", { size: "regular", href: errorLinks ? key : '#', onClick: e => {
+                        e.preventDefault();
+                        errorLinks
+                            ? this.focusElement(key)
+                            : errorQueue[key].focus();
+                    } }, errorLinks ? errorQueue[key] : key)));
             })))));
     }
     get el() { return this; }
@@ -168,11 +175,26 @@ function defineCustomElement$1() {
     if (typeof customElements === "undefined") {
         return;
     }
-    const components = ["gcds-error-summary"];
+    const components = ["gcds-error-summary", "gcds-heading", "gcds-icon", "gcds-link"];
     components.forEach(tagName => { switch (tagName) {
         case "gcds-error-summary":
             if (!customElements.get(tagName)) {
                 customElements.define(tagName, GcdsErrorSummary$1);
+            }
+            break;
+        case "gcds-heading":
+            if (!customElements.get(tagName)) {
+                defineCustomElement$4();
+            }
+            break;
+        case "gcds-icon":
+            if (!customElements.get(tagName)) {
+                defineCustomElement$3();
+            }
+            break;
+        case "gcds-link":
+            if (!customElements.get(tagName)) {
+                defineCustomElement$2();
             }
             break;
     } });

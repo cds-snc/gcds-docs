@@ -10,6 +10,33 @@ export class GcdsTopNav {
         this.navItems = [];
         this.navSize = undefined;
     }
+    async focusInListener(e) {
+        if (this.el.contains(e.target) && !this.navSize) {
+            const mediaQuery = window.matchMedia('screen and (min-width: 64em)');
+            const nav = this.el;
+            const mobileTrigger = this.mobile;
+            if (mediaQuery.matches) {
+                this.navSize = 'desktop';
+            }
+            else {
+                this.navSize = 'mobile';
+            }
+            await this.updateNavItemQueue(this.el);
+            mediaQuery.addEventListener('change', async function (e) {
+                if (e.matches) {
+                    nav.updateNavSize('desktop');
+                    await nav.updateNavItemQueue(nav);
+                    if (mobileTrigger.hasAttribute('open')) {
+                        mobileTrigger.toggleNav();
+                    }
+                }
+                else {
+                    nav.updateNavSize('mobile');
+                    await nav.updateNavItemQueue(nav);
+                }
+            });
+        }
+    }
     async focusOutListener(e) {
         if (!this.el.contains(e.relatedTarget)) {
             if (this.navSize == 'mobile') {
@@ -80,36 +107,10 @@ export class GcdsTopNav {
         // Define lang attribute
         this.lang = assignLanguage(this.el);
         this.updateLang();
-        const mediaQuery = window.matchMedia('screen and (min-width: 64em)');
-        if (mediaQuery.matches) {
-            this.navSize = 'desktop';
-        }
-        else {
-            this.navSize = 'mobile';
-        }
-    }
-    async componentDidLoad() {
-        const mediaQuery = window.matchMedia('screen and (min-width: 64em)');
-        const nav = this.el;
-        const mobileTrigger = this.mobile;
-        await this.updateNavItemQueue(this.el);
-        mediaQuery.addEventListener('change', async function (e) {
-            if (e.matches) {
-                nav.updateNavSize('desktop');
-                await nav.updateNavItemQueue(nav);
-                if (mobileTrigger.hasAttribute('open')) {
-                    mobileTrigger.toggleNav();
-                }
-            }
-            else {
-                nav.updateNavSize('mobile');
-                await nav.updateNavItemQueue(nav);
-            }
-        });
     }
     render() {
         const { label, alignment, lang } = this;
-        return (h(Host, null, h("nav", { "aria-label": `${label}${I18N[lang].navLabel}`, class: "gcds-top-nav__container" }, h("gcds-nav-group", { menuLabel: "Menu", closeTrigger: lang == 'fr' ? 'Fermer' : 'Close', openTrigger: "Menu", class: "gcds-mobile-nav gcds-mobile-nav-topnav", ref: element => (this.mobile = element), lang: lang }, h("slot", { name: "home" }), h("ul", { role: "menu", class: `nav-container__list nav-list--${alignment}` }, h("slot", null))))));
+        return (h(Host, null, h("div", { class: "gcds-top-nav" }, h("nav", { "aria-label": `${label}${I18N[lang].navLabel}` }, h("ul", { class: "gcds-top-nav__container" }, h("gcds-nav-group", { menuLabel: "Menu", closeTrigger: lang == 'fr' ? 'Fermer' : 'Close', openTrigger: "Menu", class: "gcds-mobile-nav gcds-mobile-nav-topnav", ref: element => (this.mobile = element), lang: lang }, h("slot", { name: "home" }), h("li", { class: `nav-container__list nav-list--${alignment}` }, h("ul", { class: `nav-container__list nav-list--${alignment}` }, h("slot", null)))))))));
     }
     static get is() { return "gcds-top-nav"; }
     static get encapsulation() { return "shadow"; }
@@ -239,6 +240,12 @@ export class GcdsTopNav {
     static get elementRef() { return "el"; }
     static get listeners() {
         return [{
+                "name": "focusin",
+                "method": "focusInListener",
+                "target": "document",
+                "capture": false,
+                "passive": false
+            }, {
                 "name": "focusout",
                 "method": "focusOutListener",
                 "target": "document",

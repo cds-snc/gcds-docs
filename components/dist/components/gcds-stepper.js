@@ -1,5 +1,6 @@
 import { proxyCustomElement, HTMLElement, h, Host } from '@stencil/core/internal/client';
 import { o as observerConfig, a as assignLanguage } from './utils.js';
+import { d as defineCustomElement$2 } from './gcds-heading2.js';
 
 const I18N = {
   en: {
@@ -12,7 +13,7 @@ const I18N = {
   },
 };
 
-const gcdsStepperCss = ":host .gcds-stepper{color:var(--gcds-stepper-text);font:var(--gcds-stepper-font);margin:var(--gcds-stepper-margin)}";
+const gcdsStepperCss = "@layer reset, default;@layer reset{:host{display:block}}@layer default{:host .gcds-stepper{color:var(--gcds-stepper-text)}}";
 const GcdsStepperStyle0 = gcdsStepperCss;
 
 const GcdsStepper$1 = /*@__PURE__*/ proxyCustomElement(class GcdsStepper extends HTMLElement {
@@ -42,7 +43,7 @@ const GcdsStepper$1 = /*@__PURE__*/ proxyCustomElement(class GcdsStepper extends
     }
     render() {
         const { currentStep, lang, totalSteps } = this;
-        return (h(Host, null, h("h6", { class: "gcds-stepper" }, `${I18N[lang].step} ${currentStep} ${I18N[lang].of} ${totalSteps}`)));
+        return (h(Host, null, h("gcds-heading", { tag: "h6", class: "gcds-stepper", "margin-top": "0", "margin-bottom": "300" }, `${I18N[lang].step} ${currentStep} ${I18N[lang].of} ${totalSteps}`)));
     }
     get el() { return this; }
     static get style() { return GcdsStepperStyle0; }
@@ -55,11 +56,16 @@ function defineCustomElement$1() {
     if (typeof customElements === "undefined") {
         return;
     }
-    const components = ["gcds-stepper"];
+    const components = ["gcds-stepper", "gcds-heading"];
     components.forEach(tagName => { switch (tagName) {
         case "gcds-stepper":
             if (!customElements.get(tagName)) {
                 customElements.define(tagName, GcdsStepper$1);
+            }
+            break;
+        case "gcds-heading":
+            if (!customElements.get(tagName)) {
+                defineCustomElement$2();
             }
             break;
     } });

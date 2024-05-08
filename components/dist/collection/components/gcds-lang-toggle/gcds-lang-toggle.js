@@ -24,7 +24,7 @@ export class GcdsLangToggle {
     }
     render() {
         const { lang, href } = this;
-        return (h(Host, null, h("div", null, h("h2", null, i18n[lang].heading), h("a", { href: href, lang: i18n[lang].abbreviation }, h("span", null, i18n[lang].language), h("abbr", { title: i18n[lang].language }, i18n[lang].abbreviation)))));
+        return (h(Host, null, h("div", { class: "gcds-lang-toggle" }, h("gcds-sr-only", { id: "lang-toggle__heading", tag: "h2" }, i18n[lang].heading), h("gcds-link", { size: "regular", href: href, lang: i18n[lang].abbreviation }, h("span", null, i18n[lang].language), h("abbr", { title: i18n[lang].language }, i18n[lang].abbreviation)))));
     }
     static get is() { return "gcds-lang-toggle"; }
     static get encapsulation() { return "shadow"; }

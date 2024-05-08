@@ -1,9 +1,10 @@
 import { proxyCustomElement, HTMLElement, createEvent, h, Host } from '@stencil/core/internal/client';
 import { o as observerConfig, a as assignLanguage, i as inheritAttributes } from './utils.js';
 import { d as defaultValidator, r as requiredValidator, g as getValidator } from './validator.factory.js';
-import { d as defineCustomElement$4 } from './gcds-error-message2.js';
-import { d as defineCustomElement$3 } from './gcds-hint2.js';
-import { d as defineCustomElement$2 } from './gcds-label2.js';
+import { d as defineCustomElement$5 } from './gcds-error-message2.js';
+import { d as defineCustomElement$4 } from './gcds-hint2.js';
+import { d as defineCustomElement$3 } from './gcds-label2.js';
+import { d as defineCustomElement$2 } from './gcds-text2.js';
 
 const I18N = {
   en: {
@@ -20,35 +21,33 @@ const I18N = {
   },
 };
 
-const gcdsTextareaCss = ".sc-gcds-textarea-h .gcds-textarea-wrapper.sc-gcds-textarea{border:0;color:var(--gcds-textarea-default-text);font:var(--gcds-textarea-font);margin:0;max-width:75ch;padding:0;transition:color .15s ease-in-out;width:100%}.sc-gcds-textarea-h .gcds-textarea-wrapper.sc-gcds-textarea:focus-within{color:var(--gcds-textarea-focus-text)}.sc-gcds-textarea-h .gcds-textarea-wrapper.gcds-disabled.sc-gcds-textarea{color:var(--gcds-textarea-disabled-text)}.sc-gcds-textarea-h .gcds-textarea-wrapper.sc-gcds-textarea .error-message-container.sc-gcds-textarea{display:block}.sc-gcds-textarea-h textarea.sc-gcds-textarea{background-color:var(--gcds-textarea-default-background);background-image:none;border:var(--gcds-textarea-border-width) solid;border-radius:var(--gcds-textarea-border-radius);box-sizing:border-box;color:var(--gcds-textarea-default-text);display:block;font:inherit;height:auto;margin:var(--gcds-textarea-margin);max-width:100%;min-height:var(--gcds-textarea-min-height);min-width:50%;padding:var(--gcds-textarea-padding);transition:border-color .15s ease-in-out,box-shadow .15s ease-in-out,outline .15s ease-in-out;width:100%}.sc-gcds-textarea-h textarea.sc-gcds-textarea:focus{border-color:var(--gcds-textarea-focus-text);box-shadow:var(--gcds-textarea-focus-box-shadow);outline:var(--gcds-textarea-outline-width) solid var(--gcds-textarea-focus-text);outline-offset:var(--gcds-textarea-border-width)}.sc-gcds-textarea-h textarea.sc-gcds-textarea:disabled{background-color:var(--gcds-textarea-disabled-background);border-color:var(--gcds-textarea-disabled-text);cursor:not-allowed}.sc-gcds-textarea-h textarea.gcds-error.sc-gcds-textarea:not(:focus){border-color:var(--gcds-textarea-danger-border)}";
+const gcdsTextareaCss = "@layer reset, default, disabled, error, focus;@layer reset{:host{display:block}:host .gcds-textarea-wrapper{border:0;margin:0;padding:0}:host .gcds-textarea-wrapper textarea{box-sizing:border-box}}@layer default{:host .gcds-textarea-wrapper{color:var(--gcds-textarea-default-text);font:var(--gcds-textarea-font);max-width:75ch;transition:color .15s ease-in-out;width:100%}:host .gcds-textarea-wrapper textarea{background-color:var(--gcds-textarea-default-background);background-image:none;border:var(--gcds-textarea-border-width) solid;border-radius:var(--gcds-textarea-border-radius);color:var(--gcds-textarea-default-text);display:block;font:inherit;height:auto;margin:var(--gcds-textarea-margin)!important;max-width:100%;min-height:var(--gcds-textarea-min-height);min-width:50%;padding:var(--gcds-textarea-padding)!important;transition:border-color .15s ease-in-out,box-shadow .15s ease-in-out,outline .15s ease-in-out;width:100%}}@layer disabled{:host .gcds-textarea-wrapper.gcds-disabled{color:var(--gcds-textarea-disabled-text)}:host .gcds-textarea-wrapper.gcds-disabled textarea:disabled{background-color:var(--gcds-textarea-disabled-background);border-color:var(--gcds-textarea-disabled-text);cursor:not-allowed}}@layer error{:host .gcds-textarea-wrapper .error-message-container{display:block}:host .gcds-textarea-wrapper textarea.gcds-error:not(:focus){border-color:var(--gcds-textarea-danger-border)}}@layer focus{:host .gcds-textarea-wrapper:focus-within{color:var(--gcds-textarea-focus-text)}:host .gcds-textarea-wrapper:focus-within textarea:focus{border-color:var(--gcds-textarea-focus-text);box-shadow:var(--gcds-textarea-focus-box-shadow);outline:var(--gcds-textarea-outline-width) solid var(--gcds-textarea-focus-text);outline-offset:var(--gcds-textarea-border-width)}}";
 const GcdsTextareaStyle0 = gcdsTextareaCss;
 
 const GcdsTextarea$1 = /*@__PURE__*/ proxyCustomElement(class GcdsTextarea extends HTMLElement {
     constructor() {
         super();
         this.__registerHost();
+        this.__attachShadow();
         this.gcdsFocus = createEvent(this, "gcdsFocus", 7);
         this.gcdsBlur = createEvent(this, "gcdsBlur", 7);
         this.gcdsChange = createEvent(this, "gcdsChange", 7);
+        this.gcdsInput = createEvent(this, "gcdsInput", 7);
         this.gcdsError = createEvent(this, "gcdsError", 7);
         this.gcdsValid = createEvent(this, "gcdsValid", 7);
+        this.internals = this.attachInternals();
         this._validator = defaultValidator;
-        this.onFocus = e => {
-            if (this.focusHandler) {
-                this.focusHandler(e);
-            }
-            this.gcdsFocus.emit();
-        };
-        this.onBlur = e => {
-            if (this.blurHandler) {
-                this.blurHandler(e);
-            }
-            else {
-                if (this.validateOn == 'blur') {
-                    this.validate();
-                }
+        this.onBlur = () => {
+            if (this.validateOn == 'blur') {
+                this.validate();
             }
             this.gcdsBlur.emit();
+        };
+        this.handleInput = (e, customEvent) => {
+            const val = e.target && e.target.value;
+            this.value = val;
+            this.internals.setFormValue(val ? val : null);
+            customEvent.emit(this.value);
         };
         this.characterCount = undefined;
         this.cols = undefined;
@@ -57,15 +56,13 @@ const GcdsTextarea$1 = /*@__PURE__*/ proxyCustomElement(class GcdsTextarea exten
         this.hideLabel = false;
         this.hint = undefined;
         this.label = undefined;
+        this.name = undefined;
         this.required = false;
         this.rows = 5;
         this.textareaId = undefined;
         this.value = undefined;
         this.validator = undefined;
         this.validateOn = undefined;
-        this.changeHandler = undefined;
-        this.focusHandler = undefined;
-        this.blurHandler = undefined;
         this.inheritedAttributes = {};
         this.hasError = undefined;
         this.lang = undefined;
@@ -112,16 +109,6 @@ const GcdsTextarea$1 = /*@__PURE__*/ proxyCustomElement(class GcdsTextarea exten
             this.gcdsValid.emit({ id: `#${this.textareaId}` });
         }
     }
-    handleChange(e) {
-        if (this.changeHandler) {
-            this.changeHandler(e);
-        }
-        else {
-            const val = e.target && e.target.value;
-            this.value = val;
-        }
-        this.gcdsChange.emit(this.value);
-    }
     submitListener(e) {
         if (e.target == this.el.closest('form')) {
             if (this.validateOn && this.validateOn != 'other') {
@@ -131,6 +118,20 @@ const GcdsTextarea$1 = /*@__PURE__*/ proxyCustomElement(class GcdsTextarea exten
                 e.preventDefault();
             }
         }
+    }
+    /*
+     * Form internal functions
+     */
+    formResetCallback() {
+        if (this.value != this.initialValue) {
+            this.internals.setFormValue(this.initialValue);
+            this.value = this.initialValue;
+            this.shadowElement.value = this.initialValue;
+        }
+    }
+    formStateRestoreCallback(state) {
+        this.internals.setFormValue(state);
+        this.value = state;
     }
     /*
      * Observe lang attribute change
@@ -159,6 +160,8 @@ const GcdsTextarea$1 = /*@__PURE__*/ proxyCustomElement(class GcdsTextarea exten
         this.inheritedAttributes = inheritAttributes(this.el, this.shadowElement, [
             'placeholder',
         ]);
+        this.internals.setFormValue(this.value ? this.value : null);
+        this.initialValue = this.value ? this.value : null;
     }
     componentWillUpdate() {
         if (this.validator) {
@@ -166,7 +169,7 @@ const GcdsTextarea$1 = /*@__PURE__*/ proxyCustomElement(class GcdsTextarea exten
         }
     }
     render() {
-        const { characterCount, cols, disabled, errorMessage, hideLabel, hint, label, required, rows, textareaId, value, hasError, inheritedAttributes, lang, } = this;
+        const { characterCount, cols, disabled, errorMessage, hideLabel, hint, label, required, rows, textareaId, value, hasError, inheritedAttributes, lang, name, } = this;
         // Use max-width instead of cols attribute to keep field responsive
         const style = {
             maxWidth: `${cols * 1.5}ch`,
@@ -175,7 +178,8 @@ const GcdsTextarea$1 = /*@__PURE__*/ proxyCustomElement(class GcdsTextarea exten
             label,
             required,
         };
-        const attrsTextarea = Object.assign({ disabled,
+        const attrsTextarea = Object.assign({ name,
+            disabled,
             required,
             rows }, inheritedAttributes);
         if (hint || errorMessage || characterCount) {
@@ -186,10 +190,12 @@ const GcdsTextarea$1 = /*@__PURE__*/ proxyCustomElement(class GcdsTextarea exten
                 ? `${attrsTextarea['aria-describedby']}`
                 : ''}`;
         }
-        return (h(Host, null, h("div", { class: `gcds-textarea-wrapper ${disabled ? 'gcds-disabled' : ''} ${hasError ? 'gcds-error' : ''}` }, h("gcds-label", Object.assign({}, attrsLabel, { "hide-label": hideLabel, "label-for": textareaId, lang: lang })), hint ? h("gcds-hint", { hint: hint, "hint-id": textareaId }) : null, errorMessage ? (h("gcds-error-message", { messageId: textareaId, message: errorMessage })) : null, h("textarea", Object.assign({}, attrsTextarea, { class: hasError ? 'gcds-error' : null, id: textareaId, name: textareaId, onBlur: e => this.onBlur(e), onFocus: e => this.onFocus(e), onInput: e => this.handleChange(e), "aria-labelledby": `label-for-${textareaId}`, "aria-invalid": errorMessage ? 'true' : 'false', maxlength: characterCount ? characterCount : null, style: cols ? style : null, ref: element => (this.shadowElement = element) }), value), characterCount ? (h("p", { id: `textarea__count-${textareaId}`, "aria-live": "polite" }, value == undefined
+        return (h(Host, null, h("div", { class: `gcds-textarea-wrapper ${disabled ? 'gcds-disabled' : ''} ${hasError ? 'gcds-error' : ''}` }, h("gcds-label", Object.assign({}, attrsLabel, { "hide-label": hideLabel, "label-for": textareaId, lang: lang })), hint ? h("gcds-hint", { "hint-id": textareaId }, hint) : null, errorMessage ? (h("gcds-error-message", { messageId: textareaId }, errorMessage)) : null, h("textarea", Object.assign({}, attrsTextarea, { class: hasError ? 'gcds-error' : null, id: textareaId, onBlur: () => this.onBlur(), onFocus: () => this.gcdsFocus.emit(), onInput: e => this.handleInput(e, this.gcdsInput), onChange: e => this.handleInput(e, this.gcdsChange), "aria-labelledby": `label-for-${textareaId}`, "aria-invalid": errorMessage ? 'true' : 'false', maxlength: characterCount ? characterCount : null, style: cols ? style : null, ref: element => (this.shadowElement = element) }), value), characterCount ? (h("gcds-text", { id: `textarea__count-${textareaId}`, "aria-live": "polite" }, value == undefined
             ? `${characterCount} ${I18N[lang].characters.allowed}`
             : `${characterCount - value.length} ${I18N[lang].characters.left}`)) : null)));
     }
+    static get delegatesFocus() { return true; }
+    static get formAssociated() { return true; }
     get el() { return this; }
     static get watchers() { return {
         "disabled": ["validateDisabledTextarea"],
@@ -198,7 +204,7 @@ const GcdsTextarea$1 = /*@__PURE__*/ proxyCustomElement(class GcdsTextarea exten
         "hasError": ["validateHasError"]
     }; }
     static get style() { return GcdsTextareaStyle0; }
-}, [2, "gcds-textarea", {
+}, [81, "gcds-textarea", {
         "characterCount": [2, "character-count"],
         "cols": [2],
         "disabled": [1028],
@@ -206,15 +212,13 @@ const GcdsTextarea$1 = /*@__PURE__*/ proxyCustomElement(class GcdsTextarea exten
         "hideLabel": [4, "hide-label"],
         "hint": [1],
         "label": [1],
+        "name": [1],
         "required": [4],
         "rows": [2],
         "textareaId": [1, "textarea-id"],
         "value": [1025],
         "validator": [1040],
         "validateOn": [1025, "validate-on"],
-        "changeHandler": [16],
-        "focusHandler": [16],
-        "blurHandler": [16],
         "inheritedAttributes": [32],
         "hasError": [32],
         "lang": [32],
@@ -229,7 +233,7 @@ function defineCustomElement$1() {
     if (typeof customElements === "undefined") {
         return;
     }
-    const components = ["gcds-textarea", "gcds-error-message", "gcds-hint", "gcds-label"];
+    const components = ["gcds-textarea", "gcds-error-message", "gcds-hint", "gcds-label", "gcds-text"];
     components.forEach(tagName => { switch (tagName) {
         case "gcds-textarea":
             if (!customElements.get(tagName)) {
@@ -238,15 +242,20 @@ function defineCustomElement$1() {
             break;
         case "gcds-error-message":
             if (!customElements.get(tagName)) {
-                defineCustomElement$4();
+                defineCustomElement$5();
             }
             break;
         case "gcds-hint":
             if (!customElements.get(tagName)) {
-                defineCustomElement$3();
+                defineCustomElement$4();
             }
             break;
         case "gcds-label":
+            if (!customElements.get(tagName)) {
+                defineCustomElement$3();
+            }
+            break;
+        case "gcds-text":
             if (!customElements.get(tagName)) {
                 defineCustomElement$2();
             }

@@ -1,10 +1,12 @@
 import { proxyCustomElement, HTMLElement, createEvent, h, Host } from '@stencil/core/internal/client';
 import { o as observerConfig, a as assignLanguage, i as inheritAttributes } from './utils.js';
 import { d as defaultValidator, r as requiredValidator, g as getValidator } from './validator.factory.js';
-import { d as defineCustomElement$5 } from './gcds-error-message2.js';
-import { d as defineCustomElement$4 } from './gcds-hint2.js';
-import { d as defineCustomElement$3 } from './gcds-icon2.js';
-import { d as defineCustomElement$2 } from './gcds-label2.js';
+import { d as defineCustomElement$7 } from './gcds-error-message2.js';
+import { d as defineCustomElement$6 } from './gcds-hint2.js';
+import { d as defineCustomElement$5 } from './gcds-icon2.js';
+import { d as defineCustomElement$4 } from './gcds-label2.js';
+import { d as defineCustomElement$3 } from './gcds-sr-only2.js';
+import { d as defineCustomElement$2 } from './gcds-text2.js';
 
 const I18N = {
   en: {
@@ -31,69 +33,78 @@ const I18N = {
   },
 };
 
-const gcdsFileUploaderCss = ".sc-gcds-file-uploader-h .gcds-file-uploader-wrapper.sc-gcds-file-uploader{align-items:flex-start;border:0;color:var(--gcds-file-uploader-default-text);display:flex;flex-direction:column;font:var(--gcds-file-uploader-font);margin:0;max-width:90%;padding:0;transition:color .15s ease-in-out}.sc-gcds-file-uploader-h .gcds-file-uploader-wrapper.sc-gcds-file-uploader:focus-within{color:var(--gcds-file-uploader-focus-text)}.sc-gcds-file-uploader-h .gcds-file-uploader-wrapper.gcds-disabled.sc-gcds-file-uploader{color:var(--gcds-file-uploader-disabled-text)}.sc-gcds-file-uploader-h .gcds-file-uploader-wrapper.gcds-disabled.sc-gcds-file-uploader .file-uploader__input.sc-gcds-file-uploader input.sc-gcds-file-uploader,.sc-gcds-file-uploader-h .gcds-file-uploader-wrapper.gcds-disabled.sc-gcds-file-uploader .file-uploader__uploaded-file.sc-gcds-file-uploader,.sc-gcds-file-uploader-h .gcds-file-uploader-wrapper.gcds-disabled.sc-gcds-file-uploader .file-uploader__uploaded-file.sc-gcds-file-uploader gcds-icon.sc-gcds-file-uploader{cursor:not-allowed}.sc-gcds-file-uploader-h .gcds-file-uploader-wrapper.gcds-disabled.sc-gcds-file-uploader .file-uploader__input.sc-gcds-file-uploader button.sc-gcds-file-uploader{background-color:var(--gcds-file-uploader-disabled-background);border-color:var(--gcds-file-uploader-disabled-text);color:inherit;outline:0}.sc-gcds-file-uploader-h .gcds-file-uploader-wrapper.gcds-disabled.sc-gcds-file-uploader .file-uploader__uploaded-file.sc-gcds-file-uploader{color:inherit}.sc-gcds-file-uploader-h .gcds-file-uploader-wrapper.gcds-disabled.sc-gcds-file-uploader .file-uploader__uploaded-file.sc-gcds-file-uploader button.sc-gcds-file-uploader{color:inherit}.sc-gcds-file-uploader-h .gcds-file-uploader-wrapper.gcds-disabled.sc-gcds-file-uploader .file-uploader__uploaded-file.sc-gcds-file-uploader button.sc-gcds-file-uploader:focus{background:transparent}.sc-gcds-file-uploader-h .gcds-file-uploader-wrapper.gcds-error.sc-gcds-file-uploader .file-uploader__uploaded-file.sc-gcds-file-uploader:not(:focus){border-color:var(--gcds-file-uploader-file-danger-border-color)}.sc-gcds-file-uploader-h .gcds-file-uploader-wrapper.sc-gcds-file-uploader .file-uploader__uploaded-file.sc-gcds-file-uploader:focus-within,.sc-gcds-file-uploader-h .gcds-file-uploader-wrapper.gcds-error.sc-gcds-file-uploader .file-uploader__uploaded-file.sc-gcds-file-uploader:focus-within{border-color:var(--gcds-file-uploader-file-focus-border-color)}.sc-gcds-file-uploader-h .file-uploader__input.sc-gcds-file-uploader{display:inline-block;position:relative}.sc-gcds-file-uploader-h .file-uploader__input.uploaded-files.sc-gcds-file-uploader{margin:var(--gcds-file-uploader-button-margin)}.sc-gcds-file-uploader-h .file-uploader__input.sc-gcds-file-uploader button.sc-gcds-file-uploader{background-color:var(--gcds-file-uploader-button-background);border:var(--gcds-file-uploader-button-border-width) solid var(--gcds-file-uploader-button-text);border-radius:var(--gcds-file-uploader-button-border-radius);color:var(--gcds-file-uploader-button-text);font-family:inherit;font-size:inherit;font-weight:var(--gcds-file-uploader-button-font-weight);line-height:inherit;padding:var(--gcds-file-uploader-button-padding);transition:all .15s ease-in-out}.sc-gcds-file-uploader-h .file-uploader__input.sc-gcds-file-uploader input.sc-gcds-file-uploader{cursor:pointer;height:100%;left:0;opacity:0;position:absolute;top:0;width:100%}.sc-gcds-file-uploader-h .file-uploader__input.sc-gcds-file-uploader #file-uploader__summary.sc-gcds-file-uploader{height:0;margin:0;overflow:hidden;visibility:hidden}.sc-gcds-file-uploader-h .file-uploader__input.sc-gcds-file-uploader:hover button.sc-gcds-file-uploader{background-color:var(--gcds-file-uploader-hover-button-background)}.sc-gcds-file-uploader-h .file-uploader__input.sc-gcds-file-uploader:focus-within button.sc-gcds-file-uploader{background-color:var(--gcds-file-uploader-focus-button-background);border-color:currentColor;color:var(--gcds-file-uploader-focus-button-text);outline:var(--gcds-file-uploader-button-outline-width) solid var(--gcds-file-uploader-focus-button-background)}.sc-gcds-file-uploader-h .file-uploader__input.sc-gcds-file-uploader:active button.sc-gcds-file-uploader{background-color:var(--gcds-file-uploader-active-button-background);color:var(--gcds-file-uploader-active-button-text)}.sc-gcds-file-uploader-h .file-uploader__uploaded-file.sc-gcds-file-uploader{align-items:center;border:var(--gcds-file-uploader-file-border-width) solid var(--gcds-file-uploader-file-border-color);color:var(--gcds-file-uploader-default-text);cursor:pointer;display:flex;font:inherit;font-weight:var(--gcds-file-uploader-button-font-weight);justify-content:space-between;max-width:var(--gcds-file-uploader-file-max-width);padding:var(--gcds-file-uploader-file-padding);width:100%}.sc-gcds-file-uploader-h .file-uploader__uploaded-file.sc-gcds-file-uploader:not(:last-of-type){border-block-end:0}.sc-gcds-file-uploader-h .file-uploader__uploaded-file.sc-gcds-file-uploader span.sc-gcds-file-uploader{overflow:hidden;padding-inline-end:0;text-overflow:ellipsis;white-space:nowrap}.sc-gcds-file-uploader-h .file-uploader__uploaded-file.sc-gcds-file-uploader button.sc-gcds-file-uploader{align-items:center;background:transparent;border-radius:var(--gcds-file-uploader-file-button-border-radius);color:var(--gcds-file-uploader-file-button-default-text);display:flex;font:inherit;margin:var(--gcds-file-uploader-file-button-margin);outline:0;padding:var(--gcds-file-uploader-file-button-padding);transition:color .35s}.sc-gcds-file-uploader-h .file-uploader__uploaded-file.sc-gcds-file-uploader button.sc-gcds-file-uploader:not(:focus) span.sc-gcds-file-uploader{overflow:visible;text-decoration:underline;text-decoration-thickness:var(--gcds-file-uploader-file-button-default-decoration-thickness);text-underline-offset:var(--gcds-file-uploader-file-button-underline-offset);transition:box-shadow .35s}.sc-gcds-file-uploader-h .file-uploader__uploaded-file.sc-gcds-file-uploader button.sc-gcds-file-uploader:hover{color:var(--gcds-file-uploader-file-button-hover-text)}.sc-gcds-file-uploader-h .file-uploader__uploaded-file.sc-gcds-file-uploader button.sc-gcds-file-uploader:hover span.sc-gcds-file-uploader{text-decoration-thickness:var(--gcds-file-uploader-file-button-hover-decoration-thickness)}.sc-gcds-file-uploader-h .file-uploader__uploaded-file.sc-gcds-file-uploader button.sc-gcds-file-uploader:focus{background-color:var(--gcds-file-uploader-focus-button-background);border-color:var(--gcds-file-uploader-focus-button-background);color:var(--gcds-file-uploader-focus-button-text);outline:var(--gcds-file-uploader-focus-button-outline-width) solid var(--gcds-file-uploader-focus-button-background);outline-offset:var(--gcds-file-uploader-focus-button-outline-offset);text-decoration-color:transparent}";
+const gcdsFileUploaderCss = "@layer reset, default, input, files, disabled, error, focus, active;@layer reset{:host{display:block}:host .gcds-file-uploader-wrapper{border:0;margin:0;padding:0}:host .gcds-file-uploader-wrapper button{cursor:pointer;font:inherit;outline:0}}@layer default{:host .gcds-file-uploader-wrapper{align-items:flex-start;color:var(--gcds-file-uploader-default-text);display:flex;flex-direction:column;font:var(--gcds-file-uploader-font);max-width:90%;transition:color .15s ease-in-out}:host .gcds-file-uploader-wrapper button{border-radius:var(--gcds-file-uploader-file-button-border-radius);transition:all .15s ease-in-out}}@layer input{:host .gcds-file-uploader-wrapper .file-uploader__input{display:inline-block;position:relative}:host .gcds-file-uploader-wrapper .file-uploader__input button{background-color:var(--gcds-file-uploader-button-background);border:var(--gcds-file-uploader-button-border-width) solid var(--gcds-file-uploader-button-text);color:var(--gcds-file-uploader-button-text);font-weight:var(--gcds-file-uploader-button-font-weight);margin:var(--gcds-file-uploader-button-margin);padding:var(--gcds-file-uploader-button-padding)}:host .gcds-file-uploader-wrapper .file-uploader__input input{cursor:pointer;height:100%;left:0;opacity:0;position:absolute;top:0;width:100%}:host .gcds-file-uploader-wrapper .file-uploader__input #file-uploader__summary{height:0;margin:0;overflow:hidden;visibility:hidden}}@layer files{:host .gcds-file-uploader-wrapper .file-uploader__uploaded-file{align-items:center;border:var(--gcds-file-uploader-file-border-width) solid var(--gcds-file-uploader-file-border-color);cursor:pointer;display:flex;justify-content:space-between;max-width:var(--gcds-file-uploader-file-max-width);padding:var(--gcds-file-uploader-file-padding);width:100%}:host .gcds-file-uploader-wrapper .file-uploader__uploaded-file:not(:last-of-type){border-block-end:0}:host .gcds-file-uploader-wrapper .file-uploader__uploaded-file:last-of-type{margin:var(--gcds-file-uploader-button-margin)}:host .gcds-file-uploader-wrapper .file-uploader__uploaded-file gcds-text{overflow:auto}:host .gcds-file-uploader-wrapper .file-uploader__uploaded-file gcds-text::part(text){overflow:hidden;text-overflow:ellipsis;white-space:nowrap}:host .gcds-file-uploader-wrapper .file-uploader__uploaded-file button{align-items:center;background:transparent;border:0;color:var(--gcds-file-uploader-file-button-default-text);display:flex;font-weight:var(--gcds-file-uploader-button-font-weight);margin:var(--gcds-file-uploader-file-button-margin);padding:var(--gcds-file-uploader-file-button-padding)}:host .gcds-file-uploader-wrapper .file-uploader__uploaded-file button:not(:focus) span{overflow:visible;text-decoration:underline var(--gcds-file-uploader-file-button-default-decoration-thickness);text-underline-offset:var(\n          --gcds-file-uploader-file-button-underline-offset\n        )}}@layer disabled{:host .gcds-file-uploader-wrapper.gcds-disabled{color:var(--gcds-file-uploader-disabled-text)}:host .gcds-file-uploader-wrapper.gcds-disabled :is(.file-uploader__input,.file-uploader__uploaded-file){pointer-events:none}:host .gcds-file-uploader-wrapper.gcds-disabled .file-uploader__input button,:host .gcds-file-uploader-wrapper.gcds-disabled .file-uploader__uploaded-file,:host .gcds-file-uploader-wrapper.gcds-disabled .file-uploader__uploaded-file button{color:inherit}:host .gcds-file-uploader-wrapper.gcds-disabled .file-uploader__input button{background-color:var(--gcds-file-uploader-disabled-background);border-color:currentColor}}@layer error{:host .gcds-file-uploader-wrapper.gcds-error .file-uploader__uploaded-file{border-color:var(--gcds-file-uploader-file-danger-border-color)}}@layer hover{@media (hover:hover){:host .gcds-file-uploader-wrapper .file-uploader__input:not(:focus-within):hover button{background-color:var(--gcds-file-uploader-hover-button-background)}:host .gcds-file-uploader-wrapper .file-uploader__uploaded-file button:not(:focus):hover{color:var(--gcds-file-uploader-file-button-hover-text)}:host .gcds-file-uploader-wrapper .file-uploader__uploaded-file button:not(:focus):hover span{text-decoration-thickness:var(\n            --gcds-file-uploader-file-button-hover-decoration-thickness\n          )}}}@layer focus{:host .gcds-file-uploader-wrapper:focus-within{color:var(--gcds-file-uploader-focus-text)}:host .gcds-file-uploader-wrapper:focus-within .file-uploader__uploaded-file:focus-within{border-color:var(--gcds-file-uploader-file-focus-border-color)}:host .gcds-file-uploader-wrapper:focus-within .file-uploader__input:focus-within button,:host .gcds-file-uploader-wrapper:focus-within .file-uploader__uploaded-file button:focus{background-color:var(--gcds-file-uploader-focus-button-background);border-color:var(--gcds-file-uploader-focus-button-background);color:var(--gcds-file-uploader-focus-button-text);outline:var(--gcds-file-uploader-button-outline-width) solid var(--gcds-file-uploader-focus-button-background);outline-offset:var(--gcds-file-uploader-focus-button-outline-offset)}}@layer active{:host .gcds-file-uploader-wrapper .file-uploader__input:has(input:active) button{background-color:var(--gcds-file-uploader-active-button-background);border-color:var(--gcds-file-uploader-active-button-background);color:var(--gcds-file-uploader-active-button-text)}}";
 const GcdsFileUploaderStyle0 = gcdsFileUploaderCss;
 
 const GcdsFileUploader$1 = /*@__PURE__*/ proxyCustomElement(class GcdsFileUploader extends HTMLElement {
     constructor() {
         super();
         this.__registerHost();
+        this.__attachShadow();
         this.gcdsFocus = createEvent(this, "gcdsFocus", 7);
         this.gcdsBlur = createEvent(this, "gcdsBlur", 7);
-        this.gcdsFileUploaderChange = createEvent(this, "gcdsFileUploaderChange", 7);
+        this.gcdsChange = createEvent(this, "gcdsChange", 7);
+        this.gcdsInput = createEvent(this, "gcdsInput", 7);
         this.gcdsRemoveFile = createEvent(this, "gcdsRemoveFile", 7);
         this.gcdsError = createEvent(this, "gcdsError", 7);
         this.gcdsValid = createEvent(this, "gcdsValid", 7);
+        this.internals = this.attachInternals();
         this._validator = defaultValidator;
-        this.onFocus = e => {
-            if (this.focusHandler) {
-                this.focusHandler(e);
-            }
-            this.gcdsFocus.emit();
-        };
-        this.onBlur = e => {
-            if (this.blurHandler) {
-                this.blurHandler(e);
-            }
-            else {
-                if (this.validateOn == 'blur') {
-                    this.validate();
-                }
+        this.onBlur = () => {
+            if (this.validateOn == 'blur') {
+                this.validate();
             }
             this.gcdsBlur.emit();
         };
-        this.handleChange = e => {
-            if (this.changeHandler) {
-                this.changeHandler(e);
+        this.handleInput = (e, customEvent) => {
+            const filesContainer = [];
+            const files = Array.from(e.target.files);
+            files.map(file => {
+                filesContainer.push(file['name']);
+            });
+            this.addFilesToFormData(files);
+            this.value = [...filesContainer];
+            // Validate since the input loses focus when dialog opens
+            if (this.validateOn == 'blur') {
+                setTimeout(() => {
+                    this.validate();
+                }, 100);
             }
-            else {
-                const filesContainer = [];
-                const files = e.target.files;
-                for (let i = 0; i < files.length; i++) {
-                    filesContainer.push(files[i].name);
-                }
-                this.value = [...filesContainer];
-                // Validate since the input loses focus when dialog opens
-                if (this.validateOn == 'blur') {
-                    setTimeout(() => {
-                        this.validate();
-                    }, 100);
-                }
-            }
-            this.gcdsFileUploaderChange.emit(this.value);
+            customEvent.emit(this.value);
         };
         this.removeFile = e => {
             e.preventDefault();
+            const fileName = e.target.closest('.file-uploader__uploaded-file')
+                .childNodes[0].textContent;
             const filesContainer = this.value;
-            const file = filesContainer.indexOf(e.target.closest('.file-uploader__uploaded-file').childNodes[0]
-                .textContent);
+            const file = filesContainer.indexOf(fileName);
             if (file > -1) {
                 filesContainer.splice(file, 1);
+                // Add additional logic to remove file from input
+                const dt = new DataTransfer();
+                for (let f = 0; f < this.shadowElement.files.length; f++) {
+                    if (this.shadowElement.files[f].name != fileName) {
+                        dt.items.add(this.shadowElement.files[f]);
+                    }
+                }
+                this.shadowElement.files = dt.files;
+                this.addFilesToFormData(this.shadowElement.files);
             }
             this.value = [...filesContainer];
             this.gcdsRemoveFile.emit(this.value);
         };
+        /*
+         * Set form data for internals
+         */
+        this.addFilesToFormData = files => {
+            const formData = new FormData();
+            files.forEach(file => {
+                formData.append(this.name, file, file.name);
+            });
+            this.internals.setFormValue(formData);
+        };
         this.uploaderId = undefined;
+        this.name = undefined;
         this.label = undefined;
         this.required = false;
         this.disabled = false;
@@ -104,9 +115,6 @@ const GcdsFileUploader$1 = /*@__PURE__*/ proxyCustomElement(class GcdsFileUpload
         this.hint = undefined;
         this.validator = undefined;
         this.validateOn = undefined;
-        this.changeHandler = undefined;
-        this.focusHandler = undefined;
-        this.blurHandler = undefined;
         this.hasError = undefined;
         this.inheritedAttributes = {};
         this.lang = undefined;
@@ -165,6 +173,17 @@ const GcdsFileUploader$1 = /*@__PURE__*/ proxyCustomElement(class GcdsFileUpload
         }
     }
     /*
+     * Form internal functions
+     */
+    formResetCallback() {
+        this.internals.setFormValue('');
+        this.value = [];
+    }
+    formStateRestoreCallback(state) {
+        this.internals.setFormValue(state);
+        this.value = state;
+    }
+    /*
      * Observe lang attribute change
      */
     updateLang() {
@@ -196,10 +215,11 @@ const GcdsFileUploader$1 = /*@__PURE__*/ proxyCustomElement(class GcdsFileUpload
         }
     }
     render() {
-        const { accept, disabled, errorMessage, hasError, hint, label, lang, multiple, required, uploaderId, value, inheritedAttributes, } = this;
+        const { accept, disabled, errorMessage, hasError, hint, label, lang, multiple, name, required, uploaderId, value, inheritedAttributes, } = this;
         const attrsInput = Object.assign(Object.assign({ accept,
             disabled,
             multiple,
+            name,
             required,
             value }, inheritedAttributes), { 'aria-describedby': `${inheritedAttributes['aria-describedby']
                 ? `${inheritedAttributes['aria-describedby']} `
@@ -211,12 +231,15 @@ const GcdsFileUploader$1 = /*@__PURE__*/ proxyCustomElement(class GcdsFileUpload
         if (hint || errorMessage) {
             const hintID = hint ? `hint-${uploaderId} ` : '';
             const errorID = errorMessage ? `error-message-${uploaderId} ` : '';
-            attrsInput['aria-describedby'] = `${hintID}${errorID}${attrsInput['aria-describedby']}`;
+            attrsInput['aria-describedby'] =
+                `${hintID}${errorID}${attrsInput['aria-describedby']}`;
         }
-        return (h(Host, null, h("div", { class: `gcds-file-uploader-wrapper ${disabled ? 'gcds-disabled' : ''} ${hasError ? 'gcds-error' : ''}` }, h("gcds-label", Object.assign({}, attrsLabel, { "label-for": uploaderId, lang: lang })), hint ? h("gcds-hint", { hint: hint, "hint-id": uploaderId }) : null, errorMessage ? (h("gcds-error-message", { messageId: uploaderId, message: errorMessage })) : null, h("div", { class: `file-uploader__input ${value.length > 0 ? 'uploaded-files' : ''}` }, h("button", { type: "button", tabindex: "-1", onClick: () => this.shadowElement.click() }, I18N[lang].button.upload), h("input", Object.assign({ type: "file", id: uploaderId, name: uploaderId }, attrsInput, { onBlur: e => this.onBlur(e), onFocus: e => this.onFocus(e), onChange: e => this.handleChange(e), "aria-invalid": hasError ? 'true' : 'false', ref: element => (this.shadowElement = element) })), value.length > 0 ? (h("p", { id: "file-uploader__summary" }, h("span", null, I18N[lang].summary.selected, " "), value.map(file => (h("span", null, file, " "))))) : (h("p", { id: "file-uploader__summary" }, I18N[lang].summary.unselected))), value.length > 0
-            ? value.map(file => (h("div", { class: "file-uploader__uploaded-file", "aria-label": `${I18N[lang].removeFile} ${file}.` }, h("span", null, file), h("button", { onClick: e => this.removeFile(e) }, h("span", null, I18N[lang].button.remove), h("gcds-icon", { name: "times", size: "text", "margin-left": "200" })))))
+        return (h(Host, null, h("div", { class: `gcds-file-uploader-wrapper ${disabled ? 'gcds-disabled' : ''} ${hasError ? 'gcds-error' : ''}` }, h("gcds-label", Object.assign({}, attrsLabel, { "label-for": uploaderId, lang: lang })), hint ? h("gcds-hint", { "hint-id": uploaderId }, hint) : null, errorMessage ? (h("gcds-error-message", { messageId: uploaderId }, errorMessage)) : null, h("div", { class: `file-uploader__input ${value.length > 0 ? 'uploaded-files' : ''}` }, h("button", { type: "button", tabindex: "-1", onClick: () => this.shadowElement.click() }, I18N[lang].button.upload), h("input", Object.assign({ type: "file", id: uploaderId }, attrsInput, { onBlur: () => this.onBlur(), onFocus: () => this.gcdsFocus.emit(), onInput: e => this.handleInput(e, this.gcdsInput), onChange: e => this.handleInput(e, this.gcdsChange), "aria-invalid": hasError ? 'true' : 'false', ref: element => (this.shadowElement = element) })), value.length > 0 ? (h("gcds-sr-only", { id: "file-uploader__summary" }, h("span", null, I18N[lang].summary.selected, " "), value.map(file => (h("span", null, file, " "))))) : (h("gcds-sr-only", { id: "file-uploader__summary" }, I18N[lang].summary.unselected))), value.length > 0
+            ? value.map(file => (h("div", { class: "file-uploader__uploaded-file", "aria-label": `${I18N[lang].removeFile} ${file}.` }, h("gcds-text", { "margin-bottom": "0" }, file), h("button", { onClick: e => this.removeFile(e) }, h("span", null, I18N[lang].button.remove), h("gcds-icon", { name: "times", size: "text", "margin-left": "200" })))))
             : null)));
     }
+    static get delegatesFocus() { return true; }
+    static get formAssociated() { return true; }
     get el() { return this; }
     static get watchers() { return {
         "disabled": ["validateDisabledSelect"],
@@ -225,8 +248,9 @@ const GcdsFileUploader$1 = /*@__PURE__*/ proxyCustomElement(class GcdsFileUpload
         "hasError": ["validateHasError"]
     }; }
     static get style() { return GcdsFileUploaderStyle0; }
-}, [2, "gcds-file-uploader", {
+}, [81, "gcds-file-uploader", {
         "uploaderId": [1537, "uploader-id"],
+        "name": [1],
         "label": [513],
         "required": [516],
         "disabled": [1540],
@@ -237,9 +261,6 @@ const GcdsFileUploader$1 = /*@__PURE__*/ proxyCustomElement(class GcdsFileUpload
         "hint": [513],
         "validator": [1040],
         "validateOn": [1025, "validate-on"],
-        "changeHandler": [16],
-        "focusHandler": [16],
-        "blurHandler": [16],
         "hasError": [32],
         "inheritedAttributes": [32],
         "lang": [32],
@@ -254,7 +275,7 @@ function defineCustomElement$1() {
     if (typeof customElements === "undefined") {
         return;
     }
-    const components = ["gcds-file-uploader", "gcds-error-message", "gcds-hint", "gcds-icon", "gcds-label"];
+    const components = ["gcds-file-uploader", "gcds-error-message", "gcds-hint", "gcds-icon", "gcds-label", "gcds-sr-only", "gcds-text"];
     components.forEach(tagName => { switch (tagName) {
         case "gcds-file-uploader":
             if (!customElements.get(tagName)) {
@@ -263,20 +284,30 @@ function defineCustomElement$1() {
             break;
         case "gcds-error-message":
             if (!customElements.get(tagName)) {
-                defineCustomElement$5();
+                defineCustomElement$7();
             }
             break;
         case "gcds-hint":
             if (!customElements.get(tagName)) {
-                defineCustomElement$4();
+                defineCustomElement$6();
             }
             break;
         case "gcds-icon":
             if (!customElements.get(tagName)) {
-                defineCustomElement$3();
+                defineCustomElement$5();
             }
             break;
         case "gcds-label":
+            if (!customElements.get(tagName)) {
+                defineCustomElement$4();
+            }
+            break;
+        case "gcds-sr-only":
+            if (!customElements.get(tagName)) {
+                defineCustomElement$3();
+            }
+            break;
+        case "gcds-text":
             if (!customElements.get(tagName)) {
                 defineCustomElement$2();
             }

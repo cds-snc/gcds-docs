@@ -218,9 +218,33 @@
     
       
       
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
 
         
 
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
       
     
       
@@ -1059,6 +1083,9 @@
         
   
     <h1 id="bouton-radio-brgcdsradio" class="mb-400">Bouton radio <br><code>&lt;gcds-radio&gt;</code></h1>
+<gcds-error-message message-id="component-deprecated">
+Ce composant est obsolète à partir de la version 0.21.0. Consultez les <gcds-link href="https://github.com/cds-snc/gcds-components/releases/tag/gcds-components-v0.21.0">notes de publication v0.21.0</gcds-link> pour plus d'information.
+</gcds-error-message>
 <p class="mb-400"><em>Autres noms : case d’option, groupe radio.</em></p>
 <p class="mb-400">Un bouton radio permet de proposer plusieurs options de réponse pour un choix unique.</p>
 <p class="mb-400"><ul class="d-flex flex-wrap gap-400">
@@ -1069,19 +1096,7 @@
 <gcds-link external href="https://www.figma.com/file/o4SguSZdar2CCFzSkWNrmB/Syst%C3%A8me-de-design-GC?type=design&node-id=348-5024&mode=design&t=1DaL24vHpjRRfHHm-0">Figma</gcds-link>
 </li>
 </ul></p>
-<p class="mb-400"><div class="my-500 b-sm b-default component-preview" id="component-preview">
-<p class="container-full font-semibold px-300 py-200 bb-sm b-default bg-light">
-Aperçu du composant de radio
-</p>
-<div class="px-300 pt-400 pb-200"></p>
-<gcds-fieldset fieldset-id="fieldset" legend="Légende" hint="Texte explicatif/Exemple de message.">
-<gcds-radio radio-id="form-radio-1" label="Libellé" hint="Ceci est une description ou un exemple à titre de clarification." name="radio" checked>
-</gcds-radio>
-<gcds-radio radio-id="form-radio-2" label="Libellé" hint="Ceci est une description ou un exemple à titre de clarification." name="radio">
-</gcds-radio>
-</gcds-fieldset>
-<p class="mb-400"></div>
-</div></p>
+<br/>
 
     <nav class="tabs mb-400" aria-label="Onglet de consignes">
       <ul>
@@ -1121,36 +1136,14 @@ Aperçu du composant de radio
   
 
   <h2 id="creer-un-bouton-radio" class="mt-500 mb-400">Créer un bouton radio</h2>
-<p class="mb-400">Utilisez un bouton radio avec un jeu de champs lorsque vous vous attendez à ce que l’utilisateur·rice choisisse une seule option d’une courte liste d’éléments en réponse à une question ou à une instruction.</p>
-<p class="mb-400">Les boutons radio aident les utilisateur·rice·s a faire un choix en limitant leurs options.</p>
+<p class="mb-400">Utilisez un groupe de boutons radio avec un <a href="/fr/composants/jeu-de-champs">jeu de champs</a> lorsque vous attendez d’une personne qu’elle ne sélectionne qu’une réponse parmi une courte liste d’options.</p>
+<p class="mb-400">Le groupe de boutons radio aide les gens à faire un choix grâce à un nombre limité d’options.</p>
 <h2 id="accessibilite-et-codage-pour-les-boutons-radio" class="mt-500 mb-400">Accessibilité et codage pour les boutons radio</h2>
 <h3 id="utilisez-un-jeu-de-champs-et-lattribut-obligatoire" class="mt-500 mb-400">Utilisez un jeu de champs et l’attribut obligatoire</h3>
 <ul class="list-disc mb-400"><li><p class="mb-400">Regrouper les boutons radio et nommer ce groupe en utilisant les <a href="/fr/composants/jeu-de-champs">composantes de jeu de champs</a>.</li>
 <li><p class="mb-400">Utilisez le jeu de champs <code>legend</code> et l’attribut <code>hint</code> pour le nom du groupe et ses instructions.</li>
 <li><p class="mb-400">Pour les groupes obligatoires, sélectionnez l’attribut <code>required</code> dans le jeu de champs. La sélection de l’attribut <code>required</code> permet la validation et la gestion des erreurs dans le groupe des boutons radio.</li>
 </ul>
-<h3 id="obtenez-votre-code" class="mt-500 mb-400">Obtenez votre code</h3>
-<p class="mb-400">Générez une version du composant dont vous avez besoin en sélectionnant les propriétés de code correspondantes ou explorez les possibilités en choisissant différentes valeurs de code.</p>
-<ol class="list-decimal mb-400"><li>
-<p class="mb-400">Choisissez des valeurs de code pour obtenir l'élément que vous voulez.</p>
-</li>
-<li>
-<p class="mb-400">Obtenez le code et intégrez-le dans votre environnement.</p>
-</li>
-<li>
-<p class="mb-400">Ajoutez tout contenu nécessaire au composant (comme le texte du libellé).</p>
-</li>
-</ol>
-<p class="mb-400"><strong>Remarque</strong> : Conformément à la pratique courante, le générateur de code utilise l'anglais pour tous les éléments de code.</p>
-<iframe
-  title="Survol des propriétés et des évènements relatifs à gcds-radio."
-  src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&demo=true&singleStory=true&id=components-radio--events-properties&lang=fr"
-  width="1200"
-  height="1770"
-  style="display: block; margin: 0 auto;"
-  frameBorder="0"
-  allow="clipboard-write"
-></iframe>
 
 
   <section data-pagefind-ignore class="pt-100 mt-400 mb-600 bt-sm b-dark ">

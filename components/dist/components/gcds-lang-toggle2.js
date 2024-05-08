@@ -1,10 +1,13 @@
 import { proxyCustomElement, HTMLElement, h, Host } from '@stencil/core/internal/client';
 import { o as observerConfig, a as assignLanguage } from './utils.js';
+import { d as defineCustomElement$3 } from './gcds-icon2.js';
+import { d as defineCustomElement$2 } from './gcds-link2.js';
+import { d as defineCustomElement$1 } from './gcds-sr-only2.js';
 
 const I18N = {
   en: {
     abbreviation: 'fr',
-    heading: 'Language Selection',
+    heading: 'Language selection',
     language: 'Français',
   },
   fr: {
@@ -14,7 +17,7 @@ const I18N = {
   },
 };
 
-const gcdsLangToggleCss = ":host{display:block;font:var(--gcds-lang-toggle-font)}:host h2{margin:0;overflow:hidden;position:absolute;width:0}:host a{color:var(--gcds-lang-toggle-default-text);padding:var(--gcds-lang-toggle-padding);text-decoration:underline;text-decoration-color:currentColor;text-decoration-thickness:var(\n      --gcds-lang-toggle-default-decoration-thickness\n    );text-underline-offset:.2em}:host a span{display:none}:host a abbr{text-decoration:none;text-transform:uppercase}:host a:hover{color:var(--gcds-lang-toggle-hover-text);text-decoration-thickness:var(\n        --gcds-lang-toggle-hover-decoration-thickness\n      )}:host a:focus{background-color:var(--gcds-lang-toggle-focus-background);border-radius:var(--gcds-lang-toggle-focus-border-radius);box-shadow:var(--gcds-lang-toggle-focus-box-shadow);color:var(--gcds-lang-toggle-focus-text);outline:var(--gcds-lang-toggle-focus-outline);outline-offset:var(--gcds-lang-toggle-focus-outline-offset);text-decoration:none}@media screen and (min-width:64em){:host a{padding:0}:host a span{display:initial}:host a abbr{display:none}}";
+const gcdsLangToggleCss = "@layer reset, default, desktop;@layer reset{:host{display:block}:host .gcds-lang-toggle h2{margin:0;overflow:hidden;position:absolute;width:0}}@layer default{:host .gcds-lang-toggle gcds-link::part(link){padding:var(--gcds-lang-toggle-padding)}:host .gcds-lang-toggle span{display:none}:host .gcds-lang-toggle abbr{text-decoration:none;text-transform:uppercase}}@layer desktop{@media screen and (width >= 64em){:host .gcds-lang-toggle gcds-link::part(link){padding:0}:host .gcds-lang-toggle span{display:initial}:host .gcds-lang-toggle abbr{display:none}}}";
 const GcdsLangToggleStyle0 = gcdsLangToggleCss;
 
 const GcdsLangToggle = /*@__PURE__*/ proxyCustomElement(class GcdsLangToggle extends HTMLElement {
@@ -43,7 +46,7 @@ const GcdsLangToggle = /*@__PURE__*/ proxyCustomElement(class GcdsLangToggle ext
     }
     render() {
         const { lang, href } = this;
-        return (h(Host, null, h("div", null, h("h2", null, I18N[lang].heading), h("a", { href: href, lang: I18N[lang].abbreviation }, h("span", null, I18N[lang].language), h("abbr", { title: I18N[lang].language }, I18N[lang].abbreviation)))));
+        return (h(Host, null, h("div", { class: "gcds-lang-toggle" }, h("gcds-sr-only", { id: "lang-toggle__heading", tag: "h2" }, I18N[lang].heading), h("gcds-link", { size: "regular", href: href, lang: I18N[lang].abbreviation }, h("span", null, I18N[lang].language), h("abbr", { title: I18N[lang].language }, I18N[lang].abbreviation)))));
     }
     get el() { return this; }
     static get style() { return GcdsLangToggleStyle0; }
@@ -55,11 +58,26 @@ function defineCustomElement() {
     if (typeof customElements === "undefined") {
         return;
     }
-    const components = ["gcds-lang-toggle"];
+    const components = ["gcds-lang-toggle", "gcds-icon", "gcds-link", "gcds-sr-only"];
     components.forEach(tagName => { switch (tagName) {
         case "gcds-lang-toggle":
             if (!customElements.get(tagName)) {
                 customElements.define(tagName, GcdsLangToggle);
+            }
+            break;
+        case "gcds-icon":
+            if (!customElements.get(tagName)) {
+                defineCustomElement$3();
+            }
+            break;
+        case "gcds-link":
+            if (!customElements.get(tagName)) {
+                defineCustomElement$2();
+            }
+            break;
+        case "gcds-sr-only":
+            if (!customElements.get(tagName)) {
+                defineCustomElement$1();
             }
             break;
     } });

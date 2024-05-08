@@ -3,7 +3,7 @@ const { AxePuppeteer } = require('@axe-core/puppeteer');
 describe('gcds-file-uploader', () => {
     it('renders', async () => {
         const page = await newE2EPage();
-        await page.setContent('<gcds-file-uploader label="file uploader label" uploader-id="file-uploader" />');
+        await page.setContent('<gcds-file-uploader label="file uploader label" name="file" uploader-id="file-uploader" />');
         const element = await page.find('gcds-file-uploader');
         expect(element).toHaveClass('hydrated');
     });
@@ -18,8 +18,8 @@ describe('gcds-file-uploader a11y tests', () => {
      */
     it('aria-invalid', async () => {
         const page = await newE2EPage();
-        await page.setContent('<gcds-file-uploader label="Label" uploader-id="aria-invalid" error-message="Field required" />');
-        const element = await await page.find('gcds-file-uploader input');
+        await page.setContent('<gcds-file-uploader label="Label" uploader-id="aria-invalid" name="file" error-message="Field required" />');
+        const element = await await page.find('gcds-file-uploader >>> input');
         expect(element.getAttribute('aria-invalid')).toEqual('true');
     });
     /**
@@ -28,7 +28,7 @@ describe('gcds-file-uploader a11y tests', () => {
     it('colour contrast', async () => {
         const page = await newE2EPage();
         await page.setContent(`
-      <gcds-file-uploader label="Label" uploader-id="colour-contrast"></gcds-file-uploader>
+      <gcds-file-uploader label="Label" name="file" uploader-id="colour-contrast"></gcds-file-uploader>
     `);
         const colorContrastTest = new AxePuppeteer(page)
             .withRules('color-contrast')
@@ -42,19 +42,19 @@ describe('gcds-file-uploader a11y tests', () => {
     it('file uploader keyboard focus', async () => {
         const page = await newE2EPage();
         await page.setContent(`
-      <gcds-file-uploader label="Label" uploader-id="keyboard-focus" />
+      <gcds-file-uploader label="Label" name="file" uploader-id="keyboard-focus" />
     `);
-        const fileUploaderField = await (await page.find('gcds-file-uploader input')).innerText;
+        const fileUploaderField = await (await page.find('gcds-file-uploader >>> input')).innerText;
         await page.keyboard.press('Tab');
-        expect(await page.evaluate(() => window.document.activeElement.textContent)).toEqual(fileUploaderField);
+        expect(await page.evaluate(() => window.document.activeElement.shadowRoot.activeElement.textContent)).toEqual(fileUploaderField);
     });
     /**
      * File uploader label test
      */
     it('file-uploader contains label', async () => {
         const page = await newE2EPage();
-        await page.setContent('<gcds-file-uploader label="Label" uploader-id="contains-label" />');
-        const element = await await page.find('gcds-file-uploader gcds-label');
+        await page.setContent('<gcds-file-uploader label="Label" name="file" uploader-id="contains-label" />');
+        const element = await await page.find('gcds-file-uploader >>> gcds-label');
         expect(element.getAttribute('id')).toEqual('label-for-contains-label');
     });
 });

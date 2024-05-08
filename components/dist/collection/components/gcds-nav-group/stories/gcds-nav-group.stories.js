@@ -121,14 +121,6 @@ Default.args = {
     open: false,
     lang: 'en',
 };
-export const Props = Template.bind({});
-Props.args = {
-    menuLabel: 'Sub-menu',
-    openTrigger: 'Navigation group',
-    closeTrigger: '',
-    open: false,
-    lang: 'en',
-};
 export const Open = Template.bind({});
 Open.args = {
     menuLabel: 'Open sub-menu',
@@ -156,6 +148,14 @@ Menu.args = {
 export const TopNav = TemplateTopNav.bind({});
 TopNav.args = {
     menuLabel: 'Topnav sub-menu',
+    openTrigger: 'Navigation group',
+    closeTrigger: '',
+    open: false,
+    lang: 'en',
+};
+export const Props = Template.bind({});
+Props.args = {
+    menuLabel: 'Sub-menu',
     openTrigger: 'Navigation group',
     closeTrigger: '',
     open: false,

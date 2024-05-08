@@ -1,4 +1,4 @@
-import { Host, h, Fragment } from "@stencil/core";
+import { Host, h, Fragment, } from "@stencil/core";
 import { assignLanguage, observerConfig } from "../../utils/utils";
 import i18n from "./i18n/i18n";
 export class GcdsCard {
@@ -33,13 +33,13 @@ export class GcdsCard {
         return !!this.el.querySelector('[slot="footer"]');
     }
     render() {
-        const { type, cardTitle, titleElement, href, description, tag, imgSrc, imgAlt, hasCardFooter, lang } = this;
+        const { type, cardTitle, titleElement, href, description, tag, imgSrc, imgAlt, hasCardFooter, lang, } = this;
         const Element = titleElement;
         const taggedAttr = {};
         if (tag) {
             taggedAttr['aria-describedby'] = 'gcds-card__tag';
         }
-        return (h(Host, null, h("div", { class: `gcds-card gcds-card--${type}` }, imgSrc && (h("img", { src: imgSrc, alt: imgAlt ? imgAlt : '', class: "gcds-card__image" })), tag && (h("span", { id: "gcds-card__tag", class: "gcds-card__tag" }, h("gcds-sr-only", null, i18n[lang].tagged), tag)), Element != 'a' ? (h(Element, Object.assign({ class: "gcds-card__title" }, taggedAttr), h("a", { href: href }, cardTitle))) : (h("a", Object.assign({ href: href, class: "gcds-card__title" }, taggedAttr), cardTitle)), description && h("p", { class: "gcds-card__description" }, description), hasCardFooter && (h(Fragment, null, h("div", { class: "gcds-card__spacer" }), h("slot", { name: "footer" }))))));
+        return (h(Host, null, h("div", { class: `gcds-card gcds-card--${type}` }, imgSrc && (h("img", { src: imgSrc, alt: imgAlt ? imgAlt : '', class: "gcds-card__image" })), tag && (h("gcds-text", { id: "gcds-card__tag", class: "gcds-card__tag", "text-role": "secondary", size: "caption" }, h("gcds-sr-only", null, i18n[lang].tagged), tag)), Element != 'a' ? (h(Element, Object.assign({ class: "gcds-card__title" }, taggedAttr), h("gcds-link", { href: href }, cardTitle))) : (h("gcds-link", Object.assign({ href: href, class: "gcds-card__title" }, taggedAttr), cardTitle)), description && (h("gcds-text", { class: "gcds-card__description" }, description)), hasCardFooter && (h(Fragment, null, h("div", { class: "gcds-card__spacer" }), h("slot", { name: "footer" }))))));
     }
     static get is() { return "gcds-card"; }
     static get encapsulation() { return "shadow"; }

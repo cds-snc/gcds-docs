@@ -95,7 +95,7 @@ export class GcdsText {
             ${characterLimit ? 'limit' : ''}
             ${marginTop ? `mt-${marginTop}` : ''}
             ${marginBottom ? `mb-${marginBottom}` : ''}
-          ` }, size === 'caption' ? (h("small", null, h("slot", null))) : (h("slot", null)))));
+          `, part: "text" }, size === 'caption' ? (h("small", null, h("slot", null))) : (h("slot", null)))));
     }
     static get is() { return "gcds-text"; }
     static get encapsulation() { return "shadow"; }

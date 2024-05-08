@@ -7,40 +7,40 @@ describe('gcds-footer', () => {
             html: `<gcds-footer display="compact" lang="en"></gcds-footer>`,
         });
         expect(page.root).toEqualHtml(`
-      <gcds-footer role="contentinfo" display="compact" lang="en">
+      <gcds-footer role="contentinfo" display="compact" lang="en" aria-label="Footer">
         <mock:shadow-root>
-          <h2 class="gcds-footer__header">About this site</h2>
+          <gcds-sr-only tag="h2">About this site</gcds-sr-only>
           <div class="gcds-footer__sub">
             <div class="sub__container">
-              <nav aria-labelledby="sub__header">
-                <h3 class="sub__header" id="sub__header">
+              <nav aria-labelledby="sub__heading">
+                <gcds-sr-only id="sub__heading" tag="h3">
                   Government of Canada Corporate
-                </h3>
+                </gcds-sr-only>
                 <ul>
                   <li>
-                    <a href="https://www.canada.ca/en/social.html">
+                    <gcds-link size="small" href="https://www.canada.ca/en/social.html">
                       Social media
-                    </a>
+                    </gcds-link>
                   </li>
                   <li>
-                    <a href="https://www.canada.ca/en/mobile.html">
+                    <gcds-link size="small" href="https://www.canada.ca/en/mobile.html">
                       Mobile applications
-                    </a>
+                    </gcds-link>
                   </li>
                   <li>
-                    <a href="https://www.canada.ca/en/government/about.html">
+                    <gcds-link size="small" href="https://www.canada.ca/en/government/about.html">
                       About Canada.ca
-                    </a>
+                    </gcds-link>
                   </li>
                   <li>
-                    <a href="https://www.canada.ca/en/transparency/terms.html">
+                    <gcds-link size="small" href="https://www.canada.ca/en/transparency/terms.html">
                       Terms and conditions
-                    </a>
+                    </gcds-link>
                   </li>
                   <li>
-                    <a href="https://www.canada.ca/en/transparency/privacy.html">
+                    <gcds-link size="small" href="https://www.canada.ca/en/transparency/privacy.html">
                       Privacy
-                    </a>
+                    </gcds-link>
                   </li>
                 </ul>
               </nav>
@@ -59,127 +59,127 @@ describe('gcds-footer', () => {
             html: `<gcds-footer display="full" lang="en"></gcds-footer>`,
         });
         expect(page.root).toEqualHtml(`
-      <gcds-footer role="contentinfo" display="full" lang="en">
+      <gcds-footer role="contentinfo" display="full" lang="en" aria-label="Footer">
         <mock:shadow-root>
-          <h2 class="gcds-footer__header">About this site</h2>
+          <gcds-sr-only tag="h2">About this site</gcds-sr-only>
           <div class="gcds-footer__main">
             <div class="main__container">
-              <nav aria-labelledby="govnav__header" class="main__govnav">
-                <h3 id="govnav__header">
+              <nav aria-labelledby="govnav__heading" class="main__govnav">
+                <h3 id="govnav__heading">
                   Government of Canada
                 </h3>
                 <ul class="govnav__list">
                   <li>
-                    <a href="https://www.canada.ca/en/contact.html">
+                    <gcds-link size="small" href="https://www.canada.ca/en/contact.html">
                       All Contacts
-                    </a>
+                    </gcds-link>
                   </li>
                   <li>
-                    <a href="https://www.canada.ca/en/government/dept.html">
+                    <gcds-link size="small" href="https://www.canada.ca/en/government/dept.html">
                       Departments and agencies
-                    </a>
+                    </gcds-link>
                   </li>
                   <li>
-                    <a href="https://www.canada.ca/en/government/system.html">
+                    <gcds-link size="small" href="https://www.canada.ca/en/government/system.html">
                       About government
-                    </a>
+                    </gcds-link>
                   </li>
                 </ul>
               </nav>
-              <nav aria-labelledby="themenav__header" class="main__themenav">
-                <h4 class="themenav__header" id="themenav__header">
+              <nav aria-labelledby="themenav__heading" class="main__themenav">
+                <gcds-sr-only tag="h4" id="themenav__heading">
                   Themes and topics
-                </h4>
+                </gcds-sr-only>
                 <ul class="themenav__list">
                   <li>
-                    <a href="https://www.canada.ca/en/services/jobs.html">
+                    <gcds-link size="small" href="https://www.canada.ca/en/services/jobs.html">
                       Jobs
-                    </a>
+                    </gcds-link>
                   </li>
                   <li>
-                    <a href="https://www.canada.ca/en/services/immigration-citizenship.html">
+                    <gcds-link size="small" href="https://www.canada.ca/en/services/immigration-citizenship.html">
                       Immigration and citizenship
-                    </a>
+                    </gcds-link>
                   </li>
                   <li>
-                    <a href="https://travel.gc.ca/">
+                    <gcds-link size="small" href="https://travel.gc.ca/">
                       Travel and tourism
-                    </a>
+                    </gcds-link>
                   </li>
                   <li>
-                    <a href="https://www.canada.ca/en/services/business.html">
+                    <gcds-link size="small" href="https://www.canada.ca/en/services/business.html">
                       Business
-                    </a>
+                    </gcds-link>
                   </li>
                   <li>
-                    <a href="https://www.canada.ca/en/services/benefits.html">
+                    <gcds-link size="small" href="https://www.canada.ca/en/services/benefits.html">
                       Benefits
-                    </a>
+                    </gcds-link>
                   </li>
                   <li>
-                    <a href="https://www.canada.ca/en/services/health.html">
+                    <gcds-link size="small" href="https://www.canada.ca/en/services/health.html">
                       Health
-                    </a>
+                    </gcds-link>
                   </li>
                   <li>
-                    <a href="https://www.canada.ca/en/services/taxes.html">
+                    <gcds-link size="small" href="https://www.canada.ca/en/services/taxes.html">
                       Taxes
-                    </a>
+                    </gcds-link>
                   </li>
                   <li>
-                    <a href="https://www.canada.ca/en/services/environment.html">
+                    <gcds-link size="small" href="https://www.canada.ca/en/services/environment.html">
                       Environment and natural resources
-                    </a>
+                    </gcds-link>
                   </li>
                   <li>
-                    <a href="https://www.canada.ca/en/services/defence.html">
+                    <gcds-link size="small" href="https://www.canada.ca/en/services/defence.html">
                       National security and defence
-                    </a>
+                    </gcds-link>
                   </li>
                   <li>
-                    <a href="https://www.canada.ca/en/services/culture.html">
+                    <gcds-link size="small" href="https://www.canada.ca/en/services/culture.html">
                       Culture, history and sport
-                    </a>
+                    </gcds-link>
                   </li>
                   <li>
-                    <a href="https://www.canada.ca/en/services/policing.html">
+                    <gcds-link size="small" href="https://www.canada.ca/en/services/policing.html">
                       Policing, justice and emergencies
-                    </a>
+                    </gcds-link>
                   </li>
                   <li>
-                    <a href="https://www.canada.ca/en/services/transport.html">
+                    <gcds-link size="small" href="https://www.canada.ca/en/services/transport.html">
                       Transport and infrastructure
-                    </a>
+                    </gcds-link>
                   </li>
                   <li>
-                    <a href="https://international.gc.ca/world-monde/index.aspx?lang=eng">
+                    <gcds-link size="small" href="https://international.gc.ca/world-monde/index.aspx?lang=eng">
                       Canada and the world
-                    </a>
+                    </gcds-link>
                   </li>
                   <li>
-                    <a href="https://www.canada.ca/en/services/finance.html">
+                    <gcds-link size="small" href="https://www.canada.ca/en/services/finance.html">
                       Money and finance
-                    </a>
+                    </gcds-link>
                   </li>
                   <li>
-                    <a href="https://www.canada.ca/en/services/science.html">
+                    <gcds-link size="small" href="https://www.canada.ca/en/services/science.html">
                       Science and innovation
-                    </a>
+                    </gcds-link>
                   </li>
                   <li>
-                    <a href="https://www.canada.ca/en/services/indigenous-peoples.html">
+                    <gcds-link size="small" href="https://www.canada.ca/en/services/indigenous-peoples.html">
                       Indigenous peoples
-                    </a>
+                    </gcds-link>
                   </li>
                   <li>
-                    <a href="https://www.canada.ca/en/services/veterans.html">
+                    <gcds-link size="small" href="https://www.canada.ca/en/services/veterans.html">
                       Veterans and military
-                    </a>
+                    </gcds-link>
                   </li>
                   <li>
-                    <a href="https://www.canada.ca/en/services/youth.html">
+                    <gcds-link size="small" href="https://www.canada.ca/en/services/youth.html">
                       Youth
-                    </a>
+                    </gcds-link>
                   </li>
                 </ul>
               </nav>
@@ -187,35 +187,35 @@ describe('gcds-footer', () => {
           </div>
           <div class="gcds-footer__sub">
             <div class="sub__container">
-              <nav aria-labelledby="sub__header">
-                <h3 class="sub__header" id="sub__header">
+              <nav aria-labelledby="sub__heading">
+                <gcds-sr-only id="sub__heading" tag="h3">
                   Government of Canada Corporate
-                </h3>
+                </gcds-sr-only>
                 <ul>
                   <li>
-                    <a href="https://www.canada.ca/en/social.html">
+                    <gcds-link size="small" href="https://www.canada.ca/en/social.html">
                       Social media
-                    </a>
+                    </gcds-link>
                   </li>
                   <li>
-                    <a href="https://www.canada.ca/en/mobile.html">
+                    <gcds-link size="small" href="https://www.canada.ca/en/mobile.html">
                       Mobile applications
-                    </a>
+                    </gcds-link>
                   </li>
                   <li>
-                    <a href="https://www.canada.ca/en/government/about.html">
+                    <gcds-link size="small" href="https://www.canada.ca/en/government/about.html">
                       About Canada.ca
-                    </a>
+                    </gcds-link>
                   </li>
                   <li>
-                    <a href="https://www.canada.ca/en/transparency/terms.html">
+                    <gcds-link size="small" href="https://www.canada.ca/en/transparency/terms.html">
                       Terms and conditions
-                    </a>
+                    </gcds-link>
                   </li>
                   <li>
-                    <a href="https://www.canada.ca/en/transparency/privacy.html">
+                    <gcds-link size="small" href="https://www.canada.ca/en/transparency/privacy.html">
                       Privacy
-                    </a>
+                    </gcds-link>
                   </li>
                 </ul>
               </nav>
@@ -234,40 +234,40 @@ describe('gcds-footer', () => {
             html: `<gcds-footer display="compact" lang="fr"></gcds-footer>`,
         });
         expect(page.root).toEqualHtml(`
-      <gcds-footer role="contentinfo" display="compact" lang="fr">
+      <gcds-footer role="contentinfo" display="compact" lang="fr" aria-label="Footer">
         <mock:shadow-root>
-          <h2 class="gcds-footer__header">À propos de ce site</h2>
+          <gcds-sr-only tag="h2">À propos de ce site</gcds-sr-only>
           <div class="gcds-footer__sub">
             <div class="sub__container">
-              <nav aria-labelledby="sub__header">
-                <h3 class="sub__header" id="sub__header">
+              <nav aria-labelledby="sub__heading">
+                <gcds-sr-only id="sub__heading" tag="h3">
                   Organisation du gouvernement du Canada
-                </h3>
+                </gcds-sr-only>
                 <ul>
                   <li>
-                    <a href="https://www.canada.ca/fr/sociaux.html">
+                    <gcds-link size="small" href="https://www.canada.ca/fr/sociaux.html">
                       Médias sociaux
-                    </a>
+                    </gcds-link>
                   </li>
                   <li>
-                    <a href="https://www.canada.ca/fr/mobile.html">
+                    <gcds-link size="small" href="https://www.canada.ca/fr/mobile.html">
                       Applications mobiles
-                    </a>
+                    </gcds-link>
                   </li>
                   <li>
-                    <a href="https://www.canada.ca/fr/gouvernement/a-propos.html">
+                    <gcds-link size="small" href="https://www.canada.ca/fr/gouvernement/a-propos.html">
                       À propos de Canada.ca
-                    </a>
+                    </gcds-link>
                   </li>
                   <li>
-                    <a href="https://www.canada.ca/fr/transparence/avis.html">
+                    <gcds-link size="small" href="https://www.canada.ca/fr/transparence/avis.html">
                       Avis
-                    </a>
+                    </gcds-link>
                   </li>
                   <li>
-                    <a href="https://www.canada.ca/fr/transparence/confidentialite.html">
+                    <gcds-link size="small" href="https://www.canada.ca/fr/transparence/confidentialite.html">
                       Confidentialité
-                    </a>
+                    </gcds-link>
                   </li>
                 </ul>
               </nav>
@@ -286,127 +286,127 @@ describe('gcds-footer', () => {
             html: `<gcds-footer display="full" lang="fr"></gcds-footer>`,
         });
         expect(page.root).toEqualHtml(`
-      <gcds-footer role="contentinfo" display="full" lang="fr">
+      <gcds-footer role="contentinfo" display="full" lang="fr" aria-label="Footer">
         <mock:shadow-root>
-          <h2 class="gcds-footer__header">À propos de ce site</h2>
+          <gcds-sr-only tag="h2">À propos de ce site</gcds-sr-only>
           <div class="gcds-footer__main">
             <div class="main__container">
-              <nav aria-labelledby="govnav__header" class="main__govnav">
-                <h3 id="govnav__header">
+              <nav aria-labelledby="govnav__heading" class="main__govnav">
+                <h3 id="govnav__heading">
                   Gouvernement du Canada
                 </h3>
                 <ul class="govnav__list">
                   <li>
-                    <a href="https://www.canada.ca/fr/contact.html">
+                    <gcds-link size="small" href="https://www.canada.ca/fr/contact.html">
                       Toutes les coordonnées
-                    </a>
+                    </gcds-link>
                   </li>
                   <li>
-                    <a href="https://www.canada.ca/fr/gouvernement/min.html">
+                    <gcds-link size="small" href="https://www.canada.ca/fr/gouvernement/min.html">
                       Ministères et organismes
-                    </a>
+                    </gcds-link>
                   </li>
                   <li>
-                    <a href="https://www.canada.ca/fr/gouvernement/systeme.html">
+                    <gcds-link size="small" href="https://www.canada.ca/fr/gouvernement/systeme.html">
                       À propos du gouvernement
-                    </a>
+                    </gcds-link>
                   </li>
                 </ul>
               </nav>
-              <nav aria-labelledby="themenav__header" class="main__themenav">
-                <h4 class="themenav__header" id="themenav__header">
+              <nav aria-labelledby="themenav__heading" class="main__themenav">
+                <gcds-sr-only tag="h4" id="themenav__heading">
                   Thèmes et sujets
-                </h4>
+                </gcds-sr-only>
                 <ul class="themenav__list">
                   <li>
-                    <a href="https://www.canada.ca/fr/services/emplois.html">
+                    <gcds-link size="small" href="https://www.canada.ca/fr/services/emplois.html">
                       Emplois
-                    </a>
+                    </gcds-link>
                   </li>
                   <li>
-                    <a href="https://www.canada.ca/fr/services/immigration-citoyennete.html">
+                    <gcds-link size="small" href="https://www.canada.ca/fr/services/immigration-citoyennete.html">
                       Immigration et citoyenneté
-                    </a>
+                    </gcds-link>
                   </li>
                   <li>
-                    <a href="https://voyage.gc.ca/">
+                    <gcds-link size="small" href="https://voyage.gc.ca/">
                       Voyage et tourisme
-                    </a>
+                    </gcds-link>
                   </li>
                   <li>
-                    <a href="https://www.canada.ca/fr/services/entreprises.html">
+                    <gcds-link size="small" href="https://www.canada.ca/fr/services/entreprises.html">
                       Entreprises
-                    </a>
+                    </gcds-link>
                   </li>
                   <li>
-                    <a href="https://www.canada.ca/fr/services/prestations.html">
+                    <gcds-link size="small" href="https://www.canada.ca/fr/services/prestations.html">
                       Prestations
-                    </a>
+                    </gcds-link>
                   </li>
                   <li>
-                    <a href="https://www.canada.ca/fr/services/sante.html">
+                    <gcds-link size="small" href="https://www.canada.ca/fr/services/sante.html">
                       Santé
-                    </a>
+                    </gcds-link>
                   </li>
                   <li>
-                    <a href="https://www.canada.ca/fr/services/impots.html">
+                    <gcds-link size="small" href="https://www.canada.ca/fr/services/impots.html">
                       Impôts
-                    </a>
+                    </gcds-link>
                   </li>
                   <li>
-                    <a href="https://www.canada.ca/fr/services/environnement.html">
+                    <gcds-link size="small" href="https://www.canada.ca/fr/services/environnement.html">
                       Environnement et ressources naturelles
-                    </a>
+                    </gcds-link>
                   </li>
                   <li>
-                    <a href="https://www.canada.ca/fr/services/defense.html">
+                    <gcds-link size="small" href="https://www.canada.ca/fr/services/defense.html">
                       Sécurité nationale et défense
-                    </a>
+                    </gcds-link>
                   </li>
                   <li>
-                    <a href="https://www.canada.ca/fr/services/culture.html">
+                    <gcds-link size="small" href="https://www.canada.ca/fr/services/culture.html">
                       Culture, histoire et sport
-                    </a>
+                    </gcds-link>
                   </li>
                   <li>
-                    <a href="https://www.canada.ca/fr/services/police.html">
+                    <gcds-link size="small" href="https://www.canada.ca/fr/services/police.html">
                       Services de police, justice et urgences
-                    </a>
+                    </gcds-link>
                   </li>
                   <li>
-                    <a href="https://www.canada.ca/fr/services/transport.html">
+                    <gcds-link size="small" href="https://www.canada.ca/fr/services/transport.html">
                       Transport et infrastructure
-                    </a>
+                    </gcds-link>
                   </li>
                   <li>
-                    <a href="https://www.international.gc.ca/world-monde/index.aspx?lang=fra">
+                    <gcds-link size="small" href="https://www.international.gc.ca/world-monde/index.aspx?lang=fra">
                       Le Canada et le monde
-                    </a>
+                    </gcds-link>
                   </li>
                   <li>
-                    <a href="https://www.canada.ca/fr/services/finance.html">
+                    <gcds-link size="small" href="https://www.canada.ca/fr/services/finance.html">
                       Argent et finance
-                    </a>
+                    </gcds-link>
                   </li>
                   <li>
-                    <a href="https://www.canada.ca/fr/services/science.html">
+                    <gcds-link size="small" href="https://www.canada.ca/fr/services/science.html">
                       Science et innovation
-                    </a>
+                    </gcds-link>
                   </li>
                   <li>
-                    <a href="https://www.canada.ca/fr/services/autochtones.html">
+                    <gcds-link size="small" href="https://www.canada.ca/fr/services/autochtones.html">
                       Autochtones
-                    </a>
+                    </gcds-link>
                   </li>
                   <li>
-                    <a href="https://www.canada.ca/fr/services/veterans.html">
+                    <gcds-link size="small" href="https://www.canada.ca/fr/services/veterans.html">
                       Vétérans et militaires
-                    </a>
+                    </gcds-link>
                   </li>
                   <li>
-                    <a href="https://www.canada.ca/fr/services/jeunesse.html">
+                    <gcds-link size="small" href="https://www.canada.ca/fr/services/jeunesse.html">
                       Jeunesse
-                    </a>
+                    </gcds-link>
                   </li>
                 </ul>
               </nav>
@@ -414,35 +414,35 @@ describe('gcds-footer', () => {
           </div>
           <div class="gcds-footer__sub">
             <div class="sub__container">
-              <nav aria-labelledby="sub__header">
-                <h3 class="sub__header" id="sub__header">
+              <nav aria-labelledby="sub__heading">
+                <gcds-sr-only id="sub__heading" tag="h3">
                   Organisation du gouvernement du Canada
-                </h3>
+                </gcds-sr-only>
                 <ul>
                   <li>
-                    <a href="https://www.canada.ca/fr/sociaux.html">
+                    <gcds-link size="small" href="https://www.canada.ca/fr/sociaux.html">
                       Médias sociaux
-                    </a>
+                    </gcds-link>
                   </li>
                   <li>
-                    <a href="https://www.canada.ca/fr/mobile.html">
+                    <gcds-link size="small" href="https://www.canada.ca/fr/mobile.html">
                       Applications mobiles
-                    </a>
+                    </gcds-link>
                   </li>
                   <li>
-                    <a href="https://www.canada.ca/fr/gouvernement/a-propos.html">
+                    <gcds-link size="small" href="https://www.canada.ca/fr/gouvernement/a-propos.html">
                       À propos de Canada.ca
-                    </a>
+                    </gcds-link>
                   </li>
                   <li>
-                    <a href="https://www.canada.ca/fr/transparence/avis.html">
+                    <gcds-link size="small" href="https://www.canada.ca/fr/transparence/avis.html">
                       Avis
-                    </a>
+                    </gcds-link>
                   </li>
                   <li>
-                    <a href="https://www.canada.ca/fr/transparence/confidentialite.html">
+                    <gcds-link size="small" href="https://www.canada.ca/fr/transparence/confidentialite.html">
                       Confidentialité
-                    </a>
+                    </gcds-link>
                   </li>
                 </ul>
               </nav>
@@ -466,30 +466,30 @@ describe('gcds-footer', () => {
       ></gcds-footer>`,
         });
         expect(page.root).toEqualHtml(`
-      <gcds-footer contextual-heading="Heading" contextual-links="{ &quot;Link 1&quot;: &quot;#red&quot;, &quot;Link 2&quot;: &quot;#green&quot;, &quot;Link 3&quot;: &quot;#blue&quot; }" display="full" lang="en" role="contentinfo">
+      <gcds-footer contextual-heading="Heading" contextual-links="{ &quot;Link 1&quot;: &quot;#red&quot;, &quot;Link 2&quot;: &quot;#green&quot;, &quot;Link 3&quot;: &quot;#blue&quot; }" display="full" lang="en" role="contentinfo" aria-label="Footer">
         <mock:shadow-root>
-          <h2 class="gcds-footer__header">About this site</h2>
+          <gcds-sr-only tag="h2">About this site</gcds-sr-only>
           <div class="gcds-footer__contextual">
             <div class="contextual__container">
-              <nav aria-labelledby="contextual__header">
-                <h3 class="contextual__header" id="contextual__header">
+              <nav aria-labelledby="contextual__heading">
+                <h3 class="contextual__heading" id="contextual__heading">
                   Heading
                 </h3>
                 <ul class="contextual__list">
                   <li>
-                    <a href="#red">
+                    <gcds-link size="small" href="#red">
                       Link 1
-                    </a>
+                    </gcds-link>
                   </li>
                   <li>
-                    <a href="#green">
+                    <gcds-link size="small" href="#green">
                       Link 2
-                    </a>
+                    </gcds-link>
                   </li>
                   <li>
-                    <a href="#blue">
+                    <gcds-link size="small" href="#blue">
                       Link 3
-                    </a>
+                    </gcds-link>
                   </li>
                 </ul>
               </nav>
@@ -497,122 +497,122 @@ describe('gcds-footer', () => {
           </div>
           <div class="gcds-footer__main">
             <div class="main__container">
-              <nav aria-labelledby="govnav__header" class="main__govnav">
-                <h3 id="govnav__header">
+              <nav aria-labelledby="govnav__heading" class="main__govnav">
+                <h3 id="govnav__heading">
                   Government of Canada
                 </h3>
                 <ul class="govnav__list">
                   <li>
-                    <a href="https://www.canada.ca/en/contact.html">
+                    <gcds-link size="small" href="https://www.canada.ca/en/contact.html">
                       All Contacts
-                    </a>
+                    </gcds-link>
                   </li>
                   <li>
-                    <a href="https://www.canada.ca/en/government/dept.html">
+                    <gcds-link size="small" href="https://www.canada.ca/en/government/dept.html">
                       Departments and agencies
-                    </a>
+                    </gcds-link>
                   </li>
                   <li>
-                    <a href="https://www.canada.ca/en/government/system.html">
+                    <gcds-link size="small" href="https://www.canada.ca/en/government/system.html">
                       About government
-                    </a>
+                    </gcds-link>
                   </li>
                 </ul>
               </nav>
-              <nav aria-labelledby="themenav__header" class="main__themenav">
-                <h4 class="themenav__header" id="themenav__header">
+              <nav aria-labelledby="themenav__heading" class="main__themenav">
+                <gcds-sr-only tag="h4" id="themenav__heading">
                   Themes and topics
-                </h4>
+                </gcds-sr-only>
                 <ul class="themenav__list">
                   <li>
-                    <a href="https://www.canada.ca/en/services/jobs.html">
+                    <gcds-link size="small" href="https://www.canada.ca/en/services/jobs.html">
                       Jobs
-                    </a>
+                    </gcds-link>
                   </li>
                   <li>
-                    <a href="https://www.canada.ca/en/services/immigration-citizenship.html">
+                    <gcds-link size="small" href="https://www.canada.ca/en/services/immigration-citizenship.html">
                       Immigration and citizenship
-                    </a>
+                    </gcds-link>
                   </li>
                   <li>
-                    <a href="https://travel.gc.ca/">
+                    <gcds-link size="small" href="https://travel.gc.ca/">
                       Travel and tourism
-                    </a>
+                    </gcds-link>
                   </li>
                   <li>
-                    <a href="https://www.canada.ca/en/services/business.html">
+                    <gcds-link size="small" href="https://www.canada.ca/en/services/business.html">
                       Business
-                    </a>
+                    </gcds-link>
                   </li>
                   <li>
-                    <a href="https://www.canada.ca/en/services/benefits.html">
+                    <gcds-link size="small" href="https://www.canada.ca/en/services/benefits.html">
                       Benefits
-                    </a>
+                    </gcds-link>
                   </li>
                   <li>
-                    <a href="https://www.canada.ca/en/services/health.html">
+                    <gcds-link size="small" href="https://www.canada.ca/en/services/health.html">
                       Health
-                    </a>
+                    </gcds-link>
                   </li>
                   <li>
-                    <a href="https://www.canada.ca/en/services/taxes.html">
+                    <gcds-link size="small" href="https://www.canada.ca/en/services/taxes.html">
                       Taxes
-                    </a>
+                    </gcds-link>
                   </li>
                   <li>
-                    <a href="https://www.canada.ca/en/services/environment.html">
+                    <gcds-link size="small" href="https://www.canada.ca/en/services/environment.html">
                       Environment and natural resources
-                    </a>
+                    </gcds-link>
                   </li>
                   <li>
-                    <a href="https://www.canada.ca/en/services/defence.html">
+                    <gcds-link size="small" href="https://www.canada.ca/en/services/defence.html">
                       National security and defence
-                    </a>
+                    </gcds-link>
                   </li>
                   <li>
-                    <a href="https://www.canada.ca/en/services/culture.html">
+                    <gcds-link size="small" href="https://www.canada.ca/en/services/culture.html">
                       Culture, history and sport
-                    </a>
+                    </gcds-link>
                   </li>
                   <li>
-                    <a href="https://www.canada.ca/en/services/policing.html">
+                    <gcds-link size="small" href="https://www.canada.ca/en/services/policing.html">
                       Policing, justice and emergencies
-                    </a>
+                    </gcds-link>
                   </li>
                   <li>
-                    <a href="https://www.canada.ca/en/services/transport.html">
+                    <gcds-link size="small" href="https://www.canada.ca/en/services/transport.html">
                       Transport and infrastructure
-                    </a>
+                    </gcds-link>
                   </li>
                   <li>
-                    <a href="https://international.gc.ca/world-monde/index.aspx?lang=eng">
+                    <gcds-link size="small" href="https://international.gc.ca/world-monde/index.aspx?lang=eng">
                       Canada and the world
-                    </a>
+                    </gcds-link>
                   </li>
                   <li>
-                    <a href="https://www.canada.ca/en/services/finance.html">
+                    <gcds-link size="small" href="https://www.canada.ca/en/services/finance.html">
                       Money and finance
-                    </a>
+                    </gcds-link>
                   </li>
                   <li>
-                    <a href="https://www.canada.ca/en/services/science.html">
+                    <gcds-link size="small" href="https://www.canada.ca/en/services/science.html">
                       Science and innovation
-                    </a>
+                    </gcds-link>
                   </li>
                   <li>
-                    <a href="https://www.canada.ca/en/services/indigenous-peoples.html">
+                    <gcds-link size="small" href="https://www.canada.ca/en/services/indigenous-peoples.html">
                       Indigenous peoples
-                    </a>
+                    </gcds-link>
                   </li>
                   <li>
-                    <a href="https://www.canada.ca/en/services/veterans.html">
+                    <gcds-link size="small" href="https://www.canada.ca/en/services/veterans.html">
                       Veterans and military
-                    </a>
+                    </gcds-link>
                   </li>
                   <li>
-                    <a href="https://www.canada.ca/en/services/youth.html">
+                    <gcds-link size="small" href="https://www.canada.ca/en/services/youth.html">
                       Youth
-                    </a>
+                    </gcds-link>
                   </li>
                 </ul>
               </nav>
@@ -620,35 +620,35 @@ describe('gcds-footer', () => {
           </div>
           <div class="gcds-footer__sub">
             <div class="sub__container">
-              <nav aria-labelledby="sub__header">
-                <h3 class="sub__header" id="sub__header">
+              <nav aria-labelledby="sub__heading">
+                <gcds-sr-only id="sub__heading" tag="h3">
                   Government of Canada Corporate
-                </h3>
+                </gcds-sr-only>
                 <ul>
                   <li>
-                    <a href="https://www.canada.ca/en/social.html">
+                    <gcds-link size="small" href="https://www.canada.ca/en/social.html">
                       Social media
-                    </a>
+                    </gcds-link>
                   </li>
                   <li>
-                    <a href="https://www.canada.ca/en/mobile.html">
+                    <gcds-link size="small" href="https://www.canada.ca/en/mobile.html">
                       Mobile applications
-                    </a>
+                    </gcds-link>
                   </li>
                   <li>
-                    <a href="https://www.canada.ca/en/government/about.html">
+                    <gcds-link size="small" href="https://www.canada.ca/en/government/about.html">
                       About Canada.ca
-                    </a>
+                    </gcds-link>
                   </li>
                   <li>
-                    <a href="https://www.canada.ca/en/transparency/terms.html">
+                    <gcds-link size="small" href="https://www.canada.ca/en/transparency/terms.html">
                       Terms and conditions
-                    </a>
+                    </gcds-link>
                   </li>
                   <li>
-                    <a href="https://www.canada.ca/en/transparency/privacy.html">
+                    <gcds-link size="small" href="https://www.canada.ca/en/transparency/privacy.html">
                       Privacy
-                    </a>
+                    </gcds-link>
                   </li>
                 </ul>
               </nav>
@@ -671,30 +671,30 @@ describe('gcds-footer', () => {
         ></gcds-footer>`,
         });
         expect(page.root).toEqualHtml(`
-      <gcds-footer role="contentinfo" display="compact" lang="en" sub-links="{ &quot;Link 1&quot;: &quot;#red&quot;, &quot;Link 2&quot;: &quot;#green&quot;, &quot;Link 3&quot;: &quot;#blue&quot; }">
+      <gcds-footer role="contentinfo" display="compact" lang="en" sub-links="{ &quot;Link 1&quot;: &quot;#red&quot;, &quot;Link 2&quot;: &quot;#green&quot;, &quot;Link 3&quot;: &quot;#blue&quot; }" aria-label="Footer">
         <mock:shadow-root>
-          <h2 class="gcds-footer__header">About this site</h2>
+          <gcds-sr-only tag="h2">About this site</gcds-sr-only>
           <div class="gcds-footer__sub">
             <div class="sub__container">
-              <nav aria-labelledby="sub__header">
-                <h3 class="sub__header" id="sub__header">
+              <nav aria-labelledby="sub__heading">
+                <gcds-sr-only id="sub__heading" tag="h3">
                   Government of Canada Corporate
-                </h3>
+                </gcds-sr-only>
                 <ul>
                   <li>
-                    <a href="#red">
+                    <gcds-link size="small" href="#red">
                       Link 1
-                    </a>
+                    </gcds-link>
                   </li>
                   <li>
-                    <a href="#green">
+                    <gcds-link size="small" href="#green">
                       Link 2
-                    </a>
+                    </gcds-link>
                   </li>
                   <li>
-                    <a href="#blue">
+                    <gcds-link size="small" href="#blue">
                       Link 3
-                    </a>
+                    </gcds-link>
                   </li>
                 </ul>
               </nav>

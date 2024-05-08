@@ -13,10 +13,6 @@ export declare class GcdsAlert {
      */
     container?: 'full' | 'xl' | 'lg' | 'md' | 'sm' | 'xs';
     /**
-     * Callback when the close button is clicked.
-     */
-    dismissHandler: Function;
-    /**
      * Defines the alert heading.
      */
     heading: string;
@@ -47,7 +43,6 @@ export declare class GcdsAlert {
      * Events
      */
     gcdsDismiss: EventEmitter<void>;
-    private onDismiss;
     updateLang(): void;
     componentWillLoad(): Promise<void>;
     render(): any;

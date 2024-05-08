@@ -1,5 +1,6 @@
 import { proxyCustomElement, HTMLElement, h, Host } from '@stencil/core/internal/client';
 import { o as observerConfig, a as assignLanguage } from './utils.js';
+import { d as defineCustomElement$2 } from './gcds-text2.js';
 
 const I18N = {
   en: {
@@ -10,13 +11,14 @@ const I18N = {
   },
 };
 
-const gcdsDateModifiedCss = ".sc-gcds-date-modified-h{color:var(--gcds-date-modified-text);display:block;font:var(--gcds-date-modified-font);margin:var(--gcds-date-modified-margin)}.sc-gcds-date-modified-h .gcds-date-modified.sc-gcds-date-modified dd.sc-gcds-date-modified,.sc-gcds-date-modified-h .gcds-date-modified.sc-gcds-date-modified dt.sc-gcds-date-modified{display:inline}.sc-gcds-date-modified-h .gcds-date-modified.sc-gcds-date-modified dd.sc-gcds-date-modified{margin:var(--gcds-date-modified-description-margin)}";
+const gcdsDateModifiedCss = "@layer reset, default;@layer reset{:host{display:block}:host dl{margin:0}:host slot{display:initial}}@layer default{:host .gcds-date-modified{margin:var(--gcds-date-modified-margin)}:host .gcds-date-modified :is(dt,gcds-text,dd){display:inline}:host .gcds-date-modified dd{margin:var(--gcds-date-modified-description-margin)}}";
 const GcdsDateModifiedStyle0 = gcdsDateModifiedCss;
 
 const GcdsDateModified$1 = /*@__PURE__*/ proxyCustomElement(class GcdsDateModified extends HTMLElement {
     constructor() {
         super();
         this.__registerHost();
+        this.__attachShadow();
         this.type = 'date';
         this.lang = undefined;
     }
@@ -38,11 +40,11 @@ const GcdsDateModified$1 = /*@__PURE__*/ proxyCustomElement(class GcdsDateModifi
     }
     render() {
         const { lang, type } = this;
-        return (h(Host, null, h("dl", { class: "gcds-date-modified" }, h("dt", null, type === 'version' ? 'Version ' : I18N[lang].term), h("dd", null, type === 'version' ? (h("slot", null)) : (h("time", null, h("slot", null)))))));
+        return (h(Host, null, h("dl", { class: "gcds-date-modified" }, h("dt", null, h("gcds-text", { display: "inline", "margin-bottom": "0" }, type === 'version' ? 'Version ' : I18N[lang].term)), h("dd", null, h("gcds-text", { display: "inline", "margin-bottom": "0" }, type === 'version' ? (h("slot", null)) : (h("time", null, h("slot", null))))))));
     }
     get el() { return this; }
     static get style() { return GcdsDateModifiedStyle0; }
-}, [6, "gcds-date-modified", {
+}, [1, "gcds-date-modified", {
         "type": [1025],
         "lang": [32]
     }]);
@@ -50,11 +52,16 @@ function defineCustomElement$1() {
     if (typeof customElements === "undefined") {
         return;
     }
-    const components = ["gcds-date-modified"];
+    const components = ["gcds-date-modified", "gcds-text"];
     components.forEach(tagName => { switch (tagName) {
         case "gcds-date-modified":
             if (!customElements.get(tagName)) {
                 customElements.define(tagName, GcdsDateModified$1);
+            }
+            break;
+        case "gcds-text":
+            if (!customElements.get(tagName)) {
+                defineCustomElement$2();
             }
             break;
     } });

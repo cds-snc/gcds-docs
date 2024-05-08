@@ -30,7 +30,7 @@ export class GcdsHeader {
             return h("slot", { name: "skip-to-nav" });
         }
         else if (this.skipToHref) {
-            return (h("nav", { class: "gcds-header__skip-to-nav" }, h("gcds-link", { href: this.skipToHref }, i18n[this.lang].skip)));
+            return (h("nav", { class: "gcds-header__skip-to-nav", "aria-label": i18n[this.lang].skipLabel }, h("gcds-link", { href: this.skipToHref }, i18n[this.lang].skip)));
         }
         else {
             return;

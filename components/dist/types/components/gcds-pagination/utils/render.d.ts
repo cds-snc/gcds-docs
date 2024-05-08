@@ -6,5 +6,5 @@ declare function constructHref(url: any, page: number, end?: 'next' | 'previous'
 /**
  * Function to constuct classes to help with mobile sizing
  */
-declare function constructClasses(page: number, current: number, total: number): "" | "gcds-pagination-list-breakpoint-360" | "gcds-pagination-list-breakpoint-420" | "gcds-pagination-list-breakpoint-488" | "gcds-pagination-list-breakpoint-460";
+declare function constructClasses(page: number, current: number, total: number): "" | "gcds-pagination-list-breakpoint-xxs" | "gcds-pagination-list-breakpoint-xs" | "gcds-pagination-list-breakpoint-sm";
 export { constructClasses, constructHref };
