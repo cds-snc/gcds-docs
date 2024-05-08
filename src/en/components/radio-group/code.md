@@ -3,18 +3,19 @@ title: Radio group
 layout: 'layouts/component-documentation.njk'
 translationKey: 'radiogroupCode'
 tags: ['radiogroupEN', 'code']
-date: "git Last Modified"
+date: 'git Last Modified'
 ---
 
 ## Build a radio group
 
-Use a radio group with a [fieldset]({{ links.fieldset }})  when you're expecting a person to select only one option from a short list of responses.
+Use a radio group with a [fieldset]({{ links.fieldset }}) when you're expecting a person to select only one option from a short list of responses.
 
 The radio group helps a person to make a choice by limiting their options.
 
 ## Coding and accessibility for radio group
 
 ### Apply required attributes
+
 For the radio group to function properly, always use the following attributes with `<gcds-radio-group>`:
 
 - `name`
@@ -26,16 +27,15 @@ The options attribute takes an array of objects to render each radio button. The
 
 {% highlight "js" %}
 {
-  'id'!: '',
-  'label'!: '',
-  'value'!: '',
-  'required'?: '',
-  'disabled'?: '',
-  'checked'?: '',
-  'hint'?: '',
+'id'!: '',
+'label'!: '',
+'value'!: '',
+'required'?: '',
+'disabled'?: '',
+'checked'?: '',
+'hint'?: '',
 }
 {% endhighlight %}
-
 
 - Within the options attribute, always use the object's `id`, `label` and `value` properties for each radio button. The rest of the properties are optional.
 
@@ -43,7 +43,7 @@ The options attribute takes an array of objects to render each radio button. The
 
 <iframe
   title="Overview of gcds-radio-group properties and events."
-  src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&demo=true&singleStory=true&id=components-radio-group--events-properties"
+  src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&demo=true&singleStory=true&id=components-radio-group--events-properties&lang=en"
   width="1200"
   height="1650"
   style="display: block; margin: 0 auto;"
