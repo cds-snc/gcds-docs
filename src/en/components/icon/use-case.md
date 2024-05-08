@@ -15,6 +15,7 @@ translationKey: 'icon'
 tags: ['iconEN', 'usage']
 permalink: /en/components/icon/
 date: 'git Last Modified'
+nocrawl: true
 ---
 
 ## Usage

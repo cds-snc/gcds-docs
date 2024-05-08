@@ -12,48 +12,43 @@ eleventyNavigation:
 
 # About GC Design System
 
-## Why GC Design System is right for you
+GC Design System offers basic building blocks and a pattern language to help you design and build a trusted, unified experience for the people using your services. Components and design tokens provide standard Government of Canada branding and experiences for any framework you’re using.
 
-GC Design System offers basic building blocks and a common pattern language for frontline digital services. Components and tokens provide standard Government of Canada branding and experiences for any framework you’re using.
+We’re prioritizing common components and patterns that most GC teams can use. ​​Right now, we’re testing GC Design System in alpha, the first usable phase of a product. Use it as a starting point for a website or application and help us improve the design system for public servants.
 
-Use GC Design System to meet Government of Canada requirements for digital service delivery and communication:
+The [Canadian Digital Service](https://digital.canada.ca) builds and maintains GC Design System in consultation with the Canada.ca design system team.
 
-- Ship recognizable, predictable, and accessible products.
-- Build and design a trusted, unified experience for the people using your services.
+## How we're working with Canada.ca design system
 
-### Simplify your digital delivery
+GC Design System is incorporating the mandatory elements of Canada.ca. We’re working together with the Digital Transformation Office at the Canadian Digital Service to evaluate the design system and add to the roadmap. They continue to provide guidance and support to web and digital practitioners in the GC.
 
-At the Canadian Digital Service, we’re here to support modern service delivery. GC Design System helps you ship faster by:
+## Ship faster with GC Design System
 
-- <strong>Reducing manual, repetitive work</strong> with reusable <gcds-link href="{{ links.components }}">components</gcds-link> and <gcds-link href="{{ links.styles }}">styles</gcds-link>, as well as Figma assets for rapid prototyping.
-- <strong>Defaulting to federal standards</strong> and accessibility best practice.
-- <strong>Uniting code, design, and guidance</strong>, so you have all the basics for creating usable, inclusive experiences.
+GC Design System helps you deliver faster in the framework of your choice. You’ll reduce manual, repetitive work and meet Government of Canada requirements for digital service delivery, accessibility, and communication. Use GC design system to deliver experiences that are:
 
-### Work in the framework you want to work in
+- Recognizable.
+- Predictable.
+- Accessible.
 
-With our components and styles, you get:
+### Recognizable: GC sites can be identified and trusted
 
-- <strong>The same result</strong> in any framework or environment you’re using.
-- <strong>Minimal coding</strong> and redefining of values: spacing, typography and colour tokens reduce manual updates.
-- <strong>An accessible starting point</strong>: We’ve built in accessibility from the start and offer tips for the implementation decisions you’ll make.
+With our web <gcds-link href="{{ links.components }}">components</gcds-link> and <gcds-link href="{{ links.styles }}">styles</gcds-link> you get: 
 
-### Help create seamless GC service experiences
+- A default to federal standards and usability best practice.
+- The same end result in any framework or environment you’re using.
+- Reusable options for minimal coding and redefining of values – design tokens reduce manual updates.
 
-GC Design System supports a seamless service experience with:
+### Predictable: Interactions designed to support task success
 
-- <strong>Predictable interaction elements</strong> designed to support task success.
-- <strong>Inclusive design</strong> for bilingual, equitable digital service delivery.
-- <strong>Accessibility guidance</strong> for cognitive and physical considerations: from coding to clear requests and communicating errors.
+We’ve united code, design, and guidance to give you:
 
-## The CDS team building GC Design System
+- All the basics for creating the bilingual, equitable digital service experience Canadians expect.
+- The flexibility to adjust components to meet the usability needs of your context.
+- Figma assets for rapid high fidelity prototyping that translates faithfully to production.
 
-We’re a team of public servants at the Canadian Digital Service building and improving GC Design System. We’ve recently begun growing our team and increasing collaboration.
+### Accessible: Putting accessibility first
 
-Our goal is to improve the quality of people's experiences with government by scaling recognizable, predictable, and inclusive user interfaces across digital services.
+- Accessibility’s built in from the start for our design and code elements.
+- Guidance for cognitive and physical considerations: from coding to clear requests and communicating errors.
+- Ongoing accessibility testing and audits with people using assistive technology, as well as automated testing.
 
-### Collaboration and support channels
-
-- Submit an issue through GitHub for <gcds-link href="{{ links.githubTokensIssues }}">tokens</gcds-link>, <gcds-link href="{{ links.githubIssues }}">components</gcds-link>, or <gcds-link href="{{ links.githubDocsIssues }}">documentation</gcds-link>.
-- Use our <gcds-link href="{{ links.contact }}">contact form</gcds-link> to sign up for usability and accessibility testing, request a demos, or to meet with us.
-
-Have questions? Something you’d change or you’d like to see? Share your feedback with us to help improve GC Design System.

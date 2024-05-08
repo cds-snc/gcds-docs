@@ -85,6 +85,13 @@ app.post('/submission', async (req, res) => {
         return
     }
 
+    // Check for required fields
+    if(!name || !email || !message || !reasonForContact) {
+        console.warn('[WARN] Missing required fields')
+        res.status(204).send()
+        return
+    }
+
     // Send to Notify
     const headData = {
         'Authorization': `ApiKey-v1 ${NOTIFY_API_KEY}`,

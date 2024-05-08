@@ -21,12 +21,16 @@ tokenTable:
     value: Hex
     use-case: Purpose
   useCases:
-    text-primary: Main text colour on a white or 100 shade background (like --gcds-color-blue-100).
-    text-secondary: Contrast text colour (alternative to primary) on a white background.
-    text-light: Main light text colour on a 700 shade or darker background (like --gcds-color-blue-700).
+    text-light: Main light text colour. Use on a background shade of 700 or darker (like --gcds-bg-dark).
+    text-primary: Main text colour. Use on a background shade of 50 or lighter (like --gcds-bg-white).
+    text-secondary: Contrast text colour (alternative to primary). Use on a background shade of 50 or lighter (like --gcds-bg-white).
     link-default: Default link colour for links on a white background.
     link-hover: Hover link colour for links on a white background.
     link-light: Main light link colour for links on 700 shade or darker background (like --gcds-color-blue-700).
+    bg-dark: Main dark background colour. Use with a text shade of 100 or lighter (like --gcds-text-light).
+    bg-light: Light background colour (alternative to white). Use with a text shade of 700 or darker (like --gcds-text-primary).
+    bg-primary: Highlight background colour. Use with a text shade of 100 or lighter (like --gcds-text-light).
+    bg-white: Main background colour. Use with a text shade of 700 or darker (like --gcds-text-primary).
     border-default: Default border colour for borders and icons on a white background.
     danger-background: Danger background colour for background emphasis on a destructive action or critical feedback.
     danger-border: Danger border colour for borders on white or danger backgrounds for emphasis on a destructive action or critical feedback.
@@ -74,6 +78,10 @@ Use global state tokens:
 ### Link
 
 {% include "partials/token_table.njk", token: 'link', type: 'color' %}
+
+### Background
+
+{% include "partials/token_table.njk", token: 'bg', type: 'color' %}
 
 ### Border
 

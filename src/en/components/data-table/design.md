@@ -4,6 +4,7 @@ layout: 'layouts/component-documentation.njk'
 translationKey: 'datatableDesign'
 tags: ['datatableEN', 'design']
 # date: "git Last Modified"
+nocrawl: true
 ---
 
 ## Data table anatomy

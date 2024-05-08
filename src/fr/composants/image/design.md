@@ -4,6 +4,7 @@ layout: 'layouts/component-documentation.njk'
 translationKey: 'imageDesign'
 tags: ['imageFR', 'design']
 # date: "git Last Modified"
+nocrawl: true
 ---
 
 ## Structure de la Image

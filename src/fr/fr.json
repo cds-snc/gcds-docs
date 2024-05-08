@@ -46,7 +46,7 @@
     "text": "/fr/composants/texte",
     "textarea": "/fr/composants/zone-de-texte",
     "topNav": "/fr/composants/barre-de-navigation-superieure",
-    "topicmenu": "/fr/composants/menu-des-themes-et-sujets/",
+    "topicmenu": "/fr/composants/menu-thematique",
     "verifyBanner": "/fr/developpement-en-cours",
 
     "about": "/fr/a-propos",
@@ -58,7 +58,7 @@
     "releaseNotes": "https://github.com/cds-snc/gcds-components/blob/main/CHANGELOG.md",
     "privacy": "/fr/avis-de-confidentialite/",
 
-    "figma": "https://www.figma.com/file/mh2maMG2NBtk41k1O1UGHV/Canadian-Digital-Service%E2%80%A8---GC-Design-System?node-id=4%3A1006&t=qguKsJtr1ityUsUN-0",
+    "figma": "https://www.figma.com/file/o4SguSZdar2CCFzSkWNrmB/Syst%C3%A8me-de-design-GC?type=design&node-id=226-31997&mode=design&t=MNtR7hfKusf7RKxF-0",
 
     "fontAwesome": "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css",
 

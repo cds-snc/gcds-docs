@@ -4,6 +4,7 @@ layout: 'layouts/component-documentation.njk'
 translationKey: 'datatableCode'
 tags: ['datatableFR', 'code']
 # date: "git Last Modified"
+nocrawl: true
 ---
 
 ## Créer une case à Tableau de données

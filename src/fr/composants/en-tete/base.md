@@ -1,7 +1,7 @@
 ---
 layout: 'layouts/base.njk'
 github: https://github.com/cds-snc/gcds-components/tree/main/packages/web/src/components/gcds-header
-figma: https://www.figma.com/file/mh2maMG2NBtk41k1O1UGHV/Canadian-Digital-Service%E2%80%A8---GC-Design-System?node-id=2928%3A13680&t=ciEmm7GYyGAY73zZ-0
+figma: https://www.figma.com/file/o4SguSZdar2CCFzSkWNrmB/Syst%C3%A8me-de-design-GC?type=design&node-id=114-2305&mode=design&t=1DaL24vHpjRRfHHm-0
 permalink: false
 tags: ['headerFR', 'header']
 ---

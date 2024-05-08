@@ -1,7 +1,7 @@
 ---
 layout: 'layouts/base.njk'
 github: https://github.com/cds-snc/gcds-components/tree/main/packages/web/src/components/gcds-lang-toggle
-figma: https://www.figma.com/file/mh2maMG2NBtk41k1O1UGHV/Canadian-Digital-Service%E2%80%A8---GC-Design-System?node-id=1792%3A4992&t=ciEmm7GYyGAY73zZ-0
+figma: https://www.figma.com/file/o4SguSZdar2CCFzSkWNrmB/Syst%C3%A8me-de-design-GC?type=design&node-id=48-10341&mode=design&t=1DaL24vHpjRRfHHm-0
 permalink: false
 tags: ['langtoggleFR', 'header']
 ---

@@ -4,6 +4,7 @@ layout: 'layouts/component-documentation.njk'
 translationKey: 'datatableCode'
 tags: ['datatableEN', 'code']
 # date: "git Last Modified"
+nocrawl: true
 ---
 
 ## Build a Data table

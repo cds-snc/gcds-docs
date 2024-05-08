@@ -29,7 +29,7 @@ Utilisez le masquage accessible sur du texte destiné aux technologies d'assista
 
 <iframe
   title="Survol des propriétés et des évènements relatifs à gcds-sr-only."
-  src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&demo=true&singleStory=true&id=components-screen-reader-only--events-properties&lang=en"
+  src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&demo=true&singleStory=true&id=components-screen-reader-only--events-properties&lang=fr"
   width="1200"
   height="750"
   style="display: block; margin: 0 auto;"
