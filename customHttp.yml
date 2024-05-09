@@ -20,7 +20,7 @@ customHeaders:
           report-uri https://csp-report-to.security.cdssandbox.xyz/report;
           default-src 'self' https://kit.fontawesome.com/ https://cdn.jsdelivr.net/npm/;
           font-src 'self' fonts.gstatic.com https://unpkg.com/font-awesome@4.7.0/;
-          script-src 'self' 'wasm-unsafe-eval' www.googletagmanager.com www.google-analytics.com https://kit.fontawesome.com https://cdn.jsdelivr.net/npm/ 'sha256-fipSroUh2te/+TB6wC2Cm4FtjT9kQKTCBmtmSCRONv8=' 'sha256-JDhgsVY611fJnWqj9ydKCOkLlh8t6kvvnJMW3P3GdEg=' 'sha256-JKTStBLfv5M9GFnOPOObXtb1m7Ya9db3+p3WvNpMQRA=' ;
+          script-src 'self' 'wasm-unsafe-eval' www.googletagmanager.com www.google-analytics.com https://kit.fontawesome.com https://cdn.jsdelivr.net/npm/ 'sha256-fipSroUh2te/+TB6wC2Cm4FtjT9kQKTCBmtmSCRONv8=' 'sha256-JDhgsVY611fJnWqj9ydKCOkLlh8t6kvvnJMW3P3GdEg=' 'sha256-nhJZO7Ut0Br41ncB6Fg3VkiMiIKAAPD3TBtIOs8CyEA=' ;
           frame-src www.googletagmanager.com www.google-analytics.com https://cds-snc.github.io/;
           connect-src 'self' www.googletagmanager.com www.google-analytics.com www.canada.ca;
           img-src 'self' data: https: www.w3.org;
