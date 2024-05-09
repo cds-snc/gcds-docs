@@ -1091,6 +1091,7 @@
   <h2 class="mb-400">1. Choisissez l’option qui vous convient le mieux</h2>
   <p class="mb-450">La bibliothèque de composants SDGC fonctionne dans de multiples infrastructures ou peut être utilisée comme telle. Choisissez votre environnement de développement et suivez les instructions pour commencer votre projet.</p>
   <gcds-select
+    name="select-environment"
     select-id="select-environment"
     label="Votre environnement de travail "
     hint="Sélectionnez l&#39;option la plus pertinente"
@@ -1267,7 +1268,7 @@
     }
   })
 
-  select.addEventListener("change", function() {
+  select.addEventListener("gcdsChange", function() {
     // Hide all non selected sections
     content.forEach(function(element) {
       element.classList.remove('d-block');
@@ -1281,7 +1282,7 @@
 </script>
 
         <gcds-date-modified class="mb-400 font-caption">
-          2024-05-08
+          2024-05-09
         </gcds-date-modified>
       </main>
 
