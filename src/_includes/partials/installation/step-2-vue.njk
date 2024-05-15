@@ -6,17 +6,32 @@
   <p class="mb-400">{{ installation[locale].step2.vue.install }}</p>
 
   {% highlight "js" %}
-  npm install @cdssnc/gcds-components
+  npm install @cdssnc/gcds-components-vue
   {% endhighlight %}
 
-  <p class="mt-500 mb-400">{{ installation[locale].step2.vue.place }}</p>
+  <p class="mt-500 mb-400">{{ installation[locale].step2.vue.place | safe }}</p>
 
-{% highlight "js" %}
-import { applyPolyfills, defineCustomElements } from '@cdssnc/gcds-components/loader';
-import '@cdssnc/gcds-components/dist/gcds/gcds.css';
+  {% highlight "js" %}
+  import { GcdsComponents } from '@cdssnc/gcds-components-vue';
 
-applyPolyfills().then(() => {
-  defineCustomElements();
-});
-{% endhighlight %}
+createApp(App).use(GcdsComponents).mount('#app');
+  {% endhighlight %}
+
+  <p class="mt-500 mb-400">{{ installation[locale].step2.vue.globalStyles }}</p>
+
+  <p class="mt-500 mb-400">{{ installation[locale].step2.vue.styleOne | safe }}</p>
+
+  {% highlight "js" %}
+  import '@cdssnc/gcds-components-vue/gcds.css';
+import './style.css';
+  {% endhighlight %}
+
+  <p class="mt-500 mb-400">{{ installation[locale].step2.vue.styleTwo | safe }}</p>
+
+  {% highlight "html" %}
+  <style src='@cdssnc/gcds-components-vue/gcds.css'>
+  /* global styles */
+</style> 
+  {% endhighlight %}
+
 </div>
