@@ -10,8 +10,8 @@ module.exports = {
       angular: 'Angular',
       react: 'React',
       vue: 'Vue',
-      node: 'Node with no framework',
-      cdn: 'No framework (without node)',
+      node: 'NodeJS with no Javascript framework',
+      cdn: 'Plain HTML - CDN',
       figma: "I'm a lost designer, looking for Figma",
       other: 'None of the above',
     },
@@ -23,18 +23,21 @@ module.exports = {
         heading: 'Install with npm',
         install: 'Navigate to the root folder of your project and run:',
         placeApp:
-          'Place the following code in the app.module.ts file of your app:',
+          'Place the following code in the <code>app.module.ts</code> file of your app:',
         placeStyles:
-          'Place the following code in the styles.scss file of your app:',
+          'Place the following code in the <code>styles.scss</code> file of your app:',
       },
       cdn: {
         paragraph:
           'Use these instructions to install GCDS components with no framework.',
         heading: 'Add the code',
         place:
-          'Place the following code in the <head> element of your project:',
+          'Place the following code in the <code>head</code> element of your project:',
         icons: 'to access icons, import Font Awesome',
         note: 'Note: <script type="module"> requires a server to load properly. If developing locally, please use <script nomodule>.',
+        subheading: 'Automatic updates using <code>@latest</code>',
+        latest:
+          'Use the <code>@latest</code> version of GC Design System to receive automatic updates whenever a new version is released. <strong>While it removes the need to manually update the CDN links, it adds the risk of introducing breaking changes to the codebase as new versions are automatically applied</strong>.',
       },
       choose: {
         paragraph:
@@ -49,7 +52,8 @@ module.exports = {
           "Use these instructions to install GCDS components if you're using npm (node package manager) with no framework.",
         heading: 'Install with npm',
         install: 'Navigate to the root folder of your project and run:',
-        place: 'Place the following code in the <head> element of your site:',
+        place:
+          'Place the following code in the <code>head</code> element of your site:',
         icons: 'to access icons, import Font Awesome',
       },
       other: {
@@ -63,7 +67,8 @@ module.exports = {
           "Use these instructions to install GCDS components if you're using React.",
         heading: 'Install with npm',
         install: 'Navigate to the root folder of your project and run:',
-        place: 'Place the following code in the index.js file of your app:',
+        place:
+          'Place the following code in the <code>index.js</code> file of your app:',
       },
       vue: {
         paragraph:
@@ -75,9 +80,8 @@ module.exports = {
         globalStyles:
           'Add the global styles to your app. There are multiple ways to achieve this.',
         styleOne:
-         'You can import it in your <code>main.js</code> file next to your <code>style.css</code>:',
-        styleTwo:
-         'or in your <code>App.vue</code> using the html style tag.',
+          'You can import it in your <code>main.js</code> file next to your <code>style.css</code>:',
+        styleTwo: 'or in your <code>App.vue</code> using the html style tag.',
       },
     },
     step3: {
@@ -115,18 +119,21 @@ module.exports = {
         install:
           "Naviguez jusqu'au dossier racine de votre projet et exécutez :",
         placeApp:
-          'Insérez le code suivant dans le fichier app.module.ts de votre application :',
+          'Insérez le code suivant dans le fichier <code>app.module.ts</code> de votre application :',
         placeStyles:
-          'Insérez le code suivant dans le fichier styles.scss de votre application :',
+          'Insérez le code suivant dans le fichier <code>styles.scss</code> de votre application :',
       },
       cdn: {
         paragraph:
           'Pour installer les composants SDGC sans infrastructure, suivez ces instructions.',
         heading: 'Ajoutez le code',
         place:
-          "Insérez le code suivant dans l'élément <head> de votre projet :",
+          "Insérez le code suivant dans l'élément <code>head</code> de votre projet :",
         icons: 'pour avoir accès aux icônes, installer Font Awesome',
         note: 'Remarque : <script type="module"> nécessite un serveur pour le chargement. Pour le développement local, veuillez utiliser <script nomodule>.',
+        subheading: 'Automatic updates using <code>@latest</code>',
+        latest:
+          'Use the <code>@latest</code> version of GC Design System to receive automatic updates whenever a new version is released. <strong>While it removes the need to manually update the CDN links, it adds the risk of introducing breaking changes to the codebase as new versions are automatically applied</strong>.',
       },
       choose: {
         paragraph:
@@ -143,7 +150,8 @@ module.exports = {
         heading: "Installation à l'aide de npm",
         install:
           "Naviguez jusqu'au dossier racine de votre projet et exécutez :",
-        place: "Insérez le code suivant dans l'élément <head> de votre site :",
+        place:
+          "Insérez le code suivant dans l'élément <code>head</code> de votre site :",
         icons: 'pour avoir accès aux icônes, installer Font Awesome',
       },
       other: {
@@ -159,7 +167,7 @@ module.exports = {
         install:
           "Naviguez jusqu'au dossier racine de votre projet et exécutez :",
         place:
-          'Insérez le code suivant dans le fichier index.js de votre application :',
+          'Insérez le code suivant dans le fichier <code>index.js</code> de votre application :',
       },
       vue: {
         paragraph:
@@ -167,14 +175,14 @@ module.exports = {
         heading: "Installation à l'aide de npm",
         install:
           "Naviguez jusqu'au dossier racine de votre projet et exécutez :",
-          place: 
-            'Dans votre fichier <code>main.js</code>, importez le plugiciel des composants Système de design GC et utilisez-le de la façon suivante :',
-          globalStyles: 
-            'Ajoutez les styles généraux à votre application. Vous pouvez les ajouter de plusieurs façons.',
-          styleOne:
-            'Vous pouvez soit les importer dans votre fichier <code>main.js</code> à côté de votre <code>style.css</code> :',
-          styleTwo:
-            'ou les insérer dans votre <code>App.vue</code> à l\'aide de la balise de style html.',
+        place:
+          'Dans votre fichier <code>main.js</code>, importez le plugiciel des composants Système de design GC et utilisez-le de la façon suivante :',
+        globalStyles:
+          'Ajoutez les styles généraux à votre application. Vous pouvez les ajouter de plusieurs façons.',
+        styleOne:
+          'Vous pouvez soit les importer dans votre fichier <code>main.js</code> à côté de votre <code>style.css</code> :',
+        styleTwo:
+          "ou les insérer dans votre <code>App.vue</code> à l'aide de la balise de style html.",
       },
     },
     step3: {
