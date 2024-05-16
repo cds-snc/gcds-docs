@@ -6,6 +6,7 @@ const chroma = require('chroma-js');
 const markdownIt = require('markdown-it');
 const svgContents = require('eleventy-plugin-svg-contents');
 const codeClipboard = require('eleventy-plugin-code-clipboard');
+const { getLatestCdnVersion } = require('./utils/cdn-info');
 const { DateTime } = require('luxon');
 
 const contextMenu = require('./utils/context-menu');
@@ -13,7 +14,7 @@ const displayTokens = require('./utils/display-tokens');
 const markdownAnchor = require('./utils/anchor');
 const slugify = require('./utils/slugify');
 
-const { execSync } = require('child_process')
+const { execSync } = require('child_process');
 
 module.exports = function (eleventyConfig) {
   // Pass through copies
@@ -154,10 +155,9 @@ module.exports = function (eleventyConfig) {
     return colourName;
   });
 
-  eleventyConfig.addFilter('stringify', (data) => {
-    return JSON.stringify(data, null, "\t")
-  })
-
+  eleventyConfig.addFilter('stringify', data => {
+    return JSON.stringify(data, null, '\t');
+  });
 
   /* Markdown Overrides */
   let markdownLibrary = markdownIt({
@@ -214,6 +214,11 @@ module.exports = function (eleventyConfig) {
           </div>
         </div>
     `;
+  });
+
+  // Add shortcode for CDN info
+  eleventyConfig.addGlobalData('latestCdnVersion', async () => {
+    return await getLatestCdnVersion();
   });
 
   eleventyConfig.addPairedShortcode(
@@ -307,8 +312,11 @@ module.exports = function (eleventyConfig) {
   });
 
   eleventyConfig.on('eleventy.after', () => {
-    execSync(`npx pagefind --site _site --exclude-selectors "gcds-side-nav, gcds-top-nav, gcds-breadcrumbs, .github-link, .figma-link, h1 > code, .component-preview" --glob \"**/*.html\"`, { encoding: 'utf-8' })
-  })
+    execSync(
+      `npx pagefind --site _site --exclude-selectors "gcds-side-nav, gcds-top-nav, gcds-breadcrumbs, .github-link, .figma-link, h1 > code, .component-preview" --glob \"**/*.html\"`,
+      { encoding: 'utf-8' },
+    );
+  });
 
   return {
     pathPrefix: process.env.PATH_PREFIX || '/',

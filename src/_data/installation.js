@@ -31,10 +31,12 @@ module.exports = {
         paragraph:
           'Use these instructions to install GCDS components with no framework.',
         heading: 'Add the code',
+        version:
+          "Use the latest version of GC Design System. As of <time id='cdn-latest-version-date'></time> the latest version is <code><span id='cdn-latest-version'></span></code>. Pinned versions provide stability and predictability because the code will remain consistent and won't change unexpectedly, which can be crucial for maintaining the stability of an application. However, it requires manual updating of the CDN links whenever a newer version of GC Design System is released.",
         place:
           'Place the following code in the <code>head</code> element of your project:',
         icons: 'to access icons, import Font Awesome',
-        note: 'Note: <script type="module"> requires a server to load properly. If developing locally, please use <script nomodule>.',
+        note: 'Note: <code>script type="module"</code> requires a server to load properly. If developing locally, please use <code>script nomodule</code>.',
         subheading: 'Automatic updates using <code>@latest</code>',
         latest:
           'Use the <code>@latest</code> version of GC Design System to receive automatic updates whenever a new version is released. <strong>While it removes the need to manually update the CDN links, it adds the risk of introducing breaking changes to the codebase as new versions are automatically applied</strong>.',
@@ -96,7 +98,7 @@ module.exports = {
   },
   fr: {
     step1: {
-      heading: '1. Choisissez l’option qui vous convient le mieux',
+      heading: "1. Choisissez l'option qui vous convient le mieux",
       paragraph:
         'La bibliothèque de composants SDGC fonctionne dans de multiples infrastructures ou peut être utilisée comme telle. Choisissez votre environnement de développement et suivez les instructions pour commencer votre projet.',
       label: 'Votre environnement de travail ',
@@ -127,10 +129,12 @@ module.exports = {
         paragraph:
           'Pour installer les composants SDGC sans infrastructure, suivez ces instructions.',
         heading: 'Ajoutez le code',
+        version:
+          "Use the latest version of GC Design System. As of <time id='cdn-latest-version-date'></time> the latest version is <code><span id='cdn-latest-version'></span></code>. Pinned versions provide stability and predictability because the code will remain consistent and won't change unexpectedly, which can be crucial for maintaining the stability of an application. However, it requires manual updating of the CDN links whenever a newer version of GC Design System is released.",
         place:
           "Insérez le code suivant dans l'élément <code>head</code> de votre projet :",
         icons: 'pour avoir accès aux icônes, installer Font Awesome',
-        note: 'Remarque : <script type="module"> nécessite un serveur pour le chargement. Pour le développement local, veuillez utiliser <script nomodule>.',
+        note: 'Remarque : <code>script type="module"</code> nécessite un serveur pour le chargement. Pour le développement local, veuillez utiliser <code>script nomodule</code>.',
         subheading: 'Automatic updates using <code>@latest</code>',
         latest:
           'Use the <code>@latest</code> version of GC Design System to receive automatic updates whenever a new version is released. <strong>While it removes the need to manually update the CDN links, it adds the risk of introducing breaking changes to the codebase as new versions are automatically applied</strong>.',
