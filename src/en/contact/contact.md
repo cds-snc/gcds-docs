@@ -36,9 +36,9 @@ We'd like to talk to you. Get in touch to request a demo, ask a question, or mee
 <gcds-textarea name="message" label="Give feedback or ask a question" textarea-id="message"></gcds-textarea>
 
   <gcds-fieldset fieldset-id="learnMore" legend="Learn more about GC Design System" hint="Choose as many options as you'd like.">
-    <gcds-checkbox checkbox-id="learnMoreMailingList" label="Sign me up for the mailing list." value="Sign me up for the mailing list." name="learnMoreMailingList"></gcds-checkbox>
-    <gcds-checkbox checkbox-id="learnMoreDemo" label="Contact me for a demo." value="Contact me for a demo." name="learnMoreDemo"></gcds-checkbox>
-    <gcds-checkbox checkbox-id="learnMoreResearch" label="Contact me for usability research." value="Contact me for usability research." name="learnMoreResearch"></gcds-checkbox>
+    <gcds-checkbox checkbox-id="learnMoreMailingList" label="Sign me up for the mailing list." value="Sign me up for the mailing list." name="learnMore"></gcds-checkbox>
+    <gcds-checkbox checkbox-id="learnMoreDemo" label="Contact me for a demo." value="Contact me for a demo." name="learnMore"></gcds-checkbox>
+    <gcds-checkbox checkbox-id="learnMoreResearch" label="Contact me for usability research." value="Contact me for usability research." name="learnMore"></gcds-checkbox>
   </gcds-fieldset>
 
   <gcds-fieldset fieldset-id="familiarityGCDS" legend="Familiarity with the product" hint="Select 1 option." required>

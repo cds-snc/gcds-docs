@@ -93,8 +93,6 @@ app.post('/submission', async (req, res) => {
 
   const { name, email, message, learnMore, familiarityGCDS, honeypot } = body;
 
-  const learnMoreValue = learnMore.join();
-
   // Honeypot check
   if (honeypot && honeypot.length > 0) {
     console.warn('[WARN] Honeypot detected');
@@ -122,7 +120,7 @@ app.post('/submission', async (req, res) => {
       name: name,
       email: email,
       message: message,
-      learnMore: learnMoreValue,
+      learnMore: learnMore,
       familiarityGCDS: familiarityGCDS,
     },
   });
