@@ -52,6 +52,7 @@
     "about": "/fr/a-propos",
     "contact": "/fr/contactez",
     "contactMail": "mailto:cds-snc@servicecanada.gc.ca",
+    "getInvolved": "/fr/simpliquer",
 
     "comingSoon": "/fr/developpement-en-cours",
     "demo": "/fr/demo",
@@ -84,6 +85,9 @@
     "privacyCommissionerCanada": "https://www.priv.gc.ca/fr/pour-les-individus/",
 
     "github": "https://github.com/cds-snc/gcds-components",
+    "githubCompsBug": "https://github.com/cds-snc/gcds-components/issues/new?assignees=&labels=&projects=&template=bug_report.yml&title=bug%3A+",
+    "githubCompsIssues": "https://github.com/cds-snc/gcds-components/issues/new/choose",
+    "githubCompsPriority": "https://github.com/cds-snc/gcds-components/issues/new?assignees=&labels=&projects=&template=contributions.yml&title=contribution%3A+",
     "githubDocsIssues": "https://github.com/cds-snc/gcds-docs/issues",
     "githubIssues": "https://github.com/cds-snc/gcds-components/issues",
     "githubTokens": "https://github.com/cds-snc/gcds-tokens",
