@@ -70,7 +70,14 @@ module.exports = {
           "Use these instructions to install GCDS components if you're using Vue.",
         heading: 'Install with npm',
         install: 'Navigate to the root folder of your project and run:',
-        place: 'Place the following code in the main.js file of your app:',
+        place:
+          'In your <code>main.js</code> file, import the GC Design System components plugin and use it:',
+        globalStyles:
+          'Add the global styles to your app. There are multiple ways to achieve this.',
+        styleOne:
+         'You can import it in your <code>main.js</code> file next to your <code>style.css</code>:',
+        styleTwo:
+         'or in your <code>App.vue</code> using the html style tag.',
       },
     },
     step3: {
@@ -160,8 +167,14 @@ module.exports = {
         heading: "Installation à l'aide de npm",
         install:
           "Naviguez jusqu'au dossier racine de votre projet et exécutez :",
-        place:
-          'Insérez le code suivant dans le fichier main.js de votre application :',
+          place: 
+            'Dans votre fichier <code>main.js</code>, importez le plugiciel des composants Système de design GC et utilisez-le de la façon suivante :',
+          globalStyles: 
+            'Ajoutez les styles généraux à votre application. Vous pouvez les ajouter de plusieurs façons.',
+          styleOne:
+            'Vous pouvez soit les importer dans votre fichier <code>main.js</code> à côté de votre <code>style.css</code> :',
+          styleTwo:
+            'ou les insérer dans votre <code>App.vue</code> à l\'aide de la balise de style html.',
       },
     },
     step3: {
