@@ -13,19 +13,15 @@ date: 'git Last Modified'
 
 # Contactez-nous
 
-Système de design GC est en cours d'élaboration par le Service numérique canadien. En cette phase d'essai, les fonctionnaires y ont accès et peuvent l'utiliser.
+Système de design GC est en cours de développement par le Service numérique canadien. En cette phase d'essai, les fonctionnaires peuvent utiliser le système de design et obtenir un soutien pour résoudre des problèmes. Apprenez-en plus <gcds-link href="{{ links.about }}">à propos de nous</gcds-link>.
 
-Consultez notre page <gcds-link href="{{ links.about }}">À propos</gcds-link> pour en savoir plus.
-
-## Collaborez avec nous
-
-Nous nous engageons à construire avec les personnes qui utilisent nos produits. Nous améliorons notre produit en fonction de vos besoins et de ceux des personnes que vous servez.
+Envoyez-nous vos commentaires ou questions à l'aide du formulaire suivant, ou entrez en contact avec nous sur <gcds-link external href="{{ links.githubCompsIssues }}">GitHub</gcds-link>.
 
 <hr class="my-500" />
 
-## Faites-nous part de vos commentaires pour nous aider à améliorer Système de design GC
+## Contacter le soutien de Système de design GC
 
-Nous sommes à l'écoute. Contactez-nous pour demander une démonstration, poser une question ou nous rencontrer.
+Nous offrons des démos personnalisées aux équipes qui souhaitent en savoir plus sur l'utilisation de Système de design GC.
 
 <form class="my-500 contact-us-form" name="contactFR" method="post" style="min-height: 32rem;" action="/api/submission">
   <input type="hidden" name="form-name" value="contactFR" />

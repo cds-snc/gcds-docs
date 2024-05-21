@@ -13,19 +13,15 @@ date: 'git Last Modified'
 
 # Contact us
 
-GC Design System is being built by the Canadian Digital Service. In this testing phase, public servants can try out and use the design system.
+GC Design System is being built by the Canadian Digital Service. In this testing phase, public servants can use the design system with support to resolve issues. Learn more <gcds-link href="{{ links.about }}">about us</gcds-link>.
 
-Learn more <gcds-link href="{{ links.about }}">about us</gcds-link>.
-
-## Collaborate with us
-
-We're committed to building with the people who use our products. We're iterating based on your needs and those of the people you serve.
+Send us your feedback or questions on the following form, or get in touch on <gcds-link external href="{{ links.githubCompsIssues }}">GitHub</gcds-link>.
 
 <hr class="my-500" />
 
-## Share your feedback to help improve GC Design System
+## Contact GC Design System support
 
-We'd like to talk to you. Get in touch to request a demo, ask a question, or meet with us.
+We offer custom demos for teams who want to know more about using GC Design System.
 
 <form class="my-500 contact-us-form" name="contactEN" method="post" style="min-height: 32rem;" action="/api/submission">
   <input type="hidden" name="form-name" value="contactEN" />
