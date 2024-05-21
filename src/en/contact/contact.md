@@ -19,13 +19,13 @@ Learn more <gcds-link href="{{ links.about }}">about us</gcds-link>.
 
 ## Collaborate with us
 
-We’re committed to building with the people who use our products. We’re iterating based on your needs and those of the people you serve.
+We're committed to building with the people who use our products. We're iterating based on your needs and those of the people you serve.
 
 <hr class="my-500" />
 
 ## Share your feedback to help improve GC Design System
 
-We’d like to talk to you. Get in touch to request a demo, ask a question, or meet with us.
+We'd like to talk to you. Get in touch to request a demo, ask a question, or meet with us.
 
 <form class="my-500 contact-us-form" name="contactEN" method="post" style="min-height: 32rem;" action="/api/submission">
   <input type="hidden" name="form-name" value="contactEN" />

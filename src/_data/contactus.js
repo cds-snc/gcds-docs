@@ -22,19 +22,21 @@ module.exports = {
     options: [
       {
         id: 'familiarityUsingGCDS',
-        label: 'Demander une démonstration',
-        value: 'Request a demo | Demander une démonstration',
+        label: 'J&#39;utilise actuellement Système de design GC.',
+        value:
+          'I&#39;m currently using GC Design System | J&#39;utilise actuellement Système de design GC.',
       },
       {
         id: 'familiarityExploringGCDS',
-        label: 'Signaler un problème',
-        value: 'Report an issue | Signaler un problème',
+        label: 'J&#39;ai exploré Système de design GC.',
+        value:
+          'I&#39;ve been exploring GC Design System | J&#39;ai exploré Système de design GC.',
       },
       {
         id: 'familiarityNeverUsedGCDS',
-        label: 'Participer à la recherche sur les utilisateur·rice·s',
+        label: 'Je n&#39;ai jamais utilisé Système de design GC.',
         value:
-          'Participate in user research | Participer à la recherche sur les utilisateur·rice·s',
+          'I&#39;ve never used GC Design System | Je n&#39;ai jamais utilisé Système de design GC.',
       },
     ],
   },
