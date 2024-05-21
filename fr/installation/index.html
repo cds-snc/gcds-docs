@@ -1167,16 +1167,27 @@
   <h3 class="mt-500 mb-400">Installation à l&#39;aide de npm</h3>
   <p class="mb-400">Naviguez jusqu&#39;au dossier racine de votre projet et exécutez :</p>
 
-  <pre class="language-js"><code class="language-js">npm install @cdssnc<span class="token operator">/</span>gcds<span class="token operator">-</span>components</code></pre>
+  <pre class="language-js"><code class="language-js">npm install @cdssnc<span class="token operator">/</span>gcds<span class="token operator">-</span>components<span class="token operator">-</span>vue</code></pre>
 
-  <p class="mt-500 mb-400">Insérez le code suivant dans le fichier main.js de votre application :</p>
+  <p class="mt-500 mb-400">Dans votre fichier <code>main.js</code>, importez le plugiciel des composants Système de design GC et utilisez-le de la façon suivante :</p>
 
-<pre class="language-js"><code class="language-js"><span class="token keyword">import</span> <span class="token punctuation">{</span> applyPolyfills<span class="token punctuation">,</span> defineCustomElements <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@cdssnc/gcds-components/loader'</span><span class="token punctuation">;</span>
-<span class="token keyword">import</span> <span class="token string">'@cdssnc/gcds-components/dist/gcds/gcds.css'</span><span class="token punctuation">;</span>
+  <pre class="language-js"><code class="language-js"><span class="token keyword">import</span> <span class="token punctuation">{</span> GcdsComponents <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@cdssnc/gcds-components-vue'</span><span class="token punctuation">;</span>
 
-<span class="token function">applyPolyfills</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
-  <span class="token function">defineCustomElements</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<span class="token function">createApp</span><span class="token punctuation">(</span>App<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span>GcdsComponents<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">mount</span><span class="token punctuation">(</span><span class="token string">'#app'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+
+  <p class="mt-500 mb-400">Ajoutez les styles généraux à votre application. Vous pouvez les ajouter de plusieurs façons.</p>
+
+  <p class="mt-500 mb-400">Vous pouvez soit les importer dans votre fichier <code>main.js</code> à côté de votre <code>style.css</code> :</p>
+
+  <pre class="language-js"><code class="language-js"><span class="token keyword">import</span> <span class="token string">'@cdssnc/gcds-components-vue/gcds.css'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token string">'./style.css'</span><span class="token punctuation">;</span></code></pre>
+
+  <p class="mt-500 mb-400">ou les insérer dans votre <code>App.vue</code> à l'aide de la balise de style html.</p>
+
+  <pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>style</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">'</span>@cdssnc/gcds-components-vue/gcds.css<span class="token punctuation">'</span></span><span class="token punctuation">></span></span><span class="token style"><span class="token language-css">
+  <span class="token comment">/* global styles */</span>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>style</span><span class="token punctuation">></span></span></code></pre>
+
 </div>
 
   <div id="step-2-node" class="py-550 step-2-content">
@@ -1282,7 +1293,7 @@
 </script>
 
         <gcds-date-modified class="mb-400 font-caption">
-          2024-05-13
+          2024-05-21
         </gcds-date-modified>
       </main>
 
