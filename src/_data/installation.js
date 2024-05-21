@@ -32,7 +32,7 @@ module.exports = {
           'Use these instructions to install GCDS components with no framework.',
         heading: 'Add the code',
         version:
-          "Use the latest version of GC Design System. As of <time id='cdn-latest-version-date'></time> the latest version is <code><span id='cdn-latest-version'></span></code>. Pinned versions provide stability and predictability because the code will remain consistent and won't change unexpectedly, which can be crucial for maintaining the stability of an application. However, it requires manual updating of the CDN links whenever a newer version of GC Design System is released.",
+          "Use the latest version of GC Design System. Version <code><span id='cdn-latest-version'></span></code>, released on <time id='cdn-latest-version-date'></time>, is the most recent. Pinned versions provide stability and predictability because the code will remain consistent and won't change unexpectedly, which can be crucial for maintaining the stability of an application. However, it requires manual updating of the CDN links whenever a newer version of GC Design System is released.",
         place:
           'Place the following code in the <code>head</code> element of your project:',
         icons: 'to access icons, import Font Awesome',
@@ -100,15 +100,15 @@ module.exports = {
     step1: {
       heading: "1. Choisissez l'option qui vous convient le mieux",
       paragraph:
-        'La bibliothèque de composants SDGC fonctionne dans de multiples infrastructures ou peut être utilisée comme telle. Choisissez votre environnement de développement et suivez les instructions pour commencer votre projet.',
+        'La bibliothèque gcds-components fonctionne dans de multiples infrastructures ou peut être utilisée comme telle. Choisissez votre environnement de développement et suivez les instructions pour commencer votre projet.',
       label: 'Votre environnement de travail ',
       hint: "Sélectionnez l'option la plus pertinente",
       defaultValue: 'Choissisez une option',
       angular: 'Angular',
       react: 'React',
       vue: 'Vue',
-      node: 'Aucune infrastructure, avec nœud',
-      cdn: 'Aucune infrastructure, sans noeud',
+      node: 'NodeJS sans infrastructure JavaScript',
+      cdn: 'HTML simple — réseau CDN',
       figma: 'Je suis un·e concepteur·rice à la recherche de Figma',
       other: 'Autre chose',
     },
@@ -130,14 +130,14 @@ module.exports = {
           'Pour installer les composants SDGC sans infrastructure, suivez ces instructions.',
         heading: 'Ajoutez le code',
         version:
-          "Use the latest version of GC Design System. As of <time id='cdn-latest-version-date'></time> the latest version is <code><span id='cdn-latest-version'></span></code>. Pinned versions provide stability and predictability because the code will remain consistent and won't change unexpectedly, which can be crucial for maintaining the stability of an application. However, it requires manual updating of the CDN links whenever a newer version of GC Design System is released.",
+          "Utilisez la version la plus récente de Système de design GC. La version <code><span id='cdn-latest-version'></span></code>, publiée le <time id='cdn-latest-version-date'></time>, est la plus récente. Les versions épinglées offrent stabilité et prévisibilité parce que le code ne changera pas de manière inattendue, ce qui peut être crucial pour maintenir la stabilité d'une application. Toutefois, il faut mettre à jour manuellement les liens CDN chaque fois qu'une version plus récente de Système de design GC est publiée.",
         place:
           "Insérez le code suivant dans l'élément <code>head</code> de votre projet :",
         icons: 'pour avoir accès aux icônes, installer Font Awesome',
         note: 'Remarque : <code>script type="module"</code> nécessite un serveur pour le chargement. Pour le développement local, veuillez utiliser <code>script nomodule</code>.',
-        subheading: 'Automatic updates using <code>@latest</code>',
+        subheading: 'Mises à jour automatiques grâce à <code>@latest</code>',
         latest:
-          'Use the <code>@latest</code> version of GC Design System to receive automatic updates whenever a new version is released. <strong>While it removes the need to manually update the CDN links, it adds the risk of introducing breaking changes to the codebase as new versions are automatically applied</strong>.',
+          "Utilisez la version <code>@latest</code> de Système de design GC pour recevoir des mises à jour automatiques chaque fois qu'une nouvelle version est publiée. <strong>Bien que cette approche vous évite la mise à jour manuelle des liens CDN, elle court le risque d'introduire des modifications qui entraînent une rupture de compatibilité avec le code base à mesure que les nouvelles versions sont automatiquement appliquées</strong>.",
       },
       choose: {
         paragraph:
