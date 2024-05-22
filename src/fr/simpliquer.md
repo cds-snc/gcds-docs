@@ -51,16 +51,31 @@ Voici les composants qui s'ajouteront bientôt au système. Restez à l'affût!
 <div class="my-500">
   <gcds-grid tag="ul" columns="1fr" columns-tablet="1fr 1fr" columns-desktop="1fr 1fr 1fr" gap="400">
     <gcds-card
-      card-title="Carte"
+      card-title="Balise"
       type="action"
       title-element="h3"
-      description="Un encadré contenant du contenu structuré et exploitable sur un sujet unique."
+      description="Un composant utilisé pour les éléments qui doivent être étiquetés, catégorisés ou organisés à l'aide de mots-clés qui les décrivent."
       role="listitem"
     >
       <div slot="footer">
         <p class="text-secondary">
           <small>
-            <em>{{ documentation[locale].othernames }} tuile, carte de contenu.</em>
+            <em>{{ documentation[locale].othernames }} étiquette, label.</em>
+          </small>
+        </p>
+      </div>
+    </gcds-card>
+    <gcds-card
+      card-title="Image"
+      type="action"
+      title-element="h3"
+      description="Un élément permettant d'afficher un contenu visuel optimisé et réactif."
+      role="listitem"
+    >
+      <div slot="footer">
+        <p class="text-secondary">
+          <small>
+            <em>{{ documentation[locale].othernames }} photo, image réactive, figure, photographie.</em>
           </small>
         </p>
       </div>

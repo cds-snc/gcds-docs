@@ -51,21 +51,6 @@ The next component we're releasing. Keep an eye out!
 <div class="my-500">
   <gcds-grid tag="ul" columns="1fr" columns-tablet="1fr 1fr" columns-desktop="1fr 1fr 1fr" gap="400">
     <gcds-card
-      card-title="Card"
-      type="action"
-      title-element="h3"
-      description="A box containing structured, actionable content on a single topic."
-      role="listitem"
-    >
-      <div slot="footer">
-        <p class="text-secondary">
-          <small>
-            <em>{{ documentation[locale].othernames }} tiles, content card.</em>
-          </small>
-        </p>
-      </div>
-    </gcds-card>
-    <gcds-card
       card-title="Data table"
       type="action"
       title-element="h3"
@@ -76,6 +61,36 @@ The next component we're releasing. Keep an eye out!
         <p class="text-secondary">
           <small>
             <em>{{ documentation[locale].othernames }} table, data grid.</em>
+          </small>
+        </p>
+      </div>
+    </gcds-card>
+    <gcds-card
+      card-title="Image"
+      type="action"
+      title-element="h3"
+      description="An element for displaying optimized responsive visual content."
+      role="listitem"
+    >
+      <div slot="footer">
+        <p class="text-secondary">
+          <small>
+            <em>{{ documentation[locale].othernames }} picture, responsive image, figure, photo.</em>
+          </small>
+        </p>
+      </div>
+    </gcds-card>
+    <gcds-card
+      card-title="Tag"
+      type="action"
+      title-element="h3"
+      description="A component used for items that need to be labeled, categorized, or organized using keywords that describe them."
+      role="listitem"
+    >
+      <div slot="footer">
+        <p class="text-secondary">
+          <small>
+            <em>{{ documentation[locale].othernames }} label, badge, pill.</em>
           </small>
         </p>
       </div>
