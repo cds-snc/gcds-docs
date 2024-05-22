@@ -10,8 +10,8 @@ module.exports = {
       angular: 'Angular',
       react: 'React',
       vue: 'Vue',
-      node: 'Node with no framework',
-      cdn: 'No framework (without node)',
+      node: 'NodeJS with no Javascript framework',
+      cdn: 'Plain HTML - CDN',
       figma: "I'm a lost designer, looking for Figma",
       other: 'None of the above',
     },
@@ -23,18 +23,23 @@ module.exports = {
         heading: 'Install with npm',
         install: 'Navigate to the root folder of your project and run:',
         placeApp:
-          'Place the following code in the app.module.ts file of your app:',
+          'Place the following code in the <code>app.module.ts</code> file of your app:',
         placeStyles:
-          'Place the following code in the styles.scss file of your app:',
+          'Place the following code in the <code>styles.scss</code> file of your app:',
       },
       cdn: {
         paragraph:
           'Use these instructions to install GCDS components with no framework.',
         heading: 'Add the code',
+        version:
+          "Use the latest version of GC Design System. Version <code><span id='cdn-latest-version'></span></code>, released on <time id='cdn-latest-version-date'></time>, is the most recent. Pinned versions provide stability and predictability because the code will remain consistent and won't change unexpectedly, which can be crucial for maintaining the stability of an application. However, it requires manual updating of the CDN links whenever a newer version of GC Design System is released.",
         place:
-          'Place the following code in the <head> element of your project:',
+          'Place the following code in the <code>head</code> element of your project:',
         icons: 'to access icons, import Font Awesome',
-        note: 'Note: <script type="module"> requires a server to load properly. If developing locally, please use <script nomodule>.',
+        note: 'Note: <code>script type="module"</code> requires a server to load properly. If developing locally, please use <code>script nomodule</code>.',
+        subheading: 'Automatic updates using <code>@latest</code>',
+        latest:
+          'Use the <code>@latest</code> version of GC Design System to receive automatic updates whenever a new version is released. <strong>While it removes the need to manually update the CDN links, it adds the risk of introducing breaking changes to the codebase as new versions are automatically applied</strong>.',
       },
       choose: {
         paragraph:
@@ -49,7 +54,8 @@ module.exports = {
           "Use these instructions to install GCDS components if you're using npm (node package manager) with no framework.",
         heading: 'Install with npm',
         install: 'Navigate to the root folder of your project and run:',
-        place: 'Place the following code in the <head> element of your site:',
+        place:
+          'Place the following code in the <code>head</code> element of your site:',
         icons: 'to access icons, import Font Awesome',
       },
       other: {
@@ -63,7 +69,8 @@ module.exports = {
           "Use these instructions to install GCDS components if you're using React.",
         heading: 'Install with npm',
         install: 'Navigate to the root folder of your project and run:',
-        place: 'Place the following code in the index.js file of your app:',
+        place:
+          'Place the following code in the <code>index.js</code> file of your app:',
       },
       vue: {
         paragraph:
@@ -75,9 +82,8 @@ module.exports = {
         globalStyles:
           'Add the global styles to your app. There are multiple ways to achieve this.',
         styleOne:
-         'You can import it in your <code>main.js</code> file next to your <code>style.css</code>:',
-        styleTwo:
-         'or in your <code>App.vue</code> using the html style tag.',
+          'You can import it in your <code>main.js</code> file next to your <code>style.css</code>:',
+        styleTwo: 'or in your <code>App.vue</code> using the html style tag.',
       },
     },
     step3: {
@@ -92,17 +98,17 @@ module.exports = {
   },
   fr: {
     step1: {
-      heading: '1. Choisissez l’option qui vous convient le mieux',
+      heading: "1. Choisissez l'option qui vous convient le mieux",
       paragraph:
-        'La bibliothèque de composants SDGC fonctionne dans de multiples infrastructures ou peut être utilisée comme telle. Choisissez votre environnement de développement et suivez les instructions pour commencer votre projet.',
+        'La bibliothèque gcds-components fonctionne dans de multiples infrastructures ou peut être utilisée comme telle. Choisissez votre environnement de développement et suivez les instructions pour commencer votre projet.',
       label: 'Votre environnement de travail ',
       hint: "Sélectionnez l'option la plus pertinente",
       defaultValue: 'Choissisez une option',
       angular: 'Angular',
       react: 'React',
       vue: 'Vue',
-      node: 'Aucune infrastructure, avec nœud',
-      cdn: 'Aucune infrastructure, sans noeud',
+      node: 'NodeJS sans infrastructure JavaScript',
+      cdn: 'HTML simple — réseau CDN',
       figma: 'Je suis un·e concepteur·rice à la recherche de Figma',
       other: 'Autre chose',
     },
@@ -115,18 +121,23 @@ module.exports = {
         install:
           "Naviguez jusqu'au dossier racine de votre projet et exécutez :",
         placeApp:
-          'Insérez le code suivant dans le fichier app.module.ts de votre application :',
+          'Insérez le code suivant dans le fichier <code>app.module.ts</code> de votre application :',
         placeStyles:
-          'Insérez le code suivant dans le fichier styles.scss de votre application :',
+          'Insérez le code suivant dans le fichier <code>styles.scss</code> de votre application :',
       },
       cdn: {
         paragraph:
           'Pour installer les composants SDGC sans infrastructure, suivez ces instructions.',
         heading: 'Ajoutez le code',
+        version:
+          "Utilisez la version la plus récente de Système de design GC. La version <code><span id='cdn-latest-version'></span></code>, publiée le <time id='cdn-latest-version-date'></time>, est la plus récente. Les versions épinglées offrent stabilité et prévisibilité parce que le code ne changera pas de manière inattendue, ce qui peut être crucial pour maintenir la stabilité d'une application. Toutefois, il faut mettre à jour manuellement les liens CDN chaque fois qu'une version plus récente de Système de design GC est publiée.",
         place:
-          "Insérez le code suivant dans l'élément <head> de votre projet :",
+          "Insérez le code suivant dans l'élément <code>head</code> de votre projet :",
         icons: 'pour avoir accès aux icônes, installer Font Awesome',
-        note: 'Remarque : <script type="module"> nécessite un serveur pour le chargement. Pour le développement local, veuillez utiliser <script nomodule>.',
+        note: 'Remarque : <code>script type="module"</code> nécessite un serveur pour le chargement. Pour le développement local, veuillez utiliser <code>script nomodule</code>.',
+        subheading: 'Mises à jour automatiques grâce à <code>@latest</code>',
+        latest:
+          "Utilisez la version <code>@latest</code> de Système de design GC pour recevoir des mises à jour automatiques chaque fois qu'une nouvelle version est publiée. <strong>Bien que cette approche vous évite la mise à jour manuelle des liens CDN, elle court le risque d'introduire des modifications qui entraînent une rupture de compatibilité avec le code base à mesure que les nouvelles versions sont automatiquement appliquées</strong>.",
       },
       choose: {
         paragraph:
@@ -143,7 +154,8 @@ module.exports = {
         heading: "Installation à l'aide de npm",
         install:
           "Naviguez jusqu'au dossier racine de votre projet et exécutez :",
-        place: "Insérez le code suivant dans l'élément <head> de votre site :",
+        place:
+          "Insérez le code suivant dans l'élément <code>head</code> de votre site :",
         icons: 'pour avoir accès aux icônes, installer Font Awesome',
       },
       other: {
@@ -159,7 +171,7 @@ module.exports = {
         install:
           "Naviguez jusqu'au dossier racine de votre projet et exécutez :",
         place:
-          'Insérez le code suivant dans le fichier index.js de votre application :',
+          'Insérez le code suivant dans le fichier <code>index.js</code> de votre application :',
       },
       vue: {
         paragraph:
@@ -167,14 +179,14 @@ module.exports = {
         heading: "Installation à l'aide de npm",
         install:
           "Naviguez jusqu'au dossier racine de votre projet et exécutez :",
-          place: 
-            'Dans votre fichier <code>main.js</code>, importez le plugiciel des composants Système de design GC et utilisez-le de la façon suivante :',
-          globalStyles: 
-            'Ajoutez les styles généraux à votre application. Vous pouvez les ajouter de plusieurs façons.',
-          styleOne:
-            'Vous pouvez soit les importer dans votre fichier <code>main.js</code> à côté de votre <code>style.css</code> :',
-          styleTwo:
-            'ou les insérer dans votre <code>App.vue</code> à l\'aide de la balise de style html.',
+        place:
+          'Dans votre fichier <code>main.js</code>, importez le plugiciel des composants Système de design GC et utilisez-le de la façon suivante :',
+        globalStyles:
+          'Ajoutez les styles généraux à votre application. Vous pouvez les ajouter de plusieurs façons.',
+        styleOne:
+          'Vous pouvez soit les importer dans votre fichier <code>main.js</code> à côté de votre <code>style.css</code> :',
+        styleTwo:
+          "ou les insérer dans votre <code>App.vue</code> à l'aide de la balise de style html.",
       },
     },
     step3: {

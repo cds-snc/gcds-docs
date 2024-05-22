@@ -9,7 +9,7 @@
   npm install @cdssnc/gcds-components @cdssnc/gcds-components-angular
   {% endhighlight %}
 
-  <p class="mt-500 mb-400">{{ installation[locale].step2.angular.placeApp }}</p>
+  <p class="mt-500 mb-400">{{ installation[locale].step2.angular.placeApp | safe }}</p>
 
 {% highlight "js" %}
 import { GcdsComponentsModule } from '@cdssnc/gcds-components-angular';
@@ -29,7 +29,7 @@ import { GcdsComponentsModule } from '@cdssnc/gcds-components-angular';
 export class AppModule { }
 {% endhighlight %}
 
-  <p class="mt-500 mb-400">{{ installation[locale].step2.angular.placeStyles }}</p>
+  <p class="mt-500 mb-400">{{ installation[locale].step2.angular.placeStyles | safe }}</p>
 
   {% highlight "js" %}
   @import '../node_modules/@cdssnc/gcds-components/dist/gcds/gcds.css';
