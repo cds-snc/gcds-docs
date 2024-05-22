@@ -8,7 +8,6 @@ async function getLatestCdnVersion() {
 
     // Get latest version and release date
     const latestVersion = data['dist-tags'].latest;
-    const versions = data.versions;
     const releaseDate = new Date(data.time[latestVersion]);
 
     // Format the release date to 'YYYY-MM-DD'
