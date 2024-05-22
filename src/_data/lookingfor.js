@@ -9,8 +9,8 @@ module.exports = {
     feedbackHref: '/en/contact/#contact-us',
     gotocomponents: 'Go to Component overview',
     gotocomponentshref: '/en/components/',
-    gotocomingsoon: 'Go to Coming soon',
-    gotocomingsoonhref: '/en/coming-soon/',
+    gotogetinvolved: 'Get involved',
+    gotogetinvolvedhref: '/en/get-involved/',
   },
   fr: {
     heading: "À la recherche d'un autre composant?",
@@ -22,7 +22,7 @@ module.exports = {
     feedbackHref: '/fr/contactez/#contacteznous',
     gotocomponents: 'Passer au survol des composants',
     gotocomponentshref: '/fr/composants/',
-    gotocomingsoon: 'Composants en développement',
-    gotocomingsoonhref: '/fr/developpement-en-cours/',
+    gotogetinvolved: "S'impliquer",
+    gotogetinvolvedhref: '/fr/simpliquer/',
   },
 };
