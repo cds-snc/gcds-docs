@@ -98,7 +98,7 @@ The next component we're releasing. Keep an eye out!
   </gcds-grid>
 </div>
 
-Submit your contributions to our next priorities directly in GitHub.
+Submit your contributions to our next priorities directly in GitHub. If this is your first time using Github - follow these [instructions](https://docs.github.com/en/get-started/start-your-journey/creating-an-account-on-github) to create your account.
 
 Provide any of the following for each component or pattern:
 
@@ -110,9 +110,7 @@ Provide any of the following for each component or pattern:
 
 ### Report an issue
 
-Something's not working? Flag the issue to our team through GitHub.
-
-With a GitHub account, you'll have access to all past issues and get updates on progress.
+Something's not working? Flag the issue to our team through GitHub. If this is your first time using Github - follow these [instructions](https://docs.github.com/en/get-started/start-your-journey/creating-an-account-on-github) to create your account. With an account, you'll have access to all past issues and get updates on progress.
 
 <gcds-link href="{{ links.githubCompsBug }}" external>Report an issue</gcds-link>
 
