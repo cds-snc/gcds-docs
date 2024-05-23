@@ -119,9 +119,9 @@ app.post('/submission', async (req, res) => {
     personalisation: {
       name: name,
       email: email,
-      message: message,
-      learnMore: learnMore,
-      familiarityGCDS: familiarityGCDS,
+      message: message ? message : '',
+      learnMore: learnMore ? learnMore : '',
+      familiarityGCDS: familiarityGCDS ? familiarityGCDS : '',
     },
   });
 
