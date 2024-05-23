@@ -98,7 +98,7 @@ Voici les composants qui s'ajouteront bientôt au système. Restez à l'affût!
   </gcds-grid>
 </div>
 
-Soumettez vos contributions à nos prochaines priorités directement dans GitHub.
+Soumettez vos contributions à nos prochaines priorités directement dans GitHub. Si c’est la première fois que vous utilisez GitHub, suivez ces <gcds-link href="{{ links.githubGetStarted }}" external>instructions</gcds-link> pour créer votre compte.
 
 Fournissez l'un des éléments suivants pour chaque composant ou configuration :
 
@@ -110,9 +110,7 @@ Fournissez l'un des éléments suivants pour chaque composant ou configuration 
 
 ### Signalez un problème
 
-Quelque chose ne fonctionne pas? Signalez le problème à notre équipe via GitHub.
-
-Avec un compte GitHub, vous pourrez voir tous les problèmes (issues) passés et serez informé des progrès accomplis.
+Quelque chose ne fonctionne pas? Signalez le problème à notre équipe via GitHub. Si c’est la première fois que vous utilisez GitHub, suivez ces <gcds-link href="{{ links.githubGetStarted }}" external>instructions</gcds-link> pour créer votre compte. Avec un compte, vous pourrez voir tous les problèmes (issues) passés et serez informé des progrès accomplis.
 
 <gcds-link href="{{ links.githubCompsBug }}" external>Signaler un problème</gcds-link>
 
