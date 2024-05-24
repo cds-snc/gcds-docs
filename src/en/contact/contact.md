@@ -23,7 +23,7 @@ Send us your feedback or questions on the following form, or get in touch on <gc
 
 We offer custom demos for teams who want to know more about using GC Design System.
 
-<form class="my-500 contact-us-form" name="contactEN" method="post" style="min-height: 32rem;" action="/api/submission">
+<form class="my-500 contact-us-form" name="contactEN" method="post" style="min-height: 32rem;" action="https://x2c6xfxxnotcknsu4d5onhu2um0eotqp.lambda-url.ca-central-1.on.aws/submission">
   <input type="hidden" name="form-name" value="contactEN" />
   <input name="honeypot" type="text" aria-label="bot" hidden/>
 

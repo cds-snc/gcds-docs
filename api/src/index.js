@@ -84,8 +84,12 @@ app.post('/submission', async (req, res) => {
     }
   }
 
-  const { EMAIL_TARGET, NOTIFY_API_KEY, NOTIFY_TEMPLATE_ID } =
-    parameters['gc-design-system-config'];
+  const {
+    EMAIL_TARGET,
+    NOTIFY_API_KEY,
+    NOTIFY_TEMPLATE_ID,
+    FRESHDESK_API_KEY,
+  } = parameters['gc-design-system-config'];
 
   // Honeypot check
   if (honeypot && honeypot.length > 0) {
@@ -100,14 +104,12 @@ app.post('/submission', async (req, res) => {
     res.status(204).send();
     return;
   }
+  message = message ? message : '';
 
-  // Send to Notify
-  // Change to create ticket on freshdesk, and then send to notify
-  const response = await sendEmail(
+  // Send to freshdesk, if it fails, send to notify
+  const freshdeskResponse = await createTicket(
     {
-      EMAIL_TARGET,
-      NOTIFY_API_KEY,
-      NOTIFY_TEMPLATE_ID,
+      FRESHDESK_API_KEY,
     },
     {
       name,
@@ -116,10 +118,34 @@ app.post('/submission', async (req, res) => {
       learnMore,
       familiarityGCDS,
     },
+    lang,
   );
 
-  console.log(`[INFO] Notify response: ${response.status}`);
+  console.log(
+    `[INFO] Freshdesk response: ${freshdeskResponse.status} ${freshdeskResponse.ok}`,
+  );
+  if (freshdeskResponse?.ok === false) {
+    console.error('[ERROR] Failed to send to Freshdesk, sending to Notify');
+    const response = await sendEmail(
+      {
+        EMAIL_TARGET,
+        NOTIFY_API_KEY,
+        NOTIFY_TEMPLATE_ID,
+      },
+      {
+        name,
+        email,
+        message,
+        learnMore,
+        familiarityGCDS,
+      },
+      lang,
+    );
 
+    console.log(`[INFO] Notify response: ${response.status}`);
+  }
+
+  console.log(`[INFO] Successfully sent to Freshdesk`);
   redirectUser(origin, forwardedOrigin, lang, res);
 });
 

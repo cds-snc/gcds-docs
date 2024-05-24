@@ -1,10 +1,13 @@
 /**
  * Send an email using the Notify API
  * API Docs - https://documentation.notification.canada.ca/
- * @param message
+ * @param settings
+ * @param data
  * @returns {Promise<Response>}
  */
-export const sendEmail = async (settings, data) => {
+
+import { learnMoreOptions } from './constants.js';
+export const sendEmail = async (settings, data, lang) => {
   const { EMAIL_TARGET, NOTIFY_TEMPLATE_ID, NOTIFY_API_KEY } = settings;
   const { name, email, message, learnMore, familiarityGCDS } = data;
 
@@ -13,6 +16,20 @@ export const sendEmail = async (settings, data) => {
     'Content-Type': 'application/json',
   };
 
+  let learnMoreStringArray = [];
+  if (learnMore) {
+    learnMore.forEach(answer => {
+      let learnMoreOption = learnMoreOptions[lang].options.find(
+        option => option.value === answer,
+      );
+
+      // Get the label for a human-readable description
+      if (learnMoreOption) {
+        learnMoreStringArray.push(learnMoreOption.label);
+      }
+    });
+  }
+
   const postData = JSON.stringify({
     email_address: EMAIL_TARGET,
     template_id: NOTIFY_TEMPLATE_ID,
@@ -20,8 +37,8 @@ export const sendEmail = async (settings, data) => {
       name: name,
       email: email,
       message: message ? message : '',
-      learnMore: learnMore ? learnMore : '',
-      familiarityGCDS: familiarityGCDS ? familiarityGCDS : '',
+      learnMore: learnMoreStringArray,
+      familiarityGCDS: familiarityGCDS,
     },
   });
 
