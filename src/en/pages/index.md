@@ -31,7 +31,7 @@ date: 'git Last Modified'
 
 <article class="py-450">
   <h2 class="mb-400">A design system just for you</h2>
-  <p class="mb-500">Take a look around. <gcds-link href="{{ links.about }}">Tell us what you think</gcds-link>.</p>
+  <p class="mb-500">Take a look around. <gcds-link href="{{ links.contact }}">Tell us what you think</gcds-link>.</p>
   <gcds-grid tag="ul" columns="1fr" columns-tablet="1fr 1fr" columns-desktop="1fr 1fr 1fr" gap="450">
     <li class="list-none">
       <img class="mb-200" src="../../images/common/home/icon-components.svg" alt="" />
