@@ -47,13 +47,25 @@ app.post('/submission', async (req, res) => {
   }
 
   // Extract the fields from the form submission
-  const { name, email, message, learnMore, familiarityGCDS, honeypot } = body;
+  let { name, email, message, familiarityGCDS, honeypot } = body;
+
+  const learnMore = [];
+  if (body['learn-more-mailing-list']) {
+    learnMore.push('mailing_list');
+  }
+  if (body['learn-more-demo']) {
+    learnMore.push('demo');
+  }
+  if (body['learn-more-research']) {
+    learnMore.push('usability_research');
+  }
 
   let parameters;
   if (process.env['NODE_ENV'] === 'development') {
     parameters = {
       'gc-design-system-config': {
         EMAIL_TARGET: '',
+        FRESHDESK_API_KEY: '',
         NOTIFY_API_KEY: '',
         NOTIFY_TEMPLATE_ID: '',
       },
