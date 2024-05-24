@@ -5,7 +5,6 @@
  * @param data
  * @returns {Promise<Response>}
  */
-
 export const createTicket = async (settings, data, lang) => {
   const { name, email, message, learnMore, familiarityGCDS } = data;
   const { FRESHDESK_API_KEY } = settings;
@@ -72,7 +71,7 @@ export const createTicket = async (settings, data, lang) => {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': `Basic ${btoa(`${FRESHDESK_API_KEY}:XxDummyTestKeyX`)}`,
+        'Authorization': `Basic ${btoa(`${FRESHDESK_API_KEY}:x`)}`,
       },
       body: postData,
     });

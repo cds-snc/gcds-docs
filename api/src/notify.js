@@ -5,7 +5,6 @@
  * @param data
  * @returns {Promise<Response>}
  */
-
 import { learnMoreOptions } from './constants.js';
 export const sendEmail = async (settings, data, lang) => {
   const { EMAIL_TARGET, NOTIFY_TEMPLATE_ID, NOTIFY_API_KEY } = settings;
