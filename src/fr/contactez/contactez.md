@@ -32,13 +32,13 @@ Nous offrons des démos personnalisées aux équipes qui souhaitent en savoir pl
 <gcds-textarea name="message" label="Commentaires ou questions" textarea-id="message"></gcds-textarea>
 
   <gcds-fieldset fieldset-id="learnMore" legend="Apprenez-en plus sur Système de design GC" hint="Choisissez autant d'options que vous le souhaitez.">
-    <gcds-checkbox checkbox-id="learnMoreMailingList" label="Ajoutez-moi à votre liste d'envoi." value="Ajoutez-moi à votre liste d'envoi." name="learnMore"></gcds-checkbox>
-    <gcds-checkbox checkbox-id="learnMoreDemo" label="Contactez-moi pour une démo." value="Contactez-moi pour une démo." name="learnMore"></gcds-checkbox>
-    <gcds-checkbox checkbox-id="learnMoreResearch" label="Contactez-moi pour les études sur l'utilisabilité." value="Contactez-moi pour les études sur l'utilisabilité." name="learnMore"></gcds-checkbox>
+    <gcds-checkbox checkbox-id="learnMoreMailingList" label="Ajoutez-moi à votre liste d'envoi." value="learn-more-mailing-list" name="learn-more-mailing-list"></gcds-checkbox>
+    <gcds-checkbox checkbox-id="learnMoreDemo" label="Contactez-moi pour une démo." value="learn-more-demo" name="learn-more-demo"></gcds-checkbox>
+    <gcds-checkbox checkbox-id="learnMoreResearch" label="Contactez-moi pour les études sur l'utilisabilité." value="learn-more-research" name="learn-more-research"></gcds-checkbox>
   </gcds-fieldset>
 
   <gcds-fieldset fieldset-id="familiarityGCDS" legend="Connaissance du produit" hint="Sélectionnez 1 option." required>
-    <gcds-radio-group name="familiarityGCDS" options='{{ contactus[locale].options | stringify }}'>
+    <gcds-radio-group name="familiarityGCDS" options='{{ contactus[locale].options | stringify | encode-html }}'>
     </gcds-radio-group>
   </gcds-fieldset>
 
