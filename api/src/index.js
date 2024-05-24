@@ -1,13 +1,12 @@
 import { getParametersByName } from '@aws-lambda-powertools/parameters/ssm';
 
 import express from 'express';
-import axios from 'axios';
+import { redirectUser } from './utils.js';
+import { sendEmail } from './notify.js';
+import { createTicket } from './freshdesk.js';
 
 const app = express();
 const port = process.env['PORT'] || 8080;
-
-const DOMAIN_EN = 'https://design-system.alpha.canada.ca';
-const DOMAIN_FR = 'https://systeme-design.alpha.canada.ca';
 
 app.use(express.json()); // for parsing application/json
 app.use(express.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
@@ -23,23 +22,6 @@ process.on('SIGTERM', async () => {
   console.info('[express] exiting');
   process.exit(0);
 });
-
-const redirectUser = (origin, forwardedOrigin, lang, res) => {
-  // Attempt to get origin URL from request. If origin is null, use the default domains (en or fr) based on language
-  origin = origin && origin !== 'null' ? origin : forwardedOrigin;
-  origin =
-    origin && origin !== 'null'
-      ? origin
-      : lang === 'en'
-        ? DOMAIN_EN
-        : DOMAIN_FR;
-
-  const contactPath =
-    lang == 'en' ? '/en/contact/thanks' : '/fr/contactez/merci';
-  const redirectTo = origin + contactPath;
-  console.log(`[INFO] Redirecting to ${redirectTo}`);
-  res.redirect(303, redirectTo);
-};
 
 app.post('/submission', async (req, res) => {
   let origin = req.get('origin');
@@ -64,6 +46,9 @@ app.post('/submission', async (req, res) => {
     );
   }
 
+  // Extract the fields from the form submission
+  const { name, email, message, learnMore, familiarityGCDS, honeypot } = body;
+
   let parameters;
   if (process.env['NODE_ENV'] === 'development') {
     parameters = {
@@ -74,6 +59,7 @@ app.post('/submission', async (req, res) => {
       },
     };
   } else {
+    // Get parameters from AWS SSM
     try {
       parameters = await getParametersByName(
         {
@@ -84,14 +70,22 @@ app.post('/submission', async (req, res) => {
     } catch (e) {
       // Log the error, but return the user back to the site (thank you page)
       console.error('[ERROR] Failed to get parameters from SSM', e);
+      console.log(
+        '[INFO] Redirecting user back to the site, user information:',
+        {
+          name,
+          email,
+          message,
+          learnMore,
+          familiarityGCDS,
+        },
+      );
       redirectUser(origin, forwardedOrigin, lang, res);
     }
   }
 
   const { EMAIL_TARGET, NOTIFY_API_KEY, NOTIFY_TEMPLATE_ID } =
     parameters['gc-design-system-config'];
-
-  const { name, email, message, learnMore, familiarityGCDS, honeypot } = body;
 
   // Honeypot check
   if (honeypot && honeypot.length > 0) {
@@ -108,37 +102,23 @@ app.post('/submission', async (req, res) => {
   }
 
   // Send to Notify
-  const headData = {
-    'Authorization': `ApiKey-v1 ${NOTIFY_API_KEY}`,
-    'Content-Type': 'application/json',
-  };
-
-  const postData = JSON.stringify({
-    email_address: EMAIL_TARGET,
-    template_id: NOTIFY_TEMPLATE_ID,
-    personalisation: {
-      name: name,
-      email: email,
-      message: message ? message : '',
-      learnMore: learnMore ? learnMore : '',
-      familiarityGCDS: familiarityGCDS ? familiarityGCDS : '',
+  // Change to create ticket on freshdesk, and then send to notify
+  const response = await sendEmail(
+    {
+      EMAIL_TARGET,
+      NOTIFY_API_KEY,
+      NOTIFY_TEMPLATE_ID,
     },
-  });
+    {
+      name,
+      email,
+      message,
+      learnMore,
+      familiarityGCDS,
+    },
+  );
 
-  console.log('[INFO] Sending to Notify: ', postData);
-
-  await axios
-    .post(
-      'https://api.notification.canada.ca/v2/notifications/email',
-      postData,
-      { headers: headData },
-    )
-    .then(res => {
-      console.log('[INFO] Successfully sent to Notify. Status: ', res.status);
-    })
-    .catch(err => {
-      console.error('[ERROR] Failed to send to Notify', err);
-    });
+  console.log(`[INFO] Notify response: ${response.status}`);
 
   redirectUser(origin, forwardedOrigin, lang, res);
 });
