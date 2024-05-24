@@ -30,7 +30,7 @@ date: 'git Last Modified'
 
 <article class="py-450">
   <h2 class="mb-400">Un système de design rien que pour vous</h2>
-  <p class="mb-500">Explorez notre outil de conception. <gcds-link href="/fr/contactez/">Donnez-nous votre avis</gcds-link>.</p>
+  <p class="mb-500">Explorez notre outil de conception. <gcds-link href="{{ links.contact }}">Donnez-nous votre avis</gcds-link>.</p>
   <gcds-grid tag="ul" columns="1fr" columns-tablet="1fr 1fr" columns-desktop="1fr 1fr 1fr" gap="450">
     <li class="list-none">
       <img class="mb-200" src="../../images/common/home/icon-components.svg" alt="" />
