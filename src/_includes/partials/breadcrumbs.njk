@@ -1,19 +1,20 @@
-{% if eleventyNavigation or tags %}
 
-  {% set key = eleventyNavigation.key if eleventyNavigation else tags[0] %}
-
-  {% set navPages = collections.all | eleventyNavigationBreadcrumb(key) %}
 
   <gcds-breadcrumbs lang="{{ locale }}" slot="breadcrumb">
-    <gcds-breadcrumbs-item href={{ breadcrumbs[locale].url | url }}>
-      {{ breadcrumbs[locale].linkText }}
-    </gcds-breadcrumbs-item>
-    {% for item in navPages %}
-      {% if item.url %}
-        <gcds-breadcrumbs-item href={{ item.url | url }}>
-          {{ item.title }}
-        </gcds-breadcrumbs-item>
-      {% endif %}
-    {% endfor %}
+    {% if eleventyNavigation or tags %}
+      <gcds-breadcrumbs-item href={{ breadcrumbs[locale].url | url }}>
+        {{ breadcrumbs[locale].linkText }}
+      </gcds-breadcrumbs-item>
+
+      {% set key = eleventyNavigation.key if eleventyNavigation else tags[0] %}
+
+      {% set navPages = collections.all | eleventyNavigationBreadcrumb(key) %}
+      {% for item in navPages %}
+        {% if item.url %}
+          <gcds-breadcrumbs-item href={{ item.url | url }}>
+            {{ item.title }}
+          </gcds-breadcrumbs-item>
+        {% endif %}
+      {% endfor %}
+    {% endif %}
   </gcds-breadcrumbs>
-{% endif %}
