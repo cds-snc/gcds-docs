@@ -65,7 +65,7 @@ app.post('/submission', async (req, res) => {
     parameters = {
       'gc-design-system-config': {
         EMAIL_TARGET: '',
-        FRESHDESK_API_KEY: '',
+        FRESHDESK_API_KEY: process.env['FRESHDESK_API_KEY'],
         NOTIFY_API_KEY: '',
         NOTIFY_TEMPLATE_ID: '',
       },
