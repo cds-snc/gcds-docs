@@ -12,7 +12,7 @@ jobs:
       images: ${{ steps.filter.outputs.changes }}
     steps:
       - name: Checkout
-        uses: actions/checkout@44c2b7a8a4ea60a981eaca3cf939b5f4305c123b # v4.1.5
+        uses: actions/checkout@a5ac7e51b41094c92402da3b24376905380afc29 # v4.1.6
 
       - uses: dorny/paths-filter@7267a8516b6f92bdb098633497bad573efdbf271 # v2.12.0
         id: filter
@@ -31,7 +31,7 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@44c2b7a8a4ea60a981eaca3cf939b5f4305c123b # v4.1.5
+        uses: actions/checkout@a5ac7e51b41094c92402da3b24376905380afc29 # v4.1.6
 
       - name: Build image
         working-directory: ./${{ matrix.image }}
