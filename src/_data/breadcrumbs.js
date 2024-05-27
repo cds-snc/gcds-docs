@@ -1,11 +1,11 @@
 module.exports = {
   en: {
-    linkText: 'Home',
+    linkText: 'GC Design System',
     url: '/en',
     breadcrumb: 'breadcrumb',
   },
   fr: {
-    linkText: 'Accueil',
+    linkText: 'Système de design GC',
     url: '/fr',
     breadcrumb: "Fil d'Ariane",
   },
