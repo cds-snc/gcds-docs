@@ -13,6 +13,7 @@ const contextMenu = require('./utils/context-menu');
 const displayTokens = require('./utils/display-tokens');
 const markdownAnchor = require('./utils/anchor');
 const slugify = require('./utils/slugify');
+const { encode } = require('html-entities');
 
 const { execSync } = require('child_process');
 
@@ -153,6 +154,10 @@ module.exports = function (eleventyConfig) {
       });
     });
     return colourName;
+  });
+
+  eleventyConfig.addFilter('encode-html', data => {
+    return encode(data);
   });
 
   eleventyConfig.addFilter('stringify', data => {

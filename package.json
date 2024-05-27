@@ -27,6 +27,7 @@
     "@11ty/eleventy-navigation": "^0.3.2",
     "axios": "^1.6.0",
     "eleventy-plugin-code-clipboard": "^0.1.0",
+    "html-entities": "^2.5.2",
     "markdown-it": "^13.0.0",
     "moment": "^2.29.1",
     "npm-run-all2": "^5.0.0"

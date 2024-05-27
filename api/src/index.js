@@ -1,13 +1,12 @@
 import { getParametersByName } from '@aws-lambda-powertools/parameters/ssm';
 
 import express from 'express';
-import axios from 'axios';
+import { redirectUser } from './utils.js';
+import { sendEmail } from './notify.js';
+import { createTicket } from './freshdesk.js';
 
 const app = express();
 const port = process.env['PORT'] || 8080;
-
-const DOMAIN_EN = 'https://design-system.alpha.canada.ca';
-const DOMAIN_FR = 'https://systeme-design.alpha.canada.ca';
 
 app.use(express.json()); // for parsing application/json
 app.use(express.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
@@ -23,23 +22,6 @@ process.on('SIGTERM', async () => {
   console.info('[express] exiting');
   process.exit(0);
 });
-
-const redirectUser = (origin, forwardedOrigin, lang, res) => {
-  // Attempt to get origin URL from request. If origin is null, use the default domains (en or fr) based on language
-  origin = origin && origin !== 'null' ? origin : forwardedOrigin;
-  origin =
-    origin && origin !== 'null'
-      ? origin
-      : lang === 'en'
-        ? DOMAIN_EN
-        : DOMAIN_FR;
-
-  const contactPath =
-    lang == 'en' ? '/en/contact/thanks' : '/fr/contactez/merci';
-  const redirectTo = origin + contactPath;
-  console.log(`[INFO] Redirecting to ${redirectTo}`);
-  res.redirect(303, redirectTo);
-};
 
 app.post('/submission', async (req, res) => {
   let origin = req.get('origin');
@@ -64,16 +46,32 @@ app.post('/submission', async (req, res) => {
     );
   }
 
+  // Extract the fields from the form submission
+  let { name, email, message, familiarityGCDS, honeypot } = body;
+
+  const learnMore = [];
+  if (body['learn-more-mailing-list']) {
+    learnMore.push('mailing_list');
+  }
+  if (body['learn-more-demo']) {
+    learnMore.push('demo');
+  }
+  if (body['learn-more-research']) {
+    learnMore.push('usability_research');
+  }
+
   let parameters;
   if (process.env['NODE_ENV'] === 'development') {
     parameters = {
       'gc-design-system-config': {
         EMAIL_TARGET: '',
+        FRESHDESK_API_KEY: process.env['FRESHDESK_API_KEY'],
         NOTIFY_API_KEY: '',
         NOTIFY_TEMPLATE_ID: '',
       },
     };
   } else {
+    // Get parameters from AWS SSM
     try {
       parameters = await getParametersByName(
         {
@@ -84,14 +82,26 @@ app.post('/submission', async (req, res) => {
     } catch (e) {
       // Log the error, but return the user back to the site (thank you page)
       console.error('[ERROR] Failed to get parameters from SSM', e);
+      console.log(
+        '[INFO] Redirecting user back to the site, user information:',
+        {
+          name,
+          email,
+          message,
+          learnMore,
+          familiarityGCDS,
+        },
+      );
       redirectUser(origin, forwardedOrigin, lang, res);
     }
   }
 
-  const { EMAIL_TARGET, NOTIFY_API_KEY, NOTIFY_TEMPLATE_ID } =
-    parameters['gc-design-system-config'];
-
-  const { name, email, message, learnMore, familiarityGCDS, honeypot } = body;
+  const {
+    EMAIL_TARGET,
+    NOTIFY_API_KEY,
+    NOTIFY_TEMPLATE_ID,
+    FRESHDESK_API_KEY,
+  } = parameters['gc-design-system-config'];
 
   // Honeypot check
   if (honeypot && honeypot.length > 0) {
@@ -106,40 +116,48 @@ app.post('/submission', async (req, res) => {
     res.status(204).send();
     return;
   }
+  message = message ? message : '';
 
-  // Send to Notify
-  const headData = {
-    'Authorization': `ApiKey-v1 ${NOTIFY_API_KEY}`,
-    'Content-Type': 'application/json',
-  };
-
-  const postData = JSON.stringify({
-    email_address: EMAIL_TARGET,
-    template_id: NOTIFY_TEMPLATE_ID,
-    personalisation: {
-      name: name,
-      email: email,
-      message: message ? message : '',
-      learnMore: learnMore ? learnMore : '',
-      familiarityGCDS: familiarityGCDS ? familiarityGCDS : '',
+  // Send to freshdesk, if it fails, send to notify
+  const freshdeskResponse = await createTicket(
+    {
+      FRESHDESK_API_KEY,
     },
-  });
+    {
+      name,
+      email,
+      message,
+      learnMore,
+      familiarityGCDS,
+    },
+    lang,
+  );
 
-  console.log('[INFO] Sending to Notify: ', postData);
+  console.log(
+    `[INFO] Freshdesk response: ${freshdeskResponse.status} ${freshdeskResponse.ok}`,
+  );
+  if (freshdeskResponse?.ok === false) {
+    console.error('[ERROR] Failed to send to Freshdesk, sending to Notify');
+    const response = await sendEmail(
+      {
+        EMAIL_TARGET,
+        NOTIFY_API_KEY,
+        NOTIFY_TEMPLATE_ID,
+      },
+      {
+        name,
+        email,
+        message,
+        learnMore,
+        familiarityGCDS,
+      },
+      lang,
+    );
 
-  await axios
-    .post(
-      'https://api.notification.canada.ca/v2/notifications/email',
-      postData,
-      { headers: headData },
-    )
-    .then(res => {
-      console.log('[INFO] Successfully sent to Notify. Status: ', res.status);
-    })
-    .catch(err => {
-      console.error('[ERROR] Failed to send to Notify', err);
-    });
+    console.log(`[INFO] Notify response: ${response.status}`);
+  }
 
+  console.log(`[INFO] Successfully sent to Freshdesk`);
   redirectUser(origin, forwardedOrigin, lang, res);
 });
 
