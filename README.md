@@ -10,7 +10,7 @@ GC Design System Docs is a documentation website for GC Design System. You can f
 
 ## Tools
 
-We are using [11ty](https://www.11ty.dev/docs/) and [Netlify](https://docs.netlify.com/) to build our documentation website.
+We are using [11ty](https://www.11ty.dev/docs/) to build our documentation website.
 <br/>
 <br/>
 
@@ -81,7 +81,7 @@ Docs de Système de design GC est un site Web contenant de la documentation port
 
 ## Outils
 
-Nous utilisons [11ty](https://www.11ty.dev/docs/) et [Netlify](https://docs.netlify.com/) pour construire notre site Web de documentation.
+Nous utilisons [11ty](https://www.11ty.dev/docs/) pour construire notre site Web de documentation.
 <br/>
 <br/>
 
