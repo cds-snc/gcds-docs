@@ -70,7 +70,9 @@
       <gcds-footer
         display="full"
         lang="{{ locale }}"
-        sub-links='{ "{{ footer[locale].social }}": "{{ footer[locale].socialurl }}", "{{ footer[locale].mobile }}": "{{ footer[locale].mobileurl }}", "{{ footer[locale].about }}": "{{ footer[locale].abouturl }}", "{{ footer[locale].terms }}": "{{ footer[locale].termsurl }}", "{{ footer[locale].privacy }}": "{{ links.privacy }}" }'
+        contextual-heading="{{ footer[locale].contextual.heading }}"
+        contextual-links='{ "{{ footer[locale].contextual.list }}": "{{ footer[locale].contextual.listurl }}", "{{ footer[locale].contextual.issue }}": "{{ footer[locale].contextual.issueurl }}", "{{ footer[locale].contextual.about }}": "{{ footer[locale].contextual.abouturl }}" }'
+        sub-links='{ "{{ footer[locale].sub.social }}": "{{ footer[locale].sub.socialurl }}", "{{ footer[locale].sub.mobile }}": "{{ footer[locale].sub.mobileurl }}", "{{ footer[locale].sub.about }}": "{{ footer[locale].sub.abouturl }}", "{{ footer[locale].sub.terms }}": "{{ footer[locale].sub.termsurl }}", "{{ footer[locale].sub.privacy }}": "{{ links.privacy }}" }'
       ></gcds-footer>
 
     </div>
