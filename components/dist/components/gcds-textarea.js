@@ -47,6 +47,10 @@ const GcdsTextarea$1 = /*@__PURE__*/ proxyCustomElement(class GcdsTextarea exten
             const val = e.target && e.target.value;
             this.value = val;
             this.internals.setFormValue(val ? val : null);
+            if (e.type === 'change') {
+                const changeEvt = new e.constructor(e.type, e);
+                this.el.dispatchEvent(changeEvt);
+            }
             customEvent.emit(this.value);
         };
         this.characterCount = undefined;

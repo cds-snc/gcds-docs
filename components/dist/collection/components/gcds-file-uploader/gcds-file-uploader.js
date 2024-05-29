@@ -25,6 +25,10 @@ export class GcdsFileUploader {
                     this.validate();
                 }, 100);
             }
+            if (e.type === 'change') {
+                const changeEvt = new e.constructor(e.type, e);
+                this.el.dispatchEvent(changeEvt);
+            }
             customEvent.emit(this.value);
         };
         this.removeFile = e => {

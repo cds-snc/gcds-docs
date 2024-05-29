@@ -2,7 +2,7 @@
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
-const index = require('./index-467dd89b.js');
+const index = require('./index-1b57b578.js');
 
 const inheritAttributes = (el, shadowElement, attributes = []) => {
     const attributeObject = {};
@@ -704,6 +704,8 @@ const GcdsCheckbox = class {
             if (!this.checked) {
                 this.internals.setFormValue(null, 'checked');
             }
+            const changeEvt = new e.constructor(e.type, e);
+            this.el.dispatchEvent(changeEvt);
             this.gcdsChange.emit(this.checked);
         };
         this.checkboxId = undefined;
@@ -1384,6 +1386,10 @@ const GcdsFileUploader = class {
                 setTimeout(() => {
                     this.validate();
                 }, 100);
+            }
+            if (e.type === 'change') {
+                const changeEvt = new e.constructor(e.type, e);
+                this.el.dispatchEvent(changeEvt);
             }
             customEvent.emit(this.value);
         };
@@ -2317,6 +2323,10 @@ const GcdsInput = class {
             const val = e.target && e.target.value;
             this.value = val;
             this.internals.setFormValue(val ? val : null);
+            if (e.type === 'change') {
+                const changeEvt = new e.constructor(e.type, e);
+                this.el.dispatchEvent(changeEvt);
+            }
             customEvent.emit(this.value);
         };
         this.disabled = false;
@@ -2449,9 +2459,9 @@ const GcdsInput = class {
     }
     render() {
         const { disabled, errorMessage, hideLabel, hint, inputId, name, label, required, size, type, value, hasError, autocomplete, inheritedAttributes, lang, } = this;
-        // Use max-width instead of size attribute to keep field responsive
+        // Use max-width to keep field responsive
         const style = {
-            maxWidth: `${size + (type === 'number' ? 2.5 : 3.75)}ch`,
+            maxWidth: `${size * 2}ch`,
         };
         const attrsInput = Object.assign({ disabled,
             required,
@@ -2469,7 +2479,7 @@ const GcdsInput = class {
                 ? ` ${attrsInput['aria-describedby']}`
                 : ''}`;
         }
-        return (index.h(index.Host, null, index.h("div", { class: `gcds-input-wrapper ${disabled ? 'gcds-disabled' : ''} ${hasError ? 'gcds-error' : ''}` }, index.h("gcds-label", Object.assign({}, attrsLabel, { "hide-label": hideLabel, "label-for": inputId, lang: lang })), hint ? index.h("gcds-hint", { "hint-id": inputId }, hint) : null, errorMessage ? (index.h("gcds-error-message", { messageId: inputId }, errorMessage)) : null, index.h("input", Object.assign({}, attrsInput, { class: hasError ? 'gcds-error' : null, id: inputId, name: name, onBlur: () => this.onBlur(), onFocus: () => this.gcdsFocus.emit(), onInput: e => this.handleInput(e, this.gcdsInput), onChange: e => this.handleInput(e, this.gcdsChange), "aria-labelledby": `label-for-${inputId}`, "aria-invalid": errorMessage ? 'true' : 'false', maxlength: size, style: size ? style : null, ref: element => (this.shadowElement = element) })))));
+        return (index.h(index.Host, null, index.h("div", { class: `gcds-input-wrapper ${disabled ? 'gcds-disabled' : ''} ${hasError ? 'gcds-error' : ''}` }, index.h("gcds-label", Object.assign({}, attrsLabel, { "hide-label": hideLabel, "label-for": inputId, lang: lang })), hint ? index.h("gcds-hint", { "hint-id": inputId }, hint) : null, errorMessage ? (index.h("gcds-error-message", { messageId: inputId }, errorMessage)) : null, index.h("input", Object.assign({}, attrsInput, { class: hasError ? 'gcds-error' : null, id: inputId, name: name, onBlur: () => this.onBlur(), onFocus: () => this.gcdsFocus.emit(), onInput: e => this.handleInput(e, this.gcdsInput), onChange: e => this.handleInput(e, this.gcdsChange), "aria-labelledby": `label-for-${inputId}`, "aria-invalid": errorMessage ? 'true' : 'false', size: size, style: size ? style : null, ref: element => (this.shadowElement = element) })))));
     }
     static get delegatesFocus() { return true; }
     static get formAssociated() { return true; }
@@ -3231,6 +3241,8 @@ const GcdsRadioGroup = class {
         this.onChange = e => {
             this.gcdsChange.emit(e.target.value);
             this.internals.setFormValue(e.target.value, 'checked');
+            const changeEvt = new e.constructor(e.type, e);
+            this.el.dispatchEvent(changeEvt);
         };
         this.options = undefined;
         this.name = undefined;
@@ -3404,6 +3416,10 @@ const GcdsSelect = class {
             const val = e.target && e.target.value;
             this.value = val;
             this.internals.setFormValue(val);
+            if (e.type === 'change') {
+                const changeEvt = new e.constructor(e.type, e);
+                this.el.dispatchEvent(changeEvt);
+            }
             customEvent.emit(this.value);
         };
         this.onBlur = () => {
@@ -3984,7 +4000,7 @@ const GcdsSignature = class {
 };
 GcdsSignature.style = GcdsSignatureStyle0;
 
-const gcdsSrOnlyCss = "@layer reset, default;@layer reset{:host slot{display:initial}}@layer default{:host{display:block;height:0;margin:0;overflow:hidden;width:0}}";
+const gcdsSrOnlyCss = "@layer reset, default;@layer reset{:host slot{display:initial}}@layer default{:host{display:inline-block;height:0;margin:0;overflow:hidden;width:0}}";
 const GcdsSrOnlyStyle0 = gcdsSrOnlyCss;
 
 const GcdsSrOnly = class {
@@ -4215,6 +4231,10 @@ const GcdsTextarea = class {
             const val = e.target && e.target.value;
             this.value = val;
             this.internals.setFormValue(val ? val : null);
+            if (e.type === 'change') {
+                const changeEvt = new e.constructor(e.type, e);
+                this.el.dispatchEvent(changeEvt);
+            }
             customEvent.emit(this.value);
         };
         this.characterCount = undefined;

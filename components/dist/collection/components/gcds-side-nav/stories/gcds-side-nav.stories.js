@@ -17,7 +17,7 @@ export default {
     }, langProp),
 };
 const Template = args => `
-<!-- Web component code (Angular, Vue) -->
+<!-- Web component code (HTML, Angular, Vue) -->
 <gcds-side-nav
   label="${args.label}"
   ${args.lang != 'en' ? `lang="${args.lang}"` : null}

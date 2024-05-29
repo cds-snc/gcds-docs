@@ -42,7 +42,7 @@ export default {
     }, langProp),
 };
 const Template = args => `
-<!-- Web component code (Angular, Vue) -->
+<!-- Web component code (HTML, Angular, Vue) -->
 <gcds-search
   ${args.action != '/sr/srb.html' ? `action="${args.action}"` : null}
   ${args.method != 'get' ? `method="${args.method}"` : null}

@@ -68,7 +68,7 @@ export default {
     }, langProp),
 };
 const Template = args => `
-<!-- Web component code (Angular, Vue) -->
+<!-- Web component code (HTML, Angular, Vue) -->
 <gcds-pagination
   ${args.display != 'list' ? `display="${args.display}"` : null}
   label="${args.label}"

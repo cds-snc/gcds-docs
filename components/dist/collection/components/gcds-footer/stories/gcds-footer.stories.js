@@ -37,7 +37,7 @@ export default {
     }, langProp),
 };
 const Template = args => `
-<!-- Web component code (Angular, Vue) -->
+<!-- Web component code (HTML, Angular, Vue) -->
 <gcds-footer
   ${args.display != 'compact' ? `display="${args.display}"` : null}
   ${args.contextualHeading && args.contextualLinks

@@ -158,7 +158,7 @@ export default {
     },
 };
 const Template = args => `
-<!-- Web component code (Angular, Vue) -->
+<!-- Web component code (HTML, Angular, Vue) -->
 <gcds-grid ${args.tag != 'div' ? `tag="${args.tag}"` : null} ${args.container != 'full' ? `container="${args.container}"` : null} ${args.columnsDesktop ? `columns-desktop="${args.columnsDesktop}"` : null} ${args.columnsTablet ? `columns-tablet="${args.columnsTablet}"` : null} ${args.columns ? `columns="${args.columns}"` : null} ${args.alignContent ? `align-content="${args.alignContent}"` : null} ${args.justifyContent ? `justify-content="${args.justifyContent}"` : null} ${args.placeContent ? `place-content="${args.placeContent}"` : null} ${args.alignItems ? `align-items="${args.alignItems}"` : null} ${args.justifyItems ? `justify-items="${args.justifyItems}"` : null} ${args.placeItems ? `place-items="${args.placeItems}"` : null} ${args.equalRowHeight ? `equal-row-height` : null}>
   ${args.default ? args.default : null}
 </gcds-grid>

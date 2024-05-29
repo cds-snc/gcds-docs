@@ -86,7 +86,7 @@ export default {
     },
 };
 const Template = args => `
-<!-- Web component code (Angular, Vue) -->
+<!-- Web component code (HTML, Angular, Vue) -->
 <gcds-heading tag="${args.tag}" ${!args.characterLimit ? `character-limit="${args.characterLimit}"` : null} ${args.marginTop ? `margin-top="${args.marginTop}"` : null} ${args.marginBottom ? `margin-bottom="${args.marginBottom}"` : null}>
   ${args.default}
 </gcds-heading>

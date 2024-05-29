@@ -34,7 +34,7 @@ export default {
     }),
 };
 const Template = args => `
-<!-- Web component code (Angular, Vue) -->
+<!-- Web component code (HTML, Angular, Vue) -->
 <gcds-breadcrumbs ${args.hideCanadaLink ? `hide-canada-link` : null} ${args.lang != 'en' ? `lang="${args.lang}"` : null}>
   <gcds-breadcrumbs-item href="${args.href}">Home page</gcds-breadcrumbs-item>
   <gcds-breadcrumbs-item href="${args.href}">Parent page link</gcds-breadcrumbs-item>

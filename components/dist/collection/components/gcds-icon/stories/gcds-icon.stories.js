@@ -110,7 +110,7 @@ export default {
     },
 };
 const Template = args => `
-<!-- Web component code (Angular, Vue) -->
+<!-- Web component code (HTML, Angular, Vue) -->
 <gcds-icon ${args.label ? `label="${args.label}"` : null} name="${args.name}" ${args.iconStyle != 'solid' ? `icon-style="${args.iconStyle}"` : null} ${args.marginLeft ? `margin-left="${args.marginLeft}"` : null} ${args.marginRight ? `margin-right="${args.marginRight}"` : null} ${args.size != 'text' ? `size="${args.size}"` : null} ${args.fixedWidth ? `fixed-width="${args.fixedWidth}"` : null}>
 </gcds-icon>
 

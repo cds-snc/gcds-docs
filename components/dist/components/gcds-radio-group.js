@@ -22,6 +22,8 @@ const GcdsRadioGroup$1 = /*@__PURE__*/ proxyCustomElement(class GcdsRadioGroup e
         this.onChange = e => {
             this.gcdsChange.emit(e.target.value);
             this.internals.setFormValue(e.target.value, 'checked');
+            const changeEvt = new e.constructor(e.type, e);
+            this.el.dispatchEvent(changeEvt);
         };
         this.options = undefined;
         this.name = undefined;

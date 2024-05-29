@@ -107,7 +107,7 @@ export default {
     },
 };
 const Template = args => `
-<!-- Web component code (Angular, Vue) -->
+<!-- Web component code (HTML, Angular, Vue) -->
 <gcds-text ${args.textRole != 'primary' ? `text-role="${args.textRole}"` : null} ${args.size != 'body' ? `size="${args.size}"` : null} ${!args.characterLimit ? `character-limit="${args.characterLimit}"` : null} ${args.display != 'block' ? `display="${args.display}"` : null} ${args.marginTop != '0' ? `margin-top="${args.marginTop}"` : null} ${args.marginBottom != '400' ? `margin-bottom="${args.marginBottom}"` : null}>
   ${args.default}
 </gcds-text>

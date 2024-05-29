@@ -14,6 +14,10 @@ export class GcdsInput {
             const val = e.target && e.target.value;
             this.value = val;
             this.internals.setFormValue(val ? val : null);
+            if (e.type === 'change') {
+                const changeEvt = new e.constructor(e.type, e);
+                this.el.dispatchEvent(changeEvt);
+            }
             customEvent.emit(this.value);
         };
         this.disabled = false;
@@ -146,9 +150,9 @@ export class GcdsInput {
     }
     render() {
         const { disabled, errorMessage, hideLabel, hint, inputId, name, label, required, size, type, value, hasError, autocomplete, inheritedAttributes, lang, } = this;
-        // Use max-width instead of size attribute to keep field responsive
+        // Use max-width to keep field responsive
         const style = {
-            maxWidth: `${size + (type === 'number' ? 2.5 : 3.75)}ch`,
+            maxWidth: `${size * 2}ch`,
         };
         const attrsInput = Object.assign({ disabled,
             required,
@@ -166,7 +170,7 @@ export class GcdsInput {
                 ? ` ${attrsInput['aria-describedby']}`
                 : ''}`;
         }
-        return (h(Host, null, h("div", { class: `gcds-input-wrapper ${disabled ? 'gcds-disabled' : ''} ${hasError ? 'gcds-error' : ''}` }, h("gcds-label", Object.assign({}, attrsLabel, { "hide-label": hideLabel, "label-for": inputId, lang: lang })), hint ? h("gcds-hint", { "hint-id": inputId }, hint) : null, errorMessage ? (h("gcds-error-message", { messageId: inputId }, errorMessage)) : null, h("input", Object.assign({}, attrsInput, { class: hasError ? 'gcds-error' : null, id: inputId, name: name, onBlur: () => this.onBlur(), onFocus: () => this.gcdsFocus.emit(), onInput: e => this.handleInput(e, this.gcdsInput), onChange: e => this.handleInput(e, this.gcdsChange), "aria-labelledby": `label-for-${inputId}`, "aria-invalid": errorMessage ? 'true' : 'false', maxlength: size, style: size ? style : null, ref: element => (this.shadowElement = element) })))));
+        return (h(Host, null, h("div", { class: `gcds-input-wrapper ${disabled ? 'gcds-disabled' : ''} ${hasError ? 'gcds-error' : ''}` }, h("gcds-label", Object.assign({}, attrsLabel, { "hide-label": hideLabel, "label-for": inputId, lang: lang })), hint ? h("gcds-hint", { "hint-id": inputId }, hint) : null, errorMessage ? (h("gcds-error-message", { messageId: inputId }, errorMessage)) : null, h("input", Object.assign({}, attrsInput, { class: hasError ? 'gcds-error' : null, id: inputId, name: name, onBlur: () => this.onBlur(), onFocus: () => this.gcdsFocus.emit(), onInput: e => this.handleInput(e, this.gcdsInput), onChange: e => this.handleInput(e, this.gcdsChange), "aria-labelledby": `label-for-${inputId}`, "aria-invalid": errorMessage ? 'true' : 'false', size: size, style: size ? style : null, ref: element => (this.shadowElement = element) })))));
     }
     static get is() { return "gcds-input"; }
     static get encapsulation() { return "shadow"; }
