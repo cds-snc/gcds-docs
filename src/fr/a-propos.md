@@ -24,7 +24,7 @@ Système de design GC intègre les éléments obligatoires de Canada.ca. Nous co
 
 ## Canaux de collaboration et de soutien
 
-Consultez notre page [S'impliquer]({{ links.getInvolved }}) pour savoir sur quoi nous travaillons et comment vous pouvez y contribuer.
+Consultez notre page [s'impliquer]({{ links.getInvolved }}) pour savoir sur quoi nous travaillons et comment vous pouvez y contribuer.
 
 Visitez notre <gcds-link external href="{{ links.githubCompsIssues }}">référentiel GitHub</gcds-link> pour signaler un problème ou faire une suggestion.
 
