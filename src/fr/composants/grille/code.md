@@ -76,12 +76,11 @@ Mobile
 </div>
 
 {% viewCode "fr" "preview-grid-flexible" "gcds-grid" %}
-<gcds-grid tag="article" columns-desktop="1fr 1fr 1fr" columns-tablet="1fr 1fr" columns="1fr" gap="300">
-
-  <p>Ceci est un exemple de contenu pour illustrer le composant Grille.</p>
-  <p>Ceci est un exemple de contenu pour illustrer le composant Grille.</p>
-  <p>Ceci est un exemple de contenu pour illustrer le composant Grille.</p>
-</gcds-grid>
+  <gcds-grid tag="article" columns-desktop="1fr 1fr 1fr" columns-tablet="1fr 1fr" columns="1fr" gap="300">
+    <p>Ceci est un exemple de contenu pour illustrer le composant Grille.</p>
+    <p>Ceci est un exemple de contenu pour illustrer le composant Grille.</p>
+    <p>Ceci est un exemple de contenu pour illustrer le composant Grille.</p>
+  </gcds-grid>
 {% endviewCode %}
 
 Définissez la largeur minimale et la largeur maximale pour concevoir des colonnes de largeur égale afin de limiter la largeur des colonnes sur n'importe quelle taille d'écran.
@@ -126,12 +125,11 @@ Mobile
 </div>
 
 {% viewCode "fr" "preview-grid-fixed-width" "gcds-grid" %}
-<gcds-grid tag="article" columns="repeat(auto-fit, minmax(100px, 300px))" gap="500">
-
-  <p>Ceci est un exemple de contenu pour illustrer le composant Grille.</p>
-  <p>Ceci est un exemple de contenu pour illustrer le composant Grille.</p>
-  <p>Ceci est un exemple de contenu pour illustrer le composant Grille.</p>
-</gcds-grid>
+  <gcds-grid tag="article" columns="repeat(auto-fit, minmax(100px, 300px))" gap="500">
+    <p>Ceci est un exemple de contenu pour illustrer le composant Grille.</p>
+    <p>Ceci est un exemple de contenu pour illustrer le composant Grille.</p>
+    <p>Ceci est un exemple de contenu pour illustrer le composant Grille.</p>
+  </gcds-grid>
 {% endviewCode %}
 
 {% include "partials/getcode.njk" %}
