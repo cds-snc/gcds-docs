@@ -22,6 +22,9 @@
 
     <!-- Qualtrics-->
     <!--BEGIN QUALTRICS WEBSITE FEEDBACK SNIPPET-->
+    <script type='text/javascript'>{% set language %}{{ 'FR-CA' if locale === 'fr' else 'EN' }}{% endset %}
+        const language = '{{ language }}';
+    </script>
     <script type='text/javascript'>
         (function(){var g=function(e,h,f,g){
         this.get=function(a){for(var a=a+"=",c=document.cookie.split(";"),b=0,e=c.length;b<e;b++){for(var d=c[b];" "==d.charAt(0);)d=d.substring(1,d.length);if(0==d.indexOf(a))return d.substring(a.length,d.length)}return null};
