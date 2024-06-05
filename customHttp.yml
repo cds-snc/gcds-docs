@@ -19,8 +19,8 @@ customHeaders:
         value: >-
           report-uri https://csp-report-to.security.cdssandbox.xyz/report;
           default-src 'self' https://kit.fontawesome.com/ https://cdn.jsdelivr.net/npm/;
-          font-src 'self' fonts.gstatic.com https://unpkg.com/font-awesome@4.7.0/;
-          script-src 'self' 'wasm-unsafe-eval' www.googletagmanager.com www.google-analytics.com https://kit.fontawesome.com https://cdn.jsdelivr.net/npm/ *.qualtrics.com 'unsafe-inline';
+          font-src 'self' fonts.gstatic.com https://unpkg.com/font-awesome@4.7.0/ https://cdnjs.cloudflare.com/ajax/libs/font-awesome/;
+          script-src 'self' 'wasm-unsafe-eval' www.googletagmanager.com www.google-analytics.com https://cdnjs.cloudflare.com/ajax/libs/font-awesome/ https://cdn.jsdelivr.net/npm/ *.qualtrics.com 'unsafe-inline';
           frame-src www.googletagmanager.com www.google-analytics.com https://cds-snc.github.io/;
           connect-src 'self' www.googletagmanager.com www.google-analytics.com www.canada.ca;
           img-src 'self' data: https: www.w3.org;
