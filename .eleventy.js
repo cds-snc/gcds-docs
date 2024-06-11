@@ -27,7 +27,6 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy('./src/scripts/code-showcase.js');
   eleventyConfig.addPassthroughCopy('./src/scripts/search.js');
   eleventyConfig.addPassthroughCopy('./src/scripts/code-copy.js');
-  eleventyConfig.addPassthroughCopy('./src/scripts/constants.js');
   eleventyConfig.addPassthroughCopy('./src/admin/config.yml');
   eleventyConfig.addPassthroughCopy('./src/favicon.ico');
   eleventyConfig.addPassthroughCopy({ './src/variables/': 'variables' });
