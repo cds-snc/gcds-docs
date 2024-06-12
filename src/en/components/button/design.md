@@ -32,4 +32,3 @@ date: 'git Last Modified'
 - Avoid re-using label text on the same page or using labels that sound a lot alike. A person using assistive technology will hear the label text repeated in rapid succession without cues to tell which button's for which action.
 - Stay away from verb phrases or expressions that may be unfamiliar to non-fluent speakers.
 
-Tip: Language constructions like sign up and sign in can be confusing because the "up" and "in" add little meaning and alongside other they can be hard to tell apart.
