@@ -45,7 +45,7 @@ date: 'git Last Modified'
 
 Typography tokens include the style, arrangement, and appearance of letters, numbers, and symbols.
 
-## Typography and and accessibility
+## Typography and accessibility
 
 GC Design System components meet <gcds-link external href="{{ links.wcagTextSpacing }}" target="_blank">level AA of the Web Content Accessibility Guidelines (WCAG 2.1)</gcds-link> for text spacing and AAA for visual presentation.
 
