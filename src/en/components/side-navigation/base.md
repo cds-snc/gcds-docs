@@ -7,7 +7,7 @@ tags: ['sidenavigationEN', 'header']
 
 # Side navigation <br>`<gcds-side-nav>`
 
-_Also called: sidebar menu, lefhand nav, vertical navigation._
+_Also called: sidebar menu, lefthand nav, vertical navigation._
 
 A side navigation is a vertical list of page links on the left side of the screen.
 
