@@ -4,6 +4,7 @@ layout: 'layouts/component-documentation.njk'
 translationKey: 'radioDesign'
 tags: ['radioFR', 'design']
 date: 'git Last Modified'
+nocrawl: true
 ---
 
 ## Structure du bouton radio - avec jeu de champ
