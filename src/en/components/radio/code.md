@@ -4,6 +4,7 @@ layout: 'layouts/component-documentation.njk'
 translationKey: 'radioCode'
 tags: ['radioEN', 'code']
 date: 'git Last Modified'
+nocrawl: true
 ---
 
 ## Build a radio

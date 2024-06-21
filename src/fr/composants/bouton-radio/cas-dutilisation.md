@@ -16,6 +16,7 @@ translationKey: 'radio'
 tags: ['radioFR', 'usage']
 permalink: /fr/composants/bouton-radio/
 date: 'git Last Modified'
+nocrawl: true
 ---
 
 Explorez les problèmes que les boutons radio règlent et découvrez s’ils peuvent servir à résoudre votre problème particulier.

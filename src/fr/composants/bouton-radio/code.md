@@ -4,6 +4,7 @@ layout: 'layouts/component-documentation.njk'
 translationKey: 'radioCode'
 tags: ['radioFR', 'code']
 date: 'git Last Modified'
+nocrawl: true
 ---
 
 ## Créer un bouton radio

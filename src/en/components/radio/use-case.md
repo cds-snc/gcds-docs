@@ -16,6 +16,7 @@ translationKey: 'radio'
 tags: ['radioEN', 'usage']
 permalink: /en/components/radio/
 date: 'git Last Modified'
+nocrawl: true
 ---
 
 Take a look at what problems radios solve to see if they fit the problem you're solving for.
