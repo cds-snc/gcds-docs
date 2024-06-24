@@ -82,6 +82,7 @@ export const createTicket = async (settings, data, lang) => {
       const errorDetail = response.text();
       throw new Error(`Freshdesk error with response: ${errorDetail}`);
     } else {
+      console.log(`[INFO] Successfully sent to Freshdesk`);
       return response;
     }
   } catch (e) {

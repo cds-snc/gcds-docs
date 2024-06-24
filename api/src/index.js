@@ -157,7 +157,7 @@ app.post('/submission', async (req, res) => {
     console.log(`[INFO] Notify response: ${response.status}`);
   }
 
-  console.log(`[INFO] Successfully sent to Freshdesk`);
+  // Redirect user once we're finished processing the request, regardless whether it was successful or not.
   redirectUser(origin, forwardedOrigin, lang, res);
 });
 
