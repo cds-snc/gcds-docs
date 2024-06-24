@@ -34,7 +34,7 @@ export const createTicket = async (settings, data, lang) => {
   }
 
   // Build the description field
-  let description = `Name: ${name}<br>Email: ${email}<br>Message: ${message}<br>Learn More: ${learnMore}<br>Familiarity with GC Design System: ${familiarityGCDS}`;
+  let description = `Name: ${name}<br>Email: ${email}<br>Message: <pre>${message}</pre><br>Learn More: ${learnMore}<br>Familiarity with GC Design System: ${familiarityGCDS}`;
   let subject = 'GC Design System Contact Form';
   let customFields = {
     cf_language: 'English',
@@ -46,7 +46,7 @@ export const createTicket = async (settings, data, lang) => {
     customFields = {
       cf_language: 'Français',
     };
-    description = `Nom: ${name}<br>Courriel: ${email}<br>Message: ${message}<br>En savoir plus: ${learnMore}<br>Familiarité avec le Système de design GC: ${familiarityGCDS}`;
+    description = `Nom: ${name}<br>Courriel: ${email}<br>Message: <pre>${message}</pre><br>En savoir plus: ${learnMore}<br>Familiarité avec le Système de design GC: ${familiarityGCDS}`;
   }
 
   const postData = JSON.stringify({
