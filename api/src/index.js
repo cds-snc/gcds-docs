@@ -1,6 +1,7 @@
 import { getParametersByName } from '@aws-lambda-powertools/parameters/ssm';
 
 import express from 'express';
+import { encode } from 'html-entities';
 import { redirectUser } from './utils.js';
 import { sendEmail } from './notify.js';
 import { createTicket } from './freshdesk.js';
@@ -116,7 +117,7 @@ app.post('/submission', async (req, res) => {
     res.status(204).send();
     return;
   }
-  message = message ? message : '';
+  message = message ? encode(message) : '';
 
   // Send to freshdesk, if it fails, send to notify
   const freshdeskResponse = await createTicket(
