@@ -55,6 +55,8 @@ export const sendEmail = async (settings, data, lang) => {
     console.error('[ERROR] Failed to send to Notify');
     const errorDetail = await response.text();
     console.error('[ERROR] Notify error detail: ', errorDetail);
+  } else {
+    console.log(`[INFO] Successfully sent to Notify`);
   }
 
   return response;
