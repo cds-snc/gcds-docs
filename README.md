@@ -77,7 +77,7 @@ Code released under the [MIT License](https://github.com/cds-snc/gcds-docs/blob/
 
 # Documentation de Système de design GC
 
-Docs de Système de design GC est un site Web contenant de la documentation portant sur Système de design GC. Toute la documentation est accessible à [https://design-system.alpha.canada.ca/](https://systeme-design.alpha.canada.ca/fr/).
+Docs de Système de design GC est un site Web contenant de la documentation portant sur Système de design GC. Toute la documentation est accessible à [https://systeme-design.alpha.canada.ca/](https://systeme-design.alpha.canada.ca/).
 
 ## Outils
 
