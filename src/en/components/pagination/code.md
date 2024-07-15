@@ -30,7 +30,6 @@ Use list styled pagination when you are dealing with a larger number of pages.
 - Set the total number of pages in your sequence with the `total-pages` attribute using a numeric value.
 - Set the current or active page with the `current-page` attribute using a numeric value.
 - Opt to use the `url` attribute to provide the component with a group of page links. This can be an object if you are working in a JS environment, or a string if you are using HTML.
-- The `pageChangeHandler` is used to track any page change events.
 
 #### Apply the URL object for list-style pagination
 
