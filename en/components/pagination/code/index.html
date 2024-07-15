@@ -1161,13 +1161,12 @@ Pagination component preview
 <li><p class="mb-400">Set the total number of pages in your sequence with the <code>total-pages</code> attribute using a numeric value.</li>
 <li><p class="mb-400">Set the current or active page with the <code>current-page</code> attribute using a numeric value.</li>
 <li><p class="mb-400">Opt to use the <code>url</code> attribute to provide the component with a group of page links. This can be an object if you are working in a JS environment, or a string if you are using HTML.</li>
-<li><p class="mb-400">The <code>pageChangeHandler</code> is used to track any page change events.</li>
 </ul>
 <h4 id="apply-the-url-object-for-liststyle-pagination" class="mt-500 mb-400">Apply the URL object for list-style pagination</h4>
 <p class="mb-400">Use the <code>url</code> object to generate the query strings and fragments for the list pagination’s links.</p>
 
 <div style="position: relative">
-  <pre class="language-js"><code id="code-81" class="language-js">url <span class="token operator">=</span> <span class="token punctuation">{</span>
+  <pre class="language-js"><code id="code-76" class="language-js">url <span class="token operator">=</span> <span class="token punctuation">{</span>
   <span class="token literal-property property">queryStrings</span><span class="token operator">:</span> <span class="token punctuation">{</span>
     <span class="token comment">// Key value pairs</span>
     <span class="token literal-property property">key</span><span class="token operator">:</span> value<span class="token punctuation">,</span>
@@ -1176,7 +1175,7 @@ Pagination component preview
 <span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre>
 
   <button class="code-copy "
-    data-clipboard-target="#code-81"
+    data-clipboard-target="#code-76"
     style="position: absolute; top: 7.5px; right: 6px; padding-top: 3px; cursor: pointer; outline: none; opacity: 0.8;" title="Copy">
     <span style="display:inline-block;background:url(https://api.iconify.design/mdi/content-copy.svg) no-repeat center center / contain;width: 16px; height: 16px;" class=""></span>
   </button>
@@ -1185,14 +1184,14 @@ Pagination component preview
 <p class="mb-400"><code>::offset</code> counts up with the given value starting from the second page link.</p>
 
 <div style="position: relative">
-  <pre class="language-js"><code id="code-88" class="language-js">url <span class="token operator">=</span> <span class="token punctuation">{</span>
+  <pre class="language-js"><code id="code-83" class="language-js">url <span class="token operator">=</span> <span class="token punctuation">{</span>
   <span class="token literal-property property">queryStrings</span><span class="token operator">:</span> <span class="token punctuation">{</span>
     <span class="token string-property property">'index::offset'</span><span class="token operator">:</span> <span class="token number">100</span><span class="token punctuation">,</span>
   <span class="token punctuation">}</span><span class="token punctuation">,</span>
 <span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre>
 
   <button class="code-copy "
-    data-clipboard-target="#code-88"
+    data-clipboard-target="#code-83"
     style="position: absolute; top: 7.5px; right: 6px; padding-top: 3px; cursor: pointer; outline: none; opacity: 0.8;" title="Copy">
     <span style="display:inline-block;background:url(https://api.iconify.design/mdi/content-copy.svg) no-repeat center center / contain;width: 16px; height: 16px;" class=""></span>
   </button>
@@ -1200,14 +1199,14 @@ Pagination component preview
 <p class="mb-400">Using <code>::match</code> on the current page link being rendered, multiplies it by the value provided.</p>
 
 <div style="position: relative">
-  <pre class="language-js"><code id="code-92" class="language-js">url <span class="token operator">=</span> <span class="token punctuation">{</span>
+  <pre class="language-js"><code id="code-87" class="language-js">url <span class="token operator">=</span> <span class="token punctuation">{</span>
   <span class="token literal-property property">queryStrings</span><span class="token operator">:</span> <span class="token punctuation">{</span>
     <span class="token string-property property">'page::match'</span><span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
   <span class="token punctuation">}</span><span class="token punctuation">,</span>
 <span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre>
 
   <button class="code-copy "
-    data-clipboard-target="#code-92"
+    data-clipboard-target="#code-87"
     style="position: absolute; top: 7.5px; right: 6px; padding-top: 3px; cursor: pointer; outline: none; opacity: 0.8;" title="Copy">
     <span style="display:inline-block;background:url(https://api.iconify.design/mdi/content-copy.svg) no-repeat center center / contain;width: 16px; height: 16px;" class=""></span>
   </button>
@@ -1215,7 +1214,7 @@ Pagination component preview
 <p class="mb-400">Using either <code>::offset</code> or <code>::match</code>, allows a number to be injected into a string. Using <code>{{#}}</code>, the modifier will inject the modified number based on the counting method into the string when rendering.</p>
 
 <div style="position: relative">
-  <pre class="language-js"><code id="code-96" class="language-js">url <span class="token operator">=</span> <span class="token punctuation">{</span>
+  <pre class="language-js"><code id="code-91" class="language-js">url <span class="token operator">=</span> <span class="token punctuation">{</span>
   <span class="token literal-property property">queryStrings</span><span class="token operator">:</span> <span class="token punctuation">{</span>
     <span class="token string-property property">'index::offset'</span><span class="token operator">:</span> <span class="token string">'index_{{100}}'</span><span class="token punctuation">,</span>
     <span class="token string-property property">'page::match'</span><span class="token operator">:</span> <span class="token string">'page_{{1}}'</span><span class="token punctuation">,</span>
@@ -1223,7 +1222,7 @@ Pagination component preview
 <span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre>
 
   <button class="code-copy "
-    data-clipboard-target="#code-96"
+    data-clipboard-target="#code-91"
     style="position: absolute; top: 7.5px; right: 6px; padding-top: 3px; cursor: pointer; outline: none; opacity: 0.8;" title="Copy">
     <span style="display:inline-block;background:url(https://api.iconify.design/mdi/content-copy.svg) no-repeat center center / contain;width: 16px; height: 16px;" class=""></span>
   </button>
@@ -1273,7 +1272,7 @@ Pagination component preview
 
 
         <gcds-date-modified class="mb-400 font-caption">
-          2024-07-09
+          2024-07-15
         </gcds-date-modified>
       </main>
 

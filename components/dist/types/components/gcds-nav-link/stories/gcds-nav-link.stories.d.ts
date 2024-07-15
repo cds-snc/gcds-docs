@@ -35,6 +35,7 @@ declare const _default: {
             control: {
                 type: string;
             };
+            description: string;
             table: {
                 category: string;
             };

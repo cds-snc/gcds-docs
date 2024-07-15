@@ -53,6 +53,7 @@ declare const _default: {
             };
         };
         imgSrc: {
+            name: string;
             control: string;
             table: {
                 type: {
@@ -64,6 +65,7 @@ declare const _default: {
             };
         };
         imgAlt: {
+            name: string;
             control: string;
             table: {
                 type: {
@@ -87,6 +89,7 @@ declare const _default: {
             };
         };
         titleElement: {
+            name: string;
             control: string;
             options: string[];
             table: {
@@ -102,6 +105,7 @@ declare const _default: {
             control: {
                 type: string;
             };
+            description: string;
             table: {
                 category: string;
             };

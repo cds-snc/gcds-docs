@@ -14,7 +14,7 @@ export class GcdsNavGroup {
             !this.el.contains(e.relatedTarget) &&
             this.navStyle === 'dropdown' &&
             this.open) {
-            this.toggleNav();
+            setTimeout(() => this.toggleNav(), 200);
         }
     }
     /**

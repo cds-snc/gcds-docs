@@ -11,6 +11,7 @@ export default {
                 defaultValue: { summary: 'signature' },
             },
         }, hasLink: {
+            name: 'has-link',
             control: { type: 'select' },
             options: [false, true],
             table: {

@@ -38,6 +38,7 @@ export default {
             },
         },
         imgSrc: {
+            name: 'img-src',
             control: 'text',
             table: {
                 type: { summary: 'string' },
@@ -45,6 +46,7 @@ export default {
             },
         },
         imgAlt: {
+            name: 'img-alt',
             control: 'text',
             table: {
                 type: { summary: 'string' },
@@ -60,6 +62,7 @@ export default {
             },
         },
         titleElement: {
+            name: 'title-element',
             control: 'select',
             options: ['h3', 'h4', 'h5', 'h6', 'a'],
             table: {
@@ -72,6 +75,7 @@ export default {
             control: {
                 type: 'text',
             },
+            description: 'Include additional elements. | Ajoutez des éléments supplémentaires.',
             table: {
                 category: 'Slots | Fentes',
             },

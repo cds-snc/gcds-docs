@@ -21,36 +21,42 @@ export default {
                 defaultValue: { summary: 'list' },
             },
         }, nextHref: {
+            name: 'next-href',
             control: 'text',
             table: {
                 type: { summary: 'string' },
                 defaultValue: { summary: '-' },
             },
         }, nextLabel: {
+            name: 'next-label',
             control: 'text',
             table: {
                 type: { summary: 'string' },
                 defaultValue: { summary: '-' },
             },
         }, previousHref: {
+            name: 'previous-href',
             control: 'text',
             table: {
                 type: { summary: 'string' },
                 defaultValue: { summary: '-' },
             },
         }, previousLabel: {
+            name: 'previous-label',
             control: 'text',
             table: {
                 type: { summary: 'string' },
                 defaultValue: { summary: '-' },
             },
         }, totalPages: {
+            name: 'total-pages',
             control: 'text',
             table: {
                 type: { summary: 'string' },
                 defaultValue: { summary: '-' },
             },
         }, currentPage: {
+            name: 'current-page',
             control: 'text',
             table: {
                 type: { summary: 'string' },
