@@ -30,7 +30,6 @@ Utilisez la pagination sous forme de liste si votre contenu est étendu sur un p
 - Définissez le nombre total de pages pour votre séquence à l’aide de l’attribut `total-pages` en utilisant un nombre.
 - Définissez la page actuelle ou active à l’aide de l’attribut `current-page` en utilisant un nombre.
 - Choisissez d’utiliser l’attribut `url` pour fournir au composant un groupe de liens de pages. Il peut s’agir d’un objet si vous travaillez dans un environnement JS ou d’une chaîne si vous utilisez HTML.
-- L’attribut `pageChangeHandler` est utilisé pour le suivi des modifications de pages.
 
 #### Appliquez l’objet de l’URL pour la pagination sous forme de liste.
 
