@@ -7,7 +7,7 @@ redirect_from: /
 date: 'git Last Modified'
 ---
 
-<h2 class="py-450">Welcome to your design system</h2>
+<h2 class="py-450">Start using GC Design System</h2>
 
 <article class="py-500 bg-primary text-light bg-full-width">
   <gcds-grid tag="ul" columns="1fr" columns-tablet="1fr 1fr" gap="450">
@@ -42,9 +42,9 @@ date: 'git Last Modified'
     </li>
     <li class="list-none">
       <img class="mb-200" src="../../images/common/home/icon-patterns.svg" alt="" />
-      <h3 class="mb-400">Patterns</h3>
-      <p class="mb-400">Guidance on combining components to solve a problem and improve your service.</p>
-      <p class="mb-400">Start designing for government products and understand how words and interactions work together to create meaning.</p>
+      <h3 class="mb-400">Page templates</h3>
+      <p class="mb-400">Reusable page layouts combine components into common page types.</p>
+      <p class="mb-400">Start your project with basic, pre-built pages that provide a consistent, recognizable Canada.ca experience.</p>
       <p>Coming soon</p>
     </li>
     <li class="list-none">
