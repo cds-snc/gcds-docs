@@ -100,7 +100,7 @@ Voici les composants qui s'ajouteront bientôt au système. Restez à l'affût!
 
 Soumettez vos contributions à nos prochaines priorités directement dans GitHub. Si c’est la première fois que vous utilisez GitHub, suivez ces <gcds-link href="{{ links.githubGetStarted }}" external>instructions</gcds-link> pour créer votre compte.
 
-Fournissez l'un des éléments suivants pour chaque composant ou configuration :
+Fournissez l'un des éléments suivants pour chaque composant ou bloc réutilisable :
 
 - **Exemples de designs** : captures d'écran, prototypes, liens vers des services en ligne.
 - **Résultats de recherche** : recherches préliminaires, exemples de cas d'utilisation ou tests d'utilisabilité.
