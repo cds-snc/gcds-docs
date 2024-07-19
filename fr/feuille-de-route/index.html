@@ -1,0 +1,1240 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+  <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5TBZBZVVK8"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-5TBZBZVVK8');
+    </script>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Feuille de route - Système de design GC</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Utility framework -->
+    <link rel="stylesheet" href="/gcds-docs/gcds-utility.min.css" />
+
+    <link rel="stylesheet" href="/gcds-docs/styles/prism.css">
+    <link rel="stylesheet" href="/gcds-docs/styles/style.css">
+    <script src="/gcds-docs/scripts/code-showcase.js"></script>
+    <script src="/gcds-docs/scripts/code-copy.js"></script>
+    <link rel="icon" type="image/x-icon" sizes="96x96" href="/gcds-docs/favicon.ico">
+
+    <!-- Icons Font Awesome (to access icons, import Font Awesome) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" crossorigin="anonymous">
+
+    <!-- GC Design System  Components-->
+    <link rel="stylesheet" href="/gcds-docs/components/dist/gcds/gcds.css">
+    <script type="module" src="/components/dist/gcds/gcds.esm.js"></script>
+    <script nomodule src="/components/dist/gcds/gcds.js"></script>
+
+    <!-- Pagefind -->
+    <script src="/pagefind/pagefind.js" type="module"></script>
+    <script src="/gcds-docs/scripts/search.js" type="module"></script>
+
+  </head>
+  <body>
+    
+
+
+  
+  
+    
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+
+        
+
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+  
+
+  
+  
+
+
+
+
+<gcds-header
+  lang="fr"
+  skip-to-href="#mc"
+  lang-href='/en/roadmap/'
+>
+  
+
+
+
+<gcds-top-nav slot="menu" label="Menu principal" alignment="right">
+  <gcds-nav-link slot="home" href="/gcds-docs/fr" class="home-link link-inherit link-no-underline" slot="left">Système de design GC</gcds-nav-link>
+  
+    <gcds-nav-link
+      href="/gcds-docs/fr/composants/"
+      
+    >
+      Composants
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/gcds-docs/fr/installation/"
+      
+    >
+      Installation
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/gcds-docs/fr/styles/"
+      
+    >
+      Styles
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/gcds-docs/fr/contactez/"
+      
+    >
+      Contactez-nous
+    </gcds-nav-link>
+  
+</gcds-top-nav>
+  
+
+  <gcds-breadcrumbs lang="fr" slot="breadcrumb">
+    
+      <gcds-breadcrumbs-item href=/gcds-docs/fr>
+        Système de design GC
+      </gcds-breadcrumbs-item>
+
+      
+
+      
+      
+    
+  </gcds-breadcrumbs>
+
+  
+<gcds-search search-id="search" slot="search" placeholder="Système de design GC" action="/fr/recherche">
+</gcds-search>
+
+
+</gcds-header>
+
+    <div class="content-wrapper">
+      <main id="mc" class="container-xl mx-auto xl:px-0 sm:px-500 px-300 general-layout" data-pagefind-body>
+        <h1 id="feuille-de-route" class="mb-400">Feuille de route</h1>
+<h2 id="echeancier-t1-avril-a-juin-2024" class="mt-500 mb-400">Échéancier: T1 (avril à juin 2024)</h2>
+<h3 id="theme-croissance-du-produit" class="mt-500 mb-400">Thème: Croissance du produit</h3>
+<h4 id="sujet" class="mt-500 mb-400">Sujet:</h4>
+<ul class="list-disc mb-400"><li>
+<p class="mb-400"><strong>Prise en charge d’infrastructures pour le rendu côté serveur</strong></p>
+<ul class="list-disc mb-400"><li><p class="mb-400">Permettre aux équipes utilisant NextJS (p. ex. : Formulaires GC, estimateur des prestations de la Sécurité de la vieillesse, soins dentaires, assurance-emploi) de coder à l’aide de Système de design GC.</li>
+<li><p class="mb-400">Établir un plan d’intégration de Stencil une fois que le rendu côté serveur est déployé.</li>
+</ul>
+</li>
+<li>
+<p class="mb-400"><strong>Bibliothèque de design bilingue</strong></p>
+<ul class="list-disc mb-400"><li><p class="mb-400">Produire et entretenir une bibliothèque Figma bilingue, où les ressources et les lignes directrices sont dans les deux langues officielles.</li>
+</ul>
+</li>
+<li>
+<p class="mb-400"><strong>Nouvelles fonctionnalités et améliorations</strong></p>
+<ul class="list-disc mb-400"><li><p class="mb-400">Paquet VueJS complet</li>
+<li><p class="mb-400">Améliorations au paquet Angular (pour la gestion des évènements)</li>
+<li><p class="mb-400">Version 2 du composant Carte</li>
+<li><p class="mb-400">Composant Jeu de champ dans la bibliothèque de design Figma</li>
+<li><p class="mb-400">Nouveaux composants : icône (développé à l’interne, pas d’un paquet tiers), carte v2</li>
+<li><p class="mb-400">Commencer les tests sur les services gérés de Canada.ca (AEM, Drupal)</li>
+</ul>
+</li>
+</ul>
+<h3 id="theme-recherche" class="mt-500 mb-400">Thème: Recherche</h3>
+<h4 id="sujet" class="mt-500 mb-400">Sujet:</h4>
+<ul class="list-disc mb-400"><li><p class="mb-400"><strong>Accessibilité, utilisabilité et intégration</strong><ul class="list-disc mb-400"><li><p class="mb-400">Recherche, entretiens et sondages pour améliorer l’intégration, l’utilisabilité et l’accessibilité.</li>
+</ul>
+</li>
+</ul>
+<h3 id="theme-mobilisation" class="mt-500 mb-400">Thème: Mobilisation</h3>
+<ul class="list-disc mb-400"><li><p class="mb-400"><strong>Modèle de contribution</strong><ul class="list-disc mb-400"><li><p class="mb-400">Définir et mettre en œuvre un modèle de contribution pour les équipes de conception du GC.</li>
+</ul>
+</li>
+<li><p class="mb-400"><strong>Sensibilisation</strong><ul class="list-disc mb-400"><li><p class="mb-400">Mettre en place des listes d’envoi régulières pour tenir la communauté informée.</li>
+<li><p class="mb-400">Lancer les sondages post-démo.</li>
+</ul>
+</li>
+</ul>
+<h2 id="echeancier-t2-juillet-a-septembre-2024" class="mt-500 mb-400">Échéancier: T2 (juillet à septembre 2024)</h2>
+<h3 id="theme-croissance-du-produit" class="mt-500 mb-400">Thème: Croissance du produit</h3>
+<h4 id="sujet" class="mt-500 mb-400">Sujet:</h4>
+<ul class="list-disc mb-400"><li><p class="mb-400"><strong>Nouvelles fonctionnalités et améliorations</strong><ul class="list-disc mb-400"><li><p class="mb-400">5 modèles standards</li>
+<li><p class="mb-400">Cadre utilitaire (alpha)</li>
+<li><p class="mb-400">Nouveaux composants : champ de date, alerte/avis, étiquette (tag)</li>
+<li><p class="mb-400">Résoudre les conflits de style par rapport aux composants obligatoires de Canada.ca.</li>
+</ul>
+</li>
+</ul>
+<h3 id="theme-recherche" class="mt-500 mb-400">Thème: Recherche</h3>
+<h4 id="sujet" class="mt-500 mb-400">Sujet:</h4>
+<ul class="list-disc mb-400"><li><p class="mb-400"><strong>Accessibilité, utilisabilité et intégration</strong><ul class="list-disc mb-400"><li><p class="mb-400">Mettre en place des indicateurs relatifs au produit</li>
+<li><p class="mb-400">Repérer les sources de difficulté et planifier leur résolution, processus pour publier des changements au code non rétrocompatibles, accès à la bibliothèque de design Figma</li>
+<li><p class="mb-400">Mener des tests d’utilisabilité et d’accessibilité avec des utilisatrices et utilisateurs.</li>
+</ul>
+</li>
+</ul>
+<h3 id="theme-mobilisation" class="mt-500 mb-400">Thème: Mobilisation</h3>
+<h4 id="sujet" class="mt-500 mb-400">Sujet:</h4>
+<ul class="list-disc mb-400"><li><p class="mb-400"><strong>Sensibilisation</strong><ul class="list-disc mb-400"><li><p class="mb-400">Mettre en place un accord sur les niveaux de service (ANS)</li>
+<li><p class="mb-400">Mettre en place des démos récurrentes auxquelles les gens s’inscrivent</li>
+<li><p class="mb-400">Établir des points de contact réguliers avec la communauté.</li>
+</ul>
+</li>
+</ul>
+<h2 id="echeancier-t3-octobre-a-decembre-2024" class="mt-500 mb-400">Échéancier: T3 (octobre à décembre 2024)</h2>
+<h3 id="theme-croissance-du-produit" class="mt-500 mb-400">Thème: Croissance du produit</h3>
+<h4 id="sujet" class="mt-500 mb-400">Sujet:</h4>
+<ul class="list-disc mb-400"><li>
+<p class="mb-400"><strong>Intégration technique</strong></p>
+<ul class="list-disc mb-400"><li><p class="mb-400">Élaborer et tester une expérience d’intégration pour les développeur·euse·s qui comprend des applications de démarrage, de la documentation technique, et autres.</li>
+<li><p class="mb-400">Élaborer et tester une expérience d’intégration pour les concepteur·rice·s.</li>
+</ul>
+</li>
+<li>
+<p class="mb-400"><strong>Fonctionnalité SGDC</strong></p>
+<ul class="list-disc mb-400"><li><p class="mb-400">Fournir, en utilisant les modèles standards, une fonctionnalité complète de la Solution de gabarits à déploiement centralisé (SGDC) qui facilitera l’intégration et l’adoption.</li>
+</ul>
+</li>
+<li>
+<p class="mb-400"><strong>Intégration avec Canada.ca</strong></p>
+<ul class="list-disc mb-400"><li><p class="mb-400">Augmenter l’accès vers Système de design GC en offrant une voie d’accès à partir de conception.canada.ca.</li>
+</ul>
+</li>
+<li>
+<p class="mb-400"><strong>Indicateurs et données analytiques</strong></p>
+<ul class="list-disc mb-400"><li><p class="mb-400">Définir des façons claires de mesurer l’adoption et le rendement des investissements.<ul class="list-disc mb-400"><li><p class="mb-400">Adoption, temps de développement, économies, satisfaction utilisateur, adéquation des stratégies d’adoption à disposition (cadres d’adoption, points de contact).</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="theme-recherche" class="mt-500 mb-400">Thème: Recherche</h3>
+<h4 id="sujet" class="mt-500 mb-400">Sujet:</h4>
+<ul class="list-disc mb-400"><li><p class="mb-400"><strong>Recherche sur l’écosystème et les besoins utilisateurs relatifs à la conception au GC</strong><ul class="list-disc mb-400"><li><p class="mb-400">Comprendre les diverses offres et alternatives à Système de design au GC</li>
+<li><p class="mb-400">Comprendre et catégoriser les besoins des différents groupes utilisateurs au GC</li>
+<li><p class="mb-400">Montrer des preuves d’accessibilité et de conformité aux politiques sur le site Web de Système de design GC.</li>
+</ul>
+</li>
+</ul>
+<h3 id="theme-mobilisation" class="mt-500 mb-400">Thème: Mobilisation</h3>
+<h4 id="sujet" class="mt-500 mb-400">Sujet:</h4>
+<ul class="list-disc mb-400"><li><p class="mb-400"><strong>Démos ciblées</strong><ul class="list-disc mb-400"><li><p class="mb-400">Tester des démos et des séances questions-réponses ciblant des « cas d’utilisation » précis pour une approche plus personnalisée.</li>
+</ul>
+</li>
+</ul>
+<h2 id="echeancier-t4-janvier-a-mars-2025" class="mt-500 mb-400">Échéancier: T4 (janvier à mars 2025)</h2>
+<h3 id="theme-croissance-du-produit" class="mt-500 mb-400">Thème: Croissance du produit</h3>
+<h4 id="sujet" class="mt-500 mb-400">Sujet:</h4>
+<ul class="list-disc mb-400"><li><p class="mb-400"><strong>Nouvelles fonctionnalités et améliorations</strong><ul class="list-disc mb-400"><li><p class="mb-400">Viser une version bêta ou complète</li>
+<li><p class="mb-400">Viser un processus standardisé pour l’intégration avec AEM et Drupal</li>
+<li><p class="mb-400">Nouveaux modèles, patrons de conception et composants au besoin.</li>
+</ul>
+</li>
+</ul>
+<h3 id="theme-recherche" class="mt-500 mb-400">Thème: Recherche</h3>
+<h4 id="sujet" class="mt-500 mb-400">Sujet:</h4>
+<ul class="list-disc mb-400"><li><p class="mb-400"><strong>Tests</strong><ul class="list-disc mb-400"><li><p class="mb-400">Tests d’accessibilité menés auprès de 30 personnes d’ici la fin du T4</li>
+<li><p class="mb-400">5 activités de recherche portant sur l’utilisabilité achevées d’ici la fin du T4.</li>
+</ul>
+</li>
+</ul>
+<h3 id="theme-mobilisation" class="mt-500 mb-400">Thème: Mobilisation</h3>
+<h4 id="sujet" class="mt-500 mb-400">Sujet:</h4>
+<ul class="list-disc mb-400"><li><p class="mb-400"><strong>Sensibilisation</strong><ul class="list-disc mb-400"><li><p class="mb-400">Mettre en valeur les contributions ayant porté fruit par le biais du blogue ou d’autres supports</li>
+<li><p class="mb-400">Créer et diffuser des vidéos marketing encourageant l’adoption du produit</li>
+</ul>
+</li>
+</ul>
+<h2 id="canaux-de-collaboration-et-de-soutien" class="mt-500 mb-400">Canaux de collaboration et de soutien</h2>
+<p class="mb-400">Consultez notre page <a href="/fr/simpliquer">s'impliquer</a> pour savoir sur quoi nous travaillons et comment vous pouvez y contribuer.</p>
+<p class="mb-400">Visitez notre <gcds-link external href="https://github.com/cds-snc/gcds-components/issues/new/choose">référentiel GitHub</gcds-link> pour signaler un problème ou faire une suggestion.</p>
+
+
+        <gcds-date-modified class="mb-400 font-caption">
+          2024-07-19
+        </gcds-date-modified>
+      </main>
+
+
+      <gcds-footer
+        display="full"
+        lang="fr"
+        contextual-heading="Service numérique canadien"
+        contextual-links='{ "S&#39;inscrire à la liste d&#39;envoi": "/fr/contactez", "Signaler un problème": "https://github.com/cds-snc/gcds-components/issues/new/choose", "À propos": "/fr/a-propos" }'
+        sub-links='{ "Médias sociaux": "https://www.canada.ca/fr/sociaux.html", "Applications mobiles": "https://www.canada.ca/fr/mobile.html", "À propos de Canada.ca": "https://conception.canada.ca/a-propos/", "Avis": "https://www.canada.ca/fr/transparence/avis.html", "Confidentialité": "/fr/avis-de-confidentialite/" }'
+      ></gcds-footer>
+
+    </div>
+
+    <script>function showTooltip(o,e){o.trigger.className.includes("tooltipped")||(o.trigger.children[0].className="tooltipped tooltipped-s",o.trigger.children[0].ariaLabel=e)}window.addEventListener("load",()=>{var o=new ClipboardJS(".code-copy");o.on("success",o=>showTooltip(o,"Copied!")),o.on("error",o=>showTooltip(o,"Failed..."))});</script>
+<script async src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script>
+  </body>
+</html>
