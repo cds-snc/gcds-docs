@@ -6,7 +6,7 @@ translationKey: 'index'
 date: 'git Last Modified'
 ---
 
-<h2 class="py-450">Bienvenue dans votre système de design</h2>
+<h2 class="py-450">Commencez à utiliser Système de design GC</h2>
 
 <article class="py-500 bg-primary text-light bg-full-width">
   <gcds-grid tag="ul" columns="1fr" columns-tablet="1fr 1fr" gap="450">
@@ -41,9 +41,9 @@ date: 'git Last Modified'
     </li>
     <li class="list-none">
       <img class="mb-200" src="../../images/common/home/icon-patterns.svg" alt="" />
-      <h3 class="mb-400">Configurations</h3>
-      <p class="mb-400">Des conseils pour associer les composants afin de résoudre un problème et d'améliorer votre service.</p>
-      <p class="mb-400">Commencez à concevoir des produits pour le GC et découvrez comment les mots et les interactions s'associent pour créer du sens.</p>
+      <h3 class="mb-400">Modèles de page</h3>
+      <p class="mb-400">Les mises en page réutilisables sont des agencements de composants propres à des types de page communs.</p>
+      <p class="mb-400">Entamez votre projet à l’aide de pages de base préfabriquées pour offrir une expérience Canada.ca uniforme et reconnaissable.</p>
       <p>Développement en cours</p>
     </li>
     <li class="list-none">
