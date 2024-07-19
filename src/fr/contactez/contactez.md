@@ -11,17 +11,17 @@ contactForm: fr
 date: 'git Last Modified'
 ---
 
-# Contactez-nous
+# Contacter Système de design GC
 
-Système de design GC est en cours de développement par le Service numérique canadien. En cette phase d'essai, les fonctionnaires peuvent utiliser le système de design et obtenir un soutien pour résoudre des problèmes. Apprenez-en plus <gcds-link href="{{ links.about }}">à propos de nous</gcds-link>.
+## Formulaire de soutien GitHub
 
-Envoyez-nous vos commentaires ou questions à l'aide du formulaire suivant, ou entrez en contact avec nous sur <gcds-link external href="{{ links.githubCompsIssues }}">GitHub</gcds-link>.
+Avec votre compte GitHub, utilisez notre <gcds-link external href="{{ links.githubCompsIssues }}">formulaire de soutien</gcds-link> pour signaler des bogues et obtenir un soutien technique. Vous aurez accès aux problèmes (issues) passés et verrez les progrès accomplis.      
 
 <hr class="my-500" />
 
-## Contacter le soutien de Système de design GC
+## Envoyer des commentaires, demander de l’aide ou s’inscrire
 
-Nous offrons des démos personnalisées aux équipes qui souhaitent en savoir plus sur l'utilisation de Système de design GC.
+Remplissez le formulaire suivant pour nous envoyer vos commentaires, demander de l’aide pour utiliser Système de design GC, ou vous inscrire à notre liste d’envoi ou à une démo. 
 
 <form class="my-500 contact-us-form" name="contactFR" method="post" style="min-height: 32rem;" action="/api/submission">
   <input type="hidden" name="form-name" value="contactFR" />
@@ -29,7 +29,7 @@ Nous offrons des démos personnalisées aux équipes qui souhaitent en savoir pl
 
 <gcds-input type="text" name="name" input-id="name" label="Nom complet" size="30" autocomplete="name" required></gcds-input>
 <gcds-input type="email" name="email" input-id="email" label="Adresse courriel" size="50" autocomplete="email" required></gcds-input>
-<gcds-textarea name="message" label="Commentaires ou questions" textarea-id="message"></gcds-textarea>
+<gcds-textarea name="message" label="Fournissez vos commentaires ou posez une question si vous avez besoin d’aide" textarea-id="message"></gcds-textarea>
 
   <gcds-fieldset fieldset-id="learnMore" legend="Apprenez-en plus sur Système de design GC" hint="Choisissez autant d'options que vous le souhaitez.">
     <gcds-checkbox checkbox-id="learnMoreMailingList" label="Ajoutez-moi à votre liste d'envoi." value="learn-more-mailing-list" name="learn-more-mailing-list"></gcds-checkbox>
@@ -37,7 +37,7 @@ Nous offrons des démos personnalisées aux équipes qui souhaitent en savoir pl
     <gcds-checkbox checkbox-id="learnMoreResearch" label="Contactez-moi pour les études sur l'utilisabilité." value="learn-more-research" name="learn-more-research"></gcds-checkbox>
   </gcds-fieldset>
 
-  <gcds-fieldset fieldset-id="familiarityGCDS" legend="Connaissance du produit" hint="Sélectionnez 1 option." required>
+  <gcds-fieldset fieldset-id="familiarityGCDS" legend="Indiquez votre expérience avec Système de design GC" hint="Sélectionnez 1 option." required>
     <gcds-radio-group name="familiarityGCDS" options='{{ contactus[locale].options | stringify | encode-html }}'>
     </gcds-radio-group>
   </gcds-fieldset>
