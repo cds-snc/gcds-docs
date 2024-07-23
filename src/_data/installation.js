@@ -12,7 +12,7 @@ module.exports = {
       vue: 'Vue',
       node: 'NodeJS with no Javascript framework',
       cdn: 'Plain HTML - CDN',
-      figma: "I'm a lost designer, looking for Figma",
+      figma: "Take me to the Figma Design Library",
       other: 'None of the above',
     },
     step2: {
@@ -109,7 +109,7 @@ module.exports = {
       vue: 'Vue',
       node: 'NodeJS sans infrastructure JavaScript',
       cdn: 'HTML simple — réseau CDN',
-      figma: 'Je suis un·e concepteur·rice à la recherche de Figma',
+      figma: 'Dirigez-moi vers la bibliothèque de conception Figma',
       other: 'Autre chose',
     },
     step2: {
