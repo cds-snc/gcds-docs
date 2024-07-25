@@ -25,13 +25,6 @@ Use grids to create flexible and responsive layouts for various screen sizes. Th
 
 Tip: Keep layouts simple. Consider optimizing each layout for mobile, tablet, and desktop to provide a better user experience for all viewports.
 
-### Add spacing between columns
-
-- Add space between columns to reduce the cognitive load of reading content too densely packed together.
-- Whenever possible, align objects both vertically and horizontally.
-- Use the `gap` property to add spacing between your `columns` in the grid.
-- Use GC Design System <gcds-link href="{{ links.designTokens }}">design tokens</gcds-link> as a reference for the size of the `gap` in the grid. The tokens measurements match up with the spacing values for the `gap` attribute.
-
 ### Maintain standard tag usage to be accessible
 
 By default, the `tag` property is set to use a `div` tag.
@@ -48,7 +41,7 @@ Opt out of setting the minimum and maximum width when you want to design equal-w
 Desktop
 
 <div class="b-sm mb-400 p-400">
-  <gcds-grid tag="article" columns-desktop="1fr 1fr 1fr" columns-tablet="1fr 1fr" columns="1fr" gap="300">
+  <gcds-grid tag="article" columns-desktop="1fr 1fr 1fr" columns-tablet="1fr 1fr" columns="1fr">
     <p>This is some example content to display the grid component.</p>
     <p>This is some example content to display the grid component.</p>
     <p>This is some example content to display the grid component.</p>
@@ -58,7 +51,7 @@ Desktop
 Tablet
 
 <div class="b-sm mb-400 p-400">
-  <gcds-grid tag="article" columns-tablet="1fr 1fr" columns="1fr" gap="300">
+  <gcds-grid tag="article" columns-tablet="1fr 1fr" columns="1fr">
     <p>This is some example content to display the grid component.</p>
     <p>This is some example content to display the grid component.</p>
     <p>This is some example content to display the grid component.</p>
@@ -68,7 +61,7 @@ Tablet
 Mobile
 
 <div class="b-sm p-400">
-  <gcds-grid tag="article" columns="1fr" gap="300">
+  <gcds-grid tag="article" columns="1fr">
     <p>This is some example content to display the grid component.</p>
     <p>This is some example content to display the grid component.</p>
     <p>This is some example content to display the grid component.</p>
@@ -76,11 +69,12 @@ Mobile
 </div>
 
 {% viewCode "en" "preview-grid-flexible" "gcds-grid" %}
-  <gcds-grid tag="article" columns-desktop="1fr 1fr 1fr" columns-tablet="1fr 1fr" columns="1fr" gap="300">
-    <p>This is some example content to display the grid component.</p>
-    <p>This is some example content to display the grid component.</p>
-    <p>This is some example content to display the grid component.</p>
-  </gcds-grid>
+<gcds-grid tag="article" columns-desktop="1fr 1fr 1fr" columns-tablet="1fr 1fr" columns="1fr">
+
+<p>This is some example content to display the grid component.</p>
+<p>This is some example content to display the grid component.</p>
+<p>This is some example content to display the grid component.</p>
+</gcds-grid>
 {% endviewCode %}
 
 Set the minimum and maximum width to design equal-width columns with restrictions to limit how wide they will span on any screen size.
@@ -93,7 +87,7 @@ Set the minimum and maximum width to design equal-width columns with restriction
 Desktop
 
 <div class="showcase-preview b-sm mb-400 p-400">
-  <gcds-grid tag="article" columns="repeat(auto-fit, minmax(100px, 300px))" gap="500">
+  <gcds-grid tag="article" columns="repeat(auto-fit, minmax(100px, 300px))">
     <p>This is some example content to display the grid component.</p>
     <p>This is some example content to display the grid component.</p>
     <p>This is some example content to display the grid component.</p>
@@ -104,7 +98,7 @@ Tablet
 
 <div class="showcase-preview b-sm mb-400 p-400">
   <div class="container-md">
-    <gcds-grid tag="article" columns="repeat(auto-fit, minmax(100px, 300px))" gap="500">
+    <gcds-grid tag="article" columns="repeat(auto-fit, minmax(100px, 300px))">
       <p>This is some example content to display the grid component.</p>
       <p>This is some example content to display the grid component.</p>
       <p>This is some example content to display the grid component.</p>
@@ -116,7 +110,7 @@ Mobile
 
 <div class="showcase-preview b-sm p-400">
   <div class="container-sm">
-    <gcds-grid tag="article" columns="repeat(auto-fit, minmax(100px, 300px))" gap="500">
+    <gcds-grid tag="article" columns="repeat(auto-fit, minmax(100px, 300px))">
       <p>This is some example content to display the grid component.</p>
       <p>This is some example content to display the grid component.</p>
       <p>This is some example content to display the grid component.</p>
@@ -125,11 +119,12 @@ Mobile
 </div>
 
 {% viewCode "en" "preview-grid-fixed-width" "gcds-grid" %}
-  <gcds-grid tag="article" columns="repeat(auto-fit, minmax(100px, 300px))" gap="500">
-    <p>This is some example content to display the grid component.</p>
-    <p>This is some example content to display the grid component.</p>
-    <p>This is some example content to display the grid component.</p>
-  </gcds-grid>
+<gcds-grid tag="article" columns="repeat(auto-fit, minmax(100px, 300px))">
+
+<p>This is some example content to display the grid component.</p>
+<p>This is some example content to display the grid component.</p>
+<p>This is some example content to display the grid component.</p>
+</gcds-grid>
 {% endviewCode %}
 
 {% include "partials/getcode.njk" %}
