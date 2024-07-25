@@ -25,13 +25,6 @@ Utilisez des grilles pour créer des mises en page flexibles et réactives pour 
 
 Conseil : Visez la simplicité pour vos mises en page. Envisagez d'optimiser chaque mise en page pour les écrans d'appareils mobiles, de tablettes et d'ordinateur. Vous offrirez ainsi une meilleure expérience utilisateur, quelle que soit la fenêtre d'affichage.
 
-### Ajoutez un espacement entre les colonnes
-
-- Ajoutez de l'espace entre les colonnes pour réduire la charge cognitive liée à la lecture d'un contenu trop dense.
-- Dans la mesure du possible, alignez les objets verticalement et horizontalement.
-- Utilisez la propriété `gap` pour ajouter de l'espacement entre vos `columns` dans la grille.
-- Utilisez les <gcds-link href="{{ links.designTokens }}">unités de style</gcds-link> de Système de design GC comme référence pour la taille de votre `gap` dans la grille. Les mesures des unités correspondent aux valeurs d'espacement de l'attribut `gap`.
-
 ### Veillez à l'accessibilité en utilisant des balises standards
 
 La propriété `tag` utilise une balise `div` par défaut.
@@ -48,7 +41,7 @@ Désactivez la définition de la largeur minimale et de la largeur maximale lors
 Ordinateur de bureau
 
 <div class="b-sm mb-400 p-400">
-  <gcds-grid tag="article" columns-desktop="1fr 1fr 1fr" columns-tablet="1fr 1fr" columns="1fr" gap="300">
+  <gcds-grid tag="article" columns-desktop="1fr 1fr 1fr" columns-tablet="1fr 1fr" columns="1fr">
     <p>Ceci est un exemple de contenu pour illustrer le composant Grille.</p>
     <p>Ceci est un exemple de contenu pour illustrer le composant Grille.</p>
     <p>Ceci est un exemple de contenu pour illustrer le composant Grille.</p>
@@ -58,7 +51,7 @@ Ordinateur de bureau
 Tablette
 
 <div class="b-sm mb-400 p-400">
-  <gcds-grid tag="article" columns-tablet="1fr 1fr" columns="1fr" gap="300">
+  <gcds-grid tag="article" columns-tablet="1fr 1fr" columns="1fr">
     <p>Ceci est un exemple de contenu pour illustrer le composant Grille.</p>
     <p>Ceci est un exemple de contenu pour illustrer le composant Grille.</p>
     <p>Ceci est un exemple de contenu pour illustrer le composant Grille.</p>
@@ -68,7 +61,7 @@ Tablette
 Mobile
 
 <div class="b-sm p-400">
-  <gcds-grid tag="article" columns="1fr" gap="300">
+  <gcds-grid tag="article" columns="1fr">
     <p>Ceci est un exemple de contenu pour illustrer le composant Grille.</p>
     <p>Ceci est un exemple de contenu pour illustrer le composant Grille.</p>
     <p>Ceci est un exemple de contenu pour illustrer le composant Grille.</p>
@@ -76,11 +69,12 @@ Mobile
 </div>
 
 {% viewCode "fr" "preview-grid-flexible" "gcds-grid" %}
-  <gcds-grid tag="article" columns-desktop="1fr 1fr 1fr" columns-tablet="1fr 1fr" columns="1fr" gap="300">
-    <p>Ceci est un exemple de contenu pour illustrer le composant Grille.</p>
-    <p>Ceci est un exemple de contenu pour illustrer le composant Grille.</p>
-    <p>Ceci est un exemple de contenu pour illustrer le composant Grille.</p>
-  </gcds-grid>
+<gcds-grid tag="article" columns-desktop="1fr 1fr 1fr" columns-tablet="1fr 1fr" columns="1fr">
+
+<p>Ceci est un exemple de contenu pour illustrer le composant Grille.</p>
+<p>Ceci est un exemple de contenu pour illustrer le composant Grille.</p>
+<p>Ceci est un exemple de contenu pour illustrer le composant Grille.</p>
+</gcds-grid>
 {% endviewCode %}
 
 Définissez la largeur minimale et la largeur maximale pour concevoir des colonnes de largeur égale afin de limiter la largeur des colonnes sur n'importe quelle taille d'écran.
@@ -93,7 +87,7 @@ Définissez la largeur minimale et la largeur maximale pour concevoir des colonn
 Ordinateur de bureau
 
 <div class="showcase-preview b-sm mb-400 p-400">
-  <gcds-grid tag="article" columns="repeat(auto-fit, minmax(100px, 300px))" gap="500">
+  <gcds-grid tag="article" columns="repeat(auto-fit, minmax(100px, 300px))">
     <p>Ceci est un exemple de contenu pour illustrer le composant Grille.</p>
     <p>Ceci est un exemple de contenu pour illustrer le composant Grille.</p>
     <p>Ceci est un exemple de contenu pour illustrer le composant Grille.</p>
@@ -104,7 +98,7 @@ Tablette
 
 <div class="showcase-preview b-sm mb-400 p-400">
   <div class="container-md">
-    <gcds-grid tag="article" columns="repeat(auto-fit, minmax(100px, 300px))" gap="500">
+    <gcds-grid tag="article" columns="repeat(auto-fit, minmax(100px, 300px))">
       <p>Ceci est un exemple de contenu pour illustrer le composant Grille.</p>
       <p>Ceci est un exemple de contenu pour illustrer le composant Grille.</p>
       <p>Ceci est un exemple de contenu pour illustrer le composant Grille.</p>
@@ -116,7 +110,7 @@ Mobile
 
 <div class="showcase-preview b-sm p-400">
   <div class="container-sm">
-    <gcds-grid tag="article" columns="repeat(auto-fit, minmax(100px, 300px))" gap="500">
+    <gcds-grid tag="article" columns="repeat(auto-fit, minmax(100px, 300px))">
       <p>Ceci est un exemple de contenu pour illustrer le composant Grille.</p>
       <p>Ceci est un exemple de contenu pour illustrer le composant Grille.</p>
       <p>Ceci est un exemple de contenu pour illustrer le composant Grille.</p>
@@ -125,11 +119,12 @@ Mobile
 </div>
 
 {% viewCode "fr" "preview-grid-fixed-width" "gcds-grid" %}
-  <gcds-grid tag="article" columns="repeat(auto-fit, minmax(100px, 300px))" gap="500">
-    <p>Ceci est un exemple de contenu pour illustrer le composant Grille.</p>
-    <p>Ceci est un exemple de contenu pour illustrer le composant Grille.</p>
-    <p>Ceci est un exemple de contenu pour illustrer le composant Grille.</p>
-  </gcds-grid>
+<gcds-grid tag="article" columns="repeat(auto-fit, minmax(100px, 300px))">
+
+<p>Ceci est un exemple de contenu pour illustrer le composant Grille.</p>
+<p>Ceci est un exemple de contenu pour illustrer le composant Grille.</p>
+<p>Ceci est un exemple de contenu pour illustrer le composant Grille.</p>
+</gcds-grid>
 {% endviewCode %}
 
 {% include "partials/getcode.njk" %}
