@@ -11,7 +11,6 @@ date: 'git Last Modified'
 <ol class="anatomy-list">
   <li>The <strong>container</strong> holds all elements within the grid and spans their combined width. The container is  responsive and can be centred.</li>
   <li>The <strong>column</strong>, also called grid item, sets a boundary around its contents to contain it within the width set for that column.</li>
-  <li>The <strong>gap</strong>, sometimes called the gutter, defines the width of the space between the columns.</li>
 </ol>
 
 <img class="b-sm b-default p-400" src="/images/en/components/anatomy/gcds-grid-anatomy.svg" alt="Image showing the grid anatomy with four separate rectangles representing the columns of a grid" />
@@ -33,12 +32,6 @@ Tip: Keep grid layouts simple by designing for mobile, tablet, and desktop exper
 - Keep text line length below 75 characters for a comfortable, accessible reading length.
 - Limit column width to stop large screens from displaying lines of text that are overly long and difficult to read.
 - Avoid exceeding the maximum width of 71.25rem (1140px) wide.
-
-### Add spacing between columns
-
-- Add space between columns to reduce the cognitive load of reading content too densely packed together.
-- Whenever possible, align objects both vertically and horizontally.
-- Select the gap size, or space between columns, by choosing a measurement option from our <gcds-link href="{{ links.spacing }}">spacing tokens</gcds-link>.
 
 ### Communicate meaning by adjusting spacing
 
