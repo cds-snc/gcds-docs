@@ -36,7 +36,7 @@
     "@11ty/eleventy-plugin-syntaxhighlight": "^5.0.0",
     "@cdssnc/gcds-components": "^0.22.2",
     "@cdssnc/gcds-tokens": "^1.14.1",
-    "@cdssnc/gcds-utility": "^1.2.1",
+    "@cdssnc/gcds-utility": "^1.2.2",
     "@quasibit/eleventy-plugin-sitemap": "^2.1.4",
     "chroma-js": "^2.4.2",
     "eleventy-plugin-svg-contents": "^0.7.0",
