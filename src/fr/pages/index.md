@@ -40,7 +40,7 @@ date: 'git Last Modified'
       <gcds-link href="{{ links.components }}">Découvrez les composants</gcds-link>
     </li>
     <li class="list-none">
-      <img class="mb-200" src="../../images/common/home/icon-patterns.svg" alt="" />
+      <img class="mb-200" src="../../images/common/home/icon-template.svg" alt="" />
       <h3 class="mb-400">Modèles de page</h3>
       <p class="mb-400">Les mises en page réutilisables sont des agencements de composants propres à des types de page communs.</p>
       <p class="mb-400">Entamez votre projet à l’aide de pages de base préfabriquées pour offrir une expérience Canada.ca uniforme et reconnaissable.</p>
