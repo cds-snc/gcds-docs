@@ -1,8 +1,9 @@
 import { proxyCustomElement, HTMLElement, createEvent, h, Host } from '@stencil/core/internal/client';
 import { o as observerConfig, a as assignLanguage, i as inheritAttributes } from './utils.js';
 import { d as defaultValidator, r as requiredValidator, g as getValidator } from './validator.factory.js';
-import { d as defineCustomElement$5 } from './gcds-error-message2.js';
-import { d as defineCustomElement$4 } from './gcds-hint2.js';
+import { d as defineCustomElement$6 } from './gcds-error-message2.js';
+import { d as defineCustomElement$5 } from './gcds-hint2.js';
+import { d as defineCustomElement$4 } from './gcds-icon2.js';
 import { d as defineCustomElement$3 } from './gcds-label2.js';
 import { d as defineCustomElement$2 } from './gcds-text2.js';
 
@@ -237,7 +238,7 @@ function defineCustomElement$1() {
     if (typeof customElements === "undefined") {
         return;
     }
-    const components = ["gcds-textarea", "gcds-error-message", "gcds-hint", "gcds-label", "gcds-text"];
+    const components = ["gcds-textarea", "gcds-error-message", "gcds-hint", "gcds-icon", "gcds-label", "gcds-text"];
     components.forEach(tagName => { switch (tagName) {
         case "gcds-textarea":
             if (!customElements.get(tagName)) {
@@ -246,10 +247,15 @@ function defineCustomElement$1() {
             break;
         case "gcds-error-message":
             if (!customElements.get(tagName)) {
-                defineCustomElement$5();
+                defineCustomElement$6();
             }
             break;
         case "gcds-hint":
+            if (!customElements.get(tagName)) {
+                defineCustomElement$5();
+            }
+            break;
+        case "gcds-icon":
             if (!customElements.get(tagName)) {
                 defineCustomElement$4();
             }

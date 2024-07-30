@@ -8651,7 +8651,7 @@ class GcdsDetails {
     }; }
 }
 
-const gcdsErrorMessageCss = "@layer reset, default;@layer reset{.sc-gcds-error-message-h{display:inline-block}.sc-gcds-error-message-h slot{display:initial}}@layer default{.sc-gcds-error-message-h .error-message{background:var(--gcds-error-message-background);border-inline-start:var(--gcds-error-message-border-width) solid var(--gcds-error-message-border-color);margin:var(--gcds-error-message-margin);padding:var(--gcds-error-message-padding)}}";
+const gcdsErrorMessageCss = "@layer reset, default;@layer reset{.sc-gcds-error-message-h{display:inline-block}.sc-gcds-error-message-h slot{display:initial}}@layer default{.sc-gcds-error-message-h .error-message gcds-icon,.sc-gcds-error-message-h .error-message::part(text){color:var(--gcds-error-message-text-color)}}";
 var GcdsErrorMessageStyle0 = gcdsErrorMessageCss;
 
 class GcdsErrorMessage {
@@ -8661,7 +8661,7 @@ class GcdsErrorMessage {
     }
     render() {
         const { messageId } = this;
-        return (hAsync(Host, { id: `error-message-${messageId}`, class: "gcds-error-message-wrapper" }, hAsync("gcds-text", { class: "error-message", role: "alert", "margin-bottom": "0" }, hAsync("slot", null))));
+        return (hAsync(Host, { id: `error-message-${messageId}`, class: "gcds-error-message-wrapper" }, hAsync("gcds-text", { class: "error-message", role: "alert", "margin-bottom": "300" }, hAsync("gcds-icon", { name: "triangle-exclamation", "margin-right": "100" }), hAsync("strong", null, hAsync("slot", null)))));
     }
     get el() { return getElement(this); }
     static get style() { return GcdsErrorMessageStyle0; }

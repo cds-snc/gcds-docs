@@ -1,1 +1,1 @@
-@layer reset, default;@layer reset{:host{display:inline-block}:host slot{display:initial}}@layer default{:host .error-message{background:var(--gcds-error-message-background);border-inline-start:var(--gcds-error-message-border-width) solid var(--gcds-error-message-border-color);margin:var(--gcds-error-message-margin);padding:var(--gcds-error-message-padding)}}
+@layer reset, default;@layer reset{:host{display:inline-block}:host slot{display:initial}}@layer default{:host .error-message gcds-icon,:host .error-message::part(text){color:var(--gcds-error-message-text-color)}}

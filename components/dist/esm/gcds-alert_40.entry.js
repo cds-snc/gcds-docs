@@ -978,7 +978,7 @@ const GcdsDetails = class {
 };
 GcdsDetails.style = GcdsDetailsStyle0;
 
-const gcdsErrorMessageCss = "@layer reset, default;@layer reset{:host{display:inline-block}:host slot{display:initial}}@layer default{:host .error-message{background:var(--gcds-error-message-background);border-inline-start:var(--gcds-error-message-border-width) solid var(--gcds-error-message-border-color);margin:var(--gcds-error-message-margin);padding:var(--gcds-error-message-padding)}}";
+const gcdsErrorMessageCss = "@layer reset, default;@layer reset{:host{display:inline-block}:host slot{display:initial}}@layer default{:host .error-message gcds-icon,:host .error-message::part(text){color:var(--gcds-error-message-text-color)}}";
 const GcdsErrorMessageStyle0 = gcdsErrorMessageCss;
 
 const GcdsErrorMessage = class {
@@ -988,7 +988,7 @@ const GcdsErrorMessage = class {
     }
     render() {
         const { messageId } = this;
-        return (h(Host, { id: `error-message-${messageId}`, class: "gcds-error-message-wrapper" }, h("gcds-text", { class: "error-message", role: "alert", "margin-bottom": "0" }, h("slot", null))));
+        return (h(Host, { id: `error-message-${messageId}`, class: "gcds-error-message-wrapper" }, h("gcds-text", { class: "error-message", role: "alert", "margin-bottom": "300" }, h("gcds-icon", { name: "triangle-exclamation", "margin-right": "100" }), h("strong", null, h("slot", null)))));
     }
     get el() { return getElement(this); }
 };

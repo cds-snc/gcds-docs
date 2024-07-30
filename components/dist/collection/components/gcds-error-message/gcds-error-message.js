@@ -5,7 +5,7 @@ export class GcdsErrorMessage {
     }
     render() {
         const { messageId } = this;
-        return (h(Host, { id: `error-message-${messageId}`, class: "gcds-error-message-wrapper" }, h("gcds-text", { class: "error-message", role: "alert", "margin-bottom": "0" }, h("slot", null))));
+        return (h(Host, { id: `error-message-${messageId}`, class: "gcds-error-message-wrapper" }, h("gcds-text", { class: "error-message", role: "alert", "margin-bottom": "300" }, h("gcds-icon", { name: "triangle-exclamation", "margin-right": "100" }), h("strong", null, h("slot", null)))));
     }
     static get is() { return "gcds-error-message"; }
     static get encapsulation() { return "shadow"; }
