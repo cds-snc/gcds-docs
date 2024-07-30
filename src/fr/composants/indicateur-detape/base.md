@@ -10,7 +10,7 @@ tags: ['stepperFR', 'header']
 
 _Autres noms : indicateur de progrès, étapes._
 
-Un indicateur d'étape offre un suivi de l'avancement d'un processus comportant plusieurs étapes.
+L'indicateur d'étape est un marqueur de progression pour un processus à plusieurs étapes.
 
 {% docLinks locale stage figma github %}
 {% enddocLinks %}
