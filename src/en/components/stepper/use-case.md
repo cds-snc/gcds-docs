@@ -9,7 +9,7 @@ eleventyNavigation:
   otherNames: progress indicator, steps.
   description: A progress tracker for a multi-step process.
   thumbnail: /images/en/components/preview/preview-stepper.svg
-  alt: Stepper component shows steps, Step 1 of 4.
+  alt: TO DO.
   state: published
 translationKey: 'stepper'
 tags: ['stepperEN', 'usage']
@@ -21,11 +21,10 @@ Take a look at what problems steppers solve to see if they fit the problem you'r
 
 ## Problems steppers solve
 
-Use a stepper for a logical sequence split over three or more pages to:
+Use a stepper for a logical sequence split over more than one page to:
 
 - Show a person which step they're on in a process, like in a multi-step form.
 - Make the structure of a path clear by showing the total number of steps.
-- Providing a landmark so a person can get situated and track their progress.
 
 <article class="bg-full-width bg-primary text-light pt-500 pb-400 my-500">
   <h2 class="mt-0 mb-400">Related components</h2>

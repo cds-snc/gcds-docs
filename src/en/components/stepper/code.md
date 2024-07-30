@@ -8,13 +8,19 @@ date: 'git Last Modified'
 
 ## Build a stepper
 
-Use a stepper as a guide when a sequence (form or process) can be divided into logical steps and will span three or more pages.
+Use a stepper to guide users when a sequence (form or process) can be broken down into clear steps and will take up more than one page.
 
 ## Coding and accessibility for steppers
 
 ### Use each step for a goal
 
-Use the `current-step` attribute to indicate the step that the user is on and the `total-steps` attribute to indicate the overall number of steps.
+Use the `current-step` attribute to indicate the step that the person is on and the `total-steps` attribute to indicate the overall number of steps.
+
+### Placing the stepper on the page
+
+Use the `tag` attribute to assign the appropriate heading tag to the stepper. The stepper is able to render as either a `h1`, `h2` or `h3`.
+
+{% include "partials/valid-props.njk" %}
 
 {% include "partials/getcode.njk" %}
 
