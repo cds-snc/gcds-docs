@@ -14,7 +14,7 @@ date: 'git Last Modified'
   <li>Le <strong>titre d'étape</strong> décrit le type d'information qui sera demandé au cours de l'étape actuelle.</li>
 </ol>
 
-<img class="b-sm b-default p-400" src="/images/fr/components/anatomy/gcds-stepper-anatomy.svg" alt="Image détaillant la structure de l'indicateur d'étape, où trois éléments sont mis en évidence." />
+<img class="b-sm b-default p-400" src="/images/fr/components/anatomy/gcds-stepper-anatomy.svg" alt="La structure de l'indicateur d'étape représentée par trois éléments: l'étape actuelle, le nombre total d'étapes et le titre de l'étape actuelle." />
 
 ## Conception et accessibilité de l'indicateur d'étape
 

@@ -9,7 +9,7 @@ eleventyNavigation:
   otherNames: progress indicator, steps.
   description: A progress tracker for a multi-step process.
   thumbnail: /images/en/components/preview/preview-stepper.svg
-  alt: TO DO.
+  alt: Stepper component shows step 1 of 4 above a grey rounded rectangle.
   state: published
 translationKey: 'stepper'
 tags: ['stepperEN', 'usage']
