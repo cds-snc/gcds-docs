@@ -6,15 +6,21 @@ tags: ['stepperFR', 'code']
 date: 'git Last Modified'
 ---
 
-## Création d'un indicateur d'étape
+## Créer un indicateur d'étape
 
-Utilisez un indicateur d'étape comme guide lorsqu'une séquence (formulaire ou processus) qui s'étend sur trois pages ou plus peut être divisée en étapes logiques.
+Utilisez un indicateur d'étape pour guider les personnes lorsqu'une séquence (formulaire ou processus) peut être divisée en étapes claires qui s'étendent sur plus d'une page.
 
 ## Codage et accessibilité des indicateurs d'étape
 
 ### Utilisez chaque étape pour un objectif
 
-Utilisez l'attribut `current-step` pour indiquer l'étape à laquelle l'utilisateur·rice se trouve. Utilisez l'attibut `total-steps` pour indiquer le nombre total d'étapes.
+Utilisez l'attribut `current-step` pour indiquer l'étape à laquelle la personne se trouve. Utilisez l'attribut `total-steps` pour indiquer le nombre total d'étapes.
+
+### Placez l'indicateur d'étape dans la page
+
+Utilisez l'attribut `tag` pour attribuer la balise de titre appropriée à l'indicateur d'étape. L'indicateur d'étape peut s'afficher sous la forme d'un `h1`, `h2` ou `h3`.
+
+{% include "partials/valid-props.njk" %}
 
 {% include "partials/getcode.njk" %}
 
