@@ -9,7 +9,7 @@ eleventyNavigation:
   otherNames: indication d'erreur.
   description: Une description d'un problème représentant un obstacle à un objectif utilisateur.
   thumbnail: /images/common/components/preview-error-message.svg
-  alt: Une boîte rouge pâle renferme une épaisse ligne grise qui représente le texte d’un message d’erreur.
+  alt: Message d'erreur représenté par une icône d'avertissement (point d'exclamation blanc à l'intérieur d'un triangle rouge), placé à côté d'un rectangle arrondi rouge.
   state: published
 translationKey: 'errormessage'
 tags: ['errormessageFR', 'usage']
