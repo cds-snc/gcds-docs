@@ -17,6 +17,6 @@ Un message d’erreur est une description d’un problème représentant un obst
 
 {% componentPreview "Aperçu du composant de message d'erreur" "px-300 pt-400 pb-100" %}
 <gcds-error-message message-id="example-message">
-Message d'erreur ou message de validation.
+Message d'erreur.
 </gcds-error-message>
 {% endcomponentPreview %}

@@ -9,7 +9,7 @@ eleventyNavigation:
   otherNames: inline error.
   description: A description of a problem blocking a user goal.
   thumbnail: /images/common/components/preview-error-message.svg
-  alt: A light red box holding a grey box represents the error message text.
+  alt: Error message text represented by a warning icon (white exclamation mark within a red triangle) next to a red rounded rectangle.
   state: published
 translationKey: 'errormessage'
 tags: ['errormessageEN', 'usage']
