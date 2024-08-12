@@ -3305,7 +3305,12 @@ class MockNodeList {
 }
 class MockElement extends MockNode {
     attachInternals() {
-      return { setFormValue: (value) => {}};
+        return new Proxy({}, {
+            get: function (_target, prop, _receiver) {
+                console.error(`NOTE: Property ${String(prop)} was accessed on ElementInternals, but this property is not implemented.
+Testing components with ElementInternals is fully supported in e2e tests.`);
+            },
+        });
     }
     constructor(ownerDocument, nodeName, namespaceURI = null) {
         super(ownerDocument, 1 /* NODE_TYPES.ELEMENT_NODE */, typeof nodeName === 'string' ? nodeName : null, null);
@@ -7580,7 +7585,11 @@ const assignLanguage = (el) => {
 // Allows use of closest() function across shadow boundaries
 const closestElement = (selector, el) => {
     if (el) {
-        return ((el && el != document && el != window && el.closest(selector)) ||
+        return ((el &&
+            el != document &&
+            typeof window != 'undefined' &&
+            el != window &&
+            el.closest(selector)) ||
             closestElement(selector, el.getRootNode().host));
     }
     return null;
@@ -10507,7 +10516,7 @@ const I18N$a = {
   },
 };
 
-const gcdsLinkCss = "@layer reset, default, display, size, variant, hover, focus;@layer reset{.sc-gcds-link-h{display:inline-block}.sc-gcds-link-h slot{display:initial}}@layer default{.sc-gcds-link-h .gcds-link{color:var(--gcds-link-default);cursor:pointer;text-decoration-color:currentColor;text-decoration-style:solid;text-decoration-thickness:var(--gcds-link-decoration-thickness);text-underline-offset:var(--gcds-link-underline-offset);transition:all .35s}}@layer display{.sc-gcds-link-h .gcds-link.d-block{display:block}}@layer size{.sc-gcds-link-h .gcds-link.link--small{font:var(--gcds-link-font-small-desktop)}@media only screen and (width < 48em){.sc-gcds-link-h .gcds-link.link--small{font:var(--gcds-link-font-small-mobile)}}.sc-gcds-link-h .gcds-link.link--regular{font:var(--gcds-link-font-regular-desktop)}@media only screen and (width < 48em){.sc-gcds-link-h .gcds-link.link--regular{font:var(--gcds-link-font-regular-mobile)}}.sc-gcds-link-h .gcds-link.link--inherit{font:inherit}}@layer variant{.sc-gcds-link-h .gcds-link.variant-light{color:var(--gcds-link-light)}}@layer hover{@media (hover:hover){.sc-gcds-link-h .gcds-link:hover{text-decoration-thickness:var(--gcds-link-hover-decoration-thickness)}.sc-gcds-link-h .gcds-link:hover:not(.variant-light){color:var(--gcds-link-hover)}}}@layer focus{.sc-gcds-link-h .gcds-link:focus{background-color:var(--gcds-link-focus-background);border-radius:var(--gcds-link-focus-border-radius);box-shadow:var(--gcds-link-focus-box-shadow);color:var(--gcds-link-focus-text);outline:var(--gcds-link-focus-outline-width) solid var(--gcds-link-focus-background);outline-offset:var(--gcds-link-focus-outline-offset);text-decoration:none}}";
+const gcdsLinkCss = "@layer reset, default, display, size, variant, hover, visited, focus;@layer reset{.sc-gcds-link-h{display:inline-block}.sc-gcds-link-h slot{display:initial}}@layer default{.sc-gcds-link-h .gcds-link{color:var(--gcds-link-default);cursor:pointer;text-decoration-color:currentColor;text-decoration-style:solid;text-decoration-thickness:var(--gcds-link-decoration-thickness);text-underline-offset:var(--gcds-link-underline-offset);transition:all .35s}}@layer display{.sc-gcds-link-h .gcds-link.d-block{display:block}}@layer size{.sc-gcds-link-h .gcds-link.link--small{font:var(--gcds-link-font-small-desktop)}@media only screen and (width < 48em){.sc-gcds-link-h .gcds-link.link--small{font:var(--gcds-link-font-small-mobile)}}.sc-gcds-link-h .gcds-link.link--regular{font:var(--gcds-link-font-regular-desktop)}@media only screen and (width < 48em){.sc-gcds-link-h .gcds-link.link--regular{font:var(--gcds-link-font-regular-mobile)}}.sc-gcds-link-h .gcds-link.link--inherit{font:inherit}}@layer variant{.sc-gcds-link-h .gcds-link.variant-light{color:var(--gcds-link-light)}}@layer hover{@media (hover:hover){.sc-gcds-link-h .gcds-link:hover{text-decoration-thickness:var(--gcds-link-hover-decoration-thickness)}.sc-gcds-link-h .gcds-link:hover:not(.variant-light){color:var(--gcds-link-hover)}}}@layer visited{.sc-gcds-link-h .gcds-link:not(.variant-light):visited{color:var(--gcds-link-visited)}}@layer focus{.sc-gcds-link-h .gcds-link:focus{background-color:var(--gcds-link-focus-background);border-radius:var(--gcds-link-focus-border-radius);box-shadow:var(--gcds-link-focus-box-shadow);color:var(--gcds-link-focus-text);outline:var(--gcds-link-focus-outline-width) solid var(--gcds-link-focus-background);outline-offset:var(--gcds-link-focus-outline-offset);text-decoration:none}}";
 var GcdsLinkStyle0 = gcdsLinkCss;
 
 class GcdsLink {
