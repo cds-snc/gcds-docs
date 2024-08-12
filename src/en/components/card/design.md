@@ -9,12 +9,11 @@ date: 'git Last Modified'
 ## Card anatomy
 
 <ol class="anatomy-list">
-  <li>The <strong>container</strong> holds all of a card’s elements.</li>
-  <li>The <strong>image</strong> is a 1:1 or a 16:9 visual that can be included in the card.</li>
-  <li>The <strong>tag</strong> is a piece of supporting information that can be included to describe the content type.</li>
-  <li>The <strong>card title</strong> is a short headline on the subject of the card content and links to further information.</li>
-  <li>The <strong>description</strong> has supporting text for the card title and includes a few lines of summary on the card’s topic or a progressive list of details related to the same subject, like a list of event details.</li>
-  <li>The <strong>card footer</strong> can contain either an action, when there’s a button, or metadata. Metadata can include a date, location, author, or other relevant information.</li>
+  <li>The <strong>container</strong> holds all of a card's elements.</li>
+  <li>The <strong>badge</strong> (optional) is a visual indicator to inform users of the card's status or category. Badge text should be no more than 20 characters.</li>
+  <li>The <strong>image</strong> (optional) is a 1:1, 16:9, or 4:3 ratio visual.</li>
+  <li>The <strong>headline</strong> is a short attention-grabbing title about the card's content.</li>
+  <li>The <strong>description</strong> (optional) has text that supports the card title. It may include a few lines of summary on the card's topic or a list of details about the same subject, like a list of event details.</li>
 </ol>
 
 <img class="b-sm b-default p-400" src="/images/en/components/anatomy/gcds-card-anatomy.svg" alt="An image showing a card's anatomy"/>
@@ -23,30 +22,22 @@ date: 'git Last Modified'
 
 ### Write a scannable card title
 
-- Use a title as a signpost to let a person know what they’ll find in the card.
-- Make the title scannable by keeping it concise.
+- Use a meaningful title to inform users of what they'll find on the card.
 - Choose a brief description or call-to-action statement for the title.
-- Write a meaningful title to help a person choose what to read.
 
 ### Choose what information to add to the card
 
 - Consider adding an image related to the title to make individual cards more identifiable.
-- Include a tag to identify the subject and support the scannability of the card.
-- Opt to display relevant metadata about the card, as additional context to the primary information in the title and description.
+- Consider adding a description to provide more information about the card's topic.
+- Consider adding a badge to inform users of the status or the category of the card's content. Common examples of statuses include: "New", "Updated", "Coming soon" and "Featured". Common examples of categories include: "videos", "articles", "reports". The badges are customizable but are limited to 20 characters maximum.
 
-### Select which metadata to include
+### Group cards for visual consistency
 
-If you include metadata, choose the 1 piece of information most important to your readers. For example:
+Organize cards within a [grid component]({{ links.grid }}):
 
-- Estimated length or reading time.
-- Source, reference, or author.
-- Rating or number of likes or saves.
-- Date or location.
+- For desktop screens, use either 2 or 3 cards per row.
+- For mobile screens, use 1 card per row.
 
-### Group multiple cards for visual consistency
+TO DO: ADD IMAGE
 
-When you have more than 1 card on a page:
-
-- Organize multiple cards within a grid component.
-- Use the same card type within a section on a page. Choose the link card type or the action card type for all cards rather than mixing types.
-- Try to include the same properties for each card within a section on a page. For example, if one card has an image then all cards get an image.
+- Try to include the same properties for each card within a section on a page. For example, if one card has an image, then all cards get an image.

@@ -6,47 +6,38 @@ tags: ['cardFR', 'design']
 date: 'git Last Modified'
 ---
 
-## Structure d’une carte
+## Structure de la carte
 
 <ol class="anatomy-list">
-  <li>La <strong>boîte</strong> contient tous les éléments d’une carte.</li>
-  <li>L'<strong>image</strong> est un visuel 1:1 ou 16:9 qui peut être inclus dans la carte.</li>
-  <li>La <strong>balise</strong> est un élément supplémentaire pouvant être ajouté pour décrire le type de contenu concerné.</li>
-  <li>Le <strong>titre de la carte</strong> est une brève déclaration sur le thème du contenu de la carte. Il inclut un lien permettant d’accéder à davantage de renseignements.</li>
-  <li>La <strong>description</strong> contient du texte destiné à accompagner le lien du titre. Elle offre un résumé du thème de la carte en quelques lignes ou une liste progressive de renseignements sur un même thème, comme une liste d’informations relatives à un évènement.</li>
-  <li>Le <strong>pied de page de la carte</strong> peut appeler à l’action si un bouton y est inclus, ou contenir des métadonnées. Les métadonnées peuvent inclure une date, un lieu, un auteur ou une autrice ou tout autre renseignement pertinent.</li>
+  <li>La <strong>boîte</strong> contient tous les éléments d'une carte.</li>
+  <li>Le <strong>badge</strong> (facultatif) est un indicateur visuel renseignant sur l'état ou la catégorie de la carte. Le texte du badge ne devrait pas dépasser 20 caractères.</li>
+  <li>L'<strong>image</strong> (facultative) a un format de 1:1, 16:9 ou 4:3.</li>
+  <li>Le <strong>titre</strong> est court et attire l'attention sur le sujet du contenu de la carte.</li>
+  <li>La <strong>description</strong> (facultative) contient du texte destiné à accompagner le titre. Elle résume en quelques lignes le sujet de la carte ou affiche une liste de renseignements sur un même sujet, comme les informations sur un évènement.</li>
 </ol>
 
-<img class="b-sm b-default p-400" src="/images/fr/components/anatomy/gcds-card-anatomy.svg" alt="Une image détaillant la structure d’une carte."/>
+<img class="b-sm b-default p-400" src="/images/fr/components/anatomy/gcds-card-anatomy.svg" alt="Une image détaillant la structure d'une carte."/>
 
 ## Design et accessibilité des cartes
 
-### Écrivez un titre facile à lire en un coup d’œil
+### Écrivez un titre facile à parcourir
 
-- Utilisez un titre comme indicateur pour préciser à une personne ce qu’elle va trouver dans la carte.
-- Assurez-vous que le titre soit court pour que les gens puissent le lire en un coup d’œil.
-- Choisissez une brève description ou un appel à l’action pour le titre.
-- Écrivez un titre clair pour aider une personne à choisir quoi lire.
+- Utilisez un titre qui informe les personnes sur le contenu de la carte.
+- Choisissez une brève description ou un appel à l'action pour le titre.
 
 ### Choisissez les renseignements à ajouter à la carte
 
-- Envisagez d’ajouter une image correspondant au titre pour rendre les cartes plus reconnaissables.
-- Incluez une balise pour indiquer le thème et rendre la carte plus reconnaissable au premier coup d’œil.
-- Choisissez d’ajouter à la carte les métadonnées pertinentes. Celles-ci offriront davantage de contexte aux renseignements de base présentés dans le titre et la description.
+- Envisagez d'ajouter une image reflétant le titre pour rendre les cartes plus reconnaissables.
+- Envisagez d'ajouter une description pour fournir plus d'informations sur le sujet de la carte.
+- Envisagez d'ajouter un badge pour renseigner les personnes sur l'état ou la catégorie du contenu de la carte. Voici des exemples courants d'états : Nouveau, Mis à jour, Bientôt disponible, En vedette. Voici des exemples courants de catégories : Vidéos, Articles, Rapports. Les badges sont personnalisables mais sont limités à 20 caractères maximum.
 
-### Sélectionnez les métadonnées à inclure
+### Regroupez les cartes pour assurer une cohérence visuelle
 
-Si vous incluez des métadonnées, choisissez le renseignement le plus important pour votre lectorat. Par exemple :
+Organisez les cartes à l'aide du [composant de la grille]({{ links.grid }}).
 
-- Estimation de la longueur ou de la durée de lecture
-- Source, référence ou auteur ou autrice.
-- Évaluation ou nombre de « J’aime » ou d’enregistrements.
-- Date ou lieu.
+- Pour les écrans d'ordinateur, utilisez 2 ou 3 cartes par rangée.
+- Pour les écrans d'appareils mobiles, utilisez 1 carte par rangée.
 
-### Regroupez plusieurs cartes pour une meilleure cohérence visuelle
+TO DO: ADD IMAGE
 
-Lorsque votre page comprend plusieurs cartes :
-
-- Organisez plusieurs cartes à l’aide d’un composant Grille.
-- Sur une même section, veillez à utiliser le même type de carte. Choisissez des cartes de types liens ou des cartes de type actions pour toutes les cartes au lieu d’utiliser un mélange des deux.
-- Essayez d’inclure les mêmes propriétés pour chaque carte appartenant à la même section d’une page. Exemple : si une carte comporte une image, toutes les cartes comportent une image.
+- Essayez d'inclure les mêmes propriétés pour chaque carte d'une même section dans une page. Par exemple : si une carte comporte une image, toutes les cartes comportent une image.
