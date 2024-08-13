@@ -4,10 +4,12 @@ import { d as defineCustomElement$2 } from './gcds-text2.js';
 
 const I18N = {
   en: {
-    term: 'Date modified:',
+    date: 'Date modified:',
+    version: 'Version ',
   },
   fr: {
-    term: 'Date de modification :',
+    date: 'Date de modification :',
+    version: 'Version ',
   },
 };
 
@@ -40,7 +42,7 @@ const GcdsDateModified$1 = /*@__PURE__*/ proxyCustomElement(class GcdsDateModifi
     }
     render() {
         const { lang, type } = this;
-        return (h(Host, null, h("dl", { class: "gcds-date-modified" }, h("dt", null, h("gcds-text", { display: "inline", "margin-bottom": "0" }, type === 'version' ? 'Version ' : I18N[lang].term)), h("dd", null, h("gcds-text", { display: "inline", "margin-bottom": "0" }, type === 'version' ? (h("slot", null)) : (h("time", null, h("slot", null))))))));
+        return (h(Host, null, h("dl", { class: "gcds-date-modified" }, h("dt", null, h("gcds-text", { display: "inline", "margin-bottom": "0" }, type === 'version' ? I18N[lang].version : I18N[lang].date)), h("dd", null, h("gcds-text", { display: "inline", "margin-bottom": "0" }, type === 'version' ? (h("slot", null)) : (h("time", null, h("slot", null))))))));
     }
     get el() { return this; }
     static get style() { return GcdsDateModifiedStyle0; }

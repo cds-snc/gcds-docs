@@ -1272,12 +1272,12 @@
       console.error('Error fetching latest version:', error);
 
       // Update the latest version and release date in the description
-      cdnLatestVersion.textContent = '0.24.0';
-      cdnLatestVersionDate.textContent = '2024-08-01';
+      cdnLatestVersion.textContent = '0.24.1';
+      cdnLatestVersionDate.textContent = '2024-08-13';
 
       // Update CDN links with fallback version if fetch fails
       codeElements.forEach(element => {
-        element.textContent = element.textContent.replace('||version||', '0.24.0');
+        element.textContent = element.textContent.replace('||version||', '0.24.1');
       });
     }
   }

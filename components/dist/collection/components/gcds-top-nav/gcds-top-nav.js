@@ -110,7 +110,7 @@ export class GcdsTopNav {
     }
     render() {
         const { label, alignment, lang } = this;
-        return (h(Host, null, h("div", { class: "gcds-top-nav" }, h("nav", { "aria-label": `${label}${I18N[lang].navLabel}` }, h("ul", { class: "gcds-top-nav__container" }, h("gcds-nav-group", { menuLabel: "Menu", closeTrigger: lang == 'fr' ? 'Fermer' : 'Close', openTrigger: "Menu", class: "gcds-mobile-nav gcds-mobile-nav-topnav", ref: element => (this.mobile = element), lang: lang }, h("slot", { name: "home" }), h("li", { class: `nav-container__list nav-list--${alignment}` }, h("ul", { class: `nav-container__list nav-list--${alignment}` }, h("slot", null)))))))));
+        return (h(Host, null, h("div", { class: "gcds-top-nav" }, h("nav", { "aria-label": `${label}${I18N[lang].navLabel}` }, h("ul", { class: "gcds-top-nav__container" }, h("gcds-nav-group", { menuLabel: I18N[lang].menuLabel, closeTrigger: I18N[lang].closeTrigger, openTrigger: I18N[lang].menuLabel, class: "gcds-mobile-nav gcds-mobile-nav-topnav", ref: element => (this.mobile = element), lang: lang }, h("slot", { name: "home" }), h("li", { class: `nav-container__list nav-list--${alignment}` }, h("ul", { class: `nav-container__list nav-list--${alignment}` }, h("slot", null)))))))));
     }
     static get is() { return "gcds-top-nav"; }
     static get encapsulation() { return "shadow"; }

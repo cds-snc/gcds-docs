@@ -7777,7 +7777,7 @@ class GcdsBreadcrumbs {
     }; }
 }
 
-const gcdsBreadcrumbsItemCss = "@layer reset, default, hover, focus;@layer reset{.sc-gcds-breadcrumbs-item-h.gcds-breadcrumbs-item{display:inline-block}.sc-gcds-breadcrumbs-item-h.gcds-breadcrumbs-item gcds-link::part(link){display:inline-block;white-space:normal}.sc-gcds-breadcrumbs-item-h.gcds-breadcrumbs-item slot{display:block}}@layer default{.sc-gcds-breadcrumbs-item-h.gcds-breadcrumbs-item{padding:var(--gcds-breadcrumbs-item-padding)!important;position:relative}.sc-gcds-breadcrumbs-item-h.gcds-breadcrumbs-item:before{content:url('data:image/svg+xml;charset=utf-8,<svg xmlns=\"http://www.w3.org/2000/svg\" height=\"12\" viewBox=\"0 0 8 14\"><path fill=\"26374a\" d=\"M7.7 6.3c.4.4.4 1 0 1.4l-6 6c-.4.4-1 .4-1.4 0s-.4-1 0-1.4L5.6 7 .3 1.7C-.1 1.3-.1.7.3.3s1-.4 1.4 0z\"/></svg>');left:var(--gcds-breadcrumbs-item-arrow-left);position:absolute;top:var(--gcds-breadcrumbs-item-arrow-top)}.sc-gcds-breadcrumbs-item-h.gcds-breadcrumbs-item gcds-link::part(link){margin:var(--gcds-breadcrumbs-item-margin);padding:var(--gcds-breadcrumbs-item-link-padding)}}";
+const gcdsBreadcrumbsItemCss = "@layer reset, default, hover, focus, mobile;@layer reset{.sc-gcds-breadcrumbs-item-h.gcds-breadcrumbs-item{display:inline-block}.sc-gcds-breadcrumbs-item-h.gcds-breadcrumbs-item gcds-link::part(link){display:inline-block;white-space:normal}.sc-gcds-breadcrumbs-item-h.gcds-breadcrumbs-item slot{display:block}}@layer default{.sc-gcds-breadcrumbs-item-h.gcds-breadcrumbs-item{padding:var(--gcds-breadcrumbs-item-padding)!important;position:relative}.sc-gcds-breadcrumbs-item-h.gcds-breadcrumbs-item:before{content:url('data:image/svg+xml;charset=utf-8,<svg xmlns=\"http://www.w3.org/2000/svg\" height=\"12\" viewBox=\"0 0 8 14\"><path fill=\"26374a\" d=\"M7.7 6.3c.4.4.4 1 0 1.4l-6 6c-.4.4-1 .4-1.4 0s-.4-1 0-1.4L5.6 7 .3 1.7C-.1 1.3-.1.7.3.3s1-.4 1.4 0z\"/></svg>');left:var(--gcds-breadcrumbs-item-arrow-left);position:absolute;top:var(--gcds-breadcrumbs-item-arrow-top)}.sc-gcds-breadcrumbs-item-h.gcds-breadcrumbs-item gcds-link::part(link){margin:var(--gcds-breadcrumbs-item-margin);padding:var(--gcds-breadcrumbs-item-link-padding)}}@layer mobile{@media screen and (max-width:30rem){.sc-gcds-breadcrumbs-item-h.gcds-breadcrumbs-item{display:block}.sc-gcds-breadcrumbs-item-h.gcds-breadcrumbs-item:before{top:var(--gcds-breadcrumbs-mobile-item-arrow-top)}.sc-gcds-breadcrumbs-item-h.gcds-breadcrumbs-item gcds-link::part(link){margin:var(--gcds-breadcrumbs-mobile-item-margin);padding:var(--gcds-breadcrumbs-mobile-item-padding)}}}";
 var GcdsBreadcrumbsItemStyle0 = gcdsBreadcrumbsItemCss;
 
 class GcdsBreadcrumbsItem {
@@ -8563,10 +8563,12 @@ class GcdsContainer {
 
 const I18N$i = {
   en: {
-    term: 'Date modified:',
+    date: 'Date modified:',
+    version: 'Version ',
   },
   fr: {
-    term: 'Date de modification :',
+    date: 'Date de modification :',
+    version: 'Version ',
   },
 };
 
@@ -8597,7 +8599,7 @@ class GcdsDateModified {
     }
     render() {
         const { lang, type } = this;
-        return (hAsync(Host, null, hAsync("dl", { class: "gcds-date-modified" }, hAsync("dt", null, hAsync("gcds-text", { display: "inline", "margin-bottom": "0" }, type === 'version' ? 'Version ' : I18N$i[lang].term)), hAsync("dd", null, hAsync("gcds-text", { display: "inline", "margin-bottom": "0" }, type === 'version' ? (hAsync("slot", null)) : (hAsync("time", null, hAsync("slot", null))))))));
+        return (hAsync(Host, null, hAsync("dl", { class: "gcds-date-modified" }, hAsync("dt", null, hAsync("gcds-text", { display: "inline", "margin-bottom": "0" }, type === 'version' ? I18N$i[lang].version : I18N$i[lang].date)), hAsync("dd", null, hAsync("gcds-text", { display: "inline", "margin-bottom": "0" }, type === 'version' ? (hAsync("slot", null)) : (hAsync("time", null, hAsync("slot", null))))))));
     }
     get el() { return getElement(this); }
     static get style() { return GcdsDateModifiedStyle0; }
@@ -8614,7 +8616,7 @@ class GcdsDateModified {
     }; }
 }
 
-const gcdsDetailsCss = "@layer reset, default, hover, focus;@layer reset{.sc-gcds-details-h{display:block}.sc-gcds-details-h .details__summary{background-color:transparent;border-color:transparent;cursor:pointer;display:block}.sc-gcds-details-h .details__panel slot{display:initial}.sc-gcds-details-h .details__panel.sc-gcds-details-s > :first-child, .sc-gcds-details-h .details__panel .sc-gcds-details-s > :first-child{margin-block-start:0}.sc-gcds-details-h .details__panel.sc-gcds-details-s > :last-child, .sc-gcds-details-h .details__panel .sc-gcds-details-s > :last-child{margin-block-end:0}.sc-gcds-details-h .details__panel.sc-gcds-details-s > ol, .sc-gcds-details-h .details__panel .sc-gcds-details-s > ol,.sc-gcds-details-h .details__panel.sc-gcds-details-s > ul, .sc-gcds-details-h .details__panel .sc-gcds-details-s > ul{padding:0}}@layer default{.sc-gcds-details-h .gcds-details .details__summary{color:var(--gcds-details-default-text);font:var(--gcds-details-font);padding:var(--gcds-details-summary-padding);position:relative;text-decoration-color:currentColor;text-decoration-line:underline;text-decoration-style:solid;text-decoration-thickness:var(--gcds-details-default-decoration-thickness);text-underline-offset:.2em;transition:background-color .15s ease-in-out,color .15s ease-in-out}.sc-gcds-details-h .gcds-details .details__summary:before{border-block-end:var(--gcds-details-summary-arrow-border-top-bottom) solid transparent;border-block-start:var(--gcds-details-summary-arrow-border-top-bottom) solid transparent;border-inline-start:var(--gcds-details-summary-arrow-border-left) solid currentColor;content:\"\";height:0;left:var(--gcds-details-summary-arrow-left);position:absolute;top:var(--gcds-details-summary-arrow-top);transition:transform .15s ease-in-out;width:0}.sc-gcds-details-h .gcds-details .details__summary[aria-expanded=false]+.details__panel{display:none}.sc-gcds-details-h .gcds-details .details__summary[aria-expanded=true]:before{transform:rotate(90deg)}.sc-gcds-details-h .gcds-details .details__panel{border-inline-start:var(--gcds-details-panel-border-width) solid var(--gcds-details-panel-border-color);margin:var(--gcds-details-panel-margin);padding:var(--gcds-details-panel-padding)}.sc-gcds-details-h .gcds-details .details__panel.sc-gcds-details-s > *, .sc-gcds-details-h .gcds-details .details__panel .sc-gcds-details-s > *{font:var(--gcds-details-font)}.sc-gcds-details-h .gcds-details .details__panel.sc-gcds-details-s > :not(:last-child), .sc-gcds-details-h .gcds-details .details__panel .sc-gcds-details-s > :not(:last-child){margin:0 0 var(--gcds-details-panel-slotted-margin)!important}.sc-gcds-details-h .gcds-details .details__panel.sc-gcds-details-s > ol, .sc-gcds-details-h .gcds-details .details__panel .sc-gcds-details-s > ol,.sc-gcds-details-h .gcds-details .details__panel.sc-gcds-details-s > ul, .sc-gcds-details-h .gcds-details .details__panel .sc-gcds-details-s > ul{margin-inline-start:var(\n          --gcds-details-panel-slotted-margin\n        )!important}.sc-gcds-details-h .gcds-details .details__panel.sc-gcds-details-s > small, .sc-gcds-details-h .gcds-details .details__panel .sc-gcds-details-s > small{font:var(--gcds-details-font-small)}}@layer hover{@media (hover:hover){.sc-gcds-details-h .gcds-details .details__summary:hover:not(:focus){color:var(--gcds-details-hover-text);text-decoration-thickness:var(--gcds-details-hover-decoration-thickness);text-underline-offset:.2em}.sc-gcds-details-h .gcds-details .details__summary:hover:not(:focus):before{color:var(--gcds-details-hover-text)}}}@layer focus{.sc-gcds-details-h .gcds-details .details__summary:focus{background-color:var(--gcds-details-focus-background);border-radius:var(--gcds-details-focus-border-radius);box-shadow:var(--gcds-details-focus-box-shadow);color:var(--gcds-details-focus-text);outline:var(--gcds-details-focus-outline);outline-offset:var(--gcds-details-focus-outline-offset);text-decoration:none}}";
+const gcdsDetailsCss = "@layer reset, default, hover, focus;@layer reset{.sc-gcds-details-h{display:block}.sc-gcds-details-h .details__summary{background-color:transparent;border-color:transparent;cursor:pointer;display:block}.sc-gcds-details-h .details__panel slot{display:initial}.sc-gcds-details-h .details__panel.sc-gcds-details-s > :first-child, .sc-gcds-details-h .details__panel .sc-gcds-details-s > :first-child{margin-block-start:0}.sc-gcds-details-h .details__panel.sc-gcds-details-s > :last-child, .sc-gcds-details-h .details__panel .sc-gcds-details-s > :last-child{margin-block-end:0}.sc-gcds-details-h .details__panel.sc-gcds-details-s > ol, .sc-gcds-details-h .details__panel .sc-gcds-details-s > ol,.sc-gcds-details-h .details__panel.sc-gcds-details-s > ul, .sc-gcds-details-h .details__panel .sc-gcds-details-s > ul{padding:0}}@layer default{.sc-gcds-details-h .gcds-details .details__summary{color:var(--gcds-details-default-text);font:var(--gcds-details-font);padding:var(--gcds-details-summary-padding);position:relative;text-align:left;text-decoration-color:currentColor;text-decoration-line:underline;text-decoration-style:solid;text-decoration-thickness:var(\n        --gcds-details-default-decoration-thickness\n      );text-underline-offset:.2em;transition:background-color .15s ease-in-out,color .15s ease-in-out}.sc-gcds-details-h .gcds-details .details__summary:before{border-block-end:var(--gcds-details-summary-arrow-border-top-bottom) solid transparent;border-block-start:var(--gcds-details-summary-arrow-border-top-bottom) solid transparent;border-inline-start:var(--gcds-details-summary-arrow-border-left) solid currentColor;content:\"\";height:0;left:var(--gcds-details-summary-arrow-left);position:absolute;top:var(--gcds-details-summary-arrow-top);transition:transform .15s ease-in-out;width:0}.sc-gcds-details-h .gcds-details .details__summary[aria-expanded=false]+.details__panel{display:none}.sc-gcds-details-h .gcds-details .details__summary[aria-expanded=true]:before{transform:rotate(90deg)}.sc-gcds-details-h .gcds-details .details__panel{border-inline-start:var(--gcds-details-panel-border-width) solid var(--gcds-details-panel-border-color);margin:var(--gcds-details-panel-margin);padding:var(--gcds-details-panel-padding)}.sc-gcds-details-h .gcds-details .details__panel.sc-gcds-details-s > *, .sc-gcds-details-h .gcds-details .details__panel .sc-gcds-details-s > *{font:var(--gcds-details-font)}.sc-gcds-details-h .gcds-details .details__panel.sc-gcds-details-s > :not(:last-child), .sc-gcds-details-h .gcds-details .details__panel .sc-gcds-details-s > :not(:last-child){margin:0 0 var(--gcds-details-panel-slotted-margin)!important}.sc-gcds-details-h .gcds-details .details__panel.sc-gcds-details-s > ol, .sc-gcds-details-h .gcds-details .details__panel .sc-gcds-details-s > ol,.sc-gcds-details-h .gcds-details .details__panel.sc-gcds-details-s > ul, .sc-gcds-details-h .gcds-details .details__panel .sc-gcds-details-s > ul{margin-inline-start:var(\n          --gcds-details-panel-slotted-margin\n        )!important}.sc-gcds-details-h .gcds-details .details__panel.sc-gcds-details-s > small, .sc-gcds-details-h .gcds-details .details__panel .sc-gcds-details-s > small{font:var(--gcds-details-font-small)}}@layer hover{@media (hover:hover){.sc-gcds-details-h .gcds-details .details__summary:hover:not(:focus){color:var(--gcds-details-hover-text);text-decoration-thickness:var(--gcds-details-hover-decoration-thickness);text-underline-offset:.2em}.sc-gcds-details-h .gcds-details .details__summary:hover:not(:focus):before{color:var(--gcds-details-hover-text)}}}@layer focus{.sc-gcds-details-h .gcds-details .details__summary:focus{background-color:var(--gcds-details-focus-background);border-radius:var(--gcds-details-focus-border-radius);box-shadow:var(--gcds-details-focus-box-shadow);color:var(--gcds-details-focus-text);outline:var(--gcds-details-focus-outline);outline-offset:var(--gcds-details-focus-outline-offset);text-decoration:none}}";
 var GcdsDetailsStyle0 = gcdsDetailsCss;
 
 class GcdsDetails {
@@ -10381,7 +10383,7 @@ const I18N$c = {
   },
 };
 
-const gcdsLabelCss = "@layer reset, default;@layer reset{.sc-gcds-label-h{display:block}.sc-gcds-label-h .gcds-label{color:inherit}}@layer default{.sc-gcds-label-h .gcds-label{cursor:pointer;display:block;font:var(--gcds-label-font-desktop);margin:var(--gcds-label-margin)!important;max-width:100%}@media only screen and (width < 48em){.sc-gcds-label-h .gcds-label{font:var(--gcds-label-font-mobile)}}.sc-gcds-label-h .gcds-label.label--hidden{height:0;margin:0;opacity:0;overflow:hidden;width:0}.sc-gcds-label-h .gcds-label .label--required{margin:var(--gcds-label-required-margin)!important}}";
+const gcdsLabelCss = "@layer reset, default;@layer reset{.sc-gcds-label-h{display:block}.sc-gcds-label-h .gcds-label{color:inherit}}@layer default{.sc-gcds-label-h .gcds-label{cursor:pointer;display:block;font:var(--gcds-label-font-desktop);margin:var(--gcds-label-margin)!important;max-width:100%}@media only screen and (width < 48em){.sc-gcds-label-h .gcds-label{font:var(--gcds-label-font-mobile)}}.sc-gcds-label-h .gcds-label.label--hidden{height:0;margin:0;opacity:0;overflow:hidden;width:0}.sc-gcds-label-h .gcds-label .label--required{font-weight:var(--gcds-label-required-font-weight);margin:var(--gcds-label-required-margin)!important}}";
 var GcdsLabelStyle0 = gcdsLabelCss;
 
 class GcdsLabel {
@@ -11809,10 +11811,14 @@ async function getNavItems(el) {
 
 const I18N$6 = {
   en: {
+    closeTrigger: 'Close',
+    menuLabel: 'Menu',
     navLabel:
       ' - Use the enter key to select a menu item and travel to its page. Use the left and right arrow keys to navigate between menu and submenu items. Use the right arrow key to open submenus when they are available. Use the left arrow or escape keys to close a menu.',
   },
   fr: {
+    closeTrigger: 'Fermer',
+    menuLabel: 'Menu',
     navLabel:
       " - Utiliser la touche d'entrée pour sélectionner un élément du menu et voyager à la page indiquée. Utiliser les flèches gauches et droites pour naviguer entre les éléments et les sous-éléments du menu. Ouvrir les sous-éléments du menu avec la flèche droite lorsqu'il sont disponible. Fermer le menu avec la flèche gauche ou la touche d'échappement.",
   },
@@ -11928,7 +11934,7 @@ class GcdsSideNav {
     }
     render() {
         const { label, lang } = this;
-        return (hAsync(Host, null, hAsync("nav", { "aria-label": `${label}${I18N$6[lang].navLabel}`, class: "gcds-side-nav" }, hAsync("h2", { class: "gcds-side-nav__heading" }, label), hAsync("ul", null, hAsync("gcds-nav-group", { menuLabel: "Menu", closeTrigger: lang == 'fr' ? 'Fermer' : 'Close', openTrigger: "Menu", class: "gcds-mobile-nav", ref: element => (this.mobile = element), lang: lang }, hAsync("slot", null))))));
+        return (hAsync(Host, null, hAsync("nav", { "aria-label": `${label}${I18N$6[lang].navLabel}`, class: "gcds-side-nav" }, hAsync("h2", { class: "gcds-side-nav__heading" }, label), hAsync("ul", null, hAsync("gcds-nav-group", { menuLabel: I18N$6[lang].menuLabel, closeTrigger: I18N$6[lang].closeTrigger, openTrigger: I18N$6[lang].menuLabel, class: "gcds-mobile-nav", ref: element => (this.mobile = element), lang: lang }, hAsync("slot", null))))));
     }
     get el() { return getElement(this); }
     static get style() { return GcdsSideNavStyle0; }
@@ -12534,10 +12540,14 @@ class GcdsTextarea {
 
 const I18N$2 = {
   en: {
+    closeTrigger: 'Close',
+    menuLabel: 'Menu',
     navLabel:
       ' - Use the enter key to select a menu item and travel to its page. Use the left and right arrow keys to navigate between menu and submenu items. Use the right arrow key to open submenus when they are available. Use the left arrow or escape keys to close a menu.',
   },
   fr: {
+    closeTrigger: 'Fermer',
+    menuLabel: 'Menu',
     navLabel:
       " - Utiliser la touche d'entrée pour sélectionner un élément du menu et voyager à la page indiquée. Utiliser les flèches gauches et droites pour naviguer entre les éléments et les sous-éléments du menu. Ouvrir les sous-éléments du menu avec la flèche droite lorsqu'il sont disponible. Fermer le menu avec la flèche gauche ou la touche d'échappement.",
   },
@@ -12655,7 +12665,7 @@ class GcdsTopNav {
     }
     render() {
         const { label, alignment, lang } = this;
-        return (hAsync(Host, null, hAsync("div", { class: "gcds-top-nav" }, hAsync("nav", { "aria-label": `${label}${I18N$2[lang].navLabel}` }, hAsync("ul", { class: "gcds-top-nav__container" }, hAsync("gcds-nav-group", { menuLabel: "Menu", closeTrigger: lang == 'fr' ? 'Fermer' : 'Close', openTrigger: "Menu", class: "gcds-mobile-nav gcds-mobile-nav-topnav", ref: element => (this.mobile = element), lang: lang }, hAsync("slot", { name: "home" }), hAsync("li", { class: `nav-container__list nav-list--${alignment}` }, hAsync("ul", { class: `nav-container__list nav-list--${alignment}` }, hAsync("slot", null)))))))));
+        return (hAsync(Host, null, hAsync("div", { class: "gcds-top-nav" }, hAsync("nav", { "aria-label": `${label}${I18N$2[lang].navLabel}` }, hAsync("ul", { class: "gcds-top-nav__container" }, hAsync("gcds-nav-group", { menuLabel: I18N$2[lang].menuLabel, closeTrigger: I18N$2[lang].closeTrigger, openTrigger: I18N$2[lang].menuLabel, class: "gcds-mobile-nav gcds-mobile-nav-topnav", ref: element => (this.mobile = element), lang: lang }, hAsync("slot", { name: "home" }), hAsync("li", { class: `nav-container__list nav-list--${alignment}` }, hAsync("ul", { class: `nav-container__list nav-list--${alignment}` }, hAsync("slot", null)))))))));
     }
     get el() { return getElement(this); }
     static get style() { return GcdsTopNavStyle0; }

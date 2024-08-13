@@ -45,18 +45,18 @@ const TemplatePlayground = args => `
 export const Default = Template.bind({});
 Default.args = {
     messageId: 'message-default',
-    default: 'Error message or validation message.',
+    default: 'Error message.',
 };
 // ------ Error message events & props ------
 export const Props = Template.bind({});
 Props.args = {
     messageId: 'message-props',
-    default: 'Error message or validation message.',
+    default: 'Error message.',
 };
 // ------ Error message playground ------
 export const Playground = TemplatePlayground.bind({});
 Playground.args = {
     messageId: 'message-playground',
-    default: 'Error message or validation message.',
+    default: 'Error message.',
 };
 //# sourceMappingURL=gcds-error-message.stories.js.map

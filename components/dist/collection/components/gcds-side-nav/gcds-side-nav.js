@@ -108,7 +108,7 @@ export class GcdsSideNav {
     }
     render() {
         const { label, lang } = this;
-        return (h(Host, null, h("nav", { "aria-label": `${label}${I18N[lang].navLabel}`, class: "gcds-side-nav" }, h("h2", { class: "gcds-side-nav__heading" }, label), h("ul", null, h("gcds-nav-group", { menuLabel: "Menu", closeTrigger: lang == 'fr' ? 'Fermer' : 'Close', openTrigger: "Menu", class: "gcds-mobile-nav", ref: element => (this.mobile = element), lang: lang }, h("slot", null))))));
+        return (h(Host, null, h("nav", { "aria-label": `${label}${I18N[lang].navLabel}`, class: "gcds-side-nav" }, h("h2", { class: "gcds-side-nav__heading" }, label), h("ul", null, h("gcds-nav-group", { menuLabel: I18N[lang].menuLabel, closeTrigger: I18N[lang].closeTrigger, openTrigger: I18N[lang].menuLabel, class: "gcds-mobile-nav", ref: element => (this.mobile = element), lang: lang }, h("slot", null))))));
     }
     static get is() { return "gcds-side-nav"; }
     static get encapsulation() { return "shadow"; }

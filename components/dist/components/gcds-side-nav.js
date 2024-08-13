@@ -6,10 +6,14 @@ import { d as defineCustomElement$2 } from './gcds-nav-group2.js';
 
 const I18N = {
   en: {
+    closeTrigger: 'Close',
+    menuLabel: 'Menu',
     navLabel:
       ' - Use the enter key to select a menu item and travel to its page. Use the left and right arrow keys to navigate between menu and submenu items. Use the right arrow key to open submenus when they are available. Use the left arrow or escape keys to close a menu.',
   },
   fr: {
+    closeTrigger: 'Fermer',
+    menuLabel: 'Menu',
     navLabel:
       " - Utiliser la touche d'entrée pour sélectionner un élément du menu et voyager à la page indiquée. Utiliser les flèches gauches et droites pour naviguer entre les éléments et les sous-éléments du menu. Ouvrir les sous-éléments du menu avec la flèche droite lorsqu'il sont disponible. Fermer le menu avec la flèche gauche ou la touche d'échappement.",
   },
@@ -127,7 +131,7 @@ const GcdsSideNav$1 = /*@__PURE__*/ proxyCustomElement(class GcdsSideNav extends
     }
     render() {
         const { label, lang } = this;
-        return (h(Host, null, h("nav", { "aria-label": `${label}${I18N[lang].navLabel}`, class: "gcds-side-nav" }, h("h2", { class: "gcds-side-nav__heading" }, label), h("ul", null, h("gcds-nav-group", { menuLabel: "Menu", closeTrigger: lang == 'fr' ? 'Fermer' : 'Close', openTrigger: "Menu", class: "gcds-mobile-nav", ref: element => (this.mobile = element), lang: lang }, h("slot", null))))));
+        return (h(Host, null, h("nav", { "aria-label": `${label}${I18N[lang].navLabel}`, class: "gcds-side-nav" }, h("h2", { class: "gcds-side-nav__heading" }, label), h("ul", null, h("gcds-nav-group", { menuLabel: I18N[lang].menuLabel, closeTrigger: I18N[lang].closeTrigger, openTrigger: I18N[lang].menuLabel, class: "gcds-mobile-nav", ref: element => (this.mobile = element), lang: lang }, h("slot", null))))));
     }
     get el() { return this; }
     static get style() { return GcdsSideNavStyle0; }
