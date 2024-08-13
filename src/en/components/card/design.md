@@ -37,7 +37,6 @@ Organize cards within a [grid component]({{ links.grid }}):
 
 - For desktop screens, use either 2 or 3 cards per row.
 - For mobile screens, use 1 card per row.
-
-TO DO: ADD IMAGE
-
 - Try to include the same properties for each card within a section on a page. For example, if one card has an image, then all cards get an image.
+
+<img src="/images/en/components/example/example-cards-in-grid.svg" alt="TO DO"/>

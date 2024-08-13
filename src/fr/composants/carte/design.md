@@ -37,7 +37,6 @@ Organisez les cartes à l'aide du [composant de la grille]({{ links.grid }}).
 
 - Pour les écrans d'ordinateur, utilisez 2 ou 3 cartes par rangée.
 - Pour les écrans d'appareils mobiles, utilisez 1 carte par rangée.
-
-TO DO: ADD IMAGE
-
 - Essayez d'inclure les mêmes propriétés pour chaque carte d'une même section dans une page. Par exemple : si une carte comporte une image, toutes les cartes comportent une image.
+
+<img src="/images/fr/components/example/example-cards-in-grid.svg" alt="TO DO"/>
