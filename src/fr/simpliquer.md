@@ -22,14 +22,13 @@ Nous faisons savoir quels sont nos travaux en cours et quels sont ceux qui s'en 
 
 <hr/>
 
-## Comment s'impliquer
+<gcds-heading tag="h2" margin-top="300">Comment s'impliquer</gcds-heading>
 
 ### Contribuez à nos prochaines priorités
 
 <div>
   <gcds-heading tag="h4" margin-bottom="0">Composant icône</gcds-heading>
   <ul class="mb-400">
-    <li>En développement</li>
     <li>Le composant icône affiche un contenu visuel réactif optimisé.</li>
     <li><strong>Sortie prévue :</strong> automne 2024</li>
   </ul>
@@ -38,7 +37,6 @@ Nous faisons savoir quels sont nos travaux en cours et quels sont ceux qui s'en 
 <div>
   <gcds-heading tag="h4" margin-bottom="0">Modèle de page standard</gcds-heading>
   <ul class="mb-400">
-    <li>En conception</li>
     <li>Le modèle de page standard fournit la mise en page de base des pages Web Canada.ca.</li>
     <li><strong>Sortie prévue :</strong> automne 2024</li>
   </ul>
@@ -56,14 +54,13 @@ Fournissez l'un des éléments suivants pour chaque composant ou bloc réutilisa
 
 <hr/>
 
-## À venir
+<gcds-heading tag="h2" margin-top="300">À venir</gcds-heading>
 
 ### Composants à venir
 
 <div>
   <gcds-heading tag="h4" margin-bottom="0">Carte</gcds-heading>
   <ul class="mb-400">
-    <li>En développement</li>
     <li>Le composant carte est amélioré avec de nouvelles fonctionnalités pour optimiser l'expérience de l'utilisateur final et du développeur.</li>
     <li><strong>Sortie prévue :</strong> été 2024</li>
   </ul>
@@ -72,7 +69,6 @@ Fournissez l'un des éléments suivants pour chaque composant ou bloc réutilisa
 <div>
   <gcds-heading tag="h4" margin-bottom="0">Indicateur d'étape</gcds-heading>
   <ul class="mb-400">
-    <li>En développement</li>
     <li>L'indicateur d'étape est amélioré afin de fournir un moyen clair et organisé de guider les personnes à travers un processus en plusieurs étapes.</li>
     <li><strong>Sortie prévue :</strong> été 2024</li>
   </ul>

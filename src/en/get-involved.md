@@ -22,14 +22,13 @@ We're sharing what we're working on and what we'll work on next. To get updates 
 
 <hr/>
 
-## How to get involved
+<gcds-heading tag="h2" margin-top="300">How to get involved</gcds-heading>
 
 ### Contribute to our next priorities
 
 <div>
   <gcds-heading tag="h4" margin-bottom="0">Icon component</gcds-heading>
   <ul class="mb-400">
-    <li>In development</li>
     <li>The icon component displays optimized responsive visual content.</li>
     <li><strong>Expected release:</strong> Fall 2024</li>
   </ul>
@@ -38,7 +37,6 @@ We're sharing what we're working on and what we'll work on next. To get updates 
 <div>
   <gcds-heading tag="h4" margin-bottom="0">Standard page template</gcds-heading>
   <ul class="mb-400">
-    <li>In design</li>
     <li>The standard page template provides the basic layout for Canada.ca web pages.</li>
     <li><strong>Expected release:</strong> Fall 2024</li>
   </ul>
@@ -56,14 +54,13 @@ Provide any of the following for each component or pattern:
 
 <hr />
 
-## Coming soon
+<gcds-heading tag="h2" margin-top="300">Coming soon</gcds-heading>
 
 ### Upcoming components
 
 <div>
   <gcds-heading tag="h4" margin-bottom="0">Card</gcds-heading>
   <ul class="mb-400">
-    <li>In development</li>
     <li>The card component is being enhanced with new features to improve end user and developer experience.</li>
     <li><strong>Expected release:</strong> Summer 2024</li>
   </ul>
@@ -72,7 +69,6 @@ Provide any of the following for each component or pattern:
 <div>
   <gcds-heading tag="h4" margin-bottom="0">Stepper</gcds-heading>
   <ul class="mb-400">
-    <li>In development</li>
     <li>The stepper is being enhanced to provide a clear and organized way to guide people through a multi-step process.</li>
     <li><strong>Expected release:</strong> Summer 2024</li>
   </ul>
