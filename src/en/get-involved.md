@@ -20,82 +20,26 @@ Right now, we're testing GC Design System in alpha, the first usable phase of a 
 
 We're sharing what we're working on and what we'll work on next. To get updates on GC Design System, sign up for our mailing list through our [Contact form]({{ links.contact }}).
 
-### Coming soon
+<hr/>
 
-The next component we're releasing. Keep an eye out!
-
-<div class="my-500">
-  <gcds-grid tag="ul" columns="1fr" columns-tablet="1fr 1fr" columns-desktop="1fr 1fr 1fr" gap="400">
-    <gcds-card
-      card-title="Icon"
-      type="action"
-      title-element="h3"
-      description="A visual cue to help users understand the context."
-      role="listitem"
-    >
-      <div slot="footer">
-        <p class="text-secondary">
-          <small>
-            <em>{{ documentation[locale].othernames }} Glyphs, Graphic, Symbol.</em>
-          </small>
-        </p>
-      </div>
-    </gcds-card>
-  </gcds-grid>
-</div>
-
-## How to get involved
+<gcds-heading tag="h2" margin-top="300">How to get involved</gcds-heading>
 
 ### Contribute to our next priorities
 
-<div class="my-500">
-  <gcds-grid tag="ul" columns="1fr" columns-tablet="1fr 1fr" columns-desktop="1fr 1fr 1fr" gap="400">
-    <gcds-card
-      card-title="Data table"
-      type="action"
-      title-element="h3"
-      description="A way to organize and display large amounts of data in rows and columns."
-      role="listitem"
-    >
-      <div slot="footer">
-        <p class="text-secondary">
-          <small>
-            <em>{{ documentation[locale].othernames }} table, data grid.</em>
-          </small>
-        </p>
-      </div>
-    </gcds-card>
-    <gcds-card
-      card-title="Image"
-      type="action"
-      title-element="h3"
-      description="An element for displaying optimized responsive visual content."
-      role="listitem"
-    >
-      <div slot="footer">
-        <p class="text-secondary">
-          <small>
-            <em>{{ documentation[locale].othernames }} picture, responsive image, figure, photo.</em>
-          </small>
-        </p>
-      </div>
-    </gcds-card>
-    <gcds-card
-      card-title="Tag"
-      type="action"
-      title-element="h3"
-      description="A component used for items that need to be labeled, categorized, or organized using keywords that describe them."
-      role="listitem"
-    >
-      <div slot="footer">
-        <p class="text-secondary">
-          <small>
-            <em>{{ documentation[locale].othernames }} label, badge, pill.</em>
-          </small>
-        </p>
-      </div>
-    </gcds-card>
-  </gcds-grid>
+<div>
+  <gcds-heading tag="h4" margin-bottom="0">Icon component</gcds-heading>
+  <ul class="mb-400">
+    <li>The icon component displays optimized responsive visual content.</li>
+    <li><strong>Expected release:</strong> Fall 2024</li>
+  </ul>
+</div>
+
+<div>
+  <gcds-heading tag="h4" margin-bottom="0">Standard page template</gcds-heading>
+  <ul class="mb-400">
+    <li>The standard page template provides the basic layout for Canada.ca web pages.</li>
+    <li><strong>Expected release:</strong> Fall 2024</li>
+  </ul>
 </div>
 
 Submit your contributions to our next priorities directly in GitHub. If this is your first time using Github - follow these <gcds-link href="{{ links.githubGetStarted }}" external>instructions</gcds-link> to create your account.
@@ -108,7 +52,29 @@ Provide any of the following for each component or pattern:
 
 <gcds-link href="{{ links.githubCompsPriority }}" external>Contribute to next priorities</gcds-link>
 
-### Report an issue
+<hr />
+
+<gcds-heading tag="h2" margin-top="300">Coming soon</gcds-heading>
+
+### Upcoming components
+
+<div>
+  <gcds-heading tag="h4" margin-bottom="0">Card</gcds-heading>
+  <ul class="mb-400">
+    <li>The card component is being enhanced with new features to improve end user and developer experience.</li>
+    <li><strong>Expected release:</strong> Summer 2024</li>
+  </ul>
+</div>
+
+<div>
+  <gcds-heading tag="h4" margin-bottom="0">Stepper</gcds-heading>
+  <ul class="mb-400">
+    <li>The stepper is being enhanced to provide a clear and organized way to guide people through a multi-step process.</li>
+    <li><strong>Expected release:</strong> Summer 2024</li>
+  </ul>
+</div>
+
+## Report an issue
 
 Something's not working? Flag the issue to our team through GitHub. If this is your first time using Github - follow these <gcds-link href="{{ links.githubGetStarted }}" external>instructions</gcds-link> to create your account. With an account, you'll have access to all past issues and get updates on progress.
 

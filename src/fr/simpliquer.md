@@ -20,82 +20,26 @@ Un système de design ne connaît jamais de fin. Nous sommes déterminés à dé
 
 Nous faisons savoir quels sont nos travaux en cours et quels sont ceux qui s'en viennent. Pour obtenir des mises à jour sur Système de design GC, inscrivez-vous à notre liste d'envoi en utilisant notre [formulaire de contact]({{ links.contact }}).
 
-### À venir
+<hr/>
 
-Voici les composants qui s'ajouteront bientôt au système. Restez à l'affût!
-
-<div class="my-500">
-  <gcds-grid tag="ul" columns="1fr" columns-tablet="1fr 1fr" columns-desktop="1fr 1fr 1fr" gap="400">
-    <gcds-card
-      card-title="Icône"
-      type="action"
-      title-element="h3"
-      description="Un repère visuel pour aider les utilisateur·rice·s à comprendre le contexte."
-      role="listitem"
-    >
-      <div slot="footer">
-        <p class="text-secondary">
-          <small>
-            <em>{{ documentation[locale].othernames }} glyphe, image, symbole.</em>
-          </small>
-        </p>
-      </div>
-    </gcds-card>
-  </gcds-grid>
-</div>
-
-## Comment s'impliquer
+<gcds-heading tag="h2" margin-top="300">Comment s'impliquer</gcds-heading>
 
 ### Contribuez à nos prochaines priorités
 
-<div class="my-500">
-  <gcds-grid tag="ul" columns="1fr" columns-tablet="1fr 1fr" columns-desktop="1fr 1fr 1fr" gap="400">
-    <gcds-card
-      card-title="Balise"
-      type="action"
-      title-element="h3"
-      description="Un composant utilisé pour les éléments qui doivent être étiquetés, catégorisés ou organisés à l'aide de mots-clés qui les décrivent."
-      role="listitem"
-    >
-      <div slot="footer">
-        <p class="text-secondary">
-          <small>
-            <em>{{ documentation[locale].othernames }} étiquette, label.</em>
-          </small>
-        </p>
-      </div>
-    </gcds-card>
-    <gcds-card
-      card-title="Image"
-      type="action"
-      title-element="h3"
-      description="Un élément permettant d'afficher un contenu visuel optimisé et réactif."
-      role="listitem"
-    >
-      <div slot="footer">
-        <p class="text-secondary">
-          <small>
-            <em>{{ documentation[locale].othernames }} photo, image réactive, figure, photographie.</em>
-          </small>
-        </p>
-      </div>
-    </gcds-card>
-    <gcds-card
-      card-title="Tableau de données"
-      type="action"
-      title-element="h3"
-      description="Une manière d'organiser et d'afficher une grande quantité de données dans des rangées et des colonnes."
-      role="listitem"
-    >
-      <div slot="footer">
-        <p class="text-secondary">
-          <small>
-            <em>{{ documentation[locale].othernames }} tableau, grille de données.</em>
-          </small>
-        </p>
-      </div>
-    </gcds-card>
-  </gcds-grid>
+<div>
+  <gcds-heading tag="h4" margin-bottom="0">Composant icône</gcds-heading>
+  <ul class="mb-400">
+    <li>Le composant icône affiche un contenu visuel réactif optimisé.</li>
+    <li><strong>Sortie prévue :</strong> automne 2024</li>
+  </ul>
+</div>
+
+<div>
+  <gcds-heading tag="h4" margin-bottom="0">Modèle de page standard</gcds-heading>
+  <ul class="mb-400">
+    <li>Le modèle de page standard fournit la mise en page de base des pages Web Canada.ca.</li>
+    <li><strong>Sortie prévue :</strong> automne 2024</li>
+  </ul>
 </div>
 
 Soumettez vos contributions à nos prochaines priorités directement dans GitHub. Si c’est la première fois que vous utilisez GitHub, suivez ces <gcds-link href="{{ links.githubGetStarted }}" external>instructions</gcds-link> pour créer votre compte.
@@ -107,6 +51,28 @@ Fournissez l'un des éléments suivants pour chaque composant ou bloc réutilisa
 - **Code** : code de prototype ou de production, ou implémentations du produit.
 
 <gcds-link href="{{ links.githubCompsPriority }}" external>Contribuer à nos prochaines priorités</gcds-link>
+
+<hr/>
+
+<gcds-heading tag="h2" margin-top="300">À venir</gcds-heading>
+
+### Composants à venir
+
+<div>
+  <gcds-heading tag="h4" margin-bottom="0">Carte</gcds-heading>
+  <ul class="mb-400">
+    <li>Le composant carte est amélioré avec de nouvelles fonctionnalités pour optimiser l'expérience de l'utilisateur final et du développeur.</li>
+    <li><strong>Sortie prévue :</strong> été 2024</li>
+  </ul>
+</div>
+
+<div>
+  <gcds-heading tag="h4" margin-bottom="0">Indicateur d'étape</gcds-heading>
+  <ul class="mb-400">
+    <li>L'indicateur d'étape est amélioré afin de fournir un moyen clair et organisé de guider les personnes à travers un processus en plusieurs étapes.</li>
+    <li><strong>Sortie prévue :</strong> été 2024</li>
+  </ul>
+</div>
 
 ### Signalez un problème
 
