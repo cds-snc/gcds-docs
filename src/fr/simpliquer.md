@@ -27,20 +27,20 @@ Nous faisons savoir quels sont nos travaux en cours et quels sont ceux qui s'en 
 ### Contribuez à nos prochaines priorités
 
 <div>
-  <gcds-heading tag="h4" margin-bottom="0">Icon component</gcds-heading>
+  <gcds-heading tag="h4" margin-bottom="0">Composant icône</gcds-heading>
   <ul class="mb-400">
-    <li>In development</li>
-    <li>The icon component displays optimized responsive visual content.</li>
-    <li><strong>Expected release:</strong> Fall 2024</li>
+    <li>En développement</li>
+    <li>Le composant icône affiche un contenu visuel réactif optimisé.</li>
+    <li><strong>Sortie prévue :</strong> automne 2024</li>
   </ul>
 </div>
 
 <div>
-  <gcds-heading tag="h4" margin-bottom="0">Standard page template</gcds-heading>
+  <gcds-heading tag="h4" margin-bottom="0">Modèle de page standard</gcds-heading>
   <ul class="mb-400">
-    <li>In design</li>
-    <li>The standard page template provides the basic layout for Canada.ca web pages.</li>
-    <li><strong>Expected release:</strong> Fall 2024</li>
+    <li>En conception</li>
+    <li>Le modèle de page standard fournit la mise en page de base des pages Web Canada.ca.</li>
+    <li><strong>Sortie prévue :</strong> automne 2024</li>
   </ul>
 </div>
 
@@ -58,23 +58,23 @@ Fournissez l'un des éléments suivants pour chaque composant ou bloc réutilisa
 
 ## À venir
 
-### TO DO - translate
+### Composants à venir
 
 <div>
-  <gcds-heading tag="h4" margin-bottom="0">Card</gcds-heading>
+  <gcds-heading tag="h4" margin-bottom="0">Carte</gcds-heading>
   <ul class="mb-400">
-    <li>In development</li>
-    <li>The card component is being enhanced with new features to improve end user and developer experience.</li>
-    <li><strong>Expected release:</strong> Summer 2024</li>
+    <li>En développement</li>
+    <li>Le composant carte est amélioré avec de nouvelles fonctionnalités pour optimiser l'expérience de l'utilisateur final et du développeur.</li>
+    <li><strong>Sortie prévue :</strong> été 2024</li>
   </ul>
 </div>
 
 <div>
-  <gcds-heading tag="h4" margin-bottom="0">Stepper</gcds-heading>
+  <gcds-heading tag="h4" margin-bottom="0">Indicateur d'étape</gcds-heading>
   <ul class="mb-400">
-    <li>In development</li>
-    <li>The stepper is being enhanced to provide a clear and organized way to guide people through a multi-step process.</li>
-    <li><strong>Expected release:</strong> Summer 2024</li>
+    <li>En développement</li>
+    <li>L'indicateur d'étape est amélioré afin de fournir un moyen clair et organisé de guider les personnes à travers un processus en plusieurs étapes.</li>
+    <li><strong>Sortie prévue :</strong> été 2024</li>
   </ul>
 </div>
 
