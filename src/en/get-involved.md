@@ -27,18 +27,16 @@ We're sharing what we're working on and what we'll work on next. To get updates 
 ### Contribute to our next priorities
 
 <div>
-  <gcds-heading tag="h4" margin-bottom="0">Icon component</gcds-heading>
+  <gcds-heading tag="h4" margin-bottom="0">Data table</gcds-heading>
   <ul class="mb-400">
-    <li>The icon component displays optimized responsive visual content.</li>
-    <li><strong>Expected release:</strong> Fall 2024</li>
+    <li>Data table is a way to organize and display large amounts of data in rows and columns.</li>
   </ul>
 </div>
 
 <div>
-  <gcds-heading tag="h4" margin-bottom="0">Standard page template</gcds-heading>
+  <gcds-heading tag="h4" margin-bottom="0">Tag</gcds-heading>
   <ul class="mb-400">
-    <li>The standard page template provides the basic layout for Canada.ca web pages.</li>
-    <li><strong>Expected release:</strong> Fall 2024</li>
+    <li>Tag is a component used for items that need to be labeled, categorized, or organized using keywords that describe them. </li>
   </ul>
 </div>
 
@@ -70,6 +68,14 @@ Provide any of the following for each component or pattern:
   <gcds-heading tag="h4" margin-bottom="0">Stepper</gcds-heading>
   <ul class="mb-400">
     <li>The stepper is being enhanced to provide a clear and organized way to guide people through a multi-step process.</li>
+    <li><strong>Expected release:</strong> Summer 2024</li>
+  </ul>
+</div>
+
+<div>
+  <gcds-heading tag="h4" margin-bottom="0">Date input</gcds-heading>
+  <ul class="mb-400">
+    <li>A date input is a space to enter a known date.</li>
     <li><strong>Expected release:</strong> Summer 2024</li>
   </ul>
 </div>
