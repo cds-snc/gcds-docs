@@ -27,18 +27,16 @@ Nous faisons savoir quels sont nos travaux en cours et quels sont ceux qui s'en 
 ### Contribuez à nos prochaines priorités
 
 <div>
-  <gcds-heading tag="h4" margin-bottom="0">Composant icône</gcds-heading>
+  <gcds-heading tag="h4" margin-bottom="0">Tableau de données</gcds-heading>
   <ul class="mb-400">
-    <li>Le composant icône affiche un contenu visuel réactif optimisé.</li>
-    <li><strong>Sortie prévue :</strong> automne 2024</li>
+    <li>Les tableaux de données sont un moyen d'organiser et d'afficher de grandes quantités de données en lignes et en colonnes.</li>
   </ul>
 </div>
 
 <div>
-  <gcds-heading tag="h4" margin-bottom="0">Modèle de page standard</gcds-heading>
+  <gcds-heading tag="h4" margin-bottom="0">Étiquette</gcds-heading>
   <ul class="mb-400">
-    <li>Le modèle de page standard fournit la mise en page de base des pages Web Canada.ca.</li>
-    <li><strong>Sortie prévue :</strong> automne 2024</li>
+    <li>L'etiquette est un composant utilisé pour des éléments qui doivent être étiquetés, catégorisés ou organisés à l'aide de mots-clés qui les décrivent.</li>
   </ul>
 </div>
 
@@ -70,6 +68,14 @@ Fournissez l'un des éléments suivants pour chaque composant ou bloc réutilisa
   <gcds-heading tag="h4" margin-bottom="0">Indicateur d'étape</gcds-heading>
   <ul class="mb-400">
     <li>L'indicateur d'étape est amélioré afin de fournir un moyen clair et organisé de guider les personnes à travers un processus en plusieurs étapes.</li>
+    <li><strong>Sortie prévue :</strong> été 2024</li>
+  </ul>
+</div>
+
+<div>
+  <gcds-heading tag="h4" margin-bottom="0">Saisie de date</gcds-heading>
+  <ul class="mb-400">
+    <li>Une saisie de date est un champ de saisie pour entrer une date connue.</li>
     <li><strong>Sortie prévue :</strong> été 2024</li>
   </ul>
 </div>
