@@ -15,8 +15,6 @@ La carte est un encadré contenant du contenu structuré et pratique sur un suje
 {% enddocLinks %}
 
 {% componentPreview "Aperçu du composant de carte" %}
-<gcds-card card-title="Titre de la carte" tag="Balise" description="Description destinée à accompagner le titre. Les textes plus longs seront tronqués avec ..." href="#">
-
-<div slot="footer">Infos contextuelles • metadonnées</div>
+<gcds-card card-title="Titre de la carte" badge="Balise" description="Description destinée à accompagner le titre. Les textes plus longs seront tronqués avec ..." href="#">
 </gcds-card>
 {% endcomponentPreview %}

@@ -13,22 +13,19 @@
       {% if entry.state == cardlist.state %}
         <gcds-card
           card-title="{{ entry.title }}"
-          type="link"
           href="{{entry.url}}"
-          title-element="h3"
-          tag="{% if entry.tag %}{{ entry.tag }}{% endif %}"
-          description="{{ entry.description }}"
+          card-title-tag="h3"
+          badge="{% if entry.tag %}{{ entry.tag }}{% endif %}"
           img-src="{{ entry.thumbnail }}"
           img-alt="{{ entry.alt }}"
           role="listitem"
         >
-          <div slot="footer">
-            {% if entry.otherNames %}
-              <p class="text-secondary">
-                <small><em>{{ documentation[locale].othernames }}{{ entry.otherNames }}</em></small>
-              </p>
-            {% endif %}
-          </div>
+          <gcds-text >{{ entry.description }}</gcds-text>
+          {% if entry.otherNames %}
+            <gcds-text text-role="secondary" size="caption" margin-bottom="0">
+              <em>{{ documentation[locale].othernames }}{{ entry.otherNames }}</em>
+            </gcds-text>
+          {% endif %}
         </gcds-card>
       {% endif %}
     {%- endfor -%}

@@ -16,5 +16,5 @@ L'indicateur d'étape est un marqueur de progression pour un processus à plusie
 {% enddocLinks %}
 
 {% componentPreview "Aperçu du composant indicateur d'étape" "px-300 pt-400 pb-100" %}
-<gcds-stepper current-step="1" total-steps="4"></gcds-stepper>
+<gcds-stepper current-step="1" total-steps="4">Titre de la section</gcds-stepper>
 {% endcomponentPreview %}
