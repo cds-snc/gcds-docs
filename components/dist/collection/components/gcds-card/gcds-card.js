@@ -1,17 +1,42 @@
-import { Host, h, Fragment, } from "@stencil/core";
-import { assignLanguage, observerConfig } from "../../utils/utils";
+import { Host, h, } from "@stencil/core";
+import { assignLanguage, observerConfig, logError } from "../../utils/utils";
 import i18n from "./i18n/i18n";
 export class GcdsCard {
     constructor() {
-        this.type = 'link';
         this.cardTitle = undefined;
-        this.titleElement = 'a';
         this.href = undefined;
+        this.cardTitleTag = 'a';
         this.description = undefined;
-        this.tag = undefined;
+        this.badge = undefined;
         this.imgSrc = undefined;
         this.imgAlt = undefined;
         this.lang = undefined;
+        this.errors = [];
+    }
+    validateCardTitle() {
+        if (!this.cardTitle || this.cardTitle.trim() == '') {
+            this.errors.push('cardTitle');
+        }
+        else if (this.errors.includes('cardTitle')) {
+            this.errors.splice(this.errors.indexOf('cardTitle'), 1);
+        }
+    }
+    validateHref() {
+        if (!this.href || this.href.trim() == '') {
+            this.errors.push('href');
+        }
+        else if (this.errors.includes('href')) {
+            this.errors.splice(this.errors.indexOf('href'), 1);
+        }
+    }
+    validateBadge() {
+        if (this.badge && this.badge.length > 20) {
+            console.error(`${i18n['en'].badgeError} | ${i18n['fr'].badgeError}`);
+            this.errors.push('badge');
+        }
+        else if (this.errors.includes('badge')) {
+            this.errors.splice(this.errors.indexOf('badge'), 1);
+        }
     }
     /*
      * Observe lang attribute change
@@ -24,22 +49,47 @@ export class GcdsCard {
         });
         observer.observe(this.el, observerConfig);
     }
+    /*
+     * Validate required properties
+     */
+    validateRequiredProps() {
+        this.validateCardTitle();
+        this.validateHref();
+        if (this.errors.includes('href') || this.errors.includes('cardTitle')) {
+            return false;
+        }
+        return true;
+    }
     async componentWillLoad() {
         // Define lang attribute
         this.lang = assignLanguage(this.el);
         this.updateLang();
+        this.validateBadge();
+        let valid = this.validateRequiredProps();
+        if (!valid) {
+            logError('gcds-card', this.errors, ['badge']);
+        }
     }
-    get hasCardFooter() {
-        return !!this.el.querySelector('[slot="footer"]');
+    get renderDescription() {
+        if (this.el.innerHTML.trim() != '') {
+            return h("slot", null);
+        }
+        else {
+            if (this.description) {
+                return h("gcds-text", null, this.description);
+            }
+        }
     }
     render() {
-        const { type, cardTitle, titleElement, href, description, tag, imgSrc, imgAlt, hasCardFooter, lang, } = this;
-        const Element = titleElement;
+        const { cardTitle, cardTitleTag, href, badge, imgSrc, imgAlt, renderDescription, lang, errors, } = this;
+        const Element = cardTitleTag;
         const taggedAttr = {};
-        if (tag) {
-            taggedAttr['aria-describedby'] = 'gcds-card__tag';
+        if (badge) {
+            taggedAttr['aria-describedby'] = 'gcds-badge';
         }
-        return (h(Host, null, h("div", { class: `gcds-card gcds-card--${type}` }, imgSrc && (h("img", { src: imgSrc, alt: imgAlt ? imgAlt : '', class: "gcds-card__image" })), tag && (h("gcds-text", { id: "gcds-card__tag", class: "gcds-card__tag", "text-role": "secondary", size: "caption" }, h("gcds-sr-only", null, i18n[lang].tagged), tag)), Element != 'a' ? (h(Element, Object.assign({ class: "gcds-card__title" }, taggedAttr), h("gcds-link", { href: href }, cardTitle))) : (h("gcds-link", Object.assign({ href: href, class: "gcds-card__title" }, taggedAttr), cardTitle)), description && (h("gcds-text", { class: "gcds-card__description" }, description)), hasCardFooter && (h(Fragment, null, h("div", { class: "gcds-card__spacer" }), h("slot", { name: "footer" }))))));
+        if (this.validateRequiredProps()) {
+            return (h(Host, null, h("div", { class: "gcds-card" }, imgSrc && (h("img", { src: imgSrc, alt: imgAlt ? imgAlt : '', class: "gcds-card__image" })), badge && !errors.includes('badge') && (h("gcds-text", { id: "gcds-badge", class: "gcds-badge", "text-role": "light", "margin-bottom": "0", size: "caption" }, h("strong", null, h("gcds-sr-only", null, i18n[lang].tagged), badge))), Element != 'a' ? (h(Element, Object.assign({ class: "gcds-card__title" }, taggedAttr), h("gcds-link", { href: href }, cardTitle))) : (h("gcds-link", Object.assign({ href: href, class: "gcds-card__title" }, taggedAttr), cardTitle)), h("div", { class: "gcds-card__description" }, renderDescription))));
+        }
     }
     static get is() { return "gcds-card"; }
     static get encapsulation() { return "shadow"; }
@@ -55,24 +105,6 @@ export class GcdsCard {
     }
     static get properties() {
         return {
-            "type": {
-                "type": "string",
-                "mutable": false,
-                "complexType": {
-                    "original": "'link' | 'action'",
-                    "resolved": "\"action\" | \"link\"",
-                    "references": {}
-                },
-                "required": false,
-                "optional": false,
-                "docs": {
-                    "tags": [],
-                    "text": "The type attribute specifies how the card renders as a link"
-                },
-                "attribute": "type",
-                "reflect": true,
-                "defaultValue": "'link'"
-            },
             "cardTitle": {
                 "type": "string",
                 "mutable": false,
@@ -89,24 +121,6 @@ export class GcdsCard {
                 },
                 "attribute": "card-title",
                 "reflect": true
-            },
-            "titleElement": {
-                "type": "string",
-                "mutable": false,
-                "complexType": {
-                    "original": "'h3' | 'h4' | 'h5' | 'h6' | 'a'",
-                    "resolved": "\"a\" | \"h3\" | \"h4\" | \"h5\" | \"h6\"",
-                    "references": {}
-                },
-                "required": false,
-                "optional": false,
-                "docs": {
-                    "tags": [],
-                    "text": "The title element attribute specifies HTML element the title renders as"
-                },
-                "attribute": "title-element",
-                "reflect": false,
-                "defaultValue": "'a'"
             },
             "href": {
                 "type": "string",
@@ -125,6 +139,24 @@ export class GcdsCard {
                 "attribute": "href",
                 "reflect": true
             },
+            "cardTitleTag": {
+                "type": "string",
+                "mutable": false,
+                "complexType": {
+                    "original": "'h3' | 'h4' | 'h5' | 'h6' | 'a'",
+                    "resolved": "\"a\" | \"h3\" | \"h4\" | \"h5\" | \"h6\"",
+                    "references": {}
+                },
+                "required": false,
+                "optional": false,
+                "docs": {
+                    "tags": [],
+                    "text": "The card title tag attribute specifies HTML element the title renders as"
+                },
+                "attribute": "card-title-tag",
+                "reflect": false,
+                "defaultValue": "'a'"
+            },
             "description": {
                 "type": "string",
                 "mutable": false,
@@ -142,9 +174,9 @@ export class GcdsCard {
                 "attribute": "description",
                 "reflect": true
             },
-            "tag": {
+            "badge": {
                 "type": "string",
-                "mutable": false,
+                "mutable": true,
                 "complexType": {
                     "original": "string",
                     "resolved": "string",
@@ -154,9 +186,9 @@ export class GcdsCard {
                 "optional": false,
                 "docs": {
                     "tags": [],
-                    "text": "The tag attribute specifies the tag text that appears above the card title"
+                    "text": "The badge attribute specifies the badge text that appears in the top left corner of the card. 20 character limit."
                 },
-                "attribute": "tag",
+                "attribute": "badge",
                 "reflect": true
             },
             "imgSrc": {
@@ -197,9 +229,70 @@ export class GcdsCard {
     }
     static get states() {
         return {
-            "lang": {}
+            "lang": {},
+            "errors": {}
         };
     }
+    static get events() {
+        return [{
+                "method": "gcdsFocus",
+                "name": "gcdsFocus",
+                "bubbles": true,
+                "cancelable": true,
+                "composed": true,
+                "docs": {
+                    "tags": [],
+                    "text": "Emitted when the card has focus."
+                },
+                "complexType": {
+                    "original": "void",
+                    "resolved": "void",
+                    "references": {}
+                }
+            }, {
+                "method": "gcdsBlur",
+                "name": "gcdsBlur",
+                "bubbles": true,
+                "cancelable": true,
+                "composed": true,
+                "docs": {
+                    "tags": [],
+                    "text": "Emitted when the card loses focus."
+                },
+                "complexType": {
+                    "original": "void",
+                    "resolved": "void",
+                    "references": {}
+                }
+            }, {
+                "method": "gcdsClick",
+                "name": "gcdsClick",
+                "bubbles": true,
+                "cancelable": true,
+                "composed": true,
+                "docs": {
+                    "tags": [],
+                    "text": "Emitted when the card has been clicked."
+                },
+                "complexType": {
+                    "original": "void",
+                    "resolved": "void",
+                    "references": {}
+                }
+            }];
+    }
     static get elementRef() { return "el"; }
+    static get watchers() {
+        return [{
+                "propName": "cardTitle",
+                "methodName": "validateCardTitle"
+            }, {
+                "propName": "href",
+                "methodName": "validateHref"
+            }, {
+                "propName": "badge",
+                "methodName": "validateBadge"
+            }];
+    }
 }
 //# sourceMappingURL=gcds-card.js.map

@@ -1092,7 +1092,7 @@
   
     <h1 id="card-brgcdscard" class="mb-400">Card <br><code>&lt;gcds-card&gt;</code></h1>
 <p class="mb-400"><em>Also called: tile, content card.</em></p>
-<p class="mb-400">The card is a box containing structured, actionable content on a single topic.</p>
+<p class="mb-400">A card is a box containing structured, actionable content on a single topic.</p>
 <p class="mb-400"><ul class="d-flex flex-wrap gap-400">
 <li class="github-link">
 <gcds-link external href="https://github.com/cds-snc/gcds-components/tree/main/packages/web/src/components/gcds-card">GitHub</gcds-link>
@@ -1106,8 +1106,7 @@
 Card component preview
 </p>
 <div class="px-300 py-400"></p>
-<gcds-card card-title="Card title link" tag="Tag" href="#" description="Description or supporting text relating to the headline. Longer text will be truncated with ...">
-<div slot="footer">Context info • metadata</div>
+<gcds-card card-title="Card title link" badge="Tag" href="#" description="Description or supporting text relating to the headline. Longer text will be truncated with ...">
 </gcds-card>
 <p class="mb-400"></div>
 </div></p>
@@ -1151,39 +1150,30 @@ Card component preview
 
   <h2 id="card-anatomy" class="mt-500 mb-400">Card anatomy</h2>
 <ol class="anatomy-list">
-  <li>The <strong>container</strong> holds all of a card’s elements.</li>
-  <li>The <strong>image</strong> is a 1:1 or a 16:9 visual that can be included in the card.</li>
-  <li>The <strong>tag</strong> is a piece of supporting information that can be included to describe the content type.</li>
-  <li>The <strong>card title</strong> is a short headline on the subject of the card content and links to further information.</li>
-  <li>The <strong>description</strong> has supporting text for the card title and includes a few lines of summary on the card’s topic or a progressive list of details related to the same subject, like a list of event details.</li>
-  <li>The <strong>card footer</strong> can contain either an action, when there’s a button, or metadata. Metadata can include a date, location, author, or other relevant information.</li>
+  <li>The <strong>container</strong> holds all of a card's elements.</li>
+  <li>The <strong>badge</strong> (optional) is a visual indicator to inform users of the card's status or category. Badge text should be no more than 20 characters.</li>
+  <li>The <strong>image</strong> (optional) is a 1:1, 16:9, or 4:3 ratio visual.</li>
+  <li>The <strong>headline</strong> is a short attention-grabbing title about the card's content.</li>
+  <li>The <strong>description</strong> (optional) has text that supports the card title. It may include a few lines of summary on the card's topic or a list of details about the same subject, like a list of event details.</li>
 </ol>
-<img class="b-sm b-default p-400" src="/images/en/components/anatomy/gcds-card-anatomy.svg" alt="An image showing a card's anatomy"/>
+<img class="b-sm b-default p-400" src="/images/en/components/anatomy/gcds-card-anatomy.svg" alt="A card anatomy represented by 5 elements: the container, the badge, the image, the headline, and the description."/>
 <h2 id="design-and-accessibility-for-cards" class="mt-500 mb-400">Design and accessibility for cards</h2>
 <h3 id="write-a-scannable-card-title" class="mt-500 mb-400">Write a scannable card title</h3>
-<ul class="list-disc mb-400"><li><p class="mb-400">Use a title as a signpost to let a person know what they’ll find in the card.</li>
-<li><p class="mb-400">Make the title scannable by keeping it concise.</li>
+<ul class="list-disc mb-400"><li><p class="mb-400">Use a meaningful title to inform users of what they'll find on the card.</li>
 <li><p class="mb-400">Choose a brief description or call-to-action statement for the title.</li>
-<li><p class="mb-400">Write a meaningful title to help a person choose what to read.</li>
 </ul>
 <h3 id="choose-what-information-to-add-to-the-card" class="mt-500 mb-400">Choose what information to add to the card</h3>
 <ul class="list-disc mb-400"><li><p class="mb-400">Consider adding an image related to the title to make individual cards more identifiable.</li>
-<li><p class="mb-400">Include a tag to identify the subject and support the scannability of the card.</li>
-<li><p class="mb-400">Opt to display relevant metadata about the card, as additional context to the primary information in the title and description.</li>
+<li><p class="mb-400">Consider adding a description to provide more information about the card's topic.</li>
+<li><p class="mb-400">Consider adding a badge to inform users of the status or the category of the card's content. Common examples of statuses include: &quot;New&quot;, &quot;Updated&quot;, &quot;Coming soon&quot; and &quot;Featured&quot;. Common examples of categories include: &quot;videos&quot;, &quot;articles&quot;, &quot;reports&quot;. The badges are customizable but are limited to 20 characters maximum.</li>
 </ul>
-<h3 id="select-which-metadata-to-include" class="mt-500 mb-400">Select which metadata to include</h3>
-<p class="mb-400">If you include metadata, choose the 1 piece of information most important to your readers. For example:</p>
-<ul class="list-disc mb-400"><li><p class="mb-400">Estimated length or reading time.</li>
-<li><p class="mb-400">Source, reference, or author.</li>
-<li><p class="mb-400">Rating or number of likes or saves.</li>
-<li><p class="mb-400">Date or location.</li>
+<h3 id="group-cards-for-visual-consistency" class="mt-500 mb-400">Group cards for visual consistency</h3>
+<p class="mb-400">Organize cards within a <a href="/en/components/grid">grid component</a>:</p>
+<ul class="list-disc mb-400"><li><p class="mb-400">For desktop screens, use either 2 or 3 cards per row.</li>
+<li><p class="mb-400">For mobile screens, use 1 card per row.</li>
+<li><p class="mb-400">Try to include the same properties for each card within a section on a page. For example, if one card has an image, then all cards get an image.</li>
 </ul>
-<h3 id="group-multiple-cards-for-visual-consistency" class="mt-500 mb-400">Group multiple cards for visual consistency</h3>
-<p class="mb-400">When you have more than 1 card on a page:</p>
-<ul class="list-disc mb-400"><li><p class="mb-400">Organize multiple cards within a grid component.</li>
-<li><p class="mb-400">Use the same card type within a section on a page. Choose the link card type or the action card type for all cards rather than mixing types.</li>
-<li><p class="mb-400">Try to include the same properties for each card within a section on a page. For example, if one card has an image then all cards get an image.</li>
-</ul>
+<img src="/images/en/components/example/example-cards-in-grid.svg" alt="Cards grouped in two rows. The first row contains 3 cards (4 grid columns per card). The second row contains two cards (6 grid columns per card)."/>
 
 
   <section data-pagefind-ignore class="pt-100 mt-400 mb-600 bt-sm b-dark ">
@@ -1207,7 +1197,7 @@ Card component preview
 
 
         <gcds-date-modified class="mb-400 font-caption">
-          2024-08-15
+          2024-08-19
         </gcds-date-modified>
       </main>
 

@@ -9,6 +9,7 @@
     "components/gcds-card/gcds-card.js",
     "components/gcds-checkbox/gcds-checkbox.js",
     "components/gcds-container/gcds-container.js",
+    "components/gcds-date-input/gcds-date-input.js",
     "components/gcds-date-modified/gcds-date-modified.js",
     "components/gcds-details/gcds-details.js",
     "components/gcds-error-message/gcds-error-message.js",

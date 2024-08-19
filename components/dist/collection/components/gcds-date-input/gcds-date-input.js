@@ -1,0 +1,634 @@
+import { Host, h, } from "@stencil/core";
+import { assignLanguage, observerConfig, isValidDate, logError, } from "../../utils/utils";
+import { defaultValidator, getValidator, requiredValidator, } from "../../validators";
+import i18n from "./i18n/i18n";
+export class GcdsDateInput {
+    constructor() {
+        this._validator = defaultValidator;
+        this.onBlur = () => {
+            if (this.validateOn == 'blur') {
+                this.validate();
+            }
+        };
+        /*
+         * Handle input event to update state
+         */
+        this.handleInput = (e, type) => {
+            const val = e.target && e.target.value;
+            if (type === 'year') {
+                this.yearValue = val;
+            }
+            else if (type === 'month') {
+                this.monthValue = val;
+            }
+            else if (type === 'day') {
+                this.dayValue = val;
+            }
+            this.setValue();
+            if (e.type === 'change') {
+                const changeEvt = new e.constructor(e.type, e);
+                this.el.dispatchEvent(changeEvt);
+            }
+        };
+        this.name = undefined;
+        this.legend = undefined;
+        this.format = undefined;
+        this.value = undefined;
+        this.required = false;
+        this.hint = undefined;
+        this.errorMessage = undefined;
+        this.disabled = false;
+        this.validator = undefined;
+        this.validateOn = undefined;
+        this.monthValue = '';
+        this.dayValue = '';
+        this.yearValue = '';
+        this.hasError = {
+            day: false,
+            month: false,
+            year: false,
+        };
+        this.errors = [];
+        this.lang = undefined;
+    }
+    validateName() {
+        if (!this.name) {
+            this.errors.push('name');
+        }
+        else if (this.errors.includes('name')) {
+            this.errors.splice(this.errors.indexOf('name'), 1);
+        }
+    }
+    validateLegend() {
+        if (!this.legend) {
+            this.errors.push('legend');
+        }
+        else if (this.errors.includes('legend')) {
+            this.errors.splice(this.errors.indexOf('legend'), 1);
+        }
+    }
+    validateFormat() {
+        if (!this.format || (this.format != 'full' && this.format != 'compact')) {
+            this.errors.push('format');
+        }
+        else if (this.errors.includes('format')) {
+            this.errors.splice(this.errors.indexOf('format'), 1);
+        }
+    }
+    validateValue() {
+        if (this.value && !isValidDate(this.value)) {
+            this.errors.push('value');
+            this.value = '';
+            console.error(`${i18n['en'].valueError}${i18n['en'][`valueFormat${this.format}`]} | ${i18n['fr'].valueError}${i18n['fr'][`valueFormat${this.format}`]}`);
+        }
+        else if (this.errors.includes('value')) {
+            this.errors.splice(this.errors.indexOf('value'), 1);
+        }
+    }
+    validateValidator() {
+        if (this.validator && !this.validateOn) {
+            this.validateOn = 'blur';
+        }
+    }
+    /**
+     * Call any active validators
+     */
+    async validate() {
+        const validationResult = this._validator.validate(this.format === 'full'
+            ? `${this.yearValue}-${this.monthValue}-${this.dayValue}`
+            : `${this.yearValue}-${this.monthValue}`);
+        if (!validationResult.valid) {
+            this.errorMessage = validationResult.reason[this.lang];
+            this.hasError = Object.assign({}, validationResult.errors);
+            this.gcdsError.emit({
+                message: `${this.legend} - ${this.errorMessage}`,
+                errors: validationResult.errors,
+            });
+        }
+        else {
+            this.errorMessage = '';
+            this.gcdsValid.emit();
+            this.hasError = {
+                day: false,
+                month: false,
+                year: false,
+            };
+        }
+    }
+    /*
+     * Event listeners
+     */
+    async submitListener(e) {
+        if (e.target == this.el.closest('form')) {
+            if (this.validateOn && this.validateOn != 'other') {
+                this.validate();
+            }
+            for (const key in this.hasError) {
+                if (this.hasError[key]) {
+                    e.preventDefault();
+                }
+            }
+        }
+    }
+    /*
+     * Form internal functions
+     */
+    formResetCallback() {
+        if (this.value != this.initialValue) {
+            this.internals.setFormValue(this.initialValue);
+            this.value = this.initialValue;
+        }
+    }
+    formStateRestoreCallback(state) {
+        this.internals.setFormValue(state);
+        this.value = state;
+    }
+    /*
+     * Observe lang attribute change
+     */
+    updateLang() {
+        const observer = new MutationObserver(mutations => {
+            if (mutations[0].oldValue != this.el.lang) {
+                this.lang = this.el.lang;
+            }
+        });
+        observer.observe(this.el, observerConfig);
+    }
+    /**
+     * Logic to combine all input values together based on format
+     */
+    setValue() {
+        const { yearValue, dayValue, monthValue, format } = this;
+        // All form elements have something entered
+        if (yearValue && monthValue && dayValue && format == 'full') {
+            // Is the combined value a valid date
+            if (isValidDate(`${yearValue}-${monthValue}-${dayValue}`, format)) {
+                this.value = `${yearValue}-${monthValue}-${dayValue}`;
+                this.internals.setFormValue(this.value);
+            }
+            else {
+                this.value = null;
+                this.internals.setFormValue(null);
+                return false;
+            }
+        }
+        else if (yearValue && monthValue && format == 'compact') {
+            // Is the combined value a valid date
+            if (isValidDate(`${yearValue}-${monthValue}`, format)) {
+                this.value = `${yearValue}-${monthValue}`;
+                this.internals.setFormValue(this.value);
+            }
+            else {
+                this.value = null;
+                this.internals.setFormValue(null);
+                return false;
+            }
+        }
+        else {
+            this.value = null;
+            this.internals.setFormValue(null);
+            return false;
+        }
+        return true;
+    }
+    /**
+     * Split value into parts depending on format
+     */
+    splitFormValue() {
+        if (this.value && isValidDate(this.value, this.format)) {
+            if (this.format == 'compact') {
+                let splitValue = this.value.split('-');
+                this.yearValue = splitValue[0];
+                this.monthValue = splitValue[1];
+            }
+            else {
+                let splitValue = this.value.split('-');
+                this.yearValue = splitValue[0];
+                this.monthValue = splitValue[1];
+                this.dayValue = splitValue[2];
+            }
+        }
+    }
+    /**
+     * Format day input value to add 0 to single digit values
+     */
+    formatDay(e) {
+        if (!isNaN(e.target.value) && e.target.value.length === 1) {
+            this.dayValue = '0' + e.target.value;
+        }
+    }
+    validateRequiredProps() {
+        this.validateName();
+        this.validateLegend();
+        this.validateFormat();
+        if (this.errors.includes('name') ||
+            this.errors.includes('legend') ||
+            this.errors.includes('format')) {
+            return false;
+        }
+        return true;
+    }
+    async componentWillLoad() {
+        // Define lang attribute
+        this.lang = assignLanguage(this.el);
+        this.updateLang();
+        this.validateValidator();
+        // Assign required validator if needed
+        requiredValidator(this.el, 'date-input');
+        if (this.validator) {
+            this._validator = getValidator(this.validator);
+        }
+        let valid = this.validateRequiredProps();
+        if (!valid) {
+            logError('gcds-date-input', this.errors);
+        }
+        this.validateValue();
+        if (this.value && isValidDate(this.value)) {
+            this.splitFormValue();
+            this.setValue();
+            this.initialValue = this.value;
+        }
+    }
+    componentWillUpdate() {
+        if (this.validator) {
+            this._validator = getValidator(this.validator);
+        }
+    }
+    render() {
+        const { legend, name, format, required, hint, errorMessage, disabled, lang, hasError, } = this;
+        let requiredAttr = {};
+        if (required) {
+            requiredAttr['aria-required'] = 'true';
+        }
+        // Array of months 01 - 12
+        const options = Array.from({ length: 12 }, (_, i) => i + 1 < 10 ? `0${i + 1}` : `${i + 1}`);
+        const month = (h("gcds-select", Object.assign({ label: i18n[lang].month, selectId: "month", name: "month", defaultValue: i18n[lang].selectmonth, disabled: disabled, onInput: e => this.handleInput(e, 'month'), onChange: e => this.handleInput(e, 'month'), value: this.monthValue, class: `gcds-date-input__month ${hasError['month'] ? 'gcds-date-input--error' : ''}` }, requiredAttr, { "aria-invalid": hasError['month'].toString(), "aria-description": hasError['month'] && errorMessage }), options.map(option => (h("option", { key: option, value: option }, i18n[lang]['months'][option])))));
+        const year = (h("gcds-input", Object.assign({ name: "year", label: i18n[lang].year, inputId: "year", type: "number", size: 4, disabled: disabled, value: this.yearValue, onInput: e => this.handleInput(e, 'year'), onChange: e => this.handleInput(e, 'year'), class: `gcds-date-input__year ${hasError['year'] ? 'gcds-date-input--error' : ''}` }, requiredAttr, { "aria-invalid": hasError['year'].toString(), "aria-description": hasError['year'] && errorMessage })));
+        const day = (h("gcds-input", Object.assign({ name: "day", label: i18n[lang].day, inputId: "day", type: "number", size: 2, disabled: disabled, value: this.dayValue, onInput: e => this.handleInput(e, 'day'), onChange: e => {
+                this.handleInput(e, 'day');
+                this.formatDay(e);
+            }, class: `gcds-date-input__day ${hasError['day'] ? 'gcds-date-input--error' : ''}` }, requiredAttr, { "aria-invalid": hasError['day'].toString(), "aria-description": hasError['day'] && errorMessage })));
+        return (h(Host, { name: name, onBlur: () => this.onBlur() }, this.validateRequiredProps() && (h("gcds-fieldset", { legend: legend, fieldsetId: "date-input", hint: hint, errorMessage: errorMessage, required: required, class: `gcds-date-input__fieldset${hint ? ' gcds-date-input--hint' : ''}${errorMessage ? ' gcds-date-input--error' : ''}`, lang: lang, "data-date": "true" }, format == 'compact'
+            ? [month, year]
+            : lang == 'en'
+                ? [month, day, year]
+                : [day, month, year]))));
+    }
+    static get is() { return "gcds-date-input"; }
+    static get encapsulation() { return "shadow"; }
+    static get delegatesFocus() { return true; }
+    static get formAssociated() { return true; }
+    static get originalStyleUrls() {
+        return {
+            "$": ["gcds-date-input.css"]
+        };
+    }
+    static get styleUrls() {
+        return {
+            "$": ["gcds-date-input.css"]
+        };
+    }
+    static get properties() {
+        return {
+            "name": {
+                "type": "string",
+                "mutable": false,
+                "complexType": {
+                    "original": "string",
+                    "resolved": "string",
+                    "references": {}
+                },
+                "required": true,
+                "optional": false,
+                "docs": {
+                    "tags": [],
+                    "text": "Name attribute for the date input."
+                },
+                "attribute": "name",
+                "reflect": false
+            },
+            "legend": {
+                "type": "string",
+                "mutable": false,
+                "complexType": {
+                    "original": "string",
+                    "resolved": "string",
+                    "references": {}
+                },
+                "required": true,
+                "optional": false,
+                "docs": {
+                    "tags": [],
+                    "text": "Fieldset legend"
+                },
+                "attribute": "legend",
+                "reflect": false
+            },
+            "format": {
+                "type": "string",
+                "mutable": false,
+                "complexType": {
+                    "original": "'full' | 'compact'",
+                    "resolved": "\"compact\" | \"full\"",
+                    "references": {}
+                },
+                "required": true,
+                "optional": false,
+                "docs": {
+                    "tags": [],
+                    "text": "Set this property to full to show month, day, and year form elements. Set it to compact to show only the month and year form elements."
+                },
+                "attribute": "format",
+                "reflect": false
+            },
+            "value": {
+                "type": "string",
+                "mutable": true,
+                "complexType": {
+                    "original": "string",
+                    "resolved": "string",
+                    "references": {}
+                },
+                "required": false,
+                "optional": true,
+                "docs": {
+                    "tags": [],
+                    "text": "Default value for the date input element. Format: YYYY-MM-DD"
+                },
+                "attribute": "value",
+                "reflect": false
+            },
+            "required": {
+                "type": "boolean",
+                "mutable": false,
+                "complexType": {
+                    "original": "boolean",
+                    "resolved": "boolean",
+                    "references": {}
+                },
+                "required": false,
+                "optional": true,
+                "docs": {
+                    "tags": [],
+                    "text": "Specifies if a form field is required or not."
+                },
+                "attribute": "required",
+                "reflect": false,
+                "defaultValue": "false"
+            },
+            "hint": {
+                "type": "string",
+                "mutable": false,
+                "complexType": {
+                    "original": "string",
+                    "resolved": "string",
+                    "references": {}
+                },
+                "required": false,
+                "optional": true,
+                "docs": {
+                    "tags": [],
+                    "text": "Hint displayed below the legend and above form fields."
+                },
+                "attribute": "hint",
+                "reflect": false
+            },
+            "errorMessage": {
+                "type": "string",
+                "mutable": true,
+                "complexType": {
+                    "original": "string",
+                    "resolved": "string",
+                    "references": {}
+                },
+                "required": false,
+                "optional": true,
+                "docs": {
+                    "tags": [],
+                    "text": "Error message displayed below the legend and above form fields."
+                },
+                "attribute": "error-message",
+                "reflect": false
+            },
+            "disabled": {
+                "type": "boolean",
+                "mutable": true,
+                "complexType": {
+                    "original": "boolean",
+                    "resolved": "boolean",
+                    "references": {}
+                },
+                "required": false,
+                "optional": true,
+                "docs": {
+                    "tags": [],
+                    "text": "Specifies if the date input is disabled or not."
+                },
+                "attribute": "disabled",
+                "reflect": false,
+                "defaultValue": "false"
+            },
+            "validator": {
+                "type": "unknown",
+                "mutable": true,
+                "complexType": {
+                    "original": "Array<\n    string | ValidatorEntry | Validator<string>\n  >",
+                    "resolved": "(string | ValidatorEntry | Validator<string>)[]",
+                    "references": {
+                        "Array": {
+                            "location": "global",
+                            "id": "global::Array"
+                        },
+                        "ValidatorEntry": {
+                            "location": "import",
+                            "path": "../../validators",
+                            "id": "src/validators/index.ts::ValidatorEntry"
+                        },
+                        "Validator": {
+                            "location": "import",
+                            "path": "../../validators",
+                            "id": "src/validators/index.ts::Validator"
+                        }
+                    }
+                },
+                "required": false,
+                "optional": false,
+                "docs": {
+                    "tags": [],
+                    "text": "Array of validators"
+                }
+            },
+            "validateOn": {
+                "type": "string",
+                "mutable": true,
+                "complexType": {
+                    "original": "'blur' | 'submit' | 'other'",
+                    "resolved": "\"blur\" | \"other\" | \"submit\"",
+                    "references": {}
+                },
+                "required": false,
+                "optional": false,
+                "docs": {
+                    "tags": [],
+                    "text": "Set event to call validator"
+                },
+                "attribute": "validate-on",
+                "reflect": false
+            }
+        };
+    }
+    static get states() {
+        return {
+            "monthValue": {},
+            "dayValue": {},
+            "yearValue": {},
+            "hasError": {},
+            "errors": {},
+            "lang": {}
+        };
+    }
+    static get events() {
+        return [{
+                "method": "gcdsFocus",
+                "name": "gcdsFocus",
+                "bubbles": true,
+                "cancelable": true,
+                "composed": true,
+                "docs": {
+                    "tags": [],
+                    "text": "Emitted when an element has focus."
+                },
+                "complexType": {
+                    "original": "void",
+                    "resolved": "void",
+                    "references": {}
+                }
+            }, {
+                "method": "gcdsBlur",
+                "name": "gcdsBlur",
+                "bubbles": true,
+                "cancelable": true,
+                "composed": true,
+                "docs": {
+                    "tags": [],
+                    "text": "Emitted when an element loses focus."
+                },
+                "complexType": {
+                    "original": "void",
+                    "resolved": "void",
+                    "references": {}
+                }
+            }, {
+                "method": "gcdsInput",
+                "name": "gcdsInput",
+                "bubbles": true,
+                "cancelable": true,
+                "composed": true,
+                "docs": {
+                    "tags": [],
+                    "text": "Emitted when the element has received input."
+                },
+                "complexType": {
+                    "original": "any",
+                    "resolved": "any",
+                    "references": {}
+                }
+            }, {
+                "method": "gcdsChange",
+                "name": "gcdsChange",
+                "bubbles": true,
+                "cancelable": true,
+                "composed": true,
+                "docs": {
+                    "tags": [],
+                    "text": "Emitted when an element has changed."
+                },
+                "complexType": {
+                    "original": "any",
+                    "resolved": "any",
+                    "references": {}
+                }
+            }, {
+                "method": "gcdsError",
+                "name": "gcdsError",
+                "bubbles": true,
+                "cancelable": true,
+                "composed": true,
+                "docs": {
+                    "tags": [],
+                    "text": "Emitted when an element has a validation error."
+                },
+                "complexType": {
+                    "original": "object",
+                    "resolved": "object",
+                    "references": {}
+                }
+            }, {
+                "method": "gcdsValid",
+                "name": "gcdsValid",
+                "bubbles": true,
+                "cancelable": true,
+                "composed": true,
+                "docs": {
+                    "tags": [],
+                    "text": "Emitted when an element has validated."
+                },
+                "complexType": {
+                    "original": "object",
+                    "resolved": "object",
+                    "references": {}
+                }
+            }];
+    }
+    static get methods() {
+        return {
+            "validate": {
+                "complexType": {
+                    "signature": "() => Promise<void>",
+                    "parameters": [],
+                    "references": {
+                        "Promise": {
+                            "location": "global",
+                            "id": "global::Promise"
+                        }
+                    },
+                    "return": "Promise<void>"
+                },
+                "docs": {
+                    "text": "Call any active validators",
+                    "tags": []
+                }
+            }
+        };
+    }
+    static get elementRef() { return "el"; }
+    static get watchers() {
+        return [{
+                "propName": "name",
+                "methodName": "validateName"
+            }, {
+                "propName": "legend",
+                "methodName": "validateLegend"
+            }, {
+                "propName": "format",
+                "methodName": "validateFormat"
+            }, {
+                "propName": "value",
+                "methodName": "validateValue"
+            }, {
+                "propName": "validator",
+                "methodName": "validateValidator"
+            }];
+    }
+    static get listeners() {
+        return [{
+                "name": "submit",
+                "method": "submitListener",
+                "target": "document",
+                "capture": false,
+                "passive": false
+            }];
+    }
+    static get attachInternalsMemberName() { return "internals"; }
+}
+//# sourceMappingURL=gcds-date-input.js.map

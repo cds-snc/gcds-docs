@@ -1092,7 +1092,7 @@
   
     <h1 id="indicateur-detape-brgcdsstepper" class="mb-400">Indicateur d'étape <br><code>&lt;gcds-stepper&gt;</code></h1>
 <p class="mb-400"><em>Autres noms : indicateur de progrès, étapes.</em></p>
-<p class="mb-400">Un indicateur d'étape offre un suivi de l'avancement d'un processus comportant plusieurs étapes.</p>
+<p class="mb-400">L'indicateur d'étape est un marqueur de progression pour un processus à plusieurs étapes.</p>
 <p class="mb-400"><ul class="d-flex flex-wrap gap-400">
 <li class="github-link">
 <gcds-link external href="https://github.com/cds-snc/gcds-components/tree/main/packages/web/src/components/gcds-stepper">GitHub</gcds-link>
@@ -1106,7 +1106,7 @@
 Aperçu du composant indicateur d'étape
 </p>
 <div class="px-300 pt-400 pb-100"></p>
-<p class="mb-400"><gcds-stepper current-step="1" total-steps="4"></gcds-stepper></p>
+<p class="mb-400"><gcds-stepper current-step="1" total-steps="4">Titre de la section</gcds-stepper></p>
 <p class="mb-400"></div>
 </div></p>
 
@@ -1147,21 +1147,20 @@ Aperçu du composant indicateur d'étape
     </nav>
   
 
-  <h2 id="structure-de-lindicateur-detape-avec-entete-h1" class="mt-500 mb-400">Structure de l'indicateur d'étape – avec en-tête H1</h2>
+  <h2 id="structure-de-lindicateur-detape" class="mt-500 mb-400">Structure de l'indicateur d'étape</h2>
 <ol class="anatomy-list">
-  <li>L'élément <strong>Étape actuelle</strong> indique l'étape à laquelle se trouve la personne dans le processus.</li>
-  <li>Le <strong>nombre total d'étapes</strong> indique le nombre d'étapes que compte le processus au total.</li>
-  <li>Le <strong>titre H1</strong> est un élément distinct du composant Indicateur d'étape. Il est formulé comme un appel à l'action et indique l'objectif de cette étape particulière.</li>
+  <li>L'<strong>étape actuelle</strong> indique l'étape à laquelle se trouve la personne dans le processus.</li>
+  <li>Le <strong>nombre total d'étapes</strong> indique le nombre d'étapes que comprend le processus.</li>
+  <li>Le <strong>titre d'étape</strong> décrit le type d'information qui sera demandé au cours de l'étape actuelle.</li>
 </ol>
-<img class="b-sm b-default p-400" src="/images/fr/components/anatomy/gcds-stepper-anatomy.svg" alt="L'anatomie du composant indicateur d'étape identifiant l'étape courante, le nombre total d'étapes et le titre de la page." />
-<h2 id="conception-et-accessibilite-des-indicateurs-detape" class="mt-500 mb-400">Conception et accessibilité des indicateurs d'étape</h2>
-<h3 id="placez-lindicateur-detape-avant-le-titre-de-la-page" class="mt-500 mb-400">Placez l'indicateur d'étape avant le titre de la page</h3>
-<p class="mb-400">Placez l'indicateur d'étape avant le titre principal de la page, après l'en-tête de la page et les éléments de navigation.</p>
+<img class="b-sm b-default p-400" src="/images/fr/components/anatomy/gcds-stepper-anatomy.svg" alt="La structure de l'indicateur d'étape représentée par trois éléments: l'étape actuelle, le nombre total d'étapes et le titre de l'étape actuelle." />
+<h2 id="conception-et-accessibilite-de-lindicateur-detape" class="mt-500 mb-400">Conception et accessibilité de l'indicateur d'étape</h2>
+<h3 id="incluez-toujours-le-titre-detape-apres-lindicateur-detape" class="mt-500 mb-400">Incluez toujours le titre d'étape après l'indicateur d'étape</h3>
+<p class="mb-400">Le titre d'étape et l'indicateur d'étape constituent un titre. Il s'agit d'un titre H1, H2 ou H3, selon la <a href="https://systeme-design.alpha.canada.ca/fr/composants/titre/design/#classez-les-niveaux-de-titre-de-maniere-hierarchique">hiérarchie des titres</a> de la page.</p>
 <h3 id="attribuez-un-objectif-a-chaque-etape-de-votre-sequence" class="mt-500 mb-400">Attribuez un objectif à chaque étape de votre séquence</h3>
-<ul class="list-disc mb-400"><li><p class="mb-400">Formulez l'en-tête de la page comme un appel à l'action pour indiquer l'objectif de chaque étape.</li>
+<ul class="list-disc mb-400"><li><p class="mb-400">Formulez un titre d'étape qui reflète l'objectif de l'étape.</li>
 <li><p class="mb-400">Faites en sorte que les actions de chaque étape appuient l'objectif fixé.</li>
 </ul>
-<p class="mb-400">Conseil : À la fin d'un processus, informez l'utilisateur·rice de ce qui se passera ensuite ou de ce à quoi il ou elle peut s'attendre.</p>
 
 
   <section data-pagefind-ignore class="pt-100 mt-400 mb-600 bt-sm b-dark ">
@@ -1185,7 +1184,7 @@ Aperçu du composant indicateur d'étape
 
 
         <gcds-date-modified class="mb-400 font-caption">
-          2024-08-15
+          2024-08-19
         </gcds-date-modified>
       </main>
 

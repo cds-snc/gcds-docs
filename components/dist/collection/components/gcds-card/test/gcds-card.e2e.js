@@ -13,15 +13,14 @@ describe('gcds-card', () => {
  * Axe-core rules: https://github.com/dequelabs/axe-core/blob/develop/doc/rule-descriptions.md#wcag-21-level-a--aa-rules
  */
 describe('gcds-card a11y tests', () => {
-    it('Colour contrast: Primary button-role, button-styles', async () => {
+    it('Colour contrast', async () => {
         const page = await newE2EPage();
         await page.setContent(`<gcds-card
       card-title="Card"
-      tag="Tag"
+      badge="Tag"
       description="This is the card description"
       href="#card"
     >
-      <p slot="footer">Metadata</p>
     </gcds-card>`);
         const colorContrastTest = new AxePuppeteer(page)
             .withRules('color-contrast')

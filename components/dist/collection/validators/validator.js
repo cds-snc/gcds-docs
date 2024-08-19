@@ -82,6 +82,14 @@ export function requiredValidator(element, type, subtype) {
                     element.validator = ['requiredFieldset'];
                 }
                 break;
+            case 'date-input':
+                if (element.validator) {
+                    element.validator.unshift('requiredDateInput');
+                }
+                else {
+                    element.validator = ['requiredDateInput'];
+                }
+                break;
         }
     }
 }

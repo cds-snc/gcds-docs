@@ -74,6 +74,11 @@ export declare class GcdsSelect {
      */
     options: Element[];
     /**
+     * Watch HTML attribute aria-invalid to inherit changes
+     */
+    ariaInvalidWatcher(): void;
+    ariaDescriptiondWatcher(): void;
+    /**
      * Events
      */
     /**

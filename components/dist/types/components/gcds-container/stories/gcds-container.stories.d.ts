@@ -29,6 +29,20 @@ declare const _default: {
                 };
             };
         };
+        mainContainer: {
+            control: {
+                type: string;
+            };
+            options: boolean[];
+            table: {
+                type: {
+                    summary: string;
+                };
+                defaultValue: {
+                    summary: boolean;
+                };
+            };
+        };
         margin: {
             control: {
                 type: string;
@@ -102,6 +116,7 @@ export declare const SizeMd: any;
 export declare const SizeSm: any;
 export declare const SizeXs: any;
 export declare const Centered: any;
+export declare const MainContainer: any;
 export declare const Margin: any;
 export declare const Padding: any;
 export declare const Props: any;

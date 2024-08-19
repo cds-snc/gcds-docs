@@ -2643,10 +2643,10 @@ const loadModule = (cmpMeta, hostRef, hmrVersionId) => {
           }
           switch(bundleId) {
               
-                case 'gcds-alert_40':
+                case 'gcds-alert_41':
                     return import(
                       /* webpackMode: "lazy" */
-                      './gcds-alert_40.entry.js').then(processMod, consoleError);
+                      './gcds-alert_41.entry.js').then(processMod, consoleError);
           }
       }
     return import(

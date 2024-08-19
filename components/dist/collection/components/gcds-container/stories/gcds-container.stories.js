@@ -18,6 +18,14 @@ export default {
                 defaultValue: { summary: false },
             },
         },
+        mainContainer: {
+            control: { type: 'select' },
+            options: [false, true],
+            table: {
+                type: { summary: 'boolean' },
+                defaultValue: { summary: false },
+            },
+        },
         margin: {
             control: { type: 'select' },
             options: [
@@ -97,12 +105,12 @@ export default {
 };
 const Template = args => `
 <!-- Web component code (HTML, Angular, Vue) -->
-<gcds-container ${args.size != 'full' ? `size="${args.size}"` : null} ${args.border ? 'border' : null} ${args.centered ? 'centered' : null} ${args.tag != 'div' ? `tag="${args.tag}"` : null} ${args.margin ? `margin="${args.margin}"` : null} ${args.padding ? `padding="${args.padding}"` : null}>
+<gcds-container ${args.size != 'full' ? `size="${args.size}"` : null} ${args.border ? 'border' : null} ${args.centered ? 'centered' : null} ${args.tag != 'div' ? `tag="${args.tag}"` : null} ${args.mainContainer ? 'main-container' : null} ${args.margin ? `margin="${args.margin}"` : null} ${args.padding ? `padding="${args.padding}"` : null}>
   ${args.default ? args.default : null}
 </gcds-container>
 
 <!-- React code -->
-<GcdsContainer ${args.size != 'full' ? `size="${args.size}"` : null} ${args.border ? 'border' : null} ${args.centered ? `centered` : null} ${args.tag != 'div' ? `tag="${args.tag}"` : null} ${args.margin ? `margin="${args.margin}"` : null} ${args.padding ? `padding="${args.padding}"` : null}>
+<GcdsContainer ${args.size != 'full' ? `size="${args.size}"` : null} ${args.border ? 'border' : null} ${args.centered ? `centered` : null} ${args.tag != 'div' ? `tag="${args.tag}"` : null} ${args.mainContainer ? 'mainContainer' : null} ${args.margin ? `margin="${args.margin}"` : null} ${args.padding ? `padding="${args.padding}"` : null}>
   ${args.default ? args.default : null}
 </GcdsContainer>
 `.replace(/ null/g, '');
@@ -186,6 +194,7 @@ const TemplatePlayground = args => `
   ${args.border ? 'border' : null}
   ${args.centered ? 'centered' : null}
   ${args.tag != 'div' ? `tag="${args.tag}"` : null}
+  ${args.mainContainer ? `main-container="${args.mainContainer}"` : null}
   ${args.margin ? `margin="${args.margin}"` : null}
   ${args.padding ? `padding="${args.padding}"` : null}
 >
@@ -199,6 +208,7 @@ Default.args = {
     border: true,
     centered: false,
     tag: 'div',
+    mainContainer: false,
     padding: '400',
     default: '<p>This is a responsive container, you can replace this text with any content or other components.</p>',
 };
@@ -208,6 +218,7 @@ SizeFull.args = {
     size: 'full',
     border: true,
     tag: 'div',
+    mainContainer: false,
     padding: '400',
     default: '<p>This is a responsive container, the size is set to "full". You can replace this text with any content or other components.</p>',
 };
@@ -216,6 +227,7 @@ SizeXl.args = {
     size: 'xl',
     border: true,
     tag: 'div',
+    mainContainer: false,
     padding: '400',
     default: '<p>This is a responsive container, the size is set to "xl". You can replace this text with any content or other components.</p>',
 };
@@ -224,6 +236,7 @@ SizeLg.args = {
     size: 'lg',
     border: true,
     tag: 'div',
+    mainContainer: false,
     padding: '400',
     default: '<p>This is a responsive container, the size is set to "lg". You can replace this text with any content or other components.</p>',
 };
@@ -232,6 +245,7 @@ SizeMd.args = {
     size: 'md',
     border: true,
     tag: 'div',
+    mainContainer: false,
     padding: '400',
     default: '<p>This is a responsive container, the size is set to "md". You can replace this text with any content or other components.</p>',
 };
@@ -240,6 +254,7 @@ SizeSm.args = {
     size: 'sm',
     border: true,
     tag: 'div',
+    mainContainer: false,
     padding: '400',
     default: '<p>This is a responsive container, the size is set to "sm". You can replace this text with any content or other components.</p>',
 };
@@ -248,6 +263,7 @@ SizeXs.args = {
     size: 'xs',
     border: true,
     tag: 'div',
+    mainContainer: false,
     padding: '400',
     default: '<p>This is a responsive container, the size is set to "xs". You can replace this text with any content or other components.</p>',
 };
@@ -258,8 +274,19 @@ Centered.args = {
     border: true,
     centered: true,
     tag: 'div',
+    mainContainer: false,
     padding: '400',
     default: '<p>This container is centered.</p>',
+};
+// ------ Main page container ------
+export const MainContainer = Template.bind({});
+MainContainer.args = {
+    size: 'xl',
+    border: true,
+    tag: 'main',
+    mainContainer: true,
+    padding: '400',
+    default: '<p>This container is the main page container.</p>',
 };
 // ------ Container margin ------
 export const Margin = TemplateMargin.bind({});
@@ -272,6 +299,7 @@ export const Props = Template.bind({});
 Props.args = {
     size: 'md',
     tag: 'div',
+    mainContainer: false,
     padding: '400',
     centered: false,
     border: true,
@@ -282,6 +310,7 @@ export const Playground = TemplatePlayground.bind({});
 Playground.args = {
     size: 'full',
     tag: 'div',
+    mainContainer: false,
     padding: '400',
     centered: false,
     border: true,

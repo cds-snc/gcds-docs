@@ -1106,7 +1106,7 @@
 Stepper component preview
 </p>
 <div class="px-300 pt-400 pb-100"></p>
-<p class="mb-400"><gcds-stepper current-step="1" total-steps="4"></gcds-stepper></p>
+<p class="mb-400"><gcds-stepper current-step="1" total-steps="4">Section title</gcds-stepper></p>
 <p class="mb-400"></div>
 </div></p>
 
@@ -1147,21 +1147,20 @@ Stepper component preview
     </nav>
   
 
-  <h2 id="stepper-anatomy-with-h1-title" class="mt-500 mb-400">Stepper anatomy – with H1 title</h2>
+  <h2 id="stepper-anatomy" class="mt-500 mb-400">Stepper anatomy</h2>
 <ol class="anatomy-list">
   <li>The <strong>current step</strong> indicates the step the person's on in the process.</li>
   <li>The <strong>total steps</strong> indicates the number of steps overall in the process.</li>
-  <li>The <strong>H1 title</strong> is a separate element from the stepper component. It's phrased as a call to action and states the goal of that particular step.</li>
+  <li>The <strong>step title</strong> describes the type of information that will be asked in the step.</li>
 </ol>
-<img class="b-sm b-default p-400" src="/images/en/components/anatomy/gcds-stepper-anatomy.svg" alt="Page title taxonomy showing Page title in dark bolded text and above it Step 1 of 4 in grey text and smaller font. The taxonomy has these labels, Current step pointed at 1 of  Step 1 of 4. Stepper pointed at Step 1 of 4. Total Steps pointed at 4, Page H1 pointed at the Page title."/>
+<img class="b-sm b-default p-400" src="/images/en/components/anatomy/gcds-stepper-anatomy.svg" alt="A stepper anatomy represented by three elements: the current step, the total steps, and the current step title."/>
 <h2 id="design-and-accessibility-for-steppers" class="mt-500 mb-400">Design and accessibility for steppers</h2>
-<h3 id="place-the-stepper-before-the-page-heading" class="mt-500 mb-400">Place the stepper before the page heading</h3>
-<p class="mb-400">Place the stepper ahead of the main heading of the page, after the page header and navigational elements.</p>
+<h3 id="always-include-the-step-title-after-the-stepper" class="mt-500 mb-400">Always include the step title after the stepper</h3>
+<p class="mb-400">The step title and the stepper are a heading on the page. This is a H1, H2, or H3, depending on the <a href="https://design-system.alpha.canada.ca/en/components/heading/design/#order-heading-levels-hierarchically">heading hierarchy</a> of the page.</p>
 <h3 id="assign-a-goal-to-each-step-in-your-sequence" class="mt-500 mb-400">Assign a goal to each step in your sequence</h3>
-<ul class="list-disc mb-400"><li><p class="mb-400">Phrase the page header as a call to action to convey the goal of each step.</li>
-<li><p class="mb-400">Make the actions in each step support the stated goal.</li>
+<ul class="list-disc mb-400"><li><p class="mb-400">Choose a step title that reflects the goal of each step.</li>
+<li><p class="mb-400">Make sure the actions in each step support the stated goal.</li>
 </ul>
-<p class="mb-400">Tip: At the end of a process, let a person know what happens next or what they can expect.</p>
 
 
   <section data-pagefind-ignore class="pt-100 mt-400 mb-600 bt-sm b-dark ">
@@ -1185,7 +1184,7 @@ Stepper component preview
 
 
         <gcds-date-modified class="mb-400 font-caption">
-          2024-08-15
+          2024-08-19
         </gcds-date-modified>
       </main>
 

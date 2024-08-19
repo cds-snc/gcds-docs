@@ -177,5 +177,25 @@ describe('gcds-grid', () => {
       </gcds-container>
     `);
     });
+    /**
+     * Main page container test
+     */
+    it('renders container as main page container', async () => {
+        const { root } = await newSpecPage({
+            components: [GcdsContainer],
+            html: `
+        <gcds-container main-container />
+      `,
+        });
+        expect(root).toEqualHtml(`
+      <gcds-container main-container>
+        <mock:shadow-root>
+          <div class="gcds-container size-full container-main">
+            <slot></slot>
+          </div>
+        </mock:shadow-root>
+      </gcds-container>
+    `);
+    });
 });
 //# sourceMappingURL=gcds-container.spec.js.map

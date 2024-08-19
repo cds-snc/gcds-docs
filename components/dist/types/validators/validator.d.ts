@@ -1,5 +1,5 @@
 export interface Validator<A> {
-    validate: (x: A) => boolean;
+    validate: (x: A) => any;
     errorMessage?: object;
 }
 export interface ValidatorEntry {

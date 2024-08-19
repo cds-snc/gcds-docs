@@ -3,6 +3,7 @@ import { Validator, ValidatorEntry } from '../../validators';
 export declare class GcdsFieldset {
     el: HTMLElement;
     private shadowElement?;
+    isDateInput: boolean;
     _validator: Validator<string>;
     /**
      * Props

@@ -1,5 +1,5 @@
 import { defaultValidator, combineValidators, } from "./validator";
-import { requiredField, requiredEmailField, requiredFileInput, requiredSelectField, } from "./input-validators/input-validators";
+import { requiredField, requiredEmailField, requiredFileInput, requiredSelectField, requiredDateInput, } from "./input-validators/input-validators";
 import { requiredCheck } from "./checkbox-validators/checkbox-validators";
 import { requiredFieldset } from "./fieldset-validators/fieldset-validators";
 export var ValidatorsName;
@@ -10,6 +10,7 @@ export var ValidatorsName;
     ValidatorsName["requiredFieldset"] = "requiredFieldset";
     ValidatorsName["requiredFileInput"] = "requiredFileInput";
     ValidatorsName["requiredSelectField"] = "requiredSelectField";
+    ValidatorsName["requiredDateInput"] = "requiredDateInput";
 })(ValidatorsName || (ValidatorsName = {}));
 export function getValidator(list) {
     return (list || [])
@@ -40,6 +41,8 @@ export function validatorFactory(name, options) {
             return requiredCheck;
         case ValidatorsName.requiredFieldset:
             return requiredFieldset;
+        case ValidatorsName.requiredDateInput:
+            return requiredDateInput;
         case ValidatorsName.requiredFileInput:
             return requiredFileInput;
         default:

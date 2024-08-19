@@ -1,11 +1,33 @@
 import { Host, h } from "@stencil/core";
-import { assignLanguage, observerConfig } from "../../utils/utils";
+import { assignLanguage, observerConfig, logError } from "../../utils/utils";
 import i18n from "./i18n/i18n";
 export class GcdsStepper {
     constructor() {
         this.currentStep = undefined;
         this.totalSteps = undefined;
+        this.tag = 'h2';
+        this.errors = [];
         this.lang = undefined;
+    }
+    validateCurrentStep() {
+        if (this.currentStep <= 0 ||
+            isNaN(this.currentStep) ||
+            this.currentStep > this.totalSteps) {
+            this.errors.push('currentStep');
+        }
+        else if (this.errors.includes('currentStep')) {
+            this.errors.splice(this.errors.indexOf('currentStep'), 1);
+        }
+    }
+    validateTotalSteps() {
+        if (this.totalSteps <= 0 ||
+            isNaN(this.totalSteps) ||
+            this.totalSteps < this.currentStep) {
+            this.errors.push('totalSteps');
+        }
+        else if (this.errors.includes('totalSteps')) {
+            this.errors.splice(this.errors.indexOf('totalSteps'), 1);
+        }
     }
     /*
      * Observe lang attribute change
@@ -18,14 +40,37 @@ export class GcdsStepper {
         });
         observer.observe(this.el, observerConfig);
     }
+    validateChildren() {
+        if (this.el.innerHTML.trim() == '') {
+            this.errors.push('children');
+        }
+        else if (this.errors.includes('children')) {
+            this.errors.splice(this.errors.indexOf('children'), 1);
+        }
+    }
+    validateRequiredProps() {
+        this.validateCurrentStep();
+        this.validateTotalSteps();
+        this.validateChildren();
+        if (this.errors.includes('totalSteps') ||
+            this.errors.includes('currentStep') ||
+            this.errors.includes('children')) {
+            return false;
+        }
+        return true;
+    }
     async componentWillLoad() {
         // Define lang attribute
         this.lang = assignLanguage(this.el);
         this.updateLang();
+        let valid = this.validateRequiredProps();
+        if (!valid) {
+            logError('gcds-stepper', this.errors);
+        }
     }
     render() {
-        const { currentStep, lang, totalSteps } = this;
-        return (h(Host, null, h("gcds-heading", { tag: "h6", class: "gcds-stepper", "margin-top": "0", "margin-bottom": "300" }, `${i18n[lang].step} ${currentStep} ${i18n[lang].of} ${totalSteps}`)));
+        const { currentStep, lang, totalSteps, tag } = this;
+        return (h(Host, null, this.validateRequiredProps() && (h("gcds-heading", { tag: tag, class: "gcds-stepper", "margin-top": "0", "margin-bottom": "300" }, h("span", { class: "gcds-stepper__steps" }, `${i18n[lang].step} ${currentStep} ${i18n[lang].of} ${totalSteps}`, h("gcds-sr-only", null, " : ")), h("slot", null)))));
     }
     static get is() { return "gcds-stepper"; }
     static get encapsulation() { return "shadow"; }
@@ -43,7 +88,7 @@ export class GcdsStepper {
         return {
             "currentStep": {
                 "type": "number",
-                "mutable": false,
+                "mutable": true,
                 "complexType": {
                     "original": "number",
                     "resolved": "number",
@@ -60,7 +105,7 @@ export class GcdsStepper {
             },
             "totalSteps": {
                 "type": "number",
-                "mutable": false,
+                "mutable": true,
                 "complexType": {
                     "original": "number",
                     "resolved": "number",
@@ -74,14 +119,42 @@ export class GcdsStepper {
                 },
                 "attribute": "total-steps",
                 "reflect": false
+            },
+            "tag": {
+                "type": "string",
+                "mutable": false,
+                "complexType": {
+                    "original": "'h1' | 'h2' | 'h3'",
+                    "resolved": "\"h1\" | \"h2\" | \"h3\"",
+                    "references": {}
+                },
+                "required": false,
+                "optional": false,
+                "docs": {
+                    "tags": [],
+                    "text": "Defines the heading tag to render"
+                },
+                "attribute": "tag",
+                "reflect": false,
+                "defaultValue": "'h2'"
             }
         };
     }
     static get states() {
         return {
+            "errors": {},
             "lang": {}
         };
     }
     static get elementRef() { return "el"; }
+    static get watchers() {
+        return [{
+                "propName": "currentStep",
+                "methodName": "validateCurrentStep"
+            }, {
+                "propName": "totalSteps",
+                "methodName": "validateTotalSteps"
+            }];
+    }
 }
 //# sourceMappingURL=gcds-stepper.js.map

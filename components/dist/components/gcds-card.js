@@ -1,5 +1,5 @@
-import { proxyCustomElement, HTMLElement, h, Host, Fragment } from '@stencil/core/internal/client';
-import { o as observerConfig, a as assignLanguage } from './utils.js';
+import { proxyCustomElement, HTMLElement, createEvent, h, Host } from '@stencil/core/internal/client';
+import { o as observerConfig, a as assignLanguage, l as logError } from './utils.js';
 import { d as defineCustomElement$5 } from './gcds-icon2.js';
 import { d as defineCustomElement$4 } from './gcds-link2.js';
 import { d as defineCustomElement$3 } from './gcds-sr-only2.js';
@@ -8,13 +8,15 @@ import { d as defineCustomElement$2 } from './gcds-text2.js';
 const I18N = {
   en: {
     tagged: 'Tagged:',
+    badgeError: 'gcds-card: The badge attribute has a character limit of 20 characters.',
   },
   fr: {
     tagged: 'Baliser :',
+    badgeError: 'gcds-card: L\'attribut badge a une limite de caractères de 20 caractères.',
   },
 };
 
-const gcdsCardCss = "@layer reset, default, slot, link, hover;@layer reset{:host{display:block}:host *{box-sizing:border-box;margin:0;padding:0}:host slot{display:initial}}@layer default{:host .gcds-card{background-color:var(--gcds-card-background-color);border:var(--gcds-card-border);border-radius:var(--gcds-card-border-radius);color:var(--gcds-card-color);display:block;height:100%;padding:var(--gcds-card-padding);position:relative}:host .gcds-card>:not(slot):not(.gcds-card__spacer){display:block;margin:var(--gcds-card-margin)}:host .gcds-card .gcds-card__image{width:100%}:host .gcds-card .gcds-card__title{font:var(--gcds-card-title-font);width:fit-content}}@layer slot{:host .gcds-card:has(slot){display:flex;flex-direction:column}:host .gcds-card:has(slot) .gcds-card__spacer{flex:1}:host .gcds-card:has(slot) ::slotted(*){color:var(--gcds-card-slot-color);font:var(--gcds-card-slot-font)!important;z-index:2}}@layer link{:host .gcds-card.gcds-card--link gcds-link::part(link):after{bottom:0;content:\"\";left:0;pointer-events:auto;position:absolute;right:0;top:0;z-index:1}}@layer hover{@media (hover:hover){:host .gcds-card.gcds-card--link:hover{background-color:var(--gcds-card-hover-background-color);box-shadow:var(--gcds-card-hover-box-shadow);cursor:pointer}}}";
+const gcdsCardCss = "@layer reset, default, link, hover, focus;@layer reset{:host{display:block}:host *{box-sizing:border-box;margin:0;padding:0}:host slot{display:initial}}@layer default{:host .gcds-card{background-color:var(--gcds-card-background-color);box-shadow:var(--gcds-card-box-shadow);color:var(--gcds-card-color);display:block;height:100%;max-width:var(--gcds-card-max-width);overflow:hidden;padding:var(--gcds-card-padding);position:relative}:host .gcds-card>:not(slot):not(.gcds-card__spacer){display:block;margin:var(--gcds-card-margin)}:host .gcds-card .gcds-badge{background-color:var(--gcds-card-badge-background-color);left:0;padding:var(--gcds-card-badge-padding);position:absolute;top:0;text-wrap:nowrap}:host .gcds-card .gcds-card__image{width:100%}:host .gcds-card .gcds-card__title{font:var(--gcds-card-title-font-desktop);width:fit-content}@media only screen and (width < 48em){:host .gcds-card .gcds-card__title{font:var(--gcds-card-title-font-mobile)}}:host .gcds-card .gcds-card__description{font:var(--gcds-card-description-font-desktop)}@media only screen and (width < 48em){:host .gcds-card .gcds-card__description{font:var(--gcds-card-description-font-mobile)}}}@layer link{:host .gcds-card gcds-link::part(link):after{bottom:0;content:\"\";left:0;pointer-events:auto;position:absolute;right:0;top:0;z-index:1}}@layer hover{@media (hover:hover){:host .gcds-card:hover{background-color:var(--gcds-card-hover-background-color);box-shadow:var(--gcds-card-hover-box-shadow);cursor:pointer}}}@layer focus{:host .gcds-card:has(:focus-within){box-shadow:var(--gcds-card-focus-box-shadow);outline:var(--gcds-card-focus-outline);outline-offset:var(--gcds-card-focus-outline-offset)}:host gcds-link::part(link):focus{background-color:var(--gcds-card-focus-link-background-color);border:var(--gcds-card-focus-link-border);box-shadow:var(--gcds-card-focus-link-box-shadow);color:var(--gcds-card-focus-link-color);outline:var(--gcds-card-focus-link-outline);text-decoration:underline currentColor var(--gcds-card-focus-link-text-decoration-thickness)}}";
 const GcdsCardStyle0 = gcdsCardCss;
 
 const GcdsCard$1 = /*@__PURE__*/ proxyCustomElement(class GcdsCard extends HTMLElement {
@@ -22,15 +24,43 @@ const GcdsCard$1 = /*@__PURE__*/ proxyCustomElement(class GcdsCard extends HTMLE
         super();
         this.__registerHost();
         this.__attachShadow();
-        this.type = 'link';
+        this.gcdsFocus = createEvent(this, "gcdsFocus", 7);
+        this.gcdsBlur = createEvent(this, "gcdsBlur", 7);
+        this.gcdsClick = createEvent(this, "gcdsClick", 7);
         this.cardTitle = undefined;
-        this.titleElement = 'a';
         this.href = undefined;
+        this.cardTitleTag = 'a';
         this.description = undefined;
-        this.tag = undefined;
+        this.badge = undefined;
         this.imgSrc = undefined;
         this.imgAlt = undefined;
         this.lang = undefined;
+        this.errors = [];
+    }
+    validateCardTitle() {
+        if (!this.cardTitle || this.cardTitle.trim() == '') {
+            this.errors.push('cardTitle');
+        }
+        else if (this.errors.includes('cardTitle')) {
+            this.errors.splice(this.errors.indexOf('cardTitle'), 1);
+        }
+    }
+    validateHref() {
+        if (!this.href || this.href.trim() == '') {
+            this.errors.push('href');
+        }
+        else if (this.errors.includes('href')) {
+            this.errors.splice(this.errors.indexOf('href'), 1);
+        }
+    }
+    validateBadge() {
+        if (this.badge && this.badge.length > 20) {
+            console.error(`${I18N['en'].badgeError} | ${I18N['fr'].badgeError}`);
+            this.errors.push('badge');
+        }
+        else if (this.errors.includes('badge')) {
+            this.errors.splice(this.errors.indexOf('badge'), 1);
+        }
     }
     /*
      * Observe lang attribute change
@@ -43,35 +73,69 @@ const GcdsCard$1 = /*@__PURE__*/ proxyCustomElement(class GcdsCard extends HTMLE
         });
         observer.observe(this.el, observerConfig);
     }
+    /*
+     * Validate required properties
+     */
+    validateRequiredProps() {
+        this.validateCardTitle();
+        this.validateHref();
+        if (this.errors.includes('href') || this.errors.includes('cardTitle')) {
+            return false;
+        }
+        return true;
+    }
     async componentWillLoad() {
         // Define lang attribute
         this.lang = assignLanguage(this.el);
         this.updateLang();
+        this.validateBadge();
+        let valid = this.validateRequiredProps();
+        if (!valid) {
+            logError('gcds-card', this.errors, ['badge']);
+        }
     }
-    get hasCardFooter() {
-        return !!this.el.querySelector('[slot="footer"]');
+    get renderDescription() {
+        if (this.el.innerHTML.trim() != '') {
+            return h("slot", null);
+        }
+        else {
+            if (this.description) {
+                return h("gcds-text", null, this.description);
+            }
+        }
     }
     render() {
-        const { type, cardTitle, titleElement, href, description, tag, imgSrc, imgAlt, hasCardFooter, lang, } = this;
-        const Element = titleElement;
+        const { cardTitle, cardTitleTag, href, badge, imgSrc, imgAlt, renderDescription, lang, errors, } = this;
+        const Element = cardTitleTag;
         const taggedAttr = {};
-        if (tag) {
-            taggedAttr['aria-describedby'] = 'gcds-card__tag';
+        if (badge) {
+            taggedAttr['aria-describedby'] = 'gcds-badge';
         }
-        return (h(Host, null, h("div", { class: `gcds-card gcds-card--${type}` }, imgSrc && (h("img", { src: imgSrc, alt: imgAlt ? imgAlt : '', class: "gcds-card__image" })), tag && (h("gcds-text", { id: "gcds-card__tag", class: "gcds-card__tag", "text-role": "secondary", size: "caption" }, h("gcds-sr-only", null, I18N[lang].tagged), tag)), Element != 'a' ? (h(Element, Object.assign({ class: "gcds-card__title" }, taggedAttr), h("gcds-link", { href: href }, cardTitle))) : (h("gcds-link", Object.assign({ href: href, class: "gcds-card__title" }, taggedAttr), cardTitle)), description && (h("gcds-text", { class: "gcds-card__description" }, description)), hasCardFooter && (h(Fragment, null, h("div", { class: "gcds-card__spacer" }), h("slot", { name: "footer" }))))));
+        if (this.validateRequiredProps()) {
+            return (h(Host, null, h("div", { class: "gcds-card" }, imgSrc && (h("img", { src: imgSrc, alt: imgAlt ? imgAlt : '', class: "gcds-card__image" })), badge && !errors.includes('badge') && (h("gcds-text", { id: "gcds-badge", class: "gcds-badge", "text-role": "light", "margin-bottom": "0", size: "caption" }, h("strong", null, h("gcds-sr-only", null, I18N[lang].tagged), badge))), Element != 'a' ? (h(Element, Object.assign({ class: "gcds-card__title" }, taggedAttr), h("gcds-link", { href: href }, cardTitle))) : (h("gcds-link", Object.assign({ href: href, class: "gcds-card__title" }, taggedAttr), cardTitle)), h("div", { class: "gcds-card__description" }, renderDescription))));
+        }
     }
     get el() { return this; }
+    static get watchers() { return {
+        "cardTitle": ["validateCardTitle"],
+        "href": ["validateHref"],
+        "badge": ["validateBadge"]
+    }; }
     static get style() { return GcdsCardStyle0; }
 }, [1, "gcds-card", {
-        "type": [513],
         "cardTitle": [513, "card-title"],
-        "titleElement": [1, "title-element"],
         "href": [513],
+        "cardTitleTag": [1, "card-title-tag"],
         "description": [513],
-        "tag": [513],
+        "badge": [1537],
         "imgSrc": [513, "img-src"],
         "imgAlt": [513, "img-alt"],
-        "lang": [32]
+        "lang": [32],
+        "errors": [32]
+    }, undefined, {
+        "cardTitle": ["validateCardTitle"],
+        "href": ["validateHref"],
+        "badge": ["validateBadge"]
     }]);
 function defineCustomElement$1() {
     if (typeof customElements === "undefined") {

@@ -1,1 +1,1 @@
-@layer reset, default;@layer reset{:host{display:block}}@layer default{:host .gcds-stepper{color:var(--gcds-stepper-text)}}
+@layer reset, default;@layer reset{:host{display:block}}@layer default{:host .gcds-stepper .gcds-stepper__steps{display:block;font:var(--gcds-stepper-font-desktop);margin:var(--gcds-stepper-margin-desktop)}@media only screen and (width < 48em){:host .gcds-stepper .gcds-stepper__steps{font:var(--gcds-stepper-font-mobile);margin:var(--gcds-stepper-margin-mobile)}}}

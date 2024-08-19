@@ -1106,8 +1106,7 @@
 Aperçu du composant de carte
 </p>
 <div class="px-300 py-400"></p>
-<gcds-card card-title="Titre de la carte" tag="Balise" description="Description destinée à accompagner le titre. Les textes plus longs seront tronqués avec ..." href="#">
-<div slot="footer">Infos contextuelles • metadonnées</div>
+<gcds-card card-title="Titre de la carte" badge="Balise" description="Description destinée à accompagner le titre. Les textes plus longs seront tronqués avec ..." href="#">
 </gcds-card>
 <p class="mb-400"></div>
 </div></p>
@@ -1149,41 +1148,32 @@ Aperçu du composant de carte
     </nav>
   
 
-  <h2 id="structure-dune-carte" class="mt-500 mb-400">Structure d’une carte</h2>
+  <h2 id="structure-de-la-carte" class="mt-500 mb-400">Structure de la carte</h2>
 <ol class="anatomy-list">
-  <li>La <strong>boîte</strong> contient tous les éléments d’une carte.</li>
-  <li>L'<strong>image</strong> est un visuel 1:1 ou 16:9 qui peut être inclus dans la carte.</li>
-  <li>La <strong>balise</strong> est un élément supplémentaire pouvant être ajouté pour décrire le type de contenu concerné.</li>
-  <li>Le <strong>titre de la carte</strong> est une brève déclaration sur le thème du contenu de la carte. Il inclut un lien permettant d’accéder à davantage de renseignements.</li>
-  <li>La <strong>description</strong> contient du texte destiné à accompagner le lien du titre. Elle offre un résumé du thème de la carte en quelques lignes ou une liste progressive de renseignements sur un même thème, comme une liste d’informations relatives à un évènement.</li>
-  <li>Le <strong>pied de page de la carte</strong> peut appeler à l’action si un bouton y est inclus, ou contenir des métadonnées. Les métadonnées peuvent inclure une date, un lieu, un auteur ou une autrice ou tout autre renseignement pertinent.</li>
+  <li>La <strong>boîte</strong> contient tous les éléments d'une carte.</li>
+  <li>Le <strong>badge</strong> (facultatif) est un indicateur visuel renseignant sur l'état ou la catégorie de la carte. Le texte du badge ne devrait pas dépasser 20 caractères.</li>
+  <li>L'<strong>image</strong> (facultative) a un format de 1:1, 16:9 ou 4:3.</li>
+  <li>Le <strong>titre</strong> est court et attire l'attention sur le sujet du contenu de la carte.</li>
+  <li>La <strong>description</strong> (facultative) contient du texte destiné à accompagner le titre. Elle résume en quelques lignes le sujet de la carte ou affiche une liste de renseignements sur un même sujet, comme les informations sur un évènement.</li>
 </ol>
-<img class="b-sm b-default p-400" src="/images/fr/components/anatomy/gcds-card-anatomy.svg" alt="Une image détaillant la structure d’une carte."/>
+<img class="b-sm b-default p-400" src="/images/fr/components/anatomy/gcds-card-anatomy.svg" alt="La structure d'une carte représentée par 5 éléments: la boîte, le badge, l'image, le titre et la description."/>
 <h2 id="design-et-accessibilite-des-cartes" class="mt-500 mb-400">Design et accessibilité des cartes</h2>
-<h3 id="ecrivez-un-titre-facile-a-lire-en-un-coup-dil" class="mt-500 mb-400">Écrivez un titre facile à lire en un coup d’œil</h3>
-<ul class="list-disc mb-400"><li><p class="mb-400">Utilisez un titre comme indicateur pour préciser à une personne ce qu’elle va trouver dans la carte.</li>
-<li><p class="mb-400">Assurez-vous que le titre soit court pour que les gens puissent le lire en un coup d’œil.</li>
-<li><p class="mb-400">Choisissez une brève description ou un appel à l’action pour le titre.</li>
-<li><p class="mb-400">Écrivez un titre clair pour aider une personne à choisir quoi lire.</li>
+<h3 id="ecrivez-un-titre-facile-a-parcourir" class="mt-500 mb-400">Écrivez un titre facile à parcourir</h3>
+<ul class="list-disc mb-400"><li><p class="mb-400">Utilisez un titre qui informe les personnes sur le contenu de la carte.</li>
+<li><p class="mb-400">Choisissez une brève description ou un appel à l'action pour le titre.</li>
 </ul>
 <h3 id="choisissez-les-renseignements-a-ajouter-a-la-carte" class="mt-500 mb-400">Choisissez les renseignements à ajouter à la carte</h3>
-<ul class="list-disc mb-400"><li><p class="mb-400">Envisagez d’ajouter une image correspondant au titre pour rendre les cartes plus reconnaissables.</li>
-<li><p class="mb-400">Incluez une balise pour indiquer le thème et rendre la carte plus reconnaissable au premier coup d’œil.</li>
-<li><p class="mb-400">Choisissez d’ajouter à la carte les métadonnées pertinentes. Celles-ci offriront davantage de contexte aux renseignements de base présentés dans le titre et la description.</li>
+<ul class="list-disc mb-400"><li><p class="mb-400">Envisagez d'ajouter une image reflétant le titre pour rendre les cartes plus reconnaissables.</li>
+<li><p class="mb-400">Envisagez d'ajouter une description pour fournir plus d'informations sur le sujet de la carte.</li>
+<li><p class="mb-400">Envisagez d'ajouter un badge pour renseigner les personnes sur l'état ou la catégorie du contenu de la carte. Voici des exemples courants d'états : Nouveau, Mis à jour, Bientôt disponible, En vedette. Voici des exemples courants de catégories : Vidéos, Articles, Rapports. Les badges sont personnalisables mais sont limités à 20 caractères maximum.</li>
 </ul>
-<h3 id="selectionnez-les-metadonnees-a-inclure" class="mt-500 mb-400">Sélectionnez les métadonnées à inclure</h3>
-<p class="mb-400">Si vous incluez des métadonnées, choisissez le renseignement le plus important pour votre lectorat. Par exemple :</p>
-<ul class="list-disc mb-400"><li><p class="mb-400">Estimation de la longueur ou de la durée de lecture</li>
-<li><p class="mb-400">Source, référence ou auteur ou autrice.</li>
-<li><p class="mb-400">Évaluation ou nombre de « J’aime » ou d’enregistrements.</li>
-<li><p class="mb-400">Date ou lieu.</li>
+<h3 id="regroupez-les-cartes-pour-assurer-une-coherence-visuelle" class="mt-500 mb-400">Regroupez les cartes pour assurer une cohérence visuelle</h3>
+<p class="mb-400">Organisez les cartes à l'aide du <a href="/fr/composants/grille">composant de la grille</a>.</p>
+<ul class="list-disc mb-400"><li><p class="mb-400">Pour les écrans d'ordinateur, utilisez 2 ou 3 cartes par rangée.</li>
+<li><p class="mb-400">Pour les écrans d'appareils mobiles, utilisez 1 carte par rangée.</li>
+<li><p class="mb-400">Essayez d'inclure les mêmes propriétés pour chaque carte d'une même section dans une page. Par exemple : si une carte comporte une image, toutes les cartes comportent une image.</li>
 </ul>
-<h3 id="regroupez-plusieurs-cartes-pour-une-meilleure-coherence-visuelle" class="mt-500 mb-400">Regroupez plusieurs cartes pour une meilleure cohérence visuelle</h3>
-<p class="mb-400">Lorsque votre page comprend plusieurs cartes :</p>
-<ul class="list-disc mb-400"><li><p class="mb-400">Organisez plusieurs cartes à l’aide d’un composant Grille.</li>
-<li><p class="mb-400">Sur une même section, veillez à utiliser le même type de carte. Choisissez des cartes de types liens ou des cartes de type actions pour toutes les cartes au lieu d’utiliser un mélange des deux.</li>
-<li><p class="mb-400">Essayez d’inclure les mêmes propriétés pour chaque carte appartenant à la même section d’une page. Exemple : si une carte comporte une image, toutes les cartes comportent une image.</li>
-</ul>
+<img src="/images/fr/components/example/example-cards-in-grid.svg" alt="Cartes groupées en deux rangées. La première rangée contient 3 cartes (carte à 4 colonnes de largeur). La deuxième rangée contient deux cartes (carte à 6 colonnes de largeur)"/>
 
 
   <section data-pagefind-ignore class="pt-100 mt-400 mb-600 bt-sm b-dark ">
@@ -1207,7 +1197,7 @@ Aperçu du composant de carte
 
 
         <gcds-date-modified class="mb-400 font-caption">
-          2024-08-15
+          2024-08-19
         </gcds-date-modified>
       </main>
 

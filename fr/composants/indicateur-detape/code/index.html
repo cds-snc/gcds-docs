@@ -1092,7 +1092,7 @@
   
     <h1 id="indicateur-detape-brgcdsstepper" class="mb-400">Indicateur d'étape <br><code>&lt;gcds-stepper&gt;</code></h1>
 <p class="mb-400"><em>Autres noms : indicateur de progrès, étapes.</em></p>
-<p class="mb-400">Un indicateur d'étape offre un suivi de l'avancement d'un processus comportant plusieurs étapes.</p>
+<p class="mb-400">L'indicateur d'étape est un marqueur de progression pour un processus à plusieurs étapes.</p>
 <p class="mb-400"><ul class="d-flex flex-wrap gap-400">
 <li class="github-link">
 <gcds-link external href="https://github.com/cds-snc/gcds-components/tree/main/packages/web/src/components/gcds-stepper">GitHub</gcds-link>
@@ -1106,7 +1106,7 @@
 Aperçu du composant indicateur d'étape
 </p>
 <div class="px-300 pt-400 pb-100"></p>
-<p class="mb-400"><gcds-stepper current-step="1" total-steps="4"></gcds-stepper></p>
+<p class="mb-400"><gcds-stepper current-step="1" total-steps="4">Titre de la section</gcds-stepper></p>
 <p class="mb-400"></div>
 </div></p>
 
@@ -1147,11 +1147,15 @@ Aperçu du composant indicateur d'étape
     </nav>
   
 
-  <h2 id="creation-dun-indicateur-detape" class="mt-500 mb-400">Création d'un indicateur d'étape</h2>
-<p class="mb-400">Utilisez un indicateur d'étape comme guide lorsqu'une séquence (formulaire ou processus) qui s'étend sur trois pages ou plus peut être divisée en étapes logiques.</p>
+  <h2 id="creer-un-indicateur-detape" class="mt-500 mb-400">Créer un indicateur d'étape</h2>
+<p class="mb-400">Utilisez un indicateur d'étape pour guider les personnes lorsqu'une séquence (formulaire ou processus) peut être divisée en étapes claires qui s'étendent sur plus d'une page.</p>
 <h2 id="codage-et-accessibilite-des-indicateurs-detape" class="mt-500 mb-400">Codage et accessibilité des indicateurs d'étape</h2>
 <h3 id="utilisez-chaque-etape-pour-un-objectif" class="mt-500 mb-400">Utilisez chaque étape pour un objectif</h3>
-<p class="mb-400">Utilisez l'attribut <code>current-step</code> pour indiquer l'étape à laquelle l'utilisateur·rice se trouve. Utilisez l'attibut <code>total-steps</code> pour indiquer le nombre total d'étapes.</p>
+<p class="mb-400">Utilisez l'attribut <code>current-step</code> pour indiquer l'étape à laquelle la personne se trouve. Utilisez l'attribut <code>total-steps</code> pour indiquer le nombre total d'étapes.</p>
+<h3 id="placez-lindicateur-detape-dans-la-page" class="mt-500 mb-400">Placez l'indicateur d'étape dans la page</h3>
+<p class="mb-400">Utilisez l'attribut <code>tag</code> pour attribuer la balise de titre appropriée à l'indicateur d'étape. L'indicateur d'étape peut s'afficher sous la forme d'un <code>h1</code>, <code>h2</code> ou <code>h3</code>.</p>
+<h3 id="utilisez-des-proprietes-valides" class="mt-500 mb-400">Utilisez des propriétés valides</h3>
+<p class="mb-400">Les propriétés du composant ont une validation intégrée. Les propriétés requises ou susceptibles d'être mal utilisées feront l'objet d'une validation. S'il y a des erreurs de validation, le composant ne fonctionnera pas et ne s'affichera pas. Consultez la console du navigateur pour plus de détails et ajustez les propriétés en conséquence pour que le rendu fonctionne correctement.</p>
 <h3 id="obtenez-votre-code" class="mt-500 mb-400">Obtenez votre code</h3>
 <p class="mb-400">Générez une version du composant dont vous avez besoin en sélectionnant les propriétés de code correspondantes ou explorez les possibilités en choisissant différentes valeurs de code.</p>
 <ol class="list-decimal mb-400"><li>
@@ -1197,7 +1201,7 @@ Aperçu du composant indicateur d'étape
 
 
         <gcds-date-modified class="mb-400 font-caption">
-          2024-08-15
+          2024-08-19
         </gcds-date-modified>
       </main>
 

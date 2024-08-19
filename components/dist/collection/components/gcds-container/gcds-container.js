@@ -3,18 +3,20 @@ export class GcdsContainer {
     constructor() {
         this.border = false;
         this.centered = false;
+        this.mainContainer = false;
         this.margin = undefined;
         this.padding = undefined;
         this.size = 'full';
         this.tag = 'div';
     }
     render() {
-        const { border, centered, margin, padding, size, tag } = this;
+        const { border, centered, mainContainer, margin, padding, size, tag } = this;
         const Tag = tag;
         return (h(Host, null, h(Tag, { class: `
             gcds-container
-            ${border ? `container-border` : ''}
-            ${centered ? `container-centered` : ''}
+            ${border ? 'container-border' : ''}
+            ${centered ? 'container-centered' : ''}
+            ${mainContainer ? 'container-main' : ''}
             ${margin ? `m-${margin}` : ''}
             ${padding ? `p-${padding}` : ''}
             ${size ? `size-${size}` : ''}
@@ -67,6 +69,24 @@ export class GcdsContainer {
                     "text": "Defines if container is centered or not."
                 },
                 "attribute": "centered",
+                "reflect": false,
+                "defaultValue": "false"
+            },
+            "mainContainer": {
+                "type": "boolean",
+                "mutable": false,
+                "complexType": {
+                    "original": "boolean",
+                    "resolved": "boolean",
+                    "references": {}
+                },
+                "required": false,
+                "optional": true,
+                "docs": {
+                    "tags": [],
+                    "text": "Defines if the container is the main page container or not. If set to true,\nthe width will be set to 90% for smaller screens to ensure consistency\nwith the responsiveness of other core layout components (header + footer)."
+                },
+                "attribute": "main-container",
                 "reflect": false,
                 "defaultValue": "false"
             },

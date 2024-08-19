@@ -83,6 +83,11 @@ export declare class GcdsInput {
      */
     lang: string;
     /**
+     * Watch HTML attributes to inherit changes
+     */
+    ariaInvalidWatcher(): void;
+    ariaDescriptiondWatcher(): void;
+    /**
      * Events
      */
     /**

@@ -5,6 +5,7 @@ import { validateFieldsetElements } from "../../validators/fieldset-validators/f
 import i18n from "./i18n/i18n";
 export class GcdsFieldset {
     constructor() {
+        this.isDateInput = false;
         this._validator = defaultValidator;
         this.fieldsetId = undefined;
         this.legend = undefined;
@@ -120,7 +121,12 @@ export class GcdsFieldset {
         this.validateErrorMessage();
         this.validateValidator();
         // Assign required validator if needed
-        requiredValidator(this.el, 'fieldset');
+        if (this.el.getAttribute('data-date')) {
+            this.isDateInput = true;
+        }
+        else {
+            requiredValidator(this.el, 'fieldset');
+        }
         if (this.validator) {
             this._validator = getValidator(this.validator);
         }
@@ -141,7 +147,7 @@ export class GcdsFieldset {
         }
         return (h(Host, null, h("fieldset", Object.assign({ class: `gcds-fieldset ${hasError ? 'gcds-fieldset--error' : ''}`, id: fieldsetId }, fieldsetAttrs, { "aria-labelledby": hint
                 ? `legend-${fieldsetId} hint-${fieldsetId}`
-                : `legend-${fieldsetId}`, tabindex: "-1", ref: element => (this.shadowElement = element) }), h("legend", { id: `legend-${fieldsetId}` }, legend, required ? (h("strong", { class: "legend__required" }, "(", i18n[lang].required, ")")) : null), hint ? h("gcds-hint", { "hint-id": fieldsetId }, hint) : null, errorMessage ? (h("gcds-error-message", { messageId: fieldsetId }, errorMessage)) : null, h("slot", null))));
+                : `legend-${fieldsetId}`, tabindex: "-1", ref: element => (this.shadowElement = element) }), h("legend", { id: `legend-${fieldsetId}` }, legend, required ? (h("span", { class: "legend__required" }, "(", i18n[lang].required, ")")) : null), hint ? h("gcds-hint", { "hint-id": fieldsetId }, hint) : null, errorMessage ? (h("gcds-error-message", { messageId: fieldsetId }, errorMessage)) : null, h("slot", null))));
     }
     static get is() { return "gcds-fieldset"; }
     static get encapsulation() { return "shadow"; }

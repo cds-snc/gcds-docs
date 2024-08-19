@@ -2665,10 +2665,10 @@ const loadModule = (cmpMeta, hostRef, hmrVersionId) => {
           }
           switch(bundleId) {
               
-                case 'gcds-alert_40.cjs':
+                case 'gcds-alert_41.cjs':
                     return Promise.resolve().then(function () { return /*#__PURE__*/_interopNamespace(require(
                         /* webpackMode: "lazy" */
-                        './gcds-alert_40.cjs.entry.js')); }).then(processMod, consoleError);
+                        './gcds-alert_41.cjs.entry.js')); }).then(processMod, consoleError);
           }
       }
     return Promise.resolve().then(function () { return /*#__PURE__*/_interopNamespace(require(

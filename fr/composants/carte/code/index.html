@@ -1106,8 +1106,7 @@
 Aperçu du composant de carte
 </p>
 <div class="px-300 py-400"></p>
-<gcds-card card-title="Titre de la carte" tag="Balise" description="Description destinée à accompagner le titre. Les textes plus longs seront tronqués avec ..." href="#">
-<div slot="footer">Infos contextuelles • metadonnées</div>
+<gcds-card card-title="Titre de la carte" badge="Balise" description="Description destinée à accompagner le titre. Les textes plus longs seront tronqués avec ..." href="#">
 </gcds-card>
 <p class="mb-400"></div>
 </div></p>
@@ -1150,13 +1149,31 @@ Aperçu du composant de carte
   
 
   <h2 id="creer-une-carte" class="mt-500 mb-400">Créer une carte</h2>
-<p class="mb-400">Utilisez des cartes pour aider une personne à découvrir et à lire en un coup d’œil des résumés ou des éléments progressifs de renseignements sur un même thème.</p>
-<h3 id="regroupez-plusieurs-cartes-pour-une-meilleure-coherence-visuelle" class="mt-500 mb-400">Regroupez plusieurs cartes pour une meilleure cohérence visuelle</h3>
-<p class="mb-400">Lorsque votre page comprend plusieurs cartes :</p>
-<ul class="list-disc mb-400"><li><p class="mb-400">Organisez plusieurs cartes à l’aide d’un composant Grille.</li>
-<li><p class="mb-400">Sur une même section, veillez à utiliser le même type de carte. Choisissez des cartes de types liens ou des cartes de type actions pour toutes les cartes au lieu d’utiliser un mélange des deux.</li>
-<li><p class="mb-400">Essayez d’inclure les mêmes propriétés pour chaque carte appartenant à la même section d’une page. Exemple : si une carte comporte une image, toutes les cartes comportent une image.</li>
+<p class="mb-400">Utilisez des cartes pour aider une personne à découvrir et à lire en un coup d'œil des résumés ou des éléments progressifs de renseignements sur un même thème.</p>
+<h2 id="codage-et-accessibilite-des-cartes" class="mt-500 mb-400">Codage et accessibilité des cartes</h2>
+<h3 id="ecrivez-un-titre-facile-a-parcourir" class="mt-500 mb-400">Écrivez un titre facile à parcourir</h3>
+<p class="mb-400">Utilisez l'attribut <code>card-title</code> pour ajouter un titre court et descriptif à la carte.</p>
+<h3 id="selectionnez-le-bon-niveau-de-titre" class="mt-500 mb-400">Sélectionnez le bon niveau de titre</h3>
+<p class="mb-400">Utilisez <code>card-title-tag</code> pour définir le bon niveau de titre pour la carte. Suivez une hiérarchie correcte et ordonnée pour fournir une expérience équitable aux personnes utilisant des technologies d'assistance.</p>
+<h3 id="ajoutez-une-description-pour-fournir-plus-dinformations" class="mt-500 mb-400">Ajoutez une <code>description</code> pour fournir plus d'informations</h3>
+<p class="mb-400">Ajoutez une description pour fournir plus d'informations sur le sujet de la carte:</p>
+<ul class="list-disc mb-400"><li><p class="mb-400">Utilisez l'attribut <code>description</code> pour fournir une description textuelle concise.</li>
+<li><p class="mb-400">Pour une description avec une mise en forme plus complexe, comme du texte en gras ou en italique, utilisez l'élément <code>slot</code> par défaut de la carte. <strong>Évitez d'ajouter des éléments interactifs dans cet emplacement (slot), car ils peuvent entraîner des problèmes d'accessibilité. La carte elle-même est déjà interactive et dirigera la personne au bon endroit.</strong></li>
 </ul>
+<h3 id="utilisez-un-badge-pour-afficher-letat-ou-la-categorie-dune-carte" class="mt-500 mb-400">Utilisez un <code>badge</code> pour afficher l'état ou la catégorie d'une carte</h3>
+<ul class="list-disc mb-400"><li><p class="mb-400">Utilisez l'attribut <code>badge</code> pour ajouter un état ou une catégorie dans le coin supérieur gauche de la carte.</li>
+<li><p class="mb-400">Voici des exemples courants d'états : Nouveau, Mis à jour, Bientôt disponible, En vedette.</li>
+<li><p class="mb-400">Voici des exemples courants de catégories : Vidéos, Articles, Rapports.</li>
+<li><p class="mb-400">Les badges sont personnalisables mais sont limités à 20 caractères maximum.</li>
+</ul>
+<h3 id="regroupez-les-cartes-pour-assurer-une-coherence-visuelle" class="mt-500 mb-400">Regroupez les cartes pour assurer une cohérence visuelle</h3>
+<p class="mb-400">Organisez les cartes à l'aide du <a href="/fr/composants/grille">composant de la grille</a>.</p>
+<ul class="list-disc mb-400"><li><p class="mb-400">Pour les écrans d'ordinateurs, utilisez 2 ou 3 cartes par rangée.</li>
+<li><p class="mb-400">Pour les écrans d'appareils mobiles, utilisez 1 carte par rangée.</li>
+<li><p class="mb-400">Essayez d'inclure les mêmes propriétés pour chaque carte d'une même section dans une page. Par exemple : si une carte comporte une image, toutes les cartes comportent une image.</li>
+</ul>
+<h3 id="utilisez-des-proprietes-valides" class="mt-500 mb-400">Utilisez des propriétés valides</h3>
+<p class="mb-400">Les propriétés du composant ont une validation intégrée. Les propriétés requises ou susceptibles d'être mal utilisées feront l'objet d'une validation. S'il y a des erreurs de validation, le composant ne fonctionnera pas et ne s'affichera pas. Consultez la console du navigateur pour plus de détails et ajustez les propriétés en conséquence pour que le rendu fonctionne correctement.</p>
 <h3 id="obtenez-votre-code" class="mt-500 mb-400">Obtenez votre code</h3>
 <p class="mb-400">Générez une version du composant dont vous avez besoin en sélectionnant les propriétés de code correspondantes ou explorez les possibilités en choisissant différentes valeurs de code.</p>
 <ol class="list-decimal mb-400"><li>
@@ -1202,7 +1219,7 @@ Aperçu du composant de carte
 
 
         <gcds-date-modified class="mb-400 font-caption">
-          2024-08-15
+          2024-08-19
         </gcds-date-modified>
       </main>
 

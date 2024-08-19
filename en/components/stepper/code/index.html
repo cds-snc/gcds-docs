@@ -1106,7 +1106,7 @@
 Stepper component preview
 </p>
 <div class="px-300 pt-400 pb-100"></p>
-<p class="mb-400"><gcds-stepper current-step="1" total-steps="4"></gcds-stepper></p>
+<p class="mb-400"><gcds-stepper current-step="1" total-steps="4">Section title</gcds-stepper></p>
 <p class="mb-400"></div>
 </div></p>
 
@@ -1148,10 +1148,14 @@ Stepper component preview
   
 
   <h2 id="build-a-stepper" class="mt-500 mb-400">Build a stepper</h2>
-<p class="mb-400">Use a stepper as a guide when a sequence (form or process) can be divided into logical steps and will span three or more pages.</p>
+<p class="mb-400">Use a stepper to guide users when a sequence (form or process) can be broken down into clear steps and will take up more than one page.</p>
 <h2 id="coding-and-accessibility-for-steppers" class="mt-500 mb-400">Coding and accessibility for steppers</h2>
 <h3 id="use-each-step-for-a-goal" class="mt-500 mb-400">Use each step for a goal</h3>
-<p class="mb-400">Use the <code>current-step</code> attribute to indicate the step that the user is on and the <code>total-steps</code> attribute to indicate the overall number of steps.</p>
+<p class="mb-400">Use the <code>current-step</code> attribute to indicate the step that the person is on and the <code>total-steps</code> attribute to indicate the overall number of steps.</p>
+<h3 id="placing-the-stepper-on-the-page" class="mt-500 mb-400">Placing the stepper on the page</h3>
+<p class="mb-400">Use the <code>tag</code> attribute to assign the appropriate heading tag to the stepper. The stepper is able to render as either a <code>h1</code>, <code>h2</code> or <code>h3</code>.</p>
+<h3 id="use-valid-properties" class="mt-500 mb-400">Use valid properties</h3>
+<p class="mb-400">Component properties have built-in validation. Required properties or properties prone to misuse will be validated. If there are any validation errors, the component will be non-functional and won't render. Review the browser's console for details and adjust the properties accordingly to ensure proper functionality.</p>
 <h3 id="get-your-code" class="mt-500 mb-400">Get your code</h3>
 <p class="mb-400">Generate an instance of the component you need by selecting its code properties.</p>
 <ol class="list-decimal mb-400"><li>
@@ -1197,7 +1201,7 @@ Stepper component preview
 
 
         <gcds-date-modified class="mb-400 font-caption">
-          2024-08-15
+          2024-08-19
         </gcds-date-modified>
       </main>
 

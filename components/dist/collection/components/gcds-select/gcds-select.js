@@ -63,6 +63,15 @@ export class GcdsSelect {
         }
     }
     /**
+     * Watch HTML attribute aria-invalid to inherit changes
+     */
+    ariaInvalidWatcher() {
+        this.inheritedAttributes = inheritAttributes(this.el, this.shadowElement);
+    }
+    ariaDescriptiondWatcher() {
+        this.inheritedAttributes = inheritAttributes(this.el, this.shadowElement);
+    }
+    /**
      * Call any active validators
      */
     async validate() {
@@ -178,7 +187,11 @@ export class GcdsSelect {
                 ? `${attrsSelect['aria-describedby']}`
                 : ''}`;
         }
-        return (h(Host, null, h("div", { class: `gcds-select-wrapper ${disabled ? 'gcds-disabled' : ''} ${hasError ? 'gcds-error' : ''}` }, h("gcds-label", Object.assign({}, attrsLabel, { "label-for": selectId, lang: lang })), hint ? h("gcds-hint", { "hint-id": selectId }, hint) : null, errorMessage ? (h("gcds-error-message", { messageId: selectId }, errorMessage)) : null, h("select", Object.assign({}, attrsSelect, { id: selectId, onBlur: () => this.onBlur(), onFocus: () => this.gcdsFocus.emit(), onInput: e => this.handleInput(e, this.gcdsInput), onChange: e => this.handleInput(e, this.gcdsChange), "aria-invalid": hasError ? 'true' : 'false', ref: element => (this.shadowElement = element) }), defaultValue ? (h("option", { value: "", disabled: true, selected: true }, defaultValue)) : null, options.map(opt => {
+        return (h(Host, null, h("div", { class: `gcds-select-wrapper ${disabled ? 'gcds-disabled' : ''} ${hasError ? 'gcds-error' : ''}` }, h("gcds-label", Object.assign({}, attrsLabel, { "label-for": selectId, lang: lang })), hint ? h("gcds-hint", { "hint-id": selectId }, hint) : null, errorMessage ? (h("gcds-error-message", { messageId: selectId }, errorMessage)) : null, h("select", Object.assign({}, attrsSelect, { id: selectId, onBlur: () => this.onBlur(), onFocus: () => this.gcdsFocus.emit(), onInput: e => this.handleInput(e, this.gcdsInput), onChange: e => this.handleInput(e, this.gcdsChange), "aria-invalid": inheritedAttributes['aria-invalid'] === 'true'
+                ? inheritedAttributes['aria-invalid']
+                : errorMessage
+                    ? 'true'
+                    : 'false', part: "select", ref: element => (this.shadowElement = element) }), defaultValue ? (h("option", { value: "", disabled: true, selected: true }, defaultValue)) : null, options.map(opt => {
             if (opt.nodeName === 'OPTION') {
                 const selected = opt.hasAttribute('selected')
                     ? { selected: true }
@@ -552,6 +565,12 @@ export class GcdsSelect {
             }, {
                 "propName": "hasError",
                 "methodName": "validateHasError"
+            }, {
+                "propName": "aria-invalid",
+                "methodName": "ariaInvalidWatcher"
+            }, {
+                "propName": "aria-description",
+                "methodName": "ariaDescriptiondWatcher"
             }];
     }
     static get listeners() {

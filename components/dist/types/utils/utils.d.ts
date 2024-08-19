@@ -9,3 +9,5 @@ export declare const observerConfig: {
 };
 export declare const elementGroupCheck: (name: any) => boolean;
 export declare const emitEvent: (e: Event, customEvent: EventEmitter, value?: unknown) => boolean;
+export declare const logError: (name: string, errorArr: string[], optionalAttrsArrToRemove?: string[]) => void;
+export declare const isValidDate: (dateString: string, forceFormat?: 'full' | 'compact') => boolean;
