@@ -16,5 +16,5 @@ A stepper is a progress tracker for a multi-step process.
 {% enddocLinks %}
 
 {% componentPreview "Stepper component preview" "px-300 pt-400 pb-100" %}
-<gcds-stepper current-step="1" total-steps="4"></gcds-stepper>
+<gcds-stepper current-step="1" total-steps="4">Section title</gcds-stepper>
 {% endcomponentPreview %}

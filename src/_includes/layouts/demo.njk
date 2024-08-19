@@ -102,8 +102,9 @@ layout: "layouts/base.njk"
 
   {# ------------- Stepper + Form elements ------------- #}
 
-  <h3 class="container-full mt-700 mb-400 bb-sm">{{ demo[locale].form.heading }}</h3>
-  <gcds-stepper current-step="1" total-steps="4"></gcds-stepper>
+  <gcds-stepper current-step="1" total-steps="4">
+    {{ demo[locale].form.heading }}
+  </gcds-stepper>
   <form>
     <gcds-input
       input-id="form-name"

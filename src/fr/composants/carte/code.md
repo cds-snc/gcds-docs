@@ -8,15 +8,41 @@ date: 'git Last Modified'
 
 ## Créer une carte
 
-Utilisez des cartes pour aider une personne à découvrir et à lire en un coup d’œil des résumés ou des éléments progressifs de renseignements sur un même thème.
+Utilisez des cartes pour aider une personne à découvrir et à lire en un coup d'œil des résumés ou des éléments progressifs de renseignements sur un même thème.
 
-### Regroupez plusieurs cartes pour une meilleure cohérence visuelle
+## Codage et accessibilité des cartes
 
-Lorsque votre page comprend plusieurs cartes :
+### Écrivez un titre facile à parcourir
 
-- Organisez plusieurs cartes à l’aide d’un composant Grille.
-- Sur une même section, veillez à utiliser le même type de carte. Choisissez des cartes de types liens ou des cartes de type actions pour toutes les cartes au lieu d’utiliser un mélange des deux.
-- Essayez d’inclure les mêmes propriétés pour chaque carte appartenant à la même section d’une page. Exemple : si une carte comporte une image, toutes les cartes comportent une image.
+Utilisez l'attribut `card-title` pour ajouter un titre court et descriptif à la carte.
+
+### Sélectionnez le bon niveau de titre
+
+Utilisez `card-title-tag` pour définir le bon niveau de titre pour la carte. Suivez une hiérarchie correcte et ordonnée pour fournir une expérience équitable aux personnes utilisant des technologies d'assistance.
+
+### Ajoutez une `description` pour fournir plus d'informations
+
+Ajoutez une description pour fournir plus d'informations sur le sujet de la carte:
+
+- Utilisez l'attribut `description` pour fournir une description textuelle concise.
+- Pour une description avec une mise en forme plus complexe, comme du texte en gras ou en italique, utilisez l'élément `slot` par défaut de la carte. **Évitez d'ajouter des éléments interactifs dans cet emplacement (slot), car ils peuvent entraîner des problèmes d'accessibilité. La carte elle-même est déjà interactive et dirigera la personne au bon endroit.**
+
+### Utilisez un `badge` pour afficher l'état ou la catégorie d'une carte
+
+- Utilisez l'attribut `badge` pour ajouter un état ou une catégorie dans le coin supérieur gauche de la carte.
+- Voici des exemples courants d'états : Nouveau, Mis à jour, Bientôt disponible, En vedette.
+- Voici des exemples courants de catégories : Vidéos, Articles, Rapports.
+- Les badges sont personnalisables mais sont limités à 20 caractères maximum.
+
+### Regroupez les cartes pour assurer une cohérence visuelle
+
+Organisez les cartes à l'aide du [composant de la grille]({{ links.grid }}).
+
+- Pour les écrans d'ordinateurs, utilisez 2 ou 3 cartes par rangée.
+- Pour les écrans d'appareils mobiles, utilisez 1 carte par rangée.
+- Essayez d'inclure les mêmes propriétés pour chaque carte d'une même section dans une page. Par exemple : si une carte comporte une image, toutes les cartes comportent une image.
+
+{% include "partials/valid-props.njk" %}
 
 {% include "partials/getcode.njk" %}
 
