@@ -6,8 +6,7 @@ eleventyNavigation:
   key: getinvolvedFR
   title: S'impliquer
   locale: fr
-  order: 4
-  hideMain: true
+  order: 3
 ---
 
 # S'impliquer

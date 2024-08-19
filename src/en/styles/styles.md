@@ -6,6 +6,7 @@ eleventyNavigation:
   title: Styles
   locale: en
   order: 2
+  hideMain: true
 translationKey: 'foundatons'
 github: https://github.com/cds-snc/gcds-tokens
 date: 'git Last Modified'

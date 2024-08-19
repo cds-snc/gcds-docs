@@ -6,8 +6,7 @@ eleventyNavigation:
   key: getinvolvedEN
   title: Get involved
   locale: en
-  order: 4
-  hideMain: true
+  order: 3
 ---
 
 # Get involved
