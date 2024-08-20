@@ -6,6 +6,7 @@ eleventyNavigation:
   title: Styles
   locale: fr
   order: 2
+  hideMain: true
 translationKey: 'foundatons'
 github: https://github.com/cds-snc/gcds-tokens
 cardlist:

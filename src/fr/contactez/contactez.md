@@ -5,7 +5,7 @@ eleventyNavigation:
   key: contactusFR
   title: Contactez-nous
   locale: fr
-  order: 3
+  order: 2
 translationKey: 'contactus'
 contactForm: fr
 date: 'git Last Modified'
@@ -15,13 +15,13 @@ date: 'git Last Modified'
 
 ## Formulaire de soutien GitHub
 
-Avec votre compte GitHub, utilisez notre <gcds-link external href="{{ links.githubCompsIssues }}">formulaire de soutien</gcds-link> pour signaler des bogues et obtenir un soutien technique. Vous aurez accès aux problèmes (issues) passés et verrez les progrès accomplis.      
+Avec votre compte GitHub, utilisez notre <gcds-link external href="{{ links.githubCompsIssues }}">formulaire de soutien</gcds-link> pour signaler des bogues et obtenir un soutien technique. Vous aurez accès aux problèmes (issues) passés et verrez les progrès accomplis.
 
 <hr class="my-500" />
 
 ## Envoyer des commentaires, demander de l’aide ou s’inscrire
 
-Remplissez le formulaire suivant pour nous envoyer vos commentaires, demander de l’aide pour utiliser Système de design GC, ou vous inscrire à notre liste d’envoi ou à une démo. 
+Remplissez le formulaire suivant pour nous envoyer vos commentaires, demander de l’aide pour utiliser Système de design GC, ou vous inscrire à notre liste d’envoi ou à une démo.
 
 <form class="my-500 contact-us-form" name="contactFR" method="post" style="min-height: 32rem;" action="/api/submission">
   <input type="hidden" name="form-name" value="contactFR" />
