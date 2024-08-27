@@ -8020,7 +8020,7 @@ const I18N$k = {
   },
 };
 
-const gcdsCardCss = "@layer reset, default, link, hover, focus;@layer reset{.sc-gcds-card-h{display:block}.sc-gcds-card-h *{box-sizing:border-box;margin:0;padding:0}.sc-gcds-card-h slot{display:initial}}@layer default{.sc-gcds-card-h .gcds-card{background-color:var(--gcds-card-background-color);box-shadow:var(--gcds-card-box-shadow);color:var(--gcds-card-color);display:block;height:100%;max-width:var(--gcds-card-max-width);overflow:hidden;padding:var(--gcds-card-padding);position:relative}.sc-gcds-card-h .gcds-card>:not(slot):not(.gcds-card__spacer){display:block;margin:var(--gcds-card-margin)}.sc-gcds-card-h .gcds-card .gcds-badge{background-color:var(--gcds-card-badge-background-color);left:0;padding:var(--gcds-card-badge-padding);position:absolute;top:0;text-wrap:nowrap}.sc-gcds-card-h .gcds-card .gcds-card__image{width:100%}.sc-gcds-card-h .gcds-card .gcds-card__title{font:var(--gcds-card-title-font-desktop);width:fit-content}@media only screen and (width < 48em){.sc-gcds-card-h .gcds-card .gcds-card__title{font:var(--gcds-card-title-font-mobile)}}.sc-gcds-card-h .gcds-card .gcds-card__description{font:var(--gcds-card-description-font-desktop)}@media only screen and (width < 48em){.sc-gcds-card-h .gcds-card .gcds-card__description{font:var(--gcds-card-description-font-mobile)}}}@layer link{.sc-gcds-card-h .gcds-card gcds-link::part(link):after{bottom:0;content:\"\";left:0;pointer-events:auto;position:absolute;right:0;top:0;z-index:1}}@layer hover{@media (hover:hover){.sc-gcds-card-h .gcds-card:hover{background-color:var(--gcds-card-hover-background-color);box-shadow:var(--gcds-card-hover-box-shadow);cursor:pointer}}}@layer focus{.sc-gcds-card-h .gcds-card:has(:focus-within){box-shadow:var(--gcds-card-focus-box-shadow);outline:var(--gcds-card-focus-outline);outline-offset:var(--gcds-card-focus-outline-offset)}.sc-gcds-card-h gcds-link::part(link):focus{background-color:var(--gcds-card-focus-link-background-color);border:var(--gcds-card-focus-link-border);box-shadow:var(--gcds-card-focus-link-box-shadow);color:var(--gcds-card-focus-link-color);outline:var(--gcds-card-focus-link-outline);text-decoration:underline currentColor var(--gcds-card-focus-link-text-decoration-thickness)}}";
+const gcdsCardCss = "@layer reset, default, link, hover, focus;@layer reset{.sc-gcds-card-h{display:block}.sc-gcds-card-h *{box-sizing:border-box;margin:0;padding:0}.sc-gcds-card-h slot{display:initial}}@layer default{.sc-gcds-card-h .gcds-card{background-color:var(--gcds-card-background-color);box-shadow:var(--gcds-card-box-shadow);color:var(--gcds-card-color);display:block;height:100%;max-width:var(--gcds-card-max-width);overflow:hidden;padding:var(--gcds-card-padding);position:relative}.sc-gcds-card-h .gcds-card .gcds-badge{background-color:var(--gcds-card-badge-background-color);left:0;padding:var(--gcds-card-badge-padding);position:absolute;top:0;text-wrap:nowrap}.sc-gcds-card-h .gcds-card .gcds-card__image{margin:var(--gcds-card-image-margin);width:100%}.sc-gcds-card-h .gcds-card .gcds-card__title{font:var(--gcds-card-title-font-desktop);width:fit-content}@media only screen and (width < 48em){.sc-gcds-card-h .gcds-card .gcds-card__title{font:var(--gcds-card-title-font-mobile)}}.sc-gcds-card-h .gcds-card .gcds-card__title:has(+.gcds-card__description){margin:var(--gcds-card-title-margin)}.sc-gcds-card-h .gcds-card .gcds-card__description{--gcds-text-size-body-desktop:var(--gcds-card-description-font-desktop)}@media only screen and (width < 48em){.sc-gcds-card-h .gcds-card .gcds-card__description{font:var(--gcds-card-description-font-mobile)}}}@layer link{.sc-gcds-card-h .gcds-card gcds-link::part(link):after{bottom:0;content:\"\";left:0;pointer-events:auto;position:absolute;right:0;top:0;z-index:1}}@layer hover{@media (hover:hover){.sc-gcds-card-h .gcds-card:hover{background-color:var(--gcds-card-hover-background-color);box-shadow:var(--gcds-card-hover-box-shadow);cursor:pointer}}}@layer focus{.sc-gcds-card-h .gcds-card:has(:focus-within){box-shadow:var(--gcds-card-focus-box-shadow);outline:var(--gcds-card-focus-outline);outline-offset:var(--gcds-card-focus-outline-offset)}.sc-gcds-card-h gcds-link::part(link):focus{background-color:var(--gcds-card-focus-link-background-color);border:var(--gcds-card-focus-link-border);box-shadow:var(--gcds-card-focus-link-box-shadow);color:var(--gcds-card-focus-link-color);outline:var(--gcds-card-focus-link-outline);text-decoration:underline currentColor var(--gcds-card-focus-link-text-decoration-thickness)}}";
 var GcdsCardStyle0 = gcdsCardCss;
 
 class GcdsCard {
@@ -8098,12 +8098,13 @@ class GcdsCard {
     }
     get renderDescription() {
         if (this.el.innerHTML.trim() != '') {
-            return hAsync("slot", null);
+            return hAsync("div", { class: "gcds-card__description" }, hAsync("slot", null));
+        }
+        else if (this.description) {
+            return hAsync("div", { class: "gcds-card__description" }, hAsync("gcds-text", { "margin-bottom": '0' }, this.description));
         }
         else {
-            if (this.description) {
-                return hAsync("gcds-text", null, this.description);
-            }
+            return null;
         }
     }
     render() {
@@ -8114,7 +8115,7 @@ class GcdsCard {
             taggedAttr['aria-describedby'] = 'gcds-badge';
         }
         if (this.validateRequiredProps()) {
-            return (hAsync(Host, null, hAsync("div", { class: "gcds-card" }, imgSrc && (hAsync("img", { src: imgSrc, alt: imgAlt ? imgAlt : '', class: "gcds-card__image" })), badge && !errors.includes('badge') && (hAsync("gcds-text", { id: "gcds-badge", class: "gcds-badge", "text-role": "light", "margin-bottom": "0", size: "caption" }, hAsync("strong", null, hAsync("gcds-sr-only", null, I18N$k[lang].tagged), badge))), Element != 'a' ? (hAsync(Element, Object.assign({ class: "gcds-card__title" }, taggedAttr), hAsync("gcds-link", { href: href }, cardTitle))) : (hAsync("gcds-link", Object.assign({ href: href, class: "gcds-card__title" }, taggedAttr), cardTitle)), hAsync("div", { class: "gcds-card__description" }, renderDescription))));
+            return (hAsync(Host, null, hAsync("div", { class: "gcds-card" }, imgSrc && (hAsync("img", { src: imgSrc, alt: imgAlt ? imgAlt : '', class: "gcds-card__image" })), badge && !errors.includes('badge') && (hAsync("gcds-text", { id: "gcds-badge", class: "gcds-badge", "text-role": "light", "margin-bottom": "0", size: "caption" }, hAsync("strong", null, hAsync("gcds-sr-only", null, I18N$k[lang].tagged), badge))), Element != 'a' ? (hAsync(Element, Object.assign({ class: "gcds-card__title" }, taggedAttr), hAsync("gcds-link", { href: href }, cardTitle))) : (hAsync("gcds-link", Object.assign({ href: href, class: "gcds-card__title" }, taggedAttr), cardTitle)), renderDescription)));
         }
     }
     get el() { return getElement(this); }

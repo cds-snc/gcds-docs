@@ -16,8 +16,6 @@ describe('gcds-card', () => {
           <gcds-link class="gcds-card__title" href="#card">
             Card
           </gcds-link>
-          <div class="gcds-card__description">
-          </div>
         </div>
       </mock:shadow-root>
     </gcds-card
@@ -47,8 +45,6 @@ describe('gcds-card', () => {
           <gcds-link aria-describedby="gcds-badge" class="gcds-card__title" href="#card">
             Card
           </gcds-link>
-          <div class="gcds-card__description">
-          </div>
         </div>
       </mock:shadow-root>
     </gcds-card
@@ -71,8 +67,6 @@ describe('gcds-card', () => {
           <gcds-link class="gcds-card__title" href="#card">
             Card
           </gcds-link>
-          <div class="gcds-card__description">
-          </div>
         </div>
       </mock:shadow-root>
     </gcds-card
@@ -96,8 +90,6 @@ describe('gcds-card', () => {
           <gcds-link class="gcds-card__title" href="#card">
             Card
           </gcds-link>
-          <div class="gcds-card__description">
-          </div>
         </div>
       </mock:shadow-root>
     </gcds-card
@@ -120,7 +112,7 @@ describe('gcds-card', () => {
             Card
           </gcds-link>
           <div class="gcds-card__description">
-            <gcds-text>
+            <gcds-text margin-bottom="0">
               Card description
             </gcds-text>
           </div>
@@ -173,7 +165,6 @@ describe('gcds-card', () => {
               Card
             </gcds-link>
           </h3>
-          <div class="gcds-card__description">
           </div>
         </div>
       </mock:shadow-root>
@@ -198,7 +189,6 @@ describe('gcds-card', () => {
               Card
             </gcds-link>
           </h4>
-          <div class="gcds-card__description">
           </div>
         </div>
       </mock:shadow-root>
@@ -223,7 +213,6 @@ describe('gcds-card', () => {
               Card
             </gcds-link>
           </h5>
-          <div class="gcds-card__description">
           </div>
         </div>
       </mock:shadow-root>
@@ -248,8 +237,6 @@ describe('gcds-card', () => {
               Card
             </gcds-link>
           </h6>
-          <div class="gcds-card__description">
-          </div>
         </div>
       </mock:shadow-root>
     </gcds-card
@@ -271,8 +258,6 @@ describe('gcds-card', () => {
           <gcds-link aria-describedby="gcds-badge" class="gcds-card__title" href="#card">
             Card
           </gcds-link>
-          <div class="gcds-card__description">
-          </div>
         </div>
       </mock:shadow-root>
     </gcds-card

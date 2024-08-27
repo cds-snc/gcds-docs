@@ -72,12 +72,13 @@ export class GcdsCard {
     }
     get renderDescription() {
         if (this.el.innerHTML.trim() != '') {
-            return h("slot", null);
+            return h("div", { class: "gcds-card__description" }, h("slot", null));
+        }
+        else if (this.description) {
+            return h("div", { class: "gcds-card__description" }, h("gcds-text", { "margin-bottom": '0' }, this.description));
         }
         else {
-            if (this.description) {
-                return h("gcds-text", null, this.description);
-            }
+            return null;
         }
     }
     render() {
@@ -88,7 +89,7 @@ export class GcdsCard {
             taggedAttr['aria-describedby'] = 'gcds-badge';
         }
         if (this.validateRequiredProps()) {
-            return (h(Host, null, h("div", { class: "gcds-card" }, imgSrc && (h("img", { src: imgSrc, alt: imgAlt ? imgAlt : '', class: "gcds-card__image" })), badge && !errors.includes('badge') && (h("gcds-text", { id: "gcds-badge", class: "gcds-badge", "text-role": "light", "margin-bottom": "0", size: "caption" }, h("strong", null, h("gcds-sr-only", null, i18n[lang].tagged), badge))), Element != 'a' ? (h(Element, Object.assign({ class: "gcds-card__title" }, taggedAttr), h("gcds-link", { href: href }, cardTitle))) : (h("gcds-link", Object.assign({ href: href, class: "gcds-card__title" }, taggedAttr), cardTitle)), h("div", { class: "gcds-card__description" }, renderDescription))));
+            return (h(Host, null, h("div", { class: "gcds-card" }, imgSrc && (h("img", { src: imgSrc, alt: imgAlt ? imgAlt : '', class: "gcds-card__image" })), badge && !errors.includes('badge') && (h("gcds-text", { id: "gcds-badge", class: "gcds-badge", "text-role": "light", "margin-bottom": "0", size: "caption" }, h("strong", null, h("gcds-sr-only", null, i18n[lang].tagged), badge))), Element != 'a' ? (h(Element, Object.assign({ class: "gcds-card__title" }, taggedAttr), h("gcds-link", { href: href }, cardTitle))) : (h("gcds-link", Object.assign({ href: href, class: "gcds-card__title" }, taggedAttr), cardTitle)), renderDescription)));
         }
     }
     static get is() { return "gcds-card"; }
