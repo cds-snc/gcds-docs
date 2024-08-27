@@ -8,6 +8,7 @@ eleventyNavigation:
   locale: fr
   order: 4
   hideMain: true
+nocrawl: true
 ---
 
 # Accessibilité
