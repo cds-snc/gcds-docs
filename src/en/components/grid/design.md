@@ -35,7 +35,7 @@ Tip: Keep grid layouts simple by designing for mobile, tablet, and desktop exper
 
 ### Communicate meaning by adjusting spacing
 
-Choose spacing to support ease of reading and help users better understand the messages your communicating.
+Choose spacing to support ease of reading and help users better understand the messages you're communicating.
 
 - Use smaller spacing tokens to group related concepts together.
 - Use larger spacing tokens to separate elements into logical groups.
