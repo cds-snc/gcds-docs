@@ -20,7 +20,7 @@ The [Canadian Digital Service](https://digital.canada.ca) builds and maintains G
 
 ## How we're working with Canada.ca design system
 
-GC Design System is incorporating the mandatory elements of Canada.ca. We're working together with the Digital Transformation Office at the Canadian Digital Service to evaluate the design system and add to the roadmap. They continue to provide guidance and support to web and digital practitioners in the GC.
+GC Design System is incorporating the mandatory elements of Canada.ca. We're working together with the Digital Transformation Office at the Canadian Digital Service to evaluate the design system and add to the <gcds-link href="{{ links.roadmap }}">roadmap</gcds-link>. They continue to provide guidance and support to web and digital practitioners in the GC.
 
 ## Collaboration and support channels
 

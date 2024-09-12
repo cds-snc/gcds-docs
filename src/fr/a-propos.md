@@ -20,7 +20,7 @@ Le [Service numérique canadien](https://numerique.canada.ca/) crée et entretie
 
 ## Notre collaboration avec le système de conception de Canada.ca
 
-Système de design GC intègre les éléments obligatoires de Canada.ca. Nous collaborons avec le Bureau de la transformation numérique (BTN) au sein du Service numérique canadien afin d'évaluer le système de design et d'ajouter des éléments à notre feuille de route. Le BTN continue à offrir ses conseils et son soutien aux praticiens et praticiennes du Web et du numérique au sein du GC.
+Système de design GC intègre les éléments obligatoires de Canada.ca. Nous collaborons avec le Bureau de la transformation numérique (BTN) au sein du Service numérique canadien afin d'évaluer le système de design et d'ajouter des éléments à notre <gcds-link href="{{ links.roadmap }}">feuille de route</gcds-link>. Le BTN continue à offrir ses conseils et son soutien aux praticiens et praticiennes du Web et du numérique au sein du GC.
 
 ## Canaux de collaboration et de soutien
 
