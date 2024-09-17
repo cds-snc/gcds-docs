@@ -5,7 +5,9 @@ import i18n from "./i18n/i18n";
 export class GcdsButton {
     constructor() {
         this.handleClick = (e) => {
-            const event = emitEvent(e, this.gcdsClick);
+            // Check button type, only emit value if type is "submit"
+            const emitValue = this.type === 'submit' ? this.value : undefined;
+            const event = emitEvent(e, this.gcdsClick, emitValue);
             if (event) {
                 if (!this.disabled && this.type != 'button' && this.type != 'link') {
                     // Attach button to form
@@ -16,6 +18,9 @@ export class GcdsButton {
                         formButton.type = this.type;
                         if (this.name) {
                             formButton.name = this.name;
+                        }
+                        if (this.value) {
+                            formButton.value = this.value;
                         }
                         formButton.style.display = 'none';
                         form.appendChild(formButton);
@@ -33,6 +38,7 @@ export class GcdsButton {
         this.buttonId = undefined;
         this.name = undefined;
         this.disabled = undefined;
+        this.value = undefined;
         this.href = undefined;
         this.rel = undefined;
         this.target = undefined;
@@ -80,13 +86,14 @@ export class GcdsButton {
         this.updateLang();
     }
     render() {
-        const { type, buttonRole, size, buttonId, disabled, lang, name, href, rel, target, download, inheritedAttributes, } = this;
+        const { type, buttonRole, size, buttonId, disabled, lang, name, href, rel, target, download, value, inheritedAttributes, } = this;
         const Tag = type != 'link' ? 'button' : 'a';
         const attrs = Tag === 'button'
             ? {
                 type: type,
                 ariaDisabled: disabled,
                 name,
+                value,
             }
             : {
                 href,
@@ -214,6 +221,23 @@ export class GcdsButton {
                     "text": "The disabled attribute for a <button> element."
                 },
                 "attribute": "disabled",
+                "reflect": false
+            },
+            "value": {
+                "type": "string",
+                "mutable": false,
+                "complexType": {
+                    "original": "string",
+                    "resolved": "string",
+                    "references": {}
+                },
+                "required": false,
+                "optional": false,
+                "docs": {
+                    "tags": [],
+                    "text": "The value attribute specifies the value for a <button> element."
+                },
+                "attribute": "value",
                 "reflect": false
             },
             "href": {

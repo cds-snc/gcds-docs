@@ -33,6 +33,10 @@ export declare class GcdsButton {
      */
     disabled: boolean;
     /**
+     * The value attribute specifies the value for a <button> element.
+     */
+    value: string;
+    /**
      * Link props
      */
     /**

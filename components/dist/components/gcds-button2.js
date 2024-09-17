@@ -23,7 +23,9 @@ const GcdsButton = /*@__PURE__*/ proxyCustomElement(class GcdsButton extends HTM
         this.gcdsFocus = createEvent(this, "gcdsFocus", 7);
         this.gcdsBlur = createEvent(this, "gcdsBlur", 7);
         this.handleClick = (e) => {
-            const event = emitEvent(e, this.gcdsClick);
+            // Check button type, only emit value if type is "submit"
+            const emitValue = this.type === 'submit' ? this.value : undefined;
+            const event = emitEvent(e, this.gcdsClick, emitValue);
             if (event) {
                 if (!this.disabled && this.type != 'button' && this.type != 'link') {
                     // Attach button to form
@@ -34,6 +36,9 @@ const GcdsButton = /*@__PURE__*/ proxyCustomElement(class GcdsButton extends HTM
                         formButton.type = this.type;
                         if (this.name) {
                             formButton.name = this.name;
+                        }
+                        if (this.value) {
+                            formButton.value = this.value;
                         }
                         formButton.style.display = 'none';
                         form.appendChild(formButton);
@@ -51,6 +56,7 @@ const GcdsButton = /*@__PURE__*/ proxyCustomElement(class GcdsButton extends HTM
         this.buttonId = undefined;
         this.name = undefined;
         this.disabled = undefined;
+        this.value = undefined;
         this.href = undefined;
         this.rel = undefined;
         this.target = undefined;
@@ -98,13 +104,14 @@ const GcdsButton = /*@__PURE__*/ proxyCustomElement(class GcdsButton extends HTM
         this.updateLang();
     }
     render() {
-        const { type, buttonRole, size, buttonId, disabled, lang, name, href, rel, target, download, inheritedAttributes, } = this;
+        const { type, buttonRole, size, buttonId, disabled, lang, name, href, rel, target, download, value, inheritedAttributes, } = this;
         const Tag = type != 'link' ? 'button' : 'a';
         const attrs = Tag === 'button'
             ? {
                 type: type,
                 ariaDisabled: disabled,
                 name,
+                value,
             }
             : {
                 href,
@@ -129,6 +136,7 @@ const GcdsButton = /*@__PURE__*/ proxyCustomElement(class GcdsButton extends HTM
         "buttonId": [1, "button-id"],
         "name": [1],
         "disabled": [4],
+        "value": [1],
         "href": [1],
         "rel": [1],
         "target": [1],
