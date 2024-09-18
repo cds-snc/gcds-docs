@@ -3,7 +3,7 @@ title: Date input
 layout: 'layouts/component-documentation.njk'
 translationKey: 'dateinputDesign'
 tags: ['dateinputEN', 'design']
-# date: "git Last Modified"
+date: "git Last Modified"
 ---
 
 ## Date input anatomy

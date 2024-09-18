@@ -15,7 +15,7 @@ Le champ de date est un espace permettant de saisir une date connue.
 {% docLinks locale stage figma github %}
 {% enddocLinks %}
 
-{% componentPreview "Aperçu du composant de Champ de date" %}
+{% componentPreview "Aperçu du composant de champ de date" %}
 <gcds-date-input format="full" legend="Champ de date" name="example-default" lang="fr">
 </gcds-date-input>
 {% endcomponentPreview %}

@@ -3,7 +3,7 @@ title: Date input
 layout: 'layouts/component-documentation.njk'
 translationKey: 'dateinputCode'
 tags: ['dateinputEN', 'code']
-# date: "git Last Modified"
+date: "git Last Modified"
 ---
 
 ## Build a date input
@@ -26,7 +26,7 @@ For the date input to function properly, always use the following attributes wit
 - The `format` attribute also formats the value received and outputted by the date input. The value will be formatted `YYYY-MM-DD` while set as `full` and `YYYY-MM` while set as `compact`.
 
 ### Entering and receiving the value from date input
-Date input can receive and output different value formats depending on the <format> attribute:
+Date input can receive and output different value formats depending on the `format` attribute:
 - The `full` format will expect/output a value formatted `YYYY-MM-DD`.
 - The `compact` format will expect/output a value formatted `YYYY-MM`.
 
@@ -40,7 +40,7 @@ Date input can receive and output different value formats depending on the <form
 
 <iframe
   title="iframeTitle"
-  src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&demo=true&singleStory=true&id=components-date-input--events-properties"
+  src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&demo=true&singleStory=true&id=components-date-input--events-properties&lang=en"
   width="1200"
   height="1650"
   style="display: block; margin: 0 auto;"

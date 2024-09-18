@@ -14,7 +14,7 @@ eleventyNavigation:
 translationKey: "dateinput"
 tags: ['dateinputEN', 'usage']
 permalink: /en/components/date-input/
-# date: "git Last Modified"
+date: "git Last Modified"
 ---
 
 ## Problems component solves

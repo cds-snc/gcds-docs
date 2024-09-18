@@ -9,7 +9,7 @@ date: "git Last Modified"
 ## Créer un champ de date
 Utilisez un champ de date pour recueillir une date lorsque vous attendez d’une personne une date qu’elle connaît déjà ou qu’elle peut vérifier.
 
-## Accessibilité et codage des cases un Champ de date
+## Accessibilité et codage des cases un champ de date
 
 ### Appliquez les attributs requis
 - Pour que le champ de date fonctionne correctement, utilisez toujours les attributs suivants avec `<gcds-date-input>` :
@@ -39,7 +39,7 @@ Le champ de date peut recevoir et rendre des valeurs d’un format différent qu
 
 <iframe
   title="iframeTitle"
-  src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&demo=true&singleStory=true&id=components-date-input--events-properties"
+  src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&demo=true&singleStory=true&id=components-date-input--events-properties&lang=fr"
   width="1200"
   height="1650"
   style="display: block; margin: 0 auto;"

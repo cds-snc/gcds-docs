@@ -6,7 +6,7 @@ tags: ['dateinputFR', 'design']
 date: "git Last Modified"
 ---
 
-## Structure de la Champ de date
+## Structure de la champ de date
 
 <ol class="anatomy-list">
   <li><strong>list</strong></li>
@@ -22,7 +22,7 @@ date: "git Last Modified"
 
 <img class="b-sm b-default p-400" src="/images/fr/components/anatomy/gcds-date-input-anatomy.svg" alt="L'anatomie de la champ de date." />
 
-## Accessibilité et design des Champ de date
+## Accessibilité et design des champ de date
 
 ### Favorisez la réussite de la tâche à l’aide d’un texte explicatif
 - Utilisez un texte explicatif dans la légende du jeu de champs pour aider une personne à comprendre le format de date qu’elle peut utiliser. Par exemple, le texte explicatif « 7 septembre » plutôt que « 07 septembre » indique qu’un chiffre unique, non précédé d’un zéro, suffit. 
