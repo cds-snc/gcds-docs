@@ -23,7 +23,7 @@
     "url": "https://github.com/cds-snc/gcds-docs/issues"
   },
   "dependencies": {
-    "@11ty/eleventy": "^1.0.1",
+    "@11ty/eleventy": "^2.0.1",
     "@11ty/eleventy-navigation": "^0.3.2",
     "axios": "^1.6.0",
     "eleventy-plugin-code-clipboard": "^0.1.0",
