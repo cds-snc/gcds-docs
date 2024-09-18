@@ -1,19 +1,21 @@
 ---
-github: https://github.com/cds-snc/gcds-components/tree/main/packages/web/src/components/gcds-enter-component-name
-figma: insert figma url
+layout: 'layouts/base.njk'
+github: https://github.com/cds-snc/gcds-components/tree/main/packages/web/src/components/gcds-date-input
+figma: https://www.figma.com/design/mh2maMG2NBtk41k1O1UGHV/GC-Design-System?node-id=14220-878&node-type=canvas&t=TkjGZOzzUOp5XV3K-0
 permalink: false
 tags: ['dateinputEN', 'header']
 ---
 
-# Date input <br>`<gcds-component-name>`
+# Date input <br>`<gcds-date-input>`
 
-_Also called: ._
+_Also called: dates, dateinput, date, memorable date_
 
-This element will have the content below it
+A date input is a space to enter a known date.
 
 {% docLinks locale stage figma github %}
 {% enddocLinks %}
 
 {% componentPreview "Date input component preview" %}
-Insert component here
+<gcds-date-input format="full" legend="Date input" name="example-default">
+</gcds-date-input>
 {% endcomponentPreview %}

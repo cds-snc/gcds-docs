@@ -20,6 +20,7 @@
     "container": "/fr/composants/boite",
     "dataTable": "/fr/developpement-en-cours",
     "dateModified": "/fr/composants/date-de-modification",
+    "dateInput": "/fr/composants/champ-de-date",
     "details": "/fr/composants/details",
     "errorMessage": "/fr/composants/message-derreur",
     "errorSummary": "/fr/composants/resume-de-erreurs",

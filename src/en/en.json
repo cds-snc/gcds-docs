@@ -20,6 +20,7 @@
     "container": "/en/components/container",
     "dataTable": "/en/coming-soon",
     "dateModified": "/en/components/date-modified",
+    "dateInput": "/en/components/date-input",
     "details": "/en/components/details",
     "errorMessage": "/en/components/error-message",
     "errorSummary": "/en/components/error-summary",
