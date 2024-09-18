@@ -9,7 +9,6 @@ date: "git Last Modified"
 ## Structure de la champ de date
 
 <ol class="anatomy-list">
-  <li><strong>list</strong></li>
   <li>La <strong>légende du jeu de champs</strong> indique l’information qu’une personne doit saisir dans le champ de date. Le texte est aligné à gauche et porte une majuscule initiale. Pour le champ de date, la légende sera généralement intitulée « Date » ou mentionnera le type de date précis recherché. Le texte explicatif indique le format de la date.</li> 
   <li>Étiquette Mois associée au champ de sélection du mois.</li>
   <li>Le champ de sélection du mois offre une liste prédéfinie et chronologique des mois, parmi lesquels une personne fait une sélection.</li>
@@ -17,7 +16,6 @@ date: "git Last Modified"
   <li>Champ de saisie du jour. Le jour peut comporter 1 ou 2 chiffres.</li> 
   <li>Étiquette Année associée au champ de saisie de l’année.</li>
   <li>Champ de saisie de l’année. L’année comporte 4 chiffres.</li>
-
 </ol>
 
 <img class="b-sm b-default p-400" src="/images/fr/components/anatomy/gcds-date-input-anatomy.svg" alt="L'anatomie de la champ de date." />
