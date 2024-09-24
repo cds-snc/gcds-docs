@@ -7,6 +7,8 @@ const slugify = require('../utils/slugify');
 let englishName = prompt('English name: ');
 let frenchName = prompt('French name: ');
 
+let componentTagName = prompt('Component name (i.e. gcds-component-name): ');
+
 let englishNameSlug = slugify(englishName);
 let frenchNameSlug = slugify(frenchName);
 
@@ -60,6 +62,7 @@ let templateKeys = [
   /{buildComponent}/g,
   /{codeA11y}/g,
   /{componentNameSlugEN}/g,
+  /{componentTag}/g,
 ];
 
 let engOptions = {
@@ -85,6 +88,7 @@ let engOptions = {
     `Build a ${englishName}`,
     `Coding and accessibility for ${englishName}`,
     englishNameSlug,
+    componentTagName,
   ],
 };
 let frOptions = {
@@ -110,6 +114,7 @@ let frOptions = {
     `Créer une case à ${frenchName}`,
     `Accessibilité et codage des cases à ${frenchName}`,
     englishNameSlug,
+    componentTagName,
   ],
 };
 

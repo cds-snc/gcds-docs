@@ -1,11 +1,12 @@
 ---
-github: https://github.com/cds-snc/gcds-components/tree/main/packages/web/src/components/gcds-enter-component-name
+layout: 'layouts/base.njk'
+github: https://github.com/cds-snc/gcds-components/tree/main/packages/web/src/components/{componentTag}
 figma: insert figma url
 permalink: false
 tags: ['{navKey}{locale}', 'header']
 ---
 
-# {componentName} <br>`<gcds-component-name>`
+# {componentName} <br>`<{componentTag}>`
 
 _{alsoCalled}: ._
 
@@ -15,5 +16,7 @@ This element will have the content below it
 {% enddocLinks %}
 
 {% componentPreview "{componentPreview}" %}
-Insert component here
+// TODO: Insert component here
+<{componentTag}>
+</{componentTag}>
 {% endcomponentPreview %}

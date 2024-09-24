@@ -8,7 +8,7 @@ eleventyNavigation:
   parent: components{locale}
   otherNames:
   description: This is the {componentName}
-  thumbnail: /images/common
+  thumbnail: /images/common/components/preview-{componentNameSlug}.svg
   alt: This is an image of the component
   state: coming-soon
 translationKey: "{navKey}"
