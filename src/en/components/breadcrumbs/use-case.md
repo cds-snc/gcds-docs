@@ -18,6 +18,8 @@ permalink: /en/components/breadcrumbs/
 date: 'git Last Modified'
 ---
 
+Breadcrumbs is a required component for Canada.ca pages. 
+
 Check out use cases for breadcrumbs to see if they fit the problem you're solving for.
 
 ## Problems breadcrumbs solve
