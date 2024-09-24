@@ -8,7 +8,7 @@ tags: ['dateinputEN', 'header']
 
 # Date input <br>`<gcds-date-input>`
 
-_Also called: dates, dateinput, date, memorable date_
+_Also called: dates, dateinput, date, memorable date._
 
 A date input is a space to enter a known date.
 

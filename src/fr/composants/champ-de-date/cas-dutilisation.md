@@ -6,7 +6,7 @@ eleventyNavigation:
   title: Champ de date
   locale: fr
   parent: componentsFR
-  otherNames: date, zone de date, date connue
+  otherNames: date, zone de date, date connue.
   description: Le champ de date est un espace permettant de saisir une date connue.
   thumbnail: /images/fr/components/preview/preview-date-input.svg
   alt: "Des lignes grises épaisses représentent la légende et le texte explicatif. En dessous, trois cases blanches à fine bordure grise sont alignées horizontalement : une petite case représentant le champ de texte pour le jour, une case contenant une ligne grise et une flèche grise et représentant le champ de sélection du mois, puis une petite case représentant le champ de texte pour l’année."

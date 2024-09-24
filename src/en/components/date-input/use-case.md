@@ -6,7 +6,7 @@ eleventyNavigation:
   title: Date input
   locale: en
   parent: componentsEN
-  otherNames: dates, dateinput, date, memorable date
+  otherNames: dates, dateinput, date, memorable date.
   description: A date input is a space to enter a known date.
   thumbnail: /images/en/components/preview/preview-date-input.svg
   alt: Thick grey lines at the top represent the legend and hint text. A white box with a thin grey border and a grey line and grey arrow inside of it represents the select input for the month. Beside this are two smaller white boxes with thin grey outlines representing the text inputs for the day and year.
