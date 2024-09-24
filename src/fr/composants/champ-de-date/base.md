@@ -18,4 +18,6 @@ Le champ de date est un espace permettant de saisir une date connue.
 {% componentPreview "Aperçu du composant de champ de date" %}
 <gcds-date-input format="full" legend="Légende" name="example-default" lang="fr" hint="Le jour peut être composé de 1 ou 2 chiffres. L’année doit inclure 4 chiffres.">
 </gcds-date-input>
+<gcds-date-input format="compact" legend="Légende" name="example-default" lang="fr" hint="L’année doit inclure 4 chiffres.">
+</gcds-date-input>
 {% endcomponentPreview %}
