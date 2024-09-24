@@ -10,7 +10,7 @@ date: "git Last Modified"
 
 Use a date input to collect a date from a person when you’re expecting them to enter a date they already know or can verify.
 
-## Coding and accessibility for Date input
+## Coding and accessibility for date inputs
 
 ### Apply required attributes
 For the date input to function properly, always use the following attributes with `<gcds-date-input>`:

@@ -17,7 +17,7 @@ permalink: /en/components/date-input/
 date: "git Last Modified"
 ---
 
-## Problems component solves
+## Problems date inputs solves
 
 Take a look at what date inputs do to see if they fit the problem you're solving for. Then select the best date input type for the use case you need to meet.
 
@@ -32,10 +32,10 @@ Use a date input to gather a date from a person when you're expecting them to wr
   <h2 class="mt-0 mb-400">Related components</h2>
 
   <a href="{{ links.input }}" class="link-light">Input</a> when you want someone to input only a year or only a day of the month.
-  <a href="{{ links.select }}" class="link-light">Select</a> when you want someone to input only a month.
-  <br/>
-  Date picker when you want someone to choose a not-yet-known date, like for appointment scheduling.
 
+  <a href="{{ links.select }}" class="link-light">Select</a> when you want someone to input only a month.
+
+  Date picker when you want someone to choose a not-yet-known date, like for appointment scheduling.
 </article>
 
 ## Component types
@@ -45,5 +45,5 @@ Use a date input to gather a date from a person when you're expecting them to wr
 
 ### Month, year format
 - For a date that does not have a day, like a driver’s licence expiry date.
-- For an approximate date, like the date they lost their ID card  (month and year)
+- For an approximate date, like the date they lost their ID card  (month and year).
 - For a date the person may not know the exact day of.

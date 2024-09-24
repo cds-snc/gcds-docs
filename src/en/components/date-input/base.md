@@ -16,6 +16,6 @@ A date input is a space to enter a known date.
 {% enddocLinks %}
 
 {% componentPreview "Date input component preview" %}
-<gcds-date-input format="full" legend="Date input" name="example-default">
+<gcds-date-input format="full" legend="Legend" name="example-default" hint="Day can be 1 or 2 digits. Year must be 4 digits.">
 </gcds-date-input>
 {% endcomponentPreview %}

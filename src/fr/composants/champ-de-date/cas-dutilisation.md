@@ -31,10 +31,11 @@ Utilisez un champ de date pour recueillir une date lorsque vous attendez d’une
 <article class="bg-full-width bg-primary text-light pt-500 pb-400 my-500">
   <h2 class="mt-0 mb-400">Composants connexes</h2>
 
-  <a href="{{ links.input }}" class="link-light">Champs de saisie</a> lorsque vous voulez que la personne saisisse seulement une année ou un jour du mois.
-  <a href="{{ links.select }}" class="link-light">Sélection</a> lorsque vous voulez que la personne saisisse seulement un mois.
-  <br/>
-  Sélecteur de date lorsque vous voulez que la personne choisisse une date qui n’est pas encore connue, par exemple pour planifier un rendez-vous.
+  <a href="{{ links.input }}" class="link-light">Champs de saisie</a> : lorsque vous voulez que la personne saisisse seulement une année ou un jour du mois.
+
+  <a href="{{ links.select }}" class="link-light">Sélection</a> : lorsque vous voulez que la personne saisisse seulement un mois.
+
+  Sélecteur de date : lorsque vous voulez que la personne choisisse une date qui n’est pas encore connue, par exemple pour planifier un rendez-vous.
 
 </article>
 

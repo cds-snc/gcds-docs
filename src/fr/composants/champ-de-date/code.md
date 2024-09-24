@@ -9,7 +9,7 @@ date: "git Last Modified"
 ## Créer un champ de date
 Utilisez un champ de date pour recueillir une date lorsque vous attendez d’une personne une date qu’elle connaît déjà ou qu’elle peut vérifier.
 
-## Accessibilité et codage des cases un champ de date
+## Codage et accessibilité des champs de date
 
 ### Appliquez les attributs requis
 - Pour que le champ de date fonctionne correctement, utilisez toujours les attributs suivants avec `<gcds-date-input>` :
