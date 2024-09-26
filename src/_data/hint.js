@@ -8,11 +8,10 @@ module.exports = {
   },
   fr: {
     heading:
-      "Ajoutez du texte explicatif et un message d'erreur pour favoriser la réussite de la tâche",
+      "Ajouter un texte explicatif pour favoriser la réussite des tâches",
     listitems: [
-      "Incluez un message d'erreur pour tous les champs de saisie obligatoires. Évitez d'inclure des messages d'erreur pour les champs de saisie facultatifs.",
-      "Ajoutez du texte explicatif pour aider l'utilisateur·rice à fournir une valeur valide dans le champs de saisie et ainsi éviter les erreurs.",
-      "Évitez d'ajouter du texte explicatif dans la boîte du champ, où il s'effacera une fois le champ sélectionné.",
+      "Utilisez l'attribut `hint` pour ajouter un texte explicatif qui aidera la personne à fournir une valeur complète dans le champ de saisie, évitant ainsi d'obtenir un état d'erreur.",
+      "Évitez d'ajouter un texte explicatif directement dans le champ (ce qu'on appelle aussi du texte fictif) qui disparaîtra une fois que le champ est sélectionné ou qu'une réponse commence à être saisie.",
     ],
   },
 };
