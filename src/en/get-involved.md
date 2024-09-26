@@ -53,29 +53,37 @@ Provide any of the following for each component or pattern:
 
 <gcds-heading tag="h2" margin-top="300">Coming soon</gcds-heading>
 
-### Upcoming components
+### Upcoming components and templates
 
 <div>
-  <gcds-heading tag="h4" margin-bottom="0">Card</gcds-heading>
+  <gcds-heading tag="h4" margin-bottom="0">Notice</gcds-heading>
   <ul class="mb-400">
-    <li>The card component is being enhanced with new features to improve end user and developer experience.</li>
-    <li><strong>Expected release:</strong> Summer 2024</li>
+    <li>The notice is a short prominent message to draw attention and inform.</li>
+    <li><strong>Expected release:</strong> Fall 2024</li>
   </ul>
 </div>
 
 <div>
-  <gcds-heading tag="h4" margin-bottom="0">Stepper</gcds-heading>
+  <gcds-heading tag="h4" margin-bottom="0">Topic Page Template</gcds-heading>
   <ul class="mb-400">
-    <li>The stepper is being enhanced to provide a clear and organized way to guide people through a multi-step process.</li>
-    <li><strong>Expected release:</strong> Summer 2024</li>
+    <li>The Topic Page Template is a reusable layout for pages that provide access to topics and destination pages that support task completion.</li>
+    <li><strong>Expected release:</strong> Fall 2024</li>
   </ul>
 </div>
 
 <div>
-  <gcds-heading tag="h4" margin-bottom="0">Date input</gcds-heading>
+  <gcds-heading tag="h4" margin-bottom="0">Ministerial Page Template</gcds-heading>
   <ul class="mb-400">
-    <li>A date input is a space to enter a known date.</li>
-    <li><strong>Expected release:</strong> Summer 2024</li>
+    <li>The Ministerial Page Template is a reusable layout for landing pages for ministers, parliamentary secretaries and heads of quasi-judicial organizations.</li>
+    <li><strong>Expected release:</strong> Fall 2024</li>
+  </ul>
+</div>
+
+<div>
+  <gcds-heading tag="h4" margin-bottom="0">VueJS Starter App Template</gcds-heading>
+  <ul class="mb-400">
+    <li>The VueJS Start App Template provides the starting code to develop an application using the VueJS front-end framework.</li>
+    <li><strong>Expected release:</strong> Fall 2024</li>
   </ul>
 </div>
 
