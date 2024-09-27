@@ -30,7 +30,7 @@ export class GcdsAlert {
     }
     render() {
         const { alertRole, container, heading, hideCloseBtn, hideRoleIcon, isFixed, isOpen, lang, } = this;
-        return (h(Host, null, isOpen ? (h("div", { class: `gcds-alert alert--role-${alertRole} ${isFixed ? 'alert--is-fixed' : ''}`, role: "alert", "aria-label": alertRole === 'danger'
+        return (h(Host, { key: 'f0856a42192ff33a6157989152da33915175b3a7' }, isOpen ? (h("div", { class: `gcds-alert alert--role-${alertRole} ${isFixed ? 'alert--is-fixed' : ''}`, role: "alert", "aria-label": alertRole === 'danger'
                 ? i18n[lang].label.danger
                 : alertRole === 'info'
                     ? i18n[lang].label.info

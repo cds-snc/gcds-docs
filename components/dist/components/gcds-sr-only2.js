@@ -1,6 +1,6 @@
 import { proxyCustomElement, HTMLElement, h, Host } from '@stencil/core/internal/client';
 
-const gcdsSrOnlyCss = "@layer reset, default;@layer reset{:host slot{display:initial}}@layer default{:host{display:inline-block;height:0;margin:0;overflow:hidden;width:0}}";
+const gcdsSrOnlyCss = "@layer reset, default;@layer reset{:host slot{display:initial}}@layer default{:host{clip-path:inset(100%);clip:rect(1px,1px,1px,1px);height:1px;overflow:hidden;position:absolute;white-space:nowrap;width:1px}}";
 const GcdsSrOnlyStyle0 = gcdsSrOnlyCss;
 
 const GcdsSrOnly = /*@__PURE__*/ proxyCustomElement(class GcdsSrOnly extends HTMLElement {
@@ -22,7 +22,7 @@ const GcdsSrOnly = /*@__PURE__*/ proxyCustomElement(class GcdsSrOnly extends HTM
     }
     render() {
         const Tag = this.tag;
-        return (h(Host, null, h(Tag, null, h("slot", null))));
+        return (h(Host, { key: 'e86bd5be2d850425f77999ffd21f08ddbc06efce' }, h(Tag, { key: '70fbce245104348613399cda52a68aa2053e0ebd' }, h("slot", { key: '6c80f2f968eb292c4b551336930c58e5aae2fd56' }))));
     }
     static get watchers() { return {
         "tag": ["validateTag"]

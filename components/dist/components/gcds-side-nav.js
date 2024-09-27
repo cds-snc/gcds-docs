@@ -131,7 +131,7 @@ const GcdsSideNav$1 = /*@__PURE__*/ proxyCustomElement(class GcdsSideNav extends
     }
     render() {
         const { label, lang } = this;
-        return (h(Host, null, h("nav", { "aria-label": `${label}${I18N[lang].navLabel}`, class: "gcds-side-nav" }, h("h2", { class: "gcds-side-nav__heading" }, label), h("ul", null, h("gcds-nav-group", { menuLabel: I18N[lang].menuLabel, closeTrigger: I18N[lang].closeTrigger, openTrigger: I18N[lang].menuLabel, class: "gcds-mobile-nav", ref: element => (this.mobile = element), lang: lang }, h("slot", null))))));
+        return (h(Host, { key: '217410f35dc8c612e70afe175fb239de2eaaaf6e' }, h("nav", { key: '998dc3d451a69c9fdd1e20fba6225010116c44d7', "aria-label": `${label}${I18N[lang].navLabel}`, class: "gcds-side-nav" }, h("h2", { key: '31f128c4a51ffae7220e65d20f17d87822eb4894', class: "gcds-side-nav__heading" }, label), h("ul", { key: 'e47ce7a1bf273d23c2dacf3bfbcef7bdcb4eaf6b' }, h("gcds-nav-group", { key: '66045fe6eb15f4e2c2db1065de97857f74892a51', menuLabel: I18N[lang].menuLabel, closeTrigger: I18N[lang].closeTrigger, openTrigger: I18N[lang].menuLabel, class: "gcds-mobile-nav", ref: element => (this.mobile = element), lang: lang }, h("slot", { key: '8eeaad2a7387c7ff7de2438fbbb294da280b4e58' }))))));
     }
     get el() { return this; }
     static get style() { return GcdsSideNavStyle0; }

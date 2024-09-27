@@ -81,7 +81,7 @@ const GcdsRadioGroup$1 = /*@__PURE__*/ proxyCustomElement(class GcdsRadioGroup e
     }
     render() {
         const { lang, name, hasError, parentError, inheritedAttributes } = this;
-        return (h(Host, null, this.optionObject &&
+        return (h(Host, { key: '1b1197d92fe73076a39aed5beb6659ebca4d6dea' }, this.optionObject &&
             this.optionObject.map(radio => {
                 const attrsInput = Object.assign({ name, disabled: radio.disabled, required: radio.required, value: radio.value, checked: radio.checked }, inheritedAttributes);
                 if (radio.hint || parentError) {
@@ -95,7 +95,7 @@ const GcdsRadioGroup$1 = /*@__PURE__*/ proxyCustomElement(class GcdsRadioGroup e
                     attrsInput['aria-invalid'] = 'true';
                 }
                 return (h("div", { class: `gcds-radio ${radio.disabled ? 'gcds-radio--disabled' : ''} ${hasError ? 'gcds-radio--error' : ''}` }, h("input", Object.assign({ id: radio.id, type: "radio" }, attrsInput, { onChange: e => this.onChange(e), onBlur: () => this.onBlur(), onFocus: () => this.gcdsFocus.emit(), ref: element => (this.shadowElement = element) })), h("gcds-label", { label: radio.label, "label-for": radio.id, lang: lang }), radio.hint ? (h("gcds-hint", { "hint-id": radio.id }, radio.hint)) : null));
-            }), parentError && (h("span", { id: `parent-error`, hidden: true }, parentError))));
+            }), parentError && (h("span", { key: 'b60d8d247b2f194432e70a23e1b65fab31ef2f6e', id: `parent-error`, hidden: true }, parentError))));
     }
     static get delegatesFocus() { return true; }
     static get formAssociated() { return true; }

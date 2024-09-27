@@ -24,7 +24,7 @@ export class GcdsDateModified {
     }
     render() {
         const { lang, type } = this;
-        return (h(Host, null, h("dl", { class: "gcds-date-modified" }, h("dt", null, h("gcds-text", { display: "inline", "margin-bottom": "0" }, type === 'version' ? i18n[lang].version : i18n[lang].date)), h("dd", null, h("gcds-text", { display: "inline", "margin-bottom": "0" }, type === 'version' ? (h("slot", null)) : (h("time", null, h("slot", null))))))));
+        return (h(Host, { key: '6a35ef0fbee9deb64fb76fb14179eb7f92258671' }, h("dl", { key: '0b9057598c023a246c5f0afea8a7d8943cd947ef', class: "gcds-date-modified" }, h("dt", { key: 'ce426d33cbb358b0fd2fefe9328b2eebbb998196' }, h("gcds-text", { key: 'f11bc0d5d3737efa8ff9e3555668d854bb84e9ec', display: "inline", "margin-bottom": "0" }, type === 'version' ? i18n[lang].version : i18n[lang].date)), h("dd", { key: '4ef846ec165917abc28ba20e5343c513430d3da0' }, h("gcds-text", { key: '656ce0d42ed450dd316947c5473c3ea5703b8c76', display: "inline", "margin-bottom": "0" }, type === 'version' ? (h("slot", null)) : (h("time", null, h("slot", null))))))));
     }
     static get is() { return "gcds-date-modified"; }
     static get encapsulation() { return "shadow"; }

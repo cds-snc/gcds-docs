@@ -24,7 +24,7 @@ export class GcdsBreadcrumbs {
     }
     render() {
         const { hideCanadaLink, lang } = this;
-        return (h(Host, null, h("nav", { "aria-label": i18n[lang].label, class: "gcds-breadcrumbs" }, h("ol", { class: hideCanadaLink ? '' : 'has-canada-link' }, !hideCanadaLink ? (h("gcds-breadcrumbs-item", { href: i18n[lang].link }, "Canada.ca")) : null, h("slot", null)))));
+        return (h(Host, { key: 'b491e1522dfdc3320619a47f4de098ba18948fc2' }, h("nav", { key: '448a711e139c76385faa9dc68a9fc848b8756fae', "aria-label": i18n[lang].label, class: "gcds-breadcrumbs" }, h("ol", { key: 'a2a2793c7ffc1ffe313d97be01d038d6367994fc', class: hideCanadaLink ? '' : 'has-canada-link' }, !hideCanadaLink ? (h("gcds-breadcrumbs-item", { href: i18n[lang].link }, "Canada.ca")) : null, h("slot", { key: 'cecaeb514adb99fc32d0edc9692290832292a853' })))));
     }
     static get is() { return "gcds-breadcrumbs"; }
     static get encapsulation() { return "shadow"; }

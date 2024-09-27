@@ -46,7 +46,7 @@ const GcdsLangToggle = /*@__PURE__*/ proxyCustomElement(class GcdsLangToggle ext
     }
     render() {
         const { lang, href } = this;
-        return (h(Host, null, h("div", { class: "gcds-lang-toggle" }, h("gcds-sr-only", { id: "lang-toggle__heading", tag: "h2" }, I18N[lang].heading), h("gcds-link", { size: "regular", href: href, lang: I18N[lang].abbreviation }, h("span", null, I18N[lang].language), h("abbr", { title: I18N[lang].language }, I18N[lang].abbreviation)))));
+        return (h(Host, { key: 'eb21f31e07263f63e9e6bd81e03b7d69e7fc5c22' }, h("div", { key: 'f259bdd2095c8fbec75ac4958192de54f1446efd', class: "gcds-lang-toggle" }, h("gcds-sr-only", { key: '5f1c04d337fd5b8b190be3e9c5731f640b80f89c', id: "lang-toggle__heading", tag: "h2" }, I18N[lang].heading), h("gcds-link", { key: 'c0343104552957383ad0e0c06929cb7987f568b1', size: "regular", href: href, lang: I18N[lang].abbreviation }, h("span", { key: 'dbf125e2a0b95bcab90bc38ba8a508b18cdbe1a0' }, I18N[lang].language), h("abbr", { key: '4959f73d060789b0666d0cae393833437c54de5c', title: I18N[lang].language }, I18N[lang].abbreviation)))));
     }
     get el() { return this; }
     static get style() { return GcdsLangToggleStyle0; }

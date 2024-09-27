@@ -121,9 +121,9 @@ export class GcdsErrorSummary {
     }
     render() {
         const { heading, errorQueue, lang, hasSubmitted, errorLinks } = this;
-        return (h(Host, null, h("div", { role: "alert", tabindex: "-1", ref: element => (this.shadowElement = element), class: `gcds-error-summary ${(hasSubmitted || errorLinks) && Object.keys(errorQueue).length > 0
+        return (h(Host, { key: '1ed9f8bcd4ab1dced35519bfa50d832985fd1bde' }, h("div", { key: '672cd97c53939521102bb4ad7f99be90aa333660', role: "alert", tabindex: "-1", ref: element => (this.shadowElement = element), class: `gcds-error-summary ${(hasSubmitted || errorLinks) && Object.keys(errorQueue).length > 0
                 ? 'gcds-show'
-                : ''}` }, h("gcds-heading", { tag: "h2", "margin-top": "0", "margin-bottom": "300" }, heading !== null && heading !== void 0 ? heading : i18n[lang].heading), h("ol", { class: "summary__errorlist" }, (hasSubmitted || errorLinks) &&
+                : ''}` }, h("gcds-heading", { key: '9bb4d7468643f254f061402a20c2bc29b0955701', tag: "h2", "margin-top": "0", "margin-bottom": "300" }, heading !== null && heading !== void 0 ? heading : i18n[lang].heading), h("ol", { key: '4d51601492007e68bf120995b05e657aa52a9eaa', class: "summary__errorlist" }, (hasSubmitted || errorLinks) &&
             Object.keys(errorQueue).length > 0 &&
             Object.keys(errorQueue).map(key => {
                 return (h("li", { class: "summary__listitem" }, h("gcds-link", { size: "regular", href: errorLinks ? key : '#', onClick: e => {

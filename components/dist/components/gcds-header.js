@@ -99,7 +99,7 @@ const GcdsHeader$1 = /*@__PURE__*/ proxyCustomElement(class GcdsHeader extends H
     }
     render() {
         const { renderSkipToNav, renderToggle, renderSignature, renderSearch, hasSearch, hasBanner, hasBreadcrumb, } = this;
-        return (h(Host, { role: "banner" }, renderSkipToNav, hasBanner ? h("slot", { name: "banner" }) : null, h("div", { class: "gcds-header__brand" }, h("div", { class: `brand__container ${!hasSearch ? 'container--simple' : ''}` }, renderToggle, renderSignature, renderSearch)), h("slot", { name: "menu" }), hasBreadcrumb ? (h("div", { class: "gcds-header__container" }, h("slot", { name: "breadcrumb" }))) : null));
+        return (h(Host, { key: 'f52ff86ea5f438fa5b8b91a2aa2dbbda002e5302', role: "banner" }, renderSkipToNav, hasBanner ? h("slot", { name: "banner" }) : null, h("div", { key: '7e518fb76a2727b298079f283d15acf91e83d4d1', class: "gcds-header__brand" }, h("div", { key: 'f667c6c6cf241700dcc03086fbca4fa2d3f3ea4b', class: `brand__container ${!hasSearch ? 'container--simple' : ''}` }, renderToggle, renderSignature, renderSearch)), h("slot", { key: 'a31b379ff70560651143c9d5f9299128b13eeff4', name: "menu" }), hasBreadcrumb ? (h("div", { class: "gcds-header__container" }, h("slot", { name: "breadcrumb" }))) : null));
     }
     get el() { return this; }
     static get style() { return GcdsHeaderStyle0; }

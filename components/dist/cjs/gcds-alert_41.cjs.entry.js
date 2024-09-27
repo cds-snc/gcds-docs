@@ -2,7 +2,7 @@
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
-const index = require('./index-4d291eea.js');
+const index = require('./index-fdff786a.js');
 
 const inheritAttributes = (el, shadowElement, attributes = []) => {
     let attributeObject = {};
@@ -209,7 +209,7 @@ const GcdsAlert = class {
     }
     render() {
         const { alertRole, container, heading, hideCloseBtn, hideRoleIcon, isFixed, isOpen, lang, } = this;
-        return (index.h(index.Host, null, isOpen ? (index.h("div", { class: `gcds-alert alert--role-${alertRole} ${isFixed ? 'alert--is-fixed' : ''}`, role: "alert", "aria-label": alertRole === 'danger'
+        return (index.h(index.Host, { key: 'f0856a42192ff33a6157989152da33915175b3a7' }, isOpen ? (index.h("div", { class: `gcds-alert alert--role-${alertRole} ${isFixed ? 'alert--is-fixed' : ''}`, role: "alert", "aria-label": alertRole === 'danger'
                 ? I18N$n[lang].label.danger
                 : alertRole === 'info'
                     ? I18N$n[lang].label.info
@@ -274,7 +274,7 @@ const GcdsBreadcrumbs = class {
     }
     render() {
         const { hideCanadaLink, lang } = this;
-        return (index.h(index.Host, null, index.h("nav", { "aria-label": I18N$m[lang].label, class: "gcds-breadcrumbs" }, index.h("ol", { class: hideCanadaLink ? '' : 'has-canada-link' }, !hideCanadaLink ? (index.h("gcds-breadcrumbs-item", { href: I18N$m[lang].link }, "Canada.ca")) : null, index.h("slot", null)))));
+        return (index.h(index.Host, { key: 'b491e1522dfdc3320619a47f4de098ba18948fc2' }, index.h("nav", { key: '448a711e139c76385faa9dc68a9fc848b8756fae', "aria-label": I18N$m[lang].label, class: "gcds-breadcrumbs" }, index.h("ol", { key: 'a2a2793c7ffc1ffe313d97be01d038d6367994fc', class: hideCanadaLink ? '' : 'has-canada-link' }, !hideCanadaLink ? (index.h("gcds-breadcrumbs-item", { href: I18N$m[lang].link }, "Canada.ca")) : null, index.h("slot", { key: 'cecaeb514adb99fc32d0edc9692290832292a853' })))));
     }
     get el() { return index.getElement(this); }
 };
@@ -290,7 +290,7 @@ const GcdsBreadcrumbsItem = class {
     }
     render() {
         const { href } = this;
-        return (index.h(index.Host, { role: "listitem", class: "gcds-breadcrumbs-item" }, index.h("gcds-link", { size: "regular", href: href }, index.h("slot", null))));
+        return (index.h(index.Host, { key: '3da5881b7eba6bede5ffaf1e9640b99152332478', role: "listitem", class: "gcds-breadcrumbs-item" }, index.h("gcds-link", { key: '91361ed032a6ddfe13cef12783df531c1178c2b4', size: "regular", href: href }, index.h("slot", { key: '5053ab0d54759ef4080731fe78976a3d648be17c' }))));
     }
     get el() { return index.getElement(this); }
 };
@@ -411,7 +411,7 @@ const GcdsButton = class {
                 target,
                 download,
             };
-        return (index.h(index.Host, null, index.h(Tag, Object.assign({}, attrs, { id: buttonId, onBlur: () => this.gcdsBlur.emit(), onFocus: () => this.gcdsFocus.emit(), onClick: e => this.handleClick(e), class: `gcds-button button--role-${buttonRole} button--${size}`, ref: element => (this.shadowElement = element) }, inheritedAttributes, { part: "button" }), index.h("slot", null), type === 'link' && target === '_blank' ? (index.h("gcds-icon", { name: "external-link", label: I18N$l[lang].label, "margin-left": "200" })) : null)));
+        return (index.h(index.Host, { key: 'f879906e23b82587fd539f65f4089d52f7ebac8f' }, index.h(Tag, Object.assign({ key: 'a2193325c515bcafa420a4c3b70aac52c4a4d248' }, attrs, { id: buttonId, onBlur: () => this.gcdsBlur.emit(), onFocus: () => this.gcdsFocus.emit(), onClick: e => this.handleClick(e), class: `gcds-button button--role-${buttonRole} button--${size}`, ref: element => (this.shadowElement = element) }, inheritedAttributes, { part: "button" }), index.h("slot", { key: '5d106a6af6fa23a394fc1387c3ccb96c93b7b490' }), type === 'link' && target === '_blank' ? (index.h("gcds-icon", { name: "external-link", label: I18N$l[lang].label, "margin-left": "200" })) : null)));
     }
     static get delegatesFocus() { return true; }
     get el() { return index.getElement(this); }
@@ -529,7 +529,7 @@ const GcdsCard = class {
             taggedAttr['aria-describedby'] = 'gcds-badge';
         }
         if (this.validateRequiredProps()) {
-            return (index.h(index.Host, null, index.h("div", { class: "gcds-card" }, imgSrc && (index.h("img", { src: imgSrc, alt: imgAlt ? imgAlt : '', class: "gcds-card__image" })), badge && !errors.includes('badge') && (index.h("gcds-text", { id: "gcds-badge", class: "gcds-badge", "text-role": "light", "margin-bottom": "0", size: "caption" }, index.h("strong", null, index.h("gcds-sr-only", null, I18N$k[lang].tagged), badge))), Element != 'a' ? (index.h(Element, Object.assign({ class: "gcds-card__title" }, taggedAttr), index.h("gcds-link", { href: href }, cardTitle))) : (index.h("gcds-link", Object.assign({ href: href, class: "gcds-card__title" }, taggedAttr), cardTitle)), renderDescription)));
+            return (index.h(index.Host, { key: '124e17eb577553da16ff506265dd5d7cba152b4b' }, index.h("div", { key: '97a3007905773f8d492d2e922db6492e754bee78', class: "gcds-card" }, imgSrc && (index.h("img", { key: '34fadc31c5777696b71e63a11e930bc3837ce6bb', src: imgSrc, alt: imgAlt ? imgAlt : '', class: "gcds-card__image" })), badge && !errors.includes('badge') && (index.h("gcds-text", { key: '021898a01f410cb6847cacf4adc67cca076a59dc', id: "gcds-badge", class: "gcds-badge", "text-role": "light", "margin-bottom": "0", size: "caption" }, index.h("strong", { key: 'f0dded8e1880527bef338860136730df5722646e' }, index.h("gcds-sr-only", { key: 'ae5f58fc919fc3654b2f8d64b540e60b92a136eb' }, I18N$k[lang].tagged), badge))), Element != 'a' ? (index.h(Element, Object.assign({ class: "gcds-card__title" }, taggedAttr), index.h("gcds-link", { href: href }, cardTitle))) : (index.h("gcds-link", Object.assign({ href: href, class: "gcds-card__title" }, taggedAttr), cardTitle)), renderDescription)));
         }
     }
     get el() { return index.getElement(this); }
@@ -1140,7 +1140,7 @@ const GcdsCheckbox = class {
         if (hasError) {
             attrsInput['aria-invalid'] = 'true';
         }
-        return (index.h(index.Host, null, index.h("div", { class: `gcds-checkbox ${disabled ? 'gcds-checkbox--disabled' : ''} ${hasError ? 'gcds-checkbox--error' : ''}` }, index.h("input", Object.assign({ id: checkboxId, type: "checkbox" }, attrsInput, { onBlur: () => this.onBlur(), onFocus: () => this.gcdsFocus.emit(), onChange: e => this.onChange(e), onClick: e => emitEvent(e, this.gcdsClick), ref: element => (this.shadowElement = element) })), index.h("gcds-label", Object.assign({}, attrsLabel, { "label-for": checkboxId, lang: lang })), hint ? index.h("gcds-hint", { "hint-id": checkboxId }, hint) : null, errorMessage ? (index.h("gcds-error-message", { messageId: checkboxId }, errorMessage)) : null, parentError ? (index.h("span", { id: `parent-error-${checkboxId}`, hidden: true }, parentError)) : null)));
+        return (index.h(index.Host, { key: 'c8d84ee1c36bea464affb5803df427691173ed3b' }, index.h("div", { key: '85f5091131afcd65be2715290a3e05881835c9ca', class: `gcds-checkbox ${disabled ? 'gcds-checkbox--disabled' : ''} ${hasError ? 'gcds-checkbox--error' : ''}` }, index.h("input", Object.assign({ key: '23fb2f765409fd8cf0dfded9b7878dbd633fa9f2', id: checkboxId, type: "checkbox" }, attrsInput, { onBlur: () => this.onBlur(), onFocus: () => this.gcdsFocus.emit(), onChange: e => this.onChange(e), onClick: e => emitEvent(e, this.gcdsClick), ref: element => (this.shadowElement = element) })), index.h("gcds-label", Object.assign({ key: '82d5e3ce701d08f812ab790a6382a4d30d1f49fb' }, attrsLabel, { "label-for": checkboxId, lang: lang })), hint ? index.h("gcds-hint", { "hint-id": checkboxId }, hint) : null, errorMessage ? (index.h("gcds-error-message", { messageId: checkboxId }, errorMessage)) : null, parentError ? (index.h("span", { id: `parent-error-${checkboxId}`, hidden: true }, parentError)) : null)));
     }
     static get delegatesFocus() { return true; }
     static get formAssociated() { return true; }
@@ -1171,7 +1171,7 @@ const GcdsContainer = class {
     render() {
         const { border, centered, mainContainer, margin, padding, size, tag } = this;
         const Tag = tag;
-        return (index.h(index.Host, null, index.h(Tag, { class: `
+        return (index.h(index.Host, { key: '0e99ad345508c1300109aabce30794de7649ddf8' }, index.h(Tag, { key: '616d153d1f1445306436e8612bb2fc648e590099', class: `
             gcds-container
             ${border ? 'container-border' : ''}
             ${centered ? 'container-centered' : ''}
@@ -1179,7 +1179,7 @@ const GcdsContainer = class {
             ${margin ? `m-${margin}` : ''}
             ${padding ? `p-${padding}` : ''}
             ${size ? `size-${size}` : ''}
-          ` }, index.h("slot", null))));
+          ` }, index.h("slot", { key: '471427424ab9bf64b4c767897cad5493507e793d' }))));
     }
     get el() { return index.getElement(this); }
 };
@@ -1511,13 +1511,13 @@ const GcdsDateInput = class {
         }
         // Array of months 01 - 12
         const options = Array.from({ length: 12 }, (_, i) => i + 1 < 10 ? `0${i + 1}` : `${i + 1}`);
-        const month = (index.h("gcds-select", Object.assign({ label: I18N$j[lang].month, selectId: "month", name: "month", defaultValue: I18N$j[lang].selectmonth, disabled: disabled, onInput: e => this.handleInput(e, 'month'), onChange: e => this.handleInput(e, 'month'), value: this.monthValue, class: `gcds-date-input__month ${hasError['month'] ? 'gcds-date-input--error' : ''}` }, requiredAttr, { "aria-invalid": hasError['month'].toString(), "aria-description": hasError['month'] && errorMessage }), options.map(option => (index.h("option", { key: option, value: option }, I18N$j[lang]['months'][option])))));
-        const year = (index.h("gcds-input", Object.assign({ name: "year", label: I18N$j[lang].year, inputId: "year", type: "number", size: 4, disabled: disabled, value: this.yearValue, onInput: e => this.handleInput(e, 'year'), onChange: e => this.handleInput(e, 'year'), class: `gcds-date-input__year ${hasError['year'] ? 'gcds-date-input--error' : ''}` }, requiredAttr, { "aria-invalid": hasError['year'].toString(), "aria-description": hasError['year'] && errorMessage })));
-        const day = (index.h("gcds-input", Object.assign({ name: "day", label: I18N$j[lang].day, inputId: "day", type: "number", size: 2, disabled: disabled, value: this.dayValue, onInput: e => this.handleInput(e, 'day'), onChange: e => {
+        const month = (index.h("gcds-select", Object.assign({ key: '93a6c01754650592c167a8244ce134d31e460e6f', label: I18N$j[lang].month, selectId: "month", name: "month", defaultValue: I18N$j[lang].selectmonth, disabled: disabled, onInput: e => this.handleInput(e, 'month'), onChange: e => this.handleInput(e, 'month'), value: this.monthValue, class: `gcds-date-input__month ${hasError['month'] ? 'gcds-date-input--error' : ''}` }, requiredAttr, { "aria-invalid": hasError['month'].toString(), "aria-description": hasError['month'] && errorMessage }), options.map(option => (index.h("option", { key: option, value: option }, I18N$j[lang]['months'][option])))));
+        const year = (index.h("gcds-input", Object.assign({ key: 'cb34419b9c5696cbabd4f4a9dde797eb44f2b7e2', name: "year", label: I18N$j[lang].year, inputId: "year", type: "number", size: 4, disabled: disabled, value: this.yearValue, onInput: e => this.handleInput(e, 'year'), onChange: e => this.handleInput(e, 'year'), class: `gcds-date-input__year ${hasError['year'] ? 'gcds-date-input--error' : ''}` }, requiredAttr, { "aria-invalid": hasError['year'].toString(), "aria-description": hasError['year'] && errorMessage })));
+        const day = (index.h("gcds-input", Object.assign({ key: '3957eb8d33c856038a21ef2af45293e6124b48ce', name: "day", label: I18N$j[lang].day, inputId: "day", type: "number", size: 2, disabled: disabled, value: this.dayValue, onInput: e => this.handleInput(e, 'day'), onChange: e => {
                 this.handleInput(e, 'day');
                 this.formatDay(e);
             }, class: `gcds-date-input__day ${hasError['day'] ? 'gcds-date-input--error' : ''}` }, requiredAttr, { "aria-invalid": hasError['day'].toString(), "aria-description": hasError['day'] && errorMessage })));
-        return (index.h(index.Host, { name: name, onBlur: () => this.onBlur() }, this.validateRequiredProps() && (index.h("gcds-fieldset", { legend: legend, fieldsetId: "date-input", hint: hint, errorMessage: errorMessage, required: required, class: `gcds-date-input__fieldset${hint ? ' gcds-date-input--hint' : ''}${errorMessage ? ' gcds-date-input--error' : ''}`, lang: lang, "data-date": "true" }, format == 'compact'
+        return (index.h(index.Host, { key: 'b4dfa64e1620facd959c031bb59595e1192cb51d', name: name, onBlur: () => this.onBlur() }, this.validateRequiredProps() && (index.h("gcds-fieldset", { key: 'a4455e0b0bc0462cf66f4bf8fb43c7744b37041c', legend: legend, fieldsetId: "date-input", hint: hint, errorMessage: errorMessage, required: required, class: `gcds-date-input__fieldset${hint ? ' gcds-date-input--hint' : ''}${errorMessage ? ' gcds-date-input--error' : ''}`, lang: lang, "data-date": "true" }, format == 'compact'
             ? [month, year]
             : lang == 'en'
                 ? [month, day, year]
@@ -1574,7 +1574,7 @@ const GcdsDateModified = class {
     }
     render() {
         const { lang, type } = this;
-        return (index.h(index.Host, null, index.h("dl", { class: "gcds-date-modified" }, index.h("dt", null, index.h("gcds-text", { display: "inline", "margin-bottom": "0" }, type === 'version' ? I18N$i[lang].version : I18N$i[lang].date)), index.h("dd", null, index.h("gcds-text", { display: "inline", "margin-bottom": "0" }, type === 'version' ? (index.h("slot", null)) : (index.h("time", null, index.h("slot", null))))))));
+        return (index.h(index.Host, { key: '6a35ef0fbee9deb64fb76fb14179eb7f92258671' }, index.h("dl", { key: '0b9057598c023a246c5f0afea8a7d8943cd947ef', class: "gcds-date-modified" }, index.h("dt", { key: 'ce426d33cbb358b0fd2fefe9328b2eebbb998196' }, index.h("gcds-text", { key: 'f11bc0d5d3737efa8ff9e3555668d854bb84e9ec', display: "inline", "margin-bottom": "0" }, type === 'version' ? I18N$i[lang].version : I18N$i[lang].date)), index.h("dd", { key: '4ef846ec165917abc28ba20e5343c513430d3da0' }, index.h("gcds-text", { key: '656ce0d42ed450dd316947c5473c3ea5703b8c76', display: "inline", "margin-bottom": "0" }, type === 'version' ? (index.h("slot", null)) : (index.h("time", null, index.h("slot", null))))))));
     }
     get el() { return index.getElement(this); }
 };
@@ -1603,12 +1603,12 @@ const GcdsDetails = class {
     }
     render() {
         const { detailsTitle, open } = this;
-        return (index.h(index.Host, null, index.h("div", { class: "gcds-details" }, index.h("button", { "aria-expanded": open.toString(), "aria-controls": "details__panel", onBlur: () => this.gcdsBlur.emit(), onFocus: () => this.gcdsFocus.emit(), onClick: e => {
+        return (index.h(index.Host, { key: '6a7b027fb3c8f1c64e1e55c6be71acff23b8641c' }, index.h("div", { key: '3a1b6576b108a69f7790f0698ccf0180743bd882', class: "gcds-details" }, index.h("button", { key: 'ac9a5185db8182a144ebbd9275a9da7d04076608', "aria-expanded": open.toString(), "aria-controls": "details__panel", onBlur: () => this.gcdsBlur.emit(), onFocus: () => this.gcdsFocus.emit(), onClick: e => {
                 const event = emitEvent(e, this.gcdsClick);
                 if (event) {
                     this.toggle();
                 }
-            }, class: "details__summary", id: "details__summary" }, detailsTitle), index.h("div", { id: "details__panel", class: "details__panel", "aria-labelledby": "details__summary" }, index.h("slot", null)))));
+            }, class: "details__summary", id: "details__summary" }, detailsTitle), index.h("div", { key: '21d41431237eaf81e5f41de477961ba24aeb05ba', id: "details__panel", class: "details__panel", "aria-labelledby": "details__summary" }, index.h("slot", { key: '7f1525c909982ea86e1ece24ca34559f3f7731c6' })))));
     }
     get el() { return index.getElement(this); }
 };
@@ -1624,7 +1624,7 @@ const GcdsErrorMessage = class {
     }
     render() {
         const { messageId } = this;
-        return (index.h(index.Host, { id: `error-message-${messageId}`, class: "gcds-error-message-wrapper" }, index.h("gcds-text", { class: "error-message", role: "alert", "margin-bottom": "300" }, index.h("gcds-icon", { name: "triangle-exclamation", "margin-right": "100" }), index.h("strong", null, index.h("slot", null)))));
+        return (index.h(index.Host, { key: 'c772a009299851d08165315989a3459ba148c69f', id: `error-message-${messageId}`, class: "gcds-error-message-wrapper" }, index.h("gcds-text", { key: 'bfd1698985476b6a0454dc97b5b13cc95d44e1b0', class: "error-message", role: "alert", "margin-bottom": "300" }, index.h("gcds-icon", { key: 'c24ab3611aa02aef5a112d85dbb4a42b75d87f02', name: "triangle-exclamation", "margin-right": "100" }), index.h("strong", { key: '00ee268d8d51e05e684aafb2e9e2be2b6db9a053' }, index.h("slot", { key: 'eb830283a097b75c4a9e72b119dec118688f2ed6' })))));
     }
     get el() { return index.getElement(this); }
 };
@@ -1765,9 +1765,9 @@ const GcdsErrorSummary = class {
     }
     render() {
         const { heading, errorQueue, lang, hasSubmitted, errorLinks } = this;
-        return (index.h(index.Host, null, index.h("div", { role: "alert", tabindex: "-1", ref: element => (this.shadowElement = element), class: `gcds-error-summary ${(hasSubmitted || errorLinks) && Object.keys(errorQueue).length > 0
+        return (index.h(index.Host, { key: '1ed9f8bcd4ab1dced35519bfa50d832985fd1bde' }, index.h("div", { key: '672cd97c53939521102bb4ad7f99be90aa333660', role: "alert", tabindex: "-1", ref: element => (this.shadowElement = element), class: `gcds-error-summary ${(hasSubmitted || errorLinks) && Object.keys(errorQueue).length > 0
                 ? 'gcds-show'
-                : ''}` }, index.h("gcds-heading", { tag: "h2", "margin-top": "0", "margin-bottom": "300" }, heading !== null && heading !== void 0 ? heading : I18N$h[lang].heading), index.h("ol", { class: "summary__errorlist" }, (hasSubmitted || errorLinks) &&
+                : ''}` }, index.h("gcds-heading", { key: '9bb4d7468643f254f061402a20c2bc29b0955701', tag: "h2", "margin-top": "0", "margin-bottom": "300" }, heading !== null && heading !== void 0 ? heading : I18N$h[lang].heading), index.h("ol", { key: '4d51601492007e68bf120995b05e657aa52a9eaa', class: "summary__errorlist" }, (hasSubmitted || errorLinks) &&
             Object.keys(errorQueue).length > 0 &&
             Object.keys(errorQueue).map(key => {
                 return (index.h("li", { class: "summary__listitem" }, index.h("gcds-link", { size: "regular", href: errorLinks ? key : '#', onClick: e => {
@@ -1945,9 +1945,9 @@ const GcdsFieldset = class {
                 ? ` ${fieldsetAttrs['aria-describedby']}`
                 : ''}`;
         }
-        return (index.h(index.Host, null, index.h("fieldset", Object.assign({ class: `gcds-fieldset ${hasError ? 'gcds-fieldset--error' : ''}`, id: fieldsetId }, fieldsetAttrs, { "aria-labelledby": hint
+        return (index.h(index.Host, { key: '89556f83e10ae99e70fefaf649e3b43f4e770699' }, index.h("fieldset", Object.assign({ key: 'b788701b3e9c46afab93206a55ee28223383bf5b', class: `gcds-fieldset ${hasError ? 'gcds-fieldset--error' : ''}`, id: fieldsetId }, fieldsetAttrs, { "aria-labelledby": hint
                 ? `legend-${fieldsetId} hint-${fieldsetId}`
-                : `legend-${fieldsetId}`, tabindex: "-1", ref: element => (this.shadowElement = element) }), index.h("legend", { id: `legend-${fieldsetId}` }, legend, required ? (index.h("span", { class: "legend__required" }, "(", I18N$g[lang].required, ")")) : null), hint ? index.h("gcds-hint", { "hint-id": fieldsetId }, hint) : null, errorMessage ? (index.h("gcds-error-message", { messageId: fieldsetId }, errorMessage)) : null, index.h("slot", null))));
+                : `legend-${fieldsetId}`, tabindex: "-1", ref: element => (this.shadowElement = element) }), index.h("legend", { key: '2ed88bb08d1f52e9054df6efafe51a94c2ac0b2c', id: `legend-${fieldsetId}` }, legend, required ? (index.h("span", { class: "legend__required" }, "(", I18N$g[lang].required, ")")) : null), hint ? index.h("gcds-hint", { "hint-id": fieldsetId }, hint) : null, errorMessage ? (index.h("gcds-error-message", { messageId: fieldsetId }, errorMessage)) : null, index.h("slot", { key: 'cf54188dacee5ac7f098303d68befe7ae251f751' }))));
     }
     static get delegatesFocus() { return true; }
     get el() { return index.getElement(this); }
@@ -2193,7 +2193,7 @@ const GcdsFileUploader = class {
             attrsInput['aria-describedby'] =
                 `${hintID}${errorID}${attrsInput['aria-describedby']}`;
         }
-        return (index.h(index.Host, null, index.h("div", { class: `gcds-file-uploader-wrapper ${disabled ? 'gcds-disabled' : ''} ${hasError ? 'gcds-error' : ''}` }, index.h("gcds-label", Object.assign({}, attrsLabel, { "label-for": uploaderId, lang: lang })), hint ? index.h("gcds-hint", { "hint-id": uploaderId }, hint) : null, errorMessage ? (index.h("gcds-error-message", { messageId: uploaderId }, errorMessage)) : null, index.h("div", { class: `file-uploader__input ${value.length > 0 ? 'uploaded-files' : ''}` }, index.h("button", { type: "button", tabindex: "-1", onClick: () => this.shadowElement.click() }, I18N$f[lang].button.upload), index.h("input", Object.assign({ type: "file", id: uploaderId }, attrsInput, { onBlur: () => this.onBlur(), onFocus: () => this.gcdsFocus.emit(), onInput: e => this.handleInput(e, this.gcdsInput), onChange: e => this.handleInput(e, this.gcdsChange), "aria-invalid": hasError ? 'true' : 'false', ref: element => (this.shadowElement = element) })), value.length > 0 ? (index.h("gcds-sr-only", { id: "file-uploader__summary" }, index.h("span", null, I18N$f[lang].summary.selected, " "), value.map(file => (index.h("span", null, file, " "))))) : (index.h("gcds-sr-only", { id: "file-uploader__summary" }, I18N$f[lang].summary.unselected))), value.length > 0
+        return (index.h(index.Host, { key: 'f4454e4a0d9664f8fe3a14d5fab0e5f22b116ef7' }, index.h("div", { key: 'be6849ae91be2175d696b59a18941829cd2e2903', class: `gcds-file-uploader-wrapper ${disabled ? 'gcds-disabled' : ''} ${hasError ? 'gcds-error' : ''}` }, index.h("gcds-label", Object.assign({ key: 'ae9157cac66a46652ff4a586755161bed64972a3' }, attrsLabel, { "label-for": uploaderId, lang: lang })), hint ? index.h("gcds-hint", { "hint-id": uploaderId }, hint) : null, errorMessage ? (index.h("gcds-error-message", { messageId: uploaderId }, errorMessage)) : null, index.h("div", { key: 'eaa28a777e18980075fd5f6afb793432cbf33b26', class: `file-uploader__input ${value.length > 0 ? 'uploaded-files' : ''}` }, index.h("button", { key: 'fe6f84394678852c4824ba9bc951439c063845eb', type: "button", tabindex: "-1", onClick: () => this.shadowElement.click() }, I18N$f[lang].button.upload), index.h("input", Object.assign({ key: '5cec157ba6c23bc1139d6d6c137fb81307477e94', type: "file", id: uploaderId }, attrsInput, { onBlur: () => this.onBlur(), onFocus: () => this.gcdsFocus.emit(), onInput: e => this.handleInput(e, this.gcdsInput), onChange: e => this.handleInput(e, this.gcdsChange), "aria-invalid": hasError ? 'true' : 'false', ref: element => (this.shadowElement = element) })), value.length > 0 ? (index.h("gcds-sr-only", { id: "file-uploader__summary" }, index.h("span", null, I18N$f[lang].summary.selected, " "), value.map(file => (index.h("span", null, file, " "))))) : (index.h("gcds-sr-only", { id: "file-uploader__summary" }, I18N$f[lang].summary.unselected))), value.length > 0
             ? value.map(file => (index.h("div", { class: "file-uploader__uploaded-file", "aria-label": `${I18N$f[lang].removeFile} ${file}.` }, index.h("gcds-text", { "margin-bottom": "0" }, file), index.h("button", { onClick: e => this.removeFile(e) }, index.h("span", null, I18N$f[lang].button.remove), index.h("gcds-icon", { name: "times", size: "text", "margin-left": "200" })))))
             : null)));
     }
@@ -2540,12 +2540,12 @@ const GcdsFooter = class {
         const siteNav = I18N$e[lang].site.menu;
         let contextualLinkCount = 0;
         let subLinkCount = 0;
-        return (index.h(index.Host, { role: "contentinfo", "aria-label": "Footer" }, index.h("gcds-sr-only", { tag: "h2" }, I18N$e[lang].about), contextualLinksObject && contextualHeading && (index.h("div", { class: "gcds-footer__contextual" }, index.h("div", { class: "contextual__container" }, index.h("nav", { "aria-labelledby": "contextual__heading" }, index.h("h3", { id: "contextual__heading", class: "contextual__heading" }, contextualHeading), index.h("ul", { class: "contextual__list" }, Object.keys(contextualLinksObject).map(key => {
+        return (index.h(index.Host, { key: 'd1db0f4906c46f81dfef9216c16ed60ecb181ca0', role: "contentinfo", "aria-label": "Footer" }, index.h("gcds-sr-only", { key: 'f1a49651dc54e05e5d35b8e9032acfdd301aea8f', tag: "h2" }, I18N$e[lang].about), contextualLinksObject && contextualHeading && (index.h("div", { key: '0653b6f5184d59e0c05097ec58a002c1196cc6a5', class: "gcds-footer__contextual" }, index.h("div", { key: '57eaa5f31ada47ae4caad4b18b277288c9f53bab', class: "contextual__container" }, index.h("nav", { key: 'ac6f6e81891dd1915f6e68d6b95c6d54b5d4f60b', "aria-labelledby": "contextual__heading" }, index.h("h3", { key: 'ae738dfd4f19c28c17b385084b3a0a42de474ad4', id: "contextual__heading", class: "contextual__heading" }, contextualHeading), index.h("ul", { key: 'd8cb78f64e69d82a18105eb4f5c9669947a3bb07', class: "contextual__list" }, Object.keys(contextualLinksObject).map(key => {
             if (contextualLinkCount < 3) {
                 contextualLinkCount++;
                 return (index.h("li", null, index.h("gcds-link", { size: "small", href: contextualLinksObject[key] }, key)));
             }
-        })))))), display === 'full' ? (index.h("div", { class: "gcds-footer__main" }, index.h("div", { class: "main__container" }, index.h("nav", { class: "main__govnav", "aria-labelledby": "govnav__heading" }, index.h("h3", { id: "govnav__heading" }, I18N$e[lang].gov.heading), index.h("ul", { class: "govnav__list" }, Object.keys(govNav).map(value => (index.h("li", null, index.h("gcds-link", { size: "small", href: govNav[value].link }, govNav[value].text)))))), index.h("nav", { class: "main__themenav", "aria-labelledby": "themenav__heading" }, index.h("gcds-sr-only", { tag: "h4", id: "themenav__heading" }, I18N$e[lang].themes.heading), index.h("ul", { class: "themenav__list" }, Object.keys(themeNav).map(value => (index.h("li", null, index.h("gcds-link", { size: "small", href: themeNav[value].link }, themeNav[value].text))))))))) : null, index.h("div", { class: "gcds-footer__sub" }, index.h("div", { class: "sub__container" }, index.h("nav", { "aria-labelledby": "sub__heading" }, index.h("gcds-sr-only", { tag: "h3", id: "sub__heading" }, I18N$e[lang].site.heading), index.h("ul", null, subLinks
+        })))))), display === 'full' ? (index.h("div", { class: "gcds-footer__main" }, index.h("div", { class: "main__container" }, index.h("nav", { class: "main__govnav", "aria-labelledby": "govnav__heading" }, index.h("h3", { id: "govnav__heading" }, I18N$e[lang].gov.heading), index.h("ul", { class: "govnav__list" }, Object.keys(govNav).map(value => (index.h("li", null, index.h("gcds-link", { size: "small", href: govNav[value].link }, govNav[value].text)))))), index.h("nav", { class: "main__themenav", "aria-labelledby": "themenav__heading" }, index.h("gcds-sr-only", { tag: "h4", id: "themenav__heading" }, I18N$e[lang].themes.heading), index.h("ul", { class: "themenav__list" }, Object.keys(themeNav).map(value => (index.h("li", null, index.h("gcds-link", { size: "small", href: themeNav[value].link }, themeNav[value].text))))))))) : null, index.h("div", { key: '21eef26e7495178731f8a463e148a137ffd724fc', class: "gcds-footer__sub" }, index.h("div", { key: 'd00863d474fdc71d492e0bac3f25e9edeea764ed', class: "sub__container" }, index.h("nav", { key: '8638c7c81ca3f4eaa957494e761222f6a232b3c4', "aria-labelledby": "sub__heading" }, index.h("gcds-sr-only", { key: 'eefe1e5294f3c0f99500381203da332c3209586b', tag: "h3", id: "sub__heading" }, I18N$e[lang].site.heading), index.h("ul", { key: 'd2c6324afb1553d345d9613f43432890d3f7e56c' }, subLinks
             ? Object.keys(subLinksObject).map(key => {
                 if (subLinkCount < 5) {
                     subLinkCount++;
@@ -2644,7 +2644,7 @@ const GcdsGrid = class {
 };
 GcdsGrid.style = GcdsGridStyle0;
 
-const gcdsGridColCss = "@layer reset, default, tablet, desktop;@layer reset{:host{display:block}:host .gcds-grid-col{box-sizing:border-box;display:block;margin:0;padding:0}}@layer default{:host{grid-column:span var(--gcds-grid-columns-default-base) /span var(--gcds-grid-columns-default-base)}:host .gcds-grid-col{height:100%;width:100%}}@layer tablet{@media screen and (width >= 48em){:host{grid-column:span var(--gcds-grid-col-tablet,var(--gcds-grid-columns-default-tablet)) /span var(---gcds-grid-col-tablet,var(--gcds-grid-columns-default-tablet))}}}@layer desktop{@media screen and (width >= 64em){:host{grid-column:span var(--gcds-grid-col-desktop,var(--gcds-grid-columns-default-desktop)) /span var(--gcds-grid-col-desktop,var(--gcds-grid-columns-default-desktop))}}}";
+const gcdsGridColCss = "@layer reset, default, tablet, desktop;@layer reset{:host{display:block}:host .gcds-grid-col{box-sizing:border-box;display:block;margin:0;padding:0}}@layer default{:host{grid-column:span var(--gcds-grid-columns-default-base) /span var(--gcds-grid-columns-default-base)}:host .gcds-grid-col{height:100%;width:100%}}@layer tablet{@media screen and (width >= 48em){:host{grid-column:span var(--gcds-grid-col-tablet,var(--gcds-grid-columns-default-tablet)) /span var(--gcds-grid-col-tablet,var(--gcds-grid-columns-default-tablet))}}}@layer desktop{@media screen and (width >= 64em){:host{grid-column:span var(--gcds-grid-col-desktop,var(--gcds-grid-columns-default-desktop)) /span var(--gcds-grid-col-desktop,var(--gcds-grid-columns-default-desktop))}}}";
 const GcdsGridColStyle0 = gcdsGridColCss;
 
 const GcdsGridCol = class {
@@ -2788,7 +2788,7 @@ const GcdsHeader = class {
     }
     render() {
         const { renderSkipToNav, renderToggle, renderSignature, renderSearch, hasSearch, hasBanner, hasBreadcrumb, } = this;
-        return (index.h(index.Host, { role: "banner" }, renderSkipToNav, hasBanner ? index.h("slot", { name: "banner" }) : null, index.h("div", { class: "gcds-header__brand" }, index.h("div", { class: `brand__container ${!hasSearch ? 'container--simple' : ''}` }, renderToggle, renderSignature, renderSearch)), index.h("slot", { name: "menu" }), hasBreadcrumb ? (index.h("div", { class: "gcds-header__container" }, index.h("slot", { name: "breadcrumb" }))) : null));
+        return (index.h(index.Host, { key: 'f52ff86ea5f438fa5b8b91a2aa2dbbda002e5302', role: "banner" }, renderSkipToNav, hasBanner ? index.h("slot", { name: "banner" }) : null, index.h("div", { key: '7e518fb76a2727b298079f283d15acf91e83d4d1', class: "gcds-header__brand" }, index.h("div", { key: 'f667c6c6cf241700dcc03086fbca4fa2d3f3ea4b', class: `brand__container ${!hasSearch ? 'container--simple' : ''}` }, renderToggle, renderSignature, renderSearch)), index.h("slot", { key: 'a31b379ff70560651143c9d5f9299128b13eeff4', name: "menu" }), hasBreadcrumb ? (index.h("div", { class: "gcds-header__container" }, index.h("slot", { name: "breadcrumb" }))) : null));
     }
     get el() { return index.getElement(this); }
 };
@@ -2871,12 +2871,12 @@ const GcdsHeading = class {
     render() {
         const { characterLimit, marginTop, marginBottom, tag } = this;
         const Tag = tag;
-        return (index.h(index.Host, null, index.h(Tag, { class: `
+        return (index.h(index.Host, { key: '0416b329bd8fe577775bdce03ffc95a62582722d' }, index.h(Tag, { key: '5e0af26dad00a8d0568ba0af150694187ad86e79', class: `
             gcds-heading
             ${characterLimit ? 'limit' : ''}
             ${marginTop ? `mt-${marginTop}` : ''}
             ${marginBottom ? `mb-${marginBottom}` : ''}
-          ` }, index.h("slot", null))));
+          ` }, index.h("slot", { key: '9f01a4e2a648ead351e6e6860262df0f182827cd' }))));
     }
     get el() { return index.getElement(this); }
     static get watchers() { return {
@@ -2897,7 +2897,7 @@ const GcdsHint = class {
     }
     render() {
         const { hintId } = this;
-        return (index.h(index.Host, { id: `hint-${hintId}` }, index.h("gcds-text", { class: "gcds-hint", "margin-bottom": "0", part: "hint" }, index.h("slot", null))));
+        return (index.h(index.Host, { key: '70f6130f318cfea9a1743eb60472aa832fb213ee', id: `hint-${hintId}` }, index.h("gcds-text", { key: '4d159a2f81cac7b9e442b4268143400b334858ef', class: "gcds-hint", "margin-bottom": "0", part: "hint" }, index.h("slot", { key: 'cf8b840c22e2238b051c5804bb46fbd8272e764d' }))));
     }
     get el() { return index.getElement(this); }
 };
@@ -2919,7 +2919,7 @@ const GcdsIcon = class {
     }
     render() {
         const { iconStyle, label, marginLeft, marginRight, name, fixedWidth, size, } = this;
-        return (index.h(index.Host, null, index.h("span", { class: `
+        return (index.h(index.Host, { key: 'fdb458ee02f7aa6aeba3480ff78f127b6d42e437' }, index.h("span", { key: '4d5c34c5016bc6c2148ed3ace5eb54268614e96d', class: `
             gcds-icon fa fa-${iconStyle} fa-${name}
             ${marginLeft ? `ml-${marginLeft}` : ''}
             ${marginRight ? `mr-${marginRight}` : ''}
@@ -3130,7 +3130,7 @@ const GcdsInput = class {
                 ? ` ${attrsInput['aria-describedby']}`
                 : ''}`;
         }
-        return (index.h(index.Host, null, index.h("div", { class: `gcds-input-wrapper ${disabled ? 'gcds-disabled' : ''} ${hasError ? 'gcds-error' : ''}` }, index.h("gcds-label", Object.assign({}, attrsLabel, { "hide-label": hideLabel, "label-for": inputId, lang: lang })), hint ? index.h("gcds-hint", { "hint-id": inputId }, hint) : null, errorMessage ? (index.h("gcds-error-message", { messageId: inputId }, errorMessage)) : null, index.h("input", Object.assign({}, attrsInput, { class: hasError ? 'gcds-error' : null, id: inputId, name: name, onBlur: () => this.onBlur(), onFocus: () => this.gcdsFocus.emit(), onInput: e => this.handleInput(e, this.gcdsInput), onChange: e => this.handleInput(e, this.gcdsChange), "aria-labelledby": `label-for-${inputId}`, "aria-invalid": inheritedAttributes['aria-invalid'] === 'true'
+        return (index.h(index.Host, { key: '66f7692a90c627756df94cd7efdb8b96395bbc5b' }, index.h("div", { key: 'a54c3f8b380be4f066ee7ce44a908667ea0af686', class: `gcds-input-wrapper ${disabled ? 'gcds-disabled' : ''} ${hasError ? 'gcds-error' : ''}` }, index.h("gcds-label", Object.assign({ key: '7e00d27d9a2ca077a90169eefdf574a5cdc78ba5' }, attrsLabel, { "hide-label": hideLabel, "label-for": inputId, lang: lang })), hint ? index.h("gcds-hint", { "hint-id": inputId }, hint) : null, errorMessage ? (index.h("gcds-error-message", { messageId: inputId }, errorMessage)) : null, index.h("input", Object.assign({ key: '9c886a006d93c1dc05fb78b977efd35394d3c116' }, attrsInput, { class: hasError ? 'gcds-error' : null, id: inputId, name: name, onBlur: () => this.onBlur(), onFocus: () => this.gcdsFocus.emit(), onInput: e => this.handleInput(e, this.gcdsInput), onChange: e => this.handleInput(e, this.gcdsChange), "aria-labelledby": `label-for-${inputId}`, "aria-invalid": inheritedAttributes['aria-invalid'] === 'true'
                 ? inheritedAttributes['aria-invalid']
                 : errorMessage
                     ? 'true'
@@ -3202,7 +3202,7 @@ const GcdsLabel = class {
     }
     render() {
         const { hideLabel, labelFor, label, required, lang } = this;
-        return (index.h(index.Host, { id: `label-for-${labelFor}`, onClick: this.onClick }, index.h("label", { htmlFor: labelFor, class: `gcds-label ${hideLabel ? 'label--hidden' : ''}`, ref: focusEl => (this.focusEl = focusEl) }, index.h("span", null, label), required ? (index.h("span", { "aria-hidden": "true", class: "label--required" }, "(", I18N$c[lang].required, ")")) : null)));
+        return (index.h(index.Host, { key: '2571828246ca42f80c10f9008ccbf9767b65e101', id: `label-for-${labelFor}`, onClick: this.onClick }, index.h("label", { key: '66523fc42c2cdda0204dc8747ec9adf935b69466', htmlFor: labelFor, class: `gcds-label ${hideLabel ? 'label--hidden' : ''}`, ref: focusEl => (this.focusEl = focusEl) }, index.h("span", { key: '6dd8fbc5012750873da600a1b2e2f20b193c7dc3' }, label), required ? (index.h("span", { "aria-hidden": "true", class: "label--required" }, "(", I18N$c[lang].required, ")")) : null)));
     }
     get el() { return index.getElement(this); }
 };
@@ -3248,7 +3248,7 @@ const GcdsLangToggle = class {
     }
     render() {
         const { lang, href } = this;
-        return (index.h(index.Host, null, index.h("div", { class: "gcds-lang-toggle" }, index.h("gcds-sr-only", { id: "lang-toggle__heading", tag: "h2" }, I18N$b[lang].heading), index.h("gcds-link", { size: "regular", href: href, lang: I18N$b[lang].abbreviation }, index.h("span", null, I18N$b[lang].language), index.h("abbr", { title: I18N$b[lang].language }, I18N$b[lang].abbreviation)))));
+        return (index.h(index.Host, { key: 'eb21f31e07263f63e9e6bd81e03b7d69e7fc5c22' }, index.h("div", { key: 'f259bdd2095c8fbec75ac4958192de54f1446efd', class: "gcds-lang-toggle" }, index.h("gcds-sr-only", { key: '5f1c04d337fd5b8b190be3e9c5731f640b80f89c', id: "lang-toggle__heading", tag: "h2" }, I18N$b[lang].heading), index.h("gcds-link", { key: 'c0343104552957383ad0e0c06929cb7987f568b1', size: "regular", href: href, lang: I18N$b[lang].abbreviation }, index.h("span", { key: 'dbf125e2a0b95bcab90bc38ba8a508b18cdbe1a0' }, I18N$b[lang].language), index.h("abbr", { key: '4959f73d060789b0666d0cae393833437c54de5c', title: I18N$b[lang].language }, I18N$b[lang].abbreviation)))));
     }
     get el() { return index.getElement(this); }
 };
@@ -3341,7 +3341,7 @@ const GcdsLink = class {
             type,
         };
         const isExternal = target === '_blank' || external;
-        return (index.h(index.Host, null, index.h("a", Object.assign({ role: "link", tabIndex: 0 }, attrs, { class: `gcds-link link--${size} ${display != 'inline' ? `d-${display}` : ''} ${variant != 'default' ? `variant-${variant}` : ''}`, ref: element => (this.shadowElement = element), target: isExternal ? '_blank' : target, rel: isExternal ? 'noopener noreferrer' : rel }, inheritedAttributes, { part: "link", onBlur: () => this.gcdsBlur.emit(), onFocus: () => this.gcdsFocus.emit(), onClick: e => emitEvent(e, this.gcdsClick, href) }), index.h("slot", null), target === '_blank' || external ? (index.h("gcds-icon", { name: "external-link", label: I18N$a[lang].external, "margin-left": "100" })) : download !== undefined ? (index.h("gcds-icon", { name: "download", label: I18N$a[lang].download, "margin-left": "100" })) : href && href.toLowerCase().startsWith('mailto:') ? (index.h("gcds-icon", { "icon-style": "regular", name: "envelope", label: I18N$a[lang].email, "margin-left": "100" })) : (href &&
+        return (index.h(index.Host, { key: '2f5fa0130a3e0b19656292d58e0d703ba79c7f6e' }, index.h("a", Object.assign({ key: 'a6a4b271ec1a520db5f00f213a6a97246eb8eaa9', role: "link", tabIndex: 0 }, attrs, { class: `gcds-link link--${size} ${display != 'inline' ? `d-${display}` : ''} ${variant != 'default' ? `variant-${variant}` : ''}`, ref: element => (this.shadowElement = element), target: isExternal ? '_blank' : target, rel: isExternal ? 'noopener noreferrer' : rel }, inheritedAttributes, { part: "link", onBlur: () => this.gcdsBlur.emit(), onFocus: () => this.gcdsFocus.emit(), onClick: e => emitEvent(e, this.gcdsClick, href) }), index.h("slot", { key: 'e5437f0d528b07e057630de5adb362bdae075567' }), target === '_blank' || external ? (index.h("gcds-icon", { name: "external-link", label: I18N$a[lang].external, "margin-left": "100" })) : download !== undefined ? (index.h("gcds-icon", { name: "download", label: I18N$a[lang].download, "margin-left": "100" })) : href && href.toLowerCase().startsWith('mailto:') ? (index.h("gcds-icon", { "icon-style": "regular", name: "envelope", label: I18N$a[lang].email, "margin-left": "100" })) : (href &&
             href.toLowerCase().startsWith('tel:') && (index.h("gcds-icon", { name: "phone", label: I18N$a[lang].phone, "margin-left": "100" }))))));
     }
     get el() { return index.getElement(this); }
@@ -3428,18 +3428,18 @@ const GcdsNavGroup = class {
     }
     render() {
         const { closeTrigger, menuLabel, open, openTrigger } = this;
-        return (index.h(index.Host, { role: "listitem", open: open }, index.h("button", { "aria-haspopup": "true", "aria-expanded": open.toString(), ref: element => (this.triggerElement = element), class: `gcds-nav-group__trigger gcds-trigger--${this.navStyle}`, onBlur: () => this.gcdsBlur.emit(), onFocus: () => this.gcdsFocus.emit(), onClick: e => {
+        return (index.h(index.Host, { key: '6fe3f6a06fea7b9c241677067db425025c270441', role: "listitem", open: open }, index.h("button", { key: '4feff5c93049102d984e060089f58abd1681da7e', "aria-haspopup": "true", "aria-expanded": open.toString(), ref: element => (this.triggerElement = element), class: `gcds-nav-group__trigger gcds-trigger--${this.navStyle}`, onBlur: () => this.gcdsBlur.emit(), onFocus: () => this.gcdsFocus.emit(), onClick: e => {
                 const event = emitEvent(e, this.gcdsClick);
                 if (event) {
                     this.toggleNav();
                 }
-            } }, index.h("gcds-icon", { name: open ? 'angle-up' : 'angle-down' }), closeTrigger && open ? closeTrigger : openTrigger), index.h("ul", { "aria-label": menuLabel, class: `gcds-nav-group__list gcds-nav--${this.navStyle}` }, index.h("slot", null))));
+            } }, index.h("gcds-icon", { key: '5016a068e5bab57d0798d0c0d2627c89ceeebc0e', name: open ? 'angle-up' : 'angle-down' }), closeTrigger && open ? closeTrigger : openTrigger), index.h("ul", { key: 'e819774f1293463901873c38362168ee885b43a0', "aria-label": menuLabel, class: `gcds-nav-group__list gcds-nav--${this.navStyle}` }, index.h("slot", { key: '4b4074e7a73796c06f135f1b15fef1f6d110eb86' }))));
     }
     get el() { return index.getElement(this); }
 };
 GcdsNavGroup.style = GcdsNavGroupStyle0;
 
-const gcdsNavLinkCss = "@layer reset, default, variants, hover, active, focus;@layer reset{:host .gcds-nav-link{box-sizing:border-box}:host .gcds-nav-link slot{display:initial}}@layer default{:host .gcds-nav-link{border-inline:var(--gcds-nav-link-border-width) solid transparent;color:var(--gcds-nav-link-default-text);display:flex;font:var(---gcds-nav-link-font);margin-block-end:var(--gcds-nav-link-margin);padding:var(--gcds-nav-link-padding);text-decoration-color:currentColor;text-decoration-line:underline;text-decoration-style:solid;text-decoration-thickness:var(--gcds-nav-link-default-decoration-thickness);text-underline-offset:var(--gcds-nav-link-default-underline-offset);transition:all .25s ease-in-out}@media only screen and (width < 64em){:host .gcds-nav-link{min-width:50%}}@media only screen and (width > 48em){:host .gcds-nav-link{max-width:var(--gcds-nav-link-default-max-width)}}:host .gcds-nav-link[aria-current=page]{pointer-events:none;text-decoration:none}}@layer variants{@media only screen and (width >= 64em){:host>.gcds-nav-link--topnav.gcds-nav-link{border-block-end:var(--gcds-nav-link-border-width) solid transparent;border-inline:0;color:var(--gcds-nav-link-top-nav-text);margin:var(--gcds-nav-link-top-nav-margin);padding:var(--gcds-nav-link-top-nav-padding)}:host>.gcds-nav-link--topnav.gcds-nav-link:not(:hover){text-decoration-color:transparent}:host([slot=home])>.gcds-nav-link{font:var(--gcds-nav-link-top-nav-home-font);padding:var(--gcds-nav-link-top-nav-home-padding)}}:host>.gcds-nav-link--sidenav.gcds-nav-link{padding:var(--gcds-nav-link-side-nav-padding)}}@layer hover{@media (hover:hover){:host .gcds-nav-link:hover{color:var(--gcds-nav-link-hover-text);text-decoration-thickness:var(\n        --gcds-nav-link-hover-decoration-thickness\n      )}:host>.gcds-nav-link--dropdown.gcds-nav-link:hover,:host>.gcds-nav-link--sidenav.gcds-nav-link:hover{color:var(--gcds-nav-link-hover-text)}:host>.gcds-nav-link--sidenav.gcds-nav-link:hover{background-color:var(--gcds-nav-link-side-nav-hover-background)}:host>.gcds-nav-link--dropdown.gcds-nav-link:hover{background-color:var(--gcds-nav-link-top-nav-hover-background)}}}@layer active{:host .gcds-nav-link[aria-current=page]{background-color:var(--gcds-nav-link-active-background);border-inline-start-color:var(--gcds-nav-link-active-border-color);color:var(--gcds-nav-link-active-text);font-weight:var(--gcds-nav-link-active-font-weight)}@media only screen and (width >= 64em){:host>.gcds-nav-link--topnav.gcds-nav-link[aria-current=page]{background-color:transparent;border-block-end-color:var(--gcds-nav-link-active-border-color);color:var(--gcds-nav-link-top-nav-text);font:var(--gcds-nav-link-font)}}}@layer focus{:host .gcds-nav-link:focus{background-color:var(--gcds-nav-link-focus-background);border-color:var(--gcds-nav-link-focus-background);border-radius:var(--gcds-nav-link-focus-border-radius);box-shadow:var(--gcds-nav-link-focus-box-shadow);color:var(--gcds-nav-link-focus-text);outline:var(--gcds-nav-link-focus-outline);outline-offset:var(--gcds-nav-link-focus-outline-offset);text-decoration:none}}";
+const gcdsNavLinkCss = "@layer reset, default, variants, hover, active, focus;@layer reset{:host .gcds-nav-link{box-sizing:border-box}:host .gcds-nav-link slot{display:initial}}@layer default{:host .gcds-nav-link{border-inline:var(--gcds-nav-link-border-width) solid transparent;color:var(--gcds-nav-link-default-text);display:flex;font:var(--gcds-nav-link-font);margin-block-end:var(--gcds-nav-link-margin);padding:var(--gcds-nav-link-padding);text-decoration-color:currentColor;text-decoration-line:underline;text-decoration-style:solid;text-decoration-thickness:var(--gcds-nav-link-default-decoration-thickness);text-underline-offset:var(--gcds-nav-link-default-underline-offset);transition:all .25s ease-in-out}@media only screen and (width < 64em){:host .gcds-nav-link{min-width:50%}}@media only screen and (width > 48em){:host .gcds-nav-link{max-width:var(--gcds-nav-link-default-max-width)}}:host .gcds-nav-link[aria-current=page]{pointer-events:none;text-decoration:none}}@layer variants{@media only screen and (width >= 64em){:host>.gcds-nav-link--topnav.gcds-nav-link{border-block-end:var(--gcds-nav-link-border-width) solid transparent;border-inline:0;color:var(--gcds-nav-link-top-nav-text);margin:var(--gcds-nav-link-top-nav-margin);padding:var(--gcds-nav-link-top-nav-padding)}:host>.gcds-nav-link--topnav.gcds-nav-link:not(:hover){text-decoration-color:transparent}:host([slot=home])>.gcds-nav-link{font:var(--gcds-nav-link-top-nav-home-font);padding:var(--gcds-nav-link-top-nav-home-padding)}}:host>.gcds-nav-link--sidenav.gcds-nav-link{padding:var(--gcds-nav-link-side-nav-padding)}}@layer hover{@media (hover:hover){:host .gcds-nav-link:hover{color:var(--gcds-nav-link-hover-text);text-decoration-thickness:var(\n        --gcds-nav-link-hover-decoration-thickness\n      )}:host>.gcds-nav-link--dropdown.gcds-nav-link:hover,:host>.gcds-nav-link--sidenav.gcds-nav-link:hover{color:var(--gcds-nav-link-hover-text)}:host>.gcds-nav-link--sidenav.gcds-nav-link:hover{background-color:var(--gcds-nav-link-side-nav-hover-background)}:host>.gcds-nav-link--dropdown.gcds-nav-link:hover{background-color:var(--gcds-nav-link-top-nav-hover-background)}}}@layer active{:host .gcds-nav-link[aria-current=page]{background-color:var(--gcds-nav-link-active-background);border-inline-start-color:var(--gcds-nav-link-active-border-color);color:var(--gcds-nav-link-active-text);font-weight:var(--gcds-nav-link-active-font-weight)}@media only screen and (width >= 64em){:host>.gcds-nav-link--topnav.gcds-nav-link[aria-current=page]{background-color:transparent;border-block-end-color:var(--gcds-nav-link-active-border-color);color:var(--gcds-nav-link-top-nav-text);font:var(--gcds-nav-link-font)}}}@layer focus{:host .gcds-nav-link:focus{background-color:var(--gcds-nav-link-focus-background);border-color:var(--gcds-nav-link-focus-background);border-radius:var(--gcds-nav-link-focus-border-radius);box-shadow:var(--gcds-nav-link-focus-box-shadow);color:var(--gcds-nav-link-focus-text);outline:var(--gcds-nav-link-focus-outline);outline-offset:var(--gcds-nav-link-focus-outline-offset);text-decoration:none}}";
 const GcdsNavLinkStyle0 = gcdsNavLinkCss;
 
 const GcdsNavLink = class {
@@ -3492,7 +3492,7 @@ const GcdsNavLink = class {
         if (current) {
             linkAttrs['aria-current'] = 'page';
         }
-        return (index.h(index.Host, { role: "listitem" }, index.h("a", Object.assign({ class: `gcds-nav-link gcds-nav-link--${this.navStyle}`, href: href }, linkAttrs, { onBlur: () => this.gcdsBlur.emit(), onFocus: () => this.gcdsFocus.emit(), onClick: e => emitEvent(e, this.gcdsClick, href), ref: element => (this.linkElement = element) }), index.h("slot", null))));
+        return (index.h(index.Host, { key: 'a5bb7d97f3b52083346b6c795e261028c787195a', role: "listitem" }, index.h("a", Object.assign({ key: '1fd2194fb01fffb0671b1720696d145cad9826ac', class: `gcds-nav-link gcds-nav-link--${this.navStyle}`, href: href }, linkAttrs, { onBlur: () => this.gcdsBlur.emit(), onFocus: () => this.gcdsFocus.emit(), onClick: e => emitEvent(e, this.gcdsClick, href), ref: element => (this.linkElement = element) }), index.h("slot", { key: '05503dee7159a649d3d6ba88af6e0bd61f08222e' }))));
     }
     get el() { return index.getElement(this); }
 };
@@ -3818,7 +3818,7 @@ const GcdsPagination = class {
     }
     render() {
         const { display, label, previousHref, previousLabel, nextHref, nextLabel, lang, } = this;
-        return (index.h(index.Host, { role: "navigation", "aria-label": label }, index.h("div", { class: "gcds-pagination" }, display === 'list' ? (index.h("div", null, index.h("ul", { class: "gcds-pagination-list" }, this.listitems), index.h("ul", { class: "gcds-pagination-list-mobile-prevnext" }, this.mobilePrevNext))) : (index.h("ul", { class: "gcds-pagination-simple" }, previousHref && (index.h("li", { class: "gcds-pagination-simple-previous" }, index.h("a", { href: previousHref, "aria-label": `${I18N$9[lang].previousPage}${previousLabel ? `: ${previousLabel}` : ''}`, onBlur: () => this.gcdsBlur.emit(), onFocus: () => this.gcdsFocus.emit(), onClick: e => emitEvent(e, this.gcdsClick, previousHref) }, index.h("gcds-icon", { "margin-right": "200", name: "arrow-left" }), index.h("div", { class: "gcds-pagination-simple-text" }, I18N$9[lang].previous), index.h("span", null, previousLabel)))), nextHref && (index.h("li", { class: "gcds-pagination-simple-next" }, index.h("a", { href: nextHref, "aria-label": `${I18N$9[lang].nextPage}${nextLabel ? `: ${nextLabel}` : ''}`, onBlur: () => this.gcdsBlur.emit(), onFocus: () => this.gcdsFocus.emit(), onClick: e => emitEvent(e, this.gcdsClick, nextHref) }, index.h("div", { class: "gcds-pagination-simple-text" }, I18N$9[lang].next), index.h("span", null, nextLabel), index.h("gcds-icon", { "margin-left": "200", name: "arrow-right" })))))))));
+        return (index.h(index.Host, { key: 'f4b1f77574fa79f1d322ce50c0d1073e8514dd67', role: "navigation", "aria-label": label }, index.h("div", { key: '4ff733b9b51635c4cd4da5a09bc0cd3368ae589b', class: "gcds-pagination" }, display === 'list' ? (index.h("div", null, index.h("ul", { class: "gcds-pagination-list" }, this.listitems), index.h("ul", { class: "gcds-pagination-list-mobile-prevnext" }, this.mobilePrevNext))) : (index.h("ul", { class: "gcds-pagination-simple" }, previousHref && (index.h("li", { class: "gcds-pagination-simple-previous" }, index.h("a", { href: previousHref, "aria-label": `${I18N$9[lang].previousPage}${previousLabel ? `: ${previousLabel}` : ''}`, onBlur: () => this.gcdsBlur.emit(), onFocus: () => this.gcdsFocus.emit(), onClick: e => emitEvent(e, this.gcdsClick, previousHref) }, index.h("gcds-icon", { "margin-right": "200", name: "arrow-left" }), index.h("div", { class: "gcds-pagination-simple-text" }, I18N$9[lang].previous), index.h("span", null, previousLabel)))), nextHref && (index.h("li", { class: "gcds-pagination-simple-next" }, index.h("a", { href: nextHref, "aria-label": `${I18N$9[lang].nextPage}${nextLabel ? `: ${nextLabel}` : ''}`, onBlur: () => this.gcdsBlur.emit(), onFocus: () => this.gcdsFocus.emit(), onClick: e => emitEvent(e, this.gcdsClick, nextHref) }, index.h("div", { class: "gcds-pagination-simple-text" }, I18N$9[lang].next), index.h("span", null, nextLabel), index.h("gcds-icon", { "margin-left": "200", name: "arrow-right" })))))))));
     }
     get el() { return index.getElement(this); }
     static get watchers() { return {
@@ -3870,7 +3870,7 @@ const GcdsPhaseBanner = class {
     }
     render() {
         const { bannerRole, container, isFixed, lang } = this;
-        return (index.h(index.Host, null, index.h("div", { class: `gcds-phase-banner banner--role-${bannerRole} ${isFixed ? 'banner--is-fixed' : ''}`, role: "status", "aria-label": I18N$8[lang].label }, index.h("gcds-container", { size: container, centered: true }, index.h("div", { class: "banner__content" }, index.h("figure", { class: "banner__icon icon--left" }, index.h("slot", { name: "banner-icon-left" })), index.h("div", { class: "banner__details" }, index.h("slot", { name: "banner-text" }), index.h("slot", { name: "banner-cta" })), index.h("figure", { class: "banner__icon icon--right" }, index.h("slot", { name: "banner-icon-right" })))))));
+        return (index.h(index.Host, { key: '115fc253ff9bf972f3a5c1ac88792278947f97b4' }, index.h("div", { key: '5fd1243f57780af9046a29989167dc56af32bb2a', class: `gcds-phase-banner banner--role-${bannerRole} ${isFixed ? 'banner--is-fixed' : ''}`, role: "status", "aria-label": I18N$8[lang].label }, index.h("gcds-container", { key: 'ee27279607ed91875a9f18232b726f21d57e5688', size: container, centered: true }, index.h("div", { key: '271c53ac57814749faed00240ed1b5f538b08a33', class: "banner__content" }, index.h("figure", { key: '112b823a737c1f02de75505a7c25af6ca64f080c', class: "banner__icon icon--left" }, index.h("slot", { key: '398cc31934e1af546e69ed292cf8af638c682cab', name: "banner-icon-left" })), index.h("div", { key: 'b8b8669f9ba0a24d6e14d266799238613916f687', class: "banner__details" }, index.h("slot", { key: 'f16b4f5258f493866f361c26a9e9641273ccb9ec', name: "banner-text" }), index.h("slot", { key: '9660cdfcba47c12f3f51758ad6015a6845f2a154', name: "banner-cta" })), index.h("figure", { key: '9e7e29bf2afce3ce401663786e95970a20b0a0a8', class: "banner__icon icon--right" }, index.h("slot", { key: 'e976f308e03921088da7ef482d809adac7723e33', name: "banner-icon-right" })))))));
     }
     get el() { return index.getElement(this); }
 };
@@ -3957,7 +3957,7 @@ const GcdsRadioGroup = class {
     }
     render() {
         const { lang, name, hasError, parentError, inheritedAttributes } = this;
-        return (index.h(index.Host, null, this.optionObject &&
+        return (index.h(index.Host, { key: '1b1197d92fe73076a39aed5beb6659ebca4d6dea' }, this.optionObject &&
             this.optionObject.map(radio => {
                 const attrsInput = Object.assign({ name, disabled: radio.disabled, required: radio.required, value: radio.value, checked: radio.checked }, inheritedAttributes);
                 if (radio.hint || parentError) {
@@ -3971,7 +3971,7 @@ const GcdsRadioGroup = class {
                     attrsInput['aria-invalid'] = 'true';
                 }
                 return (index.h("div", { class: `gcds-radio ${radio.disabled ? 'gcds-radio--disabled' : ''} ${hasError ? 'gcds-radio--error' : ''}` }, index.h("input", Object.assign({ id: radio.id, type: "radio" }, attrsInput, { onChange: e => this.onChange(e), onBlur: () => this.onBlur(), onFocus: () => this.gcdsFocus.emit(), ref: element => (this.shadowElement = element) })), index.h("gcds-label", { label: radio.label, "label-for": radio.id, lang: lang }), radio.hint ? (index.h("gcds-hint", { "hint-id": radio.id }, radio.hint)) : null));
-            }), parentError && (index.h("span", { id: `parent-error`, hidden: true }, parentError))));
+            }), parentError && (index.h("span", { key: 'b60d8d247b2f194432e70a23e1b65fab31ef2f6e', id: `parent-error`, hidden: true }, parentError))));
     }
     static get delegatesFocus() { return true; }
     static get formAssociated() { return true; }
@@ -4043,7 +4043,7 @@ const GcdsSearch = class {
         const formAction = action === '/sr/srb.html'
             ? `https://www.canada.ca/${lang}/sr/srb.html`
             : action;
-        return (index.h(index.Host, null, index.h("div", { class: "gcds-search" }, index.h("gcds-sr-only", { tag: "h2" }, I18N$7[lang].search), index.h("form", { action: formAction, method: method, role: "search", onSubmit: e => emitEvent(e, this.gcdsSubmit, this.value), class: "gcds-search__form" }, index.h("gcds-label", { label: labelText, "label-for": searchId, "hide-label": true }), index.h("input", Object.assign({ type: "search", id: searchId, list: "search-list", size: 34, maxLength: 170, onInput: e => this.handleInput(e, this.gcdsInput), onChange: e => this.handleInput(e, this.gcdsChange), onFocus: () => this.gcdsFocus.emit(), onBlur: () => this.gcdsBlur.emit() }, attrsInput, { class: "gcds-search__input", value: value })), suggested && (index.h("datalist", { id: "search-list" }, suggested.map((k, v) => (index.h("option", { value: k, key: v }))))), index.h("gcds-button", { type: "submit", class: "gcds-search__button", exportparts: "button" }, index.h("gcds-icon", { name: "search", label: I18N$7[lang].search, "fixed-width": true }))))));
+        return (index.h(index.Host, { key: '0590c4439dbf8d925b55e78ba10adb56dd08d002' }, index.h("div", { key: 'e92eee61020ae637d86f66dcfddaa2c512f906db', class: "gcds-search" }, index.h("gcds-sr-only", { key: 'a7de99713a5e09ff4cc0c97d97cd220b34713958', tag: "h2" }, I18N$7[lang].search), index.h("form", { key: 'd8d26986a49f1e44fa9f39925cf4afe6abf2e653', action: formAction, method: method, role: "search", onSubmit: e => emitEvent(e, this.gcdsSubmit, this.value), class: "gcds-search__form" }, index.h("gcds-label", { key: 'b1bc9a6136af05c0898dcd70177e59ff05b491a7', label: labelText, "label-for": searchId, "hide-label": true }), index.h("input", Object.assign({ key: '798e03ee1c183e80c6b5c8cc17cfc8ef3114e4b0', type: "search", id: searchId, list: "search-list", size: 34, maxLength: 170, onInput: e => this.handleInput(e, this.gcdsInput), onChange: e => this.handleInput(e, this.gcdsChange), onFocus: () => this.gcdsFocus.emit(), onBlur: () => this.gcdsBlur.emit() }, attrsInput, { class: "gcds-search__input", value: value })), suggested && (index.h("datalist", { key: '912ac60a51e383b3bd490e4f5ec49bec57b9762b', id: "search-list" }, suggested.map((k, v) => (index.h("option", { value: k, key: v }))))), index.h("gcds-button", { key: 'b4ca78bfababd444af1fb4802ce20002d408eede', type: "submit", class: "gcds-search__button", exportparts: "button" }, index.h("gcds-icon", { key: '841ca408c06c125bafcf5f848e5ebe1a58a76f79', name: "search", label: I18N$7[lang].search, "fixed-width": true }))))));
     }
     get el() { return index.getElement(this); }
 };
@@ -4252,7 +4252,7 @@ const GcdsSelect = class {
                 ? `${attrsSelect['aria-describedby']}`
                 : ''}`;
         }
-        return (index.h(index.Host, null, index.h("div", { class: `gcds-select-wrapper ${disabled ? 'gcds-disabled' : ''} ${hasError ? 'gcds-error' : ''}` }, index.h("gcds-label", Object.assign({}, attrsLabel, { "label-for": selectId, lang: lang })), hint ? index.h("gcds-hint", { "hint-id": selectId }, hint) : null, errorMessage ? (index.h("gcds-error-message", { messageId: selectId }, errorMessage)) : null, index.h("select", Object.assign({}, attrsSelect, { id: selectId, onBlur: () => this.onBlur(), onFocus: () => this.gcdsFocus.emit(), onInput: e => this.handleInput(e, this.gcdsInput), onChange: e => this.handleInput(e, this.gcdsChange), "aria-invalid": inheritedAttributes['aria-invalid'] === 'true'
+        return (index.h(index.Host, { key: 'f8b99ee23faf6239a4f6adfa2f975d06d7abf440' }, index.h("div", { key: '32298bdf17a79592e2ab655d8beed7f75b0c84a4', class: `gcds-select-wrapper ${disabled ? 'gcds-disabled' : ''} ${hasError ? 'gcds-error' : ''}` }, index.h("gcds-label", Object.assign({ key: '27eef3c57d074b6241943c63017c0265e698fa7a' }, attrsLabel, { "label-for": selectId, lang: lang })), hint ? index.h("gcds-hint", { "hint-id": selectId }, hint) : null, errorMessage ? (index.h("gcds-error-message", { messageId: selectId }, errorMessage)) : null, index.h("select", Object.assign({ key: 'e5fcd5da26a12649c9dd28b0a445a05184a1a8b8' }, attrsSelect, { id: selectId, onBlur: () => this.onBlur(), onFocus: () => this.gcdsFocus.emit(), onInput: e => this.handleInput(e, this.gcdsInput), onChange: e => this.handleInput(e, this.gcdsChange), "aria-invalid": inheritedAttributes['aria-invalid'] === 'true'
                 ? inheritedAttributes['aria-invalid']
                 : errorMessage
                     ? 'true'
@@ -4559,7 +4559,7 @@ const GcdsSideNav = class {
     }
     render() {
         const { label, lang } = this;
-        return (index.h(index.Host, null, index.h("nav", { "aria-label": `${label}${I18N$6[lang].navLabel}`, class: "gcds-side-nav" }, index.h("h2", { class: "gcds-side-nav__heading" }, label), index.h("ul", null, index.h("gcds-nav-group", { menuLabel: I18N$6[lang].menuLabel, closeTrigger: I18N$6[lang].closeTrigger, openTrigger: I18N$6[lang].menuLabel, class: "gcds-mobile-nav", ref: element => (this.mobile = element), lang: lang }, index.h("slot", null))))));
+        return (index.h(index.Host, { key: '217410f35dc8c612e70afe175fb239de2eaaaf6e' }, index.h("nav", { key: '998dc3d451a69c9fdd1e20fba6225010116c44d7', "aria-label": `${label}${I18N$6[lang].navLabel}`, class: "gcds-side-nav" }, index.h("h2", { key: '31f128c4a51ffae7220e65d20f17d87822eb4894', class: "gcds-side-nav__heading" }, label), index.h("ul", { key: 'e47ce7a1bf273d23c2dacf3bfbcef7bdcb4eaf6b' }, index.h("gcds-nav-group", { key: '66045fe6eb15f4e2c2db1065de97857f74892a51', menuLabel: I18N$6[lang].menuLabel, closeTrigger: I18N$6[lang].closeTrigger, openTrigger: I18N$6[lang].menuLabel, class: "gcds-mobile-nav", ref: element => (this.mobile = element), lang: lang }, index.h("slot", { key: '8eeaad2a7387c7ff7de2438fbbb294da280b4e58' }))))));
     }
     get el() { return index.getElement(this); }
 };
@@ -4664,7 +4664,7 @@ const GcdsSignature = class {
     }
     render() {
         const { type, hasLink, lang, selectSVG } = this;
-        return (index.h(index.Host, null, hasLink && type === 'signature' ? (
+        return (index.h(index.Host, { key: 'e280c8fbdaee428f9d4b60ceed0734a54a0ca552' }, hasLink && type === 'signature' ? (
         // eslint-disable-next-line jsx-a11y/anchor-has-content
         index.h("a", { class: "gcds-signature", href: I18N$5[lang].link, innerHTML: selectSVG })) : (index.h("div", { class: "gcds-signature", innerHTML: selectSVG }))));
     }
@@ -4676,7 +4676,7 @@ const GcdsSignature = class {
 };
 GcdsSignature.style = GcdsSignatureStyle0;
 
-const gcdsSrOnlyCss = "@layer reset, default;@layer reset{:host slot{display:initial}}@layer default{:host{display:inline-block;height:0;margin:0;overflow:hidden;width:0}}";
+const gcdsSrOnlyCss = "@layer reset, default;@layer reset{:host slot{display:initial}}@layer default{:host{clip-path:inset(100%);clip:rect(1px,1px,1px,1px);height:1px;overflow:hidden;position:absolute;white-space:nowrap;width:1px}}";
 const GcdsSrOnlyStyle0 = gcdsSrOnlyCss;
 
 const GcdsSrOnly = class {
@@ -4696,7 +4696,7 @@ const GcdsSrOnly = class {
     }
     render() {
         const Tag = this.tag;
-        return (index.h(index.Host, null, index.h(Tag, null, index.h("slot", null))));
+        return (index.h(index.Host, { key: 'e86bd5be2d850425f77999ffd21f08ddbc06efce' }, index.h(Tag, { key: '70fbce245104348613399cda52a68aa2053e0ebd' }, index.h("slot", { key: '6c80f2f968eb292c4b551336930c58e5aae2fd56' }))));
     }
     static get watchers() { return {
         "tag": ["validateTag"]
@@ -4788,7 +4788,7 @@ const GcdsStepper = class {
     }
     render() {
         const { currentStep, lang, totalSteps, tag } = this;
-        return (index.h(index.Host, null, this.validateRequiredProps() && (index.h("gcds-heading", { tag: tag, class: "gcds-stepper", "margin-top": "0", "margin-bottom": "300" }, index.h("span", { class: "gcds-stepper__steps" }, `${I18N$4[lang].step} ${currentStep} ${I18N$4[lang].of} ${totalSteps}`, index.h("gcds-sr-only", null, " : ")), index.h("slot", null)))));
+        return (index.h(index.Host, { key: '02cdb3239e32828d727d13a891c52d5dfd10020e' }, this.validateRequiredProps() && (index.h("gcds-heading", { key: 'c3725caf65235a7f572394b2ef79276462e0e793', tag: tag, class: "gcds-stepper", "margin-top": "0", "margin-bottom": "300" }, index.h("span", { key: '81cba93ebbfd826286a0cd5eef917312e7c49a03', class: "gcds-stepper__steps" }, `${I18N$4[lang].step} ${currentStep} ${I18N$4[lang].of} ${totalSteps}`, index.h("gcds-sr-only", { key: 'b962eb08c6f6407d1e935d0081b998d175960b5c' }, " : ")), index.h("slot", { key: '0997a5e29a9b1c052fa8ca5c25e41bcd17bcec2e' })))));
     }
     get el() { return index.getElement(this); }
     static get watchers() { return {
@@ -4892,7 +4892,7 @@ const GcdsText = class {
     }
     render() {
         const { characterLimit, display, marginTop, marginBottom, size, textRole } = this;
-        return (index.h(index.Host, { class: `${display != 'block' ? `d-${display}` : ''}` }, index.h("p", { class: `
+        return (index.h(index.Host, { key: '4860a1fcc95e794c412a988b0bd0431910533ea4', class: `${display != 'block' ? `d-${display}` : ''}` }, index.h("p", { key: 'b2b2b6ca469d96c8abad566b4c908fb4b775a94e', class: `
             gcds-text
             ${textRole ? `role-${textRole}` : ''}
             ${characterLimit ? 'limit' : ''}
@@ -5103,7 +5103,7 @@ const GcdsTextarea = class {
                 ? `${attrsTextarea['aria-describedby']}`
                 : ''}`;
         }
-        return (index.h(index.Host, null, index.h("div", { class: `gcds-textarea-wrapper ${disabled ? 'gcds-disabled' : ''} ${hasError ? 'gcds-error' : ''}` }, index.h("gcds-label", Object.assign({}, attrsLabel, { "hide-label": hideLabel, "label-for": textareaId, lang: lang })), hint ? index.h("gcds-hint", { "hint-id": textareaId }, hint) : null, errorMessage ? (index.h("gcds-error-message", { messageId: textareaId }, errorMessage)) : null, index.h("textarea", Object.assign({}, attrsTextarea, { class: hasError ? 'gcds-error' : null, id: textareaId, onBlur: () => this.onBlur(), onFocus: () => this.gcdsFocus.emit(), onInput: e => this.handleInput(e, this.gcdsInput), onChange: e => this.handleInput(e, this.gcdsChange), "aria-labelledby": `label-for-${textareaId}`, "aria-invalid": errorMessage ? 'true' : 'false', maxlength: characterCount ? characterCount : null, style: cols ? style : null, ref: element => (this.shadowElement = element) }), value), characterCount ? (index.h("gcds-text", { id: `textarea__count-${textareaId}`, "aria-live": "polite" }, value == undefined
+        return (index.h(index.Host, { key: 'dee9a306d2a1b223664f3f521d95a771b25e992a' }, index.h("div", { key: 'ac0dbe36a107cfae393c9280eedf56df933d7d0f', class: `gcds-textarea-wrapper ${disabled ? 'gcds-disabled' : ''} ${hasError ? 'gcds-error' : ''}` }, index.h("gcds-label", Object.assign({ key: '166f410933094b6ffe79e27a962ae1440fe8edef' }, attrsLabel, { "hide-label": hideLabel, "label-for": textareaId, lang: lang })), hint ? index.h("gcds-hint", { "hint-id": textareaId }, hint) : null, errorMessage ? (index.h("gcds-error-message", { messageId: textareaId }, errorMessage)) : null, index.h("textarea", Object.assign({ key: 'a4ea051d4db3002b3e825f1c28bd2d512dd81e32' }, attrsTextarea, { class: hasError ? 'gcds-error' : null, id: textareaId, onBlur: () => this.onBlur(), onFocus: () => this.gcdsFocus.emit(), onInput: e => this.handleInput(e, this.gcdsInput), onChange: e => this.handleInput(e, this.gcdsChange), "aria-labelledby": `label-for-${textareaId}`, "aria-invalid": errorMessage ? 'true' : 'false', maxlength: characterCount ? characterCount : null, style: cols ? style : null, ref: element => (this.shadowElement = element) }), value), characterCount ? (index.h("gcds-text", { id: `textarea__count-${textareaId}`, "aria-live": "polite" }, value == undefined
             ? `${characterCount} ${I18N$3[lang].characters.allowed}`
             : `${characterCount - value.length} ${I18N$3[lang].characters.left}`)) : null)));
     }
@@ -5246,7 +5246,7 @@ const GcdsTopNav = class {
     }
     render() {
         const { label, alignment, lang } = this;
-        return (index.h(index.Host, null, index.h("div", { class: "gcds-top-nav" }, index.h("nav", { "aria-label": `${label}${I18N$2[lang].navLabel}` }, index.h("ul", { class: "gcds-top-nav__container" }, index.h("gcds-nav-group", { menuLabel: I18N$2[lang].menuLabel, closeTrigger: I18N$2[lang].closeTrigger, openTrigger: I18N$2[lang].menuLabel, class: "gcds-mobile-nav gcds-mobile-nav-topnav", ref: element => (this.mobile = element), lang: lang }, index.h("slot", { name: "home" }), index.h("li", { class: `nav-container__list nav-list--${alignment}` }, index.h("ul", { class: `nav-container__list nav-list--${alignment}` }, index.h("slot", null)))))))));
+        return (index.h(index.Host, { key: '42af640e82c9762d93317c27a17a92acda227221' }, index.h("div", { key: 'f443220a73b848ba7680edf4a5b6864c5ae04000', class: "gcds-top-nav" }, index.h("nav", { key: '6f80708a70689a118a4999e5b51f3d8e336dc199', "aria-label": `${label}${I18N$2[lang].navLabel}` }, index.h("ul", { key: 'da5d44e8fa22794dee111c6846c742dd10e8a92c', class: "gcds-top-nav__container" }, index.h("gcds-nav-group", { key: 'b9987354f437554282e4cec40556269a69d5b5ff', menuLabel: I18N$2[lang].menuLabel, closeTrigger: I18N$2[lang].closeTrigger, openTrigger: I18N$2[lang].menuLabel, class: "gcds-mobile-nav gcds-mobile-nav-topnav", ref: element => (this.mobile = element), lang: lang }, index.h("slot", { key: '50eb9b1c747becc71d287fd6e54a6a154be08f99', name: "home" }), index.h("li", { key: '993a9d649a5845c6508e0fb38c65990f062c548a', class: `nav-container__list nav-list--${alignment}` }, index.h("ul", { key: 'aee7825fbfd1b0fc9ec2fde6b4b01141aea1618c', class: `nav-container__list nav-list--${alignment}` }, index.h("slot", { key: '770e5b28a68efef61bd321a54b5e96e7c52f553c' })))))))));
     }
     get el() { return index.getElement(this); }
 };
@@ -5591,7 +5591,7 @@ const GcdsTopicMenu = class {
     }
     render() {
         const { home, lang } = this;
-        return (index.h(index.Host, null, index.h("nav", { class: "gcds-topic-menu", "aria-labelledby": "gcds-topic-menu__heading" }, index.h("gcds-sr-only", { id: "gcds-topic-menu__heading", tag: "h2" }, I18N$1[lang].menuLabelFull), index.h("button", { "aria-haspopup": "true", "aria-expanded": this.open.toString(), "aria-label": I18N$1[lang].buttonLabel, onClick: async () => await this.toggleNav(), ref: element => (this.menuButton = element), class: home && 'gcds-topic-menu--home' }, this.lang == 'en' ? (index.h(index.Fragment, null, index.h("gcds-sr-only", { tag: "span" }, I18N$1[lang].menuLabelHidden), I18N$1[lang].menuToggle)) : (index.h(index.Fragment, null, I18N$1[lang].menuToggle, index.h("gcds-sr-only", { tag: "span" }, I18N$1[lang].menuLabelHidden))), index.h("gcds-icon", { name: "chevron-down", "margin-left": "150", size: "caption" })), index.h("ul", { role: "menu", "aria-orientation": "vertical", "data-top-menu": true, innerHTML: this.listItems, ref: element => (this.themeList = element) }))));
+        return (index.h(index.Host, { key: '916b7b16453365f35636a73ae748cffcb85f356b' }, index.h("nav", { key: 'bb4d79d8c9da99086df1b547e1a5749ebac71f8f', class: "gcds-topic-menu", "aria-labelledby": "gcds-topic-menu__heading" }, index.h("gcds-sr-only", { key: '29c985cdb30bee4bbb5b6bbd9767035cf9c931c5', id: "gcds-topic-menu__heading", tag: "h2" }, I18N$1[lang].menuLabelFull), index.h("button", { key: '5090d231a0db3a464b814fba5531039e29a35242', "aria-haspopup": "true", "aria-expanded": this.open.toString(), "aria-label": I18N$1[lang].buttonLabel, onClick: async () => await this.toggleNav(), ref: element => (this.menuButton = element), class: home && 'gcds-topic-menu--home' }, this.lang == 'en' ? (index.h(index.Fragment, null, index.h("gcds-sr-only", { tag: "span" }, I18N$1[lang].menuLabelHidden), I18N$1[lang].menuToggle)) : (index.h(index.Fragment, null, I18N$1[lang].menuToggle, index.h("gcds-sr-only", { tag: "span" }, I18N$1[lang].menuLabelHidden))), index.h("gcds-icon", { key: 'f1beea2f4474b8c978d888f8501e167f501af7e0', name: "chevron-down", "margin-left": "150", size: "caption" })), index.h("ul", { key: '969cbffc0095912f1dee1d372549056287c24664', role: "menu", "aria-orientation": "vertical", "data-top-menu": true, innerHTML: this.listItems, ref: element => (this.themeList = element) }))));
     }
     get el() { return index.getElement(this); }
 };
@@ -5688,7 +5688,7 @@ const GcdsVerifyBanner = class {
     }
     render() {
         const { container, isFixed, lang } = this;
-        return (index.h(index.Host, null, index.h("details", { class: `gcds-verify-banner ${isFixed ? 'verify-banner--is-fixed' : ''}` }, index.h("summary", { class: container ? `container-${container}` : '', "aria-expanded": "false", role: "button" }, index.h("span", { class: "svg-container", innerHTML: CanadaFlag }), index.h("p", null, index.h("small", null, I18N[lang].summary.text), index.h("button", { class: "verify-banner__toggle" }, index.h("small", null, I18N[lang].summary.link), index.h("span", { class: "svg-container", innerHTML: ContentToggleArrow })))), index.h("div", { class: `verify-banner__content ${container ? `container-${container}` : ''}` }, index.h("p", null, index.h("small", null, I18N[lang].content.description)), index.h("br", null), index.h("gcds-grid", { tag: "ul", container: "lg", columns: "1fr", "columns-tablet": container === 'xs' || container === 'sm' ? '1fr' : '1fr 1fr' }, index.h("li", null, index.h("h4", null, I18N[lang].content.url.heading), index.h("p", null, index.h("small", null, I18N[lang].content.url.text))), index.h("li", null, index.h("h4", null, I18N[lang].content.languages.heading), index.h("p", null, index.h("small", null, I18N[lang].content.languages.text))), index.h("li", null, index.h("h4", null, I18N[lang].content.https.heading), index.h("p", null, index.h("small", null, I18N[lang].content.https.text, " ", index.h("strong", null, "https://"), "."))), index.h("li", null, index.h("h4", null, I18N[lang].content.contact.heading), index.h("p", null, index.h("small", null, I18N[lang].content.contact.text))))))));
+        return (index.h(index.Host, { key: '3a359e2f739de9f0b5b1f4875616f13d926b7c93' }, index.h("details", { key: '36dbad0f247d5adac5600c345547210b703be94c', class: `gcds-verify-banner ${isFixed ? 'verify-banner--is-fixed' : ''}` }, index.h("summary", { key: 'a4258b57b63a5634a3e2dd3784718b5767e022da', class: container ? `container-${container}` : '', "aria-expanded": "false", role: "button" }, index.h("span", { key: 'b2ce523e45247b183eff7b85e717688b5b09d3f3', class: "svg-container", innerHTML: CanadaFlag }), index.h("p", { key: '9dc5c963bd59d2bcd9e2cf32d99c82e2212ca498' }, index.h("small", { key: '0ec143a4ce1d9f50a914ce8e5e37bb5e486ef3aa' }, I18N[lang].summary.text), index.h("button", { key: '438d1af370ab648eec84b2c66e13a12f0537752c', class: "verify-banner__toggle" }, index.h("small", { key: '5399bf38ac46c84510385c5e04783035eadf9d4f' }, I18N[lang].summary.link), index.h("span", { key: '4bd05582cd3ce82b6bd25c8ece8fd6d5319d561a', class: "svg-container", innerHTML: ContentToggleArrow })))), index.h("div", { key: 'c14eb05c5bee6b7539f0299d94a85022949d208f', class: `verify-banner__content ${container ? `container-${container}` : ''}` }, index.h("p", { key: 'da5a85d1cee0a3661bd40f3ad0d6998e5ac073a3' }, index.h("small", { key: 'ea5f95f05be7a82ff58036ef11cdc7eac9d9887d' }, I18N[lang].content.description)), index.h("br", { key: 'b8d3cb8a7af7710da4ec26a814080f910d144fed' }), index.h("gcds-grid", { key: '7ce30265f4350c92837edfea5f223384ec19382d', tag: "ul", container: "lg", columns: "1fr", "columns-tablet": container === 'xs' || container === 'sm' ? '1fr' : '1fr 1fr' }, index.h("li", { key: 'dbaa8b5b0d85c9d804938b2bd702dc9419fbdc41' }, index.h("h4", { key: 'a5870058080d105ef5df2a5ada92e4d0efca49fd' }, I18N[lang].content.url.heading), index.h("p", { key: 'ed2d3d9b33b44a04e4416d87c4b1e8f08170dfa2' }, index.h("small", { key: 'a63c2b37cf7398b54cb56ddcabae8ff5591e3b78' }, I18N[lang].content.url.text))), index.h("li", { key: '8848fb6834f7028e73758c519ad5b90d6488b006' }, index.h("h4", { key: '96515dba93042ab9174ab69ea79a25ce4369ec78' }, I18N[lang].content.languages.heading), index.h("p", { key: '762995079f47a4e2bd0045743ffd3cc7c4768a11' }, index.h("small", { key: '18342f031772a082604902ff4fe7abd0c6b43eb2' }, I18N[lang].content.languages.text))), index.h("li", { key: '8742fec5049734b9de8047aaa9625fa3d10e8af9' }, index.h("h4", { key: 'ef9ec15f10461f9c31e68784dea1f1b1704a8f58' }, I18N[lang].content.https.heading), index.h("p", { key: '5be480efae55e752f52da02182c800f6dfb3011c' }, index.h("small", { key: '4bd5c68679d42da7a34935d2ce0f5a6cd5ecd20f' }, I18N[lang].content.https.text, " ", index.h("strong", { key: 'bc02af8813d9e4cdeffdca40b36c9a633f120ed3' }, "https://"), "."))), index.h("li", { key: 'f17b0baad7117c8def9625ff3c53576b14e063e2' }, index.h("h4", { key: 'e884b635d63c1b510f6b01c00d19e8c3c55fc8e7' }, I18N[lang].content.contact.heading), index.h("p", { key: '9285d3c76b451350428bc82172bee2d3328b2413' }, index.h("small", { key: '713bcafc07cf60dfcb02c8d6868fa94c7a02026e' }, I18N[lang].content.contact.text))))))));
     }
     get el() { return index.getElement(this); }
 };

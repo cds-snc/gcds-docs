@@ -96,7 +96,7 @@ const GcdsText = /*@__PURE__*/ proxyCustomElement(class GcdsText extends HTMLEle
     }
     render() {
         const { characterLimit, display, marginTop, marginBottom, size, textRole } = this;
-        return (h(Host, { class: `${display != 'block' ? `d-${display}` : ''}` }, h("p", { class: `
+        return (h(Host, { key: '4860a1fcc95e794c412a988b0bd0431910533ea4', class: `${display != 'block' ? `d-${display}` : ''}` }, h("p", { key: 'b2b2b6ca469d96c8abad566b4c908fb4b775a94e', class: `
             gcds-text
             ${textRole ? `role-${textRole}` : ''}
             ${characterLimit ? 'limit' : ''}

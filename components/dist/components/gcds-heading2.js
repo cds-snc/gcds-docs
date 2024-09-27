@@ -79,12 +79,12 @@ const GcdsHeading = /*@__PURE__*/ proxyCustomElement(class GcdsHeading extends H
     render() {
         const { characterLimit, marginTop, marginBottom, tag } = this;
         const Tag = tag;
-        return (h(Host, null, h(Tag, { class: `
+        return (h(Host, { key: '0416b329bd8fe577775bdce03ffc95a62582722d' }, h(Tag, { key: '5e0af26dad00a8d0568ba0af150694187ad86e79', class: `
             gcds-heading
             ${characterLimit ? 'limit' : ''}
             ${marginTop ? `mt-${marginTop}` : ''}
             ${marginBottom ? `mb-${marginBottom}` : ''}
-          ` }, h("slot", null))));
+          ` }, h("slot", { key: '9f01a4e2a648ead351e6e6860262df0f182827cd' }))));
     }
     get el() { return this; }
     static get watchers() { return {

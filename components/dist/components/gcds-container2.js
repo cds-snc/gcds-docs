@@ -19,7 +19,7 @@ const GcdsContainer = /*@__PURE__*/ proxyCustomElement(class GcdsContainer exten
     render() {
         const { border, centered, mainContainer, margin, padding, size, tag } = this;
         const Tag = tag;
-        return (h(Host, null, h(Tag, { class: `
+        return (h(Host, { key: '0e99ad345508c1300109aabce30794de7649ddf8' }, h(Tag, { key: '616d153d1f1445306436e8612bb2fc648e590099', class: `
             gcds-container
             ${border ? 'container-border' : ''}
             ${centered ? 'container-centered' : ''}
@@ -27,7 +27,7 @@ const GcdsContainer = /*@__PURE__*/ proxyCustomElement(class GcdsContainer exten
             ${margin ? `m-${margin}` : ''}
             ${padding ? `p-${padding}` : ''}
             ${size ? `size-${size}` : ''}
-          ` }, h("slot", null))));
+          ` }, h("slot", { key: '471427424ab9bf64b4c767897cad5493507e793d' }))));
     }
     get el() { return this; }
     static get style() { return GcdsContainerStyle0; }

@@ -167,9 +167,9 @@ const GcdsFieldset = /*@__PURE__*/ proxyCustomElement(class GcdsFieldset extends
                 ? ` ${fieldsetAttrs['aria-describedby']}`
                 : ''}`;
         }
-        return (h(Host, null, h("fieldset", Object.assign({ class: `gcds-fieldset ${hasError ? 'gcds-fieldset--error' : ''}`, id: fieldsetId }, fieldsetAttrs, { "aria-labelledby": hint
+        return (h(Host, { key: '89556f83e10ae99e70fefaf649e3b43f4e770699' }, h("fieldset", Object.assign({ key: 'b788701b3e9c46afab93206a55ee28223383bf5b', class: `gcds-fieldset ${hasError ? 'gcds-fieldset--error' : ''}`, id: fieldsetId }, fieldsetAttrs, { "aria-labelledby": hint
                 ? `legend-${fieldsetId} hint-${fieldsetId}`
-                : `legend-${fieldsetId}`, tabindex: "-1", ref: element => (this.shadowElement = element) }), h("legend", { id: `legend-${fieldsetId}` }, legend, required ? (h("span", { class: "legend__required" }, "(", I18N[lang].required, ")")) : null), hint ? h("gcds-hint", { "hint-id": fieldsetId }, hint) : null, errorMessage ? (h("gcds-error-message", { messageId: fieldsetId }, errorMessage)) : null, h("slot", null))));
+                : `legend-${fieldsetId}`, tabindex: "-1", ref: element => (this.shadowElement = element) }), h("legend", { key: '2ed88bb08d1f52e9054df6efafe51a94c2ac0b2c', id: `legend-${fieldsetId}` }, legend, required ? (h("span", { class: "legend__required" }, "(", I18N[lang].required, ")")) : null), hint ? h("gcds-hint", { "hint-id": fieldsetId }, hint) : null, errorMessage ? (h("gcds-error-message", { messageId: fieldsetId }, errorMessage)) : null, h("slot", { key: 'cf54188dacee5ac7f098303d68befe7ae251f751' }))));
     }
     static get delegatesFocus() { return true; }
     get el() { return this; }

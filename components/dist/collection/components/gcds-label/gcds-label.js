@@ -40,7 +40,7 @@ export class GcdsLabel {
     }
     render() {
         const { hideLabel, labelFor, label, required, lang } = this;
-        return (h(Host, { id: `label-for-${labelFor}`, onClick: this.onClick }, h("label", { htmlFor: labelFor, class: `gcds-label ${hideLabel ? 'label--hidden' : ''}`, ref: focusEl => (this.focusEl = focusEl) }, h("span", null, label), required ? (h("span", { "aria-hidden": "true", class: "label--required" }, "(", i18n[lang].required, ")")) : null)));
+        return (h(Host, { key: '2571828246ca42f80c10f9008ccbf9767b65e101', id: `label-for-${labelFor}`, onClick: this.onClick }, h("label", { key: '66523fc42c2cdda0204dc8747ec9adf935b69466', htmlFor: labelFor, class: `gcds-label ${hideLabel ? 'label--hidden' : ''}`, ref: focusEl => (this.focusEl = focusEl) }, h("span", { key: '6dd8fbc5012750873da600a1b2e2f20b193c7dc3' }, label), required ? (h("span", { "aria-hidden": "true", class: "label--required" }, "(", i18n[lang].required, ")")) : null)));
     }
     static get is() { return "gcds-label"; }
     static get encapsulation() { return "scoped"; }

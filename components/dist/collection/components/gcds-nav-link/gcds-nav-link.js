@@ -46,7 +46,7 @@ export class GcdsNavLink {
         if (current) {
             linkAttrs['aria-current'] = 'page';
         }
-        return (h(Host, { role: "listitem" }, h("a", Object.assign({ class: `gcds-nav-link gcds-nav-link--${this.navStyle}`, href: href }, linkAttrs, { onBlur: () => this.gcdsBlur.emit(), onFocus: () => this.gcdsFocus.emit(), onClick: e => emitEvent(e, this.gcdsClick, href), ref: element => (this.linkElement = element) }), h("slot", null))));
+        return (h(Host, { key: 'a5bb7d97f3b52083346b6c795e261028c787195a', role: "listitem" }, h("a", Object.assign({ key: '1fd2194fb01fffb0671b1720696d145cad9826ac', class: `gcds-nav-link gcds-nav-link--${this.navStyle}`, href: href }, linkAttrs, { onBlur: () => this.gcdsBlur.emit(), onFocus: () => this.gcdsFocus.emit(), onClick: e => emitEvent(e, this.gcdsClick, href), ref: element => (this.linkElement = element) }), h("slot", { key: '05503dee7159a649d3d6ba88af6e0bd61f08222e' }))));
     }
     static get is() { return "gcds-nav-link"; }
     static get encapsulation() { return "shadow"; }

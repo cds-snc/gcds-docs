@@ -11,7 +11,7 @@ export class GcdsIcon {
     }
     render() {
         const { iconStyle, label, marginLeft, marginRight, name, fixedWidth, size, } = this;
-        return (h(Host, null, h("span", { class: `
+        return (h(Host, { key: 'fdb458ee02f7aa6aeba3480ff78f127b6d42e437' }, h("span", { key: '4d5c34c5016bc6c2148ed3ace5eb54268614e96d', class: `
             gcds-icon fa fa-${iconStyle} fa-${name}
             ${marginLeft ? `ml-${marginLeft}` : ''}
             ${marginRight ? `mr-${marginRight}` : ''}

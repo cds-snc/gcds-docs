@@ -102,7 +102,7 @@ const GcdsSignature = /*@__PURE__*/ proxyCustomElement(class GcdsSignature exten
     }
     render() {
         const { type, hasLink, lang, selectSVG } = this;
-        return (h(Host, null, hasLink && type === 'signature' ? (
+        return (h(Host, { key: 'e280c8fbdaee428f9d4b60ceed0734a54a0ca552' }, hasLink && type === 'signature' ? (
         // eslint-disable-next-line jsx-a11y/anchor-has-content
         h("a", { class: "gcds-signature", href: I18N[lang].link, innerHTML: selectSVG })) : (h("div", { class: "gcds-signature", innerHTML: selectSVG }))));
     }

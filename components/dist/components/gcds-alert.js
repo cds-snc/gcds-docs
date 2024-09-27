@@ -60,7 +60,7 @@ const GcdsAlert$1 = /*@__PURE__*/ proxyCustomElement(class GcdsAlert extends HTM
     }
     render() {
         const { alertRole, container, heading, hideCloseBtn, hideRoleIcon, isFixed, isOpen, lang, } = this;
-        return (h(Host, null, isOpen ? (h("div", { class: `gcds-alert alert--role-${alertRole} ${isFixed ? 'alert--is-fixed' : ''}`, role: "alert", "aria-label": alertRole === 'danger'
+        return (h(Host, { key: 'f0856a42192ff33a6157989152da33915175b3a7' }, isOpen ? (h("div", { class: `gcds-alert alert--role-${alertRole} ${isFixed ? 'alert--is-fixed' : ''}`, role: "alert", "aria-label": alertRole === 'danger'
                 ? I18N[lang].label.danger
                 : alertRole === 'info'
                     ? I18N[lang].label.info
