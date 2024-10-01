@@ -1192,32 +1192,32 @@ Aperçu du composant de champ de saisie
 <li><p class="mb-400">Réglez la saisie de manière à ce qu'elle couvre presque toute la boîte, par exemple à 90 %, lorsque vous ne savez pas la longueur exacte de la réponse.</li>
 <li><p class="mb-400">Utilisez le maximum de 75 caractères pour les réponses sans longueur fixe.</li>
 </ul>
-<h3 id="traitez-les-messages-derreur-et-la-validation" class="mt-500 mb-400">Traitez les messages d'erreur et la validation</h3>
+<h3 id="traiter-les-messages-derreur-et-la-validation" class="mt-500 mb-400">Traiter les messages d'erreur et la validation</h3>
 <ul class="list-disc mb-400"><li>
-<p class="mb-400">Utilisez l'attribut <code>required</code> pour activer le validateur nécessaire. La validation s'effectuera par défaut pendant l'événement <code>onBlur</code>.</p>
+<p class="mb-400">Utilisez l'attribut <code>required</code> pour activer le valideur de champ obligatoire. La validation s'effectuera par défaut pendant l'évènement <code>onBlur</code>. Une réponse manquante ou non valide affichera un message d'erreur intercalé prédéfini.</p>
 </li>
 <li>
-<p class="mb-400">Si vous devez modifier l'événement de validation, utilisez l'attribut <code>validate-on</code>. Une validation onBlur est possible lorsque l'élément n'est plus ciblé. Il est également possible de procéder à une validation manuelle avec la méthode <code>validate()</code>.</p>
+<p class="mb-400">Si vous devez modifier l'évènement de validation, utilisez l'attribut <code>validate-on</code>. La validation peut se produire pendant l'évènement onBlur, lorsque l'élément perd son état ciblé, ou de façon manuelle avec la méthode <code>validate()</code>.</p>
 </li>
 <li>
-<p class="mb-400">Employez l'attribut <code>required</code> pour les champs obligatoires. Cet attribut insérera la mention « (obligatoire) » à la fin de la case à cocher.</p>
+<p class="mb-400">Utilisez l'attribut <code>required</code> pour les champs qui doivent obligatoirement être remplis. La mention « obligatoire » sera alors ajoutée à la fin de l'étiquette.</p>
 </li>
 <li>
-<p class="mb-400">Conservez l'attribut <code>error-message</code> par défaut pour une zone de texte obligatoire qui doit être validée. Une entrée manquante ou non valide affichera un message d'erreur intercalé.</p>
+<p class="mb-400">Utilisez l'attribut <code>error-message</code> pour inclure un message d'erreur pour tous les champs de saisie obligatoires. Évitez d'utiliser des messages d'erreur pour les champs de saisie facultatifs.</p>
 </li>
 <li>
-<p class="mb-400">Supprimez l'attribut <code>error-message</code> par défaut si la zone de texte est facultative.</p>
+<p class="mb-400">Pour les champs facultatifs, évitez d'ajouter l'attribut <code>error-message</code>.</p>
+</li>
+<li>
+<p class="mb-400">Pour un champ facultatif nécessitant une validation qui dépend de ce que l'utilisateur a saisi (par exemple pour valider un format d'adresse courriel), ajoutez plutôt une validation et un message d'erreur personnalisés.</p>
 </li>
 </ul>
-<h3 id="ajoutez-du-texte-explicatif-et-un-message-derreur-pour-favoriser-la-reussite-de-la-tache" class="mt-500 mb-400">Ajoutez du texte explicatif et un message d'erreur pour favoriser la réussite de la tâche</h3>
+<h3 id="ajouter-un-texte-explicatif-pour-favoriser-la-reussite-des-taches" class="mt-500 mb-400">Ajouter un texte explicatif pour favoriser la réussite des tâches</h3>
 <ul class="list-disc mb-400"><li>
-<p class="mb-400">Incluez un message d'erreur pour tous les champs de saisie obligatoires. Évitez d'inclure des messages d'erreur pour les champs de saisie facultatifs.</p>
+<p class="mb-400">Utilisez l'attribut <code>hint</code> pour ajouter un texte explicatif qui aidera la personne à fournir une valeur complète dans le champ de saisie, évitant ainsi d'obtenir un état d'erreur.</p>
 </li>
 <li>
-<p class="mb-400">Ajoutez du texte explicatif pour aider l'utilisateur·rice à fournir une valeur valide dans le champs de saisie et ainsi éviter les erreurs.</p>
-</li>
-<li>
-<p class="mb-400">Évitez d'ajouter du texte explicatif dans la boîte du champ, où il s'effacera une fois le champ sélectionné.</p>
+<p class="mb-400">Évitez d'ajouter un texte explicatif directement dans le champ (ce qu'on appelle aussi du texte fictif) qui disparaîtra une fois que le champ est sélectionné ou qu'une réponse commence à être saisie.</p>
 </li>
 </ul>
 <h3 id="obtenez-votre-code" class="mt-500 mb-400">Obtenez votre code</h3>
