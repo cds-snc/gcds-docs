@@ -20,10 +20,10 @@ Our Design System follows the Web Content Accessibility Guidelines (WCAG) 2.1 AA
 ## How we build accessible components
 To ensure accessibility, our components and design patterns undergo a rigorous development process that includes:
 1. WCAG 2.1 AA Compliance: Our components are independently audited to ensure they meet the criteria for WCAG 2.1 AA. This covers all four principles of accessibility:
-  - Perceivable: Ensuring content is available in ways people can perceive, whether visually, audibly, or through assistive technologies.
-  - Operable: Components can be navigated and interacted with via multiple input methods, including keyboard and assistive devices.
-  - Understandable: Information and user interfaces are intuitive, predictable, and error-tolerant.
-  - Robust: Components are compatible with various assistive technologies and can adapt as technologies evolve.
+   - Perceivable: Ensuring content is available in ways people can perceive, whether visually, audibly, or through assistive technologies.
+   - Operable: Components can be navigated and interacted with via multiple input methods, including keyboard and assistive devices.
+   - Understandable: Information and user interfaces are intuitive, predictable, and error-tolerant.
+   - Robust: Components are compatible with various assistive technologies and can adapt as technologies evolve.
 2. Automated Accessibility Testing: We leverage automated tools that scan our codebase for accessibility issues like missing alt-text, ARIA roles, and colour contrast problems. This early-stage testing allows us to resolve common issues before deeper testing begins.
 3. User Testing with Accessibility Needs: We conduct real-world testing with people who have accessibility needs, including individuals with various disabilities. This ensures our designs are functional and usable in a range of scenarios that automated testing cannot fully capture.
 4. Market Research and Best Practices: We continuously research evolving accessibility standards and best practices from across industries, incorporating new findings and recommendations into our design system.</li> </list>
