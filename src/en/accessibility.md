@@ -24,7 +24,6 @@ To ensure accessibility, our components and design patterns undergo a rigorous d
   - Operable: Components can be navigated and interacted with via multiple input methods, including keyboard and assistive devices.
   - Understandable: Information and user interfaces are intuitive, predictable, and error-tolerant.
   - Robust: Components are compatible with various assistive technologies and can adapt as technologies evolve.
-
 2. Automated Accessibility Testing: We leverage automated tools that scan our codebase for accessibility issues like missing alt-text, ARIA roles, and colour contrast problems. This early-stage testing allows us to resolve common issues before deeper testing begins.
 
 3. User Testing with Accessibility Needs: We conduct real-world testing with people who have accessibility needs, including individuals with various disabilities. This ensures our designs are functional and usable in a range of scenarios that automated testing cannot fully capture.
