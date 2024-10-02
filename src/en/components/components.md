@@ -11,13 +11,13 @@ date: 'git Last Modified'
 nocrawl: true
 cardlist:
   type: components
-  state: published
+  state: published 
 ---
 
 # {{ title }}
 
 GC Design System components are user interface building blocks that address different user objectives. Each comes with reusable code, best practice advice, and accessibility tips.
 
-We're sharing components as we build them.
-
 ## Browse components
+
+We're sharing components as we build them.
