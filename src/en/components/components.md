@@ -20,10 +20,4 @@ GC Design System components are user interface building blocks that address diff
 
 We're sharing components as we build them.
 
-## Component tags
-
-Core components help you meet federal identity standards for the Government of Canada in any product.
-
-Experimental components point out new features we're trying out and think you might like to use.
-
 ## Browse components
