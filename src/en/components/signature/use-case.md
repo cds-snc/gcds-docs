@@ -10,7 +10,7 @@ eleventyNavigation:
   description: A corporate identity marker for the Government of Canada.
   thumbnail: /images/common/components/preview-signature.svg
   alt: Signature component shows Canadian Flag and grey boxes where signature text would be.
-  tag: Core
+  tag: Canada.ca required
   state: published
 translationKey: 'signature'
 tags: ['signatureEN', 'usage']

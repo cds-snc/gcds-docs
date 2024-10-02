@@ -10,7 +10,7 @@ eleventyNavigation:
   description: A switch for displaying either French or English site content.
   thumbnail: /images/common/components/preview-lang-toggle.svg
   alt: Language toggle component shows FR for French icon double ended arrows to EN for English.
-  tag: Core
+  tag: Canada.ca required
   state: published
 translationKey: 'langtoggle'
 tags: ['langtoggleEN', 'usage']
