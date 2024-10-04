@@ -6,6 +6,7 @@ eleventyNavigation:
   title: Contact us
   locale: en
   order: 2
+  hideMain: true
 translationKey: 'contactus'
 contactForm: en
 date: 'git Last Modified'
