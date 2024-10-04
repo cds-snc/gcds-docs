@@ -2,7 +2,7 @@ module.exports = {
     en: {
         heading: 'Component tags',
         paragraphs: [
-            "Core components help you meet federal identity standards for the Government of Canada in any product.",
+            "Canada.ca required components help you meet federal identity standards for the Government of Canada in any product.",
             "Experimental components point out new features we're trying out and think you might like to use.",
             ]
     },
