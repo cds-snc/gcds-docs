@@ -17,6 +17,7 @@ tags: ['signatureEN', 'usage']
 permalink: /en/components/signature/
 date: 'git Last Modified'
 ---
+Signature is a required component for Canada.ca pages.
 
 Check out use cases for the signature to see if they fit the problem you're solving for.
 

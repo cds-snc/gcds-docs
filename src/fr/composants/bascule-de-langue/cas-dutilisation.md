@@ -17,6 +17,7 @@ tags: ['langtoggleFR', 'usage']
 permalink: /fr/composants/bascule-de-langue/
 date: 'git Last Modified'
 ---
+La bascule de langue est un composant obligatoire pour les pages Canada.ca.
 
 Examinez les cas d’utilisation des bascules de langue pour déterminer si elles répondent à vos besoins.
 

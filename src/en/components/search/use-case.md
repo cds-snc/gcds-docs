@@ -17,6 +17,7 @@ tags: ['searchEN', 'usage']
 permalink: /en/components/search/
 date: "git Last Modified"
 ---
+Search is a required component for Canada.ca pages.
 
 ## Use cases for search
 

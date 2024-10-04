@@ -17,6 +17,7 @@ tags: ['signatureFR', 'usage']
 permalink: /fr/composants/signature/
 date: 'git Last Modified'
 ---
+La signature est un composant obligatoire pour les pages Canada.ca.
 
 Examinez les cas d'utilisation de la signature pour déterminer s'ils répondent à vos besoins.
 

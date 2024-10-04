@@ -17,6 +17,7 @@ tags: ['breadcrumbsFR', 'usage']
 permalink: /fr/composants/chemin-de-navigation/
 date: 'git Last Modified'
 ---
+Le chemin de navigation est un composant obligatoire pour les pages Canada.ca.
 
 Examinez les cas d'utilisation des chemins de navigation pour déterminer s'ils répondent à vos besoins.
 

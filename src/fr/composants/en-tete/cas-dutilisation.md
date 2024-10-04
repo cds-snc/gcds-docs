@@ -17,6 +17,7 @@ tags: ['headerFR', 'usage']
 permalink: /fr/composants/en-tete/
 date: 'git Last Modified'
 ---
+L'en-tête est un composant obligatoire pour les pages Canada.ca.
 
 Explorez les problèmes réglés par les en-têtes et découvrez s'ils peuvent être utilisés pour résoudre votre problème en particulier.
 

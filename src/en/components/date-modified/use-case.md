@@ -17,6 +17,7 @@ tags: ['datemodifiedEN', 'usage']
 permalink: /en/components/date-modified/
 date: 'git Last Modified'
 ---
+Date modified is a required component for Canada.ca pages.
 
 ## Problems date modified solves
 

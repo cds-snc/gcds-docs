@@ -17,6 +17,7 @@ tags: ['footerEN', 'usage']
 permalink: /en/components/footer/
 date: 'git Last Modified'
 ---
+Footer is a required component for Canada.ca pages.
 
 Take a look at what problems the footer solves to see if they fit the problem you're solving for.
 

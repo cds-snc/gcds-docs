@@ -17,6 +17,7 @@ tags: ['headerEN', 'usage']
 permalink: /en/components/header/
 date: 'git Last Modified'
 ---
+Header is a required component for Canada.ca pages.
 
 Take a look at what problems the header solves to see if they fit the problem you're solving for.
 
