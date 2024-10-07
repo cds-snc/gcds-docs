@@ -1201,7 +1201,7 @@ Aperçu du composant de la pagination
 <h4 id="appliquez-lobjet-de-lurl-pour-la-pagination-sous-forme-de-liste" class="mt-500 mb-400">Appliquez l’objet de l’URL pour la pagination sous forme de liste.</h4>
 <p class="mb-400">Utilisez l’objet <code>url</code> pour générer les chaînes de requête et les fragments pour les liens de la pagination sous forme de liste.</p>
 
-<div style="position: relative">
+<div style="position: relative" id="code-container-76" >
   <pre class="language-js"><code id="code-76" class="language-js">url <span class="token operator">=</span> <span class="token punctuation">{</span>
   <span class="token literal-property property">queryStrings</span><span class="token operator">:</span> <span class="token punctuation">{</span>
     <span class="token comment">// Key value pairs</span>
@@ -1219,7 +1219,7 @@ Aperçu du composant de la pagination
 <p class="mb-400">Pour modifier la valeur en fonction du lien de page visualisé, ajoutez les modificateurs <code>::offset</code> ou <code>::match</code> à une clé dans l’objet queryStrings.</p>
 <p class="mb-400"><code>::offset</code> entame le décompte depuis la valeur donnée en commençant par le lien de la deuxième page.</p>
 
-<div style="position: relative">
+<div style="position: relative" id="code-container-83" >
   <pre class="language-js"><code id="code-83" class="language-js">url <span class="token operator">=</span> <span class="token punctuation">{</span>
   <span class="token literal-property property">queryStrings</span><span class="token operator">:</span> <span class="token punctuation">{</span>
     <span class="token string-property property">'index::offset'</span><span class="token operator">:</span> <span class="token number">100</span><span class="token punctuation">,</span>
@@ -1234,7 +1234,7 @@ Aperçu du composant de la pagination
 </div>
 <p class="mb-400">Utilisez <code>::match</code> pour le lien de page actuellement visualisée afin de multiplier ce dernier par la valeur fournie.</p>
 
-<div style="position: relative">
+<div style="position: relative" id="code-container-87" >
   <pre class="language-js"><code id="code-87" class="language-js">url <span class="token operator">=</span> <span class="token punctuation">{</span>
   <span class="token literal-property property">queryStrings</span><span class="token operator">:</span> <span class="token punctuation">{</span>
     <span class="token string-property property">'page::match'</span><span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
@@ -1249,7 +1249,7 @@ Aperçu du composant de la pagination
 </div>
 <p class="mb-400">Utilisez <code>::offset</code> ou <code>::match</code> pour permettre l’injection d’un nombre dans une chaîne. Utilisez <code>{{#}}</code> pour que l’élément modificateur injecte le nombre modifié en fonction de la méthode de comptage dans la chaîne au moment de la visualisation.</p>
 
-<div style="position: relative">
+<div style="position: relative" id="code-container-91" >
   <pre class="language-js"><code id="code-91" class="language-js">url <span class="token operator">=</span> <span class="token punctuation">{</span>
   <span class="token literal-property property">queryStrings</span><span class="token operator">:</span> <span class="token punctuation">{</span>
     <span class="token string-property property">'index::offset'</span><span class="token operator">:</span> <span class="token string">'index_{{100}}'</span><span class="token punctuation">,</span>

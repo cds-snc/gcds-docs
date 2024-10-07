@@ -1201,7 +1201,7 @@ Pagination component preview
 <h4 id="apply-the-url-object-for-liststyle-pagination" class="mt-500 mb-400">Apply the URL object for list-style pagination</h4>
 <p class="mb-400">Use the <code>url</code> object to generate the query strings and fragments for the list pagination’s links.</p>
 
-<div style="position: relative">
+<div style="position: relative" id="code-container-76" >
   <pre class="language-js"><code id="code-76" class="language-js">url <span class="token operator">=</span> <span class="token punctuation">{</span>
   <span class="token literal-property property">queryStrings</span><span class="token operator">:</span> <span class="token punctuation">{</span>
     <span class="token comment">// Key value pairs</span>
@@ -1219,7 +1219,7 @@ Pagination component preview
 <p class="mb-400">To modify the value based on the page link being rendered, add the object modifiers <code>::offset</code> or <code>::match</code> to a key in the queryStrings object.</p>
 <p class="mb-400"><code>::offset</code> counts up with the given value starting from the second page link.</p>
 
-<div style="position: relative">
+<div style="position: relative" id="code-container-83" >
   <pre class="language-js"><code id="code-83" class="language-js">url <span class="token operator">=</span> <span class="token punctuation">{</span>
   <span class="token literal-property property">queryStrings</span><span class="token operator">:</span> <span class="token punctuation">{</span>
     <span class="token string-property property">'index::offset'</span><span class="token operator">:</span> <span class="token number">100</span><span class="token punctuation">,</span>
@@ -1234,7 +1234,7 @@ Pagination component preview
 </div>
 <p class="mb-400">Using <code>::match</code> on the current page link being rendered, multiplies it by the value provided.</p>
 
-<div style="position: relative">
+<div style="position: relative" id="code-container-87" >
   <pre class="language-js"><code id="code-87" class="language-js">url <span class="token operator">=</span> <span class="token punctuation">{</span>
   <span class="token literal-property property">queryStrings</span><span class="token operator">:</span> <span class="token punctuation">{</span>
     <span class="token string-property property">'page::match'</span><span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
@@ -1249,7 +1249,7 @@ Pagination component preview
 </div>
 <p class="mb-400">Using either <code>::offset</code> or <code>::match</code>, allows a number to be injected into a string. Using <code>{{#}}</code>, the modifier will inject the modified number based on the counting method into the string when rendering.</p>
 
-<div style="position: relative">
+<div style="position: relative" id="code-container-91" >
   <pre class="language-js"><code id="code-91" class="language-js">url <span class="token operator">=</span> <span class="token punctuation">{</span>
   <span class="token literal-property property">queryStrings</span><span class="token operator">:</span> <span class="token punctuation">{</span>
     <span class="token string-property property">'index::offset'</span><span class="token operator">:</span> <span class="token string">'index_{{100}}'</span><span class="token punctuation">,</span>
