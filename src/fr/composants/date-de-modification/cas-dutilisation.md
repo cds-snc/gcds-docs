@@ -17,8 +17,7 @@ tags: ['datemodifiedFR', 'usage']
 permalink: /fr/composants/date-de-modification/
 date: 'git Last Modified'
 ---
-
-## Cas d'utilisation
+La date de modification est un composant obligatoire pour les pages Canada.ca.
 
 ### Problèmes résolus par la date de modification
 

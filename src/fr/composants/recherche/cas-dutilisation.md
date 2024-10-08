@@ -17,6 +17,7 @@ tags: ['searchFR', 'usage']
 permalink: /fr/composants/recherche/
 date: "git Last Modified"
 ---
+Le composant recherche est un composant obligatoire pour les pages Canada.ca.
 
 ## Cas d’utilisation du composant recherche
 
