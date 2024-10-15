@@ -45,7 +45,7 @@ date: 'git Last Modified'
       <h3 class="mb-400">Page templates</h3>
       <p class="mb-400">Reusable page layouts combine components into common page types.</p>
       <p class="mb-400">Start your project with basic, pre-built pages that provide a consistent, recognizable Canada.ca experience.</p>
-      <p>Coming soon</p>
+      <gcds-link href="{{ links.pageTemplates }}">Browse page templates</gcds-link>
     </li>
     <li class="list-none">
       <img class="mb-200" src="../../images/common/home/icon-tokens.svg" alt="" />
