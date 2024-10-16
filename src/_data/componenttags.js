@@ -9,7 +9,7 @@ module.exports = {
     fr: {
         heading: 'Balises de composants',
         paragraphs: [
-            "Les composants « De base » vous aident à respecter les normes du gouvernement fédéral canadien en matière d'identité, quel que soit votre produit.",
+            "Les composants « Requis sur Canada.ca » vous aident à respecter les normes du gouvernement fédéral canadien en matière d'identité, quel que soit votre produit.",
             "Les composants « À l'essai » indiquent de nouvelles fonctionnalités que nous testons ou qui devraient vous plaire.",
         ]
     },

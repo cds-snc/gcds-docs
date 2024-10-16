@@ -10,7 +10,7 @@ eleventyNavigation:
   description: L'en-tête portant l'image de marque du gouvernement du Canada.
   thumbnail: /images/common/components/preview-header.svg
   alt: Trois bandes horizontales superposées l’une au-dessus de l’autre. La première est une bande grise avec trois petits cercles à gauche et représente la barre du navigateur. La deuxième est une bande bleu foncé avec une épaisse ligne pâle représentant la bannière de phase. La troisième est une bande blanche affichant le drapeau du Canada ainsi que deux épaisses lignes grises superposées représentant du texte.
-  tag: De base
+  tag: Requis sur Canada.ca
   state: published
 translationKey: 'header'
 tags: ['headerFR', 'usage']
