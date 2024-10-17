@@ -10,13 +10,14 @@ eleventyNavigation:
   description: L'image de marque pour le gouvernement du Canada.
   thumbnail: /images/common/components/preview-signature.svg
   alt: Un aperçu du composant signature qui montre l'image de marque du gouvernement fédéral incluant le drapeau du Canada suivi de boîtes de texte représentants le texte en anglais et en français.
-  tag: De base
+  tag: Requis sur Canada.ca
   state: published
 translationKey: 'signature'
 tags: ['signatureFR', 'usage']
 permalink: /fr/composants/signature/
 date: 'git Last Modified'
 ---
+La signature est un composant obligatoire pour les pages Canada.ca.
 
 Examinez les cas d'utilisation de la signature pour déterminer s'ils répondent à vos besoins.
 

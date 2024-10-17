@@ -10,13 +10,14 @@ eleventyNavigation:
   description: A space for entering keywords to find relevant information.
   thumbnail: /images/common/components/preview-search.svg
   alt: The search component shows a blank search input field with a cursor in it. At the end of the input field is a dark blue rectangle representing a button with a search icon in it.
-  tag: Core
+  tag: Canada.ca required
   state: published
 translationKey: 'search'
 tags: ['searchEN', 'usage']
 permalink: /en/components/search/
 date: "git Last Modified"
 ---
+Search is a required component for Canada.ca pages.
 
 ## Use cases for search
 

@@ -10,13 +10,14 @@ eleventyNavigation:
   description: The Government of Canada branded header landmark.
   thumbnail: /images/common/components/preview-header.svg
   alt: Three horizontal banners stacked on top of each other. The first is a grey banner with three dots on the left, representing a browser banner. The second is a dark blue banner with a white outline representing a phase banner. The third is white banner holding a Canada flag and two stacked, thick grey lines that represent lines of text. 
-  tag: Core
+  tag: Canada.ca required
   state: published
 translationKey: 'header'
 tags: ['headerEN', 'usage']
 permalink: /en/components/header/
 date: 'git Last Modified'
 ---
+Header is a required component for Canada.ca pages.
 
 Take a look at what problems the header solves to see if they fit the problem you're solving for.
 

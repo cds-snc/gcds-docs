@@ -10,13 +10,14 @@ eleventyNavigation:
   description: Un chemin d'accès à la page actuelle à partir de chaque niveau précédent de la hiérarchie du site.
   thumbnail: /images/common/components/preview-breadcrumbs.svg
   alt: Deux épaisses lignes grises côte à côte, séparées par un chevron, représentent les liens d’un chemin de navigation.
-  tag: De base
+  tag: Requis sur Canada.ca
   state: published
 translationKey: 'breadcrumbs'
 tags: ['breadcrumbsFR', 'usage']
 permalink: /fr/composants/chemin-de-navigation/
 date: 'git Last Modified'
 ---
+Le chemin de navigation est un composant obligatoire pour les pages Canada.ca.
 
 Examinez les cas d'utilisation des chemins de navigation pour déterminer s'ils répondent à vos besoins.
 

@@ -10,13 +10,14 @@ eleventyNavigation:
   description: Un espace où entrer des mots clés pour chercher des renseignements pertinents.
   thumbnail: /images/common/components/preview-search.svg
   alt: Le composant Recherche affiche un champ de saisie de recherche vide avec un curseur à l'intérieur. À la fin du champ de saisie se trouve un rectangle bleu foncé comprenant un bouton avec une icône de loupe.
-  tag: De base
+  tag: Requis sur Canada.ca
   state: published
 translationKey: 'search'
 tags: ['searchFR', 'usage']
 permalink: /fr/composants/recherche/
 date: "git Last Modified"
 ---
+Le composant recherche est un composant obligatoire pour les pages Canada.ca.
 
 ## Cas d’utilisation du composant recherche
 

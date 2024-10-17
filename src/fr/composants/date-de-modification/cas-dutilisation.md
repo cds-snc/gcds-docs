@@ -10,15 +10,14 @@ eleventyNavigation:
   description: Horodatage de la dernière mise à jour d'une page.
   thumbnail: /images/common/components/preview-date-modified.svg
   alt: Une épaisse ligne grise surmontant une représentation du pied-de-page représente le libellé pour la date de dernière mise à jour de la page.
-  tag: De base
+  tag: Requis sur Canada.ca
   state: published
 translationKey: 'datemodified'
 tags: ['datemodifiedFR', 'usage']
 permalink: /fr/composants/date-de-modification/
 date: 'git Last Modified'
 ---
-
-## Cas d'utilisation
+La date de modification est un composant obligatoire pour les pages Canada.ca.
 
 ### Problèmes résolus par la date de modification
 

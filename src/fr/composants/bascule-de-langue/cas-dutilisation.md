@@ -10,13 +10,14 @@ eleventyNavigation:
   description: Un bouton permettant d’afficher le contenu du site en français ou en anglais.
   thumbnail: /images/common/components/preview-lang-toggle.svg
   alt: Un aperçu du composant changement de langue qui montre les abbréviations f et r pour français suivi de e et n pour anglais, séparées d'une flèche pointant vers les deux abbréviations.
-  tag: De base
+  tag: Requis sur Canada.ca
   state: published
 translationKey: 'langtoggle'
 tags: ['langtoggleFR', 'usage']
 permalink: /fr/composants/bascule-de-langue/
 date: 'git Last Modified'
 ---
+La bascule de langue est un composant obligatoire pour les pages Canada.ca.
 
 Examinez les cas d’utilisation des bascules de langue pour déterminer si elles répondent à vos besoins.
 
