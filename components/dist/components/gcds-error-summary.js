@@ -107,12 +107,10 @@ const GcdsErrorSummary$1 = /*@__PURE__*/ proxyCustomElement(class GcdsErrorSumma
      * Focus element on error link click with label visible
      */
     focusElement(id) {
+        var _a;
         const element = document.querySelector(id);
         let target = `[for=${id.replace('#', '')}]`;
-        if (element.nodeName == 'FIELDSET') {
-            target = `#legend-${id.replace('#', '')}`;
-        }
-        element.closest('form').querySelector(target).scrollIntoView();
+        (_a = element.closest('form').querySelector(target)) === null || _a === void 0 ? void 0 : _a.scrollIntoView();
         element.focus();
     }
     /*
@@ -141,9 +139,9 @@ const GcdsErrorSummary$1 = /*@__PURE__*/ proxyCustomElement(class GcdsErrorSumma
     }
     render() {
         const { heading, errorQueue, lang, hasSubmitted, errorLinks } = this;
-        return (h(Host, { key: '1ed9f8bcd4ab1dced35519bfa50d832985fd1bde' }, h("div", { key: '672cd97c53939521102bb4ad7f99be90aa333660', role: "alert", tabindex: "-1", ref: element => (this.shadowElement = element), class: `gcds-error-summary ${(hasSubmitted || errorLinks) && Object.keys(errorQueue).length > 0
+        return (h(Host, { key: '1e78ebc181c6f25c95316a980d0618ce30854e71' }, h("div", { key: '5bc1d9c797665c4fcbc3483ee0075fa0d30498f4', role: "alert", tabindex: "-1", ref: element => (this.shadowElement = element), class: `gcds-error-summary ${(hasSubmitted || errorLinks) && Object.keys(errorQueue).length > 0
                 ? 'gcds-show'
-                : ''}` }, h("gcds-heading", { key: '9bb4d7468643f254f061402a20c2bc29b0955701', tag: "h2", "margin-top": "0", "margin-bottom": "300" }, heading !== null && heading !== void 0 ? heading : I18N[lang].heading), h("ol", { key: '4d51601492007e68bf120995b05e657aa52a9eaa', class: "summary__errorlist" }, (hasSubmitted || errorLinks) &&
+                : ''}` }, h("gcds-heading", { key: 'b25ea686a38672748271ac291d09af604344883a', tag: "h2", "margin-top": "0", "margin-bottom": "300" }, heading !== null && heading !== void 0 ? heading : I18N[lang].heading), h("ol", { key: '059c002f1c0bc84e9c1ced147bce03f8f95640c2', class: "summary__errorlist" }, (hasSubmitted || errorLinks) &&
             Object.keys(errorQueue).length > 0 &&
             Object.keys(errorQueue).map(key => {
                 return (h("li", { class: "summary__listitem" }, h("gcds-link", { size: "regular", href: errorLinks ? key : '#', onClick: e => {

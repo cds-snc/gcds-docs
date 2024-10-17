@@ -126,6 +126,23 @@ export class GcdsSelect {
         this.value = state;
     }
     /*
+     * Observe passed options and update if change
+     */
+    observeOptions() {
+        const config = {
+            attributes: false,
+            childList: true,
+            characterData: true,
+            subtree: true,
+        };
+        const observer = new MutationObserver(() => {
+            this.options = Array.from(this.el.children);
+            // Reset value to null to prevent unwanted selection
+            this.value = null;
+        });
+        observer.observe(this.el, config);
+    }
+    /*
      * Observe lang attribute change
      */
     updateLang() {
@@ -165,6 +182,9 @@ export class GcdsSelect {
             });
         }
     }
+    async componentDidLoad() {
+        this.observeOptions();
+    }
     componentWillUpdate() {
         if (this.validator) {
             this._validator = getValidator(this.validator);
@@ -187,7 +207,7 @@ export class GcdsSelect {
                 ? `${attrsSelect['aria-describedby']}`
                 : ''}`;
         }
-        return (h(Host, { key: 'f8b99ee23faf6239a4f6adfa2f975d06d7abf440' }, h("div", { key: '32298bdf17a79592e2ab655d8beed7f75b0c84a4', class: `gcds-select-wrapper ${disabled ? 'gcds-disabled' : ''} ${hasError ? 'gcds-error' : ''}` }, h("gcds-label", Object.assign({ key: '27eef3c57d074b6241943c63017c0265e698fa7a' }, attrsLabel, { "label-for": selectId, lang: lang })), hint ? h("gcds-hint", { "hint-id": selectId }, hint) : null, errorMessage ? (h("gcds-error-message", { messageId: selectId }, errorMessage)) : null, h("select", Object.assign({ key: 'e5fcd5da26a12649c9dd28b0a445a05184a1a8b8' }, attrsSelect, { id: selectId, onBlur: () => this.onBlur(), onFocus: () => this.gcdsFocus.emit(), onInput: e => this.handleInput(e, this.gcdsInput), onChange: e => this.handleInput(e, this.gcdsChange), "aria-invalid": inheritedAttributes['aria-invalid'] === 'true'
+        return (h(Host, { key: 'b5538741ba4e3bab7fa5d32a6ffaee5875dee969' }, h("div", { key: 'a29845f88378b17513163846d5a8f351dbdf991b', class: `gcds-select-wrapper ${disabled ? 'gcds-disabled' : ''} ${hasError ? 'gcds-error' : ''}` }, h("gcds-label", Object.assign({ key: '2ad55ef008f6fe88c07f8f7ef04780435181810c' }, attrsLabel, { "label-for": selectId, lang: lang })), hint ? h("gcds-hint", { "hint-id": selectId }, hint) : null, errorMessage ? (h("gcds-error-message", { messageId: selectId }, errorMessage)) : null, h("select", Object.assign({ key: 'd8216aebf29c1c49b135a4dc9f8bbcaa307ad147' }, attrsSelect, { id: selectId, onBlur: () => this.onBlur(), onFocus: () => this.gcdsFocus.emit(), onInput: e => this.handleInput(e, this.gcdsInput), onChange: e => this.handleInput(e, this.gcdsChange), "aria-invalid": inheritedAttributes['aria-invalid'] === 'true'
                 ? inheritedAttributes['aria-invalid']
                 : errorMessage
                     ? 'true'

@@ -118,8 +118,10 @@ export declare class GcdsSelect {
     private checkValueOrSelected;
     formResetCallback(): void;
     formStateRestoreCallback(state: any): void;
+    observeOptions(): void;
     updateLang(): void;
     componentWillLoad(): Promise<void>;
+    componentDidLoad(): Promise<void>;
     componentWillUpdate(): void;
     render(): any;
 }

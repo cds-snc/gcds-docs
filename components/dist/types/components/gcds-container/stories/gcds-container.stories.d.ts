@@ -30,6 +30,7 @@ declare const _default: {
             };
         };
         mainContainer: {
+            name: string;
             control: {
                 type: string;
             };

@@ -1,4 +1,4 @@
-import { Host, h } from "@stencil/core";
+import { Host, h, Fragment, } from "@stencil/core";
 import { assignLanguage, observerConfig } from "../../utils/utils";
 import i18n from "./i18n/i18n";
 import SignatureEn from "./assets/sig-blk-en.svg";
@@ -59,11 +59,26 @@ export class GcdsSignature {
                 }
         }
     }
+    get svgLabel() {
+        let altText = '';
+        if (this.lang === 'en') {
+            altText = (h(Fragment, null, i18n['en'].gc, " / ", h("span", { lang: "fr" }, i18n['fr'].gc)));
+        }
+        else {
+            altText = (h(Fragment, null, i18n['fr'].gc, " / ", h("span", { lang: "en" }, i18n['en'].gc)));
+        }
+        return (h("gcds-sr-only", { tag: "span", id: "signature-title" }, altText));
+    }
     render() {
-        const { type, hasLink, lang, selectSVG } = this;
-        return (h(Host, { key: 'e280c8fbdaee428f9d4b60ceed0734a54a0ca552' }, hasLink && type === 'signature' ? (
-        // eslint-disable-next-line jsx-a11y/anchor-has-content
-        h("a", { class: "gcds-signature", href: i18n[lang].link, innerHTML: selectSVG })) : (h("div", { class: "gcds-signature", innerHTML: selectSVG }))));
+        const { type, hasLink, lang, selectSVG, svgLabel } = this;
+        const sigAttrs = {
+            class: 'gcds-signature',
+        };
+        const Tag = hasLink ? 'a' : 'div';
+        if (Tag === 'a') {
+            sigAttrs['href'] = i18n[lang].link;
+        }
+        return (h(Host, { key: '7fea220f14547470c38927cbb0d4c73c51cab70a' }, type === 'signature' ? (h(Tag, Object.assign({}, sigAttrs), h("div", { innerHTML: selectSVG }), svgLabel)) : (h("div", { class: "gcds-signature", innerHTML: selectSVG }))));
     }
     static get is() { return "gcds-signature"; }
     static get encapsulation() { return "shadow"; }

@@ -24,5 +24,6 @@ export declare class GcdsSignature {
     updateLang(): void;
     componentWillLoad(): Promise<void>;
     private get selectSVG();
+    private get svgLabel();
     render(): any;
 }
