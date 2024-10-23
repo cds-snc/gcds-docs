@@ -2,7 +2,7 @@ module.exports = {
   en: {
     contextual: {
       heading: 'Canadian Digital Service',
-      list: 'Sign up for mailing list',
+      list: 'Contact us',
       listurl: '/en/contact',
       issue: 'Report an issue',
       issueurl: 'https://github.com/cds-snc/gcds-components/issues/new/choose',
@@ -24,7 +24,7 @@ module.exports = {
   fr: {
     contextual: {
       heading: 'Service numérique canadien',
-      list: "S'inscrire à la liste d'envoi",
+      list: "Contactez-nous",
       listurl: '/fr/contactez',
       issue: 'Signaler un problème',
       issueurl: 'https://github.com/cds-snc/gcds-components/issues/new/choose',
