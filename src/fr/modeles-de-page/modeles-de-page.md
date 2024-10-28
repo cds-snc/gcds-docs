@@ -13,6 +13,7 @@ figma: https://www.figma.com/
 cardlist:
   type: pageTemplates
   state: published
+templateEngineOverride: njk,md
 ---
 
 # Modèles de page
@@ -29,5 +30,15 @@ Sauf indication contraire, utilisez-les pour les pages de Canada.ca et pour les 
 
 Nous mettons les modèles de page à votre disposition au fur et à mesure que nous les créons.
 
-{% docLinks locale stage figma github %}
+{% docLinks locale, stage, figma, github %}
 {% enddocLinks %}
+
+{% include "partials/template-list.njk" %}
+
+## À venir
+Nous sommes en train de bâtir les modèles de page suivants. Ils seront bientôt disponibles pour que vous puissiez les essayer.
+
+- **Page de sujet** : Page présentant une série d’options de tâches et de services fréquents en lien avec un sujet important.
+- **Page de profil de ministre** : Page d’accueil comprenant un aperçu de la biographie, des rôles et des responsabilités d’un·e ministre, d’un·e secrétaire parlementaire ou d’un·e chef d’institution quasi judiciaire."
+
+{% include "partials/reportanissue.njk" %}

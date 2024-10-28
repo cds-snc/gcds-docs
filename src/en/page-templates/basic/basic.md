@@ -1,0 +1,70 @@
+---
+title: Basic Page Template
+layout: 'layouts/page-templates-overview.njk'
+eleventyNavigation:
+  key: basicPageTemplateEN
+  title: Basic
+  locale: en
+  parent: pageTemplatesEN
+  description: Starting point for any web page. 
+  descriptionSecondaryText: Offers a basic, accessible page structure and hierarchy and includes the elements required for most GC pages.
+  state: published
+#  tag: Canada.ca required
+  order: 1
+translationKey: 'heading'
+tags: ["templates"]
+date: "git Last Modified"
+github: https://github.com/cds-snc/gcds-examples/blob/feat/add-basic-page-templates/templates/english/basic-page-template.html
+figma: https://figma.com
+---
+
+# Basic Page Template
+The Basic Page template provides accessibility essentials for page structure and heading hierarchy. Brand elements, like the header and footer, make it recognizable as a Government of Canada page.
+
+## When to use
+For use on Canada.ca and other GC sites.
+The basic page template is for non-specialized pages across Canada.ca and is an optional template. It has the starting elements needed for a simple page and those required for most GC pages. You can use it as a canvas to add or combine components from the GC Design System.
+
+## Preview
+Open this example in a new tab
+
+
+Code 
+```js
+https://raw.githubusercontent.com/cds-snc/gcds-examples/refs/heads/feat/add-basic-page-templates/templates/english/basic-page-template.html
+```
+
+## How to implement
+To implement page templates into your project or to prototype in HTML, download the specific template you need in GitHub:
+- Basic page template
+- Basic page table of contents template
+
+To prototype in Figma, find the Basic Page Template (link) in the GC Design System library.
+
+## Design considerations
+
+### Improve navigation on longer pages
+Include an "On this page" section with bulleted anchor links for pages with four or more sections. Anchor links  to improve navigation and help people find relevant content.
+
+Preview “On this page” 
+
+### Maintain a logical heading structure
+- Follow the hierarchy logic within the page template to structure your content for everyone, including people using assistive technology.
+- Use appropriate heading levels (H1-H6) to reflect the structure of your content.
+- Write clear and consistent headings, and maintain default character limits for each heading line for a comfortable reading length.
+- For consistency and accessibility, use GC Design System components like Heading, Text, and Screenreader-only.
+- For any custom-built elements, follow the Government of Canada’s Standard on Web Accessibility.
+
+## Accessibility highlights
+The Basic Page template is built using the following components that meet WCAG 2.1 AA accessibility standards:
+- Container
+- Date modified
+- Footer
+- Header (includes search and breadcrumbs)
+- Heading
+- Link
+- Text
+
+The Basic Page template includes:
+- A clear heading hierarchy you can use to structure your content logically for everyone, including people using assistive technologies, by following Heading guidance.  
+- GC Design System **tokens** meet level AA of the Web Content Accessibility Guidelines (WCAG 2.1) colour contrast standards for text and interactive elements and level AAA for both tap targets and visual presentation.

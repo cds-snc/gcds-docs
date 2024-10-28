@@ -15,6 +15,7 @@ const markdownAnchor = require('./utils/anchor');
 const slugify = require('./utils/slugify');
 const { encode } = require('html-entities');
 
+const { downloadTemplates } = require('./scripts/templates');
 const { execSync } = require('child_process');
 
 module.exports = function (eleventyConfig) {
@@ -314,6 +315,11 @@ module.exports = function (eleventyConfig) {
         date: item.date,
       };
     });
+  });
+
+  // Pull templates from github into partials
+  eleventyConfig.on('eleventy.before', async () => {
+    await downloadTemplates();
   });
 
   eleventyConfig.on('eleventy.after', () => {
