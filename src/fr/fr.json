@@ -60,7 +60,14 @@
     "demo": "/fr/demo",
     "releaseNotes": "https://github.com/cds-snc/gcds-components/blob/main/CHANGELOG.md",
     "privacy": "/fr/avis-de-confidentialite/",
+
     "pageTemplates": "/fr/modeles-de-page",
+    "pageTemplatesBasic": "/fr/modeles-de-page/basic",
+    "pageTemplatesBasicPreview": "/fr/modeles-de-page/basic/preview",
+    "pageTemplatesBasicCode": "/fr/page-templates/basic/code",
+    "pageTemplatesBasicGithubLink": "https://github.com/cds-snc/gcds-examples/blob/feat/add-basic-page-templates/templates/french/basic-page-template.html",
+    "pageTemplatesBasicGithubRaw": "https://raw.githubusercontent.com/cds-snc/gcds-examples/refs/heads/feat/add-basic-page-templates/templates/french/basic-page-template.html",
+
 
     "figma": "https://www.figma.com/file/o4SguSZdar2CCFzSkWNrmB/Syst%C3%A8me-de-design-GC?type=design&node-id=226-31997&mode=design&t=MNtR7hfKusf7RKxF-0",
 
@@ -96,6 +103,8 @@
     "githubIssues": "https://github.com/cds-snc/gcds-components/issues",
     "githubTokens": "https://github.com/cds-snc/gcds-tokens",
     "githubTokensIssues": "https://github.com/cds-snc/gcds-tokens/issues",
+
+    "tbsStandardsOnWebA11y": "https://www.tbs-sct.canada.ca/pol/doc-fra.aspx?id=23601",
 
     "wcag": "https://www.w3.org/TR/WCAG21/",
     "wcagTargetSize": "https://www.w3.org/TR/WCAG21/#target-size",

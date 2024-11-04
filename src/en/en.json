@@ -60,7 +60,13 @@
     "demo": "/en/demo",
     "releaseNotes": "https://github.com/cds-snc/gcds-components/blob/main/CHANGELOG.md",
     "privacy": "/en/privacy-notice",
+
     "pageTemplates": "/en/page-templates",
+    "pageTemplatesBasic": "/en/page-templates/basic",
+    "pageTemplatesBasicPreview": "/en/page-templates/basic/preview",
+    "pageTemplatesBasicCode": "/en/page-templates/basic/code",
+    "pageTemplatesBasicGithubLink": "https://github.com/cds-snc/gcds-examples/blob/feat/add-basic-page-templates/templates/english/basic-page-template.html",
+    "pageTemplatesBasicGithubRaw": "https://raw.githubusercontent.com/cds-snc/gcds-examples/refs/heads/feat/add-basic-page-templates/templates/english/basic-page-template.html",
 
     "figma": "https://www.figma.com/file/mh2maMG2NBtk41k1O1UGHV/Canadian-Digital-Service%E2%80%A8---GC-Design-System?node-id=4%3A1006&t=qguKsJtr1ityUsUN-0",
 
@@ -97,6 +103,7 @@
     "githubTokens": "https://github.com/cds-snc/gcds-tokens",
     "githubTokensIssues": "https://github.com/cds-snc/gcds-tokens/issues",
 
+    "tbsStandardsOnWebA11y": "https://www.tbs-sct.canada.ca/pol/doc-eng.aspx?id=23601",
     "wcag": "https://www.w3.org/TR/WCAG21/",
     "wcagTargetSize": "https://www.w3.org/TR/WCAG21/#target-size",
     "wcagTextSpacing": "https://www.w3.org/TR/WCAG21/#text-spacing",

@@ -2,6 +2,8 @@ const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch
 const fs = require('fs');
 const path = require('path');
 const pjson = require('../package.json');
+const i18nEN = require('../src/en/en.json');
+const i18nFR = require('../src/fr/fr.json');
 
 async function downloadFile(url, outputDir, outputFileName) {
     try {
@@ -33,14 +35,16 @@ async function downloadFile(url, outputDir, outputFileName) {
 async function downloadTemplates() {
     const enTemplateFiles = [
         {
-            url: 'https://raw.githubusercontent.com/cds-snc/gcds-examples/refs/heads/feat/add-basic-page-templates/templates/english/basic-page-template.html',
+            url: i18nEN.links.pageTemplatesBasicGithubRaw,
+            // url: 'https://raw.githubusercontent.com/cds-snc/gcds-examples/refs/heads/feat/add-basic-page-templates/templates/english/basic-page-template.html',
             outputFileName: 'basic-page-template.njk'
         }]
 
     const frTemplateFiles = [
 
         {
-            url: 'https://raw.githubusercontent.com/cds-snc/gcds-examples/refs/heads/feat/add-basic-page-templates/templates/french/basic-page-template.html',
+            url: i18nFR.links.pageTemplatesBasicGithubRaw,
+            // url: 'https://raw.githubusercontent.com/cds-snc/gcds-examples/refs/heads/feat/add-basic-page-templates/templates/french/basic-page-template.html',
             outputFileName: 'basic-page-template.njk'
         }
     ]
