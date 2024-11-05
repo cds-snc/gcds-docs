@@ -51,7 +51,7 @@ Include an "On this page" section with bulleted anchor links for pages with four
 
 <gcds-link href="{{ links.pageTemplatesBasicExtOTPPreview }}" external>"On this page" example (opens in new tab)</gcds-link>
 
-<img class="b-sm b-default p-400" src="/images/en/templates/basic-page-on-this-page-preview.png" alt="A basic page template with a \"On this page\" section includes the Government of Canada header and footer, a \"On this page\" section with three sections listed underneath."/>
+<img class="b-sm b-default p-400" src="/images/en/templates/basic-page-on-this-page-preview.png" alt='A basic page template with a "On this page" section includes the Government of Canada header and footer, a "On this page" section with three sections listed underneath.'/>
 
 {% viewCode "en" "basic-page-template-on-this-page-code" "basic-page-template-on-this-page-code" %}{% include 'partials/templates/en/basic-page-template-on-this-page.njk' %}
 {% endviewCode %}
