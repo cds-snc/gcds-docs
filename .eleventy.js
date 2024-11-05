@@ -318,8 +318,11 @@ module.exports = function (eleventyConfig) {
   });
 
   // Pull templates from github into partials
-  eleventyConfig.on('eleventy.before', async () => {
-    await downloadTemplates();
+  eleventyConfig.on('eleventy.before', async ({ runMode }) => {
+    // Only download templates in build mode
+    if (runMode === 'build') {
+      await downloadTemplates();
+    }
   });
 
   eleventyConfig.on('eleventy.after', () => {
