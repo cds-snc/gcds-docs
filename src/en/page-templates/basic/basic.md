@@ -26,10 +26,8 @@ For use on Canada.ca and other GC sites.
 The basic page template is for non-specialized pages across Canada.ca and is an optional template. It has the starting elements needed for a simple page and those required for most GC pages. You can use it as a canvas to add or combine <gcds-link href="{{ links.components }}">components</gcds-link> from the GC Design System.
 
 ## Preview
-<gcds-link external href="{{ links.pageTemplatesBasicPreview }}">Open this example in a new tab</gcds-link>
-<div class="b-sm mb-400 p-400">
-  <img class="b-sm b-default p-400" src="/images/en/basic_page_template_30p.png" alt="A basic page template includes the Government of Canada header and footer, H1, H2 and H3 heading sections with text underneath each section."/>
-</div>
+<gcds-link href="{{ links.pageTemplatesBasicPreview }}">Basic page example (opens in new tab)</gcds-link>
+<img class="b-sm b-default p-400" src="/images/en/templates/basic-page-preview.png" alt="A basic page template includes the Government of Canada header and footer, H1, H2 and H3 heading sections with text underneath each section."/>
 
 
 <gcds-link external href="{{ links.pageTemplatesBasicCode }}">Open the code in a new tab</gcds-link>
