@@ -9,4 +9,8 @@ node_modules/
 public/
 _site/
 
+# Output folder for page templates
+_src/_includes/partials/templates/en/
+_src/_includes/partials/templates/fr/
+
 package-lock.json
