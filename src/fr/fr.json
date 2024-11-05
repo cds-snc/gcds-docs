@@ -67,9 +67,9 @@
     "pageTemplatesBasicCode": "/fr/page-templates/basic/code",
     "pageTemplatesBasicGithubLink": "https://github.com/cds-snc/gcds-examples/blob/feat/add-basic-page-templates/templates/french/basic/basic-page-template.html",
     "pageTemplatesBasicGithubRaw": "https://raw.githubusercontent.com/cds-snc/gcds-examples/refs/heads/feat/add-basic-page-templates/templates/french/basic/basic-page-template.html",
-    "pageTemplatesBasicExtensionsTOCGithubLink": "https://github.com/cds-snc/gcds-examples/blob/feat/add-basic-page-templates/templates/french/basic/extensions/basic-page-template-table-of-contents.html",
-    "pageTemplatesBasicExtensionsTOCGithubRaw": "https://raw.githubusercontent.com/cds-snc/gcds-examples/refs/heads/feat/add-basic-page-templates/templates/french/basic/extensions/basic-page-template-table-of-contents.html",
-
+    "pageTemplatesBasicExtOTPGithubLink": "https://github.com/cds-snc/gcds-examples/blob/feat/add-basic-page-templates/templates/french/basic/extensions/basic-page-template-table-of-contents.html",
+    "pageTemplatesBasicExtOTPGithubRaw": "https://raw.githubusercontent.com/cds-snc/gcds-examples/refs/heads/feat/add-basic-page-templates/templates/french/basic/extensions/basic-page-template-table-of-contents.html",
+    "pageTemplatesBasicFigma": "#",
 
     "figma": "https://www.figma.com/file/o4SguSZdar2CCFzSkWNrmB/Syst%C3%A8me-de-design-GC?type=design&node-id=226-31997&mode=design&t=MNtR7hfKusf7RKxF-0",
 

@@ -48,8 +48,8 @@ async function downloadTemplates() {
       outputFileName: 'basic-page-template.njk',
     },
     {
-      url: i18nEN.links.pageTemplatesBasicExtensionsTOCGithubRaw,
-      outputFileName: 'basic-page-template-table-of-contents.njk',
+      url: i18nEN.links.pageTemplatesBasicExtOTPGithubRaw,
+      outputFileName: 'basic-page-template-on-this-page.njk',
     },
   ];
 
@@ -59,8 +59,8 @@ async function downloadTemplates() {
       outputFileName: 'basic-page-template.njk',
     },
     {
-      url: i18nFR.links.pageTemplatesBasicExtensionsTOCGithubRaw,
-      outputFileName: 'basic-page-template-table-of-contents.njk',
+      url: i18nFR.links.pageTemplatesBasicExtOTPGithubRaw,
+      outputFileName: 'basic-page-template-on-this-page.njk',
     },
   ];
   const outputDirectory = './src/_includes/partials/templates';

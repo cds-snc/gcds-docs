@@ -18,7 +18,7 @@ github: https://github.com/cds-snc/gcds-examples/blob/feat/add-basic-page-templa
 figma: https://figma.com
 ---
 
-# Basic Page Template
+# Basic page template
 The Basic Page template provides accessibility essentials for page structure and heading hierarchy. Brand elements, like the header and footer, make it recognizable as a Government of Canada page.
 
 ## When to use
@@ -26,7 +26,8 @@ For use on Canada.ca and other GC sites.
 The basic page template is for non-specialized pages across Canada.ca and is an optional template. It has the starting elements needed for a simple page and those required for most GC pages. You can use it as a canvas to add or combine <gcds-link href="{{ links.components }}">components</gcds-link> from the GC Design System.
 
 ## Preview
-<gcds-link href="{{ links.pageTemplatesBasicPreview }}">Basic page example (opens in new tab)</gcds-link>
+<gcds-link href="{{ links.pageTemplatesBasicPreview }}" external>Basic page example (opens in new tab)</gcds-link>
+
 <img class="b-sm b-default p-400" src="/images/en/templates/basic-page-preview.png" alt="A basic page template includes the Government of Canada header and footer, H1, H2 and H3 heading sections with text underneath each section."/>
 
 
@@ -37,9 +38,9 @@ The basic page template is for non-specialized pages across Canada.ca and is an 
 ## How to implement
 To implement page templates into your project or to prototype in HTML, download the specific template you need in GitHub:
 - <gcds-link external href="{{ links.pageTemplatesBasicGithubLink }}">Basic page template</gcds-link>
-- Basic page table of contents template
+- <gcds-link external href="{{ links.pageTemplatesBasicExtOTPGithubLink }}">Basic page table of contents template</gcds-link>
 
-To prototype in Figma, find the Basic Page Template (link) in the GC Design System library.
+To prototype in Figma, find the <gcds-link external href="{{ links.pageTemplatesBasicFigma }}">Basic Page Template</gcds-link> in the GC Design System library.
 
 ## Design considerations
 
@@ -48,8 +49,12 @@ Include an "On this page" section with bulleted anchor links for pages with four
 
 ### Preview "On this page"
 
-- Preview here
-- Code here
+<gcds-link href="{{ links.pageTemplatesBasicExtOTPPreview }}" external>"On this page" example (opens in new tab)</gcds-link>
+
+<img class="b-sm b-default p-400" src="/images/en/templates/basic-page-on-this-page-preview.png" alt="A basic page template with a \"On this page\" section includes the Government of Canada header and footer, a \"On this page\" section with three sections listed underneath."/>
+
+{% viewCode "en" "basic-page-template-on-this-page-code" "basic-page-template-on-this-page-code" %}{% include 'partials/templates/en/basic-page-template-on-this-page.njk' %}
+{% endviewCode %}
 
 ### Maintain a logical heading structure
 - Follow the hierarchy logic within the page template to structure your content for everyone, including people using assistive technology.

@@ -3,5 +3,5 @@ title: Basic Page Template Preview
 layout: 'layouts/page-templates-preview.njk'
 translationKey: 'heading'
 date: "git Last Modified"
-previewFile: basic-page-template.njk
+previewFile: basic-page-template-on-this-page.njk
 ---
