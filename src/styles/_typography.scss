@@ -24,34 +24,34 @@ a[href]:not([class*='link-inherit']):not([class*='link-light']):not(:focus):not(
 }
 
 h1 {
-  max-width: 32ch;
+  max-width: var(--gcds-heading-character-limit-h1);
 }
 
 h2 {
-  max-width: 37ch;
+  max-width: var(--gcds-heading-character-limit-h2);
 }
 
 h3 {
-  max-width: 42ch;
+  max-width: var(--gcds-heading-character-limit-h3);
 }
 
 h4 {
-  max-width: 46ch;
+  max-width: var(--gcds-heading-character-limit-h4);
 }
 
 h5 {
-  max-width: 53ch;
+  max-width: var(--gcds-heading-character-limit-h5);
 }
 
 h6 {
-  max-width: 60ch;
+  max-width: var(--gcds-heading-character-limit-h6);
 }
 
 // Text and long form content
 ul li,
 p {
   font: var(--gcds-font-text-long);
-  max-width: 65ch;
+  max-width: var(--gcds-text-character-limit);
 }
 
 ul li p:last-child,

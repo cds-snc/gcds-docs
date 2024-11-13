@@ -64,13 +64,15 @@
     "pageTemplates": "/en/page-templates",
     "pageTemplatesBasic": "/en/page-templates/basic",
     "pageTemplatesBasicPreview": "/en/page-templates/basic/preview",
-    "pageTemplatesBasicExtOTPPreview": "/en/page-templates/basic/preview-on-this-page",
     "pageTemplatesBasicCode": "/en/page-templates/basic/code",
     "pageTemplatesBasicGithubLink": "https://github.com/cds-snc/gcds-examples/blob/feat/add-basic-page-templates/templates/english/basic/basic-page-template.html",
     "pageTemplatesBasicGithubRaw": "https://raw.githubusercontent.com/cds-snc/gcds-examples/refs/heads/feat/add-basic-page-templates/templates/english/basic/basic-page-template.html",
+    "pageTemplatesBasicFigma": "#",
+    "pageTemplatesBasicExtOTPPreview": "/en/page-templates/basic/preview-on-this-page",
+    "pageTemplatesBasicExtOTPCode": "/en/page-templates/basic/code-on-this-page",
     "pageTemplatesBasicExtOTPGithubLink": "https://github.com/cds-snc/gcds-examples/blob/feat/add-basic-page-templates/templates/english/basic/extensions/basic-page-template-table-of-contents.html",
     "pageTemplatesBasicExtOTPGithubRaw": "https://raw.githubusercontent.com/cds-snc/gcds-examples/refs/heads/feat/add-basic-page-templates/templates/english/basic/extensions/basic-page-template-table-of-contents.html",
-    "pageTemplatesBasicFigma": "#",
+    "pageTemplatesBasicExtOTPFigma": "#",
 
     "figma": "https://www.figma.com/file/mh2maMG2NBtk41k1O1UGHV/Canadian-Digital-Service%E2%80%A8---GC-Design-System?node-id=4%3A1006&t=qguKsJtr1ityUsUN-0",
 
