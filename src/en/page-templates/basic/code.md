@@ -1,9 +1,15 @@
 ---
-title: Basic Page Template Code
+title: Basic page code
 layout: 'layouts/page-templates-overview.njk'
-translationKey: 'heading'
+eleventyNavigation:
+  key: basicPageCodeEN
+  locale: en
+  parent: basicPageTemplateEN
+  state: published
+translationKey: 'basicPageCode'
 date: "git Last Modified"
 ---
 
-# Copy this code (english content)
+# Copy this code
+
 {% include 'partials/templates/en/code-basic-page-template.njk' %}

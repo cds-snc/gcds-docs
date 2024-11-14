@@ -1,7 +1,7 @@
 ---
-title: Basic Page Template Preview
+title: Basic page preview
 layout: 'layouts/page-templates-preview.njk'
-translationKey: 'heading'
+translationKey: 'basicPagePreview'
 date: "git Last Modified"
 previewFile: basic-page-template.njk
 ---
