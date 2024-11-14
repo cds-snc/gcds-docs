@@ -1,0 +1,26 @@
+<section data-pagefind-ignore class="py-100 mt-400 mb-600 {% if removeBorder %} {% else %}by-sm b-dark {% endif %}">
+  <h2 class="mt-300 mb-400">
+    {{ givefeedback[locale].heading }}
+  </h2>
+
+  <p class="mb-400">
+    {{ givefeedback[locale].paragraph }}
+  </p>
+
+  <gcds-link
+    href="{{ links.githubCompsBug }}"
+    external
+  >
+    {{ givefeedback[locale].reportAnIssue }}
+  </gcds-link>
+
+  <p class="mb-400">
+    {{ helpus[locale].paragraph }}
+  </p>
+
+  <gcds-link
+    href="{{ helpus[locale].feedbackHref }}"
+  >
+    {{ helpus[locale].feedback }}
+  </gcds-link>
+</section>

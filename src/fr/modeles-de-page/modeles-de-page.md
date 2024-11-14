@@ -41,4 +41,4 @@ Nous sommes en train de bâtir les modèles de page suivants. Ils seront bientô
 - **Page de sujet** : Page présentant une série d’options de tâches et de services fréquents en lien avec un sujet important.
 - **Page de profil de ministre** : Page d’accueil comprenant un aperçu de la biographie, des rôles et des responsabilités d’un·e ministre, d’un·e secrétaire parlementaire ou d’un·e chef d’institution quasi judiciaire."
 
-{% include "partials/reportanissue.njk" %}
+{% include "partials/givefeedback.njk" %}

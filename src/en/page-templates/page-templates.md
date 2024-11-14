@@ -18,7 +18,7 @@ templateEngineOverride: njk,md
 
 # Page templates
 
-Page templates are pre-built pages that combine GC Design System components for common presentations. They’re fully responsive for multi-device use. Their page structures support a predictable, recognizable, and accessible user experience. 
+Page templates are pre-built pages that combine GC Design System components for common presentations. They’re fully responsive for multi-device use. Their page structures support a predictable, recognizable, and accessible user experience.
 
 ## Start your project with pre-built pages
 
@@ -41,4 +41,4 @@ We're working on the following page templates that will soon be ready for you to
 - **Topic page**: A page that presents a series of options for popular tasks and services on an important topic.
 - **Ministerial profile page**: For landing pages with biographical details and roles and responsibilities of ministers, parliamentary secretaries, and heads of quasi-judicial organizations.
 
-{% include "partials/reportanissue.njk" %}
+{% include "partials/givefeedback.njk" %}
