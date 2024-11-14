@@ -38,7 +38,7 @@ date: 'git Last Modified'
       <h3 class="mb-400">Components</h3>
       <p class="mb-400">User interface building blocks address different user objectives.</p>
       <p class="mb-400">Select reusable code for common components, paired with best practice advice, for the framework you're using.</p>
-      <gcds-link href="{{ links.components }}">View components</gcds-link>
+      <gcds-link href="{{ links.components }}">Browse components</gcds-link>
     </li>
     <li class="list-none">
       <img class="mb-200" src="../../images/common/home/icon-template.svg" alt="" />
@@ -52,7 +52,7 @@ date: 'git Last Modified'
       <h3 class="mb-400">Design tokens</h3>
       <p class="mb-400">Brand and design decisions built into code.</p>
       <p class="mb-400">Learn how encoded decisions shape the design of government services for a consistent visual experience.</p>
-      <gcds-link href="{{ links.styles }}">View tokens</gcds-link>
+      <gcds-link href="{{ links.styles }}">Browse tokens</gcds-link>
     </li>
   </gcds-grid>
 </article>
