@@ -30,8 +30,8 @@ Le modèle de page de base est destiné aux pages non spécialisées de Canada.c
 
 ## Aperçu
 
-<a class="d-block mb-300" href="{{ links.pageTemplatesBasicPreview }}" target="_blank">Allez à la demo (s'ouvre dans un nouvel onglet)</a>
-<a href="{{ links.pageTemplatesBasicCode }}" target="_blank">Obtenez le code (s'ouvre dans un nouvel onglet)</a>
+<gcds-button class="mb-400" button-role="secondary" type="link" href="{{ links.pageTemplatesBasicPreview }}" target="_blank">Ouvrir demo dans un nouvel onglet</gcds-button>
+<gcds-button  button-role="secondary" type="link" href="{{ links.pageTemplatesBasicCode }}" target="_blank">Obtenez code dans un nouvel onglet</gcds-button>
 
 <img class="max-width-content b-sm b-default mb-400 p-400" src="/images/fr/templates/basic-page-preview.png" alt="Le modèle de page de base comprend l'en-tête et le pied de page du Gouvernement du Canada, ainsi que les sections titre H1, H2 et H3 accompagnées de texte sous chacune des sections."/>
 
@@ -52,8 +52,8 @@ Pour toute page ayant 4 sections ou plus, ajoutez une section « Sur cette page 
 
 ### Aperçu « Sur cette page »
 
-<a class="d-block mb-300" href="{{ links.pageTemplatesBasicExtOTPPreview }}" target="_blank">Allez à la demo (s'ouvre dans un nouvel onglet)</a>
-<a href="{{ links.pageTemplatesBasicExtOTPCode }}" target="_blank">Obtenez le code (s'ouvre dans un nouvel onglet)</a>
+<gcds-button class="mb-400" button-role="secondary" type="link" href="{{ links.pageTemplatesBasicExtOTPPreview }}" target="_blank">Ouvrir demo dans un nouvel onglet</gcds-button>
+<gcds-button  button-role="secondary" type="link" href="{{ links.pageTemplatesBasicExtOTPCode }}" target="_blank">Obtenez code dans un nouvel onglet</gcds-button>
 
 <img class="max-width-content b-sm b-default mb-400 p-400" src="/images/fr/templates/basic-page-on-this-page-preview.png" alt="Un modèle de page de base avec une section 'Sur cette page' inclut l'en-tête et le pied de page du gouvernement du Canada, une section 'Sur cette page' et trois sections listées en-dessous."/>
 

@@ -1,5 +1,5 @@
 ---
-title: Basic Page Template
+title: Basic page template
 layout: 'layouts/page-templates-overview.njk'
 eleventyNavigation:
   key: basicPageTemplateEN
@@ -11,7 +11,7 @@ eleventyNavigation:
   state: published
 #  tag: Canada.ca required
   order: 1
-translationKey: 'heading'
+translationKey: 'basicPageTemplate'
 tags: ["templates"]
 date: "git Last Modified"
 github: https://github.com/cds-snc/gcds-examples/blob/feat/add-basic-page-templates/templates/english/basic-page-template.html
@@ -19,18 +19,20 @@ figma: https://figma.com
 ---
 
 # Basic page template
+
 The Basic Page template provides accessibility essentials for page structure and heading hierarchy. Brand elements, like the header and footer, make it recognizable as a Government of Canada page.
 
 ## When to use
+
 For use on Canada.ca and other GC sites.
 The basic page template is for non-specialized pages across Canada.ca and is an optional template. It has the starting elements needed for a simple page and those required for most GC pages. You can use it as a canvas to add or combine <gcds-link href="{{ links.components }}">components</gcds-link> from the GC Design System.
 
 ## Preview
 
-<img class="max-width-content b-sm b-default mb-400 p-400" src="/images/en/templates/basic-page-preview.png" alt="A basic page template includes the Government of Canada header and footer, H1, H2 and H3 heading sections with text underneath each section."/>
+<gcds-button class="md:d-inline-block d-block md:me-400 me-0 md:mb-0 mb-400" button-role="secondary" type="link" href="{{ links.pageTemplatesBasicPreview }}" target="_blank">Open demo in new tab</gcds-button>
+<gcds-button class="md:d-inline-block d-block" button-role="secondary" type="link" href="{{ links.pageTemplatesBasicCode }}" target="_blank">Get code in new tab</gcds-button>
 
-<gcds-link external href="{{ links.pageTemplatesBasicPreview }}">View demo</gcds-link>
-<gcds-link class="ms-400" external href="{{ links.pageTemplatesBasicCode }}">View code</gcds-link>
+<img class="max-width-content b-sm b-default mb-400 p-400" src="/images/en/templates/basic-page-preview.png" alt="A basic page template includes the Government of Canada header and footer, H1, H2 and H3 heading sections with text underneath each section."/>
 
 ## How to implement
 
@@ -49,10 +51,10 @@ Include an "On this page" section with bulleted anchor links for pages with four
 
 ### Preview "On this page"
 
-<img class="max-width-content b-sm b-default mb-400 p-400" src="/images/en/templates/basic-page-on-this-page-preview.png" alt='A basic page template with a "On this page" section includes the Government of Canada header and footer, a "On this page" section with three sections listed underneath.'/>
+<gcds-button class="md:d-inline-block d-block md:me-400 me-0 md:mb-0 mb-400" button-role="secondary" type="link" href="{{ links.pageTemplatesBasicExtOTPPreview }}" target="_blank">Open demo in new tab</gcds-button>
+<gcds-button  button-role="secondary" type="link" href="{{ links.pageTemplatesBasicExtOTPCode }}" target="_blank">Get code in new tab</gcds-button>
 
-<gcds-link external href="{{ links.pageTemplatesBasicExtOTPPreview }}">View demo</gcds-link>
-<gcds-link class="ms-400" external href="{{ links.pageTemplatesBasicExtOTPCode }}">View code</gcds-link>
+<img class="max-width-content b-sm b-default mb-400 p-400" src="/images/en/templates/basic-page-on-this-page-preview.png" alt='A basic page template with a "On this page" section includes the Government of Canada header and footer, a "On this page" section with three sections listed underneath.'/>
 
 ### Maintain a logical heading structure
 
