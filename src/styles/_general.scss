@@ -33,3 +33,8 @@ ul li {
     list-style: circle;
   }
 }
+
+.max-width-content {
+  width: var(--gcds-text-character-limit);
+  max-width: 100%;
+}
