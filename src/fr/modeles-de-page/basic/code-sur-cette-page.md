@@ -10,6 +10,8 @@ translationKey: 'basicPageCodeOTP'
 date: "git Last Modified"
 ---
 
-# Copiez ce code
+# Code du modèle de page de base avec la section Sur cette page
+
+Copiez ce code pour utiliser le modèle de page de base avec la section sur cette page.
 
 {% include 'partials/templates/fr/code-basic-page-template-on-this-page.njk' %}
