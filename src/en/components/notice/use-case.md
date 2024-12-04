@@ -14,7 +14,7 @@ eleventyNavigation:
 translationKey: "notice"
 tags: ['noticeEN', 'usage']
 permalink: /en/components/notice/
-# date: "git Last Modified"
+date: "git Last Modified"
 ---
 
 ## Problems notice solves

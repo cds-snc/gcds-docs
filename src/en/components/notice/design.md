@@ -3,7 +3,7 @@ title: Notice
 layout: 'layouts/component-documentation.njk'
 translationKey: 'noticeDesign'
 tags: ['noticeEN', 'design']
-# date: "git Last Modified"
+date: "git Last Modified"
 ---
 
 ## Notice anatomy

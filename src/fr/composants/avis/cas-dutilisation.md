@@ -14,7 +14,7 @@ eleventyNavigation:
 translationKey: "notice"
 tags: ['noticeFR', 'usage']
 permalink: /fr/composants/avis/
-# date: "git Last Modified"
+date: "git Last Modified"
 ---
 
 ## Problèmes résolus par les avis

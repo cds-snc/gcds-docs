@@ -3,7 +3,7 @@ title: Avis
 layout: 'layouts/component-documentation.njk'
 translationKey: 'noticeDesign'
 tags: ['noticeFR', 'design']
-# date: "git Last Modified"
+date: "git Last Modified"
 ---
 
 ## Structure de la Avis
