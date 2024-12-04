@@ -16,7 +16,11 @@ L’avis est un message court et bien visible qui fait partie du contenu de la p
 {% enddocLinks %}
 
 {% componentPreview "Aperçu du composant de Avis" %}
-// TODO: Insert component here
-<gcds-notice>
+<gcds-notice
+  type="success"
+  notice-title="Titre de l'avis succès"
+  notice-title-tag="h2"
+>
+  <gcds-text margin-bottom="0">Il s'agit d'un message de succès.</gcds-text>
 </gcds-notice>
 {% endcomponentPreview %}

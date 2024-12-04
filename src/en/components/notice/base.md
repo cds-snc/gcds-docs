@@ -16,7 +16,11 @@ The notice is a short, prominent message that’s part of the page content.
 {% enddocLinks %}
 
 {% componentPreview "Notice component preview" %}
-// TODO: Insert component here
-<gcds-notice>
+<gcds-notice
+  type="success"
+  notice-title="Success notice title"
+  notice-title-tag="h2"
+>
+  <gcds-text margin-bottom="0">This is a success message.</gcds-text>
 </gcds-notice>
 {% endcomponentPreview %}
