@@ -9,7 +9,7 @@ eleventyNavigation:
   otherNames: Alerte contextuelle
   description: Un message court et bien visible qui fait partie du contenu de la page
   thumbnail: /images/common/components/preview-notice.svg
-  alt: This is an image of the component
+  alt: Une ligne bleue verticale tronquée par un cercle bleu, représentant la ligne guide et l’icône, se situe à gauche de deux épaisses lignes grises pâle alignées sous une ligne grise foncée représentant un titres et des lignes de texte.
   state: published
 translationKey: "notice"
 tags: ['noticeFR', 'usage']

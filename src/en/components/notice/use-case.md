@@ -9,7 +9,7 @@ eleventyNavigation:
   otherNames: Contextual alert
   description: A short, prominent message that’s part of the page content.
   thumbnail: /images/common/components/preview-notice.svg
-  alt: This is an image of the component
+  alt: A blue vertical line truncated at the top by a blue circle, representing the guide line and icon, sits to the left of a stack of three thick grey lines. The top dark grey line represents the heading and the other two represent the lines of text.
   state: published
 translationKey: "notice"
 tags: ['noticeEN', 'usage']
