@@ -35,6 +35,7 @@
     "input": "/en/components/input",
     "langToggle": "/en/components/language-toggle/",
     "link": "/en/components/link",
+    "notice": "/en/components/notice",
     "pagination": "/en/components/pagination",
     "radio": "/en/components/radio",
     "radioGroup": "/en/components/radio-group",

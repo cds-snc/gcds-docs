@@ -35,6 +35,7 @@
     "input": "/fr/composants/champ-de-saisie",
     "langToggle": "/fr/composants/bascule-de-langue/",
     "link": "/fr/composants/lien",
+    "notice": "/fr/composants/avis",
     "pagination": "/fr/composants/pagination",
     "radioGroup": "/fr/composants/groupe-de-boutons-radio",
     "radio": "/fr/composants/bouton-radio",
