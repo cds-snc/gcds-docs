@@ -301,6 +301,15 @@ module.exports = function (eleventyConfig) {
     return displayTokens(token, subCategory, locale);
   });
 
+  /*
+   * Convert token name from camelCase to kebab-case
+   */
+  eleventyConfig.addFilter("camelToKebab", function(str) {
+    return str.replace(/[a-z][A-Z]/g, function(match) {
+      return match[0] + '-' + match[1].toLowerCase();
+    }).toLowerCase();
+  });
+
   // Misc
 
   eleventyConfig.setLibrary('md', markdownLibrary);

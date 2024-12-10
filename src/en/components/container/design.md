@@ -19,7 +19,7 @@ date: 'git Last Modified'
 
 ### Limit width of content
 
-- Keep text line length below 75 characters for a comfortable, accessible reading length.
+- Keep text line length below 65 characters for a comfortable, accessible reading length.
 - Limit container width to stop large screens from displaying lines of text that are overly long and difficult to read.
 - Avoid exceeding the maximum width of 71.25rem (1140px) wide.
 

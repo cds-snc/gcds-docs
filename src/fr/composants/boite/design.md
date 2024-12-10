@@ -19,7 +19,7 @@ date: 'git Last Modified'
 
 ### Limiter la largeur du contenu
 
-- Veillez à ce que vos lignes de texte ne dépassent pas 75 caractères pour obtenir une longueur de lecture acceptable.
+- Veillez à ce que vos lignes de texte ne dépassent pas 65 caractères pour obtenir une longueur de lecture acceptable.
 - Limitez la largeur de la boîte pour éviter que les grands écrans n’affichent des lignes de texte trop longues et difficiles à lire.
 - Évitez de dépasser la largeur maximale de 71,25 rem (1140 px).
 

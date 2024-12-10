@@ -311,11 +311,6 @@ table .spacing-preview {
   width: 40%;
 }
 
-.table-display-token-typography tr.row-label,
-.table-display-token-typography tr.row-textLong {
-  display: none;
-}
-
 .table-display-token-fontFamilies .row-icons {
   display: none;
 }

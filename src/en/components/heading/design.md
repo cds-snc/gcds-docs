@@ -52,5 +52,5 @@ Heading levels follow a sequential, hierarchical order: higher levels have large
 
 - Maintain the default spacing for a comfortable and accessible reading experience. These defaults create visual breaks and separation between different sections.
 - Keep spacing values to the following to maintain a visual balance across headings on a page:
-  - Bottom margin: 400 for all.
-  - Top margin: 0 for H1 and 500 for H2-3.
+  - Bottom margin: 300 for all.
+  - Top margin: 0 for H1 and 600 for H2-3.

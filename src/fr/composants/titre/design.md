@@ -52,5 +52,5 @@ Les niveaux de titre suivent un ordre séquentiel et hiérarchique : les niveaux
 
 - Conservez l'espacement par défaut pour une expérience de lecture agréable et accessible. Ces valeurs par défaut créent des espaces visuels et des séparations entre les différentes sections.
 - Conservez les valeurs d'espacement suivantes pour maintenir un équilibre visuel entre les titres d'une page :
-  - Marge inférieure : 400 pour tous les niveaux.
-  - Marge supérieure : 0 pour H1 et 500 pour H2 et 3.
+  - Marge inférieure : 300 pour tous les niveaux.
+  - Marge supérieure : 0 pour H1 et 600 pour H2 et 3.

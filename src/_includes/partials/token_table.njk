@@ -37,7 +37,7 @@
                     {%- when 'spacing-preview' -%}
                         <div class="spacing-preview" style="width: {{item[1].value}}; height: {{item[1].value}};"></div>
                     {%- when 'token-name' %}
-                        <span lang="en">--gcds-{{ concatToken | replace: ".", "-" | fixTokenName }}-{{ item[0] }}</span>
+                        <span lang="en">--gcds-{{ concatToken | replace: ".", "-" | fixTokenName | camelToKebab }}-{{ item[0] | camelToKebab }}</span>
                     {%- when 'value' %}
                         {{- item[1].value }}
                     {%- when 'contrast' %}
@@ -45,6 +45,7 @@
                     {%- when 'rgb' %}
                         {{- item[1].value | hexTo: 'rgb' }}
                     {%- when 'px' %}
+                        PX
                         {{- item[1].value | replace: "rem", "" | times: 16 }}px
                     {%- when 'font-value' %}
                         {%- case type %}
