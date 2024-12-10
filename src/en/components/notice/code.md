@@ -24,7 +24,7 @@ Use the `type` attribute to categorize the notice as ‘Info’, ‘Warning’, 
 {% include "partials/getcode.njk" %}
 
 <iframe
-  title="iframeTitle"
+  title="Overview of gcds-notice properties and events."
   src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&demo=true&singleStory=true&id=components-notice--events-properties&lang=en"
   width="1200"
   height="1100"

@@ -25,7 +25,7 @@ Utilisez les avis pour :
 - Mettre en avant des messages clés au sein du contenu d’une page, grâce à une utilisation modérée.
 - Fournir du contexte ou des renseignements supplémentaires concernant le contenu de la page pour une meilleure compréhension.
 
-<article class="bg-full-width bg-primary text-light pt-500 pb-400 my-500">
+<article class="bg-full-width bg-primary text-light pt-600 pb-300 my-600">
   <h2 class="mt-0 mb-400">Composants connexes</h2>
 
 <a href="{{ links.errorMessage }}" class="link-light">Message d’erreur</a> ou <a href="{{ links.errorSummary }}" class="link-light">résumé des erreurs</a> pour des erreurs au sein d’un champ de formulaire, d’une page ou d’un flux. 
