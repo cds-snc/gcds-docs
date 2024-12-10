@@ -15,7 +15,7 @@ date: 'git Last Modified'
   <li>Les <strong>liens les plus en demande</strong> est une liste des actions les plus fréquemment effectuées pour chaque thème. Tous les liens seront chargés et mis à jour automatiquement.</li>
 </ol>
 
-<img class="b-sm b-default p-400" src="/images/fr/components/anatomy/gcds-topic-menu-anatomy.svg" alt="Le menu thématique avec des flèches numérotées pointant vers les parties individuelles de la structure du composant." />
+<img class="b-sm b-default p-300" src="/images/fr/components/anatomy/gcds-topic-menu-anatomy.svg" alt="Le menu thématique avec des flèches numérotées pointant vers les parties individuelles de la structure du composant." />
 
 ## Accessibilité et design des menu thématique
 

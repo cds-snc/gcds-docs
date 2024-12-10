@@ -25,8 +25,8 @@ Utilisez la sélection dans un formulaire afin de :
 - Limiter le nombre de réponses admises pour une question.
 - Permettre à une personne de répondre à une question sans devoir rédiger une réponse, en sélectionnant un élément à partir d'une liste.
 
-<article class="bg-full-width bg-primary text-light pt-500 pb-400 my-500">
-  <h2 class="mt-0 mb-400">Composants connexes</h2>
+<article class="bg-full-width bg-primary text-light pt-600 pb-300 my-600">
+  <h2 class="mt-0 mb-300">Composants connexes</h2>
 
 <a href="{{ links.checkbox }}" class="link-light">Cases à cocher</a> : lorsque vous prévoyez que l'utilisateur·rice sélectionne une ou plusieurs options parmi une liste d'éléments.
 

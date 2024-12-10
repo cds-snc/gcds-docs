@@ -27,8 +27,8 @@ Utilisez le composant texte pour :
 - Renforcer l'identité de marque avec des styles et des formats de messagerie uniformes sur toutes les pages Web. Par exemple, l'utilisation de la typographie Système de design GC comme norme pour un style de police uniforme.
 - Diviser le contenu en sections compréhensibles avec des marges verticales et horizontales. La décomposition de votre contenu favorise la lisibilité, simplifie la navigation sur le site et réduit le risque que les gens abandonnent leur tâche.
 
-<article class="bg-full-width bg-primary text-light pt-500 pb-400 my-500">
-  <h2 class="mt-0 mb-400">Composants connexes</h2>
+<article class="bg-full-width bg-primary text-light pt-600 pb-300 my-600">
+  <h2 class="mt-0 mb-300">Composants connexes</h2>
 
 <a href="{{ links.heading }}" class="link-light">Titre</a> pour structurer le contenu en créant des niveaux hiérarchiques qui permettent l'organisation visuelle et mentale du contenu de la page à l'aide des styles de Système de design GC.
 

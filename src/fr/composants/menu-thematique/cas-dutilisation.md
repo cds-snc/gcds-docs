@@ -23,8 +23,8 @@ Utilisez le menu thématique pour :
 
 - Permettre aux utilisateur·rice·s de naviguer dans l’ensemble des pages Web du gouvernement du Canada, notamment pour les pages accédées fréquemment à partir de votre site Web.
 
-<article class="bg-full-width bg-primary text-light pt-500 pb-400 my-500">
-  <h2 class="mt-0 mb-400">Composants connexes</h2>
+<article class="bg-full-width bg-primary text-light pt-600 pb-300 my-600">
+  <h2 class="mt-0 mb-300">Composants connexes</h2>
 
 <a href="{{ links.header }}" class="link-light">En-tête</a> : permet de placer l’image de marque du gouvernement du Canada dans l’en-tête.
 

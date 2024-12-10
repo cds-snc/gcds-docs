@@ -13,7 +13,7 @@ tags: ['headingFR', 'design']
   <li>Le composant <strong>texte</strong> ne contient pas de titre. Son sujet est lié à l'idée principale du titre correspondant.</li>
 </ol>
 
-<img class="b-sm b-default p-400" src="/images/fr/components/anatomy/gcds-heading-anatomy.svg" alt="Un titre en gros caractères au-dessus d'un bloc de texte plus petit. Le texte en se lit comme suit : « Ceci est un titre. » Le bloc suivant se lit comme suit : « Il s'agit de texte qui décrit plus en détail le sujet ou l'action indiqués dans la section qui suit. Le texte est généralement constitué d'une ou de plusieurs lignes ou paragraphes de contenu pour la section. On peut aussi s'en servir pour introduire une liste à puces, un tableau ou d'autres contenus, comme une image ou une vidéo. » Il y a une étiquette pointant vers le plus grand texte indiquant « 1 » et il y a une étiquette pointant vers le plus petit bloc de texte qui indique « 2 »." />
+<img class="b-sm b-default p-300" src="/images/fr/components/anatomy/gcds-heading-anatomy.svg" alt="Un titre en gros caractères au-dessus d'un bloc de texte plus petit. Le texte en se lit comme suit : « Ceci est un titre. » Le bloc suivant se lit comme suit : « Il s'agit de texte qui décrit plus en détail le sujet ou l'action indiqués dans la section qui suit. Le texte est généralement constitué d'une ou de plusieurs lignes ou paragraphes de contenu pour la section. On peut aussi s'en servir pour introduire une liste à puces, un tableau ou d'autres contenus, comme une image ou une vidéo. » Il y a une étiquette pointant vers le plus grand texte indiquant « 1 » et il y a une étiquette pointant vers le plus petit bloc de texte qui indique « 2 »." />
 
 ## Conception et accessibilité du composant titre
 

@@ -28,8 +28,8 @@ Utilisez un bouton pour les actions importantes qu'une personne utilisant votre 
 - Entamer un processus, comme un tutoriel, ou se connecter à un espace sécurisé;
 - Naviguer entre les différentes étapes d'une séquence;
 
-<article class="bg-full-width bg-primary text-light pt-500 pb-400 my-500">
-  <h2 class="mt-0 mb-400">Composants connexes</h2>
+<article class="bg-full-width bg-primary text-light pt-600 pb-300 my-600">
+  <h2 class="mt-0 mb-300">Composants connexes</h2>
 
 <a href="{{ links.link }}" class="link-light">Liens</a> : pour permettre de naviguer à une nouvelle page, à un autre site Web, à un fichier ou à une nouvelle section de la page actuelle et de lancer un téléchargement de fichiers.
 

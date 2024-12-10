@@ -17,11 +17,11 @@ La signature est l’image de marque du gouvernement du Canada placée dans l’
 
 {% componentPreview "Aperçu du composant de la signature" %}
 
-<div class="d-inline-block me-400">
+<div class="d-inline-block me-300">
 <gcds-signature type="signature"></gcds-signature>
 </div>
 <div class="d-inline-block">
-<gcds-signature class="px-400" type="wordmark"></gcds-signature>
+<gcds-signature class="px-300" type="wordmark"></gcds-signature>
 </div>
 
 {% endcomponentPreview %}

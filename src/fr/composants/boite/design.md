@@ -13,7 +13,7 @@ date: 'git Last Modified'
   <li>La <strong>bordure optionnelle</strong> entoure la boîte en indiquant la largeur.</li>
 </ol>
 
-<img class="b-sm b-default p-400" src="/images/en/components/anatomy/gcds-container-anatomy.svg" alt="Le composant de boîte avec des numéros indiquant les différentes parties de la structure de la boîte." />
+<img class="b-sm b-default p-300" src="/images/en/components/anatomy/gcds-container-anatomy.svg" alt="Le composant de boîte avec des numéros indiquant les différentes parties de la structure de la boîte." />
 
 ## Design et accessibilité des boîtes
 

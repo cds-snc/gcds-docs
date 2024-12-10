@@ -13,7 +13,7 @@ tags: ['textFR', 'design']
   <li>Le <strong>titre</strong> est une ligne de texte mis en évidence qui introduit le paragraphe ou tout autre contenu du corps qui le suit immédiatement. Le titre donne une structure aux sections de texte selon un ordre hiérarchique.</li>
 </ol>
 
-<img class="b-sm b-default p-400" src="/images/fr/components/anatomy/gcds-text-anatomy.svg" alt="Une ligne de grand texte en caractères gras au-dessus d'un bloc de texte plus petit. Le texte en gras indique « Ceci est un titre » et le bloc de contenu écrit indique « Il s'agit d'un texte lié au titre qui décrit plus en détail le sujet ou l'action du titre. Le texte est généralement une ou plusieurs lignes ou paragraphes qui forment le contenu d'une section ou introduisent une liste à puces, un tableau ou tout autre contenu, comme une image ou une vidéo. » Un libellé avec un « 1 » pointe vers le plus petit bloc de texte et un libellé avec « 2 » pointe vers le texte gras plus grand." />
+<img class="b-sm b-default p-300" src="/images/fr/components/anatomy/gcds-text-anatomy.svg" alt="Une ligne de grand texte en caractères gras au-dessus d'un bloc de texte plus petit. Le texte en gras indique « Ceci est un titre » et le bloc de contenu écrit indique « Il s'agit d'un texte lié au titre qui décrit plus en détail le sujet ou l'action du titre. Le texte est généralement une ou plusieurs lignes ou paragraphes qui forment le contenu d'une section ou introduisent une liste à puces, un tableau ou tout autre contenu, comme une image ou une vidéo. » Un libellé avec un « 1 » pointe vers le plus petit bloc de texte et un libellé avec « 2 » pointe vers le texte gras plus grand." />
 
 ## Conception et accessibilité du composant texte
 

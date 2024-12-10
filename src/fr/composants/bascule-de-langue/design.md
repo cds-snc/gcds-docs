@@ -15,7 +15,7 @@ La bascule de langue est un lien menant vers la même page dans l’autre langue
   <li>La <strong>bascule de langue</strong> est abrégé sur les petits écrans</li>
 </ol>
 
-<img class="b-sm b-default p-400" src="/images/fr/components/anatomy/gcds-lang-toggle-anatomy.svg" alt="Sur les grands écrans, un lien « English ». Sur les plus petits écrans, un lien abrégé « EN »."/>
+<img class="b-sm b-default p-300" src="/images/fr/components/anatomy/gcds-lang-toggle-anatomy.svg" alt="Sur les grands écrans, un lien « English ». Sur les plus petits écrans, un lien abrégé « EN »."/>
 
 ## Design et accessibilité de la bascule de langue
 

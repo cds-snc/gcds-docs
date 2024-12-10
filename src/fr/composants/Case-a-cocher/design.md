@@ -17,7 +17,7 @@ date: 'git Last Modified'
   <li>Le <strong>texte explicatif de la case à cocher</strong> communique aux utilisateur·rice·s des renseignements sur le choix.</li>
 </ol>
 
-<img class="b-sm b-default p-400" src="/images/fr/components/anatomy/gcds-checkbox-anatomy-with-fieldset.svg" alt="L'anatomie de case à cocher identifiant la légende du jeu de champ et son message d'aide, la coche de sélection, le bouton à cocher, l'étiquette de la case à cocher et le message d'aide de la case à cocher qui forme le composant." />
+<img class="b-sm b-default p-300" src="/images/fr/components/anatomy/gcds-checkbox-anatomy-with-fieldset.svg" alt="L'anatomie de case à cocher identifiant la légende du jeu de champ et son message d'aide, la coche de sélection, le bouton à cocher, l'étiquette de la case à cocher et le message d'aide de la case à cocher qui forme le composant." />
 
 ## Structure de la case à cocher
 
@@ -30,7 +30,7 @@ Utilisez le composant Jeu de champs pour la case à cocher, sauf pour les cases 
   <li>Le <strong>texte explicatif de la case à cocher</strong> communique aux utilisateur·rice·s des renseignements sur le choix.</li>
 </ol>
 
-<img class="b-sm b-default p-400" src="/images/fr/components/anatomy/gcds-checkbox-anatomy-single.svg" alt="L'anatomie de case à cocher identifiant la coche de sélection, le bouton à cocher, l'étiquette de la case à cocher et le message d'aide de la case à cocher qui forme le composant." />
+<img class="b-sm b-default p-300" src="/images/fr/components/anatomy/gcds-checkbox-anatomy-single.svg" alt="L'anatomie de case à cocher identifiant la coche de sélection, le bouton à cocher, l'étiquette de la case à cocher et le message d'aide de la case à cocher qui forme le composant." />
 
 ## Accessibilité et design des cases à cocher
 

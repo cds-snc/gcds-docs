@@ -195,8 +195,8 @@ module.exports = function (eleventyConfig) {
     }
 
     return `
-        <div class="code-showcase mb-400">
-          <textarea class="showcase text-light mb-400 p-400" id="${id}" rows="8" aria-label="${langStrings[lang].code} - ${name}" aria-hidden="true" readonly>${content}</textarea>
+        <div class="code-showcase mb-300">
+          <textarea class="showcase text-light mb-300 p-300" id="${id}" rows="8" aria-label="${langStrings[lang].code} - ${name}" aria-hidden="true" readonly>${content}</textarea>
           <div>
             <gcds-button
               class="showcase-view-button"
@@ -268,7 +268,7 @@ module.exports = function (eleventyConfig) {
         githubLink = 'https://github.com/cds-snc/gcds-components';
       }
       return `
-      <ul class="d-flex flex-wrap gap-400">
+      <ul class="d-flex flex-wrap gap-300">
         ${stageChip} <li class="github-link">
           <gcds-link external href="${githubLink}">${langStrings[locale].github}</gcds-link>
         </li> ${figmaLink}
@@ -278,12 +278,12 @@ module.exports = function (eleventyConfig) {
 
   eleventyConfig.addPairedShortcode(
     'componentPreview',
-    (children, title, padding = 'px-300 py-400', margin = 'my-500') => {
+    (children, title, padding = 'px-225 py-300', margin = 'my-600') => {
       const content = children;
 
       return `
       <div class="${margin} b-sm b-default component-preview" id="component-preview">
-        <p class="container-full font-semibold px-300 py-200 bb-sm b-default bg-light">
+        <p class="container-full font-semibold px-225 py-150 bb-sm b-default bg-light">
           ${title}
         </p>
         <div class="${padding}">

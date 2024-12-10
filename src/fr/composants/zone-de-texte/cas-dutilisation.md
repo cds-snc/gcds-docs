@@ -28,8 +28,8 @@ Utilisez une zone de texte pour obtenir des renseignements multilignes :
 
 Note : Ne recueillez que les renseignements que vous êtes autorisé·e à traiter et veillez à les protéger conformément aux normes du gouvernement du Canada.
 
-<article class="bg-full-width bg-primary text-light pt-500 pb-400 my-500">
-  <h2 class="mt-0 mb-400">Composants connexes</h2>
+<article class="bg-full-width bg-primary text-light pt-600 pb-300 my-600">
+  <h2 class="mt-0 mb-300">Composants connexes</h2>
 
 <a href="{{ links.input }}" class="link-light">Champs de saisie</a> : lorsque vous cherchez à obtenir des réponses courtes d'une seule ligne.
 

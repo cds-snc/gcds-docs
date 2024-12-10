@@ -15,7 +15,7 @@ La case à cocher permet de proposer un ensemble d'options en vue d'une sélecti
 {% docLinks locale stage figma github %}
 {% enddocLinks %}
 
-{% componentPreview "Aperçu du composant de case à cocher" "px-300 pt-400" %}
+{% componentPreview "Aperçu du composant de case à cocher" "px-225 pt-300" %}
 <gcds-fieldset fieldset-id="fieldset" legend="Légende" hint="Texte explicatif/Exemple de message.">
 <gcds-checkbox
   checkbox-id="form-check-1"
