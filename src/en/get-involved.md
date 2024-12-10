@@ -21,20 +21,20 @@ We're sharing what we're working on and what we'll work on next. To get updates 
 
 <hr/>
 
-<gcds-heading tag="h2" margin-top="300">How to get involved</gcds-heading>
+<gcds-heading tag="h2" margin-top="225">How to get involved</gcds-heading>
 
 ### Contribute to our next priorities
 
 <div>
   <gcds-heading tag="h4" margin-bottom="0">Data table</gcds-heading>
-  <ul class="mb-400">
+  <ul class="mb-300">
     <li>Data table is a way to organize and display large amounts of data in rows and columns.</li>
   </ul>
 </div>
 
 <div>
   <gcds-heading tag="h4" margin-bottom="0">Tag</gcds-heading>
-  <ul class="mb-400">
+  <ul class="mb-300">
     <li>Tag is a component used for items that need to be labeled, categorized, or organized using keywords that describe them. </li>
   </ul>
 </div>
@@ -51,13 +51,13 @@ Provide any of the following for each component or pattern:
 
 <hr />
 
-<gcds-heading tag="h2" margin-top="300">Coming soon</gcds-heading>
+<gcds-heading tag="h2" margin-top="225">Coming soon</gcds-heading>
 
 ### Upcoming components and templates
 
 <div>
   <gcds-heading tag="h4" margin-bottom="0">Notice</gcds-heading>
-  <ul class="mb-400">
+  <ul class="mb-300">
     <li>The notice is a short prominent message to draw attention and inform.</li>
     <li><strong>Expected release:</strong> Fall 2024</li>
   </ul>
@@ -65,7 +65,7 @@ Provide any of the following for each component or pattern:
 
 <div>
   <gcds-heading tag="h4" margin-bottom="0">Topic Page Template</gcds-heading>
-  <ul class="mb-400">
+  <ul class="mb-300">
     <li>The Topic Page Template is a reusable layout for pages that provide access to topics and destination pages that support task completion.</li>
     <li><strong>Expected release:</strong> Fall 2024</li>
   </ul>
@@ -73,7 +73,7 @@ Provide any of the following for each component or pattern:
 
 <div>
   <gcds-heading tag="h4" margin-bottom="0">Ministerial Page Template</gcds-heading>
-  <ul class="mb-400">
+  <ul class="mb-300">
     <li>The Ministerial Page Template is a reusable layout for landing pages for ministers, parliamentary secretaries and heads of quasi-judicial organizations.</li>
     <li><strong>Expected release:</strong> Fall 2024</li>
   </ul>
@@ -81,7 +81,7 @@ Provide any of the following for each component or pattern:
 
 <div>
   <gcds-heading tag="h4" margin-bottom="0">VueJS Starter App Template</gcds-heading>
-  <ul class="mb-400">
+  <ul class="mb-300">
     <li>The VueJS Start App Template provides the starting code to develop an application using the VueJS front-end framework.</li>
     <li><strong>Expected release:</strong> Fall 2024</li>
   </ul>

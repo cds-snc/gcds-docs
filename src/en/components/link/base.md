@@ -15,8 +15,8 @@ A link is a navigational element that brings a person to a new page, website, fi
 {% enddocLinks %}
 
 {% componentPreview "Link component preview" %}
-<gcds-link class="d-block mb-400" href="#">Navigation link</gcds-link>
-<gcds-link class="d-block mb-400" href="download.pdf" download="file.pdf" type="application/pdf">Download document (PDF, 1.5 MB)</gcds-link>
-<gcds-link class="d-block mb-400" href="mailto:test@test.com?subject=Test%20Email">Email</gcds-link>
+<gcds-link class="d-block mb-300" href="#">Navigation link</gcds-link>
+<gcds-link class="d-block mb-300" href="download.pdf" download="file.pdf" type="application/pdf">Download document (PDF, 1.5 MB)</gcds-link>
+<gcds-link class="d-block mb-300" href="mailto:test@test.com?subject=Test%20Email">Email</gcds-link>
 <gcds-link class="d-block" href="tel:1234567890">Call</gcds-link>
 {% endcomponentPreview %}

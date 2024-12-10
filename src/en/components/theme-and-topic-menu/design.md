@@ -15,7 +15,7 @@ date: "git Last Modified"
   <li><strong>Most requested links</strong> is a list of the most frequent actions taken in each theme. All links will load and update automatically.</li>
 </ol>
 
-<img class="b-sm b-default p-400" src="/images/en/components/anatomy/gcds-topic-menu-anatomy.svg" alt="The theme and topic menu with numbers pointing to individual parts of the component’s anatomy." />
+<img class="b-sm b-default p-300" src="/images/en/components/anatomy/gcds-topic-menu-anatomy.svg" alt="The theme and topic menu with numbers pointing to individual parts of the component’s anatomy." />
 
 ## Accessibility and design for the theme and topic menu
 

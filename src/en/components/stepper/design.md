@@ -14,7 +14,7 @@ date: 'git Last Modified'
   <li>The <strong>step title</strong> describes the type of information that will be asked in the step.</li>
 </ol>
 
-<img class="b-sm b-default p-400" src="/images/en/components/anatomy/gcds-stepper-anatomy.svg" alt="A stepper anatomy represented by three elements: the current step, the total steps, and the current step title."/>
+<img class="b-sm b-default p-300" src="/images/en/components/anatomy/gcds-stepper-anatomy.svg" alt="A stepper anatomy represented by three elements: the current step, the total steps, and the current step title."/>
 
 ## Design and accessibility for steppers
 

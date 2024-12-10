@@ -24,8 +24,8 @@ Use the file uploader to:
 - Allow a person to upload one or more files from a computer or device.
 - Review selected files to be uploaded.
 
-<article class="bg-full-width bg-primary text-light pt-500 pb-400 my-500">
-  <h2 class="mt-0 mb-400">Related components</h2>
+<article class="bg-full-width bg-primary text-light pt-600 pb-300 my-600">
+  <h2 class="mt-0 mb-300">Related components</h2>
 
 <a href="{{ links.textarea }}" class="link-light">Text areas</a> for multi-line freeform responses.
 

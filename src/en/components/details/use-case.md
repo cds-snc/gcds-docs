@@ -28,8 +28,8 @@ Use the details component to give a person a summary of more detailed content yo
 - Make a page with many subheadings scanable. For example, in a series of questions and answers, you can list the questions as details titles and a person can expand any section to read the answer content.
 - Give readers the option to control content for subjects that may cause distress to some readers. They can access certain content when they are ready and hide content once they've reviewed it.
 
-<article class="bg-full-width bg-primary text-light pt-500 pb-400 my-500">
-  <h2 class="mt-0 mb-400">Related components</h2>
+<article class="bg-full-width bg-primary text-light pt-600 pb-300 my-600">
+  <h2 class="mt-0 mb-300">Related components</h2>
 
 Tabs when you want to replace the entire content of a section or a page.
 

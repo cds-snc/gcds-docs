@@ -17,7 +17,7 @@ date: 'git Last Modified'
   <li>The <strong>nav link with active indicator</strong> gives visual prominence to the current page.</li>
 </ol>
 
-<img class="b-sm b-default p-400" src="/images/en/components/anatomy/gcds-top-nav-anatomy.svg" alt="Top navigation anatomy showing page navigation with a dark blue box for the logo or home link followed by two greyed boxes, the last one having a dark blue line underneath to show the current page." />
+<img class="b-sm b-default p-300" src="/images/en/components/anatomy/gcds-top-nav-anatomy.svg" alt="Top navigation anatomy showing page navigation with a dark blue box for the logo or home link followed by two greyed boxes, the last one having a dark blue line underneath to show the current page." />
 
 ## Design and accessibility for top navigation
 

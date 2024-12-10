@@ -15,7 +15,7 @@ date: 'git Last Modified'
   <li>The <strong>icon</strong> is used as a visual aid to indicate that the field can be expanded.</li>
 </ol>
 
-<img class="b-sm b-default p-400" src="/images/en/components/anatomy/gcds-select-anatomy.svg" alt="The select component with numbers pointing to individual parts of the select anatomy." />
+<img class="b-sm b-default p-300" src="/images/en/components/anatomy/gcds-select-anatomy.svg" alt="The select component with numbers pointing to individual parts of the select anatomy." />
 
 ## Design and accessibility for select
 

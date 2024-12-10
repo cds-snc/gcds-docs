@@ -10,7 +10,7 @@ eleventyNavigation:
   description: A short set of options for single selection.
   thumbnail: /images/common/components/preview-radio.svg
   alt: A column of three radio selections. Each radio button circle has a thin grey border and white fill beside a thick grey line to represent the label. One of the three circles is selected and has a single dark grey circle inside of it.
-  state: published 
+  state: published
 translationKey: "radiogroup"
 tags: ['radiogroupEN', 'usage']
 permalink: /en/components/radio-group/
@@ -27,8 +27,8 @@ Use radio groups with a [fieldset]({{ links.fieldset }}). Use a radio group to r
 - Specify the possible answers to your question.
 - Give a person the ability to answer without writing by selecting one item from a list.
 
-<article class="bg-full-width bg-primary text-light pt-500 pb-400 my-500">
-  <h2 class="mt-0 mb-400">Related components</h2>
+<article class="bg-full-width bg-primary text-light pt-600 pb-300 my-600">
+  <h2 class="mt-0 mb-300">Related components</h2>
 
 <a href="{{ links.checkbox }}" class="link-light">Checkboxes</a> when you are expecting the user to select multiple options from a list of items.
 

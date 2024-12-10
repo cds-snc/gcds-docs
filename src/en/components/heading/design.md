@@ -13,7 +13,7 @@ tags: ['headingEN', 'design']
   <li><strong>Text</strong> is non-heading content. Its subject matter is related to the idea outlined in its corresponding heading.</li>
 </ol>
 
-<img class="b-sm b-default p-400" src="/images/en/components/anatomy/gcds-heading-anatomy.svg" alt="A large, prominent heading text above a block of smaller text. The larger text reads: “This is a heading”. The next block reads: “This is text that's related to the heading and describes in further detail the heading's subject or action. Text is typically one or several lines or paragraphs that form a section's content or introduce a bulleted list, table, or other content, like an image or video.” There's a label pointing to the larger text reading “1” and there's a label pointing to the smaller block of text that reads “2”.." />
+<img class="b-sm b-default p-300" src="/images/en/components/anatomy/gcds-heading-anatomy.svg" alt="A large, prominent heading text above a block of smaller text. The larger text reads: “This is a heading”. The next block reads: “This is text that's related to the heading and describes in further detail the heading's subject or action. Text is typically one or several lines or paragraphs that form a section's content or introduce a bulleted list, table, or other content, like an image or video.” There's a label pointing to the larger text reading “1” and there's a label pointing to the smaller block of text that reads “2”.." />
 
 ## Design and accessibility for headings
 
