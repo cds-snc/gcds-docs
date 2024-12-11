@@ -1,3 +1,4 @@
+import { SpacingValues } from '../../utils/types/spacing';
 export declare class GcdsIcon {
     el: HTMLElement;
     /**
@@ -14,11 +15,11 @@ export declare class GcdsIcon {
     /**
      * Add margin to the left of the icon
      */
-    marginLeft?: '0' | '50' | '100' | '150' | '200' | '250' | '300' | '400' | '450' | '500' | '550' | '600' | '700' | '800' | '900' | '1000';
+    marginLeft?: SpacingValues;
     /**
      * Add margin to the right of the icon
      */
-    marginRight?: '0' | '50' | '100' | '150' | '200' | '250' | '300' | '400' | '450' | '500' | '550' | '600' | '700' | '800' | '900' | '1000';
+    marginRight?: SpacingValues;
     /**
      * Name of the icon.
      */
@@ -30,6 +31,6 @@ export declare class GcdsIcon {
     /**
      * Defines the size of the icon.
      */
-    size?: 'inherit' | 'caption' | 'text' | 'h6' | 'h5' | 'h4' | 'h3' | 'h2' | 'h1';
+    size?: 'inherit' | 'text-small' | 'text' | 'h6' | 'h5' | 'h4' | 'h3' | 'h2' | 'h1';
     render(): any;
 }

@@ -42,6 +42,11 @@ export declare class GcdsFileUploader {
      */
     multiple: boolean;
     /**
+     * FileList of uploaded files to input
+     */
+    files: FileList;
+    watchFiles(): void;
+    /**
      * Error message for an invalid file uploader element.
      */
     errorMessage: string;

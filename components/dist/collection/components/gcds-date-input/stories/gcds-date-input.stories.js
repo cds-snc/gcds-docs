@@ -1,4 +1,4 @@
-import { langProp, validatorProps, } from "../../../utils/storybook/component-properties";
+import { langProp, validatorProps, eventProp, } from "../../../utils/storybook/component-properties";
 export default {
     title: 'Components/Date Input',
     argTypes: Object.assign(Object.assign(Object.assign({
@@ -69,27 +69,7 @@ export default {
         }
     }, validatorProps), langProp), {
         // Events
-        gcdsChange: {
-            action: 'change',
-            table: {
-                category: 'Events | Événements',
-            },
-        }, gcdsInput: {
-            action: 'input',
-            table: {
-                category: 'Events | Événements',
-            },
-        }, gcdsFocus: {
-            action: 'focus',
-            table: {
-                category: 'Events | Événements',
-            },
-        }, gcdsBlur: {
-            action: 'blur',
-            table: {
-                category: 'Events | Événements',
-            },
-        }
+        gcdsChange: Object.assign({ action: 'change' }, eventProp), gcdsInput: Object.assign({ action: 'input' }, eventProp), gcdsFocus: Object.assign({ action: 'focus' }, eventProp), gcdsBlur: Object.assign({ action: 'blur' }, eventProp)
     }),
 };
 const Template = args => `

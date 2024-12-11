@@ -14,6 +14,7 @@ export class GcdsFileUploader {
         this.handleInput = (e, customEvent) => {
             const filesContainer = [];
             const files = Array.from(e.target.files);
+            this.files = e.target.files;
             files.map(file => {
                 filesContainer.push(file['name']);
             });
@@ -47,6 +48,7 @@ export class GcdsFileUploader {
                     }
                 }
                 this.shadowElement.files = dt.files;
+                this.files = dt.files;
                 this.addFilesToFormData(this.shadowElement.files);
             }
             this.value = [...filesContainer];
@@ -57,9 +59,11 @@ export class GcdsFileUploader {
          */
         this.addFilesToFormData = files => {
             const formData = new FormData();
-            files.forEach(file => {
-                formData.append(this.name, file, file.name);
-            });
+            if (files.length > 0) {
+                files.forEach(file => {
+                    formData.append(this.name, file, file.name);
+                });
+            }
             this.internals.setFormValue(formData);
         };
         this.uploaderId = undefined;
@@ -70,6 +74,7 @@ export class GcdsFileUploader {
         this.value = [];
         this.accept = undefined;
         this.multiple = undefined;
+        this.files = undefined;
         this.errorMessage = undefined;
         this.hint = undefined;
         this.validator = undefined;
@@ -82,6 +87,15 @@ export class GcdsFileUploader {
         if (this.required) {
             this.disabled = false;
         }
+    }
+    watchFiles() {
+        const filesContainer = [];
+        const files = Array.from(this.files);
+        files.map(file => {
+            filesContainer.push(file['name']);
+        });
+        this.addFilesToFormData(files);
+        this.value = [...filesContainer];
     }
     validateErrorMessage() {
         if (this.disabled) {
@@ -126,7 +140,7 @@ export class GcdsFileUploader {
             if (this.validateOn && this.validateOn != 'other') {
                 this.validate();
             }
-            if (this.hasError) {
+            if (this.hasError && this.validateOn != 'other') {
                 e.preventDefault();
             }
         }
@@ -193,8 +207,8 @@ export class GcdsFileUploader {
             attrsInput['aria-describedby'] =
                 `${hintID}${errorID}${attrsInput['aria-describedby']}`;
         }
-        return (h(Host, { key: 'f4454e4a0d9664f8fe3a14d5fab0e5f22b116ef7' }, h("div", { key: 'be6849ae91be2175d696b59a18941829cd2e2903', class: `gcds-file-uploader-wrapper ${disabled ? 'gcds-disabled' : ''} ${hasError ? 'gcds-error' : ''}` }, h("gcds-label", Object.assign({ key: 'ae9157cac66a46652ff4a586755161bed64972a3' }, attrsLabel, { "label-for": uploaderId, lang: lang })), hint ? h("gcds-hint", { "hint-id": uploaderId }, hint) : null, errorMessage ? (h("gcds-error-message", { messageId: uploaderId }, errorMessage)) : null, h("div", { key: 'eaa28a777e18980075fd5f6afb793432cbf33b26', class: `file-uploader__input ${value.length > 0 ? 'uploaded-files' : ''}` }, h("button", { key: 'fe6f84394678852c4824ba9bc951439c063845eb', type: "button", tabindex: "-1", onClick: () => this.shadowElement.click() }, i18n[lang].button.upload), h("input", Object.assign({ key: '5cec157ba6c23bc1139d6d6c137fb81307477e94', type: "file", id: uploaderId }, attrsInput, { onBlur: () => this.onBlur(), onFocus: () => this.gcdsFocus.emit(), onInput: e => this.handleInput(e, this.gcdsInput), onChange: e => this.handleInput(e, this.gcdsChange), "aria-invalid": hasError ? 'true' : 'false', ref: element => (this.shadowElement = element) })), value.length > 0 ? (h("gcds-sr-only", { id: "file-uploader__summary" }, h("span", null, i18n[lang].summary.selected, " "), value.map(file => (h("span", null, file, " "))))) : (h("gcds-sr-only", { id: "file-uploader__summary" }, i18n[lang].summary.unselected))), value.length > 0
-            ? value.map(file => (h("div", { class: "file-uploader__uploaded-file", "aria-label": `${i18n[lang].removeFile} ${file}.` }, h("gcds-text", { "margin-bottom": "0" }, file), h("button", { onClick: e => this.removeFile(e) }, h("span", null, i18n[lang].button.remove), h("gcds-icon", { name: "times", size: "text", "margin-left": "200" })))))
+        return (h(Host, { key: '99186272d4f4b070dca7d917d3a32811463df83e' }, h("div", { key: 'c1ca92dd9cc40ad0c5fe7606b9292647be311b7d', class: `gcds-file-uploader-wrapper ${disabled ? 'gcds-disabled' : ''} ${hasError ? 'gcds-error' : ''}` }, h("gcds-label", Object.assign({ key: '9a34edfcfa902b8353c8bd654ab46e31ae38e83d' }, attrsLabel, { "label-for": uploaderId, lang: lang })), hint ? h("gcds-hint", { "hint-id": uploaderId }, hint) : null, errorMessage ? (h("gcds-error-message", { messageId: uploaderId }, errorMessage)) : null, h("div", { key: '83fc533d49d0f593eada09f8fd06bdaca621b9be', class: `file-uploader__input ${value.length > 0 ? 'uploaded-files' : ''}` }, h("button", { key: '3a11627ececd9a0527a9a140ea4f318786111135', type: "button", tabindex: "-1", onClick: () => this.shadowElement.click() }, i18n[lang].button.upload), h("input", Object.assign({ key: '68dc829e09e98a100be6fe790b3e5bc2d2b7ac81', type: "file", id: uploaderId }, attrsInput, { onBlur: () => this.onBlur(), onFocus: () => this.gcdsFocus.emit(), onInput: e => this.handleInput(e, this.gcdsInput), onChange: e => this.handleInput(e, this.gcdsChange), "aria-invalid": hasError ? 'true' : 'false', ref: element => (this.shadowElement = element) })), value.length > 0 ? (h("gcds-sr-only", { id: "file-uploader__summary" }, h("span", null, i18n[lang].summary.selected, " "), value.map(file => (h("span", null, file, " "))))) : (h("gcds-sr-only", { id: "file-uploader__summary" }, i18n[lang].summary.unselected))), value.length > 0
+            ? value.map(file => (h("div", { class: "file-uploader__uploaded-file", "aria-label": `${i18n[lang].removeFile} ${file}.` }, h("gcds-text", { "margin-bottom": "0" }, file), h("button", { onClick: e => this.removeFile(e) }, h("span", null, i18n[lang].button.remove), h("gcds-icon", { name: "times", size: "text", "margin-left": "150" })))))
             : null)));
     }
     static get is() { return "gcds-file-uploader"; }
@@ -349,6 +363,26 @@ export class GcdsFileUploader {
                 },
                 "attribute": "multiple",
                 "reflect": true
+            },
+            "files": {
+                "type": "unknown",
+                "mutable": true,
+                "complexType": {
+                    "original": "FileList",
+                    "resolved": "FileList",
+                    "references": {
+                        "FileList": {
+                            "location": "global",
+                            "id": "global::FileList"
+                        }
+                    }
+                },
+                "required": false,
+                "optional": false,
+                "docs": {
+                    "tags": [],
+                    "text": "FileList of uploaded files to input"
+                }
             },
             "errorMessage": {
                 "type": "string",
@@ -574,6 +608,9 @@ export class GcdsFileUploader {
         return [{
                 "propName": "disabled",
                 "methodName": "validateDisabledSelect"
+            }, {
+                "propName": "files",
+                "methodName": "watchFiles"
             }, {
                 "propName": "errorMessage",
                 "methodName": "validateErrorMessage"

@@ -1117,13 +1117,13 @@
 </gcds-header>
 
     <div class="content-wrapper">
-      <main id="mc" class="container-xl mx-auto xl:px-0 sm:px-500 px-300 general-layout" data-pagefind-body>
+      <main id="mc" class="container-xl mx-auto xl:px-0 sm:px-600 px-225 general-layout" data-pagefind-body>
         
   
-    <h1 id="jeu-de-champs-brgcdsfieldset" class="mb-400">Jeu de champs <br><code>&lt;gcds-fieldset&gt;</code></h1>
-<p class="mb-400"><em>Autres noms : champ de formulaire.</em></p>
-<p class="mb-400">Un jeu de champs est un groupe de plusieurs composants ou éléments d'un formulaire.</p>
-<p class="mb-400"><ul class="d-flex flex-wrap gap-400">
+    <h1 id="jeu-de-champs-brgcdsfieldset" class="mb-300">Jeu de champs <br><code>&lt;gcds-fieldset&gt;</code></h1>
+<p class="mb-300"><em>Autres noms : champ de formulaire.</em></p>
+<p class="mb-300">Un jeu de champs est un groupe de plusieurs composants ou éléments d'un formulaire.</p>
+<p class="mb-300"><ul class="d-flex flex-wrap gap-300">
 <li class="github-link">
 <gcds-link external href="https://github.com/cds-snc/gcds-components/tree/main/packages/web/src/components/gcds-fieldset">GitHub</gcds-link>
 </li>
@@ -1131,11 +1131,11 @@
 <gcds-link external href="https://www.figma.com/file/o4SguSZdar2CCFzSkWNrmB/Syst%C3%A8me-de-design-GC?type=design&node-id=114-2817&mode=design&t=1DaL24vHpjRRfHHm-0">Figma</gcds-link>
 </li>
 </ul></p>
-<p class="mb-400"><div class="my-500 b-sm b-default component-preview" id="component-preview">
-<p class="container-full font-semibold px-300 py-200 bb-sm b-default bg-light">
+<p class="mb-300"><div class="my-600 b-sm b-default component-preview" id="component-preview">
+<p class="container-full font-semibold px-225 py-150 bb-sm b-default bg-light">
 Aperçu du composant de jeu de champs
 </p>
-<div class="px-300 pt-400"></p>
+<div class="px-225 pt-300"></p>
 <gcds-fieldset fieldset-id="fieldset" legend="Légende" hint="Texte explicatif/Exemple de message.">
 <gcds-input input-id="form-input" label="Étiquette de champ" hint="Texte explicatif/Exemple de message." size="6">
 </gcds-input>
@@ -1145,10 +1145,10 @@ Aperçu du composant de jeu de champs
   <option value="option-3">Option 3</option>
 </gcds-select>
 </gcds-fieldset>
-<p class="mb-400"></div>
+<p class="mb-300"></div>
 </div></p>
 
-    <nav class="tabs mb-400" aria-label="Onglet de consignes">
+    <nav class="tabs mb-300" aria-label="Onglet de consignes">
       <ul>
         
           
@@ -1185,54 +1185,54 @@ Aperçu du composant de jeu de champs
     </nav>
   
 
-  <h2 id="creer-un-composant-de-jeu-de-champs" class="mt-500 mb-400">Créer un composant de jeu de champs</h2>
-<p class="mb-400">Utilisez un jeu de champs pour regrouper des éléments ou des composants de formulaire connexes et faites en sorte que ces groupes soient perceptibles. Utilisez également un jeu de champs pour les composants comportant plusieurs options, comme les boutons <a href="/fr/composants/bouton-radio">radio</a> et les <a href="/fr/composants/case-a-cocher">cases à cocher</a>.</p>
-<h2 id="codage-et-accessibilite-des-jeux-de-champs" class="mt-500 mb-400">Codage et accessibilité des jeux de champs</h2>
-<h3 id="traiter-les-messages-derreur-et-la-validation" class="mt-500 mb-400">Traiter les messages d'erreur et la validation</h3>
-<ul class="list-disc mb-400"><li>
-<p class="mb-400">Utilisez l'attribut <code>required</code> pour activer le valideur de champ obligatoire. La validation s'effectuera par défaut pendant l'évènement <code>onBlur</code>. Une réponse manquante ou non valide affichera un message d'erreur intercalé prédéfini.</p>
+  <h2 id="creer-un-composant-de-jeu-de-champs" class="mt-600 mb-300">Créer un composant de jeu de champs</h2>
+<p class="mb-300">Utilisez un jeu de champs pour regrouper des éléments ou des composants de formulaire connexes et faites en sorte que ces groupes soient perceptibles. Utilisez également un jeu de champs pour les composants comportant plusieurs options, comme les boutons <a href="/fr/composants/bouton-radio">radio</a> et les <a href="/fr/composants/case-a-cocher">cases à cocher</a>.</p>
+<h2 id="codage-et-accessibilite-des-jeux-de-champs" class="mt-600 mb-300">Codage et accessibilité des jeux de champs</h2>
+<h3 id="traiter-les-messages-derreur-et-la-validation" class="mt-600 mb-300">Traiter les messages d'erreur et la validation</h3>
+<ul class="list-disc mb-300"><li>
+<p class="mb-300">Utilisez l'attribut <code>required</code> pour activer le valideur de champ obligatoire. La validation s'effectuera par défaut pendant l'évènement <code>onBlur</code>. Une réponse manquante ou non valide affichera un message d'erreur intercalé prédéfini.</p>
 </li>
 <li>
-<p class="mb-400">Si vous devez modifier l'évènement de validation, utilisez l'attribut <code>validate-on</code>. La validation peut se produire pendant l'évènement onBlur, lorsque l'élément perd son état ciblé, ou de façon manuelle avec la méthode <code>validate()</code>.</p>
+<p class="mb-300">Si vous devez modifier l'évènement de validation, utilisez l'attribut <code>validate-on</code>. La validation peut se produire pendant l'évènement onBlur, lorsque l'élément perd son état ciblé, ou de façon manuelle avec la méthode <code>validate()</code>.</p>
 </li>
 <li>
-<p class="mb-400">Utilisez l'attribut <code>required</code> pour les champs qui doivent obligatoirement être remplis. La mention « obligatoire » sera alors ajoutée à la fin de l'étiquette.</p>
+<p class="mb-300">Utilisez l'attribut <code>required</code> pour les champs qui doivent obligatoirement être remplis. La mention « obligatoire » sera alors ajoutée à la fin de l'étiquette.</p>
 </li>
 <li>
-<p class="mb-400">Utilisez l'attribut <code>error-message</code> pour inclure un message d'erreur pour tous les champs de saisie obligatoires. Évitez d'utiliser des messages d'erreur pour les champs de saisie facultatifs.</p>
+<p class="mb-300">Utilisez l'attribut <code>error-message</code> pour inclure un message d'erreur pour tous les champs de saisie obligatoires. Évitez d'utiliser des messages d'erreur pour les champs de saisie facultatifs.</p>
 </li>
 <li>
-<p class="mb-400">Pour les champs facultatifs, évitez d'ajouter l'attribut <code>error-message</code>.</p>
+<p class="mb-300">Pour les champs facultatifs, évitez d'ajouter l'attribut <code>error-message</code>.</p>
 </li>
 <li>
-<p class="mb-400">Pour un champ facultatif nécessitant une validation qui dépend de ce que l'utilisateur a saisi (par exemple pour valider un format d'adresse courriel), ajoutez plutôt une validation et un message d'erreur personnalisés.</p>
+<p class="mb-300">Pour un champ facultatif nécessitant une validation qui dépend de ce que l'utilisateur a saisi (par exemple pour valider un format d'adresse courriel), ajoutez plutôt une validation et un message d'erreur personnalisés.</p>
 </li>
 </ul>
-<h3 id="gardez-le-texte-explicatif-fixe-et-visible" class="mt-500 mb-400">Gardez le texte explicatif fixe et visible</h3>
-<p class="mb-400">Ajoutez du texte explicatif par défaut pour fournir du contexte supplémentaire afin d'aider les utilisateur·rice·s à saisir des valeurs complètes et éviter les erreurs. Le texte explicatif s'insère sous la légende du jeu de champs et au-dessus du groupe.</p>
-<h3 id="prendre-en-charge-les-messages-derreur-et-le-texte-explicatif-pour-les-boutons-radio-et-les-cases-a-cocher" class="mt-500 mb-400">Prendre en charge les messages d'erreur et le texte explicatif pour les boutons radio et les cases à cocher</h3>
-<ul class="list-disc mb-400"><li><p class="mb-400">Les attributs <code>required</code> et <code>error-message</code> fonctionnent mieux avec un groupe de <a href="/fr/composants/case-a-cocher">cases à cocher</a> ou de <a href="/fr/composants/bouton-radio">boutons radio</a>.</li>
-<li><p class="mb-400">Conservez le texte explicatif, les validateurs et les messages d'erreur par défaut dans le jeu de champs pour les boutons radio et les cases à cocher.</li>
-<li><p class="mb-400">Pour les boutons radio et les <a href="/fr/composants/champ-de-saisie">cases à cocher</a>, insérez la question dans la légende afin d'aider les utilisateur·rice·s de lecteurs d'écran à comprendre que les entrées sont toutes liées.</li>
+<h3 id="gardez-le-texte-explicatif-fixe-et-visible" class="mt-600 mb-300">Gardez le texte explicatif fixe et visible</h3>
+<p class="mb-300">Ajoutez du texte explicatif par défaut pour fournir du contexte supplémentaire afin d'aider les utilisateur·rice·s à saisir des valeurs complètes et éviter les erreurs. Le texte explicatif s'insère sous la légende du jeu de champs et au-dessus du groupe.</p>
+<h3 id="prendre-en-charge-les-messages-derreur-et-le-texte-explicatif-pour-les-boutons-radio-et-les-cases-a-cocher" class="mt-600 mb-300">Prendre en charge les messages d'erreur et le texte explicatif pour les boutons radio et les cases à cocher</h3>
+<ul class="list-disc mb-300"><li><p class="mb-300">Les attributs <code>required</code> et <code>error-message</code> fonctionnent mieux avec un groupe de <a href="/fr/composants/case-a-cocher">cases à cocher</a> ou de <a href="/fr/composants/bouton-radio">boutons radio</a>.</li>
+<li><p class="mb-300">Conservez le texte explicatif, les validateurs et les messages d'erreur par défaut dans le jeu de champs pour les boutons radio et les cases à cocher.</li>
+<li><p class="mb-300">Pour les boutons radio et les <a href="/fr/composants/champ-de-saisie">cases à cocher</a>, insérez la question dans la légende afin d'aider les utilisateur·rice·s de lecteurs d'écran à comprendre que les entrées sont toutes liées.</li>
 </ul>
-<h3 id="validateurs" class="mt-500 mb-400">Validateurs</h3>
-<p class="mb-400">Le jeu de champs ne validera que les <a href="/fr/composants/case-a-cocher">cases à cocher</a> et les <a href="/fr/composants/bouton-radio">boutons radio</a> enfants.</p>
-<ul class="list-disc mb-400"><li><p class="mb-400">Utilisez la propriété requise pour activer le validateur approprié. La validation s'effectuera par défaut pendant l'événement <code>onBlur</code>.</li>
-<li><p class="mb-400">Si vous devez modifier l'événement de validation, utilisez l'attribut <code>validate-on</code>. Une validation <code>blur</code> est possible lorsque l'élément n'est plus ciblé. Il est également possible de procéder à une validation manuelle avec la méthode validate.</li>
+<h3 id="validateurs" class="mt-600 mb-300">Validateurs</h3>
+<p class="mb-300">Le jeu de champs ne validera que les <a href="/fr/composants/case-a-cocher">cases à cocher</a> et les <a href="/fr/composants/bouton-radio">boutons radio</a> enfants.</p>
+<ul class="list-disc mb-300"><li><p class="mb-300">Utilisez la propriété requise pour activer le validateur approprié. La validation s'effectuera par défaut pendant l'événement <code>onBlur</code>.</li>
+<li><p class="mb-300">Si vous devez modifier l'événement de validation, utilisez l'attribut <code>validate-on</code>. Une validation <code>blur</code> est possible lorsque l'élément n'est plus ciblé. Il est également possible de procéder à une validation manuelle avec la méthode validate.</li>
 </ul>
-<h3 id="obtenez-votre-code" class="mt-500 mb-400">Obtenez votre code</h3>
-<p class="mb-400">Générez une version du composant dont vous avez besoin en sélectionnant les propriétés de code correspondantes ou explorez les possibilités en choisissant différentes valeurs de code.</p>
-<ol class="list-decimal mb-400"><li>
-<p class="mb-400">Choisissez des valeurs de code pour obtenir l'élément que vous voulez.</p>
+<h3 id="obtenez-votre-code" class="mt-600 mb-300">Obtenez votre code</h3>
+<p class="mb-300">Générez une version du composant dont vous avez besoin en sélectionnant les propriétés de code correspondantes ou explorez les possibilités en choisissant différentes valeurs de code.</p>
+<ol class="list-decimal mb-300"><li>
+<p class="mb-300">Choisissez des valeurs de code pour obtenir l'élément que vous voulez.</p>
 </li>
 <li>
-<p class="mb-400">Obtenez le code et intégrez-le dans votre environnement.</p>
+<p class="mb-300">Obtenez le code et intégrez-le dans votre environnement.</p>
 </li>
 <li>
-<p class="mb-400">Ajoutez tout contenu nécessaire au composant (comme le texte du libellé).</p>
+<p class="mb-300">Ajoutez tout contenu nécessaire au composant (comme le texte du libellé).</p>
 </li>
 </ol>
-<p class="mb-400"><strong>Remarque</strong> : Conformément à la pratique courante, le générateur de code utilise l'anglais pour tous les éléments de code.</p>
+<p class="mb-300"><strong>Remarque</strong> : Conformément à la pratique courante, le générateur de code utilise l'anglais pour tous les éléments de code.</p>
 <iframe
   title="Survol des propriétés et des évènements relatifs à gcds-fieldset."
   src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&demo=true&singleStory=true&id=components-fieldset--events-properties&lang=fr"
@@ -1244,12 +1244,12 @@ Aperçu du composant de jeu de champs
 ></iframe>
 
 
-  <section data-pagefind-ignore class="pt-100 mt-400 mb-600 bt-sm b-dark ">
-  <h2 class="mt-300 mb-400">
+  <section data-pagefind-ignore class="pt-75 mt-300 mb-900 bt-sm b-dark ">
+  <h2 class="mt-225 mb-300">
     Aidez-nous à nous améliorer
   </h2>
 
-  <p class="mb-400">
+  <p class="mb-300">
     Avez-vous des questions? Y a-t-il quelque chose que vous changeriez ou ajouteriez? Faites-nous part de vos commentaires pour nous aider à améliorer Système de design GC.
   </p>
 
@@ -1264,7 +1264,7 @@ Aperçu du composant de jeu de champs
 
 
 
-        <gcds-date-modified class="mb-400 font-caption">
+        <gcds-date-modified class="mb-300">
           2024-12-11
         </gcds-date-modified>
       </main>

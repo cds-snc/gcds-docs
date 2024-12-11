@@ -103,7 +103,7 @@ export class GcdsCheckbox {
             if (this.validateOn && this.validateOn != 'other') {
                 this.validate();
             }
-            if (this.hasError) {
+            if (this.hasError && this.validateOn != 'other') {
                 e.preventDefault();
             }
         }
@@ -175,7 +175,7 @@ export class GcdsCheckbox {
         if (hasError) {
             attrsInput['aria-invalid'] = 'true';
         }
-        return (h(Host, { key: 'c8d84ee1c36bea464affb5803df427691173ed3b' }, h("div", { key: '85f5091131afcd65be2715290a3e05881835c9ca', class: `gcds-checkbox ${disabled ? 'gcds-checkbox--disabled' : ''} ${hasError ? 'gcds-checkbox--error' : ''}` }, h("input", Object.assign({ key: '23fb2f765409fd8cf0dfded9b7878dbd633fa9f2', id: checkboxId, type: "checkbox" }, attrsInput, { onBlur: () => this.onBlur(), onFocus: () => this.gcdsFocus.emit(), onChange: e => this.onChange(e), onClick: e => emitEvent(e, this.gcdsClick), ref: element => (this.shadowElement = element) })), h("gcds-label", Object.assign({ key: '82d5e3ce701d08f812ab790a6382a4d30d1f49fb' }, attrsLabel, { "label-for": checkboxId, lang: lang })), hint ? h("gcds-hint", { "hint-id": checkboxId }, hint) : null, errorMessage ? (h("gcds-error-message", { messageId: checkboxId }, errorMessage)) : null, parentError ? (h("span", { id: `parent-error-${checkboxId}`, hidden: true }, parentError)) : null)));
+        return (h(Host, { key: 'd33ae5e2f2adeecdbfb572561d4e62d762a3af02' }, h("div", { key: '3a39d170c5a14b657f57cd9ff6c2cd0379d0353f', class: `gcds-checkbox ${disabled ? 'gcds-checkbox--disabled' : ''} ${hasError ? 'gcds-checkbox--error' : ''}` }, h("input", Object.assign({ key: '930020ba3646ecfea94aae1a4b014f60668eae37', id: checkboxId, type: "checkbox" }, attrsInput, { onBlur: () => this.onBlur(), onFocus: () => this.gcdsFocus.emit(), onChange: e => this.onChange(e), onClick: e => emitEvent(e, this.gcdsClick), ref: element => (this.shadowElement = element) })), h("gcds-label", Object.assign({ key: '3fc18cb30532e327c2b34b8bced1d7e8b8eb4e89' }, attrsLabel, { "label-for": checkboxId, lang: lang })), hint ? h("gcds-hint", { "hint-id": checkboxId }, hint) : null, errorMessage ? (h("gcds-error-message", { messageId: checkboxId }, errorMessage)) : null, parentError ? (h("span", { id: `parent-error-${checkboxId}`, hidden: true }, parentError)) : null)));
     }
     static get is() { return "gcds-checkbox"; }
     static get encapsulation() { return "shadow"; }

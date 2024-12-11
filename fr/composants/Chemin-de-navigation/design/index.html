@@ -1117,13 +1117,13 @@
 </gcds-header>
 
     <div class="content-wrapper">
-      <main id="mc" class="container-xl mx-auto xl:px-0 sm:px-500 px-300 general-layout" data-pagefind-body>
+      <main id="mc" class="container-xl mx-auto xl:px-0 sm:px-600 px-225 general-layout" data-pagefind-body>
         
   
-    <h1 id="chemin-de-navigation-brgcdsbreadcrumbs" class="mb-400">Chemin de navigation <br><code>&lt;gcds-breadcrumbs&gt;</code></h1>
-<p class="mb-400"><em>Autres noms : fil d’Ariane</em></p>
-<p class="mb-400">Un chemin d'accès à la page actuelle à partir de chaque niveau précédent de la hiérarchie du site.</p>
-<p class="mb-400"><ul class="d-flex flex-wrap gap-400">
+    <h1 id="chemin-de-navigation-brgcdsbreadcrumbs" class="mb-300">Chemin de navigation <br><code>&lt;gcds-breadcrumbs&gt;</code></h1>
+<p class="mb-300"><em>Autres noms : fil d’Ariane</em></p>
+<p class="mb-300">Un chemin d'accès à la page actuelle à partir de chaque niveau précédent de la hiérarchie du site.</p>
+<p class="mb-300"><ul class="d-flex flex-wrap gap-300">
 <li class="github-link">
 <gcds-link external href="https://github.com/cds-snc/gcds-components/tree/main/packages/web/src/components/gcds-breadcrumbs">GitHub</gcds-link>
 </li>
@@ -1131,11 +1131,11 @@
 <gcds-link external href="https://www.figma.com/file/o4SguSZdar2CCFzSkWNrmB/Syst%C3%A8me-de-design-GC?type=design&node-id=48-2119&mode=design&t=1DaL24vHpjRRfHHm-0">Figma</gcds-link>
 </li>
 </ul></p>
-<p class="mb-400"><div class="my-500 b-sm b-default component-preview" id="component-preview">
-<p class="container-full font-semibold px-300 py-200 bb-sm b-default bg-light">
+<p class="mb-300"><div class="my-600 b-sm b-default component-preview" id="component-preview">
+<p class="container-full font-semibold px-225 py-150 bb-sm b-default bg-light">
 Aperçu du composant de chemin de navigation
 </p>
-<div class="px-300 py-400"></p>
+<div class="px-225 py-300"></p>
 <div aria-hidden="true">
   <gcds-breadcrumbs>
     <gcds-breadcrumbs-item href="#">Page d'accueil</gcds-breadcrumbs-item>
@@ -1143,10 +1143,10 @@ Aperçu du composant de chemin de navigation
     </gcds-breadcrumbs-item>
   </gcds-breadcrumbs>
 </div>
-<p class="mb-400"></div>
+<p class="mb-300"></div>
 </div></p>
 
-    <nav class="tabs mb-400" aria-label="Onglet de consignes">
+    <nav class="tabs mb-300" aria-label="Onglet de consignes">
       <ul>
         
           
@@ -1183,50 +1183,50 @@ Aperçu du composant de chemin de navigation
     </nav>
   
 
-  <h2 id="structure-dun-chemin-de-navigation" class="mt-500 mb-400">Structure d'un chemin de navigation</h2>
+  <h2 id="structure-dun-chemin-de-navigation" class="mt-600 mb-300">Structure d'un chemin de navigation</h2>
 <ol class="anatomy-list">
   <li>Le <strong>lien Canada.ca</strong> permet d'accéder à la page d'accueil Canada.ca dans la langue actuelle.</li>
   <li>Le <strong>chevron</strong> se trouve entre chaque lien et pointe vers le lien suivant ou subordonné.</li>
   <li>Le <strong>lien vers la page d'accueil</strong> ramène à la page d'accueil de la page Web ou du site actuel.</li>
   <li>Le <strong>lien de la page parent</strong> conduit vers la page parent de la page actuelle. Vous pouvez avoir jusqu'à trois liens vers des pages parents en plus de ceux vers la page d'accueil et la page d'accueil Canada.ca.</li>
 </ol>
-<img class="b-sm b-default p-400" src="/images/fr/components/anatomy/gcds-breadcrumbs-anatomy.svg" alt="La structure du chemin de navigation qui affiche trois liens de suite avec une icône de flèche entre chacun." />
-<h3 id="structure-du-chemin-de-navigation-avec-entete-et-titre-h1" class="mt-500 mb-400">Structure du chemin de navigation — avec en-tête et titre H1</h3>
+<img class="b-sm b-default p-300" src="/images/fr/components/anatomy/gcds-breadcrumbs-anatomy.svg" alt="La structure du chemin de navigation qui affiche trois liens de suite avec une icône de flèche entre chacun." />
+<h3 id="structure-du-chemin-de-navigation-avec-entete-et-titre-h1" class="mt-600 mb-300">Structure du chemin de navigation — avec en-tête et titre H1</h3>
 <ol class="anatomy-list">
   <li>L'<gcds-link href="/fr/composants/en-tete"><strong>en-tête</strong></gcds-link> constitue un élément d'une image de marque fiable — pour les applications, les formulaires ou d'autres services numériques transactionnels.</li>
   <li>Le <strong>lien vers la page d'accueil</strong> ramène à la page d'accueil de la page Web ou du site actuel.</li>
   <li>Le <strong>lien de la page parent</strong> conduit vers la page parent de la page actuelle. Vous pouvez avoir jusqu'à trois liens vers des pages parents en plus de ceux vers la page d'accueil et la page d'accueil Canada.ca.</li>
   <li>Le  <strong>titre H1</strong> est un élément distinct du composant Chemin de navigation. Il indique aux lecteur·rice·s la nature de la page ou du site et sert de repère.</li>
 </ol>
-<img class="b-sm b-default p-400" src="/images/fr/components/anatomy/gcds-breadcrumbs-anatomy-with-header.svg" alt="La structure du chemin de navigation qui affiche trois liens de suite sous l'en-tête avec une icône de flèche entre chacun." />
-<h2 id="design-et-accessibilite-du-chemin-de-navigation" class="mt-500 mb-400">Design et accessibilité du chemin de navigation</h2>
-<h3 id="incluez-les-bons-liens-dans-votre-chemin-de-navigation" class="mt-500 mb-400">Incluez les bons liens dans votre chemin de navigation</h3>
-<ul class="list-disc mb-400"><li><p class="mb-400">N'incluez que les liens de page parent et omettez la page actuelle. C'est indiqué dans le titre de la page, directement sous le chemin de navigation.</li>
-<li><p class="mb-400">Ajoutez jusqu'à trois liens de page parent si vous utilisez les liens Canada.ca et la page d'accueil, pour un maximum de cinq liens de chemin de navigation.</li>
-<li><p class="mb-400">Évitez la duplication en associant chaque lien de chemin de navigation à une page unique.</li>
+<img class="b-sm b-default p-300" src="/images/fr/components/anatomy/gcds-breadcrumbs-anatomy-with-header.svg" alt="La structure du chemin de navigation qui affiche trois liens de suite sous l'en-tête avec une icône de flèche entre chacun." />
+<h2 id="design-et-accessibilite-du-chemin-de-navigation" class="mt-600 mb-300">Design et accessibilité du chemin de navigation</h2>
+<h3 id="incluez-les-bons-liens-dans-votre-chemin-de-navigation" class="mt-600 mb-300">Incluez les bons liens dans votre chemin de navigation</h3>
+<ul class="list-disc mb-300"><li><p class="mb-300">N'incluez que les liens de page parent et omettez la page actuelle. C'est indiqué dans le titre de la page, directement sous le chemin de navigation.</li>
+<li><p class="mb-300">Ajoutez jusqu'à trois liens de page parent si vous utilisez les liens Canada.ca et la page d'accueil, pour un maximum de cinq liens de chemin de navigation.</li>
+<li><p class="mb-300">Évitez la duplication en associant chaque lien de chemin de navigation à une page unique.</li>
 </ul>
-<h3 id="structurez-les-niveaux-de-chemin-de-navigation-en-fonction-de-la-navigation-sur-le-site" class="mt-500 mb-400">Structurez les niveaux de chemin de navigation en fonction de la navigation sur le site</h3>
-<p class="mb-400">Le chemin de navigation représente l'emplacement de la page courante par rapport au modèle de navigation du site.</p>
-<ul class="list-disc mb-400"><li><p class="mb-400">Ordonnez les niveaux de chemin de navigation en fonction de leur niveau correspondant dans la hiérarchie du site.</li>
-<li><p class="mb-400">Évitez d'utiliser le composant Chemin de navigation pour illustrer l'évolution du parcours de l'utilisateur·rice.</li>
-<li><p class="mb-400">Limitez le chemin de navigation à cinq niveaux. Un trop grand nombre de niveaux dans le chemin de navigation peut être accablant pour certaines personnes.</li>
+<h3 id="structurez-les-niveaux-de-chemin-de-navigation-en-fonction-de-la-navigation-sur-le-site" class="mt-600 mb-300">Structurez les niveaux de chemin de navigation en fonction de la navigation sur le site</h3>
+<p class="mb-300">Le chemin de navigation représente l'emplacement de la page courante par rapport au modèle de navigation du site.</p>
+<ul class="list-disc mb-300"><li><p class="mb-300">Ordonnez les niveaux de chemin de navigation en fonction de leur niveau correspondant dans la hiérarchie du site.</li>
+<li><p class="mb-300">Évitez d'utiliser le composant Chemin de navigation pour illustrer l'évolution du parcours de l'utilisateur·rice.</li>
+<li><p class="mb-300">Limitez le chemin de navigation à cinq niveaux. Un trop grand nombre de niveaux dans le chemin de navigation peut être accablant pour certaines personnes.</li>
 </ul>
-<p class="mb-400">Conseil : Si vous utilisez également d'autres composants de navigation, comme la <gcds-link href="/fr/composants/barre-de-navigation-superieure">barre de navigation supérieure</gcds-link> et la <gcds-link href="/fr/composants/barre-de-navigation-laterale">barre de navigation latérale</gcds-link>, harmonisez-les de façon à ce que les éléments reflètent le parcours d'une personne sur le site. Cela offre une expérience de navigation uniforme et aide les utilisateur·rice·s à comprendre leur emplacement actuel.</p>
-<h3 id="ecrivez-du-texte-specifique-pour-le-lien-vers-la-page-parent" class="mt-500 mb-400">Écrivez du texte spécifique pour le lien vers la page parent</h3>
-<ul class="list-disc mb-400"><li><p class="mb-400">Rendez le texte du lien clair et précis pour aider une personne à décider si elle doit quitter la page actuelle. Indiquez où et vers quel contenu mène un lien.</li>
-<li><p class="mb-400">Veillez à ce que le lien vers la page parent soit court (idéalement moins de 20 caractères) et distinctif afin qu'une personne puisse jeter un œil aux liens du chemin de navigation et trouver ce qu'elle recherche.</li>
-<li><p class="mb-400">Raccourcissez le lien de la page parent afin d'améliorer la lisibilité et d'en réduire la longueur. Dans la mesure du possible, indiquez le titre de la page dans le chemin de navigation sans inclure le nom complet de la page.</li>
+<p class="mb-300">Conseil : Si vous utilisez également d'autres composants de navigation, comme la <gcds-link href="/fr/composants/barre-de-navigation-superieure">barre de navigation supérieure</gcds-link> et la <gcds-link href="/fr/composants/barre-de-navigation-laterale">barre de navigation latérale</gcds-link>, harmonisez-les de façon à ce que les éléments reflètent le parcours d'une personne sur le site. Cela offre une expérience de navigation uniforme et aide les utilisateur·rice·s à comprendre leur emplacement actuel.</p>
+<h3 id="ecrivez-du-texte-specifique-pour-le-lien-vers-la-page-parent" class="mt-600 mb-300">Écrivez du texte spécifique pour le lien vers la page parent</h3>
+<ul class="list-disc mb-300"><li><p class="mb-300">Rendez le texte du lien clair et précis pour aider une personne à décider si elle doit quitter la page actuelle. Indiquez où et vers quel contenu mène un lien.</li>
+<li><p class="mb-300">Veillez à ce que le lien vers la page parent soit court (idéalement moins de 20 caractères) et distinctif afin qu'une personne puisse jeter un œil aux liens du chemin de navigation et trouver ce qu'elle recherche.</li>
+<li><p class="mb-300">Raccourcissez le lien de la page parent afin d'améliorer la lisibilité et d'en réduire la longueur. Dans la mesure du possible, indiquez le titre de la page dans le chemin de navigation sans inclure le nom complet de la page.</li>
 </ul>
-<h3 id="placez-le-chemin-de-navigation-avant-le-contenu-principal" class="mt-500 mb-400">Placez le chemin de navigation avant le contenu principal</h3>
-<p class="mb-400">Placez le chemin de navigation en haut d'une page, avant le contenu principal. De cette façon, un lien « Passer au contenu principal » permettra à l'utilisateur·rice d'ignorer tous les liens de navigation, y compris les chemins de navigation.</p>
+<h3 id="placez-le-chemin-de-navigation-avant-le-contenu-principal" class="mt-600 mb-300">Placez le chemin de navigation avant le contenu principal</h3>
+<p class="mb-300">Placez le chemin de navigation en haut d'une page, avant le contenu principal. De cette façon, un lien « Passer au contenu principal » permettra à l'utilisateur·rice d'ignorer tous les liens de navigation, y compris les chemins de navigation.</p>
 
 
-  <section data-pagefind-ignore class="pt-100 mt-400 mb-600 bt-sm b-dark ">
-  <h2 class="mt-300 mb-400">
+  <section data-pagefind-ignore class="pt-75 mt-300 mb-900 bt-sm b-dark ">
+  <h2 class="mt-225 mb-300">
     Aidez-nous à nous améliorer
   </h2>
 
-  <p class="mb-400">
+  <p class="mb-300">
     Avez-vous des questions? Y a-t-il quelque chose que vous changeriez ou ajouteriez? Faites-nous part de vos commentaires pour nous aider à améliorer Système de design GC.
   </p>
 
@@ -1241,7 +1241,7 @@ Aperçu du composant de chemin de navigation
 
 
 
-        <gcds-date-modified class="mb-400 font-caption">
+        <gcds-date-modified class="mb-300">
           2024-12-11
         </gcds-date-modified>
       </main>

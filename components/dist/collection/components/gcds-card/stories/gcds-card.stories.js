@@ -1,4 +1,4 @@
-import { langProp } from "../../../utils/storybook/component-properties";
+import { langProp, eventProp, } from "../../../utils/storybook/component-properties";
 export default {
     title: 'Components/Card',
     argTypes: Object.assign(Object.assign({
@@ -69,22 +69,7 @@ export default {
             },
         },
         // Events
-        gcdsClick: {
-            action: 'click',
-            table: {
-                category: 'Events | Événements',
-            },
-        }, gcdsFocus: {
-            action: 'focus',
-            table: {
-                category: 'Events | Événements',
-            },
-        }, gcdsBlur: {
-            action: 'blur',
-            table: {
-                category: 'Events | Événements',
-            },
-        }
+        gcdsClick: Object.assign({ action: 'click' }, eventProp), gcdsFocus: Object.assign({ action: 'focus' }, eventProp), gcdsBlur: Object.assign({ action: 'blur' }, eventProp)
     }),
 };
 const Template = args => `

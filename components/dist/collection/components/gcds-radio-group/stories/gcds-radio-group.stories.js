@@ -1,4 +1,4 @@
-import { langProp } from "../../../utils/storybook/component-properties";
+import { langProp, eventProp, } from "../../../utils/storybook/component-properties";
 export default {
     title: 'Components/Radio Group',
     parameters: {
@@ -42,22 +42,7 @@ export default {
         }
     }, langProp), {
         // Events
-        gcdsRadioChange: {
-            action: 'RadioChange',
-            table: {
-                category: 'Events | Événements',
-            },
-        }, gcdsFocus: {
-            action: 'focus',
-            table: {
-                category: 'Events | Événements',
-            },
-        }, gcdsBlur: {
-            action: 'blur',
-            table: {
-                category: 'Events | Événements',
-            },
-        }
+        gcdsRadioChange: Object.assign({ action: 'RadioChange' }, eventProp), gcdsFocus: Object.assign({ action: 'focus' }, eventProp), gcdsBlur: Object.assign({ action: 'blur' }, eventProp)
     }),
 };
 const Template = args => `

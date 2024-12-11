@@ -1,4 +1,4 @@
-import { langProp, validatorProps, } from "../../../utils/storybook/component-properties";
+import { langProp, validatorProps, eventProp, } from "../../../utils/storybook/component-properties";
 export default {
     title: 'Components/Fieldset',
     parameters: {
@@ -58,17 +58,7 @@ export default {
         }
     }, validatorProps), langProp), {
         // Events
-        gcdsGroupError: {
-            action: 'GroupError',
-            table: {
-                category: 'Events | Événements',
-            },
-        }, gcdsGroupErrorClear: {
-            action: 'GroupErrorClear',
-            table: {
-                category: 'Events | Événements',
-            },
-        }
+        gcdsGroupError: Object.assign({ action: 'GroupError' }, eventProp), gcdsGroupErrorClear: Object.assign({ action: 'GroupErrorClear' }, eventProp)
     }),
 };
 const Template = args => `

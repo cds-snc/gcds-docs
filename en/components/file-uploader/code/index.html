@@ -1117,13 +1117,13 @@
 </gcds-header>
 
     <div class="content-wrapper">
-      <main id="mc" class="container-xl mx-auto xl:px-0 sm:px-500 px-300 general-layout" data-pagefind-body>
+      <main id="mc" class="container-xl mx-auto xl:px-0 sm:px-600 px-225 general-layout" data-pagefind-body>
         
   
-    <h1 id="file-uploader-brgcdsfileuploader" class="mb-400">File uploader <br><code>&lt;gcds-file-uploader&gt;</code></h1>
-<p class="mb-400"><em>Also called: file upload, file input, dropzone.</em></p>
-<p class="mb-400">A file uploader is a space to select and add supporting documentation.</p>
-<p class="mb-400"><ul class="d-flex flex-wrap gap-400">
+    <h1 id="file-uploader-brgcdsfileuploader" class="mb-300">File uploader <br><code>&lt;gcds-file-uploader&gt;</code></h1>
+<p class="mb-300"><em>Also called: file upload, file input, dropzone.</em></p>
+<p class="mb-300">A file uploader is a space to select and add supporting documentation.</p>
+<p class="mb-300"><ul class="d-flex flex-wrap gap-300">
 <li class="github-link">
 <gcds-link external href="https://github.com/cds-snc/gcds-components/tree/main/packages/web/src/components/gcds-file-uploader">GitHub</gcds-link>
 </li>
@@ -1131,17 +1131,17 @@
 <gcds-link external href="https://www.figma.com/file/mh2maMG2NBtk41k1O1UGHV/GC-Design-System?type=design&node-id=963-2452&mode=design&t=fxDZJkieTzAabZFV-0">Figma</gcds-link>
 </li>
 </ul></p>
-<p class="mb-400"><div class="my-500 b-sm b-default component-preview" id="component-preview">
-<p class="container-full font-semibold px-300 py-200 bb-sm b-default bg-light">
+<p class="mb-300"><div class="my-600 b-sm b-default component-preview" id="component-preview">
+<p class="container-full font-semibold px-225 py-150 bb-sm b-default bg-light">
 File uploader component preview
 </p>
-<div class="px-300 py-400"></p>
+<div class="px-225 py-300"></p>
 <gcds-file-uploader uploader-id="file-uploader-preview" label="Label" hint="Hint / Example message.">
 </gcds-file-uploader>
-<p class="mb-400"></div>
+<p class="mb-300"></div>
 </div></p>
 
-    <nav class="tabs mb-400" aria-label="Guidance tabs">
+    <nav class="tabs mb-300" aria-label="Guidance tabs">
       <ul>
         
           
@@ -1178,52 +1178,52 @@ File uploader component preview
     </nav>
   
 
-  <h2 id="build-a-file-uploader" class="mt-500 mb-400">Build a file uploader</h2>
-<p class="mb-400">Use the file uploader to allow a person to select and review files they’d like to include with their submission.</p>
-<h2 id="code-and-accessibility-for-file-uploader" class="mt-500 mb-400">Code and accessibility for file uploader</h2>
-<h3 id="apply-required-attributes" class="mt-500 mb-400">Apply required attributes</h3>
-<p class="mb-400">For the file uploader to function properly, always use the following attributes with <code>&lt;gcds-file-uploader&gt;</code>:</p>
-<ul class="list-disc mb-400"><li><p class="mb-400"><code>name</code></li>
-<li><p class="mb-400"><code>label</code></li>
-<li><p class="mb-400"><code>uploader-id</code></li>
+  <h2 id="build-a-file-uploader" class="mt-600 mb-300">Build a file uploader</h2>
+<p class="mb-300">Use the file uploader to allow a person to select and review files they’d like to include with their submission.</p>
+<h2 id="code-and-accessibility-for-file-uploader" class="mt-600 mb-300">Code and accessibility for file uploader</h2>
+<h3 id="apply-required-attributes" class="mt-600 mb-300">Apply required attributes</h3>
+<p class="mb-300">For the file uploader to function properly, always use the following attributes with <code>&lt;gcds-file-uploader&gt;</code>:</p>
+<ul class="list-disc mb-300"><li><p class="mb-300"><code>name</code></li>
+<li><p class="mb-300"><code>label</code></li>
+<li><p class="mb-300"><code>uploader-id</code></li>
 </ul>
-<h3 id="handle-error-messages-and-validation" class="mt-500 mb-400">Handle error messages and validation</h3>
-<ul class="list-disc mb-400"><li>
-<p class="mb-400">Use the <code>required</code> attribute to activate the required validator. Validation will happen by default on the <code>onBlur</code> event. A missing or invalid entry will prompt an inline error message with preset text.</p>
+<h3 id="handle-error-messages-and-validation" class="mt-600 mb-300">Handle error messages and validation</h3>
+<ul class="list-disc mb-300"><li>
+<p class="mb-300">Use the <code>required</code> attribute to activate the required validator. Validation will happen by default on the <code>onBlur</code> event. A missing or invalid entry will prompt an inline error message with preset text.</p>
 </li>
 <li>
-<p class="mb-400">If you need to change the validation event, use the <code>validate-on</code> attribute. Validation can happen on blur, when the element loses focus, or manually with the <code>validate()</code> method.</p>
+<p class="mb-300">If you need to change the validation event, use the <code>validate-on</code> attribute. Validation can happen on blur, when the element loses focus, or manually with the <code>validate()</code> method.</p>
 </li>
 <li>
-<p class="mb-400">Use the <code>required</code> attribute for fields that must be filled in. This places &quot;required&quot; at the end of the label.</p>
+<p class="mb-300">Use the <code>required</code> attribute for fields that must be filled in. This places &quot;required&quot; at the end of the label.</p>
 </li>
 <li>
-<p class="mb-400">Use the <code>error-message</code> attribute to include an error message text for all required inputs. Avoid using error messages for optional ones.</p>
+<p class="mb-300">Use the <code>error-message</code> attribute to include an error message text for all required inputs. Avoid using error messages for optional ones.</p>
 </li>
 <li>
-<p class="mb-400">For optional fields, avoid adding the <code>error-message</code> attribute.</p>
+<p class="mb-300">For optional fields, avoid adding the <code>error-message</code> attribute.</p>
 </li>
 <li>
-<p class="mb-400">For an optional field that needs validation based on user input (like validating an email address format), opt to add custom validation with a custom error message.</p>
+<p class="mb-300">For an optional field that needs validation based on user input (like validating an email address format), opt to add custom validation with a custom error message.</p>
 </li>
 </ul>
-<h3 id="upload-multiple-files" class="mt-500 mb-400">Upload multiple files</h3>
-<p class="mb-400">Allow the selection of more than one file using the <code>multiple</code> attribute.</p>
-<h3 id="validate-file-types-for-upload" class="mt-500 mb-400">Validate file types for upload</h3>
-<p class="mb-400">Define the file types the file uploader accepts using the <code>accept</code> attribute.</p>
-<h3 id="get-your-code" class="mt-500 mb-400">Get your code</h3>
-<p class="mb-400">Generate an instance of the component you need by selecting its code properties.</p>
-<ol class="list-decimal mb-400"><li>
-<p class="mb-400">Explore by choosing different code values to generate the instance you want.</p>
+<h3 id="upload-multiple-files" class="mt-600 mb-300">Upload multiple files</h3>
+<p class="mb-300">Allow the selection of more than one file using the <code>multiple</code> attribute.</p>
+<h3 id="validate-file-types-for-upload" class="mt-600 mb-300">Validate file types for upload</h3>
+<p class="mb-300">Define the file types the file uploader accepts using the <code>accept</code> attribute.</p>
+<h3 id="get-your-code" class="mt-600 mb-300">Get your code</h3>
+<p class="mb-300">Generate an instance of the component you need by selecting its code properties.</p>
+<ol class="list-decimal mb-300"><li>
+<p class="mb-300">Explore by choosing different code values to generate the instance you want.</p>
 </li>
 <li>
-<p class="mb-400">Get the code and pull it into your environment.</p>
+<p class="mb-300">Get the code and pull it into your environment.</p>
 </li>
 <li>
-<p class="mb-400">Add any copy you need to the component (like text for a label).</p>
+<p class="mb-300">Add any copy you need to the component (like text for a label).</p>
 </li>
 </ol>
-<p class="mb-400"><strong>Note:</strong> Following standard practice, the code builder uses English for all code elements.</p>
+<p class="mb-300"><strong>Note:</strong> Following standard practice, the code builder uses English for all code elements.</p>
 <iframe
   title="Overview of gcds-file-uploader properties and events."
   src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&demo=true&singleStory=true&id=components-file-uploader--events-properties&lang=en"
@@ -1235,12 +1235,12 @@ File uploader component preview
 ></iframe>
 
 
-  <section data-pagefind-ignore class="pt-100 mt-400 mb-600 bt-sm b-dark ">
-  <h2 class="mt-300 mb-400">
+  <section data-pagefind-ignore class="pt-75 mt-300 mb-900 bt-sm b-dark ">
+  <h2 class="mt-225 mb-300">
     Help us improve
   </h2>
 
-  <p class="mb-400">
+  <p class="mb-300">
     Have questions? Something you&#39;d change or you&#39;d like to see? Share your feedback with us to help improve GC Design System.
   </p>
 
@@ -1255,7 +1255,7 @@ File uploader component preview
 
 
 
-        <gcds-date-modified class="mb-400 font-caption">
+        <gcds-date-modified class="mb-300">
           2024-12-11
         </gcds-date-modified>
       </main>

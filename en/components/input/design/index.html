@@ -1117,13 +1117,13 @@
 </gcds-header>
 
     <div class="content-wrapper">
-      <main id="mc" class="container-xl mx-auto xl:px-0 sm:px-500 px-300 general-layout" data-pagefind-body>
+      <main id="mc" class="container-xl mx-auto xl:px-0 sm:px-600 px-225 general-layout" data-pagefind-body>
         
   
-    <h1 id="inputbrgcdsinput" class="mb-400">Input<br><code>&lt;gcds-input&gt;</code></h1>
-<p class="mb-400"><em>Also called: text input, input field.</em></p>
-<p class="mb-400">An input is a space to enter short-form information in response to a question or instruction.</p>
-<p class="mb-400"><ul class="d-flex flex-wrap gap-400">
+    <h1 id="inputbrgcdsinput" class="mb-300">Input<br><code>&lt;gcds-input&gt;</code></h1>
+<p class="mb-300"><em>Also called: text input, input field.</em></p>
+<p class="mb-300">An input is a space to enter short-form information in response to a question or instruction.</p>
+<p class="mb-300"><ul class="d-flex flex-wrap gap-300">
 <li class="github-link">
 <gcds-link external href="https://github.com/cds-snc/gcds-components/tree/main/packages/web/src/components/gcds-input">GitHub</gcds-link>
 </li>
@@ -1131,17 +1131,17 @@
 <gcds-link external href="https://www.figma.com/file/mh2maMG2NBtk41k1O1UGHV/GC-Design-System?type=design&node-id=2-598&mode=design&t=2my46MmKTAF9hApN-0">Figma</gcds-link>
 </li>
 </ul></p>
-<p class="mb-400"><div class="my-500 b-sm b-default component-preview" id="component-preview">
-<p class="container-full font-semibold px-300 py-200 bb-sm b-default bg-light">
+<p class="mb-300"><div class="my-600 b-sm b-default component-preview" id="component-preview">
+<p class="container-full font-semibold px-225 py-150 bb-sm b-default bg-light">
 Input component preview
 </p>
-<div class="px-300 pt-400"></p>
+<div class="px-225 pt-300"></p>
 <gcds-input input-id="input-example" label="Label" hint="Hint / Example message.">
 </gcds-input>
-<p class="mb-400"></div>
+<p class="mb-300"></div>
 </div></p>
 
-    <nav class="tabs mb-400" aria-label="Guidance tabs">
+    <nav class="tabs mb-300" aria-label="Guidance tabs">
       <ul>
         
           
@@ -1178,43 +1178,43 @@ Input component preview
     </nav>
   
 
-  <h2 id="input-anatomy" class="mt-500 mb-400">Input anatomy</h2>
+  <h2 id="input-anatomy" class="mt-600 mb-300">Input anatomy</h2>
 <ol class="anatomy-list">
   <li>The <strong>input label</strong> states the information a person should enter in the field. Label text is left aligned and in sentence case (only the initial letter is capitalized).</li>
   <li>The <strong>hint text</strong> communicates specific requirements for each input to support task success.</li>
   <li>The <strong>field</strong> is the container a person interacts with to provide their response.</li>
 </ol>
-<img class="b-sm b-default p-400" src="/images/en/components/anatomy/gcds-input-anatomy.svg" alt="Input anatomy showing the Input label, Hint text/ example message and dark blue outline white box for text input."/>
-<h2 id="design-and-accessibility-for-inputs" class="mt-500 mb-400">Design and accessibility for inputs</h2>
-<h3 id="write-a-short-specific-unique-input-label" class="mt-500 mb-400">Write a short, specific, unique input label</h3>
-<ul class="list-disc mb-400"><li><p class="mb-400">Ask for the information you need using as few words as possible. Phrasing as a question can make a label unnecessarily long and a person may not read the whole thing.</li>
-<li><p class="mb-400">Choose unique labels for each input and <a href="/en/components/textarea">text area</a> within a page, like &quot;Your full name&quot;, &quot;Manager's name&quot;.</li>
-<li><p class="mb-400">Avoid using technical jargon, like &quot;subject email address&quot; or &quot;account ID&quot;. Instead be specific and personal, like &quot;full name&quot;, &quot;child's age&quot;.</li>
-<li><p class="mb-400">Avoid using colloquialisms and common verb phrases that are unfamiliar to non-fluent speakers.</li>
-<li><p class="mb-400">Explain any term that may not be clear. For example, &quot;Handle (name you'd like to go by)&quot;.</li>
+<img class="b-sm b-default p-300" src="/images/en/components/anatomy/gcds-input-anatomy.svg" alt="Input anatomy showing the Input label, Hint text/ example message and dark blue outline white box for text input."/>
+<h2 id="design-and-accessibility-for-inputs" class="mt-600 mb-300">Design and accessibility for inputs</h2>
+<h3 id="write-a-short-specific-unique-input-label" class="mt-600 mb-300">Write a short, specific, unique input label</h3>
+<ul class="list-disc mb-300"><li><p class="mb-300">Ask for the information you need using as few words as possible. Phrasing as a question can make a label unnecessarily long and a person may not read the whole thing.</li>
+<li><p class="mb-300">Choose unique labels for each input and <a href="/en/components/textarea">text area</a> within a page, like &quot;Your full name&quot;, &quot;Manager's name&quot;.</li>
+<li><p class="mb-300">Avoid using technical jargon, like &quot;subject email address&quot; or &quot;account ID&quot;. Instead be specific and personal, like &quot;full name&quot;, &quot;child's age&quot;.</li>
+<li><p class="mb-300">Avoid using colloquialisms and common verb phrases that are unfamiliar to non-fluent speakers.</li>
+<li><p class="mb-300">Explain any term that may not be clear. For example, &quot;Handle (name you'd like to go by)&quot;.</li>
 </ul>
-<h3 id="size-inputs-to-fit-response-type" class="mt-500 mb-400">Size inputs to fit response type</h3>
-<ul class="list-disc mb-400"><li><p class="mb-400">Use fixed width inputs for content you know has a specific length. For example, 6 characters for a postal code or 10 characters for a phone number.</li>
-<li><p class="mb-400">Opt to use most of the container width when you do not know the character count of the response and use all 75 characters for responses without a fixed length.</li>
-<li><p class="mb-400">Avoid using inputs for responses that may need more than 75 characters.</li>
+<h3 id="size-inputs-to-fit-response-type" class="mt-600 mb-300">Size inputs to fit response type</h3>
+<ul class="list-disc mb-300"><li><p class="mb-300">Use fixed width inputs for content you know has a specific length. For example, 6 characters for a postal code or 10 characters for a phone number.</li>
+<li><p class="mb-300">Opt to use most of the container width when you do not know the character count of the response and use all 75 characters for responses without a fixed length.</li>
+<li><p class="mb-300">Avoid using inputs for responses that may need more than 75 characters.</li>
 </ul>
-<h3 id="support-task-success-with-hint-text" class="mt-500 mb-400">Support task success with hint text</h3>
-<ul class="list-disc mb-400"><li><p class="mb-400">Add hint text to help a person filling in an input to provide a complete value.</li>
-<li><p class="mb-400">Write hint text to be instructional, brief and specific.</li>
+<h3 id="support-task-success-with-hint-text" class="mt-600 mb-300">Support task success with hint text</h3>
+<ul class="list-disc mb-300"><li><p class="mb-300">Add hint text to help a person filling in an input to provide a complete value.</li>
+<li><p class="mb-300">Write hint text to be instructional, brief and specific.</li>
 </ul>
-<h3 id="write-error-messages-for-required-inputs" class="mt-500 mb-400">Write error messages for required inputs</h3>
-<ul class="list-disc mb-400"><li><p class="mb-400">Use <a href="/en/components/error-message">error messages</a> to address missing and invalid entries.</li>
-<li><p class="mb-400">Write an error message for all required inputs. If a field is optional, avoid using an error message.</li>
-<li><p class="mb-400">Avoid blaming the person using the product. Instead, tell them exactly what to do to move forward.</li>
+<h3 id="write-error-messages-for-required-inputs" class="mt-600 mb-300">Write error messages for required inputs</h3>
+<ul class="list-disc mb-300"><li><p class="mb-300">Use <a href="/en/components/error-message">error messages</a> to address missing and invalid entries.</li>
+<li><p class="mb-300">Write an error message for all required inputs. If a field is optional, avoid using an error message.</li>
+<li><p class="mb-300">Avoid blaming the person using the product. Instead, tell them exactly what to do to move forward.</li>
 </ul>
 
 
-  <section data-pagefind-ignore class="pt-100 mt-400 mb-600 bt-sm b-dark ">
-  <h2 class="mt-300 mb-400">
+  <section data-pagefind-ignore class="pt-75 mt-300 mb-900 bt-sm b-dark ">
+  <h2 class="mt-225 mb-300">
     Help us improve
   </h2>
 
-  <p class="mb-400">
+  <p class="mb-300">
     Have questions? Something you&#39;d change or you&#39;d like to see? Share your feedback with us to help improve GC Design System.
   </p>
 
@@ -1229,7 +1229,7 @@ Input component preview
 
 
 
-        <gcds-date-modified class="mb-400 font-caption">
+        <gcds-date-modified class="mb-300">
           2024-12-11
         </gcds-date-modified>
       </main>

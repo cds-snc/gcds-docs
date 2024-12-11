@@ -1,3 +1,4 @@
+import { SpacingValues } from '../../utils/types/spacing';
 export declare class GcdsText {
     el: HTMLElement;
     /**
@@ -20,17 +21,17 @@ export declare class GcdsText {
     /**
      * Adds margin above the text.
      */
-    marginTop?: '0' | '50' | '100' | '150' | '200' | '250' | '300' | '400' | '450' | '500' | '550' | '600' | '700' | '800' | '900' | '1000';
+    marginTop?: SpacingValues;
     validateMarginTop(newValue: string): void;
     /**
      * Adds margin below the text.
      */
-    marginBottom?: '0' | '50' | '100' | '150' | '200' | '250' | '300' | '400' | '450' | '500' | '550' | '600' | '700' | '800' | '900' | '1000';
+    marginBottom?: SpacingValues;
     validateMarginBottom(newValue: string): void;
     /**
      * Sets the appropriate HTML tags for the selected size.
      */
-    size?: 'body' | 'caption';
+    size?: 'body' | 'small';
     validateSize(newValue: string): void;
     componentWillLoad(): void;
     render(): any;

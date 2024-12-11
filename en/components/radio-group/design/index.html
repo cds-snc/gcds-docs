@@ -1117,13 +1117,13 @@
 </gcds-header>
 
     <div class="content-wrapper">
-      <main id="mc" class="container-xl mx-auto xl:px-0 sm:px-500 px-300 general-layout" data-pagefind-body>
+      <main id="mc" class="container-xl mx-auto xl:px-0 sm:px-600 px-225 general-layout" data-pagefind-body>
         
   
-    <h1 id="radio-group-brgcdsradiogroup" class="mb-400">Radio Group <br><code>&lt;gcds-radio-group&gt;</code></h1>
-<p class="mb-400"><em>Also called: radio button, radio.</em></p>
-<p class="mb-400">The radio group is a set of options for a single selection.</p>
-<p class="mb-400"><ul class="d-flex flex-wrap gap-400">
+    <h1 id="radio-group-brgcdsradiogroup" class="mb-300">Radio Group <br><code>&lt;gcds-radio-group&gt;</code></h1>
+<p class="mb-300"><em>Also called: radio button, radio.</em></p>
+<p class="mb-300">The radio group is a set of options for a single selection.</p>
+<p class="mb-300"><ul class="d-flex flex-wrap gap-300">
 <li class="github-link">
 <gcds-link external href="https://github.com/cds-snc/gcds-components/tree/main/packages/web/src/components/gcds-radio-group">GitHub</gcds-link>
 </li>
@@ -1131,19 +1131,19 @@
 <gcds-link external href="https://www.figma.com/file/mh2maMG2NBtk41k1O1UGHV/Canadian-Digital-Service%E2%80%A8---GC-Design-System?node-id=818%3A3759&t=ciEmm7GYyGAY73zZ-0">Figma</gcds-link>
 </li>
 </ul></p>
-<p class="mb-400"><div class="my-500 b-sm b-default component-preview" id="component-preview">
-<p class="container-full font-semibold px-300 py-200 bb-sm b-default bg-light">
+<p class="mb-300"><div class="my-600 b-sm b-default component-preview" id="component-preview">
+<p class="container-full font-semibold px-225 py-150 bb-sm b-default bg-light">
 Radio group component preview
 </p>
-<div class="px-300 pt-400 pb-200"></p>
+<div class="px-225 pt-300 pb-150"></p>
 <gcds-fieldset fieldset-id="fieldset" legend="Legend" hint="Hint / Example message.">
 <gcds-radio-group name="radio" options='[{"id":"form-radio-1","label":"Label 1","hint":"Description or example to make the option clearer"},{"id":"form-radio-r","label":"Label 2","hint":"Description or example to make the option clearer"}]'>
 </gcds-radio-group>
 </gcds-fieldset>
-<p class="mb-400"></div>
+<p class="mb-300"></div>
 </div></p>
 
-    <nav class="tabs mb-400" aria-label="Guidance tabs">
+    <nav class="tabs mb-300" aria-label="Guidance tabs">
       <ul>
         
           
@@ -1180,7 +1180,7 @@ Radio group component preview
     </nav>
   
 
-  <h2 id="radio-group-anatomy-with-fieldset" class="mt-500 mb-400">Radio group anatomy - with fieldset</h2>
+  <h2 id="radio-group-anatomy-with-fieldset" class="mt-600 mb-300">Radio group anatomy - with fieldset</h2>
 <ol class="anatomy-list">
   <li>The <strong>fieldset legend</strong> acts as a heading to identify the grouped radios. Legend text is left aligned and in sentence case (only the initial letter is capitalized).</li>
   <li>The <strong>fieldset hint text</strong> communicates specific requirements for the radio grouping to support task success.</li>
@@ -1189,27 +1189,27 @@ Radio group component preview
   <li>The <strong>radio label</strong> states the choice the radio button represents. Label text is in sentence case.</li>
   <li>The <strong>radio hint text</strong> gives a person additional information about the choice.</li>
 </ol>
-<img class="b-sm b-default p-400" src="/images/en/components/anatomy/gcds-radio-group-anatomy.svg" alt="Radio group anatomy showing the labels Fieldset legend, Fieldset hint, Checkmark, Radio label, Radio button, and Radio hint."/>
-<h2 id="design-and-accessibility-for-radio-group" class="mt-500 mb-400">Design and accessibility for radio group</h2>
-<h3 id="make-radios-visible-and-options-clear" class="mt-500 mb-400">Make radios visible and options clear</h3>
-<ul class="list-disc mb-400"><li><p class="mb-400">Limit the number of options to 6-7.</li>
-<li><p class="mb-400">Limit text for each option to a few words or a short phrase and include hint text for more context.</li>
-<li><p class="mb-400">Generally, order options alphabetically. In some cases, it can be helpful for you to order them from most to least common.</li>
-<li><p class="mb-400">When possible, include an option like &quot;None&quot; or &quot;None of the above&quot; to avoid forcing an incorrect selection. With radio groups, if a person accidentally selects an option, it cannot be de-selected, or reversed.</li>
+<img class="b-sm b-default p-300" src="/images/en/components/anatomy/gcds-radio-group-anatomy.svg" alt="Radio group anatomy showing the labels Fieldset legend, Fieldset hint, Checkmark, Radio label, Radio button, and Radio hint."/>
+<h2 id="design-and-accessibility-for-radio-group" class="mt-600 mb-300">Design and accessibility for radio group</h2>
+<h3 id="make-radios-visible-and-options-clear" class="mt-600 mb-300">Make radios visible and options clear</h3>
+<ul class="list-disc mb-300"><li><p class="mb-300">Limit the number of options to 6-7.</li>
+<li><p class="mb-300">Limit text for each option to a few words or a short phrase and include hint text for more context.</li>
+<li><p class="mb-300">Generally, order options alphabetically. In some cases, it can be helpful for you to order them from most to least common.</li>
+<li><p class="mb-300">When possible, include an option like &quot;None&quot; or &quot;None of the above&quot; to avoid forcing an incorrect selection. With radio groups, if a person accidentally selects an option, it cannot be de-selected, or reversed.</li>
 </ul>
-<h3 id="help-a-person-understand-how-to-use-radios" class="mt-500 mb-400">Help a person understand how to use radios</h3>
-<ul class="list-disc mb-400"><li><p class="mb-400">Avoid assuming a person will know how to use a radio group.</li>
-<li><p class="mb-400">Use the <a href="/en/components/fieldset">fieldset's</a> hint text to include a cue for people unfamiliar with radio groups to specify they can only make a single selection. For example, &quot;Select the response that best applies&quot;.</li>
-<li><p class="mb-400">Avoid pre-selecting a radio group option. This makes it more likely that a person will miss a question and submit a wrong answer.</li>
+<h3 id="help-a-person-understand-how-to-use-radios" class="mt-600 mb-300">Help a person understand how to use radios</h3>
+<ul class="list-disc mb-300"><li><p class="mb-300">Avoid assuming a person will know how to use a radio group.</li>
+<li><p class="mb-300">Use the <a href="/en/components/fieldset">fieldset's</a> hint text to include a cue for people unfamiliar with radio groups to specify they can only make a single selection. For example, &quot;Select the response that best applies&quot;.</li>
+<li><p class="mb-300">Avoid pre-selecting a radio group option. This makes it more likely that a person will miss a question and submit a wrong answer.</li>
 </ul>
 
 
-  <section data-pagefind-ignore class="pt-100 mt-400 mb-600 bt-sm b-dark ">
-  <h2 class="mt-300 mb-400">
+  <section data-pagefind-ignore class="pt-75 mt-300 mb-900 bt-sm b-dark ">
+  <h2 class="mt-225 mb-300">
     Help us improve
   </h2>
 
-  <p class="mb-400">
+  <p class="mb-300">
     Have questions? Something you&#39;d change or you&#39;d like to see? Share your feedback with us to help improve GC Design System.
   </p>
 
@@ -1224,7 +1224,7 @@ Radio group component preview
 
 
 
-        <gcds-date-modified class="mb-400 font-caption">
+        <gcds-date-modified class="mb-300">
           2024-12-11
         </gcds-date-modified>
       </main>

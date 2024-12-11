@@ -1,5 +1,5 @@
 import { proxyCustomElement, HTMLElement, h, Host } from '@stencil/core/internal/client';
-import { o as observerConfig, a as assignLanguage } from './utils.js';
+import { o as observerConfig, a as assignLanguage, l as logError } from './utils.js';
 import { d as defineCustomElement$2 } from './gcds-text2.js';
 
 const I18N = {
@@ -22,6 +22,7 @@ const GcdsDateModified$1 = /*@__PURE__*/ proxyCustomElement(class GcdsDateModifi
         this.__registerHost();
         this.__attachShadow();
         this.type = 'date';
+        this.errors = [];
         this.lang = undefined;
     }
     /*
@@ -35,19 +36,39 @@ const GcdsDateModified$1 = /*@__PURE__*/ proxyCustomElement(class GcdsDateModifi
         });
         observer.observe(this.el, observerConfig);
     }
+    validateChildren() {
+        if (this.el.innerHTML.trim() == '') {
+            this.errors.push('children');
+        }
+        else if (this.errors.includes('children')) {
+            this.errors.splice(this.errors.indexOf('children'), 1);
+        }
+    }
+    validateRequiredProps() {
+        this.validateChildren();
+        if (this.errors.includes('children')) {
+            return false;
+        }
+        return true;
+    }
     async componentWillLoad() {
         // Define lang attribute
         this.lang = assignLanguage(this.el);
         this.updateLang();
+        let valid = this.validateRequiredProps();
+        if (!valid) {
+            logError('gcds-date-modified', this.errors);
+        }
     }
     render() {
         const { lang, type } = this;
-        return (h(Host, { key: '6a35ef0fbee9deb64fb76fb14179eb7f92258671' }, h("dl", { key: '0b9057598c023a246c5f0afea8a7d8943cd947ef', class: "gcds-date-modified" }, h("dt", { key: 'ce426d33cbb358b0fd2fefe9328b2eebbb998196' }, h("gcds-text", { key: 'f11bc0d5d3737efa8ff9e3555668d854bb84e9ec', display: "inline", "margin-bottom": "0" }, type === 'version' ? I18N[lang].version : I18N[lang].date)), h("dd", { key: '4ef846ec165917abc28ba20e5343c513430d3da0' }, h("gcds-text", { key: '656ce0d42ed450dd316947c5473c3ea5703b8c76', display: "inline", "margin-bottom": "0" }, type === 'version' ? (h("slot", null)) : (h("time", null, h("slot", null))))))));
+        return (h(Host, { key: '39fca62bf69af99e9d52995d1cea0c22d9c13949' }, this.validateRequiredProps() && (h("dl", { key: 'f9dfcb28b36f5481480233e54e4f66c19016addc', class: "gcds-date-modified" }, h("dt", { key: '71c512bd925df8bf35ad55ba20377340878c670d' }, h("gcds-text", { key: '8964d2b21c1c3660eb5ee4321795275c0006847d', display: "inline", "margin-bottom": "0" }, type === 'version' ? I18N[lang].version : I18N[lang].date)), h("dd", { key: 'f203c814fb4da7ddaf1fab80233b2c1d2448fc68' }, h("gcds-text", { key: '8d20378fb151f0faea84fbfab13a723b0b3d3727', display: "inline", "margin-bottom": "0" }, type === 'version' ? (h("slot", null)) : (h("time", null, h("slot", null)))))))));
     }
     get el() { return this; }
     static get style() { return GcdsDateModifiedStyle0; }
 }, [1, "gcds-date-modified", {
         "type": [1025],
+        "errors": [32],
         "lang": [32]
     }]);
 function defineCustomElement$1() {

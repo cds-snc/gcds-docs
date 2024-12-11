@@ -106,7 +106,7 @@ export declare const Primary: any;
 export declare const Secondary: any;
 export declare const Light: any;
 export declare const SizeBody: any;
-export declare const SizeCaption: any;
+export declare const SizeSmall: any;
 export declare const CharacterLimit: any;
 export declare const NoCharacterLimit: any;
 export declare const Props: any;

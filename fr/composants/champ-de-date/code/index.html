@@ -1117,13 +1117,13 @@
 </gcds-header>
 
     <div class="content-wrapper">
-      <main id="mc" class="container-xl mx-auto xl:px-0 sm:px-500 px-300 general-layout" data-pagefind-body>
+      <main id="mc" class="container-xl mx-auto xl:px-0 sm:px-600 px-225 general-layout" data-pagefind-body>
         
   
-    <h1 id="champ-de-date-brgcdsdateinput" class="mb-400">Champ de date <br><code>&lt;gcds-date-input&gt;</code></h1>
-<p class="mb-400"><em>Autres noms : date, zone de date, date connue.</em></p>
-<p class="mb-400">Le champ de date est un espace permettant de saisir une date connue.</p>
-<p class="mb-400"><ul class="d-flex flex-wrap gap-400">
+    <h1 id="champ-de-date-brgcdsdateinput" class="mb-300">Champ de date <br><code>&lt;gcds-date-input&gt;</code></h1>
+<p class="mb-300"><em>Autres noms : date, zone de date, date connue.</em></p>
+<p class="mb-300">Le champ de date est un espace permettant de saisir une date connue.</p>
+<p class="mb-300"><ul class="d-flex flex-wrap gap-300">
 <li class="github-link">
 <gcds-link external href="https://github.com/cds-snc/gcds-components/tree/main/packages/web/src/components/gcds-date-input">GitHub</gcds-link>
 </li>
@@ -1131,17 +1131,17 @@
 <gcds-link external href="https://www.figma.com/design/o4SguSZdar2CCFzSkWNrmB/Syst%C3%A8me-de-design-GC?node-id=851-3247&node-type=canvas&t=Us7CENqCQWbKIk7H-0">Figma</gcds-link>
 </li>
 </ul></p>
-<p class="mb-400"><div class="my-500 b-sm b-default component-preview" id="component-preview">
-<p class="container-full font-semibold px-300 py-200 bb-sm b-default bg-light">
+<p class="mb-300"><div class="my-600 b-sm b-default component-preview" id="component-preview">
+<p class="container-full font-semibold px-225 py-150 bb-sm b-default bg-light">
 Aperçu du composant de champ de date
 </p>
-<div class="px-300 py-400"></p>
+<div class="px-225 py-300"></p>
 <gcds-date-input format="full" legend="Légende" name="example-default" lang="fr" hint="Le jour peut être composé de 1 ou 2 chiffres. L’année doit inclure 4 chiffres.">
 </gcds-date-input>
-<p class="mb-400"></div>
+<p class="mb-300"></div>
 </div></p>
 
-    <nav class="tabs mb-400" aria-label="Onglet de consignes">
+    <nav class="tabs mb-300" aria-label="Onglet de consignes">
       <ul>
         
           
@@ -1178,77 +1178,77 @@ Aperçu du composant de champ de date
     </nav>
   
 
-  <h2 id="creer-un-champ-de-date" class="mt-500 mb-400">Créer un champ de date</h2>
-<p class="mb-400">Utilisez un champ de date pour recueillir une date lorsque vous attendez d’une personne une date qu’elle connaît déjà ou qu’elle peut vérifier.</p>
-<h2 id="codage-et-accessibilite-des-champs-de-date" class="mt-500 mb-400">Codage et accessibilité des champs de date</h2>
-<h3 id="appliquez-les-attributs-requis" class="mt-500 mb-400">Appliquez les attributs requis</h3>
-<ul class="list-disc mb-400"><li>
-<p class="mb-400">Pour que le champ de date fonctionne correctement, utilisez toujours les attributs suivants avec <code>&lt;gcds-date-input&gt;</code> :</p>
+  <h2 id="creer-un-champ-de-date" class="mt-600 mb-300">Créer un champ de date</h2>
+<p class="mb-300">Utilisez un champ de date pour recueillir une date lorsque vous attendez d’une personne une date qu’elle connaît déjà ou qu’elle peut vérifier.</p>
+<h2 id="codage-et-accessibilite-des-champs-de-date" class="mt-600 mb-300">Codage et accessibilité des champs de date</h2>
+<h3 id="appliquez-les-attributs-requis" class="mt-600 mb-300">Appliquez les attributs requis</h3>
+<ul class="list-disc mb-300"><li>
+<p class="mb-300">Pour que le champ de date fonctionne correctement, utilisez toujours les attributs suivants avec <code>&lt;gcds-date-input&gt;</code> :</p>
 </li>
 <li>
-<p class="mb-400"><code>name</code></p>
+<p class="mb-300"><code>name</code></p>
 </li>
 <li>
-<p class="mb-400"><code>legend</code></p>
+<p class="mb-300"><code>legend</code></p>
 </li>
 <li>
-<p class="mb-400"><code>format</code></p>
+<p class="mb-300"><code>format</code></p>
 </li>
 </ul>
-<h3 id="appliquez-un-format-au-champ-de-date" class="mt-500 mb-400">Appliquez un format au champ de date</h3>
-<ul class="list-disc mb-400"><li><p class="mb-400">Choisissez le format en indiquant soit <code>full</code> soit <code>compact</code> dans l’attribut <code>format</code> du champ de date.</li>
-<li><p class="mb-400">La valeur <code>full</code> affichera un composant de champ de date avec des champs pour le jour, le mois et l’année dont l’ordre en français est Jour, Mois, Année et dont l’ordre en anglais est Mois, Jour, Année.</li>
-<li><p class="mb-400">La valeur <code>compact</code> affichera un composant de champ de date avec des champs pour le mois et l’année dont l’ordre est Mois, Année aussi bien en français qu’en anglais.</li>
-<li><p class="mb-400">L’attribut <code>format</code> applique également un format à la valeur reçue et rendue par le champ de date du côté système. Si la valeur définie est <code>full</code>, le format reçu et rendu sera <code>YYYY-MM-DD</code>. Si la valeur définie est <code>compact</code>, le format reçu et rendu sera  <code>YYYY-MM</code>.</li>
+<h3 id="appliquez-un-format-au-champ-de-date" class="mt-600 mb-300">Appliquez un format au champ de date</h3>
+<ul class="list-disc mb-300"><li><p class="mb-300">Choisissez le format en indiquant soit <code>full</code> soit <code>compact</code> dans l’attribut <code>format</code> du champ de date.</li>
+<li><p class="mb-300">La valeur <code>full</code> affichera un composant de champ de date avec des champs pour le jour, le mois et l’année dont l’ordre en français est Jour, Mois, Année et dont l’ordre en anglais est Mois, Jour, Année.</li>
+<li><p class="mb-300">La valeur <code>compact</code> affichera un composant de champ de date avec des champs pour le mois et l’année dont l’ordre est Mois, Année aussi bien en français qu’en anglais.</li>
+<li><p class="mb-300">L’attribut <code>format</code> applique également un format à la valeur reçue et rendue par le champ de date du côté système. Si la valeur définie est <code>full</code>, le format reçu et rendu sera <code>YYYY-MM-DD</code>. Si la valeur définie est <code>compact</code>, le format reçu et rendu sera  <code>YYYY-MM</code>.</li>
 </ul>
-<h3 id="valeurs-du-champ-de-date-recues-et-rendues" class="mt-500 mb-400">Valeurs du champ de date reçues et rendues</h3>
-<p class="mb-400">Le champ de date peut recevoir et rendre des valeurs d’un format différent que celui affiché côté utilisateur en fonction de l’attribut <code>format</code>.</p>
-<ul class="list-disc mb-400"><li><p class="mb-400">Le format <code>full</code> produira une valeur dont le format est <code>YYYY-MM-DD</code>.</li>
-<li><p class="mb-400">Le format <code>compact</code> produira une valeur dont le format est <code>YYYY-MM</code>.</li>
+<h3 id="valeurs-du-champ-de-date-recues-et-rendues" class="mt-600 mb-300">Valeurs du champ de date reçues et rendues</h3>
+<p class="mb-300">Le champ de date peut recevoir et rendre des valeurs d’un format différent que celui affiché côté utilisateur en fonction de l’attribut <code>format</code>.</p>
+<ul class="list-disc mb-300"><li><p class="mb-300">Le format <code>full</code> produira une valeur dont le format est <code>YYYY-MM-DD</code>.</li>
+<li><p class="mb-300">Le format <code>compact</code> produira une valeur dont le format est <code>YYYY-MM</code>.</li>
 </ul>
-<h3 id="utilisez-des-proprietes-valides" class="mt-500 mb-400">Utilisez des propriétés valides</h3>
-<p class="mb-400">Les propriétés du composant ont une validation intégrée. Les propriétés requises ou susceptibles d'être mal utilisées feront l'objet d'une validation. S'il y a des erreurs de validation, le composant ne fonctionnera pas et ne s'affichera pas. Consultez la console du navigateur pour plus de détails et ajustez les propriétés en conséquence pour que le rendu fonctionne correctement.</p>
-<h3 id="traiter-les-messages-derreur-et-la-validation" class="mt-500 mb-400">Traiter les messages d'erreur et la validation</h3>
-<ul class="list-disc mb-400"><li>
-<p class="mb-400">Utilisez l'attribut <code>required</code> pour activer le valideur de champ obligatoire. La validation s'effectuera par défaut pendant l'évènement <code>onBlur</code>. Une réponse manquante ou non valide affichera un message d'erreur intercalé prédéfini.</p>
+<h3 id="utilisez-des-proprietes-valides" class="mt-600 mb-300">Utilisez des propriétés valides</h3>
+<p class="mb-300">Les propriétés du composant ont une validation intégrée. Les propriétés requises ou susceptibles d'être mal utilisées feront l'objet d'une validation. S'il y a des erreurs de validation, le composant ne fonctionnera pas et ne s'affichera pas. Consultez la console du navigateur pour plus de détails et ajustez les propriétés en conséquence pour que le rendu fonctionne correctement.</p>
+<h3 id="traiter-les-messages-derreur-et-la-validation" class="mt-600 mb-300">Traiter les messages d'erreur et la validation</h3>
+<ul class="list-disc mb-300"><li>
+<p class="mb-300">Utilisez l'attribut <code>required</code> pour activer le valideur de champ obligatoire. La validation s'effectuera par défaut pendant l'évènement <code>onBlur</code>. Une réponse manquante ou non valide affichera un message d'erreur intercalé prédéfini.</p>
 </li>
 <li>
-<p class="mb-400">Si vous devez modifier l'évènement de validation, utilisez l'attribut <code>validate-on</code>. La validation peut se produire pendant l'évènement onBlur, lorsque l'élément perd son état ciblé, ou de façon manuelle avec la méthode <code>validate()</code>.</p>
+<p class="mb-300">Si vous devez modifier l'évènement de validation, utilisez l'attribut <code>validate-on</code>. La validation peut se produire pendant l'évènement onBlur, lorsque l'élément perd son état ciblé, ou de façon manuelle avec la méthode <code>validate()</code>.</p>
 </li>
 <li>
-<p class="mb-400">Utilisez l'attribut <code>required</code> pour les champs qui doivent obligatoirement être remplis. La mention « obligatoire » sera alors ajoutée à la fin de l'étiquette.</p>
+<p class="mb-300">Utilisez l'attribut <code>required</code> pour les champs qui doivent obligatoirement être remplis. La mention « obligatoire » sera alors ajoutée à la fin de l'étiquette.</p>
 </li>
 <li>
-<p class="mb-400">Utilisez l'attribut <code>error-message</code> pour inclure un message d'erreur pour tous les champs de saisie obligatoires. Évitez d'utiliser des messages d'erreur pour les champs de saisie facultatifs.</p>
+<p class="mb-300">Utilisez l'attribut <code>error-message</code> pour inclure un message d'erreur pour tous les champs de saisie obligatoires. Évitez d'utiliser des messages d'erreur pour les champs de saisie facultatifs.</p>
 </li>
 <li>
-<p class="mb-400">Pour les champs facultatifs, évitez d'ajouter l'attribut <code>error-message</code>.</p>
+<p class="mb-300">Pour les champs facultatifs, évitez d'ajouter l'attribut <code>error-message</code>.</p>
 </li>
 <li>
-<p class="mb-400">Pour un champ facultatif nécessitant une validation qui dépend de ce que l'utilisateur a saisi (par exemple pour valider un format d'adresse courriel), ajoutez plutôt une validation et un message d'erreur personnalisés.</p>
-</li>
-</ul>
-<h3 id="ajouter-un-texte-explicatif-pour-favoriser-la-reussite-des-taches" class="mt-500 mb-400">Ajouter un texte explicatif pour favoriser la réussite des tâches</h3>
-<ul class="list-disc mb-400"><li>
-<p class="mb-400">Utilisez l'attribut <code>hint</code> pour ajouter un texte explicatif qui aidera la personne à fournir une valeur complète dans le champ de saisie, évitant ainsi d'obtenir un état d'erreur.</p>
-</li>
-<li>
-<p class="mb-400">Évitez d'ajouter un texte explicatif directement dans le champ (ce qu'on appelle aussi du texte fictif) qui disparaîtra une fois que le champ est sélectionné ou qu'une réponse commence à être saisie.</p>
+<p class="mb-300">Pour un champ facultatif nécessitant une validation qui dépend de ce que l'utilisateur a saisi (par exemple pour valider un format d'adresse courriel), ajoutez plutôt une validation et un message d'erreur personnalisés.</p>
 </li>
 </ul>
-<h3 id="obtenez-votre-code" class="mt-500 mb-400">Obtenez votre code</h3>
-<p class="mb-400">Générez une version du composant dont vous avez besoin en sélectionnant les propriétés de code correspondantes ou explorez les possibilités en choisissant différentes valeurs de code.</p>
-<ol class="list-decimal mb-400"><li>
-<p class="mb-400">Choisissez des valeurs de code pour obtenir l'élément que vous voulez.</p>
+<h3 id="ajouter-un-texte-explicatif-pour-favoriser-la-reussite-des-taches" class="mt-600 mb-300">Ajouter un texte explicatif pour favoriser la réussite des tâches</h3>
+<ul class="list-disc mb-300"><li>
+<p class="mb-300">Utilisez l'attribut <code>hint</code> pour ajouter un texte explicatif qui aidera la personne à fournir une valeur complète dans le champ de saisie, évitant ainsi d'obtenir un état d'erreur.</p>
 </li>
 <li>
-<p class="mb-400">Obtenez le code et intégrez-le dans votre environnement.</p>
+<p class="mb-300">Évitez d'ajouter un texte explicatif directement dans le champ (ce qu'on appelle aussi du texte fictif) qui disparaîtra une fois que le champ est sélectionné ou qu'une réponse commence à être saisie.</p>
+</li>
+</ul>
+<h3 id="obtenez-votre-code" class="mt-600 mb-300">Obtenez votre code</h3>
+<p class="mb-300">Générez une version du composant dont vous avez besoin en sélectionnant les propriétés de code correspondantes ou explorez les possibilités en choisissant différentes valeurs de code.</p>
+<ol class="list-decimal mb-300"><li>
+<p class="mb-300">Choisissez des valeurs de code pour obtenir l'élément que vous voulez.</p>
 </li>
 <li>
-<p class="mb-400">Ajoutez tout contenu nécessaire au composant (comme le texte du libellé).</p>
+<p class="mb-300">Obtenez le code et intégrez-le dans votre environnement.</p>
+</li>
+<li>
+<p class="mb-300">Ajoutez tout contenu nécessaire au composant (comme le texte du libellé).</p>
 </li>
 </ol>
-<p class="mb-400"><strong>Remarque</strong> : Conformément à la pratique courante, le générateur de code utilise l'anglais pour tous les éléments de code.</p>
+<p class="mb-300"><strong>Remarque</strong> : Conformément à la pratique courante, le générateur de code utilise l'anglais pour tous les éléments de code.</p>
 <iframe
   title="iframeTitle"
   src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&demo=true&singleStory=true&id=components-date-input--events-properties&lang=fr"
@@ -1260,12 +1260,12 @@ Aperçu du composant de champ de date
 ></iframe>
 
 
-  <section data-pagefind-ignore class="pt-100 mt-400 mb-600 bt-sm b-dark ">
-  <h2 class="mt-300 mb-400">
+  <section data-pagefind-ignore class="pt-75 mt-300 mb-900 bt-sm b-dark ">
+  <h2 class="mt-225 mb-300">
     Aidez-nous à nous améliorer
   </h2>
 
-  <p class="mb-400">
+  <p class="mb-300">
     Avez-vous des questions? Y a-t-il quelque chose que vous changeriez ou ajouteriez? Faites-nous part de vos commentaires pour nous aider à améliorer Système de design GC.
   </p>
 
@@ -1280,7 +1280,7 @@ Aperçu du composant de champ de date
 
 
 
-        <gcds-date-modified class="mb-400 font-caption">
+        <gcds-date-modified class="mb-300">
           2024-12-11
         </gcds-date-modified>
       </main>

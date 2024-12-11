@@ -1117,13 +1117,13 @@
 </gcds-header>
 
     <div class="content-wrapper">
-      <main id="mc" class="container-xl mx-auto xl:px-0 sm:px-500 px-300 general-layout" data-pagefind-body>
+      <main id="mc" class="container-xl mx-auto xl:px-0 sm:px-600 px-225 general-layout" data-pagefind-body>
         
   
-    <h1 id="error-summary-brgcdserrorsummary" class="mb-400">Error summary <br><code>&lt;gcds-error-summary&gt;</code></h1>
-<p class="mb-400"><em>Also called: error list.</em></p>
-<p class="mb-400">An error summary is a list of user errors in a form.</p>
-<p class="mb-400"><ul class="d-flex flex-wrap gap-400">
+    <h1 id="error-summary-brgcdserrorsummary" class="mb-300">Error summary <br><code>&lt;gcds-error-summary&gt;</code></h1>
+<p class="mb-300"><em>Also called: error list.</em></p>
+<p class="mb-300">An error summary is a list of user errors in a form.</p>
+<p class="mb-300"><ul class="d-flex flex-wrap gap-300">
 <li class="github-link">
 <gcds-link external href="https://github.com/cds-snc/gcds-components/tree/main/packages/web/src/components/gcds-error-summary">GitHub</gcds-link>
 </li>
@@ -1131,21 +1131,21 @@
 <gcds-link external href="https://www.figma.com/file/mh2maMG2NBtk41k1O1UGHV/GC-Design-System?type=design&node-id=1579-4801&mode=design&t=nZvCaWxei92XepSm-0">Figma</gcds-link>
 </li>
 </ul></p>
-<p class="mb-400"><div class="my-500 b-sm b-default component-preview" id="component-preview">
-<p class="container-full font-semibold px-300 py-200 bb-sm b-default bg-light">
+<p class="mb-300"><div class="my-600 b-sm b-default component-preview" id="component-preview">
+<p class="container-full font-semibold px-225 py-150 bb-sm b-default bg-light">
 Error summary component preview
 </p>
-<div class="px-300 py-400"></p>
-<p class="mb-400"><gcds-error-summary error-links='{
+<div class="px-225 py-300"></p>
+<p class="mb-300"><gcds-error-summary error-links='{
   "error-href-1": "Error summary item.",
   "error-href-2": "Error summary item.",
   "error-href-3": "Error summary item."
 }'>
 </gcds-error-summary></p>
-<p class="mb-400"></div>
+<p class="mb-300"></div>
 </div></p>
 
-    <nav class="tabs mb-400" aria-label="Guidance tabs">
+    <nav class="tabs mb-300" aria-label="Guidance tabs">
       <ul>
         
           
@@ -1182,36 +1182,36 @@ Error summary component preview
     </nav>
   
 
-  <h2 id="build-an-error-summary" class="mt-500 mb-400">Build an error summary</h2>
-<p class="mb-400">Use an error summary to help a person understand how much work they need to do before moving to the next task.</p>
-<p class="mb-400">All GC Design System components come with default error handling for required form components. For error summaries this means any required component will prompt an inline error message <code>onBlur</code> by default. That error message will be listed in the error summary on form submit.</p>
-<h2 id="coding-and-accessibility-for-error-summaries" class="mt-500 mb-400">Coding and accessibility for error summaries</h2>
-<h3 id="use-the-error-summary-with-gc-design-system-components" class="mt-500 mb-400">Use the error summary with GC Design System components</h3>
-<p class="mb-400">The GC Design System error summary uses the <code>listen</code> attribute to collect errors. The error summary will list errors from GC Design System components <code>onSubmit</code>. Errors are listed in the same order as they appear on the page.</p>
-<ul class="list-disc mb-400"><li><p class="mb-400">Enable any controls the person will need to access to recover from any of the errors.</li>
-<li><p class="mb-400">Consider replacing any generic default <gcds-link href="/en/components/error-message">error message</gcds-link> with text that defines the specific problem and how a person can fix it.</li>
+  <h2 id="build-an-error-summary" class="mt-600 mb-300">Build an error summary</h2>
+<p class="mb-300">Use an error summary to help a person understand how much work they need to do before moving to the next task.</p>
+<p class="mb-300">All GC Design System components come with default error handling for required form components. For error summaries this means any required component will prompt an inline error message <code>onBlur</code> by default. That error message will be listed in the error summary on form submit.</p>
+<h2 id="coding-and-accessibility-for-error-summaries" class="mt-600 mb-300">Coding and accessibility for error summaries</h2>
+<h3 id="use-the-error-summary-with-gc-design-system-components" class="mt-600 mb-300">Use the error summary with GC Design System components</h3>
+<p class="mb-300">The GC Design System error summary uses the <code>listen</code> attribute to collect errors. The error summary will list errors from GC Design System components <code>onSubmit</code>. Errors are listed in the same order as they appear on the page.</p>
+<ul class="list-disc mb-300"><li><p class="mb-300">Enable any controls the person will need to access to recover from any of the errors.</li>
+<li><p class="mb-300">Consider replacing any generic default <gcds-link href="/en/components/error-message">error message</gcds-link> with text that defines the specific problem and how a person can fix it.</li>
 </ul>
-<h3 id="opt-to-use-the-error-summary-with-your-own-component-instances" class="mt-500 mb-400">Opt to use the error summary with your own component instances</h3>
-<p class="mb-400">If you’re using some of your own form components:</p>
-<ul class="list-disc mb-400"><li><p class="mb-400">Add errors for those instances by passing the <code>error-links</code> attribute for any component or element you’re using that has an error message. Then the error messages will appear.</li>
-<li><p class="mb-400">Match the error summary item content to each of your error messages.</li>
-<li><p class="mb-400">Order errors in the error summary in the same order that they appear on the form.</li>
+<h3 id="opt-to-use-the-error-summary-with-your-own-component-instances" class="mt-600 mb-300">Opt to use the error summary with your own component instances</h3>
+<p class="mb-300">If you’re using some of your own form components:</p>
+<ul class="list-disc mb-300"><li><p class="mb-300">Add errors for those instances by passing the <code>error-links</code> attribute for any component or element you’re using that has an error message. Then the error messages will appear.</li>
+<li><p class="mb-300">Match the error summary item content to each of your error messages.</li>
+<li><p class="mb-300">Order errors in the error summary in the same order that they appear on the form.</li>
 </ul>
-<h3 id="opt-to-change-the-error-heading" class="mt-500 mb-400">Opt to change the error heading</h3>
-<p class="mb-400">Opt to make your error heading more specific by using the <code>heading</code> attributes.</p>
-<h3 id="get-your-code" class="mt-500 mb-400">Get your code</h3>
-<p class="mb-400">Generate an instance of the component you need by selecting its code properties.</p>
-<ol class="list-decimal mb-400"><li>
-<p class="mb-400">Explore by choosing different code values to generate the instance you want.</p>
+<h3 id="opt-to-change-the-error-heading" class="mt-600 mb-300">Opt to change the error heading</h3>
+<p class="mb-300">Opt to make your error heading more specific by using the <code>heading</code> attributes.</p>
+<h3 id="get-your-code" class="mt-600 mb-300">Get your code</h3>
+<p class="mb-300">Generate an instance of the component you need by selecting its code properties.</p>
+<ol class="list-decimal mb-300"><li>
+<p class="mb-300">Explore by choosing different code values to generate the instance you want.</p>
 </li>
 <li>
-<p class="mb-400">Get the code and pull it into your environment.</p>
+<p class="mb-300">Get the code and pull it into your environment.</p>
 </li>
 <li>
-<p class="mb-400">Add any copy you need to the component (like text for a label).</p>
+<p class="mb-300">Add any copy you need to the component (like text for a label).</p>
 </li>
 </ol>
-<p class="mb-400"><strong>Note:</strong> Following standard practice, the code builder uses English for all code elements.</p>
+<p class="mb-300"><strong>Note:</strong> Following standard practice, the code builder uses English for all code elements.</p>
 <iframe
   title="Overview of gcds-error-summary properties and events."
   src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&demo=true&singleStory=true&id=components-error-summary--events-properties&lang=en"
@@ -1223,12 +1223,12 @@ Error summary component preview
 ></iframe>
 
 
-  <section data-pagefind-ignore class="pt-100 mt-400 mb-600 bt-sm b-dark ">
-  <h2 class="mt-300 mb-400">
+  <section data-pagefind-ignore class="pt-75 mt-300 mb-900 bt-sm b-dark ">
+  <h2 class="mt-225 mb-300">
     Help us improve
   </h2>
 
-  <p class="mb-400">
+  <p class="mb-300">
     Have questions? Something you&#39;d change or you&#39;d like to see? Share your feedback with us to help improve GC Design System.
   </p>
 
@@ -1243,7 +1243,7 @@ Error summary component preview
 
 
 
-        <gcds-date-modified class="mb-400 font-caption">
+        <gcds-date-modified class="mb-300">
           2024-12-11
         </gcds-date-modified>
       </main>

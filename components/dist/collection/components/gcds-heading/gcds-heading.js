@@ -1,10 +1,11 @@
 import { Host, h } from "@stencil/core";
+import { SpacingArray } from "../../utils/types/spacing";
 export class GcdsHeading {
     constructor() {
         this.tag = undefined;
         this.characterLimit = true;
         this.marginTop = undefined;
-        this.marginBottom = '400';
+        this.marginBottom = '300';
     }
     validateTag(newValue) {
         const values = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'];
@@ -13,54 +14,15 @@ export class GcdsHeading {
         }
     }
     validateMarginTop(newValue) {
-        const values = [
-            '0',
-            '50',
-            '100',
-            '150',
-            '200',
-            '250',
-            '300',
-            '400',
-            '450',
-            '500',
-            '550',
-            '600',
-            '700',
-            '800',
-            '900',
-            '1000',
-        ];
-        if (!this.marginTop || (this.marginTop && !values.includes(newValue))) {
-            if (this.tag !== 'h1') {
-                this.marginTop = '500';
-            }
-            else {
-                this.marginTop = '0';
-            }
+        if (!this.marginTop ||
+            (this.marginTop && !SpacingArray.includes(newValue))) {
+            this.marginTop = this.tag === 'h1' ? '0' : '600';
         }
     }
     validateMarginBottom(newValue) {
-        const values = [
-            '0',
-            '50',
-            '100',
-            '150',
-            '200',
-            '250',
-            '300',
-            '400',
-            '450',
-            '500',
-            '550',
-            '600',
-            '700',
-            '800',
-            '900',
-            '1000',
-        ];
-        if (this.marginBottom && !values.includes(newValue)) {
-            this.marginBottom = '400';
+        if (this.marginBottom &&
+            !SpacingArray.includes(newValue)) {
+            this.marginBottom = '300';
         }
     }
     componentWillLoad() {
@@ -72,12 +34,12 @@ export class GcdsHeading {
     render() {
         const { characterLimit, marginTop, marginBottom, tag } = this;
         const Tag = tag;
-        return (h(Host, { key: '0416b329bd8fe577775bdce03ffc95a62582722d' }, h(Tag, { key: '5e0af26dad00a8d0568ba0af150694187ad86e79', class: `
+        return (h(Host, { key: 'decf305fa7a128be6b541d3ad3a831a1a52797a6' }, h(Tag, { key: '8b3b768c40221bcd42efe0da080b0aeeb77fec9e', class: `
             gcds-heading
             ${characterLimit ? 'limit' : ''}
             ${marginTop ? `mt-${marginTop}` : ''}
             ${marginBottom ? `mb-${marginBottom}` : ''}
-          ` }, h("slot", { key: '9f01a4e2a648ead351e6e6860262df0f182827cd' }))));
+          ` }, h("slot", { key: '447128aaa454ae0f840331cc2eea4098627f9d30' }))));
     }
     static get is() { return "gcds-heading"; }
     static get encapsulation() { return "shadow"; }
@@ -132,15 +94,21 @@ export class GcdsHeading {
                 "type": "string",
                 "mutable": true,
                 "complexType": {
-                    "original": "| '0'\n    | '50'\n    | '100'\n    | '150'\n    | '200'\n    | '250'\n    | '300'\n    | '400'\n    | '450'\n    | '500'\n    | '550'\n    | '600'\n    | '700'\n    | '800'\n    | '900'\n    | '1000'",
-                    "resolved": "\"0\" | \"100\" | \"1000\" | \"150\" | \"200\" | \"250\" | \"300\" | \"400\" | \"450\" | \"50\" | \"500\" | \"550\" | \"600\" | \"700\" | \"800\" | \"900\"",
-                    "references": {}
+                    "original": "SpacingValues",
+                    "resolved": "\"0\" | \"25\" | \"50\" | \"75\" | \"100\" | \"125\" | \"150\" | \"175\" | \"200\" | \"225\" | \"250\" | \"300\" | \"350\" | \"400\" | \"450\" | \"500\" | \"550\" | \"600\" | \"650\" | \"700\" | \"750\" | \"800\" | \"850\" | \"900\" | \"950\" | \"1000\" | \"1050\" | \"1100\" | \"1150\" | \"1200\" | \"1250\"",
+                    "references": {
+                        "SpacingValues": {
+                            "location": "import",
+                            "path": "../../utils/types/spacing",
+                            "id": "src/utils/types/spacing.tsx::SpacingValues"
+                        }
+                    }
                 },
                 "required": false,
                 "optional": true,
                 "docs": {
                     "tags": [],
-                    "text": "Adds margin above the heading. The default margin-top for h1 is set to 0,\nwhile for h2 to h6 headings, it's 500."
+                    "text": "Adds margin above the heading. The default margin-top for h1 is set to 0,\nwhile for h2 to h6 headings, it's 600."
                 },
                 "attribute": "margin-top",
                 "reflect": false
@@ -149,19 +117,25 @@ export class GcdsHeading {
                 "type": "string",
                 "mutable": true,
                 "complexType": {
-                    "original": "| '0'\n    | '50'\n    | '100'\n    | '150'\n    | '200'\n    | '250'\n    | '300'\n    | '400'\n    | '450'\n    | '500'\n    | '550'\n    | '600'\n    | '700'\n    | '800'\n    | '900'\n    | '1000'",
-                    "resolved": "\"0\" | \"100\" | \"1000\" | \"150\" | \"200\" | \"250\" | \"300\" | \"400\" | \"450\" | \"50\" | \"500\" | \"550\" | \"600\" | \"700\" | \"800\" | \"900\"",
-                    "references": {}
+                    "original": "SpacingValues",
+                    "resolved": "\"0\" | \"25\" | \"50\" | \"75\" | \"100\" | \"125\" | \"150\" | \"175\" | \"200\" | \"225\" | \"250\" | \"300\" | \"350\" | \"400\" | \"450\" | \"500\" | \"550\" | \"600\" | \"650\" | \"700\" | \"750\" | \"800\" | \"850\" | \"900\" | \"950\" | \"1000\" | \"1050\" | \"1100\" | \"1150\" | \"1200\" | \"1250\"",
+                    "references": {
+                        "SpacingValues": {
+                            "location": "import",
+                            "path": "../../utils/types/spacing",
+                            "id": "src/utils/types/spacing.tsx::SpacingValues"
+                        }
+                    }
                 },
                 "required": false,
                 "optional": true,
                 "docs": {
                     "tags": [],
-                    "text": "Adds margin below the heading. The default margin-botttom is 400."
+                    "text": "Adds margin below the heading. The default margin-botttom is 300."
                 },
                 "attribute": "margin-bottom",
                 "reflect": false,
-                "defaultValue": "'400'"
+                "defaultValue": "'300'"
             }
         };
     }

@@ -98,7 +98,7 @@ export class GcdsInput {
             if (this.validateOn && this.validateOn != 'other') {
                 this.validate();
             }
-            if (this.hasError) {
+            if (this.hasError && this.validateOn != 'other') {
                 e.preventDefault();
             }
         }
@@ -165,7 +165,7 @@ export class GcdsInput {
         const { disabled, errorMessage, hideLabel, hint, inputId, name, label, required, size, type, value, hasError, autocomplete, inheritedAttributes, lang, } = this;
         // Use max-width to keep field responsive
         const style = {
-            maxWidth: `calc(${size * 2}ch + (2 * var(--gcds-input-padding)))`,
+            maxWidth: `calc(${size * 2}ch + 1.5rem)`,
         };
         const attrsInput = Object.assign({ disabled,
             required,
@@ -183,7 +183,7 @@ export class GcdsInput {
                 ? ` ${attrsInput['aria-describedby']}`
                 : ''}`;
         }
-        return (h(Host, { key: '66f7692a90c627756df94cd7efdb8b96395bbc5b' }, h("div", { key: 'a54c3f8b380be4f066ee7ce44a908667ea0af686', class: `gcds-input-wrapper ${disabled ? 'gcds-disabled' : ''} ${hasError ? 'gcds-error' : ''}` }, h("gcds-label", Object.assign({ key: '7e00d27d9a2ca077a90169eefdf574a5cdc78ba5' }, attrsLabel, { "hide-label": hideLabel, "label-for": inputId, lang: lang })), hint ? h("gcds-hint", { "hint-id": inputId }, hint) : null, errorMessage ? (h("gcds-error-message", { messageId: inputId }, errorMessage)) : null, h("input", Object.assign({ key: '9c886a006d93c1dc05fb78b977efd35394d3c116' }, attrsInput, { class: hasError ? 'gcds-error' : null, id: inputId, name: name, onBlur: () => this.onBlur(), onFocus: () => this.gcdsFocus.emit(), onInput: e => this.handleInput(e, this.gcdsInput), onChange: e => this.handleInput(e, this.gcdsChange), "aria-labelledby": `label-for-${inputId}`, "aria-invalid": inheritedAttributes['aria-invalid'] === 'true'
+        return (h(Host, { key: 'd9c49e1340c06410d98de32db1daadca9eea965c' }, h("div", { key: '9875d1410f94a25c8f3954b2f6edec56936d4cb2', class: `gcds-input-wrapper ${disabled ? 'gcds-disabled' : ''} ${hasError ? 'gcds-error' : ''}` }, h("gcds-label", Object.assign({ key: 'a4b06df9bc51070a59ae84b3417d6432342b61eb' }, attrsLabel, { "hide-label": hideLabel, "label-for": inputId, lang: lang })), hint ? h("gcds-hint", { "hint-id": inputId }, hint) : null, errorMessage ? (h("gcds-error-message", { messageId: inputId }, errorMessage)) : null, h("input", Object.assign({ key: 'a6a727f9d25f50365ba5658fff59695bdd597e78' }, attrsInput, { class: hasError ? 'gcds-error' : null, id: inputId, name: name, onBlur: () => this.onBlur(), onFocus: () => this.gcdsFocus.emit(), onInput: e => this.handleInput(e, this.gcdsInput), onChange: e => this.handleInput(e, this.gcdsChange), "aria-labelledby": `label-for-${inputId}`, "aria-invalid": inheritedAttributes['aria-invalid'] === 'true'
                 ? inheritedAttributes['aria-invalid']
                 : errorMessage
                     ? 'true'

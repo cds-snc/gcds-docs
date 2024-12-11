@@ -1117,13 +1117,13 @@
 </gcds-header>
 
     <div class="content-wrapper">
-      <main id="mc" class="container-xl mx-auto xl:px-0 sm:px-500 px-300 general-layout" data-pagefind-body>
+      <main id="mc" class="container-xl mx-auto xl:px-0 sm:px-600 px-225 general-layout" data-pagefind-body>
         
   
-    <h1 id="selection-brgcdsselect" class="mb-400">Sélection <br><code>&lt;gcds-select&gt;</code></h1>
-<p class="mb-400"><em>Autres noms : menu déroulant, menu de sélection.</em></p>
-<p class="mb-400">Une sélection présente une longue liste d’options parmi lesquelles un seul choix est fait.</p>
-<p class="mb-400"><ul class="d-flex flex-wrap gap-400">
+    <h1 id="selection-brgcdsselect" class="mb-300">Sélection <br><code>&lt;gcds-select&gt;</code></h1>
+<p class="mb-300"><em>Autres noms : menu déroulant, menu de sélection.</em></p>
+<p class="mb-300">Une sélection présente une longue liste d’options parmi lesquelles un seul choix est fait.</p>
+<p class="mb-300"><ul class="d-flex flex-wrap gap-300">
 <li class="github-link">
 <gcds-link external href="https://github.com/cds-snc/gcds-components/tree/main/packages/web/src/components/gcds-select">GitHub</gcds-link>
 </li>
@@ -1131,11 +1131,11 @@
 <gcds-link external href="https://www.figma.com/file/o4SguSZdar2CCFzSkWNrmB/Syst%C3%A8me-de-design-GC?type=design&node-id=114-3340&mode=design&t=1DaL24vHpjRRfHHm-0">Figma</gcds-link>
 </li>
 </ul></p>
-<p class="mb-400"><div class="my-500 b-sm b-default component-preview" id="component-preview">
-<p class="container-full font-semibold px-300 py-200 bb-sm b-default bg-light">
+<p class="mb-300"><div class="my-600 b-sm b-default component-preview" id="component-preview">
+<p class="container-full font-semibold px-225 py-150 bb-sm b-default bg-light">
 Aperçu du composant de sélection
 </p>
-<div class="px-300 py-400"></p>
+<div class="px-225 py-300"></p>
 <gcds-select select-id="select-preview" label="Libellé" hint="Texte explicatif / Exemple de message." default-value="Sélectionner une option">
   <option>Option 1</option>
   <option>Option 2</option>
@@ -1146,10 +1146,10 @@ Aperçu du composant de sélection
   <option>Option 7</option>
   <option>Option 8</option>
 </gcds-select>
-<p class="mb-400"></div>
+<p class="mb-300"></div>
 </div></p>
 
-    <nav class="tabs mb-400" aria-label="Onglet de consignes">
+    <nav class="tabs mb-300" aria-label="Onglet de consignes">
       <ul>
         
           
@@ -1186,58 +1186,58 @@ Aperçu du composant de sélection
     </nav>
   
 
-  <h2 id="creer-une-selection" class="mt-500 mb-400">Créer une sélection</h2>
-<p class="mb-400">Utilisez la sélection pour fournir des options multiples (7 ou plus) à répondre dans une seule question. La sélection aide les utilisateur·rice·s à faire un choix en limitant leurs options.</p>
-<h2 id="codage-et-accessibilite-de-la-selection" class="mt-500 mb-400">Codage et accessibilité de la sélection</h2>
-<h3 id="appliquez-les-attributs-requis" class="mt-500 mb-400">Appliquez les attributs requis</h3>
-<p class="mb-400">Pour que la zone de texte fonctionne correctement, utilisez toujours les attributs suivants avec <code>&lt;gcds-select&gt;</code>:</p>
-<ul class="list-disc mb-400"><li><p class="mb-400"><code>name</code></li>
-<li><p class="mb-400"><code>label</code></li>
-<li><p class="mb-400"><code>select-id</code></li>
+  <h2 id="creer-une-selection" class="mt-600 mb-300">Créer une sélection</h2>
+<p class="mb-300">Utilisez la sélection pour fournir des options multiples (7 ou plus) à répondre dans une seule question. La sélection aide les utilisateur·rice·s à faire un choix en limitant leurs options.</p>
+<h2 id="codage-et-accessibilite-de-la-selection" class="mt-600 mb-300">Codage et accessibilité de la sélection</h2>
+<h3 id="appliquez-les-attributs-requis" class="mt-600 mb-300">Appliquez les attributs requis</h3>
+<p class="mb-300">Pour que la zone de texte fonctionne correctement, utilisez toujours les attributs suivants avec <code>&lt;gcds-select&gt;</code>:</p>
+<ul class="list-disc mb-300"><li><p class="mb-300"><code>name</code></li>
+<li><p class="mb-300"><code>label</code></li>
+<li><p class="mb-300"><code>select-id</code></li>
 </ul>
-<h3 id="configuration-de-la-valeur-par-defaut" class="mt-500 mb-400">Configuration de la valeur par défaut</h3>
-<p class="mb-400">Utilisez l'attribut <code>default-value</code> pour configurer la première option dans la liste de sélection. Cela empêche la présélection d'une option.</p>
-<h3 id="traiter-les-messages-derreur-et-la-validation" class="mt-500 mb-400">Traiter les messages d'erreur et la validation</h3>
-<ul class="list-disc mb-400"><li>
-<p class="mb-400">Utilisez l'attribut <code>required</code> pour activer le valideur de champ obligatoire. La validation s'effectuera par défaut pendant l'évènement <code>onBlur</code>. Une réponse manquante ou non valide affichera un message d'erreur intercalé prédéfini.</p>
+<h3 id="configuration-de-la-valeur-par-defaut" class="mt-600 mb-300">Configuration de la valeur par défaut</h3>
+<p class="mb-300">Utilisez l'attribut <code>default-value</code> pour configurer la première option dans la liste de sélection. Cela empêche la présélection d'une option.</p>
+<h3 id="traiter-les-messages-derreur-et-la-validation" class="mt-600 mb-300">Traiter les messages d'erreur et la validation</h3>
+<ul class="list-disc mb-300"><li>
+<p class="mb-300">Utilisez l'attribut <code>required</code> pour activer le valideur de champ obligatoire. La validation s'effectuera par défaut pendant l'évènement <code>onBlur</code>. Une réponse manquante ou non valide affichera un message d'erreur intercalé prédéfini.</p>
 </li>
 <li>
-<p class="mb-400">Si vous devez modifier l'évènement de validation, utilisez l'attribut <code>validate-on</code>. La validation peut se produire pendant l'évènement onBlur, lorsque l'élément perd son état ciblé, ou de façon manuelle avec la méthode <code>validate()</code>.</p>
+<p class="mb-300">Si vous devez modifier l'évènement de validation, utilisez l'attribut <code>validate-on</code>. La validation peut se produire pendant l'évènement onBlur, lorsque l'élément perd son état ciblé, ou de façon manuelle avec la méthode <code>validate()</code>.</p>
 </li>
 <li>
-<p class="mb-400">Utilisez l'attribut <code>required</code> pour les champs qui doivent obligatoirement être remplis. La mention « obligatoire » sera alors ajoutée à la fin de l'étiquette.</p>
+<p class="mb-300">Utilisez l'attribut <code>required</code> pour les champs qui doivent obligatoirement être remplis. La mention « obligatoire » sera alors ajoutée à la fin de l'étiquette.</p>
 </li>
 <li>
-<p class="mb-400">Utilisez l'attribut <code>error-message</code> pour inclure un message d'erreur pour tous les champs de saisie obligatoires. Évitez d'utiliser des messages d'erreur pour les champs de saisie facultatifs.</p>
+<p class="mb-300">Utilisez l'attribut <code>error-message</code> pour inclure un message d'erreur pour tous les champs de saisie obligatoires. Évitez d'utiliser des messages d'erreur pour les champs de saisie facultatifs.</p>
 </li>
 <li>
-<p class="mb-400">Pour les champs facultatifs, évitez d'ajouter l'attribut <code>error-message</code>.</p>
+<p class="mb-300">Pour les champs facultatifs, évitez d'ajouter l'attribut <code>error-message</code>.</p>
 </li>
 <li>
-<p class="mb-400">Pour un champ facultatif nécessitant une validation qui dépend de ce que l'utilisateur a saisi (par exemple pour valider un format d'adresse courriel), ajoutez plutôt une validation et un message d'erreur personnalisés.</p>
-</li>
-</ul>
-<h3 id="ajouter-un-texte-explicatif-pour-favoriser-la-reussite-des-taches" class="mt-500 mb-400">Ajouter un texte explicatif pour favoriser la réussite des tâches</h3>
-<ul class="list-disc mb-400"><li>
-<p class="mb-400">Utilisez l'attribut <code>hint</code> pour ajouter un texte explicatif qui aidera la personne à fournir une valeur complète dans le champ de saisie, évitant ainsi d'obtenir un état d'erreur.</p>
-</li>
-<li>
-<p class="mb-400">Évitez d'ajouter un texte explicatif directement dans le champ (ce qu'on appelle aussi du texte fictif) qui disparaîtra une fois que le champ est sélectionné ou qu'une réponse commence à être saisie.</p>
+<p class="mb-300">Pour un champ facultatif nécessitant une validation qui dépend de ce que l'utilisateur a saisi (par exemple pour valider un format d'adresse courriel), ajoutez plutôt une validation et un message d'erreur personnalisés.</p>
 </li>
 </ul>
-<h3 id="obtenez-votre-code" class="mt-500 mb-400">Obtenez votre code</h3>
-<p class="mb-400">Générez une version du composant dont vous avez besoin en sélectionnant les propriétés de code correspondantes ou explorez les possibilités en choisissant différentes valeurs de code.</p>
-<ol class="list-decimal mb-400"><li>
-<p class="mb-400">Choisissez des valeurs de code pour obtenir l'élément que vous voulez.</p>
+<h3 id="ajouter-un-texte-explicatif-pour-favoriser-la-reussite-des-taches" class="mt-600 mb-300">Ajouter un texte explicatif pour favoriser la réussite des tâches</h3>
+<ul class="list-disc mb-300"><li>
+<p class="mb-300">Utilisez l'attribut <code>hint</code> pour ajouter un texte explicatif qui aidera la personne à fournir une valeur complète dans le champ de saisie, évitant ainsi d'obtenir un état d'erreur.</p>
 </li>
 <li>
-<p class="mb-400">Obtenez le code et intégrez-le dans votre environnement.</p>
+<p class="mb-300">Évitez d'ajouter un texte explicatif directement dans le champ (ce qu'on appelle aussi du texte fictif) qui disparaîtra une fois que le champ est sélectionné ou qu'une réponse commence à être saisie.</p>
+</li>
+</ul>
+<h3 id="obtenez-votre-code" class="mt-600 mb-300">Obtenez votre code</h3>
+<p class="mb-300">Générez une version du composant dont vous avez besoin en sélectionnant les propriétés de code correspondantes ou explorez les possibilités en choisissant différentes valeurs de code.</p>
+<ol class="list-decimal mb-300"><li>
+<p class="mb-300">Choisissez des valeurs de code pour obtenir l'élément que vous voulez.</p>
 </li>
 <li>
-<p class="mb-400">Ajoutez tout contenu nécessaire au composant (comme le texte du libellé).</p>
+<p class="mb-300">Obtenez le code et intégrez-le dans votre environnement.</p>
+</li>
+<li>
+<p class="mb-300">Ajoutez tout contenu nécessaire au composant (comme le texte du libellé).</p>
 </li>
 </ol>
-<p class="mb-400"><strong>Remarque</strong> : Conformément à la pratique courante, le générateur de code utilise l'anglais pour tous les éléments de code.</p>
+<p class="mb-300"><strong>Remarque</strong> : Conformément à la pratique courante, le générateur de code utilise l'anglais pour tous les éléments de code.</p>
 <iframe
   title="Survol des propriétés et des évènements relatifs à gcds-select."
   src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&demo=true&singleStory=true&id=components-select--events-properties&lang=fr"
@@ -1249,12 +1249,12 @@ Aperçu du composant de sélection
 ></iframe>
 
 
-  <section data-pagefind-ignore class="pt-100 mt-400 mb-600 bt-sm b-dark ">
-  <h2 class="mt-300 mb-400">
+  <section data-pagefind-ignore class="pt-75 mt-300 mb-900 bt-sm b-dark ">
+  <h2 class="mt-225 mb-300">
     Aidez-nous à nous améliorer
   </h2>
 
-  <p class="mb-400">
+  <p class="mb-300">
     Avez-vous des questions? Y a-t-il quelque chose que vous changeriez ou ajouteriez? Faites-nous part de vos commentaires pour nous aider à améliorer Système de design GC.
   </p>
 
@@ -1269,7 +1269,7 @@ Aperçu du composant de sélection
 
 
 
-        <gcds-date-modified class="mb-400 font-caption">
+        <gcds-date-modified class="mb-300">
           2024-12-11
         </gcds-date-modified>
       </main>

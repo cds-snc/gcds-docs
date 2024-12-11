@@ -12,7 +12,7 @@ export class GcdsContainer {
     render() {
         const { border, centered, mainContainer, margin, padding, size, tag } = this;
         const Tag = tag;
-        return (h(Host, { key: '0e99ad345508c1300109aabce30794de7649ddf8' }, h(Tag, { key: '616d153d1f1445306436e8612bb2fc648e590099', class: `
+        return (h(Host, { key: '1a0d300e83cc191fccd62309d50acf2651fcf0de' }, h(Tag, { key: '57ebd74a5c1ffce5d67f85cac933bf108f36b450', class: `
             gcds-container
             ${border ? 'container-border' : ''}
             ${centered ? 'container-centered' : ''}
@@ -20,7 +20,7 @@ export class GcdsContainer {
             ${margin ? `m-${margin}` : ''}
             ${padding ? `p-${padding}` : ''}
             ${size ? `size-${size}` : ''}
-          ` }, h("slot", { key: '471427424ab9bf64b4c767897cad5493507e793d' }))));
+          ` }, h("slot", { key: '8ad3d9262e75693298a9a567aac2b9731c5ad96d' }))));
     }
     static get is() { return "gcds-container"; }
     static get encapsulation() { return "shadow"; }
@@ -48,7 +48,7 @@ export class GcdsContainer {
                 "optional": true,
                 "docs": {
                     "tags": [],
-                    "text": "Defines if container has a border or not."
+                    "text": "Defines if the container has a border."
                 },
                 "attribute": "border",
                 "reflect": false,
@@ -66,7 +66,7 @@ export class GcdsContainer {
                 "optional": true,
                 "docs": {
                     "tags": [],
-                    "text": "Defines if container is centered or not."
+                    "text": "Defines if the container is centered."
                 },
                 "attribute": "centered",
                 "reflect": false,
@@ -84,7 +84,7 @@ export class GcdsContainer {
                 "optional": true,
                 "docs": {
                     "tags": [],
-                    "text": "Defines if the container is the main page container or not. If set to true,\nthe width will be set to 90% for smaller screens to ensure consistency\nwith the responsiveness of other core layout components (header + footer)."
+                    "text": "Defines if the container is the main page container. When true,\nthe width will be set to 90% for smaller screens to ensure consistency\nwith the responsiveness of other core layout components (header + footer)."
                 },
                 "attribute": "main-container",
                 "reflect": false,
@@ -94,15 +94,21 @@ export class GcdsContainer {
                 "type": "string",
                 "mutable": false,
                 "complexType": {
-                    "original": "| '0'\n    | '50'\n    | '100'\n    | '150'\n    | '200'\n    | '250'\n    | '300'\n    | '400'\n    | '450'\n    | '500'\n    | '550'\n    | '600'\n    | '700'\n    | '800'\n    | '900'\n    | '1000'",
-                    "resolved": "\"0\" | \"100\" | \"1000\" | \"150\" | \"200\" | \"250\" | \"300\" | \"400\" | \"450\" | \"50\" | \"500\" | \"550\" | \"600\" | \"700\" | \"800\" | \"900\"",
-                    "references": {}
+                    "original": "SpacingValues",
+                    "resolved": "\"0\" | \"25\" | \"50\" | \"75\" | \"100\" | \"125\" | \"150\" | \"175\" | \"200\" | \"225\" | \"250\" | \"300\" | \"350\" | \"400\" | \"450\" | \"500\" | \"550\" | \"600\" | \"650\" | \"700\" | \"750\" | \"800\" | \"850\" | \"900\" | \"950\" | \"1000\" | \"1050\" | \"1100\" | \"1150\" | \"1200\" | \"1250\"",
+                    "references": {
+                        "SpacingValues": {
+                            "location": "import",
+                            "path": "../../utils/types/spacing",
+                            "id": "src/utils/types/spacing.tsx::SpacingValues"
+                        }
+                    }
                 },
                 "required": false,
                 "optional": true,
                 "docs": {
                     "tags": [],
-                    "text": "Defines the container's margin. Note that left and right margin will not be applied if the container is centered."
+                    "text": "Container margin. Left and right margins won't be applied\nif the container is centered."
                 },
                 "attribute": "margin",
                 "reflect": false
@@ -111,9 +117,15 @@ export class GcdsContainer {
                 "type": "string",
                 "mutable": false,
                 "complexType": {
-                    "original": "| '0'\n    | '50'\n    | '100'\n    | '150'\n    | '200'\n    | '250'\n    | '300'\n    | '400'\n    | '450'\n    | '500'\n    | '550'\n    | '600'\n    | '700'\n    | '800'\n    | '900'\n    | '1000'",
-                    "resolved": "\"0\" | \"100\" | \"1000\" | \"150\" | \"200\" | \"250\" | \"300\" | \"400\" | \"450\" | \"50\" | \"500\" | \"550\" | \"600\" | \"700\" | \"800\" | \"900\"",
-                    "references": {}
+                    "original": "SpacingValues",
+                    "resolved": "\"0\" | \"25\" | \"50\" | \"75\" | \"100\" | \"125\" | \"150\" | \"175\" | \"200\" | \"225\" | \"250\" | \"300\" | \"350\" | \"400\" | \"450\" | \"500\" | \"550\" | \"600\" | \"650\" | \"700\" | \"750\" | \"800\" | \"850\" | \"900\" | \"950\" | \"1000\" | \"1050\" | \"1100\" | \"1150\" | \"1200\" | \"1250\"",
+                    "references": {
+                        "SpacingValues": {
+                            "location": "import",
+                            "path": "../../utils/types/spacing",
+                            "id": "src/utils/types/spacing.tsx::SpacingValues"
+                        }
+                    }
                 },
                 "required": false,
                 "optional": true,

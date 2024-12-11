@@ -1,3 +1,4 @@
+import { SpacingValues } from '../../utils/types/spacing';
 export declare class GcdsHeading {
     el: HTMLElement;
     /**
@@ -15,14 +16,14 @@ export declare class GcdsHeading {
     characterLimit?: boolean;
     /**
      * Adds margin above the heading. The default margin-top for h1 is set to 0,
-     * while for h2 to h6 headings, it's 500.
+     * while for h2 to h6 headings, it's 600.
      */
-    marginTop?: '0' | '50' | '100' | '150' | '200' | '250' | '300' | '400' | '450' | '500' | '550' | '600' | '700' | '800' | '900' | '1000';
+    marginTop?: SpacingValues;
     validateMarginTop(newValue: string): void;
     /**
-     * Adds margin below the heading. The default margin-botttom is 400.
+     * Adds margin below the heading. The default margin-botttom is 300.
      */
-    marginBottom?: '0' | '50' | '100' | '150' | '200' | '250' | '300' | '400' | '450' | '500' | '550' | '600' | '700' | '800' | '900' | '1000';
+    marginBottom?: SpacingValues;
     validateMarginBottom(newValue: string): void;
     componentWillLoad(): void;
     render(): any;

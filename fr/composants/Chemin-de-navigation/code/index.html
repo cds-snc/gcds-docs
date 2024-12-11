@@ -1117,13 +1117,13 @@
 </gcds-header>
 
     <div class="content-wrapper">
-      <main id="mc" class="container-xl mx-auto xl:px-0 sm:px-500 px-300 general-layout" data-pagefind-body>
+      <main id="mc" class="container-xl mx-auto xl:px-0 sm:px-600 px-225 general-layout" data-pagefind-body>
         
   
-    <h1 id="chemin-de-navigation-brgcdsbreadcrumbs" class="mb-400">Chemin de navigation <br><code>&lt;gcds-breadcrumbs&gt;</code></h1>
-<p class="mb-400"><em>Autres noms : fil d’Ariane</em></p>
-<p class="mb-400">Un chemin d'accès à la page actuelle à partir de chaque niveau précédent de la hiérarchie du site.</p>
-<p class="mb-400"><ul class="d-flex flex-wrap gap-400">
+    <h1 id="chemin-de-navigation-brgcdsbreadcrumbs" class="mb-300">Chemin de navigation <br><code>&lt;gcds-breadcrumbs&gt;</code></h1>
+<p class="mb-300"><em>Autres noms : fil d’Ariane</em></p>
+<p class="mb-300">Un chemin d'accès à la page actuelle à partir de chaque niveau précédent de la hiérarchie du site.</p>
+<p class="mb-300"><ul class="d-flex flex-wrap gap-300">
 <li class="github-link">
 <gcds-link external href="https://github.com/cds-snc/gcds-components/tree/main/packages/web/src/components/gcds-breadcrumbs">GitHub</gcds-link>
 </li>
@@ -1131,11 +1131,11 @@
 <gcds-link external href="https://www.figma.com/file/o4SguSZdar2CCFzSkWNrmB/Syst%C3%A8me-de-design-GC?type=design&node-id=48-2119&mode=design&t=1DaL24vHpjRRfHHm-0">Figma</gcds-link>
 </li>
 </ul></p>
-<p class="mb-400"><div class="my-500 b-sm b-default component-preview" id="component-preview">
-<p class="container-full font-semibold px-300 py-200 bb-sm b-default bg-light">
+<p class="mb-300"><div class="my-600 b-sm b-default component-preview" id="component-preview">
+<p class="container-full font-semibold px-225 py-150 bb-sm b-default bg-light">
 Aperçu du composant de chemin de navigation
 </p>
-<div class="px-300 py-400"></p>
+<div class="px-225 py-300"></p>
 <div aria-hidden="true">
   <gcds-breadcrumbs>
     <gcds-breadcrumbs-item href="#">Page d'accueil</gcds-breadcrumbs-item>
@@ -1143,10 +1143,10 @@ Aperçu du composant de chemin de navigation
     </gcds-breadcrumbs-item>
   </gcds-breadcrumbs>
 </div>
-<p class="mb-400"></div>
+<p class="mb-300"></div>
 </div></p>
 
-    <nav class="tabs mb-400" aria-label="Onglet de consignes">
+    <nav class="tabs mb-300" aria-label="Onglet de consignes">
       <ul>
         
           
@@ -1183,31 +1183,31 @@ Aperçu du composant de chemin de navigation
     </nav>
   
 
-  <h2 id="creer-un-composant-chemin-de-navigation" class="mt-500 mb-400">Créer un composant Chemin de navigation</h2>
-<p class="mb-400">Utilisez le chemin de navigation pour indiquer l'emplacement de la page actuelle par rapport à ses pages parents dans la structure du site.</p>
-<h2 id="codage-et-accessibilite-pour-le-composant-chemin-de-navigation" class="mt-500 mb-400">Codage et accessibilité pour le composant Chemin de navigation</h2>
-<h3 id="commencez-par-le-lien-canadaca-et-le-lien-de-la-page-daccueil" class="mt-500 mb-400">Commencez par le lien Canada.ca et le lien de la page d'accueil</h3>
-<ul class="list-disc mb-400"><li><p class="mb-400">Maintenez le lien Canada.ca comme premier lien de chemin de navigation par défaut pour la plupart des pages et sites Web.</li>
-<li><p class="mb-400">Choisissez de remplacer le lien Canada.ca par le lien de la page d'accueil sur les pages transactionnelles et les sites Web ou produits autonomes. Pour supprimer le lien Canada.ca à la tête du chemin de navigation, définissez l'attribut <code>hide-canada-link</code> à <code>true</code>.</li>
+  <h2 id="creer-un-composant-chemin-de-navigation" class="mt-600 mb-300">Créer un composant Chemin de navigation</h2>
+<p class="mb-300">Utilisez le chemin de navigation pour indiquer l'emplacement de la page actuelle par rapport à ses pages parents dans la structure du site.</p>
+<h2 id="codage-et-accessibilite-pour-le-composant-chemin-de-navigation" class="mt-600 mb-300">Codage et accessibilité pour le composant Chemin de navigation</h2>
+<h3 id="commencez-par-le-lien-canadaca-et-le-lien-de-la-page-daccueil" class="mt-600 mb-300">Commencez par le lien Canada.ca et le lien de la page d'accueil</h3>
+<ul class="list-disc mb-300"><li><p class="mb-300">Maintenez le lien Canada.ca comme premier lien de chemin de navigation par défaut pour la plupart des pages et sites Web.</li>
+<li><p class="mb-300">Choisissez de remplacer le lien Canada.ca par le lien de la page d'accueil sur les pages transactionnelles et les sites Web ou produits autonomes. Pour supprimer le lien Canada.ca à la tête du chemin de navigation, définissez l'attribut <code>hide-canada-link</code> à <code>true</code>.</li>
 </ul>
-<p class="mb-400">Conseil : Lorsqu'un processus n'a pas de page d'accueil traditionnelle, insérez le lien vers la page de départ du processus.</p>
-<h3 id="placez-le-chemin-de-navigation-avant-lelement-main" class="mt-500 mb-400">Placez le chemin de navigation avant l'élément <code>&lt;main&gt;</code></h3>
-<p class="mb-400">Placez le chemin de navigation en haut d'une page, avant l'élément <code>&lt;main&gt;</code>. De cette façon, un lien « Passer au contenu principal » permettra à l'utilisateur·rice d'ignorer tous les liens de navigation, y compris les chemins de navigation.</p>
-<h3 id="utiliser-les-elements-du-chemin-de-navigation-pour-les-liens-du-chemin-de-navigation" class="mt-500 mb-400">Utiliser les éléments du chemin de navigation pour les liens du chemin de navigation</h3>
-<p class="mb-400">Ajoutez un nouveau lien au composant Chemin de navigation à l'aide du composant <code>&lt;gcds-breadcrumbs-item&gt;</code>. Le lien peut être ajouté par le biais de la propriété <code>href</code>.</p>
-<h3 id="obtenez-votre-code" class="mt-500 mb-400">Obtenez votre code</h3>
-<p class="mb-400">Générez une version du composant dont vous avez besoin en sélectionnant les propriétés de code correspondantes ou explorez les possibilités en choisissant différentes valeurs de code.</p>
-<ol class="list-decimal mb-400"><li>
-<p class="mb-400">Choisissez des valeurs de code pour obtenir l'élément que vous voulez.</p>
+<p class="mb-300">Conseil : Lorsqu'un processus n'a pas de page d'accueil traditionnelle, insérez le lien vers la page de départ du processus.</p>
+<h3 id="placez-le-chemin-de-navigation-avant-lelement-main" class="mt-600 mb-300">Placez le chemin de navigation avant l'élément <code>&lt;main&gt;</code></h3>
+<p class="mb-300">Placez le chemin de navigation en haut d'une page, avant l'élément <code>&lt;main&gt;</code>. De cette façon, un lien « Passer au contenu principal » permettra à l'utilisateur·rice d'ignorer tous les liens de navigation, y compris les chemins de navigation.</p>
+<h3 id="utiliser-les-elements-du-chemin-de-navigation-pour-les-liens-du-chemin-de-navigation" class="mt-600 mb-300">Utiliser les éléments du chemin de navigation pour les liens du chemin de navigation</h3>
+<p class="mb-300">Ajoutez un nouveau lien au composant Chemin de navigation à l'aide du composant <code>&lt;gcds-breadcrumbs-item&gt;</code>. Le lien peut être ajouté par le biais de la propriété <code>href</code>.</p>
+<h3 id="obtenez-votre-code" class="mt-600 mb-300">Obtenez votre code</h3>
+<p class="mb-300">Générez une version du composant dont vous avez besoin en sélectionnant les propriétés de code correspondantes ou explorez les possibilités en choisissant différentes valeurs de code.</p>
+<ol class="list-decimal mb-300"><li>
+<p class="mb-300">Choisissez des valeurs de code pour obtenir l'élément que vous voulez.</p>
 </li>
 <li>
-<p class="mb-400">Obtenez le code et intégrez-le dans votre environnement.</p>
+<p class="mb-300">Obtenez le code et intégrez-le dans votre environnement.</p>
 </li>
 <li>
-<p class="mb-400">Ajoutez tout contenu nécessaire au composant (comme le texte du libellé).</p>
+<p class="mb-300">Ajoutez tout contenu nécessaire au composant (comme le texte du libellé).</p>
 </li>
 </ol>
-<p class="mb-400"><strong>Remarque</strong> : Conformément à la pratique courante, le générateur de code utilise l'anglais pour tous les éléments de code.</p>
+<p class="mb-300"><strong>Remarque</strong> : Conformément à la pratique courante, le générateur de code utilise l'anglais pour tous les éléments de code.</p>
 <iframe
   title="Survol des propriétés et des évènements relatifs à gcds-breadcrumbs."
   src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&demo=true&id=components-breadcrumbs--events-properties&lang=fr"
@@ -1219,12 +1219,12 @@ Aperçu du composant de chemin de navigation
 ></iframe>
 
 
-  <section data-pagefind-ignore class="pt-100 mt-400 mb-600 bt-sm b-dark ">
-  <h2 class="mt-300 mb-400">
+  <section data-pagefind-ignore class="pt-75 mt-300 mb-900 bt-sm b-dark ">
+  <h2 class="mt-225 mb-300">
     Aidez-nous à nous améliorer
   </h2>
 
-  <p class="mb-400">
+  <p class="mb-300">
     Avez-vous des questions? Y a-t-il quelque chose que vous changeriez ou ajouteriez? Faites-nous part de vos commentaires pour nous aider à améliorer Système de design GC.
   </p>
 
@@ -1239,7 +1239,7 @@ Aperçu du composant de chemin de navigation
 
 
 
-        <gcds-date-modified class="mb-400 font-caption">
+        <gcds-date-modified class="mb-300">
           2024-12-11
         </gcds-date-modified>
       </main>

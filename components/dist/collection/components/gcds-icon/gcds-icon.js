@@ -11,7 +11,7 @@ export class GcdsIcon {
     }
     render() {
         const { iconStyle, label, marginLeft, marginRight, name, fixedWidth, size, } = this;
-        return (h(Host, { key: 'fdb458ee02f7aa6aeba3480ff78f127b6d42e437' }, h("span", { key: '4d5c34c5016bc6c2148ed3ace5eb54268614e96d', class: `
+        return (h(Host, { key: '33a2027afb36b43c62addcd9bf3762a2e214ed25' }, h("span", { key: '8c4bf985eff79cbe01526fb158ca0155c854c9a5', class: `
             gcds-icon fa fa-${iconStyle} fa-${name}
             ${marginLeft ? `ml-${marginLeft}` : ''}
             ${marginRight ? `mr-${marginRight}` : ''}
@@ -72,9 +72,15 @@ export class GcdsIcon {
                 "type": "string",
                 "mutable": false,
                 "complexType": {
-                    "original": "| '0'\n    | '50'\n    | '100'\n    | '150'\n    | '200'\n    | '250'\n    | '300'\n    | '400'\n    | '450'\n    | '500'\n    | '550'\n    | '600'\n    | '700'\n    | '800'\n    | '900'\n    | '1000'",
-                    "resolved": "\"0\" | \"100\" | \"1000\" | \"150\" | \"200\" | \"250\" | \"300\" | \"400\" | \"450\" | \"50\" | \"500\" | \"550\" | \"600\" | \"700\" | \"800\" | \"900\"",
-                    "references": {}
+                    "original": "SpacingValues",
+                    "resolved": "\"0\" | \"25\" | \"50\" | \"75\" | \"100\" | \"125\" | \"150\" | \"175\" | \"200\" | \"225\" | \"250\" | \"300\" | \"350\" | \"400\" | \"450\" | \"500\" | \"550\" | \"600\" | \"650\" | \"700\" | \"750\" | \"800\" | \"850\" | \"900\" | \"950\" | \"1000\" | \"1050\" | \"1100\" | \"1150\" | \"1200\" | \"1250\"",
+                    "references": {
+                        "SpacingValues": {
+                            "location": "import",
+                            "path": "../../utils/types/spacing",
+                            "id": "src/utils/types/spacing.tsx::SpacingValues"
+                        }
+                    }
                 },
                 "required": false,
                 "optional": true,
@@ -89,9 +95,15 @@ export class GcdsIcon {
                 "type": "string",
                 "mutable": false,
                 "complexType": {
-                    "original": "| '0'\n    | '50'\n    | '100'\n    | '150'\n    | '200'\n    | '250'\n    | '300'\n    | '400'\n    | '450'\n    | '500'\n    | '550'\n    | '600'\n    | '700'\n    | '800'\n    | '900'\n    | '1000'",
-                    "resolved": "\"0\" | \"100\" | \"1000\" | \"150\" | \"200\" | \"250\" | \"300\" | \"400\" | \"450\" | \"50\" | \"500\" | \"550\" | \"600\" | \"700\" | \"800\" | \"900\"",
-                    "references": {}
+                    "original": "SpacingValues",
+                    "resolved": "\"0\" | \"25\" | \"50\" | \"75\" | \"100\" | \"125\" | \"150\" | \"175\" | \"200\" | \"225\" | \"250\" | \"300\" | \"350\" | \"400\" | \"450\" | \"500\" | \"550\" | \"600\" | \"650\" | \"700\" | \"750\" | \"800\" | \"850\" | \"900\" | \"950\" | \"1000\" | \"1050\" | \"1100\" | \"1150\" | \"1200\" | \"1250\"",
+                    "references": {
+                        "SpacingValues": {
+                            "location": "import",
+                            "path": "../../utils/types/spacing",
+                            "id": "src/utils/types/spacing.tsx::SpacingValues"
+                        }
+                    }
                 },
                 "required": false,
                 "optional": true,
@@ -141,8 +153,8 @@ export class GcdsIcon {
                 "type": "string",
                 "mutable": false,
                 "complexType": {
-                    "original": "| 'inherit'\n    | 'caption'\n    | 'text'\n    | 'h6'\n    | 'h5'\n    | 'h4'\n    | 'h3'\n    | 'h2'\n    | 'h1'",
-                    "resolved": "\"caption\" | \"h1\" | \"h2\" | \"h3\" | \"h4\" | \"h5\" | \"h6\" | \"inherit\" | \"text\"",
+                    "original": "| 'inherit'\n    | 'text-small'\n    | 'text'\n    | 'h6'\n    | 'h5'\n    | 'h4'\n    | 'h3'\n    | 'h2'\n    | 'h1'",
+                    "resolved": "\"h1\" | \"h2\" | \"h3\" | \"h4\" | \"h5\" | \"h6\" | \"inherit\" | \"text\" | \"text-small\"",
                     "references": {}
                 },
                 "required": false,

@@ -1,11 +1,12 @@
 import { Host, h } from "@stencil/core";
+import { SpacingArray } from "../../utils/types/spacing";
 export class GcdsText {
     constructor() {
         this.textRole = 'primary';
         this.characterLimit = true;
         this.display = 'block';
         this.marginTop = '0';
-        this.marginBottom = '400';
+        this.marginBottom = '300';
         this.size = 'body';
     }
     validateTextRole(newValue) {
@@ -28,53 +29,17 @@ export class GcdsText {
         }
     }
     validateMarginTop(newValue) {
-        const values = [
-            '0',
-            '50',
-            '100',
-            '150',
-            '200',
-            '250',
-            '300',
-            '400',
-            '450',
-            '500',
-            '550',
-            '600',
-            '700',
-            '800',
-            '900',
-            '1000',
-        ];
-        if (!values.includes(newValue)) {
+        if (!SpacingArray.includes(newValue)) {
             this.marginTop = '0';
         }
     }
     validateMarginBottom(newValue) {
-        const values = [
-            '0',
-            '50',
-            '100',
-            '150',
-            '200',
-            '250',
-            '300',
-            '400',
-            '450',
-            '500',
-            '550',
-            '600',
-            '700',
-            '800',
-            '900',
-            '1000',
-        ];
-        if (!values.includes(newValue)) {
-            this.marginBottom = '400';
+        if (!SpacingArray.includes(newValue)) {
+            this.marginBottom = '300';
         }
     }
     validateSize(newValue) {
-        const values = ['body', 'caption'];
+        const values = ['body', 'small'];
         if (!values.includes(newValue)) {
             this.size = 'body';
         }
@@ -89,13 +54,14 @@ export class GcdsText {
     }
     render() {
         const { characterLimit, display, marginTop, marginBottom, size, textRole } = this;
-        return (h(Host, { key: '4860a1fcc95e794c412a988b0bd0431910533ea4', class: `${display != 'block' ? `d-${display}` : ''}` }, h("p", { key: 'b2b2b6ca469d96c8abad566b4c908fb4b775a94e', class: `
+        return (h(Host, { key: 'a812309ef1f42e139d5cff1db4c83d2b1b7e3df5', class: `${display != 'block' ? `d-${display}` : ''}` }, h("p", { key: '044d31b7287fd57599acb2f4943c006552bd07b9', class: `
             gcds-text
             ${textRole ? `role-${textRole}` : ''}
             ${characterLimit ? 'limit' : ''}
             ${marginTop ? `mt-${marginTop}` : ''}
             ${marginBottom ? `mb-${marginBottom}` : ''}
-          `, part: "text" }, size === 'caption' ? (h("small", null, h("slot", null))) : (h("slot", null)))));
+            ${size === 'small' ? `size-small` : ''}
+          `, part: "text" }, size === 'small' ? (h("small", null, h("slot", null))) : (h("slot", null)))));
     }
     static get is() { return "gcds-text"; }
     static get encapsulation() { return "shadow"; }
@@ -169,9 +135,15 @@ export class GcdsText {
                 "type": "string",
                 "mutable": true,
                 "complexType": {
-                    "original": "| '0'\n    | '50'\n    | '100'\n    | '150'\n    | '200'\n    | '250'\n    | '300'\n    | '400'\n    | '450'\n    | '500'\n    | '550'\n    | '600'\n    | '700'\n    | '800'\n    | '900'\n    | '1000'",
-                    "resolved": "\"0\" | \"100\" | \"1000\" | \"150\" | \"200\" | \"250\" | \"300\" | \"400\" | \"450\" | \"50\" | \"500\" | \"550\" | \"600\" | \"700\" | \"800\" | \"900\"",
-                    "references": {}
+                    "original": "SpacingValues",
+                    "resolved": "\"0\" | \"25\" | \"50\" | \"75\" | \"100\" | \"125\" | \"150\" | \"175\" | \"200\" | \"225\" | \"250\" | \"300\" | \"350\" | \"400\" | \"450\" | \"500\" | \"550\" | \"600\" | \"650\" | \"700\" | \"750\" | \"800\" | \"850\" | \"900\" | \"950\" | \"1000\" | \"1050\" | \"1100\" | \"1150\" | \"1200\" | \"1250\"",
+                    "references": {
+                        "SpacingValues": {
+                            "location": "import",
+                            "path": "../../utils/types/spacing",
+                            "id": "src/utils/types/spacing.tsx::SpacingValues"
+                        }
+                    }
                 },
                 "required": false,
                 "optional": true,
@@ -187,9 +159,15 @@ export class GcdsText {
                 "type": "string",
                 "mutable": true,
                 "complexType": {
-                    "original": "| '0'\n    | '50'\n    | '100'\n    | '150'\n    | '200'\n    | '250'\n    | '300'\n    | '400'\n    | '450'\n    | '500'\n    | '550'\n    | '600'\n    | '700'\n    | '800'\n    | '900'\n    | '1000'",
-                    "resolved": "\"0\" | \"100\" | \"1000\" | \"150\" | \"200\" | \"250\" | \"300\" | \"400\" | \"450\" | \"50\" | \"500\" | \"550\" | \"600\" | \"700\" | \"800\" | \"900\"",
-                    "references": {}
+                    "original": "SpacingValues",
+                    "resolved": "\"0\" | \"25\" | \"50\" | \"75\" | \"100\" | \"125\" | \"150\" | \"175\" | \"200\" | \"225\" | \"250\" | \"300\" | \"350\" | \"400\" | \"450\" | \"500\" | \"550\" | \"600\" | \"650\" | \"700\" | \"750\" | \"800\" | \"850\" | \"900\" | \"950\" | \"1000\" | \"1050\" | \"1100\" | \"1150\" | \"1200\" | \"1250\"",
+                    "references": {
+                        "SpacingValues": {
+                            "location": "import",
+                            "path": "../../utils/types/spacing",
+                            "id": "src/utils/types/spacing.tsx::SpacingValues"
+                        }
+                    }
                 },
                 "required": false,
                 "optional": true,
@@ -199,14 +177,14 @@ export class GcdsText {
                 },
                 "attribute": "margin-bottom",
                 "reflect": false,
-                "defaultValue": "'400'"
+                "defaultValue": "'300'"
             },
             "size": {
                 "type": "string",
                 "mutable": true,
                 "complexType": {
-                    "original": "'body' | 'caption'",
-                    "resolved": "\"body\" | \"caption\"",
+                    "original": "'body' | 'small'",
+                    "resolved": "\"body\" | \"small\"",
                     "references": {}
                 },
                 "required": false,
