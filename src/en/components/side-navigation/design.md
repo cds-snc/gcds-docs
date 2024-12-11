@@ -17,7 +17,7 @@ date: 'git Last Modified'
   <li>The <strong>nav link with active indicator</strong> gives visual prominence to the current page.</li>
 </ol>
 
-<img class="b-sm b-default p-400" src="/images/en/components/anatomy/gcds-side-nav-anatomy.svg" alt="Side navigation anatomy showing the labels the label, the nav link, the nav group, the nav group label, the nav group chevron icon, the nav link with active indicator."/>
+<img class="b-sm b-default p-300" src="/images/en/components/anatomy/gcds-side-nav-anatomy.svg" alt="Side navigation anatomy showing the labels the label, the nav link, the nav group, the nav group label, the nav group chevron icon, the nav link with active indicator."/>
 
 ## Design and accessibility for side navigation
 

@@ -13,7 +13,7 @@ tags: ['headingFR', 'design']
   <li>Le composant <strong>texte</strong> ne contient pas de titre. Son sujet est lié à l'idée principale du titre correspondant.</li>
 </ol>
 
-<img class="b-sm b-default p-400" src="/images/fr/components/anatomy/gcds-heading-anatomy.svg" alt="Un titre en gros caractères au-dessus d'un bloc de texte plus petit. Le texte en se lit comme suit : « Ceci est un titre. » Le bloc suivant se lit comme suit : « Il s'agit de texte qui décrit plus en détail le sujet ou l'action indiqués dans la section qui suit. Le texte est généralement constitué d'une ou de plusieurs lignes ou paragraphes de contenu pour la section. On peut aussi s'en servir pour introduire une liste à puces, un tableau ou d'autres contenus, comme une image ou une vidéo. » Il y a une étiquette pointant vers le plus grand texte indiquant « 1 » et il y a une étiquette pointant vers le plus petit bloc de texte qui indique « 2 »." />
+<img class="b-sm b-default p-300" src="/images/fr/components/anatomy/gcds-heading-anatomy.svg" alt="Un titre en gros caractères au-dessus d'un bloc de texte plus petit. Le texte en se lit comme suit : « Ceci est un titre. » Le bloc suivant se lit comme suit : « Il s'agit de texte qui décrit plus en détail le sujet ou l'action indiqués dans la section qui suit. Le texte est généralement constitué d'une ou de plusieurs lignes ou paragraphes de contenu pour la section. On peut aussi s'en servir pour introduire une liste à puces, un tableau ou d'autres contenus, comme une image ou une vidéo. » Il y a une étiquette pointant vers le plus grand texte indiquant « 1 » et il y a une étiquette pointant vers le plus petit bloc de texte qui indique « 2 »." />
 
 ## Conception et accessibilité du composant titre
 
@@ -52,5 +52,5 @@ Les niveaux de titre suivent un ordre séquentiel et hiérarchique : les niveaux
 
 - Conservez l'espacement par défaut pour une expérience de lecture agréable et accessible. Ces valeurs par défaut créent des espaces visuels et des séparations entre les différentes sections.
 - Conservez les valeurs d'espacement suivantes pour maintenir un équilibre visuel entre les titres d'une page :
-  - Marge inférieure : 400 pour tous les niveaux.
-  - Marge supérieure : 0 pour H1 et 500 pour H2 et 3.
+  - Marge inférieure : 300 pour tous les niveaux.
+  - Marge supérieure : 0 pour H1 et 600 pour H2 et 3.

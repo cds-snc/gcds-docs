@@ -38,28 +38,28 @@ if (searchTerm) {
       noresults: 'No results',
       loading: 'Loading search results.',
       noresultsbody: `
-        <p class="mb-400">No pages were found that match your search terms.</p>
+        <p class="mb-300">No pages were found that match your search terms.</p>
 
-        <p class="mb-400">Suggestions:</p>
+        <p class="mb-300">Suggestions:</p>
 
-        <ul class="list-disc mb-400">
+        <ul class="list-disc mb-300">
           <li>Make sure all search terms are spelled correctly</li>
           <li>Try different search terms</li>
           <li>Try more general search terms</li>
         </ul>
       `,
     },
-      
+
     fr: {
       results: `${results.length} résultats de recherche pour « ${searchTerm} »`,
       noresults: 'Aucun résultat',
       loading: 'Chargement des résultats de recherche.',
       noresultsbody: `
-        <p class="mb-400">Aucun résultat ne correspond à vos critères de recherche.</p>
+        <p class="mb-300">Aucun résultat ne correspond à vos critères de recherche.</p>
 
-        <p class="mb-400">Suggestions:</p>
+        <p class="mb-300">Suggestions:</p>
 
-        <ul class="list-disc mb-400">
+        <ul class="list-disc mb-300">
           <li>Assurez-vous que tous vos termes de recherches sont bien orthographiés</li>
           <li>Utilisez de différents termes de recherche</li>
           <li>Utilisez des termes de recherche plus généraux</li>
@@ -107,7 +107,7 @@ if (searchTerm) {
           'page::match': '{{1}}',
         },
       };
-      pagination.classList.add('mt-400');
+      pagination.classList.add('mt-300');
       document.getElementById('pagination').appendChild(pagination);
     }
   } else if (searchTerm && results.length === 0) {
@@ -128,8 +128,8 @@ function formatResult(result) {
 
   let heading = document.createElement('gcds-heading');
   heading.tag = 'h3';
-  heading.marginBottom = '150';
-  heading.marginTop = '300';
+  heading.marginBottom = '100';
+  heading.marginTop = '225';
 
   let link = document.createElement('gcds-link');
   link.href = result.url;
@@ -142,15 +142,15 @@ function formatResult(result) {
     'style',
     '--gcds-text-role-primary: var(--gcds-color-green-700);',
   );
-  url.marginBottom = '150';
+  url.marginBottom = '100';
   url.innerHTML = result.url;
 
   let excerpt = document.createElement('gcds-text');
-  excerpt.marginBottom = '100';
+  excerpt.marginBottom = '75';
   excerpt.innerHTML = result.excerpt;
 
   resultElement.appendChild(url);
   resultElement.appendChild(excerpt);
-  
+
   return resultElement;
 }

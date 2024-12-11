@@ -13,13 +13,13 @@ date: 'git Last Modified'
   <li>La <strong>bordure optionnelle</strong> entoure la boîte en indiquant la largeur.</li>
 </ol>
 
-<img class="b-sm b-default p-400" src="/images/en/components/anatomy/gcds-container-anatomy.svg" alt="Le composant de boîte avec des numéros indiquant les différentes parties de la structure de la boîte." />
+<img class="b-sm b-default p-300" src="/images/en/components/anatomy/gcds-container-anatomy.svg" alt="Le composant de boîte avec des numéros indiquant les différentes parties de la structure de la boîte." />
 
 ## Design et accessibilité des boîtes
 
 ### Limiter la largeur du contenu
 
-- Veillez à ce que vos lignes de texte ne dépassent pas 75 caractères pour obtenir une longueur de lecture acceptable.
+- Veillez à ce que vos lignes de texte ne dépassent pas 65 caractères pour obtenir une longueur de lecture acceptable.
 - Limitez la largeur de la boîte pour éviter que les grands écrans n’affichent des lignes de texte trop longues et difficiles à lire.
 - Évitez de dépasser la largeur maximale de 71,25 rem (1140 px).
 

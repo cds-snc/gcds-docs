@@ -18,7 +18,7 @@ nocrawl: true
   <li>The <strong>radio hint text</strong> gives a person additional information about the choice.</li>
 </ol>
 
-<img class="b-sm b-default p-400" src="/images/en/components/anatomy/gcds-radio-anatomy.svg" alt="Radio anatomy showing the labels Fieldset legend, Fieldset hint, Checkmark, Radio label, Radio button and Radio Hint."/>
+<img class="b-sm b-default p-300" src="/images/en/components/anatomy/gcds-radio-anatomy.svg" alt="Radio anatomy showing the labels Fieldset legend, Fieldset hint, Checkmark, Radio label, Radio button and Radio Hint."/>
 
 ## Design and accessibility for radios
 

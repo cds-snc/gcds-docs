@@ -31,8 +31,8 @@ Utilisez un champ de saisie lorsque vous attendez de l'utilisateur·rice une ré
 
 Remarque : Ne recueillez que les renseignements que vous êtes autorisé·e à traiter et veillez à les protéger conformément aux normes du gouvernement du Canada.
 
-<article class="bg-full-width bg-primary text-light pt-500 pb-400 my-500">
-  <h2 class="mt-0 mb-400">Composants connexes</h2>
+<article class="bg-full-width bg-primary text-light pt-600 pb-300 my-600">
+  <h2 class="mt-0 mb-300">Composants connexes</h2>
 
 <a href="{{ links.textarea }}" class="link-light">Zone de texte</a> : lorsque vous cherchez à obtenir une réponse libre de plusieurs lignes.
 
@@ -60,7 +60,7 @@ Utilisez cette option s'il n'existe pas déjà un autre type de champ de saisie 
 ### Saisie de mot de passe
 
 - Pour la collecte et la validation de mots de passe.
-- Pour définir des contraintes spécifiques aux mots de passe.  
+- Pour définir des contraintes spécifiques aux mots de passe.
 
 Conseil :  Indiquez toute contrainte liée au mot de passe dans le texte explicatif du champ de saisie afin que les personnes sachent exactement quelles sont les règles.
 

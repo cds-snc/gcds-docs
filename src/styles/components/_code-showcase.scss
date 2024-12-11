@@ -18,12 +18,12 @@
     }
 
     &[aria-hidden='false'] {
-      margin-top: calc(-1 * var(--gcds-spacing-400));
+      margin-top: calc(-1 * var(--gcds-spacing-300));
     }
   }
 
   gcds-button {
-    margin: 0 var(--gcds-spacing-300) 0 0;
+    margin: 0 var(--gcds-spacing-225) 0 0;
   }
 
   .code-copy {

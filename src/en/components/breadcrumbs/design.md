@@ -15,7 +15,7 @@ date: 'git Last Modified'
   <li>The <strong>parent page link</strong> navigates to the parent page of the current page. You can have up to three parent page links in addition to the homepage and the Canada.ca home or 5 in total.</li>
 </ol>
 
-<img class="b-sm b-default p-400" src="/images/en/components/anatomy/gcds-breadcrumbs-anatomy.svg" alt="Breadcrumbs anatomy showing three links in a row with an arrow icon between them." />
+<img class="b-sm b-default p-300" src="/images/en/components/anatomy/gcds-breadcrumbs-anatomy.svg" alt="Breadcrumbs anatomy showing three links in a row with an arrow icon between them." />
 
 ### Breadcrumbs anatomy – with header and H1 title
 
@@ -26,7 +26,7 @@ date: 'git Last Modified'
   <li>The <strong>H1 title</strong> is a separate element from the breadcrumbs component. It tells readers what the page or site is about and acts a signpost, giving them a sense of place.</li>
 </ol>
 
-<img class="b-sm b-default p-400" src="/images/en/components/anatomy/gcds-breadcrumbs-anatomy-with-header.svg" alt="Breadcrumbs anatomy showing three links in a row with an arrow icon between them below the header component." />
+<img class="b-sm b-default p-300" src="/images/en/components/anatomy/gcds-breadcrumbs-anatomy-with-header.svg" alt="Breadcrumbs anatomy showing three links in a row with an arrow icon between them below the header component." />
 
 ## Design and accessibility for breadcrumbs
 

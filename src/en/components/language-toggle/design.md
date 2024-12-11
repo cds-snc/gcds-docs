@@ -15,7 +15,7 @@ The language toggle provides a link to the page in the other Official Language.
   <li>The <strong>language toggle</strong> is abbreviated on small screens.</li>
 </ol>
 
-<img class="b-sm b-default p-400" src="/images/en/components/anatomy/gcds-lang-toggle-anatomy.svg" alt="On large screens, a “Français” link. On smaller screens, an abbreviated FR link."/>
+<img class="b-sm b-default p-300" src="/images/en/components/anatomy/gcds-lang-toggle-anatomy.svg" alt="On large screens, a “Français” link. On smaller screens, an abbreviated FR link."/>
 
 ## Design and accessibility for the language toggle
 

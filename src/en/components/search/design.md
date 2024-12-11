@@ -15,7 +15,7 @@ date: 'git Last Modified'
   <li>The <strong>icon</strong> is a visual aid on the button.</li>
 </ol>
 
-<img class="b-sm b-default p-400" src="/images/en/components/anatomy/gcds-search-anatomy.svg" alt="Image showing the search component anatomy with numbers pointing to the individual parts of the search component." />
+<img class="b-sm b-default p-300" src="/images/en/components/anatomy/gcds-search-anatomy.svg" alt="Image showing the search component anatomy with numbers pointing to the individual parts of the search component." />
 
 ## Design and accessibility for search
 

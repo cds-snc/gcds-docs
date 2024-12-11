@@ -13,7 +13,7 @@ date: 'git Last Modified'
   <li>La <strong>colonne</strong> , également appelée élément de grille, définit une limite autour de son contenu pour le maintenir dans la largeur définie pour cette colonne.</li>
 </ol>
 
-<img class="b-sm b-default p-400" src="/images/fr/components/anatomy/gcds-grid-anatomy.svg" alt="Image montrant la structure d'une grille avec quatre rectangles distincts représentant les colonnes d'une grille." />
+<img class="b-sm b-default p-300" src="/images/fr/components/anatomy/gcds-grid-anatomy.svg" alt="Image montrant la structure d'une grille avec quatre rectangles distincts représentant les colonnes d'une grille." />
 
 ## Design et accessibilité des grilles
 

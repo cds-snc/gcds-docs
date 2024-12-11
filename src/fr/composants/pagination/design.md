@@ -18,7 +18,7 @@ date: 'git Last Modified'
   <li>Le <strong>libellé précédent</strong> indique à l’utilisateur·rice le libellé de la page précédente.</li>
 </ol>
 
-<img class="b-sm b-default p-400" src="/images/fr/components/anatomy/gcds-pagination-simple-previous-anatomy.svg" alt="Le composant de pagination avec des nombres pointant vers des parties individuelles de l’anatomie du lien précédent de la pagination simple." />
+<img class="b-sm b-default p-300" src="/images/fr/components/anatomy/gcds-pagination-simple-previous-anatomy.svg" alt="Le composant de pagination avec des nombres pointant vers des parties individuelles de l’anatomie du lien précédent de la pagination simple." />
 
 #### Lien suivant
 
@@ -28,7 +28,7 @@ date: 'git Last Modified'
   <li>Le <strong>libellé suivant</strong> indique à l’utilisateur·rice le libellé de la page suivante.</li>
 </ol>
 
-<img class="b-sm b-default p-400" src="/images/fr/components/anatomy/gcds-pagination-simple-next-anatomy.svg" alt="Le composant de pagination avec des nombres pointant vers des parties individuelles de l’anatomie du lien suivant de la pagination simple." />
+<img class="b-sm b-default p-300" src="/images/fr/components/anatomy/gcds-pagination-simple-next-anatomy.svg" alt="Le composant de pagination avec des nombres pointant vers des parties individuelles de l’anatomie du lien suivant de la pagination simple." />
 
 ### Structure de la pagination sous forme de liste
 
@@ -42,7 +42,7 @@ date: 'git Last Modified'
   <li>Le <strong>lien suivant</strong> mène vers la page suivante du flux lorsqu’il est sélectionné.</li>
 </ol>
 
-<img class="b-sm b-default p-400" src="/images/fr/components/anatomy/gcds-pagination-list-large-anatomy.svg" alt="Le composant de pagination avec des nombres pointant vers des parties individuelles de l’anatomie de la pagination sous forme de liste sur grand écran." />
+<img class="b-sm b-default p-300" src="/images/fr/components/anatomy/gcds-pagination-list-large-anatomy.svg" alt="Le composant de pagination avec des nombres pointant vers des parties individuelles de l’anatomie de la pagination sous forme de liste sur grand écran." />
 
 #### Petits écrans
 
@@ -54,7 +54,7 @@ date: 'git Last Modified'
   <li>Le <strong>lien suivant</strong> mène vers la page suivante du flux lorsqu’il est sélectionné.</li>
 </ol>
 
-<img class="b-sm b-default p-400" src="/images/fr/components/anatomy/gcds-pagination-list-small-anatomy.svg" alt="Le composant de pagination avec des nombres pointant vers des parties individuelles de l’anatomie de la pagination sous forme de liste sur petits écran." />
+<img class="b-sm b-default p-300" src="/images/fr/components/anatomy/gcds-pagination-list-small-anatomy.svg" alt="Le composant de pagination avec des nombres pointant vers des parties individuelles de l’anatomie de la pagination sous forme de liste sur petits écran." />
 
 #### Lien précédent
 
@@ -63,7 +63,7 @@ date: 'git Last Modified'
   <li>Le <strong>texte précédent</strong> est le texte qui accompagne la flèche précédente, indiquant que l’utilisateur·rice navigue vers la page précédente dans le flux.</li>
 </ol>
 
-<img class="b-sm b-default p-400" src="/images/fr/components/anatomy/gcds-pagination-list-previous-anatomy.svg" alt="Le composant de pagination avec des nombres pointant vers des parties individuelles de l'anatomie du lien précédent de la pagination sous forme de liste." />
+<img class="b-sm b-default p-300" src="/images/fr/components/anatomy/gcds-pagination-list-previous-anatomy.svg" alt="Le composant de pagination avec des nombres pointant vers des parties individuelles de l'anatomie du lien précédent de la pagination sous forme de liste." />
 
 #### Lien suivant
 
@@ -72,7 +72,7 @@ date: 'git Last Modified'
   <li>La <strong>flèche suivante</strong> est une aide visuelle qui indique qu’on navigue en avant dans le flux de pages.</li>
 </ol>
 
-<img class="b-sm b-default p-400" src="/images/fr/components/anatomy/gcds-pagination-list-next-anatomy.svg" alt="Le composant de pagination avec des nombres pointant vers des parties individuelles de l'anatomie du lien suivant de la pagination sous forme de liste." />
+<img class="b-sm b-default p-300" src="/images/fr/components/anatomy/gcds-pagination-list-next-anatomy.svg" alt="Le composant de pagination avec des nombres pointant vers des parties individuelles de l'anatomie du lien suivant de la pagination sous forme de liste." />
 
 ## Design et accessibilité pour le composant pagination
 

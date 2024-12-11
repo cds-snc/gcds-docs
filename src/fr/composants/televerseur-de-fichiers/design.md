@@ -17,7 +17,7 @@ date: 'git Last Modified'
   <li>Le bouton <strong>supprimer</strong> permet de supprimer un fichier téléversé avant la soumission.</li>
 </ol>
 
-<img class="b-sm b-default p-400" src="/images/fr/components/anatomy/gcds-file-uploader-anatomy.svg" alt="Une image de la structure du composant téléverseur de fichiers." />
+<img class="b-sm b-default p-300" src="/images/fr/components/anatomy/gcds-file-uploader-anatomy.svg" alt="Une image de la structure du composant téléverseur de fichiers." />
 
 ## Design et accessibilité du téléverseur de fichiers
 

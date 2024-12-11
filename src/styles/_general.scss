@@ -24,8 +24,8 @@ iframe {
 }
 
 ul li {
-  p.mb-400:has(+ ul),
-  ul.mb-400 {
+  p.mb-300:has(+ ul),
+  ul.mb-300 {
     margin-block-end: 0;
   }
 

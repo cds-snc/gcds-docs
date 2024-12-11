@@ -15,7 +15,7 @@ A text area is a space to enter long-form information in response to a question 
 {% docLinks locale stage figma github %}
 {% enddocLinks %}
 
-{% componentPreview "Text area component preview" "px-300 pt-400" %}
+{% componentPreview "Text area component preview" "px-225 pt-300" %}
 <gcds-textarea textarea-id="textarea-example" label="Label" hint="Hint / Example message." value="Text area content.">
 </gcds-textarea>
 {% endcomponentPreview %}

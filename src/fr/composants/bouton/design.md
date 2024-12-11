@@ -14,7 +14,7 @@ date: 'git Last Modified'
   <li>L'<strong>icône</strong> est facultative et peut être utile comme support visuel lorsqu'elle utilisée de manière uniforme et modérée. Lorsqu'il y a une icône, alignez le texte du bouton à la gauche.  Évitez d'utiliser une icône sans texte.</li>
 </ol>
 
-<img class="b-sm b-default p-400" src="/images/fr/components/anatomy/gcds-button-anatomy.svg" alt="L'anatomie d'un bouton identifiant l'étiquette, le conteneur et l'icone qui forme le composant." />
+<img class="b-sm b-default p-300" src="/images/fr/components/anatomy/gcds-button-anatomy.svg" alt="L'anatomie d'un bouton identifiant l'étiquette, le conteneur et l'icone qui forme le composant." />
 
 ## Accessibilité et design des boutons
 

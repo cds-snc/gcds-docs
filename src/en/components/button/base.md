@@ -16,7 +16,7 @@ The button is an interactive object that highlights an important or common actio
 {% enddocLinks %}
 
 {% componentPreview "Button component preview" %}
-<gcds-button class="me-400" button-role="primary">Submit</gcds-button>
-<gcds-button class="me-400" button-role="secondary">Cancel</gcds-button>
-<gcds-button class="me-400" button-role="danger">Delete</gcds-button>
+<gcds-button class="me-300" button-role="primary">Submit</gcds-button>
+<gcds-button class="me-300" button-role="secondary">Cancel</gcds-button>
+<gcds-button class="me-300" button-role="danger">Delete</gcds-button>
 {% endcomponentPreview %}

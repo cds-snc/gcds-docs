@@ -19,10 +19,9 @@ Le composant texte affiche du contenu sans titre avec les styles correspondants 
 
 ### Définissez la taille du texte
 
-- Définissez l'attribut de texte `size` à `body` ou `caption`.
+- Définissez l'attribut de texte `size` à `body` ou `small`.
 - Utilisez la valeur par défaut `body` `size` pour produire un élément `p` avec la taille de police et le contraste de couleur recommandés.
-- Choisissez une légende pour présenter brièvement le contexte d'une section ou d'un élément de contenu.
-- Choisissez d'afficher un texte plus petit en définissant l'attribut `size` à `caption` pour produire un élément `small` à l'intérieur d'un élément `p`.
+- Choisissez d'afficher un texte plus petit en définissant l'attribut `size` à `small` pour produire un élément `small` à l'intérieur d'un élément `p`.
 
 ### Utilisez des styles de texte avec prudence
 

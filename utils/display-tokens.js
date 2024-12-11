@@ -27,7 +27,7 @@ const displayTokens = (token, subCategory, locale) => {
         tableBody += `<tr>
             <td>
               <div
-                style="width: var(--gcds-spacing-500); height: var(--gcds-spacing-500); border-radius: var(--gcds-spacing-500); background-color: ${
+                style="width: var(--gcds-spacing-600); height: var(--gcds-spacing-600); border-radius: var(--gcds-spacing-600); background-color: ${
                   tokens[i].value
                 }; border: 1px solid #EDEDED"
               >
@@ -223,7 +223,7 @@ const displayTokens = (token, subCategory, locale) => {
           tableBody += `<tr>
             <td>
               <div
-                style="width: var(--gcds-spacing-500); height: var(--gcds-spacing-500); border-radius: var(--gcds-spacing-500); background-color: ${
+                style="width: var(--gcds-spacing-600); height: var(--gcds-spacing-600); border-radius: var(--gcds-spacing-600); background-color: ${
                   tokens[i].value
                 }; border: 1px solid #EDEDED"
               >
@@ -239,7 +239,7 @@ const displayTokens = (token, subCategory, locale) => {
           tableBody += `<tr>
               <td>
                 <div
-                  style="width: var(--gcds-spacing-500); height: var(--gcds-spacing-500); border-radius: var(--gcds-spacing-500); background-color: ${tokens[i].value}; border: 1px solid #EDEDED"
+                  style="width: var(--gcds-spacing-600); height: var(--gcds-spacing-600); border-radius: var(--gcds-spacing-600); background-color: ${tokens[i].value}; border: 1px solid #EDEDED"
                 >
                 </div>
               </td>
@@ -268,7 +268,7 @@ const displayTokens = (token, subCategory, locale) => {
         tableBody += `<tr>
             <td>
               <div
-                style="width: var(--gcds-spacing-500); height: var(--gcds-spacing-500); border-radius: var(--gcds-spacing-500); background-color: ${
+                style="width: var(--gcds-spacing-600); height: var(--gcds-spacing-600); border-radius: var(--gcds-spacing-600); background-color: ${
                   tokens[i].value
                 }; border: 1px solid #EDEDED"
               >

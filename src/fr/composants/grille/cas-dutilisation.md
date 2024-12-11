@@ -32,8 +32,8 @@ Utilisez des grilles pour :
 - Assurer une adaptation à différentes tailles d'écran en définissant une mise en page personnalisée et optimisée pour différentes fenêtres d'affichage, comme pour les mobiles, les tablettes et les ordinateurs de bureau.
 - Limiter la largeur du contenu affiché pour veiller à ce que le texte soit renvoyé à la ligne et plus lisible.
 
-<article class="bg-full-width bg-primary text-light pt-500 pb-400 my-500">
-  <h2 class="mt-0 mb-400">Composants connexes</h2>
+<article class="bg-full-width bg-primary text-light pt-600 pb-300 my-600">
+  <h2 class="mt-0 mb-300">Composants connexes</h2>
 
 <a href="{{ links.container }}" class="link-light">Boîte</a> : pour appliquer une disposition de base à une seule colonne sur toutes les fenêtres d'affichage.
 

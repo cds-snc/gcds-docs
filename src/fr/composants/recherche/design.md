@@ -15,7 +15,7 @@ date: 'git Last Modified'
   <li>L'<strong>icône</strong> est une aide visuelle sur le bouton.</li>
 </ol>
 
-<img class="b-sm b-default p-400" src="/images/fr/components/anatomy/gcds-search-anatomy.svg" alt="Image montrant la structure du composant recherche avec des chiffres pointant vers les parties individuelles du composant." />
+<img class="b-sm b-default p-300" src="/images/fr/components/anatomy/gcds-search-anatomy.svg" alt="Image montrant la structure du composant recherche avec des chiffres pointant vers les parties individuelles du composant." />
 
 ## Accessibilité et design des recherche
 

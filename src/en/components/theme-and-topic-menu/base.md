@@ -14,7 +14,7 @@ The theme and topic menu is a navigation to the top tasks of Government of Canad
 {% docLinks locale stage figma github %}
 {% enddocLinks %}
 
-{% componentPreview "Theme and topic menu component preview" "px-0 py-400" %}
+{% componentPreview "Theme and topic menu component preview" "px-0 py-300" %}
 
 <div aria-hidden="true">
   <gcds-topic-menu>

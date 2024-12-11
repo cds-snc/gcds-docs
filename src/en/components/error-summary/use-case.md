@@ -27,8 +27,8 @@ Use an error summary to interrupt a person who's submitting a form when there is
 - Make errors obvious so a person knows about them and how to address them.
 - List <gcds-link href="{{ links.errorMessage }}">error messages</gcds-link> when a person needs to add information or make a correction to two or more components before they can submit a form.
 
-<article class="bg-full-width bg-primary text-light pt-500 pb-400 my-500">
-  <h2 class="mt-0 mb-400">Related components</h2>
+<article class="bg-full-width bg-primary text-light pt-600 pb-300 my-600">
+  <h2 class="mt-0 mb-300">Related components</h2>
 
 <a href="{{ links.errorMessage }}" class="link-light">Error message</a> for describing a problem blocking a user action, related to a single component.
 
