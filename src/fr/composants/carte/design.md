@@ -16,7 +16,7 @@ date: 'git Last Modified'
   <li>La <strong>description</strong> (facultative) contient du texte destiné à accompagner le titre. Elle résume en quelques lignes le sujet de la carte ou affiche une liste de renseignements sur un même sujet, comme les informations sur un évènement.</li>
 </ol>
 
-<img class="b-sm b-default p-400" src="/images/fr/components/anatomy/gcds-card-anatomy.svg" alt="La structure d'une carte représentée par 5 éléments: la boîte, le badge, l'image, le titre et la description."/>
+<img class="b-sm b-default p-300" src="/images/fr/components/anatomy/gcds-card-anatomy.svg" alt="La structure d'une carte représentée par 5 éléments: la boîte, le badge, l'image, le titre et la description."/>
 
 ## Design et accessibilité des cartes
 

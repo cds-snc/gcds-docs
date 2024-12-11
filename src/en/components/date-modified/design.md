@@ -13,7 +13,7 @@ date: 'git Last Modified'
   <li>The <strong>value</strong> is either a numerical date formatted as YYYY-MM-DD or a version number.</li>
 </ol>
 
-<img class="b-sm b-default p-400" src="/images/en/components/anatomy/gcds-date-modified-anatomy.svg" alt="An image of the date modified component" />
+<img class="b-sm b-default p-300" src="/images/en/components/anatomy/gcds-date-modified-anatomy.svg" alt="An image of the date modified component" />
 
 ## Design and accessibility for date modified
 

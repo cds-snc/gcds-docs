@@ -13,7 +13,7 @@ date: 'git Last Modified'
   <li>Le <strong>mot-symbole Canada</strong> est l'identificateur mondial du gouvernement du Canada et l'un des trois symboles officiels de l'identité du gouvernement du Canada.</li>
 </ol>
 
-<img class="b-sm b-default p-400" src="/images/fr/components/anatomy/gcds-footer-anatomy-recommended.svg" alt="Taxonomie du pied de page de site Web illustrant deux sections. La première section est composée de liens de pied de page situés dans une bannière grise, par exemple « Médias sociaux », « Applications mobiles », « À propos de Canada.ca ». La deuxième section est composée du mot-symbole Canada.ca." />
+<img class="b-sm b-default p-300" src="/images/fr/components/anatomy/gcds-footer-anatomy-recommended.svg" alt="Taxonomie du pied de page de site Web illustrant deux sections. La première section est composée de liens de pied de page situés dans une bannière grise, par exemple « Médias sociaux », « Applications mobiles », « À propos de Canada.ca ». La deuxième section est composée du mot-symbole Canada.ca." />
 
 ## Éléments de pied de page facultatifs
 
@@ -24,7 +24,7 @@ date: 'git Last Modified'
   <li>Le <strong>mot-symbole Canada</strong> est l'identificateur mondial du gouvernement du Canada et l'un des trois symboles officiels de l'identité du gouvernement du Canada.</li>
 </ol>
 
-<img class="b-sm b-default p-400" src="/images/fr/components/anatomy/gcds-footer-anatomy-optional.svg" alt="L'anatomie du composant pied de page identifiant les trois bandes horizontales qui forment le composant. La première est la bande contextuelle, une bande bleu avec un titre et trois liens. La deuxième la bande principale qui inclu les liens du gouvernement du Canada. La troisième est la band des liens du pied de page, une bande grise pâle avec à l'intérieur cinq liens séparés par des points et le logo du gouvernement du Canada." />
+<img class="b-sm b-default p-300" src="/images/fr/components/anatomy/gcds-footer-anatomy-optional.svg" alt="L'anatomie du composant pied de page identifiant les trois bandes horizontales qui forment le composant. La première est la bande contextuelle, une bande bleu avec un titre et trois liens. La deuxième la bande principale qui inclu les liens du gouvernement du Canada. La troisième est la band des liens du pied de page, une bande grise pâle avec à l'intérieur cinq liens séparés par des points et le logo du gouvernement du Canada." />
 
 ## Design et accessibilité du pied de page
 

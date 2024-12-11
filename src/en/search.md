@@ -23,7 +23,7 @@ eleventyNavigation:
 >
 </gcds-search>
 
-<gcds-text size="caption">
+<gcds-text size="small">
   Don’t include personal information (telephone, email, SIN, financial, medical, or work details).
 </gcds-text>
 

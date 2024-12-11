@@ -29,8 +29,8 @@ Utilisez des titres pour :
 - Diviser le contenu long en sections gérables. Le découpage de votre contenu favorise la lisibilité, simplifie la navigation sur le site et réduit le risque que les gens abandonnent leur tâche.
 - Appliquer des styles et des tailles de typographie cohérents sur l'ensemble d'un site Web pour créer un design cohérent et convivial.
 
-<article class="bg-full-width bg-primary text-light pt-500 pb-400 my-500">
-  <h2 class="mt-0 mb-400">Composants connexes</h2>
+<article class="bg-full-width bg-primary text-light pt-600 pb-300 my-600">
+  <h2 class="mt-0 mb-300">Composants connexes</h2>
 
 <a href="{{ links.text }}" class="link-light">Texte</a> pour des paragraphes affichant du contenu autre qu'un titre avec les styles correspondants de Système de design GC.
 

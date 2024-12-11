@@ -18,7 +18,7 @@ vers le bas lorsqu'il est développé.</li>
   <li>Le <strong>lien de navigation avec indicateur de page active</strong> met en évidence la page actuelle.</li>
 </ol>
 
-<img class="b-sm b-default p-400" src="/images/fr/components/anatomy/gcds-top-nav-anatomy.svg" alt="Un aperçu de la barre de navigation supérieure qui affiche la navigation du site représentée par des cases grises alignées horizontalement. Une case bleue suivie de deux cases grises représentent des liens où la dernière case est mise en surbrillance pour représenter le lien actif." />
+<img class="b-sm b-default p-300" src="/images/fr/components/anatomy/gcds-top-nav-anatomy.svg" alt="Un aperçu de la barre de navigation supérieure qui affiche la navigation du site représentée par des cases grises alignées horizontalement. Une case bleue suivie de deux cases grises représentent des liens où la dernière case est mise en surbrillance pour représenter le lien actif." />
 
 ## Design et accessibilité de la barre de navigation supérieure
 

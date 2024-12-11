@@ -15,7 +15,7 @@ An input is a space to enter short-form information in response to a question or
 {% docLinks locale stage figma github %}
 {% enddocLinks %}
 
-{% componentPreview "Input component preview" "px-300 pt-400" %}
+{% componentPreview "Input component preview" "px-225 pt-300" %}
 <gcds-input input-id="input-example" label="Label" hint="Hint / Example message.">
 </gcds-input>
 {% endcomponentPreview %}

@@ -14,7 +14,7 @@ date: 'git Last Modified'
   <li>The <strong>field</strong> is the container a person interacts with to provide their response.</li>
 </ol>
 
-<img class="b-sm b-default p-400" src="/images/en/components/anatomy/gcds-input-anatomy.svg" alt="Input anatomy showing the Input label, Hint text/ example message and dark blue outline white box for text input."/>
+<img class="b-sm b-default p-300" src="/images/en/components/anatomy/gcds-input-anatomy.svg" alt="Input anatomy showing the Input label, Hint text/ example message and dark blue outline white box for text input."/>
 
 ## Design and accessibility for inputs
 

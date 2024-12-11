@@ -13,7 +13,7 @@ tags: ['errorsummaryFR', 'design']
   <li>L'<strong>élément du résumé des erreurs</strong> est lié au contexte d'erreur et comporte le même texte que le message d'erreur (un énoncé d'appel à l'action pour le corriger).</li>
 </ol>
 
-<img class="b-sm b-default p-400" src="/images/fr/components/anatomy/gcds-error-summary-anatomy.svg" alt="Un rectangle rouge encadre un titre proéminent lisant 'Il y a un problème' ainsi qu’une liste numérotée comprenant 3 liens avec des éléments du résumé des erreurs dans le texte de lien." />
+<img class="b-sm b-default p-300" src="/images/fr/components/anatomy/gcds-error-summary-anatomy.svg" alt="Un rectangle rouge encadre un titre proéminent lisant 'Il y a un problème' ainsi qu’une liste numérotée comprenant 3 liens avec des éléments du résumé des erreurs dans le texte de lien." />
 
 ## Conception et accessibilité des résumés des erreurs
 

@@ -26,8 +26,8 @@ Utilisez le composant recherche pour aider les personnes utilisant votre site We
 - Indexées sur Canada.ca, dans tout le contenu du gouvernement du Canada, ou encore au niveau de l’organisme ou du programme.
 - À partir d’un sous-ensemble de contenu publié, en utilisant votre propre ensemble de données.
 
-<article class="bg-full-width bg-primary text-light pt-500 pb-400 my-500">
-  <h2 class="mt-0 mb-400">Composants connexes</h2>
+<article class="bg-full-width bg-primary text-light pt-600 pb-300 my-600">
+  <h2 class="mt-0 mb-300">Composants connexes</h2>
 
 <a href="{{ links.header }}" class="link-light">En-tête</a> : utilisé pour le placement de l'en-tête portant l'image de marque du gouvernement du Canada.
 

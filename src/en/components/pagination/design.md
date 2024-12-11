@@ -18,7 +18,7 @@ date: 'git Last Modified'
   <li>The <strong>previous label</strong> indicates the label of the previous page to the user.</li>
 </ol>
 
-<img class="b-sm b-default p-400" src="/images/en/components/anatomy/gcds-pagination-simple-previous-anatomy.svg" alt="The pagination component with numbers pointing to individual parts of the simple pagination's previous link anatomy." />
+<img class="b-sm b-default p-300" src="/images/en/components/anatomy/gcds-pagination-simple-previous-anatomy.svg" alt="The pagination component with numbers pointing to individual parts of the simple pagination's previous link anatomy." />
 
 #### Next link
 
@@ -28,7 +28,7 @@ date: 'git Last Modified'
   <li>The <strong>next label</strong> indicates the label of the previous page to the user.</li>
 </ol>
 
-<img class="b-sm b-default p-400" src="/images/en/components/anatomy/gcds-pagination-simple-next-anatomy.svg" alt="The pagination component with numbers pointing to individual parts of the simple pagination's next link anatomy." />
+<img class="b-sm b-default p-300" src="/images/en/components/anatomy/gcds-pagination-simple-next-anatomy.svg" alt="The pagination component with numbers pointing to individual parts of the simple pagination's next link anatomy." />
 
 ### List styled pagination anatomy
 
@@ -42,7 +42,7 @@ date: 'git Last Modified'
   <li>The <strong>next link</strong> navigates to the next page in the flow when selected.</li>
 </ol>
 
-<img class="b-sm b-default p-400" src="/images/en/components/anatomy/gcds-pagination-list-large-anatomy.svg" alt="The pagination component with numbers pointing to individual parts of the large screen list pagination anatomy." />
+<img class="b-sm b-default p-300" src="/images/en/components/anatomy/gcds-pagination-list-large-anatomy.svg" alt="The pagination component with numbers pointing to individual parts of the large screen list pagination anatomy." />
 
 #### Small screens
 
@@ -54,7 +54,7 @@ date: 'git Last Modified'
   <li>The <strong>next link</strong> navigates to the next page in the flow when selected.</li>
 </ol>
 
-<img class="b-sm b-default p-400" src="/images/en/components/anatomy/gcds-pagination-list-small-anatomy.svg" alt="The pagination component with numbers pointing to individual parts of the small screen list pagination anatomy." />
+<img class="b-sm b-default p-300" src="/images/en/components/anatomy/gcds-pagination-list-small-anatomy.svg" alt="The pagination component with numbers pointing to individual parts of the small screen list pagination anatomy." />
 
 #### Previous link
 
@@ -63,7 +63,7 @@ date: 'git Last Modified'
   <li>The <strong>previous text</strong> is the text that accompanies the previous arrow and indicates that the user would be navigating to the previous page in the flow.</li>
 </ol>
 
-<img class="b-sm b-default p-400" src="/images/en/components/anatomy/gcds-pagination-list-previous-anatomy.svg" alt="The pagination component with numbers pointing to individual parts of the list pagination's previous link anatomy." />
+<img class="b-sm b-default p-300" src="/images/en/components/anatomy/gcds-pagination-list-previous-anatomy.svg" alt="The pagination component with numbers pointing to individual parts of the list pagination's previous link anatomy." />
 
 #### Next link
 
@@ -72,7 +72,7 @@ date: 'git Last Modified'
   <li>The <strong>next arrow</strong> is a visual aid indicating that you would be navigating forwards in the page flow.</li>
 </ol>
 
-<img class="b-sm b-default p-400" src="/images/en/components/anatomy/gcds-pagination-list-next-anatomy.svg" alt="The pagination component with numbers pointing to individual parts of the list pagination's next link anatomy." />
+<img class="b-sm b-default p-300" src="/images/en/components/anatomy/gcds-pagination-list-next-anatomy.svg" alt="The pagination component with numbers pointing to individual parts of the list pagination's next link anatomy." />
 
 ## Design and accessibility for pagination
 

@@ -28,8 +28,8 @@ Use pagination for very lengthy content on a single page that might be difficult
 - Split into sections any long documents, like reports, that have chapters or other natural divisions.
 - Highlight the reader’s position in a sequence of content.
 
-<article class="bg-full-width bg-primary text-light pt-500 pb-400 my-500">
-  <h2 class="mt-0 mb-400">Related components</h2>
+<article class="bg-full-width bg-primary text-light pt-600 pb-300 my-600">
+  <h2 class="mt-0 mb-300">Related components</h2>
 
 <a href="{{ links.stepper }}" class="link-light">Stepper</a> to track progress in a multi-step process.
 

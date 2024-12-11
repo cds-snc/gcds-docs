@@ -38,8 +38,8 @@ Les niveaux de titre suivent un ordre séquentiel et hiérarchique : les niveaux
 
 - Conservez l'espacement par défaut pour une expérience de lecture agréable et accessible. Ces valeurs par défaut créent des espaces visuels et des séparations entre les différentes sections.
 - Conservez les valeurs d'espacement suivantes pour maintenir un équilibre visuel entre les titres d'une page :
-  - Par défaut `margin-bottom`: `400` pour tous les niveaux
-  - Par défaut `margin-top`: `0` pour H1 et `500` pour H2 et 3
+  - Par défaut `margin-bottom`: `300` pour tous les niveaux
+  - Par défaut `margin-top`: `0` pour H1 et `600` pour H2 et 3
 
 {% include "partials/getcode.njk" %}
 

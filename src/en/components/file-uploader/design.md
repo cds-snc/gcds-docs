@@ -17,7 +17,7 @@ date: 'git Last Modified'
   <li>The <strong>remove</strong> button allows an uploaded file to be removed prior to submission.</li>
 </ol>
 
-<img class="b-sm b-default p-400" src="/images/en/components/anatomy/gcds-file-uploader-anatomy.svg" alt="An image of the file uploader component’s anatomy." />
+<img class="b-sm b-default p-300" src="/images/en/components/anatomy/gcds-file-uploader-anatomy.svg" alt="An image of the file uploader component’s anatomy." />
 
 ## Design and accessibility for file uploader
 

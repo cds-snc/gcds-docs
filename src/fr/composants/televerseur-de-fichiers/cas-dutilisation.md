@@ -24,8 +24,8 @@ Utilisez le téléverseur de fichiers pour :
 - Permettre à une personne de téléverser un fichier ou plus à partir d'un ordinateur ou d'un appareil.
 - Vérifier les fichiers sélectionnés à téléverser.
 
-<article class="bg-full-width bg-primary text-light pt-500 pb-400 my-500">
-  <h2 class="mt-0 mb-400">Composants connexes</h2>
+<article class="bg-full-width bg-primary text-light pt-600 pb-300 my-600">
+  <h2 class="mt-0 mb-300">Composants connexes</h2>
 
 <a href="{{ links.textarea }}" class="link-light">Zones de texte</a> : permettent la saisie de réponses libres de plusieurs lignes.
 

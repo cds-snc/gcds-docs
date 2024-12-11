@@ -17,7 +17,7 @@ date: "git Last Modified"
   <li>The <strong>radio hint text</strong> gives a person additional information about the choice.</li>
 </ol>
 
-<img class="b-sm b-default p-400" src="/images/en/components/anatomy/gcds-radio-group-anatomy.svg" alt="Radio group anatomy showing the labels Fieldset legend, Fieldset hint, Checkmark, Radio label, Radio button, and Radio hint."/>
+<img class="b-sm b-default p-300" src="/images/en/components/anatomy/gcds-radio-group-anatomy.svg" alt="Radio group anatomy showing the labels Fieldset legend, Fieldset hint, Checkmark, Radio label, Radio button, and Radio hint."/>
 
 ## Design and accessibility for radio group
 

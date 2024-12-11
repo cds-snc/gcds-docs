@@ -14,7 +14,7 @@ date: 'git Last Modified'
   <li>The <strong>icon</strong> is optional and can be a helpful visual aid when used sparingly and predictably. When there's an icon, align button text to the left.  Avoid using an icon without text.</li>
 </ol>
 
-<img class="b-sm b-default p-400" src="/images/en/components/anatomy/gcds-button-anatomy.svg" alt="Button anatomy showing the Button label branching to the container and arrow icon." />
+<img class="b-sm b-default p-300" src="/images/en/components/anatomy/gcds-button-anatomy.svg" alt="Button anatomy showing the Button label branching to the container and arrow icon." />
 
 ## Design and accessibility for buttons
 

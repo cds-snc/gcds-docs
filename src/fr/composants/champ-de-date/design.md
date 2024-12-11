@@ -18,12 +18,12 @@ date: "git Last Modified"
   <li>Le <strong>champ de saisie</strong> de l’année comporte 4 chiffres.</li>
 </ol>
 
-<img class="b-sm b-default p-400" src="/images/fr/components/anatomy/gcds-date-input-anatomy.svg" alt="L’anatomie du champ de date représentée par 6 éléments: la légende du jeu de champs, l’étiquette Jour, le champ de saisir du jour, l’étiquette Mois, le champ de sélection du mois, l’étiquette année et le champ de saisie de l’année." />
+<img class="b-sm b-default p-300" src="/images/fr/components/anatomy/gcds-date-input-anatomy.svg" alt="L’anatomie du champ de date représentée par 6 éléments: la légende du jeu de champs, l’étiquette Jour, le champ de saisir du jour, l’étiquette Mois, le champ de sélection du mois, l’étiquette année et le champ de saisie de l’année." />
 
 ## Accessibilité et design des champ de date
 
 ### Favorisez la réussite de la tâche à l’aide d’un texte explicatif
-- Utilisez un texte explicatif dans la légende du jeu de champs pour aider une personne à comprendre le format de date qu’elle peut utiliser. Par exemple, le texte explicatif « 7 septembre » plutôt que « 07 septembre » indique qu’un chiffre unique, non précédé d’un zéro, suffit. 
+- Utilisez un texte explicatif dans la légende du jeu de champs pour aider une personne à comprendre le format de date qu’elle peut utiliser. Par exemple, le texte explicatif « 7 septembre » plutôt que « 07 septembre » indique qu’un chiffre unique, non précédé d’un zéro, suffit.
 
 ### Rédigez des messages d’erreur précis
-- Rédigez des messages d’erreur pour chaque champ de la date. Ces messages doivent renseigner sur les informations manquantes ou les erreurs de format. Par exemple, si une personne a saisi une année de 2 chiffres, indiquez que l’année doit comporter 4 chiffres. 
+- Rédigez des messages d’erreur pour chaque champ de la date. Ces messages doivent renseigner sur les informations manquantes ou les erreurs de format. Par exemple, si une personne a saisi une année de 2 chiffres, indiquez que l’année doit comporter 4 chiffres.

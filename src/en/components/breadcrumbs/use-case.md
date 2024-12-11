@@ -30,8 +30,8 @@ Use breadcrumbs to signal a visitor's current location and give them a sense of 
 - Situate the current page in relation to its parent in the site structure.
 - Organize websites in a hierarchy of more than two levels.
 
-<article class="bg-full-width bg-primary text-light pt-500 pb-400 my-500">
-  <h2 class="mt-0 mb-400">Related components</h2>
+<article class="bg-full-width bg-primary text-light pt-600 pb-300 my-600">
+  <h2 class="mt-0 mb-300">Related components</h2>
 
 <a href="{{ links.footer }}" class="link-light">Footer</a> for placing the Government of Canada branded footer landmark.
 

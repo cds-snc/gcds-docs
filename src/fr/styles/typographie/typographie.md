@@ -25,10 +25,8 @@ tokenTable:
     font-h4: En-tête 4
     font-h5: En-tête 5
     font-h6: En-tête 6
-    font-label: Label
     font-text: Texte
-    font-textLong: Paragraph
-    font-caption: Caption
+    font-textSmall: Petit texte
     fontFamilies-heading: En-tête
     fontFamilies-body: Texte
     fontFamilies-monospace: Espacement fixe
@@ -76,10 +74,10 @@ Remarque : La propriété de la police représente à la fois l'épaisseur, la t
 
 ### Texte
 
-- Pour la taille de police, conservez la longueur d'une ligne à moins de 75 caractères pour assurer une lecture aisée et accessible.
-- Insérez la valeur css `75ch` ou moins pour régler la largeur maximale de vos paragraphes.
+- Pour la taille de police, conservez la longueur d'une ligne à moins de 65 caractères pour assurer une lecture aisée et accessible.
+- Insérez la valeur css `65ch (--gcds-text-character-limit)` ou moins pour régler la largeur maximale de vos paragraphes.
 
-{% include "partials/token_table.njk", token: 'font', subTokens: "label text textLong caption", type: 'typography' %}
+{% include "partials/token_table.njk", token: 'font', subTokens: "text textSmall", type: 'typography' %}
 
 ### Familles de police
 

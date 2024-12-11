@@ -26,8 +26,8 @@ Utilisez un indicateur d'étape pour une séquence logique répartie sur plus d'
 - Montrer à une personne à quelle étape elle se trouve dans un processus, par exemple un formulaire à plusieurs étapes.
 - Préciser la structure d'un chemin en indiquant le nombre total d'étapes.
 
-<article class="bg-full-width bg-primary text-light pt-500 pb-400 my-500">
-  <h2 class="mt-0 mb-400">Composants connexes</h2>
+<article class="bg-full-width bg-primary text-light pt-600 pb-300 my-600">
+  <h2 class="mt-0 mb-300">Composants connexes</h2>
 
 <a href="{{ links.pagination }}" class="link-light">Le composant Pagination</a> est utilisé lorsqu'une personne doit parcourir une liste de pages qui ne font pas partie d'un processus à plusieurs étapes. Il permet de sélectionner la page suivante ou précédente.
 

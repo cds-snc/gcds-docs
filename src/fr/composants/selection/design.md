@@ -15,7 +15,7 @@ date: 'git Last Modified'
   <li>L'<strong>icône</strong> est utilisée comme aide visuelle pour indiquer que le champ peut être agrandi.</li>
 </ol>
 
-<img class="b-sm b-default p-400" src="/images/fr/components/anatomy/gcds-select-anatomy.svg" alt="Le composant sélection avec des chiffres pointant les parties individuelles de la structure de la sélection." />
+<img class="b-sm b-default p-300" src="/images/fr/components/anatomy/gcds-select-anatomy.svg" alt="Le composant sélection avec des chiffres pointant les parties individuelles de la structure de la sélection." />
 
 ## Design et accessibilité de la sélection
 

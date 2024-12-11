@@ -13,7 +13,7 @@ date: 'git Last Modified'
   <li>The <strong>column</strong>, also called grid item, sets a boundary around its contents to contain it within the width set for that column.</li>
 </ol>
 
-<img class="b-sm b-default p-400" src="/images/en/components/anatomy/gcds-grid-anatomy.svg" alt="Image showing the grid anatomy with four separate rectangles representing the columns of a grid" />
+<img class="b-sm b-default p-300" src="/images/en/components/anatomy/gcds-grid-anatomy.svg" alt="Image showing the grid anatomy with four separate rectangles representing the columns of a grid" />
 
 ## Design and accessibility for grids
 

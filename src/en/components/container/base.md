@@ -15,13 +15,13 @@ A container is a basic box layout with a set width for its contents.
 {% enddocLinks %}
 
 {% componentPreview "Container component preview" %}
-<gcds-container border margin="250" padding="250" size="lg">
+<gcds-container border margin="175" padding="175" size="lg">
 Large container
 </gcds-container>
-<gcds-container border margin="250" padding="250" size="md">
+<gcds-container border margin="175" padding="175" size="md">
 Medium container
 </gcds-container>
-<gcds-container border margin="250" padding="250" size="sm">
+<gcds-container border margin="175" padding="175" size="sm">
 Small container
 </gcds-container>
 {% endcomponentPreview %}

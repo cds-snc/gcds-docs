@@ -7,8 +7,8 @@
 {% endif %}
 
 {% if (cardlist.type === 'components' or cardlist.type === 'foundations') and cardlist.state === 'published' %}
-  <div class="my-500">
-    <gcds-grid tag="ul" columns="1fr" columns-tablet="1fr 1fr" columns-desktop="1fr 1fr 1fr" gap="400">
+  <div class="my-600">
+    <gcds-grid tag="ul" columns="1fr" columns-tablet="1fr 1fr" columns-desktop="1fr 1fr 1fr">
     {%- for entry in navPages %}
       {% if entry.state == cardlist.state %}
         <gcds-card
@@ -22,7 +22,7 @@
         >
           <gcds-text >{{ entry.description }}</gcds-text>
           {% if entry.otherNames %}
-            <gcds-text text-role="secondary" size="caption" margin-bottom="0">
+            <gcds-text text-role="secondary" size="small" margin-bottom="0">
               <em>{{ documentation[locale].othernames }}{{ entry.otherNames }}</em>
             </gcds-text>
           {% endif %}
