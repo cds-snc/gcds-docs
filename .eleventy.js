@@ -302,7 +302,7 @@ module.exports = function (eleventyConfig) {
   });
 
   /*
-   * Convert token name from camelCase to kebab-case
+   * Convert string from camelCase to kebab-case
    */
   eleventyConfig.addFilter("camelToKebab", function(str) {
     return str.replace(/[a-z][A-Z]/g, function(match) {
