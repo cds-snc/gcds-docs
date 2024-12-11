@@ -37,11 +37,10 @@ Conseil : Demandez-vous si le message risque d'être interprété autrement.
 
 Conseil : Pour adopter un ton plus humain, faites comme si vous parliez à quelqu'un à voix haute. Que pensez-vous du contenu lorsque vous le prononcez de vive voix?
 
-### Choisissez un texte ordinaire ou une légende
+### Choisissez la taille de texte
 
 - Définissez la taille du texte en fonction du rôle du contenu et du contexte du produit.
 - Utilisez du texte ordinaire pour la plupart du contenu qui n'est pas un titre. Le texte normal utilise la taille de police par défaut.
-- Choisissez une légende pour présenter brièvement le contexte d'une section ou d'un élément de contenu. Le texte de la légende s'affiche avec une taille de police plus petite.
 
 ### Utilisez des styles de texte avec prudence
 

@@ -36,11 +36,10 @@ Tip: Think about whether the message could be interpreted another way.
 
 Tip: To adopt a more human tone, think about explaining aloud to someone. How does it sound when you speak the content in conversation?
 
-### Choose regular text or a caption
+### Choose regular or small text
 
 - Set the text size based on the role of the content and product context.
 - Use regular text for most non-heading content. Regular text uses the default font size.
-- Choose a caption to present brief context about a section or piece of content. Caption text displays a smaller font size.
 
 ### Use text styling sparingly
 

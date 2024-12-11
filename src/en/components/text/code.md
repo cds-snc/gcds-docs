@@ -21,7 +21,6 @@ Text displays non-heading content with matching GC Design System styles to provi
 
 - Set the text `size` attribute to `body` or `small`.
 - Use the default `body` `size` value to render a `p` element with the recommended font size and colour contrast.
-- Choose a caption to present brief context about a section or piece of content.
 - Opt to display smaller text by setting the `size` attribute to `small` to render a `small` element inside a `p` element.
 
 ### Use text styling sparingly
