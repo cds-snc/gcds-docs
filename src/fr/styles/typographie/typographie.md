@@ -26,7 +26,7 @@ tokenTable:
     font-h5: En-tête 5
     font-h6: En-tête 6
     font-text: Texte
-    font-textSmall: Texte petit
+    font-textSmall: Petit texte
     fontFamilies-heading: En-tête
     fontFamilies-body: Texte
     fontFamilies-monospace: Espacement fixe
