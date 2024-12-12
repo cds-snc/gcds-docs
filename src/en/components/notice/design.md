@@ -15,7 +15,7 @@ date: "git Last Modified"
   <li><strong>Message</strong> provides the notice details. </li>
 </ol>
 
-<img class="b-sm b-default p-400" src="/images/EN/components/anatomy/gcds-notice-anatomy.svg" alt="A notice anatomy containing the guide line and the icon on the left of the title in bold and the message." />
+<img class="b-sm b-default p-300" src="/images/EN/components/anatomy/gcds-notice-anatomy.svg" alt="A notice anatomy containing the guide line and the icon on the left of the title in bold and the message." />
 
 ## Design and accessibility
 

@@ -16,7 +16,7 @@ date: "git Last Modified"
   <li>Le <strong>message</strong> fournit les détails de l’avis.</li>
 </ol>
 
-<img class="b-sm b-default p-400" src="/images/FR/components/anatomy/gcds-notice-anatomy.svg" alt="Une structure de l’avis contenant : la ligne guide et l’icône à gauche du titre en gras et du message." />
+<img class="b-sm b-default p-300" src="/images/FR/components/anatomy/gcds-notice-anatomy.svg" alt="Une structure de l’avis contenant : la ligne guide et l’icône à gauche du titre en gras et du message." />
 
 ## Design et accessibilité
 
