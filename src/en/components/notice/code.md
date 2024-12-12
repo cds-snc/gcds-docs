@@ -19,7 +19,7 @@ Use the `type` attribute to categorize the notice as ‘Info’, ‘Warning’, 
 ### Specify the notice title and heading level
 
 - Use the `notice-title` attribute to create a clear and informative heading for the notice. Ensure the title conveys the message’s purpose.
-- Set the  `notice-title-tag` to define the correct heading level for the card title. Follow a correct and orderly heading hierarchy to make it equal for people who use assistive technologies.
+- Set the  `notice-title-tag` to define the [correct heading level](/en/components/heading/design/#order-heading-levels-hierarchically) for the card title. Follow a correct and orderly heading hierarchy to make it equal for people who use assistive technologies.
 
 {% include "partials/getcode.njk" %}
 

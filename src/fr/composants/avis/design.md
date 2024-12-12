@@ -9,7 +9,6 @@ date: "git Last Modified"
 ## Structure de la Avis
 
 <ol class="anatomy-list">
-  <li><strong>list</strong></li>
   <li>La <strong>ligne guide</strong> indique visuellement le début et la fin de l’avis.</li>
   <li>L'<strong>icône</strong> indique le type d’avis.</li>
   <li>Le <strong>titre</strong> précise le sujet de l’avis.</li>

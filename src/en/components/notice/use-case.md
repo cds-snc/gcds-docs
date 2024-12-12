@@ -26,7 +26,7 @@ Use notice to:
 - Provide context or additional information on the page content for better understanding. 
 
 <article class="bg-full-width bg-primary text-light pt-600 pb-300 my-600">
-  <h2 class="mt-0 mb-400">Related components</h2>
+  <h2 class="mt-0 mb-300">Related components</h2>
 
 <a href="{{links.errorMessage}}" class="link-light">Error message</a> or <a href="{{links.errorSummary}}" class="link-light">error summary</a> for errors in a form field, on a page, or in a flow.
 
