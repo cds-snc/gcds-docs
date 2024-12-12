@@ -2607,7 +2607,7 @@ class GcdsBreadcrumbs {
     }; }
 }
 
-const gcdsBreadcrumbsItemCss = "@layer reset, default, hover, focus, mobile;@layer reset{.sc-gcds-breadcrumbs-item-h.gcds-breadcrumbs-item{display:inline-block}.sc-gcds-breadcrumbs-item-h.gcds-breadcrumbs-item gcds-link::part(link){display:inline-block;white-space:normal}.sc-gcds-breadcrumbs-item-h.gcds-breadcrumbs-item slot{display:block}}@layer default{.sc-gcds-breadcrumbs-item-h.gcds-breadcrumbs-item{margin:var(--gcds-breadcrumbs-item-margin)!important;position:relative}.sc-gcds-breadcrumbs-item-h.gcds-breadcrumbs-item:before{content:url('data:image/svg+xml;charset=utf-8,<svg xmlns=\"http://www.w3.org/2000/svg\" height=\"12\" viewBox=\"0 0 8 14\"><path fill=\"26374a\" d=\"M7.7 6.3c.4.4.4 1 0 1.4l-6 6c-.4.4-1 .4-1.4 0s-.4-1 0-1.4L5.6 7 .3 1.7C-.1 1.3-.1.7.3.3s1-.4 1.4 0z\"/></svg>');margin:var(--gcds-breadcrumbs-item-arrow-margin);position:relative}}@layer mobile{@media screen and (max-width:30rem){.sc-gcds-breadcrumbs-item-h.gcds-breadcrumbs-item{display:block;margin:var(--gcds-breadcrumbs-mobile-item-margin)!important}}}";
+const gcdsBreadcrumbsItemCss = "@layer reset, default, hover, focus, mobile;@layer reset{.sc-gcds-breadcrumbs-item-h.gcds-breadcrumbs-item{display:inline-block}.sc-gcds-breadcrumbs-item-h.gcds-breadcrumbs-item gcds-link::part(link){display:inline-block;white-space:normal}.sc-gcds-breadcrumbs-item-h.gcds-breadcrumbs-item slot{display:block}}@layer default{@media screen and (width >= 30rem){.sc-gcds-breadcrumbs-item-h.gcds-breadcrumbs-item{margin:var(--gcds-breadcrumbs-item-margin)!important}}.sc-gcds-breadcrumbs-item-h.gcds-breadcrumbs-item:before{content:url('data:image/svg+xml;charset=utf-8,<svg xmlns=\"http://www.w3.org/2000/svg\" height=\"12\" viewBox=\"0 0 8 14\"><path fill=\"26374a\" d=\"M7.7 6.3c.4.4.4 1 0 1.4l-6 6c-.4.4-1 .4-1.4 0s-.4-1 0-1.4L5.6 7 .3 1.7C-.1 1.3-.1.7.3.3s1-.4 1.4 0z\"/></svg>');display:inline-block;margin:var(--gcds-breadcrumbs-item-arrow-margin);width:.375rem}}@layer mobile{@media screen and (width < 30rem){.sc-gcds-breadcrumbs-item-h.gcds-breadcrumbs-item{display:block;margin:var(--gcds-breadcrumbs-mobile-item-margin)!important}}}";
 var GcdsBreadcrumbsItemStyle0 = gcdsBreadcrumbsItemCss;
 
 class GcdsBreadcrumbsItem {
@@ -6248,6 +6248,112 @@ class GcdsNavLink {
     }; }
 }
 
+const gcdsNoticeCss = "@layer reset, default, type;@layer reset{.sc-gcds-notice-h{display:block}.sc-gcds-notice-h .gcds-notice{box-sizing:border-box;text-align:left}.sc-gcds-notice-h .gcds-notice slot{display:initial}}@layer default{.sc-gcds-notice-h .gcds-notice{color:var(--gcds-notice-text);display:grid;gap:var(--gcds-notice-icon-gap);grid-template-columns:var(--gcds-notice-icon-width) auto}.sc-gcds-notice-h .gcds-notice .notice__heading{--gcds-heading-h2-desktop:var(\n        --gcds-notice-content-heading-font-desktop\n      );--gcds-heading-h2-mobile:var(--gcds-notice-content-heading-font-mobile);--gcds-heading-h4-desktop:var(\n        --gcds-notice-content-heading-font-desktop\n      );--gcds-heading-h4-mobile:var(--gcds-notice-content-heading-font-mobile);--gcds-heading-h5-desktop:var(\n        --gcds-notice-content-heading-font-desktop\n      );--gcds-heading-h5-mobile:var(--gcds-notice-content-heading-font-mobile);margin-block-start:var(--gcds-notice-content-heading-margin-block-start-desktop)}@media only screen and (width < 48em){.sc-gcds-notice-h .gcds-notice .notice__heading{margin-block-start:var(--gcds-notice-content-heading-margin-block-start-mobile)}}.sc-gcds-notice-h .gcds-notice .notice__icon{margin:var(--gcds-notice-icon-margin)}.sc-gcds-notice-h .gcds-notice .notice__icon:before{background-color:currentColor;content:\"\";display:block;height:var(--gcds-notice-icon-before-height);margin:0 auto;width:var(--gcds-notice-border-width)}.sc-gcds-notice-h .gcds-notice .notice__icon:after{background-color:currentColor;content:\"\";display:block;height:var(--gcds-notice-icon-after-height);margin:0 auto;width:var(--gcds-notice-border-width)}.sc-gcds-notice-h .gcds-notice.sc-gcds-notice-s > *, .sc-gcds-notice-h .gcds-notice .sc-gcds-notice-s > *{font:var(--gcds-notice-content-slotted-font-desktop);margin-block-start:0}@media only screen and (width < 48em){.sc-gcds-notice-h .gcds-notice.sc-gcds-notice-s > *, .sc-gcds-notice-h .gcds-notice .sc-gcds-notice-s > *{font:var(--gcds-notice-content-slotted-font-mobile)}}.sc-gcds-notice-h .gcds-notice.sc-gcds-notice-s > :last-child, .sc-gcds-notice-h .gcds-notice .sc-gcds-notice-s > :last-child{margin-block-end:0}.sc-gcds-notice-h .gcds-notice.sc-gcds-notice-s > :not(:last-child), .sc-gcds-notice-h .gcds-notice .sc-gcds-notice-s > :not(:last-child){margin-block-end:var(--gcds-notice-content-slotted-margin)}.sc-gcds-notice-h .gcds-notice.sc-gcds-notice-s > ol, .sc-gcds-notice-h .gcds-notice .sc-gcds-notice-s > ol,.sc-gcds-notice-h .gcds-notice.sc-gcds-notice-s > ul, .sc-gcds-notice-h .gcds-notice .sc-gcds-notice-s > ul{margin-inline-start:var(--gcds-notice-content-slotted-list-margin);padding:0}}@layer type{.sc-gcds-notice-h .gcds-notice.notice--type-danger .notice__icon{color:var(--gcds-notice-danger-text)}.sc-gcds-notice-h .gcds-notice.notice--type-info .notice__icon{color:var(--gcds-notice-info-text)}.sc-gcds-notice-h .gcds-notice.notice--type-success .notice__icon{color:var(--gcds-notice-success-text)}.sc-gcds-notice-h .gcds-notice.notice--type-warning .notice__icon{color:var(--gcds-notice-warning-text)}}";
+var GcdsNoticeStyle0 = gcdsNoticeCss;
+
+class GcdsNotice {
+    constructor(hostRef) {
+        registerInstance(this, hostRef);
+        this.type = undefined;
+        this.noticeTitle = undefined;
+        this.noticeTitleTag = undefined;
+        this.errors = [];
+        this.lang = undefined;
+    }
+    validateType() {
+        if (!this.type) {
+            this.errors.push('type');
+        }
+        else if (this.errors.includes('type')) {
+            this.errors.splice(this.errors.indexOf('type'), 1);
+        }
+    }
+    validateNoticeTitle() {
+        if (!this.noticeTitle || this.noticeTitle === '') {
+            this.errors.push('noticeTitle');
+        }
+        else if (this.errors.includes('noticeTitle')) {
+            this.errors.splice(this.errors.indexOf('noticeTitle'), 1);
+        }
+    }
+    validateNoticeTitleTag() {
+        if (!this.noticeTitleTag ||
+            !['h2', 'h3', 'h4', 'h5'].includes(this.noticeTitleTag)) {
+            this.errors.push('noticeTitleTag');
+        }
+        else if (this.errors.includes('noticeTitleTag')) {
+            this.errors.splice(this.errors.indexOf('noticeTitleTag'), 1);
+        }
+    }
+    /*
+     * Observe lang attribute change
+     */
+    updateLang() {
+        const observer = new MutationObserver(mutations => {
+            if (mutations[0].oldValue != this.el.lang) {
+                this.lang = this.el.lang;
+            }
+        });
+        observer.observe(this.el, observerConfig);
+    }
+    validateChildren() {
+        if (this.el.innerHTML.trim() == '') {
+            this.errors.push('children');
+        }
+        else if (this.errors.includes('children')) {
+            this.errors.splice(this.errors.indexOf('children'), 1);
+        }
+    }
+    validateRequiredProps() {
+        this.validateNoticeTitle();
+        this.validateType();
+        this.validateNoticeTitleTag();
+        this.validateChildren();
+        if (this.errors.includes('type') ||
+            this.errors.includes('noticeTitle') ||
+            this.errors.includes('noticeTitleTag') ||
+            this.errors.includes('children')) {
+            return false;
+        }
+        return true;
+    }
+    async componentWillLoad() {
+        // Define lang attribute
+        this.lang = assignLanguage(this.el);
+        this.updateLang();
+        let valid = this.validateRequiredProps();
+        if (!valid) {
+            logError('gcds-notice', this.errors);
+        }
+    }
+    render() {
+        const { type, noticeTitle, noticeTitleTag } = this;
+        const iconTypes = {
+            danger: 'exclamation-circle',
+            info: 'info-circle',
+            success: 'check-circle',
+            warning: 'exclamation-triangle',
+        };
+        return (hAsync(Host, { key: 'b2e164006dfa7bdbefbfea565e99b56107d4b860' }, this.validateRequiredProps() && (hAsync("section", { key: '53c1c6def3c260efea32c5d024eac59750be8dab', class: `gcds-notice notice--type-${type}` }, hAsync("gcds-icon", { key: 'f4b88229b0723e63edef882d44faf155eccd7ea2', class: "notice__icon", size: "h4", name: iconTypes[type] }), hAsync("div", { key: '551792b1a73d873aa1139151af829f3dd83d97f5' }, hAsync("gcds-heading", { key: 'fd790db93fac16a22103243af53c0385ac9b955b', tag: noticeTitleTag, "margin-top": "0", "margin-bottom": "100", class: "notice__heading" }, noticeTitle), hAsync("slot", { key: '5755a641b120de8f93b3fab7e8438d4c2764f528' }))))));
+    }
+    get el() { return getElement(this); }
+    static get style() { return GcdsNoticeStyle0; }
+    static get cmpMeta() { return {
+        "$flags$": 9,
+        "$tagName$": "gcds-notice",
+        "$members$": {
+            "type": [1],
+            "noticeTitle": [1, "notice-title"],
+            "noticeTitleTag": [1, "notice-title-tag"],
+            "errors": [32],
+            "lang": [32]
+        },
+        "$listeners$": undefined,
+        "$lazyBundleId$": "-",
+        "$attrsToReflect$": []
+    }; }
+}
+
 const I18N$9 = {
   en: {
     next: 'Next',
@@ -6568,7 +6674,7 @@ class GcdsPagination {
     }
     render() {
         const { display, label, previousHref, previousLabel, nextHref, nextLabel, lang, } = this;
-        return (hAsync(Host, { key: 'f4b1f77574fa79f1d322ce50c0d1073e8514dd67', role: "navigation", "aria-label": label }, hAsync("div", { key: '4ff733b9b51635c4cd4da5a09bc0cd3368ae589b', class: "gcds-pagination" }, display === 'list' ? (hAsync("div", null, hAsync("ul", { class: "gcds-pagination-list" }, this.listitems), hAsync("ul", { class: "gcds-pagination-list-mobile-prevnext" }, this.mobilePrevNext))) : (hAsync("ul", { class: "gcds-pagination-simple" }, previousHref && (hAsync("li", { class: "gcds-pagination-simple-previous" }, hAsync("a", { href: previousHref, "aria-label": `${I18N$9[lang].previousPage}${previousLabel ? `: ${previousLabel}` : ''}`, onBlur: () => this.gcdsBlur.emit(), onFocus: () => this.gcdsFocus.emit(), onClick: e => emitEvent(e, this.gcdsClick, previousHref) }, hAsync("gcds-icon", { "margin-right": "150", name: "arrow-left" }), hAsync("div", { class: "gcds-pagination-simple-text" }, I18N$9[lang].previous), hAsync("span", null, previousLabel)))), nextHref && (hAsync("li", { class: "gcds-pagination-simple-next" }, hAsync("a", { href: nextHref, "aria-label": `${I18N$9[lang].nextPage}${nextLabel ? `: ${nextLabel}` : ''}`, onBlur: () => this.gcdsBlur.emit(), onFocus: () => this.gcdsFocus.emit(), onClick: e => emitEvent(e, this.gcdsClick, nextHref) }, hAsync("div", { class: "gcds-pagination-simple-text" }, I18N$9[lang].next), hAsync("span", null, nextLabel), hAsync("gcds-icon", { "margin-left": "150", name: "arrow-right" })))))))));
+        return (hAsync(Host, { key: '656ddb9d8d820d56dc2246ca3da4e1c09a0a346b', role: "navigation", "aria-label": label }, hAsync("div", { key: 'a8fc0c37588e8cf0700999b3875b4cfad7195129', class: "gcds-pagination" }, display === 'list' ? (hAsync("div", null, hAsync("ul", { class: "gcds-pagination-list" }, this.listitems), hAsync("ul", { class: "gcds-pagination-list-mobile-prevnext" }, this.mobilePrevNext))) : (hAsync("ul", { class: "gcds-pagination-simple" }, previousHref && (hAsync("li", { class: "gcds-pagination-simple-previous" }, hAsync("a", { href: previousHref, "aria-label": `${I18N$9[lang].previousPage}${previousLabel ? `: ${previousLabel}` : ''}`, onBlur: () => this.gcdsBlur.emit(), onFocus: () => this.gcdsFocus.emit(), onClick: e => emitEvent(e, this.gcdsClick, previousHref) }, hAsync("gcds-icon", { "margin-right": "150", name: "arrow-left" }), hAsync("div", { class: "gcds-pagination-simple-text" }, I18N$9[lang].previous), hAsync("span", null, previousLabel)))), nextHref && (hAsync("li", { class: "gcds-pagination-simple-next" }, hAsync("a", { href: nextHref, "aria-label": `${I18N$9[lang].nextPage}${nextLabel ? `: ${nextLabel}` : ''}`, onBlur: () => this.gcdsBlur.emit(), onFocus: () => this.gcdsFocus.emit(), onClick: e => emitEvent(e, this.gcdsClick, nextHref) }, hAsync("div", { class: "gcds-pagination-simple-text" }, I18N$9[lang].next), hAsync("span", null, nextLabel), hAsync("gcds-icon", { "margin-left": "150", name: "arrow-right" })))))))));
     }
     get el() { return getElement(this); }
     static get watchers() { return {
@@ -6640,7 +6746,7 @@ class GcdsPhaseBanner {
     }
     render() {
         const { bannerRole, container, isFixed, lang } = this;
-        return (hAsync(Host, { key: '115fc253ff9bf972f3a5c1ac88792278947f97b4' }, hAsync("div", { key: '5fd1243f57780af9046a29989167dc56af32bb2a', class: `gcds-phase-banner banner--role-${bannerRole} ${isFixed ? 'banner--is-fixed' : ''}`, role: "status", "aria-label": I18N$8[lang].label }, hAsync("gcds-container", { key: 'ee27279607ed91875a9f18232b726f21d57e5688', size: container, centered: true }, hAsync("div", { key: '271c53ac57814749faed00240ed1b5f538b08a33', class: "banner__content" }, hAsync("figure", { key: '112b823a737c1f02de75505a7c25af6ca64f080c', class: "banner__icon icon--left" }, hAsync("slot", { key: '398cc31934e1af546e69ed292cf8af638c682cab', name: "banner-icon-left" })), hAsync("div", { key: 'b8b8669f9ba0a24d6e14d266799238613916f687', class: "banner__details" }, hAsync("slot", { key: 'f16b4f5258f493866f361c26a9e9641273ccb9ec', name: "banner-text" }), hAsync("slot", { key: '9660cdfcba47c12f3f51758ad6015a6845f2a154', name: "banner-cta" })), hAsync("figure", { key: '9e7e29bf2afce3ce401663786e95970a20b0a0a8', class: "banner__icon icon--right" }, hAsync("slot", { key: 'e976f308e03921088da7ef482d809adac7723e33', name: "banner-icon-right" })))))));
+        return (hAsync(Host, { key: '03d1a8de7df2a91d9a8b79cca4bef17377585269' }, hAsync("div", { key: 'e6194d8cf29385c2c6079393ff7c235735d7d807', class: `gcds-phase-banner banner--role-${bannerRole} ${isFixed ? 'banner--is-fixed' : ''}`, role: "status", "aria-label": I18N$8[lang].label }, hAsync("gcds-container", { key: '5b05537336d102ca070af8199acdf2444f729de8', size: container, centered: true }, hAsync("div", { key: '8ac815e722f021f7d23f7b23267410f1dbefd613', class: "banner__content" }, hAsync("figure", { key: 'afec7938dc8628e23a73b46baa6f01490d9d1d6c', class: "banner__icon icon--left" }, hAsync("slot", { key: '749ff139daab3c0d92cc1bcc707d36beb860c6eb', name: "banner-icon-left" })), hAsync("div", { key: '17adb8cb3b7f9b0a076407c611748e1f665e7eca', class: "banner__details" }, hAsync("slot", { key: '8482f2af1178f5f070f81c54c0e4f7e886055a14', name: "banner-text" }), hAsync("slot", { key: '6b240f9a45c7466b145610020cc45bacf23c82d7', name: "banner-cta" })), hAsync("figure", { key: '15046443505ce0469c648d914b14f990a1c61a8c', class: "banner__icon icon--right" }, hAsync("slot", { key: 'e539510f180473f2497c2634b16e91202af86cdf', name: "banner-icon-right" })))))));
     }
     get el() { return getElement(this); }
     static get style() { return GcdsPhaseBannerStyle0; }
@@ -6841,7 +6947,7 @@ class GcdsSearch {
         const formAction = action === '/sr/srb.html'
             ? `https://www.canada.ca/${lang}/sr/srb.html`
             : action;
-        return (hAsync(Host, { key: '0590c4439dbf8d925b55e78ba10adb56dd08d002' }, hAsync("div", { key: 'e92eee61020ae637d86f66dcfddaa2c512f906db', class: "gcds-search" }, hAsync("gcds-sr-only", { key: 'a7de99713a5e09ff4cc0c97d97cd220b34713958', tag: "h2" }, I18N$7[lang].search), hAsync("form", { key: 'd8d26986a49f1e44fa9f39925cf4afe6abf2e653', action: formAction, method: method, role: "search", onSubmit: e => emitEvent(e, this.gcdsSubmit, this.value), class: "gcds-search__form" }, hAsync("gcds-label", { key: 'b1bc9a6136af05c0898dcd70177e59ff05b491a7', label: labelText, "label-for": searchId, "hide-label": true }), hAsync("input", Object.assign({ key: '798e03ee1c183e80c6b5c8cc17cfc8ef3114e4b0', type: "search", id: searchId, list: "search-list", size: 34, maxLength: 170, onInput: e => this.handleInput(e, this.gcdsInput), onChange: e => this.handleInput(e, this.gcdsChange), onFocus: () => this.gcdsFocus.emit(), onBlur: () => this.gcdsBlur.emit() }, attrsInput, { class: "gcds-search__input", value: value })), suggested && (hAsync("datalist", { key: '912ac60a51e383b3bd490e4f5ec49bec57b9762b', id: "search-list" }, suggested.map((k, v) => (hAsync("option", { value: k, key: v }))))), hAsync("gcds-button", { key: 'b4ca78bfababd444af1fb4802ce20002d408eede', type: "submit", class: "gcds-search__button", exportparts: "button" }, hAsync("gcds-icon", { key: '841ca408c06c125bafcf5f848e5ebe1a58a76f79', name: "search", label: I18N$7[lang].search, "fixed-width": true }))))));
+        return (hAsync(Host, { key: '127843a74f45499fd5470727bbb846b1ee203ec7' }, hAsync("div", { key: '3211fee418e7019ba50ca9c64ab3ddac6861ea9c', class: "gcds-search" }, hAsync("gcds-sr-only", { key: '20a1386129bd0d9d53a4b3052d7fd7d9232bbcc7', tag: "h2" }, I18N$7[lang].search), hAsync("form", { key: 'b538c34be842faf9c5dc834779b835cce1a76348', action: formAction, method: method, role: "search", onSubmit: e => emitEvent(e, this.gcdsSubmit, this.value), class: "gcds-search__form" }, hAsync("gcds-label", { key: '9b6f44ab0e9b8e8f929ca45438a8315856cecfd7', label: labelText, "label-for": searchId, "hide-label": true }), hAsync("input", Object.assign({ key: '989b67be6bb92553cae5bb76912e84f05fdb90e4', type: "search", id: searchId, list: "search-list", size: 34, maxLength: 170, onInput: e => this.handleInput(e, this.gcdsInput), onChange: e => this.handleInput(e, this.gcdsChange), onFocus: () => this.gcdsFocus.emit(), onBlur: () => this.gcdsBlur.emit() }, attrsInput, { class: "gcds-search__input", value: value })), suggested && (hAsync("datalist", { key: 'd7bf8d367ccf1166f18aa01098fdf3874fb1256d', id: "search-list" }, suggested.map((k, v) => (hAsync("option", { value: k, key: v }))))), hAsync("gcds-button", { key: 'd3952275da85ba06b8147d6d954256ef1b0f4079', type: "submit", class: "gcds-search__button", exportparts: "button" }, hAsync("gcds-icon", { key: 'a043d69293738b5beeee1c2ff2c81596e15a39a6', name: "search", label: I18N$7[lang].search, "fixed-width": true }))))));
     }
     get el() { return getElement(this); }
     static get style() { return GcdsSearchStyle0; }
@@ -7087,7 +7193,7 @@ class GcdsSelect {
                 ? `${attrsSelect['aria-describedby']}`
                 : ''}`;
         }
-        return (hAsync(Host, { key: 'c378c50f4f03b5ddd21eb2256bc970d662b643d0' }, hAsync("div", { key: 'bfee6d24061da3f7a5b205c3dba0a7b26ee22677', class: `gcds-select-wrapper ${disabled ? 'gcds-disabled' : ''} ${hasError ? 'gcds-error' : ''}` }, hAsync("gcds-label", Object.assign({ key: 'e8ea072fae9196da3122d99bc059b62c17895235' }, attrsLabel, { "label-for": selectId, lang: lang })), hint ? hAsync("gcds-hint", { "hint-id": selectId }, hint) : null, errorMessage ? (hAsync("gcds-error-message", { messageId: selectId }, errorMessage)) : null, hAsync("select", Object.assign({ key: 'd71f017f0d420cae5dbc0d290ffd944b36c86a50' }, attrsSelect, { id: selectId, onBlur: () => this.onBlur(), onFocus: () => this.gcdsFocus.emit(), onInput: e => this.handleInput(e, this.gcdsInput), onChange: e => this.handleInput(e, this.gcdsChange), "aria-invalid": inheritedAttributes['aria-invalid'] === 'true'
+        return (hAsync(Host, { key: 'fb6aeb223639f75aa5bc28b155f076bc1ad6871f' }, hAsync("div", { key: '71ac8ed56fb8ac745f782b556527666a128b178a', class: `gcds-select-wrapper ${disabled ? 'gcds-disabled' : ''} ${hasError ? 'gcds-error' : ''}` }, hAsync("gcds-label", Object.assign({ key: 'a73c320132850c5d14ada4228abdd6fb008ef32d' }, attrsLabel, { "label-for": selectId, lang: lang })), hint ? hAsync("gcds-hint", { "hint-id": selectId }, hint) : null, errorMessage ? (hAsync("gcds-error-message", { messageId: selectId }, errorMessage)) : null, hAsync("select", Object.assign({ key: '594ab71c7f1d11cf158a37457b570f12e33157db' }, attrsSelect, { id: selectId, onBlur: () => this.onBlur(), onFocus: () => this.gcdsFocus.emit(), onInput: e => this.handleInput(e, this.gcdsInput), onChange: e => this.handleInput(e, this.gcdsChange), "aria-invalid": inheritedAttributes['aria-invalid'] === 'true'
                 ? inheritedAttributes['aria-invalid']
                 : errorMessage
                     ? 'true'
@@ -7419,7 +7525,7 @@ class GcdsSideNav {
     }
     render() {
         const { label, lang } = this;
-        return (hAsync(Host, { key: '217410f35dc8c612e70afe175fb239de2eaaaf6e' }, hAsync("nav", { key: '998dc3d451a69c9fdd1e20fba6225010116c44d7', "aria-label": `${label}${I18N$6[lang].navLabel}`, class: "gcds-side-nav" }, hAsync("h2", { key: '31f128c4a51ffae7220e65d20f17d87822eb4894', class: "gcds-side-nav__heading" }, label), hAsync("ul", { key: 'e47ce7a1bf273d23c2dacf3bfbcef7bdcb4eaf6b' }, hAsync("gcds-nav-group", { key: '66045fe6eb15f4e2c2db1065de97857f74892a51', menuLabel: I18N$6[lang].menuLabel, closeTrigger: I18N$6[lang].closeTrigger, openTrigger: I18N$6[lang].menuLabel, class: "gcds-mobile-nav", ref: element => (this.mobile = element), lang: lang }, hAsync("slot", { key: '8eeaad2a7387c7ff7de2438fbbb294da280b4e58' }))))));
+        return (hAsync(Host, { key: '2176c26610444e641bf07d616472085f3442f2f0' }, hAsync("nav", { key: '7a707a1f2043e1b5aa630254bfb007bc8effd88c', "aria-label": `${label}${I18N$6[lang].navLabel}`, class: "gcds-side-nav" }, hAsync("h2", { key: 'e0fcbd5dc9e0324b711ca5df1275b3c2cd6d1e90', class: "gcds-side-nav__heading" }, label), hAsync("ul", { key: '0dab78de769b83b3cf021849459d514f966c163a' }, hAsync("gcds-nav-group", { key: '381bce26ca561d4c005c33ed705142f9fd596d61', menuLabel: I18N$6[lang].menuLabel, closeTrigger: I18N$6[lang].closeTrigger, openTrigger: I18N$6[lang].menuLabel, class: "gcds-mobile-nav", ref: element => (this.mobile = element), lang: lang }, hAsync("slot", { key: 'aeef38c5147b2673fc48aada575f6f0635b48e30' }))))));
     }
     get el() { return getElement(this); }
     static get style() { return GcdsSideNavStyle0; }
@@ -7559,7 +7665,7 @@ class GcdsSignature {
         if (Tag === 'a') {
             sigAttrs['href'] = I18N$5[lang].link;
         }
-        return (hAsync(Host, { key: '7fea220f14547470c38927cbb0d4c73c51cab70a' }, type === 'signature' ? (hAsync(Tag, Object.assign({}, sigAttrs), hAsync("div", { innerHTML: selectSVG }), svgLabel)) : (hAsync("div", { class: "gcds-signature", innerHTML: selectSVG }))));
+        return (hAsync(Host, { key: '9e7b4e9eb3ddd7d4826140ecf3214b6e3c011e2e' }, type === 'signature' ? (hAsync(Tag, Object.assign({}, sigAttrs), hAsync("div", { innerHTML: selectSVG }), svgLabel)) : (hAsync("div", { class: "gcds-signature", innerHTML: selectSVG }))));
     }
     get el() { return getElement(this); }
     static get watchers() { return {
@@ -7602,7 +7708,7 @@ class GcdsSrOnly {
     }
     render() {
         const Tag = this.tag;
-        return (hAsync(Host, { key: 'e86bd5be2d850425f77999ffd21f08ddbc06efce' }, hAsync(Tag, { key: '70fbce245104348613399cda52a68aa2053e0ebd' }, hAsync("slot", { key: '6c80f2f968eb292c4b551336930c58e5aae2fd56' }))));
+        return (hAsync(Host, { key: '18f77ee5b2c271548f52b660390dfdee8747f8a0' }, hAsync(Tag, { key: '9e4b70e16cec0a8521ce8cb67cb62a7638afce42' }, hAsync("slot", { key: 'e9f5a29ea054a829dea24766042990dfcf2eefac' }))));
     }
     static get watchers() { return {
         "tag": ["validateTag"]
@@ -7704,7 +7810,7 @@ class GcdsStepper {
     }
     render() {
         const { currentStep, lang, totalSteps, tag } = this;
-        return (hAsync(Host, { key: '02cdb3239e32828d727d13a891c52d5dfd10020e' }, this.validateRequiredProps() && (hAsync("gcds-heading", { key: 'c3725caf65235a7f572394b2ef79276462e0e793', tag: tag, class: "gcds-stepper", "margin-top": "0", "margin-bottom": "225" }, hAsync("span", { key: '81cba93ebbfd826286a0cd5eef917312e7c49a03', class: "gcds-stepper__steps" }, `${I18N$4[lang].step} ${currentStep} ${I18N$4[lang].of} ${totalSteps}`, hAsync("gcds-sr-only", { key: 'b962eb08c6f6407d1e935d0081b998d175960b5c' }, " : ")), hAsync("slot", { key: '0997a5e29a9b1c052fa8ca5c25e41bcd17bcec2e' })))));
+        return (hAsync(Host, { key: '6e9ef763863d74aabd0e06b6126638c680c9de68' }, this.validateRequiredProps() && (hAsync("gcds-heading", { key: 'd6d6b6e34b726d0c878b42a5fe9acfff1ef15a09', tag: tag, class: "gcds-stepper", "margin-top": "0", "margin-bottom": "225" }, hAsync("span", { key: '832e9f340126888cbde32219a4bc5c41c64768de', class: "gcds-stepper__steps" }, `${I18N$4[lang].step} ${currentStep} ${I18N$4[lang].of} ${totalSteps}`, hAsync("gcds-sr-only", { key: '09142960d870e811eae871d22c8e217025747080' }, " : ")), hAsync("slot", { key: '1e03b643830f949011400d1c0b25e849359a74d1' })))));
     }
     get el() { return getElement(this); }
     static get watchers() { return {
@@ -7786,7 +7892,7 @@ class GcdsText {
     }
     render() {
         const { characterLimit, display, marginTop, marginBottom, size, textRole } = this;
-        return (hAsync(Host, { key: 'a812309ef1f42e139d5cff1db4c83d2b1b7e3df5', class: `${display != 'block' ? `d-${display}` : ''}` }, hAsync("p", { key: '044d31b7287fd57599acb2f4943c006552bd07b9', class: `
+        return (hAsync(Host, { key: 'b0b6d2eef2c482062861893a43f7508d984a398f', class: `${display != 'block' ? `d-${display}` : ''}` }, hAsync("p", { key: '6d1c418740f62a70b5dd130adbd471eda5702288', class: `
             gcds-text
             ${textRole ? `role-${textRole}` : ''}
             ${characterLimit ? 'limit' : ''}
@@ -8013,7 +8119,7 @@ class GcdsTextarea {
                 ? `${attrsTextarea['aria-describedby']}`
                 : ''}`;
         }
-        return (hAsync(Host, { key: '2bd0df7656a97b2600fa94cfb810f3dc661ff7b3' }, hAsync("div", { key: 'd898262173335559a434192ab442c5bc416ef172', class: `gcds-textarea-wrapper ${disabled ? 'gcds-disabled' : ''} ${hasError ? 'gcds-error' : ''}` }, hAsync("gcds-label", Object.assign({ key: '9be242729fdcd7002d414be5b52004c86aa7be2d' }, attrsLabel, { "hide-label": hideLabel, "label-for": textareaId, lang: lang })), hint ? hAsync("gcds-hint", { "hint-id": textareaId }, hint) : null, errorMessage ? (hAsync("gcds-error-message", { messageId: textareaId }, errorMessage)) : null, hAsync("textarea", Object.assign({ key: 'adac30eed061006b9500de8ec4e1f330924598cb' }, attrsTextarea, { class: hasError ? 'gcds-error' : null, id: textareaId, onBlur: () => this.onBlur(), onFocus: () => this.gcdsFocus.emit(), onInput: e => this.handleInput(e, this.gcdsInput), onChange: e => this.handleInput(e, this.gcdsChange), "aria-labelledby": `label-for-${textareaId}`, "aria-invalid": errorMessage ? 'true' : 'false', maxlength: characterCount ? characterCount : null, style: cols ? style : null, ref: element => (this.shadowElement = element) }), value), characterCount ? (hAsync("gcds-text", { id: `textarea__count-${textareaId}`, "aria-live": "polite" }, value == undefined
+        return (hAsync(Host, { key: 'eddcbe5d7d6704ab4f4ac7452e4c716537f222d0' }, hAsync("div", { key: 'f11ccf8faf0ed5ade048612804c36bebb4ba9a1f', class: `gcds-textarea-wrapper ${disabled ? 'gcds-disabled' : ''} ${hasError ? 'gcds-error' : ''}` }, hAsync("gcds-label", Object.assign({ key: '0ce48cd18d70fc0712aa29d21bf6d7e32a2a85eb' }, attrsLabel, { "hide-label": hideLabel, "label-for": textareaId, lang: lang })), hint ? hAsync("gcds-hint", { "hint-id": textareaId }, hint) : null, errorMessage ? (hAsync("gcds-error-message", { messageId: textareaId }, errorMessage)) : null, hAsync("textarea", Object.assign({ key: '2f6686d4bc5b4b28cb9b9739e8bc2e18edc5b465' }, attrsTextarea, { class: hasError ? 'gcds-error' : null, id: textareaId, onBlur: () => this.onBlur(), onFocus: () => this.gcdsFocus.emit(), onInput: e => this.handleInput(e, this.gcdsInput), onChange: e => this.handleInput(e, this.gcdsChange), "aria-labelledby": `label-for-${textareaId}`, "aria-invalid": errorMessage ? 'true' : 'false', maxlength: characterCount ? characterCount : null, style: cols ? style : null, ref: element => (this.shadowElement = element) }), value), characterCount ? (hAsync("gcds-text", { id: `textarea__count-${textareaId}`, "aria-live": "polite" }, value == undefined
             ? `${characterCount} ${I18N$3[lang].characters.allowed}`
             : `${characterCount - value.length} ${I18N$3[lang].characters.left}`)) : null)));
     }
@@ -8183,7 +8289,7 @@ class GcdsTopNav {
     }
     render() {
         const { label, alignment, lang } = this;
-        return (hAsync(Host, { key: '42af640e82c9762d93317c27a17a92acda227221' }, hAsync("div", { key: 'f443220a73b848ba7680edf4a5b6864c5ae04000', class: "gcds-top-nav" }, hAsync("nav", { key: '6f80708a70689a118a4999e5b51f3d8e336dc199', "aria-label": `${label}${I18N$2[lang].navLabel}` }, hAsync("ul", { key: 'da5d44e8fa22794dee111c6846c742dd10e8a92c', class: "gcds-top-nav__container" }, hAsync("gcds-nav-group", { key: 'b9987354f437554282e4cec40556269a69d5b5ff', menuLabel: I18N$2[lang].menuLabel, closeTrigger: I18N$2[lang].closeTrigger, openTrigger: I18N$2[lang].menuLabel, class: "gcds-mobile-nav gcds-mobile-nav-topnav", ref: element => (this.mobile = element), lang: lang }, hAsync("slot", { key: '50eb9b1c747becc71d287fd6e54a6a154be08f99', name: "home" }), hAsync("li", { key: '993a9d649a5845c6508e0fb38c65990f062c548a', class: `nav-container__list nav-list--${alignment}` }, hAsync("ul", { key: 'aee7825fbfd1b0fc9ec2fde6b4b01141aea1618c', class: `nav-container__list nav-list--${alignment}` }, hAsync("slot", { key: '770e5b28a68efef61bd321a54b5e96e7c52f553c' })))))))));
+        return (hAsync(Host, { key: 'a6f1a411d942315d91c809dc01964919726c6a17' }, hAsync("div", { key: 'c7aa58465b9c8b00c0fc98c5cb2076f71b93eab5', class: "gcds-top-nav" }, hAsync("nav", { key: '64d8b3477818fd28fe31d02b00813320bcc76b37', "aria-label": `${label}${I18N$2[lang].navLabel}` }, hAsync("ul", { key: 'cbf98a6a884f5c60026e733f112081888f05b172', class: "gcds-top-nav__container" }, hAsync("gcds-nav-group", { key: 'c5e65207c4b11272261a2ec8737631a2c622227b', menuLabel: I18N$2[lang].menuLabel, closeTrigger: I18N$2[lang].closeTrigger, openTrigger: I18N$2[lang].menuLabel, class: "gcds-mobile-nav gcds-mobile-nav-topnav", ref: element => (this.mobile = element), lang: lang }, hAsync("slot", { key: '5007a00f24466cdced473c1f0dcad5f6239d3dd3', name: "home" }), hAsync("li", { key: '4814d9192b12c45325d5cb6c4d1443b84143b09e', class: `nav-container__list nav-list--${alignment}` }, hAsync("ul", { key: 'db7082dfac66582051f5324adc8fe00821fc6b5d', class: `nav-container__list nav-list--${alignment}` }, hAsync("slot", { key: '90dac207f2befecdd758079afa957dcb47de3231' })))))))));
     }
     get el() { return getElement(this); }
     static get style() { return GcdsTopNavStyle0; }
@@ -8545,7 +8651,7 @@ class GcdsTopicMenu {
     }
     render() {
         const { home, lang } = this;
-        return (hAsync(Host, { key: '916b7b16453365f35636a73ae748cffcb85f356b' }, hAsync("nav", { key: 'bb4d79d8c9da99086df1b547e1a5749ebac71f8f', class: "gcds-topic-menu", "aria-labelledby": "gcds-topic-menu__heading" }, hAsync("gcds-sr-only", { key: '29c985cdb30bee4bbb5b6bbd9767035cf9c931c5', id: "gcds-topic-menu__heading", tag: "h2" }, I18N$1[lang].menuLabelFull), hAsync("button", { key: '5090d231a0db3a464b814fba5531039e29a35242', "aria-haspopup": "true", "aria-expanded": this.open.toString(), "aria-label": I18N$1[lang].buttonLabel, onClick: async () => await this.toggleNav(), ref: element => (this.menuButton = element), class: home && 'gcds-topic-menu--home' }, this.lang == 'en' ? (hAsync(Fragment, null, hAsync("gcds-sr-only", { tag: "span" }, I18N$1[lang].menuLabelHidden), I18N$1[lang].menuToggle)) : (hAsync(Fragment, null, I18N$1[lang].menuToggle, hAsync("gcds-sr-only", { tag: "span" }, I18N$1[lang].menuLabelHidden))), hAsync("gcds-icon", { key: 'c88158f753405a5abd4b86d27b6ab216ee655634', name: "chevron-down", "margin-left": "100", size: "text-small" })), hAsync("ul", { key: '04df56f701fd47f8519556a9555385e76e9f662b', role: "menu", "aria-orientation": "vertical", "data-top-menu": true, innerHTML: this.listItems, ref: element => (this.themeList = element) }))));
+        return (hAsync(Host, { key: '11a4e6cac47292c67d67f2860368ad937610475e' }, hAsync("nav", { key: '9649d4b517f8a95ccfcbf5130a3429c639d45e1a', class: "gcds-topic-menu", "aria-labelledby": "gcds-topic-menu__heading" }, hAsync("gcds-sr-only", { key: '8b11792760daf57c8991c78b0258dba19f78d57f', id: "gcds-topic-menu__heading", tag: "h2" }, I18N$1[lang].menuLabelFull), hAsync("button", { key: '41190295fe3d65d13aa28f44fedf010bef4059d6', "aria-haspopup": "true", "aria-expanded": this.open.toString(), "aria-label": I18N$1[lang].buttonLabel, onClick: async () => await this.toggleNav(), ref: element => (this.menuButton = element), class: home && 'gcds-topic-menu--home' }, this.lang == 'en' ? (hAsync(Fragment, null, hAsync("gcds-sr-only", { tag: "span" }, I18N$1[lang].menuLabelHidden), I18N$1[lang].menuToggle)) : (hAsync(Fragment, null, I18N$1[lang].menuToggle, hAsync("gcds-sr-only", { tag: "span" }, I18N$1[lang].menuLabelHidden))), hAsync("gcds-icon", { key: '1f378ba85facaa6aa9610ef2cf45b504870b7064', name: "chevron-down", "margin-left": "100", size: "text-small" })), hAsync("ul", { key: 'a9250f162fe7f32ec9c0b561366d2723834e0990', role: "menu", "aria-orientation": "vertical", "data-top-menu": true, innerHTML: this.listItems, ref: element => (this.themeList = element) }))));
     }
     get el() { return getElement(this); }
     static get style() { return GcdsTopicMenuStyle0; }
@@ -8661,7 +8767,7 @@ class GcdsVerifyBanner {
     }
     render() {
         const { container, isFixed, lang } = this;
-        return (hAsync(Host, { key: '3a359e2f739de9f0b5b1f4875616f13d926b7c93' }, hAsync("details", { key: '36dbad0f247d5adac5600c345547210b703be94c', class: `gcds-verify-banner ${isFixed ? 'verify-banner--is-fixed' : ''}` }, hAsync("summary", { key: 'a4258b57b63a5634a3e2dd3784718b5767e022da', class: container ? `container-${container}` : '', "aria-expanded": "false", role: "button" }, hAsync("span", { key: 'b2ce523e45247b183eff7b85e717688b5b09d3f3', class: "svg-container", innerHTML: CanadaFlag }), hAsync("p", { key: '9dc5c963bd59d2bcd9e2cf32d99c82e2212ca498' }, hAsync("small", { key: '0ec143a4ce1d9f50a914ce8e5e37bb5e486ef3aa' }, I18N[lang].summary.text), hAsync("button", { key: '438d1af370ab648eec84b2c66e13a12f0537752c', class: "verify-banner__toggle" }, hAsync("small", { key: '5399bf38ac46c84510385c5e04783035eadf9d4f' }, I18N[lang].summary.link), hAsync("span", { key: '4bd05582cd3ce82b6bd25c8ece8fd6d5319d561a', class: "svg-container", innerHTML: ContentToggleArrow })))), hAsync("div", { key: 'c14eb05c5bee6b7539f0299d94a85022949d208f', class: `verify-banner__content ${container ? `container-${container}` : ''}` }, hAsync("p", { key: 'da5a85d1cee0a3661bd40f3ad0d6998e5ac073a3' }, hAsync("small", { key: 'ea5f95f05be7a82ff58036ef11cdc7eac9d9887d' }, I18N[lang].content.description)), hAsync("br", { key: 'b8d3cb8a7af7710da4ec26a814080f910d144fed' }), hAsync("gcds-grid", { key: '7ce30265f4350c92837edfea5f223384ec19382d', tag: "ul", container: "lg", columns: "1fr", "columns-tablet": container === 'xs' || container === 'sm' ? '1fr' : '1fr 1fr' }, hAsync("li", { key: 'dbaa8b5b0d85c9d804938b2bd702dc9419fbdc41' }, hAsync("h4", { key: 'a5870058080d105ef5df2a5ada92e4d0efca49fd' }, I18N[lang].content.url.heading), hAsync("p", { key: 'ed2d3d9b33b44a04e4416d87c4b1e8f08170dfa2' }, hAsync("small", { key: 'a63c2b37cf7398b54cb56ddcabae8ff5591e3b78' }, I18N[lang].content.url.text))), hAsync("li", { key: '8848fb6834f7028e73758c519ad5b90d6488b006' }, hAsync("h4", { key: '96515dba93042ab9174ab69ea79a25ce4369ec78' }, I18N[lang].content.languages.heading), hAsync("p", { key: '762995079f47a4e2bd0045743ffd3cc7c4768a11' }, hAsync("small", { key: '18342f031772a082604902ff4fe7abd0c6b43eb2' }, I18N[lang].content.languages.text))), hAsync("li", { key: '8742fec5049734b9de8047aaa9625fa3d10e8af9' }, hAsync("h4", { key: 'ef9ec15f10461f9c31e68784dea1f1b1704a8f58' }, I18N[lang].content.https.heading), hAsync("p", { key: '5be480efae55e752f52da02182c800f6dfb3011c' }, hAsync("small", { key: '4bd5c68679d42da7a34935d2ce0f5a6cd5ecd20f' }, I18N[lang].content.https.text, " ", hAsync("strong", { key: 'bc02af8813d9e4cdeffdca40b36c9a633f120ed3' }, "https://"), "."))), hAsync("li", { key: 'f17b0baad7117c8def9625ff3c53576b14e063e2' }, hAsync("h4", { key: 'e884b635d63c1b510f6b01c00d19e8c3c55fc8e7' }, I18N[lang].content.contact.heading), hAsync("p", { key: '9285d3c76b451350428bc82172bee2d3328b2413' }, hAsync("small", { key: '713bcafc07cf60dfcb02c8d6868fa94c7a02026e' }, I18N[lang].content.contact.text))))))));
+        return (hAsync(Host, { key: '48153c15ce4d671d0bf60ddbe3d336e5e0be81af' }, hAsync("details", { key: '2e617043b0000ff20429eb9a46324a2f40fb1a95', class: `gcds-verify-banner ${isFixed ? 'verify-banner--is-fixed' : ''}` }, hAsync("summary", { key: '4fa310845587a590815de9ffcb7e7c50354020b9', class: container ? `container-${container}` : '', "aria-expanded": "false", role: "button" }, hAsync("span", { key: '094552cb86ed9ac56935441e352e2ea9ec4671c8', class: "svg-container", innerHTML: CanadaFlag }), hAsync("p", { key: '813aa039eddf1b68d3db854e90165f9314a59888' }, hAsync("small", { key: '2161ed4e25a9680194da06614344365fafe327d1' }, I18N[lang].summary.text), hAsync("button", { key: '5192428be907c4e5d951b5871fd5af436b40c4fd', class: "verify-banner__toggle" }, hAsync("small", { key: 'b18b2fccc1b7bd85dacd2a07a590cad716fe8bc9' }, I18N[lang].summary.link), hAsync("span", { key: '53007393e80408a5486ed2539ca8abdfb2e3808a', class: "svg-container", innerHTML: ContentToggleArrow })))), hAsync("div", { key: 'e7737a8d5fbc9f70aa1579d5258dd5e8053b849c', class: `verify-banner__content ${container ? `container-${container}` : ''}` }, hAsync("p", { key: '474171c6a6bbbb8772e7f0485dfffb51a864ff05' }, hAsync("small", { key: '3bf99ee8fcf04df4f1fdce2e637b561137c38188' }, I18N[lang].content.description)), hAsync("br", { key: 'fd2af592a4462cf079ee227bbe15934fb8d4d5b4' }), hAsync("gcds-grid", { key: '2c3f42400363486e7b662dbc70b4a4a9c873255a', tag: "ul", container: "lg", columns: "1fr", "columns-tablet": container === 'xs' || container === 'sm' ? '1fr' : '1fr 1fr' }, hAsync("li", { key: 'e251f3f8663eebe19d3a59aa9d46822bdc097273' }, hAsync("h4", { key: '277e4d0462a8b78280e5636d87026998efeb9361' }, I18N[lang].content.url.heading), hAsync("p", { key: '8e0b9981deaf0221533ceb24f2f733eec19825f7' }, hAsync("small", { key: 'be67900e62262b8d019e7bdeee7b63e90a1075b3' }, I18N[lang].content.url.text))), hAsync("li", { key: '0893412462dfff8f9f214395295447d9fdd34f16' }, hAsync("h4", { key: '7d3562b810abdd8d961744cb239181e2e1b50580' }, I18N[lang].content.languages.heading), hAsync("p", { key: '0aba8b207788f423a8e4566fccf77d86d3e56ef8' }, hAsync("small", { key: 'c9b4012e2ed096b86a5eefa1f7fe917daa573049' }, I18N[lang].content.languages.text))), hAsync("li", { key: 'e232beacff8ce2f22889e661dbbb0d866f029e28' }, hAsync("h4", { key: '4303bdb3c1209eceba4076dc53162d62d9671a8d' }, I18N[lang].content.https.heading), hAsync("p", { key: '5807627918a98faa18893bd85829561afb3d5746' }, hAsync("small", { key: '7d1b8e8e56cade3c18cac32837c3d5adc3c88889' }, I18N[lang].content.https.text, " ", hAsync("strong", { key: 'f4fcc669ccaa40756d3d69a23b8466188e78a47c' }, "https://"), "."))), hAsync("li", { key: '5e388710ae4ef3923909cc9f0442a18a185243f0' }, hAsync("h4", { key: 'c92b10a99089c96363e126358acf26d2c6098404' }, I18N[lang].content.contact.heading), hAsync("p", { key: '9a6736ffdd9bbd9111411c4aaddbe97256b0db21' }, hAsync("small", { key: 'b7d1b456d226778ecb8087f4086f9cef5dd7593b' }, I18N[lang].content.contact.text))))))));
     }
     get el() { return getElement(this); }
     static get style() { return GcdsVerifyBannerStyle0; }
@@ -8707,6 +8813,7 @@ registerComponents([
   GcdsLink,
   GcdsNavGroup,
   GcdsNavLink,
+  GcdsNotice,
   GcdsPagination,
   GcdsPhaseBanner,
   GcdsRadioGroup,
