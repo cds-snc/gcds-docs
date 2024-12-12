@@ -68,8 +68,7 @@ h6 {
   max-width: var(--gcds-heading-character-limit-h6);
 }
 
-ul li,
-p {
+ul li {
   font: var(--gcds-font-text);
   max-width: 65ch;
 }
