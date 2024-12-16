@@ -19,7 +19,7 @@ Utilisez l’attribut `type` pour classer l’avis dans les catégories `info` (
 ### Précisez le titre et le niveau de l’en-tête de l’avis
 
 - Utilisez l’attribut `notice-title` pour créer un titre clair et informatif pour l’avis. Veillez à ce que le titre transmette l’objectif du message.
-- Utilisez `notice-title-tag` pour définir [le bon niveau](/fr/composants/titre/design/#classez-les-niveaux-de-titre-de-maniere-hierarchique) de titre pour la carte. Suivez une hiérarchie correcte et ordonnée pour fournir une expérience équitable aux personnes utilisant des technologies d’assistance.
+- Utilisez `notice-title-tag` pour définir [le bon niveau](/fr/composants/titre/design/#classez-les-niveaux-de-titre-de-maniere-hierarchique) de titre pour l'avis. Suivez une hiérarchie correcte et ordonnée pour fournir une expérience équitable aux personnes utilisant des technologies d’assistance.
 
 {% include "partials/getcode.njk" %}
 
