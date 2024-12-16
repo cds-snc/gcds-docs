@@ -14,7 +14,7 @@ Use the notice component to deliver important context-specific messages to peopl
 
 ### Define the type of notice
 
-Use the `type` attribute to categorize the notice as ‘Info’, ‘Warning’, ‘Danger’ or ‘Success’. This choice determines the visual styling of the notice and communicates the urgency or importance of the message to people.
+Use the `type` attribute to categorize the notice as `info`, `warning`, `danger` or `success`. This choice determines the visual styling of the notice and communicates the urgency or importance of the message to people.
 
 ### Specify the notice title and heading level
 
