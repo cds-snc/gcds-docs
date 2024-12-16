@@ -14,7 +14,7 @@ Utilisez le composant d’avis pour transmettre aux gens des messages importants
 
 ### Définir le type d’avis
 
-Utilisez l’attribut `type` pour classer l’avis dans les catégories « Information », « Avertissement », « Danger » ou « Succès ». Ce choix détermine le style visuel de l’avis et communique l’urgence ou l’importance du message au public.
+Utilisez l’attribut `type` pour classer l’avis dans les catégories `info` (Information), `warning` (Avertissement), `danger` (Danger) ou `success` (Succès). Ce choix détermine le style visuel de l’avis et communique l’urgence ou l’importance du message au public.
 
 ### Précisez le titre et le niveau de l’en-tête de l’avis
 
