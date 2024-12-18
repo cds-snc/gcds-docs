@@ -3,7 +3,7 @@ title: Page templates
 layout: 'layouts/page-templates-overview.njk'
 eleventyNavigation:
   key: pageTemplatesEN
-  title: Page Templates
+  title: Page templates
   locale: en
   order: 2
 translationKey: 'pageTemplates'

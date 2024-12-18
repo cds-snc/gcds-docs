@@ -68,12 +68,11 @@
     "pageTemplatesBasicCode": "/en/page-templates/basic/code",
     "pageTemplatesBasicGithubLink": "https://github.com/cds-snc/gcds-examples/blob/main/templates/english/basic/basic-page-template.html",
     "pageTemplatesBasicGithubRaw": "https://raw.githubusercontent.com/cds-snc/gcds-examples/refs/heads/main/templates/english/basic/basic-page-template.html",
-    "pageTemplatesBasicFigma": "#",
+    "pageTemplatesBasicFigma": "https://www.figma.com/design/mh2maMG2NBtk41k1O1UGHV/GC-Design-System?node-id=38694-2062&t=xHo7cPSnhM2N9sx0-0",
     "pageTemplatesBasicExtOTPPreview": "/en/page-templates/basic/preview-on-this-page",
     "pageTemplatesBasicExtOTPCode": "/en/page-templates/basic/code-on-this-page",
     "pageTemplatesBasicExtOTPGithubLink": "https://github.com/cds-snc/gcds-examples/blob/main/templates/english/basic/extensions/basic-page-template-table-of-contents.html",
     "pageTemplatesBasicExtOTPGithubRaw": "https://raw.githubusercontent.com/cds-snc/gcds-examples/refs/heads/main/templates/english/basic/extensions/basic-page-template-table-of-contents.html",
-    "pageTemplatesBasicExtOTPFigma": "#",
 
     "figma": "https://www.figma.com/file/mh2maMG2NBtk41k1O1UGHV/Canadian-Digital-Service%E2%80%A8---GC-Design-System?node-id=4%3A1006&t=qguKsJtr1ityUsUN-0",
 
