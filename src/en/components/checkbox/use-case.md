@@ -9,7 +9,7 @@ eleventyNavigation:
   otherNames: checklist.
   description: An option or set of options where any of the available boxes can be selected.
   thumbnail: /images/common/components/preview-checkbox.svg
-  alt: A column of three checkboxes, each with thin grey border and white fill beside a thick grey line to represent the label. Two of the three boxes have a checkmark. 
+  alt: A column of three checkboxes, each with thin grey border and white fill beside a thick grey line to represent the label. Two of the three boxes have a checkmark.
   state: published
 translationKey: 'checkbox'
 tags: ['checkboxEN', 'usage']
@@ -27,8 +27,8 @@ Use a checkbox with a [fieldset]({{ links.fieldset }}) to make a request for inf
 - Let a person choose one or several answers from a contained list by checking off the right ones.
 - Give a person the ability to answer without writing by selecting one or multiple items from a list.
 
-<article class="bg-full-width bg-primary text-light pt-500 pb-400 my-500">
-  <h2 class="mt-0 mb-400">Related components</h2>
+<article class="bg-full-width bg-primary text-light pt-600 pb-300 my-600">
+  <h2 class="mt-0 mb-300">Related components</h2>
 
 <a href="{{ links.radioGroup }}" class="link-light">Radio groups</a> to give a single option from a larger set of options.
 

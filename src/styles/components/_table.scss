@@ -37,7 +37,7 @@ table {
 
   td,
   th {
-    padding: var(--gcds-spacing-300) var(--gcds-spacing-250);
+    padding: var(--gcds-spacing-225) var(--gcds-spacing-175);
 
     &:first-child {
       padding-inline-start: 0;
@@ -55,10 +55,10 @@ table {
 
   // Special cells
   .color-preview {
-    width: var(--gcds-spacing-500);
-    height: var(--gcds-spacing-500);
-    margin-block-start: calc(-1 * var(--gcds-spacing-200));
-    border-radius: var(--gcds-spacing-500);
+    width: var(--gcds-spacing-600);
+    height: var(--gcds-spacing-600);
+    margin-block-start: calc(-1 * var(--gcds-spacing-150));
+    border-radius: var(--gcds-spacing-600);
   }
 
   .spacing-preview {
@@ -73,11 +73,11 @@ table {
   }
 
   td {
-    padding-block: calc(var(--gcds-spacing-300) + var(--gcds-spacing-200));
+    padding-block: calc(var(--gcds-spacing-225) + var(--gcds-spacing-150));
   }
 
   th:nth-child(1) {
-    width: var(--gcds-spacing-500);
+    width: var(--gcds-spacing-600);
   }
 
   th:nth-child(2) {
@@ -120,13 +120,6 @@ table {
   }
 }
 
-.table-display-token-typography {
-  tr.row-label,
-  tr.row-textLong {
-    display: none;
-  }
-}
-
 .table-display-token-fontFamilies {
   .row-icons {
     display: none;
@@ -134,7 +127,7 @@ table {
 }
 
 .table-display-token-dimension {
-  margin-block-end: var(--gcds-spacing-600);
+  margin-block-end: var(--gcds-spacing-900);
 
   tr {
     vertical-align: top;

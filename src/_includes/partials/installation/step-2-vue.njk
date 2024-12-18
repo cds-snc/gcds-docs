@@ -1,15 +1,15 @@
-<div id="step-2-vue" class="py-550 step-2-content">
-  <h2 class="mb-400">{{ installation[locale].step2.heading }}</h2>
-  <p class="mb-400">{{ installation[locale].step2.vue.paragraph }}</p>
+<div id="step-2-vue" class="py-750 step-2-content">
+  <h2 class="mb-300">{{ installation[locale].step2.heading }}</h2>
+  <p class="mb-300">{{ installation[locale].step2.vue.paragraph }}</p>
 
-  <h3 class="mt-500 mb-400">{{ installation[locale].step2.vue.heading }}</h3>
-  <p class="mb-400">{{ installation[locale].step2.vue.install }}</p>
+  <h3 class="mt-600 mb-300">{{ installation[locale].step2.vue.heading }}</h3>
+  <p class="mb-300">{{ installation[locale].step2.vue.install }}</p>
 
   {% highlight "js" %}
   npm install @cdssnc/gcds-components-vue
   {% endhighlight %}
 
-  <p class="mt-500 mb-400">{{ installation[locale].step2.vue.place | safe }}</p>
+  <p class="mt-600 mb-300">{{ installation[locale].step2.vue.place | safe }}</p>
 
   {% highlight "js" %}
   import { GcdsComponents } from '@cdssnc/gcds-components-vue';
@@ -17,21 +17,21 @@
 createApp(App).use(GcdsComponents).mount('#app');
   {% endhighlight %}
 
-  <p class="mt-500 mb-400">{{ installation[locale].step2.vue.globalStyles }}</p>
+  <p class="mt-600 mb-300">{{ installation[locale].step2.vue.globalStyles }}</p>
 
-  <p class="mt-500 mb-400">{{ installation[locale].step2.vue.styleOne | safe }}</p>
+  <p class="mt-600 mb-300">{{ installation[locale].step2.vue.styleOne | safe }}</p>
 
   {% highlight "js" %}
   import '@cdssnc/gcds-components-vue/gcds.css';
 import './style.css';
   {% endhighlight %}
 
-  <p class="mt-500 mb-400">{{ installation[locale].step2.vue.styleTwo | safe }}</p>
+  <p class="mt-600 mb-300">{{ installation[locale].step2.vue.styleTwo | safe }}</p>
 
   {% highlight "html" %}
   <style src='@cdssnc/gcds-components-vue/gcds.css'>
   /* global styles */
-</style> 
+</style>
   {% endhighlight %}
 
 </div>

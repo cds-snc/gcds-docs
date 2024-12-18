@@ -25,10 +25,8 @@ tokenTable:
     font-h4: Heading 4
     font-h5: Heading 5
     font-h6: Heading 6
-    font-label: Label
     font-text: Text
-    font-textLong: Paragraph
-    font-caption: Caption
+    font-textSmall: Text small
     fontFamilies-heading: Heading
     fontFamilies-body: Text
     fontFamilies-monospace: Monospace
@@ -75,10 +73,10 @@ Note: The font property is a shorthand property for font-weight, font-size/line-
 
 ### Text
 
-- For font size, keep text line length below 75 characters for a comfortable, accessible reading length.
-- Use the css unit `75ch` or lower to set the maximum width of your paragraphs.
+- For font size, keep text line length below 65 characters for a comfortable, accessible reading length.
+- Use the css unit `65ch (--gcds-text-character-limit)` or lower to set the maximum width of your paragraphs.
 
-{% include "partials/token_table.njk", token: 'font', subTokens: "label text textLong caption", type: 'typography' %}
+{% include "partials/token_table.njk", token: 'font', subTokens: "text textSmall", type: 'typography' %}
 
 ### Font families
 

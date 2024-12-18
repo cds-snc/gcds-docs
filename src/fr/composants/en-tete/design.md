@@ -14,7 +14,7 @@ date: 'git Last Modified'
   <li>Le composant de la <strong>bascule de langue</strong> est un commutateur du contenu en français et en anglais. Utilisez l'attribut <code>lang</code> pour définir la langue du site; le bouton à bascule proposera l'autre langue officielle.</li>
 </ol>
 
-<img class="b-sm b-default mb-500 p-400" src="/images/fr/components/anatomy/gcds-header-anatomy-recommended.svg" alt="L'anatomie des composants entête et menu du site identifiants le lien passer au contenu, et l'entête du gouvernement du Canada."/>
+<img class="b-sm b-default mb-600 p-300" src="/images/fr/components/anatomy/gcds-header-anatomy-recommended.svg" alt="L'anatomie des composants entête et menu du site identifiants le lien passer au contenu, et l'entête du gouvernement du Canada."/>
 
 ## Éléments facultatifs de l'en-tête — avec titre H1
 
@@ -30,7 +30,7 @@ date: 'git Last Modified'
 
 L'élément de **recherche** permet d'inclure un champ de recherche locale ou générale.
 
-<img class="b-sm b-default mb-500 p-400" src="/images/fr/components/anatomy/gcds-header-anatomy-optional.svg" alt="L'anatomie des composants entête et menu du site identifiants le lien passer au contenu, la bannière de phase, l'entête du gouvernement du Canada et le menu du site."/>
+<img class="b-sm b-default mb-600 p-300" src="/images/fr/components/anatomy/gcds-header-anatomy-optional.svg" alt="L'anatomie des composants entête et menu du site identifiants le lien passer au contenu, la bannière de phase, l'entête du gouvernement du Canada et le menu du site."/>
 
 ## Design et accessibilité de l'en-tête
 

@@ -28,8 +28,8 @@ Use a button for important actions a person using your product can initiate to:
 - Starting a flow, like a tutorial, or sign in to a secure space.
 - Move between steps in a sequence.
 
-<article class="bg-full-width bg-primary text-light pt-500 pb-400 my-500">
-  <h2 class="mt-0 mb-400">Related components</h2>
+<article class="bg-full-width bg-primary text-light pt-600 pb-300 my-600">
+  <h2 class="mt-0 mb-300">Related components</h2>
 
 <a href="{{ links.link }}" class="link-light">Links</a> to provide navigation to a new page, website, or section on the current page or files for download.
 
@@ -76,13 +76,13 @@ Note: Always use the [link component]({{ links.link }}) when you need to embed a
 A role is a button sub-type that has a specific use on a page.
 
 <div class="remove-empty-p">
-<gcds-grid columns="1fr" columns-tablet="1fr 2fr" gap="500" align-items="start">
-  {% componentPreview "Primary button preview" "px-300 py-400" "" %}
+<gcds-grid columns="1fr" columns-tablet="1fr 2fr" align-items="start">
+  {% componentPreview "Primary button preview" "px-225 py-300" "" %}
   <gcds-button button-role="primary">Submit</gcds-button>
   {% endcomponentPreview %}
   <div>
-    <h3 class="mb-400">Primary button uses</h3>
-    <ul class="list-disc mb-400">
+    <h3 class="mb-300">Primary button uses</h3>
+    <ul class="list-disc mb-300">
       <li>The most important action on a page.</li>
       <li>Critical actions in a flow or as the default button.</li>
       <li>Only use a single time.</li>
@@ -91,13 +91,13 @@ A role is a button sub-type that has a specific use on a page.
   </div>
 </gcds-grid>
 <br/>
-<gcds-grid columns="1fr" columns-tablet="1fr 2fr" gap="500" align-items="start">
-  {% componentPreview "Secondary button preview" "px-300 py-400" "" %}
+<gcds-grid columns="1fr" columns-tablet="1fr 2fr" align-items="start">
+  {% componentPreview "Secondary button preview" "px-225 py-300" "" %}
   <gcds-button button-role="secondary">Cancel</gcds-button>
   {% endcomponentPreview %}
   <div>
-    <h3 class="mb-400">Secondary button uses</h3>
-    <ul class="list-disc mb-400">
+    <h3 class="mb-300">Secondary button uses</h3>
+    <ul class="list-disc mb-300">
       <li>Supporting actions.</li>
       <li>To highlight an important, common action but not the most important one.</li>
       <li>If needed, more than once on a page for important alternative task options.</li>
@@ -105,13 +105,13 @@ A role is a button sub-type that has a specific use on a page.
   </div>
 </gcds-grid>
 <br/>
-<gcds-grid columns="1fr" columns-tablet="1fr 2fr" gap="500" align-items="start">
-  {% componentPreview "Danger button preview" "px-300 py-400" "" %}
+<gcds-grid columns="1fr" columns-tablet="1fr 2fr" align-items="start">
+  {% componentPreview "Danger button preview" "px-225 py-300" "" %}
   <gcds-button button-role="danger">Delete</gcds-button>
   {% endcomponentPreview %}
   <div>
-    <h3 class="mb-400">Danger button uses</h3>
-    <ul class="list-disc mb-400">
+    <h3 class="mb-300">Danger button uses</h3>
+    <ul class="list-disc mb-300">
       <li>To flag serious actions like removing, clearing, or deleting information.</li>
       <li>For actions when changes may be difficult to reverse.</li>
     </ul>

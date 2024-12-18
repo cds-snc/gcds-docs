@@ -17,7 +17,7 @@ date: 'git Last Modified'
   <li>The <strong>checkbox hint text</strong> gives users additional information about the choice.</li>
 </ol>
 
-<img class="b-sm b-default p-400" src="/images/en/components/anatomy/gcds-checkbox-anatomy-with-fieldset.svg" alt="Checkbox anatomy showing the labels Fieldset legend, Fieldset Hint, Checkbox, Checkbox Label, Checkmark, and Checkbox Hint." />
+<img class="b-sm b-default p-300" src="/images/en/components/anatomy/gcds-checkbox-anatomy-with-fieldset.svg" alt="Checkbox anatomy showing the labels Fieldset legend, Fieldset Hint, Checkbox, Checkbox Label, Checkmark, and Checkbox Hint." />
 
 ## Single checkbox anatomy
 
@@ -30,7 +30,7 @@ Use the fieldset component with the checkbox, except for checkboxes with a singl
   <li>The <strong>checkbox hint text</strong> gives users additional information about the choice.</li>
 </ol>
 
-<img class="b-sm b-default p-400" src="/images/en/components/anatomy/gcds-checkbox-anatomy-single.svg" alt="Checkbox anatomy showing the labels Checkbox, Checkbox Label, Checkmark, and Checkbox Hint." />
+<img class="b-sm b-default p-300" src="/images/en/components/anatomy/gcds-checkbox-anatomy-single.svg" alt="Checkbox anatomy showing the labels Checkbox, Checkbox Label, Checkmark, and Checkbox Hint." />
 
 ## Design and accessibility for checkboxes
 

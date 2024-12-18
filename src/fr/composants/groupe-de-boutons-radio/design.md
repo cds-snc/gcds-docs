@@ -17,7 +17,7 @@ date: "git Last Modified"
   <li>Le <strong>texte explicatif du bouton radio</strong> donne plus de renseignements sur le choix.</li>
 </ol>
 
-<img class="b-sm b-default p-400" src="/images/fr/components/anatomy/gcds-radio-group-anatomy.svg" alt="Structure du groupe de boutons radio accompagnée des étiquettes « Légende du jeu de champ », « Texte explicatif du jeu de champ », « Coche », « Libellé du bouton radio », « Bouton radio » et « Texte explicatif du bouton radio »."/>
+<img class="b-sm b-default p-300" src="/images/fr/components/anatomy/gcds-radio-group-anatomy.svg" alt="Structure du groupe de boutons radio accompagnée des étiquettes « Légende du jeu de champ », « Texte explicatif du jeu de champ », « Coche », « Libellé du bouton radio », « Bouton radio » et « Texte explicatif du bouton radio »."/>
 
 ## Accessibilité et design des boutons radio
 

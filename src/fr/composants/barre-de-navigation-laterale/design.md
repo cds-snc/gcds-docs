@@ -17,7 +17,7 @@ date: 'git Last Modified'
   <li>Le <strong>lien de navigation avec indicateur de page active</strong> met en évidence la page actuelle.</li>
 </ol>
 
-<img class="b-sm b-default p-400" src="/images/fr/components/anatomy/gcds-side-nav-anatomy.svg" alt="L'anatomie du composant barre de navigation latérale identifiant le libellé, le lien de navigation, le groupe de navigation, le libellé du groupe de navigation, l'icône de chevron du groupe de navigation, le lien de navigation avec indicateur de page active."/>
+<img class="b-sm b-default p-300" src="/images/fr/components/anatomy/gcds-side-nav-anatomy.svg" alt="L'anatomie du composant barre de navigation latérale identifiant le libellé, le lien de navigation, le groupe de navigation, le libellé du groupe de navigation, l'icône de chevron du groupe de navigation, le lien de navigation avec indicateur de page active."/>
 
 ## Design et accessibilité de la barre de navigation latérale
 

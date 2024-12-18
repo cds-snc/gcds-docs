@@ -13,7 +13,7 @@ tags: ['textEN', 'design']
   <li><strong>Heading</strong> is a prominent line of text that introduces the paragraph or other body content that immediately follows it. The visual prominence of the heading decreases based on its level in the hierarchical order.</li>
 </ol>
 
-<img class="b-sm b-default p-400" src="/images/en/components/anatomy/gcds-text-anatomy.svg" alt="A line of large bold text above a block of smaller text. The bold text reads “This is a heading” and the block of written content reads “This is text that’s related to the heading and describes in further detail the heading’s subject or action. Text is typically one or several lines or paragraphs that form a section’s content or introduce a bulleted list, table, or other content, like an image or video.” A label with a “1” points to the smaller block of text and a label with “2” points to the larger bold text." />
+<img class="b-sm b-default p-300" src="/images/en/components/anatomy/gcds-text-anatomy.svg" alt="A line of large bold text above a block of smaller text. The bold text reads “This is a heading” and the block of written content reads “This is text that’s related to the heading and describes in further detail the heading’s subject or action. Text is typically one or several lines or paragraphs that form a section’s content or introduce a bulleted list, table, or other content, like an image or video.” A label with a “1” points to the smaller block of text and a label with “2” points to the larger bold text." />
 
 ## Design and accessibility for text
 
@@ -36,11 +36,10 @@ Tip: Think about whether the message could be interpreted another way.
 
 Tip: To adopt a more human tone, think about explaining aloud to someone. How does it sound when you speak the content in conversation?
 
-### Choose regular text or a caption
+### Choose regular or small text
 
 - Set the text size based on the role of the content and product context.
 - Use regular text for most non-heading content. Regular text uses the default font size.
-- Choose a caption to present brief context about a section or piece of content. Caption text displays a smaller font size.
 
 ### Use text styling sparingly
 

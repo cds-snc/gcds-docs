@@ -18,7 +18,7 @@ date: 'git Last Modified'
   </ul>
 </ol>
 
-<img class="b-sm b-default p-400" src="/images/fr/components/anatomy/gcds-link-anatomy.svg" alt="Une étiquette soulignée pour indiquer qu'il s'agit d'un lien interactif que l'on peut suivre. Une icône avec une flèche pointant vers le bas se trouve à droite du lien." />
+<img class="b-sm b-default p-300" src="/images/fr/components/anatomy/gcds-link-anatomy.svg" alt="Une étiquette soulignée pour indiquer qu'il s'agit d'un lien interactif que l'on peut suivre. Une icône avec une flèche pointant vers le bas se trouve à droite du lien." />
 
 ## Accessibilité et design des liens
 

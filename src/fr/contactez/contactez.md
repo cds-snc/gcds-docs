@@ -18,13 +18,13 @@ date: 'git Last Modified'
 
 Avec votre compte GitHub, utilisez notre <gcds-link external href="{{ links.githubCompsIssues }}">formulaire de soutien</gcds-link> pour signaler des bogues et obtenir un soutien technique. Vous aurez accès aux problèmes (issues) passés et verrez les progrès accomplis.
 
-<hr class="my-500" />
+<hr class="my-600" />
 
 ## Envoyer des commentaires, demander de l’aide ou s’inscrire
 
 Remplissez le formulaire suivant pour nous envoyer vos commentaires, demander de l’aide pour utiliser Système de design GC, ou vous inscrire à notre liste d’envoi ou à une démo.
 
-<form class="my-500 contact-us-form" name="contactFR" method="post" style="min-height: 32rem;" action="/api/submission">
+<form class="my-600 contact-us-form" name="contactFR" method="post" style="min-height: 32rem;" action="/api/submission">
   <input type="hidden" name="form-name" value="contactFR" />
   <input name="honeypot" type="text" aria-label="bot" hidden/>
 

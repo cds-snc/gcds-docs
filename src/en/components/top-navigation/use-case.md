@@ -28,8 +28,8 @@ The top navigation helps give visitors a sense of a site's structure, purpose, a
 - Offer a familiar wayfinding pattern.
 - Signal the active page and give a cue to the person's current position on the site.
 
-<article class="bg-full-width bg-primary text-light pt-500 pb-400 my-500">
-  <h2 class="mt-0 mb-400">Related components</h2>
+<article class="bg-full-width bg-primary text-light pt-600 pb-300 my-600">
+  <h2 class="mt-0 mb-300">Related components</h2>
 
 <a href="{{ links.sideNav }}" class="link-light">Side navigation</a> for products with up to three levels of navigation when the main content fits a narrow page width.
 

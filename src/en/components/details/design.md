@@ -18,11 +18,11 @@ This is an anatomy of the open details component. By default, the content is col
 
 ### Open details
 
-<img class="b-sm b-default p-400" src="/images/en/components/anatomy/gcds-details-anatomy-open.svg" alt="Learn more about this topic taxonomy with three labels: details title, icon and content.  Details title pointing at Learn more about this topic. Learn more about this topic is greyed blue font underlined. Icon pointed at a dark blue triangle arrow infront of the details title. When the arrow is selected it points down to show Additional information."/>
+<img class="b-sm b-default p-300" src="/images/en/components/anatomy/gcds-details-anatomy-open.svg" alt="Learn more about this topic taxonomy with three labels: details title, icon and content.  Details title pointing at Learn more about this topic. Learn more about this topic is greyed blue font underlined. Icon pointed at a dark blue triangle arrow infront of the details title. When the arrow is selected it points down to show Additional information."/>
 
 ### Closed details
 
-<img class="b-sm b-default p-400" src="/images/en/components/anatomy/gcds-details-anatomy-closed.svg" alt="Learn more about this topic taxonomy with two labels: details title and icon. The details title pointing at Learn more about this topic. Learn more about this topic is dark font underlined. Icon pointed at a dark blue triangle arrow infront of the details title."/>
+<img class="b-sm b-default p-300" src="/images/en/components/anatomy/gcds-details-anatomy-closed.svg" alt="Learn more about this topic taxonomy with two labels: details title and icon. The details title pointing at Learn more about this topic. Learn more about this topic is dark font underlined. Icon pointed at a dark blue triangle arrow infront of the details title."/>
 
 ## Design and accessibility for details
 

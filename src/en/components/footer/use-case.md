@@ -10,13 +10,14 @@ eleventyNavigation:
   description: The Government of Canada branded footer landmark.
   thumbnail: /images/common/components/preview-footer.svg
   alt: Footer component shows blue box showing the way text would be filled, at the bottom there is a government of Canada logo.
-  tag: Core
+  tag: Canada.ca required
   state: published
 translationKey: 'footer'
 tags: ['footerEN', 'usage']
 permalink: /en/components/footer/
 date: 'git Last Modified'
 ---
+Footer is a required component for Canada.ca pages.
 
 Take a look at what problems the footer solves to see if they fit the problem you're solving for.
 
@@ -28,8 +29,8 @@ Use this footer landmark – as part of a trusted brand – for apps, forms, or 
 - A Government of Canada digital service or product offering a broad range of services and information.
 - The Government of Canada identity through the wordmark.
 
-<article class="bg-full-width bg-primary text-light pt-500 pb-400 my-500">
-  <h2 class="mt-0 mb-400">Related components</h2>
+<article class="bg-full-width bg-primary text-light pt-600 pb-300 my-600">
+  <h2 class="mt-0 mb-300">Related components</h2>
 
 <a href="{{ links.header }}" class="link-light">Header</a> for placing the Government of Canada branded header landmark.
 

@@ -27,8 +27,8 @@ Use the text component to:
 - Reinforce brand identity with consistent messaging styles and formats across web pages. For example, using GC Design System typography as a standard for consistent font style.
 - Divide content into understandable sections with vertical and horizontal margins. Breaking up content supports readability, simplifies site navigation, and reduces task abandonment.
 
-<article class="bg-full-width bg-primary text-light pt-500 pb-400 my-500">
-  <h2 class="mt-0 mb-400">Related components</h2>
+<article class="bg-full-width bg-primary text-light pt-600 pb-300 my-600">
+  <h2 class="mt-0 mb-300">Related components</h2>
 
 <a href="{{ links.heading }}" class="link-light">Headings</a> for structuring content by creating levels of hierarchy that organize page content visually and mentally, using GC Design System styles.
 

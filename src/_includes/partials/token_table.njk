@@ -1,4 +1,4 @@
-<div class="mb-400 table-overflow">
+<div class="mb-300 table-overflow">
     <table class="table-display-token-{{type}}">
         <thead>
             <tr>
@@ -37,7 +37,7 @@
                     {%- when 'spacing-preview' -%}
                         <div class="spacing-preview" style="width: {{item[1].value}}; height: {{item[1].value}};"></div>
                     {%- when 'token-name' %}
-                        <span lang="en">--gcds-{{ concatToken | replace: ".", "-" | fixTokenName }}-{{ item[0] }}</span>
+                        <span lang="en">--gcds-{{ concatToken | replace: ".", "-" | fixTokenName | camelToKebab }}-{{ item[0] | camelToKebab }}</span>
                     {%- when 'value' %}
                         {{- item[1].value }}
                     {%- when 'contrast' %}

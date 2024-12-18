@@ -18,13 +18,13 @@ date: 'git Last Modified'
 
 With an account, use our <gcds-link external href="{{ links.githubCompsIssues }}">GitHub support form</gcds-link> to report bugs and get technical help. You’ll have access to past issues and updates on progress.
 
-<hr class="my-500" />
+<hr class="my-600" />
 
 ## Give feedback, request support, or sign up
 
 Use this form to provide feedback or ask questions, get help using GC Design System, or sign up for our mailing list or demo.
 
-<form class="my-500 contact-us-form" name="contactEN" method="post" style="min-height: 32rem;" action="/api/submission">
+<form class="my-600 contact-us-form" name="contactEN" method="post" style="min-height: 32rem;" action="/api/submission">
   <input type="hidden" name="form-name" value="contactEN" />
   <input name="honeypot" type="text" aria-label="bot" hidden/>
 

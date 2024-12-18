@@ -10,13 +10,14 @@ eleventyNavigation:
   description: A corporate identity marker for the Government of Canada.
   thumbnail: /images/common/components/preview-signature.svg
   alt: Signature component shows Canadian Flag and grey boxes where signature text would be.
-  tag: Core
+  tag: Canada.ca required
   state: published
 translationKey: 'signature'
 tags: ['signatureEN', 'usage']
 permalink: /en/components/signature/
 date: 'git Last Modified'
 ---
+Signature is a required component for Canada.ca pages.
 
 Check out use cases for the signature to see if they fit the problem you're solving for.
 
@@ -28,8 +29,8 @@ Use the signature landmark as part of a trusted brand to:
 - Inform a person they’re reading content published by the Government of Canada.
 - Offer a global link to the site’s home page in both Official Languages.
 
-<article class="bg-full-width bg-primary text-light pt-500 pb-400 my-500">
-  <h2 class="mt-0 mb-400">Related components</h2>
+<article class="bg-full-width bg-primary text-light pt-600 pb-300 my-600">
+  <h2 class="mt-0 mb-300">Related components</h2>
 
 <a href="{{ links.header }}" class="link-light">Header</a> for placing the Government of Canada branded header landmark.
 
@@ -48,7 +49,7 @@ Use the **signature** type in the header beside the language toggle component to
 - Present the corporate signature of the Government of Canada.
 - Provide users with a landmark for navigating back to the site’s homepage.
 
-<img class="b-sm b-default mt-400 mb-100 p-400" src="/images/en/components/example/example-signature-signature-type-en.svg" alt="The Government of Canada signature. The signature includes the red Canada flag, followed by the text “Government of Canada / Gouvernement du Canada”." />
+<img class="b-sm b-default mt-300 mb-75 p-300" src="/images/en/components/example/example-signature-signature-type-en.svg" alt="The Government of Canada signature. The signature includes the red Canada flag, followed by the text “Government of Canada / Gouvernement du Canada”." />
 
 ### Wordmark type
 
@@ -57,4 +58,4 @@ Use the **wordmark** type in the in the bottom right corner of the footer to:
 - Accompany the signature or another approved corporate signature of the Government of Canada on public-facing and internal sites and products.
 - Present this official symbol and global identifier of the Government of Canada.
 
-<img class="b-sm b-default mt-400 mb-300 p-400" src="/images/en/components/example/example-signature-wordmark-type-en.svg" alt="The Canada Wordmark. The wordmark includes the word “Canada” with a red Canada flag just above the final “a”." />
+<img class="b-sm b-default mt-300 mb-225 p-300" src="/images/en/components/example/example-signature-wordmark-type-en.svg" alt="The Canada Wordmark. The wordmark includes the word “Canada” with a red Canada flag just above the final “a”." />

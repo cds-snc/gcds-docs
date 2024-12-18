@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   const buttonClasses = [
     'd-block',
-    'mt-200',
+    'mt-150',
     'code-copy-button'
   ]
 

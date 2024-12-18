@@ -16,7 +16,7 @@ date: 'git Last Modified'
   <li>The <strong>description</strong> (optional) has text that supports the card title. It may include a few lines of summary on the card's topic or a list of details about the same subject, like a list of event details.</li>
 </ol>
 
-<img class="b-sm b-default p-400" src="/images/en/components/anatomy/gcds-card-anatomy.svg" alt="A card anatomy represented by 5 elements: the container, the badge, the image, the headline, and the description."/>
+<img class="b-sm b-default p-300" src="/images/en/components/anatomy/gcds-card-anatomy.svg" alt="A card anatomy represented by 5 elements: the container, the badge, the image, the headline, and the description."/>
 
 ## Design and accessibility for cards
 

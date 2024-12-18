@@ -30,8 +30,8 @@ Utilisez des liens pour :
 - Lancer le téléchargement de fichiers, en donnant l'accès direct aux documents, médias ou tout autre contenu téléchargeable.
 - Sauter les éléments de navigation pour passer au contenu principal.
 
-<article class="bg-full-width bg-primary text-light pt-500 pb-400 my-500">
-  <h2 class="mt-0 mb-400">Composants connexes</h2>
+<article class="bg-full-width bg-primary text-light pt-600 pb-300 my-600">
+  <h2 class="mt-0 mb-300">Composants connexes</h2>
 
 <a href="{{ links.button }}" class="link-light">Boutons</a> : pour modifier des données, changer d'état ou lancer une action spécifique.
 

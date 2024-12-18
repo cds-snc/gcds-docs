@@ -15,7 +15,7 @@ The radio group is a set of options for a single selection.
 {% docLinks locale stage figma github %}
 {% enddocLinks %}
 
-{% componentPreview "Radio group component preview" "px-300 pt-400 pb-200" %}
+{% componentPreview "Radio group component preview" "px-225 pt-300 pb-150" %}
 <gcds-fieldset fieldset-id="fieldset" legend="Legend" hint="Hint / Example message.">
 <gcds-radio-group name="radio" options='[{"id":"form-radio-1","label":"Label 1","hint":"Description or example to make the option clearer"},{"id":"form-radio-r","label":"Label 2","hint":"Description or example to make the option clearer"}]'>
 </gcds-radio-group>

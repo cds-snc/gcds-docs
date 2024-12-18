@@ -12,7 +12,7 @@ date: 'git Last Modified'
   <li>Le <strong>message d'erreur</strong> cite le problème dans son contexte et comprend un appel à l'action pour le corriger.</li>
 </ol>
 
-<img class="b-sm b-default p-400" src="/images/fr/components/anatomy/gcds-error-message-anatomy.svg" alt="Stucture du message d'erreur représenté par une icône d'avertissement (point d'exclamation blanc à l'intérieur d'un triangle rouge) placée à côté du texte « Message d'erreur »."/>
+<img class="b-sm b-default p-300" src="/images/fr/components/anatomy/gcds-error-message-anatomy.svg" alt="Stucture du message d'erreur représenté par une icône d'avertissement (point d'exclamation blanc à l'intérieur d'un triangle rouge) placée à côté du texte « Message d'erreur »."/>
 
 ### Message d'erreur appliqué à un composant de formulaire
 
@@ -27,7 +27,7 @@ Pour vos propres composants, ajoutez le composant Message d'erreur ainsi que les
   <li>Le <strong>champ de réponse</strong> adopte l'apparence du format de réponse et de l'état du message d'erreur du composant auquel il est rattaché. Les cases de champs de saisie et des champs de texte sont surlignées. Les options des boutons radio ou des cases à cocher sont surlignées.</li>
 </ol>
 
-<img class="b-sm b-default p-400" src="/images/fr/components/anatomy/gcds-error-message-anatomy-with-form-field.svg" alt="Taxonomie du message d'erreur représentée par quatre éléments: l'étiquette ou légende (obligatoire), le texte explicatif / exemple de message, une icône avertissement à côté du texte « Message d'erreur », et une zone de réponse (une boîte rouge rectangulaire comprenant une zone de texte)."/>
+<img class="b-sm b-default p-300" src="/images/fr/components/anatomy/gcds-error-message-anatomy-with-form-field.svg" alt="Taxonomie du message d'erreur représentée par quatre éléments: l'étiquette ou légende (obligatoire), le texte explicatif / exemple de message, une icône avertissement à côté du texte « Message d'erreur », et une zone de réponse (une boîte rouge rectangulaire comprenant une zone de texte)."/>
 
 ## Conception et accessibilité des messages d'erreur
 

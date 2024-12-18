@@ -40,7 +40,7 @@ Opt out of setting the minimum and maximum width when you want to design equal-w
 
 Desktop
 
-<div class="b-sm mb-400 p-400">
+<div class="b-sm mb-300 p-300">
   <gcds-grid tag="article" columns-desktop="1fr 1fr 1fr" columns-tablet="1fr 1fr" columns="1fr">
     <p>This is some example content to display the grid component.</p>
     <p>This is some example content to display the grid component.</p>
@@ -50,7 +50,7 @@ Desktop
 
 Tablet
 
-<div class="b-sm mb-400 p-400">
+<div class="b-sm mb-300 p-300">
   <gcds-grid tag="article" columns-tablet="1fr 1fr" columns="1fr">
     <p>This is some example content to display the grid component.</p>
     <p>This is some example content to display the grid component.</p>
@@ -60,7 +60,7 @@ Tablet
 
 Mobile
 
-<div class="b-sm p-400">
+<div class="b-sm p-300">
   <gcds-grid tag="article" columns="1fr">
     <p>This is some example content to display the grid component.</p>
     <p>This is some example content to display the grid component.</p>
@@ -86,7 +86,7 @@ Set the minimum and maximum width to design equal-width columns with restriction
 
 Desktop
 
-<div class="showcase-preview b-sm mb-400 p-400">
+<div class="showcase-preview b-sm mb-300 p-300">
   <gcds-grid tag="article" columns="repeat(auto-fit, minmax(100px, 300px))">
     <p>This is some example content to display the grid component.</p>
     <p>This is some example content to display the grid component.</p>
@@ -96,7 +96,7 @@ Desktop
 
 Tablet
 
-<div class="showcase-preview b-sm mb-400 p-400">
+<div class="showcase-preview b-sm mb-300 p-300">
   <div class="container-md">
     <gcds-grid tag="article" columns="repeat(auto-fit, minmax(100px, 300px))">
       <p>This is some example content to display the grid component.</p>
@@ -108,7 +108,7 @@ Tablet
 
 Mobile
 
-<div class="showcase-preview b-sm p-400">
+<div class="showcase-preview b-sm p-300">
   <div class="container-sm">
     <gcds-grid tag="article" columns="repeat(auto-fit, minmax(100px, 300px))">
       <p>This is some example content to display the grid component.</p>

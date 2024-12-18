@@ -10,13 +10,14 @@ eleventyNavigation:
   description: A path to the current page from each preceding level of the site's hierarchy.
   thumbnail: /images/common/components/preview-breadcrumbs.svg
   alt: Two thick grey lines with a chevron between them represent breadcrumb links.
-  tag: Core
+  tag: Canada.ca required
   state: published
 translationKey: 'breadcrumbs'
 tags: ['breadcrumbsEN', 'usage']
 permalink: /en/components/breadcrumbs/
 date: 'git Last Modified'
 ---
+Breadcrumbs is a required component for Canada.ca pages.
 
 Check out use cases for breadcrumbs to see if they fit the problem you're solving for.
 
@@ -29,8 +30,8 @@ Use breadcrumbs to signal a visitor's current location and give them a sense of 
 - Situate the current page in relation to its parent in the site structure.
 - Organize websites in a hierarchy of more than two levels.
 
-<article class="bg-full-width bg-primary text-light pt-500 pb-400 my-500">
-  <h2 class="mt-0 mb-400">Related components</h2>
+<article class="bg-full-width bg-primary text-light pt-600 pb-300 my-600">
+  <h2 class="mt-0 mb-300">Related components</h2>
 
 <a href="{{ links.footer }}" class="link-light">Footer</a> for placing the Government of Canada branded footer landmark.
 
