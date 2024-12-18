@@ -7,6 +7,7 @@ eleventyNavigation:
   title: Get involved
   locale: en
   order: 3
+templateEngineOverride: njk,md
 ---
 
 # Get involved
@@ -87,10 +88,4 @@ Provide any of the following for each component or pattern:
   </ul>
 </div>
 
-## Report an issue
-
-Something's not working? Flag the issue to our team through GitHub. If this is your first time using Github - follow these <gcds-link href="{{ links.githubGetStarted }}" external>instructions</gcds-link> to create your account. With an account, you'll have access to all past issues and get updates on progress.
-
-<gcds-link href="{{ links.githubCompsBug }}" external>Report an issue</gcds-link>
-
-{% include "partials/helpus.njk" %}
+{% include "partials/givefeedback.njk" %}

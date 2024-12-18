@@ -1,0 +1,27 @@
+{% set templates = [cardlist.type, locale | upper] | join %}
+{% set templateCards = collections.all | eleventyNavigation(templates) %}
+
+{% if cardlist.type === 'pageTemplates' and cardlist.state === 'published' %}
+  <div class="my-600">
+    <gcds-grid tag="ul" columns="1fr" columns-tablet="1fr 1fr" columns-desktop="1fr 1fr 1fr">
+    {%- for entry in templateCards -%}
+      {% if entry.state == cardlist.state %}
+        <gcds-card
+          card-title="{{ entry.title }}"
+          href="{% if entry.state == "published" %}{{entry.url}}{% else %}#{% endif %}"
+          card-title-tag="h3"
+          badge="{% if entry.tag %}{{ entry.tag }}{% endif %}"
+          role="listitem"
+        >
+          <gcds-text >{{ entry.description }}</gcds-text>
+          {% if entry.descriptionSecondaryText %}
+            <gcds-text>
+              {{ documentation[locale].descriptionSecondaryText }}{{ entry.descriptionSecondaryText }}
+            </gcds-text>
+          {% endif %}
+        </gcds-card>
+      {% endif %}
+    {%- endfor -%}
+    </gcds-grid>
+  </div>
+{% endif %}

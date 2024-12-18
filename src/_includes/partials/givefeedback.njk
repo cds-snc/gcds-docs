@@ -1,0 +1,16 @@
+  <h2 class="mt-225 mb-300">
+    {{ givefeedback[locale].heading }}
+  </h2>
+
+  <p class="mb-300">
+    {{ givefeedback[locale].paragraph | safe }}
+  </p>
+
+  <gcds-link
+    href="{{ links.githubCompsBug }}"
+    external
+  >
+    {{ givefeedback[locale].reportAnIssue }}
+  </gcds-link>
+
+  {% include "partials/helpus.njk" %}

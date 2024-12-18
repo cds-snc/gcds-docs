@@ -62,6 +62,18 @@
     "releaseNotes": "https://github.com/cds-snc/gcds-components/blob/main/CHANGELOG.md",
     "privacy": "/fr/avis-de-confidentialite/",
 
+    "pageTemplates": "/fr/modeles-de-page",
+    "pageTemplatesBasic": "/fr/modeles-de-page/basic",
+    "pageTemplatesBasicPreview": "/fr/modeles-de-page/basic/apercu",
+    "pageTemplatesBasicCode": "/fr/modeles-de-page/basic/code",
+    "pageTemplatesBasicGithubLink": "https://github.com/cds-snc/gcds-examples/blob/main/templates/french/basic/basic-page-template.html",
+    "pageTemplatesBasicGithubRaw": "https://raw.githubusercontent.com/cds-snc/gcds-examples/refs/heads/main/templates/french/basic/basic-page-template.html",
+    "pageTemplatesBasicFigma": "https://www.figma.com/design/o4SguSZdar2CCFzSkWNrmB/Syst%C3%A8me-de-design-GC?node-id=3557-2068&t=cL9ip0qr7tyhHMGA-0",
+    "pageTemplatesBasicExtOTPPreview": "/fr/modeles-de-page/basic/apercu-sur-cette-page",
+    "pageTemplatesBasicExtOTPCode": "/fr/modeles-de-page/basic/code-sur-cette-page",
+    "pageTemplatesBasicExtOTPGithubLink": "https://github.com/cds-snc/gcds-examples/blob/main/templates/french/basic/extensions/basic-page-template-table-of-contents.html",
+    "pageTemplatesBasicExtOTPGithubRaw": "https://raw.githubusercontent.com/cds-snc/gcds-examples/refs/heads/main/templates/french/basic/extensions/basic-page-template-table-of-contents.html",
+
     "figma": "https://www.figma.com/file/o4SguSZdar2CCFzSkWNrmB/Syst%C3%A8me-de-design-GC?type=design&node-id=226-31997&mode=design&t=MNtR7hfKusf7RKxF-0",
 
     "fontAwesome": "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css",
@@ -96,6 +108,8 @@
     "githubIssues": "https://github.com/cds-snc/gcds-components/issues",
     "githubTokens": "https://github.com/cds-snc/gcds-tokens",
     "githubTokensIssues": "https://github.com/cds-snc/gcds-tokens/issues",
+
+    "tbsStandardsOnWebA11y": "https://www.tbs-sct.canada.ca/pol/doc-fra.aspx?id=23601",
 
     "wcag": "https://www.w3.org/TR/WCAG21/",
     "wcagTargetSize": "https://www.w3.org/TR/WCAG21/#target-size",

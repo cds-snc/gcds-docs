@@ -50,7 +50,7 @@ h6 {
 // Text and long form content
 ul li {
   font: var(--gcds-font-text);
-  max-width: 65ch;
+  max-width: var(--gcds-text-character-limit);
 }
 
 ul li p:last-child,

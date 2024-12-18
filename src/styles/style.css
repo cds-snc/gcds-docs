@@ -70,7 +70,7 @@ h6 {
 
 ul li {
   font: var(--gcds-font-text);
-  max-width: 65ch;
+  max-width: var(--gcds-text-character-limit);
 }
 
 ul li p:last-child,
@@ -120,6 +120,11 @@ ul li ul.mb-300 {
 }
 ul li ul li {
   list-style: circle;
+}
+
+.max-width-content {
+  width: var(--gcds-text-character-limit);
+  max-width: 100%;
 }
 
 .anatomy-list {

@@ -7,6 +7,7 @@ eleventyNavigation:
   title: S'impliquer
   locale: fr
   order: 3
+templateEngineOverride: njk,md
 ---
 
 # S'impliquer
@@ -87,10 +88,4 @@ Fournissez l'un des éléments suivants pour chaque composant ou bloc réutilisa
   </ul>
 </div>
 
-### Signalez un problème
-
-Quelque chose ne fonctionne pas? Signalez le problème à notre équipe via GitHub. Si c’est la première fois que vous utilisez GitHub, suivez ces <gcds-link href="{{ links.githubGetStarted }}" external>instructions</gcds-link> pour créer votre compte. Avec un compte, vous pourrez voir tous les problèmes (issues) passés et serez informé des progrès accomplis.
-
-<gcds-link href="{{ links.githubCompsBug }}" external>Signaler un problème</gcds-link>
-
-{% include "partials/helpus.njk" %}
+{% include "partials/givefeedback.njk" %}
