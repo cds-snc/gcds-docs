@@ -35,10 +35,4 @@ We're sharing page templates as we build them.
 
 {% include "partials/template-list.njk" %}
 
-## Coming soon
-We're working on the following page templates that will soon be ready for you to try.
-
-- **Topic page**: A page that presents a series of options for popular tasks and services on an important topic.
-- **Ministerial profile page**: For landing pages with biographical details and roles and responsibilities of ministers, parliamentary secretaries, and heads of quasi-judicial organizations.
-
 {% include "partials/givefeedback.njk" %}
