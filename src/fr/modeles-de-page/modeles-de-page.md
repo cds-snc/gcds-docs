@@ -9,7 +9,7 @@ eleventyNavigation:
 translationKey: 'pageTemplates'
 date: 'git Last Modified'
 github: https://github.com/cds-snc/gcds-examples/tree/main/templates
-figma: https://www.figma.com/
+figma: https://www.figma.com/design/o4SguSZdar2CCFzSkWNrmB/Syst%C3%A8me-de-design-GC?node-id=2951-1243&p=f&t=Tw0Zt5ZnwTWBYvQV-0
 cardlist:
   type: pageTemplates
   state: published
