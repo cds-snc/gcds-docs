@@ -41,7 +41,7 @@
     "chroma-js": "^2.4.2",
     "eleventy-plugin-svg-contents": "^0.7.0",
     "pagefind": "^1.0.4",
-    "prettier": "3.4.1",
+    "prettier": "3.4.2",
     "prompt-sync": "^4.2.0",
     "replace-in-file": "^7.0.0",
     "sass": "^1.72.0"
