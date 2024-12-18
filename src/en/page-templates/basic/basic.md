@@ -25,6 +25,7 @@ The Basic Page template provides accessibility essentials for page structure and
 ## When to use
 
 For use on Canada.ca and other GC sites.
+
 The basic page template is for non-specialized pages across Canada.ca and is an optional template. It has the starting elements needed for a simple page and those required for most GC pages. You can use it as a canvas to add or combine <gcds-link href="{{ links.components }}">components</gcds-link> from the GC Design System.
 
 ## Preview
@@ -47,7 +48,8 @@ To prototype in Figma, find the <gcds-link external href="{{ links.pageTemplates
 
 ### Improve navigation on longer pages
 
-Include an "On this page" section with bulleted anchor links for pages with four or more sections. Anchor links  to improve navigation and help people find relevant content.
+- Include an "On this page" section with bulleted anchor links for pages with four or more sections. 
+- Anchor links to improve navigation and help people find relevant content.
 
 ### Preview "On this page"
 

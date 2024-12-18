@@ -48,7 +48,8 @@ Pour réaliser un prototype dans Figma, trouvez le <gcds-link external href="{{ 
 
 ### Améliorer la navigation dans les longues pages
 
-Pour toute page ayant 4 sections ou plus, ajoutez une section « Sur cette page » comprenant une liste de liens (ancres) renvoyant aux autres sections. Les ancres améliorent la navigation et aident les gens à trouver le contenu dont ils ont besoin.
+- Pour toute page ayant 4 sections ou plus, ajoutez une section « Sur cette page » comprenant une liste de liens (ancres) renvoyant aux autres sections. 
+- Ajouter des ancres afin d'améliorer la navigation et aident les gens à trouver le contenu dont ils ont besoin.
 
 ### Aperçu « Sur cette page »
 
