@@ -7,6 +7,7 @@ eleventyNavigation:
   title: S'impliquer
   locale: fr
   order: 3
+templateEngineOverride: njk,md
 ---
 
 # S'impliquer

@@ -1,10 +1,9 @@
-<section data-pagefind-ignore class="py-75 mt-300 mb-900 {% if removeBorder %} {% else %}by-sm b-dark {% endif %}">
   <h2 class="mt-225 mb-300">
     {{ givefeedback[locale].heading }}
   </h2>
 
   <p class="mb-300">
-    {{ givefeedback[locale].paragraph }}
+    {{ givefeedback[locale].paragraph | safe }}
   </p>
 
   <gcds-link
@@ -14,13 +13,4 @@
     {{ givefeedback[locale].reportAnIssue }}
   </gcds-link>
 
-  <p class="mb-300">
-    {{ helpus[locale].paragraph }}
-  </p>
-
-  <gcds-link
-    href="{{ helpus[locale].feedbackHref }}"
-  >
-    {{ helpus[locale].feedback }}
-  </gcds-link>
-</section>
+  {% include "partials/helpus.njk" %}

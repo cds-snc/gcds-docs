@@ -7,6 +7,7 @@ eleventyNavigation:
   title: Get involved
   locale: en
   order: 3
+templateEngineOverride: njk,md
 ---
 
 # Get involved
