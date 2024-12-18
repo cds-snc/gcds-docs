@@ -1,0 +1,134 @@
+<!-- TODO: Remove all comments before deploying your code to production. -->
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- TODO: Add a description of the page for better SEO and sharing previews. -->
+    <meta
+      name="description"
+      content="Add a description to provide a brief summary of the content."
+    />
+
+    <!-- TODO: Insert a concise, descriptive title that summarizes your page's content. -->
+    <title>Basic Page Template (EN)</title>
+
+    <!---------- GC Design System Utility ---------->
+    <!-- TODO: Replace <version-number> with the latest version number to receive corresponding updates of the GC Design System utility framework. All notable changes will be documented in the changelog: https://github.com/cds-snc/gcds-utility/blob/main/CHANGELOG.md -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.design-system.alpha.canada.ca/@cdssnc/gcds-utility@1.5.0/dist/gcds-utility.min.css"
+    />
+
+    <!---------- GC Design System Components ---------->
+    <!-- TODO: Replace <version-number> with the latest version number to receive corresponding updates of GC Design System Components. All notable changes will be documented in the changelog: https://github.com/cds-snc/gcds-components/blob/main/CHANGELOG.md -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.design-system.alpha.canada.ca/@cdssnc/gcds-components@0.30.0/dist/gcds/gcds.css"
+    />
+    <script
+      type="module"
+      src="https://cdn.design-system.alpha.canada.ca/@cdssnc/gcds-components@0.30.0/dist/gcds/gcds.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://cdn.design-system.alpha.canada.ca/@cdssnc/gcds-components@0.30.0/dist/gcds/gcds.js"
+    ></script>
+
+    <!-- Custom styles -->
+    <!-- TODO: If needed, uncomment and link your custom CSS file here. -->
+    <!-- <link rel="stylesheet" href="path/to/custom.css" /> -->
+  </head>
+
+  <body>
+    <!---------- Header ---------->
+    <!-- TODO: Modify the lang-href to set the language toggle's URL. -->
+    <!-- TODO: Update the skip-to-href with the main content container's id. -->
+    <gcds-header lang-href="#" skip-to-href="#main-content">
+      <!-- The slot="search" attribute adds the search component to the header. -->
+      <gcds-search slot="search"></gcds-search>
+
+      <!-- The slot="breadcrumb" attribute adds the breadcrumbs component to the header. -->
+      <gcds-breadcrumbs slot="breadcrumb">
+        <!-- TODO: Adjust the breadcrumb links with the correct ones for your site. -->
+        <gcds-breadcrumbs-item href="#">Link</gcds-breadcrumbs-item>
+        <gcds-breadcrumbs-item href="#">Link</gcds-breadcrumbs-item>
+      </gcds-breadcrumbs>
+    </gcds-header>
+
+    <!---------- Main content ---------->
+    <!-- TODO: Confirm the id matches the "skip-to-href" id in the header. -->
+    <gcds-container
+      id="main-content"
+      main-container
+      size="xl"
+      centered
+      tag="main"
+    >
+      <!-- TODO: Update the heading and text content. -->
+      <section>
+        <gcds-heading tag="h1">Basic page</gcds-heading>
+        <gcds-text>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Turp is
+          egestas maecenas pharetra convallis posuere morbi leo urna.
+        </gcds-text>
+      </section>
+
+      <section>
+        <gcds-heading tag="h2">Section 1</gcds-heading>
+        <gcds-text>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Turp is
+          egestas maecenas pharetra convallis posuere morbi leo urna.
+        </gcds-text>
+
+        <gcds-heading tag="h3">Subsection heading</gcds-heading>
+        <gcds-text>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Turp is
+          egestas maecenas pharetra convallis posuere morbi leo urna.
+        </gcds-text>
+
+        <gcds-heading tag="h3">Subsection heading</gcds-heading>
+        <gcds-text>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Turp is
+          egestas maecenas pharetra convallis posuere morbi leo urna.
+        </gcds-text>
+      </section>
+
+      <section>
+        <gcds-heading tag="h2">Section 2</gcds-heading>
+        <gcds-text>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Turp is
+          egestas maecenas pharetra convallis posuere morbi leo urna.
+        </gcds-text>
+      </section>
+
+      <section>
+        <gcds-heading tag="h2">Section 3</gcds-heading>
+        <gcds-text>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Turp is
+          egestas maecenas pharetra convallis posuere morbi leo urna.
+        </gcds-text>
+      </section>
+
+      <!-- TODO: Update the date to reflect the page's most recent change. -->
+      <gcds-date-modified>2024-08-22</gcds-date-modified>
+    </gcds-container>
+
+    <!---------- Footer ---------->
+    <!-- TODO: Update or remove the contextual footer heading and links as needed. -->
+    <gcds-footer
+      display="full"
+      contextual-heading="Canadian Digital Service"
+      contextual-links='{ "Why GC Notify": "#","Features": "#", "Activity on GC Notify": "#"}'
+    >
+    </gcds-footer>
+  </body>
+</html>
+
