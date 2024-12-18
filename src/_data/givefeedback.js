@@ -8,7 +8,7 @@ module.exports = {
   fr: {
     heading: 'Fournir des commentaires',
     paragraph:
-      'Quelque chose ne fonctionne pas? Signalez le problème à notre équipe via GitHub. Si c’est la première fois que vous utilisez GitHub, suivez ces <gcds-link href="{{ links.githubGetStarted }}" external>instructions</gcds-link> pour créer votre compte. Avec un compte, vous pourrez voir tous les problèmes (issues) passés et serez informé des progrès accomplis.',
+      'Quelque chose ne fonctionne pas? Signalez le problème à notre équipe via GitHub. Si c’est la première fois que vous utilisez GitHub, suivez ces <gcds-link href="https://docs.github.com/fr/get-started/start-your-journey/creating-an-account-on-github" external>instructions</gcds-link> pour créer votre compte. Avec un compte, vous pourrez voir tous les problèmes (issues) passés et serez informé des progrès accomplis.',
     reportAnIssue: 'Signaler un problème',
   },
 };
