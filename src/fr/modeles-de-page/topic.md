@@ -13,8 +13,8 @@ eleventyNavigation:
 translationKey: 'heading'
 tags: ["templates"]
 date: "git Last Modified"
-#github: https://github.com/cds-snc/gcds-examples/blob/feat/add-basic-page-templates/templates/english/basic-page-template.html
-#figma: https://figma.com
+#github: 
+#figma: 
 ---
 
 # Topic Page Template

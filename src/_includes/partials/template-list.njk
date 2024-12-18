@@ -2,8 +2,8 @@
 {% set templateCards = collections.all | eleventyNavigation(templates) %}
 
 {% if cardlist.type === 'pageTemplates' and cardlist.state === 'published' %}
-  <div class="my-500">
-    <gcds-grid tag="ul" columns="1fr" columns-tablet="1fr 1fr" columns-desktop="1fr 1fr 1fr" gap="400">
+  <div class="my-600">
+    <gcds-grid tag="ul" columns="1fr" columns-tablet="1fr 1fr" columns-desktop="1fr 1fr 1fr">
     {%- for entry in templateCards -%}
       {% if entry.state == cardlist.state %}
         <gcds-card

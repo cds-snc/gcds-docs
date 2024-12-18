@@ -30,10 +30,10 @@ Le modèle de page de base est destiné aux pages non spécialisées de Canada.c
 
 ## Aperçu
 
-<gcds-button class="mb-400" button-role="secondary" type="link" href="{{ links.pageTemplatesBasicPreview }}" target="_blank">Ouvrir demo dans un nouvel onglet</gcds-button>
+<gcds-button class="mb-300" button-role="secondary" type="link" href="{{ links.pageTemplatesBasicPreview }}" target="_blank">Ouvrir demo dans un nouvel onglet</gcds-button>
 <gcds-button  button-role="secondary" type="link" href="{{ links.pageTemplatesBasicCode }}" target="_blank">Obtenez code dans un nouvel onglet</gcds-button>
 
-<img class="max-width-content b-sm b-default mb-400 p-400" src="/images/fr/templates/basic-page-preview.png" alt="Le modèle de page de base comprend l'en-tête et le pied de page du Gouvernement du Canada, ainsi que les sections titre H1, H2 et H3 accompagnées de texte sous chacune des sections."/>
+<img class="max-width-content b-sm b-default mb-300 p-300" src="/images/fr/templates/basic-page-preview.png" alt="Le modèle de page de base comprend l'en-tête et le pied de page du Gouvernement du Canada, ainsi que les sections titre H1, H2 et H3 accompagnées de texte sous chacune des sections."/>
 
 ## Comment procéder à la mise en œuvre
 
@@ -52,10 +52,10 @@ Pour toute page ayant 4 sections ou plus, ajoutez une section « Sur cette page 
 
 ### Aperçu « Sur cette page »
 
-<gcds-button class="mb-400" button-role="secondary" type="link" href="{{ links.pageTemplatesBasicExtOTPPreview }}" target="_blank">Ouvrir demo dans un nouvel onglet</gcds-button>
+<gcds-button class="mb-300" button-role="secondary" type="link" href="{{ links.pageTemplatesBasicExtOTPPreview }}" target="_blank">Ouvrir demo dans un nouvel onglet</gcds-button>
 <gcds-button  button-role="secondary" type="link" href="{{ links.pageTemplatesBasicExtOTPCode }}" target="_blank">Obtenez code dans un nouvel onglet</gcds-button>
 
-<img class="max-width-content b-sm b-default mb-400 p-400" src="/images/fr/templates/basic-page-on-this-page-preview.png" alt="Un modèle de page de base avec une section 'Sur cette page' inclut l'en-tête et le pied de page du gouvernement du Canada, une section 'Sur cette page' et trois sections listées en-dessous."/>
+<img class="max-width-content b-sm b-default mb-400 p-300" src="/images/fr/templates/basic-page-on-this-page-preview.png" alt="Un modèle de page de base avec une section 'Sur cette page' inclut l'en-tête et le pied de page du gouvernement du Canada, une section 'Sur cette page' et trois sections listées en-dessous."/>
 
 ### Assurer la cohérence des niveaux de titres
 
