@@ -23,9 +23,9 @@ Can’t find a time that works for you? [Contact us]({{ links.contact }}).
 - Learn how you can use GC Design System to prototype and develop web experiences.
 - Get answers to your questions directly from the GC Design System team.
 
-<div>
+## Available demos
+
 {% registerForDemoLinks locale %}
 {% endregisterForDemoLinks %}
-</div>
 
 {% include "partials/givefeedback.njk" %}

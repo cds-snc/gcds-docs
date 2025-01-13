@@ -23,9 +23,9 @@ Vous ne trouvez pas un horaire qui vous convient? [Contactez-nous]({{ links.cont
 - Apprenez comment utiliser le Système de design GC pour créer des prototypes et développer des expériences web.
 - Obtenez des réponses à vos questions directement de l'équipe du Système de design GC.
 
-<div>
+## Démos disponibles
+
 {% registerForDemoLinks locale %}
 {% endregisterForDemoLinks %}
-</div>
 
 {% include "partials/givefeedback.njk" %}

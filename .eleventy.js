@@ -330,7 +330,7 @@ module.exports = function (eleventyConfig) {
             };
             const prnDt = new Date(date.date).toLocaleString(locale, options);
 
-            const datelink = `<a href="${date.link}">${date.lang === 'en' ? langStrings[locale].enDemo : langStrings[locale].frDemo}</a>`;
+            const datelink = `<gcds-link external href="${date.link}">${date.lang === 'en' ? langStrings[locale].enDemo : langStrings[locale].frDemo}</gcds-link>`;
             const time = `<time>
               ${
                 locale === 'en'
