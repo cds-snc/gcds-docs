@@ -104,7 +104,7 @@ Si le SNC doit mettre hors service Système de design GC, l’équipe du service
 
 ### Le système de design GC est un logiciel libre
 
-Système de design GC est un produit à code source ouvert permettant à des tiers de créer leur propre version à l’aide du code disponible sur <gcds-link href="https://github.com/cds-snc/platform-forms-client" external>GitHub</gcds-link>.
+Système de design GC est un produit à code source ouvert permettant à des tiers de créer leur propre version à l’aide du code disponible sur <gcds-link href="https://github.com/cds-snc/gcds-components" external>GitHub</gcds-link>.
 
 Veuillez noter que certains composants de Système de design GC contiennent les <gcds-link href="https://www.canada.ca/fr/secretariat-conseil-tresor/sujets/communications-gouvernementales/exigences-image-marque/protection-juridique-symboles-officiels-gouvernement-canada.html" external>symboles officiels du gouvernement du Canada</gcds-link> qui sont déposés et qui ne peuvent être utilisés que pour les communications, les opérations et les activités du gouvernement du Canada.
 

@@ -18,8 +18,8 @@ GC Design System team refers to the team administering GC Design System within C
 
 **You’re a GC Design System client if you are:**
 
-- A Government of Canada department or agency using GC Design System
-- Current staff or formal vendor of a department or agency using GC Design System
+- A Government of Canada department or agency using GC Design System.
+- Current staff or formal vendor of a department or agency using GC Design System.
 
 **This agreement covers CDS responsibilities for GC Design System. Exclusions:**
 
@@ -104,7 +104,7 @@ In the event that CDS needs to decommission the service, the GC Design System te
 
 ### GC Design System is open source
 
-GC Design System is open source and available for others to stand up their own version based on the code found in <gcds-link href="https://github.com/cds-snc/platform-forms-client" external>GitHub</gcds-link>.
+GC Design System is open source and available for others to stand up their own version based on the code found in <gcds-link href="https://github.com/cds-snc/gcds-components" external>GitHub</gcds-link>.
 
 Note that some GC Design System components contain the <gcds-link href="https://www.canada.ca/en/treasury-board-secretariat/topics/government-communications/federal-identity-requirements/legal-protection-official-symbols-government-canada.html" external>Government of Canada’s official symbols</gcds-link>, which are trademarked and may only be used for communications, operations, and activities of the Government of Canada.
 
