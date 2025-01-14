@@ -309,44 +309,60 @@ module.exports = function (eleventyConfig) {
           enDemo: 'English demo',
           frDemo: 'French demo',
           timezone: 'Eastern time',
+          nodates: 'No upcoming dates.',
         },
         fr: {
           enDemo: 'Démonstration en anglais',
           frDemo: 'Démonstration en français',
           timezone: 'HAE',
+          nodates: 'Aucune date à venir.',
         },
       };
 
-      return `
-      <ul class="mb-300">
-        ${demoDates
-          .map(date => {
-            const options = {
-              weekday: 'long',
-              year: 'numeric',
-              month: 'long',
-              day: 'numeric',
-              timeZone: 'UTC',
-            };
-            const prnDt = new Date(date.date).toLocaleString(locale, options);
+      let validDates = [];
 
-            const datelink = `<gcds-link external href="${date.link}">${date.lang === 'en' ? langStrings[locale].enDemo : langStrings[locale].frDemo}</gcds-link>`;
-            const time = `<time>
-              ${
-                locale === 'en'
-                  ? `${prnDt}, ${convertTime(date.starttime)} - ${convertTime(date.endtime)} ${langStrings[locale].timezone}`
-                  : `${prnDt}, de ${date.starttime.replace(':', 'h')} à ${date.endtime.replace(':', 'h')} ${langStrings[locale].timezone}`
+      demoDates.map(date => {
+        if (new Date() < new Date(date.date)) {
+          validDates.push(date.date);
+        }
+      });
+
+      if (validDates.length > 0) {
+        return `
+        <ul class="mb-300">
+          ${demoDates
+            .map(date => {
+              if (validDates.includes(date.date)) {
+                const options = {
+                  weekday: 'long',
+                  year: 'numeric',
+                  month: 'long',
+                  day: 'numeric',
+                  timeZone: 'UTC',
+                };
+                const prnDt = new Date(date.date).toLocaleString(
+                  locale,
+                  options,
+                );
+
+                const datelink = `<gcds-link external href="${date.link}">${date.lang === 'en' ? langStrings[locale].enDemo : langStrings[locale].frDemo}</gcds-link>`;
+                const time = `<time>
+                  ${
+                    locale === 'en'
+                      ? `${prnDt}, ${convertTime(date.starttime)} - ${convertTime(date.endtime)} ${langStrings[locale].timezone}`
+                      : `${prnDt}, de ${date.starttime.replace(':', 'h')} à ${date.endtime.replace(':', 'h')} ${langStrings[locale].timezone}`
+                  }
+                </time>`;
+
+                return `<li>${datelink} - ${time}</li>`;
               }
-            </time>`;
-
-            // Don't render link if date has passed
-            if (new Date() < new Date(date.date)) {
-              return `<li>${datelink} - ${time}</li>`;
-            }
-          })
-          .join('')}
-      </ul>
-    `;
+            })
+            .join('')}
+        </ul>
+      `;
+      } else {
+        return `<p>${langStrings[locale].nodates}</p>`;
+      }
     },
   );
 
