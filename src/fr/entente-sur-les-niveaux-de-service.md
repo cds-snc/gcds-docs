@@ -102,7 +102,7 @@ Si le SNC n’est plus en mesure d’offrir du soutien technique pour Système d
 
 Si le SNC doit mettre hors service Système de design GC, l’équipe du service collaborera avec la clientèle pour veiller à la continuité des expériences offertes Système de design GC, sur le Web ou sous forme d’application, et lui fournira une analyse des solutions alternatives.
 
-### missing open source heading
+### Le système de design GC est un logiciel libre
 
 Système de design GC est un produit à code source ouvert permettant à des tiers de créer leur propre version à l’aide du code disponible sur <gcds-link href="https://github.com/cds-snc/platform-forms-client" external>GitHub</gcds-link>.
 
