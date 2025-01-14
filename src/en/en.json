@@ -61,6 +61,8 @@
     "demo": "/en/demo",
     "releaseNotes": "https://github.com/cds-snc/gcds-components/blob/main/CHANGELOG.md",
     "privacy": "/en/privacy-notice",
+    "termsofuse": "/en/terms-of-use",
+    "sla": "/en/service-level-agreement",
 
     "pageTemplates": "/en/page-templates",
     "pageTemplatesBasic": "/en/page-templates/basic",
