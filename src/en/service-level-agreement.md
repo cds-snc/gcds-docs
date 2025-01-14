@@ -12,7 +12,7 @@ eleventyNavigation:
 
 # GC Design System: Service level agreement (1.0)
 
-GC Design System is a service that is owned and operated by the Canadian Digital Service (CDS) at <gcds-link href="https://www.canada.ca/en/employment-social-development.html" external>Employment and Social Development Canada (ESDC).</gcds-link>. This service enables Canadian federal departments and agencies to build and design trusted, predictable and accessible web and application experiences.
+GC Design System is a service that is owned and operated by the Canadian Digital Service (CDS) at <gcds-link href="https://www.canada.ca/en/employment-social-development.html" external>Employment and Social Development Canada (ESDC)</gcds-link>. This service enables Canadian federal departments and agencies to build and design trusted, predictable and accessible web and application experiences.
 
 GC Design System team refers to the team administering GC Design System within CDS.
 
