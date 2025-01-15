@@ -314,7 +314,7 @@ module.exports = function (eleventyConfig) {
         fr: {
           enDemo: 'Démo en anglais',
           frDemo: 'Démonstration en français',
-          timezone: 'HAE',
+          timezone: 'heure de l'Est',
           nodates: 'Aucune date à venir.',
         },
       };
