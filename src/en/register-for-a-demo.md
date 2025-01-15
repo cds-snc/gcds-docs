@@ -11,7 +11,7 @@ eleventyNavigation:
 templateEngineOverride: njk,md
 ---
 
-# Register for a Demo
+# Register for a demo
 
 Looking to learn more about GC Design System before trying it out? Attend an upcoming demo.
 
