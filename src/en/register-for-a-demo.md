@@ -13,7 +13,7 @@ templateEngineOverride: njk,md
 
 # Register for a Demo
 
-Looking to learn more about GC Design System before trying it out? Register to one of the GC Design System upcoming demos.
+Looking to learn more about GC Design System before trying it out? Attend an upcoming demo.
 
 Can’t find a time that works for you? [Contact us]({{ links.contact }}).
 
