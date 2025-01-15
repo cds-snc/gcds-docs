@@ -19,7 +19,7 @@ Can’t find a time that works for you? [Contact us]({{ links.contact }}).
 
 ## What to expect
 
-- Explore GC Design System components, templates and design tokens
+- Explore GC Design System components, templates, and design tokens
 - Learn how you can use GC Design System to prototype and develop web experiences.
 - Get answers to your questions directly from the GC Design System team.
 
