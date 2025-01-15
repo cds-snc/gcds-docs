@@ -312,7 +312,7 @@ module.exports = function (eleventyConfig) {
           nodates: 'No upcoming dates.',
         },
         fr: {
-          enDemo: 'Démonstration en anglais',
+          enDemo: 'Démo en anglais',
           frDemo: 'Démonstration en français',
           timezone: 'HAE',
           nodates: 'Aucune date à venir.',
