@@ -354,7 +354,7 @@ module.exports = function (eleventyConfig) {
                   }
                 </time>`;
 
-                return `<li>${datelink} - ${time}</li>`;
+                return `<li>${datelink} – ${time}</li>`;
               }
             })
             .join('')}
