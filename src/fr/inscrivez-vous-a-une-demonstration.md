@@ -13,7 +13,7 @@ templateEngineOverride: njk,md
 
 # Inscrivez-vous à une démonstration
 
-Vous souhaitez en savoir plus sur le Système de design GC avant de l'essayer? Inscrivez-vous à l'une des prochaines démonstrations du Système de design GC.
+Vous souhaitez en savoir plus sur le Système de design GC avant de l'essayer? Participez à l'une des prochaines démos.
 
 Vous ne trouvez pas un horaire qui vous convient? [Contactez-nous]({{ links.contact }}).
 
