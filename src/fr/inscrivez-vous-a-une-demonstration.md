@@ -11,7 +11,7 @@ eleventyNavigation:
 templateEngineOverride: njk,md
 ---
 
-# Inscrivez-vous à une démonstration
+# Inscrivez-vous à une démo
 
 Vous souhaitez en savoir plus sur le Système de design GC avant de l'essayer? Participez à l'une des prochaines démos.
 
