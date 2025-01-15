@@ -313,7 +313,7 @@ module.exports = function (eleventyConfig) {
         },
         fr: {
           enDemo: 'Démo en anglais',
-          frDemo: 'Démonstration en français',
+          frDemo: 'Démo en français',
           timezone: 'heure de l\'Est',
           nodates: 'Aucune date à venir.',
         },
