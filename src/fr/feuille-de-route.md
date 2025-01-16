@@ -44,43 +44,44 @@ eleventyNavigation:
 
 ### Thème: Croissance du produit
 #### Nouvelles fonctionnalités et améliorations
-  - 5 modèles standards. [En cours]
+  - Modèles standards (Modèle de page de base). [Terminé]
   - Cadre utilitaire (alpha). [En cours]
-  - Nouveaux composants : champ de date, alerte/avis, étiquette (tag). [En cours]
+  - Nouveaux composants : champ de date, alerte/avis. [Terminé]
+  - étiquette (tag) [Dépriorisé]
   - Résoudre les conflits de style par rapport aux composants obligatoires de Canada.ca. [En cours]
 
 ### Thème: Recherche
 #### Accessibilité, utilisabilité et intégration
-  - Mettre en place des indicateurs relatifs au produit. [En cours]
+  - Mettre en place des indicateurs relatifs au produit. [Terminé]
   - Repérer les sources de difficulté et planifier leur résolution, processus pour publier des changements au code non rétrocompatibles, accès à la bibliothèque de design Figma. [En cours]
   - Mener des tests d’utilisabilité et d’accessibilité avec des utilisatrices et utilisateurs. [En cours]
 
 ### Thème: Mobilisation
 #### Sensibilisation
-  - Mettre en place un accord sur les niveaux de service (ANS). [En cours]
-  - Mettre en place des démos récurrentes auxquelles les gens s’inscrivent. [En cours]
-  - Établir des points de contact réguliers avec la communauté. [En cours]
+  - Mettre en place un accord sur les niveaux de service (ANS). [Terminé]
+  - Mettre en place des démos récurrentes auxquelles les gens s’inscrivent. [Terminé]
+  - Établir des points de contact réguliers avec la communauté. [Terminé]
 
 ## Échéancier: T3 (octobre à décembre 2024) 
 
 ### Thème: Croissance du produit
 #### Intégration technique
-  - Élaborer et tester une expérience d’intégration pour les développeur·euse·s qui comprend des applications de démarrage, de la documentation technique, et autres. [Non commencé]
-  - Élaborer et tester une expérience d’intégration pour les concepteur·rice·s. [Non commencé]
+  - Élaborer et tester une expérience d’intégration pour les développeur·euse·s qui comprend des applications de démarrage, de la documentation technique, et autres. [En cours]
+  - Élaborer et tester une expérience d’intégration pour les concepteur·rice·s. [En cours]
 
 #### Fonctionnalité SGDC
   - Fournir, en utilisant les modèles standards, une fonctionnalité complète de la Solution de gabarits à déploiement centralisé (SGDC) qui facilitera l’intégration et l’adoption. [Non commencé]
 #### Intégration avec Canada.ca
-  - Augmenter l’accès vers Système de design GC en offrant une voie d’accès à partir de conception.canada.ca. [Non commencé]
+  - Augmenter l’accès vers Système de design GC en offrant une voie d’accès à partir de conception.canada.ca. [En cours]
 #### Indicateurs et données analytiques
-  - Définir des façons claires de mesurer l’adoption et le rendement des investissements. [Non commencé]
+  - Définir des façons claires de mesurer l’adoption et le rendement des investissements. [En cours]
     - Adoption, temps de développement, économies, satisfaction utilisateur, adéquation des stratégies d’adoption à disposition (cadres d’adoption, points de contact). [Non commencé]
 
 ### Thème: Recherche
 #### Recherche sur l’écosystème et les besoins utilisateurs relatifs à la conception au GC
-  - Comprendre les diverses offres et alternatives à Système de design au GC. [En cours]
-  - Comprendre et catégoriser les besoins des différents groupes utilisateurs au GC. [Non commencé]
-  - Montrer des preuves d’accessibilité et de conformité aux politiques sur le site Web de Système de design GC. [Non commencé]
+  - Comprendre les diverses offres et alternatives à Système de design au GC. [Terminé]
+  - Comprendre et catégoriser les besoins des différents groupes utilisateurs au GC. [Terminé]
+  - Montrer des preuves d’accessibilité et de conformité aux politiques sur le site Web de Système de design GC. [En cours]
 
 ### Thème: Mobilisation
 #### Démos ciblées
@@ -90,13 +91,13 @@ eleventyNavigation:
 
 ### Thème: Croissance du produit
 #### Nouvelles fonctionnalités et améliorations
-  - Viser une version bêta ou complète. [Non commencé]
+  - Viser une version bêta ou complète. [En cours]
   - Viser un processus standardisé pour l’intégration avec AEM et Drupal. [Non commencé]
-  - Nouveaux modèles, patrons de conception et composants au besoin. [Non commencé]
+  - Nouveaux modèles, patrons de conception et composants au besoin. [Dépriorisé]
 
 ### Thème: Recherche
 #### Tests
-  - Tests d’accessibilité menés auprès de 30 personnes d’ici la fin du T4. [En cours]
+  - Tests d’accessibilité menés auprès de 30 personnes d’ici la fin du T4. [Terminé]
   - 5 activités de recherche portant sur l’utilisabilité achevées d’ici la fin du T4. [Non commencé]
 
 ### Thème: Mobilisation
@@ -108,3 +109,8 @@ eleventyNavigation:
 Consultez notre page [s'impliquer]({{ links.getInvolved }}) pour savoir sur quoi nous travaillons et comment vous pouvez y contribuer.
 
 Visitez notre <gcds-link external href="{{ links.githubCompsIssues }}">référentiel GitHub</gcds-link> pour signaler un problème ou faire une suggestion.
+
+## Product Roadmap Disclaimer: Change is Expected
+The product roadmap is a living document, subject to change based on shifting priorities, resource availability, and unforeseen dependencies. Any item that has not yet started may be reprioritized or replaced by a higher-value initiative. Items currently in progress may encounter delays as we navigate challenges and learn along the way.
+
+We share this roadmap to foster transparency, encourage collaboration, and align with our stakeholders. Your feedback and contributions are always welcome as we refine our path forward.
