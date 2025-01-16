@@ -110,7 +110,7 @@ Consultez notre page [s'impliquer]({{ links.getInvolved }}) pour savoir sur quoi
 
 Visitez notre <gcds-link external href="{{ links.githubCompsIssues }}">référentiel GitHub</gcds-link> pour signaler un problème ou faire une suggestion.
 
-## Product Roadmap Disclaimer: Change is Expected
-The product roadmap is a living document, subject to change based on shifting priorities, resource availability, and unforeseen dependencies. Any item that has not yet started may be reprioritized or replaced by a higher-value initiative. Items currently in progress may encounter delays as we navigate challenges and learn along the way.
+## Mise en garde sur la feuille de route du produit: Changements attendus
+La feuille de route du produit est un document en constante évolution. Elle est sujet à des modifications causées par des changements de priorités, la disponibilité des ressources et des dépendances non planifiées. Tout item qui n'est pas débuté peut être repriorisé ou remplacé par un autre ayant une valeur plus grande. Les items déjà entamés peuvent subir des délais lorsque nous faisons face à des défis et apprentissages pendant le développement.
 
-We share this roadmap to foster transparency, encourage collaboration, and align with our stakeholders. Your feedback and contributions are always welcome as we refine our path forward.
+Nous partageons cette feuille de route afin d'encourager la transparence et la collaboration ainsi que l'alignement avec nos parties prenantes. Vos rétroactions et contributions sont toujours les bienvenus afin d'améliorer notre trajectoire.
