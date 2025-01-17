@@ -197,7 +197,7 @@ module.exports = function (eleventyConfig) {
 
     return `
         <div class="code-showcase mb-300">
-          <textarea class="showcase text-light mb-300 p-300" id="${id}" rows="8" aria-label="${langStrings[lang].code} - ${name}" aria-hidden="true" readonly>${content}</textarea>
+          <textarea class="showcase text-light mb-300 p-300" id="${id}" rows="8" aria-label="${langStrings[lang].code} - ${name}" tabindex="-1" aria-hidden="true" readonly>${content}</textarea>
           <div>
             <gcds-button
               class="showcase-view-button"

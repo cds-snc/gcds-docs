@@ -43,7 +43,7 @@ tokenTable:
 # date: "git Last Modified"
 ---
 
-## {{ title }}
+# {{ title }}
 
 Les unités de style de couleur définissent les couleurs pour les composants et les styles globaux.
 
