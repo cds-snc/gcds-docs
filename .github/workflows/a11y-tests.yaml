@@ -1,4 +1,8 @@
 name: A11y test documentation site
+
+env:
+  CYPRESS_INSTALL_BINARY: 0
+
 on:
   workflow_dispatch:
   push:
