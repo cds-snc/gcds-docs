@@ -7,19 +7,36 @@
 // commands please read more here:
 // https://on.cypress.io/custom-commands
 // ***********************************************
-//
-//
-// -- This is a parent command --
-// Cypress.Commands.add('login', (email, password) => { ... })
-//
-//
-// -- This is a child command --
-// Cypress.Commands.add('drag', { prevSubject: 'element'}, (subject, options) => { ... })
-//
-//
-// -- This is a dual command --
-// Cypress.Commands.add('dismiss', { prevSubject: 'optional'}, (subject, options) => { ... })
-//
-//
-// -- This will overwrite an existing command --
-// Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+
+// keep track of what we test so we dont test the same thing twice
+let links_checked = [];
+
+Cypress.Commands.add('scanDeadLinks', () => {
+  cy.get('body').within(() => {
+    let checked = 0;
+
+    cy.get('a', { includeShadowDom: true })
+      .each(link => {
+        if (
+          link.prop('href').startsWith('mailto') ||
+          link.prop('href').includes('.pdf')
+        )
+          return;
+
+        const check_url = link.prop('href');
+
+        // skip if its already been checked
+        if (links_checked.includes(check_url)) return;
+
+        cy.request(link.prop('href')).as('link');
+
+        links_checked.push(check_url);
+        checked++;
+      })
+      .as('links');
+
+    cy.get('@links').then(links => {
+      cy.log('links checked', checked);
+    });
+  });
+});

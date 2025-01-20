@@ -3,7 +3,8 @@
 const enLinks = require('../../src/en/en.json');
 const frLinks = require('../../src/fr/fr.json');
 
-const pages = [];
+const pagesEn = [];
+const pagesFr = [];
 
 // Create index of English pages
 Object.keys(enLinks.links).forEach(key => {
@@ -17,20 +18,20 @@ Object.keys(enLinks.links).forEach(key => {
     let regex = /components\/[a-z]/;
     const pageName = key.replace(/([A-Z])/g, ' $1');
     if (regex.test(url)) {
-      pages.push({
+      pagesEn.push({
         name: `${pageName} - use case`,
         url,
       });
-      pages.push({
+      pagesEn.push({
         name: `${pageName} - design`,
         url: `${url}/design/`,
       });
-      pages.push({
+      pagesEn.push({
         name: `${pageName} - code`,
         url: `${url}/code/`,
       });
     } else {
-      pages.push({
+      pagesEn.push({
         name: pageName,
         url,
       });
@@ -50,20 +51,20 @@ Object.keys(frLinks.links).forEach(key => {
     let regex = /composants\/[a-z]/;
     const pageName = key.replace(/([A-Z])/g, ' $1');
     if (regex.test(url)) {
-      pages.push({
+      pagesFr.push({
         name: `FR - ${pageName} - use case`,
         url,
       });
-      pages.push({
+      pagesFr.push({
         name: `FR - ${pageName} - design`,
         url: `${url}/design/`,
       });
-      pages.push({
+      pagesFr.push({
         name: `FR - ${pageName} - code`,
         url: `${url}/code/`,
       });
     } else {
-      pages.push({
+      pagesFr.push({
         name: `FR - ${pageName}`,
         url,
       });
@@ -71,13 +72,34 @@ Object.keys(frLinks.links).forEach(key => {
   }
 });
 
-describe(`A11Y test documentation site`, () => {
-  for (const page of pages) {
+describe(`A11Y test English documentation site`, () => {
+  for (const page of pagesEn) {
     it(`${page.name}: ${page.url}`, () => {
       cy.visit(page.url);
       cy.get('.hydrated').then(() => {
         cy.injectAxe();
         cy.checkA11y(null, null, terminalLog);
+        // skip theme and topic menu since links are pulled from external source
+        if (!page.url.includes('/theme-and-topic-menu/')) {
+          cy.scanDeadLinks();
+        }
+      });
+    });
+  }
+});
+
+describe(`A11Y test French documentation site`, () => {
+  after
+  for (const page of pagesFr) {
+    it(`${page.name}: ${page.url}`, () => {
+      cy.visit(page.url);
+      cy.get('.hydrated').then(() => {
+        cy.injectAxe();
+        cy.checkA11y(null, null, terminalLog);
+        // skip theme and topic menu since links are pulled from external source
+        if (!page.url.includes('/menu-thematique/')) {
+          cy.scanDeadLinks();
+        }
       });
     });
   }
