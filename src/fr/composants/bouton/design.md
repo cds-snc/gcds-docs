@@ -10,8 +10,7 @@ date: 'git Last Modified'
 
 <ol class="anatomy-list">
   <li>La <strong>boîte</strong> met le bouton en évidence sur le plan visuel.</li>
-  <li>Le <strong>libellé</strong> indique l'action qui s'effectuera si quelqu'un interagit avec le bouton. Le texte des étiquettes s'aligne à gauche avec toute icône au point le plus à droite. En français, le texte est en minuscules (il n'y a que la lettre initiale qui est en majuscule).</li>
-  <li>L'<strong>icône</strong> est facultative et peut être utile comme support visuel lorsqu'elle utilisée de manière uniforme et modérée. Lorsqu'il y a une icône, alignez le texte du bouton à la gauche.  Évitez d'utiliser une icône sans texte.</li>
+  <li>Le <strong>libellé</strong> indique l'action qui s'effectuera si quelqu'un interagit avec le bouton. En français, le texte est en minuscules (il n'y a que la lettre initiale qui est en majuscule).</li>
 </ol>
 
 <img class="b-sm b-default p-300" src="/images/fr/components/anatomy/gcds-button-anatomy.svg" alt="L'anatomie d'un bouton identifiant l'étiquette, le conteneur et l'icone qui forme le composant." />
