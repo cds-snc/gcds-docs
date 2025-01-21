@@ -42,42 +42,43 @@ eleventyNavigation:
 ## Timeline: Q2 (Jul - Sep 2024) 
 ### Theme: Product Growth
 #### New functionality and improvements
-  - 5 standard templates. [In progress]
+  - Standard templates (Basic Page Template). [Completed]
   - Utility framework (alpha). [In progress]
-  - New Components: Date input, Alert / Notice, Tags (Labels). [In progress]
+  - New Components: Date input, Alert / Notice. [Completed]
+  - Tag Component [Deprioritized]
   - Resolve any conflicting styles with Canada.ca mandatory components. [In progress]
 
 ### Theme: Research
 #### Accessibility, usability, and onboarding
-  - Establish product metrics. [In progress]
+  - Establish product metrics. [Completed]
   - Identify and plan to resolve pain points, process for releasing breaking changes, Figma design library access. [In progress]
   - Conduct usability testing and accessibility testing with end users. [In progress]
 
 ### Theme: Engagement
 #### Outreach
-  - Establish a Service Level Agreement. [In progress]
-  - Setup recurring scheduled demos with self sign up. [In progress]
-  - Establish regular touchpoints with the community. [In progress]
+  - Establish a Service Level Agreement. [Completed]
+  - Setup recurring scheduled demos with self sign up. [Completed]
+  - Establish regular touchpoints with the community. [Completed]
 
 ## Timeline: Q3 (Oct - Dec 2024) 
 
 ### Theme: Product Growth
 #### Technical onboarding
-  - Produce and test out a dedicated developer onboarding experience, including starter apps, technical documentation and more. [Not started]
-  - Product and test out a dedicated designer onboarding experience. [Not started]
+  - Produce and test out a dedicated developer onboarding experience, including starter apps, technical documentation and more. [In progress]
+  - Product and test out a dedicated designer onboarding experience. [In Progress]
 #### CDTS functionality
   - Leveraging standard templates, provide the full functionality of Centrally Deployed Templates Solution (CDTS) to help with onboarding and adoption. [Not started]
 #### Integration with canada.ca
-  - Increase access to GC Design System by offering a path from design.canada.ca. [Not started]
+  - Increase access to GC Design System by offering a path from design.canada.ca. [In progress]
 #### Product metrics & analytics
-  - Establish clear ways of measuring adoption and ROI. [Not started]
+  - Establish clear ways of measuring adoption and ROI. [In progress]
     - Adoption, time to build and cost saving, user satisfaction, fit of available adoption strategies (frameworks, touch points). [Not started]
 
 ### Theme: Research
 #### GC Design ecosystem and user needs research
-  - Understand the different Design System offerings and alternatives across GC. [In progress]
-  - Understand and categorize the needs of different user groups across GC. [Not started]
-  - Share evidence for accessibility and policy compliance on the GC Design System website. [Not started]
+  - Understand the different Design System offerings and alternatives across GC. [Completed]
+  - Understand and categorize the needs of different user groups across GC. [Completed]
+  - Share evidence for accessibility and policy compliance on the GC Design System website. [In progress]
 
 ### Theme: Engagement
 #### Targeted demos
@@ -87,13 +88,13 @@ eleventyNavigation:
 
 ### Theme: Product Growth
 #### New functionality and improvements
-  - Aim for beta release [Not started]
+  - Aim for beta release [In progress]
   - Aim for a standardized process of integration with AEM and Drupal. [Not started]
-  - Additional templates, patterns, and components as needed. [Not started]
+  - Additional templates, patterns, and components as needed. [Deprioritized]
 
 ### Theme: Research
 #### Testing
-  - Accessibility testing completed with 30 people through the year. [In progress]
+  - Accessibility testing completed with 30 people through the year. [Completed]
   - 5 completed usability research activities through the year. [Not started]
 
 ### Theme: Engagement
@@ -104,3 +105,8 @@ eleventyNavigation:
 ## Collaboration and support channels
 Check out our [Get involved page]({{ links.getInvolved }}) to learn about what we're working on and how you can contribute.
 Visit our <gcds-link external href="{{ links.githubCompsIssues }}">GitHub repo</gcds-link> to report an issue or make a suggestion.
+
+## Product Roadmap Disclaimer: Change is Expected
+The product roadmap is a living document, subject to change based on shifting priorities, resource availability, and unforeseen dependencies. Any item that has not yet started may be reprioritized or replaced by a higher-value initiative. Items currently in progress may encounter delays as we navigate challenges and learn along the way.
+
+We share this roadmap to foster transparency, encourage collaboration, and align with our stakeholders. Your feedback and contributions are always welcome as we refine our path forward.
