@@ -14,6 +14,5 @@ A heading is a title that establishes levels of hierarchy to organize page conte
 {% docLinks locale stage figma github %}
 {% enddocLinks %}
 
-{% componentPreview "Heading component preview" %}
-<gcds-heading tag="h2">Heading</gcds-heading>
-{% endcomponentPreview %}
+{% baseComponentPreview "Heading component preview" page.filePathStem %}
+{% endbaseComponentPreview %}

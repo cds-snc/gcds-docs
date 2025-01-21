@@ -14,6 +14,5 @@ The screenreader-only component is text information only accessible with assisti
 {% docLinks locale stage figma github %}
 {% enddocLinks %}
 
-{% componentPreview "Screenreader-only component preview" %}
-<gcds-sr-only>Text only seen by assistive technologies.</gcds-sr-only>
-{% endcomponentPreview %}
+{% baseComponentPreview "Screenreader-only component preview" page.filePathStem %}
+{% endbaseComponentPreview %}
