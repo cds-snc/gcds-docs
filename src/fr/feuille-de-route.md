@@ -47,7 +47,7 @@ eleventyNavigation:
   - Modèles standards (Modèle de page de base). [Terminé]
   - Cadre utilitaire (alpha). [En cours]
   - Nouveaux composants : champ de date, alerte/avis. [Terminé]
-  - étiquette (tag) [Dépriorisé]
+  - Étiquette (tag) [Dépriorisé]
   - Résoudre les conflits de style par rapport aux composants obligatoires de Canada.ca. [En cours]
 
 ### Thème: Recherche
