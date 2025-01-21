@@ -28,7 +28,6 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy('./src/scripts/code-showcase.js');
   eleventyConfig.addPassthroughCopy('./src/scripts/search.js');
   eleventyConfig.addPassthroughCopy('./src/scripts/code-copy.js');
-  eleventyConfig.addPassthroughCopy('./src/admin/config.yml');
   eleventyConfig.addPassthroughCopy('./src/favicon.ico');
   eleventyConfig.addPassthroughCopy({ './src/variables/': 'variables' });
   eleventyConfig.addPassthroughCopy({
@@ -289,6 +288,29 @@ module.exports = function (eleventyConfig) {
         </p>
         <div class="${padding}">
           ${content}
+        </div>
+      </div>
+    `;
+    },
+  );
+
+  eleventyConfig.addPairedShortcode(
+    'baseComponentPreview',
+    (children, title, url) => {
+      return `
+      <div class="my-600 b-sm b-default component-preview" id="component-preview">
+        <h2 class="container-full font-text font-semibold px-225 py-150 bb-sm b-default bg-light">
+          ${title}
+        </h2>
+        <div class="px-225 py-300">
+          <iframe
+            title="${title}"
+            src="${url.replace('/base', '/preview')}"
+            style="display: block; margin: 0 auto;"
+            frameBorder="0"
+            width="100%"
+            height="200"
+          ></iframe>
         </div>
       </div>
     `;
