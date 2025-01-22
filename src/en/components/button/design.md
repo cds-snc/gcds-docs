@@ -10,8 +10,7 @@ date: 'git Last Modified'
 
 <ol class="anatomy-list">
   <li>The <strong>container</strong> gives the button its visually prominent appearance.</li>
-  <li>The <strong>label</strong> states the action that will follow when someone interacts with the button. Label text is left aligned, with any icon at the right-most point. Text is in sentence case (only the initial letter is capitalized).</li>
-  <li>The <strong>icon</strong> is optional and can be a helpful visual aid when used sparingly and predictably. When there's an icon, align button text to the left.  Avoid using an icon without text.</li>
+  <li>The <strong>label</strong> states the action that will follow when someone interacts with the button. Text is in sentence case (only the initial letter is capitalized).</li>
 </ol>
 
 <img class="b-sm b-default p-300" src="/images/en/components/anatomy/gcds-button-anatomy.svg" alt="Button anatomy showing the Button label branching to the container and arrow icon." />
