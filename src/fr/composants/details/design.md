@@ -12,7 +12,7 @@ Voici la structure du composant Détails ouvert. Le contenu est réduit par déf
 
 <ol class="anatomy-list">
   <li>Le <strong>titre du composant Détail</strong> résume le contenu correspondant. Le texte du libellé est en minuscules (il n'y a que la lettre initiale qui est en majuscule).</li>
-  <li>Le <strong>curseur</strong> et le <strong>titre du composant Détails</strong> permettent d'activer l'affichage du contenu. Le curseur indique si le composant est actuellement ouvert ou fermé. Lorsque le composant est ouvert, affichant ainsi le texte correspondant, le curseur est dirigée vers le contenu en question.</li>
+  <li>Le <strong>curseur</strong> et le <strong>titre du composant Détails</strong> permettent d'activer l'affichage du contenu. Le curseur indique si le composant est actuellement ouvert ou fermé. Lorsque le composant est ouvert, affichant ainsi le texte correspondant, le curseur est dirigé vers le contenu en question.</li>
   <li>Le <strong>contenu</strong> comprend tout texte ou image que la personne peut choisir d'afficher ou de dissimuler.</li>
 </ol>
 
