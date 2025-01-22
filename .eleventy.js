@@ -28,6 +28,8 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy('./src/scripts/code-showcase.js');
   eleventyConfig.addPassthroughCopy('./src/scripts/search.js');
   eleventyConfig.addPassthroughCopy('./src/scripts/code-copy.js');
+  eleventyConfig.addPassthroughCopy('./src/scripts/component-preview.js');
+  eleventyConfig.addPassthroughCopy('./src/scripts/component-preview-iframe.js');
   eleventyConfig.addPassthroughCopy('./src/favicon.ico');
   eleventyConfig.addPassthroughCopy({ './src/variables/': 'variables' });
   eleventyConfig.addPassthroughCopy({
@@ -282,7 +284,7 @@ module.exports = function (eleventyConfig) {
       const content = children;
 
       return `
-      <div class="${margin} b-sm b-default component-preview" id="component-preview">
+      <div class="${margin} b-sm b-default component-preview">
         <p class="container-full font-semibold px-225 py-150 bb-sm b-default bg-light">
           ${title}
         </p>
@@ -298,18 +300,18 @@ module.exports = function (eleventyConfig) {
     'baseComponentPreview',
     (children, title, url) => {
       return `
-      <div class="my-600 b-sm b-default component-preview" id="component-preview">
+      <div class="my-600 b-sm b-default component-preview">
         <h2 class="container-full font-text font-semibold px-225 py-150 bb-sm b-default bg-light">
           ${title}
         </h2>
-        <div class="px-225 py-300">
+        <div>
           <iframe
             title="${title}"
             src="${url.replace('/base', '/preview')}"
             style="display: block; margin: 0 auto;"
             frameBorder="0"
             width="100%"
-            height="200"
+            id="component-preview"
           ></iframe>
         </div>
       </div>

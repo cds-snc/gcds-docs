@@ -1,5 +1,5 @@
 ---
-title: Top navigationcomponent preview
+title: Top navigation component preview
 layout: 'layouts/component-preview.njk'
 tags: ['topnavigationEN', 'preview']
 eleventyExcludeFromCollections: true
@@ -16,4 +16,4 @@ templateEngineOverride: njk
     <gcds-nav-link href="#red">Send messages automatically</gcds-nav-link>
   </gcds-nav-group>
   <gcds-nav-link href="#red">Contact us</gcds-nav-link>
-  </gcds-top-nav>
+</gcds-top-nav>
