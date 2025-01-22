@@ -81,7 +81,7 @@ describe(`A11Y test English documentation site`, () => {
         cy.checkA11y(null, null, terminalLog);
         // skip theme and topic menu since links are pulled from external source
         if (!page.url.includes('/theme-and-topic-menu/')) {
-          // cy.scanDeadLinks();
+          cy.scanDeadLinks();
         }
       });
     });
