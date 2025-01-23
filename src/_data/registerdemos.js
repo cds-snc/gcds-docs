@@ -19,8 +19,8 @@ module.exports = [
     endtime: "14:00",
     lang: 'en',
     link: 'https://events.teams.microsoft.com/event/ca8b7c9d-8fb9-4eaf-8240-c7127b7650a7@9ed55846-8a81-4246-acd8-b1a01abfc0d1'
-  }
-{
+  },
+  {
     date: "2025-02-25",
     starttime: "13:00",
     endtime: "14:00",
