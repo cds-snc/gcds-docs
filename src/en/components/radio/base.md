@@ -1,6 +1,6 @@
 ---
 layout: 'layouts/base.njk'
-github: https://github.com/cds-snc/gcds-components/tree/main/packages/web/src/components/gcds-radio
+github: null
 figma: https://www.figma.com/file/mh2maMG2NBtk41k1O1UGHV/GC-Design-System?type=design&node-id=462-110&mode=design&t=juCIOMIg2VKfCrQA-0
 permalink: false
 tags: ['radioEN', 'header']

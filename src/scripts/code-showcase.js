@@ -10,6 +10,12 @@ document.addEventListener('DOMContentLoaded', function () {
 
     code.setAttribute('aria-hidden', !isHidden);
     this.setAttribute('aria-expanded', String(isHidden));
+
+    if (isHidden) {
+      code.setAttribute('tabindex', '0');
+    } else {
+      code.setAttribute('tabindex', -1);
+    }
   }
 
   // Copy code showcase
