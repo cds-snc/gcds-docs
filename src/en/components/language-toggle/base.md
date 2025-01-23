@@ -15,6 +15,5 @@ The language toggle is a link to the same content in the other Official Language
 {% docLinks locale stage figma github %}
 {% enddocLinks %}
 
-{% componentPreview "Language toggle component preview" %}
-<gcds-lang-toggle href="#" lang="en"></gcds-lang-toggle>
-{% endcomponentPreview %}
+{% baseComponentPreview "Language toggle component preview" page.filePathStem %}
+{% endbaseComponentPreview %}

@@ -14,6 +14,5 @@ Text is a styled and formatted paragraph that displays written content in an acc
 {% docLinks locale stage figma github %}
 {% enddocLinks %}
 
-{% componentPreview "Text component preview" %}
-<gcds-text>This is text that's related to the heading and describes in further detail the heading's subject or action. Text is typically one or several lines or paragraphs that form a section's content or introduce a bulleted list, table, or other content, like an image or video.</gcds-text>
-{% endcomponentPreview %}
+{% baseComponentPreview "Text component preview" page.filePathStem %}
+{% endbaseComponentPreview %}

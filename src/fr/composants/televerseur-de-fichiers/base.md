@@ -15,7 +15,5 @@ Un téléverseur de fichier est un espace où il est possible de sélectionner e
 {% docLinks locale stage figma github %}
 {% enddocLinks %}
 
-{% componentPreview "Aperçu du composant de téléverseur de fichiers" %}
-<gcds-file-uploader uploader-id="file-uploader-preview" label="Libellé" hint="Texte explicatif / Exemple de message.">
-</gcds-file-uploader>
-{% endcomponentPreview %}
+{% baseComponentPreview "Aperçu du composant de téléverseur de fichiers" page.filePathStem %}
+{% endbaseComponentPreview %}

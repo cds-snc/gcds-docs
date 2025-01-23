@@ -15,7 +15,5 @@ Un champ de saisie est un espace permettant de saisir une courte réponse à une
 {% docLinks locale stage figma github %}
 {% enddocLinks %}
 
-{% componentPreview "Aperçu du composant de champ de saisie" "px-225 pt-300" %}
-<gcds-input input-id="input-example" label="Étiquette de champ" hint="Texte explicatif / Exemple de message.">
-</gcds-input>
-{% endcomponentPreview %}
+{% baseComponentPreview "Aperçu du composant de champ de saisie" page.filePathStem %}
+{% endbaseComponentPreview %}

@@ -15,16 +15,5 @@ A select provides a large list of options for single selection.
 {% docLinks locale stage figma github %}
 {% enddocLinks %}
 
-{% componentPreview "Select component preview" %}
-<gcds-select select-id="select-preview" label="Label" hint="Hint / Example message." default-value="Select option.">
-
-  <option>Option 1</option>
-  <option>Option 2</option>
-  <option>Option 3</option>
-  <option>Option 4</option>
-  <option>Option 5</option>
-  <option>Option 6</option>
-  <option>Option 7</option>
-  <option>Option 8</option>
-</gcds-select>
-{% endcomponentPreview %}
+{% baseComponentPreview "Select component preview" page.filePathStem %}
+{% endbaseComponentPreview %}

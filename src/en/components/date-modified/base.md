@@ -15,6 +15,5 @@ Date modified is an indicator of the last update to a webpage or application.
 {% docLinks locale stage figma github %}
 {% enddocLinks %}
 
-{% componentPreview "Date modified component preview" %}
-<gcds-date-modified>2023-08-22</gcds-date-modified>
-{% endcomponentPreview %}
+{% baseComponentPreview "Date modified component preview" page.filePathStem %}
+{% endbaseComponentPreview %}

@@ -14,7 +14,5 @@ A card is a box containing structured, actionable content on a single topic.
 {% docLinks locale stage figma github %}
 {% enddocLinks %}
 
-{% componentPreview "Card component preview" %}
-<gcds-card card-title="Card title link" badge="Tag" href="#" description="Description or supporting text relating to the headline.">
-</gcds-card>
-{% endcomponentPreview %}
+{% baseComponentPreview "Card component preview" page.filePathStem %}
+{% endbaseComponentPreview %}

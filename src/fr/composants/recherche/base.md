@@ -14,6 +14,5 @@ Le composant recherche est un espace où entrer des mots-clés pour chercher des
 {% docLinks locale stage figma github %}
 {% enddocLinks %}
 
-{% componentPreview "Aperçu du composant de recherche" %}
-<gcds-search lang="fr"></gcds-search>
-{% endcomponentPreview %}
+{% baseComponentPreview "Aperçu du composant de recherche" page.filePathStem %}
+{% endbaseComponentPreview %}

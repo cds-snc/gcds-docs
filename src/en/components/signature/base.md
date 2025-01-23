@@ -15,14 +15,5 @@ The signature is the Government of Canada landmark identifier found in the heade
 {% docLinks locale stage figma github %}
 {% enddocLinks %}
 
-{% componentPreview "Signature component preview" %}
-
-<div class="d-inline-block me-300">
-<gcds-signature type="signature"></gcds-signature>
-</div>
-<div class="d-inline-block">
-<gcds-signature class="px-300" type="wordmark"></gcds-signature>
-</div>
-
-{% endcomponentPreview %}
-<br/>
+{% baseComponentPreview "Signature component preview" page.filePathStem %}
+{% endbaseComponentPreview %}

@@ -15,12 +15,5 @@ A grid is a responsive, flexible column layout to position elements on a page.
 {% docLinks locale stage figma github %}
 {% enddocLinks %}
 
-{% componentPreview "Grid component preview" %}
-<gcds-grid tag="article" columns-desktop="1fr 1fr 1fr 1fr" columns-tablet="1fr 1fr" columns="1fr">
-
-  <p>This is some example content to display the grid component.</p>
-  <p>This is some example content to display the grid component.</p>
-  <p>This is some example content to display the grid component.</p>
-  <p>This is some example content to display the grid component.</p>
-</gcds-grid>
-{% endcomponentPreview %}
+{% baseComponentPreview "Grid component preview" page.filePathStem %}
+{% endbaseComponentPreview %}
