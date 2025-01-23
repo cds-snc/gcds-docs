@@ -80,8 +80,8 @@ describe(`A11Y test English documentation site`, () => {
         cy.injectAxe();
         cy.checkA11y(null, null, terminalLog);
         // skip theme and topic menu since links are pulled from external source
-        if (!page.url.includes('/theme-and-topic-menu/')) {
-          // cy.scanDeadLinks();
+        if (!page.url.includes('theme-and-topic-menu')) {
+          cy.scanDeadLinks();
         }
       });
     });
@@ -97,7 +97,7 @@ describe(`A11Y test French documentation site`, () => {
         cy.injectAxe();
         cy.checkA11y(null, null, terminalLog);
         // skip theme and topic menu since links are pulled from external source
-        if (!page.url.includes('/menu-thematique/')) {
+        if (!page.url.includes('menu-thematique')) {
           cy.scanDeadLinks();
         }
       });
