@@ -1,7 +1,7 @@
 module.exports = {
   en: {
     contextual: {
-      heading: 'Canadian Digital Service',
+      heading: 'GC Design System',
       list: 'Contact us',
       listurl: '/en/contact',
       issue: 'Report an issue',
@@ -23,7 +23,7 @@ module.exports = {
   },
   fr: {
     contextual: {
-      heading: 'Service numérique canadien',
+      heading: 'Système de design GC',
       list: "Contactez-nous",
       listurl: '/fr/contactez',
       issue: 'Signaler un problème',
