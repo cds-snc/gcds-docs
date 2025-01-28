@@ -1,6 +1,5 @@
 // Observe size of <body> in iframe and send height to parent to allow proper frame size when showcasing component.
-setTimeout(() => {
-
+document.addEventListener('DOMContentLoaded', () => {
   // Resize observer to send window width to parent
   const resize = new ResizeObserver(element => {
     const cr = element[0].contentRect;
@@ -14,23 +13,29 @@ setTimeout(() => {
   // Use MutationObservers to change body height to send proper height to documentation page
 
   // MutationObserver to handle displaying elements that don't increase the window size
-  // For: theme and topic menu and top-nav dropdown
+  // For: gcds-topic-menu, gcds-top-nav and gcds-side-nav
   const handleMutations = mutationsList => {
     for (const mutation of mutationsList) {
       if (mutation.target.nodeName == 'BUTTON') {
         if (mutation.target.ariaExpanded === 'true') {
-          document.body.style = 'height: 1000px';
+          document.body.classList.add('component-preview__expanded-topic-menu');
         } else {
-          document.body.style = 'height: auto;';
+          document.body.classList.remove(
+            'component-preview__expanded-topic-menu',
+          );
         }
       } else if (mutation.target.nodeName == 'GCDS-NAV-GROUP') {
         if (
           mutation.target.getAttribute(mutation.attributeName) != null &&
           window.innerWidth >= 1024
         ) {
-          document.body.style = 'height: 500px;';
+          document.body.classList.add(
+            'component-preview__expanded-dropdown-menu',
+          );
         } else {
-          document.body.style = 'height: auto;';
+          document.body.classList.remove(
+            'component-preview__expanded-dropdown-menu',
+          );
         }
       }
     }
@@ -43,8 +48,7 @@ setTimeout(() => {
   const topicMenu = document.querySelector('gcds-topic-menu');
 
   if (topicMenu) {
-
-    // Wait until topic-menu has been hydrated
+    // Confirm topic-menu has been hydrated
     let hydratedTopicInterval = setInterval(() => {
       if (topicMenu.classList.contains('hydrated')) {
         clearInterval(hydratedTopicInterval);
@@ -74,7 +78,6 @@ setTimeout(() => {
     document.querySelector('gcds-side-nav');
 
   if (nav) {
-
     // ResizeObserver to keep track of mobile <ul>
     const navResize = new ResizeObserver(element => {
       const cr = element[0].contentRect;
@@ -84,7 +87,7 @@ setTimeout(() => {
       }
     });
 
-    // Wait until menus have hydrated
+    // Confirm menus have hydrated
     let hydratedNavTimer = setInterval(() => {
       if (nav.classList.contains('hydrated')) {
         navResize.observe(
@@ -96,4 +99,4 @@ setTimeout(() => {
       }
     }, 100);
   }
-}, 150);
+});
