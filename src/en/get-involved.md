@@ -7,6 +7,7 @@ eleventyNavigation:
   title: Get involved
   locale: en
   order: 3
+  hideMain: true
 templateEngineOverride: njk,md
 ---
 
