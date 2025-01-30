@@ -202,6 +202,12 @@ ul li ul li {
 .component-preview div > p {
   max-width: none;
 }
+.component-preview__expanded-topic-menu {
+  height: 62.5rem;
+}
+.component-preview__expanded-dropdown-menu {
+  height: 31.25rem;
+}
 
 .component-preview-box a {
   height: 100%;

@@ -14,14 +14,5 @@ A container is a basic box layout with a set width for its contents.
 {% docLinks locale stage figma github %}
 {% enddocLinks %}
 
-{% componentPreview "Container component preview" %}
-<gcds-container border margin="175" padding="175" size="lg">
-Large container
-</gcds-container>
-<gcds-container border margin="175" padding="175" size="md">
-Medium container
-</gcds-container>
-<gcds-container border margin="175" padding="175" size="sm">
-Small container
-</gcds-container>
-{% endcomponentPreview %}
+{% baseComponentPreview "Container component preview" page.filePathStem %}
+{% endbaseComponentPreview %}

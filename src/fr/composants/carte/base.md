@@ -14,7 +14,5 @@ La carte est un encadré contenant du contenu structuré et pratique sur un suje
 {% docLinks locale stage figma github %}
 {% enddocLinks %}
 
-{% componentPreview "Aperçu du composant de carte" %}
-<gcds-card card-title="Titre de la carte" badge="Balise" description="Description destinée à accompagner le titre." href="#">
-</gcds-card>
-{% endcomponentPreview %}
+{% baseComponentPreview "Aperçu du composant de carte" page.filePathStem %}
+{% endbaseComponentPreview %}

@@ -15,9 +15,5 @@ Le composant Détails est un bouton interactif permettant à une personne d’af
 {% docLinks locale stage figma github %}
 {% enddocLinks %}
 
-{% componentPreview "Aperçu du composant de détails" %}
-<gcds-details details-title="Apprenez-en plus sur ce sujet">
-
-  <p>Renseignements supplémentaires.</p>
-</gcds-details>
-{% endcomponentPreview %}
+{% baseComponentPreview "Aperçu du composant de détails" page.filePathStem %}
+{% endbaseComponentPreview %}
