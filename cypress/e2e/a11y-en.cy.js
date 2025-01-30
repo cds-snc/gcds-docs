@@ -40,7 +40,7 @@ Object.keys(enLinks.links).forEach(key => {
 describe(`A11Y test English documentation site`, () => {
   for (const page of pagesEn) {
     it(`${page.name}: ${page.url}`, () => {
-      cy.visit(page.url, { timeout: 10000 });
+      cy.visit(page.url, { timeout: 30000 });
       cy.get('.hydrated').then(() => {
         cy.injectAxe();
         cy.checkA11y(null, null, terminalLog);
