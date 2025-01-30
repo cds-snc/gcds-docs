@@ -98,6 +98,8 @@ La famille de police comprend des valeurs de rechange. Les valeurs de rechange s
 - Veillez à accentuer des éléments de façon accessible, car plusieurs technologies d'assistance ne tiennent pas compte de l'épaisseur de la police.
 - Plutôt que de modifier l'épaisseur de la police, envisagez d'utiliser des puces ou des alinéas pour découper le texte.
 
+{% include "partials/token_table.njk", token: 'fontWeights', type: 'fontWeights' %}
+
 ### Caractères gras
 
 - Conservez le réglage des caractères gras par défaut pour les en-têtes.
@@ -107,8 +109,6 @@ La famille de police comprend des valeurs de rechange. Les valeurs de rechange s
 
 - Mettez toute référence à un projet de loi canadien en caractères italiques, par example, _Loi canadienne sur l'accessibilité_.
 - N'utilisez les caractères en italiques que pour de courts passages. Un gros volume de texte en caractères italiques peut rendre difficile le traitement cognitif pour certains lecteurs.
-
-{% include "partials/token_table.njk", token: 'fontWeights', type: 'fontWeights' %}
 
 <br/>
 
