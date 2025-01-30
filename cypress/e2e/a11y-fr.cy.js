@@ -41,7 +41,7 @@ describe(`A11Y test French documentation site`, () => {
   after
   for (const page of pagesFr) {
     it(`${page.name}: ${page.url}`, () => {
-      cy.visit(page.url);
+      cy.visit(page.url, { timeout: 10000 });
       cy.get('.hydrated').then(() => {
         cy.injectAxe();
         cy.checkA11y(null, null, terminalLog);
