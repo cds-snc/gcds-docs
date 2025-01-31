@@ -13,7 +13,11 @@
     "format": "npx prettier --write .",
     "start": "npm-run-all build:sass --parallel watch:*",
     "watch:sass": "sass --watch src/styles:src/styles",
-    "watch:eleventy": "eleventy --serve"
+    "watch:eleventy": "eleventy --serve",
+    "cy:open": "cypress open",
+    "cy:run": "npx cypress run",
+    "build:ci": "npm run build:eleventy & eleventy --serve",
+    "test": "start-server-and-test build:ci http://localhost:8080/en cy:run"
   },
   "repository": {
     "type": "git",
@@ -38,14 +42,19 @@
     "@cdssnc/gcds-tokens": "^2.0.3",
     "@cdssnc/gcds-utility": "^1.5.0",
     "@quasibit/eleventy-plugin-sitemap": "^2.1.4",
+    "axe-core": "^4.10.2",
     "chroma-js": "^2.4.2",
+    "cypress": "^13.17.0",
+    "cypress-axe": "^1.5.0",
+    "cypress-html-validate": "^7.0.0",
     "eleventy-plugin-svg-contents": "^0.7.0",
     "node-fetch": "^3.3.2",
     "pagefind": "^1.0.4",
     "prettier": "3.4.2",
     "prompt-sync": "^4.2.0",
     "replace-in-file": "^7.0.0",
-    "sass": "^1.72.0"
+    "sass": "^1.72.0",
+    "start-server-and-test": "^2.0.10"
   },
   "license": "MIT"
 }

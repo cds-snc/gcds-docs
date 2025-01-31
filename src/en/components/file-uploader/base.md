@@ -15,7 +15,5 @@ A file uploader is a space to select and add supporting documentation.
 {% docLinks locale stage figma github %}
 {% enddocLinks %}
 
-{% componentPreview "File uploader component preview" %}
-<gcds-file-uploader uploader-id="file-uploader-preview" label="Label" hint="Hint / Example message.">
-</gcds-file-uploader>
-{% endcomponentPreview %}
+{% baseComponentPreview "File uploader component preview" page.filePathStem %}
+{% endbaseComponentPreview %}

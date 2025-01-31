@@ -15,13 +15,5 @@ Breadcrumbs is a path to the current page from each preceding level of the site'
 {% docLinks locale stage figma github %}
 {% enddocLinks %}
 
-{% componentPreview "Breadcrumbs component preview" %}
-
-<div aria-hidden="true">
-  <gcds-breadcrumbs>
-    <gcds-breadcrumbs-item href="#">Home page</gcds-breadcrumbs-item>
-    <gcds-breadcrumbs-item href="#">Parent page link</gcds-breadcrumbs-item>
-    </gcds-breadcrumbs-item>
-  </gcds-breadcrumbs>
-</div>
-{% endcomponentPreview %}
+{% baseComponentPreview "Breadcrumbs component preview" page.filePathStem %}
+{% endbaseComponentPreview %}

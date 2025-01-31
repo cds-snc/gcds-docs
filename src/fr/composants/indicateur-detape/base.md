@@ -15,6 +15,5 @@ L'indicateur d'étape est un marqueur de progression pour un processus à plusie
 {% docLinks locale stage figma github %}
 {% enddocLinks %}
 
-{% componentPreview "Aperçu du composant indicateur d'étape" "px-225 pt-300 pb-75" %}
-<gcds-stepper current-step="1" total-steps="4">Titre de la section</gcds-stepper>
-{% endcomponentPreview %}
+{% baseComponentPreview "Aperçu du composant indicateur d'étape" page.filePathStem %}
+{% endbaseComponentPreview %}

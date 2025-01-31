@@ -14,11 +14,5 @@ Un résumé des erreurs consiste en une liste des erreurs rencontrées par les u
 {% docLinks locale stage figma github %}
 {% enddocLinks %}
 
-{% componentPreview "Aperçu du composant de résumé des erreurs" %}
-<gcds-error-summary error-links='{
-  "error-href-1": "Élément du résumé des erreurs.",
-  "error-href-2": "Élément du résumé des erreurs.",
-  "error-href-3": "Élément du résumé des erreurs."
-}'>
-</gcds-error-summary>
-{% endcomponentPreview %}
+{% baseComponentPreview "Aperçu du composant de résumé des erreurs" page.filePathStem %}
+{% endbaseComponentPreview %}

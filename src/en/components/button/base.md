@@ -15,8 +15,6 @@ The button is an interactive object that highlights an important or common actio
 {% docLinks locale stage figma github %}
 {% enddocLinks %}
 
-{% componentPreview "Button component preview" %}
-<gcds-button class="me-300" button-role="primary">Submit</gcds-button>
-<gcds-button class="me-300" button-role="secondary">Cancel</gcds-button>
-<gcds-button class="me-300" button-role="danger">Delete</gcds-button>
-{% endcomponentPreview %}
+
+{% baseComponentPreview "Button component preview" page.filePathStem %}
+{% endbaseComponentPreview %}

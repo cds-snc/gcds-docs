@@ -14,9 +14,5 @@ Un lien est un élément de navigation qui amène une personne à une nouvelle p
 {% docLinks locale stage figma github %}
 {% enddocLinks %}
 
-{% componentPreview "Aperçu du composant de lien" %}
-<gcds-link class="d-block mb-300" href="#">Lien de navigation</gcds-link>
-<gcds-link class="d-block mb-300" href="long-filename.pdf" download="file.pdf" type="application/pdf">Télécharger le document (PDF, 1,5 Mb)</gcds-link>
-<gcds-link class="d-block mb-300" href="mailto:test@test.com?subject=Test%20Email">Envoyer un courriel</gcds-link>
-<gcds-link class="d-block" href="tel:1234567890">Appeler</gcds-link>
-{% endcomponentPreview %}
+{% baseComponentPreview "Aperçu du composant de lien" page.filePathStem %}
+{% endbaseComponentPreview %}

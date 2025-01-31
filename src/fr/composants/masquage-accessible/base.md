@@ -14,6 +14,5 @@ Le masquage accessible est une façon de rendre l'information textuelle uniqueme
 {% docLinks locale stage figma github %}
 {% enddocLinks %}
 
-{% componentPreview "Aperçu du composant de masquage accessible" %}
-<gcds-sr-only>Texte consultable seulement par les technologies d'assistance.</gcds-sr-only>
-{% endcomponentPreview %}
+{% baseComponentPreview "Aperçu du composant de masquage accessible" page.filePathStem %}
+{% endbaseComponentPreview %}

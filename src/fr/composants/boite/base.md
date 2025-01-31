@@ -14,14 +14,5 @@ Il s’agit d’un modèle de boîte simple associé à une largeur de contenu f
 {% docLinks locale stage figma github %}
 {% enddocLinks %}
 
-{% componentPreview "Aperçu du composant de la boîte" %}
-<gcds-container border margin="175" padding="175" size="lg">
-Grande boîte
-</gcds-container>
-<gcds-container border margin="175" padding="175" size="md">
-Boîte moyenne
-</gcds-container>
-<gcds-container border margin="175" padding="175" size="sm">
-Petite boîte
-</gcds-container>
-{% endcomponentPreview %}
+{% baseComponentPreview "Aperçu du composant de la boîte" page.filePathStem %}
+{% endbaseComponentPreview %}
