@@ -58,14 +58,6 @@ Fournissez l'un des éléments suivants pour chaque composant ou bloc réutilisa
 ### Composants et modèles à venir
 
 <div>
-  <gcds-heading tag="h4" margin-bottom="0">Avis</gcds-heading>
-  <ul class="mb-300">
-    <li>L’avis est un message court et visible destiné à attirer l’attention et à informer.</li>
-    <li><strong>Sortie prévue :</strong> automne 2024</li>
-  </ul>
-</div>
-
-<div>
   <gcds-heading tag="h4" margin-bottom="0">Modèle de page de sujet</gcds-heading>
   <ul class="mb-300">
     <li>Le modèle de page de sujet est un modèle réutilisable pour les pages qui donnent accès à des sujets et à des pages de destination permettant l’achèvement d’une tâche.</li>
