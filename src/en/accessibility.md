@@ -15,13 +15,13 @@ nocrawl: true
 
 ## Our accessibility standards
 
-The GC Design System meets or exceeds Web Content Accessibility Guidelines (WCAG) 2.1 AA, making it fully compliant with <gcds-link href="https://www.tbs-sct.canada.ca/pol/doc-eng.aspx?id=23601"> Government of Canada standards</gcds-link>. 
+The GC Design System meets or exceeds Web Content Accessibility Guidelines (WCAG) 2.1 AA, making it fully compliant with <gcds-link external href="https://www.tbs-sct.canada.ca/pol/doc-eng.aspx?id=23601"> Government of Canada standards</gcds-link>. 
 
 Public servants who use the components as intended and follow the guidance are creating Government of Canada websites and applications that meet or surpass accessibility standards.
 
 ## Our accessibility checklist
 
-The entire GC Design System builds in accessibility from the start to meet the <gcds-link href="https://www.tbs-sct.canada.ca/pol/doc-eng.aspx?id=23601">Government of Canada’s accessibility standards</gcds-link>. 
+The entire GC Design System builds in accessibility from the start to meet the <gcds-link external href="https://www.tbs-sct.canada.ca/pol/doc-eng.aspx?id=23601">Government of Canada’s accessibility standards</gcds-link>. 
 
 ### Navigation
 
@@ -94,7 +94,7 @@ The entire GC Design System builds in accessibility from the start to meet the <
 
 ## Contact us
 
-If you have any questions or encounter any accessibility barriers while using the GC Design System,‌ <gcds-link href="https://design-system.alpha.canada.ca/en/contact/">reach out to us</gcds-link>. 
+If you have any questions or encounter any accessibility barriers while using the GC Design System,‌ [reach out to us]({{ links.contact }}).
 
 We’re committed to addressing any issues promptly to ensure an inclusive experience for all. Accessibility is an ongoing process, and we continuously strive to improve.
 
