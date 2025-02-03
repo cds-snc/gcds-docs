@@ -21,7 +21,7 @@ Use GC Design System to meet Government of Canada requirements for digital servi
 - Simplify your digital delivery.
 - Work in the framework you want to work in.
 - Help create seamless Government of Canada service experiences.
-- Build products that [meet or surpass GC accessibility standards](https://design-system.alpha.canada.ca/en/accessibility/).
+- Build products that <gcds-link href="[https://www.tbs-sct.canada.ca/pol/doc-eng.aspx?id=23601](https://design-system.alpha.canada.ca/en/accessibility/)">meet or surpass GC accessibility standards</gcds-link>.
 
 ## How our updates work
 
