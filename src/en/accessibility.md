@@ -11,4 +11,3 @@ eleventyNavigation:
 nocrawl: true
 ---
 
-# Accessibility
