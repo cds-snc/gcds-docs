@@ -16,8 +16,8 @@
     "watch:eleventy": "eleventy --serve",
     "cy:open": "cypress open",
     "cy:run": "npx cypress run",
-    "build:ci": "npm run build:eleventy & eleventy --serve",
-    "test": "start-server-and-test build:ci http://localhost:8080/en cy:run"
+    "cy:build": "npm run build:eleventy & eleventy --serve",
+    "test": "start-server-and-test cy:build http://localhost:8080/en cy:run"
   },
   "repository": {
     "type": "git",
