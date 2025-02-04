@@ -26,70 +26,70 @@ The entire GC Design System builds in accessibility from the start to meet the <
 ### Navigation
 
 <gcds-details details-title="Focus states">
-  Interactive elements, like buttons, links, and form fields, have clear and visible focus states to guide people who use keyboard navigation.
+  <p>Interactive elements, like buttons, links, and form fields, have clear and visible focus states to guide people who use keyboard navigation.</p>
 </gcds-details>
 
 <gcds-details details-title="Keyboard navigation">
-  Keyboards can be used to navigate the system by people who cannot use a mouse.
+  <p>Keyboards can be used to navigate the system by people who cannot use a mouse.</p>
 </gcds-details>
 
 <gcds-details details-title="Screen reader compatibility">
-  Screen readers can be used to navigate the system by people using assistive technologies.
+  <p>Screen readers can be used to navigate the system by people using assistive technologies.</p>
 </gcds-details>
 
 <gcds-details details-title="Responsive design">
-  Screen readers can be used to navigate the system by people using assistive technologies.
+  <p>Screen readers can be used to navigate the system by people using assistive technologies.</p>
 </gcds-details>
 
 ### Visuals
 
 <gcds-details details-title="Colour contrast">
-  Text and interface elements meet or exceed the required colour contrast ratios to maintain readability for people with visual impairments.
+  <p>Text and interface elements meet or exceed the required colour contrast ratios to maintain readability for people with visual impairments.</p>
 </gcds-details>
 
 <gcds-details details-title="Non-colour indicators">
-  Visual cues besides colour, like shapes, icons, or bold text, are used to indicate important information for people with colour deficiencies. 
+  <p>Visual cues besides colour, like shapes, icons, or bold text, are used to indicate important information for people with colour deficiencies.</p> 
 </gcds-details>
 
 <gcds-details details-title="Screen magnifier compatibility">
-  Screen magnifiers can be used by people with low vision to zoom in on content without losing functionality.
+  <p>Screen magnifiers can be used by people with low vision to zoom in on content without losing functionality.</p>
 </gcds-details>
 
 <gcds-details details-title="Browsers and assistive plugins compatibility.">
-  Accessibility formatting like Accessible Rich Internet Applications (ARIA) roles and landmarks is preserved and works in different environments.
+  <p>Accessibility formatting like Accessible Rich Internet Applications (ARIA) roles and landmarks is preserved and works in different environments.</p>
 </gcds-details>
 
 <gcds-details details-title="Alt text">
-  Images and non-text content include appropriate alt text to provide a description for people relying on screen readers.
+  <p>Images and non-text content include appropriate alt text to provide a description for people relying on screen readers.</p>
 </gcds-details>
 
 <gcds-details details-title="ARIA roles and attributes">
-  Accessible Rich Internet Applications (ARIA) roles and attributes are used so interactive elements, like menus, buttons, and forms, can be identified and operated by assistive technologies. 
+  <p>Accessible Rich Internet Applications (ARIA) roles and attributes are used so interactive elements, like menus, buttons, and forms, can be identified and operated by assistive technologies.</p> 
 </gcds-details>
 
 
 ### Clarity
 
 <gcds-details details-title="Clear form fields">
-  Form fields follow guidance to have accessible labels, clear instructions, and are compatible with assistive technologies.
+  <p>Form fields follow guidance to have accessible labels, clear instructions, and are compatible with assistive technologies.</p>
 </gcds-details>
 
 <gcds-details details-title="Clear and specific error messages">
-  Clear and actionable guidance appears when there are errors in forms or interactions so people know how to fix the error.
+  <p>Clear and actionable guidance appears when there are errors in forms or interactions so people know how to fix the error.</p>
 </gcds-details>
 
 ## How we test for accessibility
 
 <gcds-details details-title="Automated accessibility testing">
-  Before components are released, we leverage automated tools that scan tokens, components, and website for accessibility issues. This early-stage testing allows us to resolve common issues before deeper testing begins.
+ <p>Before components are released, we leverage automated tools that scan tokens, components, and website for accessibility issues. This early-stage testing allows us to resolve common issues before deeper testing begins.</p>
 </gcds-details>
 
 <gcds-details details-title="Usability testing for accessibility needs">
-  We conduct testing with people who have accessibility needs, including individuals with various disabilities. This ensures our system is functional and usable in a range of scenarios that automated testing cannot fully capture.
+  <p>We conduct testing with people who have accessibility needs, including individuals with various disabilities. This ensures our system is functional and usable in a range of scenarios that automated testing cannot fully capture.</p>
 </gcds-details>
 
 <gcds-details details-title="Market research and best practices">
-  We’re always looking at new accessibility rules and best practices from different industries. We add new findings and suggestions to our design system.
+  <p>We’re always looking at new accessibility rules and best practices from different industries. We add new findings and suggestions to our design system.</p>
 </gcds-details>
 
 ## Contact us
