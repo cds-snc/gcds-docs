@@ -56,11 +56,14 @@
     "contactMail": "mailto:cds-snc@servicecanada.gc.ca",
     "getInvolved": "/en/get-involved",
     "roadmap": "/en/roadmap",
+    "registerDemo": "/en/register-for-a-demo",
 
     "comingSoon": "/en/coming-soon",
     "demo": "/en/demo",
     "releaseNotes": "https://github.com/cds-snc/gcds-components/blob/main/CHANGELOG.md",
     "privacy": "/en/privacy-notice",
+    "termsOfUse": "/en/terms-of-use",
+    "sla": "/en/service-level-agreement",
 
     "pageTemplates": "/en/page-templates",
     "pageTemplatesBasic": "/en/page-templates/basic",

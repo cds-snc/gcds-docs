@@ -6,11 +6,11 @@ tags: ['noticeEN', 'code']
 date: "git Last Modified"
 ---
 
-## Build a Notice
+## Build a notice
 
 Use the notice component to deliver important context-specific messages to people. The notice communicates varying levels of urgency and meaning using content and visual cues.
 
-## Accessibility and Code Guidance
+## Accessibility and code guidance
 
 ### Define the type of notice
 

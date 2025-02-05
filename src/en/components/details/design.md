@@ -12,7 +12,7 @@ This is an anatomy of the open details component. By default, the content is col
 
 <ol class="anatomy-list">
   <li>The <strong>details title</strong> summarizes the details content. Label text is in sentence case (only the initial letter is capitalized).</li>
-  <li>The <strong>icon</strong> and the <strong>details title</strong> toggle the content display. The icon indicates if the component is currently open or closed. When it's open, revealing the details text, the icon points to details content.</li>
+  <li>The <strong>caret</strong> and the <strong>details title</strong> toggle the content display. The caret indicates if the component is currently open or closed. When it's open, revealing the details text, the caret points to details content.</li>
   <li>The <strong>content</strong> displays any text and images that the reader can choose to expand or collapse.</li>
 </ol>
 

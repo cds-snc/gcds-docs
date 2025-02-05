@@ -97,6 +97,8 @@ The font family contains fallback values. The fallback is a substitute value for
 - Be mindful in establishing emphasis in an accessible way, many assistive technologies ignore font weights.
 - Instead of font weights, consider using bullets or increasing white space to break up text.
 
+{% include "partials/token_table.njk", token: 'fontWeights', type: 'fontWeights' %}
+
 ### Bold text
 
 - Maintain the default bold setting for headings.
@@ -106,8 +108,6 @@ The font family contains fallback values. The fallback is a substitute value for
 
 - Use italics when referencing a Canadian law, as in _Accessible Canada Act_.
 - Limit your use of italics to short strings of text. Long passages in italics can create cognitive processing difficulties for sighted readers.
-
-{% include "partials/token_table.njk", token: 'fontWeights', type: 'fontWeights' %}
 
 <br/>
 

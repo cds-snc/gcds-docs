@@ -18,6 +18,7 @@ We are using [11ty](https://www.11ty.dev/docs/) to build our documentation websi
 
 - Clone the repo `git clone https://github.com/cds-snc/gcds-docs`.
 - Run `npm install` to install all Node.js dependencies.
+- Run `npm run build` to initiate the Eleventy build process.
 - Run `npm start` to start a hot-reloading local web server.
 - The site will be accessible on http://localhost:8080/en or http://localhost:8080/fr. You have to append the `/en` and `/fr` as there is no page available at the base url
   <br/>
@@ -89,9 +90,10 @@ Nous utilisons [11ty](https://www.11ty.dev/docs/) pour construire notre site Web
 
 - Copiez le référentiel `git clone https://github.com/cds-snc/gcds-docs`.
 - Exécutez ensuite `npm install` pour installer toutes les dépendances Node.js.
+- Exécutez `npm run build` pour lancer le processus de développement Eleventy.
 - Exécutez `npm start` pour démarrer un serveur Web avec rechargement à chaud.
 - Le site sera accessible sur http://localhost:8080/fr or http://localhost:8080/en. Vous devrez ajouter `/fr` ou `/en` en suffixe car il n'y a pas de page disponible à l'URL de base.
-    
+
   <br/>
 
 ## Ajouter de nouvelles pages

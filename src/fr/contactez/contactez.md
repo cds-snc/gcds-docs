@@ -5,8 +5,8 @@ eleventyNavigation:
   key: contactusFR
   title: Contactez-nous
   locale: fr
-  order: 2
-  hideMain: true
+  order: 3
+  hideMain: false
 translationKey: 'contactus'
 contactForm: fr
 date: 'git Last Modified'

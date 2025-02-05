@@ -18,6 +18,8 @@ const { encode } = require('html-entities');
 const { downloadTemplates } = require('./scripts/templates');
 const { execSync } = require('child_process');
 
+const demoDates = require('./src/_data/registerdemos.js');
+
 module.exports = function (eleventyConfig) {
   // Pass through copies
 
@@ -320,6 +322,87 @@ module.exports = function (eleventyConfig) {
   );
 
   /*
+   * Shortcode to render demo dates
+   * Renders based on data file at ./src/_data/registerdemos.js
+   */
+  eleventyConfig.addPairedShortcode(
+    'registerForDemoLinks',
+    (children, locale) => {
+      const langStrings = {
+        en: {
+          enDemo: 'English demo',
+          frDemo: 'French demo',
+          timezone: 'Eastern time',
+          nodates: 'No upcoming dates.',
+        },
+        fr: {
+          enDemo: 'Démo en anglais',
+          frDemo: 'Démo en français',
+          timezone: 'heure de l\'Est',
+          nodates: 'Aucune date à venir.',
+        },
+      };
+
+      let validDates = [];
+
+      demoDates.map(date => {
+        if (new Date() < new Date(date.date)) {
+          validDates.push(date.date);
+        }
+      });
+
+      if (validDates.length > 0) {
+        return `
+        <ul class="mb-300">
+          ${demoDates
+            .map(date => {
+              if (validDates.includes(date.date)) {
+                const options = {
+                  weekday: 'long',
+                  year: 'numeric',
+                  month: 'long',
+                  day: 'numeric',
+                  timeZone: 'UTC',
+                };
+                const prnDt = new Date(date.date).toLocaleString(
+                  locale,
+                  options,
+                );
+
+                const datelink = `<gcds-link external href="${date.link}">${date.lang === 'en' ? langStrings[locale].enDemo : langStrings[locale].frDemo}</gcds-link>`;
+                const time = `<time>
+                  ${
+                    locale === 'en'
+                      ? `${prnDt}, ${convertTime(date.starttime)} – ${convertTime(date.endtime)} ${langStrings[locale].timezone}`
+                      : `${prnDt}, de ${date.starttime.replace(':', 'h')} à ${date.endtime.replace(':', 'h')} ${langStrings[locale].timezone}`
+                  }
+                </time>`;
+
+                return `<li>${datelink} – ${time}</li>`;
+              }
+            })
+            .join('')}
+        </ul>
+      `;
+      } else {
+        return `<p>${langStrings[locale].nodates}</p>`;
+      }
+    },
+  );
+
+  /*
+   * Convert 24 hour time to 12 hour time
+   */
+  const convertTime = time => {
+    return new Date('1970-01-01T' + time + 'Z').toLocaleTimeString('en-US', {
+      timeZone: 'UTC',
+      hour12: true,
+      hour: 'numeric',
+      minute: 'numeric',
+    });
+  };
+
+  /*
    * Display tokens in tables based on passed name
    */
   eleventyConfig.addShortcode('displayTokens', (token, subCategory, locale) => {
@@ -329,10 +412,12 @@ module.exports = function (eleventyConfig) {
   /*
    * Convert string from camelCase to kebab-case
    */
-  eleventyConfig.addFilter("camelToKebab", function(str) {
-    return str.replace(/[a-z][A-Z]/g, function(match) {
-      return match[0] + '-' + match[1].toLowerCase();
-    }).toLowerCase();
+  eleventyConfig.addFilter('camelToKebab', function (str) {
+    return str
+      .replace(/[a-z][A-Z]/g, function (match) {
+        return match[0] + '-' + match[1].toLowerCase();
+      })
+      .toLowerCase();
   });
 
   // Misc

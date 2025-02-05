@@ -9,7 +9,7 @@ date: 'git Last Modified'
 ## Structure de la sélection
 
 <ol class="anatomy-list">
-  <li>Le <strong>libellé</strong> indique le choix que représente la sélection.</li>
+  <li>L'<strong>étiquette</strong> indique le choix que représente la sélection.</li>
   <li>Le <strong>texte explicatif</strong> fournit un contexte supplémentaire ou des exigences sur la question et la réponse attendue.</li>
   <li>La <strong>valeur par défaut</strong> peut être utilisée comme un espace réservé pour la sélection.</li>
   <li>L'<strong>icône</strong> est utilisée comme aide visuelle pour indiquer que le champ peut être agrandi.</li>

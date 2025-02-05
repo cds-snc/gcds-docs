@@ -13,7 +13,7 @@ date: 'git Last Modified'
   <li>The <strong>nav link</strong> is a link to a page or section on the product site.</li>
   <li>The <strong>nav group</strong> is a collection of nav links related to the nav group name. It can be collapsed and expanded.</li>
   <li>The <strong>nav group label</strong> identifies the nav group and acts as a button to expand and collapse the nav group.</li>
-  <li>The <strong>nav group chevron icon</strong> points up when the nav group is collapsed and down when it’s expanded.</li>
+  <li>The <strong>nav group chevron icon</strong> points down when the nav group is collapsed and up when it’s expanded.</li>
   <li>The <strong>nav link with active indicator</strong> gives visual prominence to the current page.</li>
 </ol>
 

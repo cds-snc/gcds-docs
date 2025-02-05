@@ -13,7 +13,7 @@ date: 'git Last Modified'
   <li>Le <strong>lien de navigation</strong> est un lien qui mène vers une page ou une section du site de produit.</li>
   <li>Le <strong>groupe de navigation</strong> est une collection de liens de navigation liés au nom du groupe de navigation. Il peut être développé et réduit.</li>
   <li>Le <strong>libellé du groupe de navigation</strong> identifie le groupe de navigation et agit à titre de bouton pour développer et réduire le groupe de navigation en question.</li>
-  <li>L’<strong>icône de chevron du groupe de navigation</strong> pointe vers le haut lorsque la liste est réduite et vers le bas lorsqu’elle est développée.</li>
+  <li>L’<strong>icône de chevron du groupe de navigation</strong> pointe vers le bas lorsque la liste est réduite et vers le haut lorsqu’elle est développée.</li>
   <li>Le <strong>lien de navigation avec indicateur de page active</strong> met en évidence la page actuelle.</li>
 </ol>
 
