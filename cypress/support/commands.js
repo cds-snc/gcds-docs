@@ -40,3 +40,42 @@ Cypress.Commands.add('scanDeadLinks', () => {
     });
   });
 });
+
+// Make the violation impacts more human readable
+const displayImpacts = violations => {
+  const impacts = violations.map(violation => violation.impact );
+
+  const uniqueArr = [...new Set(impacts)];
+
+  if (uniqueArr.length === 1) {
+    return `with a ${uniqueArr[0]} impact`;
+  }
+
+  return (
+    'with ' +
+    uniqueArr.slice(0, -1).join(', ') +
+    ' and ' +
+    uniqueArr.slice(-1) +
+    ' impacts.'
+  );
+};
+
+Cypress.Commands.add('terminalLog', violations => {
+  cy.task(
+    'log',
+    `${violations.length} accessibility violation${
+      violations.length === 1 ? '' : 's'
+    } ${violations.length === 1 ? 'was' : 'were'} detected ${displayImpacts(violations)}`,
+  );
+  // pluck specific keys to keep the table readable
+  const violationData = violations.map(
+    ({ id, impact, description, nodes }) => ({
+      id,
+      impact,
+      description,
+      nodes: nodes.length,
+    }),
+  );
+
+  cy.task('table', violationData);
+});

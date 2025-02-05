@@ -44,7 +44,7 @@ describe(`A11Y test French documentation site`, () => {
       cy.visit(page.url, { timeout: 30000 });
       cy.get('.hydrated').then(() => {
         cy.injectAxe();
-        cy.checkA11y(null, null, terminalLog);
+        cy.checkA11y(null, null, cy.terminalLog);
         // skip theme and topic menu since links are pulled from external source
         if (!page.url.includes('menu-thematique')) {
           cy.scanDeadLinks();
@@ -53,24 +53,3 @@ describe(`A11Y test French documentation site`, () => {
     });
   }
 });
-
-// Output a11y errors in table in console
-function terminalLog(violations) {
-  cy.task(
-    'log',
-    `${violations.length} accessibility violation${
-      violations.length === 1 ? '' : 's'
-    } ${violations.length === 1 ? 'was' : 'were'} detected`,
-  );
-  // pluck specific keys to keep the table readable
-  const violationData = violations.map(
-    ({ id, impact, description, nodes }) => ({
-      id,
-      impact,
-      description,
-      nodes: nodes.length,
-    }),
-  );
-
-  cy.task('table', violationData);
-}
