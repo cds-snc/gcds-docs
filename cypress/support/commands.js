@@ -43,7 +43,7 @@ Cypress.Commands.add('scanDeadLinks', () => {
 
 // Make the violation impacts more human readable
 const displayImpacts = violations => {
-  const impacts = violations.map(violation => violation.impact );
+  const impacts = violations.map(violation => violation.impact);
 
   const uniqueArr = [...new Set(impacts)];
 
