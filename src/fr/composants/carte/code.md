@@ -18,7 +18,7 @@ Utilisez l'attribut `card-title` pour ajouter un titre court et descriptif à la
 
 ### Sélectionnez le bon niveau de titre
 
-Utilisez `card-title-tag` pour définir le bon niveau de titre pour la carte. Suivez une hiérarchie correcte et ordonnée pour fournir une expérience équitable aux personnes utilisant des technologies d'assistance.
+Utilisez `card-title-tag` pour définir [le bon niveau](/fr/composants/titre/design/#classez-les-niveaux-de-titre-de-maniere-hierarchique) de titre pour la carte. La définition du niveau adapté pour le titre n'a pas d'incidence sur la taille de la police, mais elle permet de maintenir la bonne hiérarchie et l'accessibilité pour les technologies d'assistance.
 
 ### Ajoutez une `description` pour fournir plus d'informations
 
