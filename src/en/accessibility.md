@@ -15,13 +15,13 @@ nocrawl: true
 
 ## Our accessibility standards
 
-The GC Design System meets or exceeds Web Content Accessibility Guidelines (WCAG) 2.1 AA, making it fully compliant with <gcds-link external href="https://www.tbs-sct.canada.ca/pol/doc-eng.aspx?id=23601"> Government of Canada standards</gcds-link>. 
+The GC Design System meets or exceeds WCAG 2.1 AA, making it fully compliant with <gcds-link external href="https://www.tbs-sct.canada.ca/pol/doc-eng.aspx?id=23601"> Government of Canada accessibility standards</gcds-link>. 
 
-Public servants who use the components as intended and follow the guidance are creating Government of Canada websites and applications that meet or surpass accessibility standards.
+Public servants who use the components as intended are creating Government of Canada websites and applications in line with accessibility standards.
 
 ## Our accessibility checklist
 
-The entire GC Design System builds in accessibility from the start to meet the <gcds-link external href="https://www.tbs-sct.canada.ca/pol/doc-eng.aspx?id=23601">Government of Canada’s accessibility standards</gcds-link>. 
+The entire GC Design System builds in accessibility from the start to meet accessibility standards. This includes this website, as well as design tokens and components.
 
 ### Navigation
 
@@ -38,7 +38,7 @@ The entire GC Design System builds in accessibility from the start to meet the <
 </gcds-details>
 
 <gcds-details details-title="Responsive design">
-  <p>Screen readers can be used to navigate the system by people using assistive technologies.</p>
+  <p>The components are responsive so people have consistent experiences regardless of the device they use.</p>
 </gcds-details>
 
 ### Visuals
@@ -48,7 +48,7 @@ The entire GC Design System builds in accessibility from the start to meet the <
 </gcds-details>
 
 <gcds-details details-title="Non-colour indicators">
-  <p>Visual cues besides colour, like shapes, icons, or bold text, are used to indicate important information for people with colour deficiencies.</p> 
+  <p>In addition to colour, visual cues like shapes, icons, or bold text, are used to indicate important information for people with colour deficiencies.</p> 
 </gcds-details>
 
 <gcds-details details-title="Screen magnifier compatibility">
@@ -89,13 +89,11 @@ The entire GC Design System builds in accessibility from the start to meet the <
 </gcds-details>
 
 <gcds-details details-title="Market research and best practices">
-  <p>We’re always looking at new accessibility rules and best practices from different industries. We add new findings and suggestions to our design system.</p>
+  <p>We’re always looking at new accessibility rules and best practices from different industries. We add new findings and suggestions to our design system guidance.</p>
 </gcds-details>
 
 ## Contact us
 
-If you have any questions or encounter any accessibility barriers while using the GC Design System,‌ [reach out to us]({{ links.contact }}).
+If you have any questions or encounter any accessibility barriers while using the GC Design System,‌ [contact us]({{ links.contact }}).
 
-We’re committed to addressing any issues promptly to ensure an inclusive experience for all. Accessibility is an ongoing process, and we continuously strive to improve.
-
-
+We’re committed to addressing any issues promptly to ensure an inclusive experience for all.
