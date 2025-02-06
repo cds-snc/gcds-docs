@@ -32,6 +32,11 @@ La propriété `tag` utilise une balise `div` par défaut.
 - Vous pouvez remplacer la balise par une valeur adaptée au contexte à l'aide de balises standards. Par exemple, pour insérer une liste non ordonnée, définissez la propriété de balise à `ul`.
 - Choisissez une balise dans la liste des options disponibles pour la grille dans le générateur de code. L'utilisation de balises HTML qui respectent les normes établies et les règles sémantiques augmente l'accessibilité du contenu et améliore l'expérience d'utilisation.
 
+### Ajoutez un espacement entre les colonnes
+
+- Utilisez la propriété `gap` pour ajouter de l'espacement entre vos `columns` dans la grille.
+- Utilisez les <a href="{{ links.designTokens }}">unités de style</a> de Système de design GC comme référence pour la taille de votre `gap` dans la grille. Les mesures des unités correspondent aux valeurs d'espacement de l'attribut `gap`  (150-800).
+
 ### Choisissez une option pour des colonnes de largeur égale
 
 Désactivez la définition de la largeur minimale et de la largeur maximale lorsque vous souhaitez concevoir des colonnes de largeur égale sans restrictions de largeur. Cela permettra à la grille et à ses colonnes de s'adapter à la fenêtre d'affichage.

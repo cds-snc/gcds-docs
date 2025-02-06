@@ -32,6 +32,11 @@ By default, the `tag` property is set to use a `div` tag.
 - Opt to change the tag to a context-appropriate value using standard tags. For example, when using an unordered list set the tag property to `ul`.
 - Choose a tag from the list of available options for grid in the code builder. Using established standards for HTML tags that are semantic increase the accessibility of the content and improves the experience for everyone.
 
+### Add spacing between columns
+
+- Use the `gap` property to add spacing between your `columns` in the grid.
+- Use GC Design System <a href="{{ links.designTokens }}">design tokens</a> as a reference for the size of the `gap` in the grid. The tokens measurements match up with the spacing values for the `gap` attribute (150-800).
+
 ### Choose an option for equal width columns
 
 Opt out of setting the minimum and maximum width when you want to design equal-width columns without width restrictions. This will allow the grid and its columns to scale to the size of the viewport.
