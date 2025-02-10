@@ -6,4 +6,12 @@
   div > p {
     max-width: none;
   }
+
+  &__expanded-topic-menu {
+    height: 62.5rem;
+  }
+
+  &__expanded-dropdown-menu {
+    height: 31.25rem;
+  }
 }

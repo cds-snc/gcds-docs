@@ -15,6 +15,5 @@ La date de modification est un indicateur de la dernière mise à jour apportée
 {% docLinks locale stage figma github %}
 {% enddocLinks %}
 
-{% componentPreview "Aperçu du composant de date de modification" %}
-<gcds-date-modified>2023-08-22</gcds-date-modified>
-{% endcomponentPreview %}
+{% baseComponentPreview "Aperçu du composant de date de modification" page.filePathStem %}
+{% endbaseComponentPreview %}

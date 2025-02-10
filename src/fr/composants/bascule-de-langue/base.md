@@ -15,6 +15,5 @@ La bascule de langue est un lien menant vers le même contenu dans l'autre langu
 {% docLinks locale stage figma github %}
 {% enddocLinks %}
 
-{% componentPreview "Aperçu du de bascule de langue" %}
-<gcds-lang-toggle href="#" lang="fr"></gcds-lang-toggle>
-{% endcomponentPreview %}
+{% baseComponentPreview "Aperçu du de bascule de langue" page.filePathStem %}
+{% endbaseComponentPreview %}

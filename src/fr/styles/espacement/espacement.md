@@ -22,7 +22,7 @@ permalink: /fr/styles/espacement/
 # date: "git Last Modified"
 ---
 
-## {{ title }}
+# {{ title }}
 
 Les unités de style d'espacement aident à disposer les éléments à l'écran et dans les composants.
 

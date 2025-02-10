@@ -13,4 +13,4 @@ _site/
 src/_includes/partials/templates/en/
 src/_includes/partials/templates/fr/
 
-package-lock.json
+cypress/screenshots/

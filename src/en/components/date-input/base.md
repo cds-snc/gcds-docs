@@ -15,7 +15,5 @@ A date input is a space to enter a known date.
 {% docLinks locale stage figma github %}
 {% enddocLinks %}
 
-{% componentPreview "Date input component preview" %}
-<gcds-date-input format="full" legend="Legend" name="example-default" hint="Day can be 1 or 2 digits. Year must be 4 digits.">
-</gcds-date-input>
-{% endcomponentPreview %}
+{% baseComponentPreview "Date input component preview" page.filePathStem %}
+{% endbaseComponentPreview %}

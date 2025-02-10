@@ -14,6 +14,5 @@ Search is a space for entering keywords to find relevant information.
 {% docLinks locale stage figma github %}
 {% enddocLinks %}
 
-{% componentPreview "Search component preview" %}
-<gcds-search></gcds-search>
-{% endcomponentPreview %}
+{% baseComponentPreview "Search component preview" page.filePathStem %}
+{% endbaseComponentPreview %}

@@ -15,6 +15,5 @@ The footer is the responsive Government of Canada branded footer landmark.
 {% docLinks locale stage figma github %}
 {% enddocLinks %}
 
-{% componentPreview "Footer component preview" %}
-<img src="/images/en/components/example/example-footer-full-with-contextual-links.svg" alt="Website footer with two sections. First section in wide dark blue banner with multiple links like Contact us, News, Departments and agencies,Prime Minister,  and so on. Light grey banner with some links like Social media, Mobile applications, About Canada.ca, Terms of Conditions, Privacy. With a Canada logo at the corner."/>
-{% endcomponentPreview %}
+{% baseComponentPreview "Footer component preview" page.filePathStem %}
+{% endbaseComponentPreview %}
