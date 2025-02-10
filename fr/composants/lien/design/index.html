@@ -22,6 +22,7 @@
     <link rel="stylesheet" href="/gcds-docs/styles/style.css">
     <script src="/gcds-docs/scripts/code-showcase.js"></script>
     <script src="/gcds-docs/scripts/code-copy.js"></script>
+    <script src="/gcds-docs/scripts/component-preview.js"></script>
     <link rel="icon" type="image/x-icon" sizes="96x96" href="/gcds-docs/favicon.ico">
 
     <!-- Icons Font Awesome (to access icons, import Font Awesome) -->
@@ -1191,16 +1192,20 @@
 <gcds-link external href="https://www.figma.com/file/o4SguSZdar2CCFzSkWNrmB/Syst%C3%A8me-de-design-GC?type=design&node-id=8-5038&mode=design&t=1DaL24vHpjRRfHHm-0">Figma</gcds-link>
 </li>
 </ul></p>
-<p class="mb-300"><div class="my-600 b-sm b-default component-preview" id="component-preview">
-<p class="container-full font-semibold px-225 py-150 bb-sm b-default bg-light">
+<p class="mb-300"><div class="my-600 b-sm b-default component-preview">
+<h2 class="container-full font-text font-semibold px-225 py-150 bb-sm b-default bg-light">
 Aperçu du composant de lien
-</p>
-<div class="px-225 py-300"></p>
-<p class="mb-300"><gcds-link class="d-block mb-300" href="#">Lien de navigation</gcds-link>
-<gcds-link class="d-block mb-300" href="long-filename.pdf" download="file.pdf" type="application/pdf">Télécharger le document (PDF, 1,5 Mb)</gcds-link>
-<gcds-link class="d-block mb-300" href="mailto:test@test.com?subject=Test%20Email">Envoyer un courriel</gcds-link>
-<gcds-link class="d-block" href="tel:1234567890">Appeler</gcds-link></p>
-<p class="mb-300"></div>
+</h2>
+<div>
+<iframe
+            title="Aperçu du composant de lien"
+            src="/fr/composants/lien/preview"
+            style="display: block; margin: 0 auto;"
+            frameBorder="0"
+            width="100%"
+            id="component-preview"
+          ></iframe>
+</div>
 </div></p>
 
     <nav class="tabs mb-300" aria-label="Onglet de consignes">
@@ -1243,12 +1248,14 @@ Aperçu du composant de lien
   <h2 id="structure-du-lien" class="mt-600 mb-300">Structure du lien</h2>
 <ol class="anatomy-list">
   <li>Le <strong>texte du lien</strong> mène à une nouvelle page, à une section de la page actuelle ou à un autre site Web. Le texte indique la destination du lien ou, pour les téléchargements, le type et la taille du fichier. Remarque : L'ouverture de liens dans un nouvel onglet ou une nouvelle fenêtre peut être désorientant et causer des problèmes d'accessibilité. </li>
-  <li>L'<strong>icône du lien</strong> est liée à certains types de liens, comme les liens de téléchargement, téléphoniques et courriels.</li>
-  <ul>
-    <li>L'icône de téléchargement, ainsi que le texte du lien de téléchargement, informe une personne que sélectionner le lien déclenchera un téléchargement.</li>
-    <li>Le lien téléphonique identifie le numéro de téléphone et le sélectionner déclenche un appel téléphonique.</li>
-    <li>Le lien courriel identifie l'adresse courriel et lance un message à partir de l'application de messagerie par défaut.</li>
-  </ul>
+  <li>
+    L'<strong>icône du lien</strong> est liée à certains types de liens, comme les liens de téléchargement, téléphoniques et courriels.
+    <ul class="mt-400 ms-0">
+      <li>L'icône de téléchargement, ainsi que le texte du lien de téléchargement, informe une personne que sélectionner le lien déclenchera un téléchargement.</li>
+      <li>Le lien téléphonique identifie le numéro de téléphone et le sélectionner déclenche un appel téléphonique.</li>
+      <li>Le lien courriel identifie l'adresse courriel et lance un message à partir de l'application de messagerie par défaut.</li>
+    </ul>
+  </li>
 </ol>
 <img class="b-sm b-default p-300" src="/images/fr/components/anatomy/gcds-link-anatomy.svg" alt="Une étiquette soulignée pour indiquer qu'il s'agit d'un lien interactif que l'on peut suivre. Une icône avec une flèche pointant vers le bas se trouve à droite du lien." />
 <h2 id="accessibilite-et-design-des-liens" class="mt-600 mb-300">Accessibilité et design des liens</h2>
@@ -1311,7 +1318,7 @@ Aperçu du composant de lien
 
 
         <gcds-date-modified class="mb-300">
-          2025-02-06
+          2025-02-10
         </gcds-date-modified>
       </main>
 

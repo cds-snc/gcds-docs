@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Top navigation component preview - GC Design System</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="/gcds-docs/styles/style.css">
+
+    <!-- Utility framework -->
+    <link rel="stylesheet" href="/gcds-docs/gcds-utility.min.css" />
+
+    <link rel="icon" type="image/x-icon" sizes="96x96" href="/gcds-docs/favicon.ico">
+
+    <!-- Icons Font Awesome (to access icons, import Font Awesome) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" crossorigin="anonymous">
+
+    <!-- GC Design System  Components-->
+    <link rel="stylesheet" href="/gcds-docs/components/dist/gcds/gcds.css">
+    <script type="module" src="/components/dist/gcds/gcds.esm.js"></script>
+    <script nomodule src="/components/dist/gcds/gcds.js"></script>
+
+    <script src="/gcds-docs/scripts/component-preview-iframe.js"></script>
+  </head>
+  <body class="overflow-visible box-border px-225 py-300">
+    
+<gcds-top-nav label="Top navigation component preview" alignment="right" lang="en">
+  <gcds-nav-link href="#red" slot="home">GC Notify</gcds-nav-link>
+  <gcds-nav-link href="#red">Why GC Notify</gcds-nav-link>
+  <gcds-nav-group menu-label="Features submenu" open-trigger="Features">
+    <gcds-nav-link href="#red" current>Create reusable templates</gcds-nav-link>
+    <gcds-nav-link href="#red">Personalize messages</gcds-nav-link>
+    <gcds-nav-link href="#red">Schedule messages</gcds-nav-link>
+    <gcds-nav-link href="#red">Send messages automatically</gcds-nav-link>
+  </gcds-nav-group>
+  <gcds-nav-link href="#red">Contact us</gcds-nav-link>
+</gcds-top-nav>
+
+  </body>
+</html>
