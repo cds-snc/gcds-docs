@@ -21,7 +21,7 @@ Faites appel à Système de design GC pour répondre aux exigences du gouverneme
 - Simplifiez votre prestation numérique. 
 - Travaillez dans l’infrastructure qui vous convient.
 - Aidez-nous à créer des expériences de service uniformes pour le gouvernement du Canada.
-- Créez des produits qui <gcds-link external href="https://www.tbs-sct.canada.ca/pol/doc-fra.aspx?id=23601"> espectent ou dépassent les normes d’accessibilité du GC</gcds-link>.
+- Créez des produits qui [espectent ou dépassent les normes d’accessibilité du GC](https://systeme-design.alpha.canada.ca/fr/accessibilite/).
 
 ## Comment fonctionnent nos mises à jour
 
