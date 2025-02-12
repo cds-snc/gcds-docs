@@ -43,7 +43,7 @@ Système de design GC intègre l’accessibilité dès le départ pour répondre
 ### Visuels
 
 <gcds-details details-title="Contraste de couleurs">
-  <p>Les éléments de texte et d’interface respectent ou dépassent les ratios exigés en matière de contraste de couleurs pour garantir leur lisibilité par les personnes ayant une incapacité visuelle.</p>
+  <p>Les éléments de texte et d’interface respectent ou dépassent les ratios exigés en matière de contraste de couleurs pour garantir leur lisibilité par les personnes ayant une visuelle partielle ou le daltonisme.</p>
 </gcds-details>
 
 <gcds-details details-title="Indicateurs autres que les couleurs">
