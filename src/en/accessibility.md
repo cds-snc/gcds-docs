@@ -47,7 +47,7 @@ The entire GC Design System builds in accessibility from the start to meet acces
 </gcds-details>
 
 <gcds-details details-title="Non-colour indicators">
-  <p>In addition to colour, visual cues like shapes, icons, or bold text, are used to indicate important information for people with colour deficiencies.</p> 
+  <p>In addition to colour, visual cues like shapes, icons, or bold text, are used to indicate important information for people with colour blindness.</p> 
 </gcds-details>
 
 <gcds-details details-title="Screen magnifier compatibility">
