@@ -16,7 +16,7 @@ eleventyNavigation:
 
 L’outil Système de design GC respecte ou dépasse les exigences des Règles pour l’accessibilité des contenus Web (WCAG) niveau 2.1 AA, ce qui le rend totalement conforme aux <gcds-link external href="https://www.tbs-sct.canada.ca/pol/doc-fra.aspx?id=23601"> normes d’accessibilité du gouvernement du Canada </gcds-link>. 
 
-Les fonctionnaires qui utilisent ce système de design et ces lignes directrices créent des sites Web et applications du gouvernement du Canada en ligne avec  normes d’accessibilité.
+Les fonctionnaires qui utilisent ce système de design et ces lignes directrices créent des sites Web et applications du gouvernement du Canada correspondant aux normes d’accessibilité.
 
 ## Notre liste de vérification en matière d’accessibilité
 
