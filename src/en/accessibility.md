@@ -43,7 +43,7 @@ The entire GC Design System builds in accessibility from the start to meet acces
 ### Visuals
 
 <gcds-details details-title="Colour contrast">
-  <p>Text and interface elements meet or exceed the required colour contrast ratios to maintain readability for people with visual impairments.</p>
+  <p>Text and interface elements meet or exceed the required colour contrast ratios to maintain readability for people with low vision or colour blindness.</p>
 </gcds-details>
 
 <gcds-details details-title="Non-colour indicators">
