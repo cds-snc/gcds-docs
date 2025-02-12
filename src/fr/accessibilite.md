@@ -8,7 +8,6 @@ eleventyNavigation:
   locale: fr
   order: 4
   hideMain: true
-nocrawl: true
 ---
 
 # Accessibilité au sein de Système de design GC
