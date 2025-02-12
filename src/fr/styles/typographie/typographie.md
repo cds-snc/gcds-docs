@@ -40,7 +40,7 @@ permalink: /fr/styles/typographie/
 # date: "git Last Modified"
 ---
 
-## {{ title }}
+# {{ title }}
 
 Les unités de style typographiques comprennent le style, la disposition et l'apparence des lettres, chiffres et symboles.
 

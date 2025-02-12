@@ -14,6 +14,5 @@ Un titre établit les niveaux d’une structure hiérarchique pour organiser le 
 {% docLinks locale stage figma github %}
 {% enddocLinks %}
 
-{% componentPreview "Aperçu du composant de titre" %}
-<gcds-heading tag="h2">Titre</gcds-heading>
-{% endcomponentPreview %}
+{% baseComponentPreview "Aperçu du composant de titre" page.filePathStem %}
+{% endbaseComponentPreview %}

@@ -15,6 +15,5 @@ A stepper is a progress tracker for a multi-step process.
 {% docLinks locale stage figma github %}
 {% enddocLinks %}
 
-{% componentPreview "Stepper component preview" "px-225 pt-300 pb-75" %}
-<gcds-stepper current-step="1" total-steps="4">Section title</gcds-stepper>
-{% endcomponentPreview %}
+{% baseComponentPreview "Stepper component preview" page.filePathStem %}
+{% endbaseComponentPreview %}

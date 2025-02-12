@@ -16,7 +16,7 @@ Use the `card-title` attribute to add a short and descriptive title to the card.
 
 ### Select the correct heading level
 
-Set the `card-title-tag` to define the correct heading level for the card title. Follow a correct and orderly heading hierarchy to make it equal for people who use assistive technologies.
+Set the `card-title-tag` to define the [correct heading level](/en/components/heading/design/#order-heading-levels-hierarchically) for the card title. While the font size remains the same regardless of the tag, setting the correct heading level maintains proper hierarchy and accessibility for assistive technologies.
 
 ### Add a `description` to provide more information
 

@@ -38,7 +38,6 @@
     "notice": "/fr/composants/avis",
     "pagination": "/fr/composants/pagination",
     "radioGroup": "/fr/composants/groupe-de-boutons-radio",
-    "radio": "/fr/composants/bouton-radio",
     "screenreaderOnly": "/fr/composants/masquage-accessible",
     "search": "/fr/composants/recherche",
     "select": "/fr/composants/selection",
