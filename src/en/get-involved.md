@@ -15,31 +15,37 @@ templateEngineOverride: njk,md
 
 A design system is never complete. We're committed to building with the people who use our products.
 
-Right now, we're testing GC Design System in alpha, the first usable phase of a product. We're iterating based on your needs and those of the people you serve.
+Right now, we're testing GC Design System in alpha, the first usable phase of a product. We’re iterating based on common needs across the GC and those of the people we all serve.
 
-## Find out what we're up to
+## Find out about GC Design System
 
-We're sharing what we're working on and what we'll work on next. To get updates on GC Design System, sign up for our mailing list through our [Contact form]({{ links.contact }}).
+<gcds-card
+  card-title="Subscribe to newsletter"
+  href="#https://design-system.alpha.canada.ca/en/contact/"
+  badge="badge"
+  description="Subscribe to our newsletter to get GC Design System updates, release communications, and special events. "
+>
+<gcds-card
+  card-title="Attend a demo"
+  href="#https://design-system.alpha.canada.ca/en/register-for-a-demo/" 
+  badge="badge"
+  description="Get an intro to prototyping and developing web experiences using the design system, followed by a Q&A. "
+>
 
 <hr/>
 
 <gcds-heading tag="h2" margin-top="225">How to get involved</gcds-heading>
 
-### Contribute to our next priorities
+## Contribute to our next priorities
 
-<div>
-  <gcds-heading tag="h4" margin-bottom="0">Data table</gcds-heading>
-  <ul class="mb-300">
-    <li>Data table is a way to organize and display large amounts of data in rows and columns.</li>
-  </ul>
-</div>
+You can contribute to upcoming GC Design System work. We’re actively seeking contributions for the following items. 
 
-<div>
-  <gcds-heading tag="h4" margin-bottom="0">Tag</gcds-heading>
-  <ul class="mb-300">
-    <li>Tag is a component used for items that need to be labeled, categorized, or organized using keywords that describe them. </li>
-  </ul>
-</div>
+ Data tables to organize and display large amounts of data in rows and columns. 
+Tags to label, categorize, or organize items using descriptive key words.
+
+We’re also interested in user interactions that have a common application across GC services.     
+
+Submit your contributions to our next priorities directly in GitHub, with an account.
 
 Submit your contributions to our next priorities directly in GitHub. If this is your first time using Github - follow these <gcds-link href="{{ links.githubGetStarted }}" external>instructions</gcds-link> to create your account.
 
@@ -53,39 +59,32 @@ Provide any of the following for each component or pattern:
 
 <hr />
 
-<gcds-heading tag="h2" margin-top="225">Coming soon</gcds-heading>
+<gcds-heading tag="h2" margin-top="225">What else is coming soon</gcds-heading>
 
 ### Upcoming components and templates
 
+Here’s what we’ll soon be releasing. More on our roadmap.
+
 <div>
-  <gcds-heading tag="h4" margin-bottom="0">Notice</gcds-heading>
+  <gcds-heading tag="h4" margin-bottom="0">Header V2</gcds-heading>
   <ul class="mb-300">
-    <li>The notice is a short prominent message to draw attention and inform.</li>
-    <li><strong>Expected release:</strong> Fall 2024</li>
+    <li>We’re making updates to the header to match the Canada.ca global header pattern.</li>
+    <li><strong>Expected release:</strong> Spring 2025</li>
   </ul>
 </div>
 
 <div>
-  <gcds-heading tag="h4" margin-bottom="0">Topic Page Template</gcds-heading>
+  <gcds-heading tag="h4" margin-bottom="0">Footer V2</gcds-heading>
   <ul class="mb-300">
-    <li>The Topic Page Template is a reusable layout for pages that provide access to topics and destination pages that support task completion.</li>
-    <li><strong>Expected release:</strong> Fall 2024</li>
+    <li>We’re making updates to the footer to match the Canada.ca global header pattern.</li>
+    <li><strong>Expected release:</strong> Spring 2025</li>
   </ul>
 </div>
-
 <div>
-  <gcds-heading tag="h4" margin-bottom="0">Ministerial Page Template</gcds-heading>
+  <gcds-heading tag="h4" margin-bottom="0">Button V2</gcds-heading>
   <ul class="mb-300">
-    <li>The Ministerial Page Template is a reusable layout for landing pages for ministers, parliamentary secretaries and heads of quasi-judicial organizations.</li>
-    <li><strong>Expected release:</strong> Fall 2024</li>
-  </ul>
-</div>
-
-<div>
-  <gcds-heading tag="h4" margin-bottom="0">VueJS Starter App Template</gcds-heading>
-  <ul class="mb-300">
-    <li>The VueJS Start App Template provides the starting code to develop an application using the VueJS front-end framework.</li>
-    <li><strong>Expected release:</strong> Fall 2024</li>
+    <li>We’re making changes to the button to add a new button role and size.</li>
+    <li><strong>Expected release:</strong> Spring 2025</li>
   </ul>
 </div>
 
