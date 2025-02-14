@@ -12,6 +12,8 @@ eleventyNavigation:
   order: 2
 translationKey: 'heading'
 tags: ["templates"]
+nocrawl: false
+eleventyExcludeFromCollections: true
 date: "git Last Modified"
 #github: 
 #figma: 

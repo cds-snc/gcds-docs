@@ -12,6 +12,8 @@ eleventyNavigation:
   order: 2
 translationKey: 'heading'
 tags: ["templates"]
+nocrawl: false
+eleventyExcludeFromCollections: true
 #date: "git Last Modified"
 #github: https://github.com/cds-snc/gcds-examples/blob/feat/add-basic-page-templates/templates/english/basic-page-template.html
 #figma: https://figma.com
