@@ -56,7 +56,16 @@ Provide any of the following for each component or pattern:
 - **Code**: prototype or production code, or product implementations.
 
 <gcds-link href="{{ links.githubCompsPriority }}" external>Contribute to next priorities</gcds-link>
+Provide any of the following for each component or pattern:
+- **Examples of designs**: screenshots, prototypes, links to live services.
+- **Research findings**: your discovery, use cases, or usability testing
+- **Code**: prototype or production code, or product implementations.
 
+<gcds-grid class="mb-400 hydrated" columns-tablet="1fr 1fr">
+<gcds-button href="{{ links.githubCompsPriority }}" external>Contribuer sur GitHub</gcds-button>
+<gcds-button href="{{ links."/fr/contactez" }}" external>Contactez-nous</gcds-button>
+
+</gcds-grid>
 <hr />
 
 <gcds-heading tag="h2" margin-top="225">What else is coming soon</gcds-heading>
