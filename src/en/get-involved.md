@@ -19,18 +19,18 @@ Right now, we're testing GC Design System in alpha, the first usable phase of a 
 
 ## Find out about GC Design System
 
-<gcds-card
-  card-title="Subscribe to newsletter"
-  href="#https://design-system.alpha.canada.ca/en/contact/"
-  badge="badge"
-  description="Subscribe to our newsletter to get GC Design System updates, release communications, and special events. "
->
-<gcds-card
-  card-title="Attend a demo"
-  href="#https://design-system.alpha.canada.ca/en/register-for-a-demo/" 
-  badge="badge"
-  description="Get an intro to prototyping and developing web experiences using the design system, followed by a Q&A. "
->
+<gcds-grid class="mb-400" columns-tablet="1fr 1fr">
+  <gcds-card
+    card-title="Subscribe to newsletter"
+    href="{{ links.contact }}"
+    description="Subscribe to our newsletter to get GC Design System updates, release communications, and special events."
+  ></gcds-card>
+  <gcds-card
+    card-title="Attend a demo"
+    href="{{ links.registerDemo }}"
+    description="Get an intro to prototyping and developing web experiences using the design system, followed by a Q&A."
+  ></gcds-card>
+</gcds-grid>
 
 <hr/>
 
