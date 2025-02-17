@@ -90,7 +90,7 @@ Here’s what we’ll soon be releasing. More on our roadmap.
   </ul>
 </div>
 <div>
-  <gcds-heading tag="h4" margin-bottom="0">Button V2</gcds-heading>
+  <gcds-heading tag="h4" margin-bottom="0">Button update</gcds-heading>
   <ul class="mb-300">
     <li>We’re making changes to the button to add a new button role and size.</li>
     <li><strong>Expected release:</strong> Spring 2025</li>
