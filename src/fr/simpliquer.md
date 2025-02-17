@@ -89,7 +89,5 @@ Voici ce que nous allons bientôt publier. Plus de renseignements sur notre <gcd
     <li><strong>Sortie prévue :</strong> automne 2024</li>
   </ul>
 </div>
-  </ul>
-</div>
 
 {% include "partials/givefeedback.njk" %}
