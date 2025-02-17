@@ -19,7 +19,7 @@ Right now, we're testing GC Design System in alpha, the first usable phase of a 
 
 ## Find out about GC Design System
 
-<gcds-grid class="mb-400 hydrated" columns-tablet="1fr 1fr 1fr">
+<div class="d-grid lg:grid-cols-3 mb-400 gap-400">
   <gcds-card
     card-title="Subscribe to newsletter"
     href="{{ links.contact }}"
@@ -30,7 +30,7 @@ Right now, we're testing GC Design System in alpha, the first usable phase of a 
     href="{{ links.registerDemo }}"
     description="Get an intro to prototyping and developing web experiences using the design system, followed by a Q&A."
   ></gcds-card>
-</gcds-grid>
+</div>
 
 <hr/>
 
@@ -38,12 +38,12 @@ Right now, we're testing GC Design System in alpha, the first usable phase of a 
 
 ## Contribute to our next priorities
 
-You can contribute to upcoming GC Design System work. We’re actively seeking contributions for the following items. 
+You can contribute to upcoming GC Design System work. We’re actively seeking contributions for the following items.
 
- Data tables to organize and display large amounts of data in rows and columns. 
+Data tables to organize and display large amounts of data in rows and columns.
 Tags to label, categorize, or organize items using descriptive key words.
 
-We’re also interested in user interactions that have a common application across GC services.     
+We’re also interested in user interactions that have a common application across GC services.
 
 Submit your contributions to our next priorities directly in GitHub, with an account.
 
@@ -56,13 +56,16 @@ Provide any of the following for each component or pattern:
 - **Code**: prototype or production code, or product implementations.
 
 <gcds-link href="{{ links.githubCompsPriority }}" external>Contribute to next priorities</gcds-link>
+
 Provide any of the following for each component or pattern:
+
 - **Examples of designs**: screenshots, prototypes, links to live services.
 - **Research findings**: your discovery, use cases, or usability testing
 - **Code**: prototype or production code, or product implementations.
 
 <gcds-button button-role="secondary" button-type="link" href="{{ links.githubCompsPriority }}" external>Contribuer sur GitHub</gcds-button>
 <gcds-button button-role="secondary" button-type="link" href="{{ links.contact }}" external>Contactez-nous</gcds-button>
+
 <hr />
 
 <gcds-heading tag="h2" margin-top="225">What else is coming soon</gcds-heading>
@@ -86,6 +89,7 @@ Here’s what we’ll soon be releasing. More on our <gcds-link href="{{ links.r
     <li><strong>Expected release:</strong> Spring 2025</li>
   </ul>
 </div>
+
 <div>
   <gcds-heading tag="h4" margin-bottom="0">Button update</gcds-heading>
   <ul class="mb-300">
