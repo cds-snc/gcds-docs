@@ -72,7 +72,7 @@ Provide any of the following for each component or pattern:
 
 ### Upcoming components and templates
 
-Here’s what we’ll soon be releasing. More on our roadmap.
+Here’s what we’ll soon be releasing. More on our <gcds-link href="{{ links.roadmap }}">roadmap</gcds-link>.
 
 <div>
   <gcds-heading tag="h4" margin-bottom="0">Header update</gcds-heading>
