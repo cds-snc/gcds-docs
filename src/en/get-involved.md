@@ -47,7 +47,7 @@ We’re also interested in user interactions that have a common application acro
 
 Submit your contributions to our next priorities directly in GitHub, with an account.
 
-Submit your contributions to our next priorities directly in GitHub. If this is your first time using Github - follow these <gcds-link href="{{ links.githubGetStarted }}" external>instructions</gcds-link> to create your account.
+Submit your contributions to our next priorities directly in GitHub. If this is your first time using Github, follow these <gcds-link href="{{ links.githubGetStarted }}" external>instructions</gcds-link> to create your account.
 
 Provide any of the following for each component or pattern:
 
