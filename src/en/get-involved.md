@@ -19,7 +19,7 @@ Right now, we're testing GC Design System in alpha, the first usable phase of a 
 
 ## Find out about GC Design System
 
-<gcds-grid class="mb-400" columns-tablet="1fr 1fr">
+<gcds-grid class="mb-400 hydrated" columns-tablet="1fr 1fr 1fr">
   <gcds-card
     card-title="Subscribe to newsletter"
     href="{{ links.contact }}"
