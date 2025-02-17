@@ -57,11 +57,8 @@ Fournissez l'un des éléments suivants pour chaque composant ou modèle de page
 - **Code** : code de prototype ou de production, ou implémentations du produit.
 
 
-<gcds-grid class="mb-400 hydrated" columns-tablet="1fr 1fr">
-<gcds-button href="{{ links.githubCompsPriority }}" external>Contribuer sur GitHub</gcds-button>
-<gcds-button href="{{ links.contact }}">Contactez-nous</gcds-button>
-
-</gcds-grid>
+<gcds-button button-role="secondary" button-type="link" href="{{ links.githubCompsPriority }}" external>Contribuer sur GitHub</gcds-button>
+<gcds-button button-role="secondary" button-type="link" href="{{ links.contact }}" external>Contactez-nous</gcds-button>
 
 <hr/>
 
