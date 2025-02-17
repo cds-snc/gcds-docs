@@ -83,7 +83,7 @@ Here’s what we’ll soon be releasing. More on our <gcds-link href="{{ links.r
 </div>
 
 <div>
-  <gcds-heading tag="h4" margin-bottom="0">Footer V2</gcds-heading>
+  <gcds-heading tag="h4" margin-bottom="0">Footer update</gcds-heading>
   <ul class="mb-300">
     <li>We’re making updates to the footer to match the Canada.ca global footer pattern.</li>
     <li><strong>Expected release:</strong> Spring 2025</li>
