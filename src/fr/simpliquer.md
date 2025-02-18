@@ -28,7 +28,7 @@ Nous testons actuellement la version alpha de Système de design GC, ce qui corr
   <gcds-card
     card-title="Participez à une demo"
     href="{{ links.registerDemo }}"
-    description="Assistez à une présentation du prototypage et du développement d’expériences Web à l’aide du système de design et participez à une séance de questions-réponses." external
+    description="Assistez à une présentation du prototypage et du développement d’expériences Web à l’aide du système de design et participez à une séance de questions-réponses."
   ></gcds-card>
 </div>
 
