@@ -28,7 +28,7 @@ Nous testons actuellement la version alpha de Système de design GC, ce qui corr
   <gcds-card
     card-title="Participez à une demo"
     href="{{ links.registerDemo }}"
-    description="Assistez à une présentation du prototypage et du développement d’expériences Web à l’aide du système de design et participez à une séance de questions-réponses."
+    description="Assistez à une présentation du prototypage et du développement d’expériences Web à l’aide du système de design et participez à une séance de questions-réponses." external
   ></gcds-card>
 </div>
 
@@ -36,18 +36,16 @@ Nous testons actuellement la version alpha de Système de design GC, ce qui corr
 
 <gcds-heading tag="h2" margin-top="225">Contribuez à nos prochaines priorités</gcds-heading>
 
-Vous pouvez contribuer à l’avenir de Système de design GC. Nous recherchons activement des contributions pour les éléments suivants.
+Vous pouvez contribuer à l’avenir de Système de design GC. 
 
-<div>
-  <ul class="mb-300">
-    <li>**Des tableaux de données** pour organiser et afficher une grande quantité de données dans des rangées et des colonnes.</li>
-    <li>**Des balises** pour étiqueter, catégoriser et organiser des éléments à l’aide de mots-clés descriptifs. </li>
-  </ul>
-</div>
+Nous recherchons activement des contributions pour les éléments suivants :
+
+- **Des tableaux de données** pour organiser et afficher une grande quantité de données dans des rangées et des colonnes.</li>
+- **Des balises** pour étiqueter, catégoriser et organiser des éléments à l’aide de mots-clés descriptifs. </li>
 
 Nous nous intéressons également aux problèmes concernant les interactions avec les utilisateurs et utilisatrice ou aux solutions qui peuvent s’appliquer aux différents services du GC.
 
-Soumettez vos contributions à nos prochaines priorités directement dans GitHub, en créant <gcds-link href="{{ links.githubGetStarted }}" external>créant un compte</gcds-link>.
+Soumettez vos contributions à nos prochaines priorités directement dans GitHub, en <gcds-link href="{{ links.githubGetStarted }}" external>créant un compte</gcds-link>.
 
 Fournissez l'un des éléments suivants pour chaque composant ou modèle de page :
 
@@ -55,7 +53,7 @@ Fournissez l'un des éléments suivants pour chaque composant ou modèle de page
 - **Résultats de recherche** : recherches préliminaires, exemples de cas d'utilisation ou tests d'utilisabilité.
 - **Code** : code de prototype ou de production, ou implémentations du produit.
 
-<gcds-button button-role="secondary" button-type="link" href="{{ links.githubCompsPriority }}" external>Contribuer sur GitHub</gcds-button>
+<gcds-button button-role="primary" button-type="link" href="{{ links.githubCompsPriority }}" external>Contribuer sur GitHub</gcds-button>
 <gcds-button button-role="secondary" button-type="link" href="{{ links.contact }}" external>Contactez-nous</gcds-button>
 
 <hr/>
