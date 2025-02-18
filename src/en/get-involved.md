@@ -27,8 +27,8 @@ Right now, we're testing GC Design System in alpha, the first usable phase of a 
   ></gcds-card>
   <gcds-card
     card-title="Attend a demo"
-    <href="{{ links.registerDemo }}"external>
-    description="Get an intro to prototyping and developing web experiences using the design system, followed by a Q&A."
+    href="{{ links.registerDemo }}" 
+    description="Get an intro to prototyping and developing web experiences using the design system, followed by a Q&A." external
   ></gcds-card>
 </div>
 
