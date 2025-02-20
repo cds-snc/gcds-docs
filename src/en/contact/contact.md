@@ -16,10 +16,8 @@ date: 'git Last Modified'
 
 
 <gcds-notice type="info" notice-title-tag="h2" notice-title="Support form on GitHub">
-  <gcds-text>With an <gcds-link external href="{{ links.githubGetStarted }}">account</gcds-link>, use our <gcds-link external href="{{ links.githubCompsIssues }}">GitHub support form</gcds-link> to report bugs and get technical help. You’ll have access to the team’s direct responses, progress made on your issue, and issues raised by others.">.</gcds-text>
+  <gcds-text>With an <gcds-link external href="{{ links.githubGetStarted }}">account</gcds-link>, use our <gcds-link external href="{{ links.githubCompsIssues }}">GitHub support form</gcds-link> to report bugs and get technical help. You’ll have access to the team’s direct responses, progress made on your issue, and issues raised by others." </gcds-text>
 </gcds-notice>
-
-<hr class="my-600" />
 
 ## Attend a demo or event 
 
@@ -33,6 +31,7 @@ We’ll soon be offering other events to our growing community.
   Find an upcoming event
 </gcds-button>
 
+<hr class="my-600" />
 
 ## Get in contact with the design system team
 
