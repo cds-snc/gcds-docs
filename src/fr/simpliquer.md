@@ -88,4 +88,4 @@ Voici ce que nous allons bientôt publier. Plus de renseignements sur notre <gcd
   </ul>
 </div>
 
-{% include "partials/givefeedback.njk" %}
+{% include "partials/helpus.njk" %}

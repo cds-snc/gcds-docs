@@ -98,4 +98,4 @@ Here’s what we’ll soon be releasing. More on our <gcds-link href="{{ links.r
   </ul>
 </div>
 
-{% include "partials/givefeedback.njk" %}
+{% include "partials/helpus.njk" %}

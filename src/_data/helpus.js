@@ -12,7 +12,7 @@ module.exports = {
   fr: {
     heading: 'Aidez-nous à nous améliorer',
     paragraph:
-      'Avez-vous des questions? Y a-t-il quelque chose que vous changeriez ou ajouteriez? Faites-nous part de vos commentaires pour nous aider à améliorer Système de design GC.',
+      'Vous avez des questions ou des demandes? Faites-nous part de vos commentaires à l\'aide de notre formulaire de contact.',
     feedback: 'Fournir des commentaires',
     feedbackHref: '/fr/contactez/#contactez-nous',
     report: 'Report an issue on GitHub',
