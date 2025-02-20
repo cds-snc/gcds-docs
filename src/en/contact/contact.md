@@ -35,7 +35,7 @@ We’ll soon be offering other events to our growing community.
 
 ## Get in contact with the design system team
 
-This form is for people building government websites and digital products. You can give feedback, ask a question, or receive communications from the GC Design System team. If you help with a government service, go to <gcds-link href="https://www.canada.ca/en/contact.html" external>Government of Canada contacts</gcds-link>. 
+This form is for people building government websites and digital products. You can give feedback, ask a question, or receive communications from the GC Design System team. If you need help with a government service, go to <gcds-link href="https://www.canada.ca/en/contact.html" external>Government of Canada contacts</gcds-link>. 
 
 <form class="my-600 contact-us-form" name="contactEN" method="post" style="min-height: 32rem;" action="/api/submission">
   <input type="hidden" name="form-name" value="contactEN" />
