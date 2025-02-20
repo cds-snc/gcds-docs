@@ -7,11 +7,32 @@
     {{ helpus[locale].paragraph }}
   </p>
 
-  <gcds-button
-    type="link"
-    button-role="secondary"
-    href="{{ helpus[locale].feedbackHref }}"
-  >
-    {{ helpus[locale].feedback }}
-  </gcds-button>
+  {% if locale == "en" %}
+  <p class="mb-300">
+    Something's wrong? Raise it through GitHub with an <gcds-link href='{{ links.githubGetStarted }}' external>account</gcds-link>. You'll have access to the team's direct responses, progress made on your issue, and issues raised by others.
+  </p>
+  {% else %}
+  <p class="mb-300">
+    Quelque chose ne va pas? Signalez-le sur GitHub en créant un <gcds-link href='{{ links.githubGetStarted }}' external>compte</gcds-link>. Vous pourrez accéder aux réponses de l'équipe, suivre les progrès réalisés concernant votre problèmes et voir les problèmes signalés par d'autres personnes.
+  </p>
+  {% endif %}
+
+  <div>
+    <gcds-button
+      type="link"
+      button-role="primary"
+      href="{{ helpus[locale].feedbackHref }}"
+    >
+      {{ helpus[locale].feedback }}
+    </gcds-button>
+    <gcds-button
+      type="link"
+      button-role="secondary"
+      href="{{ links.githubCompsIssues }}"
+    >
+      {{ helpus[locale].report }}
+      <gcds-icon name="external-link" label="{{ helpus[locale].opens }}">
+      </gcds-icon>
+    </gcds-button>
+  </div>
 </section>
