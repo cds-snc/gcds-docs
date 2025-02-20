@@ -67,13 +67,7 @@
         </section>
       </main>
 
-      <gcds-footer
-        display="full"
-        lang="{{ locale }}"
-        contextual-heading="{{ footer[locale].contextual.heading }}"
-        contextual-links='{ "{{ footer[locale].contextual.list }}": "{{ footer[locale].contextual.listurl }}", "{{ footer[locale].contextual.issue }}": "{{ footer[locale].contextual.issueurl }}", "{{ footer[locale].contextual.about }}": "{{ footer[locale].contextual.abouturl }}" }'
-        sub-links='{ "{{ footer[locale].sub.social }}": "{{ footer[locale].sub.socialurl }}", "{{ footer[locale].sub.mobile }}": "{{ footer[locale].sub.mobileurl }}", "{{ footer[locale].sub.about }}": "{{ footer[locale].sub.abouturl }}", "{{ footer[locale].sub.terms }}": "{{ footer[locale].sub.termsurl }}", "{{ footer[locale].sub.privacy }}": "{{ links.privacy }}" }'
-      ></gcds-footer>
+    {% include "partials/footer.njk" %}
 
     </div>
 

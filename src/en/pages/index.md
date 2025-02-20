@@ -60,31 +60,47 @@ date: 'git Last Modified'
 <article class="py-600 bg-light bg-full-width">
   <h2 class="mb-300">What's new</h2>
   <gcds-grid tag="ul" columns="1fr" columns-tablet="1fr 1fr">
-    <li class="list-none bg-white p-450 b-radius-md">
-      <h3 class="mb-300">
-        <gcds-link href="{{ links.getInvolved }}">Get involved</gcds-link>
-      </h3>
-      <p>Check out what we're working on.</p>
-    </li>
-    <li class="list-none bg-white px-175 py-450 b-radius-md">
-      <h3 class="mb-300">
-        <gcds-link external href="{{ links.releaseNotes }}">Release notes</gcds-link>
-      </h3>
-      <p>Read about the latest additions.</p>
-    </li>
+    <gcds-card
+      href="{{ links.registerDemo }}"
+      card-title="Attend a demo"
+      card-title-tag="h3"
+      description="Learn how GC Design System can work for you and your team and get your questions answered."
+      role="listitem"
+    ></gcds-card>
+    <gcds-card
+      href="{{ links.accessibility }}"
+      card-title="Find out about accessibility"
+      card-title-tag="h3"
+      description="Review accessibility practices and checks within the design system."
+      role="listitem"
+    ></gcds-card>
+    <gcds-card
+      href="{{ links.getInvolved }}"
+      card-title="Get involved"
+      card-title-tag="h3"
+      description="Check out what the team’s working on and how you can contribute."
+      role="listitem"
+    ></gcds-card>
+    <gcds-card
+      href="{{ links.releaseNotes }}"
+      card-title="Catch up on releases"
+      card-title-tag="h3"
+      description="Read about the latest additions and features."
+      role="listitem"
+    ></gcds-card>
   </gcds-grid>
 </article>
 
 <article class="py-450">
-  <h2 class="mb-300">Featured component</h2>
+  <h2 class="mb-300">Featured components</h2>
+
+  <h3 class="mt-600 mb-300">Notice</h3>
+  <p class="mb-450">Notice is a messaging component to communicate updates, warnings, and confirmations related to the main task on the page or the service. It’s a short, prominent message that’s part of the page content.  </p>
+  <img class="d-block mb-300" src="/images/common/components/preview-notice.svg" alt="A blue vertical line truncated at the top by a blue circle, representing the guide line and icon, sits to the left of a stack of three thick grey lines. The top dark grey line represents the heading and the other two represent the lines of text." />
+  <gcds-link href="{{ links.notice }}" class="mb-400">Learn more about notice</gcds-link>
 
   <h3 class="mb-300">Card</h3>
-  <p class="mb-450">A card is a box containing structured, actionable content on a single topic.</p>
-  <img class="d-block mb-300" src="../../images/common/components/preview-card.svg" alt="The card component shows a box containing a rectangular image in the top half. Immediately below is a blue rectangular bar running across three quarters of the box representing the card title. Two longer grey bars are stacked just below the blue bar, representing the card description and context area/metadata sections." />
-  <gcds-link href="{{ links.card }}">Read more about card</gcds-link>
-
-  <h3 class="mt-600 mb-300">Date input</h3>
-  <p class="mb-450">A date input is a space to enter a known date.</p>
-  <img class="d-block mb-300" src="../../images/en/components/preview/preview-date-input.svg" alt="Thick grey lines at the top represent the legend and hint text. A white box with a thin grey border and a grey line and grey arrow inside of it represents the select input for the month. Beside this are two smaller white boxes with thin grey outlines representing the text inputs for the day and year." />
-  <gcds-link href="{{ links.dateInput }}">Read more about date input</gcds-link>
+  <p class="mb-450">A card is a navigation component that can be used instead of a button or link to highlight the most prominent action. It’s a box containing structured, actionable content on a single topic.</p>
+  <img class="d-block mb-300" src="/images/common/components/preview-card.svg" alt="The card component shows a box containing a rectangular image in the top half. Immediately below is a blue rectangular bar running across three quarters of the box representing the card title. Two longer grey bars are stacked just below the blue bar, representing the card description and context area/metadata sections." />
+  <gcds-link href="{{ links.card }}">Learn more about card</gcds-link>
 </article>
