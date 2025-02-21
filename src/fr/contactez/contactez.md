@@ -26,7 +26,7 @@ Les démos présentent le prototypage et le développement d’expériences Web 
 
 Nous aurons bientôt d’autres évènements à proposer à notre communauté grandissante.  
 
-<gcds-button type="link" button-role="secondary" href="{{ links.demo }}">
+<gcds-button type="link" button-role="secondary" href="{{ links.registerDemo }}">
   Trouver une démo à venir
 </gcds-button>
 
