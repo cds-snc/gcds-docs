@@ -27,7 +27,7 @@ Demos are an intro to prototyping and developing web experiences with the  desig
 
 We’ll soon be offering other events to our growing community.  
 
-<gcds-button type="link" button-role="secondary" href="{{ links.demo }}">
+<gcds-button type="link" button-role="secondary" href="{{ links.registerDemo }}">
   Find an upcoming event
 </gcds-button>
 
