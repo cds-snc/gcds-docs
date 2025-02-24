@@ -27,12 +27,12 @@ A fieldset combines the `<fieldset>` and `<legend>` elements to accessibly group
 
 ### Write fieldset content to support task success
 
-- Write a short descriptive statement or a call to action for the **legend** caption.
-- Use the **legend** as a signpost to let a person know the kind of information the fieldset group is asking them for.
-- Identify the subtask in the **legend** to help people understand the relationship between the information you're requesting and the task they're completing.
+- Write a short descriptive statement or a call to action for the legend caption.
+- Use the legend as a signpost to let a person know the kind of information the fieldset group is asking them for.
+- Identify the subtask in the legend to help people understand the relationship between the information you're requesting and the task they're completing.
 
 ### Clarify the question or instruction for radios and checkboxes
 
-- For [radios]({{ links.radio }}) and [checkboxes]({{ links.checkbox }}), the **legend** sits where the [input]({{ links.input }}) label usually is on other form components. Replace a question in the **legend** with a statement for a shorter, clearer caption.
-- Use the fieldset **hint** text to give additional context to a person on how to respond. For a checkbox, the fieldset **hint** text could state, "Select all applicable options". For a radio, **hint** text could state "Select the response that best applies".
+- For [radios]({{ links.radio }}) and [checkboxes]({{ links.checkbox }}), the legend sits where the [input]({{ links.input }}) label usually is on other form components. Replace a question in the legend with a statement for a shorter, clearer caption.
+- Use the fieldset hint text to give additional context to a person on how to respond. For a checkbox, the fieldset hint text could state, "Select all applicable options". For a radio, hint text could state "Select the response that best applies".
 - Avoid using a fieldset when a form component has a single option for response and no selection is required.
