@@ -95,7 +95,7 @@ date: 'git Last Modified'
 
   <gcds-grid tag="ul" columns="1fr" columns-tablet="1fr 1fr" columns-desktop="1fr 1fr 1fr">
     <gcds-card
-      href="{{ links.registerDemo }}"
+      href="{{ links.notice }}"
       card-title="Avis"
       card-title-tag="h3"
       img-src="/images/common/components/preview-notice.svg"
@@ -104,7 +104,7 @@ date: 'git Last Modified'
       role="listitem"
     ></gcds-card>
     <gcds-card
-      href="{{ links.accessibility }}"
+      href="{{ links.card }}"
       card-title="Carte"
       card-title-tag="h3"
       img-src="/images/common/components/preview-card.svg"
