@@ -93,13 +93,24 @@ date: 'git Last Modified'
 <article class="py-450">
   <h2 class="mb-300">Composant vedette</h2>
 
-  <h3 class="mt-600 mb-300">Avis</h3>
-  <p class="mb-450">L'avis est un composant permettant de communiquer des mises à jour, des avertissements et des confirmations concernant la tâche principale relative à la page ou au service. C'est un message court et bien visible qui fait partie du contenu de la page.  </p>
-  <img class="d-block mb-300" src="/images/common/components/preview-notice.svg" alt="Une ligne bleue verticale tronquée par un cercle bleu, représentant la ligne guide et l'icône, se situe à gauche de deux épaisses lignes grises pâle alignées sous une ligne grise foncée représentant un titres et des lignes de texte." />
-  <gcds-link href="{{ links.notice }}" class="mb-400">Apprenez-en davantage sur le composant « Avis »</gcds-link>
-
-  <h3 class="mb-300">Carte</h3>
-  <p class="mb-450">La carte est un composant de navigation pouvant être utilisé à la place d'un bouton ou d'un lien pour mettre en avant l'action la plus importante. C'est un encadré contenant du contenu structuré et pratique sur un sujet unique.</p>
-  <img class="d-block mb-300" src="/images/common/components/preview-card.svg" alt="Le composant Carte montre un encadré contenant une image rectangulaire dans la moitié supérieure. Juste en dessous se trouve une barre bleue rectangulaire occupant les trois quarts de la largeur de l'encadré et représentant le titre de la carte. Encore en dessous, deux barres grises plus longues l'une au-dessus de l'autre représentent respectivement la zone consacrée au contexte et la zone consacrée aux métadonnées." />
-  <gcds-link href="{{ links.card }}">Apprenez-en davantage sur le composant « Carte »</gcds-link>
+  <gcds-grid tag="ul" columns="1fr" columns-tablet="1fr 1fr">
+    <gcds-card
+      href="{{ links.registerDemo }}"
+      card-title="Avis"
+      card-title-tag="h3"
+      img-src="/images/common/components/preview-notice.svg"
+      img-alt="Une ligne bleue verticale tronquée par un cercle bleu, représentant la ligne guide et l'icône, se situe à gauche de deux épaisses lignes grises pâle alignées sous une ligne grise foncée représentant un titres et des lignes de texte."
+      description="L'avis est un composant permettant de communiquer des mises à jour, des avertissements et des confirmations concernant la tâche principale relative à la page ou au service. C'est un message court et bien visible qui fait partie du contenu de la page."
+      role="listitem"
+    ></gcds-card>
+    <gcds-card
+      href="{{ links.accessibility }}"
+      card-title="Carte"
+      card-title-tag="h3"
+      img-src="/images/common/components/preview-card.svg"
+      img-alt="Le composant Carte montre un encadré contenant une image rectangulaire dans la moitié supérieure. Juste en dessous se trouve une barre bleue rectangulaire occupant les trois quarts de la largeur de l'encadré et représentant le titre de la carte. Encore en dessous, deux barres grises plus longues l'une au-dessus de l'autre représentent respectivement la zone consacrée au contexte et la zone consacrée aux métadonnées."
+      description="La carte est un composant de navigation pouvant être utilisé à la place d'un bouton ou d'un lien pour mettre en avant l'action la plus importante. C'est un encadré contenant du contenu structuré et pratique sur un sujet unique."
+      role="listitem"
+    ></gcds-card>
+  </gcds-grid>
 </article>
