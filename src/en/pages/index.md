@@ -94,7 +94,7 @@ date: 'git Last Modified'
 <article class="py-450">
   <h2 class="mb-300">Featured components</h2>
 
-  <gcds-grid tag="ul" columns="1fr" columns-tablet="1fr 1fr">
+  <gcds-grid tag="ul" columns="1fr" columns-tablet="1fr 1fr" columns-desktop="1fr 1fr 1fr">
     <gcds-card
       href="{{ links.registerDemo }}"
       card-title="Notice"
