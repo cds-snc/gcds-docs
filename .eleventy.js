@@ -31,7 +31,9 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy('./src/scripts/search.js');
   eleventyConfig.addPassthroughCopy('./src/scripts/code-copy.js');
   eleventyConfig.addPassthroughCopy('./src/scripts/component-preview.js');
-  eleventyConfig.addPassthroughCopy('./src/scripts/component-preview-iframe.js');
+  eleventyConfig.addPassthroughCopy(
+    './src/scripts/component-preview-iframe.js',
+  );
   eleventyConfig.addPassthroughCopy('./src/favicon.ico');
   eleventyConfig.addPassthroughCopy({ './src/variables/': 'variables' });
   eleventyConfig.addPassthroughCopy({
@@ -338,7 +340,7 @@ module.exports = function (eleventyConfig) {
         fr: {
           enDemo: 'Démo en anglais',
           frDemo: 'Démo en français',
-          timezone: 'heure de l\'Est',
+          timezone: "heure de l'Est",
           nodates: 'Aucune date à venir.',
         },
       };
