@@ -63,8 +63,8 @@ Provide any of the following for each component or pattern:
 - **Research findings**: your discovery, use cases, or usability testing
 - **Code**: prototype or production code, or product implementations.
 
-<gcds-button button-role="secondary" button-type="link" href="{{ links.githubCompsPriority }}" external>Contribute in Github</gcds-button>
-<gcds-button button-role="secondary" button-type="link" href="{{ links.contact }}" external>Contact us</gcds-button>
+<gcds-button button-role="secondary" type="link" href="{{ links.githubCompsPriority }}" external>Contribute in Github</gcds-button>
+<gcds-button button-role="secondary" type="link" href="{{ links.contact }}" external>Contact us</gcds-button>
 
 <hr />
 
