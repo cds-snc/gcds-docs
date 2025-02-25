@@ -1112,7 +1112,7 @@
 
 
 <gcds-top-nav slot="menu" label="Main menu" alignment="right">
-  <gcds-nav-link slot="home" href="/gcds-docs/en" class="home-link link-inherit link-no-underline" slot="left">GC Design System</gcds-nav-link>
+  <gcds-nav-link slot="home" href="/en">GC Design System</gcds-nav-link>
   
     <gcds-nav-link
       href="/gcds-docs/en/components/"
@@ -1139,15 +1139,14 @@
       Page templates
     </gcds-nav-link>
   
-
-  
-    <gcds-nav-link
-      href="/gcds-docs/en/contact/"
-      
-    >
-      Contact us
-    </gcds-nav-link>
-  
+<gcds-nav-group
+    menu-label="Contact"
+    open-trigger="Contact"
+  >
+    <gcds-nav-link href="/en/contact">Contact us</gcds-nav-link>
+    <gcds-nav-link href="/en/get-involved">Get involved</gcds-nav-link>
+    <gcds-nav-link href="/en/register-for-a-demo">Find a demo</gcds-nav-link>
+  </gcds-nav-group>
 </gcds-top-nav>
   
 
@@ -1203,8 +1202,8 @@
 <li><p class="mb-300"><strong>Research findings</strong>: your discovery, use cases, or usability testing</li>
 <li><p class="mb-300"><strong>Code</strong>: prototype or production code, or product implementations.</li>
 </ul>
-<p class="mb-300"><gcds-button button-role="secondary" button-type="link" href="https://github.com/cds-snc/gcds-components/issues/new?assignees=&amp;labels=&amp;projects=&amp;template=contributions.yml&amp;title=contribution%3A+" external>Contribute in Github</gcds-button>
-<gcds-button button-role="secondary" button-type="link" href="/en/contact" external>Contact us</gcds-button></p>
+<p class="mb-300"><gcds-button button-role="secondary" type="link" href="https://github.com/cds-snc/gcds-components/issues/new?assignees=&amp;labels=&amp;projects=&amp;template=contributions.yml&amp;title=contribution%3A+" external>Contribute in Github</gcds-button>
+<gcds-button button-role="secondary" type="link" href="/en/contact" external>Contact us</gcds-button></p>
 <hr />
 <p class="mb-300"><gcds-heading tag="h2" margin-top="225">What else is coming soon</gcds-heading></p>
 <h3 id="upcoming-components-and-templates" class="mt-600 mb-300">Upcoming components and templates</h3>
@@ -1230,31 +1229,32 @@
     <li><strong>Expected release:</strong> Spring 2025</li>
   </ul>
 </div>
-  <h2 class="mt-225 mb-300">
-    Report an issue
-  </h2>
-  <p class="mb-300">
-    Something’s not working? Flag the issue to our team through GitHub. If this is your first time using Github - follow these <gcds-link href="https://docs.github.com/en/get-started/start-your-journey/creating-an-account-on-github" external>instructions</gcds-link> to create your account. With an account, you’ll have access to all past issues and get updates on progress.
-  </p>
-<p class="mb-300"><gcds-link
-    href="https://github.com/cds-snc/gcds-components/issues/new?assignees=&amp;labels=&amp;projects=&amp;template=bug_report.yml&amp;title=bug%3A+"
-    external
-  >
-Report an issue
-</gcds-link></p>
-  <section data-pagefind-ignore class="pt-75 mt-300 mb-900 bt-sm b-dark ">
+<section data-pagefind-ignore class="pt-75 mt-300 mb-900 bt-sm b-dark ">
   <h2 class="mt-225 mb-300">
     Help us improve
   </h2>
   <p class="mb-300">
-    Have questions? Something you&#39;d change or you&#39;d like to see? Share your feedback with us to help improve GC Design System.
+    Have questions or a request? Give feedback on our contact form.
+  </p>
+  <p class="mb-300">
+    Something's wrong? Raise it through GitHub with an <gcds-link href='https://docs.github.com/en/get-started/start-your-journey/creating-an-account-on-github' external>account</gcds-link>. You'll have access to the team's direct responses, progress made on your issue, and issues raised by others.
   </p>
 <p class="mb-300"><gcds-button
     type="link"
-    button-role="secondary"
+    button-role="primary"
     href="/en/contact/#contact-us"
+    class="mb-300"
   >
 Give feedback
+</gcds-button>
+<gcds-button
+    type="link"
+    button-role="secondary"
+    href="https://github.com/cds-snc/gcds-components/issues/new/choose"
+  >
+Report an issue on GitHub
+<gcds-icon name="external-link" label=" (Opens destination in a new tab.)">
+</gcds-icon>
 </gcds-button></p>
 </section>
 
@@ -1264,14 +1264,13 @@ Give feedback
         </gcds-date-modified>
       </main>
 
-
-      <gcds-footer
-        display="full"
-        lang="en"
-        contextual-heading="GC Design System"
-        contextual-links='{ "Contact us": "/en/contact", "Report an issue": "https://github.com/cds-snc/gcds-components/issues/new/choose", "About us": "/en/about-us" }'
-        sub-links='{ "Social media": "https://www.canada.ca/en/social.html", "Mobile applications": "https://www.canada.ca/en/mobile.html", "About Canada.ca": "https://design.canada.ca/about/", "Terms and conditions": "https://www.canada.ca/en/transparency/terms.html", "Privacy": "/en/privacy-notice" }'
-      ></gcds-footer>
+    <gcds-footer
+  display="full"
+  lang="en"
+  contextual-heading="GC Design System"
+  contextual-links='{ "About us": "/en/about-us", "Accessibility statement": "/en/accessibility/", "Service level agreement": "/en/service-level-agreement/" }'
+  sub-links='{ "Social media": "https://www.canada.ca/en/social.html", "Mobile applications": "https://www.canada.ca/en/mobile.html", "About Canada.ca": "https://design.canada.ca/about/", "Terms of use": "/en/terms-of-use", "Privacy": "/en/privacy-notice" }'
+></gcds-footer>
 
     </div>
 
