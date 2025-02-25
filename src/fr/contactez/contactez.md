@@ -14,27 +14,40 @@ date: 'git Last Modified'
 
 # Contacter Système de design GC
 
-## Formulaire de soutien GitHub
+<gcds-notice type="info" notice-title-tag="h2" notice-title="Formulaire de soutien sur GitHub">
+  <gcds-text>Avec un <gcds-link external href="{{ links.githubGetStarted }}">compte</gcds-link>, utilisez notre <gcds-link external href="{{ links.githubCompsIssues }}">Formulaire de soutien GitHub</gcds-link> pour signaler des bogues et obtenir un soutien technique. Vous pourrez accéder aux réponses de l’équipe, suivre les progrès réalisés concernant votre problèmes et voir les problèmes signalés par d’autres personnes.></gcds-text>
+</gcds-notice>
 
-Avec votre compte GitHub, utilisez notre <gcds-link external href="{{ links.githubCompsIssues }}">formulaire de soutien</gcds-link> pour signaler des bogues et obtenir un soutien technique. Vous aurez accès aux problèmes (issues) passés et verrez les progrès accomplis.
+## Participez à une démo ou à un évènement
+
+Vous souhaitez en savoir plus sur Système de design GC avant de vous lancer?
+
+Les démos présentent le prototypage et le développement d’expériences Web à l’aide du système de design et sont suivies d’une séance de questions-réponses.
+
+Nous aurons bientôt d’autres évènements à proposer à notre communauté grandissante.
+
+<gcds-button type="link" button-role="secondary" href="{{ links.registerDemo }}">
+  Trouver une démo à venir
+</gcds-button>
 
 <hr class="my-600" />
 
-## Envoyer des commentaires, demander de l’aide ou s’inscrire
+## Contactez l’équipe du système de design
 
-Remplissez le formulaire suivant pour nous envoyer vos commentaires, demander de l’aide pour utiliser Système de design GC, ou vous inscrire à notre liste d’envoi ou à une démo.
+Ce formulaire est destiné aux personnes qui bâtissent les sites Web et services numériques gouvernementaux. Vous pouvez nous faire part de vos commentaires, poser une question ou recevoir des communications de la part de l’équipe Système de design GC.
+
+Pour obtenir de l’aide avec un service gouvernemental, aller à la page <gcds-link href="https://www.canada.ca/fr/contact.html" external>Coordonnées du Gouvernement du Canada</gcds-link>.
 
 <form class="my-600 contact-us-form" name="contactFR" method="post" style="min-height: 32rem;" action="/api/submission">
   <input type="hidden" name="form-name" value="contactFR" />
   <input name="honeypot" type="text" aria-label="bot" hidden/>
 
-<gcds-input type="text" name="name" input-id="name" label="Nom complet" size="30" autocomplete="name" required></gcds-input>
-<gcds-input type="email" name="email" input-id="email" label="Adresse courriel" size="50" autocomplete="email" required></gcds-input>
-<gcds-textarea name="message" label="Fournissez vos commentaires ou posez une question si vous avez besoin d’aide" textarea-id="message"></gcds-textarea>
+<gcds-input type="text" name="name" input-id="name" label="Nom complet" autocomplete="name" required></gcds-input>
+<gcds-input type="email" name="email" input-id="email" label="Adresse courriel" autocomplete="email" required></gcds-input>
+<gcds-textarea name="message" label="Fournissez vos commentaires ou posez une question si vous avez besoin d’aide" hint="Incluez jamais de renseignement personnel (Protégé)." textarea-id="message"></gcds-textarea>
 
-  <gcds-fieldset fieldset-id="learnMore" legend="Apprenez-en plus sur Système de design GC" hint="Choisissez autant d'options que vous le souhaitez.">
+  <gcds-fieldset fieldset-id="learnMore" legend="Recevez des communications de la part de Système de design GC" hint="Si vous souhaitez que nous vous contactions, choisissez une option ou les deux options.">
     <gcds-checkbox checkbox-id="learnMoreMailingList" label="Ajoutez-moi à votre liste d'envoi." value="learn-more-mailing-list" name="learn-more-mailing-list"></gcds-checkbox>
-    <gcds-checkbox checkbox-id="learnMoreDemo" label="Contactez-moi pour une démo." value="learn-more-demo" name="learn-more-demo"></gcds-checkbox>
     <gcds-checkbox checkbox-id="learnMoreResearch" label="Contactez-moi pour les études sur l'utilisabilité." value="learn-more-research" name="learn-more-research"></gcds-checkbox>
   </gcds-fieldset>
 

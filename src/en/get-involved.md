@@ -34,28 +34,18 @@ Right now, we're testing GC Design System in alpha, the first usable phase of a 
 
 <hr/>
 
-<gcds-heading tag="h2" margin-top="225">How to get involved</gcds-heading>
+<gcds-heading tag="h2" margin-top="225">Contribute to our next priorities</gcds-heading>
 
-## Contribute to our next priorities
+You can contribute to upcoming GC Design System work. 
 
-You can contribute to upcoming GC Design System work. We’re actively seeking contributions for the following items.
+We’re actively seeking contributions for the following items:
 
-Data tables to organize and display large amounts of data in rows and columns.
-Tags to label, categorize, or organize items using descriptive key words.
+- **Data tables** to organize and display large amounts of data in rows and columns.
+- **Tags** to label, categorize, or organize items using descriptive key words.
 
 We’re also interested in user interactions that have a common application across GC services.
 
-Submit your contributions to our next priorities directly in GitHub, with an account.
-
-Submit your contributions to our next priorities directly in GitHub. If this is your first time using Github, follow these <gcds-link href="{{ links.githubGetStarted }}" external>instructions</gcds-link> to create your account.
-
-Provide any of the following for each component or pattern:
-
-- **Examples of designs**: screenshots, prototypes, links to live services.
-- **Research findings**: your discovery, use cases, or usability testing.
-- **Code**: prototype or production code, or product implementations.
-
-<gcds-link href="{{ links.githubCompsPriority }}" external>Contribute to next priorities</gcds-link>
+Submit your contributions to our next priorities directly in GitHub, with an <gcds-link href="{{ links.githubGetStarted }}" external>account</gcds-link>.
 
 Provide any of the following for each component or pattern:
 

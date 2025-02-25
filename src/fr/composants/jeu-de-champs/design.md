@@ -27,12 +27,12 @@ Un jeu de champs combine les éléments `<fieldset>` et `<legend>` afin de regro
 
 ### Rédiger le contenu du jeu de champs pour favoriser la réussite de la tâche
 
-- Utilisez la **légende** pour informer une personne sur l'endroit où elle se trouve dans un flux ou une tâche en incluant des repères comme le nom de la section et le numéro de l'étape.
-- Aidez les répondant·e·s à comprendre la relation entre l'information que vous demandez et la tâche ou la sous-tâche qu'ils et elles réalisent en incluant un résumé dans la **légende**.
-- Remplacez les questions par des énoncés afin de réduire le texte de la **légende**.
+- Utilisez la légende pour informer une personne sur l'endroit où elle se trouve dans un flux ou une tâche en incluant des repères comme le nom de la section et le numéro de l'étape.
+- Aidez les répondant·e·s à comprendre la relation entre l'information que vous demandez et la tâche ou la sous-tâche qu'ils et elles réalisent en incluant un résumé dans la légende.
+- Remplacez les questions par des énoncés afin de réduire le texte de la légende.
 
 ### Clarifier la question pour les boutons radio et les cases à cocher
 
-- Pour les [boutons radio]({{ links.radio }}) et les [cases à cocher]({{ links.checkbox }}), la **légende** se situe là ou on retrouve le libellé de champ dans les autres composants.
-- Utilisez le **texte explicatif** du jeu de champs pour donner plus de précisions à une personne sur la façon de répondre. Dans le cas d'une case à cocher, le **texte explicatif** pourrait indiquer : « Sélectionner toutes les options qui s'appliquent ». Dans le cas d'un bouton radio, le **texte explicatif** pourrait indiquer : « Sélectionnez la réponse qui convient le mieux ».
+- Pour les [boutons radio]({{ links.radio }}) et les [cases à cocher]({{ links.checkbox }}), la légende se situe là ou on retrouve le libellé de champ dans les autres composants.
+- Utilisez le texte explicatif du jeu de champs pour donner plus de précisions à une personne sur la façon de répondre. Dans le cas d'une case à cocher, le texte explicatif pourrait indiquer : « Sélectionner toutes les options qui s'appliquent ». Dans le cas d'un bouton radio, le texte explicatif pourrait indiquer : « Sélectionnez la réponse qui convient le mieux ».
 - Évitez d'utiliser un jeu de champs lorsqu'un composant de formulaire ne propose qu'une seule option de réponse et qu'aucune sélection n'est requise.
