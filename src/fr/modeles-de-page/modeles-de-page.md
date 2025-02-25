@@ -34,5 +34,3 @@ Nous mettons les modèles de page à votre disposition au fur et à mesure que n
 {% enddocLinks %}
 
 {% include "partials/template-list.njk" %}
-
-{% include "partials/givefeedback.njk" %}

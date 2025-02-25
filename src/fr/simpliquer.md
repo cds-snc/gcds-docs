@@ -53,8 +53,8 @@ Fournissez l'un des éléments suivants pour chaque composant ou modèle de page
 - **Résultats de recherche** : recherches préliminaires, exemples de cas d'utilisation ou tests d'utilisabilité.
 - **Code** : code de prototype ou de production, ou implémentations du produit.
 
-<gcds-button button-role="secondary" button-type="link" href="{{ links.githubCompsPriority }}" external>Contribuer sur GitHub</gcds-button>
-<gcds-button button-role="secondary" button-type="link" href="{{ links.contact }}" external>Contactez-nous</gcds-button>
+<gcds-button button-role="secondary" type="link" href="{{ links.githubCompsPriority }}" external>Contribuer sur GitHub</gcds-button>
+<gcds-button button-role="secondary" type="link" href="{{ links.contact }}" external>Contactez-nous</gcds-button>
 
 <hr/>
 
@@ -86,4 +86,4 @@ Voici ce que nous allons bientôt publier. Plus de renseignements sur notre <gcd
   </ul>
 </div>
 
-{% include "partials/givefeedback.njk" %}
+{% include "partials/helpus.njk" %}

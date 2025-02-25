@@ -34,5 +34,3 @@ We're sharing page templates as we build them.
 {% enddocLinks %}
 
 {% include "partials/template-list.njk" %}
-
-{% include "partials/givefeedback.njk" %}
