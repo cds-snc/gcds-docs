@@ -150,7 +150,7 @@ function isLeapYear(y) {
     return !(y & 3 || (!(y % 25) && y & 15));
 }
 
-const I18N$n = {
+const I18N$p = {
   en: {
     label: {
       danger: 'This is a critical alert.',
@@ -206,13 +206,13 @@ const GcdsAlert = class {
     render() {
         const { alertRole, container, heading, hideCloseBtn, hideRoleIcon, isFixed, isOpen, lang, } = this;
         return (h(Host, { key: 'f0856a42192ff33a6157989152da33915175b3a7' }, isOpen ? (h("div", { class: `gcds-alert alert--role-${alertRole} ${isFixed ? 'alert--is-fixed' : ''}`, role: "alert", "aria-label": alertRole === 'danger'
-                ? I18N$n[lang].label.danger
+                ? I18N$p[lang].label.danger
                 : alertRole === 'info'
-                    ? I18N$n[lang].label.info
+                    ? I18N$p[lang].label.info
                     : alertRole === 'success'
-                        ? I18N$n[lang].label.success
+                        ? I18N$p[lang].label.success
                         : alertRole === 'warning'
-                            ? I18N$n[lang].label.warning
+                            ? I18N$p[lang].label.warning
                             : null }, h("gcds-container", { size: isFixed ? container : 'full', centered: true }, h("div", { class: "alert__container" }, !hideRoleIcon && (h("gcds-icon", { "aria-hidden": "true", class: "alert__icon", size: "h5", "margin-right": "175", name: alertRole === 'danger'
                 ? 'exclamation-circle'
                 : alertRole === 'info'
@@ -226,13 +226,13 @@ const GcdsAlert = class {
                 if (event) {
                     this.isOpen = false;
                 }
-            }, "aria-label": I18N$n[lang].closeBtn }, h("gcds-icon", { "aria-hidden": "true", name: "times", size: "text" }))))))) : null));
+            }, "aria-label": I18N$p[lang].closeBtn }, h("gcds-icon", { "aria-hidden": "true", name: "times", size: "text" }))))))) : null));
     }
     get el() { return getElement(this); }
 };
 GcdsAlert.style = GcdsAlertStyle0;
 
-const I18N$m = {
+const I18N$o = {
   en: {
     label: 'Breadcrumb',
     link: 'https://www.canada.ca/en.html',
@@ -270,13 +270,13 @@ const GcdsBreadcrumbs = class {
     }
     render() {
         const { hideCanadaLink, lang } = this;
-        return (h(Host, { key: 'b491e1522dfdc3320619a47f4de098ba18948fc2' }, h("nav", { key: '448a711e139c76385faa9dc68a9fc848b8756fae', "aria-label": I18N$m[lang].label, class: "gcds-breadcrumbs" }, h("ol", { key: 'a2a2793c7ffc1ffe313d97be01d038d6367994fc', class: hideCanadaLink ? '' : 'has-canada-link' }, !hideCanadaLink ? (h("gcds-breadcrumbs-item", { href: I18N$m[lang].link }, "Canada.ca")) : null, h("slot", { key: 'cecaeb514adb99fc32d0edc9692290832292a853' })))));
+        return (h(Host, { key: 'b491e1522dfdc3320619a47f4de098ba18948fc2' }, h("nav", { key: '448a711e139c76385faa9dc68a9fc848b8756fae', "aria-label": I18N$o[lang].label, class: "gcds-breadcrumbs" }, h("ol", { key: 'a2a2793c7ffc1ffe313d97be01d038d6367994fc', class: hideCanadaLink ? '' : 'has-canada-link' }, !hideCanadaLink ? (h("gcds-breadcrumbs-item", { href: I18N$o[lang].link }, "Canada.ca")) : null, h("slot", { key: 'cecaeb514adb99fc32d0edc9692290832292a853' })))));
     }
     get el() { return getElement(this); }
 };
 GcdsBreadcrumbs.style = GcdsBreadcrumbsStyle0;
 
-const gcdsBreadcrumbsItemCss = "@layer reset, default, hover, focus, mobile;@layer reset{:host(.gcds-breadcrumbs-item){display:inline-block}:host(.gcds-breadcrumbs-item) gcds-link::part(link){display:inline-block;white-space:normal}:host(.gcds-breadcrumbs-item) slot{display:block}}@layer default{@media screen and (width >= 30rem){:host(.gcds-breadcrumbs-item){margin:var(--gcds-breadcrumbs-item-margin)!important}}:host(.gcds-breadcrumbs-item):before{content:url('data:image/svg+xml;charset=utf-8,<svg xmlns=\"http://www.w3.org/2000/svg\" height=\"12\" viewBox=\"0 0 8 14\"><path fill=\"26374a\" d=\"M7.7 6.3c.4.4.4 1 0 1.4l-6 6c-.4.4-1 .4-1.4 0s-.4-1 0-1.4L5.6 7 .3 1.7C-.1 1.3-.1.7.3.3s1-.4 1.4 0z\"/></svg>');display:inline-block;margin:var(--gcds-breadcrumbs-item-arrow-margin);width:.375rem}}@layer mobile{@media screen and (width < 30rem){:host(.gcds-breadcrumbs-item){display:block;margin:var(--gcds-breadcrumbs-mobile-item-margin)!important}}}";
+const gcdsBreadcrumbsItemCss = "@layer reset, default, hover, focus;@layer reset{:host(.gcds-breadcrumbs-item){display:inline-block}:host(.gcds-breadcrumbs-item) gcds-link::part(link){display:inline-block;white-space:normal}:host(.gcds-breadcrumbs-item) slot{display:block}}@layer default{:host(.gcds-breadcrumbs-item){margin:var(--gcds-breadcrumbs-item-margin)!important}:host(.gcds-breadcrumbs-item):before{content:url('data:image/svg+xml;charset=utf-8,<svg xmlns=\"http://www.w3.org/2000/svg\" height=\"12\" viewBox=\"0 0 8 14\"><path fill=\"26374a\" d=\"M7.7 6.3c.4.4.4 1 0 1.4l-6 6c-.4.4-1 .4-1.4 0s-.4-1 0-1.4L5.6 7 .3 1.7C-.1 1.3-.1.7.3.3s1-.4 1.4 0z\"/></svg>');display:inline-block;margin:var(--gcds-breadcrumbs-item-arrow-margin);width:.375rem}:host(.gcds-breadcrumbs-item) gcds-link::part(link){font:var(--gcds-breadcrumbs-item-font)}}";
 const GcdsBreadcrumbsItemStyle0 = gcdsBreadcrumbsItemCss;
 
 const GcdsBreadcrumbsItem = class {
@@ -292,7 +292,7 @@ const GcdsBreadcrumbsItem = class {
 };
 GcdsBreadcrumbsItem.style = GcdsBreadcrumbsItemStyle0;
 
-const I18N$l = {
+const I18N$n = {
   en: {
     label: 'Opens in a new tab.',
   },
@@ -407,7 +407,7 @@ const GcdsButton = class {
                 target,
                 download,
             };
-        return (h(Host, { key: 'f879906e23b82587fd539f65f4089d52f7ebac8f' }, h(Tag, Object.assign({ key: 'a2193325c515bcafa420a4c3b70aac52c4a4d248' }, attrs, { id: buttonId, onBlur: () => this.gcdsBlur.emit(), onFocus: () => this.gcdsFocus.emit(), onClick: e => this.handleClick(e), class: `gcds-button button--role-${buttonRole} button--${size}`, ref: element => (this.shadowElement = element) }, inheritedAttributes, { part: "button" }), h("slot", { key: '5d106a6af6fa23a394fc1387c3ccb96c93b7b490' }), type === 'link' && target === '_blank' ? (h("gcds-icon", { name: "external-link", label: I18N$l[lang].label, "margin-left": "150" })) : null)));
+        return (h(Host, { key: '956926cbc6e721d3f0bf7cbecef1641cb2d73c35' }, h(Tag, Object.assign({ key: 'd95ca1ef288deea20301ffe0975ed0260f1fc4c2' }, attrs, { id: buttonId, onBlur: () => this.gcdsBlur.emit(), onFocus: () => this.gcdsFocus.emit(), onClick: e => !disabled && this.handleClick(e), class: `gcds-button button--role-${buttonRole} button--${size}`, ref: element => (this.shadowElement = element) }, inheritedAttributes, { part: "button" }), h("slot", { key: '5e8ad081fc6d94be991705613aa5e0cb2d8880e8' }), type === 'link' && target === '_blank' ? (h("gcds-icon", { name: "external-link", label: I18N$n[lang].label, "margin-left": "150" })) : null)));
     }
     static get delegatesFocus() { return true; }
     get el() { return getElement(this); }
@@ -419,7 +419,7 @@ const GcdsButton = class {
 };
 GcdsButton.style = GcdsButtonStyle0;
 
-const I18N$k = {
+const I18N$m = {
   en: {
     tagged: 'Tagged:',
     badgeError: 'gcds-card: The badge attribute has a character limit of 20 characters.',
@@ -467,7 +467,7 @@ const GcdsCard = class {
     }
     validateBadge() {
         if (this.badge && this.badge.length > 20) {
-            console.error(`${I18N$k['en'].badgeError} | ${I18N$k['fr'].badgeError}`);
+            console.error(`${I18N$m['en'].badgeError} | ${I18N$m['fr'].badgeError}`);
             this.errors.push('badge');
         }
         else if (this.errors.includes('badge')) {
@@ -525,7 +525,7 @@ const GcdsCard = class {
             taggedAttr['aria-describedby'] = 'gcds-badge';
         }
         if (this.validateRequiredProps()) {
-            return (h(Host, { key: '124e17eb577553da16ff506265dd5d7cba152b4b' }, h("div", { key: '97a3007905773f8d492d2e922db6492e754bee78', class: "gcds-card" }, badge && !errors.includes('badge') && (h("gcds-text", { key: 'a80df555afd0a45a199647e81ee2dec228802612', id: "gcds-badge", class: "gcds-badge", "text-role": "light", "margin-bottom": "0", size: "small" }, h("strong", { key: 'f12b963c86c4d79ad42b58fefffb6421d636bfc8' }, h("gcds-sr-only", { key: '1a803e937a2f52812f3b89bcd496b3181f933f6c' }, I18N$k[lang].tagged), badge))), imgSrc && (h("img", { key: 'b4a7c3d05fca6a235690d216e0ea9803a478f5b4', src: imgSrc, alt: imgAlt ? imgAlt : '', class: "gcds-card__image" })), Element != 'a' ? (h(Element, Object.assign({ class: "gcds-card__title" }, taggedAttr), h("gcds-link", { href: href }, cardTitle))) : (h("gcds-link", Object.assign({ href: href, class: "gcds-card__title" }, taggedAttr), cardTitle)), renderDescription)));
+            return (h(Host, { key: '1ca25f4b643e43fbfd1c44acc397921f30f32d8f' }, h("div", { key: 'ceb107cae158eaee0c3c545cd7f17b104742ac6a', class: "gcds-card" }, badge && !errors.includes('badge') && (h("gcds-text", { key: '2fdbe2d8fb6ee0526cc81a4a27bd43d8a4c05353', id: "gcds-badge", class: "gcds-badge", "text-role": "light", "margin-bottom": "0", size: "small" }, h("strong", { key: '4f3abc137cc4825a59a50f992b97a2f9b2d2cfa4' }, h("gcds-sr-only", { key: 'fe5592bd351ceb2017acb1822ccf39efb292abb7' }, I18N$m[lang].tagged), badge))), imgSrc && (h("img", { key: 'c3b94f98e9900ad8b5acc82dc8f1db56ae38496e', src: imgSrc, alt: imgAlt ? imgAlt : '', class: "gcds-card__image" })), Element != 'a' ? (h(Element, Object.assign({ class: "gcds-card__title" }, taggedAttr), h("gcds-link", { href: href }, cardTitle))) : (h("gcds-link", Object.assign({ href: href, class: "gcds-card__title" }, taggedAttr), cardTitle)), renderDescription)));
         }
     }
     get el() { return getElement(this); }
@@ -1181,7 +1181,7 @@ const GcdsContainer = class {
 };
 GcdsContainer.style = GcdsContainerStyle0;
 
-const I18N$j = {
+const I18N$l = {
   en: {
     year: 'Year',
     month: 'Month',
@@ -1201,16 +1201,18 @@ const I18N$j = {
       '11': 'November',
       '12': 'December',
     },
-    valueError: 'gcds-date-input:  Value attribute contains an invalid date format. Expected format: ',
+    valueError:
+      'gcds-date-input:  Value attribute contains an invalid date format. Expected format: ',
     valueFormatfull: 'YYYY-MM-DD',
-    valueFormatcompact: 'YYYY-MM'
+    valueFormatcompact: 'YYYY-MM',
+    required: ' (required)',
   },
   fr: {
     year: 'Année',
     month: 'Mois',
     day: 'Jour',
     selectmonth: 'Sélectionnez un mois',
-    months : {
+    months: {
       '01': 'janvier',
       '02': 'février',
       '03': 'mars',
@@ -1224,13 +1226,15 @@ const I18N$j = {
       '11': 'novembre',
       '12': 'décembre',
     },
-    valueError: 'gcds-date-input:  Value attribute contains an invalid date format. Expected format: ',
+    valueError:
+      'gcds-date-input:  Value attribute contains an invalid date format. Expected format: ',
     valueFormatfull: 'YYYY-MM-DD',
-    valueFormatcompact: 'YYYY-MM'
+    valueFormatcompact: 'YYYY-MM',
+    required: ' (obligatoire)',
   },
 };
 
-const gcdsDateInputCss = "@layer reset, default, hint, error;@layer reset{:host{display:block}}@layer default{:host .gcds-date-input__fieldset{--gcds-fieldset-font-desktop:var(--gcds-date-input-fieldset-font-desktop);--gcds-fieldset-font-mobile:var(--gcds-date-input-fieldset-font-mobile);--gcds-fieldset-legend-margin:var(--gcds-date-input-fieldset-margin)}:host .gcds-date-input__day,:host .gcds-date-input__month,:host .gcds-date-input__year{display:inline-block;margin-inline-end:var(--gcds-date-input-margin);--gcds-label-font-desktop:var(--gcds-date-input-label-font-desktop);--gcds-label-font-mobile:var(--gcds-date-input-label-font-mobile )}}@layer hint{:host .gcds-date-input--hint{--gcds-fieldset-legend-margin:var(--gcds-date-input-fieldset-hint-margin)}}@layer error{:host .gcds-date-input--error{--gcds-fieldset-legend-margin:var(--gcds-date-input-fieldset-error-margin )}:host gcds-input.gcds-date-input--error::part(input),:host gcds-select.gcds-date-input--error::part(select){border-color:var(--gcds-date-input-danger-border)}}";
+const gcdsDateInputCss = "@layer reset, default, hint, error;@layer reset{:host{display:block}:host .gcds-date-input__fieldset{border:0;min-inline-size:auto;padding:0}:host .gcds-date-input__fieldset legend{padding:0}}@layer default{:host .gcds-date-input__fieldset legend{color:var(--gcds-date-input-fieldset-text);font:var(--gcds-date-input-fieldset-font-desktop)}:host .gcds-date-input__fieldset legend .legend__required{font:var(--gcds-date-input-fieldset-required-font-desktop);margin:var(--gcds-date-input-fieldset-required-margin)!important;vertical-align:middle}@media only screen and (width < 48em){:host .gcds-date-input__fieldset legend{font:var(--gcds-date-input-fieldset-font-mobile)}:host .gcds-date-input__fieldset legend .legend__required{font:var(--gcds-date-input-fieldset-required-font-mobile)}}:host .gcds-date-input__day,:host .gcds-date-input__month,:host .gcds-date-input__year{display:inline-block;margin-inline-end:var(--gcds-date-input-margin);--gcds-label-font-desktop:var(--gcds-date-input-label-font-desktop);--gcds-label-font-mobile:var(--gcds-date-input-label-font-mobile )}}@layer hint{:host gcds-hint{margin:var(--gcds-date-input-fieldset-hint-margin)}}@layer error{:host gcds-input.gcds-date-input--error::part(input),:host gcds-select.gcds-date-input--error::part(select){border-color:var(--gcds-date-input-danger-border)}}";
 const GcdsDateInputStyle0 = gcdsDateInputCss;
 
 const GcdsDateInput = class {
@@ -1324,7 +1328,7 @@ const GcdsDateInput = class {
         if (this.value && !isValidDate(this.value)) {
             this.errors.push('value');
             this.value = '';
-            console.error(`${I18N$j['en'].valueError}${I18N$j['en'][`valueFormat${this.format}`]} | ${I18N$j['fr'].valueError}${I18N$j['fr'][`valueFormat${this.format}`]}`);
+            console.error(`${I18N$l['en'].valueError}${I18N$l['en'][`valueFormat${this.format}`]} | ${I18N$l['fr'].valueError}${I18N$l['fr'][`valueFormat${this.format}`]}`);
         }
         else if (this.errors.includes('value')) {
             this.errors.splice(this.errors.indexOf('value'), 1);
@@ -1403,7 +1407,17 @@ const GcdsDateInput = class {
      * Logic to combine all input values together based on format
      */
     setValue() {
-        const { yearValue, dayValue, monthValue, format } = this;
+        const { yearValue, monthValue, format } = this;
+        let { dayValue } = this;
+        // Logic to make sure the day input is registered correctly
+        if (dayValue && dayValue.length === 1 && dayValue != '0') {
+            dayValue = '0' + dayValue;
+            this.dayValue = dayValue;
+        }
+        else if (dayValue && dayValue.length == 3 && dayValue[0] === '0') {
+            dayValue = dayValue.substring(1);
+            this.dayValue = dayValue;
+        }
         // All form elements have something entered
         if (yearValue && monthValue && dayValue && format == 'full') {
             // Is the combined value a valid date
@@ -1442,24 +1456,16 @@ const GcdsDateInput = class {
     splitFormValue() {
         if (this.value && isValidDate(this.value, this.format)) {
             if (this.format == 'compact') {
-                let splitValue = this.value.split('-');
+                const splitValue = this.value.split('-');
                 this.yearValue = splitValue[0];
                 this.monthValue = splitValue[1];
             }
             else {
-                let splitValue = this.value.split('-');
+                const splitValue = this.value.split('-');
                 this.yearValue = splitValue[0];
                 this.monthValue = splitValue[1];
                 this.dayValue = splitValue[2];
             }
-        }
-    }
-    /**
-     * Format day input value to add 0 to single digit values
-     */
-    formatDay(e) {
-        if (!isNaN(e.target.value) && e.target.value.length === 1) {
-            this.dayValue = '0' + e.target.value;
         }
     }
     validateRequiredProps() {
@@ -1483,7 +1489,7 @@ const GcdsDateInput = class {
         if (this.validator) {
             this._validator = getValidator(this.validator);
         }
-        let valid = this.validateRequiredProps();
+        const valid = this.validateRequiredProps();
         if (!valid) {
             logError('gcds-date-input', this.errors);
         }
@@ -1501,19 +1507,25 @@ const GcdsDateInput = class {
     }
     render() {
         const { legend, name, format, required, hint, errorMessage, disabled, lang, hasError, } = this;
-        let requiredAttr = {};
+        const requiredAttr = {};
         if (required) {
             requiredAttr['aria-required'] = 'true';
         }
+        const fieldsetAttrs = {
+            'tabindex': '-1',
+            'aria-labelledby': 'date-input-legend',
+        };
+        if (hint) {
+            const hintID = this.hint ? `date-input-hint ` : '';
+            fieldsetAttrs['aria-labelledby'] =
+                `${fieldsetAttrs['aria-labelledby']} ${hintID}`.trim();
+        }
         // Array of months 01 - 12
         const options = Array.from({ length: 12 }, (_, i) => i + 1 < 10 ? `0${i + 1}` : `${i + 1}`);
-        const month = (h("gcds-select", Object.assign({ key: 'dce99a8ec0ca1035795bb1981b45c2d6ddcb1b97', label: I18N$j[lang].month, selectId: "month", name: "month", defaultValue: I18N$j[lang].selectmonth, disabled: disabled, onInput: e => this.handleInput(e, 'month'), onChange: e => this.handleInput(e, 'month'), value: this.monthValue, class: `gcds-date-input__month ${hasError['month'] ? 'gcds-date-input--error' : ''}` }, requiredAttr, { "aria-invalid": hasError['month'].toString(), "aria-description": hasError['month'] && errorMessage }), options.map(option => (h("option", { key: option, value: option }, I18N$j[lang]['months'][option])))));
-        const year = (h("gcds-input", Object.assign({ key: '79adb2319306d6bcd4959d113945902bbfc40728', name: "year", label: I18N$j[lang].year, inputId: "year", type: "number", size: 4, disabled: disabled, value: this.yearValue, onInput: e => this.handleInput(e, 'year'), onChange: e => this.handleInput(e, 'year'), class: `gcds-date-input__year ${hasError['year'] ? 'gcds-date-input--error' : ''}` }, requiredAttr, { "aria-invalid": hasError['year'].toString(), "aria-description": hasError['year'] && errorMessage })));
-        const day = (h("gcds-input", Object.assign({ key: 'd9f341a356c4e4d7dc5cc3e38cdac2931dd98a87', name: "day", label: I18N$j[lang].day, inputId: "day", type: "number", size: 2, disabled: disabled, value: this.dayValue, onInput: e => this.handleInput(e, 'day'), onChange: e => {
-                this.handleInput(e, 'day');
-                this.formatDay(e);
-            }, class: `gcds-date-input__day ${hasError['day'] ? 'gcds-date-input--error' : ''}` }, requiredAttr, { "aria-invalid": hasError['day'].toString(), "aria-description": hasError['day'] && errorMessage })));
-        return (h(Host, { key: '00e97ecb52e332d43e6917b72005cbab39254c25', name: name, onBlur: () => this.onBlur() }, this.validateRequiredProps() && (h("gcds-fieldset", { key: '9909941d6ab3bde3b630dfcbfbcf6a475b44be2c', legend: legend, fieldsetId: "date-input", hint: hint, errorMessage: errorMessage, required: required, class: `gcds-date-input__fieldset${hint ? ' gcds-date-input--hint' : ''}${errorMessage ? ' gcds-date-input--error' : ''}`, lang: lang, "data-date": "true" }, format == 'compact'
+        const month = (h("gcds-select", Object.assign({ key: '5cc53dab20a5ca7a94293cb58f5857309e30d7c9', label: I18N$l[lang].month, selectId: "month", name: "month", defaultValue: I18N$l[lang].selectmonth, disabled: disabled, onInput: e => this.handleInput(e, 'month'), onChange: e => this.handleInput(e, 'month'), value: this.monthValue, class: `gcds-date-input__month ${hasError['month'] ? 'gcds-date-input--error' : ''}` }, requiredAttr, { "aria-invalid": hasError['month'].toString(), "aria-description": hasError['month'] && errorMessage }), options.map(option => (h("option", { key: option, value: option }, I18N$l[lang]['months'][option])))));
+        const year = (h("gcds-input", Object.assign({ key: '554b66c992c6dd93a4edf9972f7da65253313aa0', name: "year", label: I18N$l[lang].year, inputId: "year", type: "number", size: 4, disabled: disabled, value: this.yearValue, onInput: e => this.handleInput(e, 'year'), onChange: e => this.handleInput(e, 'year'), class: `gcds-date-input__year ${hasError['year'] ? 'gcds-date-input--error' : ''}` }, requiredAttr, { "aria-invalid": hasError['year'].toString(), "aria-description": hasError['year'] && errorMessage })));
+        const day = (h("gcds-input", Object.assign({ key: 'dae9c6e8ba45b3ace7bfb212cf33b3394d512ef7', name: "day", label: I18N$l[lang].day, inputId: "day", type: "number", size: 2, disabled: disabled, value: this.dayValue, onInput: e => this.handleInput(e, 'day'), onChange: e => this.handleInput(e, 'day'), class: `gcds-date-input__day ${hasError['day'] ? 'gcds-date-input--error' : ''}` }, requiredAttr, { "aria-invalid": hasError['day'].toString(), "aria-description": hasError['day'] && errorMessage })));
+        return (h(Host, { key: 'd9388aa00239180b8f9a657cd188748c2d1babce', name: name, onBlur: () => this.onBlur() }, this.validateRequiredProps() && (h("fieldset", Object.assign({ key: '1004ff844a1231495b95d598d9880ac03284464a', class: "gcds-date-input__fieldset" }, fieldsetAttrs), h("legend", { key: '0fea4a4db52510952d1911773a4f0d45b8af0b89', id: "date-input-legend" }, legend, required ? (h("span", { class: "legend__required" }, I18N$l[lang].required)) : null), hint ? (h("gcds-hint", { id: "date-input-hint", "hint-id": "date-input" }, hint)) : null, errorMessage ? (h("div", null, h("gcds-error-message", { id: "date-input-error", messageId: "date-input" }, errorMessage))) : null, format == 'compact'
             ? [month, year]
             : lang == 'en'
                 ? [month, day, year]
@@ -1532,7 +1544,7 @@ const GcdsDateInput = class {
 };
 GcdsDateInput.style = GcdsDateInputStyle0;
 
-const I18N$i = {
+const I18N$k = {
   en: {
     date: 'Date modified:',
     version: 'Version ',
@@ -1543,7 +1555,7 @@ const I18N$i = {
   },
 };
 
-const gcdsDateModifiedCss = "@layer reset, default;@layer reset{:host{display:block}:host dl{margin:0}:host slot{display:initial}}@layer default{:host .gcds-date-modified{margin:var(--gcds-date-modified-margin)}:host .gcds-date-modified :is(dt,gcds-text,dd){display:inline}:host .gcds-date-modified dd{margin:var(--gcds-date-modified-description-margin)}}";
+const gcdsDateModifiedCss = "@layer reset, default;@layer reset{:host{display:block}:host dl{margin:0}:host slot{display:initial}}@layer default{:host .gcds-date-modified{margin:var(--gcds-date-modified-margin)}:host .gcds-date-modified :is(dt,gcds-text,dd){display:inline}:host .gcds-date-modified dd{margin:var(--gcds-date-modified-description-margin)}:host .gcds-date-modified gcds-text::part(text){font:var(--gcds-date-modified-font)}}";
 const GcdsDateModifiedStyle0 = gcdsDateModifiedCss;
 
 const GcdsDateModified = class {
@@ -1590,7 +1602,7 @@ const GcdsDateModified = class {
     }
     render() {
         const { lang, type } = this;
-        return (h(Host, { key: '39fca62bf69af99e9d52995d1cea0c22d9c13949' }, this.validateRequiredProps() && (h("dl", { key: 'f9dfcb28b36f5481480233e54e4f66c19016addc', class: "gcds-date-modified" }, h("dt", { key: '71c512bd925df8bf35ad55ba20377340878c670d' }, h("gcds-text", { key: '8964d2b21c1c3660eb5ee4321795275c0006847d', display: "inline", "margin-bottom": "0" }, type === 'version' ? I18N$i[lang].version : I18N$i[lang].date)), h("dd", { key: 'f203c814fb4da7ddaf1fab80233b2c1d2448fc68' }, h("gcds-text", { key: '8d20378fb151f0faea84fbfab13a723b0b3d3727', display: "inline", "margin-bottom": "0" }, type === 'version' ? (h("slot", null)) : (h("time", null, h("slot", null)))))))));
+        return (h(Host, { key: 'f63e29a192d3a4d658ca78335b064e84e4143c5b' }, this.validateRequiredProps() && (h("dl", { key: '934f13de2562460ebb81b01b19a969c5fca4604c', class: "gcds-date-modified" }, h("dt", { key: '71a5ff2bdcf6c6d7aaf857d459b7c465d13a7ab3' }, h("gcds-text", { key: 'b8ad0f896154c73fff49eb8e5f7aabc82a8fb6f0', display: "inline", "margin-bottom": "0" }, type === 'version' ? I18N$k[lang].version : I18N$k[lang].date)), h("dd", { key: '8624f50eb70cdfd7a448c6e5755235c729fa00f2' }, h("gcds-text", { key: '97c82c7759ea15d85f92dd19ebd40c24d010df13', display: "inline", "margin-bottom": "0" }, type === 'version' ? (h("slot", null)) : (h("time", null, h("slot", null)))))))));
     }
     get el() { return getElement(this); }
 };
@@ -1619,12 +1631,12 @@ const GcdsDetails = class {
     }
     render() {
         const { detailsTitle, open } = this;
-        return (h(Host, { key: '6a7b027fb3c8f1c64e1e55c6be71acff23b8641c' }, h("div", { key: '3a1b6576b108a69f7790f0698ccf0180743bd882', class: "gcds-details" }, h("button", { key: 'ac9a5185db8182a144ebbd9275a9da7d04076608', "aria-expanded": open.toString(), "aria-controls": "details__panel", onBlur: () => this.gcdsBlur.emit(), onFocus: () => this.gcdsFocus.emit(), onClick: e => {
+        return (h(Host, { key: '17839f99ea3d7d6f190a7bc5df72d1e056e09b3c' }, h("div", { key: '5ebfa6b8c4b0317728ebb114a0dac1b3574ceda8', class: "gcds-details" }, h("button", { key: '3e02dfd0ca368a4758a79edbf2b125e721427ce3', "aria-expanded": open.toString(), "aria-controls": "details__panel", onBlur: () => this.gcdsBlur.emit(), onFocus: () => this.gcdsFocus.emit(), onClick: e => {
                 const event = emitEvent(e, this.gcdsClick);
                 if (event) {
                     this.toggle();
                 }
-            }, class: "details__summary", id: "details__summary" }, detailsTitle), h("div", { key: '21d41431237eaf81e5f41de477961ba24aeb05ba', id: "details__panel", class: "details__panel", "aria-labelledby": "details__summary" }, h("slot", { key: '7f1525c909982ea86e1ece24ca34559f3f7731c6' })))));
+            }, class: "details__summary", id: "details__summary" }, detailsTitle), h("div", { key: 'a12601d1dcad1cff247c32a59aeacdbe14100c6f', id: "details__panel", class: "details__panel", "aria-labelledby": "details__summary" }, h("slot", { key: '11209ad4acd9a6f6d678e1fb7047b070339779b2' })))));
     }
     get el() { return getElement(this); }
 };
@@ -1640,13 +1652,13 @@ const GcdsErrorMessage = class {
     }
     render() {
         const { messageId } = this;
-        return (h(Host, { key: 'c772a009299851d08165315989a3459ba148c69f', id: `error-message-${messageId}`, class: "gcds-error-message-wrapper" }, h("gcds-text", { key: '7d56288b047bc42825e42659d4bd860d4fc8a21f', class: "error-message", role: "alert", "margin-bottom": "75" }, h("gcds-icon", { key: '3e33a446e6f881f76bd223039bf70c658c9b58fc', name: "triangle-exclamation", "margin-right": "50" }), h("strong", { key: '6e5821532c050461514a6dd72476c9f8ceec65e5' }, h("slot", { key: 'f214238880df37d722080260bebc1ac1a4d0c4ae' })))));
+        return (h(Host, { key: '3f2e26f31e50359a0e1726d5f714dd678005cf01', id: `error-message-${messageId}`, class: "gcds-error-message-wrapper" }, h("gcds-text", { key: 'a8a20a16968e9a4578466f4fbeafb727077d7424', class: "error-message", role: "alert", "margin-bottom": "75" }, h("gcds-icon", { key: 'a54fc1a0bca6eba54fe1422f6210f42fb94ba348', name: "triangle-exclamation", "margin-right": "50" }), h("strong", { key: '64159579526bfb8df612dac7862048a447e30de2' }, h("slot", { key: '5c9a927de03b56f60b80fe97afe0de19f2e84ee4' })))));
     }
     get el() { return getElement(this); }
 };
 GcdsErrorMessage.style = GcdsErrorMessageStyle0;
 
-const I18N$h = {
+const I18N$j = {
   en: {
     heading: 'There was a problem',
     subheading: 'Errors were found on this page:',
@@ -1779,9 +1791,9 @@ const GcdsErrorSummary = class {
     }
     render() {
         const { heading, errorQueue, lang, hasSubmitted, errorLinks } = this;
-        return (h(Host, { key: '1e78ebc181c6f25c95316a980d0618ce30854e71' }, h("div", { key: '5bc1d9c797665c4fcbc3483ee0075fa0d30498f4', role: "alert", tabindex: "-1", ref: element => (this.shadowElement = element), class: `gcds-error-summary ${(hasSubmitted || errorLinks) && Object.keys(errorQueue).length > 0
+        return (h(Host, { key: 'dd90e9455ea1a422d5f4559c62df271259923249' }, h("div", { key: 'bb61b6d2eea84aead7d06e0355b464bf2e2281bb', role: "alert", tabindex: "-1", ref: element => (this.shadowElement = element), class: `gcds-error-summary ${(hasSubmitted || errorLinks) && Object.keys(errorQueue).length > 0
                 ? 'gcds-show'
-                : ''}` }, h("gcds-heading", { key: 'b25ea686a38672748271ac291d09af604344883a', tag: "h2", "margin-top": "0", "margin-bottom": "225" }, heading !== null && heading !== void 0 ? heading : I18N$h[lang].heading), h("ol", { key: '059c002f1c0bc84e9c1ced147bce03f8f95640c2', class: "summary__errorlist" }, (hasSubmitted || errorLinks) &&
+                : ''}` }, h("gcds-heading", { key: '170edbb97c73a0928aaa571f33eee36b72fee740', tag: "h2", "margin-top": "0", "margin-bottom": "225" }, heading !== null && heading !== void 0 ? heading : I18N$j[lang].heading), h("ol", { key: 'ce1c06b5047c8a1632a955c3cb5d7ed833a7284b', class: "summary__errorlist" }, (hasSubmitted || errorLinks) &&
             Object.keys(errorQueue).length > 0 &&
             Object.keys(errorQueue).map(key => {
                 return (h("li", { class: "summary__listitem" }, h("gcds-link", { size: "regular", href: errorLinks ? key : '#', onClick: e => {
@@ -1800,7 +1812,7 @@ const GcdsErrorSummary = class {
 };
 GcdsErrorSummary.style = GcdsErrorSummaryStyle0;
 
-const I18N$g = {
+const I18N$i = {
   en: {
     required: 'required',
   },
@@ -1959,9 +1971,9 @@ const GcdsFieldset = class {
                 ? ` ${fieldsetAttrs['aria-describedby']}`
                 : ''}`;
         }
-        return (h(Host, { key: '89556f83e10ae99e70fefaf649e3b43f4e770699' }, h("fieldset", Object.assign({ key: 'b788701b3e9c46afab93206a55ee28223383bf5b', class: `gcds-fieldset ${hasError ? 'gcds-fieldset--error' : ''}`, id: fieldsetId }, fieldsetAttrs, { "aria-labelledby": hint
+        return (h(Host, { key: '28b6b012db193345b89688a3a49c23f46304c285' }, h("fieldset", Object.assign({ key: 'f540690d1a3f4f5cc430b581aa0ad4acd37c0df5', class: `gcds-fieldset ${hasError ? 'gcds-fieldset--error' : ''}`, id: fieldsetId }, fieldsetAttrs, { "aria-labelledby": hint
                 ? `legend-${fieldsetId} hint-${fieldsetId}`
-                : `legend-${fieldsetId}`, tabindex: "-1", ref: element => (this.shadowElement = element) }), h("legend", { key: '2ed88bb08d1f52e9054df6efafe51a94c2ac0b2c', id: `legend-${fieldsetId}` }, legend, required ? (h("span", { class: "legend__required" }, "(", I18N$g[lang].required, ")")) : null), hint ? h("gcds-hint", { "hint-id": fieldsetId }, hint) : null, errorMessage ? (h("gcds-error-message", { messageId: fieldsetId }, errorMessage)) : null, h("slot", { key: 'cf54188dacee5ac7f098303d68befe7ae251f751' }))));
+                : `legend-${fieldsetId}`, tabindex: "-1", ref: element => (this.shadowElement = element) }), h("legend", { key: 'b95da10304c515c19ad7610b10bc1ec6671b9918', id: `legend-${fieldsetId}` }, legend, required ? (h("span", { class: "legend__required" }, "(", I18N$i[lang].required, ")")) : null), hint ? h("gcds-hint", { "hint-id": fieldsetId }, hint) : null, errorMessage ? (h("gcds-error-message", { messageId: fieldsetId }, errorMessage)) : null, h("slot", { key: '4b72b0dec46d47075fa3edd6c693e24fa146dd7f' }))));
     }
     static get delegatesFocus() { return true; }
     get el() { return getElement(this); }
@@ -1973,7 +1985,7 @@ const GcdsFieldset = class {
 };
 GcdsFieldset.style = GcdsFieldsetStyle0;
 
-const I18N$f = {
+const I18N$h = {
   en: {
     button: {
       remove: 'Remove',
@@ -2221,8 +2233,8 @@ const GcdsFileUploader = class {
             attrsInput['aria-describedby'] =
                 `${hintID}${errorID}${attrsInput['aria-describedby']}`;
         }
-        return (h(Host, { key: '99186272d4f4b070dca7d917d3a32811463df83e' }, h("div", { key: 'c1ca92dd9cc40ad0c5fe7606b9292647be311b7d', class: `gcds-file-uploader-wrapper ${disabled ? 'gcds-disabled' : ''} ${hasError ? 'gcds-error' : ''}` }, h("gcds-label", Object.assign({ key: '9a34edfcfa902b8353c8bd654ab46e31ae38e83d' }, attrsLabel, { "label-for": uploaderId, lang: lang })), hint ? h("gcds-hint", { "hint-id": uploaderId }, hint) : null, errorMessage ? (h("gcds-error-message", { messageId: uploaderId }, errorMessage)) : null, h("div", { key: '83fc533d49d0f593eada09f8fd06bdaca621b9be', class: `file-uploader__input ${value.length > 0 ? 'uploaded-files' : ''}` }, h("button", { key: '3a11627ececd9a0527a9a140ea4f318786111135', type: "button", tabindex: "-1", onClick: () => this.shadowElement.click() }, I18N$f[lang].button.upload), h("input", Object.assign({ key: '68dc829e09e98a100be6fe790b3e5bc2d2b7ac81', type: "file", id: uploaderId }, attrsInput, { onBlur: () => this.onBlur(), onFocus: () => this.gcdsFocus.emit(), onInput: e => this.handleInput(e, this.gcdsInput), onChange: e => this.handleInput(e, this.gcdsChange), "aria-invalid": hasError ? 'true' : 'false', ref: element => (this.shadowElement = element) })), value.length > 0 ? (h("gcds-sr-only", { id: "file-uploader__summary" }, h("span", null, I18N$f[lang].summary.selected, " "), value.map(file => (h("span", null, file, " "))))) : (h("gcds-sr-only", { id: "file-uploader__summary" }, I18N$f[lang].summary.unselected))), value.length > 0
-            ? value.map(file => (h("div", { class: "file-uploader__uploaded-file", "aria-label": `${I18N$f[lang].removeFile} ${file}.` }, h("gcds-text", { "margin-bottom": "0" }, file), h("button", { onClick: e => this.removeFile(e) }, h("span", null, I18N$f[lang].button.remove), h("gcds-icon", { name: "times", size: "text", "margin-left": "150" })))))
+        return (h(Host, { key: '40d823466addd276a49548e490ec2611310cd788' }, h("div", { key: 'd7aa15ff14ecbd77770b2691c4c142d7c14a8bed', class: `gcds-file-uploader-wrapper ${disabled ? 'gcds-disabled' : ''} ${hasError ? 'gcds-error' : ''}` }, h("gcds-label", Object.assign({ key: 'f45de737ec67384cd373fff9859b77382e3bf5dd' }, attrsLabel, { "label-for": uploaderId, lang: lang })), hint ? h("gcds-hint", { "hint-id": uploaderId }, hint) : null, errorMessage ? (h("gcds-error-message", { messageId: uploaderId }, errorMessage)) : null, h("div", { key: '4f8e94b3e861aec793f4126233967950b1de7971', class: `file-uploader__input ${value.length > 0 ? 'uploaded-files' : ''}` }, h("button", { key: 'df9ec77ed561aeba22af218c653e00da1cc04f5f', type: "button", tabindex: "-1", onClick: () => this.shadowElement.click() }, I18N$h[lang].button.upload), h("input", Object.assign({ key: 'f666c3cfecd09a38f1e84f0ffb3122fab0682a12', type: "file", id: uploaderId }, attrsInput, { onBlur: () => this.onBlur(), onFocus: () => this.gcdsFocus.emit(), onInput: e => this.handleInput(e, this.gcdsInput), onChange: e => this.handleInput(e, this.gcdsChange), "aria-invalid": hasError ? 'true' : 'false', ref: element => (this.shadowElement = element) })), value.length > 0 ? (h("gcds-sr-only", { id: "file-uploader__summary" }, h("span", null, I18N$h[lang].summary.selected, " "), value.map(file => (h("span", null, file, " "))))) : (h("gcds-sr-only", { id: "file-uploader__summary" }, I18N$h[lang].summary.unselected))), value.length > 0
+            ? value.map(file => (h("div", { class: "file-uploader__uploaded-file", "aria-label": `${I18N$h[lang].removeFile} ${file}.` }, h("gcds-text", { "margin-bottom": "0" }, file), h("button", { onClick: e => this.removeFile(e) }, h("span", null, I18N$h[lang].button.remove), h("gcds-icon", { name: "times", size: "text", "margin-left": "150" })))))
             : null)));
     }
     static get delegatesFocus() { return true; }
@@ -2238,7 +2250,7 @@ const GcdsFileUploader = class {
 };
 GcdsFileUploader.style = GcdsFileUploaderStyle0;
 
-const I18N$e = {
+const I18N$g = {
   en: {
     gov: {
       heading: 'Government of Canada',
@@ -2487,7 +2499,7 @@ const I18N$e = {
   },
 };
 
-const gcdsFooterCss = "@layer reset, default, contextual, main, sub, small, compact, medium, wide;@layer reset{:host{display:block}:host slot{display:initial}:host gcds-link::part(link):not(:hover){text-decoration:none}:host .gcds-footer__sub ul{list-style-type:none;margin:0;padding:0}:host .gcds-footer__sub ul li{display:block}}@layer default{:host{font:var(--gcds-footer-font)}:host .gcds-footer__header,:host .sub__header,:host .themenav__header{clip:rect(1px,1px,1px,1px);height:1px;margin:0;overflow:hidden;position:absolute;width:1px}:host [class$=__container]{justify-content:space-between;margin:var(--gcds-footer-container-margin);max-width:var(--gcds-footer-container-width);width:90%}:host nav{position:relative}:host nav li{margin:var(--gcds-footer-listitem-margin)}:host [class$=__list]{display:grid;grid-template-columns:1fr;list-style:none;padding:var(--gcds-footer-list-padding);grid-gap:var(--gcds-footer-list-grid-gap)}:host [class$=__list] li gcds-link::part(link){color:var(--gcds-footer-main-text)}:host h3{font:var(--gcds-footer-font-heading-desktop)}@media only screen and (width < 48em){:host h3{font:var(--gcds-footer-font-heading-mobile)}}}@layer contextual{:host .gcds-footer__contextual{background-color:var(--gcds-footer-contextual-background);color:var(--gcds-footer-contextual-text);container:component contextual/inline-size;margin-block-end:-1px;padding:var(--gcds-footer-contextual-padding)}}@layer main{:host .gcds-footer__main{background-color:var(--gcds-footer-main-background);background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAmgAAAC9CAMAAAAwXXHOAAAAe1BMVEUAAAAYJjgbKDogIDkcOTkgMDgoKEMdJzgdKDcAAAAgKTkfLj4gKDgfKjgeJjgeKjgcKDgfJzhAQEAfKzceKDgdKDcdKjcAVVUhN0MeKDceKzcAAFUdKjgcKzkeLTwaMzMdKjcfKTYZJjIcKzkaKDgcKDgYKjgbKTgYKDjo9/gwAAAAKXRSTlMASTkoCSATe/8BUCHNSWXct1sEU+D9nQMXeIoD8zYiCsN1PST/bZK221OBjhQAAA8qSURBVHgB7NVVAUNRDAWwPr5jZp5/jwMR/Us0HAgAAAAAAAAAAAAAAAAAAAAgS1U3TRt/XdNHEqiGUurReBIxLUOQSNBm88VytRa0ZIK22Zbd/iBo2Vzn8XS+hKCRqDpdr7e4PyKe11ckger9Zdc+bGULYSAMj2uZMab/Bl/mJoWXLiuvNV8HiH/PYgSGMIdmFvhjZg7NHJoZEcRtZmQEbjOj5NDMoZlDM3No1kxIidvMUlowuy2lgtltS9qE2WUlTwN2H7fGTQMkrBtqYGhBWDMhjRs7KcKaSWnc2BkOrZ8lSRujpALWMjQOW1PCmil9F8PWtNCQbzekHLamgvUSmhda9DsLWOqHmramgHUMbU+bbxLWypLGjZ3V7wraSj/FsPmm0JCHTimHzTc7YI2E5oWWjRfk0Na00AKNWOqXcmgX2ZLuj50OzUoHh/14Em1Y5NaRgSGq26HTUm/UrBubTZhDe8CiAheZQ1uPuBk0hxaPGKPNobHZciz4PjSmv2gXWOmDTQ8DduMa4KOYFFqiBQsdVXvQ3lTPZwJ+xL1IxJzbdO53w42RPUJbQACsKXsTzU6cDm3pbEec/dl4fvn+xGmMZIPQCj9D45TQlo6EgVnKDjuyfjQ/KLTSsWAAI7PLXyeCI/46480scE6cRAs+o+ln7lwDQstz1nwzDSR6cGh7EYilIV+01KtoFJpDk3bVloZ80ZZeJcBEEw7teP7QikDp1QJi+bl+Ep/NoXHrVQFZvt8Ih/a5vrJ3J8iJK0EQQCvPkplVdf8T/rBFB61vYYStMWCTMYA2b82j1Qti2A5rSuMFLcKMOwZVvQGtKhnPGmpAG0HkayIK94Vm5AY0w4xnDVSRmpNRr4moRNw3/m2nTqtZmlPsF7QXtKNjbcWvXide0A5NvqBthDIfAFq5ytnv988OrbSV+vPQKh4AGoLjH+u5obG1lWbcP68ajXFOqn9dE+31/kf/ROvhBe3VSKsXtB9oor0aaUjJeEE7LmhtpxF/ON5TqTv8gnZ7hdZlzcn4u2G9oP2TPmdXGkEtsV1/u9+JXZ/mWd0vaHuTGn8Ps7WEoy38Z2MT16u0Ur2g3dbpBJylke7uPz2+wUKA14bS2Gq+oO0MtJ0/DQ1CICj5WtE5vpoXtHb/dWi5QCMyLoeWlIwb8oJWTI048o9DY5FEIGB+7kwy/ym0mtK/ABrCtE7mgv23oUEIMBCQr54K/Hqb0A3QGAyfCy7/MDRGpDygZQTvCq0M1/vdnaBhvfJtaDGgYSz+VWhkyeEIBGHyvtAQEXBEsO4DzeuVY6CNRfxlaJKIBVqAKdwVGge0uBO05LzygnZYqKJjQAsLsRVCOro3AD4gtMJ5mfUNsBehOf5koIwFmhnmJWjQiOOo2I8Hje0YCTe/DvYitPqr0IpFNqIcKf1xaFDOvxIOaAnkq0abBRmdURfLAVLa6d8OzXOFk/KrjfYPhq8a/Rk0RAR/O7RUcyyzlS9ox0Jrd7sq+97QAMAJAPeBVhMESv2CdiC0ZmZUhSvqX0LjuF/CLnyA5rekfaeZAc6vNEjNx4BGgPF0sWOEASnDiHIgwxL+GTSP+yUp1aVTJxZoxTu0WHP+jXBEZ+AAaBLj6QLEEhphyZGMdLACljfn1iFVZta3oPEtu6ClluAODYmah8L8GNAs5RPXaBTYSkZFlCOKkSpCvNDrtOsb0Fpvae6AVlriO0BLTtBya84udgRHQmNLxXi2ZK4Ko4K5QLNHk3z71ImI/DY07YDGPvqKIe+/Sgdz8xUbFnFcG42xI6xeGhLxXGHVqjAc9glajuuh7gvtH1xtm/t7nZwaRrVFsWIz4M3QiJuGOhlPFai5LoxEvN/YDO+p0bhoI/GFSx25vJBRUuEKtGZ8P+Q7NB8AjWGpHdysNG+GBt801Il4qiw9y3PrgWySCZICKUn5CbQ0gx0Rkb2cWjjcxhL6tM7zIyLQo7jYCL6v1SVoR5YtHChGHQDNWZIqt4AUbm6juX4ztJSWko+l0LIqz3fVkvoTaNKAVpISgI33JN5CuPiezOWxEJERqSUZkIPaBc3x/djVatfuNtrlcTRfbjuyfTO0auzDv8RPd1V6BevcrbLfln2qypFS7YHm1s50MokeazxD6/bn0PK4WbY6YHjDl9uOVt06qc7eY4edlqRMM54oXJ7rikCDzYjigLbwIwufQatgB7P19VTmkPQ5tIrvp3Z/ugprOo4tqbgJrRng5VnSwUsgUHpPvmUNzbv+PmRw+TriCWfRmyyHvehaoC3mkOHiJ9Aa7Codk21oR/YGsH+sBJokbI30pE5BJDcnr0a84wLi2qMfVcSpyZHJZ/wM3yKLEfYZ2gKPkb4IbeRnoMk2D/qDi/ug5apOiiksnWK2Pw71fnYBcb1FkjDblHe/TipsxBNCay+eEmdoyIhwBhv3hzaCoz5L1vtq+5oLynFJjz8Ua/MytI3OgPe1DWZoT/kGtAo2Y7kb0FjvdwwXfwZafXz3Rh4KzRpR3QStPpxv2RegjV3YD21Ibvx6aFhwOeMMLZLLJpZ/CFqeUroUHPURn43boXnjzLmk/OEE50+hcQVtsM1fD62rGRGJGZodSyWHRkzJ46Ft5Xhobp2T+9tom52B1Bx/8MxPoeWAtjqi+cuhjZIqztCQY9o9ay62flZoqSnNPdD8BWi+XqO5sYKWV/88cgWNzwUNGilOb+UoTxMpaIPKGGHpSaGxt2wcX6NRb8m9n4+GStZ2NevyWMx2eK6S8zmheSF1AjbA1fu9iu7yVAsOaOXM0V7PsdynhXTXer9G1JnLv/pBaNYqxX3Q3N09+uZ7oGHUmPvG0WY97VVSg1OWHP20n+jtdYU2iqtrnn7D22qNP5k9QcsAhlaM5Qpw6TDUej9XzwsjOCZi0EvRWWN1PC5uM13O+jo0AhG1H+0MDXMt4vRWZ0Bd57QkMLu6q97u+lNo0TtGfEoyW3Pq2Wq0ZLVXb+PrHA651NoMdGFZ0QwN9kmHPJbrtGBUrfdvVABYlNcYY1mqgtTyWEt5EhGIwJehoVS31WhTrxMzp1ZXdXW3Pg0itSMgydbllAe0D2k+WY3GcMdiiOOSpIhJHoSIHKfXGdrN2YZ2+lYZUWN1PC7Q/C1orJJMUqs49kCDSzdnQDsgnbwATc8HLTNIogTAdqr9FljJt8gRHLPCzwctv9TcS30nRumTJOq20cXe2sHngobwtTNBV5VGjoCWPiUljT5BZfZYPf/QApyAAR8KrXk0tP0pBkvfzvNBU6XtUgIArSLeYtl2tmoN8bmGN3gBWtwPmiPC+ka6+qmgYfmrfRquFdafokNhtN2I1BTDQOlH0tXVN0IDpmXdAVqxr1RF0MWYLTWtOY1pPQP9dNBwGVpjQIvwsXhqvCyvJgNRRdB7odFlg2P5SGiVWVlVWedfvqpWt7dk9Mbez6E1OXaXlAHNqeDsOOoZT50DGtfQYgx7XIZWrrHY6ezTQvWy0/OG+ZAgu4KLdBCWigBLTYA5VsdHWFfc0BkYw3Ek0tIx0Exa8scZejPI6ZaSTqOrydUeXoEWu6FpBzQ8HrS8Bg2XqvriAKj2fN2cW0pGcN7QY0F9GhbGVOy5PL01X/af16DBhZjDjUbZMdAi1tDyvGOEY/uAFqv8KLTsR4NGtBwR7P4/tMrlqOIlaOftOb6jV9eqcWzI88IZGr8HjU6J6w2gtSfNGCHSV6FVVUk9ZexYZ1TmvbHrMrQVpXRJ5dScct4Cza0HnIJaoKljA9rAw3ECAQ6DNmagAEsFAKUGgByry49kFkmvoY2qC4kATSCQ2h/O3wY/2uvcbopUWntT1VegSfEwQc8TtD5DqwGtlsPW/6cM90DLz6GNfGt4g1qSJ7BZX/lWbkkwgjSJa52BVme936RyjW2n28hYHijKdRXakeNozAeC5p6bVyz5/1clun2SlhHuAe37NZoyO6uzDoFmWrcn17PjRUqS19DM1hKAHj0nywEta2pGje0aWfaryK5lf34JWldfh0YsRW1yHk94OGfKpbybA9pYOk+3N5ai91sOqNEYDjqgkXOvEzBLSp78NNBmJlMSGOdY30luVouFNbSoM3FIDAjB99uypgq6GRaDGsGynBGZERY9gyFWv3yyB+qmNdK0KnLynqwBeRpHQypP7VVj6ZO47wmNxLSSvWoWW8qPl7+WihHBvjBrUnbeCs1LG80Ra2g5/c/GOdWdFVEIYzl4ftXWhp6sL0KrU4HcBo1SZakjLHwCbbMLO4LI5aFWfcsMqsf7wmscOJ6yAS2yJJDQW8oEy6U7QqNV2JqX8ekE4o8X9KeEsxJrM9+Axv9/g7wGTUozgsSWMyGsnSkjIgitU7wIjVvQ3nIztMK8jZHjIcPb0HL113VwQMvWhcR9gpREbjR1x1Pqc42GiJUOS833e9tuzfnJGm1Qy9R2TGp3ENxwSeKWU+eoYSwE9kLTRWiTm+Jn0LQUMEsPBW38QpUkQdRoBEg9RnUcLOP0LC8Z9Rwk5Tu0ZeuqF7Yk8ZaUjLfUacHnDedD1EACxg3QDOvgmOnSxyQHNJ0PSNuSnUpb6dSyNvbWqmeZ9qlpUTWOmtPchLZx3DVoejRoWjLXzfW+XEMSAlKaE7ScoBVT6mF2eiUflK6q6vGgestpe1f1MW8E25cB7YeyDW1kExoHND8uNGjEYalBBi3J5ocxJsmrrkOTqM1e54PEAX07noc3Nh2XS4cFN0IbIeF6NGj+2C0zF0j8WGr48KldpTnfhVakpSRTByeD+nZyo42mJtQMH+d5xK7boY08ADQmyLkrsD1NzPpkXPRwaOsuXEAHx5n/ClpANQoSpI4OXNeg8RGhwWPYiUB//taLi9BqQOsngXZI0t6G1oTukanqfzho41ezndrOdWgsJf8eNKm8eep8qsQPhLFtaO/oJhkRXCrFdETwAjTAvwza/k7sCxozsaeAMlIX0mmjRs8rgjo0/x6aXol/HLoOuYLiHAd9NDRSAuH/2rtXI4tiIAaidizSfPKPcGvBpQ9ZrA+ZBLqGykg5YeXXpsdv7a4Rlv9nSSC0K527jgKhadw1TgCh6buSY0BodWtuSe0cENr9xlvbOSA0+V/XHceA0DROA6HptNNAaJoqh4HQ1E4CoamqZ9c5IDTVrMNAaBrHgdDuOg+E1s4DoWmcBkJTrdNAaGrngdDaT4DQ9jc/AULzM8Af2qL98u71t1EAAAAASUVORK5CYII=);background-position:100% 100%;background-repeat:no-repeat;color:var(--gcds-footer-main-text);container:component main/inline-size}:host .gcds-footer__main nav:first-of-type:after{border-block-end:var(--gcds-footer-main-nav-first-after-border-width) solid var(--gcds-footer-main-nav-first-after-border-color);content:\"\";display:block;width:var(--gcds-footer-main-nav-first-after-width)}:host .gcds-footer__main nav.main__govnav{padding:var(--gcds-footer-main-govnav-padding)}:host .gcds-footer__main nav.main__themenav{padding:var(--gcds-footer-main-themenav-padding)}:host .gcds-footer__main nav.main__themenav .themenav__list{display:grid;grid-auto-flow:column;grid-template-rows:repeat(18,1fr)}}@layer sub{:host .gcds-footer__sub{background-color:var(--gcds-footer-sub-background);container:component sub/inline-size}:host .gcds-footer__sub .sub__container{display:grid;grid-gap:var(--gcds-footer-sub-grid-gap);grid-template-areas:\"list wordmark\";grid-template-columns:3fr 1fr}:host .gcds-footer__sub .sub__container nav{align-items:center;display:flex;grid-area:list;padding:var(--gcds-footer-sub-nav-padding)}:host .gcds-footer__sub .sub__container .sub__wordmark,:host .gcds-footer__sub .sub__container slot[name=wordmark]{display:flex;grid-area:wordmark}:host .gcds-footer__sub .sub__container .sub__wordmark gcds-signature,:host .gcds-footer__sub .sub__container slot[name=wordmark] gcds-signature{align-self:end;width:var(--gcds-footer-sub-signature-md-width)}}@layer small{@layer compact{@container sub (width <= 19em){:host .gcds-footer__sub .sub__container .sub__wordmark gcds-signature,:host .gcds-footer__sub .sub__container slot[name=wordmark] gcds-signature{width:var(--gcds-footer-sub-signature-sm-width)}}}}@layer compact{@container sub (width >= 28.2em){:host .gcds-footer__sub .sub__container .sub__wordmark gcds-signature,:host .gcds-footer__sub .sub__container slot[name=wordmark] gcds-signature{margin:var(--gcds-footer-sub-signature-margin);min-width:var(--gcds-footer-sub-signature-lg-min-width);width:var(--gcds-footer-sub-signature-lg-width)!important}}}@layer medium{@container contextual (width >= 45em){:host .gcds-footer__contextual [class$=__list]{grid-template-columns:1fr 1fr}}@container main (width >= 45em){:host .gcds-footer__main [class$=__list]{grid-template-columns:1fr 1fr}:host .gcds-footer__main nav.main__themenav .themenav__list{grid-template-rows:repeat(9,1fr)}}}@layer wide{@container contextual (width >= 60.2em){:host .gcds-footer__contextual [class$=__list]{grid-template-columns:1fr 1fr 1fr}}@container main (width >= 60.2em){:host .gcds-footer__main [class$=__list]{grid-template-columns:1fr 1fr 1fr}:host .gcds-footer__main nav.main__themenav .themenav__list{grid-template-rows:repeat(6,1fr)}}@container sub (width >= 60.2em){:host .gcds-footer__sub .sub__container ul li{display:inline-block;margin-block-end:0}:host .gcds-footer__sub .sub__container ul li:first-of-type:before{content:\"\";margin:0}:host .gcds-footer__sub .sub__container ul li:before{content:\"\\2022\";display:inline;margin:var(--gcds-footer-sub-listitem-before-margin)}:host .gcds-footer__sub .sub__container .sub__wordmark,:host .gcds-footer__sub .sub__container slot[name=wordmark]{display:inline-block}:host .gcds-footer__sub .sub__container .sub__wordmark gcds-signature,:host .gcds-footer__sub .sub__container slot[name=wordmark] gcds-signature{margin:var(--gcds-footer-sub-signature-lg-margin)}}}";
+const gcdsFooterCss = "@layer reset, default, contextual, main, sub, compact, medium, wide;@layer reset{:host{display:block}:host ul{list-style-type:none;margin:0;padding:0}:host slot{display:initial}:host gcds-link::part(link):not(:hover){text-decoration:none}:host .gcds-footer__sub ul li{display:block}}@layer default{:host{font:var(--gcds-footer-font)}:host .gcds-footer__contextual,:host .gcds-footer__main,:host .gcds-footer__sub{padding:var(--gcds-footer-band-padding-desktop)}:host .gcds-footer__header,:host .sub__header,:host .themenav__header{clip:rect(1px,1px,1px,1px);height:1px;margin:0;overflow:hidden;position:absolute;width:1px}:host [class$=__container]{justify-content:space-between;margin:var(--gcds-footer-container-margin);max-width:var(--gcds-footer-container-width);width:90%}:host nav{position:relative}:host [class$=__list]{display:grid;grid-template-columns:1fr;list-style:none;padding:var(--gcds-footer-list-padding);grid-gap:var(--gcds-footer-grid-gap)}:host [class$=__list] li gcds-link::part(link){color:var(--gcds-footer-main-text)}:host h3{font:var( --gcds-footer-font-heading);margin:var(--gcds-footer-heading-margin)}:host gcds-link::part(link){font:var(--gcds-footer-font)}}@layer contextual{:host .gcds-footer__contextual{background-color:var(--gcds-footer-contextual-background);color:var(--gcds-footer-contextual-text);container:component contextual/inline-size;margin-block-end:-1px}}@layer main{:host .gcds-footer__main{background-color:var(--gcds-footer-main-background);background-image:url(data:image/png;base64,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);background-position:100% 100%;background-repeat:no-repeat;color:var(--gcds-footer-main-text);container:component main/inline-size}:host .gcds-footer__main nav:first-of-type:after{border-block-end:var(--gcds-footer-main-nav-first-after-border-width) solid var(--gcds-footer-main-nav-first-after-border-color);content:\"\";display:block;margin:var(--gcds-footer-grid-gap) 0;width:var(--gcds-footer-main-nav-first-after-width)}:host .gcds-footer__main nav.main__themenav .themenav__list{display:grid;grid-auto-flow:column;grid-template-rows:repeat(18,1fr)}}@layer sub{:host .gcds-footer__sub{background-color:var(--gcds-footer-sub-background);container:component sub/inline-size}:host .gcds-footer__sub .sub__container{display:grid;grid-gap:var(--gcds-footer-grid-gap);grid-template-areas:\"list wordmark\";grid-template-columns:3fr 1fr}:host .gcds-footer__sub .sub__container nav{align-items:center;display:flex;grid-area:list}:host .gcds-footer__sub .sub__container .sub__wordmark,:host .gcds-footer__sub .sub__container slot[name=wordmark]{display:flex;grid-area:wordmark}:host .gcds-footer__sub .sub__container .sub__wordmark gcds-signature,:host .gcds-footer__sub .sub__container slot[name=wordmark] gcds-signature{align-self:end;margin:var(--gcds-footer-sub-signature-margin);max-height:var(--gcds-footer-sub-signature-max-height);min-width:var(--gcds-footer-sub-signature-min-width);width:var(--gcds-footer-sub-signature-width)}}@layer compact{@media only screen and (width < 45em){:host .gcds-footer__contextual,:host .gcds-footer__main,:host .gcds-footer__sub{padding:var(--gcds-footer-band-padding-mobile)}}@container sub (width <= 30em){:host .gcds-footer__sub .sub__container .sub__wordmark gcds-signature,:host .gcds-footer__sub .sub__container slot[name=wordmark] gcds-signature{max-height:var(--gcds-footer-sub-signature-sm-max-height);width:var(--gcds-footer-sub-signature-sm-width)}}}@layer medium{@container contextual (width >= 45em){:host .gcds-footer__contextual [class$=__list]{grid-template-columns:1fr 1fr}}@container main (width >= 45em){:host .gcds-footer__main [class$=__list]{grid-template-columns:1fr 1fr}:host .gcds-footer__main nav.main__themenav .themenav__list{grid-template-rows:repeat(9,1fr)}}@container sub (width < 60.2em){:host .gcds-footer__sub .sub__container{display:block}:host .gcds-footer__sub .sub__container ul li{margin:0 0 var(--gcds-footer-grid-gap)}}}@layer wide{@container contextual (width >= 60.2em){:host .gcds-footer__contextual [class$=__list]{grid-template-columns:1fr 1fr 1fr}}@container main (width >= 60.2em){:host .gcds-footer__main [class$=__list]{grid-template-columns:1fr 1fr 1fr}:host .gcds-footer__main nav.main__themenav .themenav__list{grid-template-rows:repeat(6,1fr)}}@container sub (width >= 60.2em){:host .gcds-footer__sub .sub__container ul li{display:inline-block;margin-block-end:0}:host .gcds-footer__sub .sub__container ul li:first-of-type:before{content:\"\";margin:0}:host .gcds-footer__sub .sub__container ul li:before{content:\"\\2022\";display:inline;margin:var(--gcds-footer-sub-listitem-before-margin)}:host .gcds-footer__sub .sub__container .sub__wordmark,:host .gcds-footer__sub .sub__container slot[name=wordmark]{display:inline-block}}}";
 const GcdsFooterStyle0 = gcdsFooterCss;
 
 const GcdsFooter = class {
@@ -2564,17 +2576,17 @@ const GcdsFooter = class {
     }
     render() {
         const { lang, display, contextualHeading, contextualLinksObject, subLinks, subLinksObject, renderSignature, } = this;
-        const govNav = I18N$e[lang].gov.menu;
-        const themeNav = I18N$e[lang].themes.menu;
-        const siteNav = I18N$e[lang].site.menu;
+        const govNav = I18N$g[lang].gov.menu;
+        const themeNav = I18N$g[lang].themes.menu;
+        const siteNav = I18N$g[lang].site.menu;
         let contextualLinkCount = 0;
         let subLinkCount = 0;
-        return (h(Host, { key: 'd1db0f4906c46f81dfef9216c16ed60ecb181ca0', role: "contentinfo", "aria-label": "Footer" }, h("gcds-sr-only", { key: 'f1a49651dc54e05e5d35b8e9032acfdd301aea8f', tag: "h2" }, I18N$e[lang].about), contextualLinksObject && contextualHeading && (h("div", { key: '0653b6f5184d59e0c05097ec58a002c1196cc6a5', class: "gcds-footer__contextual" }, h("div", { key: '57eaa5f31ada47ae4caad4b18b277288c9f53bab', class: "contextual__container" }, h("nav", { key: 'ac6f6e81891dd1915f6e68d6b95c6d54b5d4f60b', "aria-labelledby": "contextual__heading" }, h("h3", { key: 'ae738dfd4f19c28c17b385084b3a0a42de474ad4', id: "contextual__heading", class: "contextual__heading" }, contextualHeading), h("ul", { key: 'd8cb78f64e69d82a18105eb4f5c9669947a3bb07', class: "contextual__list" }, Object.keys(contextualLinksObject).map(key => {
+        return (h(Host, { key: '80705536aaa53acb16c95fbadbedf2ba8c2b44aa', role: "contentinfo", "aria-label": "Footer" }, h("gcds-sr-only", { key: '40b4f1f47f89230a7570b8a2ede87eea289f9769', tag: "h2" }, I18N$g[lang].about), contextualLinksObject && contextualHeading && (h("div", { key: 'd068b2e3d3ea29ab9dd0f45e9065a920b6cea387', class: "gcds-footer__contextual" }, h("div", { key: '4a4b92b90a82bfd938555d009fbdc869145d23ce', class: "contextual__container" }, h("nav", { key: 'cad548536170a273339c72fcf2d99d007c5c9a93', "aria-labelledby": "contextual__heading" }, h("h3", { key: '072647a4600ae33264bd19ffa7ee82fc1affa3cb', id: "contextual__heading", class: "contextual__heading" }, contextualHeading), h("ul", { key: '60d5f1368912a10b3e00528ee2f9a04d1aa7aa00', class: "contextual__list" }, Object.keys(contextualLinksObject).map(key => {
             if (contextualLinkCount < 3) {
                 contextualLinkCount++;
                 return (h("li", null, h("gcds-link", { size: "small", href: contextualLinksObject[key] }, key)));
             }
-        })))))), display === 'full' ? (h("div", { class: "gcds-footer__main" }, h("div", { class: "main__container" }, h("nav", { class: "main__govnav", "aria-labelledby": "govnav__heading" }, h("h3", { id: "govnav__heading" }, I18N$e[lang].gov.heading), h("ul", { class: "govnav__list" }, Object.keys(govNav).map(value => (h("li", null, h("gcds-link", { size: "small", href: govNav[value].link }, govNav[value].text)))))), h("nav", { class: "main__themenav", "aria-labelledby": "themenav__heading" }, h("gcds-sr-only", { tag: "h4", id: "themenav__heading" }, I18N$e[lang].themes.heading), h("ul", { class: "themenav__list" }, Object.keys(themeNav).map(value => (h("li", null, h("gcds-link", { size: "small", href: themeNav[value].link }, themeNav[value].text))))))))) : null, h("div", { key: '21eef26e7495178731f8a463e148a137ffd724fc', class: "gcds-footer__sub" }, h("div", { key: 'd00863d474fdc71d492e0bac3f25e9edeea764ed', class: "sub__container" }, h("nav", { key: '8638c7c81ca3f4eaa957494e761222f6a232b3c4', "aria-labelledby": "sub__heading" }, h("gcds-sr-only", { key: 'eefe1e5294f3c0f99500381203da332c3209586b', tag: "h3", id: "sub__heading" }, I18N$e[lang].site.heading), h("ul", { key: 'd2c6324afb1553d345d9613f43432890d3f7e56c' }, subLinks
+        })))))), display === 'full' ? (h("div", { class: "gcds-footer__main" }, h("div", { class: "main__container" }, h("nav", { class: "main__govnav", "aria-labelledby": "govnav__heading" }, h("h3", { id: "govnav__heading" }, I18N$g[lang].gov.heading), h("ul", { class: "govnav__list" }, Object.keys(govNav).map(value => (h("li", null, h("gcds-link", { size: "small", href: govNav[value].link }, govNav[value].text)))))), h("nav", { class: "main__themenav", "aria-labelledby": "themenav__heading" }, h("gcds-sr-only", { tag: "h4", id: "themenav__heading" }, I18N$g[lang].themes.heading), h("ul", { class: "themenav__list" }, Object.keys(themeNav).map(value => (h("li", null, h("gcds-link", { size: "small", href: themeNav[value].link }, themeNav[value].text))))))))) : null, h("div", { key: 'f7e8acd7c6fe841e938510189fdf641ca9c22fe4', class: "gcds-footer__sub" }, h("div", { key: 'f9823441ebec110b002d0e08806e79ae745c3110', class: "sub__container" }, h("nav", { key: '12d8f65435c6435ac713fbd14d2659fcd013ba17', "aria-labelledby": "sub__heading" }, h("gcds-sr-only", { key: 'db80c42c3402e9d8cbfbc145e756bdcf0e7029c2', tag: "h3", id: "sub__heading" }, I18N$g[lang].site.heading), h("ul", { key: 'a78aef708a0aa3eb030e7e83961bbe32175c7302' }, subLinks
             ? Object.keys(subLinksObject).map(key => {
                 if (subLinkCount < 5) {
                     subLinkCount++;
@@ -2593,9 +2605,38 @@ const GcdsFooter = class {
 };
 GcdsFooter.style = GcdsFooterStyle0;
 
-const gcdsGridCss = "@layer reset, default, display, align, justify, place, equalHeight, tablet, desktop;@layer reset{:host{display:block}:host .gcds-grid{box-sizing:border-box;margin:0;padding:0}}@layer default{:host .gcds-grid{gap:var(--gcds-grid-gap);grid-template-columns:var(--gcds-grid-columns,1fr)}}@layer display{:host .gcds-grid.display-grid-with-cols{display:grid;grid-template-columns:1fr}:host .gcds-grid.display-grid{display:grid}:host .gcds-grid.display-inline-grid{display:inline-grid}}@layer align{:host .gcds-grid.align-content-center{align-content:center}:host .gcds-grid.align-content-end{align-content:end}:host .gcds-grid.align-content-space-around{align-content:space-around}:host .gcds-grid.align-content-space-between{align-content:space-between}:host .gcds-grid.align-content-space-evenly{align-content:space-evenly}:host .gcds-grid.align-content-start{align-content:start}:host .gcds-grid.align-content-stretch{align-content:stretch}:host .gcds-grid.align-items-baseline{align-items:baseline}:host .gcds-grid.align-items-center{align-items:center}:host .gcds-grid.align-items-end{align-items:end}:host .gcds-grid.align-items-start{align-items:start}:host .gcds-grid.align-items-stretch{align-items:stretch}}@layer justify{:host .gcds-grid.justify-content-center{justify-content:center}:host .gcds-grid.justify-content-end{justify-content:end}:host .gcds-grid.justify-content-space-around{justify-content:space-around}:host .gcds-grid.justify-content-space-between{justify-content:space-between}:host .gcds-grid.justify-content-space-evenly{justify-content:space-evenly}:host .gcds-grid.justify-content-start{justify-content:start}:host .gcds-grid.justify-content-stretch{justify-content:stretch}:host .gcds-grid.justify-items-center{justify-items:center}:host .gcds-grid.justify-items-end{justify-items:end}:host .gcds-grid.justify-items-start{justify-items:start}:host .gcds-grid.justify-items-stretch{justify-items:stretch}}@layer place{:host .gcds-grid.place-content-center{place-content:center}:host .gcds-grid.place-content-end{place-content:end}:host .gcds-grid.place-content-space-around{place-content:space-around}:host .gcds-grid.place-content-space-between{place-content:space-between}:host .gcds-grid.place-content-space-evenly{place-content:space-evenly}:host .gcds-grid.place-content-start{place-content:start}:host .gcds-grid.place-content-stretch{place-content:stretch}:host .gcds-grid.place-items-center{place-items:center}:host .gcds-grid.place-items-end{place-items:end}:host .gcds-grid.place-items-start{place-items:start}:host .gcds-grid.place-items-stretch{place-items:stretch}}@layer equalHeight{:host .gcds-grid.equal-row-height{align-items:stretch;grid-auto-rows:1fr}}@layer tablet{@media screen and (width >= 48em){:host .gcds-grid{grid-template-columns:var(\n        --gcds-grid-columns-tablet,var(--gcds-grid-columns,1fr)\n      )}:host .gcds-grid.display-grid-with-cols{grid-template-columns:repeat(var(--gcds-grid-columns-default-tablet),minmax(0,1fr))}}}@layer desktop{@media screen and (width >= 64em){:host .gcds-grid{grid-template-columns:var(\n        --gcds-grid-columns-desktop,var(--gcds-grid-columns-tablet,var(--gcds-grid-columns,1fr))\n      )}:host .gcds-grid.display-grid-with-cols{grid-template-columns:repeat(var(--gcds-grid-columns-default-desktop),minmax(0,1fr))}}}";
+const I18N$f = {
+  en: {
+    gapDesktopError: 'gcds-grid: Invalid spacing value for gap-desktop.',
+    gapTabletError: 'gcds-grid: Invalid spacing value for gap-tablet.',
+  },
+  fr: {
+    gapDesktopError: "gcds-grid: Valeur d'espacement invalide pour gap-desktop.",
+    gapTabletError: "gcds-grid: Valeur d'espacement invalide pour gap-tablet.",
+  },
+};
+
+const gcdsGridCss = "@layer reset, default, display, align, justify, place, equalHeight, tablet, desktop;@layer reset{:host{display:block}:host .gcds-grid{box-sizing:border-box;margin:0;padding:0}}@layer default{:host .gcds-grid{gap:var(--gcds-grid-gap);grid-template-columns:var(--gcds-grid-columns,1fr)}}@layer display{:host .gcds-grid.display-grid-with-cols{display:grid;grid-template-columns:1fr}:host .gcds-grid.display-grid{display:grid}:host .gcds-grid.display-inline-grid{display:inline-grid}}@layer align{:host .gcds-grid.align-content-center{align-content:center}:host .gcds-grid.align-content-end{align-content:end}:host .gcds-grid.align-content-space-around{align-content:space-around}:host .gcds-grid.align-content-space-between{align-content:space-between}:host .gcds-grid.align-content-space-evenly{align-content:space-evenly}:host .gcds-grid.align-content-start{align-content:start}:host .gcds-grid.align-content-stretch{align-content:stretch}:host .gcds-grid.align-items-baseline{align-items:baseline}:host .gcds-grid.align-items-center{align-items:center}:host .gcds-grid.align-items-end{align-items:end}:host .gcds-grid.align-items-start{align-items:start}:host .gcds-grid.align-items-stretch{align-items:stretch}}@layer justify{:host .gcds-grid.justify-content-center{justify-content:center}:host .gcds-grid.justify-content-end{justify-content:end}:host .gcds-grid.justify-content-space-around{justify-content:space-around}:host .gcds-grid.justify-content-space-between{justify-content:space-between}:host .gcds-grid.justify-content-space-evenly{justify-content:space-evenly}:host .gcds-grid.justify-content-start{justify-content:start}:host .gcds-grid.justify-content-stretch{justify-content:stretch}:host .gcds-grid.justify-items-center{justify-items:center}:host .gcds-grid.justify-items-end{justify-items:end}:host .gcds-grid.justify-items-start{justify-items:start}:host .gcds-grid.justify-items-stretch{justify-items:stretch}}@layer place{:host .gcds-grid.place-content-center{place-content:center}:host .gcds-grid.place-content-end{place-content:end}:host .gcds-grid.place-content-space-around{place-content:space-around}:host .gcds-grid.place-content-space-between{place-content:space-between}:host .gcds-grid.place-content-space-evenly{place-content:space-evenly}:host .gcds-grid.place-content-start{place-content:start}:host .gcds-grid.place-content-stretch{place-content:stretch}:host .gcds-grid.place-items-center{place-items:center}:host .gcds-grid.place-items-end{place-items:end}:host .gcds-grid.place-items-start{place-items:start}:host .gcds-grid.place-items-stretch{place-items:stretch}}@layer equalHeight{:host .gcds-grid.equal-row-height{align-items:stretch;grid-auto-rows:1fr}}@layer tablet{@media screen and (width >= 48em){:host .gcds-grid{gap:var(--gcds-grid-gap-tablet,var(--gcds-grid-gap));grid-template-columns:var(\n        --gcds-grid-columns-tablet,var(--gcds-grid-columns,1fr)\n      )}:host .gcds-grid.display-grid-with-cols{grid-template-columns:repeat(var(--gcds-grid-columns-default-tablet),minmax(0,1fr))}}}@layer desktop{@media screen and (width >= 64em){:host .gcds-grid{gap:var(--gcds-grid-gap-desktop,var(--gcds-grid-gap-tablet,var(--gcds-grid-gap)));grid-template-columns:var(\n        --gcds-grid-columns-desktop,var(--gcds-grid-columns-tablet,var(--gcds-grid-columns,1fr))\n      )}:host .gcds-grid.display-grid-with-cols{grid-template-columns:repeat(var(--gcds-grid-columns-default-desktop),minmax(0,1fr))}}}";
 const GcdsGridStyle0 = gcdsGridCss;
 
+const GridGapArray = [
+    '150',
+    '175',
+    '200',
+    '225',
+    '250',
+    '300',
+    '350',
+    '400',
+    '450',
+    '500',
+    '550',
+    '600',
+    '650',
+    '700',
+    '750',
+    '800',
+];
 const GcdsGrid = class {
     constructor(hostRef) {
         registerInstance(this, hostRef);
@@ -2606,6 +2647,9 @@ const GcdsGrid = class {
         this.centered = false;
         this.display = 'grid';
         this.equalRowHeight = false;
+        this.gap = '300';
+        this.gapTablet = undefined;
+        this.gapDesktop = undefined;
         this.tag = 'div';
         this.alignContent = undefined;
         this.justifyContent = undefined;
@@ -2613,6 +2657,26 @@ const GcdsGrid = class {
         this.alignItems = undefined;
         this.justifyItems = undefined;
         this.placeItems = undefined;
+    }
+    validateGap(newValue) {
+        const values = GridGapArray;
+        if (!values.includes(newValue)) {
+            this.gap = '300';
+        }
+    }
+    validateGapTablet(newValue) {
+        const values = GridGapArray;
+        if (newValue != undefined && !values.includes(newValue)) {
+            this.gapTablet = undefined;
+            console.error(`${I18N$f['en'].gapTabletError} | ${I18N$f['fr'].gapTabletError}`);
+        }
+    }
+    validateGapDesktop(newValue) {
+        const values = GridGapArray;
+        if (newValue != undefined && !values.includes(newValue)) {
+            this.gapDesktop = undefined;
+            console.error(`${I18N$f['en'].gapDesktopError} | ${I18N$f['fr'].gapDesktopError}`);
+        }
     }
     validateTag(newValue) {
         const values = [
@@ -2633,9 +2697,12 @@ const GcdsGrid = class {
     componentWillLoad() {
         // Validate attributes and set defaults
         this.validateTag(this.tag);
+        this.validateGap(this.gap);
+        this.validateGapTablet(this.gapTablet);
+        this.validateGapDesktop(this.gapDesktop);
     }
     render() {
-        const { alignContent, alignItems, columns, columnsDesktop, columnsTablet, container, centered, display, equalRowHeight, justifyContent, justifyItems, placeContent, placeItems, tag, } = this;
+        const { alignContent, alignItems, columns, columnsDesktop, columnsTablet, container, centered, display, equalRowHeight, gap, gapTablet, gapDesktop, justifyContent, justifyItems, placeContent, placeItems, tag, } = this;
         const Tag = tag;
         const classNames = `
       gcds-grid
@@ -2650,24 +2717,33 @@ const GcdsGrid = class {
       ${placeContent ? `place-content-${placeContent}` : ''}
       ${placeItems ? `place-items-${placeItems}` : ''}
     `;
-        // Set CSS variables in style attribute based on passed column properties
-        function handleColumns() {
-            const responsiveColumns = {};
-            if (columns) {
-                responsiveColumns['--gcds-grid-columns'] = columns;
-            }
-            if (columnsTablet) {
-                responsiveColumns['--gcds-grid-columns-tablet'] = columnsTablet;
-            }
-            if (columnsDesktop) {
-                responsiveColumns['--gcds-grid-columns-desktop'] = columnsDesktop;
-            }
-            return responsiveColumns;
+        // Set CSS variables in style attribute based on passed column + gap properties
+        function handleGridStyles() {
+            const gridStyles = {};
+            const setGridProperty = (value, property, suffix = '') => {
+                const gapValue = `var(--gcds-grid-gap-${value})`;
+                const tokenValue = property === 'gap' ? gapValue : value;
+                if (value) {
+                    gridStyles[`--gcds-grid-${property}${suffix}`] = tokenValue;
+                }
+            };
+            // Handle columns
+            setGridProperty(columns, 'columns');
+            setGridProperty(columnsTablet, 'columns', '-tablet');
+            setGridProperty(columnsDesktop, 'columns', '-desktop');
+            // Handle gap
+            setGridProperty(gap, 'gap');
+            setGridProperty(gapTablet, 'gap', '-tablet');
+            setGridProperty(gapDesktop, 'gap', '-desktop');
+            return gridStyles;
         }
-        return (h(Host, null, container ? (h("gcds-container", { size: container, centered: centered }, h(Tag, { class: classNames, style: handleColumns() }, h("slot", null)))) : (h(Tag, { class: classNames, style: handleColumns() }, h("slot", null)))));
+        return (h(Host, null, container ? (h("gcds-container", { size: container, centered: centered }, h(Tag, { class: classNames, style: handleGridStyles() }, h("slot", null)))) : (h(Tag, { class: classNames, style: handleGridStyles() }, h("slot", null)))));
     }
     get el() { return getElement(this); }
     static get watchers() { return {
+        "gap": ["validateGap"],
+        "gapTablet": ["validateGapTablet"],
+        "gapDesktop": ["validateGapDesktop"],
         "tag": ["validateTag"]
     }; }
 };
@@ -2726,7 +2802,7 @@ const GcdsGridCol = class {
 };
 GcdsGridCol.style = GcdsGridColStyle0;
 
-const I18N$d = {
+const I18N$e = {
   en: {
     skip: 'Skip to main content',
     skipLabel: 'Skip to',
@@ -2770,7 +2846,7 @@ const GcdsHeader = class {
             return h("slot", { name: "skip-to-nav" });
         }
         else if (this.skipToHref) {
-            return (h("nav", { class: "gcds-header__skip-to-nav", "aria-label": I18N$d[this.lang].skipLabel }, h("gcds-link", { href: this.skipToHref }, I18N$d[this.lang].skip)));
+            return (h("nav", { class: "gcds-header__skip-to-nav", "aria-label": I18N$e[this.lang].skipLabel }, h("gcds-link", { href: this.skipToHref }, I18N$e[this.lang].skip)));
         }
         else {
             return;
@@ -2817,7 +2893,7 @@ const GcdsHeader = class {
     }
     render() {
         const { renderSkipToNav, renderToggle, renderSignature, renderSearch, hasSearch, hasBanner, hasBreadcrumb, } = this;
-        return (h(Host, { key: 'f52ff86ea5f438fa5b8b91a2aa2dbbda002e5302', role: "banner" }, renderSkipToNav, hasBanner ? h("slot", { name: "banner" }) : null, h("div", { key: '7e518fb76a2727b298079f283d15acf91e83d4d1', class: "gcds-header__brand" }, h("div", { key: 'f667c6c6cf241700dcc03086fbca4fa2d3f3ea4b', class: `brand__container ${!hasSearch ? 'container--simple' : ''}` }, renderToggle, renderSignature, renderSearch)), h("slot", { key: 'a31b379ff70560651143c9d5f9299128b13eeff4', name: "menu" }), hasBreadcrumb ? (h("div", { class: "gcds-header__container" }, h("slot", { name: "breadcrumb" }))) : null));
+        return (h(Host, { key: '6efd0f4e2348ee9cf535345da9b29fa09e02bced', role: "banner" }, renderSkipToNav, hasBanner ? h("slot", { name: "banner" }) : null, h("div", { key: '3e3a968e58e1e43c1495947549b0699b205075c5', class: "gcds-header__brand" }, h("div", { key: 'fcede179bafd3b6d2a2825e38db8f6c067e4f413', class: `brand__container ${!hasSearch ? 'container--simple' : ''}` }, renderToggle, renderSignature, renderSearch)), h("slot", { key: 'd282b219be7cd92f9acd02b53fa68a89a87ea1b4', name: "menu" }), hasBreadcrumb ? (h("div", { class: "gcds-header__container" }, h("slot", { name: "breadcrumb" }))) : null));
     }
     get el() { return getElement(this); }
 };
@@ -2871,12 +2947,12 @@ const GcdsHeading = class {
     render() {
         const { characterLimit, marginTop, marginBottom, tag } = this;
         const Tag = tag;
-        return (h(Host, { key: 'decf305fa7a128be6b541d3ad3a831a1a52797a6' }, h(Tag, { key: '8b3b768c40221bcd42efe0da080b0aeeb77fec9e', class: `
+        return (h(Host, { key: 'b2f8e7fc2e0137c303657c7b6ead41f1911ed975' }, h(Tag, { key: '136f5f9083247a238aeeb58c72e3fb5e862956c3', class: `
             gcds-heading
             ${characterLimit ? 'limit' : ''}
             ${marginTop ? `mt-${marginTop}` : ''}
             ${marginBottom ? `mb-${marginBottom}` : ''}
-          ` }, h("slot", { key: '447128aaa454ae0f840331cc2eea4098627f9d30' }))));
+          ` }, h("slot", { key: '881ac6dfd723d6352b8eb95937b1e340f38d26e1' }))));
     }
     get el() { return getElement(this); }
     static get watchers() { return {
@@ -2897,7 +2973,7 @@ const GcdsHint = class {
     }
     render() {
         const { hintId } = this;
-        return (h(Host, { key: '70f6130f318cfea9a1743eb60472aa832fb213ee', id: `hint-${hintId}` }, h("gcds-text", { key: '4d159a2f81cac7b9e442b4268143400b334858ef', class: "gcds-hint", "margin-bottom": "0", part: "hint" }, h("slot", { key: 'cf8b840c22e2238b051c5804bb46fbd8272e764d' }))));
+        return (h(Host, { key: '8e9af18f71f043062a78de179236357539afe979', id: `hint-${hintId}` }, h("gcds-text", { key: 'bac3fc4edbbb00b2191989bc155636aa0ab6c68c', class: "gcds-hint", "margin-bottom": "0", part: "hint" }, h("slot", { key: '1fdb52992e56952156704305469a85e30b2bb398' }))));
     }
     get el() { return getElement(this); }
 };
@@ -2919,7 +2995,7 @@ const GcdsIcon = class {
     }
     render() {
         const { iconStyle, label, marginLeft, marginRight, name, fixedWidth, size, } = this;
-        return (h(Host, { key: '33a2027afb36b43c62addcd9bf3762a2e214ed25' }, h("span", { key: '8c4bf985eff79cbe01526fb158ca0155c854c9a5', class: `
+        return (h(Host, { key: '2ba6e3bf5ef68108bb38fefe0b11dd1b22d8345c' }, h("span", { key: 'c16c9011acc22297bad00b8342da08c22273f307', class: `
             gcds-icon fa fa-${iconStyle} fa-${name}
             ${marginLeft ? `ml-${marginLeft}` : ''}
             ${marginRight ? `mr-${marginRight}` : ''}
@@ -3130,7 +3206,7 @@ const GcdsInput = class {
                 ? ` ${attrsInput['aria-describedby']}`
                 : ''}`;
         }
-        return (h(Host, { key: 'd9c49e1340c06410d98de32db1daadca9eea965c' }, h("div", { key: '9875d1410f94a25c8f3954b2f6edec56936d4cb2', class: `gcds-input-wrapper ${disabled ? 'gcds-disabled' : ''} ${hasError ? 'gcds-error' : ''}` }, h("gcds-label", Object.assign({ key: 'a4b06df9bc51070a59ae84b3417d6432342b61eb' }, attrsLabel, { "hide-label": hideLabel, "label-for": inputId, lang: lang })), hint ? h("gcds-hint", { "hint-id": inputId }, hint) : null, errorMessage ? (h("gcds-error-message", { messageId: inputId }, errorMessage)) : null, h("input", Object.assign({ key: 'a6a727f9d25f50365ba5658fff59695bdd597e78' }, attrsInput, { class: hasError ? 'gcds-error' : null, id: inputId, name: name, onBlur: () => this.onBlur(), onFocus: () => this.gcdsFocus.emit(), onInput: e => this.handleInput(e, this.gcdsInput), onChange: e => this.handleInput(e, this.gcdsChange), "aria-labelledby": `label-for-${inputId}`, "aria-invalid": inheritedAttributes['aria-invalid'] === 'true'
+        return (h(Host, { key: '936d0032ed3ab7ec2d9553d3b185c048e4fa9336' }, h("div", { key: 'e979cb26ba6873bce3a353212a587cea8f33c62d', class: `gcds-input-wrapper ${disabled ? 'gcds-disabled' : ''} ${hasError ? 'gcds-error' : ''}` }, h("gcds-label", Object.assign({ key: '02f0d017dad57cb1b2b0f98e2cb1a6bee28254bf' }, attrsLabel, { "hide-label": hideLabel, "label-for": inputId, lang: lang })), hint ? h("gcds-hint", { "hint-id": inputId }, hint) : null, errorMessage ? (h("gcds-error-message", { messageId: inputId }, errorMessage)) : null, h("input", Object.assign({ key: 'd8b48105699a51a349748be5af8fd0e57a781599' }, attrsInput, { class: hasError ? 'gcds-error' : null, id: inputId, name: name, onBlur: () => this.onBlur(), onFocus: () => this.gcdsFocus.emit(), onInput: e => this.handleInput(e, this.gcdsInput), onChange: e => this.handleInput(e, this.gcdsChange), "aria-labelledby": `label-for-${inputId}`, "aria-invalid": inheritedAttributes['aria-invalid'] === 'true'
                 ? inheritedAttributes['aria-invalid']
                 : errorMessage
                     ? 'true'
@@ -3150,7 +3226,7 @@ const GcdsInput = class {
 };
 GcdsInput.style = GcdsInputStyle0;
 
-const I18N$c = {
+const I18N$d = {
   en: {
     required: 'required',
   },
@@ -3202,13 +3278,13 @@ const GcdsLabel = class {
     }
     render() {
         const { hideLabel, labelFor, label, required, lang } = this;
-        return (h(Host, { key: '2571828246ca42f80c10f9008ccbf9767b65e101', id: `label-for-${labelFor}`, onClick: this.onClick }, h("label", { key: '66523fc42c2cdda0204dc8747ec9adf935b69466', htmlFor: labelFor, class: `gcds-label ${hideLabel ? 'label--hidden' : ''}`, ref: focusEl => (this.focusEl = focusEl) }, h("span", { key: '6dd8fbc5012750873da600a1b2e2f20b193c7dc3' }, label), required ? (h("span", { "aria-hidden": "true", class: "label--required" }, "(", I18N$c[lang].required, ")")) : null)));
+        return (h(Host, { key: '2f4fe7a9d0a0fcea5019edc8158adae424074428', id: `label-for-${labelFor}`, onClick: this.onClick }, h("label", { key: '721461d1eb5818ff6b28f06bb314e27a5c0eb0c5', htmlFor: labelFor, class: `gcds-label ${hideLabel ? 'label--hidden' : ''}`, ref: focusEl => (this.focusEl = focusEl) }, h("span", { key: '0564e25540c9a5ec81fbbba77c72e2892d5ccc51' }, label), required ? (h("span", { "aria-hidden": "true", class: "label--required" }, "(", I18N$d[lang].required, ")")) : null)));
     }
     get el() { return getElement(this); }
 };
 GcdsLabel.style = GcdsLabelStyle0;
 
-const I18N$b = {
+const I18N$c = {
   en: {
     abbreviation: 'fr',
     heading: 'Language selection',
@@ -3221,7 +3297,7 @@ const I18N$b = {
   },
 };
 
-const gcdsLangToggleCss = "@layer reset, default, desktop;@layer reset{:host{display:block}:host .gcds-lang-toggle h2{margin:0;overflow:hidden;position:absolute;width:0}}@layer default{:host .gcds-lang-toggle gcds-link::part(link){padding:var(--gcds-lang-toggle-padding)}:host .gcds-lang-toggle span{display:none}:host .gcds-lang-toggle abbr{text-decoration:none;text-transform:uppercase}}@layer desktop{@media screen and (width >= 64em){:host .gcds-lang-toggle gcds-link::part(link){padding:0}:host .gcds-lang-toggle span{display:initial}:host .gcds-lang-toggle abbr{display:none}}}";
+const gcdsLangToggleCss = "@layer reset, default, desktop, mobile;@layer reset{:host{display:block}:host .gcds-lang-toggle h2{margin:0;overflow:hidden;position:absolute;width:0}}@layer default{:host .gcds-lang-toggle gcds-link::part(link){padding:var(--gcds-lang-toggle-padding)}:host .gcds-lang-toggle span{display:none}:host .gcds-lang-toggle abbr{text-decoration:none;text-transform:uppercase}}@layer desktop{@media screen and (width >= 48em){:host .gcds-lang-toggle gcds-link::part(link){font:var(--gcds-lang-toggle-font-desktop);padding:0}:host .gcds-lang-toggle span{display:initial}:host .gcds-lang-toggle abbr{display:none}}}@layer mobile{@media screen and (width < 48em){:host .gcds-lang-toggle gcds-link::part(link){font:var(--gcds-lang-toggle-font-mobile)}}}";
 const GcdsLangToggleStyle0 = gcdsLangToggleCss;
 
 const GcdsLangToggle = class {
@@ -3248,13 +3324,13 @@ const GcdsLangToggle = class {
     }
     render() {
         const { lang, href } = this;
-        return (h(Host, { key: 'eb21f31e07263f63e9e6bd81e03b7d69e7fc5c22' }, h("div", { key: 'f259bdd2095c8fbec75ac4958192de54f1446efd', class: "gcds-lang-toggle" }, h("gcds-sr-only", { key: '5f1c04d337fd5b8b190be3e9c5731f640b80f89c', id: "lang-toggle__heading", tag: "h2" }, I18N$b[lang].heading), h("gcds-link", { key: 'c0343104552957383ad0e0c06929cb7987f568b1', size: "regular", href: href, lang: I18N$b[lang].abbreviation }, h("span", { key: 'dbf125e2a0b95bcab90bc38ba8a508b18cdbe1a0' }, I18N$b[lang].language), h("abbr", { key: '4959f73d060789b0666d0cae393833437c54de5c', title: I18N$b[lang].language }, I18N$b[lang].abbreviation)))));
+        return (h(Host, { key: '05fc4f7ec61276b9e15ccb9fe75f257049bf3577' }, h("div", { key: 'dc156971e988f7c4024ad760777e27f65c30b533', class: "gcds-lang-toggle" }, h("gcds-sr-only", { key: 'dae3c2e582bbe214f9ec8422bacc3f6bb5f61dfe', id: "lang-toggle__heading", tag: "h2" }, I18N$c[lang].heading), h("gcds-link", { key: '6bf0e599cace009ab90efce6a355389b3374e8a7', size: "regular", href: href, lang: I18N$c[lang].abbreviation }, h("span", { key: 'cba5121aac09ac07fabc7c409653d83126f1da9d' }, I18N$c[lang].language), h("abbr", { key: 'bf8fc9ac514ed5c243c52d63be1cef06cb024b9e', title: I18N$c[lang].language }, I18N$c[lang].abbreviation)))));
     }
     get el() { return getElement(this); }
 };
 GcdsLangToggle.style = GcdsLangToggleStyle0;
 
-const I18N$a = {
+const I18N$b = {
   en: {
     external: ' (Opens destination in a new tab.)',
     phone: ' (Attempts to open a phone app.)',
@@ -3269,7 +3345,7 @@ const I18N$a = {
   },
 };
 
-const gcdsLinkCss = "@layer reset, default, display, size, variant, hover, visited, focus;@layer reset{:host{display:inline-block}:host slot{display:initial}}@layer default{:host .gcds-link{color:var(--gcds-link-default);cursor:pointer;text-decoration-color:currentColor;text-decoration-style:solid;text-decoration-thickness:var(--gcds-link-decoration-thickness);text-underline-offset:var(--gcds-link-underline-offset);transition:all .35s}}@layer display{:host .gcds-link.d-block{display:block}}@layer size{:host .gcds-link.link--small{font:var(--gcds-link-font-small-desktop)}@media only screen and (width < 48em){:host .gcds-link.link--small{font:var(--gcds-link-font-small-mobile)}}:host .gcds-link.link--regular{font:var(--gcds-link-font-regular-desktop)}@media only screen and (width < 48em){:host .gcds-link.link--regular{font:var(--gcds-link-font-regular-mobile)}}:host .gcds-link.link--inherit{font:inherit}}@layer variant{:host .gcds-link.variant-light{color:var(--gcds-link-light)}}@layer hover{@media (hover:hover){:host .gcds-link:hover{text-decoration-thickness:var(--gcds-link-hover-decoration-thickness)}:host .gcds-link:hover:not(.variant-light){color:var(--gcds-link-hover)}}}@layer visited{:host .gcds-link:not(.variant-light):visited{color:var(--gcds-link-visited)}}@layer focus{:host .gcds-link:focus{background-color:var(--gcds-link-focus-background);border-radius:var(--gcds-link-focus-border-radius);box-shadow:var(--gcds-link-focus-box-shadow);color:var(--gcds-link-focus-text);outline:var(--gcds-link-focus-outline-width) solid var(--gcds-link-focus-background);outline-offset:var(--gcds-link-focus-outline-offset);text-decoration:none}}";
+const gcdsLinkCss = "@layer reset, default, display, size, variant, hover, visited, focus;@layer reset{:host{display:inline}:host slot{display:initial}}@layer default{:host .gcds-link{color:var(--gcds-link-default);cursor:pointer;text-decoration-color:currentColor;text-decoration-style:solid;text-decoration-thickness:var(--gcds-link-decoration-thickness);text-underline-offset:var(--gcds-link-underline-offset);transition:all .35s}}@layer display{:host .gcds-link.d-block{display:block}}@layer size{:host .gcds-link.link--small{font:var(--gcds-link-font-small-desktop)}@media only screen and (width < 48em){:host .gcds-link.link--small{font:var(--gcds-link-font-small-mobile)}}:host .gcds-link.link--regular{font:var(--gcds-link-font-regular-desktop)}@media only screen and (width < 48em){:host .gcds-link.link--regular{font:var(--gcds-link-font-regular-mobile)}}:host .gcds-link.link--inherit{font:inherit}}@layer variant{:host .gcds-link.variant-light{color:var(--gcds-link-light)}}@layer hover{@media (hover:hover){:host .gcds-link:hover{text-decoration-thickness:var(--gcds-link-hover-decoration-thickness)}:host .gcds-link:hover:not(.variant-light){color:var(--gcds-link-hover)}}}@layer visited{:host .gcds-link:not(.variant-light):visited{color:var(--gcds-link-visited)}}@layer focus{:host .gcds-link:focus{background-color:var(--gcds-link-focus-background);border-radius:var(--gcds-link-focus-border-radius);box-shadow:var(--gcds-link-focus-box-shadow);color:var(--gcds-link-focus-text);outline:var(--gcds-link-focus-outline-width) solid var(--gcds-link-focus-background);outline-offset:var(--gcds-link-focus-outline-offset);text-decoration:none}}";
 const GcdsLinkStyle0 = gcdsLinkCss;
 
 const GcdsLink = class {
@@ -3341,8 +3417,8 @@ const GcdsLink = class {
             type,
         };
         const isExternal = target === '_blank' || external;
-        return (h(Host, { key: '2f5fa0130a3e0b19656292d58e0d703ba79c7f6e' }, h("a", Object.assign({ key: 'a6a4b271ec1a520db5f00f213a6a97246eb8eaa9', role: "link", tabIndex: 0 }, attrs, { class: `gcds-link link--${size} ${display != 'inline' ? `d-${display}` : ''} ${variant != 'default' ? `variant-${variant}` : ''}`, ref: element => (this.shadowElement = element), target: isExternal ? '_blank' : target, rel: isExternal ? 'noopener noreferrer' : rel }, inheritedAttributes, { part: "link", onBlur: () => this.gcdsBlur.emit(), onFocus: () => this.gcdsFocus.emit(), onClick: e => emitEvent(e, this.gcdsClick, href) }), h("slot", { key: 'e5437f0d528b07e057630de5adb362bdae075567' }), target === '_blank' || external ? (h("gcds-icon", { name: "external-link", label: I18N$a[lang].external, "margin-left": "75" })) : download !== undefined ? (h("gcds-icon", { name: "download", label: I18N$a[lang].download, "margin-left": "75" })) : href && href.toLowerCase().startsWith('mailto:') ? (h("gcds-icon", { "icon-style": "regular", name: "envelope", label: I18N$a[lang].email, "margin-left": "75" })) : (href &&
-            href.toLowerCase().startsWith('tel:') && (h("gcds-icon", { name: "phone", label: I18N$a[lang].phone, "margin-left": "75" }))))));
+        return (h(Host, { key: '361b0eae9c009484a60cae6ab0c7dfc91f9bddec' }, h("a", Object.assign({ key: 'a1fb3f918373cc7e9374a0ee378005a1356274d2', role: "link", tabIndex: 0 }, attrs, { class: `gcds-link link--${size} ${display != 'inline' ? `d-${display}` : ''} ${variant != 'default' ? `variant-${variant}` : ''}`, ref: element => (this.shadowElement = element), target: isExternal ? '_blank' : target, rel: isExternal ? 'noopener noreferrer' : rel }, inheritedAttributes, { part: "link", onBlur: () => this.gcdsBlur.emit(), onFocus: () => this.gcdsFocus.emit(), onClick: e => emitEvent(e, this.gcdsClick, href) }), h("slot", { key: '883dc938a4fe2c5ad27dc5bdc4276717c5b7c15f' }), target === '_blank' || external ? (h("gcds-icon", { name: "external-link", label: I18N$b[lang].external, "margin-left": "75" })) : download !== undefined ? (h("gcds-icon", { name: "download", label: I18N$b[lang].download, "margin-left": "75" })) : href && href.toLowerCase().startsWith('mailto:') ? (h("gcds-icon", { "icon-style": "regular", name: "envelope", label: I18N$b[lang].email, "margin-left": "75" })) : (href &&
+            href.toLowerCase().startsWith('tel:') && (h("gcds-icon", { name: "phone", label: I18N$b[lang].phone, "margin-left": "75" }))))));
     }
     get el() { return getElement(this); }
     static get watchers() { return {
@@ -3353,7 +3429,7 @@ const GcdsLink = class {
 };
 GcdsLink.style = GcdsLinkStyle0;
 
-const gcdsNavGroupCss = "@layer reset, defaults, sideNav, topNav, mobileNav, desktop, mobile, hover, focus;@layer reset{:host *{box-sizing:border-box;margin:0;padding:0}}@layer defaults{:host{align-self:flex-end;display:flex;flex-direction:column;position:relative}:host .gcds-nav-group__trigger{align-items:center;background:transparent;border:0;color:var(--gcds-nav-group-trigger-text);cursor:pointer;display:flex;font:var(--gcds-nav-group-trigger-font);padding:var(--gcds-nav-group-trigger-padding);text-align:left;width:100%}:host .gcds-nav-group__trigger[aria-expanded=false]+.gcds-nav-group__list{display:none}:host .gcds-nav-group__trigger-desc{display:none}:host ul{list-style:none}}@layer sideNav{:host .gcds-trigger--expandable{font-weight:var(--gcds-nav-group-side-nav-trigger-font-weight);margin-block-end:var(--gcds-nav-group-side-nav-trigger-margin)}:host .gcds-trigger--expandable gcds-icon{margin-inline-end:var(--gcds-nav-group-side-nav-trigger-icon-margin)}}@layer topNav{:host .gcds-trigger--dropdown{border-block-end:var(--gcds-nav-group-top-nav-trigger-border-width) solid transparent;margin-inline-start:var(\n      --gcds-nav-group-top-nav-trigger-margin-inline-start\n    );padding:var(--gcds-nav-group-top-nav-trigger-padding);text-decoration:underline solid currentColor var(--gcds-nav-group-top-nav-trigger-decoration-thickness);text-decoration-color:transparent;text-underline-offset:var(\n      --gcds-nav-group-top-nav-trigger-underline-offset\n    );transition:all .25s ease-in-out}:host .gcds-trigger--dropdown[aria-expanded=true]{background-color:var(\n        --gcds-nav-group-top-nav-trigger-expanded-background-color\n      )}:host .gcds-trigger--dropdown gcds-icon{margin-inline-start:var(--gcds-nav-group-top-nav-trigger-icon-margin);order:2}}@layer mobileNav{:host(.gcds-mobile-nav){width:100%}:host(.gcds-mobile-nav) .gcds-trigger--expandable{border:var(--gcds-nav-group-mobile-trigger-border-width) solid;border-radius:var(--gcds-nav-group-mobile-trigger-border-radius);color:var(--gcds-nav-group-mobile-trigger-text);flex-direction:row-reverse;justify-content:center;margin-block-start:var(--gcds-nav-group-mobile-trigger-margin);text-align:center}:host(.gcds-mobile-nav) .gcds-trigger--expandable gcds-icon{display:none}:host([open].gcds-mobile-nav){background-color:var(--gcds-nav-group-mobile-background);height:100vh;left:0;overflow-y:scroll;padding:var(--gcds-nav-group-mobile-padding);position:fixed;top:0;width:100%;z-index:100}}@layer desktop{@media only screen and (width >= 64em){:host .gcds-nav-group__trigger{max-width:var(--gcds-nav-group-trigger-max-width)}:host .gcds-nav--expandable{padding-inline-start:var(--gcds-nav-group-side-nav-dropdown-padding)}:host .gcds-nav--dropdown{background-color:var(--gcds-nav-group-top-nav-dropdown-background);border-radius:var(--gcds-border-radius-md);box-shadow:var(--gcds-nav-group-top-nav-dropdown-box-shadow);margin-block-start:var(--gcds-spacing-200);padding:var(--gcds-nav-group-top-nav-dropdown-padding);position:absolute;top:100%;width:var(--gcds-nav-group-top-nav-dropdown-width);z-index:1}:host(.gcds-mobile-nav)>.gcds-nav--expandable{display:block;padding:0}:host(.gcds-mobile-nav) .gcds-trigger--expandable{display:none}:host(.gcds-mobile-nav-topnav)>.gcds-nav--expandable{display:flex}}@media only screen and (width >= 64em) and (width < 96em){:host .gcds-nav--dropdown{right:0}}}@layer mobile{@media only screen and (width < 64em){:host(.gcds-mobile-nav)>.gcds-nav--expandable{margin:var(--gcds-nav-group-mobile-list-margin)}:host([open]:not(.gcds-mobile-nav)) .gcds-nav-group__list{padding-inline-start:var(--gcds-nav-group-side-nav-dropdown-padding)}}@media only screen and (48em < width < 64em){:host(.gcds-mobile-nav) .gcds-trigger--expandable{align-self:flex-start;width:auto}}}@layer hover{@media (hover:hover){:host .gcds-nav-group__trigger:hover{color:var(--gcds-nav-group-trigger-hover-text)}:host .gcds-trigger--dropdown:hover{color:var(--gcds-nav-group-top-nav-trigger-hover-text);text-decoration-color:var(--gcds-nav-group-top-nav-trigger-hover-text);text-decoration-thickness:var(\n          --gcds-nav-group-top-nav-trigger-hover-decoration-thickness\n        )}:host .gcds-trigger--expandable:hover{background-color:var(\n          --gcds-nav-group-side-nav-trigger-hover-background\n        )}}}@layer focus{:host .gcds-nav-group__trigger:focus{background-color:var(--gcds-nav-group-trigger-focus-background);border-color:var(--gcds-nav-group-trigger-focus-background);border-radius:var(--gcds-nav-group-trigger-focus-border-radius);box-shadow:var(--gcds-nav-group-trigger-focus-box-shadow);color:var(--gcds-nav-group-trigger-focus-text);outline:var(--gcds-nav-group-trigger-focus-outline);outline-offset:var(--gcds-nav-group-trigger-focus-outline-offset);text-decoration:none}}";
+const gcdsNavGroupCss = "@layer reset, defaults, sideNav, topNav, mobileNav, desktop, mobile, hover, focus;@layer reset{:host *{box-sizing:border-box;margin:0;padding:0}}@layer defaults{:host{align-self:flex-end;display:flex;flex-direction:column;position:relative}:host .gcds-nav-group__trigger{align-items:center;background:transparent;border:0;color:var(--gcds-nav-group-trigger-text);cursor:pointer;display:flex;font:var(--gcds-nav-group-trigger-font);padding:var(--gcds-nav-group-trigger-padding);text-align:left;width:100%}:host .gcds-nav-group__trigger[aria-expanded=false]+.gcds-nav-group__list{display:none}:host .gcds-nav-group__trigger-desc{display:none}:host ul{list-style:none}}@layer sideNav{:host .gcds-trigger--expandable{font-weight:var(--gcds-nav-group-side-nav-trigger-font-weight);margin-block-end:var(--gcds-nav-group-side-nav-trigger-margin)}:host .gcds-trigger--expandable gcds-icon{margin-inline-end:var(--gcds-nav-group-side-nav-trigger-icon-margin)}}@layer topNav{:host .gcds-trigger--dropdown{border-block-end:var(--gcds-nav-group-top-nav-trigger-border-width) solid transparent;margin-inline-start:var(\n      --gcds-nav-group-top-nav-trigger-margin-inline-start\n    );padding:var(--gcds-nav-group-top-nav-trigger-padding);text-decoration:underline solid currentColor var(--gcds-nav-group-top-nav-trigger-decoration-thickness);text-decoration-color:transparent;text-underline-offset:var(\n      --gcds-nav-group-top-nav-trigger-underline-offset\n    );transition:all .25s ease-in-out}:host .gcds-trigger--dropdown[aria-expanded=true]{background-color:var(\n        --gcds-nav-group-top-nav-trigger-expanded-background-color\n      )}:host .gcds-trigger--dropdown gcds-icon{margin-inline-start:var(--gcds-nav-group-top-nav-trigger-icon-margin);order:2}}@layer mobileNav{:host(.gcds-mobile-nav){width:100%}:host(.gcds-mobile-nav) .gcds-trigger--expandable{border:var(--gcds-nav-group-mobile-trigger-border-width) solid;border-radius:var(--gcds-nav-group-mobile-trigger-border-radius);color:var(--gcds-nav-group-mobile-trigger-text);flex-direction:row-reverse;justify-content:center;margin-block-start:var(--gcds-nav-group-mobile-trigger-margin);text-align:center}:host(.gcds-mobile-nav) .gcds-trigger--expandable gcds-icon{display:none}:host([open].gcds-mobile-nav){background-color:var(--gcds-nav-group-mobile-background);height:100vh;left:0;overflow-y:scroll;padding:var(--gcds-nav-group-mobile-padding)!important;position:fixed;top:0;width:100%;z-index:100}}@layer desktop{@media only screen and (width >= 64em){:host .gcds-nav-group__trigger{max-width:var(--gcds-nav-group-trigger-max-width)}:host .gcds-nav--expandable{padding-inline-start:var(--gcds-nav-group-side-nav-dropdown-padding)}:host .gcds-nav--dropdown{background-color:var(--gcds-nav-group-top-nav-dropdown-background);border-radius:var(--gcds-border-radius-md);box-shadow:var(--gcds-nav-group-top-nav-dropdown-box-shadow);margin-block-start:var(--gcds-spacing-200);padding:var(--gcds-nav-group-top-nav-dropdown-padding);position:absolute;top:100%;width:var(--gcds-nav-group-top-nav-dropdown-width);z-index:1}:host(.gcds-mobile-nav)>.gcds-nav--expandable{display:block;padding:0}:host(.gcds-mobile-nav) .gcds-trigger--expandable{display:none}:host(.gcds-mobile-nav-topnav)>.gcds-nav--expandable{display:flex}}@media only screen and (width >= 64em) and (width < 96em){:host .gcds-nav--dropdown{right:0}}}@layer mobile{@media only screen and (width < 64em){:host(.gcds-mobile-nav)>.gcds-nav--expandable{margin:var(--gcds-nav-group-mobile-list-margin)}:host([open]:not(.gcds-mobile-nav)) .gcds-nav-group__list{padding-inline-start:var(--gcds-nav-group-side-nav-dropdown-padding)}}@media only screen and (48em < width < 64em){:host(.gcds-mobile-nav) .gcds-trigger--expandable{align-self:flex-start;width:auto}}}@layer hover{@media (hover:hover){:host .gcds-nav-group__trigger:hover{color:var(--gcds-nav-group-trigger-hover-text)}:host .gcds-trigger--dropdown:hover{color:var(--gcds-nav-group-top-nav-trigger-hover-text);text-decoration-color:var(--gcds-nav-group-top-nav-trigger-hover-text);text-decoration-thickness:var(\n          --gcds-nav-group-top-nav-trigger-hover-decoration-thickness\n        )}:host .gcds-trigger--expandable:hover{background-color:var(\n          --gcds-nav-group-side-nav-trigger-hover-background\n        )}}}@layer focus{:host .gcds-nav-group__trigger:focus{background-color:var(--gcds-nav-group-trigger-focus-background);border-color:var(--gcds-nav-group-trigger-focus-background);border-radius:var(--gcds-nav-group-trigger-focus-border-radius);box-shadow:var(--gcds-nav-group-trigger-focus-box-shadow);color:var(--gcds-nav-group-trigger-focus-text);outline:var(--gcds-nav-group-trigger-focus-outline);outline-offset:var(--gcds-nav-group-trigger-focus-outline-offset);text-decoration:none}}";
 const GcdsNavGroupStyle0 = gcdsNavGroupCss;
 
 const GcdsNavGroup = class {
@@ -3368,12 +3444,15 @@ const GcdsNavGroup = class {
         this.open = false;
         this.lang = undefined;
         this.navStyle = undefined;
+        this.navPosiiton = undefined;
     }
+    // Close dropdowns on focusout when on desktop screen size
     async focusOutListener(e) {
         if ((e.target === this.el || this.el.contains(e.target)) &&
             !this.el.contains(e.relatedTarget) &&
             this.navStyle === 'dropdown' &&
-            this.open) {
+            this.open &&
+            window.innerWidth >= 1024) {
             setTimeout(() => this.toggleNav(), 200);
         }
     }
@@ -3393,6 +3472,27 @@ const GcdsNavGroup = class {
             if (this.el.children[i].nodeName == 'GCDS-NAV-GROUP' &&
                 this.el.children[i].hasAttribute('open')) {
                 this.el.children[i].toggleNav();
+            }
+        }
+        // Dropdown exception - Close child dropdown nav-groups if opened in mobile menu
+        if (this.el.classList.contains('gcds-mobile-nav-topnav')) {
+            const topnav = closestElement('gcds-top-nav', this.el);
+            const childNavGroups = topnav.querySelectorAll('gcds-nav-group');
+            childNavGroups.forEach(navGroup => {
+                if (navGroup.hasAttribute('open')) {
+                    navGroup.toggleNav();
+                }
+            });
+        }
+        // Remove ability to scroll page when mobile menu is open
+        if (this.el.classList.contains('gcds-mobile-nav')) {
+            if (this.open) {
+                this.navPosiiton = window.scrollY;
+                document.body.style.position = 'fixed';
+            }
+            else {
+                document.body.style.removeProperty('position');
+                window.scrollTo(0, this.navPosiiton);
             }
         }
     }
@@ -3428,12 +3528,12 @@ const GcdsNavGroup = class {
     }
     render() {
         const { closeTrigger, menuLabel, open, openTrigger } = this;
-        return (h(Host, { key: '6fe3f6a06fea7b9c241677067db425025c270441', role: "listitem", open: open }, h("button", { key: '4feff5c93049102d984e060089f58abd1681da7e', "aria-haspopup": "true", "aria-expanded": open.toString(), ref: element => (this.triggerElement = element), class: `gcds-nav-group__trigger gcds-trigger--${this.navStyle}`, onBlur: () => this.gcdsBlur.emit(), onFocus: () => this.gcdsFocus.emit(), onClick: e => {
+        return (h(Host, { key: 'a8ccd5b9fe3fc863f028659e07c3b8daf1490bf6', role: "listitem", open: open }, h("button", { key: '634a03ec34f6375e79989e6a2a5161f5cc08e608', "aria-haspopup": "true", "aria-expanded": open.toString(), ref: element => (this.triggerElement = element), class: `gcds-nav-group__trigger gcds-trigger--${this.navStyle}`, onBlur: () => this.gcdsBlur.emit(), onFocus: () => this.gcdsFocus.emit(), onClick: e => {
                 const event = emitEvent(e, this.gcdsClick);
                 if (event) {
                     this.toggleNav();
                 }
-            } }, h("gcds-icon", { key: '5016a068e5bab57d0798d0c0d2627c89ceeebc0e', name: open ? 'angle-up' : 'angle-down' }), closeTrigger && open ? closeTrigger : openTrigger), h("ul", { key: 'e819774f1293463901873c38362168ee885b43a0', "aria-label": menuLabel, class: `gcds-nav-group__list gcds-nav--${this.navStyle}` }, h("slot", { key: '4b4074e7a73796c06f135f1b15fef1f6d110eb86' }))));
+            } }, h("gcds-icon", { key: 'f244c1963af50836c8f162be9ddecd7bde68b5eb', name: open ? 'angle-up' : 'angle-down' }), closeTrigger && open ? closeTrigger : openTrigger), h("ul", { key: '39a75c9589b30c34bc6763c66336ec91f0dc0835', "aria-label": menuLabel, class: `gcds-nav-group__list gcds-nav--${this.navStyle}` }, h("slot", { key: '0e0b5c1699600e032816cbe85ffa78dc342a88e8' }))));
     }
     get el() { return getElement(this); }
 };
@@ -3492,11 +3592,26 @@ const GcdsNavLink = class {
         if (current) {
             linkAttrs['aria-current'] = 'page';
         }
-        return (h(Host, { key: 'a5bb7d97f3b52083346b6c795e261028c787195a', role: "listitem" }, h("a", Object.assign({ key: '1fd2194fb01fffb0671b1720696d145cad9826ac', class: `gcds-nav-link gcds-nav-link--${this.navStyle}`, href: href }, linkAttrs, { onBlur: () => this.gcdsBlur.emit(), onFocus: () => this.gcdsFocus.emit(), onClick: e => emitEvent(e, this.gcdsClick, href), ref: element => (this.linkElement = element) }), h("slot", { key: '05503dee7159a649d3d6ba88af6e0bd61f08222e' }))));
+        return (h(Host, { key: '32ea4108ff71d895c105a9d0faca30969c9f5e79', role: "listitem" }, h("a", Object.assign({ key: '868cac143f2c49184119585822b34b507babf221', class: `gcds-nav-link gcds-nav-link--${this.navStyle}`, href: href }, linkAttrs, { onBlur: () => this.gcdsBlur.emit(), onFocus: () => this.gcdsFocus.emit(), onClick: e => emitEvent(e, this.gcdsClick, href), ref: element => (this.linkElement = element) }), h("slot", { key: '9af801147738817622854622400df40fd5646620' }))));
     }
     get el() { return getElement(this); }
 };
 GcdsNavLink.style = GcdsNavLinkStyle0;
+
+const I18N$a = {
+  en: {
+    success: 'Success: ',
+    info: 'Information: ',
+    warning: 'Warning: ',
+    danger: 'Danger: '
+  },
+  fr: {
+    success: 'Succès : ',
+    info: 'Information : ',
+    warning: 'Avertissement : ',
+    danger: 'Danger : '
+  },
+};
 
 const gcdsNoticeCss = "@layer reset, default, type;@layer reset{:host{display:block}:host .gcds-notice{box-sizing:border-box;text-align:left}:host .gcds-notice slot{display:initial}}@layer default{:host .gcds-notice{color:var(--gcds-notice-text);display:grid;gap:var(--gcds-notice-icon-gap);grid-template-columns:var(--gcds-notice-icon-width) auto}:host .gcds-notice .notice__heading{--gcds-heading-h2-desktop:var(\n        --gcds-notice-content-heading-font-desktop\n      );--gcds-heading-h2-mobile:var(--gcds-notice-content-heading-font-mobile);--gcds-heading-h4-desktop:var(\n        --gcds-notice-content-heading-font-desktop\n      );--gcds-heading-h4-mobile:var(--gcds-notice-content-heading-font-mobile);--gcds-heading-h5-desktop:var(\n        --gcds-notice-content-heading-font-desktop\n      );--gcds-heading-h5-mobile:var(--gcds-notice-content-heading-font-mobile);margin-block-start:var(--gcds-notice-content-heading-margin-block-start-desktop)}@media only screen and (width < 48em){:host .gcds-notice .notice__heading{margin-block-start:var(--gcds-notice-content-heading-margin-block-start-mobile)}}:host .gcds-notice .notice__icon{margin:var(--gcds-notice-icon-margin)}:host .gcds-notice .notice__icon:before{background-color:currentColor;content:\"\";display:block;height:var(--gcds-notice-icon-before-height);margin:0 auto;width:var(--gcds-notice-border-width)}:host .gcds-notice .notice__icon:after{background-color:currentColor;content:\"\";display:block;height:var(--gcds-notice-icon-after-height);margin:0 auto;width:var(--gcds-notice-border-width)}:host .gcds-notice ::slotted(*){font:var(--gcds-notice-content-slotted-font-desktop);margin-block-start:0}@media only screen and (width < 48em){:host .gcds-notice ::slotted(*){font:var(--gcds-notice-content-slotted-font-mobile)}}:host .gcds-notice ::slotted(:last-child){margin-block-end:0}:host .gcds-notice ::slotted(:not(:last-child)){margin-block-end:var(--gcds-notice-content-slotted-margin)}:host .gcds-notice ::slotted(ol),:host .gcds-notice ::slotted(ul){margin-inline-start:var(--gcds-notice-content-slotted-list-margin);padding:0}}@layer type{:host .gcds-notice.notice--type-danger .notice__icon{color:var(--gcds-notice-danger-text)}:host .gcds-notice.notice--type-info .notice__icon{color:var(--gcds-notice-info-text)}:host .gcds-notice.notice--type-success .notice__icon{color:var(--gcds-notice-success-text)}:host .gcds-notice.notice--type-warning .notice__icon{color:var(--gcds-notice-warning-text)}}";
 const GcdsNoticeStyle0 = gcdsNoticeCss;
@@ -3584,7 +3699,7 @@ const GcdsNotice = class {
             success: 'check-circle',
             warning: 'exclamation-triangle',
         };
-        return (h(Host, { key: 'b2e164006dfa7bdbefbfea565e99b56107d4b860' }, this.validateRequiredProps() && (h("section", { key: '53c1c6def3c260efea32c5d024eac59750be8dab', class: `gcds-notice notice--type-${type}` }, h("gcds-icon", { key: 'f4b88229b0723e63edef882d44faf155eccd7ea2', class: "notice__icon", size: "h4", name: iconTypes[type] }), h("div", { key: '551792b1a73d873aa1139151af829f3dd83d97f5' }, h("gcds-heading", { key: 'fd790db93fac16a22103243af53c0385ac9b955b', tag: noticeTitleTag, "margin-top": "0", "margin-bottom": "100", class: "notice__heading" }, noticeTitle), h("slot", { key: '5755a641b120de8f93b3fab7e8438d4c2764f528' }))))));
+        return (h(Host, { key: 'cc0b6ce484789c05fd099b7e0c0b94396bbf5cc9' }, this.validateRequiredProps() && (h("section", { key: '3643290523b2d266a8ac0a8422652782a5a1a7ca', class: `gcds-notice notice--type-${type}` }, h("gcds-icon", { key: '2be06da9bca52fa70ded02fad226c2c434186731', class: "notice__icon", size: "h4", name: iconTypes[type] }), h("div", { key: '2da5c9fe4808e1a5b79f7dfd04ca24b2cb3519e3' }, h("gcds-heading", { key: '733544e235c0832101c79c82a140d42bb6eb783a', tag: noticeTitleTag, "margin-top": "0", "margin-bottom": "100", class: "notice__heading" }, h("gcds-sr-only", { key: '34c677889a234722b2e672ebae4b700801dc8f67', tag: "span" }, I18N$a[this.lang][type]), noticeTitle), h("slot", { key: 'bdb1a6843f3386d766f241a62edfea9d06e3fad6' }))))));
     }
     get el() { return getElement(this); }
 };
@@ -3719,7 +3834,7 @@ function constructClasses(page, current, total) {
     }
 }
 
-const gcdsPaginationCss = "@layer reset, default, list, simple, wide, compact, hover, active, focus;@layer reset{:host{display:block}:host .gcds-pagination ul{list-style:none;padding:0}}@layer default{:host .gcds-pagination{container:component pagination/inline-size}:host .gcds-pagination li{margin:var(--gcds-pagination-listitem-margin)}:host .gcds-pagination li a{border-radius:var(--gcds-pagination-border-radius);color:var(--gcds-pagination-default-text);font:var(--gcds-pagination-font)}}@layer list{:host .gcds-pagination :is(.gcds-pagination-list,.gcds-pagination-list-mobile-prevnext){display:flex;flex-direction:row;margin:0 auto;width:fit-content}:host .gcds-pagination :is(.gcds-pagination-list,.gcds-pagination-list-mobile-prevnext) li a,:host .gcds-pagination :is(.gcds-pagination-list,.gcds-pagination-list-mobile-prevnext) li>span.gcds-pagination-list-ellipses{align-items:center;display:flex;height:3rem;justify-content:center;min-width:3rem}:host .gcds-pagination :is(.gcds-pagination-list,.gcds-pagination-list-mobile-prevnext) li a.gcds-pagination-end-button,:host .gcds-pagination :is(.gcds-pagination-list,.gcds-pagination-list-mobile-prevnext) li a.gcds-pagination-end-button-mobile,:host .gcds-pagination :is(.gcds-pagination-list,.gcds-pagination-list-mobile-prevnext) li>span.gcds-pagination-list-ellipses.gcds-pagination-end-button,:host .gcds-pagination :is(.gcds-pagination-list,.gcds-pagination-list-mobile-prevnext) li>span.gcds-pagination-list-ellipses.gcds-pagination-end-button-mobile{height:auto;min-width:auto;padding:var(--gcds-pagination-list-end-button-padding);width:auto}:host .gcds-pagination :is(.gcds-pagination-list,.gcds-pagination-list-mobile-prevnext) li.gcds-pagination-mobile-prevnext{display:none}:host .gcds-pagination :is(.gcds-pagination-list,.gcds-pagination-list-mobile-prevnext) li.gcds-pagination-list-mobile-ellipses{display:none}:host .gcds-pagination .gcds-pagination-list-mobile-prevnext{display:flex;margin:var(--gcds-pagination-mobile-list-prevnext-margin)}}@layer simple{:host .gcds-pagination-simple{display:flex;flex-direction:column;justify-content:space-between}:host .gcds-pagination-simple li{display:inline-block;justify-content:space-between;margin:var(--gcds-pagination-simple-listitem-margin);width:fit-content}:host .gcds-pagination-simple li a{display:grid;padding:var(--gcds-pagination-simple-padding)}:host .gcds-pagination-simple li a>gcds-icon{grid-area:icon}:host .gcds-pagination-simple li a>.gcds-pagination-simple-text{grid-area:text;margin:var(--gcds-pagination-simple-listitem-text-margin)}:host .gcds-pagination-simple li a>span{font-weight:var(--gcds-pagination-simple-label-font-weight);grid-area:label}:host .gcds-pagination-simple .gcds-pagination-simple-previous a{grid-template-areas:\"icon text\" \"icon label\";grid-template-columns:.25fr 1fr}:host .gcds-pagination-simple .gcds-pagination-simple-next a{grid-template-areas:\"text icon\" \"label icon\";grid-template-columns:1fr .25fr}}@layer wide{@container pagination (width > 44em){:host .gcds-pagination-list-mobile-prevnext{display:none}}@container pagination (width > 20em){:host .gcds-pagination-simple{flex-direction:row}:host .gcds-pagination-simple .gcds-pagination-simple-next{margin-left:auto}}}@layer compact{@container pagination (width <= 44em){:host .gcds-pagination :is(.gcds-pagination-list,.gcds-pagination-list-mobile-prevnext) li a{border:var(--gcds-pagination-border-width) solid}:host .gcds-pagination :is(.gcds-pagination-list,.gcds-pagination-list-mobile-prevnext) li>span.gcds-pagination-list-ellipses{min-width:auto}:host .gcds-pagination :is(.gcds-pagination-list,.gcds-pagination-list-mobile-prevnext) li:has(>a.gcds-pagination-end-button){margin:0}:host .gcds-pagination :is(.gcds-pagination-list,.gcds-pagination-list-mobile-prevnext) li .gcds-pagination-end-button{display:none}:host .gcds-pagination :is(.gcds-pagination-list,.gcds-pagination-list-mobile-prevnext) li.gcds-pagination-mobile-prevnext{display:block}}@container pagination (width <= 30em){:host .gcds-pagination-list .gcds-pagination-list-breakpoint-sm{display:none}}@container pagination (width <= 27.5em){:host .gcds-pagination-list .gcds-pagination-list-breakpoint-xs{display:none}}@container pagination (width <= 25em){:host .gcds-pagination-list .gcds-pagination-list-breakpoint-xxs{display:none}}@container pagination (width <= 19em){:host .gcds-pagination-list li{margin:var(--gcds-pagination-mobile-list-item-margin)}}}@layer hover{@media (hover:hover){:host .gcds-pagination ul li a:hover{background:var(--gcds-pagination-hover-background);color:var(--gcds-pagination-hover-text)}}}@layer active{:host .gcds-pagination ul li a:active:not(:focus),:host .gcds-pagination ul li a[aria-current*=page]:not(:focus){background:var(--gcds-pagination-active-background);border-color:var(--gcds-pagination-active-background);color:var(--gcds-pagination-active-text);pointer-events:none;text-decoration:none}}@layer focus{:host .gcds-pagination ul li a:focus{background-color:var(--gcds-pagination-focus-background);border-color:var(--gcds-pagination-focus-background);box-shadow:var(--gcds-pagination-focus-box-shadow);color:var(--gcds-pagination-focus-text);outline:var(--gcds-pagination-focus-outline-width) solid var(--gcds-pagination-focus-background);outline-offset:var(--gcds-pagination-border-width);text-decoration:none}}";
+const gcdsPaginationCss = "@layer reset, default, list, simple, wide, compact, hover, active, focus;@layer reset{:host{display:block}:host .gcds-pagination ul{list-style:none;padding:0}}@layer default{:host .gcds-pagination{container:component pagination/inline-size}:host .gcds-pagination li{margin:var(--gcds-pagination-listitem-margin)}:host .gcds-pagination li a{border-radius:var(--gcds-pagination-border-radius);color:var(--gcds-pagination-default-text);font:var(--gcds-pagination-font)}}@layer list{:host .gcds-pagination :is(.gcds-pagination-list,.gcds-pagination-list-mobile-prevnext){display:flex;flex-direction:row;margin:0 auto;width:fit-content}:host .gcds-pagination :is(.gcds-pagination-list,.gcds-pagination-list-mobile-prevnext) li a,:host .gcds-pagination :is(.gcds-pagination-list,.gcds-pagination-list-mobile-prevnext) li>span.gcds-pagination-list-ellipses{align-items:center;display:flex;height:3rem;justify-content:center;min-width:3rem}:host .gcds-pagination :is(.gcds-pagination-list,.gcds-pagination-list-mobile-prevnext) li a.gcds-pagination-end-button,:host .gcds-pagination :is(.gcds-pagination-list,.gcds-pagination-list-mobile-prevnext) li a.gcds-pagination-end-button-mobile,:host .gcds-pagination :is(.gcds-pagination-list,.gcds-pagination-list-mobile-prevnext) li>span.gcds-pagination-list-ellipses.gcds-pagination-end-button,:host .gcds-pagination :is(.gcds-pagination-list,.gcds-pagination-list-mobile-prevnext) li>span.gcds-pagination-list-ellipses.gcds-pagination-end-button-mobile{height:auto;min-width:auto;padding:var(--gcds-pagination-list-end-button-padding);width:auto}:host .gcds-pagination :is(.gcds-pagination-list,.gcds-pagination-list-mobile-prevnext) li.gcds-pagination-mobile-prevnext{display:none}:host .gcds-pagination :is(.gcds-pagination-list,.gcds-pagination-list-mobile-prevnext) li.gcds-pagination-list-mobile-ellipses{display:none}:host .gcds-pagination .gcds-pagination-list-mobile-prevnext{display:flex;margin:var(--gcds-pagination-mobile-list-prevnext-margin)}}@layer simple{:host .gcds-pagination-simple{display:flex;flex-direction:column;justify-content:space-between}:host .gcds-pagination-simple li{display:inline-block;justify-content:space-between;margin:var(--gcds-pagination-simple-listitem-margin);width:fit-content}:host .gcds-pagination-simple li a{display:grid;padding:var(--gcds-pagination-simple-padding)}:host .gcds-pagination-simple li a>gcds-icon{grid-area:icon}:host .gcds-pagination-simple li a>.gcds-pagination-simple-text{grid-area:text;margin:var(--gcds-pagination-simple-listitem-text-margin)}:host .gcds-pagination-simple li a>span{font-weight:var(--gcds-pagination-simple-label-font-weight);grid-area:label}:host .gcds-pagination-simple .gcds-pagination-simple-previous a{grid-template-areas:\"icon text\" \"icon label\";grid-template-columns:.25fr 1fr}:host .gcds-pagination-simple .gcds-pagination-simple-next a{grid-template-areas:\"text icon\" \"label icon\";grid-template-columns:1fr .25fr}}@layer wide{@container pagination (width > 44em){:host .gcds-pagination-list-mobile-prevnext{display:none}}@container pagination (width > 20em){:host .gcds-pagination-simple{flex-direction:row}:host .gcds-pagination-simple .gcds-pagination-simple-next{margin-left:auto}}}@layer compact{@container pagination (width <= 44em){:host .gcds-pagination :is(.gcds-pagination-list,.gcds-pagination-list-mobile-prevnext) li a{border:var(--gcds-pagination-border-width) solid}:host .gcds-pagination :is(.gcds-pagination-list,.gcds-pagination-list-mobile-prevnext) li>span.gcds-pagination-list-ellipses{min-width:auto}:host .gcds-pagination :is(.gcds-pagination-list,.gcds-pagination-list-mobile-prevnext) li:has(>a.gcds-pagination-end-button){margin:0}:host .gcds-pagination :is(.gcds-pagination-list,.gcds-pagination-list-mobile-prevnext) li .gcds-pagination-end-button{display:none}:host .gcds-pagination :is(.gcds-pagination-list,.gcds-pagination-list-mobile-prevnext) li.gcds-pagination-mobile-prevnext{display:block}}@container pagination (width <= 30em){:host .gcds-pagination-list .gcds-pagination-list-breakpoint-sm{display:none}}@container pagination (width <= 27.5em){:host .gcds-pagination-list .gcds-pagination-list-breakpoint-xs{display:none}}@container pagination (width <= 25em){:host .gcds-pagination-list .gcds-pagination-list-breakpoint-xxs{display:none}}@container pagination (width <= 19em){:host .gcds-pagination-list li{margin:var(--gcds-pagination-mobile-list-item-margin)}}}@layer hover{@media (hover:hover){:host .gcds-pagination ul li a:hover{background:var(--gcds-pagination-hover-background);color:var(--gcds-pagination-hover-text)}}}@layer active{:host .gcds-pagination ul li a:active:not(:focus),:host .gcds-pagination ul li a[aria-current*=page]:not(:focus){background:var(--gcds-pagination-active-background);border-color:var(--gcds-pagination-active-background);color:var(--gcds-pagination-active-text);text-decoration:none}}@layer focus{:host .gcds-pagination ul li a:focus{background-color:var(--gcds-pagination-focus-background);border-color:var(--gcds-pagination-focus-background);box-shadow:var(--gcds-pagination-focus-box-shadow);color:var(--gcds-pagination-focus-text);outline:var(--gcds-pagination-focus-outline-width) solid var(--gcds-pagination-focus-background);outline-offset:var(--gcds-pagination-border-width);text-decoration:none}}";
 const GcdsPaginationStyle0 = gcdsPaginationCss;
 
 const GcdsPagination = class {
@@ -3771,6 +3886,7 @@ const GcdsPagination = class {
             : 'javascript:void(0)';
         const linkAttrs = {
             'href': href,
+            'tabindex': 0,
             'aria-label': !end
                 ? I18N$9[this.lang].pageNumberOf
                     .replace('{#}', page)
@@ -3795,9 +3911,9 @@ const GcdsPagination = class {
         if (end) {
             return (h("li", null, end === 'next' ? (h("a", Object.assign({}, linkAttrs, { class: !mobile
                     ? 'gcds-pagination-end-button'
-                    : 'gcds-pagination-end-button-mobile' }), I18N$9[this.lang].next, h("gcds-icon", { "margin-left": "150", name: "arrow-right" }))) : (h("a", Object.assign({}, linkAttrs, { class: !mobile
+                    : 'gcds-pagination-end-button-mobile' }), I18N$9[this.lang].next, h("gcds-icon", { "margin-left": "150", name: "chevron-right" }))) : (h("a", Object.assign({}, linkAttrs, { class: !mobile
                     ? 'gcds-pagination-end-button'
-                    : 'gcds-pagination-end-button-mobile' }), h("gcds-icon", { "margin-right": "150", name: "arrow-left" }), mobile
+                    : 'gcds-pagination-end-button-mobile' }), h("gcds-icon", { "margin-right": "150", name: "chevron-left" }), mobile
                 ? I18N$9[this.lang].previousMobile
                 : I18N$9[this.lang].previous))));
         }
@@ -3910,7 +4026,7 @@ const GcdsPagination = class {
     }
     render() {
         const { display, label, previousHref, previousLabel, nextHref, nextLabel, lang, } = this;
-        return (h(Host, { key: '656ddb9d8d820d56dc2246ca3da4e1c09a0a346b', role: "navigation", "aria-label": label }, h("div", { key: 'a8fc0c37588e8cf0700999b3875b4cfad7195129', class: "gcds-pagination" }, display === 'list' ? (h("div", null, h("ul", { class: "gcds-pagination-list" }, this.listitems), h("ul", { class: "gcds-pagination-list-mobile-prevnext" }, this.mobilePrevNext))) : (h("ul", { class: "gcds-pagination-simple" }, previousHref && (h("li", { class: "gcds-pagination-simple-previous" }, h("a", { href: previousHref, "aria-label": `${I18N$9[lang].previousPage}${previousLabel ? `: ${previousLabel}` : ''}`, onBlur: () => this.gcdsBlur.emit(), onFocus: () => this.gcdsFocus.emit(), onClick: e => emitEvent(e, this.gcdsClick, previousHref) }, h("gcds-icon", { "margin-right": "150", name: "arrow-left" }), h("div", { class: "gcds-pagination-simple-text" }, I18N$9[lang].previous), h("span", null, previousLabel)))), nextHref && (h("li", { class: "gcds-pagination-simple-next" }, h("a", { href: nextHref, "aria-label": `${I18N$9[lang].nextPage}${nextLabel ? `: ${nextLabel}` : ''}`, onBlur: () => this.gcdsBlur.emit(), onFocus: () => this.gcdsFocus.emit(), onClick: e => emitEvent(e, this.gcdsClick, nextHref) }, h("div", { class: "gcds-pagination-simple-text" }, I18N$9[lang].next), h("span", null, nextLabel), h("gcds-icon", { "margin-left": "150", name: "arrow-right" })))))))));
+        return (h(Host, { key: '5ff20c1b40e3f30430ab005d263b30b48c5be3d6', role: "navigation", "aria-label": label }, h("div", { key: '6dfb86d512fdd30b1298c4864113e6ed68adc06a', class: "gcds-pagination" }, display === 'list' ? (h("div", null, h("ul", { class: "gcds-pagination-list" }, this.listitems), h("ul", { class: "gcds-pagination-list-mobile-prevnext" }, this.mobilePrevNext))) : (h("ul", { class: "gcds-pagination-simple" }, previousHref && (h("li", { class: "gcds-pagination-simple-previous" }, h("a", { href: previousHref, tabindex: 0, "aria-label": `${I18N$9[lang].previousPage}${previousLabel ? `: ${previousLabel}` : ''}`, onBlur: () => this.gcdsBlur.emit(), onFocus: () => this.gcdsFocus.emit(), onClick: e => emitEvent(e, this.gcdsClick, previousHref) }, h("gcds-icon", { "margin-right": "150", name: "chevron-left" }), h("div", { class: "gcds-pagination-simple-text" }, I18N$9[lang].previous), h("span", null, previousLabel)))), nextHref && (h("li", { class: "gcds-pagination-simple-next" }, h("a", { href: nextHref, tabindex: 0, "aria-label": `${I18N$9[lang].nextPage}${nextLabel ? `: ${nextLabel}` : ''}`, onBlur: () => this.gcdsBlur.emit(), onFocus: () => this.gcdsFocus.emit(), onClick: e => emitEvent(e, this.gcdsClick, nextHref) }, h("div", { class: "gcds-pagination-simple-text" }, I18N$9[lang].next), h("span", null, nextLabel), h("gcds-icon", { "margin-left": "150", name: "chevron-right" })))))))));
     }
     get el() { return getElement(this); }
     static get watchers() { return {
@@ -3962,7 +4078,7 @@ const GcdsPhaseBanner = class {
     }
     render() {
         const { bannerRole, container, isFixed, lang } = this;
-        return (h(Host, { key: '03d1a8de7df2a91d9a8b79cca4bef17377585269' }, h("div", { key: 'e6194d8cf29385c2c6079393ff7c235735d7d807', class: `gcds-phase-banner banner--role-${bannerRole} ${isFixed ? 'banner--is-fixed' : ''}`, role: "status", "aria-label": I18N$8[lang].label }, h("gcds-container", { key: '5b05537336d102ca070af8199acdf2444f729de8', size: container, centered: true }, h("div", { key: '8ac815e722f021f7d23f7b23267410f1dbefd613', class: "banner__content" }, h("figure", { key: 'afec7938dc8628e23a73b46baa6f01490d9d1d6c', class: "banner__icon icon--left" }, h("slot", { key: '749ff139daab3c0d92cc1bcc707d36beb860c6eb', name: "banner-icon-left" })), h("div", { key: '17adb8cb3b7f9b0a076407c611748e1f665e7eca', class: "banner__details" }, h("slot", { key: '8482f2af1178f5f070f81c54c0e4f7e886055a14', name: "banner-text" }), h("slot", { key: '6b240f9a45c7466b145610020cc45bacf23c82d7', name: "banner-cta" })), h("figure", { key: '15046443505ce0469c648d914b14f990a1c61a8c', class: "banner__icon icon--right" }, h("slot", { key: 'e539510f180473f2497c2634b16e91202af86cdf', name: "banner-icon-right" })))))));
+        return (h(Host, { key: '01721695ba82d2faad63aabf1308ab32a2277576' }, h("div", { key: '8f863517645dfd61949cc28d8fe4e4bfdb471734', class: `gcds-phase-banner banner--role-${bannerRole} ${isFixed ? 'banner--is-fixed' : ''}`, role: "status", "aria-label": I18N$8[lang].label }, h("gcds-container", { key: 'e09458246e2769bff036529d6ea7cdd12c4c78f0', size: container, centered: true }, h("div", { key: 'c52e8231ee66f8e68c85ca6d0dc98eb7343e94d9', class: "banner__content" }, h("figure", { key: '0360d88ce03c0ed816f700930bf2d7647cad3d87', class: "banner__icon icon--left" }, h("slot", { key: 'c59ff70d5fba77c3cb060674c3d61b5f427b3eb0', name: "banner-icon-left" })), h("div", { key: '89b3f4e118778f91983b3114fb134679d9b5be4d', class: "banner__details" }, h("slot", { key: 'dd5cc8315c49b2b10564ea9240f336ac9d0e79c9', name: "banner-text" }), h("slot", { key: '6d1f17700cc66416b93f2c80a6e4d6da3f4d5602', name: "banner-cta" })), h("figure", { key: '9596f293b8bed55c2738504f98b4827f21ce40ea', class: "banner__icon icon--right" }, h("slot", { key: '0355ed216936f151188a800fe50ebc4443ecccb6', name: "banner-icon-right" })))))));
     }
     get el() { return getElement(this); }
 };
@@ -4085,7 +4201,7 @@ const I18N$7 = {
   },
 };
 
-const gcdsSearchCss = "@layer reset, default, focus;@layer reset{:host{display:block}:host .gcds-search input{background-image:none;box-sizing:border-box}:host [type=search]::-webkit-search-cancel-button,:host [type=search]::-webkit-search-decoration{-webkit-appearance:none;appearance:none}}@layer default{:host .gcds-search .gcds-search__header{display:block;height:0;margin:0;overflow:hidden;width:0}:host .gcds-search .gcds-search__form{display:flex;margin:var(--gcds-search-margin)!important}:host .gcds-search input{background-color:var(--gcds-search-default-background);border:var(--gcds-search-border-width) solid;border-radius:var(--gcds-search-border-radius);color:var(--gcds-search-default-text);font:var(--gcds-search-font-desktop);height:auto;min-height:var(--gcds-search-min-width-and-height);padding:var(--gcds-search-padding)!important;transition:border-color .15s ease-in-out,box-shadow .15s ease-in-out;width:100%}@media only screen and (width < 48em){:host .gcds-search input{font:var(--gcds-search-font-mobile)}}:host .gcds-search ::part(button){border-end-start-radius:0;border-start-start-radius:0;height:100%;margin:0;--gcds-button-padding:var(--gcds-search-button-padding)}}@layer focus{:host .gcds-search input:focus{border-color:var(--gcds-search-focus-border-color);border-radius:var(--gcds-search-focus-border-radius);box-shadow:var(--gcds-search-focus-box-shadow);outline:var(--gcds-search-outline-width) solid var(--gcds-search-focus-border-color);outline-offset:var(--gcds-search-border-width);z-index:30}:host .gcds-search ::part(button):focus{border-radius:var(--gcds-search-focus-border-radius);box-shadow:var(--gcds-search-focus-box-shadow)}}";
+const gcdsSearchCss = "@layer reset, default, focus;@layer reset{:host{display:block}:host .gcds-search input{background-image:none;box-sizing:border-box}:host [type=search]::-webkit-search-cancel-button,:host [type=search]::-webkit-search-decoration{-webkit-appearance:none;appearance:none}}@layer default{:host .gcds-search .gcds-search__header{display:block;height:0;margin:0;overflow:hidden;width:0}:host .gcds-search .gcds-search__form{display:flex;margin:var(--gcds-search-margin)!important}:host .gcds-search input{background-color:var(--gcds-search-default-background);border:var(--gcds-search-border-width) solid var(--gcds-search-border-color);border-right:0 solid transparent;box-sizing:border-box;color:var(--gcds-search-default-text);font:var(--gcds-search-font);max-height:var(--gcds-search-max-height);padding:var(--gcds-search-padding)!important;transition:border-color .15s ease-in-out,box-shadow .15s ease-in-out;width:100%}:host .gcds-search input::placeholder{color:var(--gcds-search-placeholder)}:host .gcds-search gcds-button::part(button){border-radius:0;height:var(--gcds-search-button-width-height);padding:var(--gcds-search-button-padding);width:var(--gcds-search-button-width-height)}:host .gcds-search gcds-button gcds-icon{display:block}}@layer focus{:host .gcds-search input:focus{border-color:var(--gcds-search-focus-border-color);border-width:var(--gcds-search-focus-border-width);box-shadow:var(--gcds-search-focus-box-shadow);margin:var(--gcds-search-focus-margin);outline:var(--gcds-search-outline-width) solid var(--gcds-search-focus-border-color);outline-offset:var(--gcds-search-border-width);z-index:30}:host .gcds-search ::part(button):focus{box-shadow:var(--gcds-search-focus-box-shadow)}}";
 const GcdsSearchStyle0 = gcdsSearchCss;
 
 const GcdsSearch = class {
@@ -4135,7 +4251,7 @@ const GcdsSearch = class {
         const formAction = action === '/sr/srb.html'
             ? `https://www.canada.ca/${lang}/sr/srb.html`
             : action;
-        return (h(Host, { key: '127843a74f45499fd5470727bbb846b1ee203ec7' }, h("div", { key: '3211fee418e7019ba50ca9c64ab3ddac6861ea9c', class: "gcds-search" }, h("gcds-sr-only", { key: '20a1386129bd0d9d53a4b3052d7fd7d9232bbcc7', tag: "h2" }, I18N$7[lang].search), h("form", { key: 'b538c34be842faf9c5dc834779b835cce1a76348', action: formAction, method: method, role: "search", onSubmit: e => emitEvent(e, this.gcdsSubmit, this.value), class: "gcds-search__form" }, h("gcds-label", { key: '9b6f44ab0e9b8e8f929ca45438a8315856cecfd7', label: labelText, "label-for": searchId, "hide-label": true }), h("input", Object.assign({ key: '989b67be6bb92553cae5bb76912e84f05fdb90e4', type: "search", id: searchId, list: "search-list", size: 34, maxLength: 170, onInput: e => this.handleInput(e, this.gcdsInput), onChange: e => this.handleInput(e, this.gcdsChange), onFocus: () => this.gcdsFocus.emit(), onBlur: () => this.gcdsBlur.emit() }, attrsInput, { class: "gcds-search__input", value: value })), suggested && (h("datalist", { key: 'd7bf8d367ccf1166f18aa01098fdf3874fb1256d', id: "search-list" }, suggested.map((k, v) => (h("option", { value: k, key: v }))))), h("gcds-button", { key: 'd3952275da85ba06b8147d6d954256ef1b0f4079', type: "submit", class: "gcds-search__button", exportparts: "button" }, h("gcds-icon", { key: 'a043d69293738b5beeee1c2ff2c81596e15a39a6', name: "search", label: I18N$7[lang].search, "fixed-width": true }))))));
+        return (h(Host, { key: '128049f5dd1902ece7e9a1e6c03754b5e3bc057d' }, h("div", { key: '79e0c575a737a8d9bc1495bbaea533a788c6e22e', class: "gcds-search" }, h("gcds-sr-only", { key: 'fa01d2aa8e4f923e1b1fb7146747444af5754ab6', tag: "h2" }, I18N$7[lang].search), h("form", { key: '6b418484503577b004402be2558d303a07596bc1', action: formAction, method: method, role: "search", onSubmit: e => emitEvent(e, this.gcdsSubmit, this.value), class: "gcds-search__form" }, h("gcds-label", { key: '3110b02d5a162d12d3390cc90278eb63df15ab4d', label: labelText, "label-for": searchId, "hide-label": true }), h("input", Object.assign({ key: 'be068ed5ce558a501843468015034de96b198eb6', type: "search", id: searchId, list: "search-list", size: 34, maxLength: 170, onInput: e => this.handleInput(e, this.gcdsInput), onChange: e => this.handleInput(e, this.gcdsChange), onFocus: () => this.gcdsFocus.emit(), onBlur: () => this.gcdsBlur.emit() }, attrsInput, { class: "gcds-search__input", value: value })), suggested && (h("datalist", { key: '9907ea35d301fa4bd6c8cd433a87aa1e9cdd1465', id: "search-list" }, suggested.map((k, v) => (h("option", { value: k, key: v }))))), h("gcds-button", { key: '34305968de8f5cf777dba3509f2f2d996ea9d4d2', type: "submit", class: "gcds-search__button", exportparts: "button" }, h("gcds-icon", { key: '5d5f2ec8a972bc820d4b56cdb4d7576ca2f80eb2', name: "search", label: I18N$7[lang].search, "fixed-width": true }))))));
     }
     get el() { return getElement(this); }
 };
@@ -4364,7 +4480,7 @@ const GcdsSelect = class {
                 ? `${attrsSelect['aria-describedby']}`
                 : ''}`;
         }
-        return (h(Host, { key: 'fb6aeb223639f75aa5bc28b155f076bc1ad6871f' }, h("div", { key: '71ac8ed56fb8ac745f782b556527666a128b178a', class: `gcds-select-wrapper ${disabled ? 'gcds-disabled' : ''} ${hasError ? 'gcds-error' : ''}` }, h("gcds-label", Object.assign({ key: 'a73c320132850c5d14ada4228abdd6fb008ef32d' }, attrsLabel, { "label-for": selectId, lang: lang })), hint ? h("gcds-hint", { "hint-id": selectId }, hint) : null, errorMessage ? (h("gcds-error-message", { messageId: selectId }, errorMessage)) : null, h("select", Object.assign({ key: '594ab71c7f1d11cf158a37457b570f12e33157db' }, attrsSelect, { id: selectId, onBlur: () => this.onBlur(), onFocus: () => this.gcdsFocus.emit(), onInput: e => this.handleInput(e, this.gcdsInput), onChange: e => this.handleInput(e, this.gcdsChange), "aria-invalid": inheritedAttributes['aria-invalid'] === 'true'
+        return (h(Host, { key: '74ef0ae2dccf89696939fd4d5017b82cf33508a4' }, h("div", { key: '4eaf410a7cff00a1f4c135a1e3c02bfb5324ac22', class: `gcds-select-wrapper ${disabled ? 'gcds-disabled' : ''} ${hasError ? 'gcds-error' : ''}` }, h("gcds-label", Object.assign({ key: '1272b6fd271a88e88d02f294039d9a1001450be8' }, attrsLabel, { "label-for": selectId, lang: lang })), hint ? h("gcds-hint", { "hint-id": selectId }, hint) : null, errorMessage ? (h("gcds-error-message", { messageId: selectId }, errorMessage)) : null, h("select", Object.assign({ key: '5419b9d5efac15aa706637e240b11d5fdbbbcc59' }, attrsSelect, { id: selectId, onBlur: () => this.onBlur(), onFocus: () => this.gcdsFocus.emit(), onInput: e => this.handleInput(e, this.gcdsInput), onChange: e => this.handleInput(e, this.gcdsChange), "aria-invalid": inheritedAttributes['aria-invalid'] === 'true'
                 ? inheritedAttributes['aria-invalid']
                 : errorMessage
                     ? 'true'
@@ -4463,19 +4579,23 @@ async function handleKeyDownNav(event, nav, queue) {
                 await toggleNavGroup(queue[queue.length - 1], nav);
             }
             break;
-        // Tab - only in top-nav
+        // Tab - special logic on mobile screen size
         case 'Tab':
-            if (nav.nodeName != 'GCDS-SIDE-NAV') {
-                // On open nav trigger
-                if (activeElement.nodeName == 'GCDS-NAV-GROUP' &&
-                    activeElement.hasAttribute('open')) {
-                    event.preventDefault();
-                    await toggleNavGroup(activeElement, nav);
-                    // In open nav group
+            if ((await nav.getNavSize()) == 'mobile') {
+                // shift + tab
+                if (event.shiftKey) {
+                    if (currentIndex == queue.length - 1 &&
+                        activeElement.hasAttribute('open')) {
+                        event.preventDefault();
+                        await focusNavItem(queue.length - 2, queue);
+                    }
                 }
-                else if (activeElement.parentNode.nodeName == 'GCDS-NAV-GROUP') {
-                    event.preventDefault();
-                    await toggleNavGroup(activeElement.parentNode, nav);
+                else {
+                    // tab
+                    if (currentIndex == queue.length - 2) {
+                        event.preventDefault();
+                        await focusNavItem(queue.length - 1, queue);
+                    }
                 }
             }
             break;
@@ -4521,12 +4641,7 @@ async function toggleNavGroup(group, nav) {
         setTimeout(async () => {
             await focusNavItem(0, document.activeElement == nav ? nav.children : navGroup.children);
         }, 10);
-        if (nav.nodeName == 'GCDS-SIDE-NAV') {
-            nav.updateNavItemQueue(nav);
-        }
-        else {
-            nav.updateNavItemQueue(document.activeElement == nav ? nav : navGroup, document.activeElement == nav ? false : true);
-        }
+        nav.updateNavItemQueue(nav);
     }
 }
 /**
@@ -4671,7 +4786,7 @@ const GcdsSideNav = class {
     }
     render() {
         const { label, lang } = this;
-        return (h(Host, { key: '2176c26610444e641bf07d616472085f3442f2f0' }, h("nav", { key: '7a707a1f2043e1b5aa630254bfb007bc8effd88c', "aria-label": `${label}${I18N$6[lang].navLabel}`, class: "gcds-side-nav" }, h("h2", { key: 'e0fcbd5dc9e0324b711ca5df1275b3c2cd6d1e90', class: "gcds-side-nav__heading" }, label), h("ul", { key: '0dab78de769b83b3cf021849459d514f966c163a' }, h("gcds-nav-group", { key: '381bce26ca561d4c005c33ed705142f9fd596d61', menuLabel: I18N$6[lang].menuLabel, closeTrigger: I18N$6[lang].closeTrigger, openTrigger: I18N$6[lang].menuLabel, class: "gcds-mobile-nav", ref: element => (this.mobile = element), lang: lang }, h("slot", { key: 'aeef38c5147b2673fc48aada575f6f0635b48e30' }))))));
+        return (h(Host, { key: '344cf111e760b2b61b35b0a6cd571dde4b397135' }, h("nav", { key: '0775d15419006ceb206061d351fe54067cb5af6d', "aria-label": `${label}${I18N$6[lang].navLabel}`, class: "gcds-side-nav" }, h("h2", { key: '33710c507459d5a1ccf49831c68dc854b8e076bd', class: "gcds-side-nav__heading" }, label), h("ul", { key: '82ebb89be44aab8c201d82670239e0641cca8d18' }, h("gcds-nav-group", { key: 'a633c17d34ccd0ca08f2413e95f74f815e277abb', menuLabel: I18N$6[lang].menuLabel, closeTrigger: I18N$6[lang].closeTrigger, openTrigger: I18N$6[lang].menuLabel, class: "gcds-mobile-nav", ref: element => (this.mobile = element), lang: lang }, h("slot", { key: 'bd8c03e0b14ff32556b23ed89779ffb4d69553f2' }))))));
     }
     get el() { return getElement(this); }
 };
@@ -4795,7 +4910,7 @@ const GcdsSignature = class {
         if (Tag === 'a') {
             sigAttrs['href'] = I18N$5[lang].link;
         }
-        return (h(Host, { key: '9e7b4e9eb3ddd7d4826140ecf3214b6e3c011e2e' }, type === 'signature' ? (h(Tag, Object.assign({}, sigAttrs), h("div", { innerHTML: selectSVG }), svgLabel)) : (h("div", { class: "gcds-signature", innerHTML: selectSVG }))));
+        return (h(Host, { key: '47d75f32629a27d13f1026f00a584a9f8b580f05' }, type === 'signature' ? (h(Tag, Object.assign({}, sigAttrs), h("div", { innerHTML: selectSVG }), svgLabel)) : (h("div", { class: "gcds-signature", innerHTML: selectSVG }))));
     }
     get el() { return getElement(this); }
     static get watchers() { return {
@@ -4825,7 +4940,7 @@ const GcdsSrOnly = class {
     }
     render() {
         const Tag = this.tag;
-        return (h(Host, { key: '18f77ee5b2c271548f52b660390dfdee8747f8a0' }, h(Tag, { key: '9e4b70e16cec0a8521ce8cb67cb62a7638afce42' }, h("slot", { key: 'e9f5a29ea054a829dea24766042990dfcf2eefac' }))));
+        return (h(Host, { key: 'ca9a1ff72b50c391ac0ce0e4eb8242221aa43820' }, h(Tag, { key: '7e66d8786d82a9f48bd18a029e26d4a16fe825e6' }, h("slot", { key: '16009321706450caf62862686f82ee7158db97f5' }))));
     }
     static get watchers() { return {
         "tag": ["validateTag"]
@@ -4917,7 +5032,7 @@ const GcdsStepper = class {
     }
     render() {
         const { currentStep, lang, totalSteps, tag } = this;
-        return (h(Host, { key: '6e9ef763863d74aabd0e06b6126638c680c9de68' }, this.validateRequiredProps() && (h("gcds-heading", { key: 'd6d6b6e34b726d0c878b42a5fe9acfff1ef15a09', tag: tag, class: "gcds-stepper", "margin-top": "0", "margin-bottom": "225" }, h("span", { key: '832e9f340126888cbde32219a4bc5c41c64768de', class: "gcds-stepper__steps" }, `${I18N$4[lang].step} ${currentStep} ${I18N$4[lang].of} ${totalSteps}`, h("gcds-sr-only", { key: '09142960d870e811eae871d22c8e217025747080' }, " : ")), h("slot", { key: '1e03b643830f949011400d1c0b25e849359a74d1' })))));
+        return (h(Host, { key: '237512cb8b5d8a3e516d8f832fc01ff6bb592d29' }, this.validateRequiredProps() && (h("gcds-heading", { key: '4280179cd8b0edc2d0abcf32d286d467b1d80c56', tag: tag, class: "gcds-stepper", "margin-top": "0", "margin-bottom": "225" }, h("span", { key: 'dbf96a764e6ebd0131d5b3bd61197dddd359c493', class: "gcds-stepper__steps" }, `${I18N$4[lang].step} ${currentStep} ${I18N$4[lang].of} ${totalSteps}`, h("gcds-sr-only", { key: 'e28f042579d393ffb0fd3c2ad70761d3112e9ab0' }, " : ")), h("slot", { key: 'e9557a09c6120174b16a184956e96b95efc695f1' })))));
     }
     get el() { return getElement(this); }
     static get watchers() { return {
@@ -4985,7 +5100,7 @@ const GcdsText = class {
     }
     render() {
         const { characterLimit, display, marginTop, marginBottom, size, textRole } = this;
-        return (h(Host, { key: 'b0b6d2eef2c482062861893a43f7508d984a398f', class: `${display != 'block' ? `d-${display}` : ''}` }, h("p", { key: '6d1c418740f62a70b5dd130adbd471eda5702288', class: `
+        return (h(Host, { key: '9ca2919ce7535ecfdab92646c22df7a677f97465', class: `${display != 'block' ? `d-${display}` : ''}` }, h("p", { key: 'a2852d6e38530bac597e2a9b3156a3e1d61f4199', class: `
             gcds-text
             ${textRole ? `role-${textRole}` : ''}
             ${characterLimit ? 'limit' : ''}
@@ -5050,6 +5165,7 @@ const GcdsTextarea = class {
             const val = e.target && e.target.value;
             this.value = val;
             this.internals.setFormValue(val ? val : null);
+            this.shadowElement.value = val;
             if (e.type === 'change') {
                 const changeEvt = new e.constructor(e.type, e);
                 this.el.dispatchEvent(changeEvt);
@@ -5089,6 +5205,12 @@ const GcdsTextarea = class {
         else if (this.errorMessage == '') {
             this.hasError = false;
         }
+    }
+    /**
+     * Set value on internal textarea to allow proper resets
+     */
+    watchValue(val) {
+        this.shadowElement.value = val;
     }
     validateValidator() {
         if (this.validator && !this.validateOn) {
@@ -5197,7 +5319,7 @@ const GcdsTextarea = class {
                 ? `${attrsTextarea['aria-describedby']}`
                 : ''}`;
         }
-        return (h(Host, { key: 'eddcbe5d7d6704ab4f4ac7452e4c716537f222d0' }, h("div", { key: 'f11ccf8faf0ed5ade048612804c36bebb4ba9a1f', class: `gcds-textarea-wrapper ${disabled ? 'gcds-disabled' : ''} ${hasError ? 'gcds-error' : ''}` }, h("gcds-label", Object.assign({ key: '0ce48cd18d70fc0712aa29d21bf6d7e32a2a85eb' }, attrsLabel, { "hide-label": hideLabel, "label-for": textareaId, lang: lang })), hint ? h("gcds-hint", { "hint-id": textareaId }, hint) : null, errorMessage ? (h("gcds-error-message", { messageId: textareaId }, errorMessage)) : null, h("textarea", Object.assign({ key: '2f6686d4bc5b4b28cb9b9739e8bc2e18edc5b465' }, attrsTextarea, { class: hasError ? 'gcds-error' : null, id: textareaId, onBlur: () => this.onBlur(), onFocus: () => this.gcdsFocus.emit(), onInput: e => this.handleInput(e, this.gcdsInput), onChange: e => this.handleInput(e, this.gcdsChange), "aria-labelledby": `label-for-${textareaId}`, "aria-invalid": errorMessage ? 'true' : 'false', maxlength: characterCount ? characterCount : null, style: cols ? style : null, ref: element => (this.shadowElement = element) }), value), characterCount ? (h("gcds-text", { id: `textarea__count-${textareaId}`, "aria-live": "polite" }, value == undefined
+        return (h(Host, { key: 'e5cdb0e03c5505718d0f4bd243d9116930de61f3' }, h("div", { key: 'c3a8586573b71afc009a19a354d75830173118c9', class: `gcds-textarea-wrapper ${disabled ? 'gcds-disabled' : ''} ${hasError ? 'gcds-error' : ''}` }, h("gcds-label", Object.assign({ key: '085d50affa19245829eee1b852db40f7fb0d4ad3' }, attrsLabel, { "hide-label": hideLabel, "label-for": textareaId, lang: lang })), hint ? h("gcds-hint", { "hint-id": textareaId }, hint) : null, errorMessage ? (h("gcds-error-message", { messageId: textareaId }, errorMessage)) : null, h("textarea", Object.assign({ key: '0dcdc6ee22ef0bc7a5c6c722723c61b55cf701f1' }, attrsTextarea, { class: hasError ? 'gcds-error' : null, id: textareaId, onBlur: () => this.onBlur(), onFocus: () => this.gcdsFocus.emit(), onInput: e => this.handleInput(e, this.gcdsInput), onChange: e => this.handleInput(e, this.gcdsChange), "aria-labelledby": `label-for-${textareaId}`, "aria-invalid": errorMessage ? 'true' : 'false', maxlength: characterCount ? characterCount : null, style: cols ? style : null, ref: element => (this.shadowElement = element) }), value), characterCount ? (h("gcds-text", { id: `textarea__count-${textareaId}`, "aria-live": "polite" }, value == undefined
             ? `${characterCount} ${I18N$3[lang].characters.allowed}`
             : `${characterCount - value.length} ${I18N$3[lang].characters.left}`)) : null)));
     }
@@ -5207,6 +5329,7 @@ const GcdsTextarea = class {
     static get watchers() { return {
         "disabled": ["validateDisabledTextarea"],
         "errorMessage": ["validateErrorMessage"],
+        "value": ["watchValue"],
         "validator": ["validateValidator"],
         "hasError": ["validateHasError"]
     }; }
@@ -5258,10 +5381,22 @@ const GcdsTopNav = class {
                     await nav.updateNavItemQueue(nav);
                     if (mobileTrigger.hasAttribute('open')) {
                         mobileTrigger.toggleNav();
+                        const childNavGroups = nav.querySelectorAll('gcds-nav-group');
+                        childNavGroups.forEach(navGroup => {
+                            if (navGroup.hasAttribute('open')) {
+                                navGroup.toggleNav();
+                            }
+                        });
                     }
                 }
                 else {
                     nav.updateNavSize('mobile');
+                    const childNavGroups = nav.querySelectorAll('gcds-nav-group');
+                    childNavGroups.forEach(navGroup => {
+                        if (navGroup.hasAttribute('open')) {
+                            navGroup.toggleNav();
+                        }
+                    });
                     await nav.updateNavItemQueue(nav);
                 }
             });
@@ -5340,7 +5475,7 @@ const GcdsTopNav = class {
     }
     render() {
         const { label, alignment, lang } = this;
-        return (h(Host, { key: 'a6f1a411d942315d91c809dc01964919726c6a17' }, h("div", { key: 'c7aa58465b9c8b00c0fc98c5cb2076f71b93eab5', class: "gcds-top-nav" }, h("nav", { key: '64d8b3477818fd28fe31d02b00813320bcc76b37', "aria-label": `${label}${I18N$2[lang].navLabel}` }, h("ul", { key: 'cbf98a6a884f5c60026e733f112081888f05b172', class: "gcds-top-nav__container" }, h("gcds-nav-group", { key: 'c5e65207c4b11272261a2ec8737631a2c622227b', menuLabel: I18N$2[lang].menuLabel, closeTrigger: I18N$2[lang].closeTrigger, openTrigger: I18N$2[lang].menuLabel, class: "gcds-mobile-nav gcds-mobile-nav-topnav", ref: element => (this.mobile = element), lang: lang }, h("slot", { key: '5007a00f24466cdced473c1f0dcad5f6239d3dd3', name: "home" }), h("li", { key: '4814d9192b12c45325d5cb6c4d1443b84143b09e', class: `nav-container__list nav-list--${alignment}` }, h("ul", { key: 'db7082dfac66582051f5324adc8fe00821fc6b5d', class: `nav-container__list nav-list--${alignment}` }, h("slot", { key: '90dac207f2befecdd758079afa957dcb47de3231' })))))))));
+        return (h(Host, { key: '0b90b2ecfef9712330322dce2a65b6a360606520' }, h("div", { key: 'a8b05cb72ce2dfb6867e35fdbe39bf115d3c8673', class: "gcds-top-nav" }, h("nav", { key: '0d9282ce0348d037609ee36c0d83cada54b0f246', "aria-label": `${label}${I18N$2[lang].navLabel}` }, h("ul", { key: 'ec9aa9c60a2c28d7c80765f0c35429f1e936180c', class: "gcds-top-nav__container" }, h("gcds-nav-group", { key: '42ab733e63bfe7fb3f2fb7b5f588a6ee60f0a653', menuLabel: I18N$2[lang].menuLabel, closeTrigger: I18N$2[lang].closeTrigger, openTrigger: I18N$2[lang].menuLabel, class: "gcds-mobile-nav gcds-mobile-nav-topnav", ref: element => (this.mobile = element), lang: lang }, h("slot", { key: 'a3b4cbd6baba0493fefd154e41350f71c6eec57e', name: "home" }), h("li", { key: 'b82de02939f23e7e3a67cfb974f3cd292ccdb81b', class: `nav-container__list nav-list--${alignment}` }, h("ul", { key: 'da9cf11b43568b2143c0e70af1c3f92b75e13660', class: `nav-container__list nav-list--${alignment}` }, h("slot", { key: '0f98892f2e8c0c8d39055f301f5a0774ad68d63e' })))))))));
     }
     get el() { return getElement(this); }
 };
@@ -5685,7 +5820,7 @@ const GcdsTopicMenu = class {
     }
     render() {
         const { home, lang } = this;
-        return (h(Host, { key: '11a4e6cac47292c67d67f2860368ad937610475e' }, h("nav", { key: '9649d4b517f8a95ccfcbf5130a3429c639d45e1a', class: "gcds-topic-menu", "aria-labelledby": "gcds-topic-menu__heading" }, h("gcds-sr-only", { key: '8b11792760daf57c8991c78b0258dba19f78d57f', id: "gcds-topic-menu__heading", tag: "h2" }, I18N$1[lang].menuLabelFull), h("button", { key: '41190295fe3d65d13aa28f44fedf010bef4059d6', "aria-haspopup": "true", "aria-expanded": this.open.toString(), "aria-label": I18N$1[lang].buttonLabel, onClick: async () => await this.toggleNav(), ref: element => (this.menuButton = element), class: home && 'gcds-topic-menu--home' }, this.lang == 'en' ? (h(Fragment, null, h("gcds-sr-only", { tag: "span" }, I18N$1[lang].menuLabelHidden), I18N$1[lang].menuToggle)) : (h(Fragment, null, I18N$1[lang].menuToggle, h("gcds-sr-only", { tag: "span" }, I18N$1[lang].menuLabelHidden))), h("gcds-icon", { key: '1f378ba85facaa6aa9610ef2cf45b504870b7064', name: "chevron-down", "margin-left": "100", size: "text-small" })), h("ul", { key: 'a9250f162fe7f32ec9c0b561366d2723834e0990', role: "menu", "aria-orientation": "vertical", "data-top-menu": true, innerHTML: this.listItems, ref: element => (this.themeList = element) }))));
+        return (h(Host, { key: '77e9f945df4058bd3c547231d6cdb6ec9052fc84' }, h("nav", { key: '5ca25a73101119a0ceffd543c7ff55b7d891e994', class: "gcds-topic-menu", "aria-labelledby": "gcds-topic-menu__heading" }, h("gcds-sr-only", { key: 'dd8d544d5de7d0445e1e163481fae5b25497d811', id: "gcds-topic-menu__heading", tag: "h2" }, I18N$1[lang].menuLabelFull), h("button", { key: '5b7d43ea46077bc46f364c4eaaa4ebfbd1fd3ec7', "aria-haspopup": "true", "aria-expanded": this.open.toString(), "aria-label": I18N$1[lang].buttonLabel, onClick: async () => await this.toggleNav(), ref: element => (this.menuButton = element), class: home && 'gcds-topic-menu--home' }, this.lang == 'en' ? (h(Fragment, null, h("gcds-sr-only", { tag: "span" }, I18N$1[lang].menuLabelHidden), I18N$1[lang].menuToggle)) : (h(Fragment, null, I18N$1[lang].menuToggle, h("gcds-sr-only", { tag: "span" }, I18N$1[lang].menuLabelHidden))), h("gcds-icon", { key: '72b28e6124b97e3781e693b0811c012d9a18dcd9', name: "chevron-down", "margin-left": "100", size: "text-small" })), h("ul", { key: '0dc47fdd32219dec0313e04da9e5e6df57dc906e', role: "menu", "aria-orientation": "vertical", "data-top-menu": true, innerHTML: this.listItems, ref: element => (this.themeList = element) }))));
     }
     get el() { return getElement(this); }
 };
@@ -5782,7 +5917,7 @@ const GcdsVerifyBanner = class {
     }
     render() {
         const { container, isFixed, lang } = this;
-        return (h(Host, { key: '48153c15ce4d671d0bf60ddbe3d336e5e0be81af' }, h("details", { key: '2e617043b0000ff20429eb9a46324a2f40fb1a95', class: `gcds-verify-banner ${isFixed ? 'verify-banner--is-fixed' : ''}` }, h("summary", { key: '4fa310845587a590815de9ffcb7e7c50354020b9', class: container ? `container-${container}` : '', "aria-expanded": "false", role: "button" }, h("span", { key: '094552cb86ed9ac56935441e352e2ea9ec4671c8', class: "svg-container", innerHTML: CanadaFlag }), h("p", { key: '813aa039eddf1b68d3db854e90165f9314a59888' }, h("small", { key: '2161ed4e25a9680194da06614344365fafe327d1' }, I18N[lang].summary.text), h("button", { key: '5192428be907c4e5d951b5871fd5af436b40c4fd', class: "verify-banner__toggle" }, h("small", { key: 'b18b2fccc1b7bd85dacd2a07a590cad716fe8bc9' }, I18N[lang].summary.link), h("span", { key: '53007393e80408a5486ed2539ca8abdfb2e3808a', class: "svg-container", innerHTML: ContentToggleArrow })))), h("div", { key: 'e7737a8d5fbc9f70aa1579d5258dd5e8053b849c', class: `verify-banner__content ${container ? `container-${container}` : ''}` }, h("p", { key: '474171c6a6bbbb8772e7f0485dfffb51a864ff05' }, h("small", { key: '3bf99ee8fcf04df4f1fdce2e637b561137c38188' }, I18N[lang].content.description)), h("br", { key: 'fd2af592a4462cf079ee227bbe15934fb8d4d5b4' }), h("gcds-grid", { key: '2c3f42400363486e7b662dbc70b4a4a9c873255a', tag: "ul", container: "lg", columns: "1fr", "columns-tablet": container === 'xs' || container === 'sm' ? '1fr' : '1fr 1fr' }, h("li", { key: 'e251f3f8663eebe19d3a59aa9d46822bdc097273' }, h("h4", { key: '277e4d0462a8b78280e5636d87026998efeb9361' }, I18N[lang].content.url.heading), h("p", { key: '8e0b9981deaf0221533ceb24f2f733eec19825f7' }, h("small", { key: 'be67900e62262b8d019e7bdeee7b63e90a1075b3' }, I18N[lang].content.url.text))), h("li", { key: '0893412462dfff8f9f214395295447d9fdd34f16' }, h("h4", { key: '7d3562b810abdd8d961744cb239181e2e1b50580' }, I18N[lang].content.languages.heading), h("p", { key: '0aba8b207788f423a8e4566fccf77d86d3e56ef8' }, h("small", { key: 'c9b4012e2ed096b86a5eefa1f7fe917daa573049' }, I18N[lang].content.languages.text))), h("li", { key: 'e232beacff8ce2f22889e661dbbb0d866f029e28' }, h("h4", { key: '4303bdb3c1209eceba4076dc53162d62d9671a8d' }, I18N[lang].content.https.heading), h("p", { key: '5807627918a98faa18893bd85829561afb3d5746' }, h("small", { key: '7d1b8e8e56cade3c18cac32837c3d5adc3c88889' }, I18N[lang].content.https.text, " ", h("strong", { key: 'f4fcc669ccaa40756d3d69a23b8466188e78a47c' }, "https://"), "."))), h("li", { key: '5e388710ae4ef3923909cc9f0442a18a185243f0' }, h("h4", { key: 'c92b10a99089c96363e126358acf26d2c6098404' }, I18N[lang].content.contact.heading), h("p", { key: '9a6736ffdd9bbd9111411c4aaddbe97256b0db21' }, h("small", { key: 'b7d1b456d226778ecb8087f4086f9cef5dd7593b' }, I18N[lang].content.contact.text))))))));
+        return (h(Host, { key: '79bc4dc615e909274744d7c9658fbe004c2bf6bc' }, h("details", { key: '0e01a3f845f9f882c07b1c34ab51a2f381c8bf5f', class: `gcds-verify-banner ${isFixed ? 'verify-banner--is-fixed' : ''}` }, h("summary", { key: '60a371e675c308932c2f5af336c6e81035ca01f2', class: container ? `container-${container}` : '', "aria-expanded": "false", role: "button" }, h("span", { key: '7b0def4d6a9a4eb3a313fff1fe66a0bc6b1f051a', class: "svg-container", innerHTML: CanadaFlag }), h("p", { key: 'a074a77e354a0166aa6770f32fd83d1cdbd8532a' }, h("small", { key: '1acc5177f5d3ba56d97816fe2f99a7568107e433' }, I18N[lang].summary.text), h("button", { key: 'ec6a3f1625d23552f8d31c0cde5803ddc2a77272', class: "verify-banner__toggle" }, h("small", { key: '3f6d49e3165de7c1c6b2e7d6d06d274f0fbdd56a' }, I18N[lang].summary.link), h("span", { key: '153fc0c626c8a986db416c5ac29713a2ac0fcdf1', class: "svg-container", innerHTML: ContentToggleArrow })))), h("div", { key: 'e81165bfd96795ccf462da1d4a1dda868395cce5', class: `verify-banner__content ${container ? `container-${container}` : ''}` }, h("p", { key: '22045e8846b47339074fd5f38f031ca4b8959d8d' }, h("small", { key: '473ff5b3a65b167204a67097f66a6d84d0a4ce23' }, I18N[lang].content.description)), h("br", { key: '15af7e05f46d20060c48a59474588e60831a094e' }), h("gcds-grid", { key: '709f44671c2d73683385dbf9621718d9c20bc289', tag: "ul", container: "lg", columns: "1fr", "columns-tablet": container === 'xs' || container === 'sm' ? '1fr' : '1fr 1fr' }, h("li", { key: 'f65ebc8634708bc47b1a32e92782555083685064' }, h("h4", { key: '6c4cf0f3461551b7a0f6c1ab98a00d027f1dd5a2' }, I18N[lang].content.url.heading), h("p", { key: '85f95f3ca4a0fba659d60f6145d3e37089a8ecd4' }, h("small", { key: '1b105c8da0a8976ab8c4e1bad11447be51a65c8f' }, I18N[lang].content.url.text))), h("li", { key: '93c3f0c0487ba36d347f58bffc777ce66de6f3fd' }, h("h4", { key: 'f8481a2a32400da5a36109fa56a962593e0312e2' }, I18N[lang].content.languages.heading), h("p", { key: 'd9596aee415d7c38b2dc9a573805baae85d05a38' }, h("small", { key: '904e6811890b96a3bd96dea52204a6d15e3b44ac' }, I18N[lang].content.languages.text))), h("li", { key: '7844b115d12d5071d9d23ee3f7fef4507461b607' }, h("h4", { key: '36843578e05e2c110e759355324dc428c1902e7b' }, I18N[lang].content.https.heading), h("p", { key: '70cf52e7807ff64061d0ca654f5295e94bb32fd1' }, h("small", { key: '1764d52ed82aecfcf0ca8f533848d08114852403' }, I18N[lang].content.https.text, " ", h("strong", { key: '6675bf241c5f83bb100ccd15d78cd1d6351fdc37' }, "https://"), "."))), h("li", { key: '8779e017066292331a05451847ac7c3d5865999a' }, h("h4", { key: 'd82025f6d665cc8df4ddb97cc73e539c058ae1b0' }, I18N[lang].content.contact.heading), h("p", { key: '391899c66d166527c07eebaa1a017b665a45e354' }, h("small", { key: 'ea86b227a962ba2bfe0784d6bf89b24c592c26ba' }, I18N[lang].content.contact.text))))))));
     }
     get el() { return getElement(this); }
 };

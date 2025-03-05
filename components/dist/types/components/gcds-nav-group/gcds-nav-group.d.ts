@@ -38,6 +38,10 @@ export declare class GcdsNavGroup {
      * Style of nav to render based on parent
      */
     navStyle: string;
+    /**
+     * Position of nav for mobile menu logic
+     */
+    navPosiiton: number;
     focusOutListener(e: any): Promise<void>;
     /**
      * Focus button element

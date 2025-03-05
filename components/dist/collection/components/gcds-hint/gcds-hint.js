@@ -5,7 +5,7 @@ export class GcdsHint {
     }
     render() {
         const { hintId } = this;
-        return (h(Host, { key: '70f6130f318cfea9a1743eb60472aa832fb213ee', id: `hint-${hintId}` }, h("gcds-text", { key: '4d159a2f81cac7b9e442b4268143400b334858ef', class: "gcds-hint", "margin-bottom": "0", part: "hint" }, h("slot", { key: 'cf8b840c22e2238b051c5804bb46fbd8272e764d' }))));
+        return (h(Host, { key: '8e9af18f71f043062a78de179236357539afe979', id: `hint-${hintId}` }, h("gcds-text", { key: 'bac3fc4edbbb00b2191989bc155636aa0ab6c68c', class: "gcds-hint", "margin-bottom": "0", part: "hint" }, h("slot", { key: '1fdb52992e56952156704305469a85e30b2bb398' }))));
     }
     static get is() { return "gcds-hint"; }
     static get encapsulation() { return "shadow"; }

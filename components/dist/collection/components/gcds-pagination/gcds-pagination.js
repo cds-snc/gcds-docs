@@ -47,6 +47,7 @@ export class GcdsPagination {
             : 'javascript:void(0)';
         const linkAttrs = {
             'href': href,
+            'tabindex': 0,
             'aria-label': !end
                 ? I18N[this.lang].pageNumberOf
                     .replace('{#}', page)
@@ -71,9 +72,9 @@ export class GcdsPagination {
         if (end) {
             return (h("li", null, end === 'next' ? (h("a", Object.assign({}, linkAttrs, { class: !mobile
                     ? 'gcds-pagination-end-button'
-                    : 'gcds-pagination-end-button-mobile' }), I18N[this.lang].next, h("gcds-icon", { "margin-left": "150", name: "arrow-right" }))) : (h("a", Object.assign({}, linkAttrs, { class: !mobile
+                    : 'gcds-pagination-end-button-mobile' }), I18N[this.lang].next, h("gcds-icon", { "margin-left": "150", name: "chevron-right" }))) : (h("a", Object.assign({}, linkAttrs, { class: !mobile
                     ? 'gcds-pagination-end-button'
-                    : 'gcds-pagination-end-button-mobile' }), h("gcds-icon", { "margin-right": "150", name: "arrow-left" }), mobile
+                    : 'gcds-pagination-end-button-mobile' }), h("gcds-icon", { "margin-right": "150", name: "chevron-left" }), mobile
                 ? I18N[this.lang].previousMobile
                 : I18N[this.lang].previous))));
         }
@@ -186,7 +187,7 @@ export class GcdsPagination {
     }
     render() {
         const { display, label, previousHref, previousLabel, nextHref, nextLabel, lang, } = this;
-        return (h(Host, { key: '656ddb9d8d820d56dc2246ca3da4e1c09a0a346b', role: "navigation", "aria-label": label }, h("div", { key: 'a8fc0c37588e8cf0700999b3875b4cfad7195129', class: "gcds-pagination" }, display === 'list' ? (h("div", null, h("ul", { class: "gcds-pagination-list" }, this.listitems), h("ul", { class: "gcds-pagination-list-mobile-prevnext" }, this.mobilePrevNext))) : (h("ul", { class: "gcds-pagination-simple" }, previousHref && (h("li", { class: "gcds-pagination-simple-previous" }, h("a", { href: previousHref, "aria-label": `${I18N[lang].previousPage}${previousLabel ? `: ${previousLabel}` : ''}`, onBlur: () => this.gcdsBlur.emit(), onFocus: () => this.gcdsFocus.emit(), onClick: e => emitEvent(e, this.gcdsClick, previousHref) }, h("gcds-icon", { "margin-right": "150", name: "arrow-left" }), h("div", { class: "gcds-pagination-simple-text" }, I18N[lang].previous), h("span", null, previousLabel)))), nextHref && (h("li", { class: "gcds-pagination-simple-next" }, h("a", { href: nextHref, "aria-label": `${I18N[lang].nextPage}${nextLabel ? `: ${nextLabel}` : ''}`, onBlur: () => this.gcdsBlur.emit(), onFocus: () => this.gcdsFocus.emit(), onClick: e => emitEvent(e, this.gcdsClick, nextHref) }, h("div", { class: "gcds-pagination-simple-text" }, I18N[lang].next), h("span", null, nextLabel), h("gcds-icon", { "margin-left": "150", name: "arrow-right" })))))))));
+        return (h(Host, { key: '5ff20c1b40e3f30430ab005d263b30b48c5be3d6', role: "navigation", "aria-label": label }, h("div", { key: '6dfb86d512fdd30b1298c4864113e6ed68adc06a', class: "gcds-pagination" }, display === 'list' ? (h("div", null, h("ul", { class: "gcds-pagination-list" }, this.listitems), h("ul", { class: "gcds-pagination-list-mobile-prevnext" }, this.mobilePrevNext))) : (h("ul", { class: "gcds-pagination-simple" }, previousHref && (h("li", { class: "gcds-pagination-simple-previous" }, h("a", { href: previousHref, tabindex: 0, "aria-label": `${I18N[lang].previousPage}${previousLabel ? `: ${previousLabel}` : ''}`, onBlur: () => this.gcdsBlur.emit(), onFocus: () => this.gcdsFocus.emit(), onClick: e => emitEvent(e, this.gcdsClick, previousHref) }, h("gcds-icon", { "margin-right": "150", name: "chevron-left" }), h("div", { class: "gcds-pagination-simple-text" }, I18N[lang].previous), h("span", null, previousLabel)))), nextHref && (h("li", { class: "gcds-pagination-simple-next" }, h("a", { href: nextHref, tabindex: 0, "aria-label": `${I18N[lang].nextPage}${nextLabel ? `: ${nextLabel}` : ''}`, onBlur: () => this.gcdsBlur.emit(), onFocus: () => this.gcdsFocus.emit(), onClick: e => emitEvent(e, this.gcdsClick, nextHref) }, h("div", { class: "gcds-pagination-simple-text" }, I18N[lang].next), h("span", null, nextLabel), h("gcds-icon", { "margin-left": "150", name: "chevron-right" })))))))));
     }
     static get is() { return "gcds-pagination"; }
     static get encapsulation() { return "shadow"; }

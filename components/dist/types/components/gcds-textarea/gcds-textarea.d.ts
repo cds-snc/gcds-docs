@@ -60,6 +60,10 @@ export declare class GcdsTextarea {
      */
     value?: string;
     /**
+     * Set value on internal textarea to allow proper resets
+     */
+    watchValue(val: any): void;
+    /**
      * Array of validators
      */
     validator: Array<string | ValidatorEntry | Validator<string>>;

@@ -61,19 +61,23 @@ export async function handleKeyDownNav(event, nav, queue) {
                 await toggleNavGroup(queue[queue.length - 1], nav);
             }
             break;
-        // Tab - only in top-nav
+        // Tab - special logic on mobile screen size
         case 'Tab':
-            if (nav.nodeName != 'GCDS-SIDE-NAV') {
-                // On open nav trigger
-                if (activeElement.nodeName == 'GCDS-NAV-GROUP' &&
-                    activeElement.hasAttribute('open')) {
-                    event.preventDefault();
-                    await toggleNavGroup(activeElement, nav);
-                    // In open nav group
+            if ((await nav.getNavSize()) == 'mobile') {
+                // shift + tab
+                if (event.shiftKey) {
+                    if (currentIndex == queue.length - 1 &&
+                        activeElement.hasAttribute('open')) {
+                        event.preventDefault();
+                        await focusNavItem(queue.length - 2, queue);
+                    }
                 }
-                else if (activeElement.parentNode.nodeName == 'GCDS-NAV-GROUP') {
-                    event.preventDefault();
-                    await toggleNavGroup(activeElement.parentNode, nav);
+                else {
+                    // tab
+                    if (currentIndex == queue.length - 2) {
+                        event.preventDefault();
+                        await focusNavItem(queue.length - 1, queue);
+                    }
                 }
             }
             break;
@@ -119,12 +123,7 @@ async function toggleNavGroup(group, nav) {
         setTimeout(async () => {
             await focusNavItem(0, document.activeElement == nav ? nav.children : navGroup.children);
         }, 10);
-        if (nav.nodeName == 'GCDS-SIDE-NAV') {
-            nav.updateNavItemQueue(nav);
-        }
-        else {
-            nav.updateNavItemQueue(document.activeElement == nav ? nav : navGroup, document.activeElement == nav ? false : true);
-        }
+        nav.updateNavItemQueue(nav);
     }
 }
 /**

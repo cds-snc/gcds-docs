@@ -1,5 +1,6 @@
 import { Host, h } from "@stencil/core";
 import { assignLanguage, observerConfig, logError } from "../../utils/utils";
+import i18n from "./i18n/i18n";
 export class GcdsNotice {
     constructor() {
         this.type = undefined;
@@ -82,7 +83,7 @@ export class GcdsNotice {
             success: 'check-circle',
             warning: 'exclamation-triangle',
         };
-        return (h(Host, { key: 'b2e164006dfa7bdbefbfea565e99b56107d4b860' }, this.validateRequiredProps() && (h("section", { key: '53c1c6def3c260efea32c5d024eac59750be8dab', class: `gcds-notice notice--type-${type}` }, h("gcds-icon", { key: 'f4b88229b0723e63edef882d44faf155eccd7ea2', class: "notice__icon", size: "h4", name: iconTypes[type] }), h("div", { key: '551792b1a73d873aa1139151af829f3dd83d97f5' }, h("gcds-heading", { key: 'fd790db93fac16a22103243af53c0385ac9b955b', tag: noticeTitleTag, "margin-top": "0", "margin-bottom": "100", class: "notice__heading" }, noticeTitle), h("slot", { key: '5755a641b120de8f93b3fab7e8438d4c2764f528' }))))));
+        return (h(Host, { key: 'cc0b6ce484789c05fd099b7e0c0b94396bbf5cc9' }, this.validateRequiredProps() && (h("section", { key: '3643290523b2d266a8ac0a8422652782a5a1a7ca', class: `gcds-notice notice--type-${type}` }, h("gcds-icon", { key: '2be06da9bca52fa70ded02fad226c2c434186731', class: "notice__icon", size: "h4", name: iconTypes[type] }), h("div", { key: '2da5c9fe4808e1a5b79f7dfd04ca24b2cb3519e3' }, h("gcds-heading", { key: '733544e235c0832101c79c82a140d42bb6eb783a', tag: noticeTitleTag, "margin-top": "0", "margin-bottom": "100", class: "notice__heading" }, h("gcds-sr-only", { key: '34c677889a234722b2e672ebae4b700801dc8f67', tag: "span" }, i18n[this.lang][type]), noticeTitle), h("slot", { key: 'bdb1a6843f3386d766f241a62edfea9d06e3fad6' }))))));
     }
     static get is() { return "gcds-notice"; }
     static get encapsulation() { return "shadow"; }
@@ -144,7 +145,7 @@ export class GcdsNotice {
                 "optional": false,
                 "docs": {
                     "tags": [],
-                    "text": "Set notice title heading tag."
+                    "text": "The notice title tag property specifies the HTML heading element for the title.\nThis property does not modify the font size. It is used to assign the heading level\nin order to maintain heading hierarchy and accessibility for assistive technologies."
                 },
                 "attribute": "notice-title-tag",
                 "reflect": false

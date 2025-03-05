@@ -89,7 +89,7 @@ export class GcdsCard {
             taggedAttr['aria-describedby'] = 'gcds-badge';
         }
         if (this.validateRequiredProps()) {
-            return (h(Host, { key: '124e17eb577553da16ff506265dd5d7cba152b4b' }, h("div", { key: '97a3007905773f8d492d2e922db6492e754bee78', class: "gcds-card" }, badge && !errors.includes('badge') && (h("gcds-text", { key: 'a80df555afd0a45a199647e81ee2dec228802612', id: "gcds-badge", class: "gcds-badge", "text-role": "light", "margin-bottom": "0", size: "small" }, h("strong", { key: 'f12b963c86c4d79ad42b58fefffb6421d636bfc8' }, h("gcds-sr-only", { key: '1a803e937a2f52812f3b89bcd496b3181f933f6c' }, i18n[lang].tagged), badge))), imgSrc && (h("img", { key: 'b4a7c3d05fca6a235690d216e0ea9803a478f5b4', src: imgSrc, alt: imgAlt ? imgAlt : '', class: "gcds-card__image" })), Element != 'a' ? (h(Element, Object.assign({ class: "gcds-card__title" }, taggedAttr), h("gcds-link", { href: href }, cardTitle))) : (h("gcds-link", Object.assign({ href: href, class: "gcds-card__title" }, taggedAttr), cardTitle)), renderDescription)));
+            return (h(Host, { key: '1ca25f4b643e43fbfd1c44acc397921f30f32d8f' }, h("div", { key: 'ceb107cae158eaee0c3c545cd7f17b104742ac6a', class: "gcds-card" }, badge && !errors.includes('badge') && (h("gcds-text", { key: '2fdbe2d8fb6ee0526cc81a4a27bd43d8a4c05353', id: "gcds-badge", class: "gcds-badge", "text-role": "light", "margin-bottom": "0", size: "small" }, h("strong", { key: '4f3abc137cc4825a59a50f992b97a2f9b2d2cfa4' }, h("gcds-sr-only", { key: 'fe5592bd351ceb2017acb1822ccf39efb292abb7' }, i18n[lang].tagged), badge))), imgSrc && (h("img", { key: 'c3b94f98e9900ad8b5acc82dc8f1db56ae38496e', src: imgSrc, alt: imgAlt ? imgAlt : '', class: "gcds-card__image" })), Element != 'a' ? (h(Element, Object.assign({ class: "gcds-card__title" }, taggedAttr), h("gcds-link", { href: href }, cardTitle))) : (h("gcds-link", Object.assign({ href: href, class: "gcds-card__title" }, taggedAttr), cardTitle)), renderDescription)));
         }
     }
     static get is() { return "gcds-card"; }
@@ -152,7 +152,7 @@ export class GcdsCard {
                 "optional": false,
                 "docs": {
                     "tags": [],
-                    "text": "The card title tag attribute specifies HTML element the title renders as"
+                    "text": "The card title tag property specifies the HTML heading element for the title.\nThis property does not modify the font size. It is used to assign the heading level\nin order to maintain heading hierarchy and accessibility for assistive technologies."
                 },
                 "attribute": "card-title-tag",
                 "reflect": false,

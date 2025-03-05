@@ -79,6 +79,48 @@ declare const _default: {
                 };
             };
         };
+        gap: {
+            control: {
+                type: string;
+            };
+            options: string[];
+            table: {
+                type: {
+                    summary: string;
+                };
+                defaultValue: {
+                    summary: string;
+                };
+            };
+        };
+        gapTablet: {
+            control: {
+                type: string;
+            };
+            options: string[];
+            table: {
+                type: {
+                    summary: string;
+                };
+                defaultValue: {
+                    summary: string;
+                };
+            };
+        };
+        gapDesktop: {
+            control: {
+                type: string;
+            };
+            options: string[];
+            table: {
+                type: {
+                    summary: string;
+                };
+                defaultValue: {
+                    summary: string;
+                };
+            };
+        };
         tag: {
             control: {
                 type: string;
@@ -199,6 +241,9 @@ export declare const Default: any;
 export declare const Columns: any;
 export declare const ColumnsTablet: any;
 export declare const ColumnsDesktop: any;
+export declare const Gap: any;
+export declare const GapTablet: any;
+export declare const GapDesktop: any;
 export declare const Fluid: any;
 export declare const Fixed: any;
 export declare const Hybrid: any;

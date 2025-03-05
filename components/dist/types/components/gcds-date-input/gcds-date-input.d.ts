@@ -123,10 +123,6 @@ export declare class GcdsDateInput {
      * Split value into parts depending on format
      */
     private splitFormValue;
-    /**
-     * Format day input value to add 0 to single digit values
-     */
-    private formatDay;
     private validateRequiredProps;
     componentWillLoad(): Promise<void>;
     componentWillUpdate(): void;

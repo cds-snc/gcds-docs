@@ -17,7 +17,7 @@ const I18N = {
   },
 };
 
-const gcdsLangToggleCss = "@layer reset, default, desktop;@layer reset{:host{display:block}:host .gcds-lang-toggle h2{margin:0;overflow:hidden;position:absolute;width:0}}@layer default{:host .gcds-lang-toggle gcds-link::part(link){padding:var(--gcds-lang-toggle-padding)}:host .gcds-lang-toggle span{display:none}:host .gcds-lang-toggle abbr{text-decoration:none;text-transform:uppercase}}@layer desktop{@media screen and (width >= 64em){:host .gcds-lang-toggle gcds-link::part(link){padding:0}:host .gcds-lang-toggle span{display:initial}:host .gcds-lang-toggle abbr{display:none}}}";
+const gcdsLangToggleCss = "@layer reset, default, desktop, mobile;@layer reset{:host{display:block}:host .gcds-lang-toggle h2{margin:0;overflow:hidden;position:absolute;width:0}}@layer default{:host .gcds-lang-toggle gcds-link::part(link){padding:var(--gcds-lang-toggle-padding)}:host .gcds-lang-toggle span{display:none}:host .gcds-lang-toggle abbr{text-decoration:none;text-transform:uppercase}}@layer desktop{@media screen and (width >= 48em){:host .gcds-lang-toggle gcds-link::part(link){font:var(--gcds-lang-toggle-font-desktop);padding:0}:host .gcds-lang-toggle span{display:initial}:host .gcds-lang-toggle abbr{display:none}}}@layer mobile{@media screen and (width < 48em){:host .gcds-lang-toggle gcds-link::part(link){font:var(--gcds-lang-toggle-font-mobile)}}}";
 const GcdsLangToggleStyle0 = gcdsLangToggleCss;
 
 const GcdsLangToggle = /*@__PURE__*/ proxyCustomElement(class GcdsLangToggle extends HTMLElement {
@@ -46,7 +46,7 @@ const GcdsLangToggle = /*@__PURE__*/ proxyCustomElement(class GcdsLangToggle ext
     }
     render() {
         const { lang, href } = this;
-        return (h(Host, { key: 'eb21f31e07263f63e9e6bd81e03b7d69e7fc5c22' }, h("div", { key: 'f259bdd2095c8fbec75ac4958192de54f1446efd', class: "gcds-lang-toggle" }, h("gcds-sr-only", { key: '5f1c04d337fd5b8b190be3e9c5731f640b80f89c', id: "lang-toggle__heading", tag: "h2" }, I18N[lang].heading), h("gcds-link", { key: 'c0343104552957383ad0e0c06929cb7987f568b1', size: "regular", href: href, lang: I18N[lang].abbreviation }, h("span", { key: 'dbf125e2a0b95bcab90bc38ba8a508b18cdbe1a0' }, I18N[lang].language), h("abbr", { key: '4959f73d060789b0666d0cae393833437c54de5c', title: I18N[lang].language }, I18N[lang].abbreviation)))));
+        return (h(Host, { key: '05fc4f7ec61276b9e15ccb9fe75f257049bf3577' }, h("div", { key: 'dc156971e988f7c4024ad760777e27f65c30b533', class: "gcds-lang-toggle" }, h("gcds-sr-only", { key: 'dae3c2e582bbe214f9ec8422bacc3f6bb5f61dfe', id: "lang-toggle__heading", tag: "h2" }, I18N[lang].heading), h("gcds-link", { key: '6bf0e599cace009ab90efce6a355389b3374e8a7', size: "regular", href: href, lang: I18N[lang].abbreviation }, h("span", { key: 'cba5121aac09ac07fabc7c409653d83126f1da9d' }, I18N[lang].language), h("abbr", { key: 'bf8fc9ac514ed5c243c52d63be1cef06cb024b9e', title: I18N[lang].language }, I18N[lang].abbreviation)))));
     }
     get el() { return this; }
     static get style() { return GcdsLangToggleStyle0; }

@@ -48,6 +48,7 @@ const GcdsTextarea$1 = /*@__PURE__*/ proxyCustomElement(class GcdsTextarea exten
             const val = e.target && e.target.value;
             this.value = val;
             this.internals.setFormValue(val ? val : null);
+            this.shadowElement.value = val;
             if (e.type === 'change') {
                 const changeEvt = new e.constructor(e.type, e);
                 this.el.dispatchEvent(changeEvt);
@@ -87,6 +88,12 @@ const GcdsTextarea$1 = /*@__PURE__*/ proxyCustomElement(class GcdsTextarea exten
         else if (this.errorMessage == '') {
             this.hasError = false;
         }
+    }
+    /**
+     * Set value on internal textarea to allow proper resets
+     */
+    watchValue(val) {
+        this.shadowElement.value = val;
     }
     validateValidator() {
         if (this.validator && !this.validateOn) {
@@ -195,7 +202,7 @@ const GcdsTextarea$1 = /*@__PURE__*/ proxyCustomElement(class GcdsTextarea exten
                 ? `${attrsTextarea['aria-describedby']}`
                 : ''}`;
         }
-        return (h(Host, { key: 'eddcbe5d7d6704ab4f4ac7452e4c716537f222d0' }, h("div", { key: 'f11ccf8faf0ed5ade048612804c36bebb4ba9a1f', class: `gcds-textarea-wrapper ${disabled ? 'gcds-disabled' : ''} ${hasError ? 'gcds-error' : ''}` }, h("gcds-label", Object.assign({ key: '0ce48cd18d70fc0712aa29d21bf6d7e32a2a85eb' }, attrsLabel, { "hide-label": hideLabel, "label-for": textareaId, lang: lang })), hint ? h("gcds-hint", { "hint-id": textareaId }, hint) : null, errorMessage ? (h("gcds-error-message", { messageId: textareaId }, errorMessage)) : null, h("textarea", Object.assign({ key: '2f6686d4bc5b4b28cb9b9739e8bc2e18edc5b465' }, attrsTextarea, { class: hasError ? 'gcds-error' : null, id: textareaId, onBlur: () => this.onBlur(), onFocus: () => this.gcdsFocus.emit(), onInput: e => this.handleInput(e, this.gcdsInput), onChange: e => this.handleInput(e, this.gcdsChange), "aria-labelledby": `label-for-${textareaId}`, "aria-invalid": errorMessage ? 'true' : 'false', maxlength: characterCount ? characterCount : null, style: cols ? style : null, ref: element => (this.shadowElement = element) }), value), characterCount ? (h("gcds-text", { id: `textarea__count-${textareaId}`, "aria-live": "polite" }, value == undefined
+        return (h(Host, { key: 'e5cdb0e03c5505718d0f4bd243d9116930de61f3' }, h("div", { key: 'c3a8586573b71afc009a19a354d75830173118c9', class: `gcds-textarea-wrapper ${disabled ? 'gcds-disabled' : ''} ${hasError ? 'gcds-error' : ''}` }, h("gcds-label", Object.assign({ key: '085d50affa19245829eee1b852db40f7fb0d4ad3' }, attrsLabel, { "hide-label": hideLabel, "label-for": textareaId, lang: lang })), hint ? h("gcds-hint", { "hint-id": textareaId }, hint) : null, errorMessage ? (h("gcds-error-message", { messageId: textareaId }, errorMessage)) : null, h("textarea", Object.assign({ key: '0dcdc6ee22ef0bc7a5c6c722723c61b55cf701f1' }, attrsTextarea, { class: hasError ? 'gcds-error' : null, id: textareaId, onBlur: () => this.onBlur(), onFocus: () => this.gcdsFocus.emit(), onInput: e => this.handleInput(e, this.gcdsInput), onChange: e => this.handleInput(e, this.gcdsChange), "aria-labelledby": `label-for-${textareaId}`, "aria-invalid": errorMessage ? 'true' : 'false', maxlength: characterCount ? characterCount : null, style: cols ? style : null, ref: element => (this.shadowElement = element) }), value), characterCount ? (h("gcds-text", { id: `textarea__count-${textareaId}`, "aria-live": "polite" }, value == undefined
             ? `${characterCount} ${I18N[lang].characters.allowed}`
             : `${characterCount - value.length} ${I18N[lang].characters.left}`)) : null)));
     }
@@ -205,6 +212,7 @@ const GcdsTextarea$1 = /*@__PURE__*/ proxyCustomElement(class GcdsTextarea exten
     static get watchers() { return {
         "disabled": ["validateDisabledTextarea"],
         "errorMessage": ["validateErrorMessage"],
+        "value": ["watchValue"],
         "validator": ["validateValidator"],
         "hasError": ["validateHasError"]
     }; }
@@ -231,6 +239,7 @@ const GcdsTextarea$1 = /*@__PURE__*/ proxyCustomElement(class GcdsTextarea exten
     }, [[4, "submit", "submitListener"]], {
         "disabled": ["validateDisabledTextarea"],
         "errorMessage": ["validateErrorMessage"],
+        "value": ["watchValue"],
         "validator": ["validateValidator"],
         "hasError": ["validateHasError"]
     }]);

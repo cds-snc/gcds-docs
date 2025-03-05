@@ -50,6 +50,81 @@ export default {
                 defaultValue: { summary: false },
             },
         },
+        gap: {
+            control: { type: 'select' },
+            options: [
+                '150',
+                '175',
+                '200',
+                '225',
+                '250',
+                '300',
+                '350',
+                '400',
+                '450',
+                '500',
+                '550',
+                '600',
+                '650',
+                '700',
+                '750',
+                '800',
+            ],
+            table: {
+                type: { summary: 'string' },
+                defaultValue: { summary: '300' },
+            },
+        },
+        gapTablet: {
+            control: { type: 'select' },
+            options: [
+                '150',
+                '175',
+                '200',
+                '225',
+                '250',
+                '300',
+                '350',
+                '400',
+                '450',
+                '500',
+                '550',
+                '600',
+                '650',
+                '700',
+                '750',
+                '800',
+            ],
+            table: {
+                type: { summary: 'string' },
+                defaultValue: { summary: '-' },
+            },
+        },
+        gapDesktop: {
+            control: { type: 'select' },
+            options: [
+                '150',
+                '175',
+                '200',
+                '225',
+                '250',
+                '300',
+                '350',
+                '400',
+                '450',
+                '500',
+                '550',
+                '600',
+                '650',
+                '700',
+                '750',
+                '800',
+            ],
+            table: {
+                type: { summary: 'string' },
+                defaultValue: { summary: '-' },
+            },
+        },
         tag: {
             control: { type: 'select' },
             options: [
@@ -160,12 +235,12 @@ export default {
 };
 const Template = args => `
 <!-- Web component code (HTML, Angular, Vue) -->
-<gcds-grid ${args.tag != 'div' ? `tag="${args.tag}"` : null} ${args.container != 'full' ? `container="${args.container}"` : null} ${args.columnsDesktop ? `columns-desktop="${args.columnsDesktop}"` : null} ${args.columnsTablet ? `columns-tablet="${args.columnsTablet}"` : null} ${args.columns ? `columns="${args.columns}"` : null} ${args.alignContent ? `align-content="${args.alignContent}"` : null} ${args.justifyContent ? `justify-content="${args.justifyContent}"` : null} ${args.placeContent ? `place-content="${args.placeContent}"` : null} ${args.alignItems ? `align-items="${args.alignItems}"` : null} ${args.justifyItems ? `justify-items="${args.justifyItems}"` : null} ${args.placeItems ? `place-items="${args.placeItems}"` : null} ${args.equalRowHeight ? `equal-row-height` : null}>
+<gcds-grid ${args.tag != 'div' ? `tag="${args.tag}"` : null} ${args.container != 'full' ? `container="${args.container}"` : null} ${args.columnsDesktop ? `columns-desktop="${args.columnsDesktop}"` : null} ${args.columnsTablet ? `columns-tablet="${args.columnsTablet}"` : null} ${args.columns ? `columns="${args.columns}"` : null} ${args.alignContent ? `align-content="${args.alignContent}"` : null} ${args.justifyContent ? `justify-content="${args.justifyContent}"` : null} ${args.placeContent ? `place-content="${args.placeContent}"` : null} ${args.alignItems ? `align-items="${args.alignItems}"` : null} ${args.justifyItems ? `justify-items="${args.justifyItems}"` : null} ${args.placeItems ? `place-items="${args.placeItems}"` : null} ${args.equalRowHeight ? `equal-row-height` : null} ${args.gap != '300' ? `gap="${args.gap}"` : null} ${args.gapTablet ? `gap-tablet="${args.gapTablet}"` : null} ${args.gapDesktop ? `gap-desktop="${args.gapDesktop}"` : null}>
   ${args.default ? args.default : null}
 </gcds-grid>
 
 <!-- React code -->
-<GcdsGrid ${args.tag != 'div' ? `tag="${args.tag}"` : null} ${args.container != 'full' ? `container="${args.container}"` : null} ${args.columnsDesktop ? `columnsDesktop="${args.columnsDesktop}"` : null} ${args.columnsTablet ? `columnsTablet="${args.columnsTablet}"` : null} ${args.columns ? `columns="${args.columns}"` : null} ${args.alignContent ? `alignContent="${args.alignContent}"` : null} ${args.justifyContent ? `justifyContent="${args.justifyContent}"` : null} ${args.placeContent ? `placeContent="${args.placeContent}"` : null} ${args.alignItems ? `alignItems="${args.alignItems}"` : null} ${args.justifyItems ? `justifyItems="${args.justifyItems}"` : null} ${args.placeItems ? `placeItems="${args.placeItems}"` : null} ${args.equalRowHeight ? `equalRowHeight` : null}>
+<GcdsGrid ${args.tag != 'div' ? `tag="${args.tag}"` : null} ${args.container != 'full' ? `container="${args.container}"` : null} ${args.columnsDesktop ? `columnsDesktop="${args.columnsDesktop}"` : null} ${args.columnsTablet ? `columnsTablet="${args.columnsTablet}"` : null} ${args.columns ? `columns="${args.columns}"` : null} ${args.alignContent ? `alignContent="${args.alignContent}"` : null} ${args.justifyContent ? `justifyContent="${args.justifyContent}"` : null} ${args.placeContent ? `placeContent="${args.placeContent}"` : null} ${args.alignItems ? `alignItems="${args.alignItems}"` : null} ${args.justifyItems ? `justifyItems="${args.justifyItems}"` : null} ${args.placeItems ? `placeItems="${args.placeItems}"` : null} ${args.equalRowHeight ? `equalRowHeight` : null} ${args.gap != '300' ? `gap="${args.gap}"` : null} ${args.gapTablet ? `gapTablet="${args.gapTablet}"` : null} ${args.gapDesktop ? `gapDesktop="${args.gapDesktop}"` : null}>
   ${args.default ? args.default : null}
 </GcdsGrid>
 `.replace(/ null/g, '');
@@ -196,6 +271,9 @@ const TemplatePlayground = args => `
   ${args.justifyItems ? `justify-items="${args.justifyItems}"` : null}
   ${args.placeItems ? `place-items="${args.placeItems}"` : null}
   ${args.equalRowHeight ? `equal-row-height` : null}
+  ${args.gap != '300' ? `gap="${args.gap}"` : null}
+  ${args.gapTablet ? `gapTablet="${args.gapTablet}"` : null}
+  ${args.gapDesktop ? `gapDesktop="${args.gapDesktop}"` : null}
 >
   ${args.default ? args.default : null}
 </gcds-grid>
@@ -207,6 +285,7 @@ Default.args = {
     columnsTablet: '1fr 1fr',
     columns: '1fr',
     container: 'full',
+    gap: '300',
     tag: 'div',
     default: `<p>This is some example content to display the grid component.</p>
   <p>This is some example content to display the grid component.</p>
@@ -218,6 +297,7 @@ export const Columns = Template.bind({});
 Columns.args = {
     columns: '1fr',
     container: 'full',
+    gap: '300',
     tag: 'div',
     default: `<p>This is some example content to display the grid component.</p>
   <p>This is some example content to display the grid component.</p>
@@ -229,6 +309,7 @@ ColumnsTablet.args = {
     columns: '1fr',
     columnsTablet: '1fr 1fr',
     container: 'full',
+    gap: '300',
     tag: 'div',
     default: `<p>This is some example content to display the grid component.</p>
   <p>This is some example content to display the grid component.</p>
@@ -241,6 +322,44 @@ ColumnsDesktop.args = {
     columnsTablet: '1fr 1fr',
     columns: '1fr',
     container: 'full',
+    gap: '300',
+    tag: 'div',
+    default: `<p>This is some example content to display the grid component.</p>
+  <p>This is some example content to display the grid component.</p>
+  <p>This is some example content to display the grid component.</p>
+  <p>This is some example content to display the grid component.</p>`,
+};
+// ------ Grid gap ------
+export const Gap = Template.bind({});
+Gap.args = {
+    columns: '1fr 1fr 1fr 1fr',
+    container: 'full',
+    gap: '150',
+    tag: 'div',
+    default: `<p>This is some example content to display the grid component.</p>
+  <p>This is some example content to display the grid component.</p>
+  <p>This is some example content to display the grid component.</p>
+  <p>This is some example content to display the grid component.</p>`,
+};
+export const GapTablet = Template.bind({});
+GapTablet.args = {
+    columns: '1fr 1fr 1fr 1fr',
+    container: 'full',
+    gap: '150',
+    gapTablet: '450',
+    tag: 'div',
+    default: `<p>This is some example content to display the grid component.</p>
+  <p>This is some example content to display the grid component.</p>
+  <p>This is some example content to display the grid component.</p>
+  <p>This is some example content to display the grid component.</p>`,
+};
+export const GapDesktop = Template.bind({});
+GapDesktop.args = {
+    columns: '1fr 1fr 1fr 1fr',
+    container: 'full',
+    gap: '150',
+    gapTablet: '450',
+    gapDesktop: '800',
     tag: 'div',
     default: `<p>This is some example content to display the grid component.</p>
   <p>This is some example content to display the grid component.</p>
@@ -254,6 +373,7 @@ Fluid.args = {
     columnsTablet: '1fr 1fr',
     columns: '1fr',
     container: 'full',
+    gap: '300',
     tag: 'div',
     default: `<p>This is some example content to display the grid component.</p>
   <p>This is some example content to display the grid component.</p>
@@ -264,6 +384,7 @@ export const Fixed = Template.bind({});
 Fixed.args = {
     columns: 'repeat(auto-fit, minmax(100px, 250px))',
     container: 'full',
+    gap: '300',
     tag: 'div',
     default: `<p>This is some example content to display the grid component.</p>
   <p>This is some example content to display the grid component.</p>
@@ -273,6 +394,7 @@ export const Hybrid = Template.bind({});
 Hybrid.args = {
     columns: 'repeat(auto-fit, minmax(400px, 1fr))',
     container: 'full',
+    gap: '300',
     tag: 'div',
     default: `<p>This is some example content to display the grid component.</p>
   <p>This is some example content to display the grid component.</p>
@@ -281,6 +403,7 @@ Hybrid.args = {
 export const Individual = TemplateIndividual.bind({});
 Individual.args = {
     container: 'full',
+    gap: '300',
     tag: 'div',
     default: 'This is some example content to display the grid component.',
 };
@@ -291,6 +414,7 @@ Tag.args = {
     columnsDesktop: '',
     columnsTablet: '',
     container: 'full',
+    gap: '300',
     tag: 'article',
     default: `<p>This is some example content to display the grid component.</p>
   <p>This is some example content to display the grid component.</p>
@@ -303,6 +427,7 @@ Props.args = {
     columnsDesktop: '',
     columnsTablet: '',
     container: 'full',
+    gap: '300',
     tag: 'div',
     default: `<p>This is some example content to display the grid component.</p>
   <p>This is some example content to display the grid component.</p>
@@ -314,6 +439,7 @@ export const Playground = TemplatePlayground.bind({});
 Playground.args = {
     container: 'full',
     columns: 'repeat(auto-fit, minmax(250px, 1fr))',
+    gap: '300',
     tag: 'div',
     default: `<p>This is some example content to display the grid component.</p>
   <p>This is some example content to display the grid component.</p>

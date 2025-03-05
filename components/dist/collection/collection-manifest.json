@@ -17,7 +17,7 @@
     "components/gcds-fieldset/gcds-fieldset.js",
     "components/gcds-file-uploader/gcds-file-uploader.js",
     "components/gcds-footer/gcds-footer.js",
-    "components/gcds-grid/gcds-grid-col.js",
+    "components/gcds-grid-col/gcds-grid-col.js",
     "components/gcds-header/gcds-header.js",
     "components/gcds-heading/gcds-heading.js",
     "components/gcds-hint/gcds-hint.js",

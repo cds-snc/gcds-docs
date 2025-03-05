@@ -44,7 +44,7 @@ export class GcdsDateModified {
     }
     render() {
         const { lang, type } = this;
-        return (h(Host, { key: '39fca62bf69af99e9d52995d1cea0c22d9c13949' }, this.validateRequiredProps() && (h("dl", { key: 'f9dfcb28b36f5481480233e54e4f66c19016addc', class: "gcds-date-modified" }, h("dt", { key: '71c512bd925df8bf35ad55ba20377340878c670d' }, h("gcds-text", { key: '8964d2b21c1c3660eb5ee4321795275c0006847d', display: "inline", "margin-bottom": "0" }, type === 'version' ? i18n[lang].version : i18n[lang].date)), h("dd", { key: 'f203c814fb4da7ddaf1fab80233b2c1d2448fc68' }, h("gcds-text", { key: '8d20378fb151f0faea84fbfab13a723b0b3d3727', display: "inline", "margin-bottom": "0" }, type === 'version' ? (h("slot", null)) : (h("time", null, h("slot", null)))))))));
+        return (h(Host, { key: 'f63e29a192d3a4d658ca78335b064e84e4143c5b' }, this.validateRequiredProps() && (h("dl", { key: '934f13de2562460ebb81b01b19a969c5fca4604c', class: "gcds-date-modified" }, h("dt", { key: '71a5ff2bdcf6c6d7aaf857d459b7c465d13a7ab3' }, h("gcds-text", { key: 'b8ad0f896154c73fff49eb8e5f7aabc82a8fb6f0', display: "inline", "margin-bottom": "0" }, type === 'version' ? i18n[lang].version : i18n[lang].date)), h("dd", { key: '8624f50eb70cdfd7a448c6e5755235c729fa00f2' }, h("gcds-text", { key: '97c82c7759ea15d85f92dd19ebd40c24d010df13', display: "inline", "margin-bottom": "0" }, type === 'version' ? (h("slot", null)) : (h("time", null, h("slot", null)))))))));
     }
     static get is() { return "gcds-date-modified"; }
     static get encapsulation() { return "shadow"; }

@@ -148,6 +148,6 @@ function isLeapYear(y) {
     return !(y & 3 || (!(y % 25) && y & 15));
 }
 
-export { assignLanguage as a, elementGroupCheck as b, isValidDate as c, emitEvent as e, inheritAttributes as i, logError as l, observerConfig as o };
+export { assignLanguage as a, elementGroupCheck as b, isValidDate as c, closestElement as d, emitEvent as e, inheritAttributes as i, logError as l, observerConfig as o };
 
 //# sourceMappingURL=utils.js.map

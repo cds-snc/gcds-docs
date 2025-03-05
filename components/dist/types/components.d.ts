@@ -7,11 +7,11 @@
 import { HTMLStencilElement, JSXBase } from "./stencil-public-runtime";
 import { Validator, ValidatorEntry } from "./validators";
 import { SpacingValues } from "./utils/types/spacing";
-import { ContentValues } from "./components/gcds-grid/gcds-grid";
+import { ContentValues, GridGapValues } from "./components/gcds-grid/gcds-grid";
 import { RadioObject } from "./components/gcds-radio-group/gcds-radio-group";
 export { Validator, ValidatorEntry } from "./validators";
 export { SpacingValues } from "./utils/types/spacing";
-export { ContentValues } from "./components/gcds-grid/gcds-grid";
+export { ContentValues, GridGapValues } from "./components/gcds-grid/gcds-grid";
 export { RadioObject } from "./components/gcds-radio-group/gcds-radio-group";
 export namespace Components {
     interface GcdsAlert {
@@ -108,7 +108,7 @@ export namespace Components {
          */
         "cardTitle": string;
         /**
-          * The card title tag attribute specifies HTML element the title renders as
+          * The card title tag property specifies the HTML heading element for the title. This property does not modify the font size. It is used to assign the heading level in order to maintain heading hierarchy and accessibility for assistive technologies.
          */
         "cardTitleTag": 'h3' | 'h4' | 'h5' | 'h6' | 'a';
         /**
@@ -434,10 +434,16 @@ export namespace Components {
          */
         "centered"?: boolean;
         /**
-          * Defines the columns of the grid Option to set different layouts for desktop | tablet | default (includes mobile)
+          * Defines the default number of grid columns for all viewports if columns-tablet and columns-desktop are not defined. Option to set different layouts for desktop with columns-desktop and for tablet with columns-tablet.
          */
         "columns"?: string;
+        /**
+          * Provides option to set a different number of grid columns for desktop screens.
+         */
         "columnsDesktop"?: string;
+        /**
+          * Provides option to set a different number of grid columns for tablet screens. If columns-desktop is not defined, columns-tablet will be used to define the number of columns for desktop as well.
+         */
         "columnsTablet"?: string;
         /**
           * Defines grid container size
@@ -451,6 +457,18 @@ export namespace Components {
           * Sets all grid items to have an equal height, based on the tallest item.
          */
         "equalRowHeight"?: boolean;
+        /**
+          * Defines the horizontal and vertical spacing between items in a grid container for all viewports if gap-tablet and gap-desktop are not defined. Option to set different spacing for desktop with gap-desktop and for tablet with gap-tablet.
+         */
+        "gap"?: GridGapValues;
+        /**
+          * Provides option to set horizontal and vertical spacing between items in a grid container for desktop screens.
+         */
+        "gapDesktop"?: GridGapValues;
+        /**
+          * Provides option to set horizontal and vertical spacing between items in a grid container for tablet screens. If gap-desktop is not defined, gap-tablet will be used to define the spacing for desktop screens as well.
+         */
+        "gapTablet"?: GridGapValues;
         /**
           * If total grid size is less than the size of its grid container, this property aligns the grid along the inline (row) axis
          */
@@ -624,7 +642,7 @@ export namespace Components {
          */
         "required"?: boolean;
         /**
-          * Size attribute for an input element. Defines max-length as well.
+          * Size attribute for an input element to provide a visual indication of the expected text length to the user.
          */
         "size"?: number;
         /**
@@ -758,7 +776,7 @@ export namespace Components {
          */
         "noticeTitle": string;
         /**
-          * Set notice title heading tag.
+          * The notice title tag property specifies the HTML heading element for the title. This property does not modify the font size. It is used to assign the heading level in order to maintain heading hierarchy and accessibility for assistive technologies.
          */
         "noticeTitleTag": 'h2' | 'h3' | 'h4' | 'h5';
         /**
@@ -1817,7 +1835,7 @@ declare namespace LocalJSX {
          */
         "cardTitle": string;
         /**
-          * The card title tag attribute specifies HTML element the title renders as
+          * The card title tag property specifies the HTML heading element for the title. This property does not modify the font size. It is used to assign the heading level in order to maintain heading hierarchy and accessibility for assistive technologies.
          */
         "cardTitleTag"?: 'h3' | 'h4' | 'h5' | 'h6' | 'a';
         /**
@@ -2239,10 +2257,16 @@ declare namespace LocalJSX {
          */
         "centered"?: boolean;
         /**
-          * Defines the columns of the grid Option to set different layouts for desktop | tablet | default (includes mobile)
+          * Defines the default number of grid columns for all viewports if columns-tablet and columns-desktop are not defined. Option to set different layouts for desktop with columns-desktop and for tablet with columns-tablet.
          */
         "columns"?: string;
+        /**
+          * Provides option to set a different number of grid columns for desktop screens.
+         */
         "columnsDesktop"?: string;
+        /**
+          * Provides option to set a different number of grid columns for tablet screens. If columns-desktop is not defined, columns-tablet will be used to define the number of columns for desktop as well.
+         */
         "columnsTablet"?: string;
         /**
           * Defines grid container size
@@ -2256,6 +2280,18 @@ declare namespace LocalJSX {
           * Sets all grid items to have an equal height, based on the tallest item.
          */
         "equalRowHeight"?: boolean;
+        /**
+          * Defines the horizontal and vertical spacing between items in a grid container for all viewports if gap-tablet and gap-desktop are not defined. Option to set different spacing for desktop with gap-desktop and for tablet with gap-tablet.
+         */
+        "gap"?: GridGapValues;
+        /**
+          * Provides option to set horizontal and vertical spacing between items in a grid container for desktop screens.
+         */
+        "gapDesktop"?: GridGapValues;
+        /**
+          * Provides option to set horizontal and vertical spacing between items in a grid container for tablet screens. If gap-desktop is not defined, gap-tablet will be used to define the spacing for desktop screens as well.
+         */
+        "gapTablet"?: GridGapValues;
         /**
           * If total grid size is less than the size of its grid container, this property aligns the grid along the inline (row) axis
          */
@@ -2453,7 +2489,7 @@ declare namespace LocalJSX {
          */
         "required"?: boolean;
         /**
-          * Size attribute for an input element. Defines max-length as well.
+          * Size attribute for an input element to provide a visual indication of the expected text length to the user.
          */
         "size"?: number;
         /**
@@ -2607,7 +2643,7 @@ declare namespace LocalJSX {
          */
         "noticeTitle": string;
         /**
-          * Set notice title heading tag.
+          * The notice title tag property specifies the HTML heading element for the title. This property does not modify the font size. It is used to assign the heading level in order to maintain heading hierarchy and accessibility for assistive technologies.
          */
         "noticeTitleTag": 'h2' | 'h3' | 'h4' | 'h5';
         /**

@@ -1,15 +1,25 @@
 export type ContentValues = 'center' | 'end' | 'space-around' | 'space-between' | 'space-evenly' | 'start' | 'stretch';
+export type GridGapValues = '150' | '175' | '200' | '225' | '250' | '300' | '350' | '400' | '450' | '500' | '550' | '600' | '650' | '700' | '750' | '800';
 export declare class GcdsGrid {
     el: HTMLElement;
     /**
      * Props
      */
     /**
-     * Defines the columns of the grid
-     * Option to set different layouts for desktop | tablet | default (includes mobile)
+     * Defines the default number of grid columns for all viewports if columns-tablet
+     * and columns-desktop are not defined. Option to set different layouts for
+     * desktop with columns-desktop and for tablet with columns-tablet.
      */
     columns?: string;
+    /**
+     * Provides option to set a different number of grid columns for tablet screens.
+     * If columns-desktop is not defined, columns-tablet will be used to define the
+     * number of columns for desktop as well.
+     */
     columnsTablet?: string;
+    /**
+     * Provides option to set a different number of grid columns for desktop screens.
+     */
     columnsDesktop?: string;
     /**
      * Defines grid container size
@@ -28,6 +38,27 @@ export declare class GcdsGrid {
      * based on the tallest item.
      */
     equalRowHeight?: boolean;
+    /**
+     * Defines the horizontal and vertical spacing between items in
+     * a grid container for all viewports if gap-tablet and gap-desktop
+     * are not defined. Option to set different spacing for desktop
+     * with gap-desktop and for tablet with gap-tablet.
+     */
+    gap?: GridGapValues;
+    validateGap(newValue: string): void;
+    /**
+     * Provides option to set horizontal and vertical spacing between items in a
+     * grid container for tablet screens. If gap-desktop is not defined, gap-tablet
+     * will be used to define the spacing for desktop screens as well.
+     */
+    gapTablet?: GridGapValues;
+    validateGapTablet(newValue: string): void;
+    /**
+     * Provides option to set horizontal and vertical spacing between items
+     * in a grid container for desktop screens.
+     */
+    gapDesktop?: GridGapValues;
+    validateGapDesktop(newValue: string): void;
     /**
      * Set tag for grid container
      */

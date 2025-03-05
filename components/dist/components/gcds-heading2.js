@@ -41,12 +41,12 @@ const GcdsHeading = /*@__PURE__*/ proxyCustomElement(class GcdsHeading extends H
     render() {
         const { characterLimit, marginTop, marginBottom, tag } = this;
         const Tag = tag;
-        return (h(Host, { key: 'decf305fa7a128be6b541d3ad3a831a1a52797a6' }, h(Tag, { key: '8b3b768c40221bcd42efe0da080b0aeeb77fec9e', class: `
+        return (h(Host, { key: 'b2f8e7fc2e0137c303657c7b6ead41f1911ed975' }, h(Tag, { key: '136f5f9083247a238aeeb58c72e3fb5e862956c3', class: `
             gcds-heading
             ${characterLimit ? 'limit' : ''}
             ${marginTop ? `mt-${marginTop}` : ''}
             ${marginBottom ? `mb-${marginBottom}` : ''}
-          ` }, h("slot", { key: '447128aaa454ae0f840331cc2eea4098627f9d30' }))));
+          ` }, h("slot", { key: '881ac6dfd723d6352b8eb95937b1e340f38d26e1' }))));
     }
     get el() { return this; }
     static get watchers() { return {

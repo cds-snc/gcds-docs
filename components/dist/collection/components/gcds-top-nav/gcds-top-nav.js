@@ -28,10 +28,22 @@ export class GcdsTopNav {
                     await nav.updateNavItemQueue(nav);
                     if (mobileTrigger.hasAttribute('open')) {
                         mobileTrigger.toggleNav();
+                        const childNavGroups = nav.querySelectorAll('gcds-nav-group');
+                        childNavGroups.forEach(navGroup => {
+                            if (navGroup.hasAttribute('open')) {
+                                navGroup.toggleNav();
+                            }
+                        });
                     }
                 }
                 else {
                     nav.updateNavSize('mobile');
+                    const childNavGroups = nav.querySelectorAll('gcds-nav-group');
+                    childNavGroups.forEach(navGroup => {
+                        if (navGroup.hasAttribute('open')) {
+                            navGroup.toggleNav();
+                        }
+                    });
                     await nav.updateNavItemQueue(nav);
                 }
             });
@@ -110,7 +122,7 @@ export class GcdsTopNav {
     }
     render() {
         const { label, alignment, lang } = this;
-        return (h(Host, { key: 'a6f1a411d942315d91c809dc01964919726c6a17' }, h("div", { key: 'c7aa58465b9c8b00c0fc98c5cb2076f71b93eab5', class: "gcds-top-nav" }, h("nav", { key: '64d8b3477818fd28fe31d02b00813320bcc76b37', "aria-label": `${label}${I18N[lang].navLabel}` }, h("ul", { key: 'cbf98a6a884f5c60026e733f112081888f05b172', class: "gcds-top-nav__container" }, h("gcds-nav-group", { key: 'c5e65207c4b11272261a2ec8737631a2c622227b', menuLabel: I18N[lang].menuLabel, closeTrigger: I18N[lang].closeTrigger, openTrigger: I18N[lang].menuLabel, class: "gcds-mobile-nav gcds-mobile-nav-topnav", ref: element => (this.mobile = element), lang: lang }, h("slot", { key: '5007a00f24466cdced473c1f0dcad5f6239d3dd3', name: "home" }), h("li", { key: '4814d9192b12c45325d5cb6c4d1443b84143b09e', class: `nav-container__list nav-list--${alignment}` }, h("ul", { key: 'db7082dfac66582051f5324adc8fe00821fc6b5d', class: `nav-container__list nav-list--${alignment}` }, h("slot", { key: '90dac207f2befecdd758079afa957dcb47de3231' })))))))));
+        return (h(Host, { key: '0b90b2ecfef9712330322dce2a65b6a360606520' }, h("div", { key: 'a8b05cb72ce2dfb6867e35fdbe39bf115d3c8673', class: "gcds-top-nav" }, h("nav", { key: '0d9282ce0348d037609ee36c0d83cada54b0f246', "aria-label": `${label}${I18N[lang].navLabel}` }, h("ul", { key: 'ec9aa9c60a2c28d7c80765f0c35429f1e936180c', class: "gcds-top-nav__container" }, h("gcds-nav-group", { key: '42ab733e63bfe7fb3f2fb7b5f588a6ee60f0a653', menuLabel: I18N[lang].menuLabel, closeTrigger: I18N[lang].closeTrigger, openTrigger: I18N[lang].menuLabel, class: "gcds-mobile-nav gcds-mobile-nav-topnav", ref: element => (this.mobile = element), lang: lang }, h("slot", { key: 'a3b4cbd6baba0493fefd154e41350f71c6eec57e', name: "home" }), h("li", { key: 'b82de02939f23e7e3a67cfb974f3cd292ccdb81b', class: `nav-container__list nav-list--${alignment}` }, h("ul", { key: 'da9cf11b43568b2143c0e70af1c3f92b75e13660', class: `nav-container__list nav-list--${alignment}` }, h("slot", { key: '0f98892f2e8c0c8d39055f301f5a0774ad68d63e' })))))))));
     }
     static get is() { return "gcds-top-nav"; }
     static get encapsulation() { return "shadow"; }

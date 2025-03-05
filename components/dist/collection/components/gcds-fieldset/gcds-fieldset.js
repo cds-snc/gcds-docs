@@ -145,9 +145,9 @@ export class GcdsFieldset {
                 ? ` ${fieldsetAttrs['aria-describedby']}`
                 : ''}`;
         }
-        return (h(Host, { key: '89556f83e10ae99e70fefaf649e3b43f4e770699' }, h("fieldset", Object.assign({ key: 'b788701b3e9c46afab93206a55ee28223383bf5b', class: `gcds-fieldset ${hasError ? 'gcds-fieldset--error' : ''}`, id: fieldsetId }, fieldsetAttrs, { "aria-labelledby": hint
+        return (h(Host, { key: '28b6b012db193345b89688a3a49c23f46304c285' }, h("fieldset", Object.assign({ key: 'f540690d1a3f4f5cc430b581aa0ad4acd37c0df5', class: `gcds-fieldset ${hasError ? 'gcds-fieldset--error' : ''}`, id: fieldsetId }, fieldsetAttrs, { "aria-labelledby": hint
                 ? `legend-${fieldsetId} hint-${fieldsetId}`
-                : `legend-${fieldsetId}`, tabindex: "-1", ref: element => (this.shadowElement = element) }), h("legend", { key: '2ed88bb08d1f52e9054df6efafe51a94c2ac0b2c', id: `legend-${fieldsetId}` }, legend, required ? (h("span", { class: "legend__required" }, "(", i18n[lang].required, ")")) : null), hint ? h("gcds-hint", { "hint-id": fieldsetId }, hint) : null, errorMessage ? (h("gcds-error-message", { messageId: fieldsetId }, errorMessage)) : null, h("slot", { key: 'cf54188dacee5ac7f098303d68befe7ae251f751' }))));
+                : `legend-${fieldsetId}`, tabindex: "-1", ref: element => (this.shadowElement = element) }), h("legend", { key: 'b95da10304c515c19ad7610b10bc1ec6671b9918', id: `legend-${fieldsetId}` }, legend, required ? (h("span", { class: "legend__required" }, "(", i18n[lang].required, ")")) : null), hint ? h("gcds-hint", { "hint-id": fieldsetId }, hint) : null, errorMessage ? (h("gcds-error-message", { messageId: fieldsetId }, errorMessage)) : null, h("slot", { key: '4b72b0dec46d47075fa3edd6c693e24fa146dd7f' }))));
     }
     static get is() { return "gcds-fieldset"; }
     static get encapsulation() { return "shadow"; }

@@ -78,7 +78,7 @@ export class GcdsSignature {
         if (Tag === 'a') {
             sigAttrs['href'] = i18n[lang].link;
         }
-        return (h(Host, { key: '9e7b4e9eb3ddd7d4826140ecf3214b6e3c011e2e' }, type === 'signature' ? (h(Tag, Object.assign({}, sigAttrs), h("div", { innerHTML: selectSVG }), svgLabel)) : (h("div", { class: "gcds-signature", innerHTML: selectSVG }))));
+        return (h(Host, { key: '47d75f32629a27d13f1026f00a584a9f8b580f05' }, type === 'signature' ? (h(Tag, Object.assign({}, sigAttrs), h("div", { innerHTML: selectSVG }), svgLabel)) : (h("div", { class: "gcds-signature", innerHTML: selectSVG }))));
     }
     static get is() { return "gcds-signature"; }
     static get encapsulation() { return "shadow"; }

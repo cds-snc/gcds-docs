@@ -1,5 +1,5 @@
 import { Host, h, } from "@stencil/core";
-import { assignLanguage, observerConfig, emitEvent } from "../../utils/utils";
+import { assignLanguage, observerConfig, emitEvent, closestElement, } from "../../utils/utils";
 export class GcdsNavGroup {
     constructor() {
         this.closeTrigger = undefined;
@@ -8,12 +8,15 @@ export class GcdsNavGroup {
         this.open = false;
         this.lang = undefined;
         this.navStyle = undefined;
+        this.navPosiiton = undefined;
     }
+    // Close dropdowns on focusout when on desktop screen size
     async focusOutListener(e) {
         if ((e.target === this.el || this.el.contains(e.target)) &&
             !this.el.contains(e.relatedTarget) &&
             this.navStyle === 'dropdown' &&
-            this.open) {
+            this.open &&
+            window.innerWidth >= 1024) {
             setTimeout(() => this.toggleNav(), 200);
         }
     }
@@ -33,6 +36,27 @@ export class GcdsNavGroup {
             if (this.el.children[i].nodeName == 'GCDS-NAV-GROUP' &&
                 this.el.children[i].hasAttribute('open')) {
                 this.el.children[i].toggleNav();
+            }
+        }
+        // Dropdown exception - Close child dropdown nav-groups if opened in mobile menu
+        if (this.el.classList.contains('gcds-mobile-nav-topnav')) {
+            const topnav = closestElement('gcds-top-nav', this.el);
+            const childNavGroups = topnav.querySelectorAll('gcds-nav-group');
+            childNavGroups.forEach(navGroup => {
+                if (navGroup.hasAttribute('open')) {
+                    navGroup.toggleNav();
+                }
+            });
+        }
+        // Remove ability to scroll page when mobile menu is open
+        if (this.el.classList.contains('gcds-mobile-nav')) {
+            if (this.open) {
+                this.navPosiiton = window.scrollY;
+                document.body.style.position = 'fixed';
+            }
+            else {
+                document.body.style.removeProperty('position');
+                window.scrollTo(0, this.navPosiiton);
             }
         }
     }
@@ -68,12 +92,12 @@ export class GcdsNavGroup {
     }
     render() {
         const { closeTrigger, menuLabel, open, openTrigger } = this;
-        return (h(Host, { key: '6fe3f6a06fea7b9c241677067db425025c270441', role: "listitem", open: open }, h("button", { key: '4feff5c93049102d984e060089f58abd1681da7e', "aria-haspopup": "true", "aria-expanded": open.toString(), ref: element => (this.triggerElement = element), class: `gcds-nav-group__trigger gcds-trigger--${this.navStyle}`, onBlur: () => this.gcdsBlur.emit(), onFocus: () => this.gcdsFocus.emit(), onClick: e => {
+        return (h(Host, { key: 'a8ccd5b9fe3fc863f028659e07c3b8daf1490bf6', role: "listitem", open: open }, h("button", { key: '634a03ec34f6375e79989e6a2a5161f5cc08e608', "aria-haspopup": "true", "aria-expanded": open.toString(), ref: element => (this.triggerElement = element), class: `gcds-nav-group__trigger gcds-trigger--${this.navStyle}`, onBlur: () => this.gcdsBlur.emit(), onFocus: () => this.gcdsFocus.emit(), onClick: e => {
                 const event = emitEvent(e, this.gcdsClick);
                 if (event) {
                     this.toggleNav();
                 }
-            } }, h("gcds-icon", { key: '5016a068e5bab57d0798d0c0d2627c89ceeebc0e', name: open ? 'angle-up' : 'angle-down' }), closeTrigger && open ? closeTrigger : openTrigger), h("ul", { key: 'e819774f1293463901873c38362168ee885b43a0', "aria-label": menuLabel, class: `gcds-nav-group__list gcds-nav--${this.navStyle}` }, h("slot", { key: '4b4074e7a73796c06f135f1b15fef1f6d110eb86' }))));
+            } }, h("gcds-icon", { key: 'f244c1963af50836c8f162be9ddecd7bde68b5eb', name: open ? 'angle-up' : 'angle-down' }), closeTrigger && open ? closeTrigger : openTrigger), h("ul", { key: '39a75c9589b30c34bc6763c66336ec91f0dc0835', "aria-label": menuLabel, class: `gcds-nav-group__list gcds-nav--${this.navStyle}` }, h("slot", { key: '0e0b5c1699600e032816cbe85ffa78dc342a88e8' }))));
     }
     static get is() { return "gcds-nav-group"; }
     static get encapsulation() { return "shadow"; }
@@ -163,7 +187,8 @@ export class GcdsNavGroup {
     static get states() {
         return {
             "lang": {},
-            "navStyle": {}
+            "navStyle": {},
+            "navPosiiton": {}
         };
     }
     static get events() {

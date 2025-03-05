@@ -54,7 +54,7 @@ const GcdsLabel = /*@__PURE__*/ proxyCustomElement(class GcdsLabel extends HTMLE
     }
     render() {
         const { hideLabel, labelFor, label, required, lang } = this;
-        return (h(Host, { key: '2571828246ca42f80c10f9008ccbf9767b65e101', id: `label-for-${labelFor}`, onClick: this.onClick }, h("label", { key: '66523fc42c2cdda0204dc8747ec9adf935b69466', htmlFor: labelFor, class: `gcds-label ${hideLabel ? 'label--hidden' : ''}`, ref: focusEl => (this.focusEl = focusEl) }, h("span", { key: '6dd8fbc5012750873da600a1b2e2f20b193c7dc3' }, label), required ? (h("span", { "aria-hidden": "true", class: "label--required" }, "(", I18N[lang].required, ")")) : null)));
+        return (h(Host, { key: '2f4fe7a9d0a0fcea5019edc8158adae424074428', id: `label-for-${labelFor}`, onClick: this.onClick }, h("label", { key: '721461d1eb5818ff6b28f06bb314e27a5c0eb0c5', htmlFor: labelFor, class: `gcds-label ${hideLabel ? 'label--hidden' : ''}`, ref: focusEl => (this.focusEl = focusEl) }, h("span", { key: '0564e25540c9a5ec81fbbba77c72e2892d5ccc51' }, label), required ? (h("span", { "aria-hidden": "true", class: "label--required" }, "(", I18N[lang].required, ")")) : null)));
     }
     get el() { return this; }
     static get style() { return GcdsLabelStyle0; }
