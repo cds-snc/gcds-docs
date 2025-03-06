@@ -7,14 +7,14 @@ redirect_from: /
 date: 'git Last Modified'
 ---
 
-<h2 class="py-450">Start using GC Design System</h2>
+<h2 class="my-450">Start using GC Design System</h2>
 
 <article class="py-600 bg-primary text-light bg-full-width">
   <gcds-grid tag="ul" columns="1fr" columns-tablet="1fr 1fr">
     <li class="list-none md:mb-0 mb-600">
       <img class="mb-300" src="../../images/common/home/icon-design.svg" alt="" />
-      <h3 class="mb-300">Design experiences</h3>
-      <p class="mb-300">Visit our Figma library to explore design assets.</p>
+      <h3 class="mt-0">Design experiences</h3>
+      <p>Visit our Figma library to explore design assets.</p>
       <a class="link-light" href="{{ links.figma }}" target="_blank">
         Start designing
         <gcds-icon name="external-link" label="Opens in a new tab." margin-left="25" />
@@ -22,43 +22,43 @@ date: 'git Last Modified'
     </li>
     <li class="list-none">
       <img class="mb-300" src="../../images/common/home/icon-develop.svg" alt="" />
-      <h3 class="mb-300">Develop products</h3>
-      <p class="mb-300">Install the component package.</p>
+      <h3 class="mt-0">Develop products</h3>
+      <p>Install the component package.</p>
       <a class="link-light" href="{{ links.installation }}">Start developing</a>
     </li>
   </gcds-grid>
 </article>
 
-<article class="py-450">
-  <h2 class="mb-300">A design system just for you</h2>
+<article class="pb-600">
+  <h2>A design system just for you</h2>
   <p class="mb-600">Take a look around. <gcds-link href="{{ links.contact }}">Tell us what you think</gcds-link>.</p>
   <gcds-grid tag="ul" columns="1fr" columns-tablet="1fr 1fr" columns-desktop="1fr 1fr 1fr">
     <li class="list-none">
       <img class="mb-150" src="../../images/common/home/icon-components.svg" alt="" />
-      <h3 class="mb-300">Components</h3>
-      <p class="mb-300">User interface building blocks address different user objectives.</p>
-      <p class="mb-300">Select reusable code for common components, paired with best practice advice, for the framework you're using.</p>
+      <h3 class="mt-0">Components</h3>
+      <p>User interface building blocks address different user objectives.</p>
+      <p>Select reusable code for common components, paired with best practice advice, for the framework you're using.</p>
       <gcds-link href="{{ links.components }}">View components</gcds-link>
     </li>
     <li class="list-none">
       <img class="mb-150" src="../../images/common/home/icon-template.svg" alt="" />
-      <h3 class="mb-300">Page templates</h3>
-      <p class="mb-300">Reusable page layouts combine components into common page types.</p>
-      <p class="mb-300">Start your project with basic, pre-built pages that provide a consistent, recognizable Canada.ca experience.</p>
+      <h3 class="mt-0">Page templates</h3>
+      <p>Reusable page layouts combine components into common page types.</p>
+      <p>Start your project with basic, pre-built pages that provide a consistent, recognizable Canada.ca experience.</p>
       <gcds-link href="{{ links.pageTemplates }}">Browse page templates</gcds-link>
     </li>
     <li class="list-none">
       <img class="mb-150" src="../../images/common/home/icon-tokens.svg" alt="" />
-      <h3 class="mb-300">Design tokens</h3>
-      <p class="mb-300">Brand and design decisions built into code.</p>
-      <p class="mb-300">Learn how encoded decisions shape the design of government services for a consistent visual experience.</p>
+      <h3 class="mt-0">Design tokens</h3>
+      <p>Brand and design decisions built into code.</p>
+      <p>Learn how encoded decisions shape the design of government services for a consistent visual experience.</p>
       <gcds-link href="{{ links.styles }}">View tokens</gcds-link>
     </li>
   </gcds-grid>
 </article>
 
 <article class="py-600 bg-light bg-full-width">
-  <h2 class="mb-300">What's new</h2>
+  <h2 class="mt-0">What's new</h2>
   <gcds-grid tag="ul" columns="1fr" columns-tablet="1fr 1fr">
     <gcds-card
       href="{{ links.registerDemo }}"
@@ -91,9 +91,8 @@ date: 'git Last Modified'
   </gcds-grid>
 </article>
 
-<article class="py-450">
-  <h2 class="mb-300">Featured components</h2>
-
+<article class="pb-600">
+  <h2>Featured components</h2>
   <gcds-grid tag="ul" columns="1fr" columns-tablet="1fr 1fr" columns-desktop="1fr 1fr 1fr">
     <gcds-card
       href="{{ links.notice }}"

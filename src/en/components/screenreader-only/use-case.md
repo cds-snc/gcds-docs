@@ -27,8 +27,8 @@ Use screenreader-only to:
 - Communicate effectively without adding more text to the main content. This helps reduce cognitive load for everyone by only providing content when and where it’s needed.
 - Improve the assistive tech experience when there are no other suitable options in semantic HTML.
 
-<article class="bg-full-width bg-primary text-light pt-500 pb-400 my-500">
-  <h2 class="mt-0 mb-400">Related components</h2>
+<article class="bg-full-width bg-primary text-light pt-600 pb-300 my-600">
+  <h2 class="mt-0">Related components</h2>
 
 <a href="{{ links.heading }}" class="link-light">Headings</a> for structuring content by creating levels of hierarchy that organize page content visually and mentally, using GC Design System styles.
 

@@ -28,7 +28,7 @@ Utilisez un jeu de champs pour regrouper les éléments ou composants d’un for
 - Lorsque le regroupement logique des éléments ou composants du formulaire aide à favoriser la compréhension et l’utilisabilité.
 
 <article class="bg-full-width bg-primary text-light pt-600 pb-300 my-600">
-  <h2 class="mt-0 mb-300">Composants connexes</h2>
+  <h2 class="mt-0">Composants connexes</h2>
 
 <a href="{{ links.input }}" class="link-light">Champs de saisie</a> ou <a href="{{ links.textarea }}" class="link-light">zones de texte</a> : lorsqu’une réponse écrite est demandée.
 

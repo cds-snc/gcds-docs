@@ -31,7 +31,7 @@ Use containers to:
 - Centre content on a screen or within a viewport.
 
 <article class="bg-full-width bg-primary text-light pt-600 pb-300 my-600">
-  <h2 class="mt-0 mb-300">Related components</h2>
+  <h2 class="mt-0">Related components</h2>
 
 <a href="{{ links.grid }}" class="link-light">Grid</a> for a responsive, flexible column layout to position elements on a page.
 

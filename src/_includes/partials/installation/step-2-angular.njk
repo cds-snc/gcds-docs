@@ -1,15 +1,15 @@
-<div id="step-2-angular" class="py-750 step-2-content">
-  <h2 class="mb-300">{{ installation[locale].step2.heading }}</h2>
-  <p class="mb-300">{{ installation[locale].step2.angular.paragraph }}</p>
+<div id="step-2-angular" class="pb-600 step-2-content">
+  <h2>{{ installation[locale].step2.heading }}</h2>
+  <p>{{ installation[locale].step2.angular.paragraph }}</p>
 
-  <h3 class="mt-600 mb-300">{{ installation[locale].step2.angular.heading }}</h3>
-  <p class="mb-300">{{ installation[locale].step2.angular.install }}</p>
+  <h3>{{ installation[locale].step2.angular.heading }}</h3>
+  <p>{{ installation[locale].step2.angular.install }}</p>
 
   {% highlight "js" %}
   npm install @cdssnc/gcds-components @cdssnc/gcds-components-angular
   {% endhighlight %}
 
-  <p class="mt-600 mb-300">{{ installation[locale].step2.angular.placeApp | safe }}</p>
+  <p class="mt-600">{{ installation[locale].step2.angular.placeApp | safe }}</p>
 
 {% highlight "js" %}
 import { GcdsComponentsModule } from '@cdssnc/gcds-components-angular';
@@ -29,7 +29,7 @@ import { GcdsComponentsModule } from '@cdssnc/gcds-components-angular';
 export class AppModule { }
 {% endhighlight %}
 
-  <p class="mt-600 mb-300">{{ installation[locale].step2.angular.placeStyles | safe }}</p>
+  <p class="mt-600">{{ installation[locale].step2.angular.placeStyles | safe }}</p>
 
   {% highlight "js" %}
   @import '../node_modules/@cdssnc/gcds-components/dist/gcds/gcds.css';

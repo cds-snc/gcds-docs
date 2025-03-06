@@ -30,7 +30,7 @@ Use headings to:
 - Apply consistent typography styles and sizes throughout a website to create a cohesive and user-friendly design.
 
 <article class="bg-full-width bg-primary text-light pt-600 pb-300 my-600">
-  <h2 class="mt-0 mb-300">Related components</h2>
+  <h2 class="mt-0">Related components</h2>
 
 <a href="{{ links.text }}" class="link-light">Text</a> for paragraphs displaying non-heading content with matching GC Design System styles.
 

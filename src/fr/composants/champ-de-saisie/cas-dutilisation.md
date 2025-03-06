@@ -32,7 +32,7 @@ Utilisez un champ de saisie lorsque vous attendez de l'utilisateur·rice une ré
 Remarque : Ne recueillez que les renseignements que vous êtes autorisé·e à traiter et veillez à les protéger conformément aux normes du gouvernement du Canada.
 
 <article class="bg-full-width bg-primary text-light pt-600 pb-300 my-600">
-  <h2 class="mt-0 mb-300">Composants connexes</h2>
+  <h2 class="mt-0">Composants connexes</h2>
 
 <a href="{{ links.textarea }}" class="link-light">Zone de texte</a> : lorsque vous cherchez à obtenir une réponse libre de plusieurs lignes.
 

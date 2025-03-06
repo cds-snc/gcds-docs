@@ -25,7 +25,7 @@ Use a Data table
 -
 
 <article class="bg-full-width bg-primary text-light pt-600 pb-300 my-600">
-  <h2 class="mt-0 mb-300">Related components</h2>
+  <h2 class="mt-0">Related components</h2>
 
 <a href="" class="link-light">component</a>
 

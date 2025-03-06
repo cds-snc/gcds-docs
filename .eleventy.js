@@ -303,7 +303,7 @@ module.exports = function (eleventyConfig) {
     (children, title, url) => {
       return `
       <div class="my-600 b-sm b-default component-preview">
-        <h2 class="container-full font-text font-semibold px-225 py-150 bb-sm b-default bg-light">
+        <h2 class="container-full font-text font-semibold m-0 px-225 py-150 bb-sm b-default bg-light">
           ${title}
         </h2>
         <div>

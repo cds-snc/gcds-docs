@@ -38,9 +38,9 @@ if (searchTerm) {
       noresults: 'No results',
       loading: 'Loading search results.',
       noresultsbody: `
-        <p class="mb-300">No pages were found that match your search terms.</p>
+        <p>No pages were found that match your search terms.</p>
 
-        <p class="mb-300">Suggestions:</p>
+        <p>Suggestions:</p>
 
         <ul class="list-disc mb-300">
           <li>Make sure all search terms are spelled correctly</li>
@@ -55,9 +55,9 @@ if (searchTerm) {
       noresults: 'Aucun résultat',
       loading: 'Chargement des résultats de recherche.',
       noresultsbody: `
-        <p class="mb-300">Aucun résultat ne correspond à vos critères de recherche.</p>
+        <p>Aucun résultat ne correspond à vos critères de recherche.</p>
 
-        <p class="mb-300">Suggestions:</p>
+        <p>Suggestions:</p>
 
         <ul class="list-disc mb-300">
           <li>Assurez-vous que tous vos termes de recherches sont bien orthographiés</li>

@@ -26,7 +26,7 @@ Utilisez la sélection dans un formulaire afin de :
 - Permettre à une personne de répondre à une question sans devoir rédiger une réponse, en sélectionnant un élément à partir d'une liste.
 
 <article class="bg-full-width bg-primary text-light pt-600 pb-300 my-600">
-  <h2 class="mt-0 mb-300">Composants connexes</h2>
+  <h2 class="mt-0">Composants connexes</h2>
 
 <a href="{{ links.checkbox }}" class="link-light">Cases à cocher</a> : lorsque vous prévoyez que l'utilisateur·rice sélectionne une ou plusieurs options parmi une liste d'éléments.
 

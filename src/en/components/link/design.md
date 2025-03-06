@@ -12,7 +12,7 @@ date: 'git Last Modified'
   <li>The <strong>link text</strong> navigates to a new page, website, or section on the current page. It specifies the link's destination or, for downloads, identifies the file type, and size. Note: Opening links in a new tab or window can be disorienting for people and can cause accessibility issues.</li>
   <li>
     The <strong>link icon</strong> is attached to certain link types, like download, phone, and email. Otherwise, it’s optional to add an icon.
-    <ul class="mt-400 ms-0">
+    <ul class="mt-300 ms-0">
       <li>The download icon lets a person know that selecting the link will initiate a download.</li>
       <li>The phone icon identifies the phone number and selecting it initiates a phone call.</li>
       <li>The email icon identifies the email address and initiates a message from the default email application.</li>

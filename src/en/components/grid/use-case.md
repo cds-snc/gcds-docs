@@ -33,7 +33,7 @@ Use grids to:
 - Limit the width of content displayed to ensure lines wrap and are more readable.
 
 <article class="bg-full-width bg-primary text-light pt-600 pb-300 my-600">
-  <h2 class="mt-0 mb-300">Related components</h2>
+  <h2 class="mt-0">Related components</h2>
 
 <a href="{{ links.container }}" class="link-light">Container</a> for applying a basic, single column layout across all viewports.
 

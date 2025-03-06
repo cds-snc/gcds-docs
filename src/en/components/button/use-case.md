@@ -29,7 +29,7 @@ Use a button for important actions a person using your product can initiate to:
 - Move between steps in a sequence.
 
 <article class="bg-full-width bg-primary text-light pt-600 pb-300 my-600">
-  <h2 class="mt-0 mb-300">Related components</h2>
+  <h2 class="mt-0">Related components</h2>
 
 <a href="{{ links.link }}" class="link-light">Links</a> to provide navigation to a new page, website, or section on the current page or files for download.
 
@@ -81,7 +81,7 @@ A role is a button sub-type that has a specific use on a page.
   <gcds-button button-role="primary">Submit</gcds-button>
   {% endcomponentPreview %}
   <div>
-    <h3 class="mb-300">Primary button uses</h3>
+    <h3>Primary button uses</h3>
     <ul class="list-disc mb-300">
       <li>The most important action on a page.</li>
       <li>Critical actions in a flow or as the default button.</li>
@@ -96,7 +96,7 @@ A role is a button sub-type that has a specific use on a page.
   <gcds-button button-role="secondary">Cancel</gcds-button>
   {% endcomponentPreview %}
   <div>
-    <h3 class="mb-300">Secondary button uses</h3>
+    <h3>Secondary button uses</h3>
     <ul class="list-disc mb-300">
       <li>Supporting actions.</li>
       <li>To highlight an important, common action but not the most important one.</li>
@@ -110,7 +110,7 @@ A role is a button sub-type that has a specific use on a page.
   <gcds-button button-role="danger">Delete</gcds-button>
   {% endcomponentPreview %}
   <div>
-    <h3 class="mb-300">Danger button uses</h3>
+    <h3>Danger button uses</h3>
     <ul class="list-disc mb-300">
       <li>To flag serious actions like removing, clearing, or deleting information.</li>
       <li>For actions when changes may be difficult to reverse.</li>

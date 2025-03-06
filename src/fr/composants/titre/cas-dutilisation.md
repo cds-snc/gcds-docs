@@ -30,7 +30,7 @@ Utilisez des titres pour :
 - Appliquer des styles et des tailles de typographie cohérents sur l'ensemble d'un site Web pour créer un design cohérent et convivial.
 
 <article class="bg-full-width bg-primary text-light pt-600 pb-300 my-600">
-  <h2 class="mt-0 mb-300">Composants connexes</h2>
+  <h2 class="mt-0">Composants connexes</h2>
 
 <a href="{{ links.text }}" class="link-light">Texte</a> pour des paragraphes affichant du contenu autre qu'un titre avec les styles correspondants de Système de design GC.
 

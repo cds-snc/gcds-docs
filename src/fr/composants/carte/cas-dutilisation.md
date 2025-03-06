@@ -32,7 +32,7 @@ Utilisez une carte pour :
 Remarque : Pour Canada.ca, évitez d'utiliser des cartes au lieu du menu d'accueil thématique inclu dans les modèles de page d'accueil et de page de thème et de sujet.
 
 <article class="bg-full-width bg-primary text-light pt-600 pb-300 my-600">
-  <h2 class="mt-0 mb-300">Composants connexes</h2>
+  <h2 class="mt-0">Composants connexes</h2>
 
 <a href="{{ links.details }}" class="link-light">Détails</a> pour dissimuler des renseignements secondaires qu'une personne peut développer sur la même page.
 

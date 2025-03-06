@@ -27,7 +27,7 @@ Utilisez le masquage accessible pour :
 - Améliorer l'expérience d'utilisation d'une technologie d'assistance quand il n'y a pas d'autre option adéquate dans le HTML sémantique.
 
 <article class="bg-full-width bg-primary text-light pt-600 pb-300 my-600">
-  <h2 class="mt-0 mb-300">Composants connexes</h2>
+  <h2 class="mt-0">Composants connexes</h2>
 
 <a href="{{ links.heading }}" class="link-light">Titre</a> pour structurer le contenu en créant des niveaux hiérarchiques qui permettent l'organisation visuelle et mentale du contenu de la page à l'aide des styles de Système de design GC.
 

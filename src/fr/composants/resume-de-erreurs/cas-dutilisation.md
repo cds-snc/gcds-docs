@@ -29,7 +29,7 @@ Utilisez le résumé des erreurs pour interrompre l'envoi d'un formulaire lorsqu
 
 <article class="bg-full-width bg-primary text-light pt-600 pb-300 my-600">
 
-  <h2 class="mt-0 mb-300">Composants connexes</h2>
+  <h2 class="mt-0">Composants connexes</h2>
 
 <a href="{{ links.errorMessage }}" class="link-light">Message d'erreur</a> lorsque vous cherchez à décrire un problème représentant un obstacle à une action menée par l'utilisateur·rice, lié à un seul composant.
 

@@ -29,7 +29,7 @@ Use the details component to give a person a summary of more detailed content yo
 - Give readers the option to control content for subjects that may cause distress to some readers. They can access certain content when they are ready and hide content once they've reviewed it.
 
 <article class="bg-full-width bg-primary text-light pt-600 pb-300 my-600">
-  <h2 class="mt-0 mb-300">Related components</h2>
+  <h2 class="mt-0">Related components</h2>
 
 Tabs when you want to replace the entire content of a section or a page.
 

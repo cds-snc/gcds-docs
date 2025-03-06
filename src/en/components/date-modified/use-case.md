@@ -27,7 +27,7 @@ Use date modified to:
 - Identify an application’s current version.
 
 <article class="bg-full-width bg-primary text-light pt-600 pb-300 my-600">
-  <h2 class="mt-0 mb-300">Related components</h2>
+  <h2 class="mt-0">Related components</h2>
 
 <a href="{{ links.footer }}" class="link-light">Footer</a> for placing the Government of Canada branded footer landmark.
 
@@ -36,29 +36,28 @@ Use date modified to:
 ## Component types
 
 <div class="remove-empty-p">
-<gcds-grid columns="1fr" columns-tablet="1fr 2fr" align-items="start">
+<gcds-grid class="mb-300" columns="1fr" columns-tablet="1fr 2fr" align-items="start">
   {% componentPreview "Date type preview" "px-225 py-300" "" %}
   <gcds-date-modified>2023-08-22</gcds-date-modified>
   {% endcomponentPreview %}
   <div>
-    <h3 class="mb-300">Date type</h3>
-    <p class="mb-300">Use the date type to:</p>
+    <h3 class="mt-0">Date type</h3>
+    <p>Use the date type to:</p>
     <ul class="list-disc mb-300">
       <li>Identify the date a web page or website was last changed.</li>
     </ul>
   </div>
 </gcds-grid>
-<br/>
+
 <gcds-grid columns="1fr" columns-tablet="1fr 2fr" align-items="start">
   {% componentPreview "Version type preview" "px-225 py-300" "" %}
   <gcds-date-modified type="version">1.0.0</gcds-date-modified>
   {% endcomponentPreview %}
   <div>
-    <h3 class="mb-300">Version type</h3>
-    <p class="mb-300">Use the Version type to:</p>
+    <h3 class="mt-0">Version type</h3>
+    <p>Use the Version type to:</p>
     <ul class="list-disc mb-300">
       <li>Identify the current version of an application.</li>
     </ul>
   </div>
 </gcds-grid>
-</br>

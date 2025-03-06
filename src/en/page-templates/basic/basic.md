@@ -33,7 +33,7 @@ The basic page template is for non-specialized pages across Canada.ca and is an 
 <gcds-button class="md:d-inline-block d-block md:me-300 me-0 md:mb-0 mb-300" button-role="secondary" type="link" href="{{ links.pageTemplatesBasicPreview }}" target="_blank">Open demo in new tab</gcds-button>
 <gcds-button class="md:d-inline-block d-block" button-role="secondary" type="link" href="{{ links.pageTemplatesBasicCode }}" target="_blank">Get code in new tab</gcds-button>
 
-<img class="max-width-content b-sm b-default mb-300 p-300" src="/images/en/templates/basic-page-preview.png" alt="A basic page template includes the Government of Canada header and footer, H1, H2 and H3 heading sections with text underneath each section."/>
+<img class="max-width-content b-sm b-default p-300" src="/images/en/templates/basic-page-preview.png" alt="A basic page template includes the Government of Canada header and footer, H1, H2 and H3 heading sections with text underneath each section."/>
 
 ## How to implement
 
@@ -48,7 +48,7 @@ To prototype in Figma, find the <gcds-link external href="{{ links.pageTemplates
 
 ### Improve navigation on longer pages
 
-- Include an "On this page" section with bulleted anchor links for pages with four or more sections. 
+- Include an "On this page" section with bulleted anchor links for pages with four or more sections.
 - Anchor links to improve navigation and help people find relevant content.
 
 ### Preview "On this page"
@@ -56,7 +56,7 @@ To prototype in Figma, find the <gcds-link external href="{{ links.pageTemplates
 <gcds-button class="md:d-inline-block d-block md:me-300 me-0 md:mb-0 mb-300" button-role="secondary" type="link" href="{{ links.pageTemplatesBasicExtOTPPreview }}" target="_blank">Open demo in new tab</gcds-button>
 <gcds-button  button-role="secondary" type="link" href="{{ links.pageTemplatesBasicExtOTPCode }}" target="_blank">Get code in new tab</gcds-button>
 
-<img class="max-width-content b-sm b-default mb-300 p-300" src="/images/en/templates/basic-page-on-this-page-preview.png" alt='A basic page template with a "On this page" section includes the Government of Canada header and footer, a "On this page" section with three sections listed underneath.'/>
+<img class="max-width-content b-sm b-default p-300" src="/images/en/templates/basic-page-on-this-page-preview.png" alt='A basic page template with a "On this page" section includes the Government of Canada header and footer, a "On this page" section with three sections listed underneath.'/>
 
 ### Maintain a logical heading structure
 

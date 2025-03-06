@@ -19,7 +19,7 @@ Right now, we're testing GC Design System in alpha, the first usable phase of a 
 
 ## Find out about GC Design System
 
-<div class="d-grid lg:grid-cols-3 mb-400 gap-400">
+<gcds-grid columns="1fr" columns-tablet="1fr 1fr" columns-desktop="1fr 1fr 1fr">
   <gcds-card
     card-title="Subscribe to newsletter"
     href="{{ links.contact }}"
@@ -30,13 +30,13 @@ Right now, we're testing GC Design System in alpha, the first usable phase of a 
     href="{{ links.registerDemo }}"
     description="Get an intro to prototyping and developing web experiences using the design system, followed by a Q&A."
   ></gcds-card>
-</div>
+</gcds-grid>
 
-<hr/>
+<hr class="mt-600" />
 
-<gcds-heading tag="h2" margin-top="225">Contribute to our next priorities</gcds-heading>
+## Contribute to our next priorities
 
-You can contribute to upcoming GC Design System work. 
+You can contribute to upcoming GC Design System work.
 
 We’re actively seeking contributions for the following items:
 
@@ -56,9 +56,9 @@ Provide any of the following for each component or pattern:
 <gcds-button button-role="secondary" type="link" href="{{ links.githubCompsPriority }}" external>Contribute in Github</gcds-button>
 <gcds-button button-role="secondary" type="link" href="{{ links.contact }}" external>Contact us</gcds-button>
 
-<hr />
+<hr class="mt-600" />
 
-<gcds-heading tag="h2" margin-top="225">What else is coming soon</gcds-heading>
+## What else is coming soon
 
 ### Upcoming components and templates
 

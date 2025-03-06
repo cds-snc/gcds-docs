@@ -28,7 +28,7 @@ Use a checkbox with a [fieldset]({{ links.fieldset }}) to make a request for inf
 - Give a person the ability to answer without writing by selecting one or multiple items from a list.
 
 <article class="bg-full-width bg-primary text-light pt-600 pb-300 my-600">
-  <h2 class="mt-0 mb-300">Related components</h2>
+  <h2 class="mt-0">Related components</h2>
 
 <a href="{{ links.radioGroup }}" class="link-light">Radio groups</a> to give a single option from a larger set of options.
 

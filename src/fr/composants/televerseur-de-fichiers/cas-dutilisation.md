@@ -25,7 +25,7 @@ Utilisez le téléverseur de fichiers pour :
 - Vérifier les fichiers sélectionnés à téléverser.
 
 <article class="bg-full-width bg-primary text-light pt-600 pb-300 my-600">
-  <h2 class="mt-0 mb-300">Composants connexes</h2>
+  <h2 class="mt-0">Composants connexes</h2>
 
 <a href="{{ links.textarea }}" class="link-light">Zones de texte</a> : permettent la saisie de réponses libres de plusieurs lignes.
 

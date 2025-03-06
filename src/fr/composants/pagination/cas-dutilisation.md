@@ -29,7 +29,7 @@ Utilisez la pagination pour réduire la charge cognitive lorsqu’un contenu tr�
 - Mettre en évidence la position de la personne dans une séquence de contenu.
 
 <article class="bg-full-width bg-primary text-light pt-600 pb-300 my-600">
-  <h2 class="mt-0 mb-300">Composants connexes</h2>
+  <h2 class="mt-0">Composants connexes</h2>
 
 <a href="{{ links.stepper }}" class="link-light">Indicateur d’étape</a> pour suivre l’avancement dans un processus à plusieurs étapes.
 

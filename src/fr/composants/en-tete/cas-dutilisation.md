@@ -30,7 +30,7 @@ Pour les applications, formulaires et autres services numériques transactionnel
 - La signature du Programme fédéral de l'image de marque du gouvernement du Canada.
 
 <article class="bg-full-width bg-primary text-light pt-600 pb-300 my-600">
-  <h2 class="mt-0 mb-300">Composants connexes</h2>
+  <h2 class="mt-0">Composants connexes</h2>
 
 <a href="{{ links.footer }}" class="link-light">Pied de page</a> : lorsque vous cherchez à placer l'image de marque du gouvernement du Canada en pied de page.
 

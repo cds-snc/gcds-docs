@@ -21,18 +21,18 @@ date: "git Last Modified"
 
 ### Choose the appropriate notice type
 
-- Refer to the use case tab for guidelines on when to use each notice type.
+Refer to the use case tab for guidelines on when to use each notice type.
 
 ### Write concise and descriptive headings and messages
 
 - Write a meaningful heading that’s short and simple to highlight the goal of the notice.
-- In the heading, use words like “warning” and “success” that match the meaning conveyed by the icon and colour of the notice type you selected.  
-- Craft the message (below the heading) to be brief and impactful, ideally within three sentences.  
+- In the heading, use words like “warning” and “success” that match the meaning conveyed by the icon and colour of the notice type you selected.
+- Craft the message (below the heading) to be brief and impactful, ideally within three sentences.
 - Save the details for the main content area of a page. The notice is meant to attract attention and create an information trail for anyone who needs to know more.
 
 ### Use links to guide people to additional details if necessary
 
-- Use links to connect to additional details for a person who wants to read more.  
+- Use links to connect to additional details for a person who wants to read more.
 - Opt to create a dedicated page for more detailed content and use a short message in a notice to draw interested people to that page.
 - Avoid long notices. They can be distracting and frustrating.
 
