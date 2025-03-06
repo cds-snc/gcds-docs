@@ -28,7 +28,7 @@ Utilisez le composant texte pour :
 - Diviser le contenu en sections compréhensibles avec des marges verticales et horizontales. La décomposition de votre contenu favorise la lisibilité, simplifie la navigation sur le site et réduit le risque que les gens abandonnent leur tâche.
 
 <article class="bg-full-width bg-primary text-light pt-600 pb-300 my-600">
-  <h2 class="mt-0 mb-300">Composants connexes</h2>
+  <h2 class="mt-0">Composants connexes</h2>
 
 <a href="{{ links.heading }}" class="link-light">Titre</a> pour structurer le contenu en créant des niveaux hiérarchiques qui permettent l'organisation visuelle et mentale du contenu de la page à l'aide des styles de Système de design GC.
 

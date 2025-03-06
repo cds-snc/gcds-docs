@@ -21,18 +21,18 @@ date: "git Last Modified"
 
 ### Choisir le type d’avis approprié
 
-- Référez-vous aux cas d’utilisation pour savoir quand utiliser chaque type d’avis.
+Référez-vous aux cas d’utilisation pour savoir quand utiliser chaque type d’avis.
 
 ### Rédigez des titres et des messages concis et descriptifs
 
 - Rédigez un titre significatif, court et simple pour souligner l’objectif de l’avis.
-- Dans le titre, utilisez des titres comme « Avertissement » et « Succès » correspondant au sens transmis par l’icône et la couleur du type d’avis sélectionné.  
-- Rédigez un message (en dessous du titre) bref et percutant. Idéalement, faites en sorte qu’il ne dépasse pas trois phrases.  
+- Dans le titre, utilisez des titres comme « Avertissement » et « Succès » correspondant au sens transmis par l’icône et la couleur du type d’avis sélectionné.
+- Rédigez un message (en dessous du titre) bref et percutant. Idéalement, faites en sorte qu’il ne dépasse pas trois phrases.
 - Enregistrez les détails pour la zone de contenu principale d’une page. L’avis doit attirer l’attention et créer une « piste d’information » pour toute personne ayant besoin d’en savoir plus.
 
 ### Au besoin, utilisez des liens pour guider les gens vers des renseignements supplémentaires
 
-- Utilisez des liens pour guider les personnes souhaitant en savoir plus vers des renseignements supplémentaires.  
+- Utilisez des liens pour guider les personnes souhaitant en savoir plus vers des renseignements supplémentaires.
 - Choisissez de créer une page particulière destinée à du contenu plus détaillé et utilisez un message bref dans un avis pour attirer les personnes intéressées vers cette page.
 - Évitez les longs avis. Ils peuvent distraire et frustrer les gens.
 
@@ -41,7 +41,7 @@ date: "git Last Modified"
 - Limitez le nombre d’avis par page. Plus les gens rencontrent des avis et messages d’avertissement, moins ils y sont réceptifs.
 - Veillez à retirer les avis une fois qu’ils ne servent plus.
 
-### Placez les avis à l’endroit où vous placeriez un paragraphe  
+### Placez les avis à l’endroit où vous placeriez un paragraphe
 
 - Ajoutez un avis à l’endroit où vous ajouteriez un paragraphe important (ou une section importante) sur la page.
 - Envisagez de placer un avis au haut de la page ou de la section de contenu pour éviter qu’il ne soit négligé.

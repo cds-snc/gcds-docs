@@ -26,11 +26,11 @@ Utilisez les avis pour :
 - Fournir du contexte ou des renseignements supplémentaires concernant le contenu de la page pour une meilleure compréhension.
 
 <article class="bg-full-width bg-primary text-light pt-600 pb-300 my-600">
-  <h2 class="mt-0 mb-300">Composants connexes</h2>
+  <h2 class="mt-0">Composants connexes</h2>
 
-<a href="{{ links.errorMessage }}" class="link-light">Message d’erreur</a> ou <a href="{{ links.errorSummary }}" class="link-light">résumé des erreurs</a> pour des erreurs au sein d’un champ de formulaire, d’une page ou d’un flux. 
- 
-Bannière pour un message s’appliquant à une partie ou à l’ensemble du site ou du produit.  
+<a href="{{ links.errorMessage }}" class="link-light">Message d’erreur</a> ou <a href="{{ links.errorSummary }}" class="link-light">résumé des erreurs</a> pour des erreurs au sein d’un champ de formulaire, d’une page ou d’un flux.
+
+Bannière pour un message s’appliquant à une partie ou à l’ensemble du site ou du produit.
 
 </article>
 
@@ -90,7 +90,7 @@ Utilisez les avis de type « Avertissement » pour :
 Utilisez le type d’avis « Danger » pour :
 
 - Mettre en évidence du contenu dont les gens doivent prendre connaissance compte tenu de sa gravité, sous peine de s’exposer à des incidences négatives majeures.
-- Mettre l’accent sur une question ou des nouvelles ayant de graves répercussions dans les domaines de la santé, de la sécurité et de la loi. Inclure un lien vers les renseignements les plus récents.  
+- Mettre l’accent sur une question ou des nouvelles ayant de graves répercussions dans les domaines de la santé, de la sécurité et de la loi. Inclure un lien vers les renseignements les plus récents.
 - Signaler à une personne qu’elle doit agir immédiatement et lui donner les moyens de le faire, par exemple en lui fournissant un lien.
 
 <gcds-notice

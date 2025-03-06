@@ -19,7 +19,7 @@ Nous testons actuellement la version alpha de Système de design GC, ce qui corr
 
 ## Découvrez Système de design GC
 
-<div class="d-grid lg:grid-cols-3 mb-400 gap-400">
+<gcds-grid columns="1fr" columns-tablet="1fr 1fr" columns-desktop="1fr 1fr 1fr">
   <gcds-card
     card-title="Recevez nos communications"
     href="{{ links.contact }}"
@@ -30,18 +30,18 @@ Nous testons actuellement la version alpha de Système de design GC, ce qui corr
     href="{{ links.registerDemo }}"
     description="Assistez à une présentation du prototypage et du développement d’expériences Web à l’aide du système de design et participez à une séance de questions-réponses."
   ></gcds-card>
-</div>
+</gcds-grid>
 
-<hr/>
+<hr class="mt-600"/>
 
-<gcds-heading tag="h2" margin-top="225">Contribuez à nos prochaines priorités</gcds-heading>
+## Contribuez à nos prochaines priorités
 
-Vous pouvez contribuer à l’avenir de Système de design GC. 
+Vous pouvez contribuer à l’avenir de Système de design GC.
 
 Nous recherchons activement des contributions pour les éléments suivants :
 
-- **Des tableaux de données** pour organiser et afficher une grande quantité de données dans des rangées et des colonnes.</li>
-- **Des balises** pour étiqueter, catégoriser et organiser des éléments à l’aide de mots-clés descriptifs. </li>
+- **Des tableaux de données** pour organiser et afficher une grande quantité de données dans des rangées et des colonnes.
+- **Des balises** pour étiqueter, catégoriser et organiser des éléments à l’aide de mots-clés descriptifs.
 
 Nous nous intéressons également aux problèmes concernant les interactions avec les utilisateurs et utilisatrice ou aux solutions qui peuvent s’appliquer aux différents services du GC.
 
@@ -56,9 +56,9 @@ Fournissez l'un des éléments suivants pour chaque composant ou modèle de page
 <gcds-button button-role="secondary" type="link" href="{{ links.githubCompsPriority }}" external>Contribuer sur GitHub</gcds-button>
 <gcds-button button-role="secondary" type="link" href="{{ links.contact }}" external>Contactez-nous</gcds-button>
 
-<hr/>
+<hr class="mt-600" />
 
-<gcds-heading tag="h2" margin-top="225">Autres nouveautés à venir</gcds-heading>
+## Autres nouveautés à venir
 
 Voici ce que nous allons bientôt publier. Plus de renseignements sur notre <gcds-link href="{{ links.roadmap }}" >feuille de route</gcds-link>.
 

@@ -31,7 +31,7 @@ Use links to:
 - Skip past navigational elements to get to main content.
 
 <article class="bg-full-width bg-primary text-light pt-600 pb-300 my-600">
-  <h2 class="mt-0 mb-300">Related components</h2>
+  <h2 class="mt-0">Related components</h2>
 
 <a href="{{ links.button }}" class="link-light">Buttons</a> when a person modifies data, changes a state, or initiates a specific action.
 

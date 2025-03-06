@@ -26,7 +26,7 @@ Use select within a form to:
 - Give a person the ability to answer without writing, by selecting one item from a list.
 
 <article class="bg-full-width bg-primary text-light pt-600 pb-300 my-600">
-  <h2 class="mt-0 mb-300">Related components</h2>
+  <h2 class="mt-0">Related components</h2>
 
 <a href="{{ links.checkbox }}" class="link-light">Checkboxes</a> when you are expecting the user to select 1 or more options from a list of items.
 

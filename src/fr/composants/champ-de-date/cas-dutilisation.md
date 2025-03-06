@@ -29,7 +29,7 @@ Utilisez un champ de date pour recueillir une date lorsque vous attendez d’une
 - Évitez d’utiliser un champ de date si la date n’est pas connue de la personne. Utilisez alors un sélecteur de date.
 
 <article class="bg-full-width bg-primary text-light pt-600 pb-300 my-600">
-  <h2 class="mt-0 mb-300">Composants connexes</h2>
+  <h2 class="mt-0">Composants connexes</h2>
 
   <a href="{{ links.input }}" class="link-light">Champs de saisie</a> : lorsque vous voulez que la personne saisisse seulement une année ou un jour du mois.
 

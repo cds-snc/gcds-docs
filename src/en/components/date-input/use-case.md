@@ -29,7 +29,7 @@ Use a date input to gather a date from a person when you're expecting them to wr
 - Avoid using a date input for the selection of an unknown date. Use a date picker instead.
 
 <article class="bg-full-width bg-primary text-light pt-600 pb-300 my-600">
-  <h2 class="mt-0 mb-300">Related components</h2>
+  <h2 class="mt-0">Related components</h2>
 
   <a href="{{ links.input }}" class="link-light">Input</a> when you want someone to input only a year or only a day of the month.
 

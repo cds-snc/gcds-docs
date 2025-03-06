@@ -28,8 +28,7 @@ Utilisez la case à cocher avec un [jeu de champs]({{ links.fieldset }}) pour po
 - Donner à la personne la possibilité de répondre à la question sans écrire en sélectionnant un ou plusieurs éléments dans une liste.
 
 <article class="bg-full-width bg-primary text-light pt-600 pb-300 my-600">
-
-  <h2 class="mt-0 mb-300">Composants connexes</h2>
+  <h2 class="mt-0">Composants connexes</h2>
 
 Utilisez les <a href="{{ links.radioGroup }}" class="link-light">groupes de boutons radio</a> pour solliciter un choix unique parmi un plus grand ensemble d’options.
 

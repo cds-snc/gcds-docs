@@ -30,7 +30,7 @@ Use this header landmark – as part of a trusted brand – for apps, forms, or 
 - The Federal Identity Program Government of Canada signature.
 
 <article class="bg-full-width bg-primary text-light pt-600 pb-300 my-600">
-  <h2 class="mt-0 mb-300">Related components</h2>
+  <h2 class="mt-0">Related components</h2>
 
 <a href="{{ links.footer }}" class="link-light">Footer</a> for placing the Government of Canada branded footer landmark.
 

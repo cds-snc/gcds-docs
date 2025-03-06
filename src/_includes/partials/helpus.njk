@@ -1,18 +1,13 @@
-<section data-pagefind-ignore class="pt-75 mt-300 mb-900 {% if removeBorder %} {% else %}bt-sm b-dark {% endif %}">
-  <h2 class="mt-225 mb-300">
-    {{ helpus[locale].heading }}
-  </h2>
-
-  <p class="mb-300">
-    {{ helpus[locale].paragraph }}
-  </p>
+<section data-pagefind-ignore class="my-600 {% if removeBorder %} {% else %}bt-sm b-dark {% endif %}">
+  <h2>{{ helpus[locale].heading }}</h2>
+  <p>{{ helpus[locale].paragraph }}</p>
 
   {% if locale == "en" %}
-  <p class="mb-300">
+  <p>
     Something's wrong? Raise it through GitHub with an <gcds-link href='{{ links.githubGetStarted }}' external>account</gcds-link>. You'll have access to the team's direct responses, progress made on your issue, and issues raised by others.
   </p>
   {% else %}
-  <p class="mb-300">
+  <p>
     Quelque chose ne va pas? Signalez-le sur GitHub en créant un <gcds-link href='{{ links.githubGetStarted }}' external>compte</gcds-link>. Vous pourrez accéder aux réponses de l'équipe, suivre les progrès réalisés concernant votre problèmes et voir les problèmes signalés par d'autres personnes.
   </p>
   {% endif %}

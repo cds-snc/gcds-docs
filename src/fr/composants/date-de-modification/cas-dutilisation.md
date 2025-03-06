@@ -27,7 +27,7 @@ Utilisez la date de modification pour :
 - Identifier la version actuelle d'une application.
 
 <article class="bg-full-width bg-primary text-light pt-600 pb-300 my-600">
-  <h2 class="mt-0 mb-300">Composants connexes</h2>
+  <h2 class="mt-0">Composants connexes</h2>
 
 <a href="{{ links.footer }}" class="link-light">Pied de page</a> : pour placer le pied de page portant l'image de marque du gouvernement du Canada.
 
@@ -36,30 +36,29 @@ Utilisez la date de modification pour :
 ## Types de composants
 
 <div class="remove-empty-p">
-<gcds-grid columns="1fr" columns-tablet="1fr 2fr" align-items="start">
+<gcds-grid class="mb-300" columns="1fr" columns-tablet="1fr 2fr" align-items="start">
   {% componentPreview "Aperçu du le type date" "px-225 py-300" "" %}
   <gcds-date-modified>2023-08-22</gcds-date-modified>
   {% endcomponentPreview %}
   <div>
-    <h3 class="mb-300">Type « Date »</h3>
-    <p class="mb-300">Utilisez le type « date » pour :</p>
+    <h3 class="mt-0">Type « Date »</h3>
+    <p>Utilisez le type « date » pour :</p>
     <ul class="list-disc mb-300">
       <li>Indiquer la date de la dernière modification apportée à une page ou à un site Web.</li>
     </ul>
   </div>
 </gcds-grid>
-<br/>
+
 <gcds-grid columns="1fr" columns-tablet="1fr 2fr" align-items="start">
   {% componentPreview "Aperçu du le type version" "px-225 py-300" "" %}
   <gcds-date-modified type="version">1.0.0</gcds-date-modified>
   {% endcomponentPreview %}
   <div>
-    <h3 class="mb-300">Type « Version »</h3>
-    <p class="mb-300">Utilisez le type « version » pour :</p>
+    <h3 class="mt-0">Type « Version »</h3>
+    <p>Utilisez le type « version » pour :</p>
     <ul class="list-disc mb-300">
       <li>Identifier la version actuelle d'une application.</li>
     </ul>
   </div>
 </gcds-grid>
 </div>
-</br>

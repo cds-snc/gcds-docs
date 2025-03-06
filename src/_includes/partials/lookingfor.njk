@@ -8,16 +8,10 @@
   {% set paragraph = lookingfor[locale]["coparagraph"] %}
 {% endif %}
 
-<section class="pt-75 mt-300">
-  <h2 class="mt-225 mb-300">
-    {{ lookingfor[locale].heading }}
-  </h2>
-
-  <p class="mb-300">
-    {{ paragraph | safe }}
-  </p>
-
-  <ul class="mb-900">
+<section class="mt-600 bt-sm">
+  <h2>{{ lookingfor[locale].heading }}</h2>
+  <p>{{ paragraph | safe }}</p>
+  <ul class="mb-600">
     <li class="md:d-inline sm:d-block me-150">
       <gcds-button
         type="link"
@@ -27,7 +21,6 @@
         {{ lookingfor[locale].feedback }}
       </gcds-button>
     </li>
-
     <li class="md:d-inline sm:d-block mt-100 md:mt-0">
       <gcds-button
         type="link"

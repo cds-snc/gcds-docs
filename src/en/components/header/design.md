@@ -14,7 +14,7 @@ date: 'git Last Modified'
   <li>The <strong>language toggle</strong> component is a switch for French and English content. When the site language is set using the <code>lang</code> attribute, the toggle will be available in the other Official Language.</li>
 </ol>
 
-<img class="b-sm b-default mb-600 p-300" src="/images/en/components/anatomy/gcds-header-anatomy-recommended.svg" alt="Home link Taxonomy has three parts. The skip to content - indicated by a bright blue double white lined box with label of Skip to main content. GC header banner with a Canadian Flag with Government of Canada  and Government du Canada. Language toggle pointing at Français to use to toggle to French. Top bar pointing at Home link in a light grey banner with Site menu link outlined by a dark grey link to indicate the selected link with unselected Site menu link with no line underneath it."/>
+<img class="b-sm b-default p-300" src="/images/en/components/anatomy/gcds-header-anatomy-recommended.svg" alt="Home link Taxonomy has three parts. The skip to content - indicated by a bright blue double white lined box with label of Skip to main content. GC header banner with a Canadian Flag with Government of Canada  and Government du Canada. Language toggle pointing at Français to use to toggle to French. Top bar pointing at Home link in a light grey banner with Site menu link outlined by a dark grey link to indicate the selected link with unselected Site menu link with no line underneath it."/>
 
 ## Optional header elements – with H1 title
 
@@ -30,7 +30,7 @@ date: 'git Last Modified'
 
 The **search** element supports including a search form that is local or global.
 
-<img class="b-sm b-default mb-600 p-300" src="/images/en/components/anatomy/gcds-header-anatomy-optional.svg" alt="Home link Taxonomy has five parts. The skip to content - indicated by a bright blue double white lined box with label of Skip to main content. The Phase banner - indicated by a navy blue lined box with label of stages of the site. The stage 'pilot' is in a white navy blue outlined box. GC header banner with a Canadian Flag with Government of Canada  and Government du Canada. Language toggle pointing at Français to use to toggle to French. Top bar pointing at Home link in a light grey banner with Site menu link outlined by a dark grey link to indicate the selected link with unselected Site menu link with no line underneath it."/>
+<img class="b-sm b-default p-300" src="/images/en/components/anatomy/gcds-header-anatomy-optional.svg" alt="Home link Taxonomy has five parts. The skip to content - indicated by a bright blue double white lined box with label of Skip to main content. The Phase banner - indicated by a navy blue lined box with label of stages of the site. The stage 'pilot' is in a white navy blue outlined box. GC header banner with a Canadian Flag with Government of Canada  and Government du Canada. Language toggle pointing at Français to use to toggle to French. Top bar pointing at Home link in a light grey banner with Site menu link outlined by a dark grey link to indicate the selected link with unselected Site menu link with no line underneath it."/>
 
 ## Design and accessibility for headers
 

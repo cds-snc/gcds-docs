@@ -23,7 +23,9 @@ date: "git Last Modified"
 ## Accessibilité et design des champ de date
 
 ### Favorisez la réussite de la tâche à l’aide d’un texte explicatif
-- Utilisez un texte explicatif dans la légende du jeu de champs pour aider une personne à comprendre le format de date qu’elle peut utiliser. Par exemple, le texte explicatif « 7 septembre » plutôt que « 07 septembre » indique qu’un chiffre unique, non précédé d’un zéro, suffit.
+
+Utilisez un texte explicatif dans la légende du jeu de champs pour aider une personne à comprendre le format de date qu’elle peut utiliser. Par exemple, le texte explicatif « 7 septembre » plutôt que « 07 septembre » indique qu’un chiffre unique, non précédé d’un zéro, suffit.
 
 ### Rédigez des messages d’erreur précis
-- Rédigez des messages d’erreur pour chaque champ de la date. Ces messages doivent renseigner sur les informations manquantes ou les erreurs de format. Par exemple, si une personne a saisi une année de 2 chiffres, indiquez que l’année doit comporter 4 chiffres.
+
+Rédigez des messages d’erreur pour chaque champ de la date. Ces messages doivent renseigner sur les informations manquantes ou les erreurs de format. Par exemple, si une personne a saisi une année de 2 chiffres, indiquez que l’année doit comporter 4 chiffres.
