@@ -43,7 +43,7 @@ date: 'git Last Modified'
       <img class="mb-150" src="../../images/common/home/icon-template.svg" alt="" />
       <h3 class="mb-300">Modèles de page</h3>
       <p class="mb-300">Les mises en page réutilisables sont des agencements de composants propres à des types de page communs.</p>
-      <p class="mb-300">Entamez votre projet à l’aide de pages de base préfabriquées pour offrir une expérience Canada.ca uniforme et reconnaissable.</p>
+      <p class="mb-300">Entamez votre projet à l'aide de pages de base préfabriquées pour offrir une expérience Canada.ca uniforme et reconnaissable.</p>
       <gcds-link href="{{ links.pageTemplates }}">Découvrez les modèle des page</gcds-link>
     </li>
     <li class="list-none">
@@ -59,31 +59,58 @@ date: 'git Last Modified'
 <article class="py-600 bg-light bg-full-width">
   <h2 class="mb-300">Nouveautés</h2>
   <gcds-grid tag="ul" columns="1fr" columns-tablet="1fr 1fr">
-    <li class="list-none bg-white p-450 b-radius-md">
-      <h3 class="mb-300">
-        <gcds-link href="{{ links.getInvolved }}">S'impliquer</gcds-link>
-      </h3>
-      <p>Découvrez ce sur quoi nous travaillons.</p>
-    </li>
-    <li class="list-none bg-white px-175 py-450 b-radius-md">
-      <h3 class="mb-300">
-        <gcds-link external href="{{ links.releaseNotes }}">Notes de publication</gcds-link>
-      </h3>
-      <p>Les derniers ajouts.</p>
-    </li>
+    <gcds-card
+      href="{{ links.registerDemo }}"
+      card-title="Participer à une démo"
+      card-title-tag="h3"
+      description="Découvrir comment Système de design GC peut fonctionner pour vous et votre équipe."
+      role="listitem"
+    ></gcds-card>
+    <gcds-card
+      href="{{ links.accessibility }}"
+      card-title="S'informer sur l'accessibilité"
+      card-title-tag="h3"
+      description="Passez en revue les pratiques et les examens en matière d'accessibilité au sein du système de design."
+      role="listitem"
+    ></gcds-card>
+    <gcds-card
+      href="{{ links.getInvolved }}"
+      card-title="S'impliquer"
+      card-title-tag="h3"
+      description="Découvrez sur quoi l'équipe travaille et comment vous pouvez y contribuer."
+      role="listitem"
+    ></gcds-card>
+    <gcds-card
+      href="{{ links.releaseNotes }}"
+      card-title="Découvrir les dernières versions"
+      card-title-tag="h3"
+      description="Découvrez les derniers ajouts et les nouvelles fonctionnalités."
+      role="listitem"
+    ></gcds-card>
   </gcds-grid>
 </article>
 
 <article class="py-450">
   <h2 class="mb-300">Composant vedette</h2>
 
-  <h3 class="mb-300">Carte</h3>
-  <p class="mb-450">La carte est un encadré contenant du contenu structuré et pratique sur un sujet unique.</p>
-  <img class="d-block mb-300" src="../../images/common/components/preview-card.svg" alt="Le composant Carte montre un encadré contenant une image rectangulaire dans la moitié supérieure. Juste en dessous se trouve une barre bleue rectangulaire occupant les trois quarts de la largeur de l'encadré et représentant le titre de la carte. Encore en dessous, deux barres grises plus longues l'une au-dessus de l'autre représentent respectivement la zone consacrée au contexte et la zone consacrée aux métadonnées." />
-  <gcds-link href="{{ links.card }}">En savoir plus sur la carte</gcds-link>
-
-  <h3 class="mt-600 mb-300">Champ de date</h3>
-  <p class="mb-450">Le champ de date est un espace permettant de saisir une date connue.</p>
-  <img class="d-block mb-300" src="../../images/fr/components/preview/preview-date-input.svg" alt="Des lignes grises épaisses représentent la légende et le texte explicatif. En dessous, trois cases blanches à fine bordure grise sont alignées horizontalement : une petite case représentant le champ de texte pour le jour, une case contenant une ligne grise et une flèche grise et représentant le champ de sélection du mois, puis une petite case représentant le champ de texte pour l’année." />
-  <gcds-link href="{{ links.dateInput }}">En savoir plus sur le champ de date</gcds-link>
+  <gcds-grid tag="ul" columns="1fr" columns-tablet="1fr 1fr" columns-desktop="1fr 1fr 1fr">
+    <gcds-card
+      href="{{ links.notice }}"
+      card-title="Avis"
+      card-title-tag="h3"
+      img-src="/images/common/components/preview-notice.svg"
+      img-alt="Une ligne bleue verticale tronquée par un cercle bleu, représentant la ligne guide et l'icône, se situe à gauche de deux épaisses lignes grises pâle alignées sous une ligne grise foncée représentant un titres et des lignes de texte."
+      description="L'avis est un composant permettant de communiquer des mises à jour, des avertissements et des confirmations concernant la tâche principale relative à la page ou au service. C'est un message court et bien visible qui fait partie du contenu de la page."
+      role="listitem"
+    ></gcds-card>
+    <gcds-card
+      href="{{ links.card }}"
+      card-title="Carte"
+      card-title-tag="h3"
+      img-src="/images/common/components/preview-card.svg"
+      img-alt="Le composant Carte montre un encadré contenant une image rectangulaire dans la moitié supérieure. Juste en dessous se trouve une barre bleue rectangulaire occupant les trois quarts de la largeur de l'encadré et représentant le titre de la carte. Encore en dessous, deux barres grises plus longues l'une au-dessus de l'autre représentent respectivement la zone consacrée au contexte et la zone consacrée aux métadonnées."
+      description="La carte est un composant de navigation pouvant être utilisé à la place d'un bouton ou d'un lien pour mettre en avant l'action la plus importante. C'est un encadré contenant du contenu structuré et pratique sur un sujet unique."
+      role="listitem"
+    ></gcds-card>
+  </gcds-grid>
 </article>
