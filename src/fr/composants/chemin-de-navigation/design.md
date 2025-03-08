@@ -9,24 +9,12 @@ date: 'git Last Modified'
 ## Structure d'un chemin de navigation
 
 <ol class="anatomy-list">
-  <li>Le <strong>lien Canada.ca</strong> permet d'accéder à la page d'accueil Canada.ca dans la langue actuelle.</li>
-  <li>Le <strong>chevron</strong> se trouve entre chaque lien et pointe vers le lien suivant ou subordonné.</li>
-  <li>Le <strong>lien vers la page d'accueil</strong> ramène à la page d'accueil de la page Web ou du site actuel.</li>
-  <li>Le <strong>lien de la page parent</strong> conduit vers la page parent de la page actuelle. Vous pouvez avoir jusqu'à trois liens vers des pages parents en plus de ceux vers la page d'accueil et la page d'accueil Canada.ca.</li>
+  <li>Le <strong>premier lien</strong> dans le chemin de navigation renvoie par défaut à la page d’accueil de Canada.ca. Pour d’autres sites, le lien peut être modifié. </li>
+  <li>Le <strong>chevron</strong> sépare chaque lien et mène vers un lien enfant.</li>
+  <li>Le <strong>lien</strong> mène vers une page de niveau parent.</li>
 </ol>
 
-<img class="b-sm b-default p-300" src="/images/fr/components/anatomy/gcds-breadcrumbs-anatomy.svg" alt="La structure du chemin de navigation qui affiche trois liens de suite avec une icône de flèche entre chacun." />
-
-### Structure du chemin de navigation — avec en-tête et titre H1
-
-<ol class="anatomy-list">
-  <li>L'<gcds-link href="{{ links.header }}"><strong>en-tête</strong></gcds-link> constitue un élément d'une image de marque fiable — pour les applications, les formulaires ou d'autres services numériques transactionnels.</li>
-  <li>Le <strong>lien vers la page d'accueil</strong> ramène à la page d'accueil de la page Web ou du site actuel.</li>
-  <li>Le <strong>lien de la page parent</strong> conduit vers la page parent de la page actuelle. Vous pouvez avoir jusqu'à trois liens vers des pages parents en plus de ceux vers la page d'accueil et la page d'accueil Canada.ca.</li>
-  <li>Le  <strong>titre H1</strong> est un élément distinct du composant Chemin de navigation. Il indique aux lecteur·rice·s la nature de la page ou du site et sert de repère.</li>
-</ol>
-
-<img class="b-sm b-default p-300" src="/images/fr/components/anatomy/gcds-breadcrumbs-anatomy-with-header.svg" alt="La structure du chemin de navigation qui affiche trois liens de suite sous l'en-tête avec une icône de flèche entre chacun." />
+<img class="b-sm b-default p-300" src="/images/fr/components/anatomy/gcds-breadcrumbs-anatomy.svg" alt="La structure du chemin de navigation qui affiche deux liens de suite avec une icône de flèche entre chacun." />
 
 ## Design et accessibilité du chemin de navigation
 
