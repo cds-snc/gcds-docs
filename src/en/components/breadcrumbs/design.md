@@ -9,24 +9,12 @@ date: 'git Last Modified'
 ## Breadcrumbs anatomy
 
 <ol class="anatomy-list">
-  <li>The <strong>Canada.ca link</strong> navigates to the Canada.ca home page in the current language.</li>
-  <li>The <strong>chevron</strong> sits between each link and points to the next/subordinate link.</li>
-  <li>The <strong>home page link</strong> navigates back to the home page of the current webpage or site.</li>
-  <li>The <strong>parent page link</strong> navigates to the parent page of the current page. You can have up to three parent page links in addition to the homepage and the Canada.ca home or 5 in total.</li>
+  <li>The <strong>first link</strong> in the breadcrumbs defaults to the Canada.ca home page. For other sites, the link can be changed.</li>
+  <li>The <strong>chevron</strong> separates each link and points to a child link.</li>
+  <li>The <strong>link</strong> navigates to a parent-level page.</li>
 </ol>
 
-<img class="b-sm b-default p-300" src="/images/en/components/anatomy/gcds-breadcrumbs-anatomy.svg" alt="Breadcrumbs anatomy showing three links in a row with an arrow icon between them." />
-
-### Breadcrumbs anatomy – with header and H1 title
-
-<ol class="anatomy-list">
-  <li>The <gcds-link href="{{ links.header }}"><strong>header</strong></gcds-link> is part of a trusted brand — for apps, forms, or other transactional digital services.</li>
-  <li>The <strong>home page link</strong> navigates back to the home page of the current webpage or site.</li>
-  <li>The <strong>parent page link</strong> navigates to the parent page of the current page. You can have up to three parent page links in addition to the homepage and the Canada.ca home or 5 in total.</li>
-  <li>The <strong>H1 title</strong> is a separate element from the breadcrumbs component. It tells readers what the page or site is about and acts a signpost, giving them a sense of place.</li>
-</ol>
-
-<img class="b-sm b-default p-300" src="/images/en/components/anatomy/gcds-breadcrumbs-anatomy-with-header.svg" alt="Breadcrumbs anatomy showing three links in a row with an arrow icon between them below the header component." />
+<img class="b-sm b-default p-300" src="/images/en/components/anatomy/gcds-breadcrumbs-anatomy.svg" alt="Breadcrumbs anatomy showing two links in a row with an arrow icon between them." />
 
 ## Design and accessibility for breadcrumbs
 
