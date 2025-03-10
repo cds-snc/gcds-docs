@@ -9,10 +9,10 @@ date: 'git Last Modified'
 ## Structure du composant recherche
 
 <ol class="anatomy-list">
-  <li>Le <strong>champ de saisie</strong> est un espace permettant d'entrer des mots-clés de recherche.</li>
-  <li>Le <strong>message-guide du champ de recherche</strong> indique l'action attendue.</li>
-  <li>Le <strong>bouton</strong> lance la recherche pour obtenir des résultats.</li>
-  <li>L'<strong>icône</strong> est une aide visuelle sur le bouton.</li>
+  <li>Le <strong>champ de saisie</strong> est un espace permettant d’entrer des mots-clés de recherche.</li>
+  <li>Le <strong>texte de remplacement</strong> est une invite visible dans le champ qui s’efface lorsqu’une 
+personne saisit du texte. Il identifie la zone de recherche.</li>
+  <li>Le <strong>bouton</strong> désigné à l’aide d’une icône de loupe, lance la recherche.</li>
 </ol>
 
 <img class="b-sm b-default p-300" src="/images/fr/components/anatomy/gcds-search-anatomy.svg" alt="Image montrant la structure du composant recherche avec des chiffres pointant vers les parties individuelles du composant." />
