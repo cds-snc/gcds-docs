@@ -1180,10 +1180,10 @@
       <main id="mc" class="container-xl mx-auto xl:px-0 sm:px-600 px-225 general-layout" data-pagefind-body>
         
   
-    <h1 id="zone-de-texte-brgcdstextarea" class="mb-300">Zone de texte <br><code>&lt;gcds-textarea&gt;</code></h1>
-<p class="mb-300"><em>Autres noms : saisie de texte, zone d'entrée.</em></p>
-<p class="mb-300">Une zone de texte est un espace permettant de saisir une réponse détaillée à une question ou à une directive.</p>
-<p class="mb-300"><ul class="d-flex flex-wrap gap-300">
+    <h1 id="zone-de-texte-brgcdstextarea">Zone de texte <br><code>&lt;gcds-textarea&gt;</code></h1>
+<p><em>Autres noms : saisie de texte, zone d'entrée.</em></p>
+<p>Une zone de texte est un espace permettant de saisir une réponse détaillée à une question ou à une directive.</p>
+<p><ul class="d-flex flex-wrap gap-300">
 <li class="github-link">
 <gcds-link external href="https://github.com/cds-snc/gcds-components/tree/main/packages/web/src/components/gcds-textarea">GitHub</gcds-link>
 </li>
@@ -1191,8 +1191,8 @@
 <gcds-link external href="https://www.figma.com/file/o4SguSZdar2CCFzSkWNrmB/Syst%C3%A8me-de-design-GC?type=design&node-id=114-3355&mode=design&t=1DaL24vHpjRRfHHm-0">Figma</gcds-link>
 </li>
 </ul></p>
-<p class="mb-300"><div class="my-600 b-sm b-default component-preview">
-<h2 class="container-full font-text font-semibold px-225 py-150 bb-sm b-default bg-light">
+<p><div class="my-600 b-sm b-default component-preview">
+<h2 class="container-full font-text font-semibold m-0 px-225 py-150 bb-sm b-default bg-light">
 Aperçu du composant de zone de texte
 </h2>
 <div>
@@ -1244,43 +1244,38 @@ Aperçu du composant de zone de texte
     </nav>
   
 
-  <h2 id="structure-dune-zone-de-texte" class="mt-600 mb-300">Structure d'une zone de texte</h2>
+  <h2 id="structure-dune-zone-de-texte">Structure d'une zone de texte</h2>
 <ol class="anatomy-list">
   <li>L'<strong>étiquette</strong> indique les renseignements que l'utilisateur doit saisir dans le champ.</li>
   <li>Le <strong>texte explicatif</strong> précise les exigences spécifiques pour chaque zone de texte afin de favoriser la réussite de la tâche.</li>
   <li>Le <strong>champ</strong> est la boîte avec laquelle l'utilisateur·rice interagit pour fournir sa réponse.</li>
 </ol>
 <img class="b-sm b-default p-300" src="/images/fr/components/anatomy/gcds-textarea-anatomy.svg" alt="L'anatomie de la zone de texte identifiant l'étiquette, le message d'aide et le champ qui forme le composant" />
-<h2 id="conception-et-accessibilite-des-zones-de-texte" class="mt-600 mb-300">Conception et accessibilité des zones de texte</h2>
-<h3 id="redigez-une-etiquette-court-precis-et-unique" class="mt-600 mb-300">Rédigez une étiquette court, précis et unique</h3>
-<ul class="list-disc mb-300"><li><p class="mb-300">Demandez les renseignements requis avec le plus de concision possible. La forme interrogative peut rendre une étiquette inutilement longue et l'utilisateur·rice pourrait ne pas la lire en entier.</li>
-<li><p class="mb-300">Choisissez des étiquettes uniques pour chaque champ de saisie et zone de texte dans une page. Une personne parcourant les champs entendra le texte de l'étiquette en succession rapide et n'aura pas d'indication pour associer l'etiquette avec chaque contexte.</li>
-<li><p class="mb-300">Évitez d'employer un jargon technique, comme « adresse électronique du sujet » ou « ID du compte ». Soyez plutôt précis·e et employez un ton personnel, comme « nom complet » et « âge de l'enfant ».</li>
-<li><p class="mb-300">Évitez d'utiliser des expressions familières et des verbes courants qui ne sont pas connus des personnes ne parlant pas couramment l'anglais ou le français.</li>
-<li><p class="mb-300">Expliquez tout terme qui pourrait porter à confusion. Par exemple, « Biographie (Dites nous quelques mots à propos de vous-même) ».</li>
+<h2 id="conception-et-accessibilite-des-zones-de-texte">Conception et accessibilité des zones de texte</h2>
+<h3 id="redigez-une-etiquette-court-precis-et-unique">Rédigez une étiquette court, précis et unique</h3>
+<ul class="list-disc mb-300"><li>Demandez les renseignements requis avec le plus de concision possible. La forme interrogative peut rendre une étiquette inutilement longue et l'utilisateur·rice pourrait ne pas la lire en entier.</li>
+<li>Choisissez des étiquettes uniques pour chaque champ de saisie et zone de texte dans une page. Une personne parcourant les champs entendra le texte de l'étiquette en succession rapide et n'aura pas d'indication pour associer l'etiquette avec chaque contexte.</li>
+<li>Évitez d'employer un jargon technique, comme « adresse électronique du sujet » ou « ID du compte ». Soyez plutôt précis·e et employez un ton personnel, comme « nom complet » et « âge de l'enfant ».</li>
+<li>Évitez d'utiliser des expressions familières et des verbes courants qui ne sont pas connus des personnes ne parlant pas couramment l'anglais ou le français.</li>
+<li>Expliquez tout terme qui pourrait porter à confusion. Par exemple, « Biographie (Dites nous quelques mots à propos de vous-même) ».</li>
 </ul>
-<h3 id="favorisez-la-reussite-de-la-tache-en-ajoutant-du-texte-explicatif" class="mt-600 mb-300">Favorisez la réussite de la tâche en ajoutant du texte explicatif</h3>
-<ul class="list-disc mb-300"><li><p class="mb-300">Ajoutez du texte explicatif pour aider l'utilisateur·rice à fournir une valeur valide dans la zone de texte.</li>
-<li><p class="mb-300">Rédigez un texte explicatif qui est instructif, court et précis.</li>
+<h3 id="favorisez-la-reussite-de-la-tache-en-ajoutant-du-texte-explicatif">Favorisez la réussite de la tâche en ajoutant du texte explicatif</h3>
+<ul class="list-disc mb-300"><li>Ajoutez du texte explicatif pour aider l'utilisateur·rice à fournir une valeur valide dans la zone de texte.</li>
+<li>Rédigez un texte explicatif qui est instructif, court et précis.</li>
 </ul>
-<h3 id="ecrire-des-messages-derreur-pour-les-zones-de-texte-requises" class="mt-600 mb-300">Écrire des messages d'erreur pour les zones de texte requises</h3>
-<ul class="list-disc mb-300"><li><p class="mb-300">Utilisez les <a href="/fr/composants/message-derreur/">messages d'erreur</a> pour traiter les saisies manquantes ou non valides.</li>
-<li><p class="mb-300">Rédigez un <a href="/fr/composants/message-derreur/">message d'erreur</a> pour tout zone de texte obligatoire. Si un champ est facultatif, évitez de lui associer un <a href="/fr/composants/message-derreur/">message d'erreur</a>.</li>
-<li><p class="mb-300">Évitez de critiquer la personne qui utilise le produit. Dites-lui plutôt exactement ce qu'elle doit faire pour progresser.</li>
+<h3 id="ecrire-des-messages-derreur-pour-les-zones-de-texte-requises">Écrire des messages d'erreur pour les zones de texte requises</h3>
+<ul class="list-disc mb-300"><li>Utilisez les <a href="/fr/composants/message-derreur/">messages d'erreur</a> pour traiter les saisies manquantes ou non valides.</li>
+<li>Rédigez un <a href="/fr/composants/message-derreur/">message d'erreur</a> pour tout zone de texte obligatoire. Si un champ est facultatif, évitez de lui associer un <a href="/fr/composants/message-derreur/">message d'erreur</a>.</li>
+<li>Évitez de critiquer la personne qui utilise le produit. Dites-lui plutôt exactement ce qu'elle doit faire pour progresser.</li>
 </ul>
 
 
-  <section data-pagefind-ignore class="pt-75 mt-300 mb-900 bt-sm b-dark ">
-  <h2 class="mt-225 mb-300">
-    Aidez-nous à nous améliorer
-  </h2>
-
-  <p class="mb-300">
-    Vous avez des questions ou des demandes? Faites-nous part de vos commentaires à l&#39;aide de notre formulaire de contact.
-  </p>
+  <section data-pagefind-ignore class="my-600 bt-sm b-dark ">
+  <h2>Aidez-nous à nous améliorer</h2>
+  <p>Vous avez des questions ou des demandes? Faites-nous part de vos commentaires à l&#39;aide de notre formulaire de contact.</p>
 
   
-  <p class="mb-300">
+  <p>
     Quelque chose ne va pas? Signalez-le sur GitHub en créant un <gcds-link href='https://docs.github.com/fr/get-started/start-your-journey/creating-an-account-on-github' external>compte</gcds-link>. Vous pourrez accéder aux réponses de l'équipe, suivre les progrès réalisés concernant votre problèmes et voir les problèmes signalés par d'autres personnes.
   </p>
   

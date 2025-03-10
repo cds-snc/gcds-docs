@@ -1180,10 +1180,10 @@
       <main id="mc" class="container-xl mx-auto xl:px-0 sm:px-600 px-225 general-layout" data-pagefind-body>
         
   
-    <h1 id="header-brgcdsheader" class="mb-300">Header <br><code>&lt;gcds-header&gt;</code></h1>
-<p class="mb-300"><em>Also called: global header, brand header.</em></p>
-<p class="mb-300">The header is the responsive Government of Canada branded header landmark.</p>
-<p class="mb-300"><ul class="d-flex flex-wrap gap-300">
+    <h1 id="header-brgcdsheader">Header <br><code>&lt;gcds-header&gt;</code></h1>
+<p><em>Also called: global header, brand header.</em></p>
+<p>The header is the responsive Government of Canada branded header landmark.</p>
+<p><ul class="d-flex flex-wrap gap-300">
 <li class="github-link">
 <gcds-link external href="https://github.com/cds-snc/gcds-components/tree/main/packages/web/src/components/gcds-header">GitHub</gcds-link>
 </li>
@@ -1191,8 +1191,8 @@
 <gcds-link external href="https://www.figma.com/file/mh2maMG2NBtk41k1O1UGHV/GC-Design-System?type=design&node-id=2043-5684&mode=design&t=Lvks9nlgmvkIeHOc-0">Figma</gcds-link>
 </li>
 </ul></p>
-<p class="mb-300"><div class="my-600 b-sm b-default component-preview">
-<h2 class="container-full font-text font-semibold px-225 py-150 bb-sm b-default bg-light">
+<p><div class="my-600 b-sm b-default component-preview">
+<h2 class="container-full font-text font-semibold m-0 px-225 py-150 bb-sm b-default bg-light">
 Header component preview
 </h2>
 <div>
@@ -1244,14 +1244,14 @@ Header component preview
     </nav>
   
 
-  <h2 id="header-anatomy-recommended-elements" class="mt-600 mb-300">Header anatomy – recommended elements</h2>
+  <h2 id="header-anatomy-recommended-elements">Header anatomy – recommended elements</h2>
 <ol class="anatomy-list">
   <li>The <strong>skip-to-nav</strong> includes the skip-to-content link to let a person bypass a cluster of navigation links and jump to the main page content.</li>
   <li>The <strong>signature header</strong> spans the top of the site and contains the Government of Canada branded signature and the language toggle. It can also include a search form. It has a divider line along the bottom edge. When the site language is set with the <code>lang</code> attribute, the signature reflects the same Official Language as the page content.</li>
   <li>The <strong>language toggle</strong> component is a switch for French and English content. When the site language is set using the <code>lang</code> attribute, the toggle will be available in the other Official Language.</li>
 </ol>
-<img class="b-sm b-default mb-600 p-300" src="/images/en/components/anatomy/gcds-header-anatomy-recommended.svg" alt="Home link Taxonomy has three parts. The skip to content - indicated by a bright blue double white lined box with label of Skip to main content. GC header banner with a Canadian Flag with Government of Canada  and Government du Canada. Language toggle pointing at Français to use to toggle to French. Top bar pointing at Home link in a light grey banner with Site menu link outlined by a dark grey link to indicate the selected link with unselected Site menu link with no line underneath it."/>
-<h2 id="optional-header-elements-with-h1-title" class="mt-600 mb-300">Optional header elements – with H1 title</h2>
+<img class="b-sm b-default p-300" src="/images/en/components/anatomy/gcds-header-anatomy-recommended.svg" alt="Home link Taxonomy has three parts. The skip to content - indicated by a bright blue double white lined box with label of Skip to main content. GC header banner with a Canadian Flag with Government of Canada  and Government du Canada. Language toggle pointing at Français to use to toggle to French. Top bar pointing at Home link in a light grey banner with Site menu link outlined by a dark grey link to indicate the selected link with unselected Site menu link with no line underneath it."/>
+<h2 id="optional-header-elements-with-h1-title">Optional header elements – with H1 title</h2>
 <ol class="anatomy-list">
   <li>The <strong>skip-to-nav</strong> includes the skip-to-content link to let a person bypass a cluster of navigation links and jump to the main page content.</li>
   <li>The <strong>banner</strong>, when used, precedes the signature header. It's an optional element to communicate the status of the site or page, for sites that are experimental, those in research, pilots, or products in trial mode.</li>
@@ -1261,43 +1261,38 @@ Header component preview
   <li>The <strong>breadcrumbs</strong> lay a path from each level of the site's hierarchy to the current page, stated in the page title. The breadcrumbs tell a person where they've been and let them retrace their steps or jump between levels.</li>
   <li>The <strong>H1 title</strong> is a separate element from the header component. It tells readers what the page or site is about and acts a signpost, giving them a sense of place.</li>
 </ol>
-<p class="mb-300">The <strong>search</strong> element supports including a search form that is local or global.</p>
-<img class="b-sm b-default mb-600 p-300" src="/images/en/components/anatomy/gcds-header-anatomy-optional.svg" alt="Home link Taxonomy has five parts. The skip to content - indicated by a bright blue double white lined box with label of Skip to main content. The Phase banner - indicated by a navy blue lined box with label of stages of the site. The stage 'pilot' is in a white navy blue outlined box. GC header banner with a Canadian Flag with Government of Canada  and Government du Canada. Language toggle pointing at Français to use to toggle to French. Top bar pointing at Home link in a light grey banner with Site menu link outlined by a dark grey link to indicate the selected link with unselected Site menu link with no line underneath it."/>
-<h2 id="design-and-accessibility-for-headers" class="mt-600 mb-300">Design and accessibility for headers</h2>
-<h3 id="assemble-your-products-header" class="mt-600 mb-300">Assemble your product's header</h3>
-<ul class="list-disc mb-300"><li><p class="mb-300">Include the signature header with the language toggle for Government of Canada sites and products.</li>
-<li><p class="mb-300">Always maintain the integrity of the Government of Canada signature. Absolutely avoid modifying it in any way. In particular avoid stretching or changing the colours or text.</li>
-<li><p class="mb-300">Add a skip-to-content link to aid navigation for people using assistive devices.</li>
-<li><p class="mb-300">Consider using the menu as a simple navigation for a transactional product, like an app, a form, or a storefront.</li>
-<li><p class="mb-300">Include the banner if your page or site is experimental. For example, if it's a pilot, you're using it for research purposes, or it's in trial mode.</li>
+<p>The <strong>search</strong> element supports including a search form that is local or global.</p>
+<img class="b-sm b-default p-300" src="/images/en/components/anatomy/gcds-header-anatomy-optional.svg" alt="Home link Taxonomy has five parts. The skip to content - indicated by a bright blue double white lined box with label of Skip to main content. The Phase banner - indicated by a navy blue lined box with label of stages of the site. The stage 'pilot' is in a white navy blue outlined box. GC header banner with a Canadian Flag with Government of Canada  and Government du Canada. Language toggle pointing at Français to use to toggle to French. Top bar pointing at Home link in a light grey banner with Site menu link outlined by a dark grey link to indicate the selected link with unselected Site menu link with no line underneath it."/>
+<h2 id="design-and-accessibility-for-headers">Design and accessibility for headers</h2>
+<h3 id="assemble-your-products-header">Assemble your product's header</h3>
+<ul class="list-disc mb-300"><li>Include the signature header with the language toggle for Government of Canada sites and products.</li>
+<li>Always maintain the integrity of the Government of Canada signature. Absolutely avoid modifying it in any way. In particular avoid stretching or changing the colours or text.</li>
+<li>Add a skip-to-content link to aid navigation for people using assistive devices.</li>
+<li>Consider using the menu as a simple navigation for a transactional product, like an app, a form, or a storefront.</li>
+<li>Include the banner if your page or site is experimental. For example, if it's a pilot, you're using it for research purposes, or it's in trial mode.</li>
 </ul>
-<h3 id="improve-the-accessibility-of-the-header" class="mt-600 mb-300">Improve the accessibility of the header</h3>
-<ul class="list-disc mb-300"><li><p class="mb-300">Consider making the skip-to-content link visible so any person navigating the site can benefit from the shortcut.</li>
-<li><p class="mb-300">Write H1 heading content in sentence case.</li>
+<h3 id="improve-the-accessibility-of-the-header">Improve the accessibility of the header</h3>
+<ul class="list-disc mb-300"><li>Consider making the skip-to-content link visible so any person navigating the site can benefit from the shortcut.</li>
+<li>Write H1 heading content in sentence case.</li>
 </ul>
-<h3 id="write-specific-link-text" class="mt-600 mb-300">Write specific link text</h3>
-<ul class="list-disc mb-300"><li><p class="mb-300">Make link text clear and specific to help a person decide if they should leave the current page. Spell out where a person will go or what they'll find when they select a link.</li>
-<li><p class="mb-300">Keep link text short and distinctive so a person can scan the links in the header and find what they're looking for. Avoid using &quot;click here&quot; or &quot;read more&quot; as link text.</li>
-<li><p class="mb-300">Limit the number of links in your header. Too much information and increases cognitive load and can be overwhelming to some readers.</li>
+<h3 id="write-specific-link-text">Write specific link text</h3>
+<ul class="list-disc mb-300"><li>Make link text clear and specific to help a person decide if they should leave the current page. Spell out where a person will go or what they'll find when they select a link.</li>
+<li>Keep link text short and distinctive so a person can scan the links in the header and find what they're looking for. Avoid using &quot;click here&quot; or &quot;read more&quot; as link text.</li>
+<li>Limit the number of links in your header. Too much information and increases cognitive load and can be overwhelming to some readers.</li>
 </ul>
-<h3 id="give-your-page-a-title" class="mt-600 mb-300">Give your page a title</h3>
-<ul class="list-disc mb-300"><li><p class="mb-300">Give the page a title that tells readers what the page (or for the landing page the site) is about, what it is for, or what to do.</li>
-<li><p class="mb-300">Choose either to match the page name you'll display in the browser, to be similar but slightly longer, or to use a call to action – on pages for user tasks or actions.</li>
-<li><p class="mb-300">Write the H1 title in title case. All other header elements (other than proper names) are in sentence case,</li>
+<h3 id="give-your-page-a-title">Give your page a title</h3>
+<ul class="list-disc mb-300"><li>Give the page a title that tells readers what the page (or for the landing page the site) is about, what it is for, or what to do.</li>
+<li>Choose either to match the page name you'll display in the browser, to be similar but slightly longer, or to use a call to action – on pages for user tasks or actions.</li>
+<li>Write the H1 title in title case. All other header elements (other than proper names) are in sentence case,</li>
 </ul>
 
 
-  <section data-pagefind-ignore class="pt-75 mt-300 mb-900 bt-sm b-dark ">
-  <h2 class="mt-225 mb-300">
-    Help us improve
-  </h2>
-
-  <p class="mb-300">
-    Have questions or a request? Give feedback on our contact form.
-  </p>
+  <section data-pagefind-ignore class="my-600 bt-sm b-dark ">
+  <h2>Help us improve</h2>
+  <p>Have questions or a request? Give feedback on our contact form.</p>
 
   
-  <p class="mb-300">
+  <p>
     Something's wrong? Raise it through GitHub with an <gcds-link href='https://docs.github.com/en/get-started/start-your-journey/creating-an-account-on-github' external>account</gcds-link>. You'll have access to the team's direct responses, progress made on your issue, and issues raised by others.
   </p>
   

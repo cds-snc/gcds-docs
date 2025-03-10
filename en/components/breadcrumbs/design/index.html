@@ -1180,10 +1180,10 @@
       <main id="mc" class="container-xl mx-auto xl:px-0 sm:px-600 px-225 general-layout" data-pagefind-body>
         
   
-    <h1 id="breadcrumbs-brgcdsbreadcrumbs" class="mb-300">Breadcrumbs <br><code>&lt;gcds-breadcrumbs&gt;</code></h1>
-<p class="mb-300"><em>Also called: breadcrumb trail.</em></p>
-<p class="mb-300">Breadcrumbs is a path to the current page from each preceding level of the site's hierarchy.</p>
-<p class="mb-300"><ul class="d-flex flex-wrap gap-300">
+    <h1 id="breadcrumbs-brgcdsbreadcrumbs">Breadcrumbs <br><code>&lt;gcds-breadcrumbs&gt;</code></h1>
+<p><em>Also called: breadcrumb trail.</em></p>
+<p>Breadcrumbs is a path to the current page from each preceding level of the site's hierarchy.</p>
+<p><ul class="d-flex flex-wrap gap-300">
 <li class="github-link">
 <gcds-link external href="https://github.com/cds-snc/gcds-components/tree/main/packages/web/src/components/gcds-breadcrumbs">GitHub</gcds-link>
 </li>
@@ -1191,8 +1191,8 @@
 <gcds-link external href="https://www.figma.com/file/mh2maMG2NBtk41k1O1UGHV/GC-Design-System?type=design&node-id=2353-7841&mode=design&t=TM0vYuC6hpDwd6Un-0">Figma</gcds-link>
 </li>
 </ul></p>
-<p class="mb-300"><div class="my-600 b-sm b-default component-preview">
-<h2 class="container-full font-text font-semibold px-225 py-150 bb-sm b-default bg-light">
+<p><div class="my-600 b-sm b-default component-preview">
+<h2 class="container-full font-text font-semibold m-0 px-225 py-150 bb-sm b-default bg-light">
 Breadcrumbs component preview
 </h2>
 <div>
@@ -1244,46 +1244,41 @@ Breadcrumbs component preview
     </nav>
   
 
-  <h2 id="breadcrumbs-anatomy" class="mt-600 mb-300">Breadcrumbs anatomy</h2>
+  <h2 id="breadcrumbs-anatomy">Breadcrumbs anatomy</h2>
 <ol class="anatomy-list">
   <li>The <strong>first link</strong> in the breadcrumbs defaults to the Canada.ca home page. For other sites, the link can be changed.</li>
   <li>The <strong>chevron</strong> separates each link and points to a child link.</li>
   <li>The <strong>link</strong> navigates to a parent-level page.</li>
 </ol>
 <img class="b-sm b-default p-300" src="/images/en/components/anatomy/gcds-breadcrumbs-anatomy.svg" alt="Breadcrumbs anatomy showing two links in a row with an arrow icon between them." />
-<h2 id="design-and-accessibility-for-breadcrumbs" class="mt-600 mb-300">Design and accessibility for breadcrumbs</h2>
-<h3 id="include-the-right-links-in-your-breadcrumbs" class="mt-600 mb-300">Include the right links in your breadcrumbs</h3>
-<ul class="list-disc mb-300"><li><p class="mb-300">Include only parent page links and leave out the current page. It's stated in the page title, just beneath the breadcrumbs.</li>
-<li><p class="mb-300">Add up to 3 parent page links if using both the Canada.ca and home page links, for a maximum of 5 breadcrumbs links.</li>
-<li><p class="mb-300">Avoid duplication by linking each breadcrumb to a unique page.</li>
+<h2 id="design-and-accessibility-for-breadcrumbs">Design and accessibility for breadcrumbs</h2>
+<h3 id="include-the-right-links-in-your-breadcrumbs">Include the right links in your breadcrumbs</h3>
+<ul class="list-disc mb-300"><li>Include only parent page links and leave out the current page. It's stated in the page title, just beneath the breadcrumbs.</li>
+<li>Add up to 3 parent page links if using both the Canada.ca and home page links, for a maximum of 5 breadcrumbs links.</li>
+<li>Avoid duplication by linking each breadcrumb to a unique page.</li>
 </ul>
-<h3 id="structure-breadcrumb-levels-based-on-site-navigation" class="mt-600 mb-300">Structure breadcrumb levels based on site navigation</h3>
-<p class="mb-300">Breadcrumbs represent the location of the current page in relation to the site's navigation model.</p>
-<ul class="list-disc mb-300"><li><p class="mb-300">Order breadcrumb levels by their corresponding level in the site's hierarchy.</li>
-<li><p class="mb-300">Avoid using the breadcrumbs component to show progress through the user journey.</li>
-<li><p class="mb-300">Limit breadcrumbs to 5 levels. Displaying too many levels of breadcrumbs items can be overwhelming.</li>
+<h3 id="structure-breadcrumb-levels-based-on-site-navigation">Structure breadcrumb levels based on site navigation</h3>
+<p>Breadcrumbs represent the location of the current page in relation to the site's navigation model.</p>
+<ul class="list-disc mb-300"><li>Order breadcrumb levels by their corresponding level in the site's hierarchy.</li>
+<li>Avoid using the breadcrumbs component to show progress through the user journey.</li>
+<li>Limit breadcrumbs to 5 levels. Displaying too many levels of breadcrumbs items can be overwhelming.</li>
 </ul>
-<p class="mb-300">Tip: If using with other navigation components, like the <gcds-link href="/en/components/top-navigation">top navigation</gcds-link> and <gcds-link href="/en/components/side-navigation">side navigation</gcds-link>, align both sets of links, so elements reflect a similar path through the site. This provides a consistent navigation experience and helps visitors understand their current location.</p>
-<h3 id="write-specific-parent-page-link-text" class="mt-600 mb-300">Write specific parent page link text</h3>
-<ul class="list-disc mb-300"><li><p class="mb-300">Make link text clear and specific to help a person decide if they should leave the current page. Spell out where a person will go or what they'll find when they select a link.</li>
-<li><p class="mb-300">Keep parent link text short (ideally under 20 characters) and distinctive so a person can scan the links in the breadcrumbs and find what they're looking for.</li>
-<li><p class="mb-300">Shorten parent page link text to improve readability and reduce space. Where possible, reflect the title of the page in the breadcrumb without including the full page name.</li>
+<p>Tip: If using with other navigation components, like the <gcds-link href="/en/components/top-navigation">top navigation</gcds-link> and <gcds-link href="/en/components/side-navigation">side navigation</gcds-link>, align both sets of links, so elements reflect a similar path through the site. This provides a consistent navigation experience and helps visitors understand their current location.</p>
+<h3 id="write-specific-parent-page-link-text">Write specific parent page link text</h3>
+<ul class="list-disc mb-300"><li>Make link text clear and specific to help a person decide if they should leave the current page. Spell out where a person will go or what they'll find when they select a link.</li>
+<li>Keep parent link text short (ideally under 20 characters) and distinctive so a person can scan the links in the breadcrumbs and find what they're looking for.</li>
+<li>Shorten parent page link text to improve readability and reduce space. Where possible, reflect the title of the page in the breadcrumb without including the full page name.</li>
 </ul>
-<h3 id="place-breadcrumbs-before-the-main-element" class="mt-600 mb-300">Place breadcrumbs before the main element</h3>
-<p class="mb-300">Place breadcrumbs at the top of a page, before the main content. This way a skip-to-content link can work to let a person skip all navigation links, including breadcrumbs.</p>
+<h3 id="place-breadcrumbs-before-the-main-element">Place breadcrumbs before the main element</h3>
+<p>Place breadcrumbs at the top of a page, before the main content. This way a skip-to-content link can work to let a person skip all navigation links, including breadcrumbs.</p>
 
 
-  <section data-pagefind-ignore class="pt-75 mt-300 mb-900 bt-sm b-dark ">
-  <h2 class="mt-225 mb-300">
-    Help us improve
-  </h2>
-
-  <p class="mb-300">
-    Have questions or a request? Give feedback on our contact form.
-  </p>
+  <section data-pagefind-ignore class="my-600 bt-sm b-dark ">
+  <h2>Help us improve</h2>
+  <p>Have questions or a request? Give feedback on our contact form.</p>
 
   
-  <p class="mb-300">
+  <p>
     Something's wrong? Raise it through GitHub with an <gcds-link href='https://docs.github.com/en/get-started/start-your-journey/creating-an-account-on-github' external>account</gcds-link>. You'll have access to the team's direct responses, progress made on your issue, and issues raised by others.
   </p>
   

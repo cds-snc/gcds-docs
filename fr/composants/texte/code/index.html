@@ -1180,10 +1180,10 @@
       <main id="mc" class="container-xl mx-auto xl:px-0 sm:px-600 px-225 general-layout" data-pagefind-body>
         
   
-    <h1 id="texte-brgcdstext" class="mb-300">Texte <br><code>&lt;gcds-text&gt;</code></h1>
-<p class="mb-300"><em>Autres noms : bloc de texte, version, légende, corps du texte, paragraphe.</em></p>
-<p class="mb-300">Le composant texte est un paragraphe stylisé et formaté qui affiche du contenu écrit de manière accessible.</p>
-<p class="mb-300"><ul class="d-flex flex-wrap gap-300">
+    <h1 id="texte-brgcdstext">Texte <br><code>&lt;gcds-text&gt;</code></h1>
+<p><em>Autres noms : bloc de texte, version, légende, corps du texte, paragraphe.</em></p>
+<p>Le composant texte est un paragraphe stylisé et formaté qui affiche du contenu écrit de manière accessible.</p>
+<p><ul class="d-flex flex-wrap gap-300">
 <li class="github-link">
 <gcds-link external href="https://github.com/cds-snc/gcds-components/tree/main/packages/web/src/components/gcds-text">GitHub</gcds-link>
 </li>
@@ -1191,8 +1191,8 @@
 <gcds-link external href="https://www.figma.com/file/o4SguSZdar2CCFzSkWNrmB/Syst%C3%A8me-de-design-GC?type=design&node-id=114-3353&mode=design&t=1DaL24vHpjRRfHHm-0">Figma</gcds-link>
 </li>
 </ul></p>
-<p class="mb-300"><div class="my-600 b-sm b-default component-preview">
-<h2 class="container-full font-text font-semibold px-225 py-150 bb-sm b-default bg-light">
+<p><div class="my-600 b-sm b-default component-preview">
+<h2 class="container-full font-text font-semibold m-0 px-225 py-150 bb-sm b-default bg-light">
 Aperçu du composant de texte
 </h2>
 <div>
@@ -1244,43 +1244,43 @@ Aperçu du composant de texte
     </nav>
   
 
-  <h2 id="creer-un-composant-de-texte" class="mt-600 mb-300">Créer un composant de texte</h2>
-<p class="mb-300">Le composant texte affiche du contenu sans titre avec les styles correspondants de Système de design GC pour fournir une taille de police et un contraste des couleurs accessibles.</p>
-<h2 id="codage-et-accessibilite-du-composant-texte" class="mt-600 mb-300">Codage et accessibilité du composant texte</h2>
-<h3 id="veillez-a-maintenir-des-limites-de-caracteres-accessibles" class="mt-600 mb-300">Veillez à maintenir des limites de caractères accessibles</h3>
-<ul class="list-disc mb-300"><li><p class="mb-300">Maintenez la longueur de ligne maximale par défaut de 65 caractères pour chaque ligne de texte pour assurer une lecture aisée et accessible.</li>
-<li><p class="mb-300">Choisissez de raccourcir la longueur de ligne en définissant l'attribut <code>character-limit</code> à <code>false</code>.</li>
+  <h2 id="creer-un-composant-de-texte">Créer un composant de texte</h2>
+<p>Le composant texte affiche du contenu sans titre avec les styles correspondants de Système de design GC pour fournir une taille de police et un contraste des couleurs accessibles.</p>
+<h2 id="codage-et-accessibilite-du-composant-texte">Codage et accessibilité du composant texte</h2>
+<h3 id="veillez-a-maintenir-des-limites-de-caracteres-accessibles">Veillez à maintenir des limites de caractères accessibles</h3>
+<ul class="list-disc mb-300"><li>Maintenez la longueur de ligne maximale par défaut de 65 caractères pour chaque ligne de texte pour assurer une lecture aisée et accessible.</li>
+<li>Choisissez de raccourcir la longueur de ligne en définissant l'attribut <code>character-limit</code> à <code>false</code>.</li>
 </ul>
-<h3 id="definissez-la-taille-du-texte" class="mt-600 mb-300">Définissez la taille du texte</h3>
-<ul class="list-disc mb-300"><li><p class="mb-300">Définissez l'attribut de texte <code>size</code> à <code>body</code> ou <code>small</code>.</li>
-<li><p class="mb-300">Utilisez la valeur par défaut <code>body</code> <code>size</code> pour produire un élément <code>p</code> avec la taille de police et le contraste de couleur recommandés.</li>
-<li><p class="mb-300">Choisissez d'afficher un texte plus petit en définissant l'attribut <code>size</code> à <code>small</code> pour produire un élément <code>small</code> à l'intérieur d'un élément <code>p</code>.</li>
+<h3 id="definissez-la-taille-du-texte">Définissez la taille du texte</h3>
+<ul class="list-disc mb-300"><li>Définissez l'attribut de texte <code>size</code> à <code>body</code> ou <code>small</code>.</li>
+<li>Utilisez la valeur par défaut <code>body</code> <code>size</code> pour produire un élément <code>p</code> avec la taille de police et le contraste de couleur recommandés.</li>
+<li>Choisissez d'afficher un texte plus petit en définissant l'attribut <code>size</code> à <code>small</code> pour produire un élément <code>small</code> à l'intérieur d'un élément <code>p</code>.</li>
 </ul>
-<h3 id="utilisez-des-styles-de-texte-avec-prudence" class="mt-600 mb-300">Utilisez des styles de texte avec prudence</h3>
-<ul class="list-disc mb-300"><li><p class="mb-300">Ne soulignez que les liens.</li>
-<li><p class="mb-300">Utilisez le texte en caractères gras avec prudence.</li>
-<li><p class="mb-300">Évitez d'utiliser du texte en gras comme titre. Le titre est le composant accessible permettant d'identifier les sections de contenu.</li>
-<li><p class="mb-300">Pour le texte en caractères gras, utilisez la balise <code>strong</code> dans le composant <code>gcds-text</code> pour mettre en évidence les termes et souligner les points clés.</li>
-<li><p class="mb-300">Utilisez uniquement les caractères en italiques dans les cas suivants :<ul class="list-disc mb-300"><li><p class="mb-300">Références juridiques, comme la <em>Loi canadienne sur l'accessibilité</em>.</li>
-<li><p class="mb-300">Mots dans d'autres langues, y compris le latin.</li>
-<li><p class="mb-300">Titres de publications, d'œuvres d'art et de matériel mathématique et scientifique.</li>
+<h3 id="utilisez-des-styles-de-texte-avec-prudence">Utilisez des styles de texte avec prudence</h3>
+<ul class="list-disc mb-300"><li>Ne soulignez que les liens.</li>
+<li>Utilisez le texte en caractères gras avec prudence.</li>
+<li>Évitez d'utiliser du texte en gras comme titre. Le titre est le composant accessible permettant d'identifier les sections de contenu.</li>
+<li>Pour le texte en caractères gras, utilisez la balise <code>strong</code> dans le composant <code>gcds-text</code> pour mettre en évidence les termes et souligner les points clés.</li>
+<li>Utilisez uniquement les caractères en italiques dans les cas suivants :<ul class="list-disc mb-300"><li>Références juridiques, comme la <em>Loi canadienne sur l'accessibilité</em>.</li>
+<li>Mots dans d'autres langues, y compris le latin.</li>
+<li>Titres de publications, d'œuvres d'art et de matériel mathématique et scientifique.</li>
 </ul>
 </li>
-<li><p class="mb-300">Utilisez la balise <code>em</code> dans le composant <code>gcds-text</code> pour mettre l'accent sur des mots ou des phrases spécifiques.</li>
+<li>Utilisez la balise <code>em</code> dans le composant <code>gcds-text</code> pour mettre l'accent sur des mots ou des phrases spécifiques.</li>
 </ul>
-<h3 id="obtenez-votre-code" class="mt-600 mb-300">Obtenez votre code</h3>
-<p class="mb-300">Générez une version du composant dont vous avez besoin en sélectionnant les propriétés de code correspondantes ou explorez les possibilités en choisissant différentes valeurs de code.</p>
+<h3 id="obtenez-votre-code">Obtenez votre code</h3>
+<p>Générez une version du composant dont vous avez besoin en sélectionnant les propriétés de code correspondantes ou explorez les possibilités en choisissant différentes valeurs de code.</p>
 <ol class="list-decimal mb-300"><li>
-<p class="mb-300">Choisissez des valeurs de code pour obtenir l'élément que vous voulez.</p>
+<p>Choisissez des valeurs de code pour obtenir l'élément que vous voulez.</p>
 </li>
 <li>
-<p class="mb-300">Obtenez le code et intégrez-le dans votre environnement.</p>
+<p>Obtenez le code et intégrez-le dans votre environnement.</p>
 </li>
 <li>
-<p class="mb-300">Ajoutez tout contenu nécessaire au composant (comme le texte du libellé).</p>
+<p>Ajoutez tout contenu nécessaire au composant (comme le texte du libellé).</p>
 </li>
 </ol>
-<p class="mb-300"><strong>Remarque</strong> : Conformément à la pratique courante, le générateur de code utilise l'anglais pour tous les éléments de code.</p>
+<p><strong>Remarque</strong> : Conformément à la pratique courante, le générateur de code utilise l'anglais pour tous les éléments de code.</p>
 <iframe
   title="Survol des propriétés et des évènements relatifs à gcds-text."
   src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&demo=true&singleStory=true&id=components-text--events-properties&lang=fr"
@@ -1292,17 +1292,12 @@ Aperçu du composant de texte
 ></iframe>
 
 
-  <section data-pagefind-ignore class="pt-75 mt-300 mb-900 bt-sm b-dark ">
-  <h2 class="mt-225 mb-300">
-    Aidez-nous à nous améliorer
-  </h2>
-
-  <p class="mb-300">
-    Vous avez des questions ou des demandes? Faites-nous part de vos commentaires à l&#39;aide de notre formulaire de contact.
-  </p>
+  <section data-pagefind-ignore class="my-600 bt-sm b-dark ">
+  <h2>Aidez-nous à nous améliorer</h2>
+  <p>Vous avez des questions ou des demandes? Faites-nous part de vos commentaires à l&#39;aide de notre formulaire de contact.</p>
 
   
-  <p class="mb-300">
+  <p>
     Quelque chose ne va pas? Signalez-le sur GitHub en créant un <gcds-link href='https://docs.github.com/fr/get-started/start-your-journey/creating-an-account-on-github' external>compte</gcds-link>. Vous pourrez accéder aux réponses de l'équipe, suivre les progrès réalisés concernant votre problèmes et voir les problèmes signalés par d'autres personnes.
   </p>
   

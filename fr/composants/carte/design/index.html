@@ -1180,10 +1180,10 @@
       <main id="mc" class="container-xl mx-auto xl:px-0 sm:px-600 px-225 general-layout" data-pagefind-body>
         
   
-    <h1 id="carte-brgcdscard" class="mb-300">Carte <br><code>&lt;gcds-card&gt;</code></h1>
-<p class="mb-300"><em>Autres noms : tuile, carte de contenu.</em></p>
-<p class="mb-300">La carte est un encadré contenant du contenu structuré et pratique sur un sujet unique.</p>
-<p class="mb-300"><ul class="d-flex flex-wrap gap-300">
+    <h1 id="carte-brgcdscard">Carte <br><code>&lt;gcds-card&gt;</code></h1>
+<p><em>Autres noms : tuile, carte de contenu.</em></p>
+<p>La carte est un encadré contenant du contenu structuré et pratique sur un sujet unique.</p>
+<p><ul class="d-flex flex-wrap gap-300">
 <li class="github-link">
 <gcds-link external href="https://github.com/cds-snc/gcds-components/tree/main/packages/web/src/components/gcds-card">GitHub</gcds-link>
 </li>
@@ -1191,8 +1191,8 @@
 <gcds-link external href="https://www.figma.com/file/o4SguSZdar2CCFzSkWNrmB/Syst%C3%A8me-de-design-GC?type=design&node-id=48-3396&mode=design&t=1DaL24vHpjRRfHHm-0">Figma</gcds-link>
 </li>
 </ul></p>
-<p class="mb-300"><div class="my-600 b-sm b-default component-preview">
-<h2 class="container-full font-text font-semibold px-225 py-150 bb-sm b-default bg-light">
+<p><div class="my-600 b-sm b-default component-preview">
+<h2 class="container-full font-text font-semibold m-0 px-225 py-150 bb-sm b-default bg-light">
 Aperçu du composant de carte
 </h2>
 <div>
@@ -1244,7 +1244,7 @@ Aperçu du composant de carte
     </nav>
   
 
-  <h2 id="structure-de-la-carte" class="mt-600 mb-300">Structure de la carte</h2>
+  <h2 id="structure-de-la-carte">Structure de la carte</h2>
 <ol class="anatomy-list">
   <li>La <strong>boîte</strong> contient tous les éléments d'une carte.</li>
   <li>Le <strong>badge</strong> (facultatif) est un indicateur visuel renseignant sur l'état ou la catégorie de la carte. Le texte du badge ne devrait pas dépasser 20 caractères.</li>
@@ -1253,36 +1253,31 @@ Aperçu du composant de carte
   <li>La <strong>description</strong> (facultative) contient du texte destiné à accompagner le titre. Elle résume en quelques lignes le sujet de la carte ou affiche une liste de renseignements sur un même sujet, comme les informations sur un évènement.</li>
 </ol>
 <img class="b-sm b-default p-300" src="/images/fr/components/anatomy/gcds-card-anatomy.svg" alt="La structure d'une carte représentée par 5 éléments: la boîte, le badge, l'image, le titre et la description."/>
-<h2 id="design-et-accessibilite-des-cartes" class="mt-600 mb-300">Design et accessibilité des cartes</h2>
-<h3 id="ecrivez-un-titre-facile-a-parcourir" class="mt-600 mb-300">Écrivez un titre facile à parcourir</h3>
-<ul class="list-disc mb-300"><li><p class="mb-300">Utilisez un titre qui informe les personnes sur le contenu de la carte.</li>
-<li><p class="mb-300">Choisissez une brève description ou un appel à l'action pour le titre.</li>
+<h2 id="design-et-accessibilite-des-cartes">Design et accessibilité des cartes</h2>
+<h3 id="ecrivez-un-titre-facile-a-parcourir">Écrivez un titre facile à parcourir</h3>
+<ul class="list-disc mb-300"><li>Utilisez un titre qui informe les personnes sur le contenu de la carte.</li>
+<li>Choisissez une brève description ou un appel à l'action pour le titre.</li>
 </ul>
-<h3 id="choisissez-les-renseignements-a-ajouter-a-la-carte" class="mt-600 mb-300">Choisissez les renseignements à ajouter à la carte</h3>
-<ul class="list-disc mb-300"><li><p class="mb-300">Envisagez d'ajouter une image reflétant le titre pour rendre les cartes plus reconnaissables.</li>
-<li><p class="mb-300">Envisagez d'ajouter une description pour fournir plus d'informations sur le sujet de la carte.</li>
-<li><p class="mb-300">Envisagez d'ajouter un badge pour renseigner les personnes sur l'état ou la catégorie du contenu de la carte. Voici des exemples courants d'états : Nouveau, Mis à jour, Bientôt disponible, En vedette. Voici des exemples courants de catégories : Vidéos, Articles, Rapports. Les badges sont personnalisables mais sont limités à 20 caractères maximum.</li>
+<h3 id="choisissez-les-renseignements-a-ajouter-a-la-carte">Choisissez les renseignements à ajouter à la carte</h3>
+<ul class="list-disc mb-300"><li>Envisagez d'ajouter une image reflétant le titre pour rendre les cartes plus reconnaissables.</li>
+<li>Envisagez d'ajouter une description pour fournir plus d'informations sur le sujet de la carte.</li>
+<li>Envisagez d'ajouter un badge pour renseigner les personnes sur l'état ou la catégorie du contenu de la carte. Voici des exemples courants d'états : Nouveau, Mis à jour, Bientôt disponible, En vedette. Voici des exemples courants de catégories : Vidéos, Articles, Rapports. Les badges sont personnalisables mais sont limités à 20 caractères maximum.</li>
 </ul>
-<h3 id="regroupez-les-cartes-pour-assurer-une-coherence-visuelle" class="mt-600 mb-300">Regroupez les cartes pour assurer une cohérence visuelle</h3>
-<p class="mb-300">Organisez les cartes à l'aide du <a href="/fr/composants/grille">composant de la grille</a>.</p>
-<ul class="list-disc mb-300"><li><p class="mb-300">Pour les écrans d'ordinateur, utilisez 2 ou 3 cartes par rangée.</li>
-<li><p class="mb-300">Pour les écrans d'appareils mobiles, utilisez 1 carte par rangée.</li>
-<li><p class="mb-300">Essayez d'inclure les mêmes propriétés pour chaque carte d'une même section dans une page. Par exemple : si une carte comporte une image, toutes les cartes comportent une image.</li>
+<h3 id="regroupez-les-cartes-pour-assurer-une-coherence-visuelle">Regroupez les cartes pour assurer une cohérence visuelle</h3>
+<p>Organisez les cartes à l'aide du <a href="/fr/composants/grille">composant de la grille</a>.</p>
+<ul class="list-disc mb-300"><li>Pour les écrans d'ordinateur, utilisez 2 ou 3 cartes par rangée.</li>
+<li>Pour les écrans d'appareils mobiles, utilisez 1 carte par rangée.</li>
+<li>Essayez d'inclure les mêmes propriétés pour chaque carte d'une même section dans une page. Par exemple : si une carte comporte une image, toutes les cartes comportent une image.</li>
 </ul>
 <img src="/images/fr/components/example/example-cards-in-grid.svg" alt="Cartes groupées en deux rangées. La première rangée contient 3 cartes (carte à 4 colonnes de largeur). La deuxième rangée contient deux cartes (carte à 6 colonnes de largeur)"/>
 
 
-  <section data-pagefind-ignore class="pt-75 mt-300 mb-900 bt-sm b-dark ">
-  <h2 class="mt-225 mb-300">
-    Aidez-nous à nous améliorer
-  </h2>
-
-  <p class="mb-300">
-    Vous avez des questions ou des demandes? Faites-nous part de vos commentaires à l&#39;aide de notre formulaire de contact.
-  </p>
+  <section data-pagefind-ignore class="my-600 bt-sm b-dark ">
+  <h2>Aidez-nous à nous améliorer</h2>
+  <p>Vous avez des questions ou des demandes? Faites-nous part de vos commentaires à l&#39;aide de notre formulaire de contact.</p>
 
   
-  <p class="mb-300">
+  <p>
     Quelque chose ne va pas? Signalez-le sur GitHub en créant un <gcds-link href='https://docs.github.com/fr/get-started/start-your-journey/creating-an-account-on-github' external>compte</gcds-link>. Vous pourrez accéder aux réponses de l'équipe, suivre les progrès réalisés concernant votre problèmes et voir les problèmes signalés par d'autres personnes.
   </p>
   

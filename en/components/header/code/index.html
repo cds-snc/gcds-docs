@@ -1180,10 +1180,10 @@
       <main id="mc" class="container-xl mx-auto xl:px-0 sm:px-600 px-225 general-layout" data-pagefind-body>
         
   
-    <h1 id="header-brgcdsheader" class="mb-300">Header <br><code>&lt;gcds-header&gt;</code></h1>
-<p class="mb-300"><em>Also called: global header, brand header.</em></p>
-<p class="mb-300">The header is the responsive Government of Canada branded header landmark.</p>
-<p class="mb-300"><ul class="d-flex flex-wrap gap-300">
+    <h1 id="header-brgcdsheader">Header <br><code>&lt;gcds-header&gt;</code></h1>
+<p><em>Also called: global header, brand header.</em></p>
+<p>The header is the responsive Government of Canada branded header landmark.</p>
+<p><ul class="d-flex flex-wrap gap-300">
 <li class="github-link">
 <gcds-link external href="https://github.com/cds-snc/gcds-components/tree/main/packages/web/src/components/gcds-header">GitHub</gcds-link>
 </li>
@@ -1191,8 +1191,8 @@
 <gcds-link external href="https://www.figma.com/file/mh2maMG2NBtk41k1O1UGHV/GC-Design-System?type=design&node-id=2043-5684&mode=design&t=Lvks9nlgmvkIeHOc-0">Figma</gcds-link>
 </li>
 </ul></p>
-<p class="mb-300"><div class="my-600 b-sm b-default component-preview">
-<h2 class="container-full font-text font-semibold px-225 py-150 bb-sm b-default bg-light">
+<p><div class="my-600 b-sm b-default component-preview">
+<h2 class="container-full font-text font-semibold m-0 px-225 py-150 bb-sm b-default bg-light">
 Header component preview
 </h2>
 <div>
@@ -1244,43 +1244,43 @@ Header component preview
     </nav>
   
 
-  <h2 id="build-a-header-component" class="mt-600 mb-300">Build a header component</h2>
-<p class="mb-300">Use this header landmark to communicate a Government of Canada digital service or product.</p>
-<h2 id="coding-and-accessibility-for-headers" class="mt-600 mb-300">Coding and accessibility for headers</h2>
-<h3 id="set-the-signature-element-in-the-header" class="mt-600 mb-300">Set the signature element in the header</h3>
-<ul class="list-disc mb-300"><li><p class="mb-300">Always maintain the integrity of the Government of Canada signature. Absolutely avoid modifying the signature in any way. In particular avoid stretching or changing the colours or text.</li>
-<li><p class="mb-300">Pass either the <code>colour</code> or <code>white</code> display mode of the Government of Canada signature using the <code>signature-variant</code> attribute. Choose the <code>colour</code> display for a white background.</li>
-<li><p class="mb-300">Optionally, set the <code>signature-has-link</code> attribute to <code>true</code> to set the Government of Canada signature link to Canada.ca.</li>
+  <h2 id="build-a-header-component">Build a header component</h2>
+<p>Use this header landmark to communicate a Government of Canada digital service or product.</p>
+<h2 id="coding-and-accessibility-for-headers">Coding and accessibility for headers</h2>
+<h3 id="set-the-signature-element-in-the-header">Set the signature element in the header</h3>
+<ul class="list-disc mb-300"><li>Always maintain the integrity of the Government of Canada signature. Absolutely avoid modifying the signature in any way. In particular avoid stretching or changing the colours or text.</li>
+<li>Pass either the <code>colour</code> or <code>white</code> display mode of the Government of Canada signature using the <code>signature-variant</code> attribute. Choose the <code>colour</code> display for a white background.</li>
+<li>Optionally, set the <code>signature-has-link</code> attribute to <code>true</code> to set the Government of Canada signature link to Canada.ca.</li>
 </ul>
-<h3 id="set-up-the-language-toggle" class="mt-600 mb-300">Set up the language toggle</h3>
-<ul class="list-disc mb-300"><li><p class="mb-300">Include the language toggle by setting the <code>lang-href</code> attribute. Setting the <code>lang-href</code> also sets the <code>href</code> of the language toggle.</li>
-<li><p class="mb-300">Use the <code>lang</code> attribute to set the site language and the toggle will offer the other Official Language.</li>
-<li><p class="mb-300">If your site is multilingual: Create an option to select other languages by using this header slot for an internationalization pattern. To do so, pass an element with the <code>slot=&quot;toggle&quot;</code> attribute to replace the language toggle element in the header.</li>
+<h3 id="set-up-the-language-toggle">Set up the language toggle</h3>
+<ul class="list-disc mb-300"><li>Include the language toggle by setting the <code>lang-href</code> attribute. Setting the <code>lang-href</code> also sets the <code>href</code> of the language toggle.</li>
+<li>Use the <code>lang</code> attribute to set the site language and the toggle will offer the other Official Language.</li>
+<li>If your site is multilingual: Create an option to select other languages by using this header slot for an internationalization pattern. To do so, pass an element with the <code>slot=&quot;toggle&quot;</code> attribute to replace the language toggle element in the header.</li>
 </ul>
-<h3 id="include-the-skiptocontent-link" class="mt-600 mb-300">Include the skip-to-content link</h3>
-<ul class="list-disc mb-300"><li><p class="mb-300">Include the skip-to-content link by setting the <code>href</code> of the <strong>skip-to-content</strong> link in the header's top navigation using the <code>skip-to-href</code> attribute.</li>
-<li><p class="mb-300">Use the <code>skip-to-nav</code> slot to replace the default top navigation with the <code>skip-to-content</code> link.</li>
-<li><p class="mb-300">Pass a child element with the <code>slot=&quot;skip-to-nav&quot;</code> attribute to place the element first in the header.</li>
+<h3 id="include-the-skiptocontent-link">Include the skip-to-content link</h3>
+<ul class="list-disc mb-300"><li>Include the skip-to-content link by setting the <code>href</code> of the <strong>skip-to-content</strong> link in the header's top navigation using the <code>skip-to-href</code> attribute.</li>
+<li>Use the <code>skip-to-nav</code> slot to replace the default top navigation with the <code>skip-to-content</code> link.</li>
+<li>Pass a child element with the <code>slot=&quot;skip-to-nav&quot;</code> attribute to place the element first in the header.</li>
 </ul>
-<h3 id="add-optional-elements-to-your-header" class="mt-600 mb-300">Add optional elements to your header</h3>
-<ul class="list-disc mb-300"><li><p class="mb-300">Add a menu by passing a child element with the <code>slot=&quot;menu&quot;</code> attribute. This will place the element in the header below the language toggle, signature and search slots.</li>
-<li><p class="mb-300">Add a search form by passing a child element with the <code>slot=&quot;search&quot;</code> attribute. This will place the element under the language toggle and beside the signature in the header.</li>
-<li><p class="mb-300">Add a breadcrumb component by passing a child element with the <code>slot=&quot;breadcrumb&quot;</code> attribute. This will place the breadcrumb in the header below the language toggle, signature and search slot.</li>
-<li><p class="mb-300">Add a banner by passing a child element with the <code>slot=&quot;banner&quot;</code> attribute. This will place the element across the top of the header under the <code>skip-to-nav</code> element.</li>
+<h3 id="add-optional-elements-to-your-header">Add optional elements to your header</h3>
+<ul class="list-disc mb-300"><li>Add a menu by passing a child element with the <code>slot=&quot;menu&quot;</code> attribute. This will place the element in the header below the language toggle, signature and search slots.</li>
+<li>Add a search form by passing a child element with the <code>slot=&quot;search&quot;</code> attribute. This will place the element under the language toggle and beside the signature in the header.</li>
+<li>Add a breadcrumb component by passing a child element with the <code>slot=&quot;breadcrumb&quot;</code> attribute. This will place the breadcrumb in the header below the language toggle, signature and search slot.</li>
+<li>Add a banner by passing a child element with the <code>slot=&quot;banner&quot;</code> attribute. This will place the element across the top of the header under the <code>skip-to-nav</code> element.</li>
 </ul>
-<h3 id="get-your-code" class="mt-600 mb-300">Get your code</h3>
-<p class="mb-300">Generate an instance of the component you need by selecting its code properties.</p>
+<h3 id="get-your-code">Get your code</h3>
+<p>Generate an instance of the component you need by selecting its code properties.</p>
 <ol class="list-decimal mb-300"><li>
-<p class="mb-300">Explore by choosing different code values to generate the instance you want.</p>
+<p>Explore by choosing different code values to generate the instance you want.</p>
 </li>
 <li>
-<p class="mb-300">Get the code and pull it into your environment.</p>
+<p>Get the code and pull it into your environment.</p>
 </li>
 <li>
-<p class="mb-300">Add any copy you need to the component (like text for a label).</p>
+<p>Add any copy you need to the component (like text for a label).</p>
 </li>
 </ol>
-<p class="mb-300"><strong>Note:</strong> Following standard practice, the code builder uses English for all code elements.</p>
+<p><strong>Note:</strong> Following standard practice, the code builder uses English for all code elements.</p>
 <iframe
   title="Overview of gcds-header properties and events."
   src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&demo=true&singleStory=true&id=components-header--events-properties&lang=en"
@@ -1292,17 +1292,12 @@ Header component preview
 ></iframe>
 
 
-  <section data-pagefind-ignore class="pt-75 mt-300 mb-900 bt-sm b-dark ">
-  <h2 class="mt-225 mb-300">
-    Help us improve
-  </h2>
-
-  <p class="mb-300">
-    Have questions or a request? Give feedback on our contact form.
-  </p>
+  <section data-pagefind-ignore class="my-600 bt-sm b-dark ">
+  <h2>Help us improve</h2>
+  <p>Have questions or a request? Give feedback on our contact form.</p>
 
   
-  <p class="mb-300">
+  <p>
     Something's wrong? Raise it through GitHub with an <gcds-link href='https://docs.github.com/en/get-started/start-your-journey/creating-an-account-on-github' external>account</gcds-link>. You'll have access to the team's direct responses, progress made on your issue, and issues raised by others.
   </p>
   

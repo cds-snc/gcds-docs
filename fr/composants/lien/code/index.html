@@ -1180,10 +1180,10 @@
       <main id="mc" class="container-xl mx-auto xl:px-0 sm:px-600 px-225 general-layout" data-pagefind-body>
         
   
-    <h1 id="lien-brgcdslink" class="mb-300">Lien <br><code>&lt;gcds-link&gt;</code></h1>
-<p class="mb-300"><em>Autres noms : ancre, lien hypertexte, appel à l'action.</em></p>
-<p class="mb-300">Un lien est un élément de navigation qui amène une personne à une nouvelle page, à un autre site Web, à un fichier ou à une nouvelle section de la page actuelle.</p>
-<p class="mb-300"><ul class="d-flex flex-wrap gap-300">
+    <h1 id="lien-brgcdslink">Lien <br><code>&lt;gcds-link&gt;</code></h1>
+<p><em>Autres noms : ancre, lien hypertexte, appel à l'action.</em></p>
+<p>Un lien est un élément de navigation qui amène une personne à une nouvelle page, à un autre site Web, à un fichier ou à une nouvelle section de la page actuelle.</p>
+<p><ul class="d-flex flex-wrap gap-300">
 <li class="github-link">
 <gcds-link external href="https://github.com/cds-snc/gcds-components/tree/main/packages/web/src/components/gcds-link">GitHub</gcds-link>
 </li>
@@ -1191,8 +1191,8 @@
 <gcds-link external href="https://www.figma.com/file/o4SguSZdar2CCFzSkWNrmB/Syst%C3%A8me-de-design-GC?type=design&node-id=8-5038&mode=design&t=1DaL24vHpjRRfHHm-0">Figma</gcds-link>
 </li>
 </ul></p>
-<p class="mb-300"><div class="my-600 b-sm b-default component-preview">
-<h2 class="container-full font-text font-semibold px-225 py-150 bb-sm b-default bg-light">
+<p><div class="my-600 b-sm b-default component-preview">
+<h2 class="container-full font-text font-semibold m-0 px-225 py-150 bb-sm b-default bg-light">
 Aperçu du composant de lien
 </h2>
 <div>
@@ -1244,43 +1244,43 @@ Aperçu du composant de lien
     </nav>
   
 
-  <h2 id="creer-un-lien" class="mt-600 mb-300">Créer un lien</h2>
-<p class="mb-300">Le lien est un élément de navigation qui amène une personne à une nouvelle page, à une nouvelle section de la page actuelle ou à un autre site Web.</p>
-<h2 id="accessibilite-et-codage-des-liens" class="mt-600 mb-300">Accessibilité et codage des liens</h2>
-<h3 id="fournissez-des-informations-pour-telecharger-des-fichiers" class="mt-600 mb-300">Fournissez des informations pour télécharger des fichiers</h3>
-<ul class="list-disc mb-300"><li><p class="mb-300">Fournissez dans le texte du lien des renseignements sur le type et la taille des fichiers à télécharger : <code>&lt;gcds-link href=&quot;application.pdf&quot; download&gt;Demande 2023 (PDF, 1,5 Mo)&lt;/gcds-link&gt;</code>.</li>
-<li><p class="mb-300">Évitez de placer le lien de téléchargement dans le texte du paragraphe.</li>
+  <h2 id="creer-un-lien">Créer un lien</h2>
+<p>Le lien est un élément de navigation qui amène une personne à une nouvelle page, à une nouvelle section de la page actuelle ou à un autre site Web.</p>
+<h2 id="accessibilite-et-codage-des-liens">Accessibilité et codage des liens</h2>
+<h3 id="fournissez-des-informations-pour-telecharger-des-fichiers">Fournissez des informations pour télécharger des fichiers</h3>
+<ul class="list-disc mb-300"><li>Fournissez dans le texte du lien des renseignements sur le type et la taille des fichiers à télécharger : <code>&lt;gcds-link href=&quot;application.pdf&quot; download&gt;Demande 2023 (PDF, 1,5 Mo)&lt;/gcds-link&gt;</code>.</li>
+<li>Évitez de placer le lien de téléchargement dans le texte du paragraphe.</li>
 </ul>
-<p class="mb-300">Remarque : Seuls les fichiers dont l'URL est de la même origine que le site Web seront téléchargés sur l'appareil de l'utilisateur·rice.</p>
-<h3 id="ajoutez-un-lien-passer-au-contenu-" class="mt-600 mb-300">Ajoutez un lien « Passer au contenu »</h3>
-<ul class="list-disc mb-300"><li><p class="mb-300">Un lien « Passer au contenu » permet à une personne de sauter un ensemble de liens de navigation pour passer au contenu principal.</li>
-<li><p class="mb-300">Pour éviter de dissimuler le contenu, configurez le lien de manière à ce qu'il pousse le contenu vers le bas et ne flotte pas. Pour la version bureau, placez le lien « Passer au contenu » en haut à gauche de la page afin qu'il n'interrompe pas le flux.</li>
+<p>Remarque : Seuls les fichiers dont l'URL est de la même origine que le site Web seront téléchargés sur l'appareil de l'utilisateur·rice.</p>
+<h3 id="ajoutez-un-lien-passer-au-contenu-">Ajoutez un lien « Passer au contenu »</h3>
+<ul class="list-disc mb-300"><li>Un lien « Passer au contenu » permet à une personne de sauter un ensemble de liens de navigation pour passer au contenu principal.</li>
+<li>Pour éviter de dissimuler le contenu, configurez le lien de manière à ce qu'il pousse le contenu vers le bas et ne flotte pas. Pour la version bureau, placez le lien « Passer au contenu » en haut à gauche de la page afin qu'il n'interrompe pas le flux.</li>
 </ul>
-<h3 id="evitez-les-liens-externes-dans-la-mesure-du-possible" class="mt-600 mb-300">Évitez les liens externes dans la mesure du possible</h3>
-<ul class="list-disc mb-300"><li><p class="mb-300">Ajoutez un lien externe en définissant l'attribut <code>external</code> à <code>true</code>.</li>
-<li><p class="mb-300">Évitez d'ajouter des liens externes dans les cas suivants :<ul class="list-disc mb-300"><li><p class="mb-300">Au milieu de la progression d'une personne, par exemple lorsqu'une personne remplit un formulaire.</li>
-<li><p class="mb-300">Si changer de page cause une perte de progression non enregistrée.</li>
-<li><p class="mb-300">Si le fait de suivre un lien met fin à un processus entamé, par exemple lorsqu'une personne regarde une vidéo ou effectue une tâche principale.</li>
-<li><p class="mb-300"><strong>Lorsqu'un lien est envahissant et perturberait le flux de la page.</strong></li>
-<li><p class="mb-300">Lorsqu'une personne serait surprise de se retrouver ailleurs de manière inattendue.</li>
+<h3 id="evitez-les-liens-externes-dans-la-mesure-du-possible">Évitez les liens externes dans la mesure du possible</h3>
+<ul class="list-disc mb-300"><li>Ajoutez un lien externe en définissant l'attribut <code>external</code> à <code>true</code>.</li>
+<li>Évitez d'ajouter des liens externes dans les cas suivants :<ul class="list-disc mb-300"><li>Au milieu de la progression d'une personne, par exemple lorsqu'une personne remplit un formulaire.</li>
+<li>Si changer de page cause une perte de progression non enregistrée.</li>
+<li>Si le fait de suivre un lien met fin à un processus entamé, par exemple lorsqu'une personne regarde une vidéo ou effectue une tâche principale.</li>
+<li><strong>Lorsqu'un lien est envahissant et perturberait le flux de la page.</strong></li>
+<li>Lorsqu'une personne serait surprise de se retrouver ailleurs de manière inattendue.</li>
 </ul>
 </li>
-<li><p class="mb-300">Indiquez clairement où mène le lien, afin qu'une personne puisse décider si elle doit quitter la page actuelle.</li>
-<li><p class="mb-300">Communiquez clairement lorsque les liens sont assortis de conditions particulières. Par exemple, lorsqu'ils sont uniquement accessibles à l'intérieur d'un réseau fermé en raison d'un pare-feu.</li>
+<li>Indiquez clairement où mène le lien, afin qu'une personne puisse décider si elle doit quitter la page actuelle.</li>
+<li>Communiquez clairement lorsque les liens sont assortis de conditions particulières. Par exemple, lorsqu'ils sont uniquement accessibles à l'intérieur d'un réseau fermé en raison d'un pare-feu.</li>
 </ul>
-<h3 id="obtenez-votre-code" class="mt-600 mb-300">Obtenez votre code</h3>
-<p class="mb-300">Générez une version du composant dont vous avez besoin en sélectionnant les propriétés de code correspondantes ou explorez les possibilités en choisissant différentes valeurs de code.</p>
+<h3 id="obtenez-votre-code">Obtenez votre code</h3>
+<p>Générez une version du composant dont vous avez besoin en sélectionnant les propriétés de code correspondantes ou explorez les possibilités en choisissant différentes valeurs de code.</p>
 <ol class="list-decimal mb-300"><li>
-<p class="mb-300">Choisissez des valeurs de code pour obtenir l'élément que vous voulez.</p>
+<p>Choisissez des valeurs de code pour obtenir l'élément que vous voulez.</p>
 </li>
 <li>
-<p class="mb-300">Obtenez le code et intégrez-le dans votre environnement.</p>
+<p>Obtenez le code et intégrez-le dans votre environnement.</p>
 </li>
 <li>
-<p class="mb-300">Ajoutez tout contenu nécessaire au composant (comme le texte du libellé).</p>
+<p>Ajoutez tout contenu nécessaire au composant (comme le texte du libellé).</p>
 </li>
 </ol>
-<p class="mb-300"><strong>Remarque</strong> : Conformément à la pratique courante, le générateur de code utilise l'anglais pour tous les éléments de code.</p>
+<p><strong>Remarque</strong> : Conformément à la pratique courante, le générateur de code utilise l'anglais pour tous les éléments de code.</p>
 <iframe
   title="Survol des propriétés et des évènements relatifs à gcds-link."
   src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&demo=true&singleStory=true&id=components-link--events-properties&lang=fr"
@@ -1292,17 +1292,12 @@ Aperçu du composant de lien
 ></iframe>
 
 
-  <section data-pagefind-ignore class="pt-75 mt-300 mb-900 bt-sm b-dark ">
-  <h2 class="mt-225 mb-300">
-    Aidez-nous à nous améliorer
-  </h2>
-
-  <p class="mb-300">
-    Vous avez des questions ou des demandes? Faites-nous part de vos commentaires à l&#39;aide de notre formulaire de contact.
-  </p>
+  <section data-pagefind-ignore class="my-600 bt-sm b-dark ">
+  <h2>Aidez-nous à nous améliorer</h2>
+  <p>Vous avez des questions ou des demandes? Faites-nous part de vos commentaires à l&#39;aide de notre formulaire de contact.</p>
 
   
-  <p class="mb-300">
+  <p>
     Quelque chose ne va pas? Signalez-le sur GitHub en créant un <gcds-link href='https://docs.github.com/fr/get-started/start-your-journey/creating-an-account-on-github' external>compte</gcds-link>. Vous pourrez accéder aux réponses de l'équipe, suivre les progrès réalisés concernant votre problèmes et voir les problèmes signalés par d'autres personnes.
   </p>
   

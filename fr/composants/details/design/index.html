@@ -1180,10 +1180,10 @@
       <main id="mc" class="container-xl mx-auto xl:px-0 sm:px-600 px-225 general-layout" data-pagefind-body>
         
   
-    <h1 id="details-brgcdsdetails" class="mb-300">Détails <br><code>&lt;gcds-details&gt;</code></h1>
-<p class="mb-300"><em>Autres noms : accordéon, développer/réduire.</em></p>
-<p class="mb-300">Le composant Détails est un bouton interactif permettant à une personne d’afficher ou de masquer du contenu.</p>
-<p class="mb-300"><ul class="d-flex flex-wrap gap-300">
+    <h1 id="details-brgcdsdetails">Détails <br><code>&lt;gcds-details&gt;</code></h1>
+<p><em>Autres noms : accordéon, développer/réduire.</em></p>
+<p>Le composant Détails est un bouton interactif permettant à une personne d’afficher ou de masquer du contenu.</p>
+<p><ul class="d-flex flex-wrap gap-300">
 <li class="github-link">
 <gcds-link external href="https://github.com/cds-snc/gcds-components/tree/main/packages/web/src/components/gcds-details">GitHub</gcds-link>
 </li>
@@ -1191,8 +1191,8 @@
 <gcds-link external href="https://www.figma.com/file/o4SguSZdar2CCFzSkWNrmB/Syst%C3%A8me-de-design-GC?type=design&node-id=8-4626&mode=design&t=1DaL24vHpjRRfHHm-0">Figma</gcds-link>
 </li>
 </ul></p>
-<p class="mb-300"><div class="my-600 b-sm b-default component-preview">
-<h2 class="container-full font-text font-semibold px-225 py-150 bb-sm b-default bg-light">
+<p><div class="my-600 b-sm b-default component-preview">
+<h2 class="container-full font-text font-semibold m-0 px-225 py-150 bb-sm b-default bg-light">
 Aperçu du composant de détails
 </h2>
 <div>
@@ -1244,61 +1244,56 @@ Aperçu du composant de détails
     </nav>
   
 
-  <h2 id="structure-du-composant-details" class="mt-600 mb-300">Structure du composant Détails</h2>
-<p class="mb-300">Voici la structure du composant Détails ouvert. Le contenu est réduit par défaut.</p>
+  <h2 id="structure-du-composant-details">Structure du composant Détails</h2>
+<p>Voici la structure du composant Détails ouvert. Le contenu est réduit par défaut.</p>
 <ol class="anatomy-list">
   <li>Le <strong>titre du composant Détail</strong> résume le contenu correspondant. Le texte du libellé est en minuscules (il n'y a que la lettre initiale qui est en majuscule).</li>
   <li>Le <strong>curseur</strong> et le <strong>titre du composant Détails</strong> permettent d'activer l'affichage du contenu. Le curseur indique si le composant est actuellement ouvert ou fermé. Lorsque le composant est ouvert, affichant ainsi le texte correspondant, le curseur est dirigé vers le contenu en question.</li>
   <li>Le <strong>contenu</strong> comprend tout texte ou image que la personne peut choisir d'afficher ou de dissimuler.</li>
 </ol>
-<h3 id="composant-details-ouvert" class="mt-600 mb-300">Composant Détails ouvert</h3>
+<h3 id="composant-details-ouvert">Composant Détails ouvert</h3>
 <img class="b-sm b-default p-300" src="/images/fr/components/anatomy/gcds-details-anatomy-open.svg" alt="L'anatomie du composant en savoir plus identifiant l'icône, une flèche pointant vers le bas, le titre du lien en savoir plus sur ce sujet et le contenu représenté par du texte information additionnelle." />
-<h3 id="composant-details-ferme" class="mt-600 mb-300">Composant Détails fermé</h3>
+<h3 id="composant-details-ferme">Composant Détails fermé</h3>
 <img class="b-sm b-default p-300" src="/images/fr/components/anatomy/gcds-details-anatomy-closed.svg" alt="L'anatomie du composant en savoir plus identifiant l'icône, une flèche pointant vers la droite et le titre du lien en savoir plus sur ce sujet." />
-<h2 id="conception-et-accessibilite-du-composant-details" class="mt-600 mb-300">Conception et accessibilité du composant Détails</h2>
-<h3 id="efforcezvous-de-reduire-la-charge-cognitive-au-lieu-de-lalourdir" class="mt-600 mb-300">Efforcez-vous de réduire la charge cognitive au lieu de l'alourdir.</h3>
-<ul class="list-disc mb-300"><li><p class="mb-300">Évitez de dissimuler des renseignements avec une liste de titres Détails. Cela interrompt le flux de lecture ou de défilement pour les personnes utilisant une technologie d'assistance.</li>
-<li><p class="mb-300">Envisagez d'afficher le contenu des premiers composants Détails par défaut, pour aider la personne à comprendre leur fonctionnement et à choisir quoi dissimuler.</li>
+<h2 id="conception-et-accessibilite-du-composant-details">Conception et accessibilité du composant Détails</h2>
+<h3 id="efforcezvous-de-reduire-la-charge-cognitive-au-lieu-de-lalourdir">Efforcez-vous de réduire la charge cognitive au lieu de l'alourdir.</h3>
+<ul class="list-disc mb-300"><li>Évitez de dissimuler des renseignements avec une liste de titres Détails. Cela interrompt le flux de lecture ou de défilement pour les personnes utilisant une technologie d'assistance.</li>
+<li>Envisagez d'afficher le contenu des premiers composants Détails par défaut, pour aider la personne à comprendre leur fonctionnement et à choisir quoi dissimuler.</li>
 </ul>
-<h3 id="selectionnez-le-type-de-contenu-a-inclure-dans-un-composant-details" class="mt-600 mb-300">Sélectionnez le type de contenu à inclure dans un composant Détails</h3>
-<p class="mb-300">Commencez par retirer tout contenu qui ne serait pas utile ou important au regard de la tâche principale. Vous pouvez ensuite :</p>
-<ul class="list-disc mb-300"><li><p class="mb-300">Masquer le contenu auquel la personne peut choisir d'accéder pour une tâche qui implique d'analyser du contenu en vue de faire un choix;</li>
-<li><p class="mb-300">Segmenter le contenu d'une liste afin que la personne puisse choisir de lire ce qui est le plus pertinent pour elle;</li>
-<li><p class="mb-300">Inclure du contenu secondaire qui est important, mais secondaire par rapport à la tâche principale;</li>
-<li><p class="mb-300">Utiliser le composant Détails pour dissimuler du contenu potentiellement bouleversant. La personne pourra choisir d'ignorer ce passage, ou d'y revenir à un moment qui lui convient mieux;</li>
-<li><p class="mb-300">Utiliser le titre pour prévenir les utilisateur·rice·s qu'il s'agit d'un contenu sensible avant qu'ils ou elles accèdent au contenu en question.</li>
+<h3 id="selectionnez-le-type-de-contenu-a-inclure-dans-un-composant-details">Sélectionnez le type de contenu à inclure dans un composant Détails</h3>
+<p>Commencez par retirer tout contenu qui ne serait pas utile ou important au regard de la tâche principale. Vous pouvez ensuite :</p>
+<ul class="list-disc mb-300"><li>Masquer le contenu auquel la personne peut choisir d'accéder pour une tâche qui implique d'analyser du contenu en vue de faire un choix;</li>
+<li>Segmenter le contenu d'une liste afin que la personne puisse choisir de lire ce qui est le plus pertinent pour elle;</li>
+<li>Inclure du contenu secondaire qui est important, mais secondaire par rapport à la tâche principale;</li>
+<li>Utiliser le composant Détails pour dissimuler du contenu potentiellement bouleversant. La personne pourra choisir d'ignorer ce passage, ou d'y revenir à un moment qui lui convient mieux;</li>
+<li>Utiliser le titre pour prévenir les utilisateur·rice·s qu'il s'agit d'un contenu sensible avant qu'ils ou elles accèdent au contenu en question.</li>
 </ul>
-<h3 id="utilisez-le-resume-pour-rendre-le-contenu-facile-a-trouver" class="mt-600 mb-300">Utilisez le résumé pour rendre le contenu facile à trouver</h3>
-<ul class="list-disc mb-300"><li><p class="mb-300">Gardez le titre clair et bref. Les titres courts sont plus faciles à comprendre d'un simple coup d'œil et peuvent aider une personne utilisant une technologie d'assistance à naviguer au sein d'un ensemble de composants Détails.</li>
-<li><p class="mb-300">Écrivez un titre qui indique la nature du contenu. Évitez les titres non descriptifs tels que « En savoir plus ». Au lieu de cela, optez pour un résumé spécifique et descriptif, comme « Montant de couverture maximal pour vos prestations de physiothérapie ».</li>
-<li><p class="mb-300">Évitez d'utiliser des titres similaires ou identiques à d'autres. Des titres distincts aident les gens à faire la différence et à choisir le contenu qu'ils et elles veulent lire.</li>
-<li><p class="mb-300">Évitez d'accroître la charge cognitive des personnes qui vous liront en publiant des renseignements difficiles à trouver.</li>
+<h3 id="utilisez-le-resume-pour-rendre-le-contenu-facile-a-trouver">Utilisez le résumé pour rendre le contenu facile à trouver</h3>
+<ul class="list-disc mb-300"><li>Gardez le titre clair et bref. Les titres courts sont plus faciles à comprendre d'un simple coup d'œil et peuvent aider une personne utilisant une technologie d'assistance à naviguer au sein d'un ensemble de composants Détails.</li>
+<li>Écrivez un titre qui indique la nature du contenu. Évitez les titres non descriptifs tels que « En savoir plus ». Au lieu de cela, optez pour un résumé spécifique et descriptif, comme « Montant de couverture maximal pour vos prestations de physiothérapie ».</li>
+<li>Évitez d'utiliser des titres similaires ou identiques à d'autres. Des titres distincts aident les gens à faire la différence et à choisir le contenu qu'ils et elles veulent lire.</li>
+<li>Évitez d'accroître la charge cognitive des personnes qui vous liront en publiant des renseignements difficiles à trouver.</li>
 </ul>
-<h3 id="evitez-dimbriquer-des-composants-details" class="mt-600 mb-300">Évitez d'imbriquer des composants Détails</h3>
-<ul class="list-disc mb-300"><li><p class="mb-300">Évitez de placer un composant Détails dans un autre, là où personne ne penserait à chercher ce contenu.</li>
-<li><p class="mb-300">De même, divisez le contenu volumineux en plusieurs composants Détails pour éviter de masquer plusieurs paragraphes dans le même composant Détails.</li>
+<h3 id="evitez-dimbriquer-des-composants-details">Évitez d'imbriquer des composants Détails</h3>
+<ul class="list-disc mb-300"><li>Évitez de placer un composant Détails dans un autre, là où personne ne penserait à chercher ce contenu.</li>
+<li>De même, divisez le contenu volumineux en plusieurs composants Détails pour éviter de masquer plusieurs paragraphes dans le même composant Détails.</li>
 </ul>
-<h3 id="alternatives-a-lutilisation-du-composant-details" class="mt-600 mb-300">Alternatives à l'utilisation du composant Détails</h3>
-<p class="mb-300">Le composant Détails peut augmenter la charge cognitive. Certaines personnes peuvent être déroutées par son fonctionnement ou submergées par une liste de titres parmi lesquels faire leur sélection.</p>
-<ul class="list-disc mb-300"><li><p class="mb-300">Incluez dans le flux de la page principale tout le contenu essentiel à l'accomplissement d'une tâche.</li>
-<li><p class="mb-300">Réduisez le volume total du texte en supprimant les renseignements redondants ou les éléments qui ne sont pas essentiels à l'accomplissement de la tâche.</li>
-<li><p class="mb-300">Simplifiez le contenu à l'aide d'un langage clair et conversationnel.</li>
-<li><p class="mb-300">Utilisez des sous-titres pour diviser le contenu.</li>
-<li><p class="mb-300">Divisez le contenu en plus petites sections et regroupez les éléments communs.</li>
+<h3 id="alternatives-a-lutilisation-du-composant-details">Alternatives à l'utilisation du composant Détails</h3>
+<p>Le composant Détails peut augmenter la charge cognitive. Certaines personnes peuvent être déroutées par son fonctionnement ou submergées par une liste de titres parmi lesquels faire leur sélection.</p>
+<ul class="list-disc mb-300"><li>Incluez dans le flux de la page principale tout le contenu essentiel à l'accomplissement d'une tâche.</li>
+<li>Réduisez le volume total du texte en supprimant les renseignements redondants ou les éléments qui ne sont pas essentiels à l'accomplissement de la tâche.</li>
+<li>Simplifiez le contenu à l'aide d'un langage clair et conversationnel.</li>
+<li>Utilisez des sous-titres pour diviser le contenu.</li>
+<li>Divisez le contenu en plus petites sections et regroupez les éléments communs.</li>
 </ul>
 
 
-  <section data-pagefind-ignore class="pt-75 mt-300 mb-900 bt-sm b-dark ">
-  <h2 class="mt-225 mb-300">
-    Aidez-nous à nous améliorer
-  </h2>
-
-  <p class="mb-300">
-    Vous avez des questions ou des demandes? Faites-nous part de vos commentaires à l&#39;aide de notre formulaire de contact.
-  </p>
+  <section data-pagefind-ignore class="my-600 bt-sm b-dark ">
+  <h2>Aidez-nous à nous améliorer</h2>
+  <p>Vous avez des questions ou des demandes? Faites-nous part de vos commentaires à l&#39;aide de notre formulaire de contact.</p>
 
   
-  <p class="mb-300">
+  <p>
     Quelque chose ne va pas? Signalez-le sur GitHub en créant un <gcds-link href='https://docs.github.com/fr/get-started/start-your-journey/creating-an-account-on-github' external>compte</gcds-link>. Vous pourrez accéder aux réponses de l'équipe, suivre les progrès réalisés concernant votre problèmes et voir les problèmes signalés par d'autres personnes.
   </p>
   

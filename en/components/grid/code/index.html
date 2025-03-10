@@ -1180,10 +1180,10 @@
       <main id="mc" class="container-xl mx-auto xl:px-0 sm:px-600 px-225 general-layout" data-pagefind-body>
         
   
-    <h1 id="grid-brgcdsgrid" class="mb-300">Grid <br><code>&lt;gcds-grid&gt;</code></h1>
-<p class="mb-300"><em>Also called: layout, columns, columns layout, grid container.</em></p>
-<p class="mb-300">A grid is a responsive, flexible column layout to position elements on a page.</p>
-<p class="mb-300"><ul class="d-flex flex-wrap gap-300">
+    <h1 id="grid-brgcdsgrid">Grid <br><code>&lt;gcds-grid&gt;</code></h1>
+<p><em>Also called: layout, columns, columns layout, grid container.</em></p>
+<p>A grid is a responsive, flexible column layout to position elements on a page.</p>
+<p><ul class="d-flex flex-wrap gap-300">
 <li class="github-link">
 <gcds-link external href="https://github.com/cds-snc/gcds-components/tree/main/packages/web/src/components/gcds-grid">GitHub</gcds-link>
 </li>
@@ -1191,8 +1191,8 @@
 <gcds-link external href="https://www.figma.com/file/mh2maMG2NBtk41k1O1UGHV/Canadian-Digital-Service%E2%80%A8---GC-Design-System?type=design&node-id=13172-65&mode=design&t=qwNFRgCKhnoUtRXO-0">Figma</gcds-link>
 </li>
 </ul></p>
-<p class="mb-300"><div class="my-600 b-sm b-default component-preview">
-<h2 class="container-full font-text font-semibold px-225 py-150 bb-sm b-default bg-light">
+<p><div class="my-600 b-sm b-default component-preview">
+<h2 class="container-full font-text font-semibold m-0 px-225 py-150 bb-sm b-default bg-light">
 Grid component preview
 </h2>
 <div>
@@ -1244,34 +1244,34 @@ Grid component preview
     </nav>
   
 
-  <h2 id="build-a-grid" class="mt-600 mb-300">Build a grid</h2>
-<p class="mb-300">Use grids to create flexible and responsive layouts for various screen sizes. The grid component uses CSS grid to allow for more complex layouts.</p>
-<h2 id="code-and-accessibility-for-grids" class="mt-600 mb-300">Code and accessibility for grids</h2>
-<h3 id="adjust-layouts-to-optimize-the-experience-on-different-screen-sizes" class="mt-600 mb-300">Adjust layouts to optimize the experience on different screen sizes</h3>
-<ul class="list-disc mb-300"><li><p class="mb-300">Optimize each grid component for the different screen sizes a person will use — or switch between — when they visit your site or use your product.</li>
-<li><p class="mb-300">Adapt for mobile, tablet, and large screens by defining each viewport layout for that grid component.<ul class="list-disc mb-300"><li><p class="mb-300">Smaller screens, like mobile devices, typically display a single column layout.</li>
-<li><p class="mb-300">Medium-sized screens, like tablets, a single or 2-column layout.</li>
-<li><p class="mb-300">Larger screens, like desktop, a 3- or 4- column layout.</li>
+  <h2 id="build-a-grid">Build a grid</h2>
+<p>Use grids to create flexible and responsive layouts for various screen sizes. The grid component uses CSS grid to allow for more complex layouts.</p>
+<h2 id="code-and-accessibility-for-grids">Code and accessibility for grids</h2>
+<h3 id="adjust-layouts-to-optimize-the-experience-on-different-screen-sizes">Adjust layouts to optimize the experience on different screen sizes</h3>
+<ul class="list-disc mb-300"><li>Optimize each grid component for the different screen sizes a person will use — or switch between — when they visit your site or use your product.</li>
+<li>Adapt for mobile, tablet, and large screens by defining each viewport layout for that grid component.<ul class="list-disc mb-300"><li>Smaller screens, like mobile devices, typically display a single column layout.</li>
+<li>Medium-sized screens, like tablets, a single or 2-column layout.</li>
+<li>Larger screens, like desktop, a 3- or 4- column layout.</li>
 </ul>
 </li>
-<li><p class="mb-300">Use the <code>columns</code> property to add your layout for smaller screens or if you are using the same layout for all screens.</li>
-<li><p class="mb-300">Use the <code>columns-tablet</code> property to set your tablet layout <strong>(48em and 768px and above)</strong> or if you are using the same layout for medium and large screens.</li>
-<li><p class="mb-300">Use the <code>columns-desktop</code> property to define your layout for larger screens <strong>(64em and 1024px and above)</strong>.</li>
+<li>Use the <code>columns</code> property to add your layout for smaller screens or if you are using the same layout for all screens.</li>
+<li>Use the <code>columns-tablet</code> property to set your tablet layout <strong>(48em and 768px and above)</strong> or if you are using the same layout for medium and large screens.</li>
+<li>Use the <code>columns-desktop</code> property to define your layout for larger screens <strong>(64em and 1024px and above)</strong>.</li>
 </ul>
-<p class="mb-300">Tip: Keep layouts simple. Consider optimizing each layout for mobile, tablet, and desktop to provide a better user experience for all viewports.</p>
-<h3 id="maintain-standard-tag-usage-to-be-accessible" class="mt-600 mb-300">Maintain standard tag usage to be accessible</h3>
-<p class="mb-300">By default, the <code>tag</code> property is set to use a <code>div</code> tag.</p>
-<ul class="list-disc mb-300"><li><p class="mb-300">Opt to change the tag to a context-appropriate value using standard tags. For example, when using an unordered list set the tag property to <code>ul</code>.</li>
-<li><p class="mb-300">Choose a tag from the list of available options for grid in the code builder. Using established standards for HTML tags that are semantic increase the accessibility of the content and improves the experience for everyone.</li>
+<p>Tip: Keep layouts simple. Consider optimizing each layout for mobile, tablet, and desktop to provide a better user experience for all viewports.</p>
+<h3 id="maintain-standard-tag-usage-to-be-accessible">Maintain standard tag usage to be accessible</h3>
+<p>By default, the <code>tag</code> property is set to use a <code>div</code> tag.</p>
+<ul class="list-disc mb-300"><li>Opt to change the tag to a context-appropriate value using standard tags. For example, when using an unordered list set the tag property to <code>ul</code>.</li>
+<li>Choose a tag from the list of available options for grid in the code builder. Using established standards for HTML tags that are semantic increase the accessibility of the content and improves the experience for everyone.</li>
 </ul>
-<h3 id="add-spacing-between-columns" class="mt-600 mb-300">Add spacing between columns</h3>
-<ul class="list-disc mb-300"><li><p class="mb-300">Use the <code>gap</code> property to add spacing between your <code>columns</code> in the grid.</li>
-<li><p class="mb-300">Use GC Design System <a href="/en/styles/design-tokens">design tokens</a> as a reference for the size of the <code>gap</code> in the grid. The tokens measurements match up with the spacing values for the <code>gap</code> attribute (150-800).</li>
+<h3 id="add-spacing-between-columns">Add spacing between columns</h3>
+<ul class="list-disc mb-300"><li>Use the <code>gap</code> property to add spacing between your <code>columns</code> in the grid.</li>
+<li>Use GC Design System <a href="/en/styles/design-tokens">design tokens</a> as a reference for the size of the <code>gap</code> in the grid. The tokens measurements match up with the spacing values for the <code>gap</code> attribute (150-800).</li>
 </ul>
-<h3 id="choose-an-option-for-equal-width-columns" class="mt-600 mb-300">Choose an option for equal width columns</h3>
-<p class="mb-300">Opt out of setting the minimum and maximum width when you want to design equal-width columns without width restrictions. This will allow the grid and its columns to scale to the size of the viewport.</p>
-<p class="mb-300"><strong>Example displaying 3 columns for desktop, 2 columns for tablet, and 1 column for mobile:</strong></p>
-<p class="mb-300">Desktop</p>
+<h3 id="choose-an-option-for-equal-width-columns">Choose an option for equal width columns</h3>
+<p>Opt out of setting the minimum and maximum width when you want to design equal-width columns without width restrictions. This will allow the grid and its columns to scale to the size of the viewport.</p>
+<p><strong>Example displaying 3 columns for desktop, 2 columns for tablet, and 1 column for mobile:</strong></p>
+<p>Desktop</p>
 <div class="b-sm mb-300 p-300">
   <gcds-grid tag="article" columns-desktop="1fr 1fr 1fr" columns-tablet="1fr 1fr" columns="1fr">
     <p>This is some example content to display the grid component.</p>
@@ -1279,7 +1279,7 @@ Grid component preview
     <p>This is some example content to display the grid component.</p>
   </gcds-grid>
 </div>
-<p class="mb-300">Tablet</p>
+<p>Tablet</p>
 <div class="b-sm mb-300 p-300">
   <gcds-grid tag="article" columns-tablet="1fr 1fr" columns="1fr">
     <p>This is some example content to display the grid component.</p>
@@ -1287,7 +1287,7 @@ Grid component preview
     <p>This is some example content to display the grid component.</p>
   </gcds-grid>
 </div>
-<p class="mb-300">Mobile</p>
+<p>Mobile</p>
 <div class="b-sm p-300">
   <gcds-grid tag="article" columns="1fr">
     <p>This is some example content to display the grid component.</p>
@@ -1295,7 +1295,7 @@ Grid component preview
     <p>This is some example content to display the grid component.</p>
   </gcds-grid>
 </div>
-<p class="mb-300"><div class="code-showcase mb-300">
+<p><div class="code-showcase mb-300">
 <textarea class="showcase text-light mb-300 p-300" id="preview-grid-flexible" rows="8" aria-label="Code display - gcds-grid" tabindex="-1" aria-hidden="true" readonly>
 <gcds-grid tag="article" columns-desktop="1fr 1fr 1fr" columns-tablet="1fr 1fr" columns="1fr"></p>
 <p>This is some example content to display the grid component.</p>
@@ -1324,12 +1324,12 @@ Grid component preview
             </gcds-button>
           </div>
         </div>
-<p class="mb-300">Set the minimum and maximum width to design equal-width columns with restrictions to limit how wide they will span on any screen size.</p>
-<ul class="list-disc mb-300"><li><p class="mb-300">Set a minimum width when you want to prevent a column from being too narrow in smaller viewports.</li>
-<li><p class="mb-300">Set a maximum width when you want to prevent a column from being too wide in larger viewports.</li>
+<p>Set the minimum and maximum width to design equal-width columns with restrictions to limit how wide they will span on any screen size.</p>
+<ul class="list-disc mb-300"><li>Set a minimum width when you want to prevent a column from being too narrow in smaller viewports.</li>
+<li>Set a maximum width when you want to prevent a column from being too wide in larger viewports.</li>
 </ul>
-<p class="mb-300"><strong>Example uses equal-width columns with a minimum width of 6.25rem (100px) and a maximum width of 18.75rem (300px) for all screen sizes:</strong></p>
-<p class="mb-300">Desktop</p>
+<p><strong>Example uses equal-width columns with a minimum width of 6.25rem (100px) and a maximum width of 18.75rem (300px) for all screen sizes:</strong></p>
+<p>Desktop</p>
 <div class="showcase-preview b-sm mb-300 p-300">
   <gcds-grid tag="article" columns="repeat(auto-fit, minmax(100px, 300px))">
     <p>This is some example content to display the grid component.</p>
@@ -1337,7 +1337,7 @@ Grid component preview
     <p>This is some example content to display the grid component.</p>
   </gcds-grid>
 </div>
-<p class="mb-300">Tablet</p>
+<p>Tablet</p>
 <div class="showcase-preview b-sm mb-300 p-300">
   <div class="container-md">
     <gcds-grid tag="article" columns="repeat(auto-fit, minmax(100px, 300px))">
@@ -1347,7 +1347,7 @@ Grid component preview
     </gcds-grid>
   </div>
 </div>
-<p class="mb-300">Mobile</p>
+<p>Mobile</p>
 <div class="showcase-preview b-sm p-300">
   <div class="container-sm">
     <gcds-grid tag="article" columns="repeat(auto-fit, minmax(100px, 300px))">
@@ -1357,7 +1357,7 @@ Grid component preview
     </gcds-grid>
   </div>
 </div>
-<p class="mb-300"><div class="code-showcase mb-300">
+<p><div class="code-showcase mb-300">
 <textarea class="showcase text-light mb-300 p-300" id="preview-grid-fixed-width" rows="8" aria-label="Code display - gcds-grid" tabindex="-1" aria-hidden="true" readonly>
 <gcds-grid tag="article" columns="repeat(auto-fit, minmax(100px, 300px))"></p>
 <p>This is some example content to display the grid component.</p>
@@ -1386,19 +1386,19 @@ Grid component preview
             </gcds-button>
           </div>
         </div>
-<h3 id="get-your-code" class="mt-600 mb-300">Get your code</h3>
-<p class="mb-300">Generate an instance of the component you need by selecting its code properties.</p>
+<h3 id="get-your-code">Get your code</h3>
+<p>Generate an instance of the component you need by selecting its code properties.</p>
 <ol class="list-decimal mb-300"><li>
-<p class="mb-300">Explore by choosing different code values to generate the instance you want.</p>
+<p>Explore by choosing different code values to generate the instance you want.</p>
 </li>
 <li>
-<p class="mb-300">Get the code and pull it into your environment.</p>
+<p>Get the code and pull it into your environment.</p>
 </li>
 <li>
-<p class="mb-300">Add any copy you need to the component (like text for a label).</p>
+<p>Add any copy you need to the component (like text for a label).</p>
 </li>
 </ol>
-<p class="mb-300"><strong>Note:</strong> Following standard practice, the code builder uses English for all code elements.</p>
+<p><strong>Note:</strong> Following standard practice, the code builder uses English for all code elements.</p>
 <iframe
   title="Overview of gcds-grid properties and events."
   src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&demo=true&singleStory=true&id=components-grid--events-properties&lang=en"
@@ -1410,17 +1410,12 @@ Grid component preview
 ></iframe>
 
 
-  <section data-pagefind-ignore class="pt-75 mt-300 mb-900 bt-sm b-dark ">
-  <h2 class="mt-225 mb-300">
-    Help us improve
-  </h2>
-
-  <p class="mb-300">
-    Have questions or a request? Give feedback on our contact form.
-  </p>
+  <section data-pagefind-ignore class="my-600 bt-sm b-dark ">
+  <h2>Help us improve</h2>
+  <p>Have questions or a request? Give feedback on our contact form.</p>
 
   
-  <p class="mb-300">
+  <p>
     Something's wrong? Raise it through GitHub with an <gcds-link href='https://docs.github.com/en/get-started/start-your-journey/creating-an-account-on-github' external>account</gcds-link>. You'll have access to the team's direct responses, progress made on your issue, and issues raised by others.
   </p>
   

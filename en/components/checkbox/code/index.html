@@ -1180,10 +1180,10 @@
       <main id="mc" class="container-xl mx-auto xl:px-0 sm:px-600 px-225 general-layout" data-pagefind-body>
         
   
-    <h1 id="checkboxbrgcdscheckbox" class="mb-300">Checkbox<br><code>&lt;gcds-checkbox&gt;</code></h1>
-<p class="mb-300"><em>Also called: checklist, check list.</em></p>
-<p class="mb-300">A checkbox is a set of options for one or multiple selections.</p>
-<p class="mb-300"><ul class="d-flex flex-wrap gap-300">
+    <h1 id="checkboxbrgcdscheckbox">Checkbox<br><code>&lt;gcds-checkbox&gt;</code></h1>
+<p><em>Also called: checklist, check list.</em></p>
+<p>A checkbox is a set of options for one or multiple selections.</p>
+<p><ul class="d-flex flex-wrap gap-300">
 <li class="github-link">
 <gcds-link external href="https://github.com/cds-snc/gcds-components/tree/main/packages/web/src/components/gcds-checkbox">GitHub</gcds-link>
 </li>
@@ -1191,8 +1191,8 @@
 <gcds-link external href="https://www.figma.com/file/mh2maMG2NBtk41k1O1UGHV/GC-Design-System?type=design&node-id=462-320&mode=design&t=cnzP5UArhqfb5Bks-0">Figma</gcds-link>
 </li>
 </ul></p>
-<p class="mb-300"><div class="my-600 b-sm b-default component-preview">
-<h2 class="container-full font-text font-semibold px-225 py-150 bb-sm b-default bg-light">
+<p><div class="my-600 b-sm b-default component-preview">
+<h2 class="container-full font-text font-semibold m-0 px-225 py-150 bb-sm b-default bg-light">
 Checkbox component preview
 </h2>
 <div>
@@ -1244,41 +1244,41 @@ Checkbox component preview
     </nav>
   
 
-  <h2 id="build-a-checkbox" class="mt-600 mb-300">Build a checkbox</h2>
-<p class="mb-300">Use a checkbox with a <a href="/en/components/fieldset">fieldset</a> when you are expecting the user to select more than one option from a short list of items in response to a question or instruction.</p>
-<h2 id="coding-and-accessibility-for-checkboxes" class="mt-600 mb-300">Coding and accessibility for checkboxes</h2>
-<h3 id="apply-required-attributes" class="mt-600 mb-300">Apply required attributes</h3>
-<p class="mb-300">For the checkbox to function properly, always use the following attributes with <code>&lt;gcds-checkbox&gt;</code>:</p>
-<ul class="list-disc mb-300"><li><p class="mb-300"><code>name</code></li>
-<li><p class="mb-300"><code>label</code></li>
-<li><p class="mb-300"><code>checkbox-id</code></li>
+  <h2 id="build-a-checkbox">Build a checkbox</h2>
+<p>Use a checkbox with a <a href="/en/components/fieldset">fieldset</a> when you are expecting the user to select more than one option from a short list of items in response to a question or instruction.</p>
+<h2 id="coding-and-accessibility-for-checkboxes">Coding and accessibility for checkboxes</h2>
+<h3 id="apply-required-attributes">Apply required attributes</h3>
+<p>For the checkbox to function properly, always use the following attributes with <code>&lt;gcds-checkbox&gt;</code>:</p>
+<ul class="list-disc mb-300"><li><code>name</code></li>
+<li><code>label</code></li>
+<li><code>checkbox-id</code></li>
 </ul>
-<h3 id="use-a-fieldset-and-the-required-attribute" class="mt-600 mb-300">Use a fieldset and the required attribute</h3>
-<ul class="list-disc mb-300"><li><p class="mb-300">Group checkbox options and name the group using the <a href="/en/components/fieldset">fieldset component</a>.</li>
-<li><p class="mb-300">Use the fieldset <code>legend</code> and <code>hint</code> attributes for the group name and instructions.</li>
-<li><p class="mb-300">For required groups, set the <code>required</code> attribute in the fieldset. Setting the <code>required</code> attribute applies validation and error handling to the checkbox group.</li>
+<h3 id="use-a-fieldset-and-the-required-attribute">Use a fieldset and the required attribute</h3>
+<ul class="list-disc mb-300"><li>Group checkbox options and name the group using the <a href="/en/components/fieldset">fieldset component</a>.</li>
+<li>Use the fieldset <code>legend</code> and <code>hint</code> attributes for the group name and instructions.</li>
+<li>For required groups, set the <code>required</code> attribute in the fieldset. Setting the <code>required</code> attribute applies validation and error handling to the checkbox group.</li>
 </ul>
-<h3 id="for-a-single-checkbox" class="mt-600 mb-300">For a single checkbox</h3>
-<ul class="list-disc mb-300"><li><p class="mb-300">Avoid using a <a href="/en/components/fieldset">fieldset</a> for checkboxes with a single box to check, like for a confirmation the terms of reference was read prior to registration.</li>
-<li><p class="mb-300">Use the <code>required</code> attribute to activate the required validator. Validation will happen by default on the <code>onBlur</code> event.</li>
-<li><p class="mb-300">If you need to change the validation event, use the <code>validate-on</code> attribute. Validation can happen on blur, when the element loses focus, or manually with the <code>validate</code> method.</li>
-<li><p class="mb-300">Use the <code>required</code> attribute when a single checkbox need to be filled in. This places &quot;(required)&quot; at the end of the checkbox .</li>
-<li><p class="mb-300">Keep the default <code>error-message</code> attribute for a required single checkbox that needs validation. Missing entry will prompt an inline error message.</li>
-<li><p class="mb-300">Remove the default <code>error-message</code> attribute if the checkbox is optional.</li>
+<h3 id="for-a-single-checkbox">For a single checkbox</h3>
+<ul class="list-disc mb-300"><li>Avoid using a <a href="/en/components/fieldset">fieldset</a> for checkboxes with a single box to check, like for a confirmation the terms of reference was read prior to registration.</li>
+<li>Use the <code>required</code> attribute to activate the required validator. Validation will happen by default on the <code>onBlur</code> event.</li>
+<li>If you need to change the validation event, use the <code>validate-on</code> attribute. Validation can happen on blur, when the element loses focus, or manually with the <code>validate</code> method.</li>
+<li>Use the <code>required</code> attribute when a single checkbox need to be filled in. This places &quot;(required)&quot; at the end of the checkbox .</li>
+<li>Keep the default <code>error-message</code> attribute for a required single checkbox that needs validation. Missing entry will prompt an inline error message.</li>
+<li>Remove the default <code>error-message</code> attribute if the checkbox is optional.</li>
 </ul>
-<h3 id="get-your-code" class="mt-600 mb-300">Get your code</h3>
-<p class="mb-300">Generate an instance of the component you need by selecting its code properties.</p>
+<h3 id="get-your-code">Get your code</h3>
+<p>Generate an instance of the component you need by selecting its code properties.</p>
 <ol class="list-decimal mb-300"><li>
-<p class="mb-300">Explore by choosing different code values to generate the instance you want.</p>
+<p>Explore by choosing different code values to generate the instance you want.</p>
 </li>
 <li>
-<p class="mb-300">Get the code and pull it into your environment.</p>
+<p>Get the code and pull it into your environment.</p>
 </li>
 <li>
-<p class="mb-300">Add any copy you need to the component (like text for a label).</p>
+<p>Add any copy you need to the component (like text for a label).</p>
 </li>
 </ol>
-<p class="mb-300"><strong>Note:</strong> Following standard practice, the code builder uses English for all code elements.</p>
+<p><strong>Note:</strong> Following standard practice, the code builder uses English for all code elements.</p>
 <iframe
   title="Overview of gcds-checkbox properties and events."
   src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&demo=true&singleStory=true&id=components-checkbox--events-properties&lang=en"
@@ -1290,17 +1290,12 @@ Checkbox component preview
 ></iframe>
 
 
-  <section data-pagefind-ignore class="pt-75 mt-300 mb-900 bt-sm b-dark ">
-  <h2 class="mt-225 mb-300">
-    Help us improve
-  </h2>
-
-  <p class="mb-300">
-    Have questions or a request? Give feedback on our contact form.
-  </p>
+  <section data-pagefind-ignore class="my-600 bt-sm b-dark ">
+  <h2>Help us improve</h2>
+  <p>Have questions or a request? Give feedback on our contact form.</p>
 
   
-  <p class="mb-300">
+  <p>
     Something's wrong? Raise it through GitHub with an <gcds-link href='https://docs.github.com/en/get-started/start-your-journey/creating-an-account-on-github' external>account</gcds-link>. You'll have access to the team's direct responses, progress made on your issue, and issues raised by others.
   </p>
   

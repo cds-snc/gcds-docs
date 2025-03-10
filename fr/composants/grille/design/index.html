@@ -1180,10 +1180,10 @@
       <main id="mc" class="container-xl mx-auto xl:px-0 sm:px-600 px-225 general-layout" data-pagefind-body>
         
   
-    <h1 id="grille-brgcdsgrid" class="mb-300">Grille <br><code>&lt;gcds-grid&gt;</code></h1>
-<p class="mb-300"><em>Autres noms : mise en page, colonnes, disposition en colonnes, boîte de style grille.</em></p>
-<p class="mb-300">Une grille est une mise en page réactive et flexible.</p>
-<p class="mb-300"><ul class="d-flex flex-wrap gap-300">
+    <h1 id="grille-brgcdsgrid">Grille <br><code>&lt;gcds-grid&gt;</code></h1>
+<p><em>Autres noms : mise en page, colonnes, disposition en colonnes, boîte de style grille.</em></p>
+<p>Une grille est une mise en page réactive et flexible.</p>
+<p><ul class="d-flex flex-wrap gap-300">
 <li class="github-link">
 <gcds-link external href="https://github.com/cds-snc/gcds-components/tree/main/packages/web/src/components/gcds-grid">GitHub</gcds-link>
 </li>
@@ -1191,8 +1191,8 @@
 <gcds-link external href="https://www.figma.com/file/o4SguSZdar2CCFzSkWNrmB/Syst%C3%A8me-de-design-GC?type=design&node-id=48-9883&mode=design&t=1DaL24vHpjRRfHHm-0">Figma</gcds-link>
 </li>
 </ul></p>
-<p class="mb-300"><div class="my-600 b-sm b-default component-preview">
-<h2 class="container-full font-text font-semibold px-225 py-150 bb-sm b-default bg-light">
+<p><div class="my-600 b-sm b-default component-preview">
+<h2 class="container-full font-text font-semibold m-0 px-225 py-150 bb-sm b-default bg-light">
 Aperçu du composant de grille
 </h2>
 <div>
@@ -1244,46 +1244,41 @@ Aperçu du composant de grille
     </nav>
   
 
-  <h2 id="structure-dune-grille" class="mt-600 mb-300">Structure d'une grille</h2>
+  <h2 id="structure-dune-grille">Structure d'une grille</h2>
 <ol class="anatomy-list">
   <li>La <strong>boîte</strong> contient tous les éléments de la grille et s'étend sur leur largeur combinée. Elle est réactive et peut être centrée.</li>
   <li>La <strong>colonne</strong> , également appelée élément de grille, définit une limite autour de son contenu pour le maintenir dans la largeur définie pour cette colonne.</li>
   <li>L’<strong>espace</strong>, parfois appelé gouttière, définit la largeur de l’espace entre les colonnes.</li>
 </ol>
 <img class="b-sm b-default p-300" src="/images/fr/components/anatomy/gcds-grid-anatomy.svg" alt="Image montrant la structure d'une grille avec quatre rectangles distincts représentant les colonnes d'une grille." />
-<h2 id="design-et-accessibilite-des-grilles" class="mt-600 mb-300">Design et accessibilité des grilles</h2>
-<h3 id="ajustez-les-mises-en-page-pour-optimiser-lexperience-sur-differentes-tailles-decran" class="mt-600 mb-300">Ajustez les mises en page pour optimiser l'expérience sur différentes tailles d'écran</h3>
-<ul class="list-disc mb-300"><li><p class="mb-300">Optimisez chaque composant Grille pour les différentes tailles d'écran qu'une personne utilisera (y compris en passant d'un écran à l'autre) lorsqu'elle visitera votre site ou utilisera votre produit.</li>
-<li><p class="mb-300">Adaptez votre contenu aux appareils mobiles, aux tablettes et aux grands écrans en définissant la mise en page de chaque fenêtre d'affichage pour ce composant.<ul class="list-disc mb-300"><li><p class="mb-300">Les petits écrans, comme ceux des appareils mobiles, affichent généralement une mise en page à une colonne.</li>
-<li><p class="mb-300">Les écrans de taille moyenne, comme les tablettes, affichent généralement une mise en page d'une à deux colonnes.</li>
-<li><p class="mb-300">Les écrans plus grands, comme ceux des ordinateurs de bureau, affichent généralement une mise en page de trois ou quatre colonnes.</li>
+<h2 id="design-et-accessibilite-des-grilles">Design et accessibilité des grilles</h2>
+<h3 id="ajustez-les-mises-en-page-pour-optimiser-lexperience-sur-differentes-tailles-decran">Ajustez les mises en page pour optimiser l'expérience sur différentes tailles d'écran</h3>
+<ul class="list-disc mb-300"><li>Optimisez chaque composant Grille pour les différentes tailles d'écran qu'une personne utilisera (y compris en passant d'un écran à l'autre) lorsqu'elle visitera votre site ou utilisera votre produit.</li>
+<li>Adaptez votre contenu aux appareils mobiles, aux tablettes et aux grands écrans en définissant la mise en page de chaque fenêtre d'affichage pour ce composant.<ul class="list-disc mb-300"><li>Les petits écrans, comme ceux des appareils mobiles, affichent généralement une mise en page à une colonne.</li>
+<li>Les écrans de taille moyenne, comme les tablettes, affichent généralement une mise en page d'une à deux colonnes.</li>
+<li>Les écrans plus grands, comme ceux des ordinateurs de bureau, affichent généralement une mise en page de trois ou quatre colonnes.</li>
 </ul>
 </li>
 </ul>
-<p class="mb-300">Conseil : Visez la simplicité pour la disposition des grilles en concevant des expériences pour les appareils mobiles, tablettes et ordinateurs de bureau compatibles avec n'importe quelle taille d'écran.</p>
-<h3 id="limitez-la-largeur-du-contenu" class="mt-600 mb-300">Limitez la largeur du contenu</h3>
-<ul class="list-disc mb-300"><li><p class="mb-300">Veillez à ce que les lignes de texte n'excèdent pas 75 caractères pour que la lecture reste accessible.</li>
-<li><p class="mb-300">Limitez la largeur des colonnes pour éviter que les grands écrans n'affichent des lignes de texte trop longues et difficiles à lire.</li>
-<li><p class="mb-300">Évitez de dépasser la largeur maximale de 71,25 rem (1140 px).</li>
+<p>Conseil : Visez la simplicité pour la disposition des grilles en concevant des expériences pour les appareils mobiles, tablettes et ordinateurs de bureau compatibles avec n'importe quelle taille d'écran.</p>
+<h3 id="limitez-la-largeur-du-contenu">Limitez la largeur du contenu</h3>
+<ul class="list-disc mb-300"><li>Veillez à ce que les lignes de texte n'excèdent pas 75 caractères pour que la lecture reste accessible.</li>
+<li>Limitez la largeur des colonnes pour éviter que les grands écrans n'affichent des lignes de texte trop longues et difficiles à lire.</li>
+<li>Évitez de dépasser la largeur maximale de 71,25 rem (1140 px).</li>
 </ul>
-<h3 id="utilisez-lespacement-pour-vehiculer-un-sens-particulier" class="mt-600 mb-300">Utilisez l'espacement pour véhiculer un sens particulier</h3>
-<p class="mb-300">Choisissez l'espacement pour faciliter la lecture et aider les utilisateurs à mieux comprendre les messages que vous communiquez.</p>
-<ul class="list-disc mb-300"><li><p class="mb-300">Utilisez de plus petites unités de style d'espacement pour regrouper des éléments connexes.</li>
-<li><p class="mb-300">Employez de plus grandes unités de style d'espacement pour former des groupes logiques d'éléments.</li>
+<h3 id="utilisez-lespacement-pour-vehiculer-un-sens-particulier">Utilisez l'espacement pour véhiculer un sens particulier</h3>
+<p>Choisissez l'espacement pour faciliter la lecture et aider les utilisateurs à mieux comprendre les messages que vous communiquez.</p>
+<ul class="list-disc mb-300"><li>Utilisez de plus petites unités de style d'espacement pour regrouper des éléments connexes.</li>
+<li>Employez de plus grandes unités de style d'espacement pour former des groupes logiques d'éléments.</li>
 </ul>
 
 
-  <section data-pagefind-ignore class="pt-75 mt-300 mb-900 bt-sm b-dark ">
-  <h2 class="mt-225 mb-300">
-    Aidez-nous à nous améliorer
-  </h2>
-
-  <p class="mb-300">
-    Vous avez des questions ou des demandes? Faites-nous part de vos commentaires à l&#39;aide de notre formulaire de contact.
-  </p>
+  <section data-pagefind-ignore class="my-600 bt-sm b-dark ">
+  <h2>Aidez-nous à nous améliorer</h2>
+  <p>Vous avez des questions ou des demandes? Faites-nous part de vos commentaires à l&#39;aide de notre formulaire de contact.</p>
 
   
-  <p class="mb-300">
+  <p>
     Quelque chose ne va pas? Signalez-le sur GitHub en créant un <gcds-link href='https://docs.github.com/fr/get-started/start-your-journey/creating-an-account-on-github' external>compte</gcds-link>. Vous pourrez accéder aux réponses de l'équipe, suivre les progrès réalisés concernant votre problèmes et voir les problèmes signalés par d'autres personnes.
   </p>
   

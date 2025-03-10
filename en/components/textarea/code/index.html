@@ -1180,10 +1180,10 @@
       <main id="mc" class="container-xl mx-auto xl:px-0 sm:px-600 px-225 general-layout" data-pagefind-body>
         
   
-    <h1 id="text-area-brgcdstextarea" class="mb-300">Text area <br><code>&lt;gcds-textarea&gt;</code></h1>
-<p class="mb-300"><em>Also called: text box.</em></p>
-<p class="mb-300">A text area is a space to enter long-form information in response to a question or instruction.</p>
-<p class="mb-300"><ul class="d-flex flex-wrap gap-300">
+    <h1 id="text-area-brgcdstextarea">Text area <br><code>&lt;gcds-textarea&gt;</code></h1>
+<p><em>Also called: text box.</em></p>
+<p>A text area is a space to enter long-form information in response to a question or instruction.</p>
+<p><ul class="d-flex flex-wrap gap-300">
 <li class="github-link">
 <gcds-link external href="https://github.com/cds-snc/gcds-components/tree/main/packages/web/src/components/gcds-textarea">GitHub</gcds-link>
 </li>
@@ -1191,8 +1191,8 @@
 <gcds-link external href="https://www.figma.com/file/mh2maMG2NBtk41k1O1UGHV/GC-Design-System?type=design&node-id=3-599&mode=design&t=2my46MmKTAF9hApN-0">Figma</gcds-link>
 </li>
 </ul></p>
-<p class="mb-300"><div class="my-600 b-sm b-default component-preview">
-<h2 class="container-full font-text font-semibold px-225 py-150 bb-sm b-default bg-light">
+<p><div class="my-600 b-sm b-default component-preview">
+<h2 class="container-full font-text font-semibold m-0 px-225 py-150 bb-sm b-default bg-light">
 Textarea component preview
 </h2>
 <div>
@@ -1244,63 +1244,63 @@ Textarea component preview
     </nav>
   
 
-  <h2 id="build-a-text-area" class="mt-600 mb-300">Build a text area</h2>
-<p class="mb-300">Use text areas to ask for information when you're expecting a freeform response that could span multiple lines.</p>
-<p class="mb-300">The text area gives users the option to provide the information they want to share in a long form response.</p>
-<h2 id="coding-and-accessibility-for-text-areas" class="mt-600 mb-300">Coding and accessibility for text areas</h2>
-<h3 id="apply-required-attributes" class="mt-600 mb-300">Apply required attributes</h3>
-<p class="mb-300">For the text area to function properly, always use the following attributes with <code>&lt;gcds-textarea&gt;</code>:</p>
-<ul class="list-disc mb-300"><li><p class="mb-300"><code>name</code></li>
-<li><p class="mb-300"><code>label</code></li>
-<li><p class="mb-300"><code>textarea-id</code></li>
+  <h2 id="build-a-text-area">Build a text area</h2>
+<p>Use text areas to ask for information when you're expecting a freeform response that could span multiple lines.</p>
+<p>The text area gives users the option to provide the information they want to share in a long form response.</p>
+<h2 id="coding-and-accessibility-for-text-areas">Coding and accessibility for text areas</h2>
+<h3 id="apply-required-attributes">Apply required attributes</h3>
+<p>For the text area to function properly, always use the following attributes with <code>&lt;gcds-textarea&gt;</code>:</p>
+<ul class="list-disc mb-300"><li><code>name</code></li>
+<li><code>label</code></li>
+<li><code>textarea-id</code></li>
 </ul>
-<h3 id="size-text-areas-to-fit-response-type" class="mt-600 mb-300">Size text areas to fit response type</h3>
-<ul class="list-disc mb-300"><li><p class="mb-300">Use text areas for responses that may need more than 75 characters.</li>
-<li><p class="mb-300">Make the height of a text area proportionate to the amount of text you expect someone to enter. You can set the height of a text area by specifying the <code>rows</code> attribute.</li>
-<li><p class="mb-300">Avoid setting the width any lower than 50% (1/2 width).</li>
-<li><p class="mb-300">Use the maximum for responses without a fixed length.</li>
+<h3 id="size-text-areas-to-fit-response-type">Size text areas to fit response type</h3>
+<ul class="list-disc mb-300"><li>Use text areas for responses that may need more than 75 characters.</li>
+<li>Make the height of a text area proportionate to the amount of text you expect someone to enter. You can set the height of a text area by specifying the <code>rows</code> attribute.</li>
+<li>Avoid setting the width any lower than 50% (1/2 width).</li>
+<li>Use the maximum for responses without a fixed length.</li>
 </ul>
-<h3 id="handle-error-messages-and-validation" class="mt-600 mb-300">Handle error messages and validation</h3>
+<h3 id="handle-error-messages-and-validation">Handle error messages and validation</h3>
 <ul class="list-disc mb-300"><li>
-<p class="mb-300">Use the <code>required</code> attribute to activate the required validator. Validation will happen by default on the <code>onBlur</code> event. A missing or invalid entry will prompt an inline error message with preset text.</p>
+<p>Use the <code>required</code> attribute to activate the required validator. Validation will happen by default on the <code>onBlur</code> event. A missing or invalid entry will prompt an inline error message with preset text.</p>
 </li>
 <li>
-<p class="mb-300">If you need to change the validation event, use the <code>validate-on</code> attribute. Validation can happen on blur, when the element loses focus, or manually with the <code>validate()</code> method.</p>
+<p>If you need to change the validation event, use the <code>validate-on</code> attribute. Validation can happen on blur, when the element loses focus, or manually with the <code>validate()</code> method.</p>
 </li>
 <li>
-<p class="mb-300">Use the <code>required</code> attribute for fields that must be filled in. This places &quot;required&quot; at the end of the label.</p>
+<p>Use the <code>required</code> attribute for fields that must be filled in. This places &quot;required&quot; at the end of the label.</p>
 </li>
 <li>
-<p class="mb-300">Use the <code>error-message</code> attribute to include an error message text for all required inputs. Avoid using error messages for optional ones.</p>
+<p>Use the <code>error-message</code> attribute to include an error message text for all required inputs. Avoid using error messages for optional ones.</p>
 </li>
 <li>
-<p class="mb-300">For optional fields, avoid adding the <code>error-message</code> attribute.</p>
+<p>For optional fields, avoid adding the <code>error-message</code> attribute.</p>
 </li>
 <li>
-<p class="mb-300">For an optional field that needs validation based on user input (like validating an email address format), opt to add custom validation with a custom error message.</p>
+<p>For an optional field that needs validation based on user input (like validating an email address format), opt to add custom validation with a custom error message.</p>
 </li>
 </ul>
-<h3 id="include-a-hint-text-for-task-success" class="mt-600 mb-300">Include a hint text for task success</h3>
+<h3 id="include-a-hint-text-for-task-success">Include a hint text for task success</h3>
 <ul class="list-disc mb-300"><li>
-<p class="mb-300">Use the <code>hint</code> attribute to add hint text to help a person provide a complete value in the input and avoid an error state.</p>
+<p>Use the <code>hint</code> attribute to add hint text to help a person provide a complete value in the input and avoid an error state.</p>
 </li>
 <li>
-<p class="mb-300">Avoid adding hint text in the field (sometimes called placeholder text) where it will disappear once the field is selected or a response starts to be entered.</p>
+<p>Avoid adding hint text in the field (sometimes called placeholder text) where it will disappear once the field is selected or a response starts to be entered.</p>
 </li>
 </ul>
-<h3 id="get-your-code" class="mt-600 mb-300">Get your code</h3>
-<p class="mb-300">Generate an instance of the component you need by selecting its code properties.</p>
+<h3 id="get-your-code">Get your code</h3>
+<p>Generate an instance of the component you need by selecting its code properties.</p>
 <ol class="list-decimal mb-300"><li>
-<p class="mb-300">Explore by choosing different code values to generate the instance you want.</p>
+<p>Explore by choosing different code values to generate the instance you want.</p>
 </li>
 <li>
-<p class="mb-300">Get the code and pull it into your environment.</p>
+<p>Get the code and pull it into your environment.</p>
 </li>
 <li>
-<p class="mb-300">Add any copy you need to the component (like text for a label).</p>
+<p>Add any copy you need to the component (like text for a label).</p>
 </li>
 </ol>
-<p class="mb-300"><strong>Note:</strong> Following standard practice, the code builder uses English for all code elements.</p>
+<p><strong>Note:</strong> Following standard practice, the code builder uses English for all code elements.</p>
 <iframe
   title="Overview of gcds-textarea properties and events."
   src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&demo=true&singleStory=true&id=components-textarea--events-properties&lang=en"
@@ -1312,17 +1312,12 @@ Textarea component preview
 ></iframe>
 
 
-  <section data-pagefind-ignore class="pt-75 mt-300 mb-900 bt-sm b-dark ">
-  <h2 class="mt-225 mb-300">
-    Help us improve
-  </h2>
-
-  <p class="mb-300">
-    Have questions or a request? Give feedback on our contact form.
-  </p>
+  <section data-pagefind-ignore class="my-600 bt-sm b-dark ">
+  <h2>Help us improve</h2>
+  <p>Have questions or a request? Give feedback on our contact form.</p>
 
   
-  <p class="mb-300">
+  <p>
     Something's wrong? Raise it through GitHub with an <gcds-link href='https://docs.github.com/en/get-started/start-your-journey/creating-an-account-on-github' external>account</gcds-link>. You'll have access to the team's direct responses, progress made on your issue, and issues raised by others.
   </p>
   

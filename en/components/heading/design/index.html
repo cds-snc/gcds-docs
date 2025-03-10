@@ -1180,10 +1180,10 @@
       <main id="mc" class="container-xl mx-auto xl:px-0 sm:px-600 px-225 general-layout" data-pagefind-body>
         
   
-    <h1 id="heading-brgcdsheading" class="mb-300">Heading <br><code>&lt;gcds-heading&gt;</code></h1>
-<p class="mb-300"><em>Also called: title, section heading, subheading.</em></p>
-<p class="mb-300">A heading is a title that establishes levels of hierarchy to organize page content into a structure.</p>
-<p class="mb-300"><ul class="d-flex flex-wrap gap-300">
+    <h1 id="heading-brgcdsheading">Heading <br><code>&lt;gcds-heading&gt;</code></h1>
+<p><em>Also called: title, section heading, subheading.</em></p>
+<p>A heading is a title that establishes levels of hierarchy to organize page content into a structure.</p>
+<p><ul class="d-flex flex-wrap gap-300">
 <li class="github-link">
 <gcds-link external href="https://github.com/cds-snc/gcds-components/tree/main/packages/web/src/components/gcds-heading">GitHub</gcds-link>
 </li>
@@ -1191,8 +1191,8 @@
 <gcds-link external href="https://www.figma.com/file/mh2maMG2NBtk41k1O1UGHV/Canadian-Digital-Service%E2%80%A8---GC-Design-System?type=design&node-id=9439-44&mode=design&t=E0XGUkSN8iUhsIDS-0">Figma</gcds-link>
 </li>
 </ul></p>
-<p class="mb-300"><div class="my-600 b-sm b-default component-preview">
-<h2 class="container-full font-text font-semibold px-225 py-150 bb-sm b-default bg-light">
+<p><div class="my-600 b-sm b-default component-preview">
+<h2 class="container-full font-text font-semibold m-0 px-225 py-150 bb-sm b-default bg-light">
 Heading component preview
 </h2>
 <div>
@@ -1244,61 +1244,56 @@ Heading component preview
     </nav>
   
 
-  <h2 id="heading-anatomy" class="mt-600 mb-300">Heading anatomy</h2>
+  <h2 id="heading-anatomy">Heading anatomy</h2>
 <ol class="anatomy-list">
   <li><strong>Heading</strong> is a prominent line of text that introduces the paragraph or other body content that immediately follows it. The visual prominence of the heading decreases based on its level in the hierarchical order. More visual emphasis is given to the first heading, the H1, than a subordinate heading like an H5 or H6. Assistive technologies, such as screen readers, identify headings by their levels.</li>
   <li><strong>Text</strong> is non-heading content. Its subject matter is related to the idea outlined in its corresponding heading.</li>
 </ol>
 <img class="b-sm b-default p-300" src="/images/en/components/anatomy/gcds-heading-anatomy.svg" alt="A large, prominent heading text above a block of smaller text. The larger text reads: “This is a heading”. The next block reads: “This is text that's related to the heading and describes in further detail the heading's subject or action. Text is typically one or several lines or paragraphs that form a section's content or introduce a bulleted list, table, or other content, like an image or video.” There's a label pointing to the larger text reading “1” and there's a label pointing to the smaller block of text that reads “2”.." />
-<h2 id="design-and-accessibility-for-headings" class="mt-600 mb-300">Design and accessibility for headings</h2>
-<h3 id="order-heading-levels-hierarchically" class="mt-600 mb-300">Order heading levels hierarchically</h3>
-<p class="mb-300">Heading levels follow a sequential, hierarchical order: higher levels have larger display text than lower ones.</p>
-<ul class="list-disc mb-300"><li><p class="mb-300">Set correct and consistent heading levels to align the coded and visual headings on a page. Consistent headings support an equitable experience for people who use assistive technologies.</li>
-<li><p class="mb-300">Order headings sequentially from lowest to highest (H1–H6).</li>
-<li><p class="mb-300">Avoid skipping heading levels. Instead, restructure content so headings are used sequentially, from largest (H1) to smallest (H6).</li>
-<li><p class="mb-300">Only use an H1 heading once on a page. Other heading types can be used multiple times.</li>
-<li><p class="mb-300">Use H2 headings to describe individual sections. Each section should have one H2 heading.</li>
-<li><p class="mb-300">Opt to use H3–H6 headings within sections. Sections can contain multiple H3–H6 headings, as long as they are placed in hierarchical order.</li>
+<h2 id="design-and-accessibility-for-headings">Design and accessibility for headings</h2>
+<h3 id="order-heading-levels-hierarchically">Order heading levels hierarchically</h3>
+<p>Heading levels follow a sequential, hierarchical order: higher levels have larger display text than lower ones.</p>
+<ul class="list-disc mb-300"><li>Set correct and consistent heading levels to align the coded and visual headings on a page. Consistent headings support an equitable experience for people who use assistive technologies.</li>
+<li>Order headings sequentially from lowest to highest (H1–H6).</li>
+<li>Avoid skipping heading levels. Instead, restructure content so headings are used sequentially, from largest (H1) to smallest (H6).</li>
+<li>Only use an H1 heading once on a page. Other heading types can be used multiple times.</li>
+<li>Use H2 headings to describe individual sections. Each section should have one H2 heading.</li>
+<li>Opt to use H3–H6 headings within sections. Sections can contain multiple H3–H6 headings, as long as they are placed in hierarchical order.</li>
 </ul>
-<h3 id="maintain-accessible-character-limits" class="mt-600 mb-300">Maintain accessible character limits</h3>
-<ul class="list-disc mb-300"><li><p class="mb-300">Maintain the default character limits for each heading line for a comfortable and accessible reading length. These defaults create a balanced, consistent line length across heading font sizes.</li>
-<li><p class="mb-300">Keep character limits to the following lengths to maintain a visual balance across headings on a page:<ul class="list-disc mb-300"><li><p class="mb-300">31 characters for H1.</li>
-<li><p class="mb-300">35 characters for H2.</li>
-<li><p class="mb-300">40 characters for H3.</li>
-<li><p class="mb-300">45 characters for H4.</li>
-<li><p class="mb-300">50 characters for H5.</li>
-<li><p class="mb-300">57 characters for H6.</li>
-</ul>
-</li>
-</ul>
-<h3 id="write-clear-and-consistent-headings" class="mt-600 mb-300">Write clear and consistent headings</h3>
-<ul class="list-disc mb-300"><li><p class="mb-300">Use sentence case (only the initial letter is capitalized).</li>
-<li><p class="mb-300">Include a single, descriptive H1 heading for each page to convey the page's content and the purpose of the page's title.</li>
-<li><p class="mb-300">Use subheadings to break up content. Split the content into smaller sections and group common elements together.</li>
-<li><p class="mb-300">Make each heading distinctive and make it clear what content you'll find in that section.</li>
-<li><p class="mb-300">When you've exhausted available headings and other style elements, consider using font weights to emphasize words in body content.</li>
-<li><p class="mb-300">When writing in English, keep in mind the French headings will be around 30% longer.</li>
-</ul>
-<h3 id="use-consistent-spacing" class="mt-600 mb-300">Use consistent spacing</h3>
-<ul class="list-disc mb-300"><li><p class="mb-300">Maintain the default spacing for a comfortable and accessible reading experience. These defaults create visual breaks and separation between different sections.</li>
-<li><p class="mb-300">Keep spacing values to the following to maintain a visual balance across headings on a page:<ul class="list-disc mb-300"><li><p class="mb-300">Bottom margin: 300 for all.</li>
-<li><p class="mb-300">Top margin: 0 for H1 and 600 for H2-3.</li>
+<h3 id="maintain-accessible-character-limits">Maintain accessible character limits</h3>
+<ul class="list-disc mb-300"><li>Maintain the default character limits for each heading line for a comfortable and accessible reading length. These defaults create a balanced, consistent line length across heading font sizes.</li>
+<li>Keep character limits to the following lengths to maintain a visual balance across headings on a page:<ul class="list-disc mb-300"><li>31 characters for H1.</li>
+<li>35 characters for H2.</li>
+<li>40 characters for H3.</li>
+<li>45 characters for H4.</li>
+<li>50 characters for H5.</li>
+<li>57 characters for H6.</li>
 </ul>
 </li>
 </ul>
+<h3 id="write-clear-and-consistent-headings">Write clear and consistent headings</h3>
+<ul class="list-disc mb-300"><li>Use sentence case (only the initial letter is capitalized).</li>
+<li>Include a single, descriptive H1 heading for each page to convey the page's content and the purpose of the page's title.</li>
+<li>Use subheadings to break up content. Split the content into smaller sections and group common elements together.</li>
+<li>Make each heading distinctive and make it clear what content you'll find in that section.</li>
+<li>When you've exhausted available headings and other style elements, consider using font weights to emphasize words in body content.</li>
+<li>When writing in English, keep in mind the French headings will be around 30% longer.</li>
+</ul>
+<h3 id="use-consistent-spacing">Use consistent spacing</h3>
+<ul class="list-disc mb-300"><li>Maintain the default spacing for a comfortable and accessible reading experience. These defaults create visual breaks and separation between different sections.</li>
+<li>Keep spacing values to the following to maintain a visual balance across headings on a page:<ul class="list-disc mb-300"><li>Bottom margin: 300 for all.</li>
+<li>Top margin: 0 for H1 and 600 for H2-3.</li>
+</ul>
+</li>
+</ul>
 
 
-  <section data-pagefind-ignore class="pt-75 mt-300 mb-900 bt-sm b-dark ">
-  <h2 class="mt-225 mb-300">
-    Help us improve
-  </h2>
-
-  <p class="mb-300">
-    Have questions or a request? Give feedback on our contact form.
-  </p>
+  <section data-pagefind-ignore class="my-600 bt-sm b-dark ">
+  <h2>Help us improve</h2>
+  <p>Have questions or a request? Give feedback on our contact form.</p>
 
   
-  <p class="mb-300">
+  <p>
     Something's wrong? Raise it through GitHub with an <gcds-link href='https://docs.github.com/en/get-started/start-your-journey/creating-an-account-on-github' external>account</gcds-link>. You'll have access to the team's direct responses, progress made on your issue, and issues raised by others.
   </p>
   

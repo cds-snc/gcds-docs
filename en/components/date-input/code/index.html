@@ -1180,10 +1180,10 @@
       <main id="mc" class="container-xl mx-auto xl:px-0 sm:px-600 px-225 general-layout" data-pagefind-body>
         
   
-    <h1 id="date-input-brgcdsdateinput" class="mb-300">Date input <br><code>&lt;gcds-date-input&gt;</code></h1>
-<p class="mb-300"><em>Also called: dates, dateinput, date, memorable date.</em></p>
-<p class="mb-300">A date input is a space to enter a known date.</p>
-<p class="mb-300"><ul class="d-flex flex-wrap gap-300">
+    <h1 id="date-input-brgcdsdateinput">Date input <br><code>&lt;gcds-date-input&gt;</code></h1>
+<p><em>Also called: dates, dateinput, date, memorable date.</em></p>
+<p>A date input is a space to enter a known date.</p>
+<p><ul class="d-flex flex-wrap gap-300">
 <li class="github-link">
 <gcds-link external href="https://github.com/cds-snc/gcds-components/tree/main/packages/web/src/components/gcds-date-input">GitHub</gcds-link>
 </li>
@@ -1191,8 +1191,8 @@
 <gcds-link external href="https://www.figma.com/design/mh2maMG2NBtk41k1O1UGHV/GC-Design-System?node-id=14220-878&node-type=canvas&t=TkjGZOzzUOp5XV3K-0">Figma</gcds-link>
 </li>
 </ul></p>
-<p class="mb-300"><div class="my-600 b-sm b-default component-preview">
-<h2 class="container-full font-text font-semibold px-225 py-150 bb-sm b-default bg-light">
+<p><div class="my-600 b-sm b-default component-preview">
+<h2 class="container-full font-text font-semibold m-0 px-225 py-150 bb-sm b-default bg-light">
 Date input component preview
 </h2>
 <div>
@@ -1244,69 +1244,69 @@ Date input component preview
     </nav>
   
 
-  <h2 id="build-a-date-input" class="mt-600 mb-300">Build a date input</h2>
-<p class="mb-300">Use a date input to collect a date from a person when you’re expecting them to enter a date they already know or can verify.</p>
-<h2 id="coding-and-accessibility-for-date-inputs" class="mt-600 mb-300">Coding and accessibility for date inputs</h2>
-<h3 id="apply-required-attributes" class="mt-600 mb-300">Apply required attributes</h3>
-<p class="mb-300">For the date input to function properly, always use the following attributes with <code>&lt;gcds-date-input&gt;</code>:</p>
-<ul class="list-disc mb-300"><li><p class="mb-300"><code>name</code></li>
-<li><p class="mb-300"><code>legend</code></li>
-<li><p class="mb-300"><code>format</code></li>
+  <h2 id="build-a-date-input">Build a date input</h2>
+<p>Use a date input to collect a date from a person when you’re expecting them to enter a date they already know or can verify.</p>
+<h2 id="coding-and-accessibility-for-date-inputs">Coding and accessibility for date inputs</h2>
+<h3 id="apply-required-attributes">Apply required attributes</h3>
+<p>For the date input to function properly, always use the following attributes with <code>&lt;gcds-date-input&gt;</code>:</p>
+<ul class="list-disc mb-300"><li><code>name</code></li>
+<li><code>legend</code></li>
+<li><code>format</code></li>
 </ul>
-<h3 id="format-the-date-input" class="mt-600 mb-300">Format the date input</h3>
-<ul class="list-disc mb-300"><li><p class="mb-300">Choose the format of the date input by entering either <code>full</code> or <code>compact</code> in the <code>format</code> attribute of the date input.</li>
-<li><p class="mb-300">The <code>full</code> value will render the date input with a year, month, and day form field in the order month, day, and year in English and the order of day, month, and year in French.</li>
-<li><p class="mb-300">The <code>compact</code> value will render the date input with a year and month form field in the order of month and year in both English and French.</li>
-<li><p class="mb-300">The <code>format</code> attribute also formats the value received and outputted by the date input. The value will be formatted <code>YYYY-MM-DD</code> while set as <code>full</code> and <code>YYYY-MM</code> while set as <code>compact</code>.</li>
+<h3 id="format-the-date-input">Format the date input</h3>
+<ul class="list-disc mb-300"><li>Choose the format of the date input by entering either <code>full</code> or <code>compact</code> in the <code>format</code> attribute of the date input.</li>
+<li>The <code>full</code> value will render the date input with a year, month, and day form field in the order month, day, and year in English and the order of day, month, and year in French.</li>
+<li>The <code>compact</code> value will render the date input with a year and month form field in the order of month and year in both English and French.</li>
+<li>The <code>format</code> attribute also formats the value received and outputted by the date input. The value will be formatted <code>YYYY-MM-DD</code> while set as <code>full</code> and <code>YYYY-MM</code> while set as <code>compact</code>.</li>
 </ul>
-<h3 id="entering-and-receiving-the-value-from-date-input" class="mt-600 mb-300">Entering and receiving the value from date input</h3>
-<p class="mb-300">Date input can receive and output different value formats depending on the <code>format</code> attribute:</p>
-<ul class="list-disc mb-300"><li><p class="mb-300">The <code>full</code> format will expect/output a value formatted <code>YYYY-MM-DD</code>.</li>
-<li><p class="mb-300">The <code>compact</code> format will expect/output a value formatted <code>YYYY-MM</code>.</li>
+<h3 id="entering-and-receiving-the-value-from-date-input">Entering and receiving the value from date input</h3>
+<p>Date input can receive and output different value formats depending on the <code>format</code> attribute:</p>
+<ul class="list-disc mb-300"><li>The <code>full</code> format will expect/output a value formatted <code>YYYY-MM-DD</code>.</li>
+<li>The <code>compact</code> format will expect/output a value formatted <code>YYYY-MM</code>.</li>
 </ul>
-<h3 id="use-valid-properties" class="mt-600 mb-300">Use valid properties</h3>
-<p class="mb-300">Component properties have built-in validation. Required properties or properties prone to misuse will be validated. If there are any validation errors, the component will be non-functional and won't render. Review the browser's console for details and adjust the properties accordingly to ensure proper functionality.</p>
-<h3 id="handle-error-messages-and-validation" class="mt-600 mb-300">Handle error messages and validation</h3>
+<h3 id="use-valid-properties">Use valid properties</h3>
+<p>Component properties have built-in validation. Required properties or properties prone to misuse will be validated. If there are any validation errors, the component will be non-functional and won't render. Review the browser's console for details and adjust the properties accordingly to ensure proper functionality.</p>
+<h3 id="handle-error-messages-and-validation">Handle error messages and validation</h3>
 <ul class="list-disc mb-300"><li>
-<p class="mb-300">Use the <code>required</code> attribute to activate the required validator. Validation will happen by default on the <code>onBlur</code> event. A missing or invalid entry will prompt an inline error message with preset text.</p>
+<p>Use the <code>required</code> attribute to activate the required validator. Validation will happen by default on the <code>onBlur</code> event. A missing or invalid entry will prompt an inline error message with preset text.</p>
 </li>
 <li>
-<p class="mb-300">If you need to change the validation event, use the <code>validate-on</code> attribute. Validation can happen on blur, when the element loses focus, or manually with the <code>validate()</code> method.</p>
+<p>If you need to change the validation event, use the <code>validate-on</code> attribute. Validation can happen on blur, when the element loses focus, or manually with the <code>validate()</code> method.</p>
 </li>
 <li>
-<p class="mb-300">Use the <code>required</code> attribute for fields that must be filled in. This places &quot;required&quot; at the end of the label.</p>
+<p>Use the <code>required</code> attribute for fields that must be filled in. This places &quot;required&quot; at the end of the label.</p>
 </li>
 <li>
-<p class="mb-300">Use the <code>error-message</code> attribute to include an error message text for all required inputs. Avoid using error messages for optional ones.</p>
+<p>Use the <code>error-message</code> attribute to include an error message text for all required inputs. Avoid using error messages for optional ones.</p>
 </li>
 <li>
-<p class="mb-300">For optional fields, avoid adding the <code>error-message</code> attribute.</p>
+<p>For optional fields, avoid adding the <code>error-message</code> attribute.</p>
 </li>
 <li>
-<p class="mb-300">For an optional field that needs validation based on user input (like validating an email address format), opt to add custom validation with a custom error message.</p>
+<p>For an optional field that needs validation based on user input (like validating an email address format), opt to add custom validation with a custom error message.</p>
 </li>
 </ul>
-<h3 id="include-a-hint-text-for-task-success" class="mt-600 mb-300">Include a hint text for task success</h3>
+<h3 id="include-a-hint-text-for-task-success">Include a hint text for task success</h3>
 <ul class="list-disc mb-300"><li>
-<p class="mb-300">Use the <code>hint</code> attribute to add hint text to help a person provide a complete value in the input and avoid an error state.</p>
+<p>Use the <code>hint</code> attribute to add hint text to help a person provide a complete value in the input and avoid an error state.</p>
 </li>
 <li>
-<p class="mb-300">Avoid adding hint text in the field (sometimes called placeholder text) where it will disappear once the field is selected or a response starts to be entered.</p>
+<p>Avoid adding hint text in the field (sometimes called placeholder text) where it will disappear once the field is selected or a response starts to be entered.</p>
 </li>
 </ul>
-<h3 id="get-your-code" class="mt-600 mb-300">Get your code</h3>
-<p class="mb-300">Generate an instance of the component you need by selecting its code properties.</p>
+<h3 id="get-your-code">Get your code</h3>
+<p>Generate an instance of the component you need by selecting its code properties.</p>
 <ol class="list-decimal mb-300"><li>
-<p class="mb-300">Explore by choosing different code values to generate the instance you want.</p>
+<p>Explore by choosing different code values to generate the instance you want.</p>
 </li>
 <li>
-<p class="mb-300">Get the code and pull it into your environment.</p>
+<p>Get the code and pull it into your environment.</p>
 </li>
 <li>
-<p class="mb-300">Add any copy you need to the component (like text for a label).</p>
+<p>Add any copy you need to the component (like text for a label).</p>
 </li>
 </ol>
-<p class="mb-300"><strong>Note:</strong> Following standard practice, the code builder uses English for all code elements.</p>
+<p><strong>Note:</strong> Following standard practice, the code builder uses English for all code elements.</p>
 <iframe
   title="iframeTitle"
   src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&demo=true&singleStory=true&id=components-date-input--events-properties&lang=en"
@@ -1318,17 +1318,12 @@ Date input component preview
 ></iframe>
 
 
-  <section data-pagefind-ignore class="pt-75 mt-300 mb-900 bt-sm b-dark ">
-  <h2 class="mt-225 mb-300">
-    Help us improve
-  </h2>
-
-  <p class="mb-300">
-    Have questions or a request? Give feedback on our contact form.
-  </p>
+  <section data-pagefind-ignore class="my-600 bt-sm b-dark ">
+  <h2>Help us improve</h2>
+  <p>Have questions or a request? Give feedback on our contact form.</p>
 
   
-  <p class="mb-300">
+  <p>
     Something's wrong? Raise it through GitHub with an <gcds-link href='https://docs.github.com/en/get-started/start-your-journey/creating-an-account-on-github' external>account</gcds-link>. You'll have access to the team's direct responses, progress made on your issue, and issues raised by others.
   </p>
   

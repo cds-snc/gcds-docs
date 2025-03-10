@@ -1180,10 +1180,10 @@
       <main id="mc" class="container-xl mx-auto xl:px-0 sm:px-600 px-225 general-layout" data-pagefind-body>
         
   
-    <h1 id="entete-brgcdsheader" class="mb-300">En-tête <br><code>&lt;gcds-header&gt;</code></h1>
-<p class="mb-300"><em>Autres noms : en-tête général, en-tête de marque.</em></p>
-<p class="mb-300">L'en-tête porte l'image de marque réactive du gouvernement du Canada.</p>
-<p class="mb-300"><ul class="d-flex flex-wrap gap-300">
+    <h1 id="entete-brgcdsheader">En-tête <br><code>&lt;gcds-header&gt;</code></h1>
+<p><em>Autres noms : en-tête général, en-tête de marque.</em></p>
+<p>L'en-tête porte l'image de marque réactive du gouvernement du Canada.</p>
+<p><ul class="d-flex flex-wrap gap-300">
 <li class="github-link">
 <gcds-link external href="https://github.com/cds-snc/gcds-components/tree/main/packages/web/src/components/gcds-header">GitHub</gcds-link>
 </li>
@@ -1191,8 +1191,8 @@
 <gcds-link external href="https://www.figma.com/file/o4SguSZdar2CCFzSkWNrmB/Syst%C3%A8me-de-design-GC?type=design&node-id=114-2305&mode=design&t=1DaL24vHpjRRfHHm-0">Figma</gcds-link>
 </li>
 </ul></p>
-<p class="mb-300"><div class="my-600 b-sm b-default component-preview">
-<h2 class="container-full font-text font-semibold px-225 py-150 bb-sm b-default bg-light">
+<p><div class="my-600 b-sm b-default component-preview">
+<h2 class="container-full font-text font-semibold m-0 px-225 py-150 bb-sm b-default bg-light">
 Aperçu du composant de l'en-tête
 </h2>
 <div>
@@ -1244,43 +1244,43 @@ Aperçu du composant de l'en-tête
     </nav>
   
 
-  <h2 id="creer-un-entete" class="mt-600 mb-300">Créer un en-tête</h2>
-<p class="mb-300">Utilisez ce point de repère pour transmettre de l'information sur un service du gouvernement du Canada ou l'un de ses produits numériques.</p>
-<h2 id="codage-et-accessibilite-de-lentete" class="mt-600 mb-300">Codage et accessibilité de l'en-tête</h2>
-<h3 id="regler-lelement-signature-dans-lentete" class="mt-600 mb-300">Régler l'élément signature dans l'en-tête</h3>
-<ul class="list-disc mb-300"><li><p class="mb-300">Maintenez toujours l'intégrité de la signature du gouvernement du Canada. Évitez à tout prix de modifier la signature. Évitez surtout d'étirer le texte ou de changer les couleurs.</li>
-<li><p class="mb-300">Faites passer le mode d'affichage de la signature du gouvernement du Canada en couleur ou en blanc à l'aide de l'attribut <code>signature-variant</code>. Choisissez l'affichage <code>color</code> pour un fond blanc.</li>
-<li><p class="mb-300">Facultativement, définissez la signature du gouvernement du Canada comme lien vers Canada.ca en réglant l'attribut <code>signature-has-link</code> à <code>true</code>.</li>
+  <h2 id="creer-un-entete">Créer un en-tête</h2>
+<p>Utilisez ce point de repère pour transmettre de l'information sur un service du gouvernement du Canada ou l'un de ses produits numériques.</p>
+<h2 id="codage-et-accessibilite-de-lentete">Codage et accessibilité de l'en-tête</h2>
+<h3 id="regler-lelement-signature-dans-lentete">Régler l'élément signature dans l'en-tête</h3>
+<ul class="list-disc mb-300"><li>Maintenez toujours l'intégrité de la signature du gouvernement du Canada. Évitez à tout prix de modifier la signature. Évitez surtout d'étirer le texte ou de changer les couleurs.</li>
+<li>Faites passer le mode d'affichage de la signature du gouvernement du Canada en couleur ou en blanc à l'aide de l'attribut <code>signature-variant</code>. Choisissez l'affichage <code>color</code> pour un fond blanc.</li>
+<li>Facultativement, définissez la signature du gouvernement du Canada comme lien vers Canada.ca en réglant l'attribut <code>signature-has-link</code> à <code>true</code>.</li>
 </ul>
-<h3 id="configurer-la-bascule-de-langue" class="mt-600 mb-300">Configurer la bascule de langue</h3>
-<ul class="list-disc mb-300"><li><p class="mb-300">Ajoutez la bascule de langue en définissant l'attribut <code>lang-href</code>. L'attribut <code>lang-href</code> définit également l'élément « href » de la bascule de langue.</li>
-<li><p class="mb-300">Utilisez l'attribut <code>lang</code> pour définir la langue du site; le bouton à bascule proposera l'autre langue officielle.</li>
-<li><p class="mb-300">Si votre site est multilingue : Créez une option pour sélectionner d'autres langues en utilisant cet emplacement d'en-tête pour un modèle d'internationalisation. Pour ce faire, passez un élément avec l'attribut <code>slot=&quot;toggle&quot;</code> afin de remplacer l'élément de la bascule de langue dans l'en-tête.</li>
+<h3 id="configurer-la-bascule-de-langue">Configurer la bascule de langue</h3>
+<ul class="list-disc mb-300"><li>Ajoutez la bascule de langue en définissant l'attribut <code>lang-href</code>. L'attribut <code>lang-href</code> définit également l'élément « href » de la bascule de langue.</li>
+<li>Utilisez l'attribut <code>lang</code> pour définir la langue du site; le bouton à bascule proposera l'autre langue officielle.</li>
+<li>Si votre site est multilingue : Créez une option pour sélectionner d'autres langues en utilisant cet emplacement d'en-tête pour un modèle d'internationalisation. Pour ce faire, passez un élément avec l'attribut <code>slot=&quot;toggle&quot;</code> afin de remplacer l'élément de la bascule de langue dans l'en-tête.</li>
 </ul>
-<h3 id="inclure-le-lien-passer-au-contenu-" class="mt-600 mb-300">Inclure le lien « Passer au contenu »</h3>
-<ul class="list-disc mb-300"><li><p class="mb-300">Inclure un lien « Passer au contenu » en définissant l'élément <code>href</code> du lien <strong>passer au contenu</strong> dans la navigation supérieure de l'en-tête à l'aide de l'attribut <code>skip-to-href</code>.</li>
-<li><p class="mb-300">Utilisez l'emplacement <code>skip-to-nav</code> pour remplacer la navigation supérieure par défaut par le lien « Passer au contenu ».</li>
-<li><p class="mb-300">Passez un élément enfant avec l'attribut <code>slot=&quot;skip-to-nav&quot;</code> pour placer l'élément en première position dans l'en-tête.</li>
+<h3 id="inclure-le-lien-passer-au-contenu-">Inclure le lien « Passer au contenu »</h3>
+<ul class="list-disc mb-300"><li>Inclure un lien « Passer au contenu » en définissant l'élément <code>href</code> du lien <strong>passer au contenu</strong> dans la navigation supérieure de l'en-tête à l'aide de l'attribut <code>skip-to-href</code>.</li>
+<li>Utilisez l'emplacement <code>skip-to-nav</code> pour remplacer la navigation supérieure par défaut par le lien « Passer au contenu ».</li>
+<li>Passez un élément enfant avec l'attribut <code>slot=&quot;skip-to-nav&quot;</code> pour placer l'élément en première position dans l'en-tête.</li>
 </ul>
-<h3 id="ajouter-des-elements-facultatifs-a-lentete" class="mt-600 mb-300">Ajouter des éléments facultatifs à l'en-tête</h3>
-<ul class="list-disc mb-300"><li><p class="mb-300">Ajoutez un menu en passant un élément enfant à l'aide de l'attribut <code>slot=&quot;menu&quot;</code>. Cela placera l'élément dans l'en-tête, sous le bouton de bascule de langue, la signature et la barre de recherche.</li>
-<li><p class="mb-300">Ajoutez un champ de recherche en faisant passer un élément enfant avec l'attribut <code>slot=&quot;search&quot;</code>. Cela placera l'élément sous la bascule de langue, à côté de la signature dans l'en-tête.</li>
-<li><p class="mb-300">Ajoutez un composant chemin de navigation en faisant passer un élément enfant avec l'attribut <code>slot=&quot;breadcrumb&quot;</code>. Cela placera le chemin de navigation dans l'en-tête, sous le bouton de bascule de langue, la signature et la barre de recherche.</li>
-<li><p class="mb-300">Ajoutez une bannière en faisant passer un élément enfant avec l'attribut <code>slot=&quot;banner&quot;</code>. Cela placera l'élément en haut de l'en-tête sous l'élément <code>skip-to-nav</code>.</li>
+<h3 id="ajouter-des-elements-facultatifs-a-lentete">Ajouter des éléments facultatifs à l'en-tête</h3>
+<ul class="list-disc mb-300"><li>Ajoutez un menu en passant un élément enfant à l'aide de l'attribut <code>slot=&quot;menu&quot;</code>. Cela placera l'élément dans l'en-tête, sous le bouton de bascule de langue, la signature et la barre de recherche.</li>
+<li>Ajoutez un champ de recherche en faisant passer un élément enfant avec l'attribut <code>slot=&quot;search&quot;</code>. Cela placera l'élément sous la bascule de langue, à côté de la signature dans l'en-tête.</li>
+<li>Ajoutez un composant chemin de navigation en faisant passer un élément enfant avec l'attribut <code>slot=&quot;breadcrumb&quot;</code>. Cela placera le chemin de navigation dans l'en-tête, sous le bouton de bascule de langue, la signature et la barre de recherche.</li>
+<li>Ajoutez une bannière en faisant passer un élément enfant avec l'attribut <code>slot=&quot;banner&quot;</code>. Cela placera l'élément en haut de l'en-tête sous l'élément <code>skip-to-nav</code>.</li>
 </ul>
-<h3 id="obtenez-votre-code" class="mt-600 mb-300">Obtenez votre code</h3>
-<p class="mb-300">Générez une version du composant dont vous avez besoin en sélectionnant les propriétés de code correspondantes ou explorez les possibilités en choisissant différentes valeurs de code.</p>
+<h3 id="obtenez-votre-code">Obtenez votre code</h3>
+<p>Générez une version du composant dont vous avez besoin en sélectionnant les propriétés de code correspondantes ou explorez les possibilités en choisissant différentes valeurs de code.</p>
 <ol class="list-decimal mb-300"><li>
-<p class="mb-300">Choisissez des valeurs de code pour obtenir l'élément que vous voulez.</p>
+<p>Choisissez des valeurs de code pour obtenir l'élément que vous voulez.</p>
 </li>
 <li>
-<p class="mb-300">Obtenez le code et intégrez-le dans votre environnement.</p>
+<p>Obtenez le code et intégrez-le dans votre environnement.</p>
 </li>
 <li>
-<p class="mb-300">Ajoutez tout contenu nécessaire au composant (comme le texte du libellé).</p>
+<p>Ajoutez tout contenu nécessaire au composant (comme le texte du libellé).</p>
 </li>
 </ol>
-<p class="mb-300"><strong>Remarque</strong> : Conformément à la pratique courante, le générateur de code utilise l'anglais pour tous les éléments de code.</p>
+<p><strong>Remarque</strong> : Conformément à la pratique courante, le générateur de code utilise l'anglais pour tous les éléments de code.</p>
 <iframe
   title="Survol des propriétés et des évènements relatifs à gcds-header."
   src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&demo=true&singleStory=true&id=components-header--events-properties&lang=fr"
@@ -1292,17 +1292,12 @@ Aperçu du composant de l'en-tête
 ></iframe>
 
 
-  <section data-pagefind-ignore class="pt-75 mt-300 mb-900 bt-sm b-dark ">
-  <h2 class="mt-225 mb-300">
-    Aidez-nous à nous améliorer
-  </h2>
-
-  <p class="mb-300">
-    Vous avez des questions ou des demandes? Faites-nous part de vos commentaires à l&#39;aide de notre formulaire de contact.
-  </p>
+  <section data-pagefind-ignore class="my-600 bt-sm b-dark ">
+  <h2>Aidez-nous à nous améliorer</h2>
+  <p>Vous avez des questions ou des demandes? Faites-nous part de vos commentaires à l&#39;aide de notre formulaire de contact.</p>
 
   
-  <p class="mb-300">
+  <p>
     Quelque chose ne va pas? Signalez-le sur GitHub en créant un <gcds-link href='https://docs.github.com/fr/get-started/start-your-journey/creating-an-account-on-github' external>compte</gcds-link>. Vous pourrez accéder aux réponses de l'équipe, suivre les progrès réalisés concernant votre problèmes et voir les problèmes signalés par d'autres personnes.
   </p>
   

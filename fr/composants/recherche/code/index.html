@@ -1180,10 +1180,10 @@
       <main id="mc" class="container-xl mx-auto xl:px-0 sm:px-600 px-225 general-layout" data-pagefind-body>
         
   
-    <h1 id="recherche-brgcdssearch" class="mb-300">Recherche <br><code>&lt;gcds-search&gt;</code></h1>
-<p class="mb-300"><em>Autres noms : barre de recherche, boîte de recherche sur le site, champ de recherche.</em></p>
-<p class="mb-300">Le composant recherche est un espace où entrer des mots-clés pour chercher des renseignements pertinents.</p>
-<p class="mb-300"><ul class="d-flex flex-wrap gap-300">
+    <h1 id="recherche-brgcdssearch">Recherche <br><code>&lt;gcds-search&gt;</code></h1>
+<p><em>Autres noms : barre de recherche, boîte de recherche sur le site, champ de recherche.</em></p>
+<p>Le composant recherche est un espace où entrer des mots-clés pour chercher des renseignements pertinents.</p>
+<p><ul class="d-flex flex-wrap gap-300">
 <li class="github-link">
 <gcds-link external href="https://github.com/cds-snc/gcds-components/tree/main/packages/web/src/components/gcds-search">GitHub</gcds-link>
 </li>
@@ -1191,8 +1191,8 @@
 <gcds-link external href="https://www.figma.com/file/o4SguSZdar2CCFzSkWNrmB/Syst%C3%A8me-de-design-GC?type=design&node-id=114-2997&mode=design&t=1DaL24vHpjRRfHHm-0">Figma</gcds-link>
 </li>
 </ul></p>
-<p class="mb-300"><div class="my-600 b-sm b-default component-preview">
-<h2 class="container-full font-text font-semibold px-225 py-150 bb-sm b-default bg-light">
+<p><div class="my-600 b-sm b-default component-preview">
+<h2 class="container-full font-text font-semibold m-0 px-225 py-150 bb-sm b-default bg-light">
 Aperçu du composant de recherche
 </h2>
 <div>
@@ -1244,34 +1244,34 @@ Aperçu du composant de recherche
     </nav>
   
 
-  <h2 id="creer-un-composant-recherche" class="mt-600 mb-300">Créer un composant recherche</h2>
-<p class="mb-300">Utilisez le composant recherche pour aider les gens à trouver des renseignements à l'aide de mots-clés.</p>
-<ul class="list-disc mb-300"><li><p class="mb-300">Placez le composant recherche dans l'<gcds-link href="/fr/composants/en-tete">en-tête</gcds-link> sous la bascule de langue et alignez-le sur la <gcds-link href="/fr/composants/signature">signature du gouvernement du Canada</gcds-link>.</li>
-<li><p class="mb-300">Assurez-vous que l'en-tête est réactif afin que le composant recherche apparaisse sous la signature et la bascule de langue sur les appareils mobiles.</li>
+  <h2 id="creer-un-composant-recherche">Créer un composant recherche</h2>
+<p>Utilisez le composant recherche pour aider les gens à trouver des renseignements à l'aide de mots-clés.</p>
+<ul class="list-disc mb-300"><li>Placez le composant recherche dans l'<gcds-link href="/fr/composants/en-tete">en-tête</gcds-link> sous la bascule de langue et alignez-le sur la <gcds-link href="/fr/composants/signature">signature du gouvernement du Canada</gcds-link>.</li>
+<li>Assurez-vous que l'en-tête est réactif afin que le composant recherche apparaisse sous la signature et la bascule de langue sur les appareils mobiles.</li>
 </ul>
-<h2 id="codage-et-accessibilite-du-composant-recherche" class="mt-600 mb-300">Codage et accessibilité du composant recherche</h2>
-<h3 id="configurer-le-composant-recherche-pour-chercher-du-contenu-sur-canadaca" class="mt-600 mb-300">Configurer le composant recherche pour chercher du contenu sur Canada.ca</h3>
-<ul class="list-disc mb-300"><li><p class="mb-300">Utilisez le composant recherche pour effectuer une recherche globale sur Canada.ca. Par défaut, le composant est configuré pour effectuer une recherche sur Canada.ca.</li>
-<li><p class="mb-300">Optez de limiter la recherche à un domaine spécifique à un organisme ou un programme.</li>
+<h2 id="codage-et-accessibilite-du-composant-recherche">Codage et accessibilité du composant recherche</h2>
+<h3 id="configurer-le-composant-recherche-pour-chercher-du-contenu-sur-canadaca">Configurer le composant recherche pour chercher du contenu sur Canada.ca</h3>
+<ul class="list-disc mb-300"><li>Utilisez le composant recherche pour effectuer une recherche globale sur Canada.ca. Par défaut, le composant est configuré pour effectuer une recherche sur Canada.ca.</li>
+<li>Optez de limiter la recherche à un domaine spécifique à un organisme ou un programme.</li>
 </ul>
-<h3 id="optez-pour-la-modification-du-point-de-terminaison-de-la-recherche-pour-les-applications-ou-sites-transactionnels" class="mt-600 mb-300">Optez pour la modification du point de terminaison de la recherche pour les applications ou sites transactionnels</h3>
-<ul class="list-disc mb-300"><li><p class="mb-300">Optez pour la modification du point de terminaison de la recherche pour une application ou un site transactionnel lorsque le fait de quitter le site interromprait la tâche ou le flux de travail d'une personne.</li>
-<li><p class="mb-300">Utilisez la méthode de requête HTTP par défaut <code>GET</code> du composant, ou bien utilisez <code>POST</code> au besoin en définissant l'attribut <code>method</code>.</li>
-<li><p class="mb-300">Définissez l'attribut <code>action</code> sur un point de terminaison de votre choix et définissez l'attribut placeholder (message-guide) pour refléter l'étendue de la recherche. Le message-guide du champ de recherche remplira également le texte de l'étiquette.</li>
+<h3 id="optez-pour-la-modification-du-point-de-terminaison-de-la-recherche-pour-les-applications-ou-sites-transactionnels">Optez pour la modification du point de terminaison de la recherche pour les applications ou sites transactionnels</h3>
+<ul class="list-disc mb-300"><li>Optez pour la modification du point de terminaison de la recherche pour une application ou un site transactionnel lorsque le fait de quitter le site interromprait la tâche ou le flux de travail d'une personne.</li>
+<li>Utilisez la méthode de requête HTTP par défaut <code>GET</code> du composant, ou bien utilisez <code>POST</code> au besoin en définissant l'attribut <code>method</code>.</li>
+<li>Définissez l'attribut <code>action</code> sur un point de terminaison de votre choix et définissez l'attribut placeholder (message-guide) pour refléter l'étendue de la recherche. Le message-guide du champ de recherche remplira également le texte de l'étiquette.</li>
 </ul>
-<h3 id="obtenez-votre-code" class="mt-600 mb-300">Obtenez votre code</h3>
-<p class="mb-300">Générez une version du composant dont vous avez besoin en sélectionnant les propriétés de code correspondantes ou explorez les possibilités en choisissant différentes valeurs de code.</p>
+<h3 id="obtenez-votre-code">Obtenez votre code</h3>
+<p>Générez une version du composant dont vous avez besoin en sélectionnant les propriétés de code correspondantes ou explorez les possibilités en choisissant différentes valeurs de code.</p>
 <ol class="list-decimal mb-300"><li>
-<p class="mb-300">Choisissez des valeurs de code pour obtenir l'élément que vous voulez.</p>
+<p>Choisissez des valeurs de code pour obtenir l'élément que vous voulez.</p>
 </li>
 <li>
-<p class="mb-300">Obtenez le code et intégrez-le dans votre environnement.</p>
+<p>Obtenez le code et intégrez-le dans votre environnement.</p>
 </li>
 <li>
-<p class="mb-300">Ajoutez tout contenu nécessaire au composant (comme le texte du libellé).</p>
+<p>Ajoutez tout contenu nécessaire au composant (comme le texte du libellé).</p>
 </li>
 </ol>
-<p class="mb-300"><strong>Remarque</strong> : Conformément à la pratique courante, le générateur de code utilise l'anglais pour tous les éléments de code.</p>
+<p><strong>Remarque</strong> : Conformément à la pratique courante, le générateur de code utilise l'anglais pour tous les éléments de code.</p>
 <iframe
   title="Survol des propriétés et des évènements relatifs à gcds-search."
   src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&demo=true&singleStory=true&id=components-search--events-properties&lang=fr"
@@ -1283,17 +1283,12 @@ Aperçu du composant de recherche
 ></iframe>
 
 
-  <section data-pagefind-ignore class="pt-75 mt-300 mb-900 bt-sm b-dark ">
-  <h2 class="mt-225 mb-300">
-    Aidez-nous à nous améliorer
-  </h2>
-
-  <p class="mb-300">
-    Vous avez des questions ou des demandes? Faites-nous part de vos commentaires à l&#39;aide de notre formulaire de contact.
-  </p>
+  <section data-pagefind-ignore class="my-600 bt-sm b-dark ">
+  <h2>Aidez-nous à nous améliorer</h2>
+  <p>Vous avez des questions ou des demandes? Faites-nous part de vos commentaires à l&#39;aide de notre formulaire de contact.</p>
 
   
-  <p class="mb-300">
+  <p>
     Quelque chose ne va pas? Signalez-le sur GitHub en créant un <gcds-link href='https://docs.github.com/fr/get-started/start-your-journey/creating-an-account-on-github' external>compte</gcds-link>. Vous pourrez accéder aux réponses de l'équipe, suivre les progrès réalisés concernant votre problèmes et voir les problèmes signalés par d'autres personnes.
   </p>
   

@@ -1180,10 +1180,10 @@
       <main id="mc" class="container-xl mx-auto xl:px-0 sm:px-600 px-225 general-layout" data-pagefind-body>
         
   
-    <h1 id="televerseur-de-fichiers-brgcdsfileuploader" class="mb-300">Téléverseur de fichiers <br><code>&lt;gcds-file-uploader&gt;</code></h1>
-<p class="mb-300"><em>Autres noms : fichiers téléversés, saisie de fichier, zone de dépôt</em></p>
-<p class="mb-300">Un téléverseur de fichier est un espace où il est possible de sélectionner et d'ajouter des documents à l'appui.</p>
-<p class="mb-300"><ul class="d-flex flex-wrap gap-300">
+    <h1 id="televerseur-de-fichiers-brgcdsfileuploader">Téléverseur de fichiers <br><code>&lt;gcds-file-uploader&gt;</code></h1>
+<p><em>Autres noms : fichiers téléversés, saisie de fichier, zone de dépôt</em></p>
+<p>Un téléverseur de fichier est un espace où il est possible de sélectionner et d'ajouter des documents à l'appui.</p>
+<p><ul class="d-flex flex-wrap gap-300">
 <li class="github-link">
 <gcds-link external href="https://github.com/cds-snc/gcds-components/tree/main/packages/web/src/components/gcds-file-uploader">GitHub</gcds-link>
 </li>
@@ -1191,8 +1191,8 @@
 <gcds-link external href="https://www.figma.com/file/o4SguSZdar2CCFzSkWNrmB/Syst%C3%A8me-de-design-GC?type=design&node-id=116-2&mode=design&t=1DaL24vHpjRRfHHm-0">Figma</gcds-link>
 </li>
 </ul></p>
-<p class="mb-300"><div class="my-600 b-sm b-default component-preview">
-<h2 class="container-full font-text font-semibold px-225 py-150 bb-sm b-default bg-light">
+<p><div class="my-600 b-sm b-default component-preview">
+<h2 class="container-full font-text font-semibold m-0 px-225 py-150 bb-sm b-default bg-light">
 Aperçu du composant de téléverseur de fichiers
 </h2>
 <div>
@@ -1244,52 +1244,52 @@ Aperçu du composant de téléverseur de fichiers
     </nav>
   
 
-  <h2 id="creation-dun-televerseur-de-fichiers" class="mt-600 mb-300">Création d'un téléverseur de fichiers</h2>
-<p class="mb-300">Utilisez le téléverseur de fichiers pour permettre à une personne de sélectionner et de valider les fichiers qu'elle souhaiterait inclure dans sa soumission.</p>
-<h2 id="codage-et-accessibilite-du-televerseur-de-fichiers" class="mt-600 mb-300">Codage et accessibilité du téléverseur de fichiers</h2>
-<h3 id="appliquez-les-attributs-requis" class="mt-600 mb-300">Appliquez les attributs requis</h3>
-<p class="mb-300">Pour que le téléverseur de fichiers fonctionne correctement, utilisez toujours les attributs suivants avec <code>&lt;gcds-file-uploader&gt;</code>:</p>
-<ul class="list-disc mb-300"><li><p class="mb-300"><code>name</code></li>
-<li><p class="mb-300"><code>label</code></li>
-<li><p class="mb-300"><code>uploader-id</code></li>
+  <h2 id="creation-dun-televerseur-de-fichiers">Création d'un téléverseur de fichiers</h2>
+<p>Utilisez le téléverseur de fichiers pour permettre à une personne de sélectionner et de valider les fichiers qu'elle souhaiterait inclure dans sa soumission.</p>
+<h2 id="codage-et-accessibilite-du-televerseur-de-fichiers">Codage et accessibilité du téléverseur de fichiers</h2>
+<h3 id="appliquez-les-attributs-requis">Appliquez les attributs requis</h3>
+<p>Pour que le téléverseur de fichiers fonctionne correctement, utilisez toujours les attributs suivants avec <code>&lt;gcds-file-uploader&gt;</code>:</p>
+<ul class="list-disc mb-300"><li><code>name</code></li>
+<li><code>label</code></li>
+<li><code>uploader-id</code></li>
 </ul>
-<h3 id="traiter-les-messages-derreur-et-la-validation" class="mt-600 mb-300">Traiter les messages d'erreur et la validation</h3>
+<h3 id="traiter-les-messages-derreur-et-la-validation">Traiter les messages d'erreur et la validation</h3>
 <ul class="list-disc mb-300"><li>
-<p class="mb-300">Utilisez l'attribut <code>required</code> pour activer le valideur de champ obligatoire. La validation s'effectuera par défaut pendant l'évènement <code>onBlur</code>. Une réponse manquante ou non valide affichera un message d'erreur intercalé prédéfini.</p>
+<p>Utilisez l'attribut <code>required</code> pour activer le valideur de champ obligatoire. La validation s'effectuera par défaut pendant l'évènement <code>onBlur</code>. Une réponse manquante ou non valide affichera un message d'erreur intercalé prédéfini.</p>
 </li>
 <li>
-<p class="mb-300">Si vous devez modifier l'évènement de validation, utilisez l'attribut <code>validate-on</code>. La validation peut se produire pendant l'évènement onBlur, lorsque l'élément perd son état ciblé, ou de façon manuelle avec la méthode <code>validate()</code>.</p>
+<p>Si vous devez modifier l'évènement de validation, utilisez l'attribut <code>validate-on</code>. La validation peut se produire pendant l'évènement onBlur, lorsque l'élément perd son état ciblé, ou de façon manuelle avec la méthode <code>validate()</code>.</p>
 </li>
 <li>
-<p class="mb-300">Utilisez l'attribut <code>required</code> pour les champs qui doivent obligatoirement être remplis. La mention « obligatoire » sera alors ajoutée à la fin de l'étiquette.</p>
+<p>Utilisez l'attribut <code>required</code> pour les champs qui doivent obligatoirement être remplis. La mention « obligatoire » sera alors ajoutée à la fin de l'étiquette.</p>
 </li>
 <li>
-<p class="mb-300">Utilisez l'attribut <code>error-message</code> pour inclure un message d'erreur pour tous les champs de saisie obligatoires. Évitez d'utiliser des messages d'erreur pour les champs de saisie facultatifs.</p>
+<p>Utilisez l'attribut <code>error-message</code> pour inclure un message d'erreur pour tous les champs de saisie obligatoires. Évitez d'utiliser des messages d'erreur pour les champs de saisie facultatifs.</p>
 </li>
 <li>
-<p class="mb-300">Pour les champs facultatifs, évitez d'ajouter l'attribut <code>error-message</code>.</p>
+<p>Pour les champs facultatifs, évitez d'ajouter l'attribut <code>error-message</code>.</p>
 </li>
 <li>
-<p class="mb-300">Pour un champ facultatif nécessitant une validation qui dépend de ce que l'utilisateur a saisi (par exemple pour valider un format d'adresse courriel), ajoutez plutôt une validation et un message d'erreur personnalisés.</p>
+<p>Pour un champ facultatif nécessitant une validation qui dépend de ce que l'utilisateur a saisi (par exemple pour valider un format d'adresse courriel), ajoutez plutôt une validation et un message d'erreur personnalisés.</p>
 </li>
 </ul>
-<h3 id="telechargez-plusieurs-fichiers" class="mt-600 mb-300">Téléchargez plusieurs fichiers</h3>
-<p class="mb-300">Utilisez l'attribut <code>multiple</code> pour permettre la sélection de plus d'un fichier.</p>
-<h3 id="validez-les-types-de-fichiers-a-televerser" class="mt-600 mb-300">Validez les types de fichiers à téléverser</h3>
-<p class="mb-300">Utilisez l'attribut <code>accept</code> pour définir les types de fichiers acceptés par le téléverseur de fichiers.</p>
-<h3 id="obtenez-votre-code" class="mt-600 mb-300">Obtenez votre code</h3>
-<p class="mb-300">Générez une version du composant dont vous avez besoin en sélectionnant les propriétés de code correspondantes ou explorez les possibilités en choisissant différentes valeurs de code.</p>
+<h3 id="telechargez-plusieurs-fichiers">Téléchargez plusieurs fichiers</h3>
+<p>Utilisez l'attribut <code>multiple</code> pour permettre la sélection de plus d'un fichier.</p>
+<h3 id="validez-les-types-de-fichiers-a-televerser">Validez les types de fichiers à téléverser</h3>
+<p>Utilisez l'attribut <code>accept</code> pour définir les types de fichiers acceptés par le téléverseur de fichiers.</p>
+<h3 id="obtenez-votre-code">Obtenez votre code</h3>
+<p>Générez une version du composant dont vous avez besoin en sélectionnant les propriétés de code correspondantes ou explorez les possibilités en choisissant différentes valeurs de code.</p>
 <ol class="list-decimal mb-300"><li>
-<p class="mb-300">Choisissez des valeurs de code pour obtenir l'élément que vous voulez.</p>
+<p>Choisissez des valeurs de code pour obtenir l'élément que vous voulez.</p>
 </li>
 <li>
-<p class="mb-300">Obtenez le code et intégrez-le dans votre environnement.</p>
+<p>Obtenez le code et intégrez-le dans votre environnement.</p>
 </li>
 <li>
-<p class="mb-300">Ajoutez tout contenu nécessaire au composant (comme le texte du libellé).</p>
+<p>Ajoutez tout contenu nécessaire au composant (comme le texte du libellé).</p>
 </li>
 </ol>
-<p class="mb-300"><strong>Remarque</strong> : Conformément à la pratique courante, le générateur de code utilise l'anglais pour tous les éléments de code.</p>
+<p><strong>Remarque</strong> : Conformément à la pratique courante, le générateur de code utilise l'anglais pour tous les éléments de code.</p>
 <iframe
   title="Survol des propriétés et des évènements relatifs à gcds-file-uploader."
   src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&demo=true&singleStory=true&id=components-file-uploader--events-properties&lang=fr"
@@ -1301,17 +1301,12 @@ Aperçu du composant de téléverseur de fichiers
 ></iframe>
 
 
-  <section data-pagefind-ignore class="pt-75 mt-300 mb-900 bt-sm b-dark ">
-  <h2 class="mt-225 mb-300">
-    Aidez-nous à nous améliorer
-  </h2>
-
-  <p class="mb-300">
-    Vous avez des questions ou des demandes? Faites-nous part de vos commentaires à l&#39;aide de notre formulaire de contact.
-  </p>
+  <section data-pagefind-ignore class="my-600 bt-sm b-dark ">
+  <h2>Aidez-nous à nous améliorer</h2>
+  <p>Vous avez des questions ou des demandes? Faites-nous part de vos commentaires à l&#39;aide de notre formulaire de contact.</p>
 
   
-  <p class="mb-300">
+  <p>
     Quelque chose ne va pas? Signalez-le sur GitHub en créant un <gcds-link href='https://docs.github.com/fr/get-started/start-your-journey/creating-an-account-on-github' external>compte</gcds-link>. Vous pourrez accéder aux réponses de l'équipe, suivre les progrès réalisés concernant votre problèmes et voir les problèmes signalés par d'autres personnes.
   </p>
   

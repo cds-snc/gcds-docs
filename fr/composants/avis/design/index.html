@@ -1180,10 +1180,10 @@
       <main id="mc" class="container-xl mx-auto xl:px-0 sm:px-600 px-225 general-layout" data-pagefind-body>
         
   
-    <h1 id="avis-brgcdsnotice" class="mb-300">Avis <br><code>&lt;gcds-notice&gt;</code></h1>
-<p class="mb-300"><em>Autres noms : Alerte contextuelle.</em></p>
-<p class="mb-300">L’avis est un message court et bien visible qui fait partie du contenu de la page.</p>
-<p class="mb-300"><ul class="d-flex flex-wrap gap-300">
+    <h1 id="avis-brgcdsnotice">Avis <br><code>&lt;gcds-notice&gt;</code></h1>
+<p><em>Autres noms : Alerte contextuelle.</em></p>
+<p>L’avis est un message court et bien visible qui fait partie du contenu de la page.</p>
+<p><ul class="d-flex flex-wrap gap-300">
 <li class="github-link">
 <gcds-link external href="https://github.com/cds-snc/gcds-components/tree/main/packages/web/src/components/gcds-notice">GitHub</gcds-link>
 </li>
@@ -1191,8 +1191,8 @@
 <gcds-link external href="https://www.figma.com/design/o4SguSZdar2CCFzSkWNrmB/Syst%C3%A8me-de-design-GC?node-id=2002-8&node-type=canvas&t=Noeefrm7sr1qAV8J-0">Figma</gcds-link>
 </li>
 </ul></p>
-<p class="mb-300"><div class="my-600 b-sm b-default component-preview">
-<h2 class="container-full font-text font-semibold px-225 py-150 bb-sm b-default bg-light">
+<p><div class="my-600 b-sm b-default component-preview">
+<h2 class="container-full font-text font-semibold m-0 px-225 py-150 bb-sm b-default bg-light">
 Aperçu du composant de Avis
 </h2>
 <div>
@@ -1244,7 +1244,7 @@ Aperçu du composant de Avis
     </nav>
   
 
-  <h2 id="structure-de-la-avis" class="mt-600 mb-300">Structure de la Avis</h2>
+  <h2 id="structure-de-la-avis">Structure de la Avis</h2>
 <ol class="anatomy-list">
   <li>La <strong>ligne guide</strong> indique visuellement le début et la fin de l’avis.</li>
   <li>L'<strong>icône</strong> indique le type d’avis.</li>
@@ -1252,43 +1252,37 @@ Aperçu du composant de Avis
   <li>Le <strong>message</strong> fournit les détails de l’avis.</li>
 </ol>
 <img class="b-sm b-default p-300" src="/images/fr/components/anatomy/gcds-notice-anatomy.svg" alt="Une structure de l’avis contenant : la ligne guide et l’icône à gauche du titre en gras et du message." />
-<h2 id="design-et-accessibilite" class="mt-600 mb-300">Design et accessibilité</h2>
-<h3 id="choisir-le-type-davis-approprie" class="mt-600 mb-300">Choisir le type d’avis approprié</h3>
-<ul class="list-disc mb-300"><li><p class="mb-300">Référez-vous aux cas d’utilisation pour savoir quand utiliser chaque type d’avis.</li>
+<h2 id="design-et-accessibilite">Design et accessibilité</h2>
+<h3 id="choisir-le-type-davis-approprie">Choisir le type d’avis approprié</h3>
+<p>Référez-vous aux cas d’utilisation pour savoir quand utiliser chaque type d’avis.</p>
+<h3 id="redigez-des-titres-et-des-messages-concis-et-descriptifs">Rédigez des titres et des messages concis et descriptifs</h3>
+<ul class="list-disc mb-300"><li>Rédigez un titre significatif, court et simple pour souligner l’objectif de l’avis.</li>
+<li>Dans le titre, utilisez des titres comme « Avertissement » et « Succès » correspondant au sens transmis par l’icône et la couleur du type d’avis sélectionné.</li>
+<li>Rédigez un message (en dessous du titre) bref et percutant. Idéalement, faites en sorte qu’il ne dépasse pas trois phrases.</li>
+<li>Enregistrez les détails pour la zone de contenu principale d’une page. L’avis doit attirer l’attention et créer une « piste d’information » pour toute personne ayant besoin d’en savoir plus.</li>
 </ul>
-<h3 id="redigez-des-titres-et-des-messages-concis-et-descriptifs" class="mt-600 mb-300">Rédigez des titres et des messages concis et descriptifs</h3>
-<ul class="list-disc mb-300"><li><p class="mb-300">Rédigez un titre significatif, court et simple pour souligner l’objectif de l’avis.</li>
-<li><p class="mb-300">Dans le titre, utilisez des titres comme « Avertissement » et « Succès » correspondant au sens transmis par l’icône et la couleur du type d’avis sélectionné.</li>
-<li><p class="mb-300">Rédigez un message (en dessous du titre) bref et percutant. Idéalement, faites en sorte qu’il ne dépasse pas trois phrases.</li>
-<li><p class="mb-300">Enregistrez les détails pour la zone de contenu principale d’une page. L’avis doit attirer l’attention et créer une « piste d’information » pour toute personne ayant besoin d’en savoir plus.</li>
+<h3 id="au-besoin-utilisez-des-liens-pour-guider-les-gens-vers-des-renseignements-supplementaires">Au besoin, utilisez des liens pour guider les gens vers des renseignements supplémentaires</h3>
+<ul class="list-disc mb-300"><li>Utilisez des liens pour guider les personnes souhaitant en savoir plus vers des renseignements supplémentaires.</li>
+<li>Choisissez de créer une page particulière destinée à du contenu plus détaillé et utilisez un message bref dans un avis pour attirer les personnes intéressées vers cette page.</li>
+<li>Évitez les longs avis. Ils peuvent distraire et frustrer les gens.</li>
 </ul>
-<h3 id="au-besoin-utilisez-des-liens-pour-guider-les-gens-vers-des-renseignements-supplementaires" class="mt-600 mb-300">Au besoin, utilisez des liens pour guider les gens vers des renseignements supplémentaires</h3>
-<ul class="list-disc mb-300"><li><p class="mb-300">Utilisez des liens pour guider les personnes souhaitant en savoir plus vers des renseignements supplémentaires.</li>
-<li><p class="mb-300">Choisissez de créer une page particulière destinée à du contenu plus détaillé et utilisez un message bref dans un avis pour attirer les personnes intéressées vers cette page.</li>
-<li><p class="mb-300">Évitez les longs avis. Ils peuvent distraire et frustrer les gens.</li>
+<h3 id="utilisez-les-avis-avec-moderation-pour-eviter-de-generer-une-fatigue-visuelle">Utilisez les avis avec modération pour éviter de générer une fatigue visuelle</h3>
+<ul class="list-disc mb-300"><li>Limitez le nombre d’avis par page. Plus les gens rencontrent des avis et messages d’avertissement, moins ils y sont réceptifs.</li>
+<li>Veillez à retirer les avis une fois qu’ils ne servent plus.</li>
 </ul>
-<h3 id="utilisez-les-avis-avec-moderation-pour-eviter-de-generer-une-fatigue-visuelle" class="mt-600 mb-300">Utilisez les avis avec modération pour éviter de générer une fatigue visuelle</h3>
-<ul class="list-disc mb-300"><li><p class="mb-300">Limitez le nombre d’avis par page. Plus les gens rencontrent des avis et messages d’avertissement, moins ils y sont réceptifs.</li>
-<li><p class="mb-300">Veillez à retirer les avis une fois qu’ils ne servent plus.</li>
-</ul>
-<h3 id="placez-les-avis-a-lendroit-ou-vous-placeriez-un-paragraphe" class="mt-600 mb-300">Placez les avis à l’endroit où vous placeriez un paragraphe</h3>
-<ul class="list-disc mb-300"><li><p class="mb-300">Ajoutez un avis à l’endroit où vous ajouteriez un paragraphe important (ou une section importante) sur la page.</li>
-<li><p class="mb-300">Envisagez de placer un avis au haut de la page ou de la section de contenu pour éviter qu’il ne soit négligé.</li>
-<li><p class="mb-300">Évitez d’utiliser un avis dans un composant de formulaire, comme un champ de saisie ou une case à cocher.</li>
+<h3 id="placez-les-avis-a-lendroit-ou-vous-placeriez-un-paragraphe">Placez les avis à l’endroit où vous placeriez un paragraphe</h3>
+<ul class="list-disc mb-300"><li>Ajoutez un avis à l’endroit où vous ajouteriez un paragraphe important (ou une section importante) sur la page.</li>
+<li>Envisagez de placer un avis au haut de la page ou de la section de contenu pour éviter qu’il ne soit négligé.</li>
+<li>Évitez d’utiliser un avis dans un composant de formulaire, comme un champ de saisie ou une case à cocher.</li>
 </ul>
 
 
-  <section data-pagefind-ignore class="pt-75 mt-300 mb-900 bt-sm b-dark ">
-  <h2 class="mt-225 mb-300">
-    Aidez-nous à nous améliorer
-  </h2>
-
-  <p class="mb-300">
-    Vous avez des questions ou des demandes? Faites-nous part de vos commentaires à l&#39;aide de notre formulaire de contact.
-  </p>
+  <section data-pagefind-ignore class="my-600 bt-sm b-dark ">
+  <h2>Aidez-nous à nous améliorer</h2>
+  <p>Vous avez des questions ou des demandes? Faites-nous part de vos commentaires à l&#39;aide de notre formulaire de contact.</p>
 
   
-  <p class="mb-300">
+  <p>
     Quelque chose ne va pas? Signalez-le sur GitHub en créant un <gcds-link href='https://docs.github.com/fr/get-started/start-your-journey/creating-an-account-on-github' external>compte</gcds-link>. Vous pourrez accéder aux réponses de l'équipe, suivre les progrès réalisés concernant votre problèmes et voir les problèmes signalés par d'autres personnes.
   </p>
   

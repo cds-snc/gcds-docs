@@ -1178,56 +1178,52 @@
 
     <div class="content-wrapper">
       <main id="mc" class="container-xl mx-auto xl:px-0 sm:px-600 px-225 general-layout" data-pagefind-body>
-        <h1 id="unites-de-style" class="mb-300">Unités de style</h1>
-<p class="mb-300">Les unités de style de Système de design GC sont les plus petits blocs de construction du système de design.</p>
-<h2 id="representer-des-choix-stylistiques-en-code" class="mt-600 mb-300">Représenter des choix stylistiques en code</h2>
-<p class="mb-300">Nous avons créé une unité de style qui définit chaque choix stylistique dans Système de design GC. Tous nos composants utilisent des unités de style.</p>
-<p class="mb-300">Les unités de style documentent les choix stylistiques à l'aide de variables dans des blocs de code réutilisables. Elles remplacent toute valeur codée en dur, comme les codes de couleur et les pixels.</p>
-<h2 id="reproduire-un-style-a-lechelle-dans-votre-code" class="mt-600 mb-300">Reproduire un style à l'échelle dans votre code</h2>
-<p class="mb-300">Les unités de style ont été conçues de façon à être réutilisées dans toute la base de code. En mettant à jour une unité de style <a href="https://github.com/cds-snc/gcds-tokens">gcds-token</a>, le changement est reproduit dans tout composant et bloc de code qui y fait référence.</p>
-<p class="mb-300">Les unités de style de <a href="/fr/styles/couleur">couleur</a>, <a href="/fr/styles/espacement">d'espacement</a>, et de <a href="/fr/styles/typographie">typographie</a> sont appliquées de façon uniforme d'un composant, d'une page et d'un produit à l'autre. Les unités de style permettent un agencement exact, éliminant l'incertitude et les longues recherches dans des tableaux de valeurs.</p>
-<h2 id="types-dunites-de-style-de-composant" class="mt-600 mb-300">Types d'unités de style de composant</h2>
-<h3 id="unite-de-style-de-composant" class="mt-600 mb-300">Unité de style de composant</h3>
-<p class="mb-300">Les composants de Système de design GC possèdent leurs propres unités de style. Ces unités de style sont propres aux composants. Il est déconseillé de les utiliser ailleurs.</p>
-<p class="mb-300">Si elles sont utilisées incorrectement, les unités de style de composant peuvent avoir des comportements imprévisibles. Elles sont mises à jour chaque fois que le composant associé est mis à jour.</p>
+        <h1 id="unites-de-style">Unités de style</h1>
+<p>Les unités de style de Système de design GC sont les plus petits blocs de construction du système de design.</p>
+<h2 id="representer-des-choix-stylistiques-en-code">Représenter des choix stylistiques en code</h2>
+<p>Nous avons créé une unité de style qui définit chaque choix stylistique dans Système de design GC. Tous nos composants utilisent des unités de style.</p>
+<p>Les unités de style documentent les choix stylistiques à l'aide de variables dans des blocs de code réutilisables. Elles remplacent toute valeur codée en dur, comme les codes de couleur et les pixels.</p>
+<h2 id="reproduire-un-style-a-lechelle-dans-votre-code">Reproduire un style à l'échelle dans votre code</h2>
+<p>Les unités de style ont été conçues de façon à être réutilisées dans toute la base de code. En mettant à jour une unité de style <a href="https://github.com/cds-snc/gcds-tokens">gcds-token</a>, le changement est reproduit dans tout composant et bloc de code qui y fait référence.</p>
+<p>Les unités de style de <a href="/fr/styles/couleur">couleur</a>, <a href="/fr/styles/espacement">d'espacement</a>, et de <a href="/fr/styles/typographie">typographie</a> sont appliquées de façon uniforme d'un composant, d'une page et d'un produit à l'autre. Les unités de style permettent un agencement exact, éliminant l'incertitude et les longues recherches dans des tableaux de valeurs.</p>
+<h2 id="types-dunites-de-style-de-composant">Types d'unités de style de composant</h2>
+<h3 id="unite-de-style-de-composant">Unité de style de composant</h3>
+<p>Les composants de Système de design GC possèdent leurs propres unités de style. Ces unités de style sont propres aux composants. Il est déconseillé de les utiliser ailleurs.</p>
+<p>Si elles sont utilisées incorrectement, les unités de style de composant peuvent avoir des comportements imprévisibles. Elles sont mises à jour chaque fois que le composant associé est mis à jour.</p>
 <img class="b-sm b-default p-300" src="/images/fr/foundations/tokens/design-tokens-component.svg" alt="Trois carrés bleus représentent les trois étapes pour créer l’unité de style de la couleur d’arrière-plan du composant Bouton standard. À droite du carré le plus haut, un texte indique la couleur #26374a. Juste en-dessous du carré, une flèche pointe vers le carré suivant, à droite duquel un texte indique --gcds-color-blue-900. Une autre flèche pointe vers le troisième et dernier carré, à droite duquel un texte indique --gcds-button-primary-default-background. Une dernière flèche pointe du troisième carré à un bouton dont l’arrière-plan est bleu foncé, soit le résultat de l’unité de style nouvellement créée pour le composant."/>
-<h3 id="unites-de-style-globales" class="mt-600 mb-300">Unités de style globales</h3>
-<p class="mb-300">Les unités de style globales (y compris les unités de style d'état) sont conçues pour être utilisées par les unités de style des composants et les utilisateur·rice·s. Elles sont souvent utilisées pour construire des unités de style de composant.</p>
-<p class="mb-300">Les unités de style globales suivent des règles sémantiques. C'est-à-dire qu'elles sont associées à certains sens ou contextes. Vous pouvez les utiliser à leur fin prévue dans vos conceptions.</p>
-<p class="mb-300">Les unités de style globales aident à réduire les besoins futurs en maintenance et à établir un langage visuel pour une meilleure communication.</p>
+<h3 id="unites-de-style-globales">Unités de style globales</h3>
+<p>Les unités de style globales (y compris les unités de style d'état) sont conçues pour être utilisées par les unités de style des composants et les utilisateur·rice·s. Elles sont souvent utilisées pour construire des unités de style de composant.</p>
+<p>Les unités de style globales suivent des règles sémantiques. C'est-à-dire qu'elles sont associées à certains sens ou contextes. Vous pouvez les utiliser à leur fin prévue dans vos conceptions.</p>
+<p>Les unités de style globales aident à réduire les besoins futurs en maintenance et à établir un langage visuel pour une meilleure communication.</p>
 <img class="b-sm b-default p-300" src="/images/en/foundations/tokens/design-tokens-global.svg" alt="Trois lignes de texte montrent respectivement un exemple d’unité de style globale pour la taille de police, l’espacement et la couleur de police. La première ligne affiche une taille de police de 1.25rem suivie d’une flèche pointant vers l’unité de style --gcds-font-sizes-text. La deuxième ligne affiche un espacement de 3rem suivi d’une flèche pointant vers l’unité de style --gcds-spacing-600. La troisième ligne affiche une couleur de police #333333 suivie d’une flèche pointant vers l’unité de style --gcds-text-primary."/>
-<h2 id="unites-de-style-de-base" class="mt-600 mb-300">Unités de style de base</h2>
-<p class="mb-300">Utilisez les unités de style de base lorsque vous avez épuisé toutes les options d’unités de style globales. Les unités de style de base de Système de design GC offrent une gamme de styles qui permet d’agencer votre contenu à la palette des unités de style de couleur globales.</p>
-<p class="mb-300">Les unités de style de base n’emploient aucune structure sémantique et sont donc plus difficiles à interpréter. Il est important de les utiliser judicieusement et de façon uniforme afin d’assurer une expérience utilisateur familière et prévisible pour votre service.</p>
+<h2 id="unites-de-style-de-base">Unités de style de base</h2>
+<p>Utilisez les unités de style de base lorsque vous avez épuisé toutes les options d’unités de style globales. Les unités de style de base de Système de design GC offrent une gamme de styles qui permet d’agencer votre contenu à la palette des unités de style de couleur globales.</p>
+<p>Les unités de style de base n’emploient aucune structure sémantique et sont donc plus difficiles à interpréter. Il est important de les utiliser judicieusement et de façon uniforme afin d’assurer une expérience utilisateur familière et prévisible pour votre service.</p>
 <img class="b-sm b-default p-300" src="/images/fr/foundations/tokens/design-tokens-base.svg" alt="Trois lignes de texte montrent des exemples d’unités de style de base pour des niveaux de gris. La première ligne affiche un niveau de gris 50 suivi d’une flèche pointant vers l’unité de style --gcds-color-grayscale-50. La deuxième ligne affiche un niveau de gris 100 suivi d’une flèche pointant vers l’unité de style --gcds-color-grayscale-100. La troisième ligne affiche un niveau de gris 300 suivi d’une flèche pointant vers l’unité de style --gcds-color-grayscale-300."/>
-<h2 id="structure-et-nomenclature-progressive-des-unites-de-style" class="mt-600 mb-300">Structure et nomenclature progressive des unités de style</h2>
-<p class="mb-300">Les unités de style sont caractérisées par une nomenclature progressive.</p>
-<ul class="list-disc mb-300"><li><p class="mb-300"><strong>Le préfixe</strong> <code>--gcds-</code> sert à distinguer les unités de style de Système de design GC d'autres jetons ou variables externes.</li>
-<li><p class="mb-300"><strong>La catégorie</strong> décrit le composant, la propriété, l'état ou la couleur en fonction du type d'unité de style.</li>
-<li><p class="mb-300"><strong>Le rôle</strong> précise le sous-type de composant, p. ex. principal, secondaire, danger, etc.</li>
-<li><p class="mb-300"><strong>L'état</strong> indique l'interaction ou l'état des données, p. ex. état par défaut, lien pointé, état ciblé, etc.</li>
-<li><p class="mb-300"><strong>La propriété</strong> représente la propriété CSS à laquelle l'unité de style est appliquée, p. ex. <code>background</code>, <code>border</code>, <code>color</code>, etc.</li>
-<li><p class="mb-300"><strong>L'échelle</strong> indique un ensemble de nuances de couleurs, de tailles ou d'épaisseurs à croissance proportionnelle.</li>
+<h2 id="structure-et-nomenclature-progressive-des-unites-de-style">Structure et nomenclature progressive des unités de style</h2>
+<p>Les unités de style sont caractérisées par une nomenclature progressive.</p>
+<ul class="list-disc mb-300"><li><strong>Le préfixe</strong> <code>--gcds-</code> sert à distinguer les unités de style de Système de design GC d'autres jetons ou variables externes.</li>
+<li><strong>La catégorie</strong> décrit le composant, la propriété, l'état ou la couleur en fonction du type d'unité de style.</li>
+<li><strong>Le rôle</strong> précise le sous-type de composant, p. ex. principal, secondaire, danger, etc.</li>
+<li><strong>L'état</strong> indique l'interaction ou l'état des données, p. ex. état par défaut, lien pointé, état ciblé, etc.</li>
+<li><strong>La propriété</strong> représente la propriété CSS à laquelle l'unité de style est appliquée, p. ex. <code>background</code>, <code>border</code>, <code>color</code>, etc.</li>
+<li><strong>L'échelle</strong> indique un ensemble de nuances de couleurs, de tailles ou d'épaisseurs à croissance proportionnelle.</li>
 </ul>
-<h3 id="unite-de-style-de-composant" class="mt-600 mb-300">Unité de style de composant</h3>
+<h3 id="unite-de-style-de-composant">Unité de style de composant</h3>
 <img class="b-sm b-default p-300" src="/images/fr/foundations/anatomy/anatomy-design-tokens-component.svg" alt="Une ligne de cinq mots où chaque mot est surligné et souligné d’une couleur différente. Deux traits d’union précèdent le premier mot, et un trait d’union sépare chaque mot. Chaque mot est rattaché à une étiquette affichant son type de nom. Le type de nom du premier mot est un préfixe : gcds. Le type de nom du deuxième mot est une catégorie (composant) : button. Le type de nom du troisième mot est un rôle : primary. Le type de nom du quatrième mot est un état : default. Le type de nom du cinquième mot est une propriété : background L’unité de style entière se lit comme suit : --gcds-button-primary-default-background."/>
-<h3 id="unite-de-style-globale" class="mt-600 mb-300">Unité de style globale</h3>
+<h3 id="unite-de-style-globale">Unité de style globale</h3>
 <img class="b-sm b-default p-300" src="/images/fr/foundations/anatomy/anatomy-design-tokens-global.svg" alt="Une ligne de trois mots où chaque mot est surligné et souligné d’une couleur différente. Deux traits d’union précèdent le premier mot, et un trait d’union sépare chaque mot. Chaque mot est rattaché à une étiquette affichant son type de nom. Le type de nom du premier mot est un préfixe : gcds. Le type de nom du deuxième mot est une catégorie (composant) : text. Le type de nom du troisième mot est un rôle ou un état : primary. L’unité de style entière se lit comme suit : --gcds-text-primary."/>
-<h3 id="unite-de-style-globale-etat-global" class="mt-600 mb-300">Unité de style globale – état global</h3>
+<h3 id="unite-de-style-globale-etat-global">Unité de style globale – état global</h3>
 <img class="b-sm b-default p-300" src="/images/fr/foundations/anatomy/anatomy-design-tokens-global-state.svg" alt="Une ligne de trois mots où chaque mot est surligné et souligné d’une couleur différente. Deux traits d’union précèdent le premier mot, et un trait d’union sépare chaque mot. Chaque mot est rattaché à une étiquette affichant son type de nom. Le type de nom du premier mot est un préfixe : gcds. Le type de nom du deuxième mot est une catégorie (état) : focus. Le type de nom du troisième mot est une propriété : text. L’unité de style entière se lit comme suit : --gcds-focus-text."/>
-<h3 id="unite-de-style-de-base" class="mt-600 mb-300">Unité de style de base</h3>
+<h3 id="unite-de-style-de-base">Unité de style de base</h3>
 <img class="b-sm b-default mb-600 p-300" src="/images/fr/foundations/anatomy/anatomy-design-tokens-base.svg" alt="Une ligne de trois mots où chaque mot est surligné et souligné d’une couleur différente. Deux traits d’union précèdent le premier mot, et un trait d’union sépare chaque mot. Chaque mot est rattaché à une étiquette affichant son type de nom. Le type de nom du premier mot est un préfixe : gcds. Le type de nom du deuxième mot est une catégorie (couleur) : grayscale. Le type de nom du troisième mot est une échelle : 100. L’unité de style entière se lit comme suit : --gcds-grayscale-100."/>
-<section data-pagefind-ignore class="pt-75 mt-300 mb-900 bt-sm b-dark ">
-  <h2 class="mt-225 mb-300">
-    Aidez-nous à nous améliorer
-  </h2>
-  <p class="mb-300">
-    Vous avez des questions ou des demandes? Faites-nous part de vos commentaires à l'aide de notre formulaire de contact.
-  </p>
-  <p class="mb-300">
+<section data-pagefind-ignore class="my-600 bt-sm b-dark ">
+  <h2>Aidez-nous à nous améliorer</h2>
+  <p>Vous avez des questions ou des demandes? Faites-nous part de vos commentaires à l'aide de notre formulaire de contact.</p>
+  <p>
     Quelque chose ne va pas? Signalez-le sur GitHub en créant un <gcds-link href='https://docs.github.com/fr/get-started/start-your-journey/creating-an-account-on-github' external>compte</gcds-link>. Vous pourrez accéder aux réponses de l'équipe, suivre les progrès réalisés concernant votre problèmes et voir les problèmes signalés par d'autres personnes.
   </p>
-<p class="mb-300"><gcds-button
+<p><gcds-button
     type="link"
     button-role="primary"
     href="/fr/contactez/#contactez-nous"

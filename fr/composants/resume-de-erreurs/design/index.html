@@ -1180,10 +1180,10 @@
       <main id="mc" class="container-xl mx-auto xl:px-0 sm:px-600 px-225 general-layout" data-pagefind-body>
         
   
-    <h1 id="resume-des-erreurs-brgcdserrorsummary" class="mb-300">Résumé des erreurs <br><code>&lt;gcds-error-summary&gt;</code></h1>
-<p class="mb-300"><em>Autres noms : liste d'erreurs.</em></p>
-<p class="mb-300">Un résumé des erreurs consiste en une liste des erreurs rencontrées par les utilisateur·rice·s dans un formulaire.</p>
-<p class="mb-300"><ul class="d-flex flex-wrap gap-300">
+    <h1 id="resume-des-erreurs-brgcdserrorsummary">Résumé des erreurs <br><code>&lt;gcds-error-summary&gt;</code></h1>
+<p><em>Autres noms : liste d'erreurs.</em></p>
+<p>Un résumé des erreurs consiste en une liste des erreurs rencontrées par les utilisateur·rice·s dans un formulaire.</p>
+<p><ul class="d-flex flex-wrap gap-300">
 <li class="github-link">
 <gcds-link external href="https://github.com/cds-snc/gcds-components/tree/main/packages/web/src/components/gcds-error-summary">GitHub</gcds-link>
 </li>
@@ -1191,8 +1191,8 @@
 <gcds-link external href="https://www.figma.com/file/o4SguSZdar2CCFzSkWNrmB/Syst%C3%A8me-de-design-GC?type=design&node-id=48-9037&mode=design&t=1DaL24vHpjRRfHHm-0">Figma</gcds-link>
 </li>
 </ul></p>
-<p class="mb-300"><div class="my-600 b-sm b-default component-preview">
-<h2 class="container-full font-text font-semibold px-225 py-150 bb-sm b-default bg-light">
+<p><div class="my-600 b-sm b-default component-preview">
+<h2 class="container-full font-text font-semibold m-0 px-225 py-150 bb-sm b-default bg-light">
 Aperçu du composant de résumé des erreurs
 </h2>
 <div>
@@ -1244,39 +1244,34 @@ Aperçu du composant de résumé des erreurs
     </nav>
   
 
-  <h2 id="structure-du-resume-des-erreurs" class="mt-600 mb-300">Structure du résumé des erreurs</h2>
+  <h2 id="structure-du-resume-des-erreurs">Structure du résumé des erreurs</h2>
 <ol class="anatomy-list">
   <li>L'<strong>en-tête</strong> indique qu'il y a un problème. Les deux sont définis par défaut et peuvent être modifiés pour être plus spécifiques.</li>
   <li>Le <strong>résumé des erreurs</strong> consiste en un ensemble de messages d'erreur sur la page, énumérés par ordre d'apparition sur le formulaire.</li>
   <li>L'<strong>élément du résumé des erreurs</strong> est lié au contexte d'erreur et comporte le même texte que le message d'erreur (un énoncé d'appel à l'action pour le corriger).</li>
 </ol>
 <img class="b-sm b-default p-300" src="/images/fr/components/anatomy/gcds-error-summary-anatomy.svg" alt="Un rectangle rouge encadre un titre proéminent lisant 'Il y a un problème' ainsi qu’une liste numérotée comprenant 3 liens avec des éléments du résumé des erreurs dans le texte de lien." />
-<h2 id="conception-et-accessibilite-des-resumes-des-erreurs" class="mt-600 mb-300">Conception et accessibilité des résumés des erreurs</h2>
-<h3 id="creer-des-resumes-des-erreurs-utiles" class="mt-600 mb-300">Créer des résumés des erreurs utiles</h3>
-<p class="mb-300">N'oubliez pas que les erreurs interrompent le déroulement d'une action. Cette situation peut s'avérer dérangeante et désagréable pour vos utilisateur·rice·s.</p>
-<ul class="list-disc mb-300"><li><p class="mb-300">Clarifiez la démarche à suivre pour corriger l'erreur. Les erreurs suscitent une réaction émotionnelle d'autant plus forte que le problème est difficile ou impossible à résoudre.</li>
-<li><p class="mb-300">Rédigez un <gcds-link href="/fr/composants/message-derreur">message d'erreur</gcds-link> clair et expliquez comment y remédier pour permettre à la personne de se remettre à la tâche.</li>
-<li><p class="mb-300">Assurez-vous de rédiger des messages d'erreur courts et précis afin de rendre la liste des erreurs lisible.</li>
-<li><p class="mb-300">Limitez le nombre de composants de formulaire par page nécessitant une réponse.</li>
+<h2 id="conception-et-accessibilite-des-resumes-des-erreurs">Conception et accessibilité des résumés des erreurs</h2>
+<h3 id="creer-des-resumes-des-erreurs-utiles">Créer des résumés des erreurs utiles</h3>
+<p>N'oubliez pas que les erreurs interrompent le déroulement d'une action. Cette situation peut s'avérer dérangeante et désagréable pour vos utilisateur·rice·s.</p>
+<ul class="list-disc mb-300"><li>Clarifiez la démarche à suivre pour corriger l'erreur. Les erreurs suscitent une réaction émotionnelle d'autant plus forte que le problème est difficile ou impossible à résoudre.</li>
+<li>Rédigez un <gcds-link href="/fr/composants/message-derreur">message d'erreur</gcds-link> clair et expliquez comment y remédier pour permettre à la personne de se remettre à la tâche.</li>
+<li>Assurez-vous de rédiger des messages d'erreur courts et précis afin de rendre la liste des erreurs lisible.</li>
+<li>Limitez le nombre de composants de formulaire par page nécessitant une réponse.</li>
 </ul>
-<h3 id="utiliser-le-resume-des-erreurs-avec-vos-propres-composants" class="mt-600 mb-300">Utiliser le résumé des erreurs avec vos propres composants</h3>
-<ul class="list-disc mb-300"><li><p class="mb-300">Ajoutez des messages d'erreur pour vos propres composants (composants ne provenant pas de Système de design GC) dans vos formulaires.</li>
-<li><p class="mb-300">Associez le contenu de l'élément du résumé des erreurs à chacun de vos messages d'erreur.</li>
-<li><p class="mb-300">Classez les erreurs du résumé des erreurs dans le même ordre qu'elles apparaissent sur le formulaire.</li>
+<h3 id="utiliser-le-resume-des-erreurs-avec-vos-propres-composants">Utiliser le résumé des erreurs avec vos propres composants</h3>
+<ul class="list-disc mb-300"><li>Ajoutez des messages d'erreur pour vos propres composants (composants ne provenant pas de Système de design GC) dans vos formulaires.</li>
+<li>Associez le contenu de l'élément du résumé des erreurs à chacun de vos messages d'erreur.</li>
+<li>Classez les erreurs du résumé des erreurs dans le même ordre qu'elles apparaissent sur le formulaire.</li>
 </ul>
 
 
-  <section data-pagefind-ignore class="pt-75 mt-300 mb-900 bt-sm b-dark ">
-  <h2 class="mt-225 mb-300">
-    Aidez-nous à nous améliorer
-  </h2>
-
-  <p class="mb-300">
-    Vous avez des questions ou des demandes? Faites-nous part de vos commentaires à l&#39;aide de notre formulaire de contact.
-  </p>
+  <section data-pagefind-ignore class="my-600 bt-sm b-dark ">
+  <h2>Aidez-nous à nous améliorer</h2>
+  <p>Vous avez des questions ou des demandes? Faites-nous part de vos commentaires à l&#39;aide de notre formulaire de contact.</p>
 
   
-  <p class="mb-300">
+  <p>
     Quelque chose ne va pas? Signalez-le sur GitHub en créant un <gcds-link href='https://docs.github.com/fr/get-started/start-your-journey/creating-an-account-on-github' external>compte</gcds-link>. Vous pourrez accéder aux réponses de l'équipe, suivre les progrès réalisés concernant votre problèmes et voir les problèmes signalés par d'autres personnes.
   </p>
   

@@ -1180,10 +1180,10 @@
       <main id="mc" class="container-xl mx-auto xl:px-0 sm:px-600 px-225 general-layout" data-pagefind-body>
         
   
-    <h1 id="text-brgcdstext" class="mb-300">Text <br><code>&lt;gcds-text&gt;</code></h1>
-<p class="mb-300"><em>Also called: text block, copy, caption, body text, paragraph.</em></p>
-<p class="mb-300">Text is a styled and formatted paragraph that displays written content in an accessible way.</p>
-<p class="mb-300"><ul class="d-flex flex-wrap gap-300">
+    <h1 id="text-brgcdstext">Text <br><code>&lt;gcds-text&gt;</code></h1>
+<p><em>Also called: text block, copy, caption, body text, paragraph.</em></p>
+<p>Text is a styled and formatted paragraph that displays written content in an accessible way.</p>
+<p><ul class="d-flex flex-wrap gap-300">
 <li class="github-link">
 <gcds-link external href="https://github.com/cds-snc/gcds-components/tree/main/packages/web/src/components/gcds-text">GitHub</gcds-link>
 </li>
@@ -1191,8 +1191,8 @@
 <gcds-link external href="https://www.figma.com/file/mh2maMG2NBtk41k1O1UGHV/Canadian-Digital-Service%E2%80%A8---GC-Design-System?type=design&node-id=10053-348&mode=design&t=E0XGUkSN8iUhsIDS-0">Figma</gcds-link>
 </li>
 </ul></p>
-<p class="mb-300"><div class="my-600 b-sm b-default component-preview">
-<h2 class="container-full font-text font-semibold px-225 py-150 bb-sm b-default bg-light">
+<p><div class="my-600 b-sm b-default component-preview">
+<h2 class="container-full font-text font-semibold m-0 px-225 py-150 bb-sm b-default bg-light">
 Text component preview
 </h2>
 <div>
@@ -1244,43 +1244,43 @@ Text component preview
     </nav>
   
 
-  <h2 id="build-a-text-component" class="mt-600 mb-300">Build a text component</h2>
-<p class="mb-300">Text displays non-heading content with matching GC Design System styles to provide accessible text sizes and colour contrast.</p>
-<h2 id="coding-and-accessibility-for-text" class="mt-600 mb-300">Coding and accessibility for text</h2>
-<h3 id="ensure-accessible-character-limits" class="mt-600 mb-300">Ensure accessible character limits</h3>
-<ul class="list-disc mb-300"><li><p class="mb-300">Maintain the default line length maximum of 65 characters for each line of text to ensure a comfortable, accessible reading length.</li>
-<li><p class="mb-300">Opt to shorten the line length by setting the <code>character-limit</code> attribute to <code>false</code>.</li>
+  <h2 id="build-a-text-component">Build a text component</h2>
+<p>Text displays non-heading content with matching GC Design System styles to provide accessible text sizes and colour contrast.</p>
+<h2 id="coding-and-accessibility-for-text">Coding and accessibility for text</h2>
+<h3 id="ensure-accessible-character-limits">Ensure accessible character limits</h3>
+<ul class="list-disc mb-300"><li>Maintain the default line length maximum of 65 characters for each line of text to ensure a comfortable, accessible reading length.</li>
+<li>Opt to shorten the line length by setting the <code>character-limit</code> attribute to <code>false</code>.</li>
 </ul>
-<h3 id="set-the-text-size" class="mt-600 mb-300">Set the text size</h3>
-<ul class="list-disc mb-300"><li><p class="mb-300">Set the text <code>size</code> attribute to <code>body</code> or <code>small</code>.</li>
-<li><p class="mb-300">Use the default <code>body</code> <code>size</code> value to render a <code>p</code> element with the recommended font size and colour contrast.</li>
-<li><p class="mb-300">Opt to display smaller text by setting the <code>size</code> attribute to <code>small</code> to render a <code>small</code> element inside a <code>p</code> element.</li>
+<h3 id="set-the-text-size">Set the text size</h3>
+<ul class="list-disc mb-300"><li>Set the text <code>size</code> attribute to <code>body</code> or <code>small</code>.</li>
+<li>Use the default <code>body</code> <code>size</code> value to render a <code>p</code> element with the recommended font size and colour contrast.</li>
+<li>Opt to display smaller text by setting the <code>size</code> attribute to <code>small</code> to render a <code>small</code> element inside a <code>p</code> element.</li>
 </ul>
-<h3 id="use-text-styling-sparingly" class="mt-600 mb-300">Use text styling sparingly</h3>
-<ul class="list-disc mb-300"><li><p class="mb-300">Only use underline for links.</li>
-<li><p class="mb-300">Use bold text sparingly.</li>
-<li><p class="mb-300">Avoid using bold text as a heading. <a href="/en/components/heading">Headings</a> are the accessible component for identifying content sections.</li>
-<li><p class="mb-300">For bold text, use the <code>strong</code> tag within the <code>gcds-text</code> component to highlight terms and emphasize key points.</li>
-<li><p class="mb-300">Only use italics for:<ul class="list-disc mb-300"><li><p class="mb-300">Legal reference, like the <em>Accessible Canada Act</em>.</li>
-<li><p class="mb-300">Words in other languages, including Latin.</li>
-<li><p class="mb-300">Titles of publications, works of art, and mathematical and scientific material.</li>
+<h3 id="use-text-styling-sparingly">Use text styling sparingly</h3>
+<ul class="list-disc mb-300"><li>Only use underline for links.</li>
+<li>Use bold text sparingly.</li>
+<li>Avoid using bold text as a heading. <a href="/en/components/heading">Headings</a> are the accessible component for identifying content sections.</li>
+<li>For bold text, use the <code>strong</code> tag within the <code>gcds-text</code> component to highlight terms and emphasize key points.</li>
+<li>Only use italics for:<ul class="list-disc mb-300"><li>Legal reference, like the <em>Accessible Canada Act</em>.</li>
+<li>Words in other languages, including Latin.</li>
+<li>Titles of publications, works of art, and mathematical and scientific material.</li>
 </ul>
 </li>
-<li><p class="mb-300">Use the <code>em</code> tag within the <code>gcds-text</code> component to emphasize specific words or phrases.</li>
+<li>Use the <code>em</code> tag within the <code>gcds-text</code> component to emphasize specific words or phrases.</li>
 </ul>
-<h3 id="get-your-code" class="mt-600 mb-300">Get your code</h3>
-<p class="mb-300">Generate an instance of the component you need by selecting its code properties.</p>
+<h3 id="get-your-code">Get your code</h3>
+<p>Generate an instance of the component you need by selecting its code properties.</p>
 <ol class="list-decimal mb-300"><li>
-<p class="mb-300">Explore by choosing different code values to generate the instance you want.</p>
+<p>Explore by choosing different code values to generate the instance you want.</p>
 </li>
 <li>
-<p class="mb-300">Get the code and pull it into your environment.</p>
+<p>Get the code and pull it into your environment.</p>
 </li>
 <li>
-<p class="mb-300">Add any copy you need to the component (like text for a label).</p>
+<p>Add any copy you need to the component (like text for a label).</p>
 </li>
 </ol>
-<p class="mb-300"><strong>Note:</strong> Following standard practice, the code builder uses English for all code elements.</p>
+<p><strong>Note:</strong> Following standard practice, the code builder uses English for all code elements.</p>
 <iframe
   title="Overview of gcds-text properties and events."
   src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&demo=true&singleStory=true&id=components-text--events-properties&lang=en"
@@ -1292,17 +1292,12 @@ Text component preview
 ></iframe>
 
 
-  <section data-pagefind-ignore class="pt-75 mt-300 mb-900 bt-sm b-dark ">
-  <h2 class="mt-225 mb-300">
-    Help us improve
-  </h2>
-
-  <p class="mb-300">
-    Have questions or a request? Give feedback on our contact form.
-  </p>
+  <section data-pagefind-ignore class="my-600 bt-sm b-dark ">
+  <h2>Help us improve</h2>
+  <p>Have questions or a request? Give feedback on our contact form.</p>
 
   
-  <p class="mb-300">
+  <p>
     Something's wrong? Raise it through GitHub with an <gcds-link href='https://docs.github.com/en/get-started/start-your-journey/creating-an-account-on-github' external>account</gcds-link>. You'll have access to the team's direct responses, progress made on your issue, and issues raised by others.
   </p>
   
