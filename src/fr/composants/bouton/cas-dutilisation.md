@@ -29,7 +29,7 @@ Utilisez un bouton pour les actions importantes qu'une personne utilisant votre 
 - Naviguer entre les différentes étapes d'une séquence;
 
 <article class="bg-full-width bg-primary text-light pt-600 pb-300 my-600">
-  <h2 class="mt-0 mb-300">Composants connexes</h2>
+  <h2 class="mt-0">Composants connexes</h2>
 
 <a href="{{ links.link }}" class="link-light">Liens</a> : pour permettre de naviguer à une nouvelle page, à un autre site Web, à un fichier ou à une nouvelle section de la page actuelle et de lancer un téléchargement de fichiers.
 
@@ -76,13 +76,13 @@ Remarque : Utilisez le [composant lien]({{ links.link }}) lorsque vous devez ins
 Un rôle est un sous-type de bouton à usage spécifique sur une page.
 
 <div class="remove-empty-p">
-<gcds-grid columns="1fr" columns-tablet="1fr 2fr" gap="500" align-items="start">
-  {% componentPreview "Aperçu du bouton principal" "px-300 py-400" "" %}
+<gcds-grid columns="1fr" columns-tablet="1fr 2fr" align-items="start">
+  {% componentPreview "Aperçu du bouton principal" "px-225 py-300" "" %}
   <gcds-button button-role="primary">Soumettre</gcds-button>
   {% endcomponentPreview %}
   <div>
-    <h3 class="mb-400">Utilisations du bouton principal</h3>
-    <ul class="list-disc mb-400">
+    <h3 class="mt-0">Utilisations du bouton principal</h3>
+    <ul class="list-disc mb-300">
       <li>L'action la plus importante d'une page.</li>
       <li>Actions cruciales au sein d'un processus ou en tant que bouton par défaut.</li>
       <li>Limitation à une seule utilisation.</li>
@@ -91,13 +91,13 @@ Un rôle est un sous-type de bouton à usage spécifique sur une page.
   </div>
 </gcds-grid>
 <br/>
-<gcds-grid columns="1fr" columns-tablet="1fr 2fr" gap="500" align-items="start">
-  {% componentPreview "Aperçu du bouton secondaire" "px-300 py-400" "" %}
+<gcds-grid columns="1fr" columns-tablet="1fr 2fr" align-items="start">
+  {% componentPreview "Aperçu du bouton secondaire" "px-225 py-300" "" %}
   <gcds-button button-role="secondary">Annuler</gcds-button>
   {% endcomponentPreview %}
   <div>
-    <h3 class="mb-400">Utilisations du bouton secondaire</h3>
-    <ul class="list-disc mb-400">
+    <h3 class="mt-0">Utilisations du bouton secondaire</h3>
+    <ul class="list-disc mb-300">
       <li>Pour les actions secondaires.</li>
       <li>Pour mettre en avant une action commune et importante, sans qu'il s'agisse de la plus importante.</li>
       <li>Pour souligner des options de tâches alternatives importantes, au besoin plus d'une fois par page.</li>
@@ -105,13 +105,13 @@ Un rôle est un sous-type de bouton à usage spécifique sur une page.
   </div>
 </gcds-grid>
 <br/>
-<gcds-grid columns="1fr" columns-tablet="1fr 2fr" gap="500" align-items="start">
-  {% componentPreview "Aperçu du bouton « Danger »" "px-300 py-400" "" %}
+<gcds-grid columns="1fr" columns-tablet="1fr 2fr" align-items="start">
+  {% componentPreview "Aperçu du bouton « Danger »" "px-225 py-300" "" %}
   <gcds-button button-role="danger">Supprimer</gcds-button>
   {% endcomponentPreview %}
   <div>
-    <h3 class="mb-400">Utilisations du bouton « Danger »</h3>
-    <ul class="list-disc mb-400">
+    <h3 class="mt-0">Utilisations du bouton « Danger »</h3>
+    <ul class="list-disc mb-300">
       <li>Pour signaler des actions sérieuses comme le retrait ou la suppression de renseignements.</li>
       <li>Pour les actions entraînant des changements difficiles à inverser.</li>
     </ul>

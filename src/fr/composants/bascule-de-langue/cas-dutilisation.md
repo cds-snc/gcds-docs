@@ -29,7 +29,7 @@ Utilisez la bascule de langue pour :
 - soutenir les langues officielles en proposant un contenu tout aussi accessible en français qu’en anglais.
 
 <article class="bg-full-width bg-primary text-light pt-600 pb-300 my-600">
-  <h2 class="mt-0 mb-300">Composants connexes</h2>
+  <h2 class="mt-0">Composants connexes</h2>
 
 <a href="{{ links.header }}" class="link-light">En-tête</a> : lorsque vous cherchez à placer l'image de marque du gouvernement du Canada dans l'en-tête de la page.
 

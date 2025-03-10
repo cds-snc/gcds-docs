@@ -112,6 +112,4 @@ La famille de police comprend des valeurs de rechange. Les valeurs de rechange s
 
 <br/>
 
-{% assign removeBorder = true %}
-
 {% include "partials/helpus.njk" %}

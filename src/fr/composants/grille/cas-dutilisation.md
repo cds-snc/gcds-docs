@@ -33,7 +33,7 @@ Utilisez des grilles pour :
 - Limiter la largeur du contenu affiché pour veiller à ce que le texte soit renvoyé à la ligne et plus lisible.
 
 <article class="bg-full-width bg-primary text-light pt-600 pb-300 my-600">
-  <h2 class="mt-0 mb-300">Composants connexes</h2>
+  <h2 class="mt-0">Composants connexes</h2>
 
 <a href="{{ links.container }}" class="link-light">Boîte</a> : pour appliquer une disposition de base à une seule colonne sur toutes les fenêtres d'affichage.
 

@@ -20,18 +20,18 @@ Choose the **compact display** to include:
 
 1. The footer links band and the Government of Canada wordmark.
 
-<img class="b-sm b-default mt-300 mb-600 p-300" src="/images/en/components/example/example-footer-compact.svg" alt=""/>
+<img class="b-sm b-default mb-300 p-300" src="/images/en/components/example/example-footer-compact.svg" alt=""/>
 
 Include the **full display** if you need to include:
 
 1. The main band with a large selection of Government of Canada corporate links.
 2. The footer links band and the Government of Canada wordmark.
 
-<img class="b-sm b-default mt-300 mb-600 p-300" src="/images/en/components/example/example-footer-full.svg" alt=""/>
+<img class="b-sm b-default mb-300 p-300" src="/images/en/components/example/example-footer-full.svg" alt=""/>
 
 Opt to include the contextual band to add up to three footer links for your product.
 
-<img class="b-sm b-default mt-300 mb-600 p-300" src="/images/en/components/example/example-footer-full-with-contextual-links.svg" alt=""/>
+<img class="b-sm b-default mb-300 p-300" src="/images/en/components/example/example-footer-full-with-contextual-links.svg" alt=""/>
 
 ### Include the footer links band for Government of Canada sites and products
 

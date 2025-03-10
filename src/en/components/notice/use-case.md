@@ -23,10 +23,10 @@ Use notice to:
 
 - Communicate updates, warnings, and confirmations about the tasks on a page or about an activity or event that could affect people using the service.
 - Make key messages stand out within page content, through sparing use.
-- Provide context or additional information on the page content for better understanding. 
+- Provide context or additional information on the page content for better understanding.
 
 <article class="bg-full-width bg-primary text-light pt-600 pb-300 my-600">
-  <h2 class="mt-0 mb-300">Related components</h2>
+  <h2 class="mt-0">Related components</h2>
 
 <a href="{{links.errorMessage}}" class="link-light">Error message</a> or <a href="{{links.errorSummary}}" class="link-light">error summary</a> for errors in a form field, on a page, or in a flow.
 
@@ -89,8 +89,8 @@ Use the warning notice type to:
 
 Use the danger notice type to:
 
-- Highlight content that people must be aware of due to its severity and that could have major negative impacts if ignored. 
-- Emphasize an issue or news that has serious implications to health and safety, security, and laws. Include a link to the most current information.  
+- Highlight content that people must be aware of due to its severity and that could have major negative impacts if ignored.
+- Emphasize an issue or news that has serious implications to health and safety, security, and laws. Include a link to the most current information.
 - Flag when a person needs to take action right away and provide a means to do so, like a link.
 
 <gcds-notice

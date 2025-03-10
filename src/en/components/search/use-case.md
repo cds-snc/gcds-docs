@@ -27,7 +27,7 @@ Use search to help a person on your website or page find information:
 - From a subset of content you have locally indexed, using your own data set.
 
 <article class="bg-full-width bg-primary text-light pt-600 pb-300 my-600">
-  <h2 class="mt-0 mb-300">Related components</h2>
+  <h2 class="mt-0">Related components</h2>
 
   <a href="{{ links.header }}" class="link-light">Header</a> for placing the Government of Canada branded header landmark.
 

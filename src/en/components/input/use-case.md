@@ -32,7 +32,7 @@ Use an input to gather single-line information from a person when you're expecti
 Note: Only collect information you're authorized to handle and be sure to safeguard it to Government of Canada standards.
 
 <article class="bg-full-width bg-primary text-light pt-600 pb-300 my-600">
-  <h2 class="mt-0 mb-300">Related components</h2>
+  <h2 class="mt-0">Related components</h2>
 
 <a href="{{ links.textarea }}" class="link-light">Text areas</a> for multi-line freeform responses.
 

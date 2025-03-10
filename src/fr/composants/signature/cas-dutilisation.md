@@ -29,6 +29,15 @@ La signature, qui constitue un élément d'une image de marque, est utilisée po
 - Informer une personne que le contenu qu'elle est en train de lire a été publié par le gouvernement du Canada;
 - Servir de lien général vers la page d'accueil du site dans les deux langues officielles.
 
+<article class="bg-full-width bg-primary text-light pt-600 pb-300 my-600">
+  <h2 class="mt-0">Composants connexes</h2>
+
+<a href="{{ links.header }}" class="link-light">En-tête :</a> utilisé pour le placement de l'en-tête portant l'image de marque du gouvernement du Canada;
+
+<a href="{{ links.footer }}" class="link-light">Pied de page :</a> for placing the Government of Canada branded footer landmark.
+
+</article>
+
 ## Types de composants
 
 La signature et le mot-symbole apparaissent ensemble sur les sites et produits du gouvernement du Canada.
@@ -40,7 +49,7 @@ Placez la **signature** dans l'en-tête à côté de la bascule de langue pour :
 - Afficher la signature de marque du gouvernement du Canada;
 - Fournir un point de repère aux utilisateur·rice·s qui souhaiteraient retourner à la page d'accueil du site.
 
-<img class="b-sm b-default mt-300 mb-75 p-300" src="/images/fr/components/example/example-signature-signature-type-fr.svg" alt="La signature du gouvernement du Canada. La signature comprend l'unifolié rouge, suivi par le texte « Gouvernement du Canada / Government of Canada »" />
+<img class="b-sm b-default p-300" src="/images/fr/components/example/example-signature-signature-type-fr.svg" alt="La signature du gouvernement du Canada. La signature comprend l'unifolié rouge, suivi par le texte « Gouvernement du Canada / Government of Canada »" />
 
 ### Type de mot-symbole
 
@@ -49,13 +58,4 @@ Insérez le **mot-symbole** dans le coin inférieur droit du pied de page pour :
 - Accompagner la signature ou toute autre signature organisationnelle approuvée du gouvernement du Canada sur les sites et produits internes et destinés au public;
 - Afficher ce symbole officiel qui est l'identificateur mondial du gouvernement du Canada.
 
-<img class="b-sm b-default mt-300 mb-225 p-300" src="/images/fr/components/example/example-signature-wordmark-type-fr.svg" alt="Le mot-symbole « Canada ». Le mot-symbole comprend le mot « Canada » avec l'unifolié rouge juste au-dessus de la dernière lettre « a »." />
-
-<article class="bg-full-width bg-primary text-light pt-600 pb-300 my-600">
-  <h2 class="mt-0 mb-300">Composants connexes</h2>
-
-<a href="{{ links.header }}" class="link-light">En-tête :</a> utilisé pour le placement de l'en-tête portant l'image de marque du gouvernement du Canada;
-
-<a href="{{ links.footer }}" class="link-light">Pied de page :</a> for placing the Government of Canada branded footer landmark.
-
-</article>
+<img class="b-sm b-default p-300" src="/images/fr/components/example/example-signature-wordmark-type-fr.svg" alt="Le mot-symbole « Canada ». Le mot-symbole comprend le mot « Canada » avec l'unifolié rouge juste au-dessus de la dernière lettre « a »." />

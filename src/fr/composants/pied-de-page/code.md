@@ -20,18 +20,18 @@ Choisissez l'affichage compact pour inclure :
 
 1. La bande de liens du pied de page et le mot-symbole du gouvernement du Canada.
 
-<img class="b-sm b-default mt-300 mb-600 p-300" src="/images/fr/components/example/example-footer-compact.svg" alt=""/>
+<img class="b-sm b-default mb-300 p-300" src="/images/fr/components/example/example-footer-compact.svg" alt=""/>
 
 Choisissez l'affichage complet si vous devez inclure :
 
 1. La bande principale avec une grande sélection de liens institutionnels du gouvernement du Canada;
 2. La bande de liens du pied de page et le mot-symbole du gouvernement du Canada.
 
-<img class="b-sm b-default mt-300 mb-600 p-300" src="/images/fr/components/example/example-footer-full.svg" alt=""/>
+<img class="b-sm b-default mb-300 p-300" src="/images/fr/components/example/example-footer-full.svg" alt=""/>
 
 Choisissez d'inclure la bande contextuelle pour ajouter jusqu'à trois liens de pied de page pour votre produit.
 
-<img class="b-sm b-default mt-300 mb-600 p-300" src="/images/fr/components/example/example-footer-full-with-contextual-links.svg" alt=""/>
+<img class="b-sm b-default mb-300 p-300" src="/images/fr/components/example/example-footer-full-with-contextual-links.svg" alt=""/>
 
 ### Inclure la bande de liens du pied de page pour les sites et produits du gouvernement du Canada
 

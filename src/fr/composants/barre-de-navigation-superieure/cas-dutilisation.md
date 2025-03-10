@@ -29,7 +29,7 @@ La barre de navigation supérieure permet aux visiteur·se·s d'avoir une idée 
 - Signaler la page active et la localisation actuelle de la personne sur le site.
 
 <article class="bg-full-width bg-primary text-light pt-600 pb-300 my-600">
-  <h2 class="mt-0 mb-300">Composants connexes</h2>
+  <h2 class="mt-0">Composants connexes</h2>
 
 <a href="{{ links.sideNav }}" class="link-light">Barre de navigation latérale</a> : pour les produits avec jusqu'à trois niveaux de navigation, lorsque le contenu principal correspond à une largeur de page étroite.
 

@@ -28,7 +28,7 @@ Use a fieldset to group together related form elements or components so they're 
 - Logically grouping form elements or components helps support understanding and usability.
 
 <article class="bg-full-width bg-primary text-light pt-600 pb-300 my-600">
-  <h2 class="mt-0 mb-300">Related components</h2>
+  <h2 class="mt-0">Related components</h2>
 
 <a href="{{ links.input }}" class="link-light">Inputs</a> or <a href="{{ links.textarea }}" class="link-light">text areas</a> when you are requesting a written response from a person.
 
