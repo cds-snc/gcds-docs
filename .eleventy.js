@@ -8,6 +8,7 @@ const svgContents = require('eleventy-plugin-svg-contents');
 const codeClipboard = require('eleventy-plugin-code-clipboard');
 const { getLatestCdnVersion } = require('./utils/cdn-info');
 const { DateTime } = require('luxon');
+require('dotenv').config();
 
 const contextMenu = require('./utils/context-menu');
 const displayTokens = require('./utils/display-tokens');
@@ -52,9 +53,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPlugin(codeClipboard);
   eleventyConfig.addPlugin(sitemap, {
     sitemap: {
-      hostname: process.env.GITHUB_ORG
-        ? `https://${process.env.GITHUB_ORG}.github.io/${process.env.PATH_PREFIX}`
-        : 'http://localhost:8080',
+      hostname: process.env.DOMAIN || 'http://localhost:8080',
     },
   });
 
