@@ -4,6 +4,7 @@ layout: 'layouts/component-documentation.njk'
 translationKey: 'gridCode'
 tags: ['gridFR', 'code']
 date: 'git Last Modified'
+templateEngineOverride: njk,md
 ---
 
 ## Créer une grille
@@ -73,13 +74,12 @@ Mobile
   </gcds-grid>
 </div>
 
-{% viewCode "fr" "preview-grid-flexible" "gcds-grid" %}
-<gcds-grid tag="article" columns-desktop="1fr 1fr 1fr" columns-tablet="1fr 1fr" columns="1fr">
-
-<p>Ceci est un exemple de contenu pour illustrer le composant Grille.</p>
-<p>Ceci est un exemple de contenu pour illustrer le composant Grille.</p>
-<p>Ceci est un exemple de contenu pour illustrer le composant Grille.</p>
-</gcds-grid>
+{% viewCode 'fr', 'preview-grid-flexible', 'gcds-grid' %}
+  <gcds-grid tag="article" columns-desktop="1fr 1fr 1fr" columns-tablet="1fr 1fr" columns="1fr">
+    <p>Ceci est un exemple de contenu pour illustrer le composant Grille.</p>
+    <p>Ceci est un exemple de contenu pour illustrer le composant Grille.</p>
+    <p>Ceci est un exemple de contenu pour illustrer le composant Grille.</p>
+  </gcds-grid>
 {% endviewCode %}
 
 Définissez la largeur minimale et la largeur maximale pour concevoir des colonnes de largeur égale afin de limiter la largeur des colonnes sur n'importe quelle taille d'écran.
@@ -123,13 +123,12 @@ Mobile
   </div>
 </div>
 
-{% viewCode "fr" "preview-grid-fixed-width" "gcds-grid" %}
-<gcds-grid tag="article" columns="repeat(auto-fit, minmax(100px, 300px))">
-
-<p>Ceci est un exemple de contenu pour illustrer le composant Grille.</p>
-<p>Ceci est un exemple de contenu pour illustrer le composant Grille.</p>
-<p>Ceci est un exemple de contenu pour illustrer le composant Grille.</p>
-</gcds-grid>
+{% viewCode 'fr', 'preview-grid-fixed-width', 'gcds-grid' %}
+  <gcds-grid tag="article" columns="repeat(auto-fit, minmax(100px, 300px))">
+    <p>Ceci est un exemple de contenu pour illustrer le composant Grille.</p>
+    <p>Ceci est un exemple de contenu pour illustrer le composant Grille.</p>
+    <p>Ceci est un exemple de contenu pour illustrer le composant Grille.</p>
+  </gcds-grid>
 {% endviewCode %}
 
 {% include "partials/getcode.njk" %}
