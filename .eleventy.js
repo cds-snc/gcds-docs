@@ -8,7 +8,6 @@ const svgContents = require('eleventy-plugin-svg-contents');
 const codeClipboard = require('eleventy-plugin-code-clipboard');
 const { getLatestCdnVersion } = require('./utils/cdn-info');
 const { DateTime } = require('luxon');
-require('dotenv').config();
 
 const contextMenu = require('./utils/context-menu');
 const displayTokens = require('./utils/display-tokens');
