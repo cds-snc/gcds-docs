@@ -54,9 +54,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPlugin(codeClipboard);
   eleventyConfig.addPlugin(sitemap, {
     sitemap: {
-      hostname: process.env.GITHUB_ORG
-        ? `https://${process.env.GITHUB_ORG}.github.io/${process.env.PATH_PREFIX}`
-        : 'http://localhost:8080',
+      hostname: process.env.DOMAIN || 'http://localhost:8080',
     },
   });
 
