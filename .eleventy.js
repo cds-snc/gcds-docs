@@ -31,7 +31,9 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy('./src/scripts/search.js');
   eleventyConfig.addPassthroughCopy('./src/scripts/code-copy.js');
   eleventyConfig.addPassthroughCopy('./src/scripts/component-preview.js');
-  eleventyConfig.addPassthroughCopy('./src/scripts/component-preview-iframe.js');
+  eleventyConfig.addPassthroughCopy(
+    './src/scripts/component-preview-iframe.js',
+  );
   eleventyConfig.addPassthroughCopy('./src/favicon.ico');
   eleventyConfig.addPassthroughCopy({ './src/variables/': 'variables' });
   eleventyConfig.addPassthroughCopy({
@@ -338,7 +340,7 @@ module.exports = function (eleventyConfig) {
         fr: {
           enDemo: 'Démo en anglais',
           frDemo: 'Démo en français',
-          timezone: 'heure de l\'Est',
+          timezone: "heure de l'Est",
           nodates: 'Aucune date à venir.',
         },
       };
@@ -357,24 +359,36 @@ module.exports = function (eleventyConfig) {
           ${demoDates
             .map(date => {
               if (validDates.includes(date.date)) {
-                const options = {
+                const dateOptions = {
                   weekday: 'long',
                   year: 'numeric',
                   month: 'long',
                   day: 'numeric',
                   timeZone: 'UTC',
                 };
-                const prnDt = new Date(date.date).toLocaleString(
-                  locale,
-                  options,
+
+                const timeOptionsEN = {
+                  hour: 'numeric',
+                  minute: '2-digit',
+                  hour12: true,
+                };
+
+                const timeOptionsFR = {
+                  hour: 'numeric',
+                  hour12: false,
+                };
+
+                const startDateTime = new Date(
+                  `${date.date}T${date.starttime}`,
                 );
+                const endDateTime = new Date(`${date.date}T${date.endtime}`);
 
                 const datelink = `<gcds-link external href="${date.link}">${date.lang === 'en' ? langStrings[locale].enDemo : langStrings[locale].frDemo}</gcds-link>`;
                 const time = `<time>
                   ${
                     locale === 'en'
-                      ? `${prnDt}, ${convertTime(date.starttime)} – ${convertTime(date.endtime)} ${langStrings[locale].timezone}`
-                      : `${prnDt}, de ${date.starttime.replace(':', 'h')} à ${date.endtime.replace(':', 'h')} ${langStrings[locale].timezone}`
+                      ? `${formatDateTime(startDateTime, locale, dateOptions)}, ${formatDateTime(startDateTime, locale, timeOptionsEN)} – ${formatDateTime(endDateTime, locale, timeOptionsEN)} ${langStrings[locale].timezone}`
+                      : `${formatDateTime(startDateTime, locale, dateOptions)}, de ${formatDateTime(startDateTime, locale, timeOptionsFR)} à ${formatDateTime(endDateTime, locale, timeOptionsFR)} ${langStrings[locale].timezone}`
                   }
                 </time>`;
 
@@ -391,15 +405,15 @@ module.exports = function (eleventyConfig) {
   );
 
   /*
-   * Convert 24 hour time to 12 hour time
+   * Returns a formatted date or time based on locale and a set of options
    */
-  const convertTime = time => {
-    return new Date('1970-01-01T' + time + 'Z').toLocaleTimeString('en-US', {
-      timeZone: 'UTC',
-      hour12: true,
-      hour: 'numeric',
-      minute: 'numeric',
-    });
+  const formatDateTime = (date, locale, options) => {
+    if (date instanceof Date) {
+      return date.toLocaleString(locale, options);
+    } else {
+      // Fallback if date could be converted to a Date object
+      return new Date(date).toLocaleString(locale, options);
+    }
   };
 
   /*
