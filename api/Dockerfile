@@ -1,4 +1,4 @@
-FROM public.ecr.aws/docker/library/node:20-slim@sha256:5da391c4b0398f37074b6370dd9e32cebd322c2a227053ca4ae2e7a257f0be21
+FROM public.ecr.aws/docker/library/node:20-slim@sha256:b67593eceab42b0cb8336abd6fd6fd164b5c75c62777d7c67d2ed17d06d1784d
 COPY --from=public.ecr.aws/awsguru/aws-lambda-adapter:0.8.4@sha256:e2653f741cd15851ba4f13f3cc47d29f2d14377c7d11737bfa272baa1b569007 /lambda-adapter /opt/extensions/lambda-adapter
 
 EXPOSE 8080
