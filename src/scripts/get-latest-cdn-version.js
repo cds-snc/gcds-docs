@@ -1,28 +1,4 @@
-<div id="step-2-cdn" class="pb-300 step-2-content">
-  <h2>{{ installation[locale].step2.heading }}</h2>
-  <p>{{ installation[locale].step2.cdn.paragraph }}</p>
-
-  <h3>{{ installation[locale].step2.cdn.heading }}</h3>
-  <p>{{ installation[locale].step2.cdn.version | safe }}</p>
-  <p>{{ installation[locale].step2.cdn.place | safe }}</p>
-
-{% highlight "html" %}
-<!-- Icons Font Awesome ({{ installation[locale].step2.cdn.icons }}) -->
-<link rel="stylesheet" href="{{ links.fontAwesome }}" crossorigin="anonymous">
-
-<!-- GC Design System -->
-<link rel="stylesheet" href="https://cdn.design-system.alpha.canada.ca/@cdssnc/gcds-components@||version||/dist/gcds/gcds.css">
-<script type="module" src="https://cdn.design-system.alpha.canada.ca/@cdssnc/gcds-components@||version||/dist/gcds/gcds.esm.js"></script>
-<script nomodule src="https://cdn.design-system.alpha.canada.ca/@cdssnc/gcds-components@||version||/dist/gcds/gcds.js"></script>
-{% endhighlight %}
-
-  <small>{{ installation[locale].step2.cdn.note | safe }}</small>
-
-  <h3>{{ installation[locale].step2.cdn.subheading | safe }}</h3>
-  <p>{{ installation[locale].step2.cdn.latest | safe }}</p>
-</div>
-
-<script>
+document.addEventListener('DOMContentLoaded', function () {
   async function getLatestCdnVersion() {
     const cdnLatestVersion = document.getElementById('cdn-latest-version');
     const cdnLatestVersionDate = document.getElementById('cdn-latest-version-date');
@@ -65,4 +41,4 @@
   }
 
   getLatestCdnVersion();
-</script>
+});
