@@ -33,7 +33,7 @@ Use links to:
 <article class="bg-full-width bg-primary text-light pt-600 pb-300 my-600">
   <h2 class="mt-0">Related components</h2>
 
-<a href="{{ links.button }}" class="link-light">Buttons</a> when a person modifies data, changes a state, or initiates a specific action.
+<a href="{{ links.button }}" class="link-light">Buttons</a> to emphasize an action.
 
 <a href="{{ links.details }}" class="link-light">Details</a> to provide a way to hide or show a section of content.
 

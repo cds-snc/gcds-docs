@@ -8,15 +8,24 @@ date: 'git Last Modified'
 
 ## Création d'un bouton
 
-Utilisez un bouton pour les actions importantes que peut initier une personne utilisant un produit.
+Utilisez un bouton pour lancer des actions importantes.
 
 ## Accessibilité et codage des boutons
 
-### Rendez vos boutons accessibles
+### Évaluez l’accessibilité visuelle
 
 - Vérifiez la visibilité de la bordure du bouton par rapport à la surface où vous le placez.
-- Explicitez clairement l'action correspondant au bouton grâce à un libellé court et spécifique dans un format d'appel à l'action, comme « Démarrer l'application » ou « Enregistrer une copie ».
-- Évitez de réutiliser le texte du libellé sur la même page ou d'utiliser des libellés qui se ressemblent beaucoup. Une personne parcourant les champs à l'aide d'une technologie d'assistance entendra le texte de l'étiquette en succession rapide et n'aura pas d'indication pour associer le bouton à son action.
+
+### Sélectionnez la bonne taille
+
+- Utilisez l’attribut petit bouton pour les actions lorsque l’espace est limité.
+
+Remarque : La hauteur des petits boutons est conforme au niveau AA de la norme WCAG, mais pas au niveau AAA.
+
+### Utilisez le bouton désactivé avec discernement
+
+- Utilisez le bouton désactivé de façon judicieuse afin d’indiquer qu’il faut faire quelque chose avant qu’une action puisse être prise.
+- Là où c’est possible, utilisez d’autres méthodes d’intervention comme un message d’erreur pour empêcher la soumission de formulaires incomplets.
 
 {% include "partials/getcode.njk" %}
 

@@ -8,15 +8,24 @@ date: 'git Last Modified'
 
 ## Build a button
 
-Use a button for important actions a person using a product can initiate.
+Use a button to initiate important actions.
 
 ## Coding and accessibility for buttons
 
-### Make your buttons accessible
+### Check for visual accessibility
 
 - Check the button border's visibility against the surface where you're placing it.
-- Make the button's action obvious with a short, specific label in a call to action format, like "Start application" or "Save a copy".
-- Avoid re-using label text on the same page or using labels that sound a lot alike. A person browsing buttons with assistive technology will hear the label text repeated in rapid succession without cues to tell which button's for which action.
+
+### Select the right size
+
+- Use the small button attribute for actions when space is limited.
+
+Note: The height of small buttons is WCAG AA compliant, but not AAA compliant.
+
+### Use disabled button sparingly
+
+- Use the disabled button sparingly when something needs to be done before an action can be initiated.
+- Where possible, use other interventions like an error message to block incomplete form submissions.
 
 {% include "partials/getcode.njk" %}
 
