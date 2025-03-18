@@ -99,7 +99,7 @@ The button role changes the styling of a button to visually signal its action. P
     <h3>Start button</h3>
     <p><em>Formerly called supertask button.</em></p>
     <ul class="list-disc mb-300">
-      <li>The start of a task or flow.</li>mt-500
+      <li>The start of a task or flow.</li>
       <li>Bigger than other buttons, so use by itself and not beside other buttons.</li>
       <li>Only use once on a page.</li>
     </ul>
