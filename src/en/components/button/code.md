@@ -14,11 +14,11 @@ Use a button to initiate important actions.
 
 ### Check for visual accessibility
 
-- Check the button border's visibility against the surface where you're placing it.
+Check the button border's visibility against the surface where you're placing it.
 
 ### Select the right size
 
-- Use the small button attribute for actions when space is limited.
+Use the small button attribute for actions when space is limited.
 
 Note: The height of small buttons is WCAG AA compliant, but not AAA compliant.
 

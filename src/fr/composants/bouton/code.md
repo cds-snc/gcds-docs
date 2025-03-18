@@ -14,11 +14,11 @@ Utilisez un bouton pour lancer des actions importantes.
 
 ### Évaluez l’accessibilité visuelle
 
-- Vérifiez la visibilité de la bordure du bouton par rapport à la surface où vous le placez.
+Vérifiez la visibilité de la bordure du bouton par rapport à la surface où vous le placez.
 
 ### Sélectionnez la bonne taille
 
-- Utilisez l’attribut petit bouton pour les actions lorsque l’espace est limité.
+Utilisez l’attribut petit bouton pour les actions lorsque l’espace est limité.
 
 Remarque : La hauteur des petits boutons est conforme au niveau AA de la norme WCAG, mais pas au niveau AAA.
 

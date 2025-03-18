@@ -54,7 +54,7 @@ Utilisez le type « Soumission » lorsque vous vous attendez à ce qu'une pers
 
 - Envoie une formulaire ou une requête.
 - Enregistre des renseignements;
-- se connecte ou se déconnecte d'un compte.
+- Se connecte ou se déconnecte d'un compte.
 
 ### Type « Réinitialisation »
 
@@ -66,7 +66,7 @@ Utilisez le type « Réinitialisation » lorsque vous vous attendez à ce qu'un
 
 Utilisez le type « Lien » lorsque vous vous attendez à ce qu'une personne :
 
-- se dirige vers d'autres pages ou sites externes.
+- Se dirige vers d'autres pages ou sites externes.
 
 Remarque : Utilisez le [composant lien]({{ links.link }}) pour intégrer un lien dans le texte d'un paragraphe ou d'une barre de navigation.
 
@@ -85,7 +85,7 @@ Le rôle du bouton change son apparence afin de signaler visuellement l'action q
       <li>Actions cruciales au sein d'un processus ou en tant que bouton par défaut.</li>
       <li>Utiliser une seule fois par page.</li>
     </ul>
-    <p>Conseil : La présence de plus d'un bouton principal d'action sur une même page fait en sorte qu'il est plus difficile pour une personne de savoir ce qu'elle doit faire ensuite. </p>
+    <p>Conseil : La présence de plus d'un bouton principal d'action sur une même page fait en sorte qu'il est plus difficile pour une personne de savoir ce qu'elle doit faire ensuite.</p>
   </div>
 </gcds-grid>
 <br/>
@@ -101,7 +101,7 @@ Le rôle du bouton change son apparence afin de signaler visuellement l'action q
       <li>Plus grand que les autres boutons; donc à utiliser seul et non à côté d'autres boutons.</li>
       <li>À utiliser une seule fois sur une page.</li>
     </ul>
-    <p>Conseil : La présence de plus d'un bouton principal d'action sur une même page fait en sorte qu'il est plus difficile pour une personne de savoir ce qu'elle doit faire ensuite. </p>
+    <p>Conseil : La présence de plus d'un bouton principal d'action sur une même page fait en sorte qu'il est plus difficile pour une personne de savoir ce qu'elle doit faire ensuite.</p>
   </div>
 </gcds-grid>
 <br/>
