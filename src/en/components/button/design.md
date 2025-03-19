@@ -9,7 +9,7 @@ date: 'git Last Modified'
 ## Button anatomy
 
 <ol class="anatomy-list">
-  <li>The <strong>container</strong> gives the button its visually prominence.</li>
+  <li>The <strong>container</strong> gives the button its visual prominence.</li>
   <li>The <strong>label</strong> states the action that’ll happen when someone interacts with the button. Text is in sentence case, where only the first letter is capitalized.</li>
 </ol>
 
