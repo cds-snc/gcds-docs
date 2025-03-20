@@ -7,7 +7,7 @@ eleventyNavigation:
   locale: fr
   parent: componentsFR
   otherNames: appel à l'action.
-  description: Un objet interactif mettant l'accent sur une action..
+  description: Un objet interactif mettant l'accent sur une action.
   thumbnail: /images/common/components/preview-button.svg
   alt: Une boîte bleu foncé renfermant une épaisse ligne blanche représente un bouton et son libellé.
   state: published
