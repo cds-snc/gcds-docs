@@ -9,24 +9,24 @@ date: 'git Last Modified'
 ## Structure du bouton
 
 <ol class="anatomy-list">
-  <li>La <strong>boîte</strong> met le bouton en évidence sur le plan visuel.</li>
-  <li>Le <strong>libellé</strong> indique l'action qui s'effectuera si quelqu'un interagit avec le bouton. En français, le texte est en minuscules (il n'y a que la lettre initiale qui est en majuscule).</li>
+  <li>Le <strong>conteneur</strong> donne au bouton son poids visuel</li>
+  <li>Le <strong>libellé</strong> indique l’action qui se produira en interagissant avec le bouton. Le texte est en minuscules, seule la lettre initiale est en majuscule.</li>
 </ol>
 
-<img class="b-sm b-default p-300" src="/images/fr/components/anatomy/gcds-button-anatomy.svg" alt="L'anatomie d'un bouton identifiant l'étiquette, le conteneur et l'icone qui forme le composant." />
+<img class="b-sm b-default p-300" src="/images/fr/components/anatomy/gcds-button-anatomy.svg" alt="Structure du bouton - Un libellé indique « libellé de bouton » à l'intérieur d'un conteneur bleu." />
 
 ## Accessibilité et design des boutons
 
 ### Assurez-vous que le bouton est repérable
 
-- Placez les boutons de manière uniforme.
-- Offrez aux utilisateur·rice·s l'option de passer rapidement à l'action suivante afin d'éviter les défilements, les tabulations ou les saisies inutiles.
+- Limitez le nombre de boutons par page. N’employez des boutons que pour les actions les plus importantes.
+- Placez-les de manière régulière et prévisible.
+- Évitez de faire défiler, tabuler ou taper inutilement les gens en indiquant le plus tôt possible le parcours vers la prochaine action.
 - Vérifiez la visibilité de la bordure du bouton par rapport à la surface où vous le placez.
-- Limitez le nombre de boutons sur une page donnée. Utilisez-les seulement pour les actions les plus importantes.
 
 ### Écrivez un libellé de bouton court, spécifique et descriptif
 
-- Veillez à la visibilité du texte du libellé en indiquant l'action spécifique au bouton en un minimum de mots, le tout, en minuscules.
-- Explicitez clairement l'action correspondant au bouton grâce à un libellé court et spécifique dans un format d'appel à l'action, comme « Démarrer l'application » ou « Enregistrer une copie ».
-- Évitez de réutiliser le texte du libellé sur la même page ou d'utiliser des libellés qui se ressemblent beaucoup. Une personne une technologie d'assistance entendra le texte de l'étiquette en succession rapide et n'aura pas d'indication pour associer le bouton à son action.
-- Évitez d'employer des phrases verbales ou des expressions verbales inconnues aux locuteur·rice·s qui ne parlent pas couramment le français.
+- Rendez l’action du bouton évidente avec un libellé court et précis qui contient un verbe, ou un verbe et un nom, comme « Soumettre » ou « Obtenir une estimation ».
+- Utilisez la majuscule initiale.
+- Rédigez un texte d’accompagnement unique et précis afin d’éviter la répétition pour les lecteurs d’écran.
+- Utilisez des phrases littérales. Évitez d’employer des expressions verbales qui risquent d’être mal comprises par des locuteur·rice·s qui ne parlent pas couramment le français.

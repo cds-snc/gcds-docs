@@ -6,6 +6,7 @@ eleventyExcludeFromCollections: true
 templateEngineOverride: njk
 ---
 
+<gcds-button class="me-300" button-role="start">Début</gcds-button>
 <gcds-button class="me-300" button-role="primary">Soumettre</gcds-button>
 <gcds-button class="me-300" button-role="secondary">Annuler</gcds-button>
 <gcds-button class="me-300" button-role="danger">Supprimer</gcds-button>
