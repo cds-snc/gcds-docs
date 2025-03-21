@@ -95,7 +95,7 @@ Le rôle du bouton change son apparence afin de signaler visuellement l'action q
   {% endcomponentPreview %}
   <div>
     <h3 class="mt-0">Bouton principal</h3>
-    <p><i>Anciennement le « bouton de super-tâche ».</i></p>
+    <p>Anciennement le « bouton de super-tâche ».</p>
     <ul class="list-disc mb-300">
       <li>Le début d'une tâche ou d'un flux de travail. </li>
       <li>Plus grand que les autres boutons; donc à utiliser seul et non à côté d'autres boutons.</li>
