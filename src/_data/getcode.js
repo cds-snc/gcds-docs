@@ -8,7 +8,7 @@ module.exports = {
       '2. Get the code and pull it into your environment.',
       '3. Add any copy you need to the component (like text for a label).',
     ],
-    note: '**Note:** Following standard practice, the code builder uses English for all code elements.',
+    note: '**Note:** The code builder uses English for all code elements, which follows standard practice.',
   },
   fr: {
     heading: 'Obtenez votre code',

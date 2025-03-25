@@ -33,7 +33,7 @@ Utilisez des liens pour :
 <article class="bg-full-width bg-primary text-light pt-600 pb-300 my-600">
   <h2 class="mt-0">Composants connexes</h2>
 
-<a href="{{ links.button }}" class="link-light">Boutons</a> : pour modifier des données, changer d'état ou lancer une action spécifique.
+<a href="{{ links.button }}" class="link-light">Boutons</a> lorsque vous cherchez à mettre l’accent sur une action..
 
 <a href="{{ links.details }}" class="link-light">Détails</a> : lorsque vous cherchez à masquer ou afficher une section de contenu.
 

@@ -10,7 +10,7 @@ tags: ['buttonEN', 'header']
 
 _Also called: call to action, CTA._
 
-The button is an interactive object that highlights an important or common action.
+The button is an interactive object that emphasizes an action.
 
 {% docLinks locale stage figma github %}
 {% enddocLinks %}
