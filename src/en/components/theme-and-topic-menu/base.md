@@ -14,5 +14,5 @@ The theme and topic menu is a navigation to the top tasks of Government of Canad
 {% docLinks locale stage figma github %}
 {% enddocLinks %}
 
-{% baseComponentPreview "Theme and topic menu component preview" page.filePathStem %}
+{% baseComponentPreview "Theme and topic menu component preview" page.filePathStem "?externalLinks=true" %}
 {% endbaseComponentPreview %}

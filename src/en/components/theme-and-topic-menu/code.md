@@ -22,7 +22,7 @@ Add the theme and topic menu directly to the <gcds-link href="{{ links.header }}
 
 <iframe
   title="Overview of gcds-topic-menu properties and events."
-  src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&demo=true&singleStory=true&id=components-theme-and-topic-menu--events-properties&lang=en"
+  src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&demo=true&singleStory=true&id=components-theme-and-topic-menu--events-properties&lang=en&externalLinks=true"
   width="1200"
   height="1850"
   style="display: block; margin: 0 auto;"
