@@ -99,4 +99,16 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }, 100);
   }
+
+  // Logic to prevent only the iframe navigating with components that provide external links
+const url = new URLSearchParams(window.location.search);
+
+if (url.get('externalLinks')) {
+  document.addEventListener('gcdsClick', (ev) => {
+    if (ev.detail && ev.detail.includes('https://')) {
+      ev.preventDefault();
+      top.window.location.href = ev.detail;
+    }
+  });
+}
 });

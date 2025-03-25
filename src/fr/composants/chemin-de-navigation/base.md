@@ -15,5 +15,5 @@ Un chemin d'accès à la page actuelle à partir de chaque niveau précédent de
 {% docLinks locale stage figma github %}
 {% enddocLinks %}
 
-{% baseComponentPreview "Aperçu du composant de chemin de navigation" page.filePathStem %}
+{% baseComponentPreview "Aperçu du composant de chemin de navigation" page.filePathStem "?externalLinks=true" %}
 {% endbaseComponentPreview %}
