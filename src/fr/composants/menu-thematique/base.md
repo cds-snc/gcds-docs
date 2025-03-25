@@ -14,5 +14,5 @@ Le menu thématique est un mécanisme de navigation vers les tâches les plus im
 {% docLinks locale stage figma github %}
 {% enddocLinks %}
 
-{% baseComponentPreview "Aperçu du composant de menu thématique" page.filePathStem %}
+{% baseComponentPreview "Aperçu du composant de menu thématique" page.filePathStem "?externalLinks=true" %}
 {% endbaseComponentPreview %}
