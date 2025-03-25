@@ -13,7 +13,7 @@ export declare class GcdsButton {
     /**
      * Set the main style
      */
-    buttonRole: 'primary' | 'secondary' | 'danger';
+    buttonRole: 'start' | 'primary' | 'secondary' | 'danger';
     validateButtonRole(newValue: string): void;
     /**
      * Set the button size

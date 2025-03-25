@@ -1182,7 +1182,7 @@
   
     <h1 id="bouton-brgcdsbutton">Bouton <br><code>&lt;gcds-button&gt;</code></h1>
 <p><em>Autres noms : appel à l’action.</em></p>
-<p>Le bouton est un composant interactif qui met en évidence une action importante ou commune.</p>
+<p>Un bouton est un objet interactif qui met l’accent sur une action.</p>
 <p><ul class="d-flex flex-wrap gap-300">
 <li class="github-link">
 <gcds-link external href="https://github.com/cds-snc/gcds-components/tree/main/packages/web/src/components/gcds-button">GitHub</gcds-link>
@@ -1245,12 +1245,16 @@ Aperçu du composant de bouton
   
 
   <h2 id="creation-dun-bouton">Création d'un bouton</h2>
-<p>Utilisez un bouton pour les actions importantes que peut initier une personne utilisant un produit.</p>
+<p>Utilisez un bouton pour lancer des actions importantes.</p>
 <h2 id="accessibilite-et-codage-des-boutons">Accessibilité et codage des boutons</h2>
-<h3 id="rendez-vos-boutons-accessibles">Rendez vos boutons accessibles</h3>
-<ul class="list-disc mb-300"><li>Vérifiez la visibilité de la bordure du bouton par rapport à la surface où vous le placez.</li>
-<li>Explicitez clairement l'action correspondant au bouton grâce à un libellé court et spécifique dans un format d'appel à l'action, comme « Démarrer l'application » ou « Enregistrer une copie ».</li>
-<li>Évitez de réutiliser le texte du libellé sur la même page ou d'utiliser des libellés qui se ressemblent beaucoup. Une personne parcourant les champs à l'aide d'une technologie d'assistance entendra le texte de l'étiquette en succession rapide et n'aura pas d'indication pour associer le bouton à son action.</li>
+<h3 id="evaluez-laccessibilite-visuelle">Évaluez l’accessibilité visuelle</h3>
+<p>Vérifiez la visibilité de la bordure du bouton par rapport à la surface où vous le placez.</p>
+<h3 id="selectionnez-la-bonne-taille">Sélectionnez la bonne taille</h3>
+<p>Utilisez l’attribut petit bouton pour les actions lorsque l’espace est limité.</p>
+<p>Remarque : La hauteur des petits boutons est conforme au niveau AA de la norme WCAG, mais pas au niveau AAA.</p>
+<h3 id="utilisez-le-bouton-desactive-avec-discernement">Utilisez le bouton désactivé avec discernement</h3>
+<ul class="list-disc mb-300"><li>Utilisez le bouton désactivé de façon judicieuse afin d’indiquer qu’il faut faire quelque chose avant qu’une action puisse être prise.</li>
+<li>Là où c’est possible, utilisez d’autres méthodes d’intervention comme un message d’erreur pour empêcher la soumission de formulaires incomplets.</li>
 </ul>
 <h3 id="obtenez-votre-code">Obtenez votre code</h3>
 <p>Générez une version du composant dont vous avez besoin en sélectionnant les propriétés de code correspondantes ou explorez les possibilités en choisissant différentes valeurs de code.</p>
@@ -1308,7 +1312,7 @@ Aperçu du composant de bouton
 
 
         <gcds-date-modified class="mb-300">
-          2025-03-20
+          2025-03-25
         </gcds-date-modified>
       </main>
 

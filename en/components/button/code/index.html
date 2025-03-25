@@ -1182,7 +1182,7 @@
   
     <h1 id="button-brgcdsbutton">Button <br><code>&lt;gcds-button&gt;</code></h1>
 <p><em>Also called: call to action, CTA.</em></p>
-<p>The button is an interactive object that highlights an important or common action.</p>
+<p>The button is an interactive object that emphasizes an action.</p>
 <p><ul class="d-flex flex-wrap gap-300">
 <li class="github-link">
 <gcds-link external href="https://github.com/cds-snc/gcds-components/tree/main/packages/web/src/components/gcds-button">GitHub</gcds-link>
@@ -1245,12 +1245,16 @@ Button component preview
   
 
   <h2 id="build-a-button">Build a button</h2>
-<p>Use a button for important actions a person using a product can initiate.</p>
+<p>Use a button to initiate important actions.</p>
 <h2 id="coding-and-accessibility-for-buttons">Coding and accessibility for buttons</h2>
-<h3 id="make-your-buttons-accessible">Make your buttons accessible</h3>
-<ul class="list-disc mb-300"><li>Check the button border's visibility against the surface where you're placing it.</li>
-<li>Make the button's action obvious with a short, specific label in a call to action format, like &quot;Start application&quot; or &quot;Save a copy&quot;.</li>
-<li>Avoid re-using label text on the same page or using labels that sound a lot alike. A person browsing buttons with assistive technology will hear the label text repeated in rapid succession without cues to tell which button's for which action.</li>
+<h3 id="check-for-visual-accessibility">Check for visual accessibility</h3>
+<p>Check the button border's visibility against the surface where you're placing it.</p>
+<h3 id="select-the-right-size">Select the right size</h3>
+<p>Use the small button attribute for actions when space is limited.</p>
+<p>Note: The height of small buttons is WCAG AA compliant, but not AAA compliant.</p>
+<h3 id="use-disabled-button-sparingly">Use disabled button sparingly</h3>
+<ul class="list-disc mb-300"><li>Use the disabled button sparingly when something needs to be done before an action can be initiated.</li>
+<li>Where possible, use other interventions like an error message to block incomplete form submissions.</li>
 </ul>
 <h3 id="get-your-code">Get your code</h3>
 <p>Generate an instance of the component you need by selecting its code properties.</p>
@@ -1264,7 +1268,7 @@ Button component preview
 <p>Add any copy you need to the component (like text for a label).</p>
 </li>
 </ol>
-<p><strong>Note:</strong> Following standard practice, the code builder uses English for all code elements.</p>
+<p><strong>Note:</strong> The code builder uses English for all code elements, which follows standard practice.</p>
 <iframe
   title="Overview of gcds-button properties and events."
   src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&demo=true&singleStory=true&id=components-button--events-properties&lang=en"
@@ -1308,7 +1312,7 @@ Button component preview
 
 
         <gcds-date-modified class="mb-300">
-          2025-03-20
+          2025-03-25
         </gcds-date-modified>
       </main>
 

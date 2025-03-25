@@ -53,14 +53,17 @@ export class GcdsButton {
         }
     }
     validateButtonRole(newValue) {
-        const values = ['primary', 'secondary', 'danger'];
+        const values = ['start', 'primary', 'secondary', 'danger'];
         if (!values.includes(newValue)) {
             this.buttonRole = 'primary';
+        }
+        else if (newValue === 'start' && this.size === 'small') {
+            this.size = 'regular';
         }
     }
     validateSize(newValue) {
         const values = ['regular', 'small'];
-        if (!values.includes(newValue)) {
+        if (!values.includes(newValue) || this.buttonRole === 'start') {
             this.size = 'regular';
         }
     }
@@ -101,7 +104,7 @@ export class GcdsButton {
                 target,
                 download,
             };
-        return (h(Host, { key: '956926cbc6e721d3f0bf7cbecef1641cb2d73c35' }, h(Tag, Object.assign({ key: 'd95ca1ef288deea20301ffe0975ed0260f1fc4c2' }, attrs, { id: buttonId, onBlur: () => this.gcdsBlur.emit(), onFocus: () => this.gcdsFocus.emit(), onClick: e => !disabled && this.handleClick(e), class: `gcds-button button--role-${buttonRole} button--${size}`, ref: element => (this.shadowElement = element) }, inheritedAttributes, { part: "button" }), h("slot", { key: '5e8ad081fc6d94be991705613aa5e0cb2d8880e8' }), type === 'link' && target === '_blank' ? (h("gcds-icon", { name: "external-link", label: i18n[lang].label, "margin-left": "150" })) : null)));
+        return (h(Host, { key: 'e9202b1e4d820aa2e87d18f11488382be7966e47' }, h(Tag, Object.assign({ key: 'c6e31af06c5103d15b75b88517e326b749f3908b' }, attrs, { id: buttonId, onBlur: () => this.gcdsBlur.emit(), onFocus: () => this.gcdsFocus.emit(), onClick: e => !disabled && this.handleClick(e), class: `gcds-button button--role-${buttonRole} button--${size}`, ref: element => (this.shadowElement = element) }, inheritedAttributes, { part: "button" }), h("slot", { key: 'c30f8d29a50b34baa98a7f97fe06ee1e296339d0' }), type === 'link' && target === '_blank' ? (h("gcds-icon", { name: "external-link", label: i18n[lang].label, "margin-left": "150" })) : null)));
     }
     static get is() { return "gcds-button"; }
     static get encapsulation() { return "shadow"; }
@@ -140,8 +143,8 @@ export class GcdsButton {
                 "type": "string",
                 "mutable": true,
                 "complexType": {
-                    "original": "'primary' | 'secondary' | 'danger'",
-                    "resolved": "\"danger\" | \"primary\" | \"secondary\"",
+                    "original": "| 'start'\n    | 'primary'\n    | 'secondary'\n    | 'danger'",
+                    "resolved": "\"danger\" | \"primary\" | \"secondary\" | \"start\"",
                     "references": {}
                 },
                 "required": false,
