@@ -32,9 +32,8 @@ tokenTable:
     bg-primary: Couleur de surbrillance de l'arrière-plan. À utiliser avec du texte de nuance 100 ou plus clair (comme --gcds-text-light).
     bg-white: Couleur principale de l'arrière-plan. À utiliser avec du texte de nuance 700 ou plus foncé (comme --gcds-text-primary).
     border-default: Couleur par défaut pour les bordures et les icônes sur un arrière-plan blanc.
-    danger-background: La couleur de l'arrière-plan de danger pour accentuer une action destructrice ou un retour d'expérience critique en arrière-plan.
-    danger-border: La couleur de la bordure de danger sur blanc ou sur arrière-plans de danger pour accentuer une action destructrice ou un retour d'expérience critique.
-    danger-text: La couleur du texte de danger sur blanc ou arrière-plans de danger pour accentuer une action destructrice ou un retour d'expérience critique.
+    danger-default: Couleur de danger par défaut pour accentuer une action destructrice ou un retour d'expérience critique.
+    danger-hover: Couleur de danger pour les éléments interactifs en survol qui utilisent --gcds-danger-default à l'état normal.
     disabled-background: Couleur d'arrière-plan désactivé. Utiliser judicieusement pour un élément interactif désactivé.
     disabled-text: Couleur du texte désactivé. Utiliser judicieusement pour un élément interactif désactivé.
     focus-background: Couleur du texte ciblé, exclusivement pour les éléments interactifs ciblés.

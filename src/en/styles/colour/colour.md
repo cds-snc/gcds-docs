@@ -32,9 +32,8 @@ tokenTable:
     bg-primary: Highlight background colour. Use with a text shade of 100 or lighter (like --gcds-text-light).
     bg-white: Main background colour. Use with a text shade of 700 or darker (like --gcds-text-primary).
     border-default: Default border colour for borders and icons on a white background.
-    danger-background: Danger background colour for background emphasis on a destructive action or critical feedback.
-    danger-border: Danger border colour for borders on white or danger backgrounds for emphasis on a destructive action or critical feedback.
-    danger-text: Danger text colour for white or danger backgrounds for emphasis on a destructive action or critical feedback.
+    danger-default: Danger default colour for emphasis on a destructive action or critical feedback.
+    danger-hover: Danger colour for hover on interactive elements that use --gcds-danger-default for their rest state.
     disabled-background: Disabled background colour. Use sparingly for a disabled interactive element.
     disabled-text: Disabled text colour. Use sparingly for a disabled interactive element.
     focus-background: Focus background colour, exclusively for focus on an interactive element.
