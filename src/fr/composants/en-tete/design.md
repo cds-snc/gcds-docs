@@ -38,24 +38,24 @@ Voici les éléments requis pour l'en-tête sur les sites du GC.
 </ul>
 
 <gcds-details details-title="Éléments requis sur une page standard ou de campagne de Canada.ca" class="mb-300">
-  <p>Assurez-vous de toujours inclure les éléments suivants dans l'en-tête d'une page standard ou de campagne et de maintenir les paramètres par défaut. </p>
+  <p>Assurez-vous de toujours inclure les éléments suivants dans l'en-tête d'une page standard ou de campagne et de maintenir les paramètres par défaut.</p>
 
   <ul class="check-list mb-300">
-    <li>Signature qui renvoie à Canada.ca.<li>
-    <li>Bascule de langue.<li>
+    <li>Signature qui renvoie à Canada.ca.</li>
+    <li>Bascule de langue.</li>
     <li>Recherche.</li>
     <li>Chemin de navigation qui renvoie à Canada.ca depuis le premier lien.</li>
-    <li>Lien passer au contenu.<li>
-    <li>Ligne séparatrice.<li>
+    <li>Lien passer au contenu.</li>
+    <li>Ligne séparatrice.</li>
   </ul>
 
-  <p><strong>Remarque</strong> : Par exception pour les anciennes applications, la bascule de langue peut être omise si elle entraîne une action destructive (perte de données lorsque la langue est changée).  </p>
+  <p><strong>Remarque</strong> : Par exception pour les anciennes applications, la bascule de langue peut être omise si elle entraîne une action destructive (perte de données lorsque la langue est changée).</p>
 </gcds-details>
 
 <gcds-details details-title="Éléments facultatifs sur une page standard ou de campagne de Canada.ca" class="mb-300">
   <p>Vous pouvez choisir d'inclure :</p>
   <ul class="list-disc mb-300">
-    <li>Un formulaire de recherche approuvé propre à un programme ou à un organisme plutôt que le formulaire de recherche global.  </li>
+    <li>Un formulaire de recherche approuvé propre à un programme ou à un organisme plutôt que le formulaire de recherche global.</li>
     <li>Bouton « Se connecter ».</li>
     <li>Barre de navigation supérieure.</li>
   </ul>

@@ -31,22 +31,22 @@ GC Design System components are designed to adapt to the size of the screen or f
 Here's what's required for the header on GC sites.
 
 <ul class="check-list mb-300">
-  <li><a href="{{ links.signature }}">Signature.</a><li>
-  <li><a href="{{ links.langToggle }}">Language toggle.</a><li>
-  <li>Skip-to-content <a href="{{ links.link }}">link.</a><li>
-  <li>Always preserve the integrity of the Government of Canada signature. Never modify it in any way, stretch it, or change the colours or text.<li>
+  <li><a href="{{ links.signature }}">Signature.</a></li>
+  <li><a href="{{ links.langToggle }}">Language toggle.</a></li>
+  <li>Skip-to-content <a href="{{ links.link }}">link.</a></li>
+  <li>Always preserve the integrity of the Government of Canada signature. Never modify it in any way, stretch it, or change the colours or text.</li>
 </ul>
 
 <gcds-details details-title="What's required on a Canada.ca standard or campaign page" class="mb-300">
   <p>Always include the following components in the header of a standard or campaign page and maintain the default settings.</p>
 
   <ul class="check-list mb-300">
-    <li>Signature that links to Canada.ca.<li>
-    <li>Language toggle.<li>
+    <li>Signature that links to Canada.ca.</li>
+    <li>Language toggle.</li>
     <li>Search.</li>
     <li>Breadcrumbs that link to Canada.ca from the first link.</li>
-    <li>Skip-to-content link.<li>
-    <li>Divider line.<li>
+    <li>Skip-to-content link.</li>
+    <li>Divider line.</li>
   </ul>
 
   <p><strong>Note</strong>: As an exception on legacy applications, the language toggle can be omitted if it results in a destructive action (a person loses their data when language is switched).</p>
