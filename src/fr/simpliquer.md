@@ -23,7 +23,7 @@ Nous testons actuellement la version alpha de Système de design GC, ce qui corr
   <gcds-card
     card-title="Recevez nos communications"
     href="{{ links.contact }}"
-    description="Abonnez-vous à notre infolettre pour manquer aucune communication de Système de design GC concernant les mises à jour, les lancements ou encore les évènements spéciaux."
+    description="Abonnez-vous à notre liste d'envoi pour manquer aucune communication de Système de design GC concernant les mises à jour, les lancements ou encore les évènements spéciaux."
   ></gcds-card>
   <gcds-card
     card-title="Participez à une demo"
