@@ -20,7 +20,7 @@ Les éléments d'en-tête sont requis pour les sites du GC, sauf indication cont
   <li>Le <strong>chemin de navigation</strong> trace un chemin de l'emplacement actuel vers chaque page de niveau supérieur dans la hiérarchie du site. Sur Canada.ca, le premier lien renvoie renvoie à la page d'accueil Canada.ca.</li>
 </ol>
 
-<img class="b-sm b-default p-300" src="/images/fr/components/anatomy/gcds-header-anatomy-recommended.svg" alt="L'anatomie des composants entête et menu du site identifiants le lien passer au contenu, et l'entête du gouvernement du Canada."/>
+<img class="b-sm b-default p-300" src="/images/fr/components/anatomy/gcds-header-anatomy-recommended.svg" alt="L'image de l'en-tête montre 7 éléments. La bannière de l'en-tête parcourt la largeur de l'en-tête et a un arrière-plan blanc 1. À gauche, la signature contient le drapeau du Canada avec Gouvernement du Canada en anglais et en français à sa droite. 2. Au centre au fait de l'en-tête, le lien passer au contenu est en état ciblé visible avec un rectangle bleu bordé de double lignée blanche, marqué  « passer au contenu ». 3. La bascule de langue avec un lien et le texte  “English” aligné à droite 4. En dessous de la bascule de langue, la barre de recherche contient le texte de remplacement « Rechercher dans Canada.ca » dans le champ de saisie et une petite bouton à droite avec l'icône d'une loupe. 5. La ligne séparatrice en gris pâle parcourt la largeur de l'en-tête et ne se distingue pas visuellement de la navigation supérieure immédiatement en dessous. 6. La  navigation supérieure est une bannière en gris pâle qui parcourt la largeur de l'en-tête. À gauche  est marqué le Lien vers l'accueil en caractères gras et à droite se trouve 4 liens de navigation. Le premier, le plus à gauche, a une icône de chevron qui pointe vers le bas. 7. Le chemin de navigation est le dernier élément se figure en bas de l'en-tête à gauche. Canada.ca est le premier lien et le deuxième est marqué avec  « lien ». "/>
 
 ## Design et accessibilité de l'en-tête
 
@@ -38,7 +38,7 @@ Voici les éléments requis pour l'en-tête sur les sites du GC.
 </ul>
 
 <gcds-details details-title="Éléments requis sur une page standard ou de campagne de Canada.ca" class="mb-300">
-  <p>Assurez-vous de toujours inclure les éléments suivants dans l’en-tête d’une page standard ou de campagne et de maintenir les paramètres par défaut. </p>
+  <p>Assurez-vous de toujours inclure les éléments suivants dans l'en-tête d'une page standard ou de campagne et de maintenir les paramètres par défaut. </p>
 
   <ul class="check-list mb-300">
     <li>Signature qui renvoie à Canada.ca.<li>
@@ -53,7 +53,7 @@ Voici les éléments requis pour l'en-tête sur les sites du GC.
 </gcds-details>
 
 <gcds-details details-title="Éléments facultatifs sur une page standard ou de campagne de Canada.ca" class="mb-300">
-  <p>Vous pouvez choisir d’inclure :</p>
+  <p>Vous pouvez choisir d'inclure :</p>
   <ul class="list-disc mb-300">
     <li>Un formulaire de recherche approuvé propre à un programme ou à un organisme plutôt que le formulaire de recherche global.  </li>
     <li>Bouton « Se connecter ».</li>
@@ -61,12 +61,12 @@ Voici les éléments requis pour l'en-tête sur les sites du GC.
   </ul>
 </gcds-details>
 
-### Améliorer l’accessibilité de l’en-tête
+### Améliorer l'accessibilité de l'en-tête
 
-- Configurez un [lien]({{ links.link }}) `skip-to-content` comme raccourci pour les personnes utilisant une technologie d’assistance et améliorer la navigation au clavier. Le lien passe les éléments de navigation pour mener directement au contenu principal de la page.  
-- Évitez de placer d’autres éléments avant le lien « passer au contenu ». Il est plus facile à découvrir s’il s’agit du premier ou deuxième élément.
+- Configurez un [lien]({{ links.link }}) `skip-to-content` comme raccourci pour les personnes utilisant une technologie d'assistance et améliorer la navigation au clavier. Le lien passe les éléments de navigation pour mener directement au contenu principal de la page.  
+- Évitez de placer d'autres éléments avant le lien « passer au contenu ». Il est plus facile à découvrir s'il s'agit du premier ou deuxième élément.
 
-### Ajouter des éléments facultatifs à l’en-tête
+### Ajouter des éléments facultatifs à l'en-tête
 
-- Considérez utiliser la [barre de navigation supérieure]({{ links.topNav }}) pour les services et les sites Web qui ont besoin d’une navigation principale dédiée.  
+- Considérez utiliser la [barre de navigation supérieure]({{ links.topNav }}) pour les services et les sites Web qui ont besoin d'une navigation principale dédiée.  
 - Utilisez la barre de navigation supérieure sur les pages Canada.ca lorsque le service ou le produit est autonome et cible un public interne, comme Système de design GC.
