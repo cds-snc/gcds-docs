@@ -1,19 +1,19 @@
 // Utilities
-@import 'utilities/backgrounds';
+@use 'utilities/backgrounds';
 
 // Base
-@import 'typography';
-@import 'general';
+@use 'typography';
+@use 'general';
 
 // Components
-@import 'components/anatomy-list';
-@import 'components/code-showcase';
-@import 'components/copy-code';
-@import 'components/component-preview';
-@import 'components/component-preview-box';
-@import 'components/table';
-@import 'components/tabs';
+@use 'components/anatomy-list';
+@use 'components/code-showcase';
+@use 'components/copy-code';
+@use 'components/component-preview';
+@use 'components/component-preview-box';
+@use 'components/table';
+@use 'components/tabs';
 
 // Pages
-@import 'pages/home';
-@import 'pages/search';
+@use 'pages/home';
+@use 'pages/search';
