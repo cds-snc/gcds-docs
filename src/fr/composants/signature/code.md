@@ -29,7 +29,7 @@ Utilisez la signature dans <gcds-link href="{{ links.header }}">l'en-tête</gcds
 
 <iframe
   title="Survol des propriétés et des évènements relatifs à gcds-signature."
-  src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&demo=true&singleStory=true&id=components-signature--events-properties#events--properties&lang=fr"
+  src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&demo=true&singleStory=true&id=components-signature--events-properties&lang=fr"
   width="1200"
   height="1100"
   style="display: block; margin: 0 auto;"
