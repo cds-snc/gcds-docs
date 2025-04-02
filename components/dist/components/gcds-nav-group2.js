@@ -103,12 +103,12 @@ const GcdsNavGroup = /*@__PURE__*/ proxyCustomElement(class GcdsNavGroup extends
     }
     render() {
         const { closeTrigger, menuLabel, open, openTrigger } = this;
-        return (h(Host, { key: 'a8ccd5b9fe3fc863f028659e07c3b8daf1490bf6', role: "listitem", open: open }, h("button", { key: '634a03ec34f6375e79989e6a2a5161f5cc08e608', "aria-haspopup": "true", "aria-expanded": open.toString(), ref: element => (this.triggerElement = element), class: `gcds-nav-group__trigger gcds-trigger--${this.navStyle}`, onBlur: () => this.gcdsBlur.emit(), onFocus: () => this.gcdsFocus.emit(), onClick: e => {
+        return (h(Host, { key: 'a8ccd5b9fe3fc863f028659e07c3b8daf1490bf6', role: "listitem", open: open }, h("button", { key: '4ff6bd558a2b8e380130754fc1fc1cb4efc133cb', "aria-haspopup": "true", tabIndex: 0, "aria-expanded": open.toString(), ref: element => (this.triggerElement = element), class: `gcds-nav-group__trigger gcds-trigger--${this.navStyle}`, onBlur: () => this.gcdsBlur.emit(), onFocus: () => this.gcdsFocus.emit(), onClick: e => {
                 const event = emitEvent(e, this.gcdsClick);
                 if (event) {
                     this.toggleNav();
                 }
-            } }, h("gcds-icon", { key: 'f244c1963af50836c8f162be9ddecd7bde68b5eb', name: open ? 'angle-up' : 'angle-down' }), closeTrigger && open ? closeTrigger : openTrigger), h("ul", { key: '39a75c9589b30c34bc6763c66336ec91f0dc0835', "aria-label": menuLabel, class: `gcds-nav-group__list gcds-nav--${this.navStyle}` }, h("slot", { key: '0e0b5c1699600e032816cbe85ffa78dc342a88e8' }))));
+            } }, h("gcds-icon", { key: '60799d264b1b7c6a174a7749ebce1fda8f1ecb95', name: open ? 'angle-up' : 'angle-down' }), closeTrigger && open ? closeTrigger : openTrigger), h("ul", { key: '9c519c0f1bd73f6235ad59563b622a2648f93003', "aria-label": menuLabel, class: `gcds-nav-group__list gcds-nav--${this.navStyle}` }, h("slot", { key: 'fba583b1c76fefb73a8461302ee63615f17a7b50' }))));
     }
     get el() { return this; }
     static get style() { return GcdsNavGroupStyle0; }
