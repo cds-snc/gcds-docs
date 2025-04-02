@@ -15,5 +15,5 @@ Breadcrumbs is a path to the current page from each preceding level of the site'
 {% docLinks locale stage figma github %}
 {% enddocLinks %}
 
-{% baseComponentPreview "Breadcrumbs component preview" page.filePathStem %}
+{% baseComponentPreview "Breadcrumbs component preview" page.filePathStem "?externalLinks=true" %}
 {% endbaseComponentPreview %}
