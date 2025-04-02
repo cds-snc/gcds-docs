@@ -1,3 +1,4 @@
+// TODO: Remove font-face after icon update has been released
 @font-face {
   font-family: "gcds-icons";
   src: url("https://cdn.design-system.alpha.canada.ca/@cdssnc/gcds-fonts@0.2.2/icons/gcds-icons.eot");
@@ -12,19 +13,18 @@
   font-display: block;
 }
 
-.check-list {
-  > li {
-    position: relative;
-    max-width: 65ch;
-    counter-increment: item;
-    padding-inline-start: var(--gcds-spacing-300);
+.check-list > li {
+  position: relative;
+  max-width: var(--gcds-text-character-limit);
+  counter-increment: item;
+  padding-inline-start: var(--gcds-spacing-300);
 
-    &:before {
-      font-family: "gcds-icons" !important;
-      position: absolute;
-      left: 0;
-      display: inline-block;
-      content: "\e908";
-    }
+  &:before {
+    // TODO: Use icon family token once released
+    font-family: "gcds-icons" !important;
+    position: absolute;
+    left: 0;
+    display: inline-block;
+    content: "\e908";
   }
 }

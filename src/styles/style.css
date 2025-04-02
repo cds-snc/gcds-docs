@@ -167,7 +167,7 @@ ul li ul li {
 }
 .check-list > li {
   position: relative;
-  max-width: 65ch;
+  max-width: var(--gcds-text-character-limit);
   counter-increment: item;
   padding-inline-start: var(--gcds-spacing-300);
 }

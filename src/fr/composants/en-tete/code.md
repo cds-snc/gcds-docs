@@ -23,7 +23,7 @@ Les composants de Système de design du GC sont conçus pour s'adapter à la tai
 
 ### Inclure la bascule de langue sur tous les sites du GC
 
-- Ajoutez la bascule de langue en définissant l'attribut `lang-href`. L'attribut `lang-href` définit également l'élément « href » de la bascule de langue.
+- Ajoutez la [bascule de langue]({{ links.langToggle }}) en définissant l'attribut `lang-href`. L'attribut `lang-href` définit également l'élément « href » de la bascule de langue.
 - Utilisez l'attribut `lang` pour définir la langue du site; le bouton à bascule proposera l'autre langue officielle.  
 
 ### Configurer un lien « passer au contenu » (`skip-to-content`) pour améliorer l'accessibilité 
@@ -38,7 +38,7 @@ Les composants de Système de design du GC sont conçus pour s'adapter à la tai
 - Sur les pages de Canada.ca, conservez le paramètre par défaut de `hide-canada-link` à `false`.
 - Ajoutez le composant [chemin de navigation]({{ links.breadcrumbs }}) en passant un élément enfant avec l'attribut `slot="breadcrumb"`. Cela placera le chemin de navigation dans l'en-tête sous les emplacements de la bascule de langue, la signature et la recherche. 
 - Ajoutez un nouveau lien au chemin de navigation en utilisant le composant `gcds-breadcrumbs-item`. Le lien peut être ajouté à l'aide de la propriété `href`.
-- Ajoutez l'élément recherche en ajoutant `<gcds-search slot="search"></gcds-search>` ou en passant un élément enfant avec l'attribut `slot="search"`. Cela placera l'élément sous la bascule de langue et à côté de la signature dans l'en-tête. 
+- Ajoutez l'élément [recherche]({{ links.search }}) en ajoutant `<gcds-search slot="search"></gcds-search>` ou en passant un élément enfant avec l'attribut `slot="search"`. Cela placera l'élément sous la bascule de langue et à côté de la signature dans l'en-tête. 
 - Paramétrez la recherche de sorte à effectuer une recherche locale ou globale. Par défaut, le composant est configuré pour la recherche dans Canada.ca.
 
 ### Configurer une barre de navigation supérieure

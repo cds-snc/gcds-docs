@@ -35,6 +35,7 @@ Utilisez cet élément de repère d'en-tête et de marque pour les pages Canada.
   <h2 class="mt-0">Composants connexes</h2>
 
 <a href="{{ links.footer }}" class="link-light">Pied de page</a> pour signaler la fin d'une page avec un repère de la marque du gouvernement du Canada.
+
 <a href="{{ links.signature }}" class="link-light">Signature</a> pour identifier la marque et l'identité du gouvernement du Canada.
 
 </article>

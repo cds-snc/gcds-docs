@@ -38,7 +38,7 @@ Here's what's required for the header on GC sites.
 </ul>
 
 <gcds-details details-title="What's required on a Canada.ca standard or campaign page" class="mb-300">
-  <p>Always include the following components in the header of a standard or campaign page and maintain the default settings.</p>
+  <gcds-text>Always include the following components in the header of a standard or campaign page and maintain the default settings.</gcds-text>
 
   <ul class="check-list mb-300">
     <li>Signature that links to Canada.ca.</li>
@@ -49,11 +49,11 @@ Here's what's required for the header on GC sites.
     <li>Divider line.</li>
   </ul>
 
-  <p><strong>Note</strong>: As an exception on legacy applications, the language toggle can be omitted if it results in a destructive action (a person loses their data when language is switched).</p>
+  <gcds-text><strong>Note</strong>: As an exception on legacy applications, the language toggle can be omitted if it results in a destructive action (a person loses their data when language is switched).</gcds-text>
 </gcds-details>
 
 <gcds-details details-title="What's optional to include on a Canada.ca standard or campaign page" class="mb-300">
-  <p>Opt to include:</p>
+  <gcds-text>Opt to include:</gcds-text>
   <ul class="list-disc mb-300">
     <li>An approved program or institution specific search form instead of the global search form.</li>
     <li>Sign in button.</li>

@@ -23,7 +23,7 @@ GC Design System components are designed to adapt to the size of the screen or f
 
 ### Include the language toggle on all GC sites
 
-- Include the language toggle by setting the `lang-href` attribute. Setting the `lang-href` also sets the href of the language toggle. 
+- Include the [language toggle]({{ links.langToggle }}) by setting the `lang-href` attribute. Setting the `lang-href` also sets the href of the language toggle. 
 - Use the `lang` attribute to set the site language and the toggle will offer the other Official Language.  
 
 ### Set up the skip-to-content to improve accessibility
@@ -38,7 +38,7 @@ GC Design System components are designed to adapt to the size of the screen or f
 - On Canada.ca pages, keep the default setting of `hide-canada-link` to `false`.
 - Add the [breadcrumbs]({{ links.breadcrumbs }}) component by passing a child element with the `slot="breadcrumb"` attribute. This will place the breadcrumbs in the header below the language toggle, signature and search slot.
 - Add a new breadcrumbs link to the breadcrumbs component by using the `gcds-breadcrumbs-item` component. The link can be added through the `href` property.
-- Include a search form by adding by adding `<gcds-search slot="search"></gcds-search>` or passing a child element with the `slot="search"` attribute. This will place the element under the language toggle and beside the signature in the header.
+- Include a [search]({{ links.search }}) form by adding by adding `<gcds-search slot="search"></gcds-search>` or passing a child element with the `slot="search"` attribute. This will place the element under the language toggle and beside the signature in the header.
 - Set the search to a local or global search form. By default, the component is set to search Canada.ca.
 
 ### Set up a top navigation
