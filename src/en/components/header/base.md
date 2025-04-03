@@ -12,6 +12,9 @@ _Also called: global header, brand header._
 
 The header is the responsive Government of Canada branded header landmark.
 
+{% requiredOn locale true true %}
+{% endrequiredOn %}
+
 {% docLinks locale stage figma github %}
 {% enddocLinks %}
 
