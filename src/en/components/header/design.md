@@ -49,7 +49,9 @@ Here's what's required for the header on GC sites.
     <li>Divider line.</li>
   </ul>
 
-  <gcds-text><strong>Note</strong>: As an exception on legacy applications, the language toggle can be omitted if it results in a destructive action (a person loses their data when language is switched).</gcds-text>
+  <gcds-text>
+    <strong>Note</strong>: As an exception on legacy applications, the language toggle can be omitted if it results in a destructive action (a person loses their data when language is switched).
+  </gcds-text>
 </gcds-details>
 
 <gcds-details details-title="What's optional to include on a Canada.ca standard or campaign page" class="mb-300">

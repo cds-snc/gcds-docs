@@ -49,7 +49,9 @@ Voici les éléments requis pour l'en-tête sur les sites du GC.
     <li>Ligne séparatrice.</li>
   </ul>
 
-  <gcds-text><strong>Remarque</strong> : Par exception pour les anciennes applications, la bascule de langue peut être omise si elle entraîne une action destructive (perte de données lorsque la langue est changée).</gcds-text>
+  <gcds-text>
+    <strong>Remarque</strong> : Par exception pour les anciennes applications, la bascule de langue peut être omise si elle entraîne une action destructive (perte de données lorsque la langue est changée).
+  </gcds-text>
 </gcds-details>
 
 <gcds-details details-title="Éléments facultatifs sur une page standard ou de campagne de Canada.ca" class="mb-300">
