@@ -18,5 +18,5 @@ The header is the responsive Government of Canada branded header landmark.
 {% docLinks locale stage figma github %}
 {% enddocLinks %}
 
-{% baseComponentPreview "Header component preview" page.filePathStem %}
+{% baseComponentPreview "Header component preview" page.filePathStem "?externalLinks=true" %}
 {% endbaseComponentPreview %}

@@ -344,7 +344,7 @@ module.exports = function (eleventyConfig) {
 
   eleventyConfig.addPairedShortcode(
     'baseComponentPreview',
-    (children, title, url) => {
+    (children, title, url, queryString = "") => {
       return `
       <div class="my-600 b-sm b-default component-preview">
         <h2 class="container-full font-text font-semibold m-0 px-225 py-150 bb-sm b-default bg-light">
@@ -353,7 +353,7 @@ module.exports = function (eleventyConfig) {
         <div>
           <iframe
             title="${title}"
-            src="${url.replace('/base', '/preview')}"
+            src="${url.replace('/base', '/preview/')}${queryString}"
             style="display: block; margin: 0 auto;"
             frameBorder="0"
             width="100%"

@@ -15,5 +15,5 @@ The footer is the responsive Government of Canada branded footer landmark.
 {% docLinks locale stage figma github %}
 {% enddocLinks %}
 
-{% baseComponentPreview "Footer component preview" page.filePathStem %}
+{% baseComponentPreview "Footer component preview" page.filePathStem "?externalLinks=true" %}
 {% endbaseComponentPreview %}

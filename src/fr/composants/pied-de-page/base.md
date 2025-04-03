@@ -15,5 +15,5 @@ Le pied de page porte l'image de marque réactive du gouvernement du Canada.
 {% docLinks locale stage figma github %}
 {% enddocLinks %}
 
-{% baseComponentPreview "Aperçu du composant de pied de page" page.filePathStem %}
+{% baseComponentPreview "Aperçu du composant de pied de page" page.filePathStem "?externalLinks=true" %}
 {% endbaseComponentPreview %}
