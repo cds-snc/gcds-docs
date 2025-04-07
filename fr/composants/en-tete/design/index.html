@@ -1184,6 +1184,20 @@
 <p><em>Autres noms : en-tête général, en-tête de marque.</em></p>
 <p>L'en-tête porte l'image de marque réactive du gouvernement du Canada.</p>
 <p><ul class="d-flex flex-wrap gap-300">
+<li class="text-secondary">
+<span class="px-200 py-100 bg-light font-text-small b-radius-lg">
+<gcds-icon name="check-circle" margin-right="50"></gcds-icon>
+Requis sur Canada.ca
+</span>
+</li>
+<li class="text-secondary">
+<span class="px-200 py-100 bg-light font-text-small b-radius-lg">
+<gcds-icon name="check-circle" margin-right="50"></gcds-icon>
+Requis sur les sites du GC
+</span>
+</li>
+</ul></p>
+<p><ul class="d-flex flex-wrap gap-300">
 <li class="github-link">
 <gcds-link external href="https://github.com/cds-snc/gcds-components/tree/main/packages/web/src/components/gcds-header">GitHub</gcds-link>
 </li>
@@ -1244,46 +1258,57 @@ Aperçu du composant de l'en-tête
     </nav>
   
 
-  <h2 id="structure-de-lentete-elements-recommandes">Structure de l'en-tête — éléments recommandés</h2>
+  <h2 id="structure-de-lentete">Structure de l'en-tête</h2>
+<p>Les éléments d'en-tête sont requis pour les sites du GC, sauf indication contraire.</p>
 <ol class="anatomy-list">
-  <li>L'emplacement <strong>skip-to-nav</strong> comprend le lien « Passer au contenu » qui permet à une personne de sauter un ensemble de liens de navigation et ainsi passer au contenu de la page principale.</li>
-  <li>L'<strong>en-tête de signature</strong> s'étend sur la partie supérieure du site et contient la signature officielle du gouvernement du Canada et la bascule de lange. On peut également y insérer un champ de recherche. Une ligne séparatrice s'affiche au bas de l'en-tête. Lorsque la langue d'un site est réglée à l'aide de l'attribut <code>lang</code>, la signature reflète la langue officielle du contenu de la page.</li>
-  <li>Le composant de la <strong>bascule de langue</strong> est un commutateur du contenu en français et en anglais. Utilisez l'attribut <code>lang</code> pour définir la langue du site; le bouton à bascule proposera l'autre langue officielle.</li>
+  <li>La <strong>signature</strong> est un élément de marque qui identifie une page comme un espace du gouvernement du Canada. La signature du gouvernement du Canada renvoie à la page d'accueil Canada.ca.</li>
+  <li>Le <strong>lien « passer au contenu »</strong> permet à une personne de passer la navigation pour accéder directement au contenu principal. Le lien est caché jusqu'à ce qu'une personne y navigue avec un clavier (état ciblé visible).</li>
+  <li>La <strong>bascule de langue</strong> est un lien qui permet à une personne de passer d'un contenu en français à un contenu en anglais en établissant un lien vers la page dans l'autre langue officielle.</li>
+  <li>La <strong>recherche</strong> permet à une personne de saisir des mots-clés ou des phrases pour trouver du contenu. Elle peut être configurée pour effectuer une recherche locale ou globale. Facultatif, sauf sur les pages de campagne et les pages standard de Canada.ca.</li>
+  <li>La <strong>ligne séparatrice</strong> divise visuellement les éléments principaux de l'en-tête et le contenu de la page.</li>
+  <li>La <strong>barre de navigation supérieure</strong> est un composant de navigation principal pour accéder aux pages prioritaires. Facultatif et, lorsqu'il est utilisé, se situe sous la ligne séparatrice de la même couleur.</li>
+  <li>Le <strong>chemin de navigation</strong> trace un chemin de l'emplacement actuel vers chaque page de niveau supérieur dans la hiérarchie du site. Sur Canada.ca, le premier lien renvoie renvoie à la page d'accueil Canada.ca.</li>
 </ol>
-<img class="b-sm b-default p-300" src="/images/fr/components/anatomy/gcds-header-anatomy-recommended.svg" alt="L'anatomie des composants entête et menu du site identifiants le lien passer au contenu, et l'entête du gouvernement du Canada."/>
-<h2 id="elements-facultatifs-de-lentete-avec-titre-h1">Éléments facultatifs de l'en-tête — avec titre H1</h2>
-<ol class="anatomy-list">
-  <li>L'emplacement <strong>skip-to-nav</strong> comprend le lien « Passer au contenu » qui permet à une personne de sauter un ensemble de liens de navigation et ainsi passer au contenu de la page principale.</li>
-  <li>Lorsque vous utilisez la <strong>bannière</strong> , placez-la devant l'en-tête de signature. Il s'agit d'un élément facultatif utilisé pour communiquer l'état du site ou de la page sur les sites expérimentaux, les sites utilisés à des fins de recherche, les projets pilotes et les produits en mode essai.</li>
-  <li>L'<strong>en-tête de signature</strong> s'étend sur la partie supérieure du site et contient la signature officielle du gouvernement du Canada et la bascule de lange. On peut également y insérer un champ de recherche. Une ligne séparatrice s'affiche au bas de l'en-tête. Lorsque la langue d'un site est réglée à l'aide de l'attribut <code>lang</code>, la signature reflète la langue officielle du contenu de la page.</li>
-  <li>Le composant de la <strong>bascule de langue</strong> est un commutateur du contenu en français et en anglais. Utilisez l'attribut <code>lang</code> pour définir la langue du site; le bouton à bascule proposera l'autre langue officielle.</li>
-  <li>Le <strong>menu</strong> ou le menu du site comprend les repères de navigation pour le site. Le menu sert de carte simplifiée du site et aide les visiteurs à comprendre l'objectif et les priorités du site. Pour les produits et sites transactionnels, comme ceux contenant des formulaires, des flux, des processus ou des vitrines, l'utilisation d'un menu de site simplifié ou personnalisé est facultative. L'ajout d'un menu est également facultatif.</li>
-  <li>Le <strong>chemin de navigation</strong> établit une voie entre chaque niveau de la hiérarchie du site et la page actuelle, comme indiqué dans le titre de la page. Le chemin de navigation indique à une personne son parcours et lui permet de faire marche arrière ou de passer d'un niveau à un autre.</li>
-  <li>Le <strong>titre H1</strong> est un élément séparé du composant d'en-tête. Il indique aux lecteur·rice·s la nature de la page ou du site et sert de repère.</li>
-</ol>
-<p>L'élément de <strong>recherche</strong> permet d'inclure un champ de recherche locale ou générale.</p>
-<img class="b-sm b-default p-300" src="/images/fr/components/anatomy/gcds-header-anatomy-optional.svg" alt="L'anatomie des composants entête et menu du site identifiants le lien passer au contenu, la bannière de phase, l'entête du gouvernement du Canada et le menu du site."/>
+<img class="b-sm b-default p-300" src="/images/fr/components/anatomy/gcds-header-anatomy-recommended.svg" alt="L'image de l'en-tête montre 7 éléments. La bannière de l'en-tête parcourt la largeur de l'en-tête et a un arrière-plan blanc 1. À gauche, la signature contient le drapeau du Canada avec Gouvernement du Canada en anglais et en français à sa droite. 2. Au centre au fait de l'en-tête, le lien passer au contenu est en état ciblé visible avec un rectangle bleu bordé de double lignée blanche, marqué  « passer au contenu ». 3. La bascule de langue avec un lien et le texte  “English” aligné à droite 4. En dessous de la bascule de langue, la barre de recherche contient le texte de remplacement « Rechercher dans Canada.ca » dans le champ de saisie et une petite bouton à droite avec l'icône d'une loupe. 5. La ligne séparatrice en gris pâle parcourt la largeur de l'en-tête et ne se distingue pas visuellement de la navigation supérieure immédiatement en dessous. 6. La  navigation supérieure est une bannière en gris pâle qui parcourt la largeur de l'en-tête. À gauche  est marqué le Lien vers l'accueil en caractères gras et à droite se trouve 4 liens de navigation. Le premier, le plus à gauche, a une icône de chevron qui pointe vers le bas. 7. Le chemin de navigation est le dernier élément se figure en bas de l'en-tête à gauche. Canada.ca est le premier lien et le deuxième est marqué avec  « lien ». "/>
 <h2 id="design-et-accessibilite-de-lentete">Design et accessibilité de l'en-tête</h2>
-<h3 id="assembler-lentete-de-votre-produit">Assembler l'en-tête de votre produit</h3>
-<ul class="list-disc mb-300"><li>Incluez l'en-tête de signature du GC et la bascule de langue pour les sites et produits du gouvernement du Canada.</li>
-<li>Maintenez toujours l'intégrité de la signature du gouvernement du Canada. Évitez à tout prix de modifier le mot-symbole. Évitez surtout d'étirer le texte ou de changer les couleurs.</li>
-<li>Ajoutez un lien « Passer au contenu » pour aider les personnes naviguant sur le site à l'aide de technologies d'assistance.</li>
-<li>Pensez à utiliser le menu comme solution de navigation simplifiée pour un produit transactionnel, comme une application, un formulaire ou une vitrine virtuelle.</li>
-<li>Incluez la bannière de statut si votre page ou votre site est en stade expérimental. Par exemple, s'il s'agit d'un projet pilote, mentionnez que vous l'utilisez à des fins de recherche ou qu'il est en mode d'essai.</li>
+<p>Les composants de Système de design du GC sont conçus pour s'adapter à la taille de l'écran ou du cadre où ils sont visualisés. À titre d'exception, la taille du texte dans l'en-tête et le pied de page est fixe.</p>
+<h3 id="verifier-les-exigences-de-lentete">Vérifier les exigences de l'en-tête</h3>
+<p>Voici les éléments requis pour l'en-tête sur les sites du GC.</p>
+<ul class="check-list mb-300">
+  <li><a href="/fr/composants/signature">Signature.</a></li>
+  <li><a href="/fr/composants/bascule-de-langue/">Bascule de langue.</a></li>
+  <li><a href="/fr/composants/lien">Lien</a> passer au contenu.</li>
+  <li>Assurez toujours l'intégrité de la signature du gouvernement du Canada. Ne la modifiez jamais de quelque façon que ce soit — ne l'étirez pas et n'en changez pas les couleurs ni le texte.</li>
 </ul>
+<gcds-details details-title="Éléments requis sur une page standard ou de campagne de Canada.ca" class="mb-300">
+  <gcds-text>Assurez-vous de toujours inclure les éléments suivants dans l'en-tête d'une page standard ou de campagne et de maintenir les paramètres par défaut.</gcds-text>
+  <ul class="check-list mb-300">
+    <li>Signature qui renvoie à Canada.ca.</li>
+    <li>Bascule de langue.</li>
+    <li>Recherche.</li>
+    <li>Chemin de navigation qui renvoie à Canada.ca depuis le premier lien.</li>
+    <li>Lien passer au contenu.</li>
+    <li>Ligne séparatrice.</li>
+  </ul>
+  <gcds-text>
+    <strong>Remarque</strong> : Par exception pour les anciennes applications, la bascule de langue peut être omise si elle entraîne une action destructive (perte de données lorsque la langue est changée).
+  </gcds-text>
+</gcds-details>
+<gcds-details details-title="Éléments facultatifs sur une page standard ou de campagne de Canada.ca" class="mb-300">
+  <gcds-text>Vous pouvez choisir d'inclure :</gcds-text>
+  <ul class="list-disc mb-300">
+    <li>Un formulaire de recherche approuvé propre à un programme ou à un organisme plutôt que le formulaire de recherche global.</li>
+    <li>Bouton « Se connecter ».</li>
+    <li>Barre de navigation supérieure.</li>
+  </ul>
+</gcds-details>
 <h3 id="ameliorer-laccessibilite-de-lentete">Améliorer l'accessibilité de l'en-tête</h3>
-<ul class="list-disc mb-300"><li>Pensez à rendre le lien « Passer au contenu » visible afin que toute personne naviguant sur le site puisse bénéficier du raccourci.</li>
-<li>Écrivez le contenu H1 de l'en-tête avec une majuscule.</li>
+<ul class="list-disc mb-300"><li>Configurez un <a href="/fr/composants/lien">lien</a> <code>skip-to-content</code> comme raccourci pour les personnes utilisant une technologie d'assistance et améliorer la navigation au clavier. Le lien passe les éléments de navigation pour mener directement au contenu principal de la page.</li>
+<li>Évitez de placer d'autres éléments avant le lien « passer au contenu ». Il est plus facile à découvrir s'il s'agit du premier ou deuxième élément.</li>
 </ul>
-<h3 id="rediger-du-texte-de-lien-precis">Rédiger du texte de lien précis</h3>
-<ul class="list-disc mb-300"><li>Rendre le texte du lien clair et précis pour aider une personne à décider si elle doit quitter la page actuelle. Indiquez l'endroit où une personne sera redirigée ou ce qu'elle trouvera en cliquant sur un lien.</li>
-<li>Gardez le texte des liens court et précis afin qu'une personne puisse parcourir les liens dans l'en-tête et trouver ce qu'elle recherche. Évitez de nommer les liens « cliquer ici » ou « lire plus ».</li>
-<li>Limitez le nombre de liens dans votre en-tête. Une surabondance d'information peut augmenter la charge cognitive, et rendre la navigation difficile pour certain·e·s lecteur·rice·s.</li>
-</ul>
-<h3 id="donnez-un-titre-a-votre-page">Donnez un titre à votre page</h3>
-<ul class="list-disc mb-300"><li>Donnez à la page un titre qui indique aux lecteurs la nature de la page (ou de la page d'accueil sur laquelle porte le site), son utilisation ou les actions à faire sur celle-ci.</li>
-<li>Choisissez de faire correspondre le nom de la page à celui de la page affichée dans le navigateur, de sélectionner un nom similaire, mais légèrement plus long ou d'utiliser un appel à l'action sur les pages comprenant des tâches ou des actions à réaliser par l'utilisateur·rice.</li>
-<li>Inscrivez le titre H1 en insérant les majuscules appropriées. Tous les autres éléments d'en-tête (autres que les noms propres) s'écrivent avec une majuscule.</li>
+<h3 id="ajouter-des-elements-facultatifs-a-lentete">Ajouter des éléments facultatifs à l'en-tête</h3>
+<ul class="list-disc mb-300"><li>Considérez utiliser la <a href="/fr/composants/barre-de-navigation-superieure">barre de navigation supérieure</a> pour les services et les sites Web qui ont besoin d'une navigation principale dédiée.</li>
+<li>Utilisez la barre de navigation supérieure sur les pages Canada.ca lorsque le service ou le produit est autonome et cible un public interne, comme Système de design GC.</li>
 </ul>
 
 
@@ -1319,7 +1344,7 @@ Aperçu du composant de l'en-tête
 
 
         <gcds-date-modified class="mb-300">
-          2025-04-02
+          2025-04-07
         </gcds-date-modified>
       </main>
 

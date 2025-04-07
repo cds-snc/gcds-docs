@@ -1184,6 +1184,20 @@
 <p><em>Also called: global header, brand header.</em></p>
 <p>The header is the responsive Government of Canada branded header landmark.</p>
 <p><ul class="d-flex flex-wrap gap-300">
+<li class="text-secondary">
+<span class="px-200 py-100 bg-light font-text-small b-radius-lg">
+<gcds-icon name="check-circle" margin-right="50"></gcds-icon>
+Required on Canada.ca
+</span>
+</li>
+<li class="text-secondary">
+<span class="px-200 py-100 bg-light font-text-small b-radius-lg">
+<gcds-icon name="check-circle" margin-right="50"></gcds-icon>
+Required on GC sites
+</span>
+</li>
+</ul></p>
+<p><ul class="d-flex flex-wrap gap-300">
 <li class="github-link">
 <gcds-link external href="https://github.com/cds-snc/gcds-components/tree/main/packages/web/src/components/gcds-header">GitHub</gcds-link>
 </li>
@@ -1246,27 +1260,34 @@ Header component preview
 
   <h2 id="build-a-header-component">Build a header component</h2>
 <p>Use this header landmark to communicate a Government of Canada digital service or product.</p>
-<h2 id="coding-and-accessibility-for-headers">Coding and accessibility for headers</h2>
-<h3 id="set-the-signature-element-in-the-header">Set the signature element in the header</h3>
-<ul class="list-disc mb-300"><li>Always maintain the integrity of the Government of Canada signature. Absolutely avoid modifying the signature in any way. In particular avoid stretching or changing the colours or text.</li>
-<li>Pass either the <code>colour</code> or <code>white</code> display mode of the Government of Canada signature using the <code>signature-variant</code> attribute. Choose the <code>colour</code> display for a white background.</li>
-<li>Optionally, set the <code>signature-has-link</code> attribute to <code>true</code> to set the Government of Canada signature link to Canada.ca.</li>
+<h2 id="coding-and-accessibility-for-the-header">Coding and accessibility for the header</h2>
+<p>GC Design System components are designed to adapt to the size of the screen or frame where they’re being viewed. As an exception, the text size in the header and footer is fixed.</p>
+<h3 id="preserve-the-signature-element-in-the-header-for-gc-sites">Preserve the signature element in the header for GC sites</h3>
+<ul class="list-disc mb-300"><li>Maintain the <a href="/en/components/signature">signature</a> for all GC sites.</li>
+<li>Use the <code>signature-variant</code> attribute to set the Government of Canada signature to either <code>colour</code> or <code>white</code>. For white backgrounds, keep the <code>colour</code> default setting for the signature.</li>
+<li>Always preserve the integrity of the Government of Canada signature. Avoid modifying it in any way, stretching, or changing the colours or text.</li>
+<li>On Canada.ca pages, set the <code>signature-has-link</code> attribute to <code>true</code> to set the Government of Canada signature link to Canada.ca.</li>
 </ul>
-<h3 id="set-up-the-language-toggle">Set up the language toggle</h3>
-<ul class="list-disc mb-300"><li>Include the language toggle by setting the <code>lang-href</code> attribute. Setting the <code>lang-href</code> also sets the <code>href</code> of the language toggle.</li>
+<h3 id="include-the-language-toggle-on-all-gc-sites">Include the language toggle on all GC sites</h3>
+<ul class="list-disc mb-300"><li>Include the <a href="/en/components/language-toggle/">language toggle</a> by setting the <code>lang-href</code> attribute. Setting the <code>lang-href</code> also sets the href of the language toggle.</li>
 <li>Use the <code>lang</code> attribute to set the site language and the toggle will offer the other Official Language.</li>
-<li>If your site is multilingual: Create an option to select other languages by using this header slot for an internationalization pattern. To do so, pass an element with the <code>slot=&quot;toggle&quot;</code> attribute to replace the language toggle element in the header.</li>
 </ul>
-<h3 id="include-the-skiptocontent-link">Include the skip-to-content link</h3>
-<ul class="list-disc mb-300"><li>Include the skip-to-content link by setting the <code>href</code> of the <strong>skip-to-content</strong> link in the header's top navigation using the <code>skip-to-href</code> attribute.</li>
+<h3 id="set-up-the-skiptocontent-to-improve-accessibility">Set up the skip-to-content to improve accessibility</h3>
+<ul class="list-disc mb-300"><li>Set up a skip-to-content <a href="/en/components/link">link</a> as a shortcut for people using an assistive technology and improve keyboard navigation.</li>
+<li>Set the href of the <code>skip-to-content</code> link in the header’s top navigation using the <code>skip-to-href</code> attribute.</li>
 <li>Use the <code>skip-to-nav</code> slot to replace the default top navigation with the <code>skip-to-content</code> link.</li>
 <li>Pass a child element with the <code>slot=&quot;skip-to-nav&quot;</code> attribute to place the element first in the header.</li>
 </ul>
-<h3 id="add-optional-elements-to-your-header">Add optional elements to your header</h3>
-<ul class="list-disc mb-300"><li>Add a menu by passing a child element with the <code>slot=&quot;menu&quot;</code> attribute. This will place the element in the header below the language toggle, signature and search slots.</li>
-<li>Add a search form by passing a child element with the <code>slot=&quot;search&quot;</code> attribute. This will place the element under the language toggle and beside the signature in the header.</li>
-<li>Add a breadcrumb component by passing a child element with the <code>slot=&quot;breadcrumb&quot;</code> attribute. This will place the breadcrumb in the header below the language toggle, signature and search slot.</li>
-<li>Add a banner by passing a child element with the <code>slot=&quot;banner&quot;</code> attribute. This will place the element across the top of the header under the <code>skip-to-nav</code> element.</li>
+<h3 id="include-the-breadcrumbs-and-search-on-canadaca-sites">Include the breadcrumbs and search on Canada.ca sites</h3>
+<ul class="list-disc mb-300"><li>On Canada.ca pages, keep the default setting of <code>hide-canada-link</code> to <code>false</code>.</li>
+<li>Add the <a href="/en/components/breadcrumbs">breadcrumbs</a> component by passing a child element with the <code>slot=&quot;breadcrumb&quot;</code> attribute. This will place the breadcrumbs in the header below the language toggle, signature and search slot.</li>
+<li>Add a new breadcrumbs link to the breadcrumbs component by using the <code>gcds-breadcrumbs-item</code> component. The link can be added through the <code>href</code> property.</li>
+<li>Include a <a href="/en/components/search">search</a> form by adding by adding <code>&lt;gcds-search slot=&quot;search&quot;&gt;&lt;/gcds-search&gt;</code> or passing a child element with the <code>slot=&quot;search&quot;</code> attribute. This will place the element under the language toggle and beside the signature in the header.</li>
+<li>Set the search to a local or global search form. By default, the component is set to search Canada.ca.</li>
+</ul>
+<h3 id="set-up-a-top-navigation">Set up a top navigation</h3>
+<ul class="list-disc mb-300"><li>Add a <a href="/en/components/top-navigation">top navigation</a> by passing a child element with the <code>slot=&quot;menu&quot;</code> attribute. This will place the element in the header below the language toggle, signature, and search slots.</li>
+<li>Opt to add a banner by passing a child element with the <code>slot=&quot;banner&quot;</code> attribute. This will place the element across the top of the header under the <code>skip-to-nav</code> element.</li>
 </ul>
 <h3 id="get-your-code">Get your code</h3>
 <p>Generate an instance of the component you need by selecting its code properties.</p>
@@ -1324,7 +1345,7 @@ Header component preview
 
 
         <gcds-date-modified class="mb-300">
-          2025-04-02
+          2025-04-07
         </gcds-date-modified>
       </main>
 

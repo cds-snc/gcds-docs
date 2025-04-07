@@ -1184,6 +1184,20 @@
 <p><em>Autres noms : en-tête général, en-tête de marque.</em></p>
 <p>L'en-tête porte l'image de marque réactive du gouvernement du Canada.</p>
 <p><ul class="d-flex flex-wrap gap-300">
+<li class="text-secondary">
+<span class="px-200 py-100 bg-light font-text-small b-radius-lg">
+<gcds-icon name="check-circle" margin-right="50"></gcds-icon>
+Requis sur Canada.ca
+</span>
+</li>
+<li class="text-secondary">
+<span class="px-200 py-100 bg-light font-text-small b-radius-lg">
+<gcds-icon name="check-circle" margin-right="50"></gcds-icon>
+Requis sur les sites du GC
+</span>
+</li>
+</ul></p>
+<p><ul class="d-flex flex-wrap gap-300">
 <li class="github-link">
 <gcds-link external href="https://github.com/cds-snc/gcds-components/tree/main/packages/web/src/components/gcds-header">GitHub</gcds-link>
 </li>
@@ -1245,28 +1259,35 @@ Aperçu du composant de l'en-tête
   
 
   <h2 id="creer-un-entete">Créer un en-tête</h2>
-<p>Utilisez ce point de repère pour transmettre de l'information sur un service du gouvernement du Canada ou l'un de ses produits numériques.</p>
+<p>Utilisez ce point de repère d'en-tête pour transmettre de l'information sur un service du gouvernement du Canada ou l'un de ses produits numériques.</p>
 <h2 id="codage-et-accessibilite-de-lentete">Codage et accessibilité de l'en-tête</h2>
-<h3 id="regler-lelement-signature-dans-lentete">Régler l'élément signature dans l'en-tête</h3>
-<ul class="list-disc mb-300"><li>Maintenez toujours l'intégrité de la signature du gouvernement du Canada. Évitez à tout prix de modifier la signature. Évitez surtout d'étirer le texte ou de changer les couleurs.</li>
-<li>Faites passer le mode d'affichage de la signature du gouvernement du Canada en couleur ou en blanc à l'aide de l'attribut <code>signature-variant</code>. Choisissez l'affichage <code>color</code> pour un fond blanc.</li>
-<li>Facultativement, définissez la signature du gouvernement du Canada comme lien vers Canada.ca en réglant l'attribut <code>signature-has-link</code> à <code>true</code>.</li>
+<p>Les composants de Système de design du GC sont conçus pour s'adapter à la taille de l'écran ou du cadre où ils sont visualisés. À titre d'exception, la taille du texte dans l'en-tête et le pied de page est fixe.</p>
+<h3 id="preserver-lelement-signature-dans-lentete-pour-les-sites-web-du-gc">Préserver l'élément signature dans l'en-tête pour les sites Web du GC</h3>
+<ul class="list-disc mb-300"><li>Conservez la <a href="/fr/composants/signature">signature</a> pour tous les sites du GC.</li>
+<li>Utilisez l'attribut <code>signature-variant</code> pour paramétrer la signature du gouvernement du Canada à <code>colour</code> ou <code>white</code>. Pour les arrière-plans blancs, conservez le paramètre <code>colour</code> par défaut pour la signature.</li>
+<li>Assurez toujours l'intégrité de la signature du gouvernement du Canada. Évitez de la modifier de quelque manière que ce soit, de l'étirer ou d'en modifier les couleurs ou le texte.</li>
+<li>Sur les pages Canada.ca, paramétrez l'attribut <code>signature-has-link</code> à <code>true</code> pour définir le lien de la signature à Canada.ca.</li>
 </ul>
-<h3 id="configurer-la-bascule-de-langue">Configurer la bascule de langue</h3>
-<ul class="list-disc mb-300"><li>Ajoutez la bascule de langue en définissant l'attribut <code>lang-href</code>. L'attribut <code>lang-href</code> définit également l'élément « href » de la bascule de langue.</li>
+<h3 id="inclure-la-bascule-de-langue-sur-tous-les-sites-du-gc">Inclure la bascule de langue sur tous les sites du GC</h3>
+<ul class="list-disc mb-300"><li>Ajoutez la <a href="/fr/composants/bascule-de-langue/">bascule de langue</a> en définissant l'attribut <code>lang-href</code>. L'attribut <code>lang-href</code> définit également l'élément « href » de la bascule de langue.</li>
 <li>Utilisez l'attribut <code>lang</code> pour définir la langue du site; le bouton à bascule proposera l'autre langue officielle.</li>
-<li>Si votre site est multilingue : Créez une option pour sélectionner d'autres langues en utilisant cet emplacement d'en-tête pour un modèle d'internationalisation. Pour ce faire, passez un élément avec l'attribut <code>slot=&quot;toggle&quot;</code> afin de remplacer l'élément de la bascule de langue dans l'en-tête.</li>
 </ul>
-<h3 id="inclure-le-lien-passer-au-contenu-">Inclure le lien « Passer au contenu »</h3>
-<ul class="list-disc mb-300"><li>Inclure un lien « Passer au contenu » en définissant l'élément <code>href</code> du lien <strong>passer au contenu</strong> dans la navigation supérieure de l'en-tête à l'aide de l'attribut <code>skip-to-href</code>.</li>
-<li>Utilisez l'emplacement <code>skip-to-nav</code> pour remplacer la navigation supérieure par défaut par le lien « Passer au contenu ».</li>
+<h3 id="configurer-un-lien-passer-au-contenu-skiptocontent-pour-ameliorer-laccessibilite">Configurer un lien « passer au contenu » (<code>skip-to-content</code>) pour améliorer l'accessibilité</h3>
+<ul class="list-disc mb-300"><li>Configurez un <a href="/fr/composants/lien">lien</a> <code>skip-to-content</code> comme raccourci pour les personnes utilisant une technologie d'assistance et améliorer la navigation au clavier.</li>
+<li>Définissez l'élément « href » du lien <code>skip-to-content</code> dans la navigation supérieure de l'en-tête à l'aide de l'attribut <code>skip-to-href</code>.</li>
+<li>Utilisez l'emplacement <code>skip-to-nav</code> pour remplacer la navigation supérieure par défaut par le lien <code>skip-to-content</code>.</li>
 <li>Passez un élément enfant avec l'attribut <code>slot=&quot;skip-to-nav&quot;</code> pour placer l'élément en première position dans l'en-tête.</li>
 </ul>
-<h3 id="ajouter-des-elements-facultatifs-a-lentete">Ajouter des éléments facultatifs à l'en-tête</h3>
-<ul class="list-disc mb-300"><li>Ajoutez un menu en passant un élément enfant à l'aide de l'attribut <code>slot=&quot;menu&quot;</code>. Cela placera l'élément dans l'en-tête, sous le bouton de bascule de langue, la signature et la barre de recherche.</li>
-<li>Ajoutez un champ de recherche en faisant passer un élément enfant avec l'attribut <code>slot=&quot;search&quot;</code>. Cela placera l'élément sous la bascule de langue, à côté de la signature dans l'en-tête.</li>
-<li>Ajoutez un composant chemin de navigation en faisant passer un élément enfant avec l'attribut <code>slot=&quot;breadcrumb&quot;</code>. Cela placera le chemin de navigation dans l'en-tête, sous le bouton de bascule de langue, la signature et la barre de recherche.</li>
-<li>Ajoutez une bannière en faisant passer un élément enfant avec l'attribut <code>slot=&quot;banner&quot;</code>. Cela placera l'élément en haut de l'en-tête sous l'élément <code>skip-to-nav</code>.</li>
+<h3 id="inclure-le-chemin-dacces-et-la-recherche-sur-les-sites-canadaca">Inclure le chemin d'accès et la recherche sur les sites Canada.ca</h3>
+<ul class="list-disc mb-300"><li>Sur les pages de Canada.ca, conservez le paramètre par défaut de <code>hide-canada-link</code> à <code>false</code>.</li>
+<li>Ajoutez le composant <a href="/fr/composants/chemin-de-navigation">chemin de navigation</a> en passant un élément enfant avec l'attribut <code>slot=&quot;breadcrumb&quot;</code>. Cela placera le chemin de navigation dans l'en-tête sous les emplacements de la bascule de langue, la signature et la recherche.</li>
+<li>Ajoutez un nouveau lien au chemin de navigation en utilisant le composant <code>gcds-breadcrumbs-item</code>. Le lien peut être ajouté à l'aide de la propriété <code>href</code>.</li>
+<li>Ajoutez l'élément <a href="/fr/composants/recherche">recherche</a> en ajoutant <code>&lt;gcds-search slot=&quot;search&quot;&gt;&lt;/gcds-search&gt;</code> ou en passant un élément enfant avec l'attribut <code>slot=&quot;search&quot;</code>. Cela placera l'élément sous la bascule de langue et à côté de la signature dans l'en-tête.</li>
+<li>Paramétrez la recherche de sorte à effectuer une recherche locale ou globale. Par défaut, le composant est configuré pour la recherche dans Canada.ca.</li>
+</ul>
+<h3 id="configurer-une-barre-de-navigation-superieure">Configurer une barre de navigation supérieure</h3>
+<ul class="list-disc mb-300"><li>Ajoutez une <a href="/fr/composants/barre-de-navigation-superieure">barre de navigation supérieure</a> en passant un élément enfant à l'aide de l'attribut <code>slot=&quot;menu&quot;</code>. Cela placera l'élément dans l'en-tête, sous les emplacements du bouton de bascule de langue, de la signature et de la barre de recherche.</li>
+<li>Vous avez le choix d'ajouter une bannière en faisant passer un élément enfant avec l'attribut <code>slot=&quot;banner&quot;</code>. Cela placera l'élément en haut de l'en-tête sous l'élément <code>skip-to-nav</code>.</li>
 </ul>
 <h3 id="obtenez-votre-code">Obtenez votre code</h3>
 <p>Générez une version du composant dont vous avez besoin en sélectionnant les propriétés de code correspondantes ou explorez les possibilités en choisissant différentes valeurs de code.</p>
@@ -1324,7 +1345,7 @@ Aperçu du composant de l'en-tête
 
 
         <gcds-date-modified class="mb-300">
-          2025-04-02
+          2025-04-07
         </gcds-date-modified>
       </main>
 
