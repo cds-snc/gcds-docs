@@ -12,6 +12,9 @@ _Autres noms : en-tête général, en-tête de marque._
 
 L'en-tête porte l'image de marque réactive du gouvernement du Canada.
 
+{% requiredOn locale true true %}
+{% endrequiredOn %}
+
 {% docLinks locale stage figma github %}
 {% enddocLinks %}
 

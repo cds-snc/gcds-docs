@@ -281,6 +281,50 @@ module.exports = function (eleventyConfig) {
   );
 
   eleventyConfig.addPairedShortcode(
+    'requiredOn',
+    (children, locale, canSite, gcSite) => {
+      const chipClasses = 'px-200 py-100 bg-light font-text-small b-radius-lg';
+      const icon = `<gcds-icon name="check-circle" margin-right="50"></gcds-icon>`;
+      let canChip = '';
+      let gcChip = '';
+      const langStrings = {
+        en: {
+          can: 'Required on Canada.ca',
+          gc: 'Required on GC sites',
+        },
+        fr: {
+          can: 'Requis sur Canada.ca',
+          gc: 'Requis sur les sites du GC',
+        },
+      };
+
+      if (canSite) {
+        canChip = `<li class="text-secondary">
+          <span class="${chipClasses}">
+            ${icon}
+            ${langStrings[locale].can}
+          </span>
+        </li>`;
+      }
+
+      if (gcSite) {
+        gcChip = `<li class="text-secondary">
+          <span class="${chipClasses}">
+            ${icon}
+            ${langStrings[locale].gc}
+          </span>
+        </li>`;
+      }
+
+      return `
+      <ul class="d-flex flex-wrap gap-300">
+        ${canChip}
+        ${gcChip}
+      </ul>`;
+    },
+  );
+
+  eleventyConfig.addPairedShortcode(
     'componentPreview',
     (children, title, padding = 'px-225 py-300', margin = 'my-600') => {
       const content = children;

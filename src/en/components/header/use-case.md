@@ -17,23 +17,24 @@ tags: ['headerEN', 'usage']
 permalink: /en/components/header/
 date: 'git Last Modified'
 ---
-Header is a required component for Canada.ca pages.
+The header is a required component for Government of Canada websites and has specific requirements for Canada.ca pages.
 
-Take a look at what problems the header solves to see if they fit the problem you're solving for.
+Take a look at what problems the header solves to see if they fit the problem you’re solving for.
 
-## Problems headers solve
+## What problems headers solve
 
-Use this header landmark – as part of a trusted brand – for apps, forms, or other transactional digital services to consistently communicate:
+Use this header landmark and brand element for Canada.ca pages, GC websites, and applications to:
 
-- The start of a product or site page.
-- A Government of Canada digital service or product offering a broad range of services and information.
-- The Federal Identity Program Government of Canada signature.
+- Consistently identify a GC digital service or product.
+- Signal the start of a page.
+- Support ease of navigation for people using GC services.
+- Include the required Federal Identity Program branded Government of Canada signature.
 
 <article class="bg-full-width bg-primary text-light pt-600 pb-300 my-600">
   <h2 class="mt-0">Related components</h2>
 
-<a href="{{ links.footer }}" class="link-light">Footer</a> for placing the Government of Canada branded footer landmark.
+<a href="{{ links.footer }}" class="link-light">Footer</a> to signal the end of a page with a Government of Canada branded landmark.
 
-<a href="{{ links.topNav }}" class="link-light">Top navigation</a> for guiding navigation through a website using a landmark.
+<a href="{{ links.signature }}" class="link-light">Signature</a> to identify Government of Canada brand and identity.
 
 </article>
