@@ -30,7 +30,7 @@
     "grid": "/fr/composants/grille",
     "header": "/fr/composants/en-tete",
     "heading": "/fr/composants/titre",
-    "icon": "/fr/developpement-en-cours",
+    "icon": "/fr/composants/icone",
     "image": "/fr/developpement-en-cours",
     "input": "/fr/composants/champ-de-saisie",
     "langToggle": "/fr/composants/bascule-de-langue/",
