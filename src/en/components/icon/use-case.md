@@ -134,7 +134,7 @@ Choose an icon to match the action you want to indicate.
 
   {% componentPreview "" "px-225 py-450" "mt-500" %}
     <p class="text-center">
-      <gcds-icon size="h2" name="external-link" label="An arrow pointing outside of the top right corner of a square."></gcds-icon>
+      <gcds-icon size="h2" name="external" label="An arrow pointing outside of the top right corner of a square."></gcds-icon>
     </p>
   {% endcomponentPreview %}
   <div>

@@ -139,7 +139,7 @@ Choisissez une icône correspondant à l’action que vous souhaitez mettre en �
 
   {% componentPreview "" "px-225 py-450" "mt-500" %}
     <p class="text-center">
-      <gcds-icon size="h2" name="external-link" label="Une flèche pointant vers l’extérieur du coin supérieur droit d’un carré."></gcds-icon>
+      <gcds-icon size="h2" name="external" label="Une flèche pointant vers l’extérieur du coin supérieur droit d’un carré."></gcds-icon>
     </p>
   {% endcomponentPreview %}
   <div>

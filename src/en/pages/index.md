@@ -17,7 +17,7 @@ date: 'git Last Modified'
       <p>Visit our Figma library to explore design assets.</p>
       <a class="link-light" href="{{ links.figma }}" target="_blank">
         Start designing
-        <gcds-icon name="external-link" label="Opens in a new tab." margin-left="25" />
+        <gcds-icon name="external" label="Opens in a new tab." margin-left="25" />
       </a>
     </li>
     <li class="list-none">

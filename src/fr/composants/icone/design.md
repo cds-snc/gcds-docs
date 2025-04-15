@@ -40,7 +40,7 @@ nocrawl: true
 - Alignez l’icône de manière à ce qu’elle soit à la même hauteur que le texte d’accompagnement.
 - Utilisez notre échelle de taille pour vous assurer que la taille de l’icône correspond à la taille du texte.
 
-<gcds-grid class="bg-light px-300 md:px-500 py-500 md:py-800 b-radius-lg" columns="1fr 1fr" columns-tablet="repeat(4, 1fr)" columns-desktop="repeat(8, 1fr)" gap="300" gap-tablet="450">
+<gcds-grid class="bg-light px-300 md:px-500 py-500 md:py-800 b-radius-lg" columns="1fr 1fr" columns-tablet="repeat(4, 1fr)" columns-desktop="repeat(8, 1fr)" gap="300">
   <div class="text-center">
     <gcds-text size="small" text-role="secondary"><strong>Texte petit (petit texte)</strong></gcds-text>
     <gcds-icon size="text-small" name="info-circle"></gcds-icon>
