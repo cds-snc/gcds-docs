@@ -5,7 +5,7 @@ export class GcdsErrorMessage {
     }
     render() {
         const { messageId } = this;
-        return (h(Host, { key: '3f2e26f31e50359a0e1726d5f714dd678005cf01', id: `error-message-${messageId}`, class: "gcds-error-message-wrapper" }, h("gcds-text", { key: 'a8a20a16968e9a4578466f4fbeafb727077d7424', class: "error-message", role: "alert", "margin-bottom": "75" }, h("gcds-icon", { key: 'a54fc1a0bca6eba54fe1422f6210f42fb94ba348', name: "triangle-exclamation", "margin-right": "50" }), h("strong", { key: '64159579526bfb8df612dac7862048a447e30de2' }, h("slot", { key: '5c9a927de03b56f60b80fe97afe0de19f2e84ee4' })))));
+        return (h(Host, { key: '3f2e26f31e50359a0e1726d5f714dd678005cf01', id: `error-message-${messageId}`, class: "gcds-error-message-wrapper" }, h("gcds-text", { key: 'a8a20a16968e9a4578466f4fbeafb727077d7424', class: "error-message", role: "alert", "margin-bottom": "75" }, h("gcds-icon", { key: '0ec129fc4a98c7232c2fd9a6fbbfa936f9ce471a', name: "warning-triangle", "margin-right": "50" }), h("strong", { key: 'bcb3dd9ed9b3e4d31979abeb6a2772c7073a7918' }, h("slot", { key: 'f5b40163bd642d274789295c3b9cd84d27e157dd' })))));
     }
     static get is() { return "gcds-error-message"; }
     static get encapsulation() { return "shadow"; }

@@ -1177,20 +1177,34 @@
 </gcds-header>
 
     <div class="content-wrapper">
-      <main id="mc" class="container-xl mx-auto xl:px-0 sm:px-600 px-225 general-layout" >
+      <main id="mc" class="container-xl mx-auto xl:px-0 sm:px-600 px-225 general-layout" data-pagefind-body>
         
   
     <h1 id="icon-brgcdsicon">Icon <br><code>&lt;gcds-icon&gt;</code></h1>
-<p>This component is coming soon.</p>
+<p>An icon is a symbol that visually represents an action or idea.</p>
 <p><ul class="d-flex flex-wrap gap-300">
 <li class="github-link">
 <gcds-link external href="https://github.com/cds-snc/gcds-components/tree/main/packages/web/src/components/gcds-icon">GitHub</gcds-link>
 </li>
 <li class="figma-link">
-<gcds-link external href="https://www.figma.com/file/mh2maMG2NBtk41k1O1UGHV/Canadian-Digital-Service%E2%80%A8---GC-Design-System?node-id=3063%3A9071&t=ciEmm7GYyGAY73zZ-0">Figma</gcds-link>
+<gcds-link external href="https://www.figma.com/design/mh2maMG2NBtk41k1O1UGHV/GC-Design-System?node-id=1847-5001&p=f&t=Yo3cEgk0PtoiM8eX-0">Figma</gcds-link>
 </li>
 </ul></p>
-<br/>
+<p><div class="my-600 b-sm b-default component-preview">
+<h2 class="container-full font-text font-semibold m-0 px-225 py-150 bb-sm b-default bg-light">
+Icon component preview
+</h2>
+<div>
+<iframe
+            title="Icon component preview"
+            src="/en/components/icon/preview/"
+            style="display: block; margin: 0 auto;"
+            frameBorder="0"
+            width="100%"
+            id="component-preview"
+          ></iframe>
+</div>
+</div></p>
 
     <nav class="tabs mb-300" aria-label="Guidance tabs">
       <ul>
@@ -1229,7 +1243,176 @@
     </nav>
   
 
-  <h2 id="usage">Usage</h2>
+  <h2 id="problems-icons-solve">Problems icons solve</h2>
+<p>Use an icon to:</p>
+<ul class="list-disc mb-300"><li>Clarify information with a visual reference.</li>
+<li>Highlight key actions or states, like a checkmark for validation.</li>
+<li>Scan content quicker and reduce cognitive load.</li>
+</ul>
+<article class="bg-full-width bg-primary text-light pt-600 pb-300 my-600">
+  <h2 class="mt-0">Related components</h2>
+<p><a href="/en/components/text" class="link-light">Text</a> to display written content in a styled and formatted paragraph.</p>
+<p><a href="/en/components/notice" class="link-light">Notice</a> to display a short, prominent message.</p>
+</article>
+<h2 id="icon-use-cases">Icon use cases</h2>
+<h3 id="emphasize-information">Emphasize information</h3>
+<p>Choose an icon to match the information you want to emphasize.</p>
+<div class="remove-empty-p">
+<gcds-grid columns="1fr" columns-tablet="1fr 2fr" align-items="start">
+<p><div class="mt-500 b-sm b-default component-preview">
+<p class="container-full font-semibold px-225 py-150 bb-sm b-default bg-light"></p>
+<p></p>
+<div class="px-225 py-450"></p>
+<p><p class="text-center">
+<gcds-icon size="h2" name="info-circle" label="A filled-in circle with the letter “i” in the centre."></gcds-icon>
+</p></p>
+<p></div>
+</div></p>
+  <div>
+    <gcds-heading tag="h3">Info-circle</gcds-heading>
+    <gcds-text>Non-critical but helpful information.</gcds-text>
+  </div>
+<p><div class="mt-500 b-sm b-default component-preview">
+<p class="container-full font-semibold px-225 py-150 bb-sm b-default bg-light"></p>
+<p></p>
+<div class="px-225 py-450"></p>
+<p><p class="text-center">
+<gcds-icon size="h2" name="warning-triangle" label="A filled-in triangle with the letter “i” in the centre."></gcds-icon>
+</p></p>
+<p></div>
+</div></p>
+  <div>
+    <gcds-heading tag="h3">Warning-triangle</gcds-heading>
+    <gcds-text>Cautionary warning with no action needed.</gcds-text>
+  </div>
+<p><div class="mt-500 b-sm b-default component-preview">
+<p class="container-full font-semibold px-225 py-150 bb-sm b-default bg-light"></p>
+<p></p>
+<div class="px-225 py-450"></p>
+<p><p class="text-center">
+<gcds-icon size="h2" name="exclamation-circle" label="A filled-in circle with an exclamation mark in the centre."></gcds-icon>
+</p></p>
+<p></div>
+</div></p>
+  <div>
+    <gcds-heading tag="h3">Exclamation-circle</gcds-heading>
+    <gcds-text>Critical warning before an action.</gcds-text>
+  </div>
+<p><div class="mt-500 b-sm b-default component-preview">
+<p class="container-full font-semibold px-225 py-150 bb-sm b-default bg-light"></p>
+<p></p>
+<div class="px-225 py-450"></p>
+<p><p class="text-center">
+<gcds-icon size="h2" name="checkmark-circle" label="A filled-in circle with a checkmark in the centre."></gcds-icon>
+</p></p>
+<p></div>
+</div></p>
+  <div>
+    <gcds-heading tag="h3">Checkmark-circle</gcds-heading>
+    <gcds-text>Confirmation of completion or successful actions.</gcds-text>
+  </div>
+</gcds-grid>
+</div>
+<h3 id="indicate-action">Indicate action</h3>
+<p>Choose an icon to match the action you want to indicate.</p>
+<div class="remove-empty-p">
+<gcds-grid columns="1fr" columns-tablet="1fr 2fr" align-items="start">
+<p><div class="mt-500 b-sm b-default component-preview">
+<p class="container-full font-semibold px-225 py-150 bb-sm b-default bg-light"></p>
+<p></p>
+<div class="px-50 py-400"></p>
+<p><p class="text-center">
+<gcds-icon size="h2" name="chevron-left" label="An arrow pointing left." margin-right="150"></gcds-icon>
+<gcds-icon size="h2" name="chevron-right" label="An arrow pointing right." margin-right="150"></gcds-icon>
+<gcds-icon size="h2" name="chevron-up" label="An arrow pointing up." margin-right="150"></gcds-icon>
+<gcds-icon size="h2" name="chevron-down" label="An arrow pointing down."></gcds-icon>
+</p></p>
+<p></div>
+</div></p>
+  <div>
+    <gcds-heading tag="h3">Chevron-[left/right/up/down]</gcds-heading>
+    <gcds-text>Expand / collapse content or indicate direction.</gcds-text>
+  </div>
+<p><div class="mt-500 b-sm b-default component-preview">
+<p class="container-full font-semibold px-225 py-150 bb-sm b-default bg-light"></p>
+<p></p>
+<div class="px-225 py-450"></p>
+<p><p class="text-center">
+<gcds-icon size="h2" name="close" label="An “x”."></gcds-icon>
+</p></p>
+<p></div>
+</div></p>
+  <div>
+    <gcds-heading tag="h3">Close</gcds-heading>
+    <gcds-text>Cancel an action or close a flow.</gcds-text>
+  </div>
+<p><div class="mt-500 b-sm b-default component-preview">
+<p class="container-full font-semibold px-225 py-150 bb-sm b-default bg-light"></p>
+<p></p>
+<div class="px-225 py-450"></p>
+<p><p class="text-center">
+<gcds-icon size="h2" name="download" label="An arrow pointing down towards a horizontal line."></gcds-icon>
+</p></p>
+<p></div>
+</div></p>
+  <div>
+    <gcds-heading tag="h3">Download</gcds-heading>
+    <gcds-text>Download a file.</gcds-text>
+  </div>
+<p><div class="mt-500 b-sm b-default component-preview">
+<p class="container-full font-semibold px-225 py-150 bb-sm b-default bg-light"></p>
+<p></p>
+<div class="px-225 py-450"></p>
+<p><p class="text-center">
+<gcds-icon size="h2" name="email" label="An envelope."></gcds-icon>
+</p></p>
+<p></div>
+</div></p>
+  <div>
+    <gcds-heading tag="h3">Email</gcds-heading>
+    <gcds-text>Send an email.</gcds-text>
+  </div>
+<p><div class="mt-500 b-sm b-default component-preview">
+<p class="container-full font-semibold px-225 py-150 bb-sm b-default bg-light"></p>
+<p></p>
+<div class="px-225 py-450"></p>
+<p><p class="text-center">
+<gcds-icon size="h2" name="external" label="An arrow pointing outside of the top right corner of a square."></gcds-icon>
+</p></p>
+<p></div>
+</div></p>
+  <div>
+    <gcds-heading tag="h3">External-link</gcds-heading>
+    <gcds-text>Open a link in a new tab or window.</gcds-text>
+  </div>
+<p><div class="mt-500 b-sm b-default component-preview">
+<p class="container-full font-semibold px-225 py-150 bb-sm b-default bg-light"></p>
+<p></p>
+<div class="px-225 py-450"></p>
+<p><p class="text-center">
+<gcds-icon size="h2" name="phone" label="A telephone."></gcds-icon>
+</p></p>
+<p></div>
+</div></p>
+  <div>
+    <gcds-heading tag="h3">Phone</gcds-heading>
+    <gcds-text>Call a phone number.</gcds-text>
+  </div>
+<p><div class="mt-500 b-sm b-default component-preview">
+<p class="container-full font-semibold px-225 py-150 bb-sm b-default bg-light"></p>
+<p></p>
+<div class="px-225 py-450"></p>
+<p><p class="text-center">
+<gcds-icon size="h2" name="search" label="A magnifying glass."></gcds-icon>
+</p></p>
+<p></div>
+</div></p>
+  <div>
+    <gcds-heading tag="h3">Search</gcds-heading>
+    <gcds-text>Search for specific information.</gcds-text>
+  </div>
+</gcds-grid>
+</div>
 
 
   <section data-pagefind-ignore class="my-600 bt-sm b-dark ">
@@ -1256,7 +1439,7 @@
     href="https://github.com/cds-snc/gcds-components/issues/new/choose"
   >
     Report an issue on GitHub
-    <gcds-icon name="external-link" label=" (Opens destination in a new tab.)">
+    <gcds-icon name="external" label=" (Opens destination in a new tab.)">
     </gcds-icon>
   </gcds-button>
 </section>
@@ -1264,7 +1447,7 @@
 
 
         <gcds-date-modified class="mb-300">
-          2025-04-10
+          2025-04-15
         </gcds-date-modified>
       </main>
 

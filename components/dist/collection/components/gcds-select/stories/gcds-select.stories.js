@@ -80,10 +80,31 @@ export default {
             },
         }
     }, validatorProps), langProp), {
+        // Slots
+        default: {
+            control: {
+                type: 'text',
+            },
+            description: 'Customize the content or include additional elements. Accepts `<options>` and `<optgroup>` elements. | Personnalisez le contenu ou ajoutez des éléments supplémentaires. Accepte les éléments `<options>` et `<optgroup>`.',
+            table: {
+                category: 'Slots | Fentes',
+            },
+        },
         // Events
         gcdsChange: Object.assign({ action: 'change' }, eventProp), gcdsFocus: Object.assign({ action: 'focus' }, eventProp), gcdsBlur: Object.assign({ action: 'blur' }, eventProp)
     }),
 };
+const selectOptions = `<option value="1">Option 1</option>
+  <option value="2">Option 2</option>
+  <option value="3">Option 3</option>
+  <option value="4">Option 4</option>
+  <optgroup label="Group">
+    <option value="5">Option 5</option>
+    <option value="6">Option 6</option>
+    <option value="7">Option 7</option>
+    <option value="8">Option 8</option>
+  </optgroup>
+`;
 const Template = args => `
 <!-- Web component code (HTML, Angular, Vue) -->
 <gcds-select
@@ -99,14 +120,7 @@ const Template = args => `
   ${args.validateOn != 'blur' ? `validate-on="${args.validateOn}"` : null}
   ${args.lang != 'en' ? `lang="${args.lang}"` : null}
 >
-  <option value="1">Option 1</option>
-  <option value="2">Option 2</option>
-  <option value="3">Option 3</option>
-  <option value="4">Option 4</option>
-  <option value="5">Option 5</option>
-  <option value="6">Option 6</option>
-  <option value="7">Option 7</option>
-  <option value="8">Option 8</option>
+  ${args.default}
 </gcds-select>
 
 <!-- React code -->
@@ -123,14 +137,7 @@ const Template = args => `
   ${args.validateOn != 'blur' ? `validateOn="${args.validateOn}"` : null}
   ${args.lang != 'en' ? `lang="${args.lang}"` : null}
 >
-  <option value="1">Option 1</option>
-  <option value="2">Option 2</option>
-  <option value="3">Option 3</option>
-  <option value="4">Option 4</option>
-  <option value="5">Option 5</option>
-  <option value="6">Option 6</option>
-  <option value="7">Option 7</option>
-  <option value="8">Option 8</option>
+  ${args.default}
 </GcdsSelect>
 `.replace(/\s\snull\n/g, '');
 const TemplatePlayground = args => `
@@ -147,14 +154,7 @@ const TemplatePlayground = args => `
   ${args.validateOn != 'blur' ? `validate-on="${args.validateOn}"` : null}
   ${args.lang != 'en' ? `lang="${args.lang}"` : null}
 >
-  <option value="1">Option 1</option>
-  <option value="2">Option 2</option>
-  <option value="3">Option 3</option>
-  <option value="4">Option 4</option>
-  <option value="5">Option 5</option>
-  <option value="6">Option 6</option>
-  <option value="7">Option 7</option>
-  <option value="8">Option 8</option>
+  ${args.default}
 </gcds-select>
 `;
 // ------ Select default ------
@@ -171,6 +171,7 @@ Default.args = {
     disabled: false,
     lang: 'en',
     validateOn: 'blur',
+    default: selectOptions,
 };
 // ------ Select states ------
 export const Disabled = Template.bind({});
@@ -183,6 +184,7 @@ Disabled.args = {
     disabled: true,
     lang: 'en',
     validateOn: 'blur',
+    default: selectOptions,
 };
 export const Error = Template.bind({});
 Error.args = {
@@ -195,6 +197,7 @@ Error.args = {
     errorMessage: 'Error message or validation message.',
     lang: 'en',
     validateOn: 'blur',
+    default: selectOptions,
 };
 export const Required = Template.bind({});
 Required.args = {
@@ -206,6 +209,7 @@ Required.args = {
     required: true,
     lang: 'en',
     validateOn: 'blur',
+    default: selectOptions,
 };
 // ------ Select without default value ------
 export const WithoutDefaultValue = Template.bind({});
@@ -216,6 +220,7 @@ WithoutDefaultValue.args = {
     hint: 'Hint / Example message.',
     lang: 'en',
     validateOn: 'blur',
+    default: selectOptions,
 };
 // ------ Select events & properties ------
 export const Props = Template.bind({});
@@ -231,6 +236,7 @@ Props.args = {
     disabled: false,
     lang: 'en',
     validateOn: 'blur',
+    default: selectOptions,
 };
 // ------ Select playground ------
 export const Playground = TemplatePlayground.bind({});
@@ -246,5 +252,6 @@ Playground.args = {
     disabled: false,
     lang: 'en',
     validateOn: 'blur',
+    default: selectOptions,
 };
 //# sourceMappingURL=gcds-select.stories.js.map

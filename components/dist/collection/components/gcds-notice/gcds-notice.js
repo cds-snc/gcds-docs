@@ -80,10 +80,10 @@ export class GcdsNotice {
         const iconTypes = {
             danger: 'exclamation-circle',
             info: 'info-circle',
-            success: 'check-circle',
-            warning: 'exclamation-triangle',
+            success: 'checkmark-circle',
+            warning: 'warning-triangle',
         };
-        return (h(Host, { key: 'cc0b6ce484789c05fd099b7e0c0b94396bbf5cc9' }, this.validateRequiredProps() && (h("section", { key: '3643290523b2d266a8ac0a8422652782a5a1a7ca', class: `gcds-notice notice--type-${type}` }, h("gcds-icon", { key: '2be06da9bca52fa70ded02fad226c2c434186731', class: "notice__icon", size: "h4", name: iconTypes[type] }), h("div", { key: '2da5c9fe4808e1a5b79f7dfd04ca24b2cb3519e3' }, h("gcds-heading", { key: '733544e235c0832101c79c82a140d42bb6eb783a', tag: noticeTitleTag, "margin-top": "0", "margin-bottom": "100", class: "notice__heading" }, h("gcds-sr-only", { key: '34c677889a234722b2e672ebae4b700801dc8f67', tag: "span" }, i18n[this.lang][type]), noticeTitle), h("slot", { key: 'bdb1a6843f3386d766f241a62edfea9d06e3fad6' }))))));
+        return (h(Host, { key: '7d04d0e19067c8a1f0f6bef1ba21f9bb6e05b379' }, this.validateRequiredProps() && (h("section", { key: '92300518f0f6a084603043451272705d18f32b10', class: `gcds-notice notice--type-${type}` }, h("gcds-icon", { key: 'd08a464788d4ab04e25aaefd883510b178580b3e', class: "notice__icon", size: "h4", name: iconTypes[type] }), h("div", { key: 'beb615aef718ad429868df2dfca31d997b08f862' }, h("gcds-heading", { key: '139221a5b81115d19700a0e3fef7bbb1386d2497', tag: noticeTitleTag, "margin-top": "0", "margin-bottom": "100", class: "notice__heading" }, h("gcds-sr-only", { key: 'cec841b35332c0f7cf4cd68a7c9a6a387c87165b', tag: "span" }, i18n[this.lang][type]), noticeTitle), h("slot", { key: 'e24597dad7914e2c0cf3ad53f4aee87994a6d72f' }))))));
     }
     static get is() { return "gcds-notice"; }
     static get encapsulation() { return "shadow"; }

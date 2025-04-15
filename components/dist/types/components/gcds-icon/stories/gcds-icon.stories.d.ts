@@ -1,21 +1,6 @@
 declare const _default: {
     title: string;
     argTypes: {
-        iconStyle: {
-            name: string;
-            control: {
-                type: string;
-            };
-            options: string[];
-            table: {
-                type: {
-                    summary: string;
-                };
-                defaultValue: {
-                    summary: string;
-                };
-            };
-        };
         label: {
             control: string;
             table: {
@@ -58,7 +43,10 @@ declare const _default: {
             };
         };
         name: {
-            control: string;
+            control: {
+                type: string;
+            };
+            options: string[];
             table: {
                 type: {
                     summary: string;
@@ -69,21 +57,6 @@ declare const _default: {
             };
             type: {
                 required: boolean;
-            };
-        };
-        fixedWidth: {
-            name: string;
-            control: {
-                type: string;
-            };
-            options: boolean[];
-            table: {
-                type: {
-                    summary: string;
-                };
-                defaultValue: {
-                    summary: boolean;
-                };
             };
         };
         size: {
@@ -108,7 +81,6 @@ export declare const Name: any;
 export declare const Sizes: any;
 export declare const MarginLeft: any;
 export declare const MarginRight: any;
-export declare const Width: any;
 export declare const Label: any;
 export declare const Props: any;
 export declare const Playground: any;

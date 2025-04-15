@@ -4,7 +4,7 @@ export default {
     parameters: {
         actions: {
             argTypesRegex: '^gcds.*',
-            handles: ['RadioChange', 'focus', 'blur'],
+            handles: ['change', 'focus', 'blur'],
         },
     },
     argTypes: Object.assign(Object.assign({
@@ -42,7 +42,7 @@ export default {
         }
     }, langProp), {
         // Events
-        gcdsRadioChange: Object.assign({ action: 'RadioChange' }, eventProp), gcdsFocus: Object.assign({ action: 'focus' }, eventProp), gcdsBlur: Object.assign({ action: 'blur' }, eventProp)
+        gcdsChange: Object.assign({ action: 'change' }, eventProp), gcdsFocus: Object.assign({ action: 'focus' }, eventProp), gcdsBlur: Object.assign({ action: 'blur' }, eventProp)
     }),
 };
 const Template = args => `

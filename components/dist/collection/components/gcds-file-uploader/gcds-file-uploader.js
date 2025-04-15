@@ -49,7 +49,7 @@ export class GcdsFileUploader {
                 }
                 this.shadowElement.files = dt.files;
                 this.files = dt.files;
-                this.addFilesToFormData(this.shadowElement.files);
+                this.addFilesToFormData(Array.from(this.shadowElement.files));
             }
             this.value = [...filesContainer];
             this.gcdsRemoveFile.emit(this.value);
@@ -157,6 +157,25 @@ export class GcdsFileUploader {
         this.value = state;
     }
     /*
+     * Handle drop event on file uploader
+     */
+    handleDrop(e) {
+        e.preventDefault();
+        const droppedFiles = e.dataTransfer.files;
+        if (droppedFiles && droppedFiles.length > 0) {
+            const dt = new DataTransfer();
+            for (const file of droppedFiles) {
+                dt.items.add(file);
+            }
+            if (dt.files.length > 0) {
+                this.shadowElement.files = dt.files;
+                this.files = dt.files;
+            }
+        }
+        // Focus file input after drop
+        this.shadowElement.focus();
+    }
+    /*
      * Observe lang attribute change
      */
     updateLang() {
@@ -207,8 +226,8 @@ export class GcdsFileUploader {
             attrsInput['aria-describedby'] =
                 `${hintID}${errorID}${attrsInput['aria-describedby']}`;
         }
-        return (h(Host, { key: '40d823466addd276a49548e490ec2611310cd788' }, h("div", { key: 'd7aa15ff14ecbd77770b2691c4c142d7c14a8bed', class: `gcds-file-uploader-wrapper ${disabled ? 'gcds-disabled' : ''} ${hasError ? 'gcds-error' : ''}` }, h("gcds-label", Object.assign({ key: 'f45de737ec67384cd373fff9859b77382e3bf5dd' }, attrsLabel, { "label-for": uploaderId, lang: lang })), hint ? h("gcds-hint", { "hint-id": uploaderId }, hint) : null, errorMessage ? (h("gcds-error-message", { messageId: uploaderId }, errorMessage)) : null, h("div", { key: '4f8e94b3e861aec793f4126233967950b1de7971', class: `file-uploader__input ${value.length > 0 ? 'uploaded-files' : ''}` }, h("button", { key: 'df9ec77ed561aeba22af218c653e00da1cc04f5f', type: "button", tabindex: "-1", onClick: () => this.shadowElement.click() }, i18n[lang].button.upload), h("input", Object.assign({ key: 'f666c3cfecd09a38f1e84f0ffb3122fab0682a12', type: "file", id: uploaderId }, attrsInput, { onBlur: () => this.onBlur(), onFocus: () => this.gcdsFocus.emit(), onInput: e => this.handleInput(e, this.gcdsInput), onChange: e => this.handleInput(e, this.gcdsChange), "aria-invalid": hasError ? 'true' : 'false', ref: element => (this.shadowElement = element) })), value.length > 0 ? (h("gcds-sr-only", { id: "file-uploader__summary" }, h("span", null, i18n[lang].summary.selected, " "), value.map(file => (h("span", null, file, " "))))) : (h("gcds-sr-only", { id: "file-uploader__summary" }, i18n[lang].summary.unselected))), value.length > 0
-            ? value.map(file => (h("div", { class: "file-uploader__uploaded-file", "aria-label": `${i18n[lang].removeFile} ${file}.` }, h("gcds-text", { "margin-bottom": "0" }, file), h("button", { onClick: e => this.removeFile(e) }, h("span", null, i18n[lang].button.remove), h("gcds-icon", { name: "times", size: "text", "margin-left": "150" })))))
+        return (h(Host, { key: '6c6ef66be8b55a3e93259e4af231de9378daba82' }, h("div", { key: '47a19eac7f53045d0c84af8c20676d348ca84e58', class: `gcds-file-uploader-wrapper ${disabled ? 'gcds-disabled' : ''} ${hasError ? 'gcds-error' : ''}` }, h("gcds-label", Object.assign({ key: 'fda321ac14063357dfb0d64aadfd38855d11eb4f' }, attrsLabel, { "label-for": uploaderId, lang: lang })), hint ? h("gcds-hint", { "hint-id": uploaderId }, hint) : null, errorMessage ? (h("gcds-error-message", { messageId: uploaderId }, errorMessage)) : null, h("div", { key: 'd4245f187a168c4ba1751a8f920bad15471d6794', class: `file-uploader__input ${value.length > 0 ? 'uploaded-files' : ''}`, onDrop: e => this.handleDrop(e), onDragOver: e => e.preventDefault() }, h("button", { key: 'cbac48bf5f013b527f01601964512b89420aed23', type: "button", tabindex: "-1", onClick: () => this.shadowElement.click() }, i18n[lang].button.upload), h("input", Object.assign({ key: 'd1360f3157fb3fa2e249bb37017259cf66789975', type: "file", id: uploaderId }, attrsInput, { onBlur: () => this.onBlur(), onFocus: () => this.gcdsFocus.emit(), onInput: e => this.handleInput(e, this.gcdsInput), onChange: e => this.handleInput(e, this.gcdsChange), "aria-invalid": hasError ? 'true' : 'false', ref: element => (this.shadowElement = element) })), value.length > 0 ? (h("gcds-sr-only", { id: "file-uploader__summary" }, h("span", null, i18n[lang].summary.selected, " "), value.map(file => (h("span", null, file, " "))))) : (h("gcds-sr-only", { id: "file-uploader__summary" }, i18n[lang].summary.unselected))), value.length > 0
+            ? value.map(file => (h("div", { class: "file-uploader__uploaded-file", "aria-label": `${i18n[lang].removeFile} ${file}.` }, h("gcds-text", { "margin-bottom": "0" }, file), h("button", { onClick: e => this.removeFile(e) }, h("span", null, i18n[lang].button.remove), h("gcds-icon", { name: "close", size: "text", "margin-left": "150" })))))
             : null)));
     }
     static get is() { return "gcds-file-uploader"; }

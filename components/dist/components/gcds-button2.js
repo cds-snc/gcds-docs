@@ -122,7 +122,7 @@ const GcdsButton = /*@__PURE__*/ proxyCustomElement(class GcdsButton extends HTM
                 target,
                 download,
             };
-        return (h(Host, { key: 'e9202b1e4d820aa2e87d18f11488382be7966e47' }, h(Tag, Object.assign({ key: 'c6e31af06c5103d15b75b88517e326b749f3908b' }, attrs, { id: buttonId, onBlur: () => this.gcdsBlur.emit(), onFocus: () => this.gcdsFocus.emit(), onClick: e => !disabled && this.handleClick(e), class: `gcds-button button--role-${buttonRole} button--${size}`, ref: element => (this.shadowElement = element) }, inheritedAttributes, { part: "button" }), h("slot", { key: 'c30f8d29a50b34baa98a7f97fe06ee1e296339d0' }), type === 'link' && target === '_blank' ? (h("gcds-icon", { name: "external-link", label: I18N[lang].label, "margin-left": "150" })) : null)));
+        return (h(Host, { key: 'e9202b1e4d820aa2e87d18f11488382be7966e47' }, h(Tag, Object.assign({ key: 'c6e31af06c5103d15b75b88517e326b749f3908b' }, attrs, { id: buttonId, onBlur: () => this.gcdsBlur.emit(), onFocus: () => this.gcdsFocus.emit(), onClick: e => !disabled && this.handleClick(e), class: `gcds-button button--role-${buttonRole} button--${size}`, ref: element => (this.shadowElement = element) }, inheritedAttributes, { part: "button" }), h("slot", { key: 'c30f8d29a50b34baa98a7f97fe06ee1e296339d0' }), type === 'link' && target === '_blank' ? (h("gcds-icon", { name: "external", label: I18N[lang].label, "margin-left": "150" })) : null)));
     }
     static get delegatesFocus() { return true; }
     get el() { return this; }

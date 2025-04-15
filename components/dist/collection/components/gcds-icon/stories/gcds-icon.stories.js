@@ -2,15 +2,6 @@ export default {
     title: 'Components/Icon',
     argTypes: {
         // Props
-        iconStyle: {
-            name: 'icon-style',
-            control: { type: 'select' },
-            options: ['regular', 'solid'],
-            table: {
-                type: { summary: 'string' },
-                defaultValue: { summary: 'solid' },
-            },
-        },
         label: {
             control: 'text',
             table: {
@@ -101,22 +92,29 @@ export default {
             },
         },
         name: {
-            control: 'text',
+            control: { type: 'select' },
+            options: [
+                'checkmark-circle',
+                'chevron-down',
+                'chevron-left',
+                'chevron-right',
+                'chevron-up',
+                'close',
+                'download',
+                'email',
+                'exclamation-circle',
+                'external',
+                'info-circle',
+                'phone',
+                'search',
+                'warning-triangle',
+            ],
             table: {
                 type: { summary: 'string' },
                 defaultValue: { summary: '-' },
             },
             type: {
                 required: true,
-            },
-        },
-        fixedWidth: {
-            name: 'fixed-width',
-            control: { type: 'select' },
-            options: [false, true],
-            table: {
-                type: { summary: 'boolean' },
-                defaultValue: { summary: false },
             },
         },
         size: {
@@ -134,18 +132,18 @@ export default {
             ],
             table: {
                 type: { summary: 'string' },
-                defaultValue: { summary: 'text' },
+                defaultValue: { summary: 'inherit' },
             },
         },
     },
 };
 const Template = args => `
 <!-- Web component code (HTML, Angular, Vue) -->
-<gcds-icon ${args.label ? `label="${args.label}"` : null} name="${args.name}" ${args.iconStyle != 'solid' ? `icon-style="${args.iconStyle}"` : null} ${args.marginLeft ? `margin-left="${args.marginLeft}"` : null} ${args.marginRight ? `margin-right="${args.marginRight}"` : null} ${args.size != 'text' ? `size="${args.size}"` : null} ${args.fixedWidth ? `fixed-width="${args.fixedWidth}"` : null}>
+<gcds-icon ${args.label ? `label="${args.label}"` : null} name="${args.name}" ${args.marginLeft ? `margin-left="${args.marginLeft}"` : null} ${args.marginRight ? `margin-right="${args.marginRight}"` : null} ${args.size != 'text' ? `size="${args.size}"` : null}>
 </gcds-icon>
 
 <!-- React code -->
-<GcdsIcon ${args.label ? `label="${args.label}"` : null} name="${args.name}" ${args.iconStyle != 'solid' ? `iconStyle="${args.iconStyle}"` : null} ${args.marginLeft ? `marginLeft="${args.marginLeft}"` : null} ${args.marginRight ? `marginRight="${args.marginRight}"` : null} ${args.size != 'text' ? `size="${args.size}"` : null} ${args.fixedWidth ? `fixedWidth="${args.fixedWidth}"` : null}>
+<GcdsIcon ${args.label ? `label="${args.label}"` : null} name="${args.name}" ${args.marginLeft ? `marginLeft="${args.marginLeft}"` : null} ${args.marginRight ? `marginRight="${args.marginRight}"` : null} ${args.size != 'text' ? `size="${args.size}"` : null}>
 </GcdsIcon>
 `.replace(/ null/g, '');
 const TemplateMargin = args => `
@@ -219,7 +217,9 @@ const TemplateMultiple = args => `
 <!-- Web component code (Angular, Vue) -->
 <gcds-icon name="${args.name1}" ${args.size1 != 'text' ? `size="${args.size1}"` : null}></gcds-icon>
 <gcds-icon name="${args.name2}" ${args.size2 != 'text' ? `size="${args.size2}"` : null}></gcds-icon>
-<gcds-icon name="${args.name3}" ${args.size3 != 'text' ? `size="${args.size3}"` : null}></gcds-icon>
+<gcds-icon name="${args.name3}" ${args.name3 === 'close' || args.size3 != 'text'
+    ? `size="${args.size3}"`
+    : null}></gcds-icon>
 <gcds-icon name="${args.name4}" ${args.size4 != 'text' ? `size="${args.size4}"` : null}></gcds-icon>
 <gcds-icon name="${args.name5}" ${args.size5 != 'text' ? `size="${args.size5}"` : null}></gcds-icon>
 <gcds-icon name="${args.name6}" ${args.size6 != 'text' ? `size="${args.size6}"` : null}></gcds-icon>
@@ -230,22 +230,15 @@ const TemplateMultiple = args => `
 <!-- React code -->
 <GcdsIcon name="${args.name1}" ${args.size1 != 'text' ? `size="${args.size1}"` : null}></GcdsIcon>
 <GcdsIcon name="${args.name2}" ${args.size2 != 'text' ? `size="${args.size2}"` : null}></GcdsIcon>
-<GcdsIcon name="${args.name3}" ${args.size3 != 'text' ? `size="${args.size3}"` : null}></GcdsIcon>
+<GcdsIcon name="${args.name3}" ${args.name3 === 'close' || args.size3 != 'text'
+    ? `size="${args.size3}"`
+    : null}></GcdsIcon>
 <GcdsIcon name="${args.name4}" ${args.size4 != 'text' ? `size="${args.size4}"` : null}></GcdsIcon>
 <GcdsIcon name="${args.name5}" ${args.size5 != 'text' ? `size="${args.size5}"` : null}></GcdsIcon>
 <GcdsIcon name="${args.name6}" ${args.size6 != 'text' ? `size="${args.size6}"` : null}></GcdsIcon>
 <GcdsIcon name="${args.name7}" ${args.size7 != 'text' ? `size="${args.size7}"` : null}></GcdsIcon>
 <GcdsIcon name="${args.name8}" ${args.size8 != 'text' ? `size="${args.size8}"` : null}></GcdsIcon>
 <GcdsIcon name="${args.name9}" ${args.size9 != 'text' ? `size="${args.size9}"` : null}></GcdsIcon>
-`.replace(/ null/g, '');
-const TemplateTwo = args => `
-<!-- Web component code (Angular, Vue) -->
-<gcds-icon name="${args.name}" ${args.size != 'text' ? `size="${args.size}"` : null} ${args.fixedWidth1 ? `fixed-width="${args.fixedWidth1}"` : null}></gcds-icon>
-<gcds-icon name="${args.name}" ${args.size != 'text' ? `size="${args.size}"` : null} ${args.fixedWidth2 ? `fixed-width="${args.fixedWidth2}"` : null}></gcds-icon>
-
-<!-- React code -->
-<GcdsIcon name="${args.name}" ${args.size != 'text' ? `size="${args.size}"` : null} ${args.fixedWidth1 ? `fixedWidth="${args.fixedWidth1}"` : null}></GcdsIcon>
-<GcdsIcon name="${args.name}" ${args.size != 'text' ? `size="${args.size}"` : null} ${args.fixedWidth2 ? `fixedWidth="${args.fixedWidth2}"` : null}></GcdsIcon>
 `.replace(/ null/g, '');
 const TemplatePlayground = args => `
 <gcds-icon
@@ -254,8 +247,6 @@ const TemplatePlayground = args => `
   ${args.marginLeft ? `margin-left="${args.marginLeft}"` : null}
   ${args.marginRight ? `margin-right="${args.marginRight}"` : null}
   ${args.size != 'text' ? `size="${args.size}"` : null}
-  ${args.fixedWidth ? `fixed-width="${args.fixedWidth}"` : null}
-  ${args.iconStyle != 'solid' ? `iconStyle="${args.iconStyle}"` : null}
 >
 </gcds-icon>
 `;
@@ -264,20 +255,19 @@ export const Default = Template.bind({});
 Default.args = {
     name: 'close',
     size: 'text',
-    iconStyle: 'solid',
 };
 // ------ Icon name ------
 export const Name = TemplateMultiple.bind({});
 Name.args = {
-    name1: 'close',
-    name2: 'external-link',
-    name3: 'caret-up',
-    name4: 'caret-down',
-    name5: 'exclamation-circle',
-    name6: 'sync',
+    name1: 'checkmark-circle',
+    name2: 'chevron-down',
+    name3: 'chevron-left',
+    name4: 'chevron-right',
+    name5: 'chevron-up',
+    name6: 'close',
     name7: 'download',
-    name8: 'check',
-    name9: 'paperclip',
+    name8: 'email',
+    name9: 'exclamation-circle',
     size1: 'text',
     size2: 'text',
     size3: 'text',
@@ -383,27 +373,16 @@ MarginRight.args = {
     marginRight1250: '1250',
     size: 'text-small',
 };
-// ------ Icon width ------
-export const Width = TemplateTwo.bind({});
-Width.args = {
-    name: 'close',
-    size: 'text',
-    fixedWidth1: true,
-    fixedWidth2: false,
-};
 // ------ Icon label ------
 export const Label = Template.bind({});
 Label.args = {
     name: 'close',
     size: 'text',
-    iconStyle: 'solid',
     label: 'Clicking this icon will close the element.',
 };
 // ------ Icon events & props ------
 export const Props = Template.bind({});
 Props.args = {
-    fixedWidth: false,
-    iconStyle: 'solid',
     label: '',
     name: 'close',
     size: 'text',
@@ -411,8 +390,6 @@ Props.args = {
 // ------ Icon playground ------
 export const Playground = TemplatePlayground.bind({});
 Playground.args = {
-    fixedWidth: false,
-    iconStyle: 'solid',
     label: '',
     marginLeft: '0',
     marginRight: '0',

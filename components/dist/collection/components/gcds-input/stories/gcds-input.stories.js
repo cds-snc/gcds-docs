@@ -51,8 +51,7 @@ export default {
                 defaultValue: { summary: 'text' },
             },
         }, autocomplete: {
-            control: { type: 'select' },
-            options: ['on', 'off'],
+            control: 'text',
             table: {
                 type: { summary: 'string' },
                 defaultValue: { summary: '-' },
@@ -177,7 +176,7 @@ Default.args = {
     size: '',
     value: '',
     lang: 'en',
-    autocomplete: 'off',
+    autocomplete: '',
     hideLabel: false,
     validateOn: 'blur',
 };
@@ -191,7 +190,7 @@ Disabled.args = {
     hint: 'Hint / example message.',
     disabled: true,
     lang: 'en',
-    autocomplete: 'off',
+    autocomplete: '',
     validateOn: 'blur',
 };
 export const Error = Template.bind({});
@@ -204,7 +203,7 @@ Error.args = {
     required: true,
     errorMessage: 'Error message or validation message.',
     lang: 'en',
-    autocomplete: 'off',
+    autocomplete: '',
     validateOn: 'blur',
 };
 export const Required = Template.bind({});
@@ -216,7 +215,7 @@ Required.args = {
     hint: 'Hint / example message.',
     required: true,
     lang: 'en',
-    autocomplete: 'off',
+    autocomplete: '',
     validateOn: 'blur',
 };
 // ------ Input types ------
@@ -229,7 +228,7 @@ Email.args = {
     hint: 'Hint / example message.',
     disabled: false,
     lang: 'en',
-    autocomplete: 'off',
+    autocomplete: '',
     validateOn: 'blur',
 };
 export const Number = Template.bind({});
@@ -241,7 +240,7 @@ Number.args = {
     hint: 'Hint / example message.',
     disabled: false,
     lang: 'en',
-    autocomplete: 'off',
+    autocomplete: '',
     validateOn: 'blur',
 };
 export const Password = Template.bind({});
@@ -253,7 +252,7 @@ Password.args = {
     hint: 'Hint / example message.',
     disabled: false,
     lang: 'en',
-    autocomplete: 'off',
+    autocomplete: '',
     validateOn: 'blur',
 };
 export const Search = Template.bind({});
@@ -265,7 +264,7 @@ Search.args = {
     hint: 'Hint / example message.',
     disabled: false,
     lang: 'en',
-    autocomplete: 'off',
+    autocomplete: '',
     validateOn: 'blur',
 };
 export const Text = Template.bind({});
@@ -277,7 +276,7 @@ Text.args = {
     hint: 'Hint / example message.',
     disabled: false,
     lang: 'en',
-    autocomplete: 'off',
+    autocomplete: '',
     validateOn: 'blur',
 };
 export const Url = Template.bind({});
@@ -289,7 +288,7 @@ Url.args = {
     hint: 'Hint / example message.',
     disabled: false,
     lang: 'en',
-    autocomplete: 'off',
+    autocomplete: '',
     validateOn: 'blur',
 };
 // ------ Input events & props ------
@@ -306,7 +305,7 @@ Props.args = {
     size: null,
     value: '',
     lang: 'en',
-    autocomplete: 'off',
+    autocomplete: '',
     hideLabel: false,
     validateOn: 'blur',
 };
@@ -323,7 +322,7 @@ Playground.args = {
     disabled: false,
     size: '',
     value: '',
-    autocomplete: 'off',
+    autocomplete: '',
     hideLabel: false,
     validateOn: 'blur',
     lang: 'en',

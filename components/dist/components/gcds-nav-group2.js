@@ -108,7 +108,7 @@ const GcdsNavGroup = /*@__PURE__*/ proxyCustomElement(class GcdsNavGroup extends
                 if (event) {
                     this.toggleNav();
                 }
-            } }, h("gcds-icon", { key: '60799d264b1b7c6a174a7749ebce1fda8f1ecb95', name: open ? 'angle-up' : 'angle-down' }), closeTrigger && open ? closeTrigger : openTrigger), h("ul", { key: '9c519c0f1bd73f6235ad59563b622a2648f93003', "aria-label": menuLabel, class: `gcds-nav-group__list gcds-nav--${this.navStyle}` }, h("slot", { key: 'fba583b1c76fefb73a8461302ee63615f17a7b50' }))));
+            } }, h("gcds-icon", { key: '64bb2e9c579c7f28b9a52764b54e42ea4ac4cd23', name: open ? 'chevron-up' : 'chevron-down' }), closeTrigger && open ? closeTrigger : openTrigger), h("ul", { key: 'b8de299b4d122f1251e5822a2a1056d8f63ab583', "aria-label": menuLabel, class: `gcds-nav-group__list gcds-nav--${this.navStyle}` }, h("slot", { key: '67a8a53ac07bb72994f218101f3c45d5c58d34bc' }))));
     }
     get el() { return this; }
     static get style() { return GcdsNavGroupStyle0; }

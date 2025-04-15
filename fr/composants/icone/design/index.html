@@ -1187,10 +1187,24 @@
 <gcds-link external href="https://github.com/cds-snc/gcds-components/tree/main/packages/web/src/components/gcds-icon">GitHub</gcds-link>
 </li>
 <li class="figma-link">
-<gcds-link external href="https://www.figma.com/file/mh2maMG2NBtk41k1O1UGHV/Canadian-Digital-Service%E2%80%A8---GC-Design-System?node-id=3063%3A9071&t=ciEmm7GYyGAY73zZ-0">Figma</gcds-link>
+<gcds-link external href="https://www.figma.com/design/mh2maMG2NBtk41k1O1UGHV/GC-Design-System?node-id=1847-5001&p=f&t=Yo3cEgk0PtoiM8eX-0">Figma</gcds-link>
 </li>
 </ul></p>
-<br/>
+<p><div class="my-600 b-sm b-default component-preview">
+<h2 class="container-full font-text font-semibold m-0 px-225 py-150 bb-sm b-default bg-light">
+Aperçu du composant de icône
+</h2>
+<div>
+<iframe
+            title="Aperçu du composant de icône"
+            src="/fr/composants/icone/preview/"
+            style="display: block; margin: 0 auto;"
+            frameBorder="0"
+            width="100%"
+            id="component-preview"
+          ></iframe>
+</div>
+</div></p>
 
     <nav class="tabs mb-300" aria-label="Onglet de consignes">
       <ul>
@@ -1229,7 +1243,69 @@
     </nav>
   
 
-  <h2 id="design">Design</h2>
+  <h2 id="structure-de-licone">Structure de l’icône</h2>
+<ol class="anatomy-list">
+  <li>Une <strong>icône</strong> est un symbole qui représente visuellement un objet, une action ou une idée.</li>
+  <li>Le <strong>texte d’accompagnement</strong> est un mot ou une expression qui donne un contexte supplémentaire.</li>
+</ol>
+<img class="b-sm b-default p-300" src="/images/fr/components/anatomy/gcds-icon-anatomy.svg" alt="Le diagramme montre une icône d’information à côté des mots « Texte d’accompagnement ». Le texte et l’icône ont la même couleur et la même taille." />
+<h2 id="design-et-accessibilite-de-licone">Design et accessibilité de l’icône</h2>
+<h3 id="utiliser-licone-de-maniere-intentionnelle">Utiliser l’icône de manière intentionnelle</h3>
+<ul class="list-disc mb-300"><li>Utilisez les icônes pour aider les gens avec la fonctionnalité du site.</li>
+<li>Utilisez les icônes judicieusement, car une utilisation excessive peut distraire et en réduire l’efficacité.</li>
+</ul>
+<h3 id="utiliser-une-icone-avec-du-texte">Utiliser une icône avec du texte</h3>
+<ul class="list-disc mb-300"><li>Associez l’icône à du texte d’accompagnement pour éliminer toute ambiguïté.</li>
+<li>Les icônes universellement comprises, comme celle de la recherche, peuvent être utilisées seules.</li>
+<li>Placez une icône avant le texte, à moins que vous n’indiquiez des informations secondaires, comme la flèche d’un menu déroulant.</li>
+</ul>
+<h3 id="rediger-une-description-significative">Rédiger une description significative</h3>
+<ul class="list-disc mb-300"><li>Utilisez du texte d’accompagnement distinct et spécifique afin d’éviter les répétitions pour les lecteurs d’écran.</li>
+<li>Utilisez du texte de remplacement lorsqu’il n’y a pas de texte d’accompagnement.</li>
+</ul>
+<h3 id="faire-correspondre-licone-et-la-taille-du-texte">Faire correspondre l’icône et la taille du texte</h3>
+<ul class="list-disc mb-300"><li>Faites correspondre la taille de l’icône au texte d’accompagnement, c’est-à-dire en utilisant une petite icône avec du petit texte.</li>
+<li>Alignez l’icône de manière à ce qu’elle soit à la même hauteur que le texte d’accompagnement.</li>
+<li>Utilisez notre échelle de taille pour vous assurer que la taille de l’icône correspond à la taille du texte.</li>
+</ul>
+<gcds-grid class="bg-light px-300 md:px-500 py-500 md:py-800 b-radius-lg" columns="1fr 1fr" columns-tablet="repeat(4, 1fr)" columns-desktop="repeat(8, 1fr)" gap="300">
+  <div class="text-center">
+    <gcds-text size="small" text-role="secondary"><strong>Texte petit (petit texte)</strong></gcds-text>
+    <gcds-icon size="text-small" name="info-circle"></gcds-icon>
+  </div>
+  <div class="text-center">
+    <gcds-text size="small" text-role="secondary"><strong>Texte</strong></gcds-text>
+    <gcds-icon size="text" name="info-circle"></gcds-icon>
+  </div>
+  <div class="text-center">
+    <gcds-text size="small" text-role="secondary"><strong>H6</strong></gcds-text>
+    <gcds-icon size="h6" name="info-circle"></gcds-icon>
+  </div>
+  <div class="text-center">
+    <gcds-text size="small" text-role="secondary"><strong>H5</strong></gcds-text>
+    <gcds-icon size="h5" name="info-circle"></gcds-icon>
+  </div>
+  <div class="text-center">
+    <gcds-text size="small" text-role="secondary"><strong>H4</strong></gcds-text>
+    <gcds-icon size="h4" name="info-circle"></gcds-icon>
+  </div>
+  <div class="text-center">
+    <gcds-text size="small" text-role="secondary"><strong>H3</strong></gcds-text>
+    <gcds-icon size="h3" name="info-circle"></gcds-icon>
+  </div>
+  <div class="text-center">
+    <gcds-text size="small" text-role="secondary"><strong>H2</strong></gcds-text>
+    <gcds-icon size="h2" name="info-circle"></gcds-icon>
+  </div>
+  <div class="text-center">
+    <gcds-text size="small" text-role="secondary"><strong>H1</strong></gcds-text>
+    <gcds-icon size="h1" name="info-circle"></gcds-icon>
+  </div>
+</gcds-grid>
+<h3 id="choisir-une-couleur-accessible">Choisir une couleur accessible</h3>
+<ul class="list-disc mb-300"><li>Utilisez une couleur unie qui correspond au texte d’accompagnement.</li>
+<li>Vérifiez que la couleur respecte ou dépasse la norme WCAG 2.1 AA.</li>
+</ul>
 
 
   <section data-pagefind-ignore class="my-600 bt-sm b-dark ">
@@ -1256,7 +1332,7 @@
     href="https://github.com/cds-snc/gcds-components/issues/new/choose"
   >
     Report an issue on GitHub
-    <gcds-icon name="external-link" label=" (Ouvre l&#39;emplacement dans un nouvel onglet.)">
+    <gcds-icon name="external" label=" (Ouvre l&#39;emplacement dans un nouvel onglet.)">
     </gcds-icon>
   </gcds-button>
 </section>
@@ -1264,7 +1340,7 @@
 
 
         <gcds-date-modified class="mb-300">
-          2025-04-10
+          2025-04-15
         </gcds-date-modified>
       </main>
 

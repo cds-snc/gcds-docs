@@ -1181,16 +1181,30 @@
         
   
     <h1 id="icon-brgcdsicon">Icon <br><code>&lt;gcds-icon&gt;</code></h1>
-<p>This component is coming soon.</p>
+<p>An icon is a symbol that visually represents an action or idea.</p>
 <p><ul class="d-flex flex-wrap gap-300">
 <li class="github-link">
 <gcds-link external href="https://github.com/cds-snc/gcds-components/tree/main/packages/web/src/components/gcds-icon">GitHub</gcds-link>
 </li>
 <li class="figma-link">
-<gcds-link external href="https://www.figma.com/file/mh2maMG2NBtk41k1O1UGHV/Canadian-Digital-Service%E2%80%A8---GC-Design-System?node-id=3063%3A9071&t=ciEmm7GYyGAY73zZ-0">Figma</gcds-link>
+<gcds-link external href="https://www.figma.com/design/mh2maMG2NBtk41k1O1UGHV/GC-Design-System?node-id=1847-5001&p=f&t=Yo3cEgk0PtoiM8eX-0">Figma</gcds-link>
 </li>
 </ul></p>
-<br/>
+<p><div class="my-600 b-sm b-default component-preview">
+<h2 class="container-full font-text font-semibold m-0 px-225 py-150 bb-sm b-default bg-light">
+Icon component preview
+</h2>
+<div>
+<iframe
+            title="Icon component preview"
+            src="/en/components/icon/preview/"
+            style="display: block; margin: 0 auto;"
+            frameBorder="0"
+            width="100%"
+            id="component-preview"
+          ></iframe>
+</div>
+</div></p>
 
     <nav class="tabs mb-300" aria-label="Guidance tabs">
       <ul>
@@ -1229,7 +1243,102 @@
     </nav>
   
 
-  <h2 id="code">Code</h2>
+  <h2 id="build-an-icon">Build an icon</h2>
+<p>Use an icon to emphasize an action or idea.</p>
+<h2 id="coding-and-accessibility-for-icons">Coding and accessibility for icons</h2>
+<h3 id="select-a-relevant-icon">Select a relevant icon</h3>
+<p>Render an icon by changing the <code>name</code> attribute to a corresponding icon name.</p>
+<gcds-grid class="bg-light px-300 md:px-500 py-500 md:py-800 b-radius-lg" columns-desktop="repeat(4, 1fr)" columns-tablet="repeat(3, 1fr)" columns="1fr 1fr" tag="ul" gap="300" gap-tablet="450">
+  <li class="list-none text-center">
+    <gcds-icon name="info-circle" size="h2" label="A filled-in circle with the letter “i” in the centre."></gcds-icon>
+    <p class="mb-0"><code>info-circle</code></p>
+  </li>
+  <li class="list-none text-center">
+    <gcds-icon name="warning-triangle" size="h2" label="A filled-in triangle with the letter “i” in the centre."></gcds-icon>
+    <p class="mb-0"><code>warning-triangle</code></p>
+  </li>
+  <li class="list-none text-center">
+    <gcds-icon name="exclamation-circle" size="h2" label="A filled-in circle with an exclamation mark in the centre."></gcds-icon>
+    <p class="mb-0"><code>exclamation-circle</code></p>
+  </li>
+  <li class="list-none text-center">
+    <gcds-icon name="checkmark-circle" size="h2" label="A filled-in circle with a checkmark in the centre."></gcds-icon>
+    <p class="mb-0"><code>checkmark-circle</code></p>
+  </li>
+  <li class="list-none text-center">
+    <gcds-icon name="chevron-left" size="h2" label="An arrow pointing left."></gcds-icon>
+    <p class="mb-0"><code>chevron-left</code></p>
+  </li>
+  <li class="list-none text-center">
+    <gcds-icon name="chevron-right" size="h2" label="An arrow pointing right."></gcds-icon>
+    <p class="mb-0"><code>chevron-right</code></p>
+  </li>
+  <li class="list-none text-center">
+    <gcds-icon name="chevron-up" size="h2" label="An arrow pointing up."></gcds-icon>
+    <p class="mb-0"><code>chevron-up</code></p>
+  </li>
+  <li class="list-none text-center">
+    <gcds-icon name="chevron-down" size="h2" label="An arrow pointing down."></gcds-icon>
+    <p class="mb-0"><code>chevron-down</code></p>
+  </li>
+  <li class="list-none text-center">
+    <gcds-icon name="close" size="h2" label="An “x”."></gcds-icon>
+    <p class="mb-0"><code>close</code></p>
+  </li>
+  <li class="list-none text-center">
+    <gcds-icon name="download" size="h2" label="An arrow pointing down towards a horizontal line."></gcds-icon>
+    <p class="mb-0"><code>download</code></p>
+  </li>
+  <li class="list-none text-center">
+    <gcds-icon name="email" size="h2" label="An envelope."></gcds-icon>
+    <p class="mb-0"><code>email</code></p>
+  </li>
+  <li class="list-none text-center">
+    <gcds-icon name="external" size="h2" label="An arrow pointing outside of the top right corner of a square."></gcds-icon>
+    <p class="mb-0"><code>external</code></p>
+  </li>
+  <li class="list-none text-center">
+    <gcds-icon name="phone" size="h2" label="A telephone."></gcds-icon>
+    <p class="mb-0"><code>phone</code></p>
+  </li>
+  <li class="list-none text-center">
+    <gcds-icon name="search" size="h2" label="A magnifying glass."></gcds-icon>
+    <p class="mb-0"><code>search</code></p>
+  </li>
+</gcds-grid>
+<h3 id="specify-the-sizing-scale">Specify the sizing scale</h3>
+<ul class="list-disc mb-300"><li>Change the size of an icon by setting the <code>size</code> attribute to a specific font size, like <code>text-small</code> | <code>text</code> |  <code>h1</code> | <code>h2</code> | <code>h3</code> | <code>h4</code> | <code>h5</code> | <code>h6</code>.</li>
+<li>Match the icon size to its accompanying text by setting the <code>size</code> attribute to <code>inherit</code>.</li>
+<li>Set a minimum 24 x 24 pixel height/width for an interactive icon without text. If you can increase the size, 44 x 44 pixels exceeds accessibility standards, but is more accessible.</li>
+</ul>
+<h3 id="adjust-the-placement">Adjust the placement</h3>
+<p>Add a margin to the left or right of an icon by setting the <code>margin-left</code> or <code>margin-right</code> attribute to a spacing value, like <code>0</code> | <code>25</code> | <code>50</code> | <code>75</code> | <code>100</code> | <code>125</code> | <code>150</code> | <code>175</code>| <code>200</code> | <code>225</code>| <code>250</code> | <code>300</code> | <code>350</code>| <code>400</code> | <code>450</code> | <code>500</code> | <code>550</code> | <code>600</code> | <code>650</code> | <code>700</code> | <code>750</code> | <code>800</code> | <code>850</code> | <code>900</code> | <code>950</code> | <code>1000</code> | <code>1050</code> | <code>1100</code> | <code>1150</code> | <code>1200</code> | <code>1250</code>.</p>
+<h3 id="set-label-text">Set label text</h3>
+<ul class="list-disc mb-300"><li>Use the label property for an icon with no accompanying text.</li>
+<li>You don’t need to use the label property if an icon is decorative.</li>
+</ul>
+<h3 id="get-your-code">Get your code</h3>
+<p>Generate an instance of the component you need by selecting its code properties.</p>
+<ol class="list-decimal mb-300"><li>
+<p>Explore by choosing different code values to generate the instance you want.</p>
+</li>
+<li>
+<p>Get the code and pull it into your environment.</p>
+</li>
+<li>
+<p>Add any copy you need to the component (like text for a label).</p>
+</li>
+</ol>
+<p><strong>Note:</strong> The code builder uses English for all code elements, which follows standard practice.</p>
+<iframe
+  title="Overview of gcds-icon properties and events."
+  src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&demo=true&singleStory=true&id=components-icon--events-properties&lang=en"
+  width="1200"
+  height="950"
+  style="display: block; margin: 0 auto;"
+  frameBorder="0"
+  allow="clipboard-write"
+></iframe>
 
 
   <section data-pagefind-ignore class="my-600 bt-sm b-dark ">
@@ -1256,7 +1365,7 @@
     href="https://github.com/cds-snc/gcds-components/issues/new/choose"
   >
     Report an issue on GitHub
-    <gcds-icon name="external-link" label=" (Opens destination in a new tab.)">
+    <gcds-icon name="external" label=" (Opens destination in a new tab.)">
     </gcds-icon>
   </gcds-button>
 </section>
@@ -1264,7 +1373,7 @@
 
 
         <gcds-date-modified class="mb-300">
-          2025-04-10
+          2025-04-15
         </gcds-date-modified>
       </main>
 

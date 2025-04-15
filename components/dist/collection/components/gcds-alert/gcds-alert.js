@@ -43,15 +43,15 @@ export class GcdsAlert {
                 : alertRole === 'info'
                     ? 'info-circle'
                     : alertRole === 'success'
-                        ? 'check-circle'
+                        ? 'checkmark-circle'
                         : alertRole === 'warning'
-                            ? 'exclamation-triangle'
+                            ? 'warning-triangle'
                             : null })), h("div", { class: "alert__content" }, h("p", { class: "alert__heading" }, h("strong", null, heading)), h("slot", null)), !hideCloseBtn && (h("button", { class: "alert__close-btn", onClick: e => {
                 const event = emitEvent(e, this.gcdsDismiss);
                 if (event) {
                     this.isOpen = false;
                 }
-            }, "aria-label": i18n[lang].closeBtn }, h("gcds-icon", { "aria-hidden": "true", name: "times", size: "text" }))))))) : null));
+            }, "aria-label": i18n[lang].closeBtn }, h("gcds-icon", { "aria-hidden": "true", name: "close", size: "text" }))))))) : null));
     }
     static get is() { return "gcds-alert"; }
     static get encapsulation() { return "shadow"; }

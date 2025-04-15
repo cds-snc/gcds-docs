@@ -1,22 +1,62 @@
 import { Host, h } from "@stencil/core";
+import i18n from "./i18n/i18n";
 export class GcdsIcon {
     constructor() {
-        this.iconStyle = 'solid';
         this.label = undefined;
         this.marginLeft = undefined;
         this.marginRight = undefined;
         this.name = undefined;
-        this.fixedWidth = false;
-        this.size = 'text';
+        this.size = 'inherit';
+    }
+    validateName(newValue) {
+        const values = [
+            'checkmark-circle',
+            'chevron-down',
+            'chevron-left',
+            'chevron-right',
+            'chevron-up',
+            'close',
+            'download',
+            'email',
+            'exclamation-circle',
+            'external',
+            'info-circle',
+            'phone',
+            'search',
+            'warning-triangle',
+        ];
+        if (!values.includes(newValue)) {
+            console.error(`${i18n['en'].nameError} | ${i18n['fr'].nameError}`);
+        }
+    }
+    validateSize(newValue) {
+        const values = [
+            'inherit',
+            'text-small',
+            'text',
+            'h6',
+            'h5',
+            'h4',
+            'h3',
+            'h2',
+            'h1',
+        ];
+        if (!values.includes(newValue)) {
+            this.size = 'inherit';
+        }
+    }
+    componentWillLoad() {
+        // Validate attributes and set defaults
+        this.validateName(this.name);
+        this.validateSize(this.size);
     }
     render() {
-        const { iconStyle, label, marginLeft, marginRight, name, fixedWidth, size, } = this;
-        return (h(Host, { key: '2ba6e3bf5ef68108bb38fefe0b11dd1b22d8345c' }, h("span", { key: 'c16c9011acc22297bad00b8342da08c22273f307', class: `
-            gcds-icon fa fa-${iconStyle} fa-${name}
+        const { label, marginLeft, marginRight, name, size } = this;
+        return (h(Host, { key: 'c1007874d5124b1b6a922176716182ddf1d2856f' }, h("span", { key: '6d1934a3ae40303b9246820187f25bb3eec65648', class: `
+            gcds-icon gcds-icon-${name}
             ${marginLeft ? `ml-${marginLeft}` : ''}
             ${marginRight ? `mr-${marginRight}` : ''}
             ${size ? `size-${size}` : ''}
-            ${fixedWidth ? `fixed-width` : ''}
           `, role: "img", "aria-label": label ? label : false, "aria-hidden": label ? 'false' : 'true' })));
     }
     static get is() { return "gcds-icon"; }
@@ -33,24 +73,6 @@ export class GcdsIcon {
     }
     static get properties() {
         return {
-            "iconStyle": {
-                "type": "string",
-                "mutable": false,
-                "complexType": {
-                    "original": "'regular' | 'solid'",
-                    "resolved": "\"regular\" | \"solid\"",
-                    "references": {}
-                },
-                "required": false,
-                "optional": true,
-                "docs": {
-                    "tags": [],
-                    "text": "Style of the icon. 'regular' icons are outlined. Some icons have 'solid' variation."
-                },
-                "attribute": "icon-style",
-                "reflect": false,
-                "defaultValue": "'solid'"
-            },
             "label": {
                 "type": "string",
                 "mutable": false,
@@ -116,10 +138,10 @@ export class GcdsIcon {
             },
             "name": {
                 "type": "string",
-                "mutable": false,
+                "mutable": true,
                 "complexType": {
-                    "original": "string",
-                    "resolved": "string",
+                    "original": "| 'checkmark-circle'\n    | 'chevron-down'\n    | 'chevron-left'\n    | 'chevron-right'\n    | 'chevron-up'\n    | 'close'\n    | 'download'\n    | 'email'\n    | 'exclamation-circle'\n    | 'external'\n    | 'info-circle'\n    | 'phone'\n    | 'search'\n    | 'warning-triangle'",
+                    "resolved": "\"checkmark-circle\" | \"chevron-down\" | \"chevron-left\" | \"chevron-right\" | \"chevron-up\" | \"close\" | \"download\" | \"email\" | \"exclamation-circle\" | \"external\" | \"info-circle\" | \"phone\" | \"search\" | \"warning-triangle\"",
                     "references": {}
                 },
                 "required": true,
@@ -130,24 +152,6 @@ export class GcdsIcon {
                 },
                 "attribute": "name",
                 "reflect": false
-            },
-            "fixedWidth": {
-                "type": "boolean",
-                "mutable": false,
-                "complexType": {
-                    "original": "boolean",
-                    "resolved": "boolean",
-                    "references": {}
-                },
-                "required": false,
-                "optional": false,
-                "docs": {
-                    "tags": [],
-                    "text": "If the icon should render as a fixed-width square, or their natural width."
-                },
-                "attribute": "fixed-width",
-                "reflect": false,
-                "defaultValue": "false"
             },
             "size": {
                 "type": "string",
@@ -165,10 +169,19 @@ export class GcdsIcon {
                 },
                 "attribute": "size",
                 "reflect": false,
-                "defaultValue": "'text'"
+                "defaultValue": "'inherit'"
             }
         };
     }
     static get elementRef() { return "el"; }
+    static get watchers() {
+        return [{
+                "propName": "name",
+                "methodName": "validateName"
+            }, {
+                "propName": "size",
+                "methodName": "validateSize"
+            }];
+    }
 }
 //# sourceMappingURL=gcds-icon.js.map

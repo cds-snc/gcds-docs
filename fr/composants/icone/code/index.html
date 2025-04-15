@@ -1187,10 +1187,24 @@
 <gcds-link external href="https://github.com/cds-snc/gcds-components/tree/main/packages/web/src/components/gcds-icon">GitHub</gcds-link>
 </li>
 <li class="figma-link">
-<gcds-link external href="https://www.figma.com/file/mh2maMG2NBtk41k1O1UGHV/Canadian-Digital-Service%E2%80%A8---GC-Design-System?node-id=3063%3A9071&t=ciEmm7GYyGAY73zZ-0">Figma</gcds-link>
+<gcds-link external href="https://www.figma.com/design/mh2maMG2NBtk41k1O1UGHV/GC-Design-System?node-id=1847-5001&p=f&t=Yo3cEgk0PtoiM8eX-0">Figma</gcds-link>
 </li>
 </ul></p>
-<br/>
+<p><div class="my-600 b-sm b-default component-preview">
+<h2 class="container-full font-text font-semibold m-0 px-225 py-150 bb-sm b-default bg-light">
+Aperçu du composant de icône
+</h2>
+<div>
+<iframe
+            title="Aperçu du composant de icône"
+            src="/fr/composants/icone/preview/"
+            style="display: block; margin: 0 auto;"
+            frameBorder="0"
+            width="100%"
+            id="component-preview"
+          ></iframe>
+</div>
+</div></p>
 
     <nav class="tabs mb-300" aria-label="Onglet de consignes">
       <ul>
@@ -1229,7 +1243,103 @@
     </nav>
   
 
-  <h2 id="code">Code</h2>
+  <h2 id="creer-une-icone">Créer une icône</h2>
+<p>Utilisez une icône pour mettre l’accent sur une action ou une idée.</p>
+<h2 id="codage-et-accessibilite-des-icones">Codage et accessibilité des icônes</h2>
+<h3 id="selectionner-une-icone-pertinente">Sélectionner une icône pertinente</h3>
+<p>Obtenez l’icône de votre choix en remplaçant l’attribut <code>name</code> par le nom de l’icône correspondant.</p>
+<p><strong>Remarque</strong> : Conformément à la pratique courante, on utilise l'anglais pour tous les éléments de code.</p>
+<gcds-grid class="bg-light px-300 md:px-500 py-500 md:py-800 b-radius-lg" columns-desktop="repeat(4, 1fr)" columns-tablet="repeat(3, 1fr)" columns="1fr 1fr" tag="ul" gap="300" gap-tablet="450">
+  <li class="list-none text-center">
+    <gcds-icon name="info-circle" size="h2" label="Un cercle rempli avec la lettre « i » au centre."></gcds-icon>
+    <p class="mb-0"><code>info-circle</code></p>
+  </li>
+  <li class="list-none text-center">
+    <gcds-icon name="warning-triangle" size="h2" label="Un triangle rempli avec la lettre « i » au centre."></gcds-icon>
+    <p class="mb-0"><code>warning-triangle</code></p>
+  </li>
+  <li class="list-none text-center">
+    <gcds-icon name="exclamation-circle" size="h2" label="Un cercle rempli avec un point d’exclamation au centre."></gcds-icon>
+    <p class="mb-0"><code>exclamation-circle</code></p>
+  </li>
+  <li class="list-none text-center">
+    <gcds-icon name="checkmark-circle" size="h2" label="Un cercle rempli avec un point d’exclamation au centre."></gcds-icon>
+    <p class="mb-0"><code>checkmark-circle</code></p>
+  </li>
+  <li class="list-none text-center">
+    <gcds-icon name="chevron-left" size="h2" label="Une flèche pointant vers la gauche."></gcds-icon>
+    <p class="mb-0"><code>chevron-left</code></p>
+  </li>
+  <li class="list-none text-center">
+    <gcds-icon name="chevron-right" size="h2" label="Une flèche pointant vers la droite."></gcds-icon>
+    <p class="mb-0"><code>chevron-right</code></p>
+  </li>
+  <li class="list-none text-center">
+    <gcds-icon name="chevron-up" size="h2" label="Une flèche pointant vers le haut."></gcds-icon>
+    <p class="mb-0"><code>chevron-up</code></p>
+  </li>
+  <li class="list-none text-center">
+    <gcds-icon name="chevron-down" size="h2" label="Une flèche pointant vers le bas."></gcds-icon>
+    <p class="mb-0"><code>chevron-down</code></p>
+  </li>
+  <li class="list-none text-center">
+    <gcds-icon name="close" size="h2" label="Un « x »."></gcds-icon>
+    <p class="mb-0"><code>close</code></p>
+  </li>
+  <li class="list-none text-center">
+    <gcds-icon name="download" size="h2" label="Une flèche pointant vers le bas en direction d’une ligne horizontale."></gcds-icon>
+    <p class="mb-0"><code>download</code></p>
+  </li>
+  <li class="list-none text-center">
+    <gcds-icon name="email" size="h2" label="Une enveloppe."></gcds-icon>
+    <p class="mb-0"><code>email</code></p>
+  </li>
+  <li class="list-none text-center">
+    <gcds-icon name="external" size="h2" label="Une flèche pointant vers l’extérieur du coin supérieur droit d’un carré."></gcds-icon>
+    <p class="mb-0"><code>external</code></p>
+  </li>
+  <li class="list-none text-center">
+    <gcds-icon name="phone" size="h2" label="Un téléphone."></gcds-icon>
+    <p class="mb-0"><code>phone</code></p>
+  </li>
+  <li class="list-none text-center">
+    <gcds-icon name="search" size="h2" label="Une loupe."></gcds-icon>
+    <p class="mb-0"><code>search</code></p>
+  </li>
+</gcds-grid>
+<h3 id="choisir-lechelle-de-licone">Choisir l’échelle de l’icône</h3>
+<ul class="list-disc mb-300"><li>Modifiez la taille d’une icône en définissant l’attribut <code>size</code> à une taille de police spécifique, comme <code>text-small</code> | <code>text</code> |  <code>h1</code> | <code>h2</code> | <code>h3</code> | <code>h4</code> | <code>h5</code> | <code>h6</code>.</li>
+<li>Faites correspondre la taille de l’icône au texte d’accompagnement en définissant l’attribut <code>size</code> à <code>inherit</code>.</li>
+<li>Fixez une hauteur/largeur minimale de 24 x 24 pixels pour une icône interactive sans texte. Si vous pouvez augmenter la taille, 44 x 44 pixels dépasse les normes d’accessibilité, mais est plus accessible.</li>
+</ul>
+<h3 id="ajuster-le-positionnement">Ajuster le positionnement</h3>
+<p>Ajoutez une marge à la gauche ou à la droite d’une icône en définissant l’attribut <code>margin-left</code> ou <code>margin-right</code> à l’aide d’une valeur d’espacement comme <code>0</code> | <code>25</code> | <code>50</code> | <code>75</code> | <code>100</code> | <code>125</code> | <code>150</code> | <code>175</code>| <code>200</code> | <code>225</code>| <code>250</code> | <code>300</code> | <code>350</code>| <code>400</code> | <code>450</code> | <code>500</code> | <code>550</code> | <code>600</code> | <code>650</code> | <code>700</code> | <code>750</code> | <code>800</code> | <code>850</code> | <code>900</code> | <code>950</code> | <code>1000</code> | <code>1050</code> | <code>1100</code> | <code>1150</code> | <code>1200</code> | <code>1250</code>.</p>
+<h3 id="definir-le-texte-du-libelle">Définir le texte du libellé</h3>
+<ul class="list-disc mb-300"><li>Utilisez la propriété &quot;label&quot; pour une icône sans texte d’accompagnement.</li>
+<li>Vous n’avez pas besoin d’utiliser la propriété &quot;label&quot; si une icône est décorative.</li>
+</ul>
+<h3 id="obtenez-votre-code">Obtenez votre code</h3>
+<p>Générez une version du composant dont vous avez besoin en sélectionnant les propriétés de code correspondantes ou explorez les possibilités en choisissant différentes valeurs de code.</p>
+<ol class="list-decimal mb-300"><li>
+<p>Choisissez des valeurs de code pour obtenir l'élément que vous voulez.</p>
+</li>
+<li>
+<p>Obtenez le code et intégrez-le dans votre environnement.</p>
+</li>
+<li>
+<p>Ajoutez tout contenu nécessaire au composant (comme le texte du libellé).</p>
+</li>
+</ol>
+<p><strong>Remarque</strong> : Conformément à la pratique courante, le générateur de code utilise l'anglais pour tous les éléments de code.</p>
+<iframe
+  title="Survol des propriétés et des évènements relatifs à gcds-icon."
+  src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&demo=true&singleStory=true&id=components-icon--events-properties&lang=en"
+  width="1200"
+  height="950"
+  style="display: block; margin: 0 auto;"
+  frameBorder="0"
+  allow="clipboard-write"
+></iframe>
 
 
   <section data-pagefind-ignore class="my-600 bt-sm b-dark ">
@@ -1256,7 +1366,7 @@
     href="https://github.com/cds-snc/gcds-components/issues/new/choose"
   >
     Report an issue on GitHub
-    <gcds-icon name="external-link" label=" (Ouvre l&#39;emplacement dans un nouvel onglet.)">
+    <gcds-icon name="external" label=" (Ouvre l&#39;emplacement dans un nouvel onglet.)">
     </gcds-icon>
   </gcds-button>
 </section>
@@ -1264,7 +1374,7 @@
 
 
         <gcds-date-modified class="mb-300">
-          2025-04-10
+          2025-04-15
         </gcds-date-modified>
       </main>
 

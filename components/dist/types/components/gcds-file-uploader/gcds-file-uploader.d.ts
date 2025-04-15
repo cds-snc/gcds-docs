@@ -119,6 +119,7 @@ export declare class GcdsFileUploader {
     formResetCallback(): void;
     formStateRestoreCallback(state: any): void;
     private addFilesToFormData;
+    private handleDrop;
     updateLang(): void;
     componentWillLoad(): Promise<void>;
     componentWillUpdate(): void;

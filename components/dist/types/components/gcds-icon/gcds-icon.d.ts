@@ -5,10 +5,6 @@ export declare class GcdsIcon {
      * Props
      */
     /**
-     * Style of the icon. 'regular' icons are outlined. Some icons have 'solid' variation.
-     */
-    iconStyle?: 'regular' | 'solid';
-    /**
      * Add icon description.
      */
     label?: string;
@@ -23,14 +19,13 @@ export declare class GcdsIcon {
     /**
      * Name of the icon.
      */
-    name: string;
-    /**
-     * If the icon should render as a fixed-width square, or their natural width.
-     */
-    fixedWidth: boolean;
+    name: 'checkmark-circle' | 'chevron-down' | 'chevron-left' | 'chevron-right' | 'chevron-up' | 'close' | 'download' | 'email' | 'exclamation-circle' | 'external' | 'info-circle' | 'phone' | 'search' | 'warning-triangle';
+    validateName(newValue: string): void;
     /**
      * Defines the size of the icon.
      */
     size?: 'inherit' | 'text-small' | 'text' | 'h6' | 'h5' | 'h4' | 'h3' | 'h2' | 'h1';
+    validateSize(newValue: string): void;
+    componentWillLoad(): void;
     render(): any;
 }

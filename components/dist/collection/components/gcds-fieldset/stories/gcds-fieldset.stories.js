@@ -57,6 +57,16 @@ export default {
             },
         }
     }, validatorProps), langProp), {
+        // Slots
+        default: {
+            control: {
+                type: 'text',
+            },
+            description: 'Customize the content or include additional elements. | Personnalisez le contenu ou ajoutez des éléments supplémentaires.',
+            table: {
+                category: 'Slots | Fentes',
+            },
+        },
         // Events
         gcdsGroupError: Object.assign({ action: 'GroupError' }, eventProp), gcdsGroupErrorClear: Object.assign({ action: 'GroupErrorClear' }, eventProp)
     }),
@@ -73,7 +83,9 @@ const Template = args => `
   ${args.validateOn != 'blur' ? `validate-on="${args.validateOn}"` : null}
   ${args.lang != 'en' ? `lang="${args.lang}"` : null}
 >
-  <gcds-input
+  ${args.default
+    ? args.default
+    : `<gcds-input
     input-id="${args.fieldsetId}-input"
     label="Input label"
     hint="Hint / Example message."
@@ -93,7 +105,7 @@ const Template = args => `
     <option value="6">Option 6</option>
     <option value="7">Option 7</option>
     <option value="8">Option 8</option>
-  </gcds-select>
+  </gcds-select>`}
 </gcds-fieldset>
 
 <!-- React code -->
@@ -107,7 +119,9 @@ const Template = args => `
   ${args.validateOn != 'blur' ? `validateOn="${args.validateOn}"` : null}
   ${args.lang != 'en' ? `lang="${args.lang}"` : null}
 >
-  <GcdsInput
+    ${args.default
+    ? args.default
+    : `<GcdsInput
     inputId="${args.fieldsetId}-input"
     label="Input label"
     hint="Hint / Example message."
@@ -127,7 +141,7 @@ const Template = args => `
     <option value="6">Option 6</option>
     <option value="7">Option 7</option>
     <option value="8">Option 8</option>
-  </GcdsSelect>
+  </GcdsSelect>`}
 </GcdsFieldset>
 `.replace(/\s\snull\n/g, '');
 const TemplateRequired = args => `
@@ -230,6 +244,7 @@ Default.args = {
     disabled: false,
     validateOn: 'blur',
     lang: 'en',
+    default: '',
 };
 export const Required = TemplateRequired.bind({});
 Required.args = {
@@ -241,6 +256,7 @@ Required.args = {
     disabled: false,
     validateOn: 'blur',
     lang: 'en',
+    default: '',
 };
 export const Disabled = Template.bind({});
 Disabled.args = {
@@ -252,6 +268,7 @@ Disabled.args = {
     disabled: true,
     validateOn: 'blur',
     lang: 'en',
+    default: '',
 };
 export const Error = Template.bind({});
 Error.args = {
@@ -263,6 +280,7 @@ Error.args = {
     disabled: false,
     validateOn: 'blur',
     lang: 'en',
+    default: '',
 };
 export const Props = Template.bind({});
 Props.args = {
@@ -274,6 +292,7 @@ Props.args = {
     disabled: false,
     validateOn: 'blur',
     lang: 'en',
+    default: '',
 };
 export const Playground = TemplatePlayground.bind({});
 Playground.args = {
@@ -285,5 +304,6 @@ Playground.args = {
     disabled: false,
     validateOn: 'blur',
     lang: 'en',
+    default: '',
 };
 //# sourceMappingURL=gcds-fieldset.stories.js.map
