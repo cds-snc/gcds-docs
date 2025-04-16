@@ -154,7 +154,7 @@ ul li ul li {
 }
 .anatomy-list ul {
   list-style: disc;
-  margin-inline-start: var(--gcds-spacing-750);
+  margin-inline-start: var(--gcds-spacing-300);
 }
 
 @font-face {

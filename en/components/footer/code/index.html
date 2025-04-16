@@ -1184,6 +1184,20 @@
 <p><em>Also called: site footer.</em></p>
 <p>The footer is the responsive Government of Canada branded footer landmark.</p>
 <p><ul class="d-flex flex-wrap gap-300">
+<li class="text-secondary">
+<span class="px-200 py-100 bg-light font-text-small b-radius-lg">
+<gcds-icon name="checkmark-circle" margin-right="50"></gcds-icon>
+Required on Canada.ca
+</span>
+</li>
+<li class="text-secondary">
+<span class="px-200 py-100 bg-light font-text-small b-radius-lg">
+<gcds-icon name="checkmark-circle" margin-right="50"></gcds-icon>
+Required on GC sites
+</span>
+</li>
+</ul></p>
+<p><ul class="d-flex flex-wrap gap-300">
 <li class="github-link">
 <gcds-link external href="https://github.com/cds-snc/gcds-components/tree/main/packages/web/src/components/gcds-footer">GitHub</gcds-link>
 </li>
@@ -1258,29 +1272,28 @@ Footer component preview
 <li>The footer links band and the Government of Canada wordmark.</li>
 </ol>
 <img class="b-sm b-default mb-300 p-300" src="/images/en/components/example/example-footer-full.svg" alt=""/>
-<p>Opt to include the contextual band to add up to three footer links for your product.</p>
+<p>Opt to include the contextual band to add up three specific links for your site.</p>
 <img class="b-sm b-default mb-300 p-300" src="/images/en/components/example/example-footer-full-with-contextual-links.svg" alt=""/>
-<h3 id="include-the-footer-links-band-for-government-of-canada-sites-and-products">Include the footer links band for Government of Canada sites and products</h3>
-<ul class="list-disc mb-300"><li>Always maintain the integrity of the signature. Absolutely avoid modifying the signature in any way. In particular avoid stretching or changing the colours or text.</li>
-<li>Pass either the <code>colour</code> or <code>white</code> display mode of the Government of Canada signature using the <code>signature-variant</code> attribute. Choose the <code>colour</code> display for a white background.</li>
+<h3 id="set-up-the-gc-footer-links-band">Set up the GC footer links band</h3>
+<ul class="list-disc mb-300"><li>Always maintain the integrity of the Government of Canada wordmark. Do not modify the wordmark in any way.</li>
+<li>Keep the Canada wordmark, privacy link, and terms and conditions link. The other links are only required on standard pages, otherwise you can remove.</li>
 </ul>
-<h3 id="add-optional-elements-to-your-footer">Add optional elements to your footer</h3>
-<ul class="list-disc mb-300"><li>Maintain the Canada wordmark and privacy and terms of reference links in the footer links band. Opt to remove the other links.</li>
-<li>Add content to the contextual band by using both the <code>contextual-heading</code> and <code>contextual-links</code> attributes.</li>
+<h3 id="add-optional-elements">Add optional elements</h3>
+<ul class="list-disc mb-300"><li>Add content to the contextual band by using both the <code>contextual-heading</code> and <code>contextual-links</code> attributes.</li>
 <li>Use the <code>contextual-heading</code> attribute to assign heading text and the navigational landmark label of the contextual band.</li>
 <li>Use the <code>contextual-links</code> attribute to set a maximum of three links in the contextual band. Add support links for your product or service, such as contact details for a program.</li>
 <li>For the contextual band, set the <code>contextual-links</code>, by passing an object or an object in a string in the following format:</li>
 </ul>
 
-<div style="position: relative" id="code-container-91" >
-  <pre class="language-js"><code id="code-91" class="language-js"><span class="token punctuation">{</span>
+<div style="position: relative" id="code-container-86" >
+  <pre class="language-js"><code id="code-86" class="language-js"><span class="token punctuation">{</span>
 “1st link label”<span class="token operator">:</span> “href”
 “2nd link label”<span class="token operator">:</span> “href”
 “3rd link label”<span class="token operator">:</span> “href”
 <span class="token punctuation">}</span></code></pre>
 
   <button class="code-copy "
-    data-clipboard-target="#code-91"
+    data-clipboard-target="#code-86"
     style="position: absolute; top: 7.5px; right: 6px; padding-top: 3px; cursor: pointer; outline: none; opacity: 0.8;" title="Copy">
     <span style="display:inline-block;background:url(https://api.iconify.design/mdi/content-copy.svg) no-repeat center center / contain;width: 16px; height: 16px;" class=""></span>
   </button>
@@ -1288,15 +1301,15 @@ Footer component preview
 <ul class="list-disc mb-300"><li>For the footer links band, set the <code>sub-links</code>, by passing an object or an object in a string in the following format:</li>
 </ul>
 
-<div style="position: relative" id="code-container-99" >
-  <pre class="language-js"><code id="code-99" class="language-js"><span class="token punctuation">{</span>
+<div style="position: relative" id="code-container-94" >
+  <pre class="language-js"><code id="code-94" class="language-js"><span class="token punctuation">{</span>
 “1st link label”<span class="token operator">:</span> “href”
 “2nd link label”<span class="token operator">:</span> “href”
 “3rd link label”<span class="token operator">:</span> “href”
 <span class="token punctuation">}</span></code></pre>
 
   <button class="code-copy "
-    data-clipboard-target="#code-99"
+    data-clipboard-target="#code-94"
     style="position: absolute; top: 7.5px; right: 6px; padding-top: 3px; cursor: pointer; outline: none; opacity: 0.8;" title="Copy">
     <span style="display:inline-block;background:url(https://api.iconify.design/mdi/content-copy.svg) no-repeat center center / contain;width: 16px; height: 16px;" class=""></span>
   </button>
