@@ -15,13 +15,13 @@ Footer elements are required for all pages unless noted.
   <li>The <strong>main band</strong> contains links to common Government of Canada themes. These links cannot be changed. <em>Optional for pages that aren’t standard pages.</em></li>
   <li>
     The <strong>GC footer links band</strong> contains the official Government of Canada wordmark and up to five links. Some of the links are optional and some can be modified.
-    <p class="mb-0"><em>Optional for pages that aren’t standard pages:</em></p>
+    <p class="mt-300 mb-0"><em>Optional for pages that aren’t standard pages:</em></p>
     <ul>
       <li>Social media directory for the GC.</li>
       <li>Mobile app directory for the GC.</li>
       <li>About Canada.ca.</li>
     </ul>
-    <p class="mb-0"><em>Can be modified to your specific program:</em></p>
+    <p class="mt-300 mb-0"><em>Can be modified to your specific program:</em></p>
     <ul>
       <li>Terms and conditions.</li>
       <li>Privacy statement.</li>

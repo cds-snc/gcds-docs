@@ -17,13 +17,13 @@ Les éléments de pied de page sont requis pour toute page à moins d’avis con
   <li>La <strong>bande principale</strong> contient des liens vers des thèmes communs du gouvernement du Canada. Ces liens ne peuvent pas être modifiés. <em>Facultatif pour les pages non standard.</em></li>
   <li>
     La <strong>bande de liens du pied</strong> de page du GC contient le mot-symbole officiel du gouvernement du Canada et jusqu’à cinq liens. Certains liens sont facultatifs et d’autres peuvent être modifiés.
-    <p class="mb-0"><em>Facultatif pour les pages non standard :</em></p>
+    <p class="mt-300 mb-0"><em>Facultatif pour les pages non standard :</em></p>
     <ul>
       <li>Répertoire des médias sociaux pour le GC.</li>
       <li>Répertoire des applications mobiles pour le GC.</li>
       <li>À propos de Canada.ca.</li>
     </ul>
-    <p class="mb-0"><em>Peut être modifié pour votre programme :</em></p>
+    <p class="mt-300 mb-0"><em>Peut être modifié pour votre programme :</em></p>
     <ul>
       <li>Avis.</li>
       <li>Confidentialité.</li>
