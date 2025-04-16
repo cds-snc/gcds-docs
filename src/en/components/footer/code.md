@@ -29,18 +29,17 @@ Include the **full display** if you need to include:
 
 <img class="b-sm b-default mb-300 p-300" src="/images/en/components/example/example-footer-full.svg" alt=""/>
 
-Opt to include the contextual band to add up to three footer links for your product.
+Opt to include the contextual band to add up three specific links for your site.
 
 <img class="b-sm b-default mb-300 p-300" src="/images/en/components/example/example-footer-full-with-contextual-links.svg" alt=""/>
 
-### Include the footer links band for Government of Canada sites and products
+### Set up the GC footer links band
 
-- Always maintain the integrity of the signature. Absolutely avoid modifying the signature in any way. In particular avoid stretching or changing the colours or text.
-- Pass either the `colour` or `white` display mode of the Government of Canada signature using the `signature-variant` attribute. Choose the `colour` display for a white background.
+- Always maintain the integrity of the Government of Canada wordmark. Do not modify the wordmark in any way.
+- Keep the Canada wordmark, privacy link, and terms and conditions link. The other links are only required on standard pages, otherwise you can remove.
 
-### Add optional elements to your footer
+### Add optional elements
 
-- Maintain the Canada wordmark and privacy and terms of reference links in the footer links band. Opt to remove the other links.
 - Add content to the contextual band by using both the `contextual-heading` and `contextual-links` attributes.
 - Use the `contextual-heading` attribute to assign heading text and the navigational landmark label of the contextual band.
 - Use the `contextual-links` attribute to set a maximum of three links in the contextual band. Add support links for your product or service, such as contact details for a program.

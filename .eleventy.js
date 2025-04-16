@@ -284,7 +284,7 @@ module.exports = function (eleventyConfig) {
     'requiredOn',
     (children, locale, canSite, gcSite) => {
       const chipClasses = 'px-200 py-100 bg-light font-text-small b-radius-lg';
-      const icon = `<gcds-icon name="check-circle" margin-right="50"></gcds-icon>`;
+      const icon = `<gcds-icon name="checkmark-circle" margin-right="50"></gcds-icon>`;
       let canChip = '';
       let gcChip = '';
       const langStrings = {
