@@ -17,17 +17,17 @@ tags: ['footerFR', 'usage']
 permalink: /fr/composants/pied-de-page/
 date: 'git Last Modified'
 ---
-Le pied de page est un composant obligatoire pour les pages Canada.ca.
 
-Explorez les problèmes que règlent les pieds de page et découvrez s'ils peuvent être utilisés pour résoudre votre problème particulier.
+Le pied de page est un élément requis pour les pages Web Canada.ca et doit se conformer à des exigences spécifiques.
 
-## Problèmes résolus par les pieds de page
+Consultez la liste de problèmes que le pied de page résout pour voir si c’est la solution qu’il vous faut.
 
-Pour les applications, formulaires et autres services numériques transactionnels de marques fiables, utilisez ce pied de page afin d'indiquer :
+## Problèmes résolus par le pied de page
 
-- La fin d'une page de produit ou d'un site;
-- Un service ou produit numérique du gouvernement du Canada offrant une vaste gamme de services et de renseignements;
-- Le mot-symbole pour représenter l'identité du gouvernement du Canada.
+Utilisez ce repère de pied de page dans le cadre d’une image de marque fiable pour les applications, formulaires et autres services numériques transactionnels afin de signaler :
+
+- La fin d’une page de produit ou d’un site; un service ou produit numérique du gouvernement du Canada offrant une vaste gamme de services et de renseignements;
+- L’identité de marque du gouvernement du Canada à l’aide du mot-symbole.
 
 <article class="bg-full-width bg-primary text-light pt-600 pb-300 my-600">
   <h2 class="mt-0">Composants connexes</h2>
