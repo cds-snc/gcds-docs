@@ -12,6 +12,9 @@ _Autres noms : pied de page du site._
 
 Le pied de page porte l'image de marque réactive du gouvernement du Canada.
 
+{% requiredOn locale true true %}
+{% endrequiredOn %}
+
 {% docLinks locale stage figma github %}
 {% enddocLinks %}
 

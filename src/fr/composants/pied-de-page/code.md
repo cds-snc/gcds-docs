@@ -10,11 +10,11 @@ date: 'git Last Modified'
 
 Utilisez le repère de pied de page de la marque du gouvernement du Canada pour obtenir un repère cohérent, accessible et adapté à votre site ou produit.
 
-## Créer un pied de page
+## Codage et accessibilité du pied de page
 
 ### Choisir un mode d'affichage à l'aide de la propriété d'affichage
 
-Utilisez la propriété d'affichage pour choisir l'un des deux modes d'affichage : compact ou complet.
+Utilisez la propriété `display` pour choisir l'un des deux modes d'affichage : `compact` ou `full`.
 
 Choisissez l'affichage compact pour inclure :
 
@@ -29,18 +29,17 @@ Choisissez l'affichage complet si vous devez inclure :
 
 <img class="b-sm b-default mb-300 p-300" src="/images/fr/components/example/example-footer-full.svg" alt=""/>
 
-Choisissez d'inclure la bande contextuelle pour ajouter jusqu'à trois liens de pied de page pour votre produit.
+Choisissez d’inclure la bande contextuelle pour ajouter jusqu’à trois liens de pied de page pour votre site.
 
 <img class="b-sm b-default mb-300 p-300" src="/images/fr/components/example/example-footer-full-with-contextual-links.svg" alt=""/>
 
-### Inclure la bande de liens du pied de page pour les sites et produits du gouvernement du Canada
+### Configurer la bande de liens de pied de page du GC
 
-- Maintenez toujours l'intégrité de la signature. Évitez à tout prix de modifier la signature. Évitez surtout d'étirer le texte ou de changer les couleurs.
-- Faites passer le mode d'affichage de la signature du gouvernement du Canada en couleur ou en blanc à l'aide de l'attribut `signature-variant`. Choisissez l'affichage couleur pour un fond blanc.
+- Assurez toujours l’intégrité du mot-symbole du gouvernement du Canada. Ne modifiez jamais le mot-symbole de quelque façon que ce soit.
+- Conservez le mot-symbole Canada, ainsi que les liens Confidentialité et Avis. Les autres liens ne sont requis que sur les pages standard. Ils peuvent être supprimés autrement.
 
-### Ajouter des éléments facultatifs au pied de page
+### Ajouter des éléments facultatifs
 
-- Maintenez le mot-symbole « Canada » et les liens vers les modalités et l'avis de confidentialité dans la bande de liens du pied de page. Optez pour la suppression des autres liens.
 - Ajoutez du contenu à la bande contextuelle en utilisant les attributs `contextual-heading` et `contextual-links`.
 - Utilisez l'attribut `contextual-heading` pour attribuer un texte d'en-tête et l'étiquette du repère de navigation de la bande contextuelle.
 - Utilisez l'attribut `contextual-links` pour définir un maximum de trois liens dans la bande contextuelle. Ajoutez des liens de soutien pour votre produit ou service, comme les coordonnées d'une personne-ressource de programme.

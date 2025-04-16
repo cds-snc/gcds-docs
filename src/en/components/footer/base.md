@@ -12,6 +12,9 @@ _Also called: site footer._
 
 The footer is the responsive Government of Canada branded footer landmark.
 
+{% requiredOn locale true true %}
+{% endrequiredOn %}
+
 {% docLinks locale stage figma github %}
 {% enddocLinks %}
 
