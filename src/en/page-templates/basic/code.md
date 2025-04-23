@@ -14,4 +14,8 @@ date: "git Last Modified"
 
 Copy this code to use the basic page template.
 
+<div class="page-template-highlight">
+
 {% include 'partials/templates/en/code-basic-page-template.njk' %}
+
+</div>
