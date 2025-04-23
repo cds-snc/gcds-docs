@@ -15,9 +15,6 @@ async function downloadFile(url, outputDir, outputFileName) {
     // Get initial file contents
     const fileContent = await response.text();
 
-    // Add code formatting for code files
-    const codeContent = `{% highlight html %}\n${fileContent}\n{% endhighlight %}`;
-
     // Replace version numbers in preview files
     let previewContent = fileContent.replace(
       /gcds-utility\@<version-number>/g,
@@ -29,6 +26,9 @@ async function downloadFile(url, outputDir, outputFileName) {
       'gcds-components@' +
         pjson.devDependencies['@cdssnc/gcds-components'].replace(/^\^/, ''),
     );
+
+    // Add code formatting for code files
+    const codeContent = `{% highlight html %}\n${previewContent}\n{% endhighlight %}`;
 
     fs.mkdirSync(outputDir, { recursive: true });
     const previewOutputPath = path.join(outputDir, outputFileName);
