@@ -24,6 +24,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   code.forEach(pre => {
     const templateHighlight = pre.closest('.page-template-highlight');
+    pre.setAttribute('tabindex', 0);
     const button = document.createElement('gcds-button');
     button.setAttribute('button-role', 'secondary');
 
