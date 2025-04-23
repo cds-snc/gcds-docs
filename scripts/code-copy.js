@@ -8,37 +8,44 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   const buttonText = {
-    'en' : {
+    en: {
       copy: 'Copy',
-      copied: 'Copied'
+      copyTemplate: 'Copy template',
+      copied: 'Copied',
     },
-    'fr' : {
+    fr: {
       copy: 'Copier',
-      copied: 'Copié'
-    }
-  }
+      copyTemplate: 'Copier le modèle',
+      copied: 'Copié',
+    },
+  };
 
-  const buttonClasses = [
-    'd-block',
-    'mt-150',
-    'code-copy-button'
-  ]
+  const buttonClasses = ['d-block', 'mt-150', 'code-copy-button'];
 
-  code.forEach((pre) => {
+  code.forEach(pre => {
+    const templateHighlight = pre.closest('.page-template-highlight');
+    pre.setAttribute('tabindex', 0);
     const button = document.createElement('gcds-button');
-    button.classList.add(...buttonClasses);
     button.setAttribute('button-role', 'secondary');
-    button.setAttribute('size', 'small');
 
-    button.innerHTML = buttonText[lang].copy;
+    if (templateHighlight) {
+      button.innerHTML = buttonText[lang].copyTemplate;
+    } else {
+      button.classList.add(...buttonClasses);
+      button.setAttribute('size', 'small');
+      button.innerHTML = buttonText[lang].copy;
+    }
 
     button.addEventListener('click', () => {
       navigator.clipboard.writeText(pre.querySelector('code').textContent);
       button.innerHTML = buttonText[lang].copied;
     });
     button.addEventListener('blur', () => {
-      button.innerHTML = buttonText[lang].copy;
+      button.innerHTML = templateHighlight
+        ? buttonText[lang].copyTemplate
+        : buttonText[lang].copy;
     });
-    pre.append(button);
+
+    templateHighlight ? templateHighlight.prepend(button) : pre.append(button);
   });
 });
