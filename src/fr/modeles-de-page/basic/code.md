@@ -14,4 +14,8 @@ date: "git Last Modified"
 
 Copiez ce code pour utiliser le modèle de page de base.
 
+<div class="page-template-highlight">
+
 {% include 'partials/templates/fr/code-basic-page-template.njk' %}
+
+</div>
