@@ -42,8 +42,3 @@ Pour les applications, utilisez un numéro de version plutôt qu’une date.
 
 - Ne mettez à jour la date de modification que lorsque vous effectuez une modification importante du contenu.
 - Évitez les mises à jour pour les corrections mineures, comme les fautes de frappe, ou les petites modifications du code.
-
-### Veillez à l'uniformité du placement
-
-- Placez le composant date de modification entre le corps, soit le contenu principal de la page, et le pied de page.
-- Placez le composant date de modification au même endroit d'une page Web à l'autre à fin qu'il soit repérable.

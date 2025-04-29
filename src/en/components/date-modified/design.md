@@ -42,8 +42,3 @@ For applications, use a version number in place of a date.
 
 - Only update the date modified when you make a significant content change.
 - Avoid updating for minor corrections, like typos, or small changes to the code.
-
-### Ensure consistent placement
-
-- Place the date modified component between the body, or main content, of the page and the footer.
-- Use the same placement of the date modified component across all web pages to make it findable.
