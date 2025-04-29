@@ -17,11 +17,12 @@ tags: ['signatureFR', 'usage']
 permalink: /fr/composants/signature/
 date: 'git Last Modified'
 ---
-La signature est un composant obligatoire pour les pages Canada.ca.
+
+La signature est un élément requis pour les sites Web du gouvernement du Canada.
 
 Examinez les cas d'utilisation de la signature pour déterminer s'ils répondent à vos besoins.
 
-## Problèmes résolus par la signature
+## Problèmes résolus par le composant signature
 
 La signature, qui constitue un élément d'une image de marque, est utilisée pour :
 
