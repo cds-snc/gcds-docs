@@ -10,15 +10,39 @@ date: 'git Last Modified'
 
 <ol class="anatomy-list">
   <li>The <strong>input field</strong> is a space to enter search keywords.</li>
-  <li>The <strong>placeholder text</strong> is a prompt visible before a person types that identifies the area for the search.</li>
-  <li>The <strong>button</strong> initiates the search and is represented by a magnifying glass icon.</li>
+  <li>The <strong>placeholder text</strong> is a prompt visible before a person types. It identifies the search area.</li>
+  <li>The <strong>button</strong>, labelled with a magnifying glass, initiates a search.</li>
 </ol>
 
-<img class="b-sm b-default p-300" src="/images/en/components/anatomy/gcds-search-anatomy.svg" alt="Image showing the search component anatomy with numbers pointing to the individual parts of the search component." />
+<img class="b-sm b-default p-300" src="/images/en/components/anatomy/gcds-search-anatomy.svg" alt="A search box with the words “Search Canada.ca” inside next to a magnifying glass button immediately on the right. Each individual element of the component has a number pointing to it." />
 
 ## Design and accessibility for search
 
-### Place the search in a predictable location in the header
+### Check search requirements
 
-- Place the search component in the <gcds-link href="{{ links.header }}">header</gcds-link> below the language toggle and in line with the <gcds-link href="{{ links.signature }}">Government of Canada signature</gcds-link>.
-- Ensure the header is responsive so that the search appears below both the signature and the language toggle on mobile devices.
+Here’s what’s required for search on GC sites.
+
+- Search is required in the <gcds-link href="{{ links.header }}">header</gcds-link> on Canada.ca standard and campaign pages.
+- It's optional for other Canada.ca pages and GC sites.
+
+#### What’s required on a Canada.ca standard or campaign page
+
+Always include the search in the header of a standard or campaign page and maintain the default settings.
+
+- Use default GC Search indexing.
+- Set indexing across Canada.ca content or at an institution or program level.
+- For a Canada.ca site-wide search, maintain the default search prompt text “Search Canada.ca” in English and “Rechercher dans Canada.ca” in French
+- For an institution, program, or product specific search, use the following search prompt text:
+  - “Search [institution/program/product]” in English
+  - “Rechercher dans [institution/program/product]” in French
+
+**Note:** As an exception, pages solely intended for a public service audience may apply a customized search indexation in particular contexts.
+
+#### What’s optional to include on a Canada.ca standard or campaign page
+
+Opt to add a search for other datasets within the content area of the page.
+
+### Opt to set up an additional search
+
+- If a secondary search is needed with other datasets, place that search within the content area of the page.
+- Clearly identify the search area, so a person searching understands the constraints ahead of time.

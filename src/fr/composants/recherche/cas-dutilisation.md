@@ -15,11 +15,14 @@ eleventyNavigation:
 translationKey: 'search'
 tags: ['searchFR', 'usage']
 permalink: /fr/composants/recherche/
-date: "git Last Modified"
+date: 'git Last Modified'
 ---
-Le composant recherche est un composant obligatoire pour les pages Canada.ca.
 
-## Cas d’utilisation du composant recherche
+La recherche est un composant requis pour les pages standard et de campagne sur Canada.ca.
+
+Explorez les problèmes résolus par le composant chemin de navigation et découvrez s’il peut être utilisé pour résoudre votre problème particulier.
+
+## Problèmes résolus par la recherche
 
 Utilisez le composant recherche pour aider les personnes utilisant votre site Web à trouver des informations :
 
