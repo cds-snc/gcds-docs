@@ -17,7 +17,8 @@ tags: ['langtoggleEN', 'usage']
 permalink: /en/components/language-toggle/
 date: 'git Last Modified'
 ---
-Language toggle is a required component for Canada.ca pages.
+
+Language toggle is a required component for Government of Canada websites and has specific requirements for Canada.ca pages.
 
 Take a look at use cases for the language toggle to see if it fits the problem you're solving for.
 

@@ -12,6 +12,9 @@ _Autres noms : commutateur de langue, sélecteur de langue._
 
 La bascule de langue est un lien menant vers le même contenu dans l'autre langue officielle.
 
+{% requiredOn locale true true %}
+{% endrequiredOn %}
+
 {% docLinks locale stage figma github %}
 {% enddocLinks %}
 
