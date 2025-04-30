@@ -31,7 +31,7 @@ Always include the search in the header of a standard or campaign page and maint
 
 - Use default GC Search indexing.
 - Set indexing across Canada.ca content or at an institution or program level.
-- For a Canada.ca site-wide search, maintain the default search prompt text “Search Canada.ca” in English and “Rechercher dans Canada.ca” in French
+- For a Canada.ca site-wide search, maintain the default search prompt text “Search Canada.ca” in English and <span lang="fr">“Rechercher dans Canada.ca”</lang> in French
 - For an institution, program, or product specific search, use the following search prompt text:
   - “Search [institution/program/product]” in English
   - “Rechercher dans [institution/program/product]” in French
