@@ -33,7 +33,7 @@ Toujours inclure la recherche dans l’en-tête d’une page standard ou de camp
 - Définissez l’indexation pour tout le contenu de Canada.ca ou à l’échelle d’un organisme ou d’un programme.
 - Pour la recherche à l’échelle du site Canada.ca, maintenez le texte de l’espace réservé par défaut « <span lang="en">Search Canada.ca</span> » en anglais et « Rechercher dans Canada.ca » en français.
 - Pour la recherche à l’échelle d’un organisme, d’un programme ou d’un produit, utilisez le texte de l’espace réservé suivant :
-  - « Search [institution/program/product] » en anglais
+  - « <span lang="en">Search [institution/program/product] </span>» en anglais
   - « Rechercher dans [institution/programme/produit] » en français
 
 **Remarque :** Par exception, les pages destinées uniquement à un public de la fonction publique peuvent appliquer une indexation de recherche personnalisée dans certains contextes précis.
