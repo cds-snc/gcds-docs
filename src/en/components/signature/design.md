@@ -51,18 +51,22 @@ Always include the wordmark in the sub-footer band and maintain default settings
 - Always apply the same colour combination in the signature and wordmark. For example, if one is black and white, the other needs to be as well.
 - For single colour, check the contrast ratio between the signature elements for, at minimum, WCAG AA compliance.
 
-<img class="b-sm b-default p-300 mb-300" src="/images/en/components/example/example-signature-side-by-side-en.svg" alt="An image presenting both variations of the signature component. The signature type is on the left and the wordmark type is on the right." />
+<figure class="mb-600">
+  <img class="b-sm b-default p-300 mb-100" src="/images/en/components/example/example-signature-side-by-side-en.svg" alt="An image presenting both variations of the signature component. The signature type is on the left and the wordmark type is on the right." />
+  <figcaption>Caption: The standard colour style uses black text and a red flag applied to a white backdrop.</figcaption>
+</figure>
 
-Caption: The standard colour style uses black text and a red flag applied to a white backdrop.
+<figure class="mb-600">
+  <img class="b-sm b-default p-300 mb-100" src="/images/en/components/example/example-signature-side-by-side-reversed-en.svg" alt="An image presenting both variations of the signature component. The signature type is on the left and the wordmark type is on the right. This variation has white text on a black back drop" />
+  <figcaption>Caption: The reversed colour style uses white text and a red flag applied to a black backdrop.</figcaption>
+</figure>
 
-<img class="b-sm b-default p-300 mb-300" src="/images/en/components/example/example-signature-side-by-side-reversed-en.svg" alt="An image presenting both variations of the signature component. The signature type is on the left and the wordmark type is on the right. This variation has white text on a black back drop" />
+<figure class="mb-600">
+  <img class="b-sm b-default p-300 mb-100" src="/images/en/components/example/example-signature-bw-en.svg" alt="An image presenting two signature and wordmark pairings. One where the signature and wordmark are all black on a white backdrop and the second where the signature and wordmark are all white on a black backdrop." />
+  <figcaption>Caption: The black and white style uses all black or all white. All black is the more common use.</figcaption>
+</figure>
 
-Caption: The reversed colour style uses white text and a red flag applied to a black backdrop.
-
-<img class="b-sm b-default p-300 mb-300" src="/images/en/components/example/example-signature-bw-en.svg" alt="An image presenting two signature and wordmark pairings. One where the signature and wordmark are all black on a white backdrop and the second where the signature and wordmark are all white on a black backdrop." />
-
-Caption: The black and white style uses all black or all white. All black is the more common use.
-
-<img class="b-sm b-default p-300 mb-300" src="/images/en/components/example/example-signature-single-colour-style-en.svg" alt="An image showing the the signature and wordmark in dark purple on a light purple backdrop. There are bars and boxes simulating text and pictures, you are to assume this is a mock webpage. The text and pictures boxes are also dark purple." />
-
-Caption: Single colour style uses another colour if that colour is the only colour used in the product.
+<figure class="mb-600">
+  <img class="b-sm b-default p-300 mb-100" src="/images/en/components/example/example-signature-single-colour-style-en.svg" alt="An image showing the the signature and wordmark in dark purple on a light purple backdrop. There are bars and boxes simulating text and pictures, you are to assume this is a mock webpage. The text and pictures boxes are also dark purple." />
+  <figcaption>Caption: Single colour style uses another colour if that colour is the only colour used in the product.</figcaption>
+</figure>

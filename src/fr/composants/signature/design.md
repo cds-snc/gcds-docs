@@ -51,18 +51,22 @@ Toujours inclure le mot-symbole dans la bande de sous-pied de page et maintenir 
 - Utilisez toujours la même combinaison de couleurs dans la signature et le mot-symbole. Par exemple, si la signature est en noir et blanc, alors le mot-symbole doit également l'être;
 - Lorsqu'une seule couleur est utilisée, vérifiez le rapport de contraste entre les éléments de la signature pour vous assurer que le ratio est à tout le moins conforme à la norme WCAG, niveau AA.
 
-<img class="b-sm b-default p-300 mb-300" src="/images/fr/components/example/example-signature-side-by-side-fr.svg" alt="Une image représentant les deux versions de la signature. La signature se trouve à gauche et le mot-symbole est placé à droite." />
+<figure class="mb-600">
+  <img class="b-sm b-default p-300 mb-100" src="/images/fr/components/example/example-signature-side-by-side-fr.svg" alt="Une image représentant les deux versions de la signature. La signature se trouve à gauche et le mot-symbole est placé à droite." />
+  <figcaption>Légende : Le style de couleur standard utilise un texte noir et un drapeau rouge sur fond blanc.</figcaption>
+</figure>
 
-Légende : Le style de couleur standard utilise un texte noir et un drapeau rouge sur fond blanc.
+<figure class="mb-600">
+  <img class="b-sm b-default p-300 mb-100" src="/images/fr/components/example/example-signature-side-by-side-reversed-fr.svg" alt="Une image représentant les deux versions de la signature. La signature se trouve à gauche et le mot-symbole est placé à droite. Cette version utilise du texte blanc sur un fond noir." />
+  <figcaption>Légende : Le style de couleur inversé utilise un texte blanc et un drapeau rouge sur fond noir.</figcaption>
+</figure>
 
-<img class="b-sm b-default p-300 mb-300" src="/images/fr/components/example/example-signature-side-by-side-reversed-fr.svg" alt="Une image représentant les deux versions de la signature. La signature se trouve à gauche et le mot-symbole est placé à droite. Cette version utilise du texte blanc sur un fond noir." />
+<figure class="mb-600">
+  <img class="b-sm b-default p-300 mb-100" src="/images/fr/components/example/example-signature-bw-fr.svg" alt="Une image présentant deux combinaisons de signature et de mot-symbole. Dans un cas, la signature et le mot-symbole sont noirs sur fond blanc. Dans l'autre cas, la signature et le mot-symbole sont blancs sur fond noir." />
+  <figcaption>Légende : Le style noir et blanc utilise un fond soit entièrement noir, soit entièrement blanc. Le style entièrement noir est le plus fréquemment employé.</figcaption>
+</figure>
 
-Légende : Le style de couleur inversé utilise un texte blanc et un drapeau rouge sur fond noir.
-
-<img class="b-sm b-default p-300 mb-300" src="/images/fr/components/example/example-signature-bw-fr.svg" alt="Une image présentant deux combinaisons de signature et de mot-symbole. Dans un cas, la signature et le mot-symbole sont noirs sur fond blanc. Dans l'autre cas, la signature et le mot-symbole sont blancs sur fond noir." />
-
-Légende : Le style noir et blanc utilise un fond soit entièrement noir, soit entièrement blanc. Le style entièrement noir est le plus fréquemment employé.
-
-<img class="b-sm b-default p-300 mb-300" src="/images/fr/components/example/example-signature-single-colour-style-fr.svg" alt="Une image montrant la signature et le mot-symbole en violet foncé sur un fond violet pâle. Des barres et des cases simulent du texte et des images sur une page web fictive. Les cases de texte et d'images sont également violet foncé." />
-
-Légende : Le style de couleur unique utilise une couleur autre que le noir ou le blanc si cette couleur est la seule utilisée pour le produit.
+<figure class="mb-600">
+  <img class="b-sm b-default p-300 mb-100" src="/images/fr/components/example/example-signature-single-colour-style-fr.svg" alt="Une image montrant la signature et le mot-symbole en violet foncé sur un fond violet pâle. Des barres et des cases simulent du texte et des images sur une page web fictive. Les cases de texte et d'images sont également violet foncé." />
+  <figcaption>Légende : Le style de couleur unique utilise une couleur autre que le noir ou le blanc si cette couleur est la seule utilisée pour le produit.</figcaption>
+</figure>
