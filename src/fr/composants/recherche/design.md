@@ -31,7 +31,7 @@ Toujours inclure la recherche dans l’en-tête d’une page standard ou de camp
 
 - Utilisez l’indexation par défaut de la recherche du GC.
 - Définissez l’indexation pour tout le contenu de Canada.ca ou à l’échelle d’un organisme ou d’un programme.
-- Pour la recherche à l’échelle du site Canada.ca, maintenez le texte de l’espace réservé par défaut « Search Canada.ca » en anglais et « Rechercher dans Canada.ca » en français.
+- Pour la recherche à l’échelle du site Canada.ca, maintenez le texte de l’espace réservé par défaut « <span lang="en">Search Canada.ca</span> » en anglais et « Rechercher dans Canada.ca » en français.
 - Pour la recherche à l’échelle d’un organisme, d’un programme ou d’un produit, utilisez le texte de l’espace réservé suivant :
   - « Search [institution/program/product] » en anglais
   - « Rechercher dans [institution/programme/produit] » en français
