@@ -316,11 +316,7 @@ module.exports = function (eleventyConfig) {
         </li>`;
       }
 
-      return `
-      <ul class="d-flex flex-wrap gap-300">
-        ${canChip}
-        ${gcChip}
-      </ul>`;
+      return `<ul class="d-flex flex-wrap gap-300">${canChip}${gcChip}</ul>`;
     },
   );
 
