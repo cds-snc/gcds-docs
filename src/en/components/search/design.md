@@ -34,7 +34,7 @@ Always include the search in the header of a standard or campaign page and maint
 - For a Canada.ca site-wide search, maintain the default search prompt text “Search Canada.ca” in English and <span lang="fr">“Rechercher dans Canada.ca”</lang> in French
 - For an institution, program, or product specific search, use the following search prompt text:
   - “Search [institution/program/product]” in English
-  - “Rechercher dans [institution/program/product]” in French
+  - “<span lang="fr">Rechercher dans [institution/programme/produit]</span>” in French
 
 **Note:** As an exception, pages solely intended for a public service audience may apply a customized search indexation in particular contexts.
 
