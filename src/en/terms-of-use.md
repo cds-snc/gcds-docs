@@ -10,7 +10,7 @@ eleventyNavigation:
   hideMain: true
 ---
 
-# GC Design System: Terms of Use (1.0)
+# Terms of use 
 
 This document defines the terms and responsibilities that you agree to by using [GC Design System]({{ links.home }}).
 
@@ -32,6 +32,7 @@ CDS may:
 
 - Share general information about GC Design System and its use by Government of Canada departments and agencies in public forums, such as blog posts, presentations, and conferences.
 - Ask for service standard metrics to assess the efficacy of the GC Design System and identify opportunities to improve it.
+- Link to websites not under the control of the Government of Canada, solely for the convenience of our website visitors. We are not responsible for the accuracy, currency, or reliability of the content of such websites and do not endorse them or their content. These sites are not subject to the Privacy Act or the Official Languages Act and may not be accessible to persons with disabilities. 
 
 ### Contributing to a trustworthy, consistent, and compliant GC digital experience
 
@@ -47,12 +48,6 @@ You are responsible for ensuring your website meets requirements applicable to a
 
 You are responsible for monitoring and maintaining the security of your websites.
 
-## Staying informed
+## Contact us
 
-CDS shares updates about GC Design System through the [website]({{ links.home }}) and [mailing list]({{ links.contact }}).
-
-Alerts about important issues such as planned downtime, unexpected outages, and issues with third party infrastructure providers will be shared on both GC Design System’s [website]({{ links.home }}) and [mailing list]({{ links.contact }}).
-
-You are responsible for signing up for the mailing list and/or checking the website regularly, to ensure you receive timely information.
-
-For questions related to these terms of use, [contact us]({{ links.contact }}).
+If you have any questions about the terms and conditions for using GC Design System, [contact us]({{ links.contact }}).
