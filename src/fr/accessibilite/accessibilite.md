@@ -83,13 +83,21 @@ Système de design GC intègre l’accessibilité dès le départ pour répondre
  <p>Avant le lancement de nouveaux composants, nous utilisons des outils automatisés permettant d’examiner les unités de style, les composants et le site Web pour déceler les éventuels problèmes d’accessibilité. Ces tests précoces nous permettent de résoudre les problèmes courants avant le début des tests approfondis.</p>
 </gcds-details>
 
-<gcds-details details-title="Tests d’utilisabilité concernant les besoins en matière d’accessibilité">
+<gcds-details details-title="Tests manuels à des fins d’accessibilité">
   <p>Nous effectuons des tests auprès de personnes présentant des besoins en matière d’accessibilité, y compris des personnes ayant des handicaps divers. De cette manière, nous veillons à ce que notre système soit fonctionnel et utilisable dans une variété de scénarios que les tests automatisés ne permettent pas de totalement prendre en compte.</p>
 </gcds-details>
 
-<gcds-details details-title="Études de marché et meilleures pratiques">
+<gcds-details details-title="Recherche et meilleures pratiques">
   <p>Nous guettons toujours les nouvelles règles d’accessibilité et meilleures pratiques issues de différentes industries. Nous intégrons les nouvelles observations et suggestions aux lignes directrices de notre système de design.</p>
 </gcds-details>
+
+<gcds-card
+  card-title="Outils de test"
+  href="https://systeme-design.alpha.canada.ca/fr/accessibilite/tests-daccessibilite"
+  card-title-tag="h3"
+  description="Outils et conseils pour les équipes qui choisissent de faire leurs propres tests avant la publication. "
+  lang="fr">
+</gcds-card>
 
 ## Contactez-nous
 
