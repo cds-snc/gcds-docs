@@ -83,13 +83,20 @@ The entire GC Design System builds in accessibility from the start to meet acces
  <p>Before components are released, we leverage automated tools that scan tokens, components, and website for accessibility issues. This early-stage testing allows us to resolve common issues before deeper testing begins.</p>
 </gcds-details>
 
-<gcds-details details-title="Usability testing for accessibility needs">
+<gcds-details details-title="Manual testing for accessibility needs">
   <p>We conduct testing with people who have accessibility needs, including individuals with various disabilities. This ensures our system is functional and usable in a range of scenarios that automated testing cannot fully capture.</p>
 </gcds-details>
 
-<gcds-details details-title="Market research and best practices">
+<gcds-details details-title="Research and best practices">
   <p>We’re always looking at new accessibility rules and best practices from different industries. We add new findings and suggestions to our design system guidance.</p>
 </gcds-details>
+
+<gcds-card
+  card-title="Testing tools"
+  href="https://design-system.alpha.canada.ca/en/accessibility/accessibility-testing"
+  card-title-tag="h3"
+  description="Tools and tips for teams who may choose to do their own testing before release. ">
+</gcds-card>
 
 ## Contact us
 
