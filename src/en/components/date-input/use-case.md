@@ -28,15 +28,17 @@ Use a date input to gather a date from a person when you're expecting them to wr
 - A date that doesn’t include the specific day of the week.
 - Avoid using a date input for the selection of an unknown date. Use a date picker instead.
 
-<article class="bg-full-width bg-primary text-light pt-600 pb-300 my-600">
-  <h2 class="mt-0">Related components</h2>
+<hr/>
 
-  <a href="{{ links.input }}" class="link-light">Input</a> when you want someone to input only a year or only a day of the month.
+## Related components
 
-  <a href="{{ links.select }}" class="link-light">Select</a> when you want someone to input only a month.
+  <a href="{{ links.input }}">Input</a> when you want someone to input only a year or only a day of the month.
+
+  <a href="{{ links.select }}">Select</a> when you want someone to input only a month.
 
   Date picker when you want someone to choose a not-yet-known date, like for appointment scheduling.
-</article>
+
+<hr class="mt-600"/>
 
 ## Component types
 
