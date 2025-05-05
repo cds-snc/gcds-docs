@@ -28,8 +28,9 @@ Utilisez le composant Détails pour offrir un aperçu du contenu plus détaillé
 - permettre de lire rapidement une page comportant de nombreux sous-titres. Prenons l'exemple d'une série de questions et de réponses : vous pouvez présenter les questions comme les titres d'un composant Détails et permettre ainsi à la personne d'afficher n'importe quelle section pour lire le contenu de la réponse;
 - donner au lectorat la possibilité de contrôler le contenu pour les sujets pouvant bouleverser certaines personnes. Celles-ci peuvent accéder au contenu une fois qu'elles se sentent prêtes et le dissimuler une fois qu'elles l'ont vu.
 
-<article class="bg-full-width bg-primary text-light pt-600 pb-300 my-600">
-  <h2 class="mt-0">Composants connexes </h2>
+<hr/>
+
+## Composants connexes
 
 Onglets : lorsque vous souhaitez remplacer tout le contenu d'une section ou d'une page.
 

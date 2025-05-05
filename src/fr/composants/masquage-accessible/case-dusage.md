@@ -26,11 +26,10 @@ Utilisez le masquage accessible pour :
 - Communiquer efficacement sans ajouter de texte au contenu principal. Le fait de fournir du contenu seulement à l'endroit et au moment où il le faut permet de réduire la charge cognitive pour tout le monde.
 - Améliorer l'expérience d'utilisation d'une technologie d'assistance quand il n'y a pas d'autre option adéquate dans le HTML sémantique.
 
-<article class="bg-full-width bg-primary text-light pt-600 pb-300 my-600">
-  <h2 class="mt-0">Composants connexes</h2>
+<hr/>
+
+## Composants connexes
 
 <a href="{{ links.heading }}" class="link-light">Titre</a> pour structurer le contenu en créant des niveaux hiérarchiques qui permettent l'organisation visuelle et mentale du contenu de la page à l'aide des styles de Système de design GC.
 
 <a href="{{ links.text }}" class="link-light">Texte</a> pour des paragraphes affichant du contenu autre qu'un en-tête avec les styles correspondants de Système de design GC.
-
-</article>
