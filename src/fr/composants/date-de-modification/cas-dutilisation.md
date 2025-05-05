@@ -17,7 +17,8 @@ tags: ['datemodifiedFR', 'usage']
 permalink: /fr/composants/date-de-modification/
 date: 'git Last Modified'
 ---
-La date de modification est un composant obligatoire pour les pages Canada.ca.
+
+La date de modification est un composant requis pour les sites Web du gouvernement du Canada. Elle est sujette à des exigences spécifiques pour les pages Canada.ca.
 
 ## Problèmes résolus par la date de modification
 

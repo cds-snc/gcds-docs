@@ -12,6 +12,9 @@ _Autres noms : fil d’Ariane_
 
 Un chemin d'accès à la page actuelle à partir de chaque niveau précédent de la hiérarchie du site.
 
+{% requiredOn locale true %}
+{% endrequiredOn %}
+
 {% docLinks locale stage figma github %}
 {% enddocLinks %}
 

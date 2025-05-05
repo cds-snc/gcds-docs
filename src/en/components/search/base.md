@@ -11,6 +11,9 @@ _Also called: search bar, site search box, search field._
 
 Search is a space for entering keywords to find relevant information.
 
+{% requiredOn locale true %}
+{% endrequiredOn %}
+
 {% docLinks locale stage figma github %}
 {% enddocLinks %}
 
