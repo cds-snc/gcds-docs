@@ -14,7 +14,7 @@ eleventyNavigation:
 
 ## Our accessibility standards
 
-The GC Design System meets or exceeds WCAG 2.1 AA, making it fully compliant with <gcds-link external href="https://www.tbs-sct.canada.ca/pol/doc-eng.aspx?id=23601"> Government of Canada accessibility standards</gcds-link>. 
+The GC Design System meets or exceeds WCAG 2.1 AA, making it fully compliant with <gcds-link external href="https://www.tbs-sct.canada.ca/pol/doc-eng.aspx?id=23601"> Government of Canada accessibility standards</gcds-link>.
 
 Public servants who use the components as intended are creating Government of Canada websites and applications in line with accessibility standards.
 
@@ -66,7 +66,6 @@ The entire GC Design System builds in accessibility from the start to meet acces
   <p>Accessible Rich Internet Applications (ARIA) roles and attributes are used so interactive elements, like menus, buttons, and forms, can be identified and operated by assistive technologies.</p> 
 </gcds-details>
 
-
 ### Clarity
 
 <gcds-details details-title="Clear form fields">
@@ -93,9 +92,11 @@ The entire GC Design System builds in accessibility from the start to meet acces
 
 <gcds-card
   card-title="Testing tools"
-  href="https://design-system.alpha.canada.ca/en/accessibility/accessibility-testing"
+  href="{{ links.accessibilityTesting }}"
   card-title-tag="h3"
-  description="Tools and tips for teams who may choose to do their own testing before release. ">
+  description="Tools and tips for teams who may choose to do their own testing before release."
+  class="mt-600"
+>
 </gcds-card>
 
 ## Contact us

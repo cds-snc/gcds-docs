@@ -14,7 +14,7 @@ eleventyNavigation:
 
 ## Nos normes d’accessibilité
 
-L’outil Système de design GC respecte ou dépasse les exigences des Règles pour l’accessibilité des contenus Web (WCAG) niveau 2.1 AA, ce qui le rend totalement conforme aux <gcds-link external href="https://www.tbs-sct.canada.ca/pol/doc-fra.aspx?id=23601"> normes d’accessibilité du gouvernement du Canada </gcds-link>. 
+L’outil Système de design GC respecte ou dépasse les exigences des Règles pour l’accessibilité des contenus Web (WCAG) niveau 2.1 AA, ce qui le rend totalement conforme aux <gcds-link external href="https://www.tbs-sct.canada.ca/pol/doc-fra.aspx?id=23601"> normes d’accessibilité du gouvernement du Canada </gcds-link>.
 
 Les fonctionnaires qui utilisent ce système de design et ces lignes directrices créent des sites Web et applications du gouvernement du Canada correspondant aux normes d’accessibilité.
 
@@ -63,9 +63,8 @@ Système de design GC intègre l’accessibilité dès le départ pour répondre
 </gcds-details>
 
 <gcds-details details-title="Rôles et attributs ARIA">
-  <p>Les rôles et attributs ARIA (Accessible Rich Internet Applications ou « applications Internet enrichies accessibles ») sont utilisés afin que les éléments interactifs, comme les menus, les boutons et les formulaires, puissent être reconnus et utilisés par les technologies d’assistance.</p> 
+  <p>Les rôles et attributs ARIA (Accessible Rich Internet Applications ou « applications Internet enrichies accessibles ») sont utilisés afin que les éléments interactifs, comme les menus, les boutons et les formulaires, puissent être reconnus et utilisés par les technologies d’assistance.</p>
 </gcds-details>
-
 
 ### Clarté
 
@@ -93,10 +92,11 @@ Système de design GC intègre l’accessibilité dès le départ pour répondre
 
 <gcds-card
   card-title="Outils de test"
-  href="https://systeme-design.alpha.canada.ca/fr/accessibilite/tests-daccessibilite"
+  href="{{ links.accessibilityTesting }}"
   card-title-tag="h3"
-  description="Outils et conseils pour les équipes qui choisissent de faire leurs propres tests avant la publication. "
-  lang="fr">
+  description="Outils et conseils pour les équipes qui choisissent de faire leurs propres tests avant la publication."
+  class="mt-600"
+>
 </gcds-card>
 
 ## Contactez-nous
