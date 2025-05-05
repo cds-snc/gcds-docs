@@ -21,17 +21,20 @@ date: 'git Last Modified'
 
 La date de modification est requise sur les pages Canada.ca et les sites du GC.
 
-#### Éléments requis sur Canada.ca et les sites du GC
+<gcds-details details-title="Éléments requis sur Canada.ca et les sites du GC" class="mb-300">
+  <gcds-text>Toujours inclure la date de modification et maintenir les paramètres par défaut.</gcds-text>
+  <div>
+    <ul class="list-disc">
+      <li>Placez le composant date de modification du côté gauche, entre le contenu principal de la page et le pied de page.</li>
+      <li>Placez le composant date de modification au même endroit d’une page Web à l’autre afin qu’il soit repérable.</li>
+      <li>Si votre page inclut l’outil de rétroaction sur la page, placez le composant date de modification en dessous de celui-ci.</li>
+    </ul>
+  </div>
+</gcds-details>
 
-Toujours inclure la date de modification et maintenir les paramètres par défaut.
-
-- Placez le composant date de modification du côté gauche, entre le contenu principal de la page et le pied de page.
-- Placez le composant date de modification au même endroit d’une page Web à l’autre afin qu’il soit repérable.
-- Si votre page inclut l’outil de rétroaction sur la page, placez le composant date de modification en dessous de celui-ci.
-
-#### Éléments facultatifs sur une page Canada.ca
-
-Pour les applications, utilisez un numéro de version plutôt qu’une date.
+<gcds-details details-title="Éléments facultatifs sur une page Canada.ca" class="mb-300">
+  <gcds-text margin-bottom="0">Pour les applications, utilisez un numéro de version plutôt qu’une date.</gcds-text>
+</gcds-details>
 
 ### Veiller à l’uniformité du formatage
 

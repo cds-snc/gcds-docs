@@ -25,18 +25,25 @@ Voici les éléments requis pour le chemin de navigation sur les sites du GC.
 - Le chemin de navigation est requis dans l’en-tête des pages standard et de campagne de Canada.ca.
 - Le chemin de navigation est facultatif pour les autres pages de Canada.ca et les sites du GC.
 
-### Éléments requis sur une page standard ou de campagne de Canada.ca
+<gcds-details details-title="Éléments requis sur une page standard ou de campagne de Canada.ca" class="mb-300">
+  <gcds-text>Toujours inclure le chemin de navigation dans l’en-tête des pages standard et de campagne sur Canada.ca et maintenir les paramètres par défaut.</gcds-text>
+  <div>
+    <ul class="list-disc">
+      <li>Gardez le placement avec alignement sur la gauche, directement en dessous de la ligne séparatrice.</li>
+      <li>Gardez la page d’accueil de Canada.ca comme premier lien dans le chemin de navigation.</li>
+      <li>N’incluez pas la page actuelle à la fin du chemin de navigation.</li>
+    </ul>
+  </div>
+</gcds-details>
 
-Toujours inclure le chemin de navigation dans l’en-tête des pages standard et de campagne sur Canada.ca et maintenir les paramètres par défaut.
-
-- Gardez le placement avec alignement sur la gauche, directement en dessous de la ligne séparatrice.
-- Gardez la page d’accueil de Canada.ca comme premier lien dans le chemin de navigation.
-- N’incluez pas la page actuelle à la fin du chemin de navigation.
-
-### Éléments facultatifs sur une page standard ou de campagne de Canada.ca
-
-- Raccourcissez le texte du lien pour améliorer la lisibilité et réduire l’espace.
-- Sur une page de campagne, vous pouvez définir une page d’accueil précise comme premier lien. Il peut s’agir de la page d’accueil de Canada.ca, l’arborescence thématique (catégories de sujets de Canada.ca), le profil institutionnel/organisationnel, ou une page d’index de campagne.
+<gcds-details details-title="Éléments facultatifs sur une page standard ou de campagne de Canada.ca" class="mb-300">
+  <div>
+    <ul class="list-disc">
+      <li>Raccourcissez le texte du lien pour améliorer la lisibilité et réduire l’espace.</li>
+      <li>Sur une page de campagne, vous pouvez définir une page d’accueil précise comme premier lien. Il peut s’agir de la page d’accueil de Canada.ca, l’arborescence thématique (catégories de sujets de Canada.ca), le profil institutionnel/organisationnel, ou une page d’index de campagne.</li>
+    </ul>
+  </div>
+</gcds-details>
 
 ### Incluez les bons liens dans votre chemin de navigation
 
