@@ -25,13 +25,15 @@ Utilisez une icône pour :
 - Surligner les actions ou les états clés, comme une coche pour la validation.
 - Parcourir le contenu plus rapidement et réduire la charge cognitive.
 
-<article class="bg-full-width bg-primary text-light pt-600 pb-300 my-600">
-  <h2 class="mt-0">Composants connexes</h2>
+<hr/>
 
-<a href="{{ links.text }}" class="link-light">Texte</a> pour afficher le contenu écrit dans un paragraphe stylisé et formaté.
+## Composants connexes
 
-<a href="{{ links.notice }}" class="link-light">Avis</a> pour afficher un message court et visible.
-</article>
+<a href="{{ links.text }}">Texte</a> pour afficher le contenu écrit dans un paragraphe stylisé et formaté.
+
+<a href="{{ links.notice }}">Avis</a> pour afficher un message court et visible.
+
+<hr class="mt-600" />
 
 ## Cas d’utilisation des icônes
 

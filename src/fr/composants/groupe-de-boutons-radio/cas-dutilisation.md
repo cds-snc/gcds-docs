@@ -29,11 +29,10 @@ Utilisez un groupe de boutons radio avec un [jeu de champs]({{ links.fieldset }}
 - Déterminer les réponses possibles à votre question.
 - Lui donner la capacité de répondre sans avoir à écrire en sélectionnant une option parmi une liste.
 
-<article class="bg-full-width bg-primary text-light pt-600 pb-300 my-600">
-  <h2 class="mt-0">Composants connexes</h2>
+<hr/>
 
-<a href="{{ links.checkbox }}" class="link-light">Cases à cocher</a> lorsque vous prévoyez que l’utilisateur·rice sélectionne plusieurs options parmi une liste d’éléments.
+## Composants connexes
 
-<a href="{{ links.select }}" class="link-light">Sélection</a> lorsque vous donnez à l’utilisateur·rice une moyenne ou grande quantité d’options pour une seule option connue.
+<a href="{{ links.checkbox }}">Cases à cocher</a> lorsque vous prévoyez que l’utilisateur·rice sélectionne plusieurs options parmi une liste d’éléments.
 
-</article>
+<a href="{{ links.select }}">Sélection</a> lorsque vous donnez à l’utilisateur·rice une moyenne ou grande quantité d’options pour une seule option connue.

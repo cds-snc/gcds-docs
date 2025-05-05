@@ -33,8 +33,6 @@ Utilisez le composant Détails pour offrir un aperçu du contenu plus détaillé
 
 Onglets : lorsque vous souhaitez remplacer tout le contenu d'une section ou d'une page.
 
-<a href="{{ links.link }}" class="link-light">Liens</a> : pour permettre de naviguer à une nouvelle page, à un autre site Web, à un fichier ou à une nouvelle section de la page actuelle et de lancer un téléchargement de fichiers.
+<a href="{{ links.link }}">Liens</a> : pour permettre de naviguer à une nouvelle page, à un autre site Web, à un fichier ou à une nouvelle section de la page actuelle et de lancer un téléchargement de fichiers.
 
-<a href="{{ links.button }}" class="link-light">Boutons</a> : pour modifier des données, changer d'état ou lancer une action spécifique.
-
-</article>
+<a href="{{ links.button }}">Boutons</a> : pour modifier des données, changer d'état ou lancer une action spécifique.

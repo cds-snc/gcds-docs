@@ -29,11 +29,10 @@ Utilisez ce repère de pied de page dans le cadre d’une image de marque fiable
 - La fin d’une page de produit ou d’un site; un service ou produit numérique du gouvernement du Canada offrant une vaste gamme de services et de renseignements;
 - L’identité de marque du gouvernement du Canada à l’aide du mot-symbole.
 
-<article class="bg-full-width bg-primary text-light pt-600 pb-300 my-600">
-  <h2 class="mt-0">Composants connexes</h2>
+<hr/>
 
-<a href="{{ links.header }}" class="link-light">En-tête</a> : lorsque vous cherchez à placer l'image de marque du gouvernement du Canada dans l'en-tête de la page.
+## Composants connexes
 
-<a href="{{ links.topNav }}" class="link-light">Barre de navigation supérieure</a> : pour guider la navigation au sein d'un site Web à l'aide d'un point de repère.
+<a href="{{ links.header }}">En-tête</a> : lorsque vous cherchez à placer l'image de marque du gouvernement du Canada dans l'en-tête de la page.
 
-</article>
+<a href="{{ links.topNav }}">Barre de navigation supérieure</a> : pour guider la navigation au sein d'un site Web à l'aide d'un point de repère.

@@ -31,11 +31,10 @@ Utilisez cet élément de repère d'en-tête et de marque pour les pages Canada.
 - Faciliter la navigation pour les personnes utilisant les services du GC;
 - Inclure la signature de marque du gouvernement du Canada requise par le Programme fédéral d'identité.
 
-<article class="bg-full-width bg-primary text-light pt-600 pb-300 my-600">
-  <h2 class="mt-0">Composants connexes</h2>
+<hr/>
 
-<a href="{{ links.footer }}" class="link-light">Pied de page</a> pour signaler la fin d'une page avec un repère de la marque du gouvernement du Canada.
+## Composants connexes
 
-<a href="{{ links.signature }}" class="link-light">Signature</a> pour identifier la marque et l'identité du gouvernement du Canada.
+<a href="{{ links.footer }}">Pied de page</a> pour signaler la fin d'une page avec un repère de la marque du gouvernement du Canada.
 
-</article>
+<a href="{{ links.signature }}">Signature</a> pour identifier la marque et l'identité du gouvernement du Canada.
