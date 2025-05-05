@@ -14,9 +14,29 @@ date: 'git Last Modified'
   <li>The <strong>link</strong> navigates to a parent-level page.</li>
 </ol>
 
-<img class="b-sm b-default p-300" src="/images/en/components/anatomy/gcds-breadcrumbs-anatomy.svg" alt="Breadcrumbs anatomy showing two links in a row with an arrow icon between them." />
+<img class="b-sm b-default p-300" src="/images/en/components/anatomy/gcds-breadcrumbs-anatomy.svg" alt="Breadcrumbs with two links side by side and a right-pointing chevron between them. Each individual element of the component has a number pointing to it." />
 
 ## Design and accessibility for breadcrumbs
+
+### Check breadcrumbs requirements
+
+Here's what's required for breadcrumbs on GC sites.
+
+- Breadcrumbs are required in the header on Canada.ca standard and campaign pages.
+- Breadcrumbs are optional for other Canada.ca pages and GC sites.
+
+### What's required on a Canada.ca standard or campaign page
+
+Always include the breadcrumbs in the header of standard and campaign pages on Canada.ca and maintain default settings.
+
+- Keep the placement aligned to the left, directly below the divider line.
+- Keep the Canada.ca homepage as the first link in the breadcrumbs.
+- Leave out the current page at the end of the breadcrumb trail.
+
+### What's optional to include on a Canada.ca standard or campaign page
+
+- Shorten the link text to improve readability and reduce space.
+- On a campaign page you can link to a specific landing page as the first link. This could be the Canada.ca home page, the topic tree (Canada.ca topic categories), the institutional/organizational profile, or a campaign index page.
 
 ### Include the right links in your breadcrumbs
 

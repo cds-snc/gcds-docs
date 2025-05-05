@@ -12,6 +12,9 @@ _Also called: breadcrumb trail._
 
 Breadcrumbs is a path to the current page from each preceding level of the site's hierarchy.
 
+{% requiredOn locale true %}
+{% endrequiredOn %}
+
 {% docLinks locale stage figma github %}
 {% enddocLinks %}
 

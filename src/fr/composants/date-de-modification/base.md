@@ -12,6 +12,9 @@ _Autres noms : Dernière mise à jour, version._
 
 La date de modification est un indicateur de la dernière mise à jour apportée à une page Web ou à une application.
 
+{% requiredOn locale true true %}
+{% endrequiredOn %}
+
 {% docLinks locale stage figma github %}
 {% enddocLinks %}
 
