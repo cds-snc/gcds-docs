@@ -63,9 +63,9 @@ module.exports = [
     link: 'https://events.teams.microsoft.com/event/dde1869b-4e35-4b94-8206-3eaa55fdd77d@9ed55846-8a81-4246-acd8-b1a01abfc0d1'
   },
   {
-    date: "2025-06-24",
-    starttime: "13:00",
-    endtime: "14:00",
+    date: "2025-06-26",
+    starttime: "15:00",
+    endtime: "16:00",
     lang: 'fr',
     link: 'https://events.teams.microsoft.com/event/c7a714c2-8ec5-4529-900c-70366ef976c6@9ed55846-8a81-4246-acd8-b1a01abfc0d1'
   } 
