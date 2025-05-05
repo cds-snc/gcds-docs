@@ -1183,6 +1183,17 @@
     <h1 id="date-modified-brgcdsdatemodified">Date modified <br><code>&lt;gcds-date-modified&gt;</code></h1>
 <p><em>Also called: Last updated, version date.</em></p>
 <p>Date modified is an indicator of the last update to a webpage or application.</p>
+<ul class="d-flex flex-wrap gap-300"><li class="text-secondary">
+          <span class="px-200 py-100 bg-light font-text-small b-radius-lg">
+            <gcds-icon name="checkmark-circle" margin-right="50"></gcds-icon>
+            Required on Canada.ca
+          </span>
+        </li><li class="text-secondary">
+          <span class="px-200 py-100 bg-light font-text-small b-radius-lg">
+            <gcds-icon name="checkmark-circle" margin-right="50"></gcds-icon>
+            Required on GC sites
+          </span>
+        </li></ul>
 <p><ul class="d-flex flex-wrap gap-300">
 <li class="github-link">
 <gcds-link external href="https://github.com/cds-snc/gcds-components/tree/main/packages/web/src/components/gcds-date-modified">GitHub</gcds-link>
@@ -1249,15 +1260,25 @@ Date modified component preview
   <li>The <strong>label</strong> describes the type specified in the value. The label reads either: "Date modified" or "Version" depending on the component type.</li>
   <li>The <strong>value</strong> is either a numerical date formatted as YYYY-MM-DD or a version number.</li>
 </ol>
-<img class="b-sm b-default p-300" src="/images/en/components/anatomy/gcds-date-modified-anatomy.svg" alt="An image of the date modified component" />
+<img class="b-sm b-default p-300" src="/images/en/components/anatomy/gcds-date-modified-anatomy.svg" alt="Date modified with 2023-01-30. Each individual element of the component has a number pointing to it." />
 <h2 id="design-and-accessibility-for-date-modified">Design and accessibility for date modified</h2>
-<h3 id="ensure-consistent-placement">Ensure consistent placement</h3>
-<ul class="list-disc mb-300"><li>Place the date modified component between the body, or main content, of the page and the footer.</li>
+<h3 id="check-date-modified-requirements">Check date modified requirements</h3>
+<p>The date modified is required on Canada.ca pages and GC sites.</p>
+<h4 id="whats-required-on-canadaca-and-gc-sites">What’s required on Canada.ca and GC sites</h4>
+<p>Always include the date modified and maintain default settings.</p>
+<ul class="list-disc mb-300"><li>Place the date modified component on the left, between the main content of the page and the footer.</li>
 <li>Use the same placement of the date modified component across all web pages to make it findable.</li>
+<li>If your page includes the page feedback tool, place the date modified component below it.</li>
 </ul>
+<h4 id="whats-optional-to-include-on-canadaca-pages">What’s optional to include on Canada.ca pages</h4>
+<p>For applications, use a version number in place of a date.</p>
 <h3 id="keep-the-format-consistent">Keep the format consistent</h3>
 <ul class="list-disc mb-300"><li>Use the YYYY-MM-DD date format across all web pages.</li>
-<li>If using the version type, consider using a standard version number format across all products.</li>
+<li>If using the version type, apply a standard version number format across all products.</li>
+</ul>
+<h3 id="when-to-update-the-date-modified">When to update the date modified</h3>
+<ul class="list-disc mb-300"><li>Only update the date modified when you make a significant content change.</li>
+<li>Avoid updating for minor corrections, like typos, or small changes to the code.</li>
 </ul>
 
 
@@ -1293,7 +1314,7 @@ Date modified component preview
 
 
         <gcds-date-modified class="mb-300">
-          2025-04-30
+          2025-05-05
         </gcds-date-modified>
       </main>
 

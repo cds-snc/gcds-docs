@@ -1183,6 +1183,17 @@
     <h1 id="date-de-modification-brgcdsdatemodified">Date de modification <br><code>&lt;gcds-date-modified&gt;</code></h1>
 <p><em>Autres noms : Dernière mise à jour, version.</em></p>
 <p>La date de modification est un indicateur de la dernière mise à jour apportée à une page Web ou à une application.</p>
+<ul class="d-flex flex-wrap gap-300"><li class="text-secondary">
+          <span class="px-200 py-100 bg-light font-text-small b-radius-lg">
+            <gcds-icon name="checkmark-circle" margin-right="50"></gcds-icon>
+            Requis sur Canada.ca
+          </span>
+        </li><li class="text-secondary">
+          <span class="px-200 py-100 bg-light font-text-small b-radius-lg">
+            <gcds-icon name="checkmark-circle" margin-right="50"></gcds-icon>
+            Requis sur les sites du GC
+          </span>
+        </li></ul>
 <p><ul class="d-flex flex-wrap gap-300">
 <li class="github-link">
 <gcds-link external href="https://github.com/cds-snc/gcds-components/tree/main/packages/web/src/components/gcds-date-modified">GitHub</gcds-link>
@@ -1249,15 +1260,25 @@ Aperçu du composant de date de modification
   <li>Le <strong>libellé</strong> décrit le type précisé dans la valeur et affiche soit « Date de modification » ou « Version » selon le type de composant.</li>
   <li>La <strong>valeur</strong> correspond soit à une date numérique au format AAAA-MM-JJ, soit à un numéro de version.</li>
 </ol>
-<img class="b-sm b-default p-300" src="/images/fr/components/anatomy/gcds-date-modified-anatomy.svg" alt="Une image du composant date de modification." />
+<img class="b-sm b-default p-300" src="/images/fr/components/anatomy/gcds-date-modified-anatomy.svg" alt="Date de modification indiquant la date 2023-01-30 Chaque élément du composant est identifié à l’aide d’un chiffre." />
 <h2 id="design-et-accessibilite-de-la-date-de-modification">Design et accessibilité de la date de modification</h2>
-<h3 id="veillez-a-luniformite-du-placement">Veillez à l'uniformité du placement</h3>
-<ul class="list-disc mb-300"><li>Placez le composant date de modification entre le corps, soit le contenu principal de la page, et le pied de page.</li>
-<li>Placez le composant date de modification au même endroit d'une page Web à l'autre à fin qu'il soit repérable.</li>
+<h3 id="verifier-les-exigences-de-la-date-de-modification">Vérifier les exigences de la date de modification</h3>
+<p>La date de modification est requise sur les pages Canada.ca et les sites du GC.</p>
+<h4 id="elements-requis-sur-canadaca-et-les-sites-du-gc">Éléments requis sur Canada.ca et les sites du GC</h4>
+<p>Toujours inclure la date de modification et maintenir les paramètres par défaut.</p>
+<ul class="list-disc mb-300"><li>Placez le composant date de modification du côté gauche, entre le contenu principal de la page et le pied de page.</li>
+<li>Placez le composant date de modification au même endroit d’une page Web à l’autre afin qu’il soit repérable.</li>
+<li>Si votre page inclut l’outil de rétroaction sur la page, placez le composant date de modification en dessous de celui-ci.</li>
 </ul>
-<h3 id="veillez-a-luniformite-du-formatage">Veillez à l'uniformité du formatage</h3>
-<ul class="list-disc mb-300"><li>Utilisez le format de la date AAAA-MM-JJ sur toutes vos pages Web.</li>
-<li>Si vous utilisez le composant en type version, veillez à utiliser un format de numéro de version uniforme pour tous vos produits.</li>
+<h4 id="elements-facultatifs-sur-une-page-canadaca">Éléments facultatifs sur une page Canada.ca</h4>
+<p>Pour les applications, utilisez un numéro de version plutôt qu’une date.</p>
+<h3 id="veiller-a-luniformite-du-formatage">Veiller à l’uniformité du formatage</h3>
+<ul class="list-disc mb-300"><li>Utilisez le format de date AAAA-MM-JJ sur toutes vos pages Web.</li>
+<li>Si vous utilisez le composant avec le type numéro de version, veillez à utiliser un format de numéro de version uniforme pour tous vos produits.</li>
+</ul>
+<h3 id="quand-mettre-a-jour-la-date-de-modification">Quand mettre à jour la date de modification</h3>
+<ul class="list-disc mb-300"><li>Ne mettez à jour la date de modification que lorsque vous effectuez une modification importante du contenu.</li>
+<li>Évitez les mises à jour pour les corrections mineures, comme les fautes de frappe, ou les petites modifications du code.</li>
 </ul>
 
 
@@ -1293,7 +1314,7 @@ Aperçu du composant de date de modification
 
 
         <gcds-date-modified class="mb-300">
-          2025-04-30
+          2025-05-05
         </gcds-date-modified>
       </main>
 

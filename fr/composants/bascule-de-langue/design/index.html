@@ -1183,6 +1183,17 @@
     <h1 id="bascule-de-langue-brgcdslangtoggle">Bascule de langue <br><code>&lt;gcds-lang-toggle&gt;</code></h1>
 <p><em>Autres noms : commutateur de langue, sélecteur de langue.</em></p>
 <p>La bascule de langue est un lien menant vers le même contenu dans l'autre langue officielle.</p>
+<ul class="d-flex flex-wrap gap-300"><li class="text-secondary">
+          <span class="px-200 py-100 bg-light font-text-small b-radius-lg">
+            <gcds-icon name="checkmark-circle" margin-right="50"></gcds-icon>
+            Requis sur Canada.ca
+          </span>
+        </li><li class="text-secondary">
+          <span class="px-200 py-100 bg-light font-text-small b-radius-lg">
+            <gcds-icon name="checkmark-circle" margin-right="50"></gcds-icon>
+            Requis sur les sites du GC
+          </span>
+        </li></ul>
 <p><ul class="d-flex flex-wrap gap-300">
 <li class="github-link">
 <gcds-link external href="https://github.com/cds-snc/gcds-components/tree/main/packages/web/src/components/gcds-lang-toggle">GitHub</gcds-link>
@@ -1249,11 +1260,18 @@ Aperçu du de bascule de langue
 <ol class="anatomy-list">
   <li>Le <strong>lien de bascule</strong> mène vers la page dans l’autre langue officielle et apparaît sous forme abrégée sur les écrans plus petits, ou les fenêtres d’affichage.</li>
 </ol>
-<img class="b-sm b-default p-300" src="/images/fr/components/anatomy/gcds-lang-toggle-anatomy.svg" alt="Sur les grands écrans, un lien « English ». Sur les plus petits écrans, un lien abrégé « EN »."/>
+<img class="b-sm b-default p-300" src="/images/fr/components/anatomy/gcds-lang-toggle-anatomy.svg" alt="Une bascule de langue adaptée aux grands écrans avec un lien « Français » et une bascule de langue adaptée au petits écrans avec un lien « FR ». Chaque élément du composant est identifié à l'aide d'un chiffre."/>
 <h2 id="design-et-accessibilite-de-la-bascule-de-langue">Design et accessibilité de la bascule de langue</h2>
-<ul class="list-disc mb-300"><li>Placez la bascule de langue en haut à droite de l’en-tête. Cet emplacement prévisible la rendra plus facile à trouver.</li>
-<li>Dans le lien correspondant à la bascule de langue, incluez le lien de la page actuelle dans l’autre langue officielle.</li>
+<h3 id="verifiez-les-exigences-de-la-bascule-de-langue">Vérifiez les exigences de la bascule de langue</h3>
+<p>La bascule de langue est requise dans l'en-tête des pages Canada.ca et des sites du GC.</p>
+<h4 id="elements-requis-sur-canadaca-et-les-sites-du-gc">Éléments requis sur Canada.ca et les sites du GC</h4>
+<p>Insérez toujours le commutateur de langue dans l’en-tête et conservez les paramètres par défaut.</p>
+<ul class="list-disc mb-300"><li>Gardez la bascule de langue en haut à droite de l’en-tête. Cet emplacement prévisible la rendra plus facile à trouver.</li>
+<li>L’anglais et le français sont les seules options approuvées.</li>
+<li>Précisez l’autre langue officielle dans le lien de la bascule de langue afin d’indiquer qu’il mène vers la page actuelle dans l’autre langue.</li>
 </ul>
+<h4 id="elements-facultatifs-sur-une-page-canadaca">Éléments facultatifs sur une page Canada.ca</h4>
+<p>Au besoin, ajoutez des liens vers du contenu dans d'autres langues dans la zone de contenu de la page.</p>
 
 
   <section data-pagefind-ignore class="my-600 bt-sm b-dark ">
@@ -1288,7 +1306,7 @@ Aperçu du de bascule de langue
 
 
         <gcds-date-modified class="mb-300">
-          2025-04-30
+          2025-05-05
         </gcds-date-modified>
       </main>
 

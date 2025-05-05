@@ -1183,6 +1183,12 @@
     <h1 id="breadcrumbs-brgcdsbreadcrumbs">Breadcrumbs <br><code>&lt;gcds-breadcrumbs&gt;</code></h1>
 <p><em>Also called: breadcrumb trail.</em></p>
 <p>Breadcrumbs is a path to the current page from each preceding level of the site's hierarchy.</p>
+<ul class="d-flex flex-wrap gap-300"><li class="text-secondary">
+          <span class="px-200 py-100 bg-light font-text-small b-radius-lg">
+            <gcds-icon name="checkmark-circle" margin-right="50"></gcds-icon>
+            Required on Canada.ca
+          </span>
+        </li></ul>
 <p><ul class="d-flex flex-wrap gap-300">
 <li class="github-link">
 <gcds-link external href="https://github.com/cds-snc/gcds-components/tree/main/packages/web/src/components/gcds-breadcrumbs">GitHub</gcds-link>
@@ -1250,8 +1256,23 @@ Breadcrumbs component preview
   <li>The <strong>chevron</strong> separates each link and points to a child link.</li>
   <li>The <strong>link</strong> navigates to a parent-level page.</li>
 </ol>
-<img class="b-sm b-default p-300" src="/images/en/components/anatomy/gcds-breadcrumbs-anatomy.svg" alt="Breadcrumbs anatomy showing two links in a row with an arrow icon between them." />
+<img class="b-sm b-default p-300" src="/images/en/components/anatomy/gcds-breadcrumbs-anatomy.svg" alt="Breadcrumbs with two links side by side and a right-pointing chevron between them. Each individual element of the component has a number pointing to it." />
 <h2 id="design-and-accessibility-for-breadcrumbs">Design and accessibility for breadcrumbs</h2>
+<h3 id="check-breadcrumbs-requirements">Check breadcrumbs requirements</h3>
+<p>Here's what's required for breadcrumbs on GC sites.</p>
+<ul class="list-disc mb-300"><li>Breadcrumbs are required in the header on Canada.ca standard and campaign pages.</li>
+<li>Breadcrumbs are optional for other Canada.ca pages and GC sites.</li>
+</ul>
+<h3 id="whats-required-on-a-canadaca-standard-or-campaign-page">What's required on a Canada.ca standard or campaign page</h3>
+<p>Always include the breadcrumbs in the header of standard and campaign pages on Canada.ca and maintain default settings.</p>
+<ul class="list-disc mb-300"><li>Keep the placement aligned to the left, directly below the divider line.</li>
+<li>Keep the Canada.ca homepage as the first link in the breadcrumbs.</li>
+<li>Leave out the current page at the end of the breadcrumb trail.</li>
+</ul>
+<h3 id="whats-optional-to-include-on-a-canadaca-standard-or-campaign-page">What's optional to include on a Canada.ca standard or campaign page</h3>
+<ul class="list-disc mb-300"><li>Shorten the link text to improve readability and reduce space.</li>
+<li>On a campaign page you can link to a specific landing page as the first link. This could be the Canada.ca home page, the topic tree (Canada.ca topic categories), the institutional/organizational profile, or a campaign index page.</li>
+</ul>
 <h3 id="include-the-right-links-in-your-breadcrumbs">Include the right links in your breadcrumbs</h3>
 <ul class="list-disc mb-300"><li>Include only parent page links and leave out the current page. It's stated in the page title, just beneath the breadcrumbs.</li>
 <li>Add up to 3 parent page links if using both the Canada.ca and home page links, for a maximum of 5 breadcrumbs links.</li>
@@ -1305,7 +1326,7 @@ Breadcrumbs component preview
 
 
         <gcds-date-modified class="mb-300">
-          2025-04-30
+          2025-05-05
         </gcds-date-modified>
       </main>
 

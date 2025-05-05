@@ -1183,6 +1183,12 @@
     <h1 id="recherche-brgcdssearch">Recherche <br><code>&lt;gcds-search&gt;</code></h1>
 <p><em>Autres noms : barre de recherche, boîte de recherche sur le site, champ de recherche.</em></p>
 <p>Le composant recherche est un espace où entrer des mots-clés pour chercher des renseignements pertinents.</p>
+<ul class="d-flex flex-wrap gap-300"><li class="text-secondary">
+          <span class="px-200 py-100 bg-light font-text-small b-radius-lg">
+            <gcds-icon name="checkmark-circle" margin-right="50"></gcds-icon>
+            Requis sur Canada.ca
+          </span>
+        </li></ul>
 <p><ul class="d-flex flex-wrap gap-300">
 <li class="github-link">
 <gcds-link external href="https://github.com/cds-snc/gcds-components/tree/main/packages/web/src/components/gcds-search">GitHub</gcds-link>
@@ -1247,15 +1253,32 @@ Aperçu du composant de recherche
   <h2 id="structure-du-composant-recherche">Structure du composant recherche</h2>
 <ol class="anatomy-list">
   <li>Le <strong>champ de saisie</strong> est un espace permettant d’entrer des mots-clés de recherche.</li>
-  <li>Le <strong>texte de remplacement</strong> est une invite visible dans le champ qui s’efface lorsqu’une 
-personne saisit du texte. Il identifie la zone de recherche.</li>
-  <li>Le <strong>bouton</strong> désigné à l’aide d’une icône de loupe, lance la recherche.</li>
+  <li>Le <strong>texte de l’espace réservé</strong> est une invite visible dans le champ qui s’efface lorsqu’une personne saisit du texte. Il identifie la zone de recherche.</li>
+  <li>Le <strong>bouton</strong>, désigné à l’aide d’une icône de loupe, lance la recherche.</li>
 </ol>
-<img class="b-sm b-default p-300" src="/images/fr/components/anatomy/gcds-search-anatomy.svg" alt="Image montrant la structure du composant recherche avec des chiffres pointant vers les parties individuelles du composant." />
+<img class="b-sm b-default p-300" src="/images/fr/components/anatomy/gcds-search-anatomy.svg" alt="Une boîte de recherche avec la mention « Rechercher dans Canada.ca » à l’intérieur, à côté d’un bouton de loupe immédiatement à droite. Chaque élément du composant est identifié à l’aide d’un chiffre." />
 <h2 id="accessibilite-et-design-des-recherche">Accessibilité et design des recherche</h2>
-<h3 id="placez-le-composant-recherche-a-un-endroit-previsible-dans-lentete">Placez le composant recherche à un endroit prévisible dans l'en-tête</h3>
-<ul class="list-disc mb-300"><li>Placez le composant recherche dans l'<gcds-link href="/fr/composants/en-tete">en-tête</gcds-link> sous la bascule de langue et alignez-le sur la <gcds-link href="/fr/composants/signature">signature du gouvernement du Canada</gcds-link>.</li>
-<li>Assurez-vous que l'en-tête est réactif afin que le composant recherche apparaisse sous la signature et la bascule de langue sur les appareils mobiles.</li>
+<h3 id="verifier-les-exigences-de-recherche">Vérifier les exigences de recherche</h3>
+<p>Voici les éléments requis pour la recherche sur les sites du GC.</p>
+<ul class="list-disc mb-300"><li>La recherche est requise dans l’<gcds-link href="/fr/composants/en-tete">en-tête</gcds-link> des pages standard et de campagne de Canada.ca.</li>
+<li>Elle est facultative pour les autres pages de Canada.ca et les sites du GC.</li>
+</ul>
+<h4 id="elements-requis-sur-une-page-standard-ou-de-campagne-de-canadaca">Éléments requis sur une page standard ou de campagne de Canada.ca</h4>
+<p>Toujours inclure la recherche dans l’en-tête d’une page standard ou de campagne et maintenir les paramètres par défaut.</p>
+<ul class="list-disc mb-300"><li>Utilisez l’indexation par défaut de la recherche du GC.</li>
+<li>Définissez l’indexation pour tout le contenu de Canada.ca ou à l’échelle d’un organisme ou d’un programme.</li>
+<li>Pour la recherche à l’échelle du site Canada.ca, maintenez le texte de l’espace réservé par défaut « <span lang="en">Search Canada.ca</span> » en anglais et « Rechercher dans Canada.ca » en français.</li>
+<li>Pour la recherche à l’échelle d’un organisme, d’un programme ou d’un produit, utilisez le texte de l’espace réservé suivant :<ul class="list-disc mb-300"><li>« <span lang="en">Search [institution/program/product] </span>» en anglais</li>
+<li>« Rechercher dans [institution/programme/produit] » en français</li>
+</ul>
+</li>
+</ul>
+<p><strong>Remarque :</strong> Par exception, les pages destinées uniquement à un public de la fonction publique peuvent appliquer une indexation de recherche personnalisée dans certains contextes précis.</p>
+<h4 id="elements-facultatifs-sur-une-page-standard-ou-de-campagne-de-canadaca">Éléments facultatifs sur une page standard ou de campagne de Canada.ca</h4>
+<p>Envisagez d’ajouter une recherche pour d’autres ensembles de données dans la zone de contenu de la page.</p>
+<h3 id="envisager-de-configurer-une-recherche-supplementaire">Envisager de configurer une recherche supplémentaire</h3>
+<ul class="list-disc mb-300"><li>Si une recherche secondaire est nécessaire auprès d’ensembles de données supplémentaires, placez cette recherche dans la zone de contenu de la page.</li>
+<li>Identifiez clairement la zone de recherche afin que la personne effectuant la recherche en comprenne bien les contraintes.</li>
 </ul>
 
 
@@ -1291,7 +1314,7 @@ personne saisit du texte. Il identifie la zone de recherche.</li>
 
 
         <gcds-date-modified class="mb-300">
-          2025-04-30
+          2025-05-05
         </gcds-date-modified>
       </main>
 

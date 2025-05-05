@@ -1183,6 +1183,12 @@
     <h1 id="search-brgcdssearch">Search <br><code>&lt;gcds-search&gt;</code></h1>
 <p><em>Also called: search bar, site search box, search field.</em></p>
 <p>Search is a space for entering keywords to find relevant information.</p>
+<ul class="d-flex flex-wrap gap-300"><li class="text-secondary">
+          <span class="px-200 py-100 bg-light font-text-small b-radius-lg">
+            <gcds-icon name="checkmark-circle" margin-right="50"></gcds-icon>
+            Required on Canada.ca
+          </span>
+        </li></ul>
 <p><ul class="d-flex flex-wrap gap-300">
 <li class="github-link">
 <gcds-link external href="https://github.com/cds-snc/gcds-components/tree/main/packages/web/src/components/gcds-search">GitHub</gcds-link>
@@ -1247,14 +1253,32 @@ Search component preview
   <h2 id="search-anatomy">Search anatomy</h2>
 <ol class="anatomy-list">
   <li>The <strong>input field</strong> is a space to enter search keywords.</li>
-  <li>The <strong>placeholder text</strong> is a prompt visible before a person types that identifies the area for the search.</li>
-  <li>The <strong>button</strong> initiates the search and is represented by a magnifying glass icon.</li>
+  <li>The <strong>placeholder text</strong> is a prompt visible before a person types. It identifies the search area.</li>
+  <li>The <strong>button</strong>, labelled with a magnifying glass, initiates a search.</li>
 </ol>
-<img class="b-sm b-default p-300" src="/images/en/components/anatomy/gcds-search-anatomy.svg" alt="Image showing the search component anatomy with numbers pointing to the individual parts of the search component." />
+<img class="b-sm b-default p-300" src="/images/en/components/anatomy/gcds-search-anatomy.svg" alt="A search box with the words “Search Canada.ca” inside next to a magnifying glass button immediately on the right. Each individual element of the component has a number pointing to it." />
 <h2 id="design-and-accessibility-for-search">Design and accessibility for search</h2>
-<h3 id="place-the-search-in-a-predictable-location-in-the-header">Place the search in a predictable location in the header</h3>
-<ul class="list-disc mb-300"><li>Place the search component in the <gcds-link href="/en/components/header">header</gcds-link> below the language toggle and in line with the <gcds-link href="/en/components/signature">Government of Canada signature</gcds-link>.</li>
-<li>Ensure the header is responsive so that the search appears below both the signature and the language toggle on mobile devices.</li>
+<h3 id="check-search-requirements">Check search requirements</h3>
+<p>Here’s what’s required for search on GC sites.</p>
+<ul class="list-disc mb-300"><li>Search is required in the <gcds-link href="/en/components/header">header</gcds-link> on Canada.ca standard and campaign pages.</li>
+<li>It's optional for other Canada.ca pages and GC sites.</li>
+</ul>
+<h4 id="whats-required-on-a-canadaca-standard-or-campaign-page">What’s required on a Canada.ca standard or campaign page</h4>
+<p>Always include the search in the header of a standard or campaign page and maintain the default settings.</p>
+<ul class="list-disc mb-300"><li>Use default GC Search indexing.</li>
+<li>Set indexing across Canada.ca content or at an institution or program level.</li>
+<li>For a Canada.ca site-wide search, maintain the default search prompt text “Search Canada.ca” in English and <span lang="fr">“Rechercher dans Canada.ca”</lang> in French</li>
+<li>For an institution, program, or product specific search, use the following search prompt text:<ul class="list-disc mb-300"><li>“Search [institution/program/product]” in English</li>
+<li>“<span lang="fr">Rechercher dans [institution/programme/produit]</span>” in French</li>
+</ul>
+</li>
+</ul>
+<p><strong>Note:</strong> As an exception, pages solely intended for a public service audience may apply a customized search indexation in particular contexts.</p>
+<h4 id="whats-optional-to-include-on-a-canadaca-standard-or-campaign-page">What’s optional to include on a Canada.ca standard or campaign page</h4>
+<p>Opt to add a search for other datasets within the content area of the page.</p>
+<h3 id="opt-to-set-up-an-additional-search">Opt to set up an additional search</h3>
+<ul class="list-disc mb-300"><li>If a secondary search is needed with other datasets, place that search within the content area of the page.</li>
+<li>Clearly identify the search area, so a person searching understands the constraints ahead of time.</li>
 </ul>
 
 
@@ -1290,7 +1314,7 @@ Search component preview
 
 
         <gcds-date-modified class="mb-300">
-          2025-04-30
+          2025-05-05
         </gcds-date-modified>
       </main>
 
