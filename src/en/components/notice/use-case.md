@@ -25,14 +25,15 @@ Use notice to:
 - Make key messages stand out within page content, through sparing use.
 - Provide context or additional information on the page content for better understanding.
 
-<article class="bg-full-width bg-primary text-light pt-600 pb-300 my-600">
-  <h2 class="mt-0">Related components</h2>
+<hr/>
 
-<a href="{{links.errorMessage}}" class="link-light">Error message</a> or <a href="{{links.errorSummary}}" class="link-light">error summary</a> for errors in a form field, on a page, or in a flow.
+## Related components
+
+<a href="{{links.errorMessage}}">Error message</a> or <a href="{{links.errorSummary}}">error summary</a> for errors in a form field, on a page, or in a flow.
 
 Banner for a message that applies to part of or the entire site or product.
 
-</article>
+<hr class="mt-600"/>
 
 ## Notice types
 

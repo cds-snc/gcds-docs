@@ -29,14 +29,15 @@ Use a button to initiate an action, like:
 - Sign in to an account.
 - Move forward or back in a sequence.
 
-<article class="bg-full-width bg-primary text-light pt-600 pb-300 my-600">
-  <h2 class="mt-0">Related components</h2>
+<hr/>
 
-<a href="{{ links.link }}" class="link-light">Links</a> to navigate to a new page, website, file, or section on the current page.
+## Related components
 
-<a href="{{ links.details }}" class="link-light">Details</a> to hide or show a section of content.
+<a href="{{ links.link }}">Links</a> to navigate to a new page, website, file, or section on the current page.
 
-</article>
+<a href="{{ links.details }}">Details</a> to hide or show a section of content.
+
+<hr class="mt-600"/>
 
 ## Choose a button type
 

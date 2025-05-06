@@ -30,14 +30,15 @@ Use the signature landmark as part of a trusted brand to:
 - Inform a person they’re reading content published by the Government of Canada.
 - Offer a global link to the site’s home page in both Official Languages.
 
-<article class="bg-full-width bg-primary text-light pt-600 pb-300 my-600">
-  <h2 class="mt-0">Related components</h2>
+<hr/>
 
-<a href="{{ links.header }}" class="link-light">Header</a> for placing the Government of Canada branded header landmark.
+## Related components
 
-<a href="{{ links.footer }}" class="link-light">Footer</a> for placing the Government of Canada branded footer landmark.
+<a href="{{ links.header }}">Header</a> for placing the Government of Canada branded header landmark.
 
-</article>
+<a href="{{ links.footer }}">Footer</a> for placing the Government of Canada branded footer landmark.
+
+<hr class="mt-600"/>
 
 ## Component types
 

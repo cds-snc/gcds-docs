@@ -24,9 +24,8 @@ Use a Tableau de données
 
 -
 
-<article class="bg-full-width bg-primary text-light pt-600 pb-300 my-600">
-  <h2 class="mt-0">Composants connexes</h2>
+<hr/>
 
-<a href="" class="link-light">component</a>
+## Composants connexes
 
-</article>
+<a href="">component</a>

@@ -28,13 +28,12 @@ The top navigation helps give visitors a sense of a site's structure, purpose, a
 - Offer a familiar wayfinding pattern.
 - Signal the active page and give a cue to the person's current position on the site.
 
-<article class="bg-full-width bg-primary text-light pt-600 pb-300 my-600">
-  <h2 class="mt-0">Related components</h2>
+<hr/>
 
-<a href="{{ links.sideNav }}" class="link-light">Side navigation</a> for products with up to three levels of navigation when the main content fits a narrow page width.
+## Related components
 
-<a href="{{ links.header }}" class="link-light">Header</a> for placing the Government of Canada branded header landmark.
+<a href="{{ links.sideNav }}">Side navigation</a> for products with up to three levels of navigation when the main content fits a narrow page width.
 
-<a href="{{ links.breadcrumbs }}" class="link-light">Breadcrumbs</a> for a path from each level of the site's hierarchy to the current page.
+<a href="{{ links.header }}">Header</a> for placing the Government of Canada branded header landmark.
 
-</article>
+<a href="{{ links.breadcrumbs }}">Breadcrumbs</a> for a path from each level of the site's hierarchy to the current page.

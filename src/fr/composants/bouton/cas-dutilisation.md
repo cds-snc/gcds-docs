@@ -27,14 +27,15 @@ Utilisez un bouton pour lancer une action, comme :
 - Se connecter à un compte.
 - Avancer ou reculer dans une séquence.
 
-<article class="bg-full-width bg-primary text-light pt-600 pb-300 my-600">
-  <h2 class="mt-0">Composants connexes</h2>
+<hr/>
 
-<a href="{{ links.link }}" class="link-light">Liens</a> lorsque vous souhaitez naviguer vers une nouvelle page, un site web, un fichier ou une section de la page actuelle.
+## Composants connexes
 
-<a href="{{ links.details }}" class="link-light">Détails</a> lorsque vous souhaitez masquer ou afficher une section de contenu.
+<a href="{{ links.link }}">Liens</a> lorsque vous souhaitez naviguer vers une nouvelle page, un site web, un fichier ou une section de la page actuelle.
 
-</article>
+<a href="{{ links.details }}">Détails</a> lorsque vous souhaitez masquer ou afficher une section de contenu.
+
+<hr class="mt-600" />
 
 ## Choisissez un type de bouton
 

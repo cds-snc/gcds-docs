@@ -30,14 +30,15 @@ Use links to:
 - Start downloads for files, providing users with direct access to documents, media, or other downloadable content.
 - Skip past navigational elements to get to main content.
 
-<article class="bg-full-width bg-primary text-light pt-600 pb-300 my-600">
-  <h2 class="mt-0">Related components</h2>
+<hr/>
 
-<a href="{{ links.button }}" class="link-light">Buttons</a> to emphasize an action.
+## Related components
 
-<a href="{{ links.details }}" class="link-light">Details</a> to provide a way to hide or show a section of content.
+<a href="{{ links.button }}">Buttons</a> to emphasize an action.
 
-</article>
+<a href="{{ links.details }}">Details</a> to provide a way to hide or show a section of content.
+
+<hr class="mt-600"/>
 
 ## Choose a link variant
 

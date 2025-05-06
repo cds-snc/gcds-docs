@@ -28,16 +28,17 @@ Utilisez un champ de date pour recueillir une date lorsque vous attendez d’une
 - Une date qui n’inclut pas le jour précis de la semaine.
 - Évitez d’utiliser un champ de date si la date n’est pas connue de la personne. Utilisez alors un sélecteur de date.
 
-<article class="bg-full-width bg-primary text-light pt-600 pb-300 my-600">
-  <h2 class="mt-0">Composants connexes</h2>
+<hr/>
 
-  <a href="{{ links.input }}" class="link-light">Champs de saisie</a> : lorsque vous voulez que la personne saisisse seulement une année ou un jour du mois.
+## Composants connexes
 
-  <a href="{{ links.select }}" class="link-light">Sélection</a> : lorsque vous voulez que la personne saisisse seulement un mois.
+<a href="{{ links.input }}">Champs de saisie</a> : lorsque vous voulez que la personne saisisse seulement une année ou un jour du mois.
 
-  Sélecteur de date : lorsque vous voulez que la personne choisisse une date qui n’est pas encore connue, par exemple pour planifier un rendez-vous.
+<a href="{{ links.select }}">Sélection</a> : lorsque vous voulez que la personne saisisse seulement un mois.
 
-</article>
+Sélecteur de date : lorsque vous voulez que la personne choisisse une date qui n’est pas encore connue, par exemple pour planifier un rendez-vous.
+
+<hr class="mt-600" />
 
 ## Types du composant
 

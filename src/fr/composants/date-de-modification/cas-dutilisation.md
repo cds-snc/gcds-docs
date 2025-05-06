@@ -27,12 +27,13 @@ Utilisez la date de modification pour :
 - Indiquer la date de la dernière modification apportée à une page Web;
 - Identifier la version actuelle d'une application.
 
-<article class="bg-full-width bg-primary text-light pt-600 pb-300 my-600">
-  <h2 class="mt-0">Composants connexes</h2>
+<hr/>
 
-<a href="{{ links.footer }}" class="link-light">Pied de page</a> : pour placer le pied de page portant l'image de marque du gouvernement du Canada.
+## Composants connexes
 
-</article>
+<a href="{{ links.footer }}">Pied de page</a> : pour placer le pied de page portant l'image de marque du gouvernement du Canada.
+
+<hr class="mt-600" />
 
 ## Types de composants
 

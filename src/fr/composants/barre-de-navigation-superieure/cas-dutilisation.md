@@ -28,13 +28,12 @@ La barre de navigation supérieure permet aux visiteur·se·s d'avoir une idée 
 - Fournir un mode d'orientation familier;
 - Signaler la page active et la localisation actuelle de la personne sur le site.
 
-<article class="bg-full-width bg-primary text-light pt-600 pb-300 my-600">
-  <h2 class="mt-0">Composants connexes</h2>
+<hr/>
 
-<a href="{{ links.sideNav }}" class="link-light">Barre de navigation latérale</a> : pour les produits avec jusqu'à trois niveaux de navigation, lorsque le contenu principal correspond à une largeur de page étroite.
+## Composants connexes
 
-<a href="{{ links.header }}" class="link-light">En-tête</a> : pour le placement de l'en-tête portant l'image de marque du gouvernement du Canada.
+<a href="{{ links.sideNav }}">Barre de navigation latérale</a> : pour les produits avec jusqu'à trois niveaux de navigation, lorsque le contenu principal correspond à une largeur de page étroite.
 
-<a href="{{ links.breadcrumbs }}" class="link-light">Chemin de navigation</a> : pour une voie entre chaque niveau de la hiérarchie du site et la page actuelle.
+<a href="{{ links.header }}">En-tête</a> : pour le placement de l'en-tête portant l'image de marque du gouvernement du Canada.
 
-</article>
+<a href="{{ links.breadcrumbs }}">Chemin de navigation</a> : pour une voie entre chaque niveau de la hiérarchie du site et la page actuelle.
