@@ -30,6 +30,6 @@ Utilisez le masquage accessible pour :
 
 ## Composants connexes
 
-<a href="{{ links.heading }}" class="link-light">Titre</a> pour structurer le contenu en créant des niveaux hiérarchiques qui permettent l'organisation visuelle et mentale du contenu de la page à l'aide des styles de Système de design GC.
+<a href="{{ links.heading }}">Titre</a> pour structurer le contenu en créant des niveaux hiérarchiques qui permettent l'organisation visuelle et mentale du contenu de la page à l'aide des styles de Système de design GC.
 
-<a href="{{ links.text }}" class="link-light">Texte</a> pour des paragraphes affichant du contenu autre qu'un en-tête avec les styles correspondants de Système de design GC.
+<a href="{{ links.text }}">Texte</a> pour des paragraphes affichant du contenu autre qu'un en-tête avec les styles correspondants de Système de design GC.
