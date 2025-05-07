@@ -21,20 +21,24 @@ date: 'git Last Modified'
 
 La signature est requise dans l’en-tête et le mot-symbole est requis dans le pied de page sur les pages Canada.ca et les sites du GC.
 
-### Éléments requis sur Canada.ca
-
-Toujours inclure la signature dans l’en-tête et conserver les paramètres par défaut.
-
-- Utilisez du texte noir, ne sélectionnez pas de texte blanc.
-- Gardez la position de la signature dans le coin supérieur gauche de l’en-tête tant pour la version bureau que mobile.
-- Lien vers la page d’accueil de Canada.ca.
-
-Toujours inclure le mot-symbole dans la bande de sous-pied de page et maintenir les paramètres par défaut.
-
-- Utilisez du texte noir, ne sélectionnez pas de texte blanc.
-- Gardez la position dans le coin inférieur droit du pied de page.
-
-**Remarque :** les paramètres par défaut pour la signature et le mot-symbole suivent <gcds-link href="https://www.canada.ca/fr/secretariat-conseil-tresor/services/communications-gouvernementales/norme-graphique.html" external>norme graphique du Programme fédéral de l’image de marque</gcds-link>.
+<gcds-details details-title="Éléments requis sur Canada.ca" class="mb-300">
+  <gcds-text>Toujours inclure la signature dans l’en-tête et conserver les paramètres par défaut.</gcds-text>
+  <div>
+    <ul class="list-disc mb-300">
+      <li>Utilisez du texte noir, ne sélectionnez pas de texte blanc.</li>
+      <li>Gardez la position de la signature dans le coin supérieur gauche de l’en-tête tant pour la version bureau que mobile.</li>
+      <li>Lien vers la page d’accueil de Canada.ca.</li>
+    </ul>
+  </div>
+  <gcds-text>Toujours inclure le mot-symbole dans la bande de sous-pied de page et maintenir les paramètres par défaut.</gcds-text>
+  <div>
+    <ul class="list-disc mb-300">
+      <li>Utilisez du texte noir, ne sélectionnez pas de texte blanc.</li>
+      <li>Gardez la position dans le coin inférieur droit du pied de page.</li>
+    </ul>
+  </div>
+  <gcds-text margin-bottom="0"><strong>Remarque :</strong> les paramètres par défaut pour la signature et le mot-symbole suivent <gcds-link href="https://www.canada.ca/fr/secretariat-conseil-tresor/services/communications-gouvernementales/norme-graphique.html" external>norme graphique du Programme fédéral de l’image de marque</gcds-link>.</gcds-text>
+</gcds-details>
 
 ### Établir l'ordre des langues dans la signature
 

@@ -25,22 +25,27 @@ Voici les éléments requis pour la recherche sur les sites du GC.
 - La recherche est requise dans l’<gcds-link href="{{ links.header }}">en-tête</gcds-link> des pages standard et de campagne de Canada.ca.
 - Elle est facultative pour les autres pages de Canada.ca et les sites du GC.
 
-#### Éléments requis sur une page standard ou de campagne de Canada.ca
+<gcds-details details-title="Éléments requis sur une page standard ou de campagne de Canada.ca" class="mb-300">
+  <gcds-text>Toujours inclure la recherche dans l’en-tête d’une page standard ou de campagne et maintenir les paramètres par défaut.</gcds-text>
+  <div>
+    <ul class="list-disc">
+      <li>Utilisez l’indexation par défaut de la recherche du GC.</li>
+      <li>Définissez l’indexation pour tout le contenu de Canada.ca ou à l’échelle d’un organisme ou d’un programme.</li>
+      <li>Pour la recherche à l’échelle du site Canada.ca, maintenez le texte de l’espace réservé par défaut « <span lang="en">Search Canada.ca</span> » en anglais et « Rechercher dans Canada.ca » en français.</li>
+      <li>Pour la recherche à l’échelle d’un organisme, d’un programme ou d’un produit, utilisez le texte de l’espace réservé suivant :
+        <ul class="ms-300">
+          <li>« <span lang="en">Search [institution/program/product] </span>» en anglais</li>
+          <li>« Rechercher dans [institution/programme/produit] » en français</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  <gcds-text margin-bottom="0"><strong>Remarque :</strong> Par exception, les pages destinées uniquement à un public de la fonction publique peuvent appliquer une indexation de recherche personnalisée dans certains contextes précis.</gcds-text>
+</gcds-details>
 
-Toujours inclure la recherche dans l’en-tête d’une page standard ou de campagne et maintenir les paramètres par défaut.
-
-- Utilisez l’indexation par défaut de la recherche du GC.
-- Définissez l’indexation pour tout le contenu de Canada.ca ou à l’échelle d’un organisme ou d’un programme.
-- Pour la recherche à l’échelle du site Canada.ca, maintenez le texte de l’espace réservé par défaut « <span lang="en">Search Canada.ca</span> » en anglais et « Rechercher dans Canada.ca » en français.
-- Pour la recherche à l’échelle d’un organisme, d’un programme ou d’un produit, utilisez le texte de l’espace réservé suivant :
-  - « <span lang="en">Search [institution/program/product] </span>» en anglais
-  - « Rechercher dans [institution/programme/produit] » en français
-
-**Remarque :** Par exception, les pages destinées uniquement à un public de la fonction publique peuvent appliquer une indexation de recherche personnalisée dans certains contextes précis.
-
-#### Éléments facultatifs sur une page standard ou de campagne de Canada.ca
-
-Envisagez d’ajouter une recherche pour d’autres ensembles de données dans la zone de contenu de la page.
+<gcds-details details-title="Éléments facultatifs sur une page standard ou de campagne de Canada.ca" class="mb-300">
+  <gcds-text margin-bottom="0">Envisagez d’ajouter une recherche pour d’autres ensembles de données dans la zone de contenu de la page.</gcds-text>
+</gcds-details>
 
 ### Envisager de configurer une recherche supplémentaire
 

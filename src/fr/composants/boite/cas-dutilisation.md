@@ -30,11 +30,10 @@ Utilisez les boîtes pour :
 - Aider le public à lire le contenu en un coup d’œil en réduisant la longueur totale d’une ligne de texte et en présentant de plus petites doses de contenu.
 - Centrer le contenu dans le contexte d’un écran ou d’une clôture.
 
-<article class="bg-full-width bg-primary text-light pt-600 pb-300 my-600">
-  <h2 class="mt-0">Composants connexes</h2>
+<hr/>
 
-<a href="{{ links.grid }}" class="link-light">Grille</a> pour une colonne réactive et flexible permettant de positionner du contenu sur une page.
+## Composants connexes
 
-<a href="{{ links.card }}" class="link-light">Carte</a> pour regrouper de petits éléments informatifs en un seul élément.
+<a href="{{ links.grid }}">Grille</a> pour une colonne réactive et flexible permettant de positionner du contenu sur une page.
 
-</article>
+<a href="{{ links.card }}">Carte</a> pour regrouper de petits éléments informatifs en un seul élément.

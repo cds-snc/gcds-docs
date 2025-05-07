@@ -23,13 +23,12 @@ Utilisez le menu thématique pour :
 
 - Permettre aux utilisateur·rice·s de naviguer dans l’ensemble des pages Web du gouvernement du Canada, notamment pour les pages accédées fréquemment à partir de votre site Web.
 
-<article class="bg-full-width bg-primary text-light pt-600 pb-300 my-600">
-  <h2 class="mt-0">Composants connexes</h2>
+<hr/>
 
-<a href="{{ links.header }}" class="link-light">En-tête</a> : permet de placer l’image de marque du gouvernement du Canada dans l’en-tête.
+## Composants connexes
 
-<a href="{{ links.footer }}" class="link-light">Pied de page</a> : permet de placer l’image de marque du gouvernement du Canada en bas de page.
+<a href="{{ links.header }}">En-tête</a> : permet de placer l’image de marque du gouvernement du Canada dans l’en-tête.
 
-<a href="{{ links.topNav }}" class="link-light">Barre de navigation supérieure</a> and <a href="{{ links.sideNav }}" class="link-light">barre de navigation latérale</a> pour une navigation plus personnalisée.
+<a href="{{ links.footer }}">Pied de page</a> : permet de placer l’image de marque du gouvernement du Canada en bas de page.
 
-</article>
+<a href="{{ links.topNav }}">Barre de navigation supérieure</a> and <a href="{{ links.sideNav }}">barre de navigation latérale</a> pour une navigation plus personnalisée.

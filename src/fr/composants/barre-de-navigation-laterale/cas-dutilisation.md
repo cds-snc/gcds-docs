@@ -28,9 +28,8 @@ L'utilisation d'une barre de navigation latérale dans un produit est optionnell
 - lorsque vous devez organiser et afficher la structure hiérarchique d'un produit;
 - lorsque vous cherchez à offrir aux utilisateur·rice·s d'un produit une navigation contextuelle en affichant leur emplacement actuel au sein du produit.
 
-<article class="bg-full-width bg-primary text-light pt-600 pb-300 my-600">
-  <h2 class="mt-0">Composants connexes</h2>
+<hr/>
 
-<a href="{{ links.topNav }}" class="link-light">Barre de navigation supérieure</a> pour les sites Web dont l'architecture d'information comporte 1 à 2 niveaux.
+## Composants connexes
 
-</article>
+<a href="{{ links.topNav }}">Barre de navigation supérieure</a> pour les sites Web dont l'architecture d'information comporte 1 à 2 niveaux.

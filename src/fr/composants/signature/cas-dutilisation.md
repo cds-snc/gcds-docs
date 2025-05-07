@@ -30,14 +30,15 @@ La signature, qui constitue un élément d'une image de marque, est utilisée po
 - Informer une personne que le contenu qu'elle est en train de lire a été publié par le gouvernement du Canada;
 - Servir de lien général vers la page d'accueil du site dans les deux langues officielles.
 
-<article class="bg-full-width bg-primary text-light pt-600 pb-300 my-600">
-  <h2 class="mt-0">Composants connexes</h2>
+<hr/>
 
-<a href="{{ links.header }}" class="link-light">En-tête :</a> utilisé pour le placement de l'en-tête portant l'image de marque du gouvernement du Canada;
+## Composants connexes
 
-<a href="{{ links.footer }}" class="link-light">Pied de page :</a> for placing the Government of Canada branded footer landmark.
+<a href="{{ links.header }}">En-tête :</a> utilisé pour le placement de l'en-tête portant l'image de marque du gouvernement du Canada;
 
-</article>
+<a href="{{ links.footer }}">Pied de page :</a> for placing the Government of Canada branded footer landmark.
+
+<hr class="mt-600" />
 
 ## Types de composants
 

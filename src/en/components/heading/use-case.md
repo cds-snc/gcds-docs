@@ -29,11 +29,10 @@ Use headings to:
 - Divide lengthy content into manageable sections. Breaking up your content supports readability, simplifies site navigation, and reduces the risk of people abandoning their task.
 - Apply consistent typography styles and sizes throughout a website to create a cohesive and user-friendly design.
 
-<article class="bg-full-width bg-primary text-light pt-600 pb-300 my-600">
-  <h2 class="mt-0">Related components</h2>
+<hr/>
 
-<a href="{{ links.text }}" class="link-light">Text</a> for paragraphs displaying non-heading content with matching GC Design System styles.
+## Related components
 
-<a href="{{ links.screenreaderOnly }}" class="link-light">Screenreader-only</a> for information that's detectable with assistive technologies like screen readers, but invisible to sighted users.
+<a href="{{ links.text }}">Text</a> for paragraphs displaying non-heading content with matching GC Design System styles.
 
-</article>
+<a href="{{ links.screenreaderOnly }}">Screenreader-only</a> for information that's detectable with assistive technologies like screen readers, but invisible to sighted users.

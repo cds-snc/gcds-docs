@@ -25,13 +25,15 @@ Use an icon to:
 - Highlight key actions or states, like a checkmark for validation.
 - Scan content quicker and reduce cognitive load.
 
-<article class="bg-full-width bg-primary text-light pt-600 pb-300 my-600">
-  <h2 class="mt-0">Related components</h2>
+<hr/>
 
-<a href="{{ links.text }}" class="link-light">Text</a> to display written content in a styled and formatted paragraph.
+## Related components
 
-<a href="{{ links.notice }}" class="link-light">Notice</a> to display a short, prominent message.
-</article>
+<a href="{{ links.text }}">Text</a> to display written content in a styled and formatted paragraph.
+
+<a href="{{ links.notice }}">Notice</a> to display a short, prominent message.
+
+<hr class="mt-600"/>
 
 ## Icon use cases
 

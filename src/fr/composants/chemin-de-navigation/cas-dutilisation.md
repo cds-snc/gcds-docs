@@ -31,13 +31,12 @@ En plus de signaler à un·e visiteur·se son emplacement actuel sur le site et 
 - Situer la page actuelle par rapport à sa page parent dans la structure du site;
 - Organiser les sites Web selon une hiérarchie à plus de deux niveaux.
 
-<article class="bg-full-width bg-primary text-light pt-600 pb-300 my-600">
-  <h2 class="mt-0">Composants connexes</h2>
+<hr/>
 
-<a href="{{ links.footer }}" class="link-light">Pied de page</a> : pour placer le pied de page portant l'image de marque du gouvernement du Canada.
+## Composants connexes
 
-<a href="{{ links.header }}" class="link-light">En-tête</a> : pour placer l'en-tête portant l'image de marque du gouvernement du Canada.
+<a href="{{ links.footer }}">Pied de page</a> : pour placer le pied de page portant l'image de marque du gouvernement du Canada.
 
-<a href="{{ links.topNav }}" class="link-light">Barre de navigation supérieure</a> : pour guider la navigation au sein d'un site Web à l'aide d'un point de repère.
+<a href="{{ links.header }}">En-tête</a> : pour placer l'en-tête portant l'image de marque du gouvernement du Canada.
 
-</article>
+<a href="{{ links.topNav }}">Barre de navigation supérieure</a> : pour guider la navigation au sein d'un site Web à l'aide d'un point de repère.

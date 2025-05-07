@@ -26,9 +26,8 @@ Use a stepper for a logical sequence split over more than one page to:
 - Show a person which step they're on in a process, like in a multi-step form.
 - Make the structure of a path clear by showing the total number of steps.
 
-<article class="bg-full-width bg-primary text-light pt-600 pb-300 my-600">
-  <h2 class="mt-0">Related components</h2>
+<hr/>
 
-<a href="{{ links.pagination }}" class="link-light">Pagination</a> when a user needs to navigate a range of pages that are not part of a multi-step process. It provides controls to select the next or previous page.
+## Related components
 
-</article>
+<a href="{{ links.pagination }}">Pagination</a> when a user needs to navigate a range of pages that are not part of a multi-step process. It provides controls to select the next or previous page.

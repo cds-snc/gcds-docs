@@ -23,12 +23,12 @@ Use theme and topic menu to:
 
 - Provide global navigation across Government of Canada web pages, when people commonly need to access these pages from your website.
 
-<article class="bg-full-width bg-primary text-light pt-600 pb-300 my-600">
-  <h2 class="mt-0">Related components</h2>
+<hr/>
 
-  <a href="{{ links.header }}" class="link-light">Header</a> for placing the Government of Canada branded header landmark.
+## Related components
 
-  <a href="{{ links.footer }}" class="link-light">Footer</a> for placing the Government of Canada branded footer landmark.
+<a href="{{ links.header }}">Header</a> for placing the Government of Canada branded header landmark.
 
-  <a href="{{ links.topNav }}" class="link-light">Top navigation</a> and <a href="{{ links.sideNav }}" class="link-light">side navigation</a> for a more customized navigation.
-</article>
+<a href="{{ links.footer }}">Footer</a> for placing the Government of Canada branded footer landmark.
+
+<a href="{{ links.topNav }}">Top navigation</a> and <a href="{{ links.sideNav }}">side navigation</a> for a more customized navigation.
