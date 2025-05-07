@@ -1,0 +1,1318 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+  <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5TBZBZVVK8"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-5TBZBZVVK8');
+    </script>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Tests d&#39;accessibilité - Système de design GC</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Utility framework -->
+    <link rel="stylesheet" href="/gcds-docs/gcds-utility.min.css" />
+
+    <link rel="stylesheet" href="/gcds-docs/styles/prism.css">
+    <link rel="stylesheet" href="/gcds-docs/styles/style.css">
+    <script src="/gcds-docs/scripts/code-showcase.js"></script>
+    <script src="/gcds-docs/scripts/code-copy.js"></script>
+    <script src="/gcds-docs/scripts/component-preview.js"></script>
+    <link rel="icon" type="image/x-icon" sizes="96x96" href="/gcds-docs/favicon.ico">
+
+    <!-- Icons Font Awesome (to access icons, import Font Awesome) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" crossorigin="anonymous">
+
+    <!-- GC Design System  Components-->
+    <link rel="stylesheet" href="/gcds-docs/components/dist/gcds/gcds.css">
+    <script type="module" src="/components/dist/gcds/gcds.esm.js"></script>
+    <script nomodule src="/components/dist/gcds/gcds.js"></script>
+
+    <!-- Pagefind -->
+    <script src="/pagefind/pagefind.js" type="module"></script>
+    <script src="/gcds-docs/scripts/search.js" type="module"></script>
+
+  </head>
+  <body>
+    
+
+
+  
+  
+    
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+
+        
+
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+  
+
+  
+  
+
+
+
+
+<gcds-header
+  lang="fr"
+  skip-to-href="#mc"
+  lang-href='/en/accessibility/accessibility-testing/'
+>
+  
+
+
+
+<gcds-top-nav slot="menu" label="Menu principal" alignment="right">
+  <gcds-nav-link slot="home" href="/fr">Système de design GC</gcds-nav-link>
+  
+    <gcds-nav-link
+      href="/gcds-docs/fr/composants/"
+      
+    >
+      Composants
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/gcds-docs/fr/installation/"
+      
+    >
+      Installation
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/gcds-docs/fr/modeles-de-page/"
+      
+    >
+      Modèles de page
+    </gcds-nav-link>
+  
+<gcds-nav-group
+    menu-label="Contact"
+    open-trigger="Contact"
+  >
+    <gcds-nav-link href="/fr/contactez">Contactez-nous</gcds-nav-link>
+    <gcds-nav-link href="/fr/simpliquer">Impliquez-vous</gcds-nav-link>
+    <gcds-nav-link href="/fr/inscrivez-vous-a-une-demonstration">Trouvez une démo</gcds-nav-link>
+  </gcds-nav-group>
+</gcds-top-nav>
+  
+
+  <gcds-breadcrumbs lang="fr" slot="breadcrumb">
+    
+      <gcds-breadcrumbs-item href=/gcds-docs/fr>
+        Système de design GC
+      </gcds-breadcrumbs-item>
+
+      
+
+      
+      
+        
+          <gcds-breadcrumbs-item href=/gcds-docs/fr/accessibilite/>
+            Accessibilité
+          </gcds-breadcrumbs-item>
+        
+      
+    
+  </gcds-breadcrumbs>
+
+  
+<gcds-search search-id="search" slot="search" placeholder="Système de design GC" action="/fr/recherche">
+</gcds-search>
+
+
+</gcds-header>
+
+    <div class="content-wrapper">
+      <main id="mc" class="container-xl mx-auto xl:px-0 sm:px-600 px-225 general-layout" data-pagefind-body>
+        <h1 id="outils-de-tests-daccessibilite">Outils de tests d'accessibilité</h1>
+<h2 id="tests-modernes-pour-des-composants-modernes">Tests modernes pour des composants modernes</h2>
+<p>Les outils et pratiques de test plus anciens peuvent ne pas fonctionner correctement avec les composants modernes. Voici comment vous assurer que votre produit numérique est accessible :</p>
+<ol class="list-decimal mb-300"><li>Utilisez nos composants Web modernes que <a href="/fr/accessibilite/">nous avons testés</a>.</li>
+<li>Suivez les conseils en matière d'accessibilité sur nos <a href="/fr/composants">pages de composants</a>.</li>
+<li>Testez votre produit numérique dans votre contexte pour vous assurer qu'il est clair et qu'il fonctionne pour les personnes utilisant des technologies d'assistance.</li>
+</ol>
+<h2 id="outils-de-test">Outils de test</h2>
+<p>Si vous voulez faire vos propres tests, voici quelques outils et processus que vous pouvez utiliser pour obtenir une meilleure couverture pour votre site Web ou votre application.</p>
+<p>Ces outils ne sont pas fournis ni approuvés par le gouvernement du Canada. Référencez nos <a href="/fr/conditions-dutilisation">Conditions d'utilisation</a> lorsque vous consultez des sites Web qui n'appartiennent pas au gouvernement du Canada.</p>
+<h3 id="tests-automatises">Tests automatisés</h3>
+<p>Utilisez des outils automatisés pour détecter les problèmes d'accessibilité courants.</p>
+<gcds-details details-title="Outils gratuits">
+<h4 id="code">Code</h4>
+<ul class="list-disc ps-400 mb-300">
+  <li>
+    <gcds-link external href="https://docs.deque.com/devtools-for-web/4/en/welcome-axe-devtools">
+      <span lang="en">Axe DevTools</span>
+    </gcds-link>
+  </li>
+  <li>
+    <gcds-link external href="https://developer.chrome.com/docs/lighthouse/overview">
+      <span lang="en">Google Lighthouse</span>
+    </gcds-link>
+  </li>
+  <li>
+    <gcds-link external href="https://pa11y.org/tutorials/">
+      <span lang="en">Pa11y CLI</span>
+    </gcds-link>
+  </li>
+  <li>
+    <gcds-link external href="https://firefox-source-docs.mozilla.org/devtools-user/accessibility_inspector/index.html">
+      <span lang="en">Firefox Accessibility Inspector</span>
+    </gcds-link>
+  </li>
+  <li>
+    <p class="mb-0"><gcds-link external href="https://www.npmjs.com/package/axe-core"><span lang="en"> Axe-core</span></gcds-link> seul ou avec des cadres d’automatisation de navigateurs comme:</p>
+    <ul class="ps-400 mb-300">
+      <li>
+        <gcds-link external href="https://playwright.dev/docs/accessibility-testing">
+          <span lang="en">Playwright</span>
+        </gcds-link>
+      </li>
+      <li>
+        <gcds-link external href="https://www.npmjs.com/package/@axe-core/puppeteer">
+          <span lang="en">Puppeteer</span>
+        </gcds-link>
+      </li>
+    </ul>
+  </li>
+</ul>
+<h4 id="figma">Figma</h4>
+<ul class="list-disc mb-300"><li><gcds-link external href="https://www.figma.com/community/plugin/732603254453395948/stark-contrast-accessibility-checker"><span lang="en">Stark contrast and accessibility checker</span></gcds-link></li>
+</ul>
+</gcds-details>
+<gcds-details details-title="Outils payants">
+<h4 id="code">Code</h4>
+<ul class="list-disc mb-300"><li><gcds-link external href="https://www.deque.com/axe/devtools/"><span lang="en">Axe DevTools Pro</span></gcds-link></li>
+<li><gcds-link external href="https://help.siteimprove.com/support/solutions/folders/80000324160"><span lang="en">Siteimprove</span></gcds-link></li>
+<li><gcds-link external href="https://www.levelaccess.com/"><span lang="en">Level Access</span></gcds-link></li>
+</ul>
+</gcds-details>
+<h3 id="arborescence-daccessibilite">Arborescence d'accessibilité</h3>
+<p>Utilisez l'arborescence d'accessibilité pour le débogage des problèmes d'accessibilité Web. Elle affiche une version simplifiée des points d'arrêt DOM que les lecteurs d'écran et les technologies d'assistance utilisent pour interpréter le contenu.</p>
+<p>Voici comment accéder à l'aborescence d'accessibilité dans différents navigateurs :</p>
+<gcds-details details-title="Arborescence d'accessibilité Chrome">
+<ol class="list-decimal mb-300"><li>Ouvrez les <strong>outils de développement</strong> en appuyant sur ctrl+maj+i sur PC ou cmd+option+i sur Mac.</li>
+<li>Sélectionnez l'onglet <strong>éléments</strong>.</li>
+<li>Sélectionnez le panneau <strong>Accessibilité</strong>.<ul class="list-disc mb-300"><li>Si vous ne le voyez pas, sélectionnez (») puis <strong>Accessibilité</strong>.</li>
+</ul>
+</li>
+</ol>
+</gcds-details>
+<gcds-details details-title="Arborescence d'accessibilité Firefox">
+<ol class="list-decimal mb-300"><li>Ouvrez les <strong>outils de développement</strong> en appuyant sur ctrl+maj+i sur PC ou cmd+option+i sur Mac.</li>
+<li>Sélectionnez l'onglet <strong>Inspecteur</strong>.</li>
+<li>Sélectionnez un élément dans la <strong>structure HTML</strong>.</li>
+<li>Sélectionnez l'onglet <strong>Accessibilité</strong> dans la barre horizontale.<ul class="list-disc mb-300"><li>Si vous ne voyez pas l'onglet Accessibilité, sélectionnez le menu à <strong>trois points</strong> (…) dans la barre des outils de développement, puis <strong>Paramètres</strong>.</li>
+<li>Sous la rubrique Outils de développement par défaut, activez l'onglet <strong>Accessibilité</strong>.</li>
+</ul>
+</li>
+</ol>
+</gcds-details>
+<gcds-details details-title="Arborescence d'accessibilité Edge (Menus en anglais seulement)">
+<ol class="list-decimal mb-300"><li>Ouvrez les <strong>outils de développement</strong> en appuyant sur ctrl+maj+i sur PC ou cmd+option+i sur Mac.</li>
+<li>Sélectionnez l'onglet <strong>Elements</strong>.</li>
+<li>Sélectionnez le panneau <strong>Accessibility</strong>.</li>
+</ol>
+</gcds-details>
+<gcds-details details-title="Aborescence d'accessibilité Safari">
+<ol class="list-decimal mb-300"><li>Activez le menu <strong>développeur</strong>.<ul class="list-disc mb-300"><li>Dans la barre de menu MacOS, sélectionnez <strong>Safari</strong>, puis <strong>Paramètres</strong>, puis <strong>Avancés</strong>.</li>
+<li>Cochez la case <strong>Afficher</strong> les fonctionnalités de développement Web.</li>
+</ul>
+</li>
+<li>Ouvrez <strong>l'inspecteur Web</strong> en appuyant sur option+cmd+i.</li>
+<li>Sélectionnez l'onglet <strong>Éléments</strong>.</li>
+<li>Sélectionnez un élément, puis accédez à la section <strong>Noeud</strong> dans le menu de droite et faites défiler jusqu'au bas pour trouver la section <strong>Accessibilité</strong>.</li>
+</ol>
+</gcds-details>
+<h3 id="evaluations-et-tests-dutilisabilite">Évaluations et tests d'utilisabilité</h3>
+<p>Il est important d'effectuer des tests auprès de personnes handicapées pour s'assurer que votre produit numérique est accessible. Vous pouvez le faire en utilisant un service gouvernemental pour évaluer votre produit, en recrutant vous-même des personnes handicapées pour la recherche ou en utilisant des services payants qui le feront pour vous.</p>
+<gcds-details details-title="Services du gouvernement du Canada">
+<ul class="list-disc mb-300"><li><gcds-link external href="https://a11y.canada.ca/fr/">Boîte à outils de l'accessibilité numérique</gcds-link></li>
+</ul>
+</gcds-details>
+<gcds-details details-title="Services payants">
+<ul class="list-disc mb-300"><li><gcds-link external href="https://makeitfable.com/"><span lang="en">Fable</span></gcds-link></li>
+</ul>
+</gcds-details>
+<h2 id="contacteznous">Contactez-nous</h2>
+<p>Si vous avez des questions ou rencontrez des obstacles lors de tests d'accessibilité supplémentaires visant Système de design GC, <a href="/fr/contactez">contactez-nous</a>.</p>
+
+
+        <gcds-date-modified class="mb-300">
+          2025-05-07
+        </gcds-date-modified>
+      </main>
+
+    <gcds-footer
+  display="full"
+  lang="fr"
+  contextual-heading="Système de design GC"
+  contextual-links='{ "À propos": "/fr/a-propos", "Déclaration d&#39;accessibilité": "/fr/accessibilite/", "Accord sur les niveaux de service": "/fr/entente-sur-les-niveaux-de-service/" }'
+  sub-links='{ "Médias sociaux": "https://www.canada.ca/fr/sociaux.html", "Applications mobiles": "https://www.canada.ca/fr/mobile.html", "À propos de Canada.ca": "https://conception.canada.ca/a-propos/", "Conditions d&#39;utilisation": "/fr/conditions-dutilisation", "Confidentialité": "/fr/avis-de-confidentialite/" }'
+></gcds-footer>
+
+    </div>
+
+    <script>function showTooltip(o,e){o.trigger.className.includes("tooltipped")||(o.trigger.children[0].className="tooltipped tooltipped-s",o.trigger.children[0].ariaLabel=e)}window.addEventListener("load",()=>{var o=new ClipboardJS(".code-copy");o.on("success",o=>showTooltip(o,"Copied!")),o.on("error",o=>showTooltip(o,"Failed..."))});</script>
+<script async src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script>
+  </body>
+</html>
