@@ -35,25 +35,25 @@ Use automated tools to detect common accessibility issues.
 
 <ul class="list-disc ps-400 mb-300">
   <li>
-    <gcds-link external href="https://chromewebstore.google.com/detail/axe-devtools-web-accessib/lhdoppojpmngadmnindnejefpokejbdd?pli=1">Axe DevTools</gcds-link>
+    <gcds-link external href="https://docs.deque.com/devtools-for-web/4/en/welcome-axe-devtools">Axe DevTools</gcds-link>
   </li>
   <li>
-    <gcds-link external href="https://developer.chrome.com/docs/lighthouse">Google Lighthouse</gcds-link>
+    <gcds-link external href="https://developer.chrome.com/docs/lighthouse/overview">Google Lighthouse</gcds-link>
   </li>
   <li>
-    <gcds-link external href="https://pa11y.org/">Pa11y CLI</gcds-link>
+    <gcds-link external href="https://pa11y.org/tutorials/">Pa11y CLI</gcds-link>
   </li>
   <li>
     <gcds-link external href="https://firefox-source-docs.mozilla.org/devtools-user/accessibility_inspector/index.html">Firefox Accessibility Inspector</gcds-link>
   </li>
   <li>
-    <p class="mb-0"><gcds-link external href="https://www.npmjs.com/package/axe-core">Deque Axe-core</gcds-link> via:</p>
+    <p class="mb-0"><gcds-link external href="https://www.npmjs.com/package/axe-core"> Axe-core</gcds-link> by itself, or with a browser automation framework like:</p>
     <ul class="ps-400 mb-300">
       <li>
-        <gcds-link external href="https://playwright.dev/">Playwright</gcds-link>
+        <gcds-link external href="https://playwright.dev/docs/accessibility-testing">Playwright</gcds-link>
       </li>
       <li>
-        <gcds-link external href="https://pptr.dev/">Puppeteer</gcds-link>
+        <gcds-link external href="https://www.npmjs.com/package/@axe-core/puppeteer">Puppeteer</gcds-link>
       </li>
     </ul>
   </li>
@@ -70,7 +70,7 @@ Use automated tools to detect common accessibility issues.
 #### Code
 
 - <gcds-link external href="https://www.deque.com/axe/devtools/">Axe DevTools Pro</gcds-link>
-- <gcds-link external href="https://www.siteimprove.com/">Siteimprove</gcds-link>
+- <gcds-link external href="https://help.siteimprove.com/support/solutions/folders/80000324160">Siteimprove</gcds-link>
 - <gcds-link external href="https://www.levelaccess.com/">Level Access</gcds-link>
 
 </gcds-details>
