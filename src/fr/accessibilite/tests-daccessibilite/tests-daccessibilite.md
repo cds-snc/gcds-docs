@@ -35,17 +35,17 @@ Utilisez des outils automatisés pour détecter les problèmes d'accessibilité 
 
 <ul class="list-disc ps-400 mb-300">
   <li>
-    <gcds-link external href="https://chromewebstore.google.com/detail/axe-devtools-web-accessib/lhdoppojpmngadmnindnejefpokejbdd?pli=1">
+    <gcds-link external href="https://docs.deque.com/devtools-for-web/4/en/welcome-axe-devtools">
       <span lang="en">Axe DevTools</span>
     </gcds-link>
   </li>
   <li>
-    <gcds-link external href="https://developer.chrome.com/docs/lighthouse">
+    <gcds-link external href="https://developer.chrome.com/docs/lighthouse/overview">
       <span lang="en">Google Lighthouse</span>
     </gcds-link>
   </li>
   <li>
-    <gcds-link external href="https://pa11y.org/">
+    <gcds-link external href="https://pa11y.org/tutorials/">
       <span lang="en">Pa11y CLI</span>
     </gcds-link>
   </li>
@@ -55,15 +55,15 @@ Utilisez des outils automatisés pour détecter les problèmes d'accessibilité 
     </gcds-link>
   </li>
   <li>
-    <p class="mb-0"><gcds-link external href="https://www.npmjs.com/package/axe-core"><span lang="en">Deque Axe-core</span></gcds-link> via:</p>
+    <p class="mb-0"><gcds-link external href="https://www.npmjs.com/package/axe-core"><span lang="en"> Axe-core</span></gcds-link> seul ou avec des cadres d’automatisation de navigateurs comme:</p>
     <ul class="ps-400 mb-300">
       <li>
-        <gcds-link external href="https://playwright.dev/">
+        <gcds-link external href="href="https://playwright.dev/docs/accessibility-testing">
           <span lang="en">Playwright</span>
         </gcds-link>
       </li>
       <li>
-        <gcds-link external href="https://pptr.dev/">
+        <gcds-link external href="https://www.npmjs.com/package/@axe-core/puppeteer">
           <span lang="en">Puppeteer</span>
         </gcds-link>
       </li>
@@ -82,7 +82,7 @@ Utilisez des outils automatisés pour détecter les problèmes d'accessibilité 
 #### Code
 
 - <gcds-link external href="https://www.deque.com/axe/devtools/"><span lang="en">Axe DevTools Pro</span></gcds-link>
-- <gcds-link external href="https://www.siteimprove.com/"><span lang="en">Siteimprove</span></gcds-link>
+- <gcds-link external href="https://help.siteimprove.com/support/solutions/folders/80000324160"><span lang="en">Siteimprove</span></gcds-link>
 - <gcds-link external href="https://www.levelaccess.com/"><span lang="en">Level Access</span></gcds-link>
 
 </gcds-details>
