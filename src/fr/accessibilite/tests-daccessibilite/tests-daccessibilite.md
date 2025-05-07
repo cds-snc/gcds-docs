@@ -58,7 +58,7 @@ Utilisez des outils automatisés pour détecter les problèmes d'accessibilité 
     <p class="mb-0"><gcds-link external href="https://www.npmjs.com/package/axe-core"><span lang="en"> Axe-core</span></gcds-link> seul ou avec des cadres d’automatisation de navigateurs comme:</p>
     <ul class="ps-400 mb-300">
       <li>
-        <gcds-link external href="href="https://playwright.dev/docs/accessibility-testing">
+        <gcds-link external href="https://playwright.dev/docs/accessibility-testing">
           <span lang="en">Playwright</span>
         </gcds-link>
       </li>
