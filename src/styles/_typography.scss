@@ -13,7 +13,8 @@ a[href] {
     text-decoration: none;
     box-shadow: var(--gcds-link-focus-box-shadow);
     outline-offset: var(--gcds-link-focus-outline-offset);
-    outline: var(--gcds-link-focus-outline-width) solid var(--gcds-link-focus-background);
+    outline: var(--gcds-link-focus-outline-width) solid
+      var(--gcds-link-focus-background);
   }
 }
 
@@ -51,6 +52,10 @@ h6 {
 ul li {
   font: var(--gcds-font-text);
   max-width: var(--gcds-text-character-limit);
+
+  @media only screen and (width < 48em) {
+    font: var(--gcds-font-text-mobile);
+  }
 }
 
 ul li p:last-child,
