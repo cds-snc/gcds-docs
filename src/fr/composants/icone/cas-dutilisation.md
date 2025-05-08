@@ -42,7 +42,7 @@ Utilisez une icône pour :
 Choisissez une icône correspondant à l’information que vous souhaitez mettre en évidence.
 
 <div class="remove-empty-p">
-<gcds-grid columns="1fr" columns-tablet="1fr 2fr" align-items="start">
+<gcds-grid columns="1fr" columns-tablet="1fr 3fr" align-items="start">
   {% componentPreview "" "px-225 py-450" "mt-500" %}
     <p class="text-center">
       <gcds-icon size="h2" name="info-circle" label="Un cercle rempli avec la lettre « i » au centre."></gcds-icon>
@@ -53,31 +53,37 @@ Choisissez une icône correspondant à l’information que vous souhaitez mettre
     <gcds-text>Information non critique, mais utile.</gcds-text>
   </div>
 
-  {% componentPreview "" "px-225 py-450" "mt-500" %}
-    <p class="text-center">
-      <gcds-icon size="h2" name="warning-triangle" label="Un triangle rempli avec la lettre « i » au centre."></gcds-icon>
-    </p>
-  {% endcomponentPreview %}
+{% componentPreview "" "px-225 py-450" "mt-500" %}
+
+<p class="text-center">
+<gcds-icon size="h2" name="warning-triangle" label="Un triangle rempli avec la lettre « i » au centre."></gcds-icon>
+</p>
+{% endcomponentPreview %}
+
   <div>
     <gcds-heading tag="h3">Triangle avertissement <code>gcds-icon-warning-triangle</code></gcds-heading>
     <gcds-text> Mise en garde sans action nécessaire.</gcds-text>
   </div>
 
-  {% componentPreview "" "px-225 py-450" "mt-500" %}
-    <p class="text-center">
-      <gcds-icon size="h2" name="exclamation-circle" label="Un cercle rempli avec un point d’exclamation au centre."></gcds-icon>
-    </p>
-  {% endcomponentPreview %}
+{% componentPreview "" "px-225 py-450" "mt-500" %}
+
+<p class="text-center">
+<gcds-icon size="h2" name="exclamation-circle" label="Un cercle rempli avec un point d’exclamation au centre."></gcds-icon>
+</p>
+{% endcomponentPreview %}
+
   <div>
     <gcds-heading tag="h3">Cercle exclamation <code>gcds-icon-exclamation-circle</code></gcds-heading>
     <gcds-text>Avertissement critique avant une action.</gcds-text>
   </div>
 
-  {% componentPreview "" "px-225 py-450" "mt-500" %}
-    <p class="text-center">
-      <gcds-icon size="h2" name="checkmark-circle" label="Un cercle rempli avec un point d’exclamation au centre."></gcds-icon>
-    </p>
-  {% endcomponentPreview %}
+{% componentPreview "" "px-225 py-450" "mt-500" %}
+
+<p class="text-center">
+<gcds-icon size="h2" name="checkmark-circle" label="Un cercle rempli avec un point d’exclamation au centre."></gcds-icon>
+</p>
+{% endcomponentPreview %}
+
   <div>
     <gcds-heading tag="h3">Cercle coche <code>gcds-icon-checkmark-circle</code></gcds-heading>
     <gcds-text>Confirmation de l’achèvement ou du succès d’une action.</gcds-text>
@@ -90,14 +96,14 @@ Choisissez une icône correspondant à l’information que vous souhaitez mettre
 Choisissez une icône correspondant à l’action que vous souhaitez mettre en évidence.
 
 <div class="remove-empty-p">
-<gcds-grid columns="1fr" columns-tablet="1fr 2fr" align-items="start">
+<gcds-grid columns="1fr" columns-tablet="1fr 3fr" align-items="start">
   {% componentPreview "" "px-50 py-400" "mt-500" %}
-    <p class="text-center">
-      <gcds-icon size="h2" name="chevron-left" label="Une flèche pointant vers la gauche." margin-right="150"></gcds-icon>
-      <gcds-icon size="h2" name="chevron-right" label="Une flèche pointant vers la droite." margin-right="150"></gcds-icon>
-      <gcds-icon size="h2" name="chevron-up" label="Une flèche pointant vers le haut." margin-right="150"></gcds-icon>
-      <gcds-icon size="h2" name="chevron-down" label="Une flèche pointant vers le bas."></gcds-icon>
-    </p>
+  <gcds-grid columns="repeat(4, 50px)" columns-tablet="repeat(4, 50px)" gap="150" justify-content="center">
+    <gcds-icon size="h2" name="chevron-left" label="Une flèche pointant vers la gauche."></gcds-icon>
+    <gcds-icon size="h2" name="chevron-right" label="Une flèche pointant vers la droite."></gcds-icon>
+    <gcds-icon size="h2" name="chevron-up" label="Une flèche pointant vers le haut."></gcds-icon>
+    <gcds-icon size="h2" name="chevron-down" label="Une flèche pointant vers le bas."></gcds-icon>
+  </gcds-grid>
   {% endcomponentPreview %}
   <div>
     <gcds-heading tag="h3">Chevron gauche/droite/haut/bas<br/>
@@ -109,61 +115,73 @@ Choisissez une icône correspondant à l’action que vous souhaitez mettre en �
     <gcds-text>Développer / réduire le contenu ou indiquer une direction.</gcds-text>
   </div>
 
-  {% componentPreview "" "px-225 py-450" "mt-500" %}
-    <p class="text-center">
-      <gcds-icon size="h2" name="close" label="Un « x »."></gcds-icon>
-    </p>
-  {% endcomponentPreview %}
+{% componentPreview "" "px-225 py-450" "mt-500" %}
+
+<p class="text-center">
+<gcds-icon size="h2" name="close" label="Un « x »."></gcds-icon>
+</p>
+{% endcomponentPreview %}
+
   <div>
     <gcds-heading tag="h3">Fermer <code>gcds-icon-close</code></gcds-heading>
     <gcds-text>Annuler une action ou fermer un flux.</gcds-text>
   </div>
 
-  {% componentPreview "" "px-225 py-450" "mt-500" %}
-    <p class="text-center">
-      <gcds-icon size="h2" name="download" label="Une flèche pointant vers le bas en direction d’une ligne horizontale."></gcds-icon>
-    </p>
-  {% endcomponentPreview %}
+{% componentPreview "" "px-225 py-450" "mt-500" %}
+
+<p class="text-center">
+<gcds-icon size="h2" name="download" label="Une flèche pointant vers le bas en direction d’une ligne horizontale."></gcds-icon>
+</p>
+{% endcomponentPreview %}
+
   <div>
     <gcds-heading tag="h3">Téléchargement <code>gcds-icon-download</code></gcds-heading>
     <gcds-text>Télécharger un fichier.</gcds-text>
   </div>
 
-  {% componentPreview "" "px-225 py-450" "mt-500" %}
-    <p class="text-center">
-      <gcds-icon size="h2" name="email" label="Une enveloppe."></gcds-icon>
-    </p>
-  {% endcomponentPreview %}
+{% componentPreview "" "px-225 py-450" "mt-500" %}
+
+<p class="text-center">
+<gcds-icon size="h2" name="email" label="Une enveloppe."></gcds-icon>
+</p>
+{% endcomponentPreview %}
+
   <div>
     <gcds-heading tag="h3">Courriel <code>gcds-icon-email</code></gcds-heading>
     <gcds-text>Envoyer un courriel.</gcds-text>
   </div>
 
-  {% componentPreview "" "px-225 py-450" "mt-500" %}
-    <p class="text-center">
-      <gcds-icon size="h2" name="external" label="Une flèche pointant vers l’extérieur du coin supérieur droit d’un carré."></gcds-icon>
-    </p>
-  {% endcomponentPreview %}
+{% componentPreview "" "px-225 py-450" "mt-500" %}
+
+<p class="text-center">
+<gcds-icon size="h2" name="external" label="Une flèche pointant vers l’extérieur du coin supérieur droit d’un carré."></gcds-icon>
+</p>
+{% endcomponentPreview %}
+
   <div>
     <gcds-heading tag="h3">Lien externe <code>gcds-icon-external-link</code></gcds-heading>
     <gcds-text>Ouvrir un lien dans un nouvel onglet ou une nouvelle fenêtre.</gcds-text>
   </div>
 
-  {% componentPreview "" "px-225 py-450" "mt-500" %}
-    <p class="text-center">
-      <gcds-icon size="h2" name="phone" label="Un téléphone."></gcds-icon>
-    </p>
-  {% endcomponentPreview %}
+{% componentPreview "" "px-225 py-450" "mt-500" %}
+
+<p class="text-center">
+<gcds-icon size="h2" name="phone" label="Un téléphone."></gcds-icon>
+</p>
+{% endcomponentPreview %}
+
   <div>
     <gcds-heading tag="h3">Téléphone <code>gcds-icon-phone</code></gcds-heading>
     <gcds-text>Composer un numéro de téléphone.</gcds-text>
   </div>
 
-  {% componentPreview "" "px-225 py-450" "mt-500" %}
-    <p class="text-center">
-      <gcds-icon size="h2" name="search" label="Une loupe."></gcds-icon>
-    </p>
-  {% endcomponentPreview %}
+{% componentPreview "" "px-225 py-450" "mt-500" %}
+
+<p class="text-center">
+<gcds-icon size="h2" name="search" label="Une loupe."></gcds-icon>
+</p>
+{% endcomponentPreview %}
+
   <div>
     <gcds-heading tag="h3">Recherche <code>gcds-icon-search</code></gcds-heading>
     <gcds-text>Rechercher des renseignements précis.</gcds-text>
