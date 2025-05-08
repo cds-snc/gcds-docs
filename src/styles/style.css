@@ -72,6 +72,11 @@ ul li {
   font: var(--gcds-font-text);
   max-width: var(--gcds-text-character-limit);
 }
+@media only screen and (width < 48em) {
+  ul li {
+    font: var(--gcds-font-text-mobile);
+  }
+}
 
 ul li p:last-child,
 ol li p:last-child {
