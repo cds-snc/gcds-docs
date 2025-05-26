@@ -17,20 +17,33 @@ Cypress.Commands.add('scanDeadLinks', () => {
 
     cy.get('a', { includeShadowDom: true })
       .each(link => {
-        if (
-          link.prop('href').startsWith('mailto') ||
-          link.prop('href').includes('.pdf')
-        )
-          return;
+        const href = link.prop('href');
 
-        const check_url = link.prop('href');
+        if (href.startsWith('mailto') || href.includes('.pdf')) return;
+
+        // Skip GitHub UI links to avoid 429 errors
+        if (href.startsWith('https://github.com/')) {
+          // Convert blob URLs to raw URLs for raw content check
+          const rawMatch = href.match(
+            /^https:\/\/github\.com\/([^/]+)\/([^/]+)\/blob\/([^/]+)\/(.+)$/,
+          );
+
+          if (rawMatch) {
+            const [, owner, repo, branch, path] = rawMatch;
+            const rawUrl = `https://raw.githubusercontent.com/${owner}/${repo}/${branch}/${path}`;
+            cy.request(rawUrl).as('link');
+            links_checked.push(rawUrl);
+            checked++;
+          }
+
+          return;
+        }
 
         // skip if its already been checked
-        if (links_checked.includes(check_url)) return;
+        if (links_checked.includes(href)) return;
 
-        cy.request(link.prop('href')).as('link');
-
-        links_checked.push(check_url);
+        cy.request(href).as('link');
+        links_checked.push(href);
         checked++;
       })
       .as('links');
