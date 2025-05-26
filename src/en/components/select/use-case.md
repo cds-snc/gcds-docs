@@ -25,11 +25,10 @@ Use select within a form to:
 - Limit the number of possible answers to a question.
 - Give a person the ability to answer without writing, by selecting one item from a list.
 
-<article class="bg-full-width bg-primary text-light pt-600 pb-300 my-600">
-  <h2 class="mt-0">Related components</h2>
+<hr/>
 
-<a href="{{ links.checkbox }}" class="link-light">Checkboxes</a> when you are expecting the user to select 1 or more options from a list of items.
+## Related components
 
-<a href="{{ links.radioGroup }}" class="link-light">Radio groups</a> when you can give someone a small set of options for a known single selection with less than 7 options.
+<a href="{{ links.checkbox }}">Checkboxes</a> when you are expecting the user to select 1 or more options from a list of items.
 
-</article>
+<a href="{{ links.radioGroup }}">Radio groups</a> when you can give someone a small set of options for a known single selection with less than 7 options.

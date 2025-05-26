@@ -27,11 +27,10 @@ Use a fieldset to group together related form elements or components so they're 
 - Several questions in a flow relate to the same topic, like a set of [inputs]({{ links.input }}) or other combination of form components.
 - Logically grouping form elements or components helps support understanding and usability.
 
-<article class="bg-full-width bg-primary text-light pt-600 pb-300 my-600">
-  <h2 class="mt-0">Related components</h2>
+<hr/>
 
-<a href="{{ links.input }}" class="link-light">Inputs</a> or <a href="{{ links.textarea }}" class="link-light">text areas</a> when you are requesting a written response from a person.
+## Related components
 
-<a href="{{ links.pagination }}" class="link-light">Pagination</a> when you are spreading form elements across multiple pages.
+<a href="{{ links.input }}">Inputs</a> or <a href="{{ links.textarea }}">text areas</a> when you are requesting a written response from a person.
 
-</article>
+<a href="{{ links.pagination }}">Pagination</a> when you are spreading form elements across multiple pages.

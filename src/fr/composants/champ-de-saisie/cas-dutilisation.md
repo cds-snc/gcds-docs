@@ -31,14 +31,15 @@ Utilisez un champ de saisie lorsque vous attendez de l'utilisateur·rice une ré
 
 Remarque : Ne recueillez que les renseignements que vous êtes autorisé·e à traiter et veillez à les protéger conformément aux normes du gouvernement du Canada.
 
-<article class="bg-full-width bg-primary text-light pt-600 pb-300 my-600">
-  <h2 class="mt-0">Composants connexes</h2>
+<hr/>
 
-<a href="{{ links.textarea }}" class="link-light">Zone de texte</a> : lorsque vous cherchez à obtenir une réponse libre de plusieurs lignes.
+## Composants connexes
+
+<a href="{{ links.textarea }}">Zone de texte</a> : lorsque vous cherchez à obtenir une réponse libre de plusieurs lignes.
 
 Sélecteur de date : lorsque vous souhaitez que l'utilisateur·rice choisisse une date, comme pour la prise de rendez-vous.
 
-</article>
+<hr class="mt-600" />
 
 ## Choisissez un type de champ de saisie
 

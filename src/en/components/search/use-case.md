@@ -15,22 +15,24 @@ eleventyNavigation:
 translationKey: 'search'
 tags: ['searchEN', 'usage']
 permalink: /en/components/search/
-date: "git Last Modified"
+date: 'git Last Modified'
 ---
-Search is a required component for Canada.ca pages.
 
-## Use cases for search
+Search is a required component for standard and campaign pages on Canada.ca.
+
+Take a look at what problems search solves to see if they fit the problem you’re solving for.
+
+## Problems search solves
 
 Use search to help a person on your website or page find information:
 
 - Indexed on Canada.ca, across all Government of Canada content or at an institution or program level.
 - From a subset of content you have locally indexed, using your own data set.
 
-<article class="bg-full-width bg-primary text-light pt-600 pb-300 my-600">
-  <h2 class="mt-0">Related components</h2>
+<hr/>
 
-  <a href="{{ links.header }}" class="link-light">Header</a> for placing the Government of Canada branded header landmark.
+## Related components
 
-<a href="{{ links.input }}" class="link-light">Input</a> for requesting a short written response from a person.
+<a href="{{ links.header }}">Header</a> for placing the Government of Canada branded header landmark.
 
-</article>
+<a href="{{ links.input }}">Input</a> for requesting a short written response from a person.

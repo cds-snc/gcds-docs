@@ -10,7 +10,7 @@ eleventyNavigation:
   hideMain: true
 ---
 
-# Système de design GC : Conditions d’utilisation
+# Conditions d’utilisation
 
 Ce document définit les modalités et les responsabilités auxquelles vous consentez en utilisant [Système de design GC]({{ links.home }}).
 
@@ -32,6 +32,7 @@ Le SNC peut :
 
 - Transmettre de l’information générale en lien avec le Système de design GC et son usage par les ministères et les agences du gouvernement du Canada dans des forums publics tels que les blogues, les présentations et les conférences.
 - Demander des mesures relatives aux normes de service pour évaluer l’efficacité du Système de design GC et pour en déterminer les possibilités d’amélioration.
+- Établir des liens vers des sites Web qui n’appartiennent pas au gouvernement du Canada et les fournir aux gens qui visitent ses sites Web, uniquement pour des raisons pratiques. Nous n’assumons aucune responsabilité quant à la précision, l’actualité ou la fiabilité du contenu de ces sites. Ces sites et leur contenu ne sont pas approuvés par le SNC. Ces sites ne sont pas soumis à la Loi sur la protection des renseignements personnels ou à la Loi sur les langues officielles et peuvent ne pas être accessibles aux personnes handicapées. 
 
 ### Contribuer à une expérience numérique fiable, constante et conforme au sein du gouvernement du Canada.
 
@@ -47,12 +48,6 @@ Il vous incombe de veiller à ce que votre site Web respecte les exigences appli
 
 Vous êtes responsable de la surveillance et du maintien de la sécurité de vos sites Web.
 
-### Rester informé
+### Contactez-nous
 
-Le SNC fournit des mises à jour concernant le Système de design GC par l’intermédiaire de son [site Web]({{ links.home }}) et la [liste d’envoi]({{ links.contact }}).
-
-Des alertes sur les problèmes importants tels que les périodes d’arrêt planifiées, les pannes imprévues et les problèmes en lien avec les fournisseurs d’infrastructure tiers seront diffusés sur le [site Web]({{ links.home }}) et la [liste d’envoi]({{ links.contact }}) du Système de design GC.
-
-Il vous incombe de vous inscrire à la liste d’envoi ou de vérifier le site Web de manière routinière pour vous assurer de recevoir les informations les plus à jour.
-
-Pour toute question en lien avec les présentes conditions d’utilisation, veuillez [nous contacter]({{ links.contact }}).
+Si vous avez des questions sur les conditions d’utilisation de Système de design GC, n’hésitez pas à [nous contacter]({{ links.contact }}).

@@ -14,9 +14,36 @@ date: 'git Last Modified'
   <li>Le <strong>lien</strong> mène vers une page de niveau parent.</li>
 </ol>
 
-<img class="b-sm b-default p-300" src="/images/fr/components/anatomy/gcds-breadcrumbs-anatomy.svg" alt="La structure du chemin de navigation qui affiche deux liens de suite avec une icône de flèche entre chacun." />
+<img class="b-sm b-default p-300" src="/images/fr/components/anatomy/gcds-breadcrumbs-anatomy.svg" alt="Chemin de navigation avec deux liens côte à côte et un chevron pointant vers la droite entre eux. Chaque élément du composant est identifié à l’aide d’un chiffre." />
 
 ## Design et accessibilité du chemin de navigation
+
+### Vérifier les exigences du chemin de navigation
+
+Voici les éléments requis pour le chemin de navigation sur les sites du GC.
+
+- Le chemin de navigation est requis dans l’en-tête des pages standard et de campagne de Canada.ca.
+- Le chemin de navigation est facultatif pour les autres pages de Canada.ca et les sites du GC.
+
+<gcds-details details-title="Éléments requis sur une page standard ou de campagne de Canada.ca" class="mb-300">
+  <gcds-text>Toujours inclure le chemin de navigation dans l’en-tête des pages standard et de campagne sur Canada.ca et maintenir les paramètres par défaut.</gcds-text>
+  <div>
+    <ul class="list-disc">
+      <li>Gardez le placement avec alignement sur la gauche, directement en dessous de la ligne séparatrice.</li>
+      <li>Gardez la page d’accueil de Canada.ca comme premier lien dans le chemin de navigation.</li>
+      <li>N’incluez pas la page actuelle à la fin du chemin de navigation.</li>
+    </ul>
+  </div>
+</gcds-details>
+
+<gcds-details details-title="Éléments facultatifs sur une page standard ou de campagne de Canada.ca" class="mb-300">
+  <div>
+    <ul class="list-disc">
+      <li>Raccourcissez le texte du lien pour améliorer la lisibilité et réduire l’espace.</li>
+      <li>Sur une page de campagne, vous pouvez définir une page d’accueil précise comme premier lien. Il peut s’agir de la page d’accueil de Canada.ca, l’arborescence thématique (catégories de sujets de Canada.ca), le profil institutionnel/organisationnel, ou une page d’index de campagne.</li>
+    </ul>
+  </div>
+</gcds-details>
 
 ### Incluez les bons liens dans votre chemin de navigation
 

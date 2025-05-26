@@ -31,11 +31,10 @@ Use a card to:
 
 Note: For Canada.ca, avoid using cards in place of the doormats with the templates for landing page and theme and topic page.
 
-<article class="bg-full-width bg-primary text-light pt-600 pb-300 my-600">
-  <h2 class="mt-0">Related components</h2>
+<hr/>
 
-<a href="{{ links.details }}" class="link-light">Details</a> to hide secondary information that a person can expand on the same page.
+## Related components
 
-<a href="{{ links.container }}" class="link-light">Container</a> for basic layouts with a set width.
+<a href="{{ links.details }}">Details</a> to hide secondary information that a person can expand on the same page.
 
-</article>
+<a href="{{ links.container }}">Container</a> for basic layouts with a set width.

@@ -11,6 +11,9 @@ _Autres noms : barre de recherche, boîte de recherche sur le site, champ de rec
 
 Le composant recherche est un espace où entrer des mots-clés pour chercher des renseignements pertinents.
 
+{% requiredOn locale true %}
+{% endrequiredOn %}
+
 {% docLinks locale stage figma github %}
 {% enddocLinks %}
 

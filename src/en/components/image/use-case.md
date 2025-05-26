@@ -25,9 +25,10 @@ Use a Image
 
 -
 
-<article class="bg-full-width bg-primary text-light pt-600 pb-300 my-600">
-  <h2 class="mt-0">Related components</h2>
+<hr/>
 
-<a href="" class="link-light">component</a>
+## Related components
 
-</article>
+<a href="">component</a>
+
+

@@ -6,11 +6,11 @@ tags: ['breadcrumbsFR', 'code']
 date: 'git Last Modified'
 ---
 
-## Créer un composant Chemin de navigation
+## Créer un composant chemin de navigation
 
 Utilisez le chemin de navigation pour indiquer l'emplacement de la page actuelle par rapport à ses pages parents dans la structure du site.
 
-## Codage et accessibilité pour le composant Chemin de navigation
+## Codage et accessibilité pour le composant chemin de navigation
 
 ### Commencez par le lien Canada.ca et le lien de la page d'accueil
 

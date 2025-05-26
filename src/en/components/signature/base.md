@@ -12,6 +12,9 @@ _Also called: wordmark._
 
 The signature is the Government of Canada landmark identifier found in the header or footer.
 
+{% requiredOn locale true true %}
+{% endrequiredOn %}
+
 {% docLinks locale stage figma github %}
 {% enddocLinks %}
 

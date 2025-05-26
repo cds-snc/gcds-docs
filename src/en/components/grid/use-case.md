@@ -32,11 +32,10 @@ Use grids to:
 - Accommodate different screen sizes by setting a custom, optimized layout for different viewports, like mobile, tablet, and desktop.
 - Limit the width of content displayed to ensure lines wrap and are more readable.
 
-<article class="bg-full-width bg-primary text-light pt-600 pb-300 my-600">
-  <h2 class="mt-0">Related components</h2>
+<hr/>
 
-<a href="{{ links.container }}" class="link-light">Container</a> for applying a basic, single column layout across all viewports.
+## Related components
 
-<a href="{{ links.card }}" class="link-light">Card</a> for structuring actionable content in a group on a single topic.
+<a href="{{ links.container }}">Container</a> for applying a basic, single column layout across all viewports.
 
-</article>
+<a href="{{ links.card }}">Card</a> for structuring actionable content in a group on a single topic.

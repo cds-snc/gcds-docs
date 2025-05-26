@@ -27,13 +27,12 @@ Use a checkbox with a [fieldset]({{ links.fieldset }}) to make a request for inf
 - Let a person choose one or several answers from a contained list by checking off the right ones.
 - Give a person the ability to answer without writing by selecting one or multiple items from a list.
 
-<article class="bg-full-width bg-primary text-light pt-600 pb-300 my-600">
-  <h2 class="mt-0">Related components</h2>
+<hr/>
 
-<a href="{{ links.radioGroup }}" class="link-light">Radio groups</a> to give a single option from a larger set of options.
+## Related components
 
-<a href="{{ links.select }}" class="link-light">Select</a> to give a single option from a medium to long sized list in a dropdown format.
+<a href="{{ links.radioGroup }}">Radio groups</a> to give a single option from a larger set of options.
 
-<a href="{{ links.input }}" class="link-light">Inputs</a> for short, single-line responses.
+<a href="{{ links.select }}">Select</a> to give a single option from a medium to long sized list in a dropdown format.
 
-</article>
+<a href="{{ links.input }}">Inputs</a> for short, single-line responses.
