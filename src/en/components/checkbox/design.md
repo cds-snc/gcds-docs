@@ -17,7 +17,7 @@ date: 'git Last Modified'
   <li>The <strong>checkbox hint text</strong> gives users additional information about the choice.</li>
 </ol>
 
-<img class="b-sm b-default p-300" src="/images/en/components/anatomy/gcds-checkbox-anatomy-with-fieldset.svg" alt="Checkbox anatomy showing the labels Fieldset legend, Fieldset Hint, Checkbox, Checkbox Label, Checkmark, and Checkbox Hint." />
+<img class="b-sm b-default p-300" src="/images/en/components/anatomy/gcds-checkbox-anatomy-multiple.svg" alt="Checkbox anatomy showing the labels Fieldset legend, Fieldset Hint, Checkbox, Checkbox Label, Checkmark, and Checkbox Hint." />
 
 ## Single checkbox anatomy
 
