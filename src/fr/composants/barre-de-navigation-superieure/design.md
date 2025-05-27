@@ -13,8 +13,7 @@ date: 'git Last Modified'
   <li>Le <strong>lien de navigation</strong> est un lien vers une page ou une section populaire du site. Les liens de navigation peuvent se trouver au niveau supérieur s'ils sont autonomes.</li>
   <li>Le <strong>groupe de navigation</strong> eut être développé et réduit et contient généralement une liste de 2 à 5 liens.</li>
   <li>Le <strong>libellé du groupe de navigation</strong> identifie le groupe de navigation et agit à titre de bouton pour développer et réduire le groupe de navigation en question.</li>
-  <li>L'<strong>icône de chevron du groupe de navigation</strong> pointe vers le haut lorsque le groupe de navigation est réduit et
-vers le bas lorsqu'il est développé.</li>
+  <li>L'<strong>icône de chevron du groupe de navigation</strong> pointe vers le bas lorsque le groupe de navigation est réduit et vers le haut lorsqu'il est développé.</li>
   <li>Le <strong>lien de navigation avec indicateur de page active</strong> met en évidence la page actuelle.</li>
 </ol>
 
