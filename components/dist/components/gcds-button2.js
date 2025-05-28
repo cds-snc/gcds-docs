@@ -11,7 +11,7 @@ const I18N = {
   },
 };
 
-const gcdsButtonCss = "@layer reset, default, roles, size, disabled, hover, focus, active, mobile;@layer reset{:host{display:inline-block}:host .gcds-button{box-sizing:border-box;cursor:pointer;text-decoration:none}:host slot{display:initial}}@layer default{:host .gcds-button{display:inline-block;text-align:center;width:var(--gcds-button-width);text-wrap:balance;border:var(--gcds-button-border-width) solid transparent;border-radius:var(--gcds-button-border-radius);font:var(--gcds-button-font-desktop);padding:var(--gcds-button-padding);transition:all .15s ease-in-out}@media only screen and (width < 48em){:host .gcds-button{font:var(--gcds-button-font-mobile)}}}@layer roles{:host .gcds-button.button--role-danger{background-color:var(--gcds-button-danger-default-background);color:var(--gcds-button-danger-default-text)}:host .gcds-button.button--role-primary{background-color:var(--gcds-button-primary-default-background);color:var(--gcds-button-primary-default-text)}:host .gcds-button.button--role-start{background-color:var(--gcds-button-start-default-background);color:var(--gcds-button-start-default-text);font:var(--gcds-button-start-font-desktop);padding:var(--gcds-button-start-padding)}@media only screen and (width < 48em){:host .gcds-button.button--role-start{font:var(--gcds-button-start-font-mobile)}}:host .gcds-button.button--role-secondary{background-color:var(--gcds-button-secondary-default-background);border:var(--gcds-button-border-width) solid;color:var(--gcds-button-secondary-default-text)}}@layer size{:host .gcds-button.button--small{font:var(--gcds-button-small-font);padding:var(--gcds-button-small-padding)}}@layer disabled{:host .gcds-button[aria-disabled=true]{cursor:not-allowed;opacity:var(--gcds-button-shared-disabled-opacity);pointer-events:none}}@layer hover{@media (hover:hover){:host .gcds-button:hover.button--role-danger{background-color:var(--gcds-button-danger-hover-background)}:host .gcds-button:hover.button--role-primary{background-color:var(--gcds-button-primary-hover-background)}:host .gcds-button:hover.button--role-start{background-color:var(--gcds-button-start-hover-background)}:host .gcds-button:hover.button--role-secondary{background-color:var(--gcds-button-secondary-hover-background)}}}@layer focus{:host .gcds-button:focus{background-color:var(--gcds-button-shared-focus-background);border-color:var(--gcds-button-shared-focus-background);box-shadow:var(--gcds-button-shared-focus-box-shadow);color:var(--gcds-button-shared-focus-text);outline:var(--gcds-button-shared-focus-outline-width) solid var(--gcds-button-shared-focus-background);outline-offset:var(--gcds-button-border-width)}}@layer active{:host .gcds-button:active{background-color:var(--gcds-button-shared-active-background);border-color:var(--gcds-button-shared-active-background)}}@layer mobile{@media screen and (max-width:30rem){:host{display:block}:host .gcds-button{margin:var(--gcds-button-mobile-margin);width:var(--gcds-button-mobile-width)}}}";
+const gcdsButtonCss = "@layer reset, default, roles, size, disabled, hover, focus, active, mobile;@layer reset{:host{display:inline-block}:host .gcds-button{box-sizing:border-box;cursor:pointer;text-decoration:none}:host slot{display:initial}}@layer default{:host .gcds-button{display:inline-block;text-align:center;width:var(--gcds-button-width);text-wrap:balance;border:var(--gcds-button-border-width) solid transparent;border-radius:var(--gcds-button-border-radius);font:var(--gcds-button-font-desktop);padding:var(--gcds-button-padding);transition:all .15s ease-in-out}@media only screen and (width < 48em){:host .gcds-button{font:var(--gcds-button-font-mobile)}}}@layer roles{:host .gcds-button.button--role-danger{background-color:var(--gcds-button-danger-default-background);color:var(--gcds-button-danger-default-text)}:host .gcds-button.button--role-primary{background-color:var(--gcds-button-primary-default-background);color:var(--gcds-button-primary-default-text)}:host .gcds-button.button--role-start{background-color:var(--gcds-button-start-default-background);color:var(--gcds-button-start-default-text);font:var(--gcds-button-start-font-desktop);padding:var(--gcds-button-start-padding)}@media only screen and (width < 48em){:host .gcds-button.button--role-start{font:var(--gcds-button-start-font-mobile)}}:host .gcds-button.button--role-secondary{background-color:var(--gcds-button-secondary-default-background);border:var(--gcds-button-border-width) solid;color:var(--gcds-button-secondary-default-text)}}@layer size{:host .gcds-button.button--small{font:var(--gcds-button-small-font);padding:var(--gcds-button-small-padding)}}@layer disabled{:host([disabled]){pointer-events:none}:host([disabled]) .gcds-button[aria-disabled=true]{cursor:not-allowed;opacity:var(--gcds-button-shared-disabled-opacity);pointer-events:none}}@layer hover{@media (hover:hover){:host .gcds-button:hover.button--role-danger{background-color:var(--gcds-button-danger-hover-background)}:host .gcds-button:hover.button--role-primary{background-color:var(--gcds-button-primary-hover-background)}:host .gcds-button:hover.button--role-start{background-color:var(--gcds-button-start-hover-background)}:host .gcds-button:hover.button--role-secondary{background-color:var(--gcds-button-secondary-hover-background)}}}@layer focus{:host .gcds-button:focus{background-color:var(--gcds-button-shared-focus-background);border-color:var(--gcds-button-shared-focus-background);box-shadow:var(--gcds-button-shared-focus-box-shadow);color:var(--gcds-button-shared-focus-text);outline:var(--gcds-button-shared-focus-outline-width) solid var(--gcds-button-shared-focus-background);outline-offset:var(--gcds-button-border-width)}}@layer active{:host .gcds-button:active{background-color:var(--gcds-button-shared-active-background);border-color:var(--gcds-button-shared-active-background)}}@layer mobile{@media screen and (max-width:30rem){:host{display:block}:host .gcds-button{margin:var(--gcds-button-mobile-margin);width:var(--gcds-button-mobile-width)}}}";
 const GcdsButtonStyle0 = gcdsButtonCss;
 
 const GcdsButton = /*@__PURE__*/ proxyCustomElement(class GcdsButton extends HTMLElement {
@@ -85,6 +85,11 @@ const GcdsButton = /*@__PURE__*/ proxyCustomElement(class GcdsButton extends HTM
             this.size = 'regular';
         }
     }
+    validateDisabled(newValue) {
+        if (newValue === false || (newValue === true && this.type === 'link')) {
+            this.el.removeAttribute('disabled');
+        }
+    }
     /*
      * Observe lang attribute change
      */
@@ -101,6 +106,7 @@ const GcdsButton = /*@__PURE__*/ proxyCustomElement(class GcdsButton extends HTM
         this.validateType(this.type);
         this.validateButtonRole(this.buttonRole);
         this.validateSize(this.size);
+        this.validateDisabled(this.disabled);
         this.inheritedAttributes = inheritAttributes(this.el, this.shadowElement);
         // Define lang attribute
         this.lang = assignLanguage(this.el);
@@ -122,14 +128,15 @@ const GcdsButton = /*@__PURE__*/ proxyCustomElement(class GcdsButton extends HTM
                 target,
                 download,
             };
-        return (h(Host, { key: 'e9202b1e4d820aa2e87d18f11488382be7966e47' }, h(Tag, Object.assign({ key: 'c6e31af06c5103d15b75b88517e326b749f3908b' }, attrs, { id: buttonId, onBlur: () => this.gcdsBlur.emit(), onFocus: () => this.gcdsFocus.emit(), onClick: e => !disabled && this.handleClick(e), class: `gcds-button button--role-${buttonRole} button--${size}`, ref: element => (this.shadowElement = element) }, inheritedAttributes, { part: "button" }), h("slot", { key: 'c30f8d29a50b34baa98a7f97fe06ee1e296339d0' }), type === 'link' && target === '_blank' ? (h("gcds-icon", { name: "external", label: I18N[lang].label, "margin-left": "150" })) : null)));
+        return (h(Host, { key: 'b77e1cd9aefb341e8a130d88d3285d553115f6c7' }, h(Tag, Object.assign({ key: '667858f8a889c0820735d6008bfb04a043122eb1' }, attrs, { id: buttonId, onBlur: () => this.gcdsBlur.emit(), onFocus: () => this.gcdsFocus.emit(), onClick: e => !disabled ? this.handleClick(e) : e.stopImmediatePropagation(), class: `gcds-button button--role-${buttonRole} button--${size}`, ref: element => (this.shadowElement = element) }, inheritedAttributes, { part: "button" }), h("slot", { key: 'db523fdaf7e8acd851963701ecc233d8fa7a2f22' }), type === 'link' && target === '_blank' ? (h("gcds-icon", { name: "external", label: I18N[lang].label, "margin-left": "150" })) : null)));
     }
     static get delegatesFocus() { return true; }
     get el() { return this; }
     static get watchers() { return {
         "type": ["validateType"],
         "buttonRole": ["validateButtonRole"],
-        "size": ["validateSize"]
+        "size": ["validateSize"],
+        "disabled": ["validateDisabled"]
     }; }
     static get style() { return GcdsButtonStyle0; }
 }, [17, "gcds-button", {
@@ -149,7 +156,8 @@ const GcdsButton = /*@__PURE__*/ proxyCustomElement(class GcdsButton extends HTM
     }, undefined, {
         "type": ["validateType"],
         "buttonRole": ["validateButtonRole"],
-        "size": ["validateSize"]
+        "size": ["validateSize"],
+        "disabled": ["validateDisabled"]
     }]);
 function defineCustomElement() {
     if (typeof customElements === "undefined") {

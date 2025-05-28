@@ -32,6 +32,7 @@ export declare class GcdsButton {
      * The disabled attribute for a <button> element.
      */
     disabled: boolean;
+    validateDisabled(newValue: boolean): void;
     /**
      * The value attribute specifies the value for a <button> element.
      */

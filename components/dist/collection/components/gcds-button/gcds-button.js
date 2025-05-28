@@ -67,6 +67,11 @@ export class GcdsButton {
             this.size = 'regular';
         }
     }
+    validateDisabled(newValue) {
+        if (newValue === false || (newValue === true && this.type === 'link')) {
+            this.el.removeAttribute('disabled');
+        }
+    }
     /*
      * Observe lang attribute change
      */
@@ -83,6 +88,7 @@ export class GcdsButton {
         this.validateType(this.type);
         this.validateButtonRole(this.buttonRole);
         this.validateSize(this.size);
+        this.validateDisabled(this.disabled);
         this.inheritedAttributes = inheritAttributes(this.el, this.shadowElement);
         // Define lang attribute
         this.lang = assignLanguage(this.el);
@@ -104,7 +110,7 @@ export class GcdsButton {
                 target,
                 download,
             };
-        return (h(Host, { key: 'e9202b1e4d820aa2e87d18f11488382be7966e47' }, h(Tag, Object.assign({ key: 'c6e31af06c5103d15b75b88517e326b749f3908b' }, attrs, { id: buttonId, onBlur: () => this.gcdsBlur.emit(), onFocus: () => this.gcdsFocus.emit(), onClick: e => !disabled && this.handleClick(e), class: `gcds-button button--role-${buttonRole} button--${size}`, ref: element => (this.shadowElement = element) }, inheritedAttributes, { part: "button" }), h("slot", { key: 'c30f8d29a50b34baa98a7f97fe06ee1e296339d0' }), type === 'link' && target === '_blank' ? (h("gcds-icon", { name: "external", label: i18n[lang].label, "margin-left": "150" })) : null)));
+        return (h(Host, { key: 'b77e1cd9aefb341e8a130d88d3285d553115f6c7' }, h(Tag, Object.assign({ key: '667858f8a889c0820735d6008bfb04a043122eb1' }, attrs, { id: buttonId, onBlur: () => this.gcdsBlur.emit(), onFocus: () => this.gcdsFocus.emit(), onClick: e => !disabled ? this.handleClick(e) : e.stopImmediatePropagation(), class: `gcds-button button--role-${buttonRole} button--${size}`, ref: element => (this.shadowElement = element) }, inheritedAttributes, { part: "button" }), h("slot", { key: 'db523fdaf7e8acd851963701ecc233d8fa7a2f22' }), type === 'link' && target === '_blank' ? (h("gcds-icon", { name: "external", label: i18n[lang].label, "margin-left": "150" })) : null)));
     }
     static get is() { return "gcds-button"; }
     static get encapsulation() { return "shadow"; }
@@ -378,6 +384,9 @@ export class GcdsButton {
             }, {
                 "propName": "size",
                 "methodName": "validateSize"
+            }, {
+                "propName": "disabled",
+                "methodName": "validateDisabled"
             }];
     }
 }
