@@ -26,7 +26,7 @@ jobs:
           node-version: '18.x'
 
       - name: Cypress run
-        uses: cypress-io/github-action@108b8684ae52e735ff7891524cbffbcd4be5b19f # v6.7.16
+        uses: cypress-io/github-action@be1bab96b388bbd9ce3887e397d373c8557e15af # v6.9.2
         with:
           build: npm run build:eleventy
           start: npm run watch:eleventy
