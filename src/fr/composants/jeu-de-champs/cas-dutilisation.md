@@ -17,20 +17,17 @@ permalink: /fr/composants/jeu-de-champs/
 date: 'git Last Modified'
 ---
 
-Explorez les problèmes réglés par les jeux de champs et découvrez s’ils peuvent être utilisés pour résoudre votre problème particulier.
+Explorez les problèmes réglés par les jeux de champs et découvrez s’ils peuvent être utilisés pour résoudre votre problème.
 
 ## Problèmes résolus par les jeux de champs
 
-Utilisez un jeu de champs pour regrouper les éléments ou composants d’un formulaire afin qu’ils soient perceptibles dans les cas suivants :
+Grouper logiquement les éléments ou composants de formulaire aide à la compréhension et l’utilisabilité. Utilisez un jeu de champs pour regrouper des composants de formulaire connexes dans les situations suivantes :
 
-- Lorsqu’un ensemble d’options correspond à la même étiquette ou à la même question, comme pour les [boutons radio]({{ links.radio }}) ou les [cases à cocher]({{ links.checkbox }}).
-- Lorsque plusieurs questions d’un flux portent sur le même sujet, comme un ensemble de [champs de saisie]({{ links.input }}) ou une autre combinaison de composants de formulaire.
-- Lorsque le regroupement logique des éléments ou composants du formulaire aide à favoriser la compréhension et l’utilisabilité.
+- Ils correspondent à la même question, comme avec les boutons radio ou les cases à cocher. 
+- Ils portent sur le même sujet.
 
 <hr/>
 
 ## Composants connexes
 
-<a href="{{ links.input }}">Champs de saisie</a> ou <a href="{{ links.textarea }}">zones de texte</a> : lorsqu’une réponse écrite est demandée.
-
-<a href="{{ links.pagination }}">Pagination</a> : lorsque des éléments du formulaire sont répartis sur plusieurs pages.
+<a href="{{ links.input }}">Champs de saisie</a> ou <a href="{{ links.textarea }}">zones de texte</a> pour obtenir une réponse écrite d’une personne.
