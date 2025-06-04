@@ -9,12 +9,12 @@ date: "git Last Modified"
 ## Radio group anatomy - with fieldset
 
 <ol class="anatomy-list">
-  <li>The <strong>legend for radios</strong> acts as a heading to identify the grouped radios. Legend text is left aligned and in sentence case (only the initial letter is capitalized).</li>
-  <li>The <strong>hint text for radios</strong> communicates specific requirements for the radio grouping to support task success.</li>
-  <li>The <strong>radio button</strong> shows, by the presence or absence of the <strong>checked button</strong>, whether an option has been selected or not.</li>
-  <li>The <strong>checked button</strong> shows that an option has been selected.</li>
-  <li>The <strong>option label</strong> states the choice the radio button represents. Label text is in sentence case.</li>
-  <li>The <strong>option hint text</strong> gives a person additional information about the choice.</li>
+  <li>The <strong>legend for radios</strong> acts as a heading to identify the grouped radios. Legend text is left-aligned and in sentence case (only the initial letter is capitalized).</li>
+  <li>The <strong>hint text for radios</strong> gives specific requirements for selecting the appropriate response.</li>
+  <li>The <strong>radio button</strong> indicates the state of the selection.</li>
+  <li>The <strong>checked button</strong> shows what option has been selected.</li>
+  <li>The <strong>option label</strong> describes the selection. Label text is in sentence case.</li>
+  <li>The <strong>option hint text</strong> gives additional information about the selection.</li>
 </ol>
 
 <img class="b-sm b-default p-300" src="/images/en/components/anatomy/gcds-radios-anatomy.svg" alt='Radios anatomy showing the labels "legend header" at the top followed by "hint text" underneath. Under that are two stacked circles with labels beside them and hint text. One of the circles is filled in with a smaller black circle.'/>
