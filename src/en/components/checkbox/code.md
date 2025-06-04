@@ -35,14 +35,3 @@ For the checkbox to function properly, always use the following attributes with 
 - Keep the default `error-message` attribute for a required single checkbox that needs validation. Missing entry will prompt an inline error message.
 - Remove the default `error-message` attribute if the checkbox is optional.
 
-{% include "partials/getcode.njk" %}
-
-<iframe
-  title="Overview of gcds-checkbox properties and events."
-  src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&demo=true&singleStory=true&id=components-checkbox--events-properties&lang=en"
-  width="1200"
-  height="1950"
-  style="display: block; margin: 0 auto;"
-  frameBorder="0"
-  allow="clipboard-write"
-></iframe>

@@ -10,7 +10,7 @@ eleventyNavigation:
   description: An option or set of options where any of the available boxes can be selected.
   thumbnail: /images/common/components/preview-checkbox.svg
   alt: A column of three checkboxes, each with thin grey border and white fill beside a thick grey line to represent the label. Two of the three boxes have a checkmark.
-  state: published
+  state: deprecated
 translationKey: 'checkbox'
 tags: ['checkboxEN', 'usage']
 permalink: /en/components/checkbox/

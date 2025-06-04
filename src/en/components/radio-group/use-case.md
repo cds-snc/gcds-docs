@@ -10,7 +10,7 @@ eleventyNavigation:
   description: A short set of options for single selection.
   thumbnail: /images/common/components/preview-radio.svg
   alt: A column of three radio selections. Each radio button circle has a thin grey border and white fill beside a thick grey line to represent the label. One of the three circles is selected and has a single dark grey circle inside of it.
-  state: published
+  state: deprecated
 translationKey: "radiogroup"
 tags: ['radiogroupEN', 'usage']
 permalink: /en/components/radio-group/

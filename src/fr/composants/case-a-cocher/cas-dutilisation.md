@@ -10,7 +10,7 @@ eleventyNavigation:
   description: Cases qui permettent la sélection d’une ou plusieurs options.
   thumbnail: /images/common/components/preview-checkbox.svg
   alt: Une suite verticale de trois cases à cocher, chacune ayant une bordure gris pâle et un remplissage blanc, et étant accompagnée d’une épaisse ligne grise représentant un libellé. Deux des trois cases sont cochées par un crochet.
-  state: published
+  state: deprecated
 translationKey: 'checkbox'
 tags: ['checkboxFR', 'usage']
 permalink: /fr/composants/case-a-cocher/
