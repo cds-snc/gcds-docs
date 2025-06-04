@@ -51,7 +51,7 @@ L'attribut `options` utilise un tableau d'objets pour rendre chaque case à coch
 {% include "partials/getcode.njk" %}
 
 <iframe
-  title="Survol des propriétés et des évènements relatifs à gcds-checkbox."
+  title="Survol des propriétés et des évènements relatifs à gcds-checkboxes."
   src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&demo=true&singleStory=true&id=components-checkboxes--events-properties&lang=fr"
   width="1200"
   height="1950"

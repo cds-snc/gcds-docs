@@ -17,7 +17,7 @@ date: 'git Last Modified'
   <li>Le <strong>texte explicatif de l'option</strong> communique aux utilisateur·rice·s des renseignements sur le choix.</li>
 </ol>
 
-<img class="b-sm b-default p-300" src="/images/fr/components/anatomy/gcds-checkbox-anatomy-multiple.svg" alt="Structure des cases à cocher montrant les étiquettes « en-tête du jeu de champs » en haut et « texte explicatif » en dessous. Plus bas, il y a deux cases à cocher avec leurs libellés à côté et un texte explicatif. Une des cases est cochée." />
+<img class="b-sm b-default p-300" src="/images/fr/components/anatomy/gcds-checkboxes-anatomy.svg" alt="Structure des cases à cocher montrant les étiquettes « en-tête du jeu de champs » en haut et « texte explicatif » en dessous. Plus bas, il y a deux cases à cocher avec leurs libellés à côté et un texte explicatif. Une des cases est cochée." />
 
 ### Offrir des choix clairs
 

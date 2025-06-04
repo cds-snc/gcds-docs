@@ -55,7 +55,7 @@ Within the `options` attribute, always use the object's `id` and `label` propert
 {% include "partials/getcode.njk" %}
 
 <iframe
-  title="Overview of gcds-checkbox properties and events."
+  title="Overview of gcds-checkboxes properties and events."
   src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&demo=true&singleStory=true&id=components-checkboxes--events-properties&lang=en"
   width="1200"
   height="1950"
