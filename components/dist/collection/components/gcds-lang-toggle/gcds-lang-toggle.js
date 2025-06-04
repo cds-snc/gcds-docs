@@ -24,7 +24,7 @@ export class GcdsLangToggle {
     }
     render() {
         const { lang, href } = this;
-        return (h(Host, { key: '05fc4f7ec61276b9e15ccb9fe75f257049bf3577' }, h("div", { key: 'dc156971e988f7c4024ad760777e27f65c30b533', class: "gcds-lang-toggle" }, h("gcds-sr-only", { key: 'dae3c2e582bbe214f9ec8422bacc3f6bb5f61dfe', id: "lang-toggle__heading", tag: "h2" }, i18n[lang].heading), h("gcds-link", { key: '6bf0e599cace009ab90efce6a355389b3374e8a7', size: "regular", href: href, lang: i18n[lang].abbreviation }, h("span", { key: 'cba5121aac09ac07fabc7c409653d83126f1da9d' }, i18n[lang].language), h("abbr", { key: 'bf8fc9ac514ed5c243c52d63be1cef06cb024b9e', title: i18n[lang].language }, i18n[lang].abbreviation)))));
+        return (h(Host, { key: 'e7c2600f42e0d941cbaef4e2599645dfdd65348a' }, h("div", { key: 'f4794500d6da469c8a39ec04a21ce636b40d64ea', class: "gcds-lang-toggle" }, h("gcds-sr-only", { key: '9d6672ff42b404b7af4c9689cfc38197dda42cca', id: "lang-toggle__heading", tag: "h2" }, i18n[lang].heading), h("gcds-link", { key: '247e2ee655c2f9e16e7b6e19320864ef06bd8280', size: "regular", href: href, lang: i18n[lang].abbreviation }, h("span", { key: 'da07bdf4b438ad9144e5ba301a73b83c2aabf713' }, i18n[lang].language), h("abbr", { key: '10363892959c246a591463fbdbd42f605c5a164b', title: i18n[lang].language }, i18n[lang].abbreviation)))));
     }
     static get is() { return "gcds-lang-toggle"; }
     static get encapsulation() { return "shadow"; }

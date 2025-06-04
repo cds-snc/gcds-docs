@@ -1,6 +1,5 @@
 export declare class GcdsLabel {
     el: HTMLElement;
-    private focusEl?;
     /**
      * Props
      */
@@ -26,10 +25,5 @@ export declare class GcdsLabel {
     lang: string;
     updateLang(): void;
     componentWillLoad(): Promise<void>;
-    /**
-     * Click label if host element is clicked
-     */
-    private clickEl;
-    private onClick;
     render(): any;
 }

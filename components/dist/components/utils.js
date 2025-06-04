@@ -58,17 +58,6 @@ const observerConfig = {
     attributeOldValue: true,
     attributeFilter: ['lang'],
 };
-// For validation - check if element has a checked checkbox/radio sibling
-const elementGroupCheck = name => {
-    let hasCheck = false;
-    const element = document.querySelectorAll(`input[name=${name}]`);
-    for (let i = 0; i < element.length; i++) {
-        if (element[i].checked) {
-            hasCheck = true;
-        }
-    }
-    return !hasCheck;
-};
 // Emit event with logic to cancel HTML events
 // Returns false if event has been prevented
 const emitEvent = (e, customEvent, value) => {
@@ -99,6 +88,36 @@ const logError = (name, errorArr, optionalAttrsArrToRemove) => {
         }
     }
     console.error(`${name}: ${engMsg} (${errors}) | ${name}: ${frMsg} (${errors})`);
+};
+/* Log validation error for required properties in components
+ * @param errors - array of attributes with errors
+ * @param propertyName - name of the property being checked
+ * @param property - value of the property being checked
+ * @param external - boolean value for an external check on property value
+ * @returns modified array of errors
+ */
+const handleErrors = (errors, propertyName, property, external = false) => {
+    if ((property && typeof property === 'string' && property.trim() === '') ||
+        !property ||
+        property === '' ||
+        external) {
+        if (!errors.includes(propertyName)) {
+            errors.push(propertyName);
+        }
+    }
+    else if (errors.includes(propertyName)) {
+        errors.splice(errors.indexOf(propertyName), 1);
+    }
+    return errors;
+};
+/* Compare errors array to required props array
+ * @param errors - array of attributes with errors
+ * @param requiredProps - array of required properties to check against
+ * @returns boolean if no matching errors
+ */
+const isValid = (errors, requiredProps) => {
+    const intersection = errors.filter(x => requiredProps.includes(x));
+    return intersection.length > 0 ? false : true;
 };
 /* Check for valid date
  * @param dateString - the date to check
@@ -148,6 +167,6 @@ function isLeapYear(y) {
     return !(y & 3 || (!(y % 25) && y & 15));
 }
 
-export { assignLanguage as a, elementGroupCheck as b, isValidDate as c, closestElement as d, emitEvent as e, inheritAttributes as i, logError as l, observerConfig as o };
+export { assignLanguage as a, isValid as b, isValidDate as c, closestElement as d, emitEvent as e, handleErrors as h, inheritAttributes as i, logError as l, observerConfig as o };
 
 //# sourceMappingURL=utils.js.map

@@ -54,7 +54,7 @@ export class GcdsText {
     }
     render() {
         const { characterLimit, display, marginTop, marginBottom, size, textRole } = this;
-        return (h(Host, { key: '9ca2919ce7535ecfdab92646c22df7a677f97465', class: `${display != 'block' ? `d-${display}` : ''}` }, h("p", { key: 'a2852d6e38530bac597e2a9b3156a3e1d61f4199', class: `
+        return (h(Host, { key: 'b0b6d2eef2c482062861893a43f7508d984a398f', class: `${display != 'block' ? `d-${display}` : ''}` }, h("p", { key: '6d1c418740f62a70b5dd130adbd471eda5702288', class: `
             gcds-text
             ${textRole ? `role-${textRole}` : ''}
             ${characterLimit ? 'limit' : ''}

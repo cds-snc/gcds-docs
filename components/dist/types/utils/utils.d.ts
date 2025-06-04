@@ -11,4 +11,6 @@ export declare const observerConfig: {
 export declare const elementGroupCheck: (name: any) => boolean;
 export declare const emitEvent: (e: Event, customEvent: EventEmitter, value?: unknown) => boolean;
 export declare const logError: (name: string, errorArr: string[], optionalAttrsArrToRemove?: string[]) => void;
+export declare const handleErrors: (errors: string[], propertyName: string, property: string | boolean | object, external?: boolean) => string[];
+export declare const isValid: (errors: string[], requiredProps: string[]) => boolean;
 export declare const isValidDate: (dateString: string, forceFormat?: 'full' | 'compact') => boolean;

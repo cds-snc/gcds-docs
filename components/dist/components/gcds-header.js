@@ -99,7 +99,7 @@ const GcdsHeader$1 = /*@__PURE__*/ proxyCustomElement(class GcdsHeader extends H
     }
     render() {
         const { renderSkipToNav, renderToggle, renderSignature, renderSearch, hasSearch, hasBanner, hasBreadcrumb, } = this;
-        return (h(Host, { key: '6efd0f4e2348ee9cf535345da9b29fa09e02bced', role: "banner" }, renderSkipToNav, hasBanner ? h("slot", { name: "banner" }) : null, h("div", { key: '3e3a968e58e1e43c1495947549b0699b205075c5', class: "gcds-header__brand" }, h("div", { key: 'fcede179bafd3b6d2a2825e38db8f6c067e4f413', class: `brand__container ${!hasSearch ? 'container--simple' : ''}` }, renderToggle, renderSignature, renderSearch)), h("slot", { key: 'd282b219be7cd92f9acd02b53fa68a89a87ea1b4', name: "menu" }), hasBreadcrumb ? (h("div", { class: "gcds-header__container" }, h("slot", { name: "breadcrumb" }))) : null));
+        return (h(Host, { key: '4ce8bdb71c9ec3db7651195f6c15e423034fb509', role: "banner" }, renderSkipToNav, hasBanner ? h("slot", { name: "banner" }) : null, h("div", { key: 'c763e09da43fed07da3562e0b581fb549e4f0954', class: "gcds-header__brand" }, h("div", { key: '157b25b759b836affb69d046ba3ecba8022c79ff', class: `brand__container ${!hasSearch ? 'container--simple' : ''}` }, renderToggle, renderSignature, renderSearch)), h("slot", { key: '41a36feff4bff5a648b7f50b23410f5337b7a683', name: "menu" }), hasBreadcrumb ? (h("div", { class: "gcds-header__container" }, h("slot", { name: "breadcrumb" }))) : null));
     }
     get el() { return this; }
     static get style() { return GcdsHeaderStyle0; }

@@ -13,7 +13,7 @@ const GcdsHint = /*@__PURE__*/ proxyCustomElement(class GcdsHint extends HTMLEle
     }
     render() {
         const { hintId } = this;
-        return (h(Host, { key: '8e9af18f71f043062a78de179236357539afe979', id: `hint-${hintId}` }, h("gcds-text", { key: 'bac3fc4edbbb00b2191989bc155636aa0ab6c68c', class: "gcds-hint", "margin-bottom": "0", part: "hint" }, h("slot", { key: '1fdb52992e56952156704305469a85e30b2bb398' }))));
+        return (h(Host, { key: 'eb67660e9aef1823546fd67ffb4df34b28b2cadb', id: `hint-${hintId}` }, h("gcds-text", { key: 'f1252b21a52419614fe057aad4a8b117d07ae8b6', class: "gcds-hint", "margin-bottom": "0", part: "hint" }, h("slot", { key: '171998e99a00d21a3436f7dc118d580bb7d0fe77' }))));
     }
     get el() { return this; }
     static get style() { return GcdsHintStyle0; }

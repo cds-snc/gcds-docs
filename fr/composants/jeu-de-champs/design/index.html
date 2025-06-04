@@ -140,9 +140,57 @@
     
       
       
+    
+      
+      
+    
+      
+      
+    
+      
+      
 
         
 
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
       
     
       
@@ -1183,8 +1231,8 @@
         
   
     <h1 id="jeu-de-champs-brgcdsfieldset">Jeu de champs <br><code>&lt;gcds-fieldset&gt;</code></h1>
-<p><em>Autres noms : champ de formulaire.</em></p>
-<p>Un jeu de champs est un groupe de plusieurs composants ou éléments d'un formulaire.</p>
+<p><em>Autres noms : groupe de champs de formulaire.</em></p>
+<p>Le jeu de champs est un groupe de plusieurs composants ou éléments dans un formulaire.</p>
 <p><ul class="d-flex flex-wrap gap-300">
 <li class="github-link">
 <gcds-link external href="https://github.com/cds-snc/gcds-components/tree/main/packages/web/src/components/gcds-fieldset">GitHub</gcds-link>
@@ -1247,27 +1295,21 @@ Aperçu du composant de jeu de champs
   
 
   <h2 id="structure-du-jeu-de-champs">Structure du jeu de champs</h2>
-<p>Un jeu de champs combine les éléments <code>&lt;fieldset&gt;</code> et <code>&lt;legend&gt;</code> afin de regrouper de façon accessible les champs ou composants de formulaire connexes sans se fier uniquement à la mise en page visuelle.</p>
 <ol class="anatomy-list">
-  <li>La <strong>légende du jeu de champs</strong> décrit le contenu du groupe de composants de formulaire. La légende peut être un bref énoncé descriptif ou un appel à l'action.</li>
-  <li>Le <strong>texte explicatif du jeu de champs</strong> fournit du contexte additionnel pour le contenu du jeu de champs.</li>
-  <li>Le <strong>regroupement des composants</strong> comprend des éléments de chaque composant du jeu de champs.</li>
+  <li>La <strong>légende du jeu de champs</strong> agit comme un titre pour identifier les composants de formulaires groupés qui suivent. Le texte de la légende est aligné à gauche avec la première lettre en majuscule.</li>
+  <li>Le <strong>texte explicatif du jeu de champs</strong> indique les exigences spécifiques pour bien remplir les composants de formulaire groupés.</li>
+  <li>Le <strong>regroupement des composants</strong> est le regroupement de composants de formulaire connexes décrit dans la légende.</li>
 </ol>
-<img class="b-sm b-default p-300" src="/images/fr/components/anatomy/gcds-fieldset-anatomy.svg" alt="L'anatomie du composant jeu de champ identifiant la légende du jeu de champ et son message d'aide suivi de deux composants un à la suite de l'autre identifié comme un groupe de composants. Le premier un champ de texte et le deuxième un menu de sélection."/>
-<h2 id="design-et-accessibilite-des-jeux-de-champs">Design et accessibilité des jeux de champs</h2>
-<h3 id="regrouper-linformation-de-maniere-a-ce-quelle-soit-accessible">Regrouper l'information de manière à ce qu'elle soit accessible</h3>
-<ul class="list-disc mb-300"><li>Regroupez les éléments de formulaire qui font partie d'une tâche ou d'une sous-tâche ou qui sont liés d'une manière ou d'une autre.</li>
-<li>Regroupez les composants de formulaire connexes, sans vous fier uniquement à la mise en page visuelle, afin qu'ils soient accessibles aux personnes aveugles ou malvoyantes.</li>
+<img class="b-sm b-default p-300" src="/images/fr/components/anatomy/gcds-fieldset-anatomy.svg" alt="Structure du jeu de champs montrant les étiquettes « légende » et « texte explicatif ». Le groupe de composants contient deux champs de saisie différents, chacun avec sa propre étiquette inscrite à la hiérarchie des titres et son propre texte explicatif."/>
+<h2 id="design-et-accessibilite-pour-le-composant-jeu-de-champs">Design et accessibilité pour le composant jeu de champs</h2>
+<p>Un jeu de champs combine les éléments <code>fieldset</code> et <code>legend</code> pour regrouper des champs ou des composants de formulaire connexes. Il aide les utilisateur·rice·s de lecteurs d’écran à comprendre que les champs de saisie sont tous liés à cette question.</p>
+<h3 id="regrouper-linformation">Regrouper l’information</h3>
+<ul class="list-disc mb-300"><li>Regroupez les éléments de formulaire qui font partie d’une tâche ou qui sont liés d’une manière ou d’une autre.</li>
+<li>Évitez d’utiliser un jeu de champs lorsque vous avez un seul champ de formulaire qui demande une seule information.</li>
 </ul>
-<h3 id="rediger-le-contenu-du-jeu-de-champs-pour-favoriser-la-reussite-de-la-tache">Rédiger le contenu du jeu de champs pour favoriser la réussite de la tâche</h3>
-<ul class="list-disc mb-300"><li>Utilisez la légende pour informer une personne sur l'endroit où elle se trouve dans un flux ou une tâche en incluant des repères comme le nom de la section et le numéro de l'étape.</li>
-<li>Aidez les répondant·e·s à comprendre la relation entre l'information que vous demandez et la tâche ou la sous-tâche qu'ils et elles réalisent en incluant un résumé dans la légende.</li>
-<li>Remplacez les questions par des énoncés afin de réduire le texte de la légende.</li>
-</ul>
-<h3 id="clarifier-la-question-pour-les-boutons-radio-et-les-cases-a-cocher">Clarifier la question pour les boutons radio et les cases à cocher</h3>
-<ul class="list-disc mb-300"><li>Pour les <a href="">boutons radio</a> et les <a href="/fr/composants/case-a-cocher">cases à cocher</a>, la légende se situe là ou on retrouve le libellé de champ dans les autres composants.</li>
-<li>Utilisez le texte explicatif du jeu de champs pour donner plus de précisions à une personne sur la façon de répondre. Dans le cas d'une case à cocher, le texte explicatif pourrait indiquer : « Sélectionner toutes les options qui s'appliquent ». Dans le cas d'un bouton radio, le texte explicatif pourrait indiquer : « Sélectionnez la réponse qui convient le mieux ».</li>
-<li>Évitez d'utiliser un jeu de champs lorsqu'un composant de formulaire ne propose qu'une seule option de réponse et qu'aucune sélection n'est requise.</li>
+<h3 id="rediger-du-contenu-du-jeu-de-champs-qui-favorise-la-reussite-de-la-tache">Rédiger du contenu du jeu de champs qui favorise la réussite de la tâche</h3>
+<ul class="list-disc mb-300"><li>Rédigez un court énoncé descriptif ou un appel à l’action pour la légende afin de rendre claire l'information demandée par le groupe du jeu de champs.</li>
+<li>Identifiez la sous-tâche dans la légende pour aider les gens à comprendre le lien entre les renseignements demandés et la tâche à réaliser.</li>
 </ul>
 
 
@@ -1303,7 +1345,7 @@ Aperçu du composant de jeu de champs
 
 
         <gcds-date-modified class="mb-300">
-          2025-06-03
+          2025-06-04
         </gcds-date-modified>
       </main>
 

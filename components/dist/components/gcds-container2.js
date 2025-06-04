@@ -19,7 +19,7 @@ const GcdsContainer = /*@__PURE__*/ proxyCustomElement(class GcdsContainer exten
     render() {
         const { border, centered, mainContainer, margin, padding, size, tag } = this;
         const Tag = tag;
-        return (h(Host, { key: '1a0d300e83cc191fccd62309d50acf2651fcf0de' }, h(Tag, { key: '57ebd74a5c1ffce5d67f85cac933bf108f36b450', class: `
+        return (h(Host, { key: 'c773aa318c0dd603cfe509cd4d023b988bdecece' }, h(Tag, { key: '4cda1734f0e3c01a01f6e717d1ae7165c53ae39a', class: `
             gcds-container
             ${border ? 'container-border' : ''}
             ${centered ? 'container-centered' : ''}
@@ -27,7 +27,7 @@ const GcdsContainer = /*@__PURE__*/ proxyCustomElement(class GcdsContainer exten
             ${margin ? `m-${margin}` : ''}
             ${padding ? `p-${padding}` : ''}
             ${size ? `size-${size}` : ''}
-          ` }, h("slot", { key: '8ad3d9262e75693298a9a567aac2b9731c5ad96d' }))));
+          ` }, h("slot", { key: 'e8056d57376fc6322f29ec99b5349808b70fd1a8' }))));
     }
     get el() { return this; }
     static get style() { return GcdsContainerStyle0; }

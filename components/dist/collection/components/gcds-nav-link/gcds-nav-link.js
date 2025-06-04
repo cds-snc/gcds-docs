@@ -46,7 +46,7 @@ export class GcdsNavLink {
         if (current) {
             linkAttrs['aria-current'] = 'page';
         }
-        return (h(Host, { key: '32ea4108ff71d895c105a9d0faca30969c9f5e79', role: "listitem" }, h("a", Object.assign({ key: 'e3833e2000d7d835f22706381ba8bbaf0b827c81', class: `gcds-nav-link gcds-nav-link--${this.navStyle}`, href: href }, linkAttrs, { tabIndex: 0, onBlur: () => this.gcdsBlur.emit(), onFocus: () => this.gcdsFocus.emit(), onClick: e => emitEvent(e, this.gcdsClick, href), ref: element => (this.linkElement = element) }), h("slot", { key: '916d4530c67fcf93f3ac8e7efed557be07df4541' }))));
+        return (h(Host, { key: 'a381fdebeff295a9a9e40ff6f09bab36e12256d2', role: "listitem" }, h("a", Object.assign({ key: '374dc368ccd6314793c1bccc6a6d25029bc5861d', class: `gcds-nav-link gcds-nav-link--${this.navStyle}`, href: href }, linkAttrs, { tabIndex: 0, onBlur: () => this.gcdsBlur.emit(), onFocus: () => this.gcdsFocus.emit(), onClick: e => emitEvent(e, this.gcdsClick, href), ref: element => (this.linkElement = element) }), h("slot", { key: 'e558346c42b2eeee6907d4c671729ed711b6cc12' }))));
     }
     static get is() { return "gcds-nav-link"; }
     static get encapsulation() { return "shadow"; }

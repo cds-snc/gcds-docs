@@ -1,153 +1,28 @@
-import { Host, h, } from "@stencil/core";
-import { assignLanguage, observerConfig, inheritAttributes, } from "../../utils/utils";
-import { defaultValidator, getValidator, requiredValidator, } from "../../validators";
-import { validateFieldsetElements } from "../../validators/fieldset-validators/fieldset-validators";
+import { Host, h } from "@stencil/core";
+import { inheritAttributes } from "../../utils/utils";
 import i18n from "./i18n/i18n";
 export class GcdsFieldset {
     constructor() {
-        this.isDateInput = false;
-        this._validator = defaultValidator;
-        this.fieldsetId = undefined;
-        this.legend = undefined;
-        this.required = undefined;
-        this.errorMessage = undefined;
         this.hint = undefined;
-        this.disabled = undefined;
-        this.validator = undefined;
-        this.validateOn = undefined;
-        this.hasError = undefined;
-        this.lang = undefined;
+        this.legend = undefined;
+        this.legendSize = undefined;
         this.inheritedAttributes = {};
     }
-    validateErrorMessage() {
-        if (this.disabled) {
-            this.errorMessage = '';
+    validateLegendSize(newValue) {
+        const values = ['h2', 'h3', 'h4', 'h5', 'h6'];
+        if (!values.includes(newValue)) {
+            console.error(`${i18n['en'].legendSizeError} | ${i18n['fr'].legendSizeError}`);
         }
-        else if (!this.hasError && this.errorMessage) {
-            this.hasError = true;
-        }
-        else if (this.errorMessage == '') {
-            this.hasError = false;
-        }
-    }
-    validateDisabledFieldset() {
-        if (this.required) {
-            this.disabled = false;
-        }
-        if (this.disabled == true) {
-            for (let i = 0; i < this.el.children.length; i++) {
-                this.el.children[i].setAttribute('disabled', '');
-            }
-        }
-    }
-    handleDisabledChange(newValue, _oldValue) {
-        if (_oldValue && newValue != _oldValue) {
-            for (let i = 0; i < this.el.children.length; i++) {
-                this.el.children[i].removeAttribute('disabled');
-            }
-        }
-    }
-    validateValidator() {
-        if (this.validator && !this.validateOn) {
-            this.validateOn = 'blur';
-        }
-    }
-    /**
-     * Call any active validators
-     */
-    async validate() {
-        if (!this._validator.validate(this.fieldsetId) &&
-            this._validator.errorMessage) {
-            this.errorMessage = this._validator.errorMessage[this.lang];
-            this.gcdsGroupError.emit(this.errorMessage);
-            this.gcdsError.emit({
-                id: `#${this.fieldsetId}`,
-                message: `${this.legend} - ${this.errorMessage}`,
-            });
-        }
-        else {
-            this.errorMessage = '';
-            this.gcdsGroupErrorClear.emit();
-            this.gcdsValid.emit({ id: `#${this.fieldsetId}` });
-        }
-    }
-    blurValidate() {
-        if (this.validator &&
-            this.validateOn == 'blur' &&
-            !this.el.matches(':focus-within')) {
-            this.validate();
-        }
-    }
-    /**
-     * Event listener for gcds-fieldset errors
-     */
-    gcdsParentGroupError(e) {
-        if (e.srcElement == this.el &&
-            validateFieldsetElements(this.el, this.el.children).includes(false)) {
-            this.hasError = true;
-        }
-    }
-    gcdsParentGroupErrorClear(e) {
-        if (e.srcElement == this.el && this.hasError) {
-            this.hasError = false;
-        }
-    }
-    submitListener(e) {
-        if (e.target == this.el.closest('form')) {
-            if (this.validateOn && this.validateOn != 'other') {
-                this.validate();
-            }
-            if (this.hasError) {
-                e.preventDefault();
-            }
-        }
-    }
-    /*
-     * Observe lang attribute change
-     */
-    updateLang() {
-        const observer = new MutationObserver(mutations => {
-            if (mutations[0].oldValue != this.el.lang) {
-                this.lang = this.el.lang;
-            }
-        });
-        observer.observe(this.el, observerConfig);
     }
     async componentWillLoad() {
-        // Define lang attribute
-        this.lang = assignLanguage(this.el);
-        this.updateLang();
-        this.validateDisabledFieldset();
-        this.validateErrorMessage();
-        this.validateValidator();
-        // Assign required validator if needed
-        if (this.el.getAttribute('data-date')) {
-            this.isDateInput = true;
-        }
-        else {
-            requiredValidator(this.el, 'fieldset');
-        }
-        if (this.validator) {
-            this._validator = getValidator(this.validator);
-        }
+        // Validate attributes and set defaults
+        this.validateLegendSize(this.legendSize);
         this.inheritedAttributes = inheritAttributes(this.el, this.shadowElement);
     }
-    componentWillUpdate() {
-        if (this.validator) {
-            this._validator = getValidator(this.validator);
-        }
-    }
     render() {
-        const { lang, fieldsetId, legend, required, errorMessage, hasError, hint, disabled, inheritedAttributes, } = this;
-        const fieldsetAttrs = Object.assign({ disabled }, inheritedAttributes);
-        if (errorMessage) {
-            fieldsetAttrs['aria-describedby'] = `error-message-${fieldsetId} ${fieldsetAttrs['aria-describedby']
-                ? ` ${fieldsetAttrs['aria-describedby']}`
-                : ''}`;
-        }
-        return (h(Host, { key: '28b6b012db193345b89688a3a49c23f46304c285' }, h("fieldset", Object.assign({ key: 'f540690d1a3f4f5cc430b581aa0ad4acd37c0df5', class: `gcds-fieldset ${hasError ? 'gcds-fieldset--error' : ''}`, id: fieldsetId }, fieldsetAttrs, { "aria-labelledby": hint
-                ? `legend-${fieldsetId} hint-${fieldsetId}`
-                : `legend-${fieldsetId}`, tabindex: "-1", ref: element => (this.shadowElement = element) }), h("legend", { key: 'b95da10304c515c19ad7610b10bc1ec6671b9918', id: `legend-${fieldsetId}` }, legend, required ? (h("span", { class: "legend__required" }, "(", i18n[lang].required, ")")) : null), hint ? h("gcds-hint", { "hint-id": fieldsetId }, hint) : null, errorMessage ? (h("gcds-error-message", { messageId: fieldsetId }, errorMessage)) : null, h("slot", { key: '4b72b0dec46d47075fa3edd6c693e24fa146dd7f' }))));
+        const { hint, inheritedAttributes, legend, legendSize } = this;
+        const fieldsetAttrs = Object.assign({}, inheritedAttributes);
+        return (h(Host, { key: 'bdaa72f102073eece68355e87838668eaed71a23' }, h("fieldset", Object.assign({ key: 'b38edf3c89849186293ddce49df1a28b445798a6', class: "gcds-fieldset" }, fieldsetAttrs, { "aria-labelledby": hint ? `fieldset-legend fieldset-hint` : `fieldset-legend`, tabindex: "-1", ref: element => (this.shadowElement = element) }), h("legend", { key: 'dd2da6134098fe927b3f50303f374c7637c818de', id: "fieldset-legend", class: `size-${legendSize}` }, legend), hint ? (h("gcds-hint", { id: "fieldset-hint", "hint-id": "fieldset" }, hint)) : null, h("slot", { key: 'b916b63948f59a490d9dbc7d4b0598f270e13bb6' }))));
     }
     static get is() { return "gcds-fieldset"; }
     static get encapsulation() { return "shadow"; }
@@ -164,7 +39,7 @@ export class GcdsFieldset {
     }
     static get properties() {
         return {
-            "fieldsetId": {
+            "hint": {
                 "type": "string",
                 "mutable": false,
                 "complexType": {
@@ -172,13 +47,13 @@ export class GcdsFieldset {
                     "resolved": "string",
                     "references": {}
                 },
-                "required": true,
+                "required": false,
                 "optional": false,
                 "docs": {
                     "tags": [],
-                    "text": "The unique identifier for the component"
+                    "text": "Hint displayed below the legend."
                 },
-                "attribute": "fieldset-id",
+                "attribute": "hint",
                 "reflect": true
             },
             "legend": {
@@ -198,255 +73,35 @@ export class GcdsFieldset {
                 "attribute": "legend",
                 "reflect": true
             },
-            "required": {
-                "type": "boolean",
-                "mutable": false,
-                "complexType": {
-                    "original": "boolean",
-                    "resolved": "boolean",
-                    "references": {}
-                },
-                "required": false,
-                "optional": false,
-                "docs": {
-                    "tags": [],
-                    "text": "Flag the contents are required"
-                },
-                "attribute": "required",
-                "reflect": true
-            },
-            "errorMessage": {
+            "legendSize": {
                 "type": "string",
                 "mutable": true,
                 "complexType": {
-                    "original": "string",
-                    "resolved": "string",
+                    "original": "'h2' | 'h3' | 'h4' | 'h5' | 'h6'",
+                    "resolved": "\"h2\" | \"h3\" | \"h4\" | \"h5\" | \"h6\"",
                     "references": {}
                 },
-                "required": false,
+                "required": true,
                 "optional": false,
                 "docs": {
                     "tags": [],
-                    "text": "Error message for invalid form elements in group."
+                    "text": "Sets the appropriate font size for the fieldset legend."
                 },
-                "attribute": "error-message",
-                "reflect": true
-            },
-            "hint": {
-                "type": "string",
-                "mutable": false,
-                "complexType": {
-                    "original": "string",
-                    "resolved": "string",
-                    "references": {}
-                },
-                "required": false,
-                "optional": false,
-                "docs": {
-                    "tags": [],
-                    "text": "Hint displayed below the legend."
-                },
-                "attribute": "hint",
-                "reflect": true
-            },
-            "disabled": {
-                "type": "boolean",
-                "mutable": true,
-                "complexType": {
-                    "original": "boolean",
-                    "resolved": "boolean",
-                    "references": {}
-                },
-                "required": false,
-                "optional": false,
-                "docs": {
-                    "tags": [],
-                    "text": "Flag to disable fieldset and its contents"
-                },
-                "attribute": "disabled",
-                "reflect": true
-            },
-            "validator": {
-                "type": "unknown",
-                "mutable": true,
-                "complexType": {
-                    "original": "Array<\n    string | ValidatorEntry | Validator<string>\n  >",
-                    "resolved": "(string | ValidatorEntry | Validator<string>)[]",
-                    "references": {
-                        "Array": {
-                            "location": "global",
-                            "id": "global::Array"
-                        },
-                        "ValidatorEntry": {
-                            "location": "import",
-                            "path": "../../validators",
-                            "id": "src/validators/index.ts::ValidatorEntry"
-                        },
-                        "Validator": {
-                            "location": "import",
-                            "path": "../../validators",
-                            "id": "src/validators/index.ts::Validator"
-                        }
-                    }
-                },
-                "required": false,
-                "optional": false,
-                "docs": {
-                    "tags": [],
-                    "text": "Array of validators"
-                }
-            },
-            "validateOn": {
-                "type": "string",
-                "mutable": true,
-                "complexType": {
-                    "original": "'blur' | 'submit' | 'other'",
-                    "resolved": "\"blur\" | \"other\" | \"submit\"",
-                    "references": {}
-                },
-                "required": false,
-                "optional": false,
-                "docs": {
-                    "tags": [],
-                    "text": "Set event to call validator"
-                },
-                "attribute": "validate-on",
+                "attribute": "legend-size",
                 "reflect": false
             }
         };
     }
     static get states() {
         return {
-            "hasError": {},
-            "lang": {},
             "inheritedAttributes": {}
-        };
-    }
-    static get events() {
-        return [{
-                "method": "gcdsGroupError",
-                "name": "gcdsGroupError",
-                "bubbles": true,
-                "cancelable": true,
-                "composed": true,
-                "docs": {
-                    "tags": [],
-                    "text": "Emitted when the fieldset has a validation error."
-                },
-                "complexType": {
-                    "original": "string",
-                    "resolved": "string",
-                    "references": {}
-                }
-            }, {
-                "method": "gcdsGroupErrorClear",
-                "name": "gcdsGroupErrorClear",
-                "bubbles": true,
-                "cancelable": true,
-                "composed": true,
-                "docs": {
-                    "tags": [],
-                    "text": "Emitted when the fieldset has a validation error."
-                },
-                "complexType": {
-                    "original": "void",
-                    "resolved": "void",
-                    "references": {}
-                }
-            }, {
-                "method": "gcdsError",
-                "name": "gcdsError",
-                "bubbles": true,
-                "cancelable": true,
-                "composed": true,
-                "docs": {
-                    "tags": [],
-                    "text": "Emitted when the fieldset has a validation error."
-                },
-                "complexType": {
-                    "original": "object",
-                    "resolved": "object",
-                    "references": {}
-                }
-            }, {
-                "method": "gcdsValid",
-                "name": "gcdsValid",
-                "bubbles": true,
-                "cancelable": true,
-                "composed": true,
-                "docs": {
-                    "tags": [],
-                    "text": "Emitted when the fieldset has a validation error."
-                },
-                "complexType": {
-                    "original": "object",
-                    "resolved": "object",
-                    "references": {}
-                }
-            }];
-    }
-    static get methods() {
-        return {
-            "validate": {
-                "complexType": {
-                    "signature": "() => Promise<void>",
-                    "parameters": [],
-                    "references": {
-                        "Promise": {
-                            "location": "global",
-                            "id": "global::Promise"
-                        }
-                    },
-                    "return": "Promise<void>"
-                },
-                "docs": {
-                    "text": "Call any active validators",
-                    "tags": []
-                }
-            }
         };
     }
     static get elementRef() { return "el"; }
     static get watchers() {
         return [{
-                "propName": "errorMessage",
-                "methodName": "validateErrorMessage"
-            }, {
-                "propName": "disabled",
-                "methodName": "validateDisabledFieldset"
-            }, {
-                "propName": "disabled",
-                "methodName": "handleDisabledChange"
-            }, {
-                "propName": "validator",
-                "methodName": "validateValidator"
-            }];
-    }
-    static get listeners() {
-        return [{
-                "name": "gcdsBlur",
-                "method": "blurValidate",
-                "target": undefined,
-                "capture": false,
-                "passive": false
-            }, {
-                "name": "gcdsGroupError",
-                "method": "gcdsParentGroupError",
-                "target": "body",
-                "capture": false,
-                "passive": false
-            }, {
-                "name": "gcdsGroupErrorClear",
-                "method": "gcdsParentGroupErrorClear",
-                "target": "body",
-                "capture": false,
-                "passive": false
-            }, {
-                "name": "submit",
-                "method": "submitListener",
-                "target": "document",
-                "capture": false,
-                "passive": false
+                "propName": "legendSize",
+                "methodName": "validateLegendSize"
             }];
     }
 }

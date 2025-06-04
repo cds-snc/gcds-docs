@@ -137,9 +137,57 @@
     
       
       
+    
+      
+      
+    
+      
+      
+    
+      
+      
 
         
 
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
       
     
       
@@ -1183,8 +1231,8 @@
         
   
     <h1 id="jeu-de-champs-brgcdsfieldset">Jeu de champs <br><code>&lt;gcds-fieldset&gt;</code></h1>
-<p><em>Autres noms : champ de formulaire.</em></p>
-<p>Un jeu de champs est un groupe de plusieurs composants ou éléments d'un formulaire.</p>
+<p><em>Autres noms : groupe de champs de formulaire.</em></p>
+<p>Le jeu de champs est un groupe de plusieurs composants ou éléments dans un formulaire.</p>
 <p><ul class="d-flex flex-wrap gap-300">
 <li class="github-link">
 <gcds-link external href="https://github.com/cds-snc/gcds-components/tree/main/packages/web/src/components/gcds-fieldset">GitHub</gcds-link>
@@ -1246,41 +1294,11 @@ Aperçu du composant de jeu de champs
     </nav>
   
 
-  <h2 id="creer-un-composant-de-jeu-de-champs">Créer un composant de jeu de champs</h2>
-<p>Utilisez un jeu de champs pour regrouper des éléments ou des composants de formulaire connexes et faites en sorte que ces groupes soient perceptibles. Utilisez également un jeu de champs pour les composants comportant plusieurs options, comme les boutons <a href="">radio</a> et les <a href="/fr/composants/case-a-cocher">cases à cocher</a>.</p>
+  <h2 id="creer-un-jeu-de-champs">Créer un jeu de champs</h2>
+<p>Utilisez un jeu de champs pour regrouper des composants de formulaire connexes dans les situations suivantes :</p>
 <h2 id="codage-et-accessibilite-des-jeux-de-champs">Codage et accessibilité des jeux de champs</h2>
-<h3 id="traiter-les-messages-derreur-et-la-validation">Traiter les messages d'erreur et la validation</h3>
-<ul class="list-disc mb-300"><li>
-<p>Utilisez l'attribut <code>required</code> pour activer le valideur de champ obligatoire. La validation s'effectuera par défaut pendant l'évènement <code>onBlur</code>. Une réponse manquante ou non valide affichera un message d'erreur intercalé prédéfini.</p>
-</li>
-<li>
-<p>Si vous devez modifier l'évènement de validation, utilisez l'attribut <code>validate-on</code>. La validation peut se produire pendant l'évènement onBlur, lorsque l'élément perd son état ciblé, ou de façon manuelle avec la méthode <code>validate()</code>.</p>
-</li>
-<li>
-<p>Utilisez l'attribut <code>required</code> pour les champs qui doivent obligatoirement être remplis. La mention « obligatoire » sera alors ajoutée à la fin de l'étiquette.</p>
-</li>
-<li>
-<p>Utilisez l'attribut <code>error-message</code> pour inclure un message d'erreur pour tous les champs de saisie obligatoires. Évitez d'utiliser des messages d'erreur pour les champs de saisie facultatifs.</p>
-</li>
-<li>
-<p>Pour les champs facultatifs, évitez d'ajouter l'attribut <code>error-message</code>.</p>
-</li>
-<li>
-<p>Pour un champ facultatif nécessitant une validation qui dépend de ce que l'utilisateur a saisi (par exemple pour valider un format d'adresse courriel), ajoutez plutôt une validation et un message d'erreur personnalisés.</p>
-</li>
-</ul>
-<h3 id="gardez-le-texte-explicatif-fixe-et-visible">Gardez le texte explicatif fixe et visible</h3>
-<p>Ajoutez du texte explicatif par défaut pour fournir du contexte supplémentaire afin d'aider les utilisateur·rice·s à saisir des valeurs complètes et éviter les erreurs. Le texte explicatif s'insère sous la légende du jeu de champs et au-dessus du groupe.</p>
-<h3 id="prendre-en-charge-les-messages-derreur-et-le-texte-explicatif-pour-les-boutons-radio-et-les-cases-a-cocher">Prendre en charge les messages d'erreur et le texte explicatif pour les boutons radio et les cases à cocher</h3>
-<ul class="list-disc mb-300"><li>Les attributs <code>required</code> et <code>error-message</code> fonctionnent mieux avec un groupe de <a href="/fr/composants/case-a-cocher">cases à cocher</a> ou de <a href="">boutons radio</a>.</li>
-<li>Conservez le texte explicatif, les validateurs et les messages d'erreur par défaut dans le jeu de champs pour les boutons radio et les cases à cocher.</li>
-<li>Pour les boutons radio et les <a href="/fr/composants/champ-de-saisie">cases à cocher</a>, insérez la question dans la légende afin d'aider les utilisateur·rice·s de lecteurs d'écran à comprendre que les entrées sont toutes liées.</li>
-</ul>
-<h3 id="validateurs">Validateurs</h3>
-<p>Le jeu de champs ne validera que les <a href="/fr/composants/case-a-cocher">cases à cocher</a> et les <a href="">boutons radio</a> enfants.</p>
-<ul class="list-disc mb-300"><li>Utilisez la propriété requise pour activer le validateur approprié. La validation s'effectuera par défaut pendant l'événement <code>onBlur</code>.</li>
-<li>Si vous devez modifier l'événement de validation, utilisez l'attribut <code>validate-on</code>. Une validation <code>blur</code> est possible lorsque l'élément n'est plus ciblé. Il est également possible de procéder à une validation manuelle avec la méthode validate.</li>
-</ul>
+<h3 id="hierarchie-des-titres">Hiérarchie des titres</h3>
+<p>Utilisez l’attribut <code>legend-size</code> pour placer visuellement la légende parmi les titres de la page. Définissez la valeur de l’attribut à <code>h2</code> | <code>h3</code> | <code>h4</code> | <code>h5</code> | <code>h6</code> pour donner à la légende du jeu de champs la taille appropriée.</p>
 <h3 id="obtenez-votre-code">Obtenez votre code</h3>
 <p>Générez une version du composant dont vous avez besoin en sélectionnant les propriétés de code correspondantes ou explorez les possibilités en choisissant différentes valeurs de code.</p>
 <ol class="list-decimal mb-300"><li>
@@ -1337,7 +1355,7 @@ Aperçu du composant de jeu de champs
 
 
         <gcds-date-modified class="mb-300">
-          2025-06-03
+          2025-06-04
         </gcds-date-modified>
       </main>
 

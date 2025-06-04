@@ -16,12 +16,12 @@ export class GcdsDetails {
     }
     render() {
         const { detailsTitle, open } = this;
-        return (h(Host, { key: '17839f99ea3d7d6f190a7bc5df72d1e056e09b3c' }, h("div", { key: '5ebfa6b8c4b0317728ebb114a0dac1b3574ceda8', class: "gcds-details" }, h("button", { key: '3e02dfd0ca368a4758a79edbf2b125e721427ce3', "aria-expanded": open.toString(), "aria-controls": "details__panel", onBlur: () => this.gcdsBlur.emit(), onFocus: () => this.gcdsFocus.emit(), onClick: e => {
+        return (h(Host, { key: '6d6050eb05cee9ffe72e93881dd7d2465846551a' }, h("div", { key: '9c1a67b54b602f6e4bc3c4472631b3bbe35217de', class: "gcds-details" }, h("button", { key: '7626fa188fa20abd22405efb652ec5a04b1db042', "aria-expanded": open.toString(), "aria-controls": "details__panel", onBlur: () => this.gcdsBlur.emit(), onFocus: () => this.gcdsFocus.emit(), onClick: e => {
                 const event = emitEvent(e, this.gcdsClick);
                 if (event) {
                     this.toggle();
                 }
-            }, class: "details__summary", id: "details__summary" }, detailsTitle), h("div", { key: 'a12601d1dcad1cff247c32a59aeacdbe14100c6f', id: "details__panel", class: "details__panel", "aria-labelledby": "details__summary" }, h("slot", { key: '11209ad4acd9a6f6d678e1fb7047b070339779b2' })))));
+            }, class: "details__summary", id: "details__summary" }, detailsTitle), h("div", { key: '483e4e1f8cca9cd32c68acfdc9e79b11332faf6c', id: "details__panel", class: "details__panel", "aria-labelledby": "details__summary" }, h("slot", { key: '6a91db99b4d14fc480199620a46793d8579a394c' })))));
     }
     static get is() { return "gcds-details"; }
     static get encapsulation() { return "shadow"; }

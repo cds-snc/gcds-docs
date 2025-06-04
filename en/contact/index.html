@@ -674,9 +674,57 @@
     
       
       
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
 
         
 
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
       
     
       
@@ -1194,12 +1242,23 @@
 <p><gcds-input type="text" name="name" input-id="name" label="Full name" autocomplete="name" required></gcds-input>
 <gcds-input type="email" name="email" input-id="email" label="Email address" autocomplete="email" required></gcds-input>
 <gcds-textarea name="message" label="Provide your feedback or ask a question if you need help" hint="Never include personal (Protected) information." textarea-id="message"></gcds-textarea></p>
-  <gcds-fieldset fieldset-id="learnMore" legend="Receive communication from GC Design System" hint="If you’d like us to contact you, choose one or both options.">
-    <gcds-checkbox checkbox-id="learnMoreMailingList" label="Sign me up for the mailing list." value="learn-more-mailing-list" name="learn-more-mailing-list"></gcds-checkbox>
-    <gcds-checkbox checkbox-id="learnMoreResearch" label="Contact me for usability research." value="learn-more-mailing-list" name="learn-more-research"></gcds-checkbox>
+  <gcds-fieldset legend="Receive communication from GC Design System" legend-size="h3" hint="If you'd like us to contact you, choose one or both options.">
+    <gcds-checkboxes name="learn-more-mailing-list" options="[
+	{
+		&quot;id&quot;: &quot;learnMoreMailingList&quot;,
+		&quot;label&quot;: &quot;Sign me up for the mailing list.&quot;,
+		&quot;value&quot;: &quot;learn-more-mailing-list&quot;
+	}
+]"></gcds-checkboxes>
+    <gcds-checkboxes name="learn-more-research" options="[
+	{
+		&quot;id&quot;: &quot;learnMoreResearch&quot;,
+		&quot;label&quot;: &quot;Contact me for usability research.&quot;,
+		&quot;value&quot;: &quot;learn-more-mailing-list&quot;
+	}
+]"></gcds-checkboxes>
   </gcds-fieldset>
-  <gcds-fieldset fieldset-id="familiarityGCDS" legend="Select your experience with GC Design System to date " hint="Choose 1 option." required>
-    <gcds-radio-group name="familiarityGCDS" options='[
+<p><gcds-radios legend="Select your experience with GC Design System to date" hint="Choose 1 option." name="familiarityGCDS" options='[
 	{
 		&quot;id&quot;: &quot;familiarityUsingGCDS&quot;,
 		&quot;label&quot;: &quot;I&apos;m currently using GC Design System.&quot;,
@@ -1216,8 +1275,7 @@
 		&quot;value&quot;: &quot;I&apos;ve never used GC Design System.&quot;
 	}
 ]'>
-    </gcds-radio-group>
-  </gcds-fieldset>
+</gcds-radios></p>
   <div hidden>
     <gcds-input type="text" name="bot-field" input-id="bot-field" label="bot"></gcds-input>
   </div>
@@ -1228,7 +1286,7 @@
 
 
         <gcds-date-modified class="mb-300">
-          2025-06-03
+          2025-06-04
         </gcds-date-modified>
       </main>
 

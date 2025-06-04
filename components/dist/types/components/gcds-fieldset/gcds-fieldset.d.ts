@@ -1,93 +1,26 @@
-import { EventEmitter } from '../../stencil-public-runtime';
-import { Validator, ValidatorEntry } from '../../validators';
 export declare class GcdsFieldset {
     el: HTMLElement;
     private shadowElement?;
-    isDateInput: boolean;
-    _validator: Validator<string>;
     /**
      * Props
      */
-    /**
-     * The unique identifier for the component
-     */
-    fieldsetId: string;
-    /**
-     * The title for the contents of the fieldset
-     */
-    legend: string;
-    /**
-     * Flag the contents are required
-     */
-    required: boolean;
-    /**
-     * Error message for invalid form elements in group.
-     */
-    errorMessage: string;
-    validateErrorMessage(): void;
     /**
      * Hint displayed below the legend.
      */
     hint: string;
     /**
-     * Flag to disable fieldset and its contents
+     * The title for the contents of the fieldset
      */
-    disabled: boolean;
-    validateDisabledFieldset(): void;
-    handleDisabledChange(newValue: boolean, _oldValue: boolean): void;
+    legend: string;
     /**
-     * Array of validators
+     * Sets the appropriate font size for the fieldset legend.
      */
-    validator: Array<string | ValidatorEntry | Validator<string>>;
-    validateValidator(): void;
-    /**
-     * Set event to call validator
-     */
-    validateOn: 'blur' | 'submit' | 'other';
-    /**
-     * State to handle errors
-     */
-    hasError: boolean;
-    /**
-     * Language of rendered component
-     */
-    lang: string;
+    legendSize: 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
+    validateLegendSize(newValue: string): void;
     /**
      * Set additional HTML attributes not available in component properties
      */
     inheritedAttributes: Object;
-    /**
-     * Events
-     */
-    /**
-     * Emitted when the fieldset has a validation error.
-     */
-    gcdsGroupError: EventEmitter<string>;
-    /**
-     * Emitted when the fieldset has a validation error.
-     */
-    gcdsGroupErrorClear: EventEmitter<void>;
-    /**
-     * Call any active validators
-     */
-    validate(): Promise<void>;
-    blurValidate(): void;
-    /**
-     * Event listener for gcds-fieldset errors
-     */
-    gcdsParentGroupError(e: any): void;
-    gcdsParentGroupErrorClear(e: any): void;
-    /**
-     * Emitted when the fieldset has a validation error.
-     */
-    gcdsError: EventEmitter<object>;
-    /**
-     * Emitted when the fieldset has a validation error.
-     */
-    gcdsValid: EventEmitter<object>;
-    submitListener(e: any): void;
-    updateLang(): void;
     componentWillLoad(): Promise<void>;
-    componentWillUpdate(): void;
     render(): any;
 }

@@ -105,6 +105,36 @@ export const logError = (name, errorArr, optionalAttrsArrToRemove) => {
     }
     console.error(`${name}: ${engMsg} (${errors}) | ${name}: ${frMsg} (${errors})`);
 };
+/* Log validation error for required properties in components
+ * @param errors - array of attributes with errors
+ * @param propertyName - name of the property being checked
+ * @param property - value of the property being checked
+ * @param external - boolean value for an external check on property value
+ * @returns modified array of errors
+ */
+export const handleErrors = (errors, propertyName, property, external = false) => {
+    if ((property && typeof property === 'string' && property.trim() === '') ||
+        !property ||
+        property === '' ||
+        external) {
+        if (!errors.includes(propertyName)) {
+            errors.push(propertyName);
+        }
+    }
+    else if (errors.includes(propertyName)) {
+        errors.splice(errors.indexOf(propertyName), 1);
+    }
+    return errors;
+};
+/* Compare errors array to required props array
+ * @param errors - array of attributes with errors
+ * @param requiredProps - array of required properties to check against
+ * @returns boolean if no matching errors
+ */
+export const isValid = (errors, requiredProps) => {
+    const intersection = errors.filter(x => requiredProps.includes(x));
+    return intersection.length > 0 ? false : true;
+};
 /* Check for valid date
  * @param dateString - the date to check
  */

@@ -1,16 +1,16 @@
 import { defaultValidator, combineValidators, } from "./validator";
-import { requiredField, requiredEmailField, requiredFileInput, requiredSelectField, requiredDateInput, } from "./input-validators/input-validators";
-import { requiredCheck } from "./checkbox-validators/checkbox-validators";
-import { requiredFieldset } from "./fieldset-validators/fieldset-validators";
+import { requiredField, requiredEmailField, requiredFileInput, requiredSelectField, requiredDateInput, requiredRadio, requiredCheckboxGroup, requiredCheckboxSingle, } from "./input-validators/input-validators";
 export var ValidatorsName;
 (function (ValidatorsName) {
     ValidatorsName["requiredField"] = "requiredField";
     ValidatorsName["requiredEmailField"] = "requiredEmailField";
     ValidatorsName["requiredCheck"] = "requiredCheck";
-    ValidatorsName["requiredFieldset"] = "requiredFieldset";
     ValidatorsName["requiredFileInput"] = "requiredFileInput";
     ValidatorsName["requiredSelectField"] = "requiredSelectField";
     ValidatorsName["requiredDateInput"] = "requiredDateInput";
+    ValidatorsName["requiredRadio"] = "requiredRadio";
+    ValidatorsName["requiredCheckboxGroup"] = "requiredCheckboxGroup";
+    ValidatorsName["requiredCheckboxSingle"] = "requiredCheckboxSingle";
 })(ValidatorsName || (ValidatorsName = {}));
 export function getValidator(list) {
     return (list || [])
@@ -37,14 +37,16 @@ export function validatorFactory(name, options) {
             return requiredEmailField;
         case ValidatorsName.requiredSelectField:
             return requiredSelectField;
-        case ValidatorsName.requiredCheck:
-            return requiredCheck;
-        case ValidatorsName.requiredFieldset:
-            return requiredFieldset;
         case ValidatorsName.requiredDateInput:
             return requiredDateInput;
         case ValidatorsName.requiredFileInput:
             return requiredFileInput;
+        case ValidatorsName.requiredRadio:
+            return requiredRadio;
+        case ValidatorsName.requiredCheckboxGroup:
+            return requiredCheckboxGroup;
+        case ValidatorsName.requiredCheckboxSingle:
+            return requiredCheckboxSingle;
         default:
             return defaultValidator;
     }

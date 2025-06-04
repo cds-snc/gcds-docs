@@ -3,11 +3,6 @@ import { assignLanguage, observerConfig } from "../../utils/utils";
 import i18n from "./i18n/i18n";
 export class GcdsLabel {
     constructor() {
-        this.onClick = (ev) => {
-            if (ev.srcElement.tagName == 'GCDS-LABEL') {
-                this.clickEl();
-            }
-        };
         this.hideLabel = undefined;
         this.label = undefined;
         this.labelFor = undefined;
@@ -30,17 +25,9 @@ export class GcdsLabel {
         this.lang = assignLanguage(this.el);
         this.updateLang();
     }
-    /**
-     * Click label if host element is clicked
-     */
-    clickEl() {
-        if (this.focusEl) {
-            this.focusEl.click();
-        }
-    }
     render() {
         const { hideLabel, labelFor, label, required, lang } = this;
-        return (h(Host, { key: '2f4fe7a9d0a0fcea5019edc8158adae424074428', id: `label-for-${labelFor}`, onClick: this.onClick }, h("label", { key: '721461d1eb5818ff6b28f06bb314e27a5c0eb0c5', htmlFor: labelFor, class: `gcds-label ${hideLabel ? 'label--hidden' : ''}`, ref: focusEl => (this.focusEl = focusEl) }, h("span", { key: '0564e25540c9a5ec81fbbba77c72e2892d5ccc51' }, label), required ? (h("span", { "aria-hidden": "true", class: "label--required" }, "(", i18n[lang].required, ")")) : null)));
+        return (h(Host, { key: '9e726e5b4bfe04e7b5d4a9e35a177df57ab1badc', id: `label-for-${labelFor}` }, h("label", { key: '8026d5f89beea7d000e0b78891e0c11ca24eed19', htmlFor: labelFor, class: `gcds-label ${hideLabel ? 'label--hidden' : ''}` }, h("span", { key: '219be69e62f0b64f6afc816bf7b334670a8e68e1' }, label), required ? (h("span", { "aria-hidden": "true", class: "label--required" }, "(", i18n[lang].required, ")")) : null)));
     }
     static get is() { return "gcds-label"; }
     static get encapsulation() { return "scoped"; }

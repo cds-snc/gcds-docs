@@ -67,7 +67,7 @@ const GcdsIcon = /*@__PURE__*/ proxyCustomElement(class GcdsIcon extends HTMLEle
     }
     render() {
         const { label, marginLeft, marginRight, name, size } = this;
-        return (h(Host, { key: 'c1007874d5124b1b6a922176716182ddf1d2856f' }, h("span", { key: '6d1934a3ae40303b9246820187f25bb3eec65648', class: `
+        return (h(Host, { key: '9e8467eb5092e15bc355d76842f3fd5b295cd1cf' }, h("span", { key: '13576b749ede045265726f613283c318440fbab8', class: `
             gcds-icon gcds-icon-${name}
             ${marginLeft ? `ml-${marginLeft}` : ''}
             ${marginRight ? `mr-${marginRight}` : ''}

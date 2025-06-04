@@ -120,7 +120,7 @@ function hydrateFactory($stencilWindow, $stencilHydrateOpts, $stencilHydrateResu
 
 
 const NAMESPACE = 'gcds';
-const BUILD = /* gcds */ { allRenderFn: true, appendChildSlotFix: false, asyncLoading: true, attachStyles: true, cloneNodeFix: false, cmpDidLoad: true, cmpDidRender: false, cmpDidUnload: false, cmpDidUpdate: true, cmpShouldUpdate: false, cmpWillLoad: true, cmpWillRender: false, cmpWillUpdate: true, connectedCallback: false, constructableCSS: false, cssAnnotations: true, devTools: false, disconnectedCallback: false, element: false, event: true, experimentalScopedSlotChanges: false, experimentalSlotFixes: false, formAssociated: true, hasRenderFn: true, hostListener: true, hostListenerTarget: true, hostListenerTargetBody: true, hostListenerTargetDocument: true, hostListenerTargetParent: false, hostListenerTargetWindow: false, hotModuleReplacement: false, hydrateClientSide: true, hydrateServerSide: true, hydratedAttribute: false, hydratedClass: true, hydratedSelectorName: "hydrated", invisiblePrehydration: true, isDebug: false, isDev: false, isTesting: false, lazyLoad: true, lifecycle: true, lifecycleDOMEvents: false, member: true, method: true, mode: false, observeAttribute: true, profile: false, prop: true, propBoolean: true, propMutable: true, propNumber: true, propString: true, reflect: true, scoped: true, scopedSlotTextContentFix: true, scriptDataOpts: false, shadowDelegatesFocus: true, shadowDom: true, shadowDomShim: true, slot: true, slotChildNodesFix: false, slotRelocation: true, state: true, style: true, svg: false, taskQueue: true, updatable: true, vdomAttribute: true, vdomClass: true, vdomFunctional: true, vdomKey: true, vdomListener: true, vdomPropOrAttr: true, vdomRef: true, vdomRender: true, vdomStyle: true, vdomText: true, vdomXlink: true, watchCallback: true };
+const BUILD = /* gcds */ { allRenderFn: true, appendChildSlotFix: false, asyncLoading: true, attachStyles: true, cloneNodeFix: false, cmpDidLoad: true, cmpDidRender: false, cmpDidUnload: false, cmpDidUpdate: true, cmpShouldUpdate: false, cmpWillLoad: true, cmpWillRender: false, cmpWillUpdate: true, connectedCallback: false, constructableCSS: false, cssAnnotations: true, devTools: false, disconnectedCallback: false, element: false, event: true, experimentalScopedSlotChanges: false, experimentalSlotFixes: false, formAssociated: true, hasRenderFn: true, hostListener: true, hostListenerTarget: true, hostListenerTargetBody: false, hostListenerTargetDocument: true, hostListenerTargetParent: false, hostListenerTargetWindow: false, hotModuleReplacement: false, hydrateClientSide: true, hydrateServerSide: true, hydratedAttribute: false, hydratedClass: true, hydratedSelectorName: "hydrated", invisiblePrehydration: true, isDebug: false, isDev: false, isTesting: false, lazyLoad: true, lifecycle: true, lifecycleDOMEvents: false, member: true, method: true, mode: false, observeAttribute: true, profile: false, prop: true, propBoolean: true, propMutable: true, propNumber: true, propString: true, reflect: true, scoped: true, scopedSlotTextContentFix: true, scriptDataOpts: false, shadowDelegatesFocus: true, shadowDom: true, shadowDomShim: true, slot: true, slotChildNodesFix: false, slotRelocation: true, state: true, style: true, svg: false, taskQueue: true, updatable: true, vdomAttribute: true, vdomClass: true, vdomFunctional: true, vdomKey: true, vdomListener: true, vdomPropOrAttr: true, vdomRef: true, vdomRender: true, vdomStyle: true, vdomText: true, vdomXlink: true, watchCallback: true };
 
 /*
  Stencil Hydrate Platform v4.19.2 | MIT Licensed | https://stenciljs.com
@@ -1744,7 +1744,6 @@ var hostListenerProxy = (hostRef, methodName) => (ev) => {
 };
 var getHostListenerTarget = (elm, flags) => {
   if (flags & 4 /* TargetDocument */) return doc;
-  if (flags & 16 /* TargetBody */) return doc.body;
   return elm;
 };
 var hostListenerOpts = (flags) => (flags & 2 /* Capture */) !== 0;
@@ -2359,17 +2358,6 @@ const observerConfig = {
     attributeOldValue: true,
     attributeFilter: ['lang'],
 };
-// For validation - check if element has a checked checkbox/radio sibling
-const elementGroupCheck = name => {
-    let hasCheck = false;
-    const element = document.querySelectorAll(`input[name=${name}]`);
-    for (let i = 0; i < element.length; i++) {
-        if (element[i].checked) {
-            hasCheck = true;
-        }
-    }
-    return !hasCheck;
-};
 // Emit event with logic to cancel HTML events
 // Returns false if event has been prevented
 const emitEvent = (e, customEvent, value) => {
@@ -2400,6 +2388,36 @@ const logError = (name, errorArr, optionalAttrsArrToRemove) => {
         }
     }
     console.error(`${name}: ${engMsg} (${errors}) | ${name}: ${frMsg} (${errors})`);
+};
+/* Log validation error for required properties in components
+ * @param errors - array of attributes with errors
+ * @param propertyName - name of the property being checked
+ * @param property - value of the property being checked
+ * @param external - boolean value for an external check on property value
+ * @returns modified array of errors
+ */
+const handleErrors = (errors, propertyName, property, external = false) => {
+    if ((property && typeof property === 'string' && property.trim() === '') ||
+        !property ||
+        property === '' ||
+        external) {
+        if (!errors.includes(propertyName)) {
+            errors.push(propertyName);
+        }
+    }
+    else if (errors.includes(propertyName)) {
+        errors.splice(errors.indexOf(propertyName), 1);
+    }
+    return errors;
+};
+/* Compare errors array to required props array
+ * @param errors - array of attributes with errors
+ * @param requiredProps - array of required properties to check against
+ * @returns boolean if no matching errors
+ */
+const isValid = (errors, requiredProps) => {
+    const intersection = errors.filter(x => requiredProps.includes(x));
+    return intersection.length > 0 ? false : true;
 };
 /* Check for valid date
  * @param dateString - the date to check
@@ -2449,7 +2467,7 @@ function isLeapYear(y) {
     return !(y & 3 || (!(y % 25) && y & 15));
 }
 
-const I18N$q = {
+const I18N$r = {
   en: {
     label: {
       danger: 'This is a critical alert.',
@@ -2504,14 +2522,14 @@ class GcdsAlert {
     }
     render() {
         const { alertRole, container, heading, hideCloseBtn, hideRoleIcon, isFixed, isOpen, lang, } = this;
-        return (hAsync(Host, { key: 'f0856a42192ff33a6157989152da33915175b3a7' }, isOpen ? (hAsync("div", { class: `gcds-alert alert--role-${alertRole} ${isFixed ? 'alert--is-fixed' : ''}`, role: "alert", "aria-label": alertRole === 'danger'
-                ? I18N$q[lang].label.danger
+        return (hAsync(Host, { key: '7781cbb15b6de138ccd08cad1ab5f3a2de21e02e' }, isOpen ? (hAsync("div", { class: `gcds-alert alert--role-${alertRole} ${isFixed ? 'alert--is-fixed' : ''}`, role: "alert", "aria-label": alertRole === 'danger'
+                ? I18N$r[lang].label.danger
                 : alertRole === 'info'
-                    ? I18N$q[lang].label.info
+                    ? I18N$r[lang].label.info
                     : alertRole === 'success'
-                        ? I18N$q[lang].label.success
+                        ? I18N$r[lang].label.success
                         : alertRole === 'warning'
-                            ? I18N$q[lang].label.warning
+                            ? I18N$r[lang].label.warning
                             : null }, hAsync("gcds-container", { size: isFixed ? container : 'full', centered: true }, hAsync("div", { class: "alert__container" }, !hideRoleIcon && (hAsync("gcds-icon", { "aria-hidden": "true", class: "alert__icon", size: "h5", "margin-right": "175", name: alertRole === 'danger'
                 ? 'exclamation-circle'
                 : alertRole === 'info'
@@ -2525,7 +2543,7 @@ class GcdsAlert {
                 if (event) {
                     this.isOpen = false;
                 }
-            }, "aria-label": I18N$q[lang].closeBtn }, hAsync("gcds-icon", { "aria-hidden": "true", name: "close", size: "text" }))))))) : null));
+            }, "aria-label": I18N$r[lang].closeBtn }, hAsync("gcds-icon", { "aria-hidden": "true", name: "close", size: "text" }))))))) : null));
     }
     get el() { return getElement(this); }
     static get style() { return GcdsAlertStyle0; }
@@ -2548,7 +2566,7 @@ class GcdsAlert {
     }; }
 }
 
-const I18N$p = {
+const I18N$q = {
   en: {
     label: 'Breadcrumb',
     link: 'https://www.canada.ca/en.html',
@@ -2586,7 +2604,7 @@ class GcdsBreadcrumbs {
     }
     render() {
         const { hideCanadaLink, lang } = this;
-        return (hAsync(Host, { key: 'b491e1522dfdc3320619a47f4de098ba18948fc2' }, hAsync("nav", { key: '448a711e139c76385faa9dc68a9fc848b8756fae', "aria-label": I18N$p[lang].label, class: "gcds-breadcrumbs" }, hAsync("ol", { key: 'a2a2793c7ffc1ffe313d97be01d038d6367994fc', class: hideCanadaLink ? '' : 'has-canada-link' }, !hideCanadaLink ? (hAsync("gcds-breadcrumbs-item", { href: I18N$p[lang].link }, "Canada.ca")) : null, hAsync("slot", { key: 'cecaeb514adb99fc32d0edc9692290832292a853' })))));
+        return (hAsync(Host, { key: '3cebead5d49755452f7dbf0a8292b38e86d481c9' }, hAsync("nav", { key: '17a5ccde070a513bf3f37aae1cda845ed4e547fd', "aria-label": I18N$q[lang].label, class: "gcds-breadcrumbs" }, hAsync("ol", { key: '74eaf642af3397da9f222499713148f50ae4ee99', class: hideCanadaLink ? '' : 'has-canada-link' }, !hideCanadaLink ? (hAsync("gcds-breadcrumbs-item", { href: I18N$q[lang].link }, "Canada.ca")) : null, hAsync("slot", { key: '8c90086d5e3bd78cda3594f7ac8d57feb7a58020' })))));
     }
     get el() { return getElement(this); }
     static get style() { return GcdsBreadcrumbsStyle0; }
@@ -2613,7 +2631,7 @@ class GcdsBreadcrumbsItem {
     }
     render() {
         const { href } = this;
-        return (hAsync(Host, { key: '3da5881b7eba6bede5ffaf1e9640b99152332478', role: "listitem", class: "gcds-breadcrumbs-item" }, hAsync("gcds-link", { key: '91361ed032a6ddfe13cef12783df531c1178c2b4', size: "regular", href: href }, hAsync("slot", { key: '5053ab0d54759ef4080731fe78976a3d648be17c' }))));
+        return (hAsync(Host, { key: '8b605a4957ab5346d22dced80f73e1a5f4ac555b', role: "listitem", class: "gcds-breadcrumbs-item" }, hAsync("gcds-link", { key: 'd3c3af1d26322cb3ef0fbf6f8778bc0f4c3bf9c4', size: "regular", href: href }, hAsync("slot", { key: 'f20dcd2b71127031fc0334fe3673821e08aefb56' }))));
     }
     get el() { return getElement(this); }
     static get style() { return GcdsBreadcrumbsItemStyle0; }
@@ -2629,7 +2647,7 @@ class GcdsBreadcrumbsItem {
     }; }
 }
 
-const I18N$o = {
+const I18N$p = {
   en: {
     label: 'Opens in a new tab.',
   },
@@ -2753,7 +2771,7 @@ class GcdsButton {
                 target,
                 download,
             };
-        return (hAsync(Host, { key: 'b77e1cd9aefb341e8a130d88d3285d553115f6c7' }, hAsync(Tag, Object.assign({ key: '667858f8a889c0820735d6008bfb04a043122eb1' }, attrs, { id: buttonId, onBlur: () => this.gcdsBlur.emit(), onFocus: () => this.gcdsFocus.emit(), onClick: e => !disabled ? this.handleClick(e) : e.stopImmediatePropagation(), class: `gcds-button button--role-${buttonRole} button--${size}`, ref: element => (this.shadowElement = element) }, inheritedAttributes, { part: "button" }), hAsync("slot", { key: 'db523fdaf7e8acd851963701ecc233d8fa7a2f22' }), type === 'link' && target === '_blank' ? (hAsync("gcds-icon", { name: "external", label: I18N$o[lang].label, "margin-left": "150" })) : null)));
+        return (hAsync(Host, { key: '59ad0b1cafa83cb3a101d48e07d29c92ffe3c714' }, hAsync(Tag, Object.assign({ key: 'cd037c7872f680306f1e10f69b7b02f95da9e77b' }, attrs, { id: buttonId, onBlur: () => this.gcdsBlur.emit(), onFocus: () => this.gcdsFocus.emit(), onClick: e => !disabled ? this.handleClick(e) : e.stopImmediatePropagation(), class: `gcds-button button--role-${buttonRole} button--${size}`, ref: element => (this.shadowElement = element) }, inheritedAttributes, { part: "button" }), hAsync("slot", { key: 'aa1a34a400c9bbaf88f03e0d39c628f13a713798' }), type === 'link' && target === '_blank' ? (hAsync("gcds-icon", { name: "external", label: I18N$p[lang].label, "margin-left": "150" })) : null)));
     }
     static get delegatesFocus() { return true; }
     get el() { return getElement(this); }
@@ -2788,7 +2806,7 @@ class GcdsButton {
     }; }
 }
 
-const I18N$n = {
+const I18N$o = {
   en: {
     tagged: 'Tagged:',
     badgeError: 'gcds-card: The badge attribute has a character limit of 20 characters.',
@@ -2836,7 +2854,7 @@ class GcdsCard {
     }
     validateBadge() {
         if (this.badge && this.badge.length > 20) {
-            console.error(`${I18N$n['en'].badgeError} | ${I18N$n['fr'].badgeError}`);
+            console.error(`${I18N$o['en'].badgeError} | ${I18N$o['fr'].badgeError}`);
             this.errors.push('badge');
         }
         else if (this.errors.includes('badge')) {
@@ -2894,7 +2912,7 @@ class GcdsCard {
             taggedAttr['aria-describedby'] = 'gcds-badge';
         }
         if (this.validateRequiredProps()) {
-            return (hAsync(Host, { key: '1ca25f4b643e43fbfd1c44acc397921f30f32d8f' }, hAsync("div", { key: 'ceb107cae158eaee0c3c545cd7f17b104742ac6a', class: "gcds-card" }, badge && !errors.includes('badge') && (hAsync("gcds-text", { key: '2fdbe2d8fb6ee0526cc81a4a27bd43d8a4c05353', id: "gcds-badge", class: "gcds-badge", "text-role": "light", "margin-bottom": "0", size: "small" }, hAsync("strong", { key: '4f3abc137cc4825a59a50f992b97a2f9b2d2cfa4' }, hAsync("gcds-sr-only", { key: '33371f0f907e41999a46fd7308717e33733c228a', tag: "span" }, I18N$n[lang].tagged), badge))), imgSrc && (hAsync("img", { key: '8032c8b7a90609ed9730145fe639cbecaf146b9b', src: imgSrc, alt: imgAlt ? imgAlt : '', class: "gcds-card__image" })), Element != 'a' ? (hAsync(Element, Object.assign({ class: "gcds-card__title" }, taggedAttr), hAsync("gcds-link", { href: href }, cardTitle))) : (hAsync("gcds-link", Object.assign({ href: href, class: "gcds-card__title" }, taggedAttr), cardTitle)), renderDescription)));
+            return (hAsync(Host, { key: '0402753bd0ae1f2248dbc0170d6ffa1470933734' }, hAsync("div", { key: '4808bc995375f3c536578f0dc1b1307d955c8f33', class: "gcds-card" }, badge && !errors.includes('badge') && (hAsync("gcds-text", { key: '6cf5c35378fad224ae666bdf6901ee482a40be6c', id: "gcds-badge", class: "gcds-badge", "text-role": "light", "margin-bottom": "0", size: "small" }, hAsync("strong", { key: '4be70916982695192bf67e03e0659c8bb64a53f8' }, hAsync("gcds-sr-only", { key: '6262dad21f6d5aec05093e12a1044a187acf58b7', tag: "span" }, I18N$o[lang].tagged), badge))), imgSrc && (hAsync("img", { key: '8240ca4df2ed097f185667da8135e8e28a4b6040', src: imgSrc, alt: imgAlt ? imgAlt : '', class: "gcds-card__image" })), Element != 'a' ? (hAsync(Element, Object.assign({ class: "gcds-card__title" }, taggedAttr), hAsync("gcds-link", { href: href }, cardTitle))) : (hAsync("gcds-link", Object.assign({ href: href, class: "gcds-card__title" }, taggedAttr), cardTitle)), renderDescription)));
         }
     }
     get el() { return getElement(this); }
@@ -2992,28 +3010,36 @@ function requiredValidator(element, type, subtype) {
                     element.validator = ['requiredFileInput'];
                 }
                 break;
-            case 'checkbox':
-                if (element.validator) {
-                    element.validator.unshift('requiredCheck');
-                }
-                else {
-                    element.validator = ['requiredCheck'];
-                }
-                break;
-            case 'fieldset':
-                if (element.validator) {
-                    element.validator.unshift('requiredFieldset');
-                }
-                else {
-                    element.validator = ['requiredFieldset'];
-                }
-                break;
             case 'date-input':
                 if (element.validator) {
                     element.validator.unshift('requiredDateInput');
                 }
                 else {
                     element.validator = ['requiredDateInput'];
+                }
+                break;
+            case 'radio':
+                if (element.validator) {
+                    element.validator.unshift('requiredRadio');
+                }
+                else {
+                    element.validator = ['requiredRadio'];
+                }
+                break;
+            case 'checkboxGroup':
+                if (element.validator) {
+                    element.validator.unshift('requiredCheckboxGroup');
+                }
+                else {
+                    element.validator = ['requiredCheckboxGroup'];
+                }
+                break;
+            case 'checkboxSingle':
+                if (element.validator) {
+                    element.validator.unshift('requiredCheckboxSingle');
+                }
+                else {
+                    element.validator = ['requiredCheckboxSingle'];
                 }
                 break;
         }
@@ -3214,86 +3240,41 @@ const getDateInputError = (dateValues, format) => {
     }
     return errorResponse;
 };
-
-const requiredCheck = {
-    validate: (value) => value,
-    errorMessage: {
-        en: 'You must check the box to continue.',
-        fr: 'Vous devez cocher la case pour continuer.',
-    },
-};
-
-const requiredFieldset = {
-    validate: (id) => {
-        const el = document.querySelector(`[fieldset-id=${id}]`);
-        const elChildren = el.children;
-        const isValid = validateFieldsetElements(el, elChildren);
-        return !isValid.includes(false);
+const requiredRadio = {
+    validate: (value) => {
+        return value != null && value != '';
     },
     errorMessage: {
         en: 'Choose an option to continue.',
         fr: 'Choisissez une option pour continuer.',
     },
 };
-function validateFieldsetElements(element, nodeList) {
-    let isValid = [];
-    for (let i = 0; i < nodeList.length; i++) {
-        switch (nodeList[i].nodeName) {
-            case 'GCDS-FIELDSET': {
-                const validFieldsetChildren = validateFieldsetElements(nodeList[i], nodeList[i].children);
-                isValid = isValid.concat(validFieldsetChildren);
-                break;
-            }
-            case 'GCDS-CHECKBOX': {
-                // Checkboxes can share name property
-                const inputName = nodeList[i].getAttribute('name');
-                // Find all inputs with shared name
-                const sameNameInputs = element.querySelectorAll(`[name=${inputName}]`);
-                let childGroupValid = false;
-                // Check if there is more than one input with this name
-                if (sameNameInputs.length > 1) {
-                    // Validate as group
-                    for (let c = 0; c < sameNameInputs.length; c++) {
-                        if (sameNameInputs[c].hasAttribute('checked')) {
-                            childGroupValid = true;
-                        }
-                    }
-                    isValid.push(childGroupValid);
-                }
-                else {
-                    // Validate as single input
-                    isValid.push(nodeList[i].hasAttribute('checked') ? true : false);
-                }
-                break;
-            }
-            case 'GCDS-RADIO-GROUP': {
-                const inputName = nodeList[i].getAttribute('name');
-                // Find all inputs with shared name
-                const sameNameInputs = element.querySelector(`[name=${inputName}]`);
-                const shadowInputs = sameNameInputs.shadowRoot.querySelectorAll('input');
-                let childGroupValid = false;
-                for (let r = 0; r < shadowInputs.length; r++) {
-                    if (shadowInputs[r].checked) {
-                        childGroupValid = true;
-                    }
-                }
-                isValid.push(childGroupValid);
-                break;
-            }
-        }
-    }
-    return isValid;
-}
+const requiredCheckboxGroup = {
+    validate: (value) => value.length > 0,
+    errorMessage: {
+        en: 'Choose an option to continue.',
+        fr: 'Choisissez une option pour continuer.',
+    },
+};
+const requiredCheckboxSingle = {
+    validate: (value) => value.length > 0,
+    errorMessage: {
+        en: 'You must check the box to continue.',
+        fr: 'Vous devez cocher la case pour continuer.',
+    },
+};
 
 var ValidatorsName;
 (function (ValidatorsName) {
     ValidatorsName["requiredField"] = "requiredField";
     ValidatorsName["requiredEmailField"] = "requiredEmailField";
     ValidatorsName["requiredCheck"] = "requiredCheck";
-    ValidatorsName["requiredFieldset"] = "requiredFieldset";
     ValidatorsName["requiredFileInput"] = "requiredFileInput";
     ValidatorsName["requiredSelectField"] = "requiredSelectField";
     ValidatorsName["requiredDateInput"] = "requiredDateInput";
+    ValidatorsName["requiredRadio"] = "requiredRadio";
+    ValidatorsName["requiredCheckboxGroup"] = "requiredCheckboxGroup";
+    ValidatorsName["requiredCheckboxSingle"] = "requiredCheckboxSingle";
 })(ValidatorsName || (ValidatorsName = {}));
 function getValidator(list) {
     return (list || [])
@@ -3319,28 +3300,121 @@ function validatorFactory(name, options) {
             return requiredEmailField;
         case ValidatorsName.requiredSelectField:
             return requiredSelectField;
-        case ValidatorsName.requiredCheck:
-            return requiredCheck;
-        case ValidatorsName.requiredFieldset:
-            return requiredFieldset;
         case ValidatorsName.requiredDateInput:
             return requiredDateInput;
         case ValidatorsName.requiredFileInput:
             return requiredFileInput;
+        case ValidatorsName.requiredRadio:
+            return requiredRadio;
+        case ValidatorsName.requiredCheckboxGroup:
+            return requiredCheckboxGroup;
+        case ValidatorsName.requiredCheckboxSingle:
+            return requiredCheckboxSingle;
         default:
             return defaultValidator;
     }
 }
 
-const gcdsCheckboxCss = "@layer reset, default, disabled, error, focus;@layer reset{.sc-gcds-checkbox-h{display:block}.sc-gcds-checkbox-h .gcds-checkbox{padding:0}.sc-gcds-checkbox-h .gcds-checkbox gcds-label:after,.sc-gcds-checkbox-h .gcds-checkbox gcds-label:before{box-sizing:border-box;content:\"\";cursor:pointer}}@layer default{.sc-gcds-checkbox-h .gcds-checkbox{color:var(--gcds-checkbox-default-text);font:var(--gcds-checkbox-font);margin:var(--gcds-checkbox-margin)!important;max-width:var(--gcds-checkbox-max-width);min-height:calc(var(--gcds-checkbox-input-height-and-width) - var(--gcds-checkbox-padding));padding:var(--gcds-checkbox-padding) 0 0;position:relative;transition:color .15s ease-in-out}.sc-gcds-checkbox-h .gcds-checkbox :is(gcds-label,gcds-hint,gcds-error-message){padding:var(--gcds-checkbox-label-padding)!important}.sc-gcds-checkbox-h .gcds-checkbox gcds-hint::part(hint){margin:0}.sc-gcds-checkbox-h .gcds-checkbox gcds-label:after,.sc-gcds-checkbox-h .gcds-checkbox gcds-label:before,.sc-gcds-checkbox-h .gcds-checkbox input{position:absolute}.sc-gcds-checkbox-h .gcds-checkbox gcds-label:before,.sc-gcds-checkbox-h .gcds-checkbox input{height:var(--gcds-checkbox-input-height-and-width);left:0;top:0;width:var(--gcds-checkbox-input-height-and-width)}.sc-gcds-checkbox-h .gcds-checkbox input{opacity:0}.sc-gcds-checkbox-h .gcds-checkbox gcds-label{width:fit-content}.sc-gcds-checkbox-h .gcds-checkbox gcds-label:before{background-color:var(--gcds-checkbox-default-background);border:var(--gcds-checkbox-input-border-width) solid;border-radius:var(--gcds-checkbox-input-border-radius);transition:border-color .15s ease-in-out,box-shadow .15s ease-in-out,outline .15s ease-in-out}.sc-gcds-checkbox-h .gcds-checkbox gcds-label:after{border:var(--gcds-checkbox-check-border-width) solid;border-block-start:0!important;border-inline-start:0!important;height:var(--gcds-checkbox-check-height);left:var(--gcds-checkbox-check-left);opacity:0;top:var(--gcds-checkbox-check-top);transform:rotate(40deg);transition:opacity .2s ease-in-out;width:var(--gcds-checkbox-check-width)}.sc-gcds-checkbox-h .gcds-checkbox input:checked+gcds-label:after{opacity:1}}@layer disabled{.sc-gcds-checkbox-h .gcds-checkbox.gcds-checkbox--disabled{color:var(--gcds-checkbox-disabled-text)}.sc-gcds-checkbox-h .gcds-checkbox.gcds-checkbox--disabled gcds-label{--gcds-label-text:currentColor}.sc-gcds-checkbox-h .gcds-checkbox.gcds-checkbox--disabled gcds-label:after,.sc-gcds-checkbox-h .gcds-checkbox.gcds-checkbox--disabled gcds-label:before{cursor:not-allowed}.sc-gcds-checkbox-h .gcds-checkbox.gcds-checkbox--disabled gcds-label:before{background-color:var(--gcds-checkbox-disabled-background);border-color:currentcolor}.sc-gcds-checkbox-h .gcds-checkbox.gcds-checkbox--disabled gcds-hint{--gcds-hint-text:currentColor}}@layer error{.sc-gcds-checkbox-h .gcds-checkbox.gcds-checkbox--error:not(:focus-within) gcds-label:before{border-color:var(--gcds-checkbox-danger-border)}.sc-gcds-checkbox-h .gcds-checkbox.gcds-checkbox--error:not(:focus-within) gcds-label:after{color:var(--gcds-checkbox-danger-border)}}@layer focus{.sc-gcds-checkbox-h .gcds-checkbox:focus-within{color:var(--gcds-checkbox-focus-color)}.sc-gcds-checkbox-h .gcds-checkbox:focus-within input:focus+gcds-label:before{background:var(--gcds-checkbox-focus-background);box-shadow:var(--gcds-checkbox-focus-box-shadow);outline:var(--gcds-checkbox-focus-outline-width) solid currentcolor;outline-offset:var(--gcds-checkbox-input-border-width)}}";
-var GcdsCheckboxStyle0 = gcdsCheckboxCss;
+/* Check if passed object matches required CheckboxObject type
+ * @param obj - object to check
+ */
+function isCheckboxObject(obj) {
+    if (typeof obj !== 'object' || obj === null)
+        return false;
+    const validKeys = ['id', 'label', 'value', 'hint', 'checked', 'required'];
+    const objKeys = Object.keys(obj);
+    // Check if all properties match the expected type
+    const hasValidTypes = typeof obj.id === 'string' &&
+        typeof obj.label === 'string' &&
+        (obj.value === undefined || typeof obj.value === 'string') &&
+        (obj.hint === undefined || typeof obj.hint === 'string') &&
+        (obj.checked === undefined || typeof obj.checked === 'boolean');
+    // Ensure no extra properties exist
+    const hasOnlyValidKeys = objKeys.every(key => validKeys.includes(key));
+    return hasValidTypes && hasOnlyValidKeys;
+}
+/* Loop through the optionsArr and check if each option/checkbox is formatted correctly
+ * @param optionsArr - array of objects to be checked
+ */
+function validateOptionsArray(optionsArr) {
+    let invalidOptionsArr = false;
+    if (optionsArr && optionsArr.length >= 1) {
+        invalidOptionsArr = optionsArr.some(checkbox => !isCheckboxObject(checkbox));
+    }
+    else if (optionsArr && optionsArr.length == 0) {
+        invalidOptionsArr = true;
+    }
+    return invalidOptionsArr;
+}
+/* Loop through manually assigned value to check if it is available in rendered checkboxes
+ * @param optionsArr - array of checkbox objects to compare to
+ * @param element - the checkboxes element
+ */
+function cleanUpValues(optionsArr, element) {
+    const availableValues = [];
+    optionsArr.forEach(checkbox => {
+        availableValues.push(checkbox.value ? checkbox.value : 'on');
+        if ((checkbox.checked == 'true' || checkbox.checked === true) &&
+            !element.value.includes(checkbox.value || 'on')) {
+            element.value = [
+                ...element.value,
+                checkbox.value ? checkbox.value : 'on',
+            ];
+        }
+    });
+    // Remove any values that are not available in the inputs
+    element.value
+        .filter(value => !availableValues.includes(value))
+        .forEach(value => {
+        element.value = element.value.filter(item => item !== value);
+    });
+}
+const renderCheckbox = (checkbox, element, emitEvent, handleInput) => {
+    const { name, disabled, hasError, errorMessage, gcdsFocus, gcdsInput, gcdsChange, gcdsClick, gcdsBlur, required, hint, isGroup, lang, value, onBlurValidate, } = element;
+    const attrsInput = {
+        name: name,
+        id: checkbox.id,
+        disabled: disabled,
+        required: checkbox.required,
+        value: checkbox.value,
+    };
+    const labelAttrs = {
+        'label': checkbox.label,
+        'label-for': checkbox.id,
+        lang,
+    };
+    if (!isGroup && required) {
+        labelAttrs['required'] = required;
+        attrsInput['required'] = required;
+    }
+    if (checkbox.hint) {
+        const hintID = `hint-${checkbox.id}`;
+        attrsInput['aria-describedby'] = `${hintID}${attrsInput['aria-describedby'] ? `${attrsInput['aria-describedby']}` : ''}`;
+    }
+    if (value.includes(checkbox.value)) {
+        attrsInput['checked'] = true;
+    }
+    if (hasError) {
+        attrsInput['aria-invalid'] = 'true';
+        attrsInput['aria-description'] = errorMessage;
+    }
+    return (hAsync("div", { class: `gcds-checkbox ${disabled ? 'gcds-checkbox--disabled' : ''} ${hasError ? 'gcds-checkbox--error' : ''}` },
+        hAsync("input", Object.assign({ type: "checkbox" }, attrsInput, { onBlur: isGroup ? () => gcdsBlur.emit() : onBlurValidate, onFocus: () => gcdsFocus.emit(), onChange: () => gcdsChange.emit(), onInput: e => handleInput(e, gcdsInput), onClick: e => !disabled ? emitEvent(e, gcdsClick) : e.stopImmediatePropagation() })),
+        hAsync("gcds-label", Object.assign({}, labelAttrs, { onClick: e => e.stopPropagation() })),
+        checkbox.hint || (!isGroup && hint) ? (hAsync("gcds-hint", { "hint-id": checkbox.id }, !isGroup && hint ? hint : checkbox.hint)) : null,
+        !isGroup && errorMessage ? (hAsync("gcds-error-message", { messageId: checkbox.id }, errorMessage)) : null));
+};
 
-class GcdsCheckbox {
+const gcdsCheckboxesCss = "@layer reset, default, disabled, error, focus;@layer reset{.sc-gcds-checkboxes-h{display:block}.sc-gcds-checkboxes-h .gcds-checkboxes__fieldset{border:0;min-inline-size:auto;padding:0}.sc-gcds-checkboxes-h .gcds-checkboxes__fieldset legend{padding:0}.sc-gcds-checkboxes-h .gcds-checkbox{padding:0}.sc-gcds-checkboxes-h .gcds-checkbox gcds-label>label:after,.sc-gcds-checkboxes-h .gcds-checkbox gcds-label>label:before{box-sizing:border-box;content:\"\";cursor:pointer;position:absolute}}@layer default{.sc-gcds-checkboxes-h .gcds-checkboxes__fieldset{margin:var(--gcds-checkbox-fieldset-margin)}.sc-gcds-checkboxes-h .gcds-checkboxes__fieldset .gcds-checkboxes__legend{font:var(--gcds-checkbox-legend-font-desktop);margin:var(--gcds-checkbox-legend-margin)}.sc-gcds-checkboxes-h .gcds-checkboxes__fieldset .gcds-checkboxes__legend .legend__required{font:var(--gcds-checkbox-legend-required-font-desktop)}@media only screen and (width < 48em){.sc-gcds-checkboxes-h .gcds-checkboxes__fieldset .gcds-checkboxes__legend{font:var(--gcds-checkbox-legend-font-mobile)}.sc-gcds-checkboxes-h .gcds-checkboxes__fieldset .gcds-checkboxes__legend .legend__required{font:var(--gcds-checkbox-legend-required-font-mobile)}}.sc-gcds-checkboxes-h .gcds-checkboxes__fieldset .gcds-checkboxes__legend:not(:has(+gcds-hint)){margin:var(--gcds-checkbox-legend-hint-margin)}.sc-gcds-checkboxes-h .gcds-checkbox{color:var(--gcds-checkbox-default-text);font:var(--gcds-checkbox-font);margin:var(--gcds-checkbox-margin)!important;max-width:var(--gcds-checkbox-max-width);min-height:calc(var(--gcds-checkbox-input-height-and-width) - var(--gcds-checkbox-padding));padding:var(--gcds-checkbox-padding) 0 0;position:relative;transition:color .15s ease-in-out}.sc-gcds-checkboxes-h .gcds-checkbox :is(gcds-label,gcds-hint,gcds-error-message){padding:var(--gcds-checkbox-label-padding)!important}.sc-gcds-checkboxes-h .gcds-checkbox gcds-hint::part(hint){margin:0}.sc-gcds-checkboxes-h .gcds-checkbox gcds-label:after,.sc-gcds-checkboxes-h .gcds-checkbox gcds-label:before,.sc-gcds-checkboxes-h .gcds-checkbox input{position:absolute}.sc-gcds-checkboxes-h .gcds-checkbox gcds-label>label:before,.sc-gcds-checkboxes-h .gcds-checkbox input{height:var(--gcds-checkbox-input-height-and-width);left:0;top:0;width:var(--gcds-checkbox-input-height-and-width)}.sc-gcds-checkboxes-h .gcds-checkbox input{opacity:0}.sc-gcds-checkboxes-h .gcds-checkbox gcds-label>label{width:fit-content;--gcds-label-font-desktop:var(--gcds-checkbox-label-font-desktop);--gcds-label-font-mobile:var(--gcds-checkbox-label-font-mobile)}.sc-gcds-checkboxes-h .gcds-checkbox gcds-label>label:before{background-color:var(--gcds-checkbox-default-background);border:var(--gcds-checkbox-input-border-width) solid;border-radius:var(--gcds-checkbox-input-border-radius);transition:border-color .15s ease-in-out,box-shadow .15s ease-in-out,outline .15s ease-in-out}.sc-gcds-checkboxes-h .gcds-checkbox gcds-label>label:after{border:var(--gcds-checkbox-check-border-width) solid;border-block-start:0!important;border-inline-start:0!important;height:var(--gcds-checkbox-check-height);left:var(--gcds-checkbox-check-left);opacity:0;top:var(--gcds-checkbox-check-top);transform:rotate(40deg);width:var(--gcds-checkbox-check-width)}.sc-gcds-checkboxes-h .gcds-checkbox input:checked+gcds-label>label:after{opacity:1}}@layer disabled{.sc-gcds-checkboxes-h .gcds-checkbox.gcds-checkbox--disabled{color:var(--gcds-checkbox-disabled-text)}.sc-gcds-checkboxes-h .gcds-checkbox.gcds-checkbox--disabled gcds-label>label{--gcds-label-text:currentColor;cursor:not-allowed}.sc-gcds-checkboxes-h .gcds-checkbox.gcds-checkbox--disabled gcds-label>label:after,.sc-gcds-checkboxes-h .gcds-checkbox.gcds-checkbox--disabled gcds-label>label:before{cursor:not-allowed}.sc-gcds-checkboxes-h .gcds-checkbox.gcds-checkbox--disabled gcds-label>label:before{background-color:var(--gcds-checkbox-disabled-background);border-color:currentcolor}.sc-gcds-checkboxes-h .gcds-checkbox.gcds-checkbox--disabled gcds-hint{--gcds-hint-text:currentColor}}@layer error{.sc-gcds-checkboxes-h .gcds-checkbox.gcds-checkbox--error:not(:focus-within) gcds-label>label:before{border-color:var(--gcds-checkbox-danger-border)}.sc-gcds-checkboxes-h .gcds-checkbox.gcds-checkbox--error:not(:focus-within) gcds-label>label:after{color:var(--gcds-checkbox-danger-border)}}@layer focus{.sc-gcds-checkboxes-h .gcds-checkbox:focus-within input:focus+gcds-label>label:before{background:var(--gcds-checkbox-focus-background);box-shadow:var(--gcds-checkbox-focus-box-shadow);color:var(--gcds-checkbox-focus-color);outline:var(--gcds-checkbox-focus-outline-width) solid currentcolor;outline-offset:var(--gcds-checkbox-input-border-width)}.sc-gcds-checkboxes-h .gcds-checkbox:focus-within input:focus+gcds-label>label:after{color:var(--gcds-checkbox-focus-color)}}";
+var GcdsCheckboxesStyle0 = gcdsCheckboxesCss;
+
+class GcdsCheckboxes {
     constructor(hostRef) {
         registerInstance(this, hostRef);
         this.gcdsClick = createEvent(this, "gcdsClick", 7);
         this.gcdsFocus = createEvent(this, "gcdsFocus", 7);
         this.gcdsBlur = createEvent(this, "gcdsBlur", 7);
+        this.gcdsInput = createEvent(this, "gcdsInput", 7);
         this.gcdsChange = createEvent(this, "gcdsChange", 7);
         this.gcdsError = createEvent(this, "gcdsError", 7);
         this.gcdsValid = createEvent(this, "gcdsValid", 7);
@@ -3351,77 +3425,108 @@ class GcdsCheckbox {
             this.internals = hostRef.$hostElement$.attachInternals();
             hostRef.$hostElement$["s-ei"] = this.internals;
         }
+        this.isGroup = false;
         this._validator = defaultValidator;
-        this.onBlur = () => {
+        this.onBlurValidate = () => {
             if (this.validateOn == 'blur') {
                 this.validate();
             }
             this.gcdsBlur.emit();
         };
-        this.onChange = e => {
-            this.checked = !this.checked;
-            this.internals.setFormValue(e.target.value, 'checked');
-            if (!this.checked) {
-                this.internals.setFormValue(null, 'checked');
+        this.handleInput = (e, customEvent) => {
+            if (e.target.checked) {
+                this.value = [...this.value, e.target.value];
             }
-            const changeEvt = new e.constructor(e.type, e);
-            this.el.dispatchEvent(changeEvt);
-            this.gcdsChange.emit(this.checked);
+            else {
+                // Remove value from value array
+                this.value = this.value.filter(item => item !== e.target.value);
+            }
+            if (this.value.length > 0) {
+                this.internals.setFormValue(this.value.toString());
+            }
+            else {
+                this.internals.setFormValue(null);
+            }
+            if (e.type === 'change') {
+                const changeEvt = new e.constructor(e.type, e);
+                this.el.dispatchEvent(changeEvt);
+            }
+            customEvent.emit(this.value);
         };
-        this.checkboxId = undefined;
-        this.label = undefined;
         this.name = undefined;
+        this.legend = undefined;
+        this.options = undefined;
         this.required = undefined;
         this.disabled = undefined;
-        this.value = undefined;
-        this.checked = undefined;
+        this.value = [];
         this.errorMessage = undefined;
         this.hint = undefined;
         this.validator = undefined;
         this.validateOn = undefined;
-        this.parentError = undefined;
         this.inheritedAttributes = {};
         this.hasError = undefined;
         this.lang = undefined;
+        this.errors = [];
+    }
+    validateName() {
+        this.errors = handleErrors(this.errors, 'name', this.name);
+    }
+    validateLegend() {
+        if (this.isGroup) {
+            this.errors = handleErrors(this.errors, 'legend', this.legend);
+        }
+    }
+    validateOptions() {
+        let invalidOptions = false;
+        // Assign optionsArr based on valid options property
+        invalidOptions = this.assignOptionsArray();
+        // Check if each checkbox object is formatted correctly
+        if (this.optionsArr && !invalidOptions) {
+            invalidOptions = validateOptionsArray(this.optionsArr);
+            // Assign if isGroup logic more than one checkbox object
+            if (this.optionsArr && this.optionsArr.length > 1) {
+                this.isGroup = true;
+            }
+        }
+        // Log error if invalidOptions
+        this.errors = handleErrors(this.errors, 'options', this.optionsArr, invalidOptions);
     }
     validateDisabledCheckbox() {
         if (this.required) {
             this.disabled = false;
         }
     }
+    validateValue(newValue) {
+        // Convert string to array
+        if (!Array.isArray(newValue)) {
+            try {
+                this.value = JSON.parse(newValue);
+            }
+            catch (e) {
+                logError('gcds-checkboxes', ['Invalid array for value']);
+                this.value = [];
+            }
+        }
+        else if (this.optionsArr) {
+            // Remove any manually set values that do not match available inputs
+            cleanUpValues(this.optionsArr, this.el);
+            // Set form value only when a value is assigned
+            if (this.value.length > 0) {
+                this.internals.setFormValue(this.value.toString());
+            }
+        }
+    }
     validateErrorMessage() {
         if (this.disabled) {
             this.errorMessage = '';
         }
-        else if (!this.hasError && this.errorMessage) {
-            this.hasError = true;
-        }
-        else if (this.errorMessage == '') {
-            this.hasError = false;
+        else {
+            this.hasError = this.errorMessage ? !this.hasError : false;
         }
     }
     validateValidator() {
         if (this.validator && !this.validateOn) {
             this.validateOn = 'blur';
-        }
-    }
-    /**
-     * Event listener for gcds-fieldset errors
-     */
-    gcdsGroupError(e) {
-        if (e.srcElement.contains(this.el) && elementGroupCheck(this.name)) {
-            this.hasError = true;
-            this.parentError = e.detail;
-        }
-        else if (!elementGroupCheck(this.name)) {
-            this.hasError = false;
-            this.parentError = '';
-        }
-    }
-    gcdsGroupErrorClear(e) {
-        if (e.srcElement.contains(this.el) && this.hasError) {
-            this.hasError = false;
-            this.parentError = '';
         }
     }
     validateHasError() {
@@ -3433,19 +3538,33 @@ class GcdsCheckbox {
      * Call any active validators
      */
     async validate() {
-        if (!this._validator.validate(this.checked) &&
-            this._validator.errorMessage) {
+        if (!this._validator.validate(this.value) && this._validator.errorMessage) {
             this.errorMessage = this._validator.errorMessage[this.lang];
             this.gcdsError.emit({
-                id: `#${this.checkboxId}`,
-                message: `${this.label} - ${this.errorMessage}`,
+                message: `${this.isGroup ? this.legend : this.optionsArr[0].label} - ${this.errorMessage}`,
             });
         }
         else {
             this.errorMessage = '';
-            this.gcdsValid.emit({ id: `#${this.checkboxId}` });
+            this.gcdsValid.emit();
         }
     }
+    /*
+     * FormData listener to append values like native checkboxes
+     */
+    formdataListener(e) {
+        const data = e.formData;
+        this.value.forEach(value => {
+            // Set formdata for first entry to remove array
+            if (this.value.indexOf(value) === 0) {
+                data.set(this.name, value);
+            }
+            else {
+                data.append(this.name, value);
+            }
+        });
+    }
+    // Submit validation handler
     submitListener(e) {
         if (e.target == this.el.closest('form')) {
             if (this.validateOn && this.validateOn != 'other') {
@@ -3460,105 +3579,157 @@ class GcdsCheckbox {
      * Form internal functions
      */
     formResetCallback() {
-        if (this.checked != this.initialState) {
-            this.checked = this.initialState;
+        if (this.value != this.initialState) {
+            this.value = this.initialState;
         }
     }
     formStateRestoreCallback(state) {
         this.internals.setFormValue(state);
-        this.checked = state;
+        this.value = [...state.split(',')];
     }
     /*
      * Observe lang attribute change
      */
-    updateLang() {
-        const observer = new MutationObserver(mutations => {
-            if (mutations[0].oldValue != this.el.lang) {
-                this.lang = this.el.lang;
-            }
-        });
-        observer.observe(this.el, observerConfig);
+    watchLang(newValue, oldValue) {
+        if (newValue !== oldValue) {
+            this.lang = newValue;
+        }
+    }
+    /*
+     * Validate required properties
+     */
+    validateRequiredProps() {
+        this.validateOptions();
+        this.validateValue(this.value);
+        this.validateLegend();
+        this.validateName();
+        return isValid(this.errors, ['name', 'legend', 'options']);
     }
     async componentWillLoad() {
+        var _a;
         // Define lang attribute
         this.lang = assignLanguage(this.el);
-        this.updateLang();
+        const valid = this.validateRequiredProps();
         this.validateDisabledCheckbox();
         this.validateHasError();
         this.validateErrorMessage();
         this.validateValidator();
         // Assign required validator if needed
-        requiredValidator(this.el, 'checkbox');
+        requiredValidator(this.el, this.isGroup ? 'checkboxGroup' : 'checkboxSingle');
+        // Assign checkbox hint to component hint if not group
+        if (!this.isGroup &&
+            this.optionsArr &&
+            ((_a = this.optionsArr[0]) === null || _a === void 0 ? void 0 : _a.hint) &&
+            !this.hint) {
+            this.hint = this.optionsArr[0].hint;
+        }
         if (this.validator) {
             this._validator = getValidator(this.validator);
         }
+        if (!valid) {
+            logError('gcds-checkboxes', this.errors);
+        }
+        this.initialState = this.value;
         this.inheritedAttributes = inheritAttributes(this.el, this.shadowElement);
-        this.internals.setFormValue(this.checked ? this.value : null);
-        this.initialState = this.checked ? this.checked : null;
     }
     componentWillUpdate() {
         if (this.validator) {
             this._validator = getValidator(this.validator);
         }
     }
+    async componentDidUpdate() {
+        // Validate props again if changed after render
+        const valid = this.validateRequiredProps();
+        if (!valid) {
+            logError('gcds-checkboxes', this.errors);
+        }
+    }
+    /*
+     * Validate passed options and assign optionsArr if proper formatting
+     */
+    assignOptionsArray() {
+        let invalidOptions = false;
+        if (Array.isArray(this.options)) {
+            this.optionsArr = this.options;
+        }
+        else if (typeof this.options === 'string' && this.options.trim() !== '') {
+            try {
+                // Assign to random variable to not restart options validation
+                const optionsCheck = JSON.parse(this.options);
+                if (Array.isArray(optionsCheck)) {
+                    this.optionsArr = optionsCheck;
+                }
+                else {
+                    this.optionsArr = null;
+                    invalidOptions = true;
+                }
+            }
+            catch (e) {
+                logError('gcds-checkboxes', ['Invalid JSON string for options']);
+                this.options = null;
+                invalidOptions = true;
+            }
+        }
+        return invalidOptions;
+    }
     render() {
-        const { lang, checkboxId, label, name, required, disabled, value, checked, hint, errorMessage, hasError, parentError, inheritedAttributes, } = this;
-        const attrsInput = Object.assign({ name,
-            disabled,
-            required,
-            value,
-            checked }, inheritedAttributes);
-        const attrsLabel = {
-            label,
-            required,
+        const { legend, required, hint, errorMessage } = this;
+        const fieldsetAttrs = {
+            'tabindex': '-1',
+            'aria-labelledby': 'checkboxes-legend',
         };
-        if (hint || errorMessage || parentError) {
-            const hintID = hint ? `hint-${checkboxId} ` : '';
-            const errorID = errorMessage ? `error-message-${checkboxId} ` : '';
-            const parentErrorID = parentError ? `parent-error-${checkboxId} ` : '';
-            attrsInput['aria-describedby'] = `${hintID}${errorID}${parentErrorID}${attrsInput['aria-describedby']
-                ? `${attrsInput['aria-describedby']}`
-                : ''}`;
+        if (hint) {
+            const hintID = this.hint ? `checkboxes-hint ` : '';
+            fieldsetAttrs['aria-labelledby'] =
+                `${fieldsetAttrs['aria-labelledby']} ${hintID}`.trim();
         }
-        if (hasError) {
-            attrsInput['aria-invalid'] = 'true';
+        if (this.validateRequiredProps()) {
+            return (hAsync(Host, { key: '26df8b5fa1dc01a291b81801f39679e75c706dd4', onBlur: () => this.isGroup && this.onBlurValidate() }, this.isGroup ? (hAsync("fieldset", Object.assign({ class: "gcds-checkboxes__fieldset" }, fieldsetAttrs), hAsync("legend", { id: "checkboxes-legend", class: "gcds-checkboxes__legend" }, legend, required ? (hAsync("span", { class: "legend__required" }, " (required)")) : null), hint ? (hAsync("gcds-hint", { id: "checkboxes-hint", "hint-id": "checkboxes" }, hint)) : null, errorMessage ? (hAsync("div", null, hAsync("gcds-error-message", { id: "checkboxes-error", messageId: "checkboxes" }, errorMessage))) : null, this.optionsArr &&
+                this.optionsArr.map(checkbox => {
+                    return renderCheckbox(checkbox, this, emitEvent, this.handleInput);
+                }))) : (this.optionsArr &&
+                this.optionsArr.length > 0 &&
+                renderCheckbox(this.optionsArr[0], this, emitEvent, this.handleInput))));
         }
-        return (hAsync(Host, { key: 'd33ae5e2f2adeecdbfb572561d4e62d762a3af02' }, hAsync("div", { key: '3a39d170c5a14b657f57cd9ff6c2cd0379d0353f', class: `gcds-checkbox ${disabled ? 'gcds-checkbox--disabled' : ''} ${hasError ? 'gcds-checkbox--error' : ''}` }, hAsync("input", Object.assign({ key: '930020ba3646ecfea94aae1a4b014f60668eae37', id: checkboxId, type: "checkbox" }, attrsInput, { onBlur: () => this.onBlur(), onFocus: () => this.gcdsFocus.emit(), onChange: e => this.onChange(e), onClick: e => emitEvent(e, this.gcdsClick), ref: element => (this.shadowElement = element) })), hAsync("gcds-label", Object.assign({ key: '3fc18cb30532e327c2b34b8bced1d7e8b8eb4e89' }, attrsLabel, { "label-for": checkboxId, lang: lang })), hint ? hAsync("gcds-hint", { "hint-id": checkboxId }, hint) : null, errorMessage ? (hAsync("gcds-error-message", { messageId: checkboxId }, errorMessage)) : null, parentError ? (hAsync("span", { id: `parent-error-${checkboxId}`, hidden: true }, parentError)) : null)));
     }
     static get delegatesFocus() { return true; }
     static get formAssociated() { return true; }
     get el() { return getElement(this); }
     static get watchers() { return {
+        "name": ["validateName"],
+        "legend": ["validateLegend"],
+        "options": ["validateOptions"],
         "disabled": ["validateDisabledCheckbox"],
+        "value": ["validateValue"],
         "errorMessage": ["validateErrorMessage"],
         "validator": ["validateValidator"],
-        "hasError": ["validateHasError"]
+        "hasError": ["validateHasError"],
+        "lang": ["watchLang"]
     }; }
-    static get style() { return GcdsCheckboxStyle0; }
+    static get style() { return GcdsCheckboxesStyle0; }
     static get cmpMeta() { return {
         "$flags$": 89,
-        "$tagName$": "gcds-checkbox",
+        "$tagName$": "gcds-checkboxes",
         "$members$": {
-            "checkboxId": [1537, "checkbox-id"],
-            "label": [513],
             "name": [513],
+            "legend": [513],
+            "options": [1025],
             "required": [516],
             "disabled": [1540],
-            "value": [513],
-            "checked": [1540],
+            "value": [1537],
             "errorMessage": [1537, "error-message"],
-            "hint": [513],
+            "hint": [1537],
             "validator": [1040],
             "validateOn": [1025, "validate-on"],
-            "parentError": [32],
             "inheritedAttributes": [32],
             "hasError": [32],
             "lang": [32],
+            "errors": [32],
             "validate": [64]
         },
-        "$listeners$": [[16, "gcdsGroupError", "gcdsGroupError"], [16, "gcdsGroupErrorClear", "gcdsGroupErrorClear"], [4, "submit", "submitListener"]],
+        "$listeners$": [[4, "formdata", "formdataListener"], [4, "submit", "submitListener"]],
         "$lazyBundleId$": "-",
-        "$attrsToReflect$": [["checkboxId", "checkbox-id"], ["label", "label"], ["name", "name"], ["required", "required"], ["disabled", "disabled"], ["value", "value"], ["checked", "checked"], ["errorMessage", "error-message"], ["hint", "hint"]]
+        "$attrsToReflect$": [["name", "name"], ["legend", "legend"], ["required", "required"], ["disabled", "disabled"], ["value", "value"], ["errorMessage", "error-message"], ["hint", "hint"]]
     }; }
 }
 
@@ -3579,7 +3750,7 @@ class GcdsContainer {
     render() {
         const { border, centered, mainContainer, margin, padding, size, tag } = this;
         const Tag = tag;
-        return (hAsync(Host, { key: '1a0d300e83cc191fccd62309d50acf2651fcf0de' }, hAsync(Tag, { key: '57ebd74a5c1ffce5d67f85cac933bf108f36b450', class: `
+        return (hAsync(Host, { key: 'c773aa318c0dd603cfe509cd4d023b988bdecece' }, hAsync(Tag, { key: '4cda1734f0e3c01a01f6e717d1ae7165c53ae39a', class: `
             gcds-container
             ${border ? 'container-border' : ''}
             ${centered ? 'container-centered' : ''}
@@ -3587,7 +3758,7 @@ class GcdsContainer {
             ${margin ? `m-${margin}` : ''}
             ${padding ? `p-${padding}` : ''}
             ${size ? `size-${size}` : ''}
-          ` }, hAsync("slot", { key: '8ad3d9262e75693298a9a567aac2b9731c5ad96d' }))));
+          ` }, hAsync("slot", { key: 'e8056d57376fc6322f29ec99b5349808b70fd1a8' }))));
     }
     get el() { return getElement(this); }
     static get style() { return GcdsContainerStyle0; }
@@ -3609,7 +3780,7 @@ class GcdsContainer {
     }; }
 }
 
-const I18N$m = {
+const I18N$n = {
   en: {
     year: 'Year',
     month: 'Month',
@@ -3756,7 +3927,7 @@ class GcdsDateInput {
         if (this.value && !isValidDate(this.value)) {
             this.errors.push('value');
             this.value = '';
-            console.error(`${I18N$m['en'].valueError}${I18N$m['en'][`valueFormat${this.format}`]} | ${I18N$m['fr'].valueError}${I18N$m['fr'][`valueFormat${this.format}`]}`);
+            console.error(`${I18N$n['en'].valueError}${I18N$n['en'][`valueFormat${this.format}`]} | ${I18N$n['fr'].valueError}${I18N$n['fr'][`valueFormat${this.format}`]}`);
         }
         else if (this.errors.includes('value')) {
             this.errors.splice(this.errors.indexOf('value'), 1);
@@ -3950,10 +4121,10 @@ class GcdsDateInput {
         }
         // Array of months 01 - 12
         const options = Array.from({ length: 12 }, (_, i) => i + 1 < 10 ? `0${i + 1}` : `${i + 1}`);
-        const month = (hAsync("gcds-select", Object.assign({ key: '5cc53dab20a5ca7a94293cb58f5857309e30d7c9', label: I18N$m[lang].month, selectId: "month", name: "month", defaultValue: I18N$m[lang].selectmonth, disabled: disabled, onInput: e => this.handleInput(e, 'month'), onChange: e => this.handleInput(e, 'month'), value: this.monthValue, class: `gcds-date-input__month ${hasError['month'] ? 'gcds-date-input--error' : ''}` }, requiredAttr, { "aria-invalid": hasError['month'].toString(), "aria-description": hasError['month'] && errorMessage }), options.map(option => (hAsync("option", { key: option, value: option }, I18N$m[lang]['months'][option])))));
-        const year = (hAsync("gcds-input", Object.assign({ key: '554b66c992c6dd93a4edf9972f7da65253313aa0', name: "year", label: I18N$m[lang].year, inputId: "year", type: "number", size: 4, disabled: disabled, value: this.yearValue, onInput: e => this.handleInput(e, 'year'), onChange: e => this.handleInput(e, 'year'), class: `gcds-date-input__year ${hasError['year'] ? 'gcds-date-input--error' : ''}` }, requiredAttr, { "aria-invalid": hasError['year'].toString(), "aria-description": hasError['year'] && errorMessage })));
-        const day = (hAsync("gcds-input", Object.assign({ key: 'dae9c6e8ba45b3ace7bfb212cf33b3394d512ef7', name: "day", label: I18N$m[lang].day, inputId: "day", type: "number", size: 2, disabled: disabled, value: this.dayValue, onInput: e => this.handleInput(e, 'day'), onChange: e => this.handleInput(e, 'day'), class: `gcds-date-input__day ${hasError['day'] ? 'gcds-date-input--error' : ''}` }, requiredAttr, { "aria-invalid": hasError['day'].toString(), "aria-description": hasError['day'] && errorMessage })));
-        return (hAsync(Host, { key: 'd9388aa00239180b8f9a657cd188748c2d1babce', name: name, onBlur: () => this.onBlur() }, this.validateRequiredProps() && (hAsync("fieldset", Object.assign({ key: '1004ff844a1231495b95d598d9880ac03284464a', class: "gcds-date-input__fieldset" }, fieldsetAttrs), hAsync("legend", { key: '0fea4a4db52510952d1911773a4f0d45b8af0b89', id: "date-input-legend" }, legend, required ? (hAsync("span", { class: "legend__required" }, I18N$m[lang].required)) : null), hint ? (hAsync("gcds-hint", { id: "date-input-hint", "hint-id": "date-input" }, hint)) : null, errorMessage ? (hAsync("div", null, hAsync("gcds-error-message", { id: "date-input-error", messageId: "date-input" }, errorMessage))) : null, format == 'compact'
+        const month = (hAsync("gcds-select", Object.assign({ key: '1b75eb30986c1ec3f786245346390a0c8e6d84bb', label: I18N$n[lang].month, selectId: "month", name: "month", defaultValue: I18N$n[lang].selectmonth, disabled: disabled, onInput: e => this.handleInput(e, 'month'), onChange: e => this.handleInput(e, 'month'), value: this.monthValue, class: `gcds-date-input__month ${hasError['month'] ? 'gcds-date-input--error' : ''}` }, requiredAttr, { "aria-invalid": hasError['month'].toString(), "aria-description": hasError['month'] && errorMessage }), options.map(option => (hAsync("option", { key: option, value: option }, I18N$n[lang]['months'][option])))));
+        const year = (hAsync("gcds-input", Object.assign({ key: '00a435c9630456e99df46fe4d0bd09863dd2f852', name: "year", label: I18N$n[lang].year, inputId: "year", type: "number", size: 4, disabled: disabled, value: this.yearValue, onInput: e => this.handleInput(e, 'year'), onChange: e => this.handleInput(e, 'year'), class: `gcds-date-input__year ${hasError['year'] ? 'gcds-date-input--error' : ''}` }, requiredAttr, { "aria-invalid": hasError['year'].toString(), "aria-description": hasError['year'] && errorMessage })));
+        const day = (hAsync("gcds-input", Object.assign({ key: '7b9102ed9179796e6ece989107c416713ed7038b', name: "day", label: I18N$n[lang].day, inputId: "day", type: "number", size: 2, disabled: disabled, value: this.dayValue, onInput: e => this.handleInput(e, 'day'), onChange: e => this.handleInput(e, 'day'), class: `gcds-date-input__day ${hasError['day'] ? 'gcds-date-input--error' : ''}` }, requiredAttr, { "aria-invalid": hasError['day'].toString(), "aria-description": hasError['day'] && errorMessage })));
+        return (hAsync(Host, { key: 'ff3c863e3eba298ee511b70088b0d1656350c4b0', name: name, onBlur: () => this.onBlur() }, this.validateRequiredProps() && (hAsync("fieldset", Object.assign({ key: '8fedb9d95085f0486cd06664d25f537423d9705f', class: "gcds-date-input__fieldset" }, fieldsetAttrs), hAsync("legend", { key: '5a7f0373bfc0a436333faa8999a1443375e92d0f', id: "date-input-legend" }, legend, required ? (hAsync("span", { class: "legend__required" }, I18N$n[lang].required)) : null), hint ? (hAsync("gcds-hint", { id: "date-input-hint", "hint-id": "date-input" }, hint)) : null, errorMessage ? (hAsync("div", null, hAsync("gcds-error-message", { id: "date-input-error", messageId: "date-input" }, errorMessage))) : null, format == 'compact'
             ? [month, year]
             : lang == 'en'
                 ? [month, day, year]
@@ -3998,7 +4169,7 @@ class GcdsDateInput {
     }; }
 }
 
-const I18N$l = {
+const I18N$m = {
   en: {
     date: 'Date modified:',
     version: 'Version ',
@@ -4056,7 +4227,7 @@ class GcdsDateModified {
     }
     render() {
         const { lang, type } = this;
-        return (hAsync(Host, { key: 'f63e29a192d3a4d658ca78335b064e84e4143c5b' }, this.validateRequiredProps() && (hAsync("dl", { key: '934f13de2562460ebb81b01b19a969c5fca4604c', class: "gcds-date-modified" }, hAsync("dt", { key: '71a5ff2bdcf6c6d7aaf857d459b7c465d13a7ab3' }, hAsync("gcds-text", { key: 'b8ad0f896154c73fff49eb8e5f7aabc82a8fb6f0', display: "inline", "margin-bottom": "0" }, type === 'version' ? I18N$l[lang].version : I18N$l[lang].date)), hAsync("dd", { key: '8624f50eb70cdfd7a448c6e5755235c729fa00f2' }, hAsync("gcds-text", { key: '97c82c7759ea15d85f92dd19ebd40c24d010df13', display: "inline", "margin-bottom": "0" }, type === 'version' ? (hAsync("slot", null)) : (hAsync("time", null, hAsync("slot", null)))))))));
+        return (hAsync(Host, { key: 'ae1d5ceeefb2826a675edeca1f2fa0c81828b425' }, this.validateRequiredProps() && (hAsync("dl", { key: '989b2ca91b4887f0a47c956c022550b475221a7d', class: "gcds-date-modified" }, hAsync("dt", { key: '1d05ceb07362ad9b010769489ad3b0a057d9d754' }, hAsync("gcds-text", { key: '61bb8fbe85f6614eeec0ebb9fabacc7b710dfc8d', display: "inline", "margin-bottom": "0" }, type === 'version' ? I18N$m[lang].version : I18N$m[lang].date)), hAsync("dd", { key: '45cdfd7944ba0ca7ea4251d673eaf2f59f2346a0' }, hAsync("gcds-text", { key: 'f2c0744b1a28ff5cd98ff8e3da8ce44384656b4d', display: "inline", "margin-bottom": "0" }, type === 'version' ? (hAsync("slot", null)) : (hAsync("time", null, hAsync("slot", null)))))))));
     }
     get el() { return getElement(this); }
     static get style() { return GcdsDateModifiedStyle0; }
@@ -4097,12 +4268,12 @@ class GcdsDetails {
     }
     render() {
         const { detailsTitle, open } = this;
-        return (hAsync(Host, { key: '17839f99ea3d7d6f190a7bc5df72d1e056e09b3c' }, hAsync("div", { key: '5ebfa6b8c4b0317728ebb114a0dac1b3574ceda8', class: "gcds-details" }, hAsync("button", { key: '3e02dfd0ca368a4758a79edbf2b125e721427ce3', "aria-expanded": open.toString(), "aria-controls": "details__panel", onBlur: () => this.gcdsBlur.emit(), onFocus: () => this.gcdsFocus.emit(), onClick: e => {
+        return (hAsync(Host, { key: '6d6050eb05cee9ffe72e93881dd7d2465846551a' }, hAsync("div", { key: '9c1a67b54b602f6e4bc3c4472631b3bbe35217de', class: "gcds-details" }, hAsync("button", { key: '7626fa188fa20abd22405efb652ec5a04b1db042', "aria-expanded": open.toString(), "aria-controls": "details__panel", onBlur: () => this.gcdsBlur.emit(), onFocus: () => this.gcdsFocus.emit(), onClick: e => {
                 const event = emitEvent(e, this.gcdsClick);
                 if (event) {
                     this.toggle();
                 }
-            }, class: "details__summary", id: "details__summary" }, detailsTitle), hAsync("div", { key: 'a12601d1dcad1cff247c32a59aeacdbe14100c6f', id: "details__panel", class: "details__panel", "aria-labelledby": "details__summary" }, hAsync("slot", { key: '11209ad4acd9a6f6d678e1fb7047b070339779b2' })))));
+            }, class: "details__summary", id: "details__summary" }, detailsTitle), hAsync("div", { key: '483e4e1f8cca9cd32c68acfdc9e79b11332faf6c', id: "details__panel", class: "details__panel", "aria-labelledby": "details__summary" }, hAsync("slot", { key: '6a91db99b4d14fc480199620a46793d8579a394c' })))));
     }
     get el() { return getElement(this); }
     static get style() { return GcdsDetailsStyle0; }
@@ -4130,7 +4301,7 @@ class GcdsErrorMessage {
     }
     render() {
         const { messageId } = this;
-        return (hAsync(Host, { key: '3f2e26f31e50359a0e1726d5f714dd678005cf01', id: `error-message-${messageId}`, class: "gcds-error-message-wrapper" }, hAsync("gcds-text", { key: 'a8a20a16968e9a4578466f4fbeafb727077d7424', class: "error-message", role: "alert", "margin-bottom": "75" }, hAsync("gcds-icon", { key: '0ec129fc4a98c7232c2fd9a6fbbfa936f9ce471a', name: "warning-triangle", "margin-right": "50" }), hAsync("strong", { key: 'bcb3dd9ed9b3e4d31979abeb6a2772c7073a7918' }, hAsync("slot", { key: 'f5b40163bd642d274789295c3b9cd84d27e157dd' })))));
+        return (hAsync(Host, { key: 'a222583eefb309d128159fc38e743d2b0881a38f', id: `error-message-${messageId}`, class: "gcds-error-message-wrapper" }, hAsync("gcds-text", { key: 'df574c45206ce2456d7a791068825e2e1e54a7ca', class: "error-message", role: "alert", "margin-bottom": "75" }, hAsync("gcds-icon", { key: '369e900ba0e1134abebd736ab6e0338f93b817ba', name: "warning-triangle", "margin-right": "50" }), hAsync("strong", { key: 'd61fa293a5660c17a60eed61906e45d4aa938e00' }, hAsync("slot", { key: '22ddfe43ba49f79f5034128c46debcae3c8c6a61' })))));
     }
     get el() { return getElement(this); }
     static get style() { return GcdsErrorMessageStyle0; }
@@ -4146,7 +4317,7 @@ class GcdsErrorMessage {
     }; }
 }
 
-const I18N$k = {
+const I18N$l = {
   en: {
     heading: 'There was a problem',
     subheading: 'Errors were found on this page:',
@@ -4279,9 +4450,9 @@ class GcdsErrorSummary {
     }
     render() {
         const { heading, errorQueue, lang, hasSubmitted, errorLinks } = this;
-        return (hAsync(Host, { key: 'dd90e9455ea1a422d5f4559c62df271259923249' }, hAsync("div", { key: 'bb61b6d2eea84aead7d06e0355b464bf2e2281bb', role: "alert", tabindex: "-1", ref: element => (this.shadowElement = element), class: `gcds-error-summary ${(hasSubmitted || errorLinks) && Object.keys(errorQueue).length > 0
+        return (hAsync(Host, { key: '921bc4798b6c8ce0e52cc0e8377548d2f9f90a06' }, hAsync("div", { key: 'c88ac2207f650dfcf2afc92c2382261e6062103d', role: "alert", tabindex: "-1", ref: element => (this.shadowElement = element), class: `gcds-error-summary ${(hasSubmitted || errorLinks) && Object.keys(errorQueue).length > 0
                 ? 'gcds-show'
-                : ''}` }, hAsync("gcds-heading", { key: '170edbb97c73a0928aaa571f33eee36b72fee740', tag: "h2", "margin-top": "0", "margin-bottom": "225" }, heading !== null && heading !== void 0 ? heading : I18N$k[lang].heading), hAsync("ol", { key: 'ce1c06b5047c8a1632a955c3cb5d7ed833a7284b', class: "summary__errorlist" }, (hasSubmitted || errorLinks) &&
+                : ''}` }, hAsync("gcds-heading", { key: '3503d99d5747612a36354097ebe466c88311e4dc', tag: "h2", "margin-top": "0", "margin-bottom": "225" }, heading !== null && heading !== void 0 ? heading : I18N$l[lang].heading), hAsync("ol", { key: '0751c01bfe6c44457fb9923c814fa1831aae4444', class: "summary__errorlist" }, (hasSubmitted || errorLinks) &&
             Object.keys(errorQueue).length > 0 &&
             Object.keys(errorQueue).map(key => {
                 return (hAsync("li", { class: "summary__listitem" }, hAsync("gcds-link", { size: "regular", href: errorLinks ? key : '#', onClick: e => {
@@ -4315,201 +4486,64 @@ class GcdsErrorSummary {
     }; }
 }
 
-const I18N$j = {
+const I18N$k = {
   en: {
-    required: 'required',
+    legendSizeError: 'gcds-fieldset: Invalid size.',
   },
   fr: {
-    required: 'obligatoire',
+    legendSizeError: 'gcds-fieldset: Taille invalide.',
   },
 };
 
-const gcdsFieldsetCss = "@layer reset, default, disabled;@layer reset{.sc-gcds-fieldset-h{display:block}.sc-gcds-fieldset-h .gcds-fieldset{border:0;min-inline-size:auto;padding:0}.sc-gcds-fieldset-h legend{padding:0}.sc-gcds-fieldset-h slot{display:block;margin:0}}@layer default{.gcds-fieldset{color:var(--gcds-fieldset-default-text)}.gcds-fieldset legend{font:var(--gcds-fieldset-font-desktop);margin:var(--gcds-fieldset-legend-margin)!important}@media only screen and (width < 48em){.gcds-fieldset legend{font:var(--gcds-fieldset-font-mobile)}}.gcds-fieldset legend .legend__required{font:var(--gcds-fieldset-legend-required-font-desktop);margin:var(--gcds-fieldset-legend-required-margin)!important;vertical-align:middle}@media only screen and (width < 48em){.gcds-fieldset legend .legend__required{font:var(--gcds-fieldset-legend-required-font-mobile)}}}@layer disabled{.sc-gcds-fieldset-h .gcds-fieldset:disabled{color:var(--gcds-fieldset-disabled-text)}.sc-gcds-fieldset-h .gcds-fieldset:disabled gcds-hint{--gcds-hint-text:currentColor}}";
+const gcdsFieldsetCss = "@layer reset, default, size;@layer reset{.sc-gcds-fieldset-h{display:block}.sc-gcds-fieldset-h .gcds-fieldset{border:0;min-inline-size:auto;padding:0}.sc-gcds-fieldset-h legend{padding:0}.sc-gcds-fieldset-h slot{display:block;margin:0}}@layer default{.gcds-fieldset{color:var(--gcds-fieldset-default-text)}.gcds-fieldset legend{margin:var(--gcds-fieldset-legend-margin)!important}}@layer size{.gcds-fieldset legend.size-h2{font:var(--gcds-fieldset-legend-size-h2-desktop)}@media only screen and (width < 48em){.gcds-fieldset legend.size-h2{font:var(--gcds-fieldset-legend-size-h2-mobile)}}.gcds-fieldset legend.size-h3{font:var(--gcds-fieldset-legend-size-h3-desktop)}@media only screen and (width < 48em){.gcds-fieldset legend.size-h3{font:var(--gcds-fieldset-legend-size-h3-mobile)}}.gcds-fieldset legend.size-h4{font:var(--gcds-fieldset-legend-size-h4-desktop)}@media only screen and (width < 48em){.gcds-fieldset legend.size-h4{font:var(--gcds-fieldset-legend-size-h4-mobile)}}.gcds-fieldset legend.size-h5{font:var(--gcds-fieldset-legend-size-h5-desktop)}@media only screen and (width < 48em){.gcds-fieldset legend.size-h5{font:var(--gcds-fieldset-legend-size-h5-mobile)}}.gcds-fieldset legend.size-h6{font:var(--gcds-fieldset-legend-size-h6-desktop)}@media only screen and (width < 48em){.gcds-fieldset legend.size-h6{font:var(--gcds-fieldset-legend-size-h6-mobile)}}}";
 var GcdsFieldsetStyle0 = gcdsFieldsetCss;
 
 class GcdsFieldset {
     constructor(hostRef) {
         registerInstance(this, hostRef);
-        this.gcdsGroupError = createEvent(this, "gcdsGroupError", 7);
-        this.gcdsGroupErrorClear = createEvent(this, "gcdsGroupErrorClear", 7);
-        this.gcdsError = createEvent(this, "gcdsError", 7);
-        this.gcdsValid = createEvent(this, "gcdsValid", 7);
-        this.isDateInput = false;
-        this._validator = defaultValidator;
-        this.fieldsetId = undefined;
-        this.legend = undefined;
-        this.required = undefined;
-        this.errorMessage = undefined;
         this.hint = undefined;
-        this.disabled = undefined;
-        this.validator = undefined;
-        this.validateOn = undefined;
-        this.hasError = undefined;
-        this.lang = undefined;
+        this.legend = undefined;
+        this.legendSize = undefined;
         this.inheritedAttributes = {};
     }
-    validateErrorMessage() {
-        if (this.disabled) {
-            this.errorMessage = '';
+    validateLegendSize(newValue) {
+        const values = ['h2', 'h3', 'h4', 'h5', 'h6'];
+        if (!values.includes(newValue)) {
+            console.error(`${I18N$k['en'].legendSizeError} | ${I18N$k['fr'].legendSizeError}`);
         }
-        else if (!this.hasError && this.errorMessage) {
-            this.hasError = true;
-        }
-        else if (this.errorMessage == '') {
-            this.hasError = false;
-        }
-    }
-    validateDisabledFieldset() {
-        if (this.required) {
-            this.disabled = false;
-        }
-        if (this.disabled == true) {
-            for (let i = 0; i < this.el.children.length; i++) {
-                this.el.children[i].setAttribute('disabled', '');
-            }
-        }
-    }
-    handleDisabledChange(newValue, _oldValue) {
-        if (_oldValue && newValue != _oldValue) {
-            for (let i = 0; i < this.el.children.length; i++) {
-                this.el.children[i].removeAttribute('disabled');
-            }
-        }
-    }
-    validateValidator() {
-        if (this.validator && !this.validateOn) {
-            this.validateOn = 'blur';
-        }
-    }
-    /**
-     * Call any active validators
-     */
-    async validate() {
-        if (!this._validator.validate(this.fieldsetId) &&
-            this._validator.errorMessage) {
-            this.errorMessage = this._validator.errorMessage[this.lang];
-            this.gcdsGroupError.emit(this.errorMessage);
-            this.gcdsError.emit({
-                id: `#${this.fieldsetId}`,
-                message: `${this.legend} - ${this.errorMessage}`,
-            });
-        }
-        else {
-            this.errorMessage = '';
-            this.gcdsGroupErrorClear.emit();
-            this.gcdsValid.emit({ id: `#${this.fieldsetId}` });
-        }
-    }
-    blurValidate() {
-        if (this.validator &&
-            this.validateOn == 'blur' &&
-            !this.el.matches(':focus-within')) {
-            this.validate();
-        }
-    }
-    /**
-     * Event listener for gcds-fieldset errors
-     */
-    gcdsParentGroupError(e) {
-        if (e.srcElement == this.el &&
-            validateFieldsetElements(this.el, this.el.children).includes(false)) {
-            this.hasError = true;
-        }
-    }
-    gcdsParentGroupErrorClear(e) {
-        if (e.srcElement == this.el && this.hasError) {
-            this.hasError = false;
-        }
-    }
-    submitListener(e) {
-        if (e.target == this.el.closest('form')) {
-            if (this.validateOn && this.validateOn != 'other') {
-                this.validate();
-            }
-            if (this.hasError) {
-                e.preventDefault();
-            }
-        }
-    }
-    /*
-     * Observe lang attribute change
-     */
-    updateLang() {
-        const observer = new MutationObserver(mutations => {
-            if (mutations[0].oldValue != this.el.lang) {
-                this.lang = this.el.lang;
-            }
-        });
-        observer.observe(this.el, observerConfig);
     }
     async componentWillLoad() {
-        // Define lang attribute
-        this.lang = assignLanguage(this.el);
-        this.updateLang();
-        this.validateDisabledFieldset();
-        this.validateErrorMessage();
-        this.validateValidator();
-        // Assign required validator if needed
-        if (this.el.getAttribute('data-date')) {
-            this.isDateInput = true;
-        }
-        else {
-            requiredValidator(this.el, 'fieldset');
-        }
-        if (this.validator) {
-            this._validator = getValidator(this.validator);
-        }
+        // Validate attributes and set defaults
+        this.validateLegendSize(this.legendSize);
         this.inheritedAttributes = inheritAttributes(this.el, this.shadowElement);
     }
-    componentWillUpdate() {
-        if (this.validator) {
-            this._validator = getValidator(this.validator);
-        }
-    }
     render() {
-        const { lang, fieldsetId, legend, required, errorMessage, hasError, hint, disabled, inheritedAttributes, } = this;
-        const fieldsetAttrs = Object.assign({ disabled }, inheritedAttributes);
-        if (errorMessage) {
-            fieldsetAttrs['aria-describedby'] = `error-message-${fieldsetId} ${fieldsetAttrs['aria-describedby']
-                ? ` ${fieldsetAttrs['aria-describedby']}`
-                : ''}`;
-        }
-        return (hAsync(Host, { key: '28b6b012db193345b89688a3a49c23f46304c285' }, hAsync("fieldset", Object.assign({ key: 'f540690d1a3f4f5cc430b581aa0ad4acd37c0df5', class: `gcds-fieldset ${hasError ? 'gcds-fieldset--error' : ''}`, id: fieldsetId }, fieldsetAttrs, { "aria-labelledby": hint
-                ? `legend-${fieldsetId} hint-${fieldsetId}`
-                : `legend-${fieldsetId}`, tabindex: "-1", ref: element => (this.shadowElement = element) }), hAsync("legend", { key: 'b95da10304c515c19ad7610b10bc1ec6671b9918', id: `legend-${fieldsetId}` }, legend, required ? (hAsync("span", { class: "legend__required" }, "(", I18N$j[lang].required, ")")) : null), hint ? hAsync("gcds-hint", { "hint-id": fieldsetId }, hint) : null, errorMessage ? (hAsync("gcds-error-message", { messageId: fieldsetId }, errorMessage)) : null, hAsync("slot", { key: '4b72b0dec46d47075fa3edd6c693e24fa146dd7f' }))));
+        const { hint, inheritedAttributes, legend, legendSize } = this;
+        const fieldsetAttrs = Object.assign({}, inheritedAttributes);
+        return (hAsync(Host, { key: 'bdaa72f102073eece68355e87838668eaed71a23' }, hAsync("fieldset", Object.assign({ key: 'b38edf3c89849186293ddce49df1a28b445798a6', class: "gcds-fieldset" }, fieldsetAttrs, { "aria-labelledby": hint ? `fieldset-legend fieldset-hint` : `fieldset-legend`, tabindex: "-1", ref: element => (this.shadowElement = element) }), hAsync("legend", { key: 'dd2da6134098fe927b3f50303f374c7637c818de', id: "fieldset-legend", class: `size-${legendSize}` }, legend), hint ? (hAsync("gcds-hint", { id: "fieldset-hint", "hint-id": "fieldset" }, hint)) : null, hAsync("slot", { key: 'b916b63948f59a490d9dbc7d4b0598f270e13bb6' }))));
     }
     static get delegatesFocus() { return true; }
     get el() { return getElement(this); }
     static get watchers() { return {
-        "errorMessage": ["validateErrorMessage"],
-        "disabled": ["validateDisabledFieldset", "handleDisabledChange"],
-        "validator": ["validateValidator"]
+        "legendSize": ["validateLegendSize"]
     }; }
     static get style() { return GcdsFieldsetStyle0; }
     static get cmpMeta() { return {
         "$flags$": 25,
         "$tagName$": "gcds-fieldset",
         "$members$": {
-            "fieldsetId": [513, "fieldset-id"],
-            "legend": [513],
-            "required": [516],
-            "errorMessage": [1537, "error-message"],
             "hint": [513],
-            "disabled": [1540],
-            "validator": [1040],
-            "validateOn": [1025, "validate-on"],
-            "hasError": [32],
-            "lang": [32],
-            "inheritedAttributes": [32],
-            "validate": [64]
+            "legend": [513],
+            "legendSize": [1025, "legend-size"],
+            "inheritedAttributes": [32]
         },
-        "$listeners$": [[0, "gcdsBlur", "blurValidate"], [16, "gcdsGroupError", "gcdsParentGroupError"], [16, "gcdsGroupErrorClear", "gcdsParentGroupErrorClear"], [4, "submit", "submitListener"]],
+        "$listeners$": undefined,
         "$lazyBundleId$": "-",
-        "$attrsToReflect$": [["fieldsetId", "fieldset-id"], ["legend", "legend"], ["required", "required"], ["errorMessage", "error-message"], ["hint", "hint"], ["disabled", "disabled"]]
+        "$attrsToReflect$": [["hint", "hint"], ["legend", "legend"]]
     }; }
 }
 
-const I18N$i = {
+const I18N$j = {
   en: {
     button: {
       remove: 'Remove',
@@ -4780,8 +4814,8 @@ class GcdsFileUploader {
             attrsInput['aria-describedby'] =
                 `${hintID}${errorID}${attrsInput['aria-describedby']}`;
         }
-        return (hAsync(Host, { key: '6c6ef66be8b55a3e93259e4af231de9378daba82' }, hAsync("div", { key: '47a19eac7f53045d0c84af8c20676d348ca84e58', class: `gcds-file-uploader-wrapper ${disabled ? 'gcds-disabled' : ''} ${hasError ? 'gcds-error' : ''}` }, hAsync("gcds-label", Object.assign({ key: 'fda321ac14063357dfb0d64aadfd38855d11eb4f' }, attrsLabel, { "label-for": uploaderId, lang: lang })), hint ? hAsync("gcds-hint", { "hint-id": uploaderId }, hint) : null, errorMessage ? (hAsync("gcds-error-message", { messageId: uploaderId }, errorMessage)) : null, hAsync("div", { key: 'd4245f187a168c4ba1751a8f920bad15471d6794', class: `file-uploader__input ${value.length > 0 ? 'uploaded-files' : ''}`, onDrop: e => this.handleDrop(e), onDragOver: e => e.preventDefault() }, hAsync("button", { key: 'cbac48bf5f013b527f01601964512b89420aed23', type: "button", tabindex: "-1", onClick: () => this.shadowElement.click() }, I18N$i[lang].button.upload), hAsync("input", Object.assign({ key: 'd1360f3157fb3fa2e249bb37017259cf66789975', type: "file", id: uploaderId }, attrsInput, { onBlur: () => this.onBlur(), onFocus: () => this.gcdsFocus.emit(), onInput: e => this.handleInput(e, this.gcdsInput), onChange: e => this.handleInput(e, this.gcdsChange), "aria-invalid": hasError ? 'true' : 'false', ref: element => (this.shadowElement = element) })), value.length > 0 ? (hAsync("gcds-sr-only", { id: "file-uploader__summary" }, hAsync("span", null, I18N$i[lang].summary.selected, " "), value.map(file => (hAsync("span", null, file, " "))))) : (hAsync("gcds-sr-only", { id: "file-uploader__summary" }, I18N$i[lang].summary.unselected))), value.length > 0
-            ? value.map(file => (hAsync("div", { class: "file-uploader__uploaded-file", "aria-label": `${I18N$i[lang].removeFile} ${file}.` }, hAsync("gcds-text", { "margin-bottom": "0" }, file), hAsync("button", { onClick: e => this.removeFile(e) }, hAsync("span", null, I18N$i[lang].button.remove), hAsync("gcds-icon", { name: "close", size: "text", "margin-left": "150" })))))
+        return (hAsync(Host, { key: 'a94120d8791854e450cfee8413b2c89e1d6a934a' }, hAsync("div", { key: '56097f889c8144c9a077ab84170830b972147c45', class: `gcds-file-uploader-wrapper ${disabled ? 'gcds-disabled' : ''} ${hasError ? 'gcds-error' : ''}` }, hAsync("gcds-label", Object.assign({ key: '5fe82e189c8f21e22819d3d418fd92a8f64e7a46' }, attrsLabel, { "label-for": uploaderId, lang: lang })), hint ? hAsync("gcds-hint", { "hint-id": uploaderId }, hint) : null, errorMessage ? (hAsync("gcds-error-message", { messageId: uploaderId }, errorMessage)) : null, hAsync("div", { key: '84f745e320ed402ae3e83aadc460b623385ae442', class: `file-uploader__input ${value.length > 0 ? 'uploaded-files' : ''}`, onDrop: e => this.handleDrop(e), onDragOver: e => e.preventDefault() }, hAsync("button", { key: 'b780c7a5dc68dfafc71b0c8d89e85a16fe6b72b8', type: "button", tabindex: "-1", onClick: () => this.shadowElement.click() }, I18N$j[lang].button.upload), hAsync("input", Object.assign({ key: 'f420f6cc3cd115ecae6fd1833903fa47d6ce9474', type: "file", id: uploaderId }, attrsInput, { onBlur: () => this.onBlur(), onFocus: () => this.gcdsFocus.emit(), onInput: e => this.handleInput(e, this.gcdsInput), onChange: e => this.handleInput(e, this.gcdsChange), "aria-invalid": hasError ? 'true' : 'false', ref: element => (this.shadowElement = element) })), value.length > 0 ? (hAsync("gcds-sr-only", { id: "file-uploader__summary" }, hAsync("span", null, I18N$j[lang].summary.selected, " "), value.map(file => (hAsync("span", null, file, " "))))) : (hAsync("gcds-sr-only", { id: "file-uploader__summary" }, I18N$j[lang].summary.unselected))), value.length > 0
+            ? value.map(file => (hAsync("div", { class: "file-uploader__uploaded-file", "aria-label": `${I18N$j[lang].removeFile} ${file}.` }, hAsync("gcds-text", { "margin-bottom": "0" }, file), hAsync("button", { onClick: e => this.removeFile(e) }, hAsync("span", null, I18N$j[lang].button.remove), hAsync("gcds-icon", { name: "close", size: "text", "margin-left": "150" })))))
             : null)));
     }
     static get delegatesFocus() { return true; }
@@ -4823,7 +4857,7 @@ class GcdsFileUploader {
     }; }
 }
 
-const I18N$h = {
+const I18N$i = {
   en: {
     gov: {
       heading: 'Government of Canada',
@@ -5149,17 +5183,17 @@ class GcdsFooter {
     }
     render() {
         const { lang, display, contextualHeading, contextualLinksObject, subLinks, subLinksObject, renderSignature, } = this;
-        const govNav = I18N$h[lang].gov.menu;
-        const themeNav = I18N$h[lang].themes.menu;
-        const siteNav = I18N$h[lang].site.menu;
+        const govNav = I18N$i[lang].gov.menu;
+        const themeNav = I18N$i[lang].themes.menu;
+        const siteNav = I18N$i[lang].site.menu;
         let contextualLinkCount = 0;
         let subLinkCount = 0;
-        return (hAsync(Host, { key: '80705536aaa53acb16c95fbadbedf2ba8c2b44aa', role: "contentinfo", "aria-label": "Footer" }, hAsync("gcds-sr-only", { key: '40b4f1f47f89230a7570b8a2ede87eea289f9769', tag: "h2" }, I18N$h[lang].about), contextualLinksObject && contextualHeading && (hAsync("div", { key: 'd068b2e3d3ea29ab9dd0f45e9065a920b6cea387', class: "gcds-footer__contextual" }, hAsync("div", { key: '4a4b92b90a82bfd938555d009fbdc869145d23ce', class: "contextual__container" }, hAsync("nav", { key: 'cad548536170a273339c72fcf2d99d007c5c9a93', "aria-labelledby": "contextual__heading" }, hAsync("h3", { key: '072647a4600ae33264bd19ffa7ee82fc1affa3cb', id: "contextual__heading", class: "contextual__heading" }, contextualHeading), hAsync("ul", { key: '60d5f1368912a10b3e00528ee2f9a04d1aa7aa00', class: "contextual__list" }, Object.keys(contextualLinksObject).map(key => {
+        return (hAsync(Host, { key: '5837980656caab330e544099513140319f21bf2b', role: "contentinfo", "aria-label": "Footer" }, hAsync("gcds-sr-only", { key: '224923db016c4e7487a21e0c738b075b488b6af9', tag: "h2" }, I18N$i[lang].about), contextualLinksObject && contextualHeading && (hAsync("div", { key: '6e59417fd295f8ad99f56ed6b2d60cadff12905f', class: "gcds-footer__contextual" }, hAsync("div", { key: 'eed81cfd3b34bb7c55bb640b37770c11075add60', class: "contextual__container" }, hAsync("nav", { key: '5bcc993b76d9bbbd45accce9800cd85db91d120e', "aria-labelledby": "contextual__heading" }, hAsync("h3", { key: '7180a682e2c50b500dda0ce979fe511ca65a4e43', id: "contextual__heading", class: "contextual__heading" }, contextualHeading), hAsync("ul", { key: '043ca05a01cf7a8161589839c8164d0001727759', class: "contextual__list" }, Object.keys(contextualLinksObject).map(key => {
             if (contextualLinkCount < 3) {
                 contextualLinkCount++;
                 return (hAsync("li", null, hAsync("gcds-link", { size: "small", href: contextualLinksObject[key] }, key)));
             }
-        })))))), display === 'full' ? (hAsync("div", { class: "gcds-footer__main" }, hAsync("div", { class: "main__container" }, hAsync("nav", { class: "main__govnav", "aria-labelledby": "govnav__heading" }, hAsync("h3", { id: "govnav__heading" }, I18N$h[lang].gov.heading), hAsync("ul", { class: "govnav__list" }, Object.keys(govNav).map(value => (hAsync("li", null, hAsync("gcds-link", { size: "small", href: govNav[value].link }, govNav[value].text)))))), hAsync("nav", { class: "main__themenav", "aria-labelledby": "themenav__heading" }, hAsync("gcds-sr-only", { tag: "h4", id: "themenav__heading" }, I18N$h[lang].themes.heading), hAsync("ul", { class: "themenav__list" }, Object.keys(themeNav).map(value => (hAsync("li", null, hAsync("gcds-link", { size: "small", href: themeNav[value].link }, themeNav[value].text))))))))) : null, hAsync("div", { key: 'f7e8acd7c6fe841e938510189fdf641ca9c22fe4', class: "gcds-footer__sub" }, hAsync("div", { key: 'f9823441ebec110b002d0e08806e79ae745c3110', class: "sub__container" }, hAsync("nav", { key: '12d8f65435c6435ac713fbd14d2659fcd013ba17', "aria-labelledby": "sub__heading" }, hAsync("gcds-sr-only", { key: 'db80c42c3402e9d8cbfbc145e756bdcf0e7029c2', tag: "h3", id: "sub__heading" }, I18N$h[lang].site.heading), hAsync("ul", { key: 'a78aef708a0aa3eb030e7e83961bbe32175c7302' }, subLinks
+        })))))), display === 'full' ? (hAsync("div", { class: "gcds-footer__main" }, hAsync("div", { class: "main__container" }, hAsync("nav", { class: "main__govnav", "aria-labelledby": "govnav__heading" }, hAsync("h3", { id: "govnav__heading" }, I18N$i[lang].gov.heading), hAsync("ul", { class: "govnav__list" }, Object.keys(govNav).map(value => (hAsync("li", null, hAsync("gcds-link", { size: "small", href: govNav[value].link }, govNav[value].text)))))), hAsync("nav", { class: "main__themenav", "aria-labelledby": "themenav__heading" }, hAsync("gcds-sr-only", { tag: "h4", id: "themenav__heading" }, I18N$i[lang].themes.heading), hAsync("ul", { class: "themenav__list" }, Object.keys(themeNav).map(value => (hAsync("li", null, hAsync("gcds-link", { size: "small", href: themeNav[value].link }, themeNav[value].text))))))))) : null, hAsync("div", { key: 'c220125a35a924a3acb840cf186b4cc5e09d865e', class: "gcds-footer__sub" }, hAsync("div", { key: '5efa5ad5f42d7a4482a33f023acd68b5831ad429', class: "sub__container" }, hAsync("nav", { key: '8c239b963a088c9b9dc2281b0c60e56ce2fcc7a2', "aria-labelledby": "sub__heading" }, hAsync("gcds-sr-only", { key: 'fbeb0d6c5b102fdd6de322bcd56e54d4ba91dca2', tag: "h3", id: "sub__heading" }, I18N$i[lang].site.heading), hAsync("ul", { key: 'f76aa2db981e25762466367ad9ca887c0fdd72b6' }, subLinks
             ? Object.keys(subLinksObject).map(key => {
                 if (subLinkCount < 5) {
                     subLinkCount++;
@@ -5193,7 +5227,7 @@ class GcdsFooter {
     }; }
 }
 
-const I18N$g = {
+const I18N$h = {
   en: {
     gapDesktopError: 'gcds-grid: Invalid spacing value for gap-desktop.',
     gapTabletError: 'gcds-grid: Invalid spacing value for gap-tablet.',
@@ -5256,14 +5290,14 @@ class GcdsGrid {
         const values = GridGapArray;
         if (newValue != undefined && !values.includes(newValue)) {
             this.gapTablet = undefined;
-            console.error(`${I18N$g['en'].gapTabletError} | ${I18N$g['fr'].gapTabletError}`);
+            console.error(`${I18N$h['en'].gapTabletError} | ${I18N$h['fr'].gapTabletError}`);
         }
     }
     validateGapDesktop(newValue) {
         const values = GridGapArray;
         if (newValue != undefined && !values.includes(newValue)) {
             this.gapDesktop = undefined;
-            console.error(`${I18N$g['en'].gapDesktopError} | ${I18N$g['fr'].gapDesktopError}`);
+            console.error(`${I18N$h['en'].gapDesktopError} | ${I18N$h['fr'].gapDesktopError}`);
         }
     }
     validateTag(newValue) {
@@ -5428,7 +5462,7 @@ class GcdsGridCol {
     }; }
 }
 
-const I18N$f = {
+const I18N$g = {
   en: {
     skip: 'Skip to main content',
     skipLabel: 'Skip to',
@@ -5472,7 +5506,7 @@ class GcdsHeader {
             return hAsync("slot", { name: "skip-to-nav" });
         }
         else if (this.skipToHref) {
-            return (hAsync("nav", { class: "gcds-header__skip-to-nav", "aria-label": I18N$f[this.lang].skipLabel }, hAsync("gcds-link", { href: this.skipToHref }, I18N$f[this.lang].skip)));
+            return (hAsync("nav", { class: "gcds-header__skip-to-nav", "aria-label": I18N$g[this.lang].skipLabel }, hAsync("gcds-link", { href: this.skipToHref }, I18N$g[this.lang].skip)));
         }
         else {
             return;
@@ -5519,7 +5553,7 @@ class GcdsHeader {
     }
     render() {
         const { renderSkipToNav, renderToggle, renderSignature, renderSearch, hasSearch, hasBanner, hasBreadcrumb, } = this;
-        return (hAsync(Host, { key: '6efd0f4e2348ee9cf535345da9b29fa09e02bced', role: "banner" }, renderSkipToNav, hasBanner ? hAsync("slot", { name: "banner" }) : null, hAsync("div", { key: '3e3a968e58e1e43c1495947549b0699b205075c5', class: "gcds-header__brand" }, hAsync("div", { key: 'fcede179bafd3b6d2a2825e38db8f6c067e4f413', class: `brand__container ${!hasSearch ? 'container--simple' : ''}` }, renderToggle, renderSignature, renderSearch)), hAsync("slot", { key: 'd282b219be7cd92f9acd02b53fa68a89a87ea1b4', name: "menu" }), hasBreadcrumb ? (hAsync("div", { class: "gcds-header__container" }, hAsync("slot", { name: "breadcrumb" }))) : null));
+        return (hAsync(Host, { key: '4ce8bdb71c9ec3db7651195f6c15e423034fb509', role: "banner" }, renderSkipToNav, hasBanner ? hAsync("slot", { name: "banner" }) : null, hAsync("div", { key: 'c763e09da43fed07da3562e0b581fb549e4f0954', class: "gcds-header__brand" }, hAsync("div", { key: '157b25b759b836affb69d046ba3ecba8022c79ff', class: `brand__container ${!hasSearch ? 'container--simple' : ''}` }, renderToggle, renderSignature, renderSearch)), hAsync("slot", { key: '41a36feff4bff5a648b7f50b23410f5337b7a683', name: "menu" }), hasBreadcrumb ? (hAsync("div", { class: "gcds-header__container" }, hAsync("slot", { name: "breadcrumb" }))) : null));
     }
     get el() { return getElement(this); }
     static get style() { return GcdsHeaderStyle0; }
@@ -5587,12 +5621,12 @@ class GcdsHeading {
     render() {
         const { characterLimit, marginTop, marginBottom, tag } = this;
         const Tag = tag;
-        return (hAsync(Host, { key: 'b2f8e7fc2e0137c303657c7b6ead41f1911ed975' }, hAsync(Tag, { key: '136f5f9083247a238aeeb58c72e3fb5e862956c3', class: `
+        return (hAsync(Host, { key: 'f26743658ce725d64a3342709eb5183ac883b258' }, hAsync(Tag, { key: '14b13d3759c5c4cad292b9b5e3b6262682a6f616', class: `
             gcds-heading
             ${characterLimit ? 'limit' : ''}
             ${marginTop ? `mt-${marginTop}` : ''}
             ${marginBottom ? `mb-${marginBottom}` : ''}
-          ` }, hAsync("slot", { key: '881ac6dfd723d6352b8eb95937b1e340f38d26e1' }))));
+          ` }, hAsync("slot", { key: '3e5bbde39229e946e88d3e5d7e88421cc9486d3c' }))));
     }
     get el() { return getElement(this); }
     static get watchers() { return {
@@ -5626,7 +5660,7 @@ class GcdsHint {
     }
     render() {
         const { hintId } = this;
-        return (hAsync(Host, { key: '8e9af18f71f043062a78de179236357539afe979', id: `hint-${hintId}` }, hAsync("gcds-text", { key: 'bac3fc4edbbb00b2191989bc155636aa0ab6c68c', class: "gcds-hint", "margin-bottom": "0", part: "hint" }, hAsync("slot", { key: '1fdb52992e56952156704305469a85e30b2bb398' }))));
+        return (hAsync(Host, { key: 'eb67660e9aef1823546fd67ffb4df34b28b2cadb', id: `hint-${hintId}` }, hAsync("gcds-text", { key: 'f1252b21a52419614fe057aad4a8b117d07ae8b6', class: "gcds-hint", "margin-bottom": "0", part: "hint" }, hAsync("slot", { key: '171998e99a00d21a3436f7dc118d580bb7d0fe77' }))));
     }
     get el() { return getElement(this); }
     static get style() { return GcdsHintStyle0; }
@@ -5642,7 +5676,7 @@ class GcdsHint {
     }; }
 }
 
-const I18N$e = {
+const I18N$f = {
   en: {
     nameError: 'gcds-icon: Invalid name.',
   },
@@ -5681,7 +5715,7 @@ class GcdsIcon {
             'warning-triangle',
         ];
         if (!values.includes(newValue)) {
-            console.error(`${I18N$e['en'].nameError} | ${I18N$e['fr'].nameError}`);
+            console.error(`${I18N$f['en'].nameError} | ${I18N$f['fr'].nameError}`);
         }
     }
     validateSize(newValue) {
@@ -5707,7 +5741,7 @@ class GcdsIcon {
     }
     render() {
         const { label, marginLeft, marginRight, name, size } = this;
-        return (hAsync(Host, { key: 'c1007874d5124b1b6a922176716182ddf1d2856f' }, hAsync("span", { key: '6d1934a3ae40303b9246820187f25bb3eec65648', class: `
+        return (hAsync(Host, { key: '9e8467eb5092e15bc355d76842f3fd5b295cd1cf' }, hAsync("span", { key: '13576b749ede045265726f613283c318440fbab8', class: `
             gcds-icon gcds-icon-${name}
             ${marginLeft ? `ml-${marginLeft}` : ''}
             ${marginRight ? `mr-${marginRight}` : ''}
@@ -5935,7 +5969,7 @@ class GcdsInput {
                 ? ` ${attrsInput['aria-describedby']}`
                 : ''}`;
         }
-        return (hAsync(Host, { key: '936d0032ed3ab7ec2d9553d3b185c048e4fa9336' }, hAsync("div", { key: 'e979cb26ba6873bce3a353212a587cea8f33c62d', class: `gcds-input-wrapper ${disabled ? 'gcds-disabled' : ''} ${hasError ? 'gcds-error' : ''}` }, hAsync("gcds-label", Object.assign({ key: '02f0d017dad57cb1b2b0f98e2cb1a6bee28254bf' }, attrsLabel, { "hide-label": hideLabel, "label-for": inputId, lang: lang })), hint ? hAsync("gcds-hint", { "hint-id": inputId }, hint) : null, errorMessage ? (hAsync("gcds-error-message", { messageId: inputId }, errorMessage)) : null, hAsync("input", Object.assign({ key: 'd8b48105699a51a349748be5af8fd0e57a781599' }, attrsInput, { class: hasError ? 'gcds-error' : null, id: inputId, name: name, onBlur: () => this.onBlur(), onFocus: () => this.gcdsFocus.emit(), onInput: e => this.handleInput(e, this.gcdsInput), onChange: e => this.handleInput(e, this.gcdsChange), "aria-labelledby": `label-for-${inputId}`, "aria-invalid": inheritedAttributes['aria-invalid'] === 'true'
+        return (hAsync(Host, { key: '7ed999fdc585adb3166db4aeafd7c7df52756a38' }, hAsync("div", { key: '61817df76bc4ae855aad63932c06f79aa115ea7c', class: `gcds-input-wrapper ${disabled ? 'gcds-disabled' : ''} ${hasError ? 'gcds-error' : ''}` }, hAsync("gcds-label", Object.assign({ key: 'b3ad7c9a6f1e8b5a08a56b15169756a108b1cb25' }, attrsLabel, { "hide-label": hideLabel, "label-for": inputId, lang: lang })), hint ? hAsync("gcds-hint", { "hint-id": inputId }, hint) : null, errorMessage ? (hAsync("gcds-error-message", { messageId: inputId }, errorMessage)) : null, hAsync("input", Object.assign({ key: '61a7529bfae32bf571575a69b14d61d2d818b7eb' }, attrsInput, { class: hasError ? 'gcds-error' : null, id: inputId, name: name, onBlur: () => this.onBlur(), onFocus: () => this.gcdsFocus.emit(), onInput: e => this.handleInput(e, this.gcdsInput), onChange: e => this.handleInput(e, this.gcdsChange), "aria-labelledby": `label-for-${inputId}`, "aria-invalid": inheritedAttributes['aria-invalid'] === 'true'
                 ? inheritedAttributes['aria-invalid']
                 : errorMessage
                     ? 'true'
@@ -5982,7 +6016,7 @@ class GcdsInput {
     }; }
 }
 
-const I18N$d = {
+const I18N$e = {
   en: {
     required: 'required',
   },
@@ -5997,11 +6031,6 @@ var GcdsLabelStyle0 = gcdsLabelCss;
 class GcdsLabel {
     constructor(hostRef) {
         registerInstance(this, hostRef);
-        this.onClick = (ev) => {
-            if (ev.srcElement.tagName == 'GCDS-LABEL') {
-                this.clickEl();
-            }
-        };
         this.hideLabel = undefined;
         this.label = undefined;
         this.labelFor = undefined;
@@ -6024,17 +6053,9 @@ class GcdsLabel {
         this.lang = assignLanguage(this.el);
         this.updateLang();
     }
-    /**
-     * Click label if host element is clicked
-     */
-    clickEl() {
-        if (this.focusEl) {
-            this.focusEl.click();
-        }
-    }
     render() {
         const { hideLabel, labelFor, label, required, lang } = this;
-        return (hAsync(Host, { key: '2f4fe7a9d0a0fcea5019edc8158adae424074428', id: `label-for-${labelFor}`, onClick: this.onClick }, hAsync("label", { key: '721461d1eb5818ff6b28f06bb314e27a5c0eb0c5', htmlFor: labelFor, class: `gcds-label ${hideLabel ? 'label--hidden' : ''}`, ref: focusEl => (this.focusEl = focusEl) }, hAsync("span", { key: '0564e25540c9a5ec81fbbba77c72e2892d5ccc51' }, label), required ? (hAsync("span", { "aria-hidden": "true", class: "label--required" }, "(", I18N$d[lang].required, ")")) : null)));
+        return (hAsync(Host, { key: '9e726e5b4bfe04e7b5d4a9e35a177df57ab1badc', id: `label-for-${labelFor}` }, hAsync("label", { key: '8026d5f89beea7d000e0b78891e0c11ca24eed19', htmlFor: labelFor, class: `gcds-label ${hideLabel ? 'label--hidden' : ''}` }, hAsync("span", { key: '219be69e62f0b64f6afc816bf7b334670a8e68e1' }, label), required ? (hAsync("span", { "aria-hidden": "true", class: "label--required" }, "(", I18N$e[lang].required, ")")) : null)));
     }
     get el() { return getElement(this); }
     static get style() { return GcdsLabelStyle0; }
@@ -6054,7 +6075,7 @@ class GcdsLabel {
     }; }
 }
 
-const I18N$c = {
+const I18N$d = {
   en: {
     abbreviation: 'fr',
     heading: 'Language selection',
@@ -6094,7 +6115,7 @@ class GcdsLangToggle {
     }
     render() {
         const { lang, href } = this;
-        return (hAsync(Host, { key: '05fc4f7ec61276b9e15ccb9fe75f257049bf3577' }, hAsync("div", { key: 'dc156971e988f7c4024ad760777e27f65c30b533', class: "gcds-lang-toggle" }, hAsync("gcds-sr-only", { key: 'dae3c2e582bbe214f9ec8422bacc3f6bb5f61dfe', id: "lang-toggle__heading", tag: "h2" }, I18N$c[lang].heading), hAsync("gcds-link", { key: '6bf0e599cace009ab90efce6a355389b3374e8a7', size: "regular", href: href, lang: I18N$c[lang].abbreviation }, hAsync("span", { key: 'cba5121aac09ac07fabc7c409653d83126f1da9d' }, I18N$c[lang].language), hAsync("abbr", { key: 'bf8fc9ac514ed5c243c52d63be1cef06cb024b9e', title: I18N$c[lang].language }, I18N$c[lang].abbreviation)))));
+        return (hAsync(Host, { key: 'e7c2600f42e0d941cbaef4e2599645dfdd65348a' }, hAsync("div", { key: 'f4794500d6da469c8a39ec04a21ce636b40d64ea', class: "gcds-lang-toggle" }, hAsync("gcds-sr-only", { key: '9d6672ff42b404b7af4c9689cfc38197dda42cca', id: "lang-toggle__heading", tag: "h2" }, I18N$d[lang].heading), hAsync("gcds-link", { key: '247e2ee655c2f9e16e7b6e19320864ef06bd8280', size: "regular", href: href, lang: I18N$d[lang].abbreviation }, hAsync("span", { key: 'da07bdf4b438ad9144e5ba301a73b83c2aabf713' }, I18N$d[lang].language), hAsync("abbr", { key: '10363892959c246a591463fbdbd42f605c5a164b', title: I18N$d[lang].language }, I18N$d[lang].abbreviation)))));
     }
     get el() { return getElement(this); }
     static get style() { return GcdsLangToggleStyle0; }
@@ -6111,7 +6132,7 @@ class GcdsLangToggle {
     }; }
 }
 
-const I18N$b = {
+const I18N$c = {
   en: {
     external: ' (Opens destination in a new tab.)',
     phone: ' (Attempts to open a phone app.)',
@@ -6198,8 +6219,8 @@ class GcdsLink {
             type,
         };
         const isExternal = target === '_blank' || external;
-        return (hAsync(Host, { key: '361b0eae9c009484a60cae6ab0c7dfc91f9bddec' }, hAsync("a", Object.assign({ key: 'a1fb3f918373cc7e9374a0ee378005a1356274d2', role: "link", tabIndex: 0 }, attrs, { class: `gcds-link link--${size} ${display != 'inline' ? `d-${display}` : ''} ${variant != 'default' ? `variant-${variant}` : ''}`, ref: element => (this.shadowElement = element), target: isExternal ? '_blank' : target, rel: isExternal ? 'noopener noreferrer' : rel }, inheritedAttributes, { part: "link", onBlur: () => this.gcdsBlur.emit(), onFocus: () => this.gcdsFocus.emit(), onClick: e => emitEvent(e, this.gcdsClick, href) }), hAsync("slot", { key: '883dc938a4fe2c5ad27dc5bdc4276717c5b7c15f' }), target === '_blank' || external ? (hAsync("gcds-icon", { name: "external", label: I18N$b[lang].external, "margin-left": "75" })) : download !== undefined ? (hAsync("gcds-icon", { name: "download", label: I18N$b[lang].download, "margin-left": "75" })) : href && href.toLowerCase().startsWith('mailto:') ? (hAsync("gcds-icon", { name: "email", label: I18N$b[lang].email, "margin-left": "75" })) : (href &&
-            href.toLowerCase().startsWith('tel:') && (hAsync("gcds-icon", { name: "phone", label: I18N$b[lang].phone, "margin-left": "75" }))))));
+        return (hAsync(Host, { key: 'eba8c2fd9aa39ef8b09f444ccec5e2bc7193ebb6' }, hAsync("a", Object.assign({ key: '8209fd0a90683773e0534eeb4486f40e93f995de', tabIndex: 0 }, attrs, { class: `gcds-link link--${size} ${display != 'inline' ? `d-${display}` : ''} ${variant != 'default' ? `variant-${variant}` : ''}`, ref: element => (this.shadowElement = element), target: isExternal ? '_blank' : target, rel: isExternal ? 'noopener noreferrer' : rel }, inheritedAttributes, { part: "link", onBlur: () => this.gcdsBlur.emit(), onFocus: () => this.gcdsFocus.emit(), onClick: e => emitEvent(e, this.gcdsClick, href) }), hAsync("slot", { key: 'da88b6de0dd78ffc8ab8e6671c83fc1393f98685' }), target === '_blank' || external ? (hAsync("gcds-icon", { name: "external", label: I18N$c[lang].external, "margin-left": "75" })) : download !== undefined ? (hAsync("gcds-icon", { name: "download", label: I18N$c[lang].download, "margin-left": "75" })) : href && href.toLowerCase().startsWith('mailto:') ? (hAsync("gcds-icon", { name: "email", label: I18N$c[lang].email, "margin-left": "75" })) : (href &&
+            href.toLowerCase().startsWith('tel:') && (hAsync("gcds-icon", { name: "phone", label: I18N$c[lang].phone, "margin-left": "75" }))))));
     }
     get el() { return getElement(this); }
     static get watchers() { return {
@@ -6329,12 +6350,12 @@ class GcdsNavGroup {
     }
     render() {
         const { closeTrigger, menuLabel, open, openTrigger } = this;
-        return (hAsync(Host, { key: 'a8ccd5b9fe3fc863f028659e07c3b8daf1490bf6', role: "listitem", open: open }, hAsync("button", { key: '4ff6bd558a2b8e380130754fc1fc1cb4efc133cb', "aria-haspopup": "true", tabIndex: 0, "aria-expanded": open.toString(), ref: element => (this.triggerElement = element), class: `gcds-nav-group__trigger gcds-trigger--${this.navStyle}`, onBlur: () => this.gcdsBlur.emit(), onFocus: () => this.gcdsFocus.emit(), onClick: e => {
+        return (hAsync(Host, { key: '2e0fa8db039fb51abfa907fcffff16d1afea585b', role: "listitem", open: open }, hAsync("button", { key: '53fe4debf8d01896f05eba8ccadcf98c9930aede', "aria-haspopup": "true", tabIndex: 0, "aria-expanded": open.toString(), ref: element => (this.triggerElement = element), class: `gcds-nav-group__trigger gcds-trigger--${this.navStyle}`, onBlur: () => this.gcdsBlur.emit(), onFocus: () => this.gcdsFocus.emit(), onClick: e => {
                 const event = emitEvent(e, this.gcdsClick);
                 if (event) {
                     this.toggleNav();
                 }
-            } }, hAsync("gcds-icon", { key: '64bb2e9c579c7f28b9a52764b54e42ea4ac4cd23', name: open ? 'chevron-up' : 'chevron-down' }), closeTrigger && open ? closeTrigger : openTrigger), hAsync("ul", { key: 'b8de299b4d122f1251e5822a2a1056d8f63ab583', "aria-label": menuLabel, class: `gcds-nav-group__list gcds-nav--${this.navStyle}` }, hAsync("slot", { key: '67a8a53ac07bb72994f218101f3c45d5c58d34bc' }))));
+            } }, hAsync("gcds-icon", { key: 'b839ff9e0618be4a075573ec6e07eac1c77be3ae', name: open ? 'chevron-up' : 'chevron-down' }), closeTrigger && open ? closeTrigger : openTrigger), hAsync("ul", { key: 'e5d277b9cc733f578e9fee9dbed70f9d430d04ec', "aria-label": menuLabel, class: `gcds-nav-group__list gcds-nav--${this.navStyle}` }, hAsync("slot", { key: 'e459a603ff49e2f646b65f0a888bcaada34cb50a' }))));
     }
     get el() { return getElement(this); }
     static get style() { return GcdsNavGroupStyle0; }
@@ -6411,7 +6432,7 @@ class GcdsNavLink {
         if (current) {
             linkAttrs['aria-current'] = 'page';
         }
-        return (hAsync(Host, { key: '32ea4108ff71d895c105a9d0faca30969c9f5e79', role: "listitem" }, hAsync("a", Object.assign({ key: 'e3833e2000d7d835f22706381ba8bbaf0b827c81', class: `gcds-nav-link gcds-nav-link--${this.navStyle}`, href: href }, linkAttrs, { tabIndex: 0, onBlur: () => this.gcdsBlur.emit(), onFocus: () => this.gcdsFocus.emit(), onClick: e => emitEvent(e, this.gcdsClick, href), ref: element => (this.linkElement = element) }), hAsync("slot", { key: '916d4530c67fcf93f3ac8e7efed557be07df4541' }))));
+        return (hAsync(Host, { key: 'a381fdebeff295a9a9e40ff6f09bab36e12256d2', role: "listitem" }, hAsync("a", Object.assign({ key: '374dc368ccd6314793c1bccc6a6d25029bc5861d', class: `gcds-nav-link gcds-nav-link--${this.navStyle}`, href: href }, linkAttrs, { tabIndex: 0, onBlur: () => this.gcdsBlur.emit(), onFocus: () => this.gcdsFocus.emit(), onClick: e => emitEvent(e, this.gcdsClick, href), ref: element => (this.linkElement = element) }), hAsync("slot", { key: 'e558346c42b2eeee6907d4c671729ed711b6cc12' }))));
     }
     get el() { return getElement(this); }
     static get style() { return GcdsNavLinkStyle0; }
@@ -6431,7 +6452,7 @@ class GcdsNavLink {
     }; }
 }
 
-const I18N$a = {
+const I18N$b = {
   en: {
     success: 'Success: ',
     info: 'Information: ',
@@ -6532,7 +6553,7 @@ class GcdsNotice {
             success: 'checkmark-circle',
             warning: 'warning-triangle',
         };
-        return (hAsync(Host, { key: '7d04d0e19067c8a1f0f6bef1ba21f9bb6e05b379' }, this.validateRequiredProps() && (hAsync("section", { key: '92300518f0f6a084603043451272705d18f32b10', class: `gcds-notice notice--type-${type}` }, hAsync("gcds-icon", { key: 'd08a464788d4ab04e25aaefd883510b178580b3e', class: "notice__icon", size: "h4", name: iconTypes[type] }), hAsync("div", { key: 'beb615aef718ad429868df2dfca31d997b08f862' }, hAsync("gcds-heading", { key: '139221a5b81115d19700a0e3fef7bbb1386d2497', tag: noticeTitleTag, "margin-top": "0", "margin-bottom": "100", class: "notice__heading" }, hAsync("gcds-sr-only", { key: 'cec841b35332c0f7cf4cd68a7c9a6a387c87165b', tag: "span" }, I18N$a[this.lang][type]), noticeTitle), hAsync("slot", { key: 'e24597dad7914e2c0cf3ad53f4aee87994a6d72f' }))))));
+        return (hAsync(Host, { key: 'fd1270c1f55a73317a453144bdd787f73a6b1718' }, this.validateRequiredProps() && (hAsync("section", { key: '5b69754984e2f26df7789f87ed53f956af36da76', class: `gcds-notice notice--type-${type}` }, hAsync("gcds-icon", { key: '7819caaf5a09fb193ddf6b2d0e90e113364322cc', class: "notice__icon", size: "h4", name: iconTypes[type] }), hAsync("div", { key: 'b2a6473df7b38f923bcff4660d9cc734d4a682e9' }, hAsync("gcds-heading", { key: 'f357202ef4784a28c1fa632c2612f358b0884c19', tag: noticeTitleTag, "margin-top": "0", "margin-bottom": "100", class: "notice__heading" }, hAsync("gcds-sr-only", { key: '61442ee69436efcf44645e12d48ced7098671d57', tag: "span" }, I18N$b[this.lang][type]), noticeTitle), hAsync("slot", { key: 'c213505d6bd3a75af3987b147d81d66e2c7d8415' }))))));
     }
     get el() { return getElement(this); }
     static get style() { return GcdsNoticeStyle0; }
@@ -6552,7 +6573,7 @@ class GcdsNotice {
     }; }
 }
 
-const I18N$9 = {
+const I18N$a = {
   en: {
     next: 'Next',
     previous: 'Previous',
@@ -6735,16 +6756,16 @@ class GcdsPagination {
             'href': href,
             'tabindex': 0,
             'aria-label': !end
-                ? I18N$9[this.lang].pageNumberOf
+                ? I18N$a[this.lang].pageNumberOf
                     .replace('{#}', page)
                     .replace('{total}', this.totalPages)
                     .replace('{label}', this.label)
                 : end == 'next'
-                    ? `${I18N$9[this.lang].nextPage}: ${I18N$9[this.lang].pageNumberOf
+                    ? `${I18N$a[this.lang].nextPage}: ${I18N$a[this.lang].pageNumberOf
                         .replace('{#}', ++page)
                         .replace('{total}', this.totalPages)
                         .replace('{label}', this.label)}`
-                    : `${I18N$9[this.lang].previousPage}: ${I18N$9[this.lang].pageNumberOf
+                    : `${I18N$a[this.lang].previousPage}: ${I18N$a[this.lang].pageNumberOf
                         .replace('{#}', --page)
                         .replace('{total}', this.totalPages)
                         .replace('{label}', this.label)}`,
@@ -6758,11 +6779,11 @@ class GcdsPagination {
         if (end) {
             return (hAsync("li", null, end === 'next' ? (hAsync("a", Object.assign({}, linkAttrs, { class: !mobile
                     ? 'gcds-pagination-end-button'
-                    : 'gcds-pagination-end-button-mobile' }), hAsync("span", null, I18N$9[this.lang].next), hAsync("gcds-icon", { "margin-left": "150", name: "chevron-right" }))) : (hAsync("a", Object.assign({}, linkAttrs, { class: !mobile
+                    : 'gcds-pagination-end-button-mobile' }), hAsync("span", null, I18N$a[this.lang].next), hAsync("gcds-icon", { "margin-left": "150", name: "chevron-right" }))) : (hAsync("a", Object.assign({}, linkAttrs, { class: !mobile
                     ? 'gcds-pagination-end-button'
                     : 'gcds-pagination-end-button-mobile' }), hAsync("gcds-icon", { "margin-right": "150", name: "chevron-left" }), hAsync("span", null, mobile
-                ? I18N$9[this.lang].previousMobile
-                : I18N$9[this.lang].previous)))));
+                ? I18N$a[this.lang].previousMobile
+                : I18N$a[this.lang].previous)))));
         }
         else {
             return (hAsync("li", { class: page != 1 && page != this.totalPages
@@ -6873,7 +6894,7 @@ class GcdsPagination {
     }
     render() {
         const { display, label, previousHref, previousLabel, nextHref, nextLabel, lang, } = this;
-        return (hAsync(Host, { key: '22c05e05afac84bc16a15e90c3bf28f419e271da', role: "navigation", "aria-label": label }, hAsync("div", { key: '7c1ffe39ba076b547f87fdfa52bcd89fb33dd619', class: "gcds-pagination" }, display === 'list' ? (hAsync("div", null, hAsync("ul", { class: "gcds-pagination-list" }, this.listitems), hAsync("ul", { class: "gcds-pagination-list-mobile-prevnext" }, this.mobilePrevNext))) : (hAsync("ul", { class: "gcds-pagination-simple" }, previousHref && (hAsync("li", { class: "gcds-pagination-simple-previous" }, hAsync("a", { href: previousHref, tabindex: 0, "aria-label": `${I18N$9[lang].previousPage}${previousLabel ? `: ${previousLabel}` : ''}`, onBlur: () => this.gcdsBlur.emit(), onFocus: () => this.gcdsFocus.emit(), onClick: e => emitEvent(e, this.gcdsClick, previousHref) }, hAsync("gcds-icon", { "margin-right": "150", name: "chevron-left" }), hAsync("div", { class: "gcds-pagination-simple-text" }, I18N$9[lang].previous), hAsync("span", null, previousLabel)))), nextHref && (hAsync("li", { class: "gcds-pagination-simple-next" }, hAsync("a", { href: nextHref, tabindex: 0, "aria-label": `${I18N$9[lang].nextPage}${nextLabel ? `: ${nextLabel}` : ''}`, onBlur: () => this.gcdsBlur.emit(), onFocus: () => this.gcdsFocus.emit(), onClick: e => emitEvent(e, this.gcdsClick, nextHref) }, hAsync("div", { class: "gcds-pagination-simple-text" }, I18N$9[lang].next), hAsync("span", null, nextLabel), hAsync("gcds-icon", { "margin-left": "150", name: "chevron-right" })))))))));
+        return (hAsync(Host, { key: 'db7f79c101fc1772545f376d3b5842af2ba7fcf9', role: "navigation", "aria-label": label }, hAsync("div", { key: 'da067061cb08e93e7781ed97f2c56e686943f3b2', class: "gcds-pagination" }, display === 'list' ? (hAsync("div", null, hAsync("ul", { class: "gcds-pagination-list" }, this.listitems), hAsync("ul", { class: "gcds-pagination-list-mobile-prevnext" }, this.mobilePrevNext))) : (hAsync("ul", { class: "gcds-pagination-simple" }, previousHref && (hAsync("li", { class: "gcds-pagination-simple-previous" }, hAsync("a", { href: previousHref, tabindex: 0, "aria-label": `${I18N$a[lang].previousPage}${previousLabel ? `: ${previousLabel}` : ''}`, onBlur: () => this.gcdsBlur.emit(), onFocus: () => this.gcdsFocus.emit(), onClick: e => emitEvent(e, this.gcdsClick, previousHref) }, hAsync("gcds-icon", { "margin-right": "150", name: "chevron-left" }), hAsync("div", { class: "gcds-pagination-simple-text" }, I18N$a[lang].previous), hAsync("span", null, previousLabel)))), nextHref && (hAsync("li", { class: "gcds-pagination-simple-next" }, hAsync("a", { href: nextHref, tabindex: 0, "aria-label": `${I18N$a[lang].nextPage}${nextLabel ? `: ${nextLabel}` : ''}`, onBlur: () => this.gcdsBlur.emit(), onFocus: () => this.gcdsFocus.emit(), onClick: e => emitEvent(e, this.gcdsClick, nextHref) }, hAsync("div", { class: "gcds-pagination-simple-text" }, I18N$a[lang].next), hAsync("span", null, nextLabel), hAsync("gcds-icon", { "margin-left": "150", name: "chevron-right" })))))))));
     }
     get el() { return getElement(this); }
     static get watchers() { return {
@@ -6904,7 +6925,7 @@ class GcdsPagination {
     }; }
 }
 
-const I18N$8 = {
+const I18N$9 = {
   en: {
     label: 'Banner',
   },
@@ -6945,7 +6966,7 @@ class GcdsPhaseBanner {
     }
     render() {
         const { bannerRole, container, isFixed, lang } = this;
-        return (hAsync(Host, { key: '01721695ba82d2faad63aabf1308ab32a2277576' }, hAsync("div", { key: '8f863517645dfd61949cc28d8fe4e4bfdb471734', class: `gcds-phase-banner banner--role-${bannerRole} ${isFixed ? 'banner--is-fixed' : ''}`, role: "status", "aria-label": I18N$8[lang].label }, hAsync("gcds-container", { key: 'e09458246e2769bff036529d6ea7cdd12c4c78f0', size: container, centered: true }, hAsync("div", { key: 'c52e8231ee66f8e68c85ca6d0dc98eb7343e94d9', class: "banner__content" }, hAsync("figure", { key: '0360d88ce03c0ed816f700930bf2d7647cad3d87', class: "banner__icon icon--left" }, hAsync("slot", { key: 'c59ff70d5fba77c3cb060674c3d61b5f427b3eb0', name: "banner-icon-left" })), hAsync("div", { key: '89b3f4e118778f91983b3114fb134679d9b5be4d', class: "banner__details" }, hAsync("slot", { key: 'dd5cc8315c49b2b10564ea9240f336ac9d0e79c9', name: "banner-text" }), hAsync("slot", { key: '6d1f17700cc66416b93f2c80a6e4d6da3f4d5602', name: "banner-cta" })), hAsync("figure", { key: '9596f293b8bed55c2738504f98b4827f21ce40ea', class: "banner__icon icon--right" }, hAsync("slot", { key: '0355ed216936f151188a800fe50ebc4443ecccb6', name: "banner-icon-right" })))))));
+        return (hAsync(Host, { key: '7a9ab092fa24decf0cbb189ff423a00a590a9353' }, hAsync("div", { key: '9abd59ac3f9f36c00f29df649ddcc4a0ba40fd12', class: `gcds-phase-banner banner--role-${bannerRole} ${isFixed ? 'banner--is-fixed' : ''}`, role: "status", "aria-label": I18N$9[lang].label }, hAsync("gcds-container", { key: 'c753160aee35e77486e88bb29267765418284187', size: container, centered: true }, hAsync("div", { key: '0aac78887062cdc82bb882a4d886ecd2c4cb0537', class: "banner__content" }, hAsync("figure", { key: '13b9b8d23f68dc271ef15a913da44720ef87f3aa', class: "banner__icon icon--left" }, hAsync("slot", { key: '86153fa07f9421599dd010f2aaed32b73c74d416', name: "banner-icon-left" })), hAsync("div", { key: '974677e29dc9ee44f7709283b553ae791c2a2843', class: "banner__details" }, hAsync("slot", { key: 'd485fcdd5578ac584ec5d1f2ea8a271bb8b4528a', name: "banner-text" }), hAsync("slot", { key: 'ee3c3e130c8476298fee89ce36ea6316efc7a747', name: "banner-cta" })), hAsync("figure", { key: '8e84fd783b06c179748c0370c9e4fa7362972a3c', class: "banner__icon icon--right" }, hAsync("slot", { key: '553594a2b70c69ac1e46847425b934ccd7087462', name: "banner-icon-right" })))))));
     }
     get el() { return getElement(this); }
     static get style() { return GcdsPhaseBannerStyle0; }
@@ -6964,15 +6985,43 @@ class GcdsPhaseBanner {
     }; }
 }
 
-const gcdsRadioGroupCss = "@layer reset, default, disabled, error, focus;@layer reset{.sc-gcds-radio-group-h{display:block}.sc-gcds-radio-group-h .gcds-radio{border:0;padding:0}.sc-gcds-radio-group-h .gcds-radio gcds-label:after,.sc-gcds-radio-group-h .gcds-radio gcds-label:before{box-sizing:border-box;content:\"\";cursor:pointer}}@layer default{.sc-gcds-radio-group-h .gcds-radio{color:var(--gcds-radio-default-text);font:var(--gcds-radio-font);margin:var(--gcds-radio-margin)!important;max-width:var(--gcds-radio-max-width);min-height:calc(var(--gcds-radio-input-height-and-width) - var(--gcds-radio-padding));padding:var(--gcds-radio-padding) 0 0;position:relative;transition:color .15s ease-in-out}.sc-gcds-radio-group-h .gcds-radio :is(gcds-label,gcds-hint){padding:var(--gcds-radio-label-padding)!important}.sc-gcds-radio-group-h .gcds-radio gcds-hint::part(hint){margin:0}.sc-gcds-radio-group-h .gcds-radio gcds-label:after,.sc-gcds-radio-group-h .gcds-radio gcds-label:before,.sc-gcds-radio-group-h .gcds-radio input{position:absolute}.sc-gcds-radio-group-h .gcds-radio gcds-label:before,.sc-gcds-radio-group-h .gcds-radio input{height:var(--gcds-radio-input-height-and-width);left:0;top:0;width:var(--gcds-radio-input-height-and-width)}.sc-gcds-radio-group-h .gcds-radio input{opacity:0}.sc-gcds-radio-group-h .gcds-radio gcds-label{width:fit-content}.sc-gcds-radio-group-h .gcds-radio gcds-label:after,.sc-gcds-radio-group-h .gcds-radio gcds-label:before{border-radius:var(--gcds-radio-border-radius)}.sc-gcds-radio-group-h .gcds-radio gcds-label:before{background-color:var(--gcds-radio-default-background);border:var(--gcds-radio-input-border-width) solid;transition:border-color .15s ease-in-out,box-shadow .15s ease-in-out,outline .15s ease-in-out}.sc-gcds-radio-group-h .gcds-radio gcds-label:after{background-color:currentcolor;height:var(--gcds-radio-check-height-and-width);left:var(--gcds-radio-check-left);opacity:0;top:var(--gcds-radio-check-top);transition:opacity .2s ease-in-out;width:var(--gcds-radio-check-height-and-width)}.sc-gcds-radio-group-h .gcds-radio input:checked+gcds-label:after{opacity:1}}@layer disabled{.sc-gcds-radio-group-h .gcds-radio.gcds-radio--disabled{color:var(--gcds-radio-disabled-text)}.sc-gcds-radio-group-h .gcds-radio.gcds-radio--disabled gcds-label{--gcds-label-text:currentColor}.sc-gcds-radio-group-h .gcds-radio.gcds-radio--disabled gcds-label:after,.sc-gcds-radio-group-h .gcds-radio.gcds-radio--disabled gcds-label:before{cursor:not-allowed}.sc-gcds-radio-group-h .gcds-radio.gcds-radio--disabled gcds-label:before{background-color:var(--gcds-radio-disabled-background);border-color:var(--gcds-radio-disabled-border)}.sc-gcds-radio-group-h .gcds-radio.gcds-radio--disabled gcds-hint{--gcds-hint-text:currentColor}}@layer error{.sc-gcds-radio-group-h .gcds-radio.gcds-radio--error:not(:focus-within) gcds-label:before{border-color:var(--gcds-radio-danger-border)}.sc-gcds-radio-group-h .gcds-radio.gcds-radio--error:not(:focus-within) gcds-label:after{background-color:var(--gcds-radio-danger-border)}}@layer focus{.sc-gcds-radio-group-h .gcds-radio:focus-within{color:var(--gcds-radio-focus-color)}.sc-gcds-radio-group-h .gcds-radio:focus-within input:focus+gcds-label:before{background:var(--gcds-radio-focus-background);box-shadow:var(--gcds-radio-focus-box-shadow);outline:var(--gcds-radio-focus-outline-width) solid currentcolor;outline-offset:var(--gcds-radio-input-border-width)}.sc-gcds-radio-group-h .gcds-radio:focus-within input:focus+gcds-label:after{background-color:currentcolor}}";
-var GcdsRadioGroupStyle0 = gcdsRadioGroupCss;
+function isRadioObject(obj) {
+    if (typeof obj !== 'object' || obj === null)
+        return false;
+    const validKeys = ['id', 'label', 'value', 'hint', 'checked'];
+    const objKeys = Object.keys(obj);
+    // Check if all properties match the expected type
+    const hasValidTypes = typeof obj.id === 'string' &&
+        typeof obj.label === 'string' &&
+        typeof obj.value === 'string' &&
+        (obj.hint === undefined || typeof obj.hint === 'string') &&
+        (obj.checked === undefined || typeof obj.checked === 'boolean');
+    // Ensure no extra properties exist
+    const hasOnlyValidKeys = objKeys.every(key => validKeys.includes(key));
+    return hasValidTypes && hasOnlyValidKeys;
+}
 
-class GcdsRadioGroup {
+const I18N$8 = {
+  en: {
+    required: ' (required)',
+  },
+  fr: {
+    required: ' (obligatoire)',
+  },
+};
+
+const gcdsRadiosCss = "@layer reset, default, disabled, error, focus, a11y.highcontrast;@layer reset{.sc-gcds-radios-h{display:block}.sc-gcds-radios-h .gcds-radios__fieldset{border:0;min-inline-size:auto;padding:0}.sc-gcds-radios-h .gcds-radios__fieldset legend{padding:0}.sc-gcds-radios-h .gcds-radio{border:0;padding:0}.sc-gcds-radios-h .gcds-radio gcds-label>label:after,.sc-gcds-radios-h .gcds-radio gcds-label>label:before{box-sizing:border-box;content:\"\";cursor:pointer;position:absolute}}@layer default{.sc-gcds-radios-h .gcds-radios__legend{font:var(--gcds-radio-legend-font-desktop);margin:var(--gcds-radio-legend-margin)}.sc-gcds-radios-h .gcds-radios__legend .legend__required{font:var(--gcds-radio-legend-required-font-desktop)}@media only screen and (width < 48em){.sc-gcds-radios-h .gcds-radios__legend{font:var(--gcds-radio-legend-font-mobile)}.sc-gcds-radios-h .gcds-radios__legend .legend__required{font:var(--gcds-radio-legend-required-font-mobile)}}.sc-gcds-radios-h .gcds-radios__legend:not(:has(+gcds-hint)){margin:var(--gcds-radio-legend-hint-margin)}.sc-gcds-radios-h gcds-hint:part(hint){margin:var(--gcds-radio-hint-margin)}.sc-gcds-radios-h .gcds-radio{color:var(--gcds-radio-default-text);font:var(--gcds-radio-font);margin:var(--gcds-radio-margin)!important;max-width:var(--gcds-radio-max-width);min-height:calc(var(--gcds-radio-input-height-and-width) - var(--gcds-radio-padding));padding:var(--gcds-radio-padding) 0 0;position:relative;transition:color .15s ease-in-out}.sc-gcds-radios-h .gcds-radio :is(gcds-label,gcds-hint){padding:var(--gcds-radio-label-padding)!important}.sc-gcds-radios-h .gcds-radio gcds-hint::part(hint){margin:0}.sc-gcds-radios-h .gcds-radio gcds-label:after,.sc-gcds-radios-h .gcds-radio gcds-label:before,.sc-gcds-radios-h .gcds-radio input{position:absolute}.sc-gcds-radios-h .gcds-radio gcds-label>label:before,.sc-gcds-radios-h .gcds-radio input{height:var(--gcds-radio-input-height-and-width);left:0;top:0;width:var(--gcds-radio-input-height-and-width)}.sc-gcds-radios-h .gcds-radio input{opacity:0}.sc-gcds-radios-h .gcds-radio gcds-label>label{width:fit-content;--gcds-label-font-desktop:var(--gcds-radio-label-font-desktop);--gcds-label-font-mobile:var(--gcds-radio-label-font-mobile)}.sc-gcds-radios-h .gcds-radio gcds-label>label:after,.sc-gcds-radios-h .gcds-radio gcds-label>label:before{border-radius:var(--gcds-radio-border-radius)}.sc-gcds-radios-h .gcds-radio gcds-label>label:before{background-color:var(--gcds-radio-default-background);border:var(--gcds-radio-input-border-width) solid;transition:border-color .15s ease-in-out,box-shadow .15s ease-in-out,outline .15s ease-in-out}.sc-gcds-radios-h .gcds-radio gcds-label>label:after{background-color:currentcolor;height:var(--gcds-radio-check-height-and-width);left:var(--gcds-radio-check-left);opacity:0;top:var(--gcds-radio-check-top);width:var(--gcds-radio-check-height-and-width)}.sc-gcds-radios-h .gcds-radio input:checked+gcds-label>label:after{opacity:1}}@layer disabled{.sc-gcds-radios-h .gcds-radio.gcds-radio--disabled{color:var(--gcds-radio-disabled-text)}.sc-gcds-radios-h .gcds-radio.gcds-radio--disabled gcds-label>label{--gcds-label-text:currentColor;cursor:not-allowed}.sc-gcds-radios-h .gcds-radio.gcds-radio--disabled gcds-label>label:after,.sc-gcds-radios-h .gcds-radio.gcds-radio--disabled gcds-label>label:before{cursor:not-allowed}.sc-gcds-radios-h .gcds-radio.gcds-radio--disabled gcds-label>label:before{background-color:var(--gcds-radio-disabled-background);border-color:var(--gcds-radio-disabled-border)}.sc-gcds-radios-h .gcds-radio.gcds-radio--disabled gcds-hint{--gcds-hint-text:currentColor}}@layer error{.sc-gcds-radios-h gcds-error-message{margin:var(--gcds-radio-error-message-margin)}.sc-gcds-radios-h .gcds-radio.gcds-radio--error:not(:focus-within) gcds-label>label:before{border-color:var(--gcds-radio-danger-border)}.sc-gcds-radios-h .gcds-radio.gcds-radio--error:not(:focus-within) gcds-label>label:after{background-color:var(--gcds-radio-danger-border)}}@layer focus{.sc-gcds-radios-h .gcds-radio:focus-within input:focus+gcds-label>label:before{background:var(--gcds-radio-focus-background);box-shadow:var(--gcds-radio-focus-box-shadow);color:var(--gcds-radio-focus-color);outline:var(--gcds-radio-focus-outline-width) solid currentcolor;outline-offset:var(--gcds-radio-input-border-width)}.sc-gcds-radios-h .gcds-radio:focus-within input:focus+gcds-label>label:after{box-shadow:inset 0 0 2rem var(--gcds-radio-focus-color)}}@layer a11y.highcontrast{@media (prefers-color-scheme:light){.sc-gcds-radios-h .gcds-radio gcds-label>label:after{background-color:buttonText}}@media (prefers-color-scheme:dark){.sc-gcds-radios-h .gcds-radio gcds-label>label:after{background-color:buttonText}}}";
+var GcdsRadiosStyle0 = gcdsRadiosCss;
+
+class GcdsRadios {
     constructor(hostRef) {
         registerInstance(this, hostRef);
+        this.gcdsInput = createEvent(this, "gcdsInput", 7);
         this.gcdsChange = createEvent(this, "gcdsChange", 7);
         this.gcdsFocus = createEvent(this, "gcdsFocus", 7);
         this.gcdsBlur = createEvent(this, "gcdsBlur", 7);
+        this.gcdsValid = createEvent(this, "gcdsValid", 7);
+        this.gcdsError = createEvent(this, "gcdsError", 7);
         if (hostRef.$hostElement$["s-ei"]) {
             this.internals = hostRef.$hostElement$["s-ei"];
         }
@@ -6980,108 +7029,257 @@ class GcdsRadioGroup {
             this.internals = hostRef.$hostElement$.attachInternals();
             hostRef.$hostElement$["s-ei"] = this.internals;
         }
+        this._validator = defaultValidator;
         this.onBlur = () => {
             this.gcdsBlur.emit();
         };
-        this.onChange = e => {
-            this.gcdsChange.emit(e.target.value);
-            this.internals.setFormValue(e.target.value, 'checked');
-            const changeEvt = new e.constructor(e.type, e);
-            this.el.dispatchEvent(changeEvt);
+        this.onBlurValidate = () => {
+            if (this.validateOn == 'blur') {
+                this.validate();
+            }
+            this.gcdsBlur.emit();
+        };
+        this.handleInput = (e, customEvent) => {
+            const val = e.target && e.target.value;
+            this.value = val;
+            this.internals.setFormValue(val ? val : null, 'checked');
+            if (e.type === 'change') {
+                const changeEvt = new e.constructor(e.type, e);
+                this.el.dispatchEvent(changeEvt);
+            }
+            customEvent.emit(this.value);
         };
         this.options = undefined;
         this.name = undefined;
+        this.legend = undefined;
+        this.required = undefined;
+        this.hint = undefined;
+        this.errorMessage = undefined;
+        this.disabled = undefined;
+        this.value = undefined;
+        this.validator = undefined;
+        this.validateOn = undefined;
         this.hasError = undefined;
-        this.parentError = undefined;
         this.inheritedAttributes = {};
         this.lang = undefined;
+        this.errors = [];
     }
     validateOptions() {
-        if (typeof this.options == 'object') {
-            this.optionObject = this.options;
+        let invalidObject = false;
+        // Assign optionsArr from passed options string or array
+        if (typeof this.options === 'string' && this.options.trim() !== '') {
+            try {
+                this.options = JSON.parse(this.options);
+            }
+            catch (e) {
+                logError('gcds-radios', ['Invalid JSON string for options']);
+                this.options = null;
+            }
         }
-        else if (typeof this.options == 'string') {
-            this.optionObject = JSON.parse(this.options);
+        if (Array.isArray(this.options)) {
+            this.optionsArr = this.options;
         }
+        else {
+            this.optionsArr = null;
+        }
+        // Validate options has type RadioObject
+        if (this.optionsArr && this.optionsArr.length > 1) {
+            invalidObject = this.optionsArr.some(radio => !isRadioObject(radio));
+        }
+        else {
+            invalidObject = true;
+        }
+        // Assign value if passed options has a checked radio
+        if (this.optionsArr && !this.value) {
+            this.optionsArr.forEach(radio => {
+                if (radio.checked === 'true' || radio.checked === true) {
+                    this.value = radio.value;
+                    this.internals.setFormValue(radio.value, 'checked');
+                }
+            });
+        }
+        // Log error if no or invalid optionsObject
+        this.errors = handleErrors(this.errors, 'options', this.optionsArr, invalidObject);
+    }
+    validateName() {
+        this.errors = handleErrors(this.errors, 'name', this.name);
+    }
+    validateLegend() {
+        this.errors = handleErrors(this.errors, 'legend', this.legend);
+    }
+    validateErrorMessage() {
+        if (this.disabled) {
+            this.errorMessage = '';
+        }
+        else {
+            this.hasError = this.errorMessage ? true : false;
+        }
+    }
+    validateValue() {
+        if (this.optionsArr && this.value !== null) {
+            let isValidValue = false;
+            this.optionsArr.map(radio => {
+                if (radio.value == this.value) {
+                    isValidValue = true;
+                }
+            });
+            // unset value if no radio button with value available
+            if (!isValidValue) {
+                this.value = null;
+                this.internals.setFormValue(this.value);
+            }
+        }
+    }
+    validateValidator() {
+        if (this.validator && !this.validateOn) {
+            this.validateOn = 'blur';
+        }
+    }
+    /**
+     * Call any active validators
+     */
+    async validate() {
+        if (!this._validator.validate(this.value) && this._validator.errorMessage) {
+            this.errorMessage = this._validator.errorMessage[this.lang];
+            this.gcdsError.emit({
+                message: `${this.legend} - ${this.errorMessage}`,
+            });
+        }
+        else {
+            this.errorMessage = '';
+            this.gcdsValid.emit();
+        }
+    }
+    submitListener(e) {
+        if (e.target == this.el.closest('form')) {
+            if (this.validateOn && this.validateOn != 'other') {
+                this.validate();
+            }
+            if (this.hasError && this.validateOn != 'other') {
+                e.preventDefault();
+            }
+        }
+    }
+    /*
+     * Form internal functions
+     */
+    formResetCallback() {
+        if (this.value != this.initialValue) {
+            this.internals.setFormValue(this.initialValue, 'checked');
+            this.value = this.initialValue;
+        }
+    }
+    formStateRestoreCallback(state) {
+        this.internals.setFormValue(state);
+        this.value = state;
     }
     /*
      * Observe lang attribute change
      */
-    updateLang() {
-        const observer = new MutationObserver(mutations => {
-            if (mutations[0].oldValue != this.el.lang) {
-                this.lang = this.el.lang;
-            }
-        });
-        observer.observe(this.el, observerConfig);
+    watchLang(newValue, oldValue) {
+        if (newValue !== oldValue) {
+            this.lang = newValue;
+        }
+    }
+    /*
+     * Validate required properties
+     */
+    validateRequiredProps() {
+        this.validateLegend();
+        this.validateName();
+        return isValid(this.errors, ['name', 'legend', 'options']);
     }
     async componentWillLoad() {
         // Define lang attribute
         this.lang = assignLanguage(this.el);
-        this.updateLang();
         this.validateOptions();
+        this.validateRequiredProps();
+        this.validateErrorMessage();
+        this.validateValidator();
+        // Assign required validator if needed
+        requiredValidator(this.el, 'radio');
+        if (this.validator) {
+            this._validator = getValidator(this.validator);
+        }
         this.inheritedAttributes = inheritAttributes(this.el, this.shadowElement);
-        this.optionObject &&
-            this.optionObject.map(radio => {
-                if (radio.checked) {
-                    this.internals.setFormValue(radio.value, 'checked');
-                }
-            });
-    }
-    /**
-     * Event listener for gcds-fieldset errors
-     */
-    gcdsGroupError(e) {
-        if (e.srcElement.contains(this.el)) {
-            this.hasError = true;
-            this.parentError = e.detail;
+        this.initialValue = this.value ? this.value : null;
+        const valid = this.validateRequiredProps();
+        if (!valid) {
+            logError('gcds-radios', this.errors);
         }
     }
-    gcdsGroupErrorClear(e) {
-        if (e.srcElement.contains(this.el) && this.hasError) {
-            this.hasError = false;
-            this.parentError = '';
+    async componentDidUpdate() {
+        // Validate props again if changed after render
+        const valid = this.validateRequiredProps();
+        if (!valid) {
+            logError('gcds-radios', this.errors);
         }
     }
     render() {
-        const { lang, name, hasError, parentError, inheritedAttributes } = this;
-        return (hAsync(Host, { key: '1b1197d92fe73076a39aed5beb6659ebca4d6dea' }, this.optionObject &&
-            this.optionObject.map(radio => {
-                const attrsInput = Object.assign({ name, disabled: radio.disabled, required: radio.required, value: radio.value, checked: radio.checked }, inheritedAttributes);
-                if (radio.hint || parentError) {
-                    const hintID = radio.hint ? `hint-${radio.id} ` : '';
-                    const errorID = parentError ? `parent-error ` : '';
-                    attrsInput['aria-describedby'] = `${hintID}${errorID}${attrsInput['aria-describedby']
-                        ? `${attrsInput['aria-describedby']}`
-                        : ''}`;
-                }
-                if (hasError) {
-                    attrsInput['aria-invalid'] = 'true';
-                }
-                return (hAsync("div", { class: `gcds-radio ${radio.disabled ? 'gcds-radio--disabled' : ''} ${hasError ? 'gcds-radio--error' : ''}` }, hAsync("input", Object.assign({ id: radio.id, type: "radio" }, attrsInput, { onChange: e => this.onChange(e), onBlur: () => this.onBlur(), onFocus: () => this.gcdsFocus.emit(), ref: element => (this.shadowElement = element) })), hAsync("gcds-label", { label: radio.label, "label-for": radio.id, lang: lang }), radio.hint ? (hAsync("gcds-hint", { "hint-id": radio.id }, radio.hint)) : null));
-            }), parentError && (hAsync("span", { key: 'b60d8d247b2f194432e70a23e1b65fab31ef2f6e', id: `parent-error`, hidden: true }, parentError))));
+        const { lang, name, legend, value, required, hint, errorMessage, disabled, hasError, inheritedAttributes, } = this;
+        const fieldsetAttrs = {
+            'tabindex': '-1',
+            'aria-labelledby': 'radios-legend',
+        };
+        if (hint) {
+            const hintID = this.hint ? `radios-hint ` : '';
+            fieldsetAttrs['aria-labelledby'] =
+                `${fieldsetAttrs['aria-labelledby']} ${hintID}`.trim();
+        }
+        if (this.validateRequiredProps()) {
+            return (hAsync(Host, { key: '3fced0510a711a29dc4e210a756fa20d472cd758', onBlur: () => this.onBlurValidate() }, hAsync("fieldset", Object.assign({ key: 'd0a19610308239faa95f67dffe05924a7b807c34', class: "gcds-radios__fieldset" }, fieldsetAttrs), hAsync("legend", { key: '7bc9287b1006e539b5c976719d59eb0a19c72dcc', id: "radios-legend", class: "gcds-radios__legend" }, legend, required ? (hAsync("span", { class: "legend__required" }, I18N$8[lang].required)) : null), hint ? (hAsync("gcds-hint", { id: "radios-hint", "hint-id": "radios" }, hint)) : null, errorMessage ? (hAsync("div", null, hAsync("gcds-error-message", { id: "radios-error", messageId: "radios" }, errorMessage))) : null, this.optionsArr &&
+                this.optionsArr.map(radio => {
+                    const attrsInput = Object.assign({ name, disabled: disabled, required: required, value: radio.value, checked: radio.value === value }, inheritedAttributes);
+                    if (radio.hint) {
+                        const hintID = radio.hint ? `hint-${radio.id} ` : '';
+                        attrsInput['aria-describedby'] = `${hintID}${attrsInput['aria-describedby']
+                            ? `${attrsInput['aria-describedby']}`
+                            : ''}`;
+                    }
+                    if (hasError) {
+                        attrsInput['aria-invalid'] = 'true';
+                        attrsInput['aria-description'] = errorMessage;
+                    }
+                    return (hAsync("div", { class: `gcds-radio ${disabled ? 'gcds-radio--disabled' : ''} ${hasError ? 'gcds-radio--error' : ''}` }, hAsync("input", Object.assign({ id: radio.id, type: "radio" }, attrsInput, { onInput: e => this.handleInput(e, this.gcdsInput), onChange: e => this.handleInput(e, this.gcdsChange), onBlur: () => this.onBlur(), onFocus: () => this.gcdsFocus.emit() })), hAsync("gcds-label", { label: radio.label, "label-for": radio.id, lang: lang, onClick: e => e.stopPropagation() }), radio.hint ? (hAsync("gcds-hint", { "hint-id": radio.id }, radio.hint)) : null));
+                }))));
+        }
     }
     static get delegatesFocus() { return true; }
     static get formAssociated() { return true; }
     get el() { return getElement(this); }
     static get watchers() { return {
-        "options": ["validateOptions"]
+        "options": ["validateOptions"],
+        "name": ["validateName"],
+        "legend": ["validateLegend"],
+        "errorMessage": ["validateErrorMessage"],
+        "value": ["validateValue"],
+        "validator": ["validateValidator"],
+        "lang": ["watchLang"]
     }; }
-    static get style() { return GcdsRadioGroupStyle0; }
+    static get style() { return GcdsRadiosStyle0; }
     static get cmpMeta() { return {
         "$flags$": 89,
-        "$tagName$": "gcds-radio-group",
+        "$tagName$": "gcds-radios",
         "$members$": {
-            "options": [1],
+            "options": [1025],
             "name": [513],
+            "legend": [513],
+            "required": [516],
+            "hint": [513],
+            "errorMessage": [1025, "error-message"],
+            "disabled": [1540],
+            "value": [1537],
+            "validator": [1040],
+            "validateOn": [1025, "validate-on"],
             "hasError": [32],
-            "parentError": [32],
             "inheritedAttributes": [32],
-            "lang": [32]
+            "lang": [32],
+            "errors": [32],
+            "validate": [64]
         },
-        "$listeners$": [[16, "gcdsGroupError", "gcdsGroupError"], [16, "gcdsGroupErrorClear", "gcdsGroupErrorClear"]],
+        "$listeners$": [[4, "submit", "submitListener"]],
         "$lazyBundleId$": "-",
-        "$attrsToReflect$": [["name", "name"]]
+        "$attrsToReflect$": [["name", "name"], ["legend", "legend"], ["required", "required"], ["hint", "hint"], ["disabled", "disabled"], ["value", "value"]]
     }; }
 }
 
@@ -7146,7 +7344,7 @@ class GcdsSearch {
         const formAction = action === '/sr/srb.html'
             ? `https://www.canada.ca/${lang}/sr/srb.html`
             : action;
-        return (hAsync(Host, { key: '128049f5dd1902ece7e9a1e6c03754b5e3bc057d' }, hAsync("div", { key: '79e0c575a737a8d9bc1495bbaea533a788c6e22e', class: "gcds-search" }, hAsync("gcds-sr-only", { key: 'fa01d2aa8e4f923e1b1fb7146747444af5754ab6', tag: "h2" }, I18N$7[lang].search), hAsync("form", { key: '6b418484503577b004402be2558d303a07596bc1', action: formAction, method: method, role: "search", onSubmit: e => emitEvent(e, this.gcdsSubmit, this.value), class: "gcds-search__form" }, hAsync("gcds-label", { key: '3110b02d5a162d12d3390cc90278eb63df15ab4d', label: labelText, "label-for": searchId, "hide-label": true }), hAsync("input", Object.assign({ key: 'be068ed5ce558a501843468015034de96b198eb6', type: "search", id: searchId, list: "search-list", size: 34, maxLength: 170, onInput: e => this.handleInput(e, this.gcdsInput), onChange: e => this.handleInput(e, this.gcdsChange), onFocus: () => this.gcdsFocus.emit(), onBlur: () => this.gcdsBlur.emit() }, attrsInput, { class: "gcds-search__input", value: value })), suggested && (hAsync("datalist", { key: '9907ea35d301fa4bd6c8cd433a87aa1e9cdd1465', id: "search-list" }, suggested.map((k, v) => (hAsync("option", { value: k, key: v }))))), hAsync("gcds-button", { key: '34305968de8f5cf777dba3509f2f2d996ea9d4d2', type: "submit", class: "gcds-search__button", exportparts: "button" }, hAsync("gcds-icon", { key: '34c25e5c62a8088142988ab3697ec1dd2f8fed90', name: "search", label: I18N$7[lang].search, size: "h3" }))))));
+        return (hAsync(Host, { key: '127843a74f45499fd5470727bbb846b1ee203ec7' }, hAsync("section", { key: 'f36f5193fd1e74daf7241f1c18a98a39c9e8f129', class: "gcds-search" }, hAsync("gcds-sr-only", { key: '71c95b501b4eca26ae9afb7d51dcaff02740cf89', tag: "h2" }, I18N$7[lang].search), hAsync("form", { key: 'eb5fca068f31fc240eed7b44f4c03432d2c202cc', action: formAction, method: method, role: "search", onSubmit: e => emitEvent(e, this.gcdsSubmit, this.value), class: "gcds-search__form" }, hAsync("gcds-label", { key: 'a8e7a1980756509805b02ed3d5ae8bfb69e770a4', label: labelText, "label-for": searchId, "hide-label": true }), hAsync("input", Object.assign({ key: '5d187bad902d4e1cd8dcf83d9acc8da7e5c669ca', type: "search", id: searchId }, (suggested ? { list: 'search-list' } : {}), { size: 34, maxLength: 170, onInput: e => this.handleInput(e, this.gcdsInput), onChange: e => this.handleInput(e, this.gcdsChange), onFocus: () => this.gcdsFocus.emit(), onBlur: () => this.gcdsBlur.emit() }, attrsInput, { class: "gcds-search__input", value: value })), suggested && (hAsync("datalist", { key: '0b85d565d6cc53479136b44f085be19c71e992ca', id: "search-list" }, suggested.map((k, v) => (hAsync("option", { value: k, key: v }))))), hAsync("gcds-button", { key: '97cd97b6fb539cd6ea06e043e5c3186b834610d1', type: "submit", class: "gcds-search__button", exportparts: "button" }, hAsync("gcds-icon", { key: '360d1561ed2a59484104e1e6d0aac7027161db48', name: "search", label: I18N$7[lang].search, size: "h3" }))))));
     }
     get el() { return getElement(this); }
     static get style() { return GcdsSearchStyle0; }
@@ -7392,7 +7590,7 @@ class GcdsSelect {
                 ? `${attrsSelect['aria-describedby']}`
                 : ''}`;
         }
-        return (hAsync(Host, { key: '74ef0ae2dccf89696939fd4d5017b82cf33508a4' }, hAsync("div", { key: '4eaf410a7cff00a1f4c135a1e3c02bfb5324ac22', class: `gcds-select-wrapper ${disabled ? 'gcds-disabled' : ''} ${hasError ? 'gcds-error' : ''}` }, hAsync("gcds-label", Object.assign({ key: '1272b6fd271a88e88d02f294039d9a1001450be8' }, attrsLabel, { "label-for": selectId, lang: lang })), hint ? hAsync("gcds-hint", { "hint-id": selectId }, hint) : null, errorMessage ? (hAsync("gcds-error-message", { messageId: selectId }, errorMessage)) : null, hAsync("select", Object.assign({ key: '5419b9d5efac15aa706637e240b11d5fdbbbcc59' }, attrsSelect, { id: selectId, onBlur: () => this.onBlur(), onFocus: () => this.gcdsFocus.emit(), onInput: e => this.handleInput(e, this.gcdsInput), onChange: e => this.handleInput(e, this.gcdsChange), "aria-invalid": inheritedAttributes['aria-invalid'] === 'true'
+        return (hAsync(Host, { key: 'fb6aeb223639f75aa5bc28b155f076bc1ad6871f' }, hAsync("div", { key: '71ac8ed56fb8ac745f782b556527666a128b178a', class: `gcds-select-wrapper ${disabled ? 'gcds-disabled' : ''} ${hasError ? 'gcds-error' : ''}` }, hAsync("gcds-label", Object.assign({ key: 'a73c320132850c5d14ada4228abdd6fb008ef32d' }, attrsLabel, { "label-for": selectId, lang: lang })), hint ? hAsync("gcds-hint", { "hint-id": selectId }, hint) : null, errorMessage ? (hAsync("gcds-error-message", { messageId: selectId }, errorMessage)) : null, hAsync("select", Object.assign({ key: '594ab71c7f1d11cf158a37457b570f12e33157db' }, attrsSelect, { id: selectId, onBlur: () => this.onBlur(), onFocus: () => this.gcdsFocus.emit(), onInput: e => this.handleInput(e, this.gcdsInput), onChange: e => this.handleInput(e, this.gcdsChange), "aria-invalid": inheritedAttributes['aria-invalid'] === 'true'
                 ? inheritedAttributes['aria-invalid']
                 : errorMessage
                     ? 'true'
@@ -7723,7 +7921,7 @@ class GcdsSideNav {
     }
     render() {
         const { label, lang } = this;
-        return (hAsync(Host, { key: '344cf111e760b2b61b35b0a6cd571dde4b397135' }, hAsync("nav", { key: '0775d15419006ceb206061d351fe54067cb5af6d', "aria-label": `${label}${I18N$6[lang].navLabel}`, class: "gcds-side-nav" }, hAsync("h2", { key: '33710c507459d5a1ccf49831c68dc854b8e076bd', class: "gcds-side-nav__heading" }, label), hAsync("ul", { key: '82ebb89be44aab8c201d82670239e0641cca8d18' }, hAsync("gcds-nav-group", { key: 'a633c17d34ccd0ca08f2413e95f74f815e277abb', menuLabel: I18N$6[lang].menuLabel, closeTrigger: I18N$6[lang].closeTrigger, openTrigger: I18N$6[lang].menuLabel, class: "gcds-mobile-nav", ref: element => (this.mobile = element), lang: lang }, hAsync("slot", { key: 'bd8c03e0b14ff32556b23ed89779ffb4d69553f2' }))))));
+        return (hAsync(Host, { key: '2176c26610444e641bf07d616472085f3442f2f0' }, hAsync("nav", { key: '7a707a1f2043e1b5aa630254bfb007bc8effd88c', "aria-label": `${label}${I18N$6[lang].navLabel}`, class: "gcds-side-nav" }, hAsync("h2", { key: 'e0fcbd5dc9e0324b711ca5df1275b3c2cd6d1e90', class: "gcds-side-nav__heading" }, label), hAsync("ul", { key: '0dab78de769b83b3cf021849459d514f966c163a' }, hAsync("gcds-nav-group", { key: '381bce26ca561d4c005c33ed705142f9fd596d61', menuLabel: I18N$6[lang].menuLabel, closeTrigger: I18N$6[lang].closeTrigger, openTrigger: I18N$6[lang].menuLabel, class: "gcds-mobile-nav", ref: element => (this.mobile = element), lang: lang }, hAsync("slot", { key: 'aeef38c5147b2673fc48aada575f6f0635b48e30' }))))));
     }
     get el() { return getElement(this); }
     static get style() { return GcdsSideNavStyle0; }
@@ -7756,7 +7954,7 @@ const I18N$5 = {
   },
 };
 
-var SignatureEn = `<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 819 78" preserveAspectRatio="xMinYMin meet" role="img" aria-labelledby="signature-title">
+var SignatureEn = `<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 819 78" preserveAspectRatio="xMinYMin meet" role="img" aria-labelledby="signature-en-title">
 	<title id="signature-en-title">Government of Canada / Gouvernement du Canada</title>
 	<path d="M0,0 36.84,0 36.84,75.01 0,75.01z M118.54,0 155.38,0 155.38,75.01 118.54,75.01z M72.58,15.61,77.84,4.9l5.22,10.32c.65,1.09,1.18,1,2.22.48l4.49-2.22L86.85,27.89c-.61,2.83,1,3.66,2.75,1.74L96,22.79l1.7,3.87c.57,1.17,1.43,1,2.57.79l6.61-1.39-2.22,8.35,0,.18c-.26,1.09-.78,2,.44,2.53l2.35,1.17L93.77,49.82c-1.39,1.43-.91,1.87-.39,3.48l1.26,3.87-12.71-2.3c-1.57-.39-2.66-.39-2.7.87l.52,14.58H75.93l.52-14.54c0-1.43-1.09-1.39-3.66-.86L61,57.18l1.52-3.87c.52-1.48.66-2.48-.52-3.48L48.11,38.46l2.57-1.57c.74-.57.78-1.17.39-2.44L48.46,26l6.7,1.43c1.87.44,2.39,0,2.87-1l1.87-3.83L66.52,30c1.17,1.39,2.83.48,2.31-1.52L65.65,12.86l4.92,2.83c.78.48,1.61.61,2.09-.3" class="fip_flag" />
 	<path d="M29.4,31.73h-3.46l-.82-3.63c-2.9,3.29-5.53,4.37-9.3,4.37-9.25,0-14.79-7.35-14.79-16.17S6.57.12,15.82.12c6.75,0,12.41,3.59,13.23,10.55h-5.27c-.52-4.06-4.06-6.14-8-6.14-6.62,0-9.38,5.84-9.38,11.76s2.77,11.76,9.38,11.76c5.53.08,8.56-3.24,8.65-8.48h-8.21V15.47H29.4ZM44.83,28.44c-4.41,0-6.36-4-6.36-7.91s1.95-7.87,6.36-7.87,6.36,4,6.36,7.87S49.24,28.44,44.83,28.44Zm0,3.89c7.18,0,11.29-4.93,11.29-11.8S52,8.77,44.83,8.77s-11.29,4.93-11.29,11.76S37.65,32.34,44.83,32.34ZM58,9.38h5.36L69,26.54h.09l5.45-17.17h5.1l-8,22.35h-5.53ZM86.51,18.58a5.84,5.84,0,0,1,5.88-5.92c3.33,0,5.45,2.81,5.62,5.92Zm16.43,3.25c.82-6.7-3.5-13.06-10.55-13.06-6.66,0-10.81,5.45-10.81,11.8,0,6.87,3.94,11.76,10.94,11.76,4.89,0,9-2.72,10.12-7.61H98c-.87,2.47-2.59,3.72-5.45,3.72-4.11,0-6-3.11-6-6.62ZM106.7,9.38h4.63V13.7h.09a7.21,7.21,0,0,1,6.53-4.93,11.69,11.69,0,0,1,1.86.13v4.76a17.6,17.6,0,0,0-2.12-.22c-3.37,0-6.05,2.72-6.05,7.65V31.73H106.7V9.38ZM121.92,9.38h4.67v3.29l.09.09a8,8,0,0,1,7-4c4.84,0,7.91,2.59,7.91,7.61V31.73h-4.93V17.68c-.09-3.5-1.47-5-4.37-5-3.29,0-5.41,2.59-5.41,5.88V31.73h-4.93V9.38ZM146.74,9.38h4.67v3.11h.13a7.47,7.47,0,0,1,6.87-3.72c2.72,0,5.28,1.17,6.27,3.72a8.07,8.07,0,0,1,7-3.72c4.71,0,7.48,2.08,7.48,7.52V31.73h-4.93V18.67c0-3.55-.22-6-4.06-6-3.33,0-4.76,2.21-4.76,6v13.1h-4.93V17.38c0-3.07-1-4.71-3.93-4.71-2.55,0-4.89,2.08-4.89,5.79V31.73h-4.93V9.38ZM188.21,18.58a5.84,5.84,0,0,1,5.88-5.92c3.33,0,5.45,2.81,5.62,5.92Zm16.43,3.25c.82-6.7-3.5-13.06-10.55-13.06-6.66,0-10.81,5.45-10.81,11.8,0,6.87,3.93,11.76,10.94,11.76,4.89,0,9-2.72,10.12-7.61h-4.67c-.86,2.47-2.59,3.72-5.45,3.72-4.11,0-6-3.11-6-6.62ZM208.4,9.38h4.67v3.29l.09.09a8,8,0,0,1,7-4c4.84,0,7.91,2.59,7.91,7.61V31.73H223.1V17.68c-.09-3.5-1.47-5-4.37-5-3.29,0-5.41,2.59-5.41,5.88V31.73H208.4V9.38ZM231,9.38h3.71V2.67h4.93v6.7h4.45v3.68h-4.45V25c0,2,.17,3.07,2.38,3.07a8.25,8.25,0,0,0,2.08-.18v3.81c-1.08.08-2.12.26-3.2.26-5.15,0-6.1-2-6.19-5.71V13.05H231V9.38ZM12,71.68c-4.41,0-6.36-4-6.36-7.91S7.6,55.9,12,55.9s6.36,4,6.36,7.87S16.43,71.68,12,71.68Zm0,3.89c7.18,0,11.28-4.93,11.28-11.8S19.19,52,12,52s-11.29,4.93-11.29,11.76S4.83,75.57,12,75.57ZM25.2,52.61h3.67V50.76c0-5.71,3-6.66,6.18-6.66a13.89,13.89,0,0,1,3.46.3v3.85a8.32,8.32,0,0,0-2.29-.26c-1.34,0-2.42.48-2.42,2.33v2.29H38v3.68H33.8V75h-4.93V56.29H25.2ZM74.58,53.91c-.91-3.55-3.2-6.14-7.7-6.14-6.62,0-9.38,5.84-9.38,11.76s2.77,11.76,9.38,11.76c4.8,0,7.44-3.59,7.87-8.09H80c-.43,7.39-5.66,12.5-13.14,12.5-9.25,0-14.79-7.35-14.79-16.17s5.54-16.17,14.79-16.17c7,0,12.45,3.89,13.1,10.55h-5.4ZM98.06,67.45c0,3.11-3.37,4.24-5.54,4.24-1.73,0-4.54-.65-4.54-2.85,0-2.59,1.9-3.37,4-3.72s4.54-.35,6.05-1.34Zm4.93-9c0-4.71-4.58-6.48-9-6.48-4.93,0-9.82,1.69-10.16,7.44h4.93C89,57,91,55.9,93.73,55.9c2,0,4.63.48,4.63,3,0,2.9-3.16,2.51-6.7,3.16-4.15.47-8.6,1.38-8.6,7,0,4.37,3.63,6.53,7.65,6.53a11.47,11.47,0,0,0,7.74-2.72c.39,2,1.82,2.72,3.8,2.72a12.36,12.36,0,0,0,3.11-.56V71.6a7.18,7.18,0,0,1-1.21.08c-.91,0-1.17-.47-1.17-1.69ZM108.3,52.61H113V55.9l.09.09a8,8,0,0,1,7-4c4.84,0,7.91,2.59,7.91,7.61V75H123V60.92c-.09-3.5-1.47-5-4.37-5-3.29,0-5.41,2.59-5.41,5.88V75H108.3V52.61ZM146.91,67.45c0,3.11-3.37,4.24-5.53,4.24-1.73,0-4.54-.65-4.54-2.85,0-2.59,1.9-3.37,4-3.72s4.54-.35,6.05-1.34Zm4.93-9c0-4.71-4.58-6.48-9-6.48-4.93,0-9.81,1.69-10.16,7.44h4.93c.22-2.42,2.16-3.54,4.93-3.54,2,0,4.63.48,4.63,3,0,2.9-3.16,2.51-6.7,3.16-4.15.47-8.6,1.38-8.6,7,0,4.37,3.63,6.53,7.65,6.53a11.47,11.47,0,0,0,7.74-2.72c.39,2,1.82,2.72,3.8,2.72a12.36,12.36,0,0,0,3.11-.56V71.6a7.19,7.19,0,0,1-1.21.08c-.91,0-1.17-.47-1.17-1.69ZM161,64c0-4,1.64-8.13,6.27-8.13,3.8,0,6.18,2.94,6.18,7.87,0,3.89-1.86,7.91-6.27,7.91S161,67.88,161,64ZM178.22,44.1h-4.93V55.51h-.09c-1.51-2.46-4.63-3.5-7.44-3.5-4.89,0-9.68,3.54-9.68,11.63,0,6.7,3.41,11.93,10.46,11.93,2.81,0,5.62-1.08,6.92-3.63h.09v3h4.67V44.1ZM197.37,67.45c0,3.11-3.37,4.24-5.54,4.24-1.73,0-4.54-.65-4.54-2.85,0-2.59,1.9-3.37,4-3.72s4.54-.35,6.05-1.34Zm4.93-9c0-4.71-4.58-6.48-9-6.48-4.93,0-9.82,1.69-10.16,7.44h4.93c.22-2.42,2.16-3.54,4.93-3.54,2,0,4.63.48,4.63,3,0,2.9-3.16,2.51-6.7,3.16-4.15.47-8.6,1.38-8.6,7,0,4.37,3.63,6.53,7.65,6.53a11.46,11.46,0,0,0,7.74-2.72c.39,2,1.82,2.72,3.8,2.72a12.35,12.35,0,0,0,3.11-.56V71.6a7.18,7.18,0,0,1-1.21.08c-.91,0-1.17-.47-1.17-1.69Z" class="fip_text" transform="translate(218,0)" />
@@ -7764,7 +7962,7 @@ var SignatureEn = `<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox
 </svg>
 `;
 
-var SignatureFr = `<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 819 78" preserveAspectRatio="xMinYMin meet" role="img" aria-labelledby="signature-title">
+var SignatureFr = `<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 819 78" preserveAspectRatio="xMinYMin meet" role="img" aria-labelledby="signature-fr-title">
 	<title id="signature-fr-title">Gouvernement du Canada / Government of Canada</title>
 	<path d="M0,0 36.84,0 36.84,75.01 0,75.01z M118.54,0 155.38,0 155.38,75.01 118.54,75.01z M72.58,15.61,77.84,4.9l5.22,10.32c.65,1.09,1.18,1,2.22.48l4.49-2.22L86.85,27.89c-.61,2.83,1,3.66,2.75,1.74L96,22.79l1.7,3.87c.57,1.17,1.43,1,2.57.79l6.61-1.39-2.22,8.35,0,.18c-.26,1.09-.78,2,.44,2.53l2.35,1.17L93.77,49.82c-1.39,1.43-.91,1.87-.39,3.48l1.26,3.87-12.71-2.3c-1.57-.39-2.66-.39-2.7.87l.52,14.58H75.93l.52-14.54c0-1.43-1.09-1.39-3.66-.86L61,57.18l1.52-3.87c.52-1.48.66-2.48-.52-3.48L48.11,38.46l2.57-1.57c.74-.57.78-1.17.39-2.44L48.46,26l6.7,1.43c1.87.44,2.39,0,2.87-1l1.87-3.83L66.52,30c1.17,1.39,2.83.48,2.31-1.52L65.65,12.86l4.92,2.83c.78.48,1.61.61,2.09-.3" class="fip_flag" />
 	<path d="M29.47,32H26l-.82-3.63c-2.9,3.29-5.53,4.37-9.3,4.37-9.25,0-14.79-7.35-14.79-16.17S6.64.4,15.89.4C22.64.4,28.3,4,29.12,11h-5.27c-.52-4.06-4.06-6.14-8-6.14-6.62,0-9.38,5.84-9.38,11.76s2.77,11.76,9.38,11.76c5.53.09,8.56-3.24,8.65-8.47h-8.21V15.75h13.14V32ZM44.9,28.72c-4.41,0-6.36-4-6.36-7.91s1.95-7.87,6.36-7.87,6.36,4,6.36,7.87S49.31,28.72,44.9,28.72Zm0,3.89c7.18,0,11.29-4.93,11.29-11.8S52.08,9,44.9,9,33.62,14,33.62,20.81,37.73,32.61,44.9,32.61ZM79.93,32h-4.84V28.9H75a7.51,7.51,0,0,1-6.36,3.72c-5.84,0-8.34-2.94-8.34-8.78V9.65h4.93V23.36c0,3.94,1.6,5.36,4.28,5.36,4.11,0,5.49-2.63,5.49-6.1v-13h4.93V32ZM82.91,9.65h5.36l5.66,17.17H94l5.45-17.17h5.1l-8,22.35H91ZM111.4,18.86a5.84,5.84,0,0,1,5.88-5.92c3.33,0,5.45,2.81,5.62,5.92Zm16.43,3.24C128.66,15.4,124.33,9,117.28,9c-6.66,0-10.81,5.45-10.81,11.8,0,6.87,3.93,11.76,10.94,11.76,4.88,0,9-2.72,10.12-7.61h-4.67c-.86,2.47-2.59,3.72-5.45,3.72-4.11,0-6-3.11-6-6.62ZM131.6,9.65h4.63V14h.08A7.22,7.22,0,0,1,142.84,9a11.75,11.75,0,0,1,1.86.13v4.76a17.5,17.5,0,0,0-2.12-.22c-3.37,0-6.05,2.72-6.05,7.65V32H131.6V9.65ZM146.81,9.65h4.67v3.29l.09.09a8,8,0,0,1,7-4c4.85,0,7.91,2.59,7.91,7.61V32h-4.93V18c-.08-3.5-1.47-5-4.37-5-3.29,0-5.4,2.59-5.4,5.88V32h-4.93ZM175.48,18.86a5.84,5.84,0,0,1,5.88-5.92c3.33,0,5.45,2.81,5.62,5.92Zm16.43,3.24C192.73,15.4,188.41,9,181.36,9c-6.66,0-10.81,5.45-10.81,11.8,0,6.87,3.94,11.76,10.94,11.76,4.89,0,9-2.72,10.12-7.61h-4.67c-.87,2.47-2.6,3.72-5.45,3.72-4.11,0-6-3.11-6-6.62ZM195.67,9.65h4.67v3.11h.13A7.47,7.47,0,0,1,207.34,9c2.73,0,5.28,1.17,6.27,3.72a8.07,8.07,0,0,1,7-3.72c4.71,0,7.48,2.08,7.48,7.52V32h-4.93V19c0-3.55-.22-6-4.06-6-3.33,0-4.76,2.21-4.76,6V32h-4.93V17.65c0-3.07-1-4.71-3.93-4.71-2.55,0-4.88,2.08-4.88,5.79V32h-4.93V9.65ZM237.14,18.86A5.84,5.84,0,0,1,243,12.94c3.33,0,5.45,2.81,5.62,5.92Zm16.43,3.24C254.39,15.4,250.06,9,243,9c-6.66,0-10.81,5.45-10.81,11.8,0,6.87,3.93,11.76,10.94,11.76,4.88,0,9-2.72,10.12-7.61h-4.67c-.86,2.47-2.59,3.72-5.45,3.72-4.11,0-6-3.11-6-6.62ZM257.33,9.65H262v3.29l.09.09a8,8,0,0,1,7-4c4.85,0,7.91,2.59,7.91,7.61V32H272V18c-.08-3.5-1.47-5-4.37-5-3.29,0-5.41,2.59-5.41,5.88V32h-4.93ZM279.9,9.65h3.72V3h4.93v6.7H293v3.68h-4.45V25.27c0,2,.17,3.07,2.38,3.07a8.43,8.43,0,0,0,2.08-.17V32c-1.08.08-2.12.26-3.2.26-5.14,0-6.09-2-6.18-5.71V13.33h-3.72V9.65ZM5.69,64.31c0-4,1.64-8.13,6.27-8.13,3.8,0,6.18,2.94,6.18,7.87,0,3.89-1.86,7.91-6.27,7.91S5.69,68.15,5.69,64.31ZM22.9,44.37H18V55.79h-.09c-1.51-2.46-4.63-3.5-7.43-3.5-4.89,0-9.69,3.54-9.69,11.63,0,6.7,3.42,11.93,10.46,11.93,2.81,0,5.62-1.08,6.92-3.63h.08v3h4.67V44.37ZM47.89,75.25H43V72.13H43a7.51,7.51,0,0,1-6.36,3.72c-5.84,0-8.34-2.94-8.34-8.78V52.89h4.93V66.59c0,3.94,1.6,5.36,4.28,5.36,4.11,0,5.49-2.63,5.49-6.1v-13h4.93V75.25ZM86.63,54.19c-.91-3.55-3.2-6.14-7.7-6.14-6.62,0-9.38,5.84-9.38,11.76s2.77,11.76,9.38,11.76c4.8,0,7.43-3.58,7.87-8.08h5.28c-.43,7.39-5.66,12.5-13.14,12.5-9.25,0-14.79-7.35-14.79-16.17s5.53-16.17,14.79-16.17c7,0,12.45,3.89,13.1,10.55h-5.41ZM110.11,67.72c0,3.11-3.37,4.24-5.53,4.24-1.73,0-4.54-.65-4.54-2.85,0-2.59,1.9-3.37,4-3.72s4.54-.35,6.05-1.34v3.68Zm4.93-9c0-4.71-4.58-6.49-9-6.49-4.93,0-9.81,1.69-10.16,7.44h4.93c.22-2.42,2.17-3.55,4.93-3.55,2,0,4.63.48,4.63,3,0,2.9-3.16,2.51-6.7,3.16-4.15.47-8.6,1.38-8.6,7,0,4.37,3.63,6.53,7.65,6.53a11.46,11.46,0,0,0,7.74-2.72c.39,2,1.82,2.72,3.81,2.72a12.37,12.37,0,0,0,3.11-.56V71.88a7.21,7.21,0,0,1-1.21.08c-.91,0-1.17-.47-1.17-1.69V58.77ZM120.35,52.89H125v3.29l.09.09a8,8,0,0,1,7-4c4.85,0,7.91,2.59,7.91,7.61V75.25h-4.93V61.19c-.08-3.5-1.47-5-4.37-5-3.29,0-5.4,2.59-5.4,5.88V75.25h-4.93ZM159,67.72c0,3.11-3.37,4.24-5.54,4.24-1.73,0-4.54-.65-4.54-2.85,0-2.59,1.9-3.37,4-3.72S157.45,65,159,64v3.68Zm4.93-9c0-4.71-4.58-6.49-8.95-6.49-4.93,0-9.82,1.69-10.16,7.44h4.93c.22-2.42,2.16-3.55,4.93-3.55,2,0,4.62.48,4.62,3,0,2.9-3.16,2.51-6.7,3.16-4.15.47-8.61,1.38-8.61,7,0,4.37,3.64,6.53,7.65,6.53a11.46,11.46,0,0,0,7.74-2.72c.39,2,1.82,2.72,3.81,2.72a12.33,12.33,0,0,0,3.11-.56V71.88a7.17,7.17,0,0,1-1.21.08c-.91,0-1.17-.47-1.17-1.69V58.77ZM173.06,64.31c0-4,1.64-8.13,6.27-8.13,3.8,0,6.18,2.94,6.18,7.87,0,3.89-1.86,7.91-6.27,7.91S173.06,68.15,173.06,64.31Zm17.21-19.93h-4.93V55.79h-.09c-1.51-2.46-4.62-3.5-7.43-3.5-4.89,0-9.68,3.54-9.68,11.63,0,6.7,3.42,11.93,10.46,11.93,2.81,0,5.62-1.08,6.92-3.63h.09v3h4.67V44.37ZM209.42,67.72c0,3.11-3.37,4.24-5.53,4.24-1.73,0-4.54-.65-4.54-2.85,0-2.59,1.9-3.37,4-3.72s4.54-.35,6.05-1.34v3.68Zm4.93-9c0-4.71-4.58-6.49-8.95-6.49-4.93,0-9.82,1.69-10.16,7.44h4.93c.22-2.42,2.16-3.55,4.93-3.55,2,0,4.62.48,4.62,3,0,2.9-3.16,2.51-6.7,3.16-4.15.47-8.61,1.38-8.61,7,0,4.37,3.64,6.53,7.65,6.53a11.47,11.47,0,0,0,7.74-2.72c.39,2,1.82,2.72,3.8,2.72a12.34,12.34,0,0,0,3.11-.56V71.88a7.18,7.18,0,0,1-1.21.08c-.91,0-1.17-.47-1.17-1.69V58.77Z" class="fip_text" transform="translate(218,0)" />
@@ -7844,18 +8042,8 @@ class GcdsSignature {
                 }
         }
     }
-    get svgLabel() {
-        let altText = '';
-        if (this.lang === 'en') {
-            altText = (hAsync(Fragment, null, I18N$5['en'].gc, " / ", hAsync("span", { lang: "fr" }, I18N$5['fr'].gc)));
-        }
-        else {
-            altText = (hAsync(Fragment, null, I18N$5['fr'].gc, " / ", hAsync("span", { lang: "en" }, I18N$5['en'].gc)));
-        }
-        return (hAsync("gcds-sr-only", { tag: "span", id: "signature-title" }, altText));
-    }
     render() {
-        const { type, hasLink, lang, selectSVG, svgLabel } = this;
+        const { type, hasLink, lang, selectSVG } = this;
         const sigAttrs = {
             class: 'gcds-signature',
         };
@@ -7863,7 +8051,7 @@ class GcdsSignature {
         if (Tag === 'a') {
             sigAttrs['href'] = I18N$5[lang].link;
         }
-        return (hAsync(Host, { key: '47d75f32629a27d13f1026f00a584a9f8b580f05' }, type === 'signature' ? (hAsync(Tag, Object.assign({}, sigAttrs), hAsync("div", { innerHTML: selectSVG }), svgLabel)) : (hAsync("div", { class: "gcds-signature", innerHTML: selectSVG }))));
+        return (hAsync(Host, { key: 'c856d63e78f6cc381891bb2906a10eb779361d3a' }, type === 'signature' ? (hAsync(Tag, Object.assign({}, sigAttrs), hAsync("div", { innerHTML: selectSVG }))) : (hAsync("div", { class: "gcds-signature", innerHTML: selectSVG }))));
     }
     get el() { return getElement(this); }
     static get watchers() { return {
@@ -7906,7 +8094,7 @@ class GcdsSrOnly {
     }
     render() {
         const Tag = this.tag;
-        return (hAsync(Host, { key: 'ca9a1ff72b50c391ac0ce0e4eb8242221aa43820' }, hAsync(Tag, { key: '7e66d8786d82a9f48bd18a029e26d4a16fe825e6' }, hAsync("slot", { key: '16009321706450caf62862686f82ee7158db97f5' }))));
+        return (hAsync(Host, { key: '18f77ee5b2c271548f52b660390dfdee8747f8a0' }, hAsync(Tag, { key: '9e4b70e16cec0a8521ce8cb67cb62a7638afce42' }, hAsync("slot", { key: 'e9f5a29ea054a829dea24766042990dfcf2eefac' }))));
     }
     static get watchers() { return {
         "tag": ["validateTag"]
@@ -8008,7 +8196,7 @@ class GcdsStepper {
     }
     render() {
         const { currentStep, lang, totalSteps, tag } = this;
-        return (hAsync(Host, { key: '237512cb8b5d8a3e516d8f832fc01ff6bb592d29' }, this.validateRequiredProps() && (hAsync("gcds-heading", { key: '4280179cd8b0edc2d0abcf32d286d467b1d80c56', tag: tag, class: "gcds-stepper", "margin-top": "0", "margin-bottom": "225" }, hAsync("span", { key: 'dbf96a764e6ebd0131d5b3bd61197dddd359c493', class: "gcds-stepper__steps" }, `${I18N$4[lang].step} ${currentStep} ${I18N$4[lang].of} ${totalSteps}`, hAsync("gcds-sr-only", { key: 'e28f042579d393ffb0fd3c2ad70761d3112e9ab0' }, " : ")), hAsync("slot", { key: 'e9557a09c6120174b16a184956e96b95efc695f1' })))));
+        return (hAsync(Host, { key: '6e9ef763863d74aabd0e06b6126638c680c9de68' }, this.validateRequiredProps() && (hAsync("gcds-heading", { key: 'd6d6b6e34b726d0c878b42a5fe9acfff1ef15a09', tag: tag, class: "gcds-stepper", "margin-top": "0", "margin-bottom": "225" }, hAsync("span", { key: '832e9f340126888cbde32219a4bc5c41c64768de', class: "gcds-stepper__steps" }, `${I18N$4[lang].step} ${currentStep} ${I18N$4[lang].of} ${totalSteps}`, hAsync("gcds-sr-only", { key: '09142960d870e811eae871d22c8e217025747080' }, " : ")), hAsync("slot", { key: '1e03b643830f949011400d1c0b25e849359a74d1' })))));
     }
     get el() { return getElement(this); }
     static get watchers() { return {
@@ -8090,7 +8278,7 @@ class GcdsText {
     }
     render() {
         const { characterLimit, display, marginTop, marginBottom, size, textRole } = this;
-        return (hAsync(Host, { key: '9ca2919ce7535ecfdab92646c22df7a677f97465', class: `${display != 'block' ? `d-${display}` : ''}` }, hAsync("p", { key: 'a2852d6e38530bac597e2a9b3156a3e1d61f4199', class: `
+        return (hAsync(Host, { key: 'b0b6d2eef2c482062861893a43f7508d984a398f', class: `${display != 'block' ? `d-${display}` : ''}` }, hAsync("p", { key: '6d1c418740f62a70b5dd130adbd471eda5702288', class: `
             gcds-text
             ${textRole ? `role-${textRole}` : ''}
             ${characterLimit ? 'limit' : ''}
@@ -8324,7 +8512,7 @@ class GcdsTextarea {
                 ? `${attrsTextarea['aria-describedby']}`
                 : ''}`;
         }
-        return (hAsync(Host, { key: 'e5cdb0e03c5505718d0f4bd243d9116930de61f3' }, hAsync("div", { key: 'c3a8586573b71afc009a19a354d75830173118c9', class: `gcds-textarea-wrapper ${disabled ? 'gcds-disabled' : ''} ${hasError ? 'gcds-error' : ''}` }, hAsync("gcds-label", Object.assign({ key: '085d50affa19245829eee1b852db40f7fb0d4ad3' }, attrsLabel, { "hide-label": hideLabel, "label-for": textareaId, lang: lang })), hint ? hAsync("gcds-hint", { "hint-id": textareaId }, hint) : null, errorMessage ? (hAsync("gcds-error-message", { messageId: textareaId }, errorMessage)) : null, hAsync("textarea", Object.assign({ key: '0dcdc6ee22ef0bc7a5c6c722723c61b55cf701f1' }, attrsTextarea, { class: hasError ? 'gcds-error' : null, id: textareaId, onBlur: () => this.onBlur(), onFocus: () => this.gcdsFocus.emit(), onInput: e => this.handleInput(e, this.gcdsInput), onChange: e => this.handleInput(e, this.gcdsChange), "aria-labelledby": `label-for-${textareaId}`, "aria-invalid": errorMessage ? 'true' : 'false', maxlength: characterCount ? characterCount : null, style: cols ? style : null, ref: element => (this.shadowElement = element) }), value), characterCount ? (hAsync("gcds-text", { id: `textarea__count-${textareaId}`, "aria-live": "polite" }, value == undefined
+        return (hAsync(Host, { key: '4694c31173d726ed48b7ac73f1ac3496ec644823' }, hAsync("div", { key: '3813dd0feddca3894b3d970514cbd12d4c8639de', class: `gcds-textarea-wrapper ${disabled ? 'gcds-disabled' : ''} ${hasError ? 'gcds-error' : ''}` }, hAsync("gcds-label", Object.assign({ key: 'ff14c9207a448b14b292ce808ad85a2980be3968' }, attrsLabel, { "hide-label": hideLabel, "label-for": textareaId, lang: lang })), hint ? hAsync("gcds-hint", { "hint-id": textareaId }, hint) : null, errorMessage ? (hAsync("gcds-error-message", { messageId: textareaId }, errorMessage)) : null, hAsync("textarea", Object.assign({ key: 'fdb7e89668f4c86b6ef9ade00fb7b5796d01e889' }, attrsTextarea, { class: hasError ? 'gcds-error' : null, id: textareaId, onBlur: () => this.onBlur(), onFocus: () => this.gcdsFocus.emit(), onInput: e => this.handleInput(e, this.gcdsInput), onChange: e => this.handleInput(e, this.gcdsChange), "aria-labelledby": `label-for-${textareaId}`, "aria-invalid": errorMessage ? 'true' : 'false', maxlength: characterCount ? characterCount : null, style: cols ? style : null, ref: element => (this.shadowElement = element) }), value), characterCount ? (hAsync("gcds-text", { id: `textarea__count-${textareaId}`, "aria-live": "polite" }, value == undefined
             ? `${characterCount} ${I18N$3[lang].characters.allowed}`
             : `${characterCount - value.length} ${I18N$3[lang].characters.left}`)) : null)));
     }
@@ -8507,7 +8695,7 @@ class GcdsTopNav {
     }
     render() {
         const { label, alignment, lang } = this;
-        return (hAsync(Host, { key: '0b90b2ecfef9712330322dce2a65b6a360606520' }, hAsync("div", { key: 'a8b05cb72ce2dfb6867e35fdbe39bf115d3c8673', class: "gcds-top-nav" }, hAsync("nav", { key: '0d9282ce0348d037609ee36c0d83cada54b0f246', "aria-label": `${label}${I18N$2[lang].navLabel}` }, hAsync("ul", { key: 'ec9aa9c60a2c28d7c80765f0c35429f1e936180c', class: "gcds-top-nav__container" }, hAsync("gcds-nav-group", { key: '42ab733e63bfe7fb3f2fb7b5f588a6ee60f0a653', menuLabel: I18N$2[lang].menuLabel, closeTrigger: I18N$2[lang].closeTrigger, openTrigger: I18N$2[lang].menuLabel, class: "gcds-mobile-nav gcds-mobile-nav-topnav", ref: element => (this.mobile = element), lang: lang }, hAsync("slot", { key: 'a3b4cbd6baba0493fefd154e41350f71c6eec57e', name: "home" }), hAsync("li", { key: 'b82de02939f23e7e3a67cfb974f3cd292ccdb81b', class: `nav-container__list nav-list--${alignment}` }, hAsync("ul", { key: 'da9cf11b43568b2143c0e70af1c3f92b75e13660', class: `nav-container__list nav-list--${alignment}` }, hAsync("slot", { key: '0f98892f2e8c0c8d39055f301f5a0774ad68d63e' })))))))));
+        return (hAsync(Host, { key: '075e8da394395c86fb088489ff1ecede74fc6347' }, hAsync("div", { key: 'fe8bdf04cc35123ed4b2c9bdeeb496631019e763', class: "gcds-top-nav" }, hAsync("nav", { key: '577ac71a9dee2abfc042904d8f7e9eb52b08ec20', "aria-label": `${label}${I18N$2[lang].navLabel}` }, hAsync("ul", { key: '29fc7c8752e5ca58166fb333a0e4490661457a14', class: "gcds-top-nav__container" }, hAsync("gcds-nav-group", { key: '8426a5f31322333b78fc43c90ef1aa015acd35bb', menuLabel: I18N$2[lang].menuLabel, closeTrigger: I18N$2[lang].closeTrigger, openTrigger: I18N$2[lang].menuLabel, class: "gcds-mobile-nav gcds-mobile-nav-topnav", ref: element => (this.mobile = element), lang: lang }, hAsync("slot", { key: '0db61f118321b7f0fda937aab3bad5181c479e68', name: "home" }), hAsync("li", { key: 'b038955f36cfb628ff66033d778531bc27df945b', class: `nav-container__list nav-list--${alignment}` }, hAsync("ul", { key: '26cda13cd85fa693e854bb762c7fd8983a332c89', class: `nav-container__list nav-list--${alignment}` }, hAsync("slot", { key: 'f2efc2eef1e66ee701177ec9796d83b7856554da' })))))))));
     }
     get el() { return getElement(this); }
     static get style() { return GcdsTopNavStyle0; }
@@ -8552,7 +8740,7 @@ const snapshots = {
   fr: '<li role="presentation"><a role="menuitem" tabindex="-1" aria-haspopup="true" aria-controls="gc-mnu-jobs" aria-expanded="false" href="#">Emplois et milieu de travail</a><ul id="gc-mnu-jobs" role="menu" aria-orientation="vertical"><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/emplois.html">Emplois<span class="visible-xs-inline visible-sm-inline">: accueil</span></a></li><li role="separator"></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/emplois/opportunites.html">Trouver un emploi</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/emplois/formation.html">Formation</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/gestion-entreprise">Embauche et gestion de personnel</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/demarrage-entreprise">Démarrage d\'entreprise</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/emplois/milieu-travail.html">Normes en milieu de travail</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/finance/pensions.html">Pensions et retraite</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/prestations/ae.html">Prestations d\'assurance-emploi et congés</a></li><li role="separator" aria-orientation="vertical"></li><li role="presentation"><a data-keep-expanded="md-min" href="#" role="menuitem" tabindex="-1" aria-haspopup="true" aria-controls="gc-mnu-jobs-sub" aria-expanded="true">En demande</a><ul id="gc-mnu-jobs-sub" role="menu" aria-orientation="vertical"><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/emploi-developpement-social/programmes/assurance-emploi/ae-liste/assurance-emploi-re/acceder-re.html">Voir vos Relevés d’emploi</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/emploi-developpement-social/services/numero-assurance-sociale.html">Demander un numéro d’assurance-sociale</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/emploi-developpement-social/services/travailleurs-etrangers.html">Embaucher un travailleur étranger temporaire</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/immigration-refugies-citoyennete/services/immigrer-canada/entree-express.html">Immigrer en tant que travailleur qualifié</a></li></ul></li></ul></li><li role="presentation"><a role="menuitem" tabindex="-1" aria-haspopup="true" aria-controls="gc-mnu-cit" aria-expanded="false" href="#">Immigration et citoyenneté</a><ul id="gc-mnu-cit" role="menu" aria-orientation="vertical"><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/immigration-citoyennete.html">Immigration<span class="hidden-xs hidden-sm">et citoyenneté</span><span class="visible-xs-inline visible-sm-inline">: accueil</span></a></li><li role="separator"></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/immigration-refugies-citoyennete/services/demande.html">Ma demande</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/immigration-refugies-citoyennete/services/visiter-canada.html">Visiter</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/immigration-refugies-citoyennete/services/immigrer-canada.html">Immigrer</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/immigration-refugies-citoyennete/services/travailler-canada.html">Travailler</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/immigration-refugies-citoyennete/services/etudier-canada.html">Étudier</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/immigration-refugies-citoyennete/services/citoyennete-canadienne.html">Citoyenneté</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/immigration-refugies-citoyennete/services/nouveaux-immigrants.html">Nouveaux immigrants</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/immigration-refugies-citoyennete/services/canadiens.html">Canadiens</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/immigration-refugies-citoyennete/services/refugies.html">Réfugiés et octroi de l’asile</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/immigration-citoyennete/application-loi-infractions.html">Application de la loi et infractions</a></li><li role="separator" aria-orientation="vertical"></li><li role="presentation"><a data-keep-expanded="md-min" href="#" role="menuitem" tabindex="-1" aria-haspopup="true" aria-controls="gc-mnu-cit-sub" aria-expanded="true">En demande</a><ul id="gc-mnu-cit-sub" role="menu" aria-orientation="vertical"><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/immigration-refugies-citoyennete/services/demande/compte.html">Se connecter ou créer un compte pour présenter une demande en ligne</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/immigration-refugies-citoyennete/services/demande/verifier-etat.html">Vérifier l’état de sa demande</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="http://www.cic.gc.ca/francais/information/delais/index.asp">Vérifier les délais de traitement des demandes</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/immigration-refugies-citoyennete/services/demande/formulaires-demande-guides.html">Trouver un formulaire de demande</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="http://www.cic.gc.ca/francais/information/frais/index.asp">Payer les frais</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="http://www.cic.gc.ca/francais/visiter/visas.asp">Déterminer si vous avez besoin d’une AVE ou d’un visa pour visiter le Canada</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="http://www.cic.gc.ca/francais/centre-aide/index-en-vedette-can.asp">Trouver réponse à ses questions dans le Centre d’aide</a></li></ul></li></ul></li><li role="presentation"><a role="menuitem" tabindex="-1" aria-haspopup="true" aria-controls="gc-mnu-travel" aria-expanded="false" href="#">Voyage et tourisme</a><ul id="gc-mnu-travel" role="menu" aria-orientation="vertical"><li role="presentation"><a role="menuitem" tabindex="-1" href="https://voyage.gc.ca/">Voyage<span class="hidden-xs hidden-sm">et tourisme</span><span class="visible-xs-inline visible-sm-inline">: accueil</span></a></li><li role="separator"></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://voyage.gc.ca/voyager/avertissements">Conseils aux voyageurs et avertissements</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://voyage.gc.ca/voyage-covid">COVID-19 : voyage, dépistage et frontières</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/immigration-refugies-citoyennete/services/visiter-canada.html?outside">Visiter le Canada</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://voyage.gc.ca/voyager">Voyager à l’étranger</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://voyage.gc.ca/avion">Voyager en avion</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://voyage.gc.ca/retour">Retour au Canada</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/immigration-refugies-citoyennete/services/passeports-canadiens.html">Passeports et documents de voyage canadiens</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://voyage.gc.ca/tourisme-canadien">Attraits touristiques, événements et expériences au Canada</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://voyage.gc.ca/assistance">Assistance à l’extérieur du Canada</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://voyage.gc.ca/restez-branches">Restez branchés</a></li><li role="separator" aria-orientation="vertical"></li><li role="presentation"><a data-keep-expanded="md-min" href="#" role="menuitem" tabindex="-1" aria-haspopup="true" aria-controls="gc-mnu-travel-sub" aria-expanded="true">En demande</a><ul id="gc-mnu-travel-sub" role="menu" aria-orientation="vertical"><li role="presentation"><a role="menuitem" tabindex="-1" href="https://voyage.gc.ca/assistance/assistance-d-urgence">Assistance d\'urgence à l\'étranger</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.cic.gc.ca/francais/visiter/visas.asp">Vérifiez si vous avez besoin d’un visa pour voyager au Canada</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/immigration-refugies-citoyennete/services/visiter-canada/ave.html">Présentez une demande d’Autorisation de voyage électronique (AVE)</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.cbsa-asfc.gc.ca/services/travel-voyage/prog/nexus/menu-fra.html">Adhérez à NEXUS</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://voyage.gc.ca/voyager/inscription">Inscrivez-vous comme Canadien à l’étranger</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://voyage.gc.ca/voyager/documents/assurance-voyage">Assurance voyage</a></li></ul></li></ul></li><li role="presentation"><a role="menuitem" tabindex="-1" aria-haspopup="true" aria-controls="gc-mnu-biz" aria-expanded="false" href="#">Entreprises et industrie</a><ul id="gc-mnu-biz" role="menu" aria-orientation="vertical"><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/entreprises.html">Entreprises<span class="hidden-xs hidden-sm">et industrie</span><span class="visible-xs-inline visible-sm-inline">: accueil</span></a></li><li role="separator"></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/entreprises/lancer.html">Démarrage d\'entreprise</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/entreprises/subventions.html">Subventions et financement pour les entreprises</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/entreprises/impots.html">Taxes et impôt des entreprises</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/entreprises/societes-de-regime-federal.html">Sociétés de régime fédéral</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/entreprises/engager.html">Embauche et gestion de personnel</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/entreprises/commerce.html">Commerce international et investissements</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/entreprises/permis.html">Permis, licences et règlements</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/entreprises/faire-affaire.html">Faire affaire avec le gouvernement</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/science/innovation.html">Recherche-développement et innovation</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/entreprises/recherche.html">Recherche et renseignements d\'affaires</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/entreprises/pi.html">Propriété intellectuelle et droit d\'auteur</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/entreprises/maintenirfairecroitreameliorerentreprise.html">Administration de votre entreprise</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/entreprises/proteger.html">Protection de votre entreprise</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/entreprises/faillites.html">Insolvabilité pour les entreprises</a></li><li role="separator" aria-orientation="vertical"></li><li role="presentation"><a data-keep-expanded="md-min" href="#" role="menuitem" tabindex="-1" aria-haspopup="true" aria-controls="gc-mnu-biz-sub" aria-expanded="true">En demande</a><ul id="gc-mnu-biz-sub" role="menu" aria-orientation="vertical"><li role="presentation"><a role="menuitem" tabindex="-1" href="https://ised-isde.canada.ca/cc/lgcy/fdrlCrpSrch.html?lang=fra">Trouver une société</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.cbsa-asfc.gc.ca/prog/manif/portal-portail-fra.html">Déclarer vos produits importés</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://ised-isde.canada.ca/opic/recherche-marques/srch?null=&lang=fre">Chercher des marques de commerce</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.cbsa-asfc.gc.ca/trade-commerce/tariff-tarif/2018/html/tblmod-1-fra.html">Réviser les tarifs des douanes pour l’importation de produits</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.ic.gc.ca/opic-cipo/cpd/fra/introduction.html">Trouver un brevet</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.cbsa-asfc.gc.ca/comm-fra.html">Importer et exporter à partir du Canada</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://ic.gc.ca/eic/site/cd-dgc.nsf/fra/h_cs03922.html">Trouver un nom pour votre compagnie</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://ised-isde.canada.ca/cc/lgcy/hm.html?locale=fr_CA">Apporter des changements à votre société (Centre de dépôt en ligne)</a></li></ul></li></ul></li><li role="presentation"><a role="menuitem" tabindex="-1" aria-haspopup="true" aria-controls="gc-mnu-benny" aria-expanded="false" href="#">Prestations</a><ul id="gc-mnu-benny" role="menu" aria-orientation="vertical"><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/prestations.html">Prestations<span class="visible-xs-inline visible-sm-inline">: accueil</span></a></li><li role="separator"></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/prestations/ae.html">Prestations d&#39;assurance-emploi et cong&eacute;s</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/prestations/famille.html">Prestations pour les familles et les proches aidants</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/prestations/pensionspubliques.html">Pensions publiques</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/prestations/etudes.html">Aide financière aux étudiants et planification des études</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/prestations/logement.html">Prestations relatives au logement</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/prestations/handicap.html">Prestations d’invalidité</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="http://www.canada.ca/fr/services/prestations/clientele.html">Prestations par clientèle</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/prestations/calendrier.html">Dates de paiement des prestations</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://benefitsfinder.services.gc.ca/hm?GoCTemplateCulture=fr-CA&cl=true">Chercheur de prestations</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/prestations/aviser-gouvernement-deces.html">Aviser le gouvernement d’un décès</a></li><li role="separator" aria-orientation="vertical"></li><li role="presentation"><a data-keep-expanded="md-min" href="#" role="menuitem" tabindex="-1" aria-haspopup="true" aria-controls="gc-mnu-benny-sub" aria-expanded="true">En demande</a><ul id="gc-mnu-benny-sub" role="menu" aria-orientation="vertical"><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/prestations/ae/assurance-emploi-reguliere.html">Présenter une demande d’assurance-emploi</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/prestations/education/aide-etudiants/bourses-prets.html">Faire une demande de bourses et de prêts d’études</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/gouvernement/ouvrir-session-dossier-compte-en-ligne.html">Ouvrir une session pour un compte en ligne du gouvernement du Canada</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.tpsgc-pwgsc.gc.ca/recgen/txt/depot-deposit-fra.html">Inscrivez-vous au dépôt direct</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/agence-revenu/services/prestations-enfants-familles/calculateur-prestations-enfants-familles.html">Calculateur de prestations pour enfants et familles</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/prestations/ae/assurance-emploi-declaration-internet.html">Soumettre une déclaration d’assurance-emploi</a></li></ul></li></ul></li><li role="presentation"><a role="menuitem" tabindex="-1" aria-haspopup="true" aria-controls="gc-mnu-health" aria-expanded="false" href="#">Santé</a><ul id="gc-mnu-health" role="menu" aria-orientation="vertical"><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/sante.html">Santé<span class="visible-xs-inline visible-sm-inline">: accueil</span></a></li><li role="separator"></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/sante/aliments-et-nutrition.html">Aliments et nutrition</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/sante-publique/services/maladies.html">Maladies et affections</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/sante-publique/sujets/immunisation-et-vaccins.html">Vaccins et immunisation</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/sante/medicaments-et-produits-sante.html">Médicaments et produits de santé</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/sante/securite-produits.html">Sécurité des produits</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/sante/securite-et-risque-pour-sante.html">Sécurité et risque pour la santé</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/sante/vie-saine.html">Vie saine</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/sante/sante-autochtones.html">Santé des Autochtones</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/sante/systeme-et-services-sante.html">Système et services de santé</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/sante/science-recherche-et-donnees.html">Science, recherche et données</a></li><li role="separator" aria-orientation="vertical"></li><li role="presentation"><a data-keep-expanded="md-min" href="#" role="menuitem" tabindex="-1" aria-haspopup="true" aria-controls="gc-mnu-health-sub" aria-expanded="true">En demande</a><ul id="gc-mnu-health-sub" role="menu" aria-orientation="vertical"><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/sante-canada/services/drogues-medicaments/cannabis/titulaires-licences-demandeurs-industrie/cultivateurs-transformateurs-vendeurs-autorises.html">Cultivateurs, transformateurs et vendeurs de cannabis qui détiennent une licence</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="http://www.canadiensensante.gc.ca/recall-alert-rappel-avis/index-fra.php">Rappels d\'aliments et de produits et alertes de sécurité</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/sante-canada/services/guides-alimentaires-canada.html">Guide alimentaire du Canada</a></li></ul></li></ul></li><li role="presentation"><a role="menuitem" tabindex="-1" aria-haspopup="true" aria-controls="gc-mnu-taxes" aria-expanded="false" href="#">Impôts</a><ul id="gc-mnu-taxes" role="menu" aria-orientation="vertical"><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/impots.html">Impôts<span class="visible-xs-inline visible-sm-inline">: accueil</span></a></li><li role="separator"></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/impots/impot-sur-le-revenu.html">Impôt sur le revenu</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/agence-revenu/services/impot/entreprises/sujets/tps-tvh-entreprises.html">TPS/TVH</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/agence-revenu/services/impot/entreprises/sujets/retenues-paie.html">Retenues sur la paie</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/impots/numero-dentreprise.html">Numéro d\'entreprise</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/impots/regimes-depargne-et-de-pension.html">Régimes d’épargne et de pension</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/impots/prestations-pour-enfants-et-familles.html">Crédits d’impôt et prestations pour les particuliers</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/impots/taxes-daccise-droits-et-prelevements.html">Taxes d’accise, droits et prélèvements</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/impots/bienfaisance.html">Organismes de bienfaisance et dons</a></li><li role="separator" aria-orientation="vertical"></li><li role="presentation"><a data-keep-expanded="md-min" href="#" role="menuitem" tabindex="-1" aria-haspopup="true" aria-controls="gc-mnu-taxes-sub" aria-expanded="true">En demande</a><ul id="gc-mnu-taxes-sub" role="menu" aria-orientation="vertical"><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/agence-revenu/services/services-electroniques/services-numeriques-particuliers/dossier-particuliers.html">Mon dossier</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/agence-revenu/services/services-electroniques/services-numeriques-entreprises/dossier-entreprise.html">Mon dossier d\'entreprise</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/agence-revenu/services/services-electroniques/representer-client.html">Représenter un client</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/agence-revenu/services/services-electroniques/services-numeriques-entreprises/impotnet-tps-tvh.html">Transmettre une déclaration de TPS/TVH (IMPÔTNET)</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/agence-revenu/services/faire-paiement-a-agence-revenu-canada.html">Faire un paiement à l\'Agence du revenu du Canada</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/agence-revenu/services/prestations-enfants-familles/dates-versement-prestations.html">Trouver la date du prochain versement des prestations</a></li></ul></li></ul></li><li role="presentation"><a role="menuitem" tabindex="-1" aria-haspopup="true" aria-controls="gc-mnu-enviro" aria-expanded="false" href="#">Environnement et ressources naturelles</a><ul id="gc-mnu-enviro" role="menu" aria-orientation="vertical"><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/environnement.html">Environnement<span class="hidden-xs hidden-sm">et ressources naturelles</span><span class="visible-xs-inline visible-sm-inline">: accueil</span></a></li><li role="separator"></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/environnement/meteo.html">Météo, climat et catastrophes naturelles</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/environnement/energie.html">Énergie</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/environnement/ressources-naturelles.html">Ressources naturelles</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://agriculture.canada.ca/fr/agriculture-environnement">Agriculture et environnement</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/environnement/peches.html">Pêches</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/environnement/faune-flore-especes.html">Faune, flore et espèces</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/environnement/pollution-gestion-dechets.html">Pollution et gestion des déchets</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/environnement/conservation.html">Conservation et protection de l\'environnement</a></li><li role="separator" aria-orientation="vertical"></li><li role="presentation"><a data-keep-expanded="md-min" href="#" role="menuitem" tabindex="-1" aria-haspopup="true" aria-controls="gc-mnu-enviro-sub" aria-expanded="true">En demande</a><ul id="gc-mnu-enviro-sub" role="menu" aria-orientation="vertical"><li role="presentation"><a role="menuitem" tabindex="-1" href="https://meteo.gc.ca/canada_f.html">Prévisions météo locales</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.rncan.gc.ca/energie/efficacite/transports/20997">Véhicules écoénergétiques</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.rncan.gc.ca/maisons">Efficacité énergétique des maisons</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/environnement-changement-climatique/services/registre-public-especes-peril.html">Espèces en péril</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/environnement-changement-climatique/services/meteo-saisonniere-dangereuse.html">Préparation aux conditions météorologiques dangereuses</a></li></ul></li></ul></li><li role="presentation"><a role="menuitem" tabindex="-1" aria-haspopup="true" aria-controls="gc-mnu-defence" aria-expanded="false" href="#">Sécurité nationale et défense</a><ul id="gc-mnu-defence" role="menu" aria-orientation="vertical"><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/defense.html"><span class="hidden-xs hidden-sm">Sécurité nationale et défense</span><span class="visible-xs-inline visible-sm-inline">Défense : accueil</span></a></li><li role="separator"></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/defense/securitenationale.html">Sécurité nationale</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/defense/fac.html">Forces armées canadiennes</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/defense/achat-mise-a-niveau-equipement-defense.html">Achat et mise à niveau d’équipement de la Défense</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="http://www.tc.gc.ca/fr/services/surete-transports.html">Sûreté des transports</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/defense/securiserfrontiere.html">Sécuriser la frontière</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/defense/cybersecurite.html">Cybersécurité</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/defense/emplois.html">Emplois en sécurité nationale et en défense</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/gouvernement/fonctionpublique/avantagesmilitaires.html">Services et avantages sociaux du personnel militaire</a></li><li role="separator" aria-orientation="vertical"></li><li role="presentation"><a data-keep-expanded="md-min" href="#" role="menuitem" tabindex="-1" aria-haspopup="true" aria-controls="gc-mnu-defence-sub" aria-expanded="true">En demande</a><ul id="gc-mnu-defence-sub" role="menu" aria-orientation="vertical"><li role="presentation"><a role="menuitem" tabindex="-1" href="https://forces.ca/fr/carrieres/">Emplois dans les Forces armées canadiennes</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/ministere-defense-nationale/services/histoire-militaire/histoire-patrimoine/insignes-drapeaux/grades/insignes-grade-fonction.html">Grades militaires</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/defense/fac/equipement.html">Équipement de la Défense</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/ministere-defense-nationale/services/cadets-rangers-juniors-canadiens/cadets/rejoignez-nous.html">Joignez-vous aux cadets</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="http://dgpaapp.forces.gc.ca/fr/politique-defense-canada/index.asp">Politique de défense du Canada</a></li></ul></li></ul></li><li role="presentation"><a role="menuitem" tabindex="-1" aria-haspopup="true" aria-controls="gc-mnu-culture" aria-expanded="false" href="#">Culture, histoire et sport</a><ul id="gc-mnu-culture" role="menu" aria-orientation="vertical"><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/culture.html">Culture<span class="hidden-xs hidden-sm">, histoire et sport</span><span class="visible-xs-inline visible-sm-inline">: accueil</span></a></li><li role="separator"></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/patrimoine-canadien/services/financement.html">Financement - Culture, histoire et sport</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/culture/evenements-celebrations-commemorations.html">Événements, célébrations et commémorations</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/culture/attraits-culturels.html">Lieux et attraits culturels</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/culture/identite-canadienne-societe.html">Identité canadienne et société</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/culture/sport.html">Sport</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/culture/histoire-patrimoine.html">Histoire et patrimoine</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/culture/arts-media.html">Arts et média</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/culture/programmes-culturels-jeunes.html">Programmes culturels pour les jeunes</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/culture/commerce-investissement-culturels.html">Commerce et investissement culturels</a></li><li role="separator" aria-orientation="vertical"></li><li role="presentation"><a data-keep-expanded="md-min" href="#" role="menuitem" tabindex="-1" aria-haspopup="true" aria-controls="gc-mnu-culture-sub" aria-expanded="true">En demande</a><ul id="gc-mnu-culture-sub" role="menu" aria-orientation="vertical"><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.veterans.gc.ca/fra/remembrance/memorials/canadian-virtual-war-memorial">Visitez le Mémorial virtuel de guerre du Canada</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/culture/identite-canadienne-societe/hymnes-symboles.html">Hymnes et symboles du Canada</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://crtc.gc.ca/fra/8045/d2018.htm">Trouvez une décision du CRTC</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://bibliotheque-archives.canada.ca/fra/collection/aide-recherche/genealogie-histoire-famille/Pages/genealogie-histoire-famille.aspx">Faites des recherches sur votre histoire familiale</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.bac-lac.gc.ca/fra/recensements/Pages/recensements.aspx">Cherchez des documents de recensement</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/culture/attraits-culturels/attraits-capitale-canada.html">Lieux et attraits dans la capitale du Canada</a></li></ul></li></ul></li><li role="presentation"><a role="menuitem" tabindex="-1" aria-haspopup="true" aria-controls="gc-mnu-policing" aria-expanded="false" href="#">Services de police, justice et urgences</a><ul id="gc-mnu-policing" role="menu" aria-orientation="vertical"><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/police.html">Services de police<span class="hidden-xs hidden-sm">, justice et urgences</span><span class="visible-xs-inline visible-sm-inline">: accueil</span></a></li><li role="separator"></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/police/servicespolice.html">Services de police</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/police/justice.html">Justice</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/police/urgences.html">Urgences</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/police/correctionnels.html">Services correctionnels</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/police/liberationconditionnelle.html">Libération conditionnelle, suspension du casier, radiation et clémence</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/police/victimes.html">Victimes d\'actes criminels</a></li><li role="separator" aria-orientation="vertical"></li><li role="presentation"><a data-keep-expanded="md-min" href="#" role="menuitem" tabindex="-1" aria-haspopup="true" aria-controls="gc-mnu-policing-sub" aria-expanded="true">En demande</a><ul id="gc-mnu-policing-sub" role="menu" aria-orientation="vertical"><li role="presentation"><a role="menuitem" tabindex="-1" href="http://www.rcmp-grc.gc.ca/cfp-pcaf/online_en-ligne/index-fra.htm">Demander ou renouveler un permis d\'arme à feu</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="http://www.rcmp-grc.gc.ca/fr/verification-casier-judiciaire">Obtenir une attestation de vérification de casier judiciaire</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/commission-liberations-conditionnelles/services/suspension-du-casier/guide-et-formulaires-de-demande.html">Demander la suspension d’un casier judiciaire</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.preparez-vous.gc.ca/cnt/hzd/drng-fr.aspx">Que faire durant une urgence</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/police/servicespolice/securite-communautaire-police/conduite-facultes-affaiblies.html">Connaissez la loi sur la conduite avec facultés affaiblies</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/police/servicespolice/aider-resoudre-un-crime.html">Aidez à résoudre un crime</a></li></ul></li></ul></li><li role="presentation"><a role="menuitem" tabindex="-1" aria-haspopup="true" aria-controls="gc-mnu-trans" aria-expanded="false" href="#">Transport et infrastructure</a><ul id="gc-mnu-trans" role="menu" aria-orientation="vertical"><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/transport.html">Transport<span class="hidden-xs hidden-sm">et infrastructure</span><span class="visible-xs-inline visible-sm-inline">: accueil</span></a></li><li role="separator"></li><li role="presentation"><a role="menuitem" tabindex="-1" href="http://www.tc.gc.ca/fr/services/aviation.html">Aviation</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="http://www.tc.gc.ca/fr/services/maritime.html">Transport maritime</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="http://www.tc.gc.ca/fr/services/routier.html">Transport routier</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="http://www.tc.gc.ca/fr/services/ferroviaire.html">Transport ferroviaire</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="http://www.tc.gc.ca/fr/services/marchandises-dangereuses.html">Marchandises dangereuses</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="http://www.tc.gc.ca/fr/services/infrastructures.html">Infrastructure</a></li><li role="separator" aria-orientation="vertical"></li><li role="presentation"><a data-keep-expanded="md-min" href="#" role="menuitem" tabindex="-1" aria-haspopup="true" aria-controls="gc-mnu-trans-sub" aria-expanded="true">En demande</a><ul id="gc-mnu-trans-sub" role="menu" aria-orientation="vertical"><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/transport/vehicules-zero-emission.html">Véhicules zéro émission</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="http://www.tc.gc.ca/fr/services/aviation/securite-drones.html">Sécurité des drones</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="http://www.tc.gc.ca/fr/services/surete-transports/aerienne/articles-interdits-bord-avion.html">Articles interdits à bord d’un avion</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="http://www.tc.gc.ca/fra/securitemaritime/epe-immabatiments-menu-728.htm">Immatriculer votre bâtiment</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="http://www.tc.gc.ca/fr/services/routier/securite-sieges-auto-enfants.html">Sécurité des sièges d\'auto pour enfants</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="http://www.tc.gc.ca/fra/tmd/clair-tdesm-211.htm">Transporter des marchandises dangereuses - Règlements</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="http://www.tc.gc.ca/fr/transports-canada/organisation/lois-reglements/reglements/sor-96-433.html">Règlement de l’aviation canadien</a></li></ul></li></ul></li><li role="presentation"><a role="menuitem" tabindex="-1" aria-haspopup="true" aria-controls="gc-mnu-canworld" aria-expanded="false" href="#">Canada et le monde</a><ul id="gc-mnu-canworld" role="menu" aria-orientation="vertical"><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.international.gc.ca/world-monde/index.aspx?lang=fra">Le Canada et le monde<span class="visible-xs-inline visible-sm-inline">: accueil</span></a></li><li role="separator"></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.international.gc.ca/world-monde/offices-bureaux/index.aspx?lang=fra">Bureaux internationaux et contacts d’urgence</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.international.gc.ca/world-monde/study_work_travel-etude_travail_voyage/index.aspx?lang=fra">Étude, travail et voyage partout dans le monde</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.international.gc.ca/world-monde/country-pays/index.aspx?lang=fra">Information par pays et territoires</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.international.gc.ca/world-monde/stories-histoires/index.aspx?lang=fra">Histoires</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.international.gc.ca/world-monde/international_relations-relations_internationales/index.aspx?lang=fra">Relations internationales</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.international.gc.ca/world-monde/issues_development-enjeux_developpement/index.aspx?lang=fra">Enjeux mondiaux et aide internationale</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.international.gc.ca/world-monde/funding-financement/index.aspx?lang=fra">Financement d’initiatives internationales</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/entreprises/commerce.html">Commerce international et investissement</a></li><li role="separator" aria-orientation="vertical"></li><li role="presentation"><a data-keep-expanded="md-min" href="#" role="menuitem" tabindex="-1" aria-haspopup="true" aria-controls="gc-mnu-canworld-sub" aria-expanded="true">En demande</a><ul id="gc-mnu-canworld-sub" role="menu" aria-orientation="vertical"><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.educanada.ca/scholarships-bourses/non_can/index.aspx?lang=fra">Trouver une bourse d’études canadienne en tant qu’étudiant international</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://treaty-accord.gc.ca/index.aspx?Lang=fra">Traités internationaux signés par le Canada</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.educanada.ca/index.aspx?lang=fra">Trouver des occasions d’étude ou de recherche au Canada</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://voyage.gc.ca/assistance/ambassades-consulats">Communiquer avec une ambassade ou un consulat</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.international.gc.ca/protocol-protocole/reps.aspx?lang=fra">Communiquer avec un représentant étranger au Canada</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.international.gc.ca/gac-amc/about-a_propos/services/authentication-authentification/step-etape-1.aspx?lang=fra">Authentifier un document</a></li></ul></li></ul></li><li role="presentation"><a role="menuitem" tabindex="-1" aria-haspopup="true" aria-controls="gc-mnu-money" aria-expanded="false" href="#">Argent et finances</a><ul id="gc-mnu-money" role="menu" aria-orientation="vertical"><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/finance.html"><span class="hidden-xs hidden-sm">Argent et finances</span><span class="visible-xs-inline visible-sm-inline">Finances : accueil</span></a></li><li role="separator"></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/finance/gerer.html">Gérer votre argent</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/finance/dettes.html">Dettes et emprunts</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/finance/epargne.html">Épargne et investissement</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/finance/financementetudes.html">Financement des études</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/finance/pensions.html">Pensions et retraite</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/finance/fraude.html">Protection contre la fraude et les escroqueries</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/finance/outils.html">Calculatrices et outils financiers</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/agence-consommation-matiere-financiere/services/programmes-litteratie-financiere.html">Programmes de littératie financière</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/finance/questions-consommation.html">Questions de consommation</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/finance/faillite.html">Insolvabilité</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/impots.html">Impôts</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/gouvernement/systeme/finances.html">Finances publiques</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/entreprises/subventions.html">Subventions et financement pour les entreprises</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/entreprises/permis/secteursindustriereglementationfederale/regleservicesfinanciers.html">Réglementation des services financiers et monétaires</a></li><li role="separator" aria-orientation="vertical"></li><li role="presentation"><a data-keep-expanded="md-min" href="#" role="menuitem" tabindex="-1" aria-haspopup="true" aria-controls="gc-mnu-money-sub" aria-expanded="true">En demande</a><ul id="gc-mnu-money-sub" role="menu" aria-orientation="vertical"><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.ic.gc.ca/app/scr/bsf-osb/ins/connexion.html?lang=fra">Trouver un dossier de faillite ou d’insolvabilité</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/emplois/education/aide-financiere-etudiants/pret-etudiants.html">Prêts étudiants</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.tpsgc-pwgsc.gc.ca/recgen/txt/depot-deposit-fra.html">Inscrivez-vous au dépôt direct</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/agence-consommation-matiere-financiere/services/hypotheques.html">Obtenir des renseignements sur les hypothèques</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/agence-consommation-matiere-financiere/services/dossier-pointage-credit.html">Dossiers et cotes de crédit</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://itools-ioutils.fcac-acfc.gc.ca/BP-PB/planificateur-budgetaire">Faire un budget</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/agence-revenu/services/impot/administrateurs-regimes-enregistres/fesp/plafonds-cd-reer-rpdb-celi-mgap.html">Taux et limites de contribution</a></li></ul></li></ul></li><li role="presentation"><a role="menuitem" tabindex="-1" aria-haspopup="true" aria-controls="gc-mnu-science" aria-expanded="false" href="#">Science et innovation</a><ul id="gc-mnu-science" role="menu" aria-orientation="vertical"><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/science.html">Science<span class="hidden-xs hidden-sm">et innovation</span><span class="visible-xs-inline visible-sm-inline">: accueil</span></a></li><li role="separator"></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/science/financementrecherche.html">Financement, subventions et prix pour la recherche</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/science/themesscientifiques.html">Thèmes scientifiques</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/science/donnees-ouvertes.html">Données ouvertes, statistiques et archives</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/science/instituts.html">Instituts et établissements de recherches</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/science/innovation.html">R-D et innovation</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/entreprises/pi.html">Propriété intellectuelle et droit d\'auteur</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/science/repertoirescientifiques.html">Répertoire des scientifiques et des professionnels de la recherche</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/science/ressourcespedagogiques.html">Ressources pédagogiques scientifiques</a></li><li role="separator" aria-orientation="vertical"></li><li role="presentation"><a data-keep-expanded="md-min" href="#" role="menuitem" tabindex="-1" aria-haspopup="true" aria-controls="gc-mnu-science-sub" aria-expanded="true">En demande</a><ul id="gc-mnu-science-sub" role="menu" aria-orientation="vertical"><li role="presentation"><a role="menuitem" tabindex="-1" href="https://cnrc.canada.ca/fr/certifications-evaluations-normes/codes-canada/publications-codes-canada">Code national du bâtiment</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://cnrc.canada.ca/fr/horloge-web/">Heures officielles au Canada</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://cnrc.canada.ca/fr/recherche-developpement/produits-services/logiciels-applications/calculatrice-soleil/">Trouver les heures de levers et de couchers du soleil</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://cnrc.canada.ca/fr/soutien-linnovation-technologique/soutien-financier-linnovation-technologique-pari-cnrc">Bourses pour l’innovation technologique (PARI)</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://science-libraries.canada.ca/fra/accueil/">Bibliothèque scientifique fédérale</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="http://asc-csa.gc.ca/fra/astronomie/auroramax/hd-480.asp">Aurores boréales en direct</a></li></ul></li></ul></li>',
 };
 
-const gcdsTopicMenuCss = "@layer reset, default, mobile, xsMobile, focus;@layer reset{.sc-gcds-topic-menu-h{display:block}.sc-gcds-topic-menu-h *{box-sizing:border-box;margin:0}}@layer default{.sc-gcds-topic-menu-h .gcds-topic-menu__heading,.sc-gcds-topic-menu-h .gcds-topic-menu__main{display:inherit;height:0;margin:0;overflow:hidden;width:0}.sc-gcds-topic-menu-h .visible-sm-inline{display:none}.sc-gcds-topic-menu-h .gcds-topic-menu{font:var(--gcds-topic-menu-font);margin-inline:auto;max-width:var(--gcds-topic-menu-max-width);position:relative;width:90%}.sc-gcds-topic-menu-h .gcds-topic-menu button[aria-haspopup=true]{background-color:var(--gcds-topic-menu-button-background);border:var(--gcds-topic-menu-border-width) solid var(--gcds-topic-menu-button-border);color:var(--gcds-topic-menu-button-text);cursor:pointer;font:inherit;margin-inline-start:0;padding:var(--gcds-topic-menu-button-padding);text-transform:uppercase}.sc-gcds-topic-menu-h .gcds-topic-menu button[aria-haspopup=true].gcds-topic-menu--home{background-color:var(--gcds-topic-menu-button-home-background);border-color:var(--gcds-topic-menu-button-home-border-color);color:var(--gcds-topic-menu-button-home-text)}.sc-gcds-topic-menu-h .gcds-topic-menu button[aria-haspopup=true]:hover,.sc-gcds-topic-menu-h .gcds-topic-menu button[aria-haspopup=true][aria-expanded=true]{background-color:var(--gcds-topic-menu-button-expanded-background);border-color:var(--gcds-topic-menu-button-expanded-border-color);color:var(--gcds-topic-menu-button-expanded-text)}.sc-gcds-topic-menu-h .gcds-topic-menu [aria-haspopup=true][aria-expanded=false]+[role=menu]{display:none}.sc-gcds-topic-menu-h .gcds-topic-menu button[aria-haspopup=true][aria-expanded=true]+[role=menu]{z-index:9991}.sc-gcds-topic-menu-h .gcds-topic-menu button[aria-haspopup=true][aria-expanded=true]+[role=menu] [role=menuitem]{position:relative;z-index:9991}.sc-gcds-topic-menu-h .gcds-topic-menu [aria-haspopup=true][aria-expanded=true]+[role=menu]{z-index:9990}.sc-gcds-topic-menu-h .gcds-topic-menu [role=menu]{background-color:var(--gcds-topic-menu-topiclist-background);color:var(--gcds-topic-menu-themelist-text);list-style:none;margin:0;padding:0;position:absolute;width:var(--gcds-topic-menu-themelist-width)}.sc-gcds-topic-menu-h .gcds-topic-menu [role=menu][data-top-menu]{-webkit-box-shadow:var(--gcds-topic-menu-topiclist-box-shadow);box-shadow:var(--gcds-topic-menu-topiclist-box-shadow)}.sc-gcds-topic-menu-h .gcds-topic-menu [role=menu]>li{border-inline-start:var(--gcds-topic-menu-border-width) solid var(--gcds-topic-menu-themelist-item-border)}.sc-gcds-topic-menu-h .gcds-topic-menu [role=menu]>li:first-child{border-block-start:var(--gcds-topic-menu-border-width) solid var(--gcds-topic-menu-themelist-item-border)}.sc-gcds-topic-menu-h .gcds-topic-menu [role=menu] [role=menu]{border-block-start:var(--gcds-topic-menu-border-width) solid var(--gcds-topic-menu-topiclist-border);color:var(--gcds-topic-menu-topiclist-text);left:var(--gcds-topic-menu-topiclist-left);margin-block-end:var(--gcds-topic-menu-topiclist-margin-block-end);min-height:var(--gcds-topic-menu-topiclist-min-height);padding:var(--gcds-topic-menu-topiclist-padding);top:0;width:var(--gcds-topic-menu-topiclist-width)}.sc-gcds-topic-menu-h .gcds-topic-menu [role=menu] [role=menu] li{border:0;width:45%}.sc-gcds-topic-menu-h .gcds-topic-menu [role=menu] [role=menu] li [role=menuitem]{border-block-end:0;border-inline-end:0;color:var(--gcds-topic-menu-topiclist-menuitem-text);padding:var(--gcds-topic-menu-topiclist-menuitem-padding);text-decoration:underline;width:auto}.sc-gcds-topic-menu-h .gcds-topic-menu [role=menu] [role=menu] li [role=menuitem][aria-haspopup=true],.sc-gcds-topic-menu-h .gcds-topic-menu [role=menu] [role=menu] li [role=menuitem][aria-haspopup=true]:hover{color:var(--gcds-topic-menu-topiclist-menuitem-popup-text);font:var(--gcds-topic-menu-topiclist-menuitem-popup-font);text-decoration:none}@media (hover:hover){.sc-gcds-topic-menu-h .gcds-topic-menu [role=menu] [role=menu] li [role=menuitem]:hover{color:var(--gcds-topic-menu-topiclist-menuitem-hover-text);text-decoration-thickness:var(\n                    --gcds-topic-menu-topiclist-menuitem-hover-text-decoration-thickness\n                  )}}.sc-gcds-topic-menu-h .gcds-topic-menu [role=menu] [role=menu] li:first-child{margin-block-end:var(\n                --gcds-topic-menu-topiclist-item-first-margin-block-end\n              );width:100%}.sc-gcds-topic-menu-h .gcds-topic-menu [role=menu] [role=menu] li:first-child [role=menuitem]{font:var(--gcds-topic-menu-topiclist-item-first-font);text-decoration:underline}.sc-gcds-topic-menu-h .gcds-topic-menu [role=menu] [role=menu] li:last-child{left:var(--gcds-topic-menu-topiclist-item-last-left);position:absolute;top:var(--gcds-topic-menu-topiclist-item-last-top)}.sc-gcds-topic-menu-h .gcds-topic-menu [role=menu] [role=menu] li:last-child [aria-expanded=true]{background:transparent}.sc-gcds-topic-menu-h .gcds-topic-menu [role=menu] [role=menu] li:last-child [role=menu]{list-style:disc;padding-block-start:0}.sc-gcds-topic-menu-h .gcds-topic-menu [role=menu] [role=menu] [role=menu]{background:transparent;border-block-start:0;-webkit-box-shadow:none;box-shadow:none;left:auto;min-height:auto;top:auto;width:auto}.sc-gcds-topic-menu-h .gcds-topic-menu [role=menu] [role=menu] [role=menu] li{width:var(--gcds-topic-menu-mostrequested-item-width)}.sc-gcds-topic-menu-h .gcds-topic-menu [role=menu] [role=menu] [role=menu] li:first-child{margin-block-end:var(\n                  --gcds-topic-menu-mostrequested-item-first-margin-block-end\n                )}.sc-gcds-topic-menu-h .gcds-topic-menu [role=menu] [role=menu] [role=menu] li:first-child [role=menuitem]{font:inherit;text-decoration:underline;width:auto}.sc-gcds-topic-menu-h .gcds-topic-menu [role=menu] [role=menu] [role=menu] li:last-child{left:auto;position:relative;top:auto}@media screen and (61.9375rem <= width <= 74.9375rem){.sc-gcds-topic-menu-h .gcds-topic-menu [role=menu] [role=menu] li{width:auto}.sc-gcds-topic-menu-h .gcds-topic-menu [role=menu] [role=menu] li:last-child{left:auto;margin-block-start:var(\n                --gcds-topic-menu-mostrequested-item-last-margin-block-start\n              );position:relative;top:auto}.sc-gcds-topic-menu-h .gcds-topic-menu [role=menu] [role=menu] [role=menu]{margin-block-end:0;padding-block-end:0;position:relative}.sc-gcds-topic-menu-h .gcds-topic-menu [role=menu] [role=menu] [role=menu] li:last-child{margin-block-start:0}}.sc-gcds-topic-menu-h .gcds-topic-menu [role=menuitem],.sc-gcds-topic-menu-h .gcds-topic-menu [role=menuitem]:visited{border-block-end:var(--gcds-topic-menu-border-width) solid var(--gcds-topic-menu-menuitem-border-block-end);box-sizing:border-box;color:var(--gcds-topic-menu-menuitem-text);display:block;font:var(--gcds-topic-menu-font);padding:var(--gcds-topic-menu-menuitem-padding);text-decoration:none;text-underline-offset:var(\n          --gcds-topic-menu-menuitem-text-underline-offset\n        );width:var(--gcds-topic-menu-menuitem-width)}.sc-gcds-topic-menu-h .gcds-topic-menu [role=menuitem]:focus,.sc-gcds-topic-menu-h .gcds-topic-menu [role=menuitem]:visited:focus{z-index:9999!important}.sc-gcds-topic-menu-h .gcds-topic-menu [role=menuitem]:hover,.sc-gcds-topic-menu-h .gcds-topic-menu [role=menuitem]:visited:hover,.sc-gcds-topic-menu-h .gcds-topic-menu [role=menuitem]:visited[aria-expanded=true],.sc-gcds-topic-menu-h .gcds-topic-menu [role=menuitem][aria-expanded=true]{background-color:var(--gcds-topic-menu-menuitem-expanded-background);color:var(--gcds-topic-menu-menuitem-expanded-text)}.sc-gcds-topic-menu-h .gcds-topic-menu [role=menuitem][aria-haspopup=true][aria-expanded=false][aria-controls]:not([aria-controls*=sub]){background-color:var(--gcds-topic-menu-themelist-background)}}@layer mobile{@media screen and (width <= 61.9375rem){.sc-gcds-topic-menu-h .gcds-topic-menu .visible-sm-inline{display:inline-block;text-decoration:underline}.sc-gcds-topic-menu-h .gcds-topic-menu .hidden-sm{display:none}.sc-gcds-topic-menu-h .gcds-topic-menu [role=menu]{margin-block-end:var(\n          --gcds-topic-menu-mobile-themelist-margin-block-start\n        );position:static;width:auto}.sc-gcds-topic-menu-h .gcds-topic-menu [role=menu] [role=menu]{border-block-start:0;-webkit-box-shadow:none;box-shadow:none;margin-block-end:0;min-height:auto;padding:0;width:auto}.sc-gcds-topic-menu-h .gcds-topic-menu [role=menu] [role=menu] li{width:auto}.sc-gcds-topic-menu-h .gcds-topic-menu [role=menu] [role=menu] li [role=menuitem]{border-block-end:var(--gcds-topic-menu-border-width) solid var(\n                  --gcds-topic-menu-mobile-topiclist-menuitem-border-block-end\n                );padding:var(--gcds-topic-menu-mobile-topiclist-menuitem-padding)}@media (hover:hover){.sc-gcds-topic-menu-h .gcds-topic-menu [role=menu] [role=menu] li [role=menuitem]:hover{background-color:transparent;color:var(\n                    --gcds-topic-menu-mobile-topiclist-menuitem-hover-text\n                  )}}.sc-gcds-topic-menu-h .gcds-topic-menu [role=menu] [role=menu] li [role=menuitem][aria-haspopup]{font:inherit}.sc-gcds-topic-menu-h .gcds-topic-menu [role=menu] [role=menu] li:first-child{margin-block-end:0}.sc-gcds-topic-menu-h .gcds-topic-menu [role=menu] [role=menu] li:first-child [role=menuitem]{border-block-end:var(--gcds-topic-menu-border-width) solid var(\n                  --gcds-topic-menu-mobile-topiclist-item-first-menuitem-border\n                );color:var(\n                --gcds-topic-menu-mobile-topiclist-item-first-menuitem-text\n              );text-decoration:underline;width:auto}.sc-gcds-topic-menu-h .gcds-topic-menu [role=menu] [role=menu] li:last-child{left:auto;position:static;top:auto}.sc-gcds-topic-menu-h .gcds-topic-menu [role=menu] [role=menu] li:last-child [role=menuitem]{border-block-end:var(--gcds-topic-menu-border-width) solid var(--gcds-topic-menu-mobile-mostrequested-border);color:var(\n                --gcds-topic-menu-mobile-topiclist-item-last-menuitem-text\n              );text-decoration:none}@media (hover:hover){.sc-gcds-topic-menu-h .gcds-topic-menu [role=menu] [role=menu] li:last-child [role=menuitem]:hover{color:var(\n                    --gcds-topic-menu-mobile-topiclist-item-last-menuitem-hover-text\n                  );text-decoration:underline}}.sc-gcds-topic-menu-h .gcds-topic-menu [role=menu] [role=menu] li:last-child [role=menu]{list-style:none;padding-block-start:0}.sc-gcds-topic-menu-h .gcds-topic-menu [role=menu] [role=menu] li:last-child [role=menu] li{width:auto}.sc-gcds-topic-menu-h .gcds-topic-menu [role=menu] [role=menu] li:last-child [role=menu] li [role=menuitem]{border-block-end:var(--gcds-topic-menu-border-width) solid var(--gcds-topic-menu-mobile-mostrequested-border)}@media (hover:hover){.sc-gcds-topic-menu-h .gcds-topic-menu [role=menu] [role=menu] li:last-child [role=menu] li [role=menuitem]:hover{color:var(\n                        --gcds-topic-menu-mobile-mostrequested-hover-text\n                      );text-decoration:underline}}.sc-gcds-topic-menu-h .gcds-topic-menu [role=menu] [role=menu] li:first-child,.sc-gcds-topic-menu-h .gcds-topic-menu [role=menu] [role=menu] li:last-child{background-color:var(\n              --gcds-topic-menu-mobile-mostrequested-background\n            )}.sc-gcds-topic-menu-h .gcds-topic-menu [role=menuitem]{width:auto}.sc-gcds-topic-menu-h .gcds-topic-menu [aria-expanded=true]:not(button)+[role=menu] li{margin-inline-start:var(\n              --gcds-topic-menu-mobile-item-expanded-margin-inline-start\n            )}.sc-gcds-topic-menu-h .gcds-topic-menu [aria-expanded=true]:not(button)+[role=menu] li:first-child,.sc-gcds-topic-menu-h .gcds-topic-menu [aria-expanded=true]:not(button)+[role=menu] li:last-child{margin-inline-start:0}.sc-gcds-topic-menu-h .gcds-topic-menu [aria-expanded=true]:not(button)+[role=menu] li:first-child [role=menuitem],.sc-gcds-topic-menu-h .gcds-topic-menu [aria-expanded=true]:not(button)+[role=menu] li:last-child [role=menuitem]{padding-inline-start:var(\n                  --gcds-topic-menu-mobile-item-expanded-padding-inline-start\n                )}.sc-gcds-topic-menu-h .gcds-topic-menu [aria-expanded=true]:not(button)+[role=menu] li:last-child [role=menu] [role=menuitem]{padding-inline-start:0}.sc-gcds-topic-menu-h .gcds-topic-menu [aria-expanded=true]:not(button)+[role=menu] [role=menu] li{margin-inline-start:var(\n              --gcds-topic-menu-mobile-mostrequested-expanded-margin-inline-start\n            )}.sc-gcds-topic-menu-h .gcds-topic-menu [aria-expanded=true]+[role=menu] [role=menu] [role=menu]{background-color:var(\n            --gcds-topic-menu-mobile-mostrequested-background\n          )}.sc-gcds-topic-menu-h .gcds-topic-menu [aria-haspopup]:not(button):before{content:\"\\25BA\\a0\"}.sc-gcds-topic-menu-h .gcds-topic-menu [aria-haspopup][aria-expanded=true]:not(button):before{content:\"\\25BC\\a0\"}.sc-gcds-topic-menu-h .gcds-topic-menu button[aria-haspopup=true][aria-expanded=true]+[role=menu]{border-inline-end:var(--gcds-topic-menu-border-width) solid var(--gcds-topic-menu-mobile-themelist-border)}}}@layer xsMobile{@media screen and (width <= 47.9375rem){.sc-gcds-topic-menu-h .gcds-topic-menu>[role=menu]{margin-inline:calc(-50vw + 50%)}}}@layer focus{.sc-gcds-topic-menu-h .gcds-topic-menu :is(button[aria-haspopup=true],[role=menuitem]):focus{background-color:var(--gcds-topic-menu-focus-background);border-color:var(--gcds-topic-menu-focus-background);border-inline-end:0;border-radius:var(--gcds-topic-menu-focus-border-radius);box-shadow:var(--gcds-topic-menu-focus-box-shadow);color:var(--gcds-topic-menu-focus-text);outline:var(--gcds-topic-menu-focus-outline);outline-offset:var(--gcds-topic-menu-focus-outline-offset)}}";
+const gcdsTopicMenuCss = "@layer reset, default, mobile, xsMobile, focus;@layer reset{.sc-gcds-topic-menu-h{display:block}.sc-gcds-topic-menu-h *{box-sizing:border-box;margin:0}}@layer default{.sc-gcds-topic-menu-h .gcds-topic-menu__heading,.sc-gcds-topic-menu-h .gcds-topic-menu__main{display:inherit;height:0;margin:0;overflow:hidden;width:0}.sc-gcds-topic-menu-h .visible-sm-inline{display:none}.sc-gcds-topic-menu-h .gcds-topic-menu{font:var(--gcds-topic-menu-font);margin-inline:auto;max-width:var(--gcds-topic-menu-max-width);position:relative;width:90%}.sc-gcds-topic-menu-h .gcds-topic-menu button[aria-haspopup=true]{background-color:var(--gcds-topic-menu-button-background);border:var(--gcds-topic-menu-border-width) solid var(--gcds-topic-menu-button-border);color:var(--gcds-topic-menu-button-text);cursor:pointer;font:inherit;margin-inline-start:0;padding:var(--gcds-topic-menu-button-padding);text-transform:uppercase}.sc-gcds-topic-menu-h .gcds-topic-menu button[aria-haspopup=true].gcds-topic-menu--home{background-color:var(--gcds-topic-menu-button-home-background);border-color:var(--gcds-topic-menu-button-home-border-color);color:var(--gcds-topic-menu-button-home-text)}.sc-gcds-topic-menu-h .gcds-topic-menu button[aria-haspopup=true]:hover,.sc-gcds-topic-menu-h .gcds-topic-menu button[aria-haspopup=true][aria-expanded=true]{background-color:var(--gcds-topic-menu-button-expanded-background);border-color:var(--gcds-topic-menu-button-expanded-border-color);color:var(--gcds-topic-menu-button-expanded-text)}.sc-gcds-topic-menu-h .gcds-topic-menu [aria-haspopup=true][aria-expanded=false]+[role=menu]{display:none}.sc-gcds-topic-menu-h .gcds-topic-menu button[aria-haspopup=true][aria-expanded=true]+[role=menu]{z-index:9991}.sc-gcds-topic-menu-h .gcds-topic-menu button[aria-haspopup=true][aria-expanded=true]+[role=menu] [role=menuitem]{position:relative;z-index:9991}.sc-gcds-topic-menu-h .gcds-topic-menu [aria-haspopup=true][aria-expanded=true]+[role=menu]{z-index:9990}.sc-gcds-topic-menu-h .gcds-topic-menu [role=menu]{background-color:var(--gcds-topic-menu-topiclist-background);color:var(--gcds-topic-menu-themelist-text);list-style:none;margin:0;padding:0;position:absolute;width:var(--gcds-topic-menu-themelist-width)}.sc-gcds-topic-menu-h .gcds-topic-menu [role=menu][data-top-menu]{-webkit-box-shadow:var(--gcds-topic-menu-topiclist-box-shadow);box-shadow:var(--gcds-topic-menu-topiclist-box-shadow)}.sc-gcds-topic-menu-h .gcds-topic-menu [role=menu]>li{border-inline-start:var(--gcds-topic-menu-border-width) solid var(--gcds-topic-menu-themelist-item-border)}.sc-gcds-topic-menu-h .gcds-topic-menu [role=menu]>li:first-child{border-block-start:var(--gcds-topic-menu-border-width) solid var(--gcds-topic-menu-themelist-item-border)}.sc-gcds-topic-menu-h .gcds-topic-menu [role=menu] [role=menu]{border-block-start:var(--gcds-topic-menu-border-width) solid var(--gcds-topic-menu-topiclist-border);color:var(--gcds-topic-menu-topiclist-text);left:var(--gcds-topic-menu-topiclist-left);margin-block-end:var(--gcds-topic-menu-topiclist-margin-block-end);min-height:var(--gcds-topic-menu-topiclist-min-height);padding:var(--gcds-topic-menu-topiclist-padding);top:0;width:var(--gcds-topic-menu-topiclist-width)}.sc-gcds-topic-menu-h .gcds-topic-menu [role=menu] [role=menu] li{border:0;width:45%}.sc-gcds-topic-menu-h .gcds-topic-menu [role=menu] [role=menu] li [role=menuitem]{border-block-end:0;border-inline-end:0;color:var(--gcds-topic-menu-topiclist-menuitem-text);padding:var(--gcds-topic-menu-topiclist-menuitem-padding);text-decoration:underline;width:auto}.sc-gcds-topic-menu-h .gcds-topic-menu [role=menu] [role=menu] li [role=menuitem][aria-haspopup=true],.sc-gcds-topic-menu-h .gcds-topic-menu [role=menu] [role=menu] li [role=menuitem][aria-haspopup=true]:hover{color:var(--gcds-topic-menu-topiclist-menuitem-popup-text);font:var(--gcds-topic-menu-topiclist-menuitem-popup-font);text-decoration:none}@media (hover:hover){.sc-gcds-topic-menu-h .gcds-topic-menu [role=menu] [role=menu] li [role=menuitem]:hover{color:var(--gcds-topic-menu-topiclist-menuitem-hover-text);text-decoration-thickness:var(\n                    --gcds-topic-menu-topiclist-menuitem-hover-text-decoration-thickness\n                  )}}.sc-gcds-topic-menu-h .gcds-topic-menu [role=menu] [role=menu] li:first-child{margin-block-end:var(\n                --gcds-topic-menu-topiclist-item-first-margin-block-end\n              );width:100%}.sc-gcds-topic-menu-h .gcds-topic-menu [role=menu] [role=menu] li:first-child [role=menuitem]{font:var(--gcds-topic-menu-topiclist-item-first-font);text-decoration:underline}.sc-gcds-topic-menu-h .gcds-topic-menu [role=menu] [role=menu] li:last-child{left:var(--gcds-topic-menu-topiclist-item-last-left);position:absolute;top:var(--gcds-topic-menu-topiclist-item-last-top)}.sc-gcds-topic-menu-h .gcds-topic-menu [role=menu] [role=menu] li:last-child [aria-expanded=true]{background:transparent}.sc-gcds-topic-menu-h .gcds-topic-menu [role=menu] [role=menu] li:last-child [role=menu]{list-style:disc;padding-block-start:0}.sc-gcds-topic-menu-h .gcds-topic-menu [role=menu] [role=menu] [role=menu]{background:transparent;border-block-start:0;-webkit-box-shadow:none;box-shadow:none;left:auto;min-height:auto;top:auto;width:auto}.sc-gcds-topic-menu-h .gcds-topic-menu [role=menu] [role=menu] [role=menu] li{width:var(--gcds-topic-menu-mostrequested-item-width)}.sc-gcds-topic-menu-h .gcds-topic-menu [role=menu] [role=menu] [role=menu] li:first-child{margin-block-end:var(\n                  --gcds-topic-menu-mostrequested-item-first-margin-block-end\n                )}.sc-gcds-topic-menu-h .gcds-topic-menu [role=menu] [role=menu] [role=menu] li:first-child [role=menuitem]{font:inherit;text-decoration:underline;width:auto}.sc-gcds-topic-menu-h .gcds-topic-menu [role=menu] [role=menu] [role=menu] li:last-child{left:auto;position:relative;top:auto}@media screen and (61.9375rem <= width <= 74.9375rem){.sc-gcds-topic-menu-h .gcds-topic-menu [role=menu] [role=menu] li{width:auto}.sc-gcds-topic-menu-h .gcds-topic-menu [role=menu] [role=menu] li:last-child{left:auto;margin-block-start:var(\n                --gcds-topic-menu-mostrequested-item-last-margin-block-start\n              );position:relative;top:auto}.sc-gcds-topic-menu-h .gcds-topic-menu [role=menu] [role=menu] [role=menu]{margin-block-end:0;padding-block-end:0;position:relative}.sc-gcds-topic-menu-h .gcds-topic-menu [role=menu] [role=menu] [role=menu] li:last-child{margin-block-start:0}}.sc-gcds-topic-menu-h .gcds-topic-menu [role=menuitem],.sc-gcds-topic-menu-h .gcds-topic-menu [role=menuitem]:visited{border-block-end:var(--gcds-topic-menu-border-width) solid var(--gcds-topic-menu-menuitem-border-block-end);box-sizing:border-box;color:var(--gcds-topic-menu-menuitem-text);display:block;font:var(--gcds-topic-menu-font);padding:var(--gcds-topic-menu-menuitem-padding);text-decoration:none;text-underline-offset:var(\n          --gcds-topic-menu-menuitem-text-underline-offset\n        );width:var(--gcds-topic-menu-menuitem-width)}.sc-gcds-topic-menu-h .gcds-topic-menu [role=menuitem]:focus,.sc-gcds-topic-menu-h .gcds-topic-menu [role=menuitem]:visited:focus{z-index:9999!important}.sc-gcds-topic-menu-h .gcds-topic-menu [role=menuitem]:hover,.sc-gcds-topic-menu-h .gcds-topic-menu [role=menuitem]:visited:hover,.sc-gcds-topic-menu-h .gcds-topic-menu [role=menuitem]:visited[aria-expanded=true],.sc-gcds-topic-menu-h .gcds-topic-menu [role=menuitem][aria-expanded=true]{background-color:var(--gcds-topic-menu-menuitem-expanded-background);color:var(--gcds-topic-menu-menuitem-expanded-text)}.sc-gcds-topic-menu-h .gcds-topic-menu [role=menuitem][aria-haspopup=true][aria-expanded=false][aria-controls]:not([aria-controls*=sub]){background-color:var(--gcds-topic-menu-themelist-background)}}@layer mobile{@media screen and (width <= 61.9375rem){.sc-gcds-topic-menu-h .gcds-topic-menu .visible-sm-inline{display:inline-block;text-decoration:underline}.sc-gcds-topic-menu-h .gcds-topic-menu .hidden-sm{display:none}.sc-gcds-topic-menu-h .gcds-topic-menu [role=menu]{margin-block-end:var(\n          --gcds-topic-menu-mobile-themelist-margin-block-start\n        );position:static;width:auto}.sc-gcds-topic-menu-h .gcds-topic-menu [role=menu] [role=menu]{border-block-start:0;-webkit-box-shadow:none;box-shadow:none;margin-block-end:0;min-height:auto;padding:0;width:auto}.sc-gcds-topic-menu-h .gcds-topic-menu [role=menu] [role=menu] li{width:auto}.sc-gcds-topic-menu-h .gcds-topic-menu [role=menu] [role=menu] li [role=menuitem]{border-block-end:var(--gcds-topic-menu-border-width) solid var(\n                  --gcds-topic-menu-mobile-topiclist-menuitem-border-block-end\n                );padding:var(--gcds-topic-menu-mobile-topiclist-menuitem-padding)}@media (hover:hover){.sc-gcds-topic-menu-h .gcds-topic-menu [role=menu] [role=menu] li [role=menuitem]:hover{background-color:transparent;color:var(\n                    --gcds-topic-menu-mobile-topiclist-menuitem-hover-text\n                  )}}.sc-gcds-topic-menu-h .gcds-topic-menu [role=menu] [role=menu] li [role=menuitem][aria-haspopup]{font:inherit}.sc-gcds-topic-menu-h .gcds-topic-menu [role=menu] [role=menu] li:first-child{margin-block-end:0}.sc-gcds-topic-menu-h .gcds-topic-menu [role=menu] [role=menu] li:first-child [role=menuitem]{border-block-end:var(--gcds-topic-menu-border-width) solid var(\n                  --gcds-topic-menu-mobile-topiclist-item-first-menuitem-border\n                );color:var(\n                --gcds-topic-menu-mobile-topiclist-item-first-menuitem-text\n              );text-decoration:underline;width:auto}.sc-gcds-topic-menu-h .gcds-topic-menu [role=menu] [role=menu] li:last-child{left:auto;position:static;top:auto}.sc-gcds-topic-menu-h .gcds-topic-menu [role=menu] [role=menu] li:last-child [role=menuitem]{border-block-end:var(--gcds-topic-menu-border-width) solid var(--gcds-topic-menu-mobile-mostrequested-border);color:var(\n                --gcds-topic-menu-mobile-topiclist-item-last-menuitem-text\n              );text-decoration:none}@media (hover:hover){.sc-gcds-topic-menu-h .gcds-topic-menu [role=menu] [role=menu] li:last-child [role=menuitem]:hover{color:var(\n                    --gcds-topic-menu-mobile-topiclist-item-last-menuitem-hover-text\n                  );text-decoration:underline}}.sc-gcds-topic-menu-h .gcds-topic-menu [role=menu] [role=menu] li:last-child [role=menu]{list-style:none;padding-block-start:0}.sc-gcds-topic-menu-h .gcds-topic-menu [role=menu] [role=menu] li:last-child [role=menu] li{width:auto}.sc-gcds-topic-menu-h .gcds-topic-menu [role=menu] [role=menu] li:last-child [role=menu] li [role=menuitem]{border-block-end:var(--gcds-topic-menu-border-width) solid var(--gcds-topic-menu-mobile-mostrequested-border)}@media (hover:hover){.sc-gcds-topic-menu-h .gcds-topic-menu [role=menu] [role=menu] li:last-child [role=menu] li [role=menuitem]:hover{color:var(\n                        --gcds-topic-menu-mobile-mostrequested-hover-text\n                      );text-decoration:underline}}.sc-gcds-topic-menu-h .gcds-topic-menu [role=menu] [role=menu] li:first-child,.sc-gcds-topic-menu-h .gcds-topic-menu [role=menu] [role=menu] li:last-child{background-color:var(\n              --gcds-topic-menu-mobile-mostrequested-background\n            )}.sc-gcds-topic-menu-h .gcds-topic-menu [role=menuitem]{width:auto}.sc-gcds-topic-menu-h .gcds-topic-menu [aria-expanded=true]:not(button)+[role=menu] li{margin-inline-start:var(\n              --gcds-topic-menu-mobile-item-expanded-margin-inline-start\n            )}.sc-gcds-topic-menu-h .gcds-topic-menu [aria-expanded=true]:not(button)+[role=menu] li:first-child,.sc-gcds-topic-menu-h .gcds-topic-menu [aria-expanded=true]:not(button)+[role=menu] li:last-child{margin-inline-start:0}.sc-gcds-topic-menu-h .gcds-topic-menu [aria-expanded=true]:not(button)+[role=menu] li:first-child [role=menuitem],.sc-gcds-topic-menu-h .gcds-topic-menu [aria-expanded=true]:not(button)+[role=menu] li:last-child [role=menuitem]{padding-inline-start:var(\n                  --gcds-topic-menu-mobile-item-expanded-padding-inline-start\n                )}.sc-gcds-topic-menu-h .gcds-topic-menu [aria-expanded=true]:not(button)+[role=menu] li:last-child [role=menu] [role=menuitem]{padding-inline-start:0}.sc-gcds-topic-menu-h .gcds-topic-menu [aria-expanded=true]:not(button)+[role=menu] [role=menu] li{margin-inline-start:var(\n              --gcds-topic-menu-mobile-mostrequested-expanded-margin-inline-start\n            )}.sc-gcds-topic-menu-h .gcds-topic-menu [aria-expanded=true]+[role=menu] [role=menu] [role=menu]{background-color:var(\n            --gcds-topic-menu-mobile-mostrequested-background\n          )}.sc-gcds-topic-menu-h .gcds-topic-menu [aria-haspopup]:not(button):before{content:\"\\25BA\\a0\"}.sc-gcds-topic-menu-h .gcds-topic-menu [aria-haspopup][aria-expanded=true]:not(button):before{content:\"\\25BC\\a0\"}.sc-gcds-topic-menu-h .gcds-topic-menu button[aria-haspopup=true][aria-expanded=true]+[role=menu]{border-inline-end:var(--gcds-topic-menu-border-width) solid var(--gcds-topic-menu-mobile-themelist-border)}}}@layer xsMobile{@media screen and (width <= 47.9375rem){.sc-gcds-topic-menu-h .gcds-topic-menu>[role=menu]{margin-inline:calc(-50vw - -50%)}}}@layer focus{.sc-gcds-topic-menu-h .gcds-topic-menu :is(button[aria-haspopup=true],[role=menuitem]):focus{background-color:var(--gcds-topic-menu-focus-background);border-color:var(--gcds-topic-menu-focus-background);border-inline-end:0;border-radius:var(--gcds-topic-menu-focus-border-radius);box-shadow:var(--gcds-topic-menu-focus-box-shadow);color:var(--gcds-topic-menu-focus-text);outline:var(--gcds-topic-menu-focus-outline);outline-offset:var(--gcds-topic-menu-focus-outline-offset)}}";
 var GcdsTopicMenuStyle0 = gcdsTopicMenuCss;
 
 class GcdsTopicMenu {
@@ -8869,7 +9057,7 @@ class GcdsTopicMenu {
     }
     render() {
         const { home, lang } = this;
-        return (hAsync(Host, { key: '77e9f945df4058bd3c547231d6cdb6ec9052fc84' }, hAsync("nav", { key: '5ca25a73101119a0ceffd543c7ff55b7d891e994', class: "gcds-topic-menu", "aria-labelledby": "gcds-topic-menu__heading" }, hAsync("gcds-sr-only", { key: 'dd8d544d5de7d0445e1e163481fae5b25497d811', id: "gcds-topic-menu__heading", tag: "h2" }, I18N$1[lang].menuLabelFull), hAsync("button", { key: '5b7d43ea46077bc46f364c4eaaa4ebfbd1fd3ec7', "aria-haspopup": "true", "aria-expanded": this.open.toString(), "aria-label": I18N$1[lang].buttonLabel, onClick: async () => await this.toggleNav(), ref: element => (this.menuButton = element), class: home && 'gcds-topic-menu--home' }, this.lang == 'en' ? (hAsync(Fragment, null, hAsync("gcds-sr-only", { tag: "span" }, I18N$1[lang].menuLabelHidden), I18N$1[lang].menuToggle)) : (hAsync(Fragment, null, I18N$1[lang].menuToggle, hAsync("gcds-sr-only", { tag: "span" }, I18N$1[lang].menuLabelHidden))), hAsync("gcds-icon", { key: '72b28e6124b97e3781e693b0811c012d9a18dcd9', name: "chevron-down", "margin-left": "100", size: "text-small" })), hAsync("ul", { key: '0dc47fdd32219dec0313e04da9e5e6df57dc906e', role: "menu", "aria-orientation": "vertical", "data-top-menu": true, innerHTML: this.listItems, ref: element => (this.themeList = element) }))));
+        return (hAsync(Host, { key: '11a4e6cac47292c67d67f2860368ad937610475e' }, hAsync("nav", { key: '9649d4b517f8a95ccfcbf5130a3429c639d45e1a', class: "gcds-topic-menu", "aria-labelledby": "gcds-topic-menu__heading" }, hAsync("gcds-sr-only", { key: '8b11792760daf57c8991c78b0258dba19f78d57f', id: "gcds-topic-menu__heading", tag: "h2" }, I18N$1[lang].menuLabelFull), hAsync("button", { key: '41190295fe3d65d13aa28f44fedf010bef4059d6', "aria-haspopup": "true", "aria-expanded": this.open.toString(), "aria-label": I18N$1[lang].buttonLabel, onClick: async () => await this.toggleNav(), ref: element => (this.menuButton = element), class: home && 'gcds-topic-menu--home' }, this.lang == 'en' ? (hAsync(Fragment, null, hAsync("gcds-sr-only", { tag: "span" }, I18N$1[lang].menuLabelHidden), I18N$1[lang].menuToggle)) : (hAsync(Fragment, null, I18N$1[lang].menuToggle, hAsync("gcds-sr-only", { tag: "span" }, I18N$1[lang].menuLabelHidden))), hAsync("gcds-icon", { key: '1f378ba85facaa6aa9610ef2cf45b504870b7064', name: "chevron-down", "margin-left": "100", size: "text-small" })), hAsync("ul", { key: 'a9250f162fe7f32ec9c0b561366d2723834e0990', role: "menu", "aria-orientation": "vertical", "data-top-menu": true, innerHTML: this.listItems, ref: element => (this.themeList = element) }))));
     }
     get el() { return getElement(this); }
     static get style() { return GcdsTopicMenuStyle0; }
@@ -8985,7 +9173,7 @@ class GcdsVerifyBanner {
     }
     render() {
         const { container, isFixed, lang } = this;
-        return (hAsync(Host, { key: '79bc4dc615e909274744d7c9658fbe004c2bf6bc' }, hAsync("details", { key: '0e01a3f845f9f882c07b1c34ab51a2f381c8bf5f', class: `gcds-verify-banner ${isFixed ? 'verify-banner--is-fixed' : ''}` }, hAsync("summary", { key: '60a371e675c308932c2f5af336c6e81035ca01f2', class: container ? `container-${container}` : '', "aria-expanded": "false", role: "button" }, hAsync("span", { key: '7b0def4d6a9a4eb3a313fff1fe66a0bc6b1f051a', class: "svg-container", innerHTML: CanadaFlag }), hAsync("p", { key: 'a074a77e354a0166aa6770f32fd83d1cdbd8532a' }, hAsync("small", { key: '1acc5177f5d3ba56d97816fe2f99a7568107e433' }, I18N[lang].summary.text), hAsync("button", { key: 'ec6a3f1625d23552f8d31c0cde5803ddc2a77272', class: "verify-banner__toggle" }, hAsync("small", { key: '3f6d49e3165de7c1c6b2e7d6d06d274f0fbdd56a' }, I18N[lang].summary.link), hAsync("span", { key: '153fc0c626c8a986db416c5ac29713a2ac0fcdf1', class: "svg-container", innerHTML: ContentToggleArrow })))), hAsync("div", { key: 'e81165bfd96795ccf462da1d4a1dda868395cce5', class: `verify-banner__content ${container ? `container-${container}` : ''}` }, hAsync("p", { key: '22045e8846b47339074fd5f38f031ca4b8959d8d' }, hAsync("small", { key: '473ff5b3a65b167204a67097f66a6d84d0a4ce23' }, I18N[lang].content.description)), hAsync("br", { key: '15af7e05f46d20060c48a59474588e60831a094e' }), hAsync("gcds-grid", { key: '709f44671c2d73683385dbf9621718d9c20bc289', tag: "ul", container: "lg", columns: "1fr", "columns-tablet": container === 'xs' || container === 'sm' ? '1fr' : '1fr 1fr' }, hAsync("li", { key: 'f65ebc8634708bc47b1a32e92782555083685064' }, hAsync("h4", { key: '6c4cf0f3461551b7a0f6c1ab98a00d027f1dd5a2' }, I18N[lang].content.url.heading), hAsync("p", { key: '85f95f3ca4a0fba659d60f6145d3e37089a8ecd4' }, hAsync("small", { key: '1b105c8da0a8976ab8c4e1bad11447be51a65c8f' }, I18N[lang].content.url.text))), hAsync("li", { key: '93c3f0c0487ba36d347f58bffc777ce66de6f3fd' }, hAsync("h4", { key: 'f8481a2a32400da5a36109fa56a962593e0312e2' }, I18N[lang].content.languages.heading), hAsync("p", { key: 'd9596aee415d7c38b2dc9a573805baae85d05a38' }, hAsync("small", { key: '904e6811890b96a3bd96dea52204a6d15e3b44ac' }, I18N[lang].content.languages.text))), hAsync("li", { key: '7844b115d12d5071d9d23ee3f7fef4507461b607' }, hAsync("h4", { key: '36843578e05e2c110e759355324dc428c1902e7b' }, I18N[lang].content.https.heading), hAsync("p", { key: '70cf52e7807ff64061d0ca654f5295e94bb32fd1' }, hAsync("small", { key: '1764d52ed82aecfcf0ca8f533848d08114852403' }, I18N[lang].content.https.text, " ", hAsync("strong", { key: '6675bf241c5f83bb100ccd15d78cd1d6351fdc37' }, "https://"), "."))), hAsync("li", { key: '8779e017066292331a05451847ac7c3d5865999a' }, hAsync("h4", { key: 'd82025f6d665cc8df4ddb97cc73e539c058ae1b0' }, I18N[lang].content.contact.heading), hAsync("p", { key: '391899c66d166527c07eebaa1a017b665a45e354' }, hAsync("small", { key: 'ea86b227a962ba2bfe0784d6bf89b24c592c26ba' }, I18N[lang].content.contact.text))))))));
+        return (hAsync(Host, { key: '48153c15ce4d671d0bf60ddbe3d336e5e0be81af' }, hAsync("details", { key: '2e617043b0000ff20429eb9a46324a2f40fb1a95', class: `gcds-verify-banner ${isFixed ? 'verify-banner--is-fixed' : ''}` }, hAsync("summary", { key: '4fa310845587a590815de9ffcb7e7c50354020b9', class: container ? `container-${container}` : '', "aria-expanded": "false", role: "button" }, hAsync("span", { key: '094552cb86ed9ac56935441e352e2ea9ec4671c8', class: "svg-container", innerHTML: CanadaFlag }), hAsync("p", { key: '813aa039eddf1b68d3db854e90165f9314a59888' }, hAsync("small", { key: '2161ed4e25a9680194da06614344365fafe327d1' }, I18N[lang].summary.text), hAsync("button", { key: '5192428be907c4e5d951b5871fd5af436b40c4fd', class: "verify-banner__toggle" }, hAsync("small", { key: 'b18b2fccc1b7bd85dacd2a07a590cad716fe8bc9' }, I18N[lang].summary.link), hAsync("span", { key: '53007393e80408a5486ed2539ca8abdfb2e3808a', class: "svg-container", innerHTML: ContentToggleArrow })))), hAsync("div", { key: 'e7737a8d5fbc9f70aa1579d5258dd5e8053b849c', class: `verify-banner__content ${container ? `container-${container}` : ''}` }, hAsync("p", { key: '474171c6a6bbbb8772e7f0485dfffb51a864ff05' }, hAsync("small", { key: '3bf99ee8fcf04df4f1fdce2e637b561137c38188' }, I18N[lang].content.description)), hAsync("br", { key: 'fd2af592a4462cf079ee227bbe15934fb8d4d5b4' }), hAsync("gcds-grid", { key: '2c3f42400363486e7b662dbc70b4a4a9c873255a', tag: "ul", container: "lg", columns: "1fr", "columns-tablet": container === 'xs' || container === 'sm' ? '1fr' : '1fr 1fr' }, hAsync("li", { key: 'e251f3f8663eebe19d3a59aa9d46822bdc097273' }, hAsync("h4", { key: '277e4d0462a8b78280e5636d87026998efeb9361' }, I18N[lang].content.url.heading), hAsync("p", { key: '8e0b9981deaf0221533ceb24f2f733eec19825f7' }, hAsync("small", { key: 'be67900e62262b8d019e7bdeee7b63e90a1075b3' }, I18N[lang].content.url.text))), hAsync("li", { key: '0893412462dfff8f9f214395295447d9fdd34f16' }, hAsync("h4", { key: '7d3562b810abdd8d961744cb239181e2e1b50580' }, I18N[lang].content.languages.heading), hAsync("p", { key: '0aba8b207788f423a8e4566fccf77d86d3e56ef8' }, hAsync("small", { key: 'c9b4012e2ed096b86a5eefa1f7fe917daa573049' }, I18N[lang].content.languages.text))), hAsync("li", { key: 'e232beacff8ce2f22889e661dbbb0d866f029e28' }, hAsync("h4", { key: '4303bdb3c1209eceba4076dc53162d62d9671a8d' }, I18N[lang].content.https.heading), hAsync("p", { key: '5807627918a98faa18893bd85829561afb3d5746' }, hAsync("small", { key: '7d1b8e8e56cade3c18cac32837c3d5adc3c88889' }, I18N[lang].content.https.text, " ", hAsync("strong", { key: 'f4fcc669ccaa40756d3d69a23b8466188e78a47c' }, "https://"), "."))), hAsync("li", { key: '5e388710ae4ef3923909cc9f0442a18a185243f0' }, hAsync("h4", { key: 'c92b10a99089c96363e126358acf26d2c6098404' }, I18N[lang].content.contact.heading), hAsync("p", { key: '9a6736ffdd9bbd9111411c4aaddbe97256b0db21' }, hAsync("small", { key: 'b7d1b456d226778ecb8087f4086f9cef5dd7593b' }, I18N[lang].content.contact.text))))))));
     }
     get el() { return getElement(this); }
     static get style() { return GcdsVerifyBannerStyle0; }
@@ -9009,7 +9197,7 @@ registerComponents([
   GcdsBreadcrumbsItem,
   GcdsButton,
   GcdsCard,
-  GcdsCheckbox,
+  GcdsCheckboxes,
   GcdsContainer,
   GcdsDateInput,
   GcdsDateModified,
@@ -9034,7 +9222,7 @@ registerComponents([
   GcdsNotice,
   GcdsPagination,
   GcdsPhaseBanner,
-  GcdsRadioGroup,
+  GcdsRadios,
   GcdsSearch,
   GcdsSelect,
   GcdsSideNav,

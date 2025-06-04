@@ -68,28 +68,36 @@ function requiredValidator(element, type, subtype) {
                     element.validator = ['requiredFileInput'];
                 }
                 break;
-            case 'checkbox':
-                if (element.validator) {
-                    element.validator.unshift('requiredCheck');
-                }
-                else {
-                    element.validator = ['requiredCheck'];
-                }
-                break;
-            case 'fieldset':
-                if (element.validator) {
-                    element.validator.unshift('requiredFieldset');
-                }
-                else {
-                    element.validator = ['requiredFieldset'];
-                }
-                break;
             case 'date-input':
                 if (element.validator) {
                     element.validator.unshift('requiredDateInput');
                 }
                 else {
                     element.validator = ['requiredDateInput'];
+                }
+                break;
+            case 'radio':
+                if (element.validator) {
+                    element.validator.unshift('requiredRadio');
+                }
+                else {
+                    element.validator = ['requiredRadio'];
+                }
+                break;
+            case 'checkboxGroup':
+                if (element.validator) {
+                    element.validator.unshift('requiredCheckboxGroup');
+                }
+                else {
+                    element.validator = ['requiredCheckboxGroup'];
+                }
+                break;
+            case 'checkboxSingle':
+                if (element.validator) {
+                    element.validator.unshift('requiredCheckboxSingle');
+                }
+                else {
+                    element.validator = ['requiredCheckboxSingle'];
                 }
                 break;
         }
@@ -290,86 +298,41 @@ const getDateInputError = (dateValues, format) => {
     }
     return errorResponse;
 };
-
-const requiredCheck = {
-    validate: (value) => value,
-    errorMessage: {
-        en: 'You must check the box to continue.',
-        fr: 'Vous devez cocher la case pour continuer.',
-    },
-};
-
-const requiredFieldset = {
-    validate: (id) => {
-        const el = document.querySelector(`[fieldset-id=${id}]`);
-        const elChildren = el.children;
-        const isValid = validateFieldsetElements(el, elChildren);
-        return !isValid.includes(false);
+const requiredRadio = {
+    validate: (value) => {
+        return value != null && value != '';
     },
     errorMessage: {
         en: 'Choose an option to continue.',
         fr: 'Choisissez une option pour continuer.',
     },
 };
-function validateFieldsetElements(element, nodeList) {
-    let isValid = [];
-    for (let i = 0; i < nodeList.length; i++) {
-        switch (nodeList[i].nodeName) {
-            case 'GCDS-FIELDSET': {
-                const validFieldsetChildren = validateFieldsetElements(nodeList[i], nodeList[i].children);
-                isValid = isValid.concat(validFieldsetChildren);
-                break;
-            }
-            case 'GCDS-CHECKBOX': {
-                // Checkboxes can share name property
-                const inputName = nodeList[i].getAttribute('name');
-                // Find all inputs with shared name
-                const sameNameInputs = element.querySelectorAll(`[name=${inputName}]`);
-                let childGroupValid = false;
-                // Check if there is more than one input with this name
-                if (sameNameInputs.length > 1) {
-                    // Validate as group
-                    for (let c = 0; c < sameNameInputs.length; c++) {
-                        if (sameNameInputs[c].hasAttribute('checked')) {
-                            childGroupValid = true;
-                        }
-                    }
-                    isValid.push(childGroupValid);
-                }
-                else {
-                    // Validate as single input
-                    isValid.push(nodeList[i].hasAttribute('checked') ? true : false);
-                }
-                break;
-            }
-            case 'GCDS-RADIO-GROUP': {
-                const inputName = nodeList[i].getAttribute('name');
-                // Find all inputs with shared name
-                const sameNameInputs = element.querySelector(`[name=${inputName}]`);
-                const shadowInputs = sameNameInputs.shadowRoot.querySelectorAll('input');
-                let childGroupValid = false;
-                for (let r = 0; r < shadowInputs.length; r++) {
-                    if (shadowInputs[r].checked) {
-                        childGroupValid = true;
-                    }
-                }
-                isValid.push(childGroupValid);
-                break;
-            }
-        }
-    }
-    return isValid;
-}
+const requiredCheckboxGroup = {
+    validate: (value) => value.length > 0,
+    errorMessage: {
+        en: 'Choose an option to continue.',
+        fr: 'Choisissez une option pour continuer.',
+    },
+};
+const requiredCheckboxSingle = {
+    validate: (value) => value.length > 0,
+    errorMessage: {
+        en: 'You must check the box to continue.',
+        fr: 'Vous devez cocher la case pour continuer.',
+    },
+};
 
 var ValidatorsName;
 (function (ValidatorsName) {
     ValidatorsName["requiredField"] = "requiredField";
     ValidatorsName["requiredEmailField"] = "requiredEmailField";
     ValidatorsName["requiredCheck"] = "requiredCheck";
-    ValidatorsName["requiredFieldset"] = "requiredFieldset";
     ValidatorsName["requiredFileInput"] = "requiredFileInput";
     ValidatorsName["requiredSelectField"] = "requiredSelectField";
     ValidatorsName["requiredDateInput"] = "requiredDateInput";
+    ValidatorsName["requiredRadio"] = "requiredRadio";
+    ValidatorsName["requiredCheckboxGroup"] = "requiredCheckboxGroup";
+    ValidatorsName["requiredCheckboxSingle"] = "requiredCheckboxSingle";
 })(ValidatorsName || (ValidatorsName = {}));
 function getValidator(list) {
     return (list || [])
@@ -395,19 +358,21 @@ function validatorFactory(name, options) {
             return requiredEmailField;
         case ValidatorsName.requiredSelectField:
             return requiredSelectField;
-        case ValidatorsName.requiredCheck:
-            return requiredCheck;
-        case ValidatorsName.requiredFieldset:
-            return requiredFieldset;
         case ValidatorsName.requiredDateInput:
             return requiredDateInput;
         case ValidatorsName.requiredFileInput:
             return requiredFileInput;
+        case ValidatorsName.requiredRadio:
+            return requiredRadio;
+        case ValidatorsName.requiredCheckboxGroup:
+            return requiredCheckboxGroup;
+        case ValidatorsName.requiredCheckboxSingle:
+            return requiredCheckboxSingle;
         default:
             return defaultValidator;
     }
 }
 
-export { defaultValidator as d, getValidator as g, requiredValidator as r, validateFieldsetElements as v };
+export { defaultValidator as d, getValidator as g, requiredValidator as r };
 
 //# sourceMappingURL=validator.factory.js.map
