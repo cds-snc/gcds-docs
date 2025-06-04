@@ -31,6 +31,6 @@ Use radios to request a single-option response to:
 
 ## Related components
 
-<a href="{{ links.checkbox }}">Checkboxes</a> when you are expecting the user to select multiple options from a list of items.
+<a href="{{ links.checkboxes }}">Checkboxes</a> when you are expecting the user to select multiple options from a list of items.
 
 <a href="{{ links.select }}">Select</a> when you can give someone a medium to large set of options for a known single selection.

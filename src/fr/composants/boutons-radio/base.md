@@ -6,7 +6,7 @@ permalink: false
 tags: ['radiosFR', 'header']
 ---
 
-# Boutons radio <br>`<gcds-radio-group>`
+# Boutons radio <br>`<gcds-radios>`
 
 _Autres noms : case d’option, groupe radio._
 

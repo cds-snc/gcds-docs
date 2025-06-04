@@ -31,6 +31,6 @@ Utilisez les boutons radio pour obtenir des réponses uniques. Vous pourrez ains
 
 ## Composants connexes
 
-<a href="{{ links.checkbox }}">Cases à cocher</a> pour obtenir plusieurs sélections parmi une liste d'éléments.
+<a href="{{ links.checkboxes }}">Cases à cocher</a> pour obtenir plusieurs sélections parmi une liste d'éléments.
 
 <a href="{{ links.select }}">Sélection</a> pour obtenir une réponse unique connue parmi une série d'options moyenne ou grande.
