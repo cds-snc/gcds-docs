@@ -17,20 +17,17 @@ permalink: /en/components/fieldset/
 date: 'git Last Modified'
 ---
 
-Take a look at what problems fieldsets solve to see if they fit the problem you're solving for.
+Take a look at what problems fieldsets solve to see if they fit the problem you’re solving for.
 
 ## Problems fieldsets solve
 
-Use a fieldset to group together related form elements or components so they're perceivable when:
+Logically grouping form elements or components helps support understanding and usability. Use a fieldset to group together related form components when:
 
-- A set of options corresponds to the same question, like with [radios]({{ links.radio }}) or [checkboxes]({{ links.checkbox }}).
-- Several questions in a flow relate to the same topic, like a set of [inputs]({{ links.input }}) or other combination of form components.
-- Logically grouping form elements or components helps support understanding and usability.
+- They correspond to the same question, like with radios or checkboxes. 
+- They relate to the same topic.
 
 <hr/>
 
 ## Related components
 
 <a href="{{ links.input }}">Inputs</a> or <a href="{{ links.textarea }}">text areas</a> when you are requesting a written response from a person.
-
-<a href="{{ links.pagination }}">Pagination</a> when you are spreading form elements across multiple pages.

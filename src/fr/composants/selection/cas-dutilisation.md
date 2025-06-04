@@ -29,6 +29,6 @@ Utilisez la sélection dans un formulaire afin de :
 
 ## Composants connexes
 
-<a href="{{ links.checkbox }}">Cases à cocher</a> : lorsque vous prévoyez que l'utilisateur·rice sélectionne une ou plusieurs options parmi une liste d'éléments.
+<a href="{{ links.checkboxes }}">Cases à cocher</a> : lorsque vous prévoyez que l'utilisateur·rice sélectionne une ou plusieurs options parmi une liste d'éléments.
 
-<a href="{{ links.radioGroup }}">Groupe de boutons radio</a> : pour proposer à une personne un petit ensemble d’options (moins de 7 options) permettant la sélection d’une seule réponse qu’elle connaît déjà.
+<a href="{{ links.radios }}">Boutons radio</a> : pour proposer à une personne un petit ensemble d’options (moins de 7 options) permettant la sélection d’une seule réponse qu’elle connaît déjà.

@@ -8,12 +8,12 @@ tags: ['radiogroupEN', 'header']
 
 # Radio Group <br>`<gcds-radio-group>`
 
+<gcds-error-message message-id="component-deprecated">
+This component is deprecated as of v0.35.0. Please see <gcds-link href="https://github.com/cds-snc/gcds-components/releases/tag/gcds-components-v0.35.0">Release v0.35.0</gcds-link> for details.
+</gcds-error-message>
+
 _Also called: radio button, radio._
 
 The radio group is a set of options for a single selection.
 
-{% docLinks locale stage figma github %}
-{% enddocLinks %}
-
-{% baseComponentPreview "Radio group component preview" page.filePathStem %}
-{% endbaseComponentPreview %}
+<br/>

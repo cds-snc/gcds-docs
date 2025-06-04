@@ -39,15 +39,3 @@ L’attribut options utilise un tableau d’objets pour rendre chaque bouton rad
 
 
 - À l’intérieur de l’attribut options, utilisez toujours les propriétés `id`, `label` et `value` de l’objet pour chaque bouton radio. Les autres propriétés sont facultatives.
-
-{% include "partials/getcode.njk" %}
-
-<iframe
-  title="Survol des propriétés et des évènements relatifs à gcds-radio-group."
-  src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&demo=true&singleStory=true&id=components-radio-group--events-properties&lang=fr"
-  width="1200"
-  height="1770"
-  style="display: block; margin: 0 auto;"
-  frameBorder="0"
-  allow="clipboard-write"
-></iframe>

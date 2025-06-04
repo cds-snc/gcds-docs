@@ -8,12 +8,12 @@ tags: ['checkboxEN', 'header']
 
 # Checkbox<br>`<gcds-checkbox>`
 
+<gcds-error-message message-id="component-deprecated">
+This component is deprecated as of v0.35.0. Please see <gcds-link href="https://github.com/cds-snc/gcds-components/releases/tag/gcds-components-v0.35.0">Release v0.35.0</gcds-link> for details.
+</gcds-error-message>
+
 _Also called: checklist, check list._
 
 A checkbox is a set of options for one or multiple selections.
 
-{% docLinks locale stage figma github %}
-{% enddocLinks %}
-
-{% baseComponentPreview "Checkbox component preview" page.filePathStem %}
-{% endbaseComponentPreview %}
+<br/>

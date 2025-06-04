@@ -29,6 +29,6 @@ Use select within a form to:
 
 ## Related components
 
-<a href="{{ links.checkbox }}">Checkboxes</a> when you are expecting the user to select 1 or more options from a list of items.
+<a href="{{ links.checkboxes }}">Checkboxes</a> when you are expecting the user to select 1 or more options from a list of items.
 
-<a href="{{ links.radioGroup }}">Radio groups</a> when you can give someone a small set of options for a known single selection with less than 7 options.
+<a href="{{ links.radios }}">Radios</a> when you can give someone a small set of options for a known single selection with less than 7 options.

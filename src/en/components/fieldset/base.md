@@ -8,7 +8,7 @@ tags: ['fieldsetEN', 'header']
 
 # Fieldset <br>`<gcds-fieldset>`
 
-_Also called: form field._
+_Also called: form group._
 
 A fieldset is a group of multiple form components or elements.
 

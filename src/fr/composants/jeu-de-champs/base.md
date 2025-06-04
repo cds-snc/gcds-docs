@@ -8,9 +8,9 @@ tags: ['fieldsetFR', 'header']
 
 # Jeu de champs <br>`<gcds-fieldset>`
 
-_Autres noms : champ de formulaire._
+_Autres noms : groupe de champs de formulaire._
 
-Un jeu de champs est un groupe de plusieurs composants ou éléments d'un formulaire.
+Le jeu de champs est un groupe de plusieurs composants ou éléments dans un formulaire.
 
 {% docLinks locale stage figma github %}
 {% enddocLinks %}

@@ -39,14 +39,3 @@ The options attribute takes an array of objects to render each radio button. The
 
 - Within the options attribute, always use the object's `id`, `label` and `value` properties for each radio button. The rest of the properties are optional.
 
-{% include "partials/getcode.njk" %}
-
-<iframe
-  title="Overview of gcds-radio-group properties and events."
-  src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&demo=true&singleStory=true&id=components-radio-group--events-properties&lang=en"
-  width="1200"
-  height="1650"
-  style="display: block; margin: 0 auto;"
-  frameBorder="0"
-  allow="clipboard-write"
-></iframe>
