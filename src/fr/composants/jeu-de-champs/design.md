@@ -14,9 +14,9 @@ date: 'git Last Modified'
   <li>Le <strong>regroupement des composants</strong> est le regroupement de composants de formulaire connexes décrit dans la légende.</li>
 </ol>
 
-<img class="b-sm b-default p-300" src="/images/fr/components/anatomy/gcds-fieldset-anatomy.svg" alt="Structure du jeu de champs montrant les étiquettes « légende » et « texte explicatif » et « groupe de composants ». Le groupe de composants contient deux champs de saisie différents, chacun avec sa propre étiquette inscrite à la hiérarchie des titres et son propre texte explicatif."/>
+<img class="b-sm b-default p-300" src="/images/fr/components/anatomy/gcds-fieldset-anatomy.svg" alt="Structure du jeu de champs montrant les étiquettes « légende » et « texte explicatif ». Le groupe de composants contient deux champs de saisie différents, chacun avec sa propre étiquette inscrite à la hiérarchie des titres et son propre texte explicatif."/>
 
-## Design et accessibilité des jeux de champs
+## Design et accessibilité pour le composant jeu de champs
 
 Un jeu de champs combine les éléments `fieldset` et `legend` pour regrouper des champs ou des composants de formulaire connexes. Il aide les utilisateur·rice·s de lecteurs d’écran à comprendre que les champs de saisie sont tous liés à cette question.
 

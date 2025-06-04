@@ -14,7 +14,7 @@ date: 'git Last Modified'
   <li>The <strong>component grouping</strong> is the group of related form components that the legend describes.</li>
 </ol>
 
-<img class="b-sm b-default p-300" src="/images/en/components/anatomy/gcds-fieldset-anatomy.svg" alt="Fieldset anatomy showing the labels “legend” and ”hint text” and “component grouping”. The component grouping contains two different input form fields, each with its own label heading and hint text."/>
+<img class="b-sm b-default p-300" src="/images/en/components/anatomy/gcds-fieldset-anatomy.svg" alt="Fieldset anatomy showing the labels “legend” and ”hint text”. The component grouping contains two different form fields, each with its own label heading and hint text."/>
 
 ## Design and accessibility for fieldsets
 

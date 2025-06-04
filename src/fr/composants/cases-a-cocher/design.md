@@ -14,10 +14,10 @@ date: 'git Last Modified'
   <li>La <strong>case à cocher</strong> permet aux gens de choisir ou de désactiver une option.</li>
   <li>La <strong>cochée</strong> est un repère visuel qui indique qu'une option est sélectionnée.</li>
   <li>L'<strong>étiquette de l'option</strong> nomme ou décrit l'option.</li>
-  <li>Le <strong>texte explicatif de l'option</strong> communique aux utilisateur·rice·s des renseignements sur l'option.</li>
+  <li>Le <strong>texte explicatif de l'option</strong> donne plus de renseignements sur l'option correspondante.</li>
 </ol>
 
-<img class="b-sm b-default p-300" src="/images/fr/components/anatomy/gcds-checkboxes-anatomy.svg" alt="Structure des cases à cocher montrant les étiquettes « en-tête du jeu de champs » en haut et « texte explicatif » en dessous. Plus bas, il y a deux cases à cocher avec leurs libellés à côté et un texte explicatif. Une des cases est cochée." />
+<img class="b-sm b-default p-300" src="/images/fr/components/anatomy/gcds-checkboxes-anatomy.svg" alt="Structure des cases à cocher montrant les étiquettes « légende » en haut et « texte explicatif » en dessous. Plus bas, il y a deux cases à cocher avec leurs libellés à côté et un texte explicatif. Une des cases est cochée." />
 
 ### Offrir des choix clairs
 

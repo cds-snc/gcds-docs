@@ -17,7 +17,7 @@ date: 'git Last Modified'
   <li>The <strong>option hint text</strong> gives additional information about the option.</li>
 </ol>
 
-<img class="b-sm b-default p-300" src="/images/en/components/anatomy/gcds-checkboxes-anatomy.svg" alt='Checkboxes anatomy showing the labels "legend" at the top followed by “hint text” underneath. Under that are two checkboxes with labels beside them and hint text. One of the checkboxes has a checkmark.' />
+<img class="b-sm b-default p-300" src="/images/en/components/anatomy/gcds-checkboxes-anatomy.svg" alt='Checkboxes anatomy showing the labels “legend” at the top followed by “hint text” underneath. Under that are two checkboxes with labels and hint text beside them. One of the checkboxes has a checkmark.' />
 
 ## Design and accessibility for checkboxes
 

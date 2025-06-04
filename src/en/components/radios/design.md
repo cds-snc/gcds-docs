@@ -17,7 +17,7 @@ date: "git Last Modified"
   <li>The <strong>option hint text</strong> gives additional information about the selection.</li>
 </ol>
 
-<img class="b-sm b-default p-300" src="/images/en/components/anatomy/gcds-radios-anatomy.svg" alt='Radios anatomy showing the labels "legend header" at the top followed by "hint text" underneath. Under that are two stacked circles with labels beside them and hint text. One of the circles is filled in with a smaller black circle.'/>
+<img class="b-sm b-default p-300" src="/images/en/components/anatomy/gcds-radios-anatomy.svg" alt='Radios anatomy showing the labels “legend” at the top followed by “hint text” underneath. Under that are two stacked circles with labels and hint text beside them. One of the circles is filled in with a smaller black circle.'/>
 
 ## Design and accessibility for radios
 

@@ -17,7 +17,7 @@ date: "git Last Modified"
   <li>Le <strong>texte explicatif de l'option</strong> fournit des renseignements additionnels sur la sélection.</li>
 </ol>
 
-<img class="b-sm b-default p-300" src="/images/fr/components/anatomy/gcds-radios-anatomy.svg" alt="Structure des boutons radio montrant les étiquettes « en-tête du jeu de champs » en haut et « texte explicatif » en dessous. Plus bas, il y a deux cercles avec leurs libellés et du texte explicatif à côté. L'un des cercles est rempli d'un cercle noir plus petit."/>
+<img class="b-sm b-default p-300" src="/images/fr/components/anatomy/gcds-radios-anatomy.svg" alt="Structure des boutons radio montrant les étiquettes « légende » en haut et « texte explicatif » en dessous. Plus bas, il y a deux cercles avec leurs libellés et du texte explicatif à côté. L'un des cercles est rempli d'un cercle noir plus petit."/>
 
 ## Conception et accessibilité pour le composant boutons radio
 
