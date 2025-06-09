@@ -41,7 +41,6 @@ You can contribute to upcoming GC Design System work.
 We’re actively seeking contributions for the following items:
 
 - **Data tables** to organize and display large amounts of data in rows and columns.
-- **Tags** to label, categorize, or organize items using descriptive key words.
 
 We’re also interested in user interactions that have a common application across GC services.
 
@@ -63,29 +62,5 @@ Provide any of the following for each component or pattern:
 ### Upcoming components and templates
 
 Here’s what we’ll soon be releasing. More on our <gcds-link href="{{ links.roadmap }}">roadmap</gcds-link>.
-
-<div>
-  <gcds-heading tag="h4" margin-bottom="0">Header update</gcds-heading>
-  <ul class="mb-300">
-    <li>We’re making updates to the header to match the Canada.ca global header pattern.</li>
-    <li><strong>Expected release:</strong> Spring 2025</li>
-  </ul>
-</div>
-
-<div>
-  <gcds-heading tag="h4" margin-bottom="0">Footer update</gcds-heading>
-  <ul class="mb-300">
-    <li>We’re making updates to the footer to match the Canada.ca global footer pattern.</li>
-    <li><strong>Expected release:</strong> Spring 2025</li>
-  </ul>
-</div>
-
-<div>
-  <gcds-heading tag="h4" margin-bottom="0">Button update</gcds-heading>
-  <ul class="mb-300">
-    <li>We’re making changes to the button to add a new button role and size.</li>
-    <li><strong>Expected release:</strong> Spring 2025</li>
-  </ul>
-</div>
 
 {% include "partials/helpus.njk" %}
