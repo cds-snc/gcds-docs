@@ -8,6 +8,8 @@ tags: ['iconEN', 'header']
 
 # Icon <br>`<gcds-icon>`
 
+_Also called: symbol, glyph, graphic._
+
 An icon is a symbol that visually represents an action or idea.
 
 {% docLinks locale stage figma github %}
