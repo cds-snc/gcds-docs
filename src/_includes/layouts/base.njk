@@ -23,6 +23,7 @@
     <script src="{{ '/scripts/code-showcase.js' | url }}"></script>
     <script src="{{ '/scripts/code-copy.js' | url }}"></script>
     <script src="{{ '/scripts/component-preview.js' | url }}"></script>
+    <script src="{{ '/scripts/general.js' | url }}"></script>
     <link rel="icon" type="image/x-icon" sizes="96x96" href="{{ '/favicon.ico' | url }}">
 
     <!-- GC Design System  Components-->
@@ -32,7 +33,6 @@
     <!-- Pagefind -->
     <script src="/pagefind/pagefind.js" type="module"></script>
     <script src="{{ '/scripts/search.js' | url }}" type="module"></script>
-
   </head>
   <body>
     {% include "partials/header.njk" %}
@@ -49,7 +49,6 @@
     {% include "partials/footer.njk" %}
 
     </div>
-
     {% initClipboardJS %}
   </body>
 </html>
