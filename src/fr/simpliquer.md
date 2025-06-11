@@ -59,6 +59,6 @@ Fournissez l'un des éléments suivants pour chaque composant ou modèle de page
 
 ## Autres nouveautés à venir
 
-Voici ce que nous allons bientôt publier. Plus de renseignements sur notre <gcds-link href="{{ links.roadmap }}" >feuille de route</gcds-link>.
+Plus de renseignements sur notre <gcds-link href="{{ links.roadmap }}" >feuille de route</gcds-link>.
 
 {% include "partials/helpus.njk" %}
