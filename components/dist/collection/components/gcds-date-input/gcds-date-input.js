@@ -1,5 +1,5 @@
 import { Host, h, } from "@stencil/core";
-import { assignLanguage, observerConfig, isValidDate, logError, } from "../../utils/utils";
+import { assignLanguage, observerConfig, isValidDate, logError, handleValidationResult, } from "../../utils/utils";
 import { defaultValidator, getValidator, requiredValidator, } from "../../validators";
 import i18n from "./i18n/i18n";
 export class GcdsDateInput {
@@ -39,7 +39,7 @@ export class GcdsDateInput {
         this.errorMessage = undefined;
         this.disabled = false;
         this.validator = undefined;
-        this.validateOn = undefined;
+        this.validateOn = 'blur';
         this.monthValue = '';
         this.dayValue = '';
         this.yearValue = '';
@@ -86,34 +86,15 @@ export class GcdsDateInput {
         }
     }
     validateValidator() {
-        if (this.validator && !this.validateOn) {
-            this.validateOn = 'blur';
-        }
+        this._validator = getValidator(this.validator);
     }
     /**
      * Call any active validators
      */
     async validate() {
-        const validationResult = this._validator.validate(this.format === 'full'
+        this.hasError = handleValidationResult(this.el, this._validator.validate(this.format === 'full'
             ? `${this.yearValue}-${this.monthValue}-${this.dayValue}`
-            : `${this.yearValue}-${this.monthValue}`);
-        if (!validationResult.valid) {
-            this.errorMessage = validationResult.reason[this.lang];
-            this.hasError = Object.assign({}, validationResult.errors);
-            this.gcdsError.emit({
-                message: `${this.legend} - ${this.errorMessage}`,
-                errors: validationResult.errors,
-            });
-        }
-        else {
-            this.errorMessage = '';
-            this.gcdsValid.emit();
-            this.hasError = {
-                day: false,
-                month: false,
-                year: false,
-            };
-        }
+            : `${this.yearValue}-${this.monthValue}`), this.legend, this.gcdsError, this.gcdsValid, this.lang, { day: false, month: false, year: false });
     }
     /*
      * Event listeners
@@ -234,12 +215,9 @@ export class GcdsDateInput {
         // Define lang attribute
         this.lang = assignLanguage(this.el);
         this.updateLang();
-        this.validateValidator();
         // Assign required validator if needed
         requiredValidator(this.el, 'date-input');
-        if (this.validator) {
-            this._validator = getValidator(this.validator);
-        }
+        this.validateValidator();
         const valid = this.validateRequiredProps();
         if (!valid) {
             logError('gcds-date-input', this.errors);
@@ -249,11 +227,6 @@ export class GcdsDateInput {
             this.splitFormValue();
             this.setValue();
             this.initialValue = this.value;
-        }
-    }
-    componentWillUpdate() {
-        if (this.validator) {
-            this._validator = getValidator(this.validator);
         }
     }
     render() {
@@ -273,10 +246,10 @@ export class GcdsDateInput {
         }
         // Array of months 01 - 12
         const options = Array.from({ length: 12 }, (_, i) => i + 1 < 10 ? `0${i + 1}` : `${i + 1}`);
-        const month = (h("gcds-select", Object.assign({ key: '1b75eb30986c1ec3f786245346390a0c8e6d84bb', label: i18n[lang].month, selectId: "month", name: "month", defaultValue: i18n[lang].selectmonth, disabled: disabled, onInput: e => this.handleInput(e, 'month'), onChange: e => this.handleInput(e, 'month'), value: this.monthValue, class: `gcds-date-input__month ${hasError['month'] ? 'gcds-date-input--error' : ''}` }, requiredAttr, { "aria-invalid": hasError['month'].toString(), "aria-description": hasError['month'] && errorMessage }), options.map(option => (h("option", { key: option, value: option }, i18n[lang]['months'][option])))));
-        const year = (h("gcds-input", Object.assign({ key: '00a435c9630456e99df46fe4d0bd09863dd2f852', name: "year", label: i18n[lang].year, inputId: "year", type: "number", size: 4, disabled: disabled, value: this.yearValue, onInput: e => this.handleInput(e, 'year'), onChange: e => this.handleInput(e, 'year'), class: `gcds-date-input__year ${hasError['year'] ? 'gcds-date-input--error' : ''}` }, requiredAttr, { "aria-invalid": hasError['year'].toString(), "aria-description": hasError['year'] && errorMessage })));
-        const day = (h("gcds-input", Object.assign({ key: '7b9102ed9179796e6ece989107c416713ed7038b', name: "day", label: i18n[lang].day, inputId: "day", type: "number", size: 2, disabled: disabled, value: this.dayValue, onInput: e => this.handleInput(e, 'day'), onChange: e => this.handleInput(e, 'day'), class: `gcds-date-input__day ${hasError['day'] ? 'gcds-date-input--error' : ''}` }, requiredAttr, { "aria-invalid": hasError['day'].toString(), "aria-description": hasError['day'] && errorMessage })));
-        return (h(Host, { key: 'ff3c863e3eba298ee511b70088b0d1656350c4b0', name: name, onBlur: () => this.onBlur() }, this.validateRequiredProps() && (h("fieldset", Object.assign({ key: '8fedb9d95085f0486cd06664d25f537423d9705f', class: "gcds-date-input__fieldset" }, fieldsetAttrs), h("legend", { key: '5a7f0373bfc0a436333faa8999a1443375e92d0f', id: "date-input-legend" }, legend, required ? (h("span", { class: "legend__required" }, i18n[lang].required)) : null), hint ? (h("gcds-hint", { id: "date-input-hint", "hint-id": "date-input" }, hint)) : null, errorMessage ? (h("div", null, h("gcds-error-message", { id: "date-input-error", messageId: "date-input" }, errorMessage))) : null, format == 'compact'
+        const month = (h("gcds-select", Object.assign({ key: 'bbf921ac76c7e137df8d95961a0a1a2a303af31b', label: i18n[lang].month, selectId: "month", name: "month", defaultValue: i18n[lang].selectmonth, disabled: disabled, onInput: e => this.handleInput(e, 'month'), onChange: e => this.handleInput(e, 'month'), value: this.monthValue, class: `gcds-date-input__month ${hasError['month'] ? 'gcds-date-input--error' : ''}` }, requiredAttr, { "aria-invalid": hasError['month'].toString(), "aria-description": hasError['month'] && errorMessage }), options.map(option => (h("option", { key: option, value: option }, i18n[lang]['months'][option])))));
+        const year = (h("gcds-input", Object.assign({ key: '6eef03d82cf6b0817ab201ba10eb04801999debe', name: "year", label: i18n[lang].year, inputId: "year", type: "number", size: 4, disabled: disabled, value: this.yearValue, onInput: e => this.handleInput(e, 'year'), onChange: e => this.handleInput(e, 'year'), class: `gcds-date-input__year ${hasError['year'] ? 'gcds-date-input--error' : ''}` }, requiredAttr, { "aria-invalid": hasError['year'].toString(), "aria-description": hasError['year'] && errorMessage })));
+        const day = (h("gcds-input", Object.assign({ key: 'ad58f6a7c03b9ab0d80a35d770fa1e9761f9eace', name: "day", label: i18n[lang].day, inputId: "day", type: "number", size: 2, disabled: disabled, value: this.dayValue, onInput: e => this.handleInput(e, 'day'), onChange: e => this.handleInput(e, 'day'), class: `gcds-date-input__day ${hasError['day'] ? 'gcds-date-input--error' : ''}` }, requiredAttr, { "aria-invalid": hasError['day'].toString(), "aria-description": hasError['day'] && errorMessage })));
+        return (h(Host, { key: '7c0838bb2578726ce1b5482d56f0b2c0cb8e9062', name: name, onBlur: () => this.onBlur() }, this.validateRequiredProps() && (h("fieldset", Object.assign({ key: '91d18432610b87ab450b37a1d4b4c69fa22545f1', class: "gcds-date-input__fieldset" }, fieldsetAttrs), h("legend", { key: '54afc89772cec988f4d70f4348a0181b1aa129fb', id: "date-input-legend" }, legend, required ? (h("span", { class: "legend__required" }, i18n[lang].required)) : null), hint ? (h("gcds-hint", { id: "date-input-hint", "hint-id": "date-input" }, hint)) : null, errorMessage ? (h("div", null, h("gcds-error-message", { id: "date-input-error", messageId: "date-input" }, errorMessage))) : null, format == 'compact'
             ? [month, year]
             : lang == 'en'
                 ? [month, day, year]
@@ -481,7 +454,8 @@ export class GcdsDateInput {
                     "text": "Set event to call validator"
                 },
                 "attribute": "validate-on",
-                "reflect": false
+                "reflect": false,
+                "defaultValue": "'blur'"
             }
         };
     }
@@ -598,6 +572,10 @@ export class GcdsDateInput {
                         "Promise": {
                             "location": "global",
                             "id": "global::Promise"
+                        },
+                        "HTMLGcdsDateInputElement": {
+                            "location": "global",
+                            "id": "global::HTMLGcdsDateInputElement"
                         }
                     },
                     "return": "Promise<void>"

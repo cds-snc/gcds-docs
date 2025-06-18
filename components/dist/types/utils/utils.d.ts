@@ -1,4 +1,5 @@
 import { EventEmitter } from '../stencil-public-runtime';
+import { ValidatorReturn } from '../validators';
 export declare function format(label: string): string;
 export declare const inheritAttributes: (el: HTMLElement, shadowElement: HTMLElement, attributes?: string[]) => {};
 export declare const assignLanguage: (el: HTMLElement) => string;
@@ -14,3 +15,4 @@ export declare const logError: (name: string, errorArr: string[], optionalAttrsA
 export declare const handleErrors: (errors: string[], propertyName: string, property: string | boolean | object, external?: boolean) => string[];
 export declare const isValid: (errors: string[], requiredProps: string[]) => boolean;
 export declare const isValidDate: (dateString: string, forceFormat?: 'full' | 'compact') => boolean;
+export declare function handleValidationResult(element: HTMLGcdsInputElement | HTMLGcdsDateInputElement | HTMLGcdsRadiosElement | HTMLGcdsCheckboxesElement | HTMLGcdsFileUploaderElement | HTMLGcdsSelectElement | HTMLGcdsTextareaElement, validationResult: ValidatorReturn, label: string, errorEv: EventEmitter, validEv: EventEmitter, lang: string, errors?: object): object;

@@ -125,6 +125,5 @@ export declare class GcdsDateInput {
     private splitFormValue;
     private validateRequiredProps;
     componentWillLoad(): Promise<void>;
-    componentWillUpdate(): void;
     render(): any;
 }

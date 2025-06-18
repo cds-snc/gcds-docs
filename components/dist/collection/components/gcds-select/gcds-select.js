@@ -1,5 +1,5 @@
 import { Host, h, } from "@stencil/core";
-import { assignLanguage, inheritAttributes, observerConfig, } from "../../utils/utils";
+import { assignLanguage, handleValidationResult, inheritAttributes, observerConfig, } from "../../utils/utils";
 import { defaultValidator, getValidator, requiredValidator, } from "../../validators";
 export class GcdsSelect {
     constructor() {
@@ -30,7 +30,7 @@ export class GcdsSelect {
         this.errorMessage = undefined;
         this.hint = undefined;
         this.validator = undefined;
-        this.validateOn = undefined;
+        this.validateOn = 'blur';
         this.hasError = undefined;
         this.inheritedAttributes = {};
         this.lang = undefined;
@@ -53,9 +53,7 @@ export class GcdsSelect {
         }
     }
     validateValidator() {
-        if (this.validator && !this.validateOn) {
-            this.validateOn = 'blur';
-        }
+        this._validator = getValidator(this.validator);
     }
     validateHasError() {
         if (this.disabled) {
@@ -75,17 +73,7 @@ export class GcdsSelect {
      * Call any active validators
      */
     async validate() {
-        if (!this._validator.validate(this.value) && this._validator.errorMessage) {
-            this.errorMessage = this._validator.errorMessage[this.lang];
-            this.gcdsError.emit({
-                id: `#${this.selectId}`,
-                message: `${this.label} - ${this.errorMessage}`,
-            });
-        }
-        else {
-            this.errorMessage = '';
-            this.gcdsValid.emit({ id: `#${this.selectId}` });
-        }
+        handleValidationResult(this.el, this._validator.validate(this.value), this.label, this.gcdsError, this.gcdsValid, this.lang);
     }
     submitListener(e) {
         if (e.target == this.el.closest('form')) {
@@ -160,12 +148,9 @@ export class GcdsSelect {
         this.validateDisabledSelect();
         this.validateHasError();
         this.validateErrorMessage();
-        this.validateValidator();
         // Assign required validator if needed
         requiredValidator(this.el, 'select');
-        if (this.validator) {
-            this._validator = getValidator(this.validator);
-        }
+        this.validateValidator();
         this.inheritedAttributes = inheritAttributes(this.el, this.shadowElement);
         if (this.el.children) {
             this.options = Array.from(this.el.children);
@@ -185,11 +170,6 @@ export class GcdsSelect {
     async componentDidLoad() {
         this.observeOptions();
     }
-    componentWillUpdate() {
-        if (this.validator) {
-            this._validator = getValidator(this.validator);
-        }
-    }
     render() {
         const { lang, selectId, label, required, disabled, defaultValue, value, hint, errorMessage, inheritedAttributes, hasError, name, options, } = this;
         const attrsSelect = Object.assign({ name,
@@ -207,7 +187,7 @@ export class GcdsSelect {
                 ? `${attrsSelect['aria-describedby']}`
                 : ''}`;
         }
-        return (h(Host, { key: 'fb6aeb223639f75aa5bc28b155f076bc1ad6871f' }, h("div", { key: '71ac8ed56fb8ac745f782b556527666a128b178a', class: `gcds-select-wrapper ${disabled ? 'gcds-disabled' : ''} ${hasError ? 'gcds-error' : ''}` }, h("gcds-label", Object.assign({ key: 'a73c320132850c5d14ada4228abdd6fb008ef32d' }, attrsLabel, { "label-for": selectId, lang: lang })), hint ? h("gcds-hint", { "hint-id": selectId }, hint) : null, errorMessage ? (h("gcds-error-message", { messageId: selectId }, errorMessage)) : null, h("select", Object.assign({ key: '594ab71c7f1d11cf158a37457b570f12e33157db' }, attrsSelect, { id: selectId, onBlur: () => this.onBlur(), onFocus: () => this.gcdsFocus.emit(), onInput: e => this.handleInput(e, this.gcdsInput), onChange: e => this.handleInput(e, this.gcdsChange), "aria-invalid": inheritedAttributes['aria-invalid'] === 'true'
+        return (h(Host, { key: '26155157cfdf2c5c68701f6ee9a23b2d0bebdef6' }, h("div", { key: '742bdc49b45363cfaf969687a0c9d80c422fa15b', class: `gcds-select-wrapper ${disabled ? 'gcds-disabled' : ''} ${hasError ? 'gcds-error' : ''}` }, h("gcds-label", Object.assign({ key: 'b46b0bd119c48f00744bff34f9c120ff8b59d9cd' }, attrsLabel, { "label-for": selectId, lang: lang })), hint ? h("gcds-hint", { "hint-id": selectId }, hint) : null, errorMessage ? (h("gcds-error-message", { messageId: selectId }, errorMessage)) : null, h("select", Object.assign({ key: '58f61d1544fec6c502d2204ad6aa7c4191bd9ba3' }, attrsSelect, { id: selectId, onBlur: () => this.onBlur(), onFocus: () => this.gcdsFocus.emit(), onInput: e => this.handleInput(e, this.gcdsInput), onChange: e => this.handleInput(e, this.gcdsChange), "aria-invalid": inheritedAttributes['aria-invalid'] === 'true'
                 ? inheritedAttributes['aria-invalid']
                 : errorMessage
                     ? 'true'
@@ -445,7 +425,8 @@ export class GcdsSelect {
                     "text": "Set event to call validator"
                 },
                 "attribute": "validate-on",
-                "reflect": false
+                "reflect": false,
+                "defaultValue": "'blur'"
             }
         };
     }
@@ -560,6 +541,10 @@ export class GcdsSelect {
                         "Promise": {
                             "location": "global",
                             "id": "global::Promise"
+                        },
+                        "HTMLGcdsSelectElement": {
+                            "location": "global",
+                            "id": "global::HTMLGcdsSelectElement"
                         }
                     },
                     "return": "Promise<void>"

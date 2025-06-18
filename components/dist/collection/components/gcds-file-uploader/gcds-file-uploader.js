@@ -1,5 +1,5 @@
 import { Host, h, } from "@stencil/core";
-import { assignLanguage, inheritAttributes, observerConfig, } from "../../utils/utils";
+import { assignLanguage, handleValidationResult, inheritAttributes, observerConfig, } from "../../utils/utils";
 import { defaultValidator, getValidator, requiredValidator, } from "../../validators";
 import i18n from "./i18n/i18n";
 export class GcdsFileUploader {
@@ -78,7 +78,7 @@ export class GcdsFileUploader {
         this.errorMessage = undefined;
         this.hint = undefined;
         this.validator = undefined;
-        this.validateOn = undefined;
+        this.validateOn = 'blur';
         this.hasError = undefined;
         this.inheritedAttributes = {};
         this.lang = undefined;
@@ -109,9 +109,7 @@ export class GcdsFileUploader {
         }
     }
     validateValidator() {
-        if (this.validator && !this.validateOn) {
-            this.validateOn = 'blur';
-        }
+        this._validator = getValidator(this.validator);
     }
     validateHasError() {
         if (this.disabled) {
@@ -122,18 +120,7 @@ export class GcdsFileUploader {
      * Call any active validators
      */
     async validate() {
-        if (!this._validator.validate(this.shadowElement.files) &&
-            this._validator.errorMessage) {
-            this.errorMessage = this._validator.errorMessage[this.lang];
-            this.gcdsError.emit({
-                id: `#${this.uploaderId}`,
-                message: `${this.label} - ${this.errorMessage}`,
-            });
-        }
-        else {
-            this.errorMessage = '';
-            this.gcdsValid.emit({ id: `#${this.uploaderId}` });
-        }
+        handleValidationResult(this.el, this._validator.validate(this.shadowElement.files), this.label, this.gcdsError, this.gcdsValid, this.lang);
     }
     submitListener(e) {
         if (e.target == this.el.closest('form')) {
@@ -193,18 +180,10 @@ export class GcdsFileUploader {
         this.validateDisabledSelect();
         this.validateHasError();
         this.validateErrorMessage();
-        this.validateValidator();
         // Assign required validator if needed
         requiredValidator(this.el, 'file');
-        if (this.validator) {
-            this._validator = getValidator(this.validator);
-        }
+        this.validateValidator();
         this.inheritedAttributes = inheritAttributes(this.el, this.shadowElement);
-    }
-    componentWillUpdate() {
-        if (this.validator) {
-            this._validator = getValidator(this.validator);
-        }
     }
     render() {
         const { accept, disabled, errorMessage, hasError, hint, label, lang, multiple, name, required, uploaderId, value, inheritedAttributes, } = this;
@@ -226,7 +205,7 @@ export class GcdsFileUploader {
             attrsInput['aria-describedby'] =
                 `${hintID}${errorID}${attrsInput['aria-describedby']}`;
         }
-        return (h(Host, { key: 'a94120d8791854e450cfee8413b2c89e1d6a934a' }, h("div", { key: '56097f889c8144c9a077ab84170830b972147c45', class: `gcds-file-uploader-wrapper ${disabled ? 'gcds-disabled' : ''} ${hasError ? 'gcds-error' : ''}` }, h("gcds-label", Object.assign({ key: '5fe82e189c8f21e22819d3d418fd92a8f64e7a46' }, attrsLabel, { "label-for": uploaderId, lang: lang })), hint ? h("gcds-hint", { "hint-id": uploaderId }, hint) : null, errorMessage ? (h("gcds-error-message", { messageId: uploaderId }, errorMessage)) : null, h("div", { key: '84f745e320ed402ae3e83aadc460b623385ae442', class: `file-uploader__input ${value.length > 0 ? 'uploaded-files' : ''}`, onDrop: e => this.handleDrop(e), onDragOver: e => e.preventDefault() }, h("button", { key: 'b780c7a5dc68dfafc71b0c8d89e85a16fe6b72b8', type: "button", tabindex: "-1", onClick: () => this.shadowElement.click() }, i18n[lang].button.upload), h("input", Object.assign({ key: 'f420f6cc3cd115ecae6fd1833903fa47d6ce9474', type: "file", id: uploaderId }, attrsInput, { onBlur: () => this.onBlur(), onFocus: () => this.gcdsFocus.emit(), onInput: e => this.handleInput(e, this.gcdsInput), onChange: e => this.handleInput(e, this.gcdsChange), "aria-invalid": hasError ? 'true' : 'false', ref: element => (this.shadowElement = element) })), value.length > 0 ? (h("gcds-sr-only", { id: "file-uploader__summary" }, h("span", null, i18n[lang].summary.selected, " "), value.map(file => (h("span", null, file, " "))))) : (h("gcds-sr-only", { id: "file-uploader__summary" }, i18n[lang].summary.unselected))), value.length > 0
+        return (h(Host, { key: '913cb86e9a2837583dd8a5af92896b69c19a1491' }, h("div", { key: 'd396334ce7fc0a4916440efb43ecd429ffa72cd2', class: `gcds-file-uploader-wrapper ${disabled ? 'gcds-disabled' : ''} ${hasError ? 'gcds-error' : ''}` }, h("gcds-label", Object.assign({ key: 'de78c05d22fb99eeaee7a21d74fbad91f51f2395' }, attrsLabel, { "label-for": uploaderId, lang: lang })), hint ? h("gcds-hint", { "hint-id": uploaderId }, hint) : null, errorMessage ? (h("gcds-error-message", { messageId: uploaderId }, errorMessage)) : null, h("div", { key: '35fb7d04e6e0cf4638634aa38a621d9b6dd8d568', class: `file-uploader__input ${value.length > 0 ? 'uploaded-files' : ''}`, onDrop: e => this.handleDrop(e), onDragOver: e => e.preventDefault() }, h("button", { key: 'ae322710e6b51bf1f490e0d820ed606a4ec1cf05', type: "button", tabindex: "-1", onClick: () => this.shadowElement.click() }, i18n[lang].button.upload), h("input", Object.assign({ key: 'e06b9eb8859b5143c8e3dd0d83b9d00926fdf8ed', type: "file", id: uploaderId }, attrsInput, { onBlur: () => this.onBlur(), onFocus: () => this.gcdsFocus.emit(), onInput: e => this.handleInput(e, this.gcdsInput), onChange: e => this.handleInput(e, this.gcdsChange), "aria-invalid": hasError ? 'true' : 'false', ref: element => (this.shadowElement = element) })), value.length > 0 ? (h("gcds-sr-only", { id: "file-uploader__summary" }, h("span", null, i18n[lang].summary.selected, " "), value.map(file => (h("span", null, file, " "))))) : (h("gcds-sr-only", { id: "file-uploader__summary" }, i18n[lang].summary.unselected))), value.length > 0
             ? value.map(file => (h("div", { class: "file-uploader__uploaded-file", "aria-label": `${i18n[lang].removeFile} ${file}.` }, h("gcds-text", { "margin-bottom": "0" }, file), h("button", { onClick: e => this.removeFile(e) }, h("span", null, i18n[lang].button.remove), h("gcds-icon", { name: "close", size: "text", "margin-left": "150" })))))
             : null)));
     }
@@ -441,8 +420,8 @@ export class GcdsFileUploader {
                 "type": "unknown",
                 "mutable": true,
                 "complexType": {
-                    "original": "Array<\n    string | ValidatorEntry | Validator<string>\n  >",
-                    "resolved": "(string | ValidatorEntry | Validator<string>)[]",
+                    "original": "Array<\n    string | ValidatorEntry | Validator<string | number | FileList>\n  >",
+                    "resolved": "(string | ValidatorEntry | Validator<string | number | FileList>)[]",
                     "references": {
                         "Array": {
                             "location": "global",
@@ -457,6 +436,10 @@ export class GcdsFileUploader {
                             "location": "import",
                             "path": "../../validators",
                             "id": "src/validators/index.ts::Validator"
+                        },
+                        "FileList": {
+                            "location": "global",
+                            "id": "global::FileList"
                         }
                     }
                 },
@@ -482,7 +465,8 @@ export class GcdsFileUploader {
                     "text": "Set event to call validator"
                 },
                 "attribute": "validate-on",
-                "reflect": false
+                "reflect": false,
+                "defaultValue": "'blur'"
             }
         };
     }
@@ -611,6 +595,10 @@ export class GcdsFileUploader {
                         "Promise": {
                             "location": "global",
                             "id": "global::Promise"
+                        },
+                        "HTMLGcdsFileUploaderElement": {
+                            "location": "global",
+                            "id": "global::HTMLGcdsFileUploaderElement"
                         }
                     },
                     "return": "Promise<void>"

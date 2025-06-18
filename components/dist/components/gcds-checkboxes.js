@@ -1,5 +1,5 @@
 import { h, proxyCustomElement, HTMLElement, createEvent, Host } from '@stencil/core/internal/client';
-import { h as handleErrors, l as logError, b as isValid, a as assignLanguage, i as inheritAttributes, e as emitEvent } from './utils.js';
+import { h as handleErrors, l as logError, b as handleValidationResult, c as isValid, a as assignLanguage, i as inheritAttributes, e as emitEvent } from './utils.js';
 import { d as defaultValidator, r as requiredValidator, g as getValidator } from './validator.factory.js';
 import { d as defineCustomElement$6 } from './gcds-error-message2.js';
 import { d as defineCustomElement$5 } from './gcds-hint2.js';
@@ -126,6 +126,10 @@ const GcdsCheckboxes$1 = /*@__PURE__*/ proxyCustomElement(class GcdsCheckboxes e
                 this.value = [...this.value, e.target.value];
             }
             else {
+                // Modify options to prevent adding prechecked values when unchecking option
+                this.options = (typeof this.options === 'string'
+                    ? JSON.parse(this.options)
+                    : this.options).map(check => check.value === e.target.value ? Object.assign(Object.assign({}, check), { checked: false }) : check);
                 // Remove value from value array
                 this.value = this.value.filter(item => item !== e.target.value);
             }
@@ -226,16 +230,7 @@ const GcdsCheckboxes$1 = /*@__PURE__*/ proxyCustomElement(class GcdsCheckboxes e
      * Call any active validators
      */
     async validate() {
-        if (!this._validator.validate(this.value) && this._validator.errorMessage) {
-            this.errorMessage = this._validator.errorMessage[this.lang];
-            this.gcdsError.emit({
-                message: `${this.isGroup ? this.legend : this.optionsArr[0].label} - ${this.errorMessage}`,
-            });
-        }
-        else {
-            this.errorMessage = '';
-            this.gcdsValid.emit();
-        }
+        handleValidationResult(this.el, this._validator.validate(this.value), this.isGroup ? this.legend : this.optionsArr[0].label, this.gcdsError, this.gcdsValid, this.lang);
     }
     /*
      * FormData listener to append values like native checkboxes
@@ -372,7 +367,7 @@ const GcdsCheckboxes$1 = /*@__PURE__*/ proxyCustomElement(class GcdsCheckboxes e
                 `${fieldsetAttrs['aria-labelledby']} ${hintID}`.trim();
         }
         if (this.validateRequiredProps()) {
-            return (h(Host, { key: '26df8b5fa1dc01a291b81801f39679e75c706dd4', onBlur: () => this.isGroup && this.onBlurValidate() }, this.isGroup ? (h("fieldset", Object.assign({ class: "gcds-checkboxes__fieldset" }, fieldsetAttrs), h("legend", { id: "checkboxes-legend", class: "gcds-checkboxes__legend" }, legend, required ? (h("span", { class: "legend__required" }, " (required)")) : null), hint ? (h("gcds-hint", { id: "checkboxes-hint", "hint-id": "checkboxes" }, hint)) : null, errorMessage ? (h("div", null, h("gcds-error-message", { id: "checkboxes-error", messageId: "checkboxes" }, errorMessage))) : null, this.optionsArr &&
+            return (h(Host, { key: '5f5afb1e5e995078fd2f5ce9d003af8c8c9f236f', onBlur: () => this.isGroup && this.onBlurValidate() }, this.isGroup ? (h("fieldset", Object.assign({ class: "gcds-checkboxes__fieldset" }, fieldsetAttrs), h("legend", { id: "checkboxes-legend", class: "gcds-checkboxes__legend" }, legend, required ? (h("span", { class: "legend__required" }, " (required)")) : null), hint ? (h("gcds-hint", { id: "checkboxes-hint", "hint-id": "checkboxes" }, hint)) : null, errorMessage ? (h("div", null, h("gcds-error-message", { id: "checkboxes-error", messageId: "checkboxes" }, errorMessage))) : null, this.optionsArr &&
                 this.optionsArr.map(checkbox => {
                     return renderCheckbox(checkbox, this, emitEvent, this.handleInput);
                 }))) : (this.optionsArr &&

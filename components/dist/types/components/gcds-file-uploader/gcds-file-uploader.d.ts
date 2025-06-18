@@ -58,7 +58,7 @@ export declare class GcdsFileUploader {
     /**
      * Array of validators
      */
-    validator: Array<string | ValidatorEntry | Validator<string>>;
+    validator: Array<string | ValidatorEntry | Validator<string | number | FileList>>;
     validateValidator(): void;
     /**
      * Set event to call validator
@@ -122,6 +122,5 @@ export declare class GcdsFileUploader {
     private handleDrop;
     updateLang(): void;
     componentWillLoad(): Promise<void>;
-    componentWillUpdate(): void;
     render(): any;
 }

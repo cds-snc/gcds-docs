@@ -3,7 +3,7 @@
 Object.defineProperty(exports, '__esModule', { value: true });
 
 const index = require('./index-30cdf65d.js');
-const utils = require('./utils-0d1972a2.js');
+const utils = require('./utils-df9ca83a.js');
 
 const I18N$q = {
   en: {
@@ -295,7 +295,7 @@ const I18N$n = {
   },
 };
 
-const gcdsCardCss = "@layer reset, default, link, hover, focus;@layer reset{:host{display:block}:host *{box-sizing:border-box;margin:0;padding:0}:host slot{display:initial}}@layer default{:host .gcds-card{background-color:var(--gcds-card-background-color);box-shadow:var(--gcds-card-box-shadow);color:var(--gcds-card-color);display:block;height:100%;max-width:var(--gcds-card-max-width);overflow:hidden;padding:var(--gcds-card-padding);position:relative}:host .gcds-card .gcds-badge{background-color:var(--gcds-card-badge-background-color);left:0;padding:var(--gcds-card-badge-padding);position:absolute;top:0;text-wrap:nowrap}@media only screen and (width < 48em){:host .gcds-card .gcds-badge{padding:var(--gcds-card-badge-mobile-padding)}}:host .gcds-card .gcds-card__image{margin:var(--gcds-card-image-margin);width:100%}:host .gcds-card .gcds-card__title{font:var(--gcds-card-title-font-desktop);width:fit-content}@media only screen and (width < 48em){:host .gcds-card .gcds-card__title{font:var(--gcds-card-title-font-mobile)}}:host .gcds-card .gcds-card__title:has(+.gcds-card__description){margin:var(--gcds-card-title-margin)}:host .gcds-card .gcds-card__description{--gcds-text-size-body-desktop:var(--gcds-card-description-font-desktop)}@media only screen and (width < 48em){:host .gcds-card .gcds-card__description{font:var(--gcds-card-description-font-mobile)}}}@layer link{:host .gcds-card gcds-link::part(link):after{bottom:0;content:\"\";left:0;pointer-events:auto;position:absolute;right:0;top:0;z-index:1}}@layer hover{@media (hover:hover){:host .gcds-card:hover{background-color:var(--gcds-card-hover-background-color);box-shadow:var(--gcds-card-hover-box-shadow);cursor:pointer}}}@layer focus{:host .gcds-card:has(:focus-within){box-shadow:var(--gcds-card-focus-box-shadow);outline:var(--gcds-card-focus-outline);outline-offset:var(--gcds-card-focus-outline-offset)}:host gcds-link::part(link):focus{background-color:var(--gcds-card-focus-link-background-color);border:var(--gcds-card-focus-link-border);box-shadow:var(--gcds-card-focus-link-box-shadow);color:var(--gcds-card-focus-link-color);outline:var(--gcds-card-focus-link-outline);text-decoration:underline currentColor var(--gcds-card-focus-link-text-decoration-thickness)}}";
+const gcdsCardCss = "@layer reset, default, link, hover, focus;@layer reset{:host{display:block}:host *{box-sizing:border-box;margin:0;padding:0}:host slot{display:initial}}@layer default{:host .gcds-card{background-color:var(--gcds-card-background-color);box-shadow:var(--gcds-card-box-shadow);color:var(--gcds-card-color);display:block;height:100%;max-width:var(--gcds-card-max-width);overflow:hidden;padding:var(--gcds-card-padding);position:relative}:host .gcds-card .gcds-badge{background-color:var(--gcds-card-badge-background-color);left:0;padding:var(--gcds-card-badge-padding);position:absolute;top:0;text-wrap:nowrap}@media only screen and (width < 48em){:host .gcds-card .gcds-badge{padding:var(--gcds-card-badge-mobile-padding)}}:host .gcds-card .gcds-card__image{margin:var(--gcds-card-image-margin);width:100%}:host .gcds-card .gcds-card__title{font:var(--gcds-card-title-font-desktop);width:fit-content}@media only screen and (width < 48em){:host .gcds-card .gcds-card__title{font:var(--gcds-card-title-font-mobile)}}:host .gcds-card .gcds-card__title:has(+.gcds-card__description){margin:var(--gcds-card-title-margin)}:host .gcds-card .gcds-card__description{--gcds-text-size-body-desktop:var(--gcds-card-description-font-desktop)}@media only screen and (width < 48em){:host .gcds-card .gcds-card__description{font:var(--gcds-card-description-font-mobile)}}}@layer link{:host .gcds-card gcds-link::part(link):after{bottom:0;content:\"\";left:0;pointer-events:auto;position:absolute;right:0;top:0}}@layer hover{@media (hover:hover){:host .gcds-card:hover{background-color:var(--gcds-card-hover-background-color);box-shadow:var(--gcds-card-hover-box-shadow);cursor:pointer}}}@layer focus{:host .gcds-card:focus-within{box-shadow:var(--gcds-card-focus-box-shadow);outline:var(--gcds-card-focus-outline);outline-offset:var(--gcds-card-focus-outline-offset)}:host gcds-link::part(link):focus{background-color:var(--gcds-card-focus-link-background-color);border:var(--gcds-card-focus-link-border);box-shadow:var(--gcds-card-focus-link-box-shadow);color:var(--gcds-card-focus-link-color);outline:var(--gcds-card-focus-link-outline);text-decoration:underline currentColor var(--gcds-card-focus-link-text-decoration-thickness)}}";
 const GcdsCardStyle0 = gcdsCardCss;
 
 const GcdsCard = class {
@@ -403,24 +403,44 @@ const GcdsCard = class {
 GcdsCard.style = GcdsCardStyle0;
 
 const defaultValidator = {
-    validate: (_x) => true,
+    validate: () => {
+        return {
+            valid: true,
+            reason: {
+                en: '',
+                fr: '',
+            },
+        };
+    },
 };
 function combineValidators(v1, v2) {
-    let combined;
-    combined = {
+    return {
         validate: (x) => {
             const res1 = v1.validate(x);
             const res2 = v2.validate(x);
-            if (!res1) {
-                combined.errorMessage = v1.errorMessage;
+            if ((typeof res1 === 'object' && !res1.valid) ||
+                (typeof res1 === 'boolean' && !res1)) {
+                return typeof res1 === 'object'
+                    ? res1
+                    : { valid: res1, reason: v1.errorMessage };
             }
-            else if (!res2) {
-                combined.errorMessage = v2.errorMessage;
+            else if ((typeof res2 === 'object' && !res2.valid) ||
+                (typeof res2 === 'boolean' && !res2)) {
+                return typeof res2 === 'object'
+                    ? res2
+                    : { valid: res2, reason: v2.errorMessage };
             }
-            return res1 && res2;
+            else {
+                return {
+                    valid: true,
+                    reason: {
+                        en: '',
+                        fr: '',
+                    },
+                };
+            }
         },
     };
-    return combined;
 }
 function requiredValidator(element, type, subtype) {
     if (element.required) {
@@ -542,33 +562,49 @@ export function getLengthValidator(min: number, max: number): Validator<string> 
 
 const emailPattern = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 const requiredField = {
-    validate: (value) => value != null && value.trim() != '',
-    errorMessage: {
-        en: 'Enter information to continue.',
-        fr: 'Saisissez des renseignements pour continuer.',
+    validate: (value) => {
+        return {
+            valid: value != null && value.trim() != '',
+            reason: {
+                en: 'Enter information to continue.',
+                fr: 'Saisissez des renseignements pour continuer.',
+            },
+        };
     },
 };
 const requiredEmailField = {
-    validate: (value) => value != null &&
-        value.trim() != '' &&
-        (value.toLowerCase().match(emailPattern) ? true : false),
-    errorMessage: {
-        en: 'Enter a valid email address to continue. Use a standard format. Example: name@address.ca.',
-        fr: 'Saisissez votre adresse courriel pour continuer. Utilisez un format standard. Exemple: nom@adresse.ca.',
+    validate: (value) => {
+        return {
+            valid: value != null &&
+                value.trim() != '' &&
+                (value.toLowerCase().match(emailPattern) ? true : false),
+            reason: {
+                en: 'Enter a valid email address to continue. Use a standard format. Example: name@address.ca.',
+                fr: 'Saisissez votre adresse courriel pour continuer. Utilisez un format standard. Exemple: nom@adresse.ca.',
+            },
+        };
     },
 };
 const requiredFileInput = {
-    validate: (value) => value.length > 0,
-    errorMessage: {
-        en: 'You must upload a file to continue.',
-        fr: 'Vous devez téléverser un fichier pour continuer.',
+    validate: (value) => {
+        return {
+            valid: value.length > 0,
+            reason: {
+                en: 'You must upload a file to continue.',
+                fr: 'Vous devez téléverser un fichier pour continuer.',
+            },
+        };
     },
 };
 const requiredSelectField = {
-    validate: (value) => value != null && value.trim() != '',
-    errorMessage: {
-        en: 'Choose an option to continue.',
-        fr: 'Choisissez une option pour continuer.',
+    validate: (value) => {
+        return {
+            valid: value != null && value.trim() != '',
+            reason: {
+                en: 'Choose an option to continue.',
+                fr: 'Choisissez une option pour continuer.',
+            },
+        };
     },
 };
 /*
@@ -603,23 +639,28 @@ const dateInputErrorMessage = {
 const requiredDateInput = {
     validate: (date) => {
         if (utils.isValidDate(date)) {
-            return { valid: true };
+            return {
+                valid: true,
+                reason: {
+                    en: '',
+                    fr: '',
+                },
+            };
         }
-        let splitDate = date.split('-');
-        let dateObject = {
+        const splitDate = date.split('-');
+        const dateObject = {
             day: splitDate[2],
             month: splitDate[1],
             year: splitDate[0],
         };
-        let format = splitDate.length === 3 ? 'full' : 'compact';
+        const format = splitDate.length === 3 ? 'full' : 'compact';
         const error = getDateInputError(dateObject, format);
         return error;
     },
-    errorMessage: dateInputErrorMessage,
 };
 const getDateInputError = (dateValues, format) => {
     const { day, month, year } = dateValues;
-    let errorResponse = {
+    const errorResponse = {
         valid: false,
         errors: {
             day: false,
@@ -702,25 +743,35 @@ const getDateInputError = (dateValues, format) => {
 };
 const requiredRadio = {
     validate: (value) => {
-        return value != null && value != '';
-    },
-    errorMessage: {
-        en: 'Choose an option to continue.',
-        fr: 'Choisissez une option pour continuer.',
+        return {
+            valid: value != null && value != '',
+            reason: {
+                en: 'Choose an option to continue.',
+                fr: 'Choisissez une option pour continuer.',
+            },
+        };
     },
 };
 const requiredCheckboxGroup = {
-    validate: (value) => value.length > 0,
-    errorMessage: {
-        en: 'Choose an option to continue.',
-        fr: 'Choisissez une option pour continuer.',
+    validate: (value) => {
+        return {
+            valid: value.length > 0,
+            reason: {
+                en: 'Choose an option to continue.',
+                fr: 'Choisissez une option pour continuer.',
+            },
+        };
     },
 };
 const requiredCheckboxSingle = {
-    validate: (value) => value.length > 0,
-    errorMessage: {
-        en: 'You must check the box to continue.',
-        fr: 'Vous devez cocher la case pour continuer.',
+    validate: (value) => {
+        return {
+            valid: value.length > 0,
+            reason: {
+                en: 'You must check the box to continue.',
+                fr: 'Vous devez cocher la case pour continuer.',
+            },
+        };
     },
 };
 
@@ -898,6 +949,10 @@ const GcdsCheckboxes = class {
                 this.value = [...this.value, e.target.value];
             }
             else {
+                // Modify options to prevent adding prechecked values when unchecking option
+                this.options = (typeof this.options === 'string'
+                    ? JSON.parse(this.options)
+                    : this.options).map(check => check.value === e.target.value ? Object.assign(Object.assign({}, check), { checked: false }) : check);
                 // Remove value from value array
                 this.value = this.value.filter(item => item !== e.target.value);
             }
@@ -998,16 +1053,7 @@ const GcdsCheckboxes = class {
      * Call any active validators
      */
     async validate() {
-        if (!this._validator.validate(this.value) && this._validator.errorMessage) {
-            this.errorMessage = this._validator.errorMessage[this.lang];
-            this.gcdsError.emit({
-                message: `${this.isGroup ? this.legend : this.optionsArr[0].label} - ${this.errorMessage}`,
-            });
-        }
-        else {
-            this.errorMessage = '';
-            this.gcdsValid.emit();
-        }
+        utils.handleValidationResult(this.el, this._validator.validate(this.value), this.isGroup ? this.legend : this.optionsArr[0].label, this.gcdsError, this.gcdsValid, this.lang);
     }
     /*
      * FormData listener to append values like native checkboxes
@@ -1144,7 +1190,7 @@ const GcdsCheckboxes = class {
                 `${fieldsetAttrs['aria-labelledby']} ${hintID}`.trim();
         }
         if (this.validateRequiredProps()) {
-            return (index.h(index.Host, { key: '26df8b5fa1dc01a291b81801f39679e75c706dd4', onBlur: () => this.isGroup && this.onBlurValidate() }, this.isGroup ? (index.h("fieldset", Object.assign({ class: "gcds-checkboxes__fieldset" }, fieldsetAttrs), index.h("legend", { id: "checkboxes-legend", class: "gcds-checkboxes__legend" }, legend, required ? (index.h("span", { class: "legend__required" }, " (required)")) : null), hint ? (index.h("gcds-hint", { id: "checkboxes-hint", "hint-id": "checkboxes" }, hint)) : null, errorMessage ? (index.h("div", null, index.h("gcds-error-message", { id: "checkboxes-error", messageId: "checkboxes" }, errorMessage))) : null, this.optionsArr &&
+            return (index.h(index.Host, { key: '5f5afb1e5e995078fd2f5ce9d003af8c8c9f236f', onBlur: () => this.isGroup && this.onBlurValidate() }, this.isGroup ? (index.h("fieldset", Object.assign({ class: "gcds-checkboxes__fieldset" }, fieldsetAttrs), index.h("legend", { id: "checkboxes-legend", class: "gcds-checkboxes__legend" }, legend, required ? (index.h("span", { class: "legend__required" }, " (required)")) : null), hint ? (index.h("gcds-hint", { id: "checkboxes-hint", "hint-id": "checkboxes" }, hint)) : null, errorMessage ? (index.h("div", null, index.h("gcds-error-message", { id: "checkboxes-error", messageId: "checkboxes" }, errorMessage))) : null, this.optionsArr &&
                 this.optionsArr.map(checkbox => {
                     return renderCheckbox(checkbox, this, utils.emitEvent, this.handleInput);
                 }))) : (this.optionsArr &&
@@ -1307,7 +1353,7 @@ const GcdsDateInput = class {
         this.errorMessage = undefined;
         this.disabled = false;
         this.validator = undefined;
-        this.validateOn = undefined;
+        this.validateOn = 'blur';
         this.monthValue = '';
         this.dayValue = '';
         this.yearValue = '';
@@ -1354,34 +1400,15 @@ const GcdsDateInput = class {
         }
     }
     validateValidator() {
-        if (this.validator && !this.validateOn) {
-            this.validateOn = 'blur';
-        }
+        this._validator = getValidator(this.validator);
     }
     /**
      * Call any active validators
      */
     async validate() {
-        const validationResult = this._validator.validate(this.format === 'full'
+        this.hasError = utils.handleValidationResult(this.el, this._validator.validate(this.format === 'full'
             ? `${this.yearValue}-${this.monthValue}-${this.dayValue}`
-            : `${this.yearValue}-${this.monthValue}`);
-        if (!validationResult.valid) {
-            this.errorMessage = validationResult.reason[this.lang];
-            this.hasError = Object.assign({}, validationResult.errors);
-            this.gcdsError.emit({
-                message: `${this.legend} - ${this.errorMessage}`,
-                errors: validationResult.errors,
-            });
-        }
-        else {
-            this.errorMessage = '';
-            this.gcdsValid.emit();
-            this.hasError = {
-                day: false,
-                month: false,
-                year: false,
-            };
-        }
+            : `${this.yearValue}-${this.monthValue}`), this.legend, this.gcdsError, this.gcdsValid, this.lang, { day: false, month: false, year: false });
     }
     /*
      * Event listeners
@@ -1502,12 +1529,9 @@ const GcdsDateInput = class {
         // Define lang attribute
         this.lang = utils.assignLanguage(this.el);
         this.updateLang();
-        this.validateValidator();
         // Assign required validator if needed
         requiredValidator(this.el, 'date-input');
-        if (this.validator) {
-            this._validator = getValidator(this.validator);
-        }
+        this.validateValidator();
         const valid = this.validateRequiredProps();
         if (!valid) {
             utils.logError('gcds-date-input', this.errors);
@@ -1517,11 +1541,6 @@ const GcdsDateInput = class {
             this.splitFormValue();
             this.setValue();
             this.initialValue = this.value;
-        }
-    }
-    componentWillUpdate() {
-        if (this.validator) {
-            this._validator = getValidator(this.validator);
         }
     }
     render() {
@@ -1541,10 +1560,10 @@ const GcdsDateInput = class {
         }
         // Array of months 01 - 12
         const options = Array.from({ length: 12 }, (_, i) => i + 1 < 10 ? `0${i + 1}` : `${i + 1}`);
-        const month = (index.h("gcds-select", Object.assign({ key: '1b75eb30986c1ec3f786245346390a0c8e6d84bb', label: I18N$m[lang].month, selectId: "month", name: "month", defaultValue: I18N$m[lang].selectmonth, disabled: disabled, onInput: e => this.handleInput(e, 'month'), onChange: e => this.handleInput(e, 'month'), value: this.monthValue, class: `gcds-date-input__month ${hasError['month'] ? 'gcds-date-input--error' : ''}` }, requiredAttr, { "aria-invalid": hasError['month'].toString(), "aria-description": hasError['month'] && errorMessage }), options.map(option => (index.h("option", { key: option, value: option }, I18N$m[lang]['months'][option])))));
-        const year = (index.h("gcds-input", Object.assign({ key: '00a435c9630456e99df46fe4d0bd09863dd2f852', name: "year", label: I18N$m[lang].year, inputId: "year", type: "number", size: 4, disabled: disabled, value: this.yearValue, onInput: e => this.handleInput(e, 'year'), onChange: e => this.handleInput(e, 'year'), class: `gcds-date-input__year ${hasError['year'] ? 'gcds-date-input--error' : ''}` }, requiredAttr, { "aria-invalid": hasError['year'].toString(), "aria-description": hasError['year'] && errorMessage })));
-        const day = (index.h("gcds-input", Object.assign({ key: '7b9102ed9179796e6ece989107c416713ed7038b', name: "day", label: I18N$m[lang].day, inputId: "day", type: "number", size: 2, disabled: disabled, value: this.dayValue, onInput: e => this.handleInput(e, 'day'), onChange: e => this.handleInput(e, 'day'), class: `gcds-date-input__day ${hasError['day'] ? 'gcds-date-input--error' : ''}` }, requiredAttr, { "aria-invalid": hasError['day'].toString(), "aria-description": hasError['day'] && errorMessage })));
-        return (index.h(index.Host, { key: 'ff3c863e3eba298ee511b70088b0d1656350c4b0', name: name, onBlur: () => this.onBlur() }, this.validateRequiredProps() && (index.h("fieldset", Object.assign({ key: '8fedb9d95085f0486cd06664d25f537423d9705f', class: "gcds-date-input__fieldset" }, fieldsetAttrs), index.h("legend", { key: '5a7f0373bfc0a436333faa8999a1443375e92d0f', id: "date-input-legend" }, legend, required ? (index.h("span", { class: "legend__required" }, I18N$m[lang].required)) : null), hint ? (index.h("gcds-hint", { id: "date-input-hint", "hint-id": "date-input" }, hint)) : null, errorMessage ? (index.h("div", null, index.h("gcds-error-message", { id: "date-input-error", messageId: "date-input" }, errorMessage))) : null, format == 'compact'
+        const month = (index.h("gcds-select", Object.assign({ key: 'bbf921ac76c7e137df8d95961a0a1a2a303af31b', label: I18N$m[lang].month, selectId: "month", name: "month", defaultValue: I18N$m[lang].selectmonth, disabled: disabled, onInput: e => this.handleInput(e, 'month'), onChange: e => this.handleInput(e, 'month'), value: this.monthValue, class: `gcds-date-input__month ${hasError['month'] ? 'gcds-date-input--error' : ''}` }, requiredAttr, { "aria-invalid": hasError['month'].toString(), "aria-description": hasError['month'] && errorMessage }), options.map(option => (index.h("option", { key: option, value: option }, I18N$m[lang]['months'][option])))));
+        const year = (index.h("gcds-input", Object.assign({ key: '6eef03d82cf6b0817ab201ba10eb04801999debe', name: "year", label: I18N$m[lang].year, inputId: "year", type: "number", size: 4, disabled: disabled, value: this.yearValue, onInput: e => this.handleInput(e, 'year'), onChange: e => this.handleInput(e, 'year'), class: `gcds-date-input__year ${hasError['year'] ? 'gcds-date-input--error' : ''}` }, requiredAttr, { "aria-invalid": hasError['year'].toString(), "aria-description": hasError['year'] && errorMessage })));
+        const day = (index.h("gcds-input", Object.assign({ key: 'ad58f6a7c03b9ab0d80a35d770fa1e9761f9eace', name: "day", label: I18N$m[lang].day, inputId: "day", type: "number", size: 2, disabled: disabled, value: this.dayValue, onInput: e => this.handleInput(e, 'day'), onChange: e => this.handleInput(e, 'day'), class: `gcds-date-input__day ${hasError['day'] ? 'gcds-date-input--error' : ''}` }, requiredAttr, { "aria-invalid": hasError['day'].toString(), "aria-description": hasError['day'] && errorMessage })));
+        return (index.h(index.Host, { key: '7c0838bb2578726ce1b5482d56f0b2c0cb8e9062', name: name, onBlur: () => this.onBlur() }, this.validateRequiredProps() && (index.h("fieldset", Object.assign({ key: '91d18432610b87ab450b37a1d4b4c69fa22545f1', class: "gcds-date-input__fieldset" }, fieldsetAttrs), index.h("legend", { key: '54afc89772cec988f4d70f4348a0181b1aa129fb', id: "date-input-legend" }, legend, required ? (index.h("span", { class: "legend__required" }, I18N$m[lang].required)) : null), hint ? (index.h("gcds-hint", { id: "date-input-hint", "hint-id": "date-input" }, hint)) : null, errorMessage ? (index.h("div", null, index.h("gcds-error-message", { id: "date-input-error", messageId: "date-input" }, errorMessage))) : null, format == 'compact'
             ? [month, year]
             : lang == 'en'
                 ? [month, day, year]
@@ -1954,7 +1973,7 @@ const GcdsFileUploader = class {
         this.errorMessage = undefined;
         this.hint = undefined;
         this.validator = undefined;
-        this.validateOn = undefined;
+        this.validateOn = 'blur';
         this.hasError = undefined;
         this.inheritedAttributes = {};
         this.lang = undefined;
@@ -1985,9 +2004,7 @@ const GcdsFileUploader = class {
         }
     }
     validateValidator() {
-        if (this.validator && !this.validateOn) {
-            this.validateOn = 'blur';
-        }
+        this._validator = getValidator(this.validator);
     }
     validateHasError() {
         if (this.disabled) {
@@ -1998,18 +2015,7 @@ const GcdsFileUploader = class {
      * Call any active validators
      */
     async validate() {
-        if (!this._validator.validate(this.shadowElement.files) &&
-            this._validator.errorMessage) {
-            this.errorMessage = this._validator.errorMessage[this.lang];
-            this.gcdsError.emit({
-                id: `#${this.uploaderId}`,
-                message: `${this.label} - ${this.errorMessage}`,
-            });
-        }
-        else {
-            this.errorMessage = '';
-            this.gcdsValid.emit({ id: `#${this.uploaderId}` });
-        }
+        utils.handleValidationResult(this.el, this._validator.validate(this.shadowElement.files), this.label, this.gcdsError, this.gcdsValid, this.lang);
     }
     submitListener(e) {
         if (e.target == this.el.closest('form')) {
@@ -2069,18 +2075,10 @@ const GcdsFileUploader = class {
         this.validateDisabledSelect();
         this.validateHasError();
         this.validateErrorMessage();
-        this.validateValidator();
         // Assign required validator if needed
         requiredValidator(this.el, 'file');
-        if (this.validator) {
-            this._validator = getValidator(this.validator);
-        }
+        this.validateValidator();
         this.inheritedAttributes = utils.inheritAttributes(this.el, this.shadowElement);
-    }
-    componentWillUpdate() {
-        if (this.validator) {
-            this._validator = getValidator(this.validator);
-        }
     }
     render() {
         const { accept, disabled, errorMessage, hasError, hint, label, lang, multiple, name, required, uploaderId, value, inheritedAttributes, } = this;
@@ -2102,7 +2100,7 @@ const GcdsFileUploader = class {
             attrsInput['aria-describedby'] =
                 `${hintID}${errorID}${attrsInput['aria-describedby']}`;
         }
-        return (index.h(index.Host, { key: 'a94120d8791854e450cfee8413b2c89e1d6a934a' }, index.h("div", { key: '56097f889c8144c9a077ab84170830b972147c45', class: `gcds-file-uploader-wrapper ${disabled ? 'gcds-disabled' : ''} ${hasError ? 'gcds-error' : ''}` }, index.h("gcds-label", Object.assign({ key: '5fe82e189c8f21e22819d3d418fd92a8f64e7a46' }, attrsLabel, { "label-for": uploaderId, lang: lang })), hint ? index.h("gcds-hint", { "hint-id": uploaderId }, hint) : null, errorMessage ? (index.h("gcds-error-message", { messageId: uploaderId }, errorMessage)) : null, index.h("div", { key: '84f745e320ed402ae3e83aadc460b623385ae442', class: `file-uploader__input ${value.length > 0 ? 'uploaded-files' : ''}`, onDrop: e => this.handleDrop(e), onDragOver: e => e.preventDefault() }, index.h("button", { key: 'b780c7a5dc68dfafc71b0c8d89e85a16fe6b72b8', type: "button", tabindex: "-1", onClick: () => this.shadowElement.click() }, I18N$j[lang].button.upload), index.h("input", Object.assign({ key: 'f420f6cc3cd115ecae6fd1833903fa47d6ce9474', type: "file", id: uploaderId }, attrsInput, { onBlur: () => this.onBlur(), onFocus: () => this.gcdsFocus.emit(), onInput: e => this.handleInput(e, this.gcdsInput), onChange: e => this.handleInput(e, this.gcdsChange), "aria-invalid": hasError ? 'true' : 'false', ref: element => (this.shadowElement = element) })), value.length > 0 ? (index.h("gcds-sr-only", { id: "file-uploader__summary" }, index.h("span", null, I18N$j[lang].summary.selected, " "), value.map(file => (index.h("span", null, file, " "))))) : (index.h("gcds-sr-only", { id: "file-uploader__summary" }, I18N$j[lang].summary.unselected))), value.length > 0
+        return (index.h(index.Host, { key: '913cb86e9a2837583dd8a5af92896b69c19a1491' }, index.h("div", { key: 'd396334ce7fc0a4916440efb43ecd429ffa72cd2', class: `gcds-file-uploader-wrapper ${disabled ? 'gcds-disabled' : ''} ${hasError ? 'gcds-error' : ''}` }, index.h("gcds-label", Object.assign({ key: 'de78c05d22fb99eeaee7a21d74fbad91f51f2395' }, attrsLabel, { "label-for": uploaderId, lang: lang })), hint ? index.h("gcds-hint", { "hint-id": uploaderId }, hint) : null, errorMessage ? (index.h("gcds-error-message", { messageId: uploaderId }, errorMessage)) : null, index.h("div", { key: '35fb7d04e6e0cf4638634aa38a621d9b6dd8d568', class: `file-uploader__input ${value.length > 0 ? 'uploaded-files' : ''}`, onDrop: e => this.handleDrop(e), onDragOver: e => e.preventDefault() }, index.h("button", { key: 'ae322710e6b51bf1f490e0d820ed606a4ec1cf05', type: "button", tabindex: "-1", onClick: () => this.shadowElement.click() }, I18N$j[lang].button.upload), index.h("input", Object.assign({ key: 'e06b9eb8859b5143c8e3dd0d83b9d00926fdf8ed', type: "file", id: uploaderId }, attrsInput, { onBlur: () => this.onBlur(), onFocus: () => this.gcdsFocus.emit(), onInput: e => this.handleInput(e, this.gcdsInput), onChange: e => this.handleInput(e, this.gcdsChange), "aria-invalid": hasError ? 'true' : 'false', ref: element => (this.shadowElement = element) })), value.length > 0 ? (index.h("gcds-sr-only", { id: "file-uploader__summary" }, index.h("span", null, I18N$j[lang].summary.selected, " "), value.map(file => (index.h("span", null, file, " "))))) : (index.h("gcds-sr-only", { id: "file-uploader__summary" }, I18N$j[lang].summary.unselected))), value.length > 0
             ? value.map(file => (index.h("div", { class: "file-uploader__uploaded-file", "aria-label": `${I18N$j[lang].removeFile} ${file}.` }, index.h("gcds-text", { "margin-bottom": "0" }, file), index.h("button", { onClick: e => this.removeFile(e) }, index.h("span", null, I18N$j[lang].button.remove), index.h("gcds-icon", { name: "close", size: "text", "margin-left": "150" })))))
             : null)));
     }
@@ -2977,7 +2975,7 @@ const GcdsInput = class {
         this.value = undefined;
         this.autocomplete = undefined;
         this.validator = undefined;
-        this.validateOn = undefined;
+        this.validateOn = 'blur';
         this.inheritedAttributes = {};
         this.hasError = undefined;
         this.lang = undefined;
@@ -2999,9 +2997,7 @@ const GcdsInput = class {
         }
     }
     validateValidator() {
-        if (this.validator && !this.validateOn) {
-            this.validateOn = 'blur';
-        }
+        this._validator = getValidator(this.validator);
     }
     validateHasError() {
         if (this.disabled) {
@@ -3025,17 +3021,7 @@ const GcdsInput = class {
      * Call any active validators
      */
     async validate() {
-        if (!this._validator.validate(this.value) && this._validator.errorMessage) {
-            this.errorMessage = this._validator.errorMessage[this.lang];
-            this.gcdsError.emit({
-                id: `#${this.inputId}`,
-                message: `${this.label} - ${this.errorMessage}`,
-            });
-        }
-        else {
-            this.errorMessage = '';
-            this.gcdsValid.emit({ id: `#${this.inputId}` });
-        }
+        utils.handleValidationResult(this.el, this._validator.validate(this.value), this.label, this.gcdsError, this.gcdsValid, this.lang);
     }
     submitListener(e) {
         if (e.target == this.el.closest('form')) {
@@ -3088,22 +3074,14 @@ const GcdsInput = class {
         this.validateDisabledInput();
         this.validateHasError();
         this.validateErrorMessage();
-        this.validateValidator();
         // Assign required validator if needed
         requiredValidator(this.el, 'input', this.type);
-        if (this.validator) {
-            this._validator = getValidator(this.validator);
-        }
+        this.validateValidator();
         this.inheritedAttributes = utils.inheritAttributes(this.el, this.shadowElement, [
             'placeholder',
         ]);
         this.internals.setFormValue(this.value ? this.value : null);
         this.initialValue = this.value ? this.value : null;
-    }
-    componentWillUpdate() {
-        if (this.validator) {
-            this._validator = getValidator(this.validator);
-        }
     }
     render() {
         const { disabled, errorMessage, hideLabel, hint, inputId, name, label, required, size, type, value, hasError, autocomplete, inheritedAttributes, lang, } = this;
@@ -3127,7 +3105,7 @@ const GcdsInput = class {
                 ? ` ${attrsInput['aria-describedby']}`
                 : ''}`;
         }
-        return (index.h(index.Host, { key: '7ed999fdc585adb3166db4aeafd7c7df52756a38' }, index.h("div", { key: '61817df76bc4ae855aad63932c06f79aa115ea7c', class: `gcds-input-wrapper ${disabled ? 'gcds-disabled' : ''} ${hasError ? 'gcds-error' : ''}` }, index.h("gcds-label", Object.assign({ key: 'b3ad7c9a6f1e8b5a08a56b15169756a108b1cb25' }, attrsLabel, { "hide-label": hideLabel, "label-for": inputId, lang: lang })), hint ? index.h("gcds-hint", { "hint-id": inputId }, hint) : null, errorMessage ? (index.h("gcds-error-message", { messageId: inputId }, errorMessage)) : null, index.h("input", Object.assign({ key: '61a7529bfae32bf571575a69b14d61d2d818b7eb' }, attrsInput, { class: hasError ? 'gcds-error' : null, id: inputId, name: name, onBlur: () => this.onBlur(), onFocus: () => this.gcdsFocus.emit(), onInput: e => this.handleInput(e, this.gcdsInput), onChange: e => this.handleInput(e, this.gcdsChange), "aria-labelledby": `label-for-${inputId}`, "aria-invalid": inheritedAttributes['aria-invalid'] === 'true'
+        return (index.h(index.Host, { key: 'b01f509292604301b7792bbba825ef16958edce6' }, index.h("div", { key: 'e1499fb45ea0a3e268d7b666b49d5cea206b8df4', class: `gcds-input-wrapper ${disabled ? 'gcds-disabled' : ''} ${hasError ? 'gcds-error' : ''}` }, index.h("gcds-label", Object.assign({ key: 'e3ace51ae9be43058cfafad48761ba2679ecc0ad' }, attrsLabel, { "hide-label": hideLabel, "label-for": inputId, lang: lang })), hint ? index.h("gcds-hint", { "hint-id": inputId }, hint) : null, errorMessage ? (index.h("gcds-error-message", { messageId: inputId }, errorMessage)) : null, index.h("input", Object.assign({ key: 'fece71e5bd1b106fc83ac77d4290905e4907001d' }, attrsInput, { class: hasError ? 'gcds-error' : null, id: inputId, name: name, onBlur: () => this.onBlur(), onFocus: () => this.gcdsFocus.emit(), onInput: e => this.handleInput(e, this.gcdsInput), onChange: e => this.handleInput(e, this.gcdsChange), "aria-labelledby": `label-for-${inputId}`, "aria-invalid": inheritedAttributes['aria-invalid'] === 'true'
                 ? inheritedAttributes['aria-invalid']
                 : errorMessage
                     ? 'true'
@@ -4146,16 +4124,7 @@ const GcdsRadios = class {
      * Call any active validators
      */
     async validate() {
-        if (!this._validator.validate(this.value) && this._validator.errorMessage) {
-            this.errorMessage = this._validator.errorMessage[this.lang];
-            this.gcdsError.emit({
-                message: `${this.legend} - ${this.errorMessage}`,
-            });
-        }
-        else {
-            this.errorMessage = '';
-            this.gcdsValid.emit();
-        }
+        utils.handleValidationResult(this.el, this._validator.validate(this.value), this.legend, this.gcdsError, this.gcdsValid, this.lang);
     }
     submitListener(e) {
         if (e.target == this.el.closest('form')) {
@@ -4234,7 +4203,7 @@ const GcdsRadios = class {
                 `${fieldsetAttrs['aria-labelledby']} ${hintID}`.trim();
         }
         if (this.validateRequiredProps()) {
-            return (index.h(index.Host, { key: '3fced0510a711a29dc4e210a756fa20d472cd758', onBlur: () => this.onBlurValidate() }, index.h("fieldset", Object.assign({ key: 'd0a19610308239faa95f67dffe05924a7b807c34', class: "gcds-radios__fieldset" }, fieldsetAttrs), index.h("legend", { key: '7bc9287b1006e539b5c976719d59eb0a19c72dcc', id: "radios-legend", class: "gcds-radios__legend" }, legend, required ? (index.h("span", { class: "legend__required" }, I18N$8[lang].required)) : null), hint ? (index.h("gcds-hint", { id: "radios-hint", "hint-id": "radios" }, hint)) : null, errorMessage ? (index.h("div", null, index.h("gcds-error-message", { id: "radios-error", messageId: "radios" }, errorMessage))) : null, this.optionsArr &&
+            return (index.h(index.Host, { key: '4aea20f6f91195345d15cf43622cced56c1a5139', onBlur: () => this.onBlurValidate() }, index.h("fieldset", Object.assign({ key: 'b902ff2456ecc03b7d5bee81bdc555ce803b15b7', class: "gcds-radios__fieldset" }, fieldsetAttrs), index.h("legend", { key: '26dfcf3e7fa323f196e2b846ce17db9f12fe48f2', id: "radios-legend", class: "gcds-radios__legend" }, legend, required ? (index.h("span", { class: "legend__required" }, I18N$8[lang].required)) : null), hint ? (index.h("gcds-hint", { id: "radios-hint", "hint-id": "radios" }, hint)) : null, errorMessage ? (index.h("div", null, index.h("gcds-error-message", { id: "radios-error", messageId: "radios" }, errorMessage))) : null, this.optionsArr &&
                 this.optionsArr.map(radio => {
                     const attrsInput = Object.assign({ name, disabled: disabled, required: required, value: radio.value, checked: radio.value === value }, inheritedAttributes);
                     if (radio.hint) {
@@ -4379,7 +4348,7 @@ const GcdsSelect = class {
         this.errorMessage = undefined;
         this.hint = undefined;
         this.validator = undefined;
-        this.validateOn = undefined;
+        this.validateOn = 'blur';
         this.hasError = undefined;
         this.inheritedAttributes = {};
         this.lang = undefined;
@@ -4402,9 +4371,7 @@ const GcdsSelect = class {
         }
     }
     validateValidator() {
-        if (this.validator && !this.validateOn) {
-            this.validateOn = 'blur';
-        }
+        this._validator = getValidator(this.validator);
     }
     validateHasError() {
         if (this.disabled) {
@@ -4424,17 +4391,7 @@ const GcdsSelect = class {
      * Call any active validators
      */
     async validate() {
-        if (!this._validator.validate(this.value) && this._validator.errorMessage) {
-            this.errorMessage = this._validator.errorMessage[this.lang];
-            this.gcdsError.emit({
-                id: `#${this.selectId}`,
-                message: `${this.label} - ${this.errorMessage}`,
-            });
-        }
-        else {
-            this.errorMessage = '';
-            this.gcdsValid.emit({ id: `#${this.selectId}` });
-        }
+        utils.handleValidationResult(this.el, this._validator.validate(this.value), this.label, this.gcdsError, this.gcdsValid, this.lang);
     }
     submitListener(e) {
         if (e.target == this.el.closest('form')) {
@@ -4509,12 +4466,9 @@ const GcdsSelect = class {
         this.validateDisabledSelect();
         this.validateHasError();
         this.validateErrorMessage();
-        this.validateValidator();
         // Assign required validator if needed
         requiredValidator(this.el, 'select');
-        if (this.validator) {
-            this._validator = getValidator(this.validator);
-        }
+        this.validateValidator();
         this.inheritedAttributes = utils.inheritAttributes(this.el, this.shadowElement);
         if (this.el.children) {
             this.options = Array.from(this.el.children);
@@ -4534,11 +4488,6 @@ const GcdsSelect = class {
     async componentDidLoad() {
         this.observeOptions();
     }
-    componentWillUpdate() {
-        if (this.validator) {
-            this._validator = getValidator(this.validator);
-        }
-    }
     render() {
         const { lang, selectId, label, required, disabled, defaultValue, value, hint, errorMessage, inheritedAttributes, hasError, name, options, } = this;
         const attrsSelect = Object.assign({ name,
@@ -4556,7 +4505,7 @@ const GcdsSelect = class {
                 ? `${attrsSelect['aria-describedby']}`
                 : ''}`;
         }
-        return (index.h(index.Host, { key: 'fb6aeb223639f75aa5bc28b155f076bc1ad6871f' }, index.h("div", { key: '71ac8ed56fb8ac745f782b556527666a128b178a', class: `gcds-select-wrapper ${disabled ? 'gcds-disabled' : ''} ${hasError ? 'gcds-error' : ''}` }, index.h("gcds-label", Object.assign({ key: 'a73c320132850c5d14ada4228abdd6fb008ef32d' }, attrsLabel, { "label-for": selectId, lang: lang })), hint ? index.h("gcds-hint", { "hint-id": selectId }, hint) : null, errorMessage ? (index.h("gcds-error-message", { messageId: selectId }, errorMessage)) : null, index.h("select", Object.assign({ key: '594ab71c7f1d11cf158a37457b570f12e33157db' }, attrsSelect, { id: selectId, onBlur: () => this.onBlur(), onFocus: () => this.gcdsFocus.emit(), onInput: e => this.handleInput(e, this.gcdsInput), onChange: e => this.handleInput(e, this.gcdsChange), "aria-invalid": inheritedAttributes['aria-invalid'] === 'true'
+        return (index.h(index.Host, { key: '26155157cfdf2c5c68701f6ee9a23b2d0bebdef6' }, index.h("div", { key: '742bdc49b45363cfaf969687a0c9d80c422fa15b', class: `gcds-select-wrapper ${disabled ? 'gcds-disabled' : ''} ${hasError ? 'gcds-error' : ''}` }, index.h("gcds-label", Object.assign({ key: 'b46b0bd119c48f00744bff34f9c120ff8b59d9cd' }, attrsLabel, { "label-for": selectId, lang: lang })), hint ? index.h("gcds-hint", { "hint-id": selectId }, hint) : null, errorMessage ? (index.h("gcds-error-message", { messageId: selectId }, errorMessage)) : null, index.h("select", Object.assign({ key: '58f61d1544fec6c502d2204ad6aa7c4191bd9ba3' }, attrsSelect, { id: selectId, onBlur: () => this.onBlur(), onFocus: () => this.gcdsFocus.emit(), onInput: e => this.handleInput(e, this.gcdsInput), onChange: e => this.handleInput(e, this.gcdsChange), "aria-invalid": inheritedAttributes['aria-invalid'] === 'true'
                 ? inheritedAttributes['aria-invalid']
                 : errorMessage
                     ? 'true'
@@ -5251,7 +5200,7 @@ const GcdsTextarea = class {
         this.textareaId = undefined;
         this.value = undefined;
         this.validator = undefined;
-        this.validateOn = undefined;
+        this.validateOn = 'blur';
         this.inheritedAttributes = {};
         this.hasError = undefined;
         this.lang = undefined;
@@ -5279,9 +5228,7 @@ const GcdsTextarea = class {
         this.shadowElement.value = val;
     }
     validateValidator() {
-        if (this.validator && !this.validateOn) {
-            this.validateOn = 'blur';
-        }
+        this._validator = getValidator(this.validator);
     }
     validateHasError() {
         if (this.disabled) {
@@ -5292,17 +5239,7 @@ const GcdsTextarea = class {
      * Call any active validators
      */
     async validate() {
-        if (!this._validator.validate(this.value) && this._validator.errorMessage) {
-            this.errorMessage = this._validator.errorMessage[this.lang];
-            this.gcdsError.emit({
-                id: `#${this.textareaId}`,
-                message: `${this.label} - ${this.errorMessage}`,
-            });
-        }
-        else {
-            this.errorMessage = '';
-            this.gcdsValid.emit({ id: `#${this.textareaId}` });
-        }
+        utils.handleValidationResult(this.el, this._validator.validate(this.value), this.label, this.gcdsError, this.gcdsValid, this.lang);
     }
     submitListener(e) {
         if (e.target == this.el.closest('form')) {
@@ -5346,22 +5283,14 @@ const GcdsTextarea = class {
         this.validateDisabledTextarea();
         this.validateHasError();
         this.validateErrorMessage();
-        this.validateValidator();
         // Assign required validator if needed
         requiredValidator(this.el, 'textarea');
-        if (this.validator) {
-            this._validator = getValidator(this.validator);
-        }
+        this.validateValidator();
         this.inheritedAttributes = utils.inheritAttributes(this.el, this.shadowElement, [
             'placeholder',
         ]);
         this.internals.setFormValue(this.value ? this.value : null);
         this.initialValue = this.value ? this.value : null;
-    }
-    componentWillUpdate() {
-        if (this.validator) {
-            this._validator = getValidator(this.validator);
-        }
     }
     render() {
         const { characterCount, cols, disabled, errorMessage, hideLabel, hint, label, required, rows, textareaId, value, hasError, inheritedAttributes, lang, name, } = this;
@@ -5385,7 +5314,7 @@ const GcdsTextarea = class {
                 ? `${attrsTextarea['aria-describedby']}`
                 : ''}`;
         }
-        return (index.h(index.Host, { key: '4694c31173d726ed48b7ac73f1ac3496ec644823' }, index.h("div", { key: '3813dd0feddca3894b3d970514cbd12d4c8639de', class: `gcds-textarea-wrapper ${disabled ? 'gcds-disabled' : ''} ${hasError ? 'gcds-error' : ''}` }, index.h("gcds-label", Object.assign({ key: 'ff14c9207a448b14b292ce808ad85a2980be3968' }, attrsLabel, { "hide-label": hideLabel, "label-for": textareaId, lang: lang })), hint ? index.h("gcds-hint", { "hint-id": textareaId }, hint) : null, errorMessage ? (index.h("gcds-error-message", { messageId: textareaId }, errorMessage)) : null, index.h("textarea", Object.assign({ key: 'fdb7e89668f4c86b6ef9ade00fb7b5796d01e889' }, attrsTextarea, { class: hasError ? 'gcds-error' : null, id: textareaId, onBlur: () => this.onBlur(), onFocus: () => this.gcdsFocus.emit(), onInput: e => this.handleInput(e, this.gcdsInput), onChange: e => this.handleInput(e, this.gcdsChange), "aria-labelledby": `label-for-${textareaId}`, "aria-invalid": errorMessage ? 'true' : 'false', maxlength: characterCount ? characterCount : null, style: cols ? style : null, ref: element => (this.shadowElement = element) }), value), characterCount ? (index.h("gcds-text", { id: `textarea__count-${textareaId}`, "aria-live": "polite" }, value == undefined
+        return (index.h(index.Host, { key: '152d55f14b1d09bcdc1e58ceeff1e8870a17c5ba' }, index.h("div", { key: '5e6a48d1589b82ab52d5c70bd65e3881925b9144', class: `gcds-textarea-wrapper ${disabled ? 'gcds-disabled' : ''} ${hasError ? 'gcds-error' : ''}` }, index.h("gcds-label", Object.assign({ key: 'e078be0d19e45203ea39174ae3218f1d7a1b0450' }, attrsLabel, { "hide-label": hideLabel, "label-for": textareaId, lang: lang })), hint ? index.h("gcds-hint", { "hint-id": textareaId }, hint) : null, errorMessage ? (index.h("gcds-error-message", { messageId: textareaId }, errorMessage)) : null, index.h("textarea", Object.assign({ key: 'ea900be84f6cfbdf2795c10b2069ac525ae7347b' }, attrsTextarea, { class: hasError ? 'gcds-error' : null, id: textareaId, onBlur: () => this.onBlur(), onFocus: () => this.gcdsFocus.emit(), onInput: e => this.handleInput(e, this.gcdsInput), onChange: e => this.handleInput(e, this.gcdsChange), "aria-labelledby": `label-for-${textareaId}`, "aria-invalid": errorMessage ? 'true' : 'false', maxlength: characterCount ? characterCount : null, style: cols ? style : null, ref: element => (this.shadowElement = element) }), value), characterCount ? (index.h("gcds-text", { id: `textarea__count-${textareaId}`, "aria-live": "polite" }, value == undefined
             ? `${characterCount} ${I18N$3[lang].characters.allowed}`
             : `${characterCount - value.length} ${I18N$3[lang].characters.left}`)) : null)));
     }

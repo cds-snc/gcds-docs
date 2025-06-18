@@ -1,6 +1,6 @@
 import { proxyCustomElement, HTMLElement, createEvent, h, Host } from '@stencil/core/internal/client';
-import { o as observerConfig, a as assignLanguage, i as inheritAttributes } from './utils.js';
-import { d as defaultValidator, r as requiredValidator, g as getValidator } from './validator.factory.js';
+import { b as handleValidationResult, o as observerConfig, a as assignLanguage, i as inheritAttributes } from './utils.js';
+import { d as defaultValidator, g as getValidator, r as requiredValidator } from './validator.factory.js';
 import { d as defineCustomElement$6 } from './gcds-error-message2.js';
 import { d as defineCustomElement$5 } from './gcds-hint2.js';
 import { d as defineCustomElement$4 } from './gcds-icon2.js';
@@ -68,7 +68,7 @@ const GcdsTextarea$1 = /*@__PURE__*/ proxyCustomElement(class GcdsTextarea exten
         this.textareaId = undefined;
         this.value = undefined;
         this.validator = undefined;
-        this.validateOn = undefined;
+        this.validateOn = 'blur';
         this.inheritedAttributes = {};
         this.hasError = undefined;
         this.lang = undefined;
@@ -96,9 +96,7 @@ const GcdsTextarea$1 = /*@__PURE__*/ proxyCustomElement(class GcdsTextarea exten
         this.shadowElement.value = val;
     }
     validateValidator() {
-        if (this.validator && !this.validateOn) {
-            this.validateOn = 'blur';
-        }
+        this._validator = getValidator(this.validator);
     }
     validateHasError() {
         if (this.disabled) {
@@ -109,17 +107,7 @@ const GcdsTextarea$1 = /*@__PURE__*/ proxyCustomElement(class GcdsTextarea exten
      * Call any active validators
      */
     async validate() {
-        if (!this._validator.validate(this.value) && this._validator.errorMessage) {
-            this.errorMessage = this._validator.errorMessage[this.lang];
-            this.gcdsError.emit({
-                id: `#${this.textareaId}`,
-                message: `${this.label} - ${this.errorMessage}`,
-            });
-        }
-        else {
-            this.errorMessage = '';
-            this.gcdsValid.emit({ id: `#${this.textareaId}` });
-        }
+        handleValidationResult(this.el, this._validator.validate(this.value), this.label, this.gcdsError, this.gcdsValid, this.lang);
     }
     submitListener(e) {
         if (e.target == this.el.closest('form')) {
@@ -163,22 +151,14 @@ const GcdsTextarea$1 = /*@__PURE__*/ proxyCustomElement(class GcdsTextarea exten
         this.validateDisabledTextarea();
         this.validateHasError();
         this.validateErrorMessage();
-        this.validateValidator();
         // Assign required validator if needed
         requiredValidator(this.el, 'textarea');
-        if (this.validator) {
-            this._validator = getValidator(this.validator);
-        }
+        this.validateValidator();
         this.inheritedAttributes = inheritAttributes(this.el, this.shadowElement, [
             'placeholder',
         ]);
         this.internals.setFormValue(this.value ? this.value : null);
         this.initialValue = this.value ? this.value : null;
-    }
-    componentWillUpdate() {
-        if (this.validator) {
-            this._validator = getValidator(this.validator);
-        }
     }
     render() {
         const { characterCount, cols, disabled, errorMessage, hideLabel, hint, label, required, rows, textareaId, value, hasError, inheritedAttributes, lang, name, } = this;
@@ -202,7 +182,7 @@ const GcdsTextarea$1 = /*@__PURE__*/ proxyCustomElement(class GcdsTextarea exten
                 ? `${attrsTextarea['aria-describedby']}`
                 : ''}`;
         }
-        return (h(Host, { key: '4694c31173d726ed48b7ac73f1ac3496ec644823' }, h("div", { key: '3813dd0feddca3894b3d970514cbd12d4c8639de', class: `gcds-textarea-wrapper ${disabled ? 'gcds-disabled' : ''} ${hasError ? 'gcds-error' : ''}` }, h("gcds-label", Object.assign({ key: 'ff14c9207a448b14b292ce808ad85a2980be3968' }, attrsLabel, { "hide-label": hideLabel, "label-for": textareaId, lang: lang })), hint ? h("gcds-hint", { "hint-id": textareaId }, hint) : null, errorMessage ? (h("gcds-error-message", { messageId: textareaId }, errorMessage)) : null, h("textarea", Object.assign({ key: 'fdb7e89668f4c86b6ef9ade00fb7b5796d01e889' }, attrsTextarea, { class: hasError ? 'gcds-error' : null, id: textareaId, onBlur: () => this.onBlur(), onFocus: () => this.gcdsFocus.emit(), onInput: e => this.handleInput(e, this.gcdsInput), onChange: e => this.handleInput(e, this.gcdsChange), "aria-labelledby": `label-for-${textareaId}`, "aria-invalid": errorMessage ? 'true' : 'false', maxlength: characterCount ? characterCount : null, style: cols ? style : null, ref: element => (this.shadowElement = element) }), value), characterCount ? (h("gcds-text", { id: `textarea__count-${textareaId}`, "aria-live": "polite" }, value == undefined
+        return (h(Host, { key: '152d55f14b1d09bcdc1e58ceeff1e8870a17c5ba' }, h("div", { key: '5e6a48d1589b82ab52d5c70bd65e3881925b9144', class: `gcds-textarea-wrapper ${disabled ? 'gcds-disabled' : ''} ${hasError ? 'gcds-error' : ''}` }, h("gcds-label", Object.assign({ key: 'e078be0d19e45203ea39174ae3218f1d7a1b0450' }, attrsLabel, { "hide-label": hideLabel, "label-for": textareaId, lang: lang })), hint ? h("gcds-hint", { "hint-id": textareaId }, hint) : null, errorMessage ? (h("gcds-error-message", { messageId: textareaId }, errorMessage)) : null, h("textarea", Object.assign({ key: 'ea900be84f6cfbdf2795c10b2069ac525ae7347b' }, attrsTextarea, { class: hasError ? 'gcds-error' : null, id: textareaId, onBlur: () => this.onBlur(), onFocus: () => this.gcdsFocus.emit(), onInput: e => this.handleInput(e, this.gcdsInput), onChange: e => this.handleInput(e, this.gcdsChange), "aria-labelledby": `label-for-${textareaId}`, "aria-invalid": errorMessage ? 'true' : 'false', maxlength: characterCount ? characterCount : null, style: cols ? style : null, ref: element => (this.shadowElement = element) }), value), characterCount ? (h("gcds-text", { id: `textarea__count-${textareaId}`, "aria-live": "polite" }, value == undefined
             ? `${characterCount} ${I18N[lang].characters.allowed}`
             : `${characterCount - value.length} ${I18N[lang].characters.left}`)) : null)));
     }

@@ -1,6 +1,6 @@
 import { proxyCustomElement, HTMLElement, createEvent, h, Host } from '@stencil/core/internal/client';
-import { i as inheritAttributes, o as observerConfig, a as assignLanguage } from './utils.js';
-import { d as defaultValidator, r as requiredValidator, g as getValidator } from './validator.factory.js';
+import { i as inheritAttributes, b as handleValidationResult, o as observerConfig, a as assignLanguage } from './utils.js';
+import { d as defaultValidator, g as getValidator, r as requiredValidator } from './validator.factory.js';
 import { d as defineCustomElement$5 } from './gcds-error-message2.js';
 import { d as defineCustomElement$4 } from './gcds-hint2.js';
 import { d as defineCustomElement$3 } from './gcds-icon2.js';
@@ -52,7 +52,7 @@ const GcdsInput = /*@__PURE__*/ proxyCustomElement(class GcdsInput extends HTMLE
         this.value = undefined;
         this.autocomplete = undefined;
         this.validator = undefined;
-        this.validateOn = undefined;
+        this.validateOn = 'blur';
         this.inheritedAttributes = {};
         this.hasError = undefined;
         this.lang = undefined;
@@ -74,9 +74,7 @@ const GcdsInput = /*@__PURE__*/ proxyCustomElement(class GcdsInput extends HTMLE
         }
     }
     validateValidator() {
-        if (this.validator && !this.validateOn) {
-            this.validateOn = 'blur';
-        }
+        this._validator = getValidator(this.validator);
     }
     validateHasError() {
         if (this.disabled) {
@@ -100,17 +98,7 @@ const GcdsInput = /*@__PURE__*/ proxyCustomElement(class GcdsInput extends HTMLE
      * Call any active validators
      */
     async validate() {
-        if (!this._validator.validate(this.value) && this._validator.errorMessage) {
-            this.errorMessage = this._validator.errorMessage[this.lang];
-            this.gcdsError.emit({
-                id: `#${this.inputId}`,
-                message: `${this.label} - ${this.errorMessage}`,
-            });
-        }
-        else {
-            this.errorMessage = '';
-            this.gcdsValid.emit({ id: `#${this.inputId}` });
-        }
+        handleValidationResult(this.el, this._validator.validate(this.value), this.label, this.gcdsError, this.gcdsValid, this.lang);
     }
     submitListener(e) {
         if (e.target == this.el.closest('form')) {
@@ -163,22 +151,14 @@ const GcdsInput = /*@__PURE__*/ proxyCustomElement(class GcdsInput extends HTMLE
         this.validateDisabledInput();
         this.validateHasError();
         this.validateErrorMessage();
-        this.validateValidator();
         // Assign required validator if needed
         requiredValidator(this.el, 'input', this.type);
-        if (this.validator) {
-            this._validator = getValidator(this.validator);
-        }
+        this.validateValidator();
         this.inheritedAttributes = inheritAttributes(this.el, this.shadowElement, [
             'placeholder',
         ]);
         this.internals.setFormValue(this.value ? this.value : null);
         this.initialValue = this.value ? this.value : null;
-    }
-    componentWillUpdate() {
-        if (this.validator) {
-            this._validator = getValidator(this.validator);
-        }
     }
     render() {
         const { disabled, errorMessage, hideLabel, hint, inputId, name, label, required, size, type, value, hasError, autocomplete, inheritedAttributes, lang, } = this;
@@ -202,7 +182,7 @@ const GcdsInput = /*@__PURE__*/ proxyCustomElement(class GcdsInput extends HTMLE
                 ? ` ${attrsInput['aria-describedby']}`
                 : ''}`;
         }
-        return (h(Host, { key: '7ed999fdc585adb3166db4aeafd7c7df52756a38' }, h("div", { key: '61817df76bc4ae855aad63932c06f79aa115ea7c', class: `gcds-input-wrapper ${disabled ? 'gcds-disabled' : ''} ${hasError ? 'gcds-error' : ''}` }, h("gcds-label", Object.assign({ key: 'b3ad7c9a6f1e8b5a08a56b15169756a108b1cb25' }, attrsLabel, { "hide-label": hideLabel, "label-for": inputId, lang: lang })), hint ? h("gcds-hint", { "hint-id": inputId }, hint) : null, errorMessage ? (h("gcds-error-message", { messageId: inputId }, errorMessage)) : null, h("input", Object.assign({ key: '61a7529bfae32bf571575a69b14d61d2d818b7eb' }, attrsInput, { class: hasError ? 'gcds-error' : null, id: inputId, name: name, onBlur: () => this.onBlur(), onFocus: () => this.gcdsFocus.emit(), onInput: e => this.handleInput(e, this.gcdsInput), onChange: e => this.handleInput(e, this.gcdsChange), "aria-labelledby": `label-for-${inputId}`, "aria-invalid": inheritedAttributes['aria-invalid'] === 'true'
+        return (h(Host, { key: 'b01f509292604301b7792bbba825ef16958edce6' }, h("div", { key: 'e1499fb45ea0a3e268d7b666b49d5cea206b8df4', class: `gcds-input-wrapper ${disabled ? 'gcds-disabled' : ''} ${hasError ? 'gcds-error' : ''}` }, h("gcds-label", Object.assign({ key: 'e3ace51ae9be43058cfafad48761ba2679ecc0ad' }, attrsLabel, { "hide-label": hideLabel, "label-for": inputId, lang: lang })), hint ? h("gcds-hint", { "hint-id": inputId }, hint) : null, errorMessage ? (h("gcds-error-message", { messageId: inputId }, errorMessage)) : null, h("input", Object.assign({ key: 'fece71e5bd1b106fc83ac77d4290905e4907001d' }, attrsInput, { class: hasError ? 'gcds-error' : null, id: inputId, name: name, onBlur: () => this.onBlur(), onFocus: () => this.gcdsFocus.emit(), onInput: e => this.handleInput(e, this.gcdsInput), onChange: e => this.handleInput(e, this.gcdsChange), "aria-labelledby": `label-for-${inputId}`, "aria-invalid": inheritedAttributes['aria-invalid'] === 'true'
                 ? inheritedAttributes['aria-invalid']
                 : errorMessage
                     ? 'true'

@@ -2,8 +2,8 @@ export function format(label) {
     return label ? ` ${label}` : 'Fallback Button Label';
 }
 export const inheritAttributes = (el, shadowElement, attributes = []) => {
-    let attributeObject = {};
-    let attributesToRemove = [];
+    const attributeObject = {};
+    const attributesToRemove = [];
     // Check for any aria attributes
     for (let i = 0; i < el.attributes.length; i++) {
         const attr = el.attributes[i];
@@ -92,9 +92,9 @@ export const emitEvent = (e, customEvent, value) => {
  * @param optionalAttrsArrToRemove - array of optional attributes with errors to be removed from this error message
  */
 export const logError = (name, errorArr, optionalAttrsArrToRemove) => {
-    let engMsg = 'Render error, please check required properties.';
-    let frMsg = 'Erreur de rendu, veuillez vérifier les propriétés requises.';
-    let errors = [...errorArr];
+    const engMsg = 'Render error, please check required properties.';
+    const frMsg = 'Erreur de rendu, veuillez vérifier les propriétés requises.';
+    const errors = [...errorArr];
     // remove any potential optional attributes from errors array
     if (optionalAttrsArrToRemove && optionalAttrsArrToRemove.length > 0) {
         for (const optionalAttr of optionalAttrsArrToRemove) {
@@ -140,8 +140,8 @@ export const isValid = (errors, requiredProps) => {
  */
 export const isValidDate = (dateString, forceFormat) => {
     // Define regex pattern to match YYYY-MM-DD format
-    let fullregex = /^\d{4}-\d{2}-\d{2}$/;
-    let compactregex = /^\d{4}-\d{2}$/;
+    const fullregex = /^\d{4}-\d{2}-\d{2}$/;
+    const compactregex = /^\d{4}-\d{2}$/;
     let format = '';
     // Check if the format matches the regex
     if (fullregex.test(dateString)) {
@@ -181,5 +181,30 @@ export const isValidDate = (dateString, forceFormat) => {
 };
 function isLeapYear(y) {
     return !(y & 3 || (!(y % 25) && y & 15));
+}
+/* Handle the returned validation result by assigning properties and emitting events
+ * @param element - the gcds form element that is being validated
+ * @param validationResult - the object returned from the validator
+ * @param label - the label of the form element
+ * @param errorEv - the gcdsError event emitter
+ * @param validEv - the gcdsValid event emitter
+ * @param lang - the current language
+ * @param errors - default errors object to pass back for more complicated validation scenarios
+ */
+export function handleValidationResult(element, validationResult, label, errorEv, validEv, lang, errors) {
+    if (!validationResult.valid) {
+        element.errorMessage = validationResult.reason[lang];
+        errorEv.emit({
+            message: `${label} - ${validationResult.reason[lang]}`,
+        });
+        if (validationResult.errors) {
+            return validationResult.errors;
+        }
+    }
+    else {
+        element.errorMessage = '';
+        validEv.emit();
+    }
+    return errors;
 }
 //# sourceMappingURL=utils.js.map

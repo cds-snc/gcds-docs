@@ -123,6 +123,5 @@ export declare class GcdsTextarea {
     formStateRestoreCallback(state: any): void;
     updateLang(): void;
     componentWillLoad(): Promise<void>;
-    componentWillUpdate(): void;
     render(): any;
 }

@@ -1,6 +1,6 @@
 import { Host, h, } from "@stencil/core";
 import { isRadioObject } from "./radio";
-import { assignLanguage, inheritAttributes, logError, handleErrors, isValid, } from "../../utils/utils";
+import { assignLanguage, inheritAttributes, logError, handleErrors, isValid, handleValidationResult, } from "../../utils/utils";
 import { defaultValidator, getValidator, requiredValidator, } from "../../validators";
 import i18n from "./i18n/i18n";
 export class GcdsRadios {
@@ -115,16 +115,7 @@ export class GcdsRadios {
      * Call any active validators
      */
     async validate() {
-        if (!this._validator.validate(this.value) && this._validator.errorMessage) {
-            this.errorMessage = this._validator.errorMessage[this.lang];
-            this.gcdsError.emit({
-                message: `${this.legend} - ${this.errorMessage}`,
-            });
-        }
-        else {
-            this.errorMessage = '';
-            this.gcdsValid.emit();
-        }
+        handleValidationResult(this.el, this._validator.validate(this.value), this.legend, this.gcdsError, this.gcdsValid, this.lang);
     }
     submitListener(e) {
         if (e.target == this.el.closest('form')) {
@@ -203,7 +194,7 @@ export class GcdsRadios {
                 `${fieldsetAttrs['aria-labelledby']} ${hintID}`.trim();
         }
         if (this.validateRequiredProps()) {
-            return (h(Host, { key: '3fced0510a711a29dc4e210a756fa20d472cd758', onBlur: () => this.onBlurValidate() }, h("fieldset", Object.assign({ key: 'd0a19610308239faa95f67dffe05924a7b807c34', class: "gcds-radios__fieldset" }, fieldsetAttrs), h("legend", { key: '7bc9287b1006e539b5c976719d59eb0a19c72dcc', id: "radios-legend", class: "gcds-radios__legend" }, legend, required ? (h("span", { class: "legend__required" }, i18n[lang].required)) : null), hint ? (h("gcds-hint", { id: "radios-hint", "hint-id": "radios" }, hint)) : null, errorMessage ? (h("div", null, h("gcds-error-message", { id: "radios-error", messageId: "radios" }, errorMessage))) : null, this.optionsArr &&
+            return (h(Host, { key: '4aea20f6f91195345d15cf43622cced56c1a5139', onBlur: () => this.onBlurValidate() }, h("fieldset", Object.assign({ key: 'b902ff2456ecc03b7d5bee81bdc555ce803b15b7', class: "gcds-radios__fieldset" }, fieldsetAttrs), h("legend", { key: '26dfcf3e7fa323f196e2b846ce17db9f12fe48f2', id: "radios-legend", class: "gcds-radios__legend" }, legend, required ? (h("span", { class: "legend__required" }, i18n[lang].required)) : null), hint ? (h("gcds-hint", { id: "radios-hint", "hint-id": "radios" }, hint)) : null, errorMessage ? (h("div", null, h("gcds-error-message", { id: "radios-error", messageId: "radios" }, errorMessage))) : null, this.optionsArr &&
                 this.optionsArr.map(radio => {
                     const attrsInput = Object.assign({ name, disabled: disabled, required: required, value: radio.value, checked: radio.value === value }, inheritedAttributes);
                     if (radio.hint) {
@@ -542,6 +533,10 @@ export class GcdsRadios {
                         "Promise": {
                             "location": "global",
                             "id": "global::Promise"
+                        },
+                        "HTMLGcdsRadiosElement": {
+                            "location": "global",
+                            "id": "global::HTMLGcdsRadiosElement"
                         }
                     },
                     "return": "Promise<void>"

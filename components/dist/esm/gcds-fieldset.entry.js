@@ -1,5 +1,5 @@
 import { r as registerInstance, h, a as Host, g as getElement } from './index-88c3ba09.js';
-import { i as inheritAttributes } from './utils-7064de48.js';
+import { i as inheritAttributes } from './utils-0dd594fe.js';
 
 const I18N = {
   en: {

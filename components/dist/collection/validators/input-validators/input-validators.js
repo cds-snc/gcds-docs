@@ -1,33 +1,49 @@
 import { isValidDate } from "../../utils/utils";
 const emailPattern = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 export const requiredField = {
-    validate: (value) => value != null && value.trim() != '',
-    errorMessage: {
-        en: 'Enter information to continue.',
-        fr: 'Saisissez des renseignements pour continuer.',
+    validate: (value) => {
+        return {
+            valid: value != null && value.trim() != '',
+            reason: {
+                en: 'Enter information to continue.',
+                fr: 'Saisissez des renseignements pour continuer.',
+            },
+        };
     },
 };
 export const requiredEmailField = {
-    validate: (value) => value != null &&
-        value.trim() != '' &&
-        (value.toLowerCase().match(emailPattern) ? true : false),
-    errorMessage: {
-        en: 'Enter a valid email address to continue. Use a standard format. Example: name@address.ca.',
-        fr: 'Saisissez votre adresse courriel pour continuer. Utilisez un format standard. Exemple: nom@adresse.ca.',
+    validate: (value) => {
+        return {
+            valid: value != null &&
+                value.trim() != '' &&
+                (value.toLowerCase().match(emailPattern) ? true : false),
+            reason: {
+                en: 'Enter a valid email address to continue. Use a standard format. Example: name@address.ca.',
+                fr: 'Saisissez votre adresse courriel pour continuer. Utilisez un format standard. Exemple: nom@adresse.ca.',
+            },
+        };
     },
 };
 export const requiredFileInput = {
-    validate: (value) => value.length > 0,
-    errorMessage: {
-        en: 'You must upload a file to continue.',
-        fr: 'Vous devez téléverser un fichier pour continuer.',
+    validate: (value) => {
+        return {
+            valid: value.length > 0,
+            reason: {
+                en: 'You must upload a file to continue.',
+                fr: 'Vous devez téléverser un fichier pour continuer.',
+            },
+        };
     },
 };
 export const requiredSelectField = {
-    validate: (value) => value != null && value.trim() != '',
-    errorMessage: {
-        en: 'Choose an option to continue.',
-        fr: 'Choisissez une option pour continuer.',
+    validate: (value) => {
+        return {
+            valid: value != null && value.trim() != '',
+            reason: {
+                en: 'Choose an option to continue.',
+                fr: 'Choisissez une option pour continuer.',
+            },
+        };
     },
 };
 /*
@@ -62,23 +78,28 @@ export const dateInputErrorMessage = {
 export const requiredDateInput = {
     validate: (date) => {
         if (isValidDate(date)) {
-            return { valid: true };
+            return {
+                valid: true,
+                reason: {
+                    en: '',
+                    fr: '',
+                },
+            };
         }
-        let splitDate = date.split('-');
-        let dateObject = {
+        const splitDate = date.split('-');
+        const dateObject = {
             day: splitDate[2],
             month: splitDate[1],
             year: splitDate[0],
         };
-        let format = splitDate.length === 3 ? 'full' : 'compact';
+        const format = splitDate.length === 3 ? 'full' : 'compact';
         const error = getDateInputError(dateObject, format);
         return error;
     },
-    errorMessage: dateInputErrorMessage,
 };
 const getDateInputError = (dateValues, format) => {
     const { day, month, year } = dateValues;
-    let errorResponse = {
+    const errorResponse = {
         valid: false,
         errors: {
             day: false,
@@ -161,25 +182,35 @@ const getDateInputError = (dateValues, format) => {
 };
 export const requiredRadio = {
     validate: (value) => {
-        return value != null && value != '';
-    },
-    errorMessage: {
-        en: 'Choose an option to continue.',
-        fr: 'Choisissez une option pour continuer.',
+        return {
+            valid: value != null && value != '',
+            reason: {
+                en: 'Choose an option to continue.',
+                fr: 'Choisissez une option pour continuer.',
+            },
+        };
     },
 };
 export const requiredCheckboxGroup = {
-    validate: (value) => value.length > 0,
-    errorMessage: {
-        en: 'Choose an option to continue.',
-        fr: 'Choisissez une option pour continuer.',
+    validate: (value) => {
+        return {
+            valid: value.length > 0,
+            reason: {
+                en: 'Choose an option to continue.',
+                fr: 'Choisissez une option pour continuer.',
+            },
+        };
     },
 };
 export const requiredCheckboxSingle = {
-    validate: (value) => value.length > 0,
-    errorMessage: {
-        en: 'You must check the box to continue.',
-        fr: 'Vous devez cocher la case pour continuer.',
+    validate: (value) => {
+        return {
+            valid: value.length > 0,
+            reason: {
+                en: 'You must check the box to continue.',
+                fr: 'Vous devez cocher la case pour continuer.',
+            },
+        };
     },
 };
 //# sourceMappingURL=input-validators.js.map

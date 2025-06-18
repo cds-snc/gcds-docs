@@ -1,22 +1,42 @@
 export const defaultValidator = {
-    validate: (_x) => true,
+    validate: () => {
+        return {
+            valid: true,
+            reason: {
+                en: '',
+                fr: '',
+            },
+        };
+    },
 };
 export function combineValidators(v1, v2) {
-    let combined;
-    combined = {
+    return {
         validate: (x) => {
             const res1 = v1.validate(x);
             const res2 = v2.validate(x);
-            if (!res1) {
-                combined.errorMessage = v1.errorMessage;
+            if ((typeof res1 === 'object' && !res1.valid) ||
+                (typeof res1 === 'boolean' && !res1)) {
+                return typeof res1 === 'object'
+                    ? res1
+                    : { valid: res1, reason: v1.errorMessage };
             }
-            else if (!res2) {
-                combined.errorMessage = v2.errorMessage;
+            else if ((typeof res2 === 'object' && !res2.valid) ||
+                (typeof res2 === 'boolean' && !res2)) {
+                return typeof res2 === 'object'
+                    ? res2
+                    : { valid: res2, reason: v2.errorMessage };
             }
-            return res1 && res2;
+            else {
+                return {
+                    valid: true,
+                    reason: {
+                        en: '',
+                        fr: '',
+                    },
+                };
+            }
         },
     };
-    return combined;
 }
 export function requiredValidator(element, type, subtype) {
     if (element.required) {

@@ -122,6 +122,5 @@ export declare class GcdsSelect {
     updateLang(): void;
     componentWillLoad(): Promise<void>;
     componentDidLoad(): Promise<void>;
-    componentWillUpdate(): void;
     render(): any;
 }

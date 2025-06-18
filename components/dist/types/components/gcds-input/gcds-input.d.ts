@@ -1,11 +1,11 @@
 import { EventEmitter } from '../../stencil-public-runtime';
-import { Validator, ValidatorEntry } from '../../validators';
+import { Validator, ValidatorEntry, ValidatorOld } from '../../validators';
 export declare class GcdsInput {
     el: HTMLElement;
     internals: ElementInternals;
     private initialValue?;
     private shadowElement?;
-    _validator: Validator<string>;
+    _validator: Validator<string> | ValidatorOld<string>;
     /**
      * Props
      */
@@ -126,6 +126,5 @@ export declare class GcdsInput {
     formStateRestoreCallback(state: any): void;
     updateLang(): void;
     componentWillLoad(): Promise<void>;
-    componentWillUpdate(): void;
     render(): any;
 }

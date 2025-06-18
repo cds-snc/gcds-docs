@@ -2,7 +2,7 @@ import { EventEmitter } from '../../stencil-public-runtime';
 import { Validator, ValidatorEntry } from '../../validators';
 import { CheckboxObject } from './checkbox';
 export declare class GcdsCheckboxes {
-    el: HTMLInputElement;
+    el: HTMLGcdsCheckboxesElement;
     internals: ElementInternals;
     private initialState?;
     private shadowElement?;
