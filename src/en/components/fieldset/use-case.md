@@ -21,10 +21,7 @@ Take a look at what problems fieldsets solve to see if they fit the problem youâ
 
 ## Problems fieldsets solve
 
-Logically grouping form elements or components helps support understanding and usability. Use a fieldset to group together related form components when:
-
-- They correspond to the same question, like with radios or checkboxes. 
-- They relate to the same topic.
+Logically grouping form elements or components helps support understanding and usability. Use a fieldset to group form components when they relate to the same topic. 
 
 <hr/>
 
