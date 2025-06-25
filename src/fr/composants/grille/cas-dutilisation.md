@@ -10,7 +10,6 @@ eleventyNavigation:
   description: Une grille est une mise en page réactive et flexible.
   thumbnail: /images/common/components/preview-grid.svg
   alt: Trois colonnes séparées par des lignes verticales pointillées renferment d’épaisses lignes grises représentant du texte.
-  tag: À l'essai
   state: published
 translationKey: 'grid'
 tags: ['gridFR', 'usage']
