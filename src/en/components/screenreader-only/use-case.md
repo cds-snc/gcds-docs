@@ -10,7 +10,6 @@ eleventyNavigation:
   description: The screenreader-only component is text information only accessible with assistive technologies.
   thumbnail: /images/common/components/preview-screenreader-only.svg
   alt: One blue-grey line with a dotted line border stacked above two grey lines. The colour of all of the lines fades from the left to the right ends. A blue-grey sound icon is superimposed on the two bottom lines.
-  tag: Experimental
   state: published
 translationKey: 'screenreaderonly'
 tags: ['screenreaderonlyEN', 'usage']
