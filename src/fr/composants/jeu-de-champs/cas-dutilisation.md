@@ -21,10 +21,7 @@ Explorez les problèmes réglés par les jeux de champs et découvrez s’ils pe
 
 ## Problèmes résolus par les jeux de champs
 
-Grouper logiquement les éléments ou composants de formulaire aide à la compréhension et l’utilisabilité. Utilisez un jeu de champs pour regrouper des composants de formulaire connexes dans les situations suivantes :
-
-- Ils correspondent à la même question, comme avec les boutons radio ou les cases à cocher. 
-- Ils portent sur le même sujet.
+Grouper logiquement les éléments ou composants de formulaire aide à la compréhension et l’utilisabilité. Utilisez un jeu de champ pour regrouper des composants de formulaire connexes lorsqu’ils se rapportent à un même sujet.
 
 <hr/>
 
