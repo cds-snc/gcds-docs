@@ -129,6 +129,7 @@ app.post('/submission', async (req, res) => {
       message,
       learnMore,
       familiarityGCDS,
+      gcds_unsubscribe: body.gcds_unsubscribe,
     },
     lang,
   );
