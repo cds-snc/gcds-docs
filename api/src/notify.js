@@ -42,22 +42,28 @@ export const sendEmail = async (settings, data, lang) => {
   });
 
   console.log('[INFO] Sending to Notify: ', postData);
-  const response = await fetch(
-    'https://api.notification.canada.ca/v2/notifications/email',
-    {
-      method: 'POST',
-      headers: headers,
-      body: postData,
-    },
-  );
+  
+  try {
+    const response = await fetch(
+      'https://api.notification.canada.ca/v2/notifications/email',
+      {
+        method: 'POST',
+        headers: headers,
+        body: postData,
+      },
+    );
 
-  if (response?.ok === false) {
-    console.error('[ERROR] Failed to send to Notify');
-    const errorDetail = await response.text();
-    console.error('[ERROR] Notify error detail: ', errorDetail);
-  } else {
-    console.log(`[INFO] Successfully sent to Notify`);
+    if (response?.ok === false) {
+      console.error('[ERROR] Failed to send to Notify');
+      const errorDetail = await response.text();
+      console.error('[ERROR] Notify error detail: ', errorDetail);
+    } else {
+      console.log(`[INFO] Successfully sent to Notify`);
+    }
+
+    return response;
+  } catch (e) {
+    console.error('[ERROR] Failed to send to Notify', e);
+    return Promise.resolve({ status: 500, ok: false });
   }
-
-  return response;
 };
