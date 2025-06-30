@@ -1,5 +1,4 @@
 import { getParametersByName } from '@aws-lambda-powertools/parameters/ssm';
-
 import express from 'express';
 import { encode } from 'html-entities';
 import { redirectUser } from './utils.js';
@@ -162,6 +161,12 @@ app.post('/submission', async (req, res) => {
   redirectUser(origin, forwardedOrigin, lang, res);
 });
 
-app.listen(port, () => {
-  console.log(`[INFO] API listening at http://localhost:${port}`);
-});
+// Only start the server if this file is run directly from the command line (not imported as a module).
+// This prevents the server from starting during tests or when imported elsewhere.
+if (process.argv[1] === new URL(import.meta.url).pathname) {
+  app.listen(port, () => {
+    console.log(`[INFO] API listening at http://localhost:${port}`);
+  });
+}
+
+export default app;
