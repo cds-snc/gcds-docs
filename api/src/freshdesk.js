@@ -5,69 +5,101 @@
  * @param data
  * @returns {Promise<Response>}
  */
+
+// Constants
+const FRESHDESK_URL = 'https://cds-snc.freshdesk.com/api/v2/tickets';
+const BASE_TAGS = ['z_skip_opsgenie', 'z_skip_urgent_escalation'];
+
+// Ticket configuration by type and language
+const TICKET_CONFIG = {
+  unsubscribe: {
+    en: {
+      subject: 'GC Design System Unsubscribe Request',
+      description: (email) => `Unsubscribe request<br>Email: ${email}`,
+    },
+    fr: {
+      subject: 'Demande de désabonnement GCSD',
+      description: (email) => `Demande de désabonnement<br>Courriel: ${email}`,
+    },
+  },
+  contact: {
+    en: {
+      subject: 'GC Design System Contact Form',
+      description: (data) => `Name: ${data.name}<br>Email: ${data.email}<br>Message: <pre>${data.message}</pre><br>Learn More: ${data.learnMore}<br>Familiarity with GC Design System: ${data.familiarityGCDS}`,
+    },
+    fr: {
+      subject: 'Formulaire de contact Système de design GC',
+      description: (data) => `Nom: ${data.name}<br>Courriel: ${data.email}<br>Message: <pre>${data.message}</pre><br>En savoir plus: ${data.learnMore}<br>Familiarité avec le Système de design GC: ${data.familiarityGCDS}`,
+    },
+  },
+};
+
+// Helper functions
+const buildTags = (learnMore) => {
+  const tags = [...BASE_TAGS];
+  
+  const tagMapping = {
+    mailing_list: 'Design_Request_MailingList',
+    demo: 'Design_Request_Demo',
+    usability_research: 'Design_Request_Research',
+  };
+  
+  if (learnMore && Array.isArray(learnMore)) {
+    learnMore.forEach(item => {
+      if (tagMapping[item]) {
+        tags.push(tagMapping[item]);
+      }
+    });
+  }
+  
+  tags.push(process.env.NODE_ENV === 'development' ? 'Design_Staging' : 'Design_Production');
+  
+  return tags;
+};
+
+const getLanguageField = (lang) => ({
+  cf_language: lang === 'fr' ? 'Français' : 'English',
+});
+
+const getTicketConfig = (data, lang) => {
+  const ticketType = data.gcds_unsubscribe ? 'unsubscribe' : 'contact';
+  return TICKET_CONFIG[ticketType][lang] || TICKET_CONFIG[ticketType].en;
+};
+
 export const createTicket = async (settings, data, lang) => {
   const { name, email, message, learnMore, familiarityGCDS } = data;
   const { FRESHDESK_API_KEY } = settings;
-  const url = `https://cds-snc.freshdesk.com/api/v2/tickets`;
 
   if (!FRESHDESK_API_KEY) {
     console.error('[ERROR] Missing Freshdesk API Key');
     return Promise.resolve({ status: 400, ok: false });
   }
 
-  // Tags for Freshdesk
-  const tags = ['z_skip_opsgenie', 'z_skip_urgent_escalation'];
-  if (learnMore.includes('mailing_list')) {
-    tags.push('Design_Request_MailingList');
-  }
-  if (learnMore.includes('demo')) {
-    tags.push('Design_Request_Demo');
-  }
-  if (learnMore.includes('usability_research')) {
-    tags.push('Design_Request_Research');
-  }
-
-  if (process.env.NODE_ENV === 'development') {
-    tags.push('Design_Staging');
-  } else {
-    tags.push('Design_Production');
-  }
-
-  // Build the description field
-  let description = `Name: ${name}<br>Email: ${email}<br>Message: <pre>${message}</pre><br>Learn More: ${learnMore}<br>Familiarity with GC Design System: ${familiarityGCDS}`;
-  let subject = 'GC Design System Contact Form';
-  let customFields = {
-    cf_language: 'English',
-  };
-
-  // Update the fields for French
-  if (lang === 'fr') {
-    subject = 'Formulaire de contact Système de design GC';
-    customFields = {
-      cf_language: 'Français',
-    };
-    description = `Nom: ${name}<br>Courriel: ${email}<br>Message: <pre>${message}</pre><br>En savoir plus: ${learnMore}<br>Familiarité avec le Système de design GC: ${familiarityGCDS}`;
-  }
+  const config = getTicketConfig(data, lang);
+  const tags = buildTags(learnMore);
+  const customFields = getLanguageField(lang);
+  
+  const description = config.description(data.gcds_unsubscribe ? email : { name, email, message, learnMore, familiarityGCDS });
 
   const postData = JSON.stringify({
-    name: name ? name : 'Anonymous',
-    email: email ? email : '',
+    name: name || 'Anonymous',
+    email: email || '',
     type: 'Question',
     source: 2,
     priority: 1,
     status: 2,
     product_id: 61000003764,
-    tags: tags,
+    tags,
     group_id: 61000175431,
-    subject: subject,
-    description: description,
+    subject: config.subject,
+    description,
     custom_fields: customFields,
   });
 
   console.log('[INFO] Sending to Freshdesk API: ', postData);
 
   try {
-    const response = await fetch(url, {
+    const response = await fetch(FRESHDESK_URL, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -75,6 +107,7 @@ export const createTicket = async (settings, data, lang) => {
       },
       body: postData,
     });
+    
     if (response?.ok === false) {
       console.error(
         `[ERROR] Failed to send to Freshdesk [${response.status}] - ${email} - ${postData}`,
