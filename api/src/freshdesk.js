@@ -10,8 +10,8 @@
 const FRESHDESK_URL = 'https://cds-snc.freshdesk.com/api/v2/tickets';
 const BASE_TAGS = ['z_skip_opsgenie', 'z_skip_urgent_escalation'];
 
-// Ticket configuration by type and language
-const TICKET_CONFIG = {
+// Ticket message formatting by type and language
+const TICKET_FORMAT = {
   unsubscribe: {
     en: {
       subject: 'GC Design System Unsubscribe Request',
@@ -57,17 +57,12 @@ const buildTags = (learnMore) => {
   return tags;
 };
 
-const getLanguageField = (lang) => ({
-  cf_language: lang === 'fr' ? 'Français' : 'English',
-});
 
-const getTicketConfig = (data, lang) => {
-  const ticketType = data.gcds_unsubscribe ? 'unsubscribe' : 'contact';
-  return TICKET_CONFIG[ticketType][lang] || TICKET_CONFIG[ticketType].en;
-};
+
+
 
 export const createTicket = async (settings, data, lang) => {
-  const { name, email, message, learnMore, familiarityGCDS } = data;
+  const { name, email, message, learnMore, familiarityGCDS, unsubscribe } = data;
   const { FRESHDESK_API_KEY } = settings;
 
   if (!FRESHDESK_API_KEY) {
@@ -75,11 +70,19 @@ export const createTicket = async (settings, data, lang) => {
     return Promise.resolve({ status: 400, ok: false });
   }
 
-  const config = getTicketConfig(data, lang);
-  const tags = buildTags(learnMore);
-  const customFields = getLanguageField(lang);
+  // Determine the ticket type (unsubscribe request or contact form)
+  const ticketType = unsubscribe ? 'unsubscribe' : 'contact';
   
-  const description = config.description(data.gcds_unsubscribe ? email : { name, email, message, learnMore, familiarityGCDS });
+  const ticket = TICKET_FORMAT[ticketType][lang] || TICKET_FORMAT[ticketType].en;
+  const tags = buildTags(learnMore);
+  const customFields = {
+    cf_language: lang === 'fr' ? 'Français' : 'English',
+  };
+
+  // Build the description field
+  const description = ticket.description(
+    unsubscribe ? email : { name, email, message, learnMore, familiarityGCDS }
+  );
 
   const postData = JSON.stringify({
     name: name || 'Anonymous',
@@ -91,7 +94,7 @@ export const createTicket = async (settings, data, lang) => {
     product_id: 61000003764,
     tags,
     group_id: 61000175431,
-    subject: config.subject,
+    subject: ticket.subject,
     description,
     custom_fields: customFields,
   });

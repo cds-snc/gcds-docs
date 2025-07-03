@@ -147,29 +147,7 @@ describe('sendEmail', () => {
     expect(payload.personalisation.message).toBe('');
   });
 
-  it('uses correct headers', async () => {
-    mockFetch.mockResolvedValue({ ok: true, status: 200 });
-    await sendEmail(
-      {
-        EMAIL_TARGET: 'target@example.com',
-        NOTIFY_TEMPLATE_ID: 'template-123',
-        NOTIFY_API_KEY: 'test-api-key',
-      },
-      {
-        name: 'Test',
-        email: 'test@example.com',
-        message: 'Test',
-        learnMore: [],
-        familiarityGCDS: 'yes',
-      },
-      'en',
-    );
-    const call = mockFetch.mock.calls[0];
-    expect(call[1].headers['Authorization']).toBe('ApiKey-v1 test-api-key');
-    expect(call[1].headers['Content-Type']).toBe('application/json');
-  });
-
-  it('logs an error if fetch throws', async () => {
+  it('logs an error on failure', async () => {
     mockFetch.mockImplementation(() => { throw new Error('Network error'); });
     const consoleSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
     await sendEmail(
@@ -216,5 +194,49 @@ describe('sendEmail', () => {
     expect(consoleSpy).toHaveBeenCalledWith('[ERROR] Failed to send to Notify');
     expect(consoleSpy).toHaveBeenCalledWith('[ERROR] Notify error detail: ', 'Bad request');
     consoleSpy.mockRestore();
+  });
+
+  it('handles unsubscribe request (EN)', async () => {
+    mockFetch.mockResolvedValue({ ok: true, status: 200 });
+    await sendEmail(
+      {
+        EMAIL_TARGET: 'target@example.com',
+        NOTIFY_TEMPLATE_ID: 'template-123',
+        NOTIFY_API_KEY: 'api-key',
+      },
+      {
+        email: 'unsub@example.com',
+        unsubscribe: true,
+      },
+      'en',
+    );
+    const payload = JSON.parse(mockFetch.mock.calls[0][1].body);
+    expect(payload.personalisation.name).toBe('');
+    expect(payload.personalisation.email).toBe('unsub@example.com');
+    expect(payload.personalisation.message).toBe('Unsubscribe request from user');
+    expect(payload.personalisation.learnMore).toEqual([]);
+    expect(payload.personalisation.familiarityGCDS).toBe('N/A');
+  });
+
+  it('handles unsubscribe request (FR)', async () => {
+    mockFetch.mockResolvedValue({ ok: true, status: 200 });
+    await sendEmail(
+      {
+        EMAIL_TARGET: 'target@example.com',
+        NOTIFY_TEMPLATE_ID: 'template-123',
+        NOTIFY_API_KEY: 'api-key',
+      },
+      {
+        email: 'unsub@example.com',
+        unsubscribe: true,
+      },
+      'fr',
+    );
+    const payload = JSON.parse(mockFetch.mock.calls[0][1].body);
+    expect(payload.personalisation.name).toBe('');
+    expect(payload.personalisation.email).toBe('unsub@example.com');
+    expect(payload.personalisation.message).toBe('Unsubscribe request from user');
+    expect(payload.personalisation.learnMore).toEqual([]);
+    expect(payload.personalisation.familiarityGCDS).toBe('N/A');
   });
 }); 

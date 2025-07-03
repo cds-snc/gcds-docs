@@ -59,4 +59,15 @@ describe('POST /submission', () => {
       });
     expect([303, 200, 204]).toContain(res.status); // 303 for redirect, 200/204 for mocks
   });
+
+  it('should process unsubscribe request with only the email field given ', async () => {
+    const res = await request(app)
+      .post('/submission')
+      .send({
+        'form-name': 'unsubscribeEN',
+        email: 'test@example.com',
+        unsubscribe: true,
+      });
+    expect([303, 200, 204]).toContain(res.status); // 303 for redirect, 200/204 for mocks
+  });
 }); 

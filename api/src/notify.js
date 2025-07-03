@@ -8,7 +8,7 @@
 import { learnMoreOptions } from './constants.js';
 export const sendEmail = async (settings, data, lang) => {
   const { EMAIL_TARGET, NOTIFY_TEMPLATE_ID, NOTIFY_API_KEY } = settings;
-  const { name, email, message, learnMore, familiarityGCDS } = data;
+  const { name, email, message, learnMore, familiarityGCDS, unsubscribe } = data;
 
   const headers = {
     'Authorization': `ApiKey-v1 ${NOTIFY_API_KEY}`,
@@ -29,16 +29,24 @@ export const sendEmail = async (settings, data, lang) => {
     });
   }
 
+  const personalisation = unsubscribe ? {
+    name: '',
+    email: email,
+    message: 'Unsubscribe request from user',
+    learnMore: [],
+    familiarityGCDS: 'N/A',
+  } : {
+    name: name,
+    email: email,
+    message: message ? message : '',
+    learnMore: learnMoreStringArray,
+    familiarityGCDS: familiarityGCDS,
+  };
+
   const postData = JSON.stringify({
     email_address: EMAIL_TARGET,
     template_id: NOTIFY_TEMPLATE_ID,
-    personalisation: {
-      name: name,
-      email: email,
-      message: message ? message : '',
-      learnMore: learnMoreStringArray,
-      familiarityGCDS: familiarityGCDS,
-    },
+    personalisation,
   });
 
   console.log('[INFO] Sending to Notify: ', postData);

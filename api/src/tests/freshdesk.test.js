@@ -70,7 +70,7 @@ describe('createTicket', () => {
     expect(mockFetch).not.toHaveBeenCalled();
   });
 
-  it('logs an error if fetch throws', async () => {
+  it('logs an error on failure', async () => {
     mockFetch.mockImplementation(() => { throw new Error('Network error'); });
     const consoleSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
     await createTicket(
@@ -133,9 +133,8 @@ describe('createTicket', () => {
     await createTicket(
       { FRESHDESK_API_KEY: 'key' },
       {
-        name: 'UnsubUser',
         email: 'unsub@example.com',
-        gcds_unsubscribe: true,
+        unsubscribe: true,
       },
       'en',
     );
@@ -154,9 +153,8 @@ describe('createTicket', () => {
     await createTicket(
       { FRESHDESK_API_KEY: 'key' },
       {
-        name: 'UnsubUser',
         email: 'unsub@example.com',
-        gcds_unsubscribe: true,
+        unsubscribe: true,
       },
       'fr',
     );

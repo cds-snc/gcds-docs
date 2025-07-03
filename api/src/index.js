@@ -47,7 +47,7 @@ app.post('/submission', async (req, res) => {
   }
 
   // Extract the fields from the form submission
-  let { name, email, message, familiarityGCDS, honeypot } = body;
+  let { name, email, message, familiarityGCDS, honeypot, unsubscribe } = body;
 
   const learnMore = [];
   if (body['learn-more-mailing-list']) {
@@ -62,6 +62,7 @@ app.post('/submission', async (req, res) => {
 
   let parameters;
   if (process.env['NODE_ENV'] === 'development') {
+    console.log(`[DEBUG] Running in development mode, using mock parameters`);
     parameters = {
       'gc-design-system-config': {
         EMAIL_TARGET: '',
@@ -92,7 +93,7 @@ app.post('/submission', async (req, res) => {
           familiarityGCDS,
         },
       );
-      redirectUser(origin, forwardedOrigin, lang, res);
+      redirectUser(origin, forwardedOrigin, lang, res, unsubscribe);
     }
   }
 
@@ -111,10 +112,20 @@ app.post('/submission', async (req, res) => {
   }
 
   // Check for required fields
-  if (!name || !email || !familiarityGCDS) {
-    console.warn('[WARN] Missing required fields');
-    res.status(204).send();
-    return;
+  if (unsubscribe) {
+    // For unsubscribe requests, only email and form-name are required
+    if (!email || !body['form-name']) {
+      console.warn('[WARN] Missing required fields for unsubscribe request');
+      res.status(204).send();
+      return;
+    }
+  } else {
+    // For regular contact form, name, email, and familiarityGCDS are required
+    if (!name || !email || !familiarityGCDS) {
+      console.warn('[WARN] Missing required fields');
+      res.status(204).send();
+      return;
+    }
   }
   message = message ? encode(message) : '';
 
@@ -129,7 +140,7 @@ app.post('/submission', async (req, res) => {
       message,
       learnMore,
       familiarityGCDS,
-      gcds_unsubscribe: body.gcds_unsubscribe,
+      unsubscribe,
     },
     lang,
   );
@@ -151,6 +162,7 @@ app.post('/submission', async (req, res) => {
         message,
         learnMore,
         familiarityGCDS,
+        unsubscribe,
       },
       lang,
     );
@@ -159,7 +171,7 @@ app.post('/submission', async (req, res) => {
   }
 
   // Redirect user once we're finished processing the request, regardless whether it was successful or not.
-  redirectUser(origin, forwardedOrigin, lang, res);
+  redirectUser(origin, forwardedOrigin, lang, res, unsubscribe);
 });
 
 // Only start the server if this file is run directly from the command line (not imported as a module).
