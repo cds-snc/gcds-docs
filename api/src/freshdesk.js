@@ -124,28 +124,4 @@ export const createTicket = async (settings, data, lang) => {
     console.error('[ERROR] Failed to send to Freshdesk', e);
     return Promise.resolve({ status: 500, ok: false });
   }
-
-  it('logs an error when the Freshdesk API returns a non-OK response', async () => {
-    mockFetch.mockResolvedValue({
-      ok: false,
-      status: 400,
-      text: () => Promise.resolve('Bad Request'),
-    });
-    const consoleSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
-    await createTicket(
-      { FRESHDESK_API_KEY: 'key' },
-      {
-        name: 'ErrorUser',
-        email: 'error@example.com',
-        message: 'Should fail',
-        learnMore: [],
-        familiarityGCDS: 'no',
-      },
-      'en',
-    );
-    expect(consoleSpy).toHaveBeenCalledWith(
-      expect.stringContaining('[ERROR] Failed to send to Freshdesk [400]'),
-    );
-    consoleSpy.mockRestore();
-  });
 };
