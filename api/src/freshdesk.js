@@ -11,6 +11,9 @@ const FRESHDESK_URL = 'https://cds-snc.freshdesk.com/api/v2/tickets';
 const BASE_TAGS = ['z_skip_opsgenie', 'z_skip_urgent_escalation'];
 
 // Ticket message formatting by type and language
+// At the moment, we have two types of tickets:
+// - unsubscribe request (form submission) and
+// - contact us form submissions
 const TICKET_FORMAT = {
   unsubscribe: {
     en: {
@@ -56,10 +59,6 @@ const buildTags = (learnMore) => {
   
   return tags;
 };
-
-
-
-
 
 export const createTicket = async (settings, data, lang) => {
   const { name, email, message, learnMore, familiarityGCDS, unsubscribe } = data;
@@ -125,4 +124,28 @@ export const createTicket = async (settings, data, lang) => {
     console.error('[ERROR] Failed to send to Freshdesk', e);
     return Promise.resolve({ status: 500, ok: false });
   }
+
+  it('logs an error when the Freshdesk API returns a non-OK response', async () => {
+    mockFetch.mockResolvedValue({
+      ok: false,
+      status: 400,
+      text: () => Promise.resolve('Bad Request'),
+    });
+    const consoleSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    await createTicket(
+      { FRESHDESK_API_KEY: 'key' },
+      {
+        name: 'ErrorUser',
+        email: 'error@example.com',
+        message: 'Should fail',
+        learnMore: [],
+        familiarityGCDS: 'no',
+      },
+      'en',
+    );
+    expect(consoleSpy).toHaveBeenCalledWith(
+      expect.stringContaining('[ERROR] Failed to send to Freshdesk [400]'),
+    );
+    consoleSpy.mockRestore();
+  });
 };
