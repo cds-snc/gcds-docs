@@ -16,7 +16,7 @@ export const sendEmail = async (settings, data, lang) => {
   };
 
   let learnMoreStringArray = [];
-  if (learnMore) {
+  if (learnMore && !unsubscribe) {
     learnMore.forEach(answer => {
       let learnMoreOption = learnMoreOptions[lang].options.find(
         option => option.value === answer,
