@@ -94,6 +94,7 @@ app.post('/submission', async (req, res) => {
         },
       );
       redirectUser(origin, forwardedOrigin, lang, res, unsubscribe);
+      return;
     }
   }
 
