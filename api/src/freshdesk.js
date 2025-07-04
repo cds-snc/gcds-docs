@@ -37,7 +37,7 @@ const TICKET_FORMAT = {
   },
 };
 
-// Helper functions
+// Helper function to build tags based on learnMore selections and environment
 const buildTags = (learnMore) => {
   const tags = [...BASE_TAGS];
   
