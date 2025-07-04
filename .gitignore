@@ -14,3 +14,8 @@ src/_includes/partials/templates/en/
 src/_includes/partials/templates/fr/
 
 cypress/screenshots/
+
+.idea/
+
+# Test coverage reports
+coverage/
