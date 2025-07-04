@@ -30,11 +30,10 @@ Use containers to:
 - Support readability and scannability by reducing the overall length of a line of text and presenting smaller chunks of content at a time.
 - Centre content on a screen or within a viewport.
 
-<article class="bg-full-width bg-primary text-light pt-600 pb-300 my-600">
-  <h2 class="mt-0">Related components</h2>
+<hr/>
 
-<a href="{{ links.grid }}" class="link-light">Grid</a> for a responsive, flexible column layout to position elements on a page.
+## Related components
 
-<a href="{{ links.card }}" class="link-light">Card</a> for grouping small pieces of related information as a single unit.
+<a href="{{ links.grid }}">Grid</a> for a responsive, flexible column layout to position elements on a page.
 
-</article>
+<a href="{{ links.card }}">Card</a> for grouping small pieces of related information as a single unit.

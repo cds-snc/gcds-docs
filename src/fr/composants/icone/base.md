@@ -8,10 +8,12 @@ tags: ['iconFR', 'header']
 
 # Icône <br>`<gcds-icon>`
 
-Ce composant est en cours de développement.
+_Autres noms : symbole, glyphe._
+
+Une icône est un symbole qui représente visuellement une action ou une idée.
 
 {% docLinks locale stage figma github %}
 {% enddocLinks %}
 
-{% baseComponentPreview "Aperçu du composant de icône" page.filePathStem %}
+{% baseComponentPreview "Aperçu du composant icône" page.filePathStem %}
 {% endbaseComponentPreview %}

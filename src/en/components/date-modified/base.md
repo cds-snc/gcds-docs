@@ -12,6 +12,9 @@ _Also called: Last updated, version date._
 
 Date modified is an indicator of the last update to a webpage or application.
 
+{% requiredOn locale true true %}
+{% endrequiredOn %}
+
 {% docLinks locale stage figma github %}
 {% enddocLinks %}
 

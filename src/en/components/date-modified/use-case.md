@@ -17,7 +17,8 @@ tags: ['datemodifiedEN', 'usage']
 permalink: /en/components/date-modified/
 date: 'git Last Modified'
 ---
-Date modified is a required component for Canada.ca pages.
+
+Date modified is a required component for Government of Canada websites and has specific requirements for Canada.ca pages.
 
 ## Problems date modified solves
 
@@ -26,12 +27,13 @@ Use date modified to:
 - Log the date that a web page was last changed.
 - Identify an application’s current version.
 
-<article class="bg-full-width bg-primary text-light pt-600 pb-300 my-600">
-  <h2 class="mt-0">Related components</h2>
+<hr/>
 
-<a href="{{ links.footer }}" class="link-light">Footer</a> for placing the Government of Canada branded footer landmark.
+## Related components
 
-</article>
+<a href="{{ links.footer }}">Footer</a> for placing the Government of Canada branded footer landmark.
+
+<hr class="mt-600"/>
 
 ## Component types
 

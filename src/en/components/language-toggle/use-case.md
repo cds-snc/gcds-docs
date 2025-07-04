@@ -17,7 +17,8 @@ tags: ['langtoggleEN', 'usage']
 permalink: /en/components/language-toggle/
 date: 'git Last Modified'
 ---
-Language toggle is a required component for Canada.ca pages.
+
+Language toggle is a required component for Government of Canada websites and has specific requirements for Canada.ca pages.
 
 Take a look at use cases for the language toggle to see if it fits the problem you're solving for.
 
@@ -28,9 +29,8 @@ Use the language toggle to:
 - Make sure people are able to switch between languages without losing track of where they were before switching.
 - Support Official Languages by offering equitable access in French and English.
 
-<article class="bg-full-width bg-primary text-light pt-600 pb-300 my-600">
-  <h2 class="mt-0">Related components</h2>
+<hr/>
 
-<a href="{{ links.header }}" class="link-light">Header</a> for placing the Government of Canada branded header landmark.
+## Related components
 
-</article>
+<a href="{{ links.header }}">Header</a> for placing the Government of Canada branded header landmark.

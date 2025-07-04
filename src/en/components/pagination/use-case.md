@@ -28,11 +28,10 @@ Use pagination for very lengthy content on a single page that might be difficult
 - Split into sections any long documents, like reports, that have chapters or other natural divisions.
 - Highlight the reader’s position in a sequence of content.
 
-<article class="bg-full-width bg-primary text-light pt-600 pb-300 my-600">
-  <h2 class="mt-0">Related components</h2>
+<hr/>
 
-<a href="{{ links.stepper }}" class="link-light">Stepper</a> to track progress in a multi-step process.
+## Related components
 
-Links in the <a href="{{ links.button }}" class="link-light">button</a> component to navigate between non-sequential pages or to external sites.
+<a href="{{ links.stepper }}">Stepper</a> to track progress in a multi-step process.
 
-</article>
+Links in the <a href="{{ links.button }}">button</a> component to navigate between non-sequential pages or to external sites.

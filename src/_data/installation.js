@@ -12,7 +12,7 @@ module.exports = {
       vue: 'Vue',
       node: 'NodeJS with no Javascript framework',
       cdn: 'Plain HTML - CDN',
-      figma: "Take me to the Figma Design Library",
+      figma: 'Take me to the Figma Design Library',
       other: 'None of the above',
     },
     step2: {
@@ -35,7 +35,6 @@ module.exports = {
           "Use the latest version of GC Design System. Version <code><span id='cdn-latest-version'></span></code>, released on <time id='cdn-latest-version-date'></time>, is the most recent. Pinned versions provide stability and predictability because the code will remain consistent and won't change unexpectedly, which can be crucial for maintaining the stability of an application. However, it requires manual updating of the CDN links whenever a newer version of GC Design System is released.",
         place:
           'Place the following code in the <code>head</code> element of your project:',
-        icons: 'to access icons, import Font Awesome',
         note: 'Note: <code>script type="module"</code> requires a server to load properly. If developing locally, please use <code>script nomodule</code>.',
         subheading: 'Automatic updates using <code>@latest</code>',
         latest:
@@ -56,7 +55,6 @@ module.exports = {
         install: 'Navigate to the root folder of your project and run:',
         place:
           'Place the following code in the <code>head</code> element of your site:',
-        icons: 'to access icons, import Font Awesome',
       },
       other: {
         paragraph:
@@ -133,7 +131,6 @@ module.exports = {
           "Utilisez la version la plus récente de Système de design GC. La version <code><span id='cdn-latest-version'></span></code>, publiée le <time id='cdn-latest-version-date'></time>, est la plus récente. Les versions épinglées offrent stabilité et prévisibilité parce que le code ne changera pas de manière inattendue, ce qui peut être crucial pour maintenir la stabilité d'une application. Toutefois, il faut mettre à jour manuellement les liens CDN chaque fois qu'une version plus récente de Système de design GC est publiée.",
         place:
           "Insérez le code suivant dans l'élément <code>head</code> de votre projet :",
-        icons: 'pour avoir accès aux icônes, installer Font Awesome',
         note: 'Remarque : <code>script type="module"</code> nécessite un serveur pour le chargement. Pour le développement local, veuillez utiliser <code>script nomodule</code>.',
         subheading: 'Mises à jour automatiques grâce à <code>@latest</code>',
         latest:
@@ -156,7 +153,6 @@ module.exports = {
           "Naviguez jusqu'au dossier racine de votre projet et exécutez :",
         place:
           "Insérez le code suivant dans l'élément <code>head</code> de votre site :",
-        icons: 'pour avoir accès aux icônes, installer Font Awesome',
       },
       other: {
         paragraph:

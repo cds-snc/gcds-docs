@@ -12,7 +12,7 @@ eleventyNavigation:
   description: Un groupe de boutons radio permet de proposer plusieurs options de réponse pour un choix unique.
   thumbnail: /images/common/components/preview-radio.svg
   alt: Une colonne de trois sélections sous forme de bouton radio. Chaque cercle de bouton radio a une mince bordure noire et un remplissage blanc. Une épaisse ligne grise se trouve à côté, représentant le libellé. L’un des trois cercles est sélectionné et est rempli par un cercle noir foncé.
-  state: published
+  state: deprecated
 translationKey: "radiogroup"
 tags: ['radiogroupFR', 'usage']
 permalink: /fr/composants/groupe-de-boutons-radio/
@@ -29,11 +29,10 @@ Utilisez un groupe de boutons radio avec un [jeu de champs]({{ links.fieldset }}
 - Déterminer les réponses possibles à votre question.
 - Lui donner la capacité de répondre sans avoir à écrire en sélectionnant une option parmi une liste.
 
-<article class="bg-full-width bg-primary text-light pt-600 pb-300 my-600">
-  <h2 class="mt-0">Composants connexes</h2>
+<hr/>
 
-<a href="{{ links.checkbox }}" class="link-light">Cases à cocher</a> lorsque vous prévoyez que l’utilisateur·rice sélectionne plusieurs options parmi une liste d’éléments.
+## Composants connexes
 
-<a href="{{ links.select }}" class="link-light">Sélection</a> lorsque vous donnez à l’utilisateur·rice une moyenne ou grande quantité d’options pour une seule option connue.
+<a href="{{ links.checkbox }}">Cases à cocher</a> lorsque vous prévoyez que l’utilisateur·rice sélectionne plusieurs options parmi une liste d’éléments.
 
-</article>
+<a href="{{ links.select }}">Sélection</a> lorsque vous donnez à l’utilisateur·rice une moyenne ou grande quantité d’options pour une seule option connue.

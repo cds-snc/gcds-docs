@@ -8,12 +8,12 @@ tags: ['radiogroupFR', 'header']
 
 # Groupe de boutons radio <br>`<gcds-radio-group>`
 
+<gcds-error-message message-id="component-deprecated">
+Ce composant est obsolète à partir de la version 0.35.0. Consultez les <gcds-link href="https://github.com/cds-snc/gcds-components/releases/tag/gcds-components-v0.35.0">notes de publication v0.35.0</gcds-link> pour plus d'information.
+</gcds-error-message>
+
 _Autres noms : radio button, radio._
 
 Le groupe de boutons radio est un ensemble d’options permettant une sélection unique.
 
-{% docLinks locale stage figma github %}
-{% enddocLinks %}
-
-{% baseComponentPreview "Aperçu du composant du groupe de boutons radio" page.filePathStem %}
-{% endbaseComponentPreview %}
+<br/>

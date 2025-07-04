@@ -8,28 +8,17 @@ date: 'git Last Modified'
 
 ## Build a fieldset
 
-Use a fieldset to group together related form elements or components and make these groups perceivable. Also use them for components with multiple options, like [radios]({{ links.radio }}) and [checkboxes]({{ links.checkbox }}).
+Use a fieldset to group together related form elements or components.
 
 ## Coding and accessibility for fieldsets
 
-{% include "partials/error-message.njk" %}
+### Heading hierarchy
+
+Use the `legend-size` attribute to visually place the legend among the headings on the page. Set the attribute value to `h2` | `h3` | `h4` | `h5` | `h6` to render the fieldset legend to the appropriate size.
 
 ### Keep hint text static and perceivable
 
 Maintain the default `hint` attribute to provide additional context so a person can provide a complete value and avoid an error state. This places hint text under the fieldset `legend` and above the grouping.
-
-### Support error message and hint text for radios and checkboxes
-
-- The `required` and `error-message` attributes for the fieldset work best with a group of [checkboxes]({{ links.checkbox }}) or [radio buttons]({{ links.radio }}).
-- Maintain the fieldset's default `hint` text, validators, and error messages for radios and checkboxes.
-- For radios and checkboxes, making the `legend` the question or instruction (like an [input]({{ links.input }}) label) helps people using assistive technology to understand the options are all related to that question.
-
-### Validators
-
-The fieldset will only validate [checkbox]({{ links.checkbox }}) and [radio button]({{ links.radio }}) children.
-
-- Use the `required` attribute to activate the required validator. Validation will happen by default on the `onBlur` event.
-- If you need to change the validation event, use the `validate-on` attribute. Validation can happen on blur, when the element loses focus, or manually with the validate method.
 
 {% include "partials/getcode.njk" %}
 

@@ -12,6 +12,9 @@ _Also called: language switch, language selector._
 
 The language toggle is a link to the same content in the other Official Language.
 
+{% requiredOn locale true true %}
+{% endrequiredOn %}
+
 {% docLinks locale stage figma github %}
 {% enddocLinks %}
 

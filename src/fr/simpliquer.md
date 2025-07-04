@@ -22,7 +22,7 @@ Nous testons actuellement la version alpha de Système de design GC, ce qui corr
 <gcds-grid columns="1fr" columns-tablet="1fr 1fr" columns-desktop="1fr 1fr 1fr">
   <gcds-card
     card-title="Recevez nos communications"
-    href="{{ links.contact }}"
+    href="{{ links.contactMailingList }}"
     description="Abonnez-vous à notre liste d'envoi pour manquer aucune communication de Système de design GC concernant les mises à jour, les lancements ou encore les évènements spéciaux."
   ></gcds-card>
   <gcds-card
@@ -41,7 +41,6 @@ Vous pouvez contribuer à l’avenir de Système de design GC.
 Nous recherchons activement des contributions pour les éléments suivants :
 
 - **Des tableaux de données** pour organiser et afficher une grande quantité de données dans des rangées et des colonnes.
-- **Des balises** pour étiqueter, catégoriser et organiser des éléments à l’aide de mots-clés descriptifs.
 
 Nous nous intéressons également aux problèmes concernant les interactions avec les utilisateurs et utilisatrice ou aux solutions qui peuvent s’appliquer aux différents services du GC.
 
@@ -60,30 +59,6 @@ Fournissez l'un des éléments suivants pour chaque composant ou modèle de page
 
 ## Autres nouveautés à venir
 
-Voici ce que nous allons bientôt publier. Plus de renseignements sur notre <gcds-link href="{{ links.roadmap }}" >feuille de route</gcds-link>.
-
-<div>
-  <gcds-heading tag="h3" margin-bottom="0">Mise à jour à l'en-tête</gcds-heading>
-  <ul class="mb-300">
-    <li>Nous apportons des mises à jour au composant « En-tête » pour l’harmoniser avec l’en-tête général de Canada.ca.</li>
-    <li><strong>Sortie prévue :</strong> automne 2024</li>
-  </ul>
-</div>
-
-<div>
-  <gcds-heading tag="h3" margin-bottom="0">Mise à jour au pied de page</gcds-heading>
-  <ul class="mb-300">
-    <li>Nous apportons des mises à jour au composant « Pied de page » pour l’harmoniser avec le pied de page général de Canada.ca.</li>
-    <li><strong>Sortie prévue :</strong> automne 2024</li>
-  </ul>
-</div>
-
-<div>
-  <gcds-heading tag="h4" margin-bottom="0">Mise à jour au bouton</gcds-heading>
-  <ul class="mb-300">
-    <li>Nous apportons des modifications au composant « Bouton » afin d’ajouter un nouveau rôle et une nouvelle taille de bouton. </li>
-    <li><strong>Sortie prévue :</strong> automne 2024</li>
-  </ul>
-</div>
+Plus de renseignements sur notre <gcds-link href="{{ links.roadmap }}" >feuille de route</gcds-link>.
 
 {% include "partials/helpus.njk" %}

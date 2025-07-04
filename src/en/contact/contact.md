@@ -45,15 +45,13 @@ This form is for people building government websites and digital products. You c
 <gcds-input type="email" name="email" input-id="email" label="Email address" autocomplete="email" required></gcds-input>
 <gcds-textarea name="message" label="Provide your feedback or ask a question if you need help" hint="Never include personal (Protected) information." textarea-id="message"></gcds-textarea>
 
-  <gcds-fieldset fieldset-id="learnMore" legend="Receive communication from GC Design System" hint="If you’d like us to contact you, choose one or both options.">
-    <gcds-checkbox checkbox-id="learnMoreMailingList" label="Sign me up for the mailing list." value="learn-more-mailing-list" name="learn-more-mailing-list"></gcds-checkbox>
-    <gcds-checkbox checkbox-id="learnMoreResearch" label="Contact me for usability research." value="learn-more-mailing-list" name="learn-more-research"></gcds-checkbox>
+  <gcds-fieldset legend="Receive communication from GC Design System" legend-size="h3" hint="If you'd like us to contact you, choose one or both options.">
+    <gcds-checkboxes name="learn-more-mailing-list" options="{{ contactus[locale].mailingcheck | stringify | encode-html }}"></gcds-checkboxes>
+    <gcds-checkboxes name="learn-more-research" options="{{ contactus[locale].researchcheck | stringify | encode-html }}"></gcds-checkboxes>
   </gcds-fieldset>
 
-  <gcds-fieldset fieldset-id="familiarityGCDS" legend="Select your experience with GC Design System to date " hint="Choose 1 option." required>
-    <gcds-radio-group name="familiarityGCDS" options='{{ contactus[locale].options | stringify | encode-html}}'>
-    </gcds-radio-group>
-  </gcds-fieldset>
+  <gcds-radios legend="Select your experience with GC Design System to date" hint="Choose 1 option." name="familiarityGCDS" options='{{ contactus[locale].radiooptions | stringify | encode-html}}'>
+  </gcds-radios>
 
   <div hidden>
     <gcds-input type="text" name="bot-field" input-id="bot-field" label="bot"></gcds-input>

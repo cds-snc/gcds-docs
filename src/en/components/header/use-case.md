@@ -30,11 +30,10 @@ Use this header landmark and brand element for Canada.ca pages, GC websites, and
 - Support ease of navigation for people using GC services.
 - Include the required Federal Identity Program branded Government of Canada signature.
 
-<article class="bg-full-width bg-primary text-light pt-600 pb-300 my-600">
-  <h2 class="mt-0">Related components</h2>
+<hr/>
 
-<a href="{{ links.footer }}" class="link-light">Footer</a> to signal the end of a page with a Government of Canada branded landmark.
+## Related components
 
-<a href="{{ links.signature }}" class="link-light">Signature</a> to identify Government of Canada brand and identity.
+<a href="{{ links.footer }}">Footer</a> to signal the end of a page with a Government of Canada branded landmark.
 
-</article>
+<a href="{{ links.signature }}">Signature</a> to identify Government of Canada brand and identity.

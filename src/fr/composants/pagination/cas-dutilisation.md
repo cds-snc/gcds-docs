@@ -28,11 +28,10 @@ Utilisez la pagination pour réduire la charge cognitive lorsqu’un contenu tr�
 - Séparer en plusieurs sections les longs documents, comme les rapports, qui comprennent des chapitres ou des divisions naturelles.
 - Mettre en évidence la position de la personne dans une séquence de contenu.
 
-<article class="bg-full-width bg-primary text-light pt-600 pb-300 my-600">
-  <h2 class="mt-0">Composants connexes</h2>
+<hr/>
 
-<a href="{{ links.stepper }}" class="link-light">Indicateur d’étape</a> pour suivre l’avancement dans un processus à plusieurs étapes.
+## Composants connexes
 
-Liens dans le composant <a href="{{ links.button }}" class="link-light">Bouton</a> pour naviguer entre deux pages qui ne se suivent pas ou vers des sites externes.
+<a href="{{ links.stepper }}">Indicateur d’étape</a> pour suivre l’avancement dans un processus à plusieurs étapes.
 
-</article>
+Liens dans le composant <a href="{{ links.button }}">Bouton</a> pour naviguer entre deux pages qui ne se suivent pas ou vers des sites externes.

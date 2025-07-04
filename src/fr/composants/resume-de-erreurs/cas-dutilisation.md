@@ -27,10 +27,8 @@ Utilisez le résumé des erreurs pour interrompre l'envoi d'un formulaire lorsqu
 - Rendre les erreurs évidentes pour que l'on sache les reconnaître et y remédier;
 - Dresser une liste <gcds-link href="{{ links.errorMessage }}">des messages d'erreur</gcds-link> lorsqu'une personne doit ajouter des renseignements ou apporter des modifications à deux ou plusieurs éléments avant de pouvoir soumettre un formulaire.
 
-<article class="bg-full-width bg-primary text-light pt-600 pb-300 my-600">
+<hr/>
 
-  <h2 class="mt-0">Composants connexes</h2>
+## Composants connexes
 
-<a href="{{ links.errorMessage }}" class="link-light">Message d'erreur</a> lorsque vous cherchez à décrire un problème représentant un obstacle à une action menée par l'utilisateur·rice, lié à un seul composant.
-
-</article>
+<a href="{{ links.errorMessage }}">Message d'erreur</a> lorsque vous cherchez à décrire un problème représentant un obstacle à une action menée par l'utilisateur·rice, lié à un seul composant.

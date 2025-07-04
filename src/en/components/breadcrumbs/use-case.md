@@ -17,7 +17,8 @@ tags: ['breadcrumbsEN', 'usage']
 permalink: /en/components/breadcrumbs/
 date: 'git Last Modified'
 ---
-Breadcrumbs is a required component for Canada.ca pages.
+
+Breadcrumbs is a required component for standard and campaign pages on Canada.ca.
 
 Check out use cases for breadcrumbs to see if they fit the problem you're solving for.
 
@@ -30,13 +31,12 @@ Use breadcrumbs to signal a visitor's current location and give them a sense of 
 - Situate the current page in relation to its parent in the site structure.
 - Organize websites in a hierarchy of more than two levels.
 
-<article class="bg-full-width bg-primary text-light pt-600 pb-300 my-600">
-  <h2 class="mt-0">Related components</h2>
+<hr/>
 
-<a href="{{ links.footer }}" class="link-light">Footer</a> for placing the Government of Canada branded footer landmark.
+## Related components
 
-<a href="{{ links.header }}" class="link-light">Header</a> for placing the Government of Canada branded header landmark.
+<a href="{{ links.footer }}">Footer</a> for placing the Government of Canada branded footer landmark.
 
-<a href="{{ links.topNav }}" class="link-light">Top navigation</a> for guiding navigation through a website using a landmark.
+<a href="{{ links.header }}">Header</a> for placing the Government of Canada branded header landmark.
 
-</article>
+<a href="{{ links.topNav }}">Top navigation</a> for guiding navigation through a website using a landmark.

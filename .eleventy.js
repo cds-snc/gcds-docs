@@ -30,6 +30,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy('./src/scripts/code-showcase.js');
   eleventyConfig.addPassthroughCopy('./src/scripts/search.js');
   eleventyConfig.addPassthroughCopy('./src/scripts/code-copy.js');
+  eleventyConfig.addPassthroughCopy('./src/scripts/general.js');
   eleventyConfig.addPassthroughCopy('./src/scripts/component-preview.js');
   eleventyConfig.addPassthroughCopy(
     './src/scripts/component-preview-iframe.js',
@@ -316,11 +317,7 @@ module.exports = function (eleventyConfig) {
         </li>`;
       }
 
-      return `
-      <ul class="d-flex flex-wrap gap-300">
-        ${canChip}
-        ${gcChip}
-      </ul>`;
+      return `<ul class="d-flex flex-wrap gap-300">${canChip}${gcChip}</ul>`;
     },
   );
 
@@ -344,7 +341,7 @@ module.exports = function (eleventyConfig) {
 
   eleventyConfig.addPairedShortcode(
     'baseComponentPreview',
-    (children, title, url, queryString = "") => {
+    (children, title, url, queryString = '') => {
       return `
       <div class="my-600 b-sm b-default component-preview">
         <h2 class="container-full font-text font-semibold m-0 px-225 py-150 bb-sm b-default bg-light">

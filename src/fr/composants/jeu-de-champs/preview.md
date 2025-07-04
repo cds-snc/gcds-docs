@@ -6,7 +6,7 @@ eleventyExcludeFromCollections: true
 templateEngineOverride: njk
 ---
 
-<gcds-fieldset fieldset-id="fieldset" legend="Légende" hint="Texte explicatif/Exemple de message.">
+<gcds-fieldset legend="Légende" legend-size="h3" hint="Texte explicatif/Exemple de message.">
   <gcds-input input-id="form-input" label="Étiquette de champ" hint="Texte explicatif/Exemple de message." size="6">
   </gcds-input>
   <gcds-select select-id="form-select" label="Étiquette de sélection" hint="Texte explicatif/Exemple de message." default-value="Sélectionnez l'option">
