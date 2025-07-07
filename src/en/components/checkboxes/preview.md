@@ -14,12 +14,14 @@ templateEngineOverride: njk
     {
       "id": "form-check-1",
       "label": "Label",
-      "hint": "Description or example to make the option clearer."
+      "hint": "Description or example to make the option clearer.",
+      "value": "check1"
     },
     {
-      "id": "form-check-1",
+      "id": "form-check-2",
       "label": "Label",
-      "hint": "Description or example to make the option clearer."
+      "hint": "Description or example to make the option clearer.",
+      "value": "check2"
     }
   ]'
 >
