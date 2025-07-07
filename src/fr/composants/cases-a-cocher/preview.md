@@ -14,12 +14,14 @@ templateEngineOverride: njk
     {
       "id": "form-check-1",
       "label": "Libellé",
-      "hint": "Ceci est une description ou un exemple à titre de clarification."
+      "hint": "Ceci est une description ou un exemple à titre de clarification.",
+      "value": "check1"
     },
     {
-      "id": "form-check-1",
+      "id": "form-check-2",
       "label": "Libellé",
-      "hint": "Ceci est une description ou un exemple à titre de clarification."
+      "hint": "Ceci est une description ou un exemple à titre de clarification.",
+      "value": "check2"
     }
   ]'
 >
