@@ -22,7 +22,7 @@ customHeaders:
           font-src 'self' fonts.gstatic.com https://unpkg.com/font-awesome@4.7.0/ https://cdnjs.cloudflare.com/ajax/libs/font-awesome/ https://cdn.design-system.alpha.canada.ca/@cdssnc/;
           script-src 'self' 'wasm-unsafe-eval' https://cdn.design-system.alpha.canada.ca www.googletagmanager.com www.google-analytics.com https://cdnjs.cloudflare.com/ajax/libs/font-awesome/ https://cdn.jsdelivr.net/npm/ 'unsafe-inline';
           frame-src www.googletagmanager.com www.google-analytics.com https://cds-snc.github.io/ https://design-system.alpha.canada.ca/ https://systeme-design.alpha.canada.ca/;
-          connect-src 'self' www.googletagmanager.com www.google-analytics.com www.canada.ca;
+          connect-src 'self' registry.npmjs.org/@cdssnc www.googletagmanager.com www.google-analytics.com www.canada.ca;
           img-src 'self' data: https: www.w3.org;
           style-src 'unsafe-inline' https: 'strict-dynamic' 'self' https://fonts.googleapis.com;
           base-uri 'self';
