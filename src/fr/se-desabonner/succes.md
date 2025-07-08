@@ -5,8 +5,8 @@ eleventyExcludeFromCollections: true
 date: 'git Last Modified'
 ---
 
-# You’re unsubscribed
+# Vous êtes désabonné-e
 
-It may take up to 48 hours to take effect.
+Cela peut prendre jusqu'à 48 heures.
 
-If you want to re-subscribe to the mailing list, use the <gcds-link href="/en/contact">Contact us page</gcds-link>. 
+Pour vous réabonner à la liste de diffusion, utilisez la page <gcds-link href="/en/contact">« Contactez-nous »</gcds-link>.

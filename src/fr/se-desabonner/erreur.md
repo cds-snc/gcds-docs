@@ -5,9 +5,8 @@ eleventyExcludeFromCollections: true
 date: 'git Last Modified'
 ---
 
+Une erreur s’est produite
 
-# Something went wrong
+Nous n'avons pas reçu votre demande de désabonnement de la liste de diffusion. Veuillez réessayer dans 30 minutes.
 
-We weren’t able to receive your request to unsubscribe from the mailing list. Please try again in 30 minutes.
-
-If it still doesn’t work, <gcds-link href="/fr/contactez">contact us</gcds-button>.
+Si cela ne fonctionne toujours pas, <gcds-link href="/fr/contactez">contactez-nous</gcds-button>.
