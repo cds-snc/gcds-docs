@@ -184,7 +184,7 @@ module.exports = function (eleventyConfig) {
   // Short codes
 
   // Add correct step to installation "start building" section
-  eleventyConfig.addPairedShortcode('startBuilding', (content, lang, step) => {
+  eleventyConfig.addPairedShortcode('startBuilding', (content, lang = 'en', step) => {
     const langStrings = {
       en: {
         heading: 'Start building',
