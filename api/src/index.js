@@ -93,7 +93,7 @@ app.post('/submission', async (req, res) => {
           familiarityGCDS,
         },
       );
-      redirectUser(origin, forwardedOrigin, lang, res, unsubscribe);
+      redirectUser(origin, forwardedOrigin, lang, res, unsubscribe, 'error');
       return;
     }
   }
@@ -117,14 +117,14 @@ app.post('/submission', async (req, res) => {
     // For unsubscribe requests, only email and form-name are required
     if (!email || !body['form-name']) {
       console.warn('[WARN] Missing required fields for unsubscribe request');
-      res.status(204).send();
+      res.status(400).send();
       return;
     }
   } else {
     // For regular contact form, name, email, and familiarityGCDS are required
     if (!name || !email || !familiarityGCDS) {
       console.warn('[WARN] Missing required fields');
-      res.status(204).send();
+      res.status(400).send();
       return;
     }
   }
@@ -172,7 +172,7 @@ app.post('/submission', async (req, res) => {
   }
 
   // Redirect user once we're finished processing the request, regardless whether it was successful or not.
-  redirectUser(origin, forwardedOrigin, lang, res, unsubscribe);
+  redirectUser(origin, forwardedOrigin, lang, res, unsubscribe, 'success');
 });
 
 // Only start the server if this file is run directly from the command line (not imported as a module).

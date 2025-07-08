@@ -159,7 +159,7 @@ describe('createTicket', () => {
       'fr',
     );
     const payload = JSON.parse(mockFetch.mock.calls[0][1].body);
-    expect(payload.subject).toBe('Demande de désabonnement GCSD');
+    expect(payload.subject).toBe('Demande de désabonnement SDGC');
     expect(payload.description).toContain('Demande de désabonnement');
     expect(payload.description).toContain('Courriel: unsub@example.com');
     expect(payload.custom_fields.cf_language).toBe('Français');
