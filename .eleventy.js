@@ -204,9 +204,6 @@ module.exports = function (eleventyConfig) {
       },
     };
 
-    if (lang != 'en ' && lang != 'fr') {
-      lang = 'en';
-    }
 
     return `
       <div>
