@@ -43,11 +43,13 @@ Sélectionnez parmi les options suivantes, puis suivez les étapes pour installe
     card-title="Avec npm"
     href="#installation-avec-npm"
     description="Sélectionnez cette option si vous utilisez npm (gestionnaire de paquets node)."
+    role="listitem"
   /></gcds-card>
   <gcds-card
     card-title="Avec CDN"
     href="#installation-avec-cdn"
     description="Sélectionnez cette option si vous n’utilisez pas npm. Vous installerez les composants à l’aide de liens de réseau de distribution de contenu (CDN)."
+    role="listitem"
   ></gcds-card>
 </gcds-grid>
 

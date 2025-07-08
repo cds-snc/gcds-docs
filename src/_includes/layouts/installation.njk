@@ -10,7 +10,13 @@ layout: "layouts/base.njk"
 <gcds-text>{{ installation[locale].paragraph }}</gcds-text>
 
 <gcds-grid class="mb-300" tag="ul" columns="1fr" columns-tablet="1fr 1fr" columns-desktop="1fr 1fr 1fr">
-  <gcds-card card-title="{{ installation[locale].cardTitle }}" href="{{ installation[locale].cardLink }}" img-src="/images/common/installation/banner-html.svg" img-alt="">
+  <gcds-card
+    card-title="{{ installation[locale].cardTitle }}"
+    href="{{ installation[locale].cardLink }}"
+    img-src="/images/common/installation/banner-html.svg"
+    img-alt=""
+    role="listitem"
+  >
     <gcds-text>{{ installation[locale].cardDescription }}</gcds-text>
     <gcds-text>{{ installation[locale].cardEnvExamples }}</gcds-text>
   </gcds-card>

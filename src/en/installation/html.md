@@ -43,11 +43,13 @@ Based on your selection, follow the steps to install GC Design System components
     card-title="With npm"
     href="#npm-installation-instructions"
     description="Select if you’re using npm (node package manager)."
+    role="listitem"
   /></gcds-card>
   <gcds-card
     card-title="With CDN"
     href="#cdn-installation-instructions"
     description="Select if you’re not using npm. You’ll install the components through content delivery network (CDN) links."
+    role="listitem"
   ></gcds-card>
 </gcds-grid>
 
