@@ -1,6 +1,6 @@
 ---
 title: Amorcer un projet en HTML
-layout: 'layouts/base.njk'
+layout: 'layouts/installation-html.njk'
 eleventyNavigation:
   key: htmlFR
   title: HTML
@@ -14,7 +14,6 @@ eleventyNavigation:
 permalink: /fr/installation/html/
 translationKey: 'html'
 date: 'git Last Modified'
-script: '/scripts/get-latest-cdn-version.js'
 ---
 
 # Amorcer un projet en HTML

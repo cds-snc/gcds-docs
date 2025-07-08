@@ -1,9 +1,13 @@
-document.addEventListener('DOMContentLoaded', function () {
+---
+layout: "layouts/base.njk"
+---
+
+{{ content | safe }}
+
+<script>
   async function getLatestCdnVersion() {
     const cdnLatestVersion = document.getElementById('cdn-latest-version');
-    const cdnLatestVersionDate = document.getElementById(
-      'cdn-latest-version-date',
-    );
+    const cdnLatestVersionDate = document.getElementById('cdn-latest-version-date');
     const codeElements = document.querySelectorAll('.attr-value');
 
     try {
@@ -26,10 +30,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
       // Update CDN links with the latest version
       codeElements.forEach(element => {
-        element.textContent = element.textContent.replace(
-          '||version||',
-          latestVersion,
-        );
+        element.textContent = element.textContent.replace('||version||', latestVersion);
       });
     } catch (error) {
       console.error('Error fetching latest version:', error);
@@ -40,13 +41,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
       // Update CDN links with fallback version if fetch fails
       codeElements.forEach(element => {
-        element.textContent = element.textContent.replace(
-          '||version||',
-          '{{ latestCdnVersion.version }}',
-        );
+        element.textContent = element.textContent.replace('||version||', '{{ latestCdnVersion.version }}');
       });
     }
   }
 
   getLatestCdnVersion();
-});
+</script>

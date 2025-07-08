@@ -1,6 +1,6 @@
 ---
 title: Get started with HTML
-layout: 'layouts/base.njk'
+layout: 'layouts/installation-html.njk'
 eleventyNavigation:
   key: htmlEN
   title: HTML
@@ -14,7 +14,6 @@ eleventyNavigation:
 permalink: /en/installation/html/
 translationKey: 'html'
 date: 'git Last Modified'
-script: '/scripts/get-latest-cdn-version.js'
 ---
 
 # Get started with HTML
