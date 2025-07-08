@@ -1,22 +1,8 @@
-<div id="step-2-cdn" class="pb-300 step-2-content">
-  <h2>{{ installation[locale].step2.heading }}</h2>
-  <p>{{ installation[locale].step2.cdn.paragraph }}</p>
+---
+layout: "layouts/base.njk"
+---
 
-  <h3>{{ installation[locale].step2.cdn.heading }}</h3>
-  <p>{{ installation[locale].step2.cdn.version | safe }}</p>
-  <p>{{ installation[locale].step2.cdn.place | safe }}</p>
-
-{% highlight "html" %}
-<!-- GC Design System -->
-<link rel="stylesheet" href="https://cdn.design-system.alpha.canada.ca/@cdssnc/gcds-components@||version||/dist/gcds/gcds.css">
-<script type="module" src="https://cdn.design-system.alpha.canada.ca/@cdssnc/gcds-components@||version||/dist/gcds/gcds.esm.js"></script>
-{% endhighlight %}
-
-  <small>{{ installation[locale].step2.cdn.note | safe }}</small>
-
-  <h3>{{ installation[locale].step2.cdn.subheading | safe }}</h3>
-  <p>{{ installation[locale].step2.cdn.latest | safe }}</p>
-</div>
+{{ content | safe }}
 
 <script>
   async function getLatestCdnVersion() {
