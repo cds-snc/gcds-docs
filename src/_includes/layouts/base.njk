@@ -49,6 +49,11 @@
     {% include "partials/footer.njk" %}
 
     </div>
+
+    {% if script %}
+      <script src="{{ script | url }}"></script>
+    {% endif %}
+
     {% initClipboardJS %}
   </body>
 </html>
