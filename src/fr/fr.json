@@ -64,7 +64,7 @@
 
     "comingSoon": "/fr/developpement-en-cours",
     "demo": "/fr/demo",
-    "releaseNotes": "https://github.com/cds-snc/gcds-components/blob/main/CHANGELOG.md",
+    "releaseNotes": "https://github.com/cds-snc/gcds-components/blob/main/CHANGELOG.md#journal-des-modifications",
     "privacy": "/fr/avis-de-confidentialite/",
     "termsOfUse": "/fr/conditions-dutilisation",
     "sla": "/fr/entente-sur-les-niveaux-de-service",
@@ -115,6 +115,11 @@
     "githubIssues": "https://github.com/cds-snc/gcds-components/issues",
     "githubTokens": "https://github.com/cds-snc/gcds-tokens",
     "githubTokensIssues": "https://github.com/cds-snc/gcds-tokens/issues",
+
+    "npmGcdsComponents": "https://www.npmjs.com/package/@cdssnc/gcds-components",
+    "npmGcdsComponentsAngular": "https://www.npmjs.com/package/@cdssnc/gcds-components-angular",
+    "npmGcdsComponentsReact": "https://www.npmjs.com/package/@cdssnc/gcds-components-react",
+    "npmGcdsComponentsVue": "https://www.npmjs.com/package/@cdssnc/gcds-components-vue",
 
     "tbsStandardsOnWebA11y": "https://www.tbs-sct.canada.ca/pol/doc-fra.aspx?id=23601",
 

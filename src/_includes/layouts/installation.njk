@@ -4,43 +4,16 @@ layout: "layouts/base.njk"
 
 {{ content | safe }}
 
-{% include "partials/installation/step-1.njk" %}
+{% include "partials/card-list.njk" %}
 
-<div class="step-2-content-container">
-  {% include "partials/installation/step-2-choose.njk" %}
-  {% include "partials/installation/step-2-angular.njk" %}
-  {% include "partials/installation/step-2-react.njk" %}
-  {% include "partials/installation/step-2-vue.njk" %}
-  {% include "partials/installation/step-2-node.njk" %}
-  {% include "partials/installation/step-2-cdn.njk" %}
-  {% include "partials/installation/step-2-figma.njk" %}
-  {% include "partials/installation/step-2-none.njk" %}
-</div>
+<gcds-heading tag="h3">{{ installation[locale].heading }}</gcds-heading>
+<gcds-text>{{ installation[locale].paragraph }}</gcds-text>
 
-{% include "partials/installation/step-3.njk" %}
+<gcds-grid class="mb-300" tag="ul" columns="1fr" columns-tablet="1fr 1fr" columns-desktop="1fr 1fr 1fr">
+  <gcds-card card-title="{{ installation[locale].cardTitle }}" href="{{ installation[locale].cardLink }}" img-src="/images/common/installation/banner-html.svg" img-alt="">
+    <gcds-text>{{ installation[locale].cardDescription }}</gcds-text>
+    <gcds-text>{{ installation[locale].cardEnvExamples }}</gcds-text>
+  </gcds-card>
+</gcds-grid>
 
-{% set removeBorder = true %}
-
-<script>
-  const select = document.querySelector('gcds-select');
-  const content = document.querySelectorAll('.step-2-content');
-
-  // Display choose section by default
-  content.forEach(function(element) {
-    if ( element.id != 'step-2-choose' ) {
-      element.classList.add('d-none');
-    }
-  })
-
-  select.addEventListener("gcdsChange", function() {
-    // Hide all non selected sections
-    content.forEach(function(element) {
-      element.classList.remove('d-block');
-      element.classList.add('d-none');
-    })
-
-    // Show selected section
-    document.getElementById(select.value).classList.remove('d-none');
-    document.getElementById(select.value).classList.add('d-block');
-  });
-</script>
+<gcds-text>{{ installation[locale].reachOut | safe }}</gcds-text>

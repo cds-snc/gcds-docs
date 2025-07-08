@@ -35,6 +35,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy(
     './src/scripts/component-preview-iframe.js',
   );
+  eleventyConfig.addPassthroughCopy('./src/scripts');
   eleventyConfig.addPassthroughCopy('./src/favicon.ico');
   eleventyConfig.addPassthroughCopy({ './src/variables/': 'variables' });
   eleventyConfig.addPassthroughCopy({
@@ -181,6 +182,46 @@ module.exports = function (eleventyConfig) {
   markdownLibrary.disable('code');
 
   // Short codes
+
+  // Add correct step to installation "start building" section
+  eleventyConfig.addPairedShortcode('startBuilding', (content, lang, step) => {
+    const langStrings = {
+      en: {
+        heading: 'Start building',
+        text: "Once you've installed the design system, start building! Browse our available components and templates to pull the code you need into your project.",
+        buttonComponentsLink: '/en/components',
+        buttonComponentsText: 'Browse components',
+        buttonTemplatesLink: '/en/page-templates',
+        buttonTemplatesText: 'Browse templates',
+      },
+      fr: {
+        heading: 'Commencez à créer',
+        text: 'Une fois le système de design installé, commencez à créer! Parcourez nos composants et modèles pour y trouver le code dont vous avez besoin pour votre projet.',
+        buttonComponentsLink: '/fr/composants',
+        buttonComponentsText: 'Parcourir les composants',
+        buttonTemplatesLink: '/fr/modeles-de-page',
+        buttonTemplatesText: 'Parcourir les modèles',
+      },
+    };
+
+    if (lang != 'en ' && lang != 'fr') {
+      lang = 'en';
+    }
+
+    return `
+      <div>
+        <gcds-heading tag="h3">${step ? `${step}. ` : ''} ${langStrings[lang].heading}</gcds-heading>
+        <gcds-text>${langStrings[lang].text}</gcds-text>
+
+        <gcds-button class="mb-300 xs:me-300" type="link" href="${langStrings[lang].buttonComponentsLink}">
+          ${langStrings[lang].buttonComponentsText}
+        </gcds-button>
+        <gcds-button class="mb-300" type="link" href="${langStrings[lang].buttonTemplatesLink}" button-role="secondary">
+          ${langStrings[lang].buttonTemplatesText}
+        </gcds-button>
+      </div>
+    `;
+  });
 
   eleventyConfig.addPairedShortcode('viewCode', (content, lang, id, name) => {
     const langStrings = {
