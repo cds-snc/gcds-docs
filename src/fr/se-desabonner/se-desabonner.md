@@ -1,6 +1,7 @@
 ---
 title: Se désabonner
 layout: 'layouts/base.njk'
+translationKey: 'unsubscribe'
 eleventyExcludeFromCollections: true
 date: 'git Last Modified'
 ---
