@@ -5,7 +5,7 @@ eleventyExcludeFromCollections: true
 date: 'git Last Modified'
 ---
 
-Une erreur s’est produite
+# Une erreur s’est produite
 
 Nous n'avons pas reçu votre demande de désabonnement de la liste de diffusion. Veuillez réessayer dans 30 minutes.
 
