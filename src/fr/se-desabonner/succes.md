@@ -5,7 +5,7 @@ eleventyExcludeFromCollections: true
 date: 'git Last Modified'
 ---
 
-# Vous êtes désabonné-e
+# Demande de désabonnement reçue
 
 Cela peut prendre jusqu'à 48 heures.
 

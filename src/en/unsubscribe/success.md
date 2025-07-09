@@ -5,7 +5,7 @@ eleventyExcludeFromCollections: true
 date: 'git Last Modified'
 ---
 
-# You’re unsubscribed
+# Your request has been received
 
 It may take up to 48 hours to take effect.
 
