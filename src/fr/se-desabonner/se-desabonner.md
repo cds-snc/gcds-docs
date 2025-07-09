@@ -2,7 +2,12 @@
 title: Se désabonner
 layout: 'layouts/base.njk'
 translationKey: 'unsubscribe'
-eleventyExcludeFromCollections: true
+eleventyNavigation:
+  key: unsubscribeFR
+  title: Se désabonner
+  locale: fr
+  hideMain: true
+nocrawl: true
 date: 'git Last Modified'
 ---
 
