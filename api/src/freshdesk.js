@@ -21,7 +21,7 @@ const TICKET_FORMAT = {
       description: (email) => `Unsubscribe request<br>Email: ${email}`,
     },
     fr: {
-      subject: 'Demande de désabonnement GCSD',
+      subject: 'Demande de désabonnement SDGC',
       description: (email) => `Demande de désabonnement<br>Courriel: ${email}`,
     },
   },

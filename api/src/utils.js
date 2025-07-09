@@ -1,6 +1,18 @@
 import { DOMAIN_EN, DOMAIN_FR } from './constants.js';
 
-export const redirectUser = (origin, forwardedOrigin, lang, res, unsubscribe = false) => {
+export const getRedirectPath = (lang, type, status) => {
+  if (type === 'unsubscribe') {
+    if (status === 'error') {
+      return lang === 'en' ? '/en/unsubscribe/error' : '/fr/se-desabonner/erreur';
+    }
+    return lang === 'en' ? '/en/unsubscribe/success' : '/fr/se-desabonner/succes';
+  } else {
+    // Contact us form always redirects to success page, errors are logged but not shown to the user
+    return lang === 'en' ? '/en/contact/thanks' : '/fr/contactez/merci';
+  }
+};
+
+export const redirectUser = (origin, forwardedOrigin, lang, res, unsubscribe = false, status = 'success') => {
   // Attempt to get origin URL from request. If origin is null, use the default domains (en or fr) based on language
   origin = origin && origin !== 'null' ? origin : forwardedOrigin;
   origin =
@@ -10,12 +22,8 @@ export const redirectUser = (origin, forwardedOrigin, lang, res, unsubscribe = f
         ? DOMAIN_EN
         : DOMAIN_FR;
 
-  let path;
-  if (unsubscribe) {
-    path = lang === 'en' ? '/en/unsubscribe/success' : '/fr/unsubscribe/success';
-  } else {
-    path = lang === 'en' ? '/en/contact/thanks' : '/fr/contactez/merci';
-  }
+  let type = unsubscribe ? 'unsubscribe': 'contact'
+  let path = getRedirectPath(lang, type, status);
   
   const redirectTo = origin + path;
   console.log(`[INFO] Redirecting to ${redirectTo}`);
