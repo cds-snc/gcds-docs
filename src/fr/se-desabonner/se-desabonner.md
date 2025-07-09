@@ -6,6 +6,8 @@ eleventyExcludeFromCollections: true
 date: 'git Last Modified'
 ---
 
+# Se désabonner
+
 Désabonnez-vous de la liste de diffusion de GC Design System pour ne plus recevoir de courriels en anglais et en français.
 
 Cela peut prendre jusqu'à 48 heures.
