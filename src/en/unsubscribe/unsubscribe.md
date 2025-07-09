@@ -2,7 +2,12 @@
 title: Unsubscribe
 layout: 'layouts/base.njk'
 translationKey: 'unsubscribe'
-eleventyExcludeFromCollections: true
+eleventyNavigation:
+  key: unsubscribeEN
+  title: Unsubscribe
+  locale: en
+  hideMain: true
+nocrawl: true
 date: 'git Last Modified'
 ---
 
