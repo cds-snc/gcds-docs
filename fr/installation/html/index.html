@@ -1404,12 +1404,12 @@ Parcourir les modèles
       console.error('Error fetching latest version:', error);
 
       // Update the latest version and release date in the description
-      cdnLatestVersion.textContent = '0.37.0';
-      cdnLatestVersionDate.textContent = '2025-07-02';
+      cdnLatestVersion.textContent = '0.38.0';
+      cdnLatestVersionDate.textContent = '2025-07-09';
 
       // Update CDN links with fallback version if fetch fails
       codeElements.forEach(element => {
-        element.textContent = element.textContent.replace('||version||', '0.37.0');
+        element.textContent = element.textContent.replace('||version||', '0.38.0');
       });
     }
   }
@@ -1418,7 +1418,7 @@ Parcourir les modèles
 </script>
 
         <gcds-date-modified class="mb-300">
-          2025-07-08
+          2025-07-09
         </gcds-date-modified>
       </main>
 
