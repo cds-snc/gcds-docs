@@ -7,9 +7,7 @@ export const getRedirectPath = (lang, type, status) => {
     }
     return lang === 'en' ? '/en/unsubscribe/success' : '/fr/se-desabonner/succes';
   } else {
-    if (status === 'error') {
-      return lang === 'en' ? '/en/unsubscribe/error' : '/fr/se-desabonner/erreur';
-    }
+    // Contact us form always redirects to success page, errors are logged but not shown to the user
     return lang === 'en' ? '/en/contact/thanks' : '/fr/contactez/merci';
   }
 };
