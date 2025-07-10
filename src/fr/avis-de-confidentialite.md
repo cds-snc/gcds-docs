@@ -55,6 +55,8 @@ Nous utilisons <gcds-link href="{{ links.freshdesk }}" target="_blank">Freshdesk
 
 Si vous choisissez d'envoyer un message au moyen de notre formulaire de contact, vous fournirez votre nom, votre adresse courriel et des renseignements propres à votre demande. Nous utiliserons ces renseignements pour répondre à votre demande.
 
+Il se peut également que nous utilisions l’l’intelligence artificielle (IA) pour analyser la rétroaction et les demandes de soutien. Lorsque nous utilisons l’IA, nous supprimons les renseignements qui pourraient permettre de vous identifier, comme votre nom et votre adresse courriel.
+
 ## Nous veillons à votre confidentialité
 
 Nous faisons partie d'Emploi et développement social Canada, ce qui nous autorise à recueillir et à conserver des renseignements personnels en vertu de l'article 5.1 de la <gcds-link href="{{ links.esdcAct }}" target="_blank">Loi sur le ministère de l'Emploi et du Développement social</gcds-link>.
