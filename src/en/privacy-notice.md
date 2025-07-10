@@ -49,6 +49,8 @@ We use <gcds-link href="{{ links.gcNotify }}" target="_blank">GC Notify</gcds-li
 
 If you choose to subscribe, you provide your name, email address, and whether you currently use GC Design System. By subscribing, you agree to receive emails about GC Design System, including product updates, relevant resources, and requests for feedback.
 
+We may also use artificial intelligence (AI) tools to analyze feedback and support requests. When using AI, we remove any information that could identify you, such as your name and email address.
+
 ### Sharing feedback through our contact form
 
 We use <gcds-link href="{{ links.freshdesk }}" target="_blank">Freshdesk</gcds-link>, a third-party application owned by <gcds-link href="{{ links.freshworks }}" target="_blank">Freshworks</gcds-link>, to manage messages submitted through the <gcds-link href="{{ links.contact }}" target="_blank">GC Design System contact form</gcds-link>. Using our contact form is voluntary and information submitted is subject to <gcds-link href="{{ links.freshworksPrivacy }}" target="_blank">Freshwork's Privacy Notice</gcds-link>.
