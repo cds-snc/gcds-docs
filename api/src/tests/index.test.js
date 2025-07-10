@@ -41,11 +41,18 @@ describe('POST /submission', () => {
     expect(res.status).toBe(204);
   });
 
-  it('should return 204 if required fields are missing', async () => {
+  it('should return 400 if required fields are missing', async () => {
     const res = await request(app)
       .post('/submission')
       .send({ 'form-name': 'contactEN' });
-    expect(res.status).toBe(204);
+    expect(res.status).toBe(400);
+  });
+
+  it('should return 400 if required fields are missing (unsubscribe)', async () => {
+    const res = await request(app)
+      .post('/submission')
+      .send({ 'form-name': 'contactEN', 'unsubscribe': true });
+    expect(res.status).toBe(400);
   });
 
   it('should process valid submission and redirect', async () => {
