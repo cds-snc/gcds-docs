@@ -12,7 +12,7 @@ Les éléments d'en-tête sont requis pour les sites du GC, sauf indication cont
 
 <ol class="anatomy-list">
   <li>La <strong>signature</strong> est un élément de marque qui identifie une page comme un espace du gouvernement du Canada. La signature du gouvernement du Canada renvoie à la page d'accueil Canada.ca.</li>
-  <li>Le <strong>lien « passer au contenu »</strong> permet à une personne de passer la navigation pour accéder directement au contenu principal. Le lien est caché jusqu'à ce qu'une personne y navigue avec un clavier (état ciblé visible).</li>
+  <li>Le <strong>lien «&nbsp;passer au contenu&nbsp;»</strong> permet à une personne de passer la navigation pour accéder directement au contenu principal. Le lien est caché jusqu'à ce qu'une personne y navigue avec un clavier (état ciblé visible).</li>
   <li>La <strong>bascule de langue</strong> est un lien qui permet à une personne de passer d'un contenu en français à un contenu en anglais en établissant un lien vers la page dans l'autre langue officielle.</li>
   <li>La <strong>recherche</strong> permet à une personne de saisir des mots-clés ou des phrases pour trouver du contenu. Elle peut être configurée pour effectuer une recherche locale ou globale. Facultatif, sauf sur les pages de campagne et les pages standard de Canada.ca.</li>
   <li>La <strong>ligne séparatrice</strong> divise visuellement les éléments principaux de l'en-tête et le contenu de la page.</li>
@@ -24,7 +24,7 @@ Les éléments d'en-tête sont requis pour les sites du GC, sauf indication cont
 
 ## Design et accessibilité de l'en-tête
 
-Les composants de Système de design du GC sont conçus pour s'adapter à la taille de l'écran ou du cadre où ils sont visualisés. À titre d'exception, la taille du texte dans l'en-tête et le pied de page est fixe.  
+Les composants de Système de design du GC sont conçus pour s'adapter à la taille de l'écran ou du cadre où ils sont visualisés. À titre d'exception, la taille du texte dans l'en-tête et le pied de page est fixe.
 
 ### Vérifier les exigences de l'en-tête
 
@@ -65,10 +65,10 @@ Voici les éléments requis pour l'en-tête sur les sites du GC.
 
 ### Améliorer l'accessibilité de l'en-tête
 
-- Configurez un [lien]({{ links.link }}) `skip-to-content` comme raccourci pour les personnes utilisant une technologie d'assistance et améliorer la navigation au clavier. Le lien passe les éléments de navigation pour mener directement au contenu principal de la page.  
-- Évitez de placer d'autres éléments avant le lien « passer au contenu ». Il est plus facile à découvrir s'il s'agit du premier ou deuxième élément.
+- Configurez un [lien]({{ links.link }}) `skip-to-content` comme raccourci pour les personnes utilisant une technologie d'assistance et améliorer la navigation au clavier. Le lien passe les éléments de navigation pour mener directement au contenu principal de la page.
+- Évitez de placer d'autres éléments avant le lien «&nbsp;passer au contenu&nbsp;». Il est plus facile à découvrir s'il s'agit du premier ou deuxième élément.
 
 ### Ajouter des éléments facultatifs à l'en-tête
 
-- Considérez utiliser la [barre de navigation supérieure]({{ links.topNav }}) pour les services et les sites Web qui ont besoin d'une navigation principale dédiée.  
+- Considérez utiliser la [barre de navigation supérieure]({{ links.topNav }}) pour les services et les sites Web qui ont besoin d'une navigation principale dédiée.
 - Utilisez la barre de navigation supérieure sur les pages Canada.ca lorsque le service ou le produit est autonome et cible un public interne, comme Système de design GC.

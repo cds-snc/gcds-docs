@@ -3,7 +3,7 @@ title: Avis
 layout: 'layouts/component-documentation.njk'
 translationKey: 'noticeDesign'
 tags: ['noticeFR', 'design']
-date: "git Last Modified"
+date: 'git Last Modified'
 ---
 
 ## Structure de la Avis
@@ -26,9 +26,9 @@ Référez-vous aux cas d’utilisation pour savoir quand utiliser chaque type d�
 ### Rédigez des titres et des messages concis et descriptifs
 
 - Rédigez un titre significatif, court et simple pour souligner l’objectif de l’avis.
-- Dans le titre, utilisez des titres comme « Avertissement » et « Succès » correspondant au sens transmis par l’icône et la couleur du type d’avis sélectionné.
+- Dans le titre, utilisez des titres comme «&nbsp;Avertissement&nbsp;» et «&nbsp;Succès&nbsp;» correspondant au sens transmis par l’icône et la couleur du type d’avis sélectionné.
 - Rédigez un message (en dessous du titre) bref et percutant. Idéalement, faites en sorte qu’il ne dépasse pas trois phrases.
-- Enregistrez les détails pour la zone de contenu principale d’une page. L’avis doit attirer l’attention et créer une « piste d’information » pour toute personne ayant besoin d’en savoir plus.
+- Enregistrez les détails pour la zone de contenu principale d’une page. L’avis doit attirer l’attention et créer une «&nbsp;piste d’information&nbsp;» pour toute personne ayant besoin d’en savoir plus.
 
 ### Au besoin, utilisez des liens pour guider les gens vers des renseignements supplémentaires
 

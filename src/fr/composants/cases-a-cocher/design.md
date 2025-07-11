@@ -21,12 +21,12 @@ date: 'git Last Modified'
 
 ### Offrir des choix clairs
 
-* Limitez le nombre d'options à 7.
-* Limitez le texte de chaque option à quelques mots ou à une phrase courte. Incluez du texte explicatif s'il faut du contexte additionnel.  
-* Ordonnez les options de manière logique. Par exemple, par ordre alphabétique ou du plus au moins commun.
+- Limitez le nombre d'options à 7.
+- Limitez le texte de chaque option à quelques mots ou à une phrase courte. Incluez du texte explicatif s'il faut du contexte additionnel.
+- Ordonnez les options de manière logique. Par exemple, par ordre alphabétique ou du plus au moins commun.
 
 ### Fournir des instructions claires
 
-* Ne supposez pas qu'une personne saura comment utiliser une case à cocher.  
-* Utilisez le texte explicatif pour indiquer que plusieurs sélections sont possibles. Par exemple, « cochez toutes les cases qui s'appliquent ».  
-* Évitez de présélectionner une case à cocher. Cela augmente les risques que les utilisateur·rice·s sautent une question ou soumettent une mauvaise réponse.
+- Ne supposez pas qu'une personne saura comment utiliser une case à cocher.
+- Utilisez le texte explicatif pour indiquer que plusieurs sélections sont possibles. Par exemple, «&nbsp;cochez toutes les cases qui s'appliquent&nbsp;».
+- Évitez de présélectionner une case à cocher. Cela augmente les risques que les utilisateur·rice·s sautent une question ou soumettent une mauvaise réponse.

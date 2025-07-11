@@ -14,7 +14,7 @@ module.exports = {
   fr: {
     heading: 'Vous n’utilisez aucun de ces cadres?',
     paragraph:
-      'Si vous n’utilisez aucun des cadres mentionnés ci-haut, choisissez l’option « Autre » ci-dessous.',
+      'Si vous n’utilisez aucun des cadres mentionnés ci-haut, choisissez l’option « Autre » ci-dessous.',
     cardLink: '/fr/installation/html/',
     cardTitle: 'Autre',
     cardDescription:

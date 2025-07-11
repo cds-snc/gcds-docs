@@ -10,7 +10,7 @@ date: 'git Last Modified'
 
 <ol class="anatomy-list">
   <li>La <strong>signature du gouvernement du Canada</strong> est l'identificateur de l'image de marque placée dans l'<gcds-link href="{{ links.header }}">en-tête</gcds-link> du site. La signature sert de lien général vers la page d'accueil du site.</li>
-  <li>Le <strong>mot-symbole « Canada »</strong> est l'identificateur de l'image de marque placé dans le <gcds-link href="{{ links.footer }}">pied de page</gcds-link> du site. Il renforce l'image de marque en informant les visiteur·rice·s du site que le contenu qui leur est présenté provient du gouvernement du Canada.</li>
+  <li>Le <strong>mot-symbole «&nbsp;Canada&nbsp;»</strong> est l'identificateur de l'image de marque placé dans le <gcds-link href="{{ links.footer }}">pied de page</gcds-link> du site. Il renforce l'image de marque en informant les visiteur·rice·s du site que le contenu qui leur est présenté provient du gouvernement du Canada.</li>
 </ol>
 
 <img class="b-sm b-default p-300" src="/images/fr/components/anatomy/gcds-signature-anatomy-fr.svg" alt="Signature avec les étiquettes « Signature du gouvernement du Canada » et « Mot-symbole Canada ». Chaque élément du composant est identifié à l’aide d’un chiffre.]" />
@@ -43,7 +43,7 @@ La signature est requise dans l’en-tête et le mot-symbole est requis dans le 
 ### Établir l'ordre des langues dans la signature
 
 - Affichez d'abord la signature en français sur les pages en français. De même, insérez d'abord la signature en anglais sur les pages en anglais.
-- Conservez « Government of Canada » pour le texte de remplacement (alt-text) en anglais et « Gouvernement du Canada » pour le français.
+- Conservez «&nbsp;Government of Canada&nbsp;» pour le texte de remplacement (alt-text) en anglais et «&nbsp;Gouvernement du Canada&nbsp;» pour le français.
 
 **Remarque :** L’image contient un lien qui mène à la page d’accueil Canada.ca dans la même langue officielle que la page actuelle.
 

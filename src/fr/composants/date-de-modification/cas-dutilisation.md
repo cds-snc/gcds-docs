@@ -43,8 +43,8 @@ Utilisez la date de modification pour :
   <gcds-date-modified>2023-08-22</gcds-date-modified>
   {% endcomponentPreview %}
   <div>
-    <h3 class="mt-0">Type « Date »</h3>
-    <p>Utilisez le type « date » pour :</p>
+    <h3 class="mt-0">Type «&nbsp;Date&nbsp;»</h3>
+    <p>Utilisez le type «&nbsp;date&nbsp;» pour :</p>
     <ul class="list-disc mb-300">
       <li>Indiquer la date de la dernière modification apportée à une page ou à un site Web.</li>
     </ul>
@@ -56,8 +56,8 @@ Utilisez la date de modification pour :
   <gcds-date-modified type="version">1.0.0</gcds-date-modified>
   {% endcomponentPreview %}
   <div>
-    <h3 class="mt-0">Type « Version »</h3>
-    <p>Utilisez le type « version » pour :</p>
+    <h3 class="mt-0">Type «&nbsp;Version&nbsp;»</h3>
+    <p>Utilisez le type «&nbsp;version&nbsp;» pour :</p>
     <ul class="list-disc mb-300">
       <li>Identifier la version actuelle d'une application.</li>
     </ul>

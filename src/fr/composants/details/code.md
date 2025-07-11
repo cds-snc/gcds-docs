@@ -25,7 +25,7 @@ Le composant Détails peut ajouter à la charge cognitive d'une personne si :
 Pour aider une personne à accéder au contenu du composant Détails :
 
 - Utilisez l'attribut `open` pour définir si le contenu du composant Détails est affiché par défaut ou non;
-- Faites en sorte que les titres utilisés dans le composant Détails indiquent clairement la nature du contenu. Évitez les titres non descriptifs tels que « En savoir plus ». Au lieu de cela, optez pour un résumé spécifique et descriptif, comme « Montant de couverture maximal pour vos prestations de physiothérapie ».
+- Faites en sorte que les titres utilisés dans le composant Détails indiquent clairement la nature du contenu. Évitez les titres non descriptifs tels que «&nbsp;En savoir plus&nbsp;». Au lieu de cela, optez pour un résumé spécifique et descriptif, comme «&nbsp;Montant de couverture maximal pour vos prestations de physiothérapie&nbsp;».
 - Choisissez des titres distinctifs pour que les gens comprennent la différence. Les titres identiques ou similaires peuvent prêter à confusion.
 - Évitez de placer un composant Détails dans un autre, là où personne ne penserait à chercher ce contenu.
   0 Faites en sorte que le contenu du composant Détails puisse faire l'objet d'une recherche.

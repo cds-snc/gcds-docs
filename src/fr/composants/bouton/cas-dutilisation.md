@@ -17,7 +17,7 @@ permalink: /fr/composants/bouton/
 date: 'git Last Modified'
 ---
 
-Jetez un coup d'œil à ce que font les boutons pour vérifier s'ils permettent de résoudre votre problème. Sélectionnez ensuite le meilleur sous-type, appelé « rôle du bouton », pour le cas d'utilisation dont vous avez besoin.
+Jetez un coup d'œil à ce que font les boutons pour vérifier s'ils permettent de résoudre votre problème. Sélectionnez ensuite le meilleur sous-type, appelé «&nbsp;rôle du bouton&nbsp;», pour le cas d'utilisation dont vous avez besoin.
 
 Utilisez un bouton pour lancer une action, comme :
 
@@ -41,31 +41,31 @@ Utilisez un bouton pour lancer une action, comme :
 
 Le type de bouton change le HTML pour effectuer une tâche précise. Choisissez le type selon la fonction dont vous avez besoin.
 
-### Type « Bouton »
+### Type «&nbsp;Bouton&nbsp;»
 
-Utilisez le type « Bouton » lorsque vous vous attendez à ce qu'une personne :
+Utilisez le type «&nbsp;Bouton&nbsp;» lorsque vous vous attendez à ce qu'une personne :
 
 - Supprime, copie ou télécharge des renseignements;
 - Choisisse entre deux options;
 - Donne son consentement ou son accord.
 
-### Type « Soumission »
+### Type «&nbsp;Soumission&nbsp;»
 
-Utilisez le type « Soumission » lorsque vous vous attendez à ce qu'une personne :
+Utilisez le type «&nbsp;Soumission&nbsp;» lorsque vous vous attendez à ce qu'une personne :
 
 - Envoie une formulaire ou une requête.
 - Enregistre des renseignements;
 - Se connecte ou se déconnecte d'un compte.
 
-### Type « Réinitialisation »
+### Type «&nbsp;Réinitialisation&nbsp;»
 
-Utilisez le type « Réinitialisation » lorsque vous vous attendez à ce qu'une personne :
+Utilisez le type «&nbsp;Réinitialisation&nbsp;» lorsque vous vous attendez à ce qu'une personne :
 
 - Supprime les données saisies dans un formulaire.
 
-### Type « Lien »
+### Type «&nbsp;Lien&nbsp;»
 
-Utilisez le type « Lien » lorsque vous vous attendez à ce qu'une personne :
+Utilisez le type «&nbsp;Lien&nbsp;» lorsque vous vous attendez à ce qu'une personne :
 
 - Se dirige vers d'autres pages ou sites externes.
 
@@ -96,7 +96,7 @@ Le rôle du bouton change son apparence afin de signaler visuellement l'action q
   {% endcomponentPreview %}
   <div>
     <h3 class="mt-0">Bouton principal</h3>
-    <p>Anciennement le « bouton de super-tâche ».</p>
+    <p>Anciennement le «&nbsp;bouton de super-tâche&nbsp;».</p>
     <ul class="list-disc mb-300">
       <li>Le début d'une tâche ou d'un flux de travail. </li>
       <li>Plus grand que les autres boutons; donc à utiliser seul et non à côté d'autres boutons.</li>
@@ -121,11 +121,11 @@ Le rôle du bouton change son apparence afin de signaler visuellement l'action q
 </gcds-grid>
 <br/>
 <gcds-grid columns="1fr" columns-tablet="1fr 2fr" align-items="start">
-  {% componentPreview "Aperçu du bouton « Danger »" "px-225 py-300" "mt-500" %}
+  {% componentPreview "Aperçu du bouton «&nbsp;Danger&nbsp;»" "px-225 py-300" "mt-500" %}
   <gcds-button button-role="danger">Supprimer</gcds-button>
   {% endcomponentPreview %}
   <div>
-    <h3 class="mt-0">Bbouton « Danger »</h3>
+    <h3 class="mt-0">Bouton «&nbsp;Danger&nbsp;»</h3>
     <ul class="list-disc mb-300">
       <li>Pour signaler des actions conséquentes comme la suppression ou la réinitialisation de renseignements.</li>
       <li>Les changements qui s'exécutent peuvent être difficiles à renverser.</li>

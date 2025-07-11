@@ -83,6 +83,6 @@ Les composants de Système de design du GC sont conçus pour s’adapter à la t
 
 ### Modifier les liens
 
-- Dans la bande contextuelle, modifiez les trois liens pour votre site. Choisissez des liens que les gens s’attendent à trouver dans un pied de page, comme « Contactez-nous », « Carrières » ou « Actualités ».
-- Dans la bande de liens du pied de page du GC, modifiez les liens « Avis » et « Confidentialité » pour votre site.
+- Dans la bande contextuelle, modifiez les trois liens pour votre site. Choisissez des liens que les gens s’attendent à trouver dans un pied de page, comme «&nbsp;Contactez-nous&nbsp;», «&nbsp;Carrières&nbsp;» ou «&nbsp;Actualités&nbsp;».
+- Dans la bande de liens du pied de page du GC, modifiez les liens «&nbsp;Avis&nbsp;» et «&nbsp;Confidentialité&nbsp;» pour votre site.
 - Faites en sorte que le texte du lien soit clair et précis pour aider les gens à décider s’ils doivent quitter la page actuelle. Indiquez la page cible où une personne sera redirigée ou ce qu’elle trouvera en cliquant sur le lien.

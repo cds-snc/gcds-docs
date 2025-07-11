@@ -23,14 +23,14 @@ date: 'git Last Modified'
 
 - Limitez le texte de chaque option à quelques mots ou à une phrase courte.
 - En règle générale, les options sont classées par ordre alphabétique. Dans certains cas, il peut être utile de classer les options de la plus commune à la moins commune.
-- Lorsque possible, ajoutez une option telle que « Aucun » ou « Aucun des éléments ci-dessus ».
+- Lorsque possible, ajoutez une option telle que «&nbsp;Aucun&nbsp;» ou «&nbsp;Aucun des éléments ci-dessus&nbsp;».
 
 ### Aidez l'utilisateur·rice à comprendre comment utiliser les sélections
 
 - Ne partez pas du principe qu'une personne saura utiliser une sélection.
-- Utilisez le texte explicatif pour expliquer aux utilisateur·rice·s qui ne sont pas à l'aide avec la sélection qu'ils et elles ne peuvent choisir qu'une seule option. Par exemple, « Sélectionnez l'option la plus pertinente ».
+- Utilisez le texte explicatif pour expliquer aux utilisateur·rice·s qui ne sont pas à l'aide avec la sélection qu'ils et elles ne peuvent choisir qu'une seule option. Par exemple, «&nbsp;Sélectionnez l'option la plus pertinente&nbsp;».
 - Évitez de présélectionner une option de sélection. Cela augmente les risques que les utilisateur·rice·s sautent une question ou soumettent une mauvaise réponse.
-- Lorsque possible, ajoutez une option telle que « Aucun » ou « Aucun des éléments ci-dessus ». Une fois sélectionnée, une option ne peut être désélectionnée, ou inversée, à moins de choisir une autre option dans le groupe. Le cas échéant, le ou la répondant·e est obligé·e de sélectionner une mauvaise option ou d'abandonner la tâche.
+- Lorsque possible, ajoutez une option telle que «&nbsp;Aucun&nbsp;» ou «&nbsp;Aucun des éléments ci-dessus&nbsp;». Une fois sélectionnée, une option ne peut être désélectionnée, ou inversée, à moins de choisir une autre option dans le groupe. Le cas échéant, le ou la répondant·e est obligé·e de sélectionner une mauvaise option ou d'abandonner la tâche.
 
 ### Utilisez d'autres questions pour réduire le nombre d'options de sélection
 

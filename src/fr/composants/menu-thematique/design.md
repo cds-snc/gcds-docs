@@ -10,7 +10,7 @@ date: 'git Last Modified'
 
 <ol class="anatomy-list">
   <li>Le <strong>bouton du menu</strong> permet d’ouvrir et de fermer le menu thématique.</li>
-  <li>La <strong>section « Thèmes et sujets »</strong> est une liste contenant les thèmes principaux prédéfinis sur Canada.ca.</li>
+  <li>La <strong>section «&nbsp;Thèmes et sujets&nbsp;»</strong> est une liste contenant les thèmes principaux prédéfinis sur Canada.ca.</li>
   <li>Le <strong>menu volant</strong> est une liste de liens pertinents pour chaque sujet. Tous les liens seront chargés et mis à jour automatiquement.</li>
   <li>Les <strong>liens les plus en demande</strong> est une liste des actions les plus fréquemment effectuées pour chaque thème. Tous les liens seront chargés et mis à jour automatiquement.</li>
 </ol>

@@ -19,10 +19,10 @@ Le lien est un élément de navigation qui amène une personne à une nouvelle p
 
 Remarque : Seuls les fichiers dont l'URL est de la même origine que le site Web seront téléchargés sur l'appareil de l'utilisateur·rice.
 
-### Ajoutez un lien « Passer au contenu »
+### Ajoutez un lien «&nbsp;Passer au contenu&nbsp;»
 
-- Un lien « Passer au contenu » permet à une personne de sauter un ensemble de liens de navigation pour passer au contenu principal.
-- Pour éviter de dissimuler le contenu, configurez le lien de manière à ce qu'il pousse le contenu vers le bas et ne flotte pas. Pour la version bureau, placez le lien « Passer au contenu » en haut à gauche de la page afin qu'il n'interrompe pas le flux.
+- Un lien «&nbsp;Passer au contenu&nbsp;» permet à une personne de sauter un ensemble de liens de navigation pour passer au contenu principal.
+- Pour éviter de dissimuler le contenu, configurez le lien de manière à ce qu'il pousse le contenu vers le bas et ne flotte pas. Pour la version bureau, placez le lien «&nbsp;Passer au contenu&nbsp;» en haut à gauche de la page afin qu'il n'interrompe pas le flux.
 
 ### Évitez les liens externes dans la mesure du possible
 

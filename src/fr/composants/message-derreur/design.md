@@ -37,7 +37,7 @@ Lorsque vous interrompez le déroulement d'une action, vous aidez l'utilisateur�
 
 - Rédigez des messages d'erreur pour chaque contrainte de réponse d'un composant. Énumérez la liste des risques, puis rédigez un bref énoncé précis décrivant chaque besoin.
 - N'indiquez qu'une seule raison par erreur, notamment le critère que la réponse ne rempli pas.
-- Ne mentionnez pas l'action menée par l'utilisateur·rice qui a donné lieu au problème. Par exemple, si l'on écrit « Vous n'avez pas répondu à une question », on attribue la responsabilité à l'utilisateur·rice. En revanche, une formulation du genre « Question obligatoire » se limite à signaler le problème sans blâmer personne.
+- Ne mentionnez pas l'action menée par l'utilisateur·rice qui a donné lieu au problème. Par exemple, si l'on écrit «&nbsp;Vous n'avez pas répondu à une question&nbsp;», on attribue la responsabilité à l'utilisateur·rice. En revanche, une formulation du genre «&nbsp;Question obligatoire&nbsp;» se limite à signaler le problème sans blâmer personne.
 
 ### Remettez la personne sur la bonne voie avec un appel à l'action
 

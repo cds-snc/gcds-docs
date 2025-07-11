@@ -91,4 +91,4 @@ La pagination simple est plus adaptée à un contenu réparti sur 2 à 5 pages.
 
 ### Utilisez la pagination sous forme de liste pour un grand nombre de pages
 
-Utilisez la pagination sous forme de liste lorsque le nombre de pages est important et que les seuls liens « Précédent » et « Suivant » rendraient la navigation fastidieuse.
+Utilisez la pagination sous forme de liste lorsque le nombre de pages est important et que les seuls liens «&nbsp;Précédent&nbsp;» et «&nbsp;Suivant&nbsp;» rendraient la navigation fastidieuse.

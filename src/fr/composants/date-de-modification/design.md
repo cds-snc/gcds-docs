@@ -9,7 +9,7 @@ date: 'git Last Modified'
 ## Structure de la date de modification
 
 <ol class="anatomy-list">
-  <li>Le <strong>libellé</strong> décrit le type précisé dans la valeur et affiche soit « Date de modification » ou « Version » selon le type de composant.</li>
+  <li>Le <strong>libellé</strong> décrit le type précisé dans la valeur et affiche soit «&nbsp;Date de modification&nbsp;» ou «&nbsp;Version&nbsp;» selon le type de composant.</li>
   <li>La <strong>valeur</strong> correspond soit à une date numérique au format AAAA-MM-JJ, soit à un numéro de version.</li>
 </ol>
 

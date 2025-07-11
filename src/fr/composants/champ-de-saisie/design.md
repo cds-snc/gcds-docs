@@ -21,10 +21,10 @@ date: 'git Last Modified'
 ### Rédigez une étiquette court, précis et unique
 
 - Demandez les renseignements requis avec le plus de concision possible. La forme interrogative peut rendre une étiquette inutilement longue et l'utilisateur·rice pourrait ne pas la lire en entier.
-- Choisissez des étiquettes uniques pour chaque champ de saisie et zone de texte dans une page, comme « Votre nom complet » et « Nom du ou de la gestionnaire ».
-- Évitez d'employer un jargon technique, comme « adresse électronique du sujet » ou « ID du compte ». Soyez plutôt précis·e et employez un ton personnel, comme « nom complet » et « âge de l'enfant ».
+- Choisissez des étiquettes uniques pour chaque champ de saisie et zone de texte dans une page, comme «&nbsp;Votre nom complet&nbsp;» et «&nbsp;Nom du ou de la gestionnaire&nbsp;».
+- Évitez d'employer un jargon technique, comme «&nbsp;adresse électronique du sujet&nbsp;» ou «&nbsp;ID du compte&nbsp;». Soyez plutôt précis·e et employez un ton personnel, comme «&nbsp;nom complet&nbsp;» et «&nbsp;âge de l'enfant&nbsp;».
 - Évitez d'utiliser des expressions familières et des verbes courants qui ne sont pas connus des personnes ne parlant pas couramment l'anglais ou le français.
-- Expliquez tout terme qui pourrait porter à confusion. Par exemple, « Pseudonyme (nom que vous souhaitez utiliser) ».
+- Expliquez tout terme qui pourrait porter à confusion. Par exemple, «&nbsp;Pseudonyme (nom que vous souhaitez utiliser)&nbsp;».
 
 ### Adaptez la taille du champ de saisie au type de réponse
 

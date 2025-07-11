@@ -81,7 +81,7 @@ Remarque : La propriété de la police représente à la fois l'épaisseur, la t
 
 ### Familles de police
 
-Les en-têtes font appel à la police « Lato ». Les paragraphes et autres éléments textuels se servent de la police « Noto Sans ».
+Les en-têtes font appel à la police «&nbsp;Lato&nbsp;». Les paragraphes et autres éléments textuels se servent de la police «&nbsp;Noto Sans&nbsp;».
 
 La famille de police comprend des valeurs de rechange. Les valeurs de rechange sont seulement utilisées pour une famille de police lorsqu'une police n'est pas disponible.
 

@@ -20,7 +20,7 @@ tags: ['textFR', 'design']
 ### Rédigez du contenu facile à lire en un coup d'oeil
 
 - Structurez le contenu de manière à placer les informations les plus importantes pour la tâche en premier.
-- Gardez le contenu bref et axé sur les tâches. Notre « besoin de dire » n'est pas égal au « besoin de savoir » d'un lecteur.
+- Gardez le contenu bref et axé sur les tâches. Notre «&nbsp;besoin de dire&nbsp;» n'est pas égal au «&nbsp;besoin de savoir&nbsp;» d'un lecteur.
 - Supprimez les détails et les explications inutiles. Incluez uniquement les renseignements dont une personne a besoin.
 - Utilisez des phrases courtes qui communiquent une seule idée. Indiquez clairement le sujet de l'action dans chaque phrase.
 - Évitez le chargement frontal de contenu qui pourrait plutôt être placé là où une personne en a besoin. Plutôt que d'expliquer un processus, faites que le processus est plus facile à suivre et à comprendre.
