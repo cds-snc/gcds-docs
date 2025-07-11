@@ -15,6 +15,7 @@ La zone de texte donne aux utilisateur·rice·s la possibilité de fournir les r
 ## Codage et accessibilité des zones de texte
 
 ### Appliquez les attributs requis
+
 Pour que la zone de texte fonctionne correctement, utilisez toujours les attributs suivants avec `<gcds-textarea>`:
 
 - `name`
@@ -24,7 +25,7 @@ Pour que la zone de texte fonctionne correctement, utilisez toujours les attribu
 ### Adaptez la zone de texte au type de réponse
 
 - Utilisez des zones de texte pour les réponses qui peuvent nécessiter plus de 75 caractères.
-- Faites en sorte que la hauteur d'une zone de texte soit proportionnelle à la quantité de texte que vous attendez de l'utilisateur·rice. Vous pouvez définir la hauteur d'une zone de texte en spécifiant l'attribut « rows ».
+- Faites en sorte que la hauteur d'une zone de texte soit proportionnelle à la quantité de texte que vous attendez de l'utilisateur·rice. Vous pouvez définir la hauteur d'une zone de texte en spécifiant l'attribut «&nbsp;rows&nbsp;».
 - Évitez de définir une largeur inférieure à 50 % (1/2 largeur).
 - Utilisez le maximum pour les réponses sans longueur fixe.
 

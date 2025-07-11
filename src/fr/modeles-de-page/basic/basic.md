@@ -9,11 +9,11 @@ eleventyNavigation:
   description: Point de départ de toute page Web. Offre une structure et une hiérarchie basiques et accessibles, et comprend les éléments obligatoires pour la plupart des pages du GC.
   descriptionSecondaryText:
   state: published
-#  tag: Canada.ca required
+  #  tag: Canada.ca required
   order: 1
 translationKey: 'basicPageTemplate'
-tags: ["templates"]
-date: "git Last Modified"
+tags: ['templates']
+date: 'git Last Modified'
 github: https://github.com/cds-snc/gcds-examples/blob/feat/add-basic-page-templates/templates/english/basic-page-template.html
 figma: https://figma.com
 ---
@@ -48,10 +48,10 @@ Pour réaliser un prototype dans Figma, trouvez le <gcds-link external href="{{ 
 
 ### Améliorer la navigation dans les longues pages
 
-- Pour toute page ayant 4 sections ou plus, ajoutez une section « Sur cette page » comprenant une liste de liens (ancres) renvoyant aux autres sections. 
+- Pour toute page ayant 4 sections ou plus, ajoutez une section «&nbsp;Sur cette page&nbsp;» comprenant une liste de liens (ancres) renvoyant aux autres sections.
 - Ajouter des ancres afin d'améliorer la navigation et aident les gens à trouver le contenu dont ils ont besoin.
 
-### Aperçu « Sur cette page »
+### Aperçu «&nbsp;Sur cette page&nbsp;»
 
 <gcds-button class="mb-300" button-role="secondary" type="link" href="{{ links.pageTemplatesBasicExtOTPPreview }}" target="_blank">Ouvrir demo dans un nouvel onglet</gcds-button>
 <gcds-button  button-role="secondary" type="link" href="{{ links.pageTemplatesBasicExtOTPCode }}" target="_blank">Obtenez code dans un nouvel onglet</gcds-button>

@@ -114,6 +114,6 @@ Utilisez les unités de style de base pour :
 {% include "partials/token_table.njk", token: 'color.grayscale color.blue color.red color.green color.yellow', type: 'color' %}
 </div>
 
-Remarque : Les éléments de code utilisent l'orthographe américaine pour « colour » et « grey ».
+Remarque : Les éléments de code utilisent l'orthographe américaine pour «&nbsp;colour&nbsp;» et «&nbsp;grey&nbsp;».
 
 {% include "partials/helpus.njk" %}

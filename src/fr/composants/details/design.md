@@ -44,7 +44,7 @@ Commencez par retirer tout contenu qui ne serait pas utile ou important au regar
 ### Utilisez le résumé pour rendre le contenu facile à trouver
 
 - Gardez le titre clair et bref. Les titres courts sont plus faciles à comprendre d'un simple coup d'œil et peuvent aider une personne utilisant une technologie d'assistance à naviguer au sein d'un ensemble de composants Détails.
-- Écrivez un titre qui indique la nature du contenu. Évitez les titres non descriptifs tels que « En savoir plus ». Au lieu de cela, optez pour un résumé spécifique et descriptif, comme « Montant de couverture maximal pour vos prestations de physiothérapie ».
+- Écrivez un titre qui indique la nature du contenu. Évitez les titres non descriptifs tels que «&nbsp;En savoir plus&nbsp;». Au lieu de cela, optez pour un résumé spécifique et descriptif, comme «&nbsp;Montant de couverture maximal pour vos prestations de physiothérapie&nbsp;».
 - Évitez d'utiliser des titres similaires ou identiques à d'autres. Des titres distincts aident les gens à faire la différence et à choisir le contenu qu'ils et elles veulent lire.
 - Évitez d'accroître la charge cognitive des personnes qui vous liront en publiant des renseignements difficiles à trouver.
 

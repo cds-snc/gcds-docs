@@ -15,7 +15,7 @@ module.exports = {
     listitems: [
       "Utilisez l'attribut `required` pour activer le valideur de champ obligatoire. La validation s'effectuera par défaut pendant l'évènement `onBlur`. Une réponse manquante ou non valide affichera un message d'erreur intercalé prédéfini.",
       "Si vous devez modifier l'évènement de validation, utilisez l'attribut `validate-on`. La validation peut se produire pendant l'évènement onBlur, lorsque l'élément perd son état ciblé, ou de façon manuelle avec la méthode `validate()`.",
-      "Utilisez l'attribut `required` pour les champs qui doivent obligatoirement être remplis. La mention « obligatoire » sera alors ajoutée à la fin de l'étiquette.",
+      "Utilisez l'attribut `required` pour les champs qui doivent obligatoirement être remplis. La mention «&nbsp;obligatoire&nbsp;» sera alors ajoutée à la fin de l'étiquette.",
       "Utilisez l'attribut `error-message` pour inclure un message d'erreur pour tous les champs de saisie obligatoires. Évitez d'utiliser des messages d'erreur pour les champs de saisie facultatifs.",
       "Pour les champs facultatifs, évitez d'ajouter l'attribut `error-message`.",
       "Pour un champ facultatif nécessitant une validation qui dépend de ce que l'utilisateur a saisi (par exemple pour valider un format d'adresse courriel), ajoutez plutôt une validation et un message d'erreur personnalisés.",

@@ -26,7 +26,7 @@ date: 'git Last Modified'
 
 ### Écrivez un libellé de bouton court, spécifique et descriptif
 
-- Rendez l’action du bouton évidente avec un libellé court et précis qui contient un verbe, ou un verbe et un nom, comme « Soumettre » ou « Obtenir une estimation ».
+- Rendez l’action du bouton évidente avec un libellé court et précis qui contient un verbe, ou un verbe et un nom, comme «&nbsp;Soumettre&nbsp;» ou «&nbsp;Obtenir une estimation&nbsp;».
 - Utilisez la majuscule initiale.
 - Rédigez un texte d’accompagnement unique et précis afin d’éviter la répétition pour les lecteurs d’écran.
 - Utilisez des phrases littérales. Évitez d’employer des expressions verbales qui risquent d’être mal comprises par des locuteur·rice·s qui ne parlent pas couramment le français.

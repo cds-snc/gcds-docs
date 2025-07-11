@@ -3,7 +3,7 @@ title: Boutons radio
 layout: 'layouts/component-documentation.njk'
 translationKey: 'radiosDesign'
 tags: ['radiosFR', 'design']
-date: "git Last Modified"
+date: 'git Last Modified'
 ---
 
 ## Structure du groupe de boutons radio — avec jeu de champs
@@ -23,13 +23,13 @@ date: "git Last Modified"
 
 ### Offrir des choix clairs
 
-- Limitez le nombre d'options à 7.  
-- Limitez le texte de chaque option à quelques mots ou à une phrase courte. Incluez du texte explicatif s'il faut du contexte additionnel.  
-- Ordonnez les options de manière logique. Par exemple, par ordre alphabétique ou du plus au moins commun.  
-- Lorsque possible, incluez une option « Aucune de ces réponses » pour éviter de forcer une sélection incorrecte. Une sélection ne peut être désactivée à moins qu'une autre option ne soit sélectionnée.
+- Limitez le nombre d'options à 7.
+- Limitez le texte de chaque option à quelques mots ou à une phrase courte. Incluez du texte explicatif s'il faut du contexte additionnel.
+- Ordonnez les options de manière logique. Par exemple, par ordre alphabétique ou du plus au moins commun.
+- Lorsque possible, incluez une option «&nbsp;Aucune de ces réponses&nbsp;» pour éviter de forcer une sélection incorrecte. Une sélection ne peut être désactivée à moins qu'une autre option ne soit sélectionnée.
 
 ### Fournir des instructions claires
 
-- Expliquez aux utilisateur·rice·s que seule une réponse est acceptée.  
-- Utilisez le texte explicatif pour indiquer qu'une seule sélection est possible. Par exemple, « Sélectionnez l'option la plus pertinente ».  
+- Expliquez aux utilisateur·rice·s que seule une réponse est acceptée.
+- Utilisez le texte explicatif pour indiquer qu'une seule sélection est possible. Par exemple, «&nbsp;Sélectionnez l'option la plus pertinente&nbsp;».
 - Évitez de présélectionner une option radio. Cela augmente le risque qu'une personne saute une question ou soumette une mauvaise réponse.
