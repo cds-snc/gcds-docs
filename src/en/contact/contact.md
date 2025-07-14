@@ -61,3 +61,6 @@ This form is for people building government websites and digital products. You c
     Submit
   </gcds-button>
 </form>
+
+<script src="/scripts/pii-redactor.js"></script>
+<script src="/scripts/contact-form-pii.js"></script>
