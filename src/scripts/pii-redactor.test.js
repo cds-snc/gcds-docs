@@ -58,11 +58,11 @@ runTest('SIN redaction', () => {
   assert(redactPII('Invoice #123456789') === 'Invoice #123456789', 'Invoice numbers should not be redacted as SINs');
 });
 
-// Test 3: Email redaction
-runTest('Email redaction', () => {
-  assert(redactPII('Contact me at jane@example.com') === 'Contact me at [REDACTED:email]', 'Basic email should be redacted');
-  assert(redactPII('user.name+tag@domain.co.uk') === '[REDACTED:email]', 'Complex email should be redacted');
-  assert(redactPII('multiple@emails.com and test@domain.org') === '[REDACTED:email] and [REDACTED:email]', 'Multiple emails should be redacted');
+// Test 3: Email redaction (DISABLED - emails are not considered PII to redact)
+runTest('Email redaction (disabled)', () => {
+  assert(redactPII('Contact me at jane@example.com') === 'Contact me at jane@example.com', 'Emails should not be redacted');
+  assert(redactPII('user.name+tag@domain.co.uk') === 'user.name+tag@domain.co.uk', 'Complex emails should not be redacted');
+  assert(redactPII('multiple@emails.com and test@domain.org') === 'multiple@emails.com and test@domain.org', 'Multiple emails should not be redacted');
   assert(redactPII('Not an email: user@') === 'Not an email: user@', 'Invalid email should not be redacted');
   assert(redactPII('Also not: @domain.com') === 'Also not: @domain.com', 'Invalid email should not be redacted');
 });
@@ -115,7 +115,7 @@ runTest('Passport redaction', () => {
 // Test 8: Complex integration test
 runTest('Complex integration test', () => {
   const input = 'My name is Jane, SIN: 123-456-789, email jane@example.com. I live at 456 Maple St, Toronto, ON M5V 2T6. Call me at (416) 123-4567. My passport is AB123456.';
-  const expected = 'My name is Jane, SIN: [REDACTED:sin], email [REDACTED:email]. I live at [REDACTED:address], Toronto, ON [REDACTED:address]. Call me at [REDACTED:phone]. My passport is [REDACTED:passport].';
+  const expected = 'My name is Jane, SIN: [REDACTED:sin], email jane@example.com. I live at [REDACTED:address], Toronto, ON [REDACTED:address]. Call me at [REDACTED:phone]. My passport is [REDACTED:passport].';
   
   const result = redactPII(input);
   assert(result === expected, `Complex integration failed.\nExpected: ${expected}\nGot: ${result}`);
@@ -131,7 +131,7 @@ runTest('Edge cases and false positives', () => {
   assert(redactPII('Meeting room A1B 2C3') === 'Meeting room A1B 2C3', 'Room numbers should not be redacted');
   
   // Should preserve formatting around redacted content
-  assert(redactPII('Email: (jane@example.com)') === 'Email: ([REDACTED:email])', 'Parentheses should be preserved');
+  assert(redactPII('Email: (jane@example.com)') === 'Email: (jane@example.com)', 'Emails should not be redacted');
   assert(redactPII('SIN "123-456-789"') === 'SIN "[REDACTED:sin]"', 'Quotes should be preserved');
 });
 
@@ -140,8 +140,8 @@ runTest('Multiple PII types', () => {
   const input = 'Contact info: john@email.com, 416-555-1234, SIN 987-654-321, lives at 789 Oak St, M4B 1Y2, passport CD567890';
   const result = redactPII(input);
   
-  // Verify all PII types are redacted
-  assert(result.includes('[REDACTED:email]'), 'Email should be redacted');
+  // Verify PII types are redacted (except email)
+  assert(result.includes('john@email.com'), 'Email should NOT be redacted');
   assert(result.includes('[REDACTED:phone]'), 'Phone should be redacted');
   assert(result.includes('[REDACTED:sin]'), 'SIN should be redacted');
   assert(result.includes('[REDACTED:address]'), 'Address should be redacted');

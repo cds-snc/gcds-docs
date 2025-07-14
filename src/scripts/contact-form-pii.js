@@ -7,28 +7,65 @@ document.addEventListener('DOMContentLoaded', function() {
   // Find the contact form(s) on the page
   const contactForms = document.querySelectorAll('form.contact-us-form');
   
-  contactForms.forEach(form => {
+  contactForms.forEach((form, index) => {
     // Add event listener for form submission
     form.addEventListener('submit', function(event) {
-      // Get all form fields that might contain PII
-      const textFields = form.querySelectorAll('input[type="text"], input[type="email"], textarea');
+      // Check if redactPII function is available
+      if (typeof window.redactPII !== 'function') {
+        console.error('PII redaction function not available');
+        return;
+      }
       
-      // Redact PII from each text field before submission
-      textFields.forEach(field => {
-        if (field.value && typeof window.redactPII === 'function') {
+      // Get all form fields that might contain PII (including GC Design System components)
+      const standardFields = form.querySelectorAll('input[type="text"], input[type="email"], textarea');
+      const gcdsInputs = form.querySelectorAll('gcds-input');
+      const gcdsTextareas = form.querySelectorAll('gcds-textarea');
+      
+      // Process standard HTML fields
+      standardFields.forEach((field) => {
+        if (field.value && field.value.trim() !== '' && field.name !== 'honeypot' && field.name !== 'bot-field') {
           const originalValue = field.value;
           const redactedValue = window.redactPII(originalValue);
           
-          // Only update if redaction occurred
           if (redactedValue !== originalValue) {
-            console.log('PII redaction applied to field:', field.name);
             field.value = redactedValue;
           }
         }
       });
       
-      // Form will continue with normal submission
-      // The redacted values will be sent to the server
+      // Process GCDS input components
+      gcdsInputs.forEach((component) => {
+        const inputElement = component.shadowRoot?.querySelector('input') || component.querySelector('input');
+        if (inputElement && inputElement.value && inputElement.value.trim() !== '') {
+          const originalValue = inputElement.value;
+          const redactedValue = window.redactPII(originalValue);
+          
+          if (redactedValue !== originalValue) {
+            inputElement.value = redactedValue;
+            // Also update the component's value property if it exists
+            if (component.value !== undefined) {
+              component.value = redactedValue;
+            }
+          }
+        }
+      });
+      
+      // Process GCDS textarea components
+      gcdsTextareas.forEach((component) => {
+        const textareaElement = component.shadowRoot?.querySelector('textarea') || component.querySelector('textarea');
+        if (textareaElement && textareaElement.value && textareaElement.value.trim() !== '') {
+          const originalValue = textareaElement.value;
+          const redactedValue = window.redactPII(originalValue);
+          
+          if (redactedValue !== originalValue) {
+            textareaElement.value = redactedValue;
+            // Also update the component's value property if it exists
+            if (component.value !== undefined) {
+              component.value = redactedValue;
+            }
+          }
+        }
+      });
     });
   });
 });

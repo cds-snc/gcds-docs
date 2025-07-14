@@ -27,10 +27,9 @@ function redactPII(input) {
     return match;
   });
 
-  // Email addresses
-  // Pattern: standard email format
-  const emailPattern = /\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b/g;
-  redacted = redacted.replace(emailPattern, '[REDACTED:email]');
+  // Email addresses - DISABLED (emails are not considered PII to redact)
+  // const emailPattern = /\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b/g;
+  // redacted = redacted.replace(emailPattern, '[REDACTED:email]');
 
   // Phone numbers (Canadian formats) - only match 10-digit patterns
   // Pattern: Various Canadian phone number formats
