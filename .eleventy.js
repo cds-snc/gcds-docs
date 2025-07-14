@@ -35,6 +35,8 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy(
     './src/scripts/component-preview-iframe.js',
   );
+  eleventyConfig.addPassthroughCopy('./src/scripts/pii-redactor.js');
+  eleventyConfig.addPassthroughCopy('./src/scripts/contact-form-pii.js');
   eleventyConfig.addPassthroughCopy('./src/favicon.ico');
   eleventyConfig.addPassthroughCopy({ './src/variables/': 'variables' });
   eleventyConfig.addPassthroughCopy({
