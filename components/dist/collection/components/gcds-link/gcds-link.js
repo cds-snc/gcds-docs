@@ -4,17 +4,33 @@ import { inheritAttributes, emitEvent } from "../../utils/utils";
 import i18n from "./i18n/i18n";
 export class GcdsLink {
     constructor() {
+        /**
+         * Props
+         */
+        /**
+         * Sets the main style of the link.
+         */
         this.variant = 'default';
+        /**
+         * Set the link size
+         */
         this.size = 'inherit';
+        /**
+         * Sets the display behavior of the link
+         */
         this.display = 'inline';
-        this.href = undefined;
-        this.rel = undefined;
+        /**
+         * The target attribute specifies where to open the linked document
+         */
         this.target = '_self';
+        /**
+         * Whether the link is external or not
+         */
         this.external = false;
-        this.download = undefined;
-        this.type = undefined;
+        /**
+         * Set additional HTML attributes not available in component properties
+         */
         this.inheritedAttributes = {};
-        this.lang = undefined;
     }
     validateVariant(newValue) {
         const values = ['default', 'light'];
@@ -86,6 +102,7 @@ export class GcdsLink {
         return {
             "variant": {
                 "type": "string",
+                "attribute": "variant",
                 "mutable": true,
                 "complexType": {
                     "original": "'default' | 'light'",
@@ -98,12 +115,14 @@ export class GcdsLink {
                     "tags": [],
                     "text": "Sets the main style of the link."
                 },
-                "attribute": "variant",
+                "getter": false,
+                "setter": false,
                 "reflect": false,
                 "defaultValue": "'default'"
             },
             "size": {
                 "type": "string",
+                "attribute": "size",
                 "mutable": true,
                 "complexType": {
                     "original": "'regular' | 'small' | 'inherit'",
@@ -116,12 +135,14 @@ export class GcdsLink {
                     "tags": [],
                     "text": "Set the link size"
                 },
-                "attribute": "size",
+                "getter": false,
+                "setter": false,
                 "reflect": false,
                 "defaultValue": "'inherit'"
             },
             "display": {
                 "type": "string",
+                "attribute": "display",
                 "mutable": true,
                 "complexType": {
                     "original": "'block' | 'inline'",
@@ -134,12 +155,14 @@ export class GcdsLink {
                     "tags": [],
                     "text": "Sets the display behavior of the link"
                 },
-                "attribute": "display",
+                "getter": false,
+                "setter": false,
                 "reflect": false,
                 "defaultValue": "'inline'"
             },
             "href": {
                 "type": "string",
+                "attribute": "href",
                 "mutable": false,
                 "complexType": {
                     "original": "string",
@@ -152,11 +175,13 @@ export class GcdsLink {
                     "tags": [],
                     "text": "The href attribute specifies the URL of the page the link goes to"
                 },
-                "attribute": "href",
+                "getter": false,
+                "setter": false,
                 "reflect": false
             },
             "rel": {
                 "type": "string",
+                "attribute": "rel",
                 "mutable": false,
                 "complexType": {
                     "original": "string | undefined",
@@ -169,11 +194,13 @@ export class GcdsLink {
                     "tags": [],
                     "text": "The rel attribute specifies the relationship between the current document and the linked document"
                 },
-                "attribute": "rel",
+                "getter": false,
+                "setter": false,
                 "reflect": false
             },
             "target": {
                 "type": "string",
+                "attribute": "target",
                 "mutable": false,
                 "complexType": {
                     "original": "string",
@@ -186,12 +213,14 @@ export class GcdsLink {
                     "tags": [],
                     "text": "The target attribute specifies where to open the linked document"
                 },
-                "attribute": "target",
+                "getter": false,
+                "setter": false,
                 "reflect": false,
                 "defaultValue": "'_self'"
             },
             "external": {
                 "type": "boolean",
+                "attribute": "external",
                 "mutable": false,
                 "complexType": {
                     "original": "boolean",
@@ -204,12 +233,14 @@ export class GcdsLink {
                     "tags": [],
                     "text": "Whether the link is external or not"
                 },
-                "attribute": "external",
+                "getter": false,
+                "setter": false,
                 "reflect": false,
                 "defaultValue": "false"
             },
             "download": {
                 "type": "string",
+                "attribute": "download",
                 "mutable": false,
                 "complexType": {
                     "original": "string | undefined",
@@ -222,11 +253,13 @@ export class GcdsLink {
                     "tags": [],
                     "text": "The download attribute specifies that the target (the file specified in the href attribute) will be downloaded when a user clicks on the hyperlink"
                 },
-                "attribute": "download",
+                "getter": false,
+                "setter": false,
                 "reflect": false
             },
             "type": {
                 "type": "string",
+                "attribute": "type",
                 "mutable": false,
                 "complexType": {
                     "original": "string | undefined",
@@ -239,7 +272,8 @@ export class GcdsLink {
                     "tags": [],
                     "text": "The type specifies the media type of the linked document"
                 },
-                "attribute": "type",
+                "getter": false,
+                "setter": false,
                 "reflect": false
             }
         };

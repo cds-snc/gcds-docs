@@ -1,12 +1,30 @@
 import { Host, h } from "@stencil/core";
 export class GcdsContainer {
     constructor() {
+        /**
+         * Props
+         */
+        /**
+        * Defines if the container has a border.
+         */
         this.border = false;
+        /**
+         * Defines if the container is centered.
+         */
         this.centered = false;
+        /**
+         * Defines if the container is the main page container. When true,
+         * the width will be set to 90% for smaller screens to ensure consistency
+         * with the responsiveness of other core layout components (header + footer).
+         */
         this.mainContainer = false;
-        this.margin = undefined;
-        this.padding = undefined;
+        /**
+         * Defines container size.
+         */
         this.size = 'full';
+        /**
+         * Set tag for container.
+         */
         this.tag = 'div';
     }
     render() {
@@ -38,6 +56,7 @@ export class GcdsContainer {
         return {
             "border": {
                 "type": "boolean",
+                "attribute": "border",
                 "mutable": false,
                 "complexType": {
                     "original": "boolean",
@@ -50,12 +69,14 @@ export class GcdsContainer {
                     "tags": [],
                     "text": "Defines if the container has a border."
                 },
-                "attribute": "border",
+                "getter": false,
+                "setter": false,
                 "reflect": false,
                 "defaultValue": "false"
             },
             "centered": {
                 "type": "boolean",
+                "attribute": "centered",
                 "mutable": false,
                 "complexType": {
                     "original": "boolean",
@@ -68,12 +89,14 @@ export class GcdsContainer {
                     "tags": [],
                     "text": "Defines if the container is centered."
                 },
-                "attribute": "centered",
+                "getter": false,
+                "setter": false,
                 "reflect": false,
                 "defaultValue": "false"
             },
             "mainContainer": {
                 "type": "boolean",
+                "attribute": "main-container",
                 "mutable": false,
                 "complexType": {
                     "original": "boolean",
@@ -86,12 +109,14 @@ export class GcdsContainer {
                     "tags": [],
                     "text": "Defines if the container is the main page container. When true,\nthe width will be set to 90% for smaller screens to ensure consistency\nwith the responsiveness of other core layout components (header + footer)."
                 },
-                "attribute": "main-container",
+                "getter": false,
+                "setter": false,
                 "reflect": false,
                 "defaultValue": "false"
             },
             "margin": {
                 "type": "string",
+                "attribute": "margin",
                 "mutable": false,
                 "complexType": {
                     "original": "SpacingValues",
@@ -110,11 +135,13 @@ export class GcdsContainer {
                     "tags": [],
                     "text": "Container margin. Left and right margins won't be applied\nif the container is centered."
                 },
-                "attribute": "margin",
+                "getter": false,
+                "setter": false,
                 "reflect": false
             },
             "padding": {
                 "type": "string",
+                "attribute": "padding",
                 "mutable": false,
                 "complexType": {
                     "original": "SpacingValues",
@@ -133,11 +160,13 @@ export class GcdsContainer {
                     "tags": [],
                     "text": "Defines the container's padding."
                 },
-                "attribute": "padding",
+                "getter": false,
+                "setter": false,
                 "reflect": false
             },
             "size": {
                 "type": "string",
+                "attribute": "size",
                 "mutable": false,
                 "complexType": {
                     "original": "'full' | 'xl' | 'lg' | 'md' | 'sm' | 'xs'",
@@ -150,12 +179,14 @@ export class GcdsContainer {
                     "tags": [],
                     "text": "Defines container size."
                 },
-                "attribute": "size",
+                "getter": false,
+                "setter": false,
                 "reflect": false,
                 "defaultValue": "'full'"
             },
             "tag": {
                 "type": "string",
+                "attribute": "tag",
                 "mutable": false,
                 "complexType": {
                     "original": "string",
@@ -168,7 +199,8 @@ export class GcdsContainer {
                     "tags": [],
                     "text": "Set tag for container."
                 },
-                "attribute": "tag",
+                "getter": false,
+                "setter": false,
                 "reflect": false,
                 "defaultValue": "'div'"
             }

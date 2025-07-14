@@ -4,6 +4,34 @@ import { defaultValidator, getValidator, requiredValidator, } from "../../valida
 export class GcdsInput {
     constructor() {
         this._validator = defaultValidator;
+        /**
+         * Props
+         */
+        /**
+         * Specifies if an input element is disabled or not.
+         */
+        this.disabled = false;
+        /**
+         * Specifies if the label is hidden or not.
+         */
+        this.hideLabel = false;
+        /**
+         * Specifies if a form field is required or not.
+         */
+        this.required = false;
+        /**
+         * Set Input types
+         */
+        // prettier-ignore
+        this.type = 'text';
+        /**
+         * Set event to call validator
+         */
+        this.validateOn = 'blur';
+        /**
+         * Set additional HTML attributes not available in component properties
+         */
+        this.inheritedAttributes = {};
         this.onBlur = () => {
             if (this.validateOn == 'blur') {
                 this.validate();
@@ -20,23 +48,6 @@ export class GcdsInput {
             }
             customEvent.emit(this.value);
         };
-        this.disabled = false;
-        this.errorMessage = undefined;
-        this.hideLabel = false;
-        this.hint = undefined;
-        this.inputId = undefined;
-        this.name = undefined;
-        this.label = undefined;
-        this.required = false;
-        this.size = undefined;
-        this.type = 'text';
-        this.value = undefined;
-        this.autocomplete = undefined;
-        this.validator = undefined;
-        this.validateOn = 'blur';
-        this.inheritedAttributes = {};
-        this.hasError = undefined;
-        this.lang = undefined;
     }
     validateDisabledInput() {
         if (this.required) {
@@ -187,6 +198,7 @@ export class GcdsInput {
         return {
             "disabled": {
                 "type": "boolean",
+                "attribute": "disabled",
                 "mutable": true,
                 "complexType": {
                     "original": "boolean",
@@ -199,12 +211,14 @@ export class GcdsInput {
                     "tags": [],
                     "text": "Specifies if an input element is disabled or not."
                 },
-                "attribute": "disabled",
+                "getter": false,
+                "setter": false,
                 "reflect": false,
                 "defaultValue": "false"
             },
             "errorMessage": {
                 "type": "string",
+                "attribute": "error-message",
                 "mutable": true,
                 "complexType": {
                     "original": "string",
@@ -217,11 +231,13 @@ export class GcdsInput {
                     "tags": [],
                     "text": "Error message for an invalid input element."
                 },
-                "attribute": "error-message",
+                "getter": false,
+                "setter": false,
                 "reflect": false
             },
             "hideLabel": {
                 "type": "boolean",
+                "attribute": "hide-label",
                 "mutable": false,
                 "complexType": {
                     "original": "boolean",
@@ -234,12 +250,14 @@ export class GcdsInput {
                     "tags": [],
                     "text": "Specifies if the label is hidden or not."
                 },
-                "attribute": "hide-label",
+                "getter": false,
+                "setter": false,
                 "reflect": false,
                 "defaultValue": "false"
             },
             "hint": {
                 "type": "string",
+                "attribute": "hint",
                 "mutable": false,
                 "complexType": {
                     "original": "string",
@@ -252,11 +270,13 @@ export class GcdsInput {
                     "tags": [],
                     "text": "Hint displayed below the label and above the input field."
                 },
-                "attribute": "hint",
+                "getter": false,
+                "setter": false,
                 "reflect": false
             },
             "inputId": {
                 "type": "string",
+                "attribute": "input-id",
                 "mutable": false,
                 "complexType": {
                     "original": "string",
@@ -269,11 +289,13 @@ export class GcdsInput {
                     "tags": [],
                     "text": "Id  attribute for an input element."
                 },
-                "attribute": "input-id",
+                "getter": false,
+                "setter": false,
                 "reflect": false
             },
             "name": {
                 "type": "string",
+                "attribute": "name",
                 "mutable": false,
                 "complexType": {
                     "original": "string",
@@ -286,11 +308,13 @@ export class GcdsInput {
                     "tags": [],
                     "text": "Name attribute for an input element."
                 },
-                "attribute": "name",
+                "getter": false,
+                "setter": false,
                 "reflect": false
             },
             "label": {
                 "type": "string",
+                "attribute": "label",
                 "mutable": false,
                 "complexType": {
                     "original": "string",
@@ -303,11 +327,13 @@ export class GcdsInput {
                     "tags": [],
                     "text": "Form field label"
                 },
-                "attribute": "label",
+                "getter": false,
+                "setter": false,
                 "reflect": false
             },
             "required": {
                 "type": "boolean",
+                "attribute": "required",
                 "mutable": false,
                 "complexType": {
                     "original": "boolean",
@@ -320,12 +346,14 @@ export class GcdsInput {
                     "tags": [],
                     "text": "Specifies if a form field is required or not."
                 },
-                "attribute": "required",
+                "getter": false,
+                "setter": false,
                 "reflect": false,
                 "defaultValue": "false"
             },
             "size": {
                 "type": "number",
+                "attribute": "size",
                 "mutable": false,
                 "complexType": {
                     "original": "number",
@@ -338,11 +366,13 @@ export class GcdsInput {
                     "tags": [],
                     "text": "Size attribute for an input element to provide a visual indication\nof the expected text length to the user."
                 },
-                "attribute": "size",
+                "getter": false,
+                "setter": false,
                 "reflect": false
             },
             "type": {
                 "type": "string",
+                "attribute": "type",
                 "mutable": false,
                 "complexType": {
                     "original": "'email' | 'number' | 'password' | 'search' | 'text' | 'url'",
@@ -355,12 +385,14 @@ export class GcdsInput {
                     "tags": [],
                     "text": "Set Input types"
                 },
-                "attribute": "type",
+                "getter": false,
+                "setter": false,
                 "reflect": false,
                 "defaultValue": "'text'"
             },
             "value": {
                 "type": "string",
+                "attribute": "value",
                 "mutable": true,
                 "complexType": {
                     "original": "string",
@@ -373,11 +405,13 @@ export class GcdsInput {
                     "tags": [],
                     "text": "Default value for an input element."
                 },
-                "attribute": "value",
+                "getter": false,
+                "setter": false,
                 "reflect": false
             },
             "autocomplete": {
                 "type": "string",
+                "attribute": "autocomplete",
                 "mutable": false,
                 "complexType": {
                     "original": "string",
@@ -390,11 +424,13 @@ export class GcdsInput {
                     "tags": [],
                     "text": "String to have autocomplete enabled"
                 },
-                "attribute": "autocomplete",
+                "getter": false,
+                "setter": false,
                 "reflect": false
             },
             "validator": {
                 "type": "unknown",
+                "attribute": "validator",
                 "mutable": true,
                 "complexType": {
                     "original": "Array<\n    string | ValidatorEntry | Validator<string>\n  >",
@@ -421,10 +457,13 @@ export class GcdsInput {
                 "docs": {
                     "tags": [],
                     "text": "Array of validators"
-                }
+                },
+                "getter": false,
+                "setter": false
             },
             "validateOn": {
                 "type": "string",
+                "attribute": "validate-on",
                 "mutable": true,
                 "complexType": {
                     "original": "'blur' | 'submit' | 'other'",
@@ -437,7 +476,8 @@ export class GcdsInput {
                     "tags": [],
                     "text": "Set event to call validator"
                 },
-                "attribute": "validate-on",
+                "getter": false,
+                "setter": false,
                 "reflect": false,
                 "defaultValue": "'blur'"
             }

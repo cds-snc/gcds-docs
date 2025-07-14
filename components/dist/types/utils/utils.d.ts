@@ -14,5 +14,5 @@ export declare const emitEvent: (e: Event, customEvent: EventEmitter, value?: un
 export declare const logError: (name: string, errorArr: string[], optionalAttrsArrToRemove?: string[]) => void;
 export declare const handleErrors: (errors: string[], propertyName: string, property: string | boolean | object, external?: boolean) => string[];
 export declare const isValid: (errors: string[], requiredProps: string[]) => boolean;
-export declare const isValidDate: (dateString: string, forceFormat?: 'full' | 'compact') => boolean;
+export declare const isValidDate: (dateString: string, forceFormat?: "full" | "compact") => boolean;
 export declare function handleValidationResult(element: HTMLGcdsInputElement | HTMLGcdsDateInputElement | HTMLGcdsRadiosElement | HTMLGcdsCheckboxesElement | HTMLGcdsFileUploaderElement | HTMLGcdsSelectElement | HTMLGcdsTextareaElement, validationResult: ValidatorReturn, label: string, errorEv: EventEmitter, validEv: EventEmitter, lang: string, errors?: object): object;

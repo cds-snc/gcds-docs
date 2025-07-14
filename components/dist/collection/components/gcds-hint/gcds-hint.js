@@ -1,8 +1,5 @@
 import { Host, h } from "@stencil/core";
 export class GcdsHint {
-    constructor() {
-        this.hintId = undefined;
-    }
     render() {
         const { hintId } = this;
         return (h(Host, { key: 'eb67660e9aef1823546fd67ffb4df34b28b2cadb', id: `hint-${hintId}` }, h("gcds-text", { key: 'f1252b21a52419614fe057aad4a8b117d07ae8b6', class: "gcds-hint", "margin-bottom": "0", part: "hint" }, h("slot", { key: '171998e99a00d21a3436f7dc118d580bb7d0fe77' }))));
@@ -23,6 +20,7 @@ export class GcdsHint {
         return {
             "hintId": {
                 "type": "string",
+                "attribute": "hint-id",
                 "mutable": false,
                 "complexType": {
                     "original": "string",
@@ -35,7 +33,8 @@ export class GcdsHint {
                     "tags": [],
                     "text": "Id attribute for the hint."
                 },
-                "attribute": "hint-id",
+                "getter": false,
+                "setter": false,
                 "reflect": false
             }
         };

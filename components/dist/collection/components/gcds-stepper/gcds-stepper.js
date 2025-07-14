@@ -3,11 +3,15 @@ import { assignLanguage, observerConfig, logError } from "../../utils/utils";
 import i18n from "./i18n/i18n";
 export class GcdsStepper {
     constructor() {
-        this.currentStep = undefined;
-        this.totalSteps = undefined;
+        /**
+         * Defines the heading tag to render
+         */
         this.tag = 'h2';
+        /**
+         * State to track validation on properties
+         * Contains a list of properties that have an error associated with them
+         */
         this.errors = [];
-        this.lang = undefined;
     }
     validateCurrentStep() {
         if (this.currentStep <= 0 ||
@@ -88,6 +92,7 @@ export class GcdsStepper {
         return {
             "currentStep": {
                 "type": "number",
+                "attribute": "current-step",
                 "mutable": true,
                 "complexType": {
                     "original": "number",
@@ -100,11 +105,13 @@ export class GcdsStepper {
                     "tags": [],
                     "text": "Defines the current step."
                 },
-                "attribute": "current-step",
+                "getter": false,
+                "setter": false,
                 "reflect": false
             },
             "totalSteps": {
                 "type": "number",
+                "attribute": "total-steps",
                 "mutable": true,
                 "complexType": {
                     "original": "number",
@@ -117,11 +124,13 @@ export class GcdsStepper {
                     "tags": [],
                     "text": "Defines the total amount of steps."
                 },
-                "attribute": "total-steps",
+                "getter": false,
+                "setter": false,
                 "reflect": false
             },
             "tag": {
                 "type": "string",
+                "attribute": "tag",
                 "mutable": false,
                 "complexType": {
                     "original": "'h1' | 'h2' | 'h3'",
@@ -134,7 +143,8 @@ export class GcdsStepper {
                     "tags": [],
                     "text": "Defines the heading tag to render"
                 },
-                "attribute": "tag",
+                "getter": false,
+                "setter": false,
                 "reflect": false,
                 "defaultValue": "'h2'"
             }

@@ -3,6 +3,19 @@
 import { Readable } from 'node:stream';
 
 export declare function createWindowFromHtml(templateHtml: string, uniqueId: string): any;
+/**
+ * Serialize a value to a string that can be deserialized later.
+ * @param {unknown} value - The value to serialize.
+ * @returns {string} A string that can be deserialized later.
+ */
+export declare function serializeProperty(value: unknown): string | number | boolean;
+/**
+ * Deserialize a value from a string that was serialized earlier.
+ * @param {string} value - The string to deserialize.
+ * @returns {unknown} The deserialized value.
+ */
+export declare function deserializeProperty(value: string): any;
+export type ResolutionHandler = (elm: HTMLElement) => string | undefined | null;
 export interface HydrateDocumentOptions {
 	/**
 	 * Build ID that will be added to `<html data-stencil-build="BUILD_ID">`. By default
@@ -94,6 +107,30 @@ export interface HydrateDocumentOptions {
 	 * Sets `navigator.userAgent`
 	 */
 	userAgent?: string;
+	/**
+	 * Configure how Stencil serializes the components shadow root.
+	 * - If set to `declarative-shadow-dom` the component will be rendered within a Declarative Shadow DOM.
+	 * - If set to `scoped` Stencil will render the contents of the shadow root as a `scoped: true` component
+	 *   and the shadow DOM will be created during client-side hydration.
+	 * - Alternatively you can mix and match the two by providing an object with `declarative-shadow-dom` and `scoped` keys,
+	 * the value arrays containing the tag names of the components that should be rendered in that mode.
+	 *
+	 * Examples:
+	 * - `{ 'declarative-shadow-dom': ['my-component-1', 'another-component'], default: 'scoped' }`
+	 * Render all components as `scoped` apart from `my-component-1` and `another-component`
+	 * -  `{ 'scoped': ['an-option-component'], default: 'declarative-shadow-dom' }`
+	 * Render all components within `declarative-shadow-dom` apart from `an-option-component`
+	 * - `'scoped'` Render all components as `scoped`
+	 * - `false` disables shadow root serialization
+	 *
+	 * *NOTE* `true` has been deprecated in favor of `declarative-shadow-dom` and `scoped`
+	 * @default 'declarative-shadow-dom'
+	 */
+	serializeShadowRoot?: "declarative-shadow-dom" | "scoped" | {
+		"declarative-shadow-dom"?: string[];
+		scoped?: string[];
+		default: "declarative-shadow-dom" | "scoped";
+	} | boolean;
 }
 export interface SerializeDocumentOptions extends HydrateDocumentOptions {
 	/**
@@ -137,18 +174,16 @@ export interface SerializeDocumentOptions extends HydrateDocumentOptions {
 	 */
 	removeHtmlComments?: boolean;
 	/**
-	 * If set to `false` Stencil will ignore the fact that a component has a `shadow: true`
-	 * flag and serializes it as a scoped component. If set to `true` the component will
-	 * be rendered within a Declarative Shadow DOM.
-	 * @default false
-	 */
-	serializeShadowRoot?: boolean;
-	/**
 	 * The `fullDocument` flag determines the format of the rendered output. Set it to true to
 	 * generate a complete HTML document, or false to render only the component.
 	 * @default true
 	 */
 	fullDocument?: boolean;
+	/**
+	 * Style modes to render the component in.
+	 * @see https://stenciljs.com/docs/styling#style-modes
+	 */
+	modes?: ResolutionHandler[];
 }
 export interface HydrateFactoryOptions extends SerializeDocumentOptions {
 	serializeToHtml: boolean;
@@ -219,7 +254,9 @@ export interface HydrateScriptElement extends HydrateElement {
 	type?: string;
 }
 export interface HydrateStyleElement extends HydrateElement {
+	id?: string;
 	href?: string;
+	content?: string;
 }
 export interface HydrateStaticData {
 	id: string;

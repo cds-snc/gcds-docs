@@ -25,7 +25,7 @@ export declare class GcdsSideNav {
     keyDownListener(e: any): Promise<void>;
     gcdsClickListener(e: any): Promise<void>;
     updateLang(): void;
-    getNavSize(): Promise<"mobile" | "desktop">;
+    getNavSize(): Promise<"desktop" | "mobile">;
     updateNavSize(size: any): Promise<void>;
     updateNavItemQueue(el: any, includeElement?: boolean): Promise<void>;
     componentWillLoad(): Promise<void>;

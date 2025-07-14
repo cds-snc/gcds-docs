@@ -4,6 +4,22 @@ import { defaultValidator, getValidator, requiredValidator, } from "../../valida
 export class GcdsSelect {
     constructor() {
         this._validator = defaultValidator;
+        /**
+         * Specifies if a form field is required or not.
+         */
+        this.required = false;
+        /**
+         * Specifies if a select element is disabled or not.
+         */
+        this.disabled = false;
+        /**
+         * Set event to call validator
+         */
+        this.validateOn = 'blur';
+        /**
+         * Set additional HTML attributes not available in component properties
+         */
+        this.inheritedAttributes = {};
         this.handleInput = (e, customEvent) => {
             const val = e.target && e.target.value;
             this.value = val;
@@ -20,21 +36,6 @@ export class GcdsSelect {
             }
             this.gcdsBlur.emit();
         };
-        this.selectId = undefined;
-        this.label = undefined;
-        this.name = undefined;
-        this.required = false;
-        this.disabled = false;
-        this.defaultValue = undefined;
-        this.value = undefined;
-        this.errorMessage = undefined;
-        this.hint = undefined;
-        this.validator = undefined;
-        this.validateOn = 'blur';
-        this.hasError = undefined;
-        this.inheritedAttributes = {};
-        this.lang = undefined;
-        this.options = undefined;
     }
     validateDisabledSelect() {
         if (this.required) {
@@ -227,6 +228,7 @@ export class GcdsSelect {
         return {
             "selectId": {
                 "type": "string",
+                "attribute": "select-id",
                 "mutable": true,
                 "complexType": {
                     "original": "string",
@@ -239,11 +241,13 @@ export class GcdsSelect {
                     "tags": [],
                     "text": "Id attribute for a select element."
                 },
-                "attribute": "select-id",
+                "getter": false,
+                "setter": false,
                 "reflect": true
             },
             "label": {
                 "type": "string",
+                "attribute": "label",
                 "mutable": false,
                 "complexType": {
                     "original": "string",
@@ -256,11 +260,13 @@ export class GcdsSelect {
                     "tags": [],
                     "text": "Form field label."
                 },
-                "attribute": "label",
+                "getter": false,
+                "setter": false,
                 "reflect": true
             },
             "name": {
                 "type": "string",
+                "attribute": "name",
                 "mutable": false,
                 "complexType": {
                     "original": "string",
@@ -273,11 +279,13 @@ export class GcdsSelect {
                     "tags": [],
                     "text": "Name attribute for select form element."
                 },
-                "attribute": "name",
+                "getter": false,
+                "setter": false,
                 "reflect": true
             },
             "required": {
                 "type": "boolean",
+                "attribute": "required",
                 "mutable": false,
                 "complexType": {
                     "original": "boolean",
@@ -290,12 +298,14 @@ export class GcdsSelect {
                     "tags": [],
                     "text": "Specifies if a form field is required or not."
                 },
-                "attribute": "required",
+                "getter": false,
+                "setter": false,
                 "reflect": true,
                 "defaultValue": "false"
             },
             "disabled": {
                 "type": "boolean",
+                "attribute": "disabled",
                 "mutable": true,
                 "complexType": {
                     "original": "boolean",
@@ -308,12 +318,14 @@ export class GcdsSelect {
                     "tags": [],
                     "text": "Specifies if a select element is disabled or not."
                 },
-                "attribute": "disabled",
+                "getter": false,
+                "setter": false,
                 "reflect": true,
                 "defaultValue": "false"
             },
             "defaultValue": {
                 "type": "string",
+                "attribute": "default-value",
                 "mutable": false,
                 "complexType": {
                     "original": "string",
@@ -326,11 +338,13 @@ export class GcdsSelect {
                     "tags": [],
                     "text": "The default value is an optional value that gets displayed before the user selects an option."
                 },
-                "attribute": "default-value",
+                "getter": false,
+                "setter": false,
                 "reflect": true
             },
             "value": {
                 "type": "string",
+                "attribute": "value",
                 "mutable": true,
                 "complexType": {
                     "original": "string",
@@ -343,11 +357,13 @@ export class GcdsSelect {
                     "tags": [],
                     "text": "Value for a select element."
                 },
-                "attribute": "value",
+                "getter": false,
+                "setter": false,
                 "reflect": false
             },
             "errorMessage": {
                 "type": "string",
+                "attribute": "error-message",
                 "mutable": true,
                 "complexType": {
                     "original": "string",
@@ -360,11 +376,13 @@ export class GcdsSelect {
                     "tags": [],
                     "text": "Error message for an invalid select element."
                 },
-                "attribute": "error-message",
+                "getter": false,
+                "setter": false,
                 "reflect": true
             },
             "hint": {
                 "type": "string",
+                "attribute": "hint",
                 "mutable": false,
                 "complexType": {
                     "original": "string",
@@ -377,11 +395,13 @@ export class GcdsSelect {
                     "tags": [],
                     "text": "Hint displayed below the label."
                 },
-                "attribute": "hint",
+                "getter": false,
+                "setter": false,
                 "reflect": true
             },
             "validator": {
                 "type": "unknown",
+                "attribute": "validator",
                 "mutable": true,
                 "complexType": {
                     "original": "Array<\n    string | ValidatorEntry | Validator<string>\n  >",
@@ -408,10 +428,13 @@ export class GcdsSelect {
                 "docs": {
                     "tags": [],
                     "text": "Array of validators"
-                }
+                },
+                "getter": false,
+                "setter": false
             },
             "validateOn": {
                 "type": "string",
+                "attribute": "validate-on",
                 "mutable": true,
                 "complexType": {
                     "original": "'blur' | 'submit' | 'other'",
@@ -424,7 +447,8 @@ export class GcdsSelect {
                     "tags": [],
                     "text": "Set event to call validator"
                 },
-                "attribute": "validate-on",
+                "getter": false,
+                "setter": false,
                 "reflect": false,
                 "defaultValue": "'blur'"
             }

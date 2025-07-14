@@ -1,8 +1,2 @@
-import { G as GcdsGrid$1, d as defineCustomElement$1 } from './gcds-grid2.js';
-
-const GcdsGrid = GcdsGrid$1;
-const defineCustomElement = defineCustomElement$1;
-
-export { GcdsGrid, defineCustomElement };
-
+import{G as o,d as s}from"./p-CcPZWjfN.js";const t=o;const c=s;export{t as GcdsGrid,c as defineCustomElement};
 //# sourceMappingURL=gcds-grid.js.map

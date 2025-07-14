@@ -3,14 +3,36 @@ import { assignLanguage, observerConfig, emitEvent } from "../../utils/utils";
 import i18n from "./i18n/i18n";
 export class GcdsAlert {
     constructor() {
+        /**
+         * Props
+         */
+        /**
+         * Defines alert role.
+         */
         this.alertRole = 'info';
+        /**
+         * Defines the max width of the alert content.
+         */
         this.container = 'full';
-        this.heading = undefined;
+        /**
+         * Defines if the alert's close button is displayed or not.
+         */
         this.hideCloseBtn = false;
+        /**
+         * Defines if the alert's role icon is displayed or not.
+         */
         this.hideRoleIcon = false;
+        /**
+         * Defines if the alert's position is fixed.
+         */
         this.isFixed = false;
+        /**
+         * States
+         */
+        /**
+         * Specifies if the alert is open or not.
+         */
         this.isOpen = true;
-        this.lang = undefined;
     }
     /*
      * Observe lang attribute change
@@ -69,6 +91,7 @@ export class GcdsAlert {
         return {
             "alertRole": {
                 "type": "string",
+                "attribute": "alert-role",
                 "mutable": false,
                 "complexType": {
                     "original": "'danger' | 'info' | 'success' | 'warning'",
@@ -81,12 +104,14 @@ export class GcdsAlert {
                     "tags": [],
                     "text": "Defines alert role."
                 },
-                "attribute": "alert-role",
+                "getter": false,
+                "setter": false,
                 "reflect": false,
                 "defaultValue": "'info'"
             },
             "container": {
                 "type": "string",
+                "attribute": "container",
                 "mutable": false,
                 "complexType": {
                     "original": "'full' | 'xl' | 'lg' | 'md' | 'sm' | 'xs'",
@@ -99,12 +124,14 @@ export class GcdsAlert {
                     "tags": [],
                     "text": "Defines the max width of the alert content."
                 },
-                "attribute": "container",
+                "getter": false,
+                "setter": false,
                 "reflect": false,
                 "defaultValue": "'full'"
             },
             "heading": {
                 "type": "string",
+                "attribute": "heading",
                 "mutable": false,
                 "complexType": {
                     "original": "string",
@@ -117,11 +144,13 @@ export class GcdsAlert {
                     "tags": [],
                     "text": "Defines the alert heading."
                 },
-                "attribute": "heading",
+                "getter": false,
+                "setter": false,
                 "reflect": false
             },
             "hideCloseBtn": {
                 "type": "boolean",
+                "attribute": "hide-close-btn",
                 "mutable": false,
                 "complexType": {
                     "original": "boolean",
@@ -134,12 +163,14 @@ export class GcdsAlert {
                     "tags": [],
                     "text": "Defines if the alert's close button is displayed or not."
                 },
-                "attribute": "hide-close-btn",
+                "getter": false,
+                "setter": false,
                 "reflect": false,
                 "defaultValue": "false"
             },
             "hideRoleIcon": {
                 "type": "boolean",
+                "attribute": "hide-role-icon",
                 "mutable": false,
                 "complexType": {
                     "original": "boolean",
@@ -152,12 +183,14 @@ export class GcdsAlert {
                     "tags": [],
                     "text": "Defines if the alert's role icon is displayed or not."
                 },
-                "attribute": "hide-role-icon",
+                "getter": false,
+                "setter": false,
                 "reflect": false,
                 "defaultValue": "false"
             },
             "isFixed": {
                 "type": "boolean",
+                "attribute": "is-fixed",
                 "mutable": true,
                 "complexType": {
                     "original": "boolean",
@@ -170,7 +203,8 @@ export class GcdsAlert {
                     "tags": [],
                     "text": "Defines if the alert's position is fixed."
                 },
-                "attribute": "is-fixed",
+                "getter": false,
+                "setter": false,
                 "reflect": false,
                 "defaultValue": "false"
             }

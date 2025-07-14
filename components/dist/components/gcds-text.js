@@ -1,8 +1,2 @@
-import { G as GcdsText$1, d as defineCustomElement$1 } from './gcds-text2.js';
-
-const GcdsText = GcdsText$1;
-const defineCustomElement = defineCustomElement$1;
-
-export { GcdsText, defineCustomElement };
-
+import{G as o,d as s}from"./p-B57Qz20G.js";const t=o;const p=s;export{t as GcdsText,p as defineCustomElement};
 //# sourceMappingURL=gcds-text.js.map

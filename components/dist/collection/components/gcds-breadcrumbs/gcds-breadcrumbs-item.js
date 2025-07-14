@@ -1,8 +1,5 @@
 import { Host, h } from "@stencil/core";
 export class GcdsBreadcrumbsItem {
-    constructor() {
-        this.href = undefined;
-    }
     render() {
         const { href } = this;
         return (h(Host, { key: '8b605a4957ab5346d22dced80f73e1a5f4ac555b', role: "listitem", class: "gcds-breadcrumbs-item" }, h("gcds-link", { key: 'd3c3af1d26322cb3ef0fbf6f8778bc0f4c3bf9c4', size: "regular", href: href }, h("slot", { key: 'f20dcd2b71127031fc0334fe3673821e08aefb56' }))));
@@ -23,6 +20,7 @@ export class GcdsBreadcrumbsItem {
         return {
             "href": {
                 "type": "string",
+                "attribute": "href",
                 "mutable": false,
                 "complexType": {
                     "original": "string | undefined",
@@ -35,7 +33,8 @@ export class GcdsBreadcrumbsItem {
                     "tags": [],
                     "text": "Specifies the href of the breadcrumb item."
                 },
-                "attribute": "href",
+                "getter": false,
+                "setter": false,
                 "reflect": false
             }
         };

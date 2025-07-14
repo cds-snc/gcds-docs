@@ -2,7 +2,9 @@ import { Host, h, } from "@stencil/core";
 import { emitEvent } from "../../utils/utils";
 export class GcdsDetails {
     constructor() {
-        this.detailsTitle = undefined;
+        /**
+         * Defines if the details panel is open by default or not.
+         */
         this.open = false;
     }
     /**
@@ -39,6 +41,7 @@ export class GcdsDetails {
         return {
             "detailsTitle": {
                 "type": "string",
+                "attribute": "details-title",
                 "mutable": false,
                 "complexType": {
                     "original": "string",
@@ -51,11 +54,13 @@ export class GcdsDetails {
                     "tags": [],
                     "text": "The details title summarizes the panel content."
                 },
-                "attribute": "details-title",
+                "getter": false,
+                "setter": false,
                 "reflect": false
             },
             "open": {
                 "type": "boolean",
+                "attribute": "open",
                 "mutable": true,
                 "complexType": {
                     "original": "boolean",
@@ -68,7 +73,8 @@ export class GcdsDetails {
                     "tags": [],
                     "text": "Defines if the details panel is open by default or not."
                 },
-                "attribute": "open",
+                "getter": false,
+                "setter": false,
                 "reflect": true,
                 "defaultValue": "false"
             }

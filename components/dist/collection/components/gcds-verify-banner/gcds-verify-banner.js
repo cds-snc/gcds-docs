@@ -5,9 +5,17 @@ import CanadaFlag from "./assets/canada-flag.svg";
 import ContentToggleArrow from "./assets/content-toggle-arrow.svg";
 export class GcdsVerifyBanner {
     constructor() {
+        /**
+         * Props
+         */
+        /**
+         * Defines the container width of the verify banner content
+         */
         this.container = 'xl';
+        /**
+         * Defines if the banner's position is fixed.
+         */
         this.isFixed = false;
-        this.lang = undefined;
     }
     /*
      * Observe lang attribute change
@@ -45,6 +53,7 @@ export class GcdsVerifyBanner {
         return {
             "container": {
                 "type": "string",
+                "attribute": "container",
                 "mutable": false,
                 "complexType": {
                     "original": "'full' | 'xl' | 'lg' | 'md' | 'sm' | 'xs'",
@@ -57,12 +66,14 @@ export class GcdsVerifyBanner {
                     "tags": [],
                     "text": "Defines the container width of the verify banner content"
                 },
-                "attribute": "container",
+                "getter": false,
+                "setter": false,
                 "reflect": false,
                 "defaultValue": "'xl'"
             },
             "isFixed": {
                 "type": "boolean",
+                "attribute": "is-fixed",
                 "mutable": false,
                 "complexType": {
                     "original": "boolean",
@@ -75,7 +86,8 @@ export class GcdsVerifyBanner {
                     "tags": [],
                     "text": "Defines if the banner's position is fixed."
                 },
-                "attribute": "is-fixed",
+                "getter": false,
+                "setter": false,
                 "reflect": false,
                 "defaultValue": "false"
             }

@@ -2,9 +2,14 @@ import { Host, h } from "@stencil/core";
 import { SpacingArray } from "../../utils/types/spacing";
 export class GcdsHeading {
     constructor() {
-        this.tag = undefined;
+        /**
+         * Sets the line length to a maximum amount of characters per line for
+         * each heading level, ensuring a comfortable, accessible reading length.
+         */
         this.characterLimit = true;
-        this.marginTop = undefined;
+        /**
+         * Adds margin below the heading. The default margin-botttom is 300.
+         */
         this.marginBottom = '300';
     }
     validateTag(newValue) {
@@ -57,6 +62,7 @@ export class GcdsHeading {
         return {
             "tag": {
                 "type": "string",
+                "attribute": "tag",
                 "mutable": true,
                 "complexType": {
                     "original": "'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6'",
@@ -69,11 +75,13 @@ export class GcdsHeading {
                     "tags": [],
                     "text": "Sets the appropriate HTML tag for the selected level."
                 },
-                "attribute": "tag",
+                "getter": false,
+                "setter": false,
                 "reflect": false
             },
             "characterLimit": {
                 "type": "boolean",
+                "attribute": "character-limit",
                 "mutable": false,
                 "complexType": {
                     "original": "boolean",
@@ -86,12 +94,14 @@ export class GcdsHeading {
                     "tags": [],
                     "text": "Sets the line length to a maximum amount of characters per line for\neach heading level, ensuring a comfortable, accessible reading length."
                 },
-                "attribute": "character-limit",
+                "getter": false,
+                "setter": false,
                 "reflect": false,
                 "defaultValue": "true"
             },
             "marginTop": {
                 "type": "string",
+                "attribute": "margin-top",
                 "mutable": true,
                 "complexType": {
                     "original": "SpacingValues",
@@ -110,11 +120,13 @@ export class GcdsHeading {
                     "tags": [],
                     "text": "Adds margin above the heading. The default margin-top for h1 is set to 0,\nwhile for h2 to h6 headings, it's 600."
                 },
-                "attribute": "margin-top",
+                "getter": false,
+                "setter": false,
                 "reflect": false
             },
             "marginBottom": {
                 "type": "string",
+                "attribute": "margin-bottom",
                 "mutable": true,
                 "complexType": {
                     "original": "SpacingValues",
@@ -133,7 +145,8 @@ export class GcdsHeading {
                     "tags": [],
                     "text": "Adds margin below the heading. The default margin-botttom is 300."
                 },
-                "attribute": "margin-bottom",
+                "getter": false,
+                "setter": false,
                 "reflect": false,
                 "defaultValue": "'300'"
             }

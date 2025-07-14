@@ -3,12 +3,13 @@ import { assignLanguage, observerConfig } from "../../utils/utils";
 import I18N from "./i18n/i18n";
 export class GcdsFooter {
     constructor() {
+        /**
+         * Props
+         */
+        /**
+         * Display mode of the footer
+         */
         this.display = 'compact';
-        this.wordmarkVariant = undefined;
-        this.contextualHeading = undefined;
-        this.contextualLinks = undefined;
-        this.subLinks = undefined;
-        this.lang = undefined;
     }
     /**
      * Convert contextual links prop to object
@@ -111,6 +112,7 @@ export class GcdsFooter {
         return {
             "display": {
                 "type": "string",
+                "attribute": "display",
                 "mutable": true,
                 "complexType": {
                     "original": "'compact' | 'full'",
@@ -123,12 +125,14 @@ export class GcdsFooter {
                     "tags": [],
                     "text": "Display mode of the footer"
                 },
-                "attribute": "display",
+                "getter": false,
+                "setter": false,
                 "reflect": true,
                 "defaultValue": "'compact'"
             },
             "wordmarkVariant": {
                 "type": "string",
+                "attribute": "wordmark-variant",
                 "mutable": false,
                 "complexType": {
                     "original": "'colour' | 'white'",
@@ -141,11 +145,13 @@ export class GcdsFooter {
                     "tags": [],
                     "text": "GcdsSignature - The variant of the Government of Canada wordmark"
                 },
-                "attribute": "wordmark-variant",
+                "getter": false,
+                "setter": false,
                 "reflect": false
             },
             "contextualHeading": {
                 "type": "string",
+                "attribute": "contextual-heading",
                 "mutable": false,
                 "complexType": {
                     "original": "string",
@@ -158,11 +164,13 @@ export class GcdsFooter {
                     "tags": [],
                     "text": "Heading for contextual slot and nav landmark"
                 },
-                "attribute": "contextual-heading",
+                "getter": false,
+                "setter": false,
                 "reflect": false
             },
             "contextualLinks": {
                 "type": "string",
+                "attribute": "contextual-links",
                 "mutable": true,
                 "complexType": {
                     "original": "string | object",
@@ -175,11 +183,13 @@ export class GcdsFooter {
                     "tags": [],
                     "text": "Object of list items for contextual band. Format: { link-label: link-href }"
                 },
-                "attribute": "contextual-links",
+                "getter": false,
+                "setter": false,
                 "reflect": false
             },
             "subLinks": {
                 "type": "string",
+                "attribute": "sub-links",
                 "mutable": true,
                 "complexType": {
                     "original": "string | object",
@@ -192,7 +202,8 @@ export class GcdsFooter {
                     "tags": [],
                     "text": "Object of list items for sub-footer. Format: { link-label: link-href }"
                 },
-                "attribute": "sub-links",
+                "getter": false,
+                "setter": false,
                 "reflect": false
             }
         };

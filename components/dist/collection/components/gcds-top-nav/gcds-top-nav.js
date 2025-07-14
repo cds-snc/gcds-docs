@@ -4,11 +4,14 @@ import { handleKeyDownNav, getNavItems } from "../../utils/menus/utils";
 import I18N from "./i18n/i18n";
 export class GcdsTopNav {
     constructor() {
-        this.label = undefined;
+        /**
+         * Nav alignment
+         */
         this.alignment = 'left';
-        this.lang = undefined;
+        /**
+         * Queue of nav items for keyboard navigation
+         */
         this.navItems = [];
-        this.navSize = undefined;
     }
     async focusInListener(e) {
         if (this.el.contains(e.target) && !this.navSize) {
@@ -140,6 +143,7 @@ export class GcdsTopNav {
         return {
             "label": {
                 "type": "string",
+                "attribute": "label",
                 "mutable": false,
                 "complexType": {
                     "original": "string",
@@ -152,11 +156,13 @@ export class GcdsTopNav {
                     "tags": [],
                     "text": "Label for navigation landmark"
                 },
-                "attribute": "label",
+                "getter": false,
+                "setter": false,
                 "reflect": false
             },
             "alignment": {
                 "type": "string",
+                "attribute": "alignment",
                 "mutable": false,
                 "complexType": {
                     "original": "'left' | 'center' | 'right'",
@@ -169,7 +175,8 @@ export class GcdsTopNav {
                     "tags": [],
                     "text": "Nav alignment"
                 },
-                "attribute": "alignment",
+                "getter": false,
+                "setter": false,
                 "reflect": false,
                 "defaultValue": "'left'"
             }
@@ -186,7 +193,7 @@ export class GcdsTopNav {
         return {
             "getNavSize": {
                 "complexType": {
-                    "signature": "() => Promise<\"mobile\" | \"desktop\">",
+                    "signature": "() => Promise<\"desktop\" | \"mobile\">",
                     "parameters": [],
                     "references": {
                         "Promise": {
@@ -194,7 +201,7 @@ export class GcdsTopNav {
                             "id": "global::Promise"
                         }
                     },
-                    "return": "Promise<\"mobile\" | \"desktop\">"
+                    "return": "Promise<\"desktop\" | \"mobile\">"
                 },
                 "docs": {
                     "text": "",

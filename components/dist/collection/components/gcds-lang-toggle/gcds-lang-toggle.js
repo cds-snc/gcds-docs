@@ -2,10 +2,6 @@ import { Host, h } from "@stencil/core";
 import { assignLanguage, observerConfig } from "../../utils/utils";
 import i18n from "./i18n/i18n";
 export class GcdsLangToggle {
-    constructor() {
-        this.href = undefined;
-        this.lang = undefined;
-    }
     /*
      * Observe lang attribute change
      */
@@ -42,6 +38,7 @@ export class GcdsLangToggle {
         return {
             "href": {
                 "type": "string",
+                "attribute": "href",
                 "mutable": false,
                 "complexType": {
                     "original": "string",
@@ -54,7 +51,8 @@ export class GcdsLangToggle {
                     "tags": [],
                     "text": "The href attribute specifies the URL of the opposite language page"
                 },
-                "attribute": "href",
+                "getter": false,
+                "setter": false,
                 "reflect": true
             }
         };

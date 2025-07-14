@@ -1,6 +1,9 @@
 import { Host, h } from "@stencil/core";
 export class GcdsSrOnly {
     constructor() {
+        /**
+         * Sets the appropriate HTML tag for the content.
+         */
         this.tag = 'p';
     }
     validateTag(newValue) {
@@ -33,6 +36,7 @@ export class GcdsSrOnly {
         return {
             "tag": {
                 "type": "string",
+                "attribute": "tag",
                 "mutable": true,
                 "complexType": {
                     "original": "| 'h1'\n    | 'h2'\n    | 'h3'\n    | 'h4'\n    | 'h5'\n    | 'h6'\n    | 'p'\n    | 'span'",
@@ -45,7 +49,8 @@ export class GcdsSrOnly {
                     "tags": [],
                     "text": "Sets the appropriate HTML tag for the content."
                 },
-                "attribute": "tag",
+                "getter": false,
+                "setter": false,
                 "reflect": false,
                 "defaultValue": "'p'"
             }

@@ -2,13 +2,10 @@ import { Host, h, } from "@stencil/core";
 import { assignLanguage, observerConfig, emitEvent, closestElement, } from "../../utils/utils";
 export class GcdsNavGroup {
     constructor() {
-        this.closeTrigger = undefined;
-        this.menuLabel = undefined;
-        this.openTrigger = undefined;
+        /**
+         * Has the nav group been expanded
+         */
         this.open = false;
-        this.lang = undefined;
-        this.navStyle = undefined;
-        this.navPosiiton = undefined;
     }
     // Close dropdowns on focusout when on desktop screen size
     async focusOutListener(e) {
@@ -76,7 +73,13 @@ export class GcdsNavGroup {
         this.lang = assignLanguage(this.el);
         this.updateLang();
         if (this.el.parentNode.nodeName == 'GCDS-TOP-NAV') {
+            // Set the navStyle to 'dropdown' and add a class for alignment if specified
             this.navStyle = 'dropdown';
+            // Get the alignment value from the parent + append the corresponding class
+            const alignment = this.el.parentNode.getAttribute('alignment');
+            if (alignment === 'right') {
+                this.navStyle += ' dropdown-right';
+            }
             if (this.open) {
                 this.open = false;
             }
@@ -92,12 +95,12 @@ export class GcdsNavGroup {
     }
     render() {
         const { closeTrigger, menuLabel, open, openTrigger } = this;
-        return (h(Host, { key: '2e0fa8db039fb51abfa907fcffff16d1afea585b', role: "listitem", open: open }, h("button", { key: '53fe4debf8d01896f05eba8ccadcf98c9930aede', "aria-haspopup": "true", tabIndex: 0, "aria-expanded": open.toString(), ref: element => (this.triggerElement = element), class: `gcds-nav-group__trigger gcds-trigger--${this.navStyle}`, onBlur: () => this.gcdsBlur.emit(), onFocus: () => this.gcdsFocus.emit(), onClick: e => {
+        return (h(Host, { key: 'c71df7673d06bb55988dff8143bb00168594cea0', role: "listitem", open: open }, h("button", { key: '07158008e249074d2315362b170cd8c0588f9db4', "aria-haspopup": "true", tabIndex: 0, "aria-expanded": open.toString(), ref: element => (this.triggerElement = element), class: `gcds-nav-group__trigger gcds-trigger--${this.navStyle}`, onBlur: () => this.gcdsBlur.emit(), onFocus: () => this.gcdsFocus.emit(), onClick: e => {
                 const event = emitEvent(e, this.gcdsClick);
                 if (event) {
                     this.toggleNav();
                 }
-            } }, h("gcds-icon", { key: 'b839ff9e0618be4a075573ec6e07eac1c77be3ae', name: open ? 'chevron-up' : 'chevron-down' }), closeTrigger && open ? closeTrigger : openTrigger), h("ul", { key: 'e5d277b9cc733f578e9fee9dbed70f9d430d04ec', "aria-label": menuLabel, class: `gcds-nav-group__list gcds-nav--${this.navStyle}` }, h("slot", { key: 'e459a603ff49e2f646b65f0a888bcaada34cb50a' }))));
+            } }, h("gcds-icon", { key: '82b92e7b6a0625d597ed3e82e809012910d777cf', name: open ? 'chevron-up' : 'chevron-down' }), closeTrigger && open ? closeTrigger : openTrigger), h("ul", { key: '57e45d8e023202556eb34847312ee4e65aeee00d', "aria-label": menuLabel, class: `gcds-nav-group__list gcds-nav--${this.navStyle}` }, h("slot", { key: '7982c8317548d37997f989065b258c450fb95bc9' }))));
     }
     static get is() { return "gcds-nav-group"; }
     static get encapsulation() { return "shadow"; }
@@ -115,6 +118,7 @@ export class GcdsNavGroup {
         return {
             "closeTrigger": {
                 "type": "string",
+                "attribute": "close-trigger",
                 "mutable": false,
                 "complexType": {
                     "original": "string",
@@ -127,11 +131,13 @@ export class GcdsNavGroup {
                     "tags": [],
                     "text": "Label for the expanded button trigger"
                 },
-                "attribute": "close-trigger",
+                "getter": false,
+                "setter": false,
                 "reflect": true
             },
             "menuLabel": {
                 "type": "string",
+                "attribute": "menu-label",
                 "mutable": false,
                 "complexType": {
                     "original": "string",
@@ -144,11 +150,13 @@ export class GcdsNavGroup {
                     "tags": [],
                     "text": "Label for the nav group menu"
                 },
-                "attribute": "menu-label",
+                "getter": false,
+                "setter": false,
                 "reflect": true
             },
             "openTrigger": {
                 "type": "string",
+                "attribute": "open-trigger",
                 "mutable": false,
                 "complexType": {
                     "original": "string",
@@ -161,11 +169,13 @@ export class GcdsNavGroup {
                     "tags": [],
                     "text": "Label for the collapsed button trigger"
                 },
-                "attribute": "open-trigger",
+                "getter": false,
+                "setter": false,
                 "reflect": true
             },
             "open": {
                 "type": "boolean",
+                "attribute": "open",
                 "mutable": true,
                 "complexType": {
                     "original": "boolean",
@@ -178,7 +188,8 @@ export class GcdsNavGroup {
                     "tags": [],
                     "text": "Has the nav group been expanded"
                 },
-                "attribute": "open",
+                "getter": false,
+                "setter": false,
                 "reflect": true,
                 "defaultValue": "false"
             }

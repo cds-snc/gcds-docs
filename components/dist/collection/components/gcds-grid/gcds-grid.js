@@ -20,23 +20,30 @@ const GridGapArray = [
 ];
 export class GcdsGrid {
     constructor() {
-        this.columns = undefined;
-        this.columnsTablet = undefined;
-        this.columnsDesktop = undefined;
-        this.container = undefined;
+        /**
+         * Defines if grid container is centered or not
+         */
         this.centered = false;
+        /**
+         * Defines element as grid or inline-grid container
+         */
         this.display = 'grid';
+        /**
+         * Sets all grid items to have an equal height,
+         * based on the tallest item.
+         */
         this.equalRowHeight = false;
+        /**
+         * Defines the horizontal and vertical spacing between items in
+         * a grid container for all viewports if gap-tablet and gap-desktop
+         * are not defined. Option to set different spacing for desktop
+         * with gap-desktop and for tablet with gap-tablet.
+         */
         this.gap = '300';
-        this.gapTablet = undefined;
-        this.gapDesktop = undefined;
+        /**
+         * Set tag for grid container
+         */
         this.tag = 'div';
-        this.alignContent = undefined;
-        this.justifyContent = undefined;
-        this.placeContent = undefined;
-        this.alignItems = undefined;
-        this.justifyItems = undefined;
-        this.placeItems = undefined;
     }
     validateGap(newValue) {
         const values = GridGapArray;
@@ -135,6 +142,7 @@ export class GcdsGrid {
         return {
             "columns": {
                 "type": "string",
+                "attribute": "columns",
                 "mutable": false,
                 "complexType": {
                     "original": "string",
@@ -147,11 +155,13 @@ export class GcdsGrid {
                     "tags": [],
                     "text": "Defines the default number of grid columns for all viewports if columns-tablet\nand columns-desktop are not defined. Option to set different layouts for\ndesktop with columns-desktop and for tablet with columns-tablet."
                 },
-                "attribute": "columns",
+                "getter": false,
+                "setter": false,
                 "reflect": false
             },
             "columnsTablet": {
                 "type": "string",
+                "attribute": "columns-tablet",
                 "mutable": false,
                 "complexType": {
                     "original": "string",
@@ -164,11 +174,13 @@ export class GcdsGrid {
                     "tags": [],
                     "text": "Provides option to set a different number of grid columns for tablet screens.\nIf columns-desktop is not defined, columns-tablet will be used to define the\nnumber of columns for desktop as well."
                 },
-                "attribute": "columns-tablet",
+                "getter": false,
+                "setter": false,
                 "reflect": false
             },
             "columnsDesktop": {
                 "type": "string",
+                "attribute": "columns-desktop",
                 "mutable": false,
                 "complexType": {
                     "original": "string",
@@ -181,11 +193,13 @@ export class GcdsGrid {
                     "tags": [],
                     "text": "Provides option to set a different number of grid columns for desktop screens."
                 },
-                "attribute": "columns-desktop",
+                "getter": false,
+                "setter": false,
                 "reflect": false
             },
             "container": {
                 "type": "string",
+                "attribute": "container",
                 "mutable": false,
                 "complexType": {
                     "original": "'full' | 'xl' | 'lg' | 'md' | 'sm' | 'xs'",
@@ -198,11 +212,13 @@ export class GcdsGrid {
                     "tags": [],
                     "text": "Defines grid container size"
                 },
-                "attribute": "container",
+                "getter": false,
+                "setter": false,
                 "reflect": false
             },
             "centered": {
                 "type": "boolean",
+                "attribute": "centered",
                 "mutable": false,
                 "complexType": {
                     "original": "boolean",
@@ -215,12 +231,14 @@ export class GcdsGrid {
                     "tags": [],
                     "text": "Defines if grid container is centered or not"
                 },
-                "attribute": "centered",
+                "getter": false,
+                "setter": false,
                 "reflect": false,
                 "defaultValue": "false"
             },
             "display": {
                 "type": "string",
+                "attribute": "display",
                 "mutable": false,
                 "complexType": {
                     "original": "'grid' | 'inline-grid'",
@@ -233,12 +251,14 @@ export class GcdsGrid {
                     "tags": [],
                     "text": "Defines element as grid or inline-grid container"
                 },
-                "attribute": "display",
+                "getter": false,
+                "setter": false,
                 "reflect": false,
                 "defaultValue": "'grid'"
             },
             "equalRowHeight": {
                 "type": "boolean",
+                "attribute": "equal-row-height",
                 "mutable": false,
                 "complexType": {
                     "original": "boolean",
@@ -251,13 +271,15 @@ export class GcdsGrid {
                     "tags": [],
                     "text": "Sets all grid items to have an equal height,\nbased on the tallest item."
                 },
-                "attribute": "equal-row-height",
+                "getter": false,
+                "setter": false,
                 "reflect": false,
                 "defaultValue": "false"
             },
             "gap": {
                 "type": "string",
-                "mutable": false,
+                "attribute": "gap",
+                "mutable": true,
                 "complexType": {
                     "original": "GridGapValues",
                     "resolved": "\"150\" | \"175\" | \"200\" | \"225\" | \"250\" | \"300\" | \"350\" | \"400\" | \"450\" | \"500\" | \"550\" | \"600\" | \"650\" | \"700\" | \"750\" | \"800\"",
@@ -275,13 +297,15 @@ export class GcdsGrid {
                     "tags": [],
                     "text": "Defines the horizontal and vertical spacing between items in\na grid container for all viewports if gap-tablet and gap-desktop\nare not defined. Option to set different spacing for desktop\nwith gap-desktop and for tablet with gap-tablet."
                 },
-                "attribute": "gap",
+                "getter": false,
+                "setter": false,
                 "reflect": false,
                 "defaultValue": "'300'"
             },
             "gapTablet": {
                 "type": "string",
-                "mutable": false,
+                "attribute": "gap-tablet",
+                "mutable": true,
                 "complexType": {
                     "original": "GridGapValues",
                     "resolved": "\"150\" | \"175\" | \"200\" | \"225\" | \"250\" | \"300\" | \"350\" | \"400\" | \"450\" | \"500\" | \"550\" | \"600\" | \"650\" | \"700\" | \"750\" | \"800\"",
@@ -299,12 +323,14 @@ export class GcdsGrid {
                     "tags": [],
                     "text": "Provides option to set horizontal and vertical spacing between items in a\ngrid container for tablet screens. If gap-desktop is not defined, gap-tablet\nwill be used to define the spacing for desktop screens as well."
                 },
-                "attribute": "gap-tablet",
+                "getter": false,
+                "setter": false,
                 "reflect": false
             },
             "gapDesktop": {
                 "type": "string",
-                "mutable": false,
+                "attribute": "gap-desktop",
+                "mutable": true,
                 "complexType": {
                     "original": "GridGapValues",
                     "resolved": "\"150\" | \"175\" | \"200\" | \"225\" | \"250\" | \"300\" | \"350\" | \"400\" | \"450\" | \"500\" | \"550\" | \"600\" | \"650\" | \"700\" | \"750\" | \"800\"",
@@ -322,11 +348,13 @@ export class GcdsGrid {
                     "tags": [],
                     "text": "Provides option to set horizontal and vertical spacing between items\nin a grid container for desktop screens."
                 },
-                "attribute": "gap-desktop",
+                "getter": false,
+                "setter": false,
                 "reflect": false
             },
             "tag": {
                 "type": "string",
+                "attribute": "tag",
                 "mutable": true,
                 "complexType": {
                     "original": "| 'article'\n    | 'aside'\n    | 'div'\n    | 'dl'\n    | 'main'\n    | 'nav'\n    | 'ol'\n    | 'section'\n    | 'ul'",
@@ -339,12 +367,14 @@ export class GcdsGrid {
                     "tags": [],
                     "text": "Set tag for grid container"
                 },
-                "attribute": "tag",
+                "getter": false,
+                "setter": false,
                 "reflect": false,
                 "defaultValue": "'div'"
             },
             "alignContent": {
                 "type": "string",
+                "attribute": "align-content",
                 "mutable": false,
                 "complexType": {
                     "original": "ContentValues",
@@ -363,11 +393,13 @@ export class GcdsGrid {
                     "tags": [],
                     "text": "If total grid size is less than the size of its grid container,\nthis property aligns the grid along the block (column) axis"
                 },
-                "attribute": "align-content",
+                "getter": false,
+                "setter": false,
                 "reflect": false
             },
             "justifyContent": {
                 "type": "string",
+                "attribute": "justify-content",
                 "mutable": false,
                 "complexType": {
                     "original": "ContentValues",
@@ -386,11 +418,13 @@ export class GcdsGrid {
                     "tags": [],
                     "text": "If total grid size is less than the size of its grid container,\nthis property aligns the grid along the inline (row) axis"
                 },
-                "attribute": "justify-content",
+                "getter": false,
+                "setter": false,
                 "reflect": false
             },
             "placeContent": {
                 "type": "string",
+                "attribute": "place-content",
                 "mutable": false,
                 "complexType": {
                     "original": "ContentValues",
@@ -409,11 +443,13 @@ export class GcdsGrid {
                     "tags": [],
                     "text": "Sets both the align-content + justify-content properties"
                 },
-                "attribute": "place-content",
+                "getter": false,
+                "setter": false,
                 "reflect": false
             },
             "alignItems": {
                 "type": "string",
+                "attribute": "align-items",
                 "mutable": false,
                 "complexType": {
                     "original": "'baseline' | 'center' | 'end' | 'start' | 'stretch'",
@@ -426,11 +462,13 @@ export class GcdsGrid {
                     "tags": [],
                     "text": "Aligns grid items along the block (column) axis"
                 },
-                "attribute": "align-items",
+                "getter": false,
+                "setter": false,
                 "reflect": false
             },
             "justifyItems": {
                 "type": "string",
+                "attribute": "justify-items",
                 "mutable": false,
                 "complexType": {
                     "original": "'center' | 'end' | 'start' | 'stretch'",
@@ -443,11 +481,13 @@ export class GcdsGrid {
                     "tags": [],
                     "text": "Aligns grid items along the inline (row) axis"
                 },
-                "attribute": "justify-items",
+                "getter": false,
+                "setter": false,
                 "reflect": false
             },
             "placeItems": {
                 "type": "string",
+                "attribute": "place-items",
                 "mutable": false,
                 "complexType": {
                     "original": "'center' | 'end' | 'start' | 'stretch'",
@@ -460,7 +500,8 @@ export class GcdsGrid {
                     "tags": [],
                     "text": "Sets both the align-items + justify-items properties"
                 },
-                "attribute": "place-items",
+                "getter": false,
+                "setter": false,
                 "reflect": false
             }
         };

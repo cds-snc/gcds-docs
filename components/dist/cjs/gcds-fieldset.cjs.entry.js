@@ -1,9 +1,7 @@
 'use strict';
 
-Object.defineProperty(exports, '__esModule', { value: true });
-
-const index = require('./index-30cdf65d.js');
-const utils = require('./utils-df9ca83a.js');
+var index = require('./index-DrfbyczX.js');
+var utils = require('./utils-Du2-gv1-.js');
 
 const I18N = {
   en: {
@@ -15,14 +13,13 @@ const I18N = {
 };
 
 const gcdsFieldsetCss = "@layer reset, default, size;@layer reset{:host{display:block}:host .gcds-fieldset{border:0;min-inline-size:auto;padding:0}:host legend{padding:0}:host slot{display:block;margin:0}}@layer default{.gcds-fieldset{color:var(--gcds-fieldset-default-text)}.gcds-fieldset legend{margin:var(--gcds-fieldset-legend-margin)!important}}@layer size{.gcds-fieldset legend.size-h2{font:var(--gcds-fieldset-legend-size-h2-desktop)}@media only screen and (width < 48em){.gcds-fieldset legend.size-h2{font:var(--gcds-fieldset-legend-size-h2-mobile)}}.gcds-fieldset legend.size-h3{font:var(--gcds-fieldset-legend-size-h3-desktop)}@media only screen and (width < 48em){.gcds-fieldset legend.size-h3{font:var(--gcds-fieldset-legend-size-h3-mobile)}}.gcds-fieldset legend.size-h4{font:var(--gcds-fieldset-legend-size-h4-desktop)}@media only screen and (width < 48em){.gcds-fieldset legend.size-h4{font:var(--gcds-fieldset-legend-size-h4-mobile)}}.gcds-fieldset legend.size-h5{font:var(--gcds-fieldset-legend-size-h5-desktop)}@media only screen and (width < 48em){.gcds-fieldset legend.size-h5{font:var(--gcds-fieldset-legend-size-h5-mobile)}}.gcds-fieldset legend.size-h6{font:var(--gcds-fieldset-legend-size-h6-desktop)}@media only screen and (width < 48em){.gcds-fieldset legend.size-h6{font:var(--gcds-fieldset-legend-size-h6-mobile)}}}";
-const GcdsFieldsetStyle0 = gcdsFieldsetCss;
 
 const GcdsFieldset = class {
     constructor(hostRef) {
         index.registerInstance(this, hostRef);
-        this.hint = undefined;
-        this.legend = undefined;
-        this.legendSize = undefined;
+        /**
+         * Set additional HTML attributes not available in component properties
+         */
         this.inheritedAttributes = {};
     }
     validateLegendSize(newValue) {
@@ -47,8 +44,9 @@ const GcdsFieldset = class {
         "legendSize": ["validateLegendSize"]
     }; }
 };
-GcdsFieldset.style = GcdsFieldsetStyle0;
+GcdsFieldset.style = gcdsFieldsetCss;
 
 exports.gcds_fieldset = GcdsFieldset;
+//# sourceMappingURL=gcds-fieldset.entry.cjs.js.map
 
 //# sourceMappingURL=gcds-fieldset.cjs.entry.js.map

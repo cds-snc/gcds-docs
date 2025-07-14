@@ -1,8 +1,2 @@
-import { G as GcdsHeading$1, d as defineCustomElement$1 } from './gcds-heading2.js';
-
-const GcdsHeading = GcdsHeading$1;
-const defineCustomElement = defineCustomElement$1;
-
-export { GcdsHeading, defineCustomElement };
-
+import{G as o,d as s}from"./p-BF6hW4xX.js";const t=o;const p=s;export{t as GcdsHeading,p as defineCustomElement};
 //# sourceMappingURL=gcds-heading.js.map

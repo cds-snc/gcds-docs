@@ -7,10 +7,21 @@ import WordmarkEn from "./assets/wmms-spl-en.svg";
 import WordmarkFr from "./assets/wmms-spl-fr.svg";
 export class GcdsSignature {
     constructor() {
+        /**
+         * Props
+         */
+        /**
+         * The type of graphic to render
+         */
         this.type = 'signature';
+        /**
+         * The colour variant to render
+         */
         this.variant = 'colour';
+        /**
+         * Has link to canada.ca. Only applies to signature
+         */
         this.hasLink = false;
-        this.lang = undefined;
     }
     validateType(newValue) {
         if (newValue != 'signature' && newValue != 'wordmark') {
@@ -86,6 +97,7 @@ export class GcdsSignature {
         return {
             "type": {
                 "type": "string",
+                "attribute": "type",
                 "mutable": true,
                 "complexType": {
                     "original": "'signature' | 'wordmark'",
@@ -98,12 +110,14 @@ export class GcdsSignature {
                     "tags": [],
                     "text": "The type of graphic to render"
                 },
-                "attribute": "type",
+                "getter": false,
+                "setter": false,
                 "reflect": true,
                 "defaultValue": "'signature'"
             },
             "variant": {
                 "type": "string",
+                "attribute": "variant",
                 "mutable": true,
                 "complexType": {
                     "original": "'colour' | 'white'",
@@ -116,12 +130,14 @@ export class GcdsSignature {
                     "tags": [],
                     "text": "The colour variant to render"
                 },
-                "attribute": "variant",
+                "getter": false,
+                "setter": false,
                 "reflect": true,
                 "defaultValue": "'colour'"
             },
             "hasLink": {
                 "type": "boolean",
+                "attribute": "has-link",
                 "mutable": true,
                 "complexType": {
                     "original": "boolean",
@@ -134,7 +150,8 @@ export class GcdsSignature {
                     "tags": [],
                     "text": "Has link to canada.ca. Only applies to signature"
                 },
-                "attribute": "has-link",
+                "getter": false,
+                "setter": false,
                 "reflect": false,
                 "defaultValue": "false"
             }

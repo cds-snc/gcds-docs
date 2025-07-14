@@ -4,11 +4,24 @@ import I18N from "./i18n/i18n";
 import backup from "./backup/backup.min";
 export class GcdsTopicMenu {
     constructor() {
+        /**
+         * Props
+         */
+        /**
+         * Sets the homepage styling
+         */
         this.home = false;
+        /**
+         * States
+         */
+        /**
+         * Open state of menu
+         */
         this.open = false;
-        this.lang = undefined;
+        /**
+         * Queue of nav items for keyboard navigation
+         */
         this.navItems = [];
-        this.navSize = undefined;
     }
     /**
      * Keyboard controls of theme and topic menu
@@ -333,6 +346,7 @@ export class GcdsTopicMenu {
         return {
             "home": {
                 "type": "boolean",
+                "attribute": "home",
                 "mutable": false,
                 "complexType": {
                     "original": "boolean",
@@ -345,7 +359,8 @@ export class GcdsTopicMenu {
                     "tags": [],
                     "text": "Sets the homepage styling"
                 },
-                "attribute": "home",
+                "getter": false,
+                "setter": false,
                 "reflect": false,
                 "defaultValue": "false"
             }
@@ -422,7 +437,7 @@ export class GcdsTopicMenu {
             },
             "getNavSize": {
                 "complexType": {
-                    "signature": "() => Promise<\"mobile\" | \"desktop\">",
+                    "signature": "() => Promise<\"desktop\" | \"mobile\">",
                     "parameters": [],
                     "references": {
                         "Promise": {
@@ -430,7 +445,7 @@ export class GcdsTopicMenu {
                             "id": "global::Promise"
                         }
                     },
-                    "return": "Promise<\"mobile\" | \"desktop\">"
+                    "return": "Promise<\"desktop\" | \"mobile\">"
                 },
                 "docs": {
                     "text": "",

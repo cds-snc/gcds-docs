@@ -1,12 +1,6 @@
 import { Host, h, } from "@stencil/core";
 import { assignLanguage, observerConfig, emitEvent } from "../../utils/utils";
 export class GcdsNavLink {
-    constructor() {
-        this.href = undefined;
-        this.current = undefined;
-        this.lang = undefined;
-        this.navStyle = undefined;
-    }
     /**
      * Focus the link element
      */
@@ -64,6 +58,7 @@ export class GcdsNavLink {
         return {
             "href": {
                 "type": "string",
+                "attribute": "href",
                 "mutable": false,
                 "complexType": {
                     "original": "string",
@@ -76,11 +71,13 @@ export class GcdsNavLink {
                     "tags": [],
                     "text": "Link href"
                 },
-                "attribute": "href",
+                "getter": false,
+                "setter": false,
                 "reflect": true
             },
             "current": {
                 "type": "boolean",
+                "attribute": "current",
                 "mutable": false,
                 "complexType": {
                     "original": "boolean",
@@ -93,7 +90,8 @@ export class GcdsNavLink {
                     "tags": [],
                     "text": "Current page flag"
                 },
-                "attribute": "current",
+                "getter": false,
+                "setter": false,
                 "reflect": true
             }
         };

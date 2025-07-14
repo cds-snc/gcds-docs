@@ -3,9 +3,9 @@ import { inheritAttributes } from "../../utils/utils";
 import i18n from "./i18n/i18n";
 export class GcdsFieldset {
     constructor() {
-        this.hint = undefined;
-        this.legend = undefined;
-        this.legendSize = undefined;
+        /**
+         * Set additional HTML attributes not available in component properties
+         */
         this.inheritedAttributes = {};
     }
     validateLegendSize(newValue) {
@@ -41,6 +41,7 @@ export class GcdsFieldset {
         return {
             "hint": {
                 "type": "string",
+                "attribute": "hint",
                 "mutable": false,
                 "complexType": {
                     "original": "string",
@@ -53,11 +54,13 @@ export class GcdsFieldset {
                     "tags": [],
                     "text": "Hint displayed below the legend."
                 },
-                "attribute": "hint",
+                "getter": false,
+                "setter": false,
                 "reflect": true
             },
             "legend": {
                 "type": "string",
+                "attribute": "legend",
                 "mutable": false,
                 "complexType": {
                     "original": "string",
@@ -70,11 +73,13 @@ export class GcdsFieldset {
                     "tags": [],
                     "text": "The title for the contents of the fieldset"
                 },
-                "attribute": "legend",
+                "getter": false,
+                "setter": false,
                 "reflect": true
             },
             "legendSize": {
                 "type": "string",
+                "attribute": "legend-size",
                 "mutable": true,
                 "complexType": {
                     "original": "'h2' | 'h3' | 'h4' | 'h5' | 'h6'",
@@ -87,7 +92,8 @@ export class GcdsFieldset {
                     "tags": [],
                     "text": "Sets the appropriate font size for the fieldset legend."
                 },
-                "attribute": "legend-size",
+                "getter": false,
+                "setter": false,
                 "reflect": false
             }
         };

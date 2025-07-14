@@ -3,19 +3,31 @@ import { assignLanguage, observerConfig, emitEvent } from "../../utils/utils";
 import I18N from "./i18n/I18N";
 export class GcdsSearch {
     constructor() {
+        /**
+         * Set the placeholder and label for the search input. Becomes "Search [placeholder]"
+         */
+        this.placeholder = 'Canada.ca';
+        /**
+         * Sets the action for the search form. Default will be canada.ca global search
+         */
+        this.action = '/sr/srb.html';
+        /**
+         * Set the form method of the search form
+         */
+        this.method = 'get';
+        /**
+         * Set the name of the search input
+         */
+        this.name = 'q';
+        /**
+         * Set the id of the search input
+         */
+        this.searchId = 'search';
         this.handleInput = (e, customEvent) => {
             const input = e.target;
             this.value = input.value;
             customEvent.emit(this.value);
         };
-        this.placeholder = 'Canada.ca';
-        this.action = '/sr/srb.html';
-        this.method = 'get';
-        this.name = 'q';
-        this.searchId = 'search';
-        this.value = undefined;
-        this.suggested = undefined;
-        this.lang = undefined;
     }
     /*
      * Observe lang attribute change
@@ -60,6 +72,7 @@ export class GcdsSearch {
         return {
             "placeholder": {
                 "type": "string",
+                "attribute": "placeholder",
                 "mutable": false,
                 "complexType": {
                     "original": "string",
@@ -72,12 +85,14 @@ export class GcdsSearch {
                     "tags": [],
                     "text": "Set the placeholder and label for the search input. Becomes \"Search [placeholder]\""
                 },
-                "attribute": "placeholder",
+                "getter": false,
+                "setter": false,
                 "reflect": false,
                 "defaultValue": "'Canada.ca'"
             },
             "action": {
                 "type": "string",
+                "attribute": "action",
                 "mutable": false,
                 "complexType": {
                     "original": "string",
@@ -90,12 +105,14 @@ export class GcdsSearch {
                     "tags": [],
                     "text": "Sets the action for the search form. Default will be canada.ca global search"
                 },
-                "attribute": "action",
+                "getter": false,
+                "setter": false,
                 "reflect": false,
                 "defaultValue": "'/sr/srb.html'"
             },
             "method": {
                 "type": "string",
+                "attribute": "method",
                 "mutable": false,
                 "complexType": {
                     "original": "'get' | 'post'",
@@ -108,12 +125,14 @@ export class GcdsSearch {
                     "tags": [],
                     "text": "Set the form method of the search form"
                 },
-                "attribute": "method",
+                "getter": false,
+                "setter": false,
                 "reflect": false,
                 "defaultValue": "'get'"
             },
             "name": {
                 "type": "string",
+                "attribute": "name",
                 "mutable": false,
                 "complexType": {
                     "original": "string",
@@ -126,12 +145,14 @@ export class GcdsSearch {
                     "tags": [],
                     "text": "Set the name of the search input"
                 },
-                "attribute": "name",
+                "getter": false,
+                "setter": false,
                 "reflect": false,
                 "defaultValue": "'q'"
             },
             "searchId": {
                 "type": "string",
+                "attribute": "search-id",
                 "mutable": false,
                 "complexType": {
                     "original": "string",
@@ -144,12 +165,14 @@ export class GcdsSearch {
                     "tags": [],
                     "text": "Set the id of the search input"
                 },
-                "attribute": "search-id",
+                "getter": false,
+                "setter": false,
                 "reflect": false,
                 "defaultValue": "'search'"
             },
             "value": {
                 "type": "string",
+                "attribute": "value",
                 "mutable": true,
                 "complexType": {
                     "original": "string",
@@ -162,11 +185,13 @@ export class GcdsSearch {
                     "tags": [],
                     "text": "Set the value of the search input"
                 },
-                "attribute": "value",
+                "getter": false,
+                "setter": false,
                 "reflect": false
             },
             "suggested": {
                 "type": "unknown",
+                "attribute": "suggested",
                 "mutable": false,
                 "complexType": {
                     "original": "Array<string>",
@@ -183,7 +208,9 @@ export class GcdsSearch {
                 "docs": {
                     "tags": [],
                     "text": "Set a list of predefined search terms"
-                }
+                },
+                "getter": false,
+                "setter": false
             }
         };
     }

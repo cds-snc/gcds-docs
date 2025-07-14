@@ -1,8 +1,2 @@
-import { G as GcdsLabel$1, d as defineCustomElement$1 } from './gcds-label2.js';
-
-const GcdsLabel = GcdsLabel$1;
-const defineCustomElement = defineCustomElement$1;
-
-export { GcdsLabel, defineCustomElement };
-
+import{G as o,d as s}from"./p-YKPQ_iRb.js";const t=o;const p=s;export{t as GcdsLabel,p as defineCustomElement};
 //# sourceMappingURL=gcds-label.js.map

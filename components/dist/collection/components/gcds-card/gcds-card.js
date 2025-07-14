@@ -3,14 +3,16 @@ import { assignLanguage, observerConfig, logError } from "../../utils/utils";
 import i18n from "./i18n/i18n";
 export class GcdsCard {
     constructor() {
-        this.cardTitle = undefined;
-        this.href = undefined;
+        /**
+         * The card title tag property specifies the HTML heading element for the title.
+         * This property does not modify the font size. It is used to assign the heading level
+         * in order to maintain heading hierarchy and accessibility for assistive technologies.
+         */
         this.cardTitleTag = 'a';
-        this.description = undefined;
-        this.badge = undefined;
-        this.imgSrc = undefined;
-        this.imgAlt = undefined;
-        this.lang = undefined;
+        /**
+         * State to track validation on properties
+         * Contains a list of properties that have an error associated with them
+         */
         this.errors = [];
     }
     validateCardTitle() {
@@ -108,6 +110,7 @@ export class GcdsCard {
         return {
             "cardTitle": {
                 "type": "string",
+                "attribute": "card-title",
                 "mutable": false,
                 "complexType": {
                     "original": "string",
@@ -120,11 +123,13 @@ export class GcdsCard {
                     "tags": [],
                     "text": "The card title attribute specifies the title that appears on the card"
                 },
-                "attribute": "card-title",
+                "getter": false,
+                "setter": false,
                 "reflect": true
             },
             "href": {
                 "type": "string",
+                "attribute": "href",
                 "mutable": false,
                 "complexType": {
                     "original": "string",
@@ -137,11 +142,13 @@ export class GcdsCard {
                     "tags": [],
                     "text": "The href attribute specifies the URL of the page the link goes to"
                 },
-                "attribute": "href",
+                "getter": false,
+                "setter": false,
                 "reflect": true
             },
             "cardTitleTag": {
                 "type": "string",
+                "attribute": "card-title-tag",
                 "mutable": false,
                 "complexType": {
                     "original": "'h3' | 'h4' | 'h5' | 'h6' | 'a'",
@@ -154,12 +161,14 @@ export class GcdsCard {
                     "tags": [],
                     "text": "The card title tag property specifies the HTML heading element for the title.\nThis property does not modify the font size. It is used to assign the heading level\nin order to maintain heading hierarchy and accessibility for assistive technologies."
                 },
-                "attribute": "card-title-tag",
+                "getter": false,
+                "setter": false,
                 "reflect": false,
                 "defaultValue": "'a'"
             },
             "description": {
                 "type": "string",
+                "attribute": "description",
                 "mutable": false,
                 "complexType": {
                     "original": "string",
@@ -172,11 +181,13 @@ export class GcdsCard {
                     "tags": [],
                     "text": "The description attribute specifies the body of text that appears on the card"
                 },
-                "attribute": "description",
+                "getter": false,
+                "setter": false,
                 "reflect": true
             },
             "badge": {
                 "type": "string",
+                "attribute": "badge",
                 "mutable": true,
                 "complexType": {
                     "original": "string",
@@ -189,11 +200,13 @@ export class GcdsCard {
                     "tags": [],
                     "text": "The badge attribute specifies the badge text that appears in the top left corner of the card. 20 character limit."
                 },
-                "attribute": "badge",
+                "getter": false,
+                "setter": false,
                 "reflect": true
             },
             "imgSrc": {
                 "type": "string",
+                "attribute": "img-src",
                 "mutable": false,
                 "complexType": {
                     "original": "string",
@@ -206,11 +219,13 @@ export class GcdsCard {
                     "tags": [],
                     "text": "The img src attribute specifies the path to the image"
                 },
-                "attribute": "img-src",
+                "getter": false,
+                "setter": false,
                 "reflect": true
             },
             "imgAlt": {
                 "type": "string",
+                "attribute": "img-alt",
                 "mutable": false,
                 "complexType": {
                     "original": "string",
@@ -223,7 +238,8 @@ export class GcdsCard {
                     "tags": [],
                     "text": "The img alt attribute specifies the alt text for the image provided, if none, image will be decorative"
                 },
-                "attribute": "img-alt",
+                "getter": false,
+                "setter": false,
                 "reflect": true
             }
         };

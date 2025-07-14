@@ -42,7 +42,7 @@ export declare class GcdsTopicMenu {
      */
     toggleNav(): Promise<void>;
     updateNavSize(size: any): Promise<void>;
-    getNavSize(): Promise<"mobile" | "desktop">;
+    getNavSize(): Promise<"desktop" | "mobile">;
     /**
      * Update keyboard focus queue
      */

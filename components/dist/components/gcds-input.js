@@ -1,8 +1,2 @@
-import { G as GcdsInput$1, d as defineCustomElement$1 } from './gcds-input2.js';
-
-const GcdsInput = GcdsInput$1;
-const defineCustomElement = defineCustomElement$1;
-
-export { GcdsInput, defineCustomElement };
-
+import{G as o,d as s}from"./p-EmtHC9jc.js";const t=o;const c=s;export{t as GcdsInput,c as defineCustomElement};
 //# sourceMappingURL=gcds-input.js.map

@@ -2,10 +2,9 @@ import { Host, h } from "@stencil/core";
 import i18n from "./i18n/i18n";
 export class GcdsIcon {
     constructor() {
-        this.label = undefined;
-        this.marginLeft = undefined;
-        this.marginRight = undefined;
-        this.name = undefined;
+        /**
+         * Defines the size of the icon.
+         */
         this.size = 'inherit';
     }
     validateName(newValue) {
@@ -75,6 +74,7 @@ export class GcdsIcon {
         return {
             "label": {
                 "type": "string",
+                "attribute": "label",
                 "mutable": false,
                 "complexType": {
                     "original": "string",
@@ -87,11 +87,13 @@ export class GcdsIcon {
                     "tags": [],
                     "text": "Add icon description."
                 },
-                "attribute": "label",
+                "getter": false,
+                "setter": false,
                 "reflect": false
             },
             "marginLeft": {
                 "type": "string",
+                "attribute": "margin-left",
                 "mutable": false,
                 "complexType": {
                     "original": "SpacingValues",
@@ -110,11 +112,13 @@ export class GcdsIcon {
                     "tags": [],
                     "text": "Add margin to the left of the icon"
                 },
-                "attribute": "margin-left",
+                "getter": false,
+                "setter": false,
                 "reflect": false
             },
             "marginRight": {
                 "type": "string",
+                "attribute": "margin-right",
                 "mutable": false,
                 "complexType": {
                     "original": "SpacingValues",
@@ -133,11 +137,13 @@ export class GcdsIcon {
                     "tags": [],
                     "text": "Add margin to the right of the icon"
                 },
-                "attribute": "margin-right",
+                "getter": false,
+                "setter": false,
                 "reflect": false
             },
             "name": {
                 "type": "string",
+                "attribute": "name",
                 "mutable": true,
                 "complexType": {
                     "original": "| 'checkmark-circle'\n    | 'chevron-down'\n    | 'chevron-left'\n    | 'chevron-right'\n    | 'chevron-up'\n    | 'close'\n    | 'download'\n    | 'email'\n    | 'exclamation-circle'\n    | 'external'\n    | 'info-circle'\n    | 'phone'\n    | 'search'\n    | 'warning-triangle'",
@@ -150,11 +156,13 @@ export class GcdsIcon {
                     "tags": [],
                     "text": "Name of the icon."
                 },
-                "attribute": "name",
+                "getter": false,
+                "setter": false,
                 "reflect": false
             },
             "size": {
                 "type": "string",
+                "attribute": "size",
                 "mutable": false,
                 "complexType": {
                     "original": "| 'inherit'\n    | 'text-small'\n    | 'text'\n    | 'h6'\n    | 'h5'\n    | 'h4'\n    | 'h3'\n    | 'h2'\n    | 'h1'",
@@ -167,7 +175,8 @@ export class GcdsIcon {
                     "tags": [],
                     "text": "Defines the size of the icon."
                 },
-                "attribute": "size",
+                "getter": false,
+                "setter": false,
                 "reflect": false,
                 "defaultValue": "'inherit'"
             }

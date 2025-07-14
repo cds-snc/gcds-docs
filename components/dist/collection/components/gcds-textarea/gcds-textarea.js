@@ -5,6 +5,30 @@ import i18n from "./i18n/i18n";
 export class GcdsTextarea {
     constructor() {
         this._validator = defaultValidator;
+        /**
+         * Specifies if a textarea element is disabled or not.
+         */
+        this.disabled = false;
+        /**
+         * Specifies if the label is hidden or not.
+         */
+        this.hideLabel = false;
+        /**
+         * Specifies if a form field is required or not.
+         */
+        this.required = false;
+        /**
+         * Default value for textarea rows.
+         */
+        this.rows = 5;
+        /**
+         * Set event to call validator
+         */
+        this.validateOn = 'blur';
+        /**
+         * Set additional HTML attributes not available in component properties
+         */
+        this.inheritedAttributes = {};
         this.onBlur = () => {
             if (this.validateOn == 'blur') {
                 this.validate();
@@ -22,23 +46,6 @@ export class GcdsTextarea {
             }
             customEvent.emit(this.value);
         };
-        this.characterCount = undefined;
-        this.cols = undefined;
-        this.disabled = false;
-        this.errorMessage = undefined;
-        this.hideLabel = false;
-        this.hint = undefined;
-        this.label = undefined;
-        this.name = undefined;
-        this.required = false;
-        this.rows = 5;
-        this.textareaId = undefined;
-        this.value = undefined;
-        this.validator = undefined;
-        this.validateOn = 'blur';
-        this.inheritedAttributes = {};
-        this.hasError = undefined;
-        this.lang = undefined;
     }
     validateDisabledTextarea() {
         if (this.required) {
@@ -171,6 +178,7 @@ export class GcdsTextarea {
         return {
             "characterCount": {
                 "type": "number",
+                "attribute": "character-count",
                 "mutable": false,
                 "complexType": {
                     "original": "number",
@@ -183,11 +191,13 @@ export class GcdsTextarea {
                     "tags": [],
                     "text": "Sets the maxlength attribute for the textarea element."
                 },
-                "attribute": "character-count",
+                "getter": false,
+                "setter": false,
                 "reflect": false
             },
             "cols": {
                 "type": "number",
+                "attribute": "cols",
                 "mutable": false,
                 "complexType": {
                     "original": "number",
@@ -200,11 +210,13 @@ export class GcdsTextarea {
                     "tags": [],
                     "text": "Defines width for textarea cols (the min-width for textarea's is 50%)."
                 },
-                "attribute": "cols",
+                "getter": false,
+                "setter": false,
                 "reflect": false
             },
             "disabled": {
                 "type": "boolean",
+                "attribute": "disabled",
                 "mutable": true,
                 "complexType": {
                     "original": "boolean",
@@ -217,12 +229,14 @@ export class GcdsTextarea {
                     "tags": [],
                     "text": "Specifies if a textarea element is disabled or not."
                 },
-                "attribute": "disabled",
+                "getter": false,
+                "setter": false,
                 "reflect": false,
                 "defaultValue": "false"
             },
             "errorMessage": {
                 "type": "string",
+                "attribute": "error-message",
                 "mutable": true,
                 "complexType": {
                     "original": "string",
@@ -235,11 +249,13 @@ export class GcdsTextarea {
                     "tags": [],
                     "text": "Error message for an invalid textarea element."
                 },
-                "attribute": "error-message",
+                "getter": false,
+                "setter": false,
                 "reflect": false
             },
             "hideLabel": {
                 "type": "boolean",
+                "attribute": "hide-label",
                 "mutable": false,
                 "complexType": {
                     "original": "boolean",
@@ -252,12 +268,14 @@ export class GcdsTextarea {
                     "tags": [],
                     "text": "Specifies if the label is hidden or not."
                 },
-                "attribute": "hide-label",
+                "getter": false,
+                "setter": false,
                 "reflect": false,
                 "defaultValue": "false"
             },
             "hint": {
                 "type": "string",
+                "attribute": "hint",
                 "mutable": false,
                 "complexType": {
                     "original": "string",
@@ -270,11 +288,13 @@ export class GcdsTextarea {
                     "tags": [],
                     "text": "Hint displayed below the label and above the textarea field."
                 },
-                "attribute": "hint",
+                "getter": false,
+                "setter": false,
                 "reflect": false
             },
             "label": {
                 "type": "string",
+                "attribute": "label",
                 "mutable": false,
                 "complexType": {
                     "original": "string",
@@ -287,11 +307,13 @@ export class GcdsTextarea {
                     "tags": [],
                     "text": "Form field label"
                 },
-                "attribute": "label",
+                "getter": false,
+                "setter": false,
                 "reflect": false
             },
             "name": {
                 "type": "string",
+                "attribute": "name",
                 "mutable": false,
                 "complexType": {
                     "original": "string",
@@ -304,11 +326,13 @@ export class GcdsTextarea {
                     "tags": [],
                     "text": "Name attribute for a textarea element."
                 },
-                "attribute": "name",
+                "getter": false,
+                "setter": false,
                 "reflect": false
             },
             "required": {
                 "type": "boolean",
+                "attribute": "required",
                 "mutable": false,
                 "complexType": {
                     "original": "boolean",
@@ -321,12 +345,14 @@ export class GcdsTextarea {
                     "tags": [],
                     "text": "Specifies if a form field is required or not."
                 },
-                "attribute": "required",
+                "getter": false,
+                "setter": false,
                 "reflect": false,
                 "defaultValue": "false"
             },
             "rows": {
                 "type": "number",
+                "attribute": "rows",
                 "mutable": false,
                 "complexType": {
                     "original": "number",
@@ -339,12 +365,14 @@ export class GcdsTextarea {
                     "tags": [],
                     "text": "Default value for textarea rows."
                 },
-                "attribute": "rows",
+                "getter": false,
+                "setter": false,
                 "reflect": false,
                 "defaultValue": "5"
             },
             "textareaId": {
                 "type": "string",
+                "attribute": "textarea-id",
                 "mutable": false,
                 "complexType": {
                     "original": "string",
@@ -357,11 +385,13 @@ export class GcdsTextarea {
                     "tags": [],
                     "text": "Id attribute for a textarea element."
                 },
-                "attribute": "textarea-id",
+                "getter": false,
+                "setter": false,
                 "reflect": false
             },
             "value": {
                 "type": "string",
+                "attribute": "value",
                 "mutable": true,
                 "complexType": {
                     "original": "string",
@@ -374,11 +404,13 @@ export class GcdsTextarea {
                     "tags": [],
                     "text": "Default value for an input element."
                 },
-                "attribute": "value",
+                "getter": false,
+                "setter": false,
                 "reflect": false
             },
             "validator": {
                 "type": "unknown",
+                "attribute": "validator",
                 "mutable": true,
                 "complexType": {
                     "original": "Array<\n    string | ValidatorEntry | Validator<string>\n  >",
@@ -405,10 +437,13 @@ export class GcdsTextarea {
                 "docs": {
                     "tags": [],
                     "text": "Array of validators"
-                }
+                },
+                "getter": false,
+                "setter": false
             },
             "validateOn": {
                 "type": "string",
+                "attribute": "validate-on",
                 "mutable": true,
                 "complexType": {
                     "original": "'blur' | 'submit' | 'other'",
@@ -421,7 +456,8 @@ export class GcdsTextarea {
                     "tags": [],
                     "text": "Set event to call validator"
                 },
-                "attribute": "validate-on",
+                "getter": false,
+                "setter": false,
                 "reflect": false,
                 "defaultValue": "'blur'"
             }

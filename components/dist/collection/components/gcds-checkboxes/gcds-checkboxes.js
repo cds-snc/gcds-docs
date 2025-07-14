@@ -6,6 +6,23 @@ export class GcdsCheckboxes {
     constructor() {
         this.isGroup = false;
         this._validator = defaultValidator;
+        /**
+         * Value for checkboxes component.
+         */
+        this.value = [];
+        /**
+         * Set event to call validator
+         */
+        this.validateOn = 'blur';
+        /**
+         * Set additional HTML attributes not available in component properties
+         */
+        this.inheritedAttributes = {};
+        /**
+         * State to track validation on properties
+         * Contains a list of properties that have an error associated with them
+         */
+        this.errors = [];
         this.onBlurValidate = () => {
             if (this.validateOn == 'blur') {
                 this.validate();
@@ -36,20 +53,6 @@ export class GcdsCheckboxes {
             }
             customEvent.emit(this.value);
         };
-        this.name = undefined;
-        this.legend = undefined;
-        this.options = undefined;
-        this.required = undefined;
-        this.disabled = undefined;
-        this.value = [];
-        this.errorMessage = undefined;
-        this.hint = undefined;
-        this.validator = undefined;
-        this.validateOn = undefined;
-        this.inheritedAttributes = {};
-        this.hasError = undefined;
-        this.lang = undefined;
-        this.errors = [];
     }
     validateName() {
         this.errors = handleErrors(this.errors, 'name', this.name);
@@ -108,9 +111,7 @@ export class GcdsCheckboxes {
         }
     }
     validateValidator() {
-        if (this.validator && !this.validateOn) {
-            this.validateOn = 'blur';
-        }
+        this._validator = getValidator(this.validator);
     }
     validateHasError() {
         if (this.disabled) {
@@ -187,9 +188,9 @@ export class GcdsCheckboxes {
         this.validateDisabledCheckbox();
         this.validateHasError();
         this.validateErrorMessage();
-        this.validateValidator();
         // Assign required validator if needed
         requiredValidator(this.el, this.isGroup ? 'checkboxGroup' : 'checkboxSingle');
+        this.validateValidator();
         // Assign checkbox hint to component hint if not group
         if (!this.isGroup &&
             this.optionsArr &&
@@ -197,19 +198,11 @@ export class GcdsCheckboxes {
             !this.hint) {
             this.hint = this.optionsArr[0].hint;
         }
-        if (this.validator) {
-            this._validator = getValidator(this.validator);
-        }
         if (!valid) {
             logError('gcds-checkboxes', this.errors);
         }
         this.initialState = this.value;
         this.inheritedAttributes = inheritAttributes(this.el, this.shadowElement);
-    }
-    componentWillUpdate() {
-        if (this.validator) {
-            this._validator = getValidator(this.validator);
-        }
     }
     async componentDidUpdate() {
         // Validate props again if changed after render
@@ -258,7 +251,7 @@ export class GcdsCheckboxes {
                 `${fieldsetAttrs['aria-labelledby']} ${hintID}`.trim();
         }
         if (this.validateRequiredProps()) {
-            return (h(Host, { key: '5f5afb1e5e995078fd2f5ce9d003af8c8c9f236f', onBlur: () => this.isGroup && this.onBlurValidate() }, this.isGroup ? (h("fieldset", Object.assign({ class: "gcds-checkboxes__fieldset" }, fieldsetAttrs), h("legend", { id: "checkboxes-legend", class: "gcds-checkboxes__legend" }, legend, required ? (h("span", { class: "legend__required" }, " (required)")) : null), hint ? (h("gcds-hint", { id: "checkboxes-hint", "hint-id": "checkboxes" }, hint)) : null, errorMessage ? (h("div", null, h("gcds-error-message", { id: "checkboxes-error", messageId: "checkboxes" }, errorMessage))) : null, this.optionsArr &&
+            return (h(Host, { key: '2531c781c8cf539929baa5e749c11b698fbe8f8c', onBlur: () => this.isGroup && this.onBlurValidate() }, this.isGroup ? (h("fieldset", Object.assign({ class: "gcds-checkboxes__fieldset" }, fieldsetAttrs), h("legend", { id: "checkboxes-legend", class: "gcds-checkboxes__legend" }, legend, required ? (h("span", { class: "legend__required" }, " (required)")) : null), hint ? (h("gcds-hint", { id: "checkboxes-hint", "hint-id": "checkboxes" }, hint)) : null, errorMessage ? (h("div", null, h("gcds-error-message", { id: "checkboxes-error", messageId: "checkboxes" }, errorMessage))) : null, this.optionsArr &&
                 this.optionsArr.map(checkbox => {
                     return renderCheckbox(checkbox, this, emitEvent, this.handleInput);
                 }))) : (this.optionsArr &&
@@ -284,6 +277,7 @@ export class GcdsCheckboxes {
         return {
             "name": {
                 "type": "string",
+                "attribute": "name",
                 "mutable": false,
                 "complexType": {
                     "original": "string",
@@ -296,11 +290,13 @@ export class GcdsCheckboxes {
                     "tags": [],
                     "text": "Name attribute for a checkboxes element."
                 },
-                "attribute": "name",
+                "getter": false,
+                "setter": false,
                 "reflect": true
             },
             "legend": {
                 "type": "string",
+                "attribute": "legend",
                 "mutable": false,
                 "complexType": {
                     "original": "string",
@@ -313,11 +309,13 @@ export class GcdsCheckboxes {
                     "tags": [],
                     "text": "Set the legend for fieldset form group."
                 },
-                "attribute": "legend",
+                "getter": false,
+                "setter": false,
                 "reflect": true
             },
             "options": {
                 "type": "string",
+                "attribute": "options",
                 "mutable": true,
                 "complexType": {
                     "original": "string | Array<CheckboxObject>",
@@ -340,11 +338,13 @@ export class GcdsCheckboxes {
                     "tags": [],
                     "text": "Options to render checkboxes buttons"
                 },
-                "attribute": "options",
+                "getter": false,
+                "setter": false,
                 "reflect": false
             },
             "required": {
                 "type": "boolean",
+                "attribute": "required",
                 "mutable": false,
                 "complexType": {
                     "original": "boolean",
@@ -357,11 +357,13 @@ export class GcdsCheckboxes {
                     "tags": [],
                     "text": "Specifies if the checkboxes are required or not."
                 },
-                "attribute": "required",
+                "getter": false,
+                "setter": false,
                 "reflect": true
             },
             "disabled": {
                 "type": "boolean",
+                "attribute": "disabled",
                 "mutable": true,
                 "complexType": {
                     "original": "boolean",
@@ -374,11 +376,13 @@ export class GcdsCheckboxes {
                     "tags": [],
                     "text": "Specifies if the checkboxes are disabled or not."
                 },
-                "attribute": "disabled",
+                "getter": false,
+                "setter": false,
                 "reflect": true
             },
             "value": {
                 "type": "string",
+                "attribute": "value",
                 "mutable": true,
                 "complexType": {
                     "original": "string | Array<string>",
@@ -396,12 +400,14 @@ export class GcdsCheckboxes {
                     "tags": [],
                     "text": "Value for checkboxes component."
                 },
-                "attribute": "value",
+                "getter": false,
+                "setter": false,
                 "reflect": true,
                 "defaultValue": "[]"
             },
             "errorMessage": {
                 "type": "string",
+                "attribute": "error-message",
                 "mutable": true,
                 "complexType": {
                     "original": "string",
@@ -414,11 +420,13 @@ export class GcdsCheckboxes {
                     "tags": [],
                     "text": "Set this to display an error message for invalid <gcds-checkboxes>"
                 },
-                "attribute": "error-message",
+                "getter": false,
+                "setter": false,
                 "reflect": true
             },
             "hint": {
                 "type": "string",
+                "attribute": "hint",
                 "mutable": true,
                 "complexType": {
                     "original": "string",
@@ -431,11 +439,13 @@ export class GcdsCheckboxes {
                     "tags": [],
                     "text": "Hint displayed below the label."
                 },
-                "attribute": "hint",
+                "getter": false,
+                "setter": false,
                 "reflect": true
             },
             "validator": {
                 "type": "unknown",
+                "attribute": "validator",
                 "mutable": true,
                 "complexType": {
                     "original": "Array<\n    string | ValidatorEntry | Validator<string>\n  >",
@@ -462,10 +472,13 @@ export class GcdsCheckboxes {
                 "docs": {
                     "tags": [],
                     "text": "Array of validators"
-                }
+                },
+                "getter": false,
+                "setter": false
             },
             "validateOn": {
                 "type": "string",
+                "attribute": "validate-on",
                 "mutable": true,
                 "complexType": {
                     "original": "'blur' | 'submit' | 'other'",
@@ -478,8 +491,10 @@ export class GcdsCheckboxes {
                     "tags": [],
                     "text": "Set event to call validator"
                 },
-                "attribute": "validate-on",
-                "reflect": false
+                "getter": false,
+                "setter": false,
+                "reflect": false,
+                "defaultValue": "'blur'"
             }
         };
     }

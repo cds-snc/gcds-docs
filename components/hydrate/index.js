@@ -1,8 +1,8 @@
 'use strict';
 
-Object.defineProperty(exports, '__esModule', { value: true });
-
 var stream = require('stream');
+
+const modeResolutionChain = [];
 
 function hydrateFactory($stencilWindow, $stencilHydrateOpts, $stencilHydrateResults, $stencilAfterHydrate, $stencilHydrateResolve) {
   var globalThis = $stencilWindow;
@@ -34,7 +34,9 @@ function hydrateFactory($stencilWindow, $stencilHydrateOpts, $stencilHydrateResu
   var CharacterData = $stencilWindow.CharacterData;
   var CSS = $stencilWindow.CSS;
   var CustomEvent = $stencilWindow.CustomEvent;
+  var CSSStyleSheet = $stencilWindow.CSSStyleSheet;
   var Document = $stencilWindow.Document;
+  var ShadowRoot = $stencilWindow.ShadowRoot;
   var DocumentFragment = $stencilWindow.DocumentFragment;
   var DocumentType = $stencilWindow.DocumentType;
   var DOMTokenList = $stencilWindow.DOMTokenList;
@@ -55,6 +57,7 @@ function hydrateFactory($stencilWindow, $stencilHydrateOpts, $stencilHydrateResu
   var HTMLTemplateElement = $stencilWindow.HTMLTemplateElement;
   var HTMLTitleElement = $stencilWindow.HTMLTitleElement;
   var IntersectionObserver = $stencilWindow.IntersectionObserver;
+  var ResizeObserver = $stencilWindow.ResizeObserver;
   var KeyboardEvent = $stencilWindow.KeyboardEvent;
   var MouseEvent = $stencilWindow.MouseEvent;
   var Node = $stencilWindow.Node;
@@ -124,32 +127,153 @@ function hydrateFactory($stencilWindow, $stencilHydrateOpts, $stencilHydrateResu
 
 
 const NAMESPACE = 'gcds';
-const BUILD = /* gcds */ { allRenderFn: true, appendChildSlotFix: false, asyncLoading: true, attachStyles: true, cloneNodeFix: false, cmpDidLoad: true, cmpDidRender: false, cmpDidUnload: false, cmpDidUpdate: true, cmpShouldUpdate: false, cmpWillLoad: true, cmpWillRender: false, cmpWillUpdate: true, connectedCallback: false, constructableCSS: false, cssAnnotations: true, devTools: false, disconnectedCallback: false, element: false, event: true, experimentalScopedSlotChanges: false, experimentalSlotFixes: false, formAssociated: true, hasRenderFn: true, hostListener: true, hostListenerTarget: true, hostListenerTargetBody: false, hostListenerTargetDocument: true, hostListenerTargetParent: false, hostListenerTargetWindow: false, hotModuleReplacement: false, hydrateClientSide: true, hydrateServerSide: true, hydratedAttribute: false, hydratedClass: true, hydratedSelectorName: "hydrated", invisiblePrehydration: true, isDebug: false, isDev: false, isTesting: false, lazyLoad: true, lifecycle: true, lifecycleDOMEvents: false, member: true, method: true, mode: false, observeAttribute: true, profile: false, prop: true, propBoolean: true, propMutable: true, propNumber: true, propString: true, reflect: true, scoped: true, scopedSlotTextContentFix: true, scriptDataOpts: false, shadowDelegatesFocus: true, shadowDom: true, shadowDomShim: true, slot: true, slotChildNodesFix: false, slotRelocation: true, state: true, style: true, svg: false, taskQueue: true, updatable: true, vdomAttribute: true, vdomClass: true, vdomFunctional: true, vdomKey: true, vdomListener: true, vdomPropOrAttr: true, vdomRef: true, vdomRender: true, vdomStyle: true, vdomText: true, vdomXlink: true, watchCallback: true };
+const BUILD = /* gcds */ { hydratedSelectorName: "hydrated", slotRelocation: true, updatable: true};
 
 /*
- Stencil Hydrate Platform v4.19.2 | MIT Licensed | https://stenciljs.com
+ Stencil Hydrate Platform v4.35.1 | MIT Licensed | https://stenciljs.com
  */
 var __defProp = Object.defineProperty;
 var __export = (target, all) => {
   for (var name in all)
     __defProp(target, name, { get: all[name], enumerable: true });
 };
-
-// src/utils/constants.ts
-var EMPTY_OBJ = {};
+var PrimitiveType = /* @__PURE__ */ ((PrimitiveType2) => {
+  PrimitiveType2["Undefined"] = "undefined";
+  PrimitiveType2["Null"] = "null";
+  PrimitiveType2["String"] = "string";
+  PrimitiveType2["Number"] = "number";
+  PrimitiveType2["SpecialNumber"] = "number";
+  PrimitiveType2["Boolean"] = "boolean";
+  PrimitiveType2["BigInt"] = "bigint";
+  return PrimitiveType2;
+})(PrimitiveType || {});
+var NonPrimitiveType = /* @__PURE__ */ ((NonPrimitiveType2) => {
+  NonPrimitiveType2["Array"] = "array";
+  NonPrimitiveType2["Date"] = "date";
+  NonPrimitiveType2["Map"] = "map";
+  NonPrimitiveType2["Object"] = "object";
+  NonPrimitiveType2["RegularExpression"] = "regexp";
+  NonPrimitiveType2["Set"] = "set";
+  NonPrimitiveType2["Channel"] = "channel";
+  NonPrimitiveType2["Symbol"] = "symbol";
+  return NonPrimitiveType2;
+})(NonPrimitiveType || {});
+var TYPE_CONSTANT = "type";
+var VALUE_CONSTANT = "value";
+var SERIALIZED_PREFIX = "serialized:";
 
 // src/utils/helpers.ts
-var isDef = (v) => v != null;
+var isDef = (v) => v != null && v !== void 0;
 var isComplexType = (o) => {
   o = typeof o;
   return o === "object" || o === "function";
 };
 
 // src/utils/query-nonce-meta-tag-content.ts
-function queryNonceMetaTagContent(doc2) {
+function queryNonceMetaTagContent(doc) {
   var _a, _b, _c;
-  return (_c = (_b = (_a = doc2.head) == null ? void 0 : _a.querySelector('meta[name="csp-nonce"]')) == null ? void 0 : _b.getAttribute("content")) != null ? _c : void 0;
+  return (_c = (_b = (_a = doc.head) == null ? void 0 : _a.querySelector('meta[name="csp-nonce"]')) == null ? void 0 : _b.getAttribute("content")) != null ? _c : void 0;
 }
+
+// src/utils/regular-expression.ts
+var escapeRegExpSpecialCharacters = (text) => {
+  return text.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+};
+
+// src/utils/remote-value.ts
+var RemoteValue = class _RemoteValue {
+  /**
+   * Deserializes a LocalValue serialized object back to its original JavaScript representation
+   *
+   * @param serialized The serialized LocalValue object
+   * @returns The original JavaScript value/object
+   */
+  static fromLocalValue(serialized) {
+    const type = serialized[TYPE_CONSTANT];
+    const value = VALUE_CONSTANT in serialized ? serialized[VALUE_CONSTANT] : void 0;
+    switch (type) {
+      case "string" /* String */:
+        return value;
+      case "boolean" /* Boolean */:
+        return value;
+      case "bigint" /* BigInt */:
+        return BigInt(value);
+      case "undefined" /* Undefined */:
+        return void 0;
+      case "null" /* Null */:
+        return null;
+      case "number" /* Number */:
+        if (value === "NaN") return NaN;
+        if (value === "-0") return -0;
+        if (value === "Infinity") return Infinity;
+        if (value === "-Infinity") return -Infinity;
+        return value;
+      case "array" /* Array */:
+        return value.map((item) => _RemoteValue.fromLocalValue(item));
+      case "date" /* Date */:
+        return new Date(value);
+      case "map" /* Map */:
+        const map2 = /* @__PURE__ */ new Map();
+        for (const [key, val] of value) {
+          const deserializedKey = typeof key === "object" && key !== null ? _RemoteValue.fromLocalValue(key) : key;
+          const deserializedValue = _RemoteValue.fromLocalValue(val);
+          map2.set(deserializedKey, deserializedValue);
+        }
+        return map2;
+      case "object" /* Object */:
+        const obj = {};
+        for (const [key, val] of value) {
+          obj[key] = _RemoteValue.fromLocalValue(val);
+        }
+        return obj;
+      case "regexp" /* RegularExpression */:
+        const { pattern, flags } = value;
+        return new RegExp(pattern, flags);
+      case "set" /* Set */:
+        const set = /* @__PURE__ */ new Set();
+        for (const item of value) {
+          set.add(_RemoteValue.fromLocalValue(item));
+        }
+        return set;
+      case "symbol" /* Symbol */:
+        return Symbol(value);
+      default:
+        throw new Error(`Unsupported type: ${type}`);
+    }
+  }
+  /**
+   * Utility method to deserialize multiple LocalValues at once
+   *
+   * @param serializedValues Array of serialized LocalValue objects
+   * @returns Array of deserialized JavaScript values
+   */
+  static fromLocalValueArray(serializedValues) {
+    return serializedValues.map((value) => _RemoteValue.fromLocalValue(value));
+  }
+  /**
+   * Verifies if the given object matches the structure of a serialized LocalValue
+   *
+   * @param obj Object to verify
+   * @returns boolean indicating if the object has LocalValue structure
+   */
+  static isLocalValueObject(obj) {
+    if (typeof obj !== "object" || obj === null) {
+      return false;
+    }
+    if (!obj.hasOwnProperty(TYPE_CONSTANT)) {
+      return false;
+    }
+    const type = obj[TYPE_CONSTANT];
+    const hasTypeProperty = Object.values({ ...PrimitiveType, ...NonPrimitiveType }).includes(type);
+    if (!hasTypeProperty) {
+      return false;
+    }
+    if (type !== "null" /* Null */ && type !== "undefined" /* Undefined */) {
+      return obj.hasOwnProperty(VALUE_CONSTANT);
+    }
+    return true;
+  }
+};
 
 // src/utils/result.ts
 var result_exports = {};
@@ -199,6 +323,174 @@ var unwrapErr = (result) => {
     throw result.value;
   }
 };
+
+// src/utils/serialize.ts
+function deserializeProperty(value) {
+  if (typeof value !== "string" || !value.startsWith(SERIALIZED_PREFIX)) {
+    return value;
+  }
+  return RemoteValue.fromLocalValue(JSON.parse(atob(value.slice(SERIALIZED_PREFIX.length))));
+}
+function createShadowRoot(cmpMeta) {
+  this.attachShadow({
+    mode: "open",
+    delegatesFocus: !!(cmpMeta.$flags$ & 16 /* shadowDelegatesFocus */)
+  }) ;
+}
+
+// src/runtime/runtime-constants.ts
+var CONTENT_REF_ID = "r";
+var ORG_LOCATION_ID = "o";
+var SLOT_NODE_ID = "s";
+var TEXT_NODE_ID = "t";
+var COMMENT_NODE_ID = "c";
+var HYDRATE_ID = "s-id";
+var HYDRATED_STYLE_ID = "sty-id";
+var HYDRATE_CHILD_ID = "c-id";
+var STENCIL_DOC_DATA = "_stencilDocData";
+var DEFAULT_DOC_DATA = {
+  hostIds: 0,
+  rootLevelIds: 0,
+  staticComponents: /* @__PURE__ */ new Set()
+};
+var SLOT_FB_CSS = "slot-fb{display:contents}slot-fb[hidden]{display:none}";
+var XLINK_NS = "http://www.w3.org/1999/xlink";
+
+// src/runtime/slot-polyfill-utils.ts
+var updateFallbackSlotVisibility = (elm) => {
+  const childNodes = internalCall(elm, "childNodes");
+  if (elm.tagName && elm.tagName.includes("-") && elm["s-cr"] && elm.tagName !== "SLOT-FB") {
+    getHostSlotNodes(childNodes, elm.tagName).forEach((slotNode) => {
+      if (slotNode.nodeType === 1 /* ElementNode */ && slotNode.tagName === "SLOT-FB") {
+        if (getSlotChildSiblings(slotNode, getSlotName(slotNode), false).length) {
+          slotNode.hidden = true;
+        } else {
+          slotNode.hidden = false;
+        }
+      }
+    });
+  }
+  let i2 = 0;
+  for (i2 = 0; i2 < childNodes.length; i2++) {
+    const childNode = childNodes[i2];
+    if (childNode.nodeType === 1 /* ElementNode */ && internalCall(childNode, "childNodes").length) {
+      updateFallbackSlotVisibility(childNode);
+    }
+  }
+};
+var getSlottedChildNodes = (childNodes) => {
+  const result = [];
+  for (let i2 = 0; i2 < childNodes.length; i2++) {
+    const slottedNode = childNodes[i2]["s-nr"] || void 0;
+    if (slottedNode && slottedNode.isConnected) {
+      result.push(slottedNode);
+    }
+  }
+  return result;
+};
+function getHostSlotNodes(childNodes, hostName, slotName) {
+  let i2 = 0;
+  let slottedNodes = [];
+  let childNode;
+  for (; i2 < childNodes.length; i2++) {
+    childNode = childNodes[i2];
+    if (childNode["s-sr"] && (!hostName || childNode["s-hn"] === hostName) && (slotName === void 0)) {
+      slottedNodes.push(childNode);
+    }
+    slottedNodes = [...slottedNodes, ...getHostSlotNodes(childNode.childNodes, hostName, slotName)];
+  }
+  return slottedNodes;
+}
+var getSlotChildSiblings = (slot, slotName, includeSlot = true) => {
+  const childNodes = [];
+  if (includeSlot && slot["s-sr"] || !slot["s-sr"]) childNodes.push(slot);
+  let node = slot;
+  while (node = node.nextSibling) {
+    if (getSlotName(node) === slotName && (includeSlot || !node["s-sr"])) childNodes.push(node);
+  }
+  return childNodes;
+};
+var isNodeLocatedInSlot = (nodeToRelocate, slotName) => {
+  if (nodeToRelocate.nodeType === 1 /* ElementNode */) {
+    if (nodeToRelocate.getAttribute("slot") === null && slotName === "") {
+      return true;
+    }
+    if (nodeToRelocate.getAttribute("slot") === slotName) {
+      return true;
+    }
+    return false;
+  }
+  if (nodeToRelocate["s-sn"] === slotName) {
+    return true;
+  }
+  return slotName === "";
+};
+var addSlotRelocateNode = (newChild, slotNode, prepend, position) => {
+  if (newChild["s-ol"] && newChild["s-ol"].isConnected) {
+    return;
+  }
+  const slottedNodeLocation = document.createTextNode("");
+  slottedNodeLocation["s-nr"] = newChild;
+  if (!slotNode["s-cr"] || !slotNode["s-cr"].parentNode) return;
+  const parent = slotNode["s-cr"].parentNode;
+  const appendMethod = internalCall(parent, "appendChild");
+  if (typeof position !== "undefined") {
+    slottedNodeLocation["s-oo"] = position;
+    const childNodes = internalCall(parent, "childNodes");
+    const slotRelocateNodes = [slottedNodeLocation];
+    childNodes.forEach((n) => {
+      if (n["s-nr"]) slotRelocateNodes.push(n);
+    });
+    slotRelocateNodes.sort((a, b) => {
+      if (!a["s-oo"] || a["s-oo"] < (b["s-oo"] || 0)) return -1;
+      else if (!b["s-oo"] || b["s-oo"] < a["s-oo"]) return 1;
+      return 0;
+    });
+    slotRelocateNodes.forEach((n) => appendMethod.call(parent, n));
+  } else {
+    appendMethod.call(parent, slottedNodeLocation);
+  }
+  newChild["s-ol"] = slottedNodeLocation;
+  newChild["s-sh"] = slotNode["s-hn"];
+};
+var getSlotName = (node) => typeof node["s-sn"] === "string" ? node["s-sn"] : node.nodeType === 1 && node.getAttribute("slot") || void 0;
+function patchSlotNode(node) {
+  if (node.assignedElements || node.assignedNodes || !node["s-sr"]) return;
+  const assignedFactory = (elementsOnly) => (function(opts) {
+    const toReturn = [];
+    const slotName = this["s-sn"];
+    if (opts == null ? void 0 : opts.flatten) {
+      console.error(`
+          Flattening is not supported for Stencil non-shadow slots.
+          You can use \`.childNodes\` to nested slot fallback content.
+          If you have a particular use case, please open an issue on the Stencil repo.
+        `);
+    }
+    const parent = this["s-cr"].parentElement;
+    const slottedNodes = parent.__childNodes ? parent.childNodes : getSlottedChildNodes(parent.childNodes);
+    slottedNodes.forEach((n) => {
+      if (slotName === getSlotName(n)) {
+        toReturn.push(n);
+      }
+    });
+    if (elementsOnly) {
+      return toReturn.filter((n) => n.nodeType === 1 /* ElementNode */);
+    }
+    return toReturn;
+  }).bind(node);
+  node.assignedElements = assignedFactory(true);
+  node.assignedNodes = assignedFactory(false);
+}
+function internalCall(node, method) {
+  if ("__" + method in node) {
+    const toReturn = node["__" + method];
+    if (typeof toReturn !== "function") return toReturn;
+    return toReturn.bind(node);
+  } else {
+    if (typeof node[method] !== "function") return node[method];
+    return node[method].bind(node);
+  }
+}
 var createTime = (fnName, tagName = "") => {
   {
     return () => {
@@ -213,23 +505,6 @@ var uniqueTime = (key, measureText) => {
     };
   }
 };
-
-// src/runtime/runtime-constants.ts
-var CONTENT_REF_ID = "r";
-var ORG_LOCATION_ID = "o";
-var SLOT_NODE_ID = "s";
-var TEXT_NODE_ID = "t";
-var HYDRATE_ID = "s-id";
-var HYDRATED_STYLE_ID = "sty-id";
-var HYDRATE_CHILD_ID = "c-id";
-var SLOT_FB_CSS = "slot-fb{display:contents}slot-fb[hidden]{display:none}";
-var XLINK_NS = "http://www.w3.org/1999/xlink";
-var FORM_ASSOCIATED_CUSTOM_ELEMENT_CALLBACKS = [
-  "formAssociatedCallback",
-  "formResetCallback",
-  "formDisabledCallback",
-  "formStateRestoreCallback"
-];
 var h = (nodeName, vnodeData, ...children) => {
   let child = null;
   let key = null;
@@ -344,44 +619,141 @@ var convertToPrivate = (node) => {
 
 // src/runtime/client-hydrate.ts
 var initializeClientHydrate = (hostElm, tagName, hostId, hostRef) => {
+  var _a;
   const endHydrate = createTime("hydrateClient", tagName);
   const shadowRoot = hostElm.shadowRoot;
   const childRenderNodes = [];
   const slotNodes = [];
+  const slottedNodes = [];
   const shadowRootNodes = shadowRoot ? [] : null;
-  const vnode = hostRef.$vnode$ = newVNode(tagName, null);
-  if (!plt.$orgLocNodes$) {
-    initializeDocumentHydrate(doc.body, plt.$orgLocNodes$ = /* @__PURE__ */ new Map());
+  const vnode = newVNode(tagName, null);
+  vnode.$elm$ = hostElm;
+  const members = Object.entries(((_a = hostRef.$cmpMeta$) == null ? void 0 : _a.$members$) || {});
+  members.forEach(([memberName, [memberFlags, metaAttributeName]]) => {
+    var _a2, _b;
+    if (!(memberFlags & 31 /* Prop */)) {
+      return;
+    }
+    const attributeName = metaAttributeName || memberName;
+    const attrVal = hostElm.getAttribute(attributeName);
+    if (attrVal !== null) {
+      const attrPropVal = parsePropertyValue(
+        attrVal,
+        memberFlags,
+        !!(((_a2 = hostRef.$cmpMeta$) == null ? void 0 : _a2.$flags$) & 64 /* formAssociated */)
+      );
+      (_b = hostRef == null ? void 0 : hostRef.$instanceValues$) == null ? void 0 : _b.set(memberName, attrPropVal);
+    }
+  });
+  if (win.document && (!plt.$orgLocNodes$ || !plt.$orgLocNodes$.size)) {
+    initializeDocumentHydrate(win.document.body, plt.$orgLocNodes$ = /* @__PURE__ */ new Map());
   }
   hostElm[HYDRATE_ID] = hostId;
   hostElm.removeAttribute(HYDRATE_ID);
-  clientHydrate(vnode, childRenderNodes, slotNodes, shadowRootNodes, hostElm, hostElm, hostId);
-  childRenderNodes.map((c) => {
-    const orgLocationId = c.$hostId$ + "." + c.$nodeId$;
+  hostRef.$vnode$ = clientHydrate(
+    vnode,
+    childRenderNodes,
+    slotNodes,
+    shadowRootNodes,
+    hostElm,
+    hostElm,
+    hostId,
+    slottedNodes
+  );
+  let crIndex = 0;
+  const crLength = childRenderNodes.length;
+  let childRenderNode;
+  for (crIndex; crIndex < crLength; crIndex++) {
+    childRenderNode = childRenderNodes[crIndex];
+    const orgLocationId = childRenderNode.$hostId$ + "." + childRenderNode.$nodeId$;
     const orgLocationNode = plt.$orgLocNodes$.get(orgLocationId);
-    const node = c.$elm$;
-    if (orgLocationNode && supportsShadow && orgLocationNode["s-en"] === "") {
-      orgLocationNode.parentNode.insertBefore(node, orgLocationNode.nextSibling);
-    }
+    const node = childRenderNode.$elm$;
     if (!shadowRoot) {
-      node["s-hn"] = tagName;
-      if (orgLocationNode) {
-        node["s-ol"] = orgLocationNode;
-        node["s-ol"]["s-nr"] = node;
+      node["s-hn"] = tagName.toUpperCase();
+      if (childRenderNode.$tag$ === "slot") {
+        node["s-cr"] = hostElm["s-cr"];
+      }
+    }
+    if (childRenderNode.$tag$ === "slot") {
+      childRenderNode.$name$ = childRenderNode.$elm$["s-sn"] || childRenderNode.$elm$["name"] || null;
+      if (childRenderNode.$children$) {
+        childRenderNode.$flags$ |= 2 /* isSlotFallback */;
+        if (!childRenderNode.$elm$.childNodes.length) {
+          childRenderNode.$children$.forEach((c) => {
+            childRenderNode.$elm$.appendChild(c.$elm$);
+          });
+        }
+      } else {
+        childRenderNode.$flags$ |= 1 /* isSlotReference */;
+      }
+    }
+    if (orgLocationNode && orgLocationNode.isConnected) {
+      if (shadowRoot && orgLocationNode["s-en"] === "") {
+        orgLocationNode.parentNode.insertBefore(node, orgLocationNode.nextSibling);
+      }
+      orgLocationNode.parentNode.removeChild(orgLocationNode);
+      if (!shadowRoot) {
+        node["s-oo"] = parseInt(childRenderNode.$nodeId$);
       }
     }
     plt.$orgLocNodes$.delete(orgLocationId);
-  });
-  if (shadowRoot) {
-    shadowRootNodes.map((shadowRootNode) => {
-      if (shadowRootNode) {
-        shadowRoot.appendChild(shadowRootNode);
-      }
-    });
   }
+  const hosts = [];
+  const snLen = slottedNodes.length;
+  let snIndex = 0;
+  let slotGroup;
+  let snGroupIdx;
+  let snGroupLen;
+  let slottedItem;
+  for (snIndex; snIndex < snLen; snIndex++) {
+    slotGroup = slottedNodes[snIndex];
+    if (!slotGroup || !slotGroup.length) continue;
+    snGroupLen = slotGroup.length;
+    snGroupIdx = 0;
+    for (snGroupIdx; snGroupIdx < snGroupLen; snGroupIdx++) {
+      slottedItem = slotGroup[snGroupIdx];
+      if (!hosts[slottedItem.hostId]) {
+        hosts[slottedItem.hostId] = plt.$orgLocNodes$.get(slottedItem.hostId);
+      }
+      if (!hosts[slottedItem.hostId]) continue;
+      const hostEle = hosts[slottedItem.hostId];
+      if (!hostEle.shadowRoot || !shadowRoot) {
+        slottedItem.slot["s-cr"] = hostEle["s-cr"];
+        if (!slottedItem.slot["s-cr"] && hostEle.shadowRoot) {
+          slottedItem.slot["s-cr"] = hostEle;
+        } else {
+          slottedItem.slot["s-cr"] = (hostEle.__childNodes || hostEle.childNodes)[0];
+        }
+        addSlotRelocateNode(slottedItem.node, slottedItem.slot, false, slottedItem.node["s-oo"]);
+      }
+      if (hostEle.shadowRoot && slottedItem.node.parentElement !== hostEle) {
+        hostEle.appendChild(slottedItem.node);
+      }
+    }
+  }
+  if (shadowRoot && !shadowRoot.childNodes.length) {
+    let rnIdex = 0;
+    const rnLen = shadowRootNodes.length;
+    if (rnLen) {
+      for (rnIdex; rnIdex < rnLen; rnIdex++) {
+        shadowRoot.appendChild(shadowRootNodes[rnIdex]);
+      }
+      Array.from(hostElm.childNodes).forEach((node) => {
+        if (typeof node["s-en"] !== "string" && typeof node["s-sn"] !== "string") {
+          if (node.nodeType === 1 /* ElementNode */ && node.slot && node.hidden) {
+            node.removeAttribute("hidden");
+          } else if (node.nodeType === 8 /* CommentNode */ || node.nodeType === 3 /* TextNode */ && !node.wholeText.trim()) {
+            node.parentNode.removeChild(node);
+          }
+        }
+      });
+    }
+  }
+  plt.$orgLocNodes$.delete(hostElm["s-id"]);
+  hostRef.$hostElement$ = hostElm;
   endHydrate();
 };
-var clientHydrate = (parentVNode, childRenderNodes, slotNodes, shadowRootNodes, hostElm, node, hostId) => {
+var clientHydrate = (parentVNode, childRenderNodes, slotNodes, shadowRootNodes, hostElm, node, hostId, slottedNodes = []) => {
   let childNodeType;
   let childIdSplt;
   let childVNode;
@@ -391,7 +763,7 @@ var clientHydrate = (parentVNode, childRenderNodes, slotNodes, shadowRootNodes, 
     if (childNodeType) {
       childIdSplt = childNodeType.split(".");
       if (childIdSplt[0] === hostId || childIdSplt[0] === "0") {
-        childVNode = {
+        childVNode = createSimpleVNode({
           $flags$: 0,
           $hostId$: childIdSplt[0],
           $nodeId$: childIdSplt[1],
@@ -399,34 +771,41 @@ var clientHydrate = (parentVNode, childRenderNodes, slotNodes, shadowRootNodes, 
           $index$: childIdSplt[3],
           $tag$: node.tagName.toLowerCase(),
           $elm$: node,
-          $attrs$: null,
-          $children$: null,
-          $key$: null,
-          $name$: null,
-          $text$: null
-        };
+          // If we don't add the initial classes to the VNode, the first `vdom-render.ts` patch
+          // won't try to reconcile them. Classes set on the node will be blown away.
+          $attrs$: { class: node.className || "" }
+        });
         childRenderNodes.push(childVNode);
         node.removeAttribute(HYDRATE_CHILD_ID);
         if (!parentVNode.$children$) {
           parentVNode.$children$ = [];
         }
-        parentVNode.$children$[childVNode.$index$] = childVNode;
+        const slotName = childVNode.$elm$.getAttribute("s-sn");
+        if (typeof slotName === "string") {
+          if (childVNode.$tag$ === "slot-fb") {
+            addSlot(
+              slotName,
+              childIdSplt[2],
+              childVNode,
+              node,
+              parentVNode,
+              childRenderNodes,
+              slotNodes,
+              shadowRootNodes,
+              slottedNodes
+            );
+          }
+          childVNode.$elm$["s-sn"] = slotName;
+          childVNode.$elm$.removeAttribute("s-sn");
+        }
+        if (childVNode.$index$ !== void 0) {
+          parentVNode.$children$[childVNode.$index$] = childVNode;
+        }
         parentVNode = childVNode;
         if (shadowRootNodes && childVNode.$depth$ === "0") {
           shadowRootNodes[childVNode.$index$] = childVNode.$elm$;
         }
       }
-    }
-    for (i2 = node.childNodes.length - 1; i2 >= 0; i2--) {
-      clientHydrate(
-        parentVNode,
-        childRenderNodes,
-        slotNodes,
-        shadowRootNodes,
-        hostElm,
-        node.childNodes[i2],
-        hostId
-      );
     }
     if (node.shadowRoot) {
       for (i2 = node.shadowRoot.childNodes.length - 1; i2 >= 0; i2--) {
@@ -437,20 +816,33 @@ var clientHydrate = (parentVNode, childRenderNodes, slotNodes, shadowRootNodes, 
           shadowRootNodes,
           hostElm,
           node.shadowRoot.childNodes[i2],
-          hostId
+          hostId,
+          slottedNodes
         );
       }
+    }
+    const nonShadowNodes = node.__childNodes || node.childNodes;
+    for (i2 = nonShadowNodes.length - 1; i2 >= 0; i2--) {
+      clientHydrate(
+        parentVNode,
+        childRenderNodes,
+        slotNodes,
+        shadowRootNodes,
+        hostElm,
+        nonShadowNodes[i2],
+        hostId,
+        slottedNodes
+      );
     }
   } else if (node.nodeType === 8 /* CommentNode */) {
     childIdSplt = node.nodeValue.split(".");
     if (childIdSplt[1] === hostId || childIdSplt[1] === "0") {
       childNodeType = childIdSplt[0];
-      childVNode = {
-        $flags$: 0,
+      childVNode = createSimpleVNode({
         $hostId$: childIdSplt[1],
         $nodeId$: childIdSplt[2],
         $depth$: childIdSplt[3],
-        $index$: childIdSplt[4],
+        $index$: childIdSplt[4] || "0",
         $elm$: node,
         $attrs$: null,
         $children$: null,
@@ -458,46 +850,43 @@ var clientHydrate = (parentVNode, childRenderNodes, slotNodes, shadowRootNodes, 
         $name$: null,
         $tag$: null,
         $text$: null
-      };
+      });
       if (childNodeType === TEXT_NODE_ID) {
-        childVNode.$elm$ = node.nextSibling;
+        childVNode.$elm$ = findCorrespondingNode(node, 3 /* TextNode */);
         if (childVNode.$elm$ && childVNode.$elm$.nodeType === 3 /* TextNode */) {
           childVNode.$text$ = childVNode.$elm$.textContent;
           childRenderNodes.push(childVNode);
           node.remove();
-          if (!parentVNode.$children$) {
-            parentVNode.$children$ = [];
+          if (hostId === childVNode.$hostId$) {
+            if (!parentVNode.$children$) {
+              parentVNode.$children$ = [];
+            }
+            parentVNode.$children$[childVNode.$index$] = childVNode;
           }
-          parentVNode.$children$[childVNode.$index$] = childVNode;
           if (shadowRootNodes && childVNode.$depth$ === "0") {
             shadowRootNodes[childVNode.$index$] = childVNode.$elm$;
           }
         }
+      } else if (childNodeType === COMMENT_NODE_ID) {
+        childVNode.$elm$ = findCorrespondingNode(node, 8 /* CommentNode */);
+        if (childVNode.$elm$ && childVNode.$elm$.nodeType === 8 /* CommentNode */) {
+          childRenderNodes.push(childVNode);
+          node.remove();
+        }
       } else if (childVNode.$hostId$ === hostId) {
         if (childNodeType === SLOT_NODE_ID) {
-          childVNode.$tag$ = "slot";
-          if (childIdSplt[5]) {
-            node["s-sn"] = childVNode.$name$ = childIdSplt[5];
-          } else {
-            node["s-sn"] = "";
-          }
-          node["s-sr"] = true;
-          if (shadowRootNodes) {
-            childVNode.$elm$ = doc.createElement(childVNode.$tag$);
-            if (childVNode.$name$) {
-              childVNode.$elm$.setAttribute("name", childVNode.$name$);
-            }
-            node.parentNode.insertBefore(childVNode.$elm$, node);
-            node.remove();
-            if (childVNode.$depth$ === "0") {
-              shadowRootNodes[childVNode.$index$] = childVNode.$elm$;
-            }
-          }
-          slotNodes.push(childVNode);
-          if (!parentVNode.$children$) {
-            parentVNode.$children$ = [];
-          }
-          parentVNode.$children$[childVNode.$index$] = childVNode;
+          const slotName = node["s-sn"] = childIdSplt[5] || "";
+          addSlot(
+            slotName,
+            childIdSplt[2],
+            childVNode,
+            node,
+            parentVNode,
+            childRenderNodes,
+            slotNodes,
+            shadowRootNodes,
+            slottedNodes
+          );
         } else if (childNodeType === CONTENT_REF_ID) {
           if (shadowRootNodes) {
             node.remove();
@@ -513,18 +902,28 @@ var clientHydrate = (parentVNode, childRenderNodes, slotNodes, shadowRootNodes, 
     vnode.$elm$ = node;
     vnode.$index$ = "0";
     parentVNode.$children$ = [vnode];
+  } else {
+    if (node.nodeType === 3 /* TextNode */ && !node.wholeText.trim()) {
+      node.remove();
+    }
   }
+  return parentVNode;
 };
 var initializeDocumentHydrate = (node, orgLocNodes) => {
   if (node.nodeType === 1 /* ElementNode */) {
-    let i2 = 0;
-    for (; i2 < node.childNodes.length; i2++) {
-      initializeDocumentHydrate(node.childNodes[i2], orgLocNodes);
+    const componentId = node[HYDRATE_ID] || node.getAttribute(HYDRATE_ID);
+    if (componentId) {
+      orgLocNodes.set(componentId, node);
     }
+    let i2 = 0;
     if (node.shadowRoot) {
-      for (i2 = 0; i2 < node.shadowRoot.childNodes.length; i2++) {
+      for (; i2 < node.shadowRoot.childNodes.length; i2++) {
         initializeDocumentHydrate(node.shadowRoot.childNodes[i2], orgLocNodes);
       }
+    }
+    const nonShadowNodes = node.__childNodes || node.childNodes;
+    for (i2 = 0; i2 < nonShadowNodes.length; i2++) {
+      initializeDocumentHydrate(nonShadowNodes[i2], orgLocNodes);
     }
   } else if (node.nodeType === 8 /* CommentNode */) {
     const childIdSplt = node.nodeValue.split(".");
@@ -535,13 +934,503 @@ var initializeDocumentHydrate = (node, orgLocNodes) => {
     }
   }
 };
-var parsePropertyValue = (propValue, propType) => {
+var createSimpleVNode = (vnode) => {
+  const defaultVNode = {
+    $flags$: 0,
+    $hostId$: null,
+    $nodeId$: null,
+    $depth$: null,
+    $index$: "0",
+    $elm$: null,
+    $attrs$: null,
+    $children$: null,
+    $key$: null,
+    $name$: null,
+    $tag$: null,
+    $text$: null
+  };
+  return { ...defaultVNode, ...vnode };
+};
+function addSlot(slotName, slotId, childVNode, node, parentVNode, childRenderNodes, slotNodes, shadowRootNodes, slottedNodes) {
+  node["s-sr"] = true;
+  childVNode.$name$ = slotName || null;
+  childVNode.$tag$ = "slot";
+  const parentNodeId = (parentVNode == null ? void 0 : parentVNode.$elm$) ? parentVNode.$elm$["s-id"] || parentVNode.$elm$.getAttribute("s-id") : "";
+  if (shadowRootNodes && win.document) {
+    const slot = childVNode.$elm$ = win.document.createElement(childVNode.$tag$);
+    if (childVNode.$name$) {
+      childVNode.$elm$.setAttribute("name", slotName);
+    }
+    if (parentNodeId && parentNodeId !== childVNode.$hostId$) {
+      parentVNode.$elm$.insertBefore(slot, parentVNode.$elm$.children[0]);
+    } else {
+      node.parentNode.insertBefore(slot, node);
+    }
+    addSlottedNodes(slottedNodes, slotId, slotName, node, childVNode.$hostId$);
+    node.remove();
+    if (childVNode.$depth$ === "0") {
+      shadowRootNodes[childVNode.$index$] = childVNode.$elm$;
+    }
+  } else {
+    const slot = childVNode.$elm$;
+    const shouldMove = parentNodeId && parentNodeId !== childVNode.$hostId$ && parentVNode.$elm$.shadowRoot;
+    addSlottedNodes(slottedNodes, slotId, slotName, node, shouldMove ? parentNodeId : childVNode.$hostId$);
+    patchSlotNode(node);
+    if (shouldMove) {
+      parentVNode.$elm$.insertBefore(slot, parentVNode.$elm$.children[0]);
+    }
+  }
+  childRenderNodes.push(childVNode);
+  slotNodes.push(childVNode);
+  if (!parentVNode.$children$) {
+    parentVNode.$children$ = [];
+  }
+  parentVNode.$children$[childVNode.$index$] = childVNode;
+}
+var addSlottedNodes = (slottedNodes, slotNodeId, slotName, slotNode, hostId) => {
+  let slottedNode = slotNode.nextSibling;
+  slottedNodes[slotNodeId] = slottedNodes[slotNodeId] || [];
+  while (slottedNode && ((slottedNode["getAttribute"] && slottedNode.getAttribute("slot") || slottedNode["s-sn"]) === slotName || slotName === "" && !slottedNode["s-sn"] && (slottedNode.nodeType === 8 /* CommentNode */ && slottedNode.nodeValue.indexOf(".") !== 1 || slottedNode.nodeType === 3 /* TextNode */))) {
+    slottedNode["s-sn"] = slotName;
+    slottedNodes[slotNodeId].push({ slot: slotNode, node: slottedNode, hostId });
+    slottedNode = slottedNode.nextSibling;
+  }
+};
+var findCorrespondingNode = (node, type) => {
+  let sibling = node;
+  do {
+    sibling = sibling.nextSibling;
+  } while (sibling && (sibling.nodeType !== type || !sibling.nodeValue));
+  return sibling;
+};
+
+// src/utils/shadow-css.ts
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ *
+ * This file is a port of shadowCSS from `webcomponents.js` to TypeScript.
+ * https://github.com/webcomponents/webcomponentsjs/blob/4efecd7e0e/src/ShadowCSS/ShadowCSS.js
+ * https://github.com/angular/angular/blob/master/packages/compiler/src/shadow_css.ts
+ */
+var safeSelector = (selector) => {
+  const placeholders = [];
+  let index = 0;
+  selector = selector.replace(/(\[\s*part~=\s*("[^"]*"|'[^']*')\s*\])/g, (_, keep) => {
+    const replaceBy = `__part-${index}__`;
+    placeholders.push(keep);
+    index++;
+    return replaceBy;
+  });
+  selector = selector.replace(/(\[[^\]]*\])/g, (_, keep) => {
+    const replaceBy = `__ph-${index}__`;
+    placeholders.push(keep);
+    index++;
+    return replaceBy;
+  });
+  const content = selector.replace(/(:nth-[-\w]+)(\([^)]+\))/g, (_, pseudo, exp) => {
+    const replaceBy = `__ph-${index}__`;
+    placeholders.push(exp);
+    index++;
+    return pseudo + replaceBy;
+  });
+  const ss = {
+    content,
+    placeholders
+  };
+  return ss;
+};
+var restoreSafeSelector = (placeholders, content) => {
+  content = content.replace(/__part-(\d+)__/g, (_, index) => placeholders[+index]);
+  return content.replace(/__ph-(\d+)__/g, (_, index) => placeholders[+index]);
+};
+var _polyfillHost = "-shadowcsshost";
+var _polyfillSlotted = "-shadowcssslotted";
+var _polyfillHostContext = "-shadowcsscontext";
+var _parenSuffix = ")(?:\\(((?:\\([^)(]*\\)|[^)(]*)+?)\\))?([^,{]*)";
+var _cssColonHostRe = new RegExp("(" + _polyfillHost + _parenSuffix, "gim");
+var _cssColonHostContextRe = new RegExp("(" + _polyfillHostContext + _parenSuffix, "gim");
+var _cssColonSlottedRe = new RegExp("(" + _polyfillSlotted + _parenSuffix, "gim");
+var _polyfillHostNoCombinator = _polyfillHost + "-no-combinator";
+var _polyfillHostNoCombinatorRe = /-shadowcsshost-no-combinator([^\s]*)/;
+var _shadowDOMSelectorsRe = [/::shadow/g, /::content/g];
+var _safePartRe = /__part-(\d+)__/g;
+var _selectorReSuffix = "([>\\s~+[.,{:][\\s\\S]*)?$";
+var _polyfillHostRe = /-shadowcsshost/gim;
+var createSupportsRuleRe = (selector) => {
+  const safeSelector2 = escapeRegExpSpecialCharacters(selector);
+  return new RegExp(
+    // First capture group: match any context before the selector that's not inside @supports selector()
+    // Using negative lookahead to avoid matching inside @supports selector(...) condition
+    `(^|[^@]|@(?!supports\\s+selector\\s*\\([^{]*?${safeSelector2}))(${safeSelector2}\\b)`,
+    "g"
+  );
+};
+var _colonSlottedRe = createSupportsRuleRe("::slotted");
+var _colonHostRe = createSupportsRuleRe(":host");
+var _colonHostContextRe = createSupportsRuleRe(":host-context");
+var _commentRe = /\/\*\s*[\s\S]*?\*\//g;
+var stripComments = (input) => {
+  return input.replace(_commentRe, "");
+};
+var _commentWithHashRe = /\/\*\s*#\s*source(Mapping)?URL=[\s\S]+?\*\//g;
+var extractCommentsWithHash = (input) => {
+  return input.match(_commentWithHashRe) || [];
+};
+var _ruleRe = /(\s*)([^;\{\}]+?)(\s*)((?:{%BLOCK%}?\s*;?)|(?:\s*;))/g;
+var _curlyRe = /([{}])/g;
+var _selectorPartsRe = /(^.*?[^\\])??((:+)(.*)|$)/;
+var OPEN_CURLY = "{";
+var CLOSE_CURLY = "}";
+var BLOCK_PLACEHOLDER = "%BLOCK%";
+var processRules = (input, ruleCallback) => {
+  const inputWithEscapedBlocks = escapeBlocks(input);
+  let nextBlockIndex = 0;
+  return inputWithEscapedBlocks.escapedString.replace(_ruleRe, (...m) => {
+    const selector = m[2];
+    let content = "";
+    let suffix = m[4];
+    let contentPrefix = "";
+    if (suffix && suffix.startsWith("{" + BLOCK_PLACEHOLDER)) {
+      content = inputWithEscapedBlocks.blocks[nextBlockIndex++];
+      suffix = suffix.substring(BLOCK_PLACEHOLDER.length + 1);
+      contentPrefix = "{";
+    }
+    const cssRule = {
+      selector,
+      content
+    };
+    const rule = ruleCallback(cssRule);
+    return `${m[1]}${rule.selector}${m[3]}${contentPrefix}${rule.content}${suffix}`;
+  });
+};
+var escapeBlocks = (input) => {
+  const inputParts = input.split(_curlyRe);
+  const resultParts = [];
+  const escapedBlocks = [];
+  let bracketCount = 0;
+  let currentBlockParts = [];
+  for (let partIndex = 0; partIndex < inputParts.length; partIndex++) {
+    const part = inputParts[partIndex];
+    if (part === CLOSE_CURLY) {
+      bracketCount--;
+    }
+    if (bracketCount > 0) {
+      currentBlockParts.push(part);
+    } else {
+      if (currentBlockParts.length > 0) {
+        escapedBlocks.push(currentBlockParts.join(""));
+        resultParts.push(BLOCK_PLACEHOLDER);
+        currentBlockParts = [];
+      }
+      resultParts.push(part);
+    }
+    if (part === OPEN_CURLY) {
+      bracketCount++;
+    }
+  }
+  if (currentBlockParts.length > 0) {
+    escapedBlocks.push(currentBlockParts.join(""));
+    resultParts.push(BLOCK_PLACEHOLDER);
+  }
+  const strEscapedBlocks = {
+    escapedString: resultParts.join(""),
+    blocks: escapedBlocks
+  };
+  return strEscapedBlocks;
+};
+var insertPolyfillHostInCssText = (cssText) => {
+  const supportsBlocks = [];
+  cssText = cssText.replace(/@supports\s+selector\s*\(\s*([^)]*)\s*\)/g, (_, selectorContent) => {
+    const placeholder = `__supports_${supportsBlocks.length}__`;
+    supportsBlocks.push(selectorContent);
+    return `@supports selector(${placeholder})`;
+  });
+  cssText = cssText.replace(_colonHostContextRe, `$1${_polyfillHostContext}`).replace(_colonHostRe, `$1${_polyfillHost}`).replace(_colonSlottedRe, `$1${_polyfillSlotted}`);
+  supportsBlocks.forEach((originalSelector, index) => {
+    cssText = cssText.replace(`__supports_${index}__`, originalSelector);
+  });
+  return cssText;
+};
+var convertColonRule = (cssText, regExp, partReplacer) => {
+  return cssText.replace(regExp, (...m) => {
+    if (m[2]) {
+      const parts = m[2].split(",");
+      const r = [];
+      for (let i2 = 0; i2 < parts.length; i2++) {
+        const p = parts[i2].trim();
+        if (!p) break;
+        r.push(partReplacer(_polyfillHostNoCombinator, p, m[3]));
+      }
+      return r.join(",");
+    } else {
+      return _polyfillHostNoCombinator + m[3];
+    }
+  });
+};
+var colonHostPartReplacer = (host, part, suffix) => {
+  return host + part.replace(_polyfillHost, "") + suffix;
+};
+var convertColonHost = (cssText) => {
+  return convertColonRule(cssText, _cssColonHostRe, colonHostPartReplacer);
+};
+var colonHostContextPartReplacer = (host, part, suffix) => {
+  if (part.indexOf(_polyfillHost) > -1) {
+    return colonHostPartReplacer(host, part, suffix);
+  } else {
+    return host + part + suffix + ", " + part + " " + host + suffix;
+  }
+};
+var convertColonSlotted = (cssText, slotScopeId) => {
+  const slotClass = "." + slotScopeId + " > ";
+  const selectors = [];
+  cssText = cssText.replace(_cssColonSlottedRe, (...m) => {
+    if (m[2]) {
+      const compound = m[2].trim();
+      const suffix = m[3];
+      const slottedSelector = slotClass + compound + suffix;
+      let prefixSelector = "";
+      for (let i2 = m[4] - 1; i2 >= 0; i2--) {
+        const char = m[5][i2];
+        if (char === "}" || char === ",") {
+          break;
+        }
+        prefixSelector = char + prefixSelector;
+      }
+      const orgSelector = (prefixSelector + slottedSelector).trim();
+      const addedSelector = `${prefixSelector.trimEnd()}${slottedSelector.trim()}`.trim();
+      if (orgSelector !== addedSelector) {
+        const updatedSelector = `${addedSelector}, ${orgSelector}`;
+        selectors.push({
+          orgSelector,
+          updatedSelector
+        });
+      }
+      return slottedSelector;
+    } else {
+      return _polyfillHostNoCombinator + m[3];
+    }
+  });
+  return {
+    selectors,
+    cssText
+  };
+};
+var convertColonHostContext = (cssText) => {
+  return convertColonRule(cssText, _cssColonHostContextRe, colonHostContextPartReplacer);
+};
+var convertShadowDOMSelectors = (cssText) => {
+  return _shadowDOMSelectorsRe.reduce((result, pattern) => result.replace(pattern, " "), cssText);
+};
+var makeScopeMatcher = (scopeSelector2) => {
+  const lre = /\[/g;
+  const rre = /\]/g;
+  scopeSelector2 = scopeSelector2.replace(lre, "\\[").replace(rre, "\\]");
+  return new RegExp("^(" + scopeSelector2 + ")" + _selectorReSuffix, "m");
+};
+var selectorNeedsScoping = (selector, scopeSelector2) => {
+  const re = makeScopeMatcher(scopeSelector2);
+  return !re.test(selector);
+};
+var injectScopingSelector = (selector, scopingSelector) => {
+  return selector.replace(_selectorPartsRe, (_, before = "", _colonGroup, colon = "", after = "") => {
+    return before + scopingSelector + colon + after;
+  });
+};
+var applySimpleSelectorScope = (selector, scopeSelector2, hostSelector) => {
+  _polyfillHostRe.lastIndex = 0;
+  if (_polyfillHostRe.test(selector)) {
+    const replaceBy = `.${hostSelector}`;
+    return selector.replace(_polyfillHostNoCombinatorRe, (_, selector2) => injectScopingSelector(selector2, replaceBy)).replace(_polyfillHostRe, replaceBy + " ");
+  }
+  return scopeSelector2 + " " + selector;
+};
+var applyStrictSelectorScope = (selector, scopeSelector2, hostSelector) => {
+  const isRe = /\[is=([^\]]*)\]/g;
+  scopeSelector2 = scopeSelector2.replace(isRe, (_, ...parts) => parts[0]);
+  const className = "." + scopeSelector2;
+  const _scopeSelectorPart = (p) => {
+    let scopedP = p.trim();
+    if (!scopedP) {
+      return "";
+    }
+    if (p.indexOf(_polyfillHostNoCombinator) > -1) {
+      scopedP = applySimpleSelectorScope(p, scopeSelector2, hostSelector);
+    } else {
+      const t = p.replace(_polyfillHostRe, "");
+      if (t.length > 0) {
+        scopedP = injectScopingSelector(t, className);
+      }
+    }
+    return scopedP;
+  };
+  const safeContent = safeSelector(selector);
+  selector = safeContent.content;
+  let scopedSelector = "";
+  let startIndex = 0;
+  let res;
+  const sep = /( |>|\+|~(?!=))(?=(?:[^()]*\([^()]*\))*[^()]*$)\s*/g;
+  const hasHost = selector.indexOf(_polyfillHostNoCombinator) > -1;
+  let shouldScope = !hasHost;
+  while ((res = sep.exec(selector)) !== null) {
+    const separator = res[1];
+    const part2 = selector.slice(startIndex, res.index).trim();
+    shouldScope = shouldScope || part2.indexOf(_polyfillHostNoCombinator) > -1;
+    const scopedPart = shouldScope ? _scopeSelectorPart(part2) : part2;
+    scopedSelector += `${scopedPart} ${separator} `;
+    startIndex = sep.lastIndex;
+  }
+  const part = selector.substring(startIndex);
+  shouldScope = !part.match(_safePartRe) && (shouldScope || part.indexOf(_polyfillHostNoCombinator) > -1);
+  scopedSelector += shouldScope ? _scopeSelectorPart(part) : part;
+  return restoreSafeSelector(safeContent.placeholders, scopedSelector);
+};
+var scopeSelector = (selector, scopeSelectorText, hostSelector, slotSelector) => {
+  return selector.split(",").map((shallowPart) => {
+    if (slotSelector && shallowPart.indexOf("." + slotSelector) > -1) {
+      return shallowPart.trim();
+    }
+    if (selectorNeedsScoping(shallowPart, scopeSelectorText)) {
+      return applyStrictSelectorScope(shallowPart, scopeSelectorText, hostSelector).trim();
+    } else {
+      return shallowPart.trim();
+    }
+  }).join(", ");
+};
+var scopeSelectors = (cssText, scopeSelectorText, hostSelector, slotSelector, commentOriginalSelector) => {
+  return processRules(cssText, (rule) => {
+    let selector = rule.selector;
+    let content = rule.content;
+    if (rule.selector[0] !== "@") {
+      selector = scopeSelector(rule.selector, scopeSelectorText, hostSelector, slotSelector);
+    } else if (rule.selector.startsWith("@media") || rule.selector.startsWith("@supports") || rule.selector.startsWith("@page") || rule.selector.startsWith("@document")) {
+      content = scopeSelectors(rule.content, scopeSelectorText, hostSelector, slotSelector);
+    }
+    const cssRule = {
+      selector: selector.replace(/\s{2,}/g, " ").trim(),
+      content
+    };
+    return cssRule;
+  });
+};
+var scopeCssText = (cssText, scopeId2, hostScopeId, slotScopeId, commentOriginalSelector) => {
+  cssText = insertPolyfillHostInCssText(cssText);
+  cssText = convertColonHost(cssText);
+  cssText = convertColonHostContext(cssText);
+  const slotted = convertColonSlotted(cssText, slotScopeId);
+  cssText = slotted.cssText;
+  cssText = convertShadowDOMSelectors(cssText);
+  if (scopeId2) {
+    cssText = scopeSelectors(cssText, scopeId2, hostScopeId, slotScopeId);
+  }
+  cssText = replaceShadowCssHost(cssText, hostScopeId);
+  cssText = cssText.replace(/>\s*\*\s+([^{, ]+)/gm, " $1 ");
+  return {
+    cssText: cssText.trim(),
+    // We need to replace the shadow CSS host string in each of these selectors since we created
+    // them prior to the replacement happening in the components CSS text.
+    slottedSelectors: slotted.selectors.map((ref) => ({
+      orgSelector: replaceShadowCssHost(ref.orgSelector, hostScopeId),
+      updatedSelector: replaceShadowCssHost(ref.updatedSelector, hostScopeId)
+    }))
+  };
+};
+var replaceShadowCssHost = (cssText, hostScopeId) => {
+  return cssText.replace(/-shadowcsshost-no-combinator/g, `.${hostScopeId}`);
+};
+var expandPartSelectors = (cssText) => {
+  const partSelectorRe = /([^\s,{][^,{]*?)::part\(\s*([^)]+?)\s*\)((?:[:.][^,{]*)*)/g;
+  return processRules(cssText, (rule) => {
+    if (rule.selector[0] === "@") {
+      return rule;
+    }
+    const selectors = rule.selector.split(",").map((sel) => {
+      const out = [sel.trim()];
+      let m;
+      while ((m = partSelectorRe.exec(sel)) !== null) {
+        const before = m[1].trimEnd();
+        const partNames = m[2].trim().split(/\s+/);
+        const after = m[3] || "";
+        const partAttr = partNames.flatMap((p) => {
+          if (!rule.selector.includes(`[part~="${p}"]`)) {
+            return [`[part~="${p}"]`];
+          }
+          return [];
+        }).join("");
+        const expanded = `${before} ${partAttr}${after}`;
+        if (!!partAttr && expanded !== sel.trim()) {
+          out.push(expanded);
+        }
+      }
+      return out.join(", ");
+    });
+    rule.selector = selectors.join(", ");
+    return rule;
+  });
+};
+var scopeCss = (cssText, scopeId2, commentOriginalSelector) => {
+  const hostScopeId = scopeId2 + "-h";
+  const slotScopeId = scopeId2 + "-s";
+  const commentsWithHash = extractCommentsWithHash(cssText);
+  cssText = stripComments(cssText);
+  const orgSelectors = [];
+  {
+    const processCommentedSelector = (rule) => {
+      const placeholder = `/*!@___${orgSelectors.length}___*/`;
+      const comment = `/*!@${rule.selector}*/`;
+      orgSelectors.push({ placeholder, comment });
+      rule.selector = placeholder + rule.selector;
+      return rule;
+    };
+    cssText = processRules(cssText, (rule) => {
+      if (rule.selector[0] !== "@") {
+        return processCommentedSelector(rule);
+      } else if (rule.selector.startsWith("@media") || rule.selector.startsWith("@supports") || rule.selector.startsWith("@page") || rule.selector.startsWith("@document")) {
+        rule.content = processRules(rule.content, processCommentedSelector);
+        return rule;
+      }
+      return rule;
+    });
+  }
+  const scoped = scopeCssText(cssText, scopeId2, hostScopeId, slotScopeId);
+  cssText = [scoped.cssText, ...commentsWithHash].join("\n");
+  {
+    orgSelectors.forEach(({ placeholder, comment }) => {
+      cssText = cssText.replace(placeholder, comment);
+    });
+  }
+  scoped.slottedSelectors.forEach((slottedSelector) => {
+    const regex = new RegExp(escapeRegExpSpecialCharacters(slottedSelector.orgSelector), "g");
+    cssText = cssText.replace(regex, slottedSelector.updatedSelector);
+  });
+  cssText = expandPartSelectors(cssText);
+  return cssText;
+};
+var parsePropertyValue = (propValue, propType, isFormAssociated) => {
+  if (typeof propValue === "string" && (propValue.startsWith("{") && propValue.endsWith("}") || propValue.startsWith("[") && propValue.endsWith("]"))) {
+    try {
+      propValue = JSON.parse(propValue);
+      return propValue;
+    } catch (e) {
+    }
+  }
+  if (typeof propValue === "string" && propValue.startsWith(SERIALIZED_PREFIX)) {
+    propValue = deserializeProperty(propValue);
+    return propValue;
+  }
   if (propValue != null && !isComplexType(propValue)) {
     if (propType & 4 /* Boolean */) {
-      return propValue === "false" ? false : propValue === "" || !!propValue;
+      if (isFormAssociated && typeof propValue === "string") {
+        return propValue === "" || !!propValue;
+      } else {
+        return propValue === "false" ? false : propValue === "" || !!propValue;
+      }
     }
     if (propType & 2 /* Number */) {
-      return parseFloat(propValue);
+      return typeof propValue === "string" ? parseFloat(propValue) : typeof propValue === "number" ? propValue : NaN;
     }
     if (propType & 1 /* String */) {
       return String(propValue);
@@ -558,9 +1447,9 @@ var createEvent = (ref, name, flags) => {
   return {
     emit: (detail) => {
       return emitEvent$1(elm, name, {
-        bubbles: !!(flags & 4 /* Bubbles */),
-        composed: !!(flags & 2 /* Composed */),
-        cancelable: !!(flags & 1 /* Cancellable */),
+        bubbles: true,
+        composed: true,
+        cancelable: true,
         detail
       });
     }
@@ -583,7 +1472,10 @@ var addStyle = (styleContainerNode, cmpMeta, mode) => {
   var _a;
   const scopeId2 = getScopeId(cmpMeta);
   const style = styles.get(scopeId2);
-  styleContainerNode = styleContainerNode.nodeType === 11 /* DocumentFragment */ ? styleContainerNode : doc;
+  if (!win.document) {
+    return scopeId2;
+  }
+  styleContainerNode = styleContainerNode.nodeType === 11 /* DocumentFragment */ ? styleContainerNode : win.document;
   if (style) {
     if (typeof style === "string") {
       styleContainerNode = styleContainerNode.head || styleContainerNode;
@@ -596,16 +1488,39 @@ var addStyle = (styleContainerNode, cmpMeta, mode) => {
         if (styleContainerNode.host && (styleElm = styleContainerNode.querySelector(`[${HYDRATED_STYLE_ID}="${scopeId2}"]`))) {
           styleElm.innerHTML = style;
         } else {
-          styleElm = doc.createElement("style");
+          styleElm = win.document.createElement("style");
           styleElm.innerHTML = style;
-          const nonce = (_a = plt.$nonce$) != null ? _a : queryNonceMetaTagContent(doc);
+          const nonce = (_a = plt.$nonce$) != null ? _a : queryNonceMetaTagContent(win.document);
           if (nonce != null) {
             styleElm.setAttribute("nonce", nonce);
           }
-          {
+          if ((cmpMeta.$flags$ & 2 /* scopedCssEncapsulation */ || cmpMeta.$flags$ & 128 /* shadowNeedsScopedCss */)) {
             styleElm.setAttribute(HYDRATED_STYLE_ID, scopeId2);
           }
-          styleContainerNode.insertBefore(styleElm, styleContainerNode.querySelector("link"));
+          if (!(cmpMeta.$flags$ & 1 /* shadowDomEncapsulation */)) {
+            if (styleContainerNode.nodeName === "HEAD") {
+              const preconnectLinks = styleContainerNode.querySelectorAll("link[rel=preconnect]");
+              const referenceNode2 = preconnectLinks.length > 0 ? preconnectLinks[preconnectLinks.length - 1].nextSibling : styleContainerNode.querySelector("style");
+              styleContainerNode.insertBefore(
+                styleElm,
+                (referenceNode2 == null ? void 0 : referenceNode2.parentNode) === styleContainerNode ? referenceNode2 : null
+              );
+            } else if ("host" in styleContainerNode) {
+              {
+                const existingStyleContainer = styleContainerNode.querySelector("style");
+                if (existingStyleContainer) {
+                  existingStyleContainer.innerHTML = style + existingStyleContainer.innerHTML;
+                } else {
+                  styleContainerNode.prepend(styleElm);
+                }
+              }
+            } else {
+              styleContainerNode.append(styleElm);
+            }
+          }
+          if (cmpMeta.$flags$ & 1 /* shadowDomEncapsulation */) {
+            styleContainerNode.insertBefore(styleElm, null);
+          }
         }
         if (cmpMeta.$flags$ & 4 /* hasSlotRelocation */) {
           styleElm.innerHTML += SLOT_FB_CSS;
@@ -629,124 +1544,159 @@ var attachStyles = (hostRef) => {
   if (flags & 10 /* needsScopedEncapsulation */) {
     elm["s-sc"] = scopeId2;
     elm.classList.add(scopeId2 + "-h");
-    if (flags & 2 /* scopedCssEncapsulation */) {
-      elm.classList.add(scopeId2 + "-s");
-    }
   }
   endAttachStyles();
 };
 var getScopeId = (cmp, mode) => "sc-" + (cmp.$tagName$);
-var setAccessor = (elm, memberName, oldValue, newValue, isSvg, flags) => {
-  if (oldValue !== newValue) {
-    let isProp = isMemberInElement(elm, memberName);
-    let ln = memberName.toLowerCase();
-    if (memberName === "class") {
-      const classList = elm.classList;
-      const oldClasses = parseClassList(oldValue);
-      const newClasses = parseClassList(newValue);
+var setAccessor = (elm, memberName, oldValue, newValue, isSvg, flags, initialRender) => {
+  if (oldValue === newValue) {
+    return;
+  }
+  let isProp = isMemberInElement(elm, memberName);
+  let ln = memberName.toLowerCase();
+  if (memberName === "class") {
+    const classList = elm.classList;
+    const oldClasses = parseClassList(oldValue);
+    let newClasses = parseClassList(newValue);
+    if (elm["s-si"] && initialRender) {
+      newClasses.push(elm["s-si"]);
+      oldClasses.forEach((c) => {
+        if (c.startsWith(elm["s-si"])) newClasses.push(c);
+      });
+      newClasses = [...new Set(newClasses)];
+      classList.add(...newClasses);
+    } else {
       classList.remove(...oldClasses.filter((c) => c && !newClasses.includes(c)));
       classList.add(...newClasses.filter((c) => c && !oldClasses.includes(c)));
-    } else if (memberName === "style") {
-      {
-        for (const prop in oldValue) {
-          if (!newValue || newValue[prop] == null) {
-            {
-              elm.style[prop] = "";
-            }
-          }
-        }
-      }
-      for (const prop in newValue) {
-        if (!oldValue || newValue[prop] !== oldValue[prop]) {
+    }
+  } else if (memberName === "style") {
+    {
+      for (const prop in oldValue) {
+        if (!newValue || newValue[prop] == null) {
           {
-            elm.style[prop] = newValue[prop];
+            elm.style[prop] = "";
           }
         }
       }
-    } else if (memberName === "key") ; else if (memberName === "ref") {
-      if (newValue) {
-        newValue(elm);
-      }
-    } else if ((!isProp ) && memberName[0] === "o" && memberName[1] === "n") {
-      if (memberName[2] === "-") {
-        memberName = memberName.slice(3);
-      } else if (isMemberInElement(win, ln)) {
-        memberName = ln.slice(2);
-      } else {
-        memberName = ln[2] + memberName.slice(3);
-      }
-      if (oldValue || newValue) {
-        const capture = memberName.endsWith(CAPTURE_EVENT_SUFFIX);
-        memberName = memberName.replace(CAPTURE_EVENT_REGEX, "");
-        if (oldValue) {
-          plt.rel(elm, memberName, oldValue, capture);
-        }
-        if (newValue) {
-          plt.ael(elm, memberName, newValue, capture);
+    }
+    for (const prop in newValue) {
+      if (!oldValue || newValue[prop] !== oldValue[prop]) {
+        {
+          elm.style[prop] = newValue[prop];
         }
       }
+    }
+  } else if (memberName === "key") ; else if (memberName === "ref") {
+    if (newValue) {
+      newValue(elm);
+    }
+  } else if ((!isProp ) && memberName[0] === "o" && memberName[1] === "n") {
+    if (memberName[2] === "-") {
+      memberName = memberName.slice(3);
+    } else if (isMemberInElement(win, ln)) {
+      memberName = ln.slice(2);
     } else {
-      const isComplex = isComplexType(newValue);
-      if ((isProp || isComplex && newValue !== null) && !isSvg) {
-        try {
-          if (!elm.tagName.includes("-")) {
-            const n = newValue == null ? "" : newValue;
-            if (memberName === "list") {
-              isProp = false;
-            } else if (oldValue == null || elm[memberName] != n) {
+      memberName = ln[2] + memberName.slice(3);
+    }
+    if (oldValue || newValue) {
+      const capture = memberName.endsWith(CAPTURE_EVENT_SUFFIX);
+      memberName = memberName.replace(CAPTURE_EVENT_REGEX, "");
+      if (oldValue) {
+        plt.rel(elm, memberName, oldValue, capture);
+      }
+      if (newValue) {
+        plt.ael(elm, memberName, newValue, capture);
+      }
+    }
+  } else {
+    const isComplex = isComplexType(newValue);
+    if ((isProp || isComplex && newValue !== null) && true) {
+      try {
+        if (!elm.tagName.includes("-")) {
+          const n = newValue == null ? "" : newValue;
+          if (memberName === "list") {
+            isProp = false;
+          } else if (oldValue == null || elm[memberName] != n) {
+            if (typeof elm.__lookupSetter__(memberName) === "function") {
               elm[memberName] = n;
+            } else {
+              elm.setAttribute(memberName, n);
             }
-          } else {
-            elm[memberName] = newValue;
           }
-        } catch (e) {
+        } else if (elm[memberName] !== newValue) {
+          elm[memberName] = newValue;
         }
+      } catch (e) {
       }
-      let xlink = false;
-      {
-        if (ln !== (ln = ln.replace(/^xlink\:?/, ""))) {
-          memberName = ln;
-          xlink = true;
-        }
+    }
+    let xlink = false;
+    {
+      if (ln !== (ln = ln.replace(/^xlink\:?/, ""))) {
+        memberName = ln;
+        xlink = true;
       }
-      if (newValue == null || newValue === false) {
-        if (newValue !== false || elm.getAttribute(memberName) === "") {
-          if (xlink) {
-            elm.removeAttributeNS(XLINK_NS, memberName);
-          } else {
-            elm.removeAttribute(memberName);
-          }
-        }
-      } else if ((!isProp || flags & 4 /* isHost */ || isSvg) && !isComplex) {
-        newValue = newValue === true ? "" : newValue;
+    }
+    if (newValue == null || newValue === false) {
+      if (newValue !== false || elm.getAttribute(memberName) === "") {
         if (xlink) {
-          elm.setAttributeNS(XLINK_NS, memberName, newValue);
+          elm.removeAttributeNS(XLINK_NS, memberName);
         } else {
-          elm.setAttribute(memberName, newValue);
+          elm.removeAttribute(memberName);
         }
+      }
+    } else if ((!isProp || flags & 4 /* isHost */ || isSvg) && !isComplex && elm.nodeType === 1 /* ElementNode */) {
+      newValue = newValue === true ? "" : newValue;
+      if (xlink) {
+        elm.setAttributeNS(XLINK_NS, memberName, newValue);
+      } else {
+        elm.setAttribute(memberName, newValue);
       }
     }
   }
 };
 var parseClassListRegex = /\s/;
-var parseClassList = (value) => !value ? [] : value.split(parseClassListRegex);
+var parseClassList = (value) => {
+  if (typeof value === "object" && value && "baseVal" in value) {
+    value = value.baseVal;
+  }
+  if (!value || typeof value !== "string") {
+    return [];
+  }
+  return value.split(parseClassListRegex);
+};
 var CAPTURE_EVENT_SUFFIX = "Capture";
 var CAPTURE_EVENT_REGEX = new RegExp(CAPTURE_EVENT_SUFFIX + "$");
 
 // src/runtime/vdom/update-element.ts
-var updateElement = (oldVnode, newVnode, isSvgMode2) => {
+var updateElement = (oldVnode, newVnode, isSvgMode2, isInitialRender) => {
   const elm = newVnode.$elm$.nodeType === 11 /* DocumentFragment */ && newVnode.$elm$.host ? newVnode.$elm$.host : newVnode.$elm$;
-  const oldVnodeAttrs = oldVnode && oldVnode.$attrs$ || EMPTY_OBJ;
-  const newVnodeAttrs = newVnode.$attrs$ || EMPTY_OBJ;
+  const oldVnodeAttrs = oldVnode && oldVnode.$attrs$ || {};
+  const newVnodeAttrs = newVnode.$attrs$ || {};
   {
     for (const memberName of sortedAttrNames(Object.keys(oldVnodeAttrs))) {
       if (!(memberName in newVnodeAttrs)) {
-        setAccessor(elm, memberName, oldVnodeAttrs[memberName], void 0, isSvgMode2, newVnode.$flags$);
+        setAccessor(
+          elm,
+          memberName,
+          oldVnodeAttrs[memberName],
+          void 0,
+          isSvgMode2,
+          newVnode.$flags$,
+          isInitialRender
+        );
       }
     }
   }
   for (const memberName of sortedAttrNames(Object.keys(newVnodeAttrs))) {
-    setAccessor(elm, memberName, oldVnodeAttrs[memberName], newVnodeAttrs[memberName], isSvgMode2, newVnode.$flags$);
+    setAccessor(
+      elm,
+      memberName,
+      oldVnodeAttrs[memberName],
+      newVnodeAttrs[memberName],
+      isSvgMode2,
+      newVnode.$flags$,
+      isInitialRender
+    );
   }
 };
 function sortedAttrNames(attrNames) {
@@ -767,7 +1717,7 @@ var useNativeShadowDom = false;
 var checkSlotFallbackVisibility = false;
 var checkSlotRelocate = false;
 var isSvgMode = false;
-var createElm = (oldParentVNode, newParentVNode, childIndex, parentElm) => {
+var createElm = (oldParentVNode, newParentVNode, childIndex) => {
   var _a;
   const newVNode2 = newParentVNode.$children$[childIndex];
   let i2 = 0;
@@ -777,9 +1727,6 @@ var createElm = (oldParentVNode, newParentVNode, childIndex, parentElm) => {
   if (!useNativeShadowDom) {
     checkSlotRelocate = true;
     if (newVNode2.$tag$ === "slot") {
-      if (scopeId) {
-        parentElm.classList.add(scopeId + "-s");
-      }
       newVNode2.$flags$ |= newVNode2.$children$ ? (
         // slot element has fallback content
         // still create an element that "mocks" the slot element
@@ -793,11 +1740,19 @@ var createElm = (oldParentVNode, newParentVNode, childIndex, parentElm) => {
     }
   }
   if (newVNode2.$text$ !== null) {
-    elm = newVNode2.$elm$ = doc.createTextNode(newVNode2.$text$);
+    elm = newVNode2.$elm$ = win.document.createTextNode(newVNode2.$text$);
   } else if (newVNode2.$flags$ & 1 /* isSlotReference */) {
     elm = newVNode2.$elm$ = slotReferenceDebugNode(newVNode2) ;
+    {
+      updateElement(null, newVNode2, isSvgMode);
+    }
   } else {
-    elm = newVNode2.$elm$ = doc.createElement(
+    if (!win.document) {
+      throw new Error(
+        "You are trying to render a Stencil component in an environment that doesn't support the DOM. Make sure to populate the [`window`](https://developer.mozilla.org/en-US/docs/Web/API/Window/window) object before rendering a component."
+      );
+    }
+    elm = newVNode2.$elm$ = win.document.createElement(
       !useNativeShadowDom && BUILD.slotRelocation && newVNode2.$flags$ & 2 /* isSlotFallback */ ? "slot-fb" : newVNode2.$tag$
     );
     {
@@ -806,12 +1761,9 @@ var createElm = (oldParentVNode, newParentVNode, childIndex, parentElm) => {
     if (isDef(scopeId) && elm["s-si"] !== scopeId) {
       elm.classList.add(elm["s-si"] = scopeId);
     }
-    {
-      updateElementScopeIds(elm, parentElm);
-    }
     if (newVNode2.$children$) {
       for (i2 = 0; i2 < newVNode2.$children$.length; ++i2) {
-        childNode = createElm(oldParentVNode, newVNode2, i2, elm);
+        childNode = createElm(oldParentVNode, newVNode2, i2);
         if (childNode) {
           elm.appendChild(childNode);
         }
@@ -825,11 +1777,15 @@ var createElm = (oldParentVNode, newParentVNode, childIndex, parentElm) => {
       elm["s-cr"] = contentRef;
       elm["s-sn"] = newVNode2.$name$ || "";
       elm["s-rf"] = (_a = newVNode2.$attrs$) == null ? void 0 : _a.ref;
+      patchSlotNode(elm);
       oldVNode = oldParentVNode && oldParentVNode.$children$ && oldParentVNode.$children$[childIndex];
       if (oldVNode && oldVNode.$tag$ === newVNode2.$tag$ && oldParentVNode.$elm$) {
         {
           putBackInOriginalLocation(oldParentVNode.$elm$, false);
         }
+      }
+      {
+        addRemoveSlotScopedClass(contentRef, elm, newParentVNode.$elm$, oldParentVNode == null ? void 0 : oldParentVNode.$elm$);
       }
     }
   }
@@ -837,19 +1793,11 @@ var createElm = (oldParentVNode, newParentVNode, childIndex, parentElm) => {
 };
 var putBackInOriginalLocation = (parentElm, recursive) => {
   plt.$flags$ |= 1 /* isTmpDisconnected */;
-  const oldSlotChildNodes = Array.from(parentElm.childNodes);
-  if (parentElm["s-sr"] && BUILD.experimentalSlotFixes) {
-    let node = parentElm;
-    while (node = node.nextSibling) {
-      if (node && node["s-sn"] === parentElm["s-sn"] && node["s-sh"] === hostTagName) {
-        oldSlotChildNodes.push(node);
-      }
-    }
-  }
+  const oldSlotChildNodes = Array.from(parentElm.__childNodes || parentElm.childNodes);
   for (let i2 = oldSlotChildNodes.length - 1; i2 >= 0; i2--) {
     const childNode = oldSlotChildNodes[i2];
     if (childNode["s-hn"] !== hostTagName && childNode["s-ol"]) {
-      insertBefore(parentReferenceNode(childNode), childNode, referenceNode(childNode));
+      insertBefore(referenceNode(childNode).parentNode, childNode, referenceNode(childNode));
       childNode["s-ol"].remove();
       childNode["s-ol"] = void 0;
       childNode["s-sh"] = void 0;
@@ -859,7 +1807,7 @@ var putBackInOriginalLocation = (parentElm, recursive) => {
       putBackInOriginalLocation(childNode, recursive);
     }
   }
-  plt.$flags$ &= ~1 /* isTmpDisconnected */;
+  plt.$flags$ &= -2 /* isTmpDisconnected */;
 };
 var addVnodes = (parentElm, before, parentVNode, vnodes, startIdx, endIdx) => {
   let containerElm = parentElm["s-cr"] && parentElm["s-cr"].parentNode || parentElm;
@@ -869,7 +1817,7 @@ var addVnodes = (parentElm, before, parentVNode, vnodes, startIdx, endIdx) => {
   }
   for (; startIdx <= endIdx; ++startIdx) {
     if (vnodes[startIdx]) {
-      childNode = createElm(null, parentVNode, startIdx, parentElm);
+      childNode = createElm(null, parentVNode, startIdx);
       if (childNode) {
         vnodes[startIdx].$elm$ = childNode;
         insertBefore(containerElm, childNode, referenceNode(before) );
@@ -956,7 +1904,7 @@ var updateChildren = (parentElm, oldCh, newVNode2, newCh, isInitialRender = fals
       if (idxInOld >= 0) {
         elmToMove = oldCh[idxInOld];
         if (elmToMove.$tag$ !== newStartVnode.$tag$) {
-          node = createElm(oldCh && oldCh[newStartIdx], newVNode2, idxInOld, parentElm);
+          node = createElm(oldCh && oldCh[newStartIdx], newVNode2, idxInOld);
         } else {
           patch(elmToMove, newStartVnode, isInitialRender);
           oldCh[idxInOld] = void 0;
@@ -964,12 +1912,16 @@ var updateChildren = (parentElm, oldCh, newVNode2, newCh, isInitialRender = fals
         }
         newStartVnode = newCh[++newStartIdx];
       } else {
-        node = createElm(oldCh && oldCh[newStartIdx], newVNode2, newStartIdx, parentElm);
+        node = createElm(oldCh && oldCh[newStartIdx], newVNode2, newStartIdx);
         newStartVnode = newCh[++newStartIdx];
       }
       if (node) {
         {
-          insertBefore(parentReferenceNode(oldStartVnode.$elm$), node, referenceNode(oldStartVnode.$elm$));
+          insertBefore(
+            referenceNode(oldStartVnode.$elm$).parentNode,
+            node,
+            referenceNode(oldStartVnode.$elm$)
+          );
         }
       }
     }
@@ -995,26 +1947,23 @@ var isSameVnode = (leftVNode, rightVNode, isInitialRender = false) => {
     if (!isInitialRender) {
       return leftVNode.$key$ === rightVNode.$key$;
     }
+    if (isInitialRender && !leftVNode.$key$ && rightVNode.$key$) {
+      leftVNode.$key$ = rightVNode.$key$;
+    }
     return true;
   }
   return false;
 };
-var referenceNode = (node) => {
-  return node && node["s-ol"] || node;
-};
-var parentReferenceNode = (node) => (node["s-ol"] ? node["s-ol"] : node).parentNode;
+var referenceNode = (node) => node && node["s-ol"] || node;
 var patch = (oldVNode, newVNode2, isInitialRender = false) => {
   const elm = newVNode2.$elm$ = oldVNode.$elm$;
   const oldChildren = oldVNode.$children$;
   const newChildren = newVNode2.$children$;
-  const tag = newVNode2.$tag$;
   const text = newVNode2.$text$;
   let defaultHolder;
   if (text === null) {
     {
-      if (tag === "slot" && !useNativeShadowDom) ; else {
-        updateElement(oldVNode, newVNode2, isSvgMode);
-      }
+      updateElement(oldVNode, newVNode2, isSvgMode, isInitialRender);
     }
     if (oldChildren !== null && newChildren !== null) {
       updateChildren(elm, oldChildren, newVNode2, newChildren, isInitialRender);
@@ -1023,7 +1972,10 @@ var patch = (oldVNode, newVNode2, isInitialRender = false) => {
         elm.textContent = "";
       }
       addVnodes(elm, null, newVNode2, newChildren, 0, newChildren.length - 1);
-    } else if (oldChildren !== null) {
+    } else if (
+      // don't do this on initial render as it can cause non-hydrated content to be removed
+      !isInitialRender && BUILD.updatable && oldChildren !== null
+    ) {
       removeVnodes(oldChildren, 0, oldChildren.length - 1);
     }
   } else if ((defaultHolder = elm["s-cr"])) {
@@ -1032,45 +1984,19 @@ var patch = (oldVNode, newVNode2, isInitialRender = false) => {
     elm.data = text;
   }
 };
-var updateFallbackSlotVisibility = (elm) => {
-  const childNodes = elm.childNodes;
-  for (const childNode of childNodes) {
-    if (childNode.nodeType === 1 /* ElementNode */) {
-      if (childNode["s-sr"]) {
-        const slotName = childNode["s-sn"];
-        childNode.hidden = false;
-        for (const siblingNode of childNodes) {
-          if (siblingNode !== childNode) {
-            if (siblingNode["s-hn"] !== childNode["s-hn"] || slotName !== "") {
-              if (siblingNode.nodeType === 1 /* ElementNode */ && (slotName === siblingNode.getAttribute("slot") || slotName === siblingNode["s-sn"]) || siblingNode.nodeType === 3 /* TextNode */ && slotName === siblingNode["s-sn"]) {
-                childNode.hidden = true;
-                break;
-              }
-            } else {
-              if (siblingNode.nodeType === 1 /* ElementNode */ || siblingNode.nodeType === 3 /* TextNode */ && siblingNode.textContent.trim() !== "") {
-                childNode.hidden = true;
-                break;
-              }
-            }
-          }
-        }
-      }
-      updateFallbackSlotVisibility(childNode);
-    }
-  }
-};
 var relocateNodes = [];
 var markSlotContentForRelocation = (elm) => {
   let node;
   let hostContentNodes;
   let j;
-  for (const childNode of elm.childNodes) {
+  const children = elm.__childNodes || elm.childNodes;
+  for (const childNode of children) {
     if (childNode["s-sr"] && (node = childNode["s-cr"]) && node.parentNode) {
-      hostContentNodes = node.parentNode.childNodes;
+      hostContentNodes = node.parentNode.__childNodes || node.parentNode.childNodes;
       const slotName = childNode["s-sn"];
       for (j = hostContentNodes.length - 1; j >= 0; j--) {
         node = hostContentNodes[j];
-        if (!node["s-cn"] && !node["s-nr"] && node["s-hn"] !== childNode["s-hn"] && (!BUILD.experimentalSlotFixes  )) {
+        if (!node["s-cn"] && !node["s-nr"] && node["s-hn"] !== childNode["s-hn"] && (true)) {
           if (isNodeLocatedInSlot(node, slotName)) {
             let relocateNodeData = relocateNodes.find((r) => r.$nodeToRelocate$ === node);
             checkSlotFallbackVisibility = true;
@@ -1108,21 +2034,6 @@ var markSlotContentForRelocation = (elm) => {
     }
   }
 };
-var isNodeLocatedInSlot = (nodeToRelocate, slotName) => {
-  if (nodeToRelocate.nodeType === 1 /* ElementNode */) {
-    if (nodeToRelocate.getAttribute("slot") === null && slotName === "") {
-      return true;
-    }
-    if (nodeToRelocate.getAttribute("slot") === slotName) {
-      return true;
-    }
-    return false;
-  }
-  if (nodeToRelocate["s-sn"] === slotName) {
-    return true;
-  }
-  return slotName === "";
-};
 var nullifyVNodeRefs = (vNode) => {
   {
     vNode.$attrs$ && vNode.$attrs$.ref && vNode.$attrs$.ref(null);
@@ -1130,44 +2041,38 @@ var nullifyVNodeRefs = (vNode) => {
   }
 };
 var insertBefore = (parent, newNode, reference) => {
-  const inserted = parent == null ? void 0 : parent.insertBefore(newNode, reference);
   {
-    updateElementScopeIds(newNode, parent);
+    return parent == null ? void 0 : parent.insertBefore(newNode, reference);
   }
-  return inserted;
 };
-var findScopeIds = (element) => {
-  const scopeIds = [];
-  if (element) {
-    scopeIds.push(
-      ...element["s-scs"] || [],
-      element["s-si"],
-      element["s-sc"],
-      ...findScopeIds(element.parentElement)
-    );
-  }
-  return scopeIds;
-};
-var updateElementScopeIds = (element, parent, iterateChildNodes = false) => {
-  var _a;
-  if (element && parent && element.nodeType === 1 /* ElementNode */) {
-    const scopeIds = new Set(findScopeIds(parent).filter(Boolean));
-    if (scopeIds.size) {
-      (_a = element.classList) == null ? void 0 : _a.add(...element["s-scs"] = [...scopeIds]);
-      if (element["s-ol"] || iterateChildNodes) {
-        for (const childNode of Array.from(element.childNodes)) {
-          updateElementScopeIds(childNode, element, true);
+function addRemoveSlotScopedClass(reference, slotNode, newParent, oldParent) {
+  var _a, _b;
+  let scopeId2;
+  if (reference && typeof slotNode["s-sn"] === "string" && !!slotNode["s-sr"] && reference.parentNode && reference.parentNode["s-sc"] && (scopeId2 = slotNode["s-si"] || reference.parentNode["s-sc"])) {
+    const scopeName = slotNode["s-sn"];
+    const hostName = slotNode["s-hn"];
+    (_a = newParent.classList) == null ? void 0 : _a.add(scopeId2 + "-s");
+    if (oldParent && ((_b = oldParent.classList) == null ? void 0 : _b.contains(scopeId2 + "-s"))) {
+      let child = (oldParent.__childNodes || oldParent.childNodes)[0];
+      let found = false;
+      while (child) {
+        if (child["s-sn"] !== scopeName && child["s-hn"] === hostName && !!child["s-sr"]) {
+          found = true;
+          break;
         }
+        child = child.nextSibling;
       }
+      if (!found) oldParent.classList.remove(scopeId2 + "-s");
     }
   }
-};
+}
 var renderVdom = (hostRef, renderFnResults, isInitialLoad = false) => {
-  var _a, _b, _c, _d;
+  var _c, _d;
   const hostElm = hostRef.$hostElement$;
   const cmpMeta = hostRef.$cmpMeta$;
   const oldVNode = hostRef.$vnode$ || newVNode(null, null);
-  const rootVnode = isHost(renderFnResults) ? renderFnResults : h(null, null, renderFnResults);
+  const isHostElement = isHost(renderFnResults);
+  const rootVnode = isHostElement ? renderFnResults : h(null, null, renderFnResults);
   hostTagName = hostElm.tagName;
   if (cmpMeta.$attrsToReflect$) {
     rootVnode.$attrs$ = rootVnode.$attrs$ || {};
@@ -1189,7 +2094,7 @@ var renderVdom = (hostRef, renderFnResults, isInitialLoad = false) => {
   {
     scopeId = hostElm["s-sc"];
   }
-  useNativeShadowDom = (cmpMeta.$flags$ & 1 /* shadowDomEncapsulation */) !== 0;
+  useNativeShadowDom = !!(cmpMeta.$flags$ & 1 /* shadowDomEncapsulation */) && !(cmpMeta.$flags$ & 128 /* shadowNeedsScopedCss */);
   {
     contentRef = hostElm["s-cr"];
     checkSlotFallbackVisibility = false;
@@ -1201,7 +2106,7 @@ var renderVdom = (hostRef, renderFnResults, isInitialLoad = false) => {
       markSlotContentForRelocation(rootVnode.$elm$);
       for (const relocateData of relocateNodes) {
         const nodeToRelocate = relocateData.$nodeToRelocate$;
-        if (!nodeToRelocate["s-ol"]) {
+        if (!nodeToRelocate["s-ol"] && win.document) {
           const orgLocationNode = originalLocationDebugNode(nodeToRelocate) ;
           orgLocationNode["s-nr"] = nodeToRelocate;
           insertBefore(nodeToRelocate.parentNode, nodeToRelocate["s-ol"] = orgLocationNode, nodeToRelocate);
@@ -1213,35 +2118,20 @@ var renderVdom = (hostRef, renderFnResults, isInitialLoad = false) => {
         if (slotRefNode) {
           const parentNodeRef = slotRefNode.parentNode;
           let insertBeforeNode = slotRefNode.nextSibling;
-          {
-            let orgLocationNode = (_a = nodeToRelocate["s-ol"]) == null ? void 0 : _a.previousSibling;
-            while (orgLocationNode) {
-              let refNode = (_b = orgLocationNode["s-nr"]) != null ? _b : null;
-              if (refNode && refNode["s-sn"] === nodeToRelocate["s-sn"] && parentNodeRef === refNode.parentNode) {
-                refNode = refNode.nextSibling;
-                while (refNode === nodeToRelocate || (refNode == null ? void 0 : refNode["s-sr"])) {
-                  refNode = refNode == null ? void 0 : refNode.nextSibling;
-                }
-                if (!refNode || !refNode["s-nr"]) {
-                  insertBeforeNode = refNode;
-                  break;
-                }
-              }
-              orgLocationNode = orgLocationNode.previousSibling;
-            }
-          }
-          if (!insertBeforeNode && parentNodeRef !== nodeToRelocate.parentNode || nodeToRelocate.nextSibling !== insertBeforeNode) {
+          const parent = nodeToRelocate.__parentNode || nodeToRelocate.parentNode;
+          const nextSibling = nodeToRelocate.__nextSibling || nodeToRelocate.nextSibling;
+          if (!insertBeforeNode && parentNodeRef !== parent || nextSibling !== insertBeforeNode) {
             if (nodeToRelocate !== insertBeforeNode) {
               if (!nodeToRelocate["s-hn"] && nodeToRelocate["s-ol"]) {
                 nodeToRelocate["s-hn"] = nodeToRelocate["s-ol"].parentNode.nodeName;
               }
               insertBefore(parentNodeRef, nodeToRelocate, insertBeforeNode);
-              if (nodeToRelocate.nodeType === 1 /* ElementNode */) {
+              if (nodeToRelocate.nodeType === 1 /* ElementNode */ && nodeToRelocate.tagName !== "SLOT-FB") {
                 nodeToRelocate.hidden = (_c = nodeToRelocate["s-ih"]) != null ? _c : false;
               }
             }
           }
-          nodeToRelocate && typeof slotRefNode["s-rf"] === "function" && slotRefNode["s-rf"](nodeToRelocate);
+          nodeToRelocate && typeof slotRefNode["s-rf"] === "function" && slotRefNode["s-rf"](slotRefNode);
         } else {
           if (nodeToRelocate.nodeType === 1 /* ElementNode */) {
             if (isInitialLoad) {
@@ -1255,22 +2145,35 @@ var renderVdom = (hostRef, renderFnResults, isInitialLoad = false) => {
     if (checkSlotFallbackVisibility) {
       updateFallbackSlotVisibility(rootVnode.$elm$);
     }
-    plt.$flags$ &= ~1 /* isTmpDisconnected */;
+    plt.$flags$ &= -2 /* isTmpDisconnected */;
     relocateNodes.length = 0;
   }
   contentRef = void 0;
 };
-var slotReferenceDebugNode = (slotVNode) => doc.createComment(
-  `<slot${slotVNode.$name$ ? ' name="' + slotVNode.$name$ + '"' : ""}> (host=${hostTagName.toLowerCase()})`
-);
-var originalLocationDebugNode = (nodeToRelocate) => doc.createComment(
-  `org-location for ` + (nodeToRelocate.localName ? `<${nodeToRelocate.localName}> (host=${nodeToRelocate["s-hn"]})` : `[${nodeToRelocate.textContent}]`)
-);
+var slotReferenceDebugNode = (slotVNode) => {
+  var _a;
+  return (_a = win.document) == null ? void 0 : _a.createComment(
+    `<slot${slotVNode.$name$ ? ' name="' + slotVNode.$name$ + '"' : ""}> (host=${hostTagName.toLowerCase()})`
+  );
+};
+var originalLocationDebugNode = (nodeToRelocate) => {
+  var _a;
+  return (_a = win.document) == null ? void 0 : _a.createComment(
+    `org-location for ` + (nodeToRelocate.localName ? `<${nodeToRelocate.localName}> (host=${nodeToRelocate["s-hn"]})` : `[${nodeToRelocate.textContent}]`)
+  );
+};
 
 // src/runtime/update-component.ts
 var attachToAncestor = (hostRef, ancestorComponent) => {
   if (ancestorComponent && !hostRef.$onRenderResolve$ && ancestorComponent["s-p"]) {
-    ancestorComponent["s-p"].push(new Promise((r) => hostRef.$onRenderResolve$ = r));
+    const index = ancestorComponent["s-p"].push(
+      new Promise(
+        (r) => hostRef.$onRenderResolve$ = () => {
+          ancestorComponent["s-p"].splice(index - 1, 1);
+          r();
+        }
+      )
+    );
   }
 };
 var scheduleUpdate = (hostRef, isInitialLoad) => {
@@ -1299,18 +2202,15 @@ var dispatchHooks = (hostRef, isInitialLoad) => {
     {
       hostRef.$flags$ |= 256 /* isListenReady */;
       if (hostRef.$queuedListeners$) {
-        hostRef.$queuedListeners$.map(([methodName, event]) => safeCall(instance, methodName, event));
+        hostRef.$queuedListeners$.map(([methodName, event]) => safeCall(instance, methodName, event, elm));
         hostRef.$queuedListeners$ = void 0;
       }
     }
-    {
-      maybePromise = safeCall(instance, "componentWillLoad");
-    }
+    maybePromise = safeCall(instance, "componentWillLoad", void 0, elm);
   } else {
-    {
-      maybePromise = safeCall(instance, "componentWillUpdate");
-    }
+    maybePromise = safeCall(instance, "componentWillUpdate", void 0, elm);
   }
+  maybePromise = enqueue(maybePromise, () => safeCall(instance, "componentWillRender", void 0, elm));
   endSchedule();
   return enqueue(maybePromise, () => updateComponent(hostRef, instance, isInitialLoad));
 };
@@ -1367,7 +2267,7 @@ var callRender = (hostRef, instance, elm, isInitialLoad) => {
   try {
     instance = instance.render() ;
     {
-      hostRef.$flags$ &= ~16 /* isQueuedForUpdate */;
+      hostRef.$flags$ &= -17 /* isQueuedForUpdate */;
     }
     {
       hostRef.$flags$ |= 2 /* hasRendered */;
@@ -1390,14 +2290,13 @@ var postUpdateComponent = (hostRef) => {
   const endPostUpdate = createTime("postUpdate", tagName);
   const instance = hostRef.$lazyInstance$ ;
   const ancestorComponent = hostRef.$ancestorComponent$;
+  safeCall(instance, "componentDidRender", void 0, elm);
   if (!(hostRef.$flags$ & 64 /* hasLoadedComponent */)) {
     hostRef.$flags$ |= 64 /* hasLoadedComponent */;
     {
       addHydratedFlag(elm);
     }
-    {
-      safeCall(instance, "componentDidLoad");
-    }
+    safeCall(instance, "componentDidLoad", void 0, elm);
     endPostUpdate();
     {
       hostRef.$onReadyResolve$(elm);
@@ -1406,9 +2305,7 @@ var postUpdateComponent = (hostRef) => {
       }
     }
   } else {
-    {
-      safeCall(instance, "componentDidUpdate");
-    }
+    safeCall(instance, "componentDidUpdate", void 0, elm);
     endPostUpdate();
   }
   {
@@ -1422,21 +2319,21 @@ var postUpdateComponent = (hostRef) => {
     if (hostRef.$flags$ & 512 /* needsRerender */) {
       nextTick(() => scheduleUpdate(hostRef, false));
     }
-    hostRef.$flags$ &= ~(4 /* isWaitingForChildren */ | 512 /* needsRerender */);
+    hostRef.$flags$ &= -517;
   }
 };
 var appDidLoad = (who) => {
-  {
-    addHydratedFlag(doc.documentElement);
+  if (BUILD.asyncQueue) {
+    plt.$flags$ |= 2 /* appLoaded */;
   }
   nextTick(() => emitEvent$1(win, "appload", { detail: { namespace: NAMESPACE } }));
 };
-var safeCall = (instance, method, arg) => {
+var safeCall = (instance, method, arg, elm) => {
   if (instance && instance[method]) {
     try {
       return instance[method](arg);
     } catch (e) {
-      consoleError(e);
+      consoleError(e, elm);
     }
   }
   return void 0;
@@ -1464,14 +2361,18 @@ var setValue = (ref, propName, newVal, cmpMeta) => {
   const hostRef = getHostRef(ref);
   if (!hostRef) {
     throw new Error(
-      `Couldn't find host element for "${cmpMeta.$tagName$}" as it is unknown to this Stencil runtime. This usually happens when integrating a 3rd party Stencil component with another Stencil component or application. Please reach out to the maintainers of the 3rd party Stencil component or report this on the Stencil Discord server (https://chat.stenciljs.com) or comment on this similar [GitHub issue](https://github.com/ionic-team/stencil/issues/5457).`
+      `Couldn't find host element for "${cmpMeta.$tagName$}" as it is unknown to this Stencil runtime. This usually happens when integrating a 3rd party Stencil component with another Stencil component or application. Please reach out to the maintainers of the 3rd party Stencil component or report this on the Stencil Discord server (https://chat.stenciljs.com) or comment on this similar [GitHub issue](https://github.com/stenciljs/core/issues/5457).`
     );
   }
   const elm = hostRef.$hostElement$ ;
   const oldVal = hostRef.$instanceValues$.get(propName);
   const flags = hostRef.$flags$;
   const instance = hostRef.$lazyInstance$ ;
-  newVal = parsePropertyValue(newVal, cmpMeta.$members$[propName][0]);
+  newVal = parsePropertyValue(
+    newVal,
+    cmpMeta.$members$[propName][0],
+    !!(cmpMeta.$flags$ & 64 /* formAssociated */)
+  );
   const areBothNaN = Number.isNaN(oldVal) && Number.isNaN(newVal);
   const didValueChange = newVal !== oldVal && !areBothNaN;
   if ((!(flags & 8 /* isConstructingInstance */) || oldVal === void 0) && didValueChange) {
@@ -1490,6 +2391,11 @@ var setValue = (ref, propName, newVal, cmpMeta) => {
         }
       }
       if ((flags & (2 /* hasRendered */ | 16 /* isQueuedForUpdate */)) === 2 /* hasRendered */) {
+        if (instance.componentShouldUpdate) {
+          if (instance.componentShouldUpdate(newVal, oldVal, propName) === false) {
+            return;
+          }
+        }
         scheduleUpdate(hostRef, false);
       }
     }
@@ -1498,100 +2404,66 @@ var setValue = (ref, propName, newVal, cmpMeta) => {
 
 // src/runtime/proxy-component.ts
 var proxyComponent = (Cstr, cmpMeta, flags) => {
-  var _a, _b;
+  var _a;
   const prototype = Cstr.prototype;
-  if (cmpMeta.$flags$ & 64 /* formAssociated */ && flags & 1 /* isElementConstructor */) {
-    FORM_ASSOCIATED_CUSTOM_ELEMENT_CALLBACKS.forEach(
-      (cbName) => Object.defineProperty(prototype, cbName, {
-        value(...args) {
-          const hostRef = getHostRef(this);
-          const instance = hostRef.$lazyInstance$ ;
-          if (!instance) {
-            hostRef.$onReadyPromise$.then((instance2) => {
-              const cb = instance2[cbName];
-              typeof cb === "function" && cb.call(instance2, ...args);
-            });
-          } else {
-            const cb = instance[cbName];
-            typeof cb === "function" && cb.call(instance, ...args);
-          }
-        }
-      })
-    );
-  }
   if (cmpMeta.$members$ || (cmpMeta.$watchers$ || Cstr.watchers)) {
     if (Cstr.watchers && !cmpMeta.$watchers$) {
       cmpMeta.$watchers$ = Cstr.watchers;
     }
     const members = Object.entries((_a = cmpMeta.$members$) != null ? _a : {});
     members.map(([memberName, [memberFlags]]) => {
-      if ((memberFlags & 31 /* Prop */ || (flags & 2 /* proxyState */) && memberFlags & 32 /* State */)) {
+      if ((memberFlags & 31 /* Prop */ || memberFlags & 32 /* State */)) {
+        const { get: origGetter, set: origSetter } = Object.getOwnPropertyDescriptor(prototype, memberName) || {};
+        if (origGetter) cmpMeta.$members$[memberName][0] |= 2048 /* Getter */;
+        if (origSetter) cmpMeta.$members$[memberName][0] |= 4096 /* Setter */;
+        if (!origGetter) {
+          Object.defineProperty(prototype, memberName, {
+            get() {
+              {
+                if ((cmpMeta.$members$[memberName][0] & 2048 /* Getter */) === 0) {
+                  return getValue(this, memberName);
+                }
+                const ref = getHostRef(this);
+                const instance = ref ? ref.$lazyInstance$ : prototype;
+                if (!instance) return;
+                return instance[memberName];
+              }
+            },
+            configurable: true,
+            enumerable: true
+          });
+        }
         Object.defineProperty(prototype, memberName, {
-          get() {
-            return getValue(this, memberName);
-          },
           set(newValue) {
-            setValue(this, memberName, newValue, cmpMeta);
-          },
-          configurable: true,
-          enumerable: true
-        });
-      } else if (flags & 1 /* isElementConstructor */ && memberFlags & 64 /* Method */) {
-        Object.defineProperty(prototype, memberName, {
-          value(...args) {
-            var _a2;
             const ref = getHostRef(this);
-            return (_a2 = ref == null ? void 0 : ref.$onInstancePromise$) == null ? void 0 : _a2.then(() => {
-              var _a3;
-              return (_a3 = ref.$lazyInstance$) == null ? void 0 : _a3[memberName](...args);
-            });
+            if (origSetter) {
+              const currentValue = memberFlags & 32 /* State */ ? this[memberName] : ref.$hostElement$[memberName];
+              if (typeof currentValue === "undefined" && ref.$instanceValues$.get(memberName)) {
+                newValue = ref.$instanceValues$.get(memberName);
+              } else if (!ref.$instanceValues$.get(memberName) && currentValue) {
+                ref.$instanceValues$.set(memberName, currentValue);
+              }
+              origSetter.apply(this, [
+                parsePropertyValue(
+                  newValue,
+                  memberFlags,
+                  !!(cmpMeta.$flags$ & 64 /* formAssociated */)
+                )
+              ]);
+              newValue = memberFlags & 32 /* State */ ? this[memberName] : ref.$hostElement$[memberName];
+              setValue(this, memberName, newValue, cmpMeta);
+              return;
+            }
+            {
+              {
+                setValue(this, memberName, newValue, cmpMeta);
+                return;
+              }
+            }
           }
         });
       }
     });
-    if ((flags & 1 /* isElementConstructor */)) {
-      const attrNameToPropName = /* @__PURE__ */ new Map();
-      prototype.attributeChangedCallback = function(attrName, oldValue, newValue) {
-        plt.jmp(() => {
-          var _a2;
-          const propName = attrNameToPropName.get(attrName);
-          if (this.hasOwnProperty(propName)) {
-            newValue = this[propName];
-            delete this[propName];
-          } else if (prototype.hasOwnProperty(propName) && typeof this[propName] === "number" && this[propName] == newValue) {
-            return;
-          } else if (propName == null) {
-            const hostRef = getHostRef(this);
-            const flags2 = hostRef == null ? void 0 : hostRef.$flags$;
-            if (flags2 && !(flags2 & 8 /* isConstructingInstance */) && flags2 & 128 /* isWatchReady */ && newValue !== oldValue) {
-              const instance = hostRef.$lazyInstance$ ;
-              const entry = (_a2 = cmpMeta.$watchers$) == null ? void 0 : _a2[attrName];
-              entry == null ? void 0 : entry.forEach((callbackName) => {
-                if (instance[callbackName] != null) {
-                  instance[callbackName].call(instance, newValue, oldValue, attrName);
-                }
-              });
-            }
-            return;
-          }
-          this[propName] = newValue === null && typeof this[propName] === "boolean" ? false : newValue;
-        });
-      };
-      Cstr.observedAttributes = Array.from(
-        /* @__PURE__ */ new Set([
-          ...Object.keys((_b = cmpMeta.$watchers$) != null ? _b : {}),
-          ...members.filter(([_, m]) => m[0] & 15 /* HasAttribute */).map(([propName, m]) => {
-            var _a2;
-            const attrName = m[1] || propName;
-            attrNameToPropName.set(attrName, propName);
-            if (m[0] & 512 /* ReflectAttr */) {
-              (_a2 = cmpMeta.$attrsToReflect$) == null ? void 0 : _a2.push([propName, attrName]);
-            }
-            return attrName;
-          })
-        ])
-      );
-    }
   }
   return Cstr;
 };
@@ -1618,7 +2490,7 @@ var initializeComponent = async (elm, hostRef, cmpMeta, hmrVersionId) => {
         {
           cmpMeta.$watchers$ = Cstr.watchers;
         }
-        proxyComponent(Cstr, cmpMeta, 2 /* proxyState */);
+        proxyComponent(Cstr, cmpMeta);
         Cstr.isProxied = true;
       }
       const endNewInstance = createTime("createInstance", cmpMeta.$tagName$);
@@ -1628,15 +2500,16 @@ var initializeComponent = async (elm, hostRef, cmpMeta, hmrVersionId) => {
       try {
         new Cstr(hostRef);
       } catch (e) {
-        consoleError(e);
+        consoleError(e, elm);
       }
       {
-        hostRef.$flags$ &= ~8 /* isConstructingInstance */;
+        hostRef.$flags$ &= -9 /* isConstructingInstance */;
       }
       {
         hostRef.$flags$ |= 128 /* isWatchReady */;
       }
       endNewInstance();
+      fireConnectedCallback(hostRef.$lazyInstance$, elm);
     } else {
       Cstr = elm.constructor;
       const cmpTag = elm.localName;
@@ -1650,6 +2523,13 @@ var initializeComponent = async (elm, hostRef, cmpMeta, hmrVersionId) => {
       const scopeId2 = getScopeId(cmpMeta);
       if (!styles.has(scopeId2)) {
         const endRegisterStyles = createTime("registerStyles", cmpMeta.$tagName$);
+        {
+          if (cmpMeta.$flags$ & 128 /* shadowNeedsScopedCss */) {
+            style = scopeCss(style, scopeId2);
+          } else if (needsScopedSSR()) {
+            style = expandPartSelectors(style);
+          }
+        }
         registerStyle(scopeId2, style);
         endRegisterStyles();
       }
@@ -1663,7 +2543,10 @@ var initializeComponent = async (elm, hostRef, cmpMeta, hmrVersionId) => {
     schedule();
   }
 };
-var fireConnectedCallback = (instance) => {
+var fireConnectedCallback = (instance, elm) => {
+  {
+    safeCall(instance, "connectedCallback", void 0, elm);
+  }
 };
 
 // src/runtime/connected-callback.ts
@@ -1699,20 +2582,27 @@ var connectedCallback = (elm) => {
           }
         }
       }
-      {
+      if (BUILD.initializeNextTick) {
+        nextTick(() => initializeComponent(elm, hostRef, cmpMeta));
+      } else {
         initializeComponent(elm, hostRef, cmpMeta);
       }
     } else {
       addHostEventListeners(elm, hostRef, cmpMeta.$listeners$);
-      if (hostRef == null ? void 0 : hostRef.$lazyInstance$) ; else if (hostRef == null ? void 0 : hostRef.$onReadyPromise$) {
-        hostRef.$onReadyPromise$.then(() => fireConnectedCallback());
+      if (hostRef == null ? void 0 : hostRef.$lazyInstance$) {
+        fireConnectedCallback(hostRef.$lazyInstance$, elm);
+      } else if (hostRef == null ? void 0 : hostRef.$onReadyPromise$) {
+        hostRef.$onReadyPromise$.then(() => fireConnectedCallback(hostRef.$lazyInstance$, elm));
       }
     }
     endConnected();
   }
 };
 var setContentReference = (elm) => {
-  const contentRefElm = elm["s-cr"] = doc.createComment(
+  if (!win.document) {
+    return;
+  }
+  const contentRefElm = elm["s-cr"] = win.document.createComment(
     ""
   );
   contentRefElm["s-cn"] = true;
@@ -1722,9 +2612,9 @@ var setContentReference = (elm) => {
 // src/runtime/fragment.ts
 var Fragment = (_, children) => children;
 var addHostEventListeners = (elm, hostRef, listeners, attachParentListeners) => {
-  if (listeners) {
+  if (listeners && win.document) {
     listeners.map(([flags, name, method]) => {
-      const target = getHostListenerTarget(elm, flags) ;
+      const target = getHostListenerTarget(win.document, elm, flags) ;
       const handler = hostListenerProxy(hostRef, method);
       const opts = hostListenerOpts(flags);
       plt.ael(target, name, handler, opts);
@@ -1743,25 +2633,24 @@ var hostListenerProxy = (hostRef, methodName) => (ev) => {
       }
     }
   } catch (e) {
-    consoleError(e);
+    consoleError(e, hostRef.$hostElement$);
   }
 };
-var getHostListenerTarget = (elm, flags) => {
-  if (flags & 4 /* TargetDocument */) return doc;
+var getHostListenerTarget = (doc, elm, flags) => {
+  if (flags & 4 /* TargetDocument */) {
+    return doc;
+  }
   return elm;
 };
 var hostListenerOpts = (flags) => (flags & 2 /* Capture */) !== 0;
 
 // src/runtime/vdom/vdom-annotations.ts
-var insertVdomAnnotations = (doc2, staticComponents) => {
-  if (doc2 != null) {
-    const docData = {
-      hostIds: 0,
-      rootLevelIds: 0,
-      staticComponents: new Set(staticComponents)
-    };
+var insertVdomAnnotations = (doc, staticComponents) => {
+  if (doc != null) {
+    const docData = STENCIL_DOC_DATA in doc ? doc[STENCIL_DOC_DATA] : { ...DEFAULT_DOC_DATA };
+    docData.staticComponents = new Set(staticComponents);
     const orgLocationNodes = [];
-    parseVNodeAnnotations(doc2, doc2.body, docData, orgLocationNodes);
+    parseVNodeAnnotations(doc, doc.body, docData, orgLocationNodes);
     orgLocationNodes.forEach((orgLocationNode) => {
       var _a;
       if (orgLocationNode != null && orgLocationNode["s-nr"]) {
@@ -1776,6 +2665,9 @@ var insertVdomAnnotations = (doc2, staticComponents) => {
           childId = `${hostId}.${nodeId}`;
           if (nodeRef.nodeType === 1 /* ElementNode */) {
             nodeRef.setAttribute(HYDRATE_CHILD_ID, childId);
+            if (typeof nodeRef["s-sn"] === "string" && !nodeRef.getAttribute("slot")) {
+              nodeRef.setAttribute("s-sn", nodeRef["s-sn"]);
+            }
           } else if (nodeRef.nodeType === 3 /* TextNode */) {
             if (hostId === 0) {
               const textContent = (_a = nodeRef.nodeValue) == null ? void 0 : _a.trim();
@@ -1784,9 +2676,13 @@ var insertVdomAnnotations = (doc2, staticComponents) => {
                 return;
               }
             }
-            const commentBeforeTextNode = doc2.createComment(childId);
+            const commentBeforeTextNode = doc.createComment(childId);
             commentBeforeTextNode.nodeValue = `${TEXT_NODE_ID}.${childId}`;
             insertBefore(nodeRef.parentNode, commentBeforeTextNode, nodeRef);
+          } else if (nodeRef.nodeType === 8 /* CommentNode */) {
+            const commentBeforeTextNode = doc.createComment(childId);
+            commentBeforeTextNode.nodeValue = `${COMMENT_NODE_ID}.${childId}`;
+            nodeRef.parentNode.insertBefore(commentBeforeTextNode, nodeRef);
           }
         }
         let orgLocationNodeId = `${ORG_LOCATION_ID}.${childId}`;
@@ -1803,7 +2699,7 @@ var insertVdomAnnotations = (doc2, staticComponents) => {
     });
   }
 };
-var parseVNodeAnnotations = (doc2, node, docData, orgLocationNodes) => {
+var parseVNodeAnnotations = (doc, node, docData, orgLocationNodes) => {
   var _a;
   if (node == null) {
     return;
@@ -1819,13 +2715,13 @@ var parseVNodeAnnotations = (doc2, node, docData, orgLocationNodes) => {
         const cmpData = {
           nodeIds: 0
         };
-        insertVNodeAnnotations(doc2, childNode, hostRef.$vnode$, docData, cmpData);
+        insertVNodeAnnotations(doc, childNode, hostRef.$vnode$, docData, cmpData);
       }
-      parseVNodeAnnotations(doc2, childNode, docData, orgLocationNodes);
+      parseVNodeAnnotations(doc, childNode, docData, orgLocationNodes);
     });
   }
 };
-var insertVNodeAnnotations = (doc2, hostElm, vnode, docData, cmpData) => {
+var insertVNodeAnnotations = (doc, hostElm, vnode, docData, cmpData) => {
   if (vnode != null) {
     const hostId = ++docData.hostIds;
     hostElm.setAttribute(HYDRATE_ID, hostId);
@@ -1835,7 +2731,7 @@ var insertVNodeAnnotations = (doc2, hostElm, vnode, docData, cmpData) => {
     if (vnode.$children$ != null) {
       const depth = 0;
       vnode.$children$.forEach((vnodeChild, index) => {
-        insertChildVNodeAnnotations(doc2, vnodeChild, cmpData, hostId, depth, index);
+        insertChildVNodeAnnotations(doc, vnodeChild, cmpData, hostId, depth, index);
       });
     }
     if (hostElm && vnode && vnode.$elm$ && !hostElm.hasAttribute(HYDRATE_CHILD_ID)) {
@@ -1856,7 +2752,7 @@ var insertVNodeAnnotations = (doc2, hostElm, vnode, docData, cmpData) => {
     }
   }
 };
-var insertChildVNodeAnnotations = (doc2, vnodeChild, cmpData, hostId, depth, index) => {
+var insertChildVNodeAnnotations = (doc, vnodeChild, cmpData, hostId, depth, index) => {
   const childElm = vnodeChild.$elm$;
   if (childElm == null) {
     return;
@@ -1867,12 +2763,15 @@ var insertChildVNodeAnnotations = (doc2, vnodeChild, cmpData, hostId, depth, ind
   childElm["s-node-id"] = nodeId;
   if (childElm.nodeType === 1 /* ElementNode */) {
     childElm.setAttribute(HYDRATE_CHILD_ID, childId);
+    if (typeof childElm["s-sn"] === "string" && !childElm.getAttribute("slot")) {
+      childElm.setAttribute("s-sn", childElm["s-sn"]);
+    }
   } else if (childElm.nodeType === 3 /* TextNode */) {
     const parentNode = childElm.parentNode;
     const nodeName = parentNode == null ? void 0 : parentNode.nodeName;
     if (nodeName !== "STYLE" && nodeName !== "SCRIPT") {
       const textNodeId = `${TEXT_NODE_ID}.${childId}`;
-      const commentBeforeTextNode = doc2.createComment(textNodeId);
+      const commentBeforeTextNode = doc.createComment(textNodeId);
       insertBefore(parentNode, commentBeforeTextNode, childElm);
     }
   } else if (childElm.nodeType === 8 /* CommentNode */) {
@@ -1885,7 +2784,7 @@ var insertChildVNodeAnnotations = (doc2, vnodeChild, cmpData, hostId, depth, ind
   if (vnodeChild.$children$ != null) {
     const childDepth = depth + 1;
     vnodeChild.$children$.forEach((vnode, index2) => {
-      insertChildVNodeAnnotations(doc2, vnode, cmpData, hostId, childDepth, index2);
+      insertChildVNodeAnnotations(doc, vnode, cmpData, hostId, childDepth, index2);
     });
   }
 };
@@ -1905,55 +2804,71 @@ var hAsync = (nodeName, vnodeData, ...children) => {
   }
   return h(nodeName, vnodeData);
 };
-function proxyHostElement(elm, cmpMeta, opts) {
+
+// src/hydrate/platform/proxy-host-element.ts
+function proxyHostElement(elm, cstr) {
+  const cmpMeta = cstr.cmpMeta;
   if (typeof elm.componentOnReady !== "function") {
     elm.componentOnReady = componentOnReady;
   }
   if (typeof elm.forceUpdate !== "function") {
     elm.forceUpdate = forceUpdate2;
   }
-  if (!elm.shadowRoot && !!(cmpMeta.$flags$ & 1 /* shadowDomEncapsulation */)) {
-    {
-      elm.attachShadow({
-        mode: "open",
-        delegatesFocus: !!(cmpMeta.$flags$ & 16 /* shadowDelegatesFocus */)
-      });
-    }
+  if (!elm.shadowRoot && !!(cmpMeta.$flags$ & 1 /* shadowDomEncapsulation */) && !(cmpMeta.$flags$ & 128 /* shadowNeedsScopedCss */)) {
+    createShadowRoot.call(elm, cmpMeta);
   }
   if (cmpMeta.$members$ != null) {
     const hostRef = getHostRef(elm);
     const members = Object.entries(cmpMeta.$members$);
-    members.forEach(([memberName, m]) => {
-      var _a, _b;
-      const memberFlags = m[0];
+    members.forEach(([memberName, [memberFlags, metaAttributeName]]) => {
+      var _a;
       if (memberFlags & 31 /* Prop */) {
-        const attributeName = m[1] || memberName;
-        let attrValue = elm.getAttribute(attributeName);
-        if ((attrValue == null ? void 0 : attrValue.startsWith("{")) && attrValue.endsWith("}") || (attrValue == null ? void 0 : attrValue.startsWith("[")) && attrValue.endsWith("]")) {
-          try {
-            attrValue = JSON.parse(attrValue);
-          } catch (e) {
-          }
-        }
+        const attributeName = metaAttributeName || memberName;
+        const attrValue = elm.getAttribute(attributeName);
+        const propValue = elm[memberName];
+        let attrPropVal;
+        const { get: origGetter, set: origSetter } = Object.getOwnPropertyDescriptor(cstr.prototype, memberName) || {};
         if (attrValue != null) {
-          const parsedAttrValue = parsePropertyValue(attrValue, memberFlags);
-          (_a = hostRef == null ? void 0 : hostRef.$instanceValues$) == null ? void 0 : _a.set(memberName, parsedAttrValue);
+          attrPropVal = parsePropertyValue(attrValue, memberFlags, !!(cmpMeta.$flags$ & 64 /* formAssociated */));
         }
-        const ownValue = elm[memberName];
-        if (ownValue !== void 0) {
-          (_b = hostRef == null ? void 0 : hostRef.$instanceValues$) == null ? void 0 : _b.set(memberName, ownValue);
+        if (propValue !== void 0) {
+          attrPropVal = propValue;
           delete elm[memberName];
         }
-        Object.defineProperty(elm, memberName, {
-          get() {
+        if (attrPropVal !== void 0) {
+          if (origSetter) {
+            origSetter.apply(elm, [attrPropVal]);
+            attrPropVal = origGetter ? origGetter.apply(elm) : attrPropVal;
+          }
+          (_a = hostRef == null ? void 0 : hostRef.$instanceValues$) == null ? void 0 : _a.set(memberName, attrPropVal);
+        }
+        const getterSetterDescriptor = {
+          get: function() {
             return getValue(this, memberName);
           },
-          set(newValue) {
+          set: function(newValue) {
             setValue(this, memberName, newValue, cmpMeta);
           },
           configurable: true,
           enumerable: true
-        });
+        };
+        Object.defineProperty(elm, memberName, getterSetterDescriptor);
+        Object.defineProperty(elm, metaAttributeName, getterSetterDescriptor);
+        if (!cstr.prototype.__stencilAugmented) {
+          Object.defineProperty(cstr.prototype, memberName, {
+            get: function() {
+              var _a2;
+              const ref = getHostRef(this);
+              const attrPropVal2 = (_a2 = ref.$instanceValues$) == null ? void 0 : _a2.get(memberName);
+              if (origGetter && attrPropVal2 === void 0 && !getValue(this, memberName)) {
+                setValue(this, memberName, origGetter.apply(this), cmpMeta);
+              }
+              return attrPropVal2 !== void 0 ? attrPropVal2 : origGetter ? origGetter.apply(this) : getValue(this, memberName);
+            },
+            configurable: true,
+            enumerable: true
+          });
+        }
       } else if (memberFlags & 64 /* Method */) {
         Object.defineProperty(elm, memberName, {
           value(...args) {
@@ -1962,11 +2877,14 @@ function proxyHostElement(elm, cmpMeta, opts) {
             return (_a2 = ref == null ? void 0 : ref.$onInstancePromise$) == null ? void 0 : _a2.then(() => {
               var _a3;
               return (_a3 = ref == null ? void 0 : ref.$lazyInstance$) == null ? void 0 : _a3[memberName](...args);
-            }).catch(consoleError);
+            }).catch((e) => {
+              consoleError(e, this);
+            });
           }
         });
       }
     });
+    cstr.prototype.__stencilAugmented = true;
   }
 }
 function componentOnReady() {
@@ -1984,6 +2902,7 @@ function hydrateApp(win2, opts, results, afterHydrate, resolve) {
   const orgDocumentCreateElement = win2.document.createElement;
   const orgDocumentCreateElementNS = win2.document.createElementNS;
   const resolved2 = Promise.resolve();
+  setScopedSSR(opts);
   let tmrId;
   let ranCompleted = false;
   function hydratedComplete() {
@@ -2021,14 +2940,21 @@ function hydrateApp(win2, opts, results, afterHydrate, resolve) {
         if (!hostRef) {
           const Cstr = loadModule(
             {
-              $tagName$: elm.nodeName.toLowerCase(),
-              $flags$: null
-            });
+              $tagName$: elm.nodeName.toLowerCase()});
           if (Cstr != null && Cstr.cmpMeta != null) {
+            if (opts.serializeShadowRoot !== false && !!(Cstr.cmpMeta.$flags$ & 1 /* shadowDomEncapsulation */) && tagRequiresScoped(elm.tagName, opts.serializeShadowRoot)) {
+              const cmpMeta = Cstr.cmpMeta;
+              cmpMeta.$flags$ |= 128 /* shadowNeedsScopedCss */;
+              Object.defineProperty(Cstr, "cmpMeta", {
+                get: function() {
+                  return cmpMeta;
+                }
+              });
+            }
             createdElements.add(elm);
             elm.connectedCallback = patchedConnectedCallback2;
             registerHost(elm, Cstr.cmpMeta);
-            proxyHostElement(elm, Cstr.cmpMeta);
+            proxyHostElement(elm, Cstr);
           }
         }
       }
@@ -2067,7 +2993,7 @@ function hydrateApp(win2, opts, results, afterHydrate, resolve) {
       return elm;
     };
     tmrId = globalThis.setTimeout(timeoutExceeded, opts.timeout);
-    plt.$resourcesUrl$ = new URL(opts.resourcesUrl || "./", doc.baseURI).href;
+    plt.$resourcesUrl$ = new URL(opts.resourcesUrl || "./", win2.document.baseURI).href;
     patchChild2(win2.document.body);
     waitLoop2().then(hydratedComplete).catch(hydratedError);
   } catch (e) {
@@ -2078,9 +3004,7 @@ async function hydrateComponent(win2, results, tagName, elm, waitingElements) {
   tagName = tagName.toLowerCase();
   const Cstr = loadModule(
     {
-      $tagName$: tagName,
-      $flags$: null
-    });
+      $tagName$: tagName});
   if (Cstr != null) {
     const cmpMeta = Cstr.cmpMeta;
     if (cmpMeta != null) {
@@ -2217,6 +3141,25 @@ ${indent}${ln}`;
 function waitingOnElementsMsg(waitingElements) {
   return Array.from(waitingElements).map(waitingOnElementMsg);
 }
+function tagRequiresScoped(tagName, opts) {
+  if (typeof opts === "string") {
+    return opts === "scoped";
+  }
+  if (typeof opts === "boolean") {
+    return opts === true ? false : true;
+  }
+  if (typeof opts === "object") {
+    tagName = tagName.toLowerCase();
+    if (Array.isArray(opts["declarative-shadow-dom"]) && opts["declarative-shadow-dom"].includes(tagName)) {
+      return false;
+    } else if ((!Array.isArray(opts.scoped) || !opts.scoped.includes(tagName)) && opts.default === "declarative-shadow-dom") {
+      return false;
+    } else {
+      return true;
+    }
+  }
+  return false;
+}
 var cmpModules = /* @__PURE__ */ new Map();
 var getModule = (tagName) => {
   if (typeof tagName === "string") {
@@ -2255,7 +3198,6 @@ var registerComponents = (Cstrs) => {
   }
 };
 var win = window;
-var doc = win.document;
 var writeTask = (cb) => {
   nextTick(() => {
     try {
@@ -2282,10 +3224,17 @@ var plt = {
   rel: (el, eventName, listener, opts) => el.removeEventListener(eventName, listener, opts),
   ce: (eventName, opts) => new win.CustomEvent(eventName, opts)
 };
-var supportsShadow = BUILD.shadowDom;
-var hostRefs = /* @__PURE__ */ new WeakMap();
-var getHostRef = (ref) => hostRefs.get(ref);
-var registerInstance = (lazyInstance, hostRef) => hostRefs.set(hostRef.$lazyInstance$ = lazyInstance, hostRef);
+var getHostRef = (ref) => {
+  if (ref.__stencil__getHostRef) {
+    return ref.__stencil__getHostRef();
+  }
+  return void 0;
+};
+var registerInstance = (lazyInstance, hostRef) => {
+  lazyInstance.__stencil__getHostRef = () => hostRef;
+  hostRef.$lazyInstance$ = lazyInstance;
+  return hostRef;
+};
 var registerHost = (elm, cmpMeta) => {
   const hostRef = {
     $flags$: 0,
@@ -2298,9 +3247,15 @@ var registerHost = (elm, cmpMeta) => {
   hostRef.$onReadyPromise$ = new Promise((r) => hostRef.$onReadyResolve$ = r);
   elm["s-p"] = [];
   elm["s-rc"] = [];
-  return hostRefs.set(elm, hostRef);
+  elm.__stencil__getHostRef = () => hostRef;
+  return hostRef;
 };
 var styles = /* @__PURE__ */ new Map();
+var setScopedSSR = (opts) => {
+  scopedSSR = opts.serializeShadowRoot !== false && opts.serializeShadowRoot !== "declarative-shadow-dom";
+};
+var needsScopedSSR = () => scopedSSR;
+var scopedSSR = false;
 
 const inheritAttributes = (el, shadowElement, attributes = []) => {
     const attributeObject = {};
@@ -2517,21 +3472,42 @@ const I18N$r = {
   },
 };
 
-const gcdsAlertCss = "@layer reset, default, fixed, role, wide, compact, hover, focus;@layer reset{.sc-gcds-alert-h{display:block}.sc-gcds-alert-h .gcds-alert{box-sizing:border-box;text-align:left}.sc-gcds-alert-h .gcds-alert .alert__close-btn{box-sizing:border-box;cursor:pointer;padding:0}.sc-gcds-alert-h .gcds-alert slot{display:initial}}@layer default{.sc-gcds-alert-h .gcds-alert{border-inline-start:var(--gcds-alert-border-width) solid transparent;color:var(--gcds-alert-text);container:component alert/inline-size;font:var(--gcds-alert-font);padding:var(--gcds-alert-padding)}.sc-gcds-alert-h .gcds-alert .alert__content{flex:1 1 auto}.sc-gcds-alert-h .gcds-alert .alert__content .alert__heading{font:var(--gcds-alert-content-heading-font);margin:var(--gcds-alert-content-heading-margin)}.sc-gcds-alert-h .gcds-alert .alert__content.sc-gcds-alert-s > *, .sc-gcds-alert-h .gcds-alert .alert__content .sc-gcds-alert-s > *{margin-block-start:0}.sc-gcds-alert-h .gcds-alert .alert__content.sc-gcds-alert-s > :last-child, .sc-gcds-alert-h .gcds-alert .alert__content .sc-gcds-alert-s > :last-child{margin-block-end:0}.sc-gcds-alert-h .gcds-alert .alert__content.sc-gcds-alert-s > :not(:last-child), .sc-gcds-alert-h .gcds-alert .alert__content .sc-gcds-alert-s > :not(:last-child){margin-block-end:var(--gcds-alert-content-slotted-margin)}.sc-gcds-alert-h .gcds-alert .alert__content.sc-gcds-alert-s > ol, .sc-gcds-alert-h .gcds-alert .alert__content .sc-gcds-alert-s > ol,.sc-gcds-alert-h .gcds-alert .alert__content.sc-gcds-alert-s > ul, .sc-gcds-alert-h .gcds-alert .alert__content .sc-gcds-alert-s > ul{margin-inline-start:var(--gcds-alert-content-slotted-list-margin);padding:0}.sc-gcds-alert-h .gcds-alert .alert__close-btn{background-color:var(--gcds-alert-button-default-background);border:var(--gcds-alert-button-border-width) solid transparent;border-radius:var(--gcds-alert-button-border-radius);color:var(--gcds-alert-button-default-text);margin:var(--gcds-alert-button-margin);transition:all .15s ease-in-out}.sc-gcds-alert-h .gcds-alert .alert__close-btn gcds-icon{align-items:center;display:flex;height:var(--gcds-alert-button-icon-width-and-height);justify-content:center;padding:var(--gcds-alert-button-icon-padding);width:var(--gcds-alert-button-icon-width-and-height)}}@layer fixed{.sc-gcds-alert-h .gcds-alert.alert--is-fixed{border:0;position:sticky;top:0;width:100%;z-index:9999}}@layer role{.sc-gcds-alert-h .gcds-alert.alert--role-danger{background-color:var(--gcds-alert-danger-background);border-color:var(--gcds-alert-danger-icon);color:var(--gcds-alert-danger-text)}.sc-gcds-alert-h .gcds-alert.alert--role-danger .alert__icon{color:var(--gcds-alert-danger-icon)}.sc-gcds-alert-h .gcds-alert.alert--role-info{background-color:var(--gcds-alert-info-background);border-color:var(--gcds-alert-info-icon);color:var(--gcds-alert-info-text)}.sc-gcds-alert-h .gcds-alert.alert--role-info .alert__icon{color:var(--gcds-alert-info-icon)}.sc-gcds-alert-h .gcds-alert.alert--role-success{background-color:var(--gcds-alert-success-background);border-color:var(--gcds-alert-success-icon);color:var(--gcds-alert-success-text)}.sc-gcds-alert-h .gcds-alert.alert--role-success .alert__icon{color:var(--gcds-alert-success-icon)}.sc-gcds-alert-h .gcds-alert.alert--role-warning{background-color:var(--gcds-alert-warning-background);border-color:var(--gcds-alert-warning-icon);color:var(--gcds-alert-warning-text)}.sc-gcds-alert-h .gcds-alert.alert--role-warning .alert__icon{color:var(--gcds-alert-warning-icon)}}@layer wide{@container alert (width >= 36em){.sc-gcds-alert-h .gcds-alert .alert__container{align-items:flex-start;display:flex}}}@layer compact{@container alert (width < 36em){.sc-gcds-alert-h .gcds-alert .alert__icon{margin:var(--gcds-alert-icon-mobile-margin)}.sc-gcds-alert-h .gcds-alert .alert__heading{margin:var(--gcds-alert-content-heading-mobile-margin)}.sc-gcds-alert-h .gcds-alert .alert__close-btn{margin:var(--gcds-alert-button-mobile-margin)}}}@layer hover{:is(.sc-gcds-alert-h .gcds-alert .alert__close-btn:active,.sc-gcds-alert-h .gcds-alert .alert__close-btn:hover){border-color:currentColor}}@layer focus{.sc-gcds-alert-h .gcds-alert .alert__close-btn:focus{background-color:var(--gcds-alert-button-focus-background);border-color:var(--gcds-alert-button-focus-background);box-shadow:0 0 0 var(--gcds-alert-button-border-width) var(--gcds-alert-button-focus-text);color:var(--gcds-alert-button-focus-text);outline:var(--gcds-alert-button-outline-width) solid var(--gcds-alert-button-focus-background);outline-offset:var(--gcds-alert-button-border-width)}}";
-var GcdsAlertStyle0 = gcdsAlertCss;
+const gcdsAlertCss = "@layer reset, default, fixed, role, wide, compact, hover, focus;@layer reset{:host{display:block}:host .gcds-alert{box-sizing:border-box;text-align:left}:host .gcds-alert .alert__close-btn{box-sizing:border-box;cursor:pointer;padding:0}:host .gcds-alert slot{display:initial}}@layer default{:host .gcds-alert{border-inline-start:var(--gcds-alert-border-width) solid transparent;color:var(--gcds-alert-text);container:component alert/inline-size;font:var(--gcds-alert-font);padding:var(--gcds-alert-padding)}:host .gcds-alert .alert__content{flex:1 1 auto}:host .gcds-alert .alert__content .alert__heading{font:var(--gcds-alert-content-heading-font);margin:var(--gcds-alert-content-heading-margin)}:host .gcds-alert .alert__content ::slotted(*){margin-block-start:0}:host .gcds-alert .alert__content ::slotted(:last-child){margin-block-end:0}:host .gcds-alert .alert__content ::slotted(:not(:last-child)){margin-block-end:var(--gcds-alert-content-slotted-margin)}:host .gcds-alert .alert__content ::slotted(ol),:host .gcds-alert .alert__content ::slotted(ul){margin-inline-start:var(--gcds-alert-content-slotted-list-margin);padding:0}:host .gcds-alert .alert__close-btn{background-color:var(--gcds-alert-button-default-background);border:var(--gcds-alert-button-border-width) solid transparent;border-radius:var(--gcds-alert-button-border-radius);color:var(--gcds-alert-button-default-text);margin:var(--gcds-alert-button-margin);transition:all .15s ease-in-out}:host .gcds-alert .alert__close-btn gcds-icon{align-items:center;display:flex;height:var(--gcds-alert-button-icon-width-and-height);justify-content:center;padding:var(--gcds-alert-button-icon-padding);width:var(--gcds-alert-button-icon-width-and-height)}}@layer fixed{:host .gcds-alert.alert--is-fixed{border:0;position:sticky;top:0;width:100%;z-index:9999}}@layer role{:host .gcds-alert.alert--role-danger{background-color:var(--gcds-alert-danger-background);border-color:var(--gcds-alert-danger-icon);color:var(--gcds-alert-danger-text)}:host .gcds-alert.alert--role-danger .alert__icon{color:var(--gcds-alert-danger-icon)}:host .gcds-alert.alert--role-info{background-color:var(--gcds-alert-info-background);border-color:var(--gcds-alert-info-icon);color:var(--gcds-alert-info-text)}:host .gcds-alert.alert--role-info .alert__icon{color:var(--gcds-alert-info-icon)}:host .gcds-alert.alert--role-success{background-color:var(--gcds-alert-success-background);border-color:var(--gcds-alert-success-icon);color:var(--gcds-alert-success-text)}:host .gcds-alert.alert--role-success .alert__icon{color:var(--gcds-alert-success-icon)}:host .gcds-alert.alert--role-warning{background-color:var(--gcds-alert-warning-background);border-color:var(--gcds-alert-warning-icon);color:var(--gcds-alert-warning-text)}:host .gcds-alert.alert--role-warning .alert__icon{color:var(--gcds-alert-warning-icon)}}@layer wide{@container alert (width >= 36em){:host .gcds-alert .alert__container{align-items:flex-start;display:flex}}}@layer compact{@container alert (width < 36em){:host .gcds-alert .alert__icon{margin:var(--gcds-alert-icon-mobile-margin)}:host .gcds-alert .alert__heading{margin:var(--gcds-alert-content-heading-mobile-margin)}:host .gcds-alert .alert__close-btn{margin:var(--gcds-alert-button-mobile-margin)}}}@layer hover{:is(:host .gcds-alert .alert__close-btn:active,:host .gcds-alert .alert__close-btn:hover){border-color:currentColor}}@layer focus{:host .gcds-alert .alert__close-btn:focus{background-color:var(--gcds-alert-button-focus-background);border-color:var(--gcds-alert-button-focus-background);box-shadow:0 0 0 var(--gcds-alert-button-border-width) var(--gcds-alert-button-focus-text);color:var(--gcds-alert-button-focus-text);outline:var(--gcds-alert-button-outline-width) solid var(--gcds-alert-button-focus-background);outline-offset:var(--gcds-alert-button-border-width)}}";
 
 class GcdsAlert {
     constructor(hostRef) {
         registerInstance(this, hostRef);
-        this.gcdsDismiss = createEvent(this, "gcdsDismiss", 7);
+        this.gcdsDismiss = createEvent(this, "gcdsDismiss");
+        /**
+         * Props
+         */
+        /**
+         * Defines alert role.
+         */
         this.alertRole = 'info';
+        /**
+         * Defines the max width of the alert content.
+         */
         this.container = 'full';
-        this.heading = undefined;
+        /**
+         * Defines if the alert's close button is displayed or not.
+         */
         this.hideCloseBtn = false;
+        /**
+         * Defines if the alert's role icon is displayed or not.
+         */
         this.hideRoleIcon = false;
+        /**
+         * Defines if the alert's position is fixed.
+         */
         this.isFixed = false;
+        /**
+         * States
+         */
+        /**
+         * Specifies if the alert is open or not.
+         */
         this.isOpen = true;
-        this.lang = undefined;
     }
     /*
      * Observe lang attribute change
@@ -2575,7 +3551,7 @@ class GcdsAlert {
             }, "aria-label": I18N$r[lang].closeBtn }, hAsync("gcds-icon", { "aria-hidden": "true", name: "close", size: "text" }))))))) : null));
     }
     get el() { return getElement(this); }
-    static get style() { return GcdsAlertStyle0; }
+    static get style() { return gcdsAlertCss; }
     static get cmpMeta() { return {
         "$flags$": 9,
         "$tagName$": "gcds-alert",
@@ -2606,14 +3582,18 @@ const I18N$q = {
   },
 };
 
-const gcdsBreadcrumbsCss = "@layer reset, default;@layer reset{.sc-gcds-breadcrumbs-h{display:block}.sc-gcds-breadcrumbs-h .gcds-breadcrumbs ol{list-style:none;overflow-x:hidden}}@layer default{.sc-gcds-breadcrumbs-h .gcds-breadcrumbs ol{margin:var(--gcds-breadcrumbs-margin);padding:var(--gcds-breadcrumbs-padding)}.sc-gcds-breadcrumbs-h .gcds-breadcrumbs ol.has-canada-link gcds-breadcrumbs-item:first-child:before,.sc-gcds-breadcrumbs-h .gcds-breadcrumbs ol:not(.has-canada-link).sc-gcds-breadcrumbs-s > :first-child:before, .sc-gcds-breadcrumbs-h .gcds-breadcrumbs ol:not(.has-canada-link) .sc-gcds-breadcrumbs-s > :first-child:before{display:none}.sc-gcds-breadcrumbs-h .gcds-breadcrumbs ol.has-canada-link gcds-breadcrumbs-item:first-child:before{display:none}}";
-var GcdsBreadcrumbsStyle0 = gcdsBreadcrumbsCss;
+const gcdsBreadcrumbsCss = "@layer reset, default;@layer reset{:host{display:block}:host .gcds-breadcrumbs ol{list-style:none;overflow-x:hidden}}@layer default{:host .gcds-breadcrumbs ol{margin:var(--gcds-breadcrumbs-margin);padding:var(--gcds-breadcrumbs-padding)}:host .gcds-breadcrumbs ol.has-canada-link gcds-breadcrumbs-item:first-child:before,:host .gcds-breadcrumbs ol:not(.has-canada-link) ::slotted(:first-child):before{display:none}:host .gcds-breadcrumbs ol.has-canada-link gcds-breadcrumbs-item:first-child:before{display:none}}";
 
 class GcdsBreadcrumbs {
     constructor(hostRef) {
         registerInstance(this, hostRef);
+        /**
+         * Props
+         */
+        /**
+         * Defines if the default canada.ca link is displayed or omitted.
+         */
         this.hideCanadaLink = false;
-        this.lang = undefined;
     }
     /*
      * Observe lang attribute change
@@ -2636,7 +3616,7 @@ class GcdsBreadcrumbs {
         return (hAsync(Host, { key: '3cebead5d49755452f7dbf0a8292b38e86d481c9' }, hAsync("nav", { key: '17a5ccde070a513bf3f37aae1cda845ed4e547fd', "aria-label": I18N$q[lang].label, class: "gcds-breadcrumbs" }, hAsync("ol", { key: '74eaf642af3397da9f222499713148f50ae4ee99', class: hideCanadaLink ? '' : 'has-canada-link' }, !hideCanadaLink ? (hAsync("gcds-breadcrumbs-item", { href: I18N$q[lang].link }, "Canada.ca")) : null, hAsync("slot", { key: '8c90086d5e3bd78cda3594f7ac8d57feb7a58020' })))));
     }
     get el() { return getElement(this); }
-    static get style() { return GcdsBreadcrumbsStyle0; }
+    static get style() { return gcdsBreadcrumbsCss; }
     static get cmpMeta() { return {
         "$flags$": 9,
         "$tagName$": "gcds-breadcrumbs",
@@ -2650,20 +3630,18 @@ class GcdsBreadcrumbs {
     }; }
 }
 
-const gcdsBreadcrumbsItemCss = "@layer reset, default, hover, focus;@layer reset{.sc-gcds-breadcrumbs-item-h.gcds-breadcrumbs-item{display:inline-block}.sc-gcds-breadcrumbs-item-h.gcds-breadcrumbs-item gcds-link::part(link){display:inline-block;white-space:normal}.sc-gcds-breadcrumbs-item-h.gcds-breadcrumbs-item slot{display:block}}@layer default{.sc-gcds-breadcrumbs-item-h.gcds-breadcrumbs-item{margin:var(--gcds-breadcrumbs-item-margin)!important}.sc-gcds-breadcrumbs-item-h.gcds-breadcrumbs-item:before{content:url('data:image/svg+xml;charset=utf-8,<svg xmlns=\"http://www.w3.org/2000/svg\" height=\"12\" viewBox=\"0 0 8 14\"><path fill=\"26374a\" d=\"M7.7 6.3c.4.4.4 1 0 1.4l-6 6c-.4.4-1 .4-1.4 0s-.4-1 0-1.4L5.6 7 .3 1.7C-.1 1.3-.1.7.3.3s1-.4 1.4 0z\"/></svg>');display:inline-block;margin:var(--gcds-breadcrumbs-item-arrow-margin);width:.375rem}.sc-gcds-breadcrumbs-item-h.gcds-breadcrumbs-item gcds-link::part(link){font:var(--gcds-breadcrumbs-item-font)}}";
-var GcdsBreadcrumbsItemStyle0 = gcdsBreadcrumbsItemCss;
+const gcdsBreadcrumbsItemCss = "@layer reset, default, hover, focus;@layer reset{:host(.gcds-breadcrumbs-item){display:inline-block}:host(.gcds-breadcrumbs-item) gcds-link::part(link){display:inline-block;white-space:normal}:host(.gcds-breadcrumbs-item) slot{display:block}}@layer default{:host(.gcds-breadcrumbs-item){margin:var(--gcds-breadcrumbs-item-margin)!important}:host(.gcds-breadcrumbs-item):before{content:url('data:image/svg+xml;charset=utf-8,<svg xmlns=\"http://www.w3.org/2000/svg\" height=\"12\" viewBox=\"0 0 8 14\"><path fill=\"26374a\" d=\"M7.7 6.3c.4.4.4 1 0 1.4l-6 6c-.4.4-1 .4-1.4 0s-.4-1 0-1.4L5.6 7 .3 1.7C-.1 1.3-.1.7.3.3s1-.4 1.4 0z\"/></svg>');display:inline-block;margin:var(--gcds-breadcrumbs-item-arrow-margin);width:.375rem}:host(.gcds-breadcrumbs-item) gcds-link::part(link){font:var(--gcds-breadcrumbs-item-font)}}";
 
 class GcdsBreadcrumbsItem {
     constructor(hostRef) {
         registerInstance(this, hostRef);
-        this.href = undefined;
     }
     render() {
         const { href } = this;
         return (hAsync(Host, { key: '8b605a4957ab5346d22dced80f73e1a5f4ac555b', role: "listitem", class: "gcds-breadcrumbs-item" }, hAsync("gcds-link", { key: 'd3c3af1d26322cb3ef0fbf6f8778bc0f4c3bf9c4', size: "regular", href: href }, hAsync("slot", { key: 'f20dcd2b71127031fc0334fe3673821e08aefb56' }))));
     }
     get el() { return getElement(this); }
-    static get style() { return GcdsBreadcrumbsItemStyle0; }
+    static get style() { return gcdsBreadcrumbsItemCss; }
     static get cmpMeta() { return {
         "$flags$": 9,
         "$tagName$": "gcds-breadcrumbs-item",
@@ -2685,15 +3663,34 @@ const I18N$p = {
   },
 };
 
-const gcdsButtonCss = "@layer reset, default, roles, size, disabled, hover, focus, active, mobile;@layer reset{.sc-gcds-button-h{display:inline-block}.sc-gcds-button-h .gcds-button{box-sizing:border-box;cursor:pointer;text-decoration:none}.sc-gcds-button-h slot{display:initial}}@layer default{.sc-gcds-button-h .gcds-button{display:inline-block;text-align:center;width:var(--gcds-button-width);text-wrap:balance;border:var(--gcds-button-border-width) solid transparent;border-radius:var(--gcds-button-border-radius);font:var(--gcds-button-font-desktop);padding:var(--gcds-button-padding);transition:all .15s ease-in-out}@media only screen and (width < 48em){.sc-gcds-button-h .gcds-button{font:var(--gcds-button-font-mobile)}}}@layer roles{.sc-gcds-button-h .gcds-button.button--role-danger{background-color:var(--gcds-button-danger-default-background);color:var(--gcds-button-danger-default-text)}.sc-gcds-button-h .gcds-button.button--role-primary{background-color:var(--gcds-button-primary-default-background);color:var(--gcds-button-primary-default-text)}.sc-gcds-button-h .gcds-button.button--role-start{background-color:var(--gcds-button-start-default-background);color:var(--gcds-button-start-default-text);font:var(--gcds-button-start-font-desktop);padding:var(--gcds-button-start-padding)}@media only screen and (width < 48em){.sc-gcds-button-h .gcds-button.button--role-start{font:var(--gcds-button-start-font-mobile)}}.sc-gcds-button-h .gcds-button.button--role-secondary{background-color:var(--gcds-button-secondary-default-background);border:var(--gcds-button-border-width) solid;color:var(--gcds-button-secondary-default-text)}}@layer size{.sc-gcds-button-h .gcds-button.button--small{font:var(--gcds-button-small-font);padding:var(--gcds-button-small-padding)}}@layer disabled{.sc-gcds-button-h[disabled]{pointer-events:none}.sc-gcds-button-h[disabled] .gcds-button[aria-disabled=true]{cursor:not-allowed;opacity:var(--gcds-button-shared-disabled-opacity);pointer-events:none}}@layer hover{@media (hover:hover){.sc-gcds-button-h .gcds-button:hover.button--role-danger{background-color:var(--gcds-button-danger-hover-background)}.sc-gcds-button-h .gcds-button:hover.button--role-primary{background-color:var(--gcds-button-primary-hover-background)}.sc-gcds-button-h .gcds-button:hover.button--role-start{background-color:var(--gcds-button-start-hover-background)}.sc-gcds-button-h .gcds-button:hover.button--role-secondary{background-color:var(--gcds-button-secondary-hover-background)}}}@layer focus{.sc-gcds-button-h .gcds-button:focus{background-color:var(--gcds-button-shared-focus-background);border-color:var(--gcds-button-shared-focus-background);box-shadow:var(--gcds-button-shared-focus-box-shadow);color:var(--gcds-button-shared-focus-text);outline:var(--gcds-button-shared-focus-outline-width) solid var(--gcds-button-shared-focus-background);outline-offset:var(--gcds-button-border-width)}}@layer active{.sc-gcds-button-h .gcds-button:active{background-color:var(--gcds-button-shared-active-background);border-color:var(--gcds-button-shared-active-background)}}@layer mobile{@media screen and (max-width:30rem){.sc-gcds-button-h{display:block}.sc-gcds-button-h .gcds-button{margin:var(--gcds-button-mobile-margin);width:var(--gcds-button-mobile-width)}}}";
-var GcdsButtonStyle0 = gcdsButtonCss;
+const gcdsButtonCss = "@layer reset, default, roles, size, disabled, hover, focus, active, mobile;@layer reset{:host{display:inline-block}:host .gcds-button{box-sizing:border-box;cursor:pointer;text-decoration:none}:host slot{display:initial}}@layer default{:host .gcds-button{display:inline-block;text-align:center;width:var(--gcds-button-width);text-wrap:balance;border:var(--gcds-button-border-width) solid transparent;border-radius:var(--gcds-button-border-radius);font:var(--gcds-button-font-desktop);padding:var(--gcds-button-padding);transition:all .15s ease-in-out}@media only screen and (width < 48em){:host .gcds-button{font:var(--gcds-button-font-mobile)}}}@layer roles{:host .gcds-button.button--role-danger{background-color:var(--gcds-button-danger-default-background);color:var(--gcds-button-danger-default-text)}:host .gcds-button.button--role-primary{background-color:var(--gcds-button-primary-default-background);color:var(--gcds-button-primary-default-text)}:host .gcds-button.button--role-start{background-color:var(--gcds-button-start-default-background);color:var(--gcds-button-start-default-text);font:var(--gcds-button-start-font-desktop);padding:var(--gcds-button-start-padding)}@media only screen and (width < 48em){:host .gcds-button.button--role-start{font:var(--gcds-button-start-font-mobile)}}:host .gcds-button.button--role-secondary{background-color:var(--gcds-button-secondary-default-background);border:var(--gcds-button-border-width) solid;color:var(--gcds-button-secondary-default-text)}}@layer size{:host .gcds-button.button--small{font:var(--gcds-button-small-font);padding:var(--gcds-button-small-padding)}}@layer disabled{:host([disabled]){pointer-events:none}:host([disabled]) .gcds-button[aria-disabled=true]{cursor:not-allowed;opacity:var(--gcds-button-shared-disabled-opacity);pointer-events:none}}@layer hover{@media (hover:hover){:host .gcds-button:hover.button--role-danger{background-color:var(--gcds-button-danger-hover-background)}:host .gcds-button:hover.button--role-primary{background-color:var(--gcds-button-primary-hover-background)}:host .gcds-button:hover.button--role-start{background-color:var(--gcds-button-start-hover-background)}:host .gcds-button:hover.button--role-secondary{background-color:var(--gcds-button-secondary-hover-background)}}}@layer focus{:host .gcds-button:focus{background-color:var(--gcds-button-shared-focus-background);border-color:var(--gcds-button-shared-focus-background);box-shadow:var(--gcds-button-shared-focus-box-shadow);color:var(--gcds-button-shared-focus-text);outline:var(--gcds-button-shared-focus-outline-width) solid var(--gcds-button-shared-focus-background);outline-offset:var(--gcds-button-border-width)}}@layer active{:host .gcds-button:active{background-color:var(--gcds-button-shared-active-background);border-color:var(--gcds-button-shared-active-background)}}@layer mobile{@media screen and (max-width:30rem){:host{display:block}:host .gcds-button{margin:var(--gcds-button-mobile-margin);width:var(--gcds-button-mobile-width)}}}";
 
 class GcdsButton {
     constructor(hostRef) {
         registerInstance(this, hostRef);
-        this.gcdsClick = createEvent(this, "gcdsClick", 7);
-        this.gcdsFocus = createEvent(this, "gcdsFocus", 7);
-        this.gcdsBlur = createEvent(this, "gcdsBlur", 7);
+        this.gcdsClick = createEvent(this, "gcdsClick");
+        this.gcdsFocus = createEvent(this, "gcdsFocus");
+        this.gcdsBlur = createEvent(this, "gcdsBlur");
+        /**
+         * Props
+         */
+        /**
+         * Set button types
+         */
+        // prettier-ignore
+        this.type = 'button';
+        /**
+         * Set the main style
+         */
+        this.buttonRole = 'primary';
+        /**
+         * Set the button size
+         */
+        this.size = 'regular';
+        /**
+         * Set additional HTML attributes not available in component properties
+         */
+        this.inheritedAttributes = {};
         this.handleClick = (e) => {
             // Check button type, only emit value if type is "submit"
             const emitValue = this.type === 'submit' ? this.value : undefined;
@@ -2722,19 +3719,6 @@ class GcdsButton {
                 this.inheritedAttributes = inheritAttributes(this.el, this.shadowElement);
             }
         };
-        this.type = 'button';
-        this.buttonRole = 'primary';
-        this.size = 'regular';
-        this.buttonId = undefined;
-        this.name = undefined;
-        this.disabled = undefined;
-        this.value = undefined;
-        this.href = undefined;
-        this.rel = undefined;
-        this.target = undefined;
-        this.download = undefined;
-        this.inheritedAttributes = {};
-        this.lang = undefined;
     }
     validateType(newValue) {
         const values = ['submit', 'reset', 'button', 'link'];
@@ -2800,7 +3784,7 @@ class GcdsButton {
                 target,
                 download,
             };
-        return (hAsync(Host, { key: '59ad0b1cafa83cb3a101d48e07d29c92ffe3c714' }, hAsync(Tag, Object.assign({ key: 'cd037c7872f680306f1e10f69b7b02f95da9e77b' }, attrs, { id: buttonId, onBlur: () => this.gcdsBlur.emit(), onFocus: () => this.gcdsFocus.emit(), onClick: e => !disabled ? this.handleClick(e) : e.stopImmediatePropagation(), class: `gcds-button button--role-${buttonRole} button--${size}`, ref: element => (this.shadowElement = element) }, inheritedAttributes, { part: "button" }), hAsync("slot", { key: 'aa1a34a400c9bbaf88f03e0d39c628f13a713798' }), type === 'link' && target === '_blank' ? (hAsync("gcds-icon", { name: "external", label: I18N$p[lang].label, "margin-left": "150" })) : null)));
+        return (hAsync(Host, { key: 'cb4009ea02793c43139bd32ce967ed14a34edc92' }, hAsync(Tag, Object.assign({ key: 'f43a15193850a532bf2c48f19cfa089426e7fbb2' }, attrs, { id: buttonId, onBlur: () => this.gcdsBlur.emit(), onFocus: () => this.gcdsFocus.emit(), onClick: e => !disabled ? this.handleClick(e) : e.stopImmediatePropagation(), class: `gcds-button button--role-${buttonRole} button--${size}`, ref: element => (this.shadowElement = element) }, inheritedAttributes, { part: "button" }), hAsync("slot", { key: 'ba77323179c20e81431e4463a4b435572e56b83e' }), type === 'link' && target === '_blank' ? (hAsync("gcds-icon", { name: "external", label: I18N$p[lang].label, "margin-left": "150" })) : null)));
     }
     static get delegatesFocus() { return true; }
     get el() { return getElement(this); }
@@ -2810,7 +3794,7 @@ class GcdsButton {
         "size": ["validateSize"],
         "disabled": ["validateDisabled"]
     }; }
-    static get style() { return GcdsButtonStyle0; }
+    static get style() { return gcdsButtonCss; }
     static get cmpMeta() { return {
         "$flags$": 25,
         "$tagName$": "gcds-button",
@@ -2820,7 +3804,7 @@ class GcdsButton {
             "size": [1025],
             "buttonId": [1, "button-id"],
             "name": [1],
-            "disabled": [4],
+            "disabled": [516],
             "value": [1],
             "href": [1],
             "rel": [1],
@@ -2831,7 +3815,7 @@ class GcdsButton {
         },
         "$listeners$": undefined,
         "$lazyBundleId$": "-",
-        "$attrsToReflect$": []
+        "$attrsToReflect$": [["disabled", "disabled"]]
     }; }
 }
 
@@ -2846,23 +3830,24 @@ const I18N$o = {
   },
 };
 
-const gcdsCardCss = "@layer reset, default, link, hover, focus;@layer reset{.sc-gcds-card-h{display:block}.sc-gcds-card-h *{box-sizing:border-box;margin:0;padding:0}.sc-gcds-card-h slot{display:initial}}@layer default{.sc-gcds-card-h .gcds-card{background-color:var(--gcds-card-background-color);box-shadow:var(--gcds-card-box-shadow);color:var(--gcds-card-color);display:block;height:100%;max-width:var(--gcds-card-max-width);overflow:hidden;padding:var(--gcds-card-padding);position:relative}.sc-gcds-card-h .gcds-card .gcds-badge{background-color:var(--gcds-card-badge-background-color);left:0;padding:var(--gcds-card-badge-padding);position:absolute;top:0;text-wrap:nowrap}@media only screen and (width < 48em){.sc-gcds-card-h .gcds-card .gcds-badge{padding:var(--gcds-card-badge-mobile-padding)}}.sc-gcds-card-h .gcds-card .gcds-card__image{margin:var(--gcds-card-image-margin);width:100%}.sc-gcds-card-h .gcds-card .gcds-card__title{font:var(--gcds-card-title-font-desktop);width:fit-content}@media only screen and (width < 48em){.sc-gcds-card-h .gcds-card .gcds-card__title{font:var(--gcds-card-title-font-mobile)}}.sc-gcds-card-h .gcds-card .gcds-card__title:has(+.gcds-card__description){margin:var(--gcds-card-title-margin)}.sc-gcds-card-h .gcds-card .gcds-card__description{--gcds-text-size-body-desktop:var(--gcds-card-description-font-desktop)}@media only screen and (width < 48em){.sc-gcds-card-h .gcds-card .gcds-card__description{font:var(--gcds-card-description-font-mobile)}}}@layer link{.sc-gcds-card-h .gcds-card gcds-link::part(link):after{bottom:0;content:\"\";left:0;pointer-events:auto;position:absolute;right:0;top:0}}@layer hover{@media (hover:hover){.sc-gcds-card-h .gcds-card:hover{background-color:var(--gcds-card-hover-background-color);box-shadow:var(--gcds-card-hover-box-shadow);cursor:pointer}}}@layer focus{.sc-gcds-card-h .gcds-card:focus-within{box-shadow:var(--gcds-card-focus-box-shadow);outline:var(--gcds-card-focus-outline);outline-offset:var(--gcds-card-focus-outline-offset)}.sc-gcds-card-h gcds-link::part(link):focus{background-color:var(--gcds-card-focus-link-background-color);border:var(--gcds-card-focus-link-border);box-shadow:var(--gcds-card-focus-link-box-shadow);color:var(--gcds-card-focus-link-color);outline:var(--gcds-card-focus-link-outline);text-decoration:underline currentColor var(--gcds-card-focus-link-text-decoration-thickness)}}";
-var GcdsCardStyle0 = gcdsCardCss;
+const gcdsCardCss = "@layer reset, default, link, hover, focus;@layer reset{:host{display:block}:host *{box-sizing:border-box;margin:0;padding:0}:host slot{display:initial}}@layer default{:host .gcds-card{background-color:var(--gcds-card-background-color);box-shadow:var(--gcds-card-box-shadow);color:var(--gcds-card-color);display:block;height:100%;max-width:var(--gcds-card-max-width);overflow:hidden;padding:var(--gcds-card-padding);position:relative}:host .gcds-card .gcds-badge{background-color:var(--gcds-card-badge-background-color);left:0;padding:var(--gcds-card-badge-padding);position:absolute;top:0;text-wrap:nowrap}@media only screen and (width < 48em){:host .gcds-card .gcds-badge{padding:var(--gcds-card-badge-mobile-padding)}}:host .gcds-card .gcds-card__image{margin:var(--gcds-card-image-margin);width:100%}:host .gcds-card .gcds-card__title{font:var(--gcds-card-title-font-desktop);width:fit-content}@media only screen and (width < 48em){:host .gcds-card .gcds-card__title{font:var(--gcds-card-title-font-mobile)}}:host .gcds-card .gcds-card__title:has(+.gcds-card__description){margin:var(--gcds-card-title-margin)}:host .gcds-card .gcds-card__description{--gcds-text-size-body-desktop:var(--gcds-card-description-font-desktop)}@media only screen and (width < 48em){:host .gcds-card .gcds-card__description{font:var(--gcds-card-description-font-mobile)}}}@layer link{:host .gcds-card gcds-link::part(link):after{bottom:0;content:\"\";left:0;pointer-events:auto;position:absolute;right:0;top:0}}@layer hover{@media (hover:hover){:host .gcds-card:hover{background-color:var(--gcds-card-hover-background-color);box-shadow:var(--gcds-card-hover-box-shadow);cursor:pointer}}}@layer focus{:host .gcds-card:focus-within{box-shadow:var(--gcds-card-focus-box-shadow);outline:var(--gcds-card-focus-outline);outline-offset:var(--gcds-card-focus-outline-offset)}:host gcds-link::part(link):focus{background-color:var(--gcds-card-focus-link-background-color);border:var(--gcds-card-focus-link-border);box-shadow:var(--gcds-card-focus-link-box-shadow);color:var(--gcds-card-focus-link-color);outline:var(--gcds-card-focus-link-outline);text-decoration:underline currentColor var(--gcds-card-focus-link-text-decoration-thickness)}}";
 
 class GcdsCard {
     constructor(hostRef) {
         registerInstance(this, hostRef);
-        this.gcdsFocus = createEvent(this, "gcdsFocus", 7);
-        this.gcdsBlur = createEvent(this, "gcdsBlur", 7);
-        this.gcdsClick = createEvent(this, "gcdsClick", 7);
-        this.cardTitle = undefined;
-        this.href = undefined;
+        this.gcdsFocus = createEvent(this, "gcdsFocus");
+        this.gcdsBlur = createEvent(this, "gcdsBlur");
+        this.gcdsClick = createEvent(this, "gcdsClick");
+        /**
+         * The card title tag property specifies the HTML heading element for the title.
+         * This property does not modify the font size. It is used to assign the heading level
+         * in order to maintain heading hierarchy and accessibility for assistive technologies.
+         */
         this.cardTitleTag = 'a';
-        this.description = undefined;
-        this.badge = undefined;
-        this.imgSrc = undefined;
-        this.imgAlt = undefined;
-        this.lang = undefined;
+        /**
+         * State to track validation on properties
+         * Contains a list of properties that have an error associated with them
+         */
         this.errors = [];
     }
     validateCardTitle() {
@@ -2950,7 +3935,7 @@ class GcdsCard {
         "href": ["validateHref"],
         "badge": ["validateBadge"]
     }; }
-    static get style() { return GcdsCardStyle0; }
+    static get style() { return gcdsCardCss; }
     static get cmpMeta() { return {
         "$flags$": 9,
         "$tagName$": "gcds-card",
@@ -3485,19 +4470,18 @@ const renderCheckbox = (checkbox, element, emitEvent, handleInput) => {
         !isGroup && errorMessage ? (hAsync("gcds-error-message", { messageId: checkbox.id }, errorMessage)) : null));
 };
 
-const gcdsCheckboxesCss = "@layer reset, default, disabled, error, focus;@layer reset{.sc-gcds-checkboxes-h{display:block}.sc-gcds-checkboxes-h .gcds-checkboxes__fieldset{border:0;min-inline-size:auto;padding:0}.sc-gcds-checkboxes-h .gcds-checkboxes__fieldset legend{padding:0}.sc-gcds-checkboxes-h .gcds-checkbox{padding:0}.sc-gcds-checkboxes-h .gcds-checkbox gcds-label>label:after,.sc-gcds-checkboxes-h .gcds-checkbox gcds-label>label:before{box-sizing:border-box;content:\"\";cursor:pointer;position:absolute}}@layer default{.sc-gcds-checkboxes-h .gcds-checkboxes__fieldset{margin:var(--gcds-checkbox-fieldset-margin)}.sc-gcds-checkboxes-h .gcds-checkboxes__fieldset .gcds-checkboxes__legend{font:var(--gcds-checkbox-legend-font-desktop);margin:var(--gcds-checkbox-legend-margin)}.sc-gcds-checkboxes-h .gcds-checkboxes__fieldset .gcds-checkboxes__legend .legend__required{font:var(--gcds-checkbox-legend-required-font-desktop)}@media only screen and (width < 48em){.sc-gcds-checkboxes-h .gcds-checkboxes__fieldset .gcds-checkboxes__legend{font:var(--gcds-checkbox-legend-font-mobile)}.sc-gcds-checkboxes-h .gcds-checkboxes__fieldset .gcds-checkboxes__legend .legend__required{font:var(--gcds-checkbox-legend-required-font-mobile)}}.sc-gcds-checkboxes-h .gcds-checkboxes__fieldset .gcds-checkboxes__legend:not(:has(+gcds-hint)){margin:var(--gcds-checkbox-legend-hint-margin)}.sc-gcds-checkboxes-h .gcds-checkbox{color:var(--gcds-checkbox-default-text);font:var(--gcds-checkbox-font);margin:var(--gcds-checkbox-margin)!important;max-width:var(--gcds-checkbox-max-width);min-height:calc(var(--gcds-checkbox-input-height-and-width) - var(--gcds-checkbox-padding));padding:var(--gcds-checkbox-padding) 0 0;position:relative;transition:color .15s ease-in-out}.sc-gcds-checkboxes-h .gcds-checkbox :is(gcds-label,gcds-hint,gcds-error-message){padding:var(--gcds-checkbox-label-padding)!important}.sc-gcds-checkboxes-h .gcds-checkbox gcds-hint::part(hint){margin:0}.sc-gcds-checkboxes-h .gcds-checkbox gcds-label:after,.sc-gcds-checkboxes-h .gcds-checkbox gcds-label:before,.sc-gcds-checkboxes-h .gcds-checkbox input{position:absolute}.sc-gcds-checkboxes-h .gcds-checkbox gcds-label>label:before,.sc-gcds-checkboxes-h .gcds-checkbox input{height:var(--gcds-checkbox-input-height-and-width);left:0;top:0;width:var(--gcds-checkbox-input-height-and-width)}.sc-gcds-checkboxes-h .gcds-checkbox input{opacity:0}.sc-gcds-checkboxes-h .gcds-checkbox gcds-label>label{width:fit-content;--gcds-label-font-desktop:var(--gcds-checkbox-label-font-desktop);--gcds-label-font-mobile:var(--gcds-checkbox-label-font-mobile)}.sc-gcds-checkboxes-h .gcds-checkbox gcds-label>label:before{background-color:var(--gcds-checkbox-default-background);border:var(--gcds-checkbox-input-border-width) solid;border-radius:var(--gcds-checkbox-input-border-radius);transition:border-color .15s ease-in-out,box-shadow .15s ease-in-out,outline .15s ease-in-out}.sc-gcds-checkboxes-h .gcds-checkbox gcds-label>label:after{border:var(--gcds-checkbox-check-border-width) solid;border-block-start:0!important;border-inline-start:0!important;height:var(--gcds-checkbox-check-height);left:var(--gcds-checkbox-check-left);opacity:0;top:var(--gcds-checkbox-check-top);transform:rotate(40deg);width:var(--gcds-checkbox-check-width)}.sc-gcds-checkboxes-h .gcds-checkbox input:checked+gcds-label>label:after{opacity:1}}@layer disabled{.sc-gcds-checkboxes-h .gcds-checkbox.gcds-checkbox--disabled{color:var(--gcds-checkbox-disabled-text)}.sc-gcds-checkboxes-h .gcds-checkbox.gcds-checkbox--disabled gcds-label>label{--gcds-label-text:currentColor;cursor:not-allowed}.sc-gcds-checkboxes-h .gcds-checkbox.gcds-checkbox--disabled gcds-label>label:after,.sc-gcds-checkboxes-h .gcds-checkbox.gcds-checkbox--disabled gcds-label>label:before{cursor:not-allowed}.sc-gcds-checkboxes-h .gcds-checkbox.gcds-checkbox--disabled gcds-label>label:before{background-color:var(--gcds-checkbox-disabled-background);border-color:currentcolor}.sc-gcds-checkboxes-h .gcds-checkbox.gcds-checkbox--disabled gcds-hint{--gcds-hint-text:currentColor}}@layer error{.sc-gcds-checkboxes-h .gcds-checkbox.gcds-checkbox--error:not(:focus-within) gcds-label>label:before{border-color:var(--gcds-checkbox-danger-border)}.sc-gcds-checkboxes-h .gcds-checkbox.gcds-checkbox--error:not(:focus-within) gcds-label>label:after{color:var(--gcds-checkbox-danger-border)}}@layer focus{.sc-gcds-checkboxes-h .gcds-checkbox:focus-within input:focus+gcds-label>label:before{background:var(--gcds-checkbox-focus-background);box-shadow:var(--gcds-checkbox-focus-box-shadow);color:var(--gcds-checkbox-focus-color);outline:var(--gcds-checkbox-focus-outline-width) solid currentcolor;outline-offset:var(--gcds-checkbox-input-border-width)}.sc-gcds-checkboxes-h .gcds-checkbox:focus-within input:focus+gcds-label>label:after{color:var(--gcds-checkbox-focus-color)}}";
-var GcdsCheckboxesStyle0 = gcdsCheckboxesCss;
+const gcdsCheckboxesCss = "@layer reset, default, disabled, error, focus;@layer reset{:host{display:block}:host .gcds-checkboxes__fieldset{border:0;min-inline-size:auto;padding:0}:host .gcds-checkboxes__fieldset legend{padding:0}:host .gcds-checkbox{padding:0}:host .gcds-checkbox gcds-label{display:block}:host .gcds-checkbox gcds-label>label:after,:host .gcds-checkbox gcds-label>label:before{box-sizing:border-box;content:\"\";cursor:pointer;position:absolute}}@layer default{:host .gcds-checkboxes__fieldset{margin:var(--gcds-checkbox-fieldset-margin)}:host .gcds-checkboxes__fieldset .gcds-checkboxes__legend{font:var(--gcds-checkbox-legend-font-desktop);margin:var(--gcds-checkbox-legend-margin)}:host .gcds-checkboxes__fieldset .gcds-checkboxes__legend .legend__required{font:var(--gcds-checkbox-legend-required-font-desktop)}@media only screen and (width < 48em){:host .gcds-checkboxes__fieldset .gcds-checkboxes__legend{font:var(--gcds-checkbox-legend-font-mobile)}:host .gcds-checkboxes__fieldset .gcds-checkboxes__legend .legend__required{font:var(--gcds-checkbox-legend-required-font-mobile)}}:host .gcds-checkboxes__fieldset .gcds-checkboxes__legend:not(:has(+gcds-hint)){margin:var(--gcds-checkbox-legend-hint-margin)}:host .gcds-checkbox{color:var(--gcds-checkbox-default-text);font:var(--gcds-checkbox-font);margin:var(--gcds-checkbox-margin)!important;max-width:var(--gcds-checkbox-max-width);min-height:calc(var(--gcds-checkbox-input-height-and-width) - var(--gcds-checkbox-padding));padding:var(--gcds-checkbox-padding) 0 0;position:relative;transition:color .15s ease-in-out}:host .gcds-checkbox :is(gcds-label,gcds-hint,gcds-error-message){padding:var(--gcds-checkbox-label-padding)!important}:host .gcds-checkbox gcds-hint::part(hint){margin:0}:host .gcds-checkbox gcds-label:after,:host .gcds-checkbox gcds-label:before,:host .gcds-checkbox input{position:absolute}:host .gcds-checkbox gcds-label>label:before,:host .gcds-checkbox input{height:var(--gcds-checkbox-input-height-and-width);left:0;top:0;width:var(--gcds-checkbox-input-height-and-width)}:host .gcds-checkbox input{opacity:0}:host .gcds-checkbox gcds-label>label{width:fit-content;--gcds-label-font-desktop:var(--gcds-checkbox-label-font-desktop);--gcds-label-font-mobile:var(--gcds-checkbox-label-font-mobile)}:host .gcds-checkbox gcds-label>label:before{background-color:var(--gcds-checkbox-default-background);border:var(--gcds-checkbox-input-border-width) solid;border-radius:var(--gcds-checkbox-input-border-radius);transition:border-color .15s ease-in-out,box-shadow .15s ease-in-out,outline .15s ease-in-out}:host .gcds-checkbox gcds-label>label:after{border:var(--gcds-checkbox-check-border-width) solid;border-block-start:0!important;border-inline-start:0!important;height:var(--gcds-checkbox-check-height);left:var(--gcds-checkbox-check-left);opacity:0;top:var(--gcds-checkbox-check-top);transform:rotate(40deg);width:var(--gcds-checkbox-check-width)}:host .gcds-checkbox input:checked+gcds-label>label:after{opacity:1}}@layer disabled{:host .gcds-checkbox.gcds-checkbox--disabled{color:var(--gcds-checkbox-disabled-text)}:host .gcds-checkbox.gcds-checkbox--disabled gcds-label>label{--gcds-label-text:currentColor;cursor:not-allowed}:host .gcds-checkbox.gcds-checkbox--disabled gcds-label>label:after,:host .gcds-checkbox.gcds-checkbox--disabled gcds-label>label:before{cursor:not-allowed}:host .gcds-checkbox.gcds-checkbox--disabled gcds-label>label:before{background-color:var(--gcds-checkbox-disabled-background);border-color:currentcolor}:host .gcds-checkbox.gcds-checkbox--disabled gcds-hint{--gcds-hint-text:currentColor}}@layer error{:host .gcds-checkbox.gcds-checkbox--error:not(:focus-within) gcds-label>label:before{border-color:var(--gcds-checkbox-danger-border)}:host .gcds-checkbox.gcds-checkbox--error:not(:focus-within) gcds-label>label:after{color:var(--gcds-checkbox-danger-border)}}@layer focus{:host .gcds-checkbox:focus-within input:focus+gcds-label>label:before{background:var(--gcds-checkbox-focus-background);box-shadow:var(--gcds-checkbox-focus-box-shadow);color:var(--gcds-checkbox-focus-color);outline:var(--gcds-checkbox-focus-outline-width) solid currentcolor;outline-offset:var(--gcds-checkbox-input-border-width)}:host .gcds-checkbox:focus-within input:focus+gcds-label>label:after{color:var(--gcds-checkbox-focus-color)}}";
 
 class GcdsCheckboxes {
     constructor(hostRef) {
         registerInstance(this, hostRef);
-        this.gcdsClick = createEvent(this, "gcdsClick", 7);
-        this.gcdsFocus = createEvent(this, "gcdsFocus", 7);
-        this.gcdsBlur = createEvent(this, "gcdsBlur", 7);
-        this.gcdsInput = createEvent(this, "gcdsInput", 7);
-        this.gcdsChange = createEvent(this, "gcdsChange", 7);
-        this.gcdsError = createEvent(this, "gcdsError", 7);
-        this.gcdsValid = createEvent(this, "gcdsValid", 7);
+        this.gcdsClick = createEvent(this, "gcdsClick");
+        this.gcdsFocus = createEvent(this, "gcdsFocus");
+        this.gcdsBlur = createEvent(this, "gcdsBlur");
+        this.gcdsInput = createEvent(this, "gcdsInput");
+        this.gcdsChange = createEvent(this, "gcdsChange");
+        this.gcdsError = createEvent(this, "gcdsError");
+        this.gcdsValid = createEvent(this, "gcdsValid");
         if (hostRef.$hostElement$["s-ei"]) {
             this.internals = hostRef.$hostElement$["s-ei"];
         }
@@ -3507,6 +4491,23 @@ class GcdsCheckboxes {
         }
         this.isGroup = false;
         this._validator = defaultValidator;
+        /**
+         * Value for checkboxes component.
+         */
+        this.value = [];
+        /**
+         * Set event to call validator
+         */
+        this.validateOn = 'blur';
+        /**
+         * Set additional HTML attributes not available in component properties
+         */
+        this.inheritedAttributes = {};
+        /**
+         * State to track validation on properties
+         * Contains a list of properties that have an error associated with them
+         */
+        this.errors = [];
         this.onBlurValidate = () => {
             if (this.validateOn == 'blur') {
                 this.validate();
@@ -3537,20 +4538,6 @@ class GcdsCheckboxes {
             }
             customEvent.emit(this.value);
         };
-        this.name = undefined;
-        this.legend = undefined;
-        this.options = undefined;
-        this.required = undefined;
-        this.disabled = undefined;
-        this.value = [];
-        this.errorMessage = undefined;
-        this.hint = undefined;
-        this.validator = undefined;
-        this.validateOn = undefined;
-        this.inheritedAttributes = {};
-        this.hasError = undefined;
-        this.lang = undefined;
-        this.errors = [];
     }
     validateName() {
         this.errors = handleErrors(this.errors, 'name', this.name);
@@ -3609,9 +4596,7 @@ class GcdsCheckboxes {
         }
     }
     validateValidator() {
-        if (this.validator && !this.validateOn) {
-            this.validateOn = 'blur';
-        }
+        this._validator = getValidator(this.validator);
     }
     validateHasError() {
         if (this.disabled) {
@@ -3688,9 +4673,9 @@ class GcdsCheckboxes {
         this.validateDisabledCheckbox();
         this.validateHasError();
         this.validateErrorMessage();
-        this.validateValidator();
         // Assign required validator if needed
         requiredValidator(this.el, this.isGroup ? 'checkboxGroup' : 'checkboxSingle');
+        this.validateValidator();
         // Assign checkbox hint to component hint if not group
         if (!this.isGroup &&
             this.optionsArr &&
@@ -3698,19 +4683,11 @@ class GcdsCheckboxes {
             !this.hint) {
             this.hint = this.optionsArr[0].hint;
         }
-        if (this.validator) {
-            this._validator = getValidator(this.validator);
-        }
         if (!valid) {
             logError('gcds-checkboxes', this.errors);
         }
         this.initialState = this.value;
         this.inheritedAttributes = inheritAttributes(this.el, this.shadowElement);
-    }
-    componentWillUpdate() {
-        if (this.validator) {
-            this._validator = getValidator(this.validator);
-        }
     }
     async componentDidUpdate() {
         // Validate props again if changed after render
@@ -3759,7 +4736,7 @@ class GcdsCheckboxes {
                 `${fieldsetAttrs['aria-labelledby']} ${hintID}`.trim();
         }
         if (this.validateRequiredProps()) {
-            return (hAsync(Host, { key: '5f5afb1e5e995078fd2f5ce9d003af8c8c9f236f', onBlur: () => this.isGroup && this.onBlurValidate() }, this.isGroup ? (hAsync("fieldset", Object.assign({ class: "gcds-checkboxes__fieldset" }, fieldsetAttrs), hAsync("legend", { id: "checkboxes-legend", class: "gcds-checkboxes__legend" }, legend, required ? (hAsync("span", { class: "legend__required" }, " (required)")) : null), hint ? (hAsync("gcds-hint", { id: "checkboxes-hint", "hint-id": "checkboxes" }, hint)) : null, errorMessage ? (hAsync("div", null, hAsync("gcds-error-message", { id: "checkboxes-error", messageId: "checkboxes" }, errorMessage))) : null, this.optionsArr &&
+            return (hAsync(Host, { key: '2531c781c8cf539929baa5e749c11b698fbe8f8c', onBlur: () => this.isGroup && this.onBlurValidate() }, this.isGroup ? (hAsync("fieldset", Object.assign({ class: "gcds-checkboxes__fieldset" }, fieldsetAttrs), hAsync("legend", { id: "checkboxes-legend", class: "gcds-checkboxes__legend" }, legend, required ? (hAsync("span", { class: "legend__required" }, " (required)")) : null), hint ? (hAsync("gcds-hint", { id: "checkboxes-hint", "hint-id": "checkboxes" }, hint)) : null, errorMessage ? (hAsync("div", null, hAsync("gcds-error-message", { id: "checkboxes-error", messageId: "checkboxes" }, errorMessage))) : null, this.optionsArr &&
                 this.optionsArr.map(checkbox => {
                     return renderCheckbox(checkbox, this, emitEvent, this.handleInput);
                 }))) : (this.optionsArr &&
@@ -3781,7 +4758,7 @@ class GcdsCheckboxes {
         "hasError": ["validateHasError"],
         "lang": ["watchLang"]
     }; }
-    static get style() { return GcdsCheckboxesStyle0; }
+    static get style() { return gcdsCheckboxesCss; }
     static get cmpMeta() { return {
         "$flags$": 89,
         "$tagName$": "gcds-checkboxes",
@@ -3808,18 +4785,35 @@ class GcdsCheckboxes {
     }; }
 }
 
-const gcdsContainerCss = "@layer reset, default, border, centered, main, margin, padding, size;@layer reset{.sc-gcds-container-h{display:block}.sc-gcds-container-h .gcds-container{box-sizing:border-box;display:block;margin:0;padding:0}.sc-gcds-container-h .gcds-container slot{display:initial}}@layer default{.sc-gcds-container-h .gcds-container[class*=size]{width:var(--gcds-container-size-full)}}@layer border{.sc-gcds-container-h .gcds-container.container-border{border:var(--gcds-container-border)}}@layer centered{.sc-gcds-container-h .gcds-container.container-centered{margin-inline:auto!important}}@layer main{.sc-gcds-container-h .gcds-container.container-main:not(.size-full){width:90%}}@layer margin{.sc-gcds-container-h .gcds-container.m-0{margin:var(--gcds-container-spacing-0)}.sc-gcds-container-h .gcds-container.m-25{margin:var(--gcds-container-spacing-25)}.sc-gcds-container-h .gcds-container.m-50{margin:var(--gcds-container-spacing-50)}.sc-gcds-container-h .gcds-container.m-75{margin:var(--gcds-container-spacing-75)}.sc-gcds-container-h .gcds-container.m-100{margin:var(--gcds-container-spacing-100)}.sc-gcds-container-h .gcds-container.m-125{margin:var(--gcds-container-spacing-125)}.sc-gcds-container-h .gcds-container.m-150{margin:var(--gcds-container-spacing-150)}.sc-gcds-container-h .gcds-container.m-175{margin:var(--gcds-container-spacing-175)}.sc-gcds-container-h .gcds-container.m-200{margin:var(--gcds-container-spacing-200)}.sc-gcds-container-h .gcds-container.m-225{margin:var(--gcds-container-spacing-225)}.sc-gcds-container-h .gcds-container.m-250{margin:var(--gcds-container-spacing-250)}.sc-gcds-container-h .gcds-container.m-300{margin:var(--gcds-container-spacing-300)}.sc-gcds-container-h .gcds-container.m-350{margin:var(--gcds-container-spacing-350)}.sc-gcds-container-h .gcds-container.m-400{margin:var(--gcds-container-spacing-400)}.sc-gcds-container-h .gcds-container.m-450{margin:var(--gcds-container-spacing-450)}.sc-gcds-container-h .gcds-container.m-500{margin:var(--gcds-container-spacing-500)}.sc-gcds-container-h .gcds-container.m-550{margin:var(--gcds-container-spacing-550)}.sc-gcds-container-h .gcds-container.m-600{margin:var(--gcds-container-spacing-600)}.sc-gcds-container-h .gcds-container.m-650{margin:var(--gcds-container-spacing-650)}.sc-gcds-container-h .gcds-container.m-700{margin:var(--gcds-container-spacing-700)}.sc-gcds-container-h .gcds-container.m-750{margin:var(--gcds-container-spacing-750)}.sc-gcds-container-h .gcds-container.m-800{margin:var(--gcds-container-spacing-800)}.sc-gcds-container-h .gcds-container.m-850{margin:var(--gcds-container-spacing-850)}.sc-gcds-container-h .gcds-container.m-900{margin:var(--gcds-container-spacing-900)}.sc-gcds-container-h .gcds-container.m-950{margin:var(--gcds-container-spacing-950)}.sc-gcds-container-h .gcds-container.m-1000{margin:var(--gcds-container-spacing-1000)}.sc-gcds-container-h .gcds-container.m-1050{margin:var(--gcds-container-spacing-1050)}.sc-gcds-container-h .gcds-container.m-1100{margin:var(--gcds-container-spacing-1100)}.sc-gcds-container-h .gcds-container.m-1150{margin:var(--gcds-container-spacing-1150)}.sc-gcds-container-h .gcds-container.m-1200{margin:var(--gcds-container-spacing-1200)}.sc-gcds-container-h .gcds-container.m-1250{margin:var(--gcds-container-spacing-1250)}}@layer padding{.sc-gcds-container-h .gcds-container.p-0{padding:var(--gcds-container-spacing-0)}.sc-gcds-container-h .gcds-container.p-25{padding:var(--gcds-container-spacing-25)}.sc-gcds-container-h .gcds-container.p-50{padding:var(--gcds-container-spacing-50)}.sc-gcds-container-h .gcds-container.p-75{padding:var(--gcds-container-spacing-75)}.sc-gcds-container-h .gcds-container.p-100{padding:var(--gcds-container-spacing-100)}.sc-gcds-container-h .gcds-container.p-125{padding:var(--gcds-container-spacing-125)}.sc-gcds-container-h .gcds-container.p-150{padding:var(--gcds-container-spacing-150)}.sc-gcds-container-h .gcds-container.p-175{padding:var(--gcds-container-spacing-175)}.sc-gcds-container-h .gcds-container.p-200{padding:var(--gcds-container-spacing-200)}.sc-gcds-container-h .gcds-container.p-225{padding:var(--gcds-container-spacing-225)}.sc-gcds-container-h .gcds-container.p-250{padding:var(--gcds-container-spacing-250)}.sc-gcds-container-h .gcds-container.p-300{padding:var(--gcds-container-spacing-300)}.sc-gcds-container-h .gcds-container.p-350{padding:var(--gcds-container-spacing-350)}.sc-gcds-container-h .gcds-container.p-400{padding:var(--gcds-container-spacing-400)}.sc-gcds-container-h .gcds-container.p-450{padding:var(--gcds-container-spacing-450)}.sc-gcds-container-h .gcds-container.p-500{padding:var(--gcds-container-spacing-500)}.sc-gcds-container-h .gcds-container.p-550{padding:var(--gcds-container-spacing-550)}.sc-gcds-container-h .gcds-container.p-600{padding:var(--gcds-container-spacing-600)}.sc-gcds-container-h .gcds-container.p-650{padding:var(--gcds-container-spacing-650)}.sc-gcds-container-h .gcds-container.p-700{padding:var(--gcds-container-spacing-700)}.sc-gcds-container-h .gcds-container.p-750{padding:var(--gcds-container-spacing-750)}.sc-gcds-container-h .gcds-container.p-800{padding:var(--gcds-container-spacing-800)}.sc-gcds-container-h .gcds-container.p-850{padding:var(--gcds-container-spacing-850)}.sc-gcds-container-h .gcds-container.p-900{padding:var(--gcds-container-spacing-900)}.sc-gcds-container-h .gcds-container.p-950{padding:var(--gcds-container-spacing-950)}.sc-gcds-container-h .gcds-container.p-1000{padding:var(--gcds-container-spacing-1000)}.sc-gcds-container-h .gcds-container.p-1050{padding:var(--gcds-container-spacing-1050)}.sc-gcds-container-h .gcds-container.p-1100{padding:var(--gcds-container-spacing-1100)}.sc-gcds-container-h .gcds-container.p-1150{padding:var(--gcds-container-spacing-1150)}.sc-gcds-container-h .gcds-container.p-1200{padding:var(--gcds-container-spacing-1200)}.sc-gcds-container-h .gcds-container.p-1250{padding:var(--gcds-container-spacing-1250)}}@layer size{.sc-gcds-container-h .gcds-container.size-xl{max-width:var(--gcds-container-size-xl)}.sc-gcds-container-h .gcds-container.size-lg{max-width:var(--gcds-container-size-lg)}.sc-gcds-container-h .gcds-container.size-md{max-width:var(--gcds-container-size-md)}.sc-gcds-container-h .gcds-container.size-sm{max-width:var(--gcds-container-size-sm)}.sc-gcds-container-h .gcds-container.size-xs{max-width:var(--gcds-container-size-xs)}}";
-var GcdsContainerStyle0 = gcdsContainerCss;
+const gcdsContainerCss = "@layer reset, default, border, centered, main, margin, padding, size;@layer reset{:host{display:block}:host .gcds-container{box-sizing:border-box;display:block;margin:0;padding:0}:host .gcds-container slot{display:initial}}@layer default{:host .gcds-container[class*=size]{width:var(--gcds-container-size-full)}}@layer border{:host .gcds-container.container-border{border:var(--gcds-container-border)}}@layer centered{:host .gcds-container.container-centered{margin-inline:auto!important}}@layer main{:host .gcds-container.container-main:not(.size-full){width:90%}}@layer margin{:host .gcds-container.m-0{margin:var(--gcds-container-spacing-0)}:host .gcds-container.m-25{margin:var(--gcds-container-spacing-25)}:host .gcds-container.m-50{margin:var(--gcds-container-spacing-50)}:host .gcds-container.m-75{margin:var(--gcds-container-spacing-75)}:host .gcds-container.m-100{margin:var(--gcds-container-spacing-100)}:host .gcds-container.m-125{margin:var(--gcds-container-spacing-125)}:host .gcds-container.m-150{margin:var(--gcds-container-spacing-150)}:host .gcds-container.m-175{margin:var(--gcds-container-spacing-175)}:host .gcds-container.m-200{margin:var(--gcds-container-spacing-200)}:host .gcds-container.m-225{margin:var(--gcds-container-spacing-225)}:host .gcds-container.m-250{margin:var(--gcds-container-spacing-250)}:host .gcds-container.m-300{margin:var(--gcds-container-spacing-300)}:host .gcds-container.m-350{margin:var(--gcds-container-spacing-350)}:host .gcds-container.m-400{margin:var(--gcds-container-spacing-400)}:host .gcds-container.m-450{margin:var(--gcds-container-spacing-450)}:host .gcds-container.m-500{margin:var(--gcds-container-spacing-500)}:host .gcds-container.m-550{margin:var(--gcds-container-spacing-550)}:host .gcds-container.m-600{margin:var(--gcds-container-spacing-600)}:host .gcds-container.m-650{margin:var(--gcds-container-spacing-650)}:host .gcds-container.m-700{margin:var(--gcds-container-spacing-700)}:host .gcds-container.m-750{margin:var(--gcds-container-spacing-750)}:host .gcds-container.m-800{margin:var(--gcds-container-spacing-800)}:host .gcds-container.m-850{margin:var(--gcds-container-spacing-850)}:host .gcds-container.m-900{margin:var(--gcds-container-spacing-900)}:host .gcds-container.m-950{margin:var(--gcds-container-spacing-950)}:host .gcds-container.m-1000{margin:var(--gcds-container-spacing-1000)}:host .gcds-container.m-1050{margin:var(--gcds-container-spacing-1050)}:host .gcds-container.m-1100{margin:var(--gcds-container-spacing-1100)}:host .gcds-container.m-1150{margin:var(--gcds-container-spacing-1150)}:host .gcds-container.m-1200{margin:var(--gcds-container-spacing-1200)}:host .gcds-container.m-1250{margin:var(--gcds-container-spacing-1250)}}@layer padding{:host .gcds-container.p-0{padding:var(--gcds-container-spacing-0)}:host .gcds-container.p-25{padding:var(--gcds-container-spacing-25)}:host .gcds-container.p-50{padding:var(--gcds-container-spacing-50)}:host .gcds-container.p-75{padding:var(--gcds-container-spacing-75)}:host .gcds-container.p-100{padding:var(--gcds-container-spacing-100)}:host .gcds-container.p-125{padding:var(--gcds-container-spacing-125)}:host .gcds-container.p-150{padding:var(--gcds-container-spacing-150)}:host .gcds-container.p-175{padding:var(--gcds-container-spacing-175)}:host .gcds-container.p-200{padding:var(--gcds-container-spacing-200)}:host .gcds-container.p-225{padding:var(--gcds-container-spacing-225)}:host .gcds-container.p-250{padding:var(--gcds-container-spacing-250)}:host .gcds-container.p-300{padding:var(--gcds-container-spacing-300)}:host .gcds-container.p-350{padding:var(--gcds-container-spacing-350)}:host .gcds-container.p-400{padding:var(--gcds-container-spacing-400)}:host .gcds-container.p-450{padding:var(--gcds-container-spacing-450)}:host .gcds-container.p-500{padding:var(--gcds-container-spacing-500)}:host .gcds-container.p-550{padding:var(--gcds-container-spacing-550)}:host .gcds-container.p-600{padding:var(--gcds-container-spacing-600)}:host .gcds-container.p-650{padding:var(--gcds-container-spacing-650)}:host .gcds-container.p-700{padding:var(--gcds-container-spacing-700)}:host .gcds-container.p-750{padding:var(--gcds-container-spacing-750)}:host .gcds-container.p-800{padding:var(--gcds-container-spacing-800)}:host .gcds-container.p-850{padding:var(--gcds-container-spacing-850)}:host .gcds-container.p-900{padding:var(--gcds-container-spacing-900)}:host .gcds-container.p-950{padding:var(--gcds-container-spacing-950)}:host .gcds-container.p-1000{padding:var(--gcds-container-spacing-1000)}:host .gcds-container.p-1050{padding:var(--gcds-container-spacing-1050)}:host .gcds-container.p-1100{padding:var(--gcds-container-spacing-1100)}:host .gcds-container.p-1150{padding:var(--gcds-container-spacing-1150)}:host .gcds-container.p-1200{padding:var(--gcds-container-spacing-1200)}:host .gcds-container.p-1250{padding:var(--gcds-container-spacing-1250)}}@layer size{:host .gcds-container.size-xl{max-width:var(--gcds-container-size-xl)}:host .gcds-container.size-lg{max-width:var(--gcds-container-size-lg)}:host .gcds-container.size-md{max-width:var(--gcds-container-size-md)}:host .gcds-container.size-sm{max-width:var(--gcds-container-size-sm)}:host .gcds-container.size-xs{max-width:var(--gcds-container-size-xs)}}";
 
 class GcdsContainer {
     constructor(hostRef) {
         registerInstance(this, hostRef);
+        /**
+         * Props
+         */
+        /**
+        * Defines if the container has a border.
+         */
         this.border = false;
+        /**
+         * Defines if the container is centered.
+         */
         this.centered = false;
+        /**
+         * Defines if the container is the main page container. When true,
+         * the width will be set to 90% for smaller screens to ensure consistency
+         * with the responsiveness of other core layout components (header + footer).
+         */
         this.mainContainer = false;
-        this.margin = undefined;
-        this.padding = undefined;
+        /**
+         * Defines container size.
+         */
         this.size = 'full';
+        /**
+         * Set tag for container.
+         */
         this.tag = 'div';
     }
     render() {
@@ -3836,7 +4830,7 @@ class GcdsContainer {
           ` }, hAsync("slot", { key: 'e8056d57376fc6322f29ec99b5349808b70fd1a8' }))));
     }
     get el() { return getElement(this); }
-    static get style() { return GcdsContainerStyle0; }
+    static get style() { return gcdsContainerCss; }
     static get cmpMeta() { return {
         "$flags$": 9,
         "$tagName$": "gcds-container",
@@ -3908,18 +4902,17 @@ const I18N$n = {
   },
 };
 
-const gcdsDateInputCss = "@layer reset, default, hint, error;@layer reset{.sc-gcds-date-input-h{display:block}.sc-gcds-date-input-h .gcds-date-input__fieldset{border:0;min-inline-size:auto;padding:0}.sc-gcds-date-input-h .gcds-date-input__fieldset legend{padding:0}}@layer default{.sc-gcds-date-input-h .gcds-date-input__fieldset legend{color:var(--gcds-date-input-fieldset-text);font:var(--gcds-date-input-fieldset-font-desktop)}.sc-gcds-date-input-h .gcds-date-input__fieldset legend .legend__required{font:var(--gcds-date-input-fieldset-required-font-desktop);margin:var(--gcds-date-input-fieldset-required-margin)!important;vertical-align:middle}@media only screen and (width < 48em){.sc-gcds-date-input-h .gcds-date-input__fieldset legend{font:var(--gcds-date-input-fieldset-font-mobile)}.sc-gcds-date-input-h .gcds-date-input__fieldset legend .legend__required{font:var(--gcds-date-input-fieldset-required-font-mobile)}}.sc-gcds-date-input-h .gcds-date-input__day,.sc-gcds-date-input-h .gcds-date-input__month,.sc-gcds-date-input-h .gcds-date-input__year{display:inline-block;margin-inline-end:var(--gcds-date-input-margin);--gcds-label-font-desktop:var(--gcds-date-input-label-font-desktop);--gcds-label-font-mobile:var(--gcds-date-input-label-font-mobile )}}@layer hint{.sc-gcds-date-input-h gcds-hint{margin:var(--gcds-date-input-fieldset-hint-margin)}}@layer error{.sc-gcds-date-input-h gcds-input.gcds-date-input--error::part(input),.sc-gcds-date-input-h gcds-select.gcds-date-input--error::part(select){border-color:var(--gcds-date-input-danger-border)}}";
-var GcdsDateInputStyle0 = gcdsDateInputCss;
+const gcdsDateInputCss = "@layer reset, default, hint, error;@layer reset{:host{display:block}:host .gcds-date-input__fieldset{border:0;min-inline-size:auto;padding:0}:host .gcds-date-input__fieldset legend{padding:0}}@layer default{:host .gcds-date-input__fieldset legend{color:var(--gcds-date-input-fieldset-text);font:var(--gcds-date-input-fieldset-font-desktop)}:host .gcds-date-input__fieldset legend .legend__required{font:var(--gcds-date-input-fieldset-required-font-desktop);margin:var(--gcds-date-input-fieldset-required-margin)!important;vertical-align:middle}@media only screen and (width < 48em){:host .gcds-date-input__fieldset legend{font:var(--gcds-date-input-fieldset-font-mobile)}:host .gcds-date-input__fieldset legend .legend__required{font:var(--gcds-date-input-fieldset-required-font-mobile)}}:host .gcds-date-input__day,:host .gcds-date-input__month,:host .gcds-date-input__year{display:inline-block;margin-inline-end:var(--gcds-date-input-margin);--gcds-label-font-desktop:var(--gcds-date-input-label-font-desktop);--gcds-label-font-mobile:var(--gcds-date-input-label-font-mobile )}}@layer hint{:host gcds-hint{margin:var(--gcds-date-input-fieldset-hint-margin)}}@layer error{:host gcds-input.gcds-date-input--error::part(input),:host gcds-select.gcds-date-input--error::part(select){border-color:var(--gcds-date-input-danger-border)}}";
 
 class GcdsDateInput {
     constructor(hostRef) {
         registerInstance(this, hostRef);
-        this.gcdsFocus = createEvent(this, "gcdsFocus", 7);
-        this.gcdsBlur = createEvent(this, "gcdsBlur", 7);
-        this.gcdsInput = createEvent(this, "gcdsInput", 7);
-        this.gcdsChange = createEvent(this, "gcdsChange", 7);
-        this.gcdsError = createEvent(this, "gcdsError", 7);
-        this.gcdsValid = createEvent(this, "gcdsValid", 7);
+        this.gcdsFocus = createEvent(this, "gcdsFocus");
+        this.gcdsBlur = createEvent(this, "gcdsBlur");
+        this.gcdsInput = createEvent(this, "gcdsInput");
+        this.gcdsChange = createEvent(this, "gcdsChange");
+        this.gcdsError = createEvent(this, "gcdsError");
+        this.gcdsValid = createEvent(this, "gcdsValid");
         if (hostRef.$hostElement$["s-ei"]) {
             this.internals = hostRef.$hostElement$["s-ei"];
         }
@@ -3928,6 +4921,46 @@ class GcdsDateInput {
             hostRef.$hostElement$["s-ei"] = this.internals;
         }
         this._validator = defaultValidator;
+        /**
+         * Specifies if a form field is required or not.
+         */
+        this.required = false;
+        /**
+         * Specifies if the date input is disabled or not.
+         */
+        this.disabled = false;
+        /**
+         * Set event to call validator
+         */
+        this.validateOn = 'blur';
+        /**
+         * States
+         */
+        /**
+         * State to track individual month value
+         */
+        this.monthValue = '';
+        /**
+         * State to track individual month value
+         */
+        this.dayValue = '';
+        /**
+         * State to track individual month value
+         */
+        this.yearValue = '';
+        /**
+         * Specifies if the date input is invalid.
+         */
+        this.hasError = {
+            day: false,
+            month: false,
+            year: false,
+        };
+        /**
+         * State to track validation on properties
+         * Contains a list of properties that have an error associated with them
+         */
+        this.errors = [];
         this.onBlur = () => {
             if (this.validateOn == 'blur') {
                 this.validate();
@@ -3953,26 +4986,6 @@ class GcdsDateInput {
                 this.el.dispatchEvent(changeEvt);
             }
         };
-        this.name = undefined;
-        this.legend = undefined;
-        this.format = undefined;
-        this.value = undefined;
-        this.required = false;
-        this.hint = undefined;
-        this.errorMessage = undefined;
-        this.disabled = false;
-        this.validator = undefined;
-        this.validateOn = 'blur';
-        this.monthValue = '';
-        this.dayValue = '';
-        this.yearValue = '';
-        this.hasError = {
-            day: false,
-            month: false,
-            year: false,
-        };
-        this.errors = [];
-        this.lang = undefined;
     }
     validateName() {
         if (!this.name) {
@@ -4188,7 +5201,7 @@ class GcdsDateInput {
         "value": ["validateValue"],
         "validator": ["validateValidator"]
     }; }
-    static get style() { return GcdsDateInputStyle0; }
+    static get style() { return gcdsDateInputCss; }
     static get cmpMeta() { return {
         "$flags$": 89,
         "$tagName$": "gcds-date-input",
@@ -4228,15 +5241,23 @@ const I18N$m = {
   },
 };
 
-const gcdsDateModifiedCss = "@layer reset, default;@layer reset{.sc-gcds-date-modified-h{display:block}.sc-gcds-date-modified-h dl{margin:0}.sc-gcds-date-modified-h slot{display:initial}}@layer default{.sc-gcds-date-modified-h .gcds-date-modified{margin:var(--gcds-date-modified-margin)}.sc-gcds-date-modified-h .gcds-date-modified :is(dt,gcds-text,dd){display:inline}.sc-gcds-date-modified-h .gcds-date-modified dd{margin:var(--gcds-date-modified-description-margin)}.sc-gcds-date-modified-h .gcds-date-modified gcds-text::part(text){font:var(--gcds-date-modified-font)}}";
-var GcdsDateModifiedStyle0 = gcdsDateModifiedCss;
+const gcdsDateModifiedCss = "@layer reset, default;@layer reset{:host{display:block}:host dl{margin:0}:host slot{display:initial}}@layer default{:host .gcds-date-modified{margin:var(--gcds-date-modified-margin)}:host .gcds-date-modified :is(dt,gcds-text,dd){display:inline}:host .gcds-date-modified dd{margin:var(--gcds-date-modified-description-margin)}:host .gcds-date-modified gcds-text::part(text){font:var(--gcds-date-modified-font)}}";
 
 class GcdsDateModified {
     constructor(hostRef) {
         registerInstance(this, hostRef);
+        /**
+         * Props
+         */
+        /**
+         * Set date modified type. Default is date.
+         */
         this.type = 'date';
+        /**
+         * State to track validation on properties
+         * Contains a list of properties that have an error associated with them
+         */
         this.errors = [];
-        this.lang = undefined;
     }
     /*
      * Observe lang attribute change
@@ -4278,7 +5299,7 @@ class GcdsDateModified {
         return (hAsync(Host, { key: 'ae1d5ceeefb2826a675edeca1f2fa0c81828b425' }, this.validateRequiredProps() && (hAsync("dl", { key: '989b2ca91b4887f0a47c956c022550b475221a7d', class: "gcds-date-modified" }, hAsync("dt", { key: '1d05ceb07362ad9b010769489ad3b0a057d9d754' }, hAsync("gcds-text", { key: '61bb8fbe85f6614eeec0ebb9fabacc7b710dfc8d', display: "inline", "margin-bottom": "0" }, type === 'version' ? I18N$m[lang].version : I18N$m[lang].date)), hAsync("dd", { key: '45cdfd7944ba0ca7ea4251d673eaf2f59f2346a0' }, hAsync("gcds-text", { key: 'f2c0744b1a28ff5cd98ff8e3da8ce44384656b4d', display: "inline", "margin-bottom": "0" }, type === 'version' ? (hAsync("slot", null)) : (hAsync("time", null, hAsync("slot", null)))))))));
     }
     get el() { return getElement(this); }
-    static get style() { return GcdsDateModifiedStyle0; }
+    static get style() { return gcdsDateModifiedCss; }
     static get cmpMeta() { return {
         "$flags$": 9,
         "$tagName$": "gcds-date-modified",
@@ -4293,16 +5314,17 @@ class GcdsDateModified {
     }; }
 }
 
-const gcdsDetailsCss = "@layer reset, default, hover, focus, print;@layer reset{.sc-gcds-details-h{display:block}.sc-gcds-details-h .details__summary{background-color:transparent;border-color:transparent;cursor:pointer;display:block}.sc-gcds-details-h .details__panel slot{display:initial}.sc-gcds-details-h .details__panel.sc-gcds-details-s > :first-child, .sc-gcds-details-h .details__panel .sc-gcds-details-s > :first-child{margin-block-start:0}.sc-gcds-details-h .details__panel.sc-gcds-details-s > :last-child, .sc-gcds-details-h .details__panel .sc-gcds-details-s > :last-child{margin-block-end:0}.sc-gcds-details-h .details__panel.sc-gcds-details-s > ol, .sc-gcds-details-h .details__panel .sc-gcds-details-s > ol,.sc-gcds-details-h .details__panel.sc-gcds-details-s > ul, .sc-gcds-details-h .details__panel .sc-gcds-details-s > ul{padding:0}}@layer default{.sc-gcds-details-h .gcds-details .details__summary{color:var(--gcds-details-default-text);font:var(--gcds-details-font-desktop);padding:var(--gcds-details-summary-padding);position:relative;text-align:left;text-decoration-color:currentColor;text-decoration-line:underline;text-decoration-style:solid;text-decoration-thickness:var(\n        --gcds-details-default-decoration-thickness\n      );text-underline-offset:.2em;transition:background-color .15s ease-in-out,color .15s ease-in-out}@media only screen and (width < 48em){.sc-gcds-details-h .gcds-details .details__summary{font:var(--gcds-details-font-mobile)}}.sc-gcds-details-h .gcds-details .details__summary:before{border-block-end:var(--gcds-details-summary-arrow-border-top-bottom) solid transparent;border-block-start:var(--gcds-details-summary-arrow-border-top-bottom) solid transparent;border-inline-start:var(--gcds-details-summary-arrow-border-left) solid currentColor;content:\"\";height:0;left:var(--gcds-details-summary-arrow-left);position:absolute;top:var(--gcds-details-summary-arrow-top);transition:transform .15s ease-in-out;width:0}.sc-gcds-details-h .gcds-details .details__summary[aria-expanded=false]+.details__panel{display:none}.sc-gcds-details-h .gcds-details .details__summary[aria-expanded=true]:before{transform:rotate(90deg)}.sc-gcds-details-h .gcds-details .details__panel{margin:var(--gcds-details-panel-margin);padding:var(--gcds-details-panel-padding);position:relative}.sc-gcds-details-h .gcds-details .details__panel:before{background-color:var(--gcds-details-panel-border-color);content:\"\";display:block;height:100%;left:0;position:absolute;top:0;width:var(--gcds-details-panel-border-width)}.sc-gcds-details-h .gcds-details .details__panel.sc-gcds-details-s > *, .sc-gcds-details-h .gcds-details .details__panel .sc-gcds-details-s > *{font:var(--gcds-details-font-desktop)}@media only screen and (width < 48em){.sc-gcds-details-h .gcds-details .details__panel.sc-gcds-details-s > *, .sc-gcds-details-h .gcds-details .details__panel .sc-gcds-details-s > *{font:var(--gcds-details-font-mobile)}}.sc-gcds-details-h .gcds-details .details__panel.sc-gcds-details-s > :not(:last-child), .sc-gcds-details-h .gcds-details .details__panel .sc-gcds-details-s > :not(:last-child){margin-block-end:var(--gcds-details-panel-slotted-margin)!important;margin-block-start:0!important}.sc-gcds-details-h .gcds-details .details__panel.sc-gcds-details-s > ol, .sc-gcds-details-h .gcds-details .details__panel .sc-gcds-details-s > ol,.sc-gcds-details-h .gcds-details .details__panel.sc-gcds-details-s > ul, .sc-gcds-details-h .gcds-details .details__panel .sc-gcds-details-s > ul{margin-inline-start:var(\n          --gcds-details-panel-slotted-margin\n        )!important}.sc-gcds-details-h .gcds-details .details__panel.sc-gcds-details-s > small, .sc-gcds-details-h .gcds-details .details__panel .sc-gcds-details-s > small{font:var(--gcds-details-font-small-desktop)}@media only screen and (width < 48em){.sc-gcds-details-h .gcds-details .details__panel.sc-gcds-details-s > small, .sc-gcds-details-h .gcds-details .details__panel .sc-gcds-details-s > small{font:var(--gcds-details-font-small-mobile)}}}@layer hover{@media (hover:hover){.sc-gcds-details-h .gcds-details .details__summary:hover:not(:focus){color:var(--gcds-details-hover-text);text-decoration-thickness:var(--gcds-details-hover-decoration-thickness);text-underline-offset:.2em}.sc-gcds-details-h .gcds-details .details__summary:hover:not(:focus):before{color:var(--gcds-details-hover-text)}}}@layer focus{.sc-gcds-details-h .gcds-details .details__summary:focus{background-color:var(--gcds-details-focus-background);border-radius:var(--gcds-details-focus-border-radius);box-shadow:var(--gcds-details-focus-box-shadow);color:var(--gcds-details-focus-text);outline:var(--gcds-details-focus-outline);outline-offset:var(--gcds-details-focus-outline-offset);text-decoration:none}}@layer print{@media print{.sc-gcds-details-h .gcds-details .details__summary{color:var(--gcds-details-print-summary-text);font-weight:var(--gcds-details-print-summary-font-weight);text-decoration:none}.sc-gcds-details-h .gcds-details .details__summary:before{transform:rotate(90deg)}.sc-gcds-details-h .gcds-details .details__panel{border-left:var(--gcds-details-panel-border-width) solid var(--gcds-details-panel-border-color);display:block}}}";
-var GcdsDetailsStyle0 = gcdsDetailsCss;
+const gcdsDetailsCss = "@layer reset, default, hover, focus, print;@layer reset{:host{display:block}:host .details__summary{background-color:transparent;border-color:transparent;cursor:pointer;display:block}:host .details__panel slot{display:initial}:host .details__panel ::slotted(:first-child){margin-block-start:0}:host .details__panel ::slotted(:last-child){margin-block-end:0}:host .details__panel ::slotted(ol),:host .details__panel ::slotted(ul){padding:0}}@layer default{:host .gcds-details .details__summary{color:var(--gcds-details-default-text);font:var(--gcds-details-font-desktop);padding:var(--gcds-details-summary-padding);position:relative;text-align:left;text-decoration-color:currentColor;text-decoration-line:underline;text-decoration-style:solid;text-decoration-thickness:var(\n        --gcds-details-default-decoration-thickness\n      );text-underline-offset:.2em;transition:background-color .15s ease-in-out,color .15s ease-in-out}@media only screen and (width < 48em){:host .gcds-details .details__summary{font:var(--gcds-details-font-mobile)}}:host .gcds-details .details__summary:before{border-block-end:var(--gcds-details-summary-arrow-border-top-bottom) solid transparent;border-block-start:var(--gcds-details-summary-arrow-border-top-bottom) solid transparent;border-inline-start:var(--gcds-details-summary-arrow-border-left) solid currentColor;content:\"\";height:0;left:var(--gcds-details-summary-arrow-left);position:absolute;top:var(--gcds-details-summary-arrow-top);transition:transform .15s ease-in-out;width:0}:host .gcds-details .details__summary[aria-expanded=false]+.details__panel{display:none}:host .gcds-details .details__summary[aria-expanded=true]:before{transform:rotate(90deg)}:host .gcds-details .details__panel{margin:var(--gcds-details-panel-margin);padding:var(--gcds-details-panel-padding);position:relative}:host .gcds-details .details__panel:before{background-color:var(--gcds-details-panel-border-color);content:\"\";display:block;height:100%;left:0;position:absolute;top:0;width:var(--gcds-details-panel-border-width)}:host .gcds-details .details__panel ::slotted(*){font:var(--gcds-details-font-desktop)}@media only screen and (width < 48em){:host .gcds-details .details__panel ::slotted(*){font:var(--gcds-details-font-mobile)}}:host .gcds-details .details__panel ::slotted(:not(:last-child)){margin-block-end:var(--gcds-details-panel-slotted-margin)!important;margin-block-start:0!important}:host .gcds-details .details__panel ::slotted(ol),:host .gcds-details .details__panel ::slotted(ul){margin-inline-start:var(\n          --gcds-details-panel-slotted-margin\n        )!important}:host .gcds-details .details__panel ::slotted(small){font:var(--gcds-details-font-small-desktop)}@media only screen and (width < 48em){:host .gcds-details .details__panel ::slotted(small){font:var(--gcds-details-font-small-mobile)}}}@layer hover{@media (hover:hover){:host .gcds-details .details__summary:hover:not(:focus){color:var(--gcds-details-hover-text);text-decoration-thickness:var(--gcds-details-hover-decoration-thickness);text-underline-offset:.2em}:host .gcds-details .details__summary:hover:not(:focus):before{color:var(--gcds-details-hover-text)}}}@layer focus{:host .gcds-details .details__summary:focus{background-color:var(--gcds-details-focus-background);border-radius:var(--gcds-details-focus-border-radius);box-shadow:var(--gcds-details-focus-box-shadow);color:var(--gcds-details-focus-text);outline:var(--gcds-details-focus-outline);outline-offset:var(--gcds-details-focus-outline-offset);text-decoration:none}}@layer print{@media print{:host .gcds-details .details__summary{color:var(--gcds-details-print-summary-text);font-weight:var(--gcds-details-print-summary-font-weight);text-decoration:none}:host .gcds-details .details__summary:before{transform:rotate(90deg)}:host .gcds-details .details__panel{border-left:var(--gcds-details-panel-border-width) solid var(--gcds-details-panel-border-color);display:block}}}";
 
 class GcdsDetails {
     constructor(hostRef) {
         registerInstance(this, hostRef);
-        this.gcdsFocus = createEvent(this, "gcdsFocus", 7);
-        this.gcdsBlur = createEvent(this, "gcdsBlur", 7);
-        this.gcdsClick = createEvent(this, "gcdsClick", 7);
-        this.detailsTitle = undefined;
+        this.gcdsFocus = createEvent(this, "gcdsFocus");
+        this.gcdsBlur = createEvent(this, "gcdsBlur");
+        this.gcdsClick = createEvent(this, "gcdsClick");
+        /**
+         * Defines if the details panel is open by default or not.
+         */
         this.open = false;
     }
     /**
@@ -4324,7 +5346,7 @@ class GcdsDetails {
             }, class: "details__summary", id: "details__summary" }, detailsTitle), hAsync("div", { key: '483e4e1f8cca9cd32c68acfdc9e79b11332faf6c', id: "details__panel", class: "details__panel", "aria-labelledby": "details__summary" }, hAsync("slot", { key: '6a91db99b4d14fc480199620a46793d8579a394c' })))));
     }
     get el() { return getElement(this); }
-    static get style() { return GcdsDetailsStyle0; }
+    static get style() { return gcdsDetailsCss; }
     static get cmpMeta() { return {
         "$flags$": 9,
         "$tagName$": "gcds-details",
@@ -4339,20 +5361,18 @@ class GcdsDetails {
     }; }
 }
 
-const gcdsErrorMessageCss = "@layer reset, default;@layer reset{.sc-gcds-error-message-h{display:inline-block}.sc-gcds-error-message-h slot{display:initial}}@layer default{.sc-gcds-error-message-h .error-message gcds-icon,.sc-gcds-error-message-h .error-message::part(text){color:var(--gcds-error-message-text-color)}}";
-var GcdsErrorMessageStyle0 = gcdsErrorMessageCss;
+const gcdsErrorMessageCss = "@layer reset, default;@layer reset{:host{display:inline-block}:host slot{display:initial}}@layer default{:host .error-message gcds-icon,:host .error-message::part(text){color:var(--gcds-error-message-text-color)}}";
 
 class GcdsErrorMessage {
     constructor(hostRef) {
         registerInstance(this, hostRef);
-        this.messageId = undefined;
     }
     render() {
         const { messageId } = this;
         return (hAsync(Host, { key: 'a222583eefb309d128159fc38e743d2b0881a38f', id: `error-message-${messageId}`, class: "gcds-error-message-wrapper" }, hAsync("gcds-text", { key: 'df574c45206ce2456d7a791068825e2e1e54a7ca', class: "error-message", role: "alert", "margin-bottom": "75" }, hAsync("gcds-icon", { key: '369e900ba0e1134abebd736ab6e0338f93b817ba', name: "warning-triangle", "margin-right": "50" }), hAsync("strong", { key: 'd61fa293a5660c17a60eed61906e45d4aa938e00' }, hAsync("slot", { key: '22ddfe43ba49f79f5034128c46debcae3c8c6a61' })))));
     }
     get el() { return getElement(this); }
-    static get style() { return GcdsErrorMessageStyle0; }
+    static get style() { return gcdsErrorMessageCss; }
     static get cmpMeta() { return {
         "$flags$": 9,
         "$tagName$": "gcds-error-message",
@@ -4376,17 +5396,19 @@ const I18N$l = {
   },
 };
 
-const gcdsErrorSummaryCss = "@layer reset, default, compact;@layer reset{.sc-gcds-error-summary-h{display:block}}@layer default{.sc-gcds-error-summary-h{container:component summary/inline-size}.sc-gcds-error-summary-h .gcds-error-summary{border:var(--gcds-error-summary-border-width) solid var(--gcds-error-summary-border-color);color:var(--gcds-error-summary-text);display:none;margin:var(--gcds-error-summary-margin);padding:var(--gcds-error-summary-padding);transition:background .15s ease-in-out,border .15s ease-in-out,color .15s ease-in-out}.sc-gcds-error-summary-h .gcds-error-summary.gcds-show{display:block}.sc-gcds-error-summary-h .gcds-error-summary .summary__errorlist{margin:var(--gcds-error-summary-list-margin);padding:0}.sc-gcds-error-summary-h .gcds-error-summary .summary__errorlist .summary__listitem{max-width:var(--gcds-error-summary-max-width)}.sc-gcds-error-summary-h .gcds-error-summary .summary__errorlist .summary__listitem:not(:last-child){padding:var(--gcds-error-summary-list-item-padding)}.sc-gcds-error-summary-h .gcds-error-summary .summary__errorlist .summary__listitem gcds-link::part(link):not(:focus){color:var(--gcds-error-summary-link-color)}}@layer compact{@container summary (width < 24em){.sc-gcds-error-summary-h .gcds-error-summary{padding:var(--gcds-error-summary-mobile-padding)}}}";
-var GcdsErrorSummaryStyle0 = gcdsErrorSummaryCss;
+const gcdsErrorSummaryCss = "@layer reset, default, compact;@layer reset{:host{display:block}}@layer default{:host{container:component summary/inline-size}:host .gcds-error-summary{border:var(--gcds-error-summary-border-width) solid var(--gcds-error-summary-border-color);color:var(--gcds-error-summary-text);display:none;margin:var(--gcds-error-summary-margin);padding:var(--gcds-error-summary-padding);transition:background .15s ease-in-out,border .15s ease-in-out,color .15s ease-in-out}:host .gcds-error-summary.gcds-show{display:block}:host .gcds-error-summary .summary__errorlist{margin:var(--gcds-error-summary-list-margin);padding:0}:host .gcds-error-summary .summary__errorlist .summary__listitem{max-width:var(--gcds-error-summary-max-width)}:host .gcds-error-summary .summary__errorlist .summary__listitem:not(:last-child){padding:var(--gcds-error-summary-list-item-padding)}:host .gcds-error-summary .summary__errorlist .summary__listitem gcds-link::part(link):not(:focus){color:var(--gcds-error-summary-link-color)}}@layer compact{@container summary (width < 24em){:host .gcds-error-summary{padding:var(--gcds-error-summary-mobile-padding)}}}";
 
 class GcdsErrorSummary {
     constructor(hostRef) {
         registerInstance(this, hostRef);
-        this.errorLinksObject = {};
-        this.heading = undefined;
+        /**
+         * Specifies if the error summary should listen for GcdsError event to generate error list.
+         */
         this.listen = true;
-        this.errorLinks = undefined;
-        this.lang = undefined;
+        this.errorLinksObject = {};
+        /**
+         * Queue of erros
+         */
         this.errorQueue = {};
         this.hasSubmitted = false;
     }
@@ -4516,7 +5538,7 @@ class GcdsErrorSummary {
         "listen": ["listenChanged"],
         "errorLinks": ["errorLinksChanged"]
     }; }
-    static get style() { return GcdsErrorSummaryStyle0; }
+    static get style() { return gcdsErrorSummaryCss; }
     static get cmpMeta() { return {
         "$flags$": 9,
         "$tagName$": "gcds-error-summary",
@@ -4543,15 +5565,14 @@ const I18N$k = {
   },
 };
 
-const gcdsFieldsetCss = "@layer reset, default, size;@layer reset{.sc-gcds-fieldset-h{display:block}.sc-gcds-fieldset-h .gcds-fieldset{border:0;min-inline-size:auto;padding:0}.sc-gcds-fieldset-h legend{padding:0}.sc-gcds-fieldset-h slot{display:block;margin:0}}@layer default{.gcds-fieldset{color:var(--gcds-fieldset-default-text)}.gcds-fieldset legend{margin:var(--gcds-fieldset-legend-margin)!important}}@layer size{.gcds-fieldset legend.size-h2{font:var(--gcds-fieldset-legend-size-h2-desktop)}@media only screen and (width < 48em){.gcds-fieldset legend.size-h2{font:var(--gcds-fieldset-legend-size-h2-mobile)}}.gcds-fieldset legend.size-h3{font:var(--gcds-fieldset-legend-size-h3-desktop)}@media only screen and (width < 48em){.gcds-fieldset legend.size-h3{font:var(--gcds-fieldset-legend-size-h3-mobile)}}.gcds-fieldset legend.size-h4{font:var(--gcds-fieldset-legend-size-h4-desktop)}@media only screen and (width < 48em){.gcds-fieldset legend.size-h4{font:var(--gcds-fieldset-legend-size-h4-mobile)}}.gcds-fieldset legend.size-h5{font:var(--gcds-fieldset-legend-size-h5-desktop)}@media only screen and (width < 48em){.gcds-fieldset legend.size-h5{font:var(--gcds-fieldset-legend-size-h5-mobile)}}.gcds-fieldset legend.size-h6{font:var(--gcds-fieldset-legend-size-h6-desktop)}@media only screen and (width < 48em){.gcds-fieldset legend.size-h6{font:var(--gcds-fieldset-legend-size-h6-mobile)}}}";
-var GcdsFieldsetStyle0 = gcdsFieldsetCss;
+const gcdsFieldsetCss = "@layer reset, default, size;@layer reset{:host{display:block}:host .gcds-fieldset{border:0;min-inline-size:auto;padding:0}:host legend{padding:0}:host slot{display:block;margin:0}}@layer default{.gcds-fieldset{color:var(--gcds-fieldset-default-text)}.gcds-fieldset legend{margin:var(--gcds-fieldset-legend-margin)!important}}@layer size{.gcds-fieldset legend.size-h2{font:var(--gcds-fieldset-legend-size-h2-desktop)}@media only screen and (width < 48em){.gcds-fieldset legend.size-h2{font:var(--gcds-fieldset-legend-size-h2-mobile)}}.gcds-fieldset legend.size-h3{font:var(--gcds-fieldset-legend-size-h3-desktop)}@media only screen and (width < 48em){.gcds-fieldset legend.size-h3{font:var(--gcds-fieldset-legend-size-h3-mobile)}}.gcds-fieldset legend.size-h4{font:var(--gcds-fieldset-legend-size-h4-desktop)}@media only screen and (width < 48em){.gcds-fieldset legend.size-h4{font:var(--gcds-fieldset-legend-size-h4-mobile)}}.gcds-fieldset legend.size-h5{font:var(--gcds-fieldset-legend-size-h5-desktop)}@media only screen and (width < 48em){.gcds-fieldset legend.size-h5{font:var(--gcds-fieldset-legend-size-h5-mobile)}}.gcds-fieldset legend.size-h6{font:var(--gcds-fieldset-legend-size-h6-desktop)}@media only screen and (width < 48em){.gcds-fieldset legend.size-h6{font:var(--gcds-fieldset-legend-size-h6-mobile)}}}";
 
 class GcdsFieldset {
     constructor(hostRef) {
         registerInstance(this, hostRef);
-        this.hint = undefined;
-        this.legend = undefined;
-        this.legendSize = undefined;
+        /**
+         * Set additional HTML attributes not available in component properties
+         */
         this.inheritedAttributes = {};
     }
     validateLegendSize(newValue) {
@@ -4575,7 +5596,7 @@ class GcdsFieldset {
     static get watchers() { return {
         "legendSize": ["validateLegendSize"]
     }; }
-    static get style() { return GcdsFieldsetStyle0; }
+    static get style() { return gcdsFieldsetCss; }
     static get cmpMeta() { return {
         "$flags$": 25,
         "$tagName$": "gcds-fieldset",
@@ -4620,19 +5641,18 @@ const I18N$j = {
   },
 };
 
-const gcdsFileUploaderCss = "@layer reset, default, input, files, disabled, error, focus, active;@layer reset{.sc-gcds-file-uploader-h{display:block}.sc-gcds-file-uploader-h .gcds-file-uploader-wrapper{border:0;margin:0;padding:0}.sc-gcds-file-uploader-h .gcds-file-uploader-wrapper button{cursor:pointer;font:inherit;outline:0}}@layer default{.sc-gcds-file-uploader-h .gcds-file-uploader-wrapper{align-items:flex-start;color:var(--gcds-file-uploader-default-text);display:flex;flex-direction:column;font:var(--gcds-file-uploader-font-desktop);max-width:90%;transition:color .15s ease-in-out}@media only screen and (width < 48em){.sc-gcds-file-uploader-h .gcds-file-uploader-wrapper{font:var(--gcds-file-uploader-font-mobile)}}.sc-gcds-file-uploader-h .gcds-file-uploader-wrapper button{border-radius:var(--gcds-file-uploader-file-button-border-radius);transition:all .15s ease-in-out}}@layer input{.sc-gcds-file-uploader-h .gcds-file-uploader-wrapper .file-uploader__input{display:inline-block;position:relative}.sc-gcds-file-uploader-h .gcds-file-uploader-wrapper .file-uploader__input button{background-color:var(--gcds-file-uploader-button-background);border:var(--gcds-file-uploader-button-border-width) solid var(--gcds-file-uploader-button-text);color:var(--gcds-file-uploader-button-text);font-weight:var(--gcds-file-uploader-button-font-weight);margin:var(--gcds-file-uploader-button-margin);padding:var(--gcds-file-uploader-button-padding)}.sc-gcds-file-uploader-h .gcds-file-uploader-wrapper .file-uploader__input input{cursor:pointer;height:100%;left:0;opacity:0;position:absolute;top:0;width:100%}.sc-gcds-file-uploader-h .gcds-file-uploader-wrapper .file-uploader__input input::-webkit-file-upload-button{cursor:pointer}.sc-gcds-file-uploader-h .gcds-file-uploader-wrapper .file-uploader__input #file-uploader__summary{height:0;margin:0;overflow:hidden;visibility:hidden}}@layer files{.sc-gcds-file-uploader-h .gcds-file-uploader-wrapper .file-uploader__uploaded-file{align-items:center;border:var(--gcds-file-uploader-file-border-width) solid var(--gcds-file-uploader-file-border-color);display:flex;justify-content:space-between;max-width:var(--gcds-file-uploader-file-max-width);padding:var(--gcds-file-uploader-file-padding);width:100%}.sc-gcds-file-uploader-h .gcds-file-uploader-wrapper .file-uploader__uploaded-file:not(:last-of-type){border-block-end:0}.sc-gcds-file-uploader-h .gcds-file-uploader-wrapper .file-uploader__uploaded-file:last-of-type{margin:var(--gcds-file-uploader-button-margin)}.sc-gcds-file-uploader-h .gcds-file-uploader-wrapper .file-uploader__uploaded-file gcds-text{overflow:auto}.sc-gcds-file-uploader-h .gcds-file-uploader-wrapper .file-uploader__uploaded-file gcds-text::part(text){overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.sc-gcds-file-uploader-h .gcds-file-uploader-wrapper .file-uploader__uploaded-file button{align-items:center;background:transparent;border:0;color:var(--gcds-file-uploader-file-button-default-text);display:flex;font-weight:var(--gcds-file-uploader-button-font-weight);margin:var(--gcds-file-uploader-file-button-margin);padding:var(--gcds-file-uploader-file-button-padding)}.sc-gcds-file-uploader-h .gcds-file-uploader-wrapper .file-uploader__uploaded-file button:not(:focus) span{overflow:visible;text-decoration:underline var(--gcds-file-uploader-file-button-default-decoration-thickness);text-underline-offset:var(\n          --gcds-file-uploader-file-button-underline-offset\n        )}}@layer disabled{.sc-gcds-file-uploader-h .gcds-file-uploader-wrapper.gcds-disabled{color:var(--gcds-file-uploader-disabled-text)}.sc-gcds-file-uploader-h .gcds-file-uploader-wrapper.gcds-disabled gcds-label{--gcds-label-text:currentColor}.sc-gcds-file-uploader-h .gcds-file-uploader-wrapper.gcds-disabled gcds-hint{--gcds-hint-text:currentColor}.sc-gcds-file-uploader-h .gcds-file-uploader-wrapper.gcds-disabled :is(.file-uploader__input,.file-uploader__uploaded-file){pointer-events:none}.sc-gcds-file-uploader-h .gcds-file-uploader-wrapper.gcds-disabled .file-uploader__input button,.sc-gcds-file-uploader-h .gcds-file-uploader-wrapper.gcds-disabled .file-uploader__uploaded-file,.sc-gcds-file-uploader-h .gcds-file-uploader-wrapper.gcds-disabled .file-uploader__uploaded-file button{color:inherit}.sc-gcds-file-uploader-h .gcds-file-uploader-wrapper.gcds-disabled .file-uploader__input button{background-color:var(--gcds-file-uploader-disabled-background);border-color:currentColor}}@layer error{.sc-gcds-file-uploader-h .gcds-file-uploader-wrapper.gcds-error .file-uploader__uploaded-file{border-color:var(--gcds-file-uploader-file-danger-border-color)}}@layer hover{@media (hover:hover){.sc-gcds-file-uploader-h .gcds-file-uploader-wrapper .file-uploader__input:not(:focus-within):hover button{background-color:var(--gcds-file-uploader-hover-button-background)}.sc-gcds-file-uploader-h .gcds-file-uploader-wrapper .file-uploader__uploaded-file button:not(:focus):hover{color:var(--gcds-file-uploader-file-button-hover-text)}.sc-gcds-file-uploader-h .gcds-file-uploader-wrapper .file-uploader__uploaded-file button:not(:focus):hover span{text-decoration-thickness:var(\n            --gcds-file-uploader-file-button-hover-decoration-thickness\n          )}}}@layer focus{.sc-gcds-file-uploader-h .gcds-file-uploader-wrapper:focus-within .file-uploader__uploaded-file:focus-within{border-color:var(--gcds-file-uploader-file-focus-border-color)}.sc-gcds-file-uploader-h .gcds-file-uploader-wrapper:focus-within .file-uploader__input:focus-within button,.sc-gcds-file-uploader-h .gcds-file-uploader-wrapper:focus-within .file-uploader__uploaded-file button:focus{background-color:var(--gcds-file-uploader-focus-button-background);border-color:var(--gcds-file-uploader-focus-button-background);color:var(--gcds-file-uploader-focus-button-text);outline:var(--gcds-file-uploader-button-outline-width) solid var(--gcds-file-uploader-focus-button-background);outline-offset:var(--gcds-file-uploader-focus-button-outline-offset)}}@layer active{.sc-gcds-file-uploader-h .gcds-file-uploader-wrapper .file-uploader__input:has(input:active) button{background-color:var(--gcds-file-uploader-active-button-background);border-color:var(--gcds-file-uploader-active-button-background);color:var(--gcds-file-uploader-active-button-text)}}";
-var GcdsFileUploaderStyle0 = gcdsFileUploaderCss;
+const gcdsFileUploaderCss = "@layer reset, default, input, files, disabled, error, focus, active;@layer reset{:host{display:block}:host .gcds-file-uploader-wrapper{border:0;margin:0;padding:0}:host .gcds-file-uploader-wrapper button{cursor:pointer;font:inherit;outline:0}}@layer default{:host .gcds-file-uploader-wrapper{align-items:flex-start;color:var(--gcds-file-uploader-default-text);display:flex;flex-direction:column;font:var(--gcds-file-uploader-font-desktop);max-width:90%;transition:color .15s ease-in-out}@media only screen and (width < 48em){:host .gcds-file-uploader-wrapper{font:var(--gcds-file-uploader-font-mobile)}}:host .gcds-file-uploader-wrapper button{border-radius:var(--gcds-file-uploader-file-button-border-radius);transition:all .15s ease-in-out}}@layer input{:host .gcds-file-uploader-wrapper .file-uploader__input{display:inline-block;position:relative}:host .gcds-file-uploader-wrapper .file-uploader__input button{background-color:var(--gcds-file-uploader-button-background);border:var(--gcds-file-uploader-button-border-width) solid var(--gcds-file-uploader-button-text);color:var(--gcds-file-uploader-button-text);font-weight:var(--gcds-file-uploader-button-font-weight);margin:var(--gcds-file-uploader-button-margin);padding:var(--gcds-file-uploader-button-padding)}:host .gcds-file-uploader-wrapper .file-uploader__input input{cursor:pointer;height:100%;left:0;opacity:0;position:absolute;top:0;width:100%}:host .gcds-file-uploader-wrapper .file-uploader__input input::-webkit-file-upload-button{cursor:pointer}:host .gcds-file-uploader-wrapper .file-uploader__input #file-uploader__summary{height:0;margin:0;overflow:hidden;visibility:hidden}}@layer files{:host .gcds-file-uploader-wrapper .file-uploader__uploaded-file{align-items:center;border:var(--gcds-file-uploader-file-border-width) solid var(--gcds-file-uploader-file-border-color);display:flex;justify-content:space-between;max-width:var(--gcds-file-uploader-file-max-width);padding:var(--gcds-file-uploader-file-padding);width:100%}:host .gcds-file-uploader-wrapper .file-uploader__uploaded-file:not(:last-of-type){border-block-end:0}:host .gcds-file-uploader-wrapper .file-uploader__uploaded-file:last-of-type{margin:var(--gcds-file-uploader-button-margin)}:host .gcds-file-uploader-wrapper .file-uploader__uploaded-file gcds-text{overflow:auto}:host .gcds-file-uploader-wrapper .file-uploader__uploaded-file gcds-text::part(text){overflow:hidden;text-overflow:ellipsis;white-space:nowrap}:host .gcds-file-uploader-wrapper .file-uploader__uploaded-file button{align-items:center;background:transparent;border:0;color:var(--gcds-file-uploader-file-button-default-text);display:flex;font-weight:var(--gcds-file-uploader-button-font-weight);margin:var(--gcds-file-uploader-file-button-margin);padding:var(--gcds-file-uploader-file-button-padding)}:host .gcds-file-uploader-wrapper .file-uploader__uploaded-file button:not(:focus) span{overflow:visible;text-decoration:underline var(--gcds-file-uploader-file-button-default-decoration-thickness);text-underline-offset:var(\n          --gcds-file-uploader-file-button-underline-offset\n        )}}@layer disabled{:host .gcds-file-uploader-wrapper.gcds-disabled{color:var(--gcds-file-uploader-disabled-text)}:host .gcds-file-uploader-wrapper.gcds-disabled gcds-label{--gcds-label-text:currentColor}:host .gcds-file-uploader-wrapper.gcds-disabled gcds-hint{--gcds-hint-text:currentColor}:host .gcds-file-uploader-wrapper.gcds-disabled :is(.file-uploader__input,.file-uploader__uploaded-file){pointer-events:none}:host .gcds-file-uploader-wrapper.gcds-disabled .file-uploader__input button,:host .gcds-file-uploader-wrapper.gcds-disabled .file-uploader__uploaded-file,:host .gcds-file-uploader-wrapper.gcds-disabled .file-uploader__uploaded-file button{color:inherit}:host .gcds-file-uploader-wrapper.gcds-disabled .file-uploader__input button{background-color:var(--gcds-file-uploader-disabled-background);border-color:currentColor}}@layer error{:host .gcds-file-uploader-wrapper.gcds-error .file-uploader__uploaded-file{border-color:var(--gcds-file-uploader-file-danger-border-color)}}@layer hover{@media (hover:hover){:host .gcds-file-uploader-wrapper .file-uploader__input:not(:focus-within):hover button{background-color:var(--gcds-file-uploader-hover-button-background)}:host .gcds-file-uploader-wrapper .file-uploader__uploaded-file button:not(:focus):hover{color:var(--gcds-file-uploader-file-button-hover-text)}:host .gcds-file-uploader-wrapper .file-uploader__uploaded-file button:not(:focus):hover span{text-decoration-thickness:var(\n            --gcds-file-uploader-file-button-hover-decoration-thickness\n          )}}}@layer focus{:host .gcds-file-uploader-wrapper:focus-within .file-uploader__uploaded-file:focus-within{border-color:var(--gcds-file-uploader-file-focus-border-color)}:host .gcds-file-uploader-wrapper:focus-within .file-uploader__input:focus-within button,:host .gcds-file-uploader-wrapper:focus-within .file-uploader__uploaded-file button:focus{background-color:var(--gcds-file-uploader-focus-button-background);border-color:var(--gcds-file-uploader-focus-button-background);color:var(--gcds-file-uploader-focus-button-text);outline:var(--gcds-file-uploader-button-outline-width) solid var(--gcds-file-uploader-focus-button-background);outline-offset:var(--gcds-file-uploader-focus-button-outline-offset)}}@layer active{:host .gcds-file-uploader-wrapper .file-uploader__input:has(input:active) button{background-color:var(--gcds-file-uploader-active-button-background);border-color:var(--gcds-file-uploader-active-button-background);color:var(--gcds-file-uploader-active-button-text)}}";
 
 class GcdsFileUploader {
     constructor(hostRef) {
         registerInstance(this, hostRef);
-        this.gcdsFocus = createEvent(this, "gcdsFocus", 7);
-        this.gcdsBlur = createEvent(this, "gcdsBlur", 7);
-        this.gcdsChange = createEvent(this, "gcdsChange", 7);
-        this.gcdsInput = createEvent(this, "gcdsInput", 7);
-        this.gcdsRemoveFile = createEvent(this, "gcdsRemoveFile", 7);
-        this.gcdsError = createEvent(this, "gcdsError", 7);
-        this.gcdsValid = createEvent(this, "gcdsValid", 7);
+        this.gcdsFocus = createEvent(this, "gcdsFocus");
+        this.gcdsBlur = createEvent(this, "gcdsBlur");
+        this.gcdsChange = createEvent(this, "gcdsChange");
+        this.gcdsInput = createEvent(this, "gcdsInput");
+        this.gcdsRemoveFile = createEvent(this, "gcdsRemoveFile");
+        this.gcdsError = createEvent(this, "gcdsError");
+        this.gcdsValid = createEvent(this, "gcdsValid");
         if (hostRef.$hostElement$["s-ei"]) {
             this.internals = hostRef.$hostElement$["s-ei"];
         }
@@ -4641,6 +5661,26 @@ class GcdsFileUploader {
             hostRef.$hostElement$["s-ei"] = this.internals;
         }
         this._validator = defaultValidator;
+        /**
+         * Specifies if a form field is required or not.
+         */
+        this.required = false;
+        /**
+         * Specifies if a file uploader element is disabled or not.
+         */
+        this.disabled = false;
+        /**
+         * Value for a file uploader element.
+         */
+        this.value = [];
+        /**
+         * Set event to call validator
+         */
+        this.validateOn = 'blur';
+        /**
+         * Set additional HTML attributes not available in component properties
+         */
+        this.inheritedAttributes = {};
         this.onBlur = () => {
             if (this.validateOn == 'blur') {
                 this.validate();
@@ -4689,6 +5729,8 @@ class GcdsFileUploader {
             }
             this.value = [...filesContainer];
             this.gcdsRemoveFile.emit(this.value);
+            this.gcdsChange.emit(this.value);
+            this.el.dispatchEvent(new Event('change', { bubbles: true, composed: true }));
         };
         /*
          * Set form data for internals
@@ -4702,22 +5744,6 @@ class GcdsFileUploader {
             }
             this.internals.setFormValue(formData);
         };
-        this.uploaderId = undefined;
-        this.name = undefined;
-        this.label = undefined;
-        this.required = false;
-        this.disabled = false;
-        this.value = [];
-        this.accept = undefined;
-        this.multiple = undefined;
-        this.files = undefined;
-        this.errorMessage = undefined;
-        this.hint = undefined;
-        this.validator = undefined;
-        this.validateOn = 'blur';
-        this.hasError = undefined;
-        this.inheritedAttributes = {};
-        this.lang = undefined;
     }
     validateDisabledSelect() {
         if (this.required) {
@@ -4794,6 +5820,8 @@ class GcdsFileUploader {
                 this.shadowElement.files = dt.files;
                 this.files = dt.files;
             }
+            this.gcdsChange.emit(this.value);
+            this.el.dispatchEvent(new Event('change', { bubbles: true, composed: true }));
         }
         // Focus file input after drop
         this.shadowElement.focus();
@@ -4841,7 +5869,7 @@ class GcdsFileUploader {
             attrsInput['aria-describedby'] =
                 `${hintID}${errorID}${attrsInput['aria-describedby']}`;
         }
-        return (hAsync(Host, { key: '913cb86e9a2837583dd8a5af92896b69c19a1491' }, hAsync("div", { key: 'd396334ce7fc0a4916440efb43ecd429ffa72cd2', class: `gcds-file-uploader-wrapper ${disabled ? 'gcds-disabled' : ''} ${hasError ? 'gcds-error' : ''}` }, hAsync("gcds-label", Object.assign({ key: 'de78c05d22fb99eeaee7a21d74fbad91f51f2395' }, attrsLabel, { "label-for": uploaderId, lang: lang })), hint ? hAsync("gcds-hint", { "hint-id": uploaderId }, hint) : null, errorMessage ? (hAsync("gcds-error-message", { messageId: uploaderId }, errorMessage)) : null, hAsync("div", { key: '35fb7d04e6e0cf4638634aa38a621d9b6dd8d568', class: `file-uploader__input ${value.length > 0 ? 'uploaded-files' : ''}`, onDrop: e => this.handleDrop(e), onDragOver: e => e.preventDefault() }, hAsync("button", { key: 'ae322710e6b51bf1f490e0d820ed606a4ec1cf05', type: "button", tabindex: "-1", onClick: () => this.shadowElement.click() }, I18N$j[lang].button.upload), hAsync("input", Object.assign({ key: 'e06b9eb8859b5143c8e3dd0d83b9d00926fdf8ed', type: "file", id: uploaderId }, attrsInput, { onBlur: () => this.onBlur(), onFocus: () => this.gcdsFocus.emit(), onInput: e => this.handleInput(e, this.gcdsInput), onChange: e => this.handleInput(e, this.gcdsChange), "aria-invalid": hasError ? 'true' : 'false', ref: element => (this.shadowElement = element) })), value.length > 0 ? (hAsync("gcds-sr-only", { id: "file-uploader__summary" }, hAsync("span", null, I18N$j[lang].summary.selected, " "), value.map(file => (hAsync("span", null, file, " "))))) : (hAsync("gcds-sr-only", { id: "file-uploader__summary" }, I18N$j[lang].summary.unselected))), value.length > 0
+        return (hAsync(Host, { key: '96759ad2acbc9534d93cfdb413b57b7f46796b0d' }, hAsync("div", { key: '4f992f137168c1ff1d9c4d922a87399da95972d4', class: `gcds-file-uploader-wrapper ${disabled ? 'gcds-disabled' : ''} ${hasError ? 'gcds-error' : ''}` }, hAsync("gcds-label", Object.assign({ key: '838de9db0ceb2f3c41ded62ab08c5312ddac3a66' }, attrsLabel, { "label-for": uploaderId, lang: lang })), hint ? hAsync("gcds-hint", { "hint-id": uploaderId }, hint) : null, errorMessage ? (hAsync("gcds-error-message", { messageId: uploaderId }, errorMessage)) : null, hAsync("div", { key: '667b1ab631eefe9be74c7c9ece597151ad8c60d8', class: `file-uploader__input ${value.length > 0 ? 'uploaded-files' : ''}`, onDrop: e => this.handleDrop(e), onDragOver: e => e.preventDefault() }, hAsync("button", { key: '90f829f910cd2cf45403978733a48126835badde', type: "button", tabindex: "-1", onClick: () => this.shadowElement.click() }, I18N$j[lang].button.upload), hAsync("input", Object.assign({ key: 'dc37e465e2b3be6c9a1a1ffee50787718d7cd96c', type: "file", id: uploaderId }, attrsInput, { onBlur: () => this.onBlur(), onFocus: () => this.gcdsFocus.emit(), onInput: e => this.handleInput(e, this.gcdsInput), onChange: e => this.handleInput(e, this.gcdsChange), "aria-invalid": hasError ? 'true' : 'false', ref: element => (this.shadowElement = element) })), value.length > 0 ? (hAsync("gcds-sr-only", { id: "file-uploader__summary" }, hAsync("span", null, I18N$j[lang].summary.selected, " "), value.map(file => (hAsync("span", null, file, " "))))) : (hAsync("gcds-sr-only", { id: "file-uploader__summary" }, I18N$j[lang].summary.unselected))), value.length > 0
             ? value.map(file => (hAsync("div", { class: "file-uploader__uploaded-file", "aria-label": `${I18N$j[lang].removeFile} ${file}.` }, hAsync("gcds-text", { "margin-bottom": "0" }, file), hAsync("button", { onClick: e => this.removeFile(e) }, hAsync("span", null, I18N$j[lang].button.remove), hAsync("gcds-icon", { name: "close", size: "text", "margin-left": "150" })))))
             : null)));
     }
@@ -4855,7 +5883,7 @@ class GcdsFileUploader {
         "validator": ["validateValidator"],
         "hasError": ["validateHasError"]
     }; }
-    static get style() { return GcdsFileUploaderStyle0; }
+    static get style() { return gcdsFileUploaderCss; }
     static get cmpMeta() { return {
         "$flags$": 89,
         "$tagName$": "gcds-file-uploader",
@@ -4959,7 +5987,7 @@ const I18N$i = {
           link: 'https://international.gc.ca/world-monde/index.aspx?lang=eng',
         },
         finance: {
-          text: 'Money and finance',
+          text: 'Money and finances',
           link: 'https://www.canada.ca/en/services/finance.html',
         },
         science: {
@@ -4977,6 +6005,10 @@ const I18N$i = {
         youth: {
           text: 'Youth',
           link: 'https://www.canada.ca/en/services/youth.html',
+        },
+        life: {
+          text: 'Manage life events',
+          link: 'https://www.canada.ca/en/services/life-events.html',
         },
       },
     },
@@ -5082,7 +6114,7 @@ const I18N$i = {
           link: 'https://www.international.gc.ca/world-monde/index.aspx?lang=fra',
         },
         finance: {
-          text: 'Argent et finance',
+          text: 'Argent et finances',
           link: 'https://www.canada.ca/fr/services/finance.html',
         },
         science: {
@@ -5100,6 +6132,10 @@ const I18N$i = {
         youth: {
           text: 'Jeunesse',
           link: 'https://www.canada.ca/fr/services/jeunesse.html',
+        },
+        life: {
+          text: 'Gérer les événements de la vie',
+          link: 'https://www.canada.ca/fr/services/evenements-vie.html',
         },
       },
     },
@@ -5133,18 +6169,18 @@ const I18N$i = {
   },
 };
 
-const gcdsFooterCss = "@layer reset, default, contextual, main, sub, compact, medium, wide;@layer reset{.sc-gcds-footer-h{display:block}.sc-gcds-footer-h ul{list-style-type:none;margin:0;padding:0}.sc-gcds-footer-h slot{display:initial}.sc-gcds-footer-h gcds-link::part(link):not(:hover){text-decoration:none}.sc-gcds-footer-h .gcds-footer__sub ul li{display:block}}@layer default{.sc-gcds-footer-h{font:var(--gcds-footer-font)}.sc-gcds-footer-h .gcds-footer__contextual,.sc-gcds-footer-h .gcds-footer__main,.sc-gcds-footer-h .gcds-footer__sub{padding:var(--gcds-footer-band-padding-desktop)}.sc-gcds-footer-h .gcds-footer__header,.sc-gcds-footer-h .sub__header,.sc-gcds-footer-h .themenav__header{clip:rect(1px,1px,1px,1px);height:1px;margin:0;overflow:hidden;position:absolute;width:1px}.sc-gcds-footer-h [class$=__container]{justify-content:space-between;margin:var(--gcds-footer-container-margin);max-width:var(--gcds-footer-container-width);width:90%}.sc-gcds-footer-h nav{position:relative}.sc-gcds-footer-h [class$=__list]{display:grid;grid-template-columns:1fr;list-style:none;padding:var(--gcds-footer-list-padding);grid-gap:var(--gcds-footer-grid-gap)}.sc-gcds-footer-h [class$=__list] li gcds-link::part(link){color:var(--gcds-footer-main-text)}.sc-gcds-footer-h h3{font:var( --gcds-footer-font-heading);margin:var(--gcds-footer-heading-margin)}.sc-gcds-footer-h gcds-link::part(link){font:var(--gcds-footer-font)}}@layer contextual{.sc-gcds-footer-h .gcds-footer__contextual{background-color:var(--gcds-footer-contextual-background);color:var(--gcds-footer-contextual-text);container:component contextual/inline-size;margin-block-end:-1px}}@layer main{.sc-gcds-footer-h .gcds-footer__main{background-color:var(--gcds-footer-main-background);background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAmgAAAC9CAMAAAAwXXHOAAAAe1BMVEUAAAAYJjgbKDogIDkcOTkgMDgoKEMdJzgdKDcAAAAgKTkfLj4gKDgfKjgeJjgeKjgcKDgfJzhAQEAfKzceKDgdKDcdKjcAVVUhN0MeKDceKzcAAFUdKjgcKzkeLTwaMzMdKjcfKTYZJjIcKzkaKDgcKDgYKjgbKTgYKDjo9/gwAAAAKXRSTlMASTkoCSATe/8BUCHNSWXct1sEU+D9nQMXeIoD8zYiCsN1PST/bZK221OBjhQAAA8qSURBVHgB7NVVAUNRDAWwPr5jZp5/jwMR/Us0HAgAAAAAAAAAAAAAAAAAAAAgS1U3TRt/XdNHEqiGUurReBIxLUOQSNBm88VytRa0ZIK22Zbd/iBo2Vzn8XS+hKCRqDpdr7e4PyKe11ckger9Zdc+bGULYSAMj2uZMab/Bl/mJoWXLiuvNV8HiH/PYgSGMIdmFvhjZg7NHJoZEcRtZmQEbjOj5NDMoZlDM3No1kxIidvMUlowuy2lgtltS9qE2WUlTwN2H7fGTQMkrBtqYGhBWDMhjRs7KcKaSWnc2BkOrZ8lSRujpALWMjQOW1PCmil9F8PWtNCQbzekHLamgvUSmhda9DsLWOqHmramgHUMbU+bbxLWypLGjZ3V7wraSj/FsPmm0JCHTimHzTc7YI2E5oWWjRfk0Na00AKNWOqXcmgX2ZLuj50OzUoHh/14Em1Y5NaRgSGq26HTUm/UrBubTZhDe8CiAheZQ1uPuBk0hxaPGKPNobHZciz4PjSmv2gXWOmDTQ8DduMa4KOYFFqiBQsdVXvQ3lTPZwJ+xL1IxJzbdO53w42RPUJbQACsKXsTzU6cDm3pbEec/dl4fvn+xGmMZIPQCj9D45TQlo6EgVnKDjuyfjQ/KLTSsWAAI7PLXyeCI/46480scE6cRAs+o+ln7lwDQstz1nwzDSR6cGh7EYilIV+01KtoFJpDk3bVloZ80ZZeJcBEEw7teP7QikDp1QJi+bl+Ep/NoXHrVQFZvt8Ih/a5vrJ3J8iJK0EQQCvPkplVdf8T/rBFB61vYYStMWCTMYA2b82j1Qti2A5rSuMFLcKMOwZVvQGtKhnPGmpAG0HkayIK94Vm5AY0w4xnDVSRmpNRr4moRNw3/m2nTqtZmlPsF7QXtKNjbcWvXide0A5NvqBthDIfAFq5ytnv988OrbSV+vPQKh4AGoLjH+u5obG1lWbcP68ajXFOqn9dE+31/kf/ROvhBe3VSKsXtB9oor0aaUjJeEE7LmhtpxF/ON5TqTv8gnZ7hdZlzcn4u2G9oP2TPmdXGkEtsV1/u9+JXZ/mWd0vaHuTGn8Ps7WEoy38Z2MT16u0Ur2g3dbpBJylke7uPz2+wUKA14bS2Gq+oO0MtJ0/DQ1CICj5WtE5vpoXtHb/dWi5QCMyLoeWlIwb8oJWTI048o9DY5FEIGB+7kwy/ym0mtK/ABrCtE7mgv23oUEIMBCQr54K/Hqb0A3QGAyfCy7/MDRGpDygZQTvCq0M1/vdnaBhvfJtaDGgYSz+VWhkyeEIBGHyvtAQEXBEsO4DzeuVY6CNRfxlaJKIBVqAKdwVGge0uBO05LzygnZYqKJjQAsLsRVCOro3AD4gtMJ5mfUNsBehOf5koIwFmhnmJWjQiOOo2I8Hje0YCTe/DvYitPqr0IpFNqIcKf1xaFDOvxIOaAnkq0abBRmdURfLAVLa6d8OzXOFk/KrjfYPhq8a/Rk0RAR/O7RUcyyzlS9ox0Jrd7sq+97QAMAJAPeBVhMESv2CdiC0ZmZUhSvqX0LjuF/CLnyA5rekfaeZAc6vNEjNx4BGgPF0sWOEASnDiHIgwxL+GTSP+yUp1aVTJxZoxTu0WHP+jXBEZ+AAaBLj6QLEEhphyZGMdLACljfn1iFVZta3oPEtu6ClluAODYmah8L8GNAs5RPXaBTYSkZFlCOKkSpCvNDrtOsb0Fpvae6AVlriO0BLTtBya84udgRHQmNLxXi2ZK4Ko4K5QLNHk3z71ImI/DY07YDGPvqKIe+/Sgdz8xUbFnFcG42xI6xeGhLxXGHVqjAc9glajuuh7gvtH1xtm/t7nZwaRrVFsWIz4M3QiJuGOhlPFai5LoxEvN/YDO+p0bhoI/GFSx25vJBRUuEKtGZ8P+Q7NB8AjWGpHdysNG+GBt801Il4qiw9y3PrgWySCZICKUn5CbQ0gx0Rkb2cWjjcxhL6tM7zIyLQo7jYCL6v1SVoR5YtHChGHQDNWZIqt4AUbm6juX4ztJSWko+l0LIqz3fVkvoTaNKAVpISgI33JN5CuPiezOWxEJERqSUZkIPaBc3x/djVatfuNtrlcTRfbjuyfTO0auzDv8RPd1V6BevcrbLfln2qypFS7YHm1s50MokeazxD6/bn0PK4WbY6YHjDl9uOVt06qc7eY4edlqRMM54oXJ7rikCDzYjigLbwIwufQatgB7P19VTmkPQ5tIrvp3Z/ugprOo4tqbgJrRng5VnSwUsgUHpPvmUNzbv+PmRw+TriCWfRmyyHvehaoC3mkOHiJ9Aa7Codk21oR/YGsH+sBJokbI30pE5BJDcnr0a84wLi2qMfVcSpyZHJZ/wM3yKLEfYZ2gKPkb4IbeRnoMk2D/qDi/ug5apOiiksnWK2Pw71fnYBcb1FkjDblHe/TipsxBNCay+eEmdoyIhwBhv3hzaCoz5L1vtq+5oLynFJjz8Ua/MytI3OgPe1DWZoT/kGtAo2Y7kb0FjvdwwXfwZafXz3Rh4KzRpR3QStPpxv2RegjV3YD21Ibvx6aFhwOeMMLZLLJpZ/CFqeUroUHPURn43boXnjzLmk/OEE50+hcQVtsM1fD62rGRGJGZodSyWHRkzJ46Ft5Xhobp2T+9tom52B1Bx/8MxPoeWAtjqi+cuhjZIqztCQY9o9ay62flZoqSnNPdD8BWi+XqO5sYKWV/88cgWNzwUNGilOb+UoTxMpaIPKGGHpSaGxt2wcX6NRb8m9n4+GStZ2NevyWMx2eK6S8zmheSF1AjbA1fu9iu7yVAsOaOXM0V7PsdynhXTXer9G1JnLv/pBaNYqxX3Q3N09+uZ7oGHUmPvG0WY97VVSg1OWHP20n+jtdYU2iqtrnn7D22qNP5k9QcsAhlaM5Qpw6TDUej9XzwsjOCZi0EvRWWN1PC5uM13O+jo0AhG1H+0MDXMt4vRWZ0Bd57QkMLu6q97u+lNo0TtGfEoyW3Pq2Wq0ZLVXb+PrHA651NoMdGFZ0QwN9kmHPJbrtGBUrfdvVABYlNcYY1mqgtTyWEt5EhGIwJehoVS31WhTrxMzp1ZXdXW3Pg0itSMgydbllAe0D2k+WY3GcMdiiOOSpIhJHoSIHKfXGdrN2YZ2+lYZUWN1PC7Q/C1orJJMUqs49kCDSzdnQDsgnbwATc8HLTNIogTAdqr9FljJt8gRHLPCzwctv9TcS30nRumTJOq20cXe2sHngobwtTNBV5VGjoCWPiUljT5BZfZYPf/QApyAAR8KrXk0tP0pBkvfzvNBU6XtUgIArSLeYtl2tmoN8bmGN3gBWtwPmiPC+ka6+qmgYfmrfRquFdafokNhtN2I1BTDQOlH0tXVN0IDpmXdAVqxr1RF0MWYLTWtOY1pPQP9dNBwGVpjQIvwsXhqvCyvJgNRRdB7odFlg2P5SGiVWVlVWedfvqpWt7dk9Mbez6E1OXaXlAHNqeDsOOoZT50DGtfQYgx7XIZWrrHY6ezTQvWy0/OG+ZAgu4KLdBCWigBLTYA5VsdHWFfc0BkYw3Ek0tIx0Exa8scZejPI6ZaSTqOrydUeXoEWu6FpBzQ8HrS8Bg2XqvriAKj2fN2cW0pGcN7QY0F9GhbGVOy5PL01X/af16DBhZjDjUbZMdAi1tDyvGOEY/uAFqv8KLTsR4NGtBwR7P4/tMrlqOIlaOftOb6jV9eqcWzI88IZGr8HjU6J6w2gtSfNGCHSV6FVVUk9ZexYZ1TmvbHrMrQVpXRJ5dScct4Cza0HnIJaoKljA9rAw3ECAQ6DNmagAEsFAKUGgByry49kFkmvoY2qC4kATSCQ2h/O3wY/2uvcbopUWntT1VegSfEwQc8TtD5DqwGtlsPW/6cM90DLz6GNfGt4g1qSJ7BZX/lWbkkwgjSJa52BVme936RyjW2n28hYHijKdRXakeNozAeC5p6bVyz5/1clun2SlhHuAe37NZoyO6uzDoFmWrcn17PjRUqS19DM1hKAHj0nywEta2pGje0aWfaryK5lf34JWldfh0YsRW1yHk94OGfKpbybA9pYOk+3N5ai91sOqNEYDjqgkXOvEzBLSp78NNBmJlMSGOdY30luVouFNbSoM3FIDAjB99uypgq6GRaDGsGynBGZERY9gyFWv3yyB+qmNdK0KnLynqwBeRpHQypP7VVj6ZO47wmNxLSSvWoWW8qPl7+WihHBvjBrUnbeCs1LG80Ra2g5/c/GOdWdFVEIYzl4ftXWhp6sL0KrU4HcBo1SZakjLHwCbbMLO4LI5aFWfcsMqsf7wmscOJ6yAS2yJJDQW8oEy6U7QqNV2JqX8ekE4o8X9KeEsxJrM9+Axv9/g7wGTUozgsSWMyGsnSkjIgitU7wIjVvQ3nIztMK8jZHjIcPb0HL113VwQMvWhcR9gpREbjR1x1Pqc42GiJUOS833e9tuzfnJGm1Qy9R2TGp3ENxwSeKWU+eoYSwE9kLTRWiTm+Jn0LQUMEsPBW38QpUkQdRoBEg9RnUcLOP0LC8Z9Rwk5Tu0ZeuqF7Yk8ZaUjLfUacHnDedD1EACxg3QDOvgmOnSxyQHNJ0PSNuSnUpb6dSyNvbWqmeZ9qlpUTWOmtPchLZx3DVoejRoWjLXzfW+XEMSAlKaE7ScoBVT6mF2eiUflK6q6vGgestpe1f1MW8E25cB7YeyDW1kExoHND8uNGjEYalBBi3J5ocxJsmrrkOTqM1e54PEAX07noc3Nh2XS4cFN0IbIeF6NGj+2C0zF0j8WGr48KldpTnfhVakpSRTByeD+nZyo42mJtQMH+d5xK7boY08ADQmyLkrsD1NzPpkXPRwaOsuXEAHx5n/ClpANQoSpI4OXNeg8RGhwWPYiUB//taLi9BqQOsngXZI0t6G1oTukanqfzho41ezndrOdWgsJf8eNKm8eep8qsQPhLFtaO/oJhkRXCrFdETwAjTAvwza/k7sCxozsaeAMlIX0mmjRs8rgjo0/x6aXol/HLoOuYLiHAd9NDRSAuH/2rtXI4tiIAaidizSfPKPcGvBpQ9ZrA+ZBLqGykg5YeXXpsdv7a4Rlv9nSSC0K527jgKhadw1TgCh6buSY0BodWtuSe0cENr9xlvbOSA0+V/XHceA0DROA6HptNNAaJoqh4HQ1E4CoamqZ9c5IDTVrMNAaBrHgdDuOg+E1s4DoWmcBkJTrdNAaGrngdDaT4DQ9jc/AULzM8Af2qL98u71t1EAAAAASUVORK5CYII=);background-position:100% 100%;background-repeat:no-repeat;color:var(--gcds-footer-main-text);container:component main/inline-size}.sc-gcds-footer-h .gcds-footer__main nav:first-of-type:after{border-block-end:var(--gcds-footer-main-nav-first-after-border-width) solid var(--gcds-footer-main-nav-first-after-border-color);content:\"\";display:block;margin:var(--gcds-footer-grid-gap) 0;width:var(--gcds-footer-main-nav-first-after-width)}.sc-gcds-footer-h .gcds-footer__main nav.main__themenav .themenav__list{display:grid;grid-auto-flow:column;grid-template-rows:repeat(18,1fr)}}@layer sub{.sc-gcds-footer-h .gcds-footer__sub{background-color:var(--gcds-footer-sub-background);container:component sub/inline-size}.sc-gcds-footer-h .gcds-footer__sub .sub__container{display:grid;grid-gap:var(--gcds-footer-grid-gap);grid-template-areas:\"list wordmark\";grid-template-columns:3fr 1fr}.sc-gcds-footer-h .gcds-footer__sub .sub__container nav{align-items:center;display:flex;grid-area:list}.sc-gcds-footer-h .gcds-footer__sub .sub__container .sub__wordmark,.sc-gcds-footer-h .gcds-footer__sub .sub__container slot[name=wordmark]{display:flex;grid-area:wordmark}.sc-gcds-footer-h .gcds-footer__sub .sub__container .sub__wordmark gcds-signature,.sc-gcds-footer-h .gcds-footer__sub .sub__container slot[name=wordmark] gcds-signature{align-self:end;margin:var(--gcds-footer-sub-signature-margin);max-height:var(--gcds-footer-sub-signature-max-height);min-width:var(--gcds-footer-sub-signature-min-width);width:var(--gcds-footer-sub-signature-width)}}@layer compact{@media only screen and (width < 45em){.sc-gcds-footer-h .gcds-footer__contextual,.sc-gcds-footer-h .gcds-footer__main,.sc-gcds-footer-h .gcds-footer__sub{padding:var(--gcds-footer-band-padding-mobile)}}@container sub (width <= 30em){.sc-gcds-footer-h .gcds-footer__sub .sub__container .sub__wordmark gcds-signature,.sc-gcds-footer-h .gcds-footer__sub .sub__container slot[name=wordmark] gcds-signature{max-height:var(--gcds-footer-sub-signature-sm-max-height);width:var(--gcds-footer-sub-signature-sm-width)}}}@layer medium{@container contextual (width >= 45em){.sc-gcds-footer-h .gcds-footer__contextual [class$=__list]{grid-template-columns:1fr 1fr}}@container main (width >= 45em){.sc-gcds-footer-h .gcds-footer__main [class$=__list]{grid-template-columns:1fr 1fr}.sc-gcds-footer-h .gcds-footer__main nav.main__themenav .themenav__list{grid-template-rows:repeat(9,1fr)}}@container sub (width < 60.2em){.sc-gcds-footer-h .gcds-footer__sub .sub__container{display:block}.sc-gcds-footer-h .gcds-footer__sub .sub__container ul li{margin:0 0 var(--gcds-footer-grid-gap)}}}@layer wide{@container contextual (width >= 60.2em){.sc-gcds-footer-h .gcds-footer__contextual [class$=__list]{grid-template-columns:1fr 1fr 1fr}}@container main (width >= 60.2em){.sc-gcds-footer-h .gcds-footer__main [class$=__list]{grid-template-columns:1fr 1fr 1fr}.sc-gcds-footer-h .gcds-footer__main nav.main__themenav .themenav__list{grid-template-rows:repeat(6,1fr)}}@container sub (width >= 60.2em){.sc-gcds-footer-h .gcds-footer__sub .sub__container ul li{display:inline-block;margin-block-end:0}.sc-gcds-footer-h .gcds-footer__sub .sub__container ul li:first-of-type:before{content:\"\";margin:0}.sc-gcds-footer-h .gcds-footer__sub .sub__container ul li:before{content:\"\\2022\";display:inline;margin:var(--gcds-footer-sub-listitem-before-margin)}.sc-gcds-footer-h .gcds-footer__sub .sub__container .sub__wordmark,.sc-gcds-footer-h .gcds-footer__sub .sub__container slot[name=wordmark]{display:inline-block}}}";
-var GcdsFooterStyle0 = gcdsFooterCss;
+const gcdsFooterCss = "@layer reset, default, contextual, main, sub, compact, medium, wide;@layer reset{:host{display:block}:host ul{list-style-type:none;margin:0;padding:0}:host slot{display:initial}:host gcds-link::part(link):not(:hover){text-decoration:none}:host .gcds-footer__sub ul li{display:block}}@layer default{:host{font:var(--gcds-footer-font)}:host .gcds-footer__contextual,:host .gcds-footer__main,:host .gcds-footer__sub{padding:var(--gcds-footer-band-padding-desktop)}:host .gcds-footer__header,:host .sub__header,:host .themenav__header{clip:rect(1px,1px,1px,1px);height:1px;margin:0;overflow:hidden;position:absolute;width:1px}:host [class$=__container]{justify-content:space-between;margin:var(--gcds-footer-container-margin);max-width:var(--gcds-footer-container-width);width:90%}:host nav{position:relative}:host [class$=__list]{display:grid;grid-template-columns:1fr;list-style:none;padding:var(--gcds-footer-list-padding);grid-gap:var(--gcds-footer-grid-gap)}:host [class$=__list] li gcds-link::part(link){color:var(--gcds-footer-main-text)}:host h3{font:var(--gcds-footer-font-heading);margin:var(--gcds-footer-heading-margin)}:host gcds-link::part(link){font:var(--gcds-footer-font)}}@layer contextual{:host .gcds-footer__contextual{background-color:var(--gcds-footer-contextual-background);color:var(--gcds-footer-contextual-text);container:component contextual/inline-size;margin-block-end:-1px}}@layer main{:host .gcds-footer__main{background-color:var(--gcds-footer-main-background);background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAmgAAAC9CAMAAAAwXXHOAAAAe1BMVEUAAAAYJjgbKDogIDkcOTkgMDgoKEMdJzgdKDcAAAAgKTkfLj4gKDgfKjgeJjgeKjgcKDgfJzhAQEAfKzceKDgdKDcdKjcAVVUhN0MeKDceKzcAAFUdKjgcKzkeLTwaMzMdKjcfKTYZJjIcKzkaKDgcKDgYKjgbKTgYKDjo9/gwAAAAKXRSTlMASTkoCSATe/8BUCHNSWXct1sEU+D9nQMXeIoD8zYiCsN1PST/bZK221OBjhQAAA8qSURBVHgB7NVVAUNRDAWwPr5jZp5/jwMR/Us0HAgAAAAAAAAAAAAAAAAAAAAgS1U3TRt/XdNHEqiGUurReBIxLUOQSNBm88VytRa0ZIK22Zbd/iBo2Vzn8XS+hKCRqDpdr7e4PyKe11ckger9Zdc+bGULYSAMj2uZMab/Bl/mJoWXLiuvNV8HiH/PYgSGMIdmFvhjZg7NHJoZEcRtZmQEbjOj5NDMoZlDM3No1kxIidvMUlowuy2lgtltS9qE2WUlTwN2H7fGTQMkrBtqYGhBWDMhjRs7KcKaSWnc2BkOrZ8lSRujpALWMjQOW1PCmil9F8PWtNCQbzekHLamgvUSmhda9DsLWOqHmramgHUMbU+bbxLWypLGjZ3V7wraSj/FsPmm0JCHTimHzTc7YI2E5oWWjRfk0Na00AKNWOqXcmgX2ZLuj50OzUoHh/14Em1Y5NaRgSGq26HTUm/UrBubTZhDe8CiAheZQ1uPuBk0hxaPGKPNobHZciz4PjSmv2gXWOmDTQ8DduMa4KOYFFqiBQsdVXvQ3lTPZwJ+xL1IxJzbdO53w42RPUJbQACsKXsTzU6cDm3pbEec/dl4fvn+xGmMZIPQCj9D45TQlo6EgVnKDjuyfjQ/KLTSsWAAI7PLXyeCI/46480scE6cRAs+o+ln7lwDQstz1nwzDSR6cGh7EYilIV+01KtoFJpDk3bVloZ80ZZeJcBEEw7teP7QikDp1QJi+bl+Ep/NoXHrVQFZvt8Ih/a5vrJ3J8iJK0EQQCvPkplVdf8T/rBFB61vYYStMWCTMYA2b82j1Qti2A5rSuMFLcKMOwZVvQGtKhnPGmpAG0HkayIK94Vm5AY0w4xnDVSRmpNRr4moRNw3/m2nTqtZmlPsF7QXtKNjbcWvXide0A5NvqBthDIfAFq5ytnv988OrbSV+vPQKh4AGoLjH+u5obG1lWbcP68ajXFOqn9dE+31/kf/ROvhBe3VSKsXtB9oor0aaUjJeEE7LmhtpxF/ON5TqTv8gnZ7hdZlzcn4u2G9oP2TPmdXGkEtsV1/u9+JXZ/mWd0vaHuTGn8Ps7WEoy38Z2MT16u0Ur2g3dbpBJylke7uPz2+wUKA14bS2Gq+oO0MtJ0/DQ1CICj5WtE5vpoXtHb/dWi5QCMyLoeWlIwb8oJWTI048o9DY5FEIGB+7kwy/ym0mtK/ABrCtE7mgv23oUEIMBCQr54K/Hqb0A3QGAyfCy7/MDRGpDygZQTvCq0M1/vdnaBhvfJtaDGgYSz+VWhkyeEIBGHyvtAQEXBEsO4DzeuVY6CNRfxlaJKIBVqAKdwVGge0uBO05LzygnZYqKJjQAsLsRVCOro3AD4gtMJ5mfUNsBehOf5koIwFmhnmJWjQiOOo2I8Hje0YCTe/DvYitPqr0IpFNqIcKf1xaFDOvxIOaAnkq0abBRmdURfLAVLa6d8OzXOFk/KrjfYPhq8a/Rk0RAR/O7RUcyyzlS9ox0Jrd7sq+97QAMAJAPeBVhMESv2CdiC0ZmZUhSvqX0LjuF/CLnyA5rekfaeZAc6vNEjNx4BGgPF0sWOEASnDiHIgwxL+GTSP+yUp1aVTJxZoxTu0WHP+jXBEZ+AAaBLj6QLEEhphyZGMdLACljfn1iFVZta3oPEtu6ClluAODYmah8L8GNAs5RPXaBTYSkZFlCOKkSpCvNDrtOsb0Fpvae6AVlriO0BLTtBya84udgRHQmNLxXi2ZK4Ko4K5QLNHk3z71ImI/DY07YDGPvqKIe+/Sgdz8xUbFnFcG42xI6xeGhLxXGHVqjAc9glajuuh7gvtH1xtm/t7nZwaRrVFsWIz4M3QiJuGOhlPFai5LoxEvN/YDO+p0bhoI/GFSx25vJBRUuEKtGZ8P+Q7NB8AjWGpHdysNG+GBt801Il4qiw9y3PrgWySCZICKUn5CbQ0gx0Rkb2cWjjcxhL6tM7zIyLQo7jYCL6v1SVoR5YtHChGHQDNWZIqt4AUbm6juX4ztJSWko+l0LIqz3fVkvoTaNKAVpISgI33JN5CuPiezOWxEJERqSUZkIPaBc3x/djVatfuNtrlcTRfbjuyfTO0auzDv8RPd1V6BevcrbLfln2qypFS7YHm1s50MokeazxD6/bn0PK4WbY6YHjDl9uOVt06qc7eY4edlqRMM54oXJ7rikCDzYjigLbwIwufQatgB7P19VTmkPQ5tIrvp3Z/ugprOo4tqbgJrRng5VnSwUsgUHpPvmUNzbv+PmRw+TriCWfRmyyHvehaoC3mkOHiJ9Aa7Codk21oR/YGsH+sBJokbI30pE5BJDcnr0a84wLi2qMfVcSpyZHJZ/wM3yKLEfYZ2gKPkb4IbeRnoMk2D/qDi/ug5apOiiksnWK2Pw71fnYBcb1FkjDblHe/TipsxBNCay+eEmdoyIhwBhv3hzaCoz5L1vtq+5oLynFJjz8Ua/MytI3OgPe1DWZoT/kGtAo2Y7kb0FjvdwwXfwZafXz3Rh4KzRpR3QStPpxv2RegjV3YD21Ibvx6aFhwOeMMLZLLJpZ/CFqeUroUHPURn43boXnjzLmk/OEE50+hcQVtsM1fD62rGRGJGZodSyWHRkzJ46Ft5Xhobp2T+9tom52B1Bx/8MxPoeWAtjqi+cuhjZIqztCQY9o9ay62flZoqSnNPdD8BWi+XqO5sYKWV/88cgWNzwUNGilOb+UoTxMpaIPKGGHpSaGxt2wcX6NRb8m9n4+GStZ2NevyWMx2eK6S8zmheSF1AjbA1fu9iu7yVAsOaOXM0V7PsdynhXTXer9G1JnLv/pBaNYqxX3Q3N09+uZ7oGHUmPvG0WY97VVSg1OWHP20n+jtdYU2iqtrnn7D22qNP5k9QcsAhlaM5Qpw6TDUej9XzwsjOCZi0EvRWWN1PC5uM13O+jo0AhG1H+0MDXMt4vRWZ0Bd57QkMLu6q97u+lNo0TtGfEoyW3Pq2Wq0ZLVXb+PrHA651NoMdGFZ0QwN9kmHPJbrtGBUrfdvVABYlNcYY1mqgtTyWEt5EhGIwJehoVS31WhTrxMzp1ZXdXW3Pg0itSMgydbllAe0D2k+WY3GcMdiiOOSpIhJHoSIHKfXGdrN2YZ2+lYZUWN1PC7Q/C1orJJMUqs49kCDSzdnQDsgnbwATc8HLTNIogTAdqr9FljJt8gRHLPCzwctv9TcS30nRumTJOq20cXe2sHngobwtTNBV5VGjoCWPiUljT5BZfZYPf/QApyAAR8KrXk0tP0pBkvfzvNBU6XtUgIArSLeYtl2tmoN8bmGN3gBWtwPmiPC+ka6+qmgYfmrfRquFdafokNhtN2I1BTDQOlH0tXVN0IDpmXdAVqxr1RF0MWYLTWtOY1pPQP9dNBwGVpjQIvwsXhqvCyvJgNRRdB7odFlg2P5SGiVWVlVWedfvqpWt7dk9Mbez6E1OXaXlAHNqeDsOOoZT50DGtfQYgx7XIZWrrHY6ezTQvWy0/OG+ZAgu4KLdBCWigBLTYA5VsdHWFfc0BkYw3Ek0tIx0Exa8scZejPI6ZaSTqOrydUeXoEWu6FpBzQ8HrS8Bg2XqvriAKj2fN2cW0pGcN7QY0F9GhbGVOy5PL01X/af16DBhZjDjUbZMdAi1tDyvGOEY/uAFqv8KLTsR4NGtBwR7P4/tMrlqOIlaOftOb6jV9eqcWzI88IZGr8HjU6J6w2gtSfNGCHSV6FVVUk9ZexYZ1TmvbHrMrQVpXRJ5dScct4Cza0HnIJaoKljA9rAw3ECAQ6DNmagAEsFAKUGgByry49kFkmvoY2qC4kATSCQ2h/O3wY/2uvcbopUWntT1VegSfEwQc8TtD5DqwGtlsPW/6cM90DLz6GNfGt4g1qSJ7BZX/lWbkkwgjSJa52BVme936RyjW2n28hYHijKdRXakeNozAeC5p6bVyz5/1clun2SlhHuAe37NZoyO6uzDoFmWrcn17PjRUqS19DM1hKAHj0nywEta2pGje0aWfaryK5lf34JWldfh0YsRW1yHk94OGfKpbybA9pYOk+3N5ai91sOqNEYDjqgkXOvEzBLSp78NNBmJlMSGOdY30luVouFNbSoM3FIDAjB99uypgq6GRaDGsGynBGZERY9gyFWv3yyB+qmNdK0KnLynqwBeRpHQypP7VVj6ZO47wmNxLSSvWoWW8qPl7+WihHBvjBrUnbeCs1LG80Ra2g5/c/GOdWdFVEIYzl4ftXWhp6sL0KrU4HcBo1SZakjLHwCbbMLO4LI5aFWfcsMqsf7wmscOJ6yAS2yJJDQW8oEy6U7QqNV2JqX8ekE4o8X9KeEsxJrM9+Axv9/g7wGTUozgsSWMyGsnSkjIgitU7wIjVvQ3nIztMK8jZHjIcPb0HL113VwQMvWhcR9gpREbjR1x1Pqc42GiJUOS833e9tuzfnJGm1Qy9R2TGp3ENxwSeKWU+eoYSwE9kLTRWiTm+Jn0LQUMEsPBW38QpUkQdRoBEg9RnUcLOP0LC8Z9Rwk5Tu0ZeuqF7Yk8ZaUjLfUacHnDedD1EACxg3QDOvgmOnSxyQHNJ0PSNuSnUpb6dSyNvbWqmeZ9qlpUTWOmtPchLZx3DVoejRoWjLXzfW+XEMSAlKaE7ScoBVT6mF2eiUflK6q6vGgestpe1f1MW8E25cB7YeyDW1kExoHND8uNGjEYalBBi3J5ocxJsmrrkOTqM1e54PEAX07noc3Nh2XS4cFN0IbIeF6NGj+2C0zF0j8WGr48KldpTnfhVakpSRTByeD+nZyo42mJtQMH+d5xK7boY08ADQmyLkrsD1NzPpkXPRwaOsuXEAHx5n/ClpANQoSpI4OXNeg8RGhwWPYiUB//taLi9BqQOsngXZI0t6G1oTukanqfzho41ezndrOdWgsJf8eNKm8eep8qsQPhLFtaO/oJhkRXCrFdETwAjTAvwza/k7sCxozsaeAMlIX0mmjRs8rgjo0/x6aXol/HLoOuYLiHAd9NDRSAuH/2rtXI4tiIAaidizSfPKPcGvBpQ9ZrA+ZBLqGykg5YeXXpsdv7a4Rlv9nSSC0K527jgKhadw1TgCh6buSY0BodWtuSe0cENr9xlvbOSA0+V/XHceA0DROA6HptNNAaJoqh4HQ1E4CoamqZ9c5IDTVrMNAaBrHgdDuOg+E1s4DoWmcBkJTrdNAaGrngdDaT4DQ9jc/AULzM8Af2qL98u71t1EAAAAASUVORK5CYII=);background-position:100% 100%;background-repeat:no-repeat;color:var(--gcds-footer-main-text);container:component main/inline-size}:host .gcds-footer__main nav:first-of-type:after{border-block-end:var(--gcds-footer-main-nav-first-after-border-width) solid var(--gcds-footer-main-nav-first-after-border-color);content:\"\";display:block;margin:var(--gcds-footer-grid-gap) 0;width:var(--gcds-footer-main-nav-first-after-width)}:host .gcds-footer__main nav.main__themenav .themenav__list{display:grid;grid-auto-flow:column;grid-template-rows:repeat(19,1fr)}}@layer sub{:host .gcds-footer__sub{background-color:var(--gcds-footer-sub-background);container:component sub/inline-size}:host .gcds-footer__sub .sub__container{display:grid;grid-gap:var(--gcds-footer-grid-gap);grid-template-areas:\"list wordmark\";grid-template-columns:3fr 1fr}:host .gcds-footer__sub .sub__container nav{align-items:center;display:flex;grid-area:list}:host .gcds-footer__sub .sub__container .sub__wordmark,:host .gcds-footer__sub .sub__container slot[name=wordmark]{display:flex;grid-area:wordmark}:host .gcds-footer__sub .sub__container .sub__wordmark gcds-signature,:host .gcds-footer__sub .sub__container slot[name=wordmark] gcds-signature{align-self:end;margin:var(--gcds-footer-sub-signature-margin);max-height:var(--gcds-footer-sub-signature-max-height);min-width:var(--gcds-footer-sub-signature-min-width);width:var(--gcds-footer-sub-signature-width)}}@layer compact{@media only screen and (width < 45em){:host .gcds-footer__contextual,:host .gcds-footer__main,:host .gcds-footer__sub{padding:var(--gcds-footer-band-padding-mobile)}}@container sub (width <= 30em){:host .gcds-footer__sub .sub__container .sub__wordmark gcds-signature,:host .gcds-footer__sub .sub__container slot[name=wordmark] gcds-signature{max-height:var(--gcds-footer-sub-signature-sm-max-height);width:var(--gcds-footer-sub-signature-sm-width)}}}@layer medium{@container contextual (width >= 45em){:host .gcds-footer__contextual [class$=__list]{grid-template-columns:1fr 1fr}}@container main (width >= 45em){:host .gcds-footer__main [class$=__list]{grid-template-columns:1fr 1fr}:host .gcds-footer__main nav.main__themenav .themenav__list{grid-template-rows:repeat(10,1fr)}}@container sub (width < 60.2em){:host .gcds-footer__sub .sub__container{display:block}:host .gcds-footer__sub .sub__container ul li{margin:0 0 var(--gcds-footer-grid-gap)}}}@layer wide{@container contextual (width >= 60.2em){:host .gcds-footer__contextual [class$=__list]{grid-template-columns:1fr 1fr 1fr}}@container main (width >= 60.2em){:host .gcds-footer__main [class$=__list]{grid-template-columns:1fr 1fr 1fr}:host .gcds-footer__main nav.main__themenav .themenav__list{grid-template-rows:repeat(7,1fr)}}@container sub (width >= 60.2em){:host .gcds-footer__sub .sub__container ul li{display:inline-block;margin-block-end:0}:host .gcds-footer__sub .sub__container ul li:first-of-type:before{content:\"\";margin:0}:host .gcds-footer__sub .sub__container ul li:before{content:\"\\2022\";display:inline;margin:var(--gcds-footer-sub-listitem-before-margin)}:host .gcds-footer__sub .sub__container .sub__wordmark,:host .gcds-footer__sub .sub__container slot[name=wordmark]{display:inline-block}}}";
 
 class GcdsFooter {
     constructor(hostRef) {
         registerInstance(this, hostRef);
+        /**
+         * Props
+         */
+        /**
+         * Display mode of the footer
+         */
         this.display = 'compact';
-        this.wordmarkVariant = undefined;
-        this.contextualHeading = undefined;
-        this.contextualLinks = undefined;
-        this.subLinks = undefined;
-        this.lang = undefined;
     }
     /**
      * Convert contextual links prop to object
@@ -5236,7 +6272,7 @@ class GcdsFooter {
         "contextualLinks": ["contextualLinksChanged"],
         "subLinks": ["subLinksChanged"]
     }; }
-    static get style() { return GcdsFooterStyle0; }
+    static get style() { return gcdsFooterCss; }
     static get cmpMeta() { return {
         "$flags$": 9,
         "$tagName$": "gcds-footer",
@@ -5265,8 +6301,7 @@ const I18N$h = {
   },
 };
 
-const gcdsGridCss = "@layer reset, default, display, align, justify, place, equalHeight, tablet, desktop;@layer reset{.sc-gcds-grid-h{display:block}.sc-gcds-grid-h .gcds-grid{box-sizing:border-box;margin:0;padding:0}}@layer default{.sc-gcds-grid-h .gcds-grid{gap:var(--gcds-grid-gap);grid-template-columns:var(--gcds-grid-columns,1fr)}}@layer display{.sc-gcds-grid-h .gcds-grid.display-grid-with-cols{display:grid;grid-template-columns:1fr}.sc-gcds-grid-h .gcds-grid.display-grid{display:grid}.sc-gcds-grid-h .gcds-grid.display-inline-grid{display:inline-grid}}@layer align{.sc-gcds-grid-h .gcds-grid.align-content-center{align-content:center}.sc-gcds-grid-h .gcds-grid.align-content-end{align-content:end}.sc-gcds-grid-h .gcds-grid.align-content-space-around{align-content:space-around}.sc-gcds-grid-h .gcds-grid.align-content-space-between{align-content:space-between}.sc-gcds-grid-h .gcds-grid.align-content-space-evenly{align-content:space-evenly}.sc-gcds-grid-h .gcds-grid.align-content-start{align-content:start}.sc-gcds-grid-h .gcds-grid.align-content-stretch{align-content:stretch}.sc-gcds-grid-h .gcds-grid.align-items-baseline{align-items:baseline}.sc-gcds-grid-h .gcds-grid.align-items-center{align-items:center}.sc-gcds-grid-h .gcds-grid.align-items-end{align-items:end}.sc-gcds-grid-h .gcds-grid.align-items-start{align-items:start}.sc-gcds-grid-h .gcds-grid.align-items-stretch{align-items:stretch}}@layer justify{.sc-gcds-grid-h .gcds-grid.justify-content-center{justify-content:center}.sc-gcds-grid-h .gcds-grid.justify-content-end{justify-content:end}.sc-gcds-grid-h .gcds-grid.justify-content-space-around{justify-content:space-around}.sc-gcds-grid-h .gcds-grid.justify-content-space-between{justify-content:space-between}.sc-gcds-grid-h .gcds-grid.justify-content-space-evenly{justify-content:space-evenly}.sc-gcds-grid-h .gcds-grid.justify-content-start{justify-content:start}.sc-gcds-grid-h .gcds-grid.justify-content-stretch{justify-content:stretch}.sc-gcds-grid-h .gcds-grid.justify-items-center{justify-items:center}.sc-gcds-grid-h .gcds-grid.justify-items-end{justify-items:end}.sc-gcds-grid-h .gcds-grid.justify-items-start{justify-items:start}.sc-gcds-grid-h .gcds-grid.justify-items-stretch{justify-items:stretch}}@layer place{.sc-gcds-grid-h .gcds-grid.place-content-center{place-content:center}.sc-gcds-grid-h .gcds-grid.place-content-end{place-content:end}.sc-gcds-grid-h .gcds-grid.place-content-space-around{place-content:space-around}.sc-gcds-grid-h .gcds-grid.place-content-space-between{place-content:space-between}.sc-gcds-grid-h .gcds-grid.place-content-space-evenly{place-content:space-evenly}.sc-gcds-grid-h .gcds-grid.place-content-start{place-content:start}.sc-gcds-grid-h .gcds-grid.place-content-stretch{place-content:stretch}.sc-gcds-grid-h .gcds-grid.place-items-center{place-items:center}.sc-gcds-grid-h .gcds-grid.place-items-end{place-items:end}.sc-gcds-grid-h .gcds-grid.place-items-start{place-items:start}.sc-gcds-grid-h .gcds-grid.place-items-stretch{place-items:stretch}}@layer equalHeight{.sc-gcds-grid-h .gcds-grid.equal-row-height{align-items:stretch;grid-auto-rows:1fr}}@layer tablet{@media screen and (width >= 48em){.sc-gcds-grid-h .gcds-grid{gap:var(--gcds-grid-gap-tablet,var(--gcds-grid-gap));grid-template-columns:var(\n        --gcds-grid-columns-tablet,var(--gcds-grid-columns,1fr)\n      )}.sc-gcds-grid-h .gcds-grid.display-grid-with-cols{grid-template-columns:repeat(var(--gcds-grid-columns-default-tablet),minmax(0,1fr))}}}@layer desktop{@media screen and (width >= 64em){.sc-gcds-grid-h .gcds-grid{gap:var(--gcds-grid-gap-desktop,var(--gcds-grid-gap-tablet,var(--gcds-grid-gap)));grid-template-columns:var(\n        --gcds-grid-columns-desktop,var(--gcds-grid-columns-tablet,var(--gcds-grid-columns,1fr))\n      )}.sc-gcds-grid-h .gcds-grid.display-grid-with-cols{grid-template-columns:repeat(var(--gcds-grid-columns-default-desktop),minmax(0,1fr))}}}";
-var GcdsGridStyle0 = gcdsGridCss;
+const gcdsGridCss = "@layer reset, default, display, align, justify, place, equalHeight, tablet, desktop;@layer reset{:host{display:block}:host .gcds-grid{box-sizing:border-box;margin:0;padding:0}}@layer default{:host .gcds-grid{gap:var(--gcds-grid-gap);grid-template-columns:var(--gcds-grid-columns,1fr)}}@layer display{:host .gcds-grid.display-grid-with-cols{display:grid;grid-template-columns:1fr}:host .gcds-grid.display-grid{display:grid}:host .gcds-grid.display-inline-grid{display:inline-grid}}@layer align{:host .gcds-grid.align-content-center{align-content:center}:host .gcds-grid.align-content-end{align-content:end}:host .gcds-grid.align-content-space-around{align-content:space-around}:host .gcds-grid.align-content-space-between{align-content:space-between}:host .gcds-grid.align-content-space-evenly{align-content:space-evenly}:host .gcds-grid.align-content-start{align-content:start}:host .gcds-grid.align-content-stretch{align-content:stretch}:host .gcds-grid.align-items-baseline{align-items:baseline}:host .gcds-grid.align-items-center{align-items:center}:host .gcds-grid.align-items-end{align-items:end}:host .gcds-grid.align-items-start{align-items:start}:host .gcds-grid.align-items-stretch{align-items:stretch}}@layer justify{:host .gcds-grid.justify-content-center{justify-content:center}:host .gcds-grid.justify-content-end{justify-content:end}:host .gcds-grid.justify-content-space-around{justify-content:space-around}:host .gcds-grid.justify-content-space-between{justify-content:space-between}:host .gcds-grid.justify-content-space-evenly{justify-content:space-evenly}:host .gcds-grid.justify-content-start{justify-content:start}:host .gcds-grid.justify-content-stretch{justify-content:stretch}:host .gcds-grid.justify-items-center{justify-items:center}:host .gcds-grid.justify-items-end{justify-items:end}:host .gcds-grid.justify-items-start{justify-items:start}:host .gcds-grid.justify-items-stretch{justify-items:stretch}}@layer place{:host .gcds-grid.place-content-center{place-content:center}:host .gcds-grid.place-content-end{place-content:end}:host .gcds-grid.place-content-space-around{place-content:space-around}:host .gcds-grid.place-content-space-between{place-content:space-between}:host .gcds-grid.place-content-space-evenly{place-content:space-evenly}:host .gcds-grid.place-content-start{place-content:start}:host .gcds-grid.place-content-stretch{place-content:stretch}:host .gcds-grid.place-items-center{place-items:center}:host .gcds-grid.place-items-end{place-items:end}:host .gcds-grid.place-items-start{place-items:start}:host .gcds-grid.place-items-stretch{place-items:stretch}}@layer equalHeight{:host .gcds-grid.equal-row-height{align-items:stretch;grid-auto-rows:1fr}}@layer tablet{@media screen and (width >= 48em){:host .gcds-grid{gap:var(--gcds-grid-gap-tablet,var(--gcds-grid-gap));grid-template-columns:var(\n        --gcds-grid-columns-tablet,var(--gcds-grid-columns,1fr)\n      )}:host .gcds-grid.display-grid-with-cols{grid-template-columns:repeat(var(--gcds-grid-columns-default-tablet),minmax(0,1fr))}}}@layer desktop{@media screen and (width >= 64em){:host .gcds-grid{gap:var(--gcds-grid-gap-desktop,var(--gcds-grid-gap-tablet,var(--gcds-grid-gap)));grid-template-columns:var(\n        --gcds-grid-columns-desktop,var(--gcds-grid-columns-tablet,var(--gcds-grid-columns,1fr))\n      )}:host .gcds-grid.display-grid-with-cols{grid-template-columns:repeat(var(--gcds-grid-columns-default-desktop),minmax(0,1fr))}}}";
 
 const GridGapArray = [
     '150',
@@ -5289,23 +6324,30 @@ const GridGapArray = [
 class GcdsGrid {
     constructor(hostRef) {
         registerInstance(this, hostRef);
-        this.columns = undefined;
-        this.columnsTablet = undefined;
-        this.columnsDesktop = undefined;
-        this.container = undefined;
+        /**
+         * Defines if grid container is centered or not
+         */
         this.centered = false;
+        /**
+         * Defines element as grid or inline-grid container
+         */
         this.display = 'grid';
+        /**
+         * Sets all grid items to have an equal height,
+         * based on the tallest item.
+         */
         this.equalRowHeight = false;
+        /**
+         * Defines the horizontal and vertical spacing between items in
+         * a grid container for all viewports if gap-tablet and gap-desktop
+         * are not defined. Option to set different spacing for desktop
+         * with gap-desktop and for tablet with gap-tablet.
+         */
         this.gap = '300';
-        this.gapTablet = undefined;
-        this.gapDesktop = undefined;
+        /**
+         * Set tag for grid container
+         */
         this.tag = 'div';
-        this.alignContent = undefined;
-        this.justifyContent = undefined;
-        this.placeContent = undefined;
-        this.alignItems = undefined;
-        this.justifyItems = undefined;
-        this.placeItems = undefined;
     }
     validateGap(newValue) {
         const values = GridGapArray;
@@ -5395,7 +6437,7 @@ class GcdsGrid {
         "gapDesktop": ["validateGapDesktop"],
         "tag": ["validateTag"]
     }; }
-    static get style() { return GcdsGridStyle0; }
+    static get style() { return gcdsGridCss; }
     static get cmpMeta() { return {
         "$flags$": 9,
         "$tagName$": "gcds-grid",
@@ -5407,9 +6449,9 @@ class GcdsGrid {
             "centered": [4],
             "display": [1],
             "equalRowHeight": [4, "equal-row-height"],
-            "gap": [1],
-            "gapTablet": [1, "gap-tablet"],
-            "gapDesktop": [1, "gap-desktop"],
+            "gap": [1025],
+            "gapTablet": [1025, "gap-tablet"],
+            "gapDesktop": [1025, "gap-desktop"],
             "tag": [1025],
             "alignContent": [1, "align-content"],
             "justifyContent": [1, "justify-content"],
@@ -5424,15 +6466,24 @@ class GcdsGrid {
     }; }
 }
 
-const gcdsGridColCss = "@layer reset, default, tablet, desktop;@layer reset{.sc-gcds-grid-col-h{display:block}.sc-gcds-grid-col-h .gcds-grid-col{box-sizing:border-box;display:block;margin:0;padding:0}}@layer default{.sc-gcds-grid-col-h{grid-column:span var(--gcds-grid-columns-default-base) /span var(--gcds-grid-columns-default-base)}.sc-gcds-grid-col-h .gcds-grid-col{height:100%;width:100%}}@layer tablet{@media screen and (width >= 48em){.sc-gcds-grid-col-h{grid-column:span var(--gcds-grid-col-tablet,var(--gcds-grid-columns-default-tablet)) /span var(--gcds-grid-col-tablet,var(--gcds-grid-columns-default-tablet))}}}@layer desktop{@media screen and (width >= 64em){.sc-gcds-grid-col-h{grid-column:span var(--gcds-grid-col-desktop,var(--gcds-grid-columns-default-desktop)) /span var(--gcds-grid-col-desktop,var(--gcds-grid-columns-default-desktop))}}}";
-var GcdsGridColStyle0 = gcdsGridColCss;
+const gcdsGridColCss = "@layer reset, default, tablet, desktop;@layer reset{:host{display:block}:host .gcds-grid-col{box-sizing:border-box;display:block;margin:0;padding:0}}@layer default{:host{grid-column:span var(--gcds-grid-columns-default-base) /span var(--gcds-grid-columns-default-base)}:host .gcds-grid-col{height:100%;width:100%}}@layer tablet{@media screen and (width >= 48em){:host{grid-column:span var(--gcds-grid-col-tablet,var(--gcds-grid-columns-default-tablet)) /span var(--gcds-grid-col-tablet,var(--gcds-grid-columns-default-tablet))}}}@layer desktop{@media screen and (width >= 64em){:host{grid-column:span var(--gcds-grid-col-desktop,var(--gcds-grid-columns-default-desktop)) /span var(--gcds-grid-col-desktop,var(--gcds-grid-columns-default-desktop))}}}";
 
 class GcdsGridCol {
     constructor(hostRef) {
         registerInstance(this, hostRef);
+        /**
+         * Props
+         */
+        /**
+         * Set tag for grid column
+         */
         this.tag = 'div';
+        /**
+         * Optimize grid column size for tablet (768px - 1023px).
+         * Tablet grid column sizes are based on a 6 column grid.
+         * The tablet size will also be used for desktop, if desktop is undefined.
+         */
         this.tablet = 6;
-        this.desktop = undefined;
     }
     validateTablet(newValue) {
         const values = [1, 2, 3, 4, 5, 6];
@@ -5474,7 +6525,7 @@ class GcdsGridCol {
         "tablet": ["validateTablet"],
         "desktop": ["validateDesktop"]
     }; }
-    static get style() { return GcdsGridColStyle0; }
+    static get style() { return gcdsGridColCss; }
     static get cmpMeta() { return {
         "$flags$": 9,
         "$tagName$": "gcds-grid-col",
@@ -5500,17 +6551,15 @@ const I18N$g = {
   },
 };
 
-const gcdsHeaderCss = "@layer reset, default, brand, menu, wide;@layer reset{.sc-gcds-header-h{display:block}.sc-gcds-header-h slot{display:initial}}@layer default{.sc-gcds-header-h{margin:var(--gcds-header-margin)!important}.sc-gcds-header-h .gcds-header__container{justify-content:space-between;margin:0 auto;max-width:var(--gcds-header-container-max-width);width:90%}.sc-gcds-header-h .gcds-header__skip-to-nav{margin-inline:auto;position:absolute;text-align:center;top:var(--gcds-header-skiptonav-top);width:100%}.sc-gcds-header-h .gcds-header__skip-to-nav gcds-link{left:0;position:absolute;top:0;width:inherit;z-index:3}.sc-gcds-header-h .gcds-header__skip-to-nav gcds-link:not(:focus){height:0;overflow:hidden;width:0;clip:rect(0,0,0,0)}}@layer brand{.sc-gcds-header-h .gcds-header__brand{border-block-end:var(--gcds-header-brand-border-width) solid var(--gcds-header-brand-border-color);container:component brand/inline-size;padding:var(--gcds-header-brand-padding)}.sc-gcds-header-h .gcds-header__brand .brand__container{display:grid;grid-gap:var(--gcds-header-brand-grid-gap);grid-template-areas:\"signature toggle\" \"search search\";grid-template-columns:1fr .1fr;margin:0 auto;max-width:var(--gcds-header-container-max-width);width:90%}.sc-gcds-header-h .gcds-header__brand .brand__container.container--simple{grid-template-areas:\"signature toggle\"}.sc-gcds-header-h .gcds-header__brand .brand__container :is(.brand__toggle,slot[name=toggle]){grid-area:toggle;text-align:right}.sc-gcds-header-h .gcds-header__brand .brand__container :is(.brand__signature,slot[name=signature]){align-content:center;grid-area:signature}.sc-gcds-header-h .gcds-header__brand .brand__container .brand__search{display:block;grid-area:search;max-width:100%}}@layer menu{.sc-gcds-header-h{--gcds-nav-group-mobile-trigger-margin:var(--gcds-header-menu-top-nav-mobile-trigger-margin)}}@layer wide{@container brand (width >= 51em){.sc-gcds-header-h .gcds-header__brand .brand__container{grid-template-areas:\"toggle toggle\" \"signature search\";grid-template-columns:1fr 1fr}.sc-gcds-header-h .gcds-header__brand .brand__container .brand__search,.sc-gcds-header-h .gcds-header__brand .brand__container slot[name=search]{margin-inline-start:auto;width:fit-content}}}";
-var GcdsHeaderStyle0 = gcdsHeaderCss;
+const gcdsHeaderCss = "@layer reset, default, brand, menu, wide;@layer reset{:host{display:block}:host slot{display:initial}}@layer default{:host{margin:var(--gcds-header-margin)!important}:host .gcds-header__container{justify-content:space-between;margin:0 auto;max-width:var(--gcds-header-container-max-width);width:90%}:host .gcds-header__skip-to-nav{margin-inline:auto;position:absolute;text-align:center;top:var(--gcds-header-skiptonav-top);width:100%}:host .gcds-header__skip-to-nav gcds-link{left:0;position:absolute;top:0;width:inherit;z-index:3}:host .gcds-header__skip-to-nav gcds-link:not(:focus){height:0;overflow:hidden;width:0;clip:rect(0,0,0,0)}}@layer brand{:host .gcds-header__brand{border-block-end:var(--gcds-header-brand-border-width) solid var(--gcds-header-brand-border-color);container:component brand/inline-size;padding:var(--gcds-header-brand-padding)}:host .gcds-header__brand .brand__container{display:grid;grid-gap:var(--gcds-header-brand-grid-gap);grid-template-areas:\"signature toggle\" \"search search\";grid-template-columns:1fr .1fr;margin:0 auto;max-width:var(--gcds-header-container-max-width);width:90%}:host .gcds-header__brand .brand__container.container--simple{grid-template-areas:\"signature toggle\"}:host .gcds-header__brand .brand__container :is(.brand__toggle,slot[name=toggle]){grid-area:toggle;text-align:right}:host .gcds-header__brand .brand__container :is(.brand__signature,slot[name=signature]){align-content:center;grid-area:signature}:host .gcds-header__brand .brand__container .brand__search{display:block;grid-area:search;max-width:100%}}@layer menu{:host{--gcds-nav-group-mobile-trigger-margin:var(--gcds-header-menu-top-nav-mobile-trigger-margin)}}@layer wide{@container brand (width >= 51em){:host .gcds-header__brand .brand__container{grid-template-areas:\"toggle toggle\" \"signature search\";grid-template-columns:1fr 1fr}:host .gcds-header__brand .brand__container .brand__search,:host .gcds-header__brand .brand__container slot[name=search]{margin-inline-start:auto;width:fit-content}}}";
 
 class GcdsHeader {
     constructor(hostRef) {
         registerInstance(this, hostRef);
-        this.langHref = undefined;
-        this.signatureVariant = undefined;
+        /**
+         * GcdsSignature - GCDS signature links to Canada.ca
+         */
         this.signatureHasLink = true;
-        this.skipToHref = undefined;
-        this.lang = undefined;
     }
     /*
      * Observe lang attribute change
@@ -5583,7 +6632,7 @@ class GcdsHeader {
         return (hAsync(Host, { key: '4ce8bdb71c9ec3db7651195f6c15e423034fb509', role: "banner" }, renderSkipToNav, hasBanner ? hAsync("slot", { name: "banner" }) : null, hAsync("div", { key: 'c763e09da43fed07da3562e0b581fb549e4f0954', class: "gcds-header__brand" }, hAsync("div", { key: '157b25b759b836affb69d046ba3ecba8022c79ff', class: `brand__container ${!hasSearch ? 'container--simple' : ''}` }, renderToggle, renderSignature, renderSearch)), hAsync("slot", { key: '41a36feff4bff5a648b7f50b23410f5337b7a683', name: "menu" }), hasBreadcrumb ? (hAsync("div", { class: "gcds-header__container" }, hAsync("slot", { name: "breadcrumb" }))) : null));
     }
     get el() { return getElement(this); }
-    static get style() { return GcdsHeaderStyle0; }
+    static get style() { return gcdsHeaderCss; }
     static get cmpMeta() { return {
         "$flags$": 9,
         "$tagName$": "gcds-header",
@@ -5610,15 +6659,19 @@ function generateSpacingArray() {
 }
 const SpacingArray = generateSpacingArray();
 
-const gcdsHeadingCss = "@layer reset, default, limit, margin;@layer reset{.sc-gcds-heading-h{color:var(--gcds-heading-default-text);display:block}.sc-gcds-heading-h :is(h1,h2,h3,h4,h5,h6){box-sizing:border-box;margin:0}.sc-gcds-heading-h slot{display:initial}}@layer default{.sc-gcds-heading-h :is(h1,h2,h3,h4,h5,h6){text-wrap:balance}.sc-gcds-heading-h h1.gcds-heading{font:var(--gcds-heading-h1-desktop)}@media only screen and (width < 48em){.sc-gcds-heading-h h1.gcds-heading{font:var(--gcds-heading-h1-mobile)}}.sc-gcds-heading-h h1.gcds-heading:after{background-color:var(--gcds-heading-h1-border-background);content:\"\";display:block;height:var(--gcds-heading-h1-border-height);margin-block-start:var(--gcds-heading-h1-border-margin);width:var(--gcds-heading-h1-border-width)}.sc-gcds-heading-h h2.gcds-heading{font:var(--gcds-heading-h2-desktop)}@media only screen and (width < 48em){.sc-gcds-heading-h h2.gcds-heading{font:var(--gcds-heading-h2-mobile)}}.sc-gcds-heading-h h3.gcds-heading{font:var(--gcds-heading-h3-desktop)}@media only screen and (width < 48em){.sc-gcds-heading-h h3.gcds-heading{font:var(--gcds-heading-h3-mobile)}}.sc-gcds-heading-h h4.gcds-heading{font:var(--gcds-heading-h4-desktop)}@media only screen and (width < 48em){.sc-gcds-heading-h h4.gcds-heading{font:var(--gcds-heading-h4-mobile)}}.sc-gcds-heading-h h5.gcds-heading{font:var(--gcds-heading-h5-desktop)}@media only screen and (width < 48em){.sc-gcds-heading-h h5.gcds-heading{font:var(--gcds-heading-h5-mobile)}}.sc-gcds-heading-h h6.gcds-heading{font:var(--gcds-heading-h6-desktop)}@media only screen and (width < 48em){.sc-gcds-heading-h h6.gcds-heading{font:var(--gcds-heading-h6-mobile)}}}@layer limit{.sc-gcds-heading-h h1.limit{max-width:var(--gcds-heading-character-limit-h1)}.sc-gcds-heading-h h2.limit{max-width:var(--gcds-heading-character-limit-h2)}.sc-gcds-heading-h h3.limit{max-width:var(--gcds-heading-character-limit-h3)}.sc-gcds-heading-h h4.limit{max-width:var(--gcds-heading-character-limit-h4)}.sc-gcds-heading-h h5.limit{max-width:var(--gcds-heading-character-limit-h5)}.sc-gcds-heading-h h6.limit{max-width:var(--gcds-heading-character-limit-h6)}}@layer margin{.sc-gcds-heading-h :is(h1,h2,h3,h4,h5,h6).mt-0{margin-block-start:var(--gcds-heading-spacing-0)}.sc-gcds-heading-h :is(h1,h2,h3,h4,h5,h6).mt-25{margin-block-start:var(--gcds-heading-spacing-25)}.sc-gcds-heading-h :is(h1,h2,h3,h4,h5,h6).mt-50{margin-block-start:var(--gcds-heading-spacing-50)}.sc-gcds-heading-h :is(h1,h2,h3,h4,h5,h6).mt-75{margin-block-start:var(--gcds-heading-spacing-75)}.sc-gcds-heading-h :is(h1,h2,h3,h4,h5,h6).mt-100{margin-block-start:var(--gcds-heading-spacing-100)}.sc-gcds-heading-h :is(h1,h2,h3,h4,h5,h6).mt-125{margin-block-start:var(--gcds-heading-spacing-125)}.sc-gcds-heading-h :is(h1,h2,h3,h4,h5,h6).mt-150{margin-block-start:var(--gcds-heading-spacing-150)}.sc-gcds-heading-h :is(h1,h2,h3,h4,h5,h6).mt-175{margin-block-start:var(--gcds-heading-spacing-175)}.sc-gcds-heading-h :is(h1,h2,h3,h4,h5,h6).mt-200{margin-block-start:var(--gcds-heading-spacing-200)}.sc-gcds-heading-h :is(h1,h2,h3,h4,h5,h6).mt-225{margin-block-start:var(--gcds-heading-spacing-225)}.sc-gcds-heading-h :is(h1,h2,h3,h4,h5,h6).mt-250{margin-block-start:var(--gcds-heading-spacing-250)}.sc-gcds-heading-h :is(h1,h2,h3,h4,h5,h6).mt-300{margin-block-start:var(--gcds-heading-spacing-300)}.sc-gcds-heading-h :is(h1,h2,h3,h4,h5,h6).mt-350{margin-block-start:var(--gcds-heading-spacing-350)}.sc-gcds-heading-h :is(h1,h2,h3,h4,h5,h6).mt-400{margin-block-start:var(--gcds-heading-spacing-400)}.sc-gcds-heading-h :is(h1,h2,h3,h4,h5,h6).mt-450{margin-block-start:var(--gcds-heading-spacing-450)}.sc-gcds-heading-h :is(h1,h2,h3,h4,h5,h6).mt-500{margin-block-start:var(--gcds-heading-spacing-500)}.sc-gcds-heading-h :is(h1,h2,h3,h4,h5,h6).mt-550{margin-block-start:var(--gcds-heading-spacing-550)}.sc-gcds-heading-h :is(h1,h2,h3,h4,h5,h6).mt-600{margin-block-start:var(--gcds-heading-spacing-600)}.sc-gcds-heading-h :is(h1,h2,h3,h4,h5,h6).mt-650{margin-block-start:var(--gcds-heading-spacing-650)}.sc-gcds-heading-h :is(h1,h2,h3,h4,h5,h6).mt-700{margin-block-start:var(--gcds-heading-spacing-700)}.sc-gcds-heading-h :is(h1,h2,h3,h4,h5,h6).mt-750{margin-block-start:var(--gcds-heading-spacing-750)}.sc-gcds-heading-h :is(h1,h2,h3,h4,h5,h6).mt-800{margin-block-start:var(--gcds-heading-spacing-800)}.sc-gcds-heading-h :is(h1,h2,h3,h4,h5,h6).mt-850{margin-block-start:var(--gcds-heading-spacing-850)}.sc-gcds-heading-h :is(h1,h2,h3,h4,h5,h6).mt-900{margin-block-start:var(--gcds-heading-spacing-900)}.sc-gcds-heading-h :is(h1,h2,h3,h4,h5,h6).mt-950{margin-block-start:var(--gcds-heading-spacing-950)}.sc-gcds-heading-h :is(h1,h2,h3,h4,h5,h6).mt-1000{margin-block-start:var(--gcds-heading-spacing-1000)}.sc-gcds-heading-h :is(h1,h2,h3,h4,h5,h6).mt-1050{margin-block-start:var(--gcds-heading-spacing-1050)}.sc-gcds-heading-h :is(h1,h2,h3,h4,h5,h6).mt-1100{margin-block-start:var(--gcds-heading-spacing-1100)}.sc-gcds-heading-h :is(h1,h2,h3,h4,h5,h6).mt-1150{margin-block-start:var(--gcds-heading-spacing-1150)}.sc-gcds-heading-h :is(h1,h2,h3,h4,h5,h6).mt-1200{margin-block-start:var(--gcds-heading-spacing-1200)}.sc-gcds-heading-h :is(h1,h2,h3,h4,h5,h6).mt-1250{margin-block-start:var(--gcds-heading-spacing-1250)}.sc-gcds-heading-h :is(h1,h2,h3,h4,h5,h6).mb-0{margin-block-end:var(--gcds-heading-spacing-0)}.sc-gcds-heading-h :is(h1,h2,h3,h4,h5,h6).mb-25{margin-block-end:var(--gcds-heading-spacing-25)}.sc-gcds-heading-h :is(h1,h2,h3,h4,h5,h6).mb-50{margin-block-end:var(--gcds-heading-spacing-50)}.sc-gcds-heading-h :is(h1,h2,h3,h4,h5,h6).mb-75{margin-block-end:var(--gcds-heading-spacing-75)}.sc-gcds-heading-h :is(h1,h2,h3,h4,h5,h6).mb-100{margin-block-end:var(--gcds-heading-spacing-100)}.sc-gcds-heading-h :is(h1,h2,h3,h4,h5,h6).mb-125{margin-block-end:var(--gcds-heading-spacing-125)}.sc-gcds-heading-h :is(h1,h2,h3,h4,h5,h6).mb-150{margin-block-end:var(--gcds-heading-spacing-150)}.sc-gcds-heading-h :is(h1,h2,h3,h4,h5,h6).mb-175{margin-block-end:var(--gcds-heading-spacing-175)}.sc-gcds-heading-h :is(h1,h2,h3,h4,h5,h6).mb-200{margin-block-end:var(--gcds-heading-spacing-200)}.sc-gcds-heading-h :is(h1,h2,h3,h4,h5,h6).mb-225{margin-block-end:var(--gcds-heading-spacing-225)}.sc-gcds-heading-h :is(h1,h2,h3,h4,h5,h6).mb-250{margin-block-end:var(--gcds-heading-spacing-250)}.sc-gcds-heading-h :is(h1,h2,h3,h4,h5,h6).mb-300{margin-block-end:var(--gcds-heading-spacing-300)}.sc-gcds-heading-h :is(h1,h2,h3,h4,h5,h6).mb-350{margin-block-end:var(--gcds-heading-spacing-350)}.sc-gcds-heading-h :is(h1,h2,h3,h4,h5,h6).mb-400{margin-block-end:var(--gcds-heading-spacing-400)}.sc-gcds-heading-h :is(h1,h2,h3,h4,h5,h6).mb-450{margin-block-end:var(--gcds-heading-spacing-450)}.sc-gcds-heading-h :is(h1,h2,h3,h4,h5,h6).mb-500{margin-block-end:var(--gcds-heading-spacing-500)}.sc-gcds-heading-h :is(h1,h2,h3,h4,h5,h6).mb-550{margin-block-end:var(--gcds-heading-spacing-550)}.sc-gcds-heading-h :is(h1,h2,h3,h4,h5,h6).mb-600{margin-block-end:var(--gcds-heading-spacing-600)}.sc-gcds-heading-h :is(h1,h2,h3,h4,h5,h6).mb-650{margin-block-end:var(--gcds-heading-spacing-650)}.sc-gcds-heading-h :is(h1,h2,h3,h4,h5,h6).mb-700{margin-block-end:var(--gcds-heading-spacing-700)}.sc-gcds-heading-h :is(h1,h2,h3,h4,h5,h6).mb-750{margin-block-end:var(--gcds-heading-spacing-750)}.sc-gcds-heading-h :is(h1,h2,h3,h4,h5,h6).mb-800{margin-block-end:var(--gcds-heading-spacing-800)}.sc-gcds-heading-h :is(h1,h2,h3,h4,h5,h6).mb-850{margin-block-end:var(--gcds-heading-spacing-850)}.sc-gcds-heading-h :is(h1,h2,h3,h4,h5,h6).mb-900{margin-block-end:var(--gcds-heading-spacing-900)}.sc-gcds-heading-h :is(h1,h2,h3,h4,h5,h6).mb-950{margin-block-end:var(--gcds-heading-spacing-950)}.sc-gcds-heading-h :is(h1,h2,h3,h4,h5,h6).mb-1000{margin-block-end:var(--gcds-heading-spacing-1000)}.sc-gcds-heading-h :is(h1,h2,h3,h4,h5,h6).mb-1050{margin-block-end:var(--gcds-heading-spacing-1050)}.sc-gcds-heading-h :is(h1,h2,h3,h4,h5,h6).mb-1100{margin-block-end:var(--gcds-heading-spacing-1100)}.sc-gcds-heading-h :is(h1,h2,h3,h4,h5,h6).mb-1150{margin-block-end:var(--gcds-heading-spacing-1150)}.sc-gcds-heading-h :is(h1,h2,h3,h4,h5,h6).mb-1200{margin-block-end:var(--gcds-heading-spacing-1200)}.sc-gcds-heading-h :is(h1,h2,h3,h4,h5,h6).mb-1250{margin-block-end:var(--gcds-heading-spacing-1250)}}";
-var GcdsHeadingStyle0 = gcdsHeadingCss;
+const gcdsHeadingCss = "@layer reset, default, limit, margin;@layer reset{:host{color:var(--gcds-heading-default-text);display:block}:host :is(h1,h2,h3,h4,h5,h6){box-sizing:border-box;margin:0}:host slot{display:initial}}@layer default{:host :is(h1,h2,h3,h4,h5,h6){text-wrap:balance}:host h1.gcds-heading{font:var(--gcds-heading-h1-desktop)}@media only screen and (width < 48em){:host h1.gcds-heading{font:var(--gcds-heading-h1-mobile)}}:host h1.gcds-heading:after{background-color:var(--gcds-heading-h1-border-background);content:\"\";display:block;height:var(--gcds-heading-h1-border-height);margin-block-start:var(--gcds-heading-h1-border-margin);width:var(--gcds-heading-h1-border-width)}:host h2.gcds-heading{font:var(--gcds-heading-h2-desktop)}@media only screen and (width < 48em){:host h2.gcds-heading{font:var(--gcds-heading-h2-mobile)}}:host h3.gcds-heading{font:var(--gcds-heading-h3-desktop)}@media only screen and (width < 48em){:host h3.gcds-heading{font:var(--gcds-heading-h3-mobile)}}:host h4.gcds-heading{font:var(--gcds-heading-h4-desktop)}@media only screen and (width < 48em){:host h4.gcds-heading{font:var(--gcds-heading-h4-mobile)}}:host h5.gcds-heading{font:var(--gcds-heading-h5-desktop)}@media only screen and (width < 48em){:host h5.gcds-heading{font:var(--gcds-heading-h5-mobile)}}:host h6.gcds-heading{font:var(--gcds-heading-h6-desktop)}@media only screen and (width < 48em){:host h6.gcds-heading{font:var(--gcds-heading-h6-mobile)}}}@layer limit{:host h1.limit{max-width:var(--gcds-heading-character-limit-h1)}:host h2.limit{max-width:var(--gcds-heading-character-limit-h2)}:host h3.limit{max-width:var(--gcds-heading-character-limit-h3)}:host h4.limit{max-width:var(--gcds-heading-character-limit-h4)}:host h5.limit{max-width:var(--gcds-heading-character-limit-h5)}:host h6.limit{max-width:var(--gcds-heading-character-limit-h6)}}@layer margin{:host :is(h1,h2,h3,h4,h5,h6).mt-0{margin-block-start:var(--gcds-heading-spacing-0)}:host :is(h1,h2,h3,h4,h5,h6).mt-25{margin-block-start:var(--gcds-heading-spacing-25)}:host :is(h1,h2,h3,h4,h5,h6).mt-50{margin-block-start:var(--gcds-heading-spacing-50)}:host :is(h1,h2,h3,h4,h5,h6).mt-75{margin-block-start:var(--gcds-heading-spacing-75)}:host :is(h1,h2,h3,h4,h5,h6).mt-100{margin-block-start:var(--gcds-heading-spacing-100)}:host :is(h1,h2,h3,h4,h5,h6).mt-125{margin-block-start:var(--gcds-heading-spacing-125)}:host :is(h1,h2,h3,h4,h5,h6).mt-150{margin-block-start:var(--gcds-heading-spacing-150)}:host :is(h1,h2,h3,h4,h5,h6).mt-175{margin-block-start:var(--gcds-heading-spacing-175)}:host :is(h1,h2,h3,h4,h5,h6).mt-200{margin-block-start:var(--gcds-heading-spacing-200)}:host :is(h1,h2,h3,h4,h5,h6).mt-225{margin-block-start:var(--gcds-heading-spacing-225)}:host :is(h1,h2,h3,h4,h5,h6).mt-250{margin-block-start:var(--gcds-heading-spacing-250)}:host :is(h1,h2,h3,h4,h5,h6).mt-300{margin-block-start:var(--gcds-heading-spacing-300)}:host :is(h1,h2,h3,h4,h5,h6).mt-350{margin-block-start:var(--gcds-heading-spacing-350)}:host :is(h1,h2,h3,h4,h5,h6).mt-400{margin-block-start:var(--gcds-heading-spacing-400)}:host :is(h1,h2,h3,h4,h5,h6).mt-450{margin-block-start:var(--gcds-heading-spacing-450)}:host :is(h1,h2,h3,h4,h5,h6).mt-500{margin-block-start:var(--gcds-heading-spacing-500)}:host :is(h1,h2,h3,h4,h5,h6).mt-550{margin-block-start:var(--gcds-heading-spacing-550)}:host :is(h1,h2,h3,h4,h5,h6).mt-600{margin-block-start:var(--gcds-heading-spacing-600)}:host :is(h1,h2,h3,h4,h5,h6).mt-650{margin-block-start:var(--gcds-heading-spacing-650)}:host :is(h1,h2,h3,h4,h5,h6).mt-700{margin-block-start:var(--gcds-heading-spacing-700)}:host :is(h1,h2,h3,h4,h5,h6).mt-750{margin-block-start:var(--gcds-heading-spacing-750)}:host :is(h1,h2,h3,h4,h5,h6).mt-800{margin-block-start:var(--gcds-heading-spacing-800)}:host :is(h1,h2,h3,h4,h5,h6).mt-850{margin-block-start:var(--gcds-heading-spacing-850)}:host :is(h1,h2,h3,h4,h5,h6).mt-900{margin-block-start:var(--gcds-heading-spacing-900)}:host :is(h1,h2,h3,h4,h5,h6).mt-950{margin-block-start:var(--gcds-heading-spacing-950)}:host :is(h1,h2,h3,h4,h5,h6).mt-1000{margin-block-start:var(--gcds-heading-spacing-1000)}:host :is(h1,h2,h3,h4,h5,h6).mt-1050{margin-block-start:var(--gcds-heading-spacing-1050)}:host :is(h1,h2,h3,h4,h5,h6).mt-1100{margin-block-start:var(--gcds-heading-spacing-1100)}:host :is(h1,h2,h3,h4,h5,h6).mt-1150{margin-block-start:var(--gcds-heading-spacing-1150)}:host :is(h1,h2,h3,h4,h5,h6).mt-1200{margin-block-start:var(--gcds-heading-spacing-1200)}:host :is(h1,h2,h3,h4,h5,h6).mt-1250{margin-block-start:var(--gcds-heading-spacing-1250)}:host :is(h1,h2,h3,h4,h5,h6).mb-0{margin-block-end:var(--gcds-heading-spacing-0)}:host :is(h1,h2,h3,h4,h5,h6).mb-25{margin-block-end:var(--gcds-heading-spacing-25)}:host :is(h1,h2,h3,h4,h5,h6).mb-50{margin-block-end:var(--gcds-heading-spacing-50)}:host :is(h1,h2,h3,h4,h5,h6).mb-75{margin-block-end:var(--gcds-heading-spacing-75)}:host :is(h1,h2,h3,h4,h5,h6).mb-100{margin-block-end:var(--gcds-heading-spacing-100)}:host :is(h1,h2,h3,h4,h5,h6).mb-125{margin-block-end:var(--gcds-heading-spacing-125)}:host :is(h1,h2,h3,h4,h5,h6).mb-150{margin-block-end:var(--gcds-heading-spacing-150)}:host :is(h1,h2,h3,h4,h5,h6).mb-175{margin-block-end:var(--gcds-heading-spacing-175)}:host :is(h1,h2,h3,h4,h5,h6).mb-200{margin-block-end:var(--gcds-heading-spacing-200)}:host :is(h1,h2,h3,h4,h5,h6).mb-225{margin-block-end:var(--gcds-heading-spacing-225)}:host :is(h1,h2,h3,h4,h5,h6).mb-250{margin-block-end:var(--gcds-heading-spacing-250)}:host :is(h1,h2,h3,h4,h5,h6).mb-300{margin-block-end:var(--gcds-heading-spacing-300)}:host :is(h1,h2,h3,h4,h5,h6).mb-350{margin-block-end:var(--gcds-heading-spacing-350)}:host :is(h1,h2,h3,h4,h5,h6).mb-400{margin-block-end:var(--gcds-heading-spacing-400)}:host :is(h1,h2,h3,h4,h5,h6).mb-450{margin-block-end:var(--gcds-heading-spacing-450)}:host :is(h1,h2,h3,h4,h5,h6).mb-500{margin-block-end:var(--gcds-heading-spacing-500)}:host :is(h1,h2,h3,h4,h5,h6).mb-550{margin-block-end:var(--gcds-heading-spacing-550)}:host :is(h1,h2,h3,h4,h5,h6).mb-600{margin-block-end:var(--gcds-heading-spacing-600)}:host :is(h1,h2,h3,h4,h5,h6).mb-650{margin-block-end:var(--gcds-heading-spacing-650)}:host :is(h1,h2,h3,h4,h5,h6).mb-700{margin-block-end:var(--gcds-heading-spacing-700)}:host :is(h1,h2,h3,h4,h5,h6).mb-750{margin-block-end:var(--gcds-heading-spacing-750)}:host :is(h1,h2,h3,h4,h5,h6).mb-800{margin-block-end:var(--gcds-heading-spacing-800)}:host :is(h1,h2,h3,h4,h5,h6).mb-850{margin-block-end:var(--gcds-heading-spacing-850)}:host :is(h1,h2,h3,h4,h5,h6).mb-900{margin-block-end:var(--gcds-heading-spacing-900)}:host :is(h1,h2,h3,h4,h5,h6).mb-950{margin-block-end:var(--gcds-heading-spacing-950)}:host :is(h1,h2,h3,h4,h5,h6).mb-1000{margin-block-end:var(--gcds-heading-spacing-1000)}:host :is(h1,h2,h3,h4,h5,h6).mb-1050{margin-block-end:var(--gcds-heading-spacing-1050)}:host :is(h1,h2,h3,h4,h5,h6).mb-1100{margin-block-end:var(--gcds-heading-spacing-1100)}:host :is(h1,h2,h3,h4,h5,h6).mb-1150{margin-block-end:var(--gcds-heading-spacing-1150)}:host :is(h1,h2,h3,h4,h5,h6).mb-1200{margin-block-end:var(--gcds-heading-spacing-1200)}:host :is(h1,h2,h3,h4,h5,h6).mb-1250{margin-block-end:var(--gcds-heading-spacing-1250)}}";
 
 class GcdsHeading {
     constructor(hostRef) {
         registerInstance(this, hostRef);
-        this.tag = undefined;
+        /**
+         * Sets the line length to a maximum amount of characters per line for
+         * each heading level, ensuring a comfortable, accessible reading length.
+         */
         this.characterLimit = true;
-        this.marginTop = undefined;
+        /**
+         * Adds margin below the heading. The default margin-botttom is 300.
+         */
         this.marginBottom = '300';
     }
     validateTag(newValue) {
@@ -5661,7 +6714,7 @@ class GcdsHeading {
         "marginTop": ["validateMarginTop"],
         "marginBottom": ["validateMarginBottom"]
     }; }
-    static get style() { return GcdsHeadingStyle0; }
+    static get style() { return gcdsHeadingCss; }
     static get cmpMeta() { return {
         "$flags$": 9,
         "$tagName$": "gcds-heading",
@@ -5677,20 +6730,18 @@ class GcdsHeading {
     }; }
 }
 
-const gcdsHintCss = "@layer reset, default;@layer reset{.sc-gcds-hint-h{display:block}.sc-gcds-hint-h slot{display:initial}}@layer default{.sc-gcds-hint-h .gcds-hint,.sc-gcds-hint-h gcds-text::part(text){color:var(--gcds-hint-text)}.sc-gcds-hint-h .gcds-hint{margin:var(--gcds-hint-margin)}}";
-var GcdsHintStyle0 = gcdsHintCss;
+const gcdsHintCss = "@layer reset, default;@layer reset{:host{display:block}:host slot{display:initial}}@layer default{:host .gcds-hint,:host gcds-text::part(text){color:var(--gcds-hint-text)}:host .gcds-hint{margin:var(--gcds-hint-margin)}}";
 
 class GcdsHint {
     constructor(hostRef) {
         registerInstance(this, hostRef);
-        this.hintId = undefined;
     }
     render() {
         const { hintId } = this;
         return (hAsync(Host, { key: 'eb67660e9aef1823546fd67ffb4df34b28b2cadb', id: `hint-${hintId}` }, hAsync("gcds-text", { key: 'f1252b21a52419614fe057aad4a8b117d07ae8b6', class: "gcds-hint", "margin-bottom": "0", part: "hint" }, hAsync("slot", { key: '171998e99a00d21a3436f7dc118d580bb7d0fe77' }))));
     }
     get el() { return getElement(this); }
-    static get style() { return GcdsHintStyle0; }
+    static get style() { return gcdsHintCss; }
     static get cmpMeta() { return {
         "$flags$": 9,
         "$tagName$": "gcds-hint",
@@ -5712,16 +6763,14 @@ const I18N$f = {
   },
 };
 
-const gcdsIconCss = "@layer reset, default, names, margin, size;\n@layer reset {\n  .sc-gcds-icon-h {\n    display: inline-block;\n  }\n  .sc-gcds-icon-h -shadowcsshost .gcds-icon {\n    font-size: inherit;\n    line-height: inherit;\n    color: inherit;\n  }\n}\n@layer default {\n  .sc-gcds-icon-h .gcds-icon {\n    font-family: var(--gcds-icon-font-family) !important;\n    speak: never;\n    font-style: normal;\n    font-weight: normal;\n    font-variant: normal;\n    text-transform: none;\n    line-height: 1;\n    -webkit-font-smoothing: antialiased;\n    -moz-osx-font-smoothing: grayscale;\n  }\n}\n@layer names {\n  .sc-gcds-icon-h .gcds-icon-checkmark-circle:before {\n    content: \"\\e908\";\n  }\n  .sc-gcds-icon-h .gcds-icon-chevron-down:before {\n    content: \"\\e900\";\n  }\n  .sc-gcds-icon-h .gcds-icon-chevron-left:before {\n    content: \"\\e901\";\n  }\n  .sc-gcds-icon-h .gcds-icon-chevron-right:before {\n    content: \"\\e902\";\n  }\n  .sc-gcds-icon-h .gcds-icon-chevron-up:before {\n    content: \"\\e903\";\n  }\n  .sc-gcds-icon-h .gcds-icon-close:before {\n    content: \"\\e90b\";\n  }\n  .sc-gcds-icon-h .gcds-icon-download:before {\n    content: \"\\e906\";\n  }\n  .sc-gcds-icon-h .gcds-icon-email:before {\n    content: \"\\e905\";\n  }\n  .sc-gcds-icon-h .gcds-icon-exclamation-circle:before {\n    content: \"\\e909\";\n  }\n  .sc-gcds-icon-h .gcds-icon-external:before {\n    content: \"\\e904\";\n  }\n  .sc-gcds-icon-h .gcds-icon-info-circle:before {\n    content: \"\\e90a\";\n  }\n  .sc-gcds-icon-h .gcds-icon-phone:before {\n    content: \"\\e90c\";\n  }\n  .sc-gcds-icon-h .gcds-icon-search:before {\n    content: \"\\e907\";\n  }\n  .sc-gcds-icon-h .gcds-icon-warning-triangle:before {\n    content: \"\\e90d\";\n  }\n}\n@layer margin {\n  .sc-gcds-icon-h .gcds-icon {\n    \n    \n  }\n  .sc-gcds-icon-h .gcds-icon.ml-0 {\n    margin-inline-start: var(--gcds-icon-margin-0);\n  }\n  .sc-gcds-icon-h .gcds-icon.ml-25 {\n    margin-inline-start: var(--gcds-icon-margin-25);\n  }\n  .sc-gcds-icon-h .gcds-icon.ml-50 {\n    margin-inline-start: var(--gcds-icon-margin-50);\n  }\n  .sc-gcds-icon-h .gcds-icon.ml-75 {\n    margin-inline-start: var(--gcds-icon-margin-75);\n  }\n  .sc-gcds-icon-h .gcds-icon.ml-100 {\n    margin-inline-start: var(--gcds-icon-margin-100);\n  }\n  .sc-gcds-icon-h .gcds-icon.ml-125 {\n    margin-inline-start: var(--gcds-icon-margin-125);\n  }\n  .sc-gcds-icon-h .gcds-icon.ml-150 {\n    margin-inline-start: var(--gcds-icon-margin-150);\n  }\n  .sc-gcds-icon-h .gcds-icon.ml-175 {\n    margin-inline-start: var(--gcds-icon-margin-175);\n  }\n  .sc-gcds-icon-h .gcds-icon.ml-200 {\n    margin-inline-start: var(--gcds-icon-margin-200);\n  }\n  .sc-gcds-icon-h .gcds-icon.ml-225 {\n    margin-inline-start: var(--gcds-icon-margin-225);\n  }\n  .sc-gcds-icon-h .gcds-icon.ml-250 {\n    margin-inline-start: var(--gcds-icon-margin-250);\n  }\n  .sc-gcds-icon-h .gcds-icon.ml-300 {\n    margin-inline-start: var(--gcds-icon-margin-300);\n  }\n  .sc-gcds-icon-h .gcds-icon.ml-350 {\n    margin-inline-start: var(--gcds-icon-margin-350);\n  }\n  .sc-gcds-icon-h .gcds-icon.ml-400 {\n    margin-inline-start: var(--gcds-icon-margin-400);\n  }\n  .sc-gcds-icon-h .gcds-icon.ml-450 {\n    margin-inline-start: var(--gcds-icon-margin-450);\n  }\n  .sc-gcds-icon-h .gcds-icon.ml-500 {\n    margin-inline-start: var(--gcds-icon-margin-500);\n  }\n  .sc-gcds-icon-h .gcds-icon.ml-550 {\n    margin-inline-start: var(--gcds-icon-margin-550);\n  }\n  .sc-gcds-icon-h .gcds-icon.ml-600 {\n    margin-inline-start: var(--gcds-icon-margin-600);\n  }\n  .sc-gcds-icon-h .gcds-icon.ml-650 {\n    margin-inline-start: var(--gcds-icon-margin-650);\n  }\n  .sc-gcds-icon-h .gcds-icon.ml-700 {\n    margin-inline-start: var(--gcds-icon-margin-700);\n  }\n  .sc-gcds-icon-h .gcds-icon.ml-750 {\n    margin-inline-start: var(--gcds-icon-margin-750);\n  }\n  .sc-gcds-icon-h .gcds-icon.ml-800 {\n    margin-inline-start: var(--gcds-icon-margin-800);\n  }\n  .sc-gcds-icon-h .gcds-icon.ml-850 {\n    margin-inline-start: var(--gcds-icon-margin-850);\n  }\n  .sc-gcds-icon-h .gcds-icon.ml-900 {\n    margin-inline-start: var(--gcds-icon-margin-900);\n  }\n  .sc-gcds-icon-h .gcds-icon.ml-950 {\n    margin-inline-start: var(--gcds-icon-margin-950);\n  }\n  .sc-gcds-icon-h .gcds-icon.ml-1000 {\n    margin-inline-start: var(--gcds-icon-margin-1000);\n  }\n  .sc-gcds-icon-h .gcds-icon.ml-1050 {\n    margin-inline-start: var(--gcds-icon-margin-1050);\n  }\n  .sc-gcds-icon-h .gcds-icon.ml-1100 {\n    margin-inline-start: var(--gcds-icon-margin-1100);\n  }\n  .sc-gcds-icon-h .gcds-icon.ml-1150 {\n    margin-inline-start: var(--gcds-icon-margin-1150);\n  }\n  .sc-gcds-icon-h .gcds-icon.ml-1200 {\n    margin-inline-start: var(--gcds-icon-margin-1200);\n  }\n  .sc-gcds-icon-h .gcds-icon.ml-1250 {\n    margin-inline-start: var(--gcds-icon-margin-1250);\n  }\n  .sc-gcds-icon-h .gcds-icon.mr-0 {\n    margin-inline-end: var(--gcds-icon-margin-0);\n  }\n  .sc-gcds-icon-h .gcds-icon.mr-25 {\n    margin-inline-end: var(--gcds-icon-margin-25);\n  }\n  .sc-gcds-icon-h .gcds-icon.mr-50 {\n    margin-inline-end: var(--gcds-icon-margin-50);\n  }\n  .sc-gcds-icon-h .gcds-icon.mr-75 {\n    margin-inline-end: var(--gcds-icon-margin-75);\n  }\n  .sc-gcds-icon-h .gcds-icon.mr-100 {\n    margin-inline-end: var(--gcds-icon-margin-100);\n  }\n  .sc-gcds-icon-h .gcds-icon.mr-125 {\n    margin-inline-end: var(--gcds-icon-margin-125);\n  }\n  .sc-gcds-icon-h .gcds-icon.mr-150 {\n    margin-inline-end: var(--gcds-icon-margin-150);\n  }\n  .sc-gcds-icon-h .gcds-icon.mr-175 {\n    margin-inline-end: var(--gcds-icon-margin-175);\n  }\n  .sc-gcds-icon-h .gcds-icon.mr-200 {\n    margin-inline-end: var(--gcds-icon-margin-200);\n  }\n  .sc-gcds-icon-h .gcds-icon.mr-225 {\n    margin-inline-end: var(--gcds-icon-margin-225);\n  }\n  .sc-gcds-icon-h .gcds-icon.mr-250 {\n    margin-inline-end: var(--gcds-icon-margin-250);\n  }\n  .sc-gcds-icon-h .gcds-icon.mr-300 {\n    margin-inline-end: var(--gcds-icon-margin-300);\n  }\n  .sc-gcds-icon-h .gcds-icon.mr-350 {\n    margin-inline-end: var(--gcds-icon-margin-350);\n  }\n  .sc-gcds-icon-h .gcds-icon.mr-400 {\n    margin-inline-end: var(--gcds-icon-margin-400);\n  }\n  .sc-gcds-icon-h .gcds-icon.mr-450 {\n    margin-inline-end: var(--gcds-icon-margin-450);\n  }\n  .sc-gcds-icon-h .gcds-icon.mr-500 {\n    margin-inline-end: var(--gcds-icon-margin-500);\n  }\n  .sc-gcds-icon-h .gcds-icon.mr-550 {\n    margin-inline-end: var(--gcds-icon-margin-550);\n  }\n  .sc-gcds-icon-h .gcds-icon.mr-600 {\n    margin-inline-end: var(--gcds-icon-margin-600);\n  }\n  .sc-gcds-icon-h .gcds-icon.mr-650 {\n    margin-inline-end: var(--gcds-icon-margin-650);\n  }\n  .sc-gcds-icon-h .gcds-icon.mr-700 {\n    margin-inline-end: var(--gcds-icon-margin-700);\n  }\n  .sc-gcds-icon-h .gcds-icon.mr-750 {\n    margin-inline-end: var(--gcds-icon-margin-750);\n  }\n  .sc-gcds-icon-h .gcds-icon.mr-800 {\n    margin-inline-end: var(--gcds-icon-margin-800);\n  }\n  .sc-gcds-icon-h .gcds-icon.mr-850 {\n    margin-inline-end: var(--gcds-icon-margin-850);\n  }\n  .sc-gcds-icon-h .gcds-icon.mr-900 {\n    margin-inline-end: var(--gcds-icon-margin-900);\n  }\n  .sc-gcds-icon-h .gcds-icon.mr-950 {\n    margin-inline-end: var(--gcds-icon-margin-950);\n  }\n  .sc-gcds-icon-h .gcds-icon.mr-1000 {\n    margin-inline-end: var(--gcds-icon-margin-1000);\n  }\n  .sc-gcds-icon-h .gcds-icon.mr-1050 {\n    margin-inline-end: var(--gcds-icon-margin-1050);\n  }\n  .sc-gcds-icon-h .gcds-icon.mr-1100 {\n    margin-inline-end: var(--gcds-icon-margin-1100);\n  }\n  .sc-gcds-icon-h .gcds-icon.mr-1150 {\n    margin-inline-end: var(--gcds-icon-margin-1150);\n  }\n  .sc-gcds-icon-h .gcds-icon.mr-1200 {\n    margin-inline-end: var(--gcds-icon-margin-1200);\n  }\n  .sc-gcds-icon-h .gcds-icon.mr-1250 {\n    margin-inline-end: var(--gcds-icon-margin-1250);\n  }\n}\n@layer size {\n  .sc-gcds-icon-h .gcds-icon.size-text-small {\n    font-size: var(--gcds-icon-font-size-text-small);\n    line-height: var(--gcds-icon-line-height-text-small);\n  }\n  @media only screen and (width < 48em) {\n    .sc-gcds-icon-h .gcds-icon.size-text-small {\n      font-size: var(--gcds-icon-font-size-text-small-mobile);\n      line-height: var(--gcds-icon-line-height-text-small-mobile);\n    }\n  }\n  .sc-gcds-icon-h .gcds-icon.size-text {\n    font-size: var(--gcds-icon-font-size-text);\n    line-height: var(--gcds-icon-line-height-text);\n  }\n  @media only screen and (width < 48em) {\n    .sc-gcds-icon-h .gcds-icon.size-text {\n      font-size: var(--gcds-icon-font-size-text-mobile);\n      line-height: var(--gcds-icon-line-height-text-mobile);\n    }\n  }\n  .sc-gcds-icon-h .gcds-icon.size-h6 {\n    font-size: var(--gcds-icon-font-size-h6);\n    line-height: var(--gcds-icon-line-height-h6);\n  }\n  @media only screen and (width < 48em) {\n    .sc-gcds-icon-h .gcds-icon.size-h6 {\n      font-size: var(--gcds-icon-font-size-h6-mobile);\n      line-height: var(--gcds-icon-line-height-h6-mobile);\n    }\n  }\n  .sc-gcds-icon-h .gcds-icon.size-h5 {\n    font-size: var(--gcds-icon-font-size-h5);\n    line-height: var(--gcds-icon-line-height-h5);\n  }\n  @media only screen and (width < 48em) {\n    .sc-gcds-icon-h .gcds-icon.size-h5 {\n      font-size: var(--gcds-icon-font-size-h5-mobile);\n      line-height: var(--gcds-icon-line-height-h5-mobile);\n    }\n  }\n  .sc-gcds-icon-h .gcds-icon.size-h4 {\n    font-size: var(--gcds-icon-font-size-h4);\n    line-height: var(--gcds-icon-line-height-h4);\n  }\n  @media only screen and (width < 48em) {\n    .sc-gcds-icon-h .gcds-icon.size-h4 {\n      font-size: var(--gcds-icon-font-size-h4-mobile);\n      line-height: var(--gcds-icon-line-height-h4-mobile);\n    }\n  }\n  .sc-gcds-icon-h .gcds-icon.size-h3 {\n    font-size: var(--gcds-icon-font-size-h3);\n    line-height: var(--gcds-icon-line-height-h3);\n  }\n  @media only screen and (width < 48em) {\n    .sc-gcds-icon-h .gcds-icon.size-h3 {\n      font-size: var(--gcds-icon-font-size-h3-mobile);\n      line-height: var(--gcds-icon-line-height-h3-mobile);\n    }\n  }\n  .sc-gcds-icon-h .gcds-icon.size-h2 {\n    font-size: var(--gcds-icon-font-size-h2);\n    line-height: var(--gcds-icon-line-height-h2);\n  }\n  @media only screen and (width < 48em) {\n    .sc-gcds-icon-h .gcds-icon.size-h2 {\n      font-size: var(--gcds-icon-font-size-h2-mobile);\n      line-height: var(--gcds-icon-line-height-h2-mobile);\n    }\n  }\n  .sc-gcds-icon-h .gcds-icon.size-h1 {\n    font-size: var(--gcds-icon-font-size-h1);\n    line-height: var(--gcds-icon-line-height-h1);\n  }\n  @media only screen and (width < 48em) {\n    .sc-gcds-icon-h .gcds-icon.size-h1 {\n      font-size: var(--gcds-icon-font-size-h1-mobile);\n      line-height: var(--gcds-icon-line-height-h1-mobile);\n    }\n  }\n}";
-var GcdsIconStyle0 = gcdsIconCss;
+const gcdsIconCss = "@layer reset, default, names, margin, size;\n@layer reset {\n  :host {\n    display: inline-block;\n  }\n  :host :host .gcds-icon {\n    font-size: inherit;\n    line-height: inherit;\n    color: inherit;\n  }\n}\n@layer default {\n  :host .gcds-icon {\n    font-family: var(--gcds-icon-font-family) !important;\n    speak: never;\n    font-style: normal;\n    font-weight: normal;\n    font-variant: normal;\n    text-transform: none;\n    line-height: 1;\n    -webkit-font-smoothing: antialiased;\n    -moz-osx-font-smoothing: grayscale;\n  }\n}\n@layer names {\n  :host .gcds-icon-checkmark-circle:before {\n    content: \"\\e908\";\n  }\n  :host .gcds-icon-chevron-down:before {\n    content: \"\\e900\";\n  }\n  :host .gcds-icon-chevron-left:before {\n    content: \"\\e901\";\n  }\n  :host .gcds-icon-chevron-right:before {\n    content: \"\\e902\";\n  }\n  :host .gcds-icon-chevron-up:before {\n    content: \"\\e903\";\n  }\n  :host .gcds-icon-close:before {\n    content: \"\\e90b\";\n  }\n  :host .gcds-icon-download:before {\n    content: \"\\e906\";\n  }\n  :host .gcds-icon-email:before {\n    content: \"\\e905\";\n  }\n  :host .gcds-icon-exclamation-circle:before {\n    content: \"\\e909\";\n  }\n  :host .gcds-icon-external:before {\n    content: \"\\e904\";\n  }\n  :host .gcds-icon-info-circle:before {\n    content: \"\\e90a\";\n  }\n  :host .gcds-icon-phone:before {\n    content: \"\\e90c\";\n  }\n  :host .gcds-icon-search:before {\n    content: \"\\e907\";\n  }\n  :host .gcds-icon-warning-triangle:before {\n    content: \"\\e90d\";\n  }\n}\n@layer margin {\n  :host .gcds-icon {\n    /* Margin left */\n    /* Margin right */\n  }\n  :host .gcds-icon.ml-0 {\n    margin-inline-start: var(--gcds-icon-margin-0);\n  }\n  :host .gcds-icon.ml-25 {\n    margin-inline-start: var(--gcds-icon-margin-25);\n  }\n  :host .gcds-icon.ml-50 {\n    margin-inline-start: var(--gcds-icon-margin-50);\n  }\n  :host .gcds-icon.ml-75 {\n    margin-inline-start: var(--gcds-icon-margin-75);\n  }\n  :host .gcds-icon.ml-100 {\n    margin-inline-start: var(--gcds-icon-margin-100);\n  }\n  :host .gcds-icon.ml-125 {\n    margin-inline-start: var(--gcds-icon-margin-125);\n  }\n  :host .gcds-icon.ml-150 {\n    margin-inline-start: var(--gcds-icon-margin-150);\n  }\n  :host .gcds-icon.ml-175 {\n    margin-inline-start: var(--gcds-icon-margin-175);\n  }\n  :host .gcds-icon.ml-200 {\n    margin-inline-start: var(--gcds-icon-margin-200);\n  }\n  :host .gcds-icon.ml-225 {\n    margin-inline-start: var(--gcds-icon-margin-225);\n  }\n  :host .gcds-icon.ml-250 {\n    margin-inline-start: var(--gcds-icon-margin-250);\n  }\n  :host .gcds-icon.ml-300 {\n    margin-inline-start: var(--gcds-icon-margin-300);\n  }\n  :host .gcds-icon.ml-350 {\n    margin-inline-start: var(--gcds-icon-margin-350);\n  }\n  :host .gcds-icon.ml-400 {\n    margin-inline-start: var(--gcds-icon-margin-400);\n  }\n  :host .gcds-icon.ml-450 {\n    margin-inline-start: var(--gcds-icon-margin-450);\n  }\n  :host .gcds-icon.ml-500 {\n    margin-inline-start: var(--gcds-icon-margin-500);\n  }\n  :host .gcds-icon.ml-550 {\n    margin-inline-start: var(--gcds-icon-margin-550);\n  }\n  :host .gcds-icon.ml-600 {\n    margin-inline-start: var(--gcds-icon-margin-600);\n  }\n  :host .gcds-icon.ml-650 {\n    margin-inline-start: var(--gcds-icon-margin-650);\n  }\n  :host .gcds-icon.ml-700 {\n    margin-inline-start: var(--gcds-icon-margin-700);\n  }\n  :host .gcds-icon.ml-750 {\n    margin-inline-start: var(--gcds-icon-margin-750);\n  }\n  :host .gcds-icon.ml-800 {\n    margin-inline-start: var(--gcds-icon-margin-800);\n  }\n  :host .gcds-icon.ml-850 {\n    margin-inline-start: var(--gcds-icon-margin-850);\n  }\n  :host .gcds-icon.ml-900 {\n    margin-inline-start: var(--gcds-icon-margin-900);\n  }\n  :host .gcds-icon.ml-950 {\n    margin-inline-start: var(--gcds-icon-margin-950);\n  }\n  :host .gcds-icon.ml-1000 {\n    margin-inline-start: var(--gcds-icon-margin-1000);\n  }\n  :host .gcds-icon.ml-1050 {\n    margin-inline-start: var(--gcds-icon-margin-1050);\n  }\n  :host .gcds-icon.ml-1100 {\n    margin-inline-start: var(--gcds-icon-margin-1100);\n  }\n  :host .gcds-icon.ml-1150 {\n    margin-inline-start: var(--gcds-icon-margin-1150);\n  }\n  :host .gcds-icon.ml-1200 {\n    margin-inline-start: var(--gcds-icon-margin-1200);\n  }\n  :host .gcds-icon.ml-1250 {\n    margin-inline-start: var(--gcds-icon-margin-1250);\n  }\n  :host .gcds-icon.mr-0 {\n    margin-inline-end: var(--gcds-icon-margin-0);\n  }\n  :host .gcds-icon.mr-25 {\n    margin-inline-end: var(--gcds-icon-margin-25);\n  }\n  :host .gcds-icon.mr-50 {\n    margin-inline-end: var(--gcds-icon-margin-50);\n  }\n  :host .gcds-icon.mr-75 {\n    margin-inline-end: var(--gcds-icon-margin-75);\n  }\n  :host .gcds-icon.mr-100 {\n    margin-inline-end: var(--gcds-icon-margin-100);\n  }\n  :host .gcds-icon.mr-125 {\n    margin-inline-end: var(--gcds-icon-margin-125);\n  }\n  :host .gcds-icon.mr-150 {\n    margin-inline-end: var(--gcds-icon-margin-150);\n  }\n  :host .gcds-icon.mr-175 {\n    margin-inline-end: var(--gcds-icon-margin-175);\n  }\n  :host .gcds-icon.mr-200 {\n    margin-inline-end: var(--gcds-icon-margin-200);\n  }\n  :host .gcds-icon.mr-225 {\n    margin-inline-end: var(--gcds-icon-margin-225);\n  }\n  :host .gcds-icon.mr-250 {\n    margin-inline-end: var(--gcds-icon-margin-250);\n  }\n  :host .gcds-icon.mr-300 {\n    margin-inline-end: var(--gcds-icon-margin-300);\n  }\n  :host .gcds-icon.mr-350 {\n    margin-inline-end: var(--gcds-icon-margin-350);\n  }\n  :host .gcds-icon.mr-400 {\n    margin-inline-end: var(--gcds-icon-margin-400);\n  }\n  :host .gcds-icon.mr-450 {\n    margin-inline-end: var(--gcds-icon-margin-450);\n  }\n  :host .gcds-icon.mr-500 {\n    margin-inline-end: var(--gcds-icon-margin-500);\n  }\n  :host .gcds-icon.mr-550 {\n    margin-inline-end: var(--gcds-icon-margin-550);\n  }\n  :host .gcds-icon.mr-600 {\n    margin-inline-end: var(--gcds-icon-margin-600);\n  }\n  :host .gcds-icon.mr-650 {\n    margin-inline-end: var(--gcds-icon-margin-650);\n  }\n  :host .gcds-icon.mr-700 {\n    margin-inline-end: var(--gcds-icon-margin-700);\n  }\n  :host .gcds-icon.mr-750 {\n    margin-inline-end: var(--gcds-icon-margin-750);\n  }\n  :host .gcds-icon.mr-800 {\n    margin-inline-end: var(--gcds-icon-margin-800);\n  }\n  :host .gcds-icon.mr-850 {\n    margin-inline-end: var(--gcds-icon-margin-850);\n  }\n  :host .gcds-icon.mr-900 {\n    margin-inline-end: var(--gcds-icon-margin-900);\n  }\n  :host .gcds-icon.mr-950 {\n    margin-inline-end: var(--gcds-icon-margin-950);\n  }\n  :host .gcds-icon.mr-1000 {\n    margin-inline-end: var(--gcds-icon-margin-1000);\n  }\n  :host .gcds-icon.mr-1050 {\n    margin-inline-end: var(--gcds-icon-margin-1050);\n  }\n  :host .gcds-icon.mr-1100 {\n    margin-inline-end: var(--gcds-icon-margin-1100);\n  }\n  :host .gcds-icon.mr-1150 {\n    margin-inline-end: var(--gcds-icon-margin-1150);\n  }\n  :host .gcds-icon.mr-1200 {\n    margin-inline-end: var(--gcds-icon-margin-1200);\n  }\n  :host .gcds-icon.mr-1250 {\n    margin-inline-end: var(--gcds-icon-margin-1250);\n  }\n}\n@layer size {\n  :host .gcds-icon.size-text-small {\n    font-size: var(--gcds-icon-font-size-text-small);\n    line-height: var(--gcds-icon-line-height-text-small);\n  }\n  @media only screen and (width < 48em) {\n    :host .gcds-icon.size-text-small {\n      font-size: var(--gcds-icon-font-size-text-small-mobile);\n      line-height: var(--gcds-icon-line-height-text-small-mobile);\n    }\n  }\n  :host .gcds-icon.size-text {\n    font-size: var(--gcds-icon-font-size-text);\n    line-height: var(--gcds-icon-line-height-text);\n  }\n  @media only screen and (width < 48em) {\n    :host .gcds-icon.size-text {\n      font-size: var(--gcds-icon-font-size-text-mobile);\n      line-height: var(--gcds-icon-line-height-text-mobile);\n    }\n  }\n  :host .gcds-icon.size-h6 {\n    font-size: var(--gcds-icon-font-size-h6);\n    line-height: var(--gcds-icon-line-height-h6);\n  }\n  @media only screen and (width < 48em) {\n    :host .gcds-icon.size-h6 {\n      font-size: var(--gcds-icon-font-size-h6-mobile);\n      line-height: var(--gcds-icon-line-height-h6-mobile);\n    }\n  }\n  :host .gcds-icon.size-h5 {\n    font-size: var(--gcds-icon-font-size-h5);\n    line-height: var(--gcds-icon-line-height-h5);\n  }\n  @media only screen and (width < 48em) {\n    :host .gcds-icon.size-h5 {\n      font-size: var(--gcds-icon-font-size-h5-mobile);\n      line-height: var(--gcds-icon-line-height-h5-mobile);\n    }\n  }\n  :host .gcds-icon.size-h4 {\n    font-size: var(--gcds-icon-font-size-h4);\n    line-height: var(--gcds-icon-line-height-h4);\n  }\n  @media only screen and (width < 48em) {\n    :host .gcds-icon.size-h4 {\n      font-size: var(--gcds-icon-font-size-h4-mobile);\n      line-height: var(--gcds-icon-line-height-h4-mobile);\n    }\n  }\n  :host .gcds-icon.size-h3 {\n    font-size: var(--gcds-icon-font-size-h3);\n    line-height: var(--gcds-icon-line-height-h3);\n  }\n  @media only screen and (width < 48em) {\n    :host .gcds-icon.size-h3 {\n      font-size: var(--gcds-icon-font-size-h3-mobile);\n      line-height: var(--gcds-icon-line-height-h3-mobile);\n    }\n  }\n  :host .gcds-icon.size-h2 {\n    font-size: var(--gcds-icon-font-size-h2);\n    line-height: var(--gcds-icon-line-height-h2);\n  }\n  @media only screen and (width < 48em) {\n    :host .gcds-icon.size-h2 {\n      font-size: var(--gcds-icon-font-size-h2-mobile);\n      line-height: var(--gcds-icon-line-height-h2-mobile);\n    }\n  }\n  :host .gcds-icon.size-h1 {\n    font-size: var(--gcds-icon-font-size-h1);\n    line-height: var(--gcds-icon-line-height-h1);\n  }\n  @media only screen and (width < 48em) {\n    :host .gcds-icon.size-h1 {\n      font-size: var(--gcds-icon-font-size-h1-mobile);\n      line-height: var(--gcds-icon-line-height-h1-mobile);\n    }\n  }\n}";
 
 class GcdsIcon {
     constructor(hostRef) {
         registerInstance(this, hostRef);
-        this.label = undefined;
-        this.marginLeft = undefined;
-        this.marginRight = undefined;
-        this.name = undefined;
+        /**
+         * Defines the size of the icon.
+         */
         this.size = 'inherit';
     }
     validateName(newValue) {
@@ -5780,7 +6829,7 @@ class GcdsIcon {
         "name": ["validateName"],
         "size": ["validateSize"]
     }; }
-    static get style() { return GcdsIconStyle0; }
+    static get style() { return gcdsIconCss; }
     static get cmpMeta() { return {
         "$flags$": 9,
         "$tagName$": "gcds-icon",
@@ -5797,18 +6846,17 @@ class GcdsIcon {
     }; }
 }
 
-const gcdsInputCss = "@layer reset, default, disabled, error, focus;@layer reset{.sc-gcds-input-h{display:block}.sc-gcds-input-h .gcds-input-wrapper{border:0;margin:0;padding:0}.sc-gcds-input-h .gcds-input-wrapper input{box-sizing:border-box}}@layer default{.sc-gcds-input-h .gcds-input-wrapper{color:var(--gcds-input-default-text);font:var(--gcds-input-font);max-width:75ch;transition:color .15s ease-in-out;width:100%}.sc-gcds-input-h .gcds-input-wrapper input{background-color:var(--gcds-input-default-background);background-image:none;border:var(--gcds-input-border-width) solid;border-radius:var(--gcds-input-border-radius);color:var(--gcds-input-default-text);display:block;font:inherit!important;height:auto;margin:var(--gcds-input-margin)!important;max-width:100%;min-height:var(--gcds-input-min-width-and-height);min-width:var(--gcds-input-min-width-and-height);padding:var(--gcds-input-padding)!important;transition:border-color .15s ease-in-out,box-shadow .15s ease-in-out,outline .15s ease-in-out;width:100%}.sc-gcds-input-h .gcds-input-wrapper input[type=number]{-moz-appearance:textfield}.sc-gcds-input-h .gcds-input-wrapper input[type=number]::-webkit-inner-spin-button,.sc-gcds-input-h .gcds-input-wrapper input[type=number]::-webkit-outer-spin-button{-webkit-appearance:none}}@layer disabled{.sc-gcds-input-h .gcds-input-wrapper.gcds-disabled{color:var(--gcds-input-disabled-text)}.sc-gcds-input-h .gcds-input-wrapper.gcds-disabled gcds-label{--gcds-label-text:currentColor}.sc-gcds-input-h .gcds-input-wrapper.gcds-disabled gcds-hint{--gcds-hint-text:currentColor}.sc-gcds-input-h .gcds-input-wrapper.gcds-disabled input:disabled{background-color:var(--gcds-input-disabled-background);border-color:var(--gcds-input-disabled-text);cursor:not-allowed}}@layer error{.sc-gcds-input-h .gcds-input-wrapper input.gcds-error:not(:focus){border-color:var(--gcds-input-danger-border)}}@layer focus{.sc-gcds-input-h .gcds-input-wrapper:focus-within input:focus{border-color:var(--gcds-input-focus-border);box-shadow:var(--gcds-input-focus-box-shadow);outline:var(--gcds-input-outline-width) solid var(--gcds-input-focus-border);outline-offset:var(--gcds-input-border-width)}}";
-var GcdsInputStyle0 = gcdsInputCss;
+const gcdsInputCss = "@layer reset, default, disabled, error, focus;@layer reset{:host{display:block}:host .gcds-input-wrapper{border:0;margin:0;padding:0}:host .gcds-input-wrapper input{box-sizing:border-box}}@layer default{:host .gcds-input-wrapper{color:var(--gcds-input-default-text);font:var(--gcds-input-font);max-width:75ch;transition:color .15s ease-in-out;width:100%}:host .gcds-input-wrapper input{background-color:var(--gcds-input-default-background);background-image:none;border:var(--gcds-input-border-width) solid;border-radius:var(--gcds-input-border-radius);color:var(--gcds-input-default-text);display:block;font:inherit!important;height:auto;margin:var(--gcds-input-margin)!important;max-width:100%;min-height:var(--gcds-input-min-width-and-height);min-width:var(--gcds-input-min-width-and-height);padding:var(--gcds-input-padding)!important;transition:border-color .15s ease-in-out,box-shadow .15s ease-in-out,outline .15s ease-in-out;width:100%}:host .gcds-input-wrapper input[type=number]{-moz-appearance:textfield}:host .gcds-input-wrapper input[type=number]::-webkit-inner-spin-button,:host .gcds-input-wrapper input[type=number]::-webkit-outer-spin-button{-webkit-appearance:none}}@layer disabled{:host .gcds-input-wrapper.gcds-disabled{color:var(--gcds-input-disabled-text)}:host .gcds-input-wrapper.gcds-disabled gcds-label{--gcds-label-text:currentColor}:host .gcds-input-wrapper.gcds-disabled gcds-hint{--gcds-hint-text:currentColor}:host .gcds-input-wrapper.gcds-disabled input:disabled{background-color:var(--gcds-input-disabled-background);border-color:var(--gcds-input-disabled-text);cursor:not-allowed}}@layer error{:host .gcds-input-wrapper input.gcds-error:not(:focus){border-color:var(--gcds-input-danger-border)}}@layer focus{:host .gcds-input-wrapper:focus-within input:focus{border-color:var(--gcds-input-focus-border);box-shadow:var(--gcds-input-focus-box-shadow);outline:var(--gcds-input-outline-width) solid var(--gcds-input-focus-border);outline-offset:var(--gcds-input-border-width)}}";
 
 class GcdsInput {
     constructor(hostRef) {
         registerInstance(this, hostRef);
-        this.gcdsFocus = createEvent(this, "gcdsFocus", 7);
-        this.gcdsBlur = createEvent(this, "gcdsBlur", 7);
-        this.gcdsInput = createEvent(this, "gcdsInput", 7);
-        this.gcdsChange = createEvent(this, "gcdsChange", 7);
-        this.gcdsError = createEvent(this, "gcdsError", 7);
-        this.gcdsValid = createEvent(this, "gcdsValid", 7);
+        this.gcdsFocus = createEvent(this, "gcdsFocus");
+        this.gcdsBlur = createEvent(this, "gcdsBlur");
+        this.gcdsInput = createEvent(this, "gcdsInput");
+        this.gcdsChange = createEvent(this, "gcdsChange");
+        this.gcdsError = createEvent(this, "gcdsError");
+        this.gcdsValid = createEvent(this, "gcdsValid");
         if (hostRef.$hostElement$["s-ei"]) {
             this.internals = hostRef.$hostElement$["s-ei"];
         }
@@ -5817,6 +6865,34 @@ class GcdsInput {
             hostRef.$hostElement$["s-ei"] = this.internals;
         }
         this._validator = defaultValidator;
+        /**
+         * Props
+         */
+        /**
+         * Specifies if an input element is disabled or not.
+         */
+        this.disabled = false;
+        /**
+         * Specifies if the label is hidden or not.
+         */
+        this.hideLabel = false;
+        /**
+         * Specifies if a form field is required or not.
+         */
+        this.required = false;
+        /**
+         * Set Input types
+         */
+        // prettier-ignore
+        this.type = 'text';
+        /**
+         * Set event to call validator
+         */
+        this.validateOn = 'blur';
+        /**
+         * Set additional HTML attributes not available in component properties
+         */
+        this.inheritedAttributes = {};
         this.onBlur = () => {
             if (this.validateOn == 'blur') {
                 this.validate();
@@ -5833,23 +6909,6 @@ class GcdsInput {
             }
             customEvent.emit(this.value);
         };
-        this.disabled = false;
-        this.errorMessage = undefined;
-        this.hideLabel = false;
-        this.hint = undefined;
-        this.inputId = undefined;
-        this.name = undefined;
-        this.label = undefined;
-        this.required = false;
-        this.size = undefined;
-        this.type = 'text';
-        this.value = undefined;
-        this.autocomplete = undefined;
-        this.validator = undefined;
-        this.validateOn = 'blur';
-        this.inheritedAttributes = {};
-        this.hasError = undefined;
-        this.lang = undefined;
     }
     validateDisabledInput() {
         if (this.required) {
@@ -5993,7 +7052,7 @@ class GcdsInput {
         "aria-invalid": ["ariaInvalidWatcher"],
         "aria-description": ["ariaDescriptiondWatcher"]
     }; }
-    static get style() { return GcdsInputStyle0; }
+    static get style() { return gcdsInputCss; }
     static get cmpMeta() { return {
         "$flags$": 89,
         "$tagName$": "gcds-input",
@@ -6032,17 +7091,11 @@ const I18N$e = {
   },
 };
 
-const gcdsLabelCss = "@layer reset, default;@layer reset{.sc-gcds-label-h{display:block}}@layer default{.sc-gcds-label-h .gcds-label{color:var(--gcds-label-text);cursor:pointer;display:block;font:var(--gcds-label-font-desktop);margin:var(--gcds-label-margin)!important;max-width:100%}@media only screen and (width < 48em){.sc-gcds-label-h .gcds-label{font:var(--gcds-label-font-mobile)}}.sc-gcds-label-h .gcds-label.label--hidden{height:0;margin:0;opacity:0;overflow:hidden;width:0}.sc-gcds-label-h .gcds-label .label--required{font-weight:var(--gcds-label-required-font-weight);margin:var(--gcds-label-required-margin)!important}}";
-var GcdsLabelStyle0 = gcdsLabelCss;
+const gcdsLabelCss = "@layer reset, default;@layer reset{:host{display:block}}@layer default{:host .gcds-label{color:var(--gcds-label-text);cursor:pointer;display:block;font:var(--gcds-label-font-desktop);margin:var(--gcds-label-margin)!important;max-width:100%}@media only screen and (width < 48em){:host .gcds-label{font:var(--gcds-label-font-mobile)}}:host .gcds-label.label--hidden{height:0;margin:0;opacity:0;overflow:hidden;width:0}:host .gcds-label .label--required{font-weight:var(--gcds-label-required-font-weight);margin:var(--gcds-label-required-margin)!important}}";
 
 class GcdsLabel {
     constructor(hostRef) {
         registerInstance(this, hostRef);
-        this.hideLabel = undefined;
-        this.label = undefined;
-        this.labelFor = undefined;
-        this.required = undefined;
-        this.lang = undefined;
     }
     /*
      * Observe lang attribute change
@@ -6062,12 +7115,12 @@ class GcdsLabel {
     }
     render() {
         const { hideLabel, labelFor, label, required, lang } = this;
-        return (hAsync(Host, { key: '9e726e5b4bfe04e7b5d4a9e35a177df57ab1badc', id: `label-for-${labelFor}` }, hAsync("label", { key: '8026d5f89beea7d000e0b78891e0c11ca24eed19', htmlFor: labelFor, class: `gcds-label ${hideLabel ? 'label--hidden' : ''}` }, hAsync("span", { key: '219be69e62f0b64f6afc816bf7b334670a8e68e1' }, label), required ? (hAsync("span", { "aria-hidden": "true", class: "label--required" }, "(", I18N$e[lang].required, ")")) : null)));
+        return (hAsync(Host, { key: 'ffac8e66f0bb20913277b17a04080913cc661f84', id: `label-for-${labelFor}` }, hAsync("label", { key: 'b663e88ae67734de47f91cae325f0ebdfa41bbcc', htmlFor: labelFor, class: `gcds-label ${hideLabel ? 'label--hidden' : ''}` }, hAsync("span", { key: 'cf9369de0b3f91bfb67087b14969e0c137cf3f99' }, label), required ? (hAsync("span", { "aria-hidden": "true", class: "label--required" }, "(", I18N$e[lang].required, ")")) : null)));
     }
     get el() { return getElement(this); }
-    static get style() { return GcdsLabelStyle0; }
+    static get style() { return gcdsLabelCss; }
     static get cmpMeta() { return {
-        "$flags$": 2,
+        "$flags$": 0,
         "$tagName$": "gcds-label",
         "$members$": {
             "hideLabel": [4, "hide-label"],
@@ -6095,14 +7148,11 @@ const I18N$d = {
   },
 };
 
-const gcdsLangToggleCss = "@layer reset, default, desktop, mobile;@layer reset{.sc-gcds-lang-toggle-h{display:block}.sc-gcds-lang-toggle-h .gcds-lang-toggle h2{margin:0;overflow:hidden;position:absolute;width:0}}@layer default{.sc-gcds-lang-toggle-h .gcds-lang-toggle gcds-link::part(link){display:inline-block;padding:var(--gcds-lang-toggle-padding)}.sc-gcds-lang-toggle-h .gcds-lang-toggle span{display:none}.sc-gcds-lang-toggle-h .gcds-lang-toggle abbr{text-decoration:none;text-transform:uppercase}}@layer desktop{@media screen and (width >= 48em){.sc-gcds-lang-toggle-h .gcds-lang-toggle gcds-link::part(link){font:var(--gcds-lang-toggle-font-desktop);padding-inline:0!important}.sc-gcds-lang-toggle-h .gcds-lang-toggle span{display:initial}.sc-gcds-lang-toggle-h .gcds-lang-toggle abbr{display:none}}}@layer mobile{@media screen and (width < 48em){.sc-gcds-lang-toggle-h .gcds-lang-toggle gcds-link::part(link){font:var(--gcds-lang-toggle-font-mobile)}}}";
-var GcdsLangToggleStyle0 = gcdsLangToggleCss;
+const gcdsLangToggleCss = "@layer reset, default, desktop, mobile;@layer reset{:host{display:block}:host .gcds-lang-toggle h2{margin:0;overflow:hidden;position:absolute;width:0}}@layer default{:host .gcds-lang-toggle gcds-link::part(link){display:inline-block;padding:var(--gcds-lang-toggle-padding)}:host .gcds-lang-toggle span{display:none}:host .gcds-lang-toggle abbr{text-decoration:none;text-transform:uppercase}}@layer desktop{@media screen and (width >= 48em){:host .gcds-lang-toggle gcds-link::part(link){font:var(--gcds-lang-toggle-font-desktop);padding-inline:0!important}:host .gcds-lang-toggle span{display:initial}:host .gcds-lang-toggle abbr{display:none}}}@layer mobile{@media screen and (width < 48em){:host .gcds-lang-toggle gcds-link::part(link){font:var(--gcds-lang-toggle-font-mobile)}}}";
 
 class GcdsLangToggle {
     constructor(hostRef) {
         registerInstance(this, hostRef);
-        this.href = undefined;
-        this.lang = undefined;
     }
     /*
      * Observe lang attribute change
@@ -6125,7 +7175,7 @@ class GcdsLangToggle {
         return (hAsync(Host, { key: 'e7c2600f42e0d941cbaef4e2599645dfdd65348a' }, hAsync("div", { key: 'f4794500d6da469c8a39ec04a21ce636b40d64ea', class: "gcds-lang-toggle" }, hAsync("gcds-sr-only", { key: '9d6672ff42b404b7af4c9689cfc38197dda42cca', id: "lang-toggle__heading", tag: "h2" }, I18N$d[lang].heading), hAsync("gcds-link", { key: '247e2ee655c2f9e16e7b6e19320864ef06bd8280', size: "regular", href: href, lang: I18N$d[lang].abbreviation }, hAsync("span", { key: 'da07bdf4b438ad9144e5ba301a73b83c2aabf713' }, I18N$d[lang].language), hAsync("abbr", { key: '10363892959c246a591463fbdbd42f605c5a164b', title: I18N$d[lang].language }, I18N$d[lang].abbreviation)))));
     }
     get el() { return getElement(this); }
-    static get style() { return GcdsLangToggleStyle0; }
+    static get style() { return gcdsLangToggleCss; }
     static get cmpMeta() { return {
         "$flags$": 9,
         "$tagName$": "gcds-lang-toggle",
@@ -6154,26 +7204,41 @@ const I18N$c = {
   },
 };
 
-const gcdsLinkCss = "@layer reset, default, display, size, variant, hover, visited, focus;@layer reset{.sc-gcds-link-h{display:inline}.sc-gcds-link-h slot{display:initial}}@layer default{.sc-gcds-link-h .gcds-link{color:var(--gcds-link-default);cursor:pointer;text-decoration-color:currentColor;text-decoration-style:solid;text-decoration-thickness:var(--gcds-link-decoration-thickness);text-underline-offset:var(--gcds-link-underline-offset);transition:all .35s}}@layer display{.sc-gcds-link-h .gcds-link.d-block{display:block}}@layer size{.sc-gcds-link-h .gcds-link.link--small{font:var(--gcds-link-font-small-desktop)}@media only screen and (width < 48em){.sc-gcds-link-h .gcds-link.link--small{font:var(--gcds-link-font-small-mobile)}}.sc-gcds-link-h .gcds-link.link--regular{font:var(--gcds-link-font-regular-desktop)}@media only screen and (width < 48em){.sc-gcds-link-h .gcds-link.link--regular{font:var(--gcds-link-font-regular-mobile)}}.sc-gcds-link-h .gcds-link.link--inherit{font:inherit}}@layer variant{.sc-gcds-link-h .gcds-link.variant-light{color:var(--gcds-link-light)}}@layer hover{@media (hover:hover){.sc-gcds-link-h .gcds-link:hover{text-decoration-thickness:var(--gcds-link-hover-decoration-thickness)}.sc-gcds-link-h .gcds-link:hover:not(.variant-light){color:var(--gcds-link-hover)}}}@layer visited{.sc-gcds-link-h .gcds-link:not(.variant-light):visited{color:var(--gcds-link-visited)}}@layer focus{.sc-gcds-link-h .gcds-link:focus{background-color:var(--gcds-link-focus-background);border-radius:var(--gcds-link-focus-border-radius);box-shadow:var(--gcds-link-focus-box-shadow);color:var(--gcds-link-focus-text);outline:var(--gcds-link-focus-outline-width) solid var(--gcds-link-focus-background);outline-offset:var(--gcds-link-focus-outline-offset);text-decoration:none}}";
-var GcdsLinkStyle0 = gcdsLinkCss;
+const gcdsLinkCss = "@layer reset, default, display, size, variant, hover, visited, focus;@layer reset{:host{display:inline}:host slot{display:initial}}@layer default{:host .gcds-link{color:var(--gcds-link-default);cursor:pointer;text-decoration-color:currentColor;text-decoration-style:solid;text-decoration-thickness:var(--gcds-link-decoration-thickness);text-underline-offset:var(--gcds-link-underline-offset);transition:all .35s}}@layer display{:host .gcds-link.d-block{display:block}}@layer size{:host .gcds-link.link--small{font:var(--gcds-link-font-small-desktop)}@media only screen and (width < 48em){:host .gcds-link.link--small{font:var(--gcds-link-font-small-mobile)}}:host .gcds-link.link--regular{font:var(--gcds-link-font-regular-desktop)}@media only screen and (width < 48em){:host .gcds-link.link--regular{font:var(--gcds-link-font-regular-mobile)}}:host .gcds-link.link--inherit{font:inherit}}@layer variant{:host .gcds-link.variant-light{color:var(--gcds-link-light)}}@layer hover{@media (hover:hover){:host .gcds-link:hover{text-decoration-thickness:var(--gcds-link-hover-decoration-thickness)}:host .gcds-link:hover:not(.variant-light){color:var(--gcds-link-hover)}}}@layer visited{:host .gcds-link:not(.variant-light):visited{color:var(--gcds-link-visited)}}@layer focus{:host .gcds-link:focus{background-color:var(--gcds-link-focus-background);border-radius:var(--gcds-link-focus-border-radius);box-shadow:var(--gcds-link-focus-box-shadow);color:var(--gcds-link-focus-text);outline:var(--gcds-link-focus-outline-width) solid var(--gcds-link-focus-background);outline-offset:var(--gcds-link-focus-outline-offset);text-decoration:none}}";
 
 class GcdsLink {
     constructor(hostRef) {
         registerInstance(this, hostRef);
-        this.gcdsFocus = createEvent(this, "gcdsFocus", 7);
-        this.gcdsBlur = createEvent(this, "gcdsBlur", 7);
-        this.gcdsClick = createEvent(this, "gcdsClick", 7);
+        this.gcdsFocus = createEvent(this, "gcdsFocus");
+        this.gcdsBlur = createEvent(this, "gcdsBlur");
+        this.gcdsClick = createEvent(this, "gcdsClick");
+        /**
+         * Props
+         */
+        /**
+         * Sets the main style of the link.
+         */
         this.variant = 'default';
+        /**
+         * Set the link size
+         */
         this.size = 'inherit';
+        /**
+         * Sets the display behavior of the link
+         */
         this.display = 'inline';
-        this.href = undefined;
-        this.rel = undefined;
+        /**
+         * The target attribute specifies where to open the linked document
+         */
         this.target = '_self';
+        /**
+         * Whether the link is external or not
+         */
         this.external = false;
-        this.download = undefined;
-        this.type = undefined;
+        /**
+         * Set additional HTML attributes not available in component properties
+         */
         this.inheritedAttributes = {};
-        this.lang = undefined;
     }
     validateVariant(newValue) {
         const values = ['default', 'light'];
@@ -6235,7 +7300,7 @@ class GcdsLink {
         "size": ["validateSize"],
         "display": ["validateDisplay"]
     }; }
-    static get style() { return GcdsLinkStyle0; }
+    static get style() { return gcdsLinkCss; }
     static get cmpMeta() { return {
         "$flags$": 9,
         "$tagName$": "gcds-link",
@@ -6258,22 +7323,18 @@ class GcdsLink {
     }; }
 }
 
-const gcdsNavGroupCss = "@layer reset, defaults, sideNav, topNav, mobileNav, desktop, mobile, hover, focus;@layer reset{.sc-gcds-nav-group-h *{box-sizing:border-box;margin:0;padding:0}}@layer defaults{.sc-gcds-nav-group-h{align-self:flex-end;display:flex;flex-direction:column;position:relative}.sc-gcds-nav-group-h .gcds-nav-group__trigger{align-items:center;background:transparent;border:0;color:var(--gcds-nav-group-trigger-text);cursor:pointer;display:flex;font:var(--gcds-nav-group-trigger-font);padding:var(--gcds-nav-group-trigger-padding);text-align:left;width:100%}@media only screen and (width < 64em){.sc-gcds-nav-group-h .gcds-nav-group__trigger{font:var(--gcds-nav-group-mobile-trigger-font)}}.sc-gcds-nav-group-h .gcds-nav-group__trigger[aria-expanded=false]+.gcds-nav-group__list{display:none}.sc-gcds-nav-group-h .gcds-nav-group__trigger-desc{display:none}.sc-gcds-nav-group-h ul{list-style:none}}@layer sideNav{.sc-gcds-nav-group-h .gcds-trigger--expandable{font-weight:var(--gcds-nav-group-side-nav-trigger-font-weight);margin-block-end:var(--gcds-nav-group-side-nav-trigger-margin)}.sc-gcds-nav-group-h .gcds-trigger--expandable gcds-icon{margin-inline-end:var(--gcds-nav-group-side-nav-trigger-icon-margin)}}@layer topNav{.sc-gcds-nav-group-h .gcds-trigger--dropdown{font:var(--gcds-nav-group-top-nav-font);padding:var(--gcds-nav-group-top-nav-trigger-padding);text-decoration:underline solid currentColor var(--gcds-nav-group-top-nav-trigger-decoration-thickness);text-decoration-color:transparent;text-underline-offset:var(\n      --gcds-nav-group-top-nav-trigger-underline-offset\n    );transition:all .25s ease-in-out}.sc-gcds-nav-group-h .gcds-trigger--dropdown[aria-expanded=true]{background-color:var(\n        --gcds-nav-group-top-nav-trigger-expanded-background-color\n      )}.sc-gcds-nav-group-h .gcds-trigger--dropdown gcds-icon{margin-inline-start:var(--gcds-nav-group-top-nav-trigger-icon-margin);order:2}}@layer mobileNav{.sc-gcds-nav-group-h.gcds-mobile-nav{width:100%}.sc-gcds-nav-group-h.gcds-mobile-nav .gcds-trigger--expandable{border:var(--gcds-nav-group-mobile-trigger-border-width) solid;border-radius:var(--gcds-nav-group-mobile-trigger-border-radius);color:var(--gcds-nav-group-mobile-trigger-text);flex-direction:row-reverse;font:var(--gcds-nav-group-mobile-trigger-font);justify-content:center;margin-block-start:var(--gcds-nav-group-mobile-trigger-margin);text-align:center}.sc-gcds-nav-group-h.gcds-mobile-nav .gcds-trigger--expandable gcds-icon{display:none}.sc-gcds-nav-group-h[open].gcds-mobile-nav{background-color:var(--gcds-nav-group-mobile-background);height:100vh;left:0;overflow-y:scroll;padding:var(--gcds-nav-group-mobile-padding)!important;position:fixed;top:0;width:100%;z-index:100}}@layer desktop{@media only screen and (width >= 64em){.sc-gcds-nav-group-h .gcds-nav-group__trigger{max-width:var(--gcds-nav-group-trigger-max-width)}.sc-gcds-nav-group-h .gcds-nav--expandable{padding-inline-start:var(--gcds-nav-group-side-nav-dropdown-padding)}.sc-gcds-nav-group-h .gcds-nav--dropdown{background-color:var(--gcds-nav-group-top-nav-dropdown-background);border-radius:var(--gcds-border-radius-md);box-shadow:var(--gcds-nav-group-top-nav-dropdown-box-shadow);margin-block-start:var(--gcds-spacing-200);padding:var(--gcds-nav-group-top-nav-dropdown-padding);position:absolute;top:100%;width:var(--gcds-nav-group-top-nav-dropdown-width);z-index:1}.sc-gcds-nav-group-h.gcds-mobile-nav>.gcds-nav--expandable{display:block;padding:0}.sc-gcds-nav-group-h.gcds-mobile-nav .gcds-trigger--expandable{display:none}.sc-gcds-nav-group-h.gcds-mobile-nav-topnav>.gcds-nav--expandable{display:flex}}@media only screen and (width >= 64em) and (width < 96em){.sc-gcds-nav-group-h .gcds-nav--dropdown{right:0}}}@layer mobile{@media only screen and (width < 64em){.sc-gcds-nav-group-h.gcds-mobile-nav>.gcds-nav--expandable{margin:var(--gcds-nav-group-mobile-list-margin)}.sc-gcds-nav-group-h[open]:not(.gcds-mobile-nav) .gcds-nav-group__list{padding-inline-start:var(--gcds-nav-group-side-nav-dropdown-padding)}}@media only screen and (48em < width < 64em){.sc-gcds-nav-group-h.gcds-mobile-nav .gcds-trigger--expandable{align-self:flex-start;width:auto}}}@layer hover{@media (hover:hover){.sc-gcds-nav-group-h .gcds-nav-group__trigger:hover{color:var(--gcds-nav-group-trigger-hover-text)}.sc-gcds-nav-group-h .gcds-trigger--dropdown:hover{color:var(--gcds-nav-group-top-nav-trigger-hover-text);text-decoration-color:var(--gcds-nav-group-top-nav-trigger-hover-text);text-decoration-thickness:var(\n          --gcds-nav-group-top-nav-trigger-hover-decoration-thickness\n        )}.sc-gcds-nav-group-h .gcds-trigger--expandable:hover{background-color:var(\n          --gcds-nav-group-side-nav-trigger-hover-background\n        )}}}@layer focus{.sc-gcds-nav-group-h .gcds-nav-group__trigger:focus{background-color:var(--gcds-nav-group-trigger-focus-background);border-color:var(--gcds-nav-group-trigger-focus-background);border-radius:var(--gcds-nav-group-trigger-focus-border-radius);box-shadow:var(--gcds-nav-group-trigger-focus-box-shadow);color:var(--gcds-nav-group-trigger-focus-text);outline:var(--gcds-nav-group-trigger-focus-outline);outline-offset:var(--gcds-nav-group-trigger-focus-outline-offset);text-decoration:none}}";
-var GcdsNavGroupStyle0 = gcdsNavGroupCss;
+const gcdsNavGroupCss = "@layer reset, defaults, sideNav, topNav, mobileNav, desktop, mobile, hover, focus;@layer reset{:host *{box-sizing:border-box;margin:0;padding:0}}@layer defaults{:host{align-self:flex-end;display:flex;flex-direction:column;position:relative}:host .gcds-nav-group__trigger{align-items:center;background:transparent;border:0;color:var(--gcds-nav-group-trigger-text);cursor:pointer;display:flex;font:var(--gcds-nav-group-trigger-font);padding:var(--gcds-nav-group-trigger-padding);text-align:left;width:100%}@media only screen and (width < 64em){:host .gcds-nav-group__trigger{font:var(--gcds-nav-group-mobile-trigger-font)}}:host .gcds-nav-group__trigger[aria-expanded=false]+.gcds-nav-group__list{display:none}:host .gcds-nav-group__trigger-desc{display:none}:host ul{list-style:none}}@layer sideNav{:host .gcds-trigger--expandable{font-weight:var(--gcds-nav-group-side-nav-trigger-font-weight);margin-block-end:var(--gcds-nav-group-side-nav-trigger-margin)}:host .gcds-trigger--expandable gcds-icon{margin-inline-end:var(--gcds-nav-group-side-nav-trigger-icon-margin)}}@layer topNav{:host .gcds-trigger--dropdown{font:var(--gcds-nav-group-top-nav-font);padding:var(--gcds-nav-group-top-nav-trigger-padding);text-decoration:underline solid currentColor var(--gcds-nav-group-top-nav-trigger-decoration-thickness);text-decoration-color:transparent;text-underline-offset:var(\n      --gcds-nav-group-top-nav-trigger-underline-offset\n    );transition:all .25s ease-in-out}:host .gcds-trigger--dropdown[aria-expanded=true]{background-color:var(\n        --gcds-nav-group-top-nav-trigger-expanded-background-color\n      )}:host .gcds-trigger--dropdown gcds-icon{margin-inline-start:var(--gcds-nav-group-top-nav-trigger-icon-margin);order:2}}@layer mobileNav{:host(.gcds-mobile-nav){width:100%}:host(.gcds-mobile-nav) .gcds-trigger--expandable{border:var(--gcds-nav-group-mobile-trigger-border-width) solid;border-radius:var(--gcds-nav-group-mobile-trigger-border-radius);color:var(--gcds-nav-group-mobile-trigger-text);flex-direction:row-reverse;font:var(--gcds-nav-group-mobile-trigger-font);justify-content:center;margin-block-start:var(--gcds-nav-group-mobile-trigger-margin);text-align:center}:host(.gcds-mobile-nav) .gcds-trigger--expandable gcds-icon{display:none}:host([open].gcds-mobile-nav){background-color:var(--gcds-nav-group-mobile-background);height:100vh;left:0;overflow-y:scroll;padding:var(--gcds-nav-group-mobile-padding)!important;position:fixed;top:0;width:100%;z-index:100}}@layer desktop{@media only screen and (width >= 64em){:host .gcds-nav-group__trigger{max-width:var(--gcds-nav-group-trigger-max-width)}:host .gcds-nav--expandable{padding-inline-start:var(--gcds-nav-group-side-nav-dropdown-padding)}:host .gcds-nav--dropdown{background-color:var(--gcds-nav-group-top-nav-dropdown-background);border-radius:var(--gcds-border-radius-md);box-shadow:var(--gcds-nav-group-top-nav-dropdown-box-shadow);left:0;margin-block-start:var(--gcds-spacing-200);padding:var(--gcds-nav-group-top-nav-dropdown-padding);position:absolute;top:100%;width:var(--gcds-nav-group-top-nav-dropdown-width);z-index:1}:host .gcds-nav--dropdown.dropdown-right{left:auto;right:0}:host(.gcds-mobile-nav)>.gcds-nav--expandable{display:block;padding:0}:host(.gcds-mobile-nav) .gcds-trigger--expandable{display:none}:host(.gcds-mobile-nav-topnav)>.gcds-nav--expandable{display:flex}}}@layer mobile{@media only screen and (width < 64em){:host(.gcds-mobile-nav)>.gcds-nav--expandable{margin:var(--gcds-nav-group-mobile-list-margin)}:host([open]:not(.gcds-mobile-nav)) .gcds-nav-group__list{padding-inline-start:var(--gcds-nav-group-side-nav-dropdown-padding)}}@media only screen and (48em < width < 64em){:host(.gcds-mobile-nav) .gcds-trigger--expandable{align-self:flex-start;width:auto}}}@layer hover{@media (hover:hover){:host .gcds-nav-group__trigger:hover{color:var(--gcds-nav-group-trigger-hover-text)}:host .gcds-trigger--dropdown:hover{color:var(--gcds-nav-group-top-nav-trigger-hover-text);text-decoration-color:var(--gcds-nav-group-top-nav-trigger-hover-text);text-decoration-thickness:var(\n          --gcds-nav-group-top-nav-trigger-hover-decoration-thickness\n        )}:host .gcds-trigger--expandable:hover{background-color:var(\n          --gcds-nav-group-side-nav-trigger-hover-background\n        )}}}@layer focus{:host .gcds-nav-group__trigger:focus{background-color:var(--gcds-nav-group-trigger-focus-background);border-color:var(--gcds-nav-group-trigger-focus-background);border-radius:var(--gcds-nav-group-trigger-focus-border-radius);box-shadow:var(--gcds-nav-group-trigger-focus-box-shadow);color:var(--gcds-nav-group-trigger-focus-text);outline:var(--gcds-nav-group-trigger-focus-outline);outline-offset:var(--gcds-nav-group-trigger-focus-outline-offset);text-decoration:none}}";
 
 class GcdsNavGroup {
     constructor(hostRef) {
         registerInstance(this, hostRef);
-        this.gcdsClick = createEvent(this, "gcdsClick", 7);
-        this.gcdsFocus = createEvent(this, "gcdsFocus", 7);
-        this.gcdsBlur = createEvent(this, "gcdsBlur", 7);
-        this.closeTrigger = undefined;
-        this.menuLabel = undefined;
-        this.openTrigger = undefined;
+        this.gcdsClick = createEvent(this, "gcdsClick");
+        this.gcdsFocus = createEvent(this, "gcdsFocus");
+        this.gcdsBlur = createEvent(this, "gcdsBlur");
+        /**
+         * Has the nav group been expanded
+         */
         this.open = false;
-        this.lang = undefined;
-        this.navStyle = undefined;
-        this.navPosiiton = undefined;
     }
     // Close dropdowns on focusout when on desktop screen size
     async focusOutListener(e) {
@@ -6341,7 +7402,13 @@ class GcdsNavGroup {
         this.lang = assignLanguage(this.el);
         this.updateLang();
         if (this.el.parentNode.nodeName == 'GCDS-TOP-NAV') {
+            // Set the navStyle to 'dropdown' and add a class for alignment if specified
             this.navStyle = 'dropdown';
+            // Get the alignment value from the parent + append the corresponding class
+            const alignment = this.el.parentNode.getAttribute('alignment');
+            if (alignment === 'right') {
+                this.navStyle += ' dropdown-right';
+            }
             if (this.open) {
                 this.open = false;
             }
@@ -6357,15 +7424,15 @@ class GcdsNavGroup {
     }
     render() {
         const { closeTrigger, menuLabel, open, openTrigger } = this;
-        return (hAsync(Host, { key: '2e0fa8db039fb51abfa907fcffff16d1afea585b', role: "listitem", open: open }, hAsync("button", { key: '53fe4debf8d01896f05eba8ccadcf98c9930aede', "aria-haspopup": "true", tabIndex: 0, "aria-expanded": open.toString(), ref: element => (this.triggerElement = element), class: `gcds-nav-group__trigger gcds-trigger--${this.navStyle}`, onBlur: () => this.gcdsBlur.emit(), onFocus: () => this.gcdsFocus.emit(), onClick: e => {
+        return (hAsync(Host, { key: 'c71df7673d06bb55988dff8143bb00168594cea0', role: "listitem", open: open }, hAsync("button", { key: '07158008e249074d2315362b170cd8c0588f9db4', "aria-haspopup": "true", tabIndex: 0, "aria-expanded": open.toString(), ref: element => (this.triggerElement = element), class: `gcds-nav-group__trigger gcds-trigger--${this.navStyle}`, onBlur: () => this.gcdsBlur.emit(), onFocus: () => this.gcdsFocus.emit(), onClick: e => {
                 const event = emitEvent(e, this.gcdsClick);
                 if (event) {
                     this.toggleNav();
                 }
-            } }, hAsync("gcds-icon", { key: 'b839ff9e0618be4a075573ec6e07eac1c77be3ae', name: open ? 'chevron-up' : 'chevron-down' }), closeTrigger && open ? closeTrigger : openTrigger), hAsync("ul", { key: 'e5d277b9cc733f578e9fee9dbed70f9d430d04ec', "aria-label": menuLabel, class: `gcds-nav-group__list gcds-nav--${this.navStyle}` }, hAsync("slot", { key: 'e459a603ff49e2f646b65f0a888bcaada34cb50a' }))));
+            } }, hAsync("gcds-icon", { key: '82b92e7b6a0625d597ed3e82e809012910d777cf', name: open ? 'chevron-up' : 'chevron-down' }), closeTrigger && open ? closeTrigger : openTrigger), hAsync("ul", { key: '57e45d8e023202556eb34847312ee4e65aeee00d', "aria-label": menuLabel, class: `gcds-nav-group__list gcds-nav--${this.navStyle}` }, hAsync("slot", { key: '7982c8317548d37997f989065b258c450fb95bc9' }))));
     }
     get el() { return getElement(this); }
-    static get style() { return GcdsNavGroupStyle0; }
+    static get style() { return gcdsNavGroupCss; }
     static get cmpMeta() { return {
         "$flags$": 9,
         "$tagName$": "gcds-nav-group",
@@ -6386,19 +7453,14 @@ class GcdsNavGroup {
     }; }
 }
 
-const gcdsNavLinkCss = "@layer reset, default, variants, hover, active, focus;@layer reset{.sc-gcds-nav-link-h .gcds-nav-link{box-sizing:border-box}.sc-gcds-nav-link-h .gcds-nav-link slot{display:initial}}@layer default{.sc-gcds-nav-link-h .gcds-nav-link{border-inline:var(--gcds-nav-link-border-width) solid transparent;color:var(--gcds-nav-link-default-text);display:flex;font:var(--gcds-nav-link-font);margin-block-end:var(--gcds-nav-link-margin);padding:var(--gcds-nav-link-padding);text-decoration-color:currentColor;text-decoration-line:underline;text-decoration-style:solid;text-decoration-thickness:var(--gcds-nav-link-default-decoration-thickness);text-underline-offset:var(--gcds-nav-link-default-underline-offset);transition:all .25s ease-in-out}@media only screen and (width < 64em){.sc-gcds-nav-link-h .gcds-nav-link{font:var(--gcds-nav-link-font-mobile);min-width:50%}}@media only screen and (width > 48em){.sc-gcds-nav-link-h .gcds-nav-link{max-width:var(--gcds-nav-link-default-max-width)}}.sc-gcds-nav-link-h .gcds-nav-link[aria-current=page]{pointer-events:none;text-decoration:none}}@layer variants{@media only screen and (width >= 64em){.sc-gcds-nav-link-h>.gcds-nav-link--topnav.gcds-nav-link{border-block:var(--gcds-nav-link-border-width) solid transparent;border-inline:0;color:var(--gcds-nav-link-top-nav-text);font:var(--gcds-nav-link-top-nav-font);margin:var(--gcds-nav-link-top-nav-margin);padding:var(--gcds-nav-link-top-nav-padding)}.sc-gcds-nav-link-h>.gcds-nav-link--topnav.gcds-nav-link:not(:hover){text-decoration-color:transparent}.sc-gcds-nav-link-h[slot=home]>.gcds-nav-link{font:var(--gcds-nav-link-top-nav-home-font);padding:var(--gcds-nav-link-top-nav-home-padding)}}.sc-gcds-nav-link-h>.gcds-nav-link--sidenav.gcds-nav-link{padding:var(--gcds-nav-link-side-nav-padding)}}@layer hover{@media (hover:hover){.sc-gcds-nav-link-h .gcds-nav-link:hover{color:var(--gcds-nav-link-hover-text);text-decoration-thickness:var(\n        --gcds-nav-link-hover-decoration-thickness\n      )}.sc-gcds-nav-link-h>.gcds-nav-link--dropdown.gcds-nav-link:hover,.sc-gcds-nav-link-h>.gcds-nav-link--sidenav.gcds-nav-link:hover{color:var(--gcds-nav-link-hover-text)}.sc-gcds-nav-link-h>.gcds-nav-link--sidenav.gcds-nav-link:hover{background-color:var(--gcds-nav-link-side-nav-hover-background)}.sc-gcds-nav-link-h>.gcds-nav-link--dropdown.gcds-nav-link:hover{background-color:var(--gcds-nav-link-top-nav-hover-background)}}}@layer active{.sc-gcds-nav-link-h .gcds-nav-link[aria-current=page]{background-color:var(--gcds-nav-link-active-background);border-inline-start-color:var(--gcds-nav-link-active-border-color);color:var(--gcds-nav-link-active-text)}@media only screen and (width >= 64em){.sc-gcds-nav-link-h>.gcds-nav-link--topnav.gcds-nav-link[aria-current=page]{background-color:transparent;border-block-end-color:var(--gcds-nav-link-active-border-color);color:var(--gcds-nav-link-top-nav-text)}}.sc-gcds-nav-link-h>.gcds-nav-link--sidenav.gcds-nav-link[aria-current=page]{font-weight:var(--gcds-nav-link-active-font-weight)}}@layer focus{.sc-gcds-nav-link-h .gcds-nav-link:focus{background-color:var(--gcds-nav-link-focus-background);border-color:var(--gcds-nav-link-focus-background);border-radius:var(--gcds-nav-link-focus-border-radius);box-shadow:var(--gcds-nav-link-focus-box-shadow);color:var(--gcds-nav-link-focus-text);outline:var(--gcds-nav-link-focus-outline);outline-offset:var(--gcds-nav-link-focus-outline-offset);text-decoration:none}}";
-var GcdsNavLinkStyle0 = gcdsNavLinkCss;
+const gcdsNavLinkCss = "@layer reset, default, variants, hover, active, focus;@layer reset{:host .gcds-nav-link{box-sizing:border-box}:host .gcds-nav-link slot{display:initial}}@layer default{:host .gcds-nav-link{border-inline:var(--gcds-nav-link-border-width) solid transparent;color:var(--gcds-nav-link-default-text);display:flex;font:var(--gcds-nav-link-font);margin-block-end:var(--gcds-nav-link-margin);padding:var(--gcds-nav-link-padding);text-decoration-color:currentColor;text-decoration-line:underline;text-decoration-style:solid;text-decoration-thickness:var(--gcds-nav-link-default-decoration-thickness);text-underline-offset:var(--gcds-nav-link-default-underline-offset);transition:all .25s ease-in-out}@media only screen and (width < 64em){:host .gcds-nav-link{font:var(--gcds-nav-link-font-mobile);min-width:50%}}@media only screen and (width > 48em){:host .gcds-nav-link{max-width:var(--gcds-nav-link-default-max-width)}}:host .gcds-nav-link[aria-current=page]{pointer-events:none;text-decoration:none}}@layer variants{@media only screen and (width >= 64em){:host>.gcds-nav-link--topnav.gcds-nav-link{border-block:var(--gcds-nav-link-border-width) solid transparent;border-inline:0;color:var(--gcds-nav-link-top-nav-text);font:var(--gcds-nav-link-top-nav-font);margin:var(--gcds-nav-link-top-nav-margin);padding:var(--gcds-nav-link-top-nav-padding)}:host>.gcds-nav-link--topnav.gcds-nav-link:not(:hover){text-decoration-color:transparent}:host([slot=home])>.gcds-nav-link{font:var(--gcds-nav-link-top-nav-home-font);padding:var(--gcds-nav-link-top-nav-home-padding)}}:host>.gcds-nav-link--sidenav.gcds-nav-link{padding:var(--gcds-nav-link-side-nav-padding)}}@layer hover{@media (hover:hover){:host .gcds-nav-link:hover{color:var(--gcds-nav-link-hover-text);text-decoration-thickness:var(\n        --gcds-nav-link-hover-decoration-thickness\n      )}:host>.gcds-nav-link--dropdown.gcds-nav-link:hover,:host>.gcds-nav-link--sidenav.gcds-nav-link:hover{color:var(--gcds-nav-link-hover-text)}:host>.gcds-nav-link--sidenav.gcds-nav-link:hover{background-color:var(--gcds-nav-link-side-nav-hover-background)}:host>.gcds-nav-link--dropdown.gcds-nav-link:hover{background-color:var(--gcds-nav-link-top-nav-hover-background)}}}@layer active{:host .gcds-nav-link[aria-current=page]{background-color:var(--gcds-nav-link-active-background);border-inline-start-color:var(--gcds-nav-link-active-border-color);color:var(--gcds-nav-link-active-text)}@media only screen and (width >= 64em){:host>.gcds-nav-link--topnav.gcds-nav-link[aria-current=page]{background-color:transparent;border-block-end-color:var(--gcds-nav-link-active-border-color);color:var(--gcds-nav-link-top-nav-text)}}:host>.gcds-nav-link--sidenav.gcds-nav-link[aria-current=page]{font-weight:var(--gcds-nav-link-active-font-weight)}}@layer focus{:host .gcds-nav-link:focus{background-color:var(--gcds-nav-link-focus-background);border-color:var(--gcds-nav-link-focus-background);border-radius:var(--gcds-nav-link-focus-border-radius);box-shadow:var(--gcds-nav-link-focus-box-shadow);color:var(--gcds-nav-link-focus-text);outline:var(--gcds-nav-link-focus-outline);outline-offset:var(--gcds-nav-link-focus-outline-offset);text-decoration:none}}";
 
 class GcdsNavLink {
     constructor(hostRef) {
         registerInstance(this, hostRef);
-        this.gcdsClick = createEvent(this, "gcdsClick", 7);
-        this.gcdsFocus = createEvent(this, "gcdsFocus", 7);
-        this.gcdsBlur = createEvent(this, "gcdsBlur", 7);
-        this.href = undefined;
-        this.current = undefined;
-        this.lang = undefined;
-        this.navStyle = undefined;
+        this.gcdsClick = createEvent(this, "gcdsClick");
+        this.gcdsFocus = createEvent(this, "gcdsFocus");
+        this.gcdsBlur = createEvent(this, "gcdsBlur");
     }
     /**
      * Focus the link element
@@ -6442,7 +7504,7 @@ class GcdsNavLink {
         return (hAsync(Host, { key: 'a381fdebeff295a9a9e40ff6f09bab36e12256d2', role: "listitem" }, hAsync("a", Object.assign({ key: '374dc368ccd6314793c1bccc6a6d25029bc5861d', class: `gcds-nav-link gcds-nav-link--${this.navStyle}`, href: href }, linkAttrs, { tabIndex: 0, onBlur: () => this.gcdsBlur.emit(), onFocus: () => this.gcdsFocus.emit(), onClick: e => emitEvent(e, this.gcdsClick, href), ref: element => (this.linkElement = element) }), hAsync("slot", { key: 'e558346c42b2eeee6907d4c671729ed711b6cc12' }))));
     }
     get el() { return getElement(this); }
-    static get style() { return GcdsNavLinkStyle0; }
+    static get style() { return gcdsNavLinkCss; }
     static get cmpMeta() { return {
         "$flags$": 9,
         "$tagName$": "gcds-nav-link",
@@ -6474,17 +7536,19 @@ const I18N$b = {
   },
 };
 
-const gcdsNoticeCss = "@layer reset, default, type;@layer reset{.sc-gcds-notice-h{display:block}.sc-gcds-notice-h .gcds-notice{box-sizing:border-box;text-align:left}.sc-gcds-notice-h .gcds-notice slot{display:initial}}@layer default{.sc-gcds-notice-h .gcds-notice{color:var(--gcds-notice-text);display:grid;gap:var(--gcds-notice-icon-gap);grid-template-columns:var(--gcds-notice-icon-width) auto}.sc-gcds-notice-h .gcds-notice .notice__heading{--gcds-heading-h2-desktop:var(\n        --gcds-notice-content-heading-font-desktop\n      );--gcds-heading-h2-mobile:var(--gcds-notice-content-heading-font-mobile);--gcds-heading-h4-desktop:var(\n        --gcds-notice-content-heading-font-desktop\n      );--gcds-heading-h4-mobile:var(--gcds-notice-content-heading-font-mobile);--gcds-heading-h5-desktop:var(\n        --gcds-notice-content-heading-font-desktop\n      );--gcds-heading-h5-mobile:var(--gcds-notice-content-heading-font-mobile);margin-block-start:var(--gcds-notice-content-heading-margin-block-start-desktop)}@media only screen and (width < 48em){.sc-gcds-notice-h .gcds-notice .notice__heading{margin-block-start:var(--gcds-notice-content-heading-margin-block-start-mobile)}}.sc-gcds-notice-h .gcds-notice .notice__icon{margin:var(--gcds-notice-icon-margin)}.sc-gcds-notice-h .gcds-notice .notice__icon:before{background-color:currentColor;content:\"\";display:block;height:var(--gcds-notice-icon-before-height);margin:0 auto;width:var(--gcds-notice-border-width)}.sc-gcds-notice-h .gcds-notice .notice__icon:after{background-color:currentColor;content:\"\";display:block;height:var(--gcds-notice-icon-after-height);margin:0 auto;width:var(--gcds-notice-border-width)}.sc-gcds-notice-h .gcds-notice.sc-gcds-notice-s > *, .sc-gcds-notice-h .gcds-notice .sc-gcds-notice-s > *{font:var(--gcds-notice-content-slotted-font-desktop);margin-block-start:0}@media only screen and (width < 48em){.sc-gcds-notice-h .gcds-notice.sc-gcds-notice-s > *, .sc-gcds-notice-h .gcds-notice .sc-gcds-notice-s > *{font:var(--gcds-notice-content-slotted-font-mobile)}}.sc-gcds-notice-h .gcds-notice.sc-gcds-notice-s > :last-child, .sc-gcds-notice-h .gcds-notice .sc-gcds-notice-s > :last-child{margin-block-end:0}.sc-gcds-notice-h .gcds-notice.sc-gcds-notice-s > :not(:last-child), .sc-gcds-notice-h .gcds-notice .sc-gcds-notice-s > :not(:last-child){margin-block-end:var(--gcds-notice-content-slotted-margin)}.sc-gcds-notice-h .gcds-notice.sc-gcds-notice-s > ol, .sc-gcds-notice-h .gcds-notice .sc-gcds-notice-s > ol,.sc-gcds-notice-h .gcds-notice.sc-gcds-notice-s > ul, .sc-gcds-notice-h .gcds-notice .sc-gcds-notice-s > ul{margin-inline-start:var(--gcds-notice-content-slotted-list-margin);padding:0}}@layer type{.sc-gcds-notice-h .gcds-notice.notice--type-danger .notice__icon{color:var(--gcds-notice-danger-text)}.sc-gcds-notice-h .gcds-notice.notice--type-info .notice__icon{color:var(--gcds-notice-info-text)}.sc-gcds-notice-h .gcds-notice.notice--type-success .notice__icon{color:var(--gcds-notice-success-text)}.sc-gcds-notice-h .gcds-notice.notice--type-warning .notice__icon{color:var(--gcds-notice-warning-text)}}";
-var GcdsNoticeStyle0 = gcdsNoticeCss;
+const gcdsNoticeCss = "@layer reset, default, type;@layer reset{:host{display:block}:host .gcds-notice{box-sizing:border-box;text-align:left}:host .gcds-notice slot{display:initial}}@layer default{:host .gcds-notice{color:var(--gcds-notice-text);display:grid;gap:var(--gcds-notice-icon-gap);grid-template-columns:var(--gcds-notice-icon-width) auto}:host .gcds-notice .notice__heading{--gcds-heading-h2-desktop:var(\n        --gcds-notice-content-heading-font-desktop\n      );--gcds-heading-h2-mobile:var(--gcds-notice-content-heading-font-mobile);--gcds-heading-h4-desktop:var(\n        --gcds-notice-content-heading-font-desktop\n      );--gcds-heading-h4-mobile:var(--gcds-notice-content-heading-font-mobile);--gcds-heading-h5-desktop:var(\n        --gcds-notice-content-heading-font-desktop\n      );--gcds-heading-h5-mobile:var(--gcds-notice-content-heading-font-mobile);margin-block-start:var(--gcds-notice-content-heading-margin-block-start-desktop)}@media only screen and (width < 48em){:host .gcds-notice .notice__heading{margin-block-start:var(--gcds-notice-content-heading-margin-block-start-mobile)}}:host .gcds-notice .notice__icon{margin:var(--gcds-notice-icon-margin)}:host .gcds-notice .notice__icon:before{background-color:currentColor;content:\"\";display:block;height:var(--gcds-notice-icon-before-height);margin:0 auto;width:var(--gcds-notice-border-width)}:host .gcds-notice .notice__icon:after{background-color:currentColor;content:\"\";display:block;height:var(--gcds-notice-icon-after-height);margin:0 auto;width:var(--gcds-notice-border-width)}:host .gcds-notice ::slotted(*){font:var(--gcds-notice-content-slotted-font-desktop);margin-block-start:0}@media only screen and (width < 48em){:host .gcds-notice ::slotted(*){font:var(--gcds-notice-content-slotted-font-mobile)}}:host .gcds-notice ::slotted(:last-child){margin-block-end:0}:host .gcds-notice ::slotted(:not(:last-child)){margin-block-end:var(--gcds-notice-content-slotted-margin)}:host .gcds-notice ::slotted(ol),:host .gcds-notice ::slotted(ul){margin-inline-start:var(--gcds-notice-content-slotted-list-margin);padding:0}}@layer type{:host .gcds-notice.notice--type-danger .notice__icon{color:var(--gcds-notice-danger-text)}:host .gcds-notice.notice--type-info .notice__icon{color:var(--gcds-notice-info-text)}:host .gcds-notice.notice--type-success .notice__icon{color:var(--gcds-notice-success-text)}:host .gcds-notice.notice--type-warning .notice__icon{color:var(--gcds-notice-warning-text)}}";
 
 class GcdsNotice {
     constructor(hostRef) {
         registerInstance(this, hostRef);
-        this.type = undefined;
-        this.noticeTitle = undefined;
-        this.noticeTitleTag = undefined;
+        /**
+         * States
+         */
+        /**
+         * State to track validation on properties
+         * Contains a list of properties that have an error associated with them
+         */
         this.errors = [];
-        this.lang = undefined;
     }
     validateType() {
         if (!this.type) {
@@ -6563,7 +7627,7 @@ class GcdsNotice {
         return (hAsync(Host, { key: 'fd1270c1f55a73317a453144bdd787f73a6b1718' }, this.validateRequiredProps() && (hAsync("section", { key: '5b69754984e2f26df7789f87ed53f956af36da76', class: `gcds-notice notice--type-${type}` }, hAsync("gcds-icon", { key: '7819caaf5a09fb193ddf6b2d0e90e113364322cc', class: "notice__icon", size: "h4", name: iconTypes[type] }), hAsync("div", { key: 'b2a6473df7b38f923bcff4660d9cc734d4a682e9' }, hAsync("gcds-heading", { key: 'f357202ef4784a28c1fa632c2612f358b0884c19', tag: noticeTitleTag, "margin-top": "0", "margin-bottom": "100", class: "notice__heading" }, hAsync("gcds-sr-only", { key: '61442ee69436efcf44645e12d48ced7098671d57', tag: "span" }, I18N$b[this.lang][type]), noticeTitle), hAsync("slot", { key: 'c213505d6bd3a75af3987b147d81d66e2c7d8415' }))))));
     }
     get el() { return getElement(this); }
-    static get style() { return GcdsNoticeStyle0; }
+    static get style() { return gcdsNoticeCss; }
     static get cmpMeta() { return {
         "$flags$": 9,
         "$tagName$": "gcds-notice",
@@ -6709,28 +7773,23 @@ function constructClasses(page, current, total) {
     }
 }
 
-const gcdsPaginationCss = "@layer reset, default, list, simple, wide, compact, hover, active, focus;@layer reset{.sc-gcds-pagination-h{display:block}.sc-gcds-pagination-h .gcds-pagination ul{list-style:none;padding:0}}@layer default{.sc-gcds-pagination-h .gcds-pagination{container:component pagination/inline-size}.sc-gcds-pagination-h .gcds-pagination li{margin:var(--gcds-pagination-listitem-margin)}.sc-gcds-pagination-h .gcds-pagination li a{border-radius:var(--gcds-pagination-border-radius);color:var(--gcds-pagination-default-text);font:var(--gcds-pagination-font-desktop)}@media only screen and (width < 48em){.sc-gcds-pagination-h .gcds-pagination li a{font:var(--gcds-pagination-font-mobile)}}}@layer list{.sc-gcds-pagination-h .gcds-pagination :is(.gcds-pagination-list,.gcds-pagination-list-mobile-prevnext){display:flex;flex-direction:row;margin:0 auto;width:fit-content}.sc-gcds-pagination-h .gcds-pagination :is(.gcds-pagination-list,.gcds-pagination-list-mobile-prevnext) li a,.sc-gcds-pagination-h .gcds-pagination :is(.gcds-pagination-list,.gcds-pagination-list-mobile-prevnext) li>span.gcds-pagination-list-ellipses{align-items:center;display:flex;height:3rem;justify-content:center;min-width:3rem}.sc-gcds-pagination-h .gcds-pagination :is(.gcds-pagination-list,.gcds-pagination-list-mobile-prevnext) li a.gcds-pagination-end-button,.sc-gcds-pagination-h .gcds-pagination :is(.gcds-pagination-list,.gcds-pagination-list-mobile-prevnext) li a.gcds-pagination-end-button-mobile,.sc-gcds-pagination-h .gcds-pagination :is(.gcds-pagination-list,.gcds-pagination-list-mobile-prevnext) li>span.gcds-pagination-list-ellipses.gcds-pagination-end-button,.sc-gcds-pagination-h .gcds-pagination :is(.gcds-pagination-list,.gcds-pagination-list-mobile-prevnext) li>span.gcds-pagination-list-ellipses.gcds-pagination-end-button-mobile{height:auto;min-width:auto;padding:var(--gcds-pagination-list-end-button-padding);text-decoration:none;width:auto}.sc-gcds-pagination-h .gcds-pagination :is(.gcds-pagination-list,.gcds-pagination-list-mobile-prevnext) li a.gcds-pagination-end-button span,.sc-gcds-pagination-h .gcds-pagination :is(.gcds-pagination-list,.gcds-pagination-list-mobile-prevnext) li a.gcds-pagination-end-button-mobile span,.sc-gcds-pagination-h .gcds-pagination :is(.gcds-pagination-list,.gcds-pagination-list-mobile-prevnext) li>span.gcds-pagination-list-ellipses.gcds-pagination-end-button span,.sc-gcds-pagination-h .gcds-pagination :is(.gcds-pagination-list,.gcds-pagination-list-mobile-prevnext) li>span.gcds-pagination-list-ellipses.gcds-pagination-end-button-mobile span{text-decoration:underline}.sc-gcds-pagination-h .gcds-pagination :is(.gcds-pagination-list,.gcds-pagination-list-mobile-prevnext) li.gcds-pagination-mobile-prevnext{display:none}.sc-gcds-pagination-h .gcds-pagination :is(.gcds-pagination-list,.gcds-pagination-list-mobile-prevnext) li.gcds-pagination-list-mobile-ellipses{display:none}.sc-gcds-pagination-h .gcds-pagination .gcds-pagination-list-mobile-prevnext{display:flex;margin:var(--gcds-pagination-mobile-list-prevnext-margin)}}@layer simple{.sc-gcds-pagination-h .gcds-pagination-simple{display:flex;flex-direction:column;justify-content:space-between}.sc-gcds-pagination-h .gcds-pagination-simple li{display:inline-block;justify-content:space-between;margin:var(--gcds-pagination-simple-listitem-margin);width:fit-content}.sc-gcds-pagination-h .gcds-pagination-simple li a{display:grid;padding:var(--gcds-pagination-simple-padding)}.sc-gcds-pagination-h .gcds-pagination-simple li a>gcds-icon{grid-area:icon}.sc-gcds-pagination-h .gcds-pagination-simple li a>.gcds-pagination-simple-text{grid-area:text;margin:var(--gcds-pagination-simple-listitem-text-margin)}.sc-gcds-pagination-h .gcds-pagination-simple li a>span{font-weight:var(--gcds-pagination-simple-label-font-weight);grid-area:label}.sc-gcds-pagination-h .gcds-pagination-simple .gcds-pagination-simple-next a,.sc-gcds-pagination-h .gcds-pagination-simple .gcds-pagination-simple-previous a{text-decoration:none}.sc-gcds-pagination-h .gcds-pagination-simple .gcds-pagination-simple-next a .gcds-pagination-simple-text,.sc-gcds-pagination-h .gcds-pagination-simple .gcds-pagination-simple-next a span,.sc-gcds-pagination-h .gcds-pagination-simple .gcds-pagination-simple-previous a .gcds-pagination-simple-text,.sc-gcds-pagination-h .gcds-pagination-simple .gcds-pagination-simple-previous a span{text-decoration:underline}.sc-gcds-pagination-h .gcds-pagination-simple .gcds-pagination-simple-previous a{grid-template-areas:\"icon text\" \"icon label\";grid-template-columns:.25fr 1fr}.sc-gcds-pagination-h .gcds-pagination-simple .gcds-pagination-simple-next a{grid-template-areas:\"text icon\" \"label icon\";grid-template-columns:1fr .25fr}}@layer wide{@container pagination (width > 44em){.sc-gcds-pagination-h .gcds-pagination-list-mobile-prevnext{display:none}}@container pagination (width > 20em){.sc-gcds-pagination-h .gcds-pagination-simple{flex-direction:row}.sc-gcds-pagination-h .gcds-pagination-simple .gcds-pagination-simple-next{margin-left:auto}}}@layer compact{@container pagination (width <= 44em){.sc-gcds-pagination-h .gcds-pagination :is(.gcds-pagination-list,.gcds-pagination-list-mobile-prevnext) li a{border:var(--gcds-pagination-border-width) solid}.sc-gcds-pagination-h .gcds-pagination :is(.gcds-pagination-list,.gcds-pagination-list-mobile-prevnext) li>span.gcds-pagination-list-ellipses{min-width:auto}.sc-gcds-pagination-h .gcds-pagination :is(.gcds-pagination-list,.gcds-pagination-list-mobile-prevnext) li:has(>a.gcds-pagination-end-button){margin:0}.sc-gcds-pagination-h .gcds-pagination :is(.gcds-pagination-list,.gcds-pagination-list-mobile-prevnext) li .gcds-pagination-end-button{display:none}.sc-gcds-pagination-h .gcds-pagination :is(.gcds-pagination-list,.gcds-pagination-list-mobile-prevnext) li.gcds-pagination-mobile-prevnext{display:block}}@container pagination (width <= 30em){.sc-gcds-pagination-h .gcds-pagination-list .gcds-pagination-list-breakpoint-sm{display:none}}@container pagination (width <= 27.5em){.sc-gcds-pagination-h .gcds-pagination-list .gcds-pagination-list-breakpoint-xs{display:none}}@container pagination (width <= 25em){.sc-gcds-pagination-h .gcds-pagination-list .gcds-pagination-list-breakpoint-xxs{display:none}}@container pagination (width <= 19em){.sc-gcds-pagination-h .gcds-pagination-list li{margin:var(--gcds-pagination-mobile-list-item-margin)}}}@layer hover{@media (hover:hover){.sc-gcds-pagination-h .gcds-pagination ul li a:hover{background:var(--gcds-pagination-hover-background);color:var(--gcds-pagination-hover-text)}}}@layer active{.sc-gcds-pagination-h .gcds-pagination ul li a:active:not(:focus),.sc-gcds-pagination-h .gcds-pagination ul li a[aria-current*=page]:not(:focus){background:var(--gcds-pagination-active-background);border-color:var(--gcds-pagination-active-background);color:var(--gcds-pagination-active-text);text-decoration:none}}@layer focus{.sc-gcds-pagination-h .gcds-pagination ul li a:focus{background-color:var(--gcds-pagination-focus-background);border-color:var(--gcds-pagination-focus-background);box-shadow:var(--gcds-pagination-focus-box-shadow);color:var(--gcds-pagination-focus-text);outline:var(--gcds-pagination-focus-outline-width) solid var(--gcds-pagination-focus-background);outline-offset:var(--gcds-pagination-border-width);text-decoration:none}}";
-var GcdsPaginationStyle0 = gcdsPaginationCss;
+const gcdsPaginationCss = "@layer reset, default, list, simple, wide, compact, hover, active, focus;@layer reset{:host{display:block}:host .gcds-pagination ul{list-style:none;padding:0}}@layer default{:host .gcds-pagination{container:component pagination/inline-size}:host .gcds-pagination li{margin:var(--gcds-pagination-listitem-margin)}:host .gcds-pagination li a{border-radius:var(--gcds-pagination-border-radius);color:var(--gcds-pagination-default-text);font:var(--gcds-pagination-font-desktop)}@media only screen and (width < 48em){:host .gcds-pagination li a{font:var(--gcds-pagination-font-mobile)}}}@layer list{:host .gcds-pagination :is(.gcds-pagination-list,.gcds-pagination-list-mobile-prevnext){display:flex;flex-direction:row;margin:0 auto;width:fit-content}:host .gcds-pagination :is(.gcds-pagination-list,.gcds-pagination-list-mobile-prevnext) li a,:host .gcds-pagination :is(.gcds-pagination-list,.gcds-pagination-list-mobile-prevnext) li>span.gcds-pagination-list-ellipses{align-items:center;display:flex;height:3rem;justify-content:center;min-width:3rem}:host .gcds-pagination :is(.gcds-pagination-list,.gcds-pagination-list-mobile-prevnext) li a.gcds-pagination-end-button,:host .gcds-pagination :is(.gcds-pagination-list,.gcds-pagination-list-mobile-prevnext) li a.gcds-pagination-end-button-mobile,:host .gcds-pagination :is(.gcds-pagination-list,.gcds-pagination-list-mobile-prevnext) li>span.gcds-pagination-list-ellipses.gcds-pagination-end-button,:host .gcds-pagination :is(.gcds-pagination-list,.gcds-pagination-list-mobile-prevnext) li>span.gcds-pagination-list-ellipses.gcds-pagination-end-button-mobile{height:auto;min-width:auto;padding:var(--gcds-pagination-list-end-button-padding);text-decoration:none;width:auto}:host .gcds-pagination :is(.gcds-pagination-list,.gcds-pagination-list-mobile-prevnext) li a.gcds-pagination-end-button span,:host .gcds-pagination :is(.gcds-pagination-list,.gcds-pagination-list-mobile-prevnext) li a.gcds-pagination-end-button-mobile span,:host .gcds-pagination :is(.gcds-pagination-list,.gcds-pagination-list-mobile-prevnext) li>span.gcds-pagination-list-ellipses.gcds-pagination-end-button span,:host .gcds-pagination :is(.gcds-pagination-list,.gcds-pagination-list-mobile-prevnext) li>span.gcds-pagination-list-ellipses.gcds-pagination-end-button-mobile span{text-decoration:underline}:host .gcds-pagination :is(.gcds-pagination-list,.gcds-pagination-list-mobile-prevnext) li.gcds-pagination-mobile-prevnext{display:none}:host .gcds-pagination :is(.gcds-pagination-list,.gcds-pagination-list-mobile-prevnext) li.gcds-pagination-list-mobile-ellipses{display:none}:host .gcds-pagination .gcds-pagination-list-mobile-prevnext{display:flex;margin:var(--gcds-pagination-mobile-list-prevnext-margin)}}@layer simple{:host .gcds-pagination-simple{display:flex;flex-direction:column;justify-content:space-between}:host .gcds-pagination-simple li{display:inline-block;justify-content:space-between;margin:var(--gcds-pagination-simple-listitem-margin);width:fit-content}:host .gcds-pagination-simple li a{display:grid;padding:var(--gcds-pagination-simple-padding)}:host .gcds-pagination-simple li a>gcds-icon{grid-area:icon}:host .gcds-pagination-simple li a>.gcds-pagination-simple-text{grid-area:text;margin:var(--gcds-pagination-simple-listitem-text-margin)}:host .gcds-pagination-simple li a>span{font-weight:var(--gcds-pagination-simple-label-font-weight);grid-area:label}:host .gcds-pagination-simple .gcds-pagination-simple-next a,:host .gcds-pagination-simple .gcds-pagination-simple-previous a{text-decoration:none}:host .gcds-pagination-simple .gcds-pagination-simple-next a .gcds-pagination-simple-text,:host .gcds-pagination-simple .gcds-pagination-simple-next a span,:host .gcds-pagination-simple .gcds-pagination-simple-previous a .gcds-pagination-simple-text,:host .gcds-pagination-simple .gcds-pagination-simple-previous a span{text-decoration:underline}:host .gcds-pagination-simple .gcds-pagination-simple-previous a{grid-template-areas:\"icon text\" \"icon label\";grid-template-columns:.25fr 1fr}:host .gcds-pagination-simple .gcds-pagination-simple-next a{grid-template-areas:\"text icon\" \"label icon\";grid-template-columns:1fr .25fr}}@layer wide{@container pagination (width > 44em){:host .gcds-pagination-list-mobile-prevnext{display:none}}@container pagination (width > 20em){:host .gcds-pagination-simple{flex-direction:row}:host .gcds-pagination-simple .gcds-pagination-simple-next{margin-left:auto}}}@layer compact{@container pagination (width <= 44em){:host .gcds-pagination :is(.gcds-pagination-list,.gcds-pagination-list-mobile-prevnext) li a{border:var(--gcds-pagination-border-width) solid}:host .gcds-pagination :is(.gcds-pagination-list,.gcds-pagination-list-mobile-prevnext) li>span.gcds-pagination-list-ellipses{min-width:auto}:host .gcds-pagination :is(.gcds-pagination-list,.gcds-pagination-list-mobile-prevnext) li:has(>a.gcds-pagination-end-button){margin:0}:host .gcds-pagination :is(.gcds-pagination-list,.gcds-pagination-list-mobile-prevnext) li .gcds-pagination-end-button{display:none}:host .gcds-pagination :is(.gcds-pagination-list,.gcds-pagination-list-mobile-prevnext) li.gcds-pagination-mobile-prevnext{display:block}}@container pagination (width <= 30em){:host .gcds-pagination-list .gcds-pagination-list-breakpoint-sm{display:none}}@container pagination (width <= 27.5em){:host .gcds-pagination-list .gcds-pagination-list-breakpoint-xs{display:none}}@container pagination (width <= 25em){:host .gcds-pagination-list .gcds-pagination-list-breakpoint-xxs{display:none}}@container pagination (width <= 19em){:host .gcds-pagination-list li{margin:var(--gcds-pagination-mobile-list-item-margin)}}}@layer hover{@media (hover:hover){:host .gcds-pagination ul li a:hover{background:var(--gcds-pagination-hover-background);color:var(--gcds-pagination-hover-text)}}}@layer active{:host .gcds-pagination ul li a:active:not(:focus),:host .gcds-pagination ul li a[aria-current*=page]:not(:focus){background:var(--gcds-pagination-active-background);border-color:var(--gcds-pagination-active-background);color:var(--gcds-pagination-active-text);text-decoration:none}}@layer focus{:host .gcds-pagination ul li a:focus{background-color:var(--gcds-pagination-focus-background);border-color:var(--gcds-pagination-focus-background);box-shadow:var(--gcds-pagination-focus-box-shadow);color:var(--gcds-pagination-focus-text);outline:var(--gcds-pagination-focus-outline-width) solid var(--gcds-pagination-focus-background);outline-offset:var(--gcds-pagination-border-width);text-decoration:none}}";
 
 class GcdsPagination {
     constructor(hostRef) {
         registerInstance(this, hostRef);
-        this.gcdsFocus = createEvent(this, "gcdsFocus", 7);
-        this.gcdsBlur = createEvent(this, "gcdsBlur", 7);
-        this.gcdsClick = createEvent(this, "gcdsClick", 7);
+        this.gcdsFocus = createEvent(this, "gcdsFocus");
+        this.gcdsBlur = createEvent(this, "gcdsBlur");
+        this.gcdsClick = createEvent(this, "gcdsClick");
         this.listitems = [];
         this.mobilePrevNext = [];
+        /*
+         * Props
+         */
+        /**
+         * Navigation element label
+         */
         this.display = 'list';
-        this.label = undefined;
-        this.previousHref = undefined;
-        this.previousLabel = undefined;
-        this.nextHref = undefined;
-        this.nextLabel = undefined;
-        this.totalPages = undefined;
-        this.currentPage = undefined;
-        this.url = undefined;
-        this.currentStep = undefined;
-        this.lang = undefined;
     }
     watchCurrentPage(newValue) {
         this.currentStep = newValue;
@@ -6909,7 +7968,7 @@ class GcdsPagination {
         "url": ["urlChanged"],
         "lang": ["watchLang"]
     }; }
-    static get style() { return GcdsPaginationStyle0; }
+    static get style() { return gcdsPaginationCss; }
     static get cmpMeta() { return {
         "$flags$": 9,
         "$tagName$": "gcds-pagination",
@@ -6941,16 +8000,22 @@ const I18N$9 = {
   },
 };
 
-const gcdsPhaseBannerCss = "@layer reset, default, fixed, role, wide, compact;@layer reset{.sc-gcds-phase-banner-h{display:block}.sc-gcds-phase-banner-h slot{display:initial}}@layer default{.sc-gcds-phase-banner-h .gcds-phase-banner{container:component banner/inline-size;font:var(--gcds-phase-banner-font);line-height:var(--gcds-phase-banner-line-height)}.sc-gcds-phase-banner-h .gcds-phase-banner .banner__content{padding:var(--gcds-phase-banner-padding)}.sc-gcds-phase-banner-h .gcds-phase-banner .banner__icon{display:flex;margin:0}.sc-gcds-phase-banner-h .gcds-phase-banner .banner__icon.icon--left{margin-inline-end:var(--gcds-phase-banner-icon-margin)}.sc-gcds-phase-banner-h .gcds-phase-banner .banner__icon.icon--right{margin-inline-start:var(--gcds-phase-banner-icon-margin)}.sc-gcds-phase-banner-h .gcds-phase-banner .banner__icon.sc-gcds-phase-banner-s > img, .sc-gcds-phase-banner-h .gcds-phase-banner .banner__icon .sc-gcds-phase-banner-s > img,.sc-gcds-phase-banner-h .gcds-phase-banner .banner__icon.sc-gcds-phase-banner-s > svg, .sc-gcds-phase-banner-h .gcds-phase-banner .banner__icon .sc-gcds-phase-banner-s > svg{max-height:var(--gcds-phase-banner-icon-max-height)}.sc-gcds-phase-banner-h .gcds-phase-banner .banner__details{align-items:baseline;display:flex;flex-wrap:wrap}.sc-gcds-phase-banner-h .gcds-phase-banner .banner__details.sc-gcds-phase-banner-s > a, .sc-gcds-phase-banner-h .gcds-phase-banner .banner__details.sc-gcds-phase-banner-s > a, .sc-gcds-phase-banner-h .gcds-phase-banner .banner__details.sc-gcds-phase-banner-s > a, .sc-gcds-phase-banner-h .gcds-phase-banner .banner__details .sc-gcds-phase-banner-s > a,.sc-gcds-phase-banner-h .gcds-phase-banner .banner__details.sc-gcds-phase-banner-s > gcds-button, .sc-gcds-phase-banner-h .gcds-phase-banner .banner__details.sc-gcds-phase-banner-s > gcds-button, .sc-gcds-phase-banner-h .gcds-phase-banner .banner__details .sc-gcds-phase-banner-s > gcds-button{flex:0 0 auto}.sc-gcds-phase-banner-h .gcds-phase-banner .banner__details.sc-gcds-phase-banner-s > a, .sc-gcds-phase-banner-h .gcds-phase-banner .banner__details.sc-gcds-phase-banner-s > a, .sc-gcds-phase-banner-h .gcds-phase-banner .banner__details.sc-gcds-phase-banner-s > a, .sc-gcds-phase-banner-h .gcds-phase-banner .banner__details .sc-gcds-phase-banner-s > a,.sc-gcds-phase-banner-h .gcds-phase-banner .banner__details.sc-gcds-phase-banner-s > small, .sc-gcds-phase-banner-h .gcds-phase-banner .banner__details .sc-gcds-phase-banner-s > small,.sc-gcds-phase-banner-h .gcds-phase-banner .banner__details.sc-gcds-phase-banner-s > span, .sc-gcds-phase-banner-h .gcds-phase-banner .banner__details .sc-gcds-phase-banner-s > span{font-size:80%!important}.sc-gcds-phase-banner-h .gcds-phase-banner .banner__details.sc-gcds-phase-banner-s > p, .sc-gcds-phase-banner-h .gcds-phase-banner .banner__details .sc-gcds-phase-banner-s > p{font:var(--gcds-phase-banner-font);margin:0}.sc-gcds-phase-banner-h .gcds-phase-banner .banner__details.sc-gcds-phase-banner-s > a, .sc-gcds-phase-banner-h .gcds-phase-banner .banner__details.sc-gcds-phase-banner-s > a, .sc-gcds-phase-banner-h .gcds-phase-banner .banner__details.sc-gcds-phase-banner-s > a, .sc-gcds-phase-banner-h .gcds-phase-banner .banner__details .sc-gcds-phase-banner-s > a{color:inherit}.sc-gcds-phase-banner-h .gcds-phase-banner .banner__details.sc-gcds-phase-banner-s > gcds-button, .sc-gcds-phase-banner-h .gcds-phase-banner .banner__details.sc-gcds-phase-banner-s > gcds-button, .sc-gcds-phase-banner-h .gcds-phase-banner .banner__details .sc-gcds-phase-banner-s > gcds-button{margin:var(--gcds-phase-banner-details-cta-margin);transform:scale(90%)}}@layer fixed{.sc-gcds-phase-banner-h .gcds-phase-banner.banner-is-fixed{position:sticky;top:0;width:100%;z-index:9999}}@layer role{.sc-gcds-phase-banner-h .gcds-phase-banner.banner--role-primary{background-color:var(--gcds-phase-banner-primary-background);color:var(--gcds-phase-banner-primary-text)}.sc-gcds-phase-banner-h .gcds-phase-banner.banner--role-secondary{background-color:var(--gcds-phase-banner-secondary-background);color:var(--gcds-phase-banner-secondary-text)}}@layer wide{@container banner (width >= 36em){.sc-gcds-phase-banner-h .gcds-phase-banner .banner__content{display:flex}}}@layer compact{@container banner (width < 36em){.sc-gcds-phase-banner-h .gcds-phase-banner .banner__content .banner__icon{display:none}}}";
-var GcdsPhaseBannerStyle0 = gcdsPhaseBannerCss;
+const gcdsPhaseBannerCss = "@layer reset, default, fixed, role, wide, compact;@layer reset{:host{display:block}:host slot{display:initial}}@layer default{:host .gcds-phase-banner{container:component banner/inline-size;font:var(--gcds-phase-banner-font);line-height:var(--gcds-phase-banner-line-height)}:host .gcds-phase-banner .banner__content{padding:var(--gcds-phase-banner-padding)}:host .gcds-phase-banner .banner__icon{display:flex;margin:0}:host .gcds-phase-banner .banner__icon.icon--left{margin-inline-end:var(--gcds-phase-banner-icon-margin)}:host .gcds-phase-banner .banner__icon.icon--right{margin-inline-start:var(--gcds-phase-banner-icon-margin)}:host .gcds-phase-banner .banner__icon ::slotted(img),:host .gcds-phase-banner .banner__icon ::slotted(svg){max-height:var(--gcds-phase-banner-icon-max-height)}:host .gcds-phase-banner .banner__details{align-items:baseline;display:flex;flex-wrap:wrap}:host .gcds-phase-banner .banner__details ::slotted(a),:host .gcds-phase-banner .banner__details ::slotted(gcds-button){flex:0 0 auto}:host .gcds-phase-banner .banner__details ::slotted(a),:host .gcds-phase-banner .banner__details ::slotted(small),:host .gcds-phase-banner .banner__details ::slotted(span){font-size:80%!important}:host .gcds-phase-banner .banner__details ::slotted(p){font:var(--gcds-phase-banner-font);margin:0}:host .gcds-phase-banner .banner__details ::slotted(a){color:inherit}:host .gcds-phase-banner .banner__details ::slotted(gcds-button){margin:var(--gcds-phase-banner-details-cta-margin);transform:scale(90%)}}@layer fixed{:host .gcds-phase-banner.banner-is-fixed{position:sticky;top:0;width:100%;z-index:9999}}@layer role{:host .gcds-phase-banner.banner--role-primary{background-color:var(--gcds-phase-banner-primary-background);color:var(--gcds-phase-banner-primary-text)}:host .gcds-phase-banner.banner--role-secondary{background-color:var(--gcds-phase-banner-secondary-background);color:var(--gcds-phase-banner-secondary-text)}}@layer wide{@container banner (width >= 36em){:host .gcds-phase-banner .banner__content{display:flex}}}@layer compact{@container banner (width < 36em){:host .gcds-phase-banner .banner__content .banner__icon{display:none}}}";
 
 class GcdsPhaseBanner {
     constructor(hostRef) {
         registerInstance(this, hostRef);
+        /**
+         * Props
+         */
+        /**
+         * Defines banner role.
+         */
         this.bannerRole = 'primary';
+        /**
+         * Defines the container width of the phase banner content
+         */
         this.container = 'xl';
-        this.isFixed = undefined;
-        this.lang = undefined;
     }
     /**
      * Events
@@ -6976,7 +8041,7 @@ class GcdsPhaseBanner {
         return (hAsync(Host, { key: '7a9ab092fa24decf0cbb189ff423a00a590a9353' }, hAsync("div", { key: '9abd59ac3f9f36c00f29df649ddcc4a0ba40fd12', class: `gcds-phase-banner banner--role-${bannerRole} ${isFixed ? 'banner--is-fixed' : ''}`, role: "status", "aria-label": I18N$9[lang].label }, hAsync("gcds-container", { key: 'c753160aee35e77486e88bb29267765418284187', size: container, centered: true }, hAsync("div", { key: '0aac78887062cdc82bb882a4d886ecd2c4cb0537', class: "banner__content" }, hAsync("figure", { key: '13b9b8d23f68dc271ef15a913da44720ef87f3aa', class: "banner__icon icon--left" }, hAsync("slot", { key: '86153fa07f9421599dd010f2aaed32b73c74d416', name: "banner-icon-left" })), hAsync("div", { key: '974677e29dc9ee44f7709283b553ae791c2a2843', class: "banner__details" }, hAsync("slot", { key: 'd485fcdd5578ac584ec5d1f2ea8a271bb8b4528a', name: "banner-text" }), hAsync("slot", { key: 'ee3c3e130c8476298fee89ce36ea6316efc7a747', name: "banner-cta" })), hAsync("figure", { key: '8e84fd783b06c179748c0370c9e4fa7362972a3c', class: "banner__icon icon--right" }, hAsync("slot", { key: '553594a2b70c69ac1e46847425b934ccd7087462', name: "banner-icon-right" })))))));
     }
     get el() { return getElement(this); }
-    static get style() { return GcdsPhaseBannerStyle0; }
+    static get style() { return gcdsPhaseBannerCss; }
     static get cmpMeta() { return {
         "$flags$": 9,
         "$tagName$": "gcds-phase-banner",
@@ -7017,18 +8082,17 @@ const I18N$8 = {
   },
 };
 
-const gcdsRadiosCss = "@layer reset, default, disabled, error, focus, a11y.highcontrast;@layer reset{.sc-gcds-radios-h{display:block}.sc-gcds-radios-h .gcds-radios__fieldset{border:0;min-inline-size:auto;padding:0}.sc-gcds-radios-h .gcds-radios__fieldset legend{padding:0}.sc-gcds-radios-h .gcds-radio{border:0;padding:0}.sc-gcds-radios-h .gcds-radio gcds-label>label:after,.sc-gcds-radios-h .gcds-radio gcds-label>label:before{box-sizing:border-box;content:\"\";cursor:pointer;position:absolute}}@layer default{.sc-gcds-radios-h .gcds-radios__legend{font:var(--gcds-radio-legend-font-desktop);margin:var(--gcds-radio-legend-margin)}.sc-gcds-radios-h .gcds-radios__legend .legend__required{font:var(--gcds-radio-legend-required-font-desktop)}@media only screen and (width < 48em){.sc-gcds-radios-h .gcds-radios__legend{font:var(--gcds-radio-legend-font-mobile)}.sc-gcds-radios-h .gcds-radios__legend .legend__required{font:var(--gcds-radio-legend-required-font-mobile)}}.sc-gcds-radios-h .gcds-radios__legend:not(:has(+gcds-hint)){margin:var(--gcds-radio-legend-hint-margin)}.sc-gcds-radios-h gcds-hint:part(hint){margin:var(--gcds-radio-hint-margin)}.sc-gcds-radios-h .gcds-radio{color:var(--gcds-radio-default-text);font:var(--gcds-radio-font);margin:var(--gcds-radio-margin)!important;max-width:var(--gcds-radio-max-width);min-height:calc(var(--gcds-radio-input-height-and-width) - var(--gcds-radio-padding));padding:var(--gcds-radio-padding) 0 0;position:relative;transition:color .15s ease-in-out}.sc-gcds-radios-h .gcds-radio :is(gcds-label,gcds-hint){padding:var(--gcds-radio-label-padding)!important}.sc-gcds-radios-h .gcds-radio gcds-hint::part(hint){margin:0}.sc-gcds-radios-h .gcds-radio gcds-label:after,.sc-gcds-radios-h .gcds-radio gcds-label:before,.sc-gcds-radios-h .gcds-radio input{position:absolute}.sc-gcds-radios-h .gcds-radio gcds-label>label:before,.sc-gcds-radios-h .gcds-radio input{height:var(--gcds-radio-input-height-and-width);left:0;top:0;width:var(--gcds-radio-input-height-and-width)}.sc-gcds-radios-h .gcds-radio input{opacity:0}.sc-gcds-radios-h .gcds-radio gcds-label>label{width:fit-content;--gcds-label-font-desktop:var(--gcds-radio-label-font-desktop);--gcds-label-font-mobile:var(--gcds-radio-label-font-mobile)}.sc-gcds-radios-h .gcds-radio gcds-label>label:after,.sc-gcds-radios-h .gcds-radio gcds-label>label:before{border-radius:var(--gcds-radio-border-radius)}.sc-gcds-radios-h .gcds-radio gcds-label>label:before{background-color:var(--gcds-radio-default-background);border:var(--gcds-radio-input-border-width) solid;transition:border-color .15s ease-in-out,box-shadow .15s ease-in-out,outline .15s ease-in-out}.sc-gcds-radios-h .gcds-radio gcds-label>label:after{background-color:currentcolor;height:var(--gcds-radio-check-height-and-width);left:var(--gcds-radio-check-left);opacity:0;top:var(--gcds-radio-check-top);width:var(--gcds-radio-check-height-and-width)}.sc-gcds-radios-h .gcds-radio input:checked+gcds-label>label:after{opacity:1}}@layer disabled{.sc-gcds-radios-h .gcds-radio.gcds-radio--disabled{color:var(--gcds-radio-disabled-text)}.sc-gcds-radios-h .gcds-radio.gcds-radio--disabled gcds-label>label{--gcds-label-text:currentColor;cursor:not-allowed}.sc-gcds-radios-h .gcds-radio.gcds-radio--disabled gcds-label>label:after,.sc-gcds-radios-h .gcds-radio.gcds-radio--disabled gcds-label>label:before{cursor:not-allowed}.sc-gcds-radios-h .gcds-radio.gcds-radio--disabled gcds-label>label:before{background-color:var(--gcds-radio-disabled-background);border-color:var(--gcds-radio-disabled-border)}.sc-gcds-radios-h .gcds-radio.gcds-radio--disabled gcds-hint{--gcds-hint-text:currentColor}}@layer error{.sc-gcds-radios-h gcds-error-message{margin:var(--gcds-radio-error-message-margin)}.sc-gcds-radios-h .gcds-radio.gcds-radio--error:not(:focus-within) gcds-label>label:before{border-color:var(--gcds-radio-danger-border)}.sc-gcds-radios-h .gcds-radio.gcds-radio--error:not(:focus-within) gcds-label>label:after{background-color:var(--gcds-radio-danger-border)}}@layer focus{.sc-gcds-radios-h .gcds-radio:focus-within input:focus+gcds-label>label:before{background:var(--gcds-radio-focus-background);box-shadow:var(--gcds-radio-focus-box-shadow);color:var(--gcds-radio-focus-color);outline:var(--gcds-radio-focus-outline-width) solid currentcolor;outline-offset:var(--gcds-radio-input-border-width)}.sc-gcds-radios-h .gcds-radio:focus-within input:focus+gcds-label>label:after{box-shadow:inset 0 0 2rem var(--gcds-radio-focus-color)}}@layer a11y.highcontrast{@media (prefers-color-scheme:light){.sc-gcds-radios-h .gcds-radio gcds-label>label:after{background-color:buttonText}}@media (prefers-color-scheme:dark){.sc-gcds-radios-h .gcds-radio gcds-label>label:after{background-color:buttonText}}}";
-var GcdsRadiosStyle0 = gcdsRadiosCss;
+const gcdsRadiosCss = "@layer reset, default, disabled, error, focus, a11y.highcontrast;@layer reset{:host{display:block}:host .gcds-radios__fieldset{border:0;min-inline-size:auto;padding:0}:host .gcds-radios__fieldset legend{padding:0}:host .gcds-radio{border:0;padding:0}:host .gcds-radio gcds-label{display:block}:host .gcds-radio gcds-label>label:after,:host .gcds-radio gcds-label>label:before{box-sizing:border-box;content:\"\";cursor:pointer;position:absolute}}@layer default{:host .gcds-radios__legend{font:var(--gcds-radio-legend-font-desktop);margin:var(--gcds-radio-legend-margin)}:host .gcds-radios__legend .legend__required{font:var(--gcds-radio-legend-required-font-desktop)}@media only screen and (width < 48em){:host .gcds-radios__legend{font:var(--gcds-radio-legend-font-mobile)}:host .gcds-radios__legend .legend__required{font:var(--gcds-radio-legend-required-font-mobile)}}:host .gcds-radios__legend:not(:has(+gcds-hint)){margin:var(--gcds-radio-legend-hint-margin)}:host gcds-hint:part(hint){margin:var(--gcds-radio-hint-margin)}:host .gcds-radio{color:var(--gcds-radio-default-text);font:var(--gcds-radio-font);margin:var(--gcds-radio-margin)!important;max-width:var(--gcds-radio-max-width);min-height:calc(var(--gcds-radio-input-height-and-width) - var(--gcds-radio-padding));padding:var(--gcds-radio-padding) 0 0;position:relative;transition:color .15s ease-in-out}:host .gcds-radio :is(gcds-label,gcds-hint){padding:var(--gcds-radio-label-padding)!important}:host .gcds-radio gcds-hint::part(hint){margin:0}:host .gcds-radio gcds-label:after,:host .gcds-radio gcds-label:before,:host .gcds-radio input{position:absolute}:host .gcds-radio gcds-label>label:before,:host .gcds-radio input{height:var(--gcds-radio-input-height-and-width);left:0;top:0;width:var(--gcds-radio-input-height-and-width)}:host .gcds-radio input{opacity:0}:host .gcds-radio gcds-label>label{width:fit-content;--gcds-label-font-desktop:var(--gcds-radio-label-font-desktop);--gcds-label-font-mobile:var(--gcds-radio-label-font-mobile)}:host .gcds-radio gcds-label>label:after,:host .gcds-radio gcds-label>label:before{border-radius:var(--gcds-radio-border-radius)}:host .gcds-radio gcds-label>label:before{background-color:var(--gcds-radio-default-background);border:var(--gcds-radio-input-border-width) solid;transition:border-color .15s ease-in-out,box-shadow .15s ease-in-out,outline .15s ease-in-out}:host .gcds-radio gcds-label>label:after{background-color:currentcolor;height:var(--gcds-radio-check-height-and-width);left:var(--gcds-radio-check-left);opacity:0;top:var(--gcds-radio-check-top);width:var(--gcds-radio-check-height-and-width)}:host .gcds-radio input:checked+gcds-label>label:after{opacity:1}}@layer disabled{:host .gcds-radio.gcds-radio--disabled{color:var(--gcds-radio-disabled-text)}:host .gcds-radio.gcds-radio--disabled gcds-label>label{--gcds-label-text:currentColor;cursor:not-allowed}:host .gcds-radio.gcds-radio--disabled gcds-label>label:after,:host .gcds-radio.gcds-radio--disabled gcds-label>label:before{cursor:not-allowed}:host .gcds-radio.gcds-radio--disabled gcds-label>label:before{background-color:var(--gcds-radio-disabled-background);border-color:var(--gcds-radio-disabled-border)}:host .gcds-radio.gcds-radio--disabled gcds-hint{--gcds-hint-text:currentColor}}@layer error{:host gcds-error-message{margin:var(--gcds-radio-error-message-margin)}:host .gcds-radio.gcds-radio--error:not(:focus-within) gcds-label>label:before{border-color:var(--gcds-radio-danger-border)}:host .gcds-radio.gcds-radio--error:not(:focus-within) gcds-label>label:after{background-color:var(--gcds-radio-danger-border)}}@layer focus{:host .gcds-radio:focus-within input:focus+gcds-label>label:before{background:var(--gcds-radio-focus-background);box-shadow:var(--gcds-radio-focus-box-shadow);color:var(--gcds-radio-focus-color);outline:var(--gcds-radio-focus-outline-width) solid currentcolor;outline-offset:var(--gcds-radio-input-border-width)}:host .gcds-radio:focus-within input:focus+gcds-label>label:after{box-shadow:inset 0 0 2rem var(--gcds-radio-focus-color)}}@layer a11y.highcontrast{@media (prefers-color-scheme:light){:host .gcds-radio gcds-label>label:after{background-color:buttonText}}@media (prefers-color-scheme:dark){:host .gcds-radio gcds-label>label:after{background-color:buttonText}}}";
 
 class GcdsRadios {
     constructor(hostRef) {
         registerInstance(this, hostRef);
-        this.gcdsInput = createEvent(this, "gcdsInput", 7);
-        this.gcdsChange = createEvent(this, "gcdsChange", 7);
-        this.gcdsFocus = createEvent(this, "gcdsFocus", 7);
-        this.gcdsBlur = createEvent(this, "gcdsBlur", 7);
-        this.gcdsValid = createEvent(this, "gcdsValid", 7);
-        this.gcdsError = createEvent(this, "gcdsError", 7);
+        this.gcdsInput = createEvent(this, "gcdsInput");
+        this.gcdsChange = createEvent(this, "gcdsChange");
+        this.gcdsFocus = createEvent(this, "gcdsFocus");
+        this.gcdsBlur = createEvent(this, "gcdsBlur");
+        this.gcdsValid = createEvent(this, "gcdsValid");
+        this.gcdsError = createEvent(this, "gcdsError");
         if (hostRef.$hostElement$["s-ei"]) {
             this.internals = hostRef.$hostElement$["s-ei"];
         }
@@ -7037,6 +8101,19 @@ class GcdsRadios {
             hostRef.$hostElement$["s-ei"] = this.internals;
         }
         this._validator = defaultValidator;
+        /**
+         * Set event to call validator
+         */
+        this.validateOn = 'blur';
+        /**
+         * Set additional HTML attributes not available in component properties
+         */
+        this.inheritedAttributes = {};
+        /**
+         * State to track validation on properties
+         * Contains a list of properties that have an error associated with them
+         */
+        this.errors = [];
         this.onBlur = () => {
             this.gcdsBlur.emit();
         };
@@ -7056,20 +8133,6 @@ class GcdsRadios {
             }
             customEvent.emit(this.value);
         };
-        this.options = undefined;
-        this.name = undefined;
-        this.legend = undefined;
-        this.required = undefined;
-        this.hint = undefined;
-        this.errorMessage = undefined;
-        this.disabled = undefined;
-        this.value = undefined;
-        this.validator = undefined;
-        this.validateOn = undefined;
-        this.hasError = undefined;
-        this.inheritedAttributes = {};
-        this.lang = undefined;
-        this.errors = [];
     }
     validateOptions() {
         let invalidObject = false;
@@ -7138,9 +8201,7 @@ class GcdsRadios {
         }
     }
     validateValidator() {
-        if (this.validator && !this.validateOn) {
-            this.validateOn = 'blur';
-        }
+        this._validator = getValidator(this.validator);
     }
     /**
      * Call any active validators
@@ -7193,12 +8254,9 @@ class GcdsRadios {
         this.validateOptions();
         this.validateRequiredProps();
         this.validateErrorMessage();
-        this.validateValidator();
         // Assign required validator if needed
         requiredValidator(this.el, 'radio');
-        if (this.validator) {
-            this._validator = getValidator(this.validator);
-        }
+        this.validateValidator();
         this.inheritedAttributes = inheritAttributes(this.el, this.shadowElement);
         this.initialValue = this.value ? this.value : null;
         const valid = this.validateRequiredProps();
@@ -7225,7 +8283,7 @@ class GcdsRadios {
                 `${fieldsetAttrs['aria-labelledby']} ${hintID}`.trim();
         }
         if (this.validateRequiredProps()) {
-            return (hAsync(Host, { key: '4aea20f6f91195345d15cf43622cced56c1a5139', onBlur: () => this.onBlurValidate() }, hAsync("fieldset", Object.assign({ key: 'b902ff2456ecc03b7d5bee81bdc555ce803b15b7', class: "gcds-radios__fieldset" }, fieldsetAttrs), hAsync("legend", { key: '26dfcf3e7fa323f196e2b846ce17db9f12fe48f2', id: "radios-legend", class: "gcds-radios__legend" }, legend, required ? (hAsync("span", { class: "legend__required" }, I18N$8[lang].required)) : null), hint ? (hAsync("gcds-hint", { id: "radios-hint", "hint-id": "radios" }, hint)) : null, errorMessage ? (hAsync("div", null, hAsync("gcds-error-message", { id: "radios-error", messageId: "radios" }, errorMessage))) : null, this.optionsArr &&
+            return (hAsync(Host, { key: 'b297d3c141ccff67ca0fc640f09df5c7aaf55f44', onBlur: () => this.onBlurValidate() }, hAsync("fieldset", Object.assign({ key: '0552575a6581cbd91466972385db38bd20464a01', class: "gcds-radios__fieldset" }, fieldsetAttrs), hAsync("legend", { key: 'd2a7e52a83a83d45db33bc90d64d5237e3269ebe', id: "radios-legend", class: "gcds-radios__legend" }, legend, required ? (hAsync("span", { class: "legend__required" }, I18N$8[lang].required)) : null), hint ? (hAsync("gcds-hint", { id: "radios-hint", "hint-id": "radios" }, hint)) : null, errorMessage ? (hAsync("div", null, hAsync("gcds-error-message", { id: "radios-error", messageId: "radios" }, errorMessage))) : null, this.optionsArr &&
                 this.optionsArr.map(radio => {
                     const attrsInput = Object.assign({ name, disabled: disabled, required: required, value: radio.value, checked: radio.value === value }, inheritedAttributes);
                     if (radio.hint) {
@@ -7254,7 +8312,7 @@ class GcdsRadios {
         "validator": ["validateValidator"],
         "lang": ["watchLang"]
     }; }
-    static get style() { return GcdsRadiosStyle0; }
+    static get style() { return gcdsRadiosCss; }
     static get cmpMeta() { return {
         "$flags$": 89,
         "$tagName$": "gcds-radios",
@@ -7292,30 +8350,41 @@ const I18N$7 = {
   },
 };
 
-const gcdsSearchCss = "@layer reset, default, focus;@layer reset{.sc-gcds-search-h{display:block}.sc-gcds-search-h .gcds-search input{background-image:none;box-sizing:border-box}.sc-gcds-search-h [type=search]::-webkit-search-cancel-button,.sc-gcds-search-h [type=search]::-webkit-search-decoration{-webkit-appearance:none;appearance:none}}@layer default{.sc-gcds-search-h .gcds-search .gcds-search__header{display:block;height:0;margin:0;overflow:hidden;width:0}.sc-gcds-search-h .gcds-search .gcds-search__form{display:flex;margin:var(--gcds-search-margin)!important}.sc-gcds-search-h .gcds-search input{background-color:var(--gcds-search-default-background);border:var(--gcds-search-border-width) solid var(--gcds-search-border-color);border-radius:0;border-right:0 solid transparent;box-sizing:border-box;color:var(--gcds-search-default-text);font:var(--gcds-search-font);max-height:var(--gcds-search-max-height);padding:var(--gcds-search-padding)!important;transition:border-color .15s ease-in-out,box-shadow .15s ease-in-out;width:100%}.sc-gcds-search-h .gcds-search input::placeholder{color:var(--gcds-search-placeholder)}.sc-gcds-search-h .gcds-search gcds-button{--gcds-button-mobile-margin:0}.sc-gcds-search-h .gcds-search gcds-button::part(button){border-radius:0;height:var(--gcds-search-button-width-height);padding:0;width:var(--gcds-search-button-width-height)}}@layer focus{.sc-gcds-search-h .gcds-search input:focus{border-color:var(--gcds-search-focus-border-color);border-width:var(--gcds-search-focus-border-width);box-shadow:var(--gcds-search-focus-box-shadow);margin:var(--gcds-search-focus-margin);outline:var(--gcds-search-outline-width) solid var(--gcds-search-focus-border-color);outline-offset:var(--gcds-search-border-width);z-index:30}.sc-gcds-search-h .gcds-search ::part(button):focus{box-shadow:var(--gcds-search-focus-box-shadow)}}";
-var GcdsSearchStyle0 = gcdsSearchCss;
+const gcdsSearchCss = "@layer reset, default, focus;@layer reset{:host{display:block}:host .gcds-search input{background-image:none;box-sizing:border-box}:host [type=search]::-webkit-search-cancel-button,:host [type=search]::-webkit-search-decoration{-webkit-appearance:none;appearance:none}}@layer default{:host .gcds-search .gcds-search__header{display:block;height:0;margin:0;overflow:hidden;width:0}:host .gcds-search .gcds-search__form{display:flex;margin:var(--gcds-search-margin)!important}:host .gcds-search input{background-color:var(--gcds-search-default-background);border:var(--gcds-search-border-width) solid var(--gcds-search-border-color);border-radius:0;border-right:0 solid transparent;box-sizing:border-box;color:var(--gcds-search-default-text);font:var(--gcds-search-font);max-height:var(--gcds-search-max-height);padding:var(--gcds-search-padding)!important;transition:border-color .15s ease-in-out,box-shadow .15s ease-in-out;width:100%}:host .gcds-search input::placeholder{color:var(--gcds-search-placeholder)}:host .gcds-search gcds-button{--gcds-button-mobile-margin:0}:host .gcds-search gcds-button::part(button){border-radius:0;height:var(--gcds-search-button-width-height);padding:0;width:var(--gcds-search-button-width-height)}}@layer focus{:host .gcds-search input:focus{border-color:var(--gcds-search-focus-border-color);border-width:var(--gcds-search-focus-border-width);box-shadow:var(--gcds-search-focus-box-shadow);margin:var(--gcds-search-focus-margin);outline:var(--gcds-search-outline-width) solid var(--gcds-search-focus-border-color);outline-offset:var(--gcds-search-border-width);z-index:30}:host .gcds-search ::part(button):focus{box-shadow:var(--gcds-search-focus-box-shadow)}}";
 
 class GcdsSearch {
     constructor(hostRef) {
         registerInstance(this, hostRef);
-        this.gcdsInput = createEvent(this, "gcdsInput", 7);
-        this.gcdsChange = createEvent(this, "gcdsChange", 7);
-        this.gcdsFocus = createEvent(this, "gcdsFocus", 7);
-        this.gcdsBlur = createEvent(this, "gcdsBlur", 7);
-        this.gcdsSubmit = createEvent(this, "gcdsSubmit", 7);
+        this.gcdsInput = createEvent(this, "gcdsInput");
+        this.gcdsChange = createEvent(this, "gcdsChange");
+        this.gcdsFocus = createEvent(this, "gcdsFocus");
+        this.gcdsBlur = createEvent(this, "gcdsBlur");
+        this.gcdsSubmit = createEvent(this, "gcdsSubmit");
+        /**
+         * Set the placeholder and label for the search input. Becomes "Search [placeholder]"
+         */
+        this.placeholder = 'Canada.ca';
+        /**
+         * Sets the action for the search form. Default will be canada.ca global search
+         */
+        this.action = '/sr/srb.html';
+        /**
+         * Set the form method of the search form
+         */
+        this.method = 'get';
+        /**
+         * Set the name of the search input
+         */
+        this.name = 'q';
+        /**
+         * Set the id of the search input
+         */
+        this.searchId = 'search';
         this.handleInput = (e, customEvent) => {
             const input = e.target;
             this.value = input.value;
             customEvent.emit(this.value);
         };
-        this.placeholder = 'Canada.ca';
-        this.action = '/sr/srb.html';
-        this.method = 'get';
-        this.name = 'q';
-        this.searchId = 'search';
-        this.value = undefined;
-        this.suggested = undefined;
-        this.lang = undefined;
     }
     /*
      * Observe lang attribute change
@@ -7345,7 +8414,7 @@ class GcdsSearch {
         return (hAsync(Host, { key: '127843a74f45499fd5470727bbb846b1ee203ec7' }, hAsync("section", { key: 'f36f5193fd1e74daf7241f1c18a98a39c9e8f129', class: "gcds-search" }, hAsync("gcds-sr-only", { key: '71c95b501b4eca26ae9afb7d51dcaff02740cf89', tag: "h2" }, I18N$7[lang].search), hAsync("form", { key: 'eb5fca068f31fc240eed7b44f4c03432d2c202cc', action: formAction, method: method, role: "search", onSubmit: e => emitEvent(e, this.gcdsSubmit, this.value), class: "gcds-search__form" }, hAsync("gcds-label", { key: 'a8e7a1980756509805b02ed3d5ae8bfb69e770a4', label: labelText, "label-for": searchId, "hide-label": true }), hAsync("input", Object.assign({ key: '5d187bad902d4e1cd8dcf83d9acc8da7e5c669ca', type: "search", id: searchId }, (suggested ? { list: 'search-list' } : {}), { size: 34, maxLength: 170, onInput: e => this.handleInput(e, this.gcdsInput), onChange: e => this.handleInput(e, this.gcdsChange), onFocus: () => this.gcdsFocus.emit(), onBlur: () => this.gcdsBlur.emit() }, attrsInput, { class: "gcds-search__input", value: value })), suggested && (hAsync("datalist", { key: '0b85d565d6cc53479136b44f085be19c71e992ca', id: "search-list" }, suggested.map((k, v) => (hAsync("option", { value: k, key: v }))))), hAsync("gcds-button", { key: '97cd97b6fb539cd6ea06e043e5c3186b834610d1', type: "submit", class: "gcds-search__button", exportparts: "button" }, hAsync("gcds-icon", { key: '360d1561ed2a59484104e1e6d0aac7027161db48', name: "search", label: I18N$7[lang].search, size: "h3" }))))));
     }
     get el() { return getElement(this); }
-    static get style() { return GcdsSearchStyle0; }
+    static get style() { return gcdsSearchCss; }
     static get cmpMeta() { return {
         "$flags$": 9,
         "$tagName$": "gcds-search",
@@ -7365,18 +8434,17 @@ class GcdsSearch {
     }; }
 }
 
-const gcdsSelectCss = "@layer reset, default, disabled, error, focus;@layer reset{.sc-gcds-select-h{display:block}.sc-gcds-select-h .gcds-select-wrapper{border:0;margin:0;padding:0}.sc-gcds-select-h .gcds-select-wrapper select{box-sizing:border-box}.sc-gcds-select-h .gcds-select-wrapper slot{display:initial}}@layer default{.sc-gcds-select-h .gcds-select-wrapper{color:var(--gcds-select-default-text);font:var(--gcds-select-font-desktop);max-width:75ch;transition:color .15s ease-in-out}@media only screen and (width < 48em){.sc-gcds-select-h .gcds-select-wrapper{font:var(--gcds-select-font-mobile)}}.sc-gcds-select-h .gcds-select-wrapper select{-webkit-appearance:none;-moz-appearance:none;background-color:var(--gcds-select-default-background);background-image:url(\"data:image/svg+xml;utf8,<svg width='16' height='10' viewBox='0 0 16 10' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M0.799988 0.900024L7.79999 7.90003L14.8 0.900024' stroke='currentColor' stroke-width='2'/></svg>\");background-position-x:var(--gcds-select-arrow-position-x);background-position-y:50%;background-repeat:no-repeat;border:var(--gcds-select-border-width) solid;border-radius:var(--gcds-select-border-radius);box-sizing:border-box;color:var(--gcds-select-default-text);display:block;font:inherit;height:auto;margin:var(--gcds-select-margin)!important;max-width:100%;min-height:var(--gcds-select-min-width-and-height);min-width:var(--gcds-select-min-width-and-height);padding:var(--gcds-select-padding)!important;transition:all .15s ease-in-out}}@layer disabled{.sc-gcds-select-h .gcds-select-wrapper.gcds-disabled{color:var(--gcds-select-disabled-text)}.sc-gcds-select-h .gcds-select-wrapper.gcds-disabled gcds-label{--gcds-label-text:currentColor}.sc-gcds-select-h .gcds-select-wrapper.gcds-disabled gcds-hint{--gcds-hint-text:currentColor}.sc-gcds-select-h .gcds-select-wrapper.gcds-disabled select:disabled{background-color:var(--gcds-select-disabled-background);border-color:var(--gcds-select-disabled-text);cursor:not-allowed}}@layer error{.sc-gcds-select-h .gcds-select-wrapper.gcds-error:not(:focus-within) select{border-color:var(--gcds-select-danger-border)}}@layer focus{.sc-gcds-select-h .gcds-select-wrapper:focus-within select:focus{border-color:var(--gcds-select-focus-border);box-shadow:var(--gcds-select-focus-box-shadow);outline:var(--gcds-select-outline-width) solid var(--gcds-select-focus-border);outline-offset:var(--gcds-select-border-width)}}";
-var GcdsSelectStyle0 = gcdsSelectCss;
+const gcdsSelectCss = "@layer reset, default, disabled, error, focus;@layer reset{:host{display:block}:host .gcds-select-wrapper{border:0;margin:0;padding:0}:host .gcds-select-wrapper select{box-sizing:border-box}:host .gcds-select-wrapper slot{display:initial}}@layer default{:host .gcds-select-wrapper{color:var(--gcds-select-default-text);font:var(--gcds-select-font-desktop);max-width:75ch;transition:color .15s ease-in-out}@media only screen and (width < 48em){:host .gcds-select-wrapper{font:var(--gcds-select-font-mobile)}}:host .gcds-select-wrapper select{-webkit-appearance:none;-moz-appearance:none;background-color:var(--gcds-select-default-background);background-image:url(\"data:image/svg+xml;utf8,<svg width='16' height='10' viewBox='0 0 16 10' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M0.799988 0.900024L7.79999 7.90003L14.8 0.900024' stroke='currentColor' stroke-width='2'/></svg>\");background-position-x:var(--gcds-select-arrow-position-x);background-position-y:50%;background-repeat:no-repeat;border:var(--gcds-select-border-width) solid;border-radius:var(--gcds-select-border-radius);box-sizing:border-box;color:var(--gcds-select-default-text);display:block;font:inherit;height:auto;margin:var(--gcds-select-margin)!important;max-width:100%;min-height:var(--gcds-select-min-width-and-height);min-width:var(--gcds-select-min-width-and-height);padding:var(--gcds-select-padding)!important;transition:all .15s ease-in-out}}@layer disabled{:host .gcds-select-wrapper.gcds-disabled{color:var(--gcds-select-disabled-text)}:host .gcds-select-wrapper.gcds-disabled gcds-label{--gcds-label-text:currentColor}:host .gcds-select-wrapper.gcds-disabled gcds-hint{--gcds-hint-text:currentColor}:host .gcds-select-wrapper.gcds-disabled select:disabled{background-color:var(--gcds-select-disabled-background);border-color:var(--gcds-select-disabled-text);cursor:not-allowed}}@layer error{:host .gcds-select-wrapper.gcds-error:not(:focus-within) select{border-color:var(--gcds-select-danger-border)}}@layer focus{:host .gcds-select-wrapper:focus-within select:focus{border-color:var(--gcds-select-focus-border);box-shadow:var(--gcds-select-focus-box-shadow);outline:var(--gcds-select-outline-width) solid var(--gcds-select-focus-border);outline-offset:var(--gcds-select-border-width)}}";
 
 class GcdsSelect {
     constructor(hostRef) {
         registerInstance(this, hostRef);
-        this.gcdsChange = createEvent(this, "gcdsChange", 7);
-        this.gcdsInput = createEvent(this, "gcdsInput", 7);
-        this.gcdsFocus = createEvent(this, "gcdsFocus", 7);
-        this.gcdsBlur = createEvent(this, "gcdsBlur", 7);
-        this.gcdsError = createEvent(this, "gcdsError", 7);
-        this.gcdsValid = createEvent(this, "gcdsValid", 7);
+        this.gcdsChange = createEvent(this, "gcdsChange");
+        this.gcdsInput = createEvent(this, "gcdsInput");
+        this.gcdsFocus = createEvent(this, "gcdsFocus");
+        this.gcdsBlur = createEvent(this, "gcdsBlur");
+        this.gcdsError = createEvent(this, "gcdsError");
+        this.gcdsValid = createEvent(this, "gcdsValid");
         if (hostRef.$hostElement$["s-ei"]) {
             this.internals = hostRef.$hostElement$["s-ei"];
         }
@@ -7385,6 +8453,22 @@ class GcdsSelect {
             hostRef.$hostElement$["s-ei"] = this.internals;
         }
         this._validator = defaultValidator;
+        /**
+         * Specifies if a form field is required or not.
+         */
+        this.required = false;
+        /**
+         * Specifies if a select element is disabled or not.
+         */
+        this.disabled = false;
+        /**
+         * Set event to call validator
+         */
+        this.validateOn = 'blur';
+        /**
+         * Set additional HTML attributes not available in component properties
+         */
+        this.inheritedAttributes = {};
         this.handleInput = (e, customEvent) => {
             const val = e.target && e.target.value;
             this.value = val;
@@ -7401,21 +8485,6 @@ class GcdsSelect {
             }
             this.gcdsBlur.emit();
         };
-        this.selectId = undefined;
-        this.label = undefined;
-        this.name = undefined;
-        this.required = false;
-        this.disabled = false;
-        this.defaultValue = undefined;
-        this.value = undefined;
-        this.errorMessage = undefined;
-        this.hint = undefined;
-        this.validator = undefined;
-        this.validateOn = 'blur';
-        this.hasError = undefined;
-        this.inheritedAttributes = {};
-        this.lang = undefined;
-        this.options = undefined;
     }
     validateDisabledSelect() {
         if (this.required) {
@@ -7601,7 +8670,7 @@ class GcdsSelect {
         "aria-invalid": ["ariaInvalidWatcher"],
         "aria-description": ["ariaDescriptiondWatcher"]
     }; }
-    static get style() { return GcdsSelectStyle0; }
+    static get style() { return gcdsSelectCss; }
     static get cmpMeta() { return {
         "$flags$": 89,
         "$tagName$": "gcds-select",
@@ -7789,16 +8858,15 @@ const I18N$6 = {
   },
 };
 
-const gcdsSideNavCss = "@layer reset, default, desktop, mobile;@layer reset{.sc-gcds-side-nav-h{display:block}.sc-gcds-side-nav-h *{box-sizing:border-box;margin:0;padding:0}}@layer default{.sc-gcds-side-nav-h{width:100%}.sc-gcds-side-nav-h .gcds-side-nav__heading{font:var(--gcds-side-nav-heading-font);margin-block-end:var(--gcds-side-nav-heading-margin);padding:var(--gcds-side-nav-heading-padding)}}@layer desktop{@media only screen and (width >= 64em){.sc-gcds-side-nav-h .gcds-side-nav{max-width:var(--gcds-side-nav-max-width)}}}@layer mobile{@media only screen and (width < 64em){.sc-gcds-side-nav-h .gcds-side-nav__heading{display:block;height:0;margin:0;overflow:hidden;padding:0;width:0}}}";
-var GcdsSideNavStyle0 = gcdsSideNavCss;
+const gcdsSideNavCss = "@layer reset, default, desktop, mobile;@layer reset{:host{display:block}:host *{box-sizing:border-box;margin:0;padding:0}}@layer default{:host{width:100%}:host .gcds-side-nav__heading{font:var(--gcds-side-nav-heading-font);margin-block-end:var(--gcds-side-nav-heading-margin);padding:var(--gcds-side-nav-heading-padding)}}@layer desktop{@media only screen and (width >= 64em){:host .gcds-side-nav{max-width:var(--gcds-side-nav-max-width)}}}@layer mobile{@media only screen and (width < 64em){:host .gcds-side-nav__heading{display:block;height:0;margin:0;overflow:hidden;padding:0;width:0}}}";
 
 class GcdsSideNav {
     constructor(hostRef) {
         registerInstance(this, hostRef);
-        this.label = undefined;
-        this.lang = undefined;
+        /**
+         * Queue of nav items for keyboard navigation
+         */
         this.navItems = [];
-        this.navSize = undefined;
     }
     async focusInListener(e) {
         if (this.el.contains(e.target) && !this.navSize) {
@@ -7902,7 +8970,7 @@ class GcdsSideNav {
         return (hAsync(Host, { key: '2176c26610444e641bf07d616472085f3442f2f0' }, hAsync("nav", { key: '7a707a1f2043e1b5aa630254bfb007bc8effd88c', "aria-label": `${label}${I18N$6[lang].navLabel}`, class: "gcds-side-nav" }, hAsync("h2", { key: 'e0fcbd5dc9e0324b711ca5df1275b3c2cd6d1e90', class: "gcds-side-nav__heading" }, label), hAsync("ul", { key: '0dab78de769b83b3cf021849459d514f966c163a' }, hAsync("gcds-nav-group", { key: '381bce26ca561d4c005c33ed705142f9fd596d61', menuLabel: I18N$6[lang].menuLabel, closeTrigger: I18N$6[lang].closeTrigger, openTrigger: I18N$6[lang].menuLabel, class: "gcds-mobile-nav", ref: element => (this.mobile = element), lang: lang }, hAsync("slot", { key: 'aeef38c5147b2673fc48aada575f6f0635b48e30' }))))));
     }
     get el() { return getElement(this); }
-    static get style() { return GcdsSideNavStyle0; }
+    static get style() { return gcdsSideNavCss; }
     static get cmpMeta() { return {
         "$flags$": 9,
         "$tagName$": "gcds-side-nav",
@@ -7964,16 +9032,26 @@ var WordmarkFr = `<svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="1
 	</g>
 </svg>`;
 
-const gcdsSignatureCss = "@layer reset, default, type.signature, type.wordmark, variant.colour, variant.white, desktop;@layer reset{.sc-gcds-signature-h{display:block;width:fit-content}}@layer default{.sc-gcds-signature-h .gcds-signature{display:flex}.sc-gcds-signature-h svg{display:block;max-width:100%}.sc-gcds-signature-h svg .fip_flag{fill:var(--gcds-signature-color-flag)}}@layer type.signature{.sc-gcds-signature-h:not([type=wordmark]) svg{height:var(--gcds-signature-signature-height)}}@layer type.wordmark{.sc-gcds-signature-h[type=wordmark] svg{height:var(--gcds-signature-wordmark-height);width:auto}}@layer variant.colour{.sc-gcds-signature-h:not([variant=white]) svg .fip_text{fill:var(--gcds-signature-color-text)}}@layer variant.white{.sc-gcds-signature-h[variant=white] svg :is(.fip_text){fill:var(--gcds-signature-white-default)}}@layer desktop{@media screen and (width >= 64em){.sc-gcds-signature-h:not([type=wordmark]) svg{height:var(--gcds-signature-signature-height-desktop)}}}";
-var GcdsSignatureStyle0 = gcdsSignatureCss;
+const gcdsSignatureCss = "@layer reset, default, type.signature, type.wordmark, variant.colour, variant.white, desktop;@layer reset{:host{display:block;width:fit-content}}@layer default{:host .gcds-signature{display:flex}:host svg{display:block;max-width:100%}:host svg .fip_flag{fill:var(--gcds-signature-color-flag)}}@layer type.signature{:host(:not([type=wordmark])) svg{height:var(--gcds-signature-signature-height)}}@layer type.wordmark{:host([type=wordmark]) svg{height:var(--gcds-signature-wordmark-height);width:auto}}@layer variant.colour{:host(:not([variant=white])) svg .fip_text{fill:var(--gcds-signature-color-text)}}@layer variant.white{:host([variant=white]) svg :is(.fip_text){fill:var(--gcds-signature-white-default)}}@layer desktop{@media screen and (width >= 64em){:host(:not([type=wordmark])) svg{height:var(--gcds-signature-signature-height-desktop)}}}";
 
 class GcdsSignature {
     constructor(hostRef) {
         registerInstance(this, hostRef);
+        /**
+         * Props
+         */
+        /**
+         * The type of graphic to render
+         */
         this.type = 'signature';
+        /**
+         * The colour variant to render
+         */
         this.variant = 'colour';
+        /**
+         * Has link to canada.ca. Only applies to signature
+         */
         this.hasLink = false;
-        this.lang = undefined;
     }
     validateType(newValue) {
         if (newValue != 'signature' && newValue != 'wordmark') {
@@ -8036,7 +9114,7 @@ class GcdsSignature {
         "type": ["validateType"],
         "variant": ["validateVariant"]
     }; }
-    static get style() { return GcdsSignatureStyle0; }
+    static get style() { return gcdsSignatureCss; }
     static get cmpMeta() { return {
         "$flags$": 9,
         "$tagName$": "gcds-signature",
@@ -8052,12 +9130,14 @@ class GcdsSignature {
     }; }
 }
 
-const gcdsSrOnlyCss = "@layer reset, default;@layer reset{.sc-gcds-sr-only-h slot{display:initial}}@layer default{.sc-gcds-sr-only-h{clip-path:inset(100%);clip:rect(1px,1px,1px,1px);height:1px;overflow:hidden;position:absolute;white-space:nowrap;width:1px}}";
-var GcdsSrOnlyStyle0 = gcdsSrOnlyCss;
+const gcdsSrOnlyCss = "@layer reset, default;@layer reset{:host slot{display:initial}}@layer default{:host{clip-path:inset(100%);clip:rect(1px,1px,1px,1px);height:1px;overflow:hidden;position:absolute;white-space:nowrap;width:1px}}";
 
 class GcdsSrOnly {
     constructor(hostRef) {
         registerInstance(this, hostRef);
+        /**
+         * Sets the appropriate HTML tag for the content.
+         */
         this.tag = 'p';
     }
     validateTag(newValue) {
@@ -8077,7 +9157,7 @@ class GcdsSrOnly {
     static get watchers() { return {
         "tag": ["validateTag"]
     }; }
-    static get style() { return GcdsSrOnlyStyle0; }
+    static get style() { return gcdsSrOnlyCss; }
     static get cmpMeta() { return {
         "$flags$": 9,
         "$tagName$": "gcds-sr-only",
@@ -8101,17 +9181,20 @@ const I18N$4 = {
   },
 };
 
-const gcdsStepperCss = "@layer reset, default;@layer reset{.sc-gcds-stepper-h{display:block}}@layer default{.sc-gcds-stepper-h .gcds-stepper .gcds-stepper__steps{display:block;font:var(--gcds-stepper-font-desktop);margin:var(--gcds-stepper-margin-desktop)}@media only screen and (width < 48em){.sc-gcds-stepper-h .gcds-stepper .gcds-stepper__steps{font:var(--gcds-stepper-font-mobile);margin:var(--gcds-stepper-margin-mobile)}}}";
-var GcdsStepperStyle0 = gcdsStepperCss;
+const gcdsStepperCss = "@layer reset, default;@layer reset{:host{display:block}}@layer default{:host .gcds-stepper .gcds-stepper__steps{display:block;font:var(--gcds-stepper-font-desktop);margin:var(--gcds-stepper-margin-desktop)}@media only screen and (width < 48em){:host .gcds-stepper .gcds-stepper__steps{font:var(--gcds-stepper-font-mobile);margin:var(--gcds-stepper-margin-mobile)}}}";
 
 class GcdsStepper {
     constructor(hostRef) {
         registerInstance(this, hostRef);
-        this.currentStep = undefined;
-        this.totalSteps = undefined;
+        /**
+         * Defines the heading tag to render
+         */
         this.tag = 'h2';
+        /**
+         * State to track validation on properties
+         * Contains a list of properties that have an error associated with them
+         */
         this.errors = [];
-        this.lang = undefined;
     }
     validateCurrentStep() {
         if (this.currentStep <= 0 ||
@@ -8181,7 +9264,7 @@ class GcdsStepper {
         "currentStep": ["validateCurrentStep"],
         "totalSteps": ["validateTotalSteps"]
     }; }
-    static get style() { return GcdsStepperStyle0; }
+    static get style() { return gcdsStepperCss; }
     static get cmpMeta() { return {
         "$flags$": 9,
         "$tagName$": "gcds-stepper",
@@ -8198,17 +9281,37 @@ class GcdsStepper {
     }; }
 }
 
-const gcdsTextCss = "@layer reset, default, display, limit, margin, role, size, style, weight;@layer reset{.sc-gcds-text-h{color:var(--gcds-text-role-primary);display:block}.sc-gcds-text-h .gcds-text{box-sizing:border-box;display:inherit;margin:0}.sc-gcds-text-h .gcds-text slot{display:initial}}@layer default{.sc-gcds-text-h .gcds-text{font:var(--gcds-text-size-body-desktop)}@media only screen and (width < 48em){.sc-gcds-text-h .gcds-text{font:var(--gcds-text-size-body-mobile)}}}@layer display{.sc-gcds-text-h.d-block{display:block}.sc-gcds-text-h.d-flex{display:flex}.sc-gcds-text-h.d-inline{display:inline}.sc-gcds-text-h.d-inline-block{display:inline-block}.sc-gcds-text-h.d-inline-flex{display:inline-flex}.sc-gcds-text-h.d-none{display:none}}@layer limit{.sc-gcds-text-h .gcds-text.limit{max-width:var(--gcds-text-character-limit)}}@layer margin{.sc-gcds-text-h .gcds-text.mt-0{margin-block-start:var(--gcds-text-spacing-0)}.sc-gcds-text-h .gcds-text.mt-25{margin-block-start:var(--gcds-text-spacing-25)}.sc-gcds-text-h .gcds-text.mt-50{margin-block-start:var(--gcds-text-spacing-50)}.sc-gcds-text-h .gcds-text.mt-75{margin-block-start:var(--gcds-text-spacing-75)}.sc-gcds-text-h .gcds-text.mt-100{margin-block-start:var(--gcds-text-spacing-100)}.sc-gcds-text-h .gcds-text.mt-125{margin-block-start:var(--gcds-text-spacing-125)}.sc-gcds-text-h .gcds-text.mt-150{margin-block-start:var(--gcds-text-spacing-150)}.sc-gcds-text-h .gcds-text.mt-175{margin-block-start:var(--gcds-text-spacing-175)}.sc-gcds-text-h .gcds-text.mt-200{margin-block-start:var(--gcds-text-spacing-200)}.sc-gcds-text-h .gcds-text.mt-225{margin-block-start:var(--gcds-text-spacing-225)}.sc-gcds-text-h .gcds-text.mt-250{margin-block-start:var(--gcds-text-spacing-250)}.sc-gcds-text-h .gcds-text.mt-300{margin-block-start:var(--gcds-text-spacing-300)}.sc-gcds-text-h .gcds-text.mt-350{margin-block-start:var(--gcds-text-spacing-350)}.sc-gcds-text-h .gcds-text.mt-400{margin-block-start:var(--gcds-text-spacing-400)}.sc-gcds-text-h .gcds-text.mt-450{margin-block-start:var(--gcds-text-spacing-450)}.sc-gcds-text-h .gcds-text.mt-500{margin-block-start:var(--gcds-text-spacing-500)}.sc-gcds-text-h .gcds-text.mt-550{margin-block-start:var(--gcds-text-spacing-550)}.sc-gcds-text-h .gcds-text.mt-600{margin-block-start:var(--gcds-text-spacing-600)}.sc-gcds-text-h .gcds-text.mt-650{margin-block-start:var(--gcds-text-spacing-650)}.sc-gcds-text-h .gcds-text.mt-700{margin-block-start:var(--gcds-text-spacing-700)}.sc-gcds-text-h .gcds-text.mt-750{margin-block-start:var(--gcds-text-spacing-750)}.sc-gcds-text-h .gcds-text.mt-800{margin-block-start:var(--gcds-text-spacing-800)}.sc-gcds-text-h .gcds-text.mt-850{margin-block-start:var(--gcds-text-spacing-850)}.sc-gcds-text-h .gcds-text.mt-900{margin-block-start:var(--gcds-text-spacing-900)}.sc-gcds-text-h .gcds-text.mt-950{margin-block-start:var(--gcds-text-spacing-950)}.sc-gcds-text-h .gcds-text.mt-1000{margin-block-start:var(--gcds-text-spacing-1000)}.sc-gcds-text-h .gcds-text.mt-1050{margin-block-start:var(--gcds-text-spacing-1050)}.sc-gcds-text-h .gcds-text.mt-1100{margin-block-start:var(--gcds-text-spacing-1100)}.sc-gcds-text-h .gcds-text.mt-1150{margin-block-start:var(--gcds-text-spacing-1150)}.sc-gcds-text-h .gcds-text.mt-1200{margin-block-start:var(--gcds-text-spacing-1200)}.sc-gcds-text-h .gcds-text.mt-1250{margin-block-start:var(--gcds-text-spacing-1250)}.sc-gcds-text-h .gcds-text.mb-0{margin-block-end:var(--gcds-text-spacing-0)}.sc-gcds-text-h .gcds-text.mb-25{margin-block-end:var(--gcds-text-spacing-25)}.sc-gcds-text-h .gcds-text.mb-50{margin-block-end:var(--gcds-text-spacing-50)}.sc-gcds-text-h .gcds-text.mb-75{margin-block-end:var(--gcds-text-spacing-75)}.sc-gcds-text-h .gcds-text.mb-100{margin-block-end:var(--gcds-text-spacing-100)}.sc-gcds-text-h .gcds-text.mb-125{margin-block-end:var(--gcds-text-spacing-125)}.sc-gcds-text-h .gcds-text.mb-150{margin-block-end:var(--gcds-text-spacing-150)}.sc-gcds-text-h .gcds-text.mb-175{margin-block-end:var(--gcds-text-spacing-175)}.sc-gcds-text-h .gcds-text.mb-200{margin-block-end:var(--gcds-text-spacing-200)}.sc-gcds-text-h .gcds-text.mb-225{margin-block-end:var(--gcds-text-spacing-225)}.sc-gcds-text-h .gcds-text.mb-250{margin-block-end:var(--gcds-text-spacing-250)}.sc-gcds-text-h .gcds-text.mb-300{margin-block-end:var(--gcds-text-spacing-300)}.sc-gcds-text-h .gcds-text.mb-350{margin-block-end:var(--gcds-text-spacing-350)}.sc-gcds-text-h .gcds-text.mb-400{margin-block-end:var(--gcds-text-spacing-400)}.sc-gcds-text-h .gcds-text.mb-450{margin-block-end:var(--gcds-text-spacing-450)}.sc-gcds-text-h .gcds-text.mb-500{margin-block-end:var(--gcds-text-spacing-500)}.sc-gcds-text-h .gcds-text.mb-550{margin-block-end:var(--gcds-text-spacing-550)}.sc-gcds-text-h .gcds-text.mb-600{margin-block-end:var(--gcds-text-spacing-600)}.sc-gcds-text-h .gcds-text.mb-650{margin-block-end:var(--gcds-text-spacing-650)}.sc-gcds-text-h .gcds-text.mb-700{margin-block-end:var(--gcds-text-spacing-700)}.sc-gcds-text-h .gcds-text.mb-750{margin-block-end:var(--gcds-text-spacing-750)}.sc-gcds-text-h .gcds-text.mb-800{margin-block-end:var(--gcds-text-spacing-800)}.sc-gcds-text-h .gcds-text.mb-850{margin-block-end:var(--gcds-text-spacing-850)}.sc-gcds-text-h .gcds-text.mb-900{margin-block-end:var(--gcds-text-spacing-900)}.sc-gcds-text-h .gcds-text.mb-950{margin-block-end:var(--gcds-text-spacing-950)}.sc-gcds-text-h .gcds-text.mb-1000{margin-block-end:var(--gcds-text-spacing-1000)}.sc-gcds-text-h .gcds-text.mb-1050{margin-block-end:var(--gcds-text-spacing-1050)}.sc-gcds-text-h .gcds-text.mb-1100{margin-block-end:var(--gcds-text-spacing-1100)}.sc-gcds-text-h .gcds-text.mb-1150{margin-block-end:var(--gcds-text-spacing-1150)}.sc-gcds-text-h .gcds-text.mb-1200{margin-block-end:var(--gcds-text-spacing-1200)}.sc-gcds-text-h .gcds-text.mb-1250{margin-block-end:var(--gcds-text-spacing-1250)}}@layer variants.role{.sc-gcds-text-h .gcds-text.role-primary{color:var(--gcds-text-role-primary)}.sc-gcds-text-h .gcds-text.role-secondary{color:var(--gcds-text-role-secondary)}.sc-gcds-text-h .gcds-text.role-light{color:var(--gcds-text-role-light)}}@layer variants.size{.sc-gcds-text-h .gcds-text :is(small,.sc-gcds-text-s > small),.sc-gcds-text-h .gcds-text.size-small{font:var(--gcds-text-size-small-desktop)}@media only screen and (width < 48em){.sc-gcds-text-h .gcds-text :is(small,.sc-gcds-text-s > small),.sc-gcds-text-h .gcds-text.size-small{font:var(--gcds-text-size-small-mobile)}}}@layer variants.style{.sc-gcds-text-h .gcds-text.sc-gcds-text-s > em, @layer variants.style{.sc-gcds-text-h .gcds-text .sc-gcds-text-s > em{font-style:italic}}@layer variants.weight{.sc-gcds-text-h .gcds-text.sc-gcds-text-s > strong, @layer variants.weight{.sc-gcds-text-h .gcds-text .sc-gcds-text-s > strong{font-weight:var(--gcds-text-weight-bold)}}";
-var GcdsTextStyle0 = gcdsTextCss;
+const gcdsTextCss = "@layer reset, default, display, limit, margin, role, size, style, weight;@layer reset{:host{color:var(--gcds-text-role-primary);display:block}:host .gcds-text{box-sizing:border-box;display:inherit;margin:0}:host .gcds-text slot{display:initial}}@layer default{:host .gcds-text{font:var(--gcds-text-size-body-desktop)}@media only screen and (width < 48em){:host .gcds-text{font:var(--gcds-text-size-body-mobile)}}}@layer display{:host.d-block{display:block}:host.d-flex{display:flex}:host.d-inline{display:inline}:host.d-inline-block{display:inline-block}:host.d-inline-flex{display:inline-flex}:host.d-none{display:none}}@layer limit{:host .gcds-text.limit{max-width:var(--gcds-text-character-limit)}}@layer margin{:host .gcds-text.mt-0{margin-block-start:var(--gcds-text-spacing-0)}:host .gcds-text.mt-25{margin-block-start:var(--gcds-text-spacing-25)}:host .gcds-text.mt-50{margin-block-start:var(--gcds-text-spacing-50)}:host .gcds-text.mt-75{margin-block-start:var(--gcds-text-spacing-75)}:host .gcds-text.mt-100{margin-block-start:var(--gcds-text-spacing-100)}:host .gcds-text.mt-125{margin-block-start:var(--gcds-text-spacing-125)}:host .gcds-text.mt-150{margin-block-start:var(--gcds-text-spacing-150)}:host .gcds-text.mt-175{margin-block-start:var(--gcds-text-spacing-175)}:host .gcds-text.mt-200{margin-block-start:var(--gcds-text-spacing-200)}:host .gcds-text.mt-225{margin-block-start:var(--gcds-text-spacing-225)}:host .gcds-text.mt-250{margin-block-start:var(--gcds-text-spacing-250)}:host .gcds-text.mt-300{margin-block-start:var(--gcds-text-spacing-300)}:host .gcds-text.mt-350{margin-block-start:var(--gcds-text-spacing-350)}:host .gcds-text.mt-400{margin-block-start:var(--gcds-text-spacing-400)}:host .gcds-text.mt-450{margin-block-start:var(--gcds-text-spacing-450)}:host .gcds-text.mt-500{margin-block-start:var(--gcds-text-spacing-500)}:host .gcds-text.mt-550{margin-block-start:var(--gcds-text-spacing-550)}:host .gcds-text.mt-600{margin-block-start:var(--gcds-text-spacing-600)}:host .gcds-text.mt-650{margin-block-start:var(--gcds-text-spacing-650)}:host .gcds-text.mt-700{margin-block-start:var(--gcds-text-spacing-700)}:host .gcds-text.mt-750{margin-block-start:var(--gcds-text-spacing-750)}:host .gcds-text.mt-800{margin-block-start:var(--gcds-text-spacing-800)}:host .gcds-text.mt-850{margin-block-start:var(--gcds-text-spacing-850)}:host .gcds-text.mt-900{margin-block-start:var(--gcds-text-spacing-900)}:host .gcds-text.mt-950{margin-block-start:var(--gcds-text-spacing-950)}:host .gcds-text.mt-1000{margin-block-start:var(--gcds-text-spacing-1000)}:host .gcds-text.mt-1050{margin-block-start:var(--gcds-text-spacing-1050)}:host .gcds-text.mt-1100{margin-block-start:var(--gcds-text-spacing-1100)}:host .gcds-text.mt-1150{margin-block-start:var(--gcds-text-spacing-1150)}:host .gcds-text.mt-1200{margin-block-start:var(--gcds-text-spacing-1200)}:host .gcds-text.mt-1250{margin-block-start:var(--gcds-text-spacing-1250)}:host .gcds-text.mb-0{margin-block-end:var(--gcds-text-spacing-0)}:host .gcds-text.mb-25{margin-block-end:var(--gcds-text-spacing-25)}:host .gcds-text.mb-50{margin-block-end:var(--gcds-text-spacing-50)}:host .gcds-text.mb-75{margin-block-end:var(--gcds-text-spacing-75)}:host .gcds-text.mb-100{margin-block-end:var(--gcds-text-spacing-100)}:host .gcds-text.mb-125{margin-block-end:var(--gcds-text-spacing-125)}:host .gcds-text.mb-150{margin-block-end:var(--gcds-text-spacing-150)}:host .gcds-text.mb-175{margin-block-end:var(--gcds-text-spacing-175)}:host .gcds-text.mb-200{margin-block-end:var(--gcds-text-spacing-200)}:host .gcds-text.mb-225{margin-block-end:var(--gcds-text-spacing-225)}:host .gcds-text.mb-250{margin-block-end:var(--gcds-text-spacing-250)}:host .gcds-text.mb-300{margin-block-end:var(--gcds-text-spacing-300)}:host .gcds-text.mb-350{margin-block-end:var(--gcds-text-spacing-350)}:host .gcds-text.mb-400{margin-block-end:var(--gcds-text-spacing-400)}:host .gcds-text.mb-450{margin-block-end:var(--gcds-text-spacing-450)}:host .gcds-text.mb-500{margin-block-end:var(--gcds-text-spacing-500)}:host .gcds-text.mb-550{margin-block-end:var(--gcds-text-spacing-550)}:host .gcds-text.mb-600{margin-block-end:var(--gcds-text-spacing-600)}:host .gcds-text.mb-650{margin-block-end:var(--gcds-text-spacing-650)}:host .gcds-text.mb-700{margin-block-end:var(--gcds-text-spacing-700)}:host .gcds-text.mb-750{margin-block-end:var(--gcds-text-spacing-750)}:host .gcds-text.mb-800{margin-block-end:var(--gcds-text-spacing-800)}:host .gcds-text.mb-850{margin-block-end:var(--gcds-text-spacing-850)}:host .gcds-text.mb-900{margin-block-end:var(--gcds-text-spacing-900)}:host .gcds-text.mb-950{margin-block-end:var(--gcds-text-spacing-950)}:host .gcds-text.mb-1000{margin-block-end:var(--gcds-text-spacing-1000)}:host .gcds-text.mb-1050{margin-block-end:var(--gcds-text-spacing-1050)}:host .gcds-text.mb-1100{margin-block-end:var(--gcds-text-spacing-1100)}:host .gcds-text.mb-1150{margin-block-end:var(--gcds-text-spacing-1150)}:host .gcds-text.mb-1200{margin-block-end:var(--gcds-text-spacing-1200)}:host .gcds-text.mb-1250{margin-block-end:var(--gcds-text-spacing-1250)}}@layer variants.role{:host .gcds-text.role-primary{color:var(--gcds-text-role-primary)}:host .gcds-text.role-secondary{color:var(--gcds-text-role-secondary)}:host .gcds-text.role-light{color:var(--gcds-text-role-light)}}@layer variants.size{:host .gcds-text :is(small,::slotted(small)),:host .gcds-text.size-small{font:var(--gcds-text-size-small-desktop)}@media only screen and (width < 48em){:host .gcds-text :is(small,::slotted(small)),:host .gcds-text.size-small{font:var(--gcds-text-size-small-mobile)}}}@layer variants.style{:host .gcds-text ::slotted(em){font-style:italic}}@layer variants.weight{:host .gcds-text ::slotted(strong){font-weight:var(--gcds-text-weight-bold)}}";
 
 class GcdsText {
     constructor(hostRef) {
         registerInstance(this, hostRef);
+        /**
+         * Props
+         */
+        /**
+         * Sets the main style of the text.
+         */
         this.textRole = 'primary';
+        /**
+         * Sets the line length to a maximum amount of characters per line to ensure a comfortable, accessible reading length.
+         */
         this.characterLimit = true;
+        /**
+         * Specifies the display behaviour of the text.
+         */
         this.display = 'block';
+        /**
+         * Adds margin above the text.
+         */
         this.marginTop = '0';
+        /**
+         * Adds margin below the text.
+         */
         this.marginBottom = '300';
+        /**
+         * Sets the appropriate HTML tags for the selected size.
+         */
         this.size = 'body';
     }
     validateTextRole(newValue) {
@@ -8273,7 +9376,7 @@ class GcdsText {
         "marginBottom": ["validateMarginBottom"],
         "size": ["validateSize"]
     }; }
-    static get style() { return GcdsTextStyle0; }
+    static get style() { return gcdsTextCss; }
     static get cmpMeta() { return {
         "$flags$": 9,
         "$tagName$": "gcds-text",
@@ -8306,18 +9409,17 @@ const I18N$3 = {
   },
 };
 
-const gcdsTextareaCss = "@layer reset, default, disabled, error, focus;@layer reset{.sc-gcds-textarea-h{display:block}.sc-gcds-textarea-h .gcds-textarea-wrapper{border:0;margin:0;padding:0}.sc-gcds-textarea-h .gcds-textarea-wrapper textarea{box-sizing:border-box}}@layer default{.sc-gcds-textarea-h .gcds-textarea-wrapper{color:var(--gcds-textarea-default-text);font:var(--gcds-textarea-font);max-width:75ch;transition:color .15s ease-in-out;width:100%}.sc-gcds-textarea-h .gcds-textarea-wrapper textarea{background-color:var(--gcds-textarea-default-background);background-image:none;border:var(--gcds-textarea-border-width) solid;border-radius:var(--gcds-textarea-border-radius);color:var(--gcds-textarea-default-text);display:block;font:inherit;height:auto;margin:var(--gcds-textarea-margin)!important;max-width:100%;min-height:var(--gcds-textarea-min-height);min-width:50%;padding:var(--gcds-textarea-padding)!important;transition:border-color .15s ease-in-out,box-shadow .15s ease-in-out,outline .15s ease-in-out;width:100%}}@layer disabled{.sc-gcds-textarea-h .gcds-textarea-wrapper.gcds-disabled{color:var(--gcds-textarea-disabled-text)}.sc-gcds-textarea-h .gcds-textarea-wrapper.gcds-disabled gcds-label{--gcds-label-text:currentColor}.sc-gcds-textarea-h .gcds-textarea-wrapper.gcds-disabled gcds-hint{--gcds-hint-text:currentColor}.sc-gcds-textarea-h .gcds-textarea-wrapper.gcds-disabled textarea:disabled{background-color:var(--gcds-textarea-disabled-background);border-color:var(--gcds-textarea-disabled-text);cursor:not-allowed}}@layer error{.sc-gcds-textarea-h .gcds-textarea-wrapper .error-message-container{display:block}.sc-gcds-textarea-h .gcds-textarea-wrapper textarea.gcds-error:not(:focus){border-color:var(--gcds-textarea-danger-border)}}@layer focus{.sc-gcds-textarea-h .gcds-textarea-wrapper:focus-within textarea:focus{border-color:var(--gcds-textarea-focus-border);box-shadow:var(--gcds-textarea-focus-box-shadow);outline:var(--gcds-textarea-outline-width) solid var(--gcds-textarea-focus-border);outline-offset:var(--gcds-textarea-border-width)}}";
-var GcdsTextareaStyle0 = gcdsTextareaCss;
+const gcdsTextareaCss = "@layer reset, default, disabled, error, focus;@layer reset{:host{display:block}:host .gcds-textarea-wrapper{border:0;margin:0;padding:0}:host .gcds-textarea-wrapper textarea{box-sizing:border-box}}@layer default{:host .gcds-textarea-wrapper{color:var(--gcds-textarea-default-text);font:var(--gcds-textarea-font);max-width:75ch;transition:color .15s ease-in-out;width:100%}:host .gcds-textarea-wrapper textarea{background-color:var(--gcds-textarea-default-background);background-image:none;border:var(--gcds-textarea-border-width) solid;border-radius:var(--gcds-textarea-border-radius);color:var(--gcds-textarea-default-text);display:block;font:inherit;height:auto;margin:var(--gcds-textarea-margin)!important;max-width:100%;min-height:var(--gcds-textarea-min-height);min-width:50%;padding:var(--gcds-textarea-padding)!important;transition:border-color .15s ease-in-out,box-shadow .15s ease-in-out,outline .15s ease-in-out;width:100%}}@layer disabled{:host .gcds-textarea-wrapper.gcds-disabled{color:var(--gcds-textarea-disabled-text)}:host .gcds-textarea-wrapper.gcds-disabled gcds-label{--gcds-label-text:currentColor}:host .gcds-textarea-wrapper.gcds-disabled gcds-hint{--gcds-hint-text:currentColor}:host .gcds-textarea-wrapper.gcds-disabled textarea:disabled{background-color:var(--gcds-textarea-disabled-background);border-color:var(--gcds-textarea-disabled-text);cursor:not-allowed}}@layer error{:host .gcds-textarea-wrapper .error-message-container{display:block}:host .gcds-textarea-wrapper textarea.gcds-error:not(:focus){border-color:var(--gcds-textarea-danger-border)}}@layer focus{:host .gcds-textarea-wrapper:focus-within textarea:focus{border-color:var(--gcds-textarea-focus-border);box-shadow:var(--gcds-textarea-focus-box-shadow);outline:var(--gcds-textarea-outline-width) solid var(--gcds-textarea-focus-border);outline-offset:var(--gcds-textarea-border-width)}}";
 
 class GcdsTextarea {
     constructor(hostRef) {
         registerInstance(this, hostRef);
-        this.gcdsFocus = createEvent(this, "gcdsFocus", 7);
-        this.gcdsBlur = createEvent(this, "gcdsBlur", 7);
-        this.gcdsChange = createEvent(this, "gcdsChange", 7);
-        this.gcdsInput = createEvent(this, "gcdsInput", 7);
-        this.gcdsError = createEvent(this, "gcdsError", 7);
-        this.gcdsValid = createEvent(this, "gcdsValid", 7);
+        this.gcdsFocus = createEvent(this, "gcdsFocus");
+        this.gcdsBlur = createEvent(this, "gcdsBlur");
+        this.gcdsChange = createEvent(this, "gcdsChange");
+        this.gcdsInput = createEvent(this, "gcdsInput");
+        this.gcdsError = createEvent(this, "gcdsError");
+        this.gcdsValid = createEvent(this, "gcdsValid");
         if (hostRef.$hostElement$["s-ei"]) {
             this.internals = hostRef.$hostElement$["s-ei"];
         }
@@ -8326,6 +9428,30 @@ class GcdsTextarea {
             hostRef.$hostElement$["s-ei"] = this.internals;
         }
         this._validator = defaultValidator;
+        /**
+         * Specifies if a textarea element is disabled or not.
+         */
+        this.disabled = false;
+        /**
+         * Specifies if the label is hidden or not.
+         */
+        this.hideLabel = false;
+        /**
+         * Specifies if a form field is required or not.
+         */
+        this.required = false;
+        /**
+         * Default value for textarea rows.
+         */
+        this.rows = 5;
+        /**
+         * Set event to call validator
+         */
+        this.validateOn = 'blur';
+        /**
+         * Set additional HTML attributes not available in component properties
+         */
+        this.inheritedAttributes = {};
         this.onBlur = () => {
             if (this.validateOn == 'blur') {
                 this.validate();
@@ -8343,23 +9469,6 @@ class GcdsTextarea {
             }
             customEvent.emit(this.value);
         };
-        this.characterCount = undefined;
-        this.cols = undefined;
-        this.disabled = false;
-        this.errorMessage = undefined;
-        this.hideLabel = false;
-        this.hint = undefined;
-        this.label = undefined;
-        this.name = undefined;
-        this.required = false;
-        this.rows = 5;
-        this.textareaId = undefined;
-        this.value = undefined;
-        this.validator = undefined;
-        this.validateOn = 'blur';
-        this.inheritedAttributes = {};
-        this.hasError = undefined;
-        this.lang = undefined;
     }
     validateDisabledTextarea() {
         if (this.required) {
@@ -8484,7 +9593,7 @@ class GcdsTextarea {
         "validator": ["validateValidator"],
         "hasError": ["validateHasError"]
     }; }
-    static get style() { return GcdsTextareaStyle0; }
+    static get style() { return gcdsTextareaCss; }
     static get cmpMeta() { return {
         "$flags$": 89,
         "$tagName$": "gcds-textarea",
@@ -8529,17 +9638,19 @@ const I18N$2 = {
   },
 };
 
-const gcdsTopNavCss = "@layer reset, default, desktop;@layer reset{.sc-gcds-top-nav-h{display:block}.sc-gcds-top-nav-h *{box-sizing:border-box;margin:0}.sc-gcds-top-nav-h ul{padding:0}}@layer default{.sc-gcds-top-nav-h .gcds-top-nav .gcds-top-nav__container{display:flex;flex-direction:column;margin-inline:auto;max-width:var(--gcds-top-nav-max-width);width:90%}}@layer desktop{@media only screen and (width >= 64em){.sc-gcds-top-nav-h .gcds-top-nav{border-block-end:var(--gcds-top-nav-border-width) solid var(--gcds-top-nav-border-color)}.sc-gcds-top-nav-h .gcds-top-nav .gcds-top-nav__container{align-items:flex-end;flex-direction:row}.sc-gcds-top-nav-h .gcds-top-nav .nav-container__list{align-items:flex-end;display:flex;width:fit-content}.sc-gcds-top-nav-h .gcds-top-nav .nav-container__list.nav-list--right{margin-inline-start:auto}.sc-gcds-top-nav-h .gcds-top-nav .nav-container__list.nav-list--center{margin-inline:auto}}}";
-var GcdsTopNavStyle0 = gcdsTopNavCss;
+const gcdsTopNavCss = "@layer reset, default, desktop;@layer reset{:host{display:block}:host *{box-sizing:border-box;margin:0}:host ul{padding:0}}@layer default{:host .gcds-top-nav .gcds-top-nav__container{display:flex;flex-direction:column;margin-inline:auto;max-width:var(--gcds-top-nav-max-width);width:90%}}@layer desktop{@media only screen and (width >= 64em){:host .gcds-top-nav{border-block-end:var(--gcds-top-nav-border-width) solid var(--gcds-top-nav-border-color)}:host .gcds-top-nav .gcds-top-nav__container{align-items:flex-end;flex-direction:row}:host .gcds-top-nav .nav-container__list{align-items:flex-end;display:flex;width:fit-content}:host .gcds-top-nav .nav-container__list.nav-list--right{margin-inline-start:auto}:host .gcds-top-nav .nav-container__list.nav-list--center{margin-inline:auto}}}";
 
 class GcdsTopNav {
     constructor(hostRef) {
         registerInstance(this, hostRef);
-        this.label = undefined;
+        /**
+         * Nav alignment
+         */
         this.alignment = 'left';
-        this.lang = undefined;
+        /**
+         * Queue of nav items for keyboard navigation
+         */
         this.navItems = [];
-        this.navSize = undefined;
     }
     async focusInListener(e) {
         if (this.el.contains(e.target) && !this.navSize) {
@@ -8656,7 +9767,7 @@ class GcdsTopNav {
         return (hAsync(Host, { key: '075e8da394395c86fb088489ff1ecede74fc6347' }, hAsync("div", { key: 'fe8bdf04cc35123ed4b2c9bdeeb496631019e763', class: "gcds-top-nav" }, hAsync("nav", { key: '577ac71a9dee2abfc042904d8f7e9eb52b08ec20', "aria-label": `${label}${I18N$2[lang].navLabel}` }, hAsync("ul", { key: '29fc7c8752e5ca58166fb333a0e4490661457a14', class: "gcds-top-nav__container" }, hAsync("gcds-nav-group", { key: '8426a5f31322333b78fc43c90ef1aa015acd35bb', menuLabel: I18N$2[lang].menuLabel, closeTrigger: I18N$2[lang].closeTrigger, openTrigger: I18N$2[lang].menuLabel, class: "gcds-mobile-nav gcds-mobile-nav-topnav", ref: element => (this.mobile = element), lang: lang }, hAsync("slot", { key: '0db61f118321b7f0fda937aab3bad5181c479e68', name: "home" }), hAsync("li", { key: 'b038955f36cfb628ff66033d778531bc27df945b', class: `nav-container__list nav-list--${alignment}` }, hAsync("ul", { key: '26cda13cd85fa693e854bb762c7fd8983a332c89', class: `nav-container__list nav-list--${alignment}` }, hAsync("slot", { key: 'f2efc2eef1e66ee701177ec9796d83b7856554da' })))))))));
     }
     get el() { return getElement(this); }
-    static get style() { return GcdsTopNavStyle0; }
+    static get style() { return gcdsTopNavCss; }
     static get cmpMeta() { return {
         "$flags$": 9,
         "$tagName$": "gcds-top-nav",
@@ -8698,17 +9809,29 @@ const snapshots = {
   fr: '<li role="presentation"><a role="menuitem" tabindex="-1" aria-haspopup="true" aria-controls="gc-mnu-jobs" aria-expanded="false" href="#">Emplois et milieu de travail</a><ul id="gc-mnu-jobs" role="menu" aria-orientation="vertical"><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/emplois.html">Emplois<span class="visible-xs-inline visible-sm-inline">: accueil</span></a></li><li role="separator"></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/emplois/opportunites.html">Trouver un emploi</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/emplois/formation.html">Formation</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/gestion-entreprise">Embauche et gestion de personnel</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/demarrage-entreprise">Démarrage d\'entreprise</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/emplois/milieu-travail.html">Normes en milieu de travail</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/finance/pensions.html">Pensions et retraite</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/prestations/ae.html">Prestations d\'assurance-emploi et congés</a></li><li role="separator" aria-orientation="vertical"></li><li role="presentation"><a data-keep-expanded="md-min" href="#" role="menuitem" tabindex="-1" aria-haspopup="true" aria-controls="gc-mnu-jobs-sub" aria-expanded="true">En demande</a><ul id="gc-mnu-jobs-sub" role="menu" aria-orientation="vertical"><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/emploi-developpement-social/programmes/assurance-emploi/ae-liste/assurance-emploi-re/acceder-re.html">Voir vos Relevés d’emploi</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/emploi-developpement-social/services/numero-assurance-sociale.html">Demander un numéro d’assurance-sociale</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/emploi-developpement-social/services/travailleurs-etrangers.html">Embaucher un travailleur étranger temporaire</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/immigration-refugies-citoyennete/services/immigrer-canada/entree-express.html">Immigrer en tant que travailleur qualifié</a></li></ul></li></ul></li><li role="presentation"><a role="menuitem" tabindex="-1" aria-haspopup="true" aria-controls="gc-mnu-cit" aria-expanded="false" href="#">Immigration et citoyenneté</a><ul id="gc-mnu-cit" role="menu" aria-orientation="vertical"><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/immigration-citoyennete.html">Immigration<span class="hidden-xs hidden-sm">et citoyenneté</span><span class="visible-xs-inline visible-sm-inline">: accueil</span></a></li><li role="separator"></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/immigration-refugies-citoyennete/services/demande.html">Ma demande</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/immigration-refugies-citoyennete/services/visiter-canada.html">Visiter</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/immigration-refugies-citoyennete/services/immigrer-canada.html">Immigrer</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/immigration-refugies-citoyennete/services/travailler-canada.html">Travailler</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/immigration-refugies-citoyennete/services/etudier-canada.html">Étudier</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/immigration-refugies-citoyennete/services/citoyennete-canadienne.html">Citoyenneté</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/immigration-refugies-citoyennete/services/nouveaux-immigrants.html">Nouveaux immigrants</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/immigration-refugies-citoyennete/services/canadiens.html">Canadiens</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/immigration-refugies-citoyennete/services/refugies.html">Réfugiés et octroi de l’asile</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/immigration-citoyennete/application-loi-infractions.html">Application de la loi et infractions</a></li><li role="separator" aria-orientation="vertical"></li><li role="presentation"><a data-keep-expanded="md-min" href="#" role="menuitem" tabindex="-1" aria-haspopup="true" aria-controls="gc-mnu-cit-sub" aria-expanded="true">En demande</a><ul id="gc-mnu-cit-sub" role="menu" aria-orientation="vertical"><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/immigration-refugies-citoyennete/services/demande/compte.html">Se connecter ou créer un compte pour présenter une demande en ligne</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/immigration-refugies-citoyennete/services/demande/verifier-etat.html">Vérifier l’état de sa demande</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="http://www.cic.gc.ca/francais/information/delais/index.asp">Vérifier les délais de traitement des demandes</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/immigration-refugies-citoyennete/services/demande/formulaires-demande-guides.html">Trouver un formulaire de demande</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="http://www.cic.gc.ca/francais/information/frais/index.asp">Payer les frais</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="http://www.cic.gc.ca/francais/visiter/visas.asp">Déterminer si vous avez besoin d’une AVE ou d’un visa pour visiter le Canada</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="http://www.cic.gc.ca/francais/centre-aide/index-en-vedette-can.asp">Trouver réponse à ses questions dans le Centre d’aide</a></li></ul></li></ul></li><li role="presentation"><a role="menuitem" tabindex="-1" aria-haspopup="true" aria-controls="gc-mnu-travel" aria-expanded="false" href="#">Voyage et tourisme</a><ul id="gc-mnu-travel" role="menu" aria-orientation="vertical"><li role="presentation"><a role="menuitem" tabindex="-1" href="https://voyage.gc.ca/">Voyage<span class="hidden-xs hidden-sm">et tourisme</span><span class="visible-xs-inline visible-sm-inline">: accueil</span></a></li><li role="separator"></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://voyage.gc.ca/voyager/avertissements">Conseils aux voyageurs et avertissements</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://voyage.gc.ca/voyage-covid">COVID-19 : voyage, dépistage et frontières</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/immigration-refugies-citoyennete/services/visiter-canada.html?outside">Visiter le Canada</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://voyage.gc.ca/voyager">Voyager à l’étranger</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://voyage.gc.ca/avion">Voyager en avion</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://voyage.gc.ca/retour">Retour au Canada</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/immigration-refugies-citoyennete/services/passeports-canadiens.html">Passeports et documents de voyage canadiens</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://voyage.gc.ca/tourisme-canadien">Attraits touristiques, événements et expériences au Canada</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://voyage.gc.ca/assistance">Assistance à l’extérieur du Canada</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://voyage.gc.ca/restez-branches">Restez branchés</a></li><li role="separator" aria-orientation="vertical"></li><li role="presentation"><a data-keep-expanded="md-min" href="#" role="menuitem" tabindex="-1" aria-haspopup="true" aria-controls="gc-mnu-travel-sub" aria-expanded="true">En demande</a><ul id="gc-mnu-travel-sub" role="menu" aria-orientation="vertical"><li role="presentation"><a role="menuitem" tabindex="-1" href="https://voyage.gc.ca/assistance/assistance-d-urgence">Assistance d\'urgence à l\'étranger</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.cic.gc.ca/francais/visiter/visas.asp">Vérifiez si vous avez besoin d’un visa pour voyager au Canada</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/immigration-refugies-citoyennete/services/visiter-canada/ave.html">Présentez une demande d’Autorisation de voyage électronique (AVE)</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.cbsa-asfc.gc.ca/services/travel-voyage/prog/nexus/menu-fra.html">Adhérez à NEXUS</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://voyage.gc.ca/voyager/inscription">Inscrivez-vous comme Canadien à l’étranger</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://voyage.gc.ca/voyager/documents/assurance-voyage">Assurance voyage</a></li></ul></li></ul></li><li role="presentation"><a role="menuitem" tabindex="-1" aria-haspopup="true" aria-controls="gc-mnu-biz" aria-expanded="false" href="#">Entreprises et industrie</a><ul id="gc-mnu-biz" role="menu" aria-orientation="vertical"><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/entreprises.html">Entreprises<span class="hidden-xs hidden-sm">et industrie</span><span class="visible-xs-inline visible-sm-inline">: accueil</span></a></li><li role="separator"></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/entreprises/lancer.html">Démarrage d\'entreprise</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/entreprises/subventions.html">Subventions et financement pour les entreprises</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/entreprises/impots.html">Taxes et impôt des entreprises</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/entreprises/societes-de-regime-federal.html">Sociétés de régime fédéral</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/entreprises/engager.html">Embauche et gestion de personnel</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/entreprises/commerce.html">Commerce international et investissements</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/entreprises/permis.html">Permis, licences et règlements</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/entreprises/faire-affaire.html">Faire affaire avec le gouvernement</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/science/innovation.html">Recherche-développement et innovation</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/entreprises/recherche.html">Recherche et renseignements d\'affaires</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/entreprises/pi.html">Propriété intellectuelle et droit d\'auteur</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/entreprises/maintenirfairecroitreameliorerentreprise.html">Administration de votre entreprise</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/entreprises/proteger.html">Protection de votre entreprise</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/entreprises/faillites.html">Insolvabilité pour les entreprises</a></li><li role="separator" aria-orientation="vertical"></li><li role="presentation"><a data-keep-expanded="md-min" href="#" role="menuitem" tabindex="-1" aria-haspopup="true" aria-controls="gc-mnu-biz-sub" aria-expanded="true">En demande</a><ul id="gc-mnu-biz-sub" role="menu" aria-orientation="vertical"><li role="presentation"><a role="menuitem" tabindex="-1" href="https://ised-isde.canada.ca/cc/lgcy/fdrlCrpSrch.html?lang=fra">Trouver une société</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.cbsa-asfc.gc.ca/prog/manif/portal-portail-fra.html">Déclarer vos produits importés</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://ised-isde.canada.ca/opic/recherche-marques/srch?null=&lang=fre">Chercher des marques de commerce</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.cbsa-asfc.gc.ca/trade-commerce/tariff-tarif/2018/html/tblmod-1-fra.html">Réviser les tarifs des douanes pour l’importation de produits</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.ic.gc.ca/opic-cipo/cpd/fra/introduction.html">Trouver un brevet</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.cbsa-asfc.gc.ca/comm-fra.html">Importer et exporter à partir du Canada</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://ic.gc.ca/eic/site/cd-dgc.nsf/fra/h_cs03922.html">Trouver un nom pour votre compagnie</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://ised-isde.canada.ca/cc/lgcy/hm.html?locale=fr_CA">Apporter des changements à votre société (Centre de dépôt en ligne)</a></li></ul></li></ul></li><li role="presentation"><a role="menuitem" tabindex="-1" aria-haspopup="true" aria-controls="gc-mnu-benny" aria-expanded="false" href="#">Prestations</a><ul id="gc-mnu-benny" role="menu" aria-orientation="vertical"><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/prestations.html">Prestations<span class="visible-xs-inline visible-sm-inline">: accueil</span></a></li><li role="separator"></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/prestations/ae.html">Prestations d&#39;assurance-emploi et cong&eacute;s</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/prestations/famille.html">Prestations pour les familles et les proches aidants</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/prestations/pensionspubliques.html">Pensions publiques</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/prestations/etudes.html">Aide financière aux étudiants et planification des études</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/prestations/logement.html">Prestations relatives au logement</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/prestations/handicap.html">Prestations d’invalidité</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="http://www.canada.ca/fr/services/prestations/clientele.html">Prestations par clientèle</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/prestations/calendrier.html">Dates de paiement des prestations</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://benefitsfinder.services.gc.ca/hm?GoCTemplateCulture=fr-CA&cl=true">Chercheur de prestations</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/prestations/aviser-gouvernement-deces.html">Aviser le gouvernement d’un décès</a></li><li role="separator" aria-orientation="vertical"></li><li role="presentation"><a data-keep-expanded="md-min" href="#" role="menuitem" tabindex="-1" aria-haspopup="true" aria-controls="gc-mnu-benny-sub" aria-expanded="true">En demande</a><ul id="gc-mnu-benny-sub" role="menu" aria-orientation="vertical"><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/prestations/ae/assurance-emploi-reguliere.html">Présenter une demande d’assurance-emploi</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/prestations/education/aide-etudiants/bourses-prets.html">Faire une demande de bourses et de prêts d’études</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/gouvernement/ouvrir-session-dossier-compte-en-ligne.html">Ouvrir une session pour un compte en ligne du gouvernement du Canada</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.tpsgc-pwgsc.gc.ca/recgen/txt/depot-deposit-fra.html">Inscrivez-vous au dépôt direct</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/agence-revenu/services/prestations-enfants-familles/calculateur-prestations-enfants-familles.html">Calculateur de prestations pour enfants et familles</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/prestations/ae/assurance-emploi-declaration-internet.html">Soumettre une déclaration d’assurance-emploi</a></li></ul></li></ul></li><li role="presentation"><a role="menuitem" tabindex="-1" aria-haspopup="true" aria-controls="gc-mnu-health" aria-expanded="false" href="#">Santé</a><ul id="gc-mnu-health" role="menu" aria-orientation="vertical"><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/sante.html">Santé<span class="visible-xs-inline visible-sm-inline">: accueil</span></a></li><li role="separator"></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/sante/aliments-et-nutrition.html">Aliments et nutrition</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/sante-publique/services/maladies.html">Maladies et affections</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/sante-publique/sujets/immunisation-et-vaccins.html">Vaccins et immunisation</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/sante/medicaments-et-produits-sante.html">Médicaments et produits de santé</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/sante/securite-produits.html">Sécurité des produits</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/sante/securite-et-risque-pour-sante.html">Sécurité et risque pour la santé</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/sante/vie-saine.html">Vie saine</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/sante/sante-autochtones.html">Santé des Autochtones</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/sante/systeme-et-services-sante.html">Système et services de santé</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/sante/science-recherche-et-donnees.html">Science, recherche et données</a></li><li role="separator" aria-orientation="vertical"></li><li role="presentation"><a data-keep-expanded="md-min" href="#" role="menuitem" tabindex="-1" aria-haspopup="true" aria-controls="gc-mnu-health-sub" aria-expanded="true">En demande</a><ul id="gc-mnu-health-sub" role="menu" aria-orientation="vertical"><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/sante-canada/services/drogues-medicaments/cannabis/titulaires-licences-demandeurs-industrie/cultivateurs-transformateurs-vendeurs-autorises.html">Cultivateurs, transformateurs et vendeurs de cannabis qui détiennent une licence</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="http://www.canadiensensante.gc.ca/recall-alert-rappel-avis/index-fra.php">Rappels d\'aliments et de produits et alertes de sécurité</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/sante-canada/services/guides-alimentaires-canada.html">Guide alimentaire du Canada</a></li></ul></li></ul></li><li role="presentation"><a role="menuitem" tabindex="-1" aria-haspopup="true" aria-controls="gc-mnu-taxes" aria-expanded="false" href="#">Impôts</a><ul id="gc-mnu-taxes" role="menu" aria-orientation="vertical"><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/impots.html">Impôts<span class="visible-xs-inline visible-sm-inline">: accueil</span></a></li><li role="separator"></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/impots/impot-sur-le-revenu.html">Impôt sur le revenu</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/agence-revenu/services/impot/entreprises/sujets/tps-tvh-entreprises.html">TPS/TVH</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/agence-revenu/services/impot/entreprises/sujets/retenues-paie.html">Retenues sur la paie</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/impots/numero-dentreprise.html">Numéro d\'entreprise</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/impots/regimes-depargne-et-de-pension.html">Régimes d’épargne et de pension</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/impots/prestations-pour-enfants-et-familles.html">Crédits d’impôt et prestations pour les particuliers</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/impots/taxes-daccise-droits-et-prelevements.html">Taxes d’accise, droits et prélèvements</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/impots/bienfaisance.html">Organismes de bienfaisance et dons</a></li><li role="separator" aria-orientation="vertical"></li><li role="presentation"><a data-keep-expanded="md-min" href="#" role="menuitem" tabindex="-1" aria-haspopup="true" aria-controls="gc-mnu-taxes-sub" aria-expanded="true">En demande</a><ul id="gc-mnu-taxes-sub" role="menu" aria-orientation="vertical"><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/agence-revenu/services/services-electroniques/services-numeriques-particuliers/dossier-particuliers.html">Mon dossier</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/agence-revenu/services/services-electroniques/services-numeriques-entreprises/dossier-entreprise.html">Mon dossier d\'entreprise</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/agence-revenu/services/services-electroniques/representer-client.html">Représenter un client</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/agence-revenu/services/services-electroniques/services-numeriques-entreprises/impotnet-tps-tvh.html">Transmettre une déclaration de TPS/TVH (IMPÔTNET)</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/agence-revenu/services/faire-paiement-a-agence-revenu-canada.html">Faire un paiement à l\'Agence du revenu du Canada</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/agence-revenu/services/prestations-enfants-familles/dates-versement-prestations.html">Trouver la date du prochain versement des prestations</a></li></ul></li></ul></li><li role="presentation"><a role="menuitem" tabindex="-1" aria-haspopup="true" aria-controls="gc-mnu-enviro" aria-expanded="false" href="#">Environnement et ressources naturelles</a><ul id="gc-mnu-enviro" role="menu" aria-orientation="vertical"><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/environnement.html">Environnement<span class="hidden-xs hidden-sm">et ressources naturelles</span><span class="visible-xs-inline visible-sm-inline">: accueil</span></a></li><li role="separator"></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/environnement/meteo.html">Météo, climat et catastrophes naturelles</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/environnement/energie.html">Énergie</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/environnement/ressources-naturelles.html">Ressources naturelles</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://agriculture.canada.ca/fr/agriculture-environnement">Agriculture et environnement</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/environnement/peches.html">Pêches</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/environnement/faune-flore-especes.html">Faune, flore et espèces</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/environnement/pollution-gestion-dechets.html">Pollution et gestion des déchets</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/environnement/conservation.html">Conservation et protection de l\'environnement</a></li><li role="separator" aria-orientation="vertical"></li><li role="presentation"><a data-keep-expanded="md-min" href="#" role="menuitem" tabindex="-1" aria-haspopup="true" aria-controls="gc-mnu-enviro-sub" aria-expanded="true">En demande</a><ul id="gc-mnu-enviro-sub" role="menu" aria-orientation="vertical"><li role="presentation"><a role="menuitem" tabindex="-1" href="https://meteo.gc.ca/canada_f.html">Prévisions météo locales</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.rncan.gc.ca/energie/efficacite/transports/20997">Véhicules écoénergétiques</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.rncan.gc.ca/maisons">Efficacité énergétique des maisons</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/environnement-changement-climatique/services/registre-public-especes-peril.html">Espèces en péril</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/environnement-changement-climatique/services/meteo-saisonniere-dangereuse.html">Préparation aux conditions météorologiques dangereuses</a></li></ul></li></ul></li><li role="presentation"><a role="menuitem" tabindex="-1" aria-haspopup="true" aria-controls="gc-mnu-defence" aria-expanded="false" href="#">Sécurité nationale et défense</a><ul id="gc-mnu-defence" role="menu" aria-orientation="vertical"><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/defense.html"><span class="hidden-xs hidden-sm">Sécurité nationale et défense</span><span class="visible-xs-inline visible-sm-inline">Défense : accueil</span></a></li><li role="separator"></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/defense/securitenationale.html">Sécurité nationale</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/defense/fac.html">Forces armées canadiennes</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/defense/achat-mise-a-niveau-equipement-defense.html">Achat et mise à niveau d’équipement de la Défense</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="http://www.tc.gc.ca/fr/services/surete-transports.html">Sûreté des transports</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/defense/securiserfrontiere.html">Sécuriser la frontière</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/defense/cybersecurite.html">Cybersécurité</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/defense/emplois.html">Emplois en sécurité nationale et en défense</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/gouvernement/fonctionpublique/avantagesmilitaires.html">Services et avantages sociaux du personnel militaire</a></li><li role="separator" aria-orientation="vertical"></li><li role="presentation"><a data-keep-expanded="md-min" href="#" role="menuitem" tabindex="-1" aria-haspopup="true" aria-controls="gc-mnu-defence-sub" aria-expanded="true">En demande</a><ul id="gc-mnu-defence-sub" role="menu" aria-orientation="vertical"><li role="presentation"><a role="menuitem" tabindex="-1" href="https://forces.ca/fr/carrieres/">Emplois dans les Forces armées canadiennes</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/ministere-defense-nationale/services/histoire-militaire/histoire-patrimoine/insignes-drapeaux/grades/insignes-grade-fonction.html">Grades militaires</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/defense/fac/equipement.html">Équipement de la Défense</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/ministere-defense-nationale/services/cadets-rangers-juniors-canadiens/cadets/rejoignez-nous.html">Joignez-vous aux cadets</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="http://dgpaapp.forces.gc.ca/fr/politique-defense-canada/index.asp">Politique de défense du Canada</a></li></ul></li></ul></li><li role="presentation"><a role="menuitem" tabindex="-1" aria-haspopup="true" aria-controls="gc-mnu-culture" aria-expanded="false" href="#">Culture, histoire et sport</a><ul id="gc-mnu-culture" role="menu" aria-orientation="vertical"><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/culture.html">Culture<span class="hidden-xs hidden-sm">, histoire et sport</span><span class="visible-xs-inline visible-sm-inline">: accueil</span></a></li><li role="separator"></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/patrimoine-canadien/services/financement.html">Financement - Culture, histoire et sport</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/culture/evenements-celebrations-commemorations.html">Événements, célébrations et commémorations</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/culture/attraits-culturels.html">Lieux et attraits culturels</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/culture/identite-canadienne-societe.html">Identité canadienne et société</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/culture/sport.html">Sport</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/culture/histoire-patrimoine.html">Histoire et patrimoine</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/culture/arts-media.html">Arts et média</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/culture/programmes-culturels-jeunes.html">Programmes culturels pour les jeunes</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/culture/commerce-investissement-culturels.html">Commerce et investissement culturels</a></li><li role="separator" aria-orientation="vertical"></li><li role="presentation"><a data-keep-expanded="md-min" href="#" role="menuitem" tabindex="-1" aria-haspopup="true" aria-controls="gc-mnu-culture-sub" aria-expanded="true">En demande</a><ul id="gc-mnu-culture-sub" role="menu" aria-orientation="vertical"><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.veterans.gc.ca/fra/remembrance/memorials/canadian-virtual-war-memorial">Visitez le Mémorial virtuel de guerre du Canada</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/culture/identite-canadienne-societe/hymnes-symboles.html">Hymnes et symboles du Canada</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://crtc.gc.ca/fra/8045/d2018.htm">Trouvez une décision du CRTC</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://bibliotheque-archives.canada.ca/fra/collection/aide-recherche/genealogie-histoire-famille/Pages/genealogie-histoire-famille.aspx">Faites des recherches sur votre histoire familiale</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.bac-lac.gc.ca/fra/recensements/Pages/recensements.aspx">Cherchez des documents de recensement</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/culture/attraits-culturels/attraits-capitale-canada.html">Lieux et attraits dans la capitale du Canada</a></li></ul></li></ul></li><li role="presentation"><a role="menuitem" tabindex="-1" aria-haspopup="true" aria-controls="gc-mnu-policing" aria-expanded="false" href="#">Services de police, justice et urgences</a><ul id="gc-mnu-policing" role="menu" aria-orientation="vertical"><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/police.html">Services de police<span class="hidden-xs hidden-sm">, justice et urgences</span><span class="visible-xs-inline visible-sm-inline">: accueil</span></a></li><li role="separator"></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/police/servicespolice.html">Services de police</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/police/justice.html">Justice</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/police/urgences.html">Urgences</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/police/correctionnels.html">Services correctionnels</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/police/liberationconditionnelle.html">Libération conditionnelle, suspension du casier, radiation et clémence</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/police/victimes.html">Victimes d\'actes criminels</a></li><li role="separator" aria-orientation="vertical"></li><li role="presentation"><a data-keep-expanded="md-min" href="#" role="menuitem" tabindex="-1" aria-haspopup="true" aria-controls="gc-mnu-policing-sub" aria-expanded="true">En demande</a><ul id="gc-mnu-policing-sub" role="menu" aria-orientation="vertical"><li role="presentation"><a role="menuitem" tabindex="-1" href="http://www.rcmp-grc.gc.ca/cfp-pcaf/online_en-ligne/index-fra.htm">Demander ou renouveler un permis d\'arme à feu</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="http://www.rcmp-grc.gc.ca/fr/verification-casier-judiciaire">Obtenir une attestation de vérification de casier judiciaire</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/commission-liberations-conditionnelles/services/suspension-du-casier/guide-et-formulaires-de-demande.html">Demander la suspension d’un casier judiciaire</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.preparez-vous.gc.ca/cnt/hzd/drng-fr.aspx">Que faire durant une urgence</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/police/servicespolice/securite-communautaire-police/conduite-facultes-affaiblies.html">Connaissez la loi sur la conduite avec facultés affaiblies</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/police/servicespolice/aider-resoudre-un-crime.html">Aidez à résoudre un crime</a></li></ul></li></ul></li><li role="presentation"><a role="menuitem" tabindex="-1" aria-haspopup="true" aria-controls="gc-mnu-trans" aria-expanded="false" href="#">Transport et infrastructure</a><ul id="gc-mnu-trans" role="menu" aria-orientation="vertical"><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/transport.html">Transport<span class="hidden-xs hidden-sm">et infrastructure</span><span class="visible-xs-inline visible-sm-inline">: accueil</span></a></li><li role="separator"></li><li role="presentation"><a role="menuitem" tabindex="-1" href="http://www.tc.gc.ca/fr/services/aviation.html">Aviation</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="http://www.tc.gc.ca/fr/services/maritime.html">Transport maritime</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="http://www.tc.gc.ca/fr/services/routier.html">Transport routier</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="http://www.tc.gc.ca/fr/services/ferroviaire.html">Transport ferroviaire</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="http://www.tc.gc.ca/fr/services/marchandises-dangereuses.html">Marchandises dangereuses</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="http://www.tc.gc.ca/fr/services/infrastructures.html">Infrastructure</a></li><li role="separator" aria-orientation="vertical"></li><li role="presentation"><a data-keep-expanded="md-min" href="#" role="menuitem" tabindex="-1" aria-haspopup="true" aria-controls="gc-mnu-trans-sub" aria-expanded="true">En demande</a><ul id="gc-mnu-trans-sub" role="menu" aria-orientation="vertical"><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/transport/vehicules-zero-emission.html">Véhicules zéro émission</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="http://www.tc.gc.ca/fr/services/aviation/securite-drones.html">Sécurité des drones</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="http://www.tc.gc.ca/fr/services/surete-transports/aerienne/articles-interdits-bord-avion.html">Articles interdits à bord d’un avion</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="http://www.tc.gc.ca/fra/securitemaritime/epe-immabatiments-menu-728.htm">Immatriculer votre bâtiment</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="http://www.tc.gc.ca/fr/services/routier/securite-sieges-auto-enfants.html">Sécurité des sièges d\'auto pour enfants</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="http://www.tc.gc.ca/fra/tmd/clair-tdesm-211.htm">Transporter des marchandises dangereuses - Règlements</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="http://www.tc.gc.ca/fr/transports-canada/organisation/lois-reglements/reglements/sor-96-433.html">Règlement de l’aviation canadien</a></li></ul></li></ul></li><li role="presentation"><a role="menuitem" tabindex="-1" aria-haspopup="true" aria-controls="gc-mnu-canworld" aria-expanded="false" href="#">Canada et le monde</a><ul id="gc-mnu-canworld" role="menu" aria-orientation="vertical"><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.international.gc.ca/world-monde/index.aspx?lang=fra">Le Canada et le monde<span class="visible-xs-inline visible-sm-inline">: accueil</span></a></li><li role="separator"></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.international.gc.ca/world-monde/offices-bureaux/index.aspx?lang=fra">Bureaux internationaux et contacts d’urgence</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.international.gc.ca/world-monde/study_work_travel-etude_travail_voyage/index.aspx?lang=fra">Étude, travail et voyage partout dans le monde</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.international.gc.ca/world-monde/country-pays/index.aspx?lang=fra">Information par pays et territoires</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.international.gc.ca/world-monde/stories-histoires/index.aspx?lang=fra">Histoires</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.international.gc.ca/world-monde/international_relations-relations_internationales/index.aspx?lang=fra">Relations internationales</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.international.gc.ca/world-monde/issues_development-enjeux_developpement/index.aspx?lang=fra">Enjeux mondiaux et aide internationale</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.international.gc.ca/world-monde/funding-financement/index.aspx?lang=fra">Financement d’initiatives internationales</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/entreprises/commerce.html">Commerce international et investissement</a></li><li role="separator" aria-orientation="vertical"></li><li role="presentation"><a data-keep-expanded="md-min" href="#" role="menuitem" tabindex="-1" aria-haspopup="true" aria-controls="gc-mnu-canworld-sub" aria-expanded="true">En demande</a><ul id="gc-mnu-canworld-sub" role="menu" aria-orientation="vertical"><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.educanada.ca/scholarships-bourses/non_can/index.aspx?lang=fra">Trouver une bourse d’études canadienne en tant qu’étudiant international</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://treaty-accord.gc.ca/index.aspx?Lang=fra">Traités internationaux signés par le Canada</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.educanada.ca/index.aspx?lang=fra">Trouver des occasions d’étude ou de recherche au Canada</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://voyage.gc.ca/assistance/ambassades-consulats">Communiquer avec une ambassade ou un consulat</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.international.gc.ca/protocol-protocole/reps.aspx?lang=fra">Communiquer avec un représentant étranger au Canada</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.international.gc.ca/gac-amc/about-a_propos/services/authentication-authentification/step-etape-1.aspx?lang=fra">Authentifier un document</a></li></ul></li></ul></li><li role="presentation"><a role="menuitem" tabindex="-1" aria-haspopup="true" aria-controls="gc-mnu-money" aria-expanded="false" href="#">Argent et finances</a><ul id="gc-mnu-money" role="menu" aria-orientation="vertical"><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/finance.html"><span class="hidden-xs hidden-sm">Argent et finances</span><span class="visible-xs-inline visible-sm-inline">Finances : accueil</span></a></li><li role="separator"></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/finance/gerer.html">Gérer votre argent</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/finance/dettes.html">Dettes et emprunts</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/finance/epargne.html">Épargne et investissement</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/finance/financementetudes.html">Financement des études</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/finance/pensions.html">Pensions et retraite</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/finance/fraude.html">Protection contre la fraude et les escroqueries</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/finance/outils.html">Calculatrices et outils financiers</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/agence-consommation-matiere-financiere/services/programmes-litteratie-financiere.html">Programmes de littératie financière</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/finance/questions-consommation.html">Questions de consommation</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/finance/faillite.html">Insolvabilité</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/impots.html">Impôts</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/gouvernement/systeme/finances.html">Finances publiques</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/entreprises/subventions.html">Subventions et financement pour les entreprises</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/entreprises/permis/secteursindustriereglementationfederale/regleservicesfinanciers.html">Réglementation des services financiers et monétaires</a></li><li role="separator" aria-orientation="vertical"></li><li role="presentation"><a data-keep-expanded="md-min" href="#" role="menuitem" tabindex="-1" aria-haspopup="true" aria-controls="gc-mnu-money-sub" aria-expanded="true">En demande</a><ul id="gc-mnu-money-sub" role="menu" aria-orientation="vertical"><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.ic.gc.ca/app/scr/bsf-osb/ins/connexion.html?lang=fra">Trouver un dossier de faillite ou d’insolvabilité</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/emplois/education/aide-financiere-etudiants/pret-etudiants.html">Prêts étudiants</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.tpsgc-pwgsc.gc.ca/recgen/txt/depot-deposit-fra.html">Inscrivez-vous au dépôt direct</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/agence-consommation-matiere-financiere/services/hypotheques.html">Obtenir des renseignements sur les hypothèques</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/agence-consommation-matiere-financiere/services/dossier-pointage-credit.html">Dossiers et cotes de crédit</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://itools-ioutils.fcac-acfc.gc.ca/BP-PB/planificateur-budgetaire">Faire un budget</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/agence-revenu/services/impot/administrateurs-regimes-enregistres/fesp/plafonds-cd-reer-rpdb-celi-mgap.html">Taux et limites de contribution</a></li></ul></li></ul></li><li role="presentation"><a role="menuitem" tabindex="-1" aria-haspopup="true" aria-controls="gc-mnu-science" aria-expanded="false" href="#">Science et innovation</a><ul id="gc-mnu-science" role="menu" aria-orientation="vertical"><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/science.html">Science<span class="hidden-xs hidden-sm">et innovation</span><span class="visible-xs-inline visible-sm-inline">: accueil</span></a></li><li role="separator"></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/science/financementrecherche.html">Financement, subventions et prix pour la recherche</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/science/themesscientifiques.html">Thèmes scientifiques</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/science/donnees-ouvertes.html">Données ouvertes, statistiques et archives</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/science/instituts.html">Instituts et établissements de recherches</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/science/innovation.html">R-D et innovation</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/entreprises/pi.html">Propriété intellectuelle et droit d\'auteur</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/science/repertoirescientifiques.html">Répertoire des scientifiques et des professionnels de la recherche</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/science/ressourcespedagogiques.html">Ressources pédagogiques scientifiques</a></li><li role="separator" aria-orientation="vertical"></li><li role="presentation"><a data-keep-expanded="md-min" href="#" role="menuitem" tabindex="-1" aria-haspopup="true" aria-controls="gc-mnu-science-sub" aria-expanded="true">En demande</a><ul id="gc-mnu-science-sub" role="menu" aria-orientation="vertical"><li role="presentation"><a role="menuitem" tabindex="-1" href="https://cnrc.canada.ca/fr/certifications-evaluations-normes/codes-canada/publications-codes-canada">Code national du bâtiment</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://cnrc.canada.ca/fr/horloge-web/">Heures officielles au Canada</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://cnrc.canada.ca/fr/recherche-developpement/produits-services/logiciels-applications/calculatrice-soleil/">Trouver les heures de levers et de couchers du soleil</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://cnrc.canada.ca/fr/soutien-linnovation-technologique/soutien-financier-linnovation-technologique-pari-cnrc">Bourses pour l’innovation technologique (PARI)</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://science-libraries.canada.ca/fra/accueil/">Bibliothèque scientifique fédérale</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="http://asc-csa.gc.ca/fra/astronomie/auroramax/hd-480.asp">Aurores boréales en direct</a></li></ul></li></ul></li>',
 };
 
-const gcdsTopicMenuCss = "@layer reset, default, mobile, xsMobile, focus;@layer reset{.sc-gcds-topic-menu-h{display:block}.sc-gcds-topic-menu-h *{box-sizing:border-box;margin:0}}@layer default{.sc-gcds-topic-menu-h .gcds-topic-menu__heading,.sc-gcds-topic-menu-h .gcds-topic-menu__main{display:inherit;height:0;margin:0;overflow:hidden;width:0}.sc-gcds-topic-menu-h .visible-sm-inline{display:none}.sc-gcds-topic-menu-h .gcds-topic-menu{font:var(--gcds-topic-menu-font);margin-inline:auto;max-width:var(--gcds-topic-menu-max-width);position:relative;width:90%}.sc-gcds-topic-menu-h .gcds-topic-menu button[aria-haspopup=true]{background-color:var(--gcds-topic-menu-button-background);border:var(--gcds-topic-menu-border-width) solid var(--gcds-topic-menu-button-border);color:var(--gcds-topic-menu-button-text);cursor:pointer;font:inherit;margin-inline-start:0;padding:var(--gcds-topic-menu-button-padding);text-transform:uppercase}.sc-gcds-topic-menu-h .gcds-topic-menu button[aria-haspopup=true].gcds-topic-menu--home{background-color:var(--gcds-topic-menu-button-home-background);border-color:var(--gcds-topic-menu-button-home-border-color);color:var(--gcds-topic-menu-button-home-text)}.sc-gcds-topic-menu-h .gcds-topic-menu button[aria-haspopup=true]:hover,.sc-gcds-topic-menu-h .gcds-topic-menu button[aria-haspopup=true][aria-expanded=true]{background-color:var(--gcds-topic-menu-button-expanded-background);border-color:var(--gcds-topic-menu-button-expanded-border-color);color:var(--gcds-topic-menu-button-expanded-text)}.sc-gcds-topic-menu-h .gcds-topic-menu [aria-haspopup=true][aria-expanded=false]+[role=menu]{display:none}.sc-gcds-topic-menu-h .gcds-topic-menu button[aria-haspopup=true][aria-expanded=true]+[role=menu]{z-index:9991}.sc-gcds-topic-menu-h .gcds-topic-menu button[aria-haspopup=true][aria-expanded=true]+[role=menu] [role=menuitem]{position:relative;z-index:9991}.sc-gcds-topic-menu-h .gcds-topic-menu [aria-haspopup=true][aria-expanded=true]+[role=menu]{z-index:9990}.sc-gcds-topic-menu-h .gcds-topic-menu [role=menu]{background-color:var(--gcds-topic-menu-topiclist-background);color:var(--gcds-topic-menu-themelist-text);list-style:none;margin:0;padding:0;position:absolute;width:var(--gcds-topic-menu-themelist-width)}.sc-gcds-topic-menu-h .gcds-topic-menu [role=menu][data-top-menu]{-webkit-box-shadow:var(--gcds-topic-menu-topiclist-box-shadow);box-shadow:var(--gcds-topic-menu-topiclist-box-shadow)}.sc-gcds-topic-menu-h .gcds-topic-menu [role=menu]>li{border-inline-start:var(--gcds-topic-menu-border-width) solid var(--gcds-topic-menu-themelist-item-border)}.sc-gcds-topic-menu-h .gcds-topic-menu [role=menu]>li:first-child{border-block-start:var(--gcds-topic-menu-border-width) solid var(--gcds-topic-menu-themelist-item-border)}.sc-gcds-topic-menu-h .gcds-topic-menu [role=menu] [role=menu]{border-block-start:var(--gcds-topic-menu-border-width) solid var(--gcds-topic-menu-topiclist-border);color:var(--gcds-topic-menu-topiclist-text);left:var(--gcds-topic-menu-topiclist-left);margin-block-end:var(--gcds-topic-menu-topiclist-margin-block-end);min-height:var(--gcds-topic-menu-topiclist-min-height);padding:var(--gcds-topic-menu-topiclist-padding);top:0;width:var(--gcds-topic-menu-topiclist-width)}.sc-gcds-topic-menu-h .gcds-topic-menu [role=menu] [role=menu] li{border:0;width:45%}.sc-gcds-topic-menu-h .gcds-topic-menu [role=menu] [role=menu] li [role=menuitem]{border-block-end:0;border-inline-end:0;color:var(--gcds-topic-menu-topiclist-menuitem-text);padding:var(--gcds-topic-menu-topiclist-menuitem-padding);text-decoration:underline;width:auto}.sc-gcds-topic-menu-h .gcds-topic-menu [role=menu] [role=menu] li [role=menuitem][aria-haspopup=true],.sc-gcds-topic-menu-h .gcds-topic-menu [role=menu] [role=menu] li [role=menuitem][aria-haspopup=true]:hover{color:var(--gcds-topic-menu-topiclist-menuitem-popup-text);font:var(--gcds-topic-menu-topiclist-menuitem-popup-font);text-decoration:none}@media (hover:hover){.sc-gcds-topic-menu-h .gcds-topic-menu [role=menu] [role=menu] li [role=menuitem]:hover{color:var(--gcds-topic-menu-topiclist-menuitem-hover-text);text-decoration-thickness:var(\n                    --gcds-topic-menu-topiclist-menuitem-hover-text-decoration-thickness\n                  )}}.sc-gcds-topic-menu-h .gcds-topic-menu [role=menu] [role=menu] li:first-child{margin-block-end:var(\n                --gcds-topic-menu-topiclist-item-first-margin-block-end\n              );width:100%}.sc-gcds-topic-menu-h .gcds-topic-menu [role=menu] [role=menu] li:first-child [role=menuitem]{font:var(--gcds-topic-menu-topiclist-item-first-font);text-decoration:underline}.sc-gcds-topic-menu-h .gcds-topic-menu [role=menu] [role=menu] li:last-child{left:var(--gcds-topic-menu-topiclist-item-last-left);position:absolute;top:var(--gcds-topic-menu-topiclist-item-last-top)}.sc-gcds-topic-menu-h .gcds-topic-menu [role=menu] [role=menu] li:last-child [aria-expanded=true]{background:transparent}.sc-gcds-topic-menu-h .gcds-topic-menu [role=menu] [role=menu] li:last-child [role=menu]{list-style:disc;padding-block-start:0}.sc-gcds-topic-menu-h .gcds-topic-menu [role=menu] [role=menu] [role=menu]{background:transparent;border-block-start:0;-webkit-box-shadow:none;box-shadow:none;left:auto;min-height:auto;top:auto;width:auto}.sc-gcds-topic-menu-h .gcds-topic-menu [role=menu] [role=menu] [role=menu] li{width:var(--gcds-topic-menu-mostrequested-item-width)}.sc-gcds-topic-menu-h .gcds-topic-menu [role=menu] [role=menu] [role=menu] li:first-child{margin-block-end:var(\n                  --gcds-topic-menu-mostrequested-item-first-margin-block-end\n                )}.sc-gcds-topic-menu-h .gcds-topic-menu [role=menu] [role=menu] [role=menu] li:first-child [role=menuitem]{font:inherit;text-decoration:underline;width:auto}.sc-gcds-topic-menu-h .gcds-topic-menu [role=menu] [role=menu] [role=menu] li:last-child{left:auto;position:relative;top:auto}@media screen and (61.9375rem <= width <= 74.9375rem){.sc-gcds-topic-menu-h .gcds-topic-menu [role=menu] [role=menu] li{width:auto}.sc-gcds-topic-menu-h .gcds-topic-menu [role=menu] [role=menu] li:last-child{left:auto;margin-block-start:var(\n                --gcds-topic-menu-mostrequested-item-last-margin-block-start\n              );position:relative;top:auto}.sc-gcds-topic-menu-h .gcds-topic-menu [role=menu] [role=menu] [role=menu]{margin-block-end:0;padding-block-end:0;position:relative}.sc-gcds-topic-menu-h .gcds-topic-menu [role=menu] [role=menu] [role=menu] li:last-child{margin-block-start:0}}.sc-gcds-topic-menu-h .gcds-topic-menu [role=menuitem],.sc-gcds-topic-menu-h .gcds-topic-menu [role=menuitem]:visited{border-block-end:var(--gcds-topic-menu-border-width) solid var(--gcds-topic-menu-menuitem-border-block-end);box-sizing:border-box;color:var(--gcds-topic-menu-menuitem-text);display:block;font:var(--gcds-topic-menu-font);padding:var(--gcds-topic-menu-menuitem-padding);text-decoration:none;text-underline-offset:var(\n          --gcds-topic-menu-menuitem-text-underline-offset\n        );width:var(--gcds-topic-menu-menuitem-width)}.sc-gcds-topic-menu-h .gcds-topic-menu [role=menuitem]:focus,.sc-gcds-topic-menu-h .gcds-topic-menu [role=menuitem]:visited:focus{z-index:9999!important}.sc-gcds-topic-menu-h .gcds-topic-menu [role=menuitem]:hover,.sc-gcds-topic-menu-h .gcds-topic-menu [role=menuitem]:visited:hover,.sc-gcds-topic-menu-h .gcds-topic-menu [role=menuitem]:visited[aria-expanded=true],.sc-gcds-topic-menu-h .gcds-topic-menu [role=menuitem][aria-expanded=true]{background-color:var(--gcds-topic-menu-menuitem-expanded-background);color:var(--gcds-topic-menu-menuitem-expanded-text)}.sc-gcds-topic-menu-h .gcds-topic-menu [role=menuitem][aria-haspopup=true][aria-expanded=false][aria-controls]:not([aria-controls*=sub]){background-color:var(--gcds-topic-menu-themelist-background)}}@layer mobile{@media screen and (width <= 61.9375rem){.sc-gcds-topic-menu-h .gcds-topic-menu .visible-sm-inline{display:inline-block;text-decoration:underline}.sc-gcds-topic-menu-h .gcds-topic-menu .hidden-sm{display:none}.sc-gcds-topic-menu-h .gcds-topic-menu [role=menu]{margin-block-end:var(\n          --gcds-topic-menu-mobile-themelist-margin-block-start\n        );position:static;width:auto}.sc-gcds-topic-menu-h .gcds-topic-menu [role=menu] [role=menu]{border-block-start:0;-webkit-box-shadow:none;box-shadow:none;margin-block-end:0;min-height:auto;padding:0;width:auto}.sc-gcds-topic-menu-h .gcds-topic-menu [role=menu] [role=menu] li{width:auto}.sc-gcds-topic-menu-h .gcds-topic-menu [role=menu] [role=menu] li [role=menuitem]{border-block-end:var(--gcds-topic-menu-border-width) solid var(\n                  --gcds-topic-menu-mobile-topiclist-menuitem-border-block-end\n                );padding:var(--gcds-topic-menu-mobile-topiclist-menuitem-padding)}@media (hover:hover){.sc-gcds-topic-menu-h .gcds-topic-menu [role=menu] [role=menu] li [role=menuitem]:hover{background-color:transparent;color:var(\n                    --gcds-topic-menu-mobile-topiclist-menuitem-hover-text\n                  )}}.sc-gcds-topic-menu-h .gcds-topic-menu [role=menu] [role=menu] li [role=menuitem][aria-haspopup]{font:inherit}.sc-gcds-topic-menu-h .gcds-topic-menu [role=menu] [role=menu] li:first-child{margin-block-end:0}.sc-gcds-topic-menu-h .gcds-topic-menu [role=menu] [role=menu] li:first-child [role=menuitem]{border-block-end:var(--gcds-topic-menu-border-width) solid var(\n                  --gcds-topic-menu-mobile-topiclist-item-first-menuitem-border\n                );color:var(\n                --gcds-topic-menu-mobile-topiclist-item-first-menuitem-text\n              );text-decoration:underline;width:auto}.sc-gcds-topic-menu-h .gcds-topic-menu [role=menu] [role=menu] li:last-child{left:auto;position:static;top:auto}.sc-gcds-topic-menu-h .gcds-topic-menu [role=menu] [role=menu] li:last-child [role=menuitem]{border-block-end:var(--gcds-topic-menu-border-width) solid var(--gcds-topic-menu-mobile-mostrequested-border);color:var(\n                --gcds-topic-menu-mobile-topiclist-item-last-menuitem-text\n              );text-decoration:none}@media (hover:hover){.sc-gcds-topic-menu-h .gcds-topic-menu [role=menu] [role=menu] li:last-child [role=menuitem]:hover{color:var(\n                    --gcds-topic-menu-mobile-topiclist-item-last-menuitem-hover-text\n                  );text-decoration:underline}}.sc-gcds-topic-menu-h .gcds-topic-menu [role=menu] [role=menu] li:last-child [role=menu]{list-style:none;padding-block-start:0}.sc-gcds-topic-menu-h .gcds-topic-menu [role=menu] [role=menu] li:last-child [role=menu] li{width:auto}.sc-gcds-topic-menu-h .gcds-topic-menu [role=menu] [role=menu] li:last-child [role=menu] li [role=menuitem]{border-block-end:var(--gcds-topic-menu-border-width) solid var(--gcds-topic-menu-mobile-mostrequested-border)}@media (hover:hover){.sc-gcds-topic-menu-h .gcds-topic-menu [role=menu] [role=menu] li:last-child [role=menu] li [role=menuitem]:hover{color:var(\n                        --gcds-topic-menu-mobile-mostrequested-hover-text\n                      );text-decoration:underline}}.sc-gcds-topic-menu-h .gcds-topic-menu [role=menu] [role=menu] li:first-child,.sc-gcds-topic-menu-h .gcds-topic-menu [role=menu] [role=menu] li:last-child{background-color:var(\n              --gcds-topic-menu-mobile-mostrequested-background\n            )}.sc-gcds-topic-menu-h .gcds-topic-menu [role=menuitem]{width:auto}.sc-gcds-topic-menu-h .gcds-topic-menu [aria-expanded=true]:not(button)+[role=menu] li{margin-inline-start:var(\n              --gcds-topic-menu-mobile-item-expanded-margin-inline-start\n            )}.sc-gcds-topic-menu-h .gcds-topic-menu [aria-expanded=true]:not(button)+[role=menu] li:first-child,.sc-gcds-topic-menu-h .gcds-topic-menu [aria-expanded=true]:not(button)+[role=menu] li:last-child{margin-inline-start:0}.sc-gcds-topic-menu-h .gcds-topic-menu [aria-expanded=true]:not(button)+[role=menu] li:first-child [role=menuitem],.sc-gcds-topic-menu-h .gcds-topic-menu [aria-expanded=true]:not(button)+[role=menu] li:last-child [role=menuitem]{padding-inline-start:var(\n                  --gcds-topic-menu-mobile-item-expanded-padding-inline-start\n                )}.sc-gcds-topic-menu-h .gcds-topic-menu [aria-expanded=true]:not(button)+[role=menu] li:last-child [role=menu] [role=menuitem]{padding-inline-start:0}.sc-gcds-topic-menu-h .gcds-topic-menu [aria-expanded=true]:not(button)+[role=menu] [role=menu] li{margin-inline-start:var(\n              --gcds-topic-menu-mobile-mostrequested-expanded-margin-inline-start\n            )}.sc-gcds-topic-menu-h .gcds-topic-menu [aria-expanded=true]+[role=menu] [role=menu] [role=menu]{background-color:var(\n            --gcds-topic-menu-mobile-mostrequested-background\n          )}.sc-gcds-topic-menu-h .gcds-topic-menu [aria-haspopup]:not(button):before{content:\"\\25BA\\a0\"}.sc-gcds-topic-menu-h .gcds-topic-menu [aria-haspopup][aria-expanded=true]:not(button):before{content:\"\\25BC\\a0\"}.sc-gcds-topic-menu-h .gcds-topic-menu button[aria-haspopup=true][aria-expanded=true]+[role=menu]{border-inline-end:var(--gcds-topic-menu-border-width) solid var(--gcds-topic-menu-mobile-themelist-border)}}}@layer xsMobile{@media screen and (width <= 47.9375rem){.sc-gcds-topic-menu-h .gcds-topic-menu>[role=menu]{margin-inline:calc(-50vw - -50%)}}}@layer focus{.sc-gcds-topic-menu-h .gcds-topic-menu :is(button[aria-haspopup=true],[role=menuitem]):focus{background-color:var(--gcds-topic-menu-focus-background);border-color:var(--gcds-topic-menu-focus-background);border-inline-end:0;border-radius:var(--gcds-topic-menu-focus-border-radius);box-shadow:var(--gcds-topic-menu-focus-box-shadow);color:var(--gcds-topic-menu-focus-text);outline:var(--gcds-topic-menu-focus-outline);outline-offset:var(--gcds-topic-menu-focus-outline-offset)}}";
-var GcdsTopicMenuStyle0 = gcdsTopicMenuCss;
+const gcdsTopicMenuCss = "@layer reset, default, mobile, xsMobile, focus;@layer reset{:host{display:block}:host *{box-sizing:border-box;margin:0}}@layer default{:host .gcds-topic-menu__heading,:host .gcds-topic-menu__main{display:inherit;height:0;margin:0;overflow:hidden;width:0}:host .visible-sm-inline{display:none}:host .gcds-topic-menu{font:var(--gcds-topic-menu-font);margin-inline:auto;max-width:var(--gcds-topic-menu-max-width);position:relative;width:90%}:host .gcds-topic-menu button[aria-haspopup=true]{background-color:var(--gcds-topic-menu-button-background);border:var(--gcds-topic-menu-border-width) solid var(--gcds-topic-menu-button-border);color:var(--gcds-topic-menu-button-text);cursor:pointer;font:inherit;margin-inline-start:0;padding:var(--gcds-topic-menu-button-padding);text-transform:uppercase}:host .gcds-topic-menu button[aria-haspopup=true].gcds-topic-menu--home{background-color:var(--gcds-topic-menu-button-home-background);border-color:var(--gcds-topic-menu-button-home-border-color);color:var(--gcds-topic-menu-button-home-text)}:host .gcds-topic-menu button[aria-haspopup=true]:hover,:host .gcds-topic-menu button[aria-haspopup=true][aria-expanded=true]{background-color:var(--gcds-topic-menu-button-expanded-background);border-color:var(--gcds-topic-menu-button-expanded-border-color);color:var(--gcds-topic-menu-button-expanded-text)}:host .gcds-topic-menu [aria-haspopup=true][aria-expanded=false]+[role=menu]{display:none}:host .gcds-topic-menu button[aria-haspopup=true][aria-expanded=true]+[role=menu]{z-index:9991}:host .gcds-topic-menu button[aria-haspopup=true][aria-expanded=true]+[role=menu] [role=menuitem]{position:relative;z-index:9991}:host .gcds-topic-menu [aria-haspopup=true][aria-expanded=true]+[role=menu]{z-index:9990}:host .gcds-topic-menu [role=menu]{background-color:var(--gcds-topic-menu-topiclist-background);color:var(--gcds-topic-menu-themelist-text);list-style:none;margin:0;padding:0;position:absolute;width:var(--gcds-topic-menu-themelist-width)}:host .gcds-topic-menu [role=menu][data-top-menu]{-webkit-box-shadow:var(--gcds-topic-menu-topiclist-box-shadow);box-shadow:var(--gcds-topic-menu-topiclist-box-shadow)}:host .gcds-topic-menu [role=menu]>li{border-inline-start:var(--gcds-topic-menu-border-width) solid var(--gcds-topic-menu-themelist-item-border)}:host .gcds-topic-menu [role=menu]>li:first-child{border-block-start:var(--gcds-topic-menu-border-width) solid var(--gcds-topic-menu-themelist-item-border)}:host .gcds-topic-menu [role=menu] [role=menu]{border-block-start:var(--gcds-topic-menu-border-width) solid var(--gcds-topic-menu-topiclist-border);color:var(--gcds-topic-menu-topiclist-text);left:var(--gcds-topic-menu-topiclist-left);margin-block-end:var(--gcds-topic-menu-topiclist-margin-block-end);min-height:var(--gcds-topic-menu-topiclist-min-height);padding:var(--gcds-topic-menu-topiclist-padding);top:0;width:var(--gcds-topic-menu-topiclist-width)}:host .gcds-topic-menu [role=menu] [role=menu] li{border:0;width:45%}:host .gcds-topic-menu [role=menu] [role=menu] li [role=menuitem]{border-block-end:0;border-inline-end:0;color:var(--gcds-topic-menu-topiclist-menuitem-text);padding:var(--gcds-topic-menu-topiclist-menuitem-padding);text-decoration:underline;width:auto}:host .gcds-topic-menu [role=menu] [role=menu] li [role=menuitem][aria-haspopup=true],:host .gcds-topic-menu [role=menu] [role=menu] li [role=menuitem][aria-haspopup=true]:hover{color:var(--gcds-topic-menu-topiclist-menuitem-popup-text);font:var(--gcds-topic-menu-topiclist-menuitem-popup-font);text-decoration:none}@media (hover:hover){:host .gcds-topic-menu [role=menu] [role=menu] li [role=menuitem]:hover{color:var(--gcds-topic-menu-topiclist-menuitem-hover-text);text-decoration-thickness:var(\n                    --gcds-topic-menu-topiclist-menuitem-hover-text-decoration-thickness\n                  )}}:host .gcds-topic-menu [role=menu] [role=menu] li:first-child{margin-block-end:var(\n                --gcds-topic-menu-topiclist-item-first-margin-block-end\n              );width:100%}:host .gcds-topic-menu [role=menu] [role=menu] li:first-child [role=menuitem]{font:var(--gcds-topic-menu-topiclist-item-first-font);text-decoration:underline}:host .gcds-topic-menu [role=menu] [role=menu] li:last-child{left:var(--gcds-topic-menu-topiclist-item-last-left);position:absolute;top:var(--gcds-topic-menu-topiclist-item-last-top)}:host .gcds-topic-menu [role=menu] [role=menu] li:last-child [aria-expanded=true]{background:transparent}:host .gcds-topic-menu [role=menu] [role=menu] li:last-child [role=menu]{list-style:disc;padding-block-start:0}:host .gcds-topic-menu [role=menu] [role=menu] [role=menu]{background:transparent;border-block-start:0;-webkit-box-shadow:none;box-shadow:none;left:auto;min-height:auto;top:auto;width:auto}:host .gcds-topic-menu [role=menu] [role=menu] [role=menu] li{width:var(--gcds-topic-menu-mostrequested-item-width)}:host .gcds-topic-menu [role=menu] [role=menu] [role=menu] li:first-child{margin-block-end:var(\n                  --gcds-topic-menu-mostrequested-item-first-margin-block-end\n                )}:host .gcds-topic-menu [role=menu] [role=menu] [role=menu] li:first-child [role=menuitem]{font:inherit;text-decoration:underline;width:auto}:host .gcds-topic-menu [role=menu] [role=menu] [role=menu] li:last-child{left:auto;position:relative;top:auto}@media screen and (61.9375rem <= width <= 74.9375rem){:host .gcds-topic-menu [role=menu] [role=menu] li{width:auto}:host .gcds-topic-menu [role=menu] [role=menu] li:last-child{left:auto;margin-block-start:var(\n                --gcds-topic-menu-mostrequested-item-last-margin-block-start\n              );position:relative;top:auto}:host .gcds-topic-menu [role=menu] [role=menu] [role=menu]{margin-block-end:0;padding-block-end:0;position:relative}:host .gcds-topic-menu [role=menu] [role=menu] [role=menu] li:last-child{margin-block-start:0}}:host .gcds-topic-menu [role=menuitem],:host .gcds-topic-menu [role=menuitem]:visited{border-block-end:var(--gcds-topic-menu-border-width) solid var(--gcds-topic-menu-menuitem-border-block-end);box-sizing:border-box;color:var(--gcds-topic-menu-menuitem-text);display:block;font:var(--gcds-topic-menu-font);padding:var(--gcds-topic-menu-menuitem-padding);text-decoration:none;text-underline-offset:var(\n          --gcds-topic-menu-menuitem-text-underline-offset\n        );width:var(--gcds-topic-menu-menuitem-width)}:host .gcds-topic-menu [role=menuitem]:focus,:host .gcds-topic-menu [role=menuitem]:visited:focus{z-index:9999!important}:host .gcds-topic-menu [role=menuitem]:hover,:host .gcds-topic-menu [role=menuitem]:visited:hover,:host .gcds-topic-menu [role=menuitem]:visited[aria-expanded=true],:host .gcds-topic-menu [role=menuitem][aria-expanded=true]{background-color:var(--gcds-topic-menu-menuitem-expanded-background);color:var(--gcds-topic-menu-menuitem-expanded-text)}:host .gcds-topic-menu [role=menuitem][aria-haspopup=true][aria-expanded=false][aria-controls]:not([aria-controls*=sub]){background-color:var(--gcds-topic-menu-themelist-background)}}@layer mobile{@media screen and (width <= 61.9375rem){:host .gcds-topic-menu .visible-sm-inline{display:inline-block;text-decoration:underline}:host .gcds-topic-menu .hidden-sm{display:none}:host .gcds-topic-menu [role=menu]{margin-block-end:var(\n          --gcds-topic-menu-mobile-themelist-margin-block-start\n        );position:static;width:auto}:host .gcds-topic-menu [role=menu] [role=menu]{border-block-start:0;-webkit-box-shadow:none;box-shadow:none;margin-block-end:0;min-height:auto;padding:0;width:auto}:host .gcds-topic-menu [role=menu] [role=menu] li{width:auto}:host .gcds-topic-menu [role=menu] [role=menu] li [role=menuitem]{border-block-end:var(--gcds-topic-menu-border-width) solid var(\n                  --gcds-topic-menu-mobile-topiclist-menuitem-border-block-end\n                );padding:var(--gcds-topic-menu-mobile-topiclist-menuitem-padding)}@media (hover:hover){:host .gcds-topic-menu [role=menu] [role=menu] li [role=menuitem]:hover{background-color:transparent;color:var(\n                    --gcds-topic-menu-mobile-topiclist-menuitem-hover-text\n                  )}}:host .gcds-topic-menu [role=menu] [role=menu] li [role=menuitem][aria-haspopup]{font:inherit}:host .gcds-topic-menu [role=menu] [role=menu] li:first-child{margin-block-end:0}:host .gcds-topic-menu [role=menu] [role=menu] li:first-child [role=menuitem]{border-block-end:var(--gcds-topic-menu-border-width) solid var(\n                  --gcds-topic-menu-mobile-topiclist-item-first-menuitem-border\n                );color:var(\n                --gcds-topic-menu-mobile-topiclist-item-first-menuitem-text\n              );text-decoration:underline;width:auto}:host .gcds-topic-menu [role=menu] [role=menu] li:last-child{left:auto;position:static;top:auto}:host .gcds-topic-menu [role=menu] [role=menu] li:last-child [role=menuitem]{border-block-end:var(--gcds-topic-menu-border-width) solid var(--gcds-topic-menu-mobile-mostrequested-border);color:var(\n                --gcds-topic-menu-mobile-topiclist-item-last-menuitem-text\n              );text-decoration:none}@media (hover:hover){:host .gcds-topic-menu [role=menu] [role=menu] li:last-child [role=menuitem]:hover{color:var(\n                    --gcds-topic-menu-mobile-topiclist-item-last-menuitem-hover-text\n                  );text-decoration:underline}}:host .gcds-topic-menu [role=menu] [role=menu] li:last-child [role=menu]{list-style:none;padding-block-start:0}:host .gcds-topic-menu [role=menu] [role=menu] li:last-child [role=menu] li{width:auto}:host .gcds-topic-menu [role=menu] [role=menu] li:last-child [role=menu] li [role=menuitem]{border-block-end:var(--gcds-topic-menu-border-width) solid var(--gcds-topic-menu-mobile-mostrequested-border)}@media (hover:hover){:host .gcds-topic-menu [role=menu] [role=menu] li:last-child [role=menu] li [role=menuitem]:hover{color:var(\n                        --gcds-topic-menu-mobile-mostrequested-hover-text\n                      );text-decoration:underline}}:host .gcds-topic-menu [role=menu] [role=menu] li:first-child,:host .gcds-topic-menu [role=menu] [role=menu] li:last-child{background-color:var(\n              --gcds-topic-menu-mobile-mostrequested-background\n            )}:host .gcds-topic-menu [role=menuitem]{width:auto}:host .gcds-topic-menu [aria-expanded=true]:not(button)+[role=menu] li{margin-inline-start:var(\n              --gcds-topic-menu-mobile-item-expanded-margin-inline-start\n            )}:host .gcds-topic-menu [aria-expanded=true]:not(button)+[role=menu] li:first-child,:host .gcds-topic-menu [aria-expanded=true]:not(button)+[role=menu] li:last-child{margin-inline-start:0}:host .gcds-topic-menu [aria-expanded=true]:not(button)+[role=menu] li:first-child [role=menuitem],:host .gcds-topic-menu [aria-expanded=true]:not(button)+[role=menu] li:last-child [role=menuitem]{padding-inline-start:var(\n                  --gcds-topic-menu-mobile-item-expanded-padding-inline-start\n                )}:host .gcds-topic-menu [aria-expanded=true]:not(button)+[role=menu] li:last-child [role=menu] [role=menuitem]{padding-inline-start:0}:host .gcds-topic-menu [aria-expanded=true]:not(button)+[role=menu] [role=menu] li{margin-inline-start:var(\n              --gcds-topic-menu-mobile-mostrequested-expanded-margin-inline-start\n            )}:host .gcds-topic-menu [aria-expanded=true]+[role=menu] [role=menu] [role=menu]{background-color:var(\n            --gcds-topic-menu-mobile-mostrequested-background\n          )}:host .gcds-topic-menu [aria-haspopup]:not(button):before{content:\"\\25BA\\a0\"}:host .gcds-topic-menu [aria-haspopup][aria-expanded=true]:not(button):before{content:\"\\25BC\\a0\"}:host .gcds-topic-menu button[aria-haspopup=true][aria-expanded=true]+[role=menu]{border-inline-end:var(--gcds-topic-menu-border-width) solid var(--gcds-topic-menu-mobile-themelist-border)}}}@layer xsMobile{@media screen and (width <= 47.9375rem){:host .gcds-topic-menu>[role=menu]{margin-inline:calc(-50vw - -50%)}}}@layer focus{:host .gcds-topic-menu :is(button[aria-haspopup=true],[role=menuitem]):focus{background-color:var(--gcds-topic-menu-focus-background);border-color:var(--gcds-topic-menu-focus-background);border-inline-end:0;border-radius:var(--gcds-topic-menu-focus-border-radius);box-shadow:var(--gcds-topic-menu-focus-box-shadow);color:var(--gcds-topic-menu-focus-text);outline:var(--gcds-topic-menu-focus-outline);outline-offset:var(--gcds-topic-menu-focus-outline-offset)}}";
 
 class GcdsTopicMenu {
     constructor(hostRef) {
         registerInstance(this, hostRef);
+        /**
+         * Props
+         */
+        /**
+         * Sets the homepage styling
+         */
         this.home = false;
+        /**
+         * States
+         */
+        /**
+         * Open state of menu
+         */
         this.open = false;
-        this.lang = undefined;
+        /**
+         * Queue of nav items for keyboard navigation
+         */
         this.navItems = [];
-        this.navSize = undefined;
     }
     /**
      * Keyboard controls of theme and topic menu
@@ -9018,7 +10141,7 @@ class GcdsTopicMenu {
         return (hAsync(Host, { key: '11a4e6cac47292c67d67f2860368ad937610475e' }, hAsync("nav", { key: '9649d4b517f8a95ccfcbf5130a3429c639d45e1a', class: "gcds-topic-menu", "aria-labelledby": "gcds-topic-menu__heading" }, hAsync("gcds-sr-only", { key: '8b11792760daf57c8991c78b0258dba19f78d57f', id: "gcds-topic-menu__heading", tag: "h2" }, I18N$1[lang].menuLabelFull), hAsync("button", { key: '41190295fe3d65d13aa28f44fedf010bef4059d6', "aria-haspopup": "true", "aria-expanded": this.open.toString(), "aria-label": I18N$1[lang].buttonLabel, onClick: async () => await this.toggleNav(), ref: element => (this.menuButton = element), class: home && 'gcds-topic-menu--home' }, this.lang == 'en' ? (hAsync(Fragment, null, hAsync("gcds-sr-only", { tag: "span" }, I18N$1[lang].menuLabelHidden), I18N$1[lang].menuToggle)) : (hAsync(Fragment, null, I18N$1[lang].menuToggle, hAsync("gcds-sr-only", { tag: "span" }, I18N$1[lang].menuLabelHidden))), hAsync("gcds-icon", { key: '1f378ba85facaa6aa9610ef2cf45b504870b7064', name: "chevron-down", "margin-left": "100", size: "text-small" })), hAsync("ul", { key: 'a9250f162fe7f32ec9c0b561366d2723834e0990', role: "menu", "aria-orientation": "vertical", "data-top-menu": true, innerHTML: this.listItems, ref: element => (this.themeList = element) }))));
     }
     get el() { return getElement(this); }
-    static get style() { return GcdsTopicMenuStyle0; }
+    static get style() { return gcdsTopicMenuCss; }
     static get cmpMeta() { return {
         "$flags$": 9,
         "$tagName$": "gcds-topic-menu",
@@ -9103,15 +10226,22 @@ var ContentToggleArrow = `<svg xmlns="http://www.w3.org/2000/svg"  width="12" he
   <path d="M10.6,0L6,4.6L1.4,0L0,1.4l6,6l6-6L10.6,0z" />
 </svg>`;
 
-const gcdsVerifyBannerCss = "@layer reset, default, fixed, container;@layer reset{.sc-gcds-verify-banner-h{display:block}}@layer default{.sc-gcds-verify-banner-h .gcds-verify-banner{background-color:var(--gcds-verify-banner-background);color:var(--gcds-verify-banner-text);font:var(--gcds-verify-banner-font)}.sc-gcds-verify-banner-h .gcds-verify-banner :is(summary,.verify-banner__content){font-size:90%}.sc-gcds-verify-banner-h .gcds-verify-banner summary{cursor:pointer;display:flex;margin-inline:auto;padding-block:var(--gcds-verify-banner-summary-padding)}.sc-gcds-verify-banner-h .gcds-verify-banner summary :is(.svg-container,p small){margin:var(--gcds-verify-banner-summary-content-margin)}.sc-gcds-verify-banner-h .gcds-verify-banner summary p{align-items:center;display:flex;flex-wrap:wrap;line-height:var(--gcds-verify-banner-line-height);margin:0}.sc-gcds-verify-banner-h .gcds-verify-banner summary .verify-banner__toggle{background:none;border:0;color:var(--gcds-verify-banner-toggle-text);flex:0 0 auto;font-weight:var(--gcds-verify-banner-toggle-font-weight);padding:0;pointer-events:none;text-decoration:underline}.sc-gcds-verify-banner-h .gcds-verify-banner summary .verify-banner__toggle .svg-container path{fill:var(--gcds-verify-banner-toggle-text)}.sc-gcds-verify-banner-h .gcds-verify-banner .verify-banner__content{border-block-start:var(--gcds-verify-banner-content-border-width) solid var(--gcds-verify-banner-content-border-color);margin:0 auto;padding-block-end:var(--gcds-verify-banner-content-padding-block-end);padding-block-start:var(\n        --gcds-verify-banner-content-padding-block-start\n      )}.sc-gcds-verify-banner-h .gcds-verify-banner .verify-banner__content li{list-style:none}.sc-gcds-verify-banner-h .gcds-verify-banner .verify-banner__content li :is(h4,p){width:90%}.sc-gcds-verify-banner-h .gcds-verify-banner .verify-banner__content h4{margin:var(--gcds-verify-banner-content-heading-margin)}.sc-gcds-verify-banner-h .gcds-verify-banner .verify-banner__content p{line-height:var(--gcds-verify-banner-line-height);margin:0}.sc-gcds-verify-banner-h .gcds-verify-banner[open] summary .verify-banner__toggle svg{transform:rotate(-180deg)}}@layer fixed{.sc-gcds-verify-banner-h .gcds-verify-banner.verify-banner--is-fixed{position:sticky;top:0;width:var(--gcds-verify-banner-max-content-width-full);z-index:9999}}@layer container{.sc-gcds-verify-banner-h .gcds-verify-banner .container-lg,.sc-gcds-verify-banner-h .gcds-verify-banner .container-md,.sc-gcds-verify-banner-h .gcds-verify-banner .container-sm,.sc-gcds-verify-banner-h .gcds-verify-banner .container-xl,.sc-gcds-verify-banner-h .gcds-verify-banner .container-xs{width:90%}.sc-gcds-verify-banner-h .gcds-verify-banner .container-full{max-width:var(--gcds-verify-banner-container-full);padding-inline:var(--gcds-verify-banner-container-padding)}.sc-gcds-verify-banner-h .gcds-verify-banner .container-xl{max-width:var(--gcds-verify-banner-container-xl)}.sc-gcds-verify-banner-h .gcds-verify-banner .container-lg{max-width:var(--gcds-verify-banner-container-lg)}.sc-gcds-verify-banner-h .gcds-verify-banner .container-md{max-width:var(--gcds-verify-banner-container-md)}.sc-gcds-verify-banner-h .gcds-verify-banner .container-sm{max-width:var(--gcds-verify-banner-container-sm)}.sc-gcds-verify-banner-h .gcds-verify-banner .container-xs{max-width:var(--gcds-verify-banner-container-xs)}}";
-var GcdsVerifyBannerStyle0 = gcdsVerifyBannerCss;
+const gcdsVerifyBannerCss = "@layer reset, default, fixed, container;@layer reset{:host{display:block}}@layer default{:host .gcds-verify-banner{background-color:var(--gcds-verify-banner-background);color:var(--gcds-verify-banner-text);font:var(--gcds-verify-banner-font)}:host .gcds-verify-banner :is(summary,.verify-banner__content){font-size:90%}:host .gcds-verify-banner summary{cursor:pointer;display:flex;margin-inline:auto;padding-block:var(--gcds-verify-banner-summary-padding)}:host .gcds-verify-banner summary :is(.svg-container,p small){margin:var(--gcds-verify-banner-summary-content-margin)}:host .gcds-verify-banner summary p{align-items:center;display:flex;flex-wrap:wrap;line-height:var(--gcds-verify-banner-line-height);margin:0}:host .gcds-verify-banner summary .verify-banner__toggle{background:none;border:0;color:var(--gcds-verify-banner-toggle-text);flex:0 0 auto;font-weight:var(--gcds-verify-banner-toggle-font-weight);padding:0;pointer-events:none;text-decoration:underline}:host .gcds-verify-banner summary .verify-banner__toggle .svg-container path{fill:var(--gcds-verify-banner-toggle-text)}:host .gcds-verify-banner .verify-banner__content{border-block-start:var(--gcds-verify-banner-content-border-width) solid var(--gcds-verify-banner-content-border-color);margin:0 auto;padding-block-end:var(--gcds-verify-banner-content-padding-block-end);padding-block-start:var(\n        --gcds-verify-banner-content-padding-block-start\n      )}:host .gcds-verify-banner .verify-banner__content li{list-style:none}:host .gcds-verify-banner .verify-banner__content li :is(h4,p){width:90%}:host .gcds-verify-banner .verify-banner__content h4{margin:var(--gcds-verify-banner-content-heading-margin)}:host .gcds-verify-banner .verify-banner__content p{line-height:var(--gcds-verify-banner-line-height);margin:0}:host .gcds-verify-banner[open] summary .verify-banner__toggle svg{transform:rotate(-180deg)}}@layer fixed{:host .gcds-verify-banner.verify-banner--is-fixed{position:sticky;top:0;width:var(--gcds-verify-banner-max-content-width-full);z-index:9999}}@layer container{:host .gcds-verify-banner .container-lg,:host .gcds-verify-banner .container-md,:host .gcds-verify-banner .container-sm,:host .gcds-verify-banner .container-xl,:host .gcds-verify-banner .container-xs{width:90%}:host .gcds-verify-banner .container-full{max-width:var(--gcds-verify-banner-container-full);padding-inline:var(--gcds-verify-banner-container-padding)}:host .gcds-verify-banner .container-xl{max-width:var(--gcds-verify-banner-container-xl)}:host .gcds-verify-banner .container-lg{max-width:var(--gcds-verify-banner-container-lg)}:host .gcds-verify-banner .container-md{max-width:var(--gcds-verify-banner-container-md)}:host .gcds-verify-banner .container-sm{max-width:var(--gcds-verify-banner-container-sm)}:host .gcds-verify-banner .container-xs{max-width:var(--gcds-verify-banner-container-xs)}}";
 
 class GcdsVerifyBanner {
     constructor(hostRef) {
         registerInstance(this, hostRef);
+        /**
+         * Props
+         */
+        /**
+         * Defines the container width of the verify banner content
+         */
         this.container = 'xl';
+        /**
+         * Defines if the banner's position is fixed.
+         */
         this.isFixed = false;
-        this.lang = undefined;
     }
     /*
      * Observe lang attribute change
@@ -9134,7 +10264,7 @@ class GcdsVerifyBanner {
         return (hAsync(Host, { key: '48153c15ce4d671d0bf60ddbe3d336e5e0be81af' }, hAsync("details", { key: '2e617043b0000ff20429eb9a46324a2f40fb1a95', class: `gcds-verify-banner ${isFixed ? 'verify-banner--is-fixed' : ''}` }, hAsync("summary", { key: '4fa310845587a590815de9ffcb7e7c50354020b9', class: container ? `container-${container}` : '', "aria-expanded": "false", role: "button" }, hAsync("span", { key: '094552cb86ed9ac56935441e352e2ea9ec4671c8', class: "svg-container", innerHTML: CanadaFlag }), hAsync("p", { key: '813aa039eddf1b68d3db854e90165f9314a59888' }, hAsync("small", { key: '2161ed4e25a9680194da06614344365fafe327d1' }, I18N[lang].summary.text), hAsync("button", { key: '5192428be907c4e5d951b5871fd5af436b40c4fd', class: "verify-banner__toggle" }, hAsync("small", { key: 'b18b2fccc1b7bd85dacd2a07a590cad716fe8bc9' }, I18N[lang].summary.link), hAsync("span", { key: '53007393e80408a5486ed2539ca8abdfb2e3808a', class: "svg-container", innerHTML: ContentToggleArrow })))), hAsync("div", { key: 'e7737a8d5fbc9f70aa1579d5258dd5e8053b849c', class: `verify-banner__content ${container ? `container-${container}` : ''}` }, hAsync("p", { key: '474171c6a6bbbb8772e7f0485dfffb51a864ff05' }, hAsync("small", { key: '3bf99ee8fcf04df4f1fdce2e637b561137c38188' }, I18N[lang].content.description)), hAsync("br", { key: 'fd2af592a4462cf079ee227bbe15934fb8d4d5b4' }), hAsync("gcds-grid", { key: '2c3f42400363486e7b662dbc70b4a4a9c873255a', tag: "ul", container: "lg", columns: "1fr", "columns-tablet": container === 'xs' || container === 'sm' ? '1fr' : '1fr 1fr' }, hAsync("li", { key: 'e251f3f8663eebe19d3a59aa9d46822bdc097273' }, hAsync("h4", { key: '277e4d0462a8b78280e5636d87026998efeb9361' }, I18N[lang].content.url.heading), hAsync("p", { key: '8e0b9981deaf0221533ceb24f2f733eec19825f7' }, hAsync("small", { key: 'be67900e62262b8d019e7bdeee7b63e90a1075b3' }, I18N[lang].content.url.text))), hAsync("li", { key: '0893412462dfff8f9f214395295447d9fdd34f16' }, hAsync("h4", { key: '7d3562b810abdd8d961744cb239181e2e1b50580' }, I18N[lang].content.languages.heading), hAsync("p", { key: '0aba8b207788f423a8e4566fccf77d86d3e56ef8' }, hAsync("small", { key: 'c9b4012e2ed096b86a5eefa1f7fe917daa573049' }, I18N[lang].content.languages.text))), hAsync("li", { key: 'e232beacff8ce2f22889e661dbbb0d866f029e28' }, hAsync("h4", { key: '4303bdb3c1209eceba4076dc53162d62d9671a8d' }, I18N[lang].content.https.heading), hAsync("p", { key: '5807627918a98faa18893bd85829561afb3d5746' }, hAsync("small", { key: '7d1b8e8e56cade3c18cac32837c3d5adc3c88889' }, I18N[lang].content.https.text, " ", hAsync("strong", { key: 'f4fcc669ccaa40756d3d69a23b8466188e78a47c' }, "https://"), "."))), hAsync("li", { key: '5e388710ae4ef3923909cc9f0442a18a185243f0' }, hAsync("h4", { key: 'c92b10a99089c96363e126358acf26d2c6098404' }, I18N[lang].content.contact.heading), hAsync("p", { key: '9a6736ffdd9bbd9111411c4aaddbe97256b0db21' }, hAsync("small", { key: 'b7d1b456d226778ecb8087f4086f9cef5dd7593b' }, I18N[lang].content.contact.text))))))));
     }
     get el() { return getElement(this); }
-    static get style() { return GcdsVerifyBannerStyle0; }
+    static get style() { return gcdsVerifyBannerCss; }
     static get cmpMeta() { return {
         "$flags$": 9,
         "$tagName$": "gcds-verify-banner",
@@ -9204,8 +10334,94 @@ exports.hydrateApp = hydrateApp;
   hydrateAppClosure($stencilWindow);
 }
 
+// src/app-data/index.ts
+var BUILD = {
+  allRenderFn: false,
+  element: true,
+  event: true,
+  hasRenderFn: true,
+  hostListener: true,
+  hostListenerTargetWindow: true,
+  hostListenerTargetDocument: true,
+  hostListenerTargetBody: true,
+  hostListenerTargetParent: false,
+  hostListenerTarget: true,
+  member: true,
+  method: true,
+  mode: true,
+  observeAttribute: true,
+  prop: true,
+  propMutable: true,
+  reflect: true,
+  scoped: true,
+  shadowDom: true,
+  slot: true,
+  cssAnnotations: true,
+  state: true,
+  style: true,
+  formAssociated: false,
+  svg: true,
+  updatable: true,
+  vdomAttribute: true,
+  vdomXlink: true,
+  vdomClass: true,
+  vdomFunctional: true,
+  vdomKey: true,
+  vdomListener: true,
+  vdomRef: true,
+  vdomPropOrAttr: true,
+  vdomRender: true,
+  vdomStyle: true,
+  vdomText: true,
+  watchCallback: true,
+  taskQueue: true,
+  hotModuleReplacement: false,
+  isDebug: false,
+  isDev: false,
+  isTesting: false,
+  hydrateServerSide: false,
+  hydrateClientSide: false,
+  lifecycleDOMEvents: false,
+  lazyLoad: false,
+  profile: false,
+  slotRelocation: true,
+  // TODO(STENCIL-914): remove this option when `experimentalSlotFixes` is the default behavior
+  appendChildSlotFix: false,
+  // TODO(STENCIL-914): remove this option when `experimentalSlotFixes` is the default behavior
+  cloneNodeFix: false,
+  hydratedAttribute: false,
+  hydratedClass: true,
+  // TODO(STENCIL-1305): remove this option
+  scriptDataOpts: false,
+  // TODO(STENCIL-914): remove this option when `experimentalSlotFixes` is the default behavior
+  scopedSlotTextContentFix: false,
+  // TODO(STENCIL-854): Remove code related to legacy shadowDomShim field
+  shadowDomShim: false,
+  // TODO(STENCIL-914): remove this option when `experimentalSlotFixes` is the default behavior
+  slotChildNodesFix: false,
+  invisiblePrehydration: true,
+  propBoolean: true,
+  propNumber: true,
+  propString: true,
+  constructableCSS: true,
+  devTools: false,
+  shadowDelegatesFocus: true,
+  initializeNextTick: false,
+  asyncLoading: true,
+  asyncQueue: false,
+  transformTagName: false,
+  attachStyles: true,
+  // TODO(STENCIL-914): remove this option when `experimentalSlotFixes` is the default behavior
+  experimentalSlotFixes: false
+};
+var Env = {};
+var NAMESPACE = (
+  /* default */
+  "app"
+);
+
 /*
- Stencil Hydrate Runner v4.19.2 | MIT Licensed | https://stenciljs.com
+ Stencil Hydrate Runner v4.35.1 | MIT Licensed | https://stenciljs.com
  */
 var __defProp = Object.defineProperty;
 var __export = (target, all) => {
@@ -9218,6 +10434,9 @@ var CONTENT_REF_ID = "r";
 var ORG_LOCATION_ID = "o";
 var SLOT_NODE_ID = "s";
 var TEXT_NODE_ID = "t";
+var HYDRATE_ID = "s-id";
+var HYDRATED_STYLE_ID = "sty-id";
+var STENCIL_DOC_DATA = "_stencilDocData";
 var XLINK_NS = "http://www.w3.org/1999/xlink";
 
 // src/mock-doc/attribute.ts
@@ -9526,8 +10745,8 @@ function jsCaseToCssCase(str) {
 
 // src/mock-doc/custom-element-registry.ts
 var MockCustomElementRegistry = class {
-  constructor(win) {
-    this.win = win;
+  constructor(win2) {
+    this.win = win2;
   }
   define(tagName, cstr, options) {
     if (tagName.toLowerCase() !== tagName) {
@@ -9615,8 +10834,8 @@ var MockCustomElementRegistry = class {
     });
   }
 };
-function createCustomElement(customElements, ownerDocument, tagName) {
-  const Cstr = customElements.get(tagName);
+function createCustomElement(customElements2, ownerDocument, tagName) {
+  const Cstr = customElements2.get(tagName);
   if (Cstr != null) {
     const cmp = new Cstr(ownerDocument);
     cmp.nodeName = tagName.toUpperCase();
@@ -9664,8 +10883,8 @@ function connectNode(ownerDocument, node) {
   node.ownerDocument = ownerDocument;
   if (node.nodeType === 1 /* ELEMENT_NODE */) {
     if (ownerDocument != null && node.nodeName.includes("-")) {
-      const win = ownerDocument.defaultView;
-      if (win != null && typeof node.connectedCallback === "function" && node.isConnected) {
+      const win2 = ownerDocument.defaultView;
+      if (win2 != null && typeof node.connectedCallback === "function" && node.isConnected) {
         fireConnectedCallback(node);
       }
       const shadowRoot = node.shadowRoot;
@@ -9927,8 +11146,21 @@ function triggerEventListener(elm, ev) {
   } else if (elm.parentElement == null && elm.tagName === "HTML") {
     triggerEventListener(elm.ownerDocument, ev);
   } else {
-    triggerEventListener(elm.parentElement, ev);
+    const nextTarget = getNextEventTarget(elm, ev);
+    triggerEventListener(nextTarget, ev);
   }
+}
+function getNextEventTarget(elm, ev) {
+  if (elm.parentElement) {
+    return elm.parentElement;
+  }
+  if (elm.host && ev.composed) {
+    return elm.host;
+  }
+  if (ev.composed && elm.parentNode && elm.parentNode.host) {
+    return elm.parentNode.host;
+  }
+  return null;
 }
 function dispatchEvent(currentTarget, ev) {
   ev.target = currentTarget;
@@ -9985,7 +11217,6 @@ var CODE_POINTS;
   CODE_POINTS2[CODE_POINTS2["SPACE"] = 32] = "SPACE";
   CODE_POINTS2[CODE_POINTS2["EXCLAMATION_MARK"] = 33] = "EXCLAMATION_MARK";
   CODE_POINTS2[CODE_POINTS2["QUOTATION_MARK"] = 34] = "QUOTATION_MARK";
-  CODE_POINTS2[CODE_POINTS2["NUMBER_SIGN"] = 35] = "NUMBER_SIGN";
   CODE_POINTS2[CODE_POINTS2["AMPERSAND"] = 38] = "AMPERSAND";
   CODE_POINTS2[CODE_POINTS2["APOSTROPHE"] = 39] = "APOSTROPHE";
   CODE_POINTS2[CODE_POINTS2["HYPHEN_MINUS"] = 45] = "HYPHEN_MINUS";
@@ -9998,17 +11229,12 @@ var CODE_POINTS;
   CODE_POINTS2[CODE_POINTS2["GREATER_THAN_SIGN"] = 62] = "GREATER_THAN_SIGN";
   CODE_POINTS2[CODE_POINTS2["QUESTION_MARK"] = 63] = "QUESTION_MARK";
   CODE_POINTS2[CODE_POINTS2["LATIN_CAPITAL_A"] = 65] = "LATIN_CAPITAL_A";
-  CODE_POINTS2[CODE_POINTS2["LATIN_CAPITAL_F"] = 70] = "LATIN_CAPITAL_F";
-  CODE_POINTS2[CODE_POINTS2["LATIN_CAPITAL_X"] = 88] = "LATIN_CAPITAL_X";
   CODE_POINTS2[CODE_POINTS2["LATIN_CAPITAL_Z"] = 90] = "LATIN_CAPITAL_Z";
   CODE_POINTS2[CODE_POINTS2["RIGHT_SQUARE_BRACKET"] = 93] = "RIGHT_SQUARE_BRACKET";
   CODE_POINTS2[CODE_POINTS2["GRAVE_ACCENT"] = 96] = "GRAVE_ACCENT";
   CODE_POINTS2[CODE_POINTS2["LATIN_SMALL_A"] = 97] = "LATIN_SMALL_A";
-  CODE_POINTS2[CODE_POINTS2["LATIN_SMALL_F"] = 102] = "LATIN_SMALL_F";
-  CODE_POINTS2[CODE_POINTS2["LATIN_SMALL_X"] = 120] = "LATIN_SMALL_X";
   CODE_POINTS2[CODE_POINTS2["LATIN_SMALL_Z"] = 122] = "LATIN_SMALL_Z";
-  CODE_POINTS2[CODE_POINTS2["REPLACEMENT_CHARACTER"] = 65533] = "REPLACEMENT_CHARACTER";
-})(CODE_POINTS = CODE_POINTS || (CODE_POINTS = {}));
+})(CODE_POINTS || (CODE_POINTS = {}));
 var SEQUENCES = {
   DASH_DASH: "--",
   CDATA_START: "[CDATA[",
@@ -10096,7 +11322,7 @@ var ERR;
   ERR2["misplacedStartTagForHeadElement"] = "misplaced-start-tag-for-head-element";
   ERR2["nestedNoscriptInHead"] = "nested-noscript-in-head";
   ERR2["eofInElementThatCanContainOnlyText"] = "eof-in-element-that-can-contain-only-text";
-})(ERR = ERR || (ERR = {}));
+})(ERR || (ERR = {}));
 
 // node_modules/parse5/dist/tokenizer/preprocessor.js
 var DEFAULT_BUFFER_WATERLINE = 1 << 16;
@@ -10124,22 +11350,24 @@ var Preprocessor = class {
   get offset() {
     return this.droppedBufferSize + this.pos;
   }
-  getError(code) {
+  getError(code, cpOffset) {
     const { line, col, offset } = this;
+    const startCol = col + cpOffset;
+    const startOffset = offset + cpOffset;
     return {
       code,
       startLine: line,
       endLine: line,
-      startCol: col,
-      endCol: col,
-      startOffset: offset,
-      endOffset: offset
+      startCol,
+      endCol: startCol,
+      startOffset,
+      endOffset: startOffset
     };
   }
   _err(code) {
     if (this.handler.onParseError && this.lastErrOffset !== this.offset) {
       this.lastErrOffset = this.offset;
-      this.handler.onParseError(this.getError(code));
+      this.handler.onParseError(this.getError(code, 0));
     }
   }
   _addGap() {
@@ -10282,7 +11510,7 @@ var TokenType;
   TokenType2[TokenType2["DOCTYPE"] = 6] = "DOCTYPE";
   TokenType2[TokenType2["EOF"] = 7] = "EOF";
   TokenType2[TokenType2["HIBERNATION"] = 8] = "HIBERNATION";
-})(TokenType = TokenType || (TokenType = {}));
+})(TokenType || (TokenType = {}));
 function getTokenAttr(token, attrName) {
   for (let i = token.attrs.length - 1; i >= 0; i--) {
     if (token.attrs[i].name === attrName) {
@@ -10651,6 +11879,7 @@ var EntityDecoder = class {
       case EntityDecoderState.NamedEntity: {
         return this.result !== 0 && (this.decodeMode !== DecodingMode.Attribute || this.result === this.treeIndex) ? this.emitNotTerminatedNamedEntity() : 0;
       }
+      // Otherwise, emit a numeric entity if we have one.
       case EntityDecoderState.NumericDecimal: {
         return this.emitNumericEntity(0, 2);
       }
@@ -10727,12 +11956,12 @@ __export(html_exports, {
   ATTRS: () => ATTRS,
   DOCUMENT_MODE: () => DOCUMENT_MODE,
   NS: () => NS,
+  NUMBERED_HEADERS: () => NUMBERED_HEADERS,
   SPECIAL_ELEMENTS: () => SPECIAL_ELEMENTS,
   TAG_ID: () => TAG_ID,
   TAG_NAMES: () => TAG_NAMES,
   getTagID: () => getTagID,
-  hasUnescapedText: () => hasUnescapedText,
-  isNumberedHeader: () => isNumberedHeader
+  hasUnescapedText: () => hasUnescapedText
 });
 var NS;
 (function(NS2) {
@@ -10742,7 +11971,7 @@ var NS;
   NS2["XLINK"] = "http://www.w3.org/1999/xlink";
   NS2["XML"] = "http://www.w3.org/XML/1998/namespace";
   NS2["XMLNS"] = "http://www.w3.org/2000/xmlns/";
-})(NS = NS || (NS = {}));
+})(NS || (NS = {}));
 var ATTRS;
 (function(ATTRS2) {
   ATTRS2["TYPE"] = "type";
@@ -10753,13 +11982,13 @@ var ATTRS;
   ATTRS2["COLOR"] = "color";
   ATTRS2["FACE"] = "face";
   ATTRS2["SIZE"] = "size";
-})(ATTRS = ATTRS || (ATTRS = {}));
+})(ATTRS || (ATTRS = {}));
 var DOCUMENT_MODE;
 (function(DOCUMENT_MODE2) {
   DOCUMENT_MODE2["NO_QUIRKS"] = "no-quirks";
   DOCUMENT_MODE2["QUIRKS"] = "quirks";
   DOCUMENT_MODE2["LIMITED_QUIRKS"] = "limited-quirks";
-})(DOCUMENT_MODE = DOCUMENT_MODE || (DOCUMENT_MODE = {}));
+})(DOCUMENT_MODE || (DOCUMENT_MODE = {}));
 var TAG_NAMES;
 (function(TAG_NAMES2) {
   TAG_NAMES2["A"] = "a";
@@ -10855,6 +12084,7 @@ var TAG_NAMES;
   TAG_NAMES2["RUBY"] = "ruby";
   TAG_NAMES2["S"] = "s";
   TAG_NAMES2["SCRIPT"] = "script";
+  TAG_NAMES2["SEARCH"] = "search";
   TAG_NAMES2["SECTION"] = "section";
   TAG_NAMES2["SELECT"] = "select";
   TAG_NAMES2["SOURCE"] = "source";
@@ -10884,7 +12114,7 @@ var TAG_NAMES;
   TAG_NAMES2["VAR"] = "var";
   TAG_NAMES2["WBR"] = "wbr";
   TAG_NAMES2["XMP"] = "xmp";
-})(TAG_NAMES = TAG_NAMES || (TAG_NAMES = {}));
+})(TAG_NAMES || (TAG_NAMES = {}));
 var TAG_ID;
 (function(TAG_ID2) {
   TAG_ID2[TAG_ID2["UNKNOWN"] = 0] = "UNKNOWN";
@@ -10981,36 +12211,37 @@ var TAG_ID;
   TAG_ID2[TAG_ID2["RUBY"] = 91] = "RUBY";
   TAG_ID2[TAG_ID2["S"] = 92] = "S";
   TAG_ID2[TAG_ID2["SCRIPT"] = 93] = "SCRIPT";
-  TAG_ID2[TAG_ID2["SECTION"] = 94] = "SECTION";
-  TAG_ID2[TAG_ID2["SELECT"] = 95] = "SELECT";
-  TAG_ID2[TAG_ID2["SOURCE"] = 96] = "SOURCE";
-  TAG_ID2[TAG_ID2["SMALL"] = 97] = "SMALL";
-  TAG_ID2[TAG_ID2["SPAN"] = 98] = "SPAN";
-  TAG_ID2[TAG_ID2["STRIKE"] = 99] = "STRIKE";
-  TAG_ID2[TAG_ID2["STRONG"] = 100] = "STRONG";
-  TAG_ID2[TAG_ID2["STYLE"] = 101] = "STYLE";
-  TAG_ID2[TAG_ID2["SUB"] = 102] = "SUB";
-  TAG_ID2[TAG_ID2["SUMMARY"] = 103] = "SUMMARY";
-  TAG_ID2[TAG_ID2["SUP"] = 104] = "SUP";
-  TAG_ID2[TAG_ID2["TABLE"] = 105] = "TABLE";
-  TAG_ID2[TAG_ID2["TBODY"] = 106] = "TBODY";
-  TAG_ID2[TAG_ID2["TEMPLATE"] = 107] = "TEMPLATE";
-  TAG_ID2[TAG_ID2["TEXTAREA"] = 108] = "TEXTAREA";
-  TAG_ID2[TAG_ID2["TFOOT"] = 109] = "TFOOT";
-  TAG_ID2[TAG_ID2["TD"] = 110] = "TD";
-  TAG_ID2[TAG_ID2["TH"] = 111] = "TH";
-  TAG_ID2[TAG_ID2["THEAD"] = 112] = "THEAD";
-  TAG_ID2[TAG_ID2["TITLE"] = 113] = "TITLE";
-  TAG_ID2[TAG_ID2["TR"] = 114] = "TR";
-  TAG_ID2[TAG_ID2["TRACK"] = 115] = "TRACK";
-  TAG_ID2[TAG_ID2["TT"] = 116] = "TT";
-  TAG_ID2[TAG_ID2["U"] = 117] = "U";
-  TAG_ID2[TAG_ID2["UL"] = 118] = "UL";
-  TAG_ID2[TAG_ID2["SVG"] = 119] = "SVG";
-  TAG_ID2[TAG_ID2["VAR"] = 120] = "VAR";
-  TAG_ID2[TAG_ID2["WBR"] = 121] = "WBR";
-  TAG_ID2[TAG_ID2["XMP"] = 122] = "XMP";
-})(TAG_ID = TAG_ID || (TAG_ID = {}));
+  TAG_ID2[TAG_ID2["SEARCH"] = 94] = "SEARCH";
+  TAG_ID2[TAG_ID2["SECTION"] = 95] = "SECTION";
+  TAG_ID2[TAG_ID2["SELECT"] = 96] = "SELECT";
+  TAG_ID2[TAG_ID2["SOURCE"] = 97] = "SOURCE";
+  TAG_ID2[TAG_ID2["SMALL"] = 98] = "SMALL";
+  TAG_ID2[TAG_ID2["SPAN"] = 99] = "SPAN";
+  TAG_ID2[TAG_ID2["STRIKE"] = 100] = "STRIKE";
+  TAG_ID2[TAG_ID2["STRONG"] = 101] = "STRONG";
+  TAG_ID2[TAG_ID2["STYLE"] = 102] = "STYLE";
+  TAG_ID2[TAG_ID2["SUB"] = 103] = "SUB";
+  TAG_ID2[TAG_ID2["SUMMARY"] = 104] = "SUMMARY";
+  TAG_ID2[TAG_ID2["SUP"] = 105] = "SUP";
+  TAG_ID2[TAG_ID2["TABLE"] = 106] = "TABLE";
+  TAG_ID2[TAG_ID2["TBODY"] = 107] = "TBODY";
+  TAG_ID2[TAG_ID2["TEMPLATE"] = 108] = "TEMPLATE";
+  TAG_ID2[TAG_ID2["TEXTAREA"] = 109] = "TEXTAREA";
+  TAG_ID2[TAG_ID2["TFOOT"] = 110] = "TFOOT";
+  TAG_ID2[TAG_ID2["TD"] = 111] = "TD";
+  TAG_ID2[TAG_ID2["TH"] = 112] = "TH";
+  TAG_ID2[TAG_ID2["THEAD"] = 113] = "THEAD";
+  TAG_ID2[TAG_ID2["TITLE"] = 114] = "TITLE";
+  TAG_ID2[TAG_ID2["TR"] = 115] = "TR";
+  TAG_ID2[TAG_ID2["TRACK"] = 116] = "TRACK";
+  TAG_ID2[TAG_ID2["TT"] = 117] = "TT";
+  TAG_ID2[TAG_ID2["U"] = 118] = "U";
+  TAG_ID2[TAG_ID2["UL"] = 119] = "UL";
+  TAG_ID2[TAG_ID2["SVG"] = 120] = "SVG";
+  TAG_ID2[TAG_ID2["VAR"] = 121] = "VAR";
+  TAG_ID2[TAG_ID2["WBR"] = 122] = "WBR";
+  TAG_ID2[TAG_ID2["XMP"] = 123] = "XMP";
+})(TAG_ID || (TAG_ID = {}));
 var TAG_NAME_TO_ID = /* @__PURE__ */ new Map([
   [TAG_NAMES.A, TAG_ID.A],
   [TAG_NAMES.ADDRESS, TAG_ID.ADDRESS],
@@ -11105,6 +12336,7 @@ var TAG_NAME_TO_ID = /* @__PURE__ */ new Map([
   [TAG_NAMES.RUBY, TAG_ID.RUBY],
   [TAG_NAMES.S, TAG_ID.S],
   [TAG_NAMES.SCRIPT, TAG_ID.SCRIPT],
+  [TAG_NAMES.SEARCH, TAG_ID.SEARCH],
   [TAG_NAMES.SECTION, TAG_ID.SECTION],
   [TAG_NAMES.SELECT, TAG_ID.SELECT],
   [TAG_NAMES.SOURCE, TAG_ID.SOURCE],
@@ -11230,9 +12462,7 @@ var SPECIAL_ELEMENTS = {
   [NS.XML]: /* @__PURE__ */ new Set(),
   [NS.XMLNS]: /* @__PURE__ */ new Set()
 };
-function isNumberedHeader(tn) {
-  return tn === $.H1 || tn === $.H2 || tn === $.H3 || tn === $.H4 || tn === $.H5 || tn === $.H6;
-}
+var NUMBERED_HEADERS = /* @__PURE__ */ new Set([$.H1, $.H2, $.H3, $.H4, $.H5, $.H6]);
 var UNESCAPED_TEXT = /* @__PURE__ */ new Set([
   TAG_NAMES.STYLE,
   TAG_NAMES.SCRIPT,
@@ -11247,35 +12477,6 @@ function hasUnescapedText(tn, scriptingEnabled) {
 }
 
 // node_modules/parse5/dist/tokenizer/index.js
-var C1_CONTROLS_REFERENCE_REPLACEMENTS = /* @__PURE__ */ new Map([
-  [128, 8364],
-  [130, 8218],
-  [131, 402],
-  [132, 8222],
-  [133, 8230],
-  [134, 8224],
-  [135, 8225],
-  [136, 710],
-  [137, 8240],
-  [138, 352],
-  [139, 8249],
-  [140, 338],
-  [142, 381],
-  [145, 8216],
-  [146, 8217],
-  [147, 8220],
-  [148, 8221],
-  [149, 8226],
-  [150, 8211],
-  [151, 8212],
-  [152, 732],
-  [153, 8482],
-  [154, 353],
-  [155, 8250],
-  [156, 339],
-  [158, 382],
-  [159, 376]
-]);
 var State;
 (function(State2) {
   State2[State2["DATA"] = 0] = "DATA";
@@ -11350,13 +12551,7 @@ var State;
   State2[State2["CDATA_SECTION_BRACKET"] = 69] = "CDATA_SECTION_BRACKET";
   State2[State2["CDATA_SECTION_END"] = 70] = "CDATA_SECTION_END";
   State2[State2["CHARACTER_REFERENCE"] = 71] = "CHARACTER_REFERENCE";
-  State2[State2["NAMED_CHARACTER_REFERENCE"] = 72] = "NAMED_CHARACTER_REFERENCE";
-  State2[State2["AMBIGUOUS_AMPERSAND"] = 73] = "AMBIGUOUS_AMPERSAND";
-  State2[State2["NUMERIC_CHARACTER_REFERENCE"] = 74] = "NUMERIC_CHARACTER_REFERENCE";
-  State2[State2["HEXADEMICAL_CHARACTER_REFERENCE_START"] = 75] = "HEXADEMICAL_CHARACTER_REFERENCE_START";
-  State2[State2["HEXADEMICAL_CHARACTER_REFERENCE"] = 76] = "HEXADEMICAL_CHARACTER_REFERENCE";
-  State2[State2["DECIMAL_CHARACTER_REFERENCE"] = 77] = "DECIMAL_CHARACTER_REFERENCE";
-  State2[State2["NUMERIC_CHARACTER_REFERENCE_END"] = 78] = "NUMERIC_CHARACTER_REFERENCE_END";
+  State2[State2["AMBIGUOUS_AMPERSAND"] = 72] = "AMBIGUOUS_AMPERSAND";
 })(State || (State = {}));
 var TokenizerMode = {
   DATA: State.DATA,
@@ -11381,26 +12576,28 @@ function isAsciiLetter(cp) {
 function isAsciiAlphaNumeric2(cp) {
   return isAsciiLetter(cp) || isAsciiDigit(cp);
 }
-function isAsciiUpperHexDigit(cp) {
-  return cp >= CODE_POINTS.LATIN_CAPITAL_A && cp <= CODE_POINTS.LATIN_CAPITAL_F;
-}
-function isAsciiLowerHexDigit(cp) {
-  return cp >= CODE_POINTS.LATIN_SMALL_A && cp <= CODE_POINTS.LATIN_SMALL_F;
-}
-function isAsciiHexDigit(cp) {
-  return isAsciiDigit(cp) || isAsciiUpperHexDigit(cp) || isAsciiLowerHexDigit(cp);
-}
 function toAsciiLower(cp) {
   return cp + 32;
 }
 function isWhitespace(cp) {
   return cp === CODE_POINTS.SPACE || cp === CODE_POINTS.LINE_FEED || cp === CODE_POINTS.TABULATION || cp === CODE_POINTS.FORM_FEED;
 }
-function isEntityInAttributeInvalidEnd2(nextCp) {
-  return nextCp === CODE_POINTS.EQUALS_SIGN || isAsciiAlphaNumeric2(nextCp);
-}
 function isScriptDataDoubleEscapeSequenceEnd(cp) {
   return isWhitespace(cp) || cp === CODE_POINTS.SOLIDUS || cp === CODE_POINTS.GREATER_THAN_SIGN;
+}
+function getErrorForNumericCharacterReference(code) {
+  if (code === CODE_POINTS.NULL) {
+    return ERR.nullCharacterReference;
+  } else if (code > 1114111) {
+    return ERR.characterReferenceOutsideUnicodeRange;
+  } else if (isSurrogate(code)) {
+    return ERR.surrogateCharacterReference;
+  } else if (isUndefinedCodePoint(code)) {
+    return ERR.noncharacterCharacterReference;
+  } else if (isControlCodePoint(code) || code === CODE_POINTS.CARRIAGE_RETURN) {
+    return ERR.controlCharacterReference;
+  }
+  return null;
 }
 var Tokenizer = class {
   constructor(options, handler) {
@@ -11413,18 +12610,34 @@ var Tokenizer = class {
     this.active = false;
     this.state = State.DATA;
     this.returnState = State.DATA;
-    this.charRefCode = -1;
+    this.entityStartPos = 0;
     this.consumedAfterSnapshot = -1;
     this.currentCharacterToken = null;
     this.currentToken = null;
     this.currentAttr = { name: "", value: "" };
     this.preprocessor = new Preprocessor(handler);
     this.currentLocation = this.getCurrentLocation(-1);
+    this.entityDecoder = new EntityDecoder(decode_data_html_default, (cp, consumed) => {
+      this.preprocessor.pos = this.entityStartPos + consumed - 1;
+      this._flushCodePointConsumedAsCharacterReference(cp);
+    }, handler.onParseError ? {
+      missingSemicolonAfterCharacterReference: () => {
+        this._err(ERR.missingSemicolonAfterCharacterReference, 1);
+      },
+      absenceOfDigitsInNumericCharacterReference: (consumed) => {
+        this._err(ERR.absenceOfDigitsInNumericCharacterReference, this.entityStartPos - this.preprocessor.pos + consumed);
+      },
+      validateNumericCharacterReference: (code) => {
+        const error = getErrorForNumericCharacterReference(code);
+        if (error)
+          this._err(error, 1);
+      }
+    } : void 0);
   }
   //Errors
-  _err(code) {
+  _err(code, cpOffset = 0) {
     var _a2, _b;
-    (_b = (_a2 = this.handler).onParseError) === null || _b === void 0 ? void 0 : _b.call(_a2, this.preprocessor.getError(code));
+    (_b = (_a2 = this.handler).onParseError) === null || _b === void 0 ? void 0 : _b.call(_a2, this.preprocessor.getError(code, cpOffset));
   }
   // NOTE: `offset` may never run across line boundaries.
   getCurrentLocation(offset) {
@@ -11485,7 +12698,8 @@ var Tokenizer = class {
   //Hibernation
   _ensureHibernation() {
     if (this.preprocessor.endOfChunkHit) {
-      this._unconsume(this.consumedAfterSnapshot);
+      this.preprocessor.retreat(this.consumedAfterSnapshot);
+      this.consumedAfterSnapshot = 0;
       this.active = false;
       return true;
     }
@@ -11495,14 +12709,6 @@ var Tokenizer = class {
   _consume() {
     this.consumedAfterSnapshot++;
     return this.preprocessor.advance();
-  }
-  _unconsume(count) {
-    this.consumedAfterSnapshot -= count;
-    this.preprocessor.retreat(count);
-  }
-  _reconsumeInState(state, cp) {
-    this.state = state;
-    this._callState(cp);
   }
   _advanceBy(count) {
     this.consumedAfterSnapshot += count;
@@ -11669,7 +12875,7 @@ var Tokenizer = class {
     this.active = false;
   }
   //Characters emission
-  //OPTIMIZATION: specification uses only one type of character tokens (one token per character).
+  //OPTIMIZATION: The specification uses only one type of character token (one token per character).
   //This causes a huge memory overhead and a lot of unnecessary parser loops. parse5 uses 3 groups of characters.
   //If we have a sequence of characters that belong to the same group, the parser can process it
   //as a single solid character token.
@@ -11679,13 +12885,13 @@ var Tokenizer = class {
   //3)TokenType.CHARACTER - any character sequence which don't belong to groups 1 and 2 (e.g. 'abcdef1234@@#$%^')
   _appendCharToCurrentCharacterToken(type, ch) {
     if (this.currentCharacterToken) {
-      if (this.currentCharacterToken.type !== type) {
+      if (this.currentCharacterToken.type === type) {
+        this.currentCharacterToken.chars += ch;
+        return;
+      } else {
         this.currentLocation = this.getCurrentLocation(0);
         this._emitCurrentCharacterToken(this.currentLocation);
         this.preprocessor.dropParsedChunk();
-      } else {
-        this.currentCharacterToken.chars += ch;
-        return;
       }
     }
     this._createCharacterToken(type, ch);
@@ -11700,39 +12906,11 @@ var Tokenizer = class {
     this._appendCharToCurrentCharacterToken(TokenType.CHARACTER, ch);
   }
   // Character reference helpers
-  _matchNamedCharacterReference(cp) {
-    let result = null;
-    let excess = 0;
-    let withoutSemicolon = false;
-    for (let i = 0, current = decode_data_html_default[0]; i >= 0; cp = this._consume()) {
-      i = determineBranch(decode_data_html_default, current, i + 1, cp);
-      if (i < 0)
-        break;
-      excess += 1;
-      current = decode_data_html_default[i];
-      const masked = current & BinTrieFlags.VALUE_LENGTH;
-      if (masked) {
-        const valueLength = (masked >> 14) - 1;
-        if (cp !== CODE_POINTS.SEMICOLON && this._isCharacterReferenceInAttribute() && isEntityInAttributeInvalidEnd2(this.preprocessor.peek(1))) {
-          result = [CODE_POINTS.AMPERSAND];
-          i += valueLength;
-        } else {
-          result = valueLength === 0 ? [decode_data_html_default[i] & ~BinTrieFlags.VALUE_LENGTH] : valueLength === 1 ? [decode_data_html_default[++i]] : [decode_data_html_default[++i], decode_data_html_default[++i]];
-          excess = 0;
-          withoutSemicolon = cp !== CODE_POINTS.SEMICOLON;
-        }
-        if (valueLength === 0) {
-          this._consume();
-          break;
-        }
-      }
-    }
-    this._unconsume(excess);
-    if (withoutSemicolon && !this.preprocessor.endOfChunkHit) {
-      this._err(ERR.missingSemicolonAfterCharacterReference);
-    }
-    this._unconsume(1);
-    return result;
+  _startCharacterReference() {
+    this.returnState = this.state;
+    this.state = State.CHARACTER_REFERENCE;
+    this.entityStartPos = this.preprocessor.pos;
+    this.entityDecoder.startEntity(this._isCharacterReferenceInAttribute() ? DecodingMode.Attribute : DecodingMode.Legacy);
   }
   _isCharacterReferenceInAttribute() {
     return this.returnState === State.ATTRIBUTE_VALUE_DOUBLE_QUOTED || this.returnState === State.ATTRIBUTE_VALUE_SINGLE_QUOTED || this.returnState === State.ATTRIBUTE_VALUE_UNQUOTED;
@@ -12032,35 +13210,11 @@ var Tokenizer = class {
         break;
       }
       case State.CHARACTER_REFERENCE: {
-        this._stateCharacterReference(cp);
-        break;
-      }
-      case State.NAMED_CHARACTER_REFERENCE: {
-        this._stateNamedCharacterReference(cp);
+        this._stateCharacterReference();
         break;
       }
       case State.AMBIGUOUS_AMPERSAND: {
         this._stateAmbiguousAmpersand(cp);
-        break;
-      }
-      case State.NUMERIC_CHARACTER_REFERENCE: {
-        this._stateNumericCharacterReference(cp);
-        break;
-      }
-      case State.HEXADEMICAL_CHARACTER_REFERENCE_START: {
-        this._stateHexademicalCharacterReferenceStart(cp);
-        break;
-      }
-      case State.HEXADEMICAL_CHARACTER_REFERENCE: {
-        this._stateHexademicalCharacterReference(cp);
-        break;
-      }
-      case State.DECIMAL_CHARACTER_REFERENCE: {
-        this._stateDecimalCharacterReference(cp);
-        break;
-      }
-      case State.NUMERIC_CHARACTER_REFERENCE_END: {
-        this._stateNumericCharacterReferenceEnd(cp);
         break;
       }
       default: {
@@ -12078,8 +13232,7 @@ var Tokenizer = class {
         break;
       }
       case CODE_POINTS.AMPERSAND: {
-        this.returnState = State.DATA;
-        this.state = State.CHARACTER_REFERENCE;
+        this._startCharacterReference();
         break;
       }
       case CODE_POINTS.NULL: {
@@ -12101,8 +13254,7 @@ var Tokenizer = class {
   _stateRcdata(cp) {
     switch (cp) {
       case CODE_POINTS.AMPERSAND: {
-        this.returnState = State.RCDATA;
-        this.state = State.CHARACTER_REFERENCE;
+        this._startCharacterReference();
         break;
       }
       case CODE_POINTS.LESS_THAN_SIGN: {
@@ -12851,8 +14003,7 @@ var Tokenizer = class {
         break;
       }
       case CODE_POINTS.AMPERSAND: {
-        this.returnState = State.ATTRIBUTE_VALUE_DOUBLE_QUOTED;
-        this.state = State.CHARACTER_REFERENCE;
+        this._startCharacterReference();
         break;
       }
       case CODE_POINTS.NULL: {
@@ -12879,8 +14030,7 @@ var Tokenizer = class {
         break;
       }
       case CODE_POINTS.AMPERSAND: {
-        this.returnState = State.ATTRIBUTE_VALUE_SINGLE_QUOTED;
-        this.state = State.CHARACTER_REFERENCE;
+        this._startCharacterReference();
         break;
       }
       case CODE_POINTS.NULL: {
@@ -12911,8 +14061,7 @@ var Tokenizer = class {
         break;
       }
       case CODE_POINTS.AMPERSAND: {
-        this.returnState = State.ATTRIBUTE_VALUE_UNQUOTED;
-        this.state = State.CHARACTER_REFERENCE;
+        this._startCharacterReference();
         break;
       }
       case CODE_POINTS.GREATER_THAN_SIGN: {
@@ -13907,30 +15056,25 @@ var Tokenizer = class {
   }
   // Character reference state
   //------------------------------------------------------------------
-  _stateCharacterReference(cp) {
-    if (cp === CODE_POINTS.NUMBER_SIGN) {
-      this.state = State.NUMERIC_CHARACTER_REFERENCE;
-    } else if (isAsciiAlphaNumeric2(cp)) {
-      this.state = State.NAMED_CHARACTER_REFERENCE;
-      this._stateNamedCharacterReference(cp);
-    } else {
-      this._flushCodePointConsumedAsCharacterReference(CODE_POINTS.AMPERSAND);
-      this._reconsumeInState(this.returnState, cp);
-    }
-  }
-  // Named character reference state
-  //------------------------------------------------------------------
-  _stateNamedCharacterReference(cp) {
-    const matchResult = this._matchNamedCharacterReference(cp);
-    if (this._ensureHibernation()) {
-    } else if (matchResult) {
-      for (let i = 0; i < matchResult.length; i++) {
-        this._flushCodePointConsumedAsCharacterReference(matchResult[i]);
+  _stateCharacterReference() {
+    let length = this.entityDecoder.write(this.preprocessor.html, this.preprocessor.pos);
+    if (length < 0) {
+      if (this.preprocessor.lastChunkWritten) {
+        length = this.entityDecoder.end();
+      } else {
+        this.active = false;
+        this.preprocessor.pos = this.preprocessor.html.length - 1;
+        this.consumedAfterSnapshot = 0;
+        this.preprocessor.endOfChunkHit = true;
+        return;
       }
-      this.state = this.returnState;
-    } else {
+    }
+    if (length === 0) {
+      this.preprocessor.pos = this.entityStartPos;
       this._flushCodePointConsumedAsCharacterReference(CODE_POINTS.AMPERSAND);
-      this.state = State.AMBIGUOUS_AMPERSAND;
+      this.state = !this._isCharacterReferenceInAttribute() && isAsciiAlphaNumeric2(this.preprocessor.peek(1)) ? State.AMBIGUOUS_AMPERSAND : this.returnState;
+    } else {
+      this.state = this.returnState;
     }
   }
   // Ambiguos ampersand state
@@ -13942,92 +15086,9 @@ var Tokenizer = class {
       if (cp === CODE_POINTS.SEMICOLON) {
         this._err(ERR.unknownNamedCharacterReference);
       }
-      this._reconsumeInState(this.returnState, cp);
-    }
-  }
-  // Numeric character reference state
-  //------------------------------------------------------------------
-  _stateNumericCharacterReference(cp) {
-    this.charRefCode = 0;
-    if (cp === CODE_POINTS.LATIN_SMALL_X || cp === CODE_POINTS.LATIN_CAPITAL_X) {
-      this.state = State.HEXADEMICAL_CHARACTER_REFERENCE_START;
-    } else if (isAsciiDigit(cp)) {
-      this.state = State.DECIMAL_CHARACTER_REFERENCE;
-      this._stateDecimalCharacterReference(cp);
-    } else {
-      this._err(ERR.absenceOfDigitsInNumericCharacterReference);
-      this._flushCodePointConsumedAsCharacterReference(CODE_POINTS.AMPERSAND);
-      this._flushCodePointConsumedAsCharacterReference(CODE_POINTS.NUMBER_SIGN);
-      this._reconsumeInState(this.returnState, cp);
-    }
-  }
-  // Hexademical character reference start state
-  //------------------------------------------------------------------
-  _stateHexademicalCharacterReferenceStart(cp) {
-    if (isAsciiHexDigit(cp)) {
-      this.state = State.HEXADEMICAL_CHARACTER_REFERENCE;
-      this._stateHexademicalCharacterReference(cp);
-    } else {
-      this._err(ERR.absenceOfDigitsInNumericCharacterReference);
-      this._flushCodePointConsumedAsCharacterReference(CODE_POINTS.AMPERSAND);
-      this._flushCodePointConsumedAsCharacterReference(CODE_POINTS.NUMBER_SIGN);
-      this._unconsume(2);
       this.state = this.returnState;
+      this._callState(cp);
     }
-  }
-  // Hexademical character reference state
-  //------------------------------------------------------------------
-  _stateHexademicalCharacterReference(cp) {
-    if (isAsciiUpperHexDigit(cp)) {
-      this.charRefCode = this.charRefCode * 16 + cp - 55;
-    } else if (isAsciiLowerHexDigit(cp)) {
-      this.charRefCode = this.charRefCode * 16 + cp - 87;
-    } else if (isAsciiDigit(cp)) {
-      this.charRefCode = this.charRefCode * 16 + cp - 48;
-    } else if (cp === CODE_POINTS.SEMICOLON) {
-      this.state = State.NUMERIC_CHARACTER_REFERENCE_END;
-    } else {
-      this._err(ERR.missingSemicolonAfterCharacterReference);
-      this.state = State.NUMERIC_CHARACTER_REFERENCE_END;
-      this._stateNumericCharacterReferenceEnd(cp);
-    }
-  }
-  // Decimal character reference state
-  //------------------------------------------------------------------
-  _stateDecimalCharacterReference(cp) {
-    if (isAsciiDigit(cp)) {
-      this.charRefCode = this.charRefCode * 10 + cp - 48;
-    } else if (cp === CODE_POINTS.SEMICOLON) {
-      this.state = State.NUMERIC_CHARACTER_REFERENCE_END;
-    } else {
-      this._err(ERR.missingSemicolonAfterCharacterReference);
-      this.state = State.NUMERIC_CHARACTER_REFERENCE_END;
-      this._stateNumericCharacterReferenceEnd(cp);
-    }
-  }
-  // Numeric character reference end state
-  //------------------------------------------------------------------
-  _stateNumericCharacterReferenceEnd(cp) {
-    if (this.charRefCode === CODE_POINTS.NULL) {
-      this._err(ERR.nullCharacterReference);
-      this.charRefCode = CODE_POINTS.REPLACEMENT_CHARACTER;
-    } else if (this.charRefCode > 1114111) {
-      this._err(ERR.characterReferenceOutsideUnicodeRange);
-      this.charRefCode = CODE_POINTS.REPLACEMENT_CHARACTER;
-    } else if (isSurrogate(this.charRefCode)) {
-      this._err(ERR.surrogateCharacterReference);
-      this.charRefCode = CODE_POINTS.REPLACEMENT_CHARACTER;
-    } else if (isUndefinedCodePoint(this.charRefCode)) {
-      this._err(ERR.noncharacterCharacterReference);
-    } else if (isControlCodePoint(this.charRefCode) || this.charRefCode === CODE_POINTS.CARRIAGE_RETURN) {
-      this._err(ERR.controlCharacterReference);
-      const replacement = C1_CONTROLS_REFERENCE_REPLACEMENTS.get(this.charRefCode);
-      if (replacement !== void 0) {
-        this.charRefCode = replacement;
-      }
-    }
-    this._flushCodePointConsumedAsCharacterReference(this.charRefCode);
-    this._reconsumeInState(this.returnState, cp);
   }
 };
 
@@ -14044,36 +15105,30 @@ var IMPLICIT_END_TAG_REQUIRED_THOROUGHLY = /* @__PURE__ */ new Set([
   TAG_ID.THEAD,
   TAG_ID.TR
 ]);
-var SCOPING_ELEMENT_NS = /* @__PURE__ */ new Map([
-  [TAG_ID.APPLET, NS.HTML],
-  [TAG_ID.CAPTION, NS.HTML],
-  [TAG_ID.HTML, NS.HTML],
-  [TAG_ID.MARQUEE, NS.HTML],
-  [TAG_ID.OBJECT, NS.HTML],
-  [TAG_ID.TABLE, NS.HTML],
-  [TAG_ID.TD, NS.HTML],
-  [TAG_ID.TEMPLATE, NS.HTML],
-  [TAG_ID.TH, NS.HTML],
-  [TAG_ID.ANNOTATION_XML, NS.MATHML],
-  [TAG_ID.MI, NS.MATHML],
-  [TAG_ID.MN, NS.MATHML],
-  [TAG_ID.MO, NS.MATHML],
-  [TAG_ID.MS, NS.MATHML],
-  [TAG_ID.MTEXT, NS.MATHML],
-  [TAG_ID.DESC, NS.SVG],
-  [TAG_ID.FOREIGN_OBJECT, NS.SVG],
-  [TAG_ID.TITLE, NS.SVG]
+var SCOPING_ELEMENTS_HTML = /* @__PURE__ */ new Set([
+  TAG_ID.APPLET,
+  TAG_ID.CAPTION,
+  TAG_ID.HTML,
+  TAG_ID.MARQUEE,
+  TAG_ID.OBJECT,
+  TAG_ID.TABLE,
+  TAG_ID.TD,
+  TAG_ID.TEMPLATE,
+  TAG_ID.TH
 ]);
-var NAMED_HEADERS = [TAG_ID.H1, TAG_ID.H2, TAG_ID.H3, TAG_ID.H4, TAG_ID.H5, TAG_ID.H6];
-var TABLE_ROW_CONTEXT = [TAG_ID.TR, TAG_ID.TEMPLATE, TAG_ID.HTML];
-var TABLE_BODY_CONTEXT = [TAG_ID.TBODY, TAG_ID.TFOOT, TAG_ID.THEAD, TAG_ID.TEMPLATE, TAG_ID.HTML];
-var TABLE_CONTEXT = [TAG_ID.TABLE, TAG_ID.TEMPLATE, TAG_ID.HTML];
-var TABLE_CELLS = [TAG_ID.TD, TAG_ID.TH];
+var SCOPING_ELEMENTS_HTML_LIST = /* @__PURE__ */ new Set([...SCOPING_ELEMENTS_HTML, TAG_ID.OL, TAG_ID.UL]);
+var SCOPING_ELEMENTS_HTML_BUTTON = /* @__PURE__ */ new Set([...SCOPING_ELEMENTS_HTML, TAG_ID.BUTTON]);
+var SCOPING_ELEMENTS_MATHML = /* @__PURE__ */ new Set([TAG_ID.ANNOTATION_XML, TAG_ID.MI, TAG_ID.MN, TAG_ID.MO, TAG_ID.MS, TAG_ID.MTEXT]);
+var SCOPING_ELEMENTS_SVG = /* @__PURE__ */ new Set([TAG_ID.DESC, TAG_ID.FOREIGN_OBJECT, TAG_ID.TITLE]);
+var TABLE_ROW_CONTEXT = /* @__PURE__ */ new Set([TAG_ID.TR, TAG_ID.TEMPLATE, TAG_ID.HTML]);
+var TABLE_BODY_CONTEXT = /* @__PURE__ */ new Set([TAG_ID.TBODY, TAG_ID.TFOOT, TAG_ID.THEAD, TAG_ID.TEMPLATE, TAG_ID.HTML]);
+var TABLE_CONTEXT = /* @__PURE__ */ new Set([TAG_ID.TABLE, TAG_ID.TEMPLATE, TAG_ID.HTML]);
+var TABLE_CELLS = /* @__PURE__ */ new Set([TAG_ID.TD, TAG_ID.TH]);
 var OpenElementStack = class {
   get currentTmplContentOrNode() {
     return this._isInTemplate() ? this.treeAdapter.getTemplateContent(this.current) : this.current;
   }
-  constructor(document, treeAdapter, handler) {
+  constructor(document2, treeAdapter, handler) {
     this.treeAdapter = treeAdapter;
     this.handler = handler;
     this.items = [];
@@ -14081,7 +15136,7 @@ var OpenElementStack = class {
     this.stackTop = -1;
     this.tmplCount = 0;
     this.currentTagId = TAG_ID.UNKNOWN;
-    this.current = document;
+    this.current = document2;
   }
   //Index of element
   _indexOf(element) {
@@ -14160,7 +15215,7 @@ var OpenElementStack = class {
     this.shortenToLength(idx < 0 ? 0 : idx);
   }
   popUntilNumberedHeaderPopped() {
-    this.popUntilPopped(NAMED_HEADERS, NS.HTML);
+    this.popUntilPopped(NUMBERED_HEADERS, NS.HTML);
   }
   popUntilTableCellPopped() {
     this.popUntilPopped(TABLE_CELLS, NS.HTML);
@@ -14171,7 +15226,7 @@ var OpenElementStack = class {
   }
   _indexOfTagNames(tagNames, namespace) {
     for (let i = this.stackTop; i >= 0; i--) {
-      if (tagNames.includes(this.tagIDs[i]) && this.treeAdapter.getNamespaceURI(this.items[i]) === namespace) {
+      if (tagNames.has(this.tagIDs[i]) && this.treeAdapter.getNamespaceURI(this.items[i]) === namespace) {
         return i;
       }
     }
@@ -14219,102 +15274,117 @@ var OpenElementStack = class {
     return this.stackTop === 0 && this.tagIDs[0] === TAG_ID.HTML;
   }
   //Element in scope
-  hasInScope(tagName) {
+  hasInDynamicScope(tagName, htmlScope) {
     for (let i = this.stackTop; i >= 0; i--) {
       const tn = this.tagIDs[i];
-      const ns = this.treeAdapter.getNamespaceURI(this.items[i]);
-      if (tn === tagName && ns === NS.HTML) {
-        return true;
-      }
-      if (SCOPING_ELEMENT_NS.get(tn) === ns) {
-        return false;
+      switch (this.treeAdapter.getNamespaceURI(this.items[i])) {
+        case NS.HTML: {
+          if (tn === tagName)
+            return true;
+          if (htmlScope.has(tn))
+            return false;
+          break;
+        }
+        case NS.SVG: {
+          if (SCOPING_ELEMENTS_SVG.has(tn))
+            return false;
+          break;
+        }
+        case NS.MATHML: {
+          if (SCOPING_ELEMENTS_MATHML.has(tn))
+            return false;
+          break;
+        }
       }
     }
     return true;
+  }
+  hasInScope(tagName) {
+    return this.hasInDynamicScope(tagName, SCOPING_ELEMENTS_HTML);
+  }
+  hasInListItemScope(tagName) {
+    return this.hasInDynamicScope(tagName, SCOPING_ELEMENTS_HTML_LIST);
+  }
+  hasInButtonScope(tagName) {
+    return this.hasInDynamicScope(tagName, SCOPING_ELEMENTS_HTML_BUTTON);
   }
   hasNumberedHeaderInScope() {
     for (let i = this.stackTop; i >= 0; i--) {
       const tn = this.tagIDs[i];
-      const ns = this.treeAdapter.getNamespaceURI(this.items[i]);
-      if (isNumberedHeader(tn) && ns === NS.HTML) {
-        return true;
-      }
-      if (SCOPING_ELEMENT_NS.get(tn) === ns) {
-        return false;
-      }
-    }
-    return true;
-  }
-  hasInListItemScope(tagName) {
-    for (let i = this.stackTop; i >= 0; i--) {
-      const tn = this.tagIDs[i];
-      const ns = this.treeAdapter.getNamespaceURI(this.items[i]);
-      if (tn === tagName && ns === NS.HTML) {
-        return true;
-      }
-      if ((tn === TAG_ID.UL || tn === TAG_ID.OL) && ns === NS.HTML || SCOPING_ELEMENT_NS.get(tn) === ns) {
-        return false;
-      }
-    }
-    return true;
-  }
-  hasInButtonScope(tagName) {
-    for (let i = this.stackTop; i >= 0; i--) {
-      const tn = this.tagIDs[i];
-      const ns = this.treeAdapter.getNamespaceURI(this.items[i]);
-      if (tn === tagName && ns === NS.HTML) {
-        return true;
-      }
-      if (tn === TAG_ID.BUTTON && ns === NS.HTML || SCOPING_ELEMENT_NS.get(tn) === ns) {
-        return false;
+      switch (this.treeAdapter.getNamespaceURI(this.items[i])) {
+        case NS.HTML: {
+          if (NUMBERED_HEADERS.has(tn))
+            return true;
+          if (SCOPING_ELEMENTS_HTML.has(tn))
+            return false;
+          break;
+        }
+        case NS.SVG: {
+          if (SCOPING_ELEMENTS_SVG.has(tn))
+            return false;
+          break;
+        }
+        case NS.MATHML: {
+          if (SCOPING_ELEMENTS_MATHML.has(tn))
+            return false;
+          break;
+        }
       }
     }
     return true;
   }
   hasInTableScope(tagName) {
     for (let i = this.stackTop; i >= 0; i--) {
-      const tn = this.tagIDs[i];
-      const ns = this.treeAdapter.getNamespaceURI(this.items[i]);
-      if (ns !== NS.HTML) {
+      if (this.treeAdapter.getNamespaceURI(this.items[i]) !== NS.HTML) {
         continue;
       }
-      if (tn === tagName) {
-        return true;
-      }
-      if (tn === TAG_ID.TABLE || tn === TAG_ID.TEMPLATE || tn === TAG_ID.HTML) {
-        return false;
+      switch (this.tagIDs[i]) {
+        case tagName: {
+          return true;
+        }
+        case TAG_ID.TABLE:
+        case TAG_ID.HTML: {
+          return false;
+        }
       }
     }
     return true;
   }
   hasTableBodyContextInTableScope() {
     for (let i = this.stackTop; i >= 0; i--) {
-      const tn = this.tagIDs[i];
-      const ns = this.treeAdapter.getNamespaceURI(this.items[i]);
-      if (ns !== NS.HTML) {
+      if (this.treeAdapter.getNamespaceURI(this.items[i]) !== NS.HTML) {
         continue;
       }
-      if (tn === TAG_ID.TBODY || tn === TAG_ID.THEAD || tn === TAG_ID.TFOOT) {
-        return true;
-      }
-      if (tn === TAG_ID.TABLE || tn === TAG_ID.HTML) {
-        return false;
+      switch (this.tagIDs[i]) {
+        case TAG_ID.TBODY:
+        case TAG_ID.THEAD:
+        case TAG_ID.TFOOT: {
+          return true;
+        }
+        case TAG_ID.TABLE:
+        case TAG_ID.HTML: {
+          return false;
+        }
       }
     }
     return true;
   }
   hasInSelectScope(tagName) {
     for (let i = this.stackTop; i >= 0; i--) {
-      const tn = this.tagIDs[i];
-      const ns = this.treeAdapter.getNamespaceURI(this.items[i]);
-      if (ns !== NS.HTML) {
+      if (this.treeAdapter.getNamespaceURI(this.items[i]) !== NS.HTML) {
         continue;
       }
-      if (tn === tagName) {
-        return true;
-      }
-      if (tn !== TAG_ID.OPTION && tn !== TAG_ID.OPTGROUP) {
-        return false;
+      switch (this.tagIDs[i]) {
+        case tagName: {
+          return true;
+        }
+        case TAG_ID.OPTION:
+        case TAG_ID.OPTGROUP: {
+          break;
+        }
+        default: {
+          return false;
+        }
       }
     }
     return true;
@@ -14343,7 +15413,7 @@ var EntryType;
 (function(EntryType2) {
   EntryType2[EntryType2["Marker"] = 0] = "Marker";
   EntryType2[EntryType2["Element"] = 1] = "Element";
-})(EntryType = EntryType || (EntryType = {}));
+})(EntryType || (EntryType = {}));
 var MARKER = { type: EntryType.Marker };
 var FormattingElementList = class {
   constructor(treeAdapter) {
@@ -14443,13 +15513,6 @@ var FormattingElementList = class {
 };
 
 // node_modules/parse5/dist/tree-adapters/default.js
-function createTextNode(value) {
-  return {
-    nodeName: "#text",
-    value,
-    parentNode: null
-  };
-}
 var defaultTreeAdapter = {
   //Node construction
   createDocument() {
@@ -14482,6 +15545,13 @@ var defaultTreeAdapter = {
       parentNode: null
     };
   },
+  createTextNode(value) {
+    return {
+      nodeName: "#text",
+      value,
+      parentNode: null
+    };
+  },
   //Tree mutation
   appendChild(parentNode, newNode) {
     parentNode.childNodes.push(newNode);
@@ -14498,8 +15568,8 @@ var defaultTreeAdapter = {
   getTemplateContent(templateElement) {
     return templateElement.content;
   },
-  setDocumentType(document, name, publicId, systemId) {
-    const doctypeNode = document.childNodes.find((node) => node.nodeName === "#documentType");
+  setDocumentType(document2, name, publicId, systemId) {
+    const doctypeNode = document2.childNodes.find((node) => node.nodeName === "#documentType");
     if (doctypeNode) {
       doctypeNode.name = name;
       doctypeNode.publicId = publicId;
@@ -14512,14 +15582,14 @@ var defaultTreeAdapter = {
         systemId,
         parentNode: null
       };
-      defaultTreeAdapter.appendChild(document, node);
+      defaultTreeAdapter.appendChild(document2, node);
     }
   },
-  setDocumentMode(document, mode) {
-    document.mode = mode;
+  setDocumentMode(document2, mode) {
+    document2.mode = mode;
   },
-  getDocumentMode(document) {
-    return document.mode;
+  getDocumentMode(document2) {
+    return document2.mode;
   },
   detachNode(node) {
     if (node.parentNode) {
@@ -14536,14 +15606,14 @@ var defaultTreeAdapter = {
         return;
       }
     }
-    defaultTreeAdapter.appendChild(parentNode, createTextNode(text));
+    defaultTreeAdapter.appendChild(parentNode, defaultTreeAdapter.createTextNode(text));
   },
   insertTextBefore(parentNode, text, referenceNode) {
     const prevNode = parentNode.childNodes[parentNode.childNodes.indexOf(referenceNode) - 1];
     if (prevNode && defaultTreeAdapter.isTextNode(prevNode)) {
       prevNode.value += text;
     } else {
-      defaultTreeAdapter.insertBefore(parentNode, createTextNode(text), referenceNode);
+      defaultTreeAdapter.insertBefore(parentNode, defaultTreeAdapter.createTextNode(text), referenceNode);
     }
   },
   adoptAttributes(recipient, attrs) {
@@ -14808,7 +15878,6 @@ var XML_ATTRS_ADJUSTMENT_MAP = /* @__PURE__ */ new Map([
   ["xlink:show", { prefix: "xlink", name: "show", namespace: NS.XLINK }],
   ["xlink:title", { prefix: "xlink", name: "title", namespace: NS.XLINK }],
   ["xlink:type", { prefix: "xlink", name: "type", namespace: NS.XLINK }],
-  ["xml:base", { prefix: "xml", name: "base", namespace: NS.XML }],
   ["xml:lang", { prefix: "xml", name: "lang", namespace: NS.XML }],
   ["xml:space", { prefix: "xml", name: "space", namespace: NS.XML }],
   ["xmlns", { prefix: "", name: "xmlns", namespace: NS.XMLNS }],
@@ -15000,7 +16069,7 @@ var defaultParserOptions = {
   onParseError: null
 };
 var Parser = class {
-  constructor(options, document, fragmentContext = null, scriptHandler = null) {
+  constructor(options, document2, fragmentContext = null, scriptHandler = null) {
     this.fragmentContext = fragmentContext;
     this.scriptHandler = scriptHandler;
     this.currentToken = null;
@@ -15025,7 +16094,7 @@ var Parser = class {
     if (this.onParseError) {
       this.options.sourceCodeLocationInfo = true;
     }
-    this.document = document !== null && document !== void 0 ? document : this.treeAdapter.createDocument();
+    this.document = document2 !== null && document2 !== void 0 ? document2 : this.treeAdapter.createDocument();
     this.tokenizer = new Tokenizer(this.options, this);
     this.activeFormattingElements = new FormattingElementList(this.treeAdapter);
     this.fragmentContextID = fragmentContext ? getTagID(this.treeAdapter.getTagName(fragmentContext)) : TAG_ID.UNKNOWN;
@@ -15062,6 +16131,7 @@ var Parser = class {
     return fragment;
   }
   //Errors
+  /** @internal */
   _err(token, code, beforeToken) {
     var _a2;
     if (!this.onParseError)
@@ -15079,12 +16149,14 @@ var Parser = class {
     this.onParseError(err2);
   }
   //Stack events
+  /** @internal */
   onItemPush(node, tid, isTop) {
     var _a2, _b;
     (_b = (_a2 = this.treeAdapter).onItemPush) === null || _b === void 0 ? void 0 : _b.call(_a2, node);
     if (isTop && this.openElements.stackTop > 0)
       this._setContextModes(node, tid);
   }
+  /** @internal */
   onItemPop(node, isTop) {
     var _a2, _b;
     if (this.options.sourceCodeLocationInfo) {
@@ -15108,6 +16180,7 @@ var Parser = class {
     this.currentNotInHTML = !isHTML;
     this.tokenizer.inForeignNode = !isHTML && !this._isIntegrationPoint(tid, current);
   }
+  /** @protected */
   _switchToTextParsing(currentToken, nextTokenizerState) {
     this._insertElement(currentToken, NS.HTML);
     this.tokenizer.state = nextTokenizerState;
@@ -15120,9 +16193,11 @@ var Parser = class {
     this.tokenizer.state = TokenizerMode.PLAINTEXT;
   }
   //Fragment parsing
+  /** @protected */
   _getAdjustedCurrentElement() {
     return this.openElements.stackTop === 0 && this.fragmentContext ? this.fragmentContext : this.openElements.current;
   }
+  /** @protected */
   _findFormInFragmentContext() {
     let node = this.fragmentContext;
     while (node) {
@@ -15164,6 +16239,7 @@ var Parser = class {
     }
   }
   //Tree mutation
+  /** @protected */
   _setDocumentType(token) {
     const name = token.name || "";
     const publicId = token.publicId || "";
@@ -15177,6 +16253,7 @@ var Parser = class {
       }
     }
   }
+  /** @protected */
   _attachElementToTree(element, location2) {
     if (this.options.sourceCodeLocationInfo) {
       const loc = location2 && {
@@ -15192,20 +16269,28 @@ var Parser = class {
       this.treeAdapter.appendChild(parent, element);
     }
   }
+  /**
+   * For self-closing tags. Add an element to the tree, but skip adding it
+   * to the stack.
+   */
+  /** @protected */
   _appendElement(token, namespaceURI) {
     const element = this.treeAdapter.createElement(token.tagName, namespaceURI, token.attrs);
     this._attachElementToTree(element, token.location);
   }
+  /** @protected */
   _insertElement(token, namespaceURI) {
     const element = this.treeAdapter.createElement(token.tagName, namespaceURI, token.attrs);
     this._attachElementToTree(element, token.location);
     this.openElements.push(element, token.tagID);
   }
+  /** @protected */
   _insertFakeElement(tagName, tagID) {
     const element = this.treeAdapter.createElement(tagName, NS.HTML, []);
     this._attachElementToTree(element, null);
     this.openElements.push(element, tagID);
   }
+  /** @protected */
   _insertTemplate(token) {
     const tmpl = this.treeAdapter.createElement(token.tagName, NS.HTML, token.attrs);
     const content = this.treeAdapter.createDocumentFragment();
@@ -15215,6 +16300,7 @@ var Parser = class {
     if (this.options.sourceCodeLocationInfo)
       this.treeAdapter.setNodeSourceCodeLocation(content, null);
   }
+  /** @protected */
   _insertFakeRootElement() {
     const element = this.treeAdapter.createElement(TAG_NAMES.HTML, NS.HTML, []);
     if (this.options.sourceCodeLocationInfo)
@@ -15222,6 +16308,7 @@ var Parser = class {
     this.treeAdapter.appendChild(this.openElements.current, element);
     this.openElements.push(element, TAG_ID.HTML);
   }
+  /** @protected */
   _appendCommentNode(token, parent) {
     const commentNode = this.treeAdapter.createCommentNode(token.data);
     this.treeAdapter.appendChild(parent, commentNode);
@@ -15229,6 +16316,7 @@ var Parser = class {
       this.treeAdapter.setNodeSourceCodeLocation(commentNode, token.location);
     }
   }
+  /** @protected */
   _insertCharacters(token) {
     let parent;
     let beforeElement;
@@ -15256,12 +16344,14 @@ var Parser = class {
       this.treeAdapter.setNodeSourceCodeLocation(textNode, token.location);
     }
   }
+  /** @protected */
   _adoptNodes(donor, recipient) {
     for (let child = this.treeAdapter.getFirstChild(donor); child; child = this.treeAdapter.getFirstChild(donor)) {
       this.treeAdapter.detachNode(child);
       this.treeAdapter.appendChild(recipient, child);
     }
   }
+  /** @protected */
   _setEndLocation(element, closingToken) {
     if (this.treeAdapter.getNodeSourceCodeLocation(element) && closingToken.location) {
       const ctLoc = closingToken.location;
@@ -15305,6 +16395,7 @@ var Parser = class {
       (token.tagID === TAG_ID.MGLYPH || token.tagID === TAG_ID.MALIGNMARK) && !this._isIntegrationPoint(currentTagId, current, NS.HTML)
     );
   }
+  /** @protected */
   _processToken(token) {
     switch (token.type) {
       case TokenType.CHARACTER: {
@@ -15342,12 +16433,14 @@ var Parser = class {
     }
   }
   //Integration points
+  /** @protected */
   _isIntegrationPoint(tid, element, foreignNS) {
     const ns = this.treeAdapter.getNamespaceURI(element);
     const attrs = this.treeAdapter.getAttrList(element);
     return isIntegrationPoint(tid, ns, attrs, foreignNS);
   }
   //Active formatting elements reconstruction
+  /** @protected */
   _reconstructActiveFormattingElements() {
     const listLength = this.activeFormattingElements.entries.length;
     if (listLength) {
@@ -15361,17 +16454,20 @@ var Parser = class {
     }
   }
   //Close elements
+  /** @protected */
   _closeTableCell() {
     this.openElements.generateImpliedEndTags();
     this.openElements.popUntilTableCellPopped();
     this.activeFormattingElements.clearToLastMarker();
     this.insertionMode = InsertionMode.IN_ROW;
   }
+  /** @protected */
   _closePElement() {
     this.openElements.generateImpliedEndTagsWithExclusion(TAG_ID.P);
     this.openElements.popUntilTagNamePopped(TAG_ID.P);
   }
   //Insertion modes
+  /** @protected */
   _resetInsertionMode() {
     for (let i = this.openElements.stackTop; i >= 0; i--) {
       switch (i === 0 && this.fragmentContext ? this.fragmentContextID : this.openElements.tagIDs[i]) {
@@ -15436,6 +16532,7 @@ var Parser = class {
     }
     this.insertionMode = InsertionMode.IN_BODY;
   }
+  /** @protected */
   _resetInsertionModeForSelect(selectIdx) {
     if (selectIdx > 0) {
       for (let i = selectIdx - 1; i > 0; i--) {
@@ -15451,12 +16548,15 @@ var Parser = class {
     this.insertionMode = InsertionMode.IN_SELECT;
   }
   //Foster parenting
+  /** @protected */
   _isElementCausesFosterParenting(tn) {
     return TABLE_STRUCTURE_TAGS.has(tn);
   }
+  /** @protected */
   _shouldFosterParentOnInsertion() {
     return this.fosterParentingEnabled && this._isElementCausesFosterParenting(this.openElements.currentTagId);
   }
+  /** @protected */
   _findFosterParentingLocation() {
     for (let i = this.openElements.stackTop; i >= 0; i--) {
       const openElement = this.openElements.items[i];
@@ -15479,6 +16579,7 @@ var Parser = class {
     }
     return { parent: this.openElements.items[0], beforeElement: null };
   }
+  /** @protected */
   _fosterParentElement(element) {
     const location2 = this._findFosterParentingLocation();
     if (location2.beforeElement) {
@@ -15488,10 +16589,12 @@ var Parser = class {
     }
   }
   //Special elements
+  /** @protected */
   _isSpecialElement(element, id) {
     const ns = this.treeAdapter.getNamespaceURI(element);
     return SPECIAL_ELEMENTS[ns].has(id);
   }
+  /** @internal */
   onCharacter(token) {
     this.skipNextNewLine = false;
     if (this.tokenizer.inForeignNode) {
@@ -15561,6 +16664,7 @@ var Parser = class {
       default:
     }
   }
+  /** @internal */
   onNullCharacter(token) {
     this.skipNextNewLine = false;
     if (this.tokenizer.inForeignNode) {
@@ -15617,6 +16721,7 @@ var Parser = class {
       default:
     }
   }
+  /** @internal */
   onComment(token) {
     this.skipNextNewLine = false;
     if (this.currentNotInHTML) {
@@ -15661,6 +16766,7 @@ var Parser = class {
       default:
     }
   }
+  /** @internal */
   onDoctype(token) {
     this.skipNextNewLine = false;
     switch (this.insertionMode) {
@@ -15682,6 +16788,7 @@ var Parser = class {
       default:
     }
   }
+  /** @internal */
   onStartTag(token) {
     this.skipNextNewLine = false;
     this.currentToken = token;
@@ -15699,6 +16806,7 @@ var Parser = class {
    * for nested calls.
    *
    * @param token The token to process.
+   * @protected
    */
   _processStartTag(token) {
     if (this.shouldProcessStartTagTokenInForeignContent(token)) {
@@ -15707,6 +16815,7 @@ var Parser = class {
       this._startTagOutsideForeignContent(token);
     }
   }
+  /** @protected */
   _startTagOutsideForeignContent(token) {
     switch (this.insertionMode) {
       case InsertionMode.INITIAL: {
@@ -15800,6 +16909,7 @@ var Parser = class {
       default:
     }
   }
+  /** @internal */
   onEndTag(token) {
     this.skipNextNewLine = false;
     this.currentToken = token;
@@ -15809,6 +16919,7 @@ var Parser = class {
       this._endTagOutsideForeignContent(token);
     }
   }
+  /** @protected */
   _endTagOutsideForeignContent(token) {
     switch (this.insertionMode) {
       case InsertionMode.INITIAL: {
@@ -15902,6 +17013,7 @@ var Parser = class {
       default:
     }
   }
+  /** @internal */
   onEof(token) {
     switch (this.insertionMode) {
       case InsertionMode.INITIAL: {
@@ -15963,6 +17075,7 @@ var Parser = class {
       default:
     }
   }
+  /** @internal */
   onWhitespaceCharacter(token) {
     if (this.skipNextNewLine) {
       this.skipNextNewLine = false;
@@ -16494,7 +17607,7 @@ function numberedHeaderStartTagInBody(p, token) {
   if (p.openElements.hasInButtonScope(TAG_ID.P)) {
     p._closePElement();
   }
-  if (isNumberedHeader(p.openElements.currentTagId)) {
+  if (NUMBERED_HEADERS.has(p.openElements.currentTagId)) {
     p.openElements.pop();
   }
   p._insertElement(token, NS.HTML);
@@ -16648,7 +17761,7 @@ function iframeStartTagInBody(p, token) {
   p.framesetOk = false;
   p._switchToTextParsing(token, TokenizerMode.RAWTEXT);
 }
-function noembedStartTagInBody(p, token) {
+function rawTextStartTagInBody(p, token) {
   p._switchToTextParsing(token, TokenizerMode.RAWTEXT);
 }
 function selectStartTagInBody(p, token) {
@@ -16751,6 +17864,7 @@ function startTagInBody(p, token) {
     case TAG_ID.DETAILS:
     case TAG_ID.ADDRESS:
     case TAG_ID.ARTICLE:
+    case TAG_ID.SEARCH:
     case TAG_ID.SECTION:
     case TAG_ID.SUMMARY:
     case TAG_ID.FIELDSET:
@@ -16874,8 +17988,9 @@ function startTagInBody(p, token) {
       optgroupStartTagInBody(p, token);
       break;
     }
-    case TAG_ID.NOEMBED: {
-      noembedStartTagInBody(p, token);
+    case TAG_ID.NOEMBED:
+    case TAG_ID.NOFRAMES: {
+      rawTextStartTagInBody(p, token);
       break;
     }
     case TAG_ID.FRAMESET: {
@@ -16888,7 +18003,7 @@ function startTagInBody(p, token) {
     }
     case TAG_ID.NOSCRIPT: {
       if (p.options.scriptingEnabled) {
-        noembedStartTagInBody(p, token);
+        rawTextStartTagInBody(p, token);
       } else {
         genericStartTagInBody(p, token);
       }
@@ -17054,6 +18169,7 @@ function endTagInBody(p, token) {
     case TAG_ID.ADDRESS:
     case TAG_ID.ARTICLE:
     case TAG_ID.DETAILS:
+    case TAG_ID.SEARCH:
     case TAG_ID.SECTION:
     case TAG_ID.SUMMARY:
     case TAG_ID.LISTING:
@@ -17622,6 +18738,17 @@ function startTagInSelect(p, token) {
       p._insertElement(token, NS.HTML);
       break;
     }
+    case TAG_ID.HR: {
+      if (p.openElements.currentTagId === TAG_ID.OPTION) {
+        p.openElements.pop();
+      }
+      if (p.openElements.currentTagId === TAG_ID.OPTGROUP) {
+        p.openElements.pop();
+      }
+      p._appendElement(token, NS.HTML);
+      token.ackSelfClosing = true;
+      break;
+    }
     case TAG_ID.INPUT:
     case TAG_ID.KEYGEN:
     case TAG_ID.TEXTAREA:
@@ -17698,6 +18825,7 @@ function endTagInSelectInTable(p, token) {
 }
 function startTagInTemplate(p, token) {
   switch (token.tagID) {
+    // First, handle tags that can start without a mode change
     case TAG_ID.BASE:
     case TAG_ID.BASEFONT:
     case TAG_ID.BGSOUND:
@@ -17711,6 +18839,7 @@ function startTagInTemplate(p, token) {
       startTagInHead(p, token);
       break;
     }
+    // Re-process the token in the appropriate mode
     case TAG_ID.CAPTION:
     case TAG_ID.COLGROUP:
     case TAG_ID.TBODY:
@@ -18211,9 +19340,9 @@ var jquery_default = (
         nodeName: "HTML"
       }
     }
-  }, function(window, noGlobal) {
+  }, function(window2, noGlobal) {
     "use strict";
-    if (!window.document) {
+    if (!window2.document) {
       throw new Error("jQuery requires a window with a document");
     }
     var arr = [];
@@ -18248,7 +19377,7 @@ var jquery_default = (
       }
       return type === "array" || length === 0 || typeof length === "number" && length > 0 && length - 1 in obj;
     }
-    var document = window.document;
+    var document2 = window2.document;
     var preservedScriptAttributes = {
       type: true,
       src: true,
@@ -18256,7 +19385,7 @@ var jquery_default = (
       noModule: true
     };
     function DOMEval(code, node, doc) {
-      doc = doc || document;
+      doc = doc || document2;
       var i2, script = doc.createElement("script");
       script.text = code;
       if (node) {
@@ -18531,9 +19660,9 @@ var jquery_default = (
     }
     var pop = arr.pop;
     var whitespace = "[\\x20\\t\\r\\n\\f]";
-    var isIE = document.documentMode;
+    var isIE = document2.documentMode;
     try {
-      document.querySelector(":has(*,:jqfake)");
+      document2.querySelector(":has(*,:jqfake)");
       support.cssHas = false;
     } catch (e) {
       support.cssHas = true;
@@ -18565,7 +19694,7 @@ var jquery_default = (
     var rleadingCombinator = new RegExp("^" + whitespace + "*([>+~]|" + whitespace + ")" + whitespace + "*");
     var rdescend = new RegExp(whitespace + "|>");
     var rsibling = /[+~]/;
-    var documentElement = document.documentElement;
+    var documentElement = document2.documentElement;
     var matches2 = documentElement.matches || documentElement.msMatchesSelector;
     function createCache() {
       var keys = [];
@@ -18734,10 +19863,10 @@ var jquery_default = (
         1
       );
       if (compare & 1) {
-        if (a == document || a.ownerDocument == document && jQuery.contains(document, a)) {
+        if (a == document2 || a.ownerDocument == document2 && jQuery.contains(document2, a)) {
           return -1;
         }
-        if (b == document || b.ownerDocument == document && jQuery.contains(document, b)) {
+        if (b == document2 || b.ownerDocument == document2 && jQuery.contains(document2, b)) {
           return 1;
         }
         return 0;
@@ -18893,14 +20022,14 @@ var jquery_default = (
       });
     }
     function setDocument(node) {
-      var subWindow, doc = node ? node.ownerDocument || node : document;
+      var subWindow, doc = node ? node.ownerDocument || node : document2;
       if (doc == document$1 || doc.nodeType !== 9) {
         return;
       }
       document$1 = doc;
       documentElement$1 = document$1.documentElement;
       documentIsHTML = !jQuery.isXMLDoc(document$1);
-      if (isIE && document != document$1 && (subWindow = document$1.defaultView) && subWindow.top !== subWindow) {
+      if (isIE && document2 != document$1 && (subWindow = document$1.defaultView) && subWindow.top !== subWindow) {
         subWindow.addEventListener("unload", unloadHandler);
       }
     }
@@ -19131,7 +20260,7 @@ var jquery_default = (
         }),
         // Miscellaneous
         target: function(elem) {
-          var hash = window.location && window.location.hash;
+          var hash = window2.location && window2.location.hash;
           return hash && hash.slice(1) === elem.id;
         },
         root: function(elem) {
@@ -19620,7 +20749,7 @@ function normalizeSerializationOptions(opts = {}) {
     removeAttributeQuotes: typeof opts.removeAttributeQuotes !== "boolean" ? false : opts.removeAttributeQuotes,
     removeBooleanAttributeQuotes: typeof opts.removeBooleanAttributeQuotes !== "boolean" ? false : opts.removeBooleanAttributeQuotes,
     removeHtmlComments: typeof opts.removeHtmlComments !== "boolean" ? false : opts.removeHtmlComments,
-    serializeShadowRoot: typeof opts.serializeShadowRoot !== "boolean" ? false : opts.serializeShadowRoot,
+    serializeShadowRoot: typeof opts.serializeShadowRoot === "undefined" ? "declarative-shadow-dom" : opts.serializeShadowRoot,
     fullDocument: typeof opts.fullDocument !== "boolean" ? true : opts.fullDocument
   };
 }
@@ -19633,7 +20762,7 @@ function serializeNodeToHtml(elm, serializationOptions = {}) {
     text: []
   };
   let renderedNode = "";
-  const children = !opts.fullDocument && elm.body ? Array.from(elm.body.childNodes) : opts.outerHtml ? [elm] : Array.from(elm.childNodes);
+  const children = !opts.fullDocument && elm.body ? Array.from(elm.body.childNodes) : opts.outerHtml ? [elm] : Array.from(getChildNodes(elm));
   for (let i = 0, ii = children.length; i < ii; i++) {
     const child = children[i];
     const chunks = Array.from(streamToHtml(child, opts, output));
@@ -19666,7 +20795,10 @@ function* streamToHtml(node, opts, output) {
       const tag = tagName === shadowRootTag ? "template" : tagName;
       yield "<" + tag;
       output.currentLineWidth += tag.length + 1;
-      if (tag === "template") {
+      if (tag === "template" && (!node.getAttribute || !node.getAttribute("shadowrootmode")) && /**
+       * If the node is a shadow root, we want to add the `shadowrootmode` attribute
+       */
+      ("host" in node || node.nodeName.toLocaleLowerCase() === shadowRootTag)) {
         const mode = ` shadowrootmode="open"`;
         yield mode;
         output.currentLineWidth += mode.length;
@@ -19746,11 +20878,12 @@ style="${cssText}">`;
     }
     if (EMPTY_ELEMENTS.has(tagName) === false) {
       const shadowRoot = node.shadowRoot;
-      if (opts.serializeShadowRoot && shadowRoot != null) {
+      if (shadowRoot != null && opts.serializeShadowRoot !== false) {
         output.indent = output.indent + ((_c = opts.indentSpaces) != null ? _c : 0);
         yield* streamToHtml(shadowRoot, opts, output);
         output.indent = output.indent - ((_d = opts.indentSpaces) != null ? _d : 0);
-        if (opts.newLines && (node.childNodes.length === 0 || node.childNodes.length === 1 && node.childNodes[0].nodeType === 3 /* TEXT_NODE */ && ((_e = node.childNodes[0].nodeValue) == null ? void 0 : _e.trim()) === "")) {
+        const childNodes = getChildNodes(node);
+        if (opts.newLines && (childNodes.length === 0 || childNodes.length === 1 && childNodes[0].nodeType === 3 /* TEXT_NODE */ && ((_e = childNodes[0].nodeValue) == null ? void 0 : _e.trim()) === "")) {
           yield "\n";
           output.currentLineWidth = 0;
           for (let i = 0; i < output.indent; i++) {
@@ -19761,7 +20894,7 @@ style="${cssText}">`;
       }
       if (opts.excludeTagContent == null || opts.excludeTagContent.includes(tagName) === false) {
         const tag = tagName === shadowRootTag ? "template" : tagName;
-        const childNodes = tagName === "template" ? node.content.childNodes : node.childNodes;
+        const childNodes = tagName === "template" ? node.content.childNodes : getChildNodes(node);
         const childNodeLength = childNodes.length;
         if (childNodeLength > 0) {
           if (childNodeLength === 1 && childNodes[0].nodeType === 3 /* TEXT_NODE */ && (typeof childNodes[0].nodeValue !== "string" || childNodes[0].nodeValue.trim() === "")) {
@@ -19771,6 +20904,13 @@ style="${cssText}">`;
               output.indent = output.indent + ((_h = opts.indentSpaces) != null ? _h : 0);
             }
             for (let i = 0; i < childNodeLength; i++) {
+              const sId = node.attributes.getNamedItem(HYDRATE_ID);
+              const isStencilDeclarativeShadowDOM = childNodes[i].nodeName.toLowerCase() === "template" && sId;
+              if (isStencilDeclarativeShadowDOM) {
+                yield `
+${" ".repeat(output.indent)}<!--r.${sId.value}-->`;
+                continue;
+              }
               yield* streamToHtml(childNodes[i], opts, output);
             }
             if (ignoreTag === false) {
@@ -19926,6 +21066,9 @@ function isWithinWhitespaceSensitive(node) {
     _node = _node.parentNode;
   }
   return false;
+}
+function getChildNodes(node) {
+  return node.__childNodes || node.childNodes;
 }
 var NON_ESCAPABLE_CONTENT = /* @__PURE__ */ new Set([
   "STYLE",
@@ -20159,7 +21302,7 @@ var MockNode2 = class {
   }
   remove() {
     if (this.parentNode != null) {
-      this.parentNode.removeChild(this);
+      this.__parentNode ? this.__parentNode.removeChild(this) : this.parentNode.removeChild(this);
     }
   }
   replaceChild(newChild, oldChild) {
@@ -20176,6 +21319,15 @@ var MockNode2 = class {
   }
   set textContent(value) {
     this._nodeValue = String(value);
+  }
+  addEventListener(type, handler) {
+    addEventListener(this, type, handler);
+  }
+  removeEventListener(type, handler) {
+    removeEventListener(this, type, handler);
+  }
+  dispatchEvent(ev) {
+    return dispatchEvent(this, ev);
   }
 };
 MockNode2.ELEMENT_NODE = 1;
@@ -20196,10 +21348,12 @@ var MockElement = class extends MockNode2 {
   attachInternals() {
     return new Proxy({}, {
       get: function(_target, prop, _receiver) {
-        console.error(
-          `NOTE: Property ${String(prop)} was accessed on ElementInternals, but this property is not implemented.
-Testing components with ElementInternals is fully supported in e2e tests.`
-        );
+        if ("process" in globalThis && globalThis.process.env.__STENCIL_SPEC_TESTS__) {
+          console.error(
+            `NOTE: Property ${String(prop)} was accessed on ElementInternals, but this property is not implemented.
+  Testing components with ElementInternals is fully supported in e2e tests.`
+          );
+        }
       }
     });
   }
@@ -20990,6 +22144,12 @@ var MockDocumentFragment = class _MockDocumentFragment extends MockHTMLElement {
   getElementById(id) {
     return getElementById(this, id);
   }
+  get adoptedStyleSheets() {
+    return [];
+  }
+  set adoptedStyleSheets(_adoptedStyleSheets) {
+    throw new Error("Unimplemented");
+  }
   cloneNode(deep) {
     const cloned = new _MockDocumentFragment(null);
     if (deep) {
@@ -21038,7 +22198,9 @@ var MockCSSStyleSheet = class {
   deleteRule(index) {
     if (index >= 0 && index < this.cssRules.length) {
       this.cssRules.splice(index, 1);
-      updateStyleTextNode(this.ownerNode);
+      if (this.ownerNode) {
+        updateStyleTextNode(this.ownerNode);
+      }
     }
   }
   insertRule(rule, index = 0) {
@@ -21054,8 +22216,22 @@ var MockCSSStyleSheet = class {
     const cssRule = new MockCSSRule(this);
     cssRule.cssText = rule;
     this.cssRules.splice(index, 0, cssRule);
-    updateStyleTextNode(this.ownerNode);
+    if (this.ownerNode) {
+      updateStyleTextNode(this.ownerNode);
+    }
     return index;
+  }
+  replaceSync(cssText) {
+    this.cssRules = [];
+    const rules = cssText.split("}").map((rule) => rule.trim()).filter(Boolean).map((rule) => rule + "}");
+    for (const rule of rules) {
+      const cssRule = new MockCSSRule(this);
+      cssRule.cssText = rule;
+      this.cssRules.push(cssRule);
+    }
+    if (this.ownerNode) {
+      updateStyleTextNode(this.ownerNode);
+    }
   }
 };
 function getStyleElementText(styleElm) {
@@ -21111,6 +22287,10 @@ function createElement(ownerDocument, tagName) {
       return new MockMetaElement(ownerDocument);
     case "script":
       return new MockScriptElement(ownerDocument);
+    case "slot":
+      return new MockSlotElement(ownerDocument);
+    case "slot-fb":
+      return new MockHTMLElement(ownerDocument, tagName);
     case "style":
       return new MockStyleElement(ownerDocument);
     case "template":
@@ -21121,9 +22301,9 @@ function createElement(ownerDocument, tagName) {
       return new MockUListElement(ownerDocument);
   }
   if (ownerDocument != null && tagName.includes("-")) {
-    const win = ownerDocument.defaultView;
-    if (win != null && win.customElements != null) {
-      return createCustomElement(win.customElements, ownerDocument, tagName);
+    const win2 = ownerDocument.defaultView;
+    if (win2 != null && win2.customElements != null) {
+      return createCustomElement(win2.customElements, ownerDocument, tagName);
     }
   }
   return new MockHTMLElement(ownerDocument, tagName);
@@ -21169,6 +22349,9 @@ var MockAnchorElement = class extends MockHTMLElement {
     this.setAttribute("href", value);
   }
   get pathname() {
+    if (!this.href) {
+      return "";
+    }
     return new URL(this.href).pathname;
   }
 };
@@ -21186,6 +22369,11 @@ patchPropAttributes(
     type: "submit"
   }
 );
+Object.defineProperty(MockButtonElement.prototype, "form", {
+  get() {
+    return this.hasAttribute("form") ? this.getAttribute("form") : null;
+  }
+});
 var MockImageElement = class extends MockHTMLElement {
   constructor(ownerDocument) {
     super(ownerDocument, "img");
@@ -21530,6 +22718,68 @@ var MockUListElement = class extends MockHTMLElement {
     super(ownerDocument, "ul");
   }
 };
+var MockSlotElement = class _MockSlotElement extends MockHTMLElement {
+  constructor(ownerDocument) {
+    super(ownerDocument, "slot");
+  }
+  assignedNodes(opts) {
+    let nodesToReturn = [];
+    const ownerHost = this.getRootNode().host;
+    if (!ownerHost) return nodesToReturn;
+    if (ownerHost.childNodes.length) {
+      if (this.name) {
+        nodesToReturn = ownerHost.childNodes.filter(
+          (n) => n.nodeType === 1 /* ELEMENT_NODE */ && n.getAttribute("slot") === this.name
+        );
+      } else {
+        nodesToReturn = ownerHost.childNodes.filter(
+          (n) => n.nodeType === 1 /* ELEMENT_NODE */ && !n.getAttribute("slot") || n.nodeType !== 1 /* ELEMENT_NODE */
+        );
+      }
+      if (nodesToReturn.length) return nodesToReturn;
+    }
+    if (!(opts == null ? void 0 : opts.flatten)) return this.childNodes.filter((n) => !(n instanceof _MockSlotElement));
+    return this.childNodes.reduce(
+      (acc, node) => {
+        if (node instanceof _MockSlotElement) {
+          acc.push(...node.assignedNodes(opts));
+        } else {
+          acc.push(node);
+        }
+        return acc;
+      },
+      []
+    );
+  }
+  assignedElements(opts) {
+    let elesToReturn = [];
+    const ownerHost = this.getRootNode().host;
+    if (!ownerHost) return elesToReturn;
+    if (ownerHost.children.length) {
+      if (this.name) {
+        elesToReturn = ownerHost.children.filter((n) => n.getAttribute("slot") == this.name);
+      } else {
+        elesToReturn = ownerHost.children.filter((n) => !n.getAttribute("slot"));
+      }
+      if (elesToReturn.length) return elesToReturn;
+    }
+    if (!(opts == null ? void 0 : opts.flatten)) return this.children.filter((n) => !(n instanceof _MockSlotElement));
+    return this.children.reduce(
+      (acc, node) => {
+        if (node instanceof _MockSlotElement) {
+          acc.push(...node.assignedElements(opts));
+        } else {
+          acc.push(node);
+        }
+        return acc;
+      },
+      []
+    );
+  }
+};
+patchPropAttributes(MockSlotElement.prototype, {
+  name: String
+});
 var CanvasRenderingContext = class {
   constructor(context, contextAttributes) {
     this.context = context;
@@ -21540,9 +22790,9 @@ var CanvasRenderingContext = class {
   }
   clearRect() {
   }
-  getImageData(_, __, w, h) {
+  getImageData(_, __, w, h2) {
     return {
-      data: new Array(w * h * 4)
+      data: new Array(w * h2 * 4)
     };
   }
   toDataURL() {
@@ -21604,9 +22854,9 @@ var MockCanvasElement = class extends MockHTMLElement {
 function fullUrl(elm, attrName) {
   const val = elm.getAttribute(attrName) || "";
   if (elm.ownerDocument != null) {
-    const win = elm.ownerDocument.defaultView;
-    if (win != null) {
-      const loc = win.location;
+    const win2 = elm.ownerDocument.defaultView;
+    if (win2 != null) {
+      const loc = win2.location;
       if (loc != null) {
         try {
           const url = new URL(val, loc.href);
@@ -22021,9 +23271,11 @@ var WINDOW_PROPS = [
   "NodeList",
   "FocusEvent",
   "KeyboardEvent",
-  "MouseEvent"
+  "MouseEvent",
+  "CSSStyleSheet"
 ];
 var GLOBAL_CONSTRUCTORS = [
+  ["CSSStyleSheet", MockCSSStyleSheet],
   ["CustomEvent", MockCustomEvent],
   ["DocumentFragment", MockDocumentFragment],
   ["DOMParser", MockDOMParser],
@@ -22211,6 +23463,65 @@ function resetPerformance(perf) {
   }
 }
 
+// src/mock-doc/resize-observer.ts
+var MockResizeObserver = class {
+  constructor() {
+  }
+  disconnect() {
+  }
+  observe() {
+  }
+  takeRecords() {
+    return [];
+  }
+  unobserve() {
+  }
+};
+
+// src/mock-doc/shadow-root.ts
+var MockShadowRoot = class extends MockDocumentFragment {
+  get activeElement() {
+    return null;
+  }
+  get cloneable() {
+    return false;
+  }
+  get delegatesFocus() {
+    return false;
+  }
+  get fullscreenElement() {
+    return null;
+  }
+  get host() {
+    let parent = this.parentElement();
+    while (parent) {
+      if (parent.nodeType === 11) {
+        return parent;
+      }
+      parent = parent.parentElement();
+    }
+    return null;
+  }
+  get mode() {
+    return "open";
+  }
+  get pictureInPictureElement() {
+    return null;
+  }
+  get pointerLockElement() {
+    return null;
+  }
+  get serializable() {
+    return false;
+  }
+  get slotAssignment() {
+    return "named";
+  }
+  get styleSheets() {
+    return [];
+  }
+};
+
 // src/mock-doc/storage.ts
 var MockStorage = class {
   constructor() {
@@ -22240,11 +23551,11 @@ var MockStorage = class {
 };
 
 // src/mock-doc/window.ts
-var nativeClearInterval = clearInterval;
-var nativeClearTimeout = clearTimeout;
-var nativeSetInterval = setInterval;
-var nativeSetTimeout = setTimeout;
-var nativeURL = URL;
+var nativeClearInterval = globalThis.clearInterval;
+var nativeClearTimeout = globalThis.clearTimeout;
+var nativeSetInterval = globalThis.setInterval;
+var nativeSetTimeout = globalThis.setTimeout;
+var nativeURL = globalThis.URL;
 var nativeWindow = globalThis.window;
 var MockWindow = class {
   constructor(html = null) {
@@ -22311,10 +23622,10 @@ var MockWindow = class {
   }
   get Document() {
     if (this.__docCstr == null) {
-      const win = this;
+      const win2 = this;
       this.__docCstr = class extends MockDocument {
         constructor() {
-          super(false, win);
+          super(false, win2);
           throw new Error("Illegal constructor: cannot construct Document");
         }
       };
@@ -22338,6 +23649,9 @@ var MockWindow = class {
   }
   set DocumentFragment(docFragCstr) {
     this.__docFragCstr = docFragCstr;
+  }
+  get ShadowRoot() {
+    return MockShadowRoot;
   }
   get DocumentType() {
     if (this.__docTypeCstr == null) {
@@ -22449,6 +23763,9 @@ var MockWindow = class {
   }
   get IntersectionObserver() {
     return MockIntersectionObserver;
+  }
+  get ResizeObserver() {
+    return MockResizeObserver;
   }
   get localStorage() {
     if (this.__localStorage == null) {
@@ -22831,14 +24148,14 @@ var MockWindow = class {
   }
 };
 addGlobalsToWindowPrototype(MockWindow.prototype);
-function resetWindowDefaults(win) {
-  win.__clearInterval = nativeClearInterval;
-  win.__clearTimeout = nativeClearTimeout;
-  win.__setInterval = nativeSetInterval;
-  win.__setTimeout = nativeSetTimeout;
-  win.__maxTimeout = 3e4;
-  win.__allowInterval = true;
-  win.URL = nativeURL;
+function resetWindowDefaults(win2) {
+  win2.__clearInterval = nativeClearInterval;
+  win2.__clearTimeout = nativeClearTimeout;
+  win2.__setInterval = nativeSetInterval;
+  win2.__setTimeout = nativeSetTimeout;
+  win2.__maxTimeout = 6e4;
+  win2.__allowInterval = true;
+  win2.URL = nativeURL;
 }
 function cloneWindow(srcWin, opts = {}) {
   if (srcWin == null) {
@@ -22857,72 +24174,72 @@ function cloneWindow(srcWin, opts = {}) {
   }
   return clonedWin;
 }
-function constrainTimeouts(win) {
-  win.__allowInterval = false;
-  win.__maxTimeout = 0;
+function constrainTimeouts(win2) {
+  win2.__allowInterval = false;
+  win2.__maxTimeout = 0;
 }
-function resetWindow(win) {
-  if (win != null) {
-    if (win.__timeouts) {
-      win.__timeouts.forEach((timeoutId) => {
+function resetWindow(win2) {
+  if (win2 != null) {
+    if (win2.__timeouts) {
+      win2.__timeouts.forEach((timeoutId) => {
         nativeClearInterval(timeoutId);
         nativeClearTimeout(timeoutId);
       });
-      win.__timeouts.clear();
+      win2.__timeouts.clear();
     }
-    if (win.customElements && win.customElements.clear) {
-      win.customElements.clear();
+    if (win2.customElements && win2.customElements.clear) {
+      win2.customElements.clear();
     }
-    resetDocument(win.document);
-    resetPerformance(win.performance);
-    for (const key in win) {
-      if (win.hasOwnProperty(key) && key !== "document" && key !== "performance" && key !== "customElements") {
-        delete win[key];
+    resetDocument(win2.document);
+    resetPerformance(win2.performance);
+    for (const key in win2) {
+      if (win2.hasOwnProperty(key) && key !== "document" && key !== "performance" && key !== "customElements") {
+        delete win2[key];
       }
     }
-    resetWindowDefaults(win);
-    resetWindowDimensions(win);
-    resetEventListeners(win);
-    if (win.document != null) {
+    resetWindowDefaults(win2);
+    resetWindowDimensions(win2);
+    resetEventListeners(win2);
+    if (win2.document != null) {
       try {
-        win.document.defaultView = win;
+        win2.document.defaultView = win2;
       } catch (e) {
       }
     }
-    win.fetch = null;
-    win.Headers = null;
-    win.Request = null;
-    win.Response = null;
-    win.FetchError = null;
+    win2.fetch = null;
+    win2.Headers = null;
+    win2.Request = null;
+    win2.Response = null;
+    win2.FetchError = null;
   }
 }
-function resetWindowDimensions(win) {
+function resetWindowDimensions(win2) {
   try {
-    win.devicePixelRatio = 1;
-    win.innerHeight = 768;
-    win.innerWidth = 1366;
-    win.pageXOffset = 0;
-    win.pageYOffset = 0;
-    win.screenLeft = 0;
-    win.screenTop = 0;
-    win.screenX = 0;
-    win.screenY = 0;
-    win.scrollX = 0;
-    win.scrollY = 0;
-    win.screen = {
-      availHeight: win.innerHeight,
+    win2.devicePixelRatio = 1;
+    win2.innerHeight = 768;
+    win2.innerWidth = 1366;
+    win2.pageXOffset = 0;
+    win2.pageYOffset = 0;
+    win2.screenLeft = 0;
+    win2.screenTop = 0;
+    win2.screenX = 0;
+    win2.screenY = 0;
+    win2.scrollX = 0;
+    win2.scrollY = 0;
+    win2.screen = {
+      availHeight: win2.innerHeight,
       availLeft: 0,
       availTop: 0,
-      availWidth: win.innerWidth,
+      availWidth: win2.innerWidth,
       colorDepth: 24,
-      height: win.innerHeight,
+      height: win2.innerHeight,
       keepAwake: false,
       orientation: {
         angle: 0,
         type: "portrait-primary"
       },
       pixelDepth: 24,
-      width: win.innerWidth
+      width: win2.innerWidth
     };
   } catch (e) {
   }
@@ -22930,11 +24247,11 @@ function resetWindowDimensions(win) {
 
 // src/mock-doc/document.ts
 var MockDocument = class _MockDocument extends MockHTMLElement {
-  constructor(html = null, win = null) {
+  constructor(html = null, win2 = null) {
     super(null, null);
     this.nodeName = "#document" /* DOCUMENT_NODE */;
     this.nodeType = 9 /* DOCUMENT_NODE */;
-    this.defaultView = win;
+    this.defaultView = win2;
     this.cookie = "";
     this.referrer = "";
     this.appendChild(this.createDocumentTypeNode());
@@ -23210,12 +24527,286 @@ function createWindowFromHtml(templateHtml, uniqueId) {
     templateWindow = new MockWindow(templateHtml);
     templateWindows.set(uniqueId, templateWindow);
   }
-  const win = cloneWindow(templateWindow);
-  return win;
+  const win2 = cloneWindow(templateWindow);
+  return win2;
 }
+var Build = {
+  isDev: BUILD.isDev ? true : false,
+  isBrowser: true,
+  isServer: false,
+  isTesting: BUILD.isTesting ? true : false
+};
+
+// src/utils/constants.ts
+var PrimitiveType = /* @__PURE__ */ ((PrimitiveType2) => {
+  PrimitiveType2["Undefined"] = "undefined";
+  PrimitiveType2["Null"] = "null";
+  PrimitiveType2["String"] = "string";
+  PrimitiveType2["Number"] = "number";
+  PrimitiveType2["SpecialNumber"] = "number";
+  PrimitiveType2["Boolean"] = "boolean";
+  PrimitiveType2["BigInt"] = "bigint";
+  return PrimitiveType2;
+})(PrimitiveType || {});
+var NonPrimitiveType = /* @__PURE__ */ ((NonPrimitiveType2) => {
+  NonPrimitiveType2["Array"] = "array";
+  NonPrimitiveType2["Date"] = "date";
+  NonPrimitiveType2["Map"] = "map";
+  NonPrimitiveType2["Object"] = "object";
+  NonPrimitiveType2["RegularExpression"] = "regexp";
+  NonPrimitiveType2["Set"] = "set";
+  NonPrimitiveType2["Channel"] = "channel";
+  NonPrimitiveType2["Symbol"] = "symbol";
+  return NonPrimitiveType2;
+})(NonPrimitiveType || {});
+var TYPE_CONSTANT = "type";
+var VALUE_CONSTANT = "value";
+var SERIALIZED_PREFIX = "serialized:";
+var STENCIL_DEV_MODE = BUILD.isTesting ? ["STENCIL:"] : [
+  "%cstencil",
+  "color: white;background:#4c47ff;font-weight: bold; font-size:10px; padding:2px 6px; border-radius: 5px"
+];
+var win = typeof window !== "undefined" ? window : {};
+var H = win.HTMLElement || class {
+};
+var supportsShadow = BUILD.shadowDom;
+var supportsConstructableStylesheets = BUILD.constructableCSS ? /* @__PURE__ */ (() => {
+  try {
+    new CSSStyleSheet();
+    return typeof new CSSStyleSheet().replaceSync === "function";
+  } catch (e) {
+  }
+  return false;
+})() : false;
 
 // src/utils/helpers.ts
 var isString = (v) => typeof v === "string";
+
+// src/utils/local-value.ts
+var LocalValue = class _LocalValue {
+  constructor(type, value) {
+    if (type === "undefined" /* Undefined */ || type === "null" /* Null */) {
+      this.type = type;
+    } else {
+      this.type = type;
+      this.value = value;
+    }
+  }
+  /**
+   * Creates a new LocalValue object with a string value.
+   *
+   * @param {string} value - The string value to be stored in the LocalValue object.
+   * @returns {LocalValue} - The created LocalValue object.
+   */
+  static createStringValue(value) {
+    return new _LocalValue("string" /* String */, value);
+  }
+  /**
+   * Creates a new LocalValue object with a number value.
+   *
+   * @param {number} value - The number value.
+   * @returns {LocalValue} - The created LocalValue object.
+   */
+  static createNumberValue(value) {
+    return new _LocalValue("number" /* Number */, value);
+  }
+  /**
+   * Creates a new LocalValue object with a special number value.
+   *
+   * @param {number} value - The value of the special number.
+   * @returns {LocalValue} - The created LocalValue object.
+   */
+  static createSpecialNumberValue(value) {
+    if (Number.isNaN(value)) {
+      return new _LocalValue("number" /* SpecialNumber */, "NaN");
+    }
+    if (Object.is(value, -0)) {
+      return new _LocalValue("number" /* SpecialNumber */, "-0");
+    }
+    if (value === Infinity) {
+      return new _LocalValue("number" /* SpecialNumber */, "Infinity");
+    }
+    if (value === -Infinity) {
+      return new _LocalValue("number" /* SpecialNumber */, "-Infinity");
+    }
+    return new _LocalValue("number" /* SpecialNumber */, value);
+  }
+  /**
+   * Creates a new LocalValue object with an undefined value.
+   * @returns {LocalValue} - The created LocalValue object.
+   */
+  static createUndefinedValue() {
+    return new _LocalValue("undefined" /* Undefined */);
+  }
+  /**
+   * Creates a new LocalValue object with a null value.
+   * @returns {LocalValue} - The created LocalValue object.
+   */
+  static createNullValue() {
+    return new _LocalValue("null" /* Null */);
+  }
+  /**
+   * Creates a new LocalValue object with a boolean value.
+   *
+   * @param {boolean} value - The boolean value.
+   * @returns {LocalValue} - The created LocalValue object.
+   */
+  static createBooleanValue(value) {
+    return new _LocalValue("boolean" /* Boolean */, value);
+  }
+  /**
+   * Creates a new LocalValue object with a BigInt value.
+   *
+   * @param {BigInt} value - The BigInt value.
+   * @returns {LocalValue} - The created LocalValue object.
+   */
+  static createBigIntValue(value) {
+    return new _LocalValue("bigint" /* BigInt */, value.toString());
+  }
+  /**
+   * Creates a new LocalValue object with an array.
+   *
+   * @param {Array} value - The array.
+   * @returns {LocalValue} - The created LocalValue object.
+   */
+  static createArrayValue(value) {
+    return new _LocalValue("array" /* Array */, value);
+  }
+  /**
+   * Creates a new LocalValue object with date value.
+   *
+   * @param {string} value - The date.
+   * @returns {LocalValue} - The created LocalValue object.
+   */
+  static createDateValue(value) {
+    return new _LocalValue("date" /* Date */, value);
+  }
+  /**
+   * Creates a new LocalValue object of map value.
+   * @param {Map} map - The map.
+   * @returns {LocalValue} - The created LocalValue object.
+   */
+  static createMapValue(map2) {
+    const value = [];
+    Array.from(map2.entries()).forEach(([key, val]) => {
+      value.push([_LocalValue.getArgument(key), _LocalValue.getArgument(val)]);
+    });
+    return new _LocalValue("map" /* Map */, value);
+  }
+  /**
+   * Creates a new LocalValue object from the passed object.
+   *
+   * @param object the object to create a LocalValue from
+   * @returns {LocalValue} - The created LocalValue object.
+   */
+  static createObjectValue(object) {
+    const value = [];
+    Object.entries(object).forEach(([key, val]) => {
+      value.push([key, _LocalValue.getArgument(val)]);
+    });
+    return new _LocalValue("object" /* Object */, value);
+  }
+  /**
+   * Creates a new LocalValue object of regular expression value.
+   *
+   * @param {string} value - The value of the regular expression.
+   * @returns {LocalValue} - The created LocalValue object.
+   */
+  static createRegularExpressionValue(value) {
+    return new _LocalValue("regexp" /* RegularExpression */, value);
+  }
+  /**
+   * Creates a new LocalValue object with the specified value.
+   * @param {Set} value - The value to be set.
+   * @returns {LocalValue} - The created LocalValue object.
+   */
+  static createSetValue(value) {
+    return new _LocalValue("set" /* Set */, value);
+  }
+  /**
+   * Creates a new LocalValue object with the given channel value
+   *
+   * @param {ChannelValue} value - The channel value.
+   * @returns {LocalValue} - The created LocalValue object.
+   */
+  static createChannelValue(value) {
+    return new _LocalValue("channel" /* Channel */, value);
+  }
+  /**
+   * Creates a new LocalValue object with a Symbol value.
+   *
+   * @param {Symbol} symbol - The Symbol value
+   * @returns {LocalValue} - The created LocalValue object
+   */
+  static createSymbolValue(symbol) {
+    const description = symbol.description || "Symbol()";
+    return new _LocalValue("symbol" /* Symbol */, description);
+  }
+  static getArgument(argument) {
+    const type = typeof argument;
+    switch (type) {
+      case "string" /* String */:
+        return _LocalValue.createStringValue(argument);
+      case "number" /* Number */:
+        if (Number.isNaN(argument) || Object.is(argument, -0) || !Number.isFinite(argument)) {
+          return _LocalValue.createSpecialNumberValue(argument);
+        }
+        return _LocalValue.createNumberValue(argument);
+      case "boolean" /* Boolean */:
+        return _LocalValue.createBooleanValue(argument);
+      case "bigint" /* BigInt */:
+        return _LocalValue.createBigIntValue(argument);
+      case "undefined" /* Undefined */:
+        return _LocalValue.createUndefinedValue();
+      case "symbol" /* Symbol */:
+        return _LocalValue.createSymbolValue(argument);
+      case "object" /* Object */:
+        if (argument === null) {
+          return _LocalValue.createNullValue();
+        }
+        if (argument instanceof Date) {
+          return _LocalValue.createDateValue(argument);
+        }
+        if (argument instanceof Map) {
+          const map2 = [];
+          argument.forEach((value, key) => {
+            const objectKey = typeof key === "string" ? key : _LocalValue.getArgument(key);
+            const objectValue = _LocalValue.getArgument(value);
+            map2.push([objectKey, objectValue]);
+          });
+          return _LocalValue.createMapValue(argument);
+        }
+        if (argument instanceof Set) {
+          const set = [];
+          argument.forEach((value) => {
+            set.push(_LocalValue.getArgument(value));
+          });
+          return _LocalValue.createSetValue(set);
+        }
+        if (argument instanceof Array) {
+          const arr = [];
+          argument.forEach((value) => {
+            arr.push(_LocalValue.getArgument(value));
+          });
+          return _LocalValue.createArrayValue(arr);
+        }
+        if (argument instanceof RegExp) {
+          return _LocalValue.createRegularExpressionValue({
+            pattern: argument.source,
+            flags: argument.flags
+          });
+        }
+        return _LocalValue.createObjectValue(argument);
+    }
+    throw new Error(`Unsupported type: ${type}`);
+  }
+  asMap() {
+    return {
+      [TYPE_CONSTANT]: this.type,
+      ...!(this.type === "null" /* Null */ || this.type === "undefined" /* Undefined */) ? { [VALUE_CONSTANT]: this.value } : {}
+    };
+  }
+};
 
 // src/utils/message-utils.ts
 var catchError = (diagnostics, err2, msg) => {
@@ -23254,6 +24845,106 @@ var shouldIgnoreError = (msg) => {
   return msg === TASK_CANCELED_MSG;
 };
 var TASK_CANCELED_MSG = `task canceled`;
+
+// src/utils/regular-expression.ts
+var escapeRegExpSpecialCharacters = (text) => {
+  return text.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+};
+
+// src/utils/remote-value.ts
+var RemoteValue = class _RemoteValue {
+  /**
+   * Deserializes a LocalValue serialized object back to its original JavaScript representation
+   *
+   * @param serialized The serialized LocalValue object
+   * @returns The original JavaScript value/object
+   */
+  static fromLocalValue(serialized) {
+    const type = serialized[TYPE_CONSTANT];
+    const value = VALUE_CONSTANT in serialized ? serialized[VALUE_CONSTANT] : void 0;
+    switch (type) {
+      case "string" /* String */:
+        return value;
+      case "boolean" /* Boolean */:
+        return value;
+      case "bigint" /* BigInt */:
+        return BigInt(value);
+      case "undefined" /* Undefined */:
+        return void 0;
+      case "null" /* Null */:
+        return null;
+      case "number" /* Number */:
+        if (value === "NaN") return NaN;
+        if (value === "-0") return -0;
+        if (value === "Infinity") return Infinity;
+        if (value === "-Infinity") return -Infinity;
+        return value;
+      case "array" /* Array */:
+        return value.map((item) => _RemoteValue.fromLocalValue(item));
+      case "date" /* Date */:
+        return new Date(value);
+      case "map" /* Map */:
+        const map2 = /* @__PURE__ */ new Map();
+        for (const [key, val] of value) {
+          const deserializedKey = typeof key === "object" && key !== null ? _RemoteValue.fromLocalValue(key) : key;
+          const deserializedValue = _RemoteValue.fromLocalValue(val);
+          map2.set(deserializedKey, deserializedValue);
+        }
+        return map2;
+      case "object" /* Object */:
+        const obj = {};
+        for (const [key, val] of value) {
+          obj[key] = _RemoteValue.fromLocalValue(val);
+        }
+        return obj;
+      case "regexp" /* RegularExpression */:
+        const { pattern, flags } = value;
+        return new RegExp(pattern, flags);
+      case "set" /* Set */:
+        const set = /* @__PURE__ */ new Set();
+        for (const item of value) {
+          set.add(_RemoteValue.fromLocalValue(item));
+        }
+        return set;
+      case "symbol" /* Symbol */:
+        return Symbol(value);
+      default:
+        throw new Error(`Unsupported type: ${type}`);
+    }
+  }
+  /**
+   * Utility method to deserialize multiple LocalValues at once
+   *
+   * @param serializedValues Array of serialized LocalValue objects
+   * @returns Array of deserialized JavaScript values
+   */
+  static fromLocalValueArray(serializedValues) {
+    return serializedValues.map((value) => _RemoteValue.fromLocalValue(value));
+  }
+  /**
+   * Verifies if the given object matches the structure of a serialized LocalValue
+   *
+   * @param obj Object to verify
+   * @returns boolean indicating if the object has LocalValue structure
+   */
+  static isLocalValueObject(obj) {
+    if (typeof obj !== "object" || obj === null) {
+      return false;
+    }
+    if (!obj.hasOwnProperty(TYPE_CONSTANT)) {
+      return false;
+    }
+    const type = obj[TYPE_CONSTANT];
+    const hasTypeProperty = Object.values({ ...PrimitiveType, ...NonPrimitiveType }).includes(type);
+    if (!hasTypeProperty) {
+      return false;
+    }
+    if (type !== "null" /* Null */ && type !== "undefined" /* Undefined */) {
+      return obj.hasOwnProperty(VALUE_CONSTANT);
+    }
+    return true;
+  }
+};
 
 // src/utils/result.ts
 var result_exports = {};
@@ -23303,6 +24994,73 @@ var unwrapErr = (result) => {
     throw result.value;
   }
 };
+
+// src/utils/serialize.ts
+function serializeProperty(value) {
+  if (["string", "boolean", "undefined"].includes(typeof value) || typeof value === "number" && value !== Infinity && value !== -Infinity && !isNaN(value)) {
+    return value;
+  }
+  const arg = LocalValue.getArgument(value);
+  return SERIALIZED_PREFIX + btoa(JSON.stringify(arg));
+}
+function deserializeProperty(value) {
+  if (typeof value !== "string" || !value.startsWith(SERIALIZED_PREFIX)) {
+    return value;
+  }
+  return RemoteValue.fromLocalValue(JSON.parse(atob(value.slice(SERIALIZED_PREFIX.length))));
+}
+
+// src/utils/util.ts
+var lowerPathParam = (fn) => (p) => fn(p.toLowerCase());
+var isDtsFile = lowerPathParam((p) => p.endsWith(".d.ts") || p.endsWith(".d.mts") || p.endsWith(".d.cts"));
+var isTsFile = lowerPathParam(
+  (p) => !isDtsFile(p) && (p.endsWith(".ts") || p.endsWith(".mts") || p.endsWith(".cts"))
+);
+var isTsxFile = lowerPathParam(
+  (p) => p.endsWith(".tsx") || p.endsWith(".mtsx") || p.endsWith(".ctsx")
+);
+var isJsxFile = lowerPathParam(
+  (p) => p.endsWith(".jsx") || p.endsWith(".mjsx") || p.endsWith(".cjsx")
+);
+var isJsFile = lowerPathParam((p) => p.endsWith(".js") || p.endsWith(".mjs") || p.endsWith(".cjs"));
+
+// src/utils/shadow-css.ts
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ *
+ * This file is a port of shadowCSS from `webcomponents.js` to TypeScript.
+ * https://github.com/webcomponents/webcomponentsjs/blob/4efecd7e0e/src/ShadowCSS/ShadowCSS.js
+ * https://github.com/angular/angular/blob/master/packages/compiler/src/shadow_css.ts
+ */
+var _polyfillHost = "-shadowcsshost";
+var _polyfillSlotted = "-shadowcssslotted";
+var _polyfillHostContext = "-shadowcsscontext";
+var _parenSuffix = ")(?:\\(((?:\\([^)(]*\\)|[^)(]*)+?)\\))?([^,{]*)";
+var _cssColonHostRe = new RegExp("(" + _polyfillHost + _parenSuffix, "gim");
+var _cssColonHostContextRe = new RegExp("(" + _polyfillHostContext + _parenSuffix, "gim");
+var _cssColonSlottedRe = new RegExp("(" + _polyfillSlotted + _parenSuffix, "gim");
+var _polyfillHostNoCombinator = _polyfillHost + "-no-combinator";
+var createSupportsRuleRe = (selector) => {
+  const safeSelector = escapeRegExpSpecialCharacters(selector);
+  return new RegExp(
+    // First capture group: match any context before the selector that's not inside @supports selector()
+    // Using negative lookahead to avoid matching inside @supports selector(...) condition
+    `(^|[^@]|@(?!supports\\s+selector\\s*\\([^{]*?${safeSelector}))(${safeSelector}\\b)`,
+    "g"
+  );
+};
+var _colonSlottedRe = createSupportsRuleRe("::slotted");
+var _colonHostRe = createSupportsRuleRe(":host");
+var _colonHostContextRe = createSupportsRuleRe(":host-context");
+
+// src/runtime/mode.ts
+var setMode = (handler) => modeResolutionChain.push(handler);
+var CAPTURE_EVENT_SUFFIX = "Capture";
+var CAPTURE_EVENT_REGEX = new RegExp(CAPTURE_EVENT_SUFFIX + "$");
 
 // src/compiler/html/canonical-link.ts
 var updateCanonicalLink = (doc, href) => {
@@ -24086,7 +25844,7 @@ var removeUnusedStyleText = (usedSelectors, diagnostics, styleElm) => {
 
 // src/hydrate/runner/inspect-element.ts
 function inspectElement(results, elm, depth) {
-  const children = elm.children;
+  const children = [...Array.from(elm.children), ...Array.from(elm.shadowRoot ? elm.shadowRoot.children : [])];
   for (let i = 0, ii = children.length; i < ii; i++) {
     const childElm = children[i];
     const tagName = childElm.nodeName.toLowerCase();
@@ -24178,48 +25936,48 @@ var SKIP_ATTRS = /* @__PURE__ */ new Set(["s-id", "c-id"]);
 
 // src/hydrate/runner/patch-dom-implementation.ts
 function patchDomImplementation(doc, opts) {
-  let win;
+  let win2;
   if (doc.defaultView != null) {
     opts.destroyWindow = true;
     patchWindow(doc.defaultView);
-    win = doc.defaultView;
+    win2 = doc.defaultView;
   } else {
     opts.destroyWindow = true;
     opts.destroyDocument = false;
-    win = new MockWindow(false);
+    win2 = new MockWindow(false);
   }
-  if (win.document !== doc) {
-    win.document = doc;
+  if (win2.document !== doc) {
+    win2.document = doc;
   }
-  if (doc.defaultView !== win) {
-    doc.defaultView = win;
+  if (doc.defaultView !== win2) {
+    doc.defaultView = win2;
   }
-  const HTMLElement = doc.documentElement.constructor.prototype;
-  if (typeof HTMLElement.getRootNode !== "function") {
+  const HTMLElement2 = doc.documentElement.constructor.prototype;
+  if (typeof HTMLElement2.getRootNode !== "function") {
     const elm = doc.createElement("unknown-element");
     const HTMLUnknownElement = elm.constructor.prototype;
     HTMLUnknownElement.getRootNode = getRootNode;
   }
   if (typeof doc.createEvent === "function") {
-    const CustomEvent = doc.createEvent("CustomEvent").constructor;
-    if (win.CustomEvent !== CustomEvent) {
-      win.CustomEvent = CustomEvent;
+    const CustomEvent2 = doc.createEvent("CustomEvent").constructor;
+    if (win2.CustomEvent !== CustomEvent2) {
+      win2.CustomEvent = CustomEvent2;
     }
   }
   try {
-    win.__stencil_baseURI = doc.baseURI;
+    win2.__stencil_baseURI = doc.baseURI;
   } catch (e) {
     Object.defineProperty(doc, "baseURI", {
       get() {
         const baseElm = doc.querySelector("base[href]");
         if (baseElm) {
-          return new URL(baseElm.getAttribute("href"), win.location.href).href;
+          return new URL(baseElm.getAttribute("href"), win2.location.href).href;
         }
-        return win.location.href;
+        return win2.location.href;
       }
     });
   }
-  return win;
+  return win2;
 }
 function getRootNode(opts) {
   const isComposed = opts != null && opts.composed === true;
@@ -24372,10 +26130,10 @@ function renderCatchError(results, err2) {
 }
 
 // src/hydrate/runner/runtime-log.ts
-function runtimeLogging(win, opts, results) {
+function runtimeLogging(win2, opts, results) {
   try {
-    const pathname = win.location.pathname;
-    win.console.error = (...msgs) => {
+    const pathname = win2.location.pathname;
+    win2.console.error = (...msgs) => {
       const errMsg = msgs.reduce((errMsg2, m) => {
         if (m) {
           if (m.stack != null) {
@@ -24395,7 +26153,7 @@ function runtimeLogging(win, opts, results) {
         }
       }
     };
-    win.console.debug = (...msgs) => {
+    win2.console.debug = (...msgs) => {
       renderBuildDiagnostic(results, "debug", "Hydrate Debug", [...msgs].join(", "));
       if (opts.runtimeLogging) {
         runtimeLog(pathname, "debug", msgs);
@@ -24403,7 +26161,7 @@ function runtimeLogging(win, opts, results) {
     };
     if (opts.runtimeLogging) {
       ["log", "warn", "assert", "info", "trace"].forEach((type) => {
-        win.console[type] = (...msgs) => {
+        win2.console[type] = (...msgs) => {
           runtimeLog(pathname, type, msgs);
         };
       });
@@ -24417,16 +26175,21 @@ function runtimeLog(pathname, type, msgs) {
 }
 
 // src/hydrate/runner/window-initialize.ts
-function initializeWindow(win, doc, opts, results) {
+var docData = {
+  hostIds: 0,
+  rootLevelIds: 0,
+  staticComponents: /* @__PURE__ */ new Set()
+};
+function initializeWindow(win2, doc, opts, results) {
   if (typeof opts.url === "string") {
     try {
-      win.location.href = opts.url;
+      win2.location.href = opts.url;
     } catch (e) {
     }
   }
   if (typeof opts.userAgent === "string") {
     try {
-      win.navigator.userAgent = opts.userAgent;
+      win2.navigator.userAgent = opts.userAgent;
     } catch (e) {
     }
   }
@@ -24461,14 +26224,15 @@ function initializeWindow(win, doc, opts, results) {
     }
   }
   try {
-    win.customElements = null;
+    win2.customElements = null;
   } catch (e) {
   }
   if (opts.constrainTimeouts) {
-    constrainTimeouts(win);
+    constrainTimeouts(win2);
   }
-  runtimeLogging(win, opts, results);
-  return win;
+  runtimeLogging(win2, opts, results);
+  doc[STENCIL_DOC_DATA] = docData;
+  return win2;
 }
 
 // src/hydrate/runner/render.ts
@@ -24481,13 +26245,14 @@ function renderToString(html, options, asStream) {
   const opts = normalizeHydrateOptions(options);
   opts.serializeToHtml = true;
   opts.fullDocument = typeof opts.fullDocument === "boolean" ? opts.fullDocument : true;
-  opts.serializeShadowRoot = Boolean(opts.serializeShadowRoot);
+  opts.serializeShadowRoot = typeof opts.serializeShadowRoot === "undefined" ? "declarative-shadow-dom" : opts.serializeShadowRoot;
   opts.constrainTimeouts = false;
   return hydrateDocument(html, opts, asStream);
 }
 function hydrateDocument(doc, options, asStream) {
   const opts = normalizeHydrateOptions(options);
-  let win = null;
+  opts.serializeShadowRoot = typeof opts.serializeShadowRoot === "undefined" ? "declarative-shadow-dom" : opts.serializeShadowRoot;
+  let win2 = null;
   const results = generateHydrateResults(opts);
   if (hasError(results.diagnostics)) {
     return Promise.resolve(results);
@@ -24496,16 +26261,16 @@ function hydrateDocument(doc, options, asStream) {
     try {
       opts.destroyWindow = true;
       opts.destroyDocument = true;
-      win = new MockWindow(doc);
+      win2 = new MockWindow(doc);
       if (!asStream) {
-        return render(win, opts, results).then(() => results);
+        return render2(win2, opts, results).then(() => results);
       }
-      return renderStream(win, opts, results);
+      return renderStream(win2, opts, results);
     } catch (e) {
-      if (win && win.close) {
-        win.close();
+      if (win2 && win2.close) {
+        win2.close();
       }
-      win = null;
+      win2 = null;
       renderCatchError(results, e);
       return Promise.resolve(results);
     }
@@ -24513,16 +26278,16 @@ function hydrateDocument(doc, options, asStream) {
   if (isValidDocument(doc)) {
     try {
       opts.destroyDocument = false;
-      win = patchDomImplementation(doc, opts);
+      win2 = patchDomImplementation(doc, opts);
       if (!asStream) {
-        return render(win, opts, results).then(() => results);
+        return render2(win2, opts, results).then(() => results);
       }
-      return renderStream(win, opts, results);
+      return renderStream(win2, opts, results);
     } catch (e) {
-      if (win && win.close) {
-        win.close();
+      if (win2 && win2.close) {
+        win2.close();
       }
-      win = null;
+      win2 = null;
       renderCatchError(results, e);
       return Promise.resolve(results);
     }
@@ -24530,41 +26295,47 @@ function hydrateDocument(doc, options, asStream) {
   renderBuildError(results, `Invalid html or document. Must be either a valid "html" string, or DOM "document".`);
   return Promise.resolve(results);
 }
-async function render(win, opts, results) {
+async function render2(win2, opts, results) {
   if ("process" in globalThis && typeof process.on === "function" && !process.__stencilErrors) {
     process.__stencilErrors = true;
     process.on("unhandledRejection", (e) => {
       console.log("unhandledRejection", e);
     });
   }
-  initializeWindow(win, win.document, opts, results);
-  const beforeHydrateFn = typeof opts.beforeHydrate === "function" ? opts.beforeHydrate(win.document) : NOOP;
+  initializeWindow(win2, win2.document, opts, results);
+  const beforeHydrateFn = typeof opts.beforeHydrate === "function" ? opts.beforeHydrate : NOOP;
   try {
-    await Promise.resolve(beforeHydrateFn(win.document));
-    return new Promise((resolve) => hydrateFactory(win, opts, results, afterHydrate, resolve));
+    await Promise.resolve(beforeHydrateFn(win2.document));
+    return new Promise((resolve) => {
+      if (Array.isArray(opts.modes)) {
+        modeResolutionChain.length = 0;
+        opts.modes.forEach((mode) => setMode(mode));
+      }
+      return hydrateFactory(win2, opts, results, afterHydrate, resolve);
+    });
   } catch (e) {
     renderCatchError(results, e);
-    return finalizeHydrate(win, win.document, opts, results);
+    return finalizeHydrate(win2, win2.document, opts, results);
   }
 }
-function renderStream(win, opts, results) {
+function renderStream(win2, opts, results) {
   async function* processRender() {
-    const renderResult = await render(win, opts, results);
+    const renderResult = await render2(win2, opts, results);
     yield renderResult.html;
   }
   return stream.Readable.from(processRender());
 }
-async function afterHydrate(win, opts, results, resolve) {
-  const afterHydrateFn = typeof opts.afterHydrate === "function" ? opts.afterHydrate(win.document) : NOOP;
+async function afterHydrate(win2, opts, results, resolve) {
+  const afterHydrateFn = typeof opts.afterHydrate === "function" ? opts.afterHydrate : NOOP;
   try {
-    await Promise.resolve(afterHydrateFn(win.document));
-    return resolve(finalizeHydrate(win, win.document, opts, results));
+    await Promise.resolve(afterHydrateFn(win2.document));
+    return resolve(finalizeHydrate(win2, win2.document, opts, results));
   } catch (e) {
     renderCatchError(results, e);
-    return resolve(finalizeHydrate(win, win.document, opts, results));
+    return resolve(finalizeHydrate(win2, win2.document, opts, results));
   }
 }
-function finalizeHydrate(win, doc, opts, results) {
+function finalizeHydrate(win2, doc, opts, results) {
   try {
     inspectElement(results, doc.documentElement, 0);
     if (opts.removeUnusedStyles !== false) {
@@ -24584,6 +26355,16 @@ function finalizeHydrate(win, doc, opts, results) {
     results.title = doc.title;
     if (opts.removeScripts) {
       removeScripts(doc.documentElement);
+    }
+    const styles2 = doc.querySelectorAll("head style");
+    if (styles2.length > 0) {
+      results.styles.push(
+        ...Array.from(styles2).map((style) => ({
+          href: style.getAttribute("href"),
+          id: style.getAttribute(HYDRATED_STYLE_ID),
+          content: style.textContent
+        }))
+      );
     }
     try {
       updateCanonicalLink(doc, opts.canonicalUrl);
@@ -24616,20 +26397,20 @@ function finalizeHydrate(win, doc, opts, results) {
   } catch (e) {
     renderCatchError(results, e);
   }
-  destroyWindow(win, doc, opts, results);
+  destroyWindow(win2, doc, opts, results);
   return results;
 }
-function destroyWindow(win, doc, opts, results) {
+function destroyWindow(win2, doc, opts, results) {
   if (!opts.destroyWindow) {
     return;
   }
   try {
     if (!opts.destroyDocument) {
-      win.document = null;
+      win2.document = null;
       doc.defaultView = null;
     }
-    if (win.close) {
-      win.close();
+    if (win2.close) {
+      win2.close();
     }
   } catch (e) {
     renderCatchError(results, e);
@@ -24663,7 +26444,9 @@ function removeScripts(elm) {
 }
 
 exports.createWindowFromHtml = createWindowFromHtml;
+exports.deserializeProperty = deserializeProperty;
 exports.hydrateDocument = hydrateDocument;
 exports.renderToString = renderToString;
 exports.serializeDocumentToString = serializeDocumentToString;
+exports.serializeProperty = serializeProperty;
 exports.streamToString = streamToString;

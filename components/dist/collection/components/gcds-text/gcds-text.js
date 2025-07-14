@@ -2,11 +2,32 @@ import { Host, h } from "@stencil/core";
 import { SpacingArray } from "../../utils/types/spacing";
 export class GcdsText {
     constructor() {
+        /**
+         * Props
+         */
+        /**
+         * Sets the main style of the text.
+         */
         this.textRole = 'primary';
+        /**
+         * Sets the line length to a maximum amount of characters per line to ensure a comfortable, accessible reading length.
+         */
         this.characterLimit = true;
+        /**
+         * Specifies the display behaviour of the text.
+         */
         this.display = 'block';
+        /**
+         * Adds margin above the text.
+         */
         this.marginTop = '0';
+        /**
+         * Adds margin below the text.
+         */
         this.marginBottom = '300';
+        /**
+         * Sets the appropriate HTML tags for the selected size.
+         */
         this.size = 'body';
     }
     validateTextRole(newValue) {
@@ -79,6 +100,7 @@ export class GcdsText {
         return {
             "textRole": {
                 "type": "string",
+                "attribute": "text-role",
                 "mutable": true,
                 "complexType": {
                     "original": "'light' | 'primary' | 'secondary'",
@@ -91,12 +113,14 @@ export class GcdsText {
                     "tags": [],
                     "text": "Sets the main style of the text."
                 },
-                "attribute": "text-role",
+                "getter": false,
+                "setter": false,
                 "reflect": false,
                 "defaultValue": "'primary'"
             },
             "characterLimit": {
                 "type": "boolean",
+                "attribute": "character-limit",
                 "mutable": false,
                 "complexType": {
                     "original": "boolean",
@@ -109,12 +133,14 @@ export class GcdsText {
                     "tags": [],
                     "text": "Sets the line length to a maximum amount of characters per line to ensure a comfortable, accessible reading length."
                 },
-                "attribute": "character-limit",
+                "getter": false,
+                "setter": false,
                 "reflect": false,
                 "defaultValue": "true"
             },
             "display": {
                 "type": "string",
+                "attribute": "display",
                 "mutable": true,
                 "complexType": {
                     "original": "| 'block'\n    | 'flex'\n    | 'inline'\n    | 'inline-block'\n    | 'inline-flex'\n    | 'none'",
@@ -127,12 +153,14 @@ export class GcdsText {
                     "tags": [],
                     "text": "Specifies the display behaviour of the text."
                 },
-                "attribute": "display",
+                "getter": false,
+                "setter": false,
                 "reflect": false,
                 "defaultValue": "'block'"
             },
             "marginTop": {
                 "type": "string",
+                "attribute": "margin-top",
                 "mutable": true,
                 "complexType": {
                     "original": "SpacingValues",
@@ -151,12 +179,14 @@ export class GcdsText {
                     "tags": [],
                     "text": "Adds margin above the text."
                 },
-                "attribute": "margin-top",
+                "getter": false,
+                "setter": false,
                 "reflect": false,
                 "defaultValue": "'0'"
             },
             "marginBottom": {
                 "type": "string",
+                "attribute": "margin-bottom",
                 "mutable": true,
                 "complexType": {
                     "original": "SpacingValues",
@@ -175,12 +205,14 @@ export class GcdsText {
                     "tags": [],
                     "text": "Adds margin below the text."
                 },
-                "attribute": "margin-bottom",
+                "getter": false,
+                "setter": false,
                 "reflect": false,
                 "defaultValue": "'300'"
             },
             "size": {
                 "type": "string",
+                "attribute": "size",
                 "mutable": true,
                 "complexType": {
                     "original": "'body' | 'small'",
@@ -193,7 +225,8 @@ export class GcdsText {
                     "tags": [],
                     "text": "Sets the appropriate HTML tags for the selected size."
                 },
-                "attribute": "size",
+                "getter": false,
+                "setter": false,
                 "reflect": false,
                 "defaultValue": "'body'"
             }

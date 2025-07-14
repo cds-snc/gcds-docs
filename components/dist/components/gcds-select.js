@@ -1,8 +1,2 @@
-import { G as GcdsSelect$1, d as defineCustomElement$1 } from './gcds-select2.js';
-
-const GcdsSelect = GcdsSelect$1;
-const defineCustomElement = defineCustomElement$1;
-
-export { GcdsSelect, defineCustomElement };
-
+import{G as o,d as s}from"./p-CzQ4a7JY.js";const t=o;const a=s;export{t as GcdsSelect,a as defineCustomElement};
 //# sourceMappingURL=gcds-select.js.map

@@ -5,6 +5,26 @@ import i18n from "./i18n/i18n";
 export class GcdsFileUploader {
     constructor() {
         this._validator = defaultValidator;
+        /**
+         * Specifies if a form field is required or not.
+         */
+        this.required = false;
+        /**
+         * Specifies if a file uploader element is disabled or not.
+         */
+        this.disabled = false;
+        /**
+         * Value for a file uploader element.
+         */
+        this.value = [];
+        /**
+         * Set event to call validator
+         */
+        this.validateOn = 'blur';
+        /**
+         * Set additional HTML attributes not available in component properties
+         */
+        this.inheritedAttributes = {};
         this.onBlur = () => {
             if (this.validateOn == 'blur') {
                 this.validate();
@@ -53,6 +73,8 @@ export class GcdsFileUploader {
             }
             this.value = [...filesContainer];
             this.gcdsRemoveFile.emit(this.value);
+            this.gcdsChange.emit(this.value);
+            this.el.dispatchEvent(new Event('change', { bubbles: true, composed: true }));
         };
         /*
          * Set form data for internals
@@ -66,22 +88,6 @@ export class GcdsFileUploader {
             }
             this.internals.setFormValue(formData);
         };
-        this.uploaderId = undefined;
-        this.name = undefined;
-        this.label = undefined;
-        this.required = false;
-        this.disabled = false;
-        this.value = [];
-        this.accept = undefined;
-        this.multiple = undefined;
-        this.files = undefined;
-        this.errorMessage = undefined;
-        this.hint = undefined;
-        this.validator = undefined;
-        this.validateOn = 'blur';
-        this.hasError = undefined;
-        this.inheritedAttributes = {};
-        this.lang = undefined;
     }
     validateDisabledSelect() {
         if (this.required) {
@@ -158,6 +164,8 @@ export class GcdsFileUploader {
                 this.shadowElement.files = dt.files;
                 this.files = dt.files;
             }
+            this.gcdsChange.emit(this.value);
+            this.el.dispatchEvent(new Event('change', { bubbles: true, composed: true }));
         }
         // Focus file input after drop
         this.shadowElement.focus();
@@ -205,7 +213,7 @@ export class GcdsFileUploader {
             attrsInput['aria-describedby'] =
                 `${hintID}${errorID}${attrsInput['aria-describedby']}`;
         }
-        return (h(Host, { key: '913cb86e9a2837583dd8a5af92896b69c19a1491' }, h("div", { key: 'd396334ce7fc0a4916440efb43ecd429ffa72cd2', class: `gcds-file-uploader-wrapper ${disabled ? 'gcds-disabled' : ''} ${hasError ? 'gcds-error' : ''}` }, h("gcds-label", Object.assign({ key: 'de78c05d22fb99eeaee7a21d74fbad91f51f2395' }, attrsLabel, { "label-for": uploaderId, lang: lang })), hint ? h("gcds-hint", { "hint-id": uploaderId }, hint) : null, errorMessage ? (h("gcds-error-message", { messageId: uploaderId }, errorMessage)) : null, h("div", { key: '35fb7d04e6e0cf4638634aa38a621d9b6dd8d568', class: `file-uploader__input ${value.length > 0 ? 'uploaded-files' : ''}`, onDrop: e => this.handleDrop(e), onDragOver: e => e.preventDefault() }, h("button", { key: 'ae322710e6b51bf1f490e0d820ed606a4ec1cf05', type: "button", tabindex: "-1", onClick: () => this.shadowElement.click() }, i18n[lang].button.upload), h("input", Object.assign({ key: 'e06b9eb8859b5143c8e3dd0d83b9d00926fdf8ed', type: "file", id: uploaderId }, attrsInput, { onBlur: () => this.onBlur(), onFocus: () => this.gcdsFocus.emit(), onInput: e => this.handleInput(e, this.gcdsInput), onChange: e => this.handleInput(e, this.gcdsChange), "aria-invalid": hasError ? 'true' : 'false', ref: element => (this.shadowElement = element) })), value.length > 0 ? (h("gcds-sr-only", { id: "file-uploader__summary" }, h("span", null, i18n[lang].summary.selected, " "), value.map(file => (h("span", null, file, " "))))) : (h("gcds-sr-only", { id: "file-uploader__summary" }, i18n[lang].summary.unselected))), value.length > 0
+        return (h(Host, { key: '96759ad2acbc9534d93cfdb413b57b7f46796b0d' }, h("div", { key: '4f992f137168c1ff1d9c4d922a87399da95972d4', class: `gcds-file-uploader-wrapper ${disabled ? 'gcds-disabled' : ''} ${hasError ? 'gcds-error' : ''}` }, h("gcds-label", Object.assign({ key: '838de9db0ceb2f3c41ded62ab08c5312ddac3a66' }, attrsLabel, { "label-for": uploaderId, lang: lang })), hint ? h("gcds-hint", { "hint-id": uploaderId }, hint) : null, errorMessage ? (h("gcds-error-message", { messageId: uploaderId }, errorMessage)) : null, h("div", { key: '667b1ab631eefe9be74c7c9ece597151ad8c60d8', class: `file-uploader__input ${value.length > 0 ? 'uploaded-files' : ''}`, onDrop: e => this.handleDrop(e), onDragOver: e => e.preventDefault() }, h("button", { key: '90f829f910cd2cf45403978733a48126835badde', type: "button", tabindex: "-1", onClick: () => this.shadowElement.click() }, i18n[lang].button.upload), h("input", Object.assign({ key: 'dc37e465e2b3be6c9a1a1ffee50787718d7cd96c', type: "file", id: uploaderId }, attrsInput, { onBlur: () => this.onBlur(), onFocus: () => this.gcdsFocus.emit(), onInput: e => this.handleInput(e, this.gcdsInput), onChange: e => this.handleInput(e, this.gcdsChange), "aria-invalid": hasError ? 'true' : 'false', ref: element => (this.shadowElement = element) })), value.length > 0 ? (h("gcds-sr-only", { id: "file-uploader__summary" }, h("span", null, i18n[lang].summary.selected, " "), value.map(file => (h("span", null, file, " "))))) : (h("gcds-sr-only", { id: "file-uploader__summary" }, i18n[lang].summary.unselected))), value.length > 0
             ? value.map(file => (h("div", { class: "file-uploader__uploaded-file", "aria-label": `${i18n[lang].removeFile} ${file}.` }, h("gcds-text", { "margin-bottom": "0" }, file), h("button", { onClick: e => this.removeFile(e) }, h("span", null, i18n[lang].button.remove), h("gcds-icon", { name: "close", size: "text", "margin-left": "150" })))))
             : null)));
     }
@@ -227,6 +235,7 @@ export class GcdsFileUploader {
         return {
             "uploaderId": {
                 "type": "string",
+                "attribute": "uploader-id",
                 "mutable": true,
                 "complexType": {
                     "original": "string",
@@ -239,11 +248,13 @@ export class GcdsFileUploader {
                     "tags": [],
                     "text": "Id attribute for a file uploader element."
                 },
-                "attribute": "uploader-id",
+                "getter": false,
+                "setter": false,
                 "reflect": true
             },
             "name": {
                 "type": "string",
+                "attribute": "name",
                 "mutable": false,
                 "complexType": {
                     "original": "string",
@@ -256,11 +267,13 @@ export class GcdsFileUploader {
                     "tags": [],
                     "text": "Name attribute for file input element."
                 },
-                "attribute": "name",
+                "getter": false,
+                "setter": false,
                 "reflect": false
             },
             "label": {
                 "type": "string",
+                "attribute": "label",
                 "mutable": false,
                 "complexType": {
                     "original": "string",
@@ -273,11 +286,13 @@ export class GcdsFileUploader {
                     "tags": [],
                     "text": "Form field label."
                 },
-                "attribute": "label",
+                "getter": false,
+                "setter": false,
                 "reflect": true
             },
             "required": {
                 "type": "boolean",
+                "attribute": "required",
                 "mutable": false,
                 "complexType": {
                     "original": "boolean",
@@ -290,12 +305,14 @@ export class GcdsFileUploader {
                     "tags": [],
                     "text": "Specifies if a form field is required or not."
                 },
-                "attribute": "required",
+                "getter": false,
+                "setter": false,
                 "reflect": true,
                 "defaultValue": "false"
             },
             "disabled": {
                 "type": "boolean",
+                "attribute": "disabled",
                 "mutable": true,
                 "complexType": {
                     "original": "boolean",
@@ -308,12 +325,14 @@ export class GcdsFileUploader {
                     "tags": [],
                     "text": "Specifies if a file uploader element is disabled or not."
                 },
-                "attribute": "disabled",
+                "getter": false,
+                "setter": false,
                 "reflect": true,
                 "defaultValue": "false"
             },
             "value": {
                 "type": "unknown",
+                "attribute": "value",
                 "mutable": true,
                 "complexType": {
                     "original": "string[]",
@@ -326,10 +345,13 @@ export class GcdsFileUploader {
                     "tags": [],
                     "text": "Value for a file uploader element."
                 },
+                "getter": false,
+                "setter": false,
                 "defaultValue": "[]"
             },
             "accept": {
                 "type": "string",
+                "attribute": "accept",
                 "mutable": false,
                 "complexType": {
                     "original": "string",
@@ -342,11 +364,13 @@ export class GcdsFileUploader {
                     "tags": [],
                     "text": "Defines the file types the file uploader accepts."
                 },
-                "attribute": "accept",
+                "getter": false,
+                "setter": false,
                 "reflect": true
             },
             "multiple": {
                 "type": "boolean",
+                "attribute": "multiple",
                 "mutable": false,
                 "complexType": {
                     "original": "boolean",
@@ -359,11 +383,13 @@ export class GcdsFileUploader {
                     "tags": [],
                     "text": "Boolean that specifies if the user is allowed to select more than one file."
                 },
-                "attribute": "multiple",
+                "getter": false,
+                "setter": false,
                 "reflect": true
             },
             "files": {
                 "type": "unknown",
+                "attribute": "files",
                 "mutable": true,
                 "complexType": {
                     "original": "FileList",
@@ -380,10 +406,13 @@ export class GcdsFileUploader {
                 "docs": {
                     "tags": [],
                     "text": "FileList of uploaded files to input"
-                }
+                },
+                "getter": false,
+                "setter": false
             },
             "errorMessage": {
                 "type": "string",
+                "attribute": "error-message",
                 "mutable": true,
                 "complexType": {
                     "original": "string",
@@ -396,11 +425,13 @@ export class GcdsFileUploader {
                     "tags": [],
                     "text": "Error message for an invalid file uploader element."
                 },
-                "attribute": "error-message",
+                "getter": false,
+                "setter": false,
                 "reflect": true
             },
             "hint": {
                 "type": "string",
+                "attribute": "hint",
                 "mutable": false,
                 "complexType": {
                     "original": "string",
@@ -413,11 +444,13 @@ export class GcdsFileUploader {
                     "tags": [],
                     "text": "Hint displayed below the label."
                 },
-                "attribute": "hint",
+                "getter": false,
+                "setter": false,
                 "reflect": true
             },
             "validator": {
                 "type": "unknown",
+                "attribute": "validator",
                 "mutable": true,
                 "complexType": {
                     "original": "Array<\n    string | ValidatorEntry | Validator<string | number | FileList>\n  >",
@@ -448,10 +481,13 @@ export class GcdsFileUploader {
                 "docs": {
                     "tags": [],
                     "text": "Array of validators"
-                }
+                },
+                "getter": false,
+                "setter": false
             },
             "validateOn": {
                 "type": "string",
+                "attribute": "validate-on",
                 "mutable": true,
                 "complexType": {
                     "original": "'blur' | 'submit' | 'other'",
@@ -464,7 +500,8 @@ export class GcdsFileUploader {
                     "tags": [],
                     "text": "Set event to call validator"
                 },
-                "attribute": "validate-on",
+                "getter": false,
+                "setter": false,
                 "reflect": false,
                 "defaultValue": "'blur'"
             }

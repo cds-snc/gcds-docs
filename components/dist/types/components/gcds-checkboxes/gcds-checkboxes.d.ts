@@ -120,7 +120,6 @@ export declare class GcdsCheckboxes {
     watchLang(newValue: any, oldValue: any): void;
     private validateRequiredProps;
     componentWillLoad(): Promise<void>;
-    componentWillUpdate(): void;
     componentDidUpdate(): Promise<void>;
     private handleInput;
     private assignOptionsArray;

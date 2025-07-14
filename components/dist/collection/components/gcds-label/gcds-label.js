@@ -2,13 +2,6 @@ import { Host, h } from "@stencil/core";
 import { assignLanguage, observerConfig } from "../../utils/utils";
 import i18n from "./i18n/i18n";
 export class GcdsLabel {
-    constructor() {
-        this.hideLabel = undefined;
-        this.label = undefined;
-        this.labelFor = undefined;
-        this.required = undefined;
-        this.lang = undefined;
-    }
     /*
      * Observe lang attribute change
      */
@@ -27,10 +20,9 @@ export class GcdsLabel {
     }
     render() {
         const { hideLabel, labelFor, label, required, lang } = this;
-        return (h(Host, { key: '9e726e5b4bfe04e7b5d4a9e35a177df57ab1badc', id: `label-for-${labelFor}` }, h("label", { key: '8026d5f89beea7d000e0b78891e0c11ca24eed19', htmlFor: labelFor, class: `gcds-label ${hideLabel ? 'label--hidden' : ''}` }, h("span", { key: '219be69e62f0b64f6afc816bf7b334670a8e68e1' }, label), required ? (h("span", { "aria-hidden": "true", class: "label--required" }, "(", i18n[lang].required, ")")) : null)));
+        return (h(Host, { key: 'ffac8e66f0bb20913277b17a04080913cc661f84', id: `label-for-${labelFor}` }, h("label", { key: 'b663e88ae67734de47f91cae325f0ebdfa41bbcc', htmlFor: labelFor, class: `gcds-label ${hideLabel ? 'label--hidden' : ''}` }, h("span", { key: 'cf9369de0b3f91bfb67087b14969e0c137cf3f99' }, label), required ? (h("span", { "aria-hidden": "true", class: "label--required" }, "(", i18n[lang].required, ")")) : null)));
     }
     static get is() { return "gcds-label"; }
-    static get encapsulation() { return "scoped"; }
     static get originalStyleUrls() {
         return {
             "$": ["gcds-label.css"]
@@ -45,6 +37,7 @@ export class GcdsLabel {
         return {
             "hideLabel": {
                 "type": "boolean",
+                "attribute": "hide-label",
                 "mutable": false,
                 "complexType": {
                     "original": "boolean",
@@ -57,11 +50,13 @@ export class GcdsLabel {
                     "tags": [],
                     "text": "Specifies if the label is hidden or not."
                 },
-                "attribute": "hide-label",
+                "getter": false,
+                "setter": false,
                 "reflect": false
             },
             "label": {
                 "type": "string",
+                "attribute": "label",
                 "mutable": false,
                 "complexType": {
                     "original": "string",
@@ -74,11 +69,13 @@ export class GcdsLabel {
                     "tags": [],
                     "text": "Form field label"
                 },
-                "attribute": "label",
+                "getter": false,
+                "setter": false,
                 "reflect": false
             },
             "labelFor": {
                 "type": "string",
+                "attribute": "label-for",
                 "mutable": false,
                 "complexType": {
                     "original": "string",
@@ -91,11 +88,13 @@ export class GcdsLabel {
                     "tags": [],
                     "text": "Defines the label's for attribute."
                 },
-                "attribute": "label-for",
+                "getter": false,
+                "setter": false,
                 "reflect": false
             },
             "required": {
                 "type": "boolean",
+                "attribute": "required",
                 "mutable": false,
                 "complexType": {
                     "original": "boolean",
@@ -108,7 +107,8 @@ export class GcdsLabel {
                     "tags": [],
                     "text": "Specifies if a form field is required or not."
                 },
-                "attribute": "required",
+                "getter": false,
+                "setter": false,
                 "reflect": false
             }
         };

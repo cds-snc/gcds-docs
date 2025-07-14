@@ -5,6 +5,46 @@ import i18n from "./i18n/i18n";
 export class GcdsDateInput {
     constructor() {
         this._validator = defaultValidator;
+        /**
+         * Specifies if a form field is required or not.
+         */
+        this.required = false;
+        /**
+         * Specifies if the date input is disabled or not.
+         */
+        this.disabled = false;
+        /**
+         * Set event to call validator
+         */
+        this.validateOn = 'blur';
+        /**
+         * States
+         */
+        /**
+         * State to track individual month value
+         */
+        this.monthValue = '';
+        /**
+         * State to track individual month value
+         */
+        this.dayValue = '';
+        /**
+         * State to track individual month value
+         */
+        this.yearValue = '';
+        /**
+         * Specifies if the date input is invalid.
+         */
+        this.hasError = {
+            day: false,
+            month: false,
+            year: false,
+        };
+        /**
+         * State to track validation on properties
+         * Contains a list of properties that have an error associated with them
+         */
+        this.errors = [];
         this.onBlur = () => {
             if (this.validateOn == 'blur') {
                 this.validate();
@@ -30,26 +70,6 @@ export class GcdsDateInput {
                 this.el.dispatchEvent(changeEvt);
             }
         };
-        this.name = undefined;
-        this.legend = undefined;
-        this.format = undefined;
-        this.value = undefined;
-        this.required = false;
-        this.hint = undefined;
-        this.errorMessage = undefined;
-        this.disabled = false;
-        this.validator = undefined;
-        this.validateOn = 'blur';
-        this.monthValue = '';
-        this.dayValue = '';
-        this.yearValue = '';
-        this.hasError = {
-            day: false,
-            month: false,
-            year: false,
-        };
-        this.errors = [];
-        this.lang = undefined;
     }
     validateName() {
         if (!this.name) {
@@ -273,6 +293,7 @@ export class GcdsDateInput {
         return {
             "name": {
                 "type": "string",
+                "attribute": "name",
                 "mutable": false,
                 "complexType": {
                     "original": "string",
@@ -285,11 +306,13 @@ export class GcdsDateInput {
                     "tags": [],
                     "text": "Name attribute for the date input."
                 },
-                "attribute": "name",
+                "getter": false,
+                "setter": false,
                 "reflect": false
             },
             "legend": {
                 "type": "string",
+                "attribute": "legend",
                 "mutable": false,
                 "complexType": {
                     "original": "string",
@@ -302,11 +325,13 @@ export class GcdsDateInput {
                     "tags": [],
                     "text": "Fieldset legend"
                 },
-                "attribute": "legend",
+                "getter": false,
+                "setter": false,
                 "reflect": false
             },
             "format": {
                 "type": "string",
+                "attribute": "format",
                 "mutable": false,
                 "complexType": {
                     "original": "'full' | 'compact'",
@@ -319,11 +344,13 @@ export class GcdsDateInput {
                     "tags": [],
                     "text": "Set this property to full to show month, day, and year form elements. Set it to compact to show only the month and year form elements."
                 },
-                "attribute": "format",
+                "getter": false,
+                "setter": false,
                 "reflect": false
             },
             "value": {
                 "type": "string",
+                "attribute": "value",
                 "mutable": true,
                 "complexType": {
                     "original": "string",
@@ -336,11 +363,13 @@ export class GcdsDateInput {
                     "tags": [],
                     "text": "Default value for the date input element. Format: YYYY-MM-DD"
                 },
-                "attribute": "value",
+                "getter": false,
+                "setter": false,
                 "reflect": false
             },
             "required": {
                 "type": "boolean",
+                "attribute": "required",
                 "mutable": false,
                 "complexType": {
                     "original": "boolean",
@@ -353,12 +382,14 @@ export class GcdsDateInput {
                     "tags": [],
                     "text": "Specifies if a form field is required or not."
                 },
-                "attribute": "required",
+                "getter": false,
+                "setter": false,
                 "reflect": false,
                 "defaultValue": "false"
             },
             "hint": {
                 "type": "string",
+                "attribute": "hint",
                 "mutable": false,
                 "complexType": {
                     "original": "string",
@@ -371,11 +402,13 @@ export class GcdsDateInput {
                     "tags": [],
                     "text": "Hint displayed below the legend and above form fields."
                 },
-                "attribute": "hint",
+                "getter": false,
+                "setter": false,
                 "reflect": false
             },
             "errorMessage": {
                 "type": "string",
+                "attribute": "error-message",
                 "mutable": true,
                 "complexType": {
                     "original": "string",
@@ -388,11 +421,13 @@ export class GcdsDateInput {
                     "tags": [],
                     "text": "Error message displayed below the legend and above form fields."
                 },
-                "attribute": "error-message",
+                "getter": false,
+                "setter": false,
                 "reflect": false
             },
             "disabled": {
                 "type": "boolean",
+                "attribute": "disabled",
                 "mutable": true,
                 "complexType": {
                     "original": "boolean",
@@ -405,12 +440,14 @@ export class GcdsDateInput {
                     "tags": [],
                     "text": "Specifies if the date input is disabled or not."
                 },
-                "attribute": "disabled",
+                "getter": false,
+                "setter": false,
                 "reflect": false,
                 "defaultValue": "false"
             },
             "validator": {
                 "type": "unknown",
+                "attribute": "validator",
                 "mutable": true,
                 "complexType": {
                     "original": "Array<\n    string | ValidatorEntry | Validator<string>\n  >",
@@ -437,10 +474,13 @@ export class GcdsDateInput {
                 "docs": {
                     "tags": [],
                     "text": "Array of validators"
-                }
+                },
+                "getter": false,
+                "setter": false
             },
             "validateOn": {
                 "type": "string",
+                "attribute": "validate-on",
                 "mutable": true,
                 "complexType": {
                     "original": "'blur' | 'submit' | 'other'",
@@ -453,7 +493,8 @@ export class GcdsDateInput {
                     "tags": [],
                     "text": "Set event to call validator"
                 },
-                "attribute": "validate-on",
+                "getter": false,
+                "setter": false,
                 "reflect": false,
                 "defaultValue": "'blur'"
             }

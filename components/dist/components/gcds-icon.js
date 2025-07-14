@@ -1,8 +1,2 @@
-import { G as GcdsIcon$1, d as defineCustomElement$1 } from './gcds-icon2.js';
-
-const GcdsIcon = GcdsIcon$1;
-const defineCustomElement = defineCustomElement$1;
-
-export { GcdsIcon, defineCustomElement };
-
+import{G as o,d as s}from"./p-Vne11OgD.js";const t=o;const n=s;export{t as GcdsIcon,n as defineCustomElement};
 //# sourceMappingURL=gcds-icon.js.map

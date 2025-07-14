@@ -1,8 +1,2 @@
-import { G as GcdsSrOnly$1, d as defineCustomElement$1 } from './gcds-sr-only2.js';
-
-const GcdsSrOnly = GcdsSrOnly$1;
-const defineCustomElement = defineCustomElement$1;
-
-export { GcdsSrOnly, defineCustomElement };
-
+import{G as o,d as s}from"./p-L9Mnrpa6.js";const p=o;const r=s;export{p as GcdsSrOnly,r as defineCustomElement};
 //# sourceMappingURL=gcds-sr-only.js.map

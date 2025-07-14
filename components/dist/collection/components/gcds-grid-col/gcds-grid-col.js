@@ -1,9 +1,19 @@
 import { Host, h } from "@stencil/core";
 export class GcdsGridCol {
     constructor() {
+        /**
+         * Props
+         */
+        /**
+         * Set tag for grid column
+         */
         this.tag = 'div';
+        /**
+         * Optimize grid column size for tablet (768px - 1023px).
+         * Tablet grid column sizes are based on a 6 column grid.
+         * The tablet size will also be used for desktop, if desktop is undefined.
+         */
         this.tablet = 6;
-        this.desktop = undefined;
     }
     validateTablet(newValue) {
         const values = [1, 2, 3, 4, 5, 6];
@@ -56,6 +66,7 @@ export class GcdsGridCol {
         return {
             "tag": {
                 "type": "string",
+                "attribute": "tag",
                 "mutable": false,
                 "complexType": {
                     "original": "string",
@@ -68,12 +79,14 @@ export class GcdsGridCol {
                     "tags": [],
                     "text": "Set tag for grid column"
                 },
-                "attribute": "tag",
+                "getter": false,
+                "setter": false,
                 "reflect": false,
                 "defaultValue": "'div'"
             },
             "tablet": {
                 "type": "number",
+                "attribute": "tablet",
                 "mutable": true,
                 "complexType": {
                     "original": "1 | 2 | 3 | 4 | 5 | 6",
@@ -86,12 +99,14 @@ export class GcdsGridCol {
                     "tags": [],
                     "text": "Optimize grid column size for tablet (768px - 1023px).\nTablet grid column sizes are based on a 6 column grid.\nThe tablet size will also be used for desktop, if desktop is undefined."
                 },
-                "attribute": "tablet",
+                "getter": false,
+                "setter": false,
                 "reflect": false,
                 "defaultValue": "6"
             },
             "desktop": {
                 "type": "number",
+                "attribute": "desktop",
                 "mutable": true,
                 "complexType": {
                     "original": "| 1\n    | 2\n    | 3\n    | 4\n    | 5\n    | 6\n    | 7\n    | 8\n    | 9\n    | 10\n    | 11\n    | 12",
@@ -104,7 +119,8 @@ export class GcdsGridCol {
                     "tags": [],
                     "text": "Optimize grid column size for desktop (1024px and above).\nDesktop grid column sizes are based on a 12 column grid."
                 },
-                "attribute": "desktop",
+                "getter": false,
+                "setter": false,
                 "reflect": false
             }
         };

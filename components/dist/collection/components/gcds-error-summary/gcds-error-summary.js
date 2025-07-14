@@ -3,11 +3,14 @@ import { assignLanguage, observerConfig } from "../../utils/utils";
 import i18n from "./i18n/i18n";
 export class GcdsErrorSummary {
     constructor() {
-        this.errorLinksObject = {};
-        this.heading = undefined;
+        /**
+         * Specifies if the error summary should listen for GcdsError event to generate error list.
+         */
         this.listen = true;
-        this.errorLinks = undefined;
-        this.lang = undefined;
+        this.errorLinksObject = {};
+        /**
+         * Queue of erros
+         */
         this.errorQueue = {};
         this.hasSubmitted = false;
     }
@@ -148,6 +151,7 @@ export class GcdsErrorSummary {
         return {
             "heading": {
                 "type": "string",
+                "attribute": "heading",
                 "mutable": false,
                 "complexType": {
                     "original": "string",
@@ -160,11 +164,13 @@ export class GcdsErrorSummary {
                     "tags": [],
                     "text": "Set error summary heading"
                 },
-                "attribute": "heading",
+                "getter": false,
+                "setter": false,
                 "reflect": true
             },
             "listen": {
                 "type": "boolean",
+                "attribute": "listen",
                 "mutable": true,
                 "complexType": {
                     "original": "boolean",
@@ -177,12 +183,14 @@ export class GcdsErrorSummary {
                     "tags": [],
                     "text": "Specifies if the error summary should listen for GcdsError event to generate error list."
                 },
-                "attribute": "listen",
+                "getter": false,
+                "setter": false,
                 "reflect": false,
                 "defaultValue": "true"
             },
             "errorLinks": {
                 "type": "string",
+                "attribute": "error-links",
                 "mutable": true,
                 "complexType": {
                     "original": "string | object",
@@ -195,7 +203,8 @@ export class GcdsErrorSummary {
                     "tags": [],
                     "text": "Object of list items for error list. Format: { link-href: link-label }"
                 },
-                "attribute": "error-links",
+                "getter": false,
+                "setter": false,
                 "reflect": false
             }
         };

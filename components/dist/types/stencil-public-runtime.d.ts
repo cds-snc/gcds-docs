@@ -261,6 +261,25 @@ export declare function setPlatformHelpers(helpers: {
  */
 export declare function getAssetPath(path: string): string;
 /**
+ * Method to render a virtual DOM tree to a container element.
+ *
+ * @example
+ * ```tsx
+ * import { render } from '@stencil/core';
+ *
+ * const vnode = (
+ *   <div>
+ *     <h1>Hello, world!</h1>
+ *   </div>
+ * );
+ * render(vnode, document.body);
+ * ```
+ *
+ * @param vnode - The virtual DOM tree to render
+ * @param container - The container element to render the virtual DOM tree to
+ */
+export declare function render(vnode: VNode, container: Element): void;
+/**
  * Used to manually set the base path where assets can be found. For lazy-loaded
  * builds the asset path is automatically set and assets copied to the correct
  * build directory. However, for custom elements builds, the `setAssetPath(path)` could
@@ -826,6 +845,7 @@ export declare namespace JSXBase {
     }
     interface DetailsHTMLAttributes<T> extends HTMLAttributes<T> {
         open?: boolean;
+        name?: string;
         onToggle?: (event: Event) => void;
     }
     interface DelHTMLAttributes<T> extends HTMLAttributes<T> {
@@ -1015,6 +1035,8 @@ export declare namespace JSXBase {
         autoPlay?: boolean;
         autoplay?: boolean | string;
         controls?: boolean;
+        controlslist?: 'nodownload' | 'nofullscreen' | 'noremoteplayback';
+        controlsList?: 'nodownload' | 'nofullscreen' | 'noremoteplayback';
         crossOrigin?: string;
         crossorigin?: string;
         loop?: boolean;
@@ -1564,6 +1586,10 @@ export declare namespace JSXBase {
         onSubmitCapture?: (event: Event) => void;
         onInvalid?: (event: Event) => void;
         onInvalidCapture?: (event: Event) => void;
+        onBeforeToggle?: (event: Event) => void;
+        onBeforeToggleCapture?: (event: Event) => void;
+        onToggle?: (event: Event) => void;
+        onToggleCapture?: (event: Event) => void;
         onLoad?: (event: Event) => void;
         onLoadCapture?: (event: Event) => void;
         onError?: (event: Event) => void;
@@ -1575,7 +1601,7 @@ export declare namespace JSXBase {
         onKeyUp?: (event: KeyboardEvent) => void;
         onKeyUpCapture?: (event: KeyboardEvent) => void;
         onAuxClick?: (event: MouseEvent) => void;
-        onClick?: (event: MouseEvent) => void;
+        onClick?: (event: PointerEvent) => void;
         onClickCapture?: (event: MouseEvent) => void;
         onContextMenu?: (event: MouseEvent) => void;
         onContextMenuCapture?: (event: MouseEvent) => void;
@@ -1655,6 +1681,8 @@ export declare namespace JSXBase {
         onTransitionRunCapture?: (event: TransitionEvent) => void;
         onTransitionStart?: (event: TransitionEvent) => void;
         onTransitionStartCapture?: (event: TransitionEvent) => void;
+        [key: `aria-${string}`]: string | boolean | undefined;
+        [key: `aria${string}`]: string | boolean | undefined;
     }
 }
 export interface JSXAttributes<T = Element> {

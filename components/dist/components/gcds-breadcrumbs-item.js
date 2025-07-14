@@ -1,8 +1,2 @@
-import { G as GcdsBreadcrumbsItem$1, d as defineCustomElement$1 } from './gcds-breadcrumbs-item2.js';
-
-const GcdsBreadcrumbsItem = GcdsBreadcrumbsItem$1;
-const defineCustomElement = defineCustomElement$1;
-
-export { GcdsBreadcrumbsItem, defineCustomElement };
-
+import{G as o,d as s}from"./p-Dg0A8voj.js";const t=o;const p=s;export{t as GcdsBreadcrumbsItem,p as defineCustomElement};
 //# sourceMappingURL=gcds-breadcrumbs-item.js.map

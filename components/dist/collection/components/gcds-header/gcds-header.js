@@ -3,11 +3,10 @@ import { assignLanguage, observerConfig } from "../../utils/utils";
 import i18n from "./i18n/i18n";
 export class GcdsHeader {
     constructor() {
-        this.langHref = undefined;
-        this.signatureVariant = undefined;
+        /**
+         * GcdsSignature - GCDS signature links to Canada.ca
+         */
         this.signatureHasLink = true;
-        this.skipToHref = undefined;
-        this.lang = undefined;
     }
     /*
      * Observe lang attribute change
@@ -95,6 +94,7 @@ export class GcdsHeader {
         return {
             "langHref": {
                 "type": "string",
+                "attribute": "lang-href",
                 "mutable": false,
                 "complexType": {
                     "original": "string",
@@ -107,11 +107,13 @@ export class GcdsHeader {
                     "tags": [],
                     "text": "GcdsLangToggle - The href attribute specifies the URL of the opposite language page"
                 },
-                "attribute": "lang-href",
+                "getter": false,
+                "setter": false,
                 "reflect": true
             },
             "signatureVariant": {
                 "type": "string",
+                "attribute": "signature-variant",
                 "mutable": false,
                 "complexType": {
                     "original": "| 'colour'\n    | 'white'",
@@ -124,11 +126,13 @@ export class GcdsHeader {
                     "tags": [],
                     "text": "GcdsSignature - The variant of the Government of Canada signature"
                 },
-                "attribute": "signature-variant",
+                "getter": false,
+                "setter": false,
                 "reflect": false
             },
             "signatureHasLink": {
                 "type": "boolean",
+                "attribute": "signature-has-link",
                 "mutable": false,
                 "complexType": {
                     "original": "boolean",
@@ -141,12 +145,14 @@ export class GcdsHeader {
                     "tags": [],
                     "text": "GcdsSignature - GCDS signature links to Canada.ca"
                 },
-                "attribute": "signature-has-link",
+                "getter": false,
+                "setter": false,
                 "reflect": false,
                 "defaultValue": "true"
             },
             "skipToHref": {
                 "type": "string",
+                "attribute": "skip-to-href",
                 "mutable": false,
                 "complexType": {
                     "original": "string",
@@ -159,7 +165,8 @@ export class GcdsHeader {
                     "tags": [],
                     "text": "Top navigation - Skip to content href"
                 },
-                "attribute": "skip-to-href",
+                "getter": false,
+                "setter": false,
                 "reflect": false
             }
         };

@@ -3,10 +3,17 @@ import { assignLanguage, observerConfig } from "../../utils/utils";
 import i18n from "./i18n/i18n";
 export class GcdsPhaseBanner {
     constructor() {
+        /**
+         * Props
+         */
+        /**
+         * Defines banner role.
+         */
         this.bannerRole = 'primary';
+        /**
+         * Defines the container width of the phase banner content
+         */
         this.container = 'xl';
-        this.isFixed = undefined;
-        this.lang = undefined;
     }
     /**
      * Events
@@ -47,6 +54,7 @@ export class GcdsPhaseBanner {
         return {
             "bannerRole": {
                 "type": "string",
+                "attribute": "banner-role",
                 "mutable": false,
                 "complexType": {
                     "original": "'primary' | 'secondary'",
@@ -59,12 +67,14 @@ export class GcdsPhaseBanner {
                     "tags": [],
                     "text": "Defines banner role."
                 },
-                "attribute": "banner-role",
+                "getter": false,
+                "setter": false,
                 "reflect": false,
                 "defaultValue": "'primary'"
             },
             "container": {
                 "type": "string",
+                "attribute": "container",
                 "mutable": false,
                 "complexType": {
                     "original": "'full' | 'xl' | 'lg' | 'md' | 'sm' | 'xs'",
@@ -77,12 +87,14 @@ export class GcdsPhaseBanner {
                     "tags": [],
                     "text": "Defines the container width of the phase banner content"
                 },
-                "attribute": "container",
+                "getter": false,
+                "setter": false,
                 "reflect": false,
                 "defaultValue": "'xl'"
             },
             "isFixed": {
                 "type": "boolean",
+                "attribute": "is-fixed",
                 "mutable": false,
                 "complexType": {
                     "original": "boolean",
@@ -95,7 +107,8 @@ export class GcdsPhaseBanner {
                     "tags": [],
                     "text": "Defines if the banner's position is fixed."
                 },
-                "attribute": "is-fixed",
+                "getter": false,
+                "setter": false,
                 "reflect": false
             }
         };

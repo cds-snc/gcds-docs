@@ -6,6 +6,19 @@ import i18n from "./i18n/i18n";
 export class GcdsRadios {
     constructor() {
         this._validator = defaultValidator;
+        /**
+         * Set event to call validator
+         */
+        this.validateOn = 'blur';
+        /**
+         * Set additional HTML attributes not available in component properties
+         */
+        this.inheritedAttributes = {};
+        /**
+         * State to track validation on properties
+         * Contains a list of properties that have an error associated with them
+         */
+        this.errors = [];
         this.onBlur = () => {
             this.gcdsBlur.emit();
         };
@@ -25,20 +38,6 @@ export class GcdsRadios {
             }
             customEvent.emit(this.value);
         };
-        this.options = undefined;
-        this.name = undefined;
-        this.legend = undefined;
-        this.required = undefined;
-        this.hint = undefined;
-        this.errorMessage = undefined;
-        this.disabled = undefined;
-        this.value = undefined;
-        this.validator = undefined;
-        this.validateOn = undefined;
-        this.hasError = undefined;
-        this.inheritedAttributes = {};
-        this.lang = undefined;
-        this.errors = [];
     }
     validateOptions() {
         let invalidObject = false;
@@ -107,9 +106,7 @@ export class GcdsRadios {
         }
     }
     validateValidator() {
-        if (this.validator && !this.validateOn) {
-            this.validateOn = 'blur';
-        }
+        this._validator = getValidator(this.validator);
     }
     /**
      * Call any active validators
@@ -162,12 +159,9 @@ export class GcdsRadios {
         this.validateOptions();
         this.validateRequiredProps();
         this.validateErrorMessage();
-        this.validateValidator();
         // Assign required validator if needed
         requiredValidator(this.el, 'radio');
-        if (this.validator) {
-            this._validator = getValidator(this.validator);
-        }
+        this.validateValidator();
         this.inheritedAttributes = inheritAttributes(this.el, this.shadowElement);
         this.initialValue = this.value ? this.value : null;
         const valid = this.validateRequiredProps();
@@ -194,7 +188,7 @@ export class GcdsRadios {
                 `${fieldsetAttrs['aria-labelledby']} ${hintID}`.trim();
         }
         if (this.validateRequiredProps()) {
-            return (h(Host, { key: '4aea20f6f91195345d15cf43622cced56c1a5139', onBlur: () => this.onBlurValidate() }, h("fieldset", Object.assign({ key: 'b902ff2456ecc03b7d5bee81bdc555ce803b15b7', class: "gcds-radios__fieldset" }, fieldsetAttrs), h("legend", { key: '26dfcf3e7fa323f196e2b846ce17db9f12fe48f2', id: "radios-legend", class: "gcds-radios__legend" }, legend, required ? (h("span", { class: "legend__required" }, i18n[lang].required)) : null), hint ? (h("gcds-hint", { id: "radios-hint", "hint-id": "radios" }, hint)) : null, errorMessage ? (h("div", null, h("gcds-error-message", { id: "radios-error", messageId: "radios" }, errorMessage))) : null, this.optionsArr &&
+            return (h(Host, { key: 'b297d3c141ccff67ca0fc640f09df5c7aaf55f44', onBlur: () => this.onBlurValidate() }, h("fieldset", Object.assign({ key: '0552575a6581cbd91466972385db38bd20464a01', class: "gcds-radios__fieldset" }, fieldsetAttrs), h("legend", { key: 'd2a7e52a83a83d45db33bc90d64d5237e3269ebe', id: "radios-legend", class: "gcds-radios__legend" }, legend, required ? (h("span", { class: "legend__required" }, i18n[lang].required)) : null), hint ? (h("gcds-hint", { id: "radios-hint", "hint-id": "radios" }, hint)) : null, errorMessage ? (h("div", null, h("gcds-error-message", { id: "radios-error", messageId: "radios" }, errorMessage))) : null, this.optionsArr &&
                 this.optionsArr.map(radio => {
                     const attrsInput = Object.assign({ name, disabled: disabled, required: required, value: radio.value, checked: radio.value === value }, inheritedAttributes);
                     if (radio.hint) {
@@ -229,6 +223,7 @@ export class GcdsRadios {
         return {
             "options": {
                 "type": "string",
+                "attribute": "options",
                 "mutable": true,
                 "complexType": {
                     "original": "string | Array<RadioObject>",
@@ -251,11 +246,13 @@ export class GcdsRadios {
                     "tags": [],
                     "text": "Options to render radio buttons"
                 },
-                "attribute": "options",
+                "getter": false,
+                "setter": false,
                 "reflect": false
             },
             "name": {
                 "type": "string",
+                "attribute": "name",
                 "mutable": false,
                 "complexType": {
                     "original": "string",
@@ -268,11 +265,13 @@ export class GcdsRadios {
                     "tags": [],
                     "text": "The `name` attribute for the <gcds-radios>, used to group radio elements together"
                 },
-                "attribute": "name",
+                "getter": false,
+                "setter": false,
                 "reflect": true
             },
             "legend": {
                 "type": "string",
+                "attribute": "legend",
                 "mutable": false,
                 "complexType": {
                     "original": "string",
@@ -285,11 +284,13 @@ export class GcdsRadios {
                     "tags": [],
                     "text": "Label or legend for the group of radio elements"
                 },
-                "attribute": "legend",
+                "getter": false,
+                "setter": false,
                 "reflect": true
             },
             "required": {
                 "type": "boolean",
+                "attribute": "required",
                 "mutable": false,
                 "complexType": {
                     "original": "boolean",
@@ -302,11 +303,13 @@ export class GcdsRadios {
                     "tags": [],
                     "text": "Specifies if a form field is required or not."
                 },
-                "attribute": "required",
+                "getter": false,
+                "setter": false,
                 "reflect": true
             },
             "hint": {
                 "type": "string",
+                "attribute": "hint",
                 "mutable": false,
                 "complexType": {
                     "original": "string",
@@ -319,11 +322,13 @@ export class GcdsRadios {
                     "tags": [],
                     "text": "Hint displayed below the label and above the radio elements"
                 },
-                "attribute": "hint",
+                "getter": false,
+                "setter": false,
                 "reflect": true
             },
             "errorMessage": {
                 "type": "string",
+                "attribute": "error-message",
                 "mutable": true,
                 "complexType": {
                     "original": "string",
@@ -336,11 +341,13 @@ export class GcdsRadios {
                     "tags": [],
                     "text": "Set this to display an error message for invalid <gcds-radios>"
                 },
-                "attribute": "error-message",
+                "getter": false,
+                "setter": false,
                 "reflect": false
             },
             "disabled": {
                 "type": "boolean",
+                "attribute": "disabled",
                 "mutable": true,
                 "complexType": {
                     "original": "boolean",
@@ -353,11 +360,13 @@ export class GcdsRadios {
                     "tags": [],
                     "text": "Specifies if an input element is disabled or not."
                 },
-                "attribute": "disabled",
+                "getter": false,
+                "setter": false,
                 "reflect": true
             },
             "value": {
                 "type": "string",
+                "attribute": "value",
                 "mutable": true,
                 "complexType": {
                     "original": "string",
@@ -370,11 +379,13 @@ export class GcdsRadios {
                     "tags": [],
                     "text": "Default value for the element"
                 },
-                "attribute": "value",
+                "getter": false,
+                "setter": false,
                 "reflect": true
             },
             "validator": {
                 "type": "unknown",
+                "attribute": "validator",
                 "mutable": true,
                 "complexType": {
                     "original": "Array<\n    string | ValidatorEntry | Validator<string>\n  >",
@@ -401,10 +412,13 @@ export class GcdsRadios {
                 "docs": {
                     "tags": [],
                     "text": "Array of validators"
-                }
+                },
+                "getter": false,
+                "setter": false
             },
             "validateOn": {
                 "type": "string",
+                "attribute": "validate-on",
                 "mutable": true,
                 "complexType": {
                     "original": "'blur' | 'submit' | 'other'",
@@ -417,8 +431,10 @@ export class GcdsRadios {
                     "tags": [],
                     "text": "Set event to call validator"
                 },
-                "attribute": "validate-on",
-                "reflect": false
+                "getter": false,
+                "setter": false,
+                "reflect": false,
+                "defaultValue": "'blur'"
             }
         };
     }

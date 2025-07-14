@@ -4,10 +4,10 @@ import { handleKeyDownNav, getNavItems } from "../../utils/menus/utils";
 import I18N from "./i18n/i18n";
 export class GcdsSideNav {
     constructor() {
-        this.label = undefined;
-        this.lang = undefined;
+        /**
+         * Queue of nav items for keyboard navigation
+         */
         this.navItems = [];
-        this.navSize = undefined;
     }
     async focusInListener(e) {
         if (this.el.contains(e.target) && !this.navSize) {
@@ -126,6 +126,7 @@ export class GcdsSideNav {
         return {
             "label": {
                 "type": "string",
+                "attribute": "label",
                 "mutable": false,
                 "complexType": {
                     "original": "string",
@@ -138,7 +139,8 @@ export class GcdsSideNav {
                     "tags": [],
                     "text": "Label for navigation landmark"
                 },
-                "attribute": "label",
+                "getter": false,
+                "setter": false,
                 "reflect": false
             }
         };
@@ -154,7 +156,7 @@ export class GcdsSideNav {
         return {
             "getNavSize": {
                 "complexType": {
-                    "signature": "() => Promise<\"mobile\" | \"desktop\">",
+                    "signature": "() => Promise<\"desktop\" | \"mobile\">",
                     "parameters": [],
                     "references": {
                         "Promise": {
@@ -162,7 +164,7 @@ export class GcdsSideNav {
                             "id": "global::Promise"
                         }
                     },
-                    "return": "Promise<\"mobile\" | \"desktop\">"
+                    "return": "Promise<\"desktop\" | \"mobile\">"
                 },
                 "docs": {
                     "text": "",

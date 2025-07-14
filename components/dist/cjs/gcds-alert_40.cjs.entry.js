@@ -1,0 +1,5780 @@
+'use strict';
+
+var index = require('./index-DrfbyczX.js');
+var utils = require('./utils-Du2-gv1-.js');
+
+const I18N$p = {
+  en: {
+    label: {
+      danger: 'This is a critical alert.',
+      info: 'This is an info alert.',
+      success: 'This is a success alert.',
+      warning: 'This is a warning alert.',
+    },
+    closeBtn: 'Close alert.',
+  },
+  fr: {
+    label: {
+      danger: "Ceci est une alerte d'effacement.",
+      info: "Ceci est une alerte d'information.",
+      success: 'Ceci est une alerte de succès.',
+      warning: "Ceci est une alerte d'avertissement.",
+    },
+    closeBtn: "Fermer l'alerte.",
+  },
+};
+
+const gcdsAlertCss = "@layer reset, default, fixed, role, wide, compact, hover, focus;@layer reset{:host{display:block}:host .gcds-alert{box-sizing:border-box;text-align:left}:host .gcds-alert .alert__close-btn{box-sizing:border-box;cursor:pointer;padding:0}:host .gcds-alert slot{display:initial}}@layer default{:host .gcds-alert{border-inline-start:var(--gcds-alert-border-width) solid transparent;color:var(--gcds-alert-text);container:component alert/inline-size;font:var(--gcds-alert-font);padding:var(--gcds-alert-padding)}:host .gcds-alert .alert__content{flex:1 1 auto}:host .gcds-alert .alert__content .alert__heading{font:var(--gcds-alert-content-heading-font);margin:var(--gcds-alert-content-heading-margin)}:host .gcds-alert .alert__content ::slotted(*){margin-block-start:0}:host .gcds-alert .alert__content ::slotted(:last-child){margin-block-end:0}:host .gcds-alert .alert__content ::slotted(:not(:last-child)){margin-block-end:var(--gcds-alert-content-slotted-margin)}:host .gcds-alert .alert__content ::slotted(ol),:host .gcds-alert .alert__content ::slotted(ul){margin-inline-start:var(--gcds-alert-content-slotted-list-margin);padding:0}:host .gcds-alert .alert__close-btn{background-color:var(--gcds-alert-button-default-background);border:var(--gcds-alert-button-border-width) solid transparent;border-radius:var(--gcds-alert-button-border-radius);color:var(--gcds-alert-button-default-text);margin:var(--gcds-alert-button-margin);transition:all .15s ease-in-out}:host .gcds-alert .alert__close-btn gcds-icon{align-items:center;display:flex;height:var(--gcds-alert-button-icon-width-and-height);justify-content:center;padding:var(--gcds-alert-button-icon-padding);width:var(--gcds-alert-button-icon-width-and-height)}}@layer fixed{:host .gcds-alert.alert--is-fixed{border:0;position:sticky;top:0;width:100%;z-index:9999}}@layer role{:host .gcds-alert.alert--role-danger{background-color:var(--gcds-alert-danger-background);border-color:var(--gcds-alert-danger-icon);color:var(--gcds-alert-danger-text)}:host .gcds-alert.alert--role-danger .alert__icon{color:var(--gcds-alert-danger-icon)}:host .gcds-alert.alert--role-info{background-color:var(--gcds-alert-info-background);border-color:var(--gcds-alert-info-icon);color:var(--gcds-alert-info-text)}:host .gcds-alert.alert--role-info .alert__icon{color:var(--gcds-alert-info-icon)}:host .gcds-alert.alert--role-success{background-color:var(--gcds-alert-success-background);border-color:var(--gcds-alert-success-icon);color:var(--gcds-alert-success-text)}:host .gcds-alert.alert--role-success .alert__icon{color:var(--gcds-alert-success-icon)}:host .gcds-alert.alert--role-warning{background-color:var(--gcds-alert-warning-background);border-color:var(--gcds-alert-warning-icon);color:var(--gcds-alert-warning-text)}:host .gcds-alert.alert--role-warning .alert__icon{color:var(--gcds-alert-warning-icon)}}@layer wide{@container alert (width >= 36em){:host .gcds-alert .alert__container{align-items:flex-start;display:flex}}}@layer compact{@container alert (width < 36em){:host .gcds-alert .alert__icon{margin:var(--gcds-alert-icon-mobile-margin)}:host .gcds-alert .alert__heading{margin:var(--gcds-alert-content-heading-mobile-margin)}:host .gcds-alert .alert__close-btn{margin:var(--gcds-alert-button-mobile-margin)}}}@layer hover{:is(:host .gcds-alert .alert__close-btn:active,:host .gcds-alert .alert__close-btn:hover){border-color:currentColor}}@layer focus{:host .gcds-alert .alert__close-btn:focus{background-color:var(--gcds-alert-button-focus-background);border-color:var(--gcds-alert-button-focus-background);box-shadow:0 0 0 var(--gcds-alert-button-border-width) var(--gcds-alert-button-focus-text);color:var(--gcds-alert-button-focus-text);outline:var(--gcds-alert-button-outline-width) solid var(--gcds-alert-button-focus-background);outline-offset:var(--gcds-alert-button-border-width)}}";
+
+const GcdsAlert = class {
+    constructor(hostRef) {
+        index.registerInstance(this, hostRef);
+        this.gcdsDismiss = index.createEvent(this, "gcdsDismiss");
+        /**
+         * Props
+         */
+        /**
+         * Defines alert role.
+         */
+        this.alertRole = 'info';
+        /**
+         * Defines the max width of the alert content.
+         */
+        this.container = 'full';
+        /**
+         * Defines if the alert's close button is displayed or not.
+         */
+        this.hideCloseBtn = false;
+        /**
+         * Defines if the alert's role icon is displayed or not.
+         */
+        this.hideRoleIcon = false;
+        /**
+         * Defines if the alert's position is fixed.
+         */
+        this.isFixed = false;
+        /**
+         * States
+         */
+        /**
+         * Specifies if the alert is open or not.
+         */
+        this.isOpen = true;
+    }
+    /*
+     * Observe lang attribute change
+     */
+    updateLang() {
+        const observer = new MutationObserver(mutations => {
+            if (mutations[0].oldValue != this.el.lang) {
+                this.lang = this.el.lang;
+            }
+        });
+        observer.observe(this.el, utils.observerConfig);
+    }
+    async componentWillLoad() {
+        // Define lang attribute
+        this.lang = utils.assignLanguage(this.el);
+        this.updateLang();
+    }
+    render() {
+        const { alertRole, container, heading, hideCloseBtn, hideRoleIcon, isFixed, isOpen, lang, } = this;
+        return (index.h(index.Host, { key: '7781cbb15b6de138ccd08cad1ab5f3a2de21e02e' }, isOpen ? (index.h("div", { class: `gcds-alert alert--role-${alertRole} ${isFixed ? 'alert--is-fixed' : ''}`, role: "alert", "aria-label": alertRole === 'danger'
+                ? I18N$p[lang].label.danger
+                : alertRole === 'info'
+                    ? I18N$p[lang].label.info
+                    : alertRole === 'success'
+                        ? I18N$p[lang].label.success
+                        : alertRole === 'warning'
+                            ? I18N$p[lang].label.warning
+                            : null }, index.h("gcds-container", { size: isFixed ? container : 'full', centered: true }, index.h("div", { class: "alert__container" }, !hideRoleIcon && (index.h("gcds-icon", { "aria-hidden": "true", class: "alert__icon", size: "h5", "margin-right": "175", name: alertRole === 'danger'
+                ? 'exclamation-circle'
+                : alertRole === 'info'
+                    ? 'info-circle'
+                    : alertRole === 'success'
+                        ? 'checkmark-circle'
+                        : alertRole === 'warning'
+                            ? 'warning-triangle'
+                            : null })), index.h("div", { class: "alert__content" }, index.h("p", { class: "alert__heading" }, index.h("strong", null, heading)), index.h("slot", null)), !hideCloseBtn && (index.h("button", { class: "alert__close-btn", onClick: e => {
+                const event = utils.emitEvent(e, this.gcdsDismiss);
+                if (event) {
+                    this.isOpen = false;
+                }
+            }, "aria-label": I18N$p[lang].closeBtn }, index.h("gcds-icon", { "aria-hidden": "true", name: "close", size: "text" }))))))) : null));
+    }
+    get el() { return index.getElement(this); }
+};
+GcdsAlert.style = gcdsAlertCss;
+
+const I18N$o = {
+  en: {
+    label: 'Breadcrumb',
+    link: 'https://www.canada.ca/en.html',
+  },
+  fr: {
+    label: 'Chemin de navigation',
+    link: 'https://www.canada.ca/fr.html',
+  },
+};
+
+const gcdsBreadcrumbsCss = "@layer reset, default;@layer reset{:host{display:block}:host .gcds-breadcrumbs ol{list-style:none;overflow-x:hidden}}@layer default{:host .gcds-breadcrumbs ol{margin:var(--gcds-breadcrumbs-margin);padding:var(--gcds-breadcrumbs-padding)}:host .gcds-breadcrumbs ol.has-canada-link gcds-breadcrumbs-item:first-child:before,:host .gcds-breadcrumbs ol:not(.has-canada-link) ::slotted(:first-child):before{display:none}:host .gcds-breadcrumbs ol.has-canada-link gcds-breadcrumbs-item:first-child:before{display:none}}";
+
+const GcdsBreadcrumbs = class {
+    constructor(hostRef) {
+        index.registerInstance(this, hostRef);
+        /**
+         * Props
+         */
+        /**
+         * Defines if the default canada.ca link is displayed or omitted.
+         */
+        this.hideCanadaLink = false;
+    }
+    /*
+     * Observe lang attribute change
+     */
+    updateLang() {
+        const observer = new MutationObserver(mutations => {
+            if (mutations[0].oldValue != this.el.lang) {
+                this.lang = this.el.lang;
+            }
+        });
+        observer.observe(this.el, utils.observerConfig);
+    }
+    async componentWillLoad() {
+        // Define lang attribute
+        this.lang = utils.assignLanguage(this.el);
+        this.updateLang();
+    }
+    render() {
+        const { hideCanadaLink, lang } = this;
+        return (index.h(index.Host, { key: '3cebead5d49755452f7dbf0a8292b38e86d481c9' }, index.h("nav", { key: '17a5ccde070a513bf3f37aae1cda845ed4e547fd', "aria-label": I18N$o[lang].label, class: "gcds-breadcrumbs" }, index.h("ol", { key: '74eaf642af3397da9f222499713148f50ae4ee99', class: hideCanadaLink ? '' : 'has-canada-link' }, !hideCanadaLink ? (index.h("gcds-breadcrumbs-item", { href: I18N$o[lang].link }, "Canada.ca")) : null, index.h("slot", { key: '8c90086d5e3bd78cda3594f7ac8d57feb7a58020' })))));
+    }
+    get el() { return index.getElement(this); }
+};
+GcdsBreadcrumbs.style = gcdsBreadcrumbsCss;
+
+const gcdsBreadcrumbsItemCss = "@layer reset, default, hover, focus;@layer reset{:host(.gcds-breadcrumbs-item){display:inline-block}:host(.gcds-breadcrumbs-item) gcds-link::part(link){display:inline-block;white-space:normal}:host(.gcds-breadcrumbs-item) slot{display:block}}@layer default{:host(.gcds-breadcrumbs-item){margin:var(--gcds-breadcrumbs-item-margin)!important}:host(.gcds-breadcrumbs-item):before{content:url('data:image/svg+xml;charset=utf-8,<svg xmlns=\"http://www.w3.org/2000/svg\" height=\"12\" viewBox=\"0 0 8 14\"><path fill=\"26374a\" d=\"M7.7 6.3c.4.4.4 1 0 1.4l-6 6c-.4.4-1 .4-1.4 0s-.4-1 0-1.4L5.6 7 .3 1.7C-.1 1.3-.1.7.3.3s1-.4 1.4 0z\"/></svg>');display:inline-block;margin:var(--gcds-breadcrumbs-item-arrow-margin);width:.375rem}:host(.gcds-breadcrumbs-item) gcds-link::part(link){font:var(--gcds-breadcrumbs-item-font)}}";
+
+const GcdsBreadcrumbsItem = class {
+    constructor(hostRef) {
+        index.registerInstance(this, hostRef);
+    }
+    render() {
+        const { href } = this;
+        return (index.h(index.Host, { key: '8b605a4957ab5346d22dced80f73e1a5f4ac555b', role: "listitem", class: "gcds-breadcrumbs-item" }, index.h("gcds-link", { key: 'd3c3af1d26322cb3ef0fbf6f8778bc0f4c3bf9c4', size: "regular", href: href }, index.h("slot", { key: 'f20dcd2b71127031fc0334fe3673821e08aefb56' }))));
+    }
+    get el() { return index.getElement(this); }
+};
+GcdsBreadcrumbsItem.style = gcdsBreadcrumbsItemCss;
+
+const I18N$n = {
+  en: {
+    label: 'Opens in a new tab.',
+  },
+  fr: {
+    label: "S'ouvre dans un nouvel onglet.",
+  },
+};
+
+const gcdsButtonCss = "@layer reset, default, roles, size, disabled, hover, focus, active, mobile;@layer reset{:host{display:inline-block}:host .gcds-button{box-sizing:border-box;cursor:pointer;text-decoration:none}:host slot{display:initial}}@layer default{:host .gcds-button{display:inline-block;text-align:center;width:var(--gcds-button-width);text-wrap:balance;border:var(--gcds-button-border-width) solid transparent;border-radius:var(--gcds-button-border-radius);font:var(--gcds-button-font-desktop);padding:var(--gcds-button-padding);transition:all .15s ease-in-out}@media only screen and (width < 48em){:host .gcds-button{font:var(--gcds-button-font-mobile)}}}@layer roles{:host .gcds-button.button--role-danger{background-color:var(--gcds-button-danger-default-background);color:var(--gcds-button-danger-default-text)}:host .gcds-button.button--role-primary{background-color:var(--gcds-button-primary-default-background);color:var(--gcds-button-primary-default-text)}:host .gcds-button.button--role-start{background-color:var(--gcds-button-start-default-background);color:var(--gcds-button-start-default-text);font:var(--gcds-button-start-font-desktop);padding:var(--gcds-button-start-padding)}@media only screen and (width < 48em){:host .gcds-button.button--role-start{font:var(--gcds-button-start-font-mobile)}}:host .gcds-button.button--role-secondary{background-color:var(--gcds-button-secondary-default-background);border:var(--gcds-button-border-width) solid;color:var(--gcds-button-secondary-default-text)}}@layer size{:host .gcds-button.button--small{font:var(--gcds-button-small-font);padding:var(--gcds-button-small-padding)}}@layer disabled{:host([disabled]){pointer-events:none}:host([disabled]) .gcds-button[aria-disabled=true]{cursor:not-allowed;opacity:var(--gcds-button-shared-disabled-opacity);pointer-events:none}}@layer hover{@media (hover:hover){:host .gcds-button:hover.button--role-danger{background-color:var(--gcds-button-danger-hover-background)}:host .gcds-button:hover.button--role-primary{background-color:var(--gcds-button-primary-hover-background)}:host .gcds-button:hover.button--role-start{background-color:var(--gcds-button-start-hover-background)}:host .gcds-button:hover.button--role-secondary{background-color:var(--gcds-button-secondary-hover-background)}}}@layer focus{:host .gcds-button:focus{background-color:var(--gcds-button-shared-focus-background);border-color:var(--gcds-button-shared-focus-background);box-shadow:var(--gcds-button-shared-focus-box-shadow);color:var(--gcds-button-shared-focus-text);outline:var(--gcds-button-shared-focus-outline-width) solid var(--gcds-button-shared-focus-background);outline-offset:var(--gcds-button-border-width)}}@layer active{:host .gcds-button:active{background-color:var(--gcds-button-shared-active-background);border-color:var(--gcds-button-shared-active-background)}}@layer mobile{@media screen and (max-width:30rem){:host{display:block}:host .gcds-button{margin:var(--gcds-button-mobile-margin);width:var(--gcds-button-mobile-width)}}}";
+
+const GcdsButton = class {
+    constructor(hostRef) {
+        index.registerInstance(this, hostRef);
+        this.gcdsClick = index.createEvent(this, "gcdsClick");
+        this.gcdsFocus = index.createEvent(this, "gcdsFocus");
+        this.gcdsBlur = index.createEvent(this, "gcdsBlur");
+        /**
+         * Props
+         */
+        /**
+         * Set button types
+         */
+        // prettier-ignore
+        this.type = 'button';
+        /**
+         * Set the main style
+         */
+        this.buttonRole = 'primary';
+        /**
+         * Set the button size
+         */
+        this.size = 'regular';
+        /**
+         * Set additional HTML attributes not available in component properties
+         */
+        this.inheritedAttributes = {};
+        this.handleClick = (e) => {
+            // Check button type, only emit value if type is "submit"
+            const emitValue = this.type === 'submit' ? this.value : undefined;
+            const event = utils.emitEvent(e, this.gcdsClick, emitValue);
+            if (event) {
+                if (!this.disabled && this.type != 'button' && this.type != 'link') {
+                    // Attach button to form
+                    const form = this.el.closest('form');
+                    if (form) {
+                        e.preventDefault();
+                        const formButton = document.createElement('button');
+                        formButton.type = this.type;
+                        if (this.name) {
+                            formButton.name = this.name;
+                        }
+                        if (this.value) {
+                            formButton.value = this.value;
+                        }
+                        formButton.style.display = 'none';
+                        form.appendChild(formButton);
+                        formButton.click();
+                        formButton.remove();
+                    }
+                }
+                // Has any inherited attributes changed on click
+                this.inheritedAttributes = utils.inheritAttributes(this.el, this.shadowElement);
+            }
+        };
+    }
+    validateType(newValue) {
+        const values = ['submit', 'reset', 'button', 'link'];
+        if (!values.includes(newValue)) {
+            this.type = 'button';
+        }
+    }
+    validateButtonRole(newValue) {
+        const values = ['start', 'primary', 'secondary', 'danger'];
+        if (!values.includes(newValue)) {
+            this.buttonRole = 'primary';
+        }
+        else if (newValue === 'start' && this.size === 'small') {
+            this.size = 'regular';
+        }
+    }
+    validateSize(newValue) {
+        const values = ['regular', 'small'];
+        if (!values.includes(newValue) || this.buttonRole === 'start') {
+            this.size = 'regular';
+        }
+    }
+    validateDisabled(newValue) {
+        if (newValue === false || (newValue === true && this.type === 'link')) {
+            this.el.removeAttribute('disabled');
+        }
+    }
+    /*
+     * Observe lang attribute change
+     */
+    updateLang() {
+        const observer = new MutationObserver(mutations => {
+            if (mutations[0].oldValue != this.el.lang) {
+                this.lang = this.el.lang;
+            }
+        });
+        observer.observe(this.el, utils.observerConfig);
+    }
+    componentWillLoad() {
+        // Validate attributes and set defaults
+        this.validateType(this.type);
+        this.validateButtonRole(this.buttonRole);
+        this.validateSize(this.size);
+        this.validateDisabled(this.disabled);
+        this.inheritedAttributes = utils.inheritAttributes(this.el, this.shadowElement);
+        // Define lang attribute
+        this.lang = utils.assignLanguage(this.el);
+        this.updateLang();
+    }
+    render() {
+        const { type, buttonRole, size, buttonId, disabled, lang, name, href, rel, target, download, value, inheritedAttributes, } = this;
+        const Tag = type != 'link' ? 'button' : 'a';
+        const attrs = Tag === 'button'
+            ? {
+                type: type,
+                ariaDisabled: disabled,
+                name,
+                value,
+            }
+            : {
+                href,
+                rel,
+                target,
+                download,
+            };
+        return (index.h(index.Host, { key: 'cb4009ea02793c43139bd32ce967ed14a34edc92' }, index.h(Tag, Object.assign({ key: 'f43a15193850a532bf2c48f19cfa089426e7fbb2' }, attrs, { id: buttonId, onBlur: () => this.gcdsBlur.emit(), onFocus: () => this.gcdsFocus.emit(), onClick: e => !disabled ? this.handleClick(e) : e.stopImmediatePropagation(), class: `gcds-button button--role-${buttonRole} button--${size}`, ref: element => (this.shadowElement = element) }, inheritedAttributes, { part: "button" }), index.h("slot", { key: 'ba77323179c20e81431e4463a4b435572e56b83e' }), type === 'link' && target === '_blank' ? (index.h("gcds-icon", { name: "external", label: I18N$n[lang].label, "margin-left": "150" })) : null)));
+    }
+    static get delegatesFocus() { return true; }
+    get el() { return index.getElement(this); }
+    static get watchers() { return {
+        "type": ["validateType"],
+        "buttonRole": ["validateButtonRole"],
+        "size": ["validateSize"],
+        "disabled": ["validateDisabled"]
+    }; }
+};
+GcdsButton.style = gcdsButtonCss;
+
+const I18N$m = {
+  en: {
+    tagged: 'Tagged:',
+    badgeError: 'gcds-card: The badge attribute has a character limit of 20 characters.',
+  },
+  fr: {
+    tagged: 'Baliser :',
+    badgeError: 'gcds-card: L\'attribut badge a une limite de caractères de 20 caractères.',
+  },
+};
+
+const gcdsCardCss = "@layer reset, default, link, hover, focus;@layer reset{:host{display:block}:host *{box-sizing:border-box;margin:0;padding:0}:host slot{display:initial}}@layer default{:host .gcds-card{background-color:var(--gcds-card-background-color);box-shadow:var(--gcds-card-box-shadow);color:var(--gcds-card-color);display:block;height:100%;max-width:var(--gcds-card-max-width);overflow:hidden;padding:var(--gcds-card-padding);position:relative}:host .gcds-card .gcds-badge{background-color:var(--gcds-card-badge-background-color);left:0;padding:var(--gcds-card-badge-padding);position:absolute;top:0;text-wrap:nowrap}@media only screen and (width < 48em){:host .gcds-card .gcds-badge{padding:var(--gcds-card-badge-mobile-padding)}}:host .gcds-card .gcds-card__image{margin:var(--gcds-card-image-margin);width:100%}:host .gcds-card .gcds-card__title{font:var(--gcds-card-title-font-desktop);width:fit-content}@media only screen and (width < 48em){:host .gcds-card .gcds-card__title{font:var(--gcds-card-title-font-mobile)}}:host .gcds-card .gcds-card__title:has(+.gcds-card__description){margin:var(--gcds-card-title-margin)}:host .gcds-card .gcds-card__description{--gcds-text-size-body-desktop:var(--gcds-card-description-font-desktop)}@media only screen and (width < 48em){:host .gcds-card .gcds-card__description{font:var(--gcds-card-description-font-mobile)}}}@layer link{:host .gcds-card gcds-link::part(link):after{bottom:0;content:\"\";left:0;pointer-events:auto;position:absolute;right:0;top:0}}@layer hover{@media (hover:hover){:host .gcds-card:hover{background-color:var(--gcds-card-hover-background-color);box-shadow:var(--gcds-card-hover-box-shadow);cursor:pointer}}}@layer focus{:host .gcds-card:focus-within{box-shadow:var(--gcds-card-focus-box-shadow);outline:var(--gcds-card-focus-outline);outline-offset:var(--gcds-card-focus-outline-offset)}:host gcds-link::part(link):focus{background-color:var(--gcds-card-focus-link-background-color);border:var(--gcds-card-focus-link-border);box-shadow:var(--gcds-card-focus-link-box-shadow);color:var(--gcds-card-focus-link-color);outline:var(--gcds-card-focus-link-outline);text-decoration:underline currentColor var(--gcds-card-focus-link-text-decoration-thickness)}}";
+
+const GcdsCard = class {
+    constructor(hostRef) {
+        index.registerInstance(this, hostRef);
+        this.gcdsFocus = index.createEvent(this, "gcdsFocus");
+        this.gcdsBlur = index.createEvent(this, "gcdsBlur");
+        this.gcdsClick = index.createEvent(this, "gcdsClick");
+        /**
+         * The card title tag property specifies the HTML heading element for the title.
+         * This property does not modify the font size. It is used to assign the heading level
+         * in order to maintain heading hierarchy and accessibility for assistive technologies.
+         */
+        this.cardTitleTag = 'a';
+        /**
+         * State to track validation on properties
+         * Contains a list of properties that have an error associated with them
+         */
+        this.errors = [];
+    }
+    validateCardTitle() {
+        if (!this.cardTitle || this.cardTitle.trim() == '') {
+            this.errors.push('cardTitle');
+        }
+        else if (this.errors.includes('cardTitle')) {
+            this.errors.splice(this.errors.indexOf('cardTitle'), 1);
+        }
+    }
+    validateHref() {
+        if (!this.href || this.href.trim() == '') {
+            this.errors.push('href');
+        }
+        else if (this.errors.includes('href')) {
+            this.errors.splice(this.errors.indexOf('href'), 1);
+        }
+    }
+    validateBadge() {
+        if (this.badge && this.badge.length > 20) {
+            console.error(`${I18N$m['en'].badgeError} | ${I18N$m['fr'].badgeError}`);
+            this.errors.push('badge');
+        }
+        else if (this.errors.includes('badge')) {
+            this.errors.splice(this.errors.indexOf('badge'), 1);
+        }
+    }
+    /*
+     * Observe lang attribute change
+     */
+    updateLang() {
+        const observer = new MutationObserver(mutations => {
+            if (mutations[0].oldValue != this.el.lang) {
+                this.lang = this.el.lang;
+            }
+        });
+        observer.observe(this.el, utils.observerConfig);
+    }
+    /*
+     * Validate required properties
+     */
+    validateRequiredProps() {
+        this.validateCardTitle();
+        this.validateHref();
+        if (this.errors.includes('href') || this.errors.includes('cardTitle')) {
+            return false;
+        }
+        return true;
+    }
+    async componentWillLoad() {
+        // Define lang attribute
+        this.lang = utils.assignLanguage(this.el);
+        this.updateLang();
+        this.validateBadge();
+        let valid = this.validateRequiredProps();
+        if (!valid) {
+            utils.logError('gcds-card', this.errors, ['badge']);
+        }
+    }
+    get renderDescription() {
+        if (this.el.innerHTML.trim() != '') {
+            return index.h("div", { class: "gcds-card__description" }, index.h("slot", null));
+        }
+        else if (this.description) {
+            return index.h("div", { class: "gcds-card__description" }, index.h("gcds-text", { "margin-bottom": '0' }, this.description));
+        }
+        else {
+            return null;
+        }
+    }
+    render() {
+        const { cardTitle, cardTitleTag, href, badge, imgSrc, imgAlt, renderDescription, lang, errors, } = this;
+        const Element = cardTitleTag;
+        const taggedAttr = {};
+        if (badge) {
+            taggedAttr['aria-describedby'] = 'gcds-badge';
+        }
+        if (this.validateRequiredProps()) {
+            return (index.h(index.Host, { key: '0402753bd0ae1f2248dbc0170d6ffa1470933734' }, index.h("div", { key: '4808bc995375f3c536578f0dc1b1307d955c8f33', class: "gcds-card" }, badge && !errors.includes('badge') && (index.h("gcds-text", { key: '6cf5c35378fad224ae666bdf6901ee482a40be6c', id: "gcds-badge", class: "gcds-badge", "text-role": "light", "margin-bottom": "0", size: "small" }, index.h("strong", { key: '4be70916982695192bf67e03e0659c8bb64a53f8' }, index.h("gcds-sr-only", { key: '6262dad21f6d5aec05093e12a1044a187acf58b7', tag: "span" }, I18N$m[lang].tagged), badge))), imgSrc && (index.h("img", { key: '8240ca4df2ed097f185667da8135e8e28a4b6040', src: imgSrc, alt: imgAlt ? imgAlt : '', class: "gcds-card__image" })), Element != 'a' ? (index.h(Element, Object.assign({ class: "gcds-card__title" }, taggedAttr), index.h("gcds-link", { href: href }, cardTitle))) : (index.h("gcds-link", Object.assign({ href: href, class: "gcds-card__title" }, taggedAttr), cardTitle)), renderDescription)));
+        }
+    }
+    get el() { return index.getElement(this); }
+    static get watchers() { return {
+        "cardTitle": ["validateCardTitle"],
+        "href": ["validateHref"],
+        "badge": ["validateBadge"]
+    }; }
+};
+GcdsCard.style = gcdsCardCss;
+
+const defaultValidator = {
+    validate: () => {
+        return {
+            valid: true,
+            reason: {
+                en: '',
+                fr: '',
+            },
+        };
+    },
+};
+function combineValidators(v1, v2) {
+    return {
+        validate: (x) => {
+            const res1 = v1.validate(x);
+            const res2 = v2.validate(x);
+            if ((typeof res1 === 'object' && !res1.valid) ||
+                (typeof res1 === 'boolean' && !res1)) {
+                return typeof res1 === 'object'
+                    ? res1
+                    : { valid: res1, reason: v1.errorMessage };
+            }
+            else if ((typeof res2 === 'object' && !res2.valid) ||
+                (typeof res2 === 'boolean' && !res2)) {
+                return typeof res2 === 'object'
+                    ? res2
+                    : { valid: res2, reason: v2.errorMessage };
+            }
+            else {
+                return {
+                    valid: true,
+                    reason: {
+                        en: '',
+                        fr: '',
+                    },
+                };
+            }
+        },
+    };
+}
+function requiredValidator(element, type, subtype) {
+    if (element.required) {
+        switch (type) {
+            // Components all validate the "value" property
+            case 'input':
+                switch (subtype) {
+                    case 'email':
+                        if (element.validator) {
+                            element.validator.unshift('requiredEmailField');
+                        }
+                        else {
+                            element.validator = ['requiredEmailField'];
+                        }
+                        break;
+                    default:
+                        if (element.validator) {
+                            element.validator.unshift('requiredField');
+                        }
+                        else {
+                            element.validator = ['requiredField'];
+                        }
+                        break;
+                }
+                break;
+            case 'select':
+                if (element.validator) {
+                    element.validator.unshift('requiredSelectField');
+                }
+                else {
+                    element.validator = ['requiredSelectField'];
+                }
+                break;
+            case 'textarea':
+                if (element.validator) {
+                    element.validator.unshift('requiredField');
+                }
+                else {
+                    element.validator = ['requiredField'];
+                }
+                break;
+            case 'file':
+                if (element.validator) {
+                    element.validator.unshift('requiredFileInput');
+                }
+                else {
+                    element.validator = ['requiredFileInput'];
+                }
+                break;
+            case 'date-input':
+                if (element.validator) {
+                    element.validator.unshift('requiredDateInput');
+                }
+                else {
+                    element.validator = ['requiredDateInput'];
+                }
+                break;
+            case 'radio':
+                if (element.validator) {
+                    element.validator.unshift('requiredRadio');
+                }
+                else {
+                    element.validator = ['requiredRadio'];
+                }
+                break;
+            case 'checkboxGroup':
+                if (element.validator) {
+                    element.validator.unshift('requiredCheckboxGroup');
+                }
+                else {
+                    element.validator = ['requiredCheckboxGroup'];
+                }
+                break;
+            case 'checkboxSingle':
+                if (element.validator) {
+                    element.validator.unshift('requiredCheckboxSingle');
+                }
+                else {
+                    element.validator = ['requiredCheckboxSingle'];
+                }
+                break;
+        }
+    }
+}
+/*
+Example of parameter validator
+
+export function getLengthValidator(min: number, max: number): Validator<string> {
+    // Create errorMessage object
+    let errorMessage = {};
+    if (min && max) {
+        errorMessage["en"] = `You must enter between ${min} and ${max} characters`;
+        errorMessage["fr"] = `French You must enter between ${min} and ${max} characters`;
+    } else if (min) {
+        errorMessage["en"] = `You must enter at least ${min} characters`;
+        errorMessage["fr"] = `French You must enter at least ${min} characters`;
+    } else if (max) {
+        errorMessage["en"] = `You must enter less than ${max} characters`;
+        errorMessage["fr"] = `French You must enter less than ${max} characters`;
+    }
+    return {
+        validate: (value: string) => {
+            value = value || '';
+            if (min && max) {
+                return min <= value.length && value.length <= max;
+            }
+            if (min) {
+                return min <= value.length;
+            }
+            if (max) {
+                return value.length <= max;
+            }
+            return true;
+        },
+        errorMessage
+    };
+}
+*/
+
+const emailPattern = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+const requiredField = {
+    validate: (value) => {
+        return {
+            valid: value != null && value.trim() != '',
+            reason: {
+                en: 'Enter information to continue.',
+                fr: 'Saisissez des renseignements pour continuer.',
+            },
+        };
+    },
+};
+const requiredEmailField = {
+    validate: (value) => {
+        return {
+            valid: value != null &&
+                value.trim() != '' &&
+                (value.toLowerCase().match(emailPattern) ? true : false),
+            reason: {
+                en: 'Enter a valid email address to continue. Use a standard format. Example: name@address.ca.',
+                fr: 'Saisissez votre adresse courriel pour continuer. Utilisez un format standard. Exemple: nom@adresse.ca.',
+            },
+        };
+    },
+};
+const requiredFileInput = {
+    validate: (value) => {
+        return {
+            valid: value.length > 0,
+            reason: {
+                en: 'You must upload a file to continue.',
+                fr: 'Vous devez téléverser un fichier pour continuer.',
+            },
+        };
+    },
+};
+const requiredSelectField = {
+    validate: (value) => {
+        return {
+            valid: value != null && value.trim() != '',
+            reason: {
+                en: 'Choose an option to continue.',
+                fr: 'Choisissez une option pour continuer.',
+            },
+        };
+    },
+};
+/*
+ * Date input validators
+ */
+const dateInputErrorMessage = {
+    en: {
+        all: 'Enter the date.',
+        missingmonth: 'Select the month.',
+        missingyear: 'Enter the year.',
+        missingday: 'Enter the day.',
+        missingmonthday: 'Select the month and enter the day.',
+        missingmonthyear: 'Select the month and enter the year.',
+        missingdayyear: 'Enter the day and year.',
+        invalidyearlength: 'Year must be 4 digits.',
+        invalidyear: 'Enter a valid year.',
+        invalidday: 'Enter a valid day.',
+    },
+    fr: {
+        all: 'Saisissez la date.',
+        missingmonth: 'Sélectionnez un mois.',
+        missingyear: "Saisissez l'année.",
+        missingday: 'Saisissez le jour.',
+        missingmonthday: 'Saisissez le jour et sélectionnez un mois.',
+        missingmonthyear: "Sélectionnez un mois et saisissez l'année.",
+        missingdayyear: "Saisissez le jour et l'année.",
+        invalidyearlength: "L'année doit inclure 4 chiffres.",
+        invalidyear: 'Entrez une année valide.',
+        invalidday: 'Saisissez un jour valide.',
+    },
+};
+const requiredDateInput = {
+    validate: (date) => {
+        if (utils.isValidDate(date)) {
+            return {
+                valid: true,
+                reason: {
+                    en: '',
+                    fr: '',
+                },
+            };
+        }
+        const splitDate = date.split('-');
+        const dateObject = {
+            day: splitDate[2],
+            month: splitDate[1],
+            year: splitDate[0],
+        };
+        const format = splitDate.length === 3 ? 'full' : 'compact';
+        const error = getDateInputError(dateObject, format);
+        return error;
+    },
+};
+const getDateInputError = (dateValues, format) => {
+    const { day, month, year } = dateValues;
+    const errorResponse = {
+        valid: false,
+        errors: {
+            day: false,
+            month: false,
+            year: false,
+        },
+        reason: {
+            en: '',
+            fr: '',
+        },
+    };
+    // No values set
+    if (!day && !month && !year) {
+        errorResponse.errors.day = true;
+        errorResponse.errors.month = true;
+        errorResponse.errors.year = true;
+        errorResponse.reason.en = dateInputErrorMessage.en.all;
+        errorResponse.reason.fr = dateInputErrorMessage.fr.all;
+        // No day set
+    }
+    else if (!day && month && year) {
+        errorResponse.errors.day = true;
+        errorResponse.reason.en = dateInputErrorMessage.en.missingday;
+        errorResponse.reason.fr = dateInputErrorMessage.fr.missingday;
+        // No month set
+    }
+    else if ((day && !month && year) ||
+        (!day && !month && year && format === 'compact')) {
+        errorResponse.errors.month = true;
+        errorResponse.reason.en = dateInputErrorMessage.en.missingmonth;
+        errorResponse.reason.fr = dateInputErrorMessage.fr.missingmonth;
+        // No year set
+    }
+    else if ((day && month && !year) ||
+        (!day && month && !year && format === 'compact')) {
+        errorResponse.errors.year = true;
+        errorResponse.reason.en = dateInputErrorMessage.en.missingyear;
+        errorResponse.reason.fr = dateInputErrorMessage.fr.missingyear;
+        // No day and month set
+    }
+    else if (!day && !month && year) {
+        errorResponse.errors.day = true;
+        errorResponse.errors.month = true;
+        errorResponse.reason.en = dateInputErrorMessage.en.missingmonthday;
+        errorResponse.reason.fr = dateInputErrorMessage.fr.missingmonthday;
+        // No day and year set
+    }
+    else if (!day && month && !year) {
+        errorResponse.errors.day = true;
+        errorResponse.errors.year = true;
+        errorResponse.reason.en = dateInputErrorMessage.en.missingdayyear;
+        errorResponse.reason.fr = dateInputErrorMessage.fr.missingdayyear;
+        // No month and year set
+    }
+    else if (day && !month && !year) {
+        errorResponse.errors.year = true;
+        errorResponse.errors.month = true;
+        errorResponse.reason.en = dateInputErrorMessage.en.missingmonthyear;
+        errorResponse.reason.fr = dateInputErrorMessage.fr.missingmonthyear;
+        // Year is formatted incorrectly
+    }
+    else if (year.length != 4) {
+        errorResponse.errors.year = true;
+        errorResponse.reason.en = dateInputErrorMessage.en.invalidyearlength;
+        errorResponse.reason.fr = dateInputErrorMessage.fr.invalidyearlength;
+        // Year format
+    }
+    else if (year < 0 || year > 9999) {
+        errorResponse.errors.year = true;
+        errorResponse.reason.en = dateInputErrorMessage.en.invalidyear;
+        errorResponse.reason.fr = dateInputErrorMessage.fr.invalidyear;
+        // Invalid day
+    }
+    else {
+        errorResponse.errors.day = true;
+        errorResponse.reason.en = dateInputErrorMessage.en.invalidday;
+        errorResponse.reason.fr = dateInputErrorMessage.fr.invalidday;
+    }
+    return errorResponse;
+};
+const requiredRadio = {
+    validate: (value) => {
+        return {
+            valid: value != null && value != '',
+            reason: {
+                en: 'Choose an option to continue.',
+                fr: 'Choisissez une option pour continuer.',
+            },
+        };
+    },
+};
+const requiredCheckboxGroup = {
+    validate: (value) => {
+        return {
+            valid: value.length > 0,
+            reason: {
+                en: 'Choose an option to continue.',
+                fr: 'Choisissez une option pour continuer.',
+            },
+        };
+    },
+};
+const requiredCheckboxSingle = {
+    validate: (value) => {
+        return {
+            valid: value.length > 0,
+            reason: {
+                en: 'You must check the box to continue.',
+                fr: 'Vous devez cocher la case pour continuer.',
+            },
+        };
+    },
+};
+
+var ValidatorsName;
+(function (ValidatorsName) {
+    ValidatorsName["requiredField"] = "requiredField";
+    ValidatorsName["requiredEmailField"] = "requiredEmailField";
+    ValidatorsName["requiredCheck"] = "requiredCheck";
+    ValidatorsName["requiredFileInput"] = "requiredFileInput";
+    ValidatorsName["requiredSelectField"] = "requiredSelectField";
+    ValidatorsName["requiredDateInput"] = "requiredDateInput";
+    ValidatorsName["requiredRadio"] = "requiredRadio";
+    ValidatorsName["requiredCheckboxGroup"] = "requiredCheckboxGroup";
+    ValidatorsName["requiredCheckboxSingle"] = "requiredCheckboxSingle";
+})(ValidatorsName || (ValidatorsName = {}));
+function getValidator(list) {
+    return (list || [])
+        .map(v => {
+        if (typeof v === 'string') {
+            return validatorFactory(v);
+        }
+        else if (v && v.name) {
+            v = v;
+            return validatorFactory(v.name);
+        }
+        else {
+            return v;
+        }
+    })
+        .reduce(combineValidators, defaultValidator);
+}
+function validatorFactory(name, options) {
+    switch (name) {
+        case ValidatorsName.requiredField:
+            return requiredField;
+        case ValidatorsName.requiredEmailField:
+            return requiredEmailField;
+        case ValidatorsName.requiredSelectField:
+            return requiredSelectField;
+        case ValidatorsName.requiredDateInput:
+            return requiredDateInput;
+        case ValidatorsName.requiredFileInput:
+            return requiredFileInput;
+        case ValidatorsName.requiredRadio:
+            return requiredRadio;
+        case ValidatorsName.requiredCheckboxGroup:
+            return requiredCheckboxGroup;
+        case ValidatorsName.requiredCheckboxSingle:
+            return requiredCheckboxSingle;
+        default:
+            return defaultValidator;
+    }
+}
+
+/* Check if passed object matches required CheckboxObject type
+ * @param obj - object to check
+ */
+function isCheckboxObject(obj) {
+    if (typeof obj !== 'object' || obj === null)
+        return false;
+    const validKeys = ['id', 'label', 'value', 'hint', 'checked', 'required'];
+    const objKeys = Object.keys(obj);
+    // Check if all properties match the expected type
+    const hasValidTypes = typeof obj.id === 'string' &&
+        typeof obj.label === 'string' &&
+        (obj.value === undefined || typeof obj.value === 'string') &&
+        (obj.hint === undefined || typeof obj.hint === 'string') &&
+        (obj.checked === undefined || typeof obj.checked === 'boolean');
+    // Ensure no extra properties exist
+    const hasOnlyValidKeys = objKeys.every(key => validKeys.includes(key));
+    return hasValidTypes && hasOnlyValidKeys;
+}
+/* Loop through the optionsArr and check if each option/checkbox is formatted correctly
+ * @param optionsArr - array of objects to be checked
+ */
+function validateOptionsArray(optionsArr) {
+    let invalidOptionsArr = false;
+    if (optionsArr && optionsArr.length >= 1) {
+        invalidOptionsArr = optionsArr.some(checkbox => !isCheckboxObject(checkbox));
+    }
+    else if (optionsArr && optionsArr.length == 0) {
+        invalidOptionsArr = true;
+    }
+    return invalidOptionsArr;
+}
+/* Loop through manually assigned value to check if it is available in rendered checkboxes
+ * @param optionsArr - array of checkbox objects to compare to
+ * @param element - the checkboxes element
+ */
+function cleanUpValues(optionsArr, element) {
+    const availableValues = [];
+    optionsArr.forEach(checkbox => {
+        availableValues.push(checkbox.value ? checkbox.value : 'on');
+        if ((checkbox.checked == 'true' || checkbox.checked === true) &&
+            !element.value.includes(checkbox.value || 'on')) {
+            element.value = [
+                ...element.value,
+                checkbox.value ? checkbox.value : 'on',
+            ];
+        }
+    });
+    // Remove any values that are not available in the inputs
+    element.value
+        .filter(value => !availableValues.includes(value))
+        .forEach(value => {
+        element.value = element.value.filter(item => item !== value);
+    });
+}
+const renderCheckbox = (checkbox, element, emitEvent, handleInput) => {
+    const { name, disabled, hasError, errorMessage, gcdsFocus, gcdsInput, gcdsChange, gcdsClick, gcdsBlur, required, hint, isGroup, lang, value, onBlurValidate, } = element;
+    const attrsInput = {
+        name: name,
+        id: checkbox.id,
+        disabled: disabled,
+        required: checkbox.required,
+        value: checkbox.value,
+    };
+    const labelAttrs = {
+        'label': checkbox.label,
+        'label-for': checkbox.id,
+        lang,
+    };
+    if (!isGroup && required) {
+        labelAttrs['required'] = required;
+        attrsInput['required'] = required;
+    }
+    if (checkbox.hint) {
+        const hintID = `hint-${checkbox.id}`;
+        attrsInput['aria-describedby'] = `${hintID}${attrsInput['aria-describedby'] ? `${attrsInput['aria-describedby']}` : ''}`;
+    }
+    if (value.includes(checkbox.value)) {
+        attrsInput['checked'] = true;
+    }
+    if (hasError) {
+        attrsInput['aria-invalid'] = 'true';
+        attrsInput['aria-description'] = errorMessage;
+    }
+    return (index.h("div", { class: `gcds-checkbox ${disabled ? 'gcds-checkbox--disabled' : ''} ${hasError ? 'gcds-checkbox--error' : ''}` },
+        index.h("input", Object.assign({ type: "checkbox" }, attrsInput, { onBlur: isGroup ? () => gcdsBlur.emit() : onBlurValidate, onFocus: () => gcdsFocus.emit(), onChange: () => gcdsChange.emit(), onInput: e => handleInput(e, gcdsInput), onClick: e => !disabled ? emitEvent(e, gcdsClick) : e.stopImmediatePropagation() })),
+        index.h("gcds-label", Object.assign({}, labelAttrs, { onClick: e => e.stopPropagation() })),
+        checkbox.hint || (!isGroup && hint) ? (index.h("gcds-hint", { "hint-id": checkbox.id }, !isGroup && hint ? hint : checkbox.hint)) : null,
+        !isGroup && errorMessage ? (index.h("gcds-error-message", { messageId: checkbox.id }, errorMessage)) : null));
+};
+
+const gcdsCheckboxesCss = "@layer reset, default, disabled, error, focus;@layer reset{:host{display:block}:host .gcds-checkboxes__fieldset{border:0;min-inline-size:auto;padding:0}:host .gcds-checkboxes__fieldset legend{padding:0}:host .gcds-checkbox{padding:0}:host .gcds-checkbox gcds-label{display:block}:host .gcds-checkbox gcds-label>label:after,:host .gcds-checkbox gcds-label>label:before{box-sizing:border-box;content:\"\";cursor:pointer;position:absolute}}@layer default{:host .gcds-checkboxes__fieldset{margin:var(--gcds-checkbox-fieldset-margin)}:host .gcds-checkboxes__fieldset .gcds-checkboxes__legend{font:var(--gcds-checkbox-legend-font-desktop);margin:var(--gcds-checkbox-legend-margin)}:host .gcds-checkboxes__fieldset .gcds-checkboxes__legend .legend__required{font:var(--gcds-checkbox-legend-required-font-desktop)}@media only screen and (width < 48em){:host .gcds-checkboxes__fieldset .gcds-checkboxes__legend{font:var(--gcds-checkbox-legend-font-mobile)}:host .gcds-checkboxes__fieldset .gcds-checkboxes__legend .legend__required{font:var(--gcds-checkbox-legend-required-font-mobile)}}:host .gcds-checkboxes__fieldset .gcds-checkboxes__legend:not(:has(+gcds-hint)){margin:var(--gcds-checkbox-legend-hint-margin)}:host .gcds-checkbox{color:var(--gcds-checkbox-default-text);font:var(--gcds-checkbox-font);margin:var(--gcds-checkbox-margin)!important;max-width:var(--gcds-checkbox-max-width);min-height:calc(var(--gcds-checkbox-input-height-and-width) - var(--gcds-checkbox-padding));padding:var(--gcds-checkbox-padding) 0 0;position:relative;transition:color .15s ease-in-out}:host .gcds-checkbox :is(gcds-label,gcds-hint,gcds-error-message){padding:var(--gcds-checkbox-label-padding)!important}:host .gcds-checkbox gcds-hint::part(hint){margin:0}:host .gcds-checkbox gcds-label:after,:host .gcds-checkbox gcds-label:before,:host .gcds-checkbox input{position:absolute}:host .gcds-checkbox gcds-label>label:before,:host .gcds-checkbox input{height:var(--gcds-checkbox-input-height-and-width);left:0;top:0;width:var(--gcds-checkbox-input-height-and-width)}:host .gcds-checkbox input{opacity:0}:host .gcds-checkbox gcds-label>label{width:fit-content;--gcds-label-font-desktop:var(--gcds-checkbox-label-font-desktop);--gcds-label-font-mobile:var(--gcds-checkbox-label-font-mobile)}:host .gcds-checkbox gcds-label>label:before{background-color:var(--gcds-checkbox-default-background);border:var(--gcds-checkbox-input-border-width) solid;border-radius:var(--gcds-checkbox-input-border-radius);transition:border-color .15s ease-in-out,box-shadow .15s ease-in-out,outline .15s ease-in-out}:host .gcds-checkbox gcds-label>label:after{border:var(--gcds-checkbox-check-border-width) solid;border-block-start:0!important;border-inline-start:0!important;height:var(--gcds-checkbox-check-height);left:var(--gcds-checkbox-check-left);opacity:0;top:var(--gcds-checkbox-check-top);transform:rotate(40deg);width:var(--gcds-checkbox-check-width)}:host .gcds-checkbox input:checked+gcds-label>label:after{opacity:1}}@layer disabled{:host .gcds-checkbox.gcds-checkbox--disabled{color:var(--gcds-checkbox-disabled-text)}:host .gcds-checkbox.gcds-checkbox--disabled gcds-label>label{--gcds-label-text:currentColor;cursor:not-allowed}:host .gcds-checkbox.gcds-checkbox--disabled gcds-label>label:after,:host .gcds-checkbox.gcds-checkbox--disabled gcds-label>label:before{cursor:not-allowed}:host .gcds-checkbox.gcds-checkbox--disabled gcds-label>label:before{background-color:var(--gcds-checkbox-disabled-background);border-color:currentcolor}:host .gcds-checkbox.gcds-checkbox--disabled gcds-hint{--gcds-hint-text:currentColor}}@layer error{:host .gcds-checkbox.gcds-checkbox--error:not(:focus-within) gcds-label>label:before{border-color:var(--gcds-checkbox-danger-border)}:host .gcds-checkbox.gcds-checkbox--error:not(:focus-within) gcds-label>label:after{color:var(--gcds-checkbox-danger-border)}}@layer focus{:host .gcds-checkbox:focus-within input:focus+gcds-label>label:before{background:var(--gcds-checkbox-focus-background);box-shadow:var(--gcds-checkbox-focus-box-shadow);color:var(--gcds-checkbox-focus-color);outline:var(--gcds-checkbox-focus-outline-width) solid currentcolor;outline-offset:var(--gcds-checkbox-input-border-width)}:host .gcds-checkbox:focus-within input:focus+gcds-label>label:after{color:var(--gcds-checkbox-focus-color)}}";
+
+const GcdsCheckboxes = class {
+    constructor(hostRef) {
+        index.registerInstance(this, hostRef);
+        this.gcdsClick = index.createEvent(this, "gcdsClick");
+        this.gcdsFocus = index.createEvent(this, "gcdsFocus");
+        this.gcdsBlur = index.createEvent(this, "gcdsBlur");
+        this.gcdsInput = index.createEvent(this, "gcdsInput");
+        this.gcdsChange = index.createEvent(this, "gcdsChange");
+        this.gcdsError = index.createEvent(this, "gcdsError");
+        this.gcdsValid = index.createEvent(this, "gcdsValid");
+        if (hostRef.$hostElement$["s-ei"]) {
+            this.internals = hostRef.$hostElement$["s-ei"];
+        }
+        else {
+            this.internals = hostRef.$hostElement$.attachInternals();
+            hostRef.$hostElement$["s-ei"] = this.internals;
+        }
+        this.isGroup = false;
+        this._validator = defaultValidator;
+        /**
+         * Value for checkboxes component.
+         */
+        this.value = [];
+        /**
+         * Set event to call validator
+         */
+        this.validateOn = 'blur';
+        /**
+         * Set additional HTML attributes not available in component properties
+         */
+        this.inheritedAttributes = {};
+        /**
+         * State to track validation on properties
+         * Contains a list of properties that have an error associated with them
+         */
+        this.errors = [];
+        this.onBlurValidate = () => {
+            if (this.validateOn == 'blur') {
+                this.validate();
+            }
+            this.gcdsBlur.emit();
+        };
+        this.handleInput = (e, customEvent) => {
+            if (e.target.checked) {
+                this.value = [...this.value, e.target.value];
+            }
+            else {
+                // Modify options to prevent adding prechecked values when unchecking option
+                this.options = (typeof this.options === 'string'
+                    ? JSON.parse(this.options)
+                    : this.options).map(check => check.value === e.target.value ? Object.assign(Object.assign({}, check), { checked: false }) : check);
+                // Remove value from value array
+                this.value = this.value.filter(item => item !== e.target.value);
+            }
+            if (this.value.length > 0) {
+                this.internals.setFormValue(this.value.toString());
+            }
+            else {
+                this.internals.setFormValue(null);
+            }
+            if (e.type === 'change') {
+                const changeEvt = new e.constructor(e.type, e);
+                this.el.dispatchEvent(changeEvt);
+            }
+            customEvent.emit(this.value);
+        };
+    }
+    validateName() {
+        this.errors = utils.handleErrors(this.errors, 'name', this.name);
+    }
+    validateLegend() {
+        if (this.isGroup) {
+            this.errors = utils.handleErrors(this.errors, 'legend', this.legend);
+        }
+    }
+    validateOptions() {
+        let invalidOptions = false;
+        // Assign optionsArr based on valid options property
+        invalidOptions = this.assignOptionsArray();
+        // Check if each checkbox object is formatted correctly
+        if (this.optionsArr && !invalidOptions) {
+            invalidOptions = validateOptionsArray(this.optionsArr);
+            // Assign if isGroup logic more than one checkbox object
+            if (this.optionsArr && this.optionsArr.length > 1) {
+                this.isGroup = true;
+            }
+        }
+        // Log error if invalidOptions
+        this.errors = utils.handleErrors(this.errors, 'options', this.optionsArr, invalidOptions);
+    }
+    validateDisabledCheckbox() {
+        if (this.required) {
+            this.disabled = false;
+        }
+    }
+    validateValue(newValue) {
+        // Convert string to array
+        if (!Array.isArray(newValue)) {
+            try {
+                this.value = JSON.parse(newValue);
+            }
+            catch (e) {
+                utils.logError('gcds-checkboxes', ['Invalid array for value']);
+                this.value = [];
+            }
+        }
+        else if (this.optionsArr) {
+            // Remove any manually set values that do not match available inputs
+            cleanUpValues(this.optionsArr, this.el);
+            // Set form value only when a value is assigned
+            if (this.value.length > 0) {
+                this.internals.setFormValue(this.value.toString());
+            }
+        }
+    }
+    validateErrorMessage() {
+        if (this.disabled) {
+            this.errorMessage = '';
+        }
+        else {
+            this.hasError = this.errorMessage ? !this.hasError : false;
+        }
+    }
+    validateValidator() {
+        this._validator = getValidator(this.validator);
+    }
+    validateHasError() {
+        if (this.disabled) {
+            this.hasError = false;
+        }
+    }
+    /**
+     * Call any active validators
+     */
+    async validate() {
+        utils.handleValidationResult(this.el, this._validator.validate(this.value), this.isGroup ? this.legend : this.optionsArr[0].label, this.gcdsError, this.gcdsValid, this.lang);
+    }
+    /*
+     * FormData listener to append values like native checkboxes
+     */
+    formdataListener(e) {
+        const data = e.formData;
+        this.value.forEach(value => {
+            // Set formdata for first entry to remove array
+            if (this.value.indexOf(value) === 0) {
+                data.set(this.name, value);
+            }
+            else {
+                data.append(this.name, value);
+            }
+        });
+    }
+    // Submit validation handler
+    submitListener(e) {
+        if (e.target == this.el.closest('form')) {
+            if (this.validateOn && this.validateOn != 'other') {
+                this.validate();
+            }
+            if (this.hasError && this.validateOn != 'other') {
+                e.preventDefault();
+            }
+        }
+    }
+    /*
+     * Form internal functions
+     */
+    formResetCallback() {
+        if (this.value != this.initialState) {
+            this.value = this.initialState;
+        }
+    }
+    formStateRestoreCallback(state) {
+        this.internals.setFormValue(state);
+        this.value = [...state.split(',')];
+    }
+    /*
+     * Observe lang attribute change
+     */
+    watchLang(newValue, oldValue) {
+        if (newValue !== oldValue) {
+            this.lang = newValue;
+        }
+    }
+    /*
+     * Validate required properties
+     */
+    validateRequiredProps() {
+        this.validateOptions();
+        this.validateValue(this.value);
+        this.validateLegend();
+        this.validateName();
+        return utils.isValid(this.errors, ['name', 'legend', 'options']);
+    }
+    async componentWillLoad() {
+        var _a;
+        // Define lang attribute
+        this.lang = utils.assignLanguage(this.el);
+        const valid = this.validateRequiredProps();
+        this.validateDisabledCheckbox();
+        this.validateHasError();
+        this.validateErrorMessage();
+        // Assign required validator if needed
+        requiredValidator(this.el, this.isGroup ? 'checkboxGroup' : 'checkboxSingle');
+        this.validateValidator();
+        // Assign checkbox hint to component hint if not group
+        if (!this.isGroup &&
+            this.optionsArr &&
+            ((_a = this.optionsArr[0]) === null || _a === void 0 ? void 0 : _a.hint) &&
+            !this.hint) {
+            this.hint = this.optionsArr[0].hint;
+        }
+        if (!valid) {
+            utils.logError('gcds-checkboxes', this.errors);
+        }
+        this.initialState = this.value;
+        this.inheritedAttributes = utils.inheritAttributes(this.el, this.shadowElement);
+    }
+    async componentDidUpdate() {
+        // Validate props again if changed after render
+        const valid = this.validateRequiredProps();
+        if (!valid) {
+            utils.logError('gcds-checkboxes', this.errors);
+        }
+    }
+    /*
+     * Validate passed options and assign optionsArr if proper formatting
+     */
+    assignOptionsArray() {
+        let invalidOptions = false;
+        if (Array.isArray(this.options)) {
+            this.optionsArr = this.options;
+        }
+        else if (typeof this.options === 'string' && this.options.trim() !== '') {
+            try {
+                // Assign to random variable to not restart options validation
+                const optionsCheck = JSON.parse(this.options);
+                if (Array.isArray(optionsCheck)) {
+                    this.optionsArr = optionsCheck;
+                }
+                else {
+                    this.optionsArr = null;
+                    invalidOptions = true;
+                }
+            }
+            catch (e) {
+                utils.logError('gcds-checkboxes', ['Invalid JSON string for options']);
+                this.options = null;
+                invalidOptions = true;
+            }
+        }
+        return invalidOptions;
+    }
+    render() {
+        const { legend, required, hint, errorMessage } = this;
+        const fieldsetAttrs = {
+            'tabindex': '-1',
+            'aria-labelledby': 'checkboxes-legend',
+        };
+        if (hint) {
+            const hintID = this.hint ? `checkboxes-hint ` : '';
+            fieldsetAttrs['aria-labelledby'] =
+                `${fieldsetAttrs['aria-labelledby']} ${hintID}`.trim();
+        }
+        if (this.validateRequiredProps()) {
+            return (index.h(index.Host, { key: '2531c781c8cf539929baa5e749c11b698fbe8f8c', onBlur: () => this.isGroup && this.onBlurValidate() }, this.isGroup ? (index.h("fieldset", Object.assign({ class: "gcds-checkboxes__fieldset" }, fieldsetAttrs), index.h("legend", { id: "checkboxes-legend", class: "gcds-checkboxes__legend" }, legend, required ? (index.h("span", { class: "legend__required" }, " (required)")) : null), hint ? (index.h("gcds-hint", { id: "checkboxes-hint", "hint-id": "checkboxes" }, hint)) : null, errorMessage ? (index.h("div", null, index.h("gcds-error-message", { id: "checkboxes-error", messageId: "checkboxes" }, errorMessage))) : null, this.optionsArr &&
+                this.optionsArr.map(checkbox => {
+                    return renderCheckbox(checkbox, this, utils.emitEvent, this.handleInput);
+                }))) : (this.optionsArr &&
+                this.optionsArr.length > 0 &&
+                renderCheckbox(this.optionsArr[0], this, utils.emitEvent, this.handleInput))));
+        }
+    }
+    static get delegatesFocus() { return true; }
+    static get formAssociated() { return true; }
+    get el() { return index.getElement(this); }
+    static get watchers() { return {
+        "name": ["validateName"],
+        "legend": ["validateLegend"],
+        "options": ["validateOptions"],
+        "disabled": ["validateDisabledCheckbox"],
+        "value": ["validateValue"],
+        "errorMessage": ["validateErrorMessage"],
+        "validator": ["validateValidator"],
+        "hasError": ["validateHasError"],
+        "lang": ["watchLang"]
+    }; }
+};
+GcdsCheckboxes.style = gcdsCheckboxesCss;
+
+const gcdsContainerCss = "@layer reset, default, border, centered, main, margin, padding, size;@layer reset{:host{display:block}:host .gcds-container{box-sizing:border-box;display:block;margin:0;padding:0}:host .gcds-container slot{display:initial}}@layer default{:host .gcds-container[class*=size]{width:var(--gcds-container-size-full)}}@layer border{:host .gcds-container.container-border{border:var(--gcds-container-border)}}@layer centered{:host .gcds-container.container-centered{margin-inline:auto!important}}@layer main{:host .gcds-container.container-main:not(.size-full){width:90%}}@layer margin{:host .gcds-container.m-0{margin:var(--gcds-container-spacing-0)}:host .gcds-container.m-25{margin:var(--gcds-container-spacing-25)}:host .gcds-container.m-50{margin:var(--gcds-container-spacing-50)}:host .gcds-container.m-75{margin:var(--gcds-container-spacing-75)}:host .gcds-container.m-100{margin:var(--gcds-container-spacing-100)}:host .gcds-container.m-125{margin:var(--gcds-container-spacing-125)}:host .gcds-container.m-150{margin:var(--gcds-container-spacing-150)}:host .gcds-container.m-175{margin:var(--gcds-container-spacing-175)}:host .gcds-container.m-200{margin:var(--gcds-container-spacing-200)}:host .gcds-container.m-225{margin:var(--gcds-container-spacing-225)}:host .gcds-container.m-250{margin:var(--gcds-container-spacing-250)}:host .gcds-container.m-300{margin:var(--gcds-container-spacing-300)}:host .gcds-container.m-350{margin:var(--gcds-container-spacing-350)}:host .gcds-container.m-400{margin:var(--gcds-container-spacing-400)}:host .gcds-container.m-450{margin:var(--gcds-container-spacing-450)}:host .gcds-container.m-500{margin:var(--gcds-container-spacing-500)}:host .gcds-container.m-550{margin:var(--gcds-container-spacing-550)}:host .gcds-container.m-600{margin:var(--gcds-container-spacing-600)}:host .gcds-container.m-650{margin:var(--gcds-container-spacing-650)}:host .gcds-container.m-700{margin:var(--gcds-container-spacing-700)}:host .gcds-container.m-750{margin:var(--gcds-container-spacing-750)}:host .gcds-container.m-800{margin:var(--gcds-container-spacing-800)}:host .gcds-container.m-850{margin:var(--gcds-container-spacing-850)}:host .gcds-container.m-900{margin:var(--gcds-container-spacing-900)}:host .gcds-container.m-950{margin:var(--gcds-container-spacing-950)}:host .gcds-container.m-1000{margin:var(--gcds-container-spacing-1000)}:host .gcds-container.m-1050{margin:var(--gcds-container-spacing-1050)}:host .gcds-container.m-1100{margin:var(--gcds-container-spacing-1100)}:host .gcds-container.m-1150{margin:var(--gcds-container-spacing-1150)}:host .gcds-container.m-1200{margin:var(--gcds-container-spacing-1200)}:host .gcds-container.m-1250{margin:var(--gcds-container-spacing-1250)}}@layer padding{:host .gcds-container.p-0{padding:var(--gcds-container-spacing-0)}:host .gcds-container.p-25{padding:var(--gcds-container-spacing-25)}:host .gcds-container.p-50{padding:var(--gcds-container-spacing-50)}:host .gcds-container.p-75{padding:var(--gcds-container-spacing-75)}:host .gcds-container.p-100{padding:var(--gcds-container-spacing-100)}:host .gcds-container.p-125{padding:var(--gcds-container-spacing-125)}:host .gcds-container.p-150{padding:var(--gcds-container-spacing-150)}:host .gcds-container.p-175{padding:var(--gcds-container-spacing-175)}:host .gcds-container.p-200{padding:var(--gcds-container-spacing-200)}:host .gcds-container.p-225{padding:var(--gcds-container-spacing-225)}:host .gcds-container.p-250{padding:var(--gcds-container-spacing-250)}:host .gcds-container.p-300{padding:var(--gcds-container-spacing-300)}:host .gcds-container.p-350{padding:var(--gcds-container-spacing-350)}:host .gcds-container.p-400{padding:var(--gcds-container-spacing-400)}:host .gcds-container.p-450{padding:var(--gcds-container-spacing-450)}:host .gcds-container.p-500{padding:var(--gcds-container-spacing-500)}:host .gcds-container.p-550{padding:var(--gcds-container-spacing-550)}:host .gcds-container.p-600{padding:var(--gcds-container-spacing-600)}:host .gcds-container.p-650{padding:var(--gcds-container-spacing-650)}:host .gcds-container.p-700{padding:var(--gcds-container-spacing-700)}:host .gcds-container.p-750{padding:var(--gcds-container-spacing-750)}:host .gcds-container.p-800{padding:var(--gcds-container-spacing-800)}:host .gcds-container.p-850{padding:var(--gcds-container-spacing-850)}:host .gcds-container.p-900{padding:var(--gcds-container-spacing-900)}:host .gcds-container.p-950{padding:var(--gcds-container-spacing-950)}:host .gcds-container.p-1000{padding:var(--gcds-container-spacing-1000)}:host .gcds-container.p-1050{padding:var(--gcds-container-spacing-1050)}:host .gcds-container.p-1100{padding:var(--gcds-container-spacing-1100)}:host .gcds-container.p-1150{padding:var(--gcds-container-spacing-1150)}:host .gcds-container.p-1200{padding:var(--gcds-container-spacing-1200)}:host .gcds-container.p-1250{padding:var(--gcds-container-spacing-1250)}}@layer size{:host .gcds-container.size-xl{max-width:var(--gcds-container-size-xl)}:host .gcds-container.size-lg{max-width:var(--gcds-container-size-lg)}:host .gcds-container.size-md{max-width:var(--gcds-container-size-md)}:host .gcds-container.size-sm{max-width:var(--gcds-container-size-sm)}:host .gcds-container.size-xs{max-width:var(--gcds-container-size-xs)}}";
+
+const GcdsContainer = class {
+    constructor(hostRef) {
+        index.registerInstance(this, hostRef);
+        /**
+         * Props
+         */
+        /**
+        * Defines if the container has a border.
+         */
+        this.border = false;
+        /**
+         * Defines if the container is centered.
+         */
+        this.centered = false;
+        /**
+         * Defines if the container is the main page container. When true,
+         * the width will be set to 90% for smaller screens to ensure consistency
+         * with the responsiveness of other core layout components (header + footer).
+         */
+        this.mainContainer = false;
+        /**
+         * Defines container size.
+         */
+        this.size = 'full';
+        /**
+         * Set tag for container.
+         */
+        this.tag = 'div';
+    }
+    render() {
+        const { border, centered, mainContainer, margin, padding, size, tag } = this;
+        const Tag = tag;
+        return (index.h(index.Host, { key: 'c773aa318c0dd603cfe509cd4d023b988bdecece' }, index.h(Tag, { key: '4cda1734f0e3c01a01f6e717d1ae7165c53ae39a', class: `
+            gcds-container
+            ${border ? 'container-border' : ''}
+            ${centered ? 'container-centered' : ''}
+            ${mainContainer ? 'container-main' : ''}
+            ${margin ? `m-${margin}` : ''}
+            ${padding ? `p-${padding}` : ''}
+            ${size ? `size-${size}` : ''}
+          ` }, index.h("slot", { key: 'e8056d57376fc6322f29ec99b5349808b70fd1a8' }))));
+    }
+    get el() { return index.getElement(this); }
+};
+GcdsContainer.style = gcdsContainerCss;
+
+const I18N$l = {
+  en: {
+    year: 'Year',
+    month: 'Month',
+    day: 'Day',
+    selectmonth: 'Select a month',
+    months: {
+      '01': 'January',
+      '02': 'February',
+      '03': 'March',
+      '04': 'April',
+      '05': 'May',
+      '06': 'June',
+      '07': 'July',
+      '08': 'August',
+      '09': 'September',
+      '10': 'October',
+      '11': 'November',
+      '12': 'December',
+    },
+    valueError:
+      'gcds-date-input:  Value attribute contains an invalid date format. Expected format: ',
+    valueFormatfull: 'YYYY-MM-DD',
+    valueFormatcompact: 'YYYY-MM',
+    required: ' (required)',
+  },
+  fr: {
+    year: 'Année',
+    month: 'Mois',
+    day: 'Jour',
+    selectmonth: 'Sélectionnez un mois',
+    months: {
+      '01': 'janvier',
+      '02': 'février',
+      '03': 'mars',
+      '04': 'avril',
+      '05': 'mai',
+      '06': 'juin',
+      '07': 'juillet',
+      '08': 'août',
+      '09': 'septembre',
+      '10': 'octobre',
+      '11': 'novembre',
+      '12': 'décembre',
+    },
+    valueError:
+      'gcds-date-input:  Value attribute contains an invalid date format. Expected format: ',
+    valueFormatfull: 'YYYY-MM-DD',
+    valueFormatcompact: 'YYYY-MM',
+    required: ' (obligatoire)',
+  },
+};
+
+const gcdsDateInputCss = "@layer reset, default, hint, error;@layer reset{:host{display:block}:host .gcds-date-input__fieldset{border:0;min-inline-size:auto;padding:0}:host .gcds-date-input__fieldset legend{padding:0}}@layer default{:host .gcds-date-input__fieldset legend{color:var(--gcds-date-input-fieldset-text);font:var(--gcds-date-input-fieldset-font-desktop)}:host .gcds-date-input__fieldset legend .legend__required{font:var(--gcds-date-input-fieldset-required-font-desktop);margin:var(--gcds-date-input-fieldset-required-margin)!important;vertical-align:middle}@media only screen and (width < 48em){:host .gcds-date-input__fieldset legend{font:var(--gcds-date-input-fieldset-font-mobile)}:host .gcds-date-input__fieldset legend .legend__required{font:var(--gcds-date-input-fieldset-required-font-mobile)}}:host .gcds-date-input__day,:host .gcds-date-input__month,:host .gcds-date-input__year{display:inline-block;margin-inline-end:var(--gcds-date-input-margin);--gcds-label-font-desktop:var(--gcds-date-input-label-font-desktop);--gcds-label-font-mobile:var(--gcds-date-input-label-font-mobile )}}@layer hint{:host gcds-hint{margin:var(--gcds-date-input-fieldset-hint-margin)}}@layer error{:host gcds-input.gcds-date-input--error::part(input),:host gcds-select.gcds-date-input--error::part(select){border-color:var(--gcds-date-input-danger-border)}}";
+
+const GcdsDateInput = class {
+    constructor(hostRef) {
+        index.registerInstance(this, hostRef);
+        this.gcdsFocus = index.createEvent(this, "gcdsFocus");
+        this.gcdsBlur = index.createEvent(this, "gcdsBlur");
+        this.gcdsInput = index.createEvent(this, "gcdsInput");
+        this.gcdsChange = index.createEvent(this, "gcdsChange");
+        this.gcdsError = index.createEvent(this, "gcdsError");
+        this.gcdsValid = index.createEvent(this, "gcdsValid");
+        if (hostRef.$hostElement$["s-ei"]) {
+            this.internals = hostRef.$hostElement$["s-ei"];
+        }
+        else {
+            this.internals = hostRef.$hostElement$.attachInternals();
+            hostRef.$hostElement$["s-ei"] = this.internals;
+        }
+        this._validator = defaultValidator;
+        /**
+         * Specifies if a form field is required or not.
+         */
+        this.required = false;
+        /**
+         * Specifies if the date input is disabled or not.
+         */
+        this.disabled = false;
+        /**
+         * Set event to call validator
+         */
+        this.validateOn = 'blur';
+        /**
+         * States
+         */
+        /**
+         * State to track individual month value
+         */
+        this.monthValue = '';
+        /**
+         * State to track individual month value
+         */
+        this.dayValue = '';
+        /**
+         * State to track individual month value
+         */
+        this.yearValue = '';
+        /**
+         * Specifies if the date input is invalid.
+         */
+        this.hasError = {
+            day: false,
+            month: false,
+            year: false,
+        };
+        /**
+         * State to track validation on properties
+         * Contains a list of properties that have an error associated with them
+         */
+        this.errors = [];
+        this.onBlur = () => {
+            if (this.validateOn == 'blur') {
+                this.validate();
+            }
+        };
+        /*
+         * Handle input event to update state
+         */
+        this.handleInput = (e, type) => {
+            const val = e.target && e.target.value;
+            if (type === 'year') {
+                this.yearValue = val;
+            }
+            else if (type === 'month') {
+                this.monthValue = val;
+            }
+            else if (type === 'day') {
+                this.dayValue = val;
+            }
+            this.setValue();
+            if (e.type === 'change') {
+                const changeEvt = new e.constructor(e.type, e);
+                this.el.dispatchEvent(changeEvt);
+            }
+        };
+    }
+    validateName() {
+        if (!this.name) {
+            this.errors.push('name');
+        }
+        else if (this.errors.includes('name')) {
+            this.errors.splice(this.errors.indexOf('name'), 1);
+        }
+    }
+    validateLegend() {
+        if (!this.legend) {
+            this.errors.push('legend');
+        }
+        else if (this.errors.includes('legend')) {
+            this.errors.splice(this.errors.indexOf('legend'), 1);
+        }
+    }
+    validateFormat() {
+        if (!this.format || (this.format != 'full' && this.format != 'compact')) {
+            this.errors.push('format');
+        }
+        else if (this.errors.includes('format')) {
+            this.errors.splice(this.errors.indexOf('format'), 1);
+        }
+    }
+    validateValue() {
+        if (this.value && !utils.isValidDate(this.value)) {
+            this.errors.push('value');
+            this.value = '';
+            console.error(`${I18N$l['en'].valueError}${I18N$l['en'][`valueFormat${this.format}`]} | ${I18N$l['fr'].valueError}${I18N$l['fr'][`valueFormat${this.format}`]}`);
+        }
+        else if (this.errors.includes('value')) {
+            this.errors.splice(this.errors.indexOf('value'), 1);
+        }
+    }
+    validateValidator() {
+        this._validator = getValidator(this.validator);
+    }
+    /**
+     * Call any active validators
+     */
+    async validate() {
+        this.hasError = utils.handleValidationResult(this.el, this._validator.validate(this.format === 'full'
+            ? `${this.yearValue}-${this.monthValue}-${this.dayValue}`
+            : `${this.yearValue}-${this.monthValue}`), this.legend, this.gcdsError, this.gcdsValid, this.lang, { day: false, month: false, year: false });
+    }
+    /*
+     * Event listeners
+     */
+    async submitListener(e) {
+        if (e.target == this.el.closest('form')) {
+            if (this.validateOn && this.validateOn != 'other') {
+                this.validate();
+            }
+            for (const key in this.hasError) {
+                if (this.hasError[key] && this.validateOn != 'other') {
+                    e.preventDefault();
+                }
+            }
+        }
+    }
+    /*
+     * Form internal functions
+     */
+    formResetCallback() {
+        if (this.value != this.initialValue) {
+            this.internals.setFormValue(this.initialValue);
+            this.value = this.initialValue;
+        }
+    }
+    formStateRestoreCallback(state) {
+        this.internals.setFormValue(state);
+        this.value = state;
+    }
+    /*
+     * Observe lang attribute change
+     */
+    updateLang() {
+        const observer = new MutationObserver(mutations => {
+            if (mutations[0].oldValue != this.el.lang) {
+                this.lang = this.el.lang;
+            }
+        });
+        observer.observe(this.el, utils.observerConfig);
+    }
+    /**
+     * Logic to combine all input values together based on format
+     */
+    setValue() {
+        const { yearValue, monthValue, format } = this;
+        let { dayValue } = this;
+        // Logic to make sure the day input is registered correctly
+        if (dayValue && dayValue.length === 1 && dayValue != '0') {
+            dayValue = '0' + dayValue;
+            this.dayValue = dayValue;
+        }
+        else if (dayValue && dayValue.length == 3 && dayValue[0] === '0') {
+            dayValue = dayValue.substring(1);
+            this.dayValue = dayValue;
+        }
+        // All form elements have something entered
+        if (yearValue && monthValue && dayValue && format == 'full') {
+            // Is the combined value a valid date
+            if (utils.isValidDate(`${yearValue}-${monthValue}-${dayValue}`, format)) {
+                this.value = `${yearValue}-${monthValue}-${dayValue}`;
+                this.internals.setFormValue(this.value);
+            }
+            else {
+                this.value = null;
+                this.internals.setFormValue(null);
+                return false;
+            }
+        }
+        else if (yearValue && monthValue && format == 'compact') {
+            // Is the combined value a valid date
+            if (utils.isValidDate(`${yearValue}-${monthValue}`, format)) {
+                this.value = `${yearValue}-${monthValue}`;
+                this.internals.setFormValue(this.value);
+            }
+            else {
+                this.value = null;
+                this.internals.setFormValue(null);
+                return false;
+            }
+        }
+        else {
+            this.value = null;
+            this.internals.setFormValue(null);
+            return false;
+        }
+        return true;
+    }
+    /**
+     * Split value into parts depending on format
+     */
+    splitFormValue() {
+        if (this.value && utils.isValidDate(this.value, this.format)) {
+            if (this.format == 'compact') {
+                const splitValue = this.value.split('-');
+                this.yearValue = splitValue[0];
+                this.monthValue = splitValue[1];
+            }
+            else {
+                const splitValue = this.value.split('-');
+                this.yearValue = splitValue[0];
+                this.monthValue = splitValue[1];
+                this.dayValue = splitValue[2];
+            }
+        }
+    }
+    validateRequiredProps() {
+        this.validateName();
+        this.validateLegend();
+        this.validateFormat();
+        if (this.errors.includes('name') ||
+            this.errors.includes('legend') ||
+            this.errors.includes('format')) {
+            return false;
+        }
+        return true;
+    }
+    async componentWillLoad() {
+        // Define lang attribute
+        this.lang = utils.assignLanguage(this.el);
+        this.updateLang();
+        // Assign required validator if needed
+        requiredValidator(this.el, 'date-input');
+        this.validateValidator();
+        const valid = this.validateRequiredProps();
+        if (!valid) {
+            utils.logError('gcds-date-input', this.errors);
+        }
+        this.validateValue();
+        if (this.value && utils.isValidDate(this.value)) {
+            this.splitFormValue();
+            this.setValue();
+            this.initialValue = this.value;
+        }
+    }
+    render() {
+        const { legend, name, format, required, hint, errorMessage, disabled, lang, hasError, } = this;
+        const requiredAttr = {};
+        if (required) {
+            requiredAttr['aria-required'] = 'true';
+        }
+        const fieldsetAttrs = {
+            'tabindex': '-1',
+            'aria-labelledby': 'date-input-legend',
+        };
+        if (hint) {
+            const hintID = this.hint ? `date-input-hint ` : '';
+            fieldsetAttrs['aria-labelledby'] =
+                `${fieldsetAttrs['aria-labelledby']} ${hintID}`.trim();
+        }
+        // Array of months 01 - 12
+        const options = Array.from({ length: 12 }, (_, i) => i + 1 < 10 ? `0${i + 1}` : `${i + 1}`);
+        const month = (index.h("gcds-select", Object.assign({ key: 'bbf921ac76c7e137df8d95961a0a1a2a303af31b', label: I18N$l[lang].month, selectId: "month", name: "month", defaultValue: I18N$l[lang].selectmonth, disabled: disabled, onInput: e => this.handleInput(e, 'month'), onChange: e => this.handleInput(e, 'month'), value: this.monthValue, class: `gcds-date-input__month ${hasError['month'] ? 'gcds-date-input--error' : ''}` }, requiredAttr, { "aria-invalid": hasError['month'].toString(), "aria-description": hasError['month'] && errorMessage }), options.map(option => (index.h("option", { key: option, value: option }, I18N$l[lang]['months'][option])))));
+        const year = (index.h("gcds-input", Object.assign({ key: '6eef03d82cf6b0817ab201ba10eb04801999debe', name: "year", label: I18N$l[lang].year, inputId: "year", type: "number", size: 4, disabled: disabled, value: this.yearValue, onInput: e => this.handleInput(e, 'year'), onChange: e => this.handleInput(e, 'year'), class: `gcds-date-input__year ${hasError['year'] ? 'gcds-date-input--error' : ''}` }, requiredAttr, { "aria-invalid": hasError['year'].toString(), "aria-description": hasError['year'] && errorMessage })));
+        const day = (index.h("gcds-input", Object.assign({ key: 'ad58f6a7c03b9ab0d80a35d770fa1e9761f9eace', name: "day", label: I18N$l[lang].day, inputId: "day", type: "number", size: 2, disabled: disabled, value: this.dayValue, onInput: e => this.handleInput(e, 'day'), onChange: e => this.handleInput(e, 'day'), class: `gcds-date-input__day ${hasError['day'] ? 'gcds-date-input--error' : ''}` }, requiredAttr, { "aria-invalid": hasError['day'].toString(), "aria-description": hasError['day'] && errorMessage })));
+        return (index.h(index.Host, { key: '7c0838bb2578726ce1b5482d56f0b2c0cb8e9062', name: name, onBlur: () => this.onBlur() }, this.validateRequiredProps() && (index.h("fieldset", Object.assign({ key: '91d18432610b87ab450b37a1d4b4c69fa22545f1', class: "gcds-date-input__fieldset" }, fieldsetAttrs), index.h("legend", { key: '54afc89772cec988f4d70f4348a0181b1aa129fb', id: "date-input-legend" }, legend, required ? (index.h("span", { class: "legend__required" }, I18N$l[lang].required)) : null), hint ? (index.h("gcds-hint", { id: "date-input-hint", "hint-id": "date-input" }, hint)) : null, errorMessage ? (index.h("div", null, index.h("gcds-error-message", { id: "date-input-error", messageId: "date-input" }, errorMessage))) : null, format == 'compact'
+            ? [month, year]
+            : lang == 'en'
+                ? [month, day, year]
+                : [day, month, year]))));
+    }
+    static get delegatesFocus() { return true; }
+    static get formAssociated() { return true; }
+    get el() { return index.getElement(this); }
+    static get watchers() { return {
+        "name": ["validateName"],
+        "legend": ["validateLegend"],
+        "format": ["validateFormat"],
+        "value": ["validateValue"],
+        "validator": ["validateValidator"]
+    }; }
+};
+GcdsDateInput.style = gcdsDateInputCss;
+
+const I18N$k = {
+  en: {
+    date: 'Date modified:',
+    version: 'Version ',
+  },
+  fr: {
+    date: 'Date de modification :',
+    version: 'Version ',
+  },
+};
+
+const gcdsDateModifiedCss = "@layer reset, default;@layer reset{:host{display:block}:host dl{margin:0}:host slot{display:initial}}@layer default{:host .gcds-date-modified{margin:var(--gcds-date-modified-margin)}:host .gcds-date-modified :is(dt,gcds-text,dd){display:inline}:host .gcds-date-modified dd{margin:var(--gcds-date-modified-description-margin)}:host .gcds-date-modified gcds-text::part(text){font:var(--gcds-date-modified-font)}}";
+
+const GcdsDateModified = class {
+    constructor(hostRef) {
+        index.registerInstance(this, hostRef);
+        /**
+         * Props
+         */
+        /**
+         * Set date modified type. Default is date.
+         */
+        this.type = 'date';
+        /**
+         * State to track validation on properties
+         * Contains a list of properties that have an error associated with them
+         */
+        this.errors = [];
+    }
+    /*
+     * Observe lang attribute change
+     */
+    updateLang() {
+        const observer = new MutationObserver(mutations => {
+            if (mutations[0].oldValue != this.el.lang) {
+                this.lang = this.el.lang;
+            }
+        });
+        observer.observe(this.el, utils.observerConfig);
+    }
+    validateChildren() {
+        if (this.el.innerHTML.trim() == '') {
+            this.errors.push('children');
+        }
+        else if (this.errors.includes('children')) {
+            this.errors.splice(this.errors.indexOf('children'), 1);
+        }
+    }
+    validateRequiredProps() {
+        this.validateChildren();
+        if (this.errors.includes('children')) {
+            return false;
+        }
+        return true;
+    }
+    async componentWillLoad() {
+        // Define lang attribute
+        this.lang = utils.assignLanguage(this.el);
+        this.updateLang();
+        let valid = this.validateRequiredProps();
+        if (!valid) {
+            utils.logError('gcds-date-modified', this.errors);
+        }
+    }
+    render() {
+        const { lang, type } = this;
+        return (index.h(index.Host, { key: 'ae1d5ceeefb2826a675edeca1f2fa0c81828b425' }, this.validateRequiredProps() && (index.h("dl", { key: '989b2ca91b4887f0a47c956c022550b475221a7d', class: "gcds-date-modified" }, index.h("dt", { key: '1d05ceb07362ad9b010769489ad3b0a057d9d754' }, index.h("gcds-text", { key: '61bb8fbe85f6614eeec0ebb9fabacc7b710dfc8d', display: "inline", "margin-bottom": "0" }, type === 'version' ? I18N$k[lang].version : I18N$k[lang].date)), index.h("dd", { key: '45cdfd7944ba0ca7ea4251d673eaf2f59f2346a0' }, index.h("gcds-text", { key: 'f2c0744b1a28ff5cd98ff8e3da8ce44384656b4d', display: "inline", "margin-bottom": "0" }, type === 'version' ? (index.h("slot", null)) : (index.h("time", null, index.h("slot", null)))))))));
+    }
+    get el() { return index.getElement(this); }
+};
+GcdsDateModified.style = gcdsDateModifiedCss;
+
+const gcdsDetailsCss = "@layer reset, default, hover, focus, print;@layer reset{:host{display:block}:host .details__summary{background-color:transparent;border-color:transparent;cursor:pointer;display:block}:host .details__panel slot{display:initial}:host .details__panel ::slotted(:first-child){margin-block-start:0}:host .details__panel ::slotted(:last-child){margin-block-end:0}:host .details__panel ::slotted(ol),:host .details__panel ::slotted(ul){padding:0}}@layer default{:host .gcds-details .details__summary{color:var(--gcds-details-default-text);font:var(--gcds-details-font-desktop);padding:var(--gcds-details-summary-padding);position:relative;text-align:left;text-decoration-color:currentColor;text-decoration-line:underline;text-decoration-style:solid;text-decoration-thickness:var(\n        --gcds-details-default-decoration-thickness\n      );text-underline-offset:.2em;transition:background-color .15s ease-in-out,color .15s ease-in-out}@media only screen and (width < 48em){:host .gcds-details .details__summary{font:var(--gcds-details-font-mobile)}}:host .gcds-details .details__summary:before{border-block-end:var(--gcds-details-summary-arrow-border-top-bottom) solid transparent;border-block-start:var(--gcds-details-summary-arrow-border-top-bottom) solid transparent;border-inline-start:var(--gcds-details-summary-arrow-border-left) solid currentColor;content:\"\";height:0;left:var(--gcds-details-summary-arrow-left);position:absolute;top:var(--gcds-details-summary-arrow-top);transition:transform .15s ease-in-out;width:0}:host .gcds-details .details__summary[aria-expanded=false]+.details__panel{display:none}:host .gcds-details .details__summary[aria-expanded=true]:before{transform:rotate(90deg)}:host .gcds-details .details__panel{margin:var(--gcds-details-panel-margin);padding:var(--gcds-details-panel-padding);position:relative}:host .gcds-details .details__panel:before{background-color:var(--gcds-details-panel-border-color);content:\"\";display:block;height:100%;left:0;position:absolute;top:0;width:var(--gcds-details-panel-border-width)}:host .gcds-details .details__panel ::slotted(*){font:var(--gcds-details-font-desktop)}@media only screen and (width < 48em){:host .gcds-details .details__panel ::slotted(*){font:var(--gcds-details-font-mobile)}}:host .gcds-details .details__panel ::slotted(:not(:last-child)){margin-block-end:var(--gcds-details-panel-slotted-margin)!important;margin-block-start:0!important}:host .gcds-details .details__panel ::slotted(ol),:host .gcds-details .details__panel ::slotted(ul){margin-inline-start:var(\n          --gcds-details-panel-slotted-margin\n        )!important}:host .gcds-details .details__panel ::slotted(small){font:var(--gcds-details-font-small-desktop)}@media only screen and (width < 48em){:host .gcds-details .details__panel ::slotted(small){font:var(--gcds-details-font-small-mobile)}}}@layer hover{@media (hover:hover){:host .gcds-details .details__summary:hover:not(:focus){color:var(--gcds-details-hover-text);text-decoration-thickness:var(--gcds-details-hover-decoration-thickness);text-underline-offset:.2em}:host .gcds-details .details__summary:hover:not(:focus):before{color:var(--gcds-details-hover-text)}}}@layer focus{:host .gcds-details .details__summary:focus{background-color:var(--gcds-details-focus-background);border-radius:var(--gcds-details-focus-border-radius);box-shadow:var(--gcds-details-focus-box-shadow);color:var(--gcds-details-focus-text);outline:var(--gcds-details-focus-outline);outline-offset:var(--gcds-details-focus-outline-offset);text-decoration:none}}@layer print{@media print{:host .gcds-details .details__summary{color:var(--gcds-details-print-summary-text);font-weight:var(--gcds-details-print-summary-font-weight);text-decoration:none}:host .gcds-details .details__summary:before{transform:rotate(90deg)}:host .gcds-details .details__panel{border-left:var(--gcds-details-panel-border-width) solid var(--gcds-details-panel-border-color);display:block}}}";
+
+const GcdsDetails = class {
+    constructor(hostRef) {
+        index.registerInstance(this, hostRef);
+        this.gcdsFocus = index.createEvent(this, "gcdsFocus");
+        this.gcdsBlur = index.createEvent(this, "gcdsBlur");
+        this.gcdsClick = index.createEvent(this, "gcdsClick");
+        /**
+         * Defines if the details panel is open by default or not.
+         */
+        this.open = false;
+    }
+    /**
+     * Methods
+     */
+    /*
+     * Toggle details open or closed
+     */
+    async toggle() {
+        this.open = !this.open;
+    }
+    render() {
+        const { detailsTitle, open } = this;
+        return (index.h(index.Host, { key: '6d6050eb05cee9ffe72e93881dd7d2465846551a' }, index.h("div", { key: '9c1a67b54b602f6e4bc3c4472631b3bbe35217de', class: "gcds-details" }, index.h("button", { key: '7626fa188fa20abd22405efb652ec5a04b1db042', "aria-expanded": open.toString(), "aria-controls": "details__panel", onBlur: () => this.gcdsBlur.emit(), onFocus: () => this.gcdsFocus.emit(), onClick: e => {
+                const event = utils.emitEvent(e, this.gcdsClick);
+                if (event) {
+                    this.toggle();
+                }
+            }, class: "details__summary", id: "details__summary" }, detailsTitle), index.h("div", { key: '483e4e1f8cca9cd32c68acfdc9e79b11332faf6c', id: "details__panel", class: "details__panel", "aria-labelledby": "details__summary" }, index.h("slot", { key: '6a91db99b4d14fc480199620a46793d8579a394c' })))));
+    }
+    get el() { return index.getElement(this); }
+};
+GcdsDetails.style = gcdsDetailsCss;
+
+const gcdsErrorMessageCss = "@layer reset, default;@layer reset{:host{display:inline-block}:host slot{display:initial}}@layer default{:host .error-message gcds-icon,:host .error-message::part(text){color:var(--gcds-error-message-text-color)}}";
+
+const GcdsErrorMessage = class {
+    constructor(hostRef) {
+        index.registerInstance(this, hostRef);
+    }
+    render() {
+        const { messageId } = this;
+        return (index.h(index.Host, { key: 'a222583eefb309d128159fc38e743d2b0881a38f', id: `error-message-${messageId}`, class: "gcds-error-message-wrapper" }, index.h("gcds-text", { key: 'df574c45206ce2456d7a791068825e2e1e54a7ca', class: "error-message", role: "alert", "margin-bottom": "75" }, index.h("gcds-icon", { key: '369e900ba0e1134abebd736ab6e0338f93b817ba', name: "warning-triangle", "margin-right": "50" }), index.h("strong", { key: 'd61fa293a5660c17a60eed61906e45d4aa938e00' }, index.h("slot", { key: '22ddfe43ba49f79f5034128c46debcae3c8c6a61' })))));
+    }
+    get el() { return index.getElement(this); }
+};
+GcdsErrorMessage.style = gcdsErrorMessageCss;
+
+const I18N$j = {
+  en: {
+    heading: 'There was a problem',
+    subheading: 'Errors were found on this page:',
+  },
+  fr: {
+    heading: 'Un problème est survenu',
+    subheading: 'Des erreurs ont été trouvées sur cette page :',
+  },
+};
+
+const gcdsErrorSummaryCss = "@layer reset, default, compact;@layer reset{:host{display:block}}@layer default{:host{container:component summary/inline-size}:host .gcds-error-summary{border:var(--gcds-error-summary-border-width) solid var(--gcds-error-summary-border-color);color:var(--gcds-error-summary-text);display:none;margin:var(--gcds-error-summary-margin);padding:var(--gcds-error-summary-padding);transition:background .15s ease-in-out,border .15s ease-in-out,color .15s ease-in-out}:host .gcds-error-summary.gcds-show{display:block}:host .gcds-error-summary .summary__errorlist{margin:var(--gcds-error-summary-list-margin);padding:0}:host .gcds-error-summary .summary__errorlist .summary__listitem{max-width:var(--gcds-error-summary-max-width)}:host .gcds-error-summary .summary__errorlist .summary__listitem:not(:last-child){padding:var(--gcds-error-summary-list-item-padding)}:host .gcds-error-summary .summary__errorlist .summary__listitem gcds-link::part(link):not(:focus){color:var(--gcds-error-summary-link-color)}}@layer compact{@container summary (width < 24em){:host .gcds-error-summary{padding:var(--gcds-error-summary-mobile-padding)}}}";
+
+const GcdsErrorSummary = class {
+    constructor(hostRef) {
+        index.registerInstance(this, hostRef);
+        /**
+         * Specifies if the error summary should listen for GcdsError event to generate error list.
+         */
+        this.listen = true;
+        this.errorLinksObject = {};
+        /**
+         * Queue of erros
+         */
+        this.errorQueue = {};
+        this.hasSubmitted = false;
+    }
+    listenChanged() {
+        if (this.errorLinks) {
+            this.listen = false;
+        }
+    }
+    /**
+     * Convert contextual links prop to object
+     * (Object props get treated as string when using Stencil components without a framework)
+     */
+    errorLinksChanged(newErrorLinks) {
+        if (typeof newErrorLinks == 'string') {
+            this.errorLinks = JSON.parse(newErrorLinks);
+        }
+        else if (typeof newErrorLinks == 'object') {
+            this.errorLinks = newErrorLinks;
+        }
+        this.errorQueue = this.errorLinks;
+        // Turn off listen if error-links is being used
+        if (this.listen) {
+            this.listen = false;
+        }
+    }
+    errorListener(e) {
+        if (this.listen && e.target.closest('form') == this.el.closest('form')) {
+            this.errorLinksObject[e.detail.message] = e.target;
+        }
+    }
+    validListener(e) {
+        if (this.listen && e.target.closest('form') == this.el.closest('form')) {
+            for (const [key, value] of Object.entries(this.errorLinksObject)) {
+                if (value == e.target) {
+                    delete this.errorLinksObject[key];
+                }
+            }
+            if (this.errorQueue) {
+                const sortedErrorList = this.sortErrors();
+                this.errorQueue = Object.assign({}, sortedErrorList);
+            }
+        }
+    }
+    submitListener(e) {
+        if (this.listen && e.target.closest('form') == this.el.closest('form')) {
+            this.hasSubmitted = true;
+            // Time out to collect gcdsError events before rendering
+            setTimeout(() => {
+                const sortedErrorList = this.sortErrors();
+                this.errorQueue = Object.assign({}, sortedErrorList);
+                // Time out to let list render
+                setTimeout(() => {
+                    this.shadowElement.focus();
+                }, 50);
+            }, 100);
+        }
+    }
+    /*
+     * Sort error object based on the order form compoennts appear in the form
+     */
+    sortErrors() {
+        const sortable = Object.entries(this.errorLinksObject).map(([key, value]) => [
+            key,
+            value,
+            value.getBoundingClientRect().y,
+        ]);
+        sortable.sort(function (a, b) {
+            return a[2] - b[2];
+        });
+        const objSorted = {};
+        sortable.forEach(function (item) {
+            objSorted[item[0]] = item[1];
+        });
+        return objSorted;
+    }
+    /*
+     * Focus element on error link click with label visible
+     */
+    focusElement(id) {
+        var _a;
+        const element = document.querySelector(id);
+        let target = `[for=${id.replace('#', '')}]`;
+        (_a = element.closest('form').querySelector(target)) === null || _a === void 0 ? void 0 : _a.scrollIntoView();
+        element.focus();
+    }
+    /*
+     * Observe lang attribute change
+     */
+    updateLang() {
+        const observer = new MutationObserver(mutations => {
+            if (mutations[0].oldValue != this.el.lang) {
+                this.lang = this.el.lang;
+            }
+        });
+        observer.observe(this.el, utils.observerConfig);
+    }
+    async componentWillLoad() {
+        // Define lang attribute
+        this.lang = utils.assignLanguage(this.el);
+        this.updateLang();
+        this.listenChanged();
+        // Format error-links string / object
+        if (this.errorLinks && typeof this.errorLinks == 'string') {
+            this.errorQueue = Object.assign({}, JSON.parse(this.errorLinks));
+        }
+        else if (this.errorLinks && typeof this.errorLinks == 'object') {
+            this.errorQueue = Object.assign({}, this.errorLinks);
+        }
+    }
+    render() {
+        const { heading, errorQueue, lang, hasSubmitted, errorLinks } = this;
+        return (index.h(index.Host, { key: '921bc4798b6c8ce0e52cc0e8377548d2f9f90a06' }, index.h("div", { key: 'c88ac2207f650dfcf2afc92c2382261e6062103d', role: "alert", tabindex: "-1", ref: element => (this.shadowElement = element), class: `gcds-error-summary ${(hasSubmitted || errorLinks) && Object.keys(errorQueue).length > 0
+                ? 'gcds-show'
+                : ''}` }, index.h("gcds-heading", { key: '3503d99d5747612a36354097ebe466c88311e4dc', tag: "h2", "margin-top": "0", "margin-bottom": "225" }, heading !== null && heading !== void 0 ? heading : I18N$j[lang].heading), index.h("ol", { key: '0751c01bfe6c44457fb9923c814fa1831aae4444', class: "summary__errorlist" }, (hasSubmitted || errorLinks) &&
+            Object.keys(errorQueue).length > 0 &&
+            Object.keys(errorQueue).map(key => {
+                return (index.h("li", { class: "summary__listitem" }, index.h("gcds-link", { size: "regular", href: errorLinks ? key : '#', onClick: e => {
+                        e.preventDefault();
+                        errorLinks
+                            ? this.focusElement(key)
+                            : errorQueue[key].focus();
+                    } }, errorLinks ? errorQueue[key] : key)));
+            })))));
+    }
+    get el() { return index.getElement(this); }
+    static get watchers() { return {
+        "listen": ["listenChanged"],
+        "errorLinks": ["errorLinksChanged"]
+    }; }
+};
+GcdsErrorSummary.style = gcdsErrorSummaryCss;
+
+const I18N$i = {
+  en: {
+    button: {
+      remove: 'Remove',
+      upload: 'Choose file',
+    },
+    summary: {
+      selected: 'Currently selected:',
+      unselected: 'No file currently selected.',
+    },
+    removeFile: 'Remove file',
+    droppedError:
+      'One or more of the dropped files is unable to be uploaded. Accepted file types:',
+  },
+  fr: {
+    button: {
+      remove: 'Supprimer',
+      upload: 'Choisir un fichier',
+    },
+    summary: {
+      selected: 'Actuellement sélectionné:',
+      unselected: 'Aucun fichier actuellement sélectionné.',
+    },
+    removeFile: 'Supprimer le fichier',
+    droppedError:
+      'Un ou plusieurs fichiers déposés ne peuvent pas être téléversés. Types de fichiers acceptés :',
+  },
+};
+
+const gcdsFileUploaderCss = "@layer reset, default, input, files, disabled, error, focus, active;@layer reset{:host{display:block}:host .gcds-file-uploader-wrapper{border:0;margin:0;padding:0}:host .gcds-file-uploader-wrapper button{cursor:pointer;font:inherit;outline:0}}@layer default{:host .gcds-file-uploader-wrapper{align-items:flex-start;color:var(--gcds-file-uploader-default-text);display:flex;flex-direction:column;font:var(--gcds-file-uploader-font-desktop);max-width:90%;transition:color .15s ease-in-out}@media only screen and (width < 48em){:host .gcds-file-uploader-wrapper{font:var(--gcds-file-uploader-font-mobile)}}:host .gcds-file-uploader-wrapper button{border-radius:var(--gcds-file-uploader-file-button-border-radius);transition:all .15s ease-in-out}}@layer input{:host .gcds-file-uploader-wrapper .file-uploader__input{display:inline-block;position:relative}:host .gcds-file-uploader-wrapper .file-uploader__input button{background-color:var(--gcds-file-uploader-button-background);border:var(--gcds-file-uploader-button-border-width) solid var(--gcds-file-uploader-button-text);color:var(--gcds-file-uploader-button-text);font-weight:var(--gcds-file-uploader-button-font-weight);margin:var(--gcds-file-uploader-button-margin);padding:var(--gcds-file-uploader-button-padding)}:host .gcds-file-uploader-wrapper .file-uploader__input input{cursor:pointer;height:100%;left:0;opacity:0;position:absolute;top:0;width:100%}:host .gcds-file-uploader-wrapper .file-uploader__input input::-webkit-file-upload-button{cursor:pointer}:host .gcds-file-uploader-wrapper .file-uploader__input #file-uploader__summary{height:0;margin:0;overflow:hidden;visibility:hidden}}@layer files{:host .gcds-file-uploader-wrapper .file-uploader__uploaded-file{align-items:center;border:var(--gcds-file-uploader-file-border-width) solid var(--gcds-file-uploader-file-border-color);display:flex;justify-content:space-between;max-width:var(--gcds-file-uploader-file-max-width);padding:var(--gcds-file-uploader-file-padding);width:100%}:host .gcds-file-uploader-wrapper .file-uploader__uploaded-file:not(:last-of-type){border-block-end:0}:host .gcds-file-uploader-wrapper .file-uploader__uploaded-file:last-of-type{margin:var(--gcds-file-uploader-button-margin)}:host .gcds-file-uploader-wrapper .file-uploader__uploaded-file gcds-text{overflow:auto}:host .gcds-file-uploader-wrapper .file-uploader__uploaded-file gcds-text::part(text){overflow:hidden;text-overflow:ellipsis;white-space:nowrap}:host .gcds-file-uploader-wrapper .file-uploader__uploaded-file button{align-items:center;background:transparent;border:0;color:var(--gcds-file-uploader-file-button-default-text);display:flex;font-weight:var(--gcds-file-uploader-button-font-weight);margin:var(--gcds-file-uploader-file-button-margin);padding:var(--gcds-file-uploader-file-button-padding)}:host .gcds-file-uploader-wrapper .file-uploader__uploaded-file button:not(:focus) span{overflow:visible;text-decoration:underline var(--gcds-file-uploader-file-button-default-decoration-thickness);text-underline-offset:var(\n          --gcds-file-uploader-file-button-underline-offset\n        )}}@layer disabled{:host .gcds-file-uploader-wrapper.gcds-disabled{color:var(--gcds-file-uploader-disabled-text)}:host .gcds-file-uploader-wrapper.gcds-disabled gcds-label{--gcds-label-text:currentColor}:host .gcds-file-uploader-wrapper.gcds-disabled gcds-hint{--gcds-hint-text:currentColor}:host .gcds-file-uploader-wrapper.gcds-disabled :is(.file-uploader__input,.file-uploader__uploaded-file){pointer-events:none}:host .gcds-file-uploader-wrapper.gcds-disabled .file-uploader__input button,:host .gcds-file-uploader-wrapper.gcds-disabled .file-uploader__uploaded-file,:host .gcds-file-uploader-wrapper.gcds-disabled .file-uploader__uploaded-file button{color:inherit}:host .gcds-file-uploader-wrapper.gcds-disabled .file-uploader__input button{background-color:var(--gcds-file-uploader-disabled-background);border-color:currentColor}}@layer error{:host .gcds-file-uploader-wrapper.gcds-error .file-uploader__uploaded-file{border-color:var(--gcds-file-uploader-file-danger-border-color)}}@layer hover{@media (hover:hover){:host .gcds-file-uploader-wrapper .file-uploader__input:not(:focus-within):hover button{background-color:var(--gcds-file-uploader-hover-button-background)}:host .gcds-file-uploader-wrapper .file-uploader__uploaded-file button:not(:focus):hover{color:var(--gcds-file-uploader-file-button-hover-text)}:host .gcds-file-uploader-wrapper .file-uploader__uploaded-file button:not(:focus):hover span{text-decoration-thickness:var(\n            --gcds-file-uploader-file-button-hover-decoration-thickness\n          )}}}@layer focus{:host .gcds-file-uploader-wrapper:focus-within .file-uploader__uploaded-file:focus-within{border-color:var(--gcds-file-uploader-file-focus-border-color)}:host .gcds-file-uploader-wrapper:focus-within .file-uploader__input:focus-within button,:host .gcds-file-uploader-wrapper:focus-within .file-uploader__uploaded-file button:focus{background-color:var(--gcds-file-uploader-focus-button-background);border-color:var(--gcds-file-uploader-focus-button-background);color:var(--gcds-file-uploader-focus-button-text);outline:var(--gcds-file-uploader-button-outline-width) solid var(--gcds-file-uploader-focus-button-background);outline-offset:var(--gcds-file-uploader-focus-button-outline-offset)}}@layer active{:host .gcds-file-uploader-wrapper .file-uploader__input:has(input:active) button{background-color:var(--gcds-file-uploader-active-button-background);border-color:var(--gcds-file-uploader-active-button-background);color:var(--gcds-file-uploader-active-button-text)}}";
+
+const GcdsFileUploader = class {
+    constructor(hostRef) {
+        index.registerInstance(this, hostRef);
+        this.gcdsFocus = index.createEvent(this, "gcdsFocus");
+        this.gcdsBlur = index.createEvent(this, "gcdsBlur");
+        this.gcdsChange = index.createEvent(this, "gcdsChange");
+        this.gcdsInput = index.createEvent(this, "gcdsInput");
+        this.gcdsRemoveFile = index.createEvent(this, "gcdsRemoveFile");
+        this.gcdsError = index.createEvent(this, "gcdsError");
+        this.gcdsValid = index.createEvent(this, "gcdsValid");
+        if (hostRef.$hostElement$["s-ei"]) {
+            this.internals = hostRef.$hostElement$["s-ei"];
+        }
+        else {
+            this.internals = hostRef.$hostElement$.attachInternals();
+            hostRef.$hostElement$["s-ei"] = this.internals;
+        }
+        this._validator = defaultValidator;
+        /**
+         * Specifies if a form field is required or not.
+         */
+        this.required = false;
+        /**
+         * Specifies if a file uploader element is disabled or not.
+         */
+        this.disabled = false;
+        /**
+         * Value for a file uploader element.
+         */
+        this.value = [];
+        /**
+         * Set event to call validator
+         */
+        this.validateOn = 'blur';
+        /**
+         * Set additional HTML attributes not available in component properties
+         */
+        this.inheritedAttributes = {};
+        this.onBlur = () => {
+            if (this.validateOn == 'blur') {
+                this.validate();
+            }
+            this.gcdsBlur.emit();
+        };
+        this.handleInput = (e, customEvent) => {
+            const filesContainer = [];
+            const files = Array.from(e.target.files);
+            this.files = e.target.files;
+            files.map(file => {
+                filesContainer.push(file['name']);
+            });
+            this.addFilesToFormData(files);
+            this.value = [...filesContainer];
+            // Validate since the input loses focus when dialog opens
+            if (this.validateOn == 'blur') {
+                setTimeout(() => {
+                    this.validate();
+                }, 100);
+            }
+            if (e.type === 'change') {
+                const changeEvt = new e.constructor(e.type, e);
+                this.el.dispatchEvent(changeEvt);
+            }
+            customEvent.emit(this.value);
+        };
+        this.removeFile = e => {
+            e.preventDefault();
+            const fileName = e.target.closest('.file-uploader__uploaded-file')
+                .childNodes[0].textContent;
+            const filesContainer = this.value;
+            const file = filesContainer.indexOf(fileName);
+            if (file > -1) {
+                filesContainer.splice(file, 1);
+                // Add additional logic to remove file from input
+                const dt = new DataTransfer();
+                for (let f = 0; f < this.shadowElement.files.length; f++) {
+                    if (this.shadowElement.files[f].name != fileName) {
+                        dt.items.add(this.shadowElement.files[f]);
+                    }
+                }
+                this.shadowElement.files = dt.files;
+                this.files = dt.files;
+                this.addFilesToFormData(Array.from(this.shadowElement.files));
+            }
+            this.value = [...filesContainer];
+            this.gcdsRemoveFile.emit(this.value);
+            this.gcdsChange.emit(this.value);
+            this.el.dispatchEvent(new Event('change', { bubbles: true, composed: true }));
+        };
+        /*
+         * Set form data for internals
+         */
+        this.addFilesToFormData = files => {
+            const formData = new FormData();
+            if (files.length > 0) {
+                files.forEach(file => {
+                    formData.append(this.name, file, file.name);
+                });
+            }
+            this.internals.setFormValue(formData);
+        };
+    }
+    validateDisabledSelect() {
+        if (this.required) {
+            this.disabled = false;
+        }
+    }
+    watchFiles() {
+        const filesContainer = [];
+        const files = Array.from(this.files);
+        files.map(file => {
+            filesContainer.push(file['name']);
+        });
+        this.addFilesToFormData(files);
+        this.value = [...filesContainer];
+    }
+    validateErrorMessage() {
+        if (this.disabled) {
+            this.errorMessage = '';
+        }
+        else if (!this.hasError && this.errorMessage) {
+            this.hasError = true;
+        }
+        else if (this.errorMessage == '') {
+            this.hasError = false;
+        }
+    }
+    validateValidator() {
+        this._validator = getValidator(this.validator);
+    }
+    validateHasError() {
+        if (this.disabled) {
+            this.hasError = false;
+        }
+    }
+    /**
+     * Call any active validators
+     */
+    async validate() {
+        utils.handleValidationResult(this.el, this._validator.validate(this.shadowElement.files), this.label, this.gcdsError, this.gcdsValid, this.lang);
+    }
+    submitListener(e) {
+        if (e.target == this.el.closest('form')) {
+            if (this.validateOn && this.validateOn != 'other') {
+                this.validate();
+            }
+            if (this.hasError && this.validateOn != 'other') {
+                e.preventDefault();
+            }
+        }
+    }
+    /*
+     * Form internal functions
+     */
+    formResetCallback() {
+        this.internals.setFormValue('');
+        this.value = [];
+    }
+    formStateRestoreCallback(state) {
+        this.internals.setFormValue(state);
+        this.value = state;
+    }
+    /*
+     * Handle drop event on file uploader
+     */
+    handleDrop(e) {
+        e.preventDefault();
+        const droppedFiles = e.dataTransfer.files;
+        if (droppedFiles && droppedFiles.length > 0) {
+            const dt = new DataTransfer();
+            for (const file of droppedFiles) {
+                dt.items.add(file);
+            }
+            if (dt.files.length > 0) {
+                this.shadowElement.files = dt.files;
+                this.files = dt.files;
+            }
+            this.gcdsChange.emit(this.value);
+            this.el.dispatchEvent(new Event('change', { bubbles: true, composed: true }));
+        }
+        // Focus file input after drop
+        this.shadowElement.focus();
+    }
+    /*
+     * Observe lang attribute change
+     */
+    updateLang() {
+        const observer = new MutationObserver(mutations => {
+            if (mutations[0].oldValue != this.el.lang) {
+                this.lang = this.el.lang;
+            }
+        });
+        observer.observe(this.el, utils.observerConfig);
+    }
+    async componentWillLoad() {
+        // Define lang attribute
+        this.lang = utils.assignLanguage(this.el);
+        this.updateLang();
+        this.validateDisabledSelect();
+        this.validateHasError();
+        this.validateErrorMessage();
+        // Assign required validator if needed
+        requiredValidator(this.el, 'file');
+        this.validateValidator();
+        this.inheritedAttributes = utils.inheritAttributes(this.el, this.shadowElement);
+    }
+    render() {
+        const { accept, disabled, errorMessage, hasError, hint, label, lang, multiple, name, required, uploaderId, value, inheritedAttributes, } = this;
+        const attrsInput = Object.assign(Object.assign({ accept,
+            disabled,
+            multiple,
+            name,
+            required,
+            value }, inheritedAttributes), { 'aria-describedby': `${inheritedAttributes['aria-describedby']
+                ? `${inheritedAttributes['aria-describedby']} `
+                : ''}file-uploader__summary` });
+        const attrsLabel = {
+            label,
+            required,
+        };
+        if (hint || errorMessage) {
+            const hintID = hint ? `hint-${uploaderId} ` : '';
+            const errorID = errorMessage ? `error-message-${uploaderId} ` : '';
+            attrsInput['aria-describedby'] =
+                `${hintID}${errorID}${attrsInput['aria-describedby']}`;
+        }
+        return (index.h(index.Host, { key: '96759ad2acbc9534d93cfdb413b57b7f46796b0d' }, index.h("div", { key: '4f992f137168c1ff1d9c4d922a87399da95972d4', class: `gcds-file-uploader-wrapper ${disabled ? 'gcds-disabled' : ''} ${hasError ? 'gcds-error' : ''}` }, index.h("gcds-label", Object.assign({ key: '838de9db0ceb2f3c41ded62ab08c5312ddac3a66' }, attrsLabel, { "label-for": uploaderId, lang: lang })), hint ? index.h("gcds-hint", { "hint-id": uploaderId }, hint) : null, errorMessage ? (index.h("gcds-error-message", { messageId: uploaderId }, errorMessage)) : null, index.h("div", { key: '667b1ab631eefe9be74c7c9ece597151ad8c60d8', class: `file-uploader__input ${value.length > 0 ? 'uploaded-files' : ''}`, onDrop: e => this.handleDrop(e), onDragOver: e => e.preventDefault() }, index.h("button", { key: '90f829f910cd2cf45403978733a48126835badde', type: "button", tabindex: "-1", onClick: () => this.shadowElement.click() }, I18N$i[lang].button.upload), index.h("input", Object.assign({ key: 'dc37e465e2b3be6c9a1a1ffee50787718d7cd96c', type: "file", id: uploaderId }, attrsInput, { onBlur: () => this.onBlur(), onFocus: () => this.gcdsFocus.emit(), onInput: e => this.handleInput(e, this.gcdsInput), onChange: e => this.handleInput(e, this.gcdsChange), "aria-invalid": hasError ? 'true' : 'false', ref: element => (this.shadowElement = element) })), value.length > 0 ? (index.h("gcds-sr-only", { id: "file-uploader__summary" }, index.h("span", null, I18N$i[lang].summary.selected, " "), value.map(file => (index.h("span", null, file, " "))))) : (index.h("gcds-sr-only", { id: "file-uploader__summary" }, I18N$i[lang].summary.unselected))), value.length > 0
+            ? value.map(file => (index.h("div", { class: "file-uploader__uploaded-file", "aria-label": `${I18N$i[lang].removeFile} ${file}.` }, index.h("gcds-text", { "margin-bottom": "0" }, file), index.h("button", { onClick: e => this.removeFile(e) }, index.h("span", null, I18N$i[lang].button.remove), index.h("gcds-icon", { name: "close", size: "text", "margin-left": "150" })))))
+            : null)));
+    }
+    static get delegatesFocus() { return true; }
+    static get formAssociated() { return true; }
+    get el() { return index.getElement(this); }
+    static get watchers() { return {
+        "disabled": ["validateDisabledSelect"],
+        "files": ["watchFiles"],
+        "errorMessage": ["validateErrorMessage"],
+        "validator": ["validateValidator"],
+        "hasError": ["validateHasError"]
+    }; }
+};
+GcdsFileUploader.style = gcdsFileUploaderCss;
+
+const I18N$h = {
+  en: {
+    gov: {
+      heading: 'Government of Canada',
+      menu: {
+        contacts: {
+          text: 'All contacts',
+          link: 'https://www.canada.ca/en/contact.html',
+        },
+        dept: {
+          text: 'Departments and agencies',
+          link: 'https://www.canada.ca/en/government/dept.html',
+        },
+        about: {
+          text: 'About government',
+          link: 'https://www.canada.ca/en/government/system.html',
+        },
+      },
+    },
+    themes: {
+      heading: 'Themes and topics',
+      menu: {
+        jobs: {
+          text: 'Jobs',
+          link: 'https://www.canada.ca/en/services/jobs.html',
+        },
+        immigration: {
+          text: 'Immigration and citizenship',
+          link: 'https://www.canada.ca/en/services/immigration-citizenship.html',
+        },
+        travel: {
+          text: 'Travel and tourism',
+          link: 'https://travel.gc.ca/',
+        },
+        business: {
+          text: 'Business',
+          link: 'https://www.canada.ca/en/services/business.html',
+        },
+        benefits: {
+          text: 'Benefits',
+          link: 'https://www.canada.ca/en/services/benefits.html',
+        },
+        health: {
+          text: 'Health',
+          link: 'https://www.canada.ca/en/services/health.html',
+        },
+        taxes: {
+          text: 'Taxes',
+          link: 'https://www.canada.ca/en/services/taxes.html',
+        },
+        enviro: {
+          text: 'Environment and natural resources',
+          link: 'https://www.canada.ca/en/services/environment.html',
+        },
+        defence: {
+          text: 'National security and defence',
+          link: 'https://www.canada.ca/en/services/defence.html',
+        },
+        culture: {
+          text: 'Culture, history and sport',
+          link: 'https://www.canada.ca/en/services/culture.html',
+        },
+        policing: {
+          text: 'Policing, justice and emergencies',
+          link: 'https://www.canada.ca/en/services/policing.html',
+        },
+        transport: {
+          text: 'Transport and infrastructure',
+          link: 'https://www.canada.ca/en/services/transport.html',
+        },
+        world: {
+          text: 'Canada and the world',
+          link: 'https://international.gc.ca/world-monde/index.aspx?lang=eng',
+        },
+        finance: {
+          text: 'Money and finances',
+          link: 'https://www.canada.ca/en/services/finance.html',
+        },
+        science: {
+          text: 'Science and innovation',
+          link: 'https://www.canada.ca/en/services/science.html',
+        },
+        indigenous: {
+          text: 'Indigenous Peoples',
+          link: 'https://www.canada.ca/en/services/indigenous-peoples.html',
+        },
+        veterans: {
+          text: 'Veterans and military',
+          link: 'https://www.canada.ca/en/services/veterans.html',
+        },
+        youth: {
+          text: 'Youth',
+          link: 'https://www.canada.ca/en/services/youth.html',
+        },
+        life: {
+          text: 'Manage life events',
+          link: 'https://www.canada.ca/en/services/life-events.html',
+        },
+      },
+    },
+    site: {
+      heading: 'Government of Canada Corporate',
+      menu: {
+        social: {
+          text: 'Social media',
+          link: 'https://www.canada.ca/en/social.html',
+        },
+        mobile: {
+          text: 'Mobile applications',
+          link: 'https://www.canada.ca/en/mobile.html',
+        },
+        about: {
+          text: 'About Canada.ca',
+          link: 'https://www.canada.ca/en/government/about.html',
+        },
+        terms: {
+          text: 'Terms and conditions',
+          link: 'https://www.canada.ca/en/transparency/terms.html',
+        },
+        privacy: {
+          text: 'Privacy',
+          link: 'https://www.canada.ca/en/transparency/privacy.html',
+        },
+      },
+    },
+    about: 'About this site',
+    topofpage: 'Top of page',
+  },
+  fr: {
+    gov: {
+      heading: 'Gouvernement du Canada',
+      menu: {
+        contacts: {
+          text: 'Toutes les coordonnées',
+          link: 'https://www.canada.ca/fr/contact.html',
+        },
+        dept: {
+          text: 'Ministères et organismes',
+          link: 'https://www.canada.ca/fr/gouvernement/min.html',
+        },
+        about: {
+          text: 'À propos du gouvernement',
+          link: 'https://www.canada.ca/fr/gouvernement/systeme.html',
+        },
+      },
+    },
+    themes: {
+      heading: 'Thèmes et sujets',
+      menu: {
+        jobs: {
+          text: 'Emplois',
+          link: 'https://www.canada.ca/fr/services/emplois.html',
+        },
+        immigration: {
+          text: 'Immigration et citoyenneté',
+          link: 'https://www.canada.ca/fr/services/immigration-citoyennete.html',
+        },
+        travel: {
+          text: 'Voyage et tourisme',
+          link: 'https://voyage.gc.ca/',
+        },
+        business: {
+          text: 'Entreprises',
+          link: 'https://www.canada.ca/fr/services/entreprises.html',
+        },
+        benefits: {
+          text: 'Prestations',
+          link: 'https://www.canada.ca/fr/services/prestations.html',
+        },
+        health: {
+          text: 'Santé',
+          link: 'https://www.canada.ca/fr/services/sante.html',
+        },
+        taxes: {
+          text: 'Impôts',
+          link: 'https://www.canada.ca/fr/services/impots.html',
+        },
+        enviro: {
+          text: 'Environnement et ressources naturelles',
+          link: 'https://www.canada.ca/fr/services/environnement.html',
+        },
+        defence: {
+          text: 'Sécurité nationale et défense',
+          link: 'https://www.canada.ca/fr/services/defense.html',
+        },
+        culture: {
+          text: 'Culture, histoire et sport',
+          link: 'https://www.canada.ca/fr/services/culture.html',
+        },
+        policing: {
+          text: 'Services de police, justice et urgences',
+          link: 'https://www.canada.ca/fr/services/police.html',
+        },
+        transport: {
+          text: 'Transport et infrastructure',
+          link: 'https://www.canada.ca/fr/services/transport.html',
+        },
+        world: {
+          text: ' Le Canada et le monde',
+          link: 'https://www.international.gc.ca/world-monde/index.aspx?lang=fra',
+        },
+        finance: {
+          text: 'Argent et finances',
+          link: 'https://www.canada.ca/fr/services/finance.html',
+        },
+        science: {
+          text: 'Science et innovation',
+          link: 'https://www.canada.ca/fr/services/science.html',
+        },
+        indigenous: {
+          text: 'Autochtones',
+          link: 'https://www.canada.ca/fr/services/autochtones.html',
+        },
+        veterans: {
+          text: 'Vétérans et militaires',
+          link: 'https://www.canada.ca/fr/services/veterans.html',
+        },
+        youth: {
+          text: 'Jeunesse',
+          link: 'https://www.canada.ca/fr/services/jeunesse.html',
+        },
+        life: {
+          text: 'Gérer les événements de la vie',
+          link: 'https://www.canada.ca/fr/services/evenements-vie.html',
+        },
+      },
+    },
+    site: {
+      heading: 'Organisation du gouvernement du Canada',
+      menu: {
+        social: {
+          text: 'Médias sociaux',
+          link: 'https://www.canada.ca/fr/sociaux.html',
+        },
+        mobile: {
+          text: 'Applications mobiles',
+          link: 'https://www.canada.ca/fr/mobile.html',
+        },
+        about: {
+          text: 'À propos de Canada.ca',
+          link: 'https://www.canada.ca/fr/gouvernement/a-propos.html',
+        },
+        terms: {
+          text: 'Avis',
+          link: 'https://www.canada.ca/fr/transparence/avis.html',
+        },
+        privacy: {
+          text: 'Confidentialité',
+          link: 'https://www.canada.ca/fr/transparence/confidentialite.html',
+        },
+      },
+    },
+    about: 'À propos de ce site',
+    topofpage: 'Haut de la page',
+  },
+};
+
+const gcdsFooterCss = "@layer reset, default, contextual, main, sub, compact, medium, wide;@layer reset{:host{display:block}:host ul{list-style-type:none;margin:0;padding:0}:host slot{display:initial}:host gcds-link::part(link):not(:hover){text-decoration:none}:host .gcds-footer__sub ul li{display:block}}@layer default{:host{font:var(--gcds-footer-font)}:host .gcds-footer__contextual,:host .gcds-footer__main,:host .gcds-footer__sub{padding:var(--gcds-footer-band-padding-desktop)}:host .gcds-footer__header,:host .sub__header,:host .themenav__header{clip:rect(1px,1px,1px,1px);height:1px;margin:0;overflow:hidden;position:absolute;width:1px}:host [class$=__container]{justify-content:space-between;margin:var(--gcds-footer-container-margin);max-width:var(--gcds-footer-container-width);width:90%}:host nav{position:relative}:host [class$=__list]{display:grid;grid-template-columns:1fr;list-style:none;padding:var(--gcds-footer-list-padding);grid-gap:var(--gcds-footer-grid-gap)}:host [class$=__list] li gcds-link::part(link){color:var(--gcds-footer-main-text)}:host h3{font:var(--gcds-footer-font-heading);margin:var(--gcds-footer-heading-margin)}:host gcds-link::part(link){font:var(--gcds-footer-font)}}@layer contextual{:host .gcds-footer__contextual{background-color:var(--gcds-footer-contextual-background);color:var(--gcds-footer-contextual-text);container:component contextual/inline-size;margin-block-end:-1px}}@layer main{:host .gcds-footer__main{background-color:var(--gcds-footer-main-background);background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAmgAAAC9CAMAAAAwXXHOAAAAe1BMVEUAAAAYJjgbKDogIDkcOTkgMDgoKEMdJzgdKDcAAAAgKTkfLj4gKDgfKjgeJjgeKjgcKDgfJzhAQEAfKzceKDgdKDcdKjcAVVUhN0MeKDceKzcAAFUdKjgcKzkeLTwaMzMdKjcfKTYZJjIcKzkaKDgcKDgYKjgbKTgYKDjo9/gwAAAAKXRSTlMASTkoCSATe/8BUCHNSWXct1sEU+D9nQMXeIoD8zYiCsN1PST/bZK221OBjhQAAA8qSURBVHgB7NVVAUNRDAWwPr5jZp5/jwMR/Us0HAgAAAAAAAAAAAAAAAAAAAAgS1U3TRt/XdNHEqiGUurReBIxLUOQSNBm88VytRa0ZIK22Zbd/iBo2Vzn8XS+hKCRqDpdr7e4PyKe11ckger9Zdc+bGULYSAMj2uZMab/Bl/mJoWXLiuvNV8HiH/PYgSGMIdmFvhjZg7NHJoZEcRtZmQEbjOj5NDMoZlDM3No1kxIidvMUlowuy2lgtltS9qE2WUlTwN2H7fGTQMkrBtqYGhBWDMhjRs7KcKaSWnc2BkOrZ8lSRujpALWMjQOW1PCmil9F8PWtNCQbzekHLamgvUSmhda9DsLWOqHmramgHUMbU+bbxLWypLGjZ3V7wraSj/FsPmm0JCHTimHzTc7YI2E5oWWjRfk0Na00AKNWOqXcmgX2ZLuj50OzUoHh/14Em1Y5NaRgSGq26HTUm/UrBubTZhDe8CiAheZQ1uPuBk0hxaPGKPNobHZciz4PjSmv2gXWOmDTQ8DduMa4KOYFFqiBQsdVXvQ3lTPZwJ+xL1IxJzbdO53w42RPUJbQACsKXsTzU6cDm3pbEec/dl4fvn+xGmMZIPQCj9D45TQlo6EgVnKDjuyfjQ/KLTSsWAAI7PLXyeCI/46480scE6cRAs+o+ln7lwDQstz1nwzDSR6cGh7EYilIV+01KtoFJpDk3bVloZ80ZZeJcBEEw7teP7QikDp1QJi+bl+Ep/NoXHrVQFZvt8Ih/a5vrJ3J8iJK0EQQCvPkplVdf8T/rBFB61vYYStMWCTMYA2b82j1Qti2A5rSuMFLcKMOwZVvQGtKhnPGmpAG0HkayIK94Vm5AY0w4xnDVSRmpNRr4moRNw3/m2nTqtZmlPsF7QXtKNjbcWvXide0A5NvqBthDIfAFq5ytnv988OrbSV+vPQKh4AGoLjH+u5obG1lWbcP68ajXFOqn9dE+31/kf/ROvhBe3VSKsXtB9oor0aaUjJeEE7LmhtpxF/ON5TqTv8gnZ7hdZlzcn4u2G9oP2TPmdXGkEtsV1/u9+JXZ/mWd0vaHuTGn8Ps7WEoy38Z2MT16u0Ur2g3dbpBJylke7uPz2+wUKA14bS2Gq+oO0MtJ0/DQ1CICj5WtE5vpoXtHb/dWi5QCMyLoeWlIwb8oJWTI048o9DY5FEIGB+7kwy/ym0mtK/ABrCtE7mgv23oUEIMBCQr54K/Hqb0A3QGAyfCy7/MDRGpDygZQTvCq0M1/vdnaBhvfJtaDGgYSz+VWhkyeEIBGHyvtAQEXBEsO4DzeuVY6CNRfxlaJKIBVqAKdwVGge0uBO05LzygnZYqKJjQAsLsRVCOro3AD4gtMJ5mfUNsBehOf5koIwFmhnmJWjQiOOo2I8Hje0YCTe/DvYitPqr0IpFNqIcKf1xaFDOvxIOaAnkq0abBRmdURfLAVLa6d8OzXOFk/KrjfYPhq8a/Rk0RAR/O7RUcyyzlS9ox0Jrd7sq+97QAMAJAPeBVhMESv2CdiC0ZmZUhSvqX0LjuF/CLnyA5rekfaeZAc6vNEjNx4BGgPF0sWOEASnDiHIgwxL+GTSP+yUp1aVTJxZoxTu0WHP+jXBEZ+AAaBLj6QLEEhphyZGMdLACljfn1iFVZta3oPEtu6ClluAODYmah8L8GNAs5RPXaBTYSkZFlCOKkSpCvNDrtOsb0Fpvae6AVlriO0BLTtBya84udgRHQmNLxXi2ZK4Ko4K5QLNHk3z71ImI/DY07YDGPvqKIe+/Sgdz8xUbFnFcG42xI6xeGhLxXGHVqjAc9glajuuh7gvtH1xtm/t7nZwaRrVFsWIz4M3QiJuGOhlPFai5LoxEvN/YDO+p0bhoI/GFSx25vJBRUuEKtGZ8P+Q7NB8AjWGpHdysNG+GBt801Il4qiw9y3PrgWySCZICKUn5CbQ0gx0Rkb2cWjjcxhL6tM7zIyLQo7jYCL6v1SVoR5YtHChGHQDNWZIqt4AUbm6juX4ztJSWko+l0LIqz3fVkvoTaNKAVpISgI33JN5CuPiezOWxEJERqSUZkIPaBc3x/djVatfuNtrlcTRfbjuyfTO0auzDv8RPd1V6BevcrbLfln2qypFS7YHm1s50MokeazxD6/bn0PK4WbY6YHjDl9uOVt06qc7eY4edlqRMM54oXJ7rikCDzYjigLbwIwufQatgB7P19VTmkPQ5tIrvp3Z/ugprOo4tqbgJrRng5VnSwUsgUHpPvmUNzbv+PmRw+TriCWfRmyyHvehaoC3mkOHiJ9Aa7Codk21oR/YGsH+sBJokbI30pE5BJDcnr0a84wLi2qMfVcSpyZHJZ/wM3yKLEfYZ2gKPkb4IbeRnoMk2D/qDi/ug5apOiiksnWK2Pw71fnYBcb1FkjDblHe/TipsxBNCay+eEmdoyIhwBhv3hzaCoz5L1vtq+5oLynFJjz8Ua/MytI3OgPe1DWZoT/kGtAo2Y7kb0FjvdwwXfwZafXz3Rh4KzRpR3QStPpxv2RegjV3YD21Ibvx6aFhwOeMMLZLLJpZ/CFqeUroUHPURn43boXnjzLmk/OEE50+hcQVtsM1fD62rGRGJGZodSyWHRkzJ46Ft5Xhobp2T+9tom52B1Bx/8MxPoeWAtjqi+cuhjZIqztCQY9o9ay62flZoqSnNPdD8BWi+XqO5sYKWV/88cgWNzwUNGilOb+UoTxMpaIPKGGHpSaGxt2wcX6NRb8m9n4+GStZ2NevyWMx2eK6S8zmheSF1AjbA1fu9iu7yVAsOaOXM0V7PsdynhXTXer9G1JnLv/pBaNYqxX3Q3N09+uZ7oGHUmPvG0WY97VVSg1OWHP20n+jtdYU2iqtrnn7D22qNP5k9QcsAhlaM5Qpw6TDUej9XzwsjOCZi0EvRWWN1PC5uM13O+jo0AhG1H+0MDXMt4vRWZ0Bd57QkMLu6q97u+lNo0TtGfEoyW3Pq2Wq0ZLVXb+PrHA651NoMdGFZ0QwN9kmHPJbrtGBUrfdvVABYlNcYY1mqgtTyWEt5EhGIwJehoVS31WhTrxMzp1ZXdXW3Pg0itSMgydbllAe0D2k+WY3GcMdiiOOSpIhJHoSIHKfXGdrN2YZ2+lYZUWN1PC7Q/C1orJJMUqs49kCDSzdnQDsgnbwATc8HLTNIogTAdqr9FljJt8gRHLPCzwctv9TcS30nRumTJOq20cXe2sHngobwtTNBV5VGjoCWPiUljT5BZfZYPf/QApyAAR8KrXk0tP0pBkvfzvNBU6XtUgIArSLeYtl2tmoN8bmGN3gBWtwPmiPC+ka6+qmgYfmrfRquFdafokNhtN2I1BTDQOlH0tXVN0IDpmXdAVqxr1RF0MWYLTWtOY1pPQP9dNBwGVpjQIvwsXhqvCyvJgNRRdB7odFlg2P5SGiVWVlVWedfvqpWt7dk9Mbez6E1OXaXlAHNqeDsOOoZT50DGtfQYgx7XIZWrrHY6ezTQvWy0/OG+ZAgu4KLdBCWigBLTYA5VsdHWFfc0BkYw3Ek0tIx0Exa8scZejPI6ZaSTqOrydUeXoEWu6FpBzQ8HrS8Bg2XqvriAKj2fN2cW0pGcN7QY0F9GhbGVOy5PL01X/af16DBhZjDjUbZMdAi1tDyvGOEY/uAFqv8KLTsR4NGtBwR7P4/tMrlqOIlaOftOb6jV9eqcWzI88IZGr8HjU6J6w2gtSfNGCHSV6FVVUk9ZexYZ1TmvbHrMrQVpXRJ5dScct4Cza0HnIJaoKljA9rAw3ECAQ6DNmagAEsFAKUGgByry49kFkmvoY2qC4kATSCQ2h/O3wY/2uvcbopUWntT1VegSfEwQc8TtD5DqwGtlsPW/6cM90DLz6GNfGt4g1qSJ7BZX/lWbkkwgjSJa52BVme936RyjW2n28hYHijKdRXakeNozAeC5p6bVyz5/1clun2SlhHuAe37NZoyO6uzDoFmWrcn17PjRUqS19DM1hKAHj0nywEta2pGje0aWfaryK5lf34JWldfh0YsRW1yHk94OGfKpbybA9pYOk+3N5ai91sOqNEYDjqgkXOvEzBLSp78NNBmJlMSGOdY30luVouFNbSoM3FIDAjB99uypgq6GRaDGsGynBGZERY9gyFWv3yyB+qmNdK0KnLynqwBeRpHQypP7VVj6ZO47wmNxLSSvWoWW8qPl7+WihHBvjBrUnbeCs1LG80Ra2g5/c/GOdWdFVEIYzl4ftXWhp6sL0KrU4HcBo1SZakjLHwCbbMLO4LI5aFWfcsMqsf7wmscOJ6yAS2yJJDQW8oEy6U7QqNV2JqX8ekE4o8X9KeEsxJrM9+Axv9/g7wGTUozgsSWMyGsnSkjIgitU7wIjVvQ3nIztMK8jZHjIcPb0HL113VwQMvWhcR9gpREbjR1x1Pqc42GiJUOS833e9tuzfnJGm1Qy9R2TGp3ENxwSeKWU+eoYSwE9kLTRWiTm+Jn0LQUMEsPBW38QpUkQdRoBEg9RnUcLOP0LC8Z9Rwk5Tu0ZeuqF7Yk8ZaUjLfUacHnDedD1EACxg3QDOvgmOnSxyQHNJ0PSNuSnUpb6dSyNvbWqmeZ9qlpUTWOmtPchLZx3DVoejRoWjLXzfW+XEMSAlKaE7ScoBVT6mF2eiUflK6q6vGgestpe1f1MW8E25cB7YeyDW1kExoHND8uNGjEYalBBi3J5ocxJsmrrkOTqM1e54PEAX07noc3Nh2XS4cFN0IbIeF6NGj+2C0zF0j8WGr48KldpTnfhVakpSRTByeD+nZyo42mJtQMH+d5xK7boY08ADQmyLkrsD1NzPpkXPRwaOsuXEAHx5n/ClpANQoSpI4OXNeg8RGhwWPYiUB//taLi9BqQOsngXZI0t6G1oTukanqfzho41ezndrOdWgsJf8eNKm8eep8qsQPhLFtaO/oJhkRXCrFdETwAjTAvwza/k7sCxozsaeAMlIX0mmjRs8rgjo0/x6aXol/HLoOuYLiHAd9NDRSAuH/2rtXI4tiIAaidizSfPKPcGvBpQ9ZrA+ZBLqGykg5YeXXpsdv7a4Rlv9nSSC0K527jgKhadw1TgCh6buSY0BodWtuSe0cENr9xlvbOSA0+V/XHceA0DROA6HptNNAaJoqh4HQ1E4CoamqZ9c5IDTVrMNAaBrHgdDuOg+E1s4DoWmcBkJTrdNAaGrngdDaT4DQ9jc/AULzM8Af2qL98u71t1EAAAAASUVORK5CYII=);background-position:100% 100%;background-repeat:no-repeat;color:var(--gcds-footer-main-text);container:component main/inline-size}:host .gcds-footer__main nav:first-of-type:after{border-block-end:var(--gcds-footer-main-nav-first-after-border-width) solid var(--gcds-footer-main-nav-first-after-border-color);content:\"\";display:block;margin:var(--gcds-footer-grid-gap) 0;width:var(--gcds-footer-main-nav-first-after-width)}:host .gcds-footer__main nav.main__themenav .themenav__list{display:grid;grid-auto-flow:column;grid-template-rows:repeat(19,1fr)}}@layer sub{:host .gcds-footer__sub{background-color:var(--gcds-footer-sub-background);container:component sub/inline-size}:host .gcds-footer__sub .sub__container{display:grid;grid-gap:var(--gcds-footer-grid-gap);grid-template-areas:\"list wordmark\";grid-template-columns:3fr 1fr}:host .gcds-footer__sub .sub__container nav{align-items:center;display:flex;grid-area:list}:host .gcds-footer__sub .sub__container .sub__wordmark,:host .gcds-footer__sub .sub__container slot[name=wordmark]{display:flex;grid-area:wordmark}:host .gcds-footer__sub .sub__container .sub__wordmark gcds-signature,:host .gcds-footer__sub .sub__container slot[name=wordmark] gcds-signature{align-self:end;margin:var(--gcds-footer-sub-signature-margin);max-height:var(--gcds-footer-sub-signature-max-height);min-width:var(--gcds-footer-sub-signature-min-width);width:var(--gcds-footer-sub-signature-width)}}@layer compact{@media only screen and (width < 45em){:host .gcds-footer__contextual,:host .gcds-footer__main,:host .gcds-footer__sub{padding:var(--gcds-footer-band-padding-mobile)}}@container sub (width <= 30em){:host .gcds-footer__sub .sub__container .sub__wordmark gcds-signature,:host .gcds-footer__sub .sub__container slot[name=wordmark] gcds-signature{max-height:var(--gcds-footer-sub-signature-sm-max-height);width:var(--gcds-footer-sub-signature-sm-width)}}}@layer medium{@container contextual (width >= 45em){:host .gcds-footer__contextual [class$=__list]{grid-template-columns:1fr 1fr}}@container main (width >= 45em){:host .gcds-footer__main [class$=__list]{grid-template-columns:1fr 1fr}:host .gcds-footer__main nav.main__themenav .themenav__list{grid-template-rows:repeat(10,1fr)}}@container sub (width < 60.2em){:host .gcds-footer__sub .sub__container{display:block}:host .gcds-footer__sub .sub__container ul li{margin:0 0 var(--gcds-footer-grid-gap)}}}@layer wide{@container contextual (width >= 60.2em){:host .gcds-footer__contextual [class$=__list]{grid-template-columns:1fr 1fr 1fr}}@container main (width >= 60.2em){:host .gcds-footer__main [class$=__list]{grid-template-columns:1fr 1fr 1fr}:host .gcds-footer__main nav.main__themenav .themenav__list{grid-template-rows:repeat(7,1fr)}}@container sub (width >= 60.2em){:host .gcds-footer__sub .sub__container ul li{display:inline-block;margin-block-end:0}:host .gcds-footer__sub .sub__container ul li:first-of-type:before{content:\"\";margin:0}:host .gcds-footer__sub .sub__container ul li:before{content:\"\\2022\";display:inline;margin:var(--gcds-footer-sub-listitem-before-margin)}:host .gcds-footer__sub .sub__container .sub__wordmark,:host .gcds-footer__sub .sub__container slot[name=wordmark]{display:inline-block}}}";
+
+const GcdsFooter = class {
+    constructor(hostRef) {
+        index.registerInstance(this, hostRef);
+        /**
+         * Props
+         */
+        /**
+         * Display mode of the footer
+         */
+        this.display = 'compact';
+    }
+    /**
+     * Convert contextual links prop to object
+     * (Object props get treated as string when using Stencil components without a framework)
+     */
+    contextualLinksChanged(newContextualLinks) {
+        if (typeof newContextualLinks == 'string') {
+            this.contextualLinksObject = JSON.parse(newContextualLinks);
+        }
+        else if (typeof newContextualLinks == 'object') {
+            this.contextualLinksObject = newContextualLinks;
+        }
+    }
+    /**
+     * Convert sub links prop to object
+     * (Object props get treated as string when using Stencil components without a framework)
+     */
+    subLinksChanged(newSubLinks) {
+        if (typeof newSubLinks == 'string') {
+            this.subLinksObject = JSON.parse(newSubLinks);
+        }
+        else if (typeof newSubLinks == 'object') {
+            this.subLinksObject = newSubLinks;
+        }
+    }
+    /*
+     * Observe lang attribute change
+     */
+    updateLang() {
+        const observer = new MutationObserver(mutations => {
+            if (mutations[0].oldValue != this.el.lang) {
+                this.lang = this.el.lang;
+            }
+        });
+        observer.observe(this.el, utils.observerConfig);
+    }
+    async componentWillLoad() {
+        // Define lang attribute
+        this.lang = utils.assignLanguage(this.el);
+        this.updateLang();
+        if (this.contextualLinks && typeof this.contextualLinks == 'string') {
+            this.contextualLinksObject = JSON.parse(this.contextualLinks);
+        }
+        else if (this.contextualLinks &&
+            typeof this.contextualLinks == 'object') {
+            this.contextualLinksObject = this.contextualLinks;
+        }
+        if (this.subLinks && typeof this.subLinks == 'string') {
+            this.subLinksObject = JSON.parse(this.subLinks);
+        }
+        else if (this.subLinks && typeof this.subLinks == 'object') {
+            this.subLinksObject = this.subLinks;
+        }
+    }
+    get renderSignature() {
+        const signVariant = this.wordmarkVariant ? this.wordmarkVariant : 'colour';
+        if (this.el.querySelector('[slot="signature"]')) {
+            return index.h("slot", { name: "wordmark" });
+        }
+        else {
+            return (index.h("div", { class: "sub__wordmark" }, index.h("gcds-signature", { type: "wordmark", variant: signVariant, lang: this.lang })));
+        }
+    }
+    render() {
+        const { lang, display, contextualHeading, contextualLinksObject, subLinks, subLinksObject, renderSignature, } = this;
+        const govNav = I18N$h[lang].gov.menu;
+        const themeNav = I18N$h[lang].themes.menu;
+        const siteNav = I18N$h[lang].site.menu;
+        let contextualLinkCount = 0;
+        let subLinkCount = 0;
+        return (index.h(index.Host, { key: '5837980656caab330e544099513140319f21bf2b', role: "contentinfo", "aria-label": "Footer" }, index.h("gcds-sr-only", { key: '224923db016c4e7487a21e0c738b075b488b6af9', tag: "h2" }, I18N$h[lang].about), contextualLinksObject && contextualHeading && (index.h("div", { key: '6e59417fd295f8ad99f56ed6b2d60cadff12905f', class: "gcds-footer__contextual" }, index.h("div", { key: 'eed81cfd3b34bb7c55bb640b37770c11075add60', class: "contextual__container" }, index.h("nav", { key: '5bcc993b76d9bbbd45accce9800cd85db91d120e', "aria-labelledby": "contextual__heading" }, index.h("h3", { key: '7180a682e2c50b500dda0ce979fe511ca65a4e43', id: "contextual__heading", class: "contextual__heading" }, contextualHeading), index.h("ul", { key: '043ca05a01cf7a8161589839c8164d0001727759', class: "contextual__list" }, Object.keys(contextualLinksObject).map(key => {
+            if (contextualLinkCount < 3) {
+                contextualLinkCount++;
+                return (index.h("li", null, index.h("gcds-link", { size: "small", href: contextualLinksObject[key] }, key)));
+            }
+        })))))), display === 'full' ? (index.h("div", { class: "gcds-footer__main" }, index.h("div", { class: "main__container" }, index.h("nav", { class: "main__govnav", "aria-labelledby": "govnav__heading" }, index.h("h3", { id: "govnav__heading" }, I18N$h[lang].gov.heading), index.h("ul", { class: "govnav__list" }, Object.keys(govNav).map(value => (index.h("li", null, index.h("gcds-link", { size: "small", href: govNav[value].link }, govNav[value].text)))))), index.h("nav", { class: "main__themenav", "aria-labelledby": "themenav__heading" }, index.h("gcds-sr-only", { tag: "h4", id: "themenav__heading" }, I18N$h[lang].themes.heading), index.h("ul", { class: "themenav__list" }, Object.keys(themeNav).map(value => (index.h("li", null, index.h("gcds-link", { size: "small", href: themeNav[value].link }, themeNav[value].text))))))))) : null, index.h("div", { key: 'c220125a35a924a3acb840cf186b4cc5e09d865e', class: "gcds-footer__sub" }, index.h("div", { key: '5efa5ad5f42d7a4482a33f023acd68b5831ad429', class: "sub__container" }, index.h("nav", { key: '8c239b963a088c9b9dc2281b0c60e56ce2fcc7a2', "aria-labelledby": "sub__heading" }, index.h("gcds-sr-only", { key: 'fbeb0d6c5b102fdd6de322bcd56e54d4ba91dca2', tag: "h3", id: "sub__heading" }, I18N$h[lang].site.heading), index.h("ul", { key: 'f76aa2db981e25762466367ad9ca887c0fdd72b6' }, subLinks
+            ? Object.keys(subLinksObject).map(key => {
+                if (subLinkCount < 5) {
+                    subLinkCount++;
+                    return (index.h("li", null, index.h("gcds-link", { size: "small", href: subLinksObject[key] }, key)));
+                }
+            })
+            : Object.keys(siteNav).map(value => {
+                return (index.h("li", null, index.h("gcds-link", { size: "small", href: siteNav[value].link }, siteNav[value].text)));
+            }))), renderSignature))));
+    }
+    get el() { return index.getElement(this); }
+    static get watchers() { return {
+        "contextualLinks": ["contextualLinksChanged"],
+        "subLinks": ["subLinksChanged"]
+    }; }
+};
+GcdsFooter.style = gcdsFooterCss;
+
+const I18N$g = {
+  en: {
+    gapDesktopError: 'gcds-grid: Invalid spacing value for gap-desktop.',
+    gapTabletError: 'gcds-grid: Invalid spacing value for gap-tablet.',
+  },
+  fr: {
+    gapDesktopError: "gcds-grid: Valeur d'espacement invalide pour gap-desktop.",
+    gapTabletError: "gcds-grid: Valeur d'espacement invalide pour gap-tablet.",
+  },
+};
+
+const gcdsGridCss = "@layer reset, default, display, align, justify, place, equalHeight, tablet, desktop;@layer reset{:host{display:block}:host .gcds-grid{box-sizing:border-box;margin:0;padding:0}}@layer default{:host .gcds-grid{gap:var(--gcds-grid-gap);grid-template-columns:var(--gcds-grid-columns,1fr)}}@layer display{:host .gcds-grid.display-grid-with-cols{display:grid;grid-template-columns:1fr}:host .gcds-grid.display-grid{display:grid}:host .gcds-grid.display-inline-grid{display:inline-grid}}@layer align{:host .gcds-grid.align-content-center{align-content:center}:host .gcds-grid.align-content-end{align-content:end}:host .gcds-grid.align-content-space-around{align-content:space-around}:host .gcds-grid.align-content-space-between{align-content:space-between}:host .gcds-grid.align-content-space-evenly{align-content:space-evenly}:host .gcds-grid.align-content-start{align-content:start}:host .gcds-grid.align-content-stretch{align-content:stretch}:host .gcds-grid.align-items-baseline{align-items:baseline}:host .gcds-grid.align-items-center{align-items:center}:host .gcds-grid.align-items-end{align-items:end}:host .gcds-grid.align-items-start{align-items:start}:host .gcds-grid.align-items-stretch{align-items:stretch}}@layer justify{:host .gcds-grid.justify-content-center{justify-content:center}:host .gcds-grid.justify-content-end{justify-content:end}:host .gcds-grid.justify-content-space-around{justify-content:space-around}:host .gcds-grid.justify-content-space-between{justify-content:space-between}:host .gcds-grid.justify-content-space-evenly{justify-content:space-evenly}:host .gcds-grid.justify-content-start{justify-content:start}:host .gcds-grid.justify-content-stretch{justify-content:stretch}:host .gcds-grid.justify-items-center{justify-items:center}:host .gcds-grid.justify-items-end{justify-items:end}:host .gcds-grid.justify-items-start{justify-items:start}:host .gcds-grid.justify-items-stretch{justify-items:stretch}}@layer place{:host .gcds-grid.place-content-center{place-content:center}:host .gcds-grid.place-content-end{place-content:end}:host .gcds-grid.place-content-space-around{place-content:space-around}:host .gcds-grid.place-content-space-between{place-content:space-between}:host .gcds-grid.place-content-space-evenly{place-content:space-evenly}:host .gcds-grid.place-content-start{place-content:start}:host .gcds-grid.place-content-stretch{place-content:stretch}:host .gcds-grid.place-items-center{place-items:center}:host .gcds-grid.place-items-end{place-items:end}:host .gcds-grid.place-items-start{place-items:start}:host .gcds-grid.place-items-stretch{place-items:stretch}}@layer equalHeight{:host .gcds-grid.equal-row-height{align-items:stretch;grid-auto-rows:1fr}}@layer tablet{@media screen and (width >= 48em){:host .gcds-grid{gap:var(--gcds-grid-gap-tablet,var(--gcds-grid-gap));grid-template-columns:var(\n        --gcds-grid-columns-tablet,var(--gcds-grid-columns,1fr)\n      )}:host .gcds-grid.display-grid-with-cols{grid-template-columns:repeat(var(--gcds-grid-columns-default-tablet),minmax(0,1fr))}}}@layer desktop{@media screen and (width >= 64em){:host .gcds-grid{gap:var(--gcds-grid-gap-desktop,var(--gcds-grid-gap-tablet,var(--gcds-grid-gap)));grid-template-columns:var(\n        --gcds-grid-columns-desktop,var(--gcds-grid-columns-tablet,var(--gcds-grid-columns,1fr))\n      )}:host .gcds-grid.display-grid-with-cols{grid-template-columns:repeat(var(--gcds-grid-columns-default-desktop),minmax(0,1fr))}}}";
+
+const GridGapArray = [
+    '150',
+    '175',
+    '200',
+    '225',
+    '250',
+    '300',
+    '350',
+    '400',
+    '450',
+    '500',
+    '550',
+    '600',
+    '650',
+    '700',
+    '750',
+    '800',
+];
+const GcdsGrid = class {
+    constructor(hostRef) {
+        index.registerInstance(this, hostRef);
+        /**
+         * Defines if grid container is centered or not
+         */
+        this.centered = false;
+        /**
+         * Defines element as grid or inline-grid container
+         */
+        this.display = 'grid';
+        /**
+         * Sets all grid items to have an equal height,
+         * based on the tallest item.
+         */
+        this.equalRowHeight = false;
+        /**
+         * Defines the horizontal and vertical spacing between items in
+         * a grid container for all viewports if gap-tablet and gap-desktop
+         * are not defined. Option to set different spacing for desktop
+         * with gap-desktop and for tablet with gap-tablet.
+         */
+        this.gap = '300';
+        /**
+         * Set tag for grid container
+         */
+        this.tag = 'div';
+    }
+    validateGap(newValue) {
+        const values = GridGapArray;
+        if (!values.includes(newValue)) {
+            this.gap = '300';
+        }
+    }
+    validateGapTablet(newValue) {
+        const values = GridGapArray;
+        if (newValue != undefined && !values.includes(newValue)) {
+            this.gapTablet = undefined;
+            console.error(`${I18N$g['en'].gapTabletError} | ${I18N$g['fr'].gapTabletError}`);
+        }
+    }
+    validateGapDesktop(newValue) {
+        const values = GridGapArray;
+        if (newValue != undefined && !values.includes(newValue)) {
+            this.gapDesktop = undefined;
+            console.error(`${I18N$g['en'].gapDesktopError} | ${I18N$g['fr'].gapDesktopError}`);
+        }
+    }
+    validateTag(newValue) {
+        const values = [
+            'article',
+            'aside',
+            'div',
+            'dl',
+            'main',
+            'nav',
+            'ol',
+            'section',
+            'ul',
+        ];
+        if (!values.includes(newValue)) {
+            this.tag = 'div';
+        }
+    }
+    componentWillLoad() {
+        // Validate attributes and set defaults
+        this.validateTag(this.tag);
+        this.validateGap(this.gap);
+        this.validateGapTablet(this.gapTablet);
+        this.validateGapDesktop(this.gapDesktop);
+    }
+    render() {
+        const { alignContent, alignItems, columns, columnsDesktop, columnsTablet, container, centered, display, equalRowHeight, gap, gapTablet, gapDesktop, justifyContent, justifyItems, placeContent, placeItems, tag, } = this;
+        const Tag = tag;
+        const classNames = `
+      gcds-grid
+      ${alignContent ? `align-content-${alignContent}` : ''}
+      ${alignItems ? `align-items-${alignItems}` : ''}
+      ${(columns || columnsTablet || columnsDesktop) === undefined
+            ? `display-grid-with-cols`
+            : `display-${display}`}
+      ${equalRowHeight ? 'equal-row-height' : ''}
+      ${justifyContent ? `justify-content-${justifyContent}` : ''}
+      ${justifyItems ? `justify-items-${justifyItems}` : ''}
+      ${placeContent ? `place-content-${placeContent}` : ''}
+      ${placeItems ? `place-items-${placeItems}` : ''}
+    `;
+        // Set CSS variables in style attribute based on passed column + gap properties
+        function handleGridStyles() {
+            const gridStyles = {};
+            const setGridProperty = (value, property, suffix = '') => {
+                const gapValue = `var(--gcds-grid-gap-${value})`;
+                const tokenValue = property === 'gap' ? gapValue : value;
+                if (value) {
+                    gridStyles[`--gcds-grid-${property}${suffix}`] = tokenValue;
+                }
+            };
+            // Handle columns
+            setGridProperty(columns, 'columns');
+            setGridProperty(columnsTablet, 'columns', '-tablet');
+            setGridProperty(columnsDesktop, 'columns', '-desktop');
+            // Handle gap
+            setGridProperty(gap, 'gap');
+            setGridProperty(gapTablet, 'gap', '-tablet');
+            setGridProperty(gapDesktop, 'gap', '-desktop');
+            return gridStyles;
+        }
+        return (index.h(index.Host, null, container ? (index.h("gcds-container", { size: container, centered: centered }, index.h(Tag, { class: classNames, style: handleGridStyles() }, index.h("slot", null)))) : (index.h(Tag, { class: classNames, style: handleGridStyles() }, index.h("slot", null)))));
+    }
+    get el() { return index.getElement(this); }
+    static get watchers() { return {
+        "gap": ["validateGap"],
+        "gapTablet": ["validateGapTablet"],
+        "gapDesktop": ["validateGapDesktop"],
+        "tag": ["validateTag"]
+    }; }
+};
+GcdsGrid.style = gcdsGridCss;
+
+const gcdsGridColCss = "@layer reset, default, tablet, desktop;@layer reset{:host{display:block}:host .gcds-grid-col{box-sizing:border-box;display:block;margin:0;padding:0}}@layer default{:host{grid-column:span var(--gcds-grid-columns-default-base) /span var(--gcds-grid-columns-default-base)}:host .gcds-grid-col{height:100%;width:100%}}@layer tablet{@media screen and (width >= 48em){:host{grid-column:span var(--gcds-grid-col-tablet,var(--gcds-grid-columns-default-tablet)) /span var(--gcds-grid-col-tablet,var(--gcds-grid-columns-default-tablet))}}}@layer desktop{@media screen and (width >= 64em){:host{grid-column:span var(--gcds-grid-col-desktop,var(--gcds-grid-columns-default-desktop)) /span var(--gcds-grid-col-desktop,var(--gcds-grid-columns-default-desktop))}}}";
+
+const GcdsGridCol = class {
+    constructor(hostRef) {
+        index.registerInstance(this, hostRef);
+        /**
+         * Props
+         */
+        /**
+         * Set tag for grid column
+         */
+        this.tag = 'div';
+        /**
+         * Optimize grid column size for tablet (768px - 1023px).
+         * Tablet grid column sizes are based on a 6 column grid.
+         * The tablet size will also be used for desktop, if desktop is undefined.
+         */
+        this.tablet = 6;
+    }
+    validateTablet(newValue) {
+        const values = [1, 2, 3, 4, 5, 6];
+        if (!values.includes(newValue)) {
+            this.tablet = 6;
+        }
+    }
+    validateDesktop(newValue) {
+        const values = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+        if (this.desktop && !values.includes(newValue)) {
+            this.desktop = 12;
+        }
+    }
+    componentWillLoad() {
+        // Validate attributes and set defaults
+        this.validateTablet(this.tablet);
+        this.validateDesktop(this.desktop);
+    }
+    render() {
+        const { desktop, tablet, tag } = this;
+        const Tag = tag;
+        function handleColSize() {
+            const colSize = {};
+            if (tablet) {
+                colSize['--gcds-grid-col-tablet'] = tablet;
+            }
+            if (desktop) {
+                colSize['--gcds-grid-col-desktop'] = desktop;
+            }
+            else if (tablet) {
+                colSize['--gcds-grid-col-desktop'] = tablet * 2;
+            }
+            return colSize;
+        }
+        return (index.h(index.Host, { style: handleColSize() }, index.h(Tag, { class: "gcds-grid-col" }, index.h("slot", null))));
+    }
+    get el() { return index.getElement(this); }
+    static get watchers() { return {
+        "tablet": ["validateTablet"],
+        "desktop": ["validateDesktop"]
+    }; }
+};
+GcdsGridCol.style = gcdsGridColCss;
+
+const I18N$f = {
+  en: {
+    skip: 'Skip to main content',
+    skipLabel: 'Skip to',
+  },
+  fr: {
+    skip: 'Passer au contenu principal',
+    skipLabel: 'Passer au',
+  },
+};
+
+const gcdsHeaderCss = "@layer reset, default, brand, menu, wide;@layer reset{:host{display:block}:host slot{display:initial}}@layer default{:host{margin:var(--gcds-header-margin)!important}:host .gcds-header__container{justify-content:space-between;margin:0 auto;max-width:var(--gcds-header-container-max-width);width:90%}:host .gcds-header__skip-to-nav{margin-inline:auto;position:absolute;text-align:center;top:var(--gcds-header-skiptonav-top);width:100%}:host .gcds-header__skip-to-nav gcds-link{left:0;position:absolute;top:0;width:inherit;z-index:3}:host .gcds-header__skip-to-nav gcds-link:not(:focus){height:0;overflow:hidden;width:0;clip:rect(0,0,0,0)}}@layer brand{:host .gcds-header__brand{border-block-end:var(--gcds-header-brand-border-width) solid var(--gcds-header-brand-border-color);container:component brand/inline-size;padding:var(--gcds-header-brand-padding)}:host .gcds-header__brand .brand__container{display:grid;grid-gap:var(--gcds-header-brand-grid-gap);grid-template-areas:\"signature toggle\" \"search search\";grid-template-columns:1fr .1fr;margin:0 auto;max-width:var(--gcds-header-container-max-width);width:90%}:host .gcds-header__brand .brand__container.container--simple{grid-template-areas:\"signature toggle\"}:host .gcds-header__brand .brand__container :is(.brand__toggle,slot[name=toggle]){grid-area:toggle;text-align:right}:host .gcds-header__brand .brand__container :is(.brand__signature,slot[name=signature]){align-content:center;grid-area:signature}:host .gcds-header__brand .brand__container .brand__search{display:block;grid-area:search;max-width:100%}}@layer menu{:host{--gcds-nav-group-mobile-trigger-margin:var(--gcds-header-menu-top-nav-mobile-trigger-margin)}}@layer wide{@container brand (width >= 51em){:host .gcds-header__brand .brand__container{grid-template-areas:\"toggle toggle\" \"signature search\";grid-template-columns:1fr 1fr}:host .gcds-header__brand .brand__container .brand__search,:host .gcds-header__brand .brand__container slot[name=search]{margin-inline-start:auto;width:fit-content}}}";
+
+const GcdsHeader = class {
+    constructor(hostRef) {
+        index.registerInstance(this, hostRef);
+        /**
+         * GcdsSignature - GCDS signature links to Canada.ca
+         */
+        this.signatureHasLink = true;
+    }
+    /*
+     * Observe lang attribute change
+     */
+    updateLang() {
+        const observer = new MutationObserver(mutations => {
+            if (mutations[0].oldValue != this.el.lang) {
+                this.lang = this.el.lang;
+            }
+        });
+        observer.observe(this.el, utils.observerConfig);
+    }
+    async componentWillLoad() {
+        // Define lang attribute
+        this.lang = utils.assignLanguage(this.el);
+        this.updateLang();
+    }
+    get renderSkipToNav() {
+        if (this.el.querySelector('[slot="skip-to-nav"]')) {
+            return index.h("slot", { name: "skip-to-nav" });
+        }
+        else if (this.skipToHref) {
+            return (index.h("nav", { class: "gcds-header__skip-to-nav", "aria-label": I18N$f[this.lang].skipLabel }, index.h("gcds-link", { href: this.skipToHref }, I18N$f[this.lang].skip)));
+        }
+        else {
+            return;
+        }
+    }
+    get renderToggle() {
+        if (this.el.querySelector('[slot="toggle"]')) {
+            return index.h("slot", { name: "toggle" });
+        }
+        else if (this.langHref) {
+            return (index.h("section", { class: "brand__toggle" }, index.h("gcds-lang-toggle", { lang: this.lang, href: this.langHref })));
+        }
+        else {
+            return;
+        }
+    }
+    get renderSignature() {
+        const signVariant = this.signatureVariant
+            ? this.signatureVariant
+            : 'colour';
+        if (this.el.querySelector('[slot="signature"]')) {
+            return index.h("slot", { name: "signature" });
+        }
+        else {
+            return (index.h("div", { class: "brand__signature" }, index.h("gcds-signature", { type: "signature", variant: signVariant, "has-link": this.signatureHasLink, lang: this.lang })));
+        }
+    }
+    get renderSearch() {
+        if (this.el.querySelector('[slot="search"]')) {
+            return (index.h("div", { class: "brand__search" }, index.h("slot", { name: "search" })));
+        }
+        else {
+            return;
+        }
+    }
+    get hasSearch() {
+        return !!this.el.querySelector('[slot="search"]');
+    }
+    get hasBanner() {
+        return !!this.el.querySelector('[slot="banner"]');
+    }
+    get hasBreadcrumb() {
+        return !!this.el.querySelector('[slot="breadcrumb"]');
+    }
+    render() {
+        const { renderSkipToNav, renderToggle, renderSignature, renderSearch, hasSearch, hasBanner, hasBreadcrumb, } = this;
+        return (index.h(index.Host, { key: '4ce8bdb71c9ec3db7651195f6c15e423034fb509', role: "banner" }, renderSkipToNav, hasBanner ? index.h("slot", { name: "banner" }) : null, index.h("div", { key: 'c763e09da43fed07da3562e0b581fb549e4f0954', class: "gcds-header__brand" }, index.h("div", { key: '157b25b759b836affb69d046ba3ecba8022c79ff', class: `brand__container ${!hasSearch ? 'container--simple' : ''}` }, renderToggle, renderSignature, renderSearch)), index.h("slot", { key: '41a36feff4bff5a648b7f50b23410f5337b7a683', name: "menu" }), hasBreadcrumb ? (index.h("div", { class: "gcds-header__container" }, index.h("slot", { name: "breadcrumb" }))) : null));
+    }
+    get el() { return index.getElement(this); }
+};
+GcdsHeader.style = gcdsHeaderCss;
+
+// Helper function to generate SpacingArray dynamically
+function generateSpacingArray() {
+    const values = [];
+    for (let i = 0; i <= 1250; i += 25) {
+        values.push(i.toString());
+    }
+    return values;
+}
+const SpacingArray = generateSpacingArray();
+
+const gcdsHeadingCss = "@layer reset, default, limit, margin;@layer reset{:host{color:var(--gcds-heading-default-text);display:block}:host :is(h1,h2,h3,h4,h5,h6){box-sizing:border-box;margin:0}:host slot{display:initial}}@layer default{:host :is(h1,h2,h3,h4,h5,h6){text-wrap:balance}:host h1.gcds-heading{font:var(--gcds-heading-h1-desktop)}@media only screen and (width < 48em){:host h1.gcds-heading{font:var(--gcds-heading-h1-mobile)}}:host h1.gcds-heading:after{background-color:var(--gcds-heading-h1-border-background);content:\"\";display:block;height:var(--gcds-heading-h1-border-height);margin-block-start:var(--gcds-heading-h1-border-margin);width:var(--gcds-heading-h1-border-width)}:host h2.gcds-heading{font:var(--gcds-heading-h2-desktop)}@media only screen and (width < 48em){:host h2.gcds-heading{font:var(--gcds-heading-h2-mobile)}}:host h3.gcds-heading{font:var(--gcds-heading-h3-desktop)}@media only screen and (width < 48em){:host h3.gcds-heading{font:var(--gcds-heading-h3-mobile)}}:host h4.gcds-heading{font:var(--gcds-heading-h4-desktop)}@media only screen and (width < 48em){:host h4.gcds-heading{font:var(--gcds-heading-h4-mobile)}}:host h5.gcds-heading{font:var(--gcds-heading-h5-desktop)}@media only screen and (width < 48em){:host h5.gcds-heading{font:var(--gcds-heading-h5-mobile)}}:host h6.gcds-heading{font:var(--gcds-heading-h6-desktop)}@media only screen and (width < 48em){:host h6.gcds-heading{font:var(--gcds-heading-h6-mobile)}}}@layer limit{:host h1.limit{max-width:var(--gcds-heading-character-limit-h1)}:host h2.limit{max-width:var(--gcds-heading-character-limit-h2)}:host h3.limit{max-width:var(--gcds-heading-character-limit-h3)}:host h4.limit{max-width:var(--gcds-heading-character-limit-h4)}:host h5.limit{max-width:var(--gcds-heading-character-limit-h5)}:host h6.limit{max-width:var(--gcds-heading-character-limit-h6)}}@layer margin{:host :is(h1,h2,h3,h4,h5,h6).mt-0{margin-block-start:var(--gcds-heading-spacing-0)}:host :is(h1,h2,h3,h4,h5,h6).mt-25{margin-block-start:var(--gcds-heading-spacing-25)}:host :is(h1,h2,h3,h4,h5,h6).mt-50{margin-block-start:var(--gcds-heading-spacing-50)}:host :is(h1,h2,h3,h4,h5,h6).mt-75{margin-block-start:var(--gcds-heading-spacing-75)}:host :is(h1,h2,h3,h4,h5,h6).mt-100{margin-block-start:var(--gcds-heading-spacing-100)}:host :is(h1,h2,h3,h4,h5,h6).mt-125{margin-block-start:var(--gcds-heading-spacing-125)}:host :is(h1,h2,h3,h4,h5,h6).mt-150{margin-block-start:var(--gcds-heading-spacing-150)}:host :is(h1,h2,h3,h4,h5,h6).mt-175{margin-block-start:var(--gcds-heading-spacing-175)}:host :is(h1,h2,h3,h4,h5,h6).mt-200{margin-block-start:var(--gcds-heading-spacing-200)}:host :is(h1,h2,h3,h4,h5,h6).mt-225{margin-block-start:var(--gcds-heading-spacing-225)}:host :is(h1,h2,h3,h4,h5,h6).mt-250{margin-block-start:var(--gcds-heading-spacing-250)}:host :is(h1,h2,h3,h4,h5,h6).mt-300{margin-block-start:var(--gcds-heading-spacing-300)}:host :is(h1,h2,h3,h4,h5,h6).mt-350{margin-block-start:var(--gcds-heading-spacing-350)}:host :is(h1,h2,h3,h4,h5,h6).mt-400{margin-block-start:var(--gcds-heading-spacing-400)}:host :is(h1,h2,h3,h4,h5,h6).mt-450{margin-block-start:var(--gcds-heading-spacing-450)}:host :is(h1,h2,h3,h4,h5,h6).mt-500{margin-block-start:var(--gcds-heading-spacing-500)}:host :is(h1,h2,h3,h4,h5,h6).mt-550{margin-block-start:var(--gcds-heading-spacing-550)}:host :is(h1,h2,h3,h4,h5,h6).mt-600{margin-block-start:var(--gcds-heading-spacing-600)}:host :is(h1,h2,h3,h4,h5,h6).mt-650{margin-block-start:var(--gcds-heading-spacing-650)}:host :is(h1,h2,h3,h4,h5,h6).mt-700{margin-block-start:var(--gcds-heading-spacing-700)}:host :is(h1,h2,h3,h4,h5,h6).mt-750{margin-block-start:var(--gcds-heading-spacing-750)}:host :is(h1,h2,h3,h4,h5,h6).mt-800{margin-block-start:var(--gcds-heading-spacing-800)}:host :is(h1,h2,h3,h4,h5,h6).mt-850{margin-block-start:var(--gcds-heading-spacing-850)}:host :is(h1,h2,h3,h4,h5,h6).mt-900{margin-block-start:var(--gcds-heading-spacing-900)}:host :is(h1,h2,h3,h4,h5,h6).mt-950{margin-block-start:var(--gcds-heading-spacing-950)}:host :is(h1,h2,h3,h4,h5,h6).mt-1000{margin-block-start:var(--gcds-heading-spacing-1000)}:host :is(h1,h2,h3,h4,h5,h6).mt-1050{margin-block-start:var(--gcds-heading-spacing-1050)}:host :is(h1,h2,h3,h4,h5,h6).mt-1100{margin-block-start:var(--gcds-heading-spacing-1100)}:host :is(h1,h2,h3,h4,h5,h6).mt-1150{margin-block-start:var(--gcds-heading-spacing-1150)}:host :is(h1,h2,h3,h4,h5,h6).mt-1200{margin-block-start:var(--gcds-heading-spacing-1200)}:host :is(h1,h2,h3,h4,h5,h6).mt-1250{margin-block-start:var(--gcds-heading-spacing-1250)}:host :is(h1,h2,h3,h4,h5,h6).mb-0{margin-block-end:var(--gcds-heading-spacing-0)}:host :is(h1,h2,h3,h4,h5,h6).mb-25{margin-block-end:var(--gcds-heading-spacing-25)}:host :is(h1,h2,h3,h4,h5,h6).mb-50{margin-block-end:var(--gcds-heading-spacing-50)}:host :is(h1,h2,h3,h4,h5,h6).mb-75{margin-block-end:var(--gcds-heading-spacing-75)}:host :is(h1,h2,h3,h4,h5,h6).mb-100{margin-block-end:var(--gcds-heading-spacing-100)}:host :is(h1,h2,h3,h4,h5,h6).mb-125{margin-block-end:var(--gcds-heading-spacing-125)}:host :is(h1,h2,h3,h4,h5,h6).mb-150{margin-block-end:var(--gcds-heading-spacing-150)}:host :is(h1,h2,h3,h4,h5,h6).mb-175{margin-block-end:var(--gcds-heading-spacing-175)}:host :is(h1,h2,h3,h4,h5,h6).mb-200{margin-block-end:var(--gcds-heading-spacing-200)}:host :is(h1,h2,h3,h4,h5,h6).mb-225{margin-block-end:var(--gcds-heading-spacing-225)}:host :is(h1,h2,h3,h4,h5,h6).mb-250{margin-block-end:var(--gcds-heading-spacing-250)}:host :is(h1,h2,h3,h4,h5,h6).mb-300{margin-block-end:var(--gcds-heading-spacing-300)}:host :is(h1,h2,h3,h4,h5,h6).mb-350{margin-block-end:var(--gcds-heading-spacing-350)}:host :is(h1,h2,h3,h4,h5,h6).mb-400{margin-block-end:var(--gcds-heading-spacing-400)}:host :is(h1,h2,h3,h4,h5,h6).mb-450{margin-block-end:var(--gcds-heading-spacing-450)}:host :is(h1,h2,h3,h4,h5,h6).mb-500{margin-block-end:var(--gcds-heading-spacing-500)}:host :is(h1,h2,h3,h4,h5,h6).mb-550{margin-block-end:var(--gcds-heading-spacing-550)}:host :is(h1,h2,h3,h4,h5,h6).mb-600{margin-block-end:var(--gcds-heading-spacing-600)}:host :is(h1,h2,h3,h4,h5,h6).mb-650{margin-block-end:var(--gcds-heading-spacing-650)}:host :is(h1,h2,h3,h4,h5,h6).mb-700{margin-block-end:var(--gcds-heading-spacing-700)}:host :is(h1,h2,h3,h4,h5,h6).mb-750{margin-block-end:var(--gcds-heading-spacing-750)}:host :is(h1,h2,h3,h4,h5,h6).mb-800{margin-block-end:var(--gcds-heading-spacing-800)}:host :is(h1,h2,h3,h4,h5,h6).mb-850{margin-block-end:var(--gcds-heading-spacing-850)}:host :is(h1,h2,h3,h4,h5,h6).mb-900{margin-block-end:var(--gcds-heading-spacing-900)}:host :is(h1,h2,h3,h4,h5,h6).mb-950{margin-block-end:var(--gcds-heading-spacing-950)}:host :is(h1,h2,h3,h4,h5,h6).mb-1000{margin-block-end:var(--gcds-heading-spacing-1000)}:host :is(h1,h2,h3,h4,h5,h6).mb-1050{margin-block-end:var(--gcds-heading-spacing-1050)}:host :is(h1,h2,h3,h4,h5,h6).mb-1100{margin-block-end:var(--gcds-heading-spacing-1100)}:host :is(h1,h2,h3,h4,h5,h6).mb-1150{margin-block-end:var(--gcds-heading-spacing-1150)}:host :is(h1,h2,h3,h4,h5,h6).mb-1200{margin-block-end:var(--gcds-heading-spacing-1200)}:host :is(h1,h2,h3,h4,h5,h6).mb-1250{margin-block-end:var(--gcds-heading-spacing-1250)}}";
+
+const GcdsHeading = class {
+    constructor(hostRef) {
+        index.registerInstance(this, hostRef);
+        /**
+         * Sets the line length to a maximum amount of characters per line for
+         * each heading level, ensuring a comfortable, accessible reading length.
+         */
+        this.characterLimit = true;
+        /**
+         * Adds margin below the heading. The default margin-botttom is 300.
+         */
+        this.marginBottom = '300';
+    }
+    validateTag(newValue) {
+        const values = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'];
+        if (!values.includes(newValue)) {
+            console.error('Not a valid tag.');
+        }
+    }
+    validateMarginTop(newValue) {
+        if (!this.marginTop ||
+            (this.marginTop && !SpacingArray.includes(newValue))) {
+            this.marginTop = this.tag === 'h1' ? '0' : '600';
+        }
+    }
+    validateMarginBottom(newValue) {
+        if (this.marginBottom &&
+            !SpacingArray.includes(newValue)) {
+            this.marginBottom = '300';
+        }
+    }
+    componentWillLoad() {
+        // Validate attributes and set defaults
+        this.validateTag(this.tag);
+        this.validateMarginTop(this.marginTop);
+        this.validateMarginBottom(this.marginBottom);
+    }
+    render() {
+        const { characterLimit, marginTop, marginBottom, tag } = this;
+        const Tag = tag;
+        return (index.h(index.Host, { key: 'f26743658ce725d64a3342709eb5183ac883b258' }, index.h(Tag, { key: '14b13d3759c5c4cad292b9b5e3b6262682a6f616', class: `
+            gcds-heading
+            ${characterLimit ? 'limit' : ''}
+            ${marginTop ? `mt-${marginTop}` : ''}
+            ${marginBottom ? `mb-${marginBottom}` : ''}
+          ` }, index.h("slot", { key: '3e5bbde39229e946e88d3e5d7e88421cc9486d3c' }))));
+    }
+    get el() { return index.getElement(this); }
+    static get watchers() { return {
+        "tag": ["validateTag"],
+        "marginTop": ["validateMarginTop"],
+        "marginBottom": ["validateMarginBottom"]
+    }; }
+};
+GcdsHeading.style = gcdsHeadingCss;
+
+const gcdsHintCss = "@layer reset, default;@layer reset{:host{display:block}:host slot{display:initial}}@layer default{:host .gcds-hint,:host gcds-text::part(text){color:var(--gcds-hint-text)}:host .gcds-hint{margin:var(--gcds-hint-margin)}}";
+
+const GcdsHint = class {
+    constructor(hostRef) {
+        index.registerInstance(this, hostRef);
+    }
+    render() {
+        const { hintId } = this;
+        return (index.h(index.Host, { key: 'eb67660e9aef1823546fd67ffb4df34b28b2cadb', id: `hint-${hintId}` }, index.h("gcds-text", { key: 'f1252b21a52419614fe057aad4a8b117d07ae8b6', class: "gcds-hint", "margin-bottom": "0", part: "hint" }, index.h("slot", { key: '171998e99a00d21a3436f7dc118d580bb7d0fe77' }))));
+    }
+    get el() { return index.getElement(this); }
+};
+GcdsHint.style = gcdsHintCss;
+
+const I18N$e = {
+  en: {
+    nameError: 'gcds-icon: Invalid name.',
+  },
+  fr: {
+    nameError: 'gcds-icon: Nom invalide.',
+  },
+};
+
+const gcdsIconCss = "@layer reset, default, names, margin, size;\n@layer reset {\n  :host {\n    display: inline-block;\n  }\n  :host :host .gcds-icon {\n    font-size: inherit;\n    line-height: inherit;\n    color: inherit;\n  }\n}\n@layer default {\n  :host .gcds-icon {\n    font-family: var(--gcds-icon-font-family) !important;\n    speak: never;\n    font-style: normal;\n    font-weight: normal;\n    font-variant: normal;\n    text-transform: none;\n    line-height: 1;\n    -webkit-font-smoothing: antialiased;\n    -moz-osx-font-smoothing: grayscale;\n  }\n}\n@layer names {\n  :host .gcds-icon-checkmark-circle:before {\n    content: \"\\e908\";\n  }\n  :host .gcds-icon-chevron-down:before {\n    content: \"\\e900\";\n  }\n  :host .gcds-icon-chevron-left:before {\n    content: \"\\e901\";\n  }\n  :host .gcds-icon-chevron-right:before {\n    content: \"\\e902\";\n  }\n  :host .gcds-icon-chevron-up:before {\n    content: \"\\e903\";\n  }\n  :host .gcds-icon-close:before {\n    content: \"\\e90b\";\n  }\n  :host .gcds-icon-download:before {\n    content: \"\\e906\";\n  }\n  :host .gcds-icon-email:before {\n    content: \"\\e905\";\n  }\n  :host .gcds-icon-exclamation-circle:before {\n    content: \"\\e909\";\n  }\n  :host .gcds-icon-external:before {\n    content: \"\\e904\";\n  }\n  :host .gcds-icon-info-circle:before {\n    content: \"\\e90a\";\n  }\n  :host .gcds-icon-phone:before {\n    content: \"\\e90c\";\n  }\n  :host .gcds-icon-search:before {\n    content: \"\\e907\";\n  }\n  :host .gcds-icon-warning-triangle:before {\n    content: \"\\e90d\";\n  }\n}\n@layer margin {\n  :host .gcds-icon {\n    /* Margin left */\n    /* Margin right */\n  }\n  :host .gcds-icon.ml-0 {\n    margin-inline-start: var(--gcds-icon-margin-0);\n  }\n  :host .gcds-icon.ml-25 {\n    margin-inline-start: var(--gcds-icon-margin-25);\n  }\n  :host .gcds-icon.ml-50 {\n    margin-inline-start: var(--gcds-icon-margin-50);\n  }\n  :host .gcds-icon.ml-75 {\n    margin-inline-start: var(--gcds-icon-margin-75);\n  }\n  :host .gcds-icon.ml-100 {\n    margin-inline-start: var(--gcds-icon-margin-100);\n  }\n  :host .gcds-icon.ml-125 {\n    margin-inline-start: var(--gcds-icon-margin-125);\n  }\n  :host .gcds-icon.ml-150 {\n    margin-inline-start: var(--gcds-icon-margin-150);\n  }\n  :host .gcds-icon.ml-175 {\n    margin-inline-start: var(--gcds-icon-margin-175);\n  }\n  :host .gcds-icon.ml-200 {\n    margin-inline-start: var(--gcds-icon-margin-200);\n  }\n  :host .gcds-icon.ml-225 {\n    margin-inline-start: var(--gcds-icon-margin-225);\n  }\n  :host .gcds-icon.ml-250 {\n    margin-inline-start: var(--gcds-icon-margin-250);\n  }\n  :host .gcds-icon.ml-300 {\n    margin-inline-start: var(--gcds-icon-margin-300);\n  }\n  :host .gcds-icon.ml-350 {\n    margin-inline-start: var(--gcds-icon-margin-350);\n  }\n  :host .gcds-icon.ml-400 {\n    margin-inline-start: var(--gcds-icon-margin-400);\n  }\n  :host .gcds-icon.ml-450 {\n    margin-inline-start: var(--gcds-icon-margin-450);\n  }\n  :host .gcds-icon.ml-500 {\n    margin-inline-start: var(--gcds-icon-margin-500);\n  }\n  :host .gcds-icon.ml-550 {\n    margin-inline-start: var(--gcds-icon-margin-550);\n  }\n  :host .gcds-icon.ml-600 {\n    margin-inline-start: var(--gcds-icon-margin-600);\n  }\n  :host .gcds-icon.ml-650 {\n    margin-inline-start: var(--gcds-icon-margin-650);\n  }\n  :host .gcds-icon.ml-700 {\n    margin-inline-start: var(--gcds-icon-margin-700);\n  }\n  :host .gcds-icon.ml-750 {\n    margin-inline-start: var(--gcds-icon-margin-750);\n  }\n  :host .gcds-icon.ml-800 {\n    margin-inline-start: var(--gcds-icon-margin-800);\n  }\n  :host .gcds-icon.ml-850 {\n    margin-inline-start: var(--gcds-icon-margin-850);\n  }\n  :host .gcds-icon.ml-900 {\n    margin-inline-start: var(--gcds-icon-margin-900);\n  }\n  :host .gcds-icon.ml-950 {\n    margin-inline-start: var(--gcds-icon-margin-950);\n  }\n  :host .gcds-icon.ml-1000 {\n    margin-inline-start: var(--gcds-icon-margin-1000);\n  }\n  :host .gcds-icon.ml-1050 {\n    margin-inline-start: var(--gcds-icon-margin-1050);\n  }\n  :host .gcds-icon.ml-1100 {\n    margin-inline-start: var(--gcds-icon-margin-1100);\n  }\n  :host .gcds-icon.ml-1150 {\n    margin-inline-start: var(--gcds-icon-margin-1150);\n  }\n  :host .gcds-icon.ml-1200 {\n    margin-inline-start: var(--gcds-icon-margin-1200);\n  }\n  :host .gcds-icon.ml-1250 {\n    margin-inline-start: var(--gcds-icon-margin-1250);\n  }\n  :host .gcds-icon.mr-0 {\n    margin-inline-end: var(--gcds-icon-margin-0);\n  }\n  :host .gcds-icon.mr-25 {\n    margin-inline-end: var(--gcds-icon-margin-25);\n  }\n  :host .gcds-icon.mr-50 {\n    margin-inline-end: var(--gcds-icon-margin-50);\n  }\n  :host .gcds-icon.mr-75 {\n    margin-inline-end: var(--gcds-icon-margin-75);\n  }\n  :host .gcds-icon.mr-100 {\n    margin-inline-end: var(--gcds-icon-margin-100);\n  }\n  :host .gcds-icon.mr-125 {\n    margin-inline-end: var(--gcds-icon-margin-125);\n  }\n  :host .gcds-icon.mr-150 {\n    margin-inline-end: var(--gcds-icon-margin-150);\n  }\n  :host .gcds-icon.mr-175 {\n    margin-inline-end: var(--gcds-icon-margin-175);\n  }\n  :host .gcds-icon.mr-200 {\n    margin-inline-end: var(--gcds-icon-margin-200);\n  }\n  :host .gcds-icon.mr-225 {\n    margin-inline-end: var(--gcds-icon-margin-225);\n  }\n  :host .gcds-icon.mr-250 {\n    margin-inline-end: var(--gcds-icon-margin-250);\n  }\n  :host .gcds-icon.mr-300 {\n    margin-inline-end: var(--gcds-icon-margin-300);\n  }\n  :host .gcds-icon.mr-350 {\n    margin-inline-end: var(--gcds-icon-margin-350);\n  }\n  :host .gcds-icon.mr-400 {\n    margin-inline-end: var(--gcds-icon-margin-400);\n  }\n  :host .gcds-icon.mr-450 {\n    margin-inline-end: var(--gcds-icon-margin-450);\n  }\n  :host .gcds-icon.mr-500 {\n    margin-inline-end: var(--gcds-icon-margin-500);\n  }\n  :host .gcds-icon.mr-550 {\n    margin-inline-end: var(--gcds-icon-margin-550);\n  }\n  :host .gcds-icon.mr-600 {\n    margin-inline-end: var(--gcds-icon-margin-600);\n  }\n  :host .gcds-icon.mr-650 {\n    margin-inline-end: var(--gcds-icon-margin-650);\n  }\n  :host .gcds-icon.mr-700 {\n    margin-inline-end: var(--gcds-icon-margin-700);\n  }\n  :host .gcds-icon.mr-750 {\n    margin-inline-end: var(--gcds-icon-margin-750);\n  }\n  :host .gcds-icon.mr-800 {\n    margin-inline-end: var(--gcds-icon-margin-800);\n  }\n  :host .gcds-icon.mr-850 {\n    margin-inline-end: var(--gcds-icon-margin-850);\n  }\n  :host .gcds-icon.mr-900 {\n    margin-inline-end: var(--gcds-icon-margin-900);\n  }\n  :host .gcds-icon.mr-950 {\n    margin-inline-end: var(--gcds-icon-margin-950);\n  }\n  :host .gcds-icon.mr-1000 {\n    margin-inline-end: var(--gcds-icon-margin-1000);\n  }\n  :host .gcds-icon.mr-1050 {\n    margin-inline-end: var(--gcds-icon-margin-1050);\n  }\n  :host .gcds-icon.mr-1100 {\n    margin-inline-end: var(--gcds-icon-margin-1100);\n  }\n  :host .gcds-icon.mr-1150 {\n    margin-inline-end: var(--gcds-icon-margin-1150);\n  }\n  :host .gcds-icon.mr-1200 {\n    margin-inline-end: var(--gcds-icon-margin-1200);\n  }\n  :host .gcds-icon.mr-1250 {\n    margin-inline-end: var(--gcds-icon-margin-1250);\n  }\n}\n@layer size {\n  :host .gcds-icon.size-text-small {\n    font-size: var(--gcds-icon-font-size-text-small);\n    line-height: var(--gcds-icon-line-height-text-small);\n  }\n  @media only screen and (width < 48em) {\n    :host .gcds-icon.size-text-small {\n      font-size: var(--gcds-icon-font-size-text-small-mobile);\n      line-height: var(--gcds-icon-line-height-text-small-mobile);\n    }\n  }\n  :host .gcds-icon.size-text {\n    font-size: var(--gcds-icon-font-size-text);\n    line-height: var(--gcds-icon-line-height-text);\n  }\n  @media only screen and (width < 48em) {\n    :host .gcds-icon.size-text {\n      font-size: var(--gcds-icon-font-size-text-mobile);\n      line-height: var(--gcds-icon-line-height-text-mobile);\n    }\n  }\n  :host .gcds-icon.size-h6 {\n    font-size: var(--gcds-icon-font-size-h6);\n    line-height: var(--gcds-icon-line-height-h6);\n  }\n  @media only screen and (width < 48em) {\n    :host .gcds-icon.size-h6 {\n      font-size: var(--gcds-icon-font-size-h6-mobile);\n      line-height: var(--gcds-icon-line-height-h6-mobile);\n    }\n  }\n  :host .gcds-icon.size-h5 {\n    font-size: var(--gcds-icon-font-size-h5);\n    line-height: var(--gcds-icon-line-height-h5);\n  }\n  @media only screen and (width < 48em) {\n    :host .gcds-icon.size-h5 {\n      font-size: var(--gcds-icon-font-size-h5-mobile);\n      line-height: var(--gcds-icon-line-height-h5-mobile);\n    }\n  }\n  :host .gcds-icon.size-h4 {\n    font-size: var(--gcds-icon-font-size-h4);\n    line-height: var(--gcds-icon-line-height-h4);\n  }\n  @media only screen and (width < 48em) {\n    :host .gcds-icon.size-h4 {\n      font-size: var(--gcds-icon-font-size-h4-mobile);\n      line-height: var(--gcds-icon-line-height-h4-mobile);\n    }\n  }\n  :host .gcds-icon.size-h3 {\n    font-size: var(--gcds-icon-font-size-h3);\n    line-height: var(--gcds-icon-line-height-h3);\n  }\n  @media only screen and (width < 48em) {\n    :host .gcds-icon.size-h3 {\n      font-size: var(--gcds-icon-font-size-h3-mobile);\n      line-height: var(--gcds-icon-line-height-h3-mobile);\n    }\n  }\n  :host .gcds-icon.size-h2 {\n    font-size: var(--gcds-icon-font-size-h2);\n    line-height: var(--gcds-icon-line-height-h2);\n  }\n  @media only screen and (width < 48em) {\n    :host .gcds-icon.size-h2 {\n      font-size: var(--gcds-icon-font-size-h2-mobile);\n      line-height: var(--gcds-icon-line-height-h2-mobile);\n    }\n  }\n  :host .gcds-icon.size-h1 {\n    font-size: var(--gcds-icon-font-size-h1);\n    line-height: var(--gcds-icon-line-height-h1);\n  }\n  @media only screen and (width < 48em) {\n    :host .gcds-icon.size-h1 {\n      font-size: var(--gcds-icon-font-size-h1-mobile);\n      line-height: var(--gcds-icon-line-height-h1-mobile);\n    }\n  }\n}";
+
+const GcdsIcon = class {
+    constructor(hostRef) {
+        index.registerInstance(this, hostRef);
+        /**
+         * Defines the size of the icon.
+         */
+        this.size = 'inherit';
+    }
+    validateName(newValue) {
+        const values = [
+            'checkmark-circle',
+            'chevron-down',
+            'chevron-left',
+            'chevron-right',
+            'chevron-up',
+            'close',
+            'download',
+            'email',
+            'exclamation-circle',
+            'external',
+            'info-circle',
+            'phone',
+            'search',
+            'warning-triangle',
+        ];
+        if (!values.includes(newValue)) {
+            console.error(`${I18N$e['en'].nameError} | ${I18N$e['fr'].nameError}`);
+        }
+    }
+    validateSize(newValue) {
+        const values = [
+            'inherit',
+            'text-small',
+            'text',
+            'h6',
+            'h5',
+            'h4',
+            'h3',
+            'h2',
+            'h1',
+        ];
+        if (!values.includes(newValue)) {
+            this.size = 'inherit';
+        }
+    }
+    componentWillLoad() {
+        // Validate attributes and set defaults
+        this.validateName(this.name);
+        this.validateSize(this.size);
+    }
+    render() {
+        const { label, marginLeft, marginRight, name, size } = this;
+        return (index.h(index.Host, { key: '9e8467eb5092e15bc355d76842f3fd5b295cd1cf' }, index.h("span", { key: '13576b749ede045265726f613283c318440fbab8', class: `
+            gcds-icon gcds-icon-${name}
+            ${marginLeft ? `ml-${marginLeft}` : ''}
+            ${marginRight ? `mr-${marginRight}` : ''}
+            ${size ? `size-${size}` : ''}
+          `, role: "img", "aria-label": label ? label : false, "aria-hidden": label ? 'false' : 'true' })));
+    }
+    get el() { return index.getElement(this); }
+    static get watchers() { return {
+        "name": ["validateName"],
+        "size": ["validateSize"]
+    }; }
+};
+GcdsIcon.style = gcdsIconCss;
+
+const gcdsInputCss = "@layer reset, default, disabled, error, focus;@layer reset{:host{display:block}:host .gcds-input-wrapper{border:0;margin:0;padding:0}:host .gcds-input-wrapper input{box-sizing:border-box}}@layer default{:host .gcds-input-wrapper{color:var(--gcds-input-default-text);font:var(--gcds-input-font);max-width:75ch;transition:color .15s ease-in-out;width:100%}:host .gcds-input-wrapper input{background-color:var(--gcds-input-default-background);background-image:none;border:var(--gcds-input-border-width) solid;border-radius:var(--gcds-input-border-radius);color:var(--gcds-input-default-text);display:block;font:inherit!important;height:auto;margin:var(--gcds-input-margin)!important;max-width:100%;min-height:var(--gcds-input-min-width-and-height);min-width:var(--gcds-input-min-width-and-height);padding:var(--gcds-input-padding)!important;transition:border-color .15s ease-in-out,box-shadow .15s ease-in-out,outline .15s ease-in-out;width:100%}:host .gcds-input-wrapper input[type=number]{-moz-appearance:textfield}:host .gcds-input-wrapper input[type=number]::-webkit-inner-spin-button,:host .gcds-input-wrapper input[type=number]::-webkit-outer-spin-button{-webkit-appearance:none}}@layer disabled{:host .gcds-input-wrapper.gcds-disabled{color:var(--gcds-input-disabled-text)}:host .gcds-input-wrapper.gcds-disabled gcds-label{--gcds-label-text:currentColor}:host .gcds-input-wrapper.gcds-disabled gcds-hint{--gcds-hint-text:currentColor}:host .gcds-input-wrapper.gcds-disabled input:disabled{background-color:var(--gcds-input-disabled-background);border-color:var(--gcds-input-disabled-text);cursor:not-allowed}}@layer error{:host .gcds-input-wrapper input.gcds-error:not(:focus){border-color:var(--gcds-input-danger-border)}}@layer focus{:host .gcds-input-wrapper:focus-within input:focus{border-color:var(--gcds-input-focus-border);box-shadow:var(--gcds-input-focus-box-shadow);outline:var(--gcds-input-outline-width) solid var(--gcds-input-focus-border);outline-offset:var(--gcds-input-border-width)}}";
+
+const GcdsInput = class {
+    constructor(hostRef) {
+        index.registerInstance(this, hostRef);
+        this.gcdsFocus = index.createEvent(this, "gcdsFocus");
+        this.gcdsBlur = index.createEvent(this, "gcdsBlur");
+        this.gcdsInput = index.createEvent(this, "gcdsInput");
+        this.gcdsChange = index.createEvent(this, "gcdsChange");
+        this.gcdsError = index.createEvent(this, "gcdsError");
+        this.gcdsValid = index.createEvent(this, "gcdsValid");
+        if (hostRef.$hostElement$["s-ei"]) {
+            this.internals = hostRef.$hostElement$["s-ei"];
+        }
+        else {
+            this.internals = hostRef.$hostElement$.attachInternals();
+            hostRef.$hostElement$["s-ei"] = this.internals;
+        }
+        this._validator = defaultValidator;
+        /**
+         * Props
+         */
+        /**
+         * Specifies if an input element is disabled or not.
+         */
+        this.disabled = false;
+        /**
+         * Specifies if the label is hidden or not.
+         */
+        this.hideLabel = false;
+        /**
+         * Specifies if a form field is required or not.
+         */
+        this.required = false;
+        /**
+         * Set Input types
+         */
+        // prettier-ignore
+        this.type = 'text';
+        /**
+         * Set event to call validator
+         */
+        this.validateOn = 'blur';
+        /**
+         * Set additional HTML attributes not available in component properties
+         */
+        this.inheritedAttributes = {};
+        this.onBlur = () => {
+            if (this.validateOn == 'blur') {
+                this.validate();
+            }
+            this.gcdsBlur.emit();
+        };
+        this.handleInput = (e, customEvent) => {
+            const val = e.target && e.target.value;
+            this.value = val;
+            this.internals.setFormValue(val ? val : null);
+            if (e.type === 'change') {
+                const changeEvt = new e.constructor(e.type, e);
+                this.el.dispatchEvent(changeEvt);
+            }
+            customEvent.emit(this.value);
+        };
+    }
+    validateDisabledInput() {
+        if (this.required) {
+            this.disabled = false;
+        }
+    }
+    validateErrorMessage() {
+        if (this.disabled) {
+            this.errorMessage = '';
+        }
+        else if (!this.hasError && this.errorMessage) {
+            this.hasError = true;
+        }
+        else if (this.errorMessage == '') {
+            this.hasError = false;
+        }
+    }
+    validateValidator() {
+        this._validator = getValidator(this.validator);
+    }
+    validateHasError() {
+        if (this.disabled) {
+            this.hasError = false;
+        }
+    }
+    /**
+     * Watch HTML attributes to inherit changes
+     */
+    ariaInvalidWatcher() {
+        this.inheritedAttributes = utils.inheritAttributes(this.el, this.shadowElement, [
+            'placeholder',
+        ]);
+    }
+    ariaDescriptiondWatcher() {
+        this.inheritedAttributes = utils.inheritAttributes(this.el, this.shadowElement, [
+            'placeholder',
+        ]);
+    }
+    /**
+     * Call any active validators
+     */
+    async validate() {
+        utils.handleValidationResult(this.el, this._validator.validate(this.value), this.label, this.gcdsError, this.gcdsValid, this.lang);
+    }
+    submitListener(e) {
+        if (e.target == this.el.closest('form')) {
+            if (this.validateOn && this.validateOn != 'other') {
+                this.validate();
+            }
+            if (this.hasError && this.validateOn != 'other') {
+                e.preventDefault();
+            }
+        }
+    }
+    keyDownListener(e) {
+        if (e.target == this.el && e.key === 'Enter') {
+            const formButton = document.createElement('button');
+            formButton.type = 'submit';
+            formButton.style.display = 'none';
+            this.el.closest('form').appendChild(formButton);
+            formButton.click();
+            formButton.remove();
+        }
+    }
+    /*
+     * Form internal functions
+     */
+    formResetCallback() {
+        if (this.value != this.initialValue) {
+            this.internals.setFormValue(this.initialValue);
+            this.value = this.initialValue;
+        }
+    }
+    formStateRestoreCallback(state) {
+        this.internals.setFormValue(state);
+        this.value = state;
+    }
+    /*
+     * Observe lang attribute change
+     */
+    updateLang() {
+        const observer = new MutationObserver(mutations => {
+            if (mutations[0].oldValue != this.el.lang) {
+                this.lang = this.el.lang;
+            }
+        });
+        observer.observe(this.el, utils.observerConfig);
+    }
+    async componentWillLoad() {
+        // Define lang attribute
+        this.lang = utils.assignLanguage(this.el);
+        this.updateLang();
+        this.validateDisabledInput();
+        this.validateHasError();
+        this.validateErrorMessage();
+        // Assign required validator if needed
+        requiredValidator(this.el, 'input', this.type);
+        this.validateValidator();
+        this.inheritedAttributes = utils.inheritAttributes(this.el, this.shadowElement, [
+            'placeholder',
+        ]);
+        this.internals.setFormValue(this.value ? this.value : null);
+        this.initialValue = this.value ? this.value : null;
+    }
+    render() {
+        const { disabled, errorMessage, hideLabel, hint, inputId, name, label, required, size, type, value, hasError, autocomplete, inheritedAttributes, lang, } = this;
+        // Use max-width to keep field responsive
+        const style = {
+            maxWidth: `calc(${size * 2}ch + 1.5rem)`,
+        };
+        const attrsInput = Object.assign({ disabled,
+            required,
+            type,
+            value,
+            autocomplete }, inheritedAttributes);
+        const attrsLabel = {
+            label,
+            required,
+        };
+        if (hint || errorMessage) {
+            const hintID = hint ? `hint-${inputId} ` : '';
+            const errorID = errorMessage ? `error-message-${inputId} ` : '';
+            attrsInput['aria-describedby'] = `${hintID}${errorID}${attrsInput['aria-describedby']
+                ? ` ${attrsInput['aria-describedby']}`
+                : ''}`;
+        }
+        return (index.h(index.Host, { key: 'b01f509292604301b7792bbba825ef16958edce6' }, index.h("div", { key: 'e1499fb45ea0a3e268d7b666b49d5cea206b8df4', class: `gcds-input-wrapper ${disabled ? 'gcds-disabled' : ''} ${hasError ? 'gcds-error' : ''}` }, index.h("gcds-label", Object.assign({ key: 'e3ace51ae9be43058cfafad48761ba2679ecc0ad' }, attrsLabel, { "hide-label": hideLabel, "label-for": inputId, lang: lang })), hint ? index.h("gcds-hint", { "hint-id": inputId }, hint) : null, errorMessage ? (index.h("gcds-error-message", { messageId: inputId }, errorMessage)) : null, index.h("input", Object.assign({ key: 'fece71e5bd1b106fc83ac77d4290905e4907001d' }, attrsInput, { class: hasError ? 'gcds-error' : null, id: inputId, name: name, onBlur: () => this.onBlur(), onFocus: () => this.gcdsFocus.emit(), onInput: e => this.handleInput(e, this.gcdsInput), onChange: e => this.handleInput(e, this.gcdsChange), "aria-labelledby": `label-for-${inputId}`, "aria-invalid": inheritedAttributes['aria-invalid'] === 'true'
+                ? inheritedAttributes['aria-invalid']
+                : errorMessage
+                    ? 'true'
+                    : 'false', size: size, style: size ? style : null, part: "input", ref: element => (this.shadowElement = element) })))));
+    }
+    static get delegatesFocus() { return true; }
+    static get formAssociated() { return true; }
+    get el() { return index.getElement(this); }
+    static get watchers() { return {
+        "disabled": ["validateDisabledInput"],
+        "errorMessage": ["validateErrorMessage"],
+        "validator": ["validateValidator"],
+        "hasError": ["validateHasError"],
+        "aria-invalid": ["ariaInvalidWatcher"],
+        "aria-description": ["ariaDescriptiondWatcher"]
+    }; }
+};
+GcdsInput.style = gcdsInputCss;
+
+const I18N$d = {
+  en: {
+    required: 'required',
+  },
+  fr: {
+    required: 'obligatoire',
+  },
+};
+
+const gcdsLabelCss = "@layer reset, default;@layer reset{:host{display:block}}@layer default{:host .gcds-label{color:var(--gcds-label-text);cursor:pointer;display:block;font:var(--gcds-label-font-desktop);margin:var(--gcds-label-margin)!important;max-width:100%}@media only screen and (width < 48em){:host .gcds-label{font:var(--gcds-label-font-mobile)}}:host .gcds-label.label--hidden{height:0;margin:0;opacity:0;overflow:hidden;width:0}:host .gcds-label .label--required{font-weight:var(--gcds-label-required-font-weight);margin:var(--gcds-label-required-margin)!important}}";
+
+const GcdsLabel = class {
+    constructor(hostRef) {
+        index.registerInstance(this, hostRef);
+    }
+    /*
+     * Observe lang attribute change
+     */
+    updateLang() {
+        const observer = new MutationObserver(mutations => {
+            if (mutations[0].oldValue != this.el.lang) {
+                this.lang = this.el.lang;
+            }
+        });
+        observer.observe(this.el, utils.observerConfig);
+    }
+    async componentWillLoad() {
+        // Define lang attribute
+        this.lang = utils.assignLanguage(this.el);
+        this.updateLang();
+    }
+    render() {
+        const { hideLabel, labelFor, label, required, lang } = this;
+        return (index.h(index.Host, { key: 'ffac8e66f0bb20913277b17a04080913cc661f84', id: `label-for-${labelFor}` }, index.h("label", { key: 'b663e88ae67734de47f91cae325f0ebdfa41bbcc', htmlFor: labelFor, class: `gcds-label ${hideLabel ? 'label--hidden' : ''}` }, index.h("span", { key: 'cf9369de0b3f91bfb67087b14969e0c137cf3f99' }, label), required ? (index.h("span", { "aria-hidden": "true", class: "label--required" }, "(", I18N$d[lang].required, ")")) : null)));
+    }
+    get el() { return index.getElement(this); }
+};
+GcdsLabel.style = gcdsLabelCss;
+
+const I18N$c = {
+  en: {
+    abbreviation: 'fr',
+    heading: 'Language selection',
+    language: 'Français',
+  },
+  fr: {
+    abbreviation: 'en',
+    heading: 'Sélection de la langue',
+    language: 'English',
+  },
+};
+
+const gcdsLangToggleCss = "@layer reset, default, desktop, mobile;@layer reset{:host{display:block}:host .gcds-lang-toggle h2{margin:0;overflow:hidden;position:absolute;width:0}}@layer default{:host .gcds-lang-toggle gcds-link::part(link){display:inline-block;padding:var(--gcds-lang-toggle-padding)}:host .gcds-lang-toggle span{display:none}:host .gcds-lang-toggle abbr{text-decoration:none;text-transform:uppercase}}@layer desktop{@media screen and (width >= 48em){:host .gcds-lang-toggle gcds-link::part(link){font:var(--gcds-lang-toggle-font-desktop);padding-inline:0!important}:host .gcds-lang-toggle span{display:initial}:host .gcds-lang-toggle abbr{display:none}}}@layer mobile{@media screen and (width < 48em){:host .gcds-lang-toggle gcds-link::part(link){font:var(--gcds-lang-toggle-font-mobile)}}}";
+
+const GcdsLangToggle = class {
+    constructor(hostRef) {
+        index.registerInstance(this, hostRef);
+    }
+    /*
+     * Observe lang attribute change
+     */
+    updateLang() {
+        const observer = new MutationObserver(mutations => {
+            if (mutations[0].oldValue != this.el.lang) {
+                this.lang = this.el.lang;
+            }
+        });
+        observer.observe(this.el, utils.observerConfig);
+    }
+    async componentWillLoad() {
+        // Define lang attribute
+        this.lang = utils.assignLanguage(this.el);
+        this.updateLang();
+    }
+    render() {
+        const { lang, href } = this;
+        return (index.h(index.Host, { key: 'e7c2600f42e0d941cbaef4e2599645dfdd65348a' }, index.h("div", { key: 'f4794500d6da469c8a39ec04a21ce636b40d64ea', class: "gcds-lang-toggle" }, index.h("gcds-sr-only", { key: '9d6672ff42b404b7af4c9689cfc38197dda42cca', id: "lang-toggle__heading", tag: "h2" }, I18N$c[lang].heading), index.h("gcds-link", { key: '247e2ee655c2f9e16e7b6e19320864ef06bd8280', size: "regular", href: href, lang: I18N$c[lang].abbreviation }, index.h("span", { key: 'da07bdf4b438ad9144e5ba301a73b83c2aabf713' }, I18N$c[lang].language), index.h("abbr", { key: '10363892959c246a591463fbdbd42f605c5a164b', title: I18N$c[lang].language }, I18N$c[lang].abbreviation)))));
+    }
+    get el() { return index.getElement(this); }
+};
+GcdsLangToggle.style = gcdsLangToggleCss;
+
+const I18N$b = {
+  en: {
+    external: ' (Opens destination in a new tab.)',
+    phone: ' (Attempts to open a phone app.)',
+    download: ' (Attempts to download a file to the device.)',
+    email: ' (Opens new message in email program.)',
+  },
+  fr: {
+    external: " (Ouvre l'emplacement dans un nouvel onglet.)",
+    phone: " (Tente d'ouvrir une application de téléphonie.)",
+    download: " (Tente de télécharger un fichier sur l'appareil.)",
+    email: ' (Ouvre un nouveau message dans le logiciel de messagerie.)',
+  },
+};
+
+const gcdsLinkCss = "@layer reset, default, display, size, variant, hover, visited, focus;@layer reset{:host{display:inline}:host slot{display:initial}}@layer default{:host .gcds-link{color:var(--gcds-link-default);cursor:pointer;text-decoration-color:currentColor;text-decoration-style:solid;text-decoration-thickness:var(--gcds-link-decoration-thickness);text-underline-offset:var(--gcds-link-underline-offset);transition:all .35s}}@layer display{:host .gcds-link.d-block{display:block}}@layer size{:host .gcds-link.link--small{font:var(--gcds-link-font-small-desktop)}@media only screen and (width < 48em){:host .gcds-link.link--small{font:var(--gcds-link-font-small-mobile)}}:host .gcds-link.link--regular{font:var(--gcds-link-font-regular-desktop)}@media only screen and (width < 48em){:host .gcds-link.link--regular{font:var(--gcds-link-font-regular-mobile)}}:host .gcds-link.link--inherit{font:inherit}}@layer variant{:host .gcds-link.variant-light{color:var(--gcds-link-light)}}@layer hover{@media (hover:hover){:host .gcds-link:hover{text-decoration-thickness:var(--gcds-link-hover-decoration-thickness)}:host .gcds-link:hover:not(.variant-light){color:var(--gcds-link-hover)}}}@layer visited{:host .gcds-link:not(.variant-light):visited{color:var(--gcds-link-visited)}}@layer focus{:host .gcds-link:focus{background-color:var(--gcds-link-focus-background);border-radius:var(--gcds-link-focus-border-radius);box-shadow:var(--gcds-link-focus-box-shadow);color:var(--gcds-link-focus-text);outline:var(--gcds-link-focus-outline-width) solid var(--gcds-link-focus-background);outline-offset:var(--gcds-link-focus-outline-offset);text-decoration:none}}";
+
+const GcdsLink = class {
+    constructor(hostRef) {
+        index.registerInstance(this, hostRef);
+        this.gcdsFocus = index.createEvent(this, "gcdsFocus");
+        this.gcdsBlur = index.createEvent(this, "gcdsBlur");
+        this.gcdsClick = index.createEvent(this, "gcdsClick");
+        /**
+         * Props
+         */
+        /**
+         * Sets the main style of the link.
+         */
+        this.variant = 'default';
+        /**
+         * Set the link size
+         */
+        this.size = 'inherit';
+        /**
+         * Sets the display behavior of the link
+         */
+        this.display = 'inline';
+        /**
+         * The target attribute specifies where to open the linked document
+         */
+        this.target = '_self';
+        /**
+         * Whether the link is external or not
+         */
+        this.external = false;
+        /**
+         * Set additional HTML attributes not available in component properties
+         */
+        this.inheritedAttributes = {};
+    }
+    validateVariant(newValue) {
+        const values = ['default', 'light'];
+        if (!values.includes(newValue)) {
+            this.variant = 'default';
+        }
+    }
+    validateSize(newValue) {
+        const values = ['regular', 'small', 'inherit'];
+        if (!values.includes(newValue)) {
+            this.size = 'inherit';
+        }
+    }
+    validateDisplay(newValue) {
+        const values = ['block', 'inline'];
+        if (!values.includes(newValue)) {
+            this.display = 'inline';
+        }
+    }
+    /*
+     * Observe lang attribute change
+     */
+    updateLang() {
+        const observer = new MutationObserver(mutations => {
+            if (mutations[0].oldValue != this.el.lang) {
+                this.lang = this.el.lang;
+            }
+        });
+        observer.observe(this.el, utils.observerConfig);
+    }
+    componentWillLoad() {
+        // Validate attributes and set defaults
+        this.validateVariant(this.variant);
+        this.validateSize(this.size);
+        this.validateDisplay(this.display);
+        this.inheritedAttributes = utils.inheritAttributes(this.el, this.shadowElement, [
+            'referrerpolicy',
+        ]);
+        // Define lang attribute
+        this.lang = utils.assignLanguage(this.el);
+        this.updateLang();
+    }
+    render() {
+        const { size, lang, display, href, rel, target, external, download, type, inheritedAttributes, variant, } = this;
+        const attrs = {
+            href,
+            rel,
+            target,
+            download,
+            type,
+        };
+        const isExternal = target === '_blank' || external;
+        return (index.h(index.Host, { key: 'eba8c2fd9aa39ef8b09f444ccec5e2bc7193ebb6' }, index.h("a", Object.assign({ key: '8209fd0a90683773e0534eeb4486f40e93f995de', tabIndex: 0 }, attrs, { class: `gcds-link link--${size} ${display != 'inline' ? `d-${display}` : ''} ${variant != 'default' ? `variant-${variant}` : ''}`, ref: element => (this.shadowElement = element), target: isExternal ? '_blank' : target, rel: isExternal ? 'noopener noreferrer' : rel }, inheritedAttributes, { part: "link", onBlur: () => this.gcdsBlur.emit(), onFocus: () => this.gcdsFocus.emit(), onClick: e => utils.emitEvent(e, this.gcdsClick, href) }), index.h("slot", { key: 'da88b6de0dd78ffc8ab8e6671c83fc1393f98685' }), target === '_blank' || external ? (index.h("gcds-icon", { name: "external", label: I18N$b[lang].external, "margin-left": "75" })) : download !== undefined ? (index.h("gcds-icon", { name: "download", label: I18N$b[lang].download, "margin-left": "75" })) : href && href.toLowerCase().startsWith('mailto:') ? (index.h("gcds-icon", { name: "email", label: I18N$b[lang].email, "margin-left": "75" })) : (href &&
+            href.toLowerCase().startsWith('tel:') && (index.h("gcds-icon", { name: "phone", label: I18N$b[lang].phone, "margin-left": "75" }))))));
+    }
+    get el() { return index.getElement(this); }
+    static get watchers() { return {
+        "variant": ["validateVariant"],
+        "size": ["validateSize"],
+        "display": ["validateDisplay"]
+    }; }
+};
+GcdsLink.style = gcdsLinkCss;
+
+const gcdsNavGroupCss = "@layer reset, defaults, sideNav, topNav, mobileNav, desktop, mobile, hover, focus;@layer reset{:host *{box-sizing:border-box;margin:0;padding:0}}@layer defaults{:host{align-self:flex-end;display:flex;flex-direction:column;position:relative}:host .gcds-nav-group__trigger{align-items:center;background:transparent;border:0;color:var(--gcds-nav-group-trigger-text);cursor:pointer;display:flex;font:var(--gcds-nav-group-trigger-font);padding:var(--gcds-nav-group-trigger-padding);text-align:left;width:100%}@media only screen and (width < 64em){:host .gcds-nav-group__trigger{font:var(--gcds-nav-group-mobile-trigger-font)}}:host .gcds-nav-group__trigger[aria-expanded=false]+.gcds-nav-group__list{display:none}:host .gcds-nav-group__trigger-desc{display:none}:host ul{list-style:none}}@layer sideNav{:host .gcds-trigger--expandable{font-weight:var(--gcds-nav-group-side-nav-trigger-font-weight);margin-block-end:var(--gcds-nav-group-side-nav-trigger-margin)}:host .gcds-trigger--expandable gcds-icon{margin-inline-end:var(--gcds-nav-group-side-nav-trigger-icon-margin)}}@layer topNav{:host .gcds-trigger--dropdown{font:var(--gcds-nav-group-top-nav-font);padding:var(--gcds-nav-group-top-nav-trigger-padding);text-decoration:underline solid currentColor var(--gcds-nav-group-top-nav-trigger-decoration-thickness);text-decoration-color:transparent;text-underline-offset:var(\n      --gcds-nav-group-top-nav-trigger-underline-offset\n    );transition:all .25s ease-in-out}:host .gcds-trigger--dropdown[aria-expanded=true]{background-color:var(\n        --gcds-nav-group-top-nav-trigger-expanded-background-color\n      )}:host .gcds-trigger--dropdown gcds-icon{margin-inline-start:var(--gcds-nav-group-top-nav-trigger-icon-margin);order:2}}@layer mobileNav{:host(.gcds-mobile-nav){width:100%}:host(.gcds-mobile-nav) .gcds-trigger--expandable{border:var(--gcds-nav-group-mobile-trigger-border-width) solid;border-radius:var(--gcds-nav-group-mobile-trigger-border-radius);color:var(--gcds-nav-group-mobile-trigger-text);flex-direction:row-reverse;font:var(--gcds-nav-group-mobile-trigger-font);justify-content:center;margin-block-start:var(--gcds-nav-group-mobile-trigger-margin);text-align:center}:host(.gcds-mobile-nav) .gcds-trigger--expandable gcds-icon{display:none}:host([open].gcds-mobile-nav){background-color:var(--gcds-nav-group-mobile-background);height:100vh;left:0;overflow-y:scroll;padding:var(--gcds-nav-group-mobile-padding)!important;position:fixed;top:0;width:100%;z-index:100}}@layer desktop{@media only screen and (width >= 64em){:host .gcds-nav-group__trigger{max-width:var(--gcds-nav-group-trigger-max-width)}:host .gcds-nav--expandable{padding-inline-start:var(--gcds-nav-group-side-nav-dropdown-padding)}:host .gcds-nav--dropdown{background-color:var(--gcds-nav-group-top-nav-dropdown-background);border-radius:var(--gcds-border-radius-md);box-shadow:var(--gcds-nav-group-top-nav-dropdown-box-shadow);left:0;margin-block-start:var(--gcds-spacing-200);padding:var(--gcds-nav-group-top-nav-dropdown-padding);position:absolute;top:100%;width:var(--gcds-nav-group-top-nav-dropdown-width);z-index:1}:host .gcds-nav--dropdown.dropdown-right{left:auto;right:0}:host(.gcds-mobile-nav)>.gcds-nav--expandable{display:block;padding:0}:host(.gcds-mobile-nav) .gcds-trigger--expandable{display:none}:host(.gcds-mobile-nav-topnav)>.gcds-nav--expandable{display:flex}}}@layer mobile{@media only screen and (width < 64em){:host(.gcds-mobile-nav)>.gcds-nav--expandable{margin:var(--gcds-nav-group-mobile-list-margin)}:host([open]:not(.gcds-mobile-nav)) .gcds-nav-group__list{padding-inline-start:var(--gcds-nav-group-side-nav-dropdown-padding)}}@media only screen and (48em < width < 64em){:host(.gcds-mobile-nav) .gcds-trigger--expandable{align-self:flex-start;width:auto}}}@layer hover{@media (hover:hover){:host .gcds-nav-group__trigger:hover{color:var(--gcds-nav-group-trigger-hover-text)}:host .gcds-trigger--dropdown:hover{color:var(--gcds-nav-group-top-nav-trigger-hover-text);text-decoration-color:var(--gcds-nav-group-top-nav-trigger-hover-text);text-decoration-thickness:var(\n          --gcds-nav-group-top-nav-trigger-hover-decoration-thickness\n        )}:host .gcds-trigger--expandable:hover{background-color:var(\n          --gcds-nav-group-side-nav-trigger-hover-background\n        )}}}@layer focus{:host .gcds-nav-group__trigger:focus{background-color:var(--gcds-nav-group-trigger-focus-background);border-color:var(--gcds-nav-group-trigger-focus-background);border-radius:var(--gcds-nav-group-trigger-focus-border-radius);box-shadow:var(--gcds-nav-group-trigger-focus-box-shadow);color:var(--gcds-nav-group-trigger-focus-text);outline:var(--gcds-nav-group-trigger-focus-outline);outline-offset:var(--gcds-nav-group-trigger-focus-outline-offset);text-decoration:none}}";
+
+const GcdsNavGroup = class {
+    constructor(hostRef) {
+        index.registerInstance(this, hostRef);
+        this.gcdsClick = index.createEvent(this, "gcdsClick");
+        this.gcdsFocus = index.createEvent(this, "gcdsFocus");
+        this.gcdsBlur = index.createEvent(this, "gcdsBlur");
+        /**
+         * Has the nav group been expanded
+         */
+        this.open = false;
+    }
+    // Close dropdowns on focusout when on desktop screen size
+    async focusOutListener(e) {
+        if ((e.target === this.el || this.el.contains(e.target)) &&
+            !this.el.contains(e.relatedTarget) &&
+            this.navStyle === 'dropdown' &&
+            this.open &&
+            window.innerWidth >= 1024) {
+            setTimeout(() => this.toggleNav(), 200);
+        }
+    }
+    /**
+     * Focus button element
+     */
+    async focusTrigger() {
+        this.triggerElement.focus();
+    }
+    /**
+     * Toggle the nav open or closed
+     */
+    async toggleNav() {
+        this.open = !this.open;
+        // Close any child nav-groups
+        for (let i = 0; i < this.el.children.length; i++) {
+            if (this.el.children[i].nodeName == 'GCDS-NAV-GROUP' &&
+                this.el.children[i].hasAttribute('open')) {
+                this.el.children[i].toggleNav();
+            }
+        }
+        // Dropdown exception - Close child dropdown nav-groups if opened in mobile menu
+        if (this.el.classList.contains('gcds-mobile-nav-topnav')) {
+            const topnav = utils.closestElement('gcds-top-nav', this.el);
+            const childNavGroups = topnav.querySelectorAll('gcds-nav-group');
+            childNavGroups.forEach(navGroup => {
+                if (navGroup.hasAttribute('open')) {
+                    navGroup.toggleNav();
+                }
+            });
+        }
+        // Remove ability to scroll page when mobile menu is open
+        if (this.el.classList.contains('gcds-mobile-nav')) {
+            if (this.open) {
+                this.navPosiiton = window.scrollY;
+                document.body.style.position = 'fixed';
+            }
+            else {
+                document.body.style.removeProperty('position');
+                window.scrollTo(0, this.navPosiiton);
+            }
+        }
+    }
+    /*
+     * Observe lang attribute change
+     */
+    updateLang() {
+        const observer = new MutationObserver(mutations => {
+            if (mutations[0].oldValue != this.el.lang) {
+                this.lang = this.el.lang;
+            }
+        });
+        observer.observe(this.el, utils.observerConfig);
+    }
+    async componentWillLoad() {
+        // Define lang attribute
+        this.lang = utils.assignLanguage(this.el);
+        this.updateLang();
+        if (this.el.parentNode.nodeName == 'GCDS-TOP-NAV') {
+            // Set the navStyle to 'dropdown' and add a class for alignment if specified
+            this.navStyle = 'dropdown';
+            // Get the alignment value from the parent + append the corresponding class
+            const alignment = this.el.parentNode.getAttribute('alignment');
+            if (alignment === 'right') {
+                this.navStyle += ' dropdown-right';
+            }
+            if (this.open) {
+                this.open = false;
+            }
+        }
+        else {
+            this.navStyle = 'expandable';
+        }
+        if (this.el.parentNode.nodeName == 'GCDS-NAV-GROUP' &&
+            !this.el.parentNode.classList.contains('gcds-mobile-nav') &&
+            this.el.closest('gcds-top-nav')) {
+            this.el.remove();
+        }
+    }
+    render() {
+        const { closeTrigger, menuLabel, open, openTrigger } = this;
+        return (index.h(index.Host, { key: 'c71df7673d06bb55988dff8143bb00168594cea0', role: "listitem", open: open }, index.h("button", { key: '07158008e249074d2315362b170cd8c0588f9db4', "aria-haspopup": "true", tabIndex: 0, "aria-expanded": open.toString(), ref: element => (this.triggerElement = element), class: `gcds-nav-group__trigger gcds-trigger--${this.navStyle}`, onBlur: () => this.gcdsBlur.emit(), onFocus: () => this.gcdsFocus.emit(), onClick: e => {
+                const event = utils.emitEvent(e, this.gcdsClick);
+                if (event) {
+                    this.toggleNav();
+                }
+            } }, index.h("gcds-icon", { key: '82b92e7b6a0625d597ed3e82e809012910d777cf', name: open ? 'chevron-up' : 'chevron-down' }), closeTrigger && open ? closeTrigger : openTrigger), index.h("ul", { key: '57e45d8e023202556eb34847312ee4e65aeee00d', "aria-label": menuLabel, class: `gcds-nav-group__list gcds-nav--${this.navStyle}` }, index.h("slot", { key: '7982c8317548d37997f989065b258c450fb95bc9' }))));
+    }
+    get el() { return index.getElement(this); }
+};
+GcdsNavGroup.style = gcdsNavGroupCss;
+
+const gcdsNavLinkCss = "@layer reset, default, variants, hover, active, focus;@layer reset{:host .gcds-nav-link{box-sizing:border-box}:host .gcds-nav-link slot{display:initial}}@layer default{:host .gcds-nav-link{border-inline:var(--gcds-nav-link-border-width) solid transparent;color:var(--gcds-nav-link-default-text);display:flex;font:var(--gcds-nav-link-font);margin-block-end:var(--gcds-nav-link-margin);padding:var(--gcds-nav-link-padding);text-decoration-color:currentColor;text-decoration-line:underline;text-decoration-style:solid;text-decoration-thickness:var(--gcds-nav-link-default-decoration-thickness);text-underline-offset:var(--gcds-nav-link-default-underline-offset);transition:all .25s ease-in-out}@media only screen and (width < 64em){:host .gcds-nav-link{font:var(--gcds-nav-link-font-mobile);min-width:50%}}@media only screen and (width > 48em){:host .gcds-nav-link{max-width:var(--gcds-nav-link-default-max-width)}}:host .gcds-nav-link[aria-current=page]{pointer-events:none;text-decoration:none}}@layer variants{@media only screen and (width >= 64em){:host>.gcds-nav-link--topnav.gcds-nav-link{border-block:var(--gcds-nav-link-border-width) solid transparent;border-inline:0;color:var(--gcds-nav-link-top-nav-text);font:var(--gcds-nav-link-top-nav-font);margin:var(--gcds-nav-link-top-nav-margin);padding:var(--gcds-nav-link-top-nav-padding)}:host>.gcds-nav-link--topnav.gcds-nav-link:not(:hover){text-decoration-color:transparent}:host([slot=home])>.gcds-nav-link{font:var(--gcds-nav-link-top-nav-home-font);padding:var(--gcds-nav-link-top-nav-home-padding)}}:host>.gcds-nav-link--sidenav.gcds-nav-link{padding:var(--gcds-nav-link-side-nav-padding)}}@layer hover{@media (hover:hover){:host .gcds-nav-link:hover{color:var(--gcds-nav-link-hover-text);text-decoration-thickness:var(\n        --gcds-nav-link-hover-decoration-thickness\n      )}:host>.gcds-nav-link--dropdown.gcds-nav-link:hover,:host>.gcds-nav-link--sidenav.gcds-nav-link:hover{color:var(--gcds-nav-link-hover-text)}:host>.gcds-nav-link--sidenav.gcds-nav-link:hover{background-color:var(--gcds-nav-link-side-nav-hover-background)}:host>.gcds-nav-link--dropdown.gcds-nav-link:hover{background-color:var(--gcds-nav-link-top-nav-hover-background)}}}@layer active{:host .gcds-nav-link[aria-current=page]{background-color:var(--gcds-nav-link-active-background);border-inline-start-color:var(--gcds-nav-link-active-border-color);color:var(--gcds-nav-link-active-text)}@media only screen and (width >= 64em){:host>.gcds-nav-link--topnav.gcds-nav-link[aria-current=page]{background-color:transparent;border-block-end-color:var(--gcds-nav-link-active-border-color);color:var(--gcds-nav-link-top-nav-text)}}:host>.gcds-nav-link--sidenav.gcds-nav-link[aria-current=page]{font-weight:var(--gcds-nav-link-active-font-weight)}}@layer focus{:host .gcds-nav-link:focus{background-color:var(--gcds-nav-link-focus-background);border-color:var(--gcds-nav-link-focus-background);border-radius:var(--gcds-nav-link-focus-border-radius);box-shadow:var(--gcds-nav-link-focus-box-shadow);color:var(--gcds-nav-link-focus-text);outline:var(--gcds-nav-link-focus-outline);outline-offset:var(--gcds-nav-link-focus-outline-offset);text-decoration:none}}";
+
+const GcdsNavLink = class {
+    constructor(hostRef) {
+        index.registerInstance(this, hostRef);
+        this.gcdsClick = index.createEvent(this, "gcdsClick");
+        this.gcdsFocus = index.createEvent(this, "gcdsFocus");
+        this.gcdsBlur = index.createEvent(this, "gcdsBlur");
+    }
+    /**
+     * Focus the link element
+     */
+    async focusLink() {
+        this.linkElement.focus();
+    }
+    /*
+     * Observe lang attribute change
+     */
+    updateLang() {
+        const observer = new MutationObserver(mutations => {
+            if (mutations[0].oldValue != this.el.lang) {
+                this.lang = this.el.lang;
+            }
+        });
+        observer.observe(this.el, utils.observerConfig);
+    }
+    async componentWillLoad() {
+        // Define lang attribute
+        this.lang = utils.assignLanguage(this.el);
+        this.updateLang();
+        if (this.el.closest('gcds-top-nav')) {
+            if (this.el.parentNode.nodeName == 'GCDS-TOP-NAV') {
+                this.navStyle = 'topnav';
+            }
+            else {
+                this.navStyle = 'dropdown';
+            }
+        }
+        else {
+            this.navStyle = 'sidenav';
+        }
+    }
+    render() {
+        const { current, href } = this;
+        const linkAttrs = {};
+        if (current) {
+            linkAttrs['aria-current'] = 'page';
+        }
+        return (index.h(index.Host, { key: 'a381fdebeff295a9a9e40ff6f09bab36e12256d2', role: "listitem" }, index.h("a", Object.assign({ key: '374dc368ccd6314793c1bccc6a6d25029bc5861d', class: `gcds-nav-link gcds-nav-link--${this.navStyle}`, href: href }, linkAttrs, { tabIndex: 0, onBlur: () => this.gcdsBlur.emit(), onFocus: () => this.gcdsFocus.emit(), onClick: e => utils.emitEvent(e, this.gcdsClick, href), ref: element => (this.linkElement = element) }), index.h("slot", { key: 'e558346c42b2eeee6907d4c671729ed711b6cc12' }))));
+    }
+    get el() { return index.getElement(this); }
+};
+GcdsNavLink.style = gcdsNavLinkCss;
+
+const I18N$a = {
+  en: {
+    success: 'Success: ',
+    info: 'Information: ',
+    warning: 'Warning: ',
+    danger: 'Danger: '
+  },
+  fr: {
+    success: 'Succès : ',
+    info: 'Information : ',
+    warning: 'Avertissement : ',
+    danger: 'Danger : '
+  },
+};
+
+const gcdsNoticeCss = "@layer reset, default, type;@layer reset{:host{display:block}:host .gcds-notice{box-sizing:border-box;text-align:left}:host .gcds-notice slot{display:initial}}@layer default{:host .gcds-notice{color:var(--gcds-notice-text);display:grid;gap:var(--gcds-notice-icon-gap);grid-template-columns:var(--gcds-notice-icon-width) auto}:host .gcds-notice .notice__heading{--gcds-heading-h2-desktop:var(\n        --gcds-notice-content-heading-font-desktop\n      );--gcds-heading-h2-mobile:var(--gcds-notice-content-heading-font-mobile);--gcds-heading-h4-desktop:var(\n        --gcds-notice-content-heading-font-desktop\n      );--gcds-heading-h4-mobile:var(--gcds-notice-content-heading-font-mobile);--gcds-heading-h5-desktop:var(\n        --gcds-notice-content-heading-font-desktop\n      );--gcds-heading-h5-mobile:var(--gcds-notice-content-heading-font-mobile);margin-block-start:var(--gcds-notice-content-heading-margin-block-start-desktop)}@media only screen and (width < 48em){:host .gcds-notice .notice__heading{margin-block-start:var(--gcds-notice-content-heading-margin-block-start-mobile)}}:host .gcds-notice .notice__icon{margin:var(--gcds-notice-icon-margin)}:host .gcds-notice .notice__icon:before{background-color:currentColor;content:\"\";display:block;height:var(--gcds-notice-icon-before-height);margin:0 auto;width:var(--gcds-notice-border-width)}:host .gcds-notice .notice__icon:after{background-color:currentColor;content:\"\";display:block;height:var(--gcds-notice-icon-after-height);margin:0 auto;width:var(--gcds-notice-border-width)}:host .gcds-notice ::slotted(*){font:var(--gcds-notice-content-slotted-font-desktop);margin-block-start:0}@media only screen and (width < 48em){:host .gcds-notice ::slotted(*){font:var(--gcds-notice-content-slotted-font-mobile)}}:host .gcds-notice ::slotted(:last-child){margin-block-end:0}:host .gcds-notice ::slotted(:not(:last-child)){margin-block-end:var(--gcds-notice-content-slotted-margin)}:host .gcds-notice ::slotted(ol),:host .gcds-notice ::slotted(ul){margin-inline-start:var(--gcds-notice-content-slotted-list-margin);padding:0}}@layer type{:host .gcds-notice.notice--type-danger .notice__icon{color:var(--gcds-notice-danger-text)}:host .gcds-notice.notice--type-info .notice__icon{color:var(--gcds-notice-info-text)}:host .gcds-notice.notice--type-success .notice__icon{color:var(--gcds-notice-success-text)}:host .gcds-notice.notice--type-warning .notice__icon{color:var(--gcds-notice-warning-text)}}";
+
+const GcdsNotice = class {
+    constructor(hostRef) {
+        index.registerInstance(this, hostRef);
+        /**
+         * States
+         */
+        /**
+         * State to track validation on properties
+         * Contains a list of properties that have an error associated with them
+         */
+        this.errors = [];
+    }
+    validateType() {
+        if (!this.type) {
+            this.errors.push('type');
+        }
+        else if (this.errors.includes('type')) {
+            this.errors.splice(this.errors.indexOf('type'), 1);
+        }
+    }
+    validateNoticeTitle() {
+        if (!this.noticeTitle || this.noticeTitle === '') {
+            this.errors.push('noticeTitle');
+        }
+        else if (this.errors.includes('noticeTitle')) {
+            this.errors.splice(this.errors.indexOf('noticeTitle'), 1);
+        }
+    }
+    validateNoticeTitleTag() {
+        if (!this.noticeTitleTag ||
+            !['h2', 'h3', 'h4', 'h5'].includes(this.noticeTitleTag)) {
+            this.errors.push('noticeTitleTag');
+        }
+        else if (this.errors.includes('noticeTitleTag')) {
+            this.errors.splice(this.errors.indexOf('noticeTitleTag'), 1);
+        }
+    }
+    /*
+     * Observe lang attribute change
+     */
+    updateLang() {
+        const observer = new MutationObserver(mutations => {
+            if (mutations[0].oldValue != this.el.lang) {
+                this.lang = this.el.lang;
+            }
+        });
+        observer.observe(this.el, utils.observerConfig);
+    }
+    validateChildren() {
+        if (this.el.innerHTML.trim() == '') {
+            this.errors.push('children');
+        }
+        else if (this.errors.includes('children')) {
+            this.errors.splice(this.errors.indexOf('children'), 1);
+        }
+    }
+    validateRequiredProps() {
+        this.validateNoticeTitle();
+        this.validateType();
+        this.validateNoticeTitleTag();
+        this.validateChildren();
+        if (this.errors.includes('type') ||
+            this.errors.includes('noticeTitle') ||
+            this.errors.includes('noticeTitleTag') ||
+            this.errors.includes('children')) {
+            return false;
+        }
+        return true;
+    }
+    async componentWillLoad() {
+        // Define lang attribute
+        this.lang = utils.assignLanguage(this.el);
+        this.updateLang();
+        let valid = this.validateRequiredProps();
+        if (!valid) {
+            utils.logError('gcds-notice', this.errors);
+        }
+    }
+    render() {
+        const { type, noticeTitle, noticeTitleTag } = this;
+        const iconTypes = {
+            danger: 'exclamation-circle',
+            info: 'info-circle',
+            success: 'checkmark-circle',
+            warning: 'warning-triangle',
+        };
+        return (index.h(index.Host, { key: 'fd1270c1f55a73317a453144bdd787f73a6b1718' }, this.validateRequiredProps() && (index.h("section", { key: '5b69754984e2f26df7789f87ed53f956af36da76', class: `gcds-notice notice--type-${type}` }, index.h("gcds-icon", { key: '7819caaf5a09fb193ddf6b2d0e90e113364322cc', class: "notice__icon", size: "h4", name: iconTypes[type] }), index.h("div", { key: 'b2a6473df7b38f923bcff4660d9cc734d4a682e9' }, index.h("gcds-heading", { key: 'f357202ef4784a28c1fa632c2612f358b0884c19', tag: noticeTitleTag, "margin-top": "0", "margin-bottom": "100", class: "notice__heading" }, index.h("gcds-sr-only", { key: '61442ee69436efcf44645e12d48ced7098671d57', tag: "span" }, I18N$a[this.lang][type]), noticeTitle), index.h("slot", { key: 'c213505d6bd3a75af3987b147d81d66e2c7d8415' }))))));
+    }
+    get el() { return index.getElement(this); }
+};
+GcdsNotice.style = gcdsNoticeCss;
+
+const I18N$9 = {
+  en: {
+    next: 'Next',
+    previous: 'Previous',
+    previousMobile: 'Prev',
+    nextPage: 'Next page',
+    previousPage: 'Previous page',
+    pageNumber: 'Page {#}',
+    pageNumberOf: 'Page {#} of {total} of {label}',
+  },
+  fr: {
+    next: 'Suivante',
+    previous: 'Précédent',
+    previousMobile: 'Préc.',
+    nextPage: 'Page suivante',
+    previousPage: 'Page précédente',
+    pageNumber: 'Page {#}',
+    pageNumberOf: 'Page {#} sur {total} des {label}',
+  },
+};
+
+/**
+ * Function to constuct href attribute from url object
+ * Also looks for ::offset and ::match to increment query string values
+ */
+function constructHref(url, page, end) {
+    let fragment = '';
+    let qs = '';
+    let count = 0;
+    for (const key in url.queryStrings) {
+        let queryKey = key;
+        let queryValue = url.queryStrings[key];
+        if (key.includes('::')) {
+            const incrementer = key.split('::')[1];
+            const regExp = /\{\{([^)]+)\}\}/;
+            const matches = regExp.exec(url.queryStrings[key]);
+            // Offeset numbers
+            if (incrementer == 'offset') {
+                let pageNumber = page;
+                if (end == 'next') {
+                    ++pageNumber;
+                }
+                else if (end == 'previous') {
+                    --pageNumber;
+                }
+                queryValue = matches
+                    ? url.queryStrings[key].replace(`{{${matches[1]}}}`, `${(pageNumber - 1) * Number(matches[1])}`)
+                    : (pageNumber - 1) * url.queryStrings[key];
+                queryKey = queryKey.replace('::offset', '');
+            }
+            // Match page number
+            if (incrementer == 'match') {
+                let pageNumber = page;
+                if (end == 'next') {
+                    ++pageNumber;
+                }
+                else if (end == 'previous') {
+                    --pageNumber;
+                }
+                queryValue = matches
+                    ? url.queryStrings[key].replace(`{{${matches[1]}}}`, `${pageNumber * Number(matches[1])}`)
+                    : pageNumber * url.queryStrings[key];
+                queryKey = queryKey.replace('::match', '');
+            }
+        }
+        if (count == 0) {
+            qs += `?${queryKey}=${queryValue}`;
+        }
+        else {
+            qs += `&${queryKey}=${queryValue}`;
+        }
+        ++count;
+    }
+    if (url.fragment) {
+        fragment = `#${url.fragment}`;
+    }
+    const href = `${qs}${fragment}`;
+    return href;
+}
+/**
+ * Function to constuct classes to help with mobile sizing
+ */
+function constructClasses(page, current, total) {
+    if (total <= 5) {
+        return '';
+    }
+    else if (current == 1 || current == total) {
+        if (current - page == 4 || current - page == -4) {
+            return 'gcds-pagination-list-breakpoint-xxs';
+        }
+        else if (current - page == 5 || current - page == -5) {
+            return 'gcds-pagination-list-breakpoint-xs';
+        }
+        else if (current - page > 5 || current - page < -5) {
+            return 'gcds-pagination-list-breakpoint-sm';
+        }
+    }
+    else if (current == 2 || current == total - 1) {
+        if (current - page == 3 || current - page == -3) {
+            return 'gcds-pagination-list-breakpoint-xxs';
+        }
+        else if (current - page == 4 || current - page == -4) {
+            return 'gcds-pagination-list-breakpoint-xs';
+        }
+        else if (current - page > 4 || current - page < -4) {
+            return 'gcds-pagination-list-breakpoint-sm';
+        }
+    }
+    else if (current > 2 && current < total - 1 && total < 10 && current == 5) {
+        if (current - page == 2 || current - page == -2) {
+            return 'gcds-pagination-list-breakpoint-xs';
+        }
+        else if (current - page >= 3 || current - page <= -3) {
+            return 'gcds-pagination-list-breakpoint-sm';
+        }
+    }
+    else if (current > 2 && current < total - 1) {
+        if (current - page == 2 || current - page == -2) {
+            return 'gcds-pagination-list-breakpoint-xxs';
+        }
+        else if (current - page == 3 || current - page == -3) {
+            return 'gcds-pagination-list-breakpoint-xs';
+        }
+        else if (current - page > 3 || current - page < -3) {
+            return 'gcds-pagination-list-breakpoint-sm';
+        }
+    }
+}
+
+const gcdsPaginationCss = "@layer reset, default, list, simple, wide, compact, hover, active, focus;@layer reset{:host{display:block}:host .gcds-pagination ul{list-style:none;padding:0}}@layer default{:host .gcds-pagination{container:component pagination/inline-size}:host .gcds-pagination li{margin:var(--gcds-pagination-listitem-margin)}:host .gcds-pagination li a{border-radius:var(--gcds-pagination-border-radius);color:var(--gcds-pagination-default-text);font:var(--gcds-pagination-font-desktop)}@media only screen and (width < 48em){:host .gcds-pagination li a{font:var(--gcds-pagination-font-mobile)}}}@layer list{:host .gcds-pagination :is(.gcds-pagination-list,.gcds-pagination-list-mobile-prevnext){display:flex;flex-direction:row;margin:0 auto;width:fit-content}:host .gcds-pagination :is(.gcds-pagination-list,.gcds-pagination-list-mobile-prevnext) li a,:host .gcds-pagination :is(.gcds-pagination-list,.gcds-pagination-list-mobile-prevnext) li>span.gcds-pagination-list-ellipses{align-items:center;display:flex;height:3rem;justify-content:center;min-width:3rem}:host .gcds-pagination :is(.gcds-pagination-list,.gcds-pagination-list-mobile-prevnext) li a.gcds-pagination-end-button,:host .gcds-pagination :is(.gcds-pagination-list,.gcds-pagination-list-mobile-prevnext) li a.gcds-pagination-end-button-mobile,:host .gcds-pagination :is(.gcds-pagination-list,.gcds-pagination-list-mobile-prevnext) li>span.gcds-pagination-list-ellipses.gcds-pagination-end-button,:host .gcds-pagination :is(.gcds-pagination-list,.gcds-pagination-list-mobile-prevnext) li>span.gcds-pagination-list-ellipses.gcds-pagination-end-button-mobile{height:auto;min-width:auto;padding:var(--gcds-pagination-list-end-button-padding);text-decoration:none;width:auto}:host .gcds-pagination :is(.gcds-pagination-list,.gcds-pagination-list-mobile-prevnext) li a.gcds-pagination-end-button span,:host .gcds-pagination :is(.gcds-pagination-list,.gcds-pagination-list-mobile-prevnext) li a.gcds-pagination-end-button-mobile span,:host .gcds-pagination :is(.gcds-pagination-list,.gcds-pagination-list-mobile-prevnext) li>span.gcds-pagination-list-ellipses.gcds-pagination-end-button span,:host .gcds-pagination :is(.gcds-pagination-list,.gcds-pagination-list-mobile-prevnext) li>span.gcds-pagination-list-ellipses.gcds-pagination-end-button-mobile span{text-decoration:underline}:host .gcds-pagination :is(.gcds-pagination-list,.gcds-pagination-list-mobile-prevnext) li.gcds-pagination-mobile-prevnext{display:none}:host .gcds-pagination :is(.gcds-pagination-list,.gcds-pagination-list-mobile-prevnext) li.gcds-pagination-list-mobile-ellipses{display:none}:host .gcds-pagination .gcds-pagination-list-mobile-prevnext{display:flex;margin:var(--gcds-pagination-mobile-list-prevnext-margin)}}@layer simple{:host .gcds-pagination-simple{display:flex;flex-direction:column;justify-content:space-between}:host .gcds-pagination-simple li{display:inline-block;justify-content:space-between;margin:var(--gcds-pagination-simple-listitem-margin);width:fit-content}:host .gcds-pagination-simple li a{display:grid;padding:var(--gcds-pagination-simple-padding)}:host .gcds-pagination-simple li a>gcds-icon{grid-area:icon}:host .gcds-pagination-simple li a>.gcds-pagination-simple-text{grid-area:text;margin:var(--gcds-pagination-simple-listitem-text-margin)}:host .gcds-pagination-simple li a>span{font-weight:var(--gcds-pagination-simple-label-font-weight);grid-area:label}:host .gcds-pagination-simple .gcds-pagination-simple-next a,:host .gcds-pagination-simple .gcds-pagination-simple-previous a{text-decoration:none}:host .gcds-pagination-simple .gcds-pagination-simple-next a .gcds-pagination-simple-text,:host .gcds-pagination-simple .gcds-pagination-simple-next a span,:host .gcds-pagination-simple .gcds-pagination-simple-previous a .gcds-pagination-simple-text,:host .gcds-pagination-simple .gcds-pagination-simple-previous a span{text-decoration:underline}:host .gcds-pagination-simple .gcds-pagination-simple-previous a{grid-template-areas:\"icon text\" \"icon label\";grid-template-columns:.25fr 1fr}:host .gcds-pagination-simple .gcds-pagination-simple-next a{grid-template-areas:\"text icon\" \"label icon\";grid-template-columns:1fr .25fr}}@layer wide{@container pagination (width > 44em){:host .gcds-pagination-list-mobile-prevnext{display:none}}@container pagination (width > 20em){:host .gcds-pagination-simple{flex-direction:row}:host .gcds-pagination-simple .gcds-pagination-simple-next{margin-left:auto}}}@layer compact{@container pagination (width <= 44em){:host .gcds-pagination :is(.gcds-pagination-list,.gcds-pagination-list-mobile-prevnext) li a{border:var(--gcds-pagination-border-width) solid}:host .gcds-pagination :is(.gcds-pagination-list,.gcds-pagination-list-mobile-prevnext) li>span.gcds-pagination-list-ellipses{min-width:auto}:host .gcds-pagination :is(.gcds-pagination-list,.gcds-pagination-list-mobile-prevnext) li:has(>a.gcds-pagination-end-button){margin:0}:host .gcds-pagination :is(.gcds-pagination-list,.gcds-pagination-list-mobile-prevnext) li .gcds-pagination-end-button{display:none}:host .gcds-pagination :is(.gcds-pagination-list,.gcds-pagination-list-mobile-prevnext) li.gcds-pagination-mobile-prevnext{display:block}}@container pagination (width <= 30em){:host .gcds-pagination-list .gcds-pagination-list-breakpoint-sm{display:none}}@container pagination (width <= 27.5em){:host .gcds-pagination-list .gcds-pagination-list-breakpoint-xs{display:none}}@container pagination (width <= 25em){:host .gcds-pagination-list .gcds-pagination-list-breakpoint-xxs{display:none}}@container pagination (width <= 19em){:host .gcds-pagination-list li{margin:var(--gcds-pagination-mobile-list-item-margin)}}}@layer hover{@media (hover:hover){:host .gcds-pagination ul li a:hover{background:var(--gcds-pagination-hover-background);color:var(--gcds-pagination-hover-text)}}}@layer active{:host .gcds-pagination ul li a:active:not(:focus),:host .gcds-pagination ul li a[aria-current*=page]:not(:focus){background:var(--gcds-pagination-active-background);border-color:var(--gcds-pagination-active-background);color:var(--gcds-pagination-active-text);text-decoration:none}}@layer focus{:host .gcds-pagination ul li a:focus{background-color:var(--gcds-pagination-focus-background);border-color:var(--gcds-pagination-focus-background);box-shadow:var(--gcds-pagination-focus-box-shadow);color:var(--gcds-pagination-focus-text);outline:var(--gcds-pagination-focus-outline-width) solid var(--gcds-pagination-focus-background);outline-offset:var(--gcds-pagination-border-width);text-decoration:none}}";
+
+const GcdsPagination = class {
+    constructor(hostRef) {
+        index.registerInstance(this, hostRef);
+        this.gcdsFocus = index.createEvent(this, "gcdsFocus");
+        this.gcdsBlur = index.createEvent(this, "gcdsBlur");
+        this.gcdsClick = index.createEvent(this, "gcdsClick");
+        this.listitems = [];
+        this.mobilePrevNext = [];
+        /*
+         * Props
+         */
+        /**
+         * Navigation element label
+         */
+        this.display = 'list';
+    }
+    watchCurrentPage(newValue) {
+        this.currentStep = newValue;
+    }
+    /**
+     * Convert url prop to object
+     * (Object props get treated as string when using Stencil components without a framework)
+     */
+    urlChanged(newUrl) {
+        if (typeof newUrl == 'string') {
+            this.urlObject = JSON.parse(newUrl);
+        }
+        else if (typeof newUrl == 'object') {
+            this.urlObject = newUrl;
+        }
+    }
+    watchLang() {
+        if (this.display == 'list') {
+            this.configureListPagination();
+        }
+    }
+    /**
+     * Function to constuct <li> and <a> tags for display="list" pagination
+     */
+    configurePaginationStep(page, end, mobile) {
+        const href = this.urlObject
+            ? constructHref(this.urlObject, page, end)
+            : 'javascript:void(0)';
+        const linkAttrs = {
+            'href': href,
+            'tabindex': 0,
+            'aria-label': !end
+                ? I18N$9[this.lang].pageNumberOf
+                    .replace('{#}', page)
+                    .replace('{total}', this.totalPages)
+                    .replace('{label}', this.label)
+                : end == 'next'
+                    ? `${I18N$9[this.lang].nextPage}: ${I18N$9[this.lang].pageNumberOf
+                        .replace('{#}', ++page)
+                        .replace('{total}', this.totalPages)
+                        .replace('{label}', this.label)}`
+                    : `${I18N$9[this.lang].previousPage}: ${I18N$9[this.lang].pageNumberOf
+                        .replace('{#}', --page)
+                        .replace('{total}', this.totalPages)
+                        .replace('{label}', this.label)}`,
+            'onBlur': () => this.gcdsBlur.emit(),
+            'onFocus': () => this.gcdsFocus.emit(),
+            'onClick': e => utils.emitEvent(e, this.gcdsClick, { page: page, href }),
+        };
+        if (page == this.currentPage && !end) {
+            linkAttrs['aria-current'] = 'page';
+        }
+        if (end) {
+            return (index.h("li", null, end === 'next' ? (index.h("a", Object.assign({}, linkAttrs, { class: !mobile
+                    ? 'gcds-pagination-end-button'
+                    : 'gcds-pagination-end-button-mobile' }), index.h("span", null, I18N$9[this.lang].next), index.h("gcds-icon", { "margin-left": "150", name: "chevron-right" }))) : (index.h("a", Object.assign({}, linkAttrs, { class: !mobile
+                    ? 'gcds-pagination-end-button'
+                    : 'gcds-pagination-end-button-mobile' }), index.h("gcds-icon", { "margin-right": "150", name: "chevron-left" }), index.h("span", null, mobile
+                ? I18N$9[this.lang].previousMobile
+                : I18N$9[this.lang].previous)))));
+        }
+        else {
+            return (index.h("li", { class: page != 1 && page != this.totalPages
+                    ? constructClasses(page, this.currentPage, this.totalPages)
+                    : '' }, index.h("a", Object.assign({}, linkAttrs), page)));
+        }
+    }
+    /**
+     * Function to render the right steps for display="list" pagination
+     */
+    configureListPagination() {
+        this.listitems = [];
+        this.mobilePrevNext = [];
+        if (this.currentPage != 1) {
+            this.listitems.push(this.configurePaginationStep(this.currentPage, 'previous'));
+            this.mobilePrevNext.push(this.configurePaginationStep(this.currentPage, 'previous', true));
+        }
+        // Flags to see if ellipses already rendered
+        let previousEllipses = false;
+        let nextEllipses = false;
+        for (let i = 1; i <= this.totalPages; i++) {
+            // Left side mobile ellipses
+            if (i == 2 &&
+                this.currentPage < 6 &&
+                this.currentPage > 3 &&
+                this.totalPages > 9) {
+                this.listitems.push(index.h("li", { class: `gcds-pagination-list-mobile-ellipses`, "aria-hidden": "true" }, index.h("span", { class: "gcds-pagination-list-ellipses" }, "...")));
+            }
+            else if (i == 2 &&
+                this.totalPages < 10 &&
+                this.totalPages > 5 &&
+                this.currentPage > 3) {
+                this.listitems.push(index.h("li", { class: `gcds-pagination-list-mobile-ellipses`, "aria-hidden": "true" }, index.h("span", { class: "gcds-pagination-list-ellipses" }, "...")));
+            }
+            if (i == this.currentPage ||
+                i == 1 ||
+                i == this.totalPages ||
+                (i >= this.currentPage - 2 && i <= this.currentPage + 2) ||
+                this.totalPages < 10) {
+                this.listitems.push(this.configurePaginationStep(i));
+            }
+            else if ((this.currentPage <= 5 && i <= 7) ||
+                (this.currentPage >= this.totalPages - 4 && i >= this.totalPages - 6)) {
+                this.listitems.push(this.configurePaginationStep(i));
+            }
+            else if ((this.currentPage == 5 && i == 2) ||
+                (this.currentPage == this.totalPages - 4 && i == this.totalPages - 1)) {
+                this.listitems.push(this.configurePaginationStep(i));
+            }
+            else if (!previousEllipses && i < this.currentPage - 2) {
+                this.listitems.push(index.h("li", { "aria-hidden": "true" }, index.h("span", { class: "gcds-pagination-list-ellipses" }, "...")));
+                previousEllipses = true;
+            }
+            else if (!nextEllipses &&
+                i > this.currentPage + 2 &&
+                i < this.totalPages) {
+                this.listitems.push(index.h("li", { "aria-hidden": "true" }, index.h("span", { class: "gcds-pagination-list-ellipses" }, "...")));
+                nextEllipses = true;
+            }
+            // Right side mobile ellipses
+            if (i == this.totalPages - 1 &&
+                this.currentPage > this.totalPages - 5 &&
+                this.currentPage < this.totalPages - 2 &&
+                this.totalPages > 9) {
+                this.listitems.push(index.h("li", { class: `gcds-pagination-list-mobile-ellipses`, "aria-hidden": "true" }, index.h("span", { class: "gcds-pagination-list-ellipses" }, "...")));
+            }
+            else if (i == this.totalPages - 1 &&
+                this.totalPages < 10 &&
+                this.totalPages > 5 &&
+                this.currentPage < this.totalPages - 2) {
+                this.listitems.push(index.h("li", { class: `gcds-pagination-list-mobile-ellipses`, "aria-hidden": "true" }, index.h("span", { class: "gcds-pagination-list-ellipses" }, "...")));
+            }
+        }
+        if (this.currentPage != this.totalPages) {
+            this.listitems.push(this.configurePaginationStep(this.currentPage, 'next'));
+            this.mobilePrevNext.push(this.configurePaginationStep(this.currentPage, 'next', true));
+        }
+    }
+    /*
+     * Observe lang attribute change
+     */
+    updateLang() {
+        const observer = new MutationObserver(mutations => {
+            if (mutations[0].oldValue != this.el.lang) {
+                this.lang = this.el.lang;
+            }
+        });
+        observer.observe(this.el, utils.observerConfig);
+    }
+    async componentWillLoad() {
+        // Define lang attribute
+        this.lang = utils.assignLanguage(this.el);
+        this.updateLang();
+        if (this.url && typeof this.url == 'string') {
+            this.urlObject = JSON.parse(this.url);
+        }
+        else if (this.url && typeof this.url == 'object') {
+            this.urlObject = this.url;
+        }
+        if (this.display == 'list') {
+            this.configureListPagination();
+        }
+    }
+    componentDidUpdate() {
+        if (this.display == 'list') {
+            this.configureListPagination();
+        }
+    }
+    render() {
+        const { display, label, previousHref, previousLabel, nextHref, nextLabel, lang, } = this;
+        return (index.h(index.Host, { key: 'db7f79c101fc1772545f376d3b5842af2ba7fcf9', role: "navigation", "aria-label": label }, index.h("div", { key: 'da067061cb08e93e7781ed97f2c56e686943f3b2', class: "gcds-pagination" }, display === 'list' ? (index.h("div", null, index.h("ul", { class: "gcds-pagination-list" }, this.listitems), index.h("ul", { class: "gcds-pagination-list-mobile-prevnext" }, this.mobilePrevNext))) : (index.h("ul", { class: "gcds-pagination-simple" }, previousHref && (index.h("li", { class: "gcds-pagination-simple-previous" }, index.h("a", { href: previousHref, tabindex: 0, "aria-label": `${I18N$9[lang].previousPage}${previousLabel ? `: ${previousLabel}` : ''}`, onBlur: () => this.gcdsBlur.emit(), onFocus: () => this.gcdsFocus.emit(), onClick: e => utils.emitEvent(e, this.gcdsClick, previousHref) }, index.h("gcds-icon", { "margin-right": "150", name: "chevron-left" }), index.h("div", { class: "gcds-pagination-simple-text" }, I18N$9[lang].previous), index.h("span", null, previousLabel)))), nextHref && (index.h("li", { class: "gcds-pagination-simple-next" }, index.h("a", { href: nextHref, tabindex: 0, "aria-label": `${I18N$9[lang].nextPage}${nextLabel ? `: ${nextLabel}` : ''}`, onBlur: () => this.gcdsBlur.emit(), onFocus: () => this.gcdsFocus.emit(), onClick: e => utils.emitEvent(e, this.gcdsClick, nextHref) }, index.h("div", { class: "gcds-pagination-simple-text" }, I18N$9[lang].next), index.h("span", null, nextLabel), index.h("gcds-icon", { "margin-left": "150", name: "chevron-right" })))))))));
+    }
+    get el() { return index.getElement(this); }
+    static get watchers() { return {
+        "currentPage": ["watchCurrentPage"],
+        "url": ["urlChanged"],
+        "lang": ["watchLang"]
+    }; }
+};
+GcdsPagination.style = gcdsPaginationCss;
+
+const I18N$8 = {
+  en: {
+    label: 'Banner',
+  },
+  fr: {
+    label: 'Bannière',
+  },
+};
+
+const gcdsPhaseBannerCss = "@layer reset, default, fixed, role, wide, compact;@layer reset{:host{display:block}:host slot{display:initial}}@layer default{:host .gcds-phase-banner{container:component banner/inline-size;font:var(--gcds-phase-banner-font);line-height:var(--gcds-phase-banner-line-height)}:host .gcds-phase-banner .banner__content{padding:var(--gcds-phase-banner-padding)}:host .gcds-phase-banner .banner__icon{display:flex;margin:0}:host .gcds-phase-banner .banner__icon.icon--left{margin-inline-end:var(--gcds-phase-banner-icon-margin)}:host .gcds-phase-banner .banner__icon.icon--right{margin-inline-start:var(--gcds-phase-banner-icon-margin)}:host .gcds-phase-banner .banner__icon ::slotted(img),:host .gcds-phase-banner .banner__icon ::slotted(svg){max-height:var(--gcds-phase-banner-icon-max-height)}:host .gcds-phase-banner .banner__details{align-items:baseline;display:flex;flex-wrap:wrap}:host .gcds-phase-banner .banner__details ::slotted(a),:host .gcds-phase-banner .banner__details ::slotted(gcds-button){flex:0 0 auto}:host .gcds-phase-banner .banner__details ::slotted(a),:host .gcds-phase-banner .banner__details ::slotted(small),:host .gcds-phase-banner .banner__details ::slotted(span){font-size:80%!important}:host .gcds-phase-banner .banner__details ::slotted(p){font:var(--gcds-phase-banner-font);margin:0}:host .gcds-phase-banner .banner__details ::slotted(a){color:inherit}:host .gcds-phase-banner .banner__details ::slotted(gcds-button){margin:var(--gcds-phase-banner-details-cta-margin);transform:scale(90%)}}@layer fixed{:host .gcds-phase-banner.banner-is-fixed{position:sticky;top:0;width:100%;z-index:9999}}@layer role{:host .gcds-phase-banner.banner--role-primary{background-color:var(--gcds-phase-banner-primary-background);color:var(--gcds-phase-banner-primary-text)}:host .gcds-phase-banner.banner--role-secondary{background-color:var(--gcds-phase-banner-secondary-background);color:var(--gcds-phase-banner-secondary-text)}}@layer wide{@container banner (width >= 36em){:host .gcds-phase-banner .banner__content{display:flex}}}@layer compact{@container banner (width < 36em){:host .gcds-phase-banner .banner__content .banner__icon{display:none}}}";
+
+const GcdsPhaseBanner = class {
+    constructor(hostRef) {
+        index.registerInstance(this, hostRef);
+        /**
+         * Props
+         */
+        /**
+         * Defines banner role.
+         */
+        this.bannerRole = 'primary';
+        /**
+         * Defines the container width of the phase banner content
+         */
+        this.container = 'xl';
+    }
+    /**
+     * Events
+     */
+    /*
+     * Observe lang attribute change
+     */
+    updateLang() {
+        const observer = new MutationObserver(mutations => {
+            if (mutations[0].oldValue != this.el.lang) {
+                this.lang = this.el.lang;
+            }
+        });
+        observer.observe(this.el, utils.observerConfig);
+    }
+    async componentWillLoad() {
+        // Define lang attribute
+        this.lang = utils.assignLanguage(this.el);
+        this.updateLang();
+    }
+    render() {
+        const { bannerRole, container, isFixed, lang } = this;
+        return (index.h(index.Host, { key: '7a9ab092fa24decf0cbb189ff423a00a590a9353' }, index.h("div", { key: '9abd59ac3f9f36c00f29df649ddcc4a0ba40fd12', class: `gcds-phase-banner banner--role-${bannerRole} ${isFixed ? 'banner--is-fixed' : ''}`, role: "status", "aria-label": I18N$8[lang].label }, index.h("gcds-container", { key: 'c753160aee35e77486e88bb29267765418284187', size: container, centered: true }, index.h("div", { key: '0aac78887062cdc82bb882a4d886ecd2c4cb0537', class: "banner__content" }, index.h("figure", { key: '13b9b8d23f68dc271ef15a913da44720ef87f3aa', class: "banner__icon icon--left" }, index.h("slot", { key: '86153fa07f9421599dd010f2aaed32b73c74d416', name: "banner-icon-left" })), index.h("div", { key: '974677e29dc9ee44f7709283b553ae791c2a2843', class: "banner__details" }, index.h("slot", { key: 'd485fcdd5578ac584ec5d1f2ea8a271bb8b4528a', name: "banner-text" }), index.h("slot", { key: 'ee3c3e130c8476298fee89ce36ea6316efc7a747', name: "banner-cta" })), index.h("figure", { key: '8e84fd783b06c179748c0370c9e4fa7362972a3c', class: "banner__icon icon--right" }, index.h("slot", { key: '553594a2b70c69ac1e46847425b934ccd7087462', name: "banner-icon-right" })))))));
+    }
+    get el() { return index.getElement(this); }
+};
+GcdsPhaseBanner.style = gcdsPhaseBannerCss;
+
+function isRadioObject(obj) {
+    if (typeof obj !== 'object' || obj === null)
+        return false;
+    const validKeys = ['id', 'label', 'value', 'hint', 'checked'];
+    const objKeys = Object.keys(obj);
+    // Check if all properties match the expected type
+    const hasValidTypes = typeof obj.id === 'string' &&
+        typeof obj.label === 'string' &&
+        typeof obj.value === 'string' &&
+        (obj.hint === undefined || typeof obj.hint === 'string') &&
+        (obj.checked === undefined || typeof obj.checked === 'boolean');
+    // Ensure no extra properties exist
+    const hasOnlyValidKeys = objKeys.every(key => validKeys.includes(key));
+    return hasValidTypes && hasOnlyValidKeys;
+}
+
+const I18N$7 = {
+  en: {
+    required: ' (required)',
+  },
+  fr: {
+    required: ' (obligatoire)',
+  },
+};
+
+const gcdsRadiosCss = "@layer reset, default, disabled, error, focus, a11y.highcontrast;@layer reset{:host{display:block}:host .gcds-radios__fieldset{border:0;min-inline-size:auto;padding:0}:host .gcds-radios__fieldset legend{padding:0}:host .gcds-radio{border:0;padding:0}:host .gcds-radio gcds-label{display:block}:host .gcds-radio gcds-label>label:after,:host .gcds-radio gcds-label>label:before{box-sizing:border-box;content:\"\";cursor:pointer;position:absolute}}@layer default{:host .gcds-radios__legend{font:var(--gcds-radio-legend-font-desktop);margin:var(--gcds-radio-legend-margin)}:host .gcds-radios__legend .legend__required{font:var(--gcds-radio-legend-required-font-desktop)}@media only screen and (width < 48em){:host .gcds-radios__legend{font:var(--gcds-radio-legend-font-mobile)}:host .gcds-radios__legend .legend__required{font:var(--gcds-radio-legend-required-font-mobile)}}:host .gcds-radios__legend:not(:has(+gcds-hint)){margin:var(--gcds-radio-legend-hint-margin)}:host gcds-hint:part(hint){margin:var(--gcds-radio-hint-margin)}:host .gcds-radio{color:var(--gcds-radio-default-text);font:var(--gcds-radio-font);margin:var(--gcds-radio-margin)!important;max-width:var(--gcds-radio-max-width);min-height:calc(var(--gcds-radio-input-height-and-width) - var(--gcds-radio-padding));padding:var(--gcds-radio-padding) 0 0;position:relative;transition:color .15s ease-in-out}:host .gcds-radio :is(gcds-label,gcds-hint){padding:var(--gcds-radio-label-padding)!important}:host .gcds-radio gcds-hint::part(hint){margin:0}:host .gcds-radio gcds-label:after,:host .gcds-radio gcds-label:before,:host .gcds-radio input{position:absolute}:host .gcds-radio gcds-label>label:before,:host .gcds-radio input{height:var(--gcds-radio-input-height-and-width);left:0;top:0;width:var(--gcds-radio-input-height-and-width)}:host .gcds-radio input{opacity:0}:host .gcds-radio gcds-label>label{width:fit-content;--gcds-label-font-desktop:var(--gcds-radio-label-font-desktop);--gcds-label-font-mobile:var(--gcds-radio-label-font-mobile)}:host .gcds-radio gcds-label>label:after,:host .gcds-radio gcds-label>label:before{border-radius:var(--gcds-radio-border-radius)}:host .gcds-radio gcds-label>label:before{background-color:var(--gcds-radio-default-background);border:var(--gcds-radio-input-border-width) solid;transition:border-color .15s ease-in-out,box-shadow .15s ease-in-out,outline .15s ease-in-out}:host .gcds-radio gcds-label>label:after{background-color:currentcolor;height:var(--gcds-radio-check-height-and-width);left:var(--gcds-radio-check-left);opacity:0;top:var(--gcds-radio-check-top);width:var(--gcds-radio-check-height-and-width)}:host .gcds-radio input:checked+gcds-label>label:after{opacity:1}}@layer disabled{:host .gcds-radio.gcds-radio--disabled{color:var(--gcds-radio-disabled-text)}:host .gcds-radio.gcds-radio--disabled gcds-label>label{--gcds-label-text:currentColor;cursor:not-allowed}:host .gcds-radio.gcds-radio--disabled gcds-label>label:after,:host .gcds-radio.gcds-radio--disabled gcds-label>label:before{cursor:not-allowed}:host .gcds-radio.gcds-radio--disabled gcds-label>label:before{background-color:var(--gcds-radio-disabled-background);border-color:var(--gcds-radio-disabled-border)}:host .gcds-radio.gcds-radio--disabled gcds-hint{--gcds-hint-text:currentColor}}@layer error{:host gcds-error-message{margin:var(--gcds-radio-error-message-margin)}:host .gcds-radio.gcds-radio--error:not(:focus-within) gcds-label>label:before{border-color:var(--gcds-radio-danger-border)}:host .gcds-radio.gcds-radio--error:not(:focus-within) gcds-label>label:after{background-color:var(--gcds-radio-danger-border)}}@layer focus{:host .gcds-radio:focus-within input:focus+gcds-label>label:before{background:var(--gcds-radio-focus-background);box-shadow:var(--gcds-radio-focus-box-shadow);color:var(--gcds-radio-focus-color);outline:var(--gcds-radio-focus-outline-width) solid currentcolor;outline-offset:var(--gcds-radio-input-border-width)}:host .gcds-radio:focus-within input:focus+gcds-label>label:after{box-shadow:inset 0 0 2rem var(--gcds-radio-focus-color)}}@layer a11y.highcontrast{@media (prefers-color-scheme:light){:host .gcds-radio gcds-label>label:after{background-color:buttonText}}@media (prefers-color-scheme:dark){:host .gcds-radio gcds-label>label:after{background-color:buttonText}}}";
+
+const GcdsRadios = class {
+    constructor(hostRef) {
+        index.registerInstance(this, hostRef);
+        this.gcdsInput = index.createEvent(this, "gcdsInput");
+        this.gcdsChange = index.createEvent(this, "gcdsChange");
+        this.gcdsFocus = index.createEvent(this, "gcdsFocus");
+        this.gcdsBlur = index.createEvent(this, "gcdsBlur");
+        this.gcdsValid = index.createEvent(this, "gcdsValid");
+        this.gcdsError = index.createEvent(this, "gcdsError");
+        if (hostRef.$hostElement$["s-ei"]) {
+            this.internals = hostRef.$hostElement$["s-ei"];
+        }
+        else {
+            this.internals = hostRef.$hostElement$.attachInternals();
+            hostRef.$hostElement$["s-ei"] = this.internals;
+        }
+        this._validator = defaultValidator;
+        /**
+         * Set event to call validator
+         */
+        this.validateOn = 'blur';
+        /**
+         * Set additional HTML attributes not available in component properties
+         */
+        this.inheritedAttributes = {};
+        /**
+         * State to track validation on properties
+         * Contains a list of properties that have an error associated with them
+         */
+        this.errors = [];
+        this.onBlur = () => {
+            this.gcdsBlur.emit();
+        };
+        this.onBlurValidate = () => {
+            if (this.validateOn == 'blur') {
+                this.validate();
+            }
+            this.gcdsBlur.emit();
+        };
+        this.handleInput = (e, customEvent) => {
+            const val = e.target && e.target.value;
+            this.value = val;
+            this.internals.setFormValue(val ? val : null, 'checked');
+            if (e.type === 'change') {
+                const changeEvt = new e.constructor(e.type, e);
+                this.el.dispatchEvent(changeEvt);
+            }
+            customEvent.emit(this.value);
+        };
+    }
+    validateOptions() {
+        let invalidObject = false;
+        // Assign optionsArr from passed options string or array
+        if (typeof this.options === 'string' && this.options.trim() !== '') {
+            try {
+                this.options = JSON.parse(this.options);
+            }
+            catch (e) {
+                utils.logError('gcds-radios', ['Invalid JSON string for options']);
+                this.options = null;
+            }
+        }
+        if (Array.isArray(this.options)) {
+            this.optionsArr = this.options;
+        }
+        else {
+            this.optionsArr = null;
+        }
+        // Validate options has type RadioObject
+        if (this.optionsArr && this.optionsArr.length > 1) {
+            invalidObject = this.optionsArr.some(radio => !isRadioObject(radio));
+        }
+        else {
+            invalidObject = true;
+        }
+        // Assign value if passed options has a checked radio
+        if (this.optionsArr && !this.value) {
+            this.optionsArr.forEach(radio => {
+                if (radio.checked === 'true' || radio.checked === true) {
+                    this.value = radio.value;
+                    this.internals.setFormValue(radio.value, 'checked');
+                }
+            });
+        }
+        // Log error if no or invalid optionsObject
+        this.errors = utils.handleErrors(this.errors, 'options', this.optionsArr, invalidObject);
+    }
+    validateName() {
+        this.errors = utils.handleErrors(this.errors, 'name', this.name);
+    }
+    validateLegend() {
+        this.errors = utils.handleErrors(this.errors, 'legend', this.legend);
+    }
+    validateErrorMessage() {
+        if (this.disabled) {
+            this.errorMessage = '';
+        }
+        else {
+            this.hasError = this.errorMessage ? true : false;
+        }
+    }
+    validateValue() {
+        if (this.optionsArr && this.value !== null) {
+            let isValidValue = false;
+            this.optionsArr.map(radio => {
+                if (radio.value == this.value) {
+                    isValidValue = true;
+                }
+            });
+            // unset value if no radio button with value available
+            if (!isValidValue) {
+                this.value = null;
+                this.internals.setFormValue(this.value);
+            }
+        }
+    }
+    validateValidator() {
+        this._validator = getValidator(this.validator);
+    }
+    /**
+     * Call any active validators
+     */
+    async validate() {
+        utils.handleValidationResult(this.el, this._validator.validate(this.value), this.legend, this.gcdsError, this.gcdsValid, this.lang);
+    }
+    submitListener(e) {
+        if (e.target == this.el.closest('form')) {
+            if (this.validateOn && this.validateOn != 'other') {
+                this.validate();
+            }
+            if (this.hasError && this.validateOn != 'other') {
+                e.preventDefault();
+            }
+        }
+    }
+    /*
+     * Form internal functions
+     */
+    formResetCallback() {
+        if (this.value != this.initialValue) {
+            this.internals.setFormValue(this.initialValue, 'checked');
+            this.value = this.initialValue;
+        }
+    }
+    formStateRestoreCallback(state) {
+        this.internals.setFormValue(state);
+        this.value = state;
+    }
+    /*
+     * Observe lang attribute change
+     */
+    watchLang(newValue, oldValue) {
+        if (newValue !== oldValue) {
+            this.lang = newValue;
+        }
+    }
+    /*
+     * Validate required properties
+     */
+    validateRequiredProps() {
+        this.validateLegend();
+        this.validateName();
+        return utils.isValid(this.errors, ['name', 'legend', 'options']);
+    }
+    async componentWillLoad() {
+        // Define lang attribute
+        this.lang = utils.assignLanguage(this.el);
+        this.validateOptions();
+        this.validateRequiredProps();
+        this.validateErrorMessage();
+        // Assign required validator if needed
+        requiredValidator(this.el, 'radio');
+        this.validateValidator();
+        this.inheritedAttributes = utils.inheritAttributes(this.el, this.shadowElement);
+        this.initialValue = this.value ? this.value : null;
+        const valid = this.validateRequiredProps();
+        if (!valid) {
+            utils.logError('gcds-radios', this.errors);
+        }
+    }
+    async componentDidUpdate() {
+        // Validate props again if changed after render
+        const valid = this.validateRequiredProps();
+        if (!valid) {
+            utils.logError('gcds-radios', this.errors);
+        }
+    }
+    render() {
+        const { lang, name, legend, value, required, hint, errorMessage, disabled, hasError, inheritedAttributes, } = this;
+        const fieldsetAttrs = {
+            'tabindex': '-1',
+            'aria-labelledby': 'radios-legend',
+        };
+        if (hint) {
+            const hintID = this.hint ? `radios-hint ` : '';
+            fieldsetAttrs['aria-labelledby'] =
+                `${fieldsetAttrs['aria-labelledby']} ${hintID}`.trim();
+        }
+        if (this.validateRequiredProps()) {
+            return (index.h(index.Host, { key: 'b297d3c141ccff67ca0fc640f09df5c7aaf55f44', onBlur: () => this.onBlurValidate() }, index.h("fieldset", Object.assign({ key: '0552575a6581cbd91466972385db38bd20464a01', class: "gcds-radios__fieldset" }, fieldsetAttrs), index.h("legend", { key: 'd2a7e52a83a83d45db33bc90d64d5237e3269ebe', id: "radios-legend", class: "gcds-radios__legend" }, legend, required ? (index.h("span", { class: "legend__required" }, I18N$7[lang].required)) : null), hint ? (index.h("gcds-hint", { id: "radios-hint", "hint-id": "radios" }, hint)) : null, errorMessage ? (index.h("div", null, index.h("gcds-error-message", { id: "radios-error", messageId: "radios" }, errorMessage))) : null, this.optionsArr &&
+                this.optionsArr.map(radio => {
+                    const attrsInput = Object.assign({ name, disabled: disabled, required: required, value: radio.value, checked: radio.value === value }, inheritedAttributes);
+                    if (radio.hint) {
+                        const hintID = radio.hint ? `hint-${radio.id} ` : '';
+                        attrsInput['aria-describedby'] = `${hintID}${attrsInput['aria-describedby']
+                            ? `${attrsInput['aria-describedby']}`
+                            : ''}`;
+                    }
+                    if (hasError) {
+                        attrsInput['aria-invalid'] = 'true';
+                        attrsInput['aria-description'] = errorMessage;
+                    }
+                    return (index.h("div", { class: `gcds-radio ${disabled ? 'gcds-radio--disabled' : ''} ${hasError ? 'gcds-radio--error' : ''}` }, index.h("input", Object.assign({ id: radio.id, type: "radio" }, attrsInput, { onInput: e => this.handleInput(e, this.gcdsInput), onChange: e => this.handleInput(e, this.gcdsChange), onBlur: () => this.onBlur(), onFocus: () => this.gcdsFocus.emit() })), index.h("gcds-label", { label: radio.label, "label-for": radio.id, lang: lang, onClick: e => e.stopPropagation() }), radio.hint ? (index.h("gcds-hint", { "hint-id": radio.id }, radio.hint)) : null));
+                }))));
+        }
+    }
+    static get delegatesFocus() { return true; }
+    static get formAssociated() { return true; }
+    get el() { return index.getElement(this); }
+    static get watchers() { return {
+        "options": ["validateOptions"],
+        "name": ["validateName"],
+        "legend": ["validateLegend"],
+        "errorMessage": ["validateErrorMessage"],
+        "value": ["validateValue"],
+        "validator": ["validateValidator"],
+        "lang": ["watchLang"]
+    }; }
+};
+GcdsRadios.style = gcdsRadiosCss;
+
+const I18N$6 = {
+  en: {
+    search: 'Search',
+    searchLabel: 'Search {$}',
+  },
+  fr: {
+    search: 'Recherche',
+    searchLabel: 'Rechercher dans {$}',
+  },
+};
+
+const gcdsSearchCss = "@layer reset, default, focus;@layer reset{:host{display:block}:host .gcds-search input{background-image:none;box-sizing:border-box}:host [type=search]::-webkit-search-cancel-button,:host [type=search]::-webkit-search-decoration{-webkit-appearance:none;appearance:none}}@layer default{:host .gcds-search .gcds-search__header{display:block;height:0;margin:0;overflow:hidden;width:0}:host .gcds-search .gcds-search__form{display:flex;margin:var(--gcds-search-margin)!important}:host .gcds-search input{background-color:var(--gcds-search-default-background);border:var(--gcds-search-border-width) solid var(--gcds-search-border-color);border-radius:0;border-right:0 solid transparent;box-sizing:border-box;color:var(--gcds-search-default-text);font:var(--gcds-search-font);max-height:var(--gcds-search-max-height);padding:var(--gcds-search-padding)!important;transition:border-color .15s ease-in-out,box-shadow .15s ease-in-out;width:100%}:host .gcds-search input::placeholder{color:var(--gcds-search-placeholder)}:host .gcds-search gcds-button{--gcds-button-mobile-margin:0}:host .gcds-search gcds-button::part(button){border-radius:0;height:var(--gcds-search-button-width-height);padding:0;width:var(--gcds-search-button-width-height)}}@layer focus{:host .gcds-search input:focus{border-color:var(--gcds-search-focus-border-color);border-width:var(--gcds-search-focus-border-width);box-shadow:var(--gcds-search-focus-box-shadow);margin:var(--gcds-search-focus-margin);outline:var(--gcds-search-outline-width) solid var(--gcds-search-focus-border-color);outline-offset:var(--gcds-search-border-width);z-index:30}:host .gcds-search ::part(button):focus{box-shadow:var(--gcds-search-focus-box-shadow)}}";
+
+const GcdsSearch = class {
+    constructor(hostRef) {
+        index.registerInstance(this, hostRef);
+        this.gcdsInput = index.createEvent(this, "gcdsInput");
+        this.gcdsChange = index.createEvent(this, "gcdsChange");
+        this.gcdsFocus = index.createEvent(this, "gcdsFocus");
+        this.gcdsBlur = index.createEvent(this, "gcdsBlur");
+        this.gcdsSubmit = index.createEvent(this, "gcdsSubmit");
+        /**
+         * Set the placeholder and label for the search input. Becomes "Search [placeholder]"
+         */
+        this.placeholder = 'Canada.ca';
+        /**
+         * Sets the action for the search form. Default will be canada.ca global search
+         */
+        this.action = '/sr/srb.html';
+        /**
+         * Set the form method of the search form
+         */
+        this.method = 'get';
+        /**
+         * Set the name of the search input
+         */
+        this.name = 'q';
+        /**
+         * Set the id of the search input
+         */
+        this.searchId = 'search';
+        this.handleInput = (e, customEvent) => {
+            const input = e.target;
+            this.value = input.value;
+            customEvent.emit(this.value);
+        };
+    }
+    /*
+     * Observe lang attribute change
+     */
+    updateLang() {
+        const observer = new MutationObserver(mutations => {
+            if (mutations[0].oldValue != this.el.lang) {
+                this.lang = this.el.lang;
+            }
+        });
+        observer.observe(this.el, utils.observerConfig);
+    }
+    async componentWillLoad() {
+        // Define lang attribute
+        this.lang = utils.assignLanguage(this.el);
+    }
+    render() {
+        const { placeholder, action, method, name, value, lang, searchId, suggested, } = this;
+        const labelText = `${I18N$6[lang].searchLabel.replace('{$}', placeholder)}`;
+        const attrsInput = {
+            name,
+            placeholder: labelText,
+        };
+        const formAction = action === '/sr/srb.html'
+            ? `https://www.canada.ca/${lang}/sr/srb.html`
+            : action;
+        return (index.h(index.Host, { key: '127843a74f45499fd5470727bbb846b1ee203ec7' }, index.h("section", { key: 'f36f5193fd1e74daf7241f1c18a98a39c9e8f129', class: "gcds-search" }, index.h("gcds-sr-only", { key: '71c95b501b4eca26ae9afb7d51dcaff02740cf89', tag: "h2" }, I18N$6[lang].search), index.h("form", { key: 'eb5fca068f31fc240eed7b44f4c03432d2c202cc', action: formAction, method: method, role: "search", onSubmit: e => utils.emitEvent(e, this.gcdsSubmit, this.value), class: "gcds-search__form" }, index.h("gcds-label", { key: 'a8e7a1980756509805b02ed3d5ae8bfb69e770a4', label: labelText, "label-for": searchId, "hide-label": true }), index.h("input", Object.assign({ key: '5d187bad902d4e1cd8dcf83d9acc8da7e5c669ca', type: "search", id: searchId }, (suggested ? { list: 'search-list' } : {}), { size: 34, maxLength: 170, onInput: e => this.handleInput(e, this.gcdsInput), onChange: e => this.handleInput(e, this.gcdsChange), onFocus: () => this.gcdsFocus.emit(), onBlur: () => this.gcdsBlur.emit() }, attrsInput, { class: "gcds-search__input", value: value })), suggested && (index.h("datalist", { key: '0b85d565d6cc53479136b44f085be19c71e992ca', id: "search-list" }, suggested.map((k, v) => (index.h("option", { value: k, key: v }))))), index.h("gcds-button", { key: '97cd97b6fb539cd6ea06e043e5c3186b834610d1', type: "submit", class: "gcds-search__button", exportparts: "button" }, index.h("gcds-icon", { key: '360d1561ed2a59484104e1e6d0aac7027161db48', name: "search", label: I18N$6[lang].search, size: "h3" }))))));
+    }
+    get el() { return index.getElement(this); }
+};
+GcdsSearch.style = gcdsSearchCss;
+
+const gcdsSelectCss = "@layer reset, default, disabled, error, focus;@layer reset{:host{display:block}:host .gcds-select-wrapper{border:0;margin:0;padding:0}:host .gcds-select-wrapper select{box-sizing:border-box}:host .gcds-select-wrapper slot{display:initial}}@layer default{:host .gcds-select-wrapper{color:var(--gcds-select-default-text);font:var(--gcds-select-font-desktop);max-width:75ch;transition:color .15s ease-in-out}@media only screen and (width < 48em){:host .gcds-select-wrapper{font:var(--gcds-select-font-mobile)}}:host .gcds-select-wrapper select{-webkit-appearance:none;-moz-appearance:none;background-color:var(--gcds-select-default-background);background-image:url(\"data:image/svg+xml;utf8,<svg width='16' height='10' viewBox='0 0 16 10' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M0.799988 0.900024L7.79999 7.90003L14.8 0.900024' stroke='currentColor' stroke-width='2'/></svg>\");background-position-x:var(--gcds-select-arrow-position-x);background-position-y:50%;background-repeat:no-repeat;border:var(--gcds-select-border-width) solid;border-radius:var(--gcds-select-border-radius);box-sizing:border-box;color:var(--gcds-select-default-text);display:block;font:inherit;height:auto;margin:var(--gcds-select-margin)!important;max-width:100%;min-height:var(--gcds-select-min-width-and-height);min-width:var(--gcds-select-min-width-and-height);padding:var(--gcds-select-padding)!important;transition:all .15s ease-in-out}}@layer disabled{:host .gcds-select-wrapper.gcds-disabled{color:var(--gcds-select-disabled-text)}:host .gcds-select-wrapper.gcds-disabled gcds-label{--gcds-label-text:currentColor}:host .gcds-select-wrapper.gcds-disabled gcds-hint{--gcds-hint-text:currentColor}:host .gcds-select-wrapper.gcds-disabled select:disabled{background-color:var(--gcds-select-disabled-background);border-color:var(--gcds-select-disabled-text);cursor:not-allowed}}@layer error{:host .gcds-select-wrapper.gcds-error:not(:focus-within) select{border-color:var(--gcds-select-danger-border)}}@layer focus{:host .gcds-select-wrapper:focus-within select:focus{border-color:var(--gcds-select-focus-border);box-shadow:var(--gcds-select-focus-box-shadow);outline:var(--gcds-select-outline-width) solid var(--gcds-select-focus-border);outline-offset:var(--gcds-select-border-width)}}";
+
+const GcdsSelect = class {
+    constructor(hostRef) {
+        index.registerInstance(this, hostRef);
+        this.gcdsChange = index.createEvent(this, "gcdsChange");
+        this.gcdsInput = index.createEvent(this, "gcdsInput");
+        this.gcdsFocus = index.createEvent(this, "gcdsFocus");
+        this.gcdsBlur = index.createEvent(this, "gcdsBlur");
+        this.gcdsError = index.createEvent(this, "gcdsError");
+        this.gcdsValid = index.createEvent(this, "gcdsValid");
+        if (hostRef.$hostElement$["s-ei"]) {
+            this.internals = hostRef.$hostElement$["s-ei"];
+        }
+        else {
+            this.internals = hostRef.$hostElement$.attachInternals();
+            hostRef.$hostElement$["s-ei"] = this.internals;
+        }
+        this._validator = defaultValidator;
+        /**
+         * Specifies if a form field is required or not.
+         */
+        this.required = false;
+        /**
+         * Specifies if a select element is disabled or not.
+         */
+        this.disabled = false;
+        /**
+         * Set event to call validator
+         */
+        this.validateOn = 'blur';
+        /**
+         * Set additional HTML attributes not available in component properties
+         */
+        this.inheritedAttributes = {};
+        this.handleInput = (e, customEvent) => {
+            const val = e.target && e.target.value;
+            this.value = val;
+            this.internals.setFormValue(val);
+            if (e.type === 'change') {
+                const changeEvt = new e.constructor(e.type, e);
+                this.el.dispatchEvent(changeEvt);
+            }
+            customEvent.emit(this.value);
+        };
+        this.onBlur = () => {
+            if (this.validateOn === 'blur') {
+                this.validate();
+            }
+            this.gcdsBlur.emit();
+        };
+    }
+    validateDisabledSelect() {
+        if (this.required) {
+            this.disabled = false;
+        }
+    }
+    validateErrorMessage() {
+        if (this.disabled) {
+            this.errorMessage = '';
+        }
+        else if (!this.hasError && this.errorMessage) {
+            this.hasError = true;
+        }
+        else if (this.errorMessage == '') {
+            this.hasError = false;
+        }
+    }
+    validateValidator() {
+        this._validator = getValidator(this.validator);
+    }
+    validateHasError() {
+        if (this.disabled) {
+            this.hasError = false;
+        }
+    }
+    /**
+     * Watch HTML attribute aria-invalid to inherit changes
+     */
+    ariaInvalidWatcher() {
+        this.inheritedAttributes = utils.inheritAttributes(this.el, this.shadowElement);
+    }
+    ariaDescriptiondWatcher() {
+        this.inheritedAttributes = utils.inheritAttributes(this.el, this.shadowElement);
+    }
+    /**
+     * Call any active validators
+     */
+    async validate() {
+        utils.handleValidationResult(this.el, this._validator.validate(this.value), this.label, this.gcdsError, this.gcdsValid, this.lang);
+    }
+    submitListener(e) {
+        if (e.target == this.el.closest('form')) {
+            if (this.validateOn && this.validateOn != 'other') {
+                this.validate();
+            }
+            if (this.hasError && this.validateOn != 'other') {
+                e.preventDefault();
+            }
+        }
+    }
+    /**
+     * Check if an option is selected or value matches an option's value
+     */
+    checkValueOrSelected(option) {
+        const value = option.getAttribute('value');
+        if (this.value === value) {
+            option.setAttribute('selected', 'true');
+            this.internals.setFormValue(value);
+            this.initialValue = this.value;
+        }
+        if (option.hasAttribute('selected')) {
+            this.value = value;
+            this.initialValue = this.value ? this.value : null;
+        }
+    }
+    /*
+     * Form internal functions
+     */
+    formResetCallback() {
+        if (this.value != this.initialValue) {
+            this.internals.setFormValue(this.initialValue);
+            this.value = this.initialValue;
+        }
+    }
+    formStateRestoreCallback(state) {
+        this.internals.setFormValue(state);
+        this.value = state;
+    }
+    /*
+     * Observe passed options and update if change
+     */
+    observeOptions() {
+        const config = {
+            attributes: false,
+            childList: true,
+            characterData: true,
+            subtree: true,
+        };
+        const observer = new MutationObserver(() => {
+            this.options = Array.from(this.el.children);
+            // Reset value to null to prevent unwanted selection
+            this.value = null;
+        });
+        observer.observe(this.el, config);
+    }
+    /*
+     * Observe lang attribute change
+     */
+    updateLang() {
+        const observer = new MutationObserver(mutations => {
+            if (mutations[0].oldValue != this.el.lang) {
+                this.lang = this.el.lang;
+            }
+        });
+        observer.observe(this.el, utils.observerConfig);
+    }
+    async componentWillLoad() {
+        // Define lang attribute
+        this.lang = utils.assignLanguage(this.el);
+        this.updateLang();
+        this.validateDisabledSelect();
+        this.validateHasError();
+        this.validateErrorMessage();
+        // Assign required validator if needed
+        requiredValidator(this.el, 'select');
+        this.validateValidator();
+        this.inheritedAttributes = utils.inheritAttributes(this.el, this.shadowElement);
+        if (this.el.children) {
+            this.options = Array.from(this.el.children);
+            this.options.forEach(option => {
+                if (option.nodeName === 'OPTION') {
+                    this.checkValueOrSelected(option);
+                }
+                else if (option.nodeName === 'OPTGROUP') {
+                    const subOptions = Array.from(option.children);
+                    subOptions.map(sub => {
+                        this.checkValueOrSelected(sub);
+                    });
+                }
+            });
+        }
+    }
+    async componentDidLoad() {
+        this.observeOptions();
+    }
+    render() {
+        const { lang, selectId, label, required, disabled, defaultValue, value, hint, errorMessage, inheritedAttributes, hasError, name, options, } = this;
+        const attrsSelect = Object.assign({ name,
+            disabled,
+            required,
+            value }, inheritedAttributes);
+        const attrsLabel = {
+            label,
+            required,
+        };
+        if (hint || errorMessage) {
+            const hintID = hint ? `hint-${selectId} ` : '';
+            const errorID = errorMessage ? `error-message-${selectId} ` : '';
+            attrsSelect['aria-describedby'] = `${hintID}${errorID}${attrsSelect['aria-describedby']
+                ? `${attrsSelect['aria-describedby']}`
+                : ''}`;
+        }
+        return (index.h(index.Host, { key: '26155157cfdf2c5c68701f6ee9a23b2d0bebdef6' }, index.h("div", { key: '742bdc49b45363cfaf969687a0c9d80c422fa15b', class: `gcds-select-wrapper ${disabled ? 'gcds-disabled' : ''} ${hasError ? 'gcds-error' : ''}` }, index.h("gcds-label", Object.assign({ key: 'b46b0bd119c48f00744bff34f9c120ff8b59d9cd' }, attrsLabel, { "label-for": selectId, lang: lang })), hint ? index.h("gcds-hint", { "hint-id": selectId }, hint) : null, errorMessage ? (index.h("gcds-error-message", { messageId: selectId }, errorMessage)) : null, index.h("select", Object.assign({ key: '58f61d1544fec6c502d2204ad6aa7c4191bd9ba3' }, attrsSelect, { id: selectId, onBlur: () => this.onBlur(), onFocus: () => this.gcdsFocus.emit(), onInput: e => this.handleInput(e, this.gcdsInput), onChange: e => this.handleInput(e, this.gcdsChange), "aria-invalid": inheritedAttributes['aria-invalid'] === 'true'
+                ? inheritedAttributes['aria-invalid']
+                : errorMessage
+                    ? 'true'
+                    : 'false', part: "select", ref: element => (this.shadowElement = element) }), defaultValue ? (index.h("option", { value: "", disabled: true, selected: true }, defaultValue)) : null, options.map(opt => {
+            if (opt.nodeName === 'OPTION') {
+                const selected = opt.hasAttribute('selected')
+                    ? { selected: true }
+                    : null;
+                return (index.h("option", Object.assign({ value: opt.getAttribute('value') }, selected), opt.innerHTML));
+            }
+            else if (opt.nodeName === 'OPTGROUP') {
+                const optGroupChildren = Array.from(opt.children).map(sub => {
+                    const selected = sub.hasAttribute('selected')
+                        ? { selected: true }
+                        : null;
+                    return (index.h("option", Object.assign({ value: sub.getAttribute('value') }, selected), sub.innerHTML));
+                });
+                return (index.h("optgroup", { label: opt.getAttribute('label') }, optGroupChildren));
+            }
+        })))));
+    }
+    static get delegatesFocus() { return true; }
+    static get formAssociated() { return true; }
+    get el() { return index.getElement(this); }
+    static get watchers() { return {
+        "disabled": ["validateDisabledSelect"],
+        "errorMessage": ["validateErrorMessage"],
+        "validator": ["validateValidator"],
+        "hasError": ["validateHasError"],
+        "aria-invalid": ["ariaInvalidWatcher"],
+        "aria-description": ["ariaDescriptiondWatcher"]
+    }; }
+};
+GcdsSelect.style = gcdsSelectCss;
+
+/**
+ * Handle event for keyboard control of nav
+ * @param {Event} event
+ * @param {Element} nav
+ * @param {any[]} queue
+ */
+async function handleKeyDownNav(event, nav, queue) {
+    const key = event.key;
+    const currentIndex = queue.indexOf(document.activeElement == nav
+        ? document.activeElement.shadowRoot.activeElement
+        : document.activeElement);
+    const activeElement = queue[currentIndex];
+    switch (key) {
+        // Down arrow
+        case 'ArrowDown':
+            event.preventDefault();
+            // If on last item, jump to first item
+            if (currentIndex + 1 > queue.length - 1) {
+                await focusNavItem(0, queue);
+                // Jump to next item
+            }
+            else {
+                await focusNavItem(currentIndex + 1, queue);
+            }
+            break;
+        // Up arrow
+        case 'ArrowUp':
+            event.preventDefault();
+            // If on first item, jump to last item
+            if (currentIndex - 1 < 0) {
+                await focusNavItem(queue.length - 1, queue);
+                // Jump to previous item
+            }
+            else {
+                await focusNavItem(currentIndex - 1, queue);
+            }
+            break;
+        // Right arrow
+        case 'ArrowRight':
+            event.preventDefault();
+            if (activeElement.nodeName == 'GCDS-NAV-GROUP' &&
+                !activeElement.hasAttribute('open')) {
+                await toggleNavGroup(activeElement, nav);
+            }
+            break;
+        // Left arrow || ESC
+        case 'ArrowLeft':
+        case 'Escape':
+            event.preventDefault();
+            // Currently focusing a gcds-nav-group
+            if (activeElement.nodeName == 'GCDS-NAV-GROUP' &&
+                activeElement.hasAttribute('open')) {
+                await toggleNavGroup(activeElement, nav);
+                // Currently focus within a gcds-nav-group
+            }
+            else if (activeElement.parentNode.nodeName == 'GCDS-NAV-GROUP') {
+                await toggleNavGroup(activeElement.parentNode, nav);
+            }
+            else if (activeElement.parentNode == nav &&
+                (await activeElement.parentNode.getNavSize()) == 'mobile') {
+                await toggleNavGroup(queue[queue.length - 1], nav);
+            }
+            break;
+        // Tab - special logic on mobile screen size
+        case 'Tab':
+            if ((await nav.getNavSize()) == 'mobile') {
+                // shift + tab
+                if (event.shiftKey) {
+                    if (currentIndex == queue.length - 1 &&
+                        activeElement.hasAttribute('open')) {
+                        event.preventDefault();
+                        await focusNavItem(queue.length - 2, queue);
+                    }
+                }
+                else {
+                    // tab
+                    if (currentIndex == queue.length - 2) {
+                        event.preventDefault();
+                        await focusNavItem(queue.length - 1, queue);
+                    }
+                }
+            }
+            break;
+        // ENTER || SPACEBAR
+        case 'Enter':
+        case ' ':
+            if (activeElement.nodeName == 'GCDS-NAV-GROUP') {
+                event.preventDefault();
+                await toggleNavGroup(activeElement, nav);
+            }
+            break;
+    }
+}
+/**
+ * Focus nav element
+ * @param {Number} index
+ * @param {any[]} queue
+ */
+async function focusNavItem(index, queue) {
+    if (queue[index].nodeName == 'GCDS-NAV-LINK') {
+        queue[index].focusLink();
+    }
+    else if (queue[index].nodeName == 'GCDS-NAV-GROUP') {
+        queue[index].focusTrigger();
+    }
+}
+/**
+ *
+ * @param {Element} group
+ * @param {Element} nav
+ */
+async function toggleNavGroup(group, nav) {
+    const navGroup = group;
+    // Close nav group
+    if (navGroup.hasAttribute('open')) {
+        await navGroup.toggleNav();
+        navGroup.focusTrigger();
+        nav.updateNavItemQueue(nav);
+        // Open nav group
+    }
+    else {
+        await navGroup.toggleNav();
+        setTimeout(async () => {
+            await focusNavItem(0, document.activeElement == nav ? nav.children : navGroup.children);
+        }, 10);
+        nav.updateNavItemQueue(nav);
+    }
+}
+/**
+ * Return array of child elements of passed element
+ * @param {Element} el
+ * @return {any[]} indexedItems
+ */
+async function getNavItems(el) {
+    const indexedItems = Array.from(el.children);
+    indexedItems.forEach(async (item) => {
+        if (item.nodeName == 'GCDS-NAV-GROUP' &&
+            item.open) {
+            const groupChildren = await getNavItems(item);
+            indexedItems.splice(indexedItems.indexOf(item) + 1, 0, ...groupChildren);
+        }
+    });
+    return indexedItems;
+}
+
+const I18N$5 = {
+  en: {
+    closeTrigger: 'Close',
+    menuLabel: 'Menu',
+    navLabel:
+      ' - Use the enter key to select a menu item and travel to its page. Use the left and right arrow keys to navigate between menu and submenu items. Use the right arrow key to open submenus when they are available. Use the left arrow or escape keys to close a menu.',
+  },
+  fr: {
+    closeTrigger: 'Fermer',
+    menuLabel: 'Menu',
+    navLabel:
+      " - Utiliser la touche d'entrée pour sélectionner un élément du menu et voyager à la page indiquée. Utiliser les flèches gauches et droites pour naviguer entre les éléments et les sous-éléments du menu. Ouvrir les sous-éléments du menu avec la flèche droite lorsqu'il sont disponible. Fermer le menu avec la flèche gauche ou la touche d'échappement.",
+  },
+};
+
+const gcdsSideNavCss = "@layer reset, default, desktop, mobile;@layer reset{:host{display:block}:host *{box-sizing:border-box;margin:0;padding:0}}@layer default{:host{width:100%}:host .gcds-side-nav__heading{font:var(--gcds-side-nav-heading-font);margin-block-end:var(--gcds-side-nav-heading-margin);padding:var(--gcds-side-nav-heading-padding)}}@layer desktop{@media only screen and (width >= 64em){:host .gcds-side-nav{max-width:var(--gcds-side-nav-max-width)}}}@layer mobile{@media only screen and (width < 64em){:host .gcds-side-nav__heading{display:block;height:0;margin:0;overflow:hidden;padding:0;width:0}}}";
+
+const GcdsSideNav = class {
+    constructor(hostRef) {
+        index.registerInstance(this, hostRef);
+        /**
+         * Queue of nav items for keyboard navigation
+         */
+        this.navItems = [];
+    }
+    async focusInListener(e) {
+        if (this.el.contains(e.target) && !this.navSize) {
+            const mediaQuery = window.matchMedia('screen and (min-width: 64em)');
+            const nav = this.el;
+            const mobileTrigger = this.mobile;
+            if (mediaQuery.matches) {
+                this.navSize = 'desktop';
+            }
+            else {
+                this.navSize = 'mobile';
+            }
+            await this.updateNavItemQueue(this.el);
+            mediaQuery.addEventListener('change', async function (e) {
+                if (e.matches) {
+                    nav.updateNavSize('desktop');
+                    await nav.updateNavItemQueue(nav);
+                    if (mobileTrigger.hasAttribute('open')) {
+                        mobileTrigger.toggleNav();
+                    }
+                }
+                else {
+                    nav.updateNavSize('mobile');
+                    await nav.updateNavItemQueue(nav);
+                }
+            });
+        }
+    }
+    async focusOutListener(e) {
+        if (!this.el.contains(e.relatedTarget)) {
+            if (this.navSize == 'mobile') {
+                if (this.mobile.hasAttribute('open')) {
+                    await this.mobile.toggleNav();
+                }
+            }
+        }
+    }
+    async keyDownListener(e) {
+        if (this.el.contains(document.activeElement)) {
+            handleKeyDownNav(e, this.el, this.navItems);
+        }
+    }
+    async gcdsClickListener(e) {
+        if (this.el.contains(e.target)) {
+            // Update tab queue when clicking mobile menu
+            if (e.target == this.el && this.navSize == 'mobile') {
+                await this.updateNavItemQueue(e.target);
+                // Update tab queue when clicking dropdown
+            }
+            else if (e.target.nodeName == 'GCDS-NAV-GROUP' &&
+                !e.target.hasAttribute('open')) {
+                await this.updateNavItemQueue(this.el);
+            }
+        }
+    }
+    /*
+     * Observe lang attribute change
+     */
+    updateLang() {
+        const observer = new MutationObserver(mutations => {
+            if (mutations[0].oldValue != this.el.lang) {
+                this.lang = this.el.lang;
+            }
+        });
+        observer.observe(this.el, utils.observerConfig);
+    }
+    /*
+     * Get current navSize state
+     */
+    async getNavSize() {
+        return this.navSize;
+    }
+    /*
+     * Pass new window size: desktop or mobile
+     */
+    async updateNavSize(size) {
+        this.navSize = size;
+    }
+    /*
+     * Update item queue for keyboard navigation based on passed element
+     */
+    async updateNavItemQueue(el, includeElement) {
+        if (includeElement) {
+            const childElements = await getNavItems(el);
+            this.navItems = [el, ...childElements];
+        }
+        else {
+            this.navItems = await getNavItems(el);
+        }
+        if (this.navSize == 'mobile') {
+            this.navItems = [...this.navItems, this.mobile];
+        }
+    }
+    async componentWillLoad() {
+        // Define lang attribute
+        this.lang = utils.assignLanguage(this.el);
+        this.updateLang();
+    }
+    render() {
+        const { label, lang } = this;
+        return (index.h(index.Host, { key: '2176c26610444e641bf07d616472085f3442f2f0' }, index.h("nav", { key: '7a707a1f2043e1b5aa630254bfb007bc8effd88c', "aria-label": `${label}${I18N$5[lang].navLabel}`, class: "gcds-side-nav" }, index.h("h2", { key: 'e0fcbd5dc9e0324b711ca5df1275b3c2cd6d1e90', class: "gcds-side-nav__heading" }, label), index.h("ul", { key: '0dab78de769b83b3cf021849459d514f966c163a' }, index.h("gcds-nav-group", { key: '381bce26ca561d4c005c33ed705142f9fd596d61', menuLabel: I18N$5[lang].menuLabel, closeTrigger: I18N$5[lang].closeTrigger, openTrigger: I18N$5[lang].menuLabel, class: "gcds-mobile-nav", ref: element => (this.mobile = element), lang: lang }, index.h("slot", { key: 'aeef38c5147b2673fc48aada575f6f0635b48e30' }))))));
+    }
+    get el() { return index.getElement(this); }
+};
+GcdsSideNav.style = gcdsSideNavCss;
+
+const I18N$4 = {
+  en: {
+    link: 'https://canada.ca/en.html',
+    gc: 'Government of Canada',
+  },
+  fr: {
+    link: 'https://canada.ca/fr.html',
+    gc: 'Gouvernement du Canada',
+  },
+};
+
+var SignatureEn = `<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 819 78" preserveAspectRatio="xMinYMin meet" role="img" aria-labelledby="signature-en-title">
+	<title id="signature-en-title">Government of Canada / Gouvernement du Canada</title>
+	<path d="M0,0 36.84,0 36.84,75.01 0,75.01z M118.54,0 155.38,0 155.38,75.01 118.54,75.01z M72.58,15.61,77.84,4.9l5.22,10.32c.65,1.09,1.18,1,2.22.48l4.49-2.22L86.85,27.89c-.61,2.83,1,3.66,2.75,1.74L96,22.79l1.7,3.87c.57,1.17,1.43,1,2.57.79l6.61-1.39-2.22,8.35,0,.18c-.26,1.09-.78,2,.44,2.53l2.35,1.17L93.77,49.82c-1.39,1.43-.91,1.87-.39,3.48l1.26,3.87-12.71-2.3c-1.57-.39-2.66-.39-2.7.87l.52,14.58H75.93l.52-14.54c0-1.43-1.09-1.39-3.66-.86L61,57.18l1.52-3.87c.52-1.48.66-2.48-.52-3.48L48.11,38.46l2.57-1.57c.74-.57.78-1.17.39-2.44L48.46,26l6.7,1.43c1.87.44,2.39,0,2.87-1l1.87-3.83L66.52,30c1.17,1.39,2.83.48,2.31-1.52L65.65,12.86l4.92,2.83c.78.48,1.61.61,2.09-.3" class="fip_flag" />
+	<path d="M29.4,31.73h-3.46l-.82-3.63c-2.9,3.29-5.53,4.37-9.3,4.37-9.25,0-14.79-7.35-14.79-16.17S6.57.12,15.82.12c6.75,0,12.41,3.59,13.23,10.55h-5.27c-.52-4.06-4.06-6.14-8-6.14-6.62,0-9.38,5.84-9.38,11.76s2.77,11.76,9.38,11.76c5.53.08,8.56-3.24,8.65-8.48h-8.21V15.47H29.4ZM44.83,28.44c-4.41,0-6.36-4-6.36-7.91s1.95-7.87,6.36-7.87,6.36,4,6.36,7.87S49.24,28.44,44.83,28.44Zm0,3.89c7.18,0,11.29-4.93,11.29-11.8S52,8.77,44.83,8.77s-11.29,4.93-11.29,11.76S37.65,32.34,44.83,32.34ZM58,9.38h5.36L69,26.54h.09l5.45-17.17h5.1l-8,22.35h-5.53ZM86.51,18.58a5.84,5.84,0,0,1,5.88-5.92c3.33,0,5.45,2.81,5.62,5.92Zm16.43,3.25c.82-6.7-3.5-13.06-10.55-13.06-6.66,0-10.81,5.45-10.81,11.8,0,6.87,3.94,11.76,10.94,11.76,4.89,0,9-2.72,10.12-7.61H98c-.87,2.47-2.59,3.72-5.45,3.72-4.11,0-6-3.11-6-6.62ZM106.7,9.38h4.63V13.7h.09a7.21,7.21,0,0,1,6.53-4.93,11.69,11.69,0,0,1,1.86.13v4.76a17.6,17.6,0,0,0-2.12-.22c-3.37,0-6.05,2.72-6.05,7.65V31.73H106.7V9.38ZM121.92,9.38h4.67v3.29l.09.09a8,8,0,0,1,7-4c4.84,0,7.91,2.59,7.91,7.61V31.73h-4.93V17.68c-.09-3.5-1.47-5-4.37-5-3.29,0-5.41,2.59-5.41,5.88V31.73h-4.93V9.38ZM146.74,9.38h4.67v3.11h.13a7.47,7.47,0,0,1,6.87-3.72c2.72,0,5.28,1.17,6.27,3.72a8.07,8.07,0,0,1,7-3.72c4.71,0,7.48,2.08,7.48,7.52V31.73h-4.93V18.67c0-3.55-.22-6-4.06-6-3.33,0-4.76,2.21-4.76,6v13.1h-4.93V17.38c0-3.07-1-4.71-3.93-4.71-2.55,0-4.89,2.08-4.89,5.79V31.73h-4.93V9.38ZM188.21,18.58a5.84,5.84,0,0,1,5.88-5.92c3.33,0,5.45,2.81,5.62,5.92Zm16.43,3.25c.82-6.7-3.5-13.06-10.55-13.06-6.66,0-10.81,5.45-10.81,11.8,0,6.87,3.93,11.76,10.94,11.76,4.89,0,9-2.72,10.12-7.61h-4.67c-.86,2.47-2.59,3.72-5.45,3.72-4.11,0-6-3.11-6-6.62ZM208.4,9.38h4.67v3.29l.09.09a8,8,0,0,1,7-4c4.84,0,7.91,2.59,7.91,7.61V31.73H223.1V17.68c-.09-3.5-1.47-5-4.37-5-3.29,0-5.41,2.59-5.41,5.88V31.73H208.4V9.38ZM231,9.38h3.71V2.67h4.93v6.7h4.45v3.68h-4.45V25c0,2,.17,3.07,2.38,3.07a8.25,8.25,0,0,0,2.08-.18v3.81c-1.08.08-2.12.26-3.2.26-5.15,0-6.1-2-6.19-5.71V13.05H231V9.38ZM12,71.68c-4.41,0-6.36-4-6.36-7.91S7.6,55.9,12,55.9s6.36,4,6.36,7.87S16.43,71.68,12,71.68Zm0,3.89c7.18,0,11.28-4.93,11.28-11.8S19.19,52,12,52s-11.29,4.93-11.29,11.76S4.83,75.57,12,75.57ZM25.2,52.61h3.67V50.76c0-5.71,3-6.66,6.18-6.66a13.89,13.89,0,0,1,3.46.3v3.85a8.32,8.32,0,0,0-2.29-.26c-1.34,0-2.42.48-2.42,2.33v2.29H38v3.68H33.8V75h-4.93V56.29H25.2ZM74.58,53.91c-.91-3.55-3.2-6.14-7.7-6.14-6.62,0-9.38,5.84-9.38,11.76s2.77,11.76,9.38,11.76c4.8,0,7.44-3.59,7.87-8.09H80c-.43,7.39-5.66,12.5-13.14,12.5-9.25,0-14.79-7.35-14.79-16.17s5.54-16.17,14.79-16.17c7,0,12.45,3.89,13.1,10.55h-5.4ZM98.06,67.45c0,3.11-3.37,4.24-5.54,4.24-1.73,0-4.54-.65-4.54-2.85,0-2.59,1.9-3.37,4-3.72s4.54-.35,6.05-1.34Zm4.93-9c0-4.71-4.58-6.48-9-6.48-4.93,0-9.82,1.69-10.16,7.44h4.93C89,57,91,55.9,93.73,55.9c2,0,4.63.48,4.63,3,0,2.9-3.16,2.51-6.7,3.16-4.15.47-8.6,1.38-8.6,7,0,4.37,3.63,6.53,7.65,6.53a11.47,11.47,0,0,0,7.74-2.72c.39,2,1.82,2.72,3.8,2.72a12.36,12.36,0,0,0,3.11-.56V71.6a7.18,7.18,0,0,1-1.21.08c-.91,0-1.17-.47-1.17-1.69ZM108.3,52.61H113V55.9l.09.09a8,8,0,0,1,7-4c4.84,0,7.91,2.59,7.91,7.61V75H123V60.92c-.09-3.5-1.47-5-4.37-5-3.29,0-5.41,2.59-5.41,5.88V75H108.3V52.61ZM146.91,67.45c0,3.11-3.37,4.24-5.53,4.24-1.73,0-4.54-.65-4.54-2.85,0-2.59,1.9-3.37,4-3.72s4.54-.35,6.05-1.34Zm4.93-9c0-4.71-4.58-6.48-9-6.48-4.93,0-9.81,1.69-10.16,7.44h4.93c.22-2.42,2.16-3.54,4.93-3.54,2,0,4.63.48,4.63,3,0,2.9-3.16,2.51-6.7,3.16-4.15.47-8.6,1.38-8.6,7,0,4.37,3.63,6.53,7.65,6.53a11.47,11.47,0,0,0,7.74-2.72c.39,2,1.82,2.72,3.8,2.72a12.36,12.36,0,0,0,3.11-.56V71.6a7.19,7.19,0,0,1-1.21.08c-.91,0-1.17-.47-1.17-1.69ZM161,64c0-4,1.64-8.13,6.27-8.13,3.8,0,6.18,2.94,6.18,7.87,0,3.89-1.86,7.91-6.27,7.91S161,67.88,161,64ZM178.22,44.1h-4.93V55.51h-.09c-1.51-2.46-4.63-3.5-7.44-3.5-4.89,0-9.68,3.54-9.68,11.63,0,6.7,3.41,11.93,10.46,11.93,2.81,0,5.62-1.08,6.92-3.63h.09v3h4.67V44.1ZM197.37,67.45c0,3.11-3.37,4.24-5.54,4.24-1.73,0-4.54-.65-4.54-2.85,0-2.59,1.9-3.37,4-3.72s4.54-.35,6.05-1.34Zm4.93-9c0-4.71-4.58-6.48-9-6.48-4.93,0-9.82,1.69-10.16,7.44h4.93c.22-2.42,2.16-3.54,4.93-3.54,2,0,4.63.48,4.63,3,0,2.9-3.16,2.51-6.7,3.16-4.15.47-8.6,1.38-8.6,7,0,4.37,3.63,6.53,7.65,6.53a11.46,11.46,0,0,0,7.74-2.72c.39,2,1.82,2.72,3.8,2.72a12.35,12.35,0,0,0,3.11-.56V71.6a7.18,7.18,0,0,1-1.21.08c-.91,0-1.17-.47-1.17-1.69Z" class="fip_text" transform="translate(218,0)" />
+	<path d="M29.47,32H26l-.82-3.63c-2.9,3.29-5.53,4.37-9.3,4.37-9.25,0-14.79-7.35-14.79-16.17S6.64.4,15.89.4C22.64.4,28.3,4,29.12,11h-5.27c-.52-4.06-4.06-6.14-8-6.14-6.62,0-9.38,5.84-9.38,11.76s2.77,11.76,9.38,11.76c5.53.09,8.56-3.24,8.65-8.47h-8.21V15.75h13.14V32ZM44.9,28.72c-4.41,0-6.36-4-6.36-7.91s1.95-7.87,6.36-7.87,6.36,4,6.36,7.87S49.31,28.72,44.9,28.72Zm0,3.89c7.18,0,11.29-4.93,11.29-11.8S52.08,9,44.9,9,33.62,14,33.62,20.81,37.73,32.61,44.9,32.61ZM79.93,32h-4.84V28.9H75a7.51,7.51,0,0,1-6.36,3.72c-5.84,0-8.34-2.94-8.34-8.78V9.65h4.93V23.36c0,3.94,1.6,5.36,4.28,5.36,4.11,0,5.49-2.63,5.49-6.1v-13h4.93V32ZM82.91,9.65h5.36l5.66,17.17H94l5.45-17.17h5.1l-8,22.35H91ZM111.4,18.86a5.84,5.84,0,0,1,5.88-5.92c3.33,0,5.45,2.81,5.62,5.92Zm16.43,3.24C128.66,15.4,124.33,9,117.28,9c-6.66,0-10.81,5.45-10.81,11.8,0,6.87,3.93,11.76,10.94,11.76,4.88,0,9-2.72,10.12-7.61h-4.67c-.86,2.47-2.59,3.72-5.45,3.72-4.11,0-6-3.11-6-6.62ZM131.6,9.65h4.63V14h.08A7.22,7.22,0,0,1,142.84,9a11.75,11.75,0,0,1,1.86.13v4.76a17.5,17.5,0,0,0-2.12-.22c-3.37,0-6.05,2.72-6.05,7.65V32H131.6V9.65ZM146.81,9.65h4.67v3.29l.09.09a8,8,0,0,1,7-4c4.85,0,7.91,2.59,7.91,7.61V32h-4.93V18c-.08-3.5-1.47-5-4.37-5-3.29,0-5.4,2.59-5.4,5.88V32h-4.93ZM175.48,18.86a5.84,5.84,0,0,1,5.88-5.92c3.33,0,5.45,2.81,5.62,5.92Zm16.43,3.24C192.73,15.4,188.41,9,181.36,9c-6.66,0-10.81,5.45-10.81,11.8,0,6.87,3.94,11.76,10.94,11.76,4.89,0,9-2.72,10.12-7.61h-4.67c-.87,2.47-2.6,3.72-5.45,3.72-4.11,0-6-3.11-6-6.62ZM195.67,9.65h4.67v3.11h.13A7.47,7.47,0,0,1,207.34,9c2.73,0,5.28,1.17,6.27,3.72a8.07,8.07,0,0,1,7-3.72c4.71,0,7.48,2.08,7.48,7.52V32h-4.93V19c0-3.55-.22-6-4.06-6-3.33,0-4.76,2.21-4.76,6V32h-4.93V17.65c0-3.07-1-4.71-3.93-4.71-2.55,0-4.88,2.08-4.88,5.79V32h-4.93V9.65ZM237.14,18.86A5.84,5.84,0,0,1,243,12.94c3.33,0,5.45,2.81,5.62,5.92Zm16.43,3.24C254.39,15.4,250.06,9,243,9c-6.66,0-10.81,5.45-10.81,11.8,0,6.87,3.93,11.76,10.94,11.76,4.88,0,9-2.72,10.12-7.61h-4.67c-.86,2.47-2.59,3.72-5.45,3.72-4.11,0-6-3.11-6-6.62ZM257.33,9.65H262v3.29l.09.09a8,8,0,0,1,7-4c4.85,0,7.91,2.59,7.91,7.61V32H272V18c-.08-3.5-1.47-5-4.37-5-3.29,0-5.41,2.59-5.41,5.88V32h-4.93ZM279.9,9.65h3.72V3h4.93v6.7H293v3.68h-4.45V25.27c0,2,.17,3.07,2.38,3.07a8.43,8.43,0,0,0,2.08-.17V32c-1.08.08-2.12.26-3.2.26-5.14,0-6.09-2-6.18-5.71V13.33h-3.72V9.65ZM5.69,64.31c0-4,1.64-8.13,6.27-8.13,3.8,0,6.18,2.94,6.18,7.87,0,3.89-1.86,7.91-6.27,7.91S5.69,68.15,5.69,64.31ZM22.9,44.37H18V55.79h-.09c-1.51-2.46-4.63-3.5-7.43-3.5-4.89,0-9.69,3.54-9.69,11.63,0,6.7,3.42,11.93,10.46,11.93,2.81,0,5.62-1.08,6.92-3.63h.08v3h4.67V44.37ZM47.89,75.25H43V72.13H43a7.51,7.51,0,0,1-6.36,3.72c-5.84,0-8.34-2.94-8.34-8.78V52.89h4.93V66.59c0,3.94,1.6,5.36,4.28,5.36,4.11,0,5.49-2.63,5.49-6.1v-13h4.93V75.25ZM86.63,54.19c-.91-3.55-3.2-6.14-7.7-6.14-6.62,0-9.38,5.84-9.38,11.76s2.77,11.76,9.38,11.76c4.8,0,7.43-3.58,7.87-8.08h5.28c-.43,7.39-5.66,12.5-13.14,12.5-9.25,0-14.79-7.35-14.79-16.17s5.53-16.17,14.79-16.17c7,0,12.45,3.89,13.1,10.55h-5.41ZM110.11,67.72c0,3.11-3.37,4.24-5.53,4.24-1.73,0-4.54-.65-4.54-2.85,0-2.59,1.9-3.37,4-3.72s4.54-.35,6.05-1.34v3.68Zm4.93-9c0-4.71-4.58-6.49-9-6.49-4.93,0-9.81,1.69-10.16,7.44h4.93c.22-2.42,2.17-3.55,4.93-3.55,2,0,4.63.48,4.63,3,0,2.9-3.16,2.51-6.7,3.16-4.15.47-8.6,1.38-8.6,7,0,4.37,3.63,6.53,7.65,6.53a11.46,11.46,0,0,0,7.74-2.72c.39,2,1.82,2.72,3.81,2.72a12.37,12.37,0,0,0,3.11-.56V71.88a7.21,7.21,0,0,1-1.21.08c-.91,0-1.17-.47-1.17-1.69V58.77ZM120.35,52.89H125v3.29l.09.09a8,8,0,0,1,7-4c4.85,0,7.91,2.59,7.91,7.61V75.25h-4.93V61.19c-.08-3.5-1.47-5-4.37-5-3.29,0-5.4,2.59-5.4,5.88V75.25h-4.93ZM159,67.72c0,3.11-3.37,4.24-5.54,4.24-1.73,0-4.54-.65-4.54-2.85,0-2.59,1.9-3.37,4-3.72S157.45,65,159,64v3.68Zm4.93-9c0-4.71-4.58-6.49-8.95-6.49-4.93,0-9.82,1.69-10.16,7.44h4.93c.22-2.42,2.16-3.55,4.93-3.55,2,0,4.62.48,4.62,3,0,2.9-3.16,2.51-6.7,3.16-4.15.47-8.61,1.38-8.61,7,0,4.37,3.64,6.53,7.65,6.53a11.46,11.46,0,0,0,7.74-2.72c.39,2,1.82,2.72,3.81,2.72a12.33,12.33,0,0,0,3.11-.56V71.88a7.17,7.17,0,0,1-1.21.08c-.91,0-1.17-.47-1.17-1.69V58.77ZM173.06,64.31c0-4,1.64-8.13,6.27-8.13,3.8,0,6.18,2.94,6.18,7.87,0,3.89-1.86,7.91-6.27,7.91S173.06,68.15,173.06,64.31Zm17.21-19.93h-4.93V55.79h-.09c-1.51-2.46-4.62-3.5-7.43-3.5-4.89,0-9.68,3.54-9.68,11.63,0,6.7,3.42,11.93,10.46,11.93,2.81,0,5.62-1.08,6.92-3.63h.09v3h4.67V44.37ZM209.42,67.72c0,3.11-3.37,4.24-5.53,4.24-1.73,0-4.54-.65-4.54-2.85,0-2.59,1.9-3.37,4-3.72s4.54-.35,6.05-1.34v3.68Zm4.93-9c0-4.71-4.58-6.49-8.95-6.49-4.93,0-9.82,1.69-10.16,7.44h4.93c.22-2.42,2.16-3.55,4.93-3.55,2,0,4.62.48,4.62,3,0,2.9-3.16,2.51-6.7,3.16-4.15.47-8.61,1.38-8.61,7,0,4.37,3.64,6.53,7.65,6.53a11.47,11.47,0,0,0,7.74-2.72c.39,2,1.82,2.72,3.8,2.72a12.34,12.34,0,0,0,3.11-.56V71.88a7.18,7.18,0,0,1-1.21.08c-.91,0-1.17-.47-1.17-1.69V58.77Z" class="fip_text" transform="translate(526,0)" />
+</svg>
+`;
+
+var SignatureFr = `<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 819 78" preserveAspectRatio="xMinYMin meet" role="img" aria-labelledby="signature-fr-title">
+	<title id="signature-fr-title">Gouvernement du Canada / Government of Canada</title>
+	<path d="M0,0 36.84,0 36.84,75.01 0,75.01z M118.54,0 155.38,0 155.38,75.01 118.54,75.01z M72.58,15.61,77.84,4.9l5.22,10.32c.65,1.09,1.18,1,2.22.48l4.49-2.22L86.85,27.89c-.61,2.83,1,3.66,2.75,1.74L96,22.79l1.7,3.87c.57,1.17,1.43,1,2.57.79l6.61-1.39-2.22,8.35,0,.18c-.26,1.09-.78,2,.44,2.53l2.35,1.17L93.77,49.82c-1.39,1.43-.91,1.87-.39,3.48l1.26,3.87-12.71-2.3c-1.57-.39-2.66-.39-2.7.87l.52,14.58H75.93l.52-14.54c0-1.43-1.09-1.39-3.66-.86L61,57.18l1.52-3.87c.52-1.48.66-2.48-.52-3.48L48.11,38.46l2.57-1.57c.74-.57.78-1.17.39-2.44L48.46,26l6.7,1.43c1.87.44,2.39,0,2.87-1l1.87-3.83L66.52,30c1.17,1.39,2.83.48,2.31-1.52L65.65,12.86l4.92,2.83c.78.48,1.61.61,2.09-.3" class="fip_flag" />
+	<path d="M29.47,32H26l-.82-3.63c-2.9,3.29-5.53,4.37-9.3,4.37-9.25,0-14.79-7.35-14.79-16.17S6.64.4,15.89.4C22.64.4,28.3,4,29.12,11h-5.27c-.52-4.06-4.06-6.14-8-6.14-6.62,0-9.38,5.84-9.38,11.76s2.77,11.76,9.38,11.76c5.53.09,8.56-3.24,8.65-8.47h-8.21V15.75h13.14V32ZM44.9,28.72c-4.41,0-6.36-4-6.36-7.91s1.95-7.87,6.36-7.87,6.36,4,6.36,7.87S49.31,28.72,44.9,28.72Zm0,3.89c7.18,0,11.29-4.93,11.29-11.8S52.08,9,44.9,9,33.62,14,33.62,20.81,37.73,32.61,44.9,32.61ZM79.93,32h-4.84V28.9H75a7.51,7.51,0,0,1-6.36,3.72c-5.84,0-8.34-2.94-8.34-8.78V9.65h4.93V23.36c0,3.94,1.6,5.36,4.28,5.36,4.11,0,5.49-2.63,5.49-6.1v-13h4.93V32ZM82.91,9.65h5.36l5.66,17.17H94l5.45-17.17h5.1l-8,22.35H91ZM111.4,18.86a5.84,5.84,0,0,1,5.88-5.92c3.33,0,5.45,2.81,5.62,5.92Zm16.43,3.24C128.66,15.4,124.33,9,117.28,9c-6.66,0-10.81,5.45-10.81,11.8,0,6.87,3.93,11.76,10.94,11.76,4.88,0,9-2.72,10.12-7.61h-4.67c-.86,2.47-2.59,3.72-5.45,3.72-4.11,0-6-3.11-6-6.62ZM131.6,9.65h4.63V14h.08A7.22,7.22,0,0,1,142.84,9a11.75,11.75,0,0,1,1.86.13v4.76a17.5,17.5,0,0,0-2.12-.22c-3.37,0-6.05,2.72-6.05,7.65V32H131.6V9.65ZM146.81,9.65h4.67v3.29l.09.09a8,8,0,0,1,7-4c4.85,0,7.91,2.59,7.91,7.61V32h-4.93V18c-.08-3.5-1.47-5-4.37-5-3.29,0-5.4,2.59-5.4,5.88V32h-4.93ZM175.48,18.86a5.84,5.84,0,0,1,5.88-5.92c3.33,0,5.45,2.81,5.62,5.92Zm16.43,3.24C192.73,15.4,188.41,9,181.36,9c-6.66,0-10.81,5.45-10.81,11.8,0,6.87,3.94,11.76,10.94,11.76,4.89,0,9-2.72,10.12-7.61h-4.67c-.87,2.47-2.6,3.72-5.45,3.72-4.11,0-6-3.11-6-6.62ZM195.67,9.65h4.67v3.11h.13A7.47,7.47,0,0,1,207.34,9c2.73,0,5.28,1.17,6.27,3.72a8.07,8.07,0,0,1,7-3.72c4.71,0,7.48,2.08,7.48,7.52V32h-4.93V19c0-3.55-.22-6-4.06-6-3.33,0-4.76,2.21-4.76,6V32h-4.93V17.65c0-3.07-1-4.71-3.93-4.71-2.55,0-4.88,2.08-4.88,5.79V32h-4.93V9.65ZM237.14,18.86A5.84,5.84,0,0,1,243,12.94c3.33,0,5.45,2.81,5.62,5.92Zm16.43,3.24C254.39,15.4,250.06,9,243,9c-6.66,0-10.81,5.45-10.81,11.8,0,6.87,3.93,11.76,10.94,11.76,4.88,0,9-2.72,10.12-7.61h-4.67c-.86,2.47-2.59,3.72-5.45,3.72-4.11,0-6-3.11-6-6.62ZM257.33,9.65H262v3.29l.09.09a8,8,0,0,1,7-4c4.85,0,7.91,2.59,7.91,7.61V32H272V18c-.08-3.5-1.47-5-4.37-5-3.29,0-5.41,2.59-5.41,5.88V32h-4.93ZM279.9,9.65h3.72V3h4.93v6.7H293v3.68h-4.45V25.27c0,2,.17,3.07,2.38,3.07a8.43,8.43,0,0,0,2.08-.17V32c-1.08.08-2.12.26-3.2.26-5.14,0-6.09-2-6.18-5.71V13.33h-3.72V9.65ZM5.69,64.31c0-4,1.64-8.13,6.27-8.13,3.8,0,6.18,2.94,6.18,7.87,0,3.89-1.86,7.91-6.27,7.91S5.69,68.15,5.69,64.31ZM22.9,44.37H18V55.79h-.09c-1.51-2.46-4.63-3.5-7.43-3.5-4.89,0-9.69,3.54-9.69,11.63,0,6.7,3.42,11.93,10.46,11.93,2.81,0,5.62-1.08,6.92-3.63h.08v3h4.67V44.37ZM47.89,75.25H43V72.13H43a7.51,7.51,0,0,1-6.36,3.72c-5.84,0-8.34-2.94-8.34-8.78V52.89h4.93V66.59c0,3.94,1.6,5.36,4.28,5.36,4.11,0,5.49-2.63,5.49-6.1v-13h4.93V75.25ZM86.63,54.19c-.91-3.55-3.2-6.14-7.7-6.14-6.62,0-9.38,5.84-9.38,11.76s2.77,11.76,9.38,11.76c4.8,0,7.43-3.58,7.87-8.08h5.28c-.43,7.39-5.66,12.5-13.14,12.5-9.25,0-14.79-7.35-14.79-16.17s5.53-16.17,14.79-16.17c7,0,12.45,3.89,13.1,10.55h-5.41ZM110.11,67.72c0,3.11-3.37,4.24-5.53,4.24-1.73,0-4.54-.65-4.54-2.85,0-2.59,1.9-3.37,4-3.72s4.54-.35,6.05-1.34v3.68Zm4.93-9c0-4.71-4.58-6.49-9-6.49-4.93,0-9.81,1.69-10.16,7.44h4.93c.22-2.42,2.17-3.55,4.93-3.55,2,0,4.63.48,4.63,3,0,2.9-3.16,2.51-6.7,3.16-4.15.47-8.6,1.38-8.6,7,0,4.37,3.63,6.53,7.65,6.53a11.46,11.46,0,0,0,7.74-2.72c.39,2,1.82,2.72,3.81,2.72a12.37,12.37,0,0,0,3.11-.56V71.88a7.21,7.21,0,0,1-1.21.08c-.91,0-1.17-.47-1.17-1.69V58.77ZM120.35,52.89H125v3.29l.09.09a8,8,0,0,1,7-4c4.85,0,7.91,2.59,7.91,7.61V75.25h-4.93V61.19c-.08-3.5-1.47-5-4.37-5-3.29,0-5.4,2.59-5.4,5.88V75.25h-4.93ZM159,67.72c0,3.11-3.37,4.24-5.54,4.24-1.73,0-4.54-.65-4.54-2.85,0-2.59,1.9-3.37,4-3.72S157.45,65,159,64v3.68Zm4.93-9c0-4.71-4.58-6.49-8.95-6.49-4.93,0-9.82,1.69-10.16,7.44h4.93c.22-2.42,2.16-3.55,4.93-3.55,2,0,4.62.48,4.62,3,0,2.9-3.16,2.51-6.7,3.16-4.15.47-8.61,1.38-8.61,7,0,4.37,3.64,6.53,7.65,6.53a11.46,11.46,0,0,0,7.74-2.72c.39,2,1.82,2.72,3.81,2.72a12.33,12.33,0,0,0,3.11-.56V71.88a7.17,7.17,0,0,1-1.21.08c-.91,0-1.17-.47-1.17-1.69V58.77ZM173.06,64.31c0-4,1.64-8.13,6.27-8.13,3.8,0,6.18,2.94,6.18,7.87,0,3.89-1.86,7.91-6.27,7.91S173.06,68.15,173.06,64.31Zm17.21-19.93h-4.93V55.79h-.09c-1.51-2.46-4.62-3.5-7.43-3.5-4.89,0-9.68,3.54-9.68,11.63,0,6.7,3.42,11.93,10.46,11.93,2.81,0,5.62-1.08,6.92-3.63h.09v3h4.67V44.37ZM209.42,67.72c0,3.11-3.37,4.24-5.53,4.24-1.73,0-4.54-.65-4.54-2.85,0-2.59,1.9-3.37,4-3.72s4.54-.35,6.05-1.34v3.68Zm4.93-9c0-4.71-4.58-6.49-8.95-6.49-4.93,0-9.82,1.69-10.16,7.44h4.93c.22-2.42,2.16-3.55,4.93-3.55,2,0,4.62.48,4.62,3,0,2.9-3.16,2.51-6.7,3.16-4.15.47-8.61,1.38-8.61,7,0,4.37,3.64,6.53,7.65,6.53a11.47,11.47,0,0,0,7.74-2.72c.39,2,1.82,2.72,3.8,2.72a12.34,12.34,0,0,0,3.11-.56V71.88a7.18,7.18,0,0,1-1.21.08c-.91,0-1.17-.47-1.17-1.69V58.77Z" class="fip_text" transform="translate(218,0)" />
+	<path d="M29.4,31.73h-3.46l-.82-3.63c-2.9,3.29-5.53,4.37-9.3,4.37-9.25,0-14.79-7.35-14.79-16.17S6.57.12,15.82.12c6.75,0,12.41,3.59,13.23,10.55h-5.27c-.52-4.06-4.06-6.14-8-6.14-6.62,0-9.38,5.84-9.38,11.76s2.77,11.76,9.38,11.76c5.53.08,8.56-3.24,8.65-8.48h-8.21V15.47H29.4ZM44.83,28.44c-4.41,0-6.36-4-6.36-7.91s1.95-7.87,6.36-7.87,6.36,4,6.36,7.87S49.24,28.44,44.83,28.44Zm0,3.89c7.18,0,11.29-4.93,11.29-11.8S52,8.77,44.83,8.77s-11.29,4.93-11.29,11.76S37.65,32.34,44.83,32.34ZM58,9.38h5.36L69,26.54h.09l5.45-17.17h5.1l-8,22.35h-5.53ZM86.51,18.58a5.84,5.84,0,0,1,5.88-5.92c3.33,0,5.45,2.81,5.62,5.92Zm16.43,3.25c.82-6.7-3.5-13.06-10.55-13.06-6.66,0-10.81,5.45-10.81,11.8,0,6.87,3.94,11.76,10.94,11.76,4.89,0,9-2.72,10.12-7.61H98c-.87,2.47-2.59,3.72-5.45,3.72-4.11,0-6-3.11-6-6.62ZM106.7,9.38h4.63V13.7h.09a7.21,7.21,0,0,1,6.53-4.93,11.69,11.69,0,0,1,1.86.13v4.76a17.6,17.6,0,0,0-2.12-.22c-3.37,0-6.05,2.72-6.05,7.65V31.73H106.7V9.38ZM121.92,9.38h4.67v3.29l.09.09a8,8,0,0,1,7-4c4.84,0,7.91,2.59,7.91,7.61V31.73h-4.93V17.68c-.09-3.5-1.47-5-4.37-5-3.29,0-5.41,2.59-5.41,5.88V31.73h-4.93V9.38ZM146.74,9.38h4.67v3.11h.13a7.47,7.47,0,0,1,6.87-3.72c2.72,0,5.28,1.17,6.27,3.72a8.07,8.07,0,0,1,7-3.72c4.71,0,7.48,2.08,7.48,7.52V31.73h-4.93V18.67c0-3.55-.22-6-4.06-6-3.33,0-4.76,2.21-4.76,6v13.1h-4.93V17.38c0-3.07-1-4.71-3.93-4.71-2.55,0-4.89,2.08-4.89,5.79V31.73h-4.93V9.38ZM188.21,18.58a5.84,5.84,0,0,1,5.88-5.92c3.33,0,5.45,2.81,5.62,5.92Zm16.43,3.25c.82-6.7-3.5-13.06-10.55-13.06-6.66,0-10.81,5.45-10.81,11.8,0,6.87,3.93,11.76,10.94,11.76,4.89,0,9-2.72,10.12-7.61h-4.67c-.86,2.47-2.59,3.72-5.45,3.72-4.11,0-6-3.11-6-6.62ZM208.4,9.38h4.67v3.29l.09.09a8,8,0,0,1,7-4c4.84,0,7.91,2.59,7.91,7.61V31.73H223.1V17.68c-.09-3.5-1.47-5-4.37-5-3.29,0-5.41,2.59-5.41,5.88V31.73H208.4V9.38ZM231,9.38h3.71V2.67h4.93v6.7h4.45v3.68h-4.45V25c0,2,.17,3.07,2.38,3.07a8.25,8.25,0,0,0,2.08-.18v3.81c-1.08.08-2.12.26-3.2.26-5.15,0-6.1-2-6.19-5.71V13.05H231V9.38ZM12,71.68c-4.41,0-6.36-4-6.36-7.91S7.6,55.9,12,55.9s6.36,4,6.36,7.87S16.43,71.68,12,71.68Zm0,3.89c7.18,0,11.28-4.93,11.28-11.8S19.19,52,12,52s-11.29,4.93-11.29,11.76S4.83,75.57,12,75.57ZM25.2,52.61h3.67V50.76c0-5.71,3-6.66,6.18-6.66a13.89,13.89,0,0,1,3.46.3v3.85a8.32,8.32,0,0,0-2.29-.26c-1.34,0-2.42.48-2.42,2.33v2.29H38v3.68H33.8V75h-4.93V56.29H25.2ZM74.58,53.91c-.91-3.55-3.2-6.14-7.7-6.14-6.62,0-9.38,5.84-9.38,11.76s2.77,11.76,9.38,11.76c4.8,0,7.44-3.59,7.87-8.09H80c-.43,7.39-5.66,12.5-13.14,12.5-9.25,0-14.79-7.35-14.79-16.17s5.54-16.17,14.79-16.17c7,0,12.45,3.89,13.1,10.55h-5.4ZM98.06,67.45c0,3.11-3.37,4.24-5.54,4.24-1.73,0-4.54-.65-4.54-2.85,0-2.59,1.9-3.37,4-3.72s4.54-.35,6.05-1.34Zm4.93-9c0-4.71-4.58-6.48-9-6.48-4.93,0-9.82,1.69-10.16,7.44h4.93C89,57,91,55.9,93.73,55.9c2,0,4.63.48,4.63,3,0,2.9-3.16,2.51-6.7,3.16-4.15.47-8.6,1.38-8.6,7,0,4.37,3.63,6.53,7.65,6.53a11.47,11.47,0,0,0,7.74-2.72c.39,2,1.82,2.72,3.8,2.72a12.36,12.36,0,0,0,3.11-.56V71.6a7.18,7.18,0,0,1-1.21.08c-.91,0-1.17-.47-1.17-1.69ZM108.3,52.61H113V55.9l.09.09a8,8,0,0,1,7-4c4.84,0,7.91,2.59,7.91,7.61V75H123V60.92c-.09-3.5-1.47-5-4.37-5-3.29,0-5.41,2.59-5.41,5.88V75H108.3V52.61ZM146.91,67.45c0,3.11-3.37,4.24-5.53,4.24-1.73,0-4.54-.65-4.54-2.85,0-2.59,1.9-3.37,4-3.72s4.54-.35,6.05-1.34Zm4.93-9c0-4.71-4.58-6.48-9-6.48-4.93,0-9.81,1.69-10.16,7.44h4.93c.22-2.42,2.16-3.54,4.93-3.54,2,0,4.63.48,4.63,3,0,2.9-3.16,2.51-6.7,3.16-4.15.47-8.6,1.38-8.6,7,0,4.37,3.63,6.53,7.65,6.53a11.47,11.47,0,0,0,7.74-2.72c.39,2,1.82,2.72,3.8,2.72a12.36,12.36,0,0,0,3.11-.56V71.6a7.19,7.19,0,0,1-1.21.08c-.91,0-1.17-.47-1.17-1.69ZM161,64c0-4,1.64-8.13,6.27-8.13,3.8,0,6.18,2.94,6.18,7.87,0,3.89-1.86,7.91-6.27,7.91S161,67.88,161,64ZM178.22,44.1h-4.93V55.51h-.09c-1.51-2.46-4.63-3.5-7.44-3.5-4.89,0-9.68,3.54-9.68,11.63,0,6.7,3.41,11.93,10.46,11.93,2.81,0,5.62-1.08,6.92-3.63h.09v3h4.67V44.1ZM197.37,67.45c0,3.11-3.37,4.24-5.54,4.24-1.73,0-4.54-.65-4.54-2.85,0-2.59,1.9-3.37,4-3.72s4.54-.35,6.05-1.34Zm4.93-9c0-4.71-4.58-6.48-9-6.48-4.93,0-9.82,1.69-10.16,7.44h4.93c.22-2.42,2.16-3.54,4.93-3.54,2,0,4.63.48,4.63,3,0,2.9-3.16,2.51-6.7,3.16-4.15.47-8.6,1.38-8.6,7,0,4.37,3.63,6.53,7.65,6.53a11.46,11.46,0,0,0,7.74-2.72c.39,2,1.82,2.72,3.8,2.72a12.35,12.35,0,0,0,3.11-.56V71.6a7.18,7.18,0,0,1-1.21.08c-.91,0-1.17-.47-1.17-1.69Z" class="fip_text" transform="translate(575,0)" />
+</svg>
+`;
+
+var WordmarkEn = `<svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 143 34" preserveAspectRatio="xMinYMin meet" role="img" aria-labelledby="wordmark-en-title">
+	<title id="wordmark-en-title">Symbol of the Government of Canada</title>
+	<g id="wmms" transform="translate(-1, -1)">
+		<path class="fip_flag" d="M137.9,1.2h5.2v10.4h-5.2V1.2z M128.9,6.4l-0.3,0.1c0,0,1.8,1.5,1.8,1.6c0.1,0.1,0.2,0.1,0.1,0.4 c-0.1,0.3-0.2,0.6-0.2,0.6s1.6-0.3,1.8-0.4c0.2,0,0.3,0,0.3,0.2c0,0.2-0.1,1.9-0.1,1.9h0.5c0,0-0.1-1.8-0.1-1.9 c0-0.2,0.1-0.2,0.3-0.2c0.2,0,1.8,0.4,1.8,0.4s-0.1-0.4-0.2-0.6c-0.1-0.3,0-0.3,0.1-0.4c0.1-0.1,1.8-1.6,1.8-1.6l-0.3-0.1 c-0.2-0.1-0.1-0.2-0.1-0.3s0.3-1.1,0.3-1.1s-0.8,0.2-0.9,0.2c-0.1,0-0.2,0-0.2-0.1s-0.2-0.5-0.2-0.5s-0.9,1-1,1.1 c-0.2,0.2-0.4,0-0.3-0.2c0-0.2,0.5-2.3,0.5-2.3s-0.5,0.3-0.7,0.4s-0.3,0.1-0.3-0.1c-0.1-0.2-0.7-1.3-0.7-1.4c0,0-0.6,1.2-0.7,1.4 s-0.2,0.2-0.3,0.1c-0.2-0.1-0.7-0.4-0.7-0.4s0.5,2.1,0.5,2.3s-0.1,0.3-0.3,0.2l-1-1.1c0,0-0.1,0.3-0.2,0.4c0,0.1-0.1,0.2-0.2,0.1 c-0.2,0-1-0.2-1-0.2s0.3,1,0.4,1.1C129.1,6.1,129.1,6.3,128.9,6.4z M122.2,1.2h5.2v10.4h-5.2V1.2z"/>
+		<path class="fip_text" d="M144.2,32.4c-0.4,0.9-1.2,1.2-1.7,1.2c-0.6,0-2.4-0.1-2.4-4.8c0,0,0-9.5,0-10.1c0-3.1-2.4-5.6-8.6-5.6 c-6.7,0-6.8,3.3-6.8,4.1c-0.1,0.9,0.4,1.9,2.1,1.9c1.5,0,1.9-1.7,2.1-2.3c0.2-0.7,0.3-2.7,3-2.7c2.3,0,3.7,2,3.8,4.9 c0,0.5,0,0.8,0,1.1c0,0.2,0,0.3,0,0.5l0,0l0,0v0.1c-0.2,1-0.7,1.5-1.6,1.9c-1.2,0.6-4.7,1.1-5.1,1.2c-1.4,0.3-5.3,1.3-5.2,5.4 c0.1,4,4.1,5.4,6.9,5.3c2.7-0.1,4.3-1.2,5-1.8c0.4-0.3,0.4-0.3,0.7,0.1c0.4,0.4,1.7,1.7,4.8,1.7c3.2,0,3.6-1.5,3.8-2 C145.1,32.2,144.4,31.9,144.2,32.4z M131.7,33.5c-2.8,0-3.5-2.3-3.5-3.5c0-1.1,0.6-3.4,3.4-5c0,0,1.3-0.8,3.8-1.8 c0.1,0,0.2,0,0.2,0s0.1,0.1,0.1,0.2l0,0l0,0v0.1l0,0l0,0v0.1l0,0l0,0l0,0v4.2C135.7,31.1,134.1,33.5,131.7,33.5z M122.5,33.4 c-0.4-0.1-2.9,0.2-2.9-7.4s0-23.9,0-23.9c0-0.3,0-1.1-0.9-1.1c-0.9,0-6.9,0.3-7.3,0.4c-0.4,0-0.7,0.5,0,0.5 c0.7,0.1,3.9,0.3,3.9,5.6c0,2.6,0,5.2,0,7.1c0,0.1,0,0.2,0,0.2c0,0.2,0,0.3-0.1,0.4c0,0,0,0,0,0.1l0,0c-0.1,0.1-0.2,0-0.5-0.2 c-0.5-0.4-2.8-1.8-5.7-1.8c-4.7,0-10.5,3.4-10.5,10.4c0,7.5,5.3,11.1,10.8,11.1c2.7,0,4.6-1.2,5.3-1.6c0.8-0.5,0.7-0.4,0.8,0.3 c0.1,0.5,0,1.5,1.4,1.4c1.5-0.2,5.1-0.6,5.8-0.7C123.3,33.9,123.1,33.5,122.5,33.4z M110.1,33.7c-4.4,0-6.7-5.2-6.7-10.2 c0-5.5,3.1-9.2,6.4-9c4.3,0.3,5.4,3.7,5.5,9.8c0,0.4,0,0.8,0,1.3C115.2,31.6,112.7,33.7,110.1,33.7z M98.4,32.4 c-0.4,0.9-1.2,1.2-1.7,1.2c-0.6,0-2.4-0.1-2.4-4.8c0,0,0-9.5,0-10.1c0-3.1-2.4-5.6-8.6-5.6c-6.7,0-6.8,3.3-6.8,4.1 c-0.1,0.9,0.4,1.9,2.1,1.9c1.5,0,1.9-1.7,2.1-2.3c0.2-0.7,0.3-2.7,3-2.7c2.3,0,3.8,2,3.8,5v0.1c0,0.1,0,0.2,0,0.2v0.3 c0,0.1,0,0.3,0,0.4c-0.1,1.5-0.5,2-1.7,2.6c-1.2,0.6-4.7,1.1-5.1,1.2c-1.4,0.3-5.3,1.3-5.2,5.4c0.1,4,4.1,5.4,6.9,5.3 c2.7-0.1,4.3-1.2,5-1.8c0.4-0.3,0.4-0.3,0.7,0.1c0.4,0.4,1.7,1.7,4.8,1.7c3.2,0,3.6-1.5,3.8-2C99.3,32.2,98.7,31.9,98.4,32.4z  M86,33.5c-2.8,0-3.5-2.3-3.5-3.5c0-1.1,0.6-3.4,3.4-5c0,0,1.3-0.8,3.8-1.8c0.1,0,0.2,0,0.2,0v0.1l0,0l0,0c0,0.1,0,0.2,0,0.4v-0.1 c0,0,0,0,0,0.1v4.2C89.9,31.1,88.3,33.5,86,33.5z M76.4,33.4c-0.8-0.2-2.2-1.1-2.2-5.5v-8c0-1.9,0.2-6.8-7.3-6.8 c-3.9,0-6.1,2-6.3,2.1c-0.3,0.3-0.5,0.4-0.6-0.1c-0.1-0.4-0.3-1-0.4-1.4c-0.1-0.3-0.3-0.6-1-0.5c-0.7,0.1-5.1,0.8-5.9,1 c-0.7,0.2-0.5,0.5,0,0.6c0.5,0.1,2.9,0.3,2.9,4.4s0,8.6,0,8.6c0,5-1,5.4-1.9,5.7c-1.2,0.3-0.6,0.7-0.1,0.7c0,0,8.9,0,9.1,0 c0.6,0,0.9-0.6-0.3-0.8c-1.2-0.2-2.3-0.9-2.3-4.8c0-0.4,0-4.7,0-5.5c0-2.1-0.5-8.5,5.3-8.6c4.1-0.1,4.5,3.3,4.5,5.5v8.5 c0,3.5-1,4.6-2.2,4.8c-1.1,0.2-0.9,0.7-0.3,0.7c0.2,0,9.3,0,9.3,0C77.2,34.2,77.7,33.7,76.4,33.4z M52.1,32.4 c-0.4,0.9-1.2,1.2-1.7,1.2c-0.6,0-2.4-0.1-2.4-4.8c0,0,0-9.5,0-10.1c0-3.1-2.4-5.6-8.6-5.6c-6.7,0-6.8,3.3-6.8,4.1 c-0.1,0.9,0.4,1.9,2.1,1.9c1.5,0,1.9-1.7,2.1-2.3c0.2-0.7,0.3-2.7,3-2.7c2.3,0,3.7,2,3.8,4.9c0,0.5,0,0.8,0,1.1 c0,0.2,0,0.4-0.1,0.5v0.1l0,0c-0.2,1-0.7,1.5-1.6,1.9c-1.2,0.6-4.7,1.1-5.1,1.2c-1.4,0.3-5.3,1.3-5.2,5.4c0.1,4,4.1,5.4,6.9,5.3 c2.7-0.1,4.3-1.2,5-1.8c0.4-0.3,0.4-0.3,0.7,0.1c0.4,0.4,1.7,1.7,4.8,1.7c3.2,0,3.6-1.5,3.8-2C53,32.2,52.3,31.9,52.1,32.4z  M39.6,33.5c-2.8,0-3.5-2.3-3.5-3.5s0.6-3.4,3.4-5c0,0,1.3-0.8,3.8-1.8c0.1,0,0.2,0,0.2,0s0.1,0.1,0.1,0.2l0,0l0,0l0,0 c0,0,0,0.1,0,0.2l0,0l0,0v0.1l0,0l0,0l0,0v4.2C43.6,31.1,42,33.5,39.6,33.5z M30,24.8c-1,3.2-2.9,8.4-9.8,8.6 C13,33.5,8.7,28.6,8.5,19.5C8.2,9.8,12.4,2.4,18.9,2.2c7.3-0.1,9.9,8.6,10,9.9c0.1,1,1.4,0.9,1.4-0.1c0-0.5-0.6-9.1-0.8-10.1 c-0.2-1-1-0.6-1.2-0.2C28.2,2,28.4,1.4,28,2.3c-0.4,0.9-1.5,0.4-1.9,0.3c-1.2-0.5-3.5-1.7-7.2-1.6c-8.5,0.2-17.2,6.5-17,17.5 c0.2,10.7,8.8,16.7,16.8,16.6c7.3-0.1,11.4-4.7,12.6-10C31.7,23.8,30.4,23.5,30,24.8z"/>
+	</g>
+</svg>`;
+
+var WordmarkFr = `<svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 143 34" preserveAspectRatio="xMinYMin meet" role="img" aria-labelledby="wordmark-fr-title">
+	<title id="wordmark-fr-title">Symbole du Gouvernement du Canada</title>
+	<g id="wmms" transform="translate(-1, -1)">
+		<path class="fip_flag" d="M137.9,1.2h5.2v10.4h-5.2V1.2z M128.9,6.4l-0.3,0.1c0,0,1.8,1.5,1.8,1.6c0.1,0.1,0.2,0.1,0.1,0.4 c-0.1,0.3-0.2,0.6-0.2,0.6s1.6-0.3,1.8-0.4c0.2,0,0.3,0,0.3,0.2c0,0.2-0.1,1.9-0.1,1.9h0.5c0,0-0.1-1.8-0.1-1.9 c0-0.2,0.1-0.2,0.3-0.2c0.2,0,1.8,0.4,1.8,0.4s-0.1-0.4-0.2-0.6c-0.1-0.3,0-0.3,0.1-0.4c0.1-0.1,1.8-1.6,1.8-1.6l-0.3-0.1 c-0.2-0.1-0.1-0.2-0.1-0.3s0.3-1.1,0.3-1.1s-0.8,0.2-0.9,0.2c-0.1,0-0.2,0-0.2-0.1s-0.2-0.5-0.2-0.5s-0.9,1-1,1.1 c-0.2,0.2-0.4,0-0.3-0.2c0-0.2,0.5-2.3,0.5-2.3s-0.5,0.3-0.7,0.4s-0.3,0.1-0.3-0.1c-0.1-0.2-0.7-1.3-0.7-1.4c0,0-0.6,1.2-0.7,1.4 s-0.2,0.2-0.3,0.1c-0.2-0.1-0.7-0.4-0.7-0.4s0.5,2.1,0.5,2.3s-0.1,0.3-0.3,0.2l-1-1.1c0,0-0.1,0.3-0.2,0.4c0,0.1-0.1,0.2-0.2,0.1 c-0.2,0-1-0.2-1-0.2s0.3,1,0.4,1.1C129.1,6.1,129.1,6.3,128.9,6.4z M122.2,1.2h5.2v10.4h-5.2V1.2z"/>
+		<path class="fip_text" d="M144.2,32.4c-0.4,0.9-1.2,1.2-1.7,1.2c-0.6,0-2.4-0.1-2.4-4.8c0,0,0-9.5,0-10.1c0-3.1-2.4-5.6-8.6-5.6 c-6.7,0-6.8,3.3-6.8,4.1c-0.1,0.9,0.4,1.9,2.1,1.9c1.5,0,1.9-1.7,2.1-2.3c0.2-0.7,0.3-2.7,3-2.7c2.3,0,3.7,2,3.8,4.9 c0,0.5,0,0.8,0,1.1c0,0.2,0,0.3,0,0.5l0,0l0,0v0.1c-0.2,1-0.7,1.5-1.6,1.9c-1.2,0.6-4.7,1.1-5.1,1.2c-1.4,0.3-5.3,1.3-5.2,5.4 c0.1,4,4.1,5.4,6.9,5.3c2.7-0.1,4.3-1.2,5-1.8c0.4-0.3,0.4-0.3,0.7,0.1c0.4,0.4,1.7,1.7,4.8,1.7c3.2,0,3.6-1.5,3.8-2 C145.1,32.2,144.4,31.9,144.2,32.4z M131.7,33.5c-2.8,0-3.5-2.3-3.5-3.5c0-1.1,0.6-3.4,3.4-5c0,0,1.3-0.8,3.8-1.8 c0.1,0,0.2,0,0.2,0s0.1,0.1,0.1,0.2l0,0l0,0v0.1l0,0l0,0v0.1l0,0l0,0l0,0v4.2C135.7,31.1,134.1,33.5,131.7,33.5z M122.5,33.4 c-0.4-0.1-2.9,0.2-2.9-7.4s0-23.9,0-23.9c0-0.3,0-1.1-0.9-1.1c-0.9,0-6.9,0.3-7.3,0.4c-0.4,0-0.7,0.5,0,0.5 c0.7,0.1,3.9,0.3,3.9,5.6c0,2.6,0,5.2,0,7.1c0,0.1,0,0.2,0,0.2c0,0.2,0,0.3-0.1,0.4c0,0,0,0,0,0.1l0,0c-0.1,0.1-0.2,0-0.5-0.2 c-0.5-0.4-2.8-1.8-5.7-1.8c-4.7,0-10.5,3.4-10.5,10.4c0,7.5,5.3,11.1,10.8,11.1c2.7,0,4.6-1.2,5.3-1.6c0.8-0.5,0.7-0.4,0.8,0.3 c0.1,0.5,0,1.5,1.4,1.4c1.5-0.2,5.1-0.6,5.8-0.7C123.3,33.9,123.1,33.5,122.5,33.4z M110.1,33.7c-4.4,0-6.7-5.2-6.7-10.2 c0-5.5,3.1-9.2,6.4-9c4.3,0.3,5.4,3.7,5.5,9.8c0,0.4,0,0.8,0,1.3C115.2,31.6,112.7,33.7,110.1,33.7z M98.4,32.4 c-0.4,0.9-1.2,1.2-1.7,1.2c-0.6,0-2.4-0.1-2.4-4.8c0,0,0-9.5,0-10.1c0-3.1-2.4-5.6-8.6-5.6c-6.7,0-6.8,3.3-6.8,4.1 c-0.1,0.9,0.4,1.9,2.1,1.9c1.5,0,1.9-1.7,2.1-2.3c0.2-0.7,0.3-2.7,3-2.7c2.3,0,3.8,2,3.8,5v0.1c0,0.1,0,0.2,0,0.2v0.3 c0,0.1,0,0.3,0,0.4c-0.1,1.5-0.5,2-1.7,2.6c-1.2,0.6-4.7,1.1-5.1,1.2c-1.4,0.3-5.3,1.3-5.2,5.4c0.1,4,4.1,5.4,6.9,5.3 c2.7-0.1,4.3-1.2,5-1.8c0.4-0.3,0.4-0.3,0.7,0.1c0.4,0.4,1.7,1.7,4.8,1.7c3.2,0,3.6-1.5,3.8-2C99.3,32.2,98.7,31.9,98.4,32.4z  M86,33.5c-2.8,0-3.5-2.3-3.5-3.5c0-1.1,0.6-3.4,3.4-5c0,0,1.3-0.8,3.8-1.8c0.1,0,0.2,0,0.2,0v0.1l0,0l0,0c0,0.1,0,0.2,0,0.4v-0.1 c0,0,0,0,0,0.1v4.2C89.9,31.1,88.3,33.5,86,33.5z M76.4,33.4c-0.8-0.2-2.2-1.1-2.2-5.5v-8c0-1.9,0.2-6.8-7.3-6.8 c-3.9,0-6.1,2-6.3,2.1c-0.3,0.3-0.5,0.4-0.6-0.1c-0.1-0.4-0.3-1-0.4-1.4c-0.1-0.3-0.3-0.6-1-0.5c-0.7,0.1-5.1,0.8-5.9,1 c-0.7,0.2-0.5,0.5,0,0.6c0.5,0.1,2.9,0.3,2.9,4.4s0,8.6,0,8.6c0,5-1,5.4-1.9,5.7c-1.2,0.3-0.6,0.7-0.1,0.7c0,0,8.9,0,9.1,0 c0.6,0,0.9-0.6-0.3-0.8c-1.2-0.2-2.3-0.9-2.3-4.8c0-0.4,0-4.7,0-5.5c0-2.1-0.5-8.5,5.3-8.6c4.1-0.1,4.5,3.3,4.5,5.5v8.5 c0,3.5-1,4.6-2.2,4.8c-1.1,0.2-0.9,0.7-0.3,0.7c0.2,0,9.3,0,9.3,0C77.2,34.2,77.7,33.7,76.4,33.4z M52.1,32.4 c-0.4,0.9-1.2,1.2-1.7,1.2c-0.6,0-2.4-0.1-2.4-4.8c0,0,0-9.5,0-10.1c0-3.1-2.4-5.6-8.6-5.6c-6.7,0-6.8,3.3-6.8,4.1 c-0.1,0.9,0.4,1.9,2.1,1.9c1.5,0,1.9-1.7,2.1-2.3c0.2-0.7,0.3-2.7,3-2.7c2.3,0,3.7,2,3.8,4.9c0,0.5,0,0.8,0,1.1 c0,0.2,0,0.4-0.1,0.5v0.1l0,0c-0.2,1-0.7,1.5-1.6,1.9c-1.2,0.6-4.7,1.1-5.1,1.2c-1.4,0.3-5.3,1.3-5.2,5.4c0.1,4,4.1,5.4,6.9,5.3 c2.7-0.1,4.3-1.2,5-1.8c0.4-0.3,0.4-0.3,0.7,0.1c0.4,0.4,1.7,1.7,4.8,1.7c3.2,0,3.6-1.5,3.8-2C53,32.2,52.3,31.9,52.1,32.4z  M39.6,33.5c-2.8,0-3.5-2.3-3.5-3.5s0.6-3.4,3.4-5c0,0,1.3-0.8,3.8-1.8c0.1,0,0.2,0,0.2,0s0.1,0.1,0.1,0.2l0,0l0,0l0,0 c0,0,0,0.1,0,0.2l0,0l0,0v0.1l0,0l0,0l0,0v4.2C43.6,31.1,42,33.5,39.6,33.5z M30,24.8c-1,3.2-2.9,8.4-9.8,8.6 C13,33.5,8.7,28.6,8.5,19.5C8.2,9.8,12.4,2.4,18.9,2.2c7.3-0.1,9.9,8.6,10,9.9c0.1,1,1.4,0.9,1.4-0.1c0-0.5-0.6-9.1-0.8-10.1 c-0.2-1-1-0.6-1.2-0.2C28.2,2,28.4,1.4,28,2.3c-0.4,0.9-1.5,0.4-1.9,0.3c-1.2-0.5-3.5-1.7-7.2-1.6c-8.5,0.2-17.2,6.5-17,17.5 c0.2,10.7,8.8,16.7,16.8,16.6c7.3-0.1,11.4-4.7,12.6-10C31.7,23.8,30.4,23.5,30,24.8z"/>
+	</g>
+</svg>`;
+
+const gcdsSignatureCss = "@layer reset, default, type.signature, type.wordmark, variant.colour, variant.white, desktop;@layer reset{:host{display:block;width:fit-content}}@layer default{:host .gcds-signature{display:flex}:host svg{display:block;max-width:100%}:host svg .fip_flag{fill:var(--gcds-signature-color-flag)}}@layer type.signature{:host(:not([type=wordmark])) svg{height:var(--gcds-signature-signature-height)}}@layer type.wordmark{:host([type=wordmark]) svg{height:var(--gcds-signature-wordmark-height);width:auto}}@layer variant.colour{:host(:not([variant=white])) svg .fip_text{fill:var(--gcds-signature-color-text)}}@layer variant.white{:host([variant=white]) svg :is(.fip_text){fill:var(--gcds-signature-white-default)}}@layer desktop{@media screen and (width >= 64em){:host(:not([type=wordmark])) svg{height:var(--gcds-signature-signature-height-desktop)}}}";
+
+const GcdsSignature = class {
+    constructor(hostRef) {
+        index.registerInstance(this, hostRef);
+        /**
+         * Props
+         */
+        /**
+         * The type of graphic to render
+         */
+        this.type = 'signature';
+        /**
+         * The colour variant to render
+         */
+        this.variant = 'colour';
+        /**
+         * Has link to canada.ca. Only applies to signature
+         */
+        this.hasLink = false;
+    }
+    validateType(newValue) {
+        if (newValue != 'signature' && newValue != 'wordmark') {
+            this.type = 'signature';
+        }
+    }
+    validateVariant(newValue) {
+        if (newValue != 'colour' && newValue != 'white') {
+            this.variant = 'colour';
+        }
+    }
+    /*
+     * Observe lang attribute change
+     */
+    updateLang() {
+        const observer = new MutationObserver(mutations => {
+            if (mutations[0].oldValue != this.el.lang) {
+                this.lang = this.el.lang;
+            }
+        });
+        observer.observe(this.el, utils.observerConfig);
+    }
+    async componentWillLoad() {
+        // Define lang attribute
+        this.lang = utils.assignLanguage(this.el);
+        this.updateLang();
+    }
+    get selectSVG() {
+        switch (this.type) {
+            case 'wordmark':
+                if (this.lang == 'en') {
+                    return WordmarkEn;
+                }
+                else {
+                    return WordmarkFr;
+                }
+            case 'signature':
+            default:
+                if (this.lang == 'en') {
+                    return SignatureEn;
+                }
+                else {
+                    return SignatureFr;
+                }
+        }
+    }
+    render() {
+        const { type, hasLink, lang, selectSVG } = this;
+        const sigAttrs = {
+            class: 'gcds-signature',
+        };
+        const Tag = hasLink ? 'a' : 'div';
+        if (Tag === 'a') {
+            sigAttrs['href'] = I18N$4[lang].link;
+        }
+        return (index.h(index.Host, { key: 'c856d63e78f6cc381891bb2906a10eb779361d3a' }, type === 'signature' ? (index.h(Tag, Object.assign({}, sigAttrs), index.h("div", { innerHTML: selectSVG }))) : (index.h("div", { class: "gcds-signature", innerHTML: selectSVG }))));
+    }
+    get el() { return index.getElement(this); }
+    static get watchers() { return {
+        "type": ["validateType"],
+        "variant": ["validateVariant"]
+    }; }
+};
+GcdsSignature.style = gcdsSignatureCss;
+
+const gcdsSrOnlyCss = "@layer reset, default;@layer reset{:host slot{display:initial}}@layer default{:host{clip-path:inset(100%);clip:rect(1px,1px,1px,1px);height:1px;overflow:hidden;position:absolute;white-space:nowrap;width:1px}}";
+
+const GcdsSrOnly = class {
+    constructor(hostRef) {
+        index.registerInstance(this, hostRef);
+        /**
+         * Sets the appropriate HTML tag for the content.
+         */
+        this.tag = 'p';
+    }
+    validateTag(newValue) {
+        const values = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'p', 'span'];
+        if (!values.includes(newValue)) {
+            this.tag = 'p';
+        }
+    }
+    componentWillLoad() {
+        // Validate attributes and set defaults
+        this.validateTag(this.tag);
+    }
+    render() {
+        const Tag = this.tag;
+        return (index.h(index.Host, { key: '18f77ee5b2c271548f52b660390dfdee8747f8a0' }, index.h(Tag, { key: '9e4b70e16cec0a8521ce8cb67cb62a7638afce42' }, index.h("slot", { key: 'e9f5a29ea054a829dea24766042990dfcf2eefac' }))));
+    }
+    static get watchers() { return {
+        "tag": ["validateTag"]
+    }; }
+};
+GcdsSrOnly.style = gcdsSrOnlyCss;
+
+const I18N$3 = {
+  en: {
+    step: 'Step',
+    of: 'of',
+  },
+  fr: {
+    step: 'Étape',
+    of: 'sur',
+  },
+};
+
+const gcdsStepperCss = "@layer reset, default;@layer reset{:host{display:block}}@layer default{:host .gcds-stepper .gcds-stepper__steps{display:block;font:var(--gcds-stepper-font-desktop);margin:var(--gcds-stepper-margin-desktop)}@media only screen and (width < 48em){:host .gcds-stepper .gcds-stepper__steps{font:var(--gcds-stepper-font-mobile);margin:var(--gcds-stepper-margin-mobile)}}}";
+
+const GcdsStepper = class {
+    constructor(hostRef) {
+        index.registerInstance(this, hostRef);
+        /**
+         * Defines the heading tag to render
+         */
+        this.tag = 'h2';
+        /**
+         * State to track validation on properties
+         * Contains a list of properties that have an error associated with them
+         */
+        this.errors = [];
+    }
+    validateCurrentStep() {
+        if (this.currentStep <= 0 ||
+            isNaN(this.currentStep) ||
+            this.currentStep > this.totalSteps) {
+            this.errors.push('currentStep');
+        }
+        else if (this.errors.includes('currentStep')) {
+            this.errors.splice(this.errors.indexOf('currentStep'), 1);
+        }
+    }
+    validateTotalSteps() {
+        if (this.totalSteps <= 0 ||
+            isNaN(this.totalSteps) ||
+            this.totalSteps < this.currentStep) {
+            this.errors.push('totalSteps');
+        }
+        else if (this.errors.includes('totalSteps')) {
+            this.errors.splice(this.errors.indexOf('totalSteps'), 1);
+        }
+    }
+    /*
+     * Observe lang attribute change
+     */
+    updateLang() {
+        const observer = new MutationObserver(mutations => {
+            if (mutations[0].oldValue != this.el.lang) {
+                this.lang = this.el.lang;
+            }
+        });
+        observer.observe(this.el, utils.observerConfig);
+    }
+    validateChildren() {
+        if (this.el.innerHTML.trim() == '') {
+            this.errors.push('children');
+        }
+        else if (this.errors.includes('children')) {
+            this.errors.splice(this.errors.indexOf('children'), 1);
+        }
+    }
+    validateRequiredProps() {
+        this.validateCurrentStep();
+        this.validateTotalSteps();
+        this.validateChildren();
+        if (this.errors.includes('totalSteps') ||
+            this.errors.includes('currentStep') ||
+            this.errors.includes('children')) {
+            return false;
+        }
+        return true;
+    }
+    async componentWillLoad() {
+        // Define lang attribute
+        this.lang = utils.assignLanguage(this.el);
+        this.updateLang();
+        let valid = this.validateRequiredProps();
+        if (!valid) {
+            utils.logError('gcds-stepper', this.errors);
+        }
+    }
+    render() {
+        const { currentStep, lang, totalSteps, tag } = this;
+        return (index.h(index.Host, { key: '6e9ef763863d74aabd0e06b6126638c680c9de68' }, this.validateRequiredProps() && (index.h("gcds-heading", { key: 'd6d6b6e34b726d0c878b42a5fe9acfff1ef15a09', tag: tag, class: "gcds-stepper", "margin-top": "0", "margin-bottom": "225" }, index.h("span", { key: '832e9f340126888cbde32219a4bc5c41c64768de', class: "gcds-stepper__steps" }, `${I18N$3[lang].step} ${currentStep} ${I18N$3[lang].of} ${totalSteps}`, index.h("gcds-sr-only", { key: '09142960d870e811eae871d22c8e217025747080' }, " : ")), index.h("slot", { key: '1e03b643830f949011400d1c0b25e849359a74d1' })))));
+    }
+    get el() { return index.getElement(this); }
+    static get watchers() { return {
+        "currentStep": ["validateCurrentStep"],
+        "totalSteps": ["validateTotalSteps"]
+    }; }
+};
+GcdsStepper.style = gcdsStepperCss;
+
+const gcdsTextCss = "@layer reset, default, display, limit, margin, role, size, style, weight;@layer reset{:host{color:var(--gcds-text-role-primary);display:block}:host .gcds-text{box-sizing:border-box;display:inherit;margin:0}:host .gcds-text slot{display:initial}}@layer default{:host .gcds-text{font:var(--gcds-text-size-body-desktop)}@media only screen and (width < 48em){:host .gcds-text{font:var(--gcds-text-size-body-mobile)}}}@layer display{:host.d-block{display:block}:host.d-flex{display:flex}:host.d-inline{display:inline}:host.d-inline-block{display:inline-block}:host.d-inline-flex{display:inline-flex}:host.d-none{display:none}}@layer limit{:host .gcds-text.limit{max-width:var(--gcds-text-character-limit)}}@layer margin{:host .gcds-text.mt-0{margin-block-start:var(--gcds-text-spacing-0)}:host .gcds-text.mt-25{margin-block-start:var(--gcds-text-spacing-25)}:host .gcds-text.mt-50{margin-block-start:var(--gcds-text-spacing-50)}:host .gcds-text.mt-75{margin-block-start:var(--gcds-text-spacing-75)}:host .gcds-text.mt-100{margin-block-start:var(--gcds-text-spacing-100)}:host .gcds-text.mt-125{margin-block-start:var(--gcds-text-spacing-125)}:host .gcds-text.mt-150{margin-block-start:var(--gcds-text-spacing-150)}:host .gcds-text.mt-175{margin-block-start:var(--gcds-text-spacing-175)}:host .gcds-text.mt-200{margin-block-start:var(--gcds-text-spacing-200)}:host .gcds-text.mt-225{margin-block-start:var(--gcds-text-spacing-225)}:host .gcds-text.mt-250{margin-block-start:var(--gcds-text-spacing-250)}:host .gcds-text.mt-300{margin-block-start:var(--gcds-text-spacing-300)}:host .gcds-text.mt-350{margin-block-start:var(--gcds-text-spacing-350)}:host .gcds-text.mt-400{margin-block-start:var(--gcds-text-spacing-400)}:host .gcds-text.mt-450{margin-block-start:var(--gcds-text-spacing-450)}:host .gcds-text.mt-500{margin-block-start:var(--gcds-text-spacing-500)}:host .gcds-text.mt-550{margin-block-start:var(--gcds-text-spacing-550)}:host .gcds-text.mt-600{margin-block-start:var(--gcds-text-spacing-600)}:host .gcds-text.mt-650{margin-block-start:var(--gcds-text-spacing-650)}:host .gcds-text.mt-700{margin-block-start:var(--gcds-text-spacing-700)}:host .gcds-text.mt-750{margin-block-start:var(--gcds-text-spacing-750)}:host .gcds-text.mt-800{margin-block-start:var(--gcds-text-spacing-800)}:host .gcds-text.mt-850{margin-block-start:var(--gcds-text-spacing-850)}:host .gcds-text.mt-900{margin-block-start:var(--gcds-text-spacing-900)}:host .gcds-text.mt-950{margin-block-start:var(--gcds-text-spacing-950)}:host .gcds-text.mt-1000{margin-block-start:var(--gcds-text-spacing-1000)}:host .gcds-text.mt-1050{margin-block-start:var(--gcds-text-spacing-1050)}:host .gcds-text.mt-1100{margin-block-start:var(--gcds-text-spacing-1100)}:host .gcds-text.mt-1150{margin-block-start:var(--gcds-text-spacing-1150)}:host .gcds-text.mt-1200{margin-block-start:var(--gcds-text-spacing-1200)}:host .gcds-text.mt-1250{margin-block-start:var(--gcds-text-spacing-1250)}:host .gcds-text.mb-0{margin-block-end:var(--gcds-text-spacing-0)}:host .gcds-text.mb-25{margin-block-end:var(--gcds-text-spacing-25)}:host .gcds-text.mb-50{margin-block-end:var(--gcds-text-spacing-50)}:host .gcds-text.mb-75{margin-block-end:var(--gcds-text-spacing-75)}:host .gcds-text.mb-100{margin-block-end:var(--gcds-text-spacing-100)}:host .gcds-text.mb-125{margin-block-end:var(--gcds-text-spacing-125)}:host .gcds-text.mb-150{margin-block-end:var(--gcds-text-spacing-150)}:host .gcds-text.mb-175{margin-block-end:var(--gcds-text-spacing-175)}:host .gcds-text.mb-200{margin-block-end:var(--gcds-text-spacing-200)}:host .gcds-text.mb-225{margin-block-end:var(--gcds-text-spacing-225)}:host .gcds-text.mb-250{margin-block-end:var(--gcds-text-spacing-250)}:host .gcds-text.mb-300{margin-block-end:var(--gcds-text-spacing-300)}:host .gcds-text.mb-350{margin-block-end:var(--gcds-text-spacing-350)}:host .gcds-text.mb-400{margin-block-end:var(--gcds-text-spacing-400)}:host .gcds-text.mb-450{margin-block-end:var(--gcds-text-spacing-450)}:host .gcds-text.mb-500{margin-block-end:var(--gcds-text-spacing-500)}:host .gcds-text.mb-550{margin-block-end:var(--gcds-text-spacing-550)}:host .gcds-text.mb-600{margin-block-end:var(--gcds-text-spacing-600)}:host .gcds-text.mb-650{margin-block-end:var(--gcds-text-spacing-650)}:host .gcds-text.mb-700{margin-block-end:var(--gcds-text-spacing-700)}:host .gcds-text.mb-750{margin-block-end:var(--gcds-text-spacing-750)}:host .gcds-text.mb-800{margin-block-end:var(--gcds-text-spacing-800)}:host .gcds-text.mb-850{margin-block-end:var(--gcds-text-spacing-850)}:host .gcds-text.mb-900{margin-block-end:var(--gcds-text-spacing-900)}:host .gcds-text.mb-950{margin-block-end:var(--gcds-text-spacing-950)}:host .gcds-text.mb-1000{margin-block-end:var(--gcds-text-spacing-1000)}:host .gcds-text.mb-1050{margin-block-end:var(--gcds-text-spacing-1050)}:host .gcds-text.mb-1100{margin-block-end:var(--gcds-text-spacing-1100)}:host .gcds-text.mb-1150{margin-block-end:var(--gcds-text-spacing-1150)}:host .gcds-text.mb-1200{margin-block-end:var(--gcds-text-spacing-1200)}:host .gcds-text.mb-1250{margin-block-end:var(--gcds-text-spacing-1250)}}@layer variants.role{:host .gcds-text.role-primary{color:var(--gcds-text-role-primary)}:host .gcds-text.role-secondary{color:var(--gcds-text-role-secondary)}:host .gcds-text.role-light{color:var(--gcds-text-role-light)}}@layer variants.size{:host .gcds-text :is(small,::slotted(small)),:host .gcds-text.size-small{font:var(--gcds-text-size-small-desktop)}@media only screen and (width < 48em){:host .gcds-text :is(small,::slotted(small)),:host .gcds-text.size-small{font:var(--gcds-text-size-small-mobile)}}}@layer variants.style{:host .gcds-text ::slotted(em){font-style:italic}}@layer variants.weight{:host .gcds-text ::slotted(strong){font-weight:var(--gcds-text-weight-bold)}}";
+
+const GcdsText = class {
+    constructor(hostRef) {
+        index.registerInstance(this, hostRef);
+        /**
+         * Props
+         */
+        /**
+         * Sets the main style of the text.
+         */
+        this.textRole = 'primary';
+        /**
+         * Sets the line length to a maximum amount of characters per line to ensure a comfortable, accessible reading length.
+         */
+        this.characterLimit = true;
+        /**
+         * Specifies the display behaviour of the text.
+         */
+        this.display = 'block';
+        /**
+         * Adds margin above the text.
+         */
+        this.marginTop = '0';
+        /**
+         * Adds margin below the text.
+         */
+        this.marginBottom = '300';
+        /**
+         * Sets the appropriate HTML tags for the selected size.
+         */
+        this.size = 'body';
+    }
+    validateTextRole(newValue) {
+        const values = ['light', 'primary', 'secondary'];
+        if (!values.includes(newValue)) {
+            this.textRole = 'primary';
+        }
+    }
+    validateDisplay(newValue) {
+        const values = [
+            'block',
+            'flex',
+            'inline',
+            'inline-block',
+            'inline-flex',
+            'none',
+        ];
+        if (!values.includes(newValue)) {
+            this.display = 'block';
+        }
+    }
+    validateMarginTop(newValue) {
+        if (!SpacingArray.includes(newValue)) {
+            this.marginTop = '0';
+        }
+    }
+    validateMarginBottom(newValue) {
+        if (!SpacingArray.includes(newValue)) {
+            this.marginBottom = '300';
+        }
+    }
+    validateSize(newValue) {
+        const values = ['body', 'small'];
+        if (!values.includes(newValue)) {
+            this.size = 'body';
+        }
+    }
+    componentWillLoad() {
+        // Validate attributes and set defaults
+        this.validateTextRole(this.textRole);
+        this.validateDisplay(this.display);
+        this.validateMarginTop(this.marginTop);
+        this.validateMarginBottom(this.marginBottom);
+        this.validateSize(this.size);
+    }
+    render() {
+        const { characterLimit, display, marginTop, marginBottom, size, textRole } = this;
+        return (index.h(index.Host, { key: 'b0b6d2eef2c482062861893a43f7508d984a398f', class: `${display != 'block' ? `d-${display}` : ''}` }, index.h("p", { key: '6d1c418740f62a70b5dd130adbd471eda5702288', class: `
+            gcds-text
+            ${textRole ? `role-${textRole}` : ''}
+            ${characterLimit ? 'limit' : ''}
+            ${marginTop ? `mt-${marginTop}` : ''}
+            ${marginBottom ? `mb-${marginBottom}` : ''}
+            ${size === 'small' ? `size-small` : ''}
+          `, part: "text" }, size === 'small' ? (index.h("small", null, index.h("slot", null))) : (index.h("slot", null)))));
+    }
+    get el() { return index.getElement(this); }
+    static get watchers() { return {
+        "textRole": ["validateTextRole"],
+        "display": ["validateDisplay"],
+        "marginTop": ["validateMarginTop"],
+        "marginBottom": ["validateMarginBottom"],
+        "size": ["validateSize"]
+    }; }
+};
+GcdsText.style = gcdsTextCss;
+
+const I18N$2 = {
+  en: {
+    characters: {
+      allowed: 'characters allowed',
+      left: 'characters left',
+    },
+  },
+  fr: {
+    characters: {
+      allowed: 'caractères maximum',
+      left: 'caractères restants',
+    },
+  },
+};
+
+const gcdsTextareaCss = "@layer reset, default, disabled, error, focus;@layer reset{:host{display:block}:host .gcds-textarea-wrapper{border:0;margin:0;padding:0}:host .gcds-textarea-wrapper textarea{box-sizing:border-box}}@layer default{:host .gcds-textarea-wrapper{color:var(--gcds-textarea-default-text);font:var(--gcds-textarea-font);max-width:75ch;transition:color .15s ease-in-out;width:100%}:host .gcds-textarea-wrapper textarea{background-color:var(--gcds-textarea-default-background);background-image:none;border:var(--gcds-textarea-border-width) solid;border-radius:var(--gcds-textarea-border-radius);color:var(--gcds-textarea-default-text);display:block;font:inherit;height:auto;margin:var(--gcds-textarea-margin)!important;max-width:100%;min-height:var(--gcds-textarea-min-height);min-width:50%;padding:var(--gcds-textarea-padding)!important;transition:border-color .15s ease-in-out,box-shadow .15s ease-in-out,outline .15s ease-in-out;width:100%}}@layer disabled{:host .gcds-textarea-wrapper.gcds-disabled{color:var(--gcds-textarea-disabled-text)}:host .gcds-textarea-wrapper.gcds-disabled gcds-label{--gcds-label-text:currentColor}:host .gcds-textarea-wrapper.gcds-disabled gcds-hint{--gcds-hint-text:currentColor}:host .gcds-textarea-wrapper.gcds-disabled textarea:disabled{background-color:var(--gcds-textarea-disabled-background);border-color:var(--gcds-textarea-disabled-text);cursor:not-allowed}}@layer error{:host .gcds-textarea-wrapper .error-message-container{display:block}:host .gcds-textarea-wrapper textarea.gcds-error:not(:focus){border-color:var(--gcds-textarea-danger-border)}}@layer focus{:host .gcds-textarea-wrapper:focus-within textarea:focus{border-color:var(--gcds-textarea-focus-border);box-shadow:var(--gcds-textarea-focus-box-shadow);outline:var(--gcds-textarea-outline-width) solid var(--gcds-textarea-focus-border);outline-offset:var(--gcds-textarea-border-width)}}";
+
+const GcdsTextarea = class {
+    constructor(hostRef) {
+        index.registerInstance(this, hostRef);
+        this.gcdsFocus = index.createEvent(this, "gcdsFocus");
+        this.gcdsBlur = index.createEvent(this, "gcdsBlur");
+        this.gcdsChange = index.createEvent(this, "gcdsChange");
+        this.gcdsInput = index.createEvent(this, "gcdsInput");
+        this.gcdsError = index.createEvent(this, "gcdsError");
+        this.gcdsValid = index.createEvent(this, "gcdsValid");
+        if (hostRef.$hostElement$["s-ei"]) {
+            this.internals = hostRef.$hostElement$["s-ei"];
+        }
+        else {
+            this.internals = hostRef.$hostElement$.attachInternals();
+            hostRef.$hostElement$["s-ei"] = this.internals;
+        }
+        this._validator = defaultValidator;
+        /**
+         * Specifies if a textarea element is disabled or not.
+         */
+        this.disabled = false;
+        /**
+         * Specifies if the label is hidden or not.
+         */
+        this.hideLabel = false;
+        /**
+         * Specifies if a form field is required or not.
+         */
+        this.required = false;
+        /**
+         * Default value for textarea rows.
+         */
+        this.rows = 5;
+        /**
+         * Set event to call validator
+         */
+        this.validateOn = 'blur';
+        /**
+         * Set additional HTML attributes not available in component properties
+         */
+        this.inheritedAttributes = {};
+        this.onBlur = () => {
+            if (this.validateOn == 'blur') {
+                this.validate();
+            }
+            this.gcdsBlur.emit();
+        };
+        this.handleInput = (e, customEvent) => {
+            const val = e.target && e.target.value;
+            this.value = val;
+            this.internals.setFormValue(val ? val : null);
+            this.shadowElement.value = val;
+            if (e.type === 'change') {
+                const changeEvt = new e.constructor(e.type, e);
+                this.el.dispatchEvent(changeEvt);
+            }
+            customEvent.emit(this.value);
+        };
+    }
+    validateDisabledTextarea() {
+        if (this.required) {
+            this.disabled = false;
+        }
+    }
+    validateErrorMessage() {
+        if (this.disabled) {
+            this.errorMessage = '';
+        }
+        else if (!this.hasError && this.errorMessage) {
+            this.hasError = true;
+        }
+        else if (this.errorMessage == '') {
+            this.hasError = false;
+        }
+    }
+    /**
+     * Set value on internal textarea to allow proper resets
+     */
+    watchValue(val) {
+        this.shadowElement.value = val;
+    }
+    validateValidator() {
+        this._validator = getValidator(this.validator);
+    }
+    validateHasError() {
+        if (this.disabled) {
+            this.hasError = false;
+        }
+    }
+    /**
+     * Call any active validators
+     */
+    async validate() {
+        utils.handleValidationResult(this.el, this._validator.validate(this.value), this.label, this.gcdsError, this.gcdsValid, this.lang);
+    }
+    submitListener(e) {
+        if (e.target == this.el.closest('form')) {
+            if (this.validateOn && this.validateOn != 'other') {
+                this.validate();
+            }
+            if (this.hasError && this.validateOn != 'other') {
+                e.preventDefault();
+            }
+        }
+    }
+    /*
+     * Form internal functions
+     */
+    formResetCallback() {
+        if (this.value != this.initialValue) {
+            this.internals.setFormValue(this.initialValue);
+            this.value = this.initialValue;
+            this.shadowElement.value = this.initialValue;
+        }
+    }
+    formStateRestoreCallback(state) {
+        this.internals.setFormValue(state);
+        this.value = state;
+    }
+    /*
+     * Observe lang attribute change
+     */
+    updateLang() {
+        const observer = new MutationObserver(mutations => {
+            if (mutations[0].oldValue != this.el.lang) {
+                this.lang = this.el.lang;
+            }
+        });
+        observer.observe(this.el, utils.observerConfig);
+    }
+    async componentWillLoad() {
+        // Define lang attribute
+        this.lang = utils.assignLanguage(this.el);
+        this.updateLang();
+        this.validateDisabledTextarea();
+        this.validateHasError();
+        this.validateErrorMessage();
+        // Assign required validator if needed
+        requiredValidator(this.el, 'textarea');
+        this.validateValidator();
+        this.inheritedAttributes = utils.inheritAttributes(this.el, this.shadowElement, [
+            'placeholder',
+        ]);
+        this.internals.setFormValue(this.value ? this.value : null);
+        this.initialValue = this.value ? this.value : null;
+    }
+    render() {
+        const { characterCount, cols, disabled, errorMessage, hideLabel, hint, label, required, rows, textareaId, value, hasError, inheritedAttributes, lang, name, } = this;
+        // Use max-width instead of cols attribute to keep field responsive
+        const style = {
+            maxWidth: `${cols * 1.5}ch`,
+        };
+        const attrsLabel = {
+            label,
+            required,
+        };
+        const attrsTextarea = Object.assign({ name,
+            disabled,
+            required,
+            rows }, inheritedAttributes);
+        if (hint || errorMessage || characterCount) {
+            const hintID = hint ? `hint-${textareaId} ` : '';
+            const errorID = errorMessage ? `error-message-${textareaId} ` : '';
+            const countID = characterCount ? `textarea__count-${textareaId} ` : '';
+            attrsTextarea['aria-describedby'] = `${hintID}${errorID}${countID}${attrsTextarea['aria-describedby']
+                ? `${attrsTextarea['aria-describedby']}`
+                : ''}`;
+        }
+        return (index.h(index.Host, { key: '152d55f14b1d09bcdc1e58ceeff1e8870a17c5ba' }, index.h("div", { key: '5e6a48d1589b82ab52d5c70bd65e3881925b9144', class: `gcds-textarea-wrapper ${disabled ? 'gcds-disabled' : ''} ${hasError ? 'gcds-error' : ''}` }, index.h("gcds-label", Object.assign({ key: 'e078be0d19e45203ea39174ae3218f1d7a1b0450' }, attrsLabel, { "hide-label": hideLabel, "label-for": textareaId, lang: lang })), hint ? index.h("gcds-hint", { "hint-id": textareaId }, hint) : null, errorMessage ? (index.h("gcds-error-message", { messageId: textareaId }, errorMessage)) : null, index.h("textarea", Object.assign({ key: 'ea900be84f6cfbdf2795c10b2069ac525ae7347b' }, attrsTextarea, { class: hasError ? 'gcds-error' : null, id: textareaId, onBlur: () => this.onBlur(), onFocus: () => this.gcdsFocus.emit(), onInput: e => this.handleInput(e, this.gcdsInput), onChange: e => this.handleInput(e, this.gcdsChange), "aria-labelledby": `label-for-${textareaId}`, "aria-invalid": errorMessage ? 'true' : 'false', maxlength: characterCount ? characterCount : null, style: cols ? style : null, ref: element => (this.shadowElement = element) }), value), characterCount ? (index.h("gcds-text", { id: `textarea__count-${textareaId}`, "aria-live": "polite" }, value == undefined
+            ? `${characterCount} ${I18N$2[lang].characters.allowed}`
+            : `${characterCount - value.length} ${I18N$2[lang].characters.left}`)) : null)));
+    }
+    static get delegatesFocus() { return true; }
+    static get formAssociated() { return true; }
+    get el() { return index.getElement(this); }
+    static get watchers() { return {
+        "disabled": ["validateDisabledTextarea"],
+        "errorMessage": ["validateErrorMessage"],
+        "value": ["watchValue"],
+        "validator": ["validateValidator"],
+        "hasError": ["validateHasError"]
+    }; }
+};
+GcdsTextarea.style = gcdsTextareaCss;
+
+const I18N$1 = {
+  en: {
+    closeTrigger: 'Close',
+    menuLabel: 'Menu',
+    navLabel:
+      ' - Use the enter key to select a menu item and travel to its page. Use the left and right arrow keys to navigate between menu and submenu items. Use the right arrow key to open submenus when they are available. Use the left arrow or escape keys to close a menu.',
+  },
+  fr: {
+    closeTrigger: 'Fermer',
+    menuLabel: 'Menu',
+    navLabel:
+      " - Utiliser la touche d'entrée pour sélectionner un élément du menu et voyager à la page indiquée. Utiliser les flèches gauches et droites pour naviguer entre les éléments et les sous-éléments du menu. Ouvrir les sous-éléments du menu avec la flèche droite lorsqu'il sont disponible. Fermer le menu avec la flèche gauche ou la touche d'échappement.",
+  },
+};
+
+const gcdsTopNavCss = "@layer reset, default, desktop;@layer reset{:host{display:block}:host *{box-sizing:border-box;margin:0}:host ul{padding:0}}@layer default{:host .gcds-top-nav .gcds-top-nav__container{display:flex;flex-direction:column;margin-inline:auto;max-width:var(--gcds-top-nav-max-width);width:90%}}@layer desktop{@media only screen and (width >= 64em){:host .gcds-top-nav{border-block-end:var(--gcds-top-nav-border-width) solid var(--gcds-top-nav-border-color)}:host .gcds-top-nav .gcds-top-nav__container{align-items:flex-end;flex-direction:row}:host .gcds-top-nav .nav-container__list{align-items:flex-end;display:flex;width:fit-content}:host .gcds-top-nav .nav-container__list.nav-list--right{margin-inline-start:auto}:host .gcds-top-nav .nav-container__list.nav-list--center{margin-inline:auto}}}";
+
+const GcdsTopNav = class {
+    constructor(hostRef) {
+        index.registerInstance(this, hostRef);
+        /**
+         * Nav alignment
+         */
+        this.alignment = 'left';
+        /**
+         * Queue of nav items for keyboard navigation
+         */
+        this.navItems = [];
+    }
+    async focusInListener(e) {
+        if (this.el.contains(e.target) && !this.navSize) {
+            const mediaQuery = window.matchMedia('screen and (min-width: 64em)');
+            const nav = this.el;
+            const mobileTrigger = this.mobile;
+            if (mediaQuery.matches) {
+                this.navSize = 'desktop';
+            }
+            else {
+                this.navSize = 'mobile';
+            }
+            await this.updateNavItemQueue(this.el);
+            mediaQuery.addEventListener('change', async function (e) {
+                if (e.matches) {
+                    nav.updateNavSize('desktop');
+                    await nav.updateNavItemQueue(nav);
+                    if (mobileTrigger.hasAttribute('open')) {
+                        mobileTrigger.toggleNav();
+                        const childNavGroups = nav.querySelectorAll('gcds-nav-group');
+                        childNavGroups.forEach(navGroup => {
+                            if (navGroup.hasAttribute('open')) {
+                                navGroup.toggleNav();
+                            }
+                        });
+                    }
+                }
+                else {
+                    nav.updateNavSize('mobile');
+                    const childNavGroups = nav.querySelectorAll('gcds-nav-group');
+                    childNavGroups.forEach(navGroup => {
+                        if (navGroup.hasAttribute('open')) {
+                            navGroup.toggleNav();
+                        }
+                    });
+                    await nav.updateNavItemQueue(nav);
+                }
+            });
+        }
+    }
+    async focusOutListener(e) {
+        if (!this.el.contains(e.relatedTarget)) {
+            if (this.navSize == 'mobile') {
+                if (this.mobile.hasAttribute('open')) {
+                    await this.mobile.toggleNav();
+                }
+            }
+        }
+    }
+    async keyDownListener(e) {
+        if (this.el.contains(document.activeElement)) {
+            handleKeyDownNav(e, this.el, this.navItems);
+        }
+    }
+    async gcdsClickListener(e) {
+        if (this.el.contains(e.target)) {
+            // Update tab queue when clicking mobile menu
+            if (e.target == this.el && this.navSize == 'mobile') {
+                await this.updateNavItemQueue(e.target);
+                // Update tab queue when clicking dropdown
+            }
+            else if (e.target.nodeName == 'GCDS-NAV-GROUP' &&
+                !e.target.hasAttribute('open')) {
+                await this.updateNavItemQueue(e.target, true);
+                e.target.focusTrigger();
+            }
+        }
+    }
+    /*
+     * Observe lang attribute change
+     */
+    updateLang() {
+        const observer = new MutationObserver(mutations => {
+            if (mutations[0].oldValue != this.el.lang) {
+                this.lang = this.el.lang;
+            }
+        });
+        observer.observe(this.el, utils.observerConfig);
+    }
+    /*
+     * Get current navSize state
+     */
+    async getNavSize() {
+        return this.navSize;
+    }
+    /*
+     * Pass new window size: desktop or mobile
+     */
+    async updateNavSize(size) {
+        this.navSize = size;
+    }
+    /*
+     * Update item queue for keyboard navigation based on passed element
+     */
+    async updateNavItemQueue(el, includeElement) {
+        if (includeElement) {
+            const childElements = await getNavItems(el);
+            this.navItems = [el, ...childElements];
+        }
+        else {
+            this.navItems = await getNavItems(el);
+        }
+        if (el == this.el && this.navSize == 'mobile') {
+            this.navItems = [...this.navItems, this.mobile];
+        }
+    }
+    async componentWillLoad() {
+        // Define lang attribute
+        this.lang = utils.assignLanguage(this.el);
+        this.updateLang();
+    }
+    render() {
+        const { label, alignment, lang } = this;
+        return (index.h(index.Host, { key: '075e8da394395c86fb088489ff1ecede74fc6347' }, index.h("div", { key: 'fe8bdf04cc35123ed4b2c9bdeeb496631019e763', class: "gcds-top-nav" }, index.h("nav", { key: '577ac71a9dee2abfc042904d8f7e9eb52b08ec20', "aria-label": `${label}${I18N$1[lang].navLabel}` }, index.h("ul", { key: '29fc7c8752e5ca58166fb333a0e4490661457a14', class: "gcds-top-nav__container" }, index.h("gcds-nav-group", { key: '8426a5f31322333b78fc43c90ef1aa015acd35bb', menuLabel: I18N$1[lang].menuLabel, closeTrigger: I18N$1[lang].closeTrigger, openTrigger: I18N$1[lang].menuLabel, class: "gcds-mobile-nav gcds-mobile-nav-topnav", ref: element => (this.mobile = element), lang: lang }, index.h("slot", { key: '0db61f118321b7f0fda937aab3bad5181c479e68', name: "home" }), index.h("li", { key: 'b038955f36cfb628ff66033d778531bc27df945b', class: `nav-container__list nav-list--${alignment}` }, index.h("ul", { key: '26cda13cd85fa693e854bb762c7fd8983a332c89', class: `nav-container__list nav-list--${alignment}` }, index.h("slot", { key: 'f2efc2eef1e66ee701177ec9796d83b7856554da' })))))))));
+    }
+    get el() { return index.getElement(this); }
+};
+GcdsTopNav.style = gcdsTopNavCss;
+
+const I18N = {
+  en: {
+    summary: {
+      text: 'An official website of the Government of Canada.',
+      link: 'Learn to recognize one',
+    },
+    content: {
+      description:
+        "It can be hard to know what sites to trust. Here's how to identify a Government of Canada website before you share any info:",
+      url: {
+        heading: 'Canada.ca or gc.ca',
+        text: "Government of Canada website's normally use Canada.ca or gc.ca in the URL.",
+      },
+      languages: {
+        heading: "Available in both of Canada's Official Languages",
+        text: 'Information will be available in both English and French.',
+      },
+      https: {
+        heading: 'HTTPS',
+        text: 'Secure Government of Canada websites use',
+      },
+      contact: {
+        heading: 'A point of contact',
+        text: 'Contact information will have Canada.ca, gc.ca, or the department name in the email address.',
+      },
+    },
+  },
+  fr: {
+    summary: {
+      text: 'Les sites Web officiels du gouvernement du Canada.',
+      link: 'Comment les reconnaître',
+    },
+    content: {
+      description:
+        "Il peut être difficile de savoir quels sites sont fiables. Avant de partager des renseignements, vérifiez les points suivant pour déterminer s'il s'agit bien d'un site du gouvernement du Canada:",
+      url: {
+        heading: 'Canada.ca ou gc.ca',
+        text: "On retrouve normalement Canada.ca ou gc.ca dans l'adresse URL d'un site Web du gouvernement du Canada.",
+      },
+      languages: {
+        heading: 'Offert dans les deux langues officielles',
+        text: 'Vérifiez que les renseignements sont accessibles en français et en anglais.',
+      },
+      https: {
+        heading: 'HTTPS',
+        text: "Lorsqu'un navigateur affiche les sites Web sécuritaires du gouvernement du Canada, on retrouve",
+      },
+      contact: {
+        heading: 'Un point de communication',
+        text: "On retrouve Canada.ca, gc.ca ou le nom du ministère dans l'URL de toute adresse courriel du gouvernement du Canada.",
+      },
+    },
+  },
+};
+
+var CanadaFlag = `<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 67.3 33" width="25">
+  <path fill="#FF0000" d="M0,0h16v32.5H0V0z M46.5,16.6l-1-0.5c-0.5-0.2-0.3-0.6-0.2-1.1v-0.2l1-3.6l-2.9,0.6c-0.5,0.1-0.9,0.2-1.1-0.3 l-0.7-1.7l-2.8,3c-0.8,0.8-1.5,0.4-1.2-0.8l1.3-6.2l-1.9,1c-0.5,0.2-0.7,0.3-1-0.2l-2.2-4.4l-2.3,4.6c-0.2,0.3-0.6,0.2-0.9-0.1 l-2.1-1.2l1.4,6.8c0.2,0.9-0.5,1.3-1,0.7L26,9.8l-0.9,1.7c-0.2,0.4-0.4,0.6-1.2,0.4L21,11.3l1.2,3.6c0.1,0.6,0.1,0.9-0.2,1.1 l-1.3,0.7l6,4.9c0.5,0.4,0.4,0.9,0.2,1.5l-0.7,1.7l5.1-1c1.1-0.2,1.6-0.2,1.6,0.4l-0.2,6.3h1.7l-0.2-6.3c0-0.6,0.5-0.6,1.2-0.4 l5.5,1l-0.5-1.7c-0.2-0.7-0.4-0.9,0.2-1.5L46.5,16.6z M51.4,0v32.5h16V0H51.4z" />
+</svg>`;
+
+var ContentToggleArrow = `<svg xmlns="http://www.w3.org/2000/svg"  width="12" height="7.4" viewBox="0 0 12 7.4">
+  <path d="M10.6,0L6,4.6L1.4,0L0,1.4l6,6l6-6L10.6,0z" />
+</svg>`;
+
+const gcdsVerifyBannerCss = "@layer reset, default, fixed, container;@layer reset{:host{display:block}}@layer default{:host .gcds-verify-banner{background-color:var(--gcds-verify-banner-background);color:var(--gcds-verify-banner-text);font:var(--gcds-verify-banner-font)}:host .gcds-verify-banner :is(summary,.verify-banner__content){font-size:90%}:host .gcds-verify-banner summary{cursor:pointer;display:flex;margin-inline:auto;padding-block:var(--gcds-verify-banner-summary-padding)}:host .gcds-verify-banner summary :is(.svg-container,p small){margin:var(--gcds-verify-banner-summary-content-margin)}:host .gcds-verify-banner summary p{align-items:center;display:flex;flex-wrap:wrap;line-height:var(--gcds-verify-banner-line-height);margin:0}:host .gcds-verify-banner summary .verify-banner__toggle{background:none;border:0;color:var(--gcds-verify-banner-toggle-text);flex:0 0 auto;font-weight:var(--gcds-verify-banner-toggle-font-weight);padding:0;pointer-events:none;text-decoration:underline}:host .gcds-verify-banner summary .verify-banner__toggle .svg-container path{fill:var(--gcds-verify-banner-toggle-text)}:host .gcds-verify-banner .verify-banner__content{border-block-start:var(--gcds-verify-banner-content-border-width) solid var(--gcds-verify-banner-content-border-color);margin:0 auto;padding-block-end:var(--gcds-verify-banner-content-padding-block-end);padding-block-start:var(\n        --gcds-verify-banner-content-padding-block-start\n      )}:host .gcds-verify-banner .verify-banner__content li{list-style:none}:host .gcds-verify-banner .verify-banner__content li :is(h4,p){width:90%}:host .gcds-verify-banner .verify-banner__content h4{margin:var(--gcds-verify-banner-content-heading-margin)}:host .gcds-verify-banner .verify-banner__content p{line-height:var(--gcds-verify-banner-line-height);margin:0}:host .gcds-verify-banner[open] summary .verify-banner__toggle svg{transform:rotate(-180deg)}}@layer fixed{:host .gcds-verify-banner.verify-banner--is-fixed{position:sticky;top:0;width:var(--gcds-verify-banner-max-content-width-full);z-index:9999}}@layer container{:host .gcds-verify-banner .container-lg,:host .gcds-verify-banner .container-md,:host .gcds-verify-banner .container-sm,:host .gcds-verify-banner .container-xl,:host .gcds-verify-banner .container-xs{width:90%}:host .gcds-verify-banner .container-full{max-width:var(--gcds-verify-banner-container-full);padding-inline:var(--gcds-verify-banner-container-padding)}:host .gcds-verify-banner .container-xl{max-width:var(--gcds-verify-banner-container-xl)}:host .gcds-verify-banner .container-lg{max-width:var(--gcds-verify-banner-container-lg)}:host .gcds-verify-banner .container-md{max-width:var(--gcds-verify-banner-container-md)}:host .gcds-verify-banner .container-sm{max-width:var(--gcds-verify-banner-container-sm)}:host .gcds-verify-banner .container-xs{max-width:var(--gcds-verify-banner-container-xs)}}";
+
+const GcdsVerifyBanner = class {
+    constructor(hostRef) {
+        index.registerInstance(this, hostRef);
+        /**
+         * Props
+         */
+        /**
+         * Defines the container width of the verify banner content
+         */
+        this.container = 'xl';
+        /**
+         * Defines if the banner's position is fixed.
+         */
+        this.isFixed = false;
+    }
+    /*
+     * Observe lang attribute change
+     */
+    updateLang() {
+        const observer = new MutationObserver(mutations => {
+            if (mutations[0].oldValue != this.el.lang) {
+                this.lang = this.el.lang;
+            }
+        });
+        observer.observe(this.el, utils.observerConfig);
+    }
+    async componentWillLoad() {
+        // Define lang attribute
+        this.lang = utils.assignLanguage(this.el);
+        this.updateLang();
+    }
+    render() {
+        const { container, isFixed, lang } = this;
+        return (index.h(index.Host, { key: '48153c15ce4d671d0bf60ddbe3d336e5e0be81af' }, index.h("details", { key: '2e617043b0000ff20429eb9a46324a2f40fb1a95', class: `gcds-verify-banner ${isFixed ? 'verify-banner--is-fixed' : ''}` }, index.h("summary", { key: '4fa310845587a590815de9ffcb7e7c50354020b9', class: container ? `container-${container}` : '', "aria-expanded": "false", role: "button" }, index.h("span", { key: '094552cb86ed9ac56935441e352e2ea9ec4671c8', class: "svg-container", innerHTML: CanadaFlag }), index.h("p", { key: '813aa039eddf1b68d3db854e90165f9314a59888' }, index.h("small", { key: '2161ed4e25a9680194da06614344365fafe327d1' }, I18N[lang].summary.text), index.h("button", { key: '5192428be907c4e5d951b5871fd5af436b40c4fd', class: "verify-banner__toggle" }, index.h("small", { key: 'b18b2fccc1b7bd85dacd2a07a590cad716fe8bc9' }, I18N[lang].summary.link), index.h("span", { key: '53007393e80408a5486ed2539ca8abdfb2e3808a', class: "svg-container", innerHTML: ContentToggleArrow })))), index.h("div", { key: 'e7737a8d5fbc9f70aa1579d5258dd5e8053b849c', class: `verify-banner__content ${container ? `container-${container}` : ''}` }, index.h("p", { key: '474171c6a6bbbb8772e7f0485dfffb51a864ff05' }, index.h("small", { key: '3bf99ee8fcf04df4f1fdce2e637b561137c38188' }, I18N[lang].content.description)), index.h("br", { key: 'fd2af592a4462cf079ee227bbe15934fb8d4d5b4' }), index.h("gcds-grid", { key: '2c3f42400363486e7b662dbc70b4a4a9c873255a', tag: "ul", container: "lg", columns: "1fr", "columns-tablet": container === 'xs' || container === 'sm' ? '1fr' : '1fr 1fr' }, index.h("li", { key: 'e251f3f8663eebe19d3a59aa9d46822bdc097273' }, index.h("h4", { key: '277e4d0462a8b78280e5636d87026998efeb9361' }, I18N[lang].content.url.heading), index.h("p", { key: '8e0b9981deaf0221533ceb24f2f733eec19825f7' }, index.h("small", { key: 'be67900e62262b8d019e7bdeee7b63e90a1075b3' }, I18N[lang].content.url.text))), index.h("li", { key: '0893412462dfff8f9f214395295447d9fdd34f16' }, index.h("h4", { key: '7d3562b810abdd8d961744cb239181e2e1b50580' }, I18N[lang].content.languages.heading), index.h("p", { key: '0aba8b207788f423a8e4566fccf77d86d3e56ef8' }, index.h("small", { key: 'c9b4012e2ed096b86a5eefa1f7fe917daa573049' }, I18N[lang].content.languages.text))), index.h("li", { key: 'e232beacff8ce2f22889e661dbbb0d866f029e28' }, index.h("h4", { key: '4303bdb3c1209eceba4076dc53162d62d9671a8d' }, I18N[lang].content.https.heading), index.h("p", { key: '5807627918a98faa18893bd85829561afb3d5746' }, index.h("small", { key: '7d1b8e8e56cade3c18cac32837c3d5adc3c88889' }, I18N[lang].content.https.text, " ", index.h("strong", { key: 'f4fcc669ccaa40756d3d69a23b8466188e78a47c' }, "https://"), "."))), index.h("li", { key: '5e388710ae4ef3923909cc9f0442a18a185243f0' }, index.h("h4", { key: 'c92b10a99089c96363e126358acf26d2c6098404' }, I18N[lang].content.contact.heading), index.h("p", { key: '9a6736ffdd9bbd9111411c4aaddbe97256b0db21' }, index.h("small", { key: 'b7d1b456d226778ecb8087f4086f9cef5dd7593b' }, I18N[lang].content.contact.text))))))));
+    }
+    get el() { return index.getElement(this); }
+};
+GcdsVerifyBanner.style = gcdsVerifyBannerCss;
+
+exports.gcds_alert = GcdsAlert;
+exports.gcds_breadcrumbs = GcdsBreadcrumbs;
+exports.gcds_breadcrumbs_item = GcdsBreadcrumbsItem;
+exports.gcds_button = GcdsButton;
+exports.gcds_card = GcdsCard;
+exports.gcds_checkboxes = GcdsCheckboxes;
+exports.gcds_container = GcdsContainer;
+exports.gcds_date_input = GcdsDateInput;
+exports.gcds_date_modified = GcdsDateModified;
+exports.gcds_details = GcdsDetails;
+exports.gcds_error_message = GcdsErrorMessage;
+exports.gcds_error_summary = GcdsErrorSummary;
+exports.gcds_file_uploader = GcdsFileUploader;
+exports.gcds_footer = GcdsFooter;
+exports.gcds_grid = GcdsGrid;
+exports.gcds_grid_col = GcdsGridCol;
+exports.gcds_header = GcdsHeader;
+exports.gcds_heading = GcdsHeading;
+exports.gcds_hint = GcdsHint;
+exports.gcds_icon = GcdsIcon;
+exports.gcds_input = GcdsInput;
+exports.gcds_label = GcdsLabel;
+exports.gcds_lang_toggle = GcdsLangToggle;
+exports.gcds_link = GcdsLink;
+exports.gcds_nav_group = GcdsNavGroup;
+exports.gcds_nav_link = GcdsNavLink;
+exports.gcds_notice = GcdsNotice;
+exports.gcds_pagination = GcdsPagination;
+exports.gcds_phase_banner = GcdsPhaseBanner;
+exports.gcds_radios = GcdsRadios;
+exports.gcds_search = GcdsSearch;
+exports.gcds_select = GcdsSelect;
+exports.gcds_side_nav = GcdsSideNav;
+exports.gcds_signature = GcdsSignature;
+exports.gcds_sr_only = GcdsSrOnly;
+exports.gcds_stepper = GcdsStepper;
+exports.gcds_text = GcdsText;
+exports.gcds_textarea = GcdsTextarea;
+exports.gcds_top_nav = GcdsTopNav;
+exports.gcds_verify_banner = GcdsVerifyBanner;
+//# sourceMappingURL=gcds-alert.gcds-breadcrumbs.gcds-breadcrumbs-item.gcds-button.gcds-card.gcds-checkboxes.gcds-container.gcds-date-input.gcds-date-modified.gcds-details.gcds-error-message.gcds-error-summary.gcds-file-uploader.gcds-footer.gcds-grid.gcds-grid-col.gcds-header.gcds-heading.gcds-hint.gcds-icon.gcds-input.gcds-label.gcds-lang-toggle.gcds-link.gcds-nav-group.gcds-nav-link.gcds-notice.gcds-pagination.gcds-phase-banner.gcds-radios.gcds-search.gcds-select.gcds-side-nav.gcds-signature.gcds-sr-only.gcds-stepper.gcds-text.gcds-textarea.gcds-top-nav.gcds-verify-banner.entry.cjs.js.map
+
+//# sourceMappingURL=gcds-alert_40.cjs.entry.js.map

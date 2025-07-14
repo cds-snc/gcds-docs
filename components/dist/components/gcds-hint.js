@@ -1,8 +1,2 @@
-import { G as GcdsHint$1, d as defineCustomElement$1 } from './gcds-hint2.js';
-
-const GcdsHint = GcdsHint$1;
-const defineCustomElement = defineCustomElement$1;
-
-export { GcdsHint, defineCustomElement };
-
+import{G as o,d as s}from"./p-Bzu3iQQm.js";const t=o;const m=s;export{t as GcdsHint,m as defineCustomElement};
 //# sourceMappingURL=gcds-hint.js.map

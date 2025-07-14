@@ -3,9 +3,18 @@ import { assignLanguage, observerConfig, logError } from "../../utils/utils";
 import i18n from "./i18n/i18n";
 export class GcdsDateModified {
     constructor() {
+        /**
+         * Props
+         */
+        /**
+         * Set date modified type. Default is date.
+         */
         this.type = 'date';
+        /**
+         * State to track validation on properties
+         * Contains a list of properties that have an error associated with them
+         */
         this.errors = [];
-        this.lang = undefined;
     }
     /*
      * Observe lang attribute change
@@ -62,6 +71,7 @@ export class GcdsDateModified {
         return {
             "type": {
                 "type": "string",
+                "attribute": "type",
                 "mutable": true,
                 "complexType": {
                     "original": "'date' | 'version'",
@@ -74,7 +84,8 @@ export class GcdsDateModified {
                     "tags": [],
                     "text": "Set date modified type. Default is date."
                 },
-                "attribute": "type",
+                "getter": false,
+                "setter": false,
                 "reflect": false,
                 "defaultValue": "'date'"
             }

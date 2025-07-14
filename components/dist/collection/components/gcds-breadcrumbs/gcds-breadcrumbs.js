@@ -3,8 +3,13 @@ import { assignLanguage, observerConfig } from "../../utils/utils";
 import i18n from "./i18n/i18n";
 export class GcdsBreadcrumbs {
     constructor() {
+        /**
+         * Props
+         */
+        /**
+         * Defines if the default canada.ca link is displayed or omitted.
+         */
         this.hideCanadaLink = false;
-        this.lang = undefined;
     }
     /*
      * Observe lang attribute change
@@ -42,6 +47,7 @@ export class GcdsBreadcrumbs {
         return {
             "hideCanadaLink": {
                 "type": "boolean",
+                "attribute": "hide-canada-link",
                 "mutable": false,
                 "complexType": {
                     "original": "boolean",
@@ -54,7 +60,8 @@ export class GcdsBreadcrumbs {
                     "tags": [],
                     "text": "Defines if the default canada.ca link is displayed or omitted."
                 },
-                "attribute": "hide-canada-link",
+                "getter": false,
+                "setter": false,
                 "reflect": false,
                 "defaultValue": "false"
             }

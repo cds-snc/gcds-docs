@@ -3,11 +3,14 @@ import { assignLanguage, observerConfig, logError } from "../../utils/utils";
 import i18n from "./i18n/i18n";
 export class GcdsNotice {
     constructor() {
-        this.type = undefined;
-        this.noticeTitle = undefined;
-        this.noticeTitleTag = undefined;
+        /**
+         * States
+         */
+        /**
+         * State to track validation on properties
+         * Contains a list of properties that have an error associated with them
+         */
         this.errors = [];
-        this.lang = undefined;
     }
     validateType() {
         if (!this.type) {
@@ -101,6 +104,7 @@ export class GcdsNotice {
         return {
             "type": {
                 "type": "string",
+                "attribute": "type",
                 "mutable": false,
                 "complexType": {
                     "original": "'danger' | 'info' | 'success' | 'warning'",
@@ -113,11 +117,13 @@ export class GcdsNotice {
                     "tags": [],
                     "text": "Set notice type."
                 },
-                "attribute": "type",
+                "getter": false,
+                "setter": false,
                 "reflect": false
             },
             "noticeTitle": {
                 "type": "string",
+                "attribute": "notice-title",
                 "mutable": false,
                 "complexType": {
                     "original": "string",
@@ -130,11 +136,13 @@ export class GcdsNotice {
                     "tags": [],
                     "text": "Set the notice title."
                 },
-                "attribute": "notice-title",
+                "getter": false,
+                "setter": false,
                 "reflect": false
             },
             "noticeTitleTag": {
                 "type": "string",
+                "attribute": "notice-title-tag",
                 "mutable": false,
                 "complexType": {
                     "original": "'h2' | 'h3' | 'h4' | 'h5'",
@@ -147,7 +155,8 @@ export class GcdsNotice {
                     "tags": [],
                     "text": "The notice title tag property specifies the HTML heading element for the title.\nThis property does not modify the font size. It is used to assign the heading level\nin order to maintain heading hierarchy and accessibility for assistive technologies."
                 },
-                "attribute": "notice-title-tag",
+                "getter": false,
+                "setter": false,
                 "reflect": false
             }
         };
