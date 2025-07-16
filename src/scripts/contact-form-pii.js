@@ -69,6 +69,8 @@ document.addEventListener('DOMContentLoaded', function() {
           }
         }
       });
+      // Finally submit the form after PII has been redacted
+      form.submit()
     });
   });
 });
