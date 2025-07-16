@@ -10,6 +10,9 @@ document.addEventListener('DOMContentLoaded', function() {
   contactForms.forEach((form, index) => {
     // Add event listener for form submission
     form.addEventListener('submit', function(event) {
+      // Stop form from submitting
+      event.preventDefault();
+      
       // Check if redactPII function is available
       if (typeof window.redactPII !== 'function') {
         console.error('PII redaction function not available');
