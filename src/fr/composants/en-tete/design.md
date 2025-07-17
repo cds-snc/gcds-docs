@@ -49,14 +49,14 @@ Voici les éléments requis pour l'en-tête sur les sites du GC.
     <li>Ligne séparatrice.</li>
   </ul>
 
-  <gcds-text>
+  <gcds-text margin-bottom="0">
     <strong>Remarque</strong> : Par exception pour les anciennes applications, la bascule de langue peut être omise si elle entraîne une action destructive (perte de données lorsque la langue est changée).
   </gcds-text>
 </gcds-details>
 
 <gcds-details details-title="Éléments facultatifs sur une page standard ou de campagne de Canada.ca" class="mb-300">
   <gcds-text>Vous pouvez choisir d'inclure :</gcds-text>
-  <ul class="list-disc mb-300">
+  <ul class="list-disc">
     <li>Un formulaire de recherche approuvé propre à un programme ou à un organisme plutôt que le formulaire de recherche global.</li>
     <li>Bouton « Se connecter ».</li>
     <li>Barre de navigation supérieure.</li>

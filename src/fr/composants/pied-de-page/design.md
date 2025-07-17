@@ -42,25 +42,23 @@ Les composants de Système de design du GC sont conçus pour s’adapter à la t
 
 <gcds-details details-title="Éléments requis sur une page standard de Canada.ca " class="mb-300">
   <gcds-text>Intégrez toujours les composants suivants sur une page standard :</gcds-text>
-  <div>
-    <ul class="list-disc mb-300">
-      <li>Bande principale.</li>
-      <li>
-        Bande de liens de pied de page du GC.
-        <ul class="ms-300">
-          <li>Lien Médias sociaux.</li>
-          <li>Lien Applications mobiles.</li>
-          <li>Lien À propos de Canada.ca.</li>
-          <li>Lien Avis.</li>
-          <li>Lien Confidentialité.</li>
-          <li>Mot-symbol Canada.</li>
-        </ul>
-      </li>
-    </ul>
-  </div>
+  <ul class="list-disc mb-300">
+    <li>Bande principale.</li>
+    <li>
+      Bande de liens de pied de page du GC.
+      <ul class="ms-300">
+        <li>Lien Médias sociaux.</li>
+        <li>Lien Applications mobiles.</li>
+        <li>Lien À propos de Canada.ca.</li>
+        <li>Lien Avis.</li>
+        <li>Lien Confidentialité.</li>
+        <li>Mot-symbol Canada.</li>
+      </ul>
+    </li>
+  </ul>
   <gcds-text>Assurez toujours l’intégrité de la signature du gouvernement du Canada. Ne la modifiez jamais de quelque façon que ce soit — ne l’étirez pas et n’en changez pas les couleurs ni le texte.</gcds-text>
   <gcds-text>Les composants suivants sont facultatifs sur une page standard :</gcds-text>
-  <ul class="list-disc mb-300">
+  <ul class="list-disc">
     <li>Bande contextuelle.</li>
   </ul>
 </gcds-details>

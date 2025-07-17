@@ -40,25 +40,23 @@ GC Design System components are designed to adapt to the size of the screen or f
 
 <gcds-details details-title="What’s required on a Canada.ca standard page" class="mb-300">
   <gcds-text>Always include the following components on a standard page:</gcds-text>
-  <div>
-    <ul class="list-disc mb-300">
-      <li>Main band.</li>
-      <li>
-        GC footer links band.
-        <ul class="ms-300">
-          <li>Social media link.</li>
-          <li>Mobile app link.</li>
-          <li>About Canada.ca link.</li>
-          <li>Terms and conditions link.</li>
-          <li>Privacy statement link.</li>
-          <li>Canada wordmark.</li>
-        </ul>
-      </li>
-    </ul>
-  </div>
+  <ul class="list-disc mb-300">
+    <li>Main band.</li>
+    <li>
+      GC footer links band.
+      <ul class="ms-300">
+        <li>Social media link.</li>
+        <li>Mobile app link.</li>
+        <li>About Canada.ca link.</li>
+        <li>Terms and conditions link.</li>
+        <li>Privacy statement link.</li>
+        <li>Canada wordmark.</li>
+      </ul>
+    </li>
+  </ul>
   <gcds-text>Always preserve the integrity of the Government of Canada signature. Never modify it in any way, stretch it, or change the colours or text.</gcds-text>
   <gcds-text>It’s optional to include the following components on a standard page:</gcds-text>
-  <ul class="list-disc mb-300">
+  <ul class="list-disc">
     <li>Contextual band.</li>
   </ul>
 </gcds-details>

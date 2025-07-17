@@ -7,5 +7,5 @@ templateEngineOverride: njk
 ---
 
 <gcds-details details-title="Learn more about this topic">
-  <p>Additional information.</p>
+  <gcds-text margin-bottom="0">Additional information.</gcds-text>
 </gcds-details>
