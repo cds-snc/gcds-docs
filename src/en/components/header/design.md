@@ -49,14 +49,14 @@ Here's what's required for the header on GC sites.
     <li>Divider line.</li>
   </ul>
 
-  <gcds-text>
+  <gcds-text margin-bottom="0">
     <strong>Note</strong>: As an exception on legacy applications, the language toggle can be omitted if it results in a destructive action (a person loses their data when language is switched).
   </gcds-text>
 </gcds-details>
 
 <gcds-details details-title="What's optional to include on a Canada.ca standard or campaign page" class="mb-300">
   <gcds-text>Opt to include:</gcds-text>
-  <ul class="list-disc mb-300">
+  <ul class="list-disc">
     <li>An approved program or institution specific search form instead of the global search form.</li>
     <li>Sign in button.</li>
     <li>Top navigation.</li>
@@ -65,10 +65,10 @@ Here's what's required for the header on GC sites.
 
 ### Improve the accessibility of the header
 
-- Set up a skip-to-content [link]({{ links.link }}) as a shortcut for people using an assistive technology and improve keyboard navigation. The link skips navigation elements to lead directly to the main page content.  
+- Set up a skip-to-content [link]({{ links.link }}) as a shortcut for people using an assistive technology and improve keyboard navigation. The link skips navigation elements to lead directly to the main page content.
 - Avoid putting other elements ahead of the skip-to-content link. It’s more discoverable if it’s the first or second item.
 
 ### Include optional elements in your header
 
-- Consider using the [top navigation]({{ links.topNav }}) for services and websites that need a dedicated primary navigation.  
+- Consider using the [top navigation]({{ links.topNav }}) for services and websites that need a dedicated primary navigation.
 - Use the top navigation on Canada.ca pages when the service or product is self-contained and targets an internal audience, **like GC Design System**.

@@ -27,22 +27,18 @@ Here's what's required for breadcrumbs on GC sites.
 
 <gcds-details details-title="What's required on a Canada.ca standard or campaign page" class="mb-300">
   <gcds-text>Always include the breadcrumbs in the header of standard and campaign pages on Canada.ca and maintain default settings.</gcds-text>
-  <div>
-    <ul class="list-disc">
-      <li>Keep the placement aligned to the left, directly below the divider line.</li>
-      <li>Keep the Canada.ca homepage as the first link in the breadcrumbs.</li>
-      <li>Leave out the current page at the end of the breadcrumb trail.</li>
-    </ul>
-  </div>
+  <ul class="list-disc">
+    <li>Keep the placement aligned to the left, directly below the divider line.</li>
+    <li>Keep the Canada.ca homepage as the first link in the breadcrumbs.</li>
+    <li>Leave out the current page at the end of the breadcrumb trail.</li>
+  </ul>
 </gcds-details>
 
 <gcds-details details-title="What's optional to include on a Canada.ca standard or campaign page" class="mb-300">
-  <div>
-    <ul class="list-disc">
-      <li>Shorten the link text to improve readability and reduce space.</li>
-      <li>On a campaign page you can link to a specific landing page as the first link. This could be the Canada.ca home page, the topic tree (Canada.ca topic categories), the institutional/organizational profile, or a campaign index page.</li>
-    </ul>
-  </div>
+  <ul class="list-disc">
+    <li>Shorten the link text to improve readability and reduce space.</li>
+    <li>On a campaign page you can link to a specific landing page as the first link. This could be the Canada.ca home page, the topic tree (Canada.ca topic categories), the institutional/organizational profile, or a campaign index page.</li>
+  </ul>
 </gcds-details>
 
 ### Include the right links in your breadcrumbs

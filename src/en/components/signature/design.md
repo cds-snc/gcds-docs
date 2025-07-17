@@ -23,20 +23,16 @@ The signature is required in the header and the wordmark is required in the foot
 
 <gcds-details details-title="What's required on Canada.ca" class="mb-300">
   <gcds-text>Always include the signature in the header and maintain default settings.</gcds-text>
-  <div>
-    <ul class="list-disc mb-300">
-      <li>Use black text, do not select white text.</li>
-      <li>Keep placement in the top-left corner of the header on both desktop and mobile.</li>
-      <li>Link to the Canada.ca homepage.</li>
-    </ul>
-  </div>
+  <ul class="list-disc mb-300">
+    <li>Use black text, do not select white text.</li>
+    <li>Keep placement in the top-left corner of the header on both desktop and mobile.</li>
+    <li>Link to the Canada.ca homepage.</li>
+  </ul>
   <gcds-text>Always include the wordmark in the sub-footer band and maintain default settings.</gcds-text>
-  <div>
-    <ul class="list-disc mb-300">
-      <li>Use black text, do not select white text.</li>
-      <li>Keep placement in the bottom-right corner of the footer.</li>
-    </ul>
-  </div>
+  <ul class="list-disc mb-300">
+    <li>Use black text, do not select white text.</li>
+    <li>Keep placement in the bottom-right corner of the footer.</li>
+  </ul>
   <gcds-text margin-bottom="0"><strong>Note:</strong> Default settings for the Signature and Wordmark follow the <gcds-link href="https://www.canada.ca/en/treasury-board-secretariat/services/government-communications/design-standard.html" external>Design Standard for the Federal Identity Program</gcds-link>.</gcds-text>
 </gcds-details>
 

@@ -23,13 +23,11 @@ The date modified is required on Canada.ca pages and GC sites.
 
 <gcds-details details-title="What’s required on Canada.ca and GC sites" class="mb-300">
   <gcds-text>Always include the date modified and maintain default settings.</gcds-text>
-  <div>
-    <ul class="list-disc">
-      <li>Place the date modified component on the left, between the main content of the page and the footer.</li>
-      <li>Use the same placement of the date modified component across all web pages to make it findable.</li>
-      <li>If your page includes the page feedback tool, place the date modified component below it.</li>
-    </ul>
-  </div>
+  <ul class="list-disc">
+    <li>Place the date modified component on the left, between the main content of the page and the footer.</li>
+    <li>Use the same placement of the date modified component across all web pages to make it findable.</li>
+    <li>If your page includes the page feedback tool, place the date modified component below it.</li>
+  </ul>
 </gcds-details>
 
 <gcds-details details-title="What’s optional to include on Canada.ca pages" class="mb-300">

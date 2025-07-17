@@ -24,13 +24,11 @@ The language toggle is required in the header on Canada.ca pages and GC sites.
 
 <gcds-details details-title="What’s required on Canada.ca and GC sites" class="mb-300">
   <gcds-text>Always include the language toggle in the header and maintain default settings.</gcds-text>
-  <div>
-    <ul class="list-disc">
-      <li>Keep the placement in the top right corner of the header where it’s predictable and findable.</li>
-      <li>Only include English and French as options.</li>
-      <li>In the language toggle link, include the opposite Official Language of the current page.</li>
-    </ul>
-  </div>
+  <ul class="list-disc">
+    <li>Keep the placement in the top right corner of the header where it’s predictable and findable.</li>
+    <li>Only include English and French as options.</li>
+    <li>In the language toggle link, include the opposite Official Language of the current page.</li>
+  </ul>
 </gcds-details>
 
 <gcds-details details-title="What’s optional to include on a Canada.ca page" class="mb-300">
