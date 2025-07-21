@@ -15,7 +15,7 @@ module.exports = {
       'Vous avez des questions ou des demandes? Faites-nous part de vos commentaires à l\'aide de notre formulaire de contact.',
     feedback: 'Fournir des commentaires',
     feedbackHref: '/fr/contactez/#contactez-nous',
-    report: 'Report an issue on GitHub',
+    report: 'Signaler un problème sur GitHub',
     opens: ' (Ouvre l\'emplacement dans un nouvel onglet.)',
     github: "S'impliquer sur GitHub",
   },
