@@ -62,3 +62,6 @@ Pour obtenir de l’aide avec un service gouvernemental, aller à la page <gcds-
     Envoyer
   </gcds-button>
 </form>
+
+<script src="/scripts/pii-redactor.js"></script>
+<script src="/scripts/contact-form-pii.js"></script>
