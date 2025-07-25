@@ -62,5 +62,5 @@ This form is for people building government websites and digital products. You c
   </gcds-button>
 </form>
 
-<script async src="/scripts/sanitize-pii.min.js"></script>
-<script async src="/scripts/sanitize-contact-form.js"></script>
+<script defer src="/scripts/sanitize-pii.min.js"></script>
+<script defer src="/scripts/sanitize-contact-form.js"></script>
