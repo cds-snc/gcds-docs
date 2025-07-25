@@ -29,6 +29,7 @@
   "dependencies": {
     "@11ty/eleventy": "^2.0.1",
     "@11ty/eleventy-navigation": "^0.3.2",
+    "@cdssnc/sanitize-pii": "^1.0.2",
     "axios": "^1.8.3",
     "eleventy-plugin-code-clipboard": "^0.2.0",
     "html-entities": "^2.5.2",

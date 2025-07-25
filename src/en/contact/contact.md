@@ -61,3 +61,6 @@ This form is for people building government websites and digital products. You c
     Submit
   </gcds-button>
 </form>
+
+<script defer src="/scripts/sanitize-pii.min.js"></script>
+<script defer src="/scripts/sanitize-contact-form.js"></script>
