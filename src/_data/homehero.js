@@ -6,6 +6,7 @@ module.exports = {
       'Build modern, accessible, human government services people can use.',
     link: '/en/about-us',
     linkText: 'About us',
+    credit: 'Image credit:',
   },
   fr: {
     cds: 'Service numérique canadien',
@@ -14,5 +15,6 @@ module.exports = {
       'Créez des services gouvernementaux modernes accessibles et humains destinés au public.',
     link: '/fr/a-propos',
     linkText: 'À propos',
+    credit: 'Crédit image :',
   },
 };

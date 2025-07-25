@@ -425,7 +425,6 @@ nav.tabs a[aria-current=page]:focus {
   height: 0;
   margin: 0;
   overflow: hidden;
-  content: "Image credit: John Lee, https://unsplash.com/photos/oMneOBYhJxY?utm_source=unsplash&utm_medium=referral&utm_content=creditShareLink";
 }
 .hero .hero__content {
   position: relative;
