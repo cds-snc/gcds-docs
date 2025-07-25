@@ -62,3 +62,6 @@ Pour obtenir de l’aide avec un service gouvernemental, aller à la page <gcds-
     Envoyer
   </gcds-button>
 </form>
+
+<script async src="/scripts/sanitize-pii.min.js"></script>
+<script async src="/scripts/sanitize-contact-form.js"></script>
