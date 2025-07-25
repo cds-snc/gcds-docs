@@ -9,7 +9,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
       textareas.forEach(textarea => {
         textarea.value = sanitizePii(textarea.value);
-        console.log('Sanitized textarea value:', textarea.value);
       });
       contactForm.submit();
     });
