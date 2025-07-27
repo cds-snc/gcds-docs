@@ -7,7 +7,11 @@ document.addEventListener('DOMContentLoaded', function () {
       const textareas = contactForm.querySelectorAll('gcds-textarea');
 
       textareas.forEach(textarea => {
-        textarea.value = sanitizePii(textarea.value);
+        try {
+          textarea.value = sanitizePii(textarea.value);
+        } catch (error) {
+          console.error('Error sanitizing textarea:', error);
+        }
       });
     }, { capture: true });
   }
