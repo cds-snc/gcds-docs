@@ -35,6 +35,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy(
     './src/scripts/component-preview-iframe.js',
   );
+  eleventyConfig.addPassthroughCopy('./src/scripts/sanitize-contact-form.js');
   eleventyConfig.addPassthroughCopy('./src/favicon.ico');
   eleventyConfig.addPassthroughCopy({ './src/variables/': 'variables' });
   eleventyConfig.addPassthroughCopy({
@@ -43,6 +44,9 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy({
     './node_modules/@cdssnc/gcds-utility/dist/gcds-utility.min.css':
       'gcds-utility.min.css',
+  });
+  eleventyConfig.addPassthroughCopy({
+    './node_modules/@cdssnc/sanitize-pii/dist/umd/sanitize-pii.min.js': './scripts/sanitize-pii.min.js',
   });
   // Add copy fo a11y testing
   eleventyConfig.addPassthroughCopy('./.pa11yci.json');
