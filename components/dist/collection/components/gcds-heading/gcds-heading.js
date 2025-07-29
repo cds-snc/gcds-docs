@@ -39,12 +39,12 @@ export class GcdsHeading {
     render() {
         const { characterLimit, marginTop, marginBottom, tag } = this;
         const Tag = tag;
-        return (h(Host, { key: 'f26743658ce725d64a3342709eb5183ac883b258' }, h(Tag, { key: '14b13d3759c5c4cad292b9b5e3b6262682a6f616', class: `
+        return (h(Host, { key: '4e0476bfcf5d77051f092e2094c24cae68b25abf' }, h(Tag, { key: '4fe4a926858163b617fdebd62ea7f97211755121', class: `
             gcds-heading
             ${characterLimit ? 'limit' : ''}
             ${marginTop ? `mt-${marginTop}` : ''}
             ${marginBottom ? `mb-${marginBottom}` : ''}
-          ` }, h("slot", { key: '3e5bbde39229e946e88d3e5d7e88421cc9486d3c' }))));
+          ` }, h("slot", { key: 'ca17660b8b88a915b9f18bf3cbcde376e07a5d13' }))));
     }
     static get is() { return "gcds-heading"; }
     static get encapsulation() { return "shadow"; }

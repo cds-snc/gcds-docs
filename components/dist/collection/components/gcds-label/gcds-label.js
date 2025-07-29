@@ -20,7 +20,7 @@ export class GcdsLabel {
     }
     render() {
         const { hideLabel, labelFor, label, required, lang } = this;
-        return (h(Host, { key: 'ffac8e66f0bb20913277b17a04080913cc661f84', id: `label-for-${labelFor}` }, h("label", { key: 'b663e88ae67734de47f91cae325f0ebdfa41bbcc', htmlFor: labelFor, class: `gcds-label ${hideLabel ? 'label--hidden' : ''}` }, h("span", { key: 'cf9369de0b3f91bfb67087b14969e0c137cf3f99' }, label), required ? (h("span", { "aria-hidden": "true", class: "label--required" }, "(", i18n[lang].required, ")")) : null)));
+        return (h(Host, { key: 'b9a825fe7b1bc1531f33cb2b2fa0ba4cb22fd40d', id: `label-for-${labelFor}` }, h("label", { key: '987c3347f09e6d3a9e56b95ae7fc22e091e6b237', htmlFor: labelFor, class: `gcds-label ${hideLabel ? 'label--hidden' : ''}` }, h("span", { key: 'c1f227df2be6ee2f53a290d89eb14a0bfd80e45f' }, label), required ? (h("span", { "aria-hidden": "true", class: "label--required" }, "(", i18n[lang].required, ")")) : null)));
     }
     static get is() { return "gcds-label"; }
     static get originalStyleUrls() {

@@ -122,9 +122,9 @@ export class GcdsErrorSummary {
     }
     render() {
         const { heading, errorQueue, lang, hasSubmitted, errorLinks } = this;
-        return (h(Host, { key: '921bc4798b6c8ce0e52cc0e8377548d2f9f90a06' }, h("div", { key: 'c88ac2207f650dfcf2afc92c2382261e6062103d', role: "alert", tabindex: "-1", ref: element => (this.shadowElement = element), class: `gcds-error-summary ${(hasSubmitted || errorLinks) && Object.keys(errorQueue).length > 0
+        return (h(Host, { key: 'abcef9b3fa9efcf3e25d1ff1c0ef8c824b24a990' }, h("div", { key: '806ec0e7cc4747178c93d0b0e9b9e1a637a32022', role: "alert", tabindex: "-1", ref: element => (this.shadowElement = element), class: `gcds-error-summary ${(hasSubmitted || errorLinks) && Object.keys(errorQueue).length > 0
                 ? 'gcds-show'
-                : ''}` }, h("gcds-heading", { key: '3503d99d5747612a36354097ebe466c88311e4dc', tag: "h2", "margin-top": "0", "margin-bottom": "225" }, heading !== null && heading !== void 0 ? heading : i18n[lang].heading), h("ol", { key: '0751c01bfe6c44457fb9923c814fa1831aae4444', class: "summary__errorlist" }, (hasSubmitted || errorLinks) &&
+                : ''}` }, h("gcds-heading", { key: '660f2f1819260b8f6455523cc732dddc4afcf691', tag: "h2", "margin-top": "0", "margin-bottom": "225" }, heading !== null && heading !== void 0 ? heading : i18n[lang].heading), h("ol", { key: '5cf05e7dfd9d6ee6c2e0544c6be2f0eb7eca96ea', class: "summary__errorlist" }, (hasSubmitted || errorLinks) &&
             Object.keys(errorQueue).length > 0 &&
             Object.keys(errorQueue).map(key => {
                 return (h("li", { class: "summary__listitem" }, h("gcds-link", { size: "regular", href: errorLinks ? key : '#', onClick: e => {

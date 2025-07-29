@@ -45,7 +45,7 @@ export default {
             },
         }, type: {
             control: { type: 'select' },
-            options: ['email', 'number', 'password', 'search', 'text', 'url'],
+            options: ['email', 'number', 'password', 'search', 'tel', 'text', 'url'],
             table: {
                 type: { summary: 'string' },
                 defaultValue: { summary: 'text' },
@@ -98,10 +98,66 @@ export default {
                 type: { summary: 'string' },
                 defaultValue: { summary: '-' },
             },
+        }, autofocus: {
+            control: { type: 'select' },
+            options: [false, true],
+            table: {
+                type: { summary: 'boolean' },
+                defaultValue: { summary: false },
+            },
+        }, form: {
+            control: 'text',
+            table: {
+                type: { summary: 'string' },
+                defaultValue: { summary: '-' },
+            },
+        }, max: {
+            control: 'text',
+            table: {
+                type: { summary: 'number' },
+                defaultValue: { summary: '-' },
+            },
+        }, maxlength: {
+            control: 'text',
+            table: {
+                type: { summary: 'number' },
+                defaultValue: { summary: '-' },
+            },
+        }, min: {
+            control: 'text',
+            table: {
+                type: { summary: 'number' },
+                defaultValue: { summary: '-' },
+            },
+        }, minlength: {
+            control: 'text',
+            table: {
+                type: { summary: 'number' },
+                defaultValue: { summary: '-' },
+            },
+        }, pattern: {
+            control: 'text',
+            table: {
+                type: { summary: 'string' },
+                defaultValue: { summary: '-' },
+            },
+        }, readonly: {
+            control: { type: 'select' },
+            options: [false, true],
+            table: {
+                type: { summary: 'boolean' },
+                defaultValue: { summary: false },
+            },
+        }, step: {
+            control: 'text',
+            table: {
+                type: { summary: 'number' },
+                defaultValue: { summary: '-' },
+            },
         }
     }, validatorProps), langProp), {
         // Events
-        gcdsChange: Object.assign({ action: 'change' }, eventProp), gcdsFocus: Object.assign({ action: 'focus' }, eventProp), gcdsBlur: Object.assign({ action: 'blur' }, eventProp)
+        gcdsChange: Object.assign({ action: 'change' }, eventProp), gcdsInput: Object.assign({ action: 'input' }, eventProp), gcdsFocus: Object.assign({ action: 'focus' }, eventProp), gcdsBlur: Object.assign({ action: 'blur' }, eventProp)
     }),
 };
 const Template = args => `
@@ -115,9 +171,18 @@ const Template = args => `
   ${args.errorMessage ? `error-message="${args.errorMessage}"` : null}
   ${args.required ? `required` : null}
   ${args.disabled ? `disabled` : null}
+  ${args.form ? `form="${args.value}"` : null}
+  ${args.max ? `max="${args.max}"` : null}
+  ${args.maxlength ? `maxlength="${args.maxlength}"` : null}
+  ${args.min ? `min="${args.min}"` : null}
+  ${args.minlength ? `minlength="${args.minlength}"` : null}
+  ${args.pattern ? `pattern="${args.pattern}"` : null}
+  ${args.step ? `step="${args.step}"` : null}
   ${args.value ? `value="${args.value}"` : null}
   ${args.size ? `size="${args.size}"` : null}
-  ${args.autocomplete != 'off' ? `autocomplete="${args.autocomplete}"` : null}
+  ${args.autocomplete ? `autocomplete="${args.autocomplete}"` : null}
+  ${args.autofocus ? `autofocus` : null}
+  ${args.readonly ? `readonly` : null}
   ${args.hideLabel ? `hide-label` : null}
   ${args.validateOn != 'blur' ? `validate-on="${args.validateOn}"` : null}
   ${args.lang != 'en' ? `lang="${args.lang}"` : null}
@@ -134,9 +199,18 @@ const Template = args => `
   ${args.errorMessage ? `errorMessage="${args.errorMessage}"` : null}
   ${args.required ? `required` : null}
   ${args.disabled ? `disabled` : null}
+  ${args.form ? `form="${args.value}"` : null}
+  ${args.max ? `max="${args.max}"` : null}
+  ${args.maxlength ? `maxlength="${args.maxlength}"` : null}
+  ${args.min ? `min="${args.min}"` : null}
+  ${args.minlength ? `minlength="${args.minlength}"` : null}
+  ${args.pattern ? `pattern="${args.pattern}"` : null}
+  ${args.step ? `step="${args.step}"` : null}
   ${args.value ? `value="${args.value}"` : null}
   ${args.size ? `size="${args.size}"` : null}
-  ${args.autocomplete != 'off' ? `autocomplete="${args.autocomplete}"` : null}
+  ${args.autocomplete ? `autocomplete="${args.autocomplete}"` : null}
+  ${args.autofocus ? `autofocus` : null}
+  ${args.readonly ? `readonly` : null}
   ${args.hideLabel ? ` hideLabel` : null}
   ${args.validateOn != 'blur' ? `validateOn="${args.validateOn}"` : null}
   ${args.lang != 'en' ? `lang="${args.lang}"` : null}
@@ -153,9 +227,18 @@ const TemplatePlayground = args => `
   ${args.errorMessage ? `error-message="${args.errorMessage}"` : null}
   ${args.required ? `required` : null}
   ${args.disabled ? `disabled` : null}
+  ${args.form ? `form="${args.value}"` : null}
+  ${args.max ? `max="${args.max}"` : null}
+  ${args.maxlength ? `maxlength="${args.maxlength}"` : null}
+  ${args.min ? `min="${args.min}"` : null}
+  ${args.minlength ? `minlength="${args.minlength}"` : null}
+  ${args.pattern ? `pattern="${args.pattern}"` : null}
+  ${args.step ? `step="${args.step}"` : null}
   ${args.value ? `value="${args.value}"` : null}
   ${args.size ? `size="${args.size}"` : null}
-  ${args.autocomplete != 'off' ? `autocomplete="${args.autocomplete}"` : null}
+  ${args.autocomplete ? `autocomplete="${args.autocomplete}"` : null}
+  ${args.autofocus ? `autofocus` : null}
+  ${args.readonly ? `readonly` : null}
   ${args.hideLabel ? `hide-label` : null}
   ${args.validateOn != 'blur' ? `validate-on="${args.validateOn}"` : null}
   ${args.lang != 'en' ? `lang="${args.lang}"` : null}
@@ -179,6 +262,15 @@ Default.args = {
     autocomplete: '',
     hideLabel: false,
     validateOn: 'blur',
+    autofocus: false,
+    form: '',
+    max: '',
+    maxlength: '',
+    min: '',
+    minlength: '',
+    pattern: '',
+    step: '',
+    readonly: false,
 };
 // ------ Input states ------
 export const Disabled = Template.bind({});
@@ -192,6 +284,15 @@ Disabled.args = {
     lang: 'en',
     autocomplete: '',
     validateOn: 'blur',
+    autofocus: false,
+    form: '',
+    max: '',
+    maxlength: '',
+    min: '',
+    minlength: '',
+    pattern: '',
+    step: '',
+    readonly: false,
 };
 export const Error = Template.bind({});
 Error.args = {
@@ -205,6 +306,15 @@ Error.args = {
     lang: 'en',
     autocomplete: '',
     validateOn: 'blur',
+    autofocus: false,
+    form: '',
+    max: '',
+    maxlength: '',
+    min: '',
+    minlength: '',
+    pattern: '',
+    step: '',
+    readonly: false,
 };
 export const Required = Template.bind({});
 Required.args = {
@@ -217,6 +327,14 @@ Required.args = {
     lang: 'en',
     autocomplete: '',
     validateOn: 'blur',
+    autofocus: false,
+    form: '',
+    max: '',
+    maxlength: '',
+    min: '',
+    minlength: '',
+    pattern: '',
+    readonly: false,
 };
 // ------ Input types ------
 export const Email = Template.bind({});
@@ -230,6 +348,15 @@ Email.args = {
     lang: 'en',
     autocomplete: '',
     validateOn: 'blur',
+    autofocus: false,
+    form: '',
+    max: '',
+    maxlength: '',
+    min: '',
+    minlength: '',
+    pattern: '',
+    step: '',
+    readonly: false,
 };
 export const Number = Template.bind({});
 Number.args = {
@@ -242,6 +369,14 @@ Number.args = {
     lang: 'en',
     autocomplete: '',
     validateOn: 'blur',
+    autofocus: false,
+    form: '',
+    max: '',
+    maxlength: '',
+    min: '',
+    minlength: '',
+    pattern: '',
+    readonly: false,
 };
 export const Password = Template.bind({});
 Password.args = {
@@ -254,6 +389,15 @@ Password.args = {
     lang: 'en',
     autocomplete: '',
     validateOn: 'blur',
+    autofocus: false,
+    form: '',
+    max: '',
+    maxlength: '',
+    min: '',
+    minlength: '',
+    pattern: '',
+    step: '',
+    readonly: false,
 };
 export const Search = Template.bind({});
 Search.args = {
@@ -266,6 +410,36 @@ Search.args = {
     lang: 'en',
     autocomplete: '',
     validateOn: 'blur',
+    autofocus: false,
+    form: '',
+    max: '',
+    maxlength: '',
+    min: '',
+    minlength: '',
+    pattern: '',
+    step: '',
+    readonly: false,
+};
+export const Tel = Template.bind({});
+Tel.args = {
+    inputId: 'input-tel',
+    name: 'example-tel',
+    type: 'tel',
+    label: 'Label',
+    hint: 'Hint / example message.',
+    disabled: false,
+    lang: 'en',
+    autocomplete: '',
+    validateOn: 'blur',
+    autofocus: false,
+    form: '',
+    max: '',
+    maxlength: '',
+    min: '',
+    minlength: '',
+    pattern: '',
+    step: '',
+    readonly: false,
 };
 export const Text = Template.bind({});
 Text.args = {
@@ -278,6 +452,15 @@ Text.args = {
     lang: 'en',
     autocomplete: '',
     validateOn: 'blur',
+    autofocus: false,
+    form: '',
+    max: '',
+    maxlength: '',
+    min: '',
+    minlength: '',
+    pattern: '',
+    step: '',
+    readonly: false,
 };
 export const Url = Template.bind({});
 Url.args = {
@@ -290,6 +473,226 @@ Url.args = {
     lang: 'en',
     autocomplete: '',
     validateOn: 'blur',
+    autofocus: false,
+    form: '',
+    max: '',
+    maxlength: '',
+    min: '',
+    minlength: '',
+    pattern: '',
+    step: '',
+    readonly: false,
+};
+export const Autocomplete = Template.bind({});
+Autocomplete.args = {
+    inputId: 'input-autocomplete',
+    name: 'example-autocomplete',
+    type: 'text',
+    label: 'Label',
+    hint: 'Hint / example message.',
+    disabled: false,
+    lang: 'en',
+    autocomplete: 'given-name',
+    validateOn: 'blur',
+    autofocus: false,
+    form: '',
+    max: '',
+    maxlength: '',
+    min: '',
+    minlength: '',
+    pattern: '',
+    step: '',
+    readonly: false,
+};
+export const Autofocus = Template.bind({});
+Autofocus.args = {
+    inputId: 'input-autofocus',
+    name: 'example-autofocus',
+    type: 'text',
+    label: 'Label',
+    hint: 'Hint / example message.',
+    disabled: false,
+    lang: 'en',
+    autocomplete: '',
+    validateOn: 'blur',
+    autofocus: true,
+    form: '',
+    max: '',
+    maxlength: '',
+    min: '',
+    minlength: '',
+    pattern: '',
+    step: '',
+    readonly: false,
+};
+export const Form = Template.bind({});
+Form.args = {
+    inputId: 'input-form',
+    name: 'example-form',
+    type: 'text',
+    label: 'Label',
+    hint: 'Hint / example message.',
+    disabled: false,
+    lang: 'en',
+    autocomplete: '',
+    validateOn: 'blur',
+    autofocus: false,
+    form: 'form',
+    max: '',
+    maxlength: '',
+    min: '',
+    minlength: '',
+    pattern: '',
+    step: '',
+    readonly: false,
+};
+export const Max = Template.bind({});
+Max.args = {
+    inputId: 'input-max',
+    name: 'example-max',
+    type: 'number',
+    label: 'Label',
+    hint: 'Hint / example message.',
+    disabled: false,
+    lang: 'en',
+    autocomplete: '',
+    validateOn: 'blur',
+    autofocus: false,
+    form: '',
+    max: '100',
+    maxlength: '',
+    min: '',
+    minlength: '',
+    pattern: '',
+    step: '',
+    readonly: false,
+};
+export const Min = Template.bind({});
+Min.args = {
+    inputId: 'input-min',
+    name: 'example-min',
+    type: 'number',
+    label: 'Label',
+    hint: 'Hint / example message.',
+    disabled: false,
+    lang: 'en',
+    autocomplete: '',
+    validateOn: 'blur',
+    autofocus: false,
+    form: '',
+    max: '',
+    maxlength: '',
+    min: '50',
+    minlength: '',
+    pattern: '',
+    step: '',
+    readonly: false,
+};
+export const Maxlength = Template.bind({});
+Maxlength.args = {
+    inputId: 'input-maxlength',
+    name: 'example-maxlength',
+    type: 'text',
+    label: 'Label',
+    hint: 'Hint / example message.',
+    disabled: false,
+    lang: 'en',
+    autocomplete: '',
+    validateOn: 'blur',
+    autofocus: false,
+    form: '',
+    max: '',
+    maxlength: '7',
+    min: '',
+    minlength: '',
+    pattern: '',
+    step: '',
+    readonly: false,
+};
+export const Minlength = Template.bind({});
+Minlength.args = {
+    inputId: 'input-minlength',
+    name: 'example-minlength',
+    type: 'text',
+    label: 'Label',
+    hint: 'Hint / example message.',
+    disabled: false,
+    lang: 'en',
+    autocomplete: '',
+    validateOn: 'blur',
+    autofocus: false,
+    form: '',
+    max: '',
+    maxlength: '',
+    min: '',
+    minlength: '5',
+    pattern: '',
+    step: '',
+    readonly: false,
+};
+export const Pattern = Template.bind({});
+Pattern.args = {
+    inputId: 'input-pattern',
+    name: 'example-pattern',
+    type: 'text',
+    label: 'Label',
+    hint: 'Hint / example message.',
+    disabled: false,
+    lang: 'en',
+    autocomplete: '',
+    validateOn: 'blur',
+    autofocus: false,
+    form: '',
+    max: '',
+    maxlength: '',
+    min: '',
+    minlength: '',
+    pattern: '[A-Z]+',
+    step: '',
+    readonly: false,
+};
+export const Step = Template.bind({});
+Step.args = {
+    inputId: 'input-step',
+    name: 'example-step',
+    type: 'number',
+    label: 'Label',
+    hint: 'Hint / example message.',
+    disabled: false,
+    lang: 'en',
+    autocomplete: '',
+    validateOn: 'blur',
+    autofocus: false,
+    form: '',
+    max: '',
+    maxlength: '',
+    min: '',
+    minlength: '',
+    pattern: '',
+    step: '10',
+    readonly: false,
+};
+export const Readonly = Template.bind({});
+Readonly.args = {
+    inputId: 'input-readonly',
+    name: 'example-readonly',
+    type: 'number',
+    label: 'Label',
+    hint: 'Hint / example message.',
+    disabled: false,
+    lang: 'en',
+    value: 'Readonly',
+    autocomplete: '',
+    validateOn: 'blur',
+    autofocus: false,
+    form: '',
+    max: '',
+    maxlength: '',
+    min: '',
+    minlength: '',
+    pattern: '',
+    step: '',
+    readonly: true,
 };
 // ------ Input events & props ------
 export const Props = Template.bind({});
@@ -308,6 +711,15 @@ Props.args = {
     autocomplete: '',
     hideLabel: false,
     validateOn: 'blur',
+    autofocus: false,
+    form: '',
+    max: '',
+    maxlength: '',
+    min: '',
+    minlength: '',
+    pattern: '',
+    step: '',
+    readonly: false,
 };
 // ------ Input playground ------
 export const Playground = TemplatePlayground.bind({});
@@ -326,5 +738,14 @@ Playground.args = {
     hideLabel: false,
     validateOn: 'blur',
     lang: 'en',
+    autofocus: false,
+    form: '',
+    max: '',
+    maxlength: '',
+    min: '',
+    minlength: '',
+    pattern: '',
+    step: '',
+    readonly: false,
 };
 //# sourceMappingURL=gcds-input.stories.js.map

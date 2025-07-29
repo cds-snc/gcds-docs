@@ -86,7 +86,7 @@ export class GcdsNotice {
             success: 'checkmark-circle',
             warning: 'warning-triangle',
         };
-        return (h(Host, { key: 'fd1270c1f55a73317a453144bdd787f73a6b1718' }, this.validateRequiredProps() && (h("section", { key: '5b69754984e2f26df7789f87ed53f956af36da76', class: `gcds-notice notice--type-${type}` }, h("gcds-icon", { key: '7819caaf5a09fb193ddf6b2d0e90e113364322cc', class: "notice__icon", size: "h4", name: iconTypes[type] }), h("div", { key: 'b2a6473df7b38f923bcff4660d9cc734d4a682e9' }, h("gcds-heading", { key: 'f357202ef4784a28c1fa632c2612f358b0884c19', tag: noticeTitleTag, "margin-top": "0", "margin-bottom": "100", class: "notice__heading" }, h("gcds-sr-only", { key: '61442ee69436efcf44645e12d48ced7098671d57', tag: "span" }, i18n[this.lang][type]), noticeTitle), h("slot", { key: 'c213505d6bd3a75af3987b147d81d66e2c7d8415' }))))));
+        return (h(Host, { key: 'd05e01b3d51707d840c395fe2197831394438ed9' }, this.validateRequiredProps() && (h("section", { key: 'e6d7fdc879b8592431b100b59b77bb511d32e95e', class: `gcds-notice notice--type-${type}` }, h("gcds-icon", { key: '85ad98787913a52dc462367ae453b95743623066', class: "notice__icon", size: "h4", name: iconTypes[type] }), h("div", { key: 'a44107281bb95d4a6943dbeb6b38a6603a427a0b' }, h("gcds-heading", { key: 'ec0805c7006d48dcefaf4b91dcf6d5bed1a7ea68', tag: noticeTitleTag, "margin-top": "0", "margin-bottom": "100", class: "notice__heading" }, h("gcds-sr-only", { key: '35352ad8a3a0ce3f9ace2314c269fc71f6657ffa', tag: "span" }, i18n[this.lang][type]), noticeTitle), h("slot", { key: '8c59481347d56e817be55b566a0c8a1121753c41' }))))));
     }
     static get is() { return "gcds-notice"; }
     static get encapsulation() { return "shadow"; }

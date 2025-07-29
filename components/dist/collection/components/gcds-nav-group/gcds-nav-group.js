@@ -95,12 +95,12 @@ export class GcdsNavGroup {
     }
     render() {
         const { closeTrigger, menuLabel, open, openTrigger } = this;
-        return (h(Host, { key: 'c71df7673d06bb55988dff8143bb00168594cea0', role: "listitem", open: open }, h("button", { key: '07158008e249074d2315362b170cd8c0588f9db4', "aria-haspopup": "true", tabIndex: 0, "aria-expanded": open.toString(), ref: element => (this.triggerElement = element), class: `gcds-nav-group__trigger gcds-trigger--${this.navStyle}`, onBlur: () => this.gcdsBlur.emit(), onFocus: () => this.gcdsFocus.emit(), onClick: e => {
+        return (h(Host, { key: '952c4f16984d92ec816f75e17e8610238a40a83b', role: "listitem", open: open }, h("button", { key: '68293dfb96996dc2305744e16d1b3c9e448dfb95', "aria-haspopup": "true", tabIndex: 0, "aria-expanded": open.toString(), ref: element => (this.triggerElement = element), class: `gcds-nav-group__trigger gcds-trigger--${this.navStyle}`, onBlur: () => this.gcdsBlur.emit(), onFocus: () => this.gcdsFocus.emit(), onClick: e => {
                 const event = emitEvent(e, this.gcdsClick);
                 if (event) {
                     this.toggleNav();
                 }
-            } }, h("gcds-icon", { key: '82b92e7b6a0625d597ed3e82e809012910d777cf', name: open ? 'chevron-up' : 'chevron-down' }), closeTrigger && open ? closeTrigger : openTrigger), h("ul", { key: '57e45d8e023202556eb34847312ee4e65aeee00d', "aria-label": menuLabel, class: `gcds-nav-group__list gcds-nav--${this.navStyle}` }, h("slot", { key: '7982c8317548d37997f989065b258c450fb95bc9' }))));
+            } }, h("gcds-icon", { key: '2cb55aeb934079a7e74d536c01bf5b0c218887ec', name: open ? 'chevron-up' : 'chevron-down' }), closeTrigger && open ? closeTrigger : openTrigger), h("ul", { key: '7b1b84bd13d62ef1f7f7f4393f821b4ab9d06827', "aria-label": menuLabel, class: `gcds-nav-group__list gcds-nav--${this.navStyle}` }, h("slot", { key: 'ce79cefeab19e5dfc98042125b14c146eb956021' }))));
     }
     static get is() { return "gcds-nav-group"; }
     static get encapsulation() { return "shadow"; }

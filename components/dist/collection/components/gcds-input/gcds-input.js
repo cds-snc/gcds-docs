@@ -1,8 +1,12 @@
 import { Host, h, } from "@stencil/core";
 import { assignLanguage, handleValidationResult, inheritAttributes, observerConfig, } from "../../utils/utils";
 import { defaultValidator, getValidator, requiredValidator, } from "../../validators";
+import I18N from "./i18n/i18n.js";
 export class GcdsInput {
     constructor() {
+        // Array to store which native HTML errors are happening on the input
+        this.htmlValidationErrors = [];
+        this.inputTitle = '';
         this._validator = defaultValidator;
         /**
          * Props
@@ -38,6 +42,9 @@ export class GcdsInput {
             }
             this.gcdsBlur.emit();
         };
+        /**
+         * Handling input and change events on input
+         */
         this.handleInput = (e, customEvent) => {
             const val = e.target && e.target.value;
             this.value = val;
@@ -45,6 +52,9 @@ export class GcdsInput {
             if (e.type === 'change') {
                 const changeEvt = new e.constructor(e.type, e);
                 this.el.dispatchEvent(changeEvt);
+            }
+            else {
+                this.updateValidity();
             }
             customEvent.emit(this.value);
         };
@@ -65,6 +75,15 @@ export class GcdsInput {
             this.hasError = false;
         }
     }
+    watchValue(val) {
+        this.internals.setFormValue(val ? val : null);
+    }
+    /**
+     * Read-only property of the input, returns a ValidityState object that represents the validity states this element is in.
+     */
+    get validity() {
+        return this.internals.validity;
+    }
     validateValidator() {
         this._validator = getValidator(this.validator);
     }
@@ -77,20 +96,36 @@ export class GcdsInput {
      * Watch HTML attributes to inherit changes
      */
     ariaInvalidWatcher() {
-        this.inheritedAttributes = inheritAttributes(this.el, this.shadowElement, [
-            'placeholder',
-        ]);
+        this.inheritedAttributes = inheritAttributes(this.el, this.shadowElement);
     }
     ariaDescriptiondWatcher() {
-        this.inheritedAttributes = inheritAttributes(this.el, this.shadowElement, [
-            'placeholder',
-        ]);
+        this.inheritedAttributes = inheritAttributes(this.el, this.shadowElement);
     }
     /**
      * Call any active validators
      */
     async validate() {
         handleValidationResult(this.el, this._validator.validate(this.value), this.label, this.gcdsError, this.gcdsValid, this.lang);
+        // Native HTML validation
+        if ((this.required && !this.internals.checkValidity()) ||
+            !this.internals.checkValidity()) {
+            if (!this.internals.validity.valueMissing) {
+                this.errorMessage = this.formatHTMLErrorMessage();
+                this.inputTitle = this.errorMessage;
+            }
+        }
+    }
+    /**
+     * Check the validity of gcds-input
+     */
+    async checkValidity() {
+        return this.internals.checkValidity();
+    }
+    /**
+     * Get validationMessage of gcds-input
+     */
+    async getValidationMessage() {
+        return this.internals.validationMessage;
     }
     submitListener(e) {
         if (e.target == this.el.closest('form')) {
@@ -125,6 +160,72 @@ export class GcdsInput {
         this.internals.setFormValue(state);
         this.value = state;
     }
+    /**
+     * Update gcds-input's validity using internal input
+     */
+    updateValidity(override) {
+        const validity = this.shadowElement.validity;
+        this.htmlValidationErrors = [];
+        for (const key in validity) {
+            // Do not include valid or missingValue keys
+            if (validity[key] === true && key !== 'valid') {
+                this.htmlValidationErrors.push(key);
+            }
+        }
+        // Add override values to HTML errors array
+        for (const key in override) {
+            this.htmlValidationErrors.push(key);
+        }
+        const validityState = override
+            ? Object.assign(Object.assign({}, this.shadowElement.validity), override) : this.shadowElement.validity;
+        const validationMessage = this.htmlValidationErrors.length > 0
+            ? this.formatHTMLErrorMessage()
+            : null;
+        this.internals.setValidity(validityState, validationMessage, this.shadowElement);
+        // Set input title when HTML error occruring
+        this.inputTitle =
+            this.htmlValidationErrors.length > 0 ? this.formatHTMLErrorMessage() : '';
+    }
+    /**
+     * Format HTML error message based off assigned attributes
+     * This lets us assign custom error messages
+     */
+    formatHTMLErrorMessage() {
+        switch (this.htmlValidationErrors[0]) {
+            case 'valueMissing':
+                return I18N[this.lang][this.htmlValidationErrors[0]];
+            case 'typeMismatch':
+                if (this.type === 'url' || this.type === 'email') {
+                    return I18N[this.lang][this.htmlValidationErrors[0]][this.type];
+                }
+                else {
+                    return I18N[this.lang][this.htmlValidationErrors[0]];
+                }
+            case 'tooLong':
+                return I18N[this.lang][this.htmlValidationErrors[0]]
+                    .replace('{max}', this.maxlength)
+                    .replace('{current}', this.value.length);
+            case 'tooShort':
+                return I18N[this.lang][this.htmlValidationErrors[0]]
+                    .replace('{min}', this.minlength)
+                    .replace('{current}', this.value.length);
+            case 'rangeUnderflow':
+                return I18N[this.lang][this.htmlValidationErrors[0]].replace('{min}', this.min);
+            case 'rangeOverflow':
+                return I18N[this.lang][this.htmlValidationErrors[0]].replace('{max}', this.max);
+            case 'stepMismatch':
+                return I18N[this.lang][this.htmlValidationErrors[0]]
+                    .replace('{lower}', Math.floor(Number(this.value) / Number(this.step)) *
+                    Number(this.step))
+                    .replace('{upper}', Math.floor(Number(this.value) / Number(this.step)) *
+                    Number(this.step) +
+                    Number(this.step));
+            case 'badInput':
+            case 'patternMismatch':
+            default:
+                return I18N[this.lang][this.htmlValidationErrors[0]];
+        }
+    }
     /*
      * Observe lang attribute change
      */
@@ -146,14 +247,32 @@ export class GcdsInput {
         // Assign required validator if needed
         requiredValidator(this.el, 'input', this.type);
         this.validateValidator();
-        this.inheritedAttributes = inheritAttributes(this.el, this.shadowElement, [
-            'placeholder',
-        ]);
+        this.inheritedAttributes = inheritAttributes(this.el, this.shadowElement);
         this.internals.setFormValue(this.value ? this.value : null);
         this.initialValue = this.value ? this.value : null;
     }
+    componentDidLoad() {
+        let lengthValidity;
+        // maxlength/minlength validation on load
+        if (this.value && (this.minlength || this.maxlength)) {
+            if (this.minlength && this.value.length < this.minlength) {
+                lengthValidity = { tooShort: true };
+            }
+            else if (this.maxlength && this.value.length > this.maxlength) {
+                lengthValidity = { tooLong: true };
+            }
+        }
+        this.updateValidity(lengthValidity);
+        // Logic to enable autofocus
+        if (this.autofocus) {
+            requestAnimationFrame(() => {
+                var _a;
+                (_a = this.shadowElement) === null || _a === void 0 ? void 0 : _a.focus();
+            });
+        }
+    }
     render() {
-        const { disabled, errorMessage, hideLabel, hint, inputId, name, label, required, size, type, value, hasError, autocomplete, inheritedAttributes, lang, } = this;
+        const { disabled, errorMessage, hideLabel, hint, inputId, name, label, required, size, type, value, hasError, autocomplete, autofocus, form, max, maxlength, min, minlength, pattern, readonly, step, inputTitle, inheritedAttributes, lang, } = this;
         // Use max-width to keep field responsive
         const style = {
             maxWidth: `calc(${size * 2}ch + 1.5rem)`,
@@ -161,8 +280,17 @@ export class GcdsInput {
         const attrsInput = Object.assign({ disabled,
             required,
             type,
-            value,
-            autocomplete }, inheritedAttributes);
+            autocomplete,
+            autofocus,
+            form,
+            max,
+            maxlength,
+            min,
+            minlength,
+            pattern,
+            readonly,
+            step,
+            value, title: inputTitle }, inheritedAttributes);
         const attrsLabel = {
             label,
             required,
@@ -174,7 +302,7 @@ export class GcdsInput {
                 ? ` ${attrsInput['aria-describedby']}`
                 : ''}`;
         }
-        return (h(Host, { key: 'b01f509292604301b7792bbba825ef16958edce6' }, h("div", { key: 'e1499fb45ea0a3e268d7b666b49d5cea206b8df4', class: `gcds-input-wrapper ${disabled ? 'gcds-disabled' : ''} ${hasError ? 'gcds-error' : ''}` }, h("gcds-label", Object.assign({ key: 'e3ace51ae9be43058cfafad48761ba2679ecc0ad' }, attrsLabel, { "hide-label": hideLabel, "label-for": inputId, lang: lang })), hint ? h("gcds-hint", { "hint-id": inputId }, hint) : null, errorMessage ? (h("gcds-error-message", { messageId: inputId }, errorMessage)) : null, h("input", Object.assign({ key: 'fece71e5bd1b106fc83ac77d4290905e4907001d' }, attrsInput, { class: hasError ? 'gcds-error' : null, id: inputId, name: name, onBlur: () => this.onBlur(), onFocus: () => this.gcdsFocus.emit(), onInput: e => this.handleInput(e, this.gcdsInput), onChange: e => this.handleInput(e, this.gcdsChange), "aria-labelledby": `label-for-${inputId}`, "aria-invalid": inheritedAttributes['aria-invalid'] === 'true'
+        return (h(Host, { key: '75bc6a272bf06f77191758dc056487e47bd36e4a' }, h("div", { key: '43c8ca490d32e6a4f6c76ee837da3ab9e87dd392', class: `gcds-input-wrapper ${disabled ? 'gcds-disabled' : ''} ${hasError ? 'gcds-error' : ''}` }, h("gcds-label", Object.assign({ key: '90ca9c61c11a47914b4650bb910525fb1430b045' }, attrsLabel, { "hide-label": hideLabel, "label-for": inputId, lang: lang })), hint ? h("gcds-hint", { "hint-id": inputId }, hint) : null, errorMessage ? (h("gcds-error-message", { messageId: inputId }, errorMessage)) : null, h("input", Object.assign({ key: 'cf6d091d72cf584c1df8f407ff8d86afd6b4547f' }, attrsInput, { class: hasError ? 'gcds-error' : null, id: inputId, name: name, onBlur: () => this.onBlur(), onFocus: () => this.gcdsFocus.emit(), onInput: e => this.handleInput(e, this.gcdsInput), onChange: e => this.handleInput(e, this.gcdsChange), "aria-labelledby": `label-for-${inputId}`, "aria-invalid": inheritedAttributes['aria-invalid'] === 'true'
                 ? inheritedAttributes['aria-invalid']
                 : errorMessage
                     ? 'true'
@@ -375,8 +503,8 @@ export class GcdsInput {
                 "attribute": "type",
                 "mutable": false,
                 "complexType": {
-                    "original": "'email' | 'number' | 'password' | 'search' | 'text' | 'url'",
-                    "resolved": "\"email\" | \"number\" | \"password\" | \"search\" | \"text\" | \"url\"",
+                    "original": "'email' | 'number' | 'password' | 'search' | 'tel' | 'text' | 'url'",
+                    "resolved": "\"email\" | \"number\" | \"password\" | \"search\" | \"tel\" | \"text\" | \"url\"",
                     "references": {}
                 },
                 "required": false,
@@ -422,11 +550,205 @@ export class GcdsInput {
                 "optional": true,
                 "docs": {
                     "tags": [],
-                    "text": "String to have autocomplete enabled"
+                    "text": "String to have autocomplete enabled."
                 },
                 "getter": false,
                 "setter": false,
                 "reflect": false
+            },
+            "autofocus": {
+                "type": "boolean",
+                "attribute": "autofocus",
+                "mutable": false,
+                "complexType": {
+                    "original": "boolean",
+                    "resolved": "boolean",
+                    "references": {}
+                },
+                "required": false,
+                "optional": false,
+                "docs": {
+                    "tags": [],
+                    "text": "If true, the input will be focused on component render"
+                },
+                "getter": false,
+                "setter": false,
+                "reflect": true
+            },
+            "form": {
+                "type": "string",
+                "attribute": "form",
+                "mutable": false,
+                "complexType": {
+                    "original": "string",
+                    "resolved": "string",
+                    "references": {}
+                },
+                "required": false,
+                "optional": true,
+                "docs": {
+                    "tags": [],
+                    "text": "The ID of the form that the input field belongs to."
+                },
+                "getter": false,
+                "setter": false,
+                "reflect": true
+            },
+            "max": {
+                "type": "any",
+                "attribute": "max",
+                "mutable": false,
+                "complexType": {
+                    "original": "number | string",
+                    "resolved": "number | string",
+                    "references": {}
+                },
+                "required": false,
+                "optional": true,
+                "docs": {
+                    "tags": [],
+                    "text": "The maximum value that the input field can accept.\nOnly applies to number input type."
+                },
+                "getter": false,
+                "setter": false,
+                "reflect": true
+            },
+            "maxlength": {
+                "type": "number",
+                "attribute": "maxlength",
+                "mutable": false,
+                "complexType": {
+                    "original": "number",
+                    "resolved": "number",
+                    "references": {}
+                },
+                "required": false,
+                "optional": true,
+                "docs": {
+                    "tags": [],
+                    "text": "The maximum number of characters that the input field can accept."
+                },
+                "getter": false,
+                "setter": false,
+                "reflect": true
+            },
+            "min": {
+                "type": "any",
+                "attribute": "min",
+                "mutable": false,
+                "complexType": {
+                    "original": "number | string",
+                    "resolved": "number | string",
+                    "references": {}
+                },
+                "required": false,
+                "optional": true,
+                "docs": {
+                    "tags": [],
+                    "text": "The minimum value that the input field can accept.\nOnly applies to number input type."
+                },
+                "getter": false,
+                "setter": false,
+                "reflect": true
+            },
+            "minlength": {
+                "type": "number",
+                "attribute": "minlength",
+                "mutable": false,
+                "complexType": {
+                    "original": "number",
+                    "resolved": "number",
+                    "references": {}
+                },
+                "required": false,
+                "optional": true,
+                "docs": {
+                    "tags": [],
+                    "text": "The minimum number of characters that the input field can accept."
+                },
+                "getter": false,
+                "setter": false,
+                "reflect": true
+            },
+            "pattern": {
+                "type": "string",
+                "attribute": "pattern",
+                "mutable": false,
+                "complexType": {
+                    "original": "string",
+                    "resolved": "string",
+                    "references": {}
+                },
+                "required": false,
+                "optional": true,
+                "docs": {
+                    "tags": [],
+                    "text": "Specifies a regular expression the form control's value should match.\nSee: https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/pattern"
+                },
+                "getter": false,
+                "setter": false,
+                "reflect": true
+            },
+            "readonly": {
+                "type": "boolean",
+                "attribute": "readonly",
+                "mutable": false,
+                "complexType": {
+                    "original": "boolean",
+                    "resolved": "boolean",
+                    "references": {}
+                },
+                "required": false,
+                "optional": true,
+                "docs": {
+                    "tags": [],
+                    "text": "If true, the input field cannot be modified."
+                },
+                "getter": false,
+                "setter": false,
+                "reflect": true
+            },
+            "step": {
+                "type": "any",
+                "attribute": "step",
+                "mutable": false,
+                "complexType": {
+                    "original": "number | 'any'",
+                    "resolved": "\"any\" | number",
+                    "references": {}
+                },
+                "required": false,
+                "optional": true,
+                "docs": {
+                    "tags": [],
+                    "text": "A number that specifies the granularity that the value must adhere to.\nValid for number type.\nSee: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#step"
+                },
+                "getter": false,
+                "setter": false,
+                "reflect": true
+            },
+            "validity": {
+                "type": "unknown",
+                "attribute": "validity",
+                "mutable": false,
+                "complexType": {
+                    "original": "ValidityState",
+                    "resolved": "ValidityState",
+                    "references": {
+                        "ValidityState": {
+                            "location": "global",
+                            "id": "global::ValidityState"
+                        }
+                    }
+                },
+                "required": false,
+                "optional": false,
+                "docs": {
+                    "tags": [],
+                    "text": "Read-only property of the input, returns a ValidityState object that represents the validity states this element is in."
+                },
+                "getter": true,
+                "setter": false
             },
             "validator": {
                 "type": "unknown",
@@ -605,6 +927,40 @@ export class GcdsInput {
                     "text": "Call any active validators",
                     "tags": []
                 }
+            },
+            "checkValidity": {
+                "complexType": {
+                    "signature": "() => Promise<boolean>",
+                    "parameters": [],
+                    "references": {
+                        "Promise": {
+                            "location": "global",
+                            "id": "global::Promise"
+                        }
+                    },
+                    "return": "Promise<boolean>"
+                },
+                "docs": {
+                    "text": "Check the validity of gcds-input",
+                    "tags": []
+                }
+            },
+            "getValidationMessage": {
+                "complexType": {
+                    "signature": "() => Promise<string>",
+                    "parameters": [],
+                    "references": {
+                        "Promise": {
+                            "location": "global",
+                            "id": "global::Promise"
+                        }
+                    },
+                    "return": "Promise<string>"
+                },
+                "docs": {
+                    "text": "Get validationMessage of gcds-input",
+                    "tags": []
+                }
             }
         };
     }
@@ -616,6 +972,9 @@ export class GcdsInput {
             }, {
                 "propName": "errorMessage",
                 "methodName": "validateErrorMessage"
+            }, {
+                "propName": "value",
+                "methodName": "watchValue"
             }, {
                 "propName": "validator",
                 "methodName": "validateValidator"

@@ -1,4 +1,4 @@
-import { r as registerInstance, h, F as Fragment, a as Host, c as getElement } from './index-Bjnb6Mm3.js';
+import { r as registerInstance, h, F as Fragment, a as Host, c as getElement } from './index-DUr2qgFL.js';
 import { o as observerConfig, a as assignLanguage } from './utils-DpIrOxXw.js';
 
 const I18N = {
@@ -352,7 +352,7 @@ const GcdsTopicMenu = class {
     }
     render() {
         const { home, lang } = this;
-        return (h(Host, { key: '11a4e6cac47292c67d67f2860368ad937610475e' }, h("nav", { key: '9649d4b517f8a95ccfcbf5130a3429c639d45e1a', class: "gcds-topic-menu", "aria-labelledby": "gcds-topic-menu__heading" }, h("gcds-sr-only", { key: '8b11792760daf57c8991c78b0258dba19f78d57f', id: "gcds-topic-menu__heading", tag: "h2" }, I18N[lang].menuLabelFull), h("button", { key: '41190295fe3d65d13aa28f44fedf010bef4059d6', "aria-haspopup": "true", "aria-expanded": this.open.toString(), "aria-label": I18N[lang].buttonLabel, onClick: async () => await this.toggleNav(), ref: element => (this.menuButton = element), class: home && 'gcds-topic-menu--home' }, this.lang == 'en' ? (h(Fragment, null, h("gcds-sr-only", { tag: "span" }, I18N[lang].menuLabelHidden), I18N[lang].menuToggle)) : (h(Fragment, null, I18N[lang].menuToggle, h("gcds-sr-only", { tag: "span" }, I18N[lang].menuLabelHidden))), h("gcds-icon", { key: '1f378ba85facaa6aa9610ef2cf45b504870b7064', name: "chevron-down", "margin-left": "100", size: "text-small" })), h("ul", { key: 'a9250f162fe7f32ec9c0b561366d2723834e0990', role: "menu", "aria-orientation": "vertical", "data-top-menu": true, innerHTML: this.listItems, ref: element => (this.themeList = element) }))));
+        return (h(Host, { key: '2a8557cf9345342dc6d785884dfca32a35430aa3' }, h("nav", { key: '8fe828e0be5972e83b064bd7852633545be46f2d', class: "gcds-topic-menu", "aria-labelledby": "gcds-topic-menu__heading" }, h("gcds-sr-only", { key: '20621f1690ac5756bc1b1e9a2269bd0e8e728163', id: "gcds-topic-menu__heading", tag: "h2" }, I18N[lang].menuLabelFull), h("button", { key: 'b3a90430359a37f0d17b9309ad93767510b0c6cf', "aria-haspopup": "true", "aria-expanded": this.open.toString(), "aria-label": I18N[lang].buttonLabel, onClick: async () => await this.toggleNav(), ref: element => (this.menuButton = element), class: home && 'gcds-topic-menu--home' }, this.lang == 'en' ? (h(Fragment, null, h("gcds-sr-only", { tag: "span" }, I18N[lang].menuLabelHidden), I18N[lang].menuToggle)) : (h(Fragment, null, I18N[lang].menuToggle, h("gcds-sr-only", { tag: "span" }, I18N[lang].menuLabelHidden))), h("gcds-icon", { key: '664cd95cf1daa18bc09c4984c365cef64e771fe2', name: "chevron-down", "margin-left": "100", size: "text-small" })), h("ul", { key: '2d55eed6d6162e75a1631562b34c518b173d28e9', role: "menu", "aria-orientation": "vertical", "data-top-menu": true, innerHTML: this.listItems, ref: element => (this.themeList = element) }))));
     }
     get el() { return getElement(this); }
 };

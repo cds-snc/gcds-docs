@@ -1,6 +1,6 @@
 'use strict';
 
-var index = require('./index-DrfbyczX.js');
+var index = require('./index-BnKOZopd.js');
 var utils = require('./utils-Du2-gv1-.js');
 
 const I18N = {
@@ -36,7 +36,7 @@ const GcdsFieldset = class {
     render() {
         const { hint, inheritedAttributes, legend, legendSize } = this;
         const fieldsetAttrs = Object.assign({}, inheritedAttributes);
-        return (index.h(index.Host, { key: 'bdaa72f102073eece68355e87838668eaed71a23' }, index.h("fieldset", Object.assign({ key: 'b38edf3c89849186293ddce49df1a28b445798a6', class: "gcds-fieldset" }, fieldsetAttrs, { "aria-labelledby": hint ? `fieldset-legend fieldset-hint` : `fieldset-legend`, tabindex: "-1", ref: element => (this.shadowElement = element) }), index.h("legend", { key: 'dd2da6134098fe927b3f50303f374c7637c818de', id: "fieldset-legend", class: `size-${legendSize}` }, legend), hint ? (index.h("gcds-hint", { id: "fieldset-hint", "hint-id": "fieldset" }, hint)) : null, index.h("slot", { key: 'b916b63948f59a490d9dbc7d4b0598f270e13bb6' }))));
+        return (index.h(index.Host, { key: 'c0f3e75b19d6de1bff0447cf8cae1cc2c1c9f120' }, index.h("fieldset", Object.assign({ key: 'd838bdbecbe8297a737731e4831465e15e8a6065', class: "gcds-fieldset" }, fieldsetAttrs, { "aria-labelledby": hint ? `fieldset-legend fieldset-hint` : `fieldset-legend`, tabindex: "-1", ref: element => (this.shadowElement = element) }), index.h("legend", { key: 'a6d107dbe2de44e99f75e7ff6a5c693a466e851a', id: "fieldset-legend", class: `size-${legendSize}` }, legend), hint ? (index.h("gcds-hint", { id: "fieldset-hint", "hint-id": "fieldset" }, hint)) : null, index.h("slot", { key: '19ddbdd34078c10e4abd24fcdf55d89a8e06a13a' }))));
     }
     static get delegatesFocus() { return true; }
     get el() { return index.getElement(this); }

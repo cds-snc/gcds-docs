@@ -108,7 +108,7 @@ export class GcdsSideNav {
     }
     render() {
         const { label, lang } = this;
-        return (h(Host, { key: '2176c26610444e641bf07d616472085f3442f2f0' }, h("nav", { key: '7a707a1f2043e1b5aa630254bfb007bc8effd88c', "aria-label": `${label}${I18N[lang].navLabel}`, class: "gcds-side-nav" }, h("h2", { key: 'e0fcbd5dc9e0324b711ca5df1275b3c2cd6d1e90', class: "gcds-side-nav__heading" }, label), h("ul", { key: '0dab78de769b83b3cf021849459d514f966c163a' }, h("gcds-nav-group", { key: '381bce26ca561d4c005c33ed705142f9fd596d61', menuLabel: I18N[lang].menuLabel, closeTrigger: I18N[lang].closeTrigger, openTrigger: I18N[lang].menuLabel, class: "gcds-mobile-nav", ref: element => (this.mobile = element), lang: lang }, h("slot", { key: 'aeef38c5147b2673fc48aada575f6f0635b48e30' }))))));
+        return (h(Host, { key: '7f08728b24595dc62fbbd520b70c424e5a810598' }, h("nav", { key: 'f0fe974afa35e59c5b84ba762cd29f8dea289fde', "aria-label": `${label}${I18N[lang].navLabel}`, class: "gcds-side-nav" }, h("h2", { key: '213dadb607c6678294a1d793dd7466016b2492be', class: "gcds-side-nav__heading" }, label), h("ul", { key: '7d4ac87ff26816e1443aaa5348bf2998b56ad208' }, h("gcds-nav-group", { key: '12897708312d4db5140413a3478bad4fe950232c', menuLabel: I18N[lang].menuLabel, closeTrigger: I18N[lang].closeTrigger, openTrigger: I18N[lang].menuLabel, class: "gcds-mobile-nav", ref: element => (this.mobile = element), lang: lang }, h("slot", { key: '2285099fe2b2e4d1faa617492f145c3378738118' }))))));
     }
     static get is() { return "gcds-side-nav"; }
     static get encapsulation() { return "shadow"; }

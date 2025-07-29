@@ -1,6 +1,7 @@
 import { EventEmitter } from '../../stencil-public-runtime';
 export declare class GcdsDetails {
     el: HTMLElement;
+    private detailsElement?;
     /**
      * Props
      */
@@ -28,8 +29,16 @@ export declare class GcdsDetails {
      */
     gcdsClick: EventEmitter<void>;
     /**
+     * Listen to beforeprint and afterprint events to handle details state
+     * when printing. This ensures that the details are open when printing,
+     * and closed after printing if they were closed before.
+     */
+    handleBeforePrint(): void;
+    handleAfterPrint(): void;
+    /**
      * Methods
      */
     toggle(): Promise<void>;
+    private handleToggle;
     render(): any;
 }

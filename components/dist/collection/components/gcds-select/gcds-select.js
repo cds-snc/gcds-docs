@@ -42,6 +42,9 @@ export class GcdsSelect {
             this.disabled = false;
         }
     }
+    watchValue(val) {
+        this.internals.setFormValue(val ? val : null);
+    }
     validateErrorMessage() {
         if (this.disabled) {
             this.errorMessage = '';
@@ -98,6 +101,7 @@ export class GcdsSelect {
         }
         if (option.hasAttribute('selected')) {
             this.value = value;
+            this.internals.setFormValue(value);
             this.initialValue = this.value ? this.value : null;
         }
     }
@@ -188,7 +192,7 @@ export class GcdsSelect {
                 ? `${attrsSelect['aria-describedby']}`
                 : ''}`;
         }
-        return (h(Host, { key: '26155157cfdf2c5c68701f6ee9a23b2d0bebdef6' }, h("div", { key: '742bdc49b45363cfaf969687a0c9d80c422fa15b', class: `gcds-select-wrapper ${disabled ? 'gcds-disabled' : ''} ${hasError ? 'gcds-error' : ''}` }, h("gcds-label", Object.assign({ key: 'b46b0bd119c48f00744bff34f9c120ff8b59d9cd' }, attrsLabel, { "label-for": selectId, lang: lang })), hint ? h("gcds-hint", { "hint-id": selectId }, hint) : null, errorMessage ? (h("gcds-error-message", { messageId: selectId }, errorMessage)) : null, h("select", Object.assign({ key: '58f61d1544fec6c502d2204ad6aa7c4191bd9ba3' }, attrsSelect, { id: selectId, onBlur: () => this.onBlur(), onFocus: () => this.gcdsFocus.emit(), onInput: e => this.handleInput(e, this.gcdsInput), onChange: e => this.handleInput(e, this.gcdsChange), "aria-invalid": inheritedAttributes['aria-invalid'] === 'true'
+        return (h(Host, { key: '07ed5597d53611990a0829c8e2ec4e0357712b75' }, h("div", { key: '6b52b8bc5bd66ebaf422b9ef9f66c44174070259', class: `gcds-select-wrapper ${disabled ? 'gcds-disabled' : ''} ${hasError ? 'gcds-error' : ''}` }, h("gcds-label", Object.assign({ key: '9c18dc7de5af43a0f3d08e442086c179763b8fca' }, attrsLabel, { "label-for": selectId, lang: lang })), hint ? h("gcds-hint", { "hint-id": selectId }, hint) : null, errorMessage ? (h("gcds-error-message", { messageId: selectId }, errorMessage)) : null, h("select", Object.assign({ key: 'd2e7ec958cf0c0ebc060867fbb58dc7c75ae7b2d' }, attrsSelect, { id: selectId, onBlur: () => this.onBlur(), onFocus: () => this.gcdsFocus.emit(), onInput: e => this.handleInput(e, this.gcdsInput), onChange: e => this.handleInput(e, this.gcdsChange), "aria-invalid": inheritedAttributes['aria-invalid'] === 'true'
                 ? inheritedAttributes['aria-invalid']
                 : errorMessage
                     ? 'true'
@@ -585,6 +589,9 @@ export class GcdsSelect {
         return [{
                 "propName": "disabled",
                 "methodName": "validateDisabledSelect"
+            }, {
+                "propName": "value",
+                "methodName": "watchValue"
             }, {
                 "propName": "errorMessage",
                 "methodName": "validateErrorMessage"

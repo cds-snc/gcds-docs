@@ -5,6 +5,8 @@ export declare class GcdsInput {
     internals: ElementInternals;
     private initialValue?;
     private shadowElement?;
+    private htmlValidationErrors;
+    private inputTitle;
     _validator: Validator<string> | ValidatorOld<string>;
     /**
      * Props
@@ -51,15 +53,61 @@ export declare class GcdsInput {
     /**
      * Set Input types
      */
-    type?: 'email' | 'number' | 'password' | 'search' | 'text' | 'url';
+    type?: 'email' | 'number' | 'password' | 'search' | 'tel' | 'text' | 'url';
     /**
      * Default value for an input element.
      */
     value?: string;
+    watchValue(val: any): void;
     /**
-     * String to have autocomplete enabled
+     * String to have autocomplete enabled.
      */
     autocomplete?: string;
+    /**
+     * If true, the input will be focused on component render
+     */
+    autofocus: boolean;
+    /**
+     * The ID of the form that the input field belongs to.
+     */
+    form?: string;
+    /**
+     * The maximum value that the input field can accept.
+     * Only applies to number input type.
+     */
+    max?: number | string;
+    /**
+     * The maximum number of characters that the input field can accept.
+     */
+    maxlength?: number;
+    /**
+     * The minimum value that the input field can accept.
+     * Only applies to number input type.
+     */
+    min?: number | string;
+    /**
+     * The minimum number of characters that the input field can accept.
+     */
+    minlength?: number;
+    /**
+     * Specifies a regular expression the form control's value should match.
+     * See: https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/pattern
+     */
+    pattern?: string;
+    /**
+     * If true, the input field cannot be modified.
+     */
+    readonly?: boolean;
+    /**
+     * A number that specifies the granularity that the value must adhere to.
+     * Valid for number type.
+     * See: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#step
+     */
+    step?: number | 'any';
+    /**
+     * Read-only property of the input, returns a ValidityState object that represents the validity states this element is in.
+     */
+    get validity(): ValidityState;
     /**
      * Array of validators
      */
@@ -103,6 +151,9 @@ export declare class GcdsInput {
      * Emitted when the element has received input.
      */
     gcdsInput: EventEmitter;
+    /**
+     * Handling input and change events on input
+     */
     private handleInput;
     /**
      * Emitted when the input has changed.
@@ -112,6 +163,14 @@ export declare class GcdsInput {
      * Call any active validators
      */
     validate(): Promise<void>;
+    /**
+     * Check the validity of gcds-input
+     */
+    checkValidity(): Promise<boolean>;
+    /**
+     * Get validationMessage of gcds-input
+     */
+    getValidationMessage(): Promise<string>;
     /**
      * Emitted when the input has a validation error.
      */
@@ -124,7 +183,17 @@ export declare class GcdsInput {
     keyDownListener(e: any): void;
     formResetCallback(): void;
     formStateRestoreCallback(state: any): void;
+    /**
+     * Update gcds-input's validity using internal input
+     */
+    private updateValidity;
+    /**
+     * Format HTML error message based off assigned attributes
+     * This lets us assign custom error messages
+     */
+    private formatHTMLErrorMessage;
     updateLang(): void;
     componentWillLoad(): Promise<void>;
+    componentDidLoad(): void;
     render(): any;
 }

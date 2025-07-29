@@ -38,6 +38,7 @@ export declare class GcdsSelect {
      * Value for a select element.
      */
     value?: string;
+    watchValue(val: any): void;
     /**
      * Error message for an invalid select element.
      */
