@@ -14,9 +14,8 @@ date: 'git Last Modified'
       <img class="mb-300" src="../../images/common/home/icon-design.svg" alt="" />
       <h3 class="mt-0">Concevoir des expériences</h3>
       <p>Explorez les ressources de conception dans notre bibliothèque Figma.</p>
-      <a class="link-light" href="{{ links.getStartedDesign }}" target="_blank">
+      <a class="link-light" href="{{ links.getStartedDesign }}">
         Commencer à concevoir
-        <gcds-icon name="external" label="S'ouvre dans un nouvel onglet." margin-left="50" />
       </a>
     </li>
     <li class="list-none">

@@ -15,9 +15,8 @@ date: 'git Last Modified'
       <img class="mb-300" src="../../images/common/home/icon-design.svg" alt="" />
       <h3 class="mt-0">Design experiences</h3>
       <p>Explore design assets in our Figma library.</p>
-      <a class="link-light" href="{{ links.getStartedDesign }}" target="_blank">
+      <a class="link-light" href="{{ links.getStartedDesign }}">
         Start designing
-        <gcds-icon name="external" label="Opens in a new tab." margin-left="25" />
       </a>
     </li>
     <li class="list-none">
