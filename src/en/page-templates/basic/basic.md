@@ -9,13 +9,13 @@ eleventyNavigation:
   description: Starting point for any web page.
   descriptionSecondaryText: Offers a basic, accessible page structure and hierarchy and includes the elements required for most GC pages.
   state: published
-#  tag: Canada.ca required
+  #  tag: Canada.ca required
   order: 1
 translationKey: 'basicPageTemplate'
-tags: ["templates"]
-date: "git Last Modified"
+tags: ['templates']
+date: 'git Last Modified'
 github: https://github.com/cds-snc/gcds-examples/blob/feat/add-basic-page-templates/templates/english/basic-page-template.html
-figma: https://figma.com
+figma: https://www.figma.com/community/file/1128687821123298228
 ---
 
 # Basic page template
@@ -42,7 +42,7 @@ To implement page templates into your project or to prototype in HTML, download 
 - <gcds-link external href="{{ links.pageTemplatesBasicGithubLink }}">Basic page template</gcds-link>
 - <gcds-link external href="{{ links.pageTemplatesBasicExtOTPGithubLink }}">Basic page table of contents template</gcds-link>
 
-To prototype in Figma, find the <gcds-link external href="{{ links.pageTemplatesBasicFigma }}">Basic Page Template</gcds-link> in the GC Design System library.
+To prototype in Figma, find the <gcds-link external href="{{ links.figma }}">Basic Page Template</gcds-link> in the GC Design System library.
 
 ## Design considerations
 

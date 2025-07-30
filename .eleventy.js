@@ -46,7 +46,8 @@ module.exports = function (eleventyConfig) {
       'gcds-utility.min.css',
   });
   eleventyConfig.addPassthroughCopy({
-    './node_modules/@cdssnc/sanitize-pii/dist/umd/sanitize-pii.min.js': './scripts/sanitize-pii.min.js',
+    './node_modules/@cdssnc/sanitize-pii/dist/umd/sanitize-pii.min.js':
+      './scripts/sanitize-pii.min.js',
   });
   // Add copy fo a11y testing
   eleventyConfig.addPassthroughCopy('./.pa11yci.json');
@@ -284,12 +285,14 @@ module.exports = function (eleventyConfig) {
         en: {
           stage: 'stage',
           figma: 'Figma',
+          figmaLink: 'https://www.figma.com/community/file/1128687821123298228',
           github: 'GitHub',
           comingsoon: 'coming soon',
         },
         fr: {
           stage: 'phase',
           figma: 'Figma',
+          figmaLink: 'https://www.figma.com/community/file/1369337721343886324',
           github: 'GitHub',
           comingsoon: 'à venir',
         },
@@ -297,17 +300,6 @@ module.exports = function (eleventyConfig) {
       if (stage) {
         stageChip = `<li class="stage-chip">
           <span>${langStrings[locale].stage}</span><span>${stage}</span>
-        </li>`;
-      }
-      if (figma) {
-        figmaLink = `
-        <li class="figma-link">
-          <gcds-link external href="${figma}">${langStrings[locale].figma}</gcds-link>
-        </li>`;
-      } else {
-        figmaLink = `
-        <li class="figma-link">
-          <span>${langStrings[locale].figma} — ${langStrings[locale].comingsoon}</span>
         </li>`;
       }
       if (github) {
@@ -320,6 +312,11 @@ module.exports = function (eleventyConfig) {
         ${stageChip} <li class="github-link">
           <gcds-link external href="${githubLink}">${langStrings[locale].github}</gcds-link>
         </li> ${figmaLink}
+        <li class="figma-link">
+          <gcds-link external href="${langStrings[locale].figmaLink}">
+            ${langStrings[locale].figma}
+          </gcds-link>
+        </li>
       </ul>`;
     },
   );
