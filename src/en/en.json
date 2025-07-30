@@ -3,8 +3,15 @@
   "links": {
     "home": "/en",
 
+    "getStarted": "/en/get-started",
+    "getStartedDesignSection": "/en/get-started#design",
+    "getStartedDevelopSection": "/en/get-started#develop",
     "getStartedDesign": "/en/get-started/design",
     "getStartedDevelop": "/en/get-started/develop",
+    "getStartedAngular": "/en/get-started/develop/angular",
+    "getStartedHtml": "/en/get-started/develop/html",
+    "getStartedReact": "/en/get-started/develop/react",
+    "getStartedVue": "/en/get-started/develop/vue",
 
     "styles": "/en/styles",
     "designTokens": "/en/styles/design-tokens",

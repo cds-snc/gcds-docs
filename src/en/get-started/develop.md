@@ -17,6 +17,6 @@ date: 'git Last Modified'
 
 # Install GC Design System
 
-## Get started: select your framework
+## Select your framework
 
 Select the framework you use to get instructions on how to install GC Design System components into your project.

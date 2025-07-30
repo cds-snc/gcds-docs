@@ -11,9 +11,9 @@ date: 'git Last Modified'
 nocrawl: true
 cardlist:
   type: components
-  state: published 
+  state: published
 github: https://github.com/cds-snc/gcds-components
-figma: https://www.figma.com/design/mh2maMG2NBtk41k1O1UGHV/GC-Design-System?t=PG2QugKV1npEMJX5-0
+figma: https://www.figma.com/community/file/1128687821123298228
 ---
 
 # {{ title }}

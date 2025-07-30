@@ -5,11 +5,11 @@ eleventyNavigation:
   key: pageTemplatesFR
   title: Modèles de page
   locale: fr
-  order: 2
+  order: 1
 translationKey: 'pageTemplates'
 date: 'git Last Modified'
 github: https://github.com/cds-snc/gcds-examples/tree/main/templates
-figma: https://www.figma.com/design/o4SguSZdar2CCFzSkWNrmB/Syst%C3%A8me-de-design-GC?node-id=2951-1243&p=f&t=Tw0Zt5ZnwTWBYvQV-0
+figma: https://www.figma.com/community/file/1369337721343886324
 cardlist:
   type: pageTemplates
   state: published

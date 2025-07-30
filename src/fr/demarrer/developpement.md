@@ -17,6 +17,6 @@ date: 'git Last Modified'
 
 # Installation de Système de design GC
 
-## Première étape : sélectionnez votre cadre
+## Sélectionnez votre cadre
 
 Sélectionnez le cadre que vous utilisez pour obtenir des instructions sur la façon d’installer les composants Système de design GC dans votre projet.

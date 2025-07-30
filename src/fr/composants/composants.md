@@ -13,7 +13,7 @@ cardlist:
   type: components
   state: published
 github: https://github.com/cds-snc/gcds-components
-figma: https://www.figma.com/design/o4SguSZdar2CCFzSkWNrmB/Syst%C3%A8me-de-design-GC?t=PG2QugKV1npEMJX5-0
+figma: https://www.figma.com/community/file/1369337721343886324
 ---
 
 # {{ title }}

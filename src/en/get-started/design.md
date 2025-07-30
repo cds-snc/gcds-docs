@@ -38,4 +38,4 @@ date: 'git Last Modified'
 
 We update our library as we add components or improve their functionality. To keep your project up-to-date with the latest designs, you’ll need to update your library too by following the <strong>2. Copy</strong>, <strong>3. Publish</strong> and <strong>4. Add</strong> steps above.
 
-You can always check if you have the latest version by visiting our <gcds-link href="{{ links.figma }}" external>changelog</gcds-link>. If you <gcds-link href="{{ links.contactMailingList }}">sign up to our mailing list</gcds-link>, we’ll email you when we make updates to the design system.
+You can always check if you have the latest version by visiting our <span class="text-truncate"><gcds-link href="{{ links.figma }}" external>changelog</gcds-link>.</span> If you <gcds-link href="{{ links.contactMailingList }}">sign up to our mailing list</gcds-link>, we’ll email you when we make updates to the design system.

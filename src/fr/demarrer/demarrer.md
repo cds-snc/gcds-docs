@@ -6,7 +6,7 @@ eleventyNavigation:
   key: getstartedFR
   title: Démarrer
   locale: fr
-  order: 1
+  order: 2
 date: 'git Last Modified'
 ---
 
@@ -47,7 +47,7 @@ La bibliothèque comprend :
 
 Système de design GC héberge ses composants dans Figma. Figma est un outil qui permet de créer des prototypes cliquables d’applications et de sites Web en utilisant la bibliothèque de Système de design GC.
 
-<gcds-button type="link" href="{{ links.getStartedDesign }}">
+<gcds-button button-role="secondary" type="link" href="{{ links.getStartedDesign }}">
   Commencer à concevoir
 </gcds-button>
 
@@ -67,6 +67,6 @@ Système de design GC propose des composants Web réutilisables et personnalisab
 - Les changements y sont apportés dans le cadre de mises à jour uniques qui englobent les unités de style, les composants et les changements non rétrocompatibles.
 - Système de design GC est indépendant de la Boîte à outils de l’expérience Web (BOEW) et de GCWeb.
 
-<gcds-button type="link" href="{{ links.getStartedDevelop }}">
+<gcds-button button-role="secondary" type="link" href="{{ links.getStartedDevelop }}">
   Commencer à développer
 </gcds-button>

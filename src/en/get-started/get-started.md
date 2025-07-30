@@ -6,7 +6,7 @@ eleventyNavigation:
   key: getstartedEN
   title: Get started
   locale: en
-  order: 1
+  order: 2
 date: 'git Last Modified'
 ---
 
@@ -45,9 +45,9 @@ The library includes:
 
 ### How it works
 
-GC Design System uses Figma to host our component designs. Figma  is a tool that lets you create clickable prototypes of apps and websites using the GC Design System library.
+GC Design System uses Figma to host our component designs. Figma is a tool that lets you create clickable prototypes of apps and websites using the GC Design System library.
 
-<gcds-button type="link" href="{{ links.getStartedDesign }}">
+<gcds-button button-role="secondary" type="link" href="{{ links.getStartedDesign }}">
   Start designing
 </gcds-button>
 
@@ -69,6 +69,6 @@ GC Design System provides reusable and customizable web components. The componen
 - Changes come in a single-version update with tokens, components, and (usually) non-breaking changes.
 - The design system is independent of the Web Experience Toolkit (WET) and GCWeb.
 
-<gcds-button type="link" href="{{ links.getStartedDevelop }}">
+<gcds-button button-role="secondary" type="link" href="{{ links.getStartedDevelop }}">
   Start developing
 </gcds-button>

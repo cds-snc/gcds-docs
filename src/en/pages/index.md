@@ -15,7 +15,7 @@ date: 'git Last Modified'
       <img class="mb-300" src="../../images/common/home/icon-design.svg" alt="" />
       <h3 class="mt-0">Design experiences</h3>
       <p>Explore design assets in our Figma library.</p>
-      <a class="link-light" href="{{ links.getStartedDesign }}">
+      <a class="link-light" href="{{ links.getStartedDesignSection }}">
         Start designing
       </a>
     </li>
@@ -23,7 +23,7 @@ date: 'git Last Modified'
       <img class="mb-300" src="../../images/common/home/icon-develop.svg" alt="" />
       <h3 class="mt-0">Develop products</h3>
       <p>Install the component package.</p>
-      <a class="link-light" href="{{ links.getStartedDevelop }}">Start developing</a>
+      <a class="link-light" href="{{ links.getStartedDevelopSection }}">Start developing</a>
     </li>
   </gcds-grid>
 </article>
