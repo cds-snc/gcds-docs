@@ -22,7 +22,7 @@ Whether you’re designing or building in code, get started using GC Design Syst
     img-src="/images/common/get-started/banner-design.svg"
     img-alt=""
     role="listitem"
-  /></gcds-card>
+  ></gcds-card>
   <gcds-card
     card-title="Develop"
     href="#develop"
