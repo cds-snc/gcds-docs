@@ -14,8 +14,8 @@ date: 'git Last Modified'
     <li class="list-none md:mb-0 mb-600">
       <img class="mb-300" src="../../images/common/home/icon-design.svg" alt="" />
       <h3 class="mt-0">Design experiences</h3>
-      <p>Visit our Figma library to explore design assets.</p>
-      <a class="link-light" href="{{ links.figma }}" target="_blank">
+      <p>Explore design assets in our Figma library.</p>
+      <a class="link-light" href="{{ links.getStartedDesign }}" target="_blank">
         Start designing
         <gcds-icon name="external" label="Opens in a new tab." margin-left="25" />
       </a>
@@ -24,7 +24,7 @@ date: 'git Last Modified'
       <img class="mb-300" src="../../images/common/home/icon-develop.svg" alt="" />
       <h3 class="mt-0">Develop products</h3>
       <p>Install the component package.</p>
-      <a class="link-light" href="{{ links.installation }}">Start developing</a>
+      <a class="link-light" href="{{ links.getStartedDevelop }}">Start developing</a>
     </li>
   </gcds-grid>
 </article>

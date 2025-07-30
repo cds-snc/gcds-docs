@@ -33,7 +33,7 @@ GC Design System team refers to the team administering GC Design System within C
 - Hosting and supporting [GC Design System]({{ links.home }}).
 - Handling support requests and inquiries during regular business hours (9am to 5pm Eastern Time).
 - Responding within one business day to incidents. GC Design System follows the <gcds-link href="https://www.tbs-sct.canada.ca/pol/doc-eng.aspx?id=32611" external>TBS Directive on Security Management</gcds-link> and follows an incident response process to resolve issues in a timely manner.
-- Patching security vulnerabilities in a timely manner, where CDS determines the level of threat a security vulnerability possesses. Major vulnerabilities are patched as soon as possible but no more than a week after the root cause is found. External dependencies for code are subject to longer timelines. 
+- Patching security vulnerabilities in a timely manner, where CDS determines the level of threat a security vulnerability possesses. Major vulnerabilities are patched as soon as possible but no more than a week after the root cause is found. External dependencies for code are subject to longer timelines.
 - Restoring the system to operation in case of an unplanned outage.
 - Alerting clients via our [website]({{ links.home }}) and [mailing list]({{ links.contact }}), if GC Design System is unavailable for any reason, as soon as CDS learns of this.
 - Ensuring the system is available for use, with a page load time of less than 10 seconds in Canada on high-speed Internet, unless the product is experiencing a denial of service attack or there are issues with [GC Design System infrastructure and platform providers](#gc-design-system-infrastructure-and-platform-providers-are-responsible-for).
@@ -52,7 +52,7 @@ CDS is responsible for updating clients via the GC Design System [website]({{ li
 
 ## Uptime guarantee
 
-This service-level agreement (SLA) covers infrastructure running the GC Design System [codebase]({{ links.installation }}) and [website]({{ links.home }}).
+This service-level agreement (SLA) covers infrastructure running the GC Design System [codebase]({{ links.getStartedDevelop }}) and [website]({{ links.home }}).
 
 CDS guarantees that the GC Design System will have 99.0% uptime with no more than 1% downtime during regular business hours in a year.
 
@@ -70,21 +70,21 @@ CDS provides reactive support services to monitor, track, and remedy issues iden
 
 ### Service availability
 
-| Issue | Initial response | Ongoing updates |
-|---|---|---|
-| Service is unavailable | 8 hours, during regular business hours | Every 2 hours after |
-| Service is affected (performance issues, intermittent errors) | 1 business day | 1 per business day |
-| Service has recovered and is functioning | 2 business days | N/A |
+| Issue                                                         | Initial response                       | Ongoing updates     |
+| ------------------------------------------------------------- | -------------------------------------- | ------------------- |
+| Service is unavailable                                        | 8 hours, during regular business hours | Every 2 hours after |
+| Service is affected (performance issues, intermittent errors) | 1 business day                         | 1 per business day  |
+| Service has recovered and is functioning                      | 2 business days                        | N/A                 |
 
 ### Service contacts and response time
 
 Client should direct all support requests to <gcds-link href="https://github.com/cds-snc/gcds-components/issues/new/choose" external>New Issues</gcds-link> on our Github or via our [Contact Us]({{ links.contact }}) page. CDS will respond within one (1) business day of receiving a request, Monday to Friday from 9am to 5pm (Eastern Time). Service tickets are logged in Freshdesk. They will be closed after 10 days, if there is no response from the client.
 
-| Description | Initial response | Resolution* |
-|---|---|---|
-| New ticket created | 1 business day | 5 business days |
-| Ticket with “Waiting on Client” status | Not applicable | 10 business days and will be closed if no further action is required |
-| Service is affected (performance issues, intermittent errors) | 1 business day | 5 business days |
+| Description                                                   | Initial response | Resolution\*                                                         |
+| ------------------------------------------------------------- | ---------------- | -------------------------------------------------------------------- |
+| New ticket created                                            | 1 business day   | 5 business days                                                      |
+| Ticket with “Waiting on Client” status                        | Not applicable   | 10 business days and will be closed if no further action is required |
+| Service is affected (performance issues, intermittent errors) | 1 business day   | 5 business days                                                      |
 
 \* Resolution is defined as responding to client queries related to the interface or technical aspects of the product, such as feature requests or addressing problems related to the npm, cdn, Figma or the website.
 

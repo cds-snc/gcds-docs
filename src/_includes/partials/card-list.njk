@@ -10,7 +10,7 @@
   <div class="my-600">
     <gcds-grid tag="ul" columns="1fr" columns-tablet="1fr 1fr" columns-desktop="1fr 1fr 1fr">
     {%- for entry in navPages %}
-      {% if entry.state == cardlist.state %}
+      {% if entry.state == cardlist.state and entry.showInCardlist != false %}
         <gcds-card
           card-title="{{ entry.title }}"
           href="{{entry.url}}"

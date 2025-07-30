@@ -1,5 +1,5 @@
 ---
-title: Get started with Angular
+title: Install Angular
 layout: 'layouts/base.njk'
 eleventyNavigation:
   key: angularEN
@@ -8,15 +8,15 @@ eleventyNavigation:
   parent: installationEN
   order: 2
   description: View installation instructions for Angular or Angular-based projects.
-  thumbnail: /images/common/installation/banner-angular.svg
+  thumbnail: /images/common/get-started/banner-angular.svg
   alt:
   state: published
-permalink: /en/installation/angular/
+permalink: /en/get-started/develop/angular/
 translationKey: 'angular'
 date: 'git Last Modified'
 ---
 
-# Get started with Angular
+# Install Angular
 
 To make it easier to integrate GC Design System web components into Angular projects, the <gcds-link href="{{ links.npmGcdsComponentsAngular }}" external>gcds-components-angular</gcds-link> package provides Angular wrappers.
 

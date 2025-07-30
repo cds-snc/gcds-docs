@@ -13,8 +13,8 @@ date: 'git Last Modified'
     <li class="list-none md:mb-0 mb-600">
       <img class="mb-300" src="../../images/common/home/icon-design.svg" alt="" />
       <h3 class="mt-0">Concevoir des expériences</h3>
-      <p>Visitez notre bibliothèque Figma pour explorer nos ressources de conception.</p>
-      <a class="link-light" href="{{ links.figma }}" target="_blank">
+      <p>Explorez les ressources de conception dans notre bibliothèque Figma.</p>
+      <a class="link-light" href="{{ links.getStartedDesign }}" target="_blank">
         Commencer à concevoir
         <gcds-icon name="external" label="S'ouvre dans un nouvel onglet." margin-left="50" />
       </a>
@@ -23,7 +23,7 @@ date: 'git Last Modified'
       <img class="mb-300" src="../../images/common/home/icon-develop.svg" alt="" />
       <h3 class="mt-0">Développer des produits</h3>
       <p>Installez l'ensemble de composants.</p>
-      <a class="link-light" href="{{ links.installation }}">Commencer à développer</a>
+      <a class="link-light" href="{{ links.getStartedDevelop }}">Commencer à développer</a>
     </li>
   </gcds-grid>
 </article>

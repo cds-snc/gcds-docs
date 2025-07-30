@@ -1,5 +1,5 @@
 ---
-title: Get started with Vue
+title: Install Vue
 layout: 'layouts/base.njk'
 eleventyNavigation:
   key: vueEN
@@ -9,15 +9,15 @@ eleventyNavigation:
   order: 3
   description: View installation instructions for Vue or Vue-based projects.
   envExamples: This includes Nuxt, VuePress, and Quasar.
-  thumbnail: /images/common/installation/banner-vue.svg
+  thumbnail: /images/common/get-started/banner-vue.svg
   alt:
   state: published
-permalink: /en/installation/vue/
+permalink: /en/get-started/develop/vue/
 translationKey: 'vue'
 date: 'git Last Modified'
 ---
 
-# Get started with Vue
+# Install Vue
 
 To make it easier to integrate GC Design System web components into Vue projects, the <gcds-link href="{{ links.npmGcdsComponentsVue }}" external>gcds-components-vue</gcds-link> package provides Vue wrappers.
 

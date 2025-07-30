@@ -1,22 +1,24 @@
 ---
-title: Amorcer un projet en HTML
+title: Installation dans un projet HTML
 layout: 'layouts/installation-html.njk'
 eleventyNavigation:
   key: htmlFR
   title: HTML
   locale: fr
+  parent: installationFR
   order: 4
   hideMain: true
   description: Consultez les instructions d’installation pour tout autre type de projet.
-  thumbnail: /images/common/installation/banner-html.svg
+  thumbnail: /images/common/get-started/banner-html.svg
   alt:
   state: published
-permalink: /fr/installation/html/
+  showInCardlist: false
+permalink: /fr/demarrer/developpement/html/
 translationKey: 'html'
 date: 'git Last Modified'
 ---
 
-# Amorcer un projet en HTML
+# Installation dans un projet HTML
 
 Utilisez les composants Web de Système de design GC directement dans un projet HTML. Ces composants s’adaptent à tout cadriciel et ont un comportement similaire aux éléments HTML natifs.
 
@@ -31,7 +33,7 @@ Utilisez cette option pour les situations suivantes :
   <li>.NET</li>
 </ul>
 
-Si vous utilisez les cadres React, Angular ou Vue, consultez la <gcds-link href="{{ links.installation }}">page d’installation</gcds-link> pour connaître les options propres à chaque cadre.
+Si vous utilisez les cadres React, Angular ou Vue, consultez la <gcds-link href="{{ links.getStartedDevelop }}">page d’installation</gcds-link> pour connaître les options propres à chaque cadre.
 
 ## Sélectionner le paquet utilisé
 
