@@ -1,5 +1,5 @@
 ---
-title: Amorcer un projet avec Vue
+title: Installation dans un projet Vue
 layout: 'layouts/base.njk'
 eleventyNavigation:
   key: vueFR
@@ -9,15 +9,15 @@ eleventyNavigation:
   order: 3
   description: Consultez les instructions d’installation pour Vue ou les projets basés sur Vue.
   envExamples: P. ex., Nuxt, VuePress et Quasar.
-  thumbnail: /images/common/installation/banner-vue.svg
+  thumbnail: /images/common/get-started/banner-vue.svg
   alt:
   state: published
-permalink: /fr/installation/vue/
+permalink: /fr/demarrer/developpement/vue/
 translationKey: 'vue'
 date: 'git Last Modified'
 ---
 
-# Amorcer un projet avec Vue
+# Installation dans un projet Vue
 
 Pour faciliter l’intégration des composants Web de Système de design GC dans les projets Vue, le paquet <gcds-link href="{{ links.npmGcdsComponentsVue }}" external>gcds-components-vue</gcds-link> propose différentes enveloppes Vue.
 

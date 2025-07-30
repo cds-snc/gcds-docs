@@ -15,7 +15,7 @@ translationKey: 'basicPageTemplate'
 tags: ['templates']
 date: 'git Last Modified'
 github: https://github.com/cds-snc/gcds-examples/blob/feat/add-basic-page-templates/templates/english/basic-page-template.html
-figma: https://figma.com
+figma: https://www.figma.com/community/file/1369337721343886324
 ---
 
 # Modèle de page de base
@@ -42,7 +42,7 @@ Pour utiliser un modèle de page dans votre projet ou réaliser un prototype en 
 - <gcds-link external href="{{ links.pageTemplatesBasicGithubLink }}">Modèle de page de base</gcds-link>
 - <gcds-link external href="{{ links.pageTemplatesBasicExtOTPGithubLink }}">Modèle de table des matières pour page de base</gcds-link>
 
-Pour réaliser un prototype dans Figma, trouvez le <gcds-link external href="{{ links.pageTemplatesBasicFigma }}">modèle de page de base</gcds-link> dans la bibliothèque Système de design GC.
+Pour réaliser un prototype dans Figma, trouvez le <gcds-link external href="{{ links.figma }}">modèle de page de base</gcds-link> dans la bibliothèque Système de design GC.
 
 ## Considérations de conception
 

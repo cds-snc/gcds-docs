@@ -1,5 +1,5 @@
 ---
-title: Amorcer un projet avec Angular
+title: Installation dans un projet Angular
 layout: 'layouts/base.njk'
 eleventyNavigation:
   key: angularFR
@@ -8,15 +8,15 @@ eleventyNavigation:
   parent: installationFR
   order: 2
   description: Consultez les instructions d’installation pour Angular ou les projets basés sur Angular.
-  thumbnail: /images/common/installation/banner-angular.svg
+  thumbnail: /images/common/get-started/banner-angular.svg
   alt:
   state: published
-permalink: /fr/installation/angular/
+permalink: /fr/demarrer/developpement/angular/
 translationKey: 'angular'
 date: 'git Last Modified'
 ---
 
-# Amorcer un projet avec Angular
+# Installation dans un projet Angular
 
 Afin de faciliter l'intégration des composants Web de Système de design GC à vos projets Angular, le paquet <gcds-link href="{{ links.npmGcdsComponentsAngular }}" external>gcds-components-angular</gcds-link> propose des enveloppes Angular.
 

@@ -1,5 +1,5 @@
 ---
-title: Amorcer un projet avec React
+title: Installation dans un projet React
 layout: 'layouts/base.njk'
 eleventyNavigation:
   key: reactFR
@@ -9,15 +9,15 @@ eleventyNavigation:
   order: 1
   description: Consultez les instructions d’installation pour React ou les projets basés sur React.
   envExamples: P. ex., Next.js, Gatsby et Remix.
-  thumbnail: /images/common/installation/banner-react.svg
+  thumbnail: /images/common/get-started/banner-react.svg
   alt:
   state: published
-permalink: /fr/installation/react/
+permalink: /fr/demarrer/developpement/react/
 translationKey: 'react'
 date: 'git Last Modified'
 ---
 
-# Amorcer un projet avec React
+# Installation dans un projet React
 
 Pour faciliter l’intégration des composants Web de Système de design GC dans les projets React, le paquet <gcds-link href="{{ links.npmGcdsComponentsReact }}" external>gcds-components-react</gcds-link> propose différentes enveloppes React.
 

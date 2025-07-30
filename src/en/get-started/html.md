@@ -1,22 +1,24 @@
 ---
-title: Get started with HTML
+title: Install HTML
 layout: 'layouts/installation-html.njk'
 eleventyNavigation:
   key: htmlEN
   title: HTML
   locale: en
+  parent: installationEN
   order: 4
   hideMain: true
   description: View installation instructions for all other projects.
-  thumbnail: /images/common/installation/banner-html.svg
+  thumbnail: /images/common/get-started/banner-html.svg
   alt:
   state: published
-permalink: /en/installation/html/
+  showInCardlist: false
+permalink: /en/get-started/develop/html/
 translationKey: 'html'
 date: 'git Last Modified'
 ---
 
-# Get started with HTML
+# Install HTML
 
 Use GC Design System web components directly in HTML. These components are framework-agnostic and behave similarly to native HTML elements.
 
@@ -31,7 +33,7 @@ Use this option for:
   <li>.NET</li>
 </ul>
 
-If you’re using React, Angular, or Vue frameworks, browse the <gcds-link href="{{ links.installation }}">installation page</gcds-link> for framework-specific options.
+If you’re using React, Angular, or Vue frameworks, browse the <gcds-link href="{{ links.getStartedDevelop }}">installation page</gcds-link> for framework-specific options.
 
 ## Select the package you’re using
 

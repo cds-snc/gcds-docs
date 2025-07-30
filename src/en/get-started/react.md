@@ -1,5 +1,5 @@
 ---
-title: Get started with React
+title: Install React
 layout: 'layouts/base.njk'
 eleventyNavigation:
   key: reactEN
@@ -9,15 +9,15 @@ eleventyNavigation:
   order: 1
   description: View installation instructions for React or React-based projects.
   envExamples: This includes Next.js, Gatsby, and Remix.
-  thumbnail: /images/common/installation/banner-react.svg
+  thumbnail: /images/common/get-started/banner-react.svg
   alt:
   state: published
-permalink: /en/installation/react/
+permalink: /en/get-started/develop/react/
 translationKey: 'react'
 date: 'git Last Modified'
 ---
 
-# Get started with React
+# Install React
 
 To make it easier to integrate GC Design System web components into React projects, the <gcds-link href="{{ links.npmGcdsComponentsReact }}" external>gcds-components-react</gcds-link> package provides React wrappers.
 

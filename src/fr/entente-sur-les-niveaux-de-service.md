@@ -35,7 +35,7 @@ L’équipe de Système de design GC fait référence à l’équipe du SNC qui 
 - Intervenir dans un délai d’un jour ouvrable en cas d’incident. Système de design GC respecte la <gcds-link href="https://www.tbs-sct.canada.ca/pol/doc-fra.aspx?id=32611" external>directive sur la gestion de la sécurité du SCT</gcds-link> et dispose d’un processus d’intervention en cas d’incident afin de résoudre rapidement les problèmes.
 - De corriger les vulnérabilités de sécurité en temps et lieu, là où le SNC est responsable d’évaluer le niveau de menace d’une vulnérabilité de sécurité; Les vulnérabilités majeures sont corrigées le plus tôt possible et au plus tard une semaine après la découverte de la cause racine. Les délais de traitement peuvent être plus longs pour les aspects qui dépendent de code externe.
 - Rétablir le fonctionnement du système en cas d’interruption imprévue du service.
-- Alerter la clientèle par le biais de notre [site Web]({{ links.home }}) et de la [liste de diffusion]({{ links.contact }}) si Système de design GC est indisponible pour quelque raison que ce soit, et ce, dès que le SNC apprend la situation. 
+- Alerter la clientèle par le biais de notre [site Web]({{ links.home }}) et de la [liste de diffusion]({{ links.contact }}) si Système de design GC est indisponible pour quelque raison que ce soit, et ce, dès que le SNC apprend la situation.
 - Veiller à ce que le système fonctionne et à ce que le temps de chargement des pages soit inférieur à 10 secondes au Canada dans le cas d’une connexion Internet haute vitesse, à moins que le produit ne soit victime d’une attaque de déni de service ou qu’il y ait d’autres problèmes avec [les fournisseurs d’infrastructure et de plateforme de Système de design GC](#les-fournisseurs-dinfrastructure-et-de-plateforme-de-systeme-de-design-gc-ont-les-responsabilites-suivantes-).
 - Partager les journaux de l’application avec le Centre canadien pour la cybersécurité (CCC) : Système de design GC respecte l’<gcds-link href="https://www.canada.ca/fr/gouvernement/systeme/gouvernement-numerique/innovations-gouvernementales-numeriques/services-informatique-nuage/orientation-utilisation-securisee-services-commerciaux-informatique-nuage-amops.html" external>Orientation sur l’utilisation sécurisée des services commerciaux d’informatique en nuage : Avis de mise en œuvre de la Politique sur la sécurité (AMOPS).</gcds-link>
 
@@ -52,7 +52,7 @@ Le SNC est tenu de transmettre à la clientèle toute information relative à un
 
 ## Garantie sur le temps de fonctionnement
 
-La présente entente sur les niveaux de service (ENS) vise l’infrastructure utilisant la [base de code]({{ links.installation }}) et la [base de données]({{ links.home }}) de Système de design GC.
+La présente entente sur les niveaux de service (ENS) vise l’infrastructure utilisant la [base de code]({{ links.getStartedDevelop }}) et la [base de données]({{ links.home }}) de Système de design GC.
 
 Le SNC garantit que chaque année, Système de design GC fonctionnera 99 % du temps et ne sera pas immobilisé plus de 1 % du temps durant les heures normales d’ouverture.
 
@@ -70,21 +70,21 @@ Le SNC offrira des services de soutien réactifs afin de surveiller les problèm
 
 ### Disponibilité du service
 
-| Problème | Première intervention | Mises à jour continues |
-|---|---|---|
-| Service indisponible | Huit heures, durant les heures normales d’ouverture | Toutes les deux heures par la suite |
-| Service affecté (problèmes de performance, erreurs intermittentes) | Un jour ouvrable | Une par jour (ouvrable) |
-| Service rétabli et fonctionnel | Deux jours ouvrables | S. O. |
+| Problème                                                           | Première intervention                               | Mises à jour continues              |
+| ------------------------------------------------------------------ | --------------------------------------------------- | ----------------------------------- |
+| Service indisponible                                               | Huit heures, durant les heures normales d’ouverture | Toutes les deux heures par la suite |
+| Service affecté (problèmes de performance, erreurs intermittentes) | Un jour ouvrable                                    | Une par jour (ouvrable)             |
+| Service rétabli et fonctionnel                                     | Deux jours ouvrables                                | S. O.                               |
 
 ### Contacts relatifs au service et temps de réponse
 
 La clientèle doit diriger toutes ses demandes de soutien vers la partie de notre référentiel GitHub consacrée aux <gcds-link href="https://github.com/cds-snc/gcds-components/issues/new/choose" external>nouveaux problèmes</gcds-link> ou nous [contacter]({{ links.contact }}) par le biais de notre site Web. Le SNC répondra aux demandes dans un délai d’un (1) jour ouvrable suivant la réception de ces dernières, et ce, du lundi au vendredi, de 9 h à 17 h (heure de l’Est). Les tickets de service sont consignés dans Freshdesk. Ils seront clôturés au bout de 10 jours si aucune réponse n’est reçue de la part de l’entité cliente.
 
-| Description | Première intervention | Résolution* |
-|---|---|---|
-| Création d’un nouveau ticket | Un jour ouvrable | Cinq jours ouvrables |
-| Ticket portant le statut « En attente d’action de la clientèle » | Non applicable | Dix jours ouvrables, puis clôture si aucune action supplémentaire n’est requise |
-| Service affecté (problèmes de performance, erreurs intermittentes) | Un jour ouvrable | Cinq jours ouvrables |
+| Description                                                        | Première intervention | Résolution\*                                                                    |
+| ------------------------------------------------------------------ | --------------------- | ------------------------------------------------------------------------------- |
+| Création d’un nouveau ticket                                       | Un jour ouvrable      | Cinq jours ouvrables                                                            |
+| Ticket portant le statut « En attente d’action de la clientèle »   | Non applicable        | Dix jours ouvrables, puis clôture si aucune action supplémentaire n’est requise |
+| Service affecté (problèmes de performance, erreurs intermittentes) | Un jour ouvrable      | Cinq jours ouvrables                                                            |
 
 \* La résolution se définit comme la réponse aux requêtes de la clientèle concernant l’interface ou les aspects techniques du produit, les demandes de fonctionnalités ou le traitement des problèmes liés à npm, au rdc, à Figma ou au site Web.
 

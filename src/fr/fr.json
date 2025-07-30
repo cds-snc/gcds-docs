@@ -3,7 +3,15 @@
   "links": {
     "home": "/fr",
 
-    "installation": "/fr/installation",
+    "getStarted": "/fr/demarrer",
+    "getStartedDesignSection": "/fr/demarrer#conception",
+    "getStartedDevelopSection": "/fr/demarrer#developpement",
+    "getStartedDesign": "/fr/demarrer/conception",
+    "getStartedDevelop": "/fr/demarrer/developpement",
+    "getStartedAngular": "/fr/demarrer/developpement/angular",
+    "getStartedHtml": "/fr/demarrer/developpement/html",
+    "getStartedReact": "/fr/demarrer/developpement/react",
+    "getStartedVue": "/fr/demarrer/developpement/vue",
 
     "styles": "/fr/styles",
     "designTokens": "/fr/styles/unites-de-style",
@@ -82,7 +90,12 @@
     "pageTemplatesBasicExtOTPGithubLink": "https://github.com/cds-snc/gcds-examples/blob/main/templates/french/basic/extensions/basic-page-template-table-of-contents.html",
     "pageTemplatesBasicExtOTPGithubRaw": "https://raw.githubusercontent.com/cds-snc/gcds-examples/refs/heads/main/templates/french/basic/extensions/basic-page-template-table-of-contents.html",
 
-    "figma": "https://www.figma.com/file/o4SguSZdar2CCFzSkWNrmB/Syst%C3%A8me-de-design-GC?type=design&node-id=226-31997&mode=design&t=MNtR7hfKusf7RKxF-0",
+    "figma": "https://www.figma.com/community/file/1369337721343886324",
+    "figmaAdd": "https://help-figma-com.translate.goog/hc/en-us/articles/1500008731201-Add-or-remove-a-library-from-a-design-file?_x_tr_sl=auto&_x_tr_tl=fr-CA&_x_tr_hl=en-US&_x_tr_pto=wapp",
+    "figmaCopy": "https://help-figma-com.translate.goog/hc/en-us/articles/360038510873-Duplicate-Community-files?_x_tr_sl=auto&_x_tr_tl=fr&_x_tr_hl=en&_x_tr_pto=wapp#:~:text=about%20saving%20files%20%E2%86%92-,Duplicate%20files,-Duplicate%20a%20file",
+    "figmaHomepage": "https://www.figma.com/fr-fr/",
+    "figmaPublish": "https://help.figma.com/hc/fr/articles/360025508373-Publier-une-biblioth%C3%A8que",
+    "figmaStart": "https://help.figma.com/hc/fr/articles/360039150173-Cr%C3%A9er-et-ins%C3%A9rer-des-instances-de-composant",
 
     "fontAwesome": "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css",
 
