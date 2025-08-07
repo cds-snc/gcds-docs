@@ -11,96 +11,162 @@ eleventyNavigation:
 ---
 
 # Roadmap
-## Timeline: Q1 (Apr - Jun 2024) 
+## 2025/2026
 
-### Theme: Product Growth
-#### Support for Server Side Rendering frameworks
-  - Enable teams using NextJS (like GC Forms, OAS BE, Dental, EI) to code with GC Design System. **[Completed]**
-  - Put a plan in place for integrating with Stencil when SSR support is released. **[Deprioritized]**
-#### Bilingual design library
-  - Produce and maintain a bilingual Figma library, with assets and guidance in both official languages. **[Completed]**
-#### New functionality and improvements
-  - Full VueJS package. **[Completed]**
-  - Improvements to Angular package (better support for event handling). **[Completed]**
-  - Cards component version 2. **[Completed]**
-  - Stepper component version 2. **[Completed]**
-  - Fieldset component in Figma design library. **[Completed]**
-  - Icons (custom icons, not as third party package). **[Completed]**
-  - Begin testing on canada.ca managed services (AEM, Drupal). **[Completed]**
+### Strategic Themes
+Increase:
+<ol class="list-disc ps-400 mb-300">
+  <li>Trust in GCDS to encourage adoption</li>
+  <li>Clarity in the strategy and direction of GCDS</li>
+  <li>Collaboration with other teams and departments</li>
+</ol>
 
-### Theme: Research
-#### Accessibility, usability, and onboarding
-  - Research, interviews, surveys to improve onboarding, usability, accessibility. **[Completed]**
+---
 
-### Theme: Engagement
-#### Contribution model
-  - Define and implement a contribution model with Design teams in GC. **[Completed]**
-#### Outreach
-  - Establish regular mailing lists to keep the community informed. **[Completed]**
-  - Launch post demo surveys. **[Completed]**
+<gcds-details details-title="Quarter 1: April 2025 – June 2025">
 
-## Timeline: Q2 (Jul - Sep 2024) 
-### Theme: Product Growth
-#### New functionality and improvements
-  - Standard templates (Basic Page Template). **[Completed]**
-  - Utility framework (alpha). **[In progress]**
-  - New Components: Date input, Alert / Notice. **[Completed]**
-  - Tag Component **[Deprioritized]**
-  - Resolve any conflicting styles with Canada.ca mandatory components. **[Completed]**
+#### Product deliverables
+| Deliverable | Status |
+|-------------|--------|
+| Improve onboarding flow for developers | ✅ Completed |
+| Improve onboarding flow for designers | ✅ Completed |
+| Improve form input component with better validation | ✅ Completed |
 
-### Theme: Research
-#### Accessibility, usability, and onboarding
-  - Establish product metrics. **[Completed]**
-  - Identify and plan to resolve pain points, process for releasing breaking changes, Figma design library access. **[Completed]**
-  - Conduct usability testing and accessibility testing with end users. **[Completed]**
+#### Research
+| Activity | Status |
+|----------|--------|
+| Usability of GCDS Icons | ✅ Completed |
+| General accessibility testing with Fable | ✅ Completed |
+| Support ticket analysis | ✅ Completed |
 
-### Theme: Engagement
-#### Outreach
-  - Establish a Service Level Agreement. **[Completed]**
-  - Setup recurring scheduled demos with self sign up. **[Completed]**
-  - Establish regular touchpoints with the community. **[Completed]**
+#### Engagement & Collaboration
+| Activity | Status |
+|----------|--------|
+| EN & FR demos | ✅ Completed |
+| Forum | ✅ Completed |
+| Newsletter and blog posts | ✅ Completed |
+| DTO on new Footer links | ✅ Completed |
+| Accessibility assessment with ITAO | ✅ Completed |
+| Explore Modal component from DFO | ✅ Completed |
 
-## Timeline: Q3 (Oct - Dec 2024) 
+</gcds-details>
 
-### Theme: Product Growth
-#### Technical onboarding
-  - Produce and test out a dedicated developer onboarding experience, including starter apps, technical documentation and more. **[In progress]**
-  - Produce and test out a dedicated designer onboarding experience. **[In Progress]**
-#### CDTS functionality
-  - Leveraging standard templates, provide the full functionality of Centrally Deployed Templates Solution (CDTS) to help with onboarding and adoption. **[Not started]**
-#### Integration with canada.ca
-  - Increase access to GC Design System by offering a path from design.canada.ca. **[Completed]**
-#### Product metrics & analytics
-  - Establish clear ways of measuring adoption and ROI. **[In progress]**
-  - Adoption, time to build and cost saving, user satisfaction, fit of available adoption strategies (frameworks, touch points). **[In progress]**
+---
 
-### Theme: Research
-#### GC Design ecosystem and user needs research
-  - Understand the different Design System offerings and alternatives across GC. **[Completed]**
-  - Understand and categorize the needs of different user groups across GC. **[Completed]**
-  - Share evidence for accessibility and policy compliance on the GC Design System website. **[Completed]**
+<gcds-details details-title="Quarter 2: July 2025 – September 2025">
 
-### Theme: Engagement
-#### Targeted demos
-  - Test "use case" targeted demos and Q&As for more personalized outreach. **[Completed]**
+#### Product deliverables
+| Deliverable | Status |
+|-------------|--------|
+| Launch Utility Framework v1 | 🔄 In progress |
+| Exit alpha: go live | 🔄 In progress |
+| Security enhancements | 🔄 In progress |
 
-## Timeline: Q4 (Jan - Mar 2025) 
+#### Research
+| Activity | Status |
+|----------|--------|
+| Post launch analysis | 📅 Planned |
+| Data table component research | 🔄 In progress |
 
-### Theme: Product Growth
-#### New functionality and improvements
-  - Aim for beta release **[In progress]**
-  - Aim for a standardized process of integration with AEM and Drupal. **[Not started]**
-  - Additional templates, patterns, and components as needed. **[Deprioritized]**
+#### Engagement & Collaboration
+| Activity | Status |
+|----------|--------|
+| EN & FR demos | 📅 Planned |
+| Forum (DFO highlight) | ✅ Completed |
+| Newsletter and blog posts | 📅 Planned |
+| NRCAN on MapML plugin | 🔄 In progress |
+| DFO on Angular starter app | 🔄 In progress |
 
-### Theme: Research
-#### Testing
-  - Accessibility testing completed with 30 people through the year. **[Completed]**
-  - 5 completed usability research activities through the year. **[In progress]**
+</gcds-details>
 
-### Theme: Engagement
-#### Outreach
-  - Highlight successful contributions via blog and other media. **[In progress]**
-  - Create and share product marketing videos to encourage adoption. **[Not started]**
+---
+
+<gcds-details details-title="Quarter 3: October 2025 – December 2025">
+
+#### Product deliverables
+| Deliverable | Status |
+|-------------|--------|
+| Release Data table component | 📅 Planned |
+| Additional starter apps for React, Angular | 📅 Planned |
+| Explore Sa11y accessibility plugin | 📅 Planned |
+
+#### Research
+| Activity | Status |
+|----------|--------|
+| Flexibility and customization needs | 📅 Planned |
+| Data table component usability and accessibility | 📅 Planned |
+| Utility framework usability | 📅 Planned |
+
+#### Engagement & Collaboration
+| Activity | Status |
+|----------|--------|
+| EN & FR demos | 📅 Planned |
+| Forum | 📅 Planned |
+| Newsletter and blog posts | 📅 Planned |
+| DFO and LAC on .NET starter app | 📅 Planned |
+
+</gcds-details>
+
+---
+
+<gcds-details details-title="Quarter 4: January 2026 – March 2026">
+
+#### Product deliverables
+| Deliverable | Status |
+|-------------|--------|
+| Additional component or pattern: Autocomplete or Modal (DFO contribution) | 📅 Planned |
+| Resolve priority blockers to adoption | 📅 Planned |
+
+#### Research
+| Activity | Status |
+|----------|--------|
+| Adoption blockers | 📅 Planned |
+| More usability testing | 📅 Planned |
+| Accessibility testing | 📅 Planned |
+
+#### Engagement & Collaboration
+| Activity | Status |
+|----------|--------|
+| EN & FR demos | 📅 Planned |
+| Forum (DFO highlight) | 📅 Planned |
+| Newsletter and blog posts | 📅 Planned |
+| DTO on most used patterns of Canada.ca | 📅 Planned |
+
+</gcds-details>
+
+  
+## Completed in 2024/2025
+<gcds-details details-title="Product Growth">
+<ul class="list-disc ps-400 mb-300">
+  <li>Mandatory elements alignment with Canada.ca</li>
+  <li>Support for NextJS</li>
+  <li>Released a bilingual design library</li>
+  <li>Full VueJS package</li>
+  <li>Improvements to Angular package</li>
+  <li>New and updated components: Card, Fieldset, Icons, Stepper, Date input, Notice</li>
+  <li>Deployed GCDS Card component on AEM</li>
+  <li>Released the basic page template</li>
+  <li>Provided an introduction and path to GCDS from design.canada.ca</li>
+</ul>
+</gcds-details>
+
+<gcds-details details-title="Research">
+<ul class="list-disc ps-400 mb-300">
+  <li>Conducted a GC design community market survey</li>
+  <li>Created new pages on GCDS accessibility information and testing</li>
+  <li>Accessibility testing completed with 30 people through the year</li>
+  <li>5 completed usability research activities through the year</li>
+</ul>
+</gcds-details>
+
+<gcds-details details-title="Engagement & Collaboration">
+<ul class="list-disc ps-400 mb-300">
+  <li>Established a contribution model</li>
+  <li>Post demo surveys</li>
+  <li>Created the GCDS mailing list and quarterly newsletters</li>
+  <li>Created recurring demos with self sign up</li>
+</ul>
+</gcds-details>
 
 ## Collaboration and support channels
 Check out our [Get involved page]({{ links.getInvolved }}) to learn about what we're working on and how you can contribute.
