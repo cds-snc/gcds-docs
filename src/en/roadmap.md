@@ -21,8 +21,6 @@ Increase:
   <li>Collaboration with other teams and departments</li>
 </ol>
 
----
-
 <gcds-details details-title="Quarter 1: April 2025 – June 2025">
 
 #### Product deliverables
@@ -51,8 +49,6 @@ Increase:
 
 </gcds-details>
 
----
-
 <gcds-details details-title="Quarter 2: July 2025 – September 2025">
 
 #### Product deliverables
@@ -78,8 +74,6 @@ Increase:
 | DFO on Angular starter app | 🔄 In progress |
 
 </gcds-details>
-
----
 
 <gcds-details details-title="Quarter 3: October 2025 – December 2025">
 
@@ -107,8 +101,6 @@ Increase:
 
 </gcds-details>
 
----
-
 <gcds-details details-title="Quarter 4: January 2026 – March 2026">
 
 #### Product deliverables
@@ -133,7 +125,6 @@ Increase:
 | DTO on most used patterns of Canada.ca | 📅 Planned |
 
 </gcds-details>
-
   
 ## Completed in 2024/2025
 <gcds-details details-title="Product Growth">
