@@ -82,7 +82,7 @@ Faire croître :
 |-------------|--------|
 | Publication du composant tableau de données | 📅 Prévu |
 | Applications de démarrage supplémentaires pour React et Angular | 📅 Prévu |
-| Étudier le plugiciel d’accessibilité <gcds-link external href="{{ https://sa11y.netlify.app/ }}"> Sa11y </gcds-link> | 📅 Prévu |
+| Étudier le plugiciel d’accessibilité Sa11y | 📅 Prévu |
 
 #### Recherche
 | Activité | Statut |
