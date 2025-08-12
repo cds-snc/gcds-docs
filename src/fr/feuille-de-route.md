@@ -21,108 +21,108 @@ Faire croître :
   <li>La collaboration avec d’autres équipes et ministères</li>
 </ol>
 
-<gcds-details details-title="Trimestre 1: April 2025 – June 2025">
+<gcds-details details-title="1er trimestre : avril 2025 à juin 2025">
 
 #### Livrables
-| Deliverable | Status |
+| Livrable | Statut |
 |-------------|--------|
-| Improve onboarding flow for développeurs | ✅ Terminé |
-| Improve onboarding flow for conceptrices et concepteurs | ✅ Terminé |
-| Améliorer le composant de saisie de formulaire pour ajouter une meilleure validation | ✅ Terminé |
+| Améliorer le processus d’intégration pour les développeurs | ✅ Terminé |
+| Améliorer le processus d’intégration pour les concepteur·rice·s | ✅ Terminé |
+| Améliorer le composant de saisie de formulaire pour y ajouter une meilleure fonction de validation | ✅ Terminé |
 
 #### Recherche
-| Activity | Status |
+| Activité | Statut |
 |----------|--------|
-| Utilisabilité des icônes du SGDC | ✅ Terminé |
-| Tests d’accessibilité généraux avec Fable | ✅ Terminé |
-| Analyse des demandes d’assistance | ✅ Terminé |
+| Utilisabilité des icônes de Système de design GC | ✅ Terminé |
+| Tests d’accessibilité généralisés avec Fable | ✅ Terminé |
+| Analyse des tickets de soutien | ✅ Terminé |
 
 #### Mobilisation et collaboration
-| Activity | Status |
+| Activité | Statut |
 |----------|--------|
-| Démonstrations en anglais et en français | ✅ Terminé |
+| Démos en EN et en FR | ✅ Terminé |
 | Forum | ✅ Terminé |
-| Bulletin et billets de blogue | ✅ Terminé |
-| DTO on new Footer links | ✅ Terminé |
-| Évaluation de l’accessibilité avec le BNTIA | ✅ Terminé |
-| Explorer le composant de fenêtre modale du MPO | ✅ Terminé |
+| Infolettre et articles de blog | ✅ Terminé |
+| Bureau de la transformation numérique sur les liens de pied de page | ✅ Terminé |
+| Évaluation de l’accessibilité avec le BATI d’EDSC | ✅ Terminé |
+| Étudier le composant modal du MPO | ✅ Terminé |
 
 </gcds-details>
 
-<gcds-details details-title="Trimestre 2: July 2025 – September 2025">
+<gcds-details details-title="2e trimestre : juillet 2025 à septembre 2025">
 
 #### Livrables
-| Deliverable | Status |
+| Livrable | Statut |
 |-------------|--------|
-| Lancer la version 1 du cadre utilitaire | 🔄 En cours |
-| Quitter l’alpha : mise en production | 🔄 En cours |
-| Améliorations de la sécurité | 🔄 En cours |
+| Lancement de la v1 du cadre utilitaire | 🔄 En cours |
+| Fin de la phase alpha : mise en production | 🔄 En cours |
+| Améliorations en matière de sécurité | 🔄 En cours |
 
 #### Recherche
-| Activity | Status |
+| Activité | Statut |
 |----------|--------|
-| Analyse post-lancement | 📅 Prévu |
-| Recherche sur le composant de tableau de données | 🔄 En cours |
+| Analyse après la mise en production | 📅 Prévu |
+| Recherche sur le composant tableau de données | 🔄 En cours |
 
 #### Mobilisation et collaboration
-| Activity | Status |
+| Activité | Statut |
 |----------|--------|
-| Démonstrations en anglais et en français | 📅 Prévu |
-| Forum (mise en valeur du MPO) | ✅ Terminé |
-| Bulletin et billets de blogue | 📅 Prévu |
-| RNCan sur le module externe MapML | 🔄 En cours |
+| Démos en EN et en FR | 📅 Prévu |
+| Forum (MPO en vedette) | ✅ Terminé |
+| Infolettre et articles de blog | 📅 Prévu |
+| RNCan sur le plugiciel MapML | 🔄 En cours |
 | MPO sur l’application de démarrage Angular | 🔄 En cours |
 
 </gcds-details>
 
-<gcds-details details-title="Trimestre 3: October 2025 – December 2025">
+<gcds-details details-title="3e trimestre : octobre 2025 à décembre 2025">
 
 #### Livrables
-| Deliverable | Status |
+| Livrable | Statut |
 |-------------|--------|
-| Lancer le composant de tableau de données | 📅 Prévu |
+| Publication du composant tableau de données | 📅 Prévu |
 | Applications de démarrage supplémentaires pour React et Angular | 📅 Prévu |
-| Explorer le module externe d’accessibilité Sa11y | 📅 Prévu |
+| Étudier le plugiciel d’accessibilité <gcds-link external href="{{ https://sa11y.netlify.app/ }}"> Sa11y </gcds-link> | 📅 Prévu |
 
 #### Recherche
-| Activity | Status |
+| Activité | Statut |
 |----------|--------|
-| Besoins de flexibilité et de personnalisation | 📅 Prévu |
-| Utilisabilité et accessibilité du composant de tableau de données | 📅 Prévu |
+| Besoins en matière de flexibilité et de personnalisation | 📅 Prévu |
+| Composant tableau de données : utilisabilité et accessibilité | 📅 Prévu |
 | Utilisabilité du cadre utilitaire | 📅 Prévu |
 
 #### Mobilisation et collaboration
-| Activity | Status |
+| Activité | Statut |
 |----------|--------|
-| Démonstrations en anglais et en français | 📅 Prévu |
-| Forum | 📅 Prévu |
-| Bulletin et billets de blogue | 📅 Prévu |
+| Démos en EN et en FR | 📅 Prévu |
+| Forum (MPO en vedette) | 📅 Terminé |
+| Infolettre et articles de blog | 📅 Prévu |
 | MPO et BAC sur l’application de démarrage .NET | 📅 Prévu |
 
 </gcds-details>
 
-<gcds-details details-title="Trimestre 4: January 2026 – March 2026">
+<gcds-details details-title="4e trimestre : janvier 2026 à mars 2026">
 
 #### Livrables
-| Deliverable | Status |
+| Livrable | Statut |
 |-------------|--------|
-| Additional component or pattern: Autocomplete or Modal (DFO contribution) | 📅 Prévu |
-| Résoudre les obstacles prioritaires à l’adoption | 📅 Prévu |
+| Un composant ou modèle supplémentaire: Saisie semi-automatique au Modal (contribution du MPO) | 📅 Prévu |
+| Résoudre les obstacles prioritaires à l’adoption prioritaires | 📅 Prévu |
 
 #### Recherche
-| Activity | Status |
+| Activité | Statut |
 |----------|--------|
 | Obstacles à l’adoption | 📅 Prévu |
-| Plus de tests d’utilisabilité | 📅 Prévu |
+| Davantage de tests d’utilisabilité avec Fable | 📅 Prévu |
 | Tests d’accessibilité | 📅 Prévu |
 
 #### Mobilisation et collaboration
-| Activity | Status |
+| Activité | Statut |
 |----------|--------|
-| Démonstrations en anglais et en français | 📅 Prévu |
-| Forum (mise en valeur du MPO) | 📅 Prévu |
-| Bulletin et billets de blogue | 📅 Prévu |
-| BCN sur les motifs les plus utilisés de Canada.ca | 📅 Prévu |
+| Démos en EN et en FR | 📅 Prévu |
+| Forum (MPO en vedette) | 📅 Terminé |
+| Infolettre et articles de blog | 📅 Prévu |
+| BTN sur les modèles les plus utilisés de Canada.ca  | 📅 Prévu |
 
 </gcds-details>
   
