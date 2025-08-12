@@ -82,7 +82,7 @@ Increase:
 |-------------|--------|
 | Release Data table component | 📅 Planned |
 | Additional starter apps for React, Angular | 📅 Planned |
-| Explore Sa11y accessibility plugin | 📅 Planned |
+| Explore [Sa11y](https://sa11y.netlify.app/) Sa11y accessibility plugin | 📅 Planned |
 
 #### Research
 | Activity | Status |
