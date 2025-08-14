@@ -37,13 +37,15 @@ We’ll soon be offering other events to our growing community.
 
 This form is for people building government websites and digital products. You can give feedback, ask a question, or receive communications from the GC Design System team. If you need help with a government service, go to <gcds-link href="https://www.canada.ca/en/contact.html" external>Government of Canada contacts</gcds-link>.
 
-<form class="my-600 contact-us-form" name="contactEN" method="post" style="min-height: 32rem;" action="/api/submission">
+<form class="my-600 contact-us-form" name="contactEN" method="post" style="min-height: 32rem;" action="/api/submission" novalidate>
+  <gcds-error-summary></gcds-error-summary>
+
   <input type="hidden" name="form-name" value="contactEN" />
   <input name="honeypot" type="text" aria-label="bot" hidden/>
 
-<gcds-input type="text" name="name" input-id="name" label="Full name" autocomplete="name" required></gcds-input>
-<gcds-input type="email" name="email" input-id="email" label="Email address" autocomplete="email" required></gcds-input>
-<gcds-textarea name="message" label="Provide your feedback or ask a question if you need help" hint="Never include personal (Protected) information." textarea-id="message"></gcds-textarea>
+  <gcds-input type="text" name="name" input-id="name" label="Full name" autocomplete="name" required></gcds-input>
+  <gcds-input type="email" name="email" input-id="email" label="Email address" autocomplete="email" required></gcds-input>
+  <gcds-textarea name="message" label="Provide your feedback or ask a question if you need help" hint="Never include personal (Protected) information." textarea-id="message"></gcds-textarea>
 
   <gcds-fieldset legend="Receive communication from GC Design System" legend-size="h3" hint="If you'd like us to contact you, choose one or both options.">
     <gcds-checkboxes name="learn-more-mailing-list" options="{{ contactus[locale].mailingcheck | stringify | encode-html }}"></gcds-checkboxes>
