@@ -40,12 +40,12 @@ Increase:
 #### Engagement & Collaboration
 | Activity | Status |
 |----------|--------|
-| EN & FR demos | ✅ Completed |
+| English and French demos | ✅ Completed |
 | Forum | ✅ Completed |
 | Newsletter and blog posts | ✅ Completed |
-| DTO on new Footer links | ✅ Completed |
-| Accessibility assessment with ITAO | ✅ Completed |
-| Explore Modal component from DFO | ✅ Completed |
+| Digital Transformation Office on new Footer links | ✅ Completed |
+| Engage with the IT Accessibility Office for the next accessibility audit | ✅ Completed |
+| Explore Modal component from Department of Fisheries and Oceans | ✅ Completed |
 
 </gcds-details>
 
@@ -54,8 +54,7 @@ Increase:
 #### Product deliverables
 | Deliverable | Status |
 |-------------|--------|
-| Launch Utility Framework v1 | 🔄 In progress |
-| Exit alpha: go live | 🔄 In progress |
+| Launch CSS Utility Framework v1 | 🔄 In progress |
 | Security enhancements | 🔄 In progress |
 
 #### Research
@@ -67,11 +66,11 @@ Increase:
 #### Engagement & Collaboration
 | Activity | Status |
 |----------|--------|
-| EN & FR demos | 📅 Planned |
-| Forum (DFO highlight) | ✅ Completed |
+| English and French demos | 📅 Planned |
+| GC Design System Forum including a presentation from the Department of Fisheries and Oceans | ✅ Completed |
 | Newsletter and blog posts | 📅 Planned |
-| NRCAN on MapML plugin | 🔄 In progress |
-| DFO on Angular starter app | 🔄 In progress |
+| Collaboration with National Resources Canada on MapML plugin | 🔄 In progress |
+| Collaboration with Department of Fisheries and Oceans on an Angular starter app | 🔄 In progress |
 
 </gcds-details>
 
@@ -80,24 +79,25 @@ Increase:
 #### Product deliverables
 | Deliverable | Status |
 |-------------|--------|
+| Exit alpha: go live | 🔄 In progress |
 | Release Data table component | 📅 Planned |
 | Additional starter apps for React, Angular | 📅 Planned |
-| Explore [Sa11y](https://sa11y.netlify.app/) Sa11y accessibility plugin | 📅 Planned |
+| Explore [Sa11y](https://sa11y.netlify.app/) accessibility plugin | 📅 Planned |
 
 #### Research
 | Activity | Status |
 |----------|--------|
 | Flexibility and customization needs | 📅 Planned |
 | Data table component usability and accessibility | 📅 Planned |
-| Utility framework usability | 📅 Planned |
+| CSS Utility framework usability | 📅 Planned |
 
 #### Engagement & Collaboration
 | Activity | Status |
 |----------|--------|
-| EN & FR demos | 📅 Planned |
-| Forum | 📅 Planned |
+| English and French demos | 📅 Planned |
+| GC Design System Forum | 📅 Planned |
 | Newsletter and blog posts | 📅 Planned |
-| DFO and LAC on .NET starter app | 📅 Planned |
+| Collaboration with Department of Fisheries and Oceans and Library and Archives Canada on .NET starter app | 📅 Planned |
 
 </gcds-details>
 
@@ -106,7 +106,7 @@ Increase:
 #### Product deliverables
 | Deliverable | Status |
 |-------------|--------|
-| Additional component or pattern: Autocomplete or Modal (DFO contribution) | 📅 Planned |
+| Additional component or pattern: Autocomplete or Modal (Department of Fisheries and Oceans contribution) | 📅 Planned |
 | Resolve priority blockers to adoption | 📅 Planned |
 
 #### Research
@@ -119,10 +119,10 @@ Increase:
 #### Engagement & Collaboration
 | Activity | Status |
 |----------|--------|
-| EN & FR demos | 📅 Planned |
-| Forum (DFO highlight) | 📅 Planned |
+| English and French demos | 📅 Planned |
+| GC Design System Forum | 📅 Planned |
 | Newsletter and blog posts | 📅 Planned |
-| DTO on most used patterns of Canada.ca | 📅 Planned |
+| Collaboration with Digital Transformation Office on most used patterns of Canada.ca | 📅 Planned |
 
 </gcds-details>
   
@@ -135,7 +135,7 @@ Increase:
   <li>Full VueJS package</li>
   <li>Improvements to Angular package</li>
   <li>New and updated components: Card, Fieldset, Icons, Stepper, Date input, Notice</li>
-  <li>Deployed GCDS Card component on AEM</li>
+  <li>Deployed GCDS Card component on Adobe Extension Manager for Canada.ca</li>
   <li>Released the basic page template</li>
   <li>Provided an introduction and path to GCDS from design.canada.ca</li>
 </ul>
