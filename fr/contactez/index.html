@@ -1279,7 +1279,8 @@
 <h2 id="contactez-lequipe-du-systeme-de-design">Contactez l’équipe du système de design</h2>
 <p>Ce formulaire est destiné aux personnes qui bâtissent les sites Web et services numériques gouvernementaux. Vous pouvez nous faire part de vos commentaires, poser une question ou recevoir des communications de la part de l’équipe Système de design GC.</p>
 <p>Pour obtenir de l’aide avec un service gouvernemental, aller à la page <gcds-link href="https://www.canada.ca/fr/contact.html" external>Coordonnées du Gouvernement du Canada</gcds-link>.</p>
-<form class="my-600 contact-us-form" name="contactFR" method="post" style="min-height: 32rem;" action="/api/submission">
+<form class="my-600 contact-us-form" name="contactFR" method="post" style="min-height: 32rem;" action="/api/submission" novalidate>
+  <gcds-error-summary></gcds-error-summary>
   <input type="hidden" name="form-name" value="contactFR" />
   <input name="honeypot" type="text" aria-label="bot" hidden/>
 <p><gcds-input type="text" name="name" input-id="name" label="Nom complet" autocomplete="name" required></gcds-input>
