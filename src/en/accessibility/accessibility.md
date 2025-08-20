@@ -37,7 +37,7 @@ The entire GC Design System builds in accessibility from the start to meet acces
 </gcds-details>
 
 <gcds-details details-title="Responsive design">
-  <gcds-text margin-bottom="0">>The components are responsive so people have consistent experiences regardless of the device they use.</gcds-text>
+  <gcds-text margin-bottom="0">The components are responsive so people have consistent experiences regardless of the device they use.</gcds-text>
 </gcds-details>
 
 ### Visuals
