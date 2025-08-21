@@ -14,10 +14,10 @@ eleventyNavigation:
 ## 2025/2026
 
 ### Thèmes stratégiques
-Faire croître :
+Accroître:
 <ol class="list-disc ps-400 mb-300">
-  <li>La confiance envers le SGDC pour encourager son adoption</li>
-  <li>La clarté dans la stratégie et l’orientation du SGDC</li>
+  <li>La confiance envers le Système de design GC pour encourager son adoption</li>
+  <li>La clarté dans la stratégie et la direction du Système de Design GC</li>
   <li>La collaboration avec d’autres équipes et ministères</li>
 </ol>
 
@@ -26,26 +26,26 @@ Faire croître :
 #### Livrables
 | Livrable | Statut |
 |-------------|--------|
-| Améliorer le processus d’intégration pour les développeurs | ✅ Terminé |
-| Améliorer le processus d’intégration pour les concepteur·rice·s | ✅ Terminé |
-| Améliorer le composant de saisie de formulaire pour y ajouter une meilleure fonction de validation | ✅ Terminé |
+| Améliorer la prise en main pour les personnes qui font du développement | ✅ Terminé |
+| Améliorer  la prise en main pour les personnes qui font de la conception | ✅ Terminé |
+| Améliorer les composants de saisie de formulaire avec une fonction de validation | ✅ Terminé |
 
 #### Recherche
 | Activité | Statut |
 |----------|--------|
-| Utilisabilité des icônes de Système de design GC | ✅ Terminé |
+| Utilisabilité des icônes du Système de design GC | ✅ Terminé |
 | Tests d’accessibilité généralisés avec Fable | ✅ Terminé |
 | Analyse des tickets de soutien | ✅ Terminé |
 
 #### Mobilisation et collaboration
 | Activité | Statut |
 |----------|--------|
-| Démos en EN et en FR | ✅ Terminé |
-| Forum | ✅ Terminé |
+| Démos en englais et français | ✅ Terminé |
+| Forum du Système de design GC | ✅ Terminé |
 | Infolettre et articles de blog | ✅ Terminé |
-| Bureau de la transformation numérique sur les liens de pied de page | ✅ Terminé |
-| Évaluation de l’accessibilité avec le BATI d’EDSC | ✅ Terminé |
-| Étudier le composant modal du MPO | ✅ Terminé |
+| Bureau de la transformation numérique sur les nouveaux liens du pied de page | ✅ Terminé |
+| Engagement avec le bureau de l'accessibilité TI pour la prochaine évaluation d'accessibilité | ✅ Terminé |
+| Exploration du composant modal du ministère Pêches et Océans Canada | ✅ Terminé |
 
 </gcds-details>
 
@@ -54,24 +54,23 @@ Faire croître :
 #### Livrables
 | Livrable | Statut |
 |-------------|--------|
-| Lancement de la v1 du cadre utilitaire | 🔄 En cours |
-| Fin de la phase alpha : mise en production | 🔄 En cours |
+| Lancement de la v1 du cadre utilitaire CSS | 🔄 En cours |
 | Améliorations en matière de sécurité | 🔄 En cours |
 
 #### Recherche
 | Activité | Statut |
 |----------|--------|
-| Analyse après la mise en production | 📅 Prévu |
+| Analyse post-production | 📅 Prévu |
 | Recherche sur le composant tableau de données | 🔄 En cours |
 
 #### Mobilisation et collaboration
 | Activité | Statut |
 |----------|--------|
-| Démos en EN et en FR | 📅 Prévu |
-| Forum (MPO en vedette) | ✅ Terminé |
+| Démos en anglais et français | 📅 Prévu |
+| Forum du Système de design GC incluant une présentation de Pêches et Océans Canada | ✅ Terminé |
 | Infolettre et articles de blog | 📅 Prévu |
-| RNCan sur le plugiciel MapML | 🔄 En cours |
-| MPO sur l’application de démarrage Angular | 🔄 En cours |
+| Collaboration avec Resources naturelles Canada sur le plugiciel MapML | 🔄 En cours |
+| Collaboration avec Pêches et Océans Canada sur l'application de démarrage Angular | 🔄 En cours |
 
 </gcds-details>
 
@@ -80,24 +79,25 @@ Faire croître :
 #### Livrables
 | Livrable | Statut |
 |-------------|--------|
+| Sortie d'alpha: en production | 📅 Prévu |
 | Publication du composant tableau de données | 📅 Prévu |
 | Applications de démarrage supplémentaires pour React et Angular | 📅 Prévu |
-| Étudier le plugiciel d’accessibilité Sa11y | 📅 Prévu |
+| Explorer le plugiciel d’accessibilité Sa11y | 📅 Prévu |
 
 #### Recherche
 | Activité | Statut |
 |----------|--------|
 | Besoins en matière de flexibilité et de personnalisation | 📅 Prévu |
 | Composant tableau de données : utilisabilité et accessibilité | 📅 Prévu |
-| Utilisabilité du cadre utilitaire | 📅 Prévu |
+| Utilisabilité du cadre utilitaire CSS | 📅 Prévu |
 
 #### Mobilisation et collaboration
 | Activité | Statut |
 |----------|--------|
-| Démos en EN et en FR | 📅 Prévu |
-| Forum (MPO en vedette) | 📅 Terminé |
+| Démos en anglais et français | 📅 Prévu |
+| Forum du Système de design GC | 📅 Terminé |
 | Infolettre et articles de blog | 📅 Prévu |
-| MPO et BAC sur l’application de démarrage .NET | 📅 Prévu |
+| Collaboration avec Pêches et Océans Canada et Bibliothèque et Archives Canada sur l'application de démarrage .NET | 📅 Prévu |
 
 </gcds-details>
 
@@ -106,23 +106,23 @@ Faire croître :
 #### Livrables
 | Livrable | Statut |
 |-------------|--------|
-| Un composant ou modèle supplémentaire: Saisie semi-automatique au Modal (contribution du MPO) | 📅 Prévu |
-| Résoudre les obstacles prioritaires à l’adoption prioritaires | 📅 Prévu |
+| Composant ou modèle supplémentaire: Saisie semi-automatique ou Modal (contribution de Pêches et Océans Canada) | 📅 Prévu |
+| Résoudre les obstacles prioritaires à l’adoption | 📅 Prévu |
 
 #### Recherche
 | Activité | Statut |
 |----------|--------|
 | Obstacles à l’adoption | 📅 Prévu |
-| Davantage de tests d’utilisabilité avec Fable | 📅 Prévu |
+| Tests d’utilisabilité | 📅 Prévu |
 | Tests d’accessibilité | 📅 Prévu |
 
 #### Mobilisation et collaboration
 | Activité | Statut |
 |----------|--------|
-| Démos en EN et en FR | 📅 Prévu |
-| Forum (MPO en vedette) | 📅 Terminé |
+| Démos en anglais et français | 📅 Prévu |
+| Forum Système de design GC | 📅 Terminé |
 | Infolettre et articles de blog | 📅 Prévu |
-| BTN sur les modèles les plus utilisés de Canada.ca  | 📅 Prévu |
+| Collaboration avec le Bureau de la transformation numérique sur les modèles les plus utilisés de Canada.ca  | 📅 Prévu |
 
 </gcds-details>
   
@@ -134,17 +134,17 @@ Faire croître :
   <li>Publication d’une bibliothèque de design bilingue</li>
   <li>Paquet VueJS complet</li>
   <li>Améliorations au paquet Angular</li>
-  <li>Nouveaux et mis à jour composants : Carte, Jeu de champ, Icônes, Indicateur d’étape, Champ de date, Avis</li>
-  <li>Déploiement du composant Carte du SGDC sur AEM</li>
+  <li>Ajouts et mises à jour des composants: Carte, Jeu de champ, Icônes, Indicateur d’étape, Champ de date et Avis</li>
+  <li>Déploiement du composant Carte sur Adobe Extension Manager pour Canada.ca</li>
   <li>Publication du modèle de page de base</li>
-  <li>Ajout d’une introduction et d’un parcours vers le SGDC depuis conception.canada.ca</li>
+  <li>Ajout d’une introduction et d’un parcours vers le Système de design GC depuis conception.canada.ca</li>
 </ul>
 </gcds-details>
 
 <gcds-details details-title="Recherche">
 <ul class="list-disc ps-400 mb-300">
   <li>Sondage auprès de la communauté de conception du GC</li>
-  <li>Création de nouvelles pages sur l’information et les tests d’accessibilité dans le SGDC</li>
+  <li>Création de nouvelles pages sur l’information et les tests d’accessibilité dans le Système de design GC</li>
   <li>Tests d’accessibilité réalisés auprès de 30 personnes au cours de l’année</li>
   <li>5 activités de recherche en utilisabilité complétées au cours de l’année</li>
 </ul>
@@ -154,7 +154,7 @@ Faire croître :
 <ul class="list-disc ps-400 mb-300">
   <li>Mise en place d’un modèle de contribution</li>
   <li>Sondages post‑démo</li>
-  <li>Création d’une liste d’envoi du SGDC et d’infolettres trimestrielles</li>
+  <li>Création d’une liste d’envoi et d’infolettres trimestrielles</li>
   <li>Mise en place de démos récurrentes avec inscription libre</li>
 </ul>
 </gcds-details>
