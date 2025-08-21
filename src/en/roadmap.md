@@ -28,7 +28,7 @@ Increase:
 |-------------|--------|
 | Improve onboarding flow for developers | ✅ Completed |
 | Improve onboarding flow for designers | ✅ Completed |
-| Improve form input component with better validation | ✅ Completed |
+| Improve form input components with better validation | ✅ Completed |
 
 #### Research
 | Activity | Status |
