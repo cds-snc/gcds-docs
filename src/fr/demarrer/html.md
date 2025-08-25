@@ -125,7 +125,7 @@ Le code restera inchangé jusqu’à ce que vous mettiez à jour manuellement la
 
 Vérifiez régulièrement s’il y a des <gcds-link href="{{ links.releaseNotes }}" external>nouvelles versions de Système de design GC</gcds-link> afin de mettre à jour la dernière version épinglée.
 
-#### b. Utiliser la version <@latest> (la dernière version)
+#### b. Utiliser la version `@latest` (la dernière version)
 
 Utilisez la balise `@latest` pour insérer la plus récente version de Système de design GC dans votre projet. Remplacez le numéro de version par cette balise.
 
