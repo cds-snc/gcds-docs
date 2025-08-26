@@ -89,7 +89,7 @@ Increase:
 |----------|--------|
 | Flexibility and customization needs | 📅 Planned |
 | Data table component usability and accessibility | 📅 Planned |
-| CSS Utility framework usability | 📅 Planned |
+| CSS Shortcuts usability | 📅 Planned |
 
 #### Engagement & Collaboration
 | Activity | Status |
