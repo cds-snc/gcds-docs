@@ -27,6 +27,8 @@ Les composants Web héritent les propriétés et l’interopérabilité natives.
 
 ## Instructions d’installation dans React
 
+Suivez ces étapes pour installer et utiliser les composants de Système de design GC dans votre projet React.
+
 ### 1. Installer le paquet
 
 Naviguez vers le dossier racine de votre projet et exécutez la commande suivante :
