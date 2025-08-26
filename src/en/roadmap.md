@@ -54,7 +54,7 @@ Increase:
 #### Product deliverables
 | Deliverable | Status |
 |-------------|--------|
-| Launch CSS Utility Framework v1 | 🔄 In progress |
+| Launch CSS Shortcuts v1 | 🔄 In progress |
 | Security enhancements | 🔄 In progress |
 
 #### Research
