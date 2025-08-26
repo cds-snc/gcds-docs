@@ -54,7 +54,7 @@ Accroître:
 #### Livrables
 | Livrable | Statut |
 |-------------|--------|
-| Lancement de la v1 du cadre utilitaire CSS | 🔄 En cours |
+| Lancement de la v1 du Raccourcis CSS | 🔄 En cours |
 | Améliorations en matière de sécurité | 🔄 En cours |
 
 #### Recherche
@@ -89,7 +89,7 @@ Accroître:
 |----------|--------|
 | Besoins en matière de flexibilité et de personnalisation | 📅 Prévu |
 | Composant tableau de données : utilisabilité et accessibilité | 📅 Prévu |
-| Utilisabilité du cadre utilitaire CSS | 📅 Prévu |
+| Utilisabilité du cadre Raccourcis CSS | 📅 Prévu |
 
 #### Mobilisation et collaboration
 | Activité | Statut |
