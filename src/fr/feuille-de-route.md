@@ -11,99 +11,153 @@ eleventyNavigation:
 ---
 
 # Feuille de route
-## Échéancier: T1 (avril à juin 2024) 
+## 2025/2026
 
-### Thème: Croissance du produit
-#### Prise en charge d’infrastructures pour le rendu côté serveur
-  - Permettre aux équipes utilisant NextJS (p. ex. : Formulaires GC, estimateur des prestations de la Sécurité de la vieillesse, soins dentaires, assurance-emploi) de coder à l’aide de Système de design GC. **[Terminé]**
-  - Établir un plan d’intégration de Stencil une fois que le rendu côté serveur est déployé. **[Dépriorisé]**
+### Thèmes stratégiques
+Accroître:
+<ol class="list-disc ps-400 mb-300">
+  <li>La confiance envers le Système de design GC pour encourager son adoption</li>
+  <li>La clarté dans la stratégie et la direction du Système de Design GC</li>
+  <li>La collaboration avec d’autres équipes et ministères</li>
+</ol>
 
-#### Bibliothèque de design bilingue
-  - Produire et entretenir une bibliothèque Figma bilingue, où les ressources et les lignes directrices sont dans les deux langues officielles. **[Terminé]**
-#### Nouvelles fonctionnalités et améliorations
-  - Paquet VueJS complet. **[Terminé]**
-  - Améliorations au paquet Angular (pour la gestion des évènements). **[Terminé]**
-  - Version 2 du composant Carte. **[Terminé]**
-  - Version 2 du composant Indicateur d'étape. **[Terminé]**
-  - Composant Jeu de champ dans la bibliothèque de design Figma. **[Terminé]**
-  - Icône (développé à l’interne, pas d’un paquet tiers). **[Terminé]**
-  - Commencer les tests sur les services gérés de Canada.ca (AEM, Drupal). **[Terminé]**
+<gcds-details details-title="1er trimestre : avril 2025 à juin 2025">
 
-### Thème: Recherche
-#### Accessibilité, utilisabilité et intégration
-  - Recherche, entretiens et sondages pour améliorer l’intégration, l’utilisabilité et l’accessibilité. **[Terminé]**
+#### Livrables
+| Livrable | Statut |
+|-------------|--------|
+| Améliorer la prise en main pour les personnes qui font du développement | ✅ Terminé |
+| Améliorer  la prise en main pour les personnes qui font de la conception | ✅ Terminé |
+| Améliorer les composants de saisie de formulaire avec une fonction de validation | ✅ Terminé |
 
-### Thème: Mobilisation
-#### Modèle de contribution
-  - Définir et mettre en œuvre un modèle de contribution pour les équipes de conception du GC. **[Terminé]**
-#### Sensibilisation
-  - Mettre en place des listes d’envoi régulières pour tenir la communauté informée. **[Terminé]**
-  - Lancer les sondages post-démo. **[Terminé]**
+#### Recherche
+| Activité | Statut |
+|----------|--------|
+| Utilisabilité des icônes du Système de design GC | ✅ Terminé |
+| Tests d’accessibilité généralisés avec Fable | ✅ Terminé |
+| Analyse des tickets de soutien | ✅ Terminé |
 
-## Échéancier: T2 (juillet à septembre 2024) 
+#### Mobilisation et collaboration
+| Activité | Statut |
+|----------|--------|
+| Démos en englais et français | ✅ Terminé |
+| Forum du Système de design GC | ✅ Terminé |
+| Infolettre et articles de blog | ✅ Terminé |
+| Bureau de la transformation numérique sur les nouveaux liens du pied de page | ✅ Terminé |
+| Engagement avec le bureau de l'accessibilité TI pour la prochaine évaluation d'accessibilité | ✅ Terminé |
+| Exploration du composant modal du ministère Pêches et Océans Canada | ✅ Terminé |
 
-### Thème: Croissance du produit
-#### Nouvelles fonctionnalités et améliorations
-  - Modèles standards (Modèle de page de base). **[Terminé]**
-  - Cadre utilitaire (alpha). **[En cours]**
-  - Nouveaux composants : champ de date, alerte/avis. **[Terminé]**
-  - Étiquette (tag) **[Dépriorisé]**
-  - Résoudre les conflits de style par rapport aux composants obligatoires de Canada.ca. **[Terminé]**
+</gcds-details>
 
-### Thème: Recherche
-#### Accessibilité, utilisabilité et intégration
-  - Mettre en place des indicateurs relatifs au produit. **[Terminé]**
-  - Repérer les sources de difficulté et planifier leur résolution, processus pour publier des changements au code non rétrocompatibles, accès à la bibliothèque de design Figma. **[Terminé]**
-  - Mener des tests d’utilisabilité et d’accessibilité avec des utilisatrices et utilisateurs. **[Terminé]**
+<gcds-details details-title="2e trimestre : juillet 2025 à septembre 2025">
 
-### Thème: Mobilisation
-#### Sensibilisation
-  - Mettre en place un accord sur les niveaux de service (ANS). **[Terminé]**
-  - Mettre en place des démos récurrentes auxquelles les gens s’inscrivent. **[Terminé]**
-  - Établir des points de contact réguliers avec la communauté. **[Terminé]**
+#### Livrables
+| Livrable | Statut |
+|-------------|--------|
+| Lancement de la v1 du Raccourcis CSS | 🔄 En cours |
+| Améliorations en matière de sécurité | 🔄 En cours |
 
-## Échéancier: T3 (octobre à décembre 2024) 
+#### Recherche
+| Activité | Statut |
+|----------|--------|
+| Analyse post-production | 📅 Prévu |
+| Recherche sur le composant tableau de données | 🔄 En cours |
 
-### Thème: Croissance du produit
-#### Intégration technique
-  - Élaborer et tester une expérience d’intégration pour les développeur·euse·s qui comprend des applications de démarrage, de la documentation technique, et autres. **[En cours]**
-  - Élaborer et tester une expérience d’intégration pour les concepteur·rice·s. **[En cours]**
+#### Mobilisation et collaboration
+| Activité | Statut |
+|----------|--------|
+| Démos en anglais et français | 📅 Prévu |
+| Forum du Système de design GC incluant une présentation de Pêches et Océans Canada | ✅ Terminé |
+| Infolettre et articles de blog | 📅 Prévu |
+| Collaboration avec Resources naturelles Canada sur le plugiciel MapML | 🔄 En cours |
+| Collaboration avec Pêches et Océans Canada sur l'application de démarrage Angular | 🔄 En cours |
 
-#### Fonctionnalité SGDC
-  - Fournir, en utilisant les modèles standards, une fonctionnalité complète de la Solution de gabarits à déploiement centralisé (SGDC) qui facilitera l’intégration et l’adoption. **[Non commencé]**
-#### Intégration avec Canada.ca
-  - Augmenter l’accès vers Système de design GC en offrant une voie d’accès à partir de conception.canada.ca. **[Terminé]**
-#### Indicateurs et données analytiques
-  - Définir des façons claires de mesurer l’adoption et le rendement des investissements. **[En cours]**
-  - Adoption, temps de développement, économies, satisfaction utilisateur, adéquation des stratégies d’adoption à disposition (cadres d’adoption, points de contact). **[En cours]**
+</gcds-details>
 
-### Thème: Recherche
-#### Recherche sur l’écosystème et les besoins utilisateurs relatifs à la conception au GC
-  - Comprendre les diverses offres et alternatives à Système de design au GC. **[Terminé]**
-  - Comprendre et catégoriser les besoins des différents groupes utilisateurs au GC. **[Terminé]**
-  - Montrer des preuves d’accessibilité et de conformité aux politiques sur le site Web de Système de design GC. **[Terminé]**
+<gcds-details details-title="3e trimestre : octobre 2025 à décembre 2025">
 
-### Thème: Mobilisation
-#### Démos ciblées
-  - Tester des démos et des séances questions-réponses ciblant des « cas d’utilisation » précis pour une approche plus personnalisée. **[Terminé]**
+#### Livrables
+| Livrable | Statut |
+|-------------|--------|
+| Sortie d'alpha: en production | 📅 Prévu |
+| Publication du composant tableau de données | 📅 Prévu |
+| Applications de démarrage supplémentaires pour React et Angular | 📅 Prévu |
+| Explorer le plugiciel d’accessibilité Sa11y | 📅 Prévu |
 
-## Échéancier: T4 (janvier à mars 2025)
+#### Recherche
+| Activité | Statut |
+|----------|--------|
+| Besoins en matière de flexibilité et de personnalisation | 📅 Prévu |
+| Composant tableau de données : utilisabilité et accessibilité | 📅 Prévu |
+| Utilisabilité du cadre Raccourcis CSS | 📅 Prévu |
 
-### Thème: Croissance du produit
-#### Nouvelles fonctionnalités et améliorations
-  - Viser une version bêta ou complète. **[En cours]**
-  - Viser un processus standardisé pour l’intégration avec AEM et Drupal. **[Non commencé]**
-  - Nouveaux modèles, patrons de conception et composants au besoin. **[Dépriorisé]**
+#### Mobilisation et collaboration
+| Activité | Statut |
+|----------|--------|
+| Démos en anglais et français | 📅 Prévu |
+| Forum du Système de design GC | 📅 Terminé |
+| Infolettre et articles de blog | 📅 Prévu |
+| Collaboration avec Pêches et Océans Canada et Bibliothèque et Archives Canada sur l'application de démarrage .NET | 📅 Prévu |
 
-### Thème: Recherche
-#### Tests
-  - Tests d’accessibilité menés auprès de 30 personnes d’ici la fin du T4. **[Terminé]**
-  - 5 activités de recherche portant sur l’utilisabilité achevées d’ici la fin du T4. **[En cours]**
+</gcds-details>
 
-### Thème: Mobilisation
-#### Sensibilisation
-  - Mettre en valeur les contributions ayant porté fruit par le biais du blogue ou d’autres supports. **[En cours]**
-  - Créer et diffuser des vidéos marketing encourageant l’adoption du produit. **[Non commencé]**
+<gcds-details details-title="4e trimestre : janvier 2026 à mars 2026">
+
+#### Livrables
+| Livrable | Statut |
+|-------------|--------|
+| Composant ou modèle supplémentaire: Saisie semi-automatique ou Modal (contribution de Pêches et Océans Canada) | 📅 Prévu |
+| Résoudre les obstacles prioritaires à l’adoption | 📅 Prévu |
+
+#### Recherche
+| Activité | Statut |
+|----------|--------|
+| Obstacles à l’adoption | 📅 Prévu |
+| Tests d’utilisabilité | 📅 Prévu |
+| Tests d’accessibilité | 📅 Prévu |
+
+#### Mobilisation et collaboration
+| Activité | Statut |
+|----------|--------|
+| Démos en anglais et français | 📅 Prévu |
+| Forum Système de design GC | 📅 Terminé |
+| Infolettre et articles de blog | 📅 Prévu |
+| Collaboration avec le Bureau de la transformation numérique sur les modèles les plus utilisés de Canada.ca  | 📅 Prévu |
+
+</gcds-details>
+  
+## Réalisé en 2024/2025
+<gcds-details details-title="Croissance du produit">
+<ul class="list-disc ps-400 mb-300">
+  <li>Alignement des éléments obligatoires avec Canada.ca</li>
+  <li>Prise en charge de NextJS</li>
+  <li>Publication d’une bibliothèque de design bilingue</li>
+  <li>Paquet VueJS complet</li>
+  <li>Améliorations au paquet Angular</li>
+  <li>Ajouts et mises à jour des composants: Carte, Jeu de champ, Icônes, Indicateur d’étape, Champ de date et Avis</li>
+  <li>Déploiement du composant Carte sur Adobe Extension Manager pour Canada.ca</li>
+  <li>Publication du modèle de page de base</li>
+  <li>Ajout d’une introduction et d’un parcours vers le Système de design GC depuis conception.canada.ca</li>
+</ul>
+</gcds-details>
+
+<gcds-details details-title="Recherche">
+<ul class="list-disc ps-400 mb-300">
+  <li>Sondage auprès de la communauté de conception du GC</li>
+  <li>Création de nouvelles pages sur l’information et les tests d’accessibilité dans le Système de design GC</li>
+  <li>Tests d’accessibilité réalisés auprès de 30 personnes au cours de l’année</li>
+  <li>5 activités de recherche en utilisabilité complétées au cours de l’année</li>
+</ul>
+</gcds-details>
+
+<gcds-details details-title="Mobilisation et collaboration">
+<ul class="list-disc ps-400 mb-300">
+  <li>Mise en place d’un modèle de contribution</li>
+  <li>Sondages post‑démo</li>
+  <li>Création d’une liste d’envoi et d’infolettres trimestrielles</li>
+  <li>Mise en place de démos récurrentes avec inscription libre</li>
+</ul>
+</gcds-details>
 
 ## Canaux de collaboration et de soutien
 Consultez notre page [s'impliquer]({{ links.getInvolved }}) pour savoir sur quoi nous travaillons et comment vous pouvez y contribuer.
