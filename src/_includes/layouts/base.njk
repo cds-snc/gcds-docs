@@ -18,7 +18,10 @@
     <!-- Utility framework -->
     <link rel="stylesheet" href="{{ '/gcds-utility.min.css' | url }}" />
 
+    <!-- Prism -->
     <link rel="stylesheet" href="{{ '/styles/prism.css' | url }}">
+    <script src="{{ '/scripts/prism.min.js' | url }}"></script>
+
     <link rel="stylesheet" href="{{ '/styles/style.css' | url }}">
     <script src="{{ '/scripts/code-showcase.js' | url }}"></script>
     <script src="{{ '/scripts/code-copy.js' | url }}"></script>
@@ -51,9 +54,5 @@
     </div>
 
     {% initClipboardJS %}
-
-    <!-- Load Prism scripts -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-markup.min.js"></script>
   </body>
 </html>
