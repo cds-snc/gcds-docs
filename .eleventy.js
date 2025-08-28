@@ -379,6 +379,41 @@ module.exports = function (eleventyConfig) {
     },
   );
 
+  // Add shortcode for CSS Shortcuts demos
+  eleventyConfig.addPairedShortcode('shortcutPreview', (children, css = '') => {
+    const content = children.trim();
+    const classRegex = /class=["']([^"']*)["']/;
+    const tagRegex = /<([a-zA-Z0-9-]+)([^>]*)>/;
+
+    // Inject CSS classes into the first HTML tag
+    let styledContent = content;
+
+    if (css) {
+      styledContent = content.replace(tagRegex, (match, tagName, attrs) => {
+        if (attrs.includes('class=')) {
+          return `<${tagName}${attrs.replace(classRegex, (_, existingClasses) => `class="${existingClasses} ${css}"`)}>`;
+        } else {
+          return `<${tagName}${attrs} class="${css}">`;
+        }
+      });
+    }
+
+    // Minify weird Eleventy spacing in rendered HTML preview
+    const renderedHTML = styledContent
+      .replace(/&nbsp;/g, ' ')
+      .replace(/\s+/g, ' ')
+      .replace(/\s+</g, '<')
+      .replace(/\s+>/g, '>')
+      .trim();
+
+    return `
+      <div class="b-md shortcut-preview">
+        <div class="p-300">${renderedHTML}</div>
+        <pre><code class="language-html">${encode(content)}</code></pre>
+      </div>
+    `;
+  });
+
   eleventyConfig.addPairedShortcode(
     'baseComponentPreview',
     (children, title, url, queryString = '') => {

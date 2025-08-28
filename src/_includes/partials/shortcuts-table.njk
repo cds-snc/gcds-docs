@@ -1,0 +1,19 @@
+<gcds-heading tag="h2">{{ shortcutstable[locale].heading }}</gcds-heading>
+<div class="mb-300 table-overflow shortcut-table">
+  <table>
+    <thead>
+      <tr>
+        <th>{{ shortcutstable[locale].class }}</th>
+        <th>{{ shortcutstable[locale].style }}</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for shortcut in shortcuts %}
+      <tr>
+        <td><code>{{ shortcut.class }}</code></td>
+        <td>{% assign styles = shortcut.style | split: ";" %}{% for style in styles %}{% if style != "" %}<code>{{ style | strip }};</code>{% endif %}{% endfor %}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
