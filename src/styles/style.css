@@ -265,6 +265,24 @@ ul li ul li {
   color: var(--gcds-focus-text);
 }
 
+.shortcut-table code {
+  display: block;
+  width: fit-content;
+}
+
+.shortcut-preview .language-html {
+  margin: 0 !important;
+  border-radius: 0;
+}
+.shortcut-preview code {
+  display: block;
+  white-space: pre-wrap;
+}
+.shortcut-preview .limited-size {
+  width: 15rem;
+  height: 6rem;
+}
+
 @media (max-width: 64rem) {
   .table-overflow {
     max-width: var(--gcds-container-full);

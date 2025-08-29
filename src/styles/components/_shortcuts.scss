@@ -1,0 +1,21 @@
+.shortcut-table code {
+  display: block;
+  width: fit-content;
+}
+
+.shortcut-preview {
+  .language-html {
+    margin: 0 !important;
+    border-radius: 0;
+  }
+
+  code {
+    display: block;
+    white-space: pre-wrap;
+  }
+
+  .limited-size {
+    width: 15rem;
+    height: 6rem;
+  }
+}
