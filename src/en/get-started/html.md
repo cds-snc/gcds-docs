@@ -125,7 +125,7 @@ The code will remain unchanged until you manually update the version in the CDN 
 
 Check for <gcds-link href="{{ links.releaseNotes }}" external>new GC Design System versions</gcds-link> regularly to update the latest pinned version.
 
-#### b. Use <@latest> version
+#### b. Use `@latest` version
 
 Use the `@latest` tag to pull the most recent version of GC Design System into your project. Put this tag in place of the version number.
 

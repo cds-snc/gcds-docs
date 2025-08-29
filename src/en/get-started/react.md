@@ -27,6 +27,8 @@ The web components inherit native properties and interoperability.
 
 ## React installation instructions
 
+Follow these steps to install and use GC Design System components in your React project.
+
 ### 1. Install the package
 
 Navigate to your project’s root folder and run the following command:
