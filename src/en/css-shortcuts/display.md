@@ -41,87 +41,151 @@ The display class sets the `display` property. It changes how containers are arr
 
 ## Examples
 
-<!-- TODO: Improve examples -->
-
 ### Block<br/>`d-block`
 
-{% shortcutPreview %}
+This element is a block container. It starts on a new line and takes up the whole width.
 
-<p class="d-block">
-  This element is a block container. It starts on a new line and takes up the whole width.
-</p>
+{% shortcutPreview "example-display example-styled-items example-items-with-margin" %}
+
+<div>
+  <p class="d-block">1</p>
+  <p class="d-block">2</p>
+  <p class="d-block">3</p>
+</div>
 {% endshortcutPreview %}
 
 ### Inline<br/>`d-inline`
 
-{% shortcutPreview %}
+This element is an inline container, but height and width properties will be ignored.
 
-<p class="d-inline">
-  This element is an inline container, but height and width properties will be ignored.
-</p>
+{% shortcutPreview "example-display example-styled-items example-items-with-margin" %}
+
+<div>
+  <p class="d-inline" style="width: 10rem">1</p>
+  <p class="d-inline" style="width: 10rem">2</p>
+  <p class="d-inline" style="width: 10rem">3</p>
+</div>
 {% endshortcutPreview %}
 
 ### Inline block<br/>`d-inline-block`
 
-{% shortcutPreview %}
+This element is an inline block and height and width properties can be applied.
 
-<p class="d-inline-block">
-  This element is an inline block and height and width properties can be applied.
-</p>
+{% shortcutPreview "example-display example-styled-items example-items-with-margin" %}
+
+<div>
+  <p class="d-inline-block" style="width: 10rem">1</p>
+  <p class="d-inline-block" style="width: 10rem">2</p>
+  <p class="d-inline-block" style="width: 10rem">3</p>
+</div>
 {% endshortcutPreview %}
 
 ### Flex<br/>`d-flex`
 
-{% shortcutPreview %}
+This element is a block-level flex container.
 
-<p class="d-flex">
-  This element is a block-level flex container.
-</p>
+{% shortcutPreview "example-display example-styled-items" %}
+
+<div class="d-flex gap-300">
+  <p class="flex-1">1</p>
+  <p class="flex-1">2</p>
+  <p class="flex-1">3</p>
+</div>
 {% endshortcutPreview %}
 
 ### Inline flex<br/>`d-inline-flex`
 
-{% shortcutPreview %}
+This element is an inline flex container.
 
-<p class="d-inline-flex">
-  This element is an inline flex container.
-</p>
+{% shortcutPreview "example-display example-styled-items" %}
+
+<div class="d-inline-flex gap-300">
+  <p class="flex-1">1</p>
+  <p class="flex-1">2</p>
+  <p class="flex-1">3</p>
+</div>
 {% endshortcutPreview %}
 
 ### Grid<br/>`d-grid`
 
-{% shortcutPreview %}
+This element is a block-level grid container.
 
-<p class="d-grid">
-  This element is a block-level grid container.
-</p>
+{% shortcutPreview "example-display example-styled-items" %}
+
+<div class="d-grid grid-cols-3 gap-300">
+  <p>1</p>
+  <p>2</p>
+  <p>3</p>
+  <p>4</p>
+  <p>5</p>
+  <p>6</p>
+</div>
 {% endshortcutPreview %}
 
 ### Inline grid<br/>`d-inline-grid`
 
-{% shortcutPreview %}
+This element is an inline grid container.
 
-<p class="d-inline-grid">
-  This element is an inline grid container.
-</p>
+{% shortcutPreview "example-display example-styled-items" %}
+
+<div class="d-inline-grid grid-cols-3 gap-300">
+  <p>1</p>
+  <p>2</p>
+  <p>3</p>
+  <p>4</p>
+  <p>5</p>
+  <p>6</p>
+</div>
 {% endshortcutPreview %}
 
-### Table<br/>`d-table`
+### Table<br/>`d-table`, `d-table-row`, `d-table-cell`
 
-{% shortcutPreview %}
+These elements behaves like their matching HTML table elements. Use semantic HTML tags , like `table`, `tr`, and `td` whenever possible.
 
-<p class="d-table">
-  This element behaves like a table element.
-</p>
+{% shortcutPreview "example-table" %}
+
+<div class="d-table">
+  <div class="d-table-row">
+    <div class="d-table-cell">Cell 1 + longer content</div>
+    <div class="d-table-cell">Cell 2</div>
+    <div class="d-table-cell">Cell 3</div>
+    <div class="d-table-cell">Cell 4</div>
+  </div>
+  <div class="d-table-row">
+    <div class="d-table-cell">Cell 1</div>
+    <div class="d-table-cell">Cell 2</div>
+    <div class="d-table-cell">Cell 3 + longer content</div>
+    <div class="d-table-cell">Cell 4</div>
+  </div>
+</div>
 {% endshortcutPreview %}
 
 ### Inline table<br/>`d-inline-table`
 
-{% shortcutPreview %}
+This element behaves like an inline table element.
 
-<p class="d-inline-table">
-  This element behaves like an inline table element.
-</p>
+{% shortcutPreview "example-table" %}
+
+<div class="d-inline-table">
+  <div class="d-table-row">
+    <div class="d-table-cell">Cell 1 + longer content</div>
+    <div class="d-table-cell">Cell 2</div>
+  </div>
+  <div class="d-table-row">
+    <div class="d-table-cell">Cell 1</div>
+    <div class="d-table-cell">Cell 2 + longer content</div>
+  </div>
+</div>
+<div class="d-inline-table">
+  <div class="d-table-row">
+    <div class="d-table-cell">Cell 1 + longer content</div>
+    <div class="d-table-cell">Cell 2</div>
+  </div>
+  <div class="d-table-row">
+    <div class="d-table-cell">Cell 1</div>
+    <div class="d-table-cell">Cell 2 + longer content</div>
+  </div>
+</div>
 {% endshortcutPreview %}
 
 ### None<br/>`d-none`

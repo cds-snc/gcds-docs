@@ -27,7 +27,7 @@ La classe de dimensionnement de la boîte définit la propriété `box-sizing`. 
 
 ### Bordure <br/>`box-border`
 
-{% shortcutPreview "container-xs p-600 b-lg b-default bg-light mb-0" %}
+{% shortcutPreview "container-xs p-600 b-lg b-default bg-light" %}
 
 <p class="box-border">
   La taille de cet élément comprend le contenu, la bordure et le dégagement intérieur.
@@ -36,7 +36,7 @@ La classe de dimensionnement de la boîte définit la propriété `box-sizing`. 
 
 ### Contenu<br/>`box-content`
 
-{% shortcutPreview "container-xs p-600 b-lg b-default bg-light mb-0" %}
+{% shortcutPreview "container-xs p-600 b-lg b-default bg-light" %}
 
 <p class="box-content">
   La taille de cet élément comprend le contenu seulement.

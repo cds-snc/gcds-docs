@@ -43,9 +43,9 @@ La classe overflow définit la propriété `overflow`. Elle détermine la façon
 
 {% shortcutPreview "bg-light b-md b-default mb-900 p-150 limited-size" %}
 
-<p class="overflow-visible">
+<div class="overflow-visible">
   Le contenu qui dépasse les limites de cet élément déborde horizontalement et verticalement.
-</p>
+</div>
 {% endshortcutPreview %}
 
 ### Visible à l’horizontale (x)<br/>`overflow-x-visible`
@@ -54,7 +54,7 @@ La classe overflow définit la propriété `overflow`. Elle détermine la façon
 
 <div class="overflow-x-visible" style="width: 250px;">
   <p style="width: 500px;">
-    Le contenu qui dépasse les limites de cet élément déborde horizontalement.
+     Le contenu qui dépasse les limites de cet élément déborde horizontalement.
   </p>
 </div>
 {% endshortcutPreview %}
@@ -63,14 +63,14 @@ La classe overflow définit la propriété `overflow`. Elle détermine la façon
 
 {% shortcutPreview "bg-light b-md b-default mb-600 p-150 limited-size" %}
 
-<p class="overflow-y-visible">
+<div class="overflow-y-visible">
   Le contenu qui dépasse les limites de cet élément déborde verticalement.
-</p>
+</div>
 {% endshortcutPreview %}
 
 ### Masqué <br/>`overflow-hidden`
 
-{% shortcutPreview "bg-light b-md b-default mb-0 p-150 limited-size" %}
+{% shortcutPreview "bg-light b-md b-default p-150 limited-size" %}
 
 <p class="overflow-hidden">
   Le contenu qui dépasse les limites de cet élément est invisible, mais est toujours lisible par les lecteurs d’écran.
@@ -90,7 +90,7 @@ La classe overflow définit la propriété `overflow`. Elle détermine la façon
 
 ### Masqué à la verticale (y)<br/>`overflow-y-hidden`
 
-{% shortcutPreview "bg-light b-md b-default mb-0 p-150 limited-size" %}
+{% shortcutPreview "bg-light b-md b-default p-150 limited-size" %}
 
 <p class="overflow-y-hidden">
   Le contenu qui dépasse la limite supérieure ou inférieure de cet élément est invisible, mais il est toujours lisible par les lecteurs d’écran.
@@ -99,7 +99,7 @@ La classe overflow définit la propriété `overflow`. Elle détermine la façon
 
 ### Défilement <br/>`overflow-scroll`
 
-{% shortcutPreview "bg-light b-md b-default mb-0 p-150 limited-size" %}
+{% shortcutPreview "bg-light b-md b-default p-150 limited-size" %}
 
 <p class="overflow-scroll">
   Le contenu qui dépasse les limites de cet élément est accessible au moyen de barres de défilement verticale et horizontale.
@@ -119,7 +119,7 @@ La classe overflow définit la propriété `overflow`. Elle détermine la façon
 
 ### Défilement à la verticale (y)<br/>`overflow-y-scroll`
 
-{% shortcutPreview "bg-light b-md b-default mb-0 p-150 limited-size" %}
+{% shortcutPreview "bg-light b-md b-default p-150 limited-size" %}
 
 <p class="overflow-y-scroll">
   Le contenu qui dépasse les limites de cet élément est accessible au moyen d’une barre de défilement verticale.

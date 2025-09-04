@@ -27,7 +27,7 @@ The box sizing class sets the `box-sizing` property. It specifies if the height 
 
 ### Border<br/>`box-border`
 
-{% shortcutPreview "container-xs p-600 b-lg b-default bg-light mb-0" %}
+{% shortcutPreview "container-xs p-600 b-lg b-default bg-light" %}
 
 <p class="box-border">
   The size of this element includes the content, border, and padding.
@@ -36,7 +36,7 @@ The box sizing class sets the `box-sizing` property. It specifies if the height 
 
 ### Content<br/>`box-content`
 
-{% shortcutPreview "container-xs p-600 b-lg b-default bg-light mb-0" %}
+{% shortcutPreview "container-xs p-600 b-lg b-default bg-light" %}
 
 <p class="box-content">
   The size of this element includes the content only.

@@ -35,7 +35,7 @@ The position class sets the `position` property. It determines how the element i
 
 ### Static<br/>`position-static`
 
-{% shortcutPreview "mb-0" %}
+{% shortcutPreview %}
 
 <p class="position-static">
   This element displays a static position where it exists in the normal document flow.
@@ -44,7 +44,7 @@ The position class sets the `position` property. It determines how the element i
 
 ### Absolute<br/>`position-absolute`
 
-{% shortcutPreview "mb-0" %}
+{% shortcutPreview %}
 
 <p class="position-absolute">
   This element is removed from the normal document flow and displays relative to its nearest positioned ancestor or the page itself.
@@ -53,7 +53,7 @@ The position class sets the `position` property. It determines how the element i
 
 ### Fixed<br/>`position-fixed`
 
-{% shortcutPreview "mb-0" %}
+{% shortcutPreview %}
 
 <p class="position-fixed">
   This element displays relative to the viewport and stays fixed in place when the page is scrolled.
@@ -62,7 +62,7 @@ The position class sets the `position` property. It determines how the element i
 
 ### Relative<br/>`position-relative`
 
-{% shortcutPreview "mb-0" %}
+{% shortcutPreview %}
 
 <p class="position-relative">
   This element is offset relative to its normal position using top, right, bottom, or left.
@@ -71,7 +71,7 @@ The position class sets the `position` property. It determines how the element i
 
 ### Sticky<br/>`position-sticky`
 
-{% shortcutPreview "mb-0" %}
+{% shortcutPreview %}
 
 <p class="position-sticky">
   This element scrolls with the page until a specified offset is reached, then sticks in place within its containing block.
