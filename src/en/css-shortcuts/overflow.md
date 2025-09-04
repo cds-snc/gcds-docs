@@ -1,5 +1,5 @@
 ---
-title: CSS Shortcuts - Overflow
+title: Overflow - CSS Shortcuts
 layout: 'layouts/base.njk'
 eleventyNavigation:
   key: shortcutsOverflowEN
