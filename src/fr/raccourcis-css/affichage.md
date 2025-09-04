@@ -1,5 +1,5 @@
 ---
-title: Raccourcis CSS - Affichage
+title: Affichage - Raccourcis CSS
 layout: 'layouts/base.njk'
 eleventyNavigation:
   key: shortcutsDisplayFR

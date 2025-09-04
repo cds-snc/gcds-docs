@@ -1,5 +1,5 @@
 ---
-title: Raccourcis CSS - Dimensionnement de la boîte
+title: Dimensionnement de la boîte - Raccourcis CSS
 layout: 'layouts/base.njk'
 eleventyNavigation:
   key: shortcutsBoxSizingFR
