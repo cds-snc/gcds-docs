@@ -37,12 +37,12 @@ shortcuts:
   - class: 'gcds-icon-search'
     style: 'content: "\e907";'
 translationKey: 'shortcutsIcon'
-# date: 'git Last Modified'
+date: 'git Last Modified'
 ---
 
 # Icône
 
-La classe icône définit la propriété `content` et d’autres styles de base d’icône tels que la famille de polices d’icônes, le style et l’épaisseur. Elle détermine l’icône <gcds-link href="{{ links.icon }}">gcds-icon</gcds-link> à afficher.
+La classe icône définit la propriété `content` et d'autres styles de base d'icône tels que la famille de polices d'icônes, le style et l'épaisseur. Elle détermine l'icône <gcds-link href="{{ links.icon }}">gcds-icon</gcds-link> à afficher.
 
 {% include "partials/shortcuts-table.njk" %}
 
@@ -53,7 +53,7 @@ La classe icône définit la propriété `content` et d’autres styles de base 
 {% shortcutPreview %}
 
 <p>
-  <span class="gcds-icon-info-circle"></span> Cet élément a une icône de cercle d’information.
+  <span class="gcds-icon-info-circle"></span> Cet élément a une icône de cercle d'information.
 </p>
 {% endshortcutPreview %}
 
@@ -62,7 +62,7 @@ La classe icône définit la propriété `content` et d’autres styles de base 
 {% shortcutPreview %}
 
 <p>
-  <span class="gcds-icon-warning-triangle"></span> Cet élément a une icône de triangle d’avertissement.
+  <span class="gcds-icon-warning-triangle"></span> Cet élément a une icône de triangle d'avertissement.
 </p>
 {% endshortcutPreview %}
 
@@ -71,7 +71,7 @@ La classe icône définit la propriété `content` et d’autres styles de base 
 {% shortcutPreview %}
 
 <p>
-  <span class="gcds-icon-exclamation-circle"></span> Cet élément a une icône de cercle d’exclamation.
+  <span class="gcds-icon-exclamation-circle"></span> Cet élément a une icône de cercle d'exclamation.
 </p>
 {% endshortcutPreview %}
 
