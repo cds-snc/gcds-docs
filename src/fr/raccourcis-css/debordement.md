@@ -99,29 +99,29 @@ La classe overflow définit la propriété `overflow`. Elle détermine la façon
 
 ### Défilement <br/>`overflow-scroll`
 
-{% shortcutPreview "bg-light b-md b-default p-150 limited-size" %}
+{% shortcutPreview "d-block bg-light b-md b-default p-150 limited-size" %}
 
-<p class="overflow-scroll">
+<a href="#" class="overflow-scroll">
   Le contenu qui dépasse les limites de cet élément est accessible au moyen de barres de défilement verticale et horizontale.
-</p>
+</a>
 {% endshortcutPreview %}
 
 ### Défilement à l’horizontale (x)<br/>`overflow-x-scroll`
 
-{% shortcutPreview "bg-light b-md b-default p-150" %}
+{% shortcutPreview "d-block bg-light b-md b-default p-150" %}
 
-<div class="overflow-x-scroll" style="width: 250px;">
+<a href="#"  class="overflow-x-scroll" style="width: 250px;">
   <p style="width: 500px;">
     Le contenu qui dépasse les limites de cet élément est accessible au moyen d’une barre de défilement horizontale.
   </p>
-</div>
+</a>
 {% endshortcutPreview %}
 
 ### Défilement à la verticale (y)<br/>`overflow-y-scroll`
 
-{% shortcutPreview "bg-light b-md b-default p-150 limited-size" %}
+{% shortcutPreview "d-block bg-light b-md b-default p-150 limited-size" %}
 
-<p class="overflow-y-scroll">
+<a href="#" class="overflow-y-scroll">
   Le contenu qui dépasse les limites de cet élément est accessible au moyen d’une barre de défilement verticale.
-</p>
+</a>
 {% endshortcutPreview %}
