@@ -13,19 +13,18 @@ shortcuts:
   - class: 'visibility-visible'
     style: 'visibility: visible;'
   - class: 'visibility-sr-only'
-    style: 'display: block;
+    style: |
+      display: block;
       width: 0;
       height: 0;
       margin: 0;
-      overflow: hidden;'
+      overflow: hidden;
 permalink: /en/css-shortcuts/visibility
 translationKey: 'shortcutsVisibility'
 date: 'git Last Modified'
 ---
 
 # Visibility
-
-<!-- TODO: Improve examples -->
 
 The visibility class sets the `visibility` property. It displays or hides an element without affecting the layout or flow of the document.
 
@@ -35,27 +34,39 @@ The visibility class sets the `visibility` property. It displays or hides an ele
 
 ### Hidden<br/>`visibility-hidden`
 
-{% shortcutPreview %}
+This element is hidden. It can’t receive focus but maintains its position in the document affecting the layout of other elements.
 
-<p class="visibility-hidden">
-  This element is hidden. It can’t receive focus but maintains its position in the document affecting the layout of other elements.
-</p>
+{% shortcutPreview "example-visibility example-styled-items" %}
+
+<div class="d-flex gap-300">
+  <p>1</p>
+  <p class="visibility-hidden">2</p>
+  <p>3</p>
+</div>
 {% endshortcutPreview %}
 
 ### Visible<br/>`visibility-visible`
 
-{% shortcutPreview %}
+This element is visible. It can apply to elements hidden at different screen sizes.
 
-<p class="visibility-visible">
-  This element is visible. It can apply to elements hidden at different screen sizes.
-</p>
+{% shortcutPreview "example-visibility example-styled-items" %}
+
+<div class="d-flex gap-300">
+  <p>1</p>
+  <p class="visibility-visible">2</p>
+  <p>3</p>
+</div>
 {% endshortcutPreview %}
 
 ### Screenreader-only<br/>`visibility-sr-only`
 
-{% shortcutPreview %}
+This element is only visible to assistive technologies.
 
-<p class="visibility-sr-only">
-  This element is only visible to assistive technologies.
-</p>
+{% shortcutPreview "example-visibility example-styled-items" %}
+
+<div class="d-flex gap-300">
+  <p>1</p>
+  <p class="visibility-sr-only">2</p>
+  <p>3</p>
+</div>
 {% endshortcutPreview %}
