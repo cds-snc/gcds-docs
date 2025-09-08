@@ -47,7 +47,7 @@ La classe couleur de lien définit la propriété `color`. Elle détermine la co
 {% shortcutPreview %}
 
 <a href="#" class="link-hover">
-  Ce lien utilise la couleur de lien pointé.
+  Ce lien utilise la couleur de lien pointé en état de survol.
 </a>
 {% endshortcutPreview %}
 

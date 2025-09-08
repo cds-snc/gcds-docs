@@ -32,7 +32,7 @@ La classe saut de mot définit la propriété `word-break`. Elle détermine la f
 {% shortcutPreview "container-xs b-sm b-default p-550" %}
 
 <p class="break-normal">
-  Ce texte se divise uniquement aux points de rupture naturels, comme les espaces et les traits d'union. S'il n'y a pas de point de rupture naturel, les mots longs peuvent déborder de la boîte.
+  Voici des exemples de mots longs : hippopotomonstrosesquipédaliophobie et Sainte-Madeleine-de-la-Rivière-Madeleine. Ce texte se divise uniquement aux points de rupture naturels, comme les espaces et les traits d'union. S'il n'y a pas de point de rupture naturel, les mots longs peuvent déborder de la boîte
 </p>
 {% endshortcutPreview %}
 
@@ -41,7 +41,7 @@ La classe saut de mot définit la propriété `word-break`. Elle détermine la f
 {% shortcutPreview "container-xs b-sm b-default p-550" %}
 
 <p class="break-word">
-  Ce texte divise les mots longs au besoin pour éviter le débordement. S'il n'existe pas de point de rupture naturel (espace ou tiret), les mots sont divisés à la limite de la boîte.
+  Voici des exemples de mots longs : hippopotomonstrosesquipédaliophobie et Sainte-Madeleine-de-la-Rivière-Madeleine. Ce texte divise les mots longs au besoin pour éviter le débordement. S'il n'existe pas de point de rupture naturel (espace ou tiret), les mots sont divisés à la limite de la boîte.
 </p>
 {% endshortcutPreview %}
 
@@ -50,6 +50,6 @@ La classe saut de mot définit la propriété `word-break`. Elle détermine la f
 {% shortcutPreview "container-xs b-sm b-default p-550" %}
 
 <p class="break-all">
-  Ce texte se divise à tout point, même au milieu d'un mot.
+  Voici des exemples de mots longs : hippopotomonstrosesquipédaliophobie et Sainte-Madeleine-de-la-Rivière-Madeleine. Ce texte se divise à tout point, même au milieu d'un mot.
 </p>
 {% endshortcutPreview %}
