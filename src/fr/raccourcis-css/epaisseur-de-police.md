@@ -1,9 +1,9 @@
 ---
-title: Épaisseur de police - Raccourcis CSS
+title: Épaisseur de police
 layout: 'layouts/base.njk'
 eleventyNavigation:
   key: shortcutsFontWeightFR
-  title: Raccourcis CSS - Épaisseur de police
+  title: Épaisseur de police
   locale: fr
   parent: shortcutsFR
   order: 1
@@ -18,7 +18,6 @@ shortcuts:
     style: 'font-weight: var(--gcds-font-weights-semibold);'
   - class: 'font-bold'
     style: 'font-weight: var(--gcds-font-weights-bold);'
-permalink: /fr/raccourcis-css/epaisseur-de-police
 translationKey: 'shortcutsFontWeight'
 date: 'git Last Modified'
 ---

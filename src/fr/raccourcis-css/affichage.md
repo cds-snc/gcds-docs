@@ -1,9 +1,9 @@
 ---
-title: Raccourcis CSS - Affichage
+title: Affichage
 layout: 'layouts/base.njk'
 eleventyNavigation:
   key: shortcutsDisplayFR
-  title: Raccourcis CSS - Affichage
+  title: Affichage
   locale: fr
   parent: shortcutsFR
   order: 1
@@ -28,7 +28,6 @@ shortcuts:
     style: 'display: inline-table;'
   - class: 'd-none'
     style: 'display: none;'
-permalink: /fr/raccourcis-css/affichage
 translationKey: 'shortcutsDisplay'
 date: 'git Last Modified'
 ---

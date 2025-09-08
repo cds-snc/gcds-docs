@@ -1,9 +1,9 @@
 ---
-title: Text overflow - CSS Shortcuts
+title: Text overflow
 layout: 'layouts/base.njk'
 eleventyNavigation:
   key: shortcutsTextOverflowEN
-  title: CSS Shortcuts - Text overflow
+  title: Text overflow
   locale: en
   parent: shortcutsEN
   order: 1
@@ -15,7 +15,6 @@ shortcuts:
       overflow: hidden;
       text-overflow: ellipsis;
       white-space: nowrap;
-permalink: /en/css-shortcuts/text-overflow
 translationKey: 'shortcutsTextOverflow'
 date: 'git Last Modified'
 ---

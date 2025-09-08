@@ -1,9 +1,9 @@
 ---
-title: Link size - CSS Shortcuts
+title: Link size
 layout: 'layouts/base.njk'
 eleventyNavigation:
   key: shortcutsLinkSizeEN
-  title: CSS Shortcuts - Link size
+  title: Link size
   locale: en
   parent: shortcutsEN
   order: 1
@@ -29,7 +29,6 @@ shortcuts:
       @media only screen and (width < 48em) {
         font: inherit;
       }
-permalink: /en/css-shortcuts/link-size
 translationKey: 'shortcutsLinkSize'
 date: 'git Last Modified'
 ---

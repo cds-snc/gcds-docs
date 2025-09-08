@@ -1,9 +1,9 @@
 ---
-title: Taille de police - Raccourcis CSS
+title: Taille de police
 layout: 'layouts/base.njk'
 eleventyNavigation:
   key: shortcutsFontSizeFR
-  title: Raccourcis CSS - Taille de police
+  title: Taille de police
   locale: fr
   parent: shortcutsFR
   order: 1
@@ -64,7 +64,6 @@ shortcuts:
       @media only screen and (width < 48em) {
         font-size: var(--gcds-font-sizes-text-small-mobile);
       }
-permalink: /fr/raccourcis-css/taille-de-police
 translationKey: 'shortcutsFontSize'
 date: 'git Last Modified'
 ---

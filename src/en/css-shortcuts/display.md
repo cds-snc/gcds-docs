@@ -1,9 +1,9 @@
 ---
-title: CSS Shortcuts - Display
+title: Display
 layout: 'layouts/base.njk'
 eleventyNavigation:
   key: shortcutsDisplayEN
-  title: CSS Shortcuts - Display
+  title: Display
   locale: en
   parent: shortcutsEN
   order: 1
@@ -28,7 +28,6 @@ shortcuts:
     style: 'display: inline-table;'
   - class: 'd-none'
     style: 'display: none;'
-permalink: /en/css-shortcuts/display
 translationKey: 'shortcutsDisplay'
 date: 'git Last Modified'
 ---

@@ -1,9 +1,9 @@
 ---
-title: Font family - CSS Shortcuts
+title: Font family
 layout: 'layouts/base.njk'
 eleventyNavigation:
   key: shortcutsFontFamilyEN
-  title: CSS Shortcuts - Font family
+  title: Font family
   locale: en
   parent: shortcutsEN
   order: 1
@@ -14,7 +14,6 @@ shortcuts:
     style: 'font-family: var(--gcds-font-families-body);'
   - class: 'font-family-monospace'
     style: 'font-family: var(--gcds-font-families-monospace);'
-permalink: /en/css-shortcuts/font-family
 translationKey: 'shortcutsFontFamily'
 date: 'git Last Modified'
 ---

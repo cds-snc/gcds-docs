@@ -1,9 +1,9 @@
 ---
-title: Word break - CSS Shortcuts
+title: Word break
 layout: 'layouts/base.njk'
 eleventyNavigation:
   key: shortcutsWordBreakEN
-  title: CSS Shortcuts - Word break
+  title: Word break
   locale: en
   parent: shortcutsEN
   order: 1
@@ -14,7 +14,6 @@ shortcuts:
     style: 'word-break: break-word;'
   - class: 'break-all'
     style: 'word-break: break-all;'
-permalink: /en/css-shortcuts/word-break
 translationKey: 'shortcutsWordBreak'
 date: 'git Last Modified'
 ---

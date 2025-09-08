@@ -1,9 +1,9 @@
 ---
-title: Style de police - Raccourcis CSS
+title: Style de police
 layout: 'layouts/base.njk'
 eleventyNavigation:
   key: shortcutsFontStyleFR
-  title: Raccourcis CSS - Style de police
+  title: Style de police
   locale: fr
   parent: shortcutsFR
   order: 1
@@ -12,7 +12,6 @@ shortcuts:
     style: 'font-style: normal;'
   - class: 'font-italic'
     style: 'font-style: italic;'
-permalink: /fr/raccourcis-css/style-de-police
 translationKey: 'shortcutsFontStyle'
 date: 'git Last Modified'
 ---

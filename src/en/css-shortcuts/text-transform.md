@@ -1,9 +1,9 @@
 ---
-title: Text transform - CSS Shortcuts
+title: Text transform
 layout: 'layouts/base.njk'
 eleventyNavigation:
   key: shortcutsTextTransformEN
-  title: CSS Shortcuts - Text transform
+  title: Text transform
   locale: en
   parent: shortcutsEN
   order: 1
@@ -16,7 +16,6 @@ shortcuts:
     style: 'text-transform: uppercase;'
   - class: 'text-none'
     style: 'text-transform: none;'
-permalink: /en/css-shortcuts/text-transform
 translationKey: 'shortcutsTextTransform'
 date: 'git Last Modified'
 ---

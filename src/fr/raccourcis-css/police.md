@@ -1,9 +1,9 @@
 ---
-title: Police - Raccourcis CSS
+title: Police
 layout: 'layouts/base.njk'
 eleventyNavigation:
   key: shortcutsFontFR
-  title: Raccourcis CSS - Police
+  title: Police
   locale: fr
   parent: shortcutsFR
   order: 1
@@ -64,7 +64,6 @@ shortcuts:
       @media only screen and (width < 48em) {
         font: var(--gcds-font-text-small-mobile);
       }
-permalink: /fr/raccourcis-css/police
 translationKey: 'shortcutsFont'
 date: 'git Last Modified'
 ---

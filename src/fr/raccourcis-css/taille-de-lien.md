@@ -1,9 +1,9 @@
 ---
-title: Taille de lien - Raccourcis CSS
+title: Taille de lien
 layout: 'layouts/base.njk'
 eleventyNavigation:
   key: shortcutsLinkSizeFR
-  title: Raccourcis CSS - Taille de lien
+  title: Taille de lien
   locale: fr
   parent: shortcutsFR
   order: 1
@@ -29,7 +29,6 @@ shortcuts:
       @media only screen and (width < 48em) {
         font: inherit;
       }
-permalink: /fr/raccourcis-css/taille-de-lien
 translationKey: 'shortcutsLinkSize'
 date: 'git Last Modified'
 ---

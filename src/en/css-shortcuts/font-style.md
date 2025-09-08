@@ -1,9 +1,9 @@
 ---
-title: Font style - CSS Shortcuts
+title: Font style
 layout: 'layouts/base.njk'
 eleventyNavigation:
   key: shortcutsFontStyleEN
-  title: CSS Shortcuts - Font style
+  title: Font style
   locale: en
   parent: shortcutsEN
   order: 1
@@ -12,7 +12,6 @@ shortcuts:
     style: 'font-style: normal;'
   - class: 'font-italic'
     style: 'font-style: italic;'
-permalink: /en/css-shortcuts/font-style
 translationKey: 'shortcutsFontStyle'
 date: 'git Last Modified'
 ---

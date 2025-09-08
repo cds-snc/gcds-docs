@@ -1,9 +1,9 @@
 ---
-title: Font - CSS Shortcuts
+title: Font
 layout: 'layouts/base.njk'
 eleventyNavigation:
   key: shortcutsFontEN
-  title: CSS Shortcuts - Font
+  title: Font
   locale: en
   parent: shortcutsEN
   order: 1
@@ -64,7 +64,6 @@ shortcuts:
       @media only screen and (width < 48em) {
         font: var(--gcds-font-text-small-mobile);
       }
-permalink: /en/css-shortcuts/font
 translationKey: 'shortcutsFont'
 date: 'git Last Modified'
 ---

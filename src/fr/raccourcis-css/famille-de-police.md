@@ -1,9 +1,9 @@
 ---
-title: Famille de police - Raccourcis CSS
+title: Famille de police
 layout: 'layouts/base.njk'
 eleventyNavigation:
   key: shortcutsFontFamilyFR
-  title: Raccourcis CSS - Famille de police
+  title: Famille de police
   locale: fr
   parent: shortcutsFR
   order: 1
@@ -14,7 +14,6 @@ shortcuts:
     style: 'font-family: var(--gcds-font-families-body);'
   - class: 'font-family-monospace'
     style: 'font-family: var(--gcds-font-families-monospace);'
-permalink: /fr/raccourcis-css/famille-de-police
 translationKey: 'shortcutsFontFamily'
 date: 'git Last Modified'
 ---

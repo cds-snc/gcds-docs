@@ -1,9 +1,9 @@
 ---
-title: Font weight - CSS Shortcuts
+title: Font weight
 layout: 'layouts/base.njk'
 eleventyNavigation:
   key: shortcutsFontWeightEN
-  title: CSS Shortcuts - Font weight
+  title: Font weight
   locale: en
   parent: shortcutsEN
   order: 1
@@ -18,7 +18,6 @@ shortcuts:
     style: 'font-weight: var(--gcds-font-weights-semibold);'
   - class: 'font-bold'
     style: 'font-weight: var(--gcds-font-weights-bold);'
-permalink: /en/css-shortcuts/font-weight
 translationKey: 'shortcutsFontWeight'
 date: 'git Last Modified'
 ---

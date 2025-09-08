@@ -1,9 +1,9 @@
 ---
-title: CSS Shortcuts - Position
+title: Position
 layout: 'layouts/base.njk'
 eleventyNavigation:
   key: shortcutsPositionEN
-  title: CSS Shortcuts - Position
+  title: Position
   locale: en
   parent: shortcutsEN
   order: 1
@@ -18,7 +18,6 @@ shortcuts:
     style: 'position: relative;'
   - class: 'position-sticky'
     style: 'position: sticky;'
-permalink: /en/css-shortcuts/position
 translationKey: 'shortcutsPosition'
 date: 'git Last Modified'
 ---

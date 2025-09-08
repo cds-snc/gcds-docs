@@ -1,9 +1,9 @@
 ---
-title: Font size - CSS Shortcuts
+title: Font size
 layout: 'layouts/base.njk'
 eleventyNavigation:
   key: shortcutsFontSizeEN
-  title: CSS Shortcuts - Font size
+  title: Font size
   locale: en
   parent: shortcutsEN
   order: 1
@@ -64,7 +64,6 @@ shortcuts:
       @media only screen and (width < 48em) {
         font-size: var(--gcds-font-sizes-text-small-mobile);
       }
-permalink: /en/css-shortcuts/font-size
 translationKey: 'shortcutsFontSize'
 date: 'git Last Modified'
 ---

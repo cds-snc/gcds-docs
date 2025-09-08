@@ -1,9 +1,9 @@
 ---
-title: Alignement de texte - Raccourcis CSS
+title: Alignement de texte
 layout: 'layouts/base.njk'
 eleventyNavigation:
   key: shortcutsTextAlignFR
-  title: Raccourcis CSS - Alignement de texte
+  title: Alignement de texte
   locale: fr
   parent: shortcutsFR
   order: 1
@@ -16,7 +16,6 @@ shortcuts:
     style: 'text-align: left;'
   - class: 'text-right'
     style: 'text-align: right;'
-permalink: /fr/raccourcis-css/alignement-de-texte
 translationKey: 'shortcutsTextAlign'
 date: 'git Last Modified'
 ---

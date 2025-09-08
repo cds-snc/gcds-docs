@@ -1,9 +1,9 @@
 ---
-title: Link text decoration - CSS Shortcuts
+title: Link text decoration
 layout: 'layouts/base.njk'
 eleventyNavigation:
   key: shortcutsLinkDecorationEN
-  title: CSS Shortcuts - Link text decoration
+  title: Link text decoration
   locale: en
   parent: shortcutsEN
   order: 1
@@ -14,7 +14,6 @@ shortcuts:
       text-underline-position: under;
   - class: 'link-no-underline'
     style: 'text-decoration: none;'
-permalink: /en/css-shortcuts/link-text-decoration
 translationKey: 'shortcutsLinkDecoration'
 date: 'git Last Modified'
 ---

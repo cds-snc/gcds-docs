@@ -1,9 +1,9 @@
 ---
-title: Text align - CSS Shortcuts
+title: Text align
 layout: 'layouts/base.njk'
 eleventyNavigation:
   key: shortcutsTextAlignEN
-  title: CSS Shortcuts - Text align
+  title: Text align
   locale: en
   parent: shortcutsEN
   order: 1
@@ -16,7 +16,6 @@ shortcuts:
     style: 'text-align: left;'
   - class: 'text-right'
     style: 'text-align: right;'
-permalink: /en/css-shortcuts/text-align
 translationKey: 'shortcutsTextAlign'
 date: 'git Last Modified'
 ---

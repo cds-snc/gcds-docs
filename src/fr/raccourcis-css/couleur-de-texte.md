@@ -1,9 +1,9 @@
 ---
-title: Couleur de texte - Raccourcis CSS
+title: Couleur de texte
 layout: 'layouts/base.njk'
 eleventyNavigation:
   key: shortcutsTextColourFR
-  title: Raccourcis CSS - Couleur de texte
+  title: Couleur de texte
   locale: fr
   parent: shortcutsFR
   order: 1
@@ -18,7 +18,6 @@ shortcuts:
     style: 'color: var(--gcds-text-light);'
   - class: 'text-transparent'
     style: 'color: transparent;'
-permalink: /fr/raccourcis-css/couleur-de-texte
 translationKey: 'shortcutsTextColour'
 date: 'git Last Modified'
 ---

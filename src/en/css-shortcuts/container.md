@@ -1,9 +1,9 @@
 ---
-title: CSS Shortcuts - Container
+title: Container
 layout: 'layouts/base.njk'
 eleventyNavigation:
   key: shortcutsContainerEN
-  title: CSS Shortcuts - Container
+  title: Container
   locale: en
   parent: shortcutsEN
   order: 1
@@ -20,7 +20,6 @@ shortcuts:
     style: 'max-width: 71.25rem'
   - class: 'container-full'
     style: 'max-width: 100%'
-permalink: /en/css-shortcuts/container
 translationKey: 'shortcutsContainer'
 date: 'git Last Modified'
 ---

@@ -1,9 +1,9 @@
 ---
-title: Link colour - CSS Shortcuts
+title: Link colour
 layout: 'layouts/base.njk'
 eleventyNavigation:
   key: shortcutsLinkColourEN
-  title: CSS Shortcuts - Link colour
+  title: Link colour
   locale: en
   parent: shortcutsEN
   order: 1
@@ -16,7 +16,6 @@ shortcuts:
     style: 'color: var(--gcds-link-inherit);'
   - class: 'link-light'
     style: 'color: var(--gcds-link-light);'
-permalink: /en/css-shortcuts/link-colour
 translationKey: 'shortcutsLinkColour'
 date: 'git Last Modified'
 ---

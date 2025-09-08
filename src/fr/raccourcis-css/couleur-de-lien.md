@@ -1,9 +1,9 @@
 ---
-title: Couleur de lien - Raccourcis CSS
+title: Couleur de lien
 layout: 'layouts/base.njk'
 eleventyNavigation:
   key: shortcutsLinkColourFR
-  title: Raccourcis CSS - Couleur de lien
+  title: Couleur de lien
   locale: fr
   parent: shortcutsFR
   order: 1
@@ -16,7 +16,6 @@ shortcuts:
     style: 'color: var(--gcds-link-inherit);'
   - class: 'link-light'
     style: 'color: var(--gcds-link-light);'
-permalink: /fr/raccourcis-css/couleur-de-lien
 translationKey: 'shortcutsLinkColour'
 date: 'git Last Modified'
 ---
@@ -47,7 +46,7 @@ La classe couleur de lien définit la propriété `color`. Elle détermine la co
 {% shortcutPreview %}
 
 <a href="#" class="link-hover">
-  Ce lien utilise la couleur de lien pointé.
+  Ce lien utilise la couleur de lien pointé en état de survol.
 </a>
 {% endshortcutPreview %}
 

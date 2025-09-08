@@ -1,9 +1,9 @@
 ---
-title: CSS Shortcuts - Overflow
+title: Overflow
 layout: 'layouts/base.njk'
 eleventyNavigation:
   key: shortcutsOverflowEN
-  title: CSS Shortcuts - Overflow
+  title: Overflow
   locale: en
   parent: shortcutsEN
   order: 1
@@ -26,7 +26,6 @@ shortcuts:
     style: 'overflow-x: scroll;'
   - class: 'overflow-y-scroll'
     style: 'overflow-y: scroll;'
-permalink: /en/css-shortcuts/overflow
 translationKey: 'shortcutsOverflow'
 date: 'git Last Modified'
 ---

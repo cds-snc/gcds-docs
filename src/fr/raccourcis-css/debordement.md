@@ -1,9 +1,9 @@
 ---
-title: Raccourcis CSS - Débordement
+title: Débordement
 layout: 'layouts/base.njk'
 eleventyNavigation:
   key: shortcutsOverflowFR
-  title: Raccourcis CSS - Débordement
+  title: Débordement
   locale: fr
   parent: shortcutsFR
   order: 1
@@ -26,7 +26,6 @@ shortcuts:
     style: 'overflow-x: scroll;'
   - class: 'overflow-y-scroll'
     style: 'overflow-y: scroll;'
-permalink: /fr/raccourcis-css/debordement
 translationKey: 'shortcutsOverflow'
 date: 'git Last Modified'
 ---
