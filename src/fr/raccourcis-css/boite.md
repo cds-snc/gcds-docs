@@ -1,9 +1,9 @@
 ---
-title: Boîte - Raccourcis CSS
+title: Boîte
 layout: 'layouts/base.njk'
 eleventyNavigation:
   key: shortcutsContainerFR
-  title: Raccourcis CSS - Boîte
+  title: Boîte
   locale: fr
   parent: shortcutsFR
   order: 1
@@ -20,7 +20,6 @@ shortcuts:
     style: 'max-width: 71.25rem'
   - class: 'container-full'
     style: 'max-width: 100%'
-permalink: /fr/raccourcis-css/boite
 translationKey: 'shortcutsContainer'
 date: 'git Last Modified'
 ---

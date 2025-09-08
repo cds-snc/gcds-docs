@@ -1,9 +1,9 @@
 ---
-title: Overflow - CSS Shortcuts
+title: Overflow
 layout: 'layouts/base.njk'
 eleventyNavigation:
   key: shortcutsOverflowEN
-  title: CSS Shortcuts - Overflow
+  title: Overflow
   locale: en
   parent: shortcutsEN
   order: 1
@@ -26,7 +26,6 @@ shortcuts:
     style: 'overflow-x: scroll;'
   - class: 'overflow-y-scroll'
     style: 'overflow-y: scroll;'
-permalink: /en/css-shortcuts/overflow
 translationKey: 'shortcutsOverflow'
 date: 'git Last Modified'
 ---
@@ -43,9 +42,9 @@ The overflow class sets the `overflow` property. It controls how content is hand
 
 {% shortcutPreview "bg-light b-md b-default mb-600 p-150 limited-size" %}
 
-<p class="overflow-visible">
+<div class="overflow-visible">
   Content that doesn’t fit in this element overflows horizontally and vertically.
-</p>
+</div>
 {% endshortcutPreview %}
 
 ### Visible horizontal (x)<br/>`overflow-x-visible`
@@ -63,14 +62,14 @@ The overflow class sets the `overflow` property. It controls how content is hand
 
 {% shortcutPreview "bg-light b-md b-default mb-300 p-150 limited-size" %}
 
-<p class="overflow-y-visible">
+<div class="overflow-y-visible">
   Content that doesn’t fit in this element overflows vertically.
-</p>
+</div>
 {% endshortcutPreview %}
 
 ### Hidden<br/>`overflow-hidden`
 
-{% shortcutPreview "bg-light b-md b-default mb-0 p-150 limited-size" %}
+{% shortcutPreview "bg-light b-md b-default p-150 limited-size" %}
 
 <p class="overflow-hidden">
   Content that doesn’t fit in this element is invisible, but still exists for screenreaders.
@@ -90,7 +89,7 @@ The overflow class sets the `overflow` property. It controls how content is hand
 
 ### Hidden vertical (y)<br/>`overflow-y-hidden`
 
-{% shortcutPreview "bg-light b-md b-default mb-0 p-150 limited-size" %}
+{% shortcutPreview "bg-light b-md b-default p-150 limited-size" %}
 
 <p class="overflow-y-hidden">
   Content that doesn’t fit above or below this element is invisible, but still exists for screenreaders.
@@ -99,29 +98,29 @@ The overflow class sets the `overflow` property. It controls how content is hand
 
 ### Scroll<br/>`overflow-scroll`
 
-{% shortcutPreview "bg-light b-md b-default mb-0 p-150 limited-size" %}
+{% shortcutPreview "d-block bg-light b-md b-default p-150 limited-size" %}
 
-<p class="overflow-scroll">
+<a href="#" class="overflow-scroll">
   Content that doesn’t fit in this element can be scrolled to with vertical and horizontal scrollbars.
-</p>
+</a>
 {% endshortcutPreview %}
 
 ### Scroll horizontal (x)<br/>`overflow-x-scroll`
 
-{% shortcutPreview "bg-light b-md b-default p-150" %}
+{% shortcutPreview "d-block bg-light b-md b-default p-150" %}
 
-<div class="overflow-x-scroll" style="width: 250px;">
+<a href="#"  class="overflow-x-scroll" style="width: 250px;">
   <p style="width: 500px;">
     Content that doesn’t fit in this element can be scrolled to with a horizontal scrollbar.
   </p>
-</div>
+</a>
 {% endshortcutPreview %}
 
 ### Scroll vertical (y)<br/>`overflow-y-scroll`
 
-{% shortcutPreview "bg-light b-md b-default mb-0 p-150 limited-size" %}
+{% shortcutPreview "d-block bg-light b-md b-default p-150 limited-size" %}
 
-<p class="overflow-y-scroll">
+<a href="#" class="overflow-y-scroll">
   Content that doesn’t fit in this element can be scrolled to with a vertical scrollbar.
-</p>
+</a>
 {% endshortcutPreview %}

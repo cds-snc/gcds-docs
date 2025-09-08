@@ -1,9 +1,9 @@
 ---
-title: Affichage - Raccourcis CSS
+title: Affichage
 layout: 'layouts/base.njk'
 eleventyNavigation:
   key: shortcutsDisplayFR
-  title: Raccourcis CSS - Affichage
+  title: Affichage
   locale: fr
   parent: shortcutsFR
   order: 1
@@ -28,7 +28,6 @@ shortcuts:
     style: 'display: inline-table;'
   - class: 'd-none'
     style: 'display: none;'
-permalink: /fr/raccourcis-css/affichage
 translationKey: 'shortcutsDisplay'
 date: 'git Last Modified'
 ---
@@ -41,84 +40,162 @@ La classe affichage définit la propriété `display` . Elle change la façon do
 
 ## Exemples
 
-<!-- TODO: Improve examples -->
-
 ### Bloc<br/>`d-block`
 
-{% shortcutPreview %}
-<span class="d-block">
-  Cet élément est une boîte de niveau bloc. Il s’affiche sur une nouvelle ligne et occupe toute la largeur.
-</span>
+Cet élément est une boîte de niveau bloc. Il s’affiche sur une nouvelle ligne et occupe toute la largeur.
+
+{% shortcutPreview "example-display example-styled-items example-items-with-margin" %}
+
+<div>
+  <p class="d-block">1</p>
+  <p class="d-block">2</p>
+  <p class="d-block">3</p>
+</div>
 {% endshortcutPreview %}
 
 ### Intraligne<br/>`d-inline`
 
-{% shortcutPreview %}
-<span class="d-inline">
-  Cet élément est une boîte intraligne, mais les propriétés de hauteur et de largeur ne sont pas prises en compte.
-</span>
+Cet élément est une boîte intraligne, mais les propriétés de hauteur et de largeur ne sont pas prises en compte.
+
+{% shortcutPreview "example-display example-styled-items example-items-with-margin" %}
+
+<div>
+  <p class="d-inline" style="width: 10rem">1</p>
+  <p class="d-inline" style="width: 10rem">2</p>
+  <p class="d-inline" style="width: 10rem">3</p>
+</div>
 {% endshortcutPreview %}
 
 ### Bloc intraligne<br/>`d-inline-block`
 
-{% shortcutPreview %}
-<span class="d-inline-block">
-  Cet élément est un bloc intraligne. Les propriétés de hauteur et de largeur peuvent être appliquées.
-</span>
+Cet élément est un bloc intraligne. Les propriétés de hauteur et de largeur peuvent être appliquées.
+
+{% shortcutPreview "example-display example-styled-items example-items-with-margin" %}
+
+<div>
+  <p class="d-inline-block" style="width: 10rem">1</p>
+  <p class="d-inline-block" style="width: 10rem">2</p>
+  <p class="d-inline-block" style="width: 10rem">3</p>
+</div>
 {% endshortcutPreview %}
 
 ### Élément flexible<br/>`d-flex`
 
-{% shortcutPreview %}
-<span class="d-flex">
-  Cet élément est une boîte flexible de niveau bloc.
-</span>
+Cet élément est une boîte flexible de niveau bloc.
+
+{% shortcutPreview "example-display example-styled-items" %}
+
+<div class="d-flex gap-300">
+  <p class="flex-1">1</p>
+  <p class="flex-1">2</p>
+  <p class="flex-1">3</p>
+</div>
 {% endshortcutPreview %}
 
 ### Élément flexible intraligne<br/>`d-inline-flex`
 
-{% shortcutPreview %}
-<span class="d-inline-flex">
-  Cet élément est une boîte flexible intraligne.
-</span>
+Cet élément est une boîte flexible intraligne.
+
+{% shortcutPreview "example-display example-styled-items" %}
+
+<div class="d-inline-flex gap-300">
+  <p class="flex-1">1</p>
+  <p class="flex-1">2</p>
+  <p class="flex-1">3</p>
+</div>
 {% endshortcutPreview %}
 
 ### Grille <br/>`d-grid`
 
-{% shortcutPreview %}
-<span class="d-grid">
-  Cet élément est une boîte grille de niveau bloc.
-</span>
+Cet élément est une boîte grille de niveau bloc.
+
+{% shortcutPreview "example-display example-styled-items" %}
+
+<div class="d-grid grid-cols-3 gap-300">
+  <p>1</p>
+  <p>2</p>
+  <p>3</p>
+  <p>4</p>
+  <p>5</p>
+  <p>6</p>
+</div>
 {% endshortcutPreview %}
 
 ### Grille intraligne<br/>`d-inline-grid`
 
-{% shortcutPreview %}
-<span class="d-inline-grid">
-  Cet élément est une boîte grille intraligne.
-</span>
+Cet élément est une boîte grille intraligne.
+
+{% shortcutPreview "example-display example-styled-items" %}
+
+<div class="d-inline-grid grid-cols-3 gap-300">
+  <p>1</p>
+  <p>2</p>
+  <p>3</p>
+  <p>4</p>
+  <p>5</p>
+  <p>6</p>
+</div>
 {% endshortcutPreview %}
 
-### Tableau<br/>`d-table`
+### Tableau<br/>`d-table`, `d-table-row`, `d-table-cell`
 
-{% shortcutPreview %}
-<span class="d-table">
-  Cet élément se comporte comme un élément de tableau.
-</span>
+<!-- TODO: Add translations for table content + adjust intro text -->
+
+Cet élément se comporte comme un élément de tableau.
+
+{% shortcutPreview "example-table" %}
+
+<div class="d-table">
+  <div class="d-table-row">
+    <div class="d-table-cell">Cell 1 + longer content</div>
+    <div class="d-table-cell">Cell 2</div>
+    <div class="d-table-cell">Cell 3</div>
+    <div class="d-table-cell">Cell 4</div>
+  </div>
+  <div class="d-table-row">
+    <div class="d-table-cell">Cell 1</div>
+    <div class="d-table-cell">Cell 2</div>
+    <div class="d-table-cell">Cell 3 + longer content</div>
+    <div class="d-table-cell">Cell 4</div>
+  </div>
+</div>
 {% endshortcutPreview %}
 
 ### Tableau intraligne<br/>`d-inline-table`
 
-{% shortcutPreview %}
-<span class="d-inline-table">
-  Cet élément se comporte comme un élément de tableau intraligne.
-</span>
+Cet élément se comporte comme un élément de tableau intraligne.
+
+<!-- TODO: Add translations for table content -->
+
+{% shortcutPreview "example-table" %}
+
+<div class="d-inline-table">
+  <div class="d-table-row">
+    <div class="d-table-cell">Cell 1 + longer content</div>
+    <div class="d-table-cell">Cell 2</div>
+  </div>
+  <div class="d-table-row">
+    <div class="d-table-cell">Cell 1</div>
+    <div class="d-table-cell">Cell 2 + longer content</div>
+  </div>
+</div>
+<div class="d-inline-table">
+  <div class="d-table-row">
+    <div class="d-table-cell">Cell 1 + longer content</div>
+    <div class="d-table-cell">Cell 2</div>
+  </div>
+  <div class="d-table-row">
+    <div class="d-table-cell">Cell 1</div>
+    <div class="d-table-cell">Cell 2 + longer content</div>
+  </div>
+</div>
 {% endshortcutPreview %}
 
 ### Aucun<br/>`d-none`
 
 {% shortcutPreview %}
-<span class="d-none">
+
+<p class="d-none">
   Cet élément sera complètement supprimé.
-</span>
+</p>
 {% endshortcutPreview %}

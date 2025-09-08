@@ -1,9 +1,9 @@
 ---
-title: Position - Raccourcis CSS
+title: Position
 layout: 'layouts/base.njk'
 eleventyNavigation:
   key: shortcutsPositionFR
-  title: Raccourcis CSS - Position
+  title: Position
   locale: fr
   parent: shortcutsFR
   order: 1
@@ -18,7 +18,6 @@ shortcuts:
     style: 'position: relative;'
   - class: 'position-sticky'
     style: 'position: sticky;'
-permalink: /fr/raccourcis-css/position
 translationKey: 'shortcutsPosition'
 date: 'git Last Modified'
 ---
@@ -35,7 +34,7 @@ La classe position définit la propriété `position`. Elle détermine comment l
 
 ### Statique <br/>`position-static`
 
-{% shortcutPreview "mb-0" %}
+{% shortcutPreview %}
 
 <p class="position-static">
   Cet élément affiche une position statique où il se trouve dans le flux normal du document.
@@ -44,7 +43,7 @@ La classe position définit la propriété `position`. Elle détermine comment l
 
 ### Absolue<br/>`position-absolute`
 
-{% shortcutPreview "mb-0" %}
+{% shortcutPreview %}
 
 <p class="position-absolute">
   Cet élément est retiré du flux normal du document et s’affiche par rapport à son élément ancêtre le plus proche ou à la page elle-même.
@@ -53,7 +52,7 @@ La classe position définit la propriété `position`. Elle détermine comment l
 
 ### Fixe<br/>`position-fixed`
 
-{% shortcutPreview "mb-0" %}
+{% shortcutPreview %}
 
 <p class="position-fixed">
   Cet élément s’affiche par rapport à la fenêtre d’affichage et reste fixe lorsqu’on fait défiler la page.
@@ -62,7 +61,7 @@ La classe position définit la propriété `position`. Elle détermine comment l
 
 ### Relative<br/>`position-relative`
 
-{% shortcutPreview "mb-0" %}
+{% shortcutPreview %}
 
 <p class="position-relative">
   Cet élément est décalé par rapport à sa position normale en utilisant le haut, la droite, le bas ou la gauche.
@@ -71,7 +70,7 @@ La classe position définit la propriété `position`. Elle détermine comment l
 
 ### Élément collant<br/>`position-sticky`
 
-{% shortcutPreview "mb-0" %}
+{% shortcutPreview %}
 
 <p class="position-sticky">
   Cet élément défile avec la page jusqu’à ce qu’un décalage spécifié soit atteint, puis reste en place dans sa boîte.

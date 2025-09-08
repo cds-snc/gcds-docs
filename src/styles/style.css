@@ -265,9 +265,19 @@ ul li ul li {
   color: var(--gcds-focus-text);
 }
 
+.shortcut-table pre {
+  width: fit-content;
+  background-color: var(--gcds-color-grayscale-50);
+}
+.shortcut-table pre > p {
+  margin: 0;
+}
 .shortcut-table code {
   display: block;
   width: fit-content;
+}
+.shortcut-table code p {
+  margin-block-end: calc(-1 * var(--gcds-spacing-200));
 }
 
 .shortcut-preview .language-html {
@@ -278,9 +288,34 @@ ul li ul li {
   display: block;
   white-space: pre-wrap;
 }
+.shortcut-preview p:not([class^=mb-]) {
+  margin-block-end: 0;
+}
 .shortcut-preview .limited-size {
   width: 15rem;
   height: 6rem;
+}
+.shortcut-preview .example-styled-items p:not(.visibility-hidden):not(.visibility-sr-only) {
+  background-color: var(--gcds-bg-primary);
+  color: var(--gcds-text-light);
+  padding: var(--gcds-spacing-250);
+  border-radius: var(--gcds-border-radius-md);
+}
+.shortcut-preview .example-visibility p:not(.visibility-sr-only) {
+  flex: 1;
+}
+.shortcut-preview .example-items-with-margin p {
+  margin: var(--gcds-spacing-200);
+}
+.shortcut-preview .example-table,
+.shortcut-preview .example-table + .d-inline-table {
+  border-collapse: collapse;
+  margin: var(--gcds-spacing-200);
+}
+.shortcut-preview .example-table .d-table-cell,
+.shortcut-preview .example-table + .d-inline-table .d-table-cell {
+  border: var(--gcds-border-width-sm) solid currentColor;
+  padding: var(--gcds-spacing-150);
 }
 
 @media (max-width: 64rem) {

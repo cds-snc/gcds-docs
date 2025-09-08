@@ -1,9 +1,9 @@
 ---
-title: Dimensionnement de la boîte - Raccourcis CSS
+title: Dimensionnement de la boîte
 layout: 'layouts/base.njk'
 eleventyNavigation:
   key: shortcutsBoxSizingFR
-  title: Raccourcis CSS - Dimensionnement de la boîte
+  title: Dimensionnement de la boîte
   locale: fr
   parent: shortcutsFR
   order: 1
@@ -12,7 +12,6 @@ shortcuts:
     style: 'box-sizing: border-box;'
   - class: 'box-content'
     style: 'box-sizing: content-box;'
-permalink: /fr/raccourcis-css/dimensionnement-de-la-boite
 translationKey: 'shortcutsBoxSizing'
 date: 'git Last Modified'
 ---
@@ -27,7 +26,7 @@ La classe de dimensionnement de la boîte définit la propriété `box-sizing`. 
 
 ### Bordure <br/>`box-border`
 
-{% shortcutPreview "container-xs p-600 b-lg b-default bg-light mb-0" %}
+{% shortcutPreview "container-xs p-600 b-lg b-default bg-light" %}
 
 <p class="box-border">
   La taille de cet élément comprend le contenu, la bordure et le dégagement intérieur.
@@ -36,7 +35,7 @@ La classe de dimensionnement de la boîte définit la propriété `box-sizing`. 
 
 ### Contenu<br/>`box-content`
 
-{% shortcutPreview "container-xs p-600 b-lg b-default bg-light mb-0" %}
+{% shortcutPreview "container-xs p-600 b-lg b-default bg-light" %}
 
 <p class="box-content">
   La taille de cet élément comprend le contenu seulement.

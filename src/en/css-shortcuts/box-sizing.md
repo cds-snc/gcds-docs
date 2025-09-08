@@ -1,5 +1,5 @@
 ---
-title: Box sizing - CSS Shortcuts
+title: Box sizing
 layout: 'layouts/base.njk'
 eleventyNavigation:
   key: shortcutsBoxSizingEN
@@ -12,7 +12,6 @@ shortcuts:
     style: 'box-sizing: border-box;'
   - class: 'box-content'
     style: 'box-sizing: content-box;'
-permalink: /en/css-shortcuts/box-sizing
 translationKey: 'shortcutsBoxSizing'
 date: 'git Last Modified'
 ---
@@ -27,7 +26,7 @@ The box sizing class sets the `box-sizing` property. It specifies if the height 
 
 ### Border<br/>`box-border`
 
-{% shortcutPreview "container-xs p-600 b-lg b-default bg-light mb-0" %}
+{% shortcutPreview "container-xs p-600 b-lg b-default bg-light" %}
 
 <p class="box-border">
   The size of this element includes the content, border, and padding.
@@ -36,7 +35,7 @@ The box sizing class sets the `box-sizing` property. It specifies if the height 
 
 ### Content<br/>`box-content`
 
-{% shortcutPreview "container-xs p-600 b-lg b-default bg-light mb-0" %}
+{% shortcutPreview "container-xs p-600 b-lg b-default bg-light" %}
 
 <p class="box-content">
   The size of this element includes the content only.
