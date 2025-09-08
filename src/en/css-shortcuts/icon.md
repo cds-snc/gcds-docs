@@ -1,5 +1,5 @@
 ---
-title: Icon - CSS Shortcuts
+title: Icon
 layout: 'layouts/base.njk'
 eleventyNavigation:
   key: shortcutsIconEN

@@ -1,5 +1,5 @@
 ---
-title: Icon size - CSS Shortcuts
+title: Icon size
 layout: 'layouts/base.njk'
 eleventyNavigation:
   key: shortcutsIconSizeEN

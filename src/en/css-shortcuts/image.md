@@ -1,5 +1,5 @@
 ---
-title: Image - CSS Shortcuts
+title: Image
 layout: 'layouts/base.njk'
 eleventyNavigation:
   key: shortcutsImageEN

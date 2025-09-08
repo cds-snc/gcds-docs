@@ -1,5 +1,5 @@
 ---
-title: Taille de l'icône - Raccourcis CSS
+title: Taille de l'icône
 layout: 'layouts/base.njk'
 eleventyNavigation:
   key: shortcutsIconSizeFR
