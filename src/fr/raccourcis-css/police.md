@@ -3,7 +3,7 @@ title: Police - Raccourcis CSS
 layout: 'layouts/base.njk'
 eleventyNavigation:
   key: shortcutsFontFR
-  title: Raccourcis CSS - Police
+  title: Police - Raccourcis CSS
   locale: fr
   parent: shortcutsFR
   order: 1

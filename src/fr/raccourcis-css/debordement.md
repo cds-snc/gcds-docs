@@ -1,9 +1,9 @@
 ---
-title: Raccourcis CSS - Débordement
+title: Débordement - Raccourcis CSS
 layout: 'layouts/base.njk'
 eleventyNavigation:
   key: shortcutsOverflowFR
-  title: Raccourcis CSS - Débordement
+  title: Débordement - Raccourcis CSS
   locale: fr
   parent: shortcutsFR
   order: 1

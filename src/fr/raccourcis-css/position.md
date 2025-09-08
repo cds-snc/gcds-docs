@@ -1,9 +1,9 @@
 ---
-title: Raccourcis CSS - Position
+title: Position - Raccourcis CSS
 layout: 'layouts/base.njk'
 eleventyNavigation:
   key: shortcutsPositionFR
-  title: Raccourcis CSS - Position
+  title: Position - Raccourcis CSS
   locale: fr
   parent: shortcutsFR
   order: 1

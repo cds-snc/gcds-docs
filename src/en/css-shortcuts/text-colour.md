@@ -3,7 +3,7 @@ title: Text colour - CSS Shortcuts
 layout: 'layouts/base.njk'
 eleventyNavigation:
   key: shortcutsTextColourEN
-  title: CSS Shortcuts - Text colour
+  title: Text colour - CSS Shortcuts
   locale: en
   parent: shortcutsEN
   order: 1

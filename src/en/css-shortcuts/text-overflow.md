@@ -3,7 +3,7 @@ title: Text overflow - CSS Shortcuts
 layout: 'layouts/base.njk'
 eleventyNavigation:
   key: shortcutsTextOverflowEN
-  title: CSS Shortcuts - Text overflow
+  title: Text overflow - CSS Shortcuts
   locale: en
   parent: shortcutsEN
   order: 1

@@ -3,7 +3,7 @@ title: Débordement de texte - Raccourcis CSS
 layout: 'layouts/base.njk'
 eleventyNavigation:
   key: shortcutsTextOverflowFR
-  title: Raccourcis CSS - Débordement de texte
+  title: Débordement de texte - Raccourcis CSS
   locale: fr
   parent: shortcutsFR
   order: 1

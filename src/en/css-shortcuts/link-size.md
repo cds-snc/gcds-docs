@@ -3,7 +3,7 @@ title: Link size - CSS Shortcuts
 layout: 'layouts/base.njk'
 eleventyNavigation:
   key: shortcutsLinkSizeEN
-  title: CSS Shortcuts - Link size
+  title: Link size - CSS Shortcuts
   locale: en
   parent: shortcutsEN
   order: 1

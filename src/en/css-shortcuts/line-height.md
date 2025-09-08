@@ -3,7 +3,7 @@ title: Line height - CSS Shortcuts
 layout: 'layouts/base.njk'
 eleventyNavigation:
   key: shortcutsLineHeightEN
-  title: CSS Shortcuts - Line height
+  title: Line height - CSS Shortcuts
   locale: en
   parent: shortcutsEN
   order: 1

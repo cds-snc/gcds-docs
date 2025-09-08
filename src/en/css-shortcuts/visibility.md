@@ -1,9 +1,9 @@
 ---
-title: CSS Shortcuts - Visibility
+title: Visibility - CSS Shortcuts
 layout: 'layouts/base.njk'
 eleventyNavigation:
   key: shortcutsVisibilityEN
-  title: CSS Shortcuts - Visibility
+  title: Visibility - CSS Shortcuts
   locale: en
   parent: shortcutsEN
   order: 1

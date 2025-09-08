@@ -3,7 +3,7 @@ title: Word break - CSS Shortcuts
 layout: 'layouts/base.njk'
 eleventyNavigation:
   key: shortcutsWordBreakEN
-  title: CSS Shortcuts - Word break
+  title: Word break - CSS Shortcuts
   locale: en
   parent: shortcutsEN
   order: 1

@@ -3,7 +3,7 @@ title: Transformation de texte - Raccourcis CSS
 layout: 'layouts/base.njk'
 eleventyNavigation:
   key: shortcutsTextTransformFR
-  title: Raccourcis CSS - Transformation de texte
+  title: Transformation de texte - Raccourcis CSS
   locale: fr
   parent: shortcutsFR
   order: 1

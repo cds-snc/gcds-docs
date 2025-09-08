@@ -1,9 +1,9 @@
 ---
-title: CSS Shortcuts - Box sizing
+title: Box sizing - CSS Shortcuts
 layout: 'layouts/base.njk'
 eleventyNavigation:
   key: shortcutsBoxSizingEN
-  title: CSS Shortcuts - Box sizing
+  title: Box sizing - CSS Shortcuts
   locale: en
   parent: shortcutsEN
   order: 1

@@ -3,7 +3,7 @@ title: Font weight - CSS Shortcuts
 layout: 'layouts/base.njk'
 eleventyNavigation:
   key: shortcutsFontWeightEN
-  title: CSS Shortcuts - Font weight
+  title: Font weight - CSS Shortcuts
   locale: en
   parent: shortcutsEN
   order: 1

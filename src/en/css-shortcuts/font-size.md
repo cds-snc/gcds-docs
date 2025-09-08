@@ -3,7 +3,7 @@ title: Font size - CSS Shortcuts
 layout: 'layouts/base.njk'
 eleventyNavigation:
   key: shortcutsFontSizeEN
-  title: CSS Shortcuts - Font size
+  title: Font size - CSS Shortcuts
   locale: en
   parent: shortcutsEN
   order: 1

@@ -3,7 +3,7 @@ title: Décoration de texte de lien - Raccourcis CSS
 layout: 'layouts/base.njk'
 eleventyNavigation:
   key: shortcutsLinkDecorationFR
-  title: Raccourcis CSS - Décoration de texte de lien
+  title: Décoration de texte de lien - Raccourcis CSS
   locale: fr
   parent: shortcutsFR
   order: 1

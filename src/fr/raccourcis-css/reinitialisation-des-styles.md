@@ -1,9 +1,9 @@
 ---
-title: Raccourcis CSS - Réinitialisation des styles
+title: Réinitialisation des styles - Raccourcis CSS
 layout: 'layouts/base.njk'
 eleventyNavigation:
   key: shortcutsResetFR
-  title: Raccourcis CSS - Réinitialisation des styles
+  title: Réinitialisation des styles - Raccourcis CSS
   locale: fr
   parent: shortcutsFR
   order: 1

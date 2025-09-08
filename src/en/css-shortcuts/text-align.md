@@ -3,7 +3,7 @@ title: Text align - CSS Shortcuts
 layout: 'layouts/base.njk'
 eleventyNavigation:
   key: shortcutsTextAlignEN
-  title: CSS Shortcuts - Text align
+  title: Text align - CSS Shortcuts
   locale: en
   parent: shortcutsEN
   order: 1

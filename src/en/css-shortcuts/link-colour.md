@@ -3,7 +3,7 @@ title: Link colour - CSS Shortcuts
 layout: 'layouts/base.njk'
 eleventyNavigation:
   key: shortcutsLinkColourEN
-  title: CSS Shortcuts - Link colour
+  title: Link colour - CSS Shortcuts
   locale: en
   parent: shortcutsEN
   order: 1
