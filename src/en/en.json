@@ -16,6 +16,7 @@
     "styles": "/en/styles",
     "designTokens": "/en/styles/design-tokens",
     "colour": "/en/styles/colour",
+    "colourBackground": "/en/styles/colour#background",
     "colourLink": "/en/styles/colour#link",
     "colourText": "/en/styles/colour#text",
     "spacing": "/en/styles/spacing",
@@ -95,6 +96,7 @@
     "pageTemplatesBasicExtOTPGithubRaw": "https://raw.githubusercontent.com/cds-snc/gcds-examples/refs/heads/main/templates/english/basic/extensions/basic-page-template-table-of-contents.html",
 
     "shortcuts": "/en/css-shortcuts",
+    "shortcutsBackgroundColour": "/en/css-shortcuts/background-colour",
     "shortcutsBoxSizing": "/en/css-shortcuts/box-sizing",
     "shortcutsContainer": "/en/css-shortcuts/container",
     "shortcutsDisplay": "/en/css-shortcuts/display",
