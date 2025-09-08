@@ -89,7 +89,7 @@ La classe icône définit la propriété `content` et d'autres styles de base d'
 {% shortcutPreview %}
 
 <p>
-  <span class="gcds-icon-chevron-left"></span> Cet élément a une icône de chevron pointant vers la gauche.
+  <span class="gcds-icon-chevron-left"></span> Cet élément a une icône de chevron pointant vers la gauche.
 </p>
 {% endshortcutPreview %}
 
@@ -98,7 +98,7 @@ La classe icône définit la propriété `content` et d'autres styles de base d'
 {% shortcutPreview %}
 
 <p>
-  <span class="gcds-icon-chevron-right"></span> Cet élément a une icône de chevron pointant vers la droite.
+  <span class="gcds-icon-chevron-right"></span> Cet élément a une icône de chevron pointant vers la droite.
 </p>
 {% endshortcutPreview %}
 
@@ -107,7 +107,7 @@ La classe icône définit la propriété `content` et d'autres styles de base d'
 {% shortcutPreview %}
 
 <p>
-  <span class="gcds-icon-chevron-up"></span> Cet élément a une icône de chevron pointant vers le haut.
+  <span class="gcds-icon-chevron-up"></span> Cet élément a une icône de chevron pointant vers le haut.
 </p>
 {% endshortcutPreview %}
 
@@ -116,7 +116,7 @@ La classe icône définit la propriété `content` et d'autres styles de base d'
 {% shortcutPreview %}
 
 <p>
-  <span class="gcds-icon-chevron-down"></span> Cet élément a une icône de chevron pointant vers le bas.
+  <span class="gcds-icon-chevron-down"></span> Cet élément a une icône de chevron pointant vers le bas.
 </p>
 {% endshortcutPreview %}
 
@@ -125,7 +125,7 @@ La classe icône définit la propriété `content` et d'autres styles de base d'
 {% shortcutPreview %}
 
 <p>
-  <span class="gcds-icon-close"></span> Cet élément a une icône de fermeture.
+  <span class="gcds-icon-close"></span> Cet élément a une icône de fermeture.
 </p>
 {% endshortcutPreview %}
 
@@ -134,7 +134,7 @@ La classe icône définit la propriété `content` et d'autres styles de base d'
 {% shortcutPreview %}
 
 <p>
-  <span class="gcds-icon-download"></span> Cet élément a une icône de téléchargement.
+  <span class="gcds-icon-download"></span> Cet élément a une icône de téléchargement.
 </p>
 {% endshortcutPreview %}
 
@@ -143,7 +143,7 @@ La classe icône définit la propriété `content` et d'autres styles de base d'
 {% shortcutPreview %}
 
 <p>
-  <span class="gcds-icon-email"></span> Cet élément a une icône de courriel.
+  <span class="gcds-icon-email"></span> Cet élément a une icône de courriel.
 </p>
 {% endshortcutPreview %}
 
@@ -152,7 +152,7 @@ La classe icône définit la propriété `content` et d'autres styles de base d'
 {% shortcutPreview %}
 
 <p>
-  <span class="gcds-icon-external"></span> Cet élément a une icône externe.
+  <span class="gcds-icon-external"></span> Cet élément a une icône externe.
 </p>
 {% endshortcutPreview %}
 
@@ -161,7 +161,7 @@ La classe icône définit la propriété `content` et d'autres styles de base d'
 {% shortcutPreview %}
 
 <p>
-  <span class="gcds-icon-phone"></span> Cet élément a une icône de téléphone.
+  <span class="gcds-icon-phone"></span> Cet élément a une icône de téléphone.
 </p>
 {% endshortcutPreview %}
 
@@ -170,6 +170,6 @@ La classe icône définit la propriété `content` et d'autres styles de base d'
 {% shortcutPreview %}
 
 <p>
-  <span class="gcds-icon-search"></span> Cet élément a une icône de recherche.
+  <span class="gcds-icon-search"></span> Cet élément a une icône de recherche.
 </p>
 {% endshortcutPreview %}

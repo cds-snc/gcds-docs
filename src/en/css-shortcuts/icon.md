@@ -89,7 +89,7 @@ The icon class sets the `content` property and other icon base styles like the i
 {% shortcutPreview %}
 
 <p>
-  <span class="gcds-icon-chevron-left"></span> This element has a chevron icon pointing left.
+  <span class="gcds-icon-chevron-left"></span> This element has a chevron icon pointing left.
 </p>
 {% endshortcutPreview %}
 
@@ -98,7 +98,7 @@ The icon class sets the `content` property and other icon base styles like the i
 {% shortcutPreview %}
 
 <p>
-  <span class="gcds-icon-chevron-right"></span> This element has a chevron icon pointing right.
+  <span class="gcds-icon-chevron-right"></span> This element has a chevron icon pointing right.
 </p>
 {% endshortcutPreview %}
 
@@ -107,7 +107,7 @@ The icon class sets the `content` property and other icon base styles like the i
 {% shortcutPreview %}
 
 <p>
-  <span class="gcds-icon-chevron-up"></span> This element has a chevron icon pointing up.
+  <span class="gcds-icon-chevron-up"></span> This element has a chevron icon pointing up.
 </p>
 {% endshortcutPreview %}
 
@@ -116,7 +116,7 @@ The icon class sets the `content` property and other icon base styles like the i
 {% shortcutPreview %}
 
 <p>
-  <span class="gcds-icon-chevron-down"></span> This element has a chevron icon pointing down.
+  <span class="gcds-icon-chevron-down"></span> This element has a chevron icon pointing down.
 </p>
 {% endshortcutPreview %}
 
@@ -125,7 +125,7 @@ The icon class sets the `content` property and other icon base styles like the i
 {% shortcutPreview %}
 
 <p>
-  <span class="gcds-icon-close"></span> This element has a close icon.
+  <span class="gcds-icon-close"></span> This element has a close icon.
 </p>
 {% endshortcutPreview %}
 
@@ -134,7 +134,7 @@ The icon class sets the `content` property and other icon base styles like the i
 {% shortcutPreview %}
 
 <p>
-  <span class="gcds-icon-download"></span> This element has a download icon.
+  <span class="gcds-icon-download"></span> This element has a download icon.
 </p>
 {% endshortcutPreview %}
 
@@ -143,7 +143,7 @@ The icon class sets the `content` property and other icon base styles like the i
 {% shortcutPreview %}
 
 <p>
-  <span class="gcds-icon-email"></span> This element has an email icon.
+  <span class="gcds-icon-email"></span> This element has an email icon.
 </p>
 {% endshortcutPreview %}
 
@@ -152,7 +152,7 @@ The icon class sets the `content` property and other icon base styles like the i
 {% shortcutPreview %}
 
 <p>
-  <span class="gcds-icon-external"></span> This element has an external icon.
+  <span class="gcds-icon-external"></span> This element has an external icon.
 </p>
 {% endshortcutPreview %}
 
@@ -161,7 +161,7 @@ The icon class sets the `content` property and other icon base styles like the i
 {% shortcutPreview %}
 
 <p>
-  <span class="gcds-icon-phone"></span> This element has a phone icon.
+  <span class="gcds-icon-phone"></span> This element has a phone icon.
 </p>
 {% endshortcutPreview %}
 
@@ -170,6 +170,6 @@ The icon class sets the `content` property and other icon base styles like the i
 {% shortcutPreview %}
 
 <p>
-  <span class="gcds-icon-search"></span> This element has a search icon.
+  <span class="gcds-icon-search"></span> This element has a search icon.
 </p>
 {% endshortcutPreview %}

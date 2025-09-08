@@ -29,8 +29,8 @@ The image class sets the `width` or `max-width` properties of an image. It contr
 {% shortcutPreview %}
 
 <figure>
-  <img src="/images/common/css-shortcuts/image-example.png" alt="A horizontal banner with purple flowers." class="img-full"/>
-  <figcaption>This image takes up 100% of the available width.</figcaption>
+  <img src="/images/common/css-shortcuts/image-example.png" alt="A horizontal banner with purple flowers." class="img-full"/>
+  <figcaption>This image takes up 100% of the available width.</figcaption>
 </figure>
 {% endshortcutPreview %}
 
@@ -39,7 +39,7 @@ The image class sets the `width` or `max-width` properties of an image. It contr
 {% shortcutPreview %}
 
 <figure class="container-md">
-  <img src="/images/common/css-shortcuts/image-example.png" alt="A horizontal banner with purple flowers." class="img-responsive"/>
-  <figcaption>This image scales with its parent element.</figcaption>
+  <img src="/images/common/css-shortcuts/image-example.png" alt="A horizontal banner with purple flowers." class="img-responsive"/>
+  <figcaption>This image scales with its parent element.</figcaption>
 </figure>
 {% endshortcutPreview %}

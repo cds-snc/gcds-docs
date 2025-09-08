@@ -29,8 +29,8 @@ La classe image définit les propriétés `width` ou `max-width` d'une image. El
 {% shortcutPreview "" %}
 
 <figure>
-  <img src="/images/common/css-shortcuts/image-example.png" alt="Une bannière horizontale avec des fleurs violettes." class="img-full"/>
-  <figcaption>Cette image occupe 100 % de la largeur disponible.</figcaption>
+  <img src="/images/common/css-shortcuts/image-example.png" alt="Une bannière horizontale avec des fleurs violettes." class="img-full"/>
+  <figcaption>Cette image occupe 100 % de la largeur disponible.</figcaption>
 </figure>
 {% endshortcutPreview %}
 
@@ -39,7 +39,7 @@ La classe image définit les propriétés `width` ou `max-width` d'une image. El
 {% shortcutPreview "" %}
 
 <figure class="container-md">
-  <img src="/images/common/css-shortcuts/image-example.png" alt="Une bannière horizontale avec des fleurs violettes." class="img-responsive"/>
-  <figcaption>Cette image s'adapte à son élément parent.</figcaption>
+  <img src="/images/common/css-shortcuts/image-example.png" alt="Une bannière horizontale avec des fleurs violettes." class="img-responsive"/>
+  <figcaption>Cette image s'adapte à son élément parent.</figcaption>
 </figure>
 {% endshortcutPreview %}

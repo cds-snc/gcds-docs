@@ -14,8 +14,8 @@ shortcuts:
       line-height: var(--gcds-line-heights-h1);
 
       @media only screen and (width < 48em) {
-          font-size: var(--gcds font sizes-h1-mobile);
-          line-height: var(--gcds-line-heights-h1-mobile);
+        font-size: var(--gcds font sizes-h1-mobile);
+        line-height: var(--gcds-line-heights-h1-mobile);
       }
   - class: 'icon-h2'
     style: |
@@ -23,8 +23,8 @@ shortcuts:
       line-height: var(--gcds-line-heights-h2);
 
       @media only screen and (width < 48em) {
-        font-size: var(--gcds font sizes-h2-mobile);
-        line-height: var(--gcds-line-heights-h2-mobile);
+        font-size: var(--gcds font sizes-h2-mobile);
+        line-height: var(--gcds-line-heights-h2-mobile);
       }
   - class: 'icon-h3'
     style: |
@@ -32,8 +32,8 @@ shortcuts:
       line-height: var(--gcds-line-heights-h3);
 
       @media only screen and (width < 48em) {
-        font-size: var(--gcds font sizes-h3-mobile);
-        line-height: var(--gcds-line-heights-h3-mobile);
+        font-size: var(--gcds font sizes-h3-mobile);
+        line-height: var(--gcds-line-heights-h3-mobile);
       }
   - class: 'icon-h4'
     style: |
@@ -41,8 +41,8 @@ shortcuts:
       line-height: var(--gcds-line-heights-h4);
 
       @media only screen and (width < 48em) {
-        font-size: var(--gcds font sizes-h4-mobile);
-        line-height: var(--gcds-line-heights-h4-mobile);
+        font-size: var(--gcds font sizes-h4-mobile);
+        line-height: var(--gcds-line-heights-h4-mobile);
       }
   - class: 'icon-h5'
     style: |
@@ -50,8 +50,8 @@ shortcuts:
       line-height: var(--gcds-line-heights-h5);
 
       @media only screen and (width < 48em) {
-        font-size: var(--gcds font sizes-h5-mobile);
-        line-height: var(--gcds-line-heights-h5-mobile);
+        font-size: var(--gcds font sizes-h5-mobile);
+        line-height: var(--gcds-line-heights-h5-mobile);
       }
   - class: 'icon-h6'
     style: |
@@ -59,8 +59,8 @@ shortcuts:
       line-height: var(--gcds-line-heights-h6);
 
       @media only screen and (width < 48em) {
-        font-size: var(--gcds font sizes-h6-mobile);
-        line-height: var(--gcds-line-heights-h6-mobile);
+        font-size: var(--gcds font sizes-h6-mobile);
+        line-height: var(--gcds-line-heights-h6-mobile);
       }
   - class: 'icon-text'
     style: |
@@ -68,8 +68,8 @@ shortcuts:
       line-height: var(--gcds-line-heights-text);
 
       @media only screen and (width < 48em) {
-        font-size: var(--gcds font sizes-text-mobile);
-        line-height: var(--gcds-line-heights-text-mobile);
+        font-size: var(--gcds font sizes-text-mobile);
+        line-height: var(--gcds-line-heights-text-mobile);
       }
   - class: 'icon-text-small'
     style: |
@@ -77,8 +77,8 @@ shortcuts:
       line-height: var(--gcds-line-heights-text-small);
 
       @media only screen and (width < 48em) {
-        font-size: var(--gcds font sizes-text-small-mobile);
-        line-height: var(--gcds-line-heights-text-small-mobile);
+        font-size: var(--gcds font sizes-text-small-mobile);
+        line-height: var(--gcds-line-heights-text-small-mobile);
       }
   - class: 'icon-inherit'
     style: |
@@ -86,8 +86,8 @@ shortcuts:
       line-height: inherit;
 
       @media only screen and (width < 48em) {
-        font-size: inherit;
-        line-height: inherit;
+        font-size: inherit;
+        line-height: inherit;
       }
 translationKey: 'shortcutsIconSize'
 date: 'git Last Modified'
@@ -106,7 +106,7 @@ La classe taille de l'icône définit les propriétés `font-size` et `line-heig
 {% shortcutPreview %}
 
 <p>
-  <span class="gcds-icon-info-circle icon-h1"></span> La taille de cette icône correspond à la taille de police et à la hauteur de ligne du titre H1.
+  <span class="gcds-icon-info-circle icon-h1"></span> La taille de cette icône correspond à la taille de police et à la hauteur de ligne du titre H1.
 </p>
 {% endshortcutPreview %}
 
@@ -115,7 +115,7 @@ La classe taille de l'icône définit les propriétés `font-size` et `line-heig
 {% shortcutPreview %}
 
 <p>
-  <span class="gcds-icon-info-circle icon-h2"></span> La taille de cette icône correspond à la taille de police et à la hauteur de ligne du titre H2.
+  <span class="gcds-icon-info-circle icon-h2"></span> La taille de cette icône correspond à la taille de police et à la hauteur de ligne du titre H2.
 </p>
 {% endshortcutPreview %}
 
@@ -124,7 +124,7 @@ La classe taille de l'icône définit les propriétés `font-size` et `line-heig
 {% shortcutPreview %}
 
 <p>
-  <span class="gcds-icon-info-circle icon-h3"></span> La taille de cette icône correspond à la taille de police et à la hauteur de ligne du titre H3.
+  <span class="gcds-icon-info-circle icon-h3"></span> La taille de cette icône correspond à la taille de police et à la hauteur de ligne du titre H3.
 </p>
 {% endshortcutPreview %}
 
@@ -133,7 +133,7 @@ La classe taille de l'icône définit les propriétés `font-size` et `line-heig
 {% shortcutPreview %}
 
 <p>
-  <span class="gcds-icon-info-circle icon-h4"></span> La taille de cette icône correspond à la taille de police et à la hauteur de ligne du titre H4.
+  <span class="gcds-icon-info-circle icon-h4"></span> La taille de cette icône correspond à la taille de police et à la hauteur de ligne du titre H4.
 </p>
 {% endshortcutPreview %}
 
@@ -142,7 +142,7 @@ La classe taille de l'icône définit les propriétés `font-size` et `line-heig
 {% shortcutPreview %}
 
 <p>
-  <span class="gcds-icon-info-circle icon-h5"></span> La taille de cette icône correspond à la taille de police et à la hauteur de ligne du titre H5.
+  <span class="gcds-icon-info-circle icon-h5"></span> La taille de cette icône correspond à la taille de police et à la hauteur de ligne du titre H5.
 </p>
 {% endshortcutPreview %}
 
@@ -151,7 +151,7 @@ La classe taille de l'icône définit les propriétés `font-size` et `line-heig
 {% shortcutPreview %}
 
 <p>
-  <span class="gcds-icon-info-circle icon-h6"></span> La taille de cette icône correspond à la taille de police et à la hauteur de ligne du titre H6.
+  <span class="gcds-icon-info-circle icon-h6"></span> La taille de cette icône correspond à la taille de police et à la hauteur de ligne du titre H6.
 </p>
 {% endshortcutPreview %}
 
@@ -160,7 +160,7 @@ La classe taille de l'icône définit les propriétés `font-size` et `line-heig
 {% shortcutPreview %}
 
 <p>
-  <span class="gcds-icon-info-circle icon-text"></span> La taille de cette icône correspond à la taille de police et à la hauteur de ligne du texte normale.
+  <span class="gcds-icon-info-circle icon-text"></span> La taille de cette icône correspond à la taille de police et à la hauteur de ligne du texte normale.
 </p>
 {% endshortcutPreview %}
 
@@ -169,7 +169,7 @@ La classe taille de l'icône définit les propriétés `font-size` et `line-heig
 {% shortcutPreview %}
 
 <p>
-  <span class="gcds-icon-info-circle icon-small-text"></span> La taille de cette icône correspond à la taille de police et à la hauteur de ligne du petite texte.
+  <span class="gcds-icon-info-circle icon-small-text"></span> La taille de cette icône correspond à la taille de police et à la hauteur de ligne du petite texte.
 </p>
 {% endshortcutPreview %}
 
@@ -178,6 +178,6 @@ La classe taille de l'icône définit les propriétés `font-size` et `line-heig
 {% shortcutPreview %}
 
 <p class="font-text-small">
-  <span class="gcds-icon-info-circle icon-inherit"></span> Cette icône hérite la taille de police et la hauteur de ligne du petit texte de l'élément parent.
+  <span class="gcds-icon-info-circle icon-inherit"></span> Cette icône hérite la taille de police et la hauteur de ligne du petit texte de l'élément parent.
 </p>
 {% endshortcutPreview %}
