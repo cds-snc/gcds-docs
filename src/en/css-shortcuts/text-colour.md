@@ -1,9 +1,9 @@
 ---
-title: Text colour - CSS Shortcuts
+title: Text colour
 layout: 'layouts/base.njk'
 eleventyNavigation:
   key: shortcutsTextColourEN
-  title: Text colour - CSS Shortcuts
+  title: Text colour
   locale: en
   parent: shortcutsEN
   order: 1

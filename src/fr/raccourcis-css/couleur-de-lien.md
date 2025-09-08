@@ -1,9 +1,9 @@
 ---
-title: Couleur de lien - Raccourcis CSS
+title: Couleur de lien
 layout: 'layouts/base.njk'
 eleventyNavigation:
   key: shortcutsLinkColourFR
-  title: Couleur de lien - Raccourcis CSS
+  title: Couleur de lien
   locale: fr
   parent: shortcutsFR
   order: 1

@@ -1,9 +1,9 @@
 ---
-title: Épaisseur de police - Raccourcis CSS
+title: Épaisseur de police
 layout: 'layouts/base.njk'
 eleventyNavigation:
   key: shortcutsFontWeightFR
-  title: Épaisseur de police - Raccourcis CSS
+  title: Épaisseur de police
   locale: fr
   parent: shortcutsFR
   order: 1

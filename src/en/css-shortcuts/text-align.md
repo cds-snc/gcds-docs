@@ -1,9 +1,9 @@
 ---
-title: Text align - CSS Shortcuts
+title: Text align
 layout: 'layouts/base.njk'
 eleventyNavigation:
   key: shortcutsTextAlignEN
-  title: Text align - CSS Shortcuts
+  title: Text align
   locale: en
   parent: shortcutsEN
   order: 1

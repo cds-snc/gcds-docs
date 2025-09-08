@@ -1,9 +1,9 @@
 ---
-title: Hauteur de ligne - Raccourcis CSS
+title: Hauteur de ligne
 layout: 'layouts/base.njk'
 eleventyNavigation:
   key: shortcutsLineHeightFR
-  title: Hauteur de ligne - Raccourcis CSS
+  title: Hauteur de ligne
   locale: fr
   parent: shortcutsFR
   order: 1

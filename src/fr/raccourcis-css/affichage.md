@@ -1,9 +1,9 @@
 ---
-title: Affichage - Raccourcis CSS
+title: Affichage
 layout: 'layouts/base.njk'
 eleventyNavigation:
   key: shortcutsDisplayFR
-  title: Affichage - Raccourcis CSS
+  title: Affichage
   locale: fr
   parent: shortcutsFR
   order: 1

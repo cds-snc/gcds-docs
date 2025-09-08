@@ -1,9 +1,9 @@
 ---
-title: Style de liste - Raccourcis CSS
+title: Style de liste
 layout: 'layouts/base.njk'
 eleventyNavigation:
   key: shortcutsListStyleFR
-  title: Style de liste - Raccourcis CSS
+  title: Style de liste
   locale: fr
   parent: shortcutsFR
   order: 1

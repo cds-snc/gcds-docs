@@ -1,9 +1,9 @@
 ---
-title: Display - CSS Shortcuts
+title: Display
 layout: 'layouts/base.njk'
 eleventyNavigation:
   key: shortcutsDisplayEN
-  title: Display - CSS Shortcuts
+  title: Display
   locale: en
   parent: shortcutsEN
   order: 1

@@ -1,9 +1,9 @@
 ---
-title: Boîte - Raccourcis CSS
+title: Boîte
 layout: 'layouts/base.njk'
 eleventyNavigation:
   key: shortcutsContainerFR
-  title: Boîte - Raccourcis CSS
+  title: Boîte
   locale: fr
   parent: shortcutsFR
   order: 1

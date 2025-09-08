@@ -1,9 +1,9 @@
 ---
-title: Couleur de texte - Raccourcis CSS
+title: Couleur de texte
 layout: 'layouts/base.njk'
 eleventyNavigation:
   key: shortcutsTextColourFR
-  title: Couleur de texte - Raccourcis CSS
+  title: Couleur de texte
   locale: fr
   parent: shortcutsFR
   order: 1

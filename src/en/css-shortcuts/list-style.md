@@ -1,9 +1,9 @@
 ---
-title: List style - CSS Shortcuts
+title: List style
 layout: 'layouts/base.njk'
 eleventyNavigation:
   key: shortcutsListStyleEN
-  title: List style - CSS Shortcuts
+  title: List style
   locale: en
   parent: shortcutsEN
   order: 1

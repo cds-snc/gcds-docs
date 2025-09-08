@@ -1,9 +1,9 @@
 ---
-title: Saut de mot - Raccourcis CSS
+title: Saut de mot
 layout: 'layouts/base.njk'
 eleventyNavigation:
   key: shortcutsWordBreakFR
-  title: Saut de mot - Raccourcis CSS
+  title: Saut de mot
   locale: fr
   parent: shortcutsFR
   order: 1

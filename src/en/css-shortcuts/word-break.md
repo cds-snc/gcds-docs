@@ -1,9 +1,9 @@
 ---
-title: Word break - CSS Shortcuts
+title: Word break
 layout: 'layouts/base.njk'
 eleventyNavigation:
   key: shortcutsWordBreakEN
-  title: Word break - CSS Shortcuts
+  title: Word break
   locale: en
   parent: shortcutsEN
   order: 1

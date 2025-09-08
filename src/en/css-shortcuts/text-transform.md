@@ -1,9 +1,9 @@
 ---
-title: Text transform - CSS Shortcuts
+title: Text transform
 layout: 'layouts/base.njk'
 eleventyNavigation:
   key: shortcutsTextTransformEN
-  title: Text transform - CSS Shortcuts
+  title: Text transform
   locale: en
   parent: shortcutsEN
   order: 1

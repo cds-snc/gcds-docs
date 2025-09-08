@@ -1,9 +1,9 @@
 ---
-title: Dimensionnement de la boîte - Raccourcis CSS
+title: Dimensionnement de la boîte
 layout: 'layouts/base.njk'
 eleventyNavigation:
   key: shortcutsBoxSizingFR
-  title: Dimensionnement de la boîte - Raccourcis CSS
+  title: Dimensionnement de la boîte
   locale: fr
   parent: shortcutsFR
   order: 1

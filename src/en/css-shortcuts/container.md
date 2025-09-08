@@ -1,9 +1,9 @@
 ---
-title: Container - CSS Shortcuts
+title: Container
 layout: 'layouts/base.njk'
 eleventyNavigation:
   key: shortcutsContainerEN
-  title: Container - CSS Shortcuts
+  title: Container
   locale: en
   parent: shortcutsEN
   order: 1
