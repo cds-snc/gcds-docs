@@ -1,9 +1,9 @@
 ---
-title: Background colour - CSS Shortcuts
+title: Background colour
 layout: 'layouts/base.njk'
 eleventyNavigation:
   key: shortcutsBackgroundColourEN
-  title: Background colour - CSS Shortcuts
+  title: Background colour
   locale: en
   parent: shortcutsEN
   order: 1
@@ -51,7 +51,7 @@ The background colour class sets the `background-color` property. It controls th
 {% shortcutPreview "p-150" %}
 
 <p class="bg-primary text-light">
-  This element uses the primary Government of Canada accent colour for its background.
+  This element uses the primary Government of Canada accent colour for its background.
 </p>
 {% endshortcutPreview %}
 
@@ -60,7 +60,7 @@ The background colour class sets the `background-color` property. It controls th
 {% shortcutPreview "p-150" %}
 
 <p class="bg-active text-light">
-  This element uses the active background colour.
+  This element uses the active background colour.
 </p>
 {% endshortcutPreview %}
 
@@ -69,7 +69,7 @@ The background colour class sets the `background-color` property. It controls th
 {% shortcutPreview "p-150" %}
 
 <p class="bg-black text-light">
-  This element uses the black background colour.
+  This element uses the black background colour.
 </p>
 {% endshortcutPreview %}
 
@@ -78,9 +78,9 @@ The background colour class sets the `background-color` property. It controls th
 {% shortcutPreview "p-150" %}
 
 <div class="bg-current" style="color: var(--gcds-color-blue-750)">
-  <p class="text-light">
-    This element uses the background colour based on the current colour property.
-  </p>
+  <p class="text-light">
+    This element uses the background colour based on the current colour property.
+  </p>
 </div>
 {% endshortcutPreview %}
 
@@ -89,7 +89,7 @@ The background colour class sets the `background-color` property. It controls th
 {% shortcutPreview "p-150" %}
 
 <p class="bg-danger">
-  This element uses the danger background colour.
+  This element uses the danger background colour.
 </p>
 {% endshortcutPreview %}
 
@@ -98,7 +98,7 @@ The background colour class sets the `background-color` property. It controls th
 {% shortcutPreview "p-150" %}
 
 <p class="bg-dark text-light">
-  This element uses the dark background colour.
+  This element uses the dark background colour.
 </p>
 {% endshortcutPreview %}
 
@@ -107,7 +107,7 @@ The background colour class sets the `background-color` property. It controls th
 {% shortcutPreview "p-150" %}
 
 <p class="bg-disabled">
-  This element uses the disabled background colour.
+  This element uses the disabled background colour.
 </p>
 {% endshortcutPreview %}
 
@@ -116,9 +116,9 @@ The background colour class sets the `background-color` property. It controls th
 {% shortcutPreview "p-150" %}
 
 <div class="bg-danger">
-  <p class="bg-inherit">
-    This element inherits its parent's background colour.
-  </p>
+  <p class="bg-inherit">
+    This element inherits its parent's background colour.
+  </p>
 </div>
 {% endshortcutPreview %}
 
@@ -127,7 +127,7 @@ The background colour class sets the `background-color` property. It controls th
 {% shortcutPreview "p-150" %}
 
 <p class="bg-light">
-  This element uses the light background colour.
+  This element uses the light background colour.
 </p>
 {% endshortcutPreview %}
 
@@ -136,7 +136,7 @@ The background colour class sets the `background-color` property. It controls th
 {% shortcutPreview "p-150" %}
 
 <p class="bg-transparent">
-  This element has a transparent background colour.
+  This element has a transparent background colour.
 </p>
 {% endshortcutPreview %}
 
@@ -145,8 +145,8 @@ The background colour class sets the `background-color` property. It controls th
 {% shortcutPreview "p-150" %}
 
 <div class="bg-dark">
-  <p class="bg-white">
-    This element has a white background colour.
-  </p>
+  <p class="bg-white">
+    This element has a white background colour.
+  </p>
 </div>
 {% endshortcutPreview %}

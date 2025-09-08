@@ -1,9 +1,9 @@
 ---
-title: Couleur de l’arrière-plan - Raccourcis CSS
+title: Couleur de l’arrière-plan
 layout: 'layouts/base.njk'
 eleventyNavigation:
   key: shortcutsBackgroundColourFR
-  title: Couleur de l’arrière-plan - Raccourcis CSS
+  title: Couleur de l’arrière-plan
   locale: fr
   parent: shortcutsFR
   order: 1
@@ -51,7 +51,7 @@ La classe couleur d’arrière-plan définit la propriété `background-color`. 
 {% shortcutPreview "p-150" %}
 
 <p class="bg-primary text-light">
-  Cet élément utilise la couleur accent principale du gouvernement du Canada pour son arrière-plan.
+  Cet élément utilise la couleur accent principale du gouvernement du Canada pour son arrière-plan.
 </p>
 {% endshortcutPreview %}
 
@@ -60,7 +60,7 @@ La classe couleur d’arrière-plan définit la propriété `background-color`. 
 {% shortcutPreview "p-150" %}
 
 <p class="bg-active text-light">
-  Cet élément utilise la couleur d’arrière-plan active.
+  Cet élément utilise la couleur d’arrière-plan active.
 </p>
 {% endshortcutPreview %}
 
@@ -69,7 +69,7 @@ La classe couleur d’arrière-plan définit la propriété `background-color`. 
 {% shortcutPreview "p-150" %}
 
 <p class="bg-black text-light">
-  Cet élément utilise la couleur d’arrière-plan noire.
+  Cet élément utilise la couleur d’arrière-plan noire.
 </p>
 {% endshortcutPreview %}
 
@@ -78,9 +78,9 @@ La classe couleur d’arrière-plan définit la propriété `background-color`. 
 {% shortcutPreview "p-150" %}
 
 <div class="bg-current" style="color: var(--gcds-color-blue-750)">
-  <p class="text-light">
-    Cet élément utilise une couleur d’arrière-plan en fonction de la propriété couleur actuelle.
-  </p>
+  <p class="text-light">
+    Cet élément utilise une couleur d’arrière-plan en fonction de la propriété couleur actuelle.
+  </p>
 </div>
 {% endshortcutPreview %}
 
@@ -89,7 +89,7 @@ La classe couleur d’arrière-plan définit la propriété `background-color`. 
 {% shortcutPreview "p-150" %}
 
 <p class="bg-danger">
-  Cet élément utilise la couleur d’arrière-plan de danger.
+  Cet élément utilise la couleur d’arrière-plan de danger.
 </p>
 {% endshortcutPreview %}
 
@@ -98,7 +98,7 @@ La classe couleur d’arrière-plan définit la propriété `background-color`. 
 {% shortcutPreview "p-150" %}
 
 <p class="bg-dark text-light">
-  Cet élément utilise la couleur d’arrière-plan sombre.
+  Cet élément utilise la couleur d’arrière-plan sombre.
 </p>
 {% endshortcutPreview %}
 
@@ -107,7 +107,7 @@ La classe couleur d’arrière-plan définit la propriété `background-color`. 
 {% shortcutPreview "p-150" %}
 
 <p class="bg-disabled">
-  Cet élément utilise la couleur d’arrière-plan désactivée.
+  Cet élément utilise la couleur d’arrière-plan désactivée.
 </p>
 {% endshortcutPreview %}
 
@@ -116,9 +116,9 @@ La classe couleur d’arrière-plan définit la propriété `background-color`. 
 {% shortcutPreview "p-150" %}
 
 <div class="bg-danger">
-  <p class="bg-inherit">
-    Cet élément hérite sa couleur d’arrière-plan de l’élément parent.
-  </p>
+  <p class="bg-inherit">
+    Cet élément hérite sa couleur d’arrière-plan de l’élément parent.
+  </p>
 </div>
 {% endshortcutPreview %}
 
@@ -127,7 +127,7 @@ La classe couleur d’arrière-plan définit la propriété `background-color`. 
 {% shortcutPreview "p-150" %}
 
 <p class="bg-light">
-  Cet élément utilise la couleur d’arrière-plan claire.
+  Cet élément utilise la couleur d’arrière-plan claire.
 </p>
 {% endshortcutPreview %}
 
@@ -136,7 +136,7 @@ La classe couleur d’arrière-plan définit la propriété `background-color`. 
 {% shortcutPreview "p-150" %}
 
 <p class="bg-transparent">
-  Cet élément a une couleur d’arrière-plan transparente.
+  Cet élément a une couleur d’arrière-plan transparente.
 </p>
 {% endshortcutPreview %}
 
@@ -145,8 +145,8 @@ La classe couleur d’arrière-plan définit la propriété `background-color`. 
 {% shortcutPreview "p-150" %}
 
 <div class="bg-dark">
-  <p class="bg-white">
-    Cet élément a une couleur d’arrière-plan blanche.
-  </p>
+  <p class="bg-white">
+    Cet élément a une couleur d’arrière-plan blanche.
+  </p>
 </div>
 {% endshortcutPreview %}
