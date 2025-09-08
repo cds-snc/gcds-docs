@@ -29,6 +29,7 @@ This is a temp list to help us navigate the different pages until we have the si
   <li><a href="{{ links.shortcutsFontWeight }}">Font Weight</a></li>
   <li><a href="{{ links.shortcutsIcon }}">Icon</a></li>
   <li><a href="{{ links.shortcutsIconSize }}">Icon size</a></li>
+  <li><a href="{{ links.shortcutsImage }}">Image</a></li>
   <li><a href="{{ links.shortcutsLineHeight }}">LineHeight</a></li>
   <li><a href="{{ links.shortcutsLinkColour }}">LinkColour</a></li>
   <li><a href="{{ links.shortcutsLinkDecoration }}">LinkDecoration</a></li>
