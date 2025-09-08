@@ -14,7 +14,6 @@ shortcuts:
     style: 'word-break: break-word;'
   - class: 'break-all'
     style: 'word-break: break-all;'
-permalink: /en/css-shortcuts/word-break
 translationKey: 'shortcutsWordBreak'
 date: 'git Last Modified'
 ---

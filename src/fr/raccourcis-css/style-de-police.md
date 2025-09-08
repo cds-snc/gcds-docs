@@ -12,7 +12,6 @@ shortcuts:
     style: 'font-style: normal;'
   - class: 'font-italic'
     style: 'font-style: italic;'
-permalink: /fr/raccourcis-css/style-de-police
 translationKey: 'shortcutsFontStyle'
 date: 'git Last Modified'
 ---

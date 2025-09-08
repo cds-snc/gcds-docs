@@ -16,7 +16,6 @@ shortcuts:
     style: 'color: var(--gcds-link-inherit);'
   - class: 'link-light'
     style: 'color: var(--gcds-link-light);'
-permalink: /en/css-shortcuts/link-colour
 translationKey: 'shortcutsLinkColour'
 date: 'git Last Modified'
 ---

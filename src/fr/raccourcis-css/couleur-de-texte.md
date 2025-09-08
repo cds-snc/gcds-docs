@@ -18,7 +18,6 @@ shortcuts:
     style: 'color: var(--gcds-text-light);'
   - class: 'text-transparent'
     style: 'color: transparent;'
-permalink: /fr/raccourcis-css/couleur-de-texte
 translationKey: 'shortcutsTextColour'
 date: 'git Last Modified'
 ---

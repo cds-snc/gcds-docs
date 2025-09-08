@@ -15,7 +15,6 @@ shortcuts:
       overflow: hidden;
       text-overflow: ellipsis;
       white-space: nowrap;
-permalink: /fr/raccourcis-css/debordement-de-texte
 translationKey: 'shortcutsTextOverflow'
 date: 'git Last Modified'
 ---

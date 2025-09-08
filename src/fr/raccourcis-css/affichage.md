@@ -28,7 +28,6 @@ shortcuts:
     style: 'display: inline-table;'
   - class: 'd-none'
     style: 'display: none;'
-permalink: /fr/raccourcis-css/affichage
 translationKey: 'shortcutsDisplay'
 date: 'git Last Modified'
 ---

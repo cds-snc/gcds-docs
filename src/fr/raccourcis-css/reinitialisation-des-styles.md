@@ -10,7 +10,6 @@ eleventyNavigation:
 shortcuts:
   - class: 'TODO'
     style: 'TODO'
-permalink: /fr/raccourcis-css/reinitialisation-des-styles
 translationKey: 'shortcutsReset'
 date: 'git Last Modified'
 ---

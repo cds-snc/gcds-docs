@@ -14,7 +14,6 @@ shortcuts:
     style: 'font-family: var(--gcds-font-families-body);'
   - class: 'font-family-monospace'
     style: 'font-family: var(--gcds-font-families-monospace);'
-permalink: /fr/raccourcis-css/famille-de-police
 translationKey: 'shortcutsFontFamily'
 date: 'git Last Modified'
 ---

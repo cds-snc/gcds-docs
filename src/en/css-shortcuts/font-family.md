@@ -14,7 +14,6 @@ shortcuts:
     style: 'font-family: var(--gcds-font-families-body);'
   - class: 'font-family-monospace'
     style: 'font-family: var(--gcds-font-families-monospace);'
-permalink: /en/css-shortcuts/font-family
 translationKey: 'shortcutsFontFamily'
 date: 'git Last Modified'
 ---

@@ -64,7 +64,6 @@ shortcuts:
       @media only screen and (width < 48em) {
         font: var(--gcds-font-text-small-mobile);
       }
-permalink: /en/css-shortcuts/font
 translationKey: 'shortcutsFont'
 date: 'git Last Modified'
 ---

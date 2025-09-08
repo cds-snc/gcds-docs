@@ -15,7 +15,6 @@ shortcuts:
       overflow: hidden;
       text-overflow: ellipsis;
       white-space: nowrap;
-permalink: /en/css-shortcuts/text-overflow
 translationKey: 'shortcutsTextOverflow'
 date: 'git Last Modified'
 ---

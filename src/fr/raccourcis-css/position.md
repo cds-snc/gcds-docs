@@ -18,7 +18,6 @@ shortcuts:
     style: 'position: relative;'
   - class: 'position-sticky'
     style: 'position: sticky;'
-permalink: /fr/raccourcis-css/position
 translationKey: 'shortcutsPosition'
 date: 'git Last Modified'
 ---

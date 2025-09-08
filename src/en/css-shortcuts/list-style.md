@@ -46,7 +46,6 @@ shortcuts:
       margin: 0 0 0 var(--gcds-spacing-400);
   - class: 'list-none'
     style: 'list-style: none;'
-permalink: /en/css-shortcuts/list-style
 translationKey: 'shortcutsListStyle'
 date: 'git Last Modified'
 ---

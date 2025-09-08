@@ -16,7 +16,6 @@ shortcuts:
     style: 'text-transform: uppercase;'
   - class: 'text-none'
     style: 'text-transform: none;'
-permalink: /fr/raccourcis-css/transformation-de-texte
 translationKey: 'shortcutsTextTransform'
 date: 'git Last Modified'
 ---

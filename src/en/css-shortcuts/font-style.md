@@ -12,7 +12,6 @@ shortcuts:
     style: 'font-style: normal;'
   - class: 'font-italic'
     style: 'font-style: italic;'
-permalink: /en/css-shortcuts/font-style
 translationKey: 'shortcutsFontStyle'
 date: 'git Last Modified'
 ---

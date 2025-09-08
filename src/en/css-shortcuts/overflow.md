@@ -26,7 +26,6 @@ shortcuts:
     style: 'overflow-x: scroll;'
   - class: 'overflow-y-scroll'
     style: 'overflow-y: scroll;'
-permalink: /en/css-shortcuts/overflow
 translationKey: 'shortcutsOverflow'
 date: 'git Last Modified'
 ---

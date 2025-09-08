@@ -26,7 +26,6 @@ shortcuts:
     style: 'overflow-x: scroll;'
   - class: 'overflow-y-scroll'
     style: 'overflow-y: scroll;'
-permalink: /fr/raccourcis-css/debordement
 translationKey: 'shortcutsOverflow'
 date: 'git Last Modified'
 ---

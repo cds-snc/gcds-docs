@@ -16,7 +16,6 @@ shortcuts:
     style: 'text-align: left;'
   - class: 'text-right'
     style: 'text-align: right;'
-permalink: /fr/raccourcis-css/alignement-de-texte
 translationKey: 'shortcutsTextAlign'
 date: 'git Last Modified'
 ---

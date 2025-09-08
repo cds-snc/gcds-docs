@@ -19,7 +19,6 @@ shortcuts:
       height: 0;
       margin: 0;
       overflow: hidden;
-permalink: /en/css-shortcuts/visibility
 translationKey: 'shortcutsVisibility'
 date: 'git Last Modified'
 ---

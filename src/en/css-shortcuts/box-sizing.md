@@ -12,7 +12,6 @@ shortcuts:
     style: 'box-sizing: border-box;'
   - class: 'box-content'
     style: 'box-sizing: content-box;'
-permalink: /en/css-shortcuts/box-sizing
 translationKey: 'shortcutsBoxSizing'
 date: 'git Last Modified'
 ---

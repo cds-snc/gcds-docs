@@ -18,7 +18,6 @@ shortcuts:
     style: 'font-weight: var(--gcds-font-weights-semibold);'
   - class: 'font-bold'
     style: 'font-weight: var(--gcds-font-weights-bold);'
-permalink: /en/css-shortcuts/font-weight
 translationKey: 'shortcutsFontWeight'
 date: 'git Last Modified'
 ---

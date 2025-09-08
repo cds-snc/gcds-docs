@@ -64,7 +64,6 @@ shortcuts:
       @media only screen and (width < 48em) {
         font-size: var(--gcds-font-sizes-text-small-mobile);
       }
-permalink: /fr/raccourcis-css/taille-de-police
 translationKey: 'shortcutsFontSize'
 date: 'git Last Modified'
 ---

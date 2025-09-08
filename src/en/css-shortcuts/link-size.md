@@ -29,7 +29,6 @@ shortcuts:
       @media only screen and (width < 48em) {
         font: inherit;
       }
-permalink: /en/css-shortcuts/link-size
 translationKey: 'shortcutsLinkSize'
 date: 'git Last Modified'
 ---

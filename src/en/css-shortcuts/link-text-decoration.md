@@ -14,7 +14,6 @@ shortcuts:
       text-underline-position: under;
   - class: 'link-no-underline'
     style: 'text-decoration: none;'
-permalink: /en/css-shortcuts/link-text-decoration
 translationKey: 'shortcutsLinkDecoration'
 date: 'git Last Modified'
 ---

@@ -24,7 +24,6 @@ shortcuts:
     style: 'line-height: var(--gcds-line-heights-text);'
   - class: 'line-text-small'
     style: 'line-height: var(--gcds-line-heights-text-small);'
-permalink: /fr/raccourcis-css/hauteur-de-ligne
 translationKey: 'shortcutsLineHeight'
 date: 'git Last Modified'
 ---

@@ -20,7 +20,6 @@ shortcuts:
     style: 'max-width: 71.25rem'
   - class: 'container-full'
     style: 'max-width: 100%'
-permalink: /fr/raccourcis-css/boite
 translationKey: 'shortcutsContainer'
 date: 'git Last Modified'
 ---

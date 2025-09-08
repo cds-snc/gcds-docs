@@ -18,7 +18,6 @@ shortcuts:
     style: 'font-weight: var(--gcds-font-weights-semibold);'
   - class: 'font-bold'
     style: 'font-weight: var(--gcds-font-weights-bold);'
-permalink: /fr/raccourcis-css/epaisseur-de-police
 translationKey: 'shortcutsFontWeight'
 date: 'git Last Modified'
 ---
