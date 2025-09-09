@@ -103,7 +103,7 @@ La classe taille de l'icône définit les propriétés `font-size` et `line-heig
 
 ### H1<br/>`icon-h1`
 
-{% shortcutPreview %}
+{% shortcutPreview  "d-flex align-items-center gap-100" %}
 
 <p>
   <span class="gcds-icon-info-circle icon-h1"></span> La taille de cette icône correspond à la taille de police et à la hauteur de ligne du titre H1.
@@ -112,7 +112,7 @@ La classe taille de l'icône définit les propriétés `font-size` et `line-heig
 
 ### H2<br/>`icon-h2`
 
-{% shortcutPreview %}
+{% shortcutPreview  "d-flex align-items-center gap-100" %}
 
 <p>
   <span class="gcds-icon-info-circle icon-h2"></span> La taille de cette icône correspond à la taille de police et à la hauteur de ligne du titre H2.
@@ -121,7 +121,7 @@ La classe taille de l'icône définit les propriétés `font-size` et `line-heig
 
 ### H3<br/>`icon-h3`
 
-{% shortcutPreview %}
+{% shortcutPreview  "d-flex align-items-center gap-100" %}
 
 <p>
   <span class="gcds-icon-info-circle icon-h3"></span> La taille de cette icône correspond à la taille de police et à la hauteur de ligne du titre H3.
@@ -130,7 +130,7 @@ La classe taille de l'icône définit les propriétés `font-size` et `line-heig
 
 ### H4<br/>`icon-h4`
 
-{% shortcutPreview %}
+{% shortcutPreview  "d-flex align-items-center gap-100" %}
 
 <p>
   <span class="gcds-icon-info-circle icon-h4"></span> La taille de cette icône correspond à la taille de police et à la hauteur de ligne du titre H4.
@@ -139,7 +139,7 @@ La classe taille de l'icône définit les propriétés `font-size` et `line-heig
 
 ### H5<br/>`icon-h5`
 
-{% shortcutPreview %}
+{% shortcutPreview  "d-flex align-items-center gap-100" %}
 
 <p>
   <span class="gcds-icon-info-circle icon-h5"></span> La taille de cette icône correspond à la taille de police et à la hauteur de ligne du titre H5.
@@ -148,7 +148,7 @@ La classe taille de l'icône définit les propriétés `font-size` et `line-heig
 
 ### H6<br/>`icon-h6`
 
-{% shortcutPreview %}
+{% shortcutPreview  "d-flex align-items-center gap-100" %}
 
 <p>
   <span class="gcds-icon-info-circle icon-h6"></span> La taille de cette icône correspond à la taille de police et à la hauteur de ligne du titre H6.
@@ -157,7 +157,7 @@ La classe taille de l'icône définit les propriétés `font-size` et `line-heig
 
 ### Texte<br/>`icon-text`
 
-{% shortcutPreview %}
+{% shortcutPreview  "d-flex align-items-center gap-100" %}
 
 <p>
   <span class="gcds-icon-info-circle icon-text"></span> La taille de cette icône correspond à la taille de police et à la hauteur de ligne du texte normale.
@@ -166,7 +166,7 @@ La classe taille de l'icône définit les propriétés `font-size` et `line-heig
 
 ### Petit texte<br/>`icon-small-text`
 
-{% shortcutPreview %}
+{% shortcutPreview  "d-flex align-items-center gap-100" %}
 
 <p>
   <span class="gcds-icon-info-circle icon-small-text"></span> La taille de cette icône correspond à la taille de police et à la hauteur de ligne du petite texte.
@@ -175,7 +175,7 @@ La classe taille de l'icône définit les propriétés `font-size` et `line-heig
 
 ### Inherit<br/>`icon-inherit`
 
-{% shortcutPreview %}
+{% shortcutPreview  "d-flex align-items-center gap-100" %}
 
 <p class="font-text-small">
   <span class="gcds-icon-info-circle icon-inherit"></span> Cette icône hérite la taille de police et la hauteur de ligne du petit texte de l'élément parent.

@@ -121,7 +121,7 @@ The icon size class sets the `font-size` and `line-height` properties of icons. 
 
 ### H3<br/>`icon-h3`
 
-{% shortcutPreview %}
+{% shortcutPreview  "d-flex align-items-center gap-100" %}
 
 <p>
   <span class="gcds-icon-info-circle icon-h3"></span> This icon matches the H3 font size and line height.
@@ -130,7 +130,7 @@ The icon size class sets the `font-size` and `line-height` properties of icons. 
 
 ### H4<br/>`icon-h4`
 
-{% shortcutPreview %}
+{% shortcutPreview  "d-flex align-items-center gap-100" %}
 
 <p>
   <span class="gcds-icon-info-circle icon-h4"></span> This icon matches the H4 font size and line height.
@@ -139,7 +139,7 @@ The icon size class sets the `font-size` and `line-height` properties of icons. 
 
 ### H5<br/>`icon-h5`
 
-{% shortcutPreview %}
+{% shortcutPreview  "d-flex align-items-center gap-100" %}
 
 <p>
   <span class="gcds-icon-info-circle icon-h5"></span> This icon matches the H5 font size and line height.
@@ -148,7 +148,7 @@ The icon size class sets the `font-size` and `line-height` properties of icons. 
 
 ### H6<br/>`icon-h6`
 
-{% shortcutPreview %}
+{% shortcutPreview  "d-flex align-items-center gap-100" %}
 
 <p>
   <span class="gcds-icon-info-circle icon-h6"></span> This icon matches the H6 font size and line height.
@@ -157,7 +157,7 @@ The icon size class sets the `font-size` and `line-height` properties of icons. 
 
 ### Text<br/>`icon-text`
 
-{% shortcutPreview %}
+{% shortcutPreview  "d-flex align-items-center gap-100" %}
 
 <p>
   <span class="gcds-icon-info-circle icon-text"></span> This icon matches the text font size and line height.
@@ -166,7 +166,7 @@ The icon size class sets the `font-size` and `line-height` properties of icons. 
 
 ### Small text<br/>`icon-small-text`
 
-{% shortcutPreview %}
+{% shortcutPreview  "d-flex align-items-center gap-100" %}
 
 <p>
   <span class="gcds-icon-info-circle icon-small-text"></span> This icon matches the small text font size and line height.
@@ -175,7 +175,7 @@ The icon size class sets the `font-size` and `line-height` properties of icons. 
 
 ### Inherit<br/>`icon-inherit`
 
-{% shortcutPreview %}
+{% shortcutPreview  "d-flex align-items-center gap-100" %}
 
 <p class="font-text-small">
   <span class="gcds-icon-info-circle icon-inherit"></span> This icon inherits the small text font size and line height from the parent.
