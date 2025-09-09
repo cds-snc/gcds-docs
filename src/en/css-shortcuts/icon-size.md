@@ -112,7 +112,7 @@ The icon size class sets the `font-size` and `line-height` properties of icons. 
 
 ### H2<br/>`icon-h2`
 
-{% shortcutPreview %}
+{% shortcutPreview  "d-flex align-items-center gap-100" %}
 
 <p>
   <span class="gcds-icon-info-circle icon-h2"></span> This icon matches the H2 font size and line height.
