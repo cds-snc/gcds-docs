@@ -1,11 +1,39 @@
+{% set components = ["components", locale | upper] | join %}
+{% set pageTemplates = ["pageTemplates", locale | upper] | join %}
+{% set shortcuts = ["shortcuts", locale | upper] | join %}
+
 {% set navPages = collections.all | eleventyNavigation %}
+{% set componentPages = collections.all | eleventyNavigation(components) | sortAlpha %}
+{% set templatePages = collections.all | eleventyNavigation(pageTemplates) | sortAlpha %}
+{% set shortcutsPages = collections.all | eleventyNavigation(shortcuts) | sortAlpha %}
+
+{% macro isCurrent(url) -%}
+  {% if url in page.url %}current{% endif %}
+{%- endmacro %}
+
+{% macro isNavGroupOpen(url) -%}
+  {% if url in page.url %}open{% endif %}
+{%- endmacro %}
+
+{% macro renderComponentListItem(entry) -%}
+{% if entry.state === 'published' %}
+  {% if entry.url %}
+    <gcds-nav-link
+      href="{{ entry.url | url }}"
+      {{ isCurrent(entry.url) }}
+    >
+      {{ entry.title }}
+    </gcds-nav-link>
+  {% endif %}
+{% endif %}
+{%- endmacro %}
 
 {% macro renderNavListItem(entry) -%}
 {% if not entry.hideMain %}
   {% if entry.url %}
     <gcds-nav-link
       href="{{ entry.url | url }}"
-      {% if entry.url == page.url %}current{% endif %}
+      {{ isCurrent(entry.url) }}
     >
       {{ entry.title }}
     </gcds-nav-link>
@@ -15,11 +43,58 @@
 
 <gcds-side-nav label="{{ nav[locale].label }}">
   <gcds-nav-link href="{{ links.home }}">{{ nav[locale].title }}</gcds-nav-link>
-
-  {%- for entry in navPages %}
-    {%- if entry.locale == locale %}{{ renderNavListItem(entry) }}{% endif -%}
-  {%- endfor -%}
   
+  <gcds-nav-group
+    menu-label="Components"
+    open-trigger="Components"
+    {{ isNavGroupOpen(links.components) }}
+  >
+    <gcds-nav-link
+      href="{{ links.components }}"
+      {% if [links.components, '/'] | join == page.url %}current{% endif %}
+    >
+      Components overview
+    </gcds-nav-link>
+
+    {%- for entry in componentPages %}
+      {%- if entry.locale == locale %}{{ renderComponentListItem(entry) }}{% endif -%}
+    {%- endfor -%}
+  </gcds-nav-group>
+  
+  <gcds-nav-group
+    menu-label="Page templates"
+    open-trigger="Page templates"
+    {{ isNavGroupOpen(links.pageTemplates) }}
+  >
+    <gcds-nav-link
+      href="{{ links.pageTemplates }}"
+      {% if [links.pageTemplates, '/'] | join == page.url %}current{% endif %}
+    >
+      Templates overview
+    </gcds-nav-link>
+
+    {%- for entry in templatePages %}
+      {%- if entry.locale == locale %}{{ renderComponentListItem(entry) }}{% endif -%}
+    {%- endfor -%}
+  </gcds-nav-group>
+  
+  <gcds-nav-group
+    menu-label="CSS shortcuts"
+    open-trigger="CSS shortcuts"
+    {{ isNavGroupOpen(links.shortcuts) }}
+  >
+    <gcds-nav-link
+      href="{{ links.shortcuts }}"
+      {% if [links.shortcuts, '/'] | join == page.url %}current{% endif %}
+    >
+      CSS shortcuts overview
+    </gcds-nav-link>
+
+    {%- for entry in shortcutsPages %}
+      {%- if entry.locale == locale %}{{ renderNavListItem(entry) }}{% endif -%}
+    {%- endfor -%}
+  </gcds-nav-group>
+
   <gcds-nav-group
     menu-label="{{ nav[locale].contact }}"
     open-trigger="{{ nav[locale].contact }}"
