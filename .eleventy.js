@@ -549,6 +549,13 @@ module.exports = function (eleventyConfig) {
       .toLowerCase();
   });
 
+  /*
+   * See if string contains a substring
+   */
+  eleventyConfig.addFilter('contains', function (str, substr) {
+    return str && str.includes(substr);
+  });
+
   // Misc
 
   eleventyConfig.setLibrary('md', markdownLibrary);

@@ -8,11 +8,11 @@
 {% set shortcutsPages = collections.all | eleventyNavigation(shortcuts) | sortAlpha %}
 
 {% macro isCurrent(url) -%}
-  {% if url in page.url %}current{% endif %}
+  {% if page.url | contains(url)%}current{% endif %}
 {%- endmacro %}
 
 {% macro isNavGroupOpen(url) -%}
-  {% if url in page.url %}open{% endif %}
+  {% if page.url | contains(url) %}open{% endif %}
 {%- endmacro %}
 
 {% macro renderComponentListItem(entry) -%}
