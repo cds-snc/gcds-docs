@@ -9,13 +9,13 @@ date: 'git Last Modified'
 
 <h2 class="my-450">Start using GC Design System</h2>
 
-<article class="py-600 bg-primary text-light bg-full-width">
+<article class="py-600">
   <gcds-grid tag="ul" columns="1fr" columns-tablet="1fr 1fr">
     <li class="list-none md:mb-0 mb-600">
       <img class="mb-300" src="../../images/common/home/icon-design.svg" alt="" />
       <h3 class="mt-0">Design experiences</h3>
       <p>Explore design assets in our Figma library.</p>
-      <a class="link-light" href="{{ links.getStartedDesignSection }}">
+      <a href="{{ links.getStartedDesignSection }}">
         Start designing
       </a>
     </li>
@@ -23,7 +23,7 @@ date: 'git Last Modified'
       <img class="mb-300" src="../../images/common/home/icon-develop.svg" alt="" />
       <h3 class="mt-0">Develop products</h3>
       <p>Install the component package.</p>
-      <a class="link-light" href="{{ links.getStartedDevelopSection }}">Start developing</a>
+      <a href="{{ links.getStartedDevelopSection }}">Start developing</a>
     </li>
   </gcds-grid>
 </article>
@@ -56,7 +56,7 @@ date: 'git Last Modified'
   </gcds-grid>
 </article>
 
-<article class="py-600 bg-light bg-full-width">
+<article class="py-600">
   <h2 class="mt-0">What's new</h2>
   <gcds-grid tag="ul" columns="1fr" columns-tablet="1fr 1fr">
     <gcds-card

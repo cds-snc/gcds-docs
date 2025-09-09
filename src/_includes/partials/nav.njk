@@ -13,8 +13,8 @@
 {% endif %}
 {%- endmacro %}
 
-<gcds-top-nav slot="menu" label="{{ nav[locale].label }}" alignment="right">
-  <gcds-nav-link slot="home" href="{{ links.home }}">{{ nav[locale].title }}</gcds-nav-link>
+<gcds-side-nav label="{{ nav[locale].label }}">
+  <gcds-nav-link href="{{ links.home }}">{{ nav[locale].title }}</gcds-nav-link>
 
   {%- for entry in navPages %}
     {%- if entry.locale == locale %}{{ renderNavListItem(entry) }}{% endif -%}
@@ -28,4 +28,4 @@
     <gcds-nav-link href="{{ links.getInvolved }}">{{ nav[locale].getinvolved }}</gcds-nav-link>
     <gcds-nav-link href="{{ links.registerDemo }}">{{ nav[locale].finddemo }}</gcds-nav-link>
   </gcds-nav-group>
-</gcds-top-nav>
+</gcds-side-nav>

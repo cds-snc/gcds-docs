@@ -38,32 +38,37 @@
 
     <div class="content-wrapper">
 
-      <main id="mc" class="general-layout">
-        <section>
-            <div class="md:py-1250 py-900 hero">
-              <div class="container-xl mx-auto">
-                <article class="sm:py-750 py-450 xl:ps-0 sm:ps-600 ps-450 sm:pe-750 pe-300 bg-primary text-light hero__content">
-                  <h1>
-                    <span class="d-block">{{ homehero[locale].gcds }}</span>
-                  </h1>
-                  <p>{{ homehero[locale].paragraph }}</p>
-                  <a class="link-light" href="{{ homehero[locale].link }}">{{ homehero[locale].linkText }}</a>
-                </article>
+      <gcds-grid columns="1fr" columns-desktop="320px 1fr" tag="div" class="container-xl mx-auto xl:px-0 sm:px-600 px-225 general-layout">
+        {% include "partials/nav.njk" %}
+
+        <main id="mc" class="general-layout">
+          <section>
+              <div class="md:py-1250 py-900 hero">
+                <div class="container-xl mx-auto">
+                  <article class="sm:py-750 py-450 xl:ps-0 sm:ps-600 ps-450 sm:pe-750 pe-300 bg-primary text-light hero__content">
+                    <h1>
+                      <span class="d-block">{{ homehero[locale].gcds }}</span>
+                    </h1>
+                    <p>{{ homehero[locale].paragraph }}</p>
+                    <a class="link-light" href="{{ homehero[locale].link }}">{{ homehero[locale].linkText }}</a>
+                  </article>
+                </div>
+                <!-- {{ homehero[locale].credit }} John Lee, https://unsplash.com/photos/oMneOBYhJxY?utm_source=unsplash&utm_medium=referral&utm_content=creditShareLink -->
               </div>
-              <!-- {{ homehero[locale].credit }} John Lee, https://unsplash.com/photos/oMneOBYhJxY?utm_source=unsplash&utm_medium=referral&utm_content=creditShareLink -->
-            </div>
-        </section>
+          </section>
 
-        <section class="container-xl mx-auto xl:px-0 sm:px-600 px-225">
-          {% block content %}{{ content | safe }}{% endblock %}
+          <section class="container-xl mx-auto xl:px-0 sm:px-600 px-225">
+            {% block content %}{{ content | safe }}{% endblock %}
 
-          {% include "partials/helpus.njk" %}
+            {% include "partials/helpus.njk" %}
 
-          <gcds-date-modified class="mb-300">
-            {{ page.date | dateLastModified}}
-          </gcds-date-modified>
-        </section>
-      </main>
+            <gcds-date-modified class="mb-300">
+              {{ page.date | dateLastModified}}
+            </gcds-date-modified>
+          </section>
+        </main>
+
+      </gcds-grid>
 
     {% include "partials/footer.njk" %}
 

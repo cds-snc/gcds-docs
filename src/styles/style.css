@@ -477,15 +477,6 @@ nav.tabs a[aria-current=page]:focus {
   width: 80%;
   max-width: 40.625rem;
 }
-.hero .hero__content:before {
-  position: absolute;
-  top: 0;
-  left: calc(-100vw + 0.01px);
-  width: 100vw;
-  height: 100%;
-  content: "";
-  background-color: var(--gcds-color-blue-900);
-}
 
 .search-result {
   border-block-end: solid 1px var(--gcds-color-grayscale-1000);
