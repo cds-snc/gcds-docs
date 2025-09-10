@@ -39,6 +39,9 @@ This is a temp list to help us navigate the different pages until we have the si
   <li><a href="{{ links.shortcutsGap }}">Gap</a></li>
   <li><a href="{{ links.shortcutsGridColumns }}">GridColumns</a></li>
   <li><a href="{{ links.shortcutsGridRows }}">GridRows</a></li>
+  <li><a href="{{ links.shortcutsIcon }}">Icon</a></li>
+  <li><a href="{{ links.shortcutsIconSize }}">Icon size</a></li>
+  <li><a href="{{ links.shortcutsImage }}">Image</a></li>
   <li><a href="{{ links.shortcutsJustifyContent }}">JustifyContent</a></li>
   <li><a href="{{ links.shortcutsJustifyItems }}">JustifyItems</a></li>
   <li><a href="{{ links.shortcutsJustifySelf }}">JustifySelf</a></li>
