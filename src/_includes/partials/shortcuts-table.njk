@@ -8,6 +8,9 @@
       <tr>
         <th>{{ shortcutstable[locale].class }}</th>
         <th>{{ shortcutstable[locale].style }}</th>
+        {% if shortcutsHasLegacy %}
+          <th>{{ shortcutstable[locale].legacy }}</th>
+        {% endif %}
       </tr>
     </thead>
     <tbody>
@@ -15,6 +18,9 @@
       <tr>
         <td><pre><code>{{ shortcut.class }}</code></pre></td>
         <td><pre><code>{{ shortcut.style }}</code></pre></td>
+        {% if shortcut.legacy %}
+          <td><pre><code>{{ shortcut.legacy }}</code></pre></td>
+        {% endif %}
       </tr>
       {% endfor %}
     </tbody>

@@ -50,8 +50,10 @@ This is a temp list to help us navigate the different pages until we have the si
   <li><a href="{{ links.shortcutsLinkDecoration }}">LinkDecoration</a></li>
   <li><a href="{{ links.shortcutsLinkSize }}">LinkSize</a></li>
   <li><a href="{{ links.shortcutsListStyle }}">ListStyle</a></li>
+  <li><a href="{{ links.shortcutsMargin }}">Margin</a></li>
   <li><a href="{{ links.shortcutsOrder }}">Order</a></li>
   <li><a href="{{ links.shortcutsOverflow }}">Overflow</a></li>
+  <li><a href="{{ links.shortcutsPadding }}">Padding</a></li>
   <li><a href="{{ links.shortcutsPlaceContent }}">PlaceContent</a></li>
   <li><a href="{{ links.shortcutsPlaceItems }}">PlaceItems</a></li>
   <li><a href="{{ links.shortcutsPlaceSelf }}">PlaceSelf</a></li>
