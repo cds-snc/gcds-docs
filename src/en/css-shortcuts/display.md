@@ -22,10 +22,22 @@ shortcuts:
     style: 'display: grid;'
   - class: 'd-inline-grid'
     style: 'display: inline-grid;'
-  - class: 'd-table'
-    style: 'display: table;'
-  - class: 'd-inline-table'
-    style: 'display: inline-table;'
+  - class: |
+      d-table
+      d-table-row
+      d-table-cell
+    style: |
+      display: table;
+      display: table-row;
+      display: table-cell;
+  - class: |
+      d-inline-table
+      d-table-row
+      d-table-cell
+    style: |
+      display: inline-table;
+      display: table-row;
+      display: table-cell;
   - class: 'd-none'
     style: 'display: none;'
 translationKey: 'shortcutsDisplay'
@@ -145,7 +157,7 @@ These elements behaves like their matching HTML table elements. Use semantic HTM
 
 <div class="d-table">
   <div class="d-table-row">
-    <div class="d-table-cell">Cell 1 + longer content</div>
+    <div class="d-table-cell">Cell 1</div>
     <div class="d-table-cell">Cell 2</div>
     <div class="d-table-cell">Cell 3</div>
     <div class="d-table-cell">Cell 4</div>
@@ -153,7 +165,7 @@ These elements behaves like their matching HTML table elements. Use semantic HTM
   <div class="d-table-row">
     <div class="d-table-cell">Cell 1</div>
     <div class="d-table-cell">Cell 2</div>
-    <div class="d-table-cell">Cell 3 + longer content</div>
+    <div class="d-table-cell">Cell 3</div>
     <div class="d-table-cell">Cell 4</div>
   </div>
 </div>
@@ -167,22 +179,30 @@ This element behaves like an inline table element.
 
 <div class="d-inline-table">
   <div class="d-table-row">
-    <div class="d-table-cell">Cell 1 + longer content</div>
+    <div class="d-table-cell">Cell 1</div>
     <div class="d-table-cell">Cell 2</div>
+    <div class="d-table-cell">Cell 3</div>
+    <div class="d-table-cell">Cell 4</div>
   </div>
   <div class="d-table-row">
     <div class="d-table-cell">Cell 1</div>
-    <div class="d-table-cell">Cell 2 + longer content</div>
+    <div class="d-table-cell">Cell 2</div>
+    <div class="d-table-cell">Cell 3</div>
+    <div class="d-table-cell">Cell 4</div>
   </div>
 </div>
 <div class="d-inline-table">
   <div class="d-table-row">
-    <div class="d-table-cell">Cell 1 + longer content</div>
+    <div class="d-table-cell">Cell 1</div>
     <div class="d-table-cell">Cell 2</div>
+    <div class="d-table-cell">Cell 3</div>
+    <div class="d-table-cell">Cell 4</div>
   </div>
   <div class="d-table-row">
     <div class="d-table-cell">Cell 1</div>
-    <div class="d-table-cell">Cell 2 + longer content</div>
+    <div class="d-table-cell">Cell 2</div>
+    <div class="d-table-cell">Cell 3</div>
+    <div class="d-table-cell">Cell 4</div>
   </div>
 </div>
 {% endshortcutPreview %}

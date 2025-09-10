@@ -1,4 +1,7 @@
 <gcds-heading tag="h2">{{ shortcutstable[locale].heading }}</gcds-heading>
+{% if shortcutsDescription %}
+  <gcds-text>{{ shortcutsDescription }}</gcds-text>
+{% endif %}
 <div class="mb-300 table-overflow shortcut-table">
   <table>
     <thead>
@@ -10,7 +13,7 @@
     <tbody>
       {% for shortcut in shortcuts %}
       <tr>
-        <td><code>{{ shortcut.class }}</code></td>
+        <td><pre><code>{{ shortcut.class }}</code></pre></td>
         <td><pre><code>{{ shortcut.style }}</code></pre></td>
       </tr>
       {% endfor %}
