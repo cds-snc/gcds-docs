@@ -106,6 +106,31 @@
     margin: var(--gcds-spacing-200);
   }
 
+  .preview-demo:has(.example-margin) {
+    position: relative;
+
+    &:before {
+      content: '';
+      position: absolute;
+      top: var(--gcds-spacing-300);
+      left: var(--gcds-spacing-300);
+      width: calc(100% - var(--gcds-spacing-600));
+      height: calc(100% - var(--gcds-spacing-600));
+      background-color: var(--gcds-color-blue-100);
+    }
+  }
+
+  .example-margin {
+    position: relative;
+    z-index: 1;
+
+    &.ms-0,
+    &.me-0,
+    &.my-900 {
+      margin-block-end: var(--gcds-spacing-900);
+    }
+  }
+
   .example-table,
   .example-table + .d-inline-table {
     border-collapse: collapse;

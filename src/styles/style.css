@@ -343,6 +343,25 @@ ul li ul li {
 .shortcut-preview .example-items-with-margin p {
   margin: var(--gcds-spacing-200);
 }
+.shortcut-preview .preview-demo:has(.example-margin) {
+  position: relative;
+}
+.shortcut-preview .preview-demo:has(.example-margin):before {
+  content: "";
+  position: absolute;
+  top: var(--gcds-spacing-300);
+  left: var(--gcds-spacing-300);
+  width: calc(100% - var(--gcds-spacing-600));
+  height: calc(100% - var(--gcds-spacing-600));
+  background-color: var(--gcds-color-blue-100);
+}
+.shortcut-preview .example-margin {
+  position: relative;
+  z-index: 1;
+}
+.shortcut-preview .example-margin.ms-0, .shortcut-preview .example-margin.me-0, .shortcut-preview .example-margin.my-900 {
+  margin-block-end: var(--gcds-spacing-900);
+}
 .shortcut-preview .example-table,
 .shortcut-preview .example-table + .d-inline-table {
   border-collapse: collapse;
