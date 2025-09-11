@@ -280,6 +280,9 @@ ul li ul li {
   margin-block-end: calc(-1 * var(--gcds-spacing-200));
 }
 
+.shortcut-preview .preview-demo {
+  overflow-x: hidden;
+}
 .shortcut-preview .language-html {
   margin: 0 !important;
   border-radius: 0;
@@ -296,10 +299,43 @@ ul li ul li {
   height: 6rem;
 }
 .shortcut-preview .example-styled-items p:not(.visibility-hidden):not(.visibility-sr-only) {
+  max-width: 100%;
   background-color: var(--gcds-bg-primary);
   color: var(--gcds-text-light);
-  padding: var(--gcds-spacing-250);
-  border-radius: var(--gcds-border-radius-md);
+}
+.shortcut-preview .example-styled-items p:not(.visibility-hidden):not(.visibility-sr-only):not([class^=pt]), .shortcut-preview .example-styled-items p:not(.visibility-hidden):not(.visibility-sr-only):not([class^=pb]) {
+  padding-inline: var(--gcds-spacing-250);
+}
+.shortcut-preview .example-styled-items p:not(.visibility-hidden):not(.visibility-sr-only):not([class^=pt]) {
+  padding-block-start: var(--gcds-spacing-250);
+}
+.shortcut-preview .example-styled-items p:not(.visibility-hidden):not(.visibility-sr-only):not([class^=pb]) {
+  padding-block-end: var(--gcds-spacing-250);
+}
+.shortcut-preview .example-grid-row {
+  grid-auto-flow: column;
+}
+.shortcut-preview .example-flex-items {
+  background-color: var(--gcds-color-blue-100);
+}
+.shortcut-preview .example-flex-items p {
+  border: var(--gcds-border-width-sm) solid var(--gcds-color-grayscale-0);
+}
+.shortcut-preview .example-flex-align {
+  height: 15rem;
+}
+.shortcut-preview .example-flex-align p {
+  width: 33.33%;
+}
+.shortcut-preview .example-flex-place {
+  height: 15rem;
+}
+.shortcut-preview .example-flex-wrap p {
+  width: 45%;
+}
+.shortcut-preview .example-flex-wrap.flex-nowrap p {
+  flex: none;
+  width: 40%;
 }
 .shortcut-preview .example-visibility p:not(.visibility-sr-only) {
   flex: 1;

@@ -19,6 +19,10 @@
 }
 
 .shortcut-preview {
+  .preview-demo {
+    overflow-x: hidden;
+  }
+
   .language-html {
     margin: 0 !important;
     border-radius: 0;
@@ -40,13 +44,60 @@
 
   // Code example styles
   .example-styled-items p:not(.visibility-hidden):not(.visibility-sr-only) {
+    max-width: 100%;
     background-color: var(--gcds-bg-primary);
     color: var(--gcds-text-light);
-    padding: var(--gcds-spacing-250);
-    border-radius: var(--gcds-border-radius-md);
+
+    &:not([class^='pt']),
+    &:not([class^='pb']) {
+      padding-inline: var(--gcds-spacing-250);
+    }
+
+    &:not([class^='pt']) {
+      padding-block-start: var(--gcds-spacing-250);
+    }
+
+    &:not([class^='pb']) {
+      padding-block-end: var(--gcds-spacing-250);
+    }
   }
 
   // Example specific styles
+  .example-grid-row {
+    grid-auto-flow: column;
+  }
+
+  .example-flex-items {
+    background-color: var(--gcds-color-blue-100);
+
+    p {
+      border: var(--gcds-border-width-sm) solid var(--gcds-color-grayscale-0);
+    }
+  }
+
+  .example-flex-align {
+    height: 15rem;
+
+    p {
+      width: 33.33%;
+    }
+  }
+
+  .example-flex-place {
+    height: 15rem;
+  }
+
+  .example-flex-wrap {
+    p {
+      width: 45%;
+    }
+
+    &.flex-nowrap p {
+      flex: none;
+      width: 40%;
+    }
+  }
+
   .example-visibility p:not(.visibility-sr-only) {
     flex: 1;
   }
