@@ -43,17 +43,18 @@
 
 <gcds-side-nav label="{{ nav[locale].label }}">
   <gcds-nav-link href="{{ links.home }}">{{ nav[locale].title }}</gcds-nav-link>
+  <gcds-nav-link href="{{ links.getStarted }}" {{ isCurrent(links.getStarted) }}>{{ nav[locale].getstarted }}</gcds-nav-link>
   
   <gcds-nav-group
-    menu-label="Components"
-    open-trigger="Components"
+    menu-label="{{ nav[locale].components }}"
+    open-trigger="{{ nav[locale].components }}"
     {{ isNavGroupOpen(links.components) }}
   >
     <gcds-nav-link
       href="{{ links.components }}"
       {% if [links.components, '/'] | join == page.url %}current{% endif %}
     >
-      Components overview
+      {{ nav[locale].componentsoverview }}
     </gcds-nav-link>
 
     {%- for entry in componentPages %}
@@ -62,15 +63,15 @@
   </gcds-nav-group>
   
   <gcds-nav-group
-    menu-label="Page templates"
-    open-trigger="Page templates"
+    menu-label="{{ nav[locale].pagetemplates }}"
+    open-trigger="{{ nav[locale].pagetemplates }}"
     {{ isNavGroupOpen(links.pageTemplates) }}
   >
     <gcds-nav-link
       href="{{ links.pageTemplates }}"
       {% if [links.pageTemplates, '/'] | join == page.url %}current{% endif %}
     >
-      Templates overview
+      {{ nav[locale].pagetemplatesoverview }}
     </gcds-nav-link>
 
     {%- for entry in templatePages %}
@@ -79,15 +80,15 @@
   </gcds-nav-group>
   
   <gcds-nav-group
-    menu-label="CSS shortcuts"
-    open-trigger="CSS shortcuts"
+    menu-label="{{ nav[locale].cssshortcuts }}"
+    open-trigger="{{ nav[locale].cssshortcuts }}"
     {{ isNavGroupOpen(links.shortcuts) }}
   >
     <gcds-nav-link
       href="{{ links.shortcuts }}"
       {% if [links.shortcuts, '/'] | join == page.url %}current{% endif %}
     >
-      CSS shortcuts overview
+      {{ nav[locale].cssshortcutsoverview }}
     </gcds-nav-link>
 
     {%- for entry in shortcutsPages %}
@@ -96,8 +97,21 @@
   </gcds-nav-group>
 
   <gcds-nav-group
+    menu-label="Styles"
+    open-trigger="Styles"
+    {{ isNavGroupOpen(links.styles) }}
+  >
+    <gcds-nav-link href="{{ links.styles }}"{% if [links.styles, '/'] | join == page.url %}current{% endif %}>{{ nav[locale].stylesoverview }}</gcds-nav-link>
+    <gcds-nav-link href="{{ links.designTokens }}" {{ isCurrent(links.designTokens) }}>{{ nav[locale].designtokens }}</gcds-nav-link>
+    <gcds-nav-link href="{{ links.colour }}" {{ isCurrent(links.colour) }}>{{ nav[locale].colourtokens }}</gcds-nav-link>
+    <gcds-nav-link href="{{ links.spacing }}" {{ isCurrent(links.spacing) }}>{{ nav[locale].spacingtokens }}</gcds-nav-link>
+    <gcds-nav-link href="{{ links.typography }}" {{ isCurrent(links.typography) }}>{{ nav[locale].typographytokens }}</gcds-nav-link>
+  </gcds-nav-group>
+
+  <gcds-nav-group
     menu-label="{{ nav[locale].contact }}"
     open-trigger="{{ nav[locale].contact }}"
+    {{ isNavGroupOpen(links.contact) }}
   >
     <gcds-nav-link href="{{ links.contact }}">{{ nav[locale].contactus }}</gcds-nav-link>
     <gcds-nav-link href="{{ links.getInvolved }}">{{ nav[locale].getinvolved }}</gcds-nav-link>
