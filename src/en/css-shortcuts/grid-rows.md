@@ -5,7 +5,7 @@ eleventyNavigation:
   key: shortcutsGridRowsEN
   title: Grid rows
   locale: en
-  parent: shortcutsEN
+  parent: shortcutsFlexboxGridEN
   order: 1
 shortcuts:
   - class: 'grid-rows-1'

@@ -5,7 +5,7 @@ eleventyNavigation:
   key: shortcutsBoxSizingEN
   title: Box sizing
   locale: en
-  parent: shortcutsEN
+  parent: shortcutsLayoutEN
   order: 1
 shortcuts:
   - class: 'box-border'

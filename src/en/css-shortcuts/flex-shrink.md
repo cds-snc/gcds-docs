@@ -5,7 +5,7 @@ eleventyNavigation:
   key: shortcutsFlexShrinkEN
   title: Flex shrink
   locale: en
-  parent: shortcutsEN
+  parent: shortcutsFlexboxGridEN
   order: 1
 shortcuts:
   - class: 'flex-shrink'

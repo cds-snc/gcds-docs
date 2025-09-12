@@ -5,7 +5,7 @@ eleventyNavigation:
   key: shortcutsFontWeightEN
   title: Font weight
   locale: en
-  parent: shortcutsEN
+  parent: shortcutsTypographyEN
   order: 1
 shortcuts:
   - class: 'font-regular'

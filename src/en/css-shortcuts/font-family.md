@@ -5,7 +5,7 @@ eleventyNavigation:
   key: shortcutsFontFamilyEN
   title: Font family
   locale: en
-  parent: shortcutsEN
+  parent: shortcutsTypographyEN
   order: 1
 shortcuts:
   - class: 'font-family-heading'

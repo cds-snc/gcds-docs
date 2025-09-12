@@ -5,7 +5,7 @@ eleventyNavigation:
   key: shortcutsFontEN
   title: Font
   locale: en
-  parent: shortcutsEN
+  parent: shortcutsTypographyEN
   order: 1
 shortcuts:
   - class: 'font-h1'

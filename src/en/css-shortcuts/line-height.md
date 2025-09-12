@@ -5,7 +5,7 @@ eleventyNavigation:
   key: shortcutsLineHeightEN
   title: Line height
   locale: en
-  parent: shortcutsEN
+  parent: shortcutsTypographyEN
   order: 1
 shortcuts:
   - class: 'line-h1'

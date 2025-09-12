@@ -5,7 +5,7 @@ eleventyNavigation:
   key: shortcutsIconEN
   title: Icon
   locale: en
-  parent: shortcutsEN
+  parent: shortcutsIconImageEN
   order: 1
 shortcuts:
   - class: 'gcds-icon-info-circle'

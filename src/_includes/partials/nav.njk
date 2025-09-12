@@ -15,6 +15,14 @@
   {% if page.url | contains(url) %}open{% endif %}
 {%- endmacro %}
 
+{% macro isCSSShortcutGroupOpen(children, url) -%}
+  {% for child in children %}
+    {% if page.url | contains(child.url) %}
+      open
+    {% endif %}
+  {% endfor %}
+{%- endmacro %}
+
 {% macro renderComponentListItem(entry) -%}
 {% if entry.state === 'published' %}
   {% if entry.url %}
@@ -41,26 +49,34 @@
 {% endif %}
 {%- endmacro %}
 
+{% macro renderCSSShortcutItem(entry) -%}
+{% if not entry.hideMain %}
+  {% if not entry.url and entry.children %}
+    <gcds-nav-group
+      menu-label="{{ entry.title }}"
+      open-trigger="{{ entry.title }}"
+      {{ isCSSShortcutGroupOpen(entry.children | sortAlpha, entry.url) }}
+     >
+      {%- for child in entry.children %}
+        {%- if child.locale == locale %}{{ renderNavListItem(child) }}{% endif -%}
+      {%- endfor -%}
+    </gcds-nav-group>
+  {% else %}
+      <gcds-nav-link
+        href="{{ entry.url | url }}"
+        {{ isCurrent(entry.url) }}
+      >
+        {{ entry.title }}
+      </gcds-nav-link>
+  {% endif %}
+{% endif %}
+{%- endmacro %}
+
 <gcds-side-nav label="{{ nav[locale].label }}">
   <gcds-nav-link href="{{ links.home }}">{{ nav[locale].title }}</gcds-nav-link>
   <gcds-nav-link href="{{ links.getStarted }}" {{ isCurrent(links.getStarted) }}>{{ nav[locale].getstarted }}</gcds-nav-link>
-  
-  <gcds-nav-group
-    menu-label="{{ nav[locale].components }}"
-    open-trigger="{{ nav[locale].components }}"
-    {{ isNavGroupOpen(links.components) }}
-  >
-    <gcds-nav-link
-      href="{{ links.components }}"
-      {% if [links.components, '/'] | join == page.url %}current{% endif %}
-    >
-      {{ nav[locale].componentsoverview }}
-    </gcds-nav-link>
 
-    {%- for entry in componentPages %}
-      {%- if entry.locale == locale %}{{ renderComponentListItem(entry) }}{% endif -%}
-    {%- endfor -%}
-  </gcds-nav-group>
+  {# Page templates #}
   
   <gcds-nav-group
     menu-label="{{ nav[locale].pagetemplates }}"
@@ -78,7 +94,28 @@
       {%- if entry.locale == locale %}{{ renderComponentListItem(entry) }}{% endif -%}
     {%- endfor -%}
   </gcds-nav-group>
+
+  {# Components #}
   
+  <gcds-nav-group
+    menu-label="{{ nav[locale].components }}"
+    open-trigger="{{ nav[locale].components }}"
+    {{ isNavGroupOpen(links.components) }}
+  >
+    <gcds-nav-link
+      href="{{ links.components }}"
+      {% if [links.components, '/'] | join == page.url %}current{% endif %}
+    >
+      {{ nav[locale].componentsoverview }}
+    </gcds-nav-link>
+
+    {%- for entry in componentPages %}
+      {%- if entry.locale == locale %}{{ renderComponentListItem(entry) }}{% endif -%}
+    {%- endfor -%}
+  </gcds-nav-group>
+
+  {# CSS shortcuts #}
+
   <gcds-nav-group
     menu-label="{{ nav[locale].cssshortcuts }}"
     open-trigger="{{ nav[locale].cssshortcuts }}"
@@ -92,9 +129,11 @@
     </gcds-nav-link>
 
     {%- for entry in shortcutsPages %}
-      {%- if entry.locale == locale %}{{ renderNavListItem(entry) }}{% endif -%}
+      {%- if entry.locale == locale %}{{ renderCSSShortcutItem(entry) }}{% endif -%}
     {%- endfor -%}
   </gcds-nav-group>
+
+  {# Styles #}
 
   <gcds-nav-group
     menu-label="Styles"
@@ -107,6 +146,8 @@
     <gcds-nav-link href="{{ links.spacing }}" {{ isCurrent(links.spacing) }}>{{ nav[locale].spacingtokens }}</gcds-nav-link>
     <gcds-nav-link href="{{ links.typography }}" {{ isCurrent(links.typography) }}>{{ nav[locale].typographytokens }}</gcds-nav-link>
   </gcds-nav-group>
+
+  {# Contacts #}
 
   <gcds-nav-group
     menu-label="{{ nav[locale].contact }}"

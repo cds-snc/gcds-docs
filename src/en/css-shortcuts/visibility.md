@@ -5,7 +5,7 @@ eleventyNavigation:
   key: shortcutsVisibilityEN
   title: Visibility
   locale: en
-  parent: shortcutsEN
+  parent: shortcutsLayoutEN
   order: 1
 shortcuts:
   - class: 'visibility-hidden'

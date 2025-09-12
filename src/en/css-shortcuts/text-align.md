@@ -5,7 +5,7 @@ eleventyNavigation:
   key: shortcutsTextAlignEN
   title: Text align
   locale: en
-  parent: shortcutsEN
+  parent: shortcutsTypographyEN
   order: 1
 shortcuts:
   - class: 'text-center'

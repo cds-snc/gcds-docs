@@ -5,7 +5,7 @@ eleventyNavigation:
   key: shortcutsPlaceSelfEN
   title: Place self
   locale: en
-  parent: shortcutsEN
+  parent: shortcutsFlexboxGridEN
   order: 1
 shortcuts:
   - class: 'place-self-auto'

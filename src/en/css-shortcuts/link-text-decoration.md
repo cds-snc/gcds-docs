@@ -5,7 +5,7 @@ eleventyNavigation:
   key: shortcutsLinkDecorationEN
   title: Link text decoration
   locale: en
-  parent: shortcutsEN
+  parent: shortcutsTypographyEN
   order: 1
 shortcuts:
   - class: 'link-underline'

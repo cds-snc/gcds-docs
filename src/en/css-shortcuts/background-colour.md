@@ -5,7 +5,7 @@ eleventyNavigation:
   key: shortcutsBackgroundColourEN
   title: Background colour
   locale: en
-  parent: shortcutsEN
+  parent: shortcutsBackgroundBordersEN
   order: 1
 shortcuts:
   - class: 'bg-primary'

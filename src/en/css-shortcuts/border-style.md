@@ -5,7 +5,7 @@ eleventyNavigation:
   key: shortcutsBorderStyleEN
   title: Border style
   locale: en
-  parent: shortcutsEN
+  parent: shortcutsBackgroundBordersEN
   order: 1
 shortcuts:
   - class: 'b-solid'
