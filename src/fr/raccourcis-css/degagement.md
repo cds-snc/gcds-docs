@@ -14,7 +14,7 @@ shortcuts:
     style: 'column-gap: var(--gcds-spacing-&lt;value&gt;);'
   - class: 'gap-y-&lt;value&gt;'
     style: 'row-gap: var(--gcds-spacing-&lt;value&gt;);'
-shortcutsDescription: "La valeur &lt;value&gt; peut être définie à nos <a href='/fr/styles/espacement/'>unités d'espacement prédéfinies</a> (<code>0</code> - <code>1250</code>)."
+shortcutsDescription: "La valeur <code>value</code> peut être définie à nos <a href='/fr/styles/espacement/'>unités d'espacement prédéfinies</a> (<code>0</code> - <code>1250</code>)."
 translationKey: 'shortcutsGap'
 date: 'git Last Modified'
 ---

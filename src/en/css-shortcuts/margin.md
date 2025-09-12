@@ -29,7 +29,7 @@ shortcuts:
   - class: 'my-&lt;value&gt;'
     style: 'margin-block: var(--gcds-spacing-&lt;value&gt;);'
     legacy: 'margin-top + margin-bottom'
-shortcutsDescription: 'The &lt;value&gt; can be either one of our <a href="/en/styles/spacing/">predefined spacing tokens</a> (<code>0</code> - <code>1250</code>) or <code>auto</code>.'
+shortcutsDescription: 'The <code>value</code> can be either one of our <a href="/en/styles/spacing/">predefined spacing tokens</a> (<code>0</code> - <code>1250</code>) or <code>auto</code>.'
 shortcutsHasLegacy: true
 translationKey: 'shortcutsMargin'
 date: 'git Last Modified'

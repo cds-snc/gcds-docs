@@ -14,8 +14,6 @@ date: 'git Last Modified'
 
 <!-- TODO: Add proper content once it's translated -->
 
-TODO
-
 This is a temp list to help us navigate the different pages until we have the side-nav implemented:
 
 <ul class="list-disc">
@@ -23,6 +21,10 @@ This is a temp list to help us navigate the different pages until we have the si
   <li><a href="{{ links.shortcutsAlignItems }}">AlignItems</a></li>
   <li><a href="{{ links.shortcutsAlignSelf }}">AlignSelf</a></li>
   <li><a href="{{ links.shortcutsBackgroundColour }}">BackgroundColour</a></li>
+  <li><a href="{{ links.shortcutsBorderColour }}">BorderColour</a></li>
+  <li><a href="{{ links.shortcutsBorderRadius }}">BorderRadius</a></li>
+  <li><a href="{{ links.shortcutsBorderStyle }}">BorderStyle</a></li>
+  <li><a href="{{ links.shortcutsBorderWidth }}">BorderWidth</a></li>
   <li><a href="{{ links.shortcutsBoxSizing }}">Box sizing</a></li>
   <li><a href="{{ links.shortcutsContainer }}">Container</a></li>
   <li><a href="{{ links.shortcutsDisplay }}">Display</a></li>

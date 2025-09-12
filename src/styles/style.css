@@ -312,6 +312,10 @@ ul li ul li {
 .shortcut-preview .example-styled-items p:not(.visibility-hidden):not(.visibility-sr-only):not([class^=pb]) {
   padding-block-end: var(--gcds-spacing-250);
 }
+.shortcut-preview .example-border-radius {
+  width: 15rem;
+  height: 15rem;
+}
 .shortcut-preview .example-grid-row {
   grid-auto-flow: column;
 }
@@ -336,6 +340,9 @@ ul li ul li {
 .shortcut-preview .example-flex-wrap.flex-nowrap p {
   flex: none;
   width: 40%;
+}
+.shortcut-preview .example-items-padding p {
+  padding: var(--gcds-spacing-150);
 }
 .shortcut-preview .example-visibility p:not(.visibility-sr-only) {
   flex: 1;
