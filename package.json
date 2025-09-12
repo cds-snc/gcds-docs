@@ -17,7 +17,7 @@
     "cy:open": "cypress open",
     "cy:run": "npx cypress run",
     "cy:build": "npm run build:eleventy & eleventy --serve",
-    "test": "start-server-and-test cy:build http://localhost:8080/en cy:run --timeout 300000"
+    "test": "start-server-and-test cy:build http://localhost:8080/en cy:run"
   },
   "repository": {
     "type": "git",
