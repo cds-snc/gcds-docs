@@ -29,7 +29,7 @@ shortcuts:
   - class: 'py-&lt;value&gt;'
     style: 'padding-block: var(--gcds-spacing-&lt;value&gt;);'
     legacy: 'padding-top + padding-bottom'
-shortcutsDescription: 'The &lt;value&gt; can be either one of our <a href="/en/styles/spacing/">predefined spacing tokens</a> (<code>0</code> - <code>1250</code>).'
+shortcutsDescription: 'The <code>value</code> can be either one of our <a href="/en/styles/spacing/">predefined spacing tokens</a> (<code>0</code> - <code>1250</code>).'
 shortcutsHasLegacy: true
 translationKey: 'shortcutsPadding'
 date: 'git Last Modified'

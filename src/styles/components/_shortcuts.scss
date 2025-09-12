@@ -63,6 +63,11 @@
   }
 
   // Example specific styles
+  .example-border-radius {
+    width: 15rem;
+    height: 15rem;
+  }
+
   .example-grid-row {
     grid-auto-flow: column;
   }
@@ -96,6 +101,10 @@
       flex: none;
       width: 40%;
     }
+  }
+
+  .example-items-padding p {
+    padding: var(--gcds-spacing-150);
   }
 
   .example-visibility p:not(.visibility-sr-only) {
