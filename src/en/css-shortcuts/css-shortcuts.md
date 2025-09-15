@@ -27,6 +27,7 @@ This is a temp list to help us navigate the different pages until we have the si
   <li><a href="{{ links.shortcutsBorderWidth }}">BorderWidth</a></li>
   <li><a href="{{ links.shortcutsBoxSizing }}">Box sizing</a></li>
   <li><a href="{{ links.shortcutsContainer }}">Container</a></li>
+  <li><a href="{{ links.shortcutsCursor }}">Cursor</a></li>
   <li><a href="{{ links.shortcutsDisplay }}">Display</a></li>
   <li><a href="{{ links.shortcutsFlex }}">Flex</a></li>
   <li><a href="{{ links.shortcutsFlexDirection }}">FlexDirection</a></li>
@@ -59,12 +60,14 @@ This is a temp list to help us navigate the different pages until we have the si
   <li><a href="{{ links.shortcutsPlaceContent }}">PlaceContent</a></li>
   <li><a href="{{ links.shortcutsPlaceItems }}">PlaceItems</a></li>
   <li><a href="{{ links.shortcutsPlaceSelf }}">PlaceSelf</a></li>
+  <li><a href="{{ links.shortcutsPointerEvents }}">PointerEvents</a></li>
   <li><a href="{{ links.shortcutsPosition }}">Position</a></li>
   <li><a href="{{ links.shortcutsReset }}">Reset</a></li>
   <li><a href="{{ links.shortcutsTextAlign }}">TextAlign</a></li>
   <li><a href="{{ links.shortcutsTextColour }}">TextColour</a></li>
   <li><a href="{{ links.shortcutsTextOverflow }}">TextOverflow</a></li>
   <li><a href="{{ links.shortcutsTextTransform }}">TextTransform</a></li>
+  <li><a href="{{ links.shortcutsTransition }}">Transition</a></li>
   <li><a href="{{ links.shortcutsVisibility }}">Visibility</a></li>
   <li><a href="{{ links.shortcutsWordBreak }}">WordBreak</a></li>
 </ul>
