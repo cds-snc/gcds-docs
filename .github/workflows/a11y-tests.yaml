@@ -15,7 +15,7 @@ jobs:
   a11y-test:
     name: A11y test documentation site
     runs-on: ubuntu-latest
-    container: 
+    container:
       image: cypress/included:11.2.0
     steps:
       - name: Git Checkout
@@ -30,3 +30,4 @@ jobs:
         with:
           build: npm run build:eleventy
           start: npm run watch:eleventy
+          wait-on-timeout: 600
