@@ -30,4 +30,3 @@ jobs:
         with:
           build: npm run build:eleventy
           start: npm run watch:eleventy
-          wait-on-timeout: 600
