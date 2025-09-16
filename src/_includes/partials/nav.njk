@@ -23,6 +23,13 @@
   {% endfor %}
 {%- endmacro %}
 
+{% macro isContactGroupOpen(url) -%}
+  {% set contactPages = [links.contact, links.getInvolved, links.registerDemo] %}
+  {% for link in contactPages %}
+    {% if [link, '/'] | join == page.url %}open{% endif %}
+  {% endfor %}
+{%- endmacro %}
+
 {% macro renderComponentListItem(entry) -%}
 {% if entry.state === 'published' %}
   {% if entry.url %}
@@ -152,10 +159,10 @@
   <gcds-nav-group
     menu-label="{{ nav[locale].contact }}"
     open-trigger="{{ nav[locale].contact }}"
-    {{ isNavGroupOpen(links.contact) }}
+    {{ isContactGroupOpen(page.url) }}
   >
-    <gcds-nav-link href="{{ links.contact }}">{{ nav[locale].contactus }}</gcds-nav-link>
-    <gcds-nav-link href="{{ links.getInvolved }}">{{ nav[locale].getinvolved }}</gcds-nav-link>
-    <gcds-nav-link href="{{ links.registerDemo }}">{{ nav[locale].finddemo }}</gcds-nav-link>
+    <gcds-nav-link href="{{ links.contact }}" {{ isCurrent(links.contact) }}>{{ nav[locale].contactus }}</gcds-nav-link>
+    <gcds-nav-link href="{{ links.getInvolved }}" {{ isCurrent(links.getInvolved) }}>{{ nav[locale].getinvolved }}</gcds-nav-link>
+    <gcds-nav-link href="{{ links.registerDemo }}" {{ isCurrent(links.registerDemo) }}>{{ nav[locale].finddemo }}</gcds-nav-link>
   </gcds-nav-group>
 </gcds-side-nav>
