@@ -5,7 +5,7 @@ eleventyNavigation:
   key: shortcutsTextTransformFR
   title: Transformation de texte
   locale: fr
-  parent: shortcutsFR
+  parent: shortcutsTypographyFR
   order: 1
 shortcuts:
   - class: 'text-capitalize'

@@ -5,7 +5,7 @@ eleventyNavigation:
   key: shortcutsBorderColourFR
   title: Couleur de la bordure
   locale: fr
-  parent: shortcutsFR
+  parent: shortcutsBackgroundBordersFR
   order: 1
 shortcuts:
   - class: 'b-default'

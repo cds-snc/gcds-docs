@@ -5,7 +5,7 @@ eleventyNavigation:
   key: shortcutsFlexShrinkFR
   title: Rétrécissement de l’élément flexible
   locale: fr
-  parent: shortcutsFR
+  parent: shortcutsFlexboxGridFR
   order: 1
 shortcuts:
   - class: 'flex-shrink'

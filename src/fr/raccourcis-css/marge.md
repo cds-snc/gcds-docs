@@ -5,7 +5,7 @@ eleventyNavigation:
   key: shortcutsMarginFR
   title: Marge
   locale: fr
-  parent: shortcutsFR
+  parent: shortcutsSpacingFR
   order: 1
 shortcuts:
   - class: 'm-&lt;value&gt;'

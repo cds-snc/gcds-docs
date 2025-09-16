@@ -5,7 +5,7 @@ eleventyNavigation:
   key: shortcutsContainerFR
   title: Boîte
   locale: fr
-  parent: shortcutsFR
+  parent: shortcutsLayoutFR
   order: 1
 shortcuts:
   - class: 'container-xs'

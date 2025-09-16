@@ -5,7 +5,7 @@ eleventyNavigation:
   key: shortcutsGridColumnsFR
   title: Colonnes de grille
   locale: fr
-  parent: shortcutsFR
+  parent: shortcutsFlexboxGridFR
   order: 1
 shortcuts:
   - class: 'grid-cols-1'

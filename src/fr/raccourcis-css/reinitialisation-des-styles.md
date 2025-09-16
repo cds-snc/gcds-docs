@@ -5,7 +5,7 @@ eleventyNavigation:
   key: shortcutsResetFR
   title: Réinitialisation des styles
   locale: fr
-  parent: shortcutsFR
+  parent: shortcutsDefaultsFR
   order: 1
 shortcuts:
   - class: 'TODO'

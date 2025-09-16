@@ -5,7 +5,7 @@ eleventyNavigation:
   key: shortcutsJustifyItemsFR
   title: Justification des éléments
   locale: fr
-  parent: shortcutsFR
+  parent: shortcutsFlexboxGridFR
   order: 1
 shortcuts:
   - class: 'justify-items-center'

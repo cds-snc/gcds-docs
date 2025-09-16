@@ -5,7 +5,7 @@ eleventyNavigation:
   key: shortcutsGridRowsFR
   title: Lignes de grille
   locale: fr
-  parent: shortcutsFR
+  parent: shortcutsFlexboxGridFR
   order: 1
 shortcuts:
   - class: 'grid-rows-1'
