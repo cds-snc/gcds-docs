@@ -9,7 +9,10 @@ eleventyNavigation:
   order: 1
 shortcuts:
   - class: 'text-clip'
-    style: 'text-overflow: clip;'
+    style: |
+      overflow: hidden;
+      text-overflow: clip;
+      white-space: nowrap;
   - class: 'text-truncate'
     style: |
       overflow: hidden;
@@ -31,7 +34,7 @@ La classe débordement de texte définit la propriété `text-overflow`. Elle d�
 
 {% shortcutPreview "container-xs b-sm b-default p-150" %}
 
-<p class="overflow-hidden text-clip" style="white-space: nowrap;">
+<p class="text-clip">
   Ce texte est coupé abruptement sans points de suspension lorsqu'il déborde.
 </p>
 {% endshortcutPreview %}
