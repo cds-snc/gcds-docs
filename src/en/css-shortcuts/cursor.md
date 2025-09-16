@@ -5,7 +5,7 @@ eleventyNavigation:
   key: shortcutsCursorEN
   title: Cursor
   locale: en
-  parent: shortcutsEN
+  parent: shortcutsInteractiveEN
   order: 1
 shortcuts:
   - class: 'cursor-default'
