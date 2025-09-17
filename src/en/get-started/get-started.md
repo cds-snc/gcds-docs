@@ -14,7 +14,7 @@ date: 'git Last Modified'
 
 Whether you’re designing or building in code, get started using GC Design System.
 
-<gcds-grid class="mb-300" tag="ul" columns="1fr" columns-tablet="1fr 1fr" columns-desktop="1fr 1fr 1fr">
+<gcds-grid class="mb-300" tag="ul" columns="1fr" columns-tablet="1fr 1fr" columns-desktop="1fr 1fr">
   <gcds-card
     card-title="Design"
     href="#design"

@@ -19,7 +19,7 @@ Nous testons actuellement la version alpha de Système de design GC, ce qui corr
 
 ## Découvrez Système de design GC
 
-<gcds-grid columns="1fr" columns-tablet="1fr 1fr" columns-desktop="1fr 1fr 1fr">
+<gcds-grid columns="1fr" columns-tablet="1fr 1fr" columns-desktop="1fr 1fr">
   <gcds-card
     card-title="Recevez nos communications"
     href="{{ links.contactMailingList }}"

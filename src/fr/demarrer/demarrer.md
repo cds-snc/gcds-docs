@@ -14,7 +14,7 @@ date: 'git Last Modified'
 
 Que vous soyez à l’étape de la conception ou du codage, commencez à utiliser Système de Design GC.
 
-<gcds-grid class="mb-300" tag="ul" columns="1fr" columns-tablet="1fr 1fr" columns-desktop="1fr 1fr 1fr">
+<gcds-grid class="mb-300" tag="ul" columns="1fr" columns-tablet="1fr 1fr" columns-desktop="1fr 1fr">
   <gcds-card
     card-title="Conception"
     href="#conception"
