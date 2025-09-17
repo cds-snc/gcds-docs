@@ -19,6 +19,8 @@
 }
 
 .shortcut-preview {
+  border-radius: var(--gcds-border-radius-md);
+
   .preview-demo {
     overflow-x: hidden;
   }
@@ -149,5 +151,13 @@
       border: var(--gcds-border-width-sm) solid currentColor;
       padding: var(--gcds-spacing-150);
     }
+  }
+}
+
+.shortcut-responsive-layout {
+  padding-block: 0 !important;
+
+  .code-copy-button {
+    display: none;
   }
 }

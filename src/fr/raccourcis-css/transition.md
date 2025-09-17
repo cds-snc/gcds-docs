@@ -24,6 +24,7 @@ shortcuts:
       &:hover {
         opacity: 0;
       }
+shortcutsPartialClass: 'transition-fade-in'
 translationKey: 'shortcutsTodo'
 date: 'git Last Modified'
 ---
@@ -53,3 +54,5 @@ La classe de transition définit la propriété `transition`. Elle applique une 
   Lorsqu’on passe la souris dessus, cet élément disparaît graduellement.
 </a> 
 {% endshortcutPreview %}
+
+{% include "partials/responsive-layout.njk" %}

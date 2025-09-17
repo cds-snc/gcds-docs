@@ -36,6 +36,7 @@ shortcuts:
     style: 'content: "\e90c";'
   - class: 'gcds-icon-search'
     style: 'content: "\e907";'
+shortcutsPartialClass: 'icon-close'
 translationKey: 'shortcutsIconNames'
 date: 'git Last Modified'
 ---
@@ -173,3 +174,6 @@ The icon class sets the `content` property and other icon base styles like the i
   <span class="gcds-icon-search"></span> This element has a search icon.
 </p>
 {% endshortcutPreview %}
+
+{% include "partials/responsive-layout.njk" %}
+{% include "partials/state.njk" %}

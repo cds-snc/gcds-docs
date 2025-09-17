@@ -16,6 +16,7 @@ shortcuts:
     style: 'border-radius: 3rem;'
   - class: 'b-radius-xl'
     style: 'border-radius: 100%;'
+shortcutsPartialClass: 'b-radius-md'
 translationKey: 'shortcutsBorderRadius'
 date: 'git Last Modified'
 ---
@@ -63,3 +64,6 @@ The border radius class sets the `border-radius` property. It controls how round
   This element has an extra large border radius.
 </p>
 {% endshortcutPreview %}
+
+{% include "partials/responsive-layout.njk" %}
+{% include "partials/state.njk" %}

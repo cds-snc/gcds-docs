@@ -18,6 +18,7 @@ shortcuts:
       overflow: hidden;
       text-overflow: ellipsis;
       white-space: nowrap;
+shortcutsPartialClass: 'text-truncate'
 translationKey: 'shortcutsTextOverflow'
 date: 'git Last Modified'
 ---
@@ -47,3 +48,5 @@ La classe débordement de texte définit la propriété `text-overflow`. Elle d�
   Ce texte se termine par des points de suspension lorsqu'il déborde.
 </p>
 {% endshortcutPreview %}
+
+{% include "partials/responsive-layout.njk" %}

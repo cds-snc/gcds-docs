@@ -31,6 +31,7 @@ shortcuts:
     legacy: 'padding-top + padding-bottom'
 shortcutsDescription: 'The <code>value</code> can be either one of our <a href="/en/styles/spacing/">predefined spacing tokens</a> (<code>0</code> - <code>1250</code>).'
 shortcutsHasLegacy: true
+shortcutsPartialClass: 'p-300'
 translationKey: 'shortcutsPadding'
 date: 'git Last Modified'
 ---
@@ -106,3 +107,5 @@ The padding sets the `padding` property. It controls the space inside an element
   This element has a padding of --gcds-spacing-500 on the top and bottom sides.
 </p> 
 {% endshortcutPreview %}
+
+{% include "partials/responsive-layout.njk" %}

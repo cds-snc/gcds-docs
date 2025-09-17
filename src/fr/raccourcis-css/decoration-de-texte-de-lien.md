@@ -14,6 +14,7 @@ shortcuts:
       text-underline-position: under;
   - class: 'link-no-underline'
     style: 'text-decoration: none;'
+shortcutsPartialClass: 'link-underline'
 translationKey: 'shortcutsLinkDecoration'
 date: 'git Last Modified'
 ---
@@ -39,3 +40,6 @@ La classe décoration de texte de lien définit la propriété `text-decoration`
 
 <a href="#" class="link-no-underline">Ce lien n’est pas souligné.</a>
 {% endshortcutPreview %}
+
+{% include "partials/responsive-layout.njk" %}
+{% include "partials/state.njk" %}

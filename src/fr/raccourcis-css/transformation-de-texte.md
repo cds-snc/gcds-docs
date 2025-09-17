@@ -16,6 +16,7 @@ shortcuts:
     style: 'text-transform: uppercase;'
   - class: 'text-none'
     style: 'text-transform: none;'
+shortcutsPartialClass: 'text-capitalize'
 translationKey: 'shortcutsTextTransform'
 date: 'git Last Modified'
 ---
@@ -63,3 +64,5 @@ La classe transformation de texte définit la propriété `text-transform`. Elle
   Ce texte s’affiche tel qu’il a été saisi à l’origine. Toute transformation de texte est supprimée.
 </p>
 {% endshortcutPreview %}
+
+{% include "partials/responsive-layout.njk" %}

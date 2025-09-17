@@ -12,6 +12,7 @@ shortcuts:
     style: 'width: 100%;'
   - class: 'img-responsive'
     style: 'max-width: 100%;'
+shortcutsPartialClass: 'img-responsive'
 translationKey: 'shortcutsImage'
 date: 'git Last Modified'
 ---
@@ -43,3 +44,5 @@ La classe image définit les propriétés `width` ou `max-width` d'une image. El
   <figcaption>Cette image s'adapte à son élément parent.</figcaption>
 </figure>
 {% endshortcutPreview %}
+
+{% include "partials/responsive-layout.njk" %}

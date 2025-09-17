@@ -20,6 +20,7 @@ shortcuts:
     style: 'max-width: 71.25rem'
   - class: 'container-full'
     style: 'max-width: 100%'
+shortcutsPartialClass: 'container-xl'
 translationKey: 'shortcutsContainerSizing'
 date: 'git Last Modified'
 ---
@@ -85,3 +86,5 @@ La classe boîte définit la propriété `max-width` . Elle change la taille d�
   Cette boîte a une largeur maximale de 100 %.
 </div>
 {% endshortcutPreview %}
+
+{% include "partials/responsive-layout.njk" %}

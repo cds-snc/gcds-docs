@@ -16,6 +16,7 @@ shortcuts:
     style: 'border-style: dotted;'
   - class: 'b-none'
     style: 'border-style: none;'
+shortcutsPartialClass: 'b-solid'
 translationKey: 'shortcutsBorderStyle'
 date: 'git Last Modified'
 ---
@@ -63,3 +64,6 @@ La classe style de bordure définit la propriété `border-style`. Elle détermi
   Cet élément n’a pas de bordure.
 </p>
 {% endshortcutPreview %}
+
+{% include "partials/responsive-layout.njk" %}
+{% include "partials/state.njk" %}

@@ -16,6 +16,7 @@ shortcuts:
     style: 'justify-items: start;'
   - class: 'justify-items-end'
     style: 'justify-items: end;'
+shortcutsPartialClass: 'justify-items-center'
 translationKey: 'shortcutsJustifyItems'
 date: 'git Last Modified'
 ---
@@ -83,3 +84,5 @@ These items align to the end edge of their grid areas along the inline axis.
   <p>3</p>
 </div>
 {% endshortcutPreview %}
+
+{% include "partials/responsive-layout.njk" %}

@@ -19,6 +19,7 @@ shortcuts:
       height: 0;
       margin: 0;
       overflow: hidden;
+shortcutsPartialClass: 'visibility-hidden'
 translationKey: 'shortcutsVisibility'
 date: 'git Last Modified'
 ---
@@ -69,3 +70,6 @@ This element is only visible to assistive technologies.
   <p>3</p>
 </div>
 {% endshortcutPreview %}
+
+{% include "partials/responsive-layout.njk" %}
+{% include "partials/state.njk" %}

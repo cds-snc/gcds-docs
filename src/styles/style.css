@@ -280,6 +280,9 @@ ul li ul li {
   margin-block-end: calc(-1 * var(--gcds-spacing-200));
 }
 
+.shortcut-preview {
+  border-radius: var(--gcds-border-radius-md);
+}
 .shortcut-preview .preview-demo {
   overflow-x: hidden;
 }
@@ -378,6 +381,13 @@ ul li ul li {
 .shortcut-preview .example-table + .d-inline-table .d-table-cell {
   border: var(--gcds-border-width-sm) solid currentColor;
   padding: var(--gcds-spacing-150);
+}
+
+.shortcut-responsive-layout {
+  padding-block: 0 !important;
+}
+.shortcut-responsive-layout .code-copy-button {
+  display: none;
 }
 
 @media (max-width: 64rem) {

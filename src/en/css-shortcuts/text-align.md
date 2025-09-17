@@ -16,6 +16,7 @@ shortcuts:
     style: 'text-align: left;'
   - class: 'text-right'
     style: 'text-align: right;'
+shortcutsPartialClass: 'text-center'
 translationKey: 'shortcutsTextAlign'
 date: 'git Last Modified'
 ---
@@ -63,3 +64,5 @@ The text align class sets the `text-align` property. It controls the horizontal 
   This text is aligned to the right edge of its container.
 </p>
 {% endshortcutPreview %}
+
+{% include "partials/responsive-layout.njk" %}

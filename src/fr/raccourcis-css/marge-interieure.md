@@ -31,6 +31,7 @@ shortcuts:
     legacy: 'padding-top + padding-bottom'
 shortcutsDescription: 'La valeur <code>value</code> peut être définie à l’une de nos <a href="/fr/styles/espacement/">unités d’espacement prédéfinies</a> (<code>0</code> - <code>1250</code>).'
 shortcutsHasLegacy: true
+shortcutsPartialClass: 'p-300'
 translationKey: 'shortcutsPadding'
 date: 'git Last Modified'
 ---
@@ -106,3 +107,5 @@ La classe marge intérieure définit la propriété `padding`. Elle détermine l
   Cet élément a un espacement de --gcds-spacing-500 sur les côtés haut et bas.
 </p> 
 {% endshortcutPreview %}
+
+{% include "partials/responsive-layout.njk" %}

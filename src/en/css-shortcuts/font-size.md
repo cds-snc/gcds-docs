@@ -64,6 +64,7 @@ shortcuts:
       @media only screen and (width < 48em) {
         font-size: var(--gcds-font-sizes-text-small-mobile);
       }
+shortcutsPartialClass: 'font-size-text'
 translationKey: 'shortcutsFontSize'
 date: 'git Last Modified'
 ---
@@ -151,3 +152,5 @@ The font size class sets the `font-size` property. It controls how big or small 
   This element uses the font size intended for small text.
 </p>
 {% endshortcutPreview %}
+
+{% include "partials/responsive-layout.njk" %}

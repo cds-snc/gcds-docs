@@ -20,6 +20,7 @@ shortcuts:
     style: 'max-width: 71.25rem'
   - class: 'container-full'
     style: 'max-width: 100%'
+shortcutsPartialClass: 'container-xl'
 translationKey: 'shortcutsContainerSizing'
 date: 'git Last Modified'
 ---
@@ -85,3 +86,5 @@ The container class sets the `max-width` property. It changes the size of a cont
   This container has a max width of 100%.
 </div>
 {% endshortcutPreview %}
+
+{% include "partials/responsive-layout.njk" %}

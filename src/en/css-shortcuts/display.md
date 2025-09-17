@@ -40,6 +40,7 @@ shortcuts:
       display: table-cell;
   - class: 'd-none'
     style: 'display: none;'
+shortcutsPartialClass: 'd-block'
 translationKey: 'shortcutsDisplay'
 date: 'git Last Modified'
 ---
@@ -149,9 +150,11 @@ This element is an inline grid container.
 </div>
 {% endshortcutPreview %}
 
-### Table<br/>`d-table`, `d-table-row`, `d-table-cell`
+### Table<br/>`d-table`<br/>`d-table-row`<br/>`d-table-cell`
 
-These elements behaves like their matching HTML table elements. Use semantic HTML tags , like `table`, `tr`, and `td` whenever possible.
+This element behaves like a table element. Use all 3 classes to define how many rows and cells are in the table.
+
+Use the semantic HTML tags `table`, `tr`, `td` whenever possible.
 
 {% shortcutPreview "example-table" %}
 
@@ -163,17 +166,19 @@ These elements behaves like their matching HTML table elements. Use semantic HTM
     <div class="d-table-cell">Cell 4</div>
   </div>
   <div class="d-table-row">
-    <div class="d-table-cell">Cell 1</div>
-    <div class="d-table-cell">Cell 2</div>
-    <div class="d-table-cell">Cell 3</div>
-    <div class="d-table-cell">Cell 4</div>
+    <div class="d-table-cell">Cell 5</div>
+    <div class="d-table-cell">Cell 6</div>
+    <div class="d-table-cell">Cell 7</div>
+    <div class="d-table-cell">Cell 8</div>
   </div>
 </div>
 {% endshortcutPreview %}
 
-### Inline table<br/>`d-inline-table`
+### Inline table<br/>`d-inline-table`<br/>`d-table-row`<br/>`d-table-cell`
 
-This element behaves like an inline table element.
+This element behaves like an inline table element. Use all 3 classes to define how many rows and cells are in the inline table.
+
+Use the semantic HTML tags `table`, `tr`, `td` whenever possible.
 
 {% shortcutPreview "example-table" %}
 
@@ -181,28 +186,20 @@ This element behaves like an inline table element.
   <div class="d-table-row">
     <div class="d-table-cell">Cell 1</div>
     <div class="d-table-cell">Cell 2</div>
-    <div class="d-table-cell">Cell 3</div>
-    <div class="d-table-cell">Cell 4</div>
   </div>
   <div class="d-table-row">
-    <div class="d-table-cell">Cell 1</div>
-    <div class="d-table-cell">Cell 2</div>
     <div class="d-table-cell">Cell 3</div>
     <div class="d-table-cell">Cell 4</div>
   </div>
 </div>
 <div class="d-inline-table">
   <div class="d-table-row">
-    <div class="d-table-cell">Cell 1</div>
-    <div class="d-table-cell">Cell 2</div>
-    <div class="d-table-cell">Cell 3</div>
-    <div class="d-table-cell">Cell 4</div>
+    <div class="d-table-cell">Cell 5</div>
+    <div class="d-table-cell">Cell 6</div>
   </div>
   <div class="d-table-row">
-    <div class="d-table-cell">Cell 1</div>
-    <div class="d-table-cell">Cell 2</div>
-    <div class="d-table-cell">Cell 3</div>
-    <div class="d-table-cell">Cell 4</div>
+    <div class="d-table-cell">Cell 7</div>
+    <div class="d-table-cell">Cell 8</div>
   </div>
 </div>
 {% endshortcutPreview %}
@@ -215,3 +212,5 @@ This element behaves like an inline table element.
   This element will be completely removed.
 </p>
 {% endshortcutPreview %}
+
+{% include "partials/responsive-layout.njk" %}

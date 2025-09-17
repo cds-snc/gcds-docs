@@ -19,6 +19,7 @@ shortcuts:
   - class: 'align-items-end'
     style: 'align-items: end;'
 shortcutsNoticeDirection: 'align-items'
+shortcutsPartialClass: 'align-items-center'
 translationKey: 'shortcutsAlignItems'
 date: 'git Last Modified'
 ---
@@ -111,3 +112,5 @@ Dans **les mises en page en colonnes**, ils sont alignés à droite de la boîte
   <p>3</p>
 </div>
 {% endshortcutPreview %}
+
+{% include "partials/responsive-layout.njk" %}

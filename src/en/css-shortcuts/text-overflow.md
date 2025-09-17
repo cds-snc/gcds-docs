@@ -18,6 +18,7 @@ shortcuts:
       overflow: hidden;
       text-overflow: ellipsis;
       white-space: nowrap;
+shortcutsPartialClass: 'text-truncate'
 translationKey: 'shortcutsTextOverflow'
 date: 'git Last Modified'
 ---
@@ -47,3 +48,5 @@ The text overflow class sets the `text-overflow` property. It controls if overfl
   This text ends with an ellipsis when it overflows.
 </p>
 {% endshortcutPreview %}
+
+{% include "partials/responsive-layout.njk" %}

@@ -29,6 +29,7 @@ shortcuts:
       @media only screen and (width < 48em) {
         font: inherit;
       }
+shortcutsPartialClass: 'link-size-inherit'
 translationKey: 'shortcutsLinkSize'
 date: 'git Last Modified'
 ---
@@ -73,3 +74,5 @@ La classe taille de lien définit la propriété `font`. Elle détermine la tail
   </a>
 </h4>
 {% endshortcutPreview %}
+
+{% include "partials/responsive-layout.njk" %}

@@ -16,6 +16,7 @@ shortcuts:
     style: 'text-transform: uppercase;'
   - class: 'text-none'
     style: 'text-transform: none;'
+shortcutsPartialClass: 'text-capitalize'
 translationKey: 'shortcutsTextTransform'
 date: 'git Last Modified'
 ---
@@ -63,3 +64,5 @@ The text transform class sets the `text-transform` property. It controls the cap
   This text is displayed as originally entered. Any text transformations are removed.
 </p>
 {% endshortcutPreview %}
+
+{% include "partials/responsive-layout.njk" %}

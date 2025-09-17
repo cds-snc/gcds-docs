@@ -31,6 +31,7 @@ shortcuts:
     legacy: 'margin-top + margin-bottom'
 shortcutsDescription: 'La valeur <code>value</code> peut être définie à l’une de nos <a href="/fr/styles/espacement/">unités d’espacement prédéfinies</a> (<code>0</code> - <code>1250</code>) ou <code>auto</code>.'
 shortcutsHasLegacy: true
+shortcutsPartialClass: 'm-300'
 translationKey: 'shortcutsMargin'
 date: 'git Last Modified'
 ---
@@ -106,3 +107,5 @@ La classe marge définit la propriété `margin`. Elle détermine l’espace à 
   Cet élément a une marge de --gcds-spacing-500 sur les côtés haut et bas.
 </p>
 {% endshortcutPreview %}
+
+{% include "partials/responsive-layout.njk" %}

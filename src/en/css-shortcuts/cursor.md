@@ -28,6 +28,7 @@ shortcuts:
     style: 'cursor: zoom-in;'
   - class: 'cursor-zoom-out'
     style: 'cursor: zoom-out;'
+shortcutsPartialClass: 'cursor-pointer'
 translationKey: 'shortcutsCursor'
 date: 'git Last Modified'
 ---
@@ -129,3 +130,6 @@ The cursor class sets the `cursor` property. It controls what cursor style is di
   When hovered over, this element displays the zoom out cursor. It indicates the possibility to decrease magnification.
 </a> 
 {% endshortcutPreview %}
+
+{% include "partials/responsive-layout.njk" %}
+{% include "partials/state.njk" %}
