@@ -1,8 +1,8 @@
 ---
-title: Background and border
+title: Mise en page
 eleventyNavigation:
-  key: shortcutsBackgroundBordersFR
-  title: Background and border
+  key: shortcutsLayoutFR
+  title: Mise en page
   locale: fr
   parent: shortcutsFR
   order: 1

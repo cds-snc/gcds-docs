@@ -1,8 +1,8 @@
 ---
-title: Spacing
+title: Interactif
 eleventyNavigation:
-  key: shortcutsSpacingFR
-  title: Spacing
+  key: shortcutsInteractiveFR
+  title: Interactif
   locale: fr
   parent: shortcutsFR
   order: 1

@@ -1,8 +1,8 @@
 ---
-title: Defaults
+title: Typographie
 eleventyNavigation:
-  key: shortcutsDefaultsFR
-  title: Defaults
+  key: shortcutsTypographyFR
+  title: Typographie
   locale: fr
   parent: shortcutsFR
   order: 1

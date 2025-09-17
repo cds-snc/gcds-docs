@@ -1,8 +1,8 @@
 ---
-title: Flexbox and grid
+title: Boîte d’élément flexible et grille
 eleventyNavigation:
   key: shortcutsFlexboxGridFR
-  title: Flexbox and grid
+  title: Boîte d’élément flexible et grille
   locale: fr
   parent: shortcutsFR
   order: 1

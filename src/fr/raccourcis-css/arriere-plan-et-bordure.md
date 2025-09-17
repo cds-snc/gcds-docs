@@ -1,8 +1,8 @@
 ---
-title: Typography
+title: Arrière-plan et bordure
 eleventyNavigation:
-  key: shortcutsTypographyFR
-  title: Typography
+  key: shortcutsBackgroundBordersFR
+  title: Arrière-plan et bordure
   locale: fr
   parent: shortcutsFR
   order: 1

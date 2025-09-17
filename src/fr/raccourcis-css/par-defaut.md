@@ -1,8 +1,8 @@
 ---
-title: Icon and image
+title: Par défaut
 eleventyNavigation:
-  key: shortcutsIconImageFR
-  title: Icon and image
+  key: shortcutsDefaultsFR
+  title: Par défaut
   locale: fr
   parent: shortcutsFR
   order: 1

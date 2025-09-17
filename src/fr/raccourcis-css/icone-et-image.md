@@ -1,8 +1,8 @@
 ---
-title: Layout
+title: Icône et image
 eleventyNavigation:
-  key: shortcutsLayoutFR
-  title: Layout
+  key: shortcutsIconImageFR
+  title: Icône et image
   locale: fr
   parent: shortcutsFR
   order: 1
