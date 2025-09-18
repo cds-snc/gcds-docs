@@ -22,6 +22,7 @@ shortcuts:
     style: 'place-content: start;'
   - class: 'place-content-end'
     style: 'place-content: end;'
+shortcutsPartialClass: 'place-content-center'
 shortcutsNoticeDirection: 'place-content'
 translationKey: 'shortcutsPlaceContent'
 date: 'git Last Modified'
@@ -147,3 +148,5 @@ Rows and columns are grouped together at the end of their axes, leaving space be
   <p>6</p>
 </div>
 {% endshortcutPreview %}
+
+{% include "partials/responsive-layout.njk" %}

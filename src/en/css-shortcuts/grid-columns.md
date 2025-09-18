@@ -34,6 +34,7 @@ shortcuts:
     style: 'grid-template-columns: repeat(12, minmax(0, 1fr));'
   - class: 'grid-cols-none'
     style: 'grid-template-columns: none;'
+shortcutsPartialClass: 'grid-cols-3'
 translationKey: 'shortcutsGridColumns'
 date: 'git Last Modified'
 ---
@@ -331,3 +332,5 @@ This container removes any explicit column definition. No columns are created an
   <p>12</p>
 </div>
 {% endshortcutPreview %}
+
+{% include "partials/responsive-layout.njk" %}

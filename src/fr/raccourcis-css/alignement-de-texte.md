@@ -16,6 +16,7 @@ shortcuts:
     style: 'text-align: left;'
   - class: 'text-right'
     style: 'text-align: right;'
+shortcutsPartialClass: 'text-center'
 translationKey: 'shortcutsTextAlign'
 date: 'git Last Modified'
 ---
@@ -63,3 +64,5 @@ La classe alignement de texte définit la propriété `text-align`. Elle déterm
   Ce texte est aligné du côté droit de sa boîte.
 </p>
 {% endshortcutPreview %}
+
+{% include "partials/responsive-layout.njk" %}

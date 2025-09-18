@@ -16,6 +16,7 @@ shortcuts:
     style: 'color: var(--gcds-link-inherit);'
   - class: 'link-light'
     style: 'color: var(--gcds-link-light);'
+shortcutsPartialClass: 'link-hover'
 translationKey: 'shortcutsLinkColour'
 date: 'git Last Modified'
 ---
@@ -69,3 +70,6 @@ La classe couleur de lien définit la propriété `color`. Elle détermine la co
   Ce lien utilise la couleur de lien clair.
 </a>
 {% endshortcutPreview %}
+
+{% include "partials/responsive-layout.njk" %}
+{% include "partials/state.njk" %}

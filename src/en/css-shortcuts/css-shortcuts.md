@@ -48,7 +48,7 @@ Add custom code to meet your specific needs, with the reassurance of knowing itâ
 
 ### Conditional styling
 
-<gcds-grid tag="ul" columns-desktop="1fr 1fr 1fr" columns-tablet="1fr 1fr" columns="1fr">
+<gcds-grid class="shortcuts-overview-list" tag="ul" columns-desktop="1fr 1fr 1fr" columns-tablet="1fr 1fr" columns="1fr">
   <li>
     <gcds-link href="{{ links.shortcutsResponsiveLayout }}">Responsive layout</gcds-link>
   </li>
@@ -59,7 +59,7 @@ Add custom code to meet your specific needs, with the reassurance of knowing itâ
 
 ### Layout
 
-<gcds-grid tag="ul" columns-desktop="1fr 1fr 1fr" columns-tablet="1fr 1fr" columns="1fr">
+<gcds-grid class="shortcuts-overview-list" tag="ul" columns-desktop="1fr 1fr 1fr" columns-tablet="1fr 1fr" columns="1fr">
   <li>
     <gcds-link href="{{ links.shortcutsBoxSizing }}">Box sizing</gcds-link>
   </li>
@@ -82,7 +82,7 @@ Add custom code to meet your specific needs, with the reassurance of knowing itâ
 
 ### Typography
 
-<gcds-grid tag="ul" columns-desktop="1fr 1fr 1fr" columns-tablet="1fr 1fr" columns="1fr">
+<gcds-grid class="shortcuts-overview-list" tag="ul" columns-desktop="1fr 1fr 1fr" columns-tablet="1fr 1fr" columns="1fr">
   <li>
     <gcds-link href="{{ links.shortcutsFont }}">Font</gcds-link>
   </li>
@@ -132,7 +132,7 @@ Add custom code to meet your specific needs, with the reassurance of knowing itâ
 
 ### Spacing
 
-<gcds-grid tag="ul" columns-desktop="1fr 1fr 1fr" columns-tablet="1fr 1fr" columns="1fr">
+<gcds-grid class="shortcuts-overview-list" tag="ul" columns-desktop="1fr 1fr 1fr" columns-tablet="1fr 1fr" columns="1fr">
   <li>
     <gcds-link href="{{ links.shortcutsMargin }}">Margin</gcds-link>
   </li>
@@ -143,7 +143,7 @@ Add custom code to meet your specific needs, with the reassurance of knowing itâ
 
 ### Flexbox and grid
 
-<gcds-grid tag="ul" columns-desktop="1fr 1fr 1fr" columns-tablet="1fr 1fr" columns="1fr">
+<gcds-grid class="shortcuts-overview-list" tag="ul" columns-desktop="1fr 1fr 1fr" columns-tablet="1fr 1fr" columns="1fr">
   <li>
     <gcds-link href="{{ links.shortcutsFlex }}">Flex</gcds-link>
   </li>
@@ -202,7 +202,7 @@ Add custom code to meet your specific needs, with the reassurance of knowing itâ
 
 ### Background and border
 
-<gcds-grid tag="ul" columns-desktop="1fr 1fr 1fr" columns-tablet="1fr 1fr" columns="1fr">
+<gcds-grid class="shortcuts-overview-list" tag="ul" columns-desktop="1fr 1fr 1fr" columns-tablet="1fr 1fr" columns="1fr">
   <li>
     <gcds-link href="{{ links.shortcutsBackgroundColour }}">Background colour</gcds-link>
   </li>
@@ -222,7 +222,7 @@ Add custom code to meet your specific needs, with the reassurance of knowing itâ
 
 ### Icon and image
 
-<gcds-grid tag="ul" columns-desktop="1fr 1fr 1fr" columns-tablet="1fr 1fr" columns="1fr">
+<gcds-grid class="shortcuts-overview-list" tag="ul" columns-desktop="1fr 1fr 1fr" columns-tablet="1fr 1fr" columns="1fr">
   <li>
     <gcds-link href="{{ links.shortcutsIconNames }}">Icon names</gcds-link>
   </li>
@@ -236,7 +236,7 @@ Add custom code to meet your specific needs, with the reassurance of knowing itâ
 
 ### Interactive
 
-<gcds-grid tag="ul" columns-desktop="1fr 1fr 1fr" columns-tablet="1fr 1fr" columns="1fr">
+<gcds-grid class="shortcuts-overview-list" tag="ul" columns-desktop="1fr 1fr 1fr" columns-tablet="1fr 1fr" columns="1fr">
   <li>
     <gcds-link href="{{ links.shortcutsCursor }}">Cursor</gcds-link>
   </li>

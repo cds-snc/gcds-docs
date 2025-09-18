@@ -26,6 +26,7 @@ shortcuts:
     style: 'overflow-x: scroll;'
   - class: 'overflow-y-scroll'
     style: 'overflow-y: scroll;'
+shortcutsPartialClass: 'overflow-hidden'
 translationKey: 'shortcutsOverflow'
 date: 'git Last Modified'
 ---
@@ -124,3 +125,5 @@ La classe overflow définit la propriété `overflow`. Elle détermine la façon
   Le contenu qui dépasse les limites de cet élément est accessible au moyen d’une barre de défilement verticale.
 </a>
 {% endshortcutPreview %}
+
+{% include "partials/responsive-layout.njk" %}

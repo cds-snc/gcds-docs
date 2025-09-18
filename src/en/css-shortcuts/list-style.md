@@ -46,6 +46,7 @@ shortcuts:
       margin: 0 0 0 var(--gcds-spacing-400);
   - class: 'list-none'
     style: 'list-style: none;'
+shortcutsPartialClass: 'list-disc'
 translationKey: 'shortcutsListStyle'
 date: 'git Last Modified'
 ---
@@ -167,3 +168,5 @@ The list style class sets the `list-style` property. It controls the appearance 
   <li>This is a list item without a list marker.</li>
 </ul>
 {% endshortcutPreview %}
+
+{% include "partials/responsive-layout.njk" %}

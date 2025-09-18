@@ -64,6 +64,7 @@ shortcuts:
       @media only screen and (width < 48em) {
         font: var(--gcds-font-text-small-mobile);
       }
+shortcutsPartialClass: 'font-text'
 translationKey: 'shortcutsFont'
 date: 'git Last Modified'
 ---
@@ -151,3 +152,5 @@ La classe police définit la propriété `font`. Détermine le style de police, 
   Cet élément utilise les styles de police prévus pour du petit texte.
 </p>
 {% endshortcutPreview %}
+
+{% include "partials/responsive-layout.njk" %}

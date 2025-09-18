@@ -23,6 +23,7 @@ shortcuts:
   - class: 'place-content-end'
     style: 'place-content: end;'
 shortcutsNoticeDirection: 'place-content'
+shortcutsPartialClass: 'place-content-center'
 translationKey: 'shortcutsPlaceContent'
 date: 'git Last Modified'
 ---
@@ -147,3 +148,5 @@ Les lignes et les colonnes sont regroupées à la fin de leurs axes, laissant de
   <p>6</p>
 </div>
 {% endshortcutPreview %}
+
+{% include "partials/responsive-layout.njk" %}

@@ -16,6 +16,7 @@ shortcuts:
     style: 'place-items: start;'
   - class: 'place-items-end'
     style: 'place-items: end;'
+shortcutsPartialClass: 'place-items-center'
 translationKey: 'shortcutsPlaceItems'
 date: 'git Last Modified'
 ---
@@ -95,3 +96,5 @@ These items align to the end edge of both axes within their grid areas.
   <p>6</p>
 </div>
 {% endshortcutPreview %}
+
+{% include "partials/responsive-layout.njk" %}

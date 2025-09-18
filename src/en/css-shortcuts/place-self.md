@@ -18,6 +18,7 @@ shortcuts:
     style: 'place-self: start;'
   - class: 'place-self-end'
     style: 'place-self: end;'
+shortcutsPartialClass: 'place-self-center'
 translationKey: 'shortcutsPlaceSelf'
 date: 'git Last Modified'
 ---
@@ -113,3 +114,5 @@ The item with the `place-self-end` class aligns to the end edge of both axes wit
   <p>6</p>
 </div>
 {% endshortcutPreview %}
+
+{% include "partials/responsive-layout.njk" %}

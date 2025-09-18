@@ -34,6 +34,7 @@ shortcuts:
     style: 'grid-template-rows: repeat(12, minmax(0, 1fr));'
   - class: 'grid-rows-none'
     style: 'grid-template-rows: none;'
+shortcutsPartialClass: 'grid-rows-3'
 translationKey: 'shortcutsGridRows'
 date: 'git Last Modified'
 ---
@@ -322,3 +323,5 @@ Cette boîte supprime toute définition de ligne explicite. La hauteur de chaque
   <p>Aucune ligne n’est définie et la mise en page de grille n’est pas appliquée.</p>
 </div>
 {% endshortcutPreview %}
+
+{% include "partials/responsive-layout.njk" %}

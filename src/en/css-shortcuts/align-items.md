@@ -19,6 +19,7 @@ shortcuts:
   - class: 'align-items-end'
     style: 'align-items: end;'
 shortcutsNoticeDirection: 'align-items'
+shortcutsPartialClass: 'align-items-center'
 translationKey: 'shortcutsAlignItems'
 date: 'git Last Modified'
 ---
@@ -111,3 +112,5 @@ In **column layouts**, they’re aligned to the right of the container.
   <p>3</p>
 </div>
 {% endshortcutPreview %}
+
+{% include "partials/responsive-layout.njk" %}

@@ -18,6 +18,7 @@ shortcuts:
     style: 'font-weight: var(--gcds-font-weights-semibold);'
   - class: 'font-bold'
     style: 'font-weight: var(--gcds-font-weights-bold);'
+shortcutsPartialClass: 'font-medium'
 translationKey: 'shortcutsFontWeight'
 date: 'git Last Modified'
 ---
@@ -76,3 +77,6 @@ La classe poids de police définit la propriété `font-weight`. Elle détermine
 
 <p>Cet élément utilise un poids de police <span class="font-bold"> gras</span>.</p>
 {% endshortcutPreview %}
+
+{% include "partials/responsive-layout.njk" %}
+{% include "partials/state.njk" %}

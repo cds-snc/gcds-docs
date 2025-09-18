@@ -16,6 +16,7 @@ shortcuts:
     style: 'border-style: dotted;'
   - class: 'b-none'
     style: 'border-style: none;'
+shortcutsPartialClass: 'b-solid'
 translationKey: 'shortcutsBorderStyle'
 date: 'git Last Modified'
 ---
@@ -63,3 +64,6 @@ The border style class sets the `border-style` property. It controls the line st
   This element has no border.
 </p>
 {% endshortcutPreview %}
+
+{% include "partials/responsive-layout.njk" %}
+{% include "partials/state.njk" %}

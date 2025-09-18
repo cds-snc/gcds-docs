@@ -34,6 +34,7 @@ shortcuts:
     style: 'grid-template-rows: repeat(12, minmax(0, 1fr));'
   - class: 'grid-rows-none'
     style: 'grid-template-rows: none;'
+shortcutsPartialClass: 'grid-rows-3'
 translationKey: 'shortcutsGridRows'
 date: 'git Last Modified'
 ---
@@ -322,3 +323,5 @@ This container removes any explicit row definition. Each row’s height will be 
   <p>No rows are defined, and the grid layout is not applied.</p>
 </div>
 {% endshortcutPreview %}
+
+{% include "partials/responsive-layout.njk" %}

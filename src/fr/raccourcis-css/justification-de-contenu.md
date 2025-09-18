@@ -20,6 +20,7 @@ shortcuts:
     style: 'justify-content: flex-start;'
   - class: 'justify-content-end'
     style: 'justify-content: flex-end;'
+shortcutsPartialClass: 'justify-content-center'
 shortcutsNoticeDirection: 'justify-content'
 translationKey: 'shortcutsJustifyContent'
 date: 'git Last Modified'
@@ -129,3 +130,5 @@ Dans **les mises en page en colonnes**, les éléments s'alignent en bas.
   <p>3</p>
 </div>
 {% endshortcutPreview %}
+
+{% include "partials/responsive-layout.njk" %}

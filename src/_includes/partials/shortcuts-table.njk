@@ -11,6 +11,9 @@
         {% if shortcutsHasLegacy %}
           <th>{{ shortcutstable[locale].legacy }}</th>
         {% endif %}
+        {% if shortcutsHasMinWidth %}
+          <th>{{ shortcutstable[locale].minWidth }}</th>
+        {% endif %}
       </tr>
     </thead>
     <tbody>
@@ -20,6 +23,9 @@
         <td><pre><code>{{ shortcut.style }}</code></pre></td>
         {% if shortcut.legacy %}
           <td><pre><code>{{ shortcut.legacy }}</code></pre></td>
+        {% endif %}
+        {% if shortcut.minWidth %}
+          <td><pre><code>{{ shortcut.minWidth }}</code></pre></td>
         {% endif %}
       </tr>
       {% endfor %}

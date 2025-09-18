@@ -30,6 +30,7 @@ shortcutsDescription: |
   - <code>md</code> (0.125rem)
   - <code>lg</code> (0.25rem)
   - <code>xl</code> (0.375rem)
+shortcutsPartialClass: 'b-sm'
 translationKey: 'shortcutsBorderWidth'
 date: 'git Last Modified'
 ---
@@ -105,3 +106,6 @@ La classe largeur de la bordure définit la propriété `border-width`. Elle dé
   Cet élément a une bordure large en haut et en bas.
 </p>
 {% endshortcutPreview %}
+
+{% include "partials/responsive-layout.njk" %}
+{% include "partials/state.njk" %}

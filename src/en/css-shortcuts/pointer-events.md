@@ -12,6 +12,7 @@ shortcuts:
     style: 'pointer-events: auto;'
   - class: 'pointer-events-none'
     style: 'pointer-events: none;'
+shortcutsPartialClass: 'pointer-events-auto'
 translationKey: 'shortcutsPointerEvents'
 date: 'git Last Modified'
 ---
@@ -41,3 +42,5 @@ The pointer events class sets the `pointer-events` property. It controls if an e
   This element does not respond to mouse events.
 </a> 
 {% endshortcutPreview %}
+
+{% include "partials/responsive-layout.njk" %}
