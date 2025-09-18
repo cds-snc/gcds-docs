@@ -50,7 +50,7 @@ Le style des liens correspond à notre [composant lien]({{ links.link }}) et res
 
 {% shortcutPreview %}
 
-<a href="...">
+<a href="#">
   Les styles de lien GCDS par défaut sont intégrés dans ce lien.
 </a>
 {% endshortcutPreview %}

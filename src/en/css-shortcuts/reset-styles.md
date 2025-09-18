@@ -1,5 +1,5 @@
 ---
-title: Reset styles - CSS Shortcuts
+title: Reset styles
 layout: 'layouts/base.njk'
 eleventyNavigation:
   key: shortcutsResetStylesEN
@@ -50,7 +50,7 @@ Links are styled to match our [link component]({{ links.link }}) and follow Cana
 
 {% shortcutPreview %}
 
-<a href="...">
+<a href="#">
   The default GCDS link styles are built into this link.
 </a>
 {% endshortcutPreview %}
