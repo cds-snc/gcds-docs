@@ -1,11 +1,11 @@
 ---
-title: Container
+title: Dimensionnement du conteneur
 layout: 'layouts/base.njk'
 eleventyNavigation:
-  key: shortcutsContainerEN
-  title: Container
-  locale: en
-  parent: shortcutsEN
+  key: shortcutsContainerSizingFR
+  title: Dimensionnement du conteneur
+  locale: fr
+  parent: shortcutsFR
   order: 1
 shortcuts:
   - class: 'container-xs'
@@ -20,68 +20,68 @@ shortcuts:
     style: 'max-width: 71.25rem'
   - class: 'container-full'
     style: 'max-width: 100%'
-translationKey: 'shortcutsContainer'
+translationKey: 'shortcutsContainerSizing'
 date: 'git Last Modified'
 ---
 
-# Container
+# Dimensionnement du conteneur
 
-The container class sets the `max-width` property. It changes the size of a container at different viewport sizes to create responsive layouts.
+La classe boîte définit la propriété `max-width` . Elle change la taille d’une boîte à différentes tailles de fenêtre pour créer des mises en page réactives.
 
 {% include "partials/shortcuts-table.njk" %}
 
-## Examples
+## Exemples
 
-### Extra small<br/>`container-xs`
-
-{% shortcutPreview "b-sm b-default p-150" %}
-
-<div class="container-xs">
-  This container has a max width of 20rem.
-</div>
-{% endshortcutPreview %}
-
-### Small<br/>`container-sm`
+### Très petite<br/>`container-xs`
 
 {% shortcutPreview "b-sm b-default p-150" %}
 
 <div class="container-sm">
-  This container has a max width of 30rem.
+  Cette boîte a une largeur maximale de 20rem.
 </div>
 {% endshortcutPreview %}
 
-### Medium<br/>`container-md`
+### Petite<br/>`container-sm`
+
+{% shortcutPreview "b-sm b-default p-150" %}
+
+<div class="container-sm">
+  Cette boîte a une largeur maximale de 30rem.
+</div>
+{% endshortcutPreview %}
+
+### Moyenne <br/>`container-md`
 
 {% shortcutPreview "b-sm b-default p-150" %}
 
 <div class="container-md">
-  This container has a max width of 48rem.
+  Cette boîte a une largeur maximale de 48rem.
 </div>
 {% endshortcutPreview %}
 
-### Large<br/>`container-lg`
+### Grande<br/>`container-lg`
 
 {% shortcutPreview "b-sm b-default p-150" %}
 
 <div class="container-lg">
-  This container has a max width of 62rem.
+  Cette boîte a une largeur maximale de 62rem.
 </div>
 {% endshortcutPreview %}
 
-### Extra large<br/>`container-xl`
+### Très grande<br/>`container-xl`
 
 {% shortcutPreview "b-sm b-default p-150" %}
 
 <div class="container-xl">
-  This container has a max width of 71.25rem.
+  Cette boîte a une largeur maximale de 71.25rem.
 </div>
 {% endshortcutPreview %}
 
-### Full<br/>`container-full`
+### Pleine<br/>`container-full`
 
 {% shortcutPreview "b-sm b-default p-150" %}
 
 <div class="container-full">
-  This container has a max width of 100%.
+  Cette boîte a une largeur maximale de 100 %.
 </div>
 {% endshortcutPreview %}
