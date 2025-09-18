@@ -89,6 +89,7 @@ shortcuts:
         font-size: inherit;
         line-height: inherit;
       }
+shortcutsPartialClass: 'icon-text'
 translationKey: 'shortcutsIconSize'
 date: 'git Last Modified'
 ---
@@ -181,3 +182,5 @@ La classe taille de l'icône définit les propriétés `font-size` et `line-heig
   <span class="gcds-icon-info-circle icon-inherit"></span> Cette icône hérite la taille de police et la hauteur de ligne du petit texte de l'élément parent.
 </p>
 {% endshortcutPreview %}
+
+{% include "partials/responsive-layout.njk" %}

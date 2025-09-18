@@ -16,6 +16,7 @@ shortcuts:
     style: 'flex: 0 1 auto;'
   - class: 'flex-none'
     style: 'flex: none;'
+shortcutsPartialClass: 'flex-1'
 translationKey: 'shortcutsFlex'
 date: 'git Last Modified'
 ---
@@ -79,3 +80,5 @@ These items won’t grow to fill available space or shrink if there’s not enou
   <p class="flex-none">Content that takes up more space than the others.</p>
 </div>
 {% endshortcutPreview %}
+
+{% include "partials/responsive-layout.njk" %}

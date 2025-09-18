@@ -64,6 +64,7 @@ shortcuts:
       @media only screen and (width < 48em) {
         font-size: var(--gcds-font-sizes-text-small-mobile);
       }
+shortcutsPartialClass: 'font-size-text'
 translationKey: 'shortcutsFontSize'
 date: 'git Last Modified'
 ---
@@ -151,3 +152,5 @@ La classe taille de police définit la propriété `font-size`. Elle détermine 
   Cet élément utilise la taille de police prévue pour du petit texte.
 </p>
 {% endshortcutPreview %}
+
+{% include "partials/responsive-layout.njk" %}

@@ -21,6 +21,7 @@ shortcuts:
   - class: 'align-self-end'
     style: 'align-self: end;'
 shortcutsNoticeDirection: 'align-self'
+shortcutsPartialClass: 'align-self-center'
 translationKey: 'shortcutsAlignSelf'
 date: 'git Last Modified'
 ---
@@ -129,3 +130,5 @@ Dans **les mises en page en colonne**, les éléments s'alignent à droite.
   <p>3</p>
 </div>
 {% endshortcutPreview %}
+
+{% include "partials/responsive-layout.njk" %}

@@ -28,6 +28,7 @@ shortcuts:
     style: 'cursor: zoom-in;'
   - class: 'cursor-zoom-out'
     style: 'cursor: zoom-out;'
+shortcutsPartialClass: 'cursor-pointer'
 translationKey: 'shortcutsCursor'
 date: 'git Last Modified'
 ---
@@ -129,3 +130,6 @@ La classe curseur définit la propriété `cursor`. Elle détermine le style de 
   Lorsque l’on passe la souris dessus, cet élément affiche le curseur de zoom arrière. Celui-ci indique qu’il est possible de diminuer l’effet de rapprochement.
 </a> 
 {% endshortcutPreview %}
+
+{% include "partials/responsive-layout.njk" %}
+{% include "partials/state.njk" %}

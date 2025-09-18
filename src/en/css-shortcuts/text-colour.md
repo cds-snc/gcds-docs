@@ -18,6 +18,7 @@ shortcuts:
     style: 'color: var(--gcds-text-light);'
   - class: 'text-transparent'
     style: 'color: transparent;'
+shortcutsPartialClass: 'text-secondary'
 translationKey: 'shortcutsTextColour'
 date: 'git Last Modified'
 ---
@@ -80,3 +81,6 @@ The text colour class sets the `color` property. It controls the colour of text.
   This text is invisible, but still accessible to screenreaders.
 </p>
 {% endshortcutPreview %}
+
+{% include "partials/responsive-layout.njk" %}
+{% include "partials/state.njk" %}

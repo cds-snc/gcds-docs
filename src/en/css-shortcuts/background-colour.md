@@ -30,6 +30,7 @@ shortcuts:
     style: 'background-color: transparent;'
   - class: 'bg-white'
     style: 'background-color: var(--gcds-bg-white);'
+shortcutsPartialClass: 'bg-light'
 translationKey: 'shortcutsBackgroundColour'
 date: 'git Last Modified'
 ---
@@ -150,3 +151,6 @@ The background colour class sets the `background-color` property. It controls th
   </p>
 </div>
 {% endshortcutPreview %}
+
+{% include "partials/responsive-layout.njk" %}
+{% include "partials/state.njk" %}

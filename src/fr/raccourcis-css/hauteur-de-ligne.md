@@ -24,6 +24,7 @@ shortcuts:
     style: 'line-height: var(--gcds-line-heights-text);'
   - class: 'line-text-small'
     style: 'line-height: var(--gcds-line-heights-text-small);'
+shortcutsPartialClass: 'line-text'
 translationKey: 'shortcutsLineHeight'
 date: 'git Last Modified'
 ---
@@ -111,3 +112,5 @@ La classe hauteur de ligne définit la propriété `line-height`. Elle détermin
   Cet élément utilise une hauteur de ligne destinée à un corps de texte plus petit.
 </p>
 {% endshortcutPreview %}
+
+{% include "partials/responsive-layout.njk" %}

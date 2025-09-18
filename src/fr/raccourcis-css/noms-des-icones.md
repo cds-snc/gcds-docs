@@ -1,9 +1,9 @@
 ---
-title: Icône
+title: Noms des icônes
 layout: 'layouts/base.njk'
 eleventyNavigation:
-  key: shortcutsIconFR
-  title: Icône
+  key: shortcutsIconNamesFR
+  title: Noms des icônes
   locale: fr
   parent: shortcutsIconImageFR
   order: 1
@@ -36,11 +36,12 @@ shortcuts:
     style: 'content: "\e90c";'
   - class: 'gcds-icon-search'
     style: 'content: "\e907";'
-translationKey: 'shortcutsIcon'
+shortcutsPartialClass: 'icon-close'
+translationKey: 'shortcutsIconNames'
 date: 'git Last Modified'
 ---
 
-# Icône
+# Noms des icônes
 
 La classe icône définit la propriété `content` et d'autres styles de base d'icône tels que la famille de polices d'icônes, le style et l'épaisseur. Elle détermine l'icône <gcds-link href="{{ links.icon }}">gcds-icon</gcds-link> à afficher.
 
@@ -173,3 +174,6 @@ La classe icône définit la propriété `content` et d'autres styles de base d'
   <span class="gcds-icon-search"></span> Cet élément a une icône de recherche.
 </p>
 {% endshortcutPreview %}
+
+{% include "partials/responsive-layout.njk" %}
+{% include "partials/state.njk" %}

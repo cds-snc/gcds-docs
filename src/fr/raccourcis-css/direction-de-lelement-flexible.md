@@ -16,6 +16,7 @@ shortcuts:
     style: 'flex-direction: row;'
   - class: 'flex-row-reverse'
     style: 'flex-direction: row-reverse;'
+shortcutsPartialClass: 'flex-col'
 translationKey: 'shortcutsFlexDirection'
 date: 'git Last Modified'
 ---
@@ -79,3 +80,5 @@ Ces éléments sont placés horizontalement, en commençant par le dernier élé
   <p>3</p>
 </div>
 {% endshortcutPreview %}
+
+{% include "partials/responsive-layout.njk" %}

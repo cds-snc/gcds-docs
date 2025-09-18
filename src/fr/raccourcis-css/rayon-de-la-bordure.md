@@ -16,6 +16,7 @@ shortcuts:
     style: 'border-radius: 3rem;'
   - class: 'b-radius-xl'
     style: 'border-radius: 100%;'
+shortcutsPartialClass: 'b-radius-md'
 translationKey: 'shortcutsBorderRadius'
 date: 'git Last Modified'
 ---
@@ -63,3 +64,6 @@ La classe rayon de la bordure définit la propriété `border-radius`. Elle dét
   Cet élément a un rayon de bordure très grand.
 </p>
 {% endshortcutPreview %}
+
+{% include "partials/responsive-layout.njk" %}
+{% include "partials/state.njk" %}

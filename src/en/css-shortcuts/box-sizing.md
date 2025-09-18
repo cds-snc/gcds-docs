@@ -12,6 +12,7 @@ shortcuts:
     style: 'box-sizing: border-box;'
   - class: 'box-content'
     style: 'box-sizing: content-box;'
+shortcutsPartialClass: 'box-border'
 translationKey: 'shortcutsBoxSizing'
 date: 'git Last Modified'
 ---
@@ -41,3 +42,5 @@ The box sizing class sets the `box-sizing` property. It specifies if the height 
   The size of this element includes the content only.
 </p>
 {% endshortcutPreview %}
+
+{% include "partials/responsive-layout.njk" %}

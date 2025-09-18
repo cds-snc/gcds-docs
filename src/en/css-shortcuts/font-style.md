@@ -12,6 +12,7 @@ shortcuts:
     style: 'font-style: normal;'
   - class: 'font-italic'
     style: 'font-style: italic;'
+shortcutsPartialClass: 'font-italic'
 translationKey: 'shortcutsFontStyle'
 date: 'git Last Modified'
 ---
@@ -45,3 +46,5 @@ The font style class sets the `font-style` property. It adds or removes italic s
   This element displays text with italic styling. It’s used sparingly for short text strings to limit cognitive load.
 </p>
 {% endshortcutPreview %}
+
+{% include "partials/responsive-layout.njk" %}

@@ -15,6 +15,7 @@ shortcuts:
   - class: 'gap-y-&lt;value&gt;'
     style: 'row-gap: var(--gcds-spacing-&lt;value&gt;);'
 shortcutsDescription: "La valeur <code>value</code> peut être définie à nos <a href='/fr/styles/espacement/'>unités d'espacement prédéfinies</a> (<code>0</code> - <code>1250</code>)."
+shortcutsPartialClass: 'gap-300'
 translationKey: 'shortcutsGap'
 date: 'git Last Modified'
 ---
@@ -68,3 +69,5 @@ Les lignes ont `--gcds-spacing-400` d’espace entre elles.
   <p>4</p>
 </div>
 {% endshortcutPreview %}
+
+{% include "partials/responsive-layout.njk" %}

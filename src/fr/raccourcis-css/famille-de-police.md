@@ -14,6 +14,7 @@ shortcuts:
     style: 'font-family: var(--gcds-font-families-body);'
   - class: 'font-family-monospace'
     style: 'font-family: var(--gcds-font-families-monospace);'
+shortcutsPartialClass: 'font-family-body'
 translationKey: 'shortcutsFontFamily'
 date: 'git Last Modified'
 ---
@@ -56,3 +57,5 @@ La classe famille de polices définit la propriété `font-family`. Elle déterm
   Cet élément utilise la famille de polices à espacement constant.
 </code>
 {% endshortcutPreview %}
+
+{% include "partials/responsive-layout.njk" %}

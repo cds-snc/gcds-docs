@@ -20,6 +20,7 @@ shortcuts:
     style: 'border-color: #ffffff;'
   - class: 'b-transparent'
     style: 'border-color: transparent;'
+shortcutsPartialClass: 'b-default'
 translationKey: 'shortcutsBorderColour'
 date: 'git Last Modified'
 ---
@@ -89,3 +90,6 @@ La classe couleur de la bordure définit la propriété `border-colour`. Elle d�
   Cet élément a une couleur de bordure transparente.
 </p>
 {% endshortcutPreview %}
+
+{% include "partials/responsive-layout.njk" %}
+{% include "partials/state.njk" %}

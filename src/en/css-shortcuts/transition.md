@@ -24,6 +24,7 @@ shortcuts:
       &:hover {
         opacity: 0;
       }
+shortcutsPartialClass: 'transition-fade-in'
 translationKey: 'shortcutsTodo'
 date: 'git Last Modified'
 ---
@@ -53,3 +54,5 @@ The transition class sets the `transition` property. It applies an animation tha
   When hovered over, this element  fades out.
 </a> 
 {% endshortcutPreview %}
+
+{% include "partials/responsive-layout.njk" %}

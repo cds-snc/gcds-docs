@@ -31,6 +31,7 @@ shortcuts:
     legacy: 'margin-top + margin-bottom'
 shortcutsDescription: 'The <code>value</code> can be either one of our <a href="/en/styles/spacing/">predefined spacing tokens</a> (<code>0</code> - <code>1250</code>) or <code>auto</code>.'
 shortcutsHasLegacy: true
+shortcutsPartialClass: 'm-300'
 translationKey: 'shortcutsMargin'
 date: 'git Last Modified'
 ---
@@ -106,3 +107,5 @@ The margin class sets the `margin` property. It controls the space outside the b
   This element has a margin of --gcds-spacing-900 on the top and bottom sides.
 </p>
 {% endshortcutPreview %}
+
+{% include "partials/responsive-layout.njk" %}

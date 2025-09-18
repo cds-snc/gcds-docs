@@ -18,6 +18,7 @@ shortcuts:
     style: 'font-weight: var(--gcds-font-weights-semibold);'
   - class: 'font-bold'
     style: 'font-weight: var(--gcds-font-weights-bold);'
+shortcutsPartialClass: 'font-medium'
 translationKey: 'shortcutsFontWeight'
 date: 'git Last Modified'
 ---
@@ -76,3 +77,6 @@ The font weight class sets the `font-weight` property. It controls how bold text
 
 <p>This element uses a <span class="font-bold"> bold</span> font weight.</p>
 {% endshortcutPreview %}
+
+{% include "partials/responsive-layout.njk" %}
+{% include "partials/state.njk" %}

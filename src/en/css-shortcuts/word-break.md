@@ -14,6 +14,7 @@ shortcuts:
     style: 'word-break: break-word;'
   - class: 'break-all'
     style: 'word-break: break-all;'
+shortcutsPartialClass: 'break-word'
 translationKey: 'shortcutsWordBreak'
 date: 'git Last Modified'
 ---
@@ -52,3 +53,5 @@ The word break class sets the `word-break` property. It controls how words or un
   These are long words: supercalifragilisticexpialidocious and Sutton-under‑Whitestonecliffe. This text breaks at any point, even in the middle of a word.
 </p>
 {% endshortcutPreview %}
+
+{% include "partials/responsive-layout.njk" %}

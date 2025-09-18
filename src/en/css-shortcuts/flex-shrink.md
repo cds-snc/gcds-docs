@@ -12,6 +12,7 @@ shortcuts:
     style: 'flex-shrink: 1;'
   - class: 'flex-shrink-0'
     style: 'flex-shrink: 0;'
+shortcutsPartialClass: 'flex-shrink'
 translationKey: 'shortcutsFlexShrink'
 date: 'git Last Modified'
 ---
@@ -49,3 +50,5 @@ The item with the `flex-shrink-0` class maintains its size when space is limited
   <p class="flex-none" style="width: 28rem;">3</p>
 </div>
 {% endshortcutPreview %}
+
+{% include "partials/responsive-layout.njk" %}

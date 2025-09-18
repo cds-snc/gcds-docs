@@ -30,6 +30,7 @@ shortcutsDescription: |
   - <code>md</code> (0.125rem)
   - <code>lg</code> (0.25rem)
   - <code>xl</code> (0.375rem)
+shortcutsPartialClass: 'b-sm'
 translationKey: 'shortcutsBorderWidth'
 date: 'git Last Modified'
 ---
@@ -105,3 +106,6 @@ The border width class sets the `border-width` property. It controls the width o
   This element has a large border on the top and bottom sides.
 </p>
 {% endshortcutPreview %}
+
+{% include "partials/responsive-layout.njk" %}
+{% include "partials/state.njk" %}

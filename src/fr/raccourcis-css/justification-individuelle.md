@@ -18,6 +18,7 @@ shortcuts:
     style: 'justify-self: start;'
   - class: 'justify-self-end'
     style: 'justify-self: end;'
+shortcutsPartialClass: 'justify-self-center'
 translationKey: 'shortcutsJustifySelf'
 date: 'git Last Modified'
 ---
@@ -113,3 +114,5 @@ Un élément avec la classe `justify-self-end` s'aligne sur le bord final de sa 
   <p>6</p>
 </div>
 {% endshortcutPreview %}
+
+{% include "partials/responsive-layout.njk" %}

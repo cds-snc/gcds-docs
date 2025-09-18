@@ -21,6 +21,7 @@ shortcuts:
   - class: 'justify-content-end'
     style: 'justify-content: flex-end;'
 shortcutsNoticeDirection: 'justify-content'
+shortcutsPartialClass: 'justify-content-center'
 translationKey: 'shortcutsJustifyContent'
 date: 'git Last Modified'
 ---
@@ -129,3 +130,5 @@ In **column layouts**, items align to the bottom.
   <p>3</p>
 </div>
 {% endshortcutPreview %}
+
+{% include "partials/responsive-layout.njk" %}

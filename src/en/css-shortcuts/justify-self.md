@@ -18,6 +18,7 @@ shortcuts:
     style: 'justify-self: start;'
   - class: 'justify-self-end'
     style: 'justify-self: end;'
+shortcutsPartialClass: 'justify-self-center'
 translationKey: 'shortcutsJustifySelf'
 date: 'git Last Modified'
 ---
@@ -113,3 +114,5 @@ The item with the `justify-self-end` class aligns to the end edge of its grid ar
   <p>6</p>
 </div>
 {% endshortcutPreview %}
+
+{% include "partials/responsive-layout.njk" %}

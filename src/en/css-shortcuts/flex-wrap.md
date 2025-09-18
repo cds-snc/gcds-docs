@@ -15,6 +15,7 @@ shortcuts:
   - class: 'flex-nowrap'
     style: 'flex-wrap: nowrap;'
 shortcutsNoticeDirection: 'flex-wrap'
+shortcutsPartialClass: 'flex-wrap'
 translationKey: 'shortcutsFlexWrap'
 date: 'git Last Modified'
 ---
@@ -72,3 +73,5 @@ These items are forced onto one line without wrapping.
   <p>3</p>
 </div>
 {% endshortcutPreview %}
+
+{% include "partials/responsive-layout.njk" %}

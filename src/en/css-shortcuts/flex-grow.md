@@ -12,6 +12,7 @@ shortcuts:
     style: 'flex-grow: 1;'
   - class: 'flex-grow-0'
     style: 'flex-grow: 0;'
+shortcutsPartialClass: 'flex-grow'
 translationKey: 'shortcutsFlexGrow'
 date: 'git Last Modified'
 ---
@@ -49,3 +50,5 @@ The item with the `flex-grow-0` class won’t grow to fill the available space, 
   <p class="flex-grow">3</p>
 </div>
 {% endshortcutPreview %}
+
+{% include "partials/responsive-layout.njk" %}

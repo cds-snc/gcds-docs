@@ -18,6 +18,7 @@ shortcuts:
     style: 'color: var(--gcds-text-light);'
   - class: 'text-transparent'
     style: 'color: transparent;'
+shortcutsPartialClass: 'text-secondary'
 translationKey: 'shortcutsTextColour'
 date: 'git Last Modified'
 ---
@@ -80,3 +81,6 @@ La classe couleur de texte définit la propriété `color`. Elle détermine la c
   Ce texte est invisible, mais reste accessible aux lecteurs d'écran.
 </p>
 {% endshortcutPreview %}
+
+{% include "partials/responsive-layout.njk" %}
+{% include "partials/state.njk" %}

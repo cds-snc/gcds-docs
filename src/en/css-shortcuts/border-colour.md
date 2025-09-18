@@ -20,6 +20,7 @@ shortcuts:
     style: 'border-color: #ffffff;'
   - class: 'b-transparent'
     style: 'border-color: transparent;'
+shortcutsPartialClass: 'b-default'
 translationKey: 'shortcutsBorderColour'
 date: 'git Last Modified'
 ---
@@ -89,3 +90,6 @@ The border colour class sets the `border-colour` property. It controls the colou
   This element has a transparent border colour.
 </p>
 {% endshortcutPreview %}
+
+{% include "partials/responsive-layout.njk" %}
+{% include "partials/state.njk" %}

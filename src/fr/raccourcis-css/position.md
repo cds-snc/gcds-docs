@@ -18,6 +18,7 @@ shortcuts:
     style: 'position: relative;'
   - class: 'position-sticky'
     style: 'position: sticky;'
+shortcutsPartialClass: 'position-relative'
 translationKey: 'shortcutsPosition'
 date: 'git Last Modified'
 ---
@@ -76,3 +77,5 @@ La classe position définit la propriété `position`. Elle détermine comment l
   Cet élément défile avec la page jusqu’à ce qu’un décalage spécifié soit atteint, puis reste en place dans sa boîte.
 </p>
 {% endshortcutPreview %}
+
+{% include "partials/responsive-layout.njk" %}

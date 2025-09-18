@@ -38,6 +38,7 @@ shortcuts:
     style: 'order: 9999;'
   - class: 'order-none'
     style: 'order: 0;'
+shortcutsPartialClass: 'order-first'
 translationKey: 'shortcutsOrder'
 date: 'git Last Modified'
 ---
@@ -105,3 +106,5 @@ This is the default order value. The item placed second in the HTML maintains it
   <p>3</p>
 </div>
 {% endshortcutPreview %}
+
+{% include "partials/responsive-layout.njk" %}

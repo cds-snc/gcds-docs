@@ -18,6 +18,7 @@ shortcuts:
     style: 'position: relative;'
   - class: 'position-sticky'
     style: 'position: sticky;'
+shortcutsPartialClass: 'position-relative'
 translationKey: 'shortcutsPosition'
 date: 'git Last Modified'
 ---
@@ -76,3 +77,5 @@ The position class sets the `position` property. It determines how the element i
   This element scrolls with the page until a specified offset is reached, then sticks in place within its containing block.
 </p>
 {% endshortcutPreview %}
+
+{% include "partials/responsive-layout.njk" %}

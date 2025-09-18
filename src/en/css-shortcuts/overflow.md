@@ -26,6 +26,7 @@ shortcuts:
     style: 'overflow-x: scroll;'
   - class: 'overflow-y-scroll'
     style: 'overflow-y: scroll;'
+shortcutsPartialClass: 'overflow-hidden'
 translationKey: 'shortcutsOverflow'
 date: 'git Last Modified'
 ---
@@ -124,3 +125,5 @@ The overflow class sets the `overflow` property. It controls how content is hand
   Content that doesn’t fit in this element can be scrolled to with a vertical scrollbar.
 </a>
 {% endshortcutPreview %}
+
+{% include "partials/responsive-layout.njk" %}

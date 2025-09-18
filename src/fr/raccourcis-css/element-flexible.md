@@ -16,6 +16,7 @@ shortcuts:
     style: 'flex: 0 1 auto;'
   - class: 'flex-none'
     style: 'flex: none;'
+shortcutsPartialClass: 'flex-1'
 translationKey: 'shortcutsFlex'
 date: 'git Last Modified'
 ---
@@ -79,3 +80,5 @@ Ces éléments ne s’élargissent pas pour remplir l'espace disponible et ne r�
   <p class="flex-none">Contenu qui prend plus d’espace que d’autres.</p>
 </div>
 {% endshortcutPreview %}
+
+{% include "partials/responsive-layout.njk" %}

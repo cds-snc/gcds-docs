@@ -12,6 +12,7 @@ shortcuts:
     style: 'font-style: normal;'
   - class: 'font-italic'
     style: 'font-style: italic;'
+shortcutsPartialClass: 'font-italic'
 translationKey: 'shortcutsFontStyle'
 date: 'git Last Modified'
 ---
@@ -45,3 +46,5 @@ La classe style de police définit la propriété `font-style`. Elle ajoute ou s
   Cet élément affiche du texte avec un style italique. Il est utilisé judicieusement pour de courtes lignes de texte afin de limiter la charge cognitive.
 </p>
 {% endshortcutPreview %}
+
+{% include "partials/responsive-layout.njk" %}

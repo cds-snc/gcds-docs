@@ -24,6 +24,7 @@ shortcuts:
     style: 'line-height: var(--gcds-line-heights-text);'
   - class: 'line-text-small'
     style: 'line-height: var(--gcds-line-heights-text-small);'
+shortcutsPartialClass: 'line-text'
 translationKey: 'shortcutsLineHeight'
 date: 'git Last Modified'
 ---
@@ -111,3 +112,5 @@ The line height class sets the `line-height` property. It controls the vertical 
   This element uses line height intended for smaller body text.
 </p>
 {% endshortcutPreview %}
+
+{% include "partials/responsive-layout.njk" %}

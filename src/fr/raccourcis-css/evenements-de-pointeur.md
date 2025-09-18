@@ -12,6 +12,7 @@ shortcuts:
     style: 'pointer-events: auto;'
   - class: 'pointer-events-none'
     style: 'pointer-events: none;'
+shortcutsPartialClass: 'pointer-events-auto'
 translationKey: 'shortcutsPointerEvents'
 date: 'git Last Modified'
 ---
@@ -41,3 +42,5 @@ La classe événements de pointeur définit la propriété `pointer-events`. Ell
   Cet élément ne répond pas aux événements de la souris.
 </a> 
 {% endshortcutPreview %}
+
+{% include "partials/responsive-layout.njk" %}

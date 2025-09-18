@@ -64,6 +64,7 @@ shortcuts:
       @media only screen and (width < 48em) {
         font: var(--gcds-font-text-small-mobile);
       }
+shortcutsPartialClass: 'font-text'
 translationKey: 'shortcutsFont'
 date: 'git Last Modified'
 ---
@@ -151,3 +152,5 @@ The font class sets the `font` property. It controls the font style, size, weigh
   This element uses font styles intended for small text.
 </p>
 {% endshortcutPreview %}
+
+{% include "partials/responsive-layout.njk" %}

@@ -12,6 +12,7 @@ shortcuts:
     style: 'box-sizing: border-box;'
   - class: 'box-content'
     style: 'box-sizing: content-box;'
+shortcutsPartialClass: 'box-border'
 translationKey: 'shortcutsBoxSizing'
 date: 'git Last Modified'
 ---
@@ -41,3 +42,5 @@ La classe de dimensionnement de la boîte définit la propriété `box-sizing`. 
   La taille de cet élément comprend le contenu seulement.
 </p>
 {% endshortcutPreview %}
+
+{% include "partials/responsive-layout.njk" %}

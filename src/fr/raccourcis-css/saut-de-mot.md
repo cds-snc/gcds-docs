@@ -14,6 +14,7 @@ shortcuts:
     style: 'word-break: break-word;'
   - class: 'break-all'
     style: 'word-break: break-all;'
+shortcutsPartialClass: 'break-word'
 translationKey: 'shortcutsWordBreak'
 date: 'git Last Modified'
 ---
@@ -52,3 +53,5 @@ La classe saut de mot définit la propriété `word-break`. Elle détermine la f
   Voici des exemples de mots longs : hippopotomonstrosesquipédaliophobie et Sainte-Madeleine-de-la-Rivière-Madeleine. Ce texte se divise à tout point, même au milieu d'un mot.
 </p>
 {% endshortcutPreview %}
+
+{% include "partials/responsive-layout.njk" %}
