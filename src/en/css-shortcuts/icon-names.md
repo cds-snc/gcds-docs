@@ -1,9 +1,9 @@
 ---
-title: Icon
+title: Icon names
 layout: 'layouts/base.njk'
 eleventyNavigation:
-  key: shortcutsIconEN
-  title: Icon
+  key: shortcutsIconNamesEN
+  title: Icon names
   locale: en
   parent: shortcutsEN
   order: 1
@@ -36,11 +36,11 @@ shortcuts:
     style: 'content: "\e90c";'
   - class: 'gcds-icon-search'
     style: 'content: "\e907";'
-translationKey: 'shortcutsIcon'
+translationKey: 'shortcutsIconNames'
 date: 'git Last Modified'
 ---
 
-# Icon
+# Icon names
 
 The icon class sets the `content` property and other icon base styles like the icon font family, style and weight. It controls what <gcds-link href="{{ links.icon }}">gcds-icon</gcds-link> to display.
 

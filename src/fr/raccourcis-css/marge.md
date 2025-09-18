@@ -37,7 +37,7 @@ date: 'git Last Modified'
 
 # Marge
 
-La classe marge définit la propriété `marge`. Elle détermine l’espace à l’extérieur de la bordure d’un élément.
+La classe marge définit la propriété `margin`. Elle détermine l’espace à l’extérieur de la bordure d’un élément.
 
 {% include "partials/logical-properties.njk" %}
 {% include "partials/shortcuts-table.njk" %}
