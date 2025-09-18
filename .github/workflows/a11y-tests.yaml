@@ -31,4 +31,4 @@ jobs:
           start: npm run watch:eleventy
           wait-on: 'http://localhost:8080/en'
           # wait for 2 minutes for the server to respond
-          wait-on-timeout: 120
+          wait-on-timeout: 240

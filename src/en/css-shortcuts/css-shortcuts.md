@@ -49,95 +49,203 @@ Add custom code to meet your specific needs, with the reassurance of knowing itâ
 ### Conditional styling
 
 <gcds-grid tag="ul" columns-desktop="1fr 1fr 1fr" columns-tablet="1fr 1fr" columns="1fr">
-  <gcds-link href="{{ links.shortcutsResponsiveLayout }}">Responsive layout</gcds-link>
-  <gcds-link href="{{ links.shortcutsState }}">State</gcds-link>
+  <li>
+    <gcds-link href="{{ links.shortcutsResponsiveLayout }}">Responsive layout</gcds-link>
+  </li>
+  <li>
+    <gcds-link href="{{ links.shortcutsState }}">State</gcds-link>
+  </li>
 </gcds-grid>
 
 ### Layout
 
 <gcds-grid tag="ul" columns-desktop="1fr 1fr 1fr" columns-tablet="1fr 1fr" columns="1fr">
-  <gcds-link href="{{ links.shortcutsBoxSizing }}">Box sizing</gcds-link>
-  <gcds-link href="{{ links.shortcutsContainerSizing }}">Container sizing</gcds-link>
-  <gcds-link href="{{ links.shortcutsDisplay }}">Display</gcds-link>
-  <gcds-link href="{{ links.shortcutsOverflow }}">Overflow</gcds-link>
-  <gcds-link href="{{ links.shortcutsPosition }}">Position</gcds-link>
-  <gcds-link href="{{ links.shortcutsVisibility }}">Visibility</gcds-link>
+  <li>
+    <gcds-link href="{{ links.shortcutsBoxSizing }}">Box sizing</gcds-link>
+  </li>
+  <li>
+    <gcds-link href="{{ links.shortcutsContainerSizing }}">Container sizing</gcds-link>
+  </li>
+  <li>
+    <gcds-link href="{{ links.shortcutsDisplay }}">Display</gcds-link>
+  </li>
+  <li>
+    <gcds-link href="{{ links.shortcutsOverflow }}">Overflow</gcds-link>
+  </li>
+  <li>
+    <gcds-link href="{{ links.shortcutsPosition }}">Position</gcds-link>
+  </li>
+  <li>
+    <gcds-link href="{{ links.shortcutsVisibility }}">Visibility</gcds-link>
+  </li>
 </gcds-grid>
 
 ### Typography
 
 <gcds-grid tag="ul" columns-desktop="1fr 1fr 1fr" columns-tablet="1fr 1fr" columns="1fr">
-  <gcds-link href="{{ links.shortcutsFont }}">Font</gcds-link>
-  <gcds-link href="{{ links.shortcutsFontFamily }}">Font family</gcds-link>
-  <gcds-link href="{{ links.shortcutsFontSize }}">Font size</gcds-link>
-  <gcds-link href="{{ links.shortcutsFontStyle }}">Font style</gcds-link>
-  <gcds-link href="{{ links.shortcutsFontWeight }}">Font weight</gcds-link>
-  <gcds-link href="{{ links.shortcutsLineHeight }}">Line height</gcds-link>
-  <gcds-link href="{{ links.shortcutsLinkColour }}">Link colour</gcds-link>
-  <gcds-link href="{{ links.shortcutsLinkSize }}">Link size</gcds-link>
-  <gcds-link href="{{ links.shortcutsLinkDecoration }}">Link text decoration</gcds-link>
-  <gcds-link href="{{ links.shortcutsListStyle }}">List style</gcds-link>
-  <gcds-link href="{{ links.shortcutsTextAlign }}">Text align</gcds-link>
-  <gcds-link href="{{ links.shortcutsTextColour }}">Text colour</gcds-link>
-  <gcds-link href="{{ links.shortcutsTextOverflow }}">Text overflow</gcds-link>
-  <gcds-link href="{{ links.shortcutsTextTransform }}">Text transform</gcds-link>
-  <gcds-link href="{{ links.shortcutsWordBreak }}">Wordbreak</gcds-link>
+  <li>
+    <gcds-link href="{{ links.shortcutsFont }}">Font</gcds-link>
+  </li>
+  <li>
+    <gcds-link href="{{ links.shortcutsFontFamily }}">Font family</gcds-link>
+  </li>
+  <li>
+    <gcds-link href="{{ links.shortcutsFontSize }}">Font size</gcds-link>
+  </li>
+  <li>
+    <gcds-link href="{{ links.shortcutsFontStyle }}">Font style</gcds-link>
+  </li>
+  <li>
+    <gcds-link href="{{ links.shortcutsFontWeight }}">Font weight</gcds-link>
+  </li>
+  <li>
+    <gcds-link href="{{ links.shortcutsLineHeight }}">Line height</gcds-link>
+  </li>
+  <li>
+    <gcds-link href="{{ links.shortcutsLinkColour }}">Link colour</gcds-link>
+  </li>
+  <li>
+    <gcds-link href="{{ links.shortcutsLinkSize }}">Link size</gcds-link>
+  </li>
+  <li>
+    <gcds-link href="{{ links.shortcutsLinkDecoration }}">Link text decoration</gcds-link>
+  </li>
+  <li>
+    <gcds-link href="{{ links.shortcutsListStyle }}">List style</gcds-link>
+  </li>
+  <li>
+    <gcds-link href="{{ links.shortcutsTextAlign }}">Text align</gcds-link>
+  </li>
+  <li>
+    <gcds-link href="{{ links.shortcutsTextColour }}">Text colour</gcds-link>
+  </li>
+  <li>
+    <gcds-link href="{{ links.shortcutsTextOverflow }}">Text overflow</gcds-link>
+  </li>
+  <li>
+    <gcds-link href="{{ links.shortcutsTextTransform }}">Text transform</gcds-link>
+  </li>
+  <li>
+    <gcds-link href="{{ links.shortcutsWordBreak }}">Wordbreak</gcds-link>
+  </li>
 </gcds-grid>
 
 ### Spacing
 
 <gcds-grid tag="ul" columns-desktop="1fr 1fr 1fr" columns-tablet="1fr 1fr" columns="1fr">
-  <gcds-link href="{{ links.shortcutsMargin }}">Margin</gcds-link>
-  <gcds-link href="{{ links.shortcutsPadding }}">Padding</gcds-link>
+  <li>
+    <gcds-link href="{{ links.shortcutsMargin }}">Margin</gcds-link>
+  </li>
+  <li>
+    <gcds-link href="{{ links.shortcutsPadding }}">Padding</gcds-link>
+  </li>
 </gcds-grid>
 
 ### Flexbox and grid
 
 <gcds-grid tag="ul" columns-desktop="1fr 1fr 1fr" columns-tablet="1fr 1fr" columns="1fr">
-  <gcds-link href="{{ links.shortcutsFlex }}">Flex</gcds-link>
-  <gcds-link href="{{ links.shortcutsFlexDirection }}">Flex direction</gcds-link>
-  <gcds-link href="{{ links.shortcutsFlexWrap }}">Flex wrap</gcds-link>
-  <gcds-link href="{{ links.shortcutsFlexGrow }}">Flex grow</gcds-link>
-  <gcds-link href="{{ links.shortcutsFlexShrink }}">Flex shrink</gcds-link>
-  <gcds-link href="{{ links.shortcutsGridColumns }}">Grid columns</gcds-link>
-  <gcds-link href="{{ links.shortcutsGridRows }}">Grid rows</gcds-link>
-  <gcds-link href="{{ links.shortcutsGap }}">Gap</gcds-link>
-  <gcds-link href="{{ links.shortcutsAlignContent }}">Align content</gcds-link>
-  <gcds-link href="{{ links.shortcutsAlignItems }}">Align items</gcds-link>
-  <gcds-link href="{{ links.shortcutsAlignSelf }}">Align self</gcds-link>
-  <gcds-link href="{{ links.shortcutsJustifyContent }}">Justify content</gcds-link>
-  <gcds-link href="{{ links.shortcutsJustifyItems }}">Justify items</gcds-link>
-  <gcds-link href="{{ links.shortcutsJustifySelf }}">Justify self</gcds-link>
-  <gcds-link href="{{ links.shortcutsPlaceContent }}">Place content</gcds-link>
-  <gcds-link href="{{ links.shortcutsPlaceItems }}">Place items</gcds-link>
-  <gcds-link href="{{ links.shortcutsPlaceSelf }}">Place self</gcds-link>
-  <gcds-link href="{{ links.shortcutsOrder }}">Order</gcds-link>
+  <li>
+    <gcds-link href="{{ links.shortcutsFlex }}">Flex</gcds-link>
+  </li>
+  <li>
+    <gcds-link href="{{ links.shortcutsFlexDirection }}">Flex direction</gcds-link>
+  </li>
+  <li>
+    <gcds-link href="{{ links.shortcutsFlexWrap }}">Flex wrap</gcds-link>
+  </li>
+  <li>
+    <gcds-link href="{{ links.shortcutsFlexGrow }}">Flex grow</gcds-link>
+  </li>
+  <li>
+    <gcds-link href="{{ links.shortcutsFlexShrink }}">Flex shrink</gcds-link>
+  </li>
+  <li>
+    <gcds-link href="{{ links.shortcutsGridColumns }}">Grid columns</gcds-link>
+  </li>
+  <li>
+    <gcds-link href="{{ links.shortcutsGridRows }}">Grid rows</gcds-link>
+  </li>
+  <li>
+    <gcds-link href="{{ links.shortcutsGap }}">Gap</gcds-link>
+  </li>
+  <li>
+    <gcds-link href="{{ links.shortcutsAlignContent }}">Align content</gcds-link>
+  </li>
+  <li>
+    <gcds-link href="{{ links.shortcutsAlignItems }}">Align items</gcds-link>
+  </li>
+  <li>
+    <gcds-link href="{{ links.shortcutsAlignSelf }}">Align self</gcds-link>
+  </li>
+  <li>
+    <gcds-link href="{{ links.shortcutsJustifyContent }}">Justify content</gcds-link>
+  </li>
+  <li>
+    <gcds-link href="{{ links.shortcutsJustifyItems }}">Justify items</gcds-link>
+  </li>
+  <li>
+    <gcds-link href="{{ links.shortcutsJustifySelf }}">Justify self</gcds-link>
+  </li>
+  <li>
+    <gcds-link href="{{ links.shortcutsPlaceContent }}">Place content</gcds-link>
+  </li>
+  <li>
+    <gcds-link href="{{ links.shortcutsPlaceItems }}">Place items</gcds-link>
+  </li>
+  <li>
+    <gcds-link href="{{ links.shortcutsPlaceSelf }}">Place self</gcds-link>
+  </li>
+  <li>
+    <gcds-link href="{{ links.shortcutsOrder }}">Order</gcds-link>
+  </li>
 </gcds-grid>
 
 ### Background and border
 
 <gcds-grid tag="ul" columns-desktop="1fr 1fr 1fr" columns-tablet="1fr 1fr" columns="1fr">
-  <gcds-link href="{{ links.shortcutsBackgroundColour }}">Background colour</gcds-link>
-  <gcds-link href="{{ links.shortcutsBorderColour }}">Border colour</gcds-link>
-  <gcds-link href="{{ links.shortcutsBorderStyle }}">Border style</gcds-link>
-  <gcds-link href="{{ links.shortcutsBorderWidth }}">Border width</gcds-link>
-  <gcds-link href="{{ links.shortcutsBorderRadius }}">Border radius</gcds-link>
+  <li>
+    <gcds-link href="{{ links.shortcutsBackgroundColour }}">Background colour</gcds-link>
+  </li>
+  <li>
+    <gcds-link href="{{ links.shortcutsBorderColour }}">Border colour</gcds-link>
+  </li>
+  <li>
+    <gcds-link href="{{ links.shortcutsBorderStyle }}">Border style</gcds-link>
+  </li>
+  <li>
+    <gcds-link href="{{ links.shortcutsBorderWidth }}">Border width</gcds-link>
+  </li>
+  <li>
+    <gcds-link href="{{ links.shortcutsBorderRadius }}">Border radius</gcds-link>
+  </li>
 </gcds-grid>
 
 ### Icon and image
 
 <gcds-grid tag="ul" columns-desktop="1fr 1fr 1fr" columns-tablet="1fr 1fr" columns="1fr">
-  <gcds-link href="{{ links.shortcutsIconNames }}">Icon names</gcds-link>
-  <gcds-link href="{{ links.shortcutsIconSize }}">Icon size</gcds-link>
-  <gcds-link href="{{ links.shortcutsImage }}">Image</gcds-link>
+  <li>
+    <gcds-link href="{{ links.shortcutsIconNames }}">Icon names</gcds-link>
+  </li>
+  <li>
+    <gcds-link href="{{ links.shortcutsIconSize }}">Icon size</gcds-link>
+  </li>
+  <li>
+    <gcds-link href="{{ links.shortcutsImage }}">Image</gcds-link>
+  </li>
 </gcds-grid>
 
 ### Interactive
 
 <gcds-grid tag="ul" columns-desktop="1fr 1fr 1fr" columns-tablet="1fr 1fr" columns="1fr">
-  <gcds-link href="{{ links.shortcutsCursor }}">Cursor</gcds-link>
-  <gcds-link href="{{ links.shortcutsPointerEvents }}">Pointer events</gcds-link>
-  <gcds-link href="{{ links.shortcutsTransition }}">Transition</gcds-link>
+  <li>
+    <gcds-link href="{{ links.shortcutsCursor }}">Cursor</gcds-link>
+  </li>
+  <li>
+    <gcds-link href="{{ links.shortcutsPointerEvents }}">Pointer events</gcds-link>
+  </li>
+  <li>
+    <gcds-link href="{{ links.shortcutsTransition }}">Transition</gcds-link>
+  </li>
 </gcds-grid>
 
 {% include "partials/helpus.njk" %}
