@@ -48,7 +48,7 @@ Ajoutez du code personnalisé pour répondre à vos besoins spécifiques, tout e
 
 ### Styles conditionnels
 
-<gcds-grid tag="ul" columns-desktop="1fr 1fr 1fr" columns-tablet="1fr 1fr" columns="1fr">
+<gcds-grid class="shortcuts-overview-list" tag="ul" columns-desktop="1fr 1fr 1fr" columns-tablet="1fr 1fr" columns="1fr">
   <li>
     <gcds-link href="{{ links.shortcutsResponsiveLayout }}">Mise en page réactive</gcds-link>
   </li>
@@ -59,7 +59,7 @@ Ajoutez du code personnalisé pour répondre à vos besoins spécifiques, tout e
 
 ### Mise en page
 
-<gcds-grid tag="ul" columns-desktop="1fr 1fr 1fr" columns-tablet="1fr 1fr" columns="1fr">
+<gcds-grid class="shortcuts-overview-list" tag="ul" columns-desktop="1fr 1fr 1fr" columns-tablet="1fr 1fr" columns="1fr">
   <li>
     <gcds-link href="{{ links.shortcutsBoxSizing }}">Dimensionnement de la boîte</gcds-link>
   </li>
@@ -82,7 +82,7 @@ Ajoutez du code personnalisé pour répondre à vos besoins spécifiques, tout e
 
 ### Typographie
 
-<gcds-grid tag="ul" columns-desktop="1fr 1fr 1fr" columns-tablet="1fr 1fr" columns="1fr">
+<gcds-grid class="shortcuts-overview-list" tag="ul" columns-desktop="1fr 1fr 1fr" columns-tablet="1fr 1fr" columns="1fr">
   <li>
     <gcds-link href="{{ links.shortcutsFont }}">Police</gcds-link>
   </li>
@@ -132,7 +132,7 @@ Ajoutez du code personnalisé pour répondre à vos besoins spécifiques, tout e
 
 ### Espacement
 
-<gcds-grid tag="ul" columns-desktop="1fr 1fr 1fr" columns-tablet="1fr 1fr" columns="1fr">
+<gcds-grid class="shortcuts-overview-list" tag="ul" columns-desktop="1fr 1fr 1fr" columns-tablet="1fr 1fr" columns="1fr">
   <li>
     <gcds-link href="{{ links.shortcutsMargin }}">Marge</gcds-link>
   </li>
@@ -143,7 +143,7 @@ Ajoutez du code personnalisé pour répondre à vos besoins spécifiques, tout e
 
 ### Boîte d’élément flexible et grille
 
-<gcds-grid tag="ul" columns-desktop="1fr 1fr 1fr" columns-tablet="1fr 1fr" columns="1fr">
+<gcds-grid class="shortcuts-overview-list" tag="ul" columns-desktop="1fr 1fr 1fr" columns-tablet="1fr 1fr" columns="1fr">
   <li>
     <gcds-link href="{{ links.shortcutsFlex }}">Élément flexible</gcds-link>
   </li>
@@ -202,7 +202,7 @@ Ajoutez du code personnalisé pour répondre à vos besoins spécifiques, tout e
 
 ### Arrière-plan et bordure
 
-<gcds-grid tag="ul" columns-desktop="1fr 1fr 1fr" columns-tablet="1fr 1fr" columns="1fr">
+<gcds-grid class="shortcuts-overview-list" tag="ul" columns-desktop="1fr 1fr 1fr" columns-tablet="1fr 1fr" columns="1fr">
   <li>
     <gcds-link href="{{ links.shortcutsBackgroundColour }}">Couleur de l’arrière-plan</gcds-link>
   </li>
@@ -222,7 +222,7 @@ Ajoutez du code personnalisé pour répondre à vos besoins spécifiques, tout e
 
 ### Icône et image
 
-<gcds-grid tag="ul" columns-desktop="1fr 1fr 1fr" columns-tablet="1fr 1fr" columns="1fr">
+<gcds-grid class="shortcuts-overview-list" tag="ul" columns-desktop="1fr 1fr 1fr" columns-tablet="1fr 1fr" columns="1fr">
   <li>
     <gcds-link href="{{ links.shortcutsIconNames }}">Noms des icônes</gcds-link>
   </li>
@@ -236,7 +236,7 @@ Ajoutez du code personnalisé pour répondre à vos besoins spécifiques, tout e
 
 ### Interactif
 
-<gcds-grid tag="ul" columns-desktop="1fr 1fr 1fr" columns-tablet="1fr 1fr" columns="1fr">
+<gcds-grid class="shortcuts-overview-list" tag="ul" columns-desktop="1fr 1fr 1fr" columns-tablet="1fr 1fr" columns="1fr">
   <li>
     <gcds-link href="{{ links.shortcutsCursor }}">Curseur</gcds-link>
   </li>
