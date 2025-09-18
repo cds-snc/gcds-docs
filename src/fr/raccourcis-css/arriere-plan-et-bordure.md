@@ -5,7 +5,7 @@ eleventyNavigation:
   title: Arrière-plan et bordure
   locale: fr
   parent: shortcutsFR
-  order: 1
+  order: 6
 permalink: false
 layout: 'layouts/base.njk'
 ---

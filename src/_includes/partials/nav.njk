@@ -5,7 +5,7 @@
 {% set navPages = collections.all | eleventyNavigation %}
 {% set componentPages = collections.all | eleventyNavigation(components) | sortAlpha %}
 {% set templatePages = collections.all | eleventyNavigation(pageTemplates) | sortAlpha %}
-{% set shortcutsPages = collections.all | eleventyNavigation(shortcuts) | sortAlpha %}
+{% set shortcutsPages = collections.all | eleventyNavigation(shortcuts) %}
 
 {% macro isCurrent(url) -%}
   {% if page.url | contains(url)%}current{% endif %}

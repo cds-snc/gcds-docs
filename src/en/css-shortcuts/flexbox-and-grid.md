@@ -5,7 +5,7 @@ eleventyNavigation:
   title: Flexbox and grid
   locale: en
   parent: shortcutsEN
-  order: 1
+  order: 5
 permalink: false
 layout: 'layouts/base.njk'
 ---

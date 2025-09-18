@@ -5,7 +5,7 @@ eleventyNavigation:
   title: Boîte d’élément flexible et grille
   locale: fr
   parent: shortcutsFR
-  order: 1
+  order: 5
 permalink: false
 layout: 'layouts/base.njk'
 ---

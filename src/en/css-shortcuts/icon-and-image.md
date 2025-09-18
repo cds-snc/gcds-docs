@@ -5,7 +5,7 @@ eleventyNavigation:
   title: Icon and image
   locale: en
   parent: shortcutsEN
-  order: 1
+  order: 7
 permalink: false
 layout: 'layouts/base.njk'
 ---

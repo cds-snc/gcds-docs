@@ -5,7 +5,7 @@ eleventyNavigation:
   title: Spacing
   locale: en
   parent: shortcutsEN
-  order: 1
+  order: 4
 permalink: false
 layout: 'layouts/base.njk'
 ---
