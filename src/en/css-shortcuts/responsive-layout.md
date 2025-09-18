@@ -5,7 +5,7 @@ eleventyNavigation:
   key: shortcutsResponsiveLayoutEN
   title: Responsive layout
   locale: en
-  parent: shortcutsEN
+  parent: shortcutsConditionalRenderingEN
   order: 1
 shortcuts:
   - class: 'xs:'

@@ -5,7 +5,7 @@ eleventyNavigation:
   key: shortcutsStateEN
   title: State
   locale: en
-  parent: shortcutsEN
+  parent: shortcutsConditionalRenderingEN
   order: 1
 shortcuts:
   - class: 'hover:'
