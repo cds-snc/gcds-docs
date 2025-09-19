@@ -35,47 +35,42 @@ La classe position définit la propriété `position`. Elle détermine comment l
 
 ### Statique <br/>`position-static`
 
-{% shortcutPreview %}
-
+```html
 <p class="position-static">
   Cet élément affiche une position statique où il se trouve dans le flux normal du document.
 </p>
-{% endshortcutPreview %}
+```
 
 ### Absolue<br/>`position-absolute`
 
-{% shortcutPreview %}
-
+```html
 <p class="position-absolute">
   Cet élément est retiré du flux normal du document et s’affiche par rapport à son élément ancêtre le plus proche ou à la page elle-même.
 </p>
-{% endshortcutPreview %}
+```
 
 ### Fixe<br/>`position-fixed`
 
-{% shortcutPreview %}
-
+```html
 <p class="position-fixed">
   Cet élément s’affiche par rapport à la fenêtre d’affichage et reste fixe lorsqu’on fait défiler la page.
 </p>
-{% endshortcutPreview %}
+```
 
 ### Relative<br/>`position-relative`
 
-{% shortcutPreview %}
-
+```html
 <p class="position-relative">
   Cet élément est décalé par rapport à sa position normale en utilisant le haut, la droite, le bas ou la gauche.
 </p>
-{% endshortcutPreview %}
+```
 
 ### Élément collant<br/>`position-sticky`
 
-{% shortcutPreview %}
-
+```html
 <p class="position-sticky">
   Cet élément défile avec la page jusqu’à ce qu’un décalage spécifié soit atteint, puis reste en place dans sa boîte.
 </p>
-{% endshortcutPreview %}
+```
 
 {% include "partials/responsive-layout.njk" %}
