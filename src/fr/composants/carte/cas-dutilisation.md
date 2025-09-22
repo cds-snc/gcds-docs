@@ -37,4 +37,4 @@ Remarque : Pour Canada.ca, évitez d'utiliser des cartes au lieu du menu d'accue
 
 <a href="{{ links.details }}">Détails</a> pour dissimuler des renseignements secondaires qu'une personne peut développer sur la même page.
 
-<a href="{{ links.container }}">Boîte</a> pour des affichages simples à largeur définie.
+<a href="{{ links.container }}">Conteneur</a> pour des mises en page simples à largeur définie.
