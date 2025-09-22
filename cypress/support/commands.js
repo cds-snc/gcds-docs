@@ -19,7 +19,12 @@ Cypress.Commands.add('scanDeadLinks', () => {
       .each(link => {
         const href = link.prop('href');
 
-        if (href.startsWith('mailto') || href.includes('.pdf')) return;
+        if (
+          href.startsWith('mailto') ||
+          href.includes('.pdf') ||
+          href.includes('https://www.npmjs')
+        )
+          return;
 
         // Skip GitHub UI links to avoid 429 errors
         if (href.startsWith('https://github.com/')) {
