@@ -1434,12 +1434,12 @@ Browse templates
       console.error('Error fetching latest version:', error);
 
       // Update the latest version and release date in the description
-      cdnLatestVersion.textContent = '0.42.0';
-      cdnLatestVersionDate.textContent = '2025-08-27';
+      cdnLatestVersion.textContent = '0.42.1';
+      cdnLatestVersionDate.textContent = '2025-09-16';
 
       // Update CDN links with fallback version if fetch fails
       codeElements.forEach(element => {
-        element.textContent = element.textContent.replace('||version||', '0.42.0');
+        element.textContent = element.textContent.replace('||version||', '0.42.1');
       });
     }
   }
@@ -1448,7 +1448,7 @@ Browse templates
 </script>
 
         <gcds-date-modified class="mb-300">
-          2025-09-15
+          2025-09-22
         </gcds-date-modified>
       </main>
 
