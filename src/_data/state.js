@@ -9,7 +9,7 @@ module.exports = {
   fr: {
     heading: 'Appliquer ces styles à des états spécifiques',
     textIntro:
-      'Utilisez un préfixe d’état pour appliquer cette classe uniquement à un état d’interaction spécifié',
+      'Utilisez un préfixe d’état pour appliquer cette classe uniquement à un état d’interaction spécifié. Voici les états possibles :',
     textLink:
       'En savoir plus sur le <gcds-link href="/fr/raccourcis-css/etat">préfixe d’état</gcds-link>.',
   },
