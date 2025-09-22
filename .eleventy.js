@@ -471,7 +471,12 @@ module.exports = function (eleventyConfig) {
                   }
                 </time>`;
 
-                return `<li>${datelink} – ${time}</li>`;
+                let name = '';
+
+                if (date.nameEn && date.nameFr) {
+                  name = ` - ${locale === 'en' ? date.nameEn : date.nameFr} `;
+                }
+                return `<li>${datelink} ${name}– ${time}</li>`;
               }
             })
             .join('')}
