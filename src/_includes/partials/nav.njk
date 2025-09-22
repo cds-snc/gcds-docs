@@ -79,7 +79,7 @@
 {% endif %}
 {%- endmacro %}
 
-<gcds-side-nav label="{{ nav[locale].label }}">
+<gcds-side-nav label="{{ nav[locale].label }}" class="side-nav position-sticky box-border overflow-x-visible align-self-start">
   <gcds-nav-link href="{{ links.home }}">{{ nav[locale].title }}</gcds-nav-link>
   <gcds-nav-link href="{{ links.getStarted }}" {{ isCurrent(links.getStarted) }}>{{ nav[locale].getstarted }}</gcds-nav-link>
 

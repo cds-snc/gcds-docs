@@ -132,6 +132,18 @@ ul li ul li {
   max-width: 100%;
 }
 
+.side-nav {
+  top: 0;
+  max-height: 100dvh;
+  /* debating between this and overflow-y-scroll css shortcut */
+  overflow-y: auto;
+  /* avoids jump when the scrollbar appears */
+  scrollbar-gutter: stable;
+  /* padding so the focus ring doesn't get clipped */
+  padding-inline-start: var(--gcds-spacing-75);
+  padding-inline-end: var(--gcds-spacing-75);
+}
+
 .anatomy-list {
   counter-reset: item;
   margin-block-end: var(--gcds-spacing-450);
