@@ -7,11 +7,10 @@ templateEngineOverride: njk
 ---
 
 <gcds-container border margin="175" padding="175" size="lg">
-  Grande boîte
-</gcds-container>
-<gcds-container border margin="175" padding="175" size="md">
-  Boîte moyenne
-</gcds-container>
+  Grand conteneur
+</gcds-container> 
+<gcds-container border margin="175" padding="175" size="md"> 
+  Conteneur moyen </gcds-container> 
 <gcds-container border margin="175" padding="175" size="sm">
-  Petite boîte
+  Petit conteneur 
 </gcds-container>
