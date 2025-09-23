@@ -21,7 +21,7 @@ Cypress.Commands.add('scanDeadLinks', () => {
 
         if (
           href.startsWith('mailto') ||
-          href.includes('.pdf') ||
+          href.endsWith('.pdf') ||
           href.startsWith('https://www.npmjs.com')
         )
           return;
