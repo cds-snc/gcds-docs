@@ -48,8 +48,4 @@ ul li {
 
   /* avoids jump when the scrollbar appears */
   scrollbar-gutter: stable;
-
-  /* padding so the focus ring doesn't get clipped */
-  padding-inline-start: var(--gcds-spacing-75);
-  padding-inline-end: var(--gcds-spacing-75);
 }
