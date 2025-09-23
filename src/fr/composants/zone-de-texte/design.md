@@ -9,12 +9,12 @@ date: 'git Last Modified'
 ## Structure d'une zone de texte
 
 <ol class="anatomy-list">
-  <li>L'<strong>étiquette</strong> indique les renseignements que l'utilisateur doit saisir dans le champ.</li>
+  <li>L'<strong>étiquette</strong> indique les renseignements que l'utilisateur doit saisir dans le champ. </li>
   <li>Le <strong>texte explicatif</strong> précise les exigences spécifiques pour chaque zone de texte afin de favoriser la réussite de la tâche.</li>
-  <li>Le <strong>champ</strong> est la boîte avec laquelle l'utilisateur·rice interagit pour fournir sa réponse.</li>
+  <li>Le <strong>champ</strong> est le conteneur avec lequel l'utilisateur·rice interagit pour fournir sa réponse.</li>
 </ol>
 
-<img class="b-sm b-default p-300" src="/images/fr/components/anatomy/gcds-textarea-anatomy.svg" alt="L'anatomie de la zone de texte identifiant l'étiquette, le message d'aide et le champ qui forme le composant" />
+<img class="b-sm b-default p-300" src="/images/fr/components/anatomy/gcds-textarea-anatomy.svg" alt="L&apos;anatomie de la zone de texte identifiant l&apos;étiquette, le message d&apos;aide et le champ qui forme le composant" />
 
 ## Conception et accessibilité des zones de texte
 
@@ -24,7 +24,7 @@ date: 'git Last Modified'
 - Choisissez des étiquettes uniques pour chaque champ de saisie et zone de texte dans une page. Une personne parcourant les champs entendra le texte de l'étiquette en succession rapide et n'aura pas d'indication pour associer l'etiquette avec chaque contexte.
 - Évitez d'employer un jargon technique, comme «&nbsp;adresse électronique du sujet&nbsp;» ou «&nbsp;ID du compte&nbsp;». Soyez plutôt précis·e et employez un ton personnel, comme «&nbsp;nom complet&nbsp;» et «&nbsp;âge de l'enfant&nbsp;».
 - Évitez d'utiliser des expressions familières et des verbes courants qui ne sont pas connus des personnes ne parlant pas couramment l'anglais ou le français.
-- Expliquez tout terme qui pourrait porter à confusion. Par exemple, «&nbsp;Biographie (Dites nous quelques mots à propos de vous-même)&nbsp;».
+- Expliquez tout terme qui pourrait porter à confusion. Par exemple, « Biographie (Dites nous quelques mots à propos de vous-même) ».
 
 ### Favorisez la réussite de la tâche en ajoutant du texte explicatif
 
