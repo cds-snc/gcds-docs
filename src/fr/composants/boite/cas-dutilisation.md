@@ -17,13 +17,13 @@ permalink: /fr/composants/boite/
 date: 'git Last Modified'
 ---
 
-Examinez les cas d’utilisation des boîtes pour déterminer si elles répondent à vos besoins.
+Examinez les cas d’utilisation des conteneurs pour déterminer si elles répondent à vos besoins.
 
-## Problèmes résolus par les boîtes
+## Problèmes résolus par les conteneurs
 
-Les boîtes regroupent dans un même espace du contenu relatif à un même thème.
+Les conteneurs regroupent dans un même espace du contenu connexe.
 
-Utilisez les boîtes pour :
+Utilisez les conteneurs pour :
 
 - Disposer simplement du contenu et des composants dans le sens vertical à l’aide d’un encadré.
 - Limiter la largeur d’un contenu à un espace donné pour un site ou produit.
