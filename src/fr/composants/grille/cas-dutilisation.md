@@ -35,6 +35,6 @@ Utilisez des grilles pour :
 
 ## Composants connexes
 
-<a href="{{ links.container }}">Boîte</a> : pour appliquer une disposition de base à une seule colonne sur toutes les fenêtres d'affichage.
+<a href="{{ links.container }}">Conteneur</a> : pour appliquer une mise en page de base à une seule colonne sur toutes les fenêtres d'affichage.
 
 <a href="{{ links.card }}">Carte</a> : pour structurer du contenu exploitable dans un même groupe consacré à un seul et même thème.
