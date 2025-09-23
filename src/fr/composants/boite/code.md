@@ -6,21 +6,21 @@ tags: ['containerFR', 'code']
 date: 'git Last Modified'
 ---
 
-## Créer une boîte
+## Créer un conteneur
 
-Utilisez les boîtes pour ajouter un élément enveloppant associé à une largeur maximale définie, en fournissant une boîte pour les autres contenus et composants généralement présentés de manière verticale de haut en bas.
+Utilisez les conteneurs pour ajouter un élément enveloppant avec à une largeur maximale définie, en fournissant un conteneur pour les autres contenus et composants qui sont généralement présentés de manière verticale de haut en bas.
 
-## Codage et accessibilité des boîtes
+## Codage et accessibilité des conteneurs
 
 ### Limiter la largeur du contenu
 
 - Veillez à ce que vos lignes de texte ne dépassent pas 65 caractères pour obtenir une longueur de lecture acceptable.
-- Limitez la largeur de la boîte pour éviter que les grands écrans n’affichent des lignes de texte trop longues et difficiles à lire.
+- Limitez la largeur de la colonne pour éviter que les grands écrans n’affichent des lignes de texte trop longues et difficiles à lire.
 - Évitez de dépasser la largeur maximale de 71,25 rem (1140 px).
 
-### Ajouter une taille de boîte
+### Ajouter une taille de conteneur
 
-La propriété `size` définit la taille d’une boîte. Six tailles sont disponibles :
+La propriété `size` définit la taille d’un conteneur. Six tailles sont disponibles :
 
 | Taille | REM      | Pixels (px) |
 | ------ | -------- | ----------- |
@@ -33,11 +33,11 @@ La propriété `size` définit la taille d’une boîte. Six tailles sont dispon
 
 <br/>
 
-La taille de la boîte par défaut est `full`, ce qui signifie que la boîte occupera la largeur totale de la boîte parente.
+La taille du conteneur par défaut est `full`, ce qui signifie que le conteneur occupera la largeur totale du conteneur parent.
 
-### Centrer la boîte
+### Centrer le conteneur
 
-Les boîtes ne sont pas automatiquement centrées. Pour centrer une boîte sur une page, ajoutez la propriété `centered`.
+Les conteneurs ne sont pas automatiquement centrés. Pour centrer un conteneur sur une page, ajoutez la propriété `centered`.
 
 {% include "partials/getcode.njk" %}
 
