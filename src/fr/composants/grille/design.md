@@ -9,12 +9,12 @@ date: 'git Last Modified'
 ## Structure d'une grille
 
 <ol class="anatomy-list">
-  <li>La <strong>boîte</strong> contient tous les éléments de la grille et s'étend sur leur largeur combinée. Elle est réactive et peut être centrée.</li>
+  <li>Le <strong>conteneur</strong> contient tous les éléments de la grille et s'étend sur leur largeur combinée. Elle est réactive et peut être centrée.</li>
   <li>La <strong>colonne</strong> , également appelée élément de grille, définit une limite autour de son contenu pour le maintenir dans la largeur définie pour cette colonne.</li>
   <li>L’<strong>espace</strong>, parfois appelé gouttière, définit la largeur de l’espace entre les colonnes.</li>
 </ol>
 
-<img class="b-sm b-default p-300" src="/images/fr/components/anatomy/gcds-grid-anatomy.svg" alt="Image montrant la structure d'une grille avec quatre rectangles distincts représentant les colonnes d'une grille." />
+<img class="b-sm b-default p-300" src="/images/fr/components/anatomy/gcds-grid-anatomy.svg" alt="Image montrant la structure d&apos;une grille avec quatre rectangles distincts représentant les colonnes d&apos;une grille." />
 
 ## Design et accessibilité des grilles
 
@@ -31,7 +31,7 @@ Conseil : Visez la simplicité pour la disposition des grilles en concevant des
 ### Limitez la largeur du contenu
 
 - Veillez à ce que les lignes de texte n'excèdent pas 75 caractères pour que la lecture reste accessible.
-- Limitez la largeur des colonnes pour éviter que les grands écrans n'affichent des lignes de texte trop longues et difficiles à lire.
+- Limitez la largeur de la colonne pour éviter que les grands écrans n’affichent des lignes de texte trop longues et difficiles à lire.
 - Évitez de dépasser la largeur maximale de 71,25 rem (1140 px).
 
 ### Utilisez l'espacement pour véhiculer un sens particulier
