@@ -38,3 +38,14 @@ ul li {
   width: var(--gcds-text-character-limit);
   max-width: 100%;
 }
+
+.side-nav {
+  top: 0;
+  max-height: 100dvh;
+
+  /* debating between this and overflow-y-scroll css shortcut */
+  overflow-y: auto;
+
+  /* avoids jump when the scrollbar appears */
+  scrollbar-gutter: stable;
+}
