@@ -14,7 +14,7 @@ date: 'git Last Modified'
   <li>Le <strong>champ</strong> est le conteneur avec lequel l'utilisateur·rice interagit pour fournir sa réponse.</li>
 </ol>
 
-<img class="b-sm b-default p-300" src="/images/fr/components/anatomy/gcds-input-anatomy.svg" alt="L&apos;anatomie du champ de saisie identifiant l&apos;étiquette, le message d&apos;aide et le champ qui forme le composant."/>
+<img class="b-sm b-default p-300" src="/images/fr/components/anatomy/gcds-input-anatomy.svg" alt="L'anatomie du champ de saisie identifiant l'étiquette, le message d'aide et le champ qui forme le composant."/>
 
 ## Conception et accessibilité des champs de saisie
 
