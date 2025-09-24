@@ -53,7 +53,7 @@ Pour réaliser un prototype dans Figma, trouvez le <gcds-link external href="{{ 
 
 ### Aperçu « Sur cette page »
 
-<gcds-button class="mb-300" button-role="secondary" type="link" href="{{ links.pageTemplatesBasicExtOTPPreview }}" target="_blank">Ouvrir demo dans un nouvel onglet</gcds-button> 
+<gcds-button class="mb-300" button-role="secondary" type="link" href="{{ links.pageTemplatesBasicExtOTPPreview }}" target="_blank">Ouvrir demo dans un nouvel onglet</gcds-button>
 <gcds-button  button-role="secondary" type="link" href="{{ links.pageTemplatesBasicExtOTPCode }}" target="_blank">Obtenez code dans un nouvel onglet</gcds-button>
 
 <img class="max-width-content b-sm b-default mb-300 p-300" src="/images/fr/templates/basic-page-on-this-page-preview.png" alt="Un modèle de page de base avec une section &apos;Sur cette page&apos; inclut l&apos;en-tête et le pied de page du gouvernement du Canada, une section &apos;Sur cette page&apos; et trois sections listées en-dessous."/>
