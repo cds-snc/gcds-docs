@@ -60,10 +60,10 @@ date: 'git Last Modified'
   <h2 class="mt-0">What's new</h2>
   <gcds-grid tag="ul" columns="1fr" columns-tablet="1fr 1fr">
     <gcds-card
-      href="{{ links.registerDemo }}"
-      card-title="Attend a demo"
+      href="{{ links.shortcuts }}"
+      card-title="Style with CSS Shortcuts "
       card-title-tag="h3"
-      description="Learn how GC Design System can work for you and your team and get your questions answered."
+      description="Add GC Design System CSS styling shortcuts to your custom code."
       role="listitem"
     ></gcds-card>
     <gcds-card
@@ -74,10 +74,10 @@ date: 'git Last Modified'
       role="listitem"
     ></gcds-card>
     <gcds-card
-      href="{{ links.getInvolved }}"
-      card-title="Get involved"
+      href="{{ links.registerDemo }}"
+      card-title="Attend a demo"
       card-title-tag="h3"
-      description="Check out what the team’s working on and how you can contribute."
+      description="Learn how GC Design System can work for you and your team and get your questions answered."
       role="listitem"
     ></gcds-card>
     <gcds-card

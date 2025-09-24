@@ -82,7 +82,19 @@ Add the following `link` tags inside the `head` tag of your `HTML` files to load
 ></script>
 ```
 
-{% startBuilding 'en', '3' %}{% endstartBuilding %}
+{% addCssShortcuts 'en', '3' %}{% endaddCssShortcuts %}
+
+Add the following `link` tag inside the `head` tag of your HTML files:
+
+```html
+<!-- GC Design System CSS Shortcuts -->
+<link
+  rel="stylesheet"
+  href="/node_modules/@gcds-core/css-shortcuts/dist/gcds-css-shortcuts.min.css"
+/>
+```
+
+{% startBuilding 'en', '4' %}{% endstartBuilding %}
 
 <hr class="my-600" />
 
@@ -131,6 +143,35 @@ Use the `@latest` tag to pull the most recent version of GC Design System into y
 
 While it removes the need to manually update versions, it adds the risk of introducing breaking changes to the codebase as new versions are automatically applied.
 
-{% startBuilding 'en', '2' %}{% endstartBuilding %}
+### 2. Add CSS Shortcuts stylesheet
+
+We recommend using [GC Design System CSS Shortcuts]({{ links.shortcuts }}) to apply predefined CSS utility classes. These classes align with our components and help you build faster while maintaining consistency.
+
+Using CSS Shortcuts in your project is optional. It can be added alongside your existing CSS.
+
+You have the same options as above:
+
+<ul class="list-lower-alpha mb-300">
+  <li>Use pinned version for stability (recommended).</li>
+  <li>Use <code>@latest</code> to get automatic updates.</li>
+</ul>
+
+#### a. Use pinned version (recommended)
+
+Add the following `link` tag inside the `head` tag of your HTML files. Make sure the current version is listed.
+
+```html
+<!-- GC Design System CSS Shortcuts -->
+<link
+  rel="stylesheet"
+  href="https://cdn.design-system.alpha.canada.ca/@gcds-core/css-shortcuts@<version-number>/dist/gcds-css-shortcuts.min.css"
+/>
+```
+
+#### b. Use `@latest` version
+
+Use the `@latest` tag to pull the most recent version of CSS Shortcuts into your project. Put this tag in place of the version number.
+
+{% startBuilding 'en', '3' %}{% endstartBuilding %}
 
 {% include "partials/needhelp.njk" %}

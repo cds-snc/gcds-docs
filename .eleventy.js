@@ -188,6 +188,39 @@ module.exports = function (eleventyConfig) {
 
   // Short codes
 
+  // Add correct step to installation "CSS Shortcuts" section
+  eleventyConfig.addPairedShortcode(
+    'addCssShortcuts',
+    (content, lang = 'en', step) => {
+      const langStrings = {
+        en: {
+          heading: 'Add CSS Shortcuts stylesheet',
+          paragraphs: [
+            'We recommend using <gcds-link href="/en/css-shortcuts">GC Design System CSS Shortcuts</gcds-link> to apply predefined CSS utility classes. These classes align with our components and help you build faster while maintaining consistency.',
+            'Using CSS Shortcuts in your project is optional. It can be added alongside your existing CSS.',
+            'Navigate to your project’s root folder and run the following command:',
+          ],
+        },
+        fr: {
+          heading: 'Ajouter la feuille de style des Raccourcis CSS ',
+          paragraphs: [
+            'Nous recommandons d’utiliser les <gcds-link href="/fr/raccourcis-css">raccourcis CSS de Système de design GC</gcds-link> pour appliquer des classes utilitaires CSS prédéfinies. Ces classes sont conformes à nos composants et aident à construire plus rapidement tout en assurant l’uniformité.',
+            'L’utilisation des Raccourcis CSS dans votre projet n’est pas obligatoire. Ils peuvent être ajoutés à votre CSS existant.',
+            'Naviguez vers le dossier racine de votre projet et exécutez la commande suivante :',
+          ],
+        },
+      };
+
+      return `
+      <div>
+        <gcds-heading tag="h3">${step ? `${step}. ` : ''} ${langStrings[lang].heading}</gcds-heading>
+        ${langStrings[lang].paragraphs.map(p => `<gcds-text>${p}</gcds-text>`).join('\n')}
+        <pre><code class="language-js">npm install @gcds-core/css-shortcuts</code></pre>
+      </div>
+    `;
+    },
+  );
+
   // Add correct step to installation "start building" section
   eleventyConfig.addPairedShortcode(
     'startBuilding',
@@ -195,19 +228,29 @@ module.exports = function (eleventyConfig) {
       const langStrings = {
         en: {
           heading: 'Start building',
-          text: "Once you've installed the design system, start building! Browse our available components and templates to pull the code you need into your project.",
-          buttonComponentsLink: '/en/components',
-          buttonComponentsText: 'Browse components',
-          buttonTemplatesLink: '/en/page-templates',
-          buttonTemplatesText: 'Browse templates',
+          text: 'Once you’ve installed the design system, you can start pulling the code you need into your project.',
+          subheadingCode: 'Start with your code',
+          subheadingComponents: 'Start with components',
+          subheadingTemplate: 'Start with a template',
+          textCode:
+            'Add style classes to HTML using <gcds-link href="/en/css-shortcuts">CSS Shortcuts</gcds-link>. This is for your custom code.',
+          textComponents:
+            'Add <gcds-link href="/en/components">components</gcds-link> to build a product that meets your needs.',
+          textTemplates:
+            'Start with a <gcds-link href="/en/page-templates">basic page template</gcds-link>. It combines multiple components for common GC pages.',
         },
         fr: {
-          heading: 'Commencez à créer',
-          text: 'Une fois le système de design installé, commencez à créer! Parcourez nos composants et modèles pour y trouver le code dont vous avez besoin pour votre projet.',
-          buttonComponentsLink: '/fr/composants',
-          buttonComponentsText: 'Parcourir les composants',
-          buttonTemplatesLink: '/fr/modeles-de-page',
-          buttonTemplatesText: 'Parcourir les modèles',
+          heading: 'Commencer à créer',
+          text: 'Une fois le système de design installé, vous pouvez commencer à intégrer le code dont vous avez besoin dans votre projet. ',
+          subheadingCode: 'Commencer par le code',
+          subheadingComponents: 'Commencer par les composants',
+          subheadingTemplate: 'Commencer par un modèle',
+          textCode:
+            'Ajoutez des classes de style à votre code HTML à l’aide des <gcds-link href="/fr/raccourcis-css">Raccourcis CSS</gcds-link>. Ceci est pour votre code personnalisé.',
+          textComponents:
+            'Ajoutez des <gcds-link href="/fr/composants">composants</gcds-link> pour créer un produit qui répond à vos besoins.',
+          textTemplates:
+            'Commencez avec un <gcds-link href="/fr/modeles-de-page">modèle de page de base</gcds-link>. Il combine plusieurs composants pour des pages communes du GC.',
         },
       };
 
@@ -216,12 +259,14 @@ module.exports = function (eleventyConfig) {
         <gcds-heading tag="h3">${step ? `${step}. ` : ''} ${langStrings[lang].heading}</gcds-heading>
         <gcds-text>${langStrings[lang].text}</gcds-text>
 
-        <gcds-button class="mb-300 xs:me-300" type="link" href="${langStrings[lang].buttonComponentsLink}">
-          ${langStrings[lang].buttonComponentsText}
-        </gcds-button>
-        <gcds-button class="mb-300" type="link" href="${langStrings[lang].buttonTemplatesLink}" button-role="secondary">
-          ${langStrings[lang].buttonTemplatesText}
-        </gcds-button>
+        <gcds-heading tag="h4">${langStrings[lang].subheadingTemplate}</gcds-heading>
+        <gcds-text>${langStrings[lang].textTemplates}</gcds-text>
+
+        <gcds-heading tag="h4">${langStrings[lang].subheadingComponents}</gcds-heading>
+        <gcds-text>${langStrings[lang].textComponents}</gcds-text>
+
+        <gcds-heading tag="h4">${langStrings[lang].subheadingCode}</gcds-heading>
+        <gcds-text>${langStrings[lang].textCode}</gcds-text>
       </div>
     `;
     },

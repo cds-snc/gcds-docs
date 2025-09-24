@@ -12,6 +12,8 @@ date: "git Last Modified"
 
 # Code du modèle de page de base
 
+{% include 'partials/shortcuts-template.njk' %}
+
 Copiez ce code pour utiliser le modèle de page de base.
 
 <div class="page-template-highlight">

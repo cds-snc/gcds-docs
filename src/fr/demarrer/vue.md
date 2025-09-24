@@ -71,6 +71,29 @@ b. Importez les styles dans fichier `App.vue` en utilisant la balise HTML `style
 </style>
 ```
 
-{% startBuilding 'fr', '4' %}{% endstartBuilding %}
+{% addCssShortcuts 'fr', '4' %}{% endaddCssShortcuts %}
+
+Vous avez les mêmes options que ci-dessus :
+
+<ul class="list-lower-alpha mb-300">
+  <li>Importer les styles dans <code>main.js</code>.</li>
+  <li>Importer les styles dans <code>App.vue</code>.</li>
+</ul>
+
+a. Importez les styles de Raccourcis CSS dans votre fichier `main.js`, à côté de votre fichier `style.css` :
+
+```js
+npm install @gcds-core/css-shortcuts
+```
+
+b. Importez les styles de Raccourcis CSS dans votre fichier `App.vue` en utilisant la balise HTML `style` :
+
+```html
+<style src="@gcds-core/css-shortcuts/dist/gcds-css-shortcuts.min.css">
+  /* global styles */
+</style>
+```
+
+{% startBuilding 'fr', '5' %}{% endstartBuilding %}
 
 {% include "partials/needhelp.njk" %}
