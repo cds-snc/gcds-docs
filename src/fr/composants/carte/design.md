@@ -33,7 +33,7 @@ date: 'git Last Modified'
 
 ### Regroupez les cartes pour assurer une cohérence visuelle
 
-Organisez les cartes à l'aide du \[composant de la grille\]({{ links.grid }}).
+Organisez les cartes à l'aide du [composant grille]({{ links.grid }}).
 
 - Pour les écrans d'ordinateur, utilisez 2 ou 3 cartes par rangée.
 - Pour les écrans d'appareils mobiles, utilisez 1 carte par rangée.
