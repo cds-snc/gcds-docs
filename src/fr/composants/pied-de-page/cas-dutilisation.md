@@ -37,4 +37,3 @@ Utilisez ce repère de pied de page dans le cadre d’une image de marque fiable
 <a href="{{ links.header }}">En-tête</a> : lorsque vous cherchez à placer l'image de marque du gouvernement du Canada dans l'en-tête de la page.
 
 <a href="{{ links.topNav }}">Barre de navigation supérieure</a> : pour guider la navigation au sein d'un site Web à l'aide d'un point de repère.
-
