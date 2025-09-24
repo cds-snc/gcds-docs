@@ -14,7 +14,7 @@ date: 'git Last Modified'
   <li>L’<strong>espace</strong>, parfois appelé gouttière, définit la largeur de l’espace entre les colonnes.</li>
 </ol>
 
-<img class="b-sm b-default p-300" src="/images/fr/components/anatomy/gcds-grid-anatomy.svg" alt="Image montrant la structure d&apos;une grille avec quatre rectangles distincts représentant les colonnes d&apos;une grille." />
+<img class="b-sm b-default p-300" src="/images/fr/components/anatomy/gcds-grid-anatomy.svg" alt="Image montrant la structure d'une grille avec quatre rectangles distincts représentant les colonnes d'une grille." />
 
 ## Design et accessibilité des grilles
 
