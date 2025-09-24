@@ -7,7 +7,7 @@ tags: ['containerFR', 'header']
 
 # Conteneur<br>`<gcds-container>`
 
-_Autres noms : conteneur, encadré._
+_Autres noms : boîte, encadré._
 
 Un conteneur est une mise en page simple en forme de boîte avec une largeur de contenu fixe.
 
