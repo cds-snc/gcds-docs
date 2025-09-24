@@ -1,5 +1,5 @@
 ---
-title: Aperçu du composant de la boîte
+title: Aperçu du composant conteneur
 layout: 'layouts/component-preview.njk'
 tags: ['containerFR', 'preview']
 eleventyExcludeFromCollections: true
