@@ -9,7 +9,7 @@ date: 'git Last Modified'
 ## Structure d'une zone de texte
 
 <ol class="anatomy-list">
-  <li>L'<strong>étiquette</strong> indique les renseignements que l'utilisateur doit saisir dans le champ. </li>
+  <li>L'<strong>étiquette</strong> indique les renseignements que l'utilisateur doit saisir dans le champ.</li>
   <li>Le <strong>texte explicatif</strong> précise les exigences spécifiques pour chaque zone de texte afin de favoriser la réussite de la tâche.</li>
   <li>Le <strong>champ</strong> est le conteneur avec lequel l'utilisateur·rice interagit pour fournir sa réponse.</li>
 </ol>
