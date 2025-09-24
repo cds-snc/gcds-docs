@@ -11,7 +11,7 @@ module.exports = {
     heading: 'Style conditionnel ',
     subheading: 'Appliquer ces styles à des tailles d’écran précises',
     textIntro:
-      'Utilisez un préfixe de mise en page réactive pour appliquer cette classe uniquement à une taille d’écran précise.',
+      'Utilisez un préfixe de mise en page réactive pour appliquer cette classe uniquement à une taille d’écran précise. Voici les points d’arrêt possibles :',
     textLink:
       'En savoir plus sur le <gcds-link href="/fr/raccourcis-css/mise-en-page-reactive">préfixe de mise en page réactive</gcds-link>.',
   },
