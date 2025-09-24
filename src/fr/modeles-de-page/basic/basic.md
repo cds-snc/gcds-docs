@@ -33,7 +33,7 @@ Le modèle de page de base est destiné aux pages non spécialisées de Canada.c
 <gcds-button class="mb-300" button-role="secondary" type="link" href="{{ links.pageTemplatesBasicPreview }}" target="_blank">Ouvrir demo dans un nouvel onglet</gcds-button>
 <gcds-button  button-role="secondary" type="link" href="{{ links.pageTemplatesBasicCode }}" target="_blank">Obtenez code dans un nouvel onglet</gcds-button>
 
-<img class="max-width-content b-sm b-default mb-300 p-300" src="/images/fr/templates/basic-page-preview.png" alt="Le modèle de page de base comprend l&apos;en-tête et le pied de page du Gouvernement du Canada, ainsi que les sections titre H1, H2 et H3 accompagnées de texte sous chacune des sections."/>
+<img class="max-width-content b-sm b-default mb-300 p-300" src="/images/fr/templates/basic-page-preview.png" alt="Le modèle de page de base comprend l'en-tête et le pied de page du Gouvernement du Canada, ainsi que les sections titre H1, H2 et H3 accompagnées de texte sous chacune des sections."/>
 
 ## Comment procéder à la mise en œuvre
 
