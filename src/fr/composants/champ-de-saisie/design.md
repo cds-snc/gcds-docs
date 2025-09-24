@@ -39,6 +39,6 @@ date: 'git Last Modified'
 
 ### Écrire des messages d'erreur pour les champs de saisies requis
 
-- Utilisez les \[messages d'erreur\]({{ links.errorMessage }}) pour traiter les saisies manquantes ou non valides.
-- Rédigez un \[message d'erreur\]({{ links.errorMessage }}) pour tout champ de saisie obligatoire. Si un champ est facultatif, évitez de lui associer un \[message d'erreur\]({{ links.errorMessage }}).
+- Utilisez les [messages d'erreur]({{ links.errorMessage }}) pour traiter les saisies manquantes ou non valides.
+- Rédigez un [message d'erreur]({{ links.errorMessage }}) pour tout champ de saisie obligatoire. Si un champ est facultatif, évitez de lui associer un [message d'erreur]({{ links.errorMessage }}).
 - Évitez de critiquer la personne qui utilise le produit. Dites-lui plutôt exactement ce qu'elle doit faire pour progresser.
