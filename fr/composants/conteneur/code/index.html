@@ -1,0 +1,1469 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+  <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5TBZBZVVK8"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-5TBZBZVVK8');
+    </script>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Conteneur - Système de design GC</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Utility framework -->
+    <link rel="stylesheet" href="/gcds-docs/gcds-utility.min.css" />
+
+    <link rel="stylesheet" href="/gcds-docs/styles/prism.css">
+    <link rel="stylesheet" href="/gcds-docs/styles/style.css">
+    <script src="/gcds-docs/scripts/code-showcase.js"></script>
+    <script src="/gcds-docs/scripts/code-copy.js"></script>
+    <script src="/gcds-docs/scripts/component-preview.js"></script>
+    <script src="/gcds-docs/scripts/general.js"></script>
+    <link rel="icon" type="image/x-icon" sizes="96x96" href="/gcds-docs/favicon.ico">
+
+    <!-- GC Design System  Components-->
+    <link rel="stylesheet" href="/gcds-docs/components/dist/gcds/gcds.css">
+    <script type="module" src="/components/dist/gcds/gcds.esm.js"></script>
+
+    <!-- Pagefind -->
+    <script src="/pagefind/pagefind.js" type="module"></script>
+    <script src="/gcds-docs/scripts/search.js" type="module"></script>
+  </head>
+  <body>
+    
+
+
+  
+  
+    
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+
+        
+
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+  
+
+  
+  
+
+
+
+
+<gcds-header
+  lang="fr"
+  skip-to-href="#mc"
+  lang-href='/en/components/container/code/'
+>
+  
+
+
+
+<gcds-top-nav slot="menu" label="Menu principal" alignment="right">
+  <gcds-nav-link slot="home" href="/fr">Système de design GC</gcds-nav-link>
+  
+    <gcds-nav-link
+      href="/gcds-docs/fr/composants/"
+      
+    >
+      Composants
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/gcds-docs/fr/modeles-de-page/"
+      
+    >
+      Modèles de page
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/gcds-docs/fr/demarrer/"
+      
+    >
+      Démarrer
+    </gcds-nav-link>
+  
+<gcds-nav-group
+    menu-label="Contact"
+    open-trigger="Contact"
+  >
+    <gcds-nav-link href="/fr/contactez">Contactez-nous</gcds-nav-link>
+    <gcds-nav-link href="/fr/simpliquer">Impliquez-vous</gcds-nav-link>
+    <gcds-nav-link href="/fr/inscrivez-vous-a-une-demonstration">Trouvez une démo</gcds-nav-link>
+  </gcds-nav-group>
+</gcds-top-nav>
+  
+
+  <gcds-breadcrumbs lang="fr" slot="breadcrumb">
+    
+      <gcds-breadcrumbs-item href=/gcds-docs/fr>
+        Système de design GC
+      </gcds-breadcrumbs-item>
+
+      
+
+      
+      
+        
+          <gcds-breadcrumbs-item href=/gcds-docs/fr/composants/>
+            Composants
+          </gcds-breadcrumbs-item>
+        
+      
+    
+  </gcds-breadcrumbs>
+
+  
+<gcds-search search-id="search" slot="search" placeholder="Système de design GC" action="/fr/recherche">
+</gcds-search>
+
+
+</gcds-header>
+
+    <div class="content-wrapper">
+      <main id="mc" class="container-xl mx-auto xl:px-0 sm:px-600 px-225 general-layout" data-pagefind-body>
+        
+  
+    <h1 id="conteneurbrgcdscontainer">Conteneur<br><code>&lt;gcds-container&gt;</code></h1>
+<p><em>Autres noms : boîte, encadré.</em></p>
+<p>Un conteneur est une mise en page simple en forme de boîte avec une largeur de contenu fixe.</p>
+<p><ul class="d-flex flex-wrap gap-300">
+<li class="github-link">
+<gcds-link external href="https://github.com/cds-snc/gcds-components/tree/main/packages/web/src/components/gcds-container">GitHub</gcds-link>
+</li>
+<li class="figma-link">
+<gcds-link external href="https://www.figma.com/community/file/1369337721343886324">
+Figma
+</gcds-link>
+</li>
+</ul></p>
+<p><div class="my-600 b-sm b-default component-preview">
+<h2 class="container-full font-text font-semibold m-0 px-225 py-150 bb-sm b-default bg-light">
+Aperçu du composant conteneur
+</h2>
+<div>
+<iframe
+            title="Aperçu du composant conteneur"
+            src="/fr/composants/conteneur/preview/"
+            style="display: block; margin: 0 auto;"
+            frameBorder="0"
+            width="100%"
+            id="component-preview"
+          ></iframe>
+</div>
+</div></p>
+
+    <nav class="tabs mb-300" aria-label="Onglet de consignes">
+      <ul>
+        
+          
+        
+          
+            <li class="tab">
+              <a href=/fr/composants/conteneur/ >
+                Cas d&#39;utilisation
+              </a>
+            </li>
+          
+        
+          
+            <li class="tab">
+              <a href=/fr/composants/conteneur/design/ >
+                Design
+              </a>
+            </li>
+          
+        
+          
+            <li class="tab">
+              <a href=/fr/composants/conteneur/code/ aria-current=page>
+                Code
+              </a>
+            </li>
+          
+        
+          
+        
+          
+        
+      </ul>
+    </nav>
+  
+
+  <h2 id="creer-un-conteneur">Créer un conteneur</h2>
+<p>Utilisez les conteneurs pour ajouter un élément enveloppant avec à une largeur maximale définie, en fournissant un conteneur pour les autres contenus et composants qui sont généralement présentés de manière verticale de haut en bas.</p>
+<h2 id="codage-et-accessibilite-des-conteneurs">Codage et accessibilité des conteneurs</h2>
+<h3 id="limiter-la-largeur-du-contenu">Limiter la largeur du contenu</h3>
+<ul class="list-disc mb-300"><li>Veillez à ce que vos lignes de texte ne dépassent pas 65 caractères pour obtenir une longueur de lecture acceptable.</li>
+<li>Limitez la largeur de la colonne pour éviter que les grands écrans n’affichent des lignes de texte trop longues et difficiles à lire.</li>
+<li>Évitez de dépasser la largeur maximale de 71,25 rem (1140 px).</li>
+</ul>
+<h3 id="ajouter-une-taille-de-conteneur">Ajouter une taille de conteneur</h3>
+<p>La propriété <code>size</code> définit la taille d’un conteneur. Six tailles sont disponibles :</p>
+<table>
+<thead>
+<tr>
+<th>Taille</th>
+<th>REM</th>
+<th>Pixels (px)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>full</code></td>
+<td>100%</td>
+<td>100%</td>
+</tr>
+<tr>
+<td><code>xl</code></td>
+<td>71.25rem</td>
+<td>1140px</td>
+</tr>
+<tr>
+<td><code>lg</code></td>
+<td>62rem</td>
+<td>992px</td>
+</tr>
+<tr>
+<td><code>md</code></td>
+<td>48rem</td>
+<td>768px</td>
+</tr>
+<tr>
+<td><code>sm</code></td>
+<td>30rem</td>
+<td>480px</td>
+</tr>
+<tr>
+<td><code>xs</code></td>
+<td>20rem</td>
+<td>320px</td>
+</tr>
+</tbody>
+</table>
+<br/>
+<p>La taille du conteneur par défaut est <code>full</code>, ce qui signifie que le conteneur occupera la largeur totale du conteneur parent.</p>
+<h3 id="centrer-le-conteneur">Centrer le conteneur</h3>
+<p>Les conteneurs ne sont pas automatiquement centrés. Pour centrer un conteneur sur une page, ajoutez la propriété <code>centered</code>.</p>
+<h3 id="obtenez-votre-code">Obtenez votre code</h3>
+<p>Générez une version du composant dont vous avez besoin en sélectionnant les propriétés de code correspondantes ou explorez les possibilités en choisissant différentes valeurs de code.</p>
+<ol class="list-decimal mb-300"><li>
+<p>Choisissez des valeurs de code pour obtenir l'élément que vous voulez.</p>
+</li>
+<li>
+<p>Obtenez le code et intégrez-le dans votre environnement.</p>
+</li>
+<li>
+<p>Ajoutez tout contenu nécessaire au composant (comme le texte du libellé).</p>
+</li>
+</ol>
+<p><strong>Remarque</strong> : Conformément à la pratique courante, le générateur de code utilise l'anglais pour tous les éléments de code.</p>
+<iframe
+  title="Survol des propriétés et des évènements relatifs à gcds-container."
+  src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&demo=true&singleStory=true&id=components-container--events-properties&lang=fr"
+  width="1200"
+  height="1500"
+  style="display: block; margin: 0 auto;"
+  frameBorder="0"
+  allow="clipboard-write"
+></iframe>
+
+
+  <section data-pagefind-ignore class="my-600 bt-sm b-dark ">
+  <h2>Aidez-nous à nous améliorer</h2>
+  <p>Vous avez des questions ou des demandes? Faites-nous part de vos commentaires à l&#39;aide de notre formulaire de contact.</p>
+
+  
+  <p>
+    Quelque chose ne va pas? Signalez-le sur GitHub en créant un <gcds-link href='https://docs.github.com/fr/get-started/start-your-journey/creating-an-account-on-github' external>compte</gcds-link>. Vous pourrez accéder aux réponses de l'équipe, suivre les progrès réalisés concernant votre problèmes et voir les problèmes signalés par d'autres personnes.
+  </p>
+  
+
+  <gcds-button
+    type="link"
+    button-role="secondary"
+    href="/fr/contactez/#contactez-nous"
+    class="mb-300"
+  >
+    Fournir des commentaires
+  </gcds-button>
+  <gcds-button
+    type="link"
+    button-role="secondary"
+    href="https://github.com/cds-snc/gcds-components/issues/new/choose"
+  >
+    Signaler un problème sur GitHub
+    <gcds-icon name="external" label=" (Ouvre l&#39;emplacement dans un nouvel onglet.)">
+    </gcds-icon>
+  </gcds-button>
+</section>
+
+
+
+        <gcds-date-modified class="mb-300">
+          2025-09-29
+        </gcds-date-modified>
+      </main>
+
+    <gcds-footer
+  display="full"
+  lang="fr"
+  contextual-heading="Système de design GC"
+  contextual-links='{ "À propos": "/fr/a-propos", "Déclaration d&#39;accessibilité": "/fr/accessibilite/", "Accord sur les niveaux de service": "/fr/entente-sur-les-niveaux-de-service/" }'
+  sub-links='{ "Médias sociaux": "https://www.canada.ca/fr/sociaux.html", "Applications mobiles": "https://www.canada.ca/fr/mobile.html", "À propos de Canada.ca": "https://conception.canada.ca/a-propos/", "Conditions d&#39;utilisation": "/fr/conditions-dutilisation", "Confidentialité": "/fr/avis-de-confidentialite/" }'
+></gcds-footer>
+
+    </div>
+
+    <script>function showTooltip(o,e){o.trigger.className.includes("tooltipped")||(o.trigger.children[0].className="tooltipped tooltipped-s",o.trigger.children[0].ariaLabel=e)}window.addEventListener("load",()=>{var o=new ClipboardJS(".code-copy");o.on("success",o=>showTooltip(o,"Copied!")),o.on("error",o=>showTooltip(o,"Failed..."))});</script>
+<script async src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script>
+  </body>
+</html>
