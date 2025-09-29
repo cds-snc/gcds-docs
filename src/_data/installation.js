@@ -3,7 +3,7 @@ module.exports = {
     heading: 'Not using any of those?',
     paragraph:
       'If you\'re not using any of the above, choose the "Other" option below.',
-    cardLink: '/en/get-started/develop/html/',
+    cardLink: '/en/start-using/develop/html/',
     cardTitle: 'Other',
     cardDescription: 'View installation instructions for all other projects.',
     cardEnvExamples:
