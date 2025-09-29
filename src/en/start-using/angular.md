@@ -8,10 +8,10 @@ eleventyNavigation:
   parent: installationEN
   order: 2
   description: View installation instructions for Angular or Angular-based projects.
-  thumbnail: /images/common/get-started/banner-angular.svg
+  thumbnail: /images/common/start-using/banner-angular.svg
   alt:
   state: published
-permalink: /en/get-started/develop/angular/
+permalink: /en/start-using/develop/angular/
 translationKey: 'angular'
 date: 'git Last Modified'
 ---

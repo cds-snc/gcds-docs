@@ -9,7 +9,7 @@ eleventyNavigation:
   order: 1
   description: Consultez les instructions d’installation pour React ou les projets basés sur React.
   envExamples: P. ex., Next.js, Gatsby et Remix.
-  thumbnail: /images/common/get-started/banner-react.svg
+  thumbnail: /images/common/start-using/banner-react.svg
   alt:
   state: published
 permalink: /fr/demarrer/developpement/react/

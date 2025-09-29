@@ -1,9 +1,9 @@
 ---
 title: Démarrer
-translationKey: getstarted
+translationKey: startusing
 layout: 'layouts/base.njk'
 eleventyNavigation:
-  key: getstartedFR
+  key: startusingFR
   title: Démarrer
   locale: fr
   order: 2
@@ -19,7 +19,7 @@ Que vous soyez à l’étape de la conception ou du codage, commencez à utilise
     card-title="Conception"
     href="#conception"
     description="Apprenez à concevoir des expériences du GC cohérentes en utilisant la bibliothèque d’éléments de conception dans Figma."
-    img-src="/images/common/get-started/banner-design.svg"
+    img-src="/images/common/start-using/banner-design.svg"
     img-alt=""
     role="listitem"
   /></gcds-card>
@@ -27,7 +27,7 @@ Que vous soyez à l’étape de la conception ou du codage, commencez à utilise
     card-title="Développement"
     href="#developpement"
     description="Apprenez à prototyper et à développer des expériences accessibles du GC en code."
-    img-src="/images/common/get-started/banner-develop.svg"
+    img-src="/images/common/start-using/banner-develop.svg"
     img-alt=""
     role="listitem"
   ></gcds-card>
@@ -47,7 +47,7 @@ La bibliothèque comprend :
 
 Système de design GC héberge ses composants dans Figma. Figma est un outil qui permet de créer des prototypes cliquables d’applications et de sites Web en utilisant la bibliothèque de Système de design GC.
 
-<gcds-button button-role="secondary" type="link" href="{{ links.getStartedDesign }}">
+<gcds-button button-role="secondary" type="link" href="{{ links.startUsingDesign }}">
   Commencer à concevoir
 </gcds-button>
 
@@ -67,6 +67,6 @@ Système de design GC propose des composants Web réutilisables et personnalisab
 - Les changements y sont apportés dans le cadre de mises à jour uniques qui englobent les unités de style, les composants et les changements non rétrocompatibles.
 - Système de design GC est indépendant de la Boîte à outils de l’expérience Web (BOEW) et de GCWeb.
 
-<gcds-button button-role="secondary" type="link" href="{{ links.getStartedDevelop }}">
+<gcds-button button-role="secondary" type="link" href="{{ links.startUsingDevelop }}">
   Commencer à développer
 </gcds-button>

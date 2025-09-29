@@ -9,10 +9,10 @@ eleventyNavigation:
   order: 3
   description: View installation instructions for Vue or Vue-based projects.
   envExamples: This includes Nuxt, VuePress, and Quasar.
-  thumbnail: /images/common/get-started/banner-vue.svg
+  thumbnail: /images/common/start-using/banner-vue.svg
   alt:
   state: published
-permalink: /en/get-started/develop/vue/
+permalink: /en/start-using/develop/vue/
 translationKey: 'vue'
 date: 'git Last Modified'
 ---
