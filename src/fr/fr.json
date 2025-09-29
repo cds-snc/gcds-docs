@@ -26,7 +26,7 @@
     "card": "/fr/composants/carte",
     "checkbox": "/fr/composants/case-a-cocher",
     "checkboxes": "/fr/composants/cases-a-cocher",
-    "container": "/fr/composants/boite",
+    "container": "/fr/composants/conteneur",
     "dataTable": "/fr/developpement-en-cours",
     "dateModified": "/fr/composants/date-de-modification",
     "dateInput": "/fr/composants/champ-de-date",
