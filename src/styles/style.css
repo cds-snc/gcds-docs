@@ -278,6 +278,9 @@ ul li ul li {
   list-style: none;
 }
 
+.shortcut-table > p {
+  display: none;
+}
 .shortcut-table pre {
   width: fit-content;
   background-color: var(--gcds-color-grayscale-50);
