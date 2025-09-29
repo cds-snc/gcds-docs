@@ -71,7 +71,7 @@ npm install @cdssnc/gcds-components
 Ajoutez les balises `link` suivantes à l’intérieur de la balise `head` de vos fichiers `HTML` pour charger Système de design GC :
 
 ```html
-<!-- GC Design System -->
+<!-- Système de design GC -->
 <link
   rel="stylesheet"
   href="/node_modules/@cdssnc/gcds-components/dist/gcds/gcds.css"
@@ -82,7 +82,19 @@ Ajoutez les balises `link` suivantes à l’intérieur de la balise `head` de vo
 ></script>
 ```
 
-{% startBuilding 'fr', '3' %}{% endstartBuilding %}
+{% addCssShortcuts 'fr', '3' %}{% endaddCssShortcuts %}
+
+Ajoutez la balise `link` suivante à l’intérieur de la balise `head` de vos fichiers HTML :
+
+```html
+<!-- Raccourcis CSS de Système de design GC  -->
+<link
+  rel="stylesheet"
+  href="/node_modules/@gcds-core/css-shortcuts/dist/gcds-css-shortcuts.min.css"
+/>
+```
+
+{% startBuilding 'fr', '4' %}{% endstartBuilding %}
 
 <hr class="my-600" />
 
@@ -106,7 +118,7 @@ Ajoutez le code suivant à la balise `head` de vos fichiers `HTML` pour charger 
 Version actuelle : Version <code><span id='cdn-latest-version'></span></code>, publiée le <time id='cdn-latest-version-date'></time>.
 
 ```html
-<!-- GC Design System -->
+<!-- Système de design GC -->
 <link
   rel="stylesheet"
   href="https://cdn.design-system.alpha.canada.ca/@cdssnc/gcds-components@||version||/dist/gcds/gcds.css"
@@ -131,6 +143,35 @@ Utilisez la balise `@latest` pour insérer la plus récente version de Système 
 
 Bien que cette approche vous évite la mise à jour manuelle des versions, elle court le risque d’introduire des modifications qui entraînent une rupture de compatibilité avec le code base à mesure que les nouvelles versions sont automatiquement appliquées.
 
-{% startBuilding 'fr', '2' %}{% endstartBuilding %}
+### 2. Ajouter la feuille de style des Raccourcis CSS
+
+Nous recommandons d’utiliser les [raccourcis CSS de Système de design GC]({{ links.shortcuts }}) pour appliquer des classes utilitaires CSS prédéfinies. Ces classes sont conformes à nos composants et aident à construire plus rapidement tout en assurant l’uniformité.
+
+L’utilisation des Raccourcis CSS dans votre projet n’est pas obligatoire. Ils peuvent être ajoutés à côté de votre CSS existant.
+
+Vous avez les mêmes options que ci-dessus :
+
+<ul class="list-lower-alpha mb-300">
+  <li>Utiliser la version épinglée pour la stabilité (recommandé)</li>
+  <li>Utiliser <code>@latest</code> pour obtenir des mises à jour automatiques.</li>
+</ul>
+
+#### a. Utiliser la version épinglée (recommandé)
+
+Ajoutez la balise `link` suivante à l’intérieur de la balise `head` de vos fichiers HTML. Assurez-vous d’indiquer la version actuelle.
+
+```html
+<!-- Raccourcis CSS de Système de design GC -->
+<link
+  rel="stylesheet"
+  href="https://cdn.design-system.alpha.canada.ca/@gcds-core/css-shortcuts@<version-number>/dist/gcds-css-shortcuts.min.css"
+/>
+```
+
+#### b. Utiliser la version `@latest` (la dernière version)
+
+Utilisez la balise `@latest` pour insérer la plus récente version de Raccourcis CSS dans votre projet. Remplacez le numéro de version par cette balise.
+
+{% startBuilding 'fr', '3' %}{% endstartBuilding %}
 
 {% include "partials/needhelp.njk" %}

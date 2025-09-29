@@ -64,6 +64,14 @@ Pour importer les styles de Système de design GC, insérez le code suivant dans
 @import '../node_modules/@cdssnc/gcds-components/dist/gcds/gcds.css';
 ```
 
-{% startBuilding 'fr', '3' %}{% endstartBuilding %}
+{% addCssShortcuts 'fr', '3' %}{% endaddCssShortcuts %}
+
+Pour importer les Raccourcis CSS de Système de design GC, ajoutez le code suivant dans le fichier `styles.scss` de votre application :
+
+```js
+@import '../node_modules/@gcds-core/css-shortcuts/dist/gcds-css-shortcuts.min.css';
+```
+
+{% startBuilding 'fr', '4' %}{% endstartBuilding %}
 
 {% include "partials/needhelp.njk" %}

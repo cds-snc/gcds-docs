@@ -64,6 +64,14 @@ Place the following code in the `styles.scss` file of your app to import GC Desi
 @import '../node_modules/@cdssnc/gcds-components/dist/gcds/gcds.css';
 ```
 
-{% startBuilding 'en', '3' %}{% endstartBuilding %}
+{% addCssShortcuts 'en', '3' %}{% endaddCssShortcuts %}
+
+Add the following code in the `styles.scss` file of your app to import CSS Shortcuts:
+
+```js
+@import '../node_modules/@gcds-core/css-shortcuts/dist/gcds-css-shortcuts.min.css';
+```
+
+{% startBuilding 'en', '4' %}{% endstartBuilding %}
 
 {% include "partials/needhelp.njk" %}

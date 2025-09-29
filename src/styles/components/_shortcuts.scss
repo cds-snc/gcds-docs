@@ -3,11 +3,15 @@
 }
 
 .shortcut-table {
+  &>p {
+    display: none;
+  }
+
   pre {
     width: fit-content;
     background-color: var(--gcds-color-grayscale-50);
 
-    & > p {
+    &>p {
       margin: 0;
     }
   }
@@ -147,7 +151,7 @@
   }
 
   .example-table,
-  .example-table + .d-inline-table {
+  .example-table+.d-inline-table {
     border-collapse: collapse;
     margin: var(--gcds-spacing-200);
 

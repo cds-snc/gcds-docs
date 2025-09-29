@@ -35,47 +35,42 @@ The position class sets the `position` property. It determines how the element i
 
 ### Static<br/>`position-static`
 
-{% shortcutPreview %}
-
+```html
 <p class="position-static">
   This element displays a static position where it exists in the normal document flow.
 </p>
-{% endshortcutPreview %}
+```
 
 ### Absolute<br/>`position-absolute`
 
-{% shortcutPreview %}
-
+```html
 <p class="position-absolute">
   This element is removed from the normal document flow and displays relative to its nearest positioned ancestor or the page itself.
 </p>
-{% endshortcutPreview %}
+```
 
 ### Fixed<br/>`position-fixed`
 
-{% shortcutPreview %}
-
+```html
 <p class="position-fixed">
   This element displays relative to the viewport and stays fixed in place when the page is scrolled.
 </p>
-{% endshortcutPreview %}
+```
 
 ### Relative<br/>`position-relative`
 
-{% shortcutPreview %}
-
+```html
 <p class="position-relative">
   This element is offset relative to its normal position using top, right, bottom, or left.
 </p>
-{% endshortcutPreview %}
+```
 
 ### Sticky<br/>`position-sticky`
 
-{% shortcutPreview %}
-
+```html
 <p class="position-sticky">
   This element scrolls with the page until a specified offset is reached, then sticks in place within its containing block.
 </p>
-{% endshortcutPreview %}
+```
 
 {% include "partials/responsive-layout.njk" %}

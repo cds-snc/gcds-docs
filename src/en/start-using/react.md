@@ -45,6 +45,14 @@ Place the following code in the `index.js` file of your app to import GC Desig
 import '@cdssnc/gcds-components-react/gcds.css';
 ```
 
-{% startBuilding 'en', '3' %}{% endstartBuilding %}
+{% addCssShortcuts 'en', '3' %}{% endaddCssShortcuts %}
+
+Add the following code in the `index.js` file of your app to import GC Design System CSS Shortcuts:
+
+```js
+import '@gcds-core/css-shortcuts/dist/gcds-css-shortcuts.min.css';
+```
+
+{% startBuilding 'en', '4' %}{% endstartBuilding %}
 
 {% include "partials/needhelp.njk" %}

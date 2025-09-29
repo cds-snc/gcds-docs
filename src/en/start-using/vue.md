@@ -52,7 +52,7 @@ createApp(App).use(GcdsComponents).mount('#app');
 There are 2 ways to do this:
 
 <ul class="list-lower-alpha mb-300">
-  <li>Import style to <code>main.js</code>.</li>
+  <li>Import styles to <code>main.js</code>.</li>
   <li>Import styles to <code>App.vue</code>.</li>
 </ul>
 
@@ -71,6 +71,30 @@ b. Import the styles to your `App.vue` using the HTML `style` tag:
 </style>
 ```
 
-{% startBuilding 'en', '4' %}{% endstartBuilding %}
+{% addCssShortcuts 'en', '4' %}{% endaddCssShortcuts %}
+
+You have the same options as above:
+
+<ul class="list-lower-alpha mb-300">
+  <li>Import styles to <code>main.js</code>.</li>
+  <li>Import styles to <code>App.vue</code>.</li>
+</ul>
+
+a. Import the CSS Shortcuts styles to your `main.js` file, alongside your `style.css`:
+
+```js
+import '@gcds-core/css-shortcuts/dist/gcds-css-shortcuts.min.css';
+import './style.css';
+```
+
+b. Import the CSS Shortcuts styles to your `App.vue` using the HTML `style` tag:
+
+```html
+<style src="@gcds-core/css-shortcuts/dist/gcds-css-shortcuts.min.css">
+  /* global styles */
+</style>
+```
+
+{% startBuilding 'en', '5' %}{% endstartBuilding %}
 
 {% include "partials/needhelp.njk" %}
