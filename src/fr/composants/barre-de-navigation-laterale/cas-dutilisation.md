@@ -21,15 +21,15 @@ Examinez les cas d'utilisation de la barre de navigation latérale pour détermi
 
 ## Problèmes résolus par la barre de navigation latérale
 
-L'utilisation d'une barre de navigation latérale dans un produit est optionnelle. Voici quelques cas d'utilisation possibles :
+L'utilisation d’une barre de navigation latérale dans un produit est optionnelle. Voici quelques cas d’utilisation possibles :  
 
-- lorsque l'architecture d'information ne comporte que 1 à 3 niveaux de navigation;
-- lorsque vous cherchez à fournir une interface de navigation uniforme d'une page à l'autre;
-- lorsque vous devez organiser et afficher la structure hiérarchique d'un produit;
-- lorsque vous cherchez à offrir aux utilisateur·rice·s d'un produit une navigation contextuelle en affichant leur emplacement actuel au sein du produit.
+- Rendre visible la navigation de deuxième et troisième niveaux dans les architectures d’information qui ont de 1 à 3 niveaux de navigation.
+- Présenter une navigation cohérente pour les pages ayant un grand nombre d’éléments de premier niveau, comme la documentation technique avec de larges ensembles de catégories.  
+- Permettre la navigation entre diverses catégories ou sections afin qu’une personne puisse parcourir et comparer des objets similaires dans un ensemble.  
+- Fournir un accès facile à la navigation globale entre structures de navigation profondes.
 
 <hr/>
 
 ## Composants connexes
 
-<a href="{{ links.topNav }}">Barre de navigation supérieure</a> pour les sites Web dont l'architecture d'information comporte 1 à 2 niveaux.
+<a href="{{ links.topNav }}">Barre de navigation supérieure</a> pour une navigation facile dans des hiérarchies simples.

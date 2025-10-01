@@ -23,13 +23,13 @@ Check out side navigation use cases to see if they fit the problem you’re solv
 
 It’s optional to use side navigation in products for:
 
-- Information architectures with 1-3 levels of navigation.
-- Presenting a consistent navigation interface across pages.
-- Organizing and displaying a product’s hierarchical structure.
-- Enabling contextual navigation for a person using the product by displaying their current location within the product.
+- Making second and third level navigation visible in information architectures that have 1-3 levels of navigation.
+- Presenting a consistent navigation across pages with a large number of top level items, like technical documentation with broad category sets.  
+- Enabling navigation between various categories or sections so a person can scan and compare like objects in a set.  
+- Providing ready access to global navigation between deep navigation structures.
 
 <hr/>
 
 ## Related components
 
-<a href="{{ links.topNav }}">Top navigation</a> for websites with up to 2 levels in their information architecture.
+<a href="{{ links.topNav }}">Top navigation</a> for straightforward navigation of simple hierarchies.
