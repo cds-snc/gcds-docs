@@ -1,29 +1,29 @@
 ---
-title: Boîte
+title: Conteneur
 layout: 'layouts/component-documentation.njk'
 eleventyNavigation:
   key: containerFR
-  title: Boîte
+  title: Conteneur
   locale: fr
   parent: componentsFR
-  otherNames: conteneur, encadré.
-  description: Il s’agit d’un modèle de boîte simple associé à une largeur de contenu fixe.
+  otherNames: boîte, encadré.
+  description: Un conteneur est une mise en page simple en forme de boîte avec une largeur de contenu fixe.
   thumbnail: /images/common/components/preview-container.svg
   alt: Un rectangle avec une bordure entourant des rectangles gris représentant le contenu.
   state: published
 translationKey: 'container'
 tags: ['containerFR', 'usage']
-permalink: /fr/composants/boite/
+permalink: /fr/composants/conteneur/
 date: 'git Last Modified'
 ---
 
-Examinez les cas d’utilisation des boîtes pour déterminer si elles répondent à vos besoins.
+Examinez les cas d’utilisation des conteneurs pour déterminer si elles répondent à vos besoins.
 
-## Problèmes résolus par les boîtes
+## Problèmes résolus par les conteneurs
 
-Les boîtes regroupent dans un même espace du contenu relatif à un même thème.
+Les conteneurs regroupent dans un même espace du contenu connexe.
 
-Utilisez les boîtes pour :
+Utilisez les conteneurs pour :
 
 - Disposer simplement du contenu et des composants dans le sens vertical à l’aide d’un encadré.
 - Limiter la largeur d’un contenu à un espace donné pour un site ou produit.

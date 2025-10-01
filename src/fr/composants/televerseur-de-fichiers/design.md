@@ -12,7 +12,7 @@ date: 'git Last Modified'
   <li>Le <strong>libellé</strong> fournit les instructions sur le composant.</li>
   <li>Le <strong>texte explicatif</strong> indique les types de fichiers acceptés et toute autre exigence, comme la taille maximum des fichiers.</li>
   <li>Le <strong>bouton</strong> lance l'interface pour la sélection des fichiers.</li>
-  <li>L'<strong>élément de la liste des fichiers</strong> est une boîte affichant le fichier téléversé.</li>
+  <li>L'<strong>élément de la liste des fichiers</strong> est un conteneur affichant le fichier téléversé.</li>
   <li>Le <strong>nom du fichier</strong> affiche le nom du fichier qui a été ajouté.</li>
   <li>Le bouton <strong>supprimer</strong> permet de supprimer un fichier téléversé avant la soumission.</li>
 </ol>

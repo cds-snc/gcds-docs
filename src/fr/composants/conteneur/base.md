@@ -5,14 +5,14 @@ permalink: false
 tags: ['containerFR', 'header']
 ---
 
-# Boîte<br>`<gcds-container>`
+# Conteneur<br>`<gcds-container>`
 
-_Autres noms : conteneur, encadré._
+_Autres noms : boîte, encadré._
 
-Il s’agit d’un modèle de boîte simple associé à une largeur de contenu fixe.
+Un conteneur est une mise en page simple en forme de boîte avec une largeur de contenu fixe.
 
 {% docLinks locale stage figma github %}
 {% enddocLinks %}
 
-{% baseComponentPreview "Aperçu du composant de la boîte" page.filePathStem %}
+{% baseComponentPreview "Aperçu du composant conteneur" page.filePathStem %}
 {% endbaseComponentPreview %}

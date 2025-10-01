@@ -8,12 +8,13 @@ tags: ['gridFR', 'header']
 
 # Grille <br>`<gcds-grid>`
 
-_Autres noms : mise en page, colonnes, disposition en colonnes, boîte de style grille._
+_Autres noms : mise en page, colonnes, disposition en colonnes, conteneur de style grille._
 
 Une grille est une mise en page réactive et flexible.
 
 {% docLinks locale stage figma github %}
 {% enddocLinks %}
 
-{% baseComponentPreview "Aperçu du composant de grille" page.filePathStem %}
+{% baseComponentPreview "Aperçu du composant grille" page.filePathStem %}
 {% endbaseComponentPreview %}
+

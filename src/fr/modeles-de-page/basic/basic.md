@@ -48,10 +48,10 @@ Pour réaliser un prototype dans Figma, trouvez le <gcds-link external href="{{ 
 
 ### Améliorer la navigation dans les longues pages
 
-- Pour toute page ayant 4 sections ou plus, ajoutez une section «&nbsp;Sur cette page&nbsp;» comprenant une liste de liens (ancres) renvoyant aux autres sections.
+- Pour toute page ayant 4 sections ou plus, ajoutez une section « Sur cette page » comprenant une liste de liens (ancres) renvoyant aux autres sections.
 - Ajouter des ancres afin d'améliorer la navigation et aident les gens à trouver le contenu dont ils ont besoin.
 
-### Aperçu «&nbsp;Sur cette page&nbsp;»
+### Aperçu « Sur cette page »
 
 <gcds-button class="mb-300" button-role="secondary" type="link" href="{{ links.pageTemplatesBasicExtOTPPreview }}" target="_blank">Ouvrir demo dans un nouvel onglet</gcds-button>
 <gcds-button  button-role="secondary" type="link" href="{{ links.pageTemplatesBasicExtOTPCode }}" target="_blank">Obtenez code dans un nouvel onglet</gcds-button>
@@ -70,7 +70,7 @@ Pour réaliser un prototype dans Figma, trouvez le <gcds-link external href="{{ 
 
 Le modèle de page de base comprend les composants suivants qui respectent le niveau AA des Règles pour l'accessibilité des contenus Web (WCAG) 2.1 :
 
-- Boîte
+- Conteneur
 - Date de modification
 - En-tête (y compris les composants recherche et chemin de navigation)
 - Lien
@@ -82,3 +82,4 @@ Le modèle de page de base comprend :
 
 - Une hiérarchie de titres claire qui vous permet, grâce aux directives sur les <gcds-link href="{{ links.heading }}">titres</gcds-link>, de structurer votre contenu de manière logique pour tout le monde, notamment les personnes utilisant des technologies d'assistance.
 - Des unités de style de Système de design GC qui respectent le niveau AA des <gcds-link href="{{ links.wcag }}" external>Règles pour l'accessibilité des contenus Web (WCAG 2.1)</gcds-link> en matière de contraste des couleurs pour le texte et les éléments interactifs, et le niveau AAA en matière de cible tactile et de présentation visuelle.
+

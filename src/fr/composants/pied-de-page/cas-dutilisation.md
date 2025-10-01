@@ -26,7 +26,8 @@ Consultez la liste de problèmes que le pied de page résout pour voir si c’es
 
 Utilisez ce repère de pied de page dans le cadre d’une image de marque fiable pour les applications, formulaires et autres services numériques transactionnels afin de signaler :
 
-- La fin d’une page de produit ou d’un site; un service ou produit numérique du gouvernement du Canada offrant une vaste gamme de services et de renseignements;
+- La fin d’une page de produit ou d’un site;
+- Un service ou produit numérique du gouvernement du Canada offrant une vaste gamme de services et de renseignements;
 - L’identité de marque du gouvernement du Canada à l’aide du mot-symbole.
 
 <hr/>

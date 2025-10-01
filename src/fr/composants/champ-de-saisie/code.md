@@ -23,7 +23,7 @@ Pour que le champ de saisie fonctionne correctement, utilisez toujours les attri
 ### Adaptez le champ de saisie au type de réponse
 
 - Définissez l'attribut de la taille du champ de saisie pour les réponses dont vous connaissez la longueur précise (taille "50" = 50 caractères). Par exemple, 6 caractères pour un code postal ou 10 caractères pour un numéro de téléphone.
-- Réglez la saisie de manière à ce qu'elle couvre presque toute la boîte, par exemple à 90 %, lorsque vous ne savez pas la longueur exacte de la réponse.
+- Réglez la saisie de manière à ce qu'elle couvre presque tout le conteneur, par exemple à 90 %, lorsque vous ne savez pas la longueur exacte de la réponse.
 - Utilisez le maximum de 75 caractères pour les réponses sans longueur fixe.
 
 {% include "partials/error-message.njk" %}
