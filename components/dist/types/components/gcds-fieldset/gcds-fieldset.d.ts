@@ -1,3 +1,8 @@
+/**
+ * A fieldset is a group of multiple form components or elements.
+ *
+ * @slot default - Slot for the form elements.
+ */
 export declare class GcdsFieldset {
     el: HTMLElement;
     private shadowElement?;

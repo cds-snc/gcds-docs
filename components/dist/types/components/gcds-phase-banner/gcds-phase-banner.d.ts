@@ -1,3 +1,11 @@
+/**
+ * Phase banner displays a banner indicating the current phase of a project or feature, with optional icons and call-to-action elements.
+ *
+ * @slot banner-cta - Slot for the call-to-action element in the banner.
+ * @slot banner-icon-left - Slot for displaying an icon/image on the left of the banner.
+ * @slot banner-icon-right - Slot for displaying an icon/image on the right of the banner.
+ * @slot banner-text - Slot for the main content of the banner.
+ */
 export declare class GcdsPhaseBanner {
     el: HTMLElement;
     /**

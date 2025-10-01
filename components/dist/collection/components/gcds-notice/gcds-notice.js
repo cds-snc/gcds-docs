@@ -1,6 +1,11 @@
 import { Host, h } from "@stencil/core";
 import { assignLanguage, observerConfig, logError } from "../../utils/utils";
 import i18n from "./i18n/i18n";
+/**
+ * The notice is a short, prominent message that’s part of the page content.
+ *
+ * @slot default - Slot for the main content of the notice.
+ */
 export class GcdsNotice {
     constructor() {
         /**
@@ -73,7 +78,7 @@ export class GcdsNotice {
         // Define lang attribute
         this.lang = assignLanguage(this.el);
         this.updateLang();
-        let valid = this.validateRequiredProps();
+        const valid = this.validateRequiredProps();
         if (!valid) {
             logError('gcds-notice', this.errors);
         }
@@ -86,7 +91,7 @@ export class GcdsNotice {
             success: 'checkmark-circle',
             warning: 'warning-triangle',
         };
-        return (h(Host, { key: 'd05e01b3d51707d840c395fe2197831394438ed9' }, this.validateRequiredProps() && (h("section", { key: 'e6d7fdc879b8592431b100b59b77bb511d32e95e', class: `gcds-notice notice--type-${type}` }, h("gcds-icon", { key: '85ad98787913a52dc462367ae453b95743623066', class: "notice__icon", size: "h4", name: iconTypes[type] }), h("div", { key: 'a44107281bb95d4a6943dbeb6b38a6603a427a0b' }, h("gcds-heading", { key: 'ec0805c7006d48dcefaf4b91dcf6d5bed1a7ea68', tag: noticeTitleTag, "margin-top": "0", "margin-bottom": "100", class: "notice__heading" }, h("gcds-sr-only", { key: '35352ad8a3a0ce3f9ace2314c269fc71f6657ffa', tag: "span" }, i18n[this.lang][type]), noticeTitle), h("slot", { key: '8c59481347d56e817be55b566a0c8a1121753c41' }))))));
+        return (h(Host, { key: '8a00f86f682e7a061c99658762079acc79d2277e' }, this.validateRequiredProps() && (h("section", { key: '04219293eafd3fe86c13826820644a02584a389d', class: `gcds-notice notice--type-${type}` }, h("gcds-icon", { key: '9d095dbcf44d3d39a408f55531164e76ae969b42', class: "notice__icon", size: "h4", name: iconTypes[type] }), h("div", { key: '525e51d6030072ee8b88a99e4e01078868e6df87' }, h("gcds-heading", { key: 'fd5adaf2b185a71d0d70e5174af1d590fb405c2c', tag: noticeTitleTag, "margin-top": "0", "margin-bottom": "100", class: "notice__heading" }, h("gcds-sr-only", { key: 'b8955dccf72340580e7cf30ae2bba76b7704b50e', tag: "span" }, i18n[this.lang][type]), noticeTitle), h("slot", { key: '781c621945781994d22fc5c0e9974ac852e0fe39' }))))));
     }
     static get is() { return "gcds-notice"; }
     static get encapsulation() { return "shadow"; }

@@ -1,6 +1,11 @@
 import { Host, h } from "@stencil/core";
 import { assignLanguage, observerConfig, logError } from "../../utils/utils";
 import i18n from "./i18n/i18n";
+/**
+ * A stepper is a progress tracker for a multi-step process.
+ *
+ * @slot default - Slot for the heading content.
+ */
 export class GcdsStepper {
     constructor() {
         /**
@@ -67,14 +72,14 @@ export class GcdsStepper {
         // Define lang attribute
         this.lang = assignLanguage(this.el);
         this.updateLang();
-        let valid = this.validateRequiredProps();
+        const valid = this.validateRequiredProps();
         if (!valid) {
             logError('gcds-stepper', this.errors);
         }
     }
     render() {
         const { currentStep, lang, totalSteps, tag } = this;
-        return (h(Host, { key: '4fb90ac7b5e8ca0586cb013d3d7e9cc4519eadea' }, this.validateRequiredProps() && (h("gcds-heading", { key: '85d2541fad2e064f0c4e1ab842d820614ba91498', tag: tag, class: "gcds-stepper", "margin-top": "0", "margin-bottom": "225" }, h("span", { key: '1a08b2e37ab6f9fd1f18a944defdf3a6fca64f74', class: "gcds-stepper__steps" }, `${i18n[lang].step} ${currentStep} ${i18n[lang].of} ${totalSteps}`, h("gcds-sr-only", { key: '54a67d11327d261859ba20d4516583e4f69cf201' }, " : ")), h("slot", { key: '919da35776fd294f87c9027709a1decaafadcd2f' })))));
+        return (h(Host, { key: '668131869ea8b9e4542e097e28efbfae9b5a6bae' }, this.validateRequiredProps() && (h("gcds-heading", { key: 'e50a066d662ef3e606e21da157731de6e6b6b78a', tag: tag, class: "gcds-stepper", "margin-top": "0", "margin-bottom": "225" }, h("span", { key: 'c573ba75a978b689698fb8eab50caa08853d12e3', class: "gcds-stepper__steps" }, `${i18n[lang].step} ${currentStep} ${i18n[lang].of} ${totalSteps}`, h("gcds-sr-only", { key: 'fea60de171d7e2412957e922944421f9cbb6d379' }, " : ")), h("slot", { key: '679d080d48b257b840ee9d78e693f06df548faee' })))));
     }
     static get is() { return "gcds-stepper"; }
     static get encapsulation() { return "shadow"; }

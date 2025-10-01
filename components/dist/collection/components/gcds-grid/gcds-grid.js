@@ -18,6 +18,11 @@ const GridGapArray = [
     '750',
     '800',
 ];
+/**
+ * A grid is a responsive, flexible column layout to position elements on a page.
+ *
+ * @slot default - Slot for the main content of the grid.
+ */
 export class GcdsGrid {
     constructor() {
         /**

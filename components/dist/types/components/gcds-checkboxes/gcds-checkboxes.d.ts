@@ -1,6 +1,9 @@
 import { EventEmitter } from '../../stencil-public-runtime';
 import { Validator, ValidatorEntry } from '../../validators';
 import { CheckboxObject } from './checkbox';
+/**
+ * Checkboxes provide a set of options for multiple responses.
+ */
 export declare class GcdsCheckboxes {
     el: HTMLGcdsCheckboxesElement;
     internals: ElementInternals;
@@ -94,19 +97,19 @@ export declare class GcdsCheckboxes {
     gcdsBlur: EventEmitter<void>;
     private onBlurValidate;
     /**
-     * Emmitted when a checkbox has been inputted.
+     * Emitted when a checkbox has been inputted. Contains the new value in the event detail.
      */
-    gcdsInput: EventEmitter;
+    gcdsInput: EventEmitter<string[]>;
     /**
-     * Emmitted when a checkbox has been changed.
+     * Emitted when a checkbox has been changed. Contains the new value in the event detail.
      */
-    gcdsChange: EventEmitter;
+    gcdsChange: EventEmitter<string[]>;
     /**
-     * Emitted when the input has a validation error.
+     * Emitted when the checkbox has a validation error.
      */
     gcdsError: EventEmitter<object>;
     /**
-     * Emitted when the input has a validation error.
+     * Emitted when the checkbox has a validation error.
      */
     gcdsValid: EventEmitter<object>;
     /**

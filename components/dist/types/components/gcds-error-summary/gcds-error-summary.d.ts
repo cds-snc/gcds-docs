@@ -1,3 +1,7 @@
+import { EventEmitter } from '../../stencil-public-runtime';
+/**
+ * An error summary is a list of user errors in a form.
+ */
 export declare class GcdsErrorSummary {
     el: HTMLElement;
     private shadowElement?;
@@ -20,6 +24,21 @@ export declare class GcdsErrorSummary {
      * (Object props get treated as string when using Stencil components without a framework)
      */
     errorLinksChanged(newErrorLinks: string | object): void;
+    /**
+     * Events
+     */
+    /**
+     * Emitted when the link has focus.
+     */
+    gcdsFocus: EventEmitter<void>;
+    /**
+     * Emitted when the link loses focus.
+     */
+    gcdsBlur: EventEmitter<void>;
+    /**
+     * Emitted when the link has been clicked.
+     */
+    gcdsClick: EventEmitter<string>;
     /**
      * Language of rendered component
      */

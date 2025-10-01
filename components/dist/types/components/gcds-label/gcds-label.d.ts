@@ -1,3 +1,8 @@
+/**
+ * Label for form fields, providing accessibility and context for users.
+ *
+ * @slot - Slot for the label content.
+ */
 export declare class GcdsLabel {
     el: HTMLElement;
     /**

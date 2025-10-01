@@ -1,6 +1,11 @@
 import { Host, h, } from "@stencil/core";
 import { assignLanguage, handleValidationResult, inheritAttributes, observerConfig, } from "../../utils/utils";
 import { defaultValidator, getValidator, requiredValidator, } from "../../validators";
+/**
+ * A select provides a large list of options for single selection.
+ *
+ * @slot default - Slot for options and option groups.
+ */
 export class GcdsSelect {
     constructor() {
         this._validator = defaultValidator;
@@ -192,7 +197,7 @@ export class GcdsSelect {
                 ? `${attrsSelect['aria-describedby']}`
                 : ''}`;
         }
-        return (h(Host, { key: '07ed5597d53611990a0829c8e2ec4e0357712b75' }, h("div", { key: '6b52b8bc5bd66ebaf422b9ef9f66c44174070259', class: `gcds-select-wrapper ${disabled ? 'gcds-disabled' : ''} ${hasError ? 'gcds-error' : ''}` }, h("gcds-label", Object.assign({ key: '9c18dc7de5af43a0f3d08e442086c179763b8fca' }, attrsLabel, { "label-for": selectId, lang: lang })), hint ? h("gcds-hint", { "hint-id": selectId }, hint) : null, errorMessage ? (h("gcds-error-message", { messageId: selectId }, errorMessage)) : null, h("select", Object.assign({ key: 'd2e7ec958cf0c0ebc060867fbb58dc7c75ae7b2d' }, attrsSelect, { id: selectId, onBlur: () => this.onBlur(), onFocus: () => this.gcdsFocus.emit(), onInput: e => this.handleInput(e, this.gcdsInput), onChange: e => this.handleInput(e, this.gcdsChange), "aria-invalid": inheritedAttributes['aria-invalid'] === 'true'
+        return (h(Host, { key: 'f0926042e4a71b93d14a0e17bccee1df28807359' }, h("div", { key: 'bcf0fabf3ee8db8bf5eaa46a5adcbb5ef5d0ef8a', class: `gcds-select-wrapper ${disabled ? 'gcds-disabled' : ''} ${hasError ? 'gcds-error' : ''}` }, h("gcds-label", Object.assign({ key: '00ad8e8924c6793cfe63b3226b1d361f758e9aee' }, attrsLabel, { "label-for": selectId, lang: lang })), hint ? h("gcds-hint", { "hint-id": selectId }, hint) : null, errorMessage ? (h("gcds-error-message", { messageId: selectId }, errorMessage)) : null, h("select", Object.assign({ key: '4de00ba765ca550a1697f29abbb1fa0394736e39' }, attrsSelect, { id: selectId, onBlur: () => this.onBlur(), onFocus: () => this.gcdsFocus.emit(), onInput: e => this.handleInput(e, this.gcdsInput), onChange: e => this.handleInput(e, this.gcdsChange), "aria-invalid": inheritedAttributes['aria-invalid'] === 'true'
                 ? inheritedAttributes['aria-invalid']
                 : errorMessage
                     ? 'true'
@@ -201,14 +206,14 @@ export class GcdsSelect {
                 const selected = opt.hasAttribute('selected')
                     ? { selected: true }
                     : null;
-                return (h("option", Object.assign({ value: opt.getAttribute('value') }, selected), opt.innerHTML));
+                return (h("option", Object.assign({ value: opt.getAttribute('value') }, selected), opt.textContent));
             }
             else if (opt.nodeName === 'OPTGROUP') {
                 const optGroupChildren = Array.from(opt.children).map(sub => {
                     const selected = sub.hasAttribute('selected')
                         ? { selected: true }
                         : null;
-                    return (h("option", Object.assign({ value: sub.getAttribute('value') }, selected), sub.innerHTML));
+                    return (h("option", Object.assign({ value: sub.getAttribute('value') }, selected), sub.textContent));
                 });
                 return (h("optgroup", { label: opt.getAttribute('label') }, optGroupChildren));
             }
@@ -478,8 +483,8 @@ export class GcdsSelect {
                     "text": "Emitted when the select value has changed."
                 },
                 "complexType": {
-                    "original": "any",
-                    "resolved": "any",
+                    "original": "string",
+                    "resolved": "string",
                     "references": {}
                 }
             }, {
@@ -493,8 +498,8 @@ export class GcdsSelect {
                     "text": "Emitted when the select has received input."
                 },
                 "complexType": {
-                    "original": "any",
-                    "resolved": "any",
+                    "original": "string",
+                    "resolved": "string",
                     "references": {}
                 }
             }, {

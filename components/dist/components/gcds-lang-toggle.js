@@ -1,2 +1,2 @@
-import{G as o,d as s}from"./p-CK2T9h1D.js";const t=o;const p=s;export{t as GcdsLangToggle,p as defineCustomElement};
+import{G as o,d as s}from"./p-CwK9oa0W.js";const t=o;const a=s;export{t as GcdsLangToggle,a as defineCustomElement};
 //# sourceMappingURL=gcds-lang-toggle.js.map

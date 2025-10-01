@@ -1,6 +1,11 @@
 import { Host, h, } from "@stencil/core";
 import { assignLanguage, observerConfig, emitEvent } from "../../utils/utils";
 import i18n from "./i18n/i18n";
+/**
+ * Alert displays an alert message with an optional heading, icon, and close button.
+ *
+ * @slot default - Slot for the main content of the alert.
+ */
 export class GcdsAlert {
     constructor() {
         /**
@@ -52,7 +57,7 @@ export class GcdsAlert {
     }
     render() {
         const { alertRole, container, heading, hideCloseBtn, hideRoleIcon, isFixed, isOpen, lang, } = this;
-        return (h(Host, { key: '7781cbb15b6de138ccd08cad1ab5f3a2de21e02e' }, isOpen ? (h("div", { class: `gcds-alert alert--role-${alertRole} ${isFixed ? 'alert--is-fixed' : ''}`, role: "alert", "aria-label": alertRole === 'danger'
+        return (h(Host, { key: '9ca55e2b6562e7dfda9e367b21b5d2aa3bbe37d7' }, isOpen ? (h("div", { class: `gcds-alert alert--role-${alertRole} ${isFixed ? 'alert--is-fixed' : ''}`, role: "alert", "aria-label": alertRole === 'danger'
                 ? i18n[lang].label.danger
                 : alertRole === 'info'
                     ? i18n[lang].label.info

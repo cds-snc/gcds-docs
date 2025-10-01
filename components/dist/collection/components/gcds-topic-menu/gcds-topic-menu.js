@@ -2,6 +2,9 @@ import { Host, Fragment, h, } from "@stencil/core";
 import { assignLanguage, observerConfig } from "../../utils/utils";
 import I18N from "./i18n/i18n";
 import backup from "./backup/backup.min";
+/**
+ * The theme and topic menu is a navigation to the top tasks of Government of Canada websites.
+ */
 export class GcdsTopicMenu {
     constructor() {
         /**
@@ -328,7 +331,7 @@ export class GcdsTopicMenu {
     }
     render() {
         const { home, lang } = this;
-        return (h(Host, { key: '2a8557cf9345342dc6d785884dfca32a35430aa3' }, h("nav", { key: '8fe828e0be5972e83b064bd7852633545be46f2d', class: "gcds-topic-menu", "aria-labelledby": "gcds-topic-menu__heading" }, h("gcds-sr-only", { key: '20621f1690ac5756bc1b1e9a2269bd0e8e728163', id: "gcds-topic-menu__heading", tag: "h2" }, I18N[lang].menuLabelFull), h("button", { key: 'b3a90430359a37f0d17b9309ad93767510b0c6cf', "aria-haspopup": "true", "aria-expanded": this.open.toString(), "aria-label": I18N[lang].buttonLabel, onClick: async () => await this.toggleNav(), ref: element => (this.menuButton = element), class: home && 'gcds-topic-menu--home' }, this.lang == 'en' ? (h(Fragment, null, h("gcds-sr-only", { tag: "span" }, I18N[lang].menuLabelHidden), I18N[lang].menuToggle)) : (h(Fragment, null, I18N[lang].menuToggle, h("gcds-sr-only", { tag: "span" }, I18N[lang].menuLabelHidden))), h("gcds-icon", { key: '664cd95cf1daa18bc09c4984c365cef64e771fe2', name: "chevron-down", "margin-left": "100", size: "text-small" })), h("ul", { key: '2d55eed6d6162e75a1631562b34c518b173d28e9', role: "menu", "aria-orientation": "vertical", "data-top-menu": true, innerHTML: this.listItems, ref: element => (this.themeList = element) }))));
+        return (h(Host, { key: 'cab12f3f051aa002f093b6e8216d84b6b0bdd599' }, h("nav", { key: '666b10254a3db1a918e86652c2428443cf5e9331', class: "gcds-topic-menu", "aria-labelledby": "gcds-topic-menu__heading" }, h("gcds-sr-only", { key: 'b8a6240445b127329bfac3b89b1bfd100c795a5a', id: "gcds-topic-menu__heading", tag: "h2" }, I18N[lang].menuLabelFull), h("button", { key: 'bf6f56eef56613363bcb1de5c8bf6eeee552ad46', "aria-haspopup": "true", "aria-expanded": this.open.toString(), "aria-label": I18N[lang].buttonLabel, onClick: async () => await this.toggleNav(), ref: element => (this.menuButton = element), class: home && 'gcds-topic-menu--home' }, this.lang == 'en' ? (h(Fragment, null, h("gcds-sr-only", { tag: "span" }, I18N[lang].menuLabelHidden), I18N[lang].menuToggle)) : (h(Fragment, null, I18N[lang].menuToggle, h("gcds-sr-only", { tag: "span" }, I18N[lang].menuLabelHidden))), h("gcds-icon", { key: '004a3e997a9e7daed34ce5bc5679af166e8a1c14', name: "chevron-down", "margin-left": "100", size: "text-small" })), h("ul", { key: 'a2bfed1ba8771ff6631d4576a555b8385f698e06', role: "menu", "aria-orientation": "vertical", "data-top-menu": true, innerHTML: this.listItems, ref: element => (this.themeList = element) }))));
     }
     static get is() { return "gcds-topic-menu"; }
     static get encapsulation() { return "shadow"; }

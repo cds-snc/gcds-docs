@@ -1,4 +1,9 @@
 import { EventEmitter } from '../../stencil-public-runtime';
+/**
+ * Navigation link within a navigation group or menu, allowing users to navigate to different sections of a website or application.
+ *
+ * @slot default - Slot for the navigation link content.
+ */
 export declare class GcdsNavLink {
     el: HTMLElement;
     private linkElement;
@@ -13,7 +18,7 @@ export declare class GcdsNavLink {
     /**
      * Emitted when the link has been clicked.
      */
-    gcdsClick: EventEmitter<void>;
+    gcdsClick: EventEmitter<string>;
     /**
      * Emitted when the link has focus.
      */

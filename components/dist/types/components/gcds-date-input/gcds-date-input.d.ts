@@ -1,5 +1,8 @@
 import { EventEmitter } from '../../stencil-public-runtime';
 import { Validator, ValidatorEntry } from '../../validators';
+/**
+ * A date input is a space to enter a known date.
+ */
 export declare class GcdsDateInput {
     el: HTMLElement;
     internals: ElementInternals;
@@ -82,28 +85,28 @@ export declare class GcdsDateInput {
      * Events
      */
     /**
-     * Emitted when an element has focus.
+     * Emitted when a date-input has focus.
      */
     gcdsFocus: EventEmitter<void>;
     /**
-     * Emitted when an element loses focus.
+     * Emitted when a date-input loses focus.
      */
     gcdsBlur: EventEmitter<void>;
     private onBlur;
     /**
-     * Emitted when the element has received input.
+     * Emitted when the date-input has received input. Contains the new value in the event detail.
      */
-    gcdsInput: EventEmitter;
+    gcdsInput: EventEmitter<string>;
     /**
-     * Emitted when an element has changed.
+     * Emitted when a date-input has changed. Contains the new value in the event detail.
      */
-    gcdsChange: EventEmitter;
+    gcdsChange: EventEmitter<string>;
     /**
-     * Emitted when an element has a validation error.
+     * Emitted when a date-input has a validation error.
      */
     gcdsError: EventEmitter<object>;
     /**
-     * Emitted when an element has validated.
+     * Emitted when a date-input has validated.
      */
     gcdsValid: EventEmitter<object>;
     /**

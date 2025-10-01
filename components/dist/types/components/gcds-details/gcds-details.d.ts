@@ -1,4 +1,9 @@
 import { EventEmitter } from '../../stencil-public-runtime';
+/**
+ * Details is an interactive switch for a person to expand or collapse content.
+ *
+ * @slot default - Slot for the main content of the details panel.
+ */
 export declare class GcdsDetails {
     el: HTMLElement;
     private detailsElement?;

@@ -1,7 +1,7 @@
-import { r as registerInstance, d as createEvent, h, a as Host, c as getElement } from './index-DUr2qgFL.js';
-import { o as observerConfig, a as assignLanguage, e as emitEvent, i as inheritAttributes, l as logError, b as isValidDate, h as handleErrors, c as handleValidationResult, d as isValid, f as closestElement } from './utils-DpIrOxXw.js';
+import { r as registerInstance, d as createEvent, h, a as Host, c as getElement } from './index-BMZbJN0q.js';
+import { o as observerConfig, a as assignLanguage, e as emitEvent, i as inheritAttributes, l as logError, b as isValidDate, h as handleErrors, c as handleValidationResult, d as isValid, f as formatHTMLErrorMessage, g as closestElement } from './utils-D-WPtufr.js';
 
-const I18N$q = {
+const I18N$p = {
   en: {
     label: {
       danger: 'This is a critical alert.',
@@ -77,14 +77,14 @@ const GcdsAlert = class {
     }
     render() {
         const { alertRole, container, heading, hideCloseBtn, hideRoleIcon, isFixed, isOpen, lang, } = this;
-        return (h(Host, { key: '7781cbb15b6de138ccd08cad1ab5f3a2de21e02e' }, isOpen ? (h("div", { class: `gcds-alert alert--role-${alertRole} ${isFixed ? 'alert--is-fixed' : ''}`, role: "alert", "aria-label": alertRole === 'danger'
-                ? I18N$q[lang].label.danger
+        return (h(Host, { key: '9ca55e2b6562e7dfda9e367b21b5d2aa3bbe37d7' }, isOpen ? (h("div", { class: `gcds-alert alert--role-${alertRole} ${isFixed ? 'alert--is-fixed' : ''}`, role: "alert", "aria-label": alertRole === 'danger'
+                ? I18N$p[lang].label.danger
                 : alertRole === 'info'
-                    ? I18N$q[lang].label.info
+                    ? I18N$p[lang].label.info
                     : alertRole === 'success'
-                        ? I18N$q[lang].label.success
+                        ? I18N$p[lang].label.success
                         : alertRole === 'warning'
-                            ? I18N$q[lang].label.warning
+                            ? I18N$p[lang].label.warning
                             : null }, h("gcds-container", { size: isFixed ? container : 'full', centered: true }, h("div", { class: "alert__container" }, !hideRoleIcon && (h("gcds-icon", { "aria-hidden": "true", class: "alert__icon", size: "h5", "margin-right": "175", name: alertRole === 'danger'
                 ? 'exclamation-circle'
                 : alertRole === 'info'
@@ -98,13 +98,13 @@ const GcdsAlert = class {
                 if (event) {
                     this.isOpen = false;
                 }
-            }, "aria-label": I18N$q[lang].closeBtn }, h("gcds-icon", { "aria-hidden": "true", name: "close", size: "text" }))))))) : null));
+            }, "aria-label": I18N$p[lang].closeBtn }, h("gcds-icon", { "aria-hidden": "true", name: "close", size: "text" }))))))) : null));
     }
     get el() { return getElement(this); }
 };
 GcdsAlert.style = gcdsAlertCss;
 
-const I18N$p = {
+const I18N$o = {
   en: {
     label: 'Breadcrumb',
     link: 'https://www.canada.ca/en.html',
@@ -146,7 +146,7 @@ const GcdsBreadcrumbs = class {
     }
     render() {
         const { hideCanadaLink, lang } = this;
-        return (h(Host, { key: '3cebead5d49755452f7dbf0a8292b38e86d481c9' }, h("nav", { key: '17a5ccde070a513bf3f37aae1cda845ed4e547fd', "aria-label": I18N$p[lang].label, class: "gcds-breadcrumbs" }, h("ol", { key: '74eaf642af3397da9f222499713148f50ae4ee99', class: hideCanadaLink ? '' : 'has-canada-link' }, !hideCanadaLink ? (h("gcds-breadcrumbs-item", { href: I18N$p[lang].link }, "Canada.ca")) : null, h("slot", { key: '8c90086d5e3bd78cda3594f7ac8d57feb7a58020' })))));
+        return (h(Host, { key: '03039bf66fd3e4f7939818708e4b2e3eecb9ea16' }, h("nav", { key: 'a544a335b8a3308bac153517792c2ff9b24cc436', "aria-label": I18N$o[lang].label, class: "gcds-breadcrumbs" }, h("ol", { key: 'f4daf2765861e5b362e50c5197e34457c2088aa4', class: hideCanadaLink ? '' : 'has-canada-link' }, !hideCanadaLink ? (h("gcds-breadcrumbs-item", { href: I18N$o[lang].link }, "Canada.ca")) : null, h("slot", { key: '0001a34312ea97c7e9c4f41f656051482184142e' })))));
     }
     get el() { return getElement(this); }
 };
@@ -157,16 +157,19 @@ const gcdsBreadcrumbsItemCss = "@layer reset, default, hover, focus;@layer reset
 const GcdsBreadcrumbsItem = class {
     constructor(hostRef) {
         registerInstance(this, hostRef);
+        this.gcdsFocus = createEvent(this, "gcdsFocus");
+        this.gcdsBlur = createEvent(this, "gcdsBlur");
+        this.gcdsClick = createEvent(this, "gcdsClick");
     }
     render() {
         const { href } = this;
-        return (h(Host, { key: '8b605a4957ab5346d22dced80f73e1a5f4ac555b', role: "listitem", class: "gcds-breadcrumbs-item" }, h("gcds-link", { key: 'd3c3af1d26322cb3ef0fbf6f8778bc0f4c3bf9c4', size: "regular", href: href }, h("slot", { key: 'f20dcd2b71127031fc0334fe3673821e08aefb56' }))));
+        return (h(Host, { key: '95b1e4dcb1f26c4bbecaed7084c46f7440a939c9', role: "listitem", class: "gcds-breadcrumbs-item" }, h("gcds-link", { key: 'c60332192cfe17f487017acbd89a49adbc288e19', size: "regular", href: href }, h("slot", { key: '34993248082e9a129d2753695db93a7b5ac771f1' }))));
     }
     get el() { return getElement(this); }
 };
 GcdsBreadcrumbsItem.style = gcdsBreadcrumbsItemCss;
 
-const I18N$o = {
+const I18N$n = {
   en: {
     label: 'Opens in a new tab.',
   },
@@ -204,8 +207,12 @@ const GcdsButton = class {
          */
         this.inheritedAttributes = {};
         this.handleClick = (e) => {
-            // Check button type, only emit value if type is "submit"
-            const emitValue = this.type === 'submit' ? this.value : undefined;
+            // Check button type, emit value with submit button and href with link.
+            const emitValue = this.type === 'submit'
+                ? this.value
+                : this.type === 'link'
+                    ? this.href
+                    : undefined;
             const event = emitEvent(e, this.gcdsClick, emitValue);
             if (event) {
                 if (!this.disabled && this.type != 'button' && this.type != 'link') {
@@ -296,7 +303,7 @@ const GcdsButton = class {
                 target,
                 download,
             };
-        return (h(Host, { key: 'cb4009ea02793c43139bd32ce967ed14a34edc92' }, h(Tag, Object.assign({ key: 'f43a15193850a532bf2c48f19cfa089426e7fbb2' }, attrs, { id: buttonId, onBlur: () => this.gcdsBlur.emit(), onFocus: () => this.gcdsFocus.emit(), onClick: e => !disabled ? this.handleClick(e) : e.stopImmediatePropagation(), class: `gcds-button button--role-${buttonRole} button--${size}`, ref: element => (this.shadowElement = element) }, inheritedAttributes, { part: "button" }), h("slot", { key: 'ba77323179c20e81431e4463a4b435572e56b83e' }), type === 'link' && target === '_blank' ? (h("gcds-icon", { name: "external", label: I18N$o[lang].label, "margin-left": "150" })) : null)));
+        return (h(Host, { key: 'e9340ebfb8c10ce33a593b6b7f54394949317506' }, h(Tag, Object.assign({ key: 'c62ba255b62ddbff1c3dbef61a4e64973df1bccb' }, attrs, { id: buttonId, onBlur: () => this.gcdsBlur.emit(), onFocus: () => this.gcdsFocus.emit(), onClick: e => !disabled ? this.handleClick(e) : e.stopImmediatePropagation(), class: `gcds-button button--role-${buttonRole} button--${size}`, ref: element => (this.shadowElement = element) }, inheritedAttributes, { part: "button" }), h("slot", { key: 'f922fc8e16a85bce258204ff670bc6aaa81ca119' }), type === 'link' && target === '_blank' ? (h("gcds-icon", { name: "external", label: I18N$n[lang].label, "margin-left": "150" })) : null)));
     }
     static get delegatesFocus() { return true; }
     get el() { return getElement(this); }
@@ -309,7 +316,7 @@ const GcdsButton = class {
 };
 GcdsButton.style = gcdsButtonCss;
 
-const I18N$n = {
+const I18N$m = {
   en: {
     tagged: 'Tagged:',
     badgeError: 'gcds-card: The badge attribute has a character limit of 20 characters.',
@@ -358,7 +365,7 @@ const GcdsCard = class {
     }
     validateBadge() {
         if (this.badge && this.badge.length > 20) {
-            console.error(`${I18N$n['en'].badgeError} | ${I18N$n['fr'].badgeError}`);
+            console.error(`${I18N$m['en'].badgeError} | ${I18N$m['fr'].badgeError}`);
             this.errors.push('badge');
         }
         else if (this.errors.includes('badge')) {
@@ -392,17 +399,17 @@ const GcdsCard = class {
         this.lang = assignLanguage(this.el);
         this.updateLang();
         this.validateBadge();
-        let valid = this.validateRequiredProps();
+        const valid = this.validateRequiredProps();
         if (!valid) {
             logError('gcds-card', this.errors, ['badge']);
         }
     }
     get renderDescription() {
         if (this.el.innerHTML.trim() != '') {
-            return h("div", { class: "gcds-card__description" }, h("slot", null));
+            return (h("div", { class: "gcds-card__description" }, h("slot", null)));
         }
         else if (this.description) {
-            return h("div", { class: "gcds-card__description" }, h("gcds-text", { "margin-bottom": '0' }, this.description));
+            return (h("div", { class: "gcds-card__description" }, h("gcds-text", { "margin-bottom": "0" }, this.description)));
         }
         else {
             return null;
@@ -416,7 +423,7 @@ const GcdsCard = class {
             taggedAttr['aria-describedby'] = 'gcds-badge';
         }
         if (this.validateRequiredProps()) {
-            return (h(Host, { key: '0402753bd0ae1f2248dbc0170d6ffa1470933734' }, h("div", { key: '4808bc995375f3c536578f0dc1b1307d955c8f33', class: "gcds-card" }, badge && !errors.includes('badge') && (h("gcds-text", { key: '6cf5c35378fad224ae666bdf6901ee482a40be6c', id: "gcds-badge", class: "gcds-badge", "text-role": "light", "margin-bottom": "0", size: "small" }, h("strong", { key: '4be70916982695192bf67e03e0659c8bb64a53f8' }, h("gcds-sr-only", { key: '6262dad21f6d5aec05093e12a1044a187acf58b7', tag: "span" }, I18N$n[lang].tagged), badge))), imgSrc && (h("img", { key: '8240ca4df2ed097f185667da8135e8e28a4b6040', src: imgSrc, alt: imgAlt ? imgAlt : '', class: "gcds-card__image" })), Element != 'a' ? (h(Element, Object.assign({ class: "gcds-card__title" }, taggedAttr), h("gcds-link", { href: href }, cardTitle))) : (h("gcds-link", Object.assign({ href: href, class: "gcds-card__title" }, taggedAttr), cardTitle)), renderDescription)));
+            return (h(Host, { key: 'e2311efdcaaadb272a36f44c3e3eb051b4767b5d' }, h("div", { key: '234bde32e565a54786b2f872762ed95c19c821cc', class: "gcds-card" }, badge && !errors.includes('badge') && (h("gcds-text", { key: '844bfe328181351d24e68b83f57b7d4f9a9a3b75', id: "gcds-badge", class: "gcds-badge", "text-role": "light", "margin-bottom": "0", size: "small" }, h("strong", { key: '565872d89c99d6c4541b2ec494b8abdbfc79d035' }, h("gcds-sr-only", { key: '30196619952eb4d38d677db62184d9491e458c19', tag: "span" }, I18N$m[lang].tagged), badge))), imgSrc && (h("img", { key: 'b233e6e13e836831ab9c207483529a7424b5c887', src: imgSrc, alt: imgAlt ? imgAlt : '', class: "gcds-card__image" })), Element != 'a' ? (h(Element, Object.assign({ class: "gcds-card__title" }, taggedAttr), h("gcds-link", { href: href }, cardTitle))) : (h("gcds-link", Object.assign({ href: href, class: "gcds-card__title" }, taggedAttr), cardTitle)), renderDescription)));
         }
     }
     get el() { return getElement(this); }
@@ -936,7 +943,7 @@ const renderCheckbox = (checkbox, element, emitEvent, handleInput) => {
         attrsInput['aria-description'] = errorMessage;
     }
     return (h("div", { class: `gcds-checkbox ${disabled ? 'gcds-checkbox--disabled' : ''} ${hasError ? 'gcds-checkbox--error' : ''}` },
-        h("input", Object.assign({ type: "checkbox" }, attrsInput, { onBlur: isGroup ? () => gcdsBlur.emit() : onBlurValidate, onFocus: () => gcdsFocus.emit(), onChange: () => gcdsChange.emit(), onInput: e => handleInput(e, gcdsInput), onClick: e => !disabled ? emitEvent(e, gcdsClick) : e.stopImmediatePropagation() })),
+        h("input", Object.assign({ type: "checkbox" }, attrsInput, { onBlur: isGroup ? () => gcdsBlur.emit() : onBlurValidate, onFocus: () => gcdsFocus.emit(), onChange: e => handleInput(e, gcdsChange), onInput: e => handleInput(e, gcdsInput), onClick: e => !disabled ? emitEvent(e, gcdsClick) : e.stopImmediatePropagation() })),
         h("gcds-label", Object.assign({}, labelAttrs, { onClick: e => e.stopPropagation() })),
         checkbox.hint || (!isGroup && hint) ? (h("gcds-hint", { "hint-id": checkbox.id }, !isGroup && hint ? hint : checkbox.hint)) : null,
         !isGroup && errorMessage ? (h("gcds-error-message", { messageId: checkbox.id }, errorMessage)) : null));
@@ -986,29 +993,31 @@ const GcdsCheckboxes = class {
             }
             this.gcdsBlur.emit();
         };
+        // Handle input and change events
         this.handleInput = (e, customEvent) => {
-            if (e.target.checked) {
-                this.value = [...this.value, e.target.value];
+            const isInputEvent = e.type === 'input';
+            if (isInputEvent) {
+                const target = e.target;
+                if (target.checked) {
+                    this.value = [...this.value, target.value];
+                }
+                else {
+                    // Modify options to prevent re-adding prechecked values when user unchecks
+                    this.options = (typeof this.options === 'string'
+                        ? JSON.parse(this.options)
+                        : this.options).map(check => check.value === target.value ? Object.assign(Object.assign({}, check), { checked: false }) : check);
+                    // Remove item from value array when unchecked
+                    this.value = this.value.filter(item => item !== target.value);
+                }
+                // Keep form-associated value in sync
+                if (this.value.length > 0) {
+                    this.internals.setFormValue(this.value.toString());
+                }
+                else {
+                    this.internals.setFormValue(null);
+                }
             }
-            else {
-                // Modify options to prevent adding prechecked values when unchecking option
-                this.options = (typeof this.options === 'string'
-                    ? JSON.parse(this.options)
-                    : this.options).map(check => check.value === e.target.value ? Object.assign(Object.assign({}, check), { checked: false }) : check);
-                // Remove value from value array
-                this.value = this.value.filter(item => item !== e.target.value);
-            }
-            if (this.value.length > 0) {
-                this.internals.setFormValue(this.value.toString());
-            }
-            else {
-                this.internals.setFormValue(null);
-            }
-            if (e.type === 'change') {
-                const changeEvt = new e.constructor(e.type, e);
-                this.el.dispatchEvent(changeEvt);
-            }
-            customEvent.emit(this.value);
+            customEvent.emit([...this.value]);
         };
     }
     validateName() {
@@ -1208,7 +1217,7 @@ const GcdsCheckboxes = class {
                 `${fieldsetAttrs['aria-labelledby']} ${hintID}`.trim();
         }
         if (this.validateRequiredProps()) {
-            return (h(Host, { key: '2531c781c8cf539929baa5e749c11b698fbe8f8c', onBlur: () => this.isGroup && this.onBlurValidate() }, this.isGroup ? (h("fieldset", Object.assign({ class: "gcds-checkboxes__fieldset" }, fieldsetAttrs), h("legend", { id: "checkboxes-legend", class: "gcds-checkboxes__legend" }, legend, required ? (h("span", { class: "legend__required" }, " (required)")) : null), hint ? (h("gcds-hint", { id: "checkboxes-hint", "hint-id": "checkboxes" }, hint)) : null, errorMessage ? (h("div", null, h("gcds-error-message", { id: "checkboxes-error", messageId: "checkboxes" }, errorMessage))) : null, this.optionsArr &&
+            return (h(Host, { key: '1c4a5af6bf3886cf38fe0a9eb05781aabab35bbf', onBlur: () => this.isGroup && this.onBlurValidate() }, this.isGroup ? (h("fieldset", Object.assign({ class: "gcds-checkboxes__fieldset" }, fieldsetAttrs), h("legend", { id: "checkboxes-legend", class: "gcds-checkboxes__legend" }, legend, required ? (h("span", { class: "legend__required" }, " (required)")) : null), hint ? (h("gcds-hint", { id: "checkboxes-hint", "hint-id": "checkboxes" }, hint)) : null, errorMessage ? (h("div", null, h("gcds-error-message", { id: "checkboxes-error", messageId: "checkboxes" }, errorMessage))) : null, this.optionsArr &&
                 this.optionsArr.map(checkbox => {
                     return renderCheckbox(checkbox, this, emitEvent, this.handleInput);
                 }))) : (this.optionsArr &&
@@ -1242,7 +1251,7 @@ const GcdsContainer = class {
          * Props
          */
         /**
-        * Defines if the container has a border.
+         * Defines if the container has a border.
          */
         this.border = false;
         /**
@@ -1267,7 +1276,7 @@ const GcdsContainer = class {
     render() {
         const { border, centered, mainContainer, margin, padding, size, tag } = this;
         const Tag = tag;
-        return (h(Host, { key: 'c773aa318c0dd603cfe509cd4d023b988bdecece' }, h(Tag, { key: '4cda1734f0e3c01a01f6e717d1ae7165c53ae39a', class: `
+        return (h(Host, { key: '158cd288fe99ffdcc6d6d98ed0679521989516ab' }, h(Tag, { key: '64af2b520df43454dce4e7154533192484bcf502', class: `
             gcds-container
             ${border ? 'container-border' : ''}
             ${centered ? 'container-centered' : ''}
@@ -1275,13 +1284,13 @@ const GcdsContainer = class {
             ${margin ? `m-${margin}` : ''}
             ${padding ? `p-${padding}` : ''}
             ${size ? `size-${size}` : ''}
-          ` }, h("slot", { key: 'e8056d57376fc6322f29ec99b5349808b70fd1a8' }))));
+          ` }, h("slot", { key: 'd396a7a600b82d553fd23674400677cbdd2e9a06' }))));
     }
     get el() { return getElement(this); }
 };
 GcdsContainer.style = gcdsContainerCss;
 
-const I18N$m = {
+const I18N$l = {
   en: {
     year: 'Year',
     month: 'Month',
@@ -1447,7 +1456,7 @@ const GcdsDateInput = class {
         if (this.value && !isValidDate(this.value)) {
             this.errors.push('value');
             this.value = null;
-            console.error(`${I18N$m['en'].valueError}${I18N$m['en'][`valueFormat${this.format}`]} | ${I18N$m['fr'].valueError}${I18N$m['fr'][`valueFormat${this.format}`]}`);
+            console.error(`${I18N$l['en'].valueError}${I18N$l['en'][`valueFormat${this.format}`]} | ${I18N$l['fr'].valueError}${I18N$l['fr'][`valueFormat${this.format}`]}`);
         }
         else if (this.errors.includes('value')) {
             this.errors.splice(this.errors.indexOf('value'), 1);
@@ -1618,10 +1627,10 @@ const GcdsDateInput = class {
         }
         // Array of months 01 - 12
         const options = Array.from({ length: 12 }, (_, i) => i + 1 < 10 ? `0${i + 1}` : `${i + 1}`);
-        const month = (h("gcds-select", Object.assign({ key: '86dc23efbb5c07075dab5ea9e9f8f631dad88a57', label: I18N$m[lang].month, selectId: "month", name: "month", defaultValue: I18N$m[lang].selectmonth, disabled: disabled, onInput: e => this.handleInput(e, 'month'), onChange: e => this.handleInput(e, 'month'), value: this.monthValue, class: `gcds-date-input__month ${hasError['month'] ? 'gcds-date-input--error' : ''}` }, requiredAttr, { "aria-invalid": hasError['month'].toString(), "aria-description": hasError['month'] && errorMessage }), options.map(option => (h("option", { key: option, value: option }, I18N$m[lang]['months'][option])))));
-        const year = (h("gcds-input", Object.assign({ key: '451eaa4d778847ab82e4f47445c99d08d1bfd538', name: "year", label: I18N$m[lang].year, inputId: "year", type: "number", size: 4, disabled: disabled, value: this.yearValue, onInput: e => this.handleInput(e, 'year'), onChange: e => this.handleInput(e, 'year'), class: `gcds-date-input__year ${hasError['year'] ? 'gcds-date-input--error' : ''}` }, requiredAttr, { "aria-invalid": hasError['year'].toString(), "aria-description": hasError['year'] && errorMessage })));
-        const day = (h("gcds-input", Object.assign({ key: 'f4f4816d1ee86f09f9d7cbd6164c0113508b5c2e', name: "day", label: I18N$m[lang].day, inputId: "day", type: "number", size: 2, disabled: disabled, value: this.dayValue, onInput: e => this.handleInput(e, 'day'), onChange: e => this.handleInput(e, 'day'), class: `gcds-date-input__day ${hasError['day'] ? 'gcds-date-input--error' : ''}` }, requiredAttr, { "aria-invalid": hasError['day'].toString(), "aria-description": hasError['day'] && errorMessage })));
-        return (h(Host, { key: 'ac85e91eb06ebb903e19f38b1db0dffebda935b3', name: name, onBlur: () => this.onBlur() }, this.validateRequiredProps() && (h("fieldset", Object.assign({ key: 'cb19aa45342dba4333989a041440907566151174', class: "gcds-date-input__fieldset" }, fieldsetAttrs), h("legend", { key: '353bc7db0587959403cba784ca196b2d9fccfd92', id: "date-input-legend" }, legend, required ? (h("span", { class: "legend__required" }, I18N$m[lang].required)) : null), hint ? (h("gcds-hint", { id: "date-input-hint", "hint-id": "date-input" }, hint)) : null, errorMessage ? (h("div", null, h("gcds-error-message", { id: "date-input-error", messageId: "date-input" }, errorMessage))) : null, format == 'compact'
+        const month = (h("gcds-select", Object.assign({ key: 'abc4d3370422e57659e6a6558d7fb7bf067e6b9b', label: I18N$l[lang].month, selectId: "month", name: "month", defaultValue: I18N$l[lang].selectmonth, disabled: disabled, onInput: e => this.handleInput(e, 'month'), onChange: e => this.handleInput(e, 'month'), value: this.monthValue, class: `gcds-date-input__month ${hasError['month'] ? 'gcds-date-input--error' : ''}` }, requiredAttr, { "aria-invalid": hasError['month'].toString(), "aria-description": hasError['month'] && errorMessage }), options.map(option => (h("option", { key: option, value: option }, I18N$l[lang]['months'][option])))));
+        const year = (h("gcds-input", Object.assign({ key: '092c62acae1ec98b7febaff0ad007d9bd3c6f68b', name: "year", label: I18N$l[lang].year, inputId: "year", type: "number", size: 4, disabled: disabled, value: this.yearValue, onInput: e => this.handleInput(e, 'year'), onChange: e => this.handleInput(e, 'year'), class: `gcds-date-input__year ${hasError['year'] ? 'gcds-date-input--error' : ''}` }, requiredAttr, { "aria-invalid": hasError['year'].toString(), "aria-description": hasError['year'] && errorMessage })));
+        const day = (h("gcds-input", Object.assign({ key: '6628caf1b8373531227bc5f9f61a386b8e16b578', name: "day", label: I18N$l[lang].day, inputId: "day", type: "number", size: 2, disabled: disabled, value: this.dayValue, onInput: e => this.handleInput(e, 'day'), onChange: e => this.handleInput(e, 'day'), class: `gcds-date-input__day ${hasError['day'] ? 'gcds-date-input--error' : ''}` }, requiredAttr, { "aria-invalid": hasError['day'].toString(), "aria-description": hasError['day'] && errorMessage })));
+        return (h(Host, { key: '6a745c12f4724ed7e8c2bb5557f11aa3db6f79cc', name: name, onBlur: () => this.onBlur() }, this.validateRequiredProps() && (h("fieldset", Object.assign({ key: 'a6292573f7b565a71be618eaf8df565cc8490f91', class: "gcds-date-input__fieldset" }, fieldsetAttrs), h("legend", { key: 'f712f4436c7c6e57a2c71c31ec688b8c4977cc42', id: "date-input-legend" }, legend, required ? (h("span", { class: "legend__required" }, I18N$l[lang].required)) : null), hint ? (h("gcds-hint", { id: "date-input-hint", "hint-id": "date-input" }, hint)) : null, errorMessage ? (h("div", null, h("gcds-error-message", { id: "date-input-error", messageId: "date-input" }, errorMessage))) : null, format == 'compact'
             ? [month, year]
             : lang == 'en'
                 ? [month, day, year]
@@ -1640,7 +1649,7 @@ const GcdsDateInput = class {
 };
 GcdsDateInput.style = gcdsDateInputCss;
 
-const I18N$l = {
+const I18N$k = {
   en: {
     date: 'Date modified:',
     version: 'Version ',
@@ -1699,14 +1708,14 @@ const GcdsDateModified = class {
         // Define lang attribute
         this.lang = assignLanguage(this.el);
         this.updateLang();
-        let valid = this.validateRequiredProps();
+        const valid = this.validateRequiredProps();
         if (!valid) {
             logError('gcds-date-modified', this.errors);
         }
     }
     render() {
         const { lang, type } = this;
-        return (h(Host, { key: 'ae1d5ceeefb2826a675edeca1f2fa0c81828b425' }, this.validateRequiredProps() && (h("dl", { key: '989b2ca91b4887f0a47c956c022550b475221a7d', class: "gcds-date-modified" }, h("dt", { key: '1d05ceb07362ad9b010769489ad3b0a057d9d754' }, h("gcds-text", { key: '61bb8fbe85f6614eeec0ebb9fabacc7b710dfc8d', display: "inline", "margin-bottom": "0" }, type === 'version' ? I18N$l[lang].version : I18N$l[lang].date)), h("dd", { key: '45cdfd7944ba0ca7ea4251d673eaf2f59f2346a0' }, h("gcds-text", { key: 'f2c0744b1a28ff5cd98ff8e3da8ce44384656b4d', display: "inline", "margin-bottom": "0" }, type === 'version' ? (h("slot", null)) : (h("time", null, h("slot", null)))))))));
+        return (h(Host, { key: 'cda63407c2b6dc57f860d505f61a9f78c15c96b3' }, this.validateRequiredProps() && (h("dl", { key: '3324ca2c0c64c5f89c4a398344f3892fb1637073', class: "gcds-date-modified" }, h("dt", { key: '46bb18c35af4cfccd2e8cc71943fb3bee51de503' }, h("gcds-text", { key: 'd9b12fc046a396ba12817b210eb100980c59d720', display: "inline", "margin-bottom": "0" }, type === 'version' ? I18N$k[lang].version : I18N$k[lang].date)), h("dd", { key: 'cc81cb879d8fc1a06832aa6f80d29c179892afc7' }, h("gcds-text", { key: 'cebba414553c7357b8bf9033d4d84e2a2ec03521', display: "inline", "margin-bottom": "0" }, type === 'version' ? (h("slot", null)) : (h("time", null, h("slot", null)))))))));
     }
     get el() { return getElement(this); }
 };
@@ -1762,12 +1771,12 @@ const GcdsDetails = class {
     }
     render() {
         const { detailsTitle, open } = this;
-        return (h(Host, { key: '97560262fb89f07b8636dacd7fd2f7a062871870' }, h("div", { key: 'c6a66d4df786e0670510a0104b7724e13f30ec61', class: "gcds-details" }, h("button", { key: '835be4466b36b70bb222799c5a9083124702be71', "aria-expanded": open.toString(), "aria-controls": "details__panel", onBlur: () => this.gcdsBlur.emit(), onFocus: () => this.gcdsFocus.emit(), onClick: e => {
+        return (h(Host, { key: '165e069eb5507fe81e7f2e3f23d70cf3e5979aa7' }, h("div", { key: 'a9bbede603871396dcdbfe6d8a4a25952b611f58', class: "gcds-details" }, h("button", { key: 'fa1db12503e14a3e99781759a3fc5f1544a24235', "aria-expanded": open.toString(), "aria-controls": "details__panel", onBlur: () => this.gcdsBlur.emit(), onFocus: () => this.gcdsFocus.emit(), onClick: e => {
                 const event = emitEvent(e, this.gcdsClick);
                 if (event) {
                     this.toggle();
                 }
-            }, class: "details__summary", id: "details__summary" }, detailsTitle), h("details", { key: 'ac3464270d4cd77d74cd9f816c8245df7242e8ca', open: open, id: "details__panel", class: "details__panel", "aria-labelledby": "details__summary", onToggle: ev => this.handleToggle(ev), ref: element => (this.detailsElement = element) }, h("summary", { key: 'e083e978875266315f6e495b9c49d0e0a2568bda' }, detailsTitle), h("slot", { key: '0d3bb51e8bf1dcf62026235acc4d69add5998ee0' })))));
+            }, class: "details__summary", id: "details__summary" }, detailsTitle), h("details", { key: 'b63ec18b239b98bbb308989a4b71d4bda95372be', open: open, id: "details__panel", class: "details__panel", "aria-labelledby": "details__summary", onToggle: ev => this.handleToggle(ev), ref: element => (this.detailsElement = element) }, h("summary", { key: 'f64cf84f9a239e19e8978e8511b94bc7b2e7dfc0' }, detailsTitle), h("slot", { key: 'd438628d3f47d1a15f4e03a603a86f08bf25a658' })))));
     }
     get el() { return getElement(this); }
 };
@@ -1781,13 +1790,13 @@ const GcdsErrorMessage = class {
     }
     render() {
         const { messageId } = this;
-        return (h(Host, { key: '16d5186a26d2c58f5ad8c7a7e8daffeb101aa620', id: `error-message-${messageId}`, class: "gcds-error-message-wrapper" }, h("gcds-text", { key: '7ea4ca8c831ea7a505d566cebb9bddf803742258', class: "error-message", role: "alert", "margin-bottom": "75" }, h("gcds-icon", { key: '6c748ff14a06525536d11bd0213f9b645e75f6bc', name: "warning-triangle", "margin-right": "50" }), h("strong", { key: '9f8f058bc6c9379c29c41c011a4ce9d23a2d499e' }, h("slot", { key: '3ccc99fbadee6d0edeffabf6865e2c4914057511' })))));
+        return (h(Host, { key: '045fc9bca1001d5ad8a083333b64293c8152c4e5', id: `error-message-${messageId}`, class: "gcds-error-message-wrapper" }, h("gcds-text", { key: 'de9f869bdbe90f798821bffbe8aa9e930d703544', class: "error-message", role: "alert", "margin-bottom": "75" }, h("gcds-icon", { key: '0f579edfda3b98171166c90ee6b87d4e025762da', name: "warning-triangle", "margin-right": "50" }), h("strong", { key: '92704a625f29719fc7f31426fb6d20756213de30' }, h("slot", { key: '657508619840d11cfdd81fb207de294bc1256de7' })))));
     }
     get el() { return getElement(this); }
 };
 GcdsErrorMessage.style = gcdsErrorMessageCss;
 
-const I18N$k = {
+const I18N$j = {
   en: {
     heading: 'There was a problem',
     subheading: 'Errors were found on this page:',
@@ -1803,6 +1812,9 @@ const gcdsErrorSummaryCss = "@layer reset, default, compact;@layer reset{:host{d
 const GcdsErrorSummary = class {
     constructor(hostRef) {
         registerInstance(this, hostRef);
+        this.gcdsFocus = createEvent(this, "gcdsFocus");
+        this.gcdsBlur = createEvent(this, "gcdsBlur");
+        this.gcdsClick = createEvent(this, "gcdsClick");
         /**
          * Specifies if the error summary should listen for GcdsError event to generate error list.
          */
@@ -1892,7 +1904,7 @@ const GcdsErrorSummary = class {
     focusElement(id) {
         var _a;
         const element = document.querySelector(id);
-        let target = `[for=${id.replace('#', '')}]`;
+        const target = `[for=${id.replace('#', '')}]`;
         (_a = element.closest('form').querySelector(target)) === null || _a === void 0 ? void 0 : _a.scrollIntoView();
         element.focus();
     }
@@ -1922,9 +1934,9 @@ const GcdsErrorSummary = class {
     }
     render() {
         const { heading, errorQueue, lang, hasSubmitted, errorLinks } = this;
-        return (h(Host, { key: 'abcef9b3fa9efcf3e25d1ff1c0ef8c824b24a990' }, h("div", { key: '806ec0e7cc4747178c93d0b0e9b9e1a637a32022', role: "alert", tabindex: "-1", ref: element => (this.shadowElement = element), class: `gcds-error-summary ${(hasSubmitted || errorLinks) && Object.keys(errorQueue).length > 0
+        return (h(Host, { key: 'a42f126a2bbbe41621a5c56d04c87b31e87d0363' }, h("div", { key: 'eeee2e16453b3c7911042cabb079ab072d3bcd09', role: "alert", tabindex: "-1", ref: element => (this.shadowElement = element), class: `gcds-error-summary ${(hasSubmitted || errorLinks) && Object.keys(errorQueue).length > 0
                 ? 'gcds-show'
-                : ''}` }, h("gcds-heading", { key: '660f2f1819260b8f6455523cc732dddc4afcf691', tag: "h2", "margin-top": "0", "margin-bottom": "225" }, heading !== null && heading !== void 0 ? heading : I18N$k[lang].heading), h("ol", { key: '5cf05e7dfd9d6ee6c2e0544c6be2f0eb7eca96ea', class: "summary__errorlist" }, (hasSubmitted || errorLinks) &&
+                : ''}` }, h("gcds-heading", { key: '5c0aa122bc9f7a1dc250d856734d99befb88502e', tag: "h2", "margin-top": "0", "margin-bottom": "225" }, heading !== null && heading !== void 0 ? heading : I18N$j[lang].heading), h("ol", { key: '2fd12eca1a9ffe4f11aedfdd3b93d3a0becf7420', class: "summary__errorlist" }, (hasSubmitted || errorLinks) &&
             Object.keys(errorQueue).length > 0 &&
             Object.keys(errorQueue).map(key => {
                 return (h("li", { class: "summary__listitem" }, h("gcds-link", { size: "regular", href: errorLinks ? key : '#', onClick: e => {
@@ -1943,7 +1955,7 @@ const GcdsErrorSummary = class {
 };
 GcdsErrorSummary.style = gcdsErrorSummaryCss;
 
-const I18N$j = {
+const I18N$i = {
   en: {
     button: {
       remove: 'Remove',
@@ -2200,8 +2212,8 @@ const GcdsFileUploader = class {
             attrsInput['aria-describedby'] =
                 `${hintID}${errorID}${attrsInput['aria-describedby']}`;
         }
-        return (h(Host, { key: '7878cdd88945af0417c692bd1f8047ed9656fae2' }, h("div", { key: '8f96a9626bab1d295cb85f81314bf341a0d85303', class: `gcds-file-uploader-wrapper ${disabled ? 'gcds-disabled' : ''} ${hasError ? 'gcds-error' : ''}` }, h("gcds-label", Object.assign({ key: '65b303f97908056330006d3b08012edcce41ba76' }, attrsLabel, { "label-for": uploaderId, lang: lang })), hint ? h("gcds-hint", { "hint-id": uploaderId }, hint) : null, errorMessage ? (h("gcds-error-message", { messageId: uploaderId }, errorMessage)) : null, h("div", { key: '96f7d6e44231ac83983aeb1a29fd328eeda92b7f', class: `file-uploader__input ${value.length > 0 ? 'uploaded-files' : ''}`, onDrop: e => this.handleDrop(e), onDragOver: e => e.preventDefault() }, h("button", { key: 'b0b2f9f819998a975d6800da47997645fbe8630c', type: "button", tabindex: "-1", onClick: () => this.shadowElement.click() }, I18N$j[lang].button.upload), h("input", Object.assign({ key: '8f6a9bff60348cb19041c960f9374a1005659aff', type: "file", id: uploaderId }, attrsInput, { onBlur: () => this.onBlur(), onFocus: () => this.gcdsFocus.emit(), onInput: e => this.handleInput(e, this.gcdsInput), onChange: e => this.handleInput(e, this.gcdsChange), "aria-invalid": hasError ? 'true' : 'false', ref: element => (this.shadowElement = element) })), value.length > 0 ? (h("gcds-sr-only", { id: "file-uploader__summary" }, h("span", null, I18N$j[lang].summary.selected, " "), value.map(file => (h("span", null, file, " "))))) : (h("gcds-sr-only", { id: "file-uploader__summary" }, I18N$j[lang].summary.unselected))), value.length > 0
-            ? value.map(file => (h("div", { class: "file-uploader__uploaded-file", "aria-label": `${I18N$j[lang].removeFile} ${file}.` }, h("gcds-text", { "margin-bottom": "0" }, file), h("button", { onClick: e => this.removeFile(e) }, h("span", null, I18N$j[lang].button.remove), h("gcds-icon", { name: "close", size: "text", "margin-left": "150" })))))
+        return (h(Host, { key: '3c4798ba95cfb45c77e484ea3836968f7d3698e1' }, h("div", { key: '115b140d32698bb3983683c31daee9de34831f08', class: `gcds-file-uploader-wrapper ${disabled ? 'gcds-disabled' : ''} ${hasError ? 'gcds-error' : ''}` }, h("gcds-label", Object.assign({ key: 'cfe225f2311c2a75ec06bd5c26c031223385b9ab' }, attrsLabel, { "label-for": uploaderId, lang: lang })), hint ? h("gcds-hint", { "hint-id": uploaderId }, hint) : null, errorMessage ? (h("gcds-error-message", { messageId: uploaderId }, errorMessage)) : null, h("div", { key: 'd185acf8dfa1ce7ba4fd20026d55dfb5b5bc77bf', class: `file-uploader__input ${value.length > 0 ? 'uploaded-files' : ''}`, onDrop: e => this.handleDrop(e), onDragOver: e => e.preventDefault() }, h("button", { key: '9a2288f444c5c259dc5bc0a6a4a035284634bd8e', type: "button", tabindex: "-1", onClick: () => this.shadowElement.click() }, I18N$i[lang].button.upload), h("input", Object.assign({ key: 'd90e7244310af4e497ce2002a1b05d058f8b2b45', type: "file", id: uploaderId }, attrsInput, { onBlur: () => this.onBlur(), onFocus: () => this.gcdsFocus.emit(), onInput: e => this.handleInput(e, this.gcdsInput), onChange: e => this.handleInput(e, this.gcdsChange), "aria-invalid": hasError ? 'true' : 'false', ref: element => (this.shadowElement = element) })), value.length > 0 ? (h("gcds-sr-only", { id: "file-uploader__summary" }, h("span", null, I18N$i[lang].summary.selected, " "), value.map(file => (h("span", null, file, " "))))) : (h("gcds-sr-only", { id: "file-uploader__summary" }, I18N$i[lang].summary.unselected))), value.length > 0
+            ? value.map(file => (h("div", { class: "file-uploader__uploaded-file", "aria-label": `${I18N$i[lang].removeFile} ${file}.` }, h("gcds-text", { "margin-bottom": "0" }, file), h("button", { onClick: e => this.removeFile(e) }, h("span", null, I18N$i[lang].button.remove), h("gcds-icon", { name: "close", size: "text", "margin-left": "150" })))))
             : null)));
     }
     static get delegatesFocus() { return true; }
@@ -2217,7 +2229,7 @@ const GcdsFileUploader = class {
 };
 GcdsFileUploader.style = gcdsFileUploaderCss;
 
-const I18N$i = {
+const I18N$h = {
   en: {
     gov: {
       heading: 'Government of Canada',
@@ -2474,11 +2486,14 @@ const I18N$i = {
   },
 };
 
-const gcdsFooterCss = "@layer reset, default, contextual, main, sub, compact, medium, wide;@layer reset{:host{display:block}:host ul{list-style-type:none;margin:0;padding:0}:host slot{display:initial}:host gcds-link::part(link):not(:hover){text-decoration:none}:host .gcds-footer__sub ul li{display:block}}@layer default{:host{font:var(--gcds-footer-font)}:host .gcds-footer__contextual,:host .gcds-footer__main,:host .gcds-footer__sub{padding:var(--gcds-footer-band-padding-desktop)}:host .gcds-footer__header,:host .sub__header,:host .themenav__header{clip:rect(1px,1px,1px,1px);height:1px;margin:0;overflow:hidden;position:absolute;width:1px}:host [class$=__container]{justify-content:space-between;margin:var(--gcds-footer-container-margin);max-width:var(--gcds-footer-container-width);width:90%}:host nav{position:relative}:host [class$=__list]{display:grid;grid-template-columns:1fr;list-style:none;padding:var(--gcds-footer-list-padding);grid-gap:var(--gcds-footer-grid-gap)}:host [class$=__list] li gcds-link::part(link){color:var(--gcds-footer-main-text)}:host h3{font:var(--gcds-footer-font-heading);margin:var(--gcds-footer-heading-margin)}:host gcds-link::part(link){font:var(--gcds-footer-font)}}@layer contextual{:host .gcds-footer__contextual{background-color:var(--gcds-footer-contextual-background);color:var(--gcds-footer-contextual-text);container:component contextual/inline-size;margin-block-end:-1px}}@layer main{:host .gcds-footer__main{background-color:var(--gcds-footer-main-background);background-image:url(data:image/png;base64,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);background-position:100% 100%;background-repeat:no-repeat;color:var(--gcds-footer-main-text);container:component main/inline-size}:host .gcds-footer__main nav:first-of-type:after{border-block-end:var(--gcds-footer-main-nav-first-after-border-width) solid var(--gcds-footer-main-nav-first-after-border-color);content:\"\";display:block;margin:var(--gcds-footer-grid-gap) 0;width:var(--gcds-footer-main-nav-first-after-width)}:host .gcds-footer__main nav.main__themenav .themenav__list{display:grid;grid-auto-flow:column;grid-template-rows:repeat(19,1fr)}}@layer sub{:host .gcds-footer__sub{background-color:var(--gcds-footer-sub-background);container:component sub/inline-size}:host .gcds-footer__sub .sub__container{display:grid;grid-gap:var(--gcds-footer-grid-gap);grid-template-areas:\"list wordmark\";grid-template-columns:3fr 1fr}:host .gcds-footer__sub .sub__container nav{align-items:center;display:flex;grid-area:list}:host .gcds-footer__sub .sub__container .sub__wordmark,:host .gcds-footer__sub .sub__container slot[name=wordmark]{display:flex;grid-area:wordmark}:host .gcds-footer__sub .sub__container .sub__wordmark gcds-signature,:host .gcds-footer__sub .sub__container slot[name=wordmark] gcds-signature{align-self:end;margin:var(--gcds-footer-sub-signature-margin);max-height:var(--gcds-footer-sub-signature-max-height);min-width:var(--gcds-footer-sub-signature-min-width);width:var(--gcds-footer-sub-signature-width)}}@layer compact{@media only screen and (width < 45em){:host .gcds-footer__contextual,:host .gcds-footer__main,:host .gcds-footer__sub{padding:var(--gcds-footer-band-padding-mobile)}}@container sub (width <= 30em){:host .gcds-footer__sub .sub__container .sub__wordmark gcds-signature,:host .gcds-footer__sub .sub__container slot[name=wordmark] gcds-signature{max-height:var(--gcds-footer-sub-signature-sm-max-height);width:var(--gcds-footer-sub-signature-sm-width)}}}@layer medium{@container contextual (width >= 45em){:host .gcds-footer__contextual [class$=__list]{grid-template-columns:1fr 1fr}}@container main (width >= 45em){:host .gcds-footer__main [class$=__list]{grid-template-columns:1fr 1fr}:host .gcds-footer__main nav.main__themenav .themenav__list{grid-template-rows:repeat(10,1fr)}}@container sub (width < 60.2em){:host .gcds-footer__sub .sub__container{display:block}:host .gcds-footer__sub .sub__container ul li{margin:0 0 var(--gcds-footer-grid-gap)}}}@layer wide{@container contextual (width >= 60.2em){:host .gcds-footer__contextual [class$=__list]{grid-template-columns:1fr 1fr 1fr}}@container main (width >= 60.2em){:host .gcds-footer__main [class$=__list]{grid-template-columns:1fr 1fr 1fr}:host .gcds-footer__main nav.main__themenav .themenav__list{grid-template-rows:repeat(7,1fr)}}@container sub (width >= 60.2em){:host .gcds-footer__sub .sub__container ul li{display:inline-block;margin-block-end:0}:host .gcds-footer__sub .sub__container ul li:first-of-type:before{content:\"\";margin:0}:host .gcds-footer__sub .sub__container ul li:before{content:\"\\2022\";display:inline;margin:var(--gcds-footer-sub-listitem-before-margin)}:host .gcds-footer__sub .sub__container .sub__wordmark,:host .gcds-footer__sub .sub__container slot[name=wordmark]{display:inline-block}}}";
+const gcdsFooterCss = "@layer reset, default, contextual, main, sub, compact, medium, wide;@layer reset{:host{display:block}:host ul{list-style-type:none;margin:0;padding:0}:host slot{display:initial}:host gcds-link::part(link):not(:hover){text-decoration:none}:host .gcds-footer__sub ul li{display:block}}@layer default{:host{font:var(--gcds-footer-font)}:host .gcds-footer__contextual,:host .gcds-footer__main,:host .gcds-footer__sub{padding:var(--gcds-footer-band-padding-desktop)}:host .gcds-footer__header,:host .sub__header,:host .themenav__header{clip:rect(1px,1px,1px,1px);height:1px;margin:0;overflow:hidden;position:absolute;width:1px}:host [class$=__container]{justify-content:space-between;margin:var(--gcds-footer-container-margin);max-width:var(--gcds-footer-container-width);width:90%}:host nav{position:relative}:host [class$=__list]{display:grid;grid-template-columns:1fr;list-style:none;padding:var(--gcds-footer-list-padding);grid-gap:var(--gcds-footer-grid-gap)}:host [class$=__list] li gcds-link::part(link){color:var(--gcds-footer-main-text)}:host h3{font:var(--gcds-footer-font-heading);margin:var(--gcds-footer-heading-margin)}:host gcds-link::part(link){font:var(--gcds-footer-font)}}@layer contextual{:host .gcds-footer__contextual{background-color:var(--gcds-footer-contextual-background);color:var(--gcds-footer-contextual-text);container:component contextual/inline-size;margin-block-end:-1px}}@layer main{:host .gcds-footer__main{background-color:var(--gcds-footer-main-background);background-image:url(data:image/png;base64,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);background-position:100% 100%;background-repeat:no-repeat;color:var(--gcds-footer-main-text);container:component main/inline-size}:host .gcds-footer__main nav:first-of-type:after{border-block-end:var(--gcds-footer-main-nav-first-after-border-width) solid var(--gcds-footer-main-nav-first-after-border-color);content:\"\";display:block;margin:var(--gcds-footer-grid-gap) 0;width:var(--gcds-footer-main-nav-first-after-width)}:host .gcds-footer__main nav.main__themenav .themenav__list{display:grid;grid-auto-flow:column;grid-template-rows:repeat(19,1fr)}}@layer sub{:host .gcds-footer__sub{background-color:var(--gcds-footer-sub-background);container:component sub/inline-size}:host .gcds-footer__sub .sub__container{display:grid;grid-gap:var(--gcds-footer-grid-gap);grid-template-areas:\"list wordmark\";grid-template-columns:3fr 1fr}:host .gcds-footer__sub .sub__container nav{align-items:center;display:flex;grid-area:list}:host .gcds-footer__sub .sub__container .sub__wordmark,:host .gcds-footer__sub .sub__container slot[name=wordmark]{display:flex;grid-area:wordmark}:host .gcds-footer__sub .sub__container .sub__wordmark gcds-signature,:host .gcds-footer__sub .sub__container slot[name=wordmark] gcds-signature{align-self:end;margin:var(--gcds-footer-sub-signature-margin);max-height:var(--gcds-footer-sub-signature-max-height);min-width:var(--gcds-footer-sub-signature-min-width);width:var(--gcds-footer-sub-signature-width)}}@layer compact{@media only screen and (width < 48em){:host .gcds-footer__contextual,:host .gcds-footer__main,:host .gcds-footer__sub{padding:var(--gcds-footer-band-padding-mobile)}}@container sub (width <= 30em){:host .gcds-footer__sub .sub__container .sub__wordmark gcds-signature,:host .gcds-footer__sub .sub__container slot[name=wordmark] gcds-signature{max-height:var(--gcds-footer-sub-signature-sm-max-height);width:var(--gcds-footer-sub-signature-sm-width)}}}@layer medium{@container contextual (width >= 45em){:host .gcds-footer__contextual [class$=__list]{grid-template-columns:1fr 1fr}}@container main (width >= 45em){:host .gcds-footer__main [class$=__list]{grid-template-columns:1fr 1fr}:host .gcds-footer__main nav.main__themenav .themenav__list{grid-template-rows:repeat(10,1fr)}}@container sub (width < 60.2em){:host .gcds-footer__sub .sub__container{display:block}:host .gcds-footer__sub .sub__container ul li{margin:0 0 var(--gcds-footer-grid-gap)}}}@layer wide{@container contextual (width >= 60.2em){:host .gcds-footer__contextual [class$=__list]{grid-template-columns:1fr 1fr 1fr}}@container main (width >= 60.2em){:host .gcds-footer__main [class$=__list]{grid-template-columns:1fr 1fr 1fr}:host .gcds-footer__main nav.main__themenav .themenav__list{grid-template-rows:repeat(7,1fr)}}@container sub (width >= 60.2em){:host .gcds-footer__sub .sub__container ul li{display:inline-block;margin-block-end:0}:host .gcds-footer__sub .sub__container ul li:first-of-type:before{content:\"\";margin:0}:host .gcds-footer__sub .sub__container ul li:before{content:\"\\2022\";display:inline;margin:var(--gcds-footer-sub-listitem-before-margin)}:host .gcds-footer__sub .sub__container .sub__wordmark,:host .gcds-footer__sub .sub__container slot[name=wordmark]{display:inline-block}}}";
 
 const GcdsFooter = class {
     constructor(hostRef) {
         registerInstance(this, hostRef);
+        this.gcdsFocus = createEvent(this, "gcdsFocus");
+        this.gcdsBlur = createEvent(this, "gcdsBlur");
+        this.gcdsClick = createEvent(this, "gcdsClick");
         /**
          * Props
          */
@@ -2551,17 +2566,17 @@ const GcdsFooter = class {
     }
     render() {
         const { lang, display, contextualHeading, contextualLinksObject, subLinks, subLinksObject, renderSignature, } = this;
-        const govNav = I18N$i[lang].gov.menu;
-        const themeNav = I18N$i[lang].themes.menu;
-        const siteNav = I18N$i[lang].site.menu;
+        const govNav = I18N$h[lang].gov.menu;
+        const themeNav = I18N$h[lang].themes.menu;
+        const siteNav = I18N$h[lang].site.menu;
         let contextualLinkCount = 0;
         let subLinkCount = 0;
-        return (h(Host, { key: '321e99b2faa82fcf0a88f62dec9e5449ab2b67bb', role: "contentinfo", "aria-label": "Footer" }, h("gcds-sr-only", { key: 'ae00217f2f2d7e548d5d184573fb1a6264409f19', tag: "h2" }, I18N$i[lang].about), contextualLinksObject && contextualHeading && (h("div", { key: '630f772b1771f9a7051a0adc36e4143dec5149f6', class: "gcds-footer__contextual" }, h("div", { key: 'acaf3de4ec14f9cf5874b67c2f15fdc970fa6411', class: "contextual__container" }, h("nav", { key: 'cddae229d1beb9ade4aae46950e35a2ea2203ae8', "aria-labelledby": "contextual__heading" }, h("h3", { key: 'f73bd15b238d93e418c6a813a7048b34b0510d72', id: "contextual__heading", class: "contextual__heading" }, contextualHeading), h("ul", { key: '614c50407f7555ce4249b90832934cb0ce829889', class: "contextual__list" }, Object.keys(contextualLinksObject).map(key => {
+        return (h(Host, { key: 'b3085c45d846bacbff55a8eb9b1c00a89430886b', role: "contentinfo", "aria-label": "Footer" }, h("gcds-sr-only", { key: '606efe8477781956571e6f5f491a33a3a62f04b4', tag: "h2" }, I18N$h[lang].about), contextualLinksObject && contextualHeading && (h("div", { key: 'f4dc0c8107d91eed92c48a29bea4d11cc27ca1aa', class: "gcds-footer__contextual" }, h("div", { key: '2be8f275989cfc74bf6b2df084ca4728672df764', class: "contextual__container" }, h("nav", { key: '0e95de45f38aa31290b69802459dd8b613bce6fe', "aria-labelledby": "contextual__heading" }, h("h3", { key: 'cfcf705300e7697459313ac429a1cfdc18dd3bd2', id: "contextual__heading", class: "contextual__heading" }, contextualHeading), h("ul", { key: 'e40575b0fb05baf1755e4f6112aa653b971d05c5', class: "contextual__list" }, Object.keys(contextualLinksObject).map(key => {
             if (contextualLinkCount < 3) {
                 contextualLinkCount++;
                 return (h("li", null, h("gcds-link", { size: "small", href: contextualLinksObject[key] }, key)));
             }
-        })))))), display === 'full' ? (h("div", { class: "gcds-footer__main" }, h("div", { class: "main__container" }, h("nav", { class: "main__govnav", "aria-labelledby": "govnav__heading" }, h("h3", { id: "govnav__heading" }, I18N$i[lang].gov.heading), h("ul", { class: "govnav__list" }, Object.keys(govNav).map(value => (h("li", null, h("gcds-link", { size: "small", href: govNav[value].link }, govNav[value].text)))))), h("nav", { class: "main__themenav", "aria-labelledby": "themenav__heading" }, h("gcds-sr-only", { tag: "h4", id: "themenav__heading" }, I18N$i[lang].themes.heading), h("ul", { class: "themenav__list" }, Object.keys(themeNav).map(value => (h("li", null, h("gcds-link", { size: "small", href: themeNav[value].link }, themeNav[value].text))))))))) : null, h("div", { key: 'c753c6c0324fb8fd4ae8655388c8eeca73365cf2', class: "gcds-footer__sub" }, h("div", { key: 'a4b5d0dd745603deebbdbc3332d41e59368a26f3', class: "sub__container" }, h("nav", { key: 'c69dbfb52e56e601442edac9507fd95b667e7477', "aria-labelledby": "sub__heading" }, h("gcds-sr-only", { key: '8ccf5212c6088334b6481451461f81f7d4acdc7c', tag: "h3", id: "sub__heading" }, I18N$i[lang].site.heading), h("ul", { key: '0e007ae6b61536d63f31ddbd6da0216555b85004' }, subLinks
+        })))))), display === 'full' ? (h("div", { class: "gcds-footer__main" }, h("div", { class: "main__container" }, h("nav", { class: "main__govnav", "aria-labelledby": "govnav__heading" }, h("h3", { id: "govnav__heading" }, I18N$h[lang].gov.heading), h("ul", { class: "govnav__list" }, Object.keys(govNav).map(value => (h("li", null, h("gcds-link", { size: "small", href: govNav[value].link }, govNav[value].text)))))), h("nav", { class: "main__themenav", "aria-labelledby": "themenav__heading" }, h("gcds-sr-only", { tag: "h4", id: "themenav__heading" }, I18N$h[lang].themes.heading), h("ul", { class: "themenav__list" }, Object.keys(themeNav).map(value => (h("li", null, h("gcds-link", { size: "small", href: themeNav[value].link }, themeNav[value].text))))))))) : null, h("div", { key: 'f22c6b3df1149c3c5f8be387f8e8f6409474703f', class: "gcds-footer__sub" }, h("div", { key: '81e35cd5397e1a9f0c373e14d1f16568c70eb690', class: "sub__container" }, h("nav", { key: 'ee7c37a240a121893142c51f887d49ad98add671', "aria-labelledby": "sub__heading" }, h("gcds-sr-only", { key: '75fef71daa19b43442a973ac70053a7ce90c7a6e', tag: "h3", id: "sub__heading" }, I18N$h[lang].site.heading), h("ul", { key: '4d3f7e2cb406dd420def9b0580892bb54d985269' }, subLinks
             ? Object.keys(subLinksObject).map(key => {
                 if (subLinkCount < 5) {
                     subLinkCount++;
@@ -2580,7 +2595,7 @@ const GcdsFooter = class {
 };
 GcdsFooter.style = gcdsFooterCss;
 
-const I18N$h = {
+const I18N$g = {
   en: {
     gapDesktopError: 'gcds-grid: Invalid spacing value for gap-desktop.',
     gapTabletError: 'gcds-grid: Invalid spacing value for gap-tablet.',
@@ -2649,14 +2664,14 @@ const GcdsGrid = class {
         const values = GridGapArray;
         if (newValue != undefined && !values.includes(newValue)) {
             this.gapTablet = undefined;
-            console.error(`${I18N$h['en'].gapTabletError} | ${I18N$h['fr'].gapTabletError}`);
+            console.error(`${I18N$g['en'].gapTabletError} | ${I18N$g['fr'].gapTabletError}`);
         }
     }
     validateGapDesktop(newValue) {
         const values = GridGapArray;
         if (newValue != undefined && !values.includes(newValue)) {
             this.gapDesktop = undefined;
-            console.error(`${I18N$h['en'].gapDesktopError} | ${I18N$h['fr'].gapDesktopError}`);
+            console.error(`${I18N$g['en'].gapDesktopError} | ${I18N$g['fr'].gapDesktopError}`);
         }
     }
     validateTag(newValue) {
@@ -2792,7 +2807,7 @@ const GcdsGridCol = class {
 };
 GcdsGridCol.style = gcdsGridColCss;
 
-const I18N$g = {
+const I18N$f = {
   en: {
     skip: 'Skip to main content',
     skipLabel: 'Skip to',
@@ -2808,6 +2823,9 @@ const gcdsHeaderCss = "@layer reset, default, brand, menu, wide;@layer reset{:ho
 const GcdsHeader = class {
     constructor(hostRef) {
         registerInstance(this, hostRef);
+        this.gcdsFocus = createEvent(this, "gcdsFocus");
+        this.gcdsBlur = createEvent(this, "gcdsBlur");
+        this.gcdsClick = createEvent(this, "gcdsClick");
         /**
          * GcdsSignature - GCDS signature links to Canada.ca
          */
@@ -2834,7 +2852,7 @@ const GcdsHeader = class {
             return h("slot", { name: "skip-to-nav" });
         }
         else if (this.skipToHref) {
-            return (h("nav", { class: "gcds-header__skip-to-nav", "aria-label": I18N$g[this.lang].skipLabel }, h("gcds-link", { href: this.skipToHref }, I18N$g[this.lang].skip)));
+            return (h("nav", { class: "gcds-header__skip-to-nav", "aria-label": I18N$f[this.lang].skipLabel }, h("gcds-link", { href: this.skipToHref }, I18N$f[this.lang].skip)));
         }
         else {
             return;
@@ -2881,7 +2899,7 @@ const GcdsHeader = class {
     }
     render() {
         const { renderSkipToNav, renderToggle, renderSignature, renderSearch, hasSearch, hasBanner, hasBreadcrumb, } = this;
-        return (h(Host, { key: '27151b450288fb64b07ac770807bf982c77449c0', role: "banner" }, renderSkipToNav, hasBanner ? h("slot", { name: "banner" }) : null, h("div", { key: 'ea68f9c773d6c6e069b15be668a52bfed5c06b62', class: "gcds-header__brand" }, h("div", { key: 'a6c7c30fd1f230bd57be5bf0d332c0fcff4af565', class: `brand__container ${!hasSearch ? 'container--simple' : ''}` }, renderToggle, renderSignature, renderSearch)), h("slot", { key: '61f6e27f606dbb62d5e75ed92eb95abf2f036fea', name: "menu" }), hasBreadcrumb ? (h("div", { class: "gcds-header__container" }, h("slot", { name: "breadcrumb" }))) : null));
+        return (h(Host, { key: 'a7aec791ab78ca2491fd9dfc043e3b42453de2a4', role: "banner" }, renderSkipToNav, hasBanner ? h("slot", { name: "banner" }) : null, h("div", { key: '1ffdfb16dbd583dc45d65edde526f10ca5445d3d', class: "gcds-header__brand" }, h("div", { key: 'fd921bdd08e088d99849ee37e67ff70502630cfb', class: `brand__container ${!hasSearch ? 'container--simple' : ''}` }, renderToggle, renderSignature, renderSearch)), h("slot", { key: '6ace8183cce4cf7de0c04c99763194f002ea4e3f', name: "menu" }), hasBreadcrumb ? (h("div", { class: "gcds-header__container" }, h("slot", { name: "breadcrumb" }))) : null));
     }
     get el() { return getElement(this); }
 };
@@ -2939,12 +2957,12 @@ const GcdsHeading = class {
     render() {
         const { characterLimit, marginTop, marginBottom, tag } = this;
         const Tag = tag;
-        return (h(Host, { key: '4e0476bfcf5d77051f092e2094c24cae68b25abf' }, h(Tag, { key: '4fe4a926858163b617fdebd62ea7f97211755121', class: `
+        return (h(Host, { key: '507c9c3fc2b151e9e529b3f155bc07394aa8fbb4' }, h(Tag, { key: '6a24d145608e7f8bec9bb7282c02b7a2d3c030d4', class: `
             gcds-heading
             ${characterLimit ? 'limit' : ''}
             ${marginTop ? `mt-${marginTop}` : ''}
             ${marginBottom ? `mb-${marginBottom}` : ''}
-          ` }, h("slot", { key: 'ca17660b8b88a915b9f18bf3cbcde376e07a5d13' }))));
+          ` }, h("slot", { key: 'fc7c907330d467d951a008b36379c34b8bdfcf5f' }))));
     }
     get el() { return getElement(this); }
     static get watchers() { return {
@@ -2963,13 +2981,13 @@ const GcdsHint = class {
     }
     render() {
         const { hintId } = this;
-        return (h(Host, { key: '46515bc832daceccea2be387fa1bf1a9fe32991f', id: `hint-${hintId}` }, h("gcds-text", { key: 'c75ff787e0ffcf19921e48ffea09366fa53daa05', class: "gcds-hint", "margin-bottom": "0", part: "hint" }, h("slot", { key: '0661d2891436fd5e255bea2afe9114e779b42a47' }))));
+        return (h(Host, { key: '61a3e7529f1f8cdab787a3be7f6b1d38b06cf29d', id: `hint-${hintId}` }, h("gcds-text", { key: '32304bb4004c7357f63ea4c04b39be5fa1b491a8', class: "gcds-hint", "margin-bottom": "0", part: "hint" }, h("slot", { key: '2313fb6ca5b5fde4572e522c86d249508eecf900' }))));
     }
     get el() { return getElement(this); }
 };
 GcdsHint.style = gcdsHintCss;
 
-const I18N$f = {
+const I18N$e = {
   en: {
     nameError: 'gcds-icon: Invalid name.',
   },
@@ -3006,7 +3024,7 @@ const GcdsIcon = class {
             'warning-triangle',
         ];
         if (!values.includes(newValue)) {
-            console.error(`${I18N$f['en'].nameError} | ${I18N$f['fr'].nameError}`);
+            console.error(`${I18N$e['en'].nameError} | ${I18N$e['fr'].nameError}`);
         }
     }
     validateSize(newValue) {
@@ -3032,7 +3050,7 @@ const GcdsIcon = class {
     }
     render() {
         const { label, marginLeft, marginRight, name, size } = this;
-        return (h(Host, { key: 'f81bf5b49ba6a5b3b2f7d0ac36c947065051fd11' }, h("span", { key: 'd25f57eea33938f5b8be0deb5844d6cb880cca10', class: `
+        return (h(Host, { key: '9767ef8285004f25317ad156ac39d21a0267c6d3' }, h("span", { key: 'c7a3dfe9ed1b093e5a6d9a37bdc5c11e7154b462', class: `
             gcds-icon gcds-icon-${name}
             ${marginLeft ? `ml-${marginLeft}` : ''}
             ${marginRight ? `mr-${marginRight}` : ''}
@@ -3046,47 +3064,6 @@ const GcdsIcon = class {
     }; }
 };
 GcdsIcon.style = gcdsIconCss;
-
-const I18N$e = {
-  en: {
-    valueMissing: 'Enter information to continue.',
-    typeMismatch: {
-      email:
-        'Enter a valid email address to continue. Use a standard format. Example: name@address.ca.',
-      url: 'Enter a URL in the specified format to continue.',
-    },
-    patternMismatch: 'Use the specified format to continue.',
-    tooLong:
-      "Enter {max} characters or less to continue. You've entered {current} characters.",
-    tooShort:
-      "Enter at least {min} characters to continue. You've entered {current} characters.",
-    rangeUnderflow: "Enter a number that's {min} or more to continue.",
-    rangeOverflow: "Enter a number that's {max} or less to continue.",
-    stepMismatch:
-      'Enter a number from the specified options to continue. The closest numbers to what you entered are {lower} and {upper}. ',
-    badInput: 'Enter a number to continue.',
-  },
-  fr: {
-    valueMissing: 'Saisissez des renseignements pour continuer.',
-    typeMismatch: {
-      email:
-        'Saisissez votre adresse courriel pour continuer. Utilisez un format standard. Exemple: nom@adresse.ca.',
-      url: 'Entrez une adresse Web en utilisant le format spécifié pour continuer.',
-    },
-    patternMismatch: 'Utilisez le format spécifié pour continuer.',
-    tooLong:
-      'Entrez {max} caractères ou moins pour continuer. Vous en avez présentement {current}.',
-    tooShort:
-      'Entrez au moins {min} caractères pour continuer. Vous en avez présentement {current}.',
-    rangeUnderflow:
-      'Entrez un nombre plus grand ou égal à {min} pour continuer.',
-    rangeOverflow:
-      'Entrez un nombre plus petit ou égal à {max} pour continuer.',
-    stepMismatch:
-      'Entrez un nombre parmi les options spécifiées pour continuer. Les nombres les plus proches de votre entrée sont {lower} et {upper}.',
-    badInput: 'Entrez un nombre pour continuer.',
-  },
-};
 
 const gcdsInputCss = "@layer reset, default, disabled, error, focus;@layer reset{:host{display:block}:host .gcds-input-wrapper{border:0;margin:0;padding:0}:host .gcds-input-wrapper input{box-sizing:border-box}}@layer default{:host .gcds-input-wrapper{color:var(--gcds-input-default-text);font:var(--gcds-input-font);max-width:75ch;transition:color .15s ease-in-out;width:100%}:host .gcds-input-wrapper input{background-color:var(--gcds-input-default-background);background-image:none;border:var(--gcds-input-border-width) solid;border-radius:var(--gcds-input-border-radius);color:var(--gcds-input-default-text);display:block;font:inherit!important;height:auto;margin:var(--gcds-input-margin)!important;max-width:100%;min-height:var(--gcds-input-min-width-and-height);min-width:var(--gcds-input-min-width-and-height);padding:var(--gcds-input-padding)!important;transition:border-color .15s ease-in-out,box-shadow .15s ease-in-out,outline .15s ease-in-out;width:100%}:host .gcds-input-wrapper input[type=number]{-moz-appearance:textfield}:host .gcds-input-wrapper input[type=number]::-webkit-inner-spin-button,:host .gcds-input-wrapper input[type=number]::-webkit-outer-spin-button{-webkit-appearance:none}}@layer disabled{:host .gcds-input-wrapper.gcds-disabled{color:var(--gcds-input-disabled-text)}:host .gcds-input-wrapper.gcds-disabled gcds-label{--gcds-label-text:currentColor}:host .gcds-input-wrapper.gcds-disabled gcds-hint{--gcds-hint-text:currentColor}:host .gcds-input-wrapper.gcds-disabled input:disabled{background-color:var(--gcds-input-disabled-background);border-color:var(--gcds-input-disabled-text);cursor:not-allowed}}@layer error{:host .gcds-input-wrapper input.gcds-error:not(:focus){border-color:var(--gcds-input-danger-border)}}@layer focus{:host .gcds-input-wrapper:focus-within input:focus{border-color:var(--gcds-input-focus-border);box-shadow:var(--gcds-input-focus-box-shadow);outline:var(--gcds-input-outline-width) solid var(--gcds-input-focus-border);outline-offset:var(--gcds-input-border-width)}}";
 
@@ -3212,7 +3189,7 @@ const GcdsInput = class {
         if ((this.required && !this.internals.checkValidity()) ||
             !this.internals.checkValidity()) {
             if (!this.internals.validity.valueMissing) {
-                this.errorMessage = this.formatHTMLErrorMessage();
+                this.errorMessage = formatHTMLErrorMessage(this.htmlValidationErrors[0], this.lang, this.el);
                 this.inputTitle = this.errorMessage;
             }
         }
@@ -3280,53 +3257,13 @@ const GcdsInput = class {
         }
         const validityState = override
             ? Object.assign(Object.assign({}, this.shadowElement.validity), override) : this.shadowElement.validity;
-        const validationMessage = this.htmlValidationErrors.length > 0
-            ? this.formatHTMLErrorMessage()
-            : null;
+        let validationMessage = null;
+        if (this.htmlValidationErrors.length > 0) {
+            validationMessage = formatHTMLErrorMessage(this.htmlValidationErrors[0], this.lang, this.el);
+        }
         this.internals.setValidity(validityState, validationMessage, this.shadowElement);
         // Set input title when HTML error occruring
-        this.inputTitle =
-            this.htmlValidationErrors.length > 0 ? this.formatHTMLErrorMessage() : '';
-    }
-    /**
-     * Format HTML error message based off assigned attributes
-     * This lets us assign custom error messages
-     */
-    formatHTMLErrorMessage() {
-        switch (this.htmlValidationErrors[0]) {
-            case 'valueMissing':
-                return I18N$e[this.lang][this.htmlValidationErrors[0]];
-            case 'typeMismatch':
-                if (this.type === 'url' || this.type === 'email') {
-                    return I18N$e[this.lang][this.htmlValidationErrors[0]][this.type];
-                }
-                else {
-                    return I18N$e[this.lang][this.htmlValidationErrors[0]];
-                }
-            case 'tooLong':
-                return I18N$e[this.lang][this.htmlValidationErrors[0]]
-                    .replace('{max}', this.maxlength)
-                    .replace('{current}', this.value.length);
-            case 'tooShort':
-                return I18N$e[this.lang][this.htmlValidationErrors[0]]
-                    .replace('{min}', this.minlength)
-                    .replace('{current}', this.value.length);
-            case 'rangeUnderflow':
-                return I18N$e[this.lang][this.htmlValidationErrors[0]].replace('{min}', this.min);
-            case 'rangeOverflow':
-                return I18N$e[this.lang][this.htmlValidationErrors[0]].replace('{max}', this.max);
-            case 'stepMismatch':
-                return I18N$e[this.lang][this.htmlValidationErrors[0]]
-                    .replace('{lower}', Math.floor(Number(this.value) / Number(this.step)) *
-                    Number(this.step))
-                    .replace('{upper}', Math.floor(Number(this.value) / Number(this.step)) *
-                    Number(this.step) +
-                    Number(this.step));
-            case 'badInput':
-            case 'patternMismatch':
-            default:
-                return I18N$e[this.lang][this.htmlValidationErrors[0]];
-        }
+        this.inputTitle = validationMessage;
     }
     /*
      * Observe lang attribute change
@@ -3404,7 +3341,7 @@ const GcdsInput = class {
                 ? ` ${attrsInput['aria-describedby']}`
                 : ''}`;
         }
-        return (h(Host, { key: '75bc6a272bf06f77191758dc056487e47bd36e4a' }, h("div", { key: '43c8ca490d32e6a4f6c76ee837da3ab9e87dd392', class: `gcds-input-wrapper ${disabled ? 'gcds-disabled' : ''} ${hasError ? 'gcds-error' : ''}` }, h("gcds-label", Object.assign({ key: '90ca9c61c11a47914b4650bb910525fb1430b045' }, attrsLabel, { "hide-label": hideLabel, "label-for": inputId, lang: lang })), hint ? h("gcds-hint", { "hint-id": inputId }, hint) : null, errorMessage ? (h("gcds-error-message", { messageId: inputId }, errorMessage)) : null, h("input", Object.assign({ key: 'cf6d091d72cf584c1df8f407ff8d86afd6b4547f' }, attrsInput, { class: hasError ? 'gcds-error' : null, id: inputId, name: name, onBlur: () => this.onBlur(), onFocus: () => this.gcdsFocus.emit(), onInput: e => this.handleInput(e, this.gcdsInput), onChange: e => this.handleInput(e, this.gcdsChange), "aria-labelledby": `label-for-${inputId}`, "aria-invalid": inheritedAttributes['aria-invalid'] === 'true'
+        return (h(Host, { key: '9e1013a5309943d7d31bdbe27b0c40ad50547f20' }, h("div", { key: '05bdd407c9d032b45363937f384cd3bb4656d450', class: `gcds-input-wrapper ${disabled ? 'gcds-disabled' : ''} ${hasError ? 'gcds-error' : ''}` }, h("gcds-label", Object.assign({ key: 'd089b67c3e41629c03b25298fd61b972d2e9df0c' }, attrsLabel, { "hide-label": hideLabel, "label-for": inputId, lang: lang })), hint ? h("gcds-hint", { "hint-id": inputId }, hint) : null, errorMessage ? (h("gcds-error-message", { messageId: inputId }, errorMessage)) : null, h("input", Object.assign({ key: 'b596e0a0f64de1592f76614dbd1141baa07cec4f' }, attrsInput, { class: hasError ? 'gcds-error' : null, id: inputId, name: name, onBlur: () => this.onBlur(), onFocus: () => this.gcdsFocus.emit(), onInput: e => this.handleInput(e, this.gcdsInput), onChange: e => this.handleInput(e, this.gcdsChange), "aria-labelledby": `label-for-${inputId}`, "aria-invalid": inheritedAttributes['aria-invalid'] === 'true'
                 ? inheritedAttributes['aria-invalid']
                 : errorMessage
                     ? 'true'
@@ -3458,7 +3395,7 @@ const GcdsLabel = class {
     }
     render() {
         const { hideLabel, labelFor, label, required, lang } = this;
-        return (h(Host, { key: 'b9a825fe7b1bc1531f33cb2b2fa0ba4cb22fd40d', id: `label-for-${labelFor}` }, h("label", { key: '987c3347f09e6d3a9e56b95ae7fc22e091e6b237', htmlFor: labelFor, class: `gcds-label ${hideLabel ? 'label--hidden' : ''}` }, h("span", { key: 'c1f227df2be6ee2f53a290d89eb14a0bfd80e45f' }, label), required ? (h("span", { "aria-hidden": "true", class: "label--required" }, "(", I18N$d[lang].required, ")")) : null)));
+        return (h(Host, { key: '74bd8cdab28f3e11ad1af0e5d90ffbcdfeca4f3b', id: `label-for-${labelFor}` }, h("label", { key: 'a99ff6d66462b03f1b40759ada8dfe53eaa985ce', htmlFor: labelFor, class: `gcds-label ${hideLabel ? 'label--hidden' : ''}` }, h("span", { key: '1740af0193beae308a1227d729493c257e6ee813' }, label), required ? (h("span", { "aria-hidden": "true", class: "label--required" }, "(", I18N$d[lang].required, ")")) : null)));
     }
     get el() { return getElement(this); }
 };
@@ -3482,6 +3419,9 @@ const gcdsLangToggleCss = "@layer reset, default, desktop, mobile;@layer reset{:
 const GcdsLangToggle = class {
     constructor(hostRef) {
         registerInstance(this, hostRef);
+        this.gcdsFocus = createEvent(this, "gcdsFocus");
+        this.gcdsBlur = createEvent(this, "gcdsBlur");
+        this.gcdsClick = createEvent(this, "gcdsClick");
     }
     /*
      * Observe lang attribute change
@@ -3501,7 +3441,7 @@ const GcdsLangToggle = class {
     }
     render() {
         const { lang, href } = this;
-        return (h(Host, { key: '90f8fa237ca8093b35ae49b783e23d48cc75d30d' }, h("div", { key: 'cf38cfd545beb3bb1291336348930ff27dfcbeab', class: "gcds-lang-toggle" }, h("gcds-sr-only", { key: '82943994e5442fd5ad133c5f2d2cfdfa3f93817e', id: "lang-toggle__heading", tag: "h2" }, I18N$c[lang].heading), h("gcds-link", { key: '9f4a16f9f8bfe97a11790f5ad3665cfaff77837f', size: "regular", href: href, lang: I18N$c[lang].abbreviation }, h("span", { key: 'de2f6c64c38024281c1e9b6778daabe77bbfbb33' }, I18N$c[lang].language), h("abbr", { key: '0af8c87a23d7ff5b0c8031edff0a0f83b4cc8f67', title: I18N$c[lang].language }, I18N$c[lang].abbreviation)))));
+        return (h(Host, { key: 'abb80842d149c0505fdfaeb1bea1d693f8ab7acd' }, h("div", { key: '544f51158c13552ca6d918a976851ae114d8b15b', class: "gcds-lang-toggle" }, h("gcds-sr-only", { key: 'ad847ef3d7b32528ac5a02d86907e7646a6133b6', id: "lang-toggle__heading", tag: "h2" }, I18N$c[lang].heading), h("gcds-link", { key: '7ed33cd0eee4468e60294eb449627a546128f9b8', size: "regular", href: href, lang: I18N$c[lang].abbreviation }, h("span", { key: 'd1586f4d7c5b2b0b16f5e123e0dbc1715e9a7616' }, I18N$c[lang].language), h("abbr", { key: '38bfded01448eeccd475feca0275d34cbb8745b3', title: I18N$c[lang].language }, I18N$c[lang].abbreviation)))));
     }
     get el() { return getElement(this); }
 };
@@ -3609,7 +3549,7 @@ const GcdsLink = class {
             type,
         };
         const isExternal = target === '_blank' || external;
-        return (h(Host, { key: '99bd6ce9f3bebc2468fed22644bec0421b7afc40' }, h("a", Object.assign({ key: 'a19942fd68abfb6477a6da324ce3ae31e09a07b1', tabIndex: 0 }, attrs, { class: `gcds-link link--${size} ${display != 'inline' ? `d-${display}` : ''} ${variant != 'default' ? `variant-${variant}` : ''}`, ref: element => (this.shadowElement = element), target: isExternal ? '_blank' : target, rel: isExternal ? 'noopener noreferrer' : rel }, inheritedAttributes, { part: "link", onBlur: () => this.gcdsBlur.emit(), onFocus: () => this.gcdsFocus.emit(), onClick: e => emitEvent(e, this.gcdsClick, href) }), h("slot", { key: 'bd5f658221e922e831be1d190f865d71a5ed1455' }), target === '_blank' || external ? (h("gcds-icon", { name: "external", label: I18N$b[lang].external, "margin-left": "75" })) : download !== undefined ? (h("gcds-icon", { name: "download", label: I18N$b[lang].download, "margin-left": "75" })) : href && href.toLowerCase().startsWith('mailto:') ? (h("gcds-icon", { name: "email", label: I18N$b[lang].email, "margin-left": "75" })) : (href &&
+        return (h(Host, { key: '8cd9092b220f6cea2f5311e3053e0fbed489b40e' }, h("a", Object.assign({ key: '112763038c0564dd208a1172c28c26026c27b511', tabIndex: 0 }, attrs, { class: `gcds-link link--${size} ${display != 'inline' ? `d-${display}` : ''} ${variant != 'default' ? `variant-${variant}` : ''}`, ref: element => (this.shadowElement = element), target: isExternal ? '_blank' : target, rel: isExternal ? 'noopener noreferrer' : rel }, inheritedAttributes, { part: "link", onBlur: () => this.gcdsBlur.emit(), onFocus: () => this.gcdsFocus.emit(), onClick: e => emitEvent(e, this.gcdsClick, href) }), h("slot", { key: '749225ef8d310a8499061c7b8e6831ea3d68cad0' }), target === '_blank' || external ? (h("gcds-icon", { name: "external", label: I18N$b[lang].external, "margin-left": "75" })) : download !== undefined ? (h("gcds-icon", { name: "download", label: I18N$b[lang].download, "margin-left": "75" })) : href && href.toLowerCase().startsWith('mailto:') ? (h("gcds-icon", { name: "email", label: I18N$b[lang].email, "margin-left": "75" })) : (href &&
             href.toLowerCase().startsWith('tel:') && (h("gcds-icon", { name: "phone", label: I18N$b[lang].phone, "margin-left": "75" }))))));
     }
     get el() { return getElement(this); }
@@ -3621,7 +3561,7 @@ const GcdsLink = class {
 };
 GcdsLink.style = gcdsLinkCss;
 
-const gcdsNavGroupCss = "@layer reset, defaults, sideNav, topNav, mobileNav, desktop, mobile, hover, focus;@layer reset{:host *{box-sizing:border-box;margin:0;padding:0}}@layer defaults{:host{align-self:flex-end;display:flex;flex-direction:column;position:relative}:host .gcds-nav-group__trigger{align-items:center;background:transparent;border:0;color:var(--gcds-nav-group-trigger-text);cursor:pointer;display:flex;font:var(--gcds-nav-group-trigger-font);padding:var(--gcds-nav-group-trigger-padding);text-align:left;width:100%}@media only screen and (width < 64em){:host .gcds-nav-group__trigger{font:var(--gcds-nav-group-mobile-trigger-font)}}:host .gcds-nav-group__trigger[aria-expanded=false]+.gcds-nav-group__list{display:none}:host .gcds-nav-group__trigger-desc{display:none}:host ul{list-style:none}}@layer sideNav{:host .gcds-trigger--expandable{font-weight:var(--gcds-nav-group-side-nav-trigger-font-weight);margin-block-end:var(--gcds-nav-group-side-nav-trigger-margin)}:host .gcds-trigger--expandable gcds-icon{margin-inline-end:var(--gcds-nav-group-side-nav-trigger-icon-margin)}}@layer topNav{:host .gcds-trigger--dropdown{font:var(--gcds-nav-group-top-nav-font);padding:var(--gcds-nav-group-top-nav-trigger-padding);text-decoration:underline solid currentColor var(--gcds-nav-group-top-nav-trigger-decoration-thickness);text-decoration-color:transparent;text-underline-offset:var(\n      --gcds-nav-group-top-nav-trigger-underline-offset\n    );transition:all .25s ease-in-out}:host .gcds-trigger--dropdown[aria-expanded=true]{background-color:var(\n        --gcds-nav-group-top-nav-trigger-expanded-background-color\n      )}:host .gcds-trigger--dropdown gcds-icon{margin-inline-start:var(--gcds-nav-group-top-nav-trigger-icon-margin);order:2}}@layer mobileNav{:host(.gcds-mobile-nav){width:100%}:host(.gcds-mobile-nav) .gcds-trigger--expandable{border:var(--gcds-nav-group-mobile-trigger-border-width) solid;border-radius:var(--gcds-nav-group-mobile-trigger-border-radius);color:var(--gcds-nav-group-mobile-trigger-text);flex-direction:row-reverse;font:var(--gcds-nav-group-mobile-trigger-font);justify-content:center;margin-block-start:var(--gcds-nav-group-mobile-trigger-margin);text-align:center}:host(.gcds-mobile-nav) .gcds-trigger--expandable gcds-icon{display:none}:host([open].gcds-mobile-nav){background-color:var(--gcds-nav-group-mobile-background);height:100vh;left:0;overflow-y:scroll;padding:var(--gcds-nav-group-mobile-padding)!important;position:fixed;top:0;width:100%;z-index:100}}@layer desktop{@media only screen and (width >= 64em){:host .gcds-nav-group__trigger{max-width:var(--gcds-nav-group-trigger-max-width)}:host .gcds-nav--expandable{padding-inline-start:var(--gcds-nav-group-side-nav-dropdown-padding)}:host .gcds-nav--dropdown{background-color:var(--gcds-nav-group-top-nav-dropdown-background);border-radius:var(--gcds-border-radius-md);box-shadow:var(--gcds-nav-group-top-nav-dropdown-box-shadow);left:0;margin-block-start:var(--gcds-spacing-200);padding:var(--gcds-nav-group-top-nav-dropdown-padding);position:absolute;top:100%;width:var(--gcds-nav-group-top-nav-dropdown-width);z-index:1}:host .gcds-nav--dropdown.dropdown-right{left:auto;right:0}:host(.gcds-mobile-nav)>.gcds-nav--expandable{display:block;padding:0}:host(.gcds-mobile-nav) .gcds-trigger--expandable{display:none}:host(.gcds-mobile-nav-topnav)>.gcds-nav--expandable{display:flex}}}@layer mobile{@media only screen and (width < 64em){:host(.gcds-mobile-nav)>.gcds-nav--expandable{margin:var(--gcds-nav-group-mobile-list-margin)}:host([open]:not(.gcds-mobile-nav)) .gcds-nav-group__list{padding-inline-start:var(--gcds-nav-group-side-nav-dropdown-padding)}}@media only screen and (48em < width < 64em){:host(.gcds-mobile-nav) .gcds-trigger--expandable{align-self:flex-start;width:auto}}}@layer hover{@media (hover:hover){:host .gcds-nav-group__trigger:hover{color:var(--gcds-nav-group-trigger-hover-text)}:host .gcds-trigger--dropdown:hover{color:var(--gcds-nav-group-top-nav-trigger-hover-text);text-decoration-color:var(--gcds-nav-group-top-nav-trigger-hover-text);text-decoration-thickness:var(\n          --gcds-nav-group-top-nav-trigger-hover-decoration-thickness\n        )}:host .gcds-trigger--expandable:hover{background-color:var(\n          --gcds-nav-group-side-nav-trigger-hover-background\n        )}}}@layer focus{:host .gcds-nav-group__trigger:focus{background-color:var(--gcds-nav-group-trigger-focus-background);border-color:var(--gcds-nav-group-trigger-focus-background);border-radius:var(--gcds-nav-group-trigger-focus-border-radius);box-shadow:var(--gcds-nav-group-trigger-focus-box-shadow);color:var(--gcds-nav-group-trigger-focus-text);outline:var(--gcds-nav-group-trigger-focus-outline);outline-offset:var(--gcds-nav-group-trigger-focus-outline-offset);text-decoration:none}}";
+const gcdsNavGroupCss = "@layer reset, defaults, sideNav, topNav, mobileNav, desktop, mobile, hover, focus;@layer reset{:host *{box-sizing:border-box;margin:0;padding:0}}@layer defaults{:host{align-self:flex-end;display:flex;flex-direction:column;position:relative}:host .gcds-nav-group__trigger{align-items:center;background:transparent;border:0;color:var(--gcds-nav-group-trigger-text);cursor:pointer;display:flex;font:var(--gcds-nav-group-font);padding:var(--gcds-nav-group-trigger-padding);text-align:left;width:100%}:host .gcds-nav-group__trigger[aria-expanded=false]+.gcds-nav-group__list{display:none}:host .gcds-nav-group__trigger-desc{display:none}:host ul{list-style:none}}@layer sideNav{:host .gcds-trigger--expandable{font-weight:var(--gcds-nav-group-side-nav-trigger-font-weight);margin-block-end:var(--gcds-nav-group-side-nav-trigger-margin)}:host .gcds-trigger--expandable gcds-icon{margin-inline-end:var(--gcds-nav-group-side-nav-trigger-icon-margin)}}@layer topNav{:host .gcds-trigger--dropdown{padding:var(--gcds-nav-group-top-nav-trigger-padding);text-decoration:underline solid currentColor var(--gcds-nav-group-top-nav-trigger-decoration-thickness);text-decoration-color:transparent;text-underline-offset:var(\n      --gcds-nav-group-top-nav-trigger-underline-offset\n    );transition:all .25s ease-in-out}:host .gcds-trigger--dropdown[aria-expanded=true]{background-color:var(\n        --gcds-nav-group-top-nav-trigger-expanded-background-color\n      )}:host .gcds-trigger--dropdown gcds-icon{margin-inline-start:var(--gcds-nav-group-top-nav-trigger-icon-margin);order:2}}@layer mobileNav{:host(.gcds-mobile-nav){width:100%}:host(.gcds-mobile-nav) .gcds-trigger--expandable{border:var(--gcds-nav-group-mobile-trigger-border-width) solid;border-radius:var(--gcds-nav-group-mobile-trigger-border-radius);color:var(--gcds-nav-group-mobile-trigger-text);flex-direction:row-reverse;justify-content:center;margin-block-start:var(--gcds-nav-group-mobile-trigger-margin);text-align:center}:host(.gcds-mobile-nav) .gcds-trigger--expandable gcds-icon{display:none}:host([open].gcds-mobile-nav){background-color:var(--gcds-nav-group-mobile-background);height:100vh;left:0;overflow-y:scroll;padding:var(--gcds-nav-group-mobile-padding)!important;position:fixed;top:0;width:100%;z-index:100}}@layer desktop{@media only screen and (width >= 64em){:host .gcds-nav-group__trigger{max-width:var(--gcds-nav-group-trigger-max-width)}:host .gcds-nav--expandable{padding-inline-start:var(--gcds-nav-group-side-nav-dropdown-padding)}:host .gcds-nav--dropdown{background-color:var(--gcds-nav-group-top-nav-dropdown-background);border-radius:var(--gcds-border-radius-md);box-shadow:var(--gcds-nav-group-top-nav-dropdown-box-shadow);left:0;margin-block-start:var(--gcds-spacing-200);padding:var(--gcds-nav-group-top-nav-dropdown-padding);position:absolute;top:100%;width:var(--gcds-nav-group-top-nav-dropdown-width);z-index:1}:host .gcds-nav--dropdown.dropdown-right{left:auto;right:0}:host(.gcds-mobile-nav)>.gcds-nav--expandable{display:block;padding:0}:host(.gcds-mobile-nav) .gcds-trigger--expandable{display:none}:host(.gcds-mobile-nav-topnav)>.gcds-nav--expandable{display:flex}}}@layer mobile{@media only screen and (width < 64em){:host(.gcds-mobile-nav)>.gcds-nav--expandable{margin:var(--gcds-nav-group-mobile-list-margin)}:host([open]:not(.gcds-mobile-nav)) .gcds-nav-group__list{padding-inline-start:var(--gcds-nav-group-side-nav-dropdown-padding)}}@media only screen and (48em < width < 64em){:host(.gcds-mobile-nav) .gcds-trigger--expandable{align-self:flex-start;width:auto}}}@layer hover{@media (hover:hover){:host .gcds-nav-group__trigger:hover{color:var(--gcds-nav-group-trigger-hover-text)}:host .gcds-trigger--dropdown:hover{color:var(--gcds-nav-group-top-nav-trigger-hover-text);text-decoration-color:var(--gcds-nav-group-top-nav-trigger-hover-text);text-decoration-thickness:var(\n          --gcds-nav-group-top-nav-trigger-hover-decoration-thickness\n        )}:host .gcds-trigger--expandable:hover{background-color:var(\n          --gcds-nav-group-side-nav-trigger-hover-background\n        )}}}@layer focus{:host .gcds-nav-group__trigger:focus{background-color:var(--gcds-nav-group-trigger-focus-background);border-color:var(--gcds-nav-group-trigger-focus-background);border-radius:var(--gcds-nav-group-trigger-focus-border-radius);box-shadow:var(--gcds-nav-group-trigger-focus-box-shadow);color:var(--gcds-nav-group-trigger-focus-text);outline:var(--gcds-nav-group-trigger-focus-outline);outline-offset:var(--gcds-nav-group-trigger-focus-outline-offset);text-decoration:none}}";
 
 const GcdsNavGroup = class {
     constructor(hostRef) {
@@ -3638,7 +3578,7 @@ const GcdsNavGroup = class {
     async focusOutListener(e) {
         if ((e.target === this.el || this.el.contains(e.target)) &&
             !this.el.contains(e.relatedTarget) &&
-            this.navStyle === 'dropdown' &&
+            this.navStyle.includes('dropdown') &&
             this.open &&
             window.innerWidth >= 1024) {
             setTimeout(() => this.toggleNav(), 200);
@@ -3722,18 +3662,24 @@ const GcdsNavGroup = class {
     }
     render() {
         const { closeTrigger, menuLabel, open, openTrigger } = this;
-        return (h(Host, { key: '952c4f16984d92ec816f75e17e8610238a40a83b', role: "listitem", open: open }, h("button", { key: '68293dfb96996dc2305744e16d1b3c9e448dfb95', "aria-haspopup": "true", tabIndex: 0, "aria-expanded": open.toString(), ref: element => (this.triggerElement = element), class: `gcds-nav-group__trigger gcds-trigger--${this.navStyle}`, onBlur: () => this.gcdsBlur.emit(), onFocus: () => this.gcdsFocus.emit(), onClick: e => {
+        return (h(Host, { key: 'e83cd752015541c3d3c66df11acea95bb47d328f', role: "listitem", open: open }, h("button", { key: 'c454fdad83340bfda53c6be88fad4d04832b616d', "aria-haspopup": "true", tabIndex: 0, "aria-expanded": open.toString(), ref: element => (this.triggerElement = element), class: `gcds-nav-group__trigger gcds-trigger--${this.navStyle}`, onBlur: () => this.gcdsBlur.emit(), onFocus: () => this.gcdsFocus.emit(), onClick: e => {
                 const event = emitEvent(e, this.gcdsClick);
                 if (event) {
                     this.toggleNav();
                 }
-            } }, h("gcds-icon", { key: '2cb55aeb934079a7e74d536c01bf5b0c218887ec', name: open ? 'chevron-up' : 'chevron-down' }), closeTrigger && open ? closeTrigger : openTrigger), h("ul", { key: '7b1b84bd13d62ef1f7f7f4393f821b4ab9d06827', "aria-label": menuLabel, class: `gcds-nav-group__list gcds-nav--${this.navStyle}` }, h("slot", { key: 'ce79cefeab19e5dfc98042125b14c146eb956021' }))));
+            } }, h("gcds-icon", { key: '6a2a04d5728d1b23860522b3419c054621abae4f', name: this.navStyle === 'expandable'
+                ? open
+                    ? 'chevron-down'
+                    : 'chevron-right'
+                : open
+                    ? 'chevron-up'
+                    : 'chevron-down' }), closeTrigger && open ? closeTrigger : openTrigger), h("ul", { key: 'be77203e415fe750b349dec603812cd8a8cb5bab', "aria-label": menuLabel, class: `gcds-nav-group__list gcds-nav--${this.navStyle}` }, h("slot", { key: '0e98b6827f549b1ff852d15dbbe7e4f8a0546c24' }))));
     }
     get el() { return getElement(this); }
 };
 GcdsNavGroup.style = gcdsNavGroupCss;
 
-const gcdsNavLinkCss = "@layer reset, default, variants, hover, active, focus;@layer reset{:host .gcds-nav-link{box-sizing:border-box}:host .gcds-nav-link slot{display:initial}}@layer default{:host .gcds-nav-link{border-inline:var(--gcds-nav-link-border-width) solid transparent;color:var(--gcds-nav-link-default-text);display:flex;font:var(--gcds-nav-link-font);margin-block-end:var(--gcds-nav-link-margin);padding:var(--gcds-nav-link-padding);text-decoration-color:currentColor;text-decoration-line:underline;text-decoration-style:solid;text-decoration-thickness:var(--gcds-nav-link-default-decoration-thickness);text-underline-offset:var(--gcds-nav-link-default-underline-offset);transition:all .25s ease-in-out}@media only screen and (width < 64em){:host .gcds-nav-link{font:var(--gcds-nav-link-font-mobile);min-width:50%}}@media only screen and (width > 48em){:host .gcds-nav-link{max-width:var(--gcds-nav-link-default-max-width)}}:host .gcds-nav-link[aria-current=page]{pointer-events:none;text-decoration:none}}@layer variants{@media only screen and (width >= 64em){:host>.gcds-nav-link--topnav.gcds-nav-link{border-block:var(--gcds-nav-link-border-width) solid transparent;border-inline:0;color:var(--gcds-nav-link-top-nav-text);font:var(--gcds-nav-link-top-nav-font);margin:var(--gcds-nav-link-top-nav-margin);padding:var(--gcds-nav-link-top-nav-padding)}:host>.gcds-nav-link--topnav.gcds-nav-link:not(:hover){text-decoration-color:transparent}:host([slot=home])>.gcds-nav-link{font:var(--gcds-nav-link-top-nav-home-font);padding:var(--gcds-nav-link-top-nav-home-padding)}}:host>.gcds-nav-link--sidenav.gcds-nav-link{padding:var(--gcds-nav-link-side-nav-padding)}}@layer hover{@media (hover:hover){:host .gcds-nav-link:hover{color:var(--gcds-nav-link-hover-text);text-decoration-thickness:var(\n        --gcds-nav-link-hover-decoration-thickness\n      )}:host>.gcds-nav-link--dropdown.gcds-nav-link:hover,:host>.gcds-nav-link--sidenav.gcds-nav-link:hover{color:var(--gcds-nav-link-hover-text)}:host>.gcds-nav-link--sidenav.gcds-nav-link:hover{background-color:var(--gcds-nav-link-side-nav-hover-background)}:host>.gcds-nav-link--dropdown.gcds-nav-link:hover{background-color:var(--gcds-nav-link-top-nav-hover-background)}}}@layer active{:host .gcds-nav-link[aria-current=page]{background-color:var(--gcds-nav-link-active-background);border-inline-start-color:var(--gcds-nav-link-active-border-color);color:var(--gcds-nav-link-active-text)}@media only screen and (width >= 64em){:host>.gcds-nav-link--topnav.gcds-nav-link[aria-current=page]{background-color:transparent;border-block-end-color:var(--gcds-nav-link-active-border-color);color:var(--gcds-nav-link-top-nav-text)}}:host>.gcds-nav-link--sidenav.gcds-nav-link[aria-current=page]{font-weight:var(--gcds-nav-link-active-font-weight)}}@layer focus{:host .gcds-nav-link:focus{background-color:var(--gcds-nav-link-focus-background);border-color:var(--gcds-nav-link-focus-background);border-radius:var(--gcds-nav-link-focus-border-radius);box-shadow:var(--gcds-nav-link-focus-box-shadow);color:var(--gcds-nav-link-focus-text);outline:var(--gcds-nav-link-focus-outline);outline-offset:var(--gcds-nav-link-focus-outline-offset);text-decoration:none}}";
+const gcdsNavLinkCss = "@layer reset, default, variants, hover, active, focus;@layer reset{:host .gcds-nav-link{box-sizing:border-box}:host .gcds-nav-link slot{display:initial}}@layer default{:host .gcds-nav-link{border-inline:var(--gcds-nav-link-border-width) solid transparent;color:var(--gcds-nav-link-default-text);display:flex;font:var(--gcds-nav-link-font);margin-block-end:var(--gcds-nav-link-margin);padding:var(--gcds-nav-link-padding);text-decoration-color:currentColor;text-decoration-line:underline;text-decoration-style:solid;text-decoration-thickness:var(\n      --gcds-nav-link-default-decoration-thickness\n    );text-underline-offset:var(--gcds-nav-link-default-underline-offset);transition:all .25s ease-in-out}@media only screen and (width < 64em){:host .gcds-nav-link{font:var(--gcds-nav-link-font-mobile);min-width:50%}}@media only screen and (width > 48em){:host .gcds-nav-link{max-width:var(--gcds-nav-link-default-max-width)}}:host .gcds-nav-link[aria-current=page]{pointer-events:none;text-decoration:none}}@layer variants{@media only screen and (width >= 64em){:host>.gcds-nav-link--topnav.gcds-nav-link{border-block:var(--gcds-nav-link-border-width) solid transparent;border-inline:0;color:var(--gcds-nav-link-top-nav-text);margin:var(--gcds-nav-link-top-nav-margin);padding:var(--gcds-nav-link-top-nav-padding)}:host>.gcds-nav-link--topnav.gcds-nav-link:not(:hover){text-decoration-color:transparent}:host([slot=home])>.gcds-nav-link{font:var(--gcds-nav-link-top-nav-home-font);padding:var(--gcds-nav-link-top-nav-home-padding)}}:host>.gcds-nav-link--sidenav.gcds-nav-link{padding:var(--gcds-nav-link-side-nav-padding)}}@layer hover{@media (hover:hover){:host .gcds-nav-link:hover{color:var(--gcds-nav-link-hover-text);text-decoration-thickness:var(\n        --gcds-nav-link-hover-decoration-thickness\n      )}:host>.gcds-nav-link--dropdown.gcds-nav-link:hover,:host>.gcds-nav-link--sidenav.gcds-nav-link:hover{color:var(--gcds-nav-link-hover-text)}:host>.gcds-nav-link--sidenav.gcds-nav-link:hover{background-color:var(--gcds-nav-link-side-nav-hover-background)}:host>.gcds-nav-link--dropdown.gcds-nav-link:hover{background-color:var(--gcds-nav-link-top-nav-hover-background)}}}@layer active{:host .gcds-nav-link[aria-current=page]{background-color:var(--gcds-nav-link-active-background);border-inline-start-color:var(--gcds-nav-link-active-border-color);color:var(--gcds-nav-link-active-text)}@media only screen and (width >= 64em){:host>.gcds-nav-link--topnav.gcds-nav-link[aria-current=page]{background-color:transparent;border-block-end-color:var(--gcds-nav-link-active-border-color);color:var(--gcds-nav-link-top-nav-text)}}:host>.gcds-nav-link--sidenav.gcds-nav-link[aria-current=page]{font-weight:var(--gcds-nav-link-active-font-weight)}}@layer focus{:host .gcds-nav-link:focus{background-color:var(--gcds-nav-link-focus-background);border-color:var(--gcds-nav-link-focus-background);border-radius:var(--gcds-nav-link-focus-border-radius);box-shadow:var(--gcds-nav-link-focus-box-shadow);color:var(--gcds-nav-link-focus-text);outline:var(--gcds-nav-link-focus-outline);outline-offset:var(--gcds-nav-link-focus-outline-offset);text-decoration:none}}";
 
 const GcdsNavLink = class {
     constructor(hostRef) {
@@ -3781,7 +3727,7 @@ const GcdsNavLink = class {
         if (current) {
             linkAttrs['aria-current'] = 'page';
         }
-        return (h(Host, { key: '5a76c200c2d515b82addfbcee6fd932491889505', role: "listitem" }, h("a", Object.assign({ key: 'e07cc786a25123e192d0bec025c0ab7a77078d8b', class: `gcds-nav-link gcds-nav-link--${this.navStyle}`, href: href }, linkAttrs, { tabIndex: 0, onBlur: () => this.gcdsBlur.emit(), onFocus: () => this.gcdsFocus.emit(), onClick: e => emitEvent(e, this.gcdsClick, href), ref: element => (this.linkElement = element) }), h("slot", { key: '32e5be57f63a00cb58b79ed2ac9650327e1c9c17' }))));
+        return (h(Host, { key: '69d1a5cf3b6ec8277ecbc0b994c679a85485f288', role: "listitem" }, h("a", Object.assign({ key: 'e6fa6df38ec8f39e69e6e030846353e969640680', class: `gcds-nav-link gcds-nav-link--${this.navStyle}`, href: href }, linkAttrs, { tabIndex: 0, onBlur: () => this.gcdsBlur.emit(), onFocus: () => this.gcdsFocus.emit(), onClick: e => emitEvent(e, this.gcdsClick, href), ref: element => (this.linkElement = element) }), h("slot", { key: '77b17d920b3c8e9fed6467aff446f928d246cf19' }))));
     }
     get el() { return getElement(this); }
 };
@@ -3877,7 +3823,7 @@ const GcdsNotice = class {
         // Define lang attribute
         this.lang = assignLanguage(this.el);
         this.updateLang();
-        let valid = this.validateRequiredProps();
+        const valid = this.validateRequiredProps();
         if (!valid) {
             logError('gcds-notice', this.errors);
         }
@@ -3890,7 +3836,7 @@ const GcdsNotice = class {
             success: 'checkmark-circle',
             warning: 'warning-triangle',
         };
-        return (h(Host, { key: 'd05e01b3d51707d840c395fe2197831394438ed9' }, this.validateRequiredProps() && (h("section", { key: 'e6d7fdc879b8592431b100b59b77bb511d32e95e', class: `gcds-notice notice--type-${type}` }, h("gcds-icon", { key: '85ad98787913a52dc462367ae453b95743623066', class: "notice__icon", size: "h4", name: iconTypes[type] }), h("div", { key: 'a44107281bb95d4a6943dbeb6b38a6603a427a0b' }, h("gcds-heading", { key: 'ec0805c7006d48dcefaf4b91dcf6d5bed1a7ea68', tag: noticeTitleTag, "margin-top": "0", "margin-bottom": "100", class: "notice__heading" }, h("gcds-sr-only", { key: '35352ad8a3a0ce3f9ace2314c269fc71f6657ffa', tag: "span" }, I18N$a[this.lang][type]), noticeTitle), h("slot", { key: '8c59481347d56e817be55b566a0c8a1121753c41' }))))));
+        return (h(Host, { key: '8a00f86f682e7a061c99658762079acc79d2277e' }, this.validateRequiredProps() && (h("section", { key: '04219293eafd3fe86c13826820644a02584a389d', class: `gcds-notice notice--type-${type}` }, h("gcds-icon", { key: '9d095dbcf44d3d39a408f55531164e76ae969b42', class: "notice__icon", size: "h4", name: iconTypes[type] }), h("div", { key: '525e51d6030072ee8b88a99e4e01078868e6df87' }, h("gcds-heading", { key: 'fd5adaf2b185a71d0d70e5174af1d590fb405c2c', tag: noticeTitleTag, "margin-top": "0", "margin-bottom": "100", class: "notice__heading" }, h("gcds-sr-only", { key: 'b8955dccf72340580e7cf30ae2bba76b7704b50e', tag: "span" }, I18N$a[this.lang][type]), noticeTitle), h("slot", { key: '781c621945781994d22fc5c0e9974ac852e0fe39' }))))));
     }
     get el() { return getElement(this); }
 };
@@ -4039,7 +3985,7 @@ const GcdsPagination = class {
          * Props
          */
         /**
-         * Navigation element label
+         * Determines the pagination display style.
          */
         this.display = 'list';
     }
@@ -4212,7 +4158,7 @@ const GcdsPagination = class {
     }
     render() {
         const { display, label, previousHref, previousLabel, nextHref, nextLabel, lang, } = this;
-        return (h(Host, { key: '18bb20fbd6126c3f6da55744df5bdd25df0d1e00', role: "navigation", "aria-label": label }, h("div", { key: '01f20dcbb452e3d8678a19864ed6ce795b321f71', class: "gcds-pagination" }, display === 'list' ? (h("div", null, h("ul", { class: "gcds-pagination-list" }, this.listitems), h("ul", { class: "gcds-pagination-list-mobile-prevnext" }, this.mobilePrevNext))) : (h("ul", { class: "gcds-pagination-simple" }, previousHref && (h("li", { class: "gcds-pagination-simple-previous" }, h("a", { href: previousHref, tabindex: 0, "aria-label": `${I18N$9[lang].previousPage}${previousLabel ? `: ${previousLabel}` : ''}`, onBlur: () => this.gcdsBlur.emit(), onFocus: () => this.gcdsFocus.emit(), onClick: e => emitEvent(e, this.gcdsClick, previousHref) }, h("gcds-icon", { "margin-right": "150", name: "chevron-left" }), h("div", { class: "gcds-pagination-simple-text" }, I18N$9[lang].previous), h("span", null, previousLabel)))), nextHref && (h("li", { class: "gcds-pagination-simple-next" }, h("a", { href: nextHref, tabindex: 0, "aria-label": `${I18N$9[lang].nextPage}${nextLabel ? `: ${nextLabel}` : ''}`, onBlur: () => this.gcdsBlur.emit(), onFocus: () => this.gcdsFocus.emit(), onClick: e => emitEvent(e, this.gcdsClick, nextHref) }, h("div", { class: "gcds-pagination-simple-text" }, I18N$9[lang].next), h("span", null, nextLabel), h("gcds-icon", { "margin-left": "150", name: "chevron-right" })))))))));
+        return (h(Host, { key: '7de8352d25f9bf89e58d2c3ed98a14ab62acb98b', role: "navigation", "aria-label": label }, h("div", { key: 'f63a8dbf6f85c1ec54abf67d01ef423ec8dcc2c7', class: "gcds-pagination" }, display === 'list' ? (h("div", null, h("ul", { class: "gcds-pagination-list" }, this.listitems), h("ul", { class: "gcds-pagination-list-mobile-prevnext" }, this.mobilePrevNext))) : (h("ul", { class: "gcds-pagination-simple" }, previousHref && (h("li", { class: "gcds-pagination-simple-previous" }, h("a", { href: previousHref, tabindex: 0, "aria-label": `${I18N$9[lang].previousPage}${previousLabel ? `: ${previousLabel}` : ''}`, onBlur: () => this.gcdsBlur.emit(), onFocus: () => this.gcdsFocus.emit(), onClick: e => emitEvent(e, this.gcdsClick, previousHref) }, h("gcds-icon", { "margin-right": "150", name: "chevron-left" }), h("div", { class: "gcds-pagination-simple-text" }, I18N$9[lang].previous), h("span", null, previousLabel)))), nextHref && (h("li", { class: "gcds-pagination-simple-next" }, h("a", { href: nextHref, tabindex: 0, "aria-label": `${I18N$9[lang].nextPage}${nextLabel ? `: ${nextLabel}` : ''}`, onBlur: () => this.gcdsBlur.emit(), onFocus: () => this.gcdsFocus.emit(), onClick: e => emitEvent(e, this.gcdsClick, nextHref) }, h("div", { class: "gcds-pagination-simple-text" }, I18N$9[lang].next), h("span", null, nextLabel), h("gcds-icon", { "margin-left": "150", name: "chevron-right" })))))))));
     }
     get el() { return getElement(this); }
     static get watchers() { return {
@@ -4270,7 +4216,7 @@ const GcdsPhaseBanner = class {
     }
     render() {
         const { bannerRole, container, isFixed, lang } = this;
-        return (h(Host, { key: '3ef9d402ed5d00edcca05e2a45ed8e0e14675dd1' }, h("div", { key: '1173d307a0e98624faba72445afad7534d115ffa', class: `gcds-phase-banner banner--role-${bannerRole} ${isFixed ? 'banner--is-fixed' : ''}`, role: "status", "aria-label": I18N$8[lang].label }, h("gcds-container", { key: 'b538a1a6155d73d5353389a393cf0fc00dd86201', size: container, centered: true }, h("div", { key: 'eb803333e6e5ef41b52510fc23ad3ac831bb45a5', class: "banner__content" }, h("figure", { key: '1831215c9c766c79abebfeee59a96f4bff0058b2', class: "banner__icon icon--left" }, h("slot", { key: '617504c5372c05f86e8300b1ad4ec65088f28fa4', name: "banner-icon-left" })), h("div", { key: '79212595540aaf4ecec3daa82ec9a76279b614c1', class: "banner__details" }, h("slot", { key: '6ecf5dd32ae92e2a5f829790300d56b23208cda0', name: "banner-text" }), h("slot", { key: '97750bdbf20710cd924d51325d8d322833194bbc', name: "banner-cta" })), h("figure", { key: '4f041c68abc255bd0633a0c28f63bb38b30ea2a6', class: "banner__icon icon--right" }, h("slot", { key: '199acb4e29bc22e2b32b4e8d3e6f3caf6e4c21f6', name: "banner-icon-right" })))))));
+        return (h(Host, { key: '9e22cdaf600a5c04b1a6866e7ca6386a1c52b22f' }, h("div", { key: '8815335957b79321257d2652ab9412071678c835', class: `gcds-phase-banner banner--role-${bannerRole} ${isFixed ? 'banner--is-fixed' : ''}`, role: "status", "aria-label": I18N$8[lang].label }, h("gcds-container", { key: 'f2ea1e5e0462f877f5f220762dc2ba0731177956', size: container, centered: true }, h("div", { key: '8f53b7147fa6cda3d0c93e48d1af7e7ee5e939b3', class: "banner__content" }, h("figure", { key: '065b45c6af563cde9a1239e0d156e7851cd5ec9b', class: "banner__icon icon--left" }, h("slot", { key: '0ebff7836c9f90e51d99ce83ade049a4560061a9', name: "banner-icon-left" })), h("div", { key: '75c91c8cefc6258a786d7a8a5bb0a12192701555', class: "banner__details" }, h("slot", { key: '02d2d3d4bc23219520073a35c14da40e4a98df44', name: "banner-text" }), h("slot", { key: 'd23c8e87203df30dfbb97682fc610acbb4477b90', name: "banner-cta" })), h("figure", { key: 'eb80fcd4a211eae36bfeaf198c75f6fdf0eac375', class: "banner__icon icon--right" }, h("slot", { key: 'ab144b1be3f32ab0efdb19ad5be68f12b342e745', name: "banner-icon-right" })))))));
     }
     get el() { return getElement(this); }
 };
@@ -4502,7 +4448,7 @@ const GcdsRadios = class {
                 `${fieldsetAttrs['aria-labelledby']} ${hintID}`.trim();
         }
         if (this.validateRequiredProps()) {
-            return (h(Host, { key: 'ec77376f853d89aafeee2f52c45514eb0b5abb1b', onBlur: () => this.onBlurValidate() }, h("fieldset", Object.assign({ key: '631e4d0139c528aa431eec9b57059c21a65c88bf', class: "gcds-radios__fieldset" }, fieldsetAttrs), h("legend", { key: '5177e3e3373edf06883dbfc0a6b2dfaa0712ad0a', id: "radios-legend", class: "gcds-radios__legend" }, legend, required ? (h("span", { class: "legend__required" }, I18N$7[lang].required)) : null), hint ? (h("gcds-hint", { id: "radios-hint", "hint-id": "radios" }, hint)) : null, errorMessage ? (h("div", null, h("gcds-error-message", { id: "radios-error", messageId: "radios" }, errorMessage))) : null, this.optionsArr &&
+            return (h(Host, { key: '863fb42cf8b4ad89a28170ded8066c3220b6434e', onBlur: () => this.onBlurValidate() }, h("fieldset", Object.assign({ key: '460e85e366045fd2bffa39cba97603070bb029ff', class: "gcds-radios__fieldset" }, fieldsetAttrs), h("legend", { key: '8f37f944357de5f5a5b30758276ad3faee992851', id: "radios-legend", class: "gcds-radios__legend" }, legend, required ? (h("span", { class: "legend__required" }, I18N$7[lang].required)) : null), hint ? (h("gcds-hint", { id: "radios-hint", "hint-id": "radios" }, hint)) : null, errorMessage ? (h("div", null, h("gcds-error-message", { id: "radios-error", messageId: "radios" }, errorMessage))) : null, this.optionsArr &&
                 this.optionsArr.map(radio => {
                     const attrsInput = Object.assign({ name, disabled: disabled, required: required, value: radio.value, checked: radio.value === value }, inheritedAttributes);
                     if (radio.hint) {
@@ -4606,7 +4552,7 @@ const GcdsSearch = class {
         const formAction = action === '/sr/srb.html'
             ? `https://www.canada.ca/${lang}/sr/srb.html`
             : action;
-        return (h(Host, { key: '6003a4328016e3ab9eddaeaa7eee74ddc7883781' }, h("section", { key: '5e722fa35d2b75334bb8f94e1cec56ff08f7f924', class: "gcds-search" }, h("gcds-sr-only", { key: '4faad88756c1deefa1805192dafc2372ba11e9c8', tag: "h2" }, I18N$6[lang].search), h("form", { key: '9e9cff3feda729f515513745b8e6200d0295f14d', action: formAction, method: method, role: "search", onSubmit: e => emitEvent(e, this.gcdsSubmit, this.value), class: "gcds-search__form" }, h("gcds-label", { key: '92789bd493f9d1cdddf87b234a29159df035c67f', label: labelText, "label-for": searchId, "hide-label": true }), h("input", Object.assign({ key: 'dba6da70f0898867e73506f399d4f5e6e1359c8c', type: "search", id: searchId }, (suggested ? { list: 'search-list' } : {}), { size: 34, maxLength: 170, onInput: e => this.handleInput(e, this.gcdsInput), onChange: e => this.handleInput(e, this.gcdsChange), onFocus: () => this.gcdsFocus.emit(), onBlur: () => this.gcdsBlur.emit() }, attrsInput, { class: "gcds-search__input", value: value })), suggested && (h("datalist", { key: 'fe818f0ecbc29e356fcd022261df068e071ca90b', id: "search-list" }, suggested.map((k, v) => (h("option", { value: k, key: v }))))), h("gcds-button", { key: '0533f32d7cefa496a764e7c515d8feb41cf406ff', type: "submit", class: "gcds-search__button", exportparts: "button" }, h("gcds-icon", { key: '9abebcaa3eca5f4ea50b6a13a6745e0e25c6f619', name: "search", label: I18N$6[lang].search, size: "h3" }))))));
+        return (h(Host, { key: '6f097c6decfc75124cfb075d08d9538fac97f247' }, h("section", { key: 'cac50e05b5b1993c7b582c077b52ebc0347c684d', class: "gcds-search" }, h("gcds-sr-only", { key: 'da41472fe9dc9dc4278a4324c5c59727bf659737', tag: "h2" }, I18N$6[lang].search), h("form", { key: 'd8daa855f964aea373212e226410c18a174fc2f7', action: formAction, method: method, role: "search", onSubmit: e => emitEvent(e, this.gcdsSubmit, this.value), class: "gcds-search__form" }, h("gcds-label", { key: 'eaa37cf81c073de64d06459be03f3d11bb35ee8b', label: labelText, "label-for": searchId, "hide-label": true }), h("input", Object.assign({ key: '7efdfeecf78cd58fae9fe13300da38a0883c40b2', type: "search", id: searchId }, (suggested ? { list: 'search-list' } : {}), { size: 34, maxLength: 170, onInput: e => this.handleInput(e, this.gcdsInput), onChange: e => this.handleInput(e, this.gcdsChange), onFocus: () => this.gcdsFocus.emit(), onBlur: () => this.gcdsBlur.emit() }, attrsInput, { class: "gcds-search__input", value: value })), suggested && (h("datalist", { key: 'a8c7737d2ad864cc08ac28fa19a4c3a4f2dbf654', id: "search-list" }, suggested.map((k, v) => (h("option", { value: k, key: v }))))), h("gcds-button", { key: 'b999f4297899ff1441b1fd201f14762b942b896a', type: "submit", class: "gcds-search__button", exportparts: "button" }, h("gcds-icon", { key: '148d9e7fb4265b12093070af8b0604341d300994', name: "search", label: I18N$6[lang].search, size: "h3" }))))));
     }
     get el() { return getElement(this); }
 };
@@ -4819,7 +4765,7 @@ const GcdsSelect = class {
                 ? `${attrsSelect['aria-describedby']}`
                 : ''}`;
         }
-        return (h(Host, { key: '07ed5597d53611990a0829c8e2ec4e0357712b75' }, h("div", { key: '6b52b8bc5bd66ebaf422b9ef9f66c44174070259', class: `gcds-select-wrapper ${disabled ? 'gcds-disabled' : ''} ${hasError ? 'gcds-error' : ''}` }, h("gcds-label", Object.assign({ key: '9c18dc7de5af43a0f3d08e442086c179763b8fca' }, attrsLabel, { "label-for": selectId, lang: lang })), hint ? h("gcds-hint", { "hint-id": selectId }, hint) : null, errorMessage ? (h("gcds-error-message", { messageId: selectId }, errorMessage)) : null, h("select", Object.assign({ key: 'd2e7ec958cf0c0ebc060867fbb58dc7c75ae7b2d' }, attrsSelect, { id: selectId, onBlur: () => this.onBlur(), onFocus: () => this.gcdsFocus.emit(), onInput: e => this.handleInput(e, this.gcdsInput), onChange: e => this.handleInput(e, this.gcdsChange), "aria-invalid": inheritedAttributes['aria-invalid'] === 'true'
+        return (h(Host, { key: 'f0926042e4a71b93d14a0e17bccee1df28807359' }, h("div", { key: 'bcf0fabf3ee8db8bf5eaa46a5adcbb5ef5d0ef8a', class: `gcds-select-wrapper ${disabled ? 'gcds-disabled' : ''} ${hasError ? 'gcds-error' : ''}` }, h("gcds-label", Object.assign({ key: '00ad8e8924c6793cfe63b3226b1d361f758e9aee' }, attrsLabel, { "label-for": selectId, lang: lang })), hint ? h("gcds-hint", { "hint-id": selectId }, hint) : null, errorMessage ? (h("gcds-error-message", { messageId: selectId }, errorMessage)) : null, h("select", Object.assign({ key: '4de00ba765ca550a1697f29abbb1fa0394736e39' }, attrsSelect, { id: selectId, onBlur: () => this.onBlur(), onFocus: () => this.gcdsFocus.emit(), onInput: e => this.handleInput(e, this.gcdsInput), onChange: e => this.handleInput(e, this.gcdsChange), "aria-invalid": inheritedAttributes['aria-invalid'] === 'true'
                 ? inheritedAttributes['aria-invalid']
                 : errorMessage
                     ? 'true'
@@ -4828,14 +4774,14 @@ const GcdsSelect = class {
                 const selected = opt.hasAttribute('selected')
                     ? { selected: true }
                     : null;
-                return (h("option", Object.assign({ value: opt.getAttribute('value') }, selected), opt.innerHTML));
+                return (h("option", Object.assign({ value: opt.getAttribute('value') }, selected), opt.textContent));
             }
             else if (opt.nodeName === 'OPTGROUP') {
                 const optGroupChildren = Array.from(opt.children).map(sub => {
                     const selected = sub.hasAttribute('selected')
                         ? { selected: true }
                         : null;
-                    return (h("option", Object.assign({ value: sub.getAttribute('value') }, selected), sub.innerHTML));
+                    return (h("option", Object.assign({ value: sub.getAttribute('value') }, selected), sub.textContent));
                 });
                 return (h("optgroup", { label: opt.getAttribute('label') }, optGroupChildren));
             }
@@ -4880,6 +4826,9 @@ async function handleKeyDownNav(event, nav, queue) {
             else {
                 await focusNavItem(currentIndex + 1, queue);
             }
+            setTimeout(() => {
+                nav.updateNavItemQueue(nav);
+            }, 200);
             break;
         // Up arrow
         case 'ArrowUp':
@@ -4892,6 +4841,9 @@ async function handleKeyDownNav(event, nav, queue) {
             else {
                 await focusNavItem(currentIndex - 1, queue);
             }
+            setTimeout(() => {
+                nav.updateNavItemQueue(nav);
+            }, 200);
             break;
         // Right arrow
         case 'ArrowRight':
@@ -4938,6 +4890,9 @@ async function handleKeyDownNav(event, nav, queue) {
                     }
                 }
             }
+            setTimeout(() => {
+                nav.updateNavItemQueue(nav);
+            }, 200);
             break;
         // ENTER || SPACEBAR
         case 'Enter':
@@ -5125,7 +5080,7 @@ const GcdsSideNav = class {
     }
     render() {
         const { label, lang } = this;
-        return (h(Host, { key: '7f08728b24595dc62fbbd520b70c424e5a810598' }, h("nav", { key: 'f0fe974afa35e59c5b84ba762cd29f8dea289fde', "aria-label": `${label}${I18N$5[lang].navLabel}`, class: "gcds-side-nav" }, h("h2", { key: '213dadb607c6678294a1d793dd7466016b2492be', class: "gcds-side-nav__heading" }, label), h("ul", { key: '7d4ac87ff26816e1443aaa5348bf2998b56ad208' }, h("gcds-nav-group", { key: '12897708312d4db5140413a3478bad4fe950232c', menuLabel: I18N$5[lang].menuLabel, closeTrigger: I18N$5[lang].closeTrigger, openTrigger: I18N$5[lang].menuLabel, class: "gcds-mobile-nav", ref: element => (this.mobile = element), lang: lang }, h("slot", { key: '2285099fe2b2e4d1faa617492f145c3378738118' }))))));
+        return (h(Host, { key: 'b41f9b092e8f23a6353b7064b449731ffaaaa14b' }, h("nav", { key: '26b4d5a3a82cf9216f56a7b9b1151035df7d72c7', "aria-label": `${label}${I18N$5[lang].navLabel}`, class: "gcds-side-nav" }, h("h2", { key: '4eb8709e0f213912b559fa81da7478be87609db0', class: "gcds-side-nav__heading" }, label), h("ul", { key: '99881fe85061138b0885b11513bad6bae1521c7d' }, h("gcds-nav-group", { key: '631d8e89b0e174de1338ec11de22cc717fe64e0a', menuLabel: I18N$5[lang].menuLabel, closeTrigger: I18N$5[lang].closeTrigger, openTrigger: I18N$5[lang].menuLabel, class: "gcds-mobile-nav", ref: element => (this.mobile = element), lang: lang }, h("slot", { key: '2e860631635649db3c4dca11f0d2cc58f4eb4b8a' }))))));
     }
     get el() { return getElement(this); }
 };
@@ -5249,7 +5204,7 @@ const GcdsSignature = class {
         if (Tag === 'a') {
             sigAttrs['href'] = I18N$4[lang].link;
         }
-        return (h(Host, { key: '552169b3620094d1ad20ba907f6275c377786dfc' }, type === 'signature' ? (h(Tag, Object.assign({}, sigAttrs), h("div", { innerHTML: selectSVG }))) : (h("div", { class: "gcds-signature", innerHTML: selectSVG }))));
+        return (h(Host, { key: '9371550c9068d0041b6c661746206cd0f9eab90b' }, type === 'signature' ? (h(Tag, Object.assign({}, sigAttrs), h("div", { innerHTML: selectSVG }))) : (h("div", { class: "gcds-signature", innerHTML: selectSVG }))));
     }
     get el() { return getElement(this); }
     static get watchers() { return {
@@ -5281,7 +5236,7 @@ const GcdsSrOnly = class {
     }
     render() {
         const Tag = this.tag;
-        return (h(Host, { key: 'f81d19a3fe0a38bc554949c1112fd7cf9f5f4efc' }, h(Tag, { key: '7c6167569363292c04e4269f5f30456fbf2a9838' }, h("slot", { key: 'acc0f901a6085a0d29269f083059d6df791f6f45' }))));
+        return (h(Host, { key: 'c3d546661babf7e4c34bbf46600431ea761b2624' }, h(Tag, { key: '32bd3afe9621aa3bcd787bdb95d64ecb18819e0e' }, h("slot", { key: 'd2c250f425e5e988995957b984f7c05e3413651c' }))));
     }
     static get watchers() { return {
         "tag": ["validateTag"]
@@ -5369,14 +5324,14 @@ const GcdsStepper = class {
         // Define lang attribute
         this.lang = assignLanguage(this.el);
         this.updateLang();
-        let valid = this.validateRequiredProps();
+        const valid = this.validateRequiredProps();
         if (!valid) {
             logError('gcds-stepper', this.errors);
         }
     }
     render() {
         const { currentStep, lang, totalSteps, tag } = this;
-        return (h(Host, { key: '4fb90ac7b5e8ca0586cb013d3d7e9cc4519eadea' }, this.validateRequiredProps() && (h("gcds-heading", { key: '85d2541fad2e064f0c4e1ab842d820614ba91498', tag: tag, class: "gcds-stepper", "margin-top": "0", "margin-bottom": "225" }, h("span", { key: '1a08b2e37ab6f9fd1f18a944defdf3a6fca64f74', class: "gcds-stepper__steps" }, `${I18N$3[lang].step} ${currentStep} ${I18N$3[lang].of} ${totalSteps}`, h("gcds-sr-only", { key: '54a67d11327d261859ba20d4516583e4f69cf201' }, " : ")), h("slot", { key: '919da35776fd294f87c9027709a1decaafadcd2f' })))));
+        return (h(Host, { key: '668131869ea8b9e4542e097e28efbfae9b5a6bae' }, this.validateRequiredProps() && (h("gcds-heading", { key: 'e50a066d662ef3e606e21da157731de6e6b6b78a', tag: tag, class: "gcds-stepper", "margin-top": "0", "margin-bottom": "225" }, h("span", { key: 'c573ba75a978b689698fb8eab50caa08853d12e3', class: "gcds-stepper__steps" }, `${I18N$3[lang].step} ${currentStep} ${I18N$3[lang].of} ${totalSteps}`, h("gcds-sr-only", { key: 'fea60de171d7e2412957e922944421f9cbb6d379' }, " : ")), h("slot", { key: '679d080d48b257b840ee9d78e693f06df548faee' })))));
     }
     get el() { return getElement(this); }
     static get watchers() { return {
@@ -5464,7 +5419,7 @@ const GcdsText = class {
     }
     render() {
         const { characterLimit, display, marginTop, marginBottom, size, textRole } = this;
-        return (h(Host, { key: '748369613e967a25a6b2b20e6123b2b67e0143da', class: `${display != 'block' ? `d-${display}` : ''}` }, h("p", { key: 'b611810500ccf49c736d689d1e94a4f4d048fa03', class: `
+        return (h(Host, { key: '60d33fada39b1dd1af0af482be9d9d3d158d248b', class: `${display != 'block' ? `d-${display}` : ''}` }, h("p", { key: '5c890123f5244dd5a67f01819bbd309d67f2458a', class: `
             gcds-text
             ${textRole ? `role-${textRole}` : ''}
             ${characterLimit ? 'limit' : ''}
@@ -5517,6 +5472,9 @@ const GcdsTextarea = class {
             this.internals = hostRef.$hostElement$.attachInternals();
             hostRef.$hostElement$["s-ei"] = this.internals;
         }
+        // Array to store which native HTML errors are happening on the textarea
+        this.htmlValidationErrors = [];
+        this.textareaTitle = '';
         this._validator = defaultValidator;
         /**
          * Specifies if a textarea element is disabled or not.
@@ -5557,6 +5515,9 @@ const GcdsTextarea = class {
                 const changeEvt = new e.constructor(e.type, e);
                 this.el.dispatchEvent(changeEvt);
             }
+            else {
+                this.updateValidity();
+            }
             customEvent.emit(this.value);
         };
     }
@@ -5580,11 +5541,21 @@ const GcdsTextarea = class {
      * Set value on internal textarea to allow proper resets
      */
     watchValue(val) {
-        this.shadowElement.value = val;
-        this.internals.setFormValue(val ? val : null);
+        // Update DOM textarea if it exists
+        if (this.shadowElement) {
+            this.shadowElement.value = val || '';
+        }
+        // Update form value for form association
+        this.internals.setFormValue(val || null);
     }
     validateValidator() {
         this._validator = getValidator(this.validator);
+    }
+    /**
+     * Read-only property of the textarea, returns a ValidityState object that represents the validity states this element is in.
+     */
+    get validity() {
+        return this.internals.validity;
     }
     validateHasError() {
         if (this.disabled) {
@@ -5596,6 +5567,26 @@ const GcdsTextarea = class {
      */
     async validate() {
         handleValidationResult(this.el, this._validator.validate(this.value), this.label, this.gcdsError, this.gcdsValid, this.lang);
+        // Native HTML validation
+        if ((this.required && !this.internals.checkValidity()) ||
+            !this.internals.checkValidity()) {
+            if (!this.internals.validity.valueMissing) {
+                this.errorMessage = formatHTMLErrorMessage(this.htmlValidationErrors[0], this.lang, this.el);
+                this.textareaTitle = this.errorMessage;
+            }
+        }
+    }
+    /**
+     * Check the validity of gcds-textarea
+     */
+    async checkValidity() {
+        return this.internals.checkValidity();
+    }
+    /**
+     * Get validationMessage of gcds-textarea
+     */
+    async getValidationMessage() {
+        return this.internals.validationMessage;
     }
     submitListener(e) {
         if (e.target == this.el.closest('form')) {
@@ -5611,15 +5602,46 @@ const GcdsTextarea = class {
      * Form internal functions
      */
     formResetCallback() {
-        if (this.value != this.initialValue) {
-            this.internals.setFormValue(this.initialValue);
+        if (this.value !== this.initialValue) {
+            // Update all relevant values to initialValue
             this.value = this.initialValue;
-            this.shadowElement.value = this.initialValue;
+            // Update DOM element if available
+            if (this.shadowElement) {
+                this.shadowElement.value = this.initialValue || '';
+            }
+            // Update form value
+            this.internals.setFormValue(this.initialValue || null);
         }
     }
     formStateRestoreCallback(state) {
         this.internals.setFormValue(state);
         this.value = state;
+    }
+    /**
+     * Update gcds-textarea's validity using internal textarea validity
+     */
+    updateValidity(override) {
+        const validity = this.shadowElement.validity;
+        this.htmlValidationErrors = [];
+        for (const key in validity) {
+            // Do not include valid or missingValue keys
+            if (validity[key] === true && key !== 'valid') {
+                this.htmlValidationErrors.push(key);
+            }
+        }
+        // Add override values to HTML errors array
+        for (const key in override) {
+            this.htmlValidationErrors.push(key);
+        }
+        const validityState = override
+            ? Object.assign(Object.assign({}, this.shadowElement.validity), override) : this.shadowElement.validity;
+        let validationMessage = null;
+        if (this.htmlValidationErrors.length > 0) {
+            validationMessage = formatHTMLErrorMessage(this.htmlValidationErrors[0], this.lang, this.el);
+        }
+        this.internals.setValidity(validityState, validationMessage, this.shadowElement);
+        // Set textarea title when HTML error occruring
+        this.textareaTitle = validationMessage;
     }
     /*
      * Observe lang attribute change
@@ -5648,8 +5670,29 @@ const GcdsTextarea = class {
         this.internals.setFormValue(this.value ? this.value : null);
         this.initialValue = this.value ? this.value : null;
     }
+    componentDidLoad() {
+        let lengthValidity;
+        // maxlength/minlength validation on load
+        if (this.value && (this.minlength || this.characterCount)) {
+            if (this.minlength && this.value.length < this.minlength) {
+                lengthValidity = { tooShort: true };
+            }
+            else if (this.characterCount &&
+                this.value.length > this.characterCount) {
+                lengthValidity = { tooLong: true };
+            }
+        }
+        this.updateValidity(lengthValidity);
+        // Logic to enable autofocus
+        if (this.autofocus) {
+            requestAnimationFrame(() => {
+                var _a;
+                (_a = this.shadowElement) === null || _a === void 0 ? void 0 : _a.focus();
+            });
+        }
+    }
     render() {
-        const { characterCount, cols, disabled, errorMessage, hideLabel, hint, label, required, rows, textareaId, value, hasError, inheritedAttributes, lang, name, } = this;
+        const { autofocus, characterCount, cols, disabled, errorMessage, hideLabel, hint, label, minlength, required, rows, textareaId, value, hasError, inheritedAttributes, lang, name, textareaTitle, } = this;
         // Use max-width instead of cols attribute to keep field responsive
         const style = {
             maxWidth: `${cols * 1.5}ch`,
@@ -5659,9 +5702,11 @@ const GcdsTextarea = class {
             required,
         };
         const attrsTextarea = Object.assign({ name,
+            autofocus,
             disabled,
+            minlength,
             required,
-            rows }, inheritedAttributes);
+            rows, title: textareaTitle }, inheritedAttributes);
         if (hint || errorMessage || characterCount) {
             const hintID = hint ? `hint-${textareaId} ` : '';
             const errorID = errorMessage ? `error-message-${textareaId} ` : '';
@@ -5670,7 +5715,7 @@ const GcdsTextarea = class {
                 ? `${attrsTextarea['aria-describedby']}`
                 : ''}`;
         }
-        return (h(Host, { key: '9f6085eebb44aa57efec27ebada1e2f3640be66d' }, h("div", { key: '20fafaf3a8e37d9db2937adfea4de3dc796aa2d5', class: `gcds-textarea-wrapper ${disabled ? 'gcds-disabled' : ''} ${hasError ? 'gcds-error' : ''}` }, h("gcds-label", Object.assign({ key: '27490b5d8e9251e43b7d4d232609e597cb3b5ed4' }, attrsLabel, { "hide-label": hideLabel, "label-for": textareaId, lang: lang })), hint ? h("gcds-hint", { "hint-id": textareaId }, hint) : null, errorMessage ? (h("gcds-error-message", { messageId: textareaId }, errorMessage)) : null, h("textarea", Object.assign({ key: '724f1be7d23f0a8495c5be9678720c67c9305ebc' }, attrsTextarea, { class: hasError ? 'gcds-error' : null, id: textareaId, onBlur: () => this.onBlur(), onFocus: () => this.gcdsFocus.emit(), onInput: e => this.handleInput(e, this.gcdsInput), onChange: e => this.handleInput(e, this.gcdsChange), "aria-labelledby": `label-for-${textareaId}`, "aria-invalid": errorMessage ? 'true' : 'false', maxlength: characterCount ? characterCount : null, style: cols ? style : null, ref: element => (this.shadowElement = element) }), value), characterCount ? (h("gcds-text", { id: `textarea__count-${textareaId}`, "aria-live": "polite" }, value == undefined
+        return (h(Host, { key: '462ff694237b5ece2b94a25006fa2166c82c3130' }, h("div", { key: '418df2a7b21570cb908dd30cb958a01fe95f2f87', class: `gcds-textarea-wrapper ${disabled ? 'gcds-disabled' : ''} ${hasError ? 'gcds-error' : ''}` }, h("gcds-label", Object.assign({ key: '9e09924f599db5ef90109d0ae5141e00fce25455' }, attrsLabel, { "hide-label": hideLabel, "label-for": textareaId, lang: lang })), hint ? h("gcds-hint", { "hint-id": textareaId }, hint) : null, errorMessage ? (h("gcds-error-message", { messageId: textareaId }, errorMessage)) : null, h("textarea", Object.assign({ key: '3dc1cafeace916ff5fe1b644a0a47223d0e2c76c' }, attrsTextarea, { class: hasError ? 'gcds-error' : null, id: textareaId, onBlur: () => this.onBlur(), onFocus: () => this.gcdsFocus.emit(), onInput: e => this.handleInput(e, this.gcdsInput), onChange: e => this.handleInput(e, this.gcdsChange), "aria-labelledby": `label-for-${textareaId}`, "aria-invalid": errorMessage ? 'true' : 'false', maxlength: characterCount ? characterCount : null, style: cols ? style : null, ref: element => (this.shadowElement = element) }), value), characterCount ? (h("gcds-text", { id: `textarea__count-${textareaId}`, "aria-live": "polite" }, value == undefined
             ? `${characterCount} ${I18N$2[lang].characters.allowed}`
             : `${characterCount - value.length} ${I18N$2[lang].characters.left}`)) : null)));
     }
@@ -5828,7 +5873,7 @@ const GcdsTopNav = class {
     }
     render() {
         const { label, alignment, lang } = this;
-        return (h(Host, { key: '861722cb282f9ad4ba594e2b7a019bbd56cfa6e0' }, h("div", { key: '75ea313bb2604d105451dd766796ae0fea818f70', class: "gcds-top-nav" }, h("nav", { key: 'c9ceaec863f1d122c3b1a84dc560700054b873f0', "aria-label": `${label}${I18N$1[lang].navLabel}` }, h("ul", { key: 'b3ba6c96c25047116bb5e7a7e43aeeb3d88cc216', class: "gcds-top-nav__container" }, h("gcds-nav-group", { key: 'c15b494a7af7a63264a7fc45c1af54afcee534a7', menuLabel: I18N$1[lang].menuLabel, closeTrigger: I18N$1[lang].closeTrigger, openTrigger: I18N$1[lang].menuLabel, class: "gcds-mobile-nav gcds-mobile-nav-topnav", ref: element => (this.mobile = element), lang: lang }, h("slot", { key: '053d51a0b46c1ea922422904a87a0ba510ed8e0a', name: "home" }), h("li", { key: '53bd1516660b1bd6b0fd5e301c8c42872a3bc1b9', class: `nav-container__list nav-list--${alignment}` }, h("ul", { key: 'b67c77da3b122d690ec479839036c155f0050451', class: `nav-container__list nav-list--${alignment}` }, h("slot", { key: '34f0a620558fdb227f41be0c5cb1142c180b2a81' })))))))));
+        return (h(Host, { key: '0a185f63b720d7a6b47ad9204a40b506f4dbcbd4' }, h("div", { key: '86accc24657db6c1532deaa30a04c5ad17f281cd', class: "gcds-top-nav" }, h("nav", { key: '52684b858af7b5d205dabe7eee8071d8b2de79d4', "aria-label": `${label}${I18N$1[lang].navLabel}` }, h("ul", { key: '1d106bcb07ca67ac7be572acf26c4fa3d9128996', class: "gcds-top-nav__container" }, h("gcds-nav-group", { key: 'cf80fff5c8c117f09ddcc1540a7361cba5e9aef7', menuLabel: I18N$1[lang].menuLabel, closeTrigger: I18N$1[lang].closeTrigger, openTrigger: I18N$1[lang].menuLabel, class: "gcds-mobile-nav gcds-mobile-nav-topnav", ref: element => (this.mobile = element), lang: lang }, h("slot", { key: '584ce592a08c84caabf664181ec2f3a769c9ac0d', name: "home" }), h("li", { key: 'd1a187f963160af82d10cd72bc1fa2c8bd1ffe0f', class: `nav-container__list nav-list--${alignment}` }, h("ul", { key: '3ece4687ccb79e67f30f5b08824acb254d1b1de8', class: `nav-container__list nav-list--${alignment}` }, h("slot", { key: 'edb4abbcabd29d9a65b79f27ac74da8c2896d092' })))))))));
     }
     get el() { return getElement(this); }
 };
@@ -5932,7 +5977,7 @@ const GcdsVerifyBanner = class {
     }
     render() {
         const { container, isFixed, lang } = this;
-        return (h(Host, { key: 'a1fa4411e430e6270a71312a39c7da3a1796d4aa' }, h("details", { key: '9f97424d74107c83c28ee4d98cc53ff4e26ec825', class: `gcds-verify-banner ${isFixed ? 'verify-banner--is-fixed' : ''}` }, h("summary", { key: 'f118fbf0db3564f65e95a1769749793b7bd87b1c', class: container ? `container-${container}` : '', "aria-expanded": "false", role: "button" }, h("span", { key: '6bbcd4a7db902d2c35555b3cf1547c8226a49f6c', class: "svg-container", innerHTML: CanadaFlag }), h("p", { key: 'b2fda9a60af81005e8107802a50dec1544bb2bc1' }, h("small", { key: '668150e500c11383741a7781a659629c2356726b' }, I18N[lang].summary.text), h("button", { key: 'c8ab76181aae1bd0066eac3d3a8294d91c14f4ea', class: "verify-banner__toggle" }, h("small", { key: 'e54914223c79d92900fca9362b37c578e4a19167' }, I18N[lang].summary.link), h("span", { key: '1b9e90e0594e202b2fd5aa0155c331a4232e309b', class: "svg-container", innerHTML: ContentToggleArrow })))), h("div", { key: '9268da2d8b1059a2c5cfbbb3b827850a6b250407', class: `verify-banner__content ${container ? `container-${container}` : ''}` }, h("p", { key: 'c1d4d84a58fe5c97decd2ea1f108297dcef1b37a' }, h("small", { key: '9bb09c3f25ad8f5047c7061a73460b12d5085e24' }, I18N[lang].content.description)), h("br", { key: '6acd0a0c911cf4c456562734b6d06de389b3d62e' }), h("gcds-grid", { key: '539b2271bfdb85e66ad3477103deaba798fe850b', tag: "ul", container: "lg", columns: "1fr", "columns-tablet": container === 'xs' || container === 'sm' ? '1fr' : '1fr 1fr' }, h("li", { key: 'dde8404c54ed2798afd7b6225d94f5e079063043' }, h("h4", { key: '91f46d91fb3f0e4ecf81b3c7267fb994e2a33551' }, I18N[lang].content.url.heading), h("p", { key: 'ab8a2320d0edfa8c0e086bf10d224838b5bf2624' }, h("small", { key: '05b61b363777a9d96a562a76e39b886e85b5f80e' }, I18N[lang].content.url.text))), h("li", { key: 'd580a759c50805c449fedaf81b0281bc5a989b25' }, h("h4", { key: '32c261e0c5e42645f3fd896c1ee7f9d411518362' }, I18N[lang].content.languages.heading), h("p", { key: '7a7f21f9e0671bbd143105a0574188644dbf2274' }, h("small", { key: '7cdf32c6502cfe83a0e918002349eb0cc1b79a38' }, I18N[lang].content.languages.text))), h("li", { key: '160e19553b5cdacc8773c61a9c57a8cc00cf7fbd' }, h("h4", { key: '0721bd211cbe6709caff113eff7a3c28dd0202bb' }, I18N[lang].content.https.heading), h("p", { key: '8ebc8920a3d01ee425d07c28754849ce178303c2' }, h("small", { key: '9d300b938d0ae4b3be25aafcc40d8e1938ce9797' }, I18N[lang].content.https.text, " ", h("strong", { key: 'a8ecbbe76c5283347e2cc786c096e2e8d29a0f33' }, "https://"), "."))), h("li", { key: '1e2ca8ec9302fe090d09e9783886078a1b5a8720' }, h("h4", { key: '9ceeeac4ef3a6a44fd41a54202e4148cb07a567c' }, I18N[lang].content.contact.heading), h("p", { key: '4ecf998fdac036b9b7e4383b840ec643bfc6c393' }, h("small", { key: '27255f82990a0cabfe15358448fa9690572473b8' }, I18N[lang].content.contact.text))))))));
+        return (h(Host, { key: '81973537a21ff8bc06d7af751286180909137d4f' }, h("details", { key: 'ea98f8b396c065be3338f62f1b4bdfbffddc6d68', class: `gcds-verify-banner ${isFixed ? 'verify-banner--is-fixed' : ''}` }, h("summary", { key: 'b83b678363782e280872028016c1830f057f79a5', class: container ? `container-${container}` : '', "aria-expanded": "false", role: "button" }, h("span", { key: 'ea8489486256e7cf983ea62b534b3b953ffbdfd9', class: "svg-container", innerHTML: CanadaFlag }), h("p", { key: '441d0f62bfaa8232766fa25d4f293856d5919fc5' }, h("small", { key: 'fd9985644c5d448e783fe121392dcc752a11894c' }, I18N[lang].summary.text), h("button", { key: 'e367c1f16b77914512d7191d9c4acb979da28898', class: "verify-banner__toggle" }, h("small", { key: '1b7cec1da1f70df3108188f67c58df05e9f43265' }, I18N[lang].summary.link), h("span", { key: '88387f3e006781d43354182badf4db34ac890752', class: "svg-container", innerHTML: ContentToggleArrow })))), h("div", { key: '2a90d1b70f1ccf1c08f2d887f6bd4ec89138362a', class: `verify-banner__content ${container ? `container-${container}` : ''}` }, h("p", { key: 'c70e302d34681c52dbb2157020955821de2e66a0' }, h("small", { key: '91e86ac20f3241a976463438b7164183e16584ec' }, I18N[lang].content.description)), h("br", { key: '802f4c5b24f4b63b9764056638329a1be0580e2a' }), h("gcds-grid", { key: 'c9347190bdd322599825eb56bc78e63fcf28702f', tag: "ul", container: "lg", columns: "1fr", "columns-tablet": container === 'xs' || container === 'sm' ? '1fr' : '1fr 1fr' }, h("li", { key: 'bcbd1951e53638d63f335c3960c3be067f674f25' }, h("h4", { key: '093d8a04f8eb8ddb1d3b8aa07e430f2cc0ddc76d' }, I18N[lang].content.url.heading), h("p", { key: 'd5c47c818ecde61d8ef45138408231ec8332eee9' }, h("small", { key: '21e821fe073fa5260ba129da8e53f226e5f7922d' }, I18N[lang].content.url.text))), h("li", { key: '6bf334ae274e581dc7e7529b8e078123aa501836' }, h("h4", { key: '38001a7718f7a4384d8dbd7816285e193bd80f0f' }, I18N[lang].content.languages.heading), h("p", { key: 'a42c56b425effc00caf0a2b2d3c79aea52c7a4d5' }, h("small", { key: 'c05571e761970df2293667ca25f91d657d7784ff' }, I18N[lang].content.languages.text))), h("li", { key: 'f6c5b8619a5014470dd835c684244ac145f2c5fd' }, h("h4", { key: '3ac2cf2d08c5f94d07bcd7fbe1786b7a138d4f0d' }, I18N[lang].content.https.heading), h("p", { key: '596499c8b77e7260776da2ab782670820687a2b0' }, h("small", { key: '9b81bf698364397d705d0c20df078cb5f2f97171' }, I18N[lang].content.https.text, " ", h("strong", { key: 'b187d642957907d9501d13c617e3e54c1fa11887' }, "https://"), "."))), h("li", { key: '086c41a49bebea39aa287aa213e288ddd4c4d2f8' }, h("h4", { key: 'dd45cc64f0ad0779e28f228fdee78d6216c4c747' }, I18N[lang].content.contact.heading), h("p", { key: '745ab9a7fcfff95e6df069e182f334ecda0b27dd' }, h("small", { key: '7c7ae86324f385e9b23461126a418ecbb8f09a16' }, I18N[lang].content.contact.text))))))));
     }
     get el() { return getElement(this); }
 };

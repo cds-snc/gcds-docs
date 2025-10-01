@@ -39,6 +39,9 @@ declare const _default: {
                 category: string;
             };
         };
+        gcdsClick: any;
+        gcdsFocus: any;
+        gcdsBlur: any;
     };
 };
 export default _default;

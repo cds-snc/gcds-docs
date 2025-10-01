@@ -2,6 +2,9 @@ import { Host, h, } from "@stencil/core";
 import { assignLanguage, emitEvent, inheritAttributes, logError, handleErrors, isValid, handleValidationResult, } from "../../utils/utils";
 import { defaultValidator, getValidator, requiredValidator, } from "../../validators";
 import { cleanUpValues, renderCheckbox, validateOptionsArray, } from "./checkbox";
+/**
+ * Checkboxes provide a set of options for multiple responses.
+ */
 export class GcdsCheckboxes {
     constructor() {
         this.isGroup = false;
@@ -29,29 +32,31 @@ export class GcdsCheckboxes {
             }
             this.gcdsBlur.emit();
         };
+        // Handle input and change events
         this.handleInput = (e, customEvent) => {
-            if (e.target.checked) {
-                this.value = [...this.value, e.target.value];
+            const isInputEvent = e.type === 'input';
+            if (isInputEvent) {
+                const target = e.target;
+                if (target.checked) {
+                    this.value = [...this.value, target.value];
+                }
+                else {
+                    // Modify options to prevent re-adding prechecked values when user unchecks
+                    this.options = (typeof this.options === 'string'
+                        ? JSON.parse(this.options)
+                        : this.options).map(check => check.value === target.value ? Object.assign(Object.assign({}, check), { checked: false }) : check);
+                    // Remove item from value array when unchecked
+                    this.value = this.value.filter(item => item !== target.value);
+                }
+                // Keep form-associated value in sync
+                if (this.value.length > 0) {
+                    this.internals.setFormValue(this.value.toString());
+                }
+                else {
+                    this.internals.setFormValue(null);
+                }
             }
-            else {
-                // Modify options to prevent adding prechecked values when unchecking option
-                this.options = (typeof this.options === 'string'
-                    ? JSON.parse(this.options)
-                    : this.options).map(check => check.value === e.target.value ? Object.assign(Object.assign({}, check), { checked: false }) : check);
-                // Remove value from value array
-                this.value = this.value.filter(item => item !== e.target.value);
-            }
-            if (this.value.length > 0) {
-                this.internals.setFormValue(this.value.toString());
-            }
-            else {
-                this.internals.setFormValue(null);
-            }
-            if (e.type === 'change') {
-                const changeEvt = new e.constructor(e.type, e);
-                this.el.dispatchEvent(changeEvt);
-            }
-            customEvent.emit(this.value);
+            customEvent.emit([...this.value]);
         };
     }
     validateName() {
@@ -251,7 +256,7 @@ export class GcdsCheckboxes {
                 `${fieldsetAttrs['aria-labelledby']} ${hintID}`.trim();
         }
         if (this.validateRequiredProps()) {
-            return (h(Host, { key: '2531c781c8cf539929baa5e749c11b698fbe8f8c', onBlur: () => this.isGroup && this.onBlurValidate() }, this.isGroup ? (h("fieldset", Object.assign({ class: "gcds-checkboxes__fieldset" }, fieldsetAttrs), h("legend", { id: "checkboxes-legend", class: "gcds-checkboxes__legend" }, legend, required ? (h("span", { class: "legend__required" }, " (required)")) : null), hint ? (h("gcds-hint", { id: "checkboxes-hint", "hint-id": "checkboxes" }, hint)) : null, errorMessage ? (h("div", null, h("gcds-error-message", { id: "checkboxes-error", messageId: "checkboxes" }, errorMessage))) : null, this.optionsArr &&
+            return (h(Host, { key: '1c4a5af6bf3886cf38fe0a9eb05781aabab35bbf', onBlur: () => this.isGroup && this.onBlurValidate() }, this.isGroup ? (h("fieldset", Object.assign({ class: "gcds-checkboxes__fieldset" }, fieldsetAttrs), h("legend", { id: "checkboxes-legend", class: "gcds-checkboxes__legend" }, legend, required ? (h("span", { class: "legend__required" }, " (required)")) : null), hint ? (h("gcds-hint", { id: "checkboxes-hint", "hint-id": "checkboxes" }, hint)) : null, errorMessage ? (h("div", null, h("gcds-error-message", { id: "checkboxes-error", messageId: "checkboxes" }, errorMessage))) : null, this.optionsArr &&
                 this.optionsArr.map(checkbox => {
                     return renderCheckbox(checkbox, this, emitEvent, this.handleInput);
                 }))) : (this.optionsArr &&
@@ -560,11 +565,11 @@ export class GcdsCheckboxes {
                 "composed": true,
                 "docs": {
                     "tags": [],
-                    "text": "Emmitted when a checkbox has been inputted."
+                    "text": "Emitted when a checkbox has been inputted. Contains the new value in the event detail."
                 },
                 "complexType": {
-                    "original": "any",
-                    "resolved": "any",
+                    "original": "string[]",
+                    "resolved": "string[]",
                     "references": {}
                 }
             }, {
@@ -575,11 +580,11 @@ export class GcdsCheckboxes {
                 "composed": true,
                 "docs": {
                     "tags": [],
-                    "text": "Emmitted when a checkbox has been changed."
+                    "text": "Emitted when a checkbox has been changed. Contains the new value in the event detail."
                 },
                 "complexType": {
-                    "original": "any",
-                    "resolved": "any",
+                    "original": "string[]",
+                    "resolved": "string[]",
                     "references": {}
                 }
             }, {
@@ -590,7 +595,7 @@ export class GcdsCheckboxes {
                 "composed": true,
                 "docs": {
                     "tags": [],
-                    "text": "Emitted when the input has a validation error."
+                    "text": "Emitted when the checkbox has a validation error."
                 },
                 "complexType": {
                     "original": "object",
@@ -605,7 +610,7 @@ export class GcdsCheckboxes {
                 "composed": true,
                 "docs": {
                     "tags": [],
-                    "text": "Emitted when the input has a validation error."
+                    "text": "Emitted when the checkbox has a validation error."
                 },
                 "complexType": {
                     "original": "object",

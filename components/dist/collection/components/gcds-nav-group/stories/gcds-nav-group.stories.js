@@ -1,7 +1,7 @@
-import { langProp } from "../../../utils/storybook/component-properties";
+import { langProp, eventProp, } from "../../../utils/storybook/component-properties";
 export default {
     title: 'Components/Navigation group',
-    argTypes: Object.assign({
+    argTypes: Object.assign(Object.assign({
         // Props
         menuLabel: {
             name: 'menu-label',
@@ -39,7 +39,20 @@ export default {
                 defaultValue: { summary: false },
             },
         }
-    }, langProp),
+    }, langProp), {
+        // Slots
+        default: {
+            control: {
+                type: 'text',
+            },
+            description: 'Customize the content or include additional elements. | Personnalisez le contenu ou ajoutez des éléments supplémentaires.',
+            table: {
+                category: 'Slots | Fentes',
+            },
+        },
+        // Events
+        gcdsClick: Object.assign({ action: 'click' }, eventProp), gcdsFocus: Object.assign({ action: 'focus' }, eventProp), gcdsBlur: Object.assign({ action: 'blur' }, eventProp)
+    }),
 };
 const Template = args => `
 <!-- Web component code (HTML, Angular, Vue) -->

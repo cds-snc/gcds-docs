@@ -16,3 +16,12 @@ export declare const handleErrors: (errors: string[], propertyName: string, prop
 export declare const isValid: (errors: string[], requiredProps: string[]) => boolean;
 export declare const isValidDate: (dateString: string, forceFormat?: "full" | "compact") => boolean;
 export declare function handleValidationResult(element: HTMLGcdsInputElement | HTMLGcdsDateInputElement | HTMLGcdsRadiosElement | HTMLGcdsCheckboxesElement | HTMLGcdsFileUploaderElement | HTMLGcdsSelectElement | HTMLGcdsTextareaElement, validationResult: ValidatorReturn, label: string, errorEv: EventEmitter, validEv: EventEmitter, lang: string, errors?: object): object;
+/**
+ * Format HTML error message based off assigned attributes
+ * This lets us assign custom error messages
+ *
+ * @param error - the HTML validation error type
+ * @param lang - the current language
+ * @param el - the gcds form element that is being validated
+ */
+export declare function formatHTMLErrorMessage(error: any, lang: any, el: any): any;

@@ -2,6 +2,11 @@ import { Host, h, } from "@stencil/core";
 import { assignLanguage, observerConfig } from "../../utils/utils";
 import { inheritAttributes, emitEvent } from "../../utils/utils";
 import i18n from "./i18n/i18n";
+/**
+ * The button is an interactive object that emphasizes an action.
+ *
+ * @slot default - Slot for the button/link label.
+ */
 export class GcdsButton {
     constructor() {
         /**
@@ -25,8 +30,12 @@ export class GcdsButton {
          */
         this.inheritedAttributes = {};
         this.handleClick = (e) => {
-            // Check button type, only emit value if type is "submit"
-            const emitValue = this.type === 'submit' ? this.value : undefined;
+            // Check button type, emit value with submit button and href with link.
+            const emitValue = this.type === 'submit'
+                ? this.value
+                : this.type === 'link'
+                    ? this.href
+                    : undefined;
             const event = emitEvent(e, this.gcdsClick, emitValue);
             if (event) {
                 if (!this.disabled && this.type != 'button' && this.type != 'link') {
@@ -117,7 +126,7 @@ export class GcdsButton {
                 target,
                 download,
             };
-        return (h(Host, { key: 'cb4009ea02793c43139bd32ce967ed14a34edc92' }, h(Tag, Object.assign({ key: 'f43a15193850a532bf2c48f19cfa089426e7fbb2' }, attrs, { id: buttonId, onBlur: () => this.gcdsBlur.emit(), onFocus: () => this.gcdsFocus.emit(), onClick: e => !disabled ? this.handleClick(e) : e.stopImmediatePropagation(), class: `gcds-button button--role-${buttonRole} button--${size}`, ref: element => (this.shadowElement = element) }, inheritedAttributes, { part: "button" }), h("slot", { key: 'ba77323179c20e81431e4463a4b435572e56b83e' }), type === 'link' && target === '_blank' ? (h("gcds-icon", { name: "external", label: i18n[lang].label, "margin-left": "150" })) : null)));
+        return (h(Host, { key: 'e9340ebfb8c10ce33a593b6b7f54394949317506' }, h(Tag, Object.assign({ key: 'c62ba255b62ddbff1c3dbef61a4e64973df1bccb' }, attrs, { id: buttonId, onBlur: () => this.gcdsBlur.emit(), onFocus: () => this.gcdsFocus.emit(), onClick: e => !disabled ? this.handleClick(e) : e.stopImmediatePropagation(), class: `gcds-button button--role-${buttonRole} button--${size}`, ref: element => (this.shadowElement = element) }, inheritedAttributes, { part: "button" }), h("slot", { key: 'f922fc8e16a85bce258204ff670bc6aaa81ca119' }), type === 'link' && target === '_blank' ? (h("gcds-icon", { name: "external", label: i18n[lang].label, "margin-left": "150" })) : null)));
     }
     static get is() { return "gcds-button"; }
     static get encapsulation() { return "shadow"; }
@@ -363,11 +372,11 @@ export class GcdsButton {
                 "composed": true,
                 "docs": {
                     "tags": [],
-                    "text": "Emitted when the button has been clicked."
+                    "text": "Emitted when the button has been clicked. Contains the value or href in the event detail."
                 },
                 "complexType": {
-                    "original": "void",
-                    "resolved": "void",
+                    "original": "string | void",
+                    "resolved": "string | void",
                     "references": {}
                 }
             }, {

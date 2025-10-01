@@ -2,6 +2,11 @@ import { Host, h, } from "@stencil/core";
 import { assignLanguage, observerConfig } from "../../utils/utils";
 import { handleKeyDownNav, getNavItems } from "../../utils/menus/utils";
 import I18N from "./i18n/i18n";
+/**
+ * A top navigation is a horizontal list of page links.
+ *
+ * @slot default - Slot for the navigation groups and navigation links.
+ */
 export class GcdsTopNav {
     constructor() {
         /**
@@ -125,7 +130,7 @@ export class GcdsTopNav {
     }
     render() {
         const { label, alignment, lang } = this;
-        return (h(Host, { key: '861722cb282f9ad4ba594e2b7a019bbd56cfa6e0' }, h("div", { key: '75ea313bb2604d105451dd766796ae0fea818f70', class: "gcds-top-nav" }, h("nav", { key: 'c9ceaec863f1d122c3b1a84dc560700054b873f0', "aria-label": `${label}${I18N[lang].navLabel}` }, h("ul", { key: 'b3ba6c96c25047116bb5e7a7e43aeeb3d88cc216', class: "gcds-top-nav__container" }, h("gcds-nav-group", { key: 'c15b494a7af7a63264a7fc45c1af54afcee534a7', menuLabel: I18N[lang].menuLabel, closeTrigger: I18N[lang].closeTrigger, openTrigger: I18N[lang].menuLabel, class: "gcds-mobile-nav gcds-mobile-nav-topnav", ref: element => (this.mobile = element), lang: lang }, h("slot", { key: '053d51a0b46c1ea922422904a87a0ba510ed8e0a', name: "home" }), h("li", { key: '53bd1516660b1bd6b0fd5e301c8c42872a3bc1b9', class: `nav-container__list nav-list--${alignment}` }, h("ul", { key: 'b67c77da3b122d690ec479839036c155f0050451', class: `nav-container__list nav-list--${alignment}` }, h("slot", { key: '34f0a620558fdb227f41be0c5cb1142c180b2a81' })))))))));
+        return (h(Host, { key: '0a185f63b720d7a6b47ad9204a40b506f4dbcbd4' }, h("div", { key: '86accc24657db6c1532deaa30a04c5ad17f281cd', class: "gcds-top-nav" }, h("nav", { key: '52684b858af7b5d205dabe7eee8071d8b2de79d4', "aria-label": `${label}${I18N[lang].navLabel}` }, h("ul", { key: '1d106bcb07ca67ac7be572acf26c4fa3d9128996', class: "gcds-top-nav__container" }, h("gcds-nav-group", { key: 'cf80fff5c8c117f09ddcc1540a7361cba5e9aef7', menuLabel: I18N[lang].menuLabel, closeTrigger: I18N[lang].closeTrigger, openTrigger: I18N[lang].menuLabel, class: "gcds-mobile-nav gcds-mobile-nav-topnav", ref: element => (this.mobile = element), lang: lang }, h("slot", { key: '584ce592a08c84caabf664181ec2f3a769c9ac0d', name: "home" }), h("li", { key: 'd1a187f963160af82d10cd72bc1fa2c8bd1ffe0f', class: `nav-container__list nav-list--${alignment}` }, h("ul", { key: '3ece4687ccb79e67f30f5b08824acb254d1b1de8', class: `nav-container__list nav-list--${alignment}` }, h("slot", { key: 'edb4abbcabd29d9a65b79f27ac74da8c2896d092' })))))))));
     }
     static get is() { return "gcds-top-nav"; }
     static get encapsulation() { return "shadow"; }

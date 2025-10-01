@@ -1,5 +1,5 @@
-import { r as registerInstance, h, a as Host, c as getElement } from './index-DUr2qgFL.js';
-import { i as inheritAttributes } from './utils-DpIrOxXw.js';
+import { r as registerInstance, h, a as Host, c as getElement } from './index-BMZbJN0q.js';
+import { i as inheritAttributes } from './utils-D-WPtufr.js';
 
 const I18N = {
   en: {
@@ -34,7 +34,7 @@ const GcdsFieldset = class {
     render() {
         const { hint, inheritedAttributes, legend, legendSize } = this;
         const fieldsetAttrs = Object.assign({}, inheritedAttributes);
-        return (h(Host, { key: 'c0f3e75b19d6de1bff0447cf8cae1cc2c1c9f120' }, h("fieldset", Object.assign({ key: 'd838bdbecbe8297a737731e4831465e15e8a6065', class: "gcds-fieldset" }, fieldsetAttrs, { "aria-labelledby": hint ? `fieldset-legend fieldset-hint` : `fieldset-legend`, tabindex: "-1", ref: element => (this.shadowElement = element) }), h("legend", { key: 'a6d107dbe2de44e99f75e7ff6a5c693a466e851a', id: "fieldset-legend", class: `size-${legendSize}` }, legend), hint ? (h("gcds-hint", { id: "fieldset-hint", "hint-id": "fieldset" }, hint)) : null, h("slot", { key: '19ddbdd34078c10e4abd24fcdf55d89a8e06a13a' }))));
+        return (h(Host, { key: '3cd874d549d298eaab3347e3a804d3bec7d1e4a9' }, h("fieldset", Object.assign({ key: '431a72699d4e23445c4f7e8e52422351ceb16e9f', class: "gcds-fieldset" }, fieldsetAttrs, { "aria-labelledby": hint ? `fieldset-legend fieldset-hint` : `fieldset-legend`, tabindex: "-1", ref: element => (this.shadowElement = element) }), h("legend", { key: '9a24d81b5304693d0aa32b4895b2505c0fb28ff9', id: "fieldset-legend", class: `size-${legendSize}` }, legend), hint ? (h("gcds-hint", { id: "fieldset-hint", "hint-id": "fieldset" }, hint)) : null, h("slot", { key: 'a820afec5165dd7175809e0c69269e99dfa85ec8' }))));
     }
     static get delegatesFocus() { return true; }
     get el() { return getElement(this); }

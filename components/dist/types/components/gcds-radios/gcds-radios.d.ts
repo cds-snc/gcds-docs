@@ -1,6 +1,9 @@
 import { EventEmitter } from '../../stencil-public-runtime';
 import { RadioObject } from './radio';
 import { Validator, ValidatorEntry } from '../../validators';
+/**
+ * Radios provide a set of options for a single response.
+ */
 export declare class GcdsRadios {
     el: HTMLElement;
     internals: ElementInternals;
@@ -17,7 +20,7 @@ export declare class GcdsRadios {
     options: string | Array<RadioObject>;
     validateOptions(): void;
     /**
-     * The `name` attribute for the <gcds-radios>, used to group radio elements together
+     * The `name` attribute for the radios, used to group radio elements together
      */
     name: string;
     validateName(): void;
@@ -35,7 +38,7 @@ export declare class GcdsRadios {
      */
     hint: string;
     /**
-     * Set this to display an error message for invalid <gcds-radios>
+     * Set this to display an error message for invalid radios
      */
     errorMessage: string;
     validateErrorMessage(): void;
@@ -82,29 +85,29 @@ export declare class GcdsRadios {
      * Events
      */
     /**
-     * Emitted when <gcds-radios> has been changed as a direct result of a user action (a radio option has been selected)
+     * Emitted when radios has been changed as a direct result of a user action (a radio option has been selected). Contains new value in event detail
      */
-    gcdsInput: EventEmitter<void>;
+    gcdsInput: EventEmitter<string>;
     /**
-     * Emitted when a <gcds-radios> option is checked (but not when unchecked)
+     * Emitted when a radios option is checked (but not when unchecked). Contains new value in event detail
      */
-    gcdsChange: EventEmitter<void>;
+    gcdsChange: EventEmitter<string>;
     /**
-     * Emitted when <gcds-radios> has received focus
+     * Emitted when radios has received focus
      */
     gcdsFocus: EventEmitter<void>;
     /**
-     * Emitted when the <gcds-radios> has lost focus
+     * Emitted when the radios has lost focus
      */
     gcdsBlur: EventEmitter<void>;
     private onBlur;
     private onBlurValidate;
     /**
-     * Emitted when <gcds-radios> has passed validation
+     * Emitted when radios has passed validation
      */
     gcdsValid: EventEmitter<void>;
     /**
-     * Emitted when <gcds-radios> has a validation error
+     * Emitted when radios has a validation error
      */
     gcdsError: EventEmitter<object>;
     submitListener(e: any): void;

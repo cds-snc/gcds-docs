@@ -1,6 +1,11 @@
 import { Host, h } from "@stencil/core";
 import { assignLanguage, observerConfig, logError } from "../../utils/utils";
 import i18n from "./i18n/i18n";
+/**
+ * Date modified is an indicator of the last update to a webpage or application.
+ *
+ * @slot default - Slot for the date/version number.
+ */
 export class GcdsDateModified {
     constructor() {
         /**
@@ -46,14 +51,14 @@ export class GcdsDateModified {
         // Define lang attribute
         this.lang = assignLanguage(this.el);
         this.updateLang();
-        let valid = this.validateRequiredProps();
+        const valid = this.validateRequiredProps();
         if (!valid) {
             logError('gcds-date-modified', this.errors);
         }
     }
     render() {
         const { lang, type } = this;
-        return (h(Host, { key: 'ae1d5ceeefb2826a675edeca1f2fa0c81828b425' }, this.validateRequiredProps() && (h("dl", { key: '989b2ca91b4887f0a47c956c022550b475221a7d', class: "gcds-date-modified" }, h("dt", { key: '1d05ceb07362ad9b010769489ad3b0a057d9d754' }, h("gcds-text", { key: '61bb8fbe85f6614eeec0ebb9fabacc7b710dfc8d', display: "inline", "margin-bottom": "0" }, type === 'version' ? i18n[lang].version : i18n[lang].date)), h("dd", { key: '45cdfd7944ba0ca7ea4251d673eaf2f59f2346a0' }, h("gcds-text", { key: 'f2c0744b1a28ff5cd98ff8e3da8ce44384656b4d', display: "inline", "margin-bottom": "0" }, type === 'version' ? (h("slot", null)) : (h("time", null, h("slot", null)))))))));
+        return (h(Host, { key: 'cda63407c2b6dc57f860d505f61a9f78c15c96b3' }, this.validateRequiredProps() && (h("dl", { key: '3324ca2c0c64c5f89c4a398344f3892fb1637073', class: "gcds-date-modified" }, h("dt", { key: '46bb18c35af4cfccd2e8cc71943fb3bee51de503' }, h("gcds-text", { key: 'd9b12fc046a396ba12817b210eb100980c59d720', display: "inline", "margin-bottom": "0" }, type === 'version' ? i18n[lang].version : i18n[lang].date)), h("dd", { key: 'cc81cb879d8fc1a06832aa6f80d29c179892afc7' }, h("gcds-text", { key: 'cebba414553c7357b8bf9033d4d84e2a2ec03521', display: "inline", "margin-bottom": "0" }, type === 'version' ? (h("slot", null)) : (h("time", null, h("slot", null)))))))));
     }
     static get is() { return "gcds-date-modified"; }
     static get encapsulation() { return "shadow"; }

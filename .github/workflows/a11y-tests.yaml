@@ -8,14 +8,13 @@ on:
     branches:
       - main
   pull_request:
-    branches:
-      - main
+    types: [opened, reopened, synchronize]
 
 jobs:
   a11y-test:
     name: A11y test documentation site
     runs-on: ubuntu-latest
-    container: 
+    container:
       image: cypress/included:11.2.0
     steps:
       - name: Git Checkout
@@ -30,3 +29,6 @@ jobs:
         with:
           build: npm run build:eleventy
           start: npm run watch:eleventy
+          wait-on: 'http://localhost:8080/en'
+          # wait for 2 minutes for the server to respond
+          wait-on-timeout: 240

@@ -1,4 +1,9 @@
 import { EventEmitter } from '../../stencil-public-runtime';
+/**
+ * A link is a navigational element that brings a person to a new page, website, file, or section on the current page.
+ *
+ * @slot default - Slot for the link content.
+ */
 export declare class GcdsLink {
     el: HTMLElement;
     private shadowElement?;
@@ -64,9 +69,9 @@ export declare class GcdsLink {
      */
     gcdsBlur: EventEmitter<void>;
     /**
-     * Emitted when the link has been clicked.
+     * Emitted when the link has been clicked. Contains the href in the event detail.
      */
-    gcdsClick: EventEmitter<void>;
+    gcdsClick: EventEmitter<string>;
     updateLang(): void;
     componentWillLoad(): void;
     render(): any;

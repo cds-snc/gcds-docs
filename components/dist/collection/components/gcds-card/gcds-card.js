@@ -1,6 +1,11 @@
 import { Host, h, } from "@stencil/core";
 import { assignLanguage, observerConfig, logError } from "../../utils/utils";
 import i18n from "./i18n/i18n";
+/**
+ * A card is a box containing structured, actionable content on a single topic.
+ *
+ * @slot default - Slot for the card description. Will overwrite the description prop if used.
+ */
 export class GcdsCard {
     constructor() {
         /**
@@ -67,17 +72,17 @@ export class GcdsCard {
         this.lang = assignLanguage(this.el);
         this.updateLang();
         this.validateBadge();
-        let valid = this.validateRequiredProps();
+        const valid = this.validateRequiredProps();
         if (!valid) {
             logError('gcds-card', this.errors, ['badge']);
         }
     }
     get renderDescription() {
         if (this.el.innerHTML.trim() != '') {
-            return h("div", { class: "gcds-card__description" }, h("slot", null));
+            return (h("div", { class: "gcds-card__description" }, h("slot", null)));
         }
         else if (this.description) {
-            return h("div", { class: "gcds-card__description" }, h("gcds-text", { "margin-bottom": '0' }, this.description));
+            return (h("div", { class: "gcds-card__description" }, h("gcds-text", { "margin-bottom": "0" }, this.description)));
         }
         else {
             return null;
@@ -91,7 +96,7 @@ export class GcdsCard {
             taggedAttr['aria-describedby'] = 'gcds-badge';
         }
         if (this.validateRequiredProps()) {
-            return (h(Host, { key: '0402753bd0ae1f2248dbc0170d6ffa1470933734' }, h("div", { key: '4808bc995375f3c536578f0dc1b1307d955c8f33', class: "gcds-card" }, badge && !errors.includes('badge') && (h("gcds-text", { key: '6cf5c35378fad224ae666bdf6901ee482a40be6c', id: "gcds-badge", class: "gcds-badge", "text-role": "light", "margin-bottom": "0", size: "small" }, h("strong", { key: '4be70916982695192bf67e03e0659c8bb64a53f8' }, h("gcds-sr-only", { key: '6262dad21f6d5aec05093e12a1044a187acf58b7', tag: "span" }, i18n[lang].tagged), badge))), imgSrc && (h("img", { key: '8240ca4df2ed097f185667da8135e8e28a4b6040', src: imgSrc, alt: imgAlt ? imgAlt : '', class: "gcds-card__image" })), Element != 'a' ? (h(Element, Object.assign({ class: "gcds-card__title" }, taggedAttr), h("gcds-link", { href: href }, cardTitle))) : (h("gcds-link", Object.assign({ href: href, class: "gcds-card__title" }, taggedAttr), cardTitle)), renderDescription)));
+            return (h(Host, { key: 'e2311efdcaaadb272a36f44c3e3eb051b4767b5d' }, h("div", { key: '234bde32e565a54786b2f872762ed95c19c821cc', class: "gcds-card" }, badge && !errors.includes('badge') && (h("gcds-text", { key: '844bfe328181351d24e68b83f57b7d4f9a9a3b75', id: "gcds-badge", class: "gcds-badge", "text-role": "light", "margin-bottom": "0", size: "small" }, h("strong", { key: '565872d89c99d6c4541b2ec494b8abdbfc79d035' }, h("gcds-sr-only", { key: '30196619952eb4d38d677db62184d9491e458c19', tag: "span" }, i18n[lang].tagged), badge))), imgSrc && (h("img", { key: 'b233e6e13e836831ab9c207483529a7424b5c887', src: imgSrc, alt: imgAlt ? imgAlt : '', class: "gcds-card__image" })), Element != 'a' ? (h(Element, Object.assign({ class: "gcds-card__title" }, taggedAttr), h("gcds-link", { href: href }, cardTitle))) : (h("gcds-link", Object.assign({ href: href, class: "gcds-card__title" }, taggedAttr), cardTitle)), renderDescription)));
         }
     }
     static get is() { return "gcds-card"; }
@@ -289,11 +294,11 @@ export class GcdsCard {
                 "composed": true,
                 "docs": {
                     "tags": [],
-                    "text": "Emitted when the card has been clicked."
+                    "text": "Emitted when the card has been clicked. Contains the href in the event detail."
                 },
                 "complexType": {
-                    "original": "void",
-                    "resolved": "void",
+                    "original": "string",
+                    "resolved": "string",
                     "references": {}
                 }
             }];

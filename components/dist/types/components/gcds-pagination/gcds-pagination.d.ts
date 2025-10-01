@@ -1,10 +1,13 @@
 import { EventEmitter } from '../../stencil-public-runtime';
+/**
+ * Pagination is a division of content into multiple linked pages.
+ */
 export declare class GcdsPagination {
     el: HTMLElement;
     private listitems;
     private mobilePrevNext;
     /**
-     * Navigation element label
+     * Determines the pagination display style.
      */
     display: 'list' | 'simple';
     /**
@@ -64,9 +67,10 @@ export declare class GcdsPagination {
      */
     gcdsBlur: EventEmitter<void>;
     /**
-     * Emitted when the link has been clicked.
+     * Emitted when the link has been clicked. Contains the href in event detail when using simple display,
+     * or an object with page and href when using list display.
      */
-    gcdsClick: EventEmitter<void>;
+    gcdsClick: EventEmitter<object | string>;
     /**
      * Function to constuct <li> and <a> tags for display="list" pagination
      */

@@ -1,11 +1,16 @@
 import { SpacingValues } from '../../utils/types/spacing';
+/**
+ * A container is a basic box layout with a set width for its contents.
+ *
+ * @slot default - Slot for the main content of the container.
+ */
 export declare class GcdsContainer {
     el: HTMLElement;
     /**
      * Props
      */
     /**
-    * Defines if the container has a border.
+     * Defines if the container has a border.
      */
     border?: boolean;
     /**

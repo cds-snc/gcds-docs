@@ -1,5 +1,8 @@
 import { Host, h } from "@stencil/core";
 import i18n from "./i18n/i18n";
+/**
+ * An icon is a symbol that visually represents an action or idea.
+ */
 export class GcdsIcon {
     constructor() {
         /**
@@ -51,7 +54,7 @@ export class GcdsIcon {
     }
     render() {
         const { label, marginLeft, marginRight, name, size } = this;
-        return (h(Host, { key: 'f81bf5b49ba6a5b3b2f7d0ac36c947065051fd11' }, h("span", { key: 'd25f57eea33938f5b8be0deb5844d6cb880cca10', class: `
+        return (h(Host, { key: '9767ef8285004f25317ad156ac39d21a0267c6d3' }, h("span", { key: 'c7a3dfe9ed1b093e5a6d9a37bdc5c11e7154b462', class: `
             gcds-icon gcds-icon-${name}
             ${marginLeft ? `ml-${marginLeft}` : ''}
             ${marginRight ? `mr-${marginRight}` : ''}

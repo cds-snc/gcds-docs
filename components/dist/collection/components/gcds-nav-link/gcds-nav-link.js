@@ -1,5 +1,10 @@
 import { Host, h, } from "@stencil/core";
 import { assignLanguage, observerConfig, emitEvent } from "../../utils/utils";
+/**
+ * Navigation link within a navigation group or menu, allowing users to navigate to different sections of a website or application.
+ *
+ * @slot default - Slot for the navigation link content.
+ */
 export class GcdsNavLink {
     /**
      * Focus the link element
@@ -40,7 +45,7 @@ export class GcdsNavLink {
         if (current) {
             linkAttrs['aria-current'] = 'page';
         }
-        return (h(Host, { key: '5a76c200c2d515b82addfbcee6fd932491889505', role: "listitem" }, h("a", Object.assign({ key: 'e07cc786a25123e192d0bec025c0ab7a77078d8b', class: `gcds-nav-link gcds-nav-link--${this.navStyle}`, href: href }, linkAttrs, { tabIndex: 0, onBlur: () => this.gcdsBlur.emit(), onFocus: () => this.gcdsFocus.emit(), onClick: e => emitEvent(e, this.gcdsClick, href), ref: element => (this.linkElement = element) }), h("slot", { key: '32e5be57f63a00cb58b79ed2ac9650327e1c9c17' }))));
+        return (h(Host, { key: '69d1a5cf3b6ec8277ecbc0b994c679a85485f288', role: "listitem" }, h("a", Object.assign({ key: 'e6fa6df38ec8f39e69e6e030846353e969640680', class: `gcds-nav-link gcds-nav-link--${this.navStyle}`, href: href }, linkAttrs, { tabIndex: 0, onBlur: () => this.gcdsBlur.emit(), onFocus: () => this.gcdsFocus.emit(), onClick: e => emitEvent(e, this.gcdsClick, href), ref: element => (this.linkElement = element) }), h("slot", { key: '77b17d920b3c8e9fed6467aff446f928d246cf19' }))));
     }
     static get is() { return "gcds-nav-link"; }
     static get encapsulation() { return "shadow"; }
@@ -114,8 +119,8 @@ export class GcdsNavLink {
                     "text": "Emitted when the link has been clicked."
                 },
                 "complexType": {
-                    "original": "void",
-                    "resolved": "void",
+                    "original": "string",
+                    "resolved": "string",
                     "references": {}
                 }
             }, {

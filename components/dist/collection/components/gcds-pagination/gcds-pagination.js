@@ -2,6 +2,9 @@ import { Host, h, } from "@stencil/core";
 import { assignLanguage, observerConfig, emitEvent } from "../../utils/utils";
 import I18N from "./i18n/i18n";
 import { constructHref, constructClasses } from "./utils/render";
+/**
+ * Pagination is a division of content into multiple linked pages.
+ */
 export class GcdsPagination {
     constructor() {
         this.listitems = [];
@@ -10,7 +13,7 @@ export class GcdsPagination {
          * Props
          */
         /**
-         * Navigation element label
+         * Determines the pagination display style.
          */
         this.display = 'list';
     }
@@ -183,7 +186,7 @@ export class GcdsPagination {
     }
     render() {
         const { display, label, previousHref, previousLabel, nextHref, nextLabel, lang, } = this;
-        return (h(Host, { key: '18bb20fbd6126c3f6da55744df5bdd25df0d1e00', role: "navigation", "aria-label": label }, h("div", { key: '01f20dcbb452e3d8678a19864ed6ce795b321f71', class: "gcds-pagination" }, display === 'list' ? (h("div", null, h("ul", { class: "gcds-pagination-list" }, this.listitems), h("ul", { class: "gcds-pagination-list-mobile-prevnext" }, this.mobilePrevNext))) : (h("ul", { class: "gcds-pagination-simple" }, previousHref && (h("li", { class: "gcds-pagination-simple-previous" }, h("a", { href: previousHref, tabindex: 0, "aria-label": `${I18N[lang].previousPage}${previousLabel ? `: ${previousLabel}` : ''}`, onBlur: () => this.gcdsBlur.emit(), onFocus: () => this.gcdsFocus.emit(), onClick: e => emitEvent(e, this.gcdsClick, previousHref) }, h("gcds-icon", { "margin-right": "150", name: "chevron-left" }), h("div", { class: "gcds-pagination-simple-text" }, I18N[lang].previous), h("span", null, previousLabel)))), nextHref && (h("li", { class: "gcds-pagination-simple-next" }, h("a", { href: nextHref, tabindex: 0, "aria-label": `${I18N[lang].nextPage}${nextLabel ? `: ${nextLabel}` : ''}`, onBlur: () => this.gcdsBlur.emit(), onFocus: () => this.gcdsFocus.emit(), onClick: e => emitEvent(e, this.gcdsClick, nextHref) }, h("div", { class: "gcds-pagination-simple-text" }, I18N[lang].next), h("span", null, nextLabel), h("gcds-icon", { "margin-left": "150", name: "chevron-right" })))))))));
+        return (h(Host, { key: '7de8352d25f9bf89e58d2c3ed98a14ab62acb98b', role: "navigation", "aria-label": label }, h("div", { key: 'f63a8dbf6f85c1ec54abf67d01ef423ec8dcc2c7', class: "gcds-pagination" }, display === 'list' ? (h("div", null, h("ul", { class: "gcds-pagination-list" }, this.listitems), h("ul", { class: "gcds-pagination-list-mobile-prevnext" }, this.mobilePrevNext))) : (h("ul", { class: "gcds-pagination-simple" }, previousHref && (h("li", { class: "gcds-pagination-simple-previous" }, h("a", { href: previousHref, tabindex: 0, "aria-label": `${I18N[lang].previousPage}${previousLabel ? `: ${previousLabel}` : ''}`, onBlur: () => this.gcdsBlur.emit(), onFocus: () => this.gcdsFocus.emit(), onClick: e => emitEvent(e, this.gcdsClick, previousHref) }, h("gcds-icon", { "margin-right": "150", name: "chevron-left" }), h("div", { class: "gcds-pagination-simple-text" }, I18N[lang].previous), h("span", null, previousLabel)))), nextHref && (h("li", { class: "gcds-pagination-simple-next" }, h("a", { href: nextHref, tabindex: 0, "aria-label": `${I18N[lang].nextPage}${nextLabel ? `: ${nextLabel}` : ''}`, onBlur: () => this.gcdsBlur.emit(), onFocus: () => this.gcdsFocus.emit(), onClick: e => emitEvent(e, this.gcdsClick, nextHref) }, h("div", { class: "gcds-pagination-simple-text" }, I18N[lang].next), h("span", null, nextLabel), h("gcds-icon", { "margin-left": "150", name: "chevron-right" })))))))));
     }
     static get is() { return "gcds-pagination"; }
     static get encapsulation() { return "shadow"; }
@@ -212,7 +215,7 @@ export class GcdsPagination {
                 "optional": false,
                 "docs": {
                     "tags": [],
-                    "text": "Navigation element label"
+                    "text": "Determines the pagination display style."
                 },
                 "getter": false,
                 "setter": false,
@@ -418,11 +421,11 @@ export class GcdsPagination {
                 "composed": true,
                 "docs": {
                     "tags": [],
-                    "text": "Emitted when the link has been clicked."
+                    "text": "Emitted when the link has been clicked. Contains the href in event detail when using simple display,\nor an object with page and href when using list display."
                 },
                 "complexType": {
-                    "original": "void",
-                    "resolved": "void",
+                    "original": "object | string",
+                    "resolved": "object | string",
                     "references": {}
                 }
             }];

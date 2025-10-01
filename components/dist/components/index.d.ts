@@ -3,7 +3,7 @@ export { GcdsAlert as GcdsAlert } from '../types/components/gcds-alert/gcds-aler
 export { defineCustomElement as defineCustomElementGcdsAlert } from './gcds-alert';
 export { GcdsBreadcrumbs as GcdsBreadcrumbs } from '../types/components/gcds-breadcrumbs/gcds-breadcrumbs';
 export { defineCustomElement as defineCustomElementGcdsBreadcrumbs } from './gcds-breadcrumbs';
-export { GcdsBreadcrumbsItem as GcdsBreadcrumbsItem } from '../types/components/gcds-breadcrumbs/gcds-breadcrumbs-item';
+export { GcdsBreadcrumbsItem as GcdsBreadcrumbsItem } from '../types/components/gcds-breadcrumbs-item/gcds-breadcrumbs-item';
 export { defineCustomElement as defineCustomElementGcdsBreadcrumbsItem } from './gcds-breadcrumbs-item';
 export { GcdsButton as GcdsButton } from '../types/components/gcds-button/gcds-button';
 export { defineCustomElement as defineCustomElementGcdsButton } from './gcds-button';

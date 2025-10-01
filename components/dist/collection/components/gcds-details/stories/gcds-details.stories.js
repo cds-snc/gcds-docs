@@ -1,3 +1,4 @@
+import { eventProp } from "../../../utils/storybook/component-properties";
 export default {
     title: 'Components/Details',
     argTypes: {
@@ -31,6 +32,10 @@ export default {
                 category: 'Slots | Fentes',
             },
         },
+        // Events
+        gcdsClick: Object.assign({ action: 'click' }, eventProp),
+        gcdsFocus: Object.assign({ action: 'focus' }, eventProp),
+        gcdsBlur: Object.assign({ action: 'blur' }, eventProp),
     },
 };
 const Template = args => `

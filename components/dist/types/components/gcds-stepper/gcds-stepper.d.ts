@@ -1,3 +1,8 @@
+/**
+ * A stepper is a progress tracker for a multi-step process.
+ *
+ * @slot default - Slot for the heading content.
+ */
 export declare class GcdsStepper {
     el: HTMLElement;
     /**

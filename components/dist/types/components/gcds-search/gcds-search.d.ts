@@ -1,4 +1,7 @@
 import { EventEmitter } from '../../stencil-public-runtime';
+/**
+ * Search is a space for entering keywords to find relevant information.
+ */
 export declare class GcdsSearch {
     el: HTMLElement;
     /**
@@ -33,7 +36,7 @@ export declare class GcdsSearch {
      * Events
      */
     /**
-     * Emitted when the search element has recieved input.
+     * Emitted when the search element has received input.
      */
     gcdsInput: EventEmitter<string>;
     /**
@@ -41,17 +44,17 @@ export declare class GcdsSearch {
      */
     gcdsChange: EventEmitter<string>;
     /**
-     * Emitted when the search input value has gained focus.
+     * Emitted when the search input has gained focus.
      */
-    gcdsFocus: EventEmitter<object>;
+    gcdsFocus: EventEmitter<void>;
     /**
      * Emitted when the search input has lost focus.
      */
-    gcdsBlur: EventEmitter<object>;
+    gcdsBlur: EventEmitter<void>;
     /**
      * Emitted when the search form has submitted.
      */
-    gcdsSubmit: EventEmitter<object>;
+    gcdsSubmit: EventEmitter<string>;
     /**
      * Language of rendered component
      */

@@ -1,4 +1,7 @@
 import { SpacingValues } from '../../utils/types/spacing';
+/**
+ * An icon is a symbol that visually represents an action or idea.
+ */
 export declare class GcdsIcon {
     el: HTMLElement;
     /**

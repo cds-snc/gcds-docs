@@ -1,5 +1,10 @@
 import { Host, h } from "@stencil/core";
 import { SpacingArray } from "../../utils/types/spacing";
+/**
+ * Text is a styled and formatted paragraph that displays written content in an accessible way and matches Canada.ca typography styles.
+ *
+ * @slot default - Slot for the content of the text element.
+ */
 export class GcdsText {
     constructor() {
         /**
@@ -75,7 +80,7 @@ export class GcdsText {
     }
     render() {
         const { characterLimit, display, marginTop, marginBottom, size, textRole } = this;
-        return (h(Host, { key: '748369613e967a25a6b2b20e6123b2b67e0143da', class: `${display != 'block' ? `d-${display}` : ''}` }, h("p", { key: 'b611810500ccf49c736d689d1e94a4f4d048fa03', class: `
+        return (h(Host, { key: '60d33fada39b1dd1af0af482be9d9d3d158d248b', class: `${display != 'block' ? `d-${display}` : ''}` }, h("p", { key: '5c890123f5244dd5a67f01819bbd309d67f2458a', class: `
             gcds-text
             ${textRole ? `role-${textRole}` : ''}
             ${characterLimit ? 'limit' : ''}

@@ -22,6 +22,9 @@ export async function handleKeyDownNav(event, nav, queue) {
             else {
                 await focusNavItem(currentIndex + 1, queue);
             }
+            setTimeout(() => {
+                nav.updateNavItemQueue(nav);
+            }, 200);
             break;
         // Up arrow
         case 'ArrowUp':
@@ -34,6 +37,9 @@ export async function handleKeyDownNav(event, nav, queue) {
             else {
                 await focusNavItem(currentIndex - 1, queue);
             }
+            setTimeout(() => {
+                nav.updateNavItemQueue(nav);
+            }, 200);
             break;
         // Right arrow
         case 'ArrowRight':
@@ -80,6 +86,9 @@ export async function handleKeyDownNav(event, nav, queue) {
                     }
                 }
             }
+            setTimeout(() => {
+                nav.updateNavItemQueue(nav);
+            }, 200);
             break;
         // ENTER || SPACEBAR
         case 'Enter':
@@ -96,7 +105,7 @@ export async function handleKeyDownNav(event, nav, queue) {
  * @param {Number} index
  * @param {any[]} queue
  */
-async function focusNavItem(index, queue) {
+export async function focusNavItem(index, queue) {
     if (queue[index].nodeName == 'GCDS-NAV-LINK') {
         queue[index].focusLink();
     }
@@ -109,7 +118,7 @@ async function focusNavItem(index, queue) {
  * @param {Element} group
  * @param {Element} nav
  */
-async function toggleNavGroup(group, nav) {
+export async function toggleNavGroup(group, nav) {
     const navGroup = group;
     // Close nav group
     if (navGroup.hasAttribute('open')) {

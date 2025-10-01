@@ -1,3 +1,8 @@
+/**
+ * A side navigation is a vertical list of page links on the left side of the screen.
+ *
+ * @slot default - Slot for the navigation groups and navigation links.
+ */
 export declare class GcdsSideNav {
     el: HTMLElement;
     private mobile?;

@@ -69,7 +69,7 @@ export default {
         }
     }, validatorProps), langProp), {
         // Events
-        gcdsChange: Object.assign({ action: 'change' }, eventProp), gcdsInput: Object.assign({ action: 'input' }, eventProp), gcdsFocus: Object.assign({ action: 'focus' }, eventProp), gcdsBlur: Object.assign({ action: 'blur' }, eventProp)
+        gcdsChange: Object.assign({ action: 'change' }, eventProp), gcdsInput: Object.assign({ action: 'input' }, eventProp), gcdsFocus: Object.assign({ action: 'focus' }, eventProp), gcdsBlur: Object.assign({ action: 'blur' }, eventProp), gcdsError: Object.assign({ action: 'invalid' }, eventProp), gcdsValid: Object.assign({ action: 'valid' }, eventProp)
     }),
 };
 const Template = args => `

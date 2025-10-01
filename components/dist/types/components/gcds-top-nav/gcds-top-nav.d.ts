@@ -1,3 +1,8 @@
+/**
+ * A top navigation is a horizontal list of page links.
+ *
+ * @slot default - Slot for the navigation groups and navigation links.
+ */
 export declare class GcdsTopNav {
     el: HTMLElement;
     private mobile?;

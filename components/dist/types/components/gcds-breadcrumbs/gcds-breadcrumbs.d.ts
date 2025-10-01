@@ -1,3 +1,8 @@
+/**
+ * Breadcrumbs is a path to the current page from each preceding level of the site's hierarchy.
+ *
+ * @slot default - Slot for the breadcrumb items.
+ */
 export declare class GcdsBreadcrumbs {
     el: HTMLElement;
     /**

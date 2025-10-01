@@ -1,5 +1,10 @@
 import { Host, h } from "@stencil/core";
 import { SpacingArray } from "../../utils/types/spacing";
+/**
+ * A heading is a title that establishes levels of hierarchy to organize page content into a structure and matches Canada.ca typography styles.
+ *
+ * @slot default - Slot for the heading content
+ */
 export class GcdsHeading {
     constructor() {
         /**
@@ -39,12 +44,12 @@ export class GcdsHeading {
     render() {
         const { characterLimit, marginTop, marginBottom, tag } = this;
         const Tag = tag;
-        return (h(Host, { key: '4e0476bfcf5d77051f092e2094c24cae68b25abf' }, h(Tag, { key: '4fe4a926858163b617fdebd62ea7f97211755121', class: `
+        return (h(Host, { key: '507c9c3fc2b151e9e529b3f155bc07394aa8fbb4' }, h(Tag, { key: '6a24d145608e7f8bec9bb7282c02b7a2d3c030d4', class: `
             gcds-heading
             ${characterLimit ? 'limit' : ''}
             ${marginTop ? `mt-${marginTop}` : ''}
             ${marginBottom ? `mb-${marginBottom}` : ''}
-          ` }, h("slot", { key: 'ca17660b8b88a915b9f18bf3cbcde376e07a5d13' }))));
+          ` }, h("slot", { key: 'fc7c907330d467d951a008b36379c34b8bdfcf5f' }))));
     }
     static get is() { return "gcds-heading"; }
     static get encapsulation() { return "shadow"; }

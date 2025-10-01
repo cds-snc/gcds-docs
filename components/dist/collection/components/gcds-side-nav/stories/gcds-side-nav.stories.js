@@ -1,7 +1,7 @@
 import { langProp } from "../../../utils/storybook/component-properties";
 export default {
     title: 'Components/Side navigation',
-    argTypes: Object.assign({
+    argTypes: Object.assign(Object.assign({
         // Props
         label: {
             name: 'label',
@@ -14,7 +14,18 @@ export default {
                 required: true,
             },
         }
-    }, langProp),
+    }, langProp), {
+        // Slots
+        default: {
+            control: {
+                type: 'text',
+            },
+            description: 'Customize the content or include additional elements. | Personnalisez le contenu ou ajoutez des éléments supplémentaires.',
+            table: {
+                category: 'Slots | Fentes',
+            },
+        }
+    }),
 };
 const Template = args => `
 <!-- Web component code (HTML, Angular, Vue) -->
@@ -22,7 +33,8 @@ const Template = args => `
   label="${args.label}"
   ${args.lang != 'en' ? `lang="${args.lang}"` : null}
 >
-  <gcds-nav-link href="#">Why GC Forms</gcds-nav-link>
+  ${args.default ||
+    `<gcds-nav-link href="#">Why GC Forms</gcds-nav-link>
 
   <gcds-nav-group open-trigger="Features" menu-label="Features">
     <gcds-nav-group open-trigger="Build and manage forms yourself" menu-label="Build and manage forms yourself sublevel">
@@ -39,7 +51,7 @@ const Template = args => `
   </gcds-nav-group>
 
   <gcds-nav-link href="#">Guidance</gcds-nav-link>
-  <gcds-nav-link href="#">Contact us</gcds-nav-link>
+  <gcds-nav-link href="#">Contact us</gcds-nav-link>`}
 </gcds-side-nav>
 
 <!-- React code -->
@@ -47,6 +59,8 @@ const Template = args => `
   label="${args.label}"
   ${args.lang != 'en' ? `lang="${args.lang}"` : null}
 >
+  ${args.default ||
+    `<GcdsNavLink href="#">Why GC Forms</GcdsNavLink>
   <GcdsNavLink href="#">Why GC Forms</GcdsNavLink>
 
   <GcdsNavGroup openTrigger="Features" menuLabel="Features">
@@ -65,7 +79,7 @@ const Template = args => `
 
   <GcdsNavLink href="#">Guidance</GcdsNavLink>
   <GcdsNavLink href="#">Contact us</GcdsNavLink>
-</GcdsSideNav>
+</GcdsSideNav>`}
 `.replace(/\s\snull\n/g, '');
 const TemplatePlayground = args => `
 <!-- Web component code (Angular, Vue) -->
@@ -73,6 +87,8 @@ const TemplatePlayground = args => `
   label="${args.label}"
   ${args.lang != 'en' ? `lang="${args.lang}"` : null}
 >
+  ${args.default ||
+    `<gcds-nav-link href="#">Why GC Forms</gcds-nav-link>
   <gcds-nav-link href="#">Why GC Forms</gcds-nav-link>
 
   <gcds-nav-group open-trigger="Features" menu-label="Features">
@@ -91,21 +107,24 @@ const TemplatePlayground = args => `
 
   <gcds-nav-link href="#">Guidance</gcds-nav-link>
   <gcds-nav-link href="#">Contact us</gcds-nav-link>
-</gcds-side-nav>
+</gcds-side-nav>`}
 `.replace(/\s\snull\n/g, '');
 export const Default = Template.bind({});
 Default.args = {
     label: 'GC Forms',
     lang: 'en',
+    default: '',
 };
 export const Props = Template.bind({});
 Props.args = {
     label: 'GC Forms',
     lang: 'en',
+    default: '',
 };
 export const Playground = TemplatePlayground.bind({});
 Playground.args = {
     label: 'GC Forms',
     lang: 'en',
+    default: '',
 };
 //# sourceMappingURL=gcds-side-nav.stories.js.map

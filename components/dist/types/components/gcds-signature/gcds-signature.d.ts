@@ -1,3 +1,6 @@
+/**
+ * The signature is the Government of Canada landmark identifier found in the header or footer.
+ */
 export declare class GcdsSignature {
     el: HTMLElement;
     /**

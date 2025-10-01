@@ -2,6 +2,11 @@ import { Host, h, } from "@stencil/core";
 import { assignLanguage, observerConfig } from "../../utils/utils";
 import { inheritAttributes, emitEvent } from "../../utils/utils";
 import i18n from "./i18n/i18n";
+/**
+ * A link is a navigational element that brings a person to a new page, website, file, or section on the current page.
+ *
+ * @slot default - Slot for the link content.
+ */
 export class GcdsLink {
     constructor() {
         /**
@@ -83,7 +88,7 @@ export class GcdsLink {
             type,
         };
         const isExternal = target === '_blank' || external;
-        return (h(Host, { key: '99bd6ce9f3bebc2468fed22644bec0421b7afc40' }, h("a", Object.assign({ key: 'a19942fd68abfb6477a6da324ce3ae31e09a07b1', tabIndex: 0 }, attrs, { class: `gcds-link link--${size} ${display != 'inline' ? `d-${display}` : ''} ${variant != 'default' ? `variant-${variant}` : ''}`, ref: element => (this.shadowElement = element), target: isExternal ? '_blank' : target, rel: isExternal ? 'noopener noreferrer' : rel }, inheritedAttributes, { part: "link", onBlur: () => this.gcdsBlur.emit(), onFocus: () => this.gcdsFocus.emit(), onClick: e => emitEvent(e, this.gcdsClick, href) }), h("slot", { key: 'bd5f658221e922e831be1d190f865d71a5ed1455' }), target === '_blank' || external ? (h("gcds-icon", { name: "external", label: i18n[lang].external, "margin-left": "75" })) : download !== undefined ? (h("gcds-icon", { name: "download", label: i18n[lang].download, "margin-left": "75" })) : href && href.toLowerCase().startsWith('mailto:') ? (h("gcds-icon", { name: "email", label: i18n[lang].email, "margin-left": "75" })) : (href &&
+        return (h(Host, { key: '8cd9092b220f6cea2f5311e3053e0fbed489b40e' }, h("a", Object.assign({ key: '112763038c0564dd208a1172c28c26026c27b511', tabIndex: 0 }, attrs, { class: `gcds-link link--${size} ${display != 'inline' ? `d-${display}` : ''} ${variant != 'default' ? `variant-${variant}` : ''}`, ref: element => (this.shadowElement = element), target: isExternal ? '_blank' : target, rel: isExternal ? 'noopener noreferrer' : rel }, inheritedAttributes, { part: "link", onBlur: () => this.gcdsBlur.emit(), onFocus: () => this.gcdsFocus.emit(), onClick: e => emitEvent(e, this.gcdsClick, href) }), h("slot", { key: '749225ef8d310a8499061c7b8e6831ea3d68cad0' }), target === '_blank' || external ? (h("gcds-icon", { name: "external", label: i18n[lang].external, "margin-left": "75" })) : download !== undefined ? (h("gcds-icon", { name: "download", label: i18n[lang].download, "margin-left": "75" })) : href && href.toLowerCase().startsWith('mailto:') ? (h("gcds-icon", { name: "email", label: i18n[lang].email, "margin-left": "75" })) : (href &&
             href.toLowerCase().startsWith('tel:') && (h("gcds-icon", { name: "phone", label: i18n[lang].phone, "margin-left": "75" }))))));
     }
     static get is() { return "gcds-link"; }
@@ -323,11 +328,11 @@ export class GcdsLink {
                 "composed": true,
                 "docs": {
                     "tags": [],
-                    "text": "Emitted when the link has been clicked."
+                    "text": "Emitted when the link has been clicked. Contains the href in the event detail."
                 },
                 "complexType": {
-                    "original": "void",
-                    "resolved": "void",
+                    "original": "string",
+                    "resolved": "string",
                     "references": {}
                 }
             }];

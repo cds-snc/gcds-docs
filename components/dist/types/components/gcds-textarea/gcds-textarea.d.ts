@@ -1,18 +1,31 @@
 import { EventEmitter } from '../../stencil-public-runtime';
 import { Validator, ValidatorEntry } from '../../validators';
+/**
+ * A text area is a space to enter long-form information in response to a question or instruction.
+ */
 export declare class GcdsTextarea {
     el: HTMLElement;
     internals: ElementInternals;
     private initialValue?;
     private shadowElement?;
+    private htmlValidationErrors;
+    private textareaTitle;
     _validator: Validator<string>;
     /**
      * Props
      */
     /**
+     * If true, the input will be focused on component render
+     */
+    autofocus: boolean;
+    /**
      * Sets the maxlength attribute for the textarea element.
      */
     characterCount?: number;
+    /**
+     * The minimum number of characters that the input field can accept.
+     */
+    minlength?: number;
     /**
      * Defines width for textarea cols (the min-width for textarea's is 50%).
      */
@@ -73,6 +86,10 @@ export declare class GcdsTextarea {
      */
     validateOn: 'blur' | 'submit' | 'other';
     /**
+     * Read-only property of the textarea, returns a ValidityState object that represents the validity states this element is in.
+     */
+    get validity(): ValidityState;
+    /**
      * Set additional HTML attributes not available in component properties
      */
     inheritedAttributes: Object;
@@ -100,16 +117,24 @@ export declare class GcdsTextarea {
     /**
      * Emitted when the textarea has changed.
      */
-    gcdsChange: EventEmitter;
+    gcdsChange: EventEmitter<string>;
     /**
      * Emitted when the textarea has received input.
      */
-    gcdsInput: EventEmitter;
+    gcdsInput: EventEmitter<string>;
     private handleInput;
     /**
      * Call any active validators
      */
     validate(): Promise<void>;
+    /**
+     * Check the validity of gcds-textarea
+     */
+    checkValidity(): Promise<boolean>;
+    /**
+     * Get validationMessage of gcds-textarea
+     */
+    getValidationMessage(): Promise<string>;
     /**
      * Emitted when the textarea has a validation error.
      */
@@ -121,7 +146,12 @@ export declare class GcdsTextarea {
     submitListener(e: any): void;
     formResetCallback(): void;
     formStateRestoreCallback(state: any): void;
+    /**
+     * Update gcds-textarea's validity using internal textarea validity
+     */
+    private updateValidity;
     updateLang(): void;
     componentWillLoad(): Promise<void>;
+    componentDidLoad(): void;
     render(): any;
 }

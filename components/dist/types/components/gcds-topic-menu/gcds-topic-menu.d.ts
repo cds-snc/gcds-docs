@@ -1,3 +1,6 @@
+/**
+ * The theme and topic menu is a navigation to the top tasks of Government of Canada websites.
+ */
 export declare class GcdsTopicMenu {
     el: HTMLGcdsTopicMenuElement;
     private listItems;

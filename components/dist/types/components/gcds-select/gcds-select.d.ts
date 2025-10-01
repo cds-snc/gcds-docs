@@ -1,5 +1,10 @@
 import { EventEmitter } from '../../stencil-public-runtime';
 import { Validator, ValidatorEntry } from '../../validators';
+/**
+ * A select provides a large list of options for single selection.
+ *
+ * @slot default - Slot for options and option groups.
+ */
 export declare class GcdsSelect {
     el: HTMLElement;
     internals: ElementInternals;
@@ -85,11 +90,11 @@ export declare class GcdsSelect {
     /**
      * Emitted when the select value has changed.
      */
-    gcdsChange: EventEmitter;
+    gcdsChange: EventEmitter<string>;
     /**
      * Emitted when the select has received input.
      */
-    gcdsInput: EventEmitter;
+    gcdsInput: EventEmitter<string>;
     private handleInput;
     /**
      * Emitted when the select has focus.

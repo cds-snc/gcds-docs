@@ -1,6 +1,9 @@
-import { Host, h } from "@stencil/core";
+import { Host, h, } from "@stencil/core";
 import { assignLanguage, observerConfig } from "../../utils/utils";
 import I18N from "./i18n/i18n";
+/**
+ * The footer is the responsive Government of Canada branded footer landmark.
+ */
 export class GcdsFooter {
     constructor() {
         /**
@@ -80,12 +83,12 @@ export class GcdsFooter {
         const siteNav = I18N[lang].site.menu;
         let contextualLinkCount = 0;
         let subLinkCount = 0;
-        return (h(Host, { key: '321e99b2faa82fcf0a88f62dec9e5449ab2b67bb', role: "contentinfo", "aria-label": "Footer" }, h("gcds-sr-only", { key: 'ae00217f2f2d7e548d5d184573fb1a6264409f19', tag: "h2" }, I18N[lang].about), contextualLinksObject && contextualHeading && (h("div", { key: '630f772b1771f9a7051a0adc36e4143dec5149f6', class: "gcds-footer__contextual" }, h("div", { key: 'acaf3de4ec14f9cf5874b67c2f15fdc970fa6411', class: "contextual__container" }, h("nav", { key: 'cddae229d1beb9ade4aae46950e35a2ea2203ae8', "aria-labelledby": "contextual__heading" }, h("h3", { key: 'f73bd15b238d93e418c6a813a7048b34b0510d72', id: "contextual__heading", class: "contextual__heading" }, contextualHeading), h("ul", { key: '614c50407f7555ce4249b90832934cb0ce829889', class: "contextual__list" }, Object.keys(contextualLinksObject).map(key => {
+        return (h(Host, { key: 'b3085c45d846bacbff55a8eb9b1c00a89430886b', role: "contentinfo", "aria-label": "Footer" }, h("gcds-sr-only", { key: '606efe8477781956571e6f5f491a33a3a62f04b4', tag: "h2" }, I18N[lang].about), contextualLinksObject && contextualHeading && (h("div", { key: 'f4dc0c8107d91eed92c48a29bea4d11cc27ca1aa', class: "gcds-footer__contextual" }, h("div", { key: '2be8f275989cfc74bf6b2df084ca4728672df764', class: "contextual__container" }, h("nav", { key: '0e95de45f38aa31290b69802459dd8b613bce6fe', "aria-labelledby": "contextual__heading" }, h("h3", { key: 'cfcf705300e7697459313ac429a1cfdc18dd3bd2', id: "contextual__heading", class: "contextual__heading" }, contextualHeading), h("ul", { key: 'e40575b0fb05baf1755e4f6112aa653b971d05c5', class: "contextual__list" }, Object.keys(contextualLinksObject).map(key => {
             if (contextualLinkCount < 3) {
                 contextualLinkCount++;
                 return (h("li", null, h("gcds-link", { size: "small", href: contextualLinksObject[key] }, key)));
             }
-        })))))), display === 'full' ? (h("div", { class: "gcds-footer__main" }, h("div", { class: "main__container" }, h("nav", { class: "main__govnav", "aria-labelledby": "govnav__heading" }, h("h3", { id: "govnav__heading" }, I18N[lang].gov.heading), h("ul", { class: "govnav__list" }, Object.keys(govNav).map(value => (h("li", null, h("gcds-link", { size: "small", href: govNav[value].link }, govNav[value].text)))))), h("nav", { class: "main__themenav", "aria-labelledby": "themenav__heading" }, h("gcds-sr-only", { tag: "h4", id: "themenav__heading" }, I18N[lang].themes.heading), h("ul", { class: "themenav__list" }, Object.keys(themeNav).map(value => (h("li", null, h("gcds-link", { size: "small", href: themeNav[value].link }, themeNav[value].text))))))))) : null, h("div", { key: 'c753c6c0324fb8fd4ae8655388c8eeca73365cf2', class: "gcds-footer__sub" }, h("div", { key: 'a4b5d0dd745603deebbdbc3332d41e59368a26f3', class: "sub__container" }, h("nav", { key: 'c69dbfb52e56e601442edac9507fd95b667e7477', "aria-labelledby": "sub__heading" }, h("gcds-sr-only", { key: '8ccf5212c6088334b6481451461f81f7d4acdc7c', tag: "h3", id: "sub__heading" }, I18N[lang].site.heading), h("ul", { key: '0e007ae6b61536d63f31ddbd6da0216555b85004' }, subLinks
+        })))))), display === 'full' ? (h("div", { class: "gcds-footer__main" }, h("div", { class: "main__container" }, h("nav", { class: "main__govnav", "aria-labelledby": "govnav__heading" }, h("h3", { id: "govnav__heading" }, I18N[lang].gov.heading), h("ul", { class: "govnav__list" }, Object.keys(govNav).map(value => (h("li", null, h("gcds-link", { size: "small", href: govNav[value].link }, govNav[value].text)))))), h("nav", { class: "main__themenav", "aria-labelledby": "themenav__heading" }, h("gcds-sr-only", { tag: "h4", id: "themenav__heading" }, I18N[lang].themes.heading), h("ul", { class: "themenav__list" }, Object.keys(themeNav).map(value => (h("li", null, h("gcds-link", { size: "small", href: themeNav[value].link }, themeNav[value].text))))))))) : null, h("div", { key: 'f22c6b3df1149c3c5f8be387f8e8f6409474703f', class: "gcds-footer__sub" }, h("div", { key: '81e35cd5397e1a9f0c373e14d1f16568c70eb690', class: "sub__container" }, h("nav", { key: 'ee7c37a240a121893142c51f887d49ad98add671', "aria-labelledby": "sub__heading" }, h("gcds-sr-only", { key: '75fef71daa19b43442a973ac70053a7ce90c7a6e', tag: "h3", id: "sub__heading" }, I18N[lang].site.heading), h("ul", { key: '4d3f7e2cb406dd420def9b0580892bb54d985269' }, subLinks
             ? Object.keys(subLinksObject).map(key => {
                 if (subLinkCount < 5) {
                     subLinkCount++;
@@ -212,6 +215,54 @@ export class GcdsFooter {
         return {
             "lang": {}
         };
+    }
+    static get events() {
+        return [{
+                "method": "gcdsFocus",
+                "name": "gcdsFocus",
+                "bubbles": true,
+                "cancelable": true,
+                "composed": true,
+                "docs": {
+                    "tags": [],
+                    "text": "Emitted when the link has focus."
+                },
+                "complexType": {
+                    "original": "void",
+                    "resolved": "void",
+                    "references": {}
+                }
+            }, {
+                "method": "gcdsBlur",
+                "name": "gcdsBlur",
+                "bubbles": true,
+                "cancelable": true,
+                "composed": true,
+                "docs": {
+                    "tags": [],
+                    "text": "Emitted when the link loses focus."
+                },
+                "complexType": {
+                    "original": "void",
+                    "resolved": "void",
+                    "references": {}
+                }
+            }, {
+                "method": "gcdsClick",
+                "name": "gcdsClick",
+                "bubbles": true,
+                "cancelable": true,
+                "composed": true,
+                "docs": {
+                    "tags": [],
+                    "text": "Emitted when the link has been clicked. Contains the href in the event detail."
+                },
+                "complexType": {
+                    "original": "string",
+                    "resolved": "string",
+                    "references": {}
+                }
+            }];
     }
     static get elementRef() { return "el"; }
     static get watchers() {

@@ -1,7 +1,7 @@
-import { langProp } from "../../../utils/storybook/component-properties";
+import { langProp, eventProp, } from "../../../utils/storybook/component-properties";
 export default {
     title: 'Components/Search',
-    argTypes: Object.assign({
+    argTypes: Object.assign(Object.assign({
         // Props
         action: {
             name: 'action',
@@ -16,6 +16,13 @@ export default {
             table: {
                 type: { summary: 'string' },
                 defaultValue: { summary: 'q' },
+            },
+        }, value: {
+            name: 'value',
+            control: 'text',
+            table: {
+                type: { summary: 'string' },
+                defaultValue: { summary: '-' },
             },
         }, placeholder: {
             name: 'placeholder',
@@ -39,7 +46,10 @@ export default {
                 defaultValue: { summary: 'search' },
             },
         }
-    }, langProp),
+    }, langProp), {
+        // Events
+        gcdsChange: Object.assign({ action: 'change' }, eventProp), gcdsInput: Object.assign({ action: 'input' }, eventProp), gcdsFocus: Object.assign({ action: 'focus' }, eventProp), gcdsBlur: Object.assign({ action: 'blur' }, eventProp), gcdsSubmit: Object.assign({ action: 'submit' }, eventProp)
+    }),
 };
 const Template = args => `
 <!-- Web component code (HTML, Angular, Vue) -->
@@ -49,6 +59,7 @@ const Template = args => `
   ${args.name != 'q' ? `name="${args.name}"` : null}
   ${args.placeholder != 'Canada.ca' ? `placeholder="${args.placeholder}"` : null}
   ${args.searchId != 'search' ? `search-id="${args.searchId}"` : null}
+  ${args.value ? `value="${args.value}"` : null}
   ${args.lang != 'en' ? `lang="${args.lang}"` : null}
 >
 </gcds-search>
@@ -60,6 +71,7 @@ const Template = args => `
   ${args.name != 'q' ? `name="${args.name}"` : null}
   ${args.placeholder != 'Canada.ca' ? `placeholder="${args.placeholder}"` : null}
   ${args.searchId != 'search' ? `searchId="${args.searchId}"` : null}
+  ${args.value ? `value="${args.value}"` : null}
   ${args.lang != 'en' ? `lang="${args.lang}"` : null}
 >
 </GcdsSearch>
@@ -71,6 +83,7 @@ const TemplatePlayground = args => `
   ${args.name != 'q' ? `name="${args.name}"` : null}
   ${args.placeholder != 'Canada.ca' ? `placeholder="${args.placeholder}"` : null}
   ${args.searchId != 'search' ? `search-id="${args.searchId}"` : null}
+  ${args.value ? `value="${args.value}"` : null}
   ${args.lang != 'en' ? `lang="${args.lang}"` : null}
 >
 </gcds-search>
@@ -83,6 +96,7 @@ Default.args = {
     name: 'q',
     placeholder: 'Canada.ca',
     searchId: 'search',
+    value: '',
     lang: 'en',
 };
 // ------ Search default ------
@@ -93,6 +107,7 @@ French.args = {
     name: 'q',
     placeholder: 'Canada.ca',
     searchId: 'search',
+    value: '',
     lang: 'fr',
 };
 // ------ Search default ------
@@ -103,6 +118,18 @@ Custom.args = {
     name: 'search',
     placeholder: 'sitename',
     searchId: 'searchform',
+    value: '',
+    lang: 'en',
+};
+// ------ Search default ------
+export const Value = Template.bind({});
+Value.args = {
+    action: 'search.html',
+    method: 'post',
+    name: 'search',
+    placeholder: 'sitename',
+    searchId: 'searchform',
+    value: 'Design system',
     lang: 'en',
 };
 // ------ Search events & props ------
@@ -113,6 +140,7 @@ Props.args = {
     name: 'q',
     placeholder: 'Canada.ca',
     searchId: 'search',
+    value: '',
     lang: 'en',
 };
 // ------ Search playground ------
@@ -123,6 +151,7 @@ Playground.args = {
     name: 'q',
     placeholder: 'Canada.ca',
     searchId: 'search',
+    value: '',
     lang: 'en',
 };
 //# sourceMappingURL=gcds-search.stories.js.map

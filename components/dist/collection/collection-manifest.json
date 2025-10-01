@@ -2,8 +2,8 @@
   "entries": [
     "components/gcds-grid/gcds-grid.js",
     "components/gcds-alert/gcds-alert.js",
-    "components/gcds-breadcrumbs/gcds-breadcrumbs-item.js",
     "components/gcds-breadcrumbs/gcds-breadcrumbs.js",
+    "components/gcds-breadcrumbs-item/gcds-breadcrumbs-item.js",
     "components/gcds-button/gcds-button.js",
     "components/gcds-card/gcds-card.js",
     "components/gcds-checkboxes/gcds-checkboxes.js",

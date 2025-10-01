@@ -3,6 +3,9 @@ import { isRadioObject } from "./radio";
 import { assignLanguage, inheritAttributes, logError, handleErrors, isValid, handleValidationResult, } from "../../utils/utils";
 import { defaultValidator, getValidator, requiredValidator, } from "../../validators";
 import i18n from "./i18n/i18n";
+/**
+ * Radios provide a set of options for a single response.
+ */
 export class GcdsRadios {
     constructor() {
         this._validator = defaultValidator;
@@ -188,7 +191,7 @@ export class GcdsRadios {
                 `${fieldsetAttrs['aria-labelledby']} ${hintID}`.trim();
         }
         if (this.validateRequiredProps()) {
-            return (h(Host, { key: 'ec77376f853d89aafeee2f52c45514eb0b5abb1b', onBlur: () => this.onBlurValidate() }, h("fieldset", Object.assign({ key: '631e4d0139c528aa431eec9b57059c21a65c88bf', class: "gcds-radios__fieldset" }, fieldsetAttrs), h("legend", { key: '5177e3e3373edf06883dbfc0a6b2dfaa0712ad0a', id: "radios-legend", class: "gcds-radios__legend" }, legend, required ? (h("span", { class: "legend__required" }, i18n[lang].required)) : null), hint ? (h("gcds-hint", { id: "radios-hint", "hint-id": "radios" }, hint)) : null, errorMessage ? (h("div", null, h("gcds-error-message", { id: "radios-error", messageId: "radios" }, errorMessage))) : null, this.optionsArr &&
+            return (h(Host, { key: '863fb42cf8b4ad89a28170ded8066c3220b6434e', onBlur: () => this.onBlurValidate() }, h("fieldset", Object.assign({ key: '460e85e366045fd2bffa39cba97603070bb029ff', class: "gcds-radios__fieldset" }, fieldsetAttrs), h("legend", { key: '8f37f944357de5f5a5b30758276ad3faee992851', id: "radios-legend", class: "gcds-radios__legend" }, legend, required ? (h("span", { class: "legend__required" }, i18n[lang].required)) : null), hint ? (h("gcds-hint", { id: "radios-hint", "hint-id": "radios" }, hint)) : null, errorMessage ? (h("div", null, h("gcds-error-message", { id: "radios-error", messageId: "radios" }, errorMessage))) : null, this.optionsArr &&
                 this.optionsArr.map(radio => {
                     const attrsInput = Object.assign({ name, disabled: disabled, required: required, value: radio.value, checked: radio.value === value }, inheritedAttributes);
                     if (radio.hint) {
@@ -263,7 +266,7 @@ export class GcdsRadios {
                 "optional": false,
                 "docs": {
                     "tags": [],
-                    "text": "The `name` attribute for the <gcds-radios>, used to group radio elements together"
+                    "text": "The `name` attribute for the radios, used to group radio elements together"
                 },
                 "getter": false,
                 "setter": false,
@@ -339,7 +342,7 @@ export class GcdsRadios {
                 "optional": false,
                 "docs": {
                     "tags": [],
-                    "text": "Set this to display an error message for invalid <gcds-radios>"
+                    "text": "Set this to display an error message for invalid radios"
                 },
                 "getter": false,
                 "setter": false,
@@ -455,11 +458,11 @@ export class GcdsRadios {
                 "composed": true,
                 "docs": {
                     "tags": [],
-                    "text": "Emitted when <gcds-radios> has been changed as a direct result of a user action (a radio option has been selected)"
+                    "text": "Emitted when radios has been changed as a direct result of a user action (a radio option has been selected). Contains new value in event detail"
                 },
                 "complexType": {
-                    "original": "void",
-                    "resolved": "void",
+                    "original": "string",
+                    "resolved": "string",
                     "references": {}
                 }
             }, {
@@ -470,11 +473,11 @@ export class GcdsRadios {
                 "composed": true,
                 "docs": {
                     "tags": [],
-                    "text": "Emitted when a <gcds-radios> option is checked (but not when unchecked)"
+                    "text": "Emitted when a radios option is checked (but not when unchecked). Contains new value in event detail"
                 },
                 "complexType": {
-                    "original": "void",
-                    "resolved": "void",
+                    "original": "string",
+                    "resolved": "string",
                     "references": {}
                 }
             }, {
@@ -485,7 +488,7 @@ export class GcdsRadios {
                 "composed": true,
                 "docs": {
                     "tags": [],
-                    "text": "Emitted when <gcds-radios> has received focus"
+                    "text": "Emitted when radios has received focus"
                 },
                 "complexType": {
                     "original": "void",
@@ -500,7 +503,7 @@ export class GcdsRadios {
                 "composed": true,
                 "docs": {
                     "tags": [],
-                    "text": "Emitted when the <gcds-radios> has lost focus"
+                    "text": "Emitted when the radios has lost focus"
                 },
                 "complexType": {
                     "original": "void",
@@ -515,7 +518,7 @@ export class GcdsRadios {
                 "composed": true,
                 "docs": {
                     "tags": [],
-                    "text": "Emitted when <gcds-radios> has passed validation"
+                    "text": "Emitted when radios has passed validation"
                 },
                 "complexType": {
                     "original": "void",
@@ -530,7 +533,7 @@ export class GcdsRadios {
                 "composed": true,
                 "docs": {
                     "tags": [],
-                    "text": "Emitted when <gcds-radios> has a validation error"
+                    "text": "Emitted when radios has a validation error"
                 },
                 "complexType": {
                     "original": "object",

@@ -1,6 +1,17 @@
-import { Host, h } from "@stencil/core";
+import { Host, h, } from "@stencil/core";
 import { assignLanguage, observerConfig } from "../../utils/utils";
 import i18n from "./i18n/i18n";
+/**
+ * The header is the responsive Government of Canada branded header landmark.
+ *
+ * @slot banner - Slot to add a banner across the top of the header.
+ * @slot breadcrumb - Slot to add breadcrumbs at the bottom of the header.
+ * @slot menu - Slot to add a menu below the divider line.
+ * @slot search - Slot to add a search field to the right of the header.
+ * @slot skip-to-nav - Slot to add a hidden skip to content navigation at the top of the header.
+ * @slot signature - Slot to replace Government of Canada signature.
+ * @slot toggle - Slot to add a custom language toggle in the top-right of the header.
+ */
 export class GcdsHeader {
     constructor() {
         /**
@@ -76,7 +87,7 @@ export class GcdsHeader {
     }
     render() {
         const { renderSkipToNav, renderToggle, renderSignature, renderSearch, hasSearch, hasBanner, hasBreadcrumb, } = this;
-        return (h(Host, { key: '27151b450288fb64b07ac770807bf982c77449c0', role: "banner" }, renderSkipToNav, hasBanner ? h("slot", { name: "banner" }) : null, h("div", { key: 'ea68f9c773d6c6e069b15be668a52bfed5c06b62', class: "gcds-header__brand" }, h("div", { key: 'a6c7c30fd1f230bd57be5bf0d332c0fcff4af565', class: `brand__container ${!hasSearch ? 'container--simple' : ''}` }, renderToggle, renderSignature, renderSearch)), h("slot", { key: '61f6e27f606dbb62d5e75ed92eb95abf2f036fea', name: "menu" }), hasBreadcrumb ? (h("div", { class: "gcds-header__container" }, h("slot", { name: "breadcrumb" }))) : null));
+        return (h(Host, { key: 'a7aec791ab78ca2491fd9dfc043e3b42453de2a4', role: "banner" }, renderSkipToNav, hasBanner ? h("slot", { name: "banner" }) : null, h("div", { key: '1ffdfb16dbd583dc45d65edde526f10ca5445d3d', class: "gcds-header__brand" }, h("div", { key: 'fd921bdd08e088d99849ee37e67ff70502630cfb', class: `brand__container ${!hasSearch ? 'container--simple' : ''}` }, renderToggle, renderSignature, renderSearch)), h("slot", { key: '6ace8183cce4cf7de0c04c99763194f002ea4e3f', name: "menu" }), hasBreadcrumb ? (h("div", { class: "gcds-header__container" }, h("slot", { name: "breadcrumb" }))) : null));
     }
     static get is() { return "gcds-header"; }
     static get encapsulation() { return "shadow"; }
@@ -175,6 +186,54 @@ export class GcdsHeader {
         return {
             "lang": {}
         };
+    }
+    static get events() {
+        return [{
+                "method": "gcdsFocus",
+                "name": "gcdsFocus",
+                "bubbles": true,
+                "cancelable": true,
+                "composed": true,
+                "docs": {
+                    "tags": [],
+                    "text": "Emitted when the link has focus."
+                },
+                "complexType": {
+                    "original": "void",
+                    "resolved": "void",
+                    "references": {}
+                }
+            }, {
+                "method": "gcdsBlur",
+                "name": "gcdsBlur",
+                "bubbles": true,
+                "cancelable": true,
+                "composed": true,
+                "docs": {
+                    "tags": [],
+                    "text": "Emitted when the link loses focus."
+                },
+                "complexType": {
+                    "original": "void",
+                    "resolved": "void",
+                    "references": {}
+                }
+            }, {
+                "method": "gcdsClick",
+                "name": "gcdsClick",
+                "bubbles": true,
+                "cancelable": true,
+                "composed": true,
+                "docs": {
+                    "tags": [],
+                    "text": "Emitted when the link has been clicked. Contains the href in the event detail."
+                },
+                "complexType": {
+                    "original": "string",
+                    "resolved": "string",
+                    "references": {}
+                }
+            }];
     }
     static get elementRef() { return "el"; }
 }

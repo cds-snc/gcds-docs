@@ -1,6 +1,11 @@
 import { Host, h } from "@stencil/core";
 import { assignLanguage, observerConfig } from "../../utils/utils";
 import i18n from "./i18n/i18n";
+/**
+ * Label for form fields, providing accessibility and context for users.
+ *
+ * @slot - Slot for the label content.
+ */
 export class GcdsLabel {
     /*
      * Observe lang attribute change
@@ -20,7 +25,7 @@ export class GcdsLabel {
     }
     render() {
         const { hideLabel, labelFor, label, required, lang } = this;
-        return (h(Host, { key: 'b9a825fe7b1bc1531f33cb2b2fa0ba4cb22fd40d', id: `label-for-${labelFor}` }, h("label", { key: '987c3347f09e6d3a9e56b95ae7fc22e091e6b237', htmlFor: labelFor, class: `gcds-label ${hideLabel ? 'label--hidden' : ''}` }, h("span", { key: 'c1f227df2be6ee2f53a290d89eb14a0bfd80e45f' }, label), required ? (h("span", { "aria-hidden": "true", class: "label--required" }, "(", i18n[lang].required, ")")) : null)));
+        return (h(Host, { key: '74bd8cdab28f3e11ad1af0e5d90ffbcdfeca4f3b', id: `label-for-${labelFor}` }, h("label", { key: 'a99ff6d66462b03f1b40759ada8dfe53eaa985ce', htmlFor: labelFor, class: `gcds-label ${hideLabel ? 'label--hidden' : ''}` }, h("span", { key: '1740af0193beae308a1227d729493c257e6ee813' }, label), required ? (h("span", { "aria-hidden": "true", class: "label--required" }, "(", i18n[lang].required, ")")) : null)));
     }
     static get is() { return "gcds-label"; }
     static get originalStyleUrls() {

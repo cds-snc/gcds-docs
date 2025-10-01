@@ -1,6 +1,9 @@
 import { Host, h, } from "@stencil/core";
 import { assignLanguage, observerConfig } from "../../utils/utils";
 import i18n from "./i18n/i18n";
+/**
+ * An error summary is a list of user errors in a form.
+ */
 export class GcdsErrorSummary {
     constructor() {
         /**
@@ -92,7 +95,7 @@ export class GcdsErrorSummary {
     focusElement(id) {
         var _a;
         const element = document.querySelector(id);
-        let target = `[for=${id.replace('#', '')}]`;
+        const target = `[for=${id.replace('#', '')}]`;
         (_a = element.closest('form').querySelector(target)) === null || _a === void 0 ? void 0 : _a.scrollIntoView();
         element.focus();
     }
@@ -122,9 +125,9 @@ export class GcdsErrorSummary {
     }
     render() {
         const { heading, errorQueue, lang, hasSubmitted, errorLinks } = this;
-        return (h(Host, { key: 'abcef9b3fa9efcf3e25d1ff1c0ef8c824b24a990' }, h("div", { key: '806ec0e7cc4747178c93d0b0e9b9e1a637a32022', role: "alert", tabindex: "-1", ref: element => (this.shadowElement = element), class: `gcds-error-summary ${(hasSubmitted || errorLinks) && Object.keys(errorQueue).length > 0
+        return (h(Host, { key: 'a42f126a2bbbe41621a5c56d04c87b31e87d0363' }, h("div", { key: 'eeee2e16453b3c7911042cabb079ab072d3bcd09', role: "alert", tabindex: "-1", ref: element => (this.shadowElement = element), class: `gcds-error-summary ${(hasSubmitted || errorLinks) && Object.keys(errorQueue).length > 0
                 ? 'gcds-show'
-                : ''}` }, h("gcds-heading", { key: '660f2f1819260b8f6455523cc732dddc4afcf691', tag: "h2", "margin-top": "0", "margin-bottom": "225" }, heading !== null && heading !== void 0 ? heading : i18n[lang].heading), h("ol", { key: '5cf05e7dfd9d6ee6c2e0544c6be2f0eb7eca96ea', class: "summary__errorlist" }, (hasSubmitted || errorLinks) &&
+                : ''}` }, h("gcds-heading", { key: '5c0aa122bc9f7a1dc250d856734d99befb88502e', tag: "h2", "margin-top": "0", "margin-bottom": "225" }, heading !== null && heading !== void 0 ? heading : i18n[lang].heading), h("ol", { key: '2fd12eca1a9ffe4f11aedfdd3b93d3a0becf7420', class: "summary__errorlist" }, (hasSubmitted || errorLinks) &&
             Object.keys(errorQueue).length > 0 &&
             Object.keys(errorQueue).map(key => {
                 return (h("li", { class: "summary__listitem" }, h("gcds-link", { size: "regular", href: errorLinks ? key : '#', onClick: e => {
@@ -215,6 +218,54 @@ export class GcdsErrorSummary {
             "errorQueue": {},
             "hasSubmitted": {}
         };
+    }
+    static get events() {
+        return [{
+                "method": "gcdsFocus",
+                "name": "gcdsFocus",
+                "bubbles": true,
+                "cancelable": true,
+                "composed": true,
+                "docs": {
+                    "tags": [],
+                    "text": "Emitted when the link has focus."
+                },
+                "complexType": {
+                    "original": "void",
+                    "resolved": "void",
+                    "references": {}
+                }
+            }, {
+                "method": "gcdsBlur",
+                "name": "gcdsBlur",
+                "bubbles": true,
+                "cancelable": true,
+                "composed": true,
+                "docs": {
+                    "tags": [],
+                    "text": "Emitted when the link loses focus."
+                },
+                "complexType": {
+                    "original": "void",
+                    "resolved": "void",
+                    "references": {}
+                }
+            }, {
+                "method": "gcdsClick",
+                "name": "gcdsClick",
+                "bubbles": true,
+                "cancelable": true,
+                "composed": true,
+                "docs": {
+                    "tags": [],
+                    "text": "Emitted when the link has been clicked."
+                },
+                "complexType": {
+                    "original": "string",
+                    "resolved": "string",
+                    "references": {}
+                }
+            }];
     }
     static get elementRef() { return "el"; }
     static get watchers() {

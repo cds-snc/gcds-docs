@@ -1,9 +1,15 @@
 import { Host, h, } from "@stencil/core";
-import { assignLanguage, handleValidationResult, inheritAttributes, observerConfig, } from "../../utils/utils";
+import { assignLanguage, handleValidationResult, inheritAttributes, observerConfig, formatHTMLErrorMessage, } from "../../utils/utils";
 import { defaultValidator, getValidator, requiredValidator, } from "../../validators";
 import i18n from "./i18n/i18n";
+/**
+ * A text area is a space to enter long-form information in response to a question or instruction.
+ */
 export class GcdsTextarea {
     constructor() {
+        // Array to store which native HTML errors are happening on the textarea
+        this.htmlValidationErrors = [];
+        this.textareaTitle = '';
         this._validator = defaultValidator;
         /**
          * Specifies if a textarea element is disabled or not.
@@ -44,6 +50,9 @@ export class GcdsTextarea {
                 const changeEvt = new e.constructor(e.type, e);
                 this.el.dispatchEvent(changeEvt);
             }
+            else {
+                this.updateValidity();
+            }
             customEvent.emit(this.value);
         };
     }
@@ -67,11 +76,21 @@ export class GcdsTextarea {
      * Set value on internal textarea to allow proper resets
      */
     watchValue(val) {
-        this.shadowElement.value = val;
-        this.internals.setFormValue(val ? val : null);
+        // Update DOM textarea if it exists
+        if (this.shadowElement) {
+            this.shadowElement.value = val || '';
+        }
+        // Update form value for form association
+        this.internals.setFormValue(val || null);
     }
     validateValidator() {
         this._validator = getValidator(this.validator);
+    }
+    /**
+     * Read-only property of the textarea, returns a ValidityState object that represents the validity states this element is in.
+     */
+    get validity() {
+        return this.internals.validity;
     }
     validateHasError() {
         if (this.disabled) {
@@ -83,6 +102,26 @@ export class GcdsTextarea {
      */
     async validate() {
         handleValidationResult(this.el, this._validator.validate(this.value), this.label, this.gcdsError, this.gcdsValid, this.lang);
+        // Native HTML validation
+        if ((this.required && !this.internals.checkValidity()) ||
+            !this.internals.checkValidity()) {
+            if (!this.internals.validity.valueMissing) {
+                this.errorMessage = formatHTMLErrorMessage(this.htmlValidationErrors[0], this.lang, this.el);
+                this.textareaTitle = this.errorMessage;
+            }
+        }
+    }
+    /**
+     * Check the validity of gcds-textarea
+     */
+    async checkValidity() {
+        return this.internals.checkValidity();
+    }
+    /**
+     * Get validationMessage of gcds-textarea
+     */
+    async getValidationMessage() {
+        return this.internals.validationMessage;
     }
     submitListener(e) {
         if (e.target == this.el.closest('form')) {
@@ -98,15 +137,46 @@ export class GcdsTextarea {
      * Form internal functions
      */
     formResetCallback() {
-        if (this.value != this.initialValue) {
-            this.internals.setFormValue(this.initialValue);
+        if (this.value !== this.initialValue) {
+            // Update all relevant values to initialValue
             this.value = this.initialValue;
-            this.shadowElement.value = this.initialValue;
+            // Update DOM element if available
+            if (this.shadowElement) {
+                this.shadowElement.value = this.initialValue || '';
+            }
+            // Update form value
+            this.internals.setFormValue(this.initialValue || null);
         }
     }
     formStateRestoreCallback(state) {
         this.internals.setFormValue(state);
         this.value = state;
+    }
+    /**
+     * Update gcds-textarea's validity using internal textarea validity
+     */
+    updateValidity(override) {
+        const validity = this.shadowElement.validity;
+        this.htmlValidationErrors = [];
+        for (const key in validity) {
+            // Do not include valid or missingValue keys
+            if (validity[key] === true && key !== 'valid') {
+                this.htmlValidationErrors.push(key);
+            }
+        }
+        // Add override values to HTML errors array
+        for (const key in override) {
+            this.htmlValidationErrors.push(key);
+        }
+        const validityState = override
+            ? Object.assign(Object.assign({}, this.shadowElement.validity), override) : this.shadowElement.validity;
+        let validationMessage = null;
+        if (this.htmlValidationErrors.length > 0) {
+            validationMessage = formatHTMLErrorMessage(this.htmlValidationErrors[0], this.lang, this.el);
+        }
+        this.internals.setValidity(validityState, validationMessage, this.shadowElement);
+        // Set textarea title when HTML error occruring
+        this.textareaTitle = validationMessage;
     }
     /*
      * Observe lang attribute change
@@ -135,8 +205,29 @@ export class GcdsTextarea {
         this.internals.setFormValue(this.value ? this.value : null);
         this.initialValue = this.value ? this.value : null;
     }
+    componentDidLoad() {
+        let lengthValidity;
+        // maxlength/minlength validation on load
+        if (this.value && (this.minlength || this.characterCount)) {
+            if (this.minlength && this.value.length < this.minlength) {
+                lengthValidity = { tooShort: true };
+            }
+            else if (this.characterCount &&
+                this.value.length > this.characterCount) {
+                lengthValidity = { tooLong: true };
+            }
+        }
+        this.updateValidity(lengthValidity);
+        // Logic to enable autofocus
+        if (this.autofocus) {
+            requestAnimationFrame(() => {
+                var _a;
+                (_a = this.shadowElement) === null || _a === void 0 ? void 0 : _a.focus();
+            });
+        }
+    }
     render() {
-        const { characterCount, cols, disabled, errorMessage, hideLabel, hint, label, required, rows, textareaId, value, hasError, inheritedAttributes, lang, name, } = this;
+        const { autofocus, characterCount, cols, disabled, errorMessage, hideLabel, hint, label, minlength, required, rows, textareaId, value, hasError, inheritedAttributes, lang, name, textareaTitle, } = this;
         // Use max-width instead of cols attribute to keep field responsive
         const style = {
             maxWidth: `${cols * 1.5}ch`,
@@ -146,9 +237,11 @@ export class GcdsTextarea {
             required,
         };
         const attrsTextarea = Object.assign({ name,
+            autofocus,
             disabled,
+            minlength,
             required,
-            rows }, inheritedAttributes);
+            rows, title: textareaTitle }, inheritedAttributes);
         if (hint || errorMessage || characterCount) {
             const hintID = hint ? `hint-${textareaId} ` : '';
             const errorID = errorMessage ? `error-message-${textareaId} ` : '';
@@ -157,7 +250,7 @@ export class GcdsTextarea {
                 ? `${attrsTextarea['aria-describedby']}`
                 : ''}`;
         }
-        return (h(Host, { key: '9f6085eebb44aa57efec27ebada1e2f3640be66d' }, h("div", { key: '20fafaf3a8e37d9db2937adfea4de3dc796aa2d5', class: `gcds-textarea-wrapper ${disabled ? 'gcds-disabled' : ''} ${hasError ? 'gcds-error' : ''}` }, h("gcds-label", Object.assign({ key: '27490b5d8e9251e43b7d4d232609e597cb3b5ed4' }, attrsLabel, { "hide-label": hideLabel, "label-for": textareaId, lang: lang })), hint ? h("gcds-hint", { "hint-id": textareaId }, hint) : null, errorMessage ? (h("gcds-error-message", { messageId: textareaId }, errorMessage)) : null, h("textarea", Object.assign({ key: '724f1be7d23f0a8495c5be9678720c67c9305ebc' }, attrsTextarea, { class: hasError ? 'gcds-error' : null, id: textareaId, onBlur: () => this.onBlur(), onFocus: () => this.gcdsFocus.emit(), onInput: e => this.handleInput(e, this.gcdsInput), onChange: e => this.handleInput(e, this.gcdsChange), "aria-labelledby": `label-for-${textareaId}`, "aria-invalid": errorMessage ? 'true' : 'false', maxlength: characterCount ? characterCount : null, style: cols ? style : null, ref: element => (this.shadowElement = element) }), value), characterCount ? (h("gcds-text", { id: `textarea__count-${textareaId}`, "aria-live": "polite" }, value == undefined
+        return (h(Host, { key: '462ff694237b5ece2b94a25006fa2166c82c3130' }, h("div", { key: '418df2a7b21570cb908dd30cb958a01fe95f2f87', class: `gcds-textarea-wrapper ${disabled ? 'gcds-disabled' : ''} ${hasError ? 'gcds-error' : ''}` }, h("gcds-label", Object.assign({ key: '9e09924f599db5ef90109d0ae5141e00fce25455' }, attrsLabel, { "hide-label": hideLabel, "label-for": textareaId, lang: lang })), hint ? h("gcds-hint", { "hint-id": textareaId }, hint) : null, errorMessage ? (h("gcds-error-message", { messageId: textareaId }, errorMessage)) : null, h("textarea", Object.assign({ key: '3dc1cafeace916ff5fe1b644a0a47223d0e2c76c' }, attrsTextarea, { class: hasError ? 'gcds-error' : null, id: textareaId, onBlur: () => this.onBlur(), onFocus: () => this.gcdsFocus.emit(), onInput: e => this.handleInput(e, this.gcdsInput), onChange: e => this.handleInput(e, this.gcdsChange), "aria-labelledby": `label-for-${textareaId}`, "aria-invalid": errorMessage ? 'true' : 'false', maxlength: characterCount ? characterCount : null, style: cols ? style : null, ref: element => (this.shadowElement = element) }), value), characterCount ? (h("gcds-text", { id: `textarea__count-${textareaId}`, "aria-live": "polite" }, value == undefined
             ? `${characterCount} ${i18n[lang].characters.allowed}`
             : `${characterCount - value.length} ${i18n[lang].characters.left}`)) : null)));
     }
@@ -177,6 +270,25 @@ export class GcdsTextarea {
     }
     static get properties() {
         return {
+            "autofocus": {
+                "type": "boolean",
+                "attribute": "autofocus",
+                "mutable": false,
+                "complexType": {
+                    "original": "boolean",
+                    "resolved": "boolean",
+                    "references": {}
+                },
+                "required": false,
+                "optional": false,
+                "docs": {
+                    "tags": [],
+                    "text": "If true, the input will be focused on component render"
+                },
+                "getter": false,
+                "setter": false,
+                "reflect": true
+            },
             "characterCount": {
                 "type": "number",
                 "attribute": "character-count",
@@ -195,6 +307,25 @@ export class GcdsTextarea {
                 "getter": false,
                 "setter": false,
                 "reflect": false
+            },
+            "minlength": {
+                "type": "number",
+                "attribute": "minlength",
+                "mutable": false,
+                "complexType": {
+                    "original": "number",
+                    "resolved": "number",
+                    "references": {}
+                },
+                "required": false,
+                "optional": true,
+                "docs": {
+                    "tags": [],
+                    "text": "The minimum number of characters that the input field can accept."
+                },
+                "getter": false,
+                "setter": false,
+                "reflect": true
             },
             "cols": {
                 "type": "number",
@@ -461,6 +592,29 @@ export class GcdsTextarea {
                 "setter": false,
                 "reflect": false,
                 "defaultValue": "'blur'"
+            },
+            "validity": {
+                "type": "unknown",
+                "attribute": "validity",
+                "mutable": false,
+                "complexType": {
+                    "original": "ValidityState",
+                    "resolved": "ValidityState",
+                    "references": {
+                        "ValidityState": {
+                            "location": "global",
+                            "id": "global::ValidityState"
+                        }
+                    }
+                },
+                "required": false,
+                "optional": false,
+                "docs": {
+                    "tags": [],
+                    "text": "Read-only property of the textarea, returns a ValidityState object that represents the validity states this element is in."
+                },
+                "getter": true,
+                "setter": false
             }
         };
     }
@@ -513,8 +667,8 @@ export class GcdsTextarea {
                     "text": "Emitted when the textarea has changed."
                 },
                 "complexType": {
-                    "original": "any",
-                    "resolved": "any",
+                    "original": "string",
+                    "resolved": "string",
                     "references": {}
                 }
             }, {
@@ -528,8 +682,8 @@ export class GcdsTextarea {
                     "text": "Emitted when the textarea has received input."
                 },
                 "complexType": {
-                    "original": "any",
-                    "resolved": "any",
+                    "original": "string",
+                    "resolved": "string",
                     "references": {}
                 }
             }, {
@@ -584,6 +738,40 @@ export class GcdsTextarea {
                 },
                 "docs": {
                     "text": "Call any active validators",
+                    "tags": []
+                }
+            },
+            "checkValidity": {
+                "complexType": {
+                    "signature": "() => Promise<boolean>",
+                    "parameters": [],
+                    "references": {
+                        "Promise": {
+                            "location": "global",
+                            "id": "global::Promise"
+                        }
+                    },
+                    "return": "Promise<boolean>"
+                },
+                "docs": {
+                    "text": "Check the validity of gcds-textarea",
+                    "tags": []
+                }
+            },
+            "getValidationMessage": {
+                "complexType": {
+                    "signature": "() => Promise<string>",
+                    "parameters": [],
+                    "references": {
+                        "Promise": {
+                            "location": "global",
+                            "id": "global::Promise"
+                        }
+                    },
+                    "return": "Promise<string>"
+                },
+                "docs": {
+                    "text": "Get validationMessage of gcds-textarea",
                     "tags": []
                 }
             }

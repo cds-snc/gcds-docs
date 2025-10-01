@@ -1,5 +1,8 @@
 import { EventEmitter } from '../../stencil-public-runtime';
 import { Validator, ValidatorEntry, ValidatorOld } from '../../validators';
+/**
+ * An input is a space to enter short-form information in response to a question or instruction.
+ */
 export declare class GcdsInput {
     el: HTMLElement;
     internals: ElementInternals;
@@ -150,7 +153,7 @@ export declare class GcdsInput {
     /**
      * Emitted when the element has received input.
      */
-    gcdsInput: EventEmitter;
+    gcdsInput: EventEmitter<string>;
     /**
      * Handling input and change events on input
      */
@@ -158,7 +161,7 @@ export declare class GcdsInput {
     /**
      * Emitted when the input has changed.
      */
-    gcdsChange: EventEmitter;
+    gcdsChange: EventEmitter<string>;
     /**
      * Call any active validators
      */
@@ -187,11 +190,6 @@ export declare class GcdsInput {
      * Update gcds-input's validity using internal input
      */
     private updateValidity;
-    /**
-     * Format HTML error message based off assigned attributes
-     * This lets us assign custom error messages
-     */
-    private formatHTMLErrorMessage;
     updateLang(): void;
     componentWillLoad(): Promise<void>;
     componentDidLoad(): void;

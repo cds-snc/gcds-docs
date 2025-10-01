@@ -1,4 +1,9 @@
 import { EventEmitter } from '../../stencil-public-runtime';
+/**
+ * The button is an interactive object that emphasizes an action.
+ *
+ * @slot default - Slot for the button/link label.
+ */
 export declare class GcdsButton {
     el: HTMLElement;
     private shadowElement?;
@@ -68,9 +73,9 @@ export declare class GcdsButton {
      * Events
      */
     /**
-     * Emitted when the button has been clicked.
+     * Emitted when the button has been clicked. Contains the value or href in the event detail.
      */
-    gcdsClick: EventEmitter<void>;
+    gcdsClick: EventEmitter<string | void>;
     /**
      * Emitted when the button has focus.
      */

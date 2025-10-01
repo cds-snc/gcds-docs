@@ -1,8 +1,13 @@
 import { Host, h } from "@stencil/core";
+/**
+ * An error message is a description of a problem blocking a user goal.
+ *
+ * @slot default - Slot for the error message content.
+ */
 export class GcdsErrorMessage {
     render() {
         const { messageId } = this;
-        return (h(Host, { key: '16d5186a26d2c58f5ad8c7a7e8daffeb101aa620', id: `error-message-${messageId}`, class: "gcds-error-message-wrapper" }, h("gcds-text", { key: '7ea4ca8c831ea7a505d566cebb9bddf803742258', class: "error-message", role: "alert", "margin-bottom": "75" }, h("gcds-icon", { key: '6c748ff14a06525536d11bd0213f9b645e75f6bc', name: "warning-triangle", "margin-right": "50" }), h("strong", { key: '9f8f058bc6c9379c29c41c011a4ce9d23a2d499e' }, h("slot", { key: '3ccc99fbadee6d0edeffabf6865e2c4914057511' })))));
+        return (h(Host, { key: '045fc9bca1001d5ad8a083333b64293c8152c4e5', id: `error-message-${messageId}`, class: "gcds-error-message-wrapper" }, h("gcds-text", { key: 'de9f869bdbe90f798821bffbe8aa9e930d703544', class: "error-message", role: "alert", "margin-bottom": "75" }, h("gcds-icon", { key: '0f579edfda3b98171166c90ee6b87d4e025762da', name: "warning-triangle", "margin-right": "50" }), h("strong", { key: '92704a625f29719fc7f31426fb6d20756213de30' }, h("slot", { key: '657508619840d11cfdd81fb207de294bc1256de7' })))));
     }
     static get is() { return "gcds-error-message"; }
     static get encapsulation() { return "shadow"; }

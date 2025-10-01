@@ -1,7 +1,7 @@
-import { langProp } from "../../../utils/storybook/component-properties";
+import { langProp, eventProp, } from "../../../utils/storybook/component-properties";
 export default {
     title: 'Components/Error summary',
-    argTypes: Object.assign({
+    argTypes: Object.assign(Object.assign({
         // Props
         listen: {
             control: { type: 'select' },
@@ -13,7 +13,7 @@ export default {
         }, errorLinks: {
             name: 'error-links',
             control: 'text',
-            description: '{ "error-href": "error message" }',
+            description: '{ "#error-href": "error message" }',
             table: {
                 type: { summary: 'string/object' },
                 defaultValue: { summary: '-' },
@@ -25,7 +25,10 @@ export default {
                 defaultValue: { summary: '-' },
             },
         }
-    }, langProp),
+    }, langProp), {
+        // Events
+        gcdsClick: Object.assign({ action: 'click' }, eventProp), gcdsFocus: Object.assign({ action: 'focus' }, eventProp), gcdsBlur: Object.assign({ action: 'blur' }, eventProp)
+    }),
 };
 const Template = args => `
 <!-- Web component code (HTML, Angular, Vue) -->
@@ -57,9 +60,9 @@ export const Default = Template.bind({});
 Default.args = {
     listen: true,
     errorLinks: `{
-    "error-href-1": "Error summary item.",
-    "error-href-2": "Error summary item.",
-    "error-href-3": "Error summary item."
+    "#error-href-1": "Error summary item.",
+    "#error-href-2": "Error summary item.",
+    "#error-href-3": "Error summary item."
   }`,
     heading: '',
     lang: 'en',
@@ -69,9 +72,9 @@ export const Props = Template.bind({});
 Props.args = {
     listen: true,
     errorLinks: `{
-    "error-href-1": "Error summary item.",
-    "error-href-2": "Error summary item.",
-    "error-href-3": "Error summary item."
+    "#error-href-1": "Error summary item.",
+    "#error-href-2": "Error summary item.",
+    "#error-href-3": "Error summary item."
   }`,
     heading: '',
     lang: 'en',
@@ -81,9 +84,9 @@ export const Playground = TemplatePlayground.bind({});
 Playground.args = {
     listen: true,
     errorLinks: `{
-    "error-href-1": "Error summary item.",
-    "error-href-2": "Error summary item.",
-    "error-href-3": "Error summary item."
+    "#error-href-1": "Error summary item.",
+    "#error-href-2": "Error summary item.",
+    "#error-href-3": "Error summary item."
   }`,
     heading: '',
     lang: 'en',

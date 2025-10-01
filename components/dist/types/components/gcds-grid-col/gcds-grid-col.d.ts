@@ -1,3 +1,8 @@
+/**
+ * A grid column is a single column in a grid layout, allowing for flexible content arrangement.
+ *
+ * @slot default - Slot for the main content of the grid coloumn.
+ */
 export declare class GcdsGridCol {
     el: HTMLElement;
     /**

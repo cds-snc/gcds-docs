@@ -1,10 +1,13 @@
-import { Host, h, } from "@stencil/core";
+import { Host, h } from "@stencil/core";
 import { assignLanguage, observerConfig } from "../../utils/utils";
 import i18n from "./i18n/i18n";
 import SignatureEn from "./assets/sig-blk-en.svg";
 import SignatureFr from "./assets/sig-blk-fr.svg";
 import WordmarkEn from "./assets/wmms-spl-en.svg";
 import WordmarkFr from "./assets/wmms-spl-fr.svg";
+/**
+ * The signature is the Government of Canada landmark identifier found in the header or footer.
+ */
 export class GcdsSignature {
     constructor() {
         /**
@@ -79,7 +82,7 @@ export class GcdsSignature {
         if (Tag === 'a') {
             sigAttrs['href'] = i18n[lang].link;
         }
-        return (h(Host, { key: '552169b3620094d1ad20ba907f6275c377786dfc' }, type === 'signature' ? (h(Tag, Object.assign({}, sigAttrs), h("div", { innerHTML: selectSVG }))) : (h("div", { class: "gcds-signature", innerHTML: selectSVG }))));
+        return (h(Host, { key: '9371550c9068d0041b6c661746206cd0f9eab90b' }, type === 'signature' ? (h(Tag, Object.assign({}, sigAttrs), h("div", { innerHTML: selectSVG }))) : (h("div", { class: "gcds-signature", innerHTML: selectSVG }))));
     }
     static get is() { return "gcds-signature"; }
     static get encapsulation() { return "shadow"; }

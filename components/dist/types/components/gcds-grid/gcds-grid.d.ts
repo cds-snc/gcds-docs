@@ -1,5 +1,10 @@
 export type ContentValues = 'center' | 'end' | 'space-around' | 'space-between' | 'space-evenly' | 'start' | 'stretch';
 export type GridGapValues = '150' | '175' | '200' | '225' | '250' | '300' | '350' | '400' | '450' | '500' | '550' | '600' | '650' | '700' | '750' | '800';
+/**
+ * A grid is a responsive, flexible column layout to position elements on a page.
+ *
+ * @slot default - Slot for the main content of the grid.
+ */
 export declare class GcdsGrid {
     el: HTMLElement;
     /**

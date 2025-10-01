@@ -1,4 +1,9 @@
 import { SpacingValues } from '../../utils/types/spacing';
+/**
+ * Text is a styled and formatted paragraph that displays written content in an accessible way and matches Canada.ca typography styles.
+ *
+ * @slot default - Slot for the content of the text element.
+ */
 export declare class GcdsText {
     el: HTMLElement;
     /**

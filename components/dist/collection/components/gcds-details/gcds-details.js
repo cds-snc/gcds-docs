@@ -1,5 +1,10 @@
 import { Host, h, } from "@stencil/core";
 import { emitEvent } from "../../utils/utils";
+/**
+ * Details is an interactive switch for a person to expand or collapse content.
+ *
+ * @slot default - Slot for the main content of the details panel.
+ */
 export class GcdsDetails {
     constructor() {
         /**
@@ -44,12 +49,12 @@ export class GcdsDetails {
     }
     render() {
         const { detailsTitle, open } = this;
-        return (h(Host, { key: '97560262fb89f07b8636dacd7fd2f7a062871870' }, h("div", { key: 'c6a66d4df786e0670510a0104b7724e13f30ec61', class: "gcds-details" }, h("button", { key: '835be4466b36b70bb222799c5a9083124702be71', "aria-expanded": open.toString(), "aria-controls": "details__panel", onBlur: () => this.gcdsBlur.emit(), onFocus: () => this.gcdsFocus.emit(), onClick: e => {
+        return (h(Host, { key: '165e069eb5507fe81e7f2e3f23d70cf3e5979aa7' }, h("div", { key: 'a9bbede603871396dcdbfe6d8a4a25952b611f58', class: "gcds-details" }, h("button", { key: 'fa1db12503e14a3e99781759a3fc5f1544a24235', "aria-expanded": open.toString(), "aria-controls": "details__panel", onBlur: () => this.gcdsBlur.emit(), onFocus: () => this.gcdsFocus.emit(), onClick: e => {
                 const event = emitEvent(e, this.gcdsClick);
                 if (event) {
                     this.toggle();
                 }
-            }, class: "details__summary", id: "details__summary" }, detailsTitle), h("details", { key: 'ac3464270d4cd77d74cd9f816c8245df7242e8ca', open: open, id: "details__panel", class: "details__panel", "aria-labelledby": "details__summary", onToggle: ev => this.handleToggle(ev), ref: element => (this.detailsElement = element) }, h("summary", { key: 'e083e978875266315f6e495b9c49d0e0a2568bda' }, detailsTitle), h("slot", { key: '0d3bb51e8bf1dcf62026235acc4d69add5998ee0' })))));
+            }, class: "details__summary", id: "details__summary" }, detailsTitle), h("details", { key: 'b63ec18b239b98bbb308989a4b71d4bda95372be', open: open, id: "details__panel", class: "details__panel", "aria-labelledby": "details__summary", onToggle: ev => this.handleToggle(ev), ref: element => (this.detailsElement = element) }, h("summary", { key: 'f64cf84f9a239e19e8978e8511b94bc7b2e7dfc0' }, detailsTitle), h("slot", { key: 'd438628d3f47d1a15f4e03a603a86f08bf25a658' })))));
     }
     static get is() { return "gcds-details"; }
     static get encapsulation() { return "shadow"; }

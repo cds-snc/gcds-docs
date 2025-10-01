@@ -1,5 +1,10 @@
 import { Host, h, } from "@stencil/core";
 import { assignLanguage, observerConfig, emitEvent, closestElement, } from "../../utils/utils";
+/**
+ * Navigational group with expandable or dropdown functionality, allowing for better organization of navigation links.
+ *
+ * @slot default - Slot for the list of navigation links.
+ */
 export class GcdsNavGroup {
     constructor() {
         /**
@@ -11,7 +16,7 @@ export class GcdsNavGroup {
     async focusOutListener(e) {
         if ((e.target === this.el || this.el.contains(e.target)) &&
             !this.el.contains(e.relatedTarget) &&
-            this.navStyle === 'dropdown' &&
+            this.navStyle.includes('dropdown') &&
             this.open &&
             window.innerWidth >= 1024) {
             setTimeout(() => this.toggleNav(), 200);
@@ -95,12 +100,18 @@ export class GcdsNavGroup {
     }
     render() {
         const { closeTrigger, menuLabel, open, openTrigger } = this;
-        return (h(Host, { key: '952c4f16984d92ec816f75e17e8610238a40a83b', role: "listitem", open: open }, h("button", { key: '68293dfb96996dc2305744e16d1b3c9e448dfb95', "aria-haspopup": "true", tabIndex: 0, "aria-expanded": open.toString(), ref: element => (this.triggerElement = element), class: `gcds-nav-group__trigger gcds-trigger--${this.navStyle}`, onBlur: () => this.gcdsBlur.emit(), onFocus: () => this.gcdsFocus.emit(), onClick: e => {
+        return (h(Host, { key: 'e83cd752015541c3d3c66df11acea95bb47d328f', role: "listitem", open: open }, h("button", { key: 'c454fdad83340bfda53c6be88fad4d04832b616d', "aria-haspopup": "true", tabIndex: 0, "aria-expanded": open.toString(), ref: element => (this.triggerElement = element), class: `gcds-nav-group__trigger gcds-trigger--${this.navStyle}`, onBlur: () => this.gcdsBlur.emit(), onFocus: () => this.gcdsFocus.emit(), onClick: e => {
                 const event = emitEvent(e, this.gcdsClick);
                 if (event) {
                     this.toggleNav();
                 }
-            } }, h("gcds-icon", { key: '2cb55aeb934079a7e74d536c01bf5b0c218887ec', name: open ? 'chevron-up' : 'chevron-down' }), closeTrigger && open ? closeTrigger : openTrigger), h("ul", { key: '7b1b84bd13d62ef1f7f7f4393f821b4ab9d06827', "aria-label": menuLabel, class: `gcds-nav-group__list gcds-nav--${this.navStyle}` }, h("slot", { key: 'ce79cefeab19e5dfc98042125b14c146eb956021' }))));
+            } }, h("gcds-icon", { key: '6a2a04d5728d1b23860522b3419c054621abae4f', name: this.navStyle === 'expandable'
+                ? open
+                    ? 'chevron-down'
+                    : 'chevron-right'
+                : open
+                    ? 'chevron-up'
+                    : 'chevron-down' }), closeTrigger && open ? closeTrigger : openTrigger), h("ul", { key: 'be77203e415fe750b349dec603812cd8a8cb5bab', "aria-label": menuLabel, class: `gcds-nav-group__list gcds-nav--${this.navStyle}` }, h("slot", { key: '0e98b6827f549b1ff852d15dbbe7e4f8a0546c24' }))));
     }
     static get is() { return "gcds-nav-group"; }
     static get encapsulation() { return "shadow"; }

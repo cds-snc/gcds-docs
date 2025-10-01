@@ -1,6 +1,14 @@
 import { Host, h } from "@stencil/core";
 import { assignLanguage, observerConfig } from "../../utils/utils";
 import i18n from "./i18n/i18n";
+/**
+ * Phase banner displays a banner indicating the current phase of a project or feature, with optional icons and call-to-action elements.
+ *
+ * @slot banner-cta - Slot for the call-to-action element in the banner.
+ * @slot banner-icon-left - Slot for displaying an icon/image on the left of the banner.
+ * @slot banner-icon-right - Slot for displaying an icon/image on the right of the banner.
+ * @slot banner-text - Slot for the main content of the banner.
+ */
 export class GcdsPhaseBanner {
     constructor() {
         /**
@@ -36,7 +44,7 @@ export class GcdsPhaseBanner {
     }
     render() {
         const { bannerRole, container, isFixed, lang } = this;
-        return (h(Host, { key: '3ef9d402ed5d00edcca05e2a45ed8e0e14675dd1' }, h("div", { key: '1173d307a0e98624faba72445afad7534d115ffa', class: `gcds-phase-banner banner--role-${bannerRole} ${isFixed ? 'banner--is-fixed' : ''}`, role: "status", "aria-label": i18n[lang].label }, h("gcds-container", { key: 'b538a1a6155d73d5353389a393cf0fc00dd86201', size: container, centered: true }, h("div", { key: 'eb803333e6e5ef41b52510fc23ad3ac831bb45a5', class: "banner__content" }, h("figure", { key: '1831215c9c766c79abebfeee59a96f4bff0058b2', class: "banner__icon icon--left" }, h("slot", { key: '617504c5372c05f86e8300b1ad4ec65088f28fa4', name: "banner-icon-left" })), h("div", { key: '79212595540aaf4ecec3daa82ec9a76279b614c1', class: "banner__details" }, h("slot", { key: '6ecf5dd32ae92e2a5f829790300d56b23208cda0', name: "banner-text" }), h("slot", { key: '97750bdbf20710cd924d51325d8d322833194bbc', name: "banner-cta" })), h("figure", { key: '4f041c68abc255bd0633a0c28f63bb38b30ea2a6', class: "banner__icon icon--right" }, h("slot", { key: '199acb4e29bc22e2b32b4e8d3e6f3caf6e4c21f6', name: "banner-icon-right" })))))));
+        return (h(Host, { key: '9e22cdaf600a5c04b1a6866e7ca6386a1c52b22f' }, h("div", { key: '8815335957b79321257d2652ab9412071678c835', class: `gcds-phase-banner banner--role-${bannerRole} ${isFixed ? 'banner--is-fixed' : ''}`, role: "status", "aria-label": i18n[lang].label }, h("gcds-container", { key: 'f2ea1e5e0462f877f5f220762dc2ba0731177956', size: container, centered: true }, h("div", { key: '8f53b7147fa6cda3d0c93e48d1af7e7ee5e939b3', class: "banner__content" }, h("figure", { key: '065b45c6af563cde9a1239e0d156e7851cd5ec9b', class: "banner__icon icon--left" }, h("slot", { key: '0ebff7836c9f90e51d99ce83ade049a4560061a9', name: "banner-icon-left" })), h("div", { key: '75c91c8cefc6258a786d7a8a5bb0a12192701555', class: "banner__details" }, h("slot", { key: '02d2d3d4bc23219520073a35c14da40e4a98df44', name: "banner-text" }), h("slot", { key: 'd23c8e87203df30dfbb97682fc610acbb4477b90', name: "banner-cta" })), h("figure", { key: 'eb80fcd4a211eae36bfeaf198c75f6fdf0eac375', class: "banner__icon icon--right" }, h("slot", { key: 'ab144b1be3f32ab0efdb19ad5be68f12b342e745', name: "banner-icon-right" })))))));
     }
     static get is() { return "gcds-phase-banner"; }
     static get encapsulation() { return "shadow"; }

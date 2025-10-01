@@ -1,11 +1,16 @@
 import { Host, h } from "@stencil/core";
+/**
+ * A container is a basic box layout with a set width for its contents.
+ *
+ * @slot default - Slot for the main content of the container.
+ */
 export class GcdsContainer {
     constructor() {
         /**
          * Props
          */
         /**
-        * Defines if the container has a border.
+         * Defines if the container has a border.
          */
         this.border = false;
         /**
@@ -30,7 +35,7 @@ export class GcdsContainer {
     render() {
         const { border, centered, mainContainer, margin, padding, size, tag } = this;
         const Tag = tag;
-        return (h(Host, { key: 'c773aa318c0dd603cfe509cd4d023b988bdecece' }, h(Tag, { key: '4cda1734f0e3c01a01f6e717d1ae7165c53ae39a', class: `
+        return (h(Host, { key: '158cd288fe99ffdcc6d6d98ed0679521989516ab' }, h(Tag, { key: '64af2b520df43454dce4e7154533192484bcf502', class: `
             gcds-container
             ${border ? 'container-border' : ''}
             ${centered ? 'container-centered' : ''}
@@ -38,7 +43,7 @@ export class GcdsContainer {
             ${margin ? `m-${margin}` : ''}
             ${padding ? `p-${padding}` : ''}
             ${size ? `size-${size}` : ''}
-          ` }, h("slot", { key: 'e8056d57376fc6322f29ec99b5349808b70fd1a8' }))));
+          ` }, h("slot", { key: 'd396a7a600b82d553fd23674400677cbdd2e9a06' }))));
     }
     static get is() { return "gcds-container"; }
     static get encapsulation() { return "shadow"; }

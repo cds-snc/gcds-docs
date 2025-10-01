@@ -1,4 +1,9 @@
 import { EventEmitter } from '../../stencil-public-runtime';
+/**
+ * Navigational group with expandable or dropdown functionality, allowing for better organization of navigation links.
+ *
+ * @slot default - Slot for the list of navigation links.
+ */
 export declare class GcdsNavGroup {
     el: HTMLElement;
     private triggerElement?;

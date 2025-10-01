@@ -1,7 +1,9 @@
 import { Host, h, } from "@stencil/core";
-import { assignLanguage, handleValidationResult, inheritAttributes, observerConfig, } from "../../utils/utils";
+import { assignLanguage, handleValidationResult, inheritAttributes, observerConfig, formatHTMLErrorMessage, } from "../../utils/utils";
 import { defaultValidator, getValidator, requiredValidator, } from "../../validators";
-import I18N from "./i18n/i18n.js";
+/**
+ * An input is a space to enter short-form information in response to a question or instruction.
+ */
 export class GcdsInput {
     constructor() {
         // Array to store which native HTML errors are happening on the input
@@ -110,7 +112,7 @@ export class GcdsInput {
         if ((this.required && !this.internals.checkValidity()) ||
             !this.internals.checkValidity()) {
             if (!this.internals.validity.valueMissing) {
-                this.errorMessage = this.formatHTMLErrorMessage();
+                this.errorMessage = formatHTMLErrorMessage(this.htmlValidationErrors[0], this.lang, this.el);
                 this.inputTitle = this.errorMessage;
             }
         }
@@ -178,53 +180,13 @@ export class GcdsInput {
         }
         const validityState = override
             ? Object.assign(Object.assign({}, this.shadowElement.validity), override) : this.shadowElement.validity;
-        const validationMessage = this.htmlValidationErrors.length > 0
-            ? this.formatHTMLErrorMessage()
-            : null;
+        let validationMessage = null;
+        if (this.htmlValidationErrors.length > 0) {
+            validationMessage = formatHTMLErrorMessage(this.htmlValidationErrors[0], this.lang, this.el);
+        }
         this.internals.setValidity(validityState, validationMessage, this.shadowElement);
         // Set input title when HTML error occruring
-        this.inputTitle =
-            this.htmlValidationErrors.length > 0 ? this.formatHTMLErrorMessage() : '';
-    }
-    /**
-     * Format HTML error message based off assigned attributes
-     * This lets us assign custom error messages
-     */
-    formatHTMLErrorMessage() {
-        switch (this.htmlValidationErrors[0]) {
-            case 'valueMissing':
-                return I18N[this.lang][this.htmlValidationErrors[0]];
-            case 'typeMismatch':
-                if (this.type === 'url' || this.type === 'email') {
-                    return I18N[this.lang][this.htmlValidationErrors[0]][this.type];
-                }
-                else {
-                    return I18N[this.lang][this.htmlValidationErrors[0]];
-                }
-            case 'tooLong':
-                return I18N[this.lang][this.htmlValidationErrors[0]]
-                    .replace('{max}', this.maxlength)
-                    .replace('{current}', this.value.length);
-            case 'tooShort':
-                return I18N[this.lang][this.htmlValidationErrors[0]]
-                    .replace('{min}', this.minlength)
-                    .replace('{current}', this.value.length);
-            case 'rangeUnderflow':
-                return I18N[this.lang][this.htmlValidationErrors[0]].replace('{min}', this.min);
-            case 'rangeOverflow':
-                return I18N[this.lang][this.htmlValidationErrors[0]].replace('{max}', this.max);
-            case 'stepMismatch':
-                return I18N[this.lang][this.htmlValidationErrors[0]]
-                    .replace('{lower}', Math.floor(Number(this.value) / Number(this.step)) *
-                    Number(this.step))
-                    .replace('{upper}', Math.floor(Number(this.value) / Number(this.step)) *
-                    Number(this.step) +
-                    Number(this.step));
-            case 'badInput':
-            case 'patternMismatch':
-            default:
-                return I18N[this.lang][this.htmlValidationErrors[0]];
-        }
+        this.inputTitle = validationMessage;
     }
     /*
      * Observe lang attribute change
@@ -302,7 +264,7 @@ export class GcdsInput {
                 ? ` ${attrsInput['aria-describedby']}`
                 : ''}`;
         }
-        return (h(Host, { key: '75bc6a272bf06f77191758dc056487e47bd36e4a' }, h("div", { key: '43c8ca490d32e6a4f6c76ee837da3ab9e87dd392', class: `gcds-input-wrapper ${disabled ? 'gcds-disabled' : ''} ${hasError ? 'gcds-error' : ''}` }, h("gcds-label", Object.assign({ key: '90ca9c61c11a47914b4650bb910525fb1430b045' }, attrsLabel, { "hide-label": hideLabel, "label-for": inputId, lang: lang })), hint ? h("gcds-hint", { "hint-id": inputId }, hint) : null, errorMessage ? (h("gcds-error-message", { messageId: inputId }, errorMessage)) : null, h("input", Object.assign({ key: 'cf6d091d72cf584c1df8f407ff8d86afd6b4547f' }, attrsInput, { class: hasError ? 'gcds-error' : null, id: inputId, name: name, onBlur: () => this.onBlur(), onFocus: () => this.gcdsFocus.emit(), onInput: e => this.handleInput(e, this.gcdsInput), onChange: e => this.handleInput(e, this.gcdsChange), "aria-labelledby": `label-for-${inputId}`, "aria-invalid": inheritedAttributes['aria-invalid'] === 'true'
+        return (h(Host, { key: '9e1013a5309943d7d31bdbe27b0c40ad50547f20' }, h("div", { key: '05bdd407c9d032b45363937f384cd3bb4656d450', class: `gcds-input-wrapper ${disabled ? 'gcds-disabled' : ''} ${hasError ? 'gcds-error' : ''}` }, h("gcds-label", Object.assign({ key: 'd089b67c3e41629c03b25298fd61b972d2e9df0c' }, attrsLabel, { "hide-label": hideLabel, "label-for": inputId, lang: lang })), hint ? h("gcds-hint", { "hint-id": inputId }, hint) : null, errorMessage ? (h("gcds-error-message", { messageId: inputId }, errorMessage)) : null, h("input", Object.assign({ key: 'b596e0a0f64de1592f76614dbd1141baa07cec4f' }, attrsInput, { class: hasError ? 'gcds-error' : null, id: inputId, name: name, onBlur: () => this.onBlur(), onFocus: () => this.gcdsFocus.emit(), onInput: e => this.handleInput(e, this.gcdsInput), onChange: e => this.handleInput(e, this.gcdsChange), "aria-labelledby": `label-for-${inputId}`, "aria-invalid": inheritedAttributes['aria-invalid'] === 'true'
                 ? inheritedAttributes['aria-invalid']
                 : errorMessage
                     ? 'true'
@@ -854,8 +816,8 @@ export class GcdsInput {
                     "text": "Emitted when the element has received input."
                 },
                 "complexType": {
-                    "original": "any",
-                    "resolved": "any",
+                    "original": "string",
+                    "resolved": "string",
                     "references": {}
                 }
             }, {
@@ -869,8 +831,8 @@ export class GcdsInput {
                     "text": "Emitted when the input has changed."
                 },
                 "complexType": {
-                    "original": "any",
-                    "resolved": "any",
+                    "original": "string",
+                    "resolved": "string",
                     "references": {}
                 }
             }, {

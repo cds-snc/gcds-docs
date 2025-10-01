@@ -1,4 +1,9 @@
 import { Host, h } from "@stencil/core";
+/**
+ * A grid column is a single column in a grid layout, allowing for flexible content arrangement.
+ *
+ * @slot default - Slot for the main content of the grid coloumn.
+ */
 export class GcdsGridCol {
     constructor() {
         /**

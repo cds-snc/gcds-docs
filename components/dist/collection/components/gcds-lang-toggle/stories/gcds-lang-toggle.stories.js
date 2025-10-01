@@ -1,7 +1,7 @@
-import { langProp } from "../../../utils/storybook/component-properties";
+import { langProp, eventProp, } from "../../../utils/storybook/component-properties";
 export default {
     title: 'Components/Language toggle',
-    argTypes: Object.assign({
+    argTypes: Object.assign(Object.assign({
         // Props
         href: {
             name: 'href',
@@ -14,7 +14,10 @@ export default {
                 required: true,
             },
         }
-    }, langProp),
+    }, langProp), {
+        // Events
+        gcdsClick: Object.assign({ action: 'click' }, eventProp), gcdsFocus: Object.assign({ action: 'focus' }, eventProp), gcdsBlur: Object.assign({ action: 'blur' }, eventProp)
+    }),
 };
 const Template = args => `
 <!-- Web component code (HTML, Angular, Vue) -->

@@ -1,4 +1,9 @@
 import { Host, h } from "@stencil/core";
+/**
+ * The screenreader-only component is text information only accessible with assistive technologies.
+ *
+ * @slot default - Slot for the hidden accessible content.
+ */
 export class GcdsSrOnly {
     constructor() {
         /**
@@ -18,7 +23,7 @@ export class GcdsSrOnly {
     }
     render() {
         const Tag = this.tag;
-        return (h(Host, { key: 'f81d19a3fe0a38bc554949c1112fd7cf9f5f4efc' }, h(Tag, { key: '7c6167569363292c04e4269f5f30456fbf2a9838' }, h("slot", { key: 'acc0f901a6085a0d29269f083059d6df791f6f45' }))));
+        return (h(Host, { key: 'c3d546661babf7e4c34bbf46600431ea761b2624' }, h(Tag, { key: '32bd3afe9621aa3bcd787bdb95d64ecb18819e0e' }, h("slot", { key: 'd2c250f425e5e988995957b984f7c05e3413651c' }))));
     }
     static get is() { return "gcds-sr-only"; }
     static get encapsulation() { return "shadow"; }

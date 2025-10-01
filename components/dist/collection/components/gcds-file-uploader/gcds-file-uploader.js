@@ -2,6 +2,9 @@ import { Host, h, } from "@stencil/core";
 import { assignLanguage, handleValidationResult, inheritAttributes, observerConfig, } from "../../utils/utils";
 import { defaultValidator, getValidator, requiredValidator, } from "../../validators";
 import i18n from "./i18n/i18n";
+/**
+ * A file uploader is a space to select and add supporting documentation.
+ */
 export class GcdsFileUploader {
     constructor() {
         this._validator = defaultValidator;
@@ -213,7 +216,7 @@ export class GcdsFileUploader {
             attrsInput['aria-describedby'] =
                 `${hintID}${errorID}${attrsInput['aria-describedby']}`;
         }
-        return (h(Host, { key: '7878cdd88945af0417c692bd1f8047ed9656fae2' }, h("div", { key: '8f96a9626bab1d295cb85f81314bf341a0d85303', class: `gcds-file-uploader-wrapper ${disabled ? 'gcds-disabled' : ''} ${hasError ? 'gcds-error' : ''}` }, h("gcds-label", Object.assign({ key: '65b303f97908056330006d3b08012edcce41ba76' }, attrsLabel, { "label-for": uploaderId, lang: lang })), hint ? h("gcds-hint", { "hint-id": uploaderId }, hint) : null, errorMessage ? (h("gcds-error-message", { messageId: uploaderId }, errorMessage)) : null, h("div", { key: '96f7d6e44231ac83983aeb1a29fd328eeda92b7f', class: `file-uploader__input ${value.length > 0 ? 'uploaded-files' : ''}`, onDrop: e => this.handleDrop(e), onDragOver: e => e.preventDefault() }, h("button", { key: 'b0b2f9f819998a975d6800da47997645fbe8630c', type: "button", tabindex: "-1", onClick: () => this.shadowElement.click() }, i18n[lang].button.upload), h("input", Object.assign({ key: '8f6a9bff60348cb19041c960f9374a1005659aff', type: "file", id: uploaderId }, attrsInput, { onBlur: () => this.onBlur(), onFocus: () => this.gcdsFocus.emit(), onInput: e => this.handleInput(e, this.gcdsInput), onChange: e => this.handleInput(e, this.gcdsChange), "aria-invalid": hasError ? 'true' : 'false', ref: element => (this.shadowElement = element) })), value.length > 0 ? (h("gcds-sr-only", { id: "file-uploader__summary" }, h("span", null, i18n[lang].summary.selected, " "), value.map(file => (h("span", null, file, " "))))) : (h("gcds-sr-only", { id: "file-uploader__summary" }, i18n[lang].summary.unselected))), value.length > 0
+        return (h(Host, { key: '3c4798ba95cfb45c77e484ea3836968f7d3698e1' }, h("div", { key: '115b140d32698bb3983683c31daee9de34831f08', class: `gcds-file-uploader-wrapper ${disabled ? 'gcds-disabled' : ''} ${hasError ? 'gcds-error' : ''}` }, h("gcds-label", Object.assign({ key: 'cfe225f2311c2a75ec06bd5c26c031223385b9ab' }, attrsLabel, { "label-for": uploaderId, lang: lang })), hint ? h("gcds-hint", { "hint-id": uploaderId }, hint) : null, errorMessage ? (h("gcds-error-message", { messageId: uploaderId }, errorMessage)) : null, h("div", { key: 'd185acf8dfa1ce7ba4fd20026d55dfb5b5bc77bf', class: `file-uploader__input ${value.length > 0 ? 'uploaded-files' : ''}`, onDrop: e => this.handleDrop(e), onDragOver: e => e.preventDefault() }, h("button", { key: '9a2288f444c5c259dc5bc0a6a4a035284634bd8e', type: "button", tabindex: "-1", onClick: () => this.shadowElement.click() }, i18n[lang].button.upload), h("input", Object.assign({ key: 'd90e7244310af4e497ce2002a1b05d058f8b2b45', type: "file", id: uploaderId }, attrsInput, { onBlur: () => this.onBlur(), onFocus: () => this.gcdsFocus.emit(), onInput: e => this.handleInput(e, this.gcdsInput), onChange: e => this.handleInput(e, this.gcdsChange), "aria-invalid": hasError ? 'true' : 'false', ref: element => (this.shadowElement = element) })), value.length > 0 ? (h("gcds-sr-only", { id: "file-uploader__summary" }, h("span", null, i18n[lang].summary.selected, " "), value.map(file => (h("span", null, file, " "))))) : (h("gcds-sr-only", { id: "file-uploader__summary" }, i18n[lang].summary.unselected))), value.length > 0
             ? value.map(file => (h("div", { class: "file-uploader__uploaded-file", "aria-label": `${i18n[lang].removeFile} ${file}.` }, h("gcds-text", { "margin-bottom": "0" }, file), h("button", { onClick: e => this.removeFile(e) }, h("span", null, i18n[lang].button.remove), h("gcds-icon", { name: "close", size: "text", "margin-left": "150" })))))
             : null)));
     }
@@ -553,11 +556,11 @@ export class GcdsFileUploader {
                 "composed": true,
                 "docs": {
                     "tags": [],
-                    "text": "Emitted when the user has made a file selection."
+                    "text": "Emitted when the user has made a file selection. Contains the new value in the event detail."
                 },
                 "complexType": {
-                    "original": "any",
-                    "resolved": "any",
+                    "original": "string[]",
+                    "resolved": "string[]",
                     "references": {}
                 }
             }, {
@@ -568,11 +571,11 @@ export class GcdsFileUploader {
                 "composed": true,
                 "docs": {
                     "tags": [],
-                    "text": "Emitted when the user has uploaded a file."
+                    "text": "Emitted when the user has uploaded a file. Contains the new value in the event detail."
                 },
                 "complexType": {
-                    "original": "any",
-                    "resolved": "any",
+                    "original": "string[]",
+                    "resolved": "string[]",
                     "references": {}
                 }
             }, {
@@ -598,7 +601,7 @@ export class GcdsFileUploader {
                 "composed": true,
                 "docs": {
                     "tags": [],
-                    "text": "Emitted when the input has a validation error."
+                    "text": "Emitted when the uploader has a validation error."
                 },
                 "complexType": {
                     "original": "object",
@@ -613,7 +616,7 @@ export class GcdsFileUploader {
                 "composed": true,
                 "docs": {
                     "tags": [],
-                    "text": "Emitted when the input has a validation error."
+                    "text": "Emitted when the uploader has a validation error."
                 },
                 "complexType": {
                     "original": "object",

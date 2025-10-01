@@ -1,4 +1,9 @@
 import { EventEmitter } from '../../stencil-public-runtime';
+/**
+ * Alert displays an alert message with an optional heading, icon, and close button.
+ *
+ * @slot default - Slot for the main content of the alert.
+ */
 export declare class GcdsAlert {
     el: HTMLElement;
     /**

@@ -1,4 +1,9 @@
 import { EventEmitter } from '../../stencil-public-runtime';
+/**
+ * A card is a box containing structured, actionable content on a single topic.
+ *
+ * @slot default - Slot for the card description. Will overwrite the description prop if used.
+ */
 export declare class GcdsCard {
     el: HTMLElement;
     /**
@@ -55,9 +60,9 @@ export declare class GcdsCard {
      */
     gcdsBlur: EventEmitter<void>;
     /**
-     * Emitted when the card has been clicked.
+     * Emitted when the card has been clicked. Contains the href in the event detail.
      */
-    gcdsClick: EventEmitter<void>;
+    gcdsClick: EventEmitter<string>;
     updateLang(): void;
     private validateRequiredProps;
     componentWillLoad(): Promise<void>;

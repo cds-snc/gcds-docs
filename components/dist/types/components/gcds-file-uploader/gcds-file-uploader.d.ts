@@ -1,5 +1,8 @@
 import { EventEmitter } from '../../stencil-public-runtime';
 import { Validator, ValidatorEntry } from '../../validators';
+/**
+ * A file uploader is a space to select and add supporting documentation.
+ */
 export declare class GcdsFileUploader {
     el: HTMLElement;
     internals: ElementInternals;
@@ -90,13 +93,13 @@ export declare class GcdsFileUploader {
     gcdsBlur: EventEmitter<void>;
     private onBlur;
     /**
-     * Emitted when the user has made a file selection.
+     * Emitted when the user has made a file selection. Contains the new value in the event detail.
      */
-    gcdsChange: EventEmitter;
+    gcdsChange: EventEmitter<string[]>;
     /**
-     * Emitted when the user has uploaded a file.
+     * Emitted when the user has uploaded a file. Contains the new value in the event detail.
      */
-    gcdsInput: EventEmitter;
+    gcdsInput: EventEmitter<string[]>;
     private handleInput;
     /**
      * Remove file and update value.
@@ -108,11 +111,11 @@ export declare class GcdsFileUploader {
      */
     validate(): Promise<void>;
     /**
-     * Emitted when the input has a validation error.
+     * Emitted when the uploader has a validation error.
      */
     gcdsError: EventEmitter<object>;
     /**
-     * Emitted when the input has a validation error.
+     * Emitted when the uploader has a validation error.
      */
     gcdsValid: EventEmitter<object>;
     submitListener(e: any): void;
