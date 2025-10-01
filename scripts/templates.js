@@ -17,8 +17,8 @@ async function downloadFile(url, outputDir, outputFileName) {
 
     // Replace version numbers in preview files
     let previewContent = fileContent.replace(
-      /gcds-utility\@<version-number>/g,
-      'gcds-utility@' +
+      /css-shortcuts\@<version-number>/g,
+      'css-shortcuts@' +
         pjson.devDependencies['@gcds-core/css-shortcuts'].replace(/^\^/, ''),
     );
     previewContent = previewContent.replace(
