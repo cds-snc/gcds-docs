@@ -100,7 +100,7 @@ Browse the latest code additions and features in the <gcds-link href="{{ links.r
 **Recent releases**:
 
 - New feature: <gcds-link href="{{ links.shortcuts }}">CSS shortcuts</gcds-link>
-- Update: Styling and guidance <gcds-link href="{{ links.sideNav }}">Side nav</gcds-link>
+- Update: Styling and guidance for <gcds-link href="{{ links.sideNav }}">Side nav</gcds-link>
 
 </section>
 
