@@ -555,17 +555,6 @@ nav.tabs a[aria-current=page]:focus {
   border-color: var(--gcds-focus-background);
 }
 
-.hero {
-  margin: calc(-1 * var(--gcds-spacing-150));
-  background: url(../../images/common/home/home-hero.jpg) top center no-repeat;
-  background-size: cover;
-}
-.hero .hero__content {
-  position: relative;
-  width: 80%;
-  max-width: 40.625rem;
-}
-
 .search-result {
   border-block-end: solid 1px var(--gcds-color-grayscale-1000);
   padding-block-end: var(--gcds-spacing-300);

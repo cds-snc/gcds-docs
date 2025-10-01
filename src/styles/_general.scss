@@ -6,6 +6,7 @@
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
   }
@@ -24,6 +25,7 @@ iframe {
 }
 
 ul li {
+
   p.mb-300:has(+ ul),
   ul.mb-300 {
     margin-block-end: 0;
