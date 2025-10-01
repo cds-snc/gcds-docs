@@ -1,12 +1,12 @@
 ---
 title: Configurer la bibliothèque de Système de design GC
-translationKey: getstartedFigma
+translationKey: startUsingFigma
 layout: 'layouts/base.njk'
 eleventyNavigation:
-  key: getstartedFigmaFR
+  key: startUsingFigmaFR
   title: Configurer la bibliothèque de Système de design GC
   locale: fr
-  parent: getstartedFR
+  parent: startusingFR
   order: 1
   hideMain: true
 date: 'git Last Modified'

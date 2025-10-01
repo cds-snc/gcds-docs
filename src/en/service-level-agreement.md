@@ -52,7 +52,7 @@ CDS is responsible for updating clients via the GC Design System [website]({{ li
 
 ## Uptime guarantee
 
-This service-level agreement (SLA) covers infrastructure running the GC Design System [codebase]({{ links.getStartedDevelop }}) and [website]({{ links.home }}).
+This service-level agreement (SLA) covers infrastructure running the GC Design System [codebase]({{ links.startToUseDevelop }}) and [website]({{ links.home }}).
 
 CDS guarantees that the GC Design System will have 99.0% uptime with no more than 1% downtime during regular business hours in a year.
 

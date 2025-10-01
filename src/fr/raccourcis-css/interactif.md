@@ -1,0 +1,11 @@
+---
+title: Interactif
+eleventyNavigation:
+  key: shortcutsInteractiveFR
+  title: Interactif
+  locale: fr
+  parent: shortcutsFR
+  order: 8
+permalink: false
+layout: 'layouts/base.njk'
+---

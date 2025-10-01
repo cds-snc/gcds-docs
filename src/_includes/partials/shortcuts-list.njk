@@ -1,0 +1,26 @@
+{% set shortcuts = ["shortcuts", locale | upper] | join %}
+{% set shortcutsPages = collections.all | eleventyNavigation(shortcuts) %}
+
+{% macro renderCSSShortcutItem(entry) -%}
+  {% if not entry.url and entry.children %}
+### {{ entry.title }}
+
+<gcds-grid class="shortcuts-overview-list" tag="ul" columns-desktop="1fr 1fr 1fr" columns-tablet="1fr 1fr" columns="1fr">
+{%- for child in entry.children %}
+  {%- if child.locale == locale %}{{ renderCSSShortcutItem(child) }}{% endif -%}
+{%- endfor -%}
+</gcds-grid>
+  {% else %}
+<li>
+  <gcds-link
+    href="{{ entry.url | url }}"
+  >
+    {{ entry.title }}
+  </gcds-link>
+</li>
+  {% endif %}
+{%- endmacro %}
+
+{%- for entry in shortcutsPages %}
+  {%- if entry.locale == locale %}{{ renderCSSShortcutItem(entry) }}{% endif -%}
+{%- endfor -%}
