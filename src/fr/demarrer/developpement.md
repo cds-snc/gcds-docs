@@ -6,7 +6,7 @@ eleventyNavigation:
   key: installationFR
   title: Installation de Système de design GC
   locale: fr
-  parent: getstartedFR
+  parent: startusingFR
   order: 1
   hideMain: true
 cardlist:

@@ -1,12 +1,12 @@
 ---
 title: Set up GC Design System library
-translationKey: getstartedFigma
+translationKey: startusingFigma
 layout: 'layouts/base.njk'
 eleventyNavigation:
-  key: getstartedFigmaEN
+  key: startusingFigmaEN
   title: Set up GC Design System library
   locale: en
-  parent: getstartedEN
+  parent: startusingEN
   order: 1
   hideMain: true
 date: 'git Last Modified'

@@ -1,16 +1,16 @@
 ---
-title: Get started
-translationKey: getstarted
+title: Start to use
+translationKey: startusing
 layout: 'layouts/base.njk'
 eleventyNavigation:
-  key: getstartedEN
-  title: Get started
+  key: startusingEN
+  title: Start to use
   locale: en
   order: 2
 date: 'git Last Modified'
 ---
 
-# Get started
+# Start to use
 
 Whether you’re designing or building in code, get started using GC Design System.
 
@@ -19,7 +19,7 @@ Whether you’re designing or building in code, get started using GC Design Syst
     card-title="Design"
     href="#design"
     description="Learn how to start designing consistent GC experiences using the asset library in Figma."
-    img-src="/images/common/get-started/banner-design.svg"
+    img-src="/images/common/start-to-use/banner-design.svg"
     img-alt=""
     role="listitem"
   ></gcds-card>
@@ -27,7 +27,7 @@ Whether you’re designing or building in code, get started using GC Design Syst
     card-title="Develop"
     href="#develop"
     description="Learn how to start prototyping and developing accessible GC experiences in code."
-    img-src="/images/common/get-started/banner-develop.svg"
+    img-src="/images/common/start-to-use/banner-develop.svg"
     img-alt=""
     role="listitem"
   ></gcds-card>
@@ -47,7 +47,7 @@ The library includes:
 
 GC Design System uses Figma to host our component designs. Figma is a tool that lets you create clickable prototypes of apps and websites using the GC Design System library.
 
-<gcds-button button-role="secondary" type="link" href="{{ links.getStartedDesign }}">
+<gcds-button button-role="secondary" type="link" href="{{ links.startToUseDesign }}">
   Start designing
 </gcds-button>
 
@@ -69,6 +69,6 @@ GC Design System provides reusable and customizable web components. The componen
 - Changes come in a single-version update with tokens, components, and (usually) non-breaking changes.
 - The design system is independent of the Web Experience Toolkit (WET) and GCWeb.
 
-<gcds-button button-role="secondary" type="link" href="{{ links.getStartedDevelop }}">
+<gcds-button button-role="secondary" type="link" href="{{ links.startToUseDevelop }}">
   Start developing
 </gcds-button>

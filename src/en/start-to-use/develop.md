@@ -6,7 +6,7 @@ eleventyNavigation:
   key: installationEN
   title: Install GC Design System
   locale: en
-  parent: getstartedEN
+  parent: startusingEN
   order: 1
   hideMain: true
 cardlist:

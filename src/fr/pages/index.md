@@ -14,7 +14,7 @@ date: 'git Last Modified'
       <img class="mb-300" src="../../images/common/home/icon-design.svg" alt="" />
       <h3 class="mt-0">Concevoir des expériences</h3>
       <p>Explorez les ressources de conception dans notre bibliothèque Figma.</p>
-      <a href="{{ links.getStartedDesignSection }}">
+      <a href="{{ links.startToUseDesignSection }}">
         Commencer à concevoir
       </a>
     </li>
@@ -22,7 +22,7 @@ date: 'git Last Modified'
       <img class="mb-300" src="../../images/common/home/icon-develop.svg" alt="" />
       <h3 class="mt-0">Développer des produits</h3>
       <p>Installez l'ensemble de composants.</p>
-      <a href="{{ links.getStartedDevelopSection }}">Commencer à développer</a>
+      <a href="{{ links.startToUseDevelopSection }}">Commencer à développer</a>
     </li>
   </gcds-grid>
 </article>
