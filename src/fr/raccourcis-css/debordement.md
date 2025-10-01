@@ -5,7 +5,7 @@ eleventyNavigation:
   key: shortcutsOverflowFR
   title: Débordement
   locale: fr
-  parent: shortcutsFR
+  parent: shortcutsLayoutFR
   order: 1
 shortcuts:
   - class: 'overflow-visible'

@@ -5,7 +5,7 @@ eleventyNavigation:
   key: shortcutsWordBreakFR
   title: Saut de mot
   locale: fr
-  parent: shortcutsFR
+  parent: shortcutsTypographyFR
   order: 1
 shortcuts:
   - class: 'break-normal'

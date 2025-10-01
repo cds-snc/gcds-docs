@@ -5,7 +5,7 @@ eleventyNavigation:
   key: shortcutsLinkSizeFR
   title: Taille de lien
   locale: fr
-  parent: shortcutsFR
+  parent: shortcutsTypographyFR
   order: 1
 shortcuts:
   - class: 'link-size-regular'

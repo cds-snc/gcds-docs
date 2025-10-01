@@ -5,7 +5,7 @@ eleventyNavigation:
   key: shortcutsBorderWidthEN
   title: Border width
   locale: en
-  parent: shortcutsEN
+  parent: shortcutsBackgroundBordersEN
   order: 1
 shortcuts:
   - class: 'b-&lt;value&gt;'

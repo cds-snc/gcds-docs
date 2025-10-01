@@ -5,7 +5,7 @@ eleventyNavigation:
   key: shortcutsDisplayFR
   title: Affichage
   locale: fr
-  parent: shortcutsFR
+  parent: shortcutsLayoutFR
   order: 1
 shortcuts:
   - class: 'd-block'

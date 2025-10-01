@@ -5,7 +5,7 @@ eleventyNavigation:
   key: shortcutsFlexGrowEN
   title: Flex grow
   locale: en
-  parent: shortcutsEN
+  parent: shortcutsFlexboxGridEN
   order: 1
 shortcuts:
   - class: 'flex-grow'

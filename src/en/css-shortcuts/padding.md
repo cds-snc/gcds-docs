@@ -5,7 +5,7 @@ eleventyNavigation:
   key: shortcutsPaddingEN
   title: Padding
   locale: en
-  parent: shortcutsEN
+  parent: shortcutsSpacingEN
   order: 1
 shortcuts:
   - class: 'p-&lt;value&gt;'

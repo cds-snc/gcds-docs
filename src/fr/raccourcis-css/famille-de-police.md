@@ -5,7 +5,7 @@ eleventyNavigation:
   key: shortcutsFontFamilyFR
   title: Famille de police
   locale: fr
-  parent: shortcutsFR
+  parent: shortcutsTypographyFR
   order: 1
 shortcuts:
   - class: 'font-family-heading'

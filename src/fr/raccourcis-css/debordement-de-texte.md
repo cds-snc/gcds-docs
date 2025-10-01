@@ -5,7 +5,7 @@ eleventyNavigation:
   key: shortcutsTextOverflowFR
   title: Débordement de texte
   locale: fr
-  parent: shortcutsFR
+  parent: shortcutsTypographyFR
   order: 1
 shortcuts:
   - class: 'text-clip'

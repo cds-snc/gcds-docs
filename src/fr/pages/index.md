@@ -1,114 +1,124 @@
 ---
 title: Accueil
-layout: 'layouts/home.njk'
+layout: 'layouts/base.njk'
 permalink: /fr/
 translationKey: 'index'
 date: 'git Last Modified'
 ---
 
-<h2 class="my-450">Commencez à utiliser Système de design GC</h2>
+# Système de design GC
 
-<article class="py-600 bg-primary text-light bg-full-width">
-  <gcds-grid tag="ul" columns="1fr" columns-tablet="1fr 1fr">
-    <li class="list-none md:mb-0 mb-600">
-      <img class="mb-300" src="../../images/common/home/icon-design.svg" alt="" />
-      <h3 class="mt-0">Concevoir des expériences</h3>
-      <p>Explorez les ressources de conception dans notre bibliothèque Figma.</p>
-      <a class="link-light" href="{{ links.getStartedDesignSection }}">
-        Commencer à concevoir
-      </a>
-    </li>
-    <li class="list-none">
-      <img class="mb-300" src="../../images/common/home/icon-develop.svg" alt="" />
-      <h3 class="mt-0">Développer des produits</h3>
-      <p>Installez l'ensemble de composants.</p>
-      <a class="link-light" href="{{ links.getStartedDevelopSection }}">Commencer à développer</a>
-    </li>
-  </gcds-grid>
-</article>
+Créez des services gouvernementaux modernes, accessibles et humains.
 
-<article class="pb-600">
-  <h2>Un système de design rien que pour vous</h2>
-  <p class="mb-600">Explorez notre outil de conception. <gcds-link href="{{ links.contact }}">Donnez-nous votre avis</gcds-link>.</p>
-  <gcds-grid tag="ul" columns="1fr" columns-tablet="1fr 1fr" columns-desktop="1fr 1fr 1fr">
-    <li class="list-none">
-      <img class="mb-150" src="../../images/common/home/icon-components.svg" alt="" />
-      <h3 class="mt-0">Composants</h3>
-      <p>Les blocs de construction de l'interface utilisateur servent différents objectifs.</p>
-      <p>Sélectionnez du code réutilisable pour les composants courants et obtenez des conseils relatifs aux meilleures pratiques pour l'infrastructure que vous utilisez.</p>
-      <gcds-link href="{{ links.components }}">Découvrez les composants</gcds-link>
-    </li>
-    <li class="list-none">
-      <img class="mb-150" src="../../images/common/home/icon-template.svg" alt="" />
-      <h3 class="mt-0">Modèles de page</h3>
-      <p>Les mises en page réutilisables sont des agencements de composants propres à des types de page communs.</p>
-      <p>Entamez votre projet à l'aide de pages de base préfabriquées pour offrir une expérience Canada.ca uniforme et reconnaissable.</p>
-      <gcds-link href="{{ links.pageTemplates }}">Découvrez les modèle des page</gcds-link>
-    </li>
-    <li class="list-none">
-      <img class="mb-150" src="../../images/common/home/icon-tokens.svg" alt="" />
-      <h3 class="mt-0">Unités de style</h3>
-      <p>Des décisions en matière d'image de marque et de conception directement intégrées dans le code.</p>
-      <p>Découvrez comment les décisions encodées façonnent la conception des services offerts par le gouvernement du Canada et permettent d'offrir une expérience visuelle uniforme.</p>
-      <gcds-link href="{{ links.styles }}">Découvrez les unités de style</gcds-link>
-    </li>
-  </gcds-grid>
-</article>
+<gcds-button type="link" href="{{ links.startToUse }}">
+  Démarrer
+</gcds-button>
 
-<article class="py-600 bg-light bg-full-width">
-  <h2 class="mt-0">Nouveautés</h2>
-  <gcds-grid tag="ul" columns="1fr" columns-tablet="1fr 1fr">
-    <gcds-card
-      href="{{ links.shortcuts }}"
-      card-title="Appliquer des styles avec les Raccourcis CSS "
-      card-title-tag="h3"
-      description="Ajoutez des raccourcis de style CSS pour Système de design GC à votre code personnalisé."
-      role="listitem"
-    ></gcds-card>
-    <gcds-card
-      href="{{ links.accessibility }}"
-      card-title="S'informer sur l'accessibilité"
-      card-title-tag="h3"
-      description="Passez en revue les pratiques et les examens en matière d'accessibilité au sein du système de design."
-      role="listitem"
-    ></gcds-card>
-    <gcds-card
-      href="{{ links.registerDemo }}"
-      card-title="Participer à une démo"
-      card-title-tag="h3"
-      description="Découvrir comment Système de design GC peut fonctionner pour vous et votre équipe."
-      role="listitem"
-    ></gcds-card>
-    <gcds-card
-      href="{{ links.releaseNotes }}"
-      card-title="Découvrir les dernières versions"
-      card-title-tag="h3"
-      description="Découvrez les derniers ajouts et les nouvelles fonctionnalités."
-      role="listitem"
-    ></gcds-card>
-  </gcds-grid>
-</article>
+<gcds-button type="link" href="{{ links.registerDemo }}" button-role="secondary">
+  Participez à une démo
+</gcds-button>
 
-<article class="pb-600">
-  <h2>Composant vedette</h2>
-  <gcds-grid tag="ul" columns="1fr" columns-tablet="1fr 1fr" columns-desktop="1fr 1fr 1fr">
-    <gcds-card
-      href="{{ links.notice }}"
-      card-title="Avis"
-      card-title-tag="h3"
-      img-src="/images/common/components/preview-notice.svg"
-      img-alt="Une ligne bleue verticale tronquée par un cercle bleu, représentant la ligne guide et l'icône, se situe à gauche de deux épaisses lignes grises pâle alignées sous une ligne grise foncée représentant un titres et des lignes de texte."
-      description="L'avis est un composant permettant de communiquer des mises à jour, des avertissements et des confirmations concernant la tâche principale relative à la page ou au service. C'est un message court et bien visible qui fait partie du contenu de la page."
-      role="listitem"
-    ></gcds-card>
-    <gcds-card
-      href="{{ links.card }}"
-      card-title="Carte"
-      card-title-tag="h3"
-      img-src="/images/common/components/preview-card.svg"
-      img-alt="Le composant Carte montre un encadré contenant une image rectangulaire dans la moitié supérieure. Juste en dessous se trouve une barre bleue rectangulaire occupant les trois quarts de la largeur de l'encadré et représentant le titre de la carte. Encore en dessous, deux barres grises plus longues l'une au-dessus de l'autre représentent respectivement la zone consacrée au contexte et la zone consacrée aux métadonnées."
-      description="La carte est un composant de navigation pouvant être utilisé à la place d'un bouton ou d'un lien pour mettre en avant l'action la plus importante. C'est un encadré contenant du contenu structuré et pratique sur un sujet unique."
-      role="listitem"
-    ></gcds-card>
-  </gcds-grid>
-</article>
+<section class="bt-sm mt-500">
+
+## Choisissez Système de design GC
+
+Système de design GC est la source pour les fonctionnaires qui assurent la prestation des sites Web et produits du gouvernement du Canada. Construisez plus rapidement, sans compromettre l’identité de marque, l’accessibilité, ni le bilinguisme. 
+
+### Pour en savoir plus
+
+Renseignez-vous <gcds-link href="{{ links.aboutUs }}">sur le SNC</gcds-link>, nos <gcds-link href="{{ links.accessibilityTesting }}">tests réguliers en matière d’accessibilité</gcds-link> et sur les manières dont vous pouvez améliorer l’accessibilité de vos produits et sites Web.
+
+### S’impliquer
+
+Nous adaptons continuellement notre produit pour mieux répondre à vos besoins et vous offrir plus d’options.
+
+<gcds-button type="link" href="{{ links.getInvolved }}" button-role="secondary">
+  S’impliquer 
+</gcds-button>
+
+</section>
+
+<section class="bt-sm mt-500">
+
+## Des outils pour les problèmes courants
+
+Appliquez ou combinez ces outils pour aborder les scénarios de services communs. Créez et construisez rapidement des expériences fiables et unifiées.
+
+<gcds-grid columns="1fr" columns-tablet="1.5fr 2.5fr" columns-desktop="1fr 3fr" gap="150" gap-tablet="300">
+
+<img class="align-self-center d-none md:d-block" src="/images/common/home/components.jpg" alt="Trois formes distinctes, un rectangle rose à côté d'un carré vert et d'un carré jaune, forment le contour d'un plus grand carré." />
+
+<div>
+  <gcds-heading tag="h3">
+    <gcds-link href="{{ links.components }}">Composants</gcds-link>
+  </gcds-heading>
+
+  Répondez aux besoins communs en matière d’interaction des services à l’aide du code, de la conception et des conseils pour la mise en œuvre de composants d’interface utilisateur.
+</div>
+
+<img class="align-self-center d-none md:d-block" src="/images/common/home/templates.jpg" alt="Un rectangle vertical rempli d'un dégradé du rose au bleu." />
+
+<div>
+  <gcds-heading tag="h3">
+    <gcds-link href="{{ links.pageTemplates }}">Modèles de page</gcds-link>
+  </gcds-heading>
+
+  Commencez votre projet à l’aide de pages préconstruites offrant une expérience uniforme et reconnaissable pour Canada.ca.
+</div>
+
+<img class="align-self-center d-none md:d-block" src="/images/fr/accueil/shortcuts.jpg" alt="Un badge en haut à gauche avec le mot nouveau. Trois points horizontaux légèrement superposés dans des tons de bleu successivement foncés." />
+
+<div>
+  <gcds-heading tag="h3">
+    <gcds-link href="{{ links.shortcuts }}">Raccourcis CSS <gcds-sr-only>(Nouveau)</gcds-sr-only></gcds-link>
+  </gcds-heading>
+
+  Appliquez des styles et des mises en page prédéfinis en ajoutant nos classes utilitaires CSS personnalisées à votre code HTML.
+</div>
+
+<img class="align-self-center d-none md:d-block" src="/images/common/home/styles.jpg" alt="Un groupe de quatre points violets, bleus, verts et jaunes." />
+
+<div>
+  <gcds-heading tag="h3">
+    <gcds-link href="{{ links.styles }}">Styles</gcds-link>
+  </gcds-heading>
+
+  Explorez les décisions de marque et de design codées qui façonnent une expérience visuelle cohérente.
+</div>
+
+</gcds-grid>
+
+</section>
+
+<section class="bt-sm mt-500">
+
+## Nouveautés
+
+Parcourez les dernières fonctionnalités et les derniers ajouts au code dans le <gcds-link href="{{ links.releaseNotes}}" external>journal des modifications dans GitHub</gcds-link>.
+
+**Dernières versions** :
+
+- Nouvelle fonctionnalité :  <gcds-link href="{{ links.shortcuts }}">Raccourcis CSS</gcds-link>
+- Mises à jour : Style et conseils d’utilisation pour le composant <gcds-link href="{{ links.sideNav }}">navigation latérale</gcds-link>
+
+</section>
+
+<section class="bt-sm mt-500">
+
+## À venir
+
+Explorez notre <gcds-link href="{{ links.roadmap }}">feuille de route</gcds-link> pour suivre nos progrès et voir sur quoi nous travaillerons prochainement. 
+
+</section>
+
+<section class="bt-sm mt-500">
+
+## Contactez-nous
+
+Si vous avez des questions, si vous voulez vous impliquer ou si <gcds-link href="{{ getInvolved }}">vous voulez</gcds-link> vous inscrire à notre liste de diffusion, n’hésitez pas à communiquer avec nous.
+
+<gcds-button type="link" href="{{ links.contact }}" button-role="secondary">
+  Contactez-nous
+</gcds-button>
+
+</section>

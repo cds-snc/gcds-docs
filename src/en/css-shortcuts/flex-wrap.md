@@ -5,7 +5,7 @@ eleventyNavigation:
   key: shortcutsFlexWrapEN
   title: Flex wrap
   locale: en
-  parent: shortcutsEN
+  parent: shortcutsFlexboxGridEN
   order: 1
 shortcuts:
   - class: 'flex-wrap'

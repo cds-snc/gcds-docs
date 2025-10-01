@@ -52,7 +52,7 @@ Le SNC est tenu de transmettre à la clientèle toute information relative à un
 
 ## Garantie sur le temps de fonctionnement
 
-La présente entente sur les niveaux de service (ENS) vise l’infrastructure utilisant la [base de code]({{ links.getStartedDevelop }}) et la [base de données]({{ links.home }}) de Système de design GC.
+La présente entente sur les niveaux de service (ENS) vise l’infrastructure utilisant la [base de code]({{ links.startToUseDevelop }}) et la [base de données]({{ links.home }}) de Système de design GC.
 
 Le SNC garantit que chaque année, Système de design GC fonctionnera 99 % du temps et ne sera pas immobilisé plus de 1 % du temps durant les heures normales d’ouverture.
 

@@ -5,7 +5,7 @@ eleventyNavigation:
   key: shortcutsGapEN
   title: Gap
   locale: en
-  parent: shortcutsEN
+  parent: shortcutsFlexboxGridEN
   order: 1
 shortcuts:
   - class: 'gap-&lt;value&gt;'

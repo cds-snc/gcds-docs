@@ -5,7 +5,7 @@ eleventyNavigation:
   key: shortcutsOverflowEN
   title: Overflow
   locale: en
-  parent: shortcutsEN
+  parent: shortcutsLayoutEN
   order: 1
 shortcuts:
   - class: 'overflow-visible'

@@ -5,7 +5,7 @@ eleventyNavigation:
   key: shortcutsImageEN
   title: Image
   locale: en
-  parent: shortcutsEN
+  parent: shortcutsIconImageEN
   order: 1
 shortcuts:
   - class: 'img-full'

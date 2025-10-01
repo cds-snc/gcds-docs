@@ -5,7 +5,7 @@ eleventyNavigation:
   key: shortcutsFlexGrowFR
   title: Élargissement de l’élément flexible
   locale: fr
-  parent: shortcutsFR
+  parent: shortcutsFlexboxGridFR
   order: 1
 shortcuts:
   - class: 'flex-grow'

@@ -5,7 +5,7 @@ eleventyNavigation:
   key: shortcutsOrderFR
   title: Ordre
   locale: fr
-  parent: shortcutsFR
+  parent: shortcutsFlexboxGridFR
   order: 1
 shortcuts:
   - class: 'order-1'

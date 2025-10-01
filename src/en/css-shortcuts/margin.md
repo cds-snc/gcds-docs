@@ -5,7 +5,7 @@ eleventyNavigation:
   key: shortcutsMarginEN
   title: Margin
   locale: en
-  parent: shortcutsEN
+  parent: shortcutsSpacingEN
   order: 1
 shortcuts:
   - class: 'm-&lt;value&gt;'

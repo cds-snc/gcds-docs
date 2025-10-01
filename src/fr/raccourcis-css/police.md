@@ -5,7 +5,7 @@ eleventyNavigation:
   key: shortcutsFontFR
   title: Police
   locale: fr
-  parent: shortcutsFR
+  parent: shortcutsTypographyFR
   order: 1
 shortcuts:
   - class: 'font-h1'

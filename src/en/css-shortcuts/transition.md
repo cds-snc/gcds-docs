@@ -5,7 +5,7 @@ eleventyNavigation:
   key: shortcutsTodoEN
   title: Transition
   locale: en
-  parent: shortcutsEN
+  parent: shortcutsInteractiveEN
   order: 1
 shortcuts:
   - class: 'transition-fade-in'

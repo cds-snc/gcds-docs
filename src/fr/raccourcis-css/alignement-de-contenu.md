@@ -5,7 +5,7 @@ eleventyNavigation:
   key: shortcutsAlignContentFR
   title: Alignement de contenu
   locale: fr
-  parent: shortcutsFR
+  parent: shortcutsFlexboxGridFR
   order: 1
 shortcuts:
   - class: 'align-content-around'

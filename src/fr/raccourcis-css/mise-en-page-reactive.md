@@ -5,7 +5,7 @@ eleventyNavigation:
   key: shortcutsResponsiveLayoutFR
   title: Mise en page réactive
   locale: fr
-  parent: shortcutsFR
+  parent: shortcutsConditionalRenderingFR
   order: 1
 shortcuts:
   - class: 'xs:'

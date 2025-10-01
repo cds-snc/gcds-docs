@@ -2,13 +2,15 @@
 
 {% if (cardlist.type == "components") %}
   {% set navPages = collections.all | eleventyNavigation(components) | sortAlpha %}
+  {% set cardLayoutDesktop = "1fr 1fr" %}
 {% else %}
   {% set navPages = collections.all | eleventyNavigation(components) %}
+  {% set cardLayoutDesktop = "1fr 1fr 1fr" %}
 {% endif %}
 
 {% if (cardlist.type === 'components' or cardlist.type === 'foundations' or cardlist.type === 'installation') and cardlist.state === 'published' %}
   <div class="my-600">
-    <gcds-grid tag="ul" columns="1fr" columns-tablet="1fr 1fr" columns-desktop="1fr 1fr 1fr">
+    <gcds-grid tag="ul" columns="1fr" columns-tablet="1fr 1fr" columns-desktop="{{ cardLayoutDesktop }}">
     {%- for entry in navPages %}
       {% if entry.state == cardlist.state and entry.showInCardlist != false %}
         <gcds-card

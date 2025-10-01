@@ -5,7 +5,7 @@ eleventyNavigation:
   key: shortcutsPaddingFR
   title: Marge intérieure
   locale: fr
-  parent: shortcutsFR
+  parent: shortcutsSpacingFR
   order: 1
 shortcuts:
   - class: 'p-&lt;value&gt;'

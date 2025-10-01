@@ -5,7 +5,7 @@ eleventyNavigation:
   key: shortcutsPlaceItemsEN
   title: Place items
   locale: en
-  parent: shortcutsEN
+  parent: shortcutsFlexboxGridEN
   order: 1
 shortcuts:
   - class: 'place-items-center'

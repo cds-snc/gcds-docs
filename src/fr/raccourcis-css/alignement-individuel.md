@@ -5,7 +5,7 @@ eleventyNavigation:
   key: shortcutsAlignSelfFR
   title: Alignement individuel
   locale: fr
-  parent: shortcutsFR
+  parent: shortcutsFlexboxGridFR
   order: 1
 shortcuts:
   - class: 'align-self-auto'

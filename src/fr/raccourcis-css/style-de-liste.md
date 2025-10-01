@@ -5,7 +5,7 @@ eleventyNavigation:
   key: shortcutsListStyleFR
   title: Style de liste
   locale: fr
-  parent: shortcutsFR
+  parent: shortcutsTypographyFR
   order: 1
 shortcuts:
   - class: 'list-circle'

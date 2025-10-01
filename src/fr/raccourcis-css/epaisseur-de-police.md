@@ -5,7 +5,7 @@ eleventyNavigation:
   key: shortcutsFontWeightFR
   title: Épaisseur de police
   locale: fr
-  parent: shortcutsFR
+  parent: shortcutsTypographyFR
   order: 1
 shortcuts:
   - class: 'font-regular'

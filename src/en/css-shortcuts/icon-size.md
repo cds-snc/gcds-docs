@@ -5,7 +5,7 @@ eleventyNavigation:
   key: shortcutsIconSizeEN
   title: Icon size
   locale: en
-  parent: shortcutsEN
+  parent: shortcutsIconImageEN
   order: 1
 shortcuts:
   - class: 'icon-h1'

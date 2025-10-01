@@ -132,6 +132,14 @@ ul li ul li {
   max-width: 100%;
 }
 
+.side-nav {
+  top: 0;
+  max-height: 100dvh;
+  overflow-y: auto;
+  /* avoids jump when the scrollbar appears */
+  scrollbar-gutter: stable;
+}
+
 .anatomy-list {
   counter-reset: item;
   margin-block-end: var(--gcds-spacing-450);
@@ -544,26 +552,6 @@ nav.tabs a:focus {
 }
 nav.tabs a[aria-current=page]:focus {
   border-color: var(--gcds-focus-background);
-}
-
-.hero {
-  margin: calc(-1 * var(--gcds-spacing-150));
-  background: url(../../images/common/home/home-hero.jpg) top center no-repeat;
-  background-size: cover;
-}
-.hero .hero__content {
-  position: relative;
-  width: 80%;
-  max-width: 40.625rem;
-}
-.hero .hero__content:before {
-  position: absolute;
-  top: 0;
-  left: calc(-100vw + 0.01px);
-  width: 100vw;
-  height: 100%;
-  content: "";
-  background-color: var(--gcds-color-blue-900);
 }
 
 .search-result {

@@ -5,7 +5,7 @@ eleventyNavigation:
   key: shortcutsTextOverflowEN
   title: Text overflow
   locale: en
-  parent: shortcutsEN
+  parent: shortcutsTypographyEN
   order: 1
 shortcuts:
   - class: 'text-clip'

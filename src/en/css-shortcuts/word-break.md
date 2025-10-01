@@ -5,7 +5,7 @@ eleventyNavigation:
   key: shortcutsWordBreakEN
   title: Word break
   locale: en
-  parent: shortcutsEN
+  parent: shortcutsTypographyEN
   order: 1
 shortcuts:
   - class: 'break-normal'

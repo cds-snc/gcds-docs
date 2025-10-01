@@ -5,7 +5,7 @@ eleventyNavigation:
   key: shortcutsFlexEN
   title: Flex
   locale: en
-  parent: shortcutsEN
+  parent: shortcutsFlexboxGridEN
   order: 1
 shortcuts:
   - class: 'flex-1'

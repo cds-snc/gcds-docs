@@ -5,7 +5,7 @@ eleventyNavigation:
   key: shortcutsJustifySelfEN
   title: Justify self
   locale: en
-  parent: shortcutsEN
+  parent: shortcutsFlexboxGridEN
   order: 1
 shortcuts:
   - class: 'justify-self-auto'

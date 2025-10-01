@@ -5,7 +5,7 @@ eleventyNavigation:
   key: shortcutsPointerEventsFR
   title: Événements de pointeur
   locale: fr
-  parent: shortcutsFR
+  parent: shortcutsInteractiveFR
   order: 1
 shortcuts:
   - class: 'pointer-events-auto'

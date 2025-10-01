@@ -5,7 +5,7 @@ eleventyNavigation:
   key: shortcutsBorderRadiusEN
   title: Border radius
   locale: en
-  parent: shortcutsEN
+  parent: shortcutsBackgroundBordersEN
   order: 1
 shortcuts:
   - class: 'b-radius-sm'

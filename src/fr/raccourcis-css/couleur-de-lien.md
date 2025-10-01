@@ -5,7 +5,7 @@ eleventyNavigation:
   key: shortcutsLinkColourFR
   title: Couleur de lien
   locale: fr
-  parent: shortcutsFR
+  parent: shortcutsTypographyFR
   order: 1
 shortcuts:
   - class: 'link-default'

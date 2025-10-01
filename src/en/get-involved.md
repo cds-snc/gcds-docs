@@ -19,7 +19,7 @@ Right now, we're testing GC Design System in alpha, the first usable phase of a 
 
 ## Find out about GC Design System
 
-<gcds-grid columns="1fr" columns-tablet="1fr 1fr" columns-desktop="1fr 1fr 1fr">
+<gcds-grid columns="1fr" columns-tablet="1fr 1fr" columns-desktop="1fr 1fr">
   <gcds-card
     card-title="Subscribe to mailing list"
     href="{{ links.contactMailingList }}"

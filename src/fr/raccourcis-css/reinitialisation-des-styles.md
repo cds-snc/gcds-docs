@@ -5,7 +5,7 @@ eleventyNavigation:
   key: shortcutsResetStylesFR
   title: Réinitialisation des styles
   locale: fr
-  parent: shortcutsFR
+  parent: shortcutsDefaultsFR
   order: 1
 translationKey: 'shortcutsResetStyles'
 date: 'git Last Modified'

@@ -5,7 +5,7 @@ eleventyNavigation:
   key: shortcutsPositionFR
   title: Position
   locale: fr
-  parent: shortcutsFR
+  parent: shortcutsLayoutFR
   order: 1
 shortcuts:
   - class: 'position-static'

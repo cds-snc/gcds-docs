@@ -5,7 +5,7 @@ eleventyNavigation:
   key: shortcutsContainerSizingEN
   title: Container sizing
   locale: en
-  parent: shortcutsEN
+  parent: shortcutsLayoutEN
   order: 1
 shortcuts:
   - class: 'container-xs'

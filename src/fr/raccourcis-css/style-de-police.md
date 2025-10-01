@@ -5,7 +5,7 @@ eleventyNavigation:
   key: shortcutsFontStyleFR
   title: Style de police
   locale: fr
-  parent: shortcutsFR
+  parent: shortcutsTypographyFR
   order: 1
 shortcuts:
   - class: 'font-normal'
