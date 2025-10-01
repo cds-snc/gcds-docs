@@ -9,11 +9,11 @@ eleventyNavigation:
   order: 4
   hideMain: true
   description: View installation instructions for all other projects.
-  thumbnail: /images/common/get-started/banner-html.svg
+  thumbnail: /images/common/start-to-use/banner-html.svg
   alt:
   state: published
   showInCardlist: false
-permalink: /en/get-started/develop/html/
+permalink: /en/start-to-use/develop/html/
 translationKey: 'html'
 date: 'git Last Modified'
 ---
@@ -33,7 +33,7 @@ Use this option for:
   <li>.NET</li>
 </ul>
 
-If you’re using React, Angular, or Vue frameworks, browse the <gcds-link href="{{ links.getStartedDevelop }}">installation page</gcds-link> for framework-specific options.
+If you’re using React, Angular, or Vue frameworks, browse the <gcds-link href="{{ links.startUsingDevelop }}">installation page</gcds-link> for framework-specific options.
 
 ## Select the package you’re using
 
