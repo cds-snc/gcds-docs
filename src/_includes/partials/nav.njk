@@ -80,7 +80,7 @@
 {%- endmacro %}
 
 <gcds-side-nav label="{{ nav[locale].label }}" class="side-nav lg:position-sticky box-border overflow-x-visible align-self-start px-75">
-  <gcds-nav-link href="{{ links.home }}">{{ nav[locale].title }}</gcds-nav-link>
+  <gcds-nav-link href="{{ links.home }}">{{ nav[locale].home }}</gcds-nav-link>
   <gcds-nav-link href="{{ links.startToUse }}" {{ isCurrent(links.startToUse) }}>{{ nav[locale].starttouse }}</gcds-nav-link>
 
   {# Page templates #}
