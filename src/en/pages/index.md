@@ -23,7 +23,7 @@ Build modern, accessible, human government services people can use.
 
 ## Choose GC Design System
 
-GC Design System is the source for public servants. Deliver digital Government of Canada services faster without compromising brand identity, accessibility, or bilingualism.
+GC Design System is the source for public servants delivering Government of Canada websites and products. Build  faster without compromising brand identity, accessibility, or bilingualism. 
 
 ### Learn more
 
