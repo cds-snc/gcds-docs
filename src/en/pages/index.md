@@ -47,7 +47,7 @@ Apply or combine these tools to address common service scenarios. Design and bui
 
 <gcds-grid columns="1fr" columns-tablet="1.5fr 2.5fr" columns-desktop="1fr 3fr" gap="150" gap-tablet="300">
 
-<img class="align-self-center d-none md:d-block" src="/images/common/home/components.jpg" alt="" />
+<img class="align-self-center d-none md:d-block" src="/images/common/home/components.jpg" alt="Three separate shapes, a pink rectangle beside a green and a yellow square, form the outline of a larger square." />
 
 <div>
   <gcds-heading tag="h3">
@@ -57,7 +57,7 @@ Apply or combine these tools to address common service scenarios. Design and bui
   Meet common service interaction needs with the code, design, and guidance for user interface components.
 </div>
 
-<img class="align-self-center d-none md:d-block" src="/images/common/home/templates.jpg" alt="" />
+<img class="align-self-center d-none md:d-block" src="/images/common/home/templates.jpg" alt="A vertical rectangle with pink that fades to blue." />
 
 <div>
   <gcds-heading tag="h3">
@@ -67,17 +67,17 @@ Apply or combine these tools to address common service scenarios. Design and bui
   Start your project with pre-built page layouts that provide a consistent, recognizable Canada.ca experience.
 </div>
 
-<img class="align-self-center d-none md:d-block" src="/images/en/home/shortcuts.jpg" alt="" />
+<img class="align-self-center d-none md:d-block" src="/images/en/home/shortcuts.jpg" alt="Three slightly overlapping, horizontal dots in darkening shades of blue." />
 
 <div>
   <gcds-heading tag="h3">
-    <gcds-link href="{{ links.shortcuts }}">CSS Shortcuts</gcds-link>
+    <gcds-link href="{{ links.shortcuts }}">CSS Shortcuts <gcds-sr-only>(New)</gcds-sr-only></gcds-link>
   </gcds-heading>
 
   Apply pre-defined styles and layouts by adding our custom CSS utility classes to your HTML. 
 </div>
 
-<img class="align-self-center d-none md:d-block" src="/images/common/home/styles.jpg" alt="" />
+<img class="align-self-center d-none md:d-block" src="/images/common/home/styles.jpg" alt="A cluster of four dots in purple, blue, green, and yellow." />
 
 <div>
   <gcds-heading tag="h3">

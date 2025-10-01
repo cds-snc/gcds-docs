@@ -46,7 +46,7 @@ Appliquez ou combinez ces outils pour aborder les scénarios de services communs
 
 <gcds-grid columns="1fr" columns-tablet="1.5fr 2.5fr" columns-desktop="1fr 3fr" gap="150" gap-tablet="300">
 
-<img class="align-self-center d-none md:d-block" src="/images/common/home/components.jpg" alt="" />
+<img class="align-self-center d-none md:d-block" src="/images/common/home/components.jpg" alt="Trois formes distinctes, un rectangle rose à côté d'un carré vert et d'un carré jaune, forment le contour d'un plus grand carré." />
 
 <div>
   <gcds-heading tag="h3">
@@ -56,7 +56,7 @@ Appliquez ou combinez ces outils pour aborder les scénarios de services communs
   Répondez aux besoins communs en matière d’interaction des services à l’aide du code, de la conception et des conseils pour la mise en œuvre de composants d’interface utilisateur.
 </div>
 
-<img class="align-self-center d-none md:d-block" src="/images/common/home/templates.jpg" alt="" />
+<img class="align-self-center d-none md:d-block" src="/images/common/home/templates.jpg" alt="Un rectangle vertical rempli d'un dégradé du rose au bleu." />
 
 <div>
   <gcds-heading tag="h3">
@@ -66,17 +66,17 @@ Appliquez ou combinez ces outils pour aborder les scénarios de services communs
   Commencez votre projet à l’aide de pages préconstruites offrant une expérience uniforme et reconnaissable pour Canada.ca.
 </div>
 
-<img class="align-self-center d-none md:d-block" src="/images/fr/accueil/shortcuts.jpg" alt="" />
+<img class="align-self-center d-none md:d-block" src="/images/fr/accueil/shortcuts.jpg" alt="Trois points horizontaux légèrement superposés dans des tons de bleu successivement foncés." />
 
 <div>
   <gcds-heading tag="h3">
-    <gcds-link href="{{ links.shortcuts }}">Raccourcis CSS</gcds-link>
+    <gcds-link href="{{ links.shortcuts }}">Raccourcis CSS <gcds-sr-only>(Nouveau)</gcds-sr-only></gcds-link>
   </gcds-heading>
 
   Appliquez des styles et des mises en page prédéfinis en ajoutant nos classes utilitaires CSS personnalisées à votre code HTML.
 </div>
 
-<img class="align-self-center d-none md:d-block" src="/images/common/home/styles.jpg" alt="" />
+<img class="align-self-center d-none md:d-block" src="/images/common/home/styles.jpg" alt="Un groupe de quatre points violets, bleus, verts et jaunes." />
 
 <div>
   <gcds-heading tag="h3">
