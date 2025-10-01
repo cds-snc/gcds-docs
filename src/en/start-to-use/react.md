@@ -9,10 +9,10 @@ eleventyNavigation:
   order: 1
   description: View installation instructions for React or React-based projects.
   envExamples: This includes Next.js, Gatsby, and Remix.
-  thumbnail: /images/common/start-using/banner-react.svg
+  thumbnail: /images/common/start-to-use/banner-react.svg
   alt:
   state: published
-permalink: /en/start-using/develop/react/
+permalink: /en/start-to-use/develop/react/
 translationKey: 'react'
 date: 'git Last Modified'
 ---

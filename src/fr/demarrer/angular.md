@@ -8,7 +8,7 @@ eleventyNavigation:
   parent: installationFR
   order: 2
   description: Consultez les instructions d’installation pour Angular ou les projets basés sur Angular.
-  thumbnail: /images/common/start-using/banner-angular.svg
+  thumbnail: /images/common/start-to-use/banner-angular.svg
   alt:
   state: published
 permalink: /fr/demarrer/developpement/angular/

@@ -9,7 +9,7 @@ eleventyNavigation:
   order: 3
   description: Consultez les instructions d’installation pour Vue ou les projets basés sur Vue.
   envExamples: P. ex., Nuxt, VuePress et Quasar.
-  thumbnail: /images/common/start-using/banner-vue.svg
+  thumbnail: /images/common/start-to-use/banner-vue.svg
   alt:
   state: published
 permalink: /fr/demarrer/developpement/vue/

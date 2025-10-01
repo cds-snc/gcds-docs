@@ -9,11 +9,11 @@ eleventyNavigation:
   order: 4
   hideMain: true
   description: View installation instructions for all other projects.
-  thumbnail: /images/common/start-using/banner-html.svg
+  thumbnail: /images/common/start-to-use/banner-html.svg
   alt:
   state: published
   showInCardlist: false
-permalink: /en/start-using/develop/html/
+permalink: /en/start-to-use/develop/html/
 translationKey: 'html'
 date: 'git Last Modified'
 ---

@@ -9,7 +9,7 @@ eleventyNavigation:
   order: 4
   hideMain: true
   description: Consultez les instructions d’installation pour tout autre type de projet.
-  thumbnail: /images/common/start-using/banner-html.svg
+  thumbnail: /images/common/start-to-use/banner-html.svg
   alt:
   state: published
   showInCardlist: false
