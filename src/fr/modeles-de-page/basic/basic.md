@@ -3,7 +3,7 @@ title: Modèle de page de base
 layout: 'layouts/page-templates-overview.njk'
 eleventyNavigation:
   key: basicPageTemplateFR
-  title: De base
+  title: Page de base
   locale: fr
   parent: pageTemplatesFR
   description: Point de départ de toute page Web. Offre une structure et une hiérarchie basiques et accessibles, et comprend les éléments obligatoires pour la plupart des pages du GC.
