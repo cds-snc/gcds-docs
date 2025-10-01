@@ -19,7 +19,7 @@ async function downloadFile(url, outputDir, outputFileName) {
     let previewContent = fileContent.replace(
       /gcds-utility\@<version-number>/g,
       'gcds-utility@' +
-        pjson.devDependencies['@cdssnc/gcds-utility'].replace(/^\^/, ''),
+        pjson.devDependencies['@gcds-core/css-shortcuts'].replace(/^\^/, ''),
     );
     previewContent = previewContent.replace(
       /gcds-components\@<version-number>/g,

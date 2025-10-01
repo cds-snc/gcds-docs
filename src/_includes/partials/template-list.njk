@@ -3,7 +3,7 @@
 
 {% if cardlist.type === 'pageTemplates' and cardlist.state === 'published' %}
   <div class="my-600">
-    <gcds-grid tag="ul" columns="1fr" columns-tablet="1fr 1fr" columns-desktop="1fr 1fr 1fr">
+    <gcds-grid tag="ul" columns="1fr" columns-tablet="1fr 1fr" columns-desktop="1fr 1fr">
     {%- for entry in templateCards -%}
       {% if entry.state == cardlist.state %}
         <gcds-card

@@ -9,7 +9,7 @@ eleventyNavigation:
   order: 1
   description: Consultez les instructions d’installation pour React ou les projets basés sur React.
   envExamples: P. ex., Next.js, Gatsby et Remix.
-  thumbnail: /images/common/get-started/banner-react.svg
+  thumbnail: /images/common/start-to-use/banner-react.svg
   alt:
   state: published
 permalink: /fr/demarrer/developpement/react/
@@ -45,6 +45,14 @@ Pour importer les styles de Système de design GC, insérez le code suivant dans
 import '@cdssnc/gcds-components-react/gcds.css';
 ```
 
-{% startBuilding 'fr', '3' %}{% endstartBuilding %}
+{% addCssShortcuts 'fr', '3' %}{% endaddCssShortcuts %}
+
+Pour importer les Raccourcis CSS de Système de design GC, ajoutez le code suivant dans le fichier `index.js` de votre application :
+
+```js
+import '@gcds-core/css-shortcuts/dist/gcds-css-shortcuts.min.css';
+```
+
+{% startBuilding 'fr', '4' %}{% endstartBuilding %}
 
 {% include "partials/needhelp.njk" %}

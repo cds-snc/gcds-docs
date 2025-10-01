@@ -3,7 +3,7 @@ title: Basic page template
 layout: 'layouts/page-templates-overview.njk'
 eleventyNavigation:
   key: basicPageTemplateEN
-  title: Basic
+  title: Basic page
   locale: en
   parent: pageTemplatesEN
   description: Starting point for any web page.

@@ -12,6 +12,8 @@ date: "git Last Modified"
 
 # Basic page code with on this page section
 
+{% include 'partials/shortcuts-template.njk' %}
+
 Copy this code to use the basic page template with on this page section.
 
 <div class="page-template-highlight">
