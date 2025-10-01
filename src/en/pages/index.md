@@ -67,7 +67,7 @@ Apply or combine these tools to address common service scenarios. Design and bui
   Start your project with pre-built page layouts that provide a consistent, recognizable Canada.ca experience.
 </div>
 
-<img class="align-self-center d-none md:d-block" src="/images/en/home/shortcuts.jpg" alt="Three slightly overlapping, horizontal dots in darkening shades of blue." />
+<img class="align-self-center d-none md:d-block" src="/images/en/home/shortcuts.jpg" alt="A badge in the top left with the word new. Three slightly overlapping, horizontal dots in darkening shades of blue." />
 
 <div>
   <gcds-heading tag="h3">

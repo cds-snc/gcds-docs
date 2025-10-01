@@ -66,7 +66,7 @@ Appliquez ou combinez ces outils pour aborder les scénarios de services communs
   Commencez votre projet à l’aide de pages préconstruites offrant une expérience uniforme et reconnaissable pour Canada.ca.
 </div>
 
-<img class="align-self-center d-none md:d-block" src="/images/fr/accueil/shortcuts.jpg" alt="Trois points horizontaux légèrement superposés dans des tons de bleu successivement foncés." />
+<img class="align-self-center d-none md:d-block" src="/images/fr/accueil/shortcuts.jpg" alt="Un badge en haut à gauche avec le mot nouveau. Trois points horizontaux légèrement superposés dans des tons de bleu successivement foncés." />
 
 <div>
   <gcds-heading tag="h3">
