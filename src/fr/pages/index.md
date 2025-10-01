@@ -22,7 +22,7 @@ Créez des services gouvernementaux modernes, accessibles et humains.
 
 ## Choisissez Système de design GC
 
-Système de design GC est la source pour les fonctionnaires. Livrez les services numériques du gouvernement du Canada plus rapidement, sans compromettre l’identité de marque, l’accessibilité, ni le bilinguisme. 
+Système de design GC est la source pour les fonctionnaires qui assurent la prestation des sites Web et produits du gouvernement du Canada. Construisez plus rapidement, sans compromettre l’identité de marque, l’accessibilité, ni le bilinguisme. 
 
 ### Pour en savoir plus
 
