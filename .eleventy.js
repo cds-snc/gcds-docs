@@ -43,8 +43,8 @@ module.exports = function (eleventyConfig) {
     './node_modules/@cdssnc/gcds-components/': 'components',
   });
   eleventyConfig.addPassthroughCopy({
-    './node_modules/@cdssnc/gcds-utility/dist/gcds-utility.min.css':
-      'gcds-utility.min.css',
+    './node_modules/@gcds-core/css-shortcuts/dist/gcds-css-shortcuts.min.css':
+      'gcds-css-shortcuts.min.css',
   });
   eleventyConfig.addPassthroughCopy({
     './node_modules/@cdssnc/sanitize-pii/dist/umd/sanitize-pii.min.js':
