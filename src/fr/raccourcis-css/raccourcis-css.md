@@ -19,7 +19,7 @@ Les Raccourcis CSS sont un cadre utilitaire CSS conçu en conformité avec les s
 
 ## Comment utiliser les Raccourcis CSS
 
-1. [Sélectionnez le cadre de votre choix]({{ links.startToUseDevelop }}) et suivez les instructions pour ajouter la feuille de style Raccourcis CSS à votre projet.
+1. [Sélectionnez le cadre qui s'applique à votre projet]({{ links.startToUseDevelop }}) et suivez les étapes pour ajouter la feuille de style Raccourcis CSS. Si vous avez déjà installé des composants Système de design GC, passez aux instructions concernant les Raccourcis CSS.
 2. Explorez les différentes options de style dans le menu.
 3. Ajoutez les classes au code HTML correspondant pour ajuster le style selon vos besoins.
 

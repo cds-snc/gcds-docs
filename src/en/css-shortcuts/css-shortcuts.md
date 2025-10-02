@@ -19,7 +19,7 @@ CSS Shortcuts is a CSS utility framework built to match GC Design System (GCDS) 
 
 ## How to use CSS Shortcuts
 
-1. [Select the framework of your choice]({{ links.startToUseDevelop }}) and follow the instructions to add the CSS Shortcuts stylesheet into your project.
+1. [Select the framework you're working with]({{ links.startToUseDevelop }}) and follow the steps to add the CSS Shortcuts stylesheet. If you've already installed components, skip ahead to the CSS Shortcuts instructions.
 2. Explore the different styling options in the menu.
 3. Add the classes to their corresponding HTML to adjust the styling to meet your needs.
 

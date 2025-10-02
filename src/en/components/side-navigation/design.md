@@ -10,7 +10,7 @@ date: 'git Last Modified'
 
 <ol class="anatomy-list">
   <li>The <strong>nav landmark label</strong> displays the product or site name and is used by assistive technologies.</li>
-  <li>The <strong>nav link</strong> take a person to a page. The link is highlighted in blue to indicate the current page state.</li>
+  <li>The <strong>nav link</strong> takes a person to a page. The link is highlighted in blue to indicate the current page state.</li>
   <li>The <strong>nav group</strong> displays the group name and expands and collapses the submenu. The submenu is a list of related nav links that are revealed when the nav group expands. The chevron icon points right when the submenu is hidden and down when it’s revealed. </li>
 </ol>
 
@@ -42,7 +42,7 @@ Tip: Read nav link text aloud in sequence to note similarities in how link text 
 ### Organize nav group items
 
 - Generally, order top level items by importance or highest priority for the person using your service.
-- Logically group like items in category sets and base your ordering on the type of information in a set and what it will be used for.  
+- Logically group like items in category sets and base your ordering on the type of information in a set and what it will be used for.
 - For known-item searching, order the links alphabetically – or numerically for items represented by numbers.
 - Use a sequential order for sets of process-based tasks or information that is time based that could follow a natural chronological order.
 - Test category names, divisions, and ordering to use the words and mental models that will be most intuitive to people using them.
