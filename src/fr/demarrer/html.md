@@ -33,7 +33,7 @@ Utilisez cette option pour les situations suivantes :
   <li>.NET</li>
 </ul>
 
-Si vous utilisez les cadres React, Angular ou Vue, consultez la <gcds-link href="{{ links.getStartedDevelop }}">page d’installation</gcds-link> pour connaître les options propres à chaque cadre.
+Si vous utilisez les cadres React, Angular ou Vue, consultez la <gcds-link href="{{ links.startToUseDevelop }}">page d’installation</gcds-link> pour connaître les options propres à chaque cadre.
 
 ## Sélectionner le paquet utilisé
 
