@@ -3,5 +3,18 @@
   "extends": ["local>cds-snc/renovate-config"],
   "lockFileMaintenance": {
     "schedule": ["before 6am on the first day of the month"]
-  }
+  },
+  "packageRules": [
+    {
+      "matchPackageNames": [
+        "@cdssnc/gcds-components",
+        "@cdssnc/gcds-tokens",
+        "@gcds-core/css-shortcuts"
+      ],
+      "groupName": "GCDS packages",
+      "prPriority": 1,
+      "automerge": false,
+      "prCreation": "immediate"
+    }
+  ]
 }
