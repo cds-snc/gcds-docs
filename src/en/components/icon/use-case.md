@@ -98,7 +98,7 @@ Choose an icon to match the action you want to indicate.
 <div class="remove-empty-p">
 <gcds-grid columns="1fr" columns-tablet="1fr 3fr" align-items="start">
   {% componentPreview "" "px-50 py-400" "mt-500" %}
-  <gcds-grid columns="repeat(4, 50px)" columns-tablet="repeat(4, 50px)" gap="150" justify-content="center">
+  <gcds-grid columns="repeat(4, 3.25rem)" columns-tablet="repeat(2, 3.25rem)" columns-desktop="repeat(2, 3.25rem)" gap="150" justify-content="center">
     <gcds-icon size="h2" name="chevron-left" label="An arrow pointing left."></gcds-icon>
     <gcds-icon size="h2" name="chevron-right" label="An arrow pointing right."></gcds-icon>
     <gcds-icon size="h2" name="chevron-up" label="An arrow pointing up."></gcds-icon>
