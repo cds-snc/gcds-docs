@@ -9,7 +9,7 @@
       "matchPackageNames": [
         "@cdssnc/gcds-components",
         "@cdssnc/gcds-tokens",
-        "@gcds-core/css-shortcuts"
+        "@gcds-core/*"
       ],
       "groupName": "GCDS packages",
       "prPriority": 1,
