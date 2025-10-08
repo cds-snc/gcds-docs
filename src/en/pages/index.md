@@ -27,7 +27,7 @@ GC Design System is the source for public servants delivering Government of Cana
 
 ### Learn more
 
-Learn <gcds-link href="{{ links.aboutUs }}">about us</gcds-link>, our regular <gcds-link href="{{ links.accessibility }}">accessibility testing</gcds-link>, and how you can improve accessibility in your products and websites.
+Learn <gcds-link href="{{ links.about }}">about us</gcds-link>, our regular <gcds-link href="{{ links.accessibility }}">accessibility testing</gcds-link>, and how you can improve accessibility in your products and websites.
 
 ### Get involved
 

@@ -26,7 +26,7 @@ Système de design GC est la source pour les fonctionnaires qui assurent la pres
 
 ### Pour en savoir plus
 
-Renseignez-vous <gcds-link href="{{ links.aboutUs }}">sur le SNC</gcds-link>, nos <gcds-link href="{{ links.accessibility }}">tests réguliers en matière d’accessibilité</gcds-link> et sur les manières dont vous pouvez améliorer l’accessibilité de vos produits et sites Web.
+Renseignez-vous <gcds-link href="{{ links.about }}">sur le SNC</gcds-link>, nos <gcds-link href="{{ links.accessibility }}">tests réguliers en matière d’accessibilité</gcds-link> et sur les manières dont vous pouvez améliorer l’accessibilité de vos produits et sites Web.
 
 ### S’impliquer
 
