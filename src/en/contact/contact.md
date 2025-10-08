@@ -52,7 +52,7 @@ This form is for people building government websites and digital products. You c
     <gcds-checkboxes name="learn-more-research" options="{{ contactus[locale].researchcheck | stringify | encode-html }}"></gcds-checkboxes>
   </gcds-fieldset>
 
-  <gcds-radios legend="Select your experience with GC Design System to date" hint="Choose 1 option." name="familiarityGCDS" options='{{ contactus[locale].radiooptions | stringify | encode-html}}'>
+  <gcds-radios legend="Select your experience with GC Design System to date" hint="Choose 1 option." name="familiarityGCDS" required options='{{ contactus[locale].radiooptions | stringify | encode-html}}'>
   </gcds-radios>
 
   <div hidden>

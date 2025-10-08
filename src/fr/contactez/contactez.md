@@ -53,7 +53,7 @@ Pour obtenir de l’aide avec un service gouvernemental, aller à la page <gcds-
     <gcds-checkboxes name="learn-more-research" options="{{ contactus[locale].researchcheck | stringify | encode-html }}"></gcds-checkboxes>
   </gcds-fieldset>
 
-  <gcds-radios legend="Indiquez votre expérience avec Système de design GC" hint="Sélectionnez 1 option." name="familiarityGCDS" options='{{ contactus[locale].radiooptions | stringify | encode-html}}'>
+  <gcds-radios legend="Indiquez votre expérience avec Système de design GC" hint="Sélectionnez 1 option." name="familiarityGCDS" required options='{{ contactus[locale].radiooptions | stringify | encode-html}}'>
   </gcds-radios>
 
   <div hidden>
