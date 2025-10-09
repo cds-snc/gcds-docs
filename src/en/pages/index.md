@@ -116,7 +116,7 @@ Explore our <gcds-link href="{{ links.roadmap }}">roadmap</gcds-link> to follow 
 
 ## Connect with us
 
-Reach out to us if you have questions, want to <gcds-link href="{{ getInvolved }}">get involved</gcds-link>, or want to join our mailing list.
+Reach out to us if you have questions, want to <gcds-link href="{{ links.getInvolved }}">get involved</gcds-link>, or want to join our mailing list.
 
 <gcds-button type="link" href="{{ links.contact }}" button-role="secondary">
   Contact us
