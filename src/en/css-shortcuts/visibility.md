@@ -14,11 +14,13 @@ shortcuts:
     style: 'visibility: visible;'
   - class: 'visibility-sr-only'
     style: |
-      display: block;
-      width: 0;
-      height: 0;
-      margin: 0;
+      clip-path: inset(100%);
+      clip: rect(1px, 1px, 1px, 1px);
+      height: 1px;
       overflow: hidden;
+      position: absolute;
+      white-space: nowrap;
+      width: 1px;
 shortcutsPartialClass: 'visibility-hidden'
 translationKey: 'shortcutsVisibility'
 date: 'git Last Modified'
