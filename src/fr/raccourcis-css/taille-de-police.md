@@ -152,5 +152,3 @@ La classe taille de police définit la propriété `font-size`. Elle détermine 
   Cet élément utilise la taille de police prévue pour du petit texte.
 </p>
 {% endshortcutPreview %}
-
-{% include "partials/responsive-layout.njk" %}
