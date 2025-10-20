@@ -152,5 +152,3 @@ The font size class sets the `font-size` property. It controls how big or small 
   This element uses the font size intended for small text.
 </p>
 {% endshortcutPreview %}
-
-{% include "partials/responsive-layout.njk" %}
