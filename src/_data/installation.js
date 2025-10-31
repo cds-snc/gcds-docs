@@ -1,5 +1,19 @@
-const { getVersionNumber } = require('../../utils/get-version.mjs');
-const cssshortcutsversion = getVersionNumber('@gcds-core/css-shortcuts');
+const fs = require('fs');
+const { readFileSync } = fs;
+
+function getVersionNumber(target) {
+  const pkg = JSON.parse(readFileSync('./package.json', 'utf8'));
+
+  const version = pkg.dependencies?.[target] || pkg.devDependencies?.[target];
+
+  if (version) {
+    const cleanVersion = version.replace(/^[\^~]/, '');
+    return cleanVersion;
+  } else {
+    console.error(`Dependency "${target}" not found.`);
+    process.exit(1);
+  }
+}
 
 module.exports = {
   en: {
@@ -27,5 +41,5 @@ module.exports = {
     reachOut:
       'Si vous avez besoin d’aide, <gcds-link href="/fr/contactez/">n’hésitez pas à nous écrire</gcds-link> et nous vous aiderons à partir du bon pied.',
   },
-  cssshortcutsversion,
+  cssshortcutsversion: getVersionNumber('@gcds-core/css-shortcuts'),
 };
