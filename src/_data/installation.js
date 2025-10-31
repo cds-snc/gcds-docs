@@ -1,4 +1,4 @@
-const { getVersionNumber } = require('../../utils/get-version.js');
+const { getVersionNumber } = require('../../utils/get-version.mjs');
 const cssshortcutsversion = getVersionNumber('@gcds-core/css-shortcuts');
 
 module.exports = {
