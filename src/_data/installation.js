@@ -1,3 +1,6 @@
+const { getVersionNumber } = require('../../utils/get-version.js');
+const cssshortcutsversion = getVersionNumber('@gcds-core/css-shortcuts');
+
 module.exports = {
   en: {
     heading: 'Not using any of those?',
@@ -24,4 +27,5 @@ module.exports = {
     reachOut:
       'Si vous avez besoin d’aide, <gcds-link href="/fr/contactez/">n’hésitez pas à nous écrire</gcds-link> et nous vous aiderons à partir du bon pied.',
   },
+  cssshortcutsversion,
 };
