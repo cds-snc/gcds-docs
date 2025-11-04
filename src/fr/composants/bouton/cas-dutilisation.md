@@ -95,7 +95,7 @@ Le rôle du bouton change son apparence afin de signaler visuellement l'action q
   <gcds-button button-role="start">Bouton de démarrage </gcds-button>
   {% endcomponentPreview %}
   <div>
-    <h3 class="mt-0">Bouton principal</h3>
+    <h3 class="mt-0">Bouton de démarrage</h3>
     <p>Anciennement le «&nbsp;bouton de super-tâche&nbsp;».</p>
     <ul class="list-disc mb-300">
       <li>Le début d'une tâche ou d'un flux de travail. </li>

@@ -1,9 +1,7 @@
-async function getLatestCdnVersion() {
+async function getLatestCdnVersion(url) {
   try {
     // Fetch package metadata
-    const response = await fetch(
-      'https://registry.npmjs.org/@cdssnc/gcds-components',
-    );
+    const response = await fetch(url);
     const data = await response.json();
 
     // Get latest version and release date
