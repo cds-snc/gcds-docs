@@ -30,7 +30,9 @@ layout: "layouts/base.njk"
 
       // Update CDN links with the latest version
       codeElements.forEach(element => {
-        element.textContent = element.textContent.replace('||version||', latestVersion);
+        if (element.textContent.includes('||version||')) {
+          element.textContent = element.textContent.replace('||version||', latestVersion);
+        }
       });
     } catch (error) {
       console.error('Error fetching latest version:', error);
