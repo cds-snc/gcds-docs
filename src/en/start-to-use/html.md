@@ -164,7 +164,7 @@ Add the following `link` tag inside the `head` tag of your HTML files. Make sure
 <!-- GC Design System CSS Shortcuts -->
 <link
   rel="stylesheet"
-  href="https://cdn.design-system.alpha.canada.ca/@gcds-core/css-shortcuts@{{ installation.cssshortcutsversion }}/dist/gcds-css-shortcuts.min.css"
+  href="https://cdn.design-system.alpha.canada.ca/@gcds-core/css-shortcuts@{{ latestShortcutsCdnVersion.version }}/dist/gcds-css-shortcuts.min.css"
 />
 ```
 

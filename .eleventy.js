@@ -318,7 +318,14 @@ module.exports = function (eleventyConfig) {
 
   // Add shortcode for CDN info
   eleventyConfig.addGlobalData('latestCdnVersion', async () => {
-    return await getLatestCdnVersion();
+    return await getLatestCdnVersion(
+      'https://registry.npmjs.org/@cdssnc/gcds-components',
+    );
+  });
+  eleventyConfig.addGlobalData('latestShortcutsCdnVersion', async () => {
+    return await getLatestCdnVersion(
+      'https://registry.npmjs.org/@gcds-core/css-shortcuts',
+    );
   });
 
   eleventyConfig.addPairedShortcode(
