@@ -2861,7 +2861,7 @@
   <pre class="language-html"><code id="code-121" class="language-html"><span class="token comment">&lt;!-- Raccourcis CSS de Système de design GC --></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>link</span>
   <span class="token attr-name">rel</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>stylesheet<span class="token punctuation">"</span></span>
-  <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>https://cdn.design-system.alpha.canada.ca/@gcds-core/css-shortcuts@&lt;version-number>/dist/gcds-css-shortcuts.min.css<span class="token punctuation">"</span></span>
+  <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>https://cdn.design-system.alpha.canada.ca/@gcds-core/css-shortcuts@/dist/gcds-css-shortcuts.min.css<span class="token punctuation">"</span></span>
 <span class="token punctuation">/></span></span></code></pre>
 
   <button class="code-copy "
@@ -2914,7 +2914,9 @@
 
       // Update CDN links with the latest version
       codeElements.forEach(element => {
-        element.textContent = element.textContent.replace('||version||', latestVersion);
+        if (element.textContent.includes('||version||')) {
+          element.textContent = element.textContent.replace('||version||', latestVersion);
+        }
       });
     } catch (error) {
       console.error('Error fetching latest version:', error);
@@ -2934,7 +2936,7 @@
 </script>
 
           <gcds-date-modified class="mb-300">
-            2025-11-03
+            2025-11-04
           </gcds-date-modified>
         </main>
       </gcds-grid>
