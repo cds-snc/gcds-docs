@@ -54,21 +54,23 @@ Increase:
 #### Product deliverables
 | Deliverable | Status |
 |-------------|--------|
-| Launch CSS Shortcuts v1 | 🔄 In progress |
+| Launch CSS Shortcuts v1 | ✅ Completed |
 | Security enhancements | 🔄 In progress |
 
 #### Research
 | Activity | Status |
 |----------|--------|
-| Post launch analysis | 📅 Planned |
-| Data table component research | 🔄 In progress |
+| Post launch analysis | ✅ Completed |
+| Data table component research | Deprioritized |
+| General accessibility testing with Fable | ✅ Completed |
+| Support ticket analysis | ✅ Completed |
 
 #### Engagement & Collaboration
 | Activity | Status |
 |----------|--------|
-| English and French demos | 📅 Planned |
+| English and French demos | ✅ Completed |
 | GC Design System Forum including a presentation from the Department of Fisheries and Oceans | ✅ Completed |
-| Newsletter and blog posts | 📅 Planned |
+| Newsletter and blog posts | ✅ Completed |
 | Collaboration with National Resources Canada on MapML plugin | 🔄 In progress |
 | Collaboration with Department of Fisheries and Oceans on an Angular starter app | 🔄 In progress |
 
@@ -87,9 +89,10 @@ Increase:
 #### Research
 | Activity | Status |
 |----------|--------|
-| Flexibility and customization needs | 📅 Planned |
 | Data table component usability and accessibility | 📅 Planned |
-| CSS Shortcuts usability | 📅 Planned |
+| CSS Shortcuts usability | ✅ Completed |
+| Support ticket analysis | 📅 Planned |
+| General accessibility testing with Fable | 📅 Planned |
 
 #### Engagement & Collaboration
 | Activity | Status |
@@ -112,9 +115,12 @@ Increase:
 #### Research
 | Activity | Status |
 |----------|--------|
-| Adoption blockers | 📅 Planned |
+| Design & a11y rationale | 📅 Planned |
+| Flexibility and customization needs | 📅 Planned |
+| Onboarding validation | 📅 Planned |
 | More usability testing | 📅 Planned |
 | Accessibility testing | 📅 Planned |
+| Support ticket analysis | 📅 Planned |
 
 #### Engagement & Collaboration
 | Activity | Status |
