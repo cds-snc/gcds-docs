@@ -120,8 +120,7 @@ Increase:
 | Design & a11y rationale | 📅 Planned |
 | Flexibility and customization needs | 📅 Planned |
 | Onboarding validation | 📅 Planned |
-| More usability testing | 📅 Planned |
-| Accessibility testing | 📅 Planned |
+| Data table component usability and accessibility | 📅 Planned |
 | Support ticket analysis | 📅 Planned |
 
 #### Engagement & Collaboration
