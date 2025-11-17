@@ -110,6 +110,7 @@ Accroître:
 #### Livrables
 | Livrable | Statut |
 |-------------|--------|
+| Publication du composant tableau de données | 📅 Prévu |
 | Composant ou modèle supplémentaire: Saisie semi-automatique ou Modal (contribution de Pêches et Océans Canada) | 📅 Prévu |
 | Résoudre les obstacles prioritaires à l’adoption | 📅 Prévu |
 
