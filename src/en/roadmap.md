@@ -82,13 +82,14 @@ Increase:
 | Deliverable | Status |
 |-------------|--------|
 | Exit alpha: go live | 🔄 In progress |
-| Release Data table component | 📅 Planned |
+| Release Data table component | Deprioritized |
 | Additional starter apps for React, Angular | 📅 Planned |
 | Explore [Sa11y](https://sa11y.netlify.app/) accessibility plugin | 📅 Planned |
 
 #### Research
 | Activity | Status |
 |----------|--------|
+| Flexibility and customization needs | Deprioritized |
 | Data table component usability and accessibility | 📅 Planned |
 | CSS Shortcuts usability | ✅ Completed |
 | Support ticket analysis | 📅 Planned |
@@ -109,6 +110,7 @@ Increase:
 #### Product deliverables
 | Deliverable | Status |
 |-------------|--------|
+| Release Data table component | 📅 Planned |
 | Additional component or pattern: Autocomplete or Modal (Department of Fisheries and Oceans contribution) | 📅 Planned |
 | Resolve priority blockers to adoption | 📅 Planned |
 
