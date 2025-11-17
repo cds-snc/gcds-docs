@@ -141,7 +141,7 @@ Increase:
   <li>Full VueJS package</li>
   <li>Improvements to Angular package</li>
   <li>New and updated components: Card, Fieldset, Icons, Stepper, Date input, Notice</li>
-  <li>Deployed GCDS Card component on Adobe Extension Manager for Canada.ca</li>
+  <li>Deployed GCDS Card component on Adobe Experience Manager for Canada.ca</li>
   <li>Released the basic page template</li>
   <li>Provided an introduction and path to GCDS from design.canada.ca</li>
 </ul>
