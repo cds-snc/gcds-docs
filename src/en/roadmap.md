@@ -54,21 +54,23 @@ Increase:
 #### Product deliverables
 | Deliverable | Status |
 |-------------|--------|
-| Launch CSS Shortcuts v1 | 🔄 In progress |
+| Launch CSS Shortcuts v1 | ✅ Completed |
 | Security enhancements | 🔄 In progress |
 
 #### Research
 | Activity | Status |
 |----------|--------|
-| Post launch analysis | 📅 Planned |
-| Data table component research | 🔄 In progress |
+| Post launch analysis | ✅ Completed |
+| Data table component research | Deprioritized |
+| General accessibility testing with Fable | ✅ Completed |
+| Support ticket analysis | ✅ Completed |
 
 #### Engagement & Collaboration
 | Activity | Status |
 |----------|--------|
-| English and French demos | 📅 Planned |
+| English and French demos | ✅ Completed |
 | GC Design System Forum including a presentation from the Department of Fisheries and Oceans | ✅ Completed |
-| Newsletter and blog posts | 📅 Planned |
+| Newsletter and blog posts | ✅ Completed |
 | Collaboration with National Resources Canada on MapML plugin | 🔄 In progress |
 | Collaboration with Department of Fisheries and Oceans on an Angular starter app | 🔄 In progress |
 
@@ -80,16 +82,18 @@ Increase:
 | Deliverable | Status |
 |-------------|--------|
 | Exit alpha: go live | 🔄 In progress |
-| Release Data table component | 📅 Planned |
+| Release Data table component | Deprioritized |
 | Additional starter apps for React, Angular | 📅 Planned |
 | Explore [Sa11y](https://sa11y.netlify.app/) accessibility plugin | 📅 Planned |
 
 #### Research
 | Activity | Status |
 |----------|--------|
-| Flexibility and customization needs | 📅 Planned |
+| Flexibility and customization needs | Deprioritized |
 | Data table component usability and accessibility | 📅 Planned |
-| CSS Shortcuts usability | 📅 Planned |
+| CSS Shortcuts usability | ✅ Completed |
+| Support ticket analysis | 📅 Planned |
+| General accessibility testing with Fable | 📅 Planned |
 
 #### Engagement & Collaboration
 | Activity | Status |
@@ -106,15 +110,18 @@ Increase:
 #### Product deliverables
 | Deliverable | Status |
 |-------------|--------|
+| Release Data table component | 📅 Planned |
 | Additional component or pattern: Autocomplete or Modal (Department of Fisheries and Oceans contribution) | 📅 Planned |
 | Resolve priority blockers to adoption | 📅 Planned |
 
 #### Research
 | Activity | Status |
 |----------|--------|
-| Adoption blockers | 📅 Planned |
-| More usability testing | 📅 Planned |
-| Accessibility testing | 📅 Planned |
+| Design & a11y rationale | 📅 Planned |
+| Flexibility and customization needs | 📅 Planned |
+| Onboarding validation | 📅 Planned |
+| Data table component usability and accessibility | 📅 Planned |
+| Support ticket analysis | 📅 Planned |
 
 #### Engagement & Collaboration
 | Activity | Status |
@@ -135,7 +142,7 @@ Increase:
   <li>Full VueJS package</li>
   <li>Improvements to Angular package</li>
   <li>New and updated components: Card, Fieldset, Icons, Stepper, Date input, Notice</li>
-  <li>Deployed GCDS Card component on Adobe Extension Manager for Canada.ca</li>
+  <li>Deployed GCDS Card component on Adobe Experience Manager for Canada.ca</li>
   <li>Released the basic page template</li>
   <li>Provided an introduction and path to GCDS from design.canada.ca</li>
 </ul>

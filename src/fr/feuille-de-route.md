@@ -54,21 +54,23 @@ Accroître:
 #### Livrables
 | Livrable | Statut |
 |-------------|--------|
-| Lancement de la v1 du Raccourcis CSS | 🔄 En cours |
+| Lancement de la v1 du Raccourcis CSS | ✅ Terminé |
 | Améliorations en matière de sécurité | 🔄 En cours |
 
 #### Recherche
 | Activité | Statut |
 |----------|--------|
-| Analyse post-production | 📅 Prévu |
-| Recherche sur le composant tableau de données | 🔄 En cours |
+| Analyse post-production | ✅ Terminé |
+| Recherche sur le composant tableau de données | Dépriorisé |
+| Tests d’accessibilité généralisés avec Fable | ✅ Terminé |
+| Analyse des tickets de soutien | ✅ Terminé |
 
 #### Mobilisation et collaboration
 | Activité | Statut |
 |----------|--------|
-| Démos en anglais et français | 📅 Prévu |
+| Démos en anglais et français | ✅ Terminé |
 | Forum du Système de design GC incluant une présentation de Pêches et Océans Canada | ✅ Terminé |
-| Infolettre et articles de blog | 📅 Prévu |
+| Infolettre et articles de blog | ✅ Terminé |
 | Collaboration avec Resources naturelles Canada sur le plugiciel MapML | 🔄 En cours |
 | Collaboration avec Pêches et Océans Canada sur l'application de démarrage Angular | 🔄 En cours |
 
@@ -80,22 +82,24 @@ Accroître:
 | Livrable | Statut |
 |-------------|--------|
 | Sortie d'alpha: en production | 📅 Prévu |
-| Publication du composant tableau de données | 📅 Prévu |
+| Publication du composant tableau de données | Dépriorisé |
 | Applications de démarrage supplémentaires pour React et Angular | 📅 Prévu |
 | Explorer le plugiciel d’accessibilité Sa11y | 📅 Prévu |
 
 #### Recherche
 | Activité | Statut |
 |----------|--------|
-| Besoins en matière de flexibilité et de personnalisation | 📅 Prévu |
-| Composant tableau de données : utilisabilité et accessibilité | 📅 Prévu |
-| Utilisabilité du cadre Raccourcis CSS | 📅 Prévu |
+| Besoins en matière de flexibilité et de personnalisation | Dépriorisé |
+| Composant tableau de données : utilisabilité et accessibilité | Dépriorisé |
+| Utilisabilité du cadre Raccourcis CSS | ✅ Terminé |
+| Analyse des tickets de soutien | 📅 Prévu |
+| Tests d’accessibilité généralisés avec Fable | 📅 Prévu |
 
 #### Mobilisation et collaboration
 | Activité | Statut |
 |----------|--------|
 | Démos en anglais et français | 📅 Prévu |
-| Forum du Système de design GC | 📅 Terminé |
+| Forum du Système de design GC | 📅 Prévu |
 | Infolettre et articles de blog | 📅 Prévu |
 | Collaboration avec Pêches et Océans Canada et Bibliothèque et Archives Canada sur l'application de démarrage .NET | 📅 Prévu |
 
@@ -106,21 +110,24 @@ Accroître:
 #### Livrables
 | Livrable | Statut |
 |-------------|--------|
+| Publication du composant tableau de données | 📅 Prévu |
 | Composant ou modèle supplémentaire: Saisie semi-automatique ou Modal (contribution de Pêches et Océans Canada) | 📅 Prévu |
 | Résoudre les obstacles prioritaires à l’adoption | 📅 Prévu |
 
 #### Recherche
 | Activité | Statut |
 |----------|--------|
-| Obstacles à l’adoption | 📅 Prévu |
-| Tests d’utilisabilité | 📅 Prévu |
-| Tests d’accessibilité | 📅 Prévu |
+| Justification de la conception et de l'accessibilité | 📅 Prévu |
+| Besoins en matière de flexibilité et de personnalisation | 📅 Prévu |
+| Validation de la prise en main | 📅 Prévu |
+| Composant tableau de données : utilisabilité et accessibilité | 📅 Prévu |
+| Analyse des tickets de soutien | 📅 Prévu |
 
 #### Mobilisation et collaboration
 | Activité | Statut |
 |----------|--------|
 | Démos en anglais et français | 📅 Prévu |
-| Forum Système de design GC | 📅 Terminé |
+| Forum Système de design GC | 📅 Prévu |
 | Infolettre et articles de blog | 📅 Prévu |
 | Collaboration avec le Bureau de la transformation numérique sur les modèles les plus utilisés de Canada.ca  | 📅 Prévu |
 
@@ -135,7 +142,7 @@ Accroître:
   <li>Paquet VueJS complet</li>
   <li>Améliorations au paquet Angular</li>
   <li>Ajouts et mises à jour des composants: Carte, Jeu de champ, Icônes, Indicateur d’étape, Champ de date et Avis</li>
-  <li>Déploiement du composant Carte sur Adobe Extension Manager pour Canada.ca</li>
+  <li>Déploiement du composant Carte sur Adobe Experience Manager pour Canada.ca</li>
   <li>Publication du modèle de page de base</li>
   <li>Ajout d’une introduction et d’un parcours vers le Système de design GC depuis conception.canada.ca</li>
 </ul>
