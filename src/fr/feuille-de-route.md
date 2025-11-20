@@ -81,7 +81,7 @@ Accroître:
 #### Livrables
 | Livrable | Statut |
 |-------------|--------|
-| Sortie d'alpha: en production | 🔄 En cours |
+| Sortie d’alpha: mise en production | 🔄 En cours |
 | Publication du composant tableau de données | Dépriorisé |
 | Applications de démarrage supplémentaires pour React et Angular | 📅 Prévu |
 | Explorer le plugiciel d’accessibilité Sa11y | 📅 Prévu |
