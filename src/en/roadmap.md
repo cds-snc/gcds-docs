@@ -90,7 +90,7 @@ Increase:
 | Activity | Status |
 |----------|--------|
 | Flexibility and customization needs | Deprioritized |
-| Data table component usability and accessibility | 📅 Planned |
+| Data table component usability and accessibility | Deprioritized |
 | CSS Shortcuts usability | ✅ Completed |
 | Support ticket analysis | 📅 Planned |
 | General accessibility testing with Fable | 📅 Planned |
