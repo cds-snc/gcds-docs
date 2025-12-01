@@ -167,10 +167,8 @@ Voici ce sur quoi nous nous concentrerons chaque trimestre.
 </gcds-details>
 
 ## Canaux de collaboration et de soutien
-<ul class="list-disc ps-400 mb-300">
-  <li>Consultez notre page [s'impliquer]({{ links.getInvolved }}) pour savoir sur quoi nous travaillons et comment vous pouvez y contribuer.
-  <li>Visitez notre <gcds-link external href="{{ links.githubCompsIssues }}">référentiel GitHub</gcds-link> pour signaler un problème ou faire une suggestion.
-</ul>
+- Consultez notre page [s'impliquer]({{ links.getInvolved }}) pour savoir sur quoi nous travaillons et comment vous pouvez y contribuer.
+- Visitez notre <gcds-link external href="{{ links.githubCompsIssues }}">référentiel GitHub</gcds-link> pour signaler un problème ou faire une suggestion.
 
 ## Les changements sont à prévoir
 La feuille de route du produit est sujette à des modifications causées par des changements de priorités, la disponibilité des ressources et des dépendances non planifiées. Tout élément qui n’a pas été commencé peut être reclassé dans l’ordre des priorités ou remplacé par un autre élément plus important. Les éléments déjà entamés peuvent subir des retards lorsqu’il y a des défis à surmonter ou lorsque nous apprenons de nouvelles choses en cours de route. 
