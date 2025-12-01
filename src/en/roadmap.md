@@ -167,10 +167,8 @@ Here's what we'll be focusing on in each quarter.
 </gcds-details>
 
 ## Collaboration and support channels
-<ul class="list-disc ps-400 mb-300">
-  <li>Check out our [Get involved page]({{ links.getInvolved }}) to learn about what we're working on and how you can contribute.
-  <li>Visit our <gcds-link external href="{{ links.githubCompsIssues }}">GitHub repo</gcds-link> to report an issue or make a suggestion.
-</ul>
+- Check out our [Get involved page]({{ links.getInvolved }}) to learn about what we're working on and how you can contribute.
+- Visit our <gcds-link external href="{{ links.githubCompsIssues }}">GitHub repo</gcds-link> to report an issue or make a suggestion.
 
 ## Change is expected
 Our product roadmap can change based on shifting priorities, resource availability, and unforeseen dependencies. Any item that has not yet started may be reprioritized or replaced by a higher-value initiative. Items currently in progress could be delayed as we navigate challenges and learn along the way.
