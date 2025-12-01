@@ -11,19 +11,19 @@ eleventyNavigation:
 ---
 
 # Roadmap
-## 2025/2026
+## Themes for 2025/2026
 
-### Strategic Themes
-Increase:
 <ol class="list-disc ps-400 mb-300">
-  <li>Trust in GCDS to encourage adoption</li>
-  <li>Clarity in the strategy and direction of GCDS</li>
-  <li>Collaboration with other teams and departments</li>
+  <li>Increase trust in GC Design System to encourage adoption</li>
+  <li>Improve clarity in the strategy and direction of GC Design System</li>
+  <li>Increase collaboration with other teams and departments</li>
 </ol>
+
+Here's what we'll be focusing on in each quarter.
 
 <gcds-details details-title="Quarter 1: April 2025 – June 2025">
 
-#### Product deliverables
+#### Product
 | Deliverable | Status |
 |-------------|--------|
 | Improve onboarding flow for developers | ✅ Completed |
@@ -33,11 +33,11 @@ Increase:
 #### Research
 | Activity | Status |
 |----------|--------|
-| Usability of GCDS Icons | ✅ Completed |
+| Usability of GC Design System Icons | ✅ Completed |
 | General accessibility testing with Fable | ✅ Completed |
 | Support ticket analysis | ✅ Completed |
 
-#### Engagement & Collaboration
+#### Engagement and collaboration
 | Activity | Status |
 |----------|--------|
 | English and French demos | ✅ Completed |
@@ -51,7 +51,7 @@ Increase:
 
 <gcds-details details-title="Quarter 2: July 2025 – September 2025">
 
-#### Product deliverables
+#### Product
 | Deliverable | Status |
 |-------------|--------|
 | Launch CSS Shortcuts v1 | ✅ Completed |
@@ -65,7 +65,7 @@ Increase:
 | General accessibility testing with Fable | ✅ Completed |
 | Support ticket analysis | ✅ Completed |
 
-#### Engagement & Collaboration
+#### Engagement and collaboration
 | Activity | Status |
 |----------|--------|
 | English and French demos | ✅ Completed |
@@ -78,7 +78,7 @@ Increase:
 
 <gcds-details details-title="Quarter 3: October 2025 – December 2025">
 
-#### Product deliverables
+#### Product
 | Deliverable | Status |
 |-------------|--------|
 | Exit alpha: go live | 🔄 In progress |
@@ -107,7 +107,7 @@ Increase:
 
 <gcds-details details-title="Quarter 4: January 2026 – March 2026">
 
-#### Product deliverables
+#### Product
 | Deliverable | Status |
 |-------------|--------|
 | Release Data table component | 📅 Planned |
@@ -117,13 +117,13 @@ Increase:
 #### Research
 | Activity | Status |
 |----------|--------|
-| Design & a11y rationale | 📅 Planned |
+| Design and a11y rationale | 📅 Planned |
 | Flexibility and customization needs | 📅 Planned |
 | Onboarding validation | 📅 Planned |
 | Data table component usability and accessibility | 📅 Planned |
 | Support ticket analysis | 📅 Planned |
 
-#### Engagement & Collaboration
+#### Engagement and collaboration
 | Activity | Status |
 |----------|--------|
 | English and French demos | 📅 Planned |
@@ -134,43 +134,43 @@ Increase:
 </gcds-details>
   
 ## Completed in 2024/2025
-<gcds-details details-title="Product Growth">
+<gcds-details details-title="Product growth">
 <ul class="list-disc ps-400 mb-300">
-  <li>Mandatory elements alignment with Canada.ca</li>
-  <li>Support for NextJS</li>
+  <li>Aligned the mandatory elements with Canada.ca</li>
+  <li>Added support for NextJS</li>
   <li>Released a bilingual design library</li>
-  <li>Full VueJS package</li>
-  <li>Improvements to Angular package</li>
-  <li>New and updated components: Card, Fieldset, Icons, Stepper, Date input, Notice</li>
-  <li>Deployed GCDS Card component on Adobe Experience Manager for Canada.ca</li>
+  <li>Released a full VueJS package</li>
+  <li>Improved the Angular package</li>
+  <li>Added new and updated components: Card, Fieldset, Icons, Stepper, Date input, Notice</li>
+  <li>Deployed the Card component on Adobe Experience Manager for Canada.ca</li>
   <li>Released the basic page template</li>
-  <li>Provided an introduction and path to GCDS from design.canada.ca</li>
+  <li>Provided an introduction and path to GC Design System from design.canada.ca</li>
 </ul>
 </gcds-details>
 
 <gcds-details details-title="Research">
 <ul class="list-disc ps-400 mb-300">
   <li>Conducted a GC design community market survey</li>
-  <li>Created new pages on GCDS accessibility information and testing</li>
-  <li>Accessibility testing completed with 30 people through the year</li>
-  <li>5 completed usability research activities through the year</li>
+  <li>Created new pages about accessibility information and testing of GC Design System</li>
+  <li>Completed accessibility testing with 30 people</li>
+  <li>Completed 5 usability research activities</li>
 </ul>
 </gcds-details>
 
-<gcds-details details-title="Engagement & Collaboration">
+<gcds-details details-title="Engagement and collaboration">
 <ul class="list-disc ps-400 mb-300">
   <li>Established a contribution model</li>
-  <li>Post demo surveys</li>
-  <li>Created the GCDS mailing list and quarterly newsletters</li>
+  <li>Conducted post demo surveys</li>
+  <li>Created the GC Design System mailing list and quarterly newsletters</li>
   <li>Created recurring demos with self sign up</li>
 </ul>
 </gcds-details>
 
 ## Collaboration and support channels
-Check out our [Get involved page]({{ links.getInvolved }}) to learn about what we're working on and how you can contribute.
-Visit our <gcds-link external href="{{ links.githubCompsIssues }}">GitHub repo</gcds-link> to report an issue or make a suggestion.
+- Check out our [Get involved page]({{ links.getInvolved }}) to learn about what we're working on and how you can contribute.
+- Visit our <gcds-link external href="{{ links.githubCompsIssues }}">GitHub repo</gcds-link> to report an issue or make a suggestion.
 
-## Product Roadmap Disclaimer: Change is Expected
-The product roadmap is a living document, subject to change based on shifting priorities, resource availability, and unforeseen dependencies. Any item that has not yet started may be reprioritized or replaced by a higher-value initiative. Items currently in progress may encounter delays as we navigate challenges and learn along the way.
+## Change is expected
+Our product roadmap can change based on shifting priorities, resource availability, and unforeseen dependencies. Any item that has not yet started may be reprioritized or replaced by a higher-value initiative. Items currently in progress could be delayed as we navigate challenges and learn along the way.
 
-We share this roadmap to foster transparency, encourage collaboration, and align with our stakeholders. Your feedback and contributions are always welcome as we refine our path forward.
+We share this roadmap to foster transparency, encourage collaboration, and align with our stakeholders. We welcome your feedback and contributions as we refine our path forward.
