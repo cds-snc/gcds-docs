@@ -19,15 +19,15 @@ tokenTable:
     token-name: Nom de l'unité de style
     font-value: Valeur
   previews:
-    font-h1: En-tête 1
-    font-h2: En-tête 2
-    font-h3: En-tête 3
-    font-h4: En-tête 4
-    font-h5: En-tête 5
-    font-h6: En-tête 6
+    font-h1: Titre 1
+    font-h2: Titre 2
+    font-h3: Titre 3
+    font-h4: Titre 4
+    font-h5: Titre 5
+    font-h6: Titre 6
     font-text: Texte
     font-textSmall: Petit texte
-    fontFamilies-heading: En-tête
+    fontFamilies-heading: Titre
     fontFamilies-body: Texte
     fontFamilies-monospace: Espacement fixe
     fontFamilies-icons: icons
@@ -56,17 +56,17 @@ Le rythme vertical est un alignement du texte selon des lignes horizontales espa
 
 ## Unités de style typographiques globales
 
-### En-têtes
+### Titres
 
-Les balises d'en-tête pour les en-têtes et sous-titres donnent la structure à une page et servent à disposer le contenu. Elles aident également à la navigation, surtout pour les gens qui ont recours aux technologies d'assistance.
+Les balises de titre pour les titres et sous-titres donnent la structure à une page et servent à disposer le contenu. Elles aident également à la navigation, surtout pour les gens qui ont recours aux technologies d'assistance.
 
-- Tout en-tête et sous-titre doit être inséré à l'aide d'une balise (`<h1>` - `<h6>`).
-- Commencez le contenu principal avec un en-tête H1. N'utilisez qu'un seul en-tête H1 par page.
-- Organisez les niveaux d'en-tête par ordre numérique. H1 est suivi de H2, qui est suivi de H3 et ainsi de suite.
-- Évitez de sauter des niveaux d'en-tête hiérarchiques.
+- Tout titre et sous-titre doit être inséré à l'aide d'une balise (`<h1>` - `<h6>`).
+- Commencez le contenu principal avec un titre H1. N'utilisez qu'un seul titre H1 par page.
+- Organisez les niveaux de titre par ordre numérique. H1 est suivi de H2, qui est suivi de H3 et ainsi de suite.
+- Évitez de sauter des niveaux de titre hiérarchiques.
 - Assurez-vous que la taille de police et la hauteur de ligne correspondent (taille de police H1 avec la hauteur de ligne H1, etc.).
-- Employez des en-têtes pour les appels à l'action pour accentuer du contenu.
-- Assurez-vous que les en-têtes sont uniques et qu'ils indiquent clairement la nature du contenu qui suit.
+- Employez des titres pour les appels à l'action pour accentuer du contenu.
+- Assurez-vous que les titres sont uniques et qu'ils indiquent clairement la nature du contenu qui suit.
 
 {% include "partials/token_table.njk", token: 'font', subTokens: "h1 h2 h3 h4 h5 h6", type: 'typography' %}
 
@@ -81,11 +81,11 @@ Remarque : La propriété de la police représente à la fois l'épaisseur, la t
 
 ### Familles de police
 
-Les en-têtes font appel à la police «&nbsp;Lato&nbsp;». Les paragraphes et autres éléments textuels se servent de la police «&nbsp;Noto Sans&nbsp;».
+Les titres font appel à la police «&nbsp;Lato&nbsp;». Les paragraphes et autres éléments textuels se servent de la police «&nbsp;Noto Sans&nbsp;».
 
 La famille de police comprend des valeurs de rechange. Les valeurs de rechange sont seulement utilisées pour une famille de police lorsqu'une police n'est pas disponible.
 
-- N'utilisez seulement les unités de style en-tête que pour les en-têtes. Tout autre contenu peut utiliser la police Texte.
+- N'utilisez seulement les unités de style titre que pour les titres. Tout autre contenu peut utiliser la police Texte.
 - Utilisez la famille de police Texte pour la plupart de votre contenu.
 - Lorsque vous citez des éléments de code, vous pouvez insérer vos exemples de code avec la famille de police Espacement fixe.
 
@@ -94,7 +94,7 @@ La famille de police comprend des valeurs de rechange. Les valeurs de rechange s
 ### Épaisseurs de police
 
 - Limitez le nombre de modifications de l'épaisseur de police dans votre conception afin de ne pas nuire au contraste. N'utilisez que deux ou trois épaisseurs de police en assurant un maximum de contraste.
-- Employez différentes épaisseurs de police pour accentuer des mots dans un tableau, en début de paragraphe ou dans de longs blocs de texte lorsque les autres options d'en-tête et de style ne sont pas appropriées.
+- Employez différentes épaisseurs de police pour accentuer des mots dans un tableau, en début de paragraphe ou dans de longs blocs de texte lorsque les autres options de titre et de style ne sont pas appropriées.
 - Veillez à accentuer des éléments de façon accessible, car plusieurs technologies d'assistance ne tiennent pas compte de l'épaisseur de la police.
 - Plutôt que de modifier l'épaisseur de la police, envisagez d'utiliser des puces ou des alinéas pour découper le texte.
 
@@ -102,7 +102,7 @@ La famille de police comprend des valeurs de rechange. Les valeurs de rechange s
 
 ### Caractères gras
 
-- Conservez le réglage des caractères gras par défaut pour les en-têtes.
+- Conservez le réglage des caractères gras par défaut pour les titres.
 - Une surutilisation de texte en caractères gras peut rendre difficile le traitement cognitif pour certains lecteurs.
 
 ### Italiques
