@@ -8,19 +8,19 @@ date: 'git Last Modified'
 
 ## Details anatomy
 
-This is an anatomy of the open details component. By default, the content is collapsed.
+This is an anatomy of the expanded details component. By default, the content is collapsed.
 
 <ol class="anatomy-list">
   <li>The <strong>details title</strong> summarizes the details content. Label text is in sentence case (only the initial letter is capitalized).</li>
-  <li>The <strong>caret</strong> and the <strong>details title</strong> toggle the content display. The caret indicates if the component is currently open or closed. When it's open, revealing the details text, the caret points to details content.</li>
+  <li>The <strong>caret</strong> and the details title toggle the content display. The caret indicates if the component is currently expanded or collapsed. When it's expanded, revealing the details text, the caret points to details content.</li>
   <li>The <strong>content</strong> displays any text and images that the reader can choose to expand or collapse.</li>
 </ol>
 
-### Open details
+### Expanded details
 
 <img class="b-sm b-default p-300" src="/images/en/components/anatomy/gcds-details-anatomy-open.svg" alt="Learn more about this topic taxonomy with three labels: details title, icon and content.  Details title pointing at Learn more about this topic. Learn more about this topic is greyed blue font underlined. Icon pointed at a dark blue triangle arrow infront of the details title. When the arrow is selected it points down to show Additional information."/>
 
-### Closed details
+### Collapsed details
 
 <img class="b-sm b-default p-300" src="/images/en/components/anatomy/gcds-details-anatomy-closed.svg" alt="Learn more about this topic taxonomy with two labels: details title and icon. The details title pointing at Learn more about this topic. Learn more about this topic is dark font underlined. Icon pointed at a dark blue triangle arrow infront of the details title."/>
 
@@ -29,7 +29,7 @@ This is an anatomy of the open details component. By default, the content is col
 ### Work to reduce cognitive load – not add to it
 
 - Avoid concealing information with a list of details titles. This interrupts the flow of reading or scrolling for those using assisted technology.
-- Consider making the first details components open by default, to help the reader understand how they work and choose what to conceal.
+- Consider making the first details components expanded by default, to help the reader understand how they work and choose what to conceal.
 
 ### Select the type of content to include in a details component
 
