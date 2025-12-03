@@ -85,7 +85,7 @@ Les titres font appel à la police «&nbsp;Lato&nbsp;». Les paragraphes et autr
 
 La famille de police comprend des valeurs de rechange. Les valeurs de rechange sont seulement utilisées pour une famille de police lorsqu'une police n'est pas disponible.
 
-- N'utilisez seulement les unités de style titre que pour les titres. Tout autre contenu peut utiliser la police Texte.
+- N'utilisez les unités de style titre que pour les titres. Tout autre contenu peut utiliser la police Texte.
 - Utilisez la famille de police Texte pour la plupart de votre contenu.
 - Lorsque vous citez des éléments de code, vous pouvez insérer vos exemples de code avec la famille de police Espacement fixe.
 
