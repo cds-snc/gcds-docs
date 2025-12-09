@@ -69,7 +69,6 @@
 @layer margin {
   :host .gcds-icon {
     /* Margin left */
-    /* Margin right */
   }
   :host .gcds-icon.ml-0 {
     margin-inline-start: var(--gcds-icon-margin-0);
@@ -163,6 +162,9 @@
   }
   :host .gcds-icon.ml-1250 {
     margin-inline-start: var(--gcds-icon-margin-1250);
+  }
+  :host .gcds-icon {
+    /* Margin right */
   }
   :host .gcds-icon.mr-0 {
     margin-inline-end: var(--gcds-icon-margin-0);

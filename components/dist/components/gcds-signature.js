@@ -1,2 +1,2 @@
-import{G as o,d as s}from"./p-Bq-JH5c3.js";const t=o;const c=s;export{t as GcdsSignature,c as defineCustomElement};
+import{G as o,d as s}from"./p-CnOaP5xg.js";const t=o;const a=s;export{t as GcdsSignature,a as defineCustomElement};
 //# sourceMappingURL=gcds-signature.js.map

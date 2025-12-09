@@ -1,5 +1,5 @@
 import { r as registerInstance, h, F as Fragment, a as Host, c as getElement } from './index-BMZbJN0q.js';
-import { o as observerConfig, a as assignLanguage } from './utils-D-WPtufr.js';
+import { o as observerConfig, a as assignLanguage } from './utils-DL822Lqm.js';
 
 const I18N = {
   en: {

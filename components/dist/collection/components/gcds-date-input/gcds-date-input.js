@@ -98,15 +98,7 @@ export class GcdsDateInput {
             this.errors.splice(this.errors.indexOf('format'), 1);
         }
     }
-    validateValue() {
-        if (this.value && !isValidDate(this.value)) {
-            this.errors.push('value');
-            this.value = null;
-            console.error(`${i18n['en'].valueError}${i18n['en'][`valueFormat${this.format}`]} | ${i18n['fr'].valueError}${i18n['fr'][`valueFormat${this.format}`]}`);
-        }
-        else if (this.errors.includes('value')) {
-            this.errors.splice(this.errors.indexOf('value'), 1);
-        }
+    watchValue() {
         if (this.value) {
             this.splitFormValue();
             this.internals.setFormValue(this.value);
@@ -177,54 +169,29 @@ export class GcdsDateInput {
             dayValue = dayValue.substring(1);
             this.dayValue = dayValue;
         }
-        // All form elements have something entered
-        if (yearValue && monthValue && dayValue && format == 'full') {
-            // Is the combined value a valid date
-            if (isValidDate(`${yearValue}-${monthValue}-${dayValue}`, format)) {
-                this.value = `${yearValue}-${monthValue}-${dayValue}`;
-                this.internals.setFormValue(this.value);
-            }
-            else {
-                this.value = null;
-                this.internals.setFormValue(null);
-                return false;
-            }
+        if (format === 'full') {
+            this.value = `${yearValue}-${monthValue}-${dayValue}`;
         }
-        else if (yearValue && monthValue && format == 'compact') {
-            // Is the combined value a valid date
-            if (isValidDate(`${yearValue}-${monthValue}`, format)) {
-                this.value = `${yearValue}-${monthValue}`;
-                this.internals.setFormValue(this.value);
-            }
-            else {
-                this.value = null;
-                this.internals.setFormValue(null);
-                return false;
-            }
+        else if (format === 'compact') {
+            this.value = `${yearValue}-${monthValue}`;
         }
-        else {
-            this.value = null;
-            this.internals.setFormValue(null);
-            return false;
-        }
+        this.internals.setFormValue(this.value);
         return true;
     }
     /**
      * Split value into parts depending on format
      */
     splitFormValue() {
-        if (this.value && isValidDate(this.value, this.format)) {
-            if (this.format == 'compact') {
-                const splitValue = this.value.split('-');
-                this.yearValue = splitValue[0];
-                this.monthValue = splitValue[1];
-            }
-            else {
-                const splitValue = this.value.split('-');
-                this.yearValue = splitValue[0];
-                this.monthValue = splitValue[1];
-                this.dayValue = splitValue[2];
-            }
+        if (this.format == 'compact') {
+            const splitValue = this.value.split('-');
+            this.yearValue = splitValue[0];
+            this.monthValue = splitValue[1];
+        }
+        else {
+            const splitValue = this.value.split('-');
+            this.yearValue = splitValue[0];
+            this.monthValue = splitValue[1];
+            this.dayValue = splitValue[2];
         }
     }
     validateRequiredProps() {
@@ -249,7 +216,7 @@ export class GcdsDateInput {
         if (!valid) {
             logError('gcds-date-input', this.errors);
         }
-        this.validateValue();
+        this.watchValue();
         if (this.value && isValidDate(this.value)) {
             this.splitFormValue();
             this.setValue();
@@ -273,10 +240,10 @@ export class GcdsDateInput {
         }
         // Array of months 01 - 12
         const options = Array.from({ length: 12 }, (_, i) => i + 1 < 10 ? `0${i + 1}` : `${i + 1}`);
-        const month = (h("gcds-select", Object.assign({ key: 'abc4d3370422e57659e6a6558d7fb7bf067e6b9b', label: i18n[lang].month, selectId: "month", name: "month", defaultValue: i18n[lang].selectmonth, disabled: disabled, onInput: e => this.handleInput(e, 'month'), onChange: e => this.handleInput(e, 'month'), value: this.monthValue, class: `gcds-date-input__month ${hasError['month'] ? 'gcds-date-input--error' : ''}` }, requiredAttr, { "aria-invalid": hasError['month'].toString(), "aria-description": hasError['month'] && errorMessage }), options.map(option => (h("option", { key: option, value: option }, i18n[lang]['months'][option])))));
-        const year = (h("gcds-input", Object.assign({ key: '092c62acae1ec98b7febaff0ad007d9bd3c6f68b', name: "year", label: i18n[lang].year, inputId: "year", type: "number", size: 4, disabled: disabled, value: this.yearValue, onInput: e => this.handleInput(e, 'year'), onChange: e => this.handleInput(e, 'year'), class: `gcds-date-input__year ${hasError['year'] ? 'gcds-date-input--error' : ''}` }, requiredAttr, { "aria-invalid": hasError['year'].toString(), "aria-description": hasError['year'] && errorMessage })));
-        const day = (h("gcds-input", Object.assign({ key: '6628caf1b8373531227bc5f9f61a386b8e16b578', name: "day", label: i18n[lang].day, inputId: "day", type: "number", size: 2, disabled: disabled, value: this.dayValue, onInput: e => this.handleInput(e, 'day'), onChange: e => this.handleInput(e, 'day'), class: `gcds-date-input__day ${hasError['day'] ? 'gcds-date-input--error' : ''}` }, requiredAttr, { "aria-invalid": hasError['day'].toString(), "aria-description": hasError['day'] && errorMessage })));
-        return (h(Host, { key: '6a745c12f4724ed7e8c2bb5557f11aa3db6f79cc', name: name, onBlur: () => this.onBlur() }, this.validateRequiredProps() && (h("fieldset", Object.assign({ key: 'a6292573f7b565a71be618eaf8df565cc8490f91', class: "gcds-date-input__fieldset" }, fieldsetAttrs), h("legend", { key: 'f712f4436c7c6e57a2c71c31ec688b8c4977cc42', id: "date-input-legend" }, legend, required ? (h("span", { class: "legend__required" }, i18n[lang].required)) : null), hint ? (h("gcds-hint", { id: "date-input-hint", "hint-id": "date-input" }, hint)) : null, errorMessage ? (h("div", null, h("gcds-error-message", { id: "date-input-error", messageId: "date-input" }, errorMessage))) : null, format == 'compact'
+        const month = (h("gcds-select", Object.assign({ key: '7036ccea3931372a5a182a6a392db606045a0da5', label: i18n[lang].month, selectId: "month", name: "month", defaultValue: i18n[lang].selectmonth, disabled: disabled, onInput: e => this.handleInput(e, 'month'), onChange: e => this.handleInput(e, 'month'), value: this.monthValue, class: `gcds-date-input__month ${hasError['month'] ? 'gcds-date-input--error' : ''}` }, requiredAttr, { "aria-invalid": hasError['month'].toString(), "aria-description": hasError['month'] && errorMessage }), options.map(option => (h("option", { key: option, value: option }, i18n[lang]['months'][option])))));
+        const year = (h("gcds-input", Object.assign({ key: 'b0be7d9e018a48119d9448035e4c5ec1d5eaf85f', name: "year", label: i18n[lang].year, inputId: "year", type: "number", size: 4, disabled: disabled, value: this.yearValue, onInput: e => this.handleInput(e, 'year'), onChange: e => this.handleInput(e, 'year'), class: `gcds-date-input__year ${hasError['year'] ? 'gcds-date-input--error' : ''}`, "validate-on": 'other' }, requiredAttr, { "aria-invalid": hasError['year'].toString(), "aria-description": hasError['year'] && errorMessage })));
+        const day = (h("gcds-input", Object.assign({ key: 'aff040a276b1fa0e1258ced275b4b46813dec447', name: "day", label: i18n[lang].day, inputId: "day", type: "number", size: 2, disabled: disabled, value: this.dayValue, onInput: e => this.handleInput(e, 'day'), onChange: e => this.handleInput(e, 'day'), "validate-on": 'other', class: `gcds-date-input__day ${hasError['day'] ? 'gcds-date-input--error' : ''}` }, requiredAttr, { "aria-invalid": hasError['day'].toString(), "aria-description": hasError['day'] && errorMessage })));
+        return (h(Host, { key: '57441b137fd61b30700f5df2858fd0e196565d69', name: name, onBlur: () => this.onBlur() }, this.validateRequiredProps() && (h("fieldset", Object.assign({ key: 'b854c9516c33aff4409a3e321501a9b4337138a1', class: "gcds-date-input__fieldset" }, fieldsetAttrs), h("legend", { key: '499c80dd1000be586698ab3e2cd495d1a91b0187', id: "date-input-legend" }, legend, required ? (h("span", { class: "legend__required" }, i18n[lang].required)) : null), hint ? (h("gcds-hint", { id: "date-input-hint", "hint-id": "date-input" }, hint)) : null, errorMessage ? (h("div", null, h("gcds-error-message", { id: "date-input-error", messageId: "date-input" }, errorMessage))) : null, format == 'compact'
             ? [month, year]
             : lang == 'en'
                 ? [month, day, year]
@@ -368,7 +335,7 @@ export class GcdsDateInput {
                 "optional": true,
                 "docs": {
                     "tags": [],
-                    "text": "Default value for the date input element. Format: YYYY-MM-DD"
+                    "text": "Combined date value from the two/three form elements. Format: YYYY-MM-DD or YYYY-MM"
                 },
                 "getter": false,
                 "setter": false,
@@ -648,7 +615,7 @@ export class GcdsDateInput {
                 "methodName": "validateFormat"
             }, {
                 "propName": "value",
-                "methodName": "validateValue"
+                "methodName": "watchValue"
             }, {
                 "propName": "validator",
                 "methodName": "validateValidator"

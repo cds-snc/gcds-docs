@@ -24,10 +24,10 @@ export declare class GcdsDateInput {
     format: 'full' | 'compact';
     validateFormat(): void;
     /**
-     * Default value for the date input element. Format: YYYY-MM-DD
+     * Combined date value from the two/three form elements. Format: YYYY-MM-DD or YYYY-MM
      */
     value?: string;
-    validateValue(): void;
+    watchValue(): void;
     /**
      * Specifies if a form field is required or not.
      */
