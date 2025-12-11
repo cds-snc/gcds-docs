@@ -1,9 +1,9 @@
 ---
 title: Set up GC Design System library
-translationKey: startusingFigma
+translationKey: startUsingFigma
 layout: 'layouts/base.njk'
 eleventyNavigation:
-  key: startusingFigmaEN
+  key: startUsingFigmaEN
   title: Set up GC Design System library
   locale: en
   parent: startusingEN
