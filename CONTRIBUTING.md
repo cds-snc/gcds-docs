@@ -32,6 +32,26 @@ Submit these contributions directly in [Github](https://github.com/cds-snc/gcds-
 
 *Note: We are not currently accepting contributions related to new components, patterns, or features that are not identified in our “next priorities”. Our team is developing our roadmap based on components and patterns that most GC teams can use. Each component requires carefully constructed design, documentation, and code that follows the consistency and standards of the GC Design System and that are backed by research. Please follow our mailing list and “Get Involved” page to learn more about opportunities to collaborate and contribute.* 
 
+### Proposing feature requests or enhancements
+
+If you’ve got a new idea or a suggestion for how something could work better, we want to hear about it. Here are a few steps to help you submit a feature request or enhancement.
+
+Feature requests can include suggestions for new components or added functionality to existing components, templates, frameworks, or CSS Shortcuts.
+
+#### 1. Check the backlog of current feature requests
+
+Check our [feature request backlog](https://github.com/cds-snc/gcds-components/issues?q=is%3Aissue%20state%3Aopen%20label%3A%22feature%20request%22) for any duplicate or similar feature requests.
+
+If your idea has already been suggested, upvote that feature request with a thumbs up emoji (👍) and comment on the issue to let us know why you need this feature request and any other supporting information. We review the number of upvotes (represented by 👍) to help us prioritize feature requests.
+
+#### 2. Complete the form
+
+If your idea is not in the issues backlog, submit a new issue through GitHub with an [account](https://docs.github.com/en/get-started/start-your-journey/creating-an-account-on-github) using our feature request template.
+
+#### 3. Submit an issue
+
+A GC Design System core team member may reach out to you if we need further clarification on your submission.
+
 ### Volunteer as a research participant for GC Design System
 
 We're always looking for new volunteers to help us continue to iterate and improve GC Design System. [Contact us](https://design-system.alpha.canada.ca/en/contact/) to sign up for usability and accessibility testing. You'll be added to our volunteer list and a GC Design System team member will reach out with opportunities to participate. 
@@ -135,6 +155,26 @@ Voici les types de contribution que nous recherchons :
 Soumettez ces contributions directement dans [Github](https://github.com/cds-snc/gcds-components/issues/new?assignees=&labels=&projects=&template=contributions.yml&title=contribution%3A+). Incluez tout document ou lien pertinent dans votre soumission. Un membre de l’équipe principale de Système de design GC pourrait communiquer avec vous pour en savoir plus sur votre soumission.
 
 *Remarque : À l’heure actuelle, nous n’acceptons pas de contributions liées à de nouveaux composants, modèles ou fonctionnalités qui ne sont pas répertoriés dans nos « prochaines priorités ». Notre équipe élabore notre feuille de route en fonction des composants et des modèles que la plupart des équipes du GC peuvent utiliser. Pour chaque composant, il faut une conception, une documentation et un code soigneusement élaborés qui respectent la cohérence et les normes de Système de design GC et qui sont étayés par des travaux de recherche. Inscrivez-vous à notre liste d’envoi ou suivez notre page « S’impliquer » pour en savoir plus sur les possibilités de collaboration et de contribution.*
+
+### Proposer des demandes de fonctionnalités ou des améliorations
+
+Si vous avez une nouvelle idée ou une suggestion d’amélioration, nous voulons vous entendre. Voici quelques étapes pour vous aider à soumettre une demande de fonctionnalité ou d’amélioration.
+
+Les demandes de fonctionnalités peuvent inclure des suggestions de nouveaux composants ou des fonctionnalités additionnelles à des composants, modèles, cadres ou raccourcis CSS existants.
+
+#### 1. Vérifier les demandes de fonctionnalités en attente
+
+Vérifiez nos [demandes de fonctionnalités en attente](https://github.com/cds-snc/gcds-components/issues?q=is%3Aissue%20state%3Aopen%20label%3A%22feature%20request%22) pour déterminer si votre demande est en double ou si une demande similaire a déjà été soumise.
+
+Si votre idée a déjà été suggérée, votez pour cette demande de fonctionnalité avec un emoji pouce levé (👍) et commentez le problème pour nous dire pourquoi vous avez besoin de cette fonctionnalité et nous faire savoir toute autre information à l’appui. Nous passons en revue le nombre de votes (représenté par des 👍) pour nous aider à classer les demandes de fonctionnalités par ordre de priorité.
+
+#### 2. Remplissez le formulaire
+
+Si votre idée ne figure pas dans la liste des problèmes en attente, soumettez un nouveau problème en remplissant notre modèle de demande de fonctionnalités à l’aide de votre [compte GitHub](https://docs.github.com/fr/get-started/start-your-journey/creating-an-account-on-github). 
+
+#### 3. Soumettez le problème
+
+Un membre de l’équipe de base de Système de design GC pourrait communiquer avec vous si nous avons besoin de précisions ou de contexte.
 
 ### Se porter volontaire pour participer à nos études
 
