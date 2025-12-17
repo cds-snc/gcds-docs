@@ -78,6 +78,8 @@ Envoyez votre demande de fonctionnalité directement dans GitHub, en <gcds-link 
 <gcds-button button-role="secondary" type="link" href="{{ links.githubCompsPriority }}" external>Contribuer sur GitHub</gcds-button>
 <gcds-button button-role="secondary" type="link" href="{{ links.contact }}" external>Contactez-nous</gcds-button>
 
+<hr class="mt-600"/>
+
 ## Autres nouveautés à venir
 
 Plus de renseignements sur notre <gcds-link href="{{ links.roadmap }}" >feuille de route</gcds-link>.
