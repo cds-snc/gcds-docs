@@ -32,6 +32,16 @@ Right now, we're testing GC Design System in alpha, the first usable phase of a 
   ></gcds-card>
 </gcds-grid>
 
+## GC Design System Forum
+
+<gcds-grid columns="1fr" columns-tablet="1fr 1fr" columns-desktop="1fr 1fr">
+  <gcds-card
+    card-title="Register for the GC Design System Forum"
+    href="{{ links.contactMailingList }}"
+    description="Register to our recurring Forum events to stay current with GC Design System, our partners and clients."
+  ></gcds-card>
+</gcds-grid>
+
 <hr class="mt-600" />
 
 ## Contribute to our next priorities
@@ -56,6 +66,17 @@ Provide any of the following for each component or pattern:
 <gcds-button button-role="secondary" type="link" href="{{ links.contact }}" external>Contact us</gcds-button>
 
 <hr class="mt-600" />
+
+## Request a feature
+
+We are always seeking to improve GC Design System and continually evaluating our next priorities. 
+
+Feature requests can include suggestions for new components or added functionality to existing components, templates, frameworks, and CSS Shortcuts.
+
+Submit your feature request directly in GitHub, with an <gcds-link href="{{ links.githubGetStarted }}" external>account</gcds-link>.
+
+<gcds-button button-role="secondary" type="link" href="{{ links.githubCompsPriority }}" external>Contribute in Github</gcds-button>
+<gcds-button button-role="secondary" type="link" href="{{ links.contact }}" external>Contact us</gcds-button>
 
 ## What else is coming soon
 
