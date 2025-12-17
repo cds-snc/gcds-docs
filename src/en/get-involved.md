@@ -78,6 +78,8 @@ Submit your feature request directly in GitHub, with an <gcds-link href="{{ link
 <gcds-button button-role="secondary" type="link" href="{{ links.githubCompsPriority }}" external>Contribute in Github</gcds-button>
 <gcds-button button-role="secondary" type="link" href="{{ links.contact }}" external>Contact us</gcds-button>
 
+<hr class="mt-600" />
+
 ## What else is coming soon
 
 ### Upcoming components and templates
