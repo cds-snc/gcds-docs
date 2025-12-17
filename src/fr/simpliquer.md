@@ -32,6 +32,16 @@ Nous testons actuellement la version alpha de Système de design GC, ce qui corr
   ></gcds-card>
 </gcds-grid>
 
+## Forum de Système de design GC
+
+<gcds-grid columns="1fr" columns-tablet="1fr 1fr" columns-desktop="1fr 1fr">
+  <gcds-card
+    card-title="S’inscrire au forum de Système de design GC"
+    href="{{ links.contactMailingList }}"
+    description="Inscrivez-vous aux séances récurrentes du Forum de Système de design GC pour connaître les dernières nouvelles sur le produit, nos partenaires et nos clients. "
+  ></gcds-card>
+</gcds-grid>
+
 <hr class="mt-600"/>
 
 ## Contribuez à nos prochaines priorités
@@ -56,6 +66,17 @@ Fournissez l'un des éléments suivants pour chaque composant ou modèle de page
 <gcds-button button-role="secondary" type="link" href="{{ links.contact }}" external>Contactez-nous</gcds-button>
 
 <hr class="mt-600" />
+
+## Demander une fonctionnalité
+
+Nous cherchons toujours à améliorer Système de design GC et évaluons continuellement nos prochaines priorités. 
+
+Les demandes de fonctionnalités peuvent inclure des suggestions de nouveaux composants ou des fonctionnalités additionnelles à des composants, modèles, cadres et raccourcis CSS existants.
+
+Envoyez votre demande de fonctionnalité directement dans GitHub, en <gcds-link href="{{ links.githubGetStarted }}" external>créant un compte</gcds-link>.
+
+<gcds-button button-role="secondary" type="link" href="{{ links.githubCompsPriority }}" external>Contribuer sur GitHub</gcds-button>
+<gcds-button button-role="secondary" type="link" href="{{ links.contact }}" external>Contactez-nous</gcds-button>
 
 ## Autres nouveautés à venir
 
