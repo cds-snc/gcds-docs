@@ -1,5 +1,5 @@
 ---
-title: Recherche
+title: Résultats de la recherche
 translationKey: searchresults
 layout: 'layouts/base.njk'
 hidesearch: true
