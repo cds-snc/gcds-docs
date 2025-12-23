@@ -487,6 +487,26 @@ module.exports = function (eleventyConfig) {
     `;
   });
 
+  // Add shortcode for example tab code previews
+  eleventyConfig.addPairedShortcode('examplesPreview', children => {
+    const content = children.trim();
+
+    // Minify weird Eleventy spacing in rendered HTML preview
+    const renderedHTML = content
+      .replace(/&nbsp;/g, ' ')
+      .replace(/\s+/g, ' ')
+      .replace(/\s+</g, '<')
+      .replace(/\s+>/g, '>')
+      .trim();
+
+    return `
+      <div class="b-md shortcut-preview">
+        <div class="preview-demo d-grid gap-300 p-300">${renderedHTML}</div>
+        <pre><code class="language-html font-size-text-small">${encode(content)}</code></pre>
+      </div>
+    `;
+  });
+
   eleventyConfig.addPairedShortcode(
     'baseComponentPreview',
     (children, title, url, queryString = '') => {
