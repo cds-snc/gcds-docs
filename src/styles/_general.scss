@@ -25,7 +25,6 @@ iframe {
 }
 
 ul li {
-
   p.mb-300:has(+ ul),
   ul.mb-300 {
     margin-block-end: 0;
@@ -48,4 +47,11 @@ ul li {
 
   /* avoids jump when the scrollbar appears */
   scrollbar-gutter: stable;
+}
+
+.examples-preview {
+  form {
+    display: grid;
+    gap: var(--gcds-spacing-300);
+  }
 }

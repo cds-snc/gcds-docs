@@ -140,6 +140,11 @@ ul li ul li {
   scrollbar-gutter: stable;
 }
 
+.examples-preview form {
+  display: grid;
+  gap: var(--gcds-spacing-300);
+}
+
 .anatomy-list {
   counter-reset: item;
   margin-block-end: var(--gcds-spacing-450);

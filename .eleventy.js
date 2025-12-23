@@ -487,6 +487,62 @@ module.exports = function (eleventyConfig) {
     `;
   });
 
+  // Add shortcode for example intro text
+  eleventyConfig.addPairedShortcode(
+    'examplesContent',
+    (children, locale, section) => {
+      const langStrings = {
+        en: {
+          intro: {
+            heading: 'Examples',
+            text: 'This section provides examples of how to use this component. Each example focuses on a specific attribute or slot, showing how it affects behaviour, appearance, or layout.',
+          },
+          required: {
+            heading: 'Required attributes',
+            text: 'These attributes are needed for the component to function correctly. The examples below illustrate how each required attribute is used.',
+          },
+          optional: {
+            heading: 'Optional attributes',
+            text: 'These attributes allow you to customize or extend the component’s behaviour and presentation. The examples below illustrate how each optional attribute can be used.',
+          },
+          slot: {
+            heading: 'Named slots',
+            text: 'Named slots allow you to inject custom content into specific areas of the component. The examples below show how each slot can be used.',
+          },
+        },
+        fr: {
+          intro: {
+            heading: 'Exemples',
+            text: 'Translate',
+          },
+          required: {
+            heading: 'Required attributes (translate)',
+            text: 'Translate',
+          },
+          optional: {
+            heading: 'Optional attributes (translate)',
+            text: 'Translate',
+          },
+          slot: {
+            heading: 'Named slots (translate)',
+            text: 'Translate',
+          },
+        },
+      };
+
+      const headingLevel = section === 'intro' ? 'h2' : 'h3';
+
+      return `
+      <div>
+        <gcds-heading tag="${headingLevel}">
+          ${langStrings[locale][section].heading}
+        </gcds-heading>
+        <gcds-text>${langStrings[locale][section].text}</gcds-text>
+      </div>
+    `;
+    },
+  );
+
   // Add shortcode for example tab code previews
   eleventyConfig.addPairedShortcode('examplesPreview', children => {
     const content = children.trim();
@@ -500,7 +556,7 @@ module.exports = function (eleventyConfig) {
       .trim();
 
     return `
-      <div class="b-md shortcut-preview">
+      <div class="b-md shortcut-preview examples-preview">
         <div class="preview-demo d-grid gap-300 p-300">${renderedHTML}</div>
         <pre><code class="language-html font-size-text-small">${encode(content)}</code></pre>
       </div>
