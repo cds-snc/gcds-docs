@@ -1,8 +1,8 @@
 ---
-title: Bouton
+title: En-tête
 layout: 'layouts/component-documentation.njk'
-translationKey: 'buttonExamples'
-tags: ['buttonFR', 'examples']
+translationKey: 'headerExamples'
+tags: ['headerFR', 'examples']
 date: 'git Last Modified'
 ---
 

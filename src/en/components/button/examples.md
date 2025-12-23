@@ -6,13 +6,13 @@ tags: ['buttonEN', 'examples']
 date: 'git Last Modified'
 ---
 
-## Examples
+{% examplesContent "en", "intro" %}
+{% endexamplesContent %}
 
-This section provides examples of how to use this component. Each example focuses on a specific attribute or slot, showing how it affects behaviour, appearance, or layout.
+<!-- Optional section -->
 
-### Optional attributes
-
-These attributes allow you to customize or extend the component’s behaviour and presentation. The examples below illustrate how each optional attribute can be used.
+{% examplesContent "en", "optional" %}
+{% endexamplesContent %}
 
 #### `button-id`
 
@@ -102,6 +102,8 @@ The `value` attribute defines the value that will be sent to the server when the
 </form>
 {% endexamplesPreview %}
 
+<!-- Optional for links section -->
+
 ### Optional attributes for `type=link`
 
 #### `download`
@@ -151,13 +153,3 @@ The `target` attribute specifies where the linked resource is opened. For exampl
   View benefits information
 </gcds-button>
 {% endexamplesPreview %}
-
-<!-- <iframe
-  title="Overview of gcds-button properties and events."
-  src="https://cds-snc.github.io/gcds-components/iframe.html?viewMode=docs&demo=true&singleStory=true&id=components-button--events-properties&lang=en"
-  width="1200"
-  height="1800"
-  style="display: block; margin: 0 auto;"
-  frameBorder="0"
-  allow="clipboard-write"
-></iframe> -->
