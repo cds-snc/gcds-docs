@@ -1,8 +1,8 @@
 ---
-title: En-tête
+title: Chemin de navigation
 layout: 'layouts/component-documentation.njk'
-translationKey: 'headerExamples'
-tags: ['headerFR', 'examples']
+translationKey: 'breadcrumbsExamples'
+tags: ['breadcrumbsFR', 'examples']
 date: 'git Last Modified'
 ---
 
@@ -17,9 +17,4 @@ date: 'git Last Modified'
 <!-- Optional section -->
 
 {% examplesContent "fr", "optional" %}
-{% endexamplesContent %}
-
-<!-- Slot section -->
-
-{% examplesContent "fr", "slot" %}
 {% endexamplesContent %}

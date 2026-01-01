@@ -39,14 +39,16 @@ The `skip-to-href` attribute specifies the URL or anchor for the "Skip to conten
 
 #### `signature-has-link`
 
-The `signature-has-link` attribute determines whether the header signature links to Canada.ca. When set to `true` (the default), the signature is clickable; set it to `false` to display a non-clickable signature.
+The `signature-has-link` attribute determines whether the header signature links to Canada.ca. By default, it's set to `true`, which means the signature is clickable:
 
 {% examplesPreview %}
-signature-has-link = true
 <gcds-header lang-href="fr-url-here" skip-to-href="#id-main-content-here">
 </gcds-header>
+{% endexamplesPreview %}
 
-signature-has-link = false
+When it's set to `false`, a non-clickable signature is displayed:
+
+{% examplesPreview %}
 <gcds-header lang-href="fr-url-here" skip-to-href="#id-main-content-here" signature-has-link="false">
 </gcds-header>
 {% endexamplesPreview %}
@@ -111,8 +113,7 @@ The `search` slot is for adding a [search field]({{links.search}}) to the header
 
 {% examplesPreview %}
 <gcds-header lang-href="fr-url-here" skip-to-href="#id-main-content-here">
-  <gcds-search slot="search">
-  </gcds-search>
+  <gcds-search slot="search"></gcds-search>
 </gcds-header>
 {% endexamplesPreview %}
 
@@ -122,8 +123,7 @@ The `signature` slot is for replacing the default [Government of Canada signatur
 
 {% examplesPreview %}
 <gcds-header lang-href="fr-url-here" skip-to-href="#id-main-content-here">
-  <gcds-signature slot="signature">
-  </gcds-signature>
+  <gcds-signature slot="signature"></gcds-signature>
 </gcds-header>
 {% endexamplesPreview %}
 
