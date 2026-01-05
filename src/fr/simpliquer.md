@@ -36,7 +36,7 @@ Nous testons actuellement la version alpha de Système de design GC, ce qui corr
 
 <gcds-grid columns="1fr" columns-tablet="1fr 1fr" columns-desktop="1fr 1fr">
   <gcds-card
-    card-title="S’inscrire au forum de Système de design GC"
+    card-title="Inscrivez-vous au forum de Système de design GC"
     href="{{ links.contactMailingList }}"
     description="Inscrivez-vous aux séances récurrentes du Forum de Système de design GC pour connaître les dernières nouvelles sur le produit, nos partenaires et nos clients. "
   ></gcds-card>
