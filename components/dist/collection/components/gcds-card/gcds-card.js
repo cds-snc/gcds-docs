@@ -89,14 +89,14 @@ export class GcdsCard {
         }
     }
     render() {
-        const { cardTitle, cardTitleTag, href, badge, imgSrc, imgAlt, renderDescription, lang, errors, } = this;
+        const { cardTitle, cardTitleTag, href, badge, imgSrc, imgAlt, rel, target, renderDescription, lang, errors, } = this;
         const Element = cardTitleTag;
         const taggedAttr = {};
         if (badge) {
             taggedAttr['aria-describedby'] = 'gcds-badge';
         }
         if (this.validateRequiredProps()) {
-            return (h(Host, { key: 'e2311efdcaaadb272a36f44c3e3eb051b4767b5d' }, h("div", { key: '234bde32e565a54786b2f872762ed95c19c821cc', class: "gcds-card" }, badge && !errors.includes('badge') && (h("gcds-text", { key: '844bfe328181351d24e68b83f57b7d4f9a9a3b75', id: "gcds-badge", class: "gcds-badge", "text-role": "light", "margin-bottom": "0", size: "small" }, h("strong", { key: '565872d89c99d6c4541b2ec494b8abdbfc79d035' }, h("gcds-sr-only", { key: '30196619952eb4d38d677db62184d9491e458c19', tag: "span" }, i18n[lang].tagged), badge))), imgSrc && (h("img", { key: 'b233e6e13e836831ab9c207483529a7424b5c887', src: imgSrc, alt: imgAlt ? imgAlt : '', class: "gcds-card__image" })), Element != 'a' ? (h(Element, Object.assign({ class: "gcds-card__title" }, taggedAttr), h("gcds-link", { href: href }, cardTitle))) : (h("gcds-link", Object.assign({ href: href, class: "gcds-card__title" }, taggedAttr), cardTitle)), renderDescription)));
+            return (h(Host, { key: '63362d1b4d0400fd13351181755b50976372b01c' }, h("div", { key: 'da6b99dc52d26f393c46f411cb886a76f29bb89d', class: "gcds-card" }, badge && !errors.includes('badge') && (h("gcds-text", { key: 'd6fb663560860206c180a33bd4fd0379a9d14a79', id: "gcds-badge", class: "gcds-badge", "text-role": "light", "margin-bottom": "0", size: "small" }, h("strong", { key: 'd80f3a9c559224d534fa6918bc7871f2125dc5ef' }, h("gcds-sr-only", { key: '6aeed4c241c3fe00e95f1f7f98f8c59bd3bd5fce', tag: "span" }, i18n[lang].tagged), badge))), imgSrc && (h("img", { key: '924bcbb696ef0a579370e2986e7cc4daa4580d1b', src: imgSrc, alt: imgAlt ? imgAlt : '', class: "gcds-card__image" })), Element != 'a' ? (h(Element, Object.assign({ class: "gcds-card__title" }, taggedAttr), h("gcds-link", { href: href }, cardTitle))) : (h("gcds-link", Object.assign({ href: href, class: "gcds-card__title", rel: rel, target: target }, taggedAttr), cardTitle)), renderDescription)));
         }
     }
     static get is() { return "gcds-card"; }
@@ -246,6 +246,44 @@ export class GcdsCard {
                 "getter": false,
                 "setter": false,
                 "reflect": true
+            },
+            "rel": {
+                "type": "string",
+                "attribute": "rel",
+                "mutable": false,
+                "complexType": {
+                    "original": "string | undefined",
+                    "resolved": "string",
+                    "references": {}
+                },
+                "required": false,
+                "optional": true,
+                "docs": {
+                    "tags": [],
+                    "text": "The rel attribute specifies the relationship between the current document and the linked document"
+                },
+                "getter": false,
+                "setter": false,
+                "reflect": false
+            },
+            "target": {
+                "type": "string",
+                "attribute": "target",
+                "mutable": false,
+                "complexType": {
+                    "original": "string",
+                    "resolved": "string",
+                    "references": {}
+                },
+                "required": false,
+                "optional": true,
+                "docs": {
+                    "tags": [],
+                    "text": "The target attribute specifies where to open the linked document"
+                },
+                "getter": false,
+                "setter": false,
+                "reflect": false
             }
         };
     }

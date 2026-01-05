@@ -1,6 +1,6 @@
-import { Host, h, } from "@stencil/core";
+import { Host, Fragment, h, } from "@stencil/core";
 import { isRadioObject } from "./radio";
-import { assignLanguage, inheritAttributes, logError, handleErrors, isValid, handleValidationResult, } from "../../utils/utils";
+import { assignLanguage, logError, handleErrors, isValid, handleValidationResult, validateRadioCheckboxGroup } from "../../utils/utils";
 import { defaultValidator, getValidator, requiredValidator, } from "../../validators";
 import i18n from "./i18n/i18n";
 /**
@@ -8,11 +8,16 @@ import i18n from "./i18n/i18n";
  */
 export class GcdsRadios {
     constructor() {
+        this.radioTitle = '';
         this._validator = defaultValidator;
         /**
          * Set event to call validator
          */
         this.validateOn = 'blur';
+        /**
+         * Specifies if the legend is hidden or not.
+         */
+        this.hideLegend = false;
         /**
          * Set additional HTML attributes not available in component properties
          */
@@ -38,6 +43,9 @@ export class GcdsRadios {
             if (e.type === 'change') {
                 const changeEvt = new e.constructor(e.type, e);
                 this.el.dispatchEvent(changeEvt);
+            }
+            else {
+                this.updateValidity();
             }
             customEvent.emit(this.value);
         };
@@ -106,7 +114,14 @@ export class GcdsRadios {
                 this.value = null;
                 this.internals.setFormValue(this.value);
             }
+            this.updateValidity();
         }
+    }
+    /**
+     * Read-only property of the input, returns a ValidityState object that represents the validity states this element is in.
+     */
+    get validity() {
+        return this.internals.validity;
     }
     validateValidator() {
         this._validator = getValidator(this.validator);
@@ -116,6 +131,19 @@ export class GcdsRadios {
      */
     async validate() {
         handleValidationResult(this.el, this._validator.validate(this.value), this.legend, this.gcdsError, this.gcdsValid, this.lang);
+        this.radioTitle = this.errorMessage;
+    }
+    /**
+     * Check the validity of gcds-radios
+     */
+    async checkValidity() {
+        return this.internals.checkValidity();
+    }
+    /**
+     * Get validationMessage of gcds-radios
+     */
+    async getValidationMessage() {
+        return this.internals.validationMessage;
     }
     submitListener(e) {
         if (e.target == this.el.closest('form')) {
@@ -139,6 +167,22 @@ export class GcdsRadios {
     formStateRestoreCallback(state) {
         this.internals.setFormValue(state);
         this.value = state;
+    }
+    /**
+     * Update gcds-input's validity using internal input
+     */
+    updateValidity() {
+        var _a;
+        if (((_a = this.shadowElement) === null || _a === void 0 ? void 0 : _a.length) > 1) {
+            const validity = validateRadioCheckboxGroup(this.shadowElement);
+            let validationMessage = null;
+            if (validity === null || validity === void 0 ? void 0 : validity.valueMissing) {
+                validationMessage = this.lang === 'en' ? 'Choose an option to continue.' : 'Choisissez une option pour continuer.';
+            }
+            this.internals.setValidity(validity, validationMessage, this.shadowElement[0]);
+            // Set input title when HTML error occruring
+            this.radioTitle = validationMessage;
+        }
     }
     /*
      * Observe lang attribute change
@@ -165,7 +209,6 @@ export class GcdsRadios {
         // Assign required validator if needed
         requiredValidator(this.el, 'radio');
         this.validateValidator();
-        this.inheritedAttributes = inheritAttributes(this.el, this.shadowElement);
         this.initialValue = this.value ? this.value : null;
         const valid = this.validateRequiredProps();
         if (!valid) {
@@ -179,8 +222,17 @@ export class GcdsRadios {
             logError('gcds-radios', this.errors);
         }
     }
+    async componentDidLoad() {
+        this.updateValidity();
+        // Logic to enable autofocus
+        if (this.autofocus) {
+            requestAnimationFrame(() => {
+                this.shadowElement[0].focus();
+            });
+        }
+    }
     render() {
-        const { lang, name, legend, value, required, hint, errorMessage, disabled, hasError, inheritedAttributes, } = this;
+        const { lang, name, legend, value, required, hint, errorMessage, disabled, hasError, radioTitle, form, inheritedAttributes, } = this;
         const fieldsetAttrs = {
             'tabindex': '-1',
             'aria-labelledby': 'radios-legend',
@@ -191,9 +243,9 @@ export class GcdsRadios {
                 `${fieldsetAttrs['aria-labelledby']} ${hintID}`.trim();
         }
         if (this.validateRequiredProps()) {
-            return (h(Host, { key: '863fb42cf8b4ad89a28170ded8066c3220b6434e', onBlur: () => this.onBlurValidate() }, h("fieldset", Object.assign({ key: '460e85e366045fd2bffa39cba97603070bb029ff', class: "gcds-radios__fieldset" }, fieldsetAttrs), h("legend", { key: '8f37f944357de5f5a5b30758276ad3faee992851', id: "radios-legend", class: "gcds-radios__legend" }, legend, required ? (h("span", { class: "legend__required" }, i18n[lang].required)) : null), hint ? (h("gcds-hint", { id: "radios-hint", "hint-id": "radios" }, hint)) : null, errorMessage ? (h("gcds-error-message", { id: "radios-error", messageId: "radios" }, errorMessage)) : null, this.optionsArr &&
+            return (h(Host, { key: '09bebf9ebeec3959d7061acfebd1604656caefd4', onBlur: () => this.onBlurValidate() }, h("fieldset", Object.assign({ key: '3d52f3ce72cdcedbaf5dcf57b11d6033ff35c575', class: "gcds-radios__fieldset" }, fieldsetAttrs), h("legend", { key: 'af14ef3c9c4db9d1a12775fa51cf2f4aafe4bf54', id: "radios-legend", class: "gcds-radios__legend" }, this.hideLegend ? (h("gcds-sr-only", { tag: "span" }, legend, required && h("span", { class: "legend__required" }, i18n[lang].required))) : (h(Fragment, null, legend, required && h("span", { class: "legend__required" }, i18n[lang].required)))), hint ? (h("gcds-hint", { id: "radios-hint", "hint-id": "radios" }, hint)) : null, errorMessage ? (h("gcds-error-message", { id: "radios-error", messageId: "radios" }, errorMessage)) : null, this.optionsArr &&
                 this.optionsArr.map(radio => {
-                    const attrsInput = Object.assign({ name, disabled: disabled, required: required, value: radio.value, checked: radio.value === value }, inheritedAttributes);
+                    const attrsInput = Object.assign({ name, disabled: disabled, required: required, value: radio.value, checked: radio.value === value, title: radioTitle, form: form }, inheritedAttributes);
                     if (radio.hint) {
                         const hintID = radio.hint ? `hint-${radio.id} ` : '';
                         attrsInput['aria-describedby'] = `${hintID}${attrsInput['aria-describedby']
@@ -204,7 +256,7 @@ export class GcdsRadios {
                         attrsInput['aria-invalid'] = 'true';
                         attrsInput['aria-description'] = errorMessage;
                     }
-                    return (h("div", { class: `gcds-radio ${disabled ? 'gcds-radio--disabled' : ''} ${hasError ? 'gcds-radio--error' : ''}` }, h("input", Object.assign({ id: radio.id, type: "radio" }, attrsInput, { onInput: e => this.handleInput(e, this.gcdsInput), onChange: e => this.handleInput(e, this.gcdsChange), onBlur: () => this.onBlur(), onFocus: () => this.gcdsFocus.emit() })), h("gcds-label", { label: radio.label, "label-for": radio.id, lang: lang, onClick: e => e.stopPropagation() }), radio.hint ? (h("gcds-hint", { "hint-id": radio.id }, radio.hint)) : null));
+                    return (h("div", { class: `gcds-radio ${disabled ? 'gcds-radio--disabled' : ''} ${hasError ? 'gcds-radio--error' : ''}` }, h("input", Object.assign({ id: radio.id, type: "radio" }, attrsInput, { onInput: e => this.handleInput(e, this.gcdsInput), onChange: e => this.handleInput(e, this.gcdsChange), onBlur: () => this.onBlur(), onFocus: () => this.gcdsFocus.emit(), ref: (el) => (this.shadowElement = [...(this.shadowElement || []), el]) })), h("gcds-label", { label: radio.label, "label-for": radio.id, lang: lang, onClick: e => e.stopPropagation() }), radio.hint ? (h("gcds-hint", { "hint-id": radio.id }, radio.hint)) : null));
                 }))));
         }
     }
@@ -267,6 +319,44 @@ export class GcdsRadios {
                 "docs": {
                     "tags": [],
                     "text": "The `name` attribute for the radios, used to group radio elements together"
+                },
+                "getter": false,
+                "setter": false,
+                "reflect": true
+            },
+            "autofocus": {
+                "type": "boolean",
+                "attribute": "autofocus",
+                "mutable": false,
+                "complexType": {
+                    "original": "boolean",
+                    "resolved": "boolean",
+                    "references": {}
+                },
+                "required": false,
+                "optional": false,
+                "docs": {
+                    "tags": [],
+                    "text": "If true, the input will be focused on component render"
+                },
+                "getter": false,
+                "setter": false,
+                "reflect": true
+            },
+            "form": {
+                "type": "string",
+                "attribute": "form",
+                "mutable": false,
+                "complexType": {
+                    "original": "string",
+                    "resolved": "string",
+                    "references": {}
+                },
+                "required": false,
+                "optional": true,
+                "docs": {
+                    "tags": [],
+                    "text": "The ID of the form that the radios belong to."
                 },
                 "getter": false,
                 "setter": false,
@@ -386,6 +476,29 @@ export class GcdsRadios {
                 "setter": false,
                 "reflect": true
             },
+            "validity": {
+                "type": "unknown",
+                "attribute": "validity",
+                "mutable": false,
+                "complexType": {
+                    "original": "ValidityState",
+                    "resolved": "ValidityState",
+                    "references": {
+                        "ValidityState": {
+                            "location": "global",
+                            "id": "global::ValidityState"
+                        }
+                    }
+                },
+                "required": false,
+                "optional": false,
+                "docs": {
+                    "tags": [],
+                    "text": "Read-only property of the input, returns a ValidityState object that represents the validity states this element is in."
+                },
+                "getter": true,
+                "setter": false
+            },
             "validator": {
                 "type": "unknown",
                 "attribute": "validator",
@@ -438,6 +551,26 @@ export class GcdsRadios {
                 "setter": false,
                 "reflect": false,
                 "defaultValue": "'blur'"
+            },
+            "hideLegend": {
+                "type": "boolean",
+                "attribute": "hide-legend",
+                "mutable": false,
+                "complexType": {
+                    "original": "boolean",
+                    "resolved": "boolean",
+                    "references": {}
+                },
+                "required": false,
+                "optional": true,
+                "docs": {
+                    "tags": [],
+                    "text": "Specifies if the legend is hidden or not."
+                },
+                "getter": false,
+                "setter": false,
+                "reflect": false,
+                "defaultValue": "false"
             }
         };
     }
@@ -562,6 +695,40 @@ export class GcdsRadios {
                 },
                 "docs": {
                     "text": "Call any active validators",
+                    "tags": []
+                }
+            },
+            "checkValidity": {
+                "complexType": {
+                    "signature": "() => Promise<boolean>",
+                    "parameters": [],
+                    "references": {
+                        "Promise": {
+                            "location": "global",
+                            "id": "global::Promise"
+                        }
+                    },
+                    "return": "Promise<boolean>"
+                },
+                "docs": {
+                    "text": "Check the validity of gcds-radios",
+                    "tags": []
+                }
+            },
+            "getValidationMessage": {
+                "complexType": {
+                    "signature": "() => Promise<string>",
+                    "parameters": [],
+                    "references": {
+                        "Promise": {
+                            "location": "global",
+                            "id": "global::Promise"
+                        }
+                    },
+                    "return": "Promise<string>"
+                },
+                "docs": {
+                    "text": "Get validationMessage of gcds-radios",
                     "tags": []
                 }
             }

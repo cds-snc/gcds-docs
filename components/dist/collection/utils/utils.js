@@ -159,8 +159,10 @@ export const isValidDate = (dateString, forceFormat) => {
     }
     // Parse the date string into a Date object
     const formattedDate = `${dateString}${format === 'compact' ? '-15' : ''}`;
-    // Check if the date is valid
-    const [year, month, day] = formattedDate.split('-').map(Number);
+    return isValidDay(formattedDate);
+};
+export function isValidDay(date) {
+    const [year, month, day] = date.split('-').map(Number);
     const thirtyOneDays = [1, 3, 5, 7, 8, 10, 12];
     const thirtyDays = [4, 6, 9, 11];
     if (month < 1 || month > 12) {
@@ -179,7 +181,7 @@ export const isValidDate = (dateString, forceFormat) => {
         return false;
     }
     return true;
-};
+}
 function isLeapYear(y) {
     return !(y & 3 || (!(y % 25) && y & 15));
 }
@@ -248,6 +250,30 @@ export function formatHTMLErrorMessage(error, lang, el) {
         case 'patternMismatch':
         default:
             return I18N[lang][error];
+    }
+}
+/**
+ * Compare validity of radio buttons/checkboxes in a group
+ * @param elements - array of HTMLInputElements in the group
+ * @returns validity state object
+ */
+export function validateRadioCheckboxGroup(elements) {
+    if (elements && elements.length > 0) {
+        const oneValid = elements.some(r => { var _a; return (_a = r.validity) === null || _a === void 0 ? void 0 : _a.valid; });
+        const validity = {
+            valueMissing: !oneValid,
+            typeMismatch: false,
+            patternMismatch: false,
+            tooLong: false,
+            tooShort: false,
+            rangeUnderflow: false,
+            rangeOverflow: false,
+            stepMismatch: false,
+            badInput: false,
+            customError: false,
+            valid: oneValid,
+        };
+        return validity;
     }
 }
 //# sourceMappingURL=utils.js.map

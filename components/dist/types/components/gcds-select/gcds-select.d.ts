@@ -10,6 +10,7 @@ export declare class GcdsSelect {
     internals: ElementInternals;
     private initialValue?;
     private shadowElement?;
+    private selectTitle;
     _validator: Validator<string>;
     /**
      * Props
@@ -22,6 +23,10 @@ export declare class GcdsSelect {
      * Form field label.
      */
     label: string;
+    /**
+     * Specifies if the label is hidden or not.
+     */
+    hideLabel?: boolean;
     /**
      * Name attribute for select form element.
      */
@@ -40,6 +45,18 @@ export declare class GcdsSelect {
      */
     defaultValue?: string;
     /**
+     * If true, the select will be focused on component render
+     */
+    autofocus: boolean;
+    /**
+     * The ID of the form that the select field belongs to.
+     */
+    form?: string;
+    /**
+     * String to have autocomplete enabled.
+     */
+    autocomplete?: string;
+    /**
      * Value for a select element.
      */
     value?: string;
@@ -53,6 +70,10 @@ export declare class GcdsSelect {
      * Hint displayed below the label.
      */
     hint?: string;
+    /**
+     * Read-only property of the select, returns a ValidityState object that represents the validity states this element is in.
+     */
+    get validity(): ValidityState;
     /**
      * Array of validators
      */
@@ -110,6 +131,14 @@ export declare class GcdsSelect {
      */
     validate(): Promise<void>;
     /**
+     * Check the validity of gcds-select
+     */
+    checkValidity(): Promise<boolean>;
+    /**
+     * Get validationMessage of gcds-select
+     */
+    getValidationMessage(): Promise<string>;
+    /**
      * Emitted when the select has a validation error.
      */
     gcdsError: EventEmitter<object>;
@@ -122,8 +151,13 @@ export declare class GcdsSelect {
      * Check if an option is selected or value matches an option's value
      */
     private checkValueOrSelected;
+    private checkIfValidValue;
     formResetCallback(): void;
     formStateRestoreCallback(state: any): void;
+    /**
+     * Update gcds-select's validity using internal select
+     */
+    private updateValidity;
     observeOptions(): void;
     updateLang(): void;
     componentWillLoad(): Promise<void>;

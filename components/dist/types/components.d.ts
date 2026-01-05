@@ -9,11 +9,13 @@ import { CheckboxObject } from "./components/gcds-checkboxes/checkbox";
 import { Validator, ValidatorEntry } from "./validators";
 import { SpacingValues } from "./utils/types/spacing";
 import { ContentValues, GridGapValues } from "./components/gcds-grid/gcds-grid";
+import { SuggestionOption } from "./components/gcds-input/suggestion-option";
 import { RadioObject } from "./components/gcds-radios/radio";
 export { CheckboxObject } from "./components/gcds-checkboxes/checkbox";
 export { Validator, ValidatorEntry } from "./validators";
 export { SpacingValues } from "./utils/types/spacing";
 export { ContentValues, GridGapValues } from "./components/gcds-grid/gcds-grid";
+export { SuggestionOption } from "./components/gcds-input/suggestion-option";
 export { RadioObject } from "./components/gcds-radios/radio";
 export namespace Components {
     /**
@@ -157,11 +159,27 @@ export namespace Components {
           * The img src attribute specifies the path to the image
          */
         "imgSrc": string;
+        /**
+          * The rel attribute specifies the relationship between the current document and the linked document
+         */
+        "rel"?: string | undefined;
+        /**
+          * The target attribute specifies where to open the linked document
+         */
+        "target"?: string;
     }
     /**
      * Checkboxes provide a set of options for multiple responses.
      */
     interface GcdsCheckboxes {
+        /**
+          * If true, the checkobox will be focused on component render
+         */
+        "autofocus": boolean;
+        /**
+          * Check the validity of gcds-checkboxes
+         */
+        "checkValidity": () => Promise<boolean>;
         /**
           * Specifies if the checkboxes are disabled or not.
          */
@@ -170,6 +188,24 @@ export namespace Components {
           * Set this to display an error message for invalid <gcds-checkboxes>
          */
         "errorMessage": string;
+        /**
+          * The ID of the form that the checkboxes belong to.
+         */
+        "form"?: string;
+        /**
+          * Get validationMessage of gcds-checkboxes
+         */
+        "getValidationMessage": () => Promise<string>;
+        /**
+          * For single checkbox, specifies if the label is hidden or not.
+          * @default false
+         */
+        "hideLabel"?: boolean;
+        /**
+          * For checkbox groups, specifies if the legend is hidden or not.
+          * @default false
+         */
+        "hideLegend"?: boolean;
         /**
           * Hint displayed below the label.
          */
@@ -205,6 +241,11 @@ export namespace Components {
         "validator": Array<
     string | ValidatorEntry | Validator<string>
   >;
+        /**
+          * Read-only property of the checkboxes, returns a ValidityState object that represents the validity states this element is in.
+          * @readonly
+         */
+        "validity": ValidityState;
         /**
           * Value for checkboxes component.
           * @default []
@@ -254,6 +295,14 @@ export namespace Components {
      */
     interface GcdsDateInput {
         /**
+          * If true, the date-input will be focused on component render
+         */
+        "autofocus": boolean;
+        /**
+          * Check the validity of gcds-date-input
+         */
+        "checkValidity": () => Promise<boolean>;
+        /**
           * Specifies if the date input is disabled or not.
           * @default false
          */
@@ -263,9 +312,17 @@ export namespace Components {
          */
         "errorMessage"?: string;
         /**
+          * The ID of the form that the date-input field belongs to.
+         */
+        "form"?: string;
+        /**
           * Set this property to full to show month, day, and year form elements. Set it to compact to show only the month and year form elements.
          */
         "format": 'full' | 'compact';
+        /**
+          * Get validationMessage of gcds-date-input
+         */
+        "getValidationMessage": () => Promise<string>;
         /**
           * Hint displayed below the legend and above form fields.
          */
@@ -274,6 +331,14 @@ export namespace Components {
           * Fieldset legend
          */
         "legend": string;
+        /**
+          * The maximum date that the date-input field can accept. Format: YYYY-MM-DD or YYYY-MM
+         */
+        "max"?: string;
+        /**
+          * The minimum date that the date-input field can accept. Format: YYYY-MM-DD or YYYY-MM
+         */
+        "min"?: string;
         /**
           * Name attribute for the date input.
          */
@@ -298,6 +363,11 @@ export namespace Components {
         "validator": Array<
     string | ValidatorEntry | Validator<string>
   >;
+        /**
+          * Read-only property of the date-input, returns a ValidityState object that represents the validity states this element is in.
+          * @readonly
+         */
+        "validity": ValidityState;
         /**
           * Combined date value from the two/three form elements. Format: YYYY-MM-DD or YYYY-MM
          */
@@ -384,6 +454,14 @@ export namespace Components {
          */
         "accept": string;
         /**
+          * If true, the file uploader will be focused on component render
+         */
+        "autofocus": boolean;
+        /**
+          * Check the validity of gcds-file-uploader
+         */
+        "checkValidity": () => Promise<boolean>;
+        /**
           * Specifies if a file uploader element is disabled or not.
           * @default false
          */
@@ -396,6 +474,19 @@ export namespace Components {
           * FileList of uploaded files to input
          */
         "files": FileList;
+        /**
+          * The ID of the form that the file uploader field belongs to.
+         */
+        "form"?: string;
+        /**
+          * Get validationMessage of gcds-file-uploader
+         */
+        "getValidationMessage": () => Promise<string>;
+        /**
+          * Specifies if the label is hidden or not.
+          * @default false
+         */
+        "hideLabel"?: boolean;
         /**
           * Hint displayed below the label.
          */
@@ -436,6 +527,11 @@ export namespace Components {
         "validator": Array<
     string | ValidatorEntry | Validator<string | number | FileList>
   >;
+        /**
+          * Read-only property of the file uploader, returns a ValidityState object that represents the validity states this element is in.
+          * @readonly
+         */
+        "validity": ValidityState;
         /**
           * Value for a file uploader element.
           * @default []
@@ -733,6 +829,17 @@ export namespace Components {
          */
         "inputId": string;
         /**
+          * @default null
+         */
+        "inputmode"?: | 'none'
+    | 'text'
+    | 'decimal'
+    | 'numeric'
+    | 'tel'
+    | 'search'
+    | 'email'
+    | 'url';
+        /**
           * Form field label
          */
         "label": string;
@@ -777,6 +884,10 @@ export namespace Components {
           * A number that specifies the granularity that the value must adhere to. Valid for number type. See: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#step
          */
         "step"?: number | 'any';
+        /**
+          * Array of suggestion options. This creates a datalist element with options to represent permissible or recommended options available to choose from.
+         */
+        "suggestions"?: string | Array<SuggestionOption>;
         /**
           * Set Input types
           * @default 'text'
@@ -1013,6 +1124,14 @@ export namespace Components {
      */
     interface GcdsRadios {
         /**
+          * If true, the input will be focused on component render
+         */
+        "autofocus": boolean;
+        /**
+          * Check the validity of gcds-radios
+         */
+        "checkValidity": () => Promise<boolean>;
+        /**
           * Specifies if an input element is disabled or not.
          */
         "disabled": boolean;
@@ -1020,6 +1139,19 @@ export namespace Components {
           * Set this to display an error message for invalid radios
          */
         "errorMessage": string;
+        /**
+          * The ID of the form that the radios belong to.
+         */
+        "form"?: string;
+        /**
+          * Get validationMessage of gcds-radios
+         */
+        "getValidationMessage": () => Promise<string>;
+        /**
+          * Specifies if the legend is hidden or not.
+          * @default false
+         */
+        "hideLegend"?: boolean;
         /**
           * Hint displayed below the label and above the radio elements
          */
@@ -1055,6 +1187,11 @@ export namespace Components {
         "validator": Array<
     string | ValidatorEntry | Validator<string>
   >;
+        /**
+          * Read-only property of the input, returns a ValidityState object that represents the validity states this element is in.
+          * @readonly
+         */
+        "validity": ValidityState;
         /**
           * Default value for the element
          */
@@ -1103,6 +1240,18 @@ export namespace Components {
      */
     interface GcdsSelect {
         /**
+          * String to have autocomplete enabled.
+         */
+        "autocomplete"?: string;
+        /**
+          * If true, the select will be focused on component render
+         */
+        "autofocus": boolean;
+        /**
+          * Check the validity of gcds-select
+         */
+        "checkValidity": () => Promise<boolean>;
+        /**
           * The default value is an optional value that gets displayed before the user selects an option.
          */
         "defaultValue"?: string;
@@ -1115,6 +1264,19 @@ export namespace Components {
           * Error message for an invalid select element.
          */
         "errorMessage"?: string;
+        /**
+          * The ID of the form that the select field belongs to.
+         */
+        "form"?: string;
+        /**
+          * Get validationMessage of gcds-select
+         */
+        "getValidationMessage": () => Promise<string>;
+        /**
+          * Specifies if the label is hidden or not.
+          * @default false
+         */
+        "hideLabel"?: boolean;
         /**
           * Hint displayed below the label.
          */
@@ -1151,6 +1313,11 @@ export namespace Components {
         "validator": Array<
     string | ValidatorEntry | Validator<string>
   >;
+        /**
+          * Read-only property of the select, returns a ValidityState object that represents the validity states this element is in.
+          * @readonly
+         */
+        "validity": ValidityState;
         /**
           * Value for a select element.
          */
@@ -1843,6 +2010,7 @@ declare global {
         "gcdsFocus": void;
         "gcdsBlur": void;
         "gcdsInput": string;
+        "gcdsSuggestionSelected": string;
         "gcdsChange": string;
         "gcdsError": object;
         "gcdsValid": object;
@@ -2399,11 +2567,23 @@ declare namespace LocalJSX {
           * Emitted when the card has focus.
          */
         "onGcdsFocus"?: (event: GcdsCardCustomEvent<void>) => void;
+        /**
+          * The rel attribute specifies the relationship between the current document and the linked document
+         */
+        "rel"?: string | undefined;
+        /**
+          * The target attribute specifies where to open the linked document
+         */
+        "target"?: string;
     }
     /**
      * Checkboxes provide a set of options for multiple responses.
      */
     interface GcdsCheckboxes {
+        /**
+          * If true, the checkobox will be focused on component render
+         */
+        "autofocus"?: boolean;
         /**
           * Specifies if the checkboxes are disabled or not.
          */
@@ -2412,6 +2592,20 @@ declare namespace LocalJSX {
           * Set this to display an error message for invalid <gcds-checkboxes>
          */
         "errorMessage"?: string;
+        /**
+          * The ID of the form that the checkboxes belong to.
+         */
+        "form"?: string;
+        /**
+          * For single checkbox, specifies if the label is hidden or not.
+          * @default false
+         */
+        "hideLabel"?: boolean;
+        /**
+          * For checkbox groups, specifies if the legend is hidden or not.
+          * @default false
+         */
+        "hideLegend"?: boolean;
         /**
           * Hint displayed below the label.
          */
@@ -2472,6 +2666,11 @@ declare namespace LocalJSX {
     string | ValidatorEntry | Validator<string>
   >;
         /**
+          * Read-only property of the checkboxes, returns a ValidityState object that represents the validity states this element is in.
+          * @readonly
+         */
+        "validity"?: ValidityState;
+        /**
           * Value for checkboxes component.
           * @default []
          */
@@ -2520,6 +2719,10 @@ declare namespace LocalJSX {
      */
     interface GcdsDateInput {
         /**
+          * If true, the date-input will be focused on component render
+         */
+        "autofocus"?: boolean;
+        /**
           * Specifies if the date input is disabled or not.
           * @default false
          */
@@ -2528,6 +2731,10 @@ declare namespace LocalJSX {
           * Error message displayed below the legend and above form fields.
          */
         "errorMessage"?: string;
+        /**
+          * The ID of the form that the date-input field belongs to.
+         */
+        "form"?: string;
         /**
           * Set this property to full to show month, day, and year form elements. Set it to compact to show only the month and year form elements.
          */
@@ -2540,6 +2747,14 @@ declare namespace LocalJSX {
           * Fieldset legend
          */
         "legend": string;
+        /**
+          * The maximum date that the date-input field can accept. Format: YYYY-MM-DD or YYYY-MM
+         */
+        "max"?: string;
+        /**
+          * The minimum date that the date-input field can accept. Format: YYYY-MM-DD or YYYY-MM
+         */
+        "min"?: string;
         /**
           * Name attribute for the date input.
          */
@@ -2584,6 +2799,11 @@ declare namespace LocalJSX {
         "validator"?: Array<
     string | ValidatorEntry | Validator<string>
   >;
+        /**
+          * Read-only property of the date-input, returns a ValidityState object that represents the validity states this element is in.
+          * @readonly
+         */
+        "validity"?: ValidityState;
         /**
           * Combined date value from the two/three form elements. Format: YYYY-MM-DD or YYYY-MM
          */
@@ -2690,6 +2910,10 @@ declare namespace LocalJSX {
          */
         "accept"?: string;
         /**
+          * If true, the file uploader will be focused on component render
+         */
+        "autofocus"?: boolean;
+        /**
           * Specifies if a file uploader element is disabled or not.
           * @default false
          */
@@ -2702,6 +2926,15 @@ declare namespace LocalJSX {
           * FileList of uploaded files to input
          */
         "files"?: FileList;
+        /**
+          * The ID of the form that the file uploader field belongs to.
+         */
+        "form"?: string;
+        /**
+          * Specifies if the label is hidden or not.
+          * @default false
+         */
+        "hideLabel"?: boolean;
         /**
           * Hint displayed below the label.
          */
@@ -2766,6 +2999,11 @@ declare namespace LocalJSX {
         "validator"?: Array<
     string | ValidatorEntry | Validator<string | number | FileList>
   >;
+        /**
+          * Read-only property of the file uploader, returns a ValidityState object that represents the validity states this element is in.
+          * @readonly
+         */
+        "validity"?: ValidityState;
         /**
           * Value for a file uploader element.
           * @default []
@@ -3079,6 +3317,17 @@ declare namespace LocalJSX {
          */
         "inputId": string;
         /**
+          * @default null
+         */
+        "inputmode"?: | 'none'
+    | 'text'
+    | 'decimal'
+    | 'numeric'
+    | 'tel'
+    | 'search'
+    | 'email'
+    | 'url';
+        /**
           * Form field label
          */
         "label": string;
@@ -3123,6 +3372,10 @@ declare namespace LocalJSX {
          */
         "onGcdsInput"?: (event: GcdsInputCustomEvent<string>) => void;
         /**
+          * Emitted when a suggestion is selected.
+         */
+        "onGcdsSuggestionSelected"?: (event: GcdsInputCustomEvent<string>) => void;
+        /**
           * Emitted when the input has a validation error.
          */
         "onGcdsValid"?: (event: GcdsInputCustomEvent<object>) => void;
@@ -3147,6 +3400,10 @@ declare namespace LocalJSX {
           * A number that specifies the granularity that the value must adhere to. Valid for number type. See: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#step
          */
         "step"?: number | 'any';
+        /**
+          * Array of suggestion options. This creates a datalist element with options to represent permissible or recommended options available to choose from.
+         */
+        "suggestions"?: string | Array<SuggestionOption>;
         /**
           * Set Input types
           * @default 'text'
@@ -3427,6 +3684,10 @@ declare namespace LocalJSX {
      */
     interface GcdsRadios {
         /**
+          * If true, the input will be focused on component render
+         */
+        "autofocus"?: boolean;
+        /**
           * Specifies if an input element is disabled or not.
          */
         "disabled"?: boolean;
@@ -3434,6 +3695,15 @@ declare namespace LocalJSX {
           * Set this to display an error message for invalid radios
          */
         "errorMessage"?: string;
+        /**
+          * The ID of the form that the radios belong to.
+         */
+        "form"?: string;
+        /**
+          * Specifies if the legend is hidden or not.
+          * @default false
+         */
+        "hideLegend"?: boolean;
         /**
           * Hint displayed below the label and above the radio elements
          */
@@ -3489,6 +3759,11 @@ declare namespace LocalJSX {
         "validator"?: Array<
     string | ValidatorEntry | Validator<string>
   >;
+        /**
+          * Read-only property of the input, returns a ValidityState object that represents the validity states this element is in.
+          * @readonly
+         */
+        "validity"?: ValidityState;
         /**
           * Default value for the element
          */
@@ -3557,6 +3832,14 @@ declare namespace LocalJSX {
      */
     interface GcdsSelect {
         /**
+          * String to have autocomplete enabled.
+         */
+        "autocomplete"?: string;
+        /**
+          * If true, the select will be focused on component render
+         */
+        "autofocus"?: boolean;
+        /**
           * The default value is an optional value that gets displayed before the user selects an option.
          */
         "defaultValue"?: string;
@@ -3569,6 +3852,15 @@ declare namespace LocalJSX {
           * Error message for an invalid select element.
          */
         "errorMessage"?: string;
+        /**
+          * The ID of the form that the select field belongs to.
+         */
+        "form"?: string;
+        /**
+          * Specifies if the label is hidden or not.
+          * @default false
+         */
+        "hideLabel"?: boolean;
         /**
           * Hint displayed below the label.
          */
@@ -3625,6 +3917,11 @@ declare namespace LocalJSX {
         "validator"?: Array<
     string | ValidatorEntry | Validator<string>
   >;
+        /**
+          * Read-only property of the select, returns a ValidityState object that represents the validity states this element is in.
+          * @readonly
+         */
+        "validity"?: ValidityState;
         /**
           * Value for a select element.
          */

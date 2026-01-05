@@ -15,6 +15,7 @@ export declare const logError: (name: string, errorArr: string[], optionalAttrsA
 export declare const handleErrors: (errors: string[], propertyName: string, property: string | boolean | object, external?: boolean) => string[];
 export declare const isValid: (errors: string[], requiredProps: string[]) => boolean;
 export declare const isValidDate: (dateString: string, forceFormat?: "full" | "compact") => boolean;
+export declare function isValidDay(date: any): boolean;
 export declare function handleValidationResult(element: HTMLGcdsInputElement | HTMLGcdsDateInputElement | HTMLGcdsRadiosElement | HTMLGcdsCheckboxesElement | HTMLGcdsFileUploaderElement | HTMLGcdsSelectElement | HTMLGcdsTextareaElement, validationResult: ValidatorReturn, label: string, errorEv: EventEmitter, validEv: EventEmitter, lang: string, errors?: object): object;
 /**
  * Format HTML error message based off assigned attributes
@@ -25,3 +26,9 @@ export declare function handleValidationResult(element: HTMLGcdsInputElement | H
  * @param el - the gcds form element that is being validated
  */
 export declare function formatHTMLErrorMessage(error: any, lang: any, el: any): any;
+/**
+ * Compare validity of radio buttons/checkboxes in a group
+ * @param elements - array of HTMLInputElements in the group
+ * @returns validity state object
+ */
+export declare function validateRadioCheckboxGroup(elements: HTMLInputElement[]): ValidityState;

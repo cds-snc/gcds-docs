@@ -42,7 +42,7 @@ export class GcdsSideNav {
         }
     }
     async focusOutListener(e) {
-        if (!this.el.contains(e.relatedTarget)) {
+        if (e.relatedTarget !== null && e.relatedTarget !== this.el && !this.el.contains(e.relatedTarget)) {
             if (this.navSize == 'mobile') {
                 if (this.mobile.hasAttribute('open')) {
                     await this.mobile.toggleNav();
@@ -53,6 +53,10 @@ export class GcdsSideNav {
     async keyDownListener(e) {
         if (this.el.contains(document.activeElement)) {
             handleKeyDownNav(e, this.el, this.navItems);
+        }
+        if (this.navSize == 'mobile' && this.mobile.open == true && e.key == 'Escape') {
+            // Close mobile nav on ESC
+            await this.mobile.toggleNav();
         }
     }
     async gcdsClickListener(e) {
@@ -113,7 +117,7 @@ export class GcdsSideNav {
     }
     render() {
         const { label, lang } = this;
-        return (h(Host, { key: 'b41f9b092e8f23a6353b7064b449731ffaaaa14b' }, h("nav", { key: '26b4d5a3a82cf9216f56a7b9b1151035df7d72c7', "aria-label": `${label}${I18N[lang].navLabel}`, class: "gcds-side-nav" }, h("h2", { key: '4eb8709e0f213912b559fa81da7478be87609db0', class: "gcds-side-nav__heading" }, label), h("ul", { key: '99881fe85061138b0885b11513bad6bae1521c7d' }, h("gcds-nav-group", { key: '631d8e89b0e174de1338ec11de22cc717fe64e0a', menuLabel: I18N[lang].menuLabel, closeTrigger: I18N[lang].closeTrigger, openTrigger: I18N[lang].menuLabel, class: "gcds-mobile-nav", ref: element => (this.mobile = element), lang: lang }, h("slot", { key: '2e860631635649db3c4dca11f0d2cc58f4eb4b8a' }))))));
+        return (h(Host, { key: '3650f2ae4f31243a54e38d06cd55768045c6b030' }, h("nav", { key: '481eed1102474259d4ff3e50147fcc61ad947fb5', "aria-label": `${label}${I18N[lang].navLabel}`, class: "gcds-side-nav" }, h("h2", { key: '8b208d88ad7cf6a3d2648b4b6671a97cdd65504d', class: "gcds-side-nav__heading" }, label), h("ul", { key: '666e982af5ad6ccf26205bdb4694ea33394952e3' }, h("gcds-nav-group", { key: 'a500af2436e4744ce191d3eaa2792fd1f7624300', menuLabel: I18N[lang].menuLabel, closeTrigger: I18N[lang].closeTrigger, openTrigger: I18N[lang].menuLabel, class: "gcds-mobile-nav", ref: element => (this.mobile = element), lang: lang }, h("slot", { key: 'ca022888ad172c313b72900d8152e1f5039b0a88' }))))));
     }
     static get is() { return "gcds-side-nav"; }
     static get encapsulation() { return "shadow"; }

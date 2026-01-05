@@ -1,4 +1,4 @@
-import { isValidDate } from "../../utils/utils";
+import { isValidDate, isValidDay } from "../../utils/utils";
 const emailPattern = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 export const requiredField = {
     validate: (value) => {
@@ -97,7 +97,7 @@ export const requiredDateInput = {
         return error;
     },
 };
-const getDateInputError = (dateValues, format) => {
+export const getDateInputError = (dateValues, format) => {
     const { day, month, year } = dateValues;
     const errorResponse = {
         valid: false,
@@ -173,7 +173,7 @@ const getDateInputError = (dateValues, format) => {
         errorResponse.reason.fr = dateInputErrorMessage.fr.invalidyear;
         // Invalid day
     }
-    else {
+    else if (!isValidDay(`${year}-${month}-${day}`)) {
         errorResponse.errors.day = true;
         errorResponse.reason.en = dateInputErrorMessage.en.invalidday;
         errorResponse.reason.fr = dateInputErrorMessage.fr.invalidday;

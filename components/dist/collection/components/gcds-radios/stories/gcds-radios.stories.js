@@ -81,6 +81,30 @@ export default {
                 type: { summary: 'string' },
                 defaultValue: { summary: '-' },
             },
+            autofocus: {
+                control: { type: 'select' },
+                options: [false, true],
+                table: {
+                    type: { summary: 'boolean' },
+                    defaultValue: { summary: false },
+                },
+            },
+            form: {
+                control: 'text',
+                table: {
+                    type: { summary: 'string' },
+                    defaultValue: { summary: '-' },
+                },
+            },
+            hideLegend: {
+                name: 'hide-legend',
+                control: { type: 'select' },
+                options: [false, true],
+                table: {
+                    type: { summary: 'boolean' },
+                    defaultValue: { summary: false },
+                },
+            },
         }
     }, langProp), validatorProps), {
         // Events
@@ -98,6 +122,9 @@ const Template = args => `
   ${args.required ? `required` : null}
   ${args.disabled ? `disabled` : null}
   ${args.value ? `value="${args.value}"` : null}
+  ${args.autofocus ? `autofocus` : null}
+  ${args.form ? `form="${args.form}"` : null}
+  ${args.hideLegend ? `hide-legend` : null}
   ${args.validateOn != 'blur' ? `validate-on="${args.validateOn}"` : null}
   ${args.lang != 'en' ? `lang="${args.lang}"` : null}
 >
@@ -113,6 +140,9 @@ const Template = args => `
   ${args.required ? `required` : null}
   ${args.disabled ? `disabled` : null}
   ${args.value ? `value="${args.value}"` : null}
+  ${args.autofocus ? `autofocus` : null}
+  ${args.form ? `form="${args.form}"` : null}
+  ${args.hideLegend ? `hideLegend` : null}
   ${args.validateOn != 'blur' ? `validate-on="${args.validateOn}"` : null}
   ${args.lang != 'en' ? `lang="${args.lang}"` : null}
 >
@@ -129,6 +159,9 @@ const TemplatePlayground = args => `
   ${args.required ? `required` : null}
   ${args.disabled ? `disabled` : null}
   ${args.value ? `value="${args.value}"` : null}
+  ${args.autofocus ? `autofocus` : null}
+  ${args.form ? `form="${args.form}"` : null}
+  ${args.hideLegend ? `hide-legend` : null}
   ${args.validateOn != 'blur' ? `validate-on="${args.validateOn}"` : null}
   ${args.lang != 'en' ? `lang="${args.lang}"` : null}
 >
@@ -149,6 +182,8 @@ Default.args = {
     value: '',
     validateOn: 'blur',
     lang: 'en',
+    autofocus: false,
+    form: '',
 };
 export const Hint = Template.bind({});
 Hint.args = {
@@ -165,6 +200,8 @@ Hint.args = {
     value: '',
     validateOn: 'blur',
     lang: 'en',
+    autofocus: false,
+    form: '',
 };
 export const Required = Template.bind({});
 Required.args = {
@@ -181,6 +218,8 @@ Required.args = {
     value: '',
     validateOn: 'blur',
     lang: 'en',
+    autofocus: false,
+    form: '',
 };
 export const Disabled = Template.bind({});
 Disabled.args = {
@@ -197,6 +236,8 @@ Disabled.args = {
     value: '',
     validateOn: 'blur',
     lang: 'en',
+    autofocus: false,
+    form: '',
 };
 export const CheckedProp = Template.bind({});
 CheckedProp.args = {
@@ -213,6 +254,8 @@ CheckedProp.args = {
     value: '',
     validateOn: 'blur',
     lang: 'en',
+    autofocus: false,
+    form: '',
 };
 export const CheckedValue = Template.bind({});
 CheckedValue.args = {
@@ -229,6 +272,8 @@ CheckedValue.args = {
     value: 'radio1',
     validateOn: 'blur',
     lang: 'en',
+    autofocus: false,
+    form: '',
 };
 export const Error = Template.bind({});
 Error.args = {
@@ -245,6 +290,44 @@ Error.args = {
     value: '',
     validateOn: 'blur',
     lang: 'en',
+    autofocus: false,
+    form: '',
+};
+export const Form = Template.bind({});
+Form.args = {
+    name: 'radioDefault',
+    legend: 'Legend',
+    options: `[
+    { "label": "Label for radio 1", "id": "radio1", "value": "radio1"},
+    { "label": "Label for radio 2", "id": "radio2", "value": "radio2"}
+  ]`,
+    hint: '',
+    errorMessage: '',
+    required: false,
+    disabled: false,
+    value: '',
+    validateOn: 'blur',
+    lang: 'en',
+    autofocus: false,
+    form: 'form-id',
+};
+export const HideLegend = Template.bind({});
+HideLegend.args = {
+    name: 'radioDefault',
+    legend: 'Legend',
+    options: `[
+    { "label": "Label for radio 1", "id": "radio1", "value": "radio1"},
+    { "label": "Label for radio 2", "id": "radio2", "value": "radio2"}
+  ]`,
+    hint: '',
+    errorMessage: '',
+    required: false,
+    disabled: false,
+    value: '',
+    validateOn: 'blur',
+    lang: 'en',
+    autofocus: false,
+    hideLegend: true,
 };
 export const Props = Template.bind({});
 Props.args = {
@@ -261,6 +344,9 @@ Props.args = {
     value: '',
     validateOn: 'blur',
     lang: 'en',
+    autofocus: false,
+    form: '',
+    hideLegend: false,
 };
 export const Playground = TemplatePlayground.bind({});
 Playground.args = {
@@ -277,5 +363,8 @@ Playground.args = {
     value: '',
     validateOn: 'blur',
     lang: 'en',
+    autofocus: false,
+    form: '',
+    hideLegend: false,
 };
 //# sourceMappingURL=gcds-radios.stories.js.map

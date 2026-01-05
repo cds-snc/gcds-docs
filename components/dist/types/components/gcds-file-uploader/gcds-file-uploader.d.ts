@@ -7,6 +7,7 @@ export declare class GcdsFileUploader {
     el: HTMLElement;
     internals: ElementInternals;
     private shadowElement?;
+    private inputTitle;
     _validator: Validator<unknown>;
     /**
      * Props
@@ -23,6 +24,10 @@ export declare class GcdsFileUploader {
      * Form field label.
      */
     label: string;
+    /**
+     * Specifies if the label is hidden or not.
+     */
+    hideLabel?: boolean;
     /**
      * Specifies if a form field is required or not.
      */
@@ -73,6 +78,18 @@ export declare class GcdsFileUploader {
     hasError: boolean;
     validateHasError(): void;
     /**
+     * Read-only property of the file uploader, returns a ValidityState object that represents the validity states this element is in.
+     */
+    get validity(): ValidityState;
+    /**
+     * If true, the file uploader will be focused on component render
+     */
+    autofocus: boolean;
+    /**
+     * The ID of the form that the file uploader field belongs to.
+     */
+    form?: string;
+    /**
      * Set additional HTML attributes not available in component properties
      */
     inheritedAttributes: Object;
@@ -111,6 +128,14 @@ export declare class GcdsFileUploader {
      */
     validate(): Promise<void>;
     /**
+     * Check the validity of gcds-file-uploader
+     */
+    checkValidity(): Promise<boolean>;
+    /**
+     * Get validationMessage of gcds-file-uploader
+     */
+    getValidationMessage(): Promise<string>;
+    /**
      * Emitted when the uploader has a validation error.
      */
     gcdsError: EventEmitter<object>;
@@ -121,9 +146,14 @@ export declare class GcdsFileUploader {
     submitListener(e: any): void;
     formResetCallback(): void;
     formStateRestoreCallback(state: any): void;
+    /**
+     * Update gcds-file-uploader's validity using internal input
+     */
+    private updateValidity;
     private addFilesToFormData;
     private handleDrop;
     updateLang(): void;
     componentWillLoad(): Promise<void>;
+    componentDidLoad(): Promise<void>;
     render(): any;
 }

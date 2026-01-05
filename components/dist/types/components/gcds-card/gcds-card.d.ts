@@ -40,6 +40,14 @@ export declare class GcdsCard {
      */
     imgAlt: string;
     /**
+     * The rel attribute specifies the relationship between the current document and the linked document
+     */
+    rel?: string | undefined;
+    /**
+     * The target attribute specifies where to open the linked document
+     */
+    target?: string;
+    /**
      * Language of rendered component
      */
     lang: string;

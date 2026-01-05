@@ -11,6 +11,7 @@ export declare class GcdsCheckboxes {
     private shadowElement?;
     private optionsArr;
     private isGroup;
+    private checkboxTitle;
     _validator: Validator<string | string[]>;
     /**
      * Props
@@ -40,6 +41,22 @@ export declare class GcdsCheckboxes {
     disabled: boolean;
     validateDisabledCheckbox(): void;
     /**
+   * If true, the checkobox will be focused on component render
+   */
+    autofocus: boolean;
+    /**
+     * The ID of the form that the checkboxes belong to.
+     */
+    form?: string;
+    /**
+     * For single checkbox, specifies if the label is hidden or not.
+     */
+    hideLabel?: boolean;
+    /**
+     * For checkbox groups, specifies if the legend is hidden or not.
+     */
+    hideLegend?: boolean;
+    /**
      * Value for checkboxes component.
      */
     value: string | Array<string>;
@@ -62,6 +79,10 @@ export declare class GcdsCheckboxes {
      * Set event to call validator
      */
     validateOn: 'blur' | 'submit' | 'other';
+    /**
+       * Read-only property of the checkboxes, returns a ValidityState object that represents the validity states this element is in.
+       */
+    get validity(): ValidityState;
     /**
      * Set additional HTML attributes not available in component properties
      */
@@ -120,10 +141,23 @@ export declare class GcdsCheckboxes {
     submitListener(e: any): void;
     formResetCallback(): void;
     formStateRestoreCallback(state: any): void;
+    /**
+     * Check the validity of gcds-checkboxes
+     */
+    checkValidity(): Promise<boolean>;
+    /**
+     * Get validationMessage of gcds-checkboxes
+     */
+    getValidationMessage(): Promise<string>;
+    /**
+     * Update gcds-checkboxes's validity using internal input
+     */
+    private updateValidity;
     watchLang(newValue: any, oldValue: any): void;
     private validateRequiredProps;
     componentWillLoad(): Promise<void>;
     componentDidUpdate(): Promise<void>;
+    componentDidLoad(): Promise<void>;
     private handleInput;
     private assignOptionsArray;
     render(): any;

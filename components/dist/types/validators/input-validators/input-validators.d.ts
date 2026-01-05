@@ -30,6 +30,18 @@ export declare const dateInputErrorMessage: {
     };
 };
 export declare const requiredDateInput: Validator<string>;
+export declare const getDateInputError: (dateValues: any, format: any) => {
+    valid: boolean;
+    errors: {
+        day: boolean;
+        month: boolean;
+        year: boolean;
+    };
+    reason: {
+        en: string;
+        fr: string;
+    };
+};
 export declare const requiredRadio: Validator<string>;
 export declare const requiredCheckboxGroup: Validator<Array<string>>;
 export declare const requiredCheckboxSingle: Validator<Array<string>>;

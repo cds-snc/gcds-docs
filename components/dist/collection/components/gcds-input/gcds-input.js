@@ -1,6 +1,7 @@
 import { Host, h, } from "@stencil/core";
-import { assignLanguage, handleValidationResult, inheritAttributes, observerConfig, formatHTMLErrorMessage, } from "../../utils/utils";
+import { assignLanguage, handleValidationResult, inheritAttributes, observerConfig, formatHTMLErrorMessage, logError, handleErrors, } from "../../utils/utils";
 import { defaultValidator, getValidator, requiredValidator, } from "../../validators";
+import { isSuggestionObject } from "./suggestion-option";
 /**
  * An input is a space to enter short-form information in response to a question or instruction.
  */
@@ -30,6 +31,7 @@ export class GcdsInput {
          */
         // prettier-ignore
         this.type = 'text';
+        this.inputmode = null;
         /**
          * Set event to call validator
          */
@@ -52,6 +54,10 @@ export class GcdsInput {
             this.value = val;
             this.internals.setFormValue(val ? val : null);
             if (e.type === 'change') {
+                if (this.suggestionsArr &&
+                    this.suggestionsArr.some((suggestion) => { var _a; return val == ((_a = suggestion.value) !== null && _a !== void 0 ? _a : suggestion.label); })) {
+                    this.gcdsSuggestionSelected.emit(this.value);
+                }
                 const changeEvt = new e.constructor(e.type, e);
                 this.el.dispatchEvent(changeEvt);
             }
@@ -88,6 +94,42 @@ export class GcdsInput {
     }
     validateValidator() {
         this._validator = getValidator(this.validator);
+    }
+    validateSuggestions() {
+        if (this.suggestions == null ||
+            (typeof this.suggestions === 'string' && this.suggestions.trim() == '')) {
+            this.suggestionsArr = null;
+            return;
+        }
+        let invalidObject = false;
+        // Assign suggestionsArr from passed options string or array
+        if (typeof this.suggestions === 'string') {
+            try {
+                this.suggestions = JSON.parse(this.suggestions);
+            }
+            catch (e) {
+                logError('gcds-input', ['Invalid JSON string for suggestions']);
+                this.suggestions = null;
+            }
+        }
+        if (Array.isArray(this.suggestions)) {
+            this.suggestionsArr = this.suggestions;
+        }
+        else {
+            this.suggestionsArr = null;
+        }
+        // Validate options has type SuggestionOption, we allow an empty array to be used.
+        if (this.suggestionsArr) {
+            invalidObject = this.suggestionsArr.some(dlObject => !isSuggestionObject(dlObject));
+        }
+        else {
+            invalidObject = true;
+        }
+        // Log error if no or invalid optionsObject
+        const errors = handleErrors([], 'suggestions', this.suggestionsArr, invalidObject);
+        if (errors.length > 0) {
+            logError('gcds-input', errors);
+        }
     }
     validateHasError() {
         if (this.disabled) {
@@ -203,6 +245,7 @@ export class GcdsInput {
         // Define lang attribute
         this.lang = assignLanguage(this.el);
         this.updateLang();
+        this.validateSuggestions();
         this.validateDisabledInput();
         this.validateHasError();
         this.validateErrorMessage();
@@ -234,7 +277,7 @@ export class GcdsInput {
         }
     }
     render() {
-        const { disabled, errorMessage, hideLabel, hint, inputId, name, label, required, size, type, value, hasError, autocomplete, autofocus, form, max, maxlength, min, minlength, pattern, readonly, step, inputTitle, inheritedAttributes, lang, } = this;
+        const { disabled, errorMessage, hideLabel, hint, inputId, name, label, required, size, type, inputmode, value, hasError, autocomplete, autofocus, form, max, maxlength, min, minlength, pattern, readonly, step, inputTitle, inheritedAttributes, lang, } = this;
         // Use max-width to keep field responsive
         const style = {
             maxWidth: `calc(${size * 2}ch + 1.5rem)`,
@@ -242,6 +285,7 @@ export class GcdsInput {
         const attrsInput = Object.assign({ disabled,
             required,
             type,
+            inputmode,
             autocomplete,
             autofocus,
             form,
@@ -264,11 +308,16 @@ export class GcdsInput {
                 ? ` ${attrsInput['aria-describedby']}`
                 : ''}`;
         }
-        return (h(Host, { key: '9e1013a5309943d7d31bdbe27b0c40ad50547f20' }, h("div", { key: '05bdd407c9d032b45363937f384cd3bb4656d450', class: `gcds-input-wrapper ${disabled ? 'gcds-disabled' : ''} ${hasError ? 'gcds-error' : ''}` }, h("gcds-label", Object.assign({ key: 'd089b67c3e41629c03b25298fd61b972d2e9df0c' }, attrsLabel, { "hide-label": hideLabel, "label-for": inputId, lang: lang })), hint ? h("gcds-hint", { "hint-id": inputId }, hint) : null, errorMessage ? (h("gcds-error-message", { messageId: inputId }, errorMessage)) : null, h("input", Object.assign({ key: 'b596e0a0f64de1592f76614dbd1141baa07cec4f' }, attrsInput, { class: hasError ? 'gcds-error' : null, id: inputId, name: name, onBlur: () => this.onBlur(), onFocus: () => this.gcdsFocus.emit(), onInput: e => this.handleInput(e, this.gcdsInput), onChange: e => this.handleInput(e, this.gcdsChange), "aria-labelledby": `label-for-${inputId}`, "aria-invalid": inheritedAttributes['aria-invalid'] === 'true'
+        return (h(Host, { key: '8ba9b63b14c8c0e8625f7468be81462d3b719303' }, h("div", { key: '173a744866d8b3f6eb8e9727fa849123fb752933', class: `gcds-input-wrapper ${disabled ? 'gcds-disabled' : ''} ${hasError ? 'gcds-error' : ''}` }, h("gcds-label", Object.assign({ key: '4cad5a76c5912dfce86c3dd96aef58132483b05e' }, attrsLabel, { "hide-label": hideLabel, "label-for": inputId, lang: lang })), hint ? h("gcds-hint", { "hint-id": inputId }, hint) : null, errorMessage ? (h("gcds-error-message", { messageId: inputId }, errorMessage)) : null, h("input", Object.assign({ key: 'd19dd65df5c7993b6f08d2443b6b9a5b5fa01231' }, attrsInput, { class: hasError ? 'gcds-error' : null, id: inputId, name: name, onBlur: () => this.onBlur(), onFocus: () => this.gcdsFocus.emit(), onInput: e => this.handleInput(e, this.gcdsInput), onChange: e => this.handleInput(e, this.gcdsChange), "aria-labelledby": `label-for-${inputId}`, "aria-invalid": inheritedAttributes['aria-invalid'] === 'true'
                 ? inheritedAttributes['aria-invalid']
                 : errorMessage
                     ? 'true'
-                    : 'false', size: size, style: size ? style : null, part: "input", ref: element => (this.shadowElement = element) })))));
+                    : 'false', size: size, style: size ? style : null, list: this.suggestionsArr && this.suggestionsArr.length > 0
+                ? `datalist-for-${inputId}`
+                : null, part: "input", ref: element => (this.shadowElement = element) })), this.suggestionsArr && this.suggestionsArr.length > 0 ? (h("datalist", { id: `datalist-for-${inputId}` }, this.suggestionsArr.map((suggestionOption) => {
+            var _a;
+            return (h("option", { value: (_a = suggestionOption.value) !== null && _a !== void 0 ? _a : suggestionOption.label }, suggestionOption.label));
+        }))) : null)));
     }
     static get is() { return "gcds-input"; }
     static get encapsulation() { return "shadow"; }
@@ -479,6 +528,26 @@ export class GcdsInput {
                 "setter": false,
                 "reflect": false,
                 "defaultValue": "'text'"
+            },
+            "inputmode": {
+                "type": "string",
+                "attribute": "inputmode",
+                "mutable": false,
+                "complexType": {
+                    "original": "| 'none'\n    | 'text'\n    | 'decimal'\n    | 'numeric'\n    | 'tel'\n    | 'search'\n    | 'email'\n    | 'url'",
+                    "resolved": "\"decimal\" | \"email\" | \"none\" | \"numeric\" | \"search\" | \"tel\" | \"text\" | \"url\"",
+                    "references": {}
+                },
+                "required": false,
+                "optional": true,
+                "docs": {
+                    "tags": [],
+                    "text": ""
+                },
+                "getter": false,
+                "setter": false,
+                "reflect": false,
+                "defaultValue": "null"
             },
             "value": {
                 "type": "string",
@@ -764,6 +833,35 @@ export class GcdsInput {
                 "setter": false,
                 "reflect": false,
                 "defaultValue": "'blur'"
+            },
+            "suggestions": {
+                "type": "string",
+                "attribute": "suggestions",
+                "mutable": true,
+                "complexType": {
+                    "original": "string | Array<SuggestionOption>",
+                    "resolved": "SuggestionOption[] | string",
+                    "references": {
+                        "Array": {
+                            "location": "global",
+                            "id": "global::Array"
+                        },
+                        "SuggestionOption": {
+                            "location": "import",
+                            "path": "./suggestion-option",
+                            "id": "src/components/gcds-input/suggestion-option.tsx::SuggestionOption"
+                        }
+                    }
+                },
+                "required": false,
+                "optional": true,
+                "docs": {
+                    "tags": [],
+                    "text": "Array of suggestion options. This creates a datalist element with options to represent permissible or recommended options available to choose from."
+                },
+                "getter": false,
+                "setter": false,
+                "reflect": false
             }
         };
     }
@@ -814,6 +912,21 @@ export class GcdsInput {
                 "docs": {
                     "tags": [],
                     "text": "Emitted when the element has received input."
+                },
+                "complexType": {
+                    "original": "string",
+                    "resolved": "string",
+                    "references": {}
+                }
+            }, {
+                "method": "gcdsSuggestionSelected",
+                "name": "gcdsSuggestionSelected",
+                "bubbles": true,
+                "cancelable": true,
+                "composed": true,
+                "docs": {
+                    "tags": [],
+                    "text": "Emitted when a suggestion is selected."
                 },
                 "complexType": {
                     "original": "string",
@@ -940,6 +1053,9 @@ export class GcdsInput {
             }, {
                 "propName": "validator",
                 "methodName": "validateValidator"
+            }, {
+                "propName": "suggestions",
+                "methodName": "validateSuggestions"
             }, {
                 "propName": "hasError",
                 "methodName": "validateHasError"

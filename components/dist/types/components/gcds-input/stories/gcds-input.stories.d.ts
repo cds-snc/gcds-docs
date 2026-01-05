@@ -29,6 +29,8 @@ export declare const Maxlength: any;
 export declare const Minlength: any;
 export declare const Pattern: any;
 export declare const Step: any;
+export declare const Inputmode: any;
 export declare const Readonly: any;
+export declare const Suggestions: any;
 export declare const Props: any;
 export declare const Playground: any;

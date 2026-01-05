@@ -1,14 +1,25 @@
-import { Host, h, } from "@stencil/core";
-import { assignLanguage, emitEvent, inheritAttributes, logError, handleErrors, isValid, handleValidationResult, } from "../../utils/utils";
+import { Fragment, Host, h, } from "@stencil/core";
+import { assignLanguage, emitEvent, logError, handleErrors, isValid, handleValidationResult, validateRadioCheckboxGroup } from "../../utils/utils";
 import { defaultValidator, getValidator, requiredValidator, } from "../../validators";
 import { cleanUpValues, renderCheckbox, validateOptionsArray, } from "./checkbox";
+import i18n from "./i18n/i18n";
 /**
  * Checkboxes provide a set of options for multiple responses.
  */
 export class GcdsCheckboxes {
     constructor() {
         this.isGroup = false;
+        // @ts-ignore - Used by renderCheckbox() to set title on error
+        this.checkboxTitle = '';
         this._validator = defaultValidator;
+        /**
+         * For single checkbox, specifies if the label is hidden or not.
+         */
+        this.hideLabel = false;
+        /**
+         * For checkbox groups, specifies if the legend is hidden or not.
+         */
+        this.hideLegend = false;
         /**
          * Value for checkboxes component.
          */
@@ -55,6 +66,7 @@ export class GcdsCheckboxes {
                 else {
                     this.internals.setFormValue(null);
                 }
+                this.updateValidity();
             }
             customEvent.emit([...this.value]);
         };
@@ -106,6 +118,7 @@ export class GcdsCheckboxes {
                 this.internals.setFormValue(this.value.toString());
             }
         }
+        this.updateValidity();
     }
     validateErrorMessage() {
         if (this.disabled) {
@@ -118,6 +131,12 @@ export class GcdsCheckboxes {
     validateValidator() {
         this._validator = getValidator(this.validator);
     }
+    /**
+       * Read-only property of the checkboxes, returns a ValidityState object that represents the validity states this element is in.
+       */
+    get validity() {
+        return this.internals.validity;
+    }
     validateHasError() {
         if (this.disabled) {
             this.hasError = false;
@@ -128,6 +147,7 @@ export class GcdsCheckboxes {
      */
     async validate() {
         handleValidationResult(this.el, this._validator.validate(this.value), this.isGroup ? this.legend : this.optionsArr[0].label, this.gcdsError, this.gcdsValid, this.lang);
+        this.checkboxTitle = this.errorMessage;
     }
     /*
      * FormData listener to append values like native checkboxes
@@ -166,6 +186,34 @@ export class GcdsCheckboxes {
     formStateRestoreCallback(state) {
         this.internals.setFormValue(state);
         this.value = [...state.split(',')];
+    }
+    /**
+     * Check the validity of gcds-checkboxes
+     */
+    async checkValidity() {
+        return this.internals.checkValidity();
+    }
+    /**
+     * Get validationMessage of gcds-checkboxes
+     */
+    async getValidationMessage() {
+        return this.internals.validationMessage;
+    }
+    /**
+     * Update gcds-checkboxes's validity using internal input
+     */
+    updateValidity() {
+        var _a;
+        if (((_a = this.shadowElement) === null || _a === void 0 ? void 0 : _a.length) > 0) {
+            const validity = validateRadioCheckboxGroup(this.shadowElement);
+            let validationMessage = null;
+            if (validity === null || validity === void 0 ? void 0 : validity.valueMissing) {
+                validationMessage = this.lang === 'en' ? 'Choose an option to continue.' : 'Choisissez une option pour continuer.';
+            }
+            this.internals.setValidity(validity, validationMessage, this.shadowElement[0]);
+            // Set input title when HTML error occruring
+            this.checkboxTitle = validationMessage;
+        }
     }
     /*
      * Observe lang attribute change
@@ -207,13 +255,21 @@ export class GcdsCheckboxes {
             logError('gcds-checkboxes', this.errors);
         }
         this.initialState = this.value;
-        this.inheritedAttributes = inheritAttributes(this.el, this.shadowElement);
     }
     async componentDidUpdate() {
         // Validate props again if changed after render
         const valid = this.validateRequiredProps();
         if (!valid) {
             logError('gcds-checkboxes', this.errors);
+        }
+    }
+    async componentDidLoad() {
+        this.updateValidity();
+        // Logic to enable autofocus
+        if (this.autofocus) {
+            requestAnimationFrame(() => {
+                this.shadowElement[0].focus();
+            });
         }
     }
     /*
@@ -255,8 +311,9 @@ export class GcdsCheckboxes {
             fieldsetAttrs['aria-labelledby'] =
                 `${fieldsetAttrs['aria-labelledby']} ${hintID}`.trim();
         }
+        this.shadowElement = [];
         if (this.validateRequiredProps()) {
-            return (h(Host, { key: '1c4a5af6bf3886cf38fe0a9eb05781aabab35bbf', onBlur: () => this.isGroup && this.onBlurValidate() }, this.isGroup ? (h("fieldset", Object.assign({ class: "gcds-checkboxes__fieldset" }, fieldsetAttrs), h("legend", { id: "checkboxes-legend", class: "gcds-checkboxes__legend" }, legend, required ? (h("span", { class: "legend__required" }, " (required)")) : null), hint ? (h("gcds-hint", { id: "checkboxes-hint", "hint-id": "checkboxes" }, hint)) : null, errorMessage ? (h("div", null, h("gcds-error-message", { id: "checkboxes-error", messageId: "checkboxes" }, errorMessage))) : null, this.optionsArr &&
+            return (h(Host, { key: 'f37866363b587b6c228032f6940efa6e3bb4e90c', onBlur: () => this.isGroup && this.onBlurValidate() }, this.isGroup ? (h("fieldset", Object.assign({ class: "gcds-checkboxes__fieldset" }, fieldsetAttrs), h("legend", { id: "checkboxes-legend", class: "gcds-checkboxes__legend" }, this.hideLegend ? (h("gcds-sr-only", { tag: "span" }, legend, required && h("span", { class: "legend__required" }, i18n[this.lang].required))) : (h(Fragment, null, legend, required && h("span", { class: "legend__required" }, i18n[this.lang].required)))), hint ? (h("gcds-hint", { id: "checkboxes-hint", "hint-id": "checkboxes" }, hint)) : null, errorMessage ? (h("div", null, h("gcds-error-message", { id: "checkboxes-error", messageId: "checkboxes" }, errorMessage))) : null, this.optionsArr &&
                 this.optionsArr.map(checkbox => {
                     return renderCheckbox(checkbox, this, emitEvent, this.handleInput);
                 }))) : (this.optionsArr &&
@@ -385,6 +442,84 @@ export class GcdsCheckboxes {
                 "setter": false,
                 "reflect": true
             },
+            "autofocus": {
+                "type": "boolean",
+                "attribute": "autofocus",
+                "mutable": false,
+                "complexType": {
+                    "original": "boolean",
+                    "resolved": "boolean",
+                    "references": {}
+                },
+                "required": false,
+                "optional": false,
+                "docs": {
+                    "tags": [],
+                    "text": "If true, the checkobox will be focused on component render"
+                },
+                "getter": false,
+                "setter": false,
+                "reflect": true
+            },
+            "form": {
+                "type": "string",
+                "attribute": "form",
+                "mutable": false,
+                "complexType": {
+                    "original": "string",
+                    "resolved": "string",
+                    "references": {}
+                },
+                "required": false,
+                "optional": true,
+                "docs": {
+                    "tags": [],
+                    "text": "The ID of the form that the checkboxes belong to."
+                },
+                "getter": false,
+                "setter": false,
+                "reflect": true
+            },
+            "hideLabel": {
+                "type": "boolean",
+                "attribute": "hide-label",
+                "mutable": false,
+                "complexType": {
+                    "original": "boolean",
+                    "resolved": "boolean",
+                    "references": {}
+                },
+                "required": false,
+                "optional": true,
+                "docs": {
+                    "tags": [],
+                    "text": "For single checkbox, specifies if the label is hidden or not."
+                },
+                "getter": false,
+                "setter": false,
+                "reflect": false,
+                "defaultValue": "false"
+            },
+            "hideLegend": {
+                "type": "boolean",
+                "attribute": "hide-legend",
+                "mutable": false,
+                "complexType": {
+                    "original": "boolean",
+                    "resolved": "boolean",
+                    "references": {}
+                },
+                "required": false,
+                "optional": true,
+                "docs": {
+                    "tags": [],
+                    "text": "For checkbox groups, specifies if the legend is hidden or not."
+                },
+                "getter": false,
+                "setter": false,
+                "reflect": false,
+                "defaultValue": "false"
+            },
             "value": {
                 "type": "string",
                 "attribute": "value",
@@ -500,6 +635,29 @@ export class GcdsCheckboxes {
                 "setter": false,
                 "reflect": false,
                 "defaultValue": "'blur'"
+            },
+            "validity": {
+                "type": "unknown",
+                "attribute": "validity",
+                "mutable": false,
+                "complexType": {
+                    "original": "ValidityState",
+                    "resolved": "ValidityState",
+                    "references": {
+                        "ValidityState": {
+                            "location": "global",
+                            "id": "global::ValidityState"
+                        }
+                    }
+                },
+                "required": false,
+                "optional": false,
+                "docs": {
+                    "tags": [],
+                    "text": "Read-only property of the checkboxes, returns a ValidityState object that represents the validity states this element is in."
+                },
+                "getter": true,
+                "setter": false
             }
         };
     }
@@ -639,6 +797,40 @@ export class GcdsCheckboxes {
                 },
                 "docs": {
                     "text": "Call any active validators",
+                    "tags": []
+                }
+            },
+            "checkValidity": {
+                "complexType": {
+                    "signature": "() => Promise<boolean>",
+                    "parameters": [],
+                    "references": {
+                        "Promise": {
+                            "location": "global",
+                            "id": "global::Promise"
+                        }
+                    },
+                    "return": "Promise<boolean>"
+                },
+                "docs": {
+                    "text": "Check the validity of gcds-checkboxes",
+                    "tags": []
+                }
+            },
+            "getValidationMessage": {
+                "complexType": {
+                    "signature": "() => Promise<string>",
+                    "parameters": [],
+                    "references": {
+                        "Promise": {
+                            "location": "global",
+                            "id": "global::Promise"
+                        }
+                    },
+                    "return": "Promise<string>"
+                },
+                "docs": {
+                    "text": "Get validationMessage of gcds-checkboxes",
                     "tags": []
                 }
             }

@@ -9,7 +9,15 @@ export default {
     },
     argTypes: Object.assign(Object.assign(Object.assign({
         // Props
-        accept: {
+        hideLabel: {
+            name: 'hide-label',
+            control: { type: 'select' },
+            options: [false, true],
+            table: {
+                type: { summary: 'boolean' },
+                defaultValue: { summary: false },
+            },
+        }, accept: {
             control: 'text',
             table: {
                 type: { summary: 'string' },
@@ -84,6 +92,19 @@ export default {
                 type: { summary: 'string' },
                 defaultValue: { summary: '-' },
             },
+        }, autofocus: {
+            control: { type: 'select' },
+            options: [false, true],
+            table: {
+                type: { summary: 'boolean' },
+                defaultValue: { summary: false },
+            },
+        }, form: {
+            control: 'text',
+            table: {
+                type: { summary: 'string' },
+                defaultValue: { summary: '-' },
+            },
         }
     }, validatorProps), langProp), {
         // Events
@@ -96,6 +117,7 @@ const Template = args => `
   uploader-id="${args.uploaderId}"
   label="${args.label}"
   name="${args.name}"
+  ${args.hideLabel ? `hide-label` : null}
   ${args.hint ? `hint="${args.hint}"` : null}
   ${args.errorMessage ? `error-message="${args.errorMessage}"` : null}
   ${args.required ? `required` : null}
@@ -103,6 +125,8 @@ const Template = args => `
   ${args.value ? `value="${args.value}"` : null}
   ${args.accept ? `accept="${args.accept}"` : null}
   ${args.multiple ? `multiple` : null}
+  ${args.form ? `form="${args.form}"` : null}
+  ${args.autofocus ? `autofocus` : null}
   ${args.validateOn != 'blur' ? `validate-on="${args.validateOn}"` : null}
   ${args.lang != 'en' ? `lang="${args.lang}"` : null}
 >
@@ -113,6 +137,7 @@ const Template = args => `
   uploaderId="${args.uploaderId}"
   label="${args.label}"
   name="${args.name}"
+  ${args.hideLabel ? `hideLabel` : null}
   ${args.hint ? `hint="${args.hint}"` : null}
   ${args.errorMessage ? `errorMessage="${args.errorMessage}"` : null}
   ${args.required ? `required` : null}
@@ -120,6 +145,8 @@ const Template = args => `
   ${args.value ? `value="${args.value}"` : null}
   ${args.accept ? `accept="${args.accept}"` : null}
   ${args.multiple ? `multiple` : null}
+  ${args.form ? `form="${args.form}"` : null}
+  ${args.autofocus ? `autofocus` : null}
   ${args.validateOn != 'blur' ? `validateOn="${args.validateOn}"` : null}
   ${args.lang != 'en' ? `lang="${args.lang}"` : null}
 >
@@ -135,8 +162,11 @@ const TemplatePlayground = args => `
   ${args.required ? `required` : null}
   ${args.disabled ? `disabled` : null}
   value="${args.value}"
+  ${args.hideLabel ? `hide-label` : null}
   ${args.accept ? `accept="${args.accept}"` : null}
   ${args.multiple ? `multiple` : null}
+  ${args.form ? `form="${args.form}"` : null}
+  ${args.autofocus ? `autofocus` : null}
   validate-on="${args.validateOn}"
   lang="${args.lang}"
 >
@@ -151,6 +181,8 @@ Default.args = {
     hint: 'Hint / Example message.',
     validateOn: 'blur',
     lang: 'en',
+    form: '',
+    autofocus: '',
 };
 // ------ File uploader states ------
 export const Disabled = Template.bind({});
@@ -162,6 +194,8 @@ Disabled.args = {
     disabled: true,
     validateOn: 'blur',
     lang: 'en',
+    form: '',
+    autofocus: '',
 };
 export const Error = Template.bind({});
 Error.args = {
@@ -173,6 +207,8 @@ Error.args = {
     required: true,
     validateOn: 'blur',
     lang: 'en',
+    form: '',
+    autofocus: '',
 };
 export const Required = Template.bind({});
 Required.args = {
@@ -183,6 +219,19 @@ Required.args = {
     required: true,
     validateOn: 'blur',
     lang: 'en',
+    form: '',
+    autofocus: '',
+};
+export const Form = Template.bind({});
+Form.args = {
+    uploaderId: 'uploader-required',
+    name: 'file-uploader',
+    label: 'Label',
+    hint: 'Hint / Example message.',
+    validateOn: 'blur',
+    lang: 'en',
+    form: 'formID',
+    autofocus: '',
 };
 // ------ File uploader multiple ------
 export const Multiple = Template.bind({});
@@ -194,6 +243,8 @@ Multiple.args = {
     multiple: true,
     validateOn: 'blur',
     lang: 'en',
+    form: '',
+    autofocus: '',
 };
 // ------ File uploader accept ------
 export const AcceptAudio = Template.bind({});
@@ -205,6 +256,8 @@ AcceptAudio.args = {
     accept: 'audio/*',
     validateOn: 'blur',
     lang: 'en',
+    form: '',
+    autofocus: '',
 };
 export const AcceptImages = Template.bind({});
 AcceptImages.args = {
@@ -215,6 +268,8 @@ AcceptImages.args = {
     accept: 'image/*',
     validateOn: 'blur',
     lang: 'en',
+    form: '',
+    autofocus: '',
 };
 export const AcceptJpg = Template.bind({});
 AcceptJpg.args = {
@@ -225,6 +280,8 @@ AcceptJpg.args = {
     accept: 'image/jpeg',
     validateOn: 'blur',
     lang: 'en',
+    form: '',
+    autofocus: '',
 };
 export const AcceptPdf = Template.bind({});
 AcceptPdf.args = {
@@ -235,6 +292,8 @@ AcceptPdf.args = {
     accept: 'application/pdf',
     validateOn: 'blur',
     lang: 'en',
+    form: '',
+    autofocus: '',
 };
 export const AcceptPng = Template.bind({});
 AcceptPng.args = {
@@ -245,6 +304,8 @@ AcceptPng.args = {
     accept: 'image/png',
     validateOn: 'blur',
     lang: 'en',
+    form: '',
+    autofocus: '',
 };
 export const AcceptSvg = Template.bind({});
 AcceptSvg.args = {
@@ -255,6 +316,8 @@ AcceptSvg.args = {
     accept: 'image/svg+xml',
     validateOn: 'blur',
     lang: 'en',
+    form: '',
+    autofocus: '',
 };
 export const AcceptVideos = Template.bind({});
 AcceptVideos.args = {
@@ -265,6 +328,8 @@ AcceptVideos.args = {
     accept: 'video/*',
     validateOn: 'blur',
     lang: 'en',
+    form: '',
+    autofocus: '',
 };
 // ------ File uploader events & properties ------
 export const Props = Template.bind({});
@@ -281,6 +346,9 @@ Props.args = {
     multiple: false,
     validateOn: 'blur',
     lang: 'en',
+    form: '',
+    autofocus: '',
+    hideLabel: false,
 };
 // ------ File uploader playground ------
 export const Playground = TemplatePlayground.bind({});
@@ -297,5 +365,8 @@ Playground.args = {
     multiple: false,
     validateOn: 'blur',
     lang: 'en',
+    form: '',
+    autofocus: '',
+    hideLabel: false,
 };
 //# sourceMappingURL=gcds-file-uploader.stories.js.map

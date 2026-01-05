@@ -9,7 +9,15 @@ export default {
     },
     argTypes: Object.assign(Object.assign(Object.assign({
         // Props
-        selectId: {
+        hideLabel: {
+            name: 'hide-label',
+            control: { type: 'select' },
+            options: [false, true],
+            table: {
+                type: { summary: 'boolean' },
+                defaultValue: { summary: false },
+            },
+        }, selectId: {
             name: 'select-id',
             control: 'text',
             table: {
@@ -18,6 +26,25 @@ export default {
             },
             type: {
                 required: true,
+            },
+        }, autocomplete: {
+            control: 'text',
+            table: {
+                type: { summary: 'string' },
+                defaultValue: { summary: '-' },
+            },
+        }, autofocus: {
+            control: { type: 'select' },
+            options: [false, true],
+            table: {
+                type: { summary: 'boolean' },
+                defaultValue: { summary: false },
+            },
+        }, form: {
+            control: 'text',
+            table: {
+                type: { summary: 'string' },
+                defaultValue: { summary: '-' },
             },
         }, name: {
             name: 'name',
@@ -112,12 +139,16 @@ const Template = args => `
   select-id="${args.selectId}"
   label="${args.label}"
   name="${args.name}"
+  ${args.hideLabel ? `hide-label` : null}
   ${args.hint ? `hint="${args.hint}"` : null}
   ${args.value ? `value="${args.value}"` : null}
   ${args.defaultValue ? `default-value="${args.defaultValue}"` : null}
   ${args.required ? `required` : null}
   ${args.errorMessage ? `error-message="${args.errorMessage}"` : null}
   ${args.disabled ? `disabled` : null}
+  ${args.autocomplete ? `autocomplete="${args.autocomplete}"` : null}
+  ${args.autofocus ? `autofocus` : null}
+  ${args.form ? `form="${args.form}"` : null}
   ${args.validateOn != 'blur' ? `validate-on="${args.validateOn}"` : null}
   ${args.lang != 'en' ? `lang="${args.lang}"` : null}
 >
@@ -129,12 +160,16 @@ const Template = args => `
   selectId="${args.selectId}"
   label="${args.label}"
   name="${args.name}"
+  ${args.hideLabel ? `hideLabel` : null}
   ${args.hint ? `hint="${args.hint}"` : null}
   ${args.value ? `value="${args.value}"` : null}
   ${args.defaultValue ? `defaultValue="${args.defaultValue}"` : null}
   ${args.required ? `required` : null}
   ${args.errorMessage ? `errorMessage="${args.errorMessage}"` : null}
   ${args.disabled ? `disabled` : null}
+  ${args.autocomplete ? `autocomplete="${args.autocomplete}"` : null}
+  ${args.autofocus ? `autofocus` : null}
+  ${args.form ? `form="${args.form}"` : null}
   ${args.validateOn != 'blur' ? `validateOn="${args.validateOn}"` : null}
   ${args.lang != 'en' ? `lang="${args.lang}"` : null}
 >
@@ -146,12 +181,16 @@ const TemplatePlayground = args => `
   select-id="${args.selectId}"
   label="${args.label}"
   name="${args.name}"
+  ${args.hideLabel ? `hide-label` : null}
   ${args.hint ? `hint="${args.hint}"` : null}
   ${args.value ? `value="${args.value}"` : null}
   ${args.defaultValue ? `default-value="${args.defaultValue}"` : null}
   ${args.required ? `required` : null}
   ${args.errorMessage ? `error-message="${args.errorMessage}"` : null}
   ${args.disabled ? `disabled` : null}
+  ${args.autocomplete ? `autocomplete="${args.autocomplete}"` : null}
+  ${args.autofocus ? `autofocus` : null}
+  ${args.form ? `form="${args.form}"` : null}
   ${args.validateOn != 'blur' ? `validate-on="${args.validateOn}"` : null}
   ${args.lang != 'en' ? `lang="${args.lang}"` : null}
 >
@@ -173,6 +212,9 @@ Default.args = {
     lang: 'en',
     validateOn: 'blur',
     default: selectOptions,
+    autofocus: false,
+    autocomplete: '',
+    form: '',
 };
 // ------ Select states ------
 export const Disabled = Template.bind({});
@@ -186,6 +228,9 @@ Disabled.args = {
     lang: 'en',
     validateOn: 'blur',
     default: selectOptions,
+    autofocus: false,
+    autocomplete: '',
+    form: '',
 };
 export const Error = Template.bind({});
 Error.args = {
@@ -199,6 +244,9 @@ Error.args = {
     lang: 'en',
     validateOn: 'blur',
     default: selectOptions,
+    autofocus: false,
+    autocomplete: '',
+    form: '',
 };
 export const Required = Template.bind({});
 Required.args = {
@@ -211,6 +259,39 @@ Required.args = {
     lang: 'en',
     validateOn: 'blur',
     default: selectOptions,
+    autofocus: false,
+    autocomplete: '',
+    form: '',
+};
+export const Autocomplete = Template.bind({});
+Autocomplete.args = {
+    selectId: 'select-required',
+    label: 'Label',
+    name: 'select',
+    hint: 'Hint / Example message.',
+    defaultValue: 'Select option.',
+    required: false,
+    lang: 'en',
+    validateOn: 'blur',
+    default: selectOptions,
+    autofocus: false,
+    autocomplete: 'on',
+    form: '',
+};
+export const Form = Template.bind({});
+Form.args = {
+    selectId: 'select-required',
+    label: 'Label',
+    name: 'select',
+    hint: 'Hint / Example message.',
+    defaultValue: 'Select option.',
+    required: false,
+    lang: 'en',
+    validateOn: 'blur',
+    default: selectOptions,
+    autofocus: false,
+    autocomplete: '',
+    form: 'formID',
 };
 // ------ Select without default value ------
 export const WithoutDefaultValue = Template.bind({});
@@ -222,6 +303,9 @@ WithoutDefaultValue.args = {
     lang: 'en',
     validateOn: 'blur',
     default: selectOptions,
+    autofocus: false,
+    autocomplete: '',
+    form: '',
 };
 // ------ Select events & properties ------
 export const Props = Template.bind({});
@@ -238,6 +322,10 @@ Props.args = {
     lang: 'en',
     validateOn: 'blur',
     default: selectOptions,
+    autofocus: false,
+    autocomplete: '',
+    form: '',
+    hideLabel: false,
 };
 // ------ Select playground ------
 export const Playground = TemplatePlayground.bind({});
@@ -254,5 +342,9 @@ Playground.args = {
     lang: 'en',
     validateOn: 'blur',
     default: selectOptions,
+    autofocus: false,
+    autocomplete: '',
+    form: '',
+    hideLabel: false,
 };
 //# sourceMappingURL=gcds-select.stories.js.map

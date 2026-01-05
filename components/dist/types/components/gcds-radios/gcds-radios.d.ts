@@ -10,6 +10,7 @@ export declare class GcdsRadios {
     private shadowElement?;
     private initialValue?;
     private optionsArr;
+    private radioTitle;
     _validator: Validator<string>;
     /**
      * Props
@@ -24,6 +25,14 @@ export declare class GcdsRadios {
      */
     name: string;
     validateName(): void;
+    /**
+     * If true, the input will be focused on component render
+     */
+    autofocus: boolean;
+    /**
+     * The ID of the form that the radios belong to.
+     */
+    form?: string;
     /**
      * Label or legend for the group of radio elements
      */
@@ -52,6 +61,10 @@ export declare class GcdsRadios {
     value: string;
     validateValue(): void;
     /**
+     * Read-only property of the input, returns a ValidityState object that represents the validity states this element is in.
+     */
+    get validity(): ValidityState;
+    /**
      * Array of validators
      */
     validator: Array<string | ValidatorEntry | Validator<string>>;
@@ -60,6 +73,10 @@ export declare class GcdsRadios {
      * Set event to call validator
      */
     validateOn: 'blur' | 'submit' | 'other';
+    /**
+     * Specifies if the legend is hidden or not.
+     */
+    hideLegend?: boolean;
     /**
      * Specifies if the radio is invalid.
      */
@@ -81,6 +98,14 @@ export declare class GcdsRadios {
      * Call any active validators
      */
     validate(): Promise<void>;
+    /**
+     * Check the validity of gcds-radios
+     */
+    checkValidity(): Promise<boolean>;
+    /**
+     * Get validationMessage of gcds-radios
+     */
+    getValidationMessage(): Promise<string>;
     /**
      * Events
      */
@@ -113,10 +138,15 @@ export declare class GcdsRadios {
     submitListener(e: any): void;
     formResetCallback(): void;
     formStateRestoreCallback(state: any): void;
+    /**
+     * Update gcds-input's validity using internal input
+     */
+    private updateValidity;
     watchLang(newValue: any, oldValue: any): void;
     private handleInput;
     private validateRequiredProps;
     componentWillLoad(): Promise<void>;
     componentDidUpdate(): Promise<void>;
+    componentDidLoad(): Promise<void>;
     render(): any;
 }

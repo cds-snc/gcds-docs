@@ -1,5 +1,5 @@
 import { Host, h, } from "@stencil/core";
-import { assignLanguage, handleValidationResult, inheritAttributes, observerConfig, } from "../../utils/utils";
+import { assignLanguage, handleValidationResult, inheritAttributes, observerConfig } from "../../utils/utils";
 import { defaultValidator, getValidator, requiredValidator, } from "../../validators";
 import i18n from "./i18n/i18n";
 /**
@@ -7,7 +7,12 @@ import i18n from "./i18n/i18n";
  */
 export class GcdsFileUploader {
     constructor() {
+        this.inputTitle = '';
         this._validator = defaultValidator;
+        /**
+         * Specifies if the label is hidden or not.
+         */
+        this.hideLabel = false;
         /**
          * Specifies if a form field is required or not.
          */
@@ -53,6 +58,9 @@ export class GcdsFileUploader {
                 const changeEvt = new e.constructor(e.type, e);
                 this.el.dispatchEvent(changeEvt);
             }
+            else {
+                this.updateValidity();
+            }
             customEvent.emit(this.value);
         };
         this.removeFile = e => {
@@ -78,6 +86,7 @@ export class GcdsFileUploader {
             this.gcdsRemoveFile.emit(this.value);
             this.gcdsChange.emit(this.value);
             this.el.dispatchEvent(new Event('change', { bubbles: true, composed: true }));
+            this.updateValidity();
         };
         /*
          * Set form data for internals
@@ -126,10 +135,29 @@ export class GcdsFileUploader {
         }
     }
     /**
+     * Read-only property of the file uploader, returns a ValidityState object that represents the validity states this element is in.
+     */
+    get validity() {
+        return this.internals.validity;
+    }
+    /**
      * Call any active validators
      */
     async validate() {
         handleValidationResult(this.el, this._validator.validate(this.shadowElement.files), this.label, this.gcdsError, this.gcdsValid, this.lang);
+        this.inputTitle = this.errorMessage;
+    }
+    /**
+     * Check the validity of gcds-file-uploader
+     */
+    async checkValidity() {
+        return this.internals.checkValidity();
+    }
+    /**
+     * Get validationMessage of gcds-file-uploader
+     */
+    async getValidationMessage() {
+        return this.internals.validationMessage;
     }
     submitListener(e) {
         if (e.target == this.el.closest('form')) {
@@ -152,6 +180,21 @@ export class GcdsFileUploader {
         this.internals.setFormValue(state);
         this.value = state;
     }
+    /**
+     * Update gcds-file-uploader's validity using internal input
+     */
+    updateValidity() {
+        if (!this.shadowElement)
+            return;
+        const validity = this.shadowElement.validity;
+        let validationMessage = null;
+        if (validity === null || validity === void 0 ? void 0 : validity.valueMissing) {
+            validationMessage = this.lang === 'en' ? 'You must upload a file to continue.' : 'Vous devez téléverser un fichier pour continuer.';
+        }
+        this.internals.setValidity(validity, validationMessage, this.shadowElement);
+        // Set input title when HTML error occruring
+        this.inputTitle = validationMessage;
+    }
     /*
      * Handle drop event on file uploader
      */
@@ -169,6 +212,7 @@ export class GcdsFileUploader {
             }
             this.gcdsChange.emit(this.value);
             this.el.dispatchEvent(new Event('change', { bubbles: true, composed: true }));
+            this.updateValidity();
         }
         // Focus file input after drop
         this.shadowElement.focus();
@@ -196,14 +240,25 @@ export class GcdsFileUploader {
         this.validateValidator();
         this.inheritedAttributes = inheritAttributes(this.el, this.shadowElement);
     }
+    async componentDidLoad() {
+        this.updateValidity();
+        // Logic to enable autofocus
+        if (this.autofocus) {
+            requestAnimationFrame(() => {
+                var _a;
+                (_a = this.shadowElement) === null || _a === void 0 ? void 0 : _a.focus();
+            });
+        }
+    }
     render() {
-        const { accept, disabled, errorMessage, hasError, hint, label, lang, multiple, name, required, uploaderId, value, inheritedAttributes, } = this;
+        const { accept, disabled, errorMessage, hasError, hint, label, hideLabel, lang, multiple, name, required, uploaderId, value, inputTitle, autofocus, form, inheritedAttributes, } = this;
         const attrsInput = Object.assign(Object.assign({ accept,
             disabled,
             multiple,
             name,
             required,
-            value }, inheritedAttributes), { 'aria-describedby': `${inheritedAttributes['aria-describedby']
+            value, title: inputTitle, autofocus,
+            form }, inheritedAttributes), { 'aria-describedby': `${inheritedAttributes['aria-describedby']
                 ? `${inheritedAttributes['aria-describedby']} `
                 : ''}file-uploader__summary` });
         const attrsLabel = {
@@ -216,7 +271,7 @@ export class GcdsFileUploader {
             attrsInput['aria-describedby'] =
                 `${hintID}${errorID}${attrsInput['aria-describedby']}`;
         }
-        return (h(Host, { key: '3c4798ba95cfb45c77e484ea3836968f7d3698e1' }, h("div", { key: '115b140d32698bb3983683c31daee9de34831f08', class: `gcds-file-uploader-wrapper ${disabled ? 'gcds-disabled' : ''} ${hasError ? 'gcds-error' : ''}` }, h("gcds-label", Object.assign({ key: 'cfe225f2311c2a75ec06bd5c26c031223385b9ab' }, attrsLabel, { "label-for": uploaderId, lang: lang })), hint ? h("gcds-hint", { "hint-id": uploaderId }, hint) : null, errorMessage ? (h("gcds-error-message", { messageId: uploaderId }, errorMessage)) : null, h("div", { key: 'd185acf8dfa1ce7ba4fd20026d55dfb5b5bc77bf', class: `file-uploader__input ${value.length > 0 ? 'uploaded-files' : ''}`, onDrop: e => this.handleDrop(e), onDragOver: e => e.preventDefault() }, h("button", { key: '9a2288f444c5c259dc5bc0a6a4a035284634bd8e', type: "button", tabindex: "-1", onClick: () => this.shadowElement.click() }, i18n[lang].button.upload), h("input", Object.assign({ key: 'd90e7244310af4e497ce2002a1b05d058f8b2b45', type: "file", id: uploaderId }, attrsInput, { onBlur: () => this.onBlur(), onFocus: () => this.gcdsFocus.emit(), onInput: e => this.handleInput(e, this.gcdsInput), onChange: e => this.handleInput(e, this.gcdsChange), "aria-invalid": hasError ? 'true' : 'false', ref: element => (this.shadowElement = element) })), value.length > 0 ? (h("gcds-sr-only", { id: "file-uploader__summary" }, h("span", null, i18n[lang].summary.selected, " "), value.map(file => (h("span", null, file, " "))))) : (h("gcds-sr-only", { id: "file-uploader__summary" }, i18n[lang].summary.unselected))), value.length > 0
+        return (h(Host, { key: '7f8da364ccd3dd2247eb3ca0acfdf626350bc935' }, h("div", { key: '194df3b32d1751a1552d19a4a09f6794fd93e960', class: `gcds-file-uploader-wrapper ${disabled ? 'gcds-disabled' : ''} ${hasError ? 'gcds-error' : ''}` }, h("gcds-label", Object.assign({ key: '4ae5e97f811a21823866c153211ce7903175351e' }, attrsLabel, { "hide-label": hideLabel, "label-for": uploaderId, lang: lang })), hint ? h("gcds-hint", { "hint-id": uploaderId }, hint) : null, errorMessage ? (h("gcds-error-message", { messageId: uploaderId }, errorMessage)) : null, h("div", { key: 'f40d3488ea2aaa8d2833c4f1c988f67c847deb94', class: `file-uploader__input ${value.length > 0 ? 'uploaded-files' : ''}`, onDrop: e => this.handleDrop(e), onDragOver: e => e.preventDefault() }, h("button", { key: '9ce270d208d451d2b240d8049d5b5a07a5bf1791', type: "button", tabindex: "-1", onClick: () => this.shadowElement.click() }, i18n[lang].button.upload), h("input", Object.assign({ key: '9ef4ac5e052c73626541fdfc3f2eb98fc65f4482', type: "file", id: uploaderId }, attrsInput, { onBlur: () => this.onBlur(), onFocus: () => this.gcdsFocus.emit(), onInput: e => this.handleInput(e, this.gcdsInput), onChange: e => this.handleInput(e, this.gcdsChange), "aria-invalid": hasError ? 'true' : 'false', ref: element => (this.shadowElement = element) })), value.length > 0 ? (h("gcds-sr-only", { id: "file-uploader__summary" }, h("span", null, i18n[lang].summary.selected, " "), value.map(file => (h("span", null, file, " "))))) : (h("gcds-sr-only", { id: "file-uploader__summary" }, i18n[lang].summary.unselected))), value.length > 0
             ? value.map(file => (h("div", { class: "file-uploader__uploaded-file", "aria-label": `${i18n[lang].removeFile} ${file}.` }, h("gcds-text", { "margin-bottom": "0" }, file), h("button", { onClick: e => this.removeFile(e) }, h("span", null, i18n[lang].button.remove), h("gcds-icon", { name: "close", size: "text", "margin-left": "150" })))))
             : null)));
     }
@@ -292,6 +347,26 @@ export class GcdsFileUploader {
                 "getter": false,
                 "setter": false,
                 "reflect": true
+            },
+            "hideLabel": {
+                "type": "boolean",
+                "attribute": "hide-label",
+                "mutable": false,
+                "complexType": {
+                    "original": "boolean",
+                    "resolved": "boolean",
+                    "references": {}
+                },
+                "required": false,
+                "optional": true,
+                "docs": {
+                    "tags": [],
+                    "text": "Specifies if the label is hidden or not."
+                },
+                "getter": false,
+                "setter": false,
+                "reflect": false,
+                "defaultValue": "false"
             },
             "required": {
                 "type": "boolean",
@@ -507,6 +582,67 @@ export class GcdsFileUploader {
                 "setter": false,
                 "reflect": false,
                 "defaultValue": "'blur'"
+            },
+            "validity": {
+                "type": "unknown",
+                "attribute": "validity",
+                "mutable": false,
+                "complexType": {
+                    "original": "ValidityState",
+                    "resolved": "ValidityState",
+                    "references": {
+                        "ValidityState": {
+                            "location": "global",
+                            "id": "global::ValidityState"
+                        }
+                    }
+                },
+                "required": false,
+                "optional": false,
+                "docs": {
+                    "tags": [],
+                    "text": "Read-only property of the file uploader, returns a ValidityState object that represents the validity states this element is in."
+                },
+                "getter": true,
+                "setter": false
+            },
+            "autofocus": {
+                "type": "boolean",
+                "attribute": "autofocus",
+                "mutable": false,
+                "complexType": {
+                    "original": "boolean",
+                    "resolved": "boolean",
+                    "references": {}
+                },
+                "required": false,
+                "optional": false,
+                "docs": {
+                    "tags": [],
+                    "text": "If true, the file uploader will be focused on component render"
+                },
+                "getter": false,
+                "setter": false,
+                "reflect": true
+            },
+            "form": {
+                "type": "string",
+                "attribute": "form",
+                "mutable": false,
+                "complexType": {
+                    "original": "string",
+                    "resolved": "string",
+                    "references": {}
+                },
+                "required": false,
+                "optional": true,
+                "docs": {
+                    "tags": [],
+                    "text": "The ID of the form that the file uploader field belongs to."
+                },
+                "getter": false,
+                "setter": false,
+                "reflect": true
             }
         };
     }
@@ -645,6 +781,40 @@ export class GcdsFileUploader {
                 },
                 "docs": {
                     "text": "Call any active validators",
+                    "tags": []
+                }
+            },
+            "checkValidity": {
+                "complexType": {
+                    "signature": "() => Promise<boolean>",
+                    "parameters": [],
+                    "references": {
+                        "Promise": {
+                            "location": "global",
+                            "id": "global::Promise"
+                        }
+                    },
+                    "return": "Promise<boolean>"
+                },
+                "docs": {
+                    "text": "Check the validity of gcds-file-uploader",
+                    "tags": []
+                }
+            },
+            "getValidationMessage": {
+                "complexType": {
+                    "signature": "() => Promise<string>",
+                    "parameters": [],
+                    "references": {
+                        "Promise": {
+                            "location": "global",
+                            "id": "global::Promise"
+                        }
+                    },
+                    "return": "Promise<string>"
+                },
+                "docs": {
+                    "text": "Get validationMessage of gcds-file-uploader",
                     "tags": []
                 }
             }

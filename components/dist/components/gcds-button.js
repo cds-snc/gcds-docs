@@ -1,2 +1,2 @@
-import{G as o,d as s}from"./p-CqcJ-wZg.js";const t=o;const c=s;export{t as GcdsButton,c as defineCustomElement};
+import{G as s,d as o}from"./p-DsYUH8BG.js";const t=s;const p=o;export{t as GcdsButton,p as defineCustomElement};
 //# sourceMappingURL=gcds-button.js.map

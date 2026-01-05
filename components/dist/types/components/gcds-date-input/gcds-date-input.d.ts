@@ -7,6 +7,11 @@ export declare class GcdsDateInput {
     el: HTMLElement;
     internals: ElementInternals;
     private initialValue?;
+    private fieldset?;
+    private yearInput?;
+    private monthSelect?;
+    private dayInput?;
+    private htmlValidationErrors;
     _validator: Validator<string>;
     /**
      * Name attribute for the date input.
@@ -44,6 +49,28 @@ export declare class GcdsDateInput {
      * Specifies if the date input is disabled or not.
      */
     disabled?: boolean;
+    /**
+     * If true, the date-input will be focused on component render
+     */
+    autofocus: boolean;
+    /**
+     * The maximum date that the date-input field can accept.
+     * Format: YYYY-MM-DD or YYYY-MM
+     */
+    max?: string;
+    /**
+     * The minimum date that the date-input field can accept.
+     * Format: YYYY-MM-DD or YYYY-MM
+     */
+    min?: string;
+    /**
+     * The ID of the form that the date-input field belongs to.
+     */
+    form?: string;
+    /**
+     * Read-only property of the date-input, returns a ValidityState object that represents the validity states this element is in.
+     */
+    get validity(): ValidityState;
     /**
      * Array of validators
      */
@@ -113,9 +140,22 @@ export declare class GcdsDateInput {
      * Call any active validators
      */
     validate(): Promise<void>;
+    /**
+     * Check the validity of gcds-date-input
+     */
+    checkValidity(): Promise<boolean>;
+    /**
+     * Get validationMessage of gcds-date-input
+     */
+    getValidationMessage(): Promise<string>;
     submitListener(e: any): Promise<void>;
     formResetCallback(): void;
     formStateRestoreCallback(state: any): void;
+    private checkAndValidateValidity;
+    /**
+     * Update gcds-date-input's validity using internal form elements
+     */
+    private updateValidity;
     updateLang(): void;
     private handleInput;
     /**
@@ -128,5 +168,6 @@ export declare class GcdsDateInput {
     private splitFormValue;
     private validateRequiredProps;
     componentWillLoad(): Promise<void>;
+    componentDidLoad(): Promise<void>;
     render(): any;
 }

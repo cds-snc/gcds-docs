@@ -16,5 +16,7 @@ export declare const Disabled: any;
 export declare const CheckedProp: any;
 export declare const CheckedValue: any;
 export declare const Error: any;
+export declare const Form: any;
+export declare const HideLegend: any;
 export declare const Props: any;
 export declare const Playground: any;

@@ -1,5 +1,6 @@
 import { EventEmitter } from '../../stencil-public-runtime';
 import { Validator, ValidatorEntry, ValidatorOld } from '../../validators';
+import { SuggestionOption } from './suggestion-option';
 /**
  * An input is a space to enter short-form information in response to a question or instruction.
  */
@@ -10,6 +11,7 @@ export declare class GcdsInput {
     private shadowElement?;
     private htmlValidationErrors;
     private inputTitle;
+    private suggestionsArr;
     _validator: Validator<string> | ValidatorOld<string>;
     /**
      * Props
@@ -57,6 +59,7 @@ export declare class GcdsInput {
      * Set Input types
      */
     type?: 'email' | 'number' | 'password' | 'search' | 'tel' | 'text' | 'url';
+    inputmode?: 'none' | 'text' | 'decimal' | 'numeric' | 'tel' | 'search' | 'email' | 'url';
     /**
      * Default value for an input element.
      */
@@ -121,6 +124,11 @@ export declare class GcdsInput {
      */
     validateOn: 'blur' | 'submit' | 'other';
     /**
+     * Array of suggestion options. This creates a datalist element with options to represent permissible or recommended options available to choose from.
+     */
+    suggestions?: string | Array<SuggestionOption>;
+    validateSuggestions(): void;
+    /**
      * Set additional HTML attributes not available in component properties
      */
     inheritedAttributes: Object;
@@ -154,6 +162,10 @@ export declare class GcdsInput {
      * Emitted when the element has received input.
      */
     gcdsInput: EventEmitter<string>;
+    /**
+     * Emitted when a suggestion is selected.
+     */
+    gcdsSuggestionSelected: EventEmitter<string>;
     /**
      * Handling input and change events on input
      */

@@ -1,9 +1,9 @@
 'use strict';
 
 var index = require('./index-DPc_YL85.js');
-var utils = require('./utils-DUYXmtTw.js');
+var utils = require('./utils-BMTdBAFF.js');
 
-const I18N$p = {
+const I18N$q = {
   en: {
     label: {
       danger: 'This is a critical alert.',
@@ -80,13 +80,13 @@ const GcdsAlert = class {
     render() {
         const { alertRole, container, heading, hideCloseBtn, hideRoleIcon, isFixed, isOpen, lang, } = this;
         return (index.h(index.Host, { key: '9ca55e2b6562e7dfda9e367b21b5d2aa3bbe37d7' }, isOpen ? (index.h("div", { class: `gcds-alert alert--role-${alertRole} ${isFixed ? 'alert--is-fixed' : ''}`, role: "alert", "aria-label": alertRole === 'danger'
-                ? I18N$p[lang].label.danger
+                ? I18N$q[lang].label.danger
                 : alertRole === 'info'
-                    ? I18N$p[lang].label.info
+                    ? I18N$q[lang].label.info
                     : alertRole === 'success'
-                        ? I18N$p[lang].label.success
+                        ? I18N$q[lang].label.success
                         : alertRole === 'warning'
-                            ? I18N$p[lang].label.warning
+                            ? I18N$q[lang].label.warning
                             : null }, index.h("gcds-container", { size: isFixed ? container : 'full', centered: true }, index.h("div", { class: "alert__container" }, !hideRoleIcon && (index.h("gcds-icon", { "aria-hidden": "true", class: "alert__icon", size: "h5", "margin-right": "175", name: alertRole === 'danger'
                 ? 'exclamation-circle'
                 : alertRole === 'info'
@@ -100,13 +100,13 @@ const GcdsAlert = class {
                 if (event) {
                     this.isOpen = false;
                 }
-            }, "aria-label": I18N$p[lang].closeBtn }, index.h("gcds-icon", { "aria-hidden": "true", name: "close", size: "text" }))))))) : null));
+            }, "aria-label": I18N$q[lang].closeBtn }, index.h("gcds-icon", { "aria-hidden": "true", name: "close", size: "text" }))))))) : null));
     }
     get el() { return index.getElement(this); }
 };
 GcdsAlert.style = gcdsAlertCss;
 
-const I18N$o = {
+const I18N$p = {
   en: {
     label: 'Breadcrumb',
     link: 'https://www.canada.ca/en.html',
@@ -148,7 +148,7 @@ const GcdsBreadcrumbs = class {
     }
     render() {
         const { hideCanadaLink, lang } = this;
-        return (index.h(index.Host, { key: '03039bf66fd3e4f7939818708e4b2e3eecb9ea16' }, index.h("nav", { key: 'a544a335b8a3308bac153517792c2ff9b24cc436', "aria-label": I18N$o[lang].label, class: "gcds-breadcrumbs" }, index.h("ol", { key: 'f4daf2765861e5b362e50c5197e34457c2088aa4', class: hideCanadaLink ? '' : 'has-canada-link' }, !hideCanadaLink ? (index.h("gcds-breadcrumbs-item", { href: I18N$o[lang].link }, "Canada.ca")) : null, index.h("slot", { key: '0001a34312ea97c7e9c4f41f656051482184142e' })))));
+        return (index.h(index.Host, { key: '03039bf66fd3e4f7939818708e4b2e3eecb9ea16' }, index.h("nav", { key: 'a544a335b8a3308bac153517792c2ff9b24cc436', "aria-label": I18N$p[lang].label, class: "gcds-breadcrumbs" }, index.h("ol", { key: 'f4daf2765861e5b362e50c5197e34457c2088aa4', class: hideCanadaLink ? '' : 'has-canada-link' }, !hideCanadaLink ? (index.h("gcds-breadcrumbs-item", { href: I18N$p[lang].link }, "Canada.ca")) : null, index.h("slot", { key: '0001a34312ea97c7e9c4f41f656051482184142e' })))));
     }
     get el() { return index.getElement(this); }
 };
@@ -171,7 +171,7 @@ const GcdsBreadcrumbsItem = class {
 };
 GcdsBreadcrumbsItem.style = gcdsBreadcrumbsItemCss;
 
-const I18N$n = {
+const I18N$o = {
   en: {
     label: 'Opens in a new tab.',
   },
@@ -305,7 +305,7 @@ const GcdsButton = class {
                 target,
                 download,
             };
-        return (index.h(index.Host, { key: 'e9340ebfb8c10ce33a593b6b7f54394949317506' }, index.h(Tag, Object.assign({ key: 'c62ba255b62ddbff1c3dbef61a4e64973df1bccb' }, attrs, { id: buttonId, onBlur: () => this.gcdsBlur.emit(), onFocus: () => this.gcdsFocus.emit(), onClick: e => !disabled ? this.handleClick(e) : e.stopImmediatePropagation(), class: `gcds-button button--role-${buttonRole} button--${size}`, ref: element => (this.shadowElement = element) }, inheritedAttributes, { part: "button" }), index.h("slot", { key: 'f922fc8e16a85bce258204ff670bc6aaa81ca119' }), type === 'link' && target === '_blank' ? (index.h("gcds-icon", { name: "external", label: I18N$n[lang].label, "margin-left": "150" })) : null)));
+        return (index.h(index.Host, { key: 'e9340ebfb8c10ce33a593b6b7f54394949317506' }, index.h(Tag, Object.assign({ key: 'c62ba255b62ddbff1c3dbef61a4e64973df1bccb' }, attrs, { id: buttonId, onBlur: () => this.gcdsBlur.emit(), onFocus: () => this.gcdsFocus.emit(), onClick: e => !disabled ? this.handleClick(e) : e.stopImmediatePropagation(), class: `gcds-button button--role-${buttonRole} button--${size}`, ref: element => (this.shadowElement = element) }, inheritedAttributes, { part: "button" }), index.h("slot", { key: 'f922fc8e16a85bce258204ff670bc6aaa81ca119' }), type === 'link' && target === '_blank' ? (index.h("gcds-icon", { name: "external", label: I18N$o[lang].label, "margin-left": "150" })) : null)));
     }
     static get delegatesFocus() { return true; }
     get el() { return index.getElement(this); }
@@ -318,7 +318,7 @@ const GcdsButton = class {
 };
 GcdsButton.style = gcdsButtonCss;
 
-const I18N$m = {
+const I18N$n = {
   en: {
     tagged: 'Tagged:',
     badgeError: 'gcds-card: The badge attribute has a character limit of 20 characters.',
@@ -329,7 +329,7 @@ const I18N$m = {
   },
 };
 
-const gcdsCardCss = "@layer reset, default, link, hover, focus;@layer reset{:host{display:block}:host *{box-sizing:border-box;margin:0;padding:0}:host slot{display:initial}}@layer default{:host .gcds-card{background-color:var(--gcds-card-background-color);box-shadow:var(--gcds-card-box-shadow);color:var(--gcds-card-color);display:block;height:100%;max-width:var(--gcds-card-max-width);overflow:hidden;padding:var(--gcds-card-padding);position:relative}:host .gcds-card .gcds-badge{background-color:var(--gcds-card-badge-background-color);left:0;padding:var(--gcds-card-badge-padding);position:absolute;text-wrap:nowrap;top:0}@media only screen and (width < 48em){:host .gcds-card .gcds-badge{padding:var(--gcds-card-badge-mobile-padding)}}:host .gcds-card .gcds-card__image{margin:var(--gcds-card-image-margin);width:100%}:host .gcds-card .gcds-card__title{font:var(--gcds-card-title-font-desktop);width:fit-content}@media only screen and (width < 48em){:host .gcds-card .gcds-card__title{font:var(--gcds-card-title-font-mobile)}}:host .gcds-card .gcds-card__title:has(+.gcds-card__description){margin:var(--gcds-card-title-margin)}:host .gcds-card .gcds-card__description{--gcds-text-size-body-desktop:var(--gcds-card-description-font-desktop)}@media only screen and (width < 48em){:host .gcds-card .gcds-card__description{font:var(--gcds-card-description-font-mobile)}}}@layer link{:host .gcds-card gcds-link::part(link):after{bottom:0;content:\"\";left:0;pointer-events:auto;position:absolute;right:0;top:0}}@layer hover{@media (hover:hover){:host .gcds-card:hover{background-color:var(--gcds-card-hover-background-color);box-shadow:var(--gcds-card-hover-box-shadow);cursor:pointer}}}@layer focus{:host .gcds-card:focus-within{box-shadow:var(--gcds-card-focus-box-shadow);outline:var(--gcds-card-focus-outline);outline-offset:var(--gcds-card-focus-outline-offset)}:host gcds-link::part(link):focus{background-color:var(--gcds-card-focus-link-background-color);border:var(--gcds-card-focus-link-border);box-shadow:var(--gcds-card-focus-link-box-shadow);color:var(--gcds-card-focus-link-color);outline:var(--gcds-card-focus-link-outline);text-decoration:underline currentColor var(--gcds-card-focus-link-text-decoration-thickness)}}";
+const gcdsCardCss = "@layer reset, default, link, hover, focus;@layer reset{:host{display:block}:host *{box-sizing:border-box;margin:0;padding:0}:host slot{display:initial}}@layer default{:host .gcds-card{background-color:var(--gcds-card-background-color);box-shadow:var(--gcds-card-box-shadow);color:var(--gcds-card-color);display:block;height:100%;max-width:var(--gcds-card-max-width);overflow:hidden;padding:var(--gcds-card-padding);position:relative}:host .gcds-card .gcds-badge{background-color:var(--gcds-card-badge-background-color);left:0;padding:var(--gcds-card-badge-padding);position:absolute;text-wrap:nowrap;top:0}@media only screen and (width < 48em){:host .gcds-card .gcds-badge{padding:var(--gcds-card-badge-mobile-padding)}}:host .gcds-card .gcds-card__image{display:block;margin:var(--gcds-card-image-margin);width:100%}:host .gcds-card .gcds-card__title{font:var(--gcds-card-title-font-desktop);width:fit-content}@media only screen and (width < 48em){:host .gcds-card .gcds-card__title{font:var(--gcds-card-title-font-mobile)}}:host .gcds-card .gcds-card__title:has(+.gcds-card__description){margin:var(--gcds-card-title-margin)}:host .gcds-card .gcds-card__description{--gcds-text-size-body-desktop:var(--gcds-card-description-font-desktop)}@media only screen and (width < 48em){:host .gcds-card .gcds-card__description{font:var(--gcds-card-description-font-mobile)}}}@layer link{:host .gcds-card gcds-link::part(link):after{bottom:0;content:\"\";left:0;pointer-events:auto;position:absolute;right:0;top:0}}@layer hover{@media (hover:hover){:host .gcds-card:hover{background-color:var(--gcds-card-hover-background-color);box-shadow:var(--gcds-card-hover-box-shadow);cursor:pointer}}}@layer focus{:host .gcds-card:focus-within{box-shadow:var(--gcds-card-focus-box-shadow);outline:var(--gcds-card-focus-outline);outline-offset:var(--gcds-card-focus-outline-offset)}:host gcds-link::part(link):focus{background-color:var(--gcds-card-focus-link-background-color);border:var(--gcds-card-focus-link-border);box-shadow:var(--gcds-card-focus-link-box-shadow);color:var(--gcds-card-focus-link-color);outline:var(--gcds-card-focus-link-outline);text-decoration:underline currentColor var(--gcds-card-focus-link-text-decoration-thickness)}}";
 
 const GcdsCard = class {
     constructor(hostRef) {
@@ -367,7 +367,7 @@ const GcdsCard = class {
     }
     validateBadge() {
         if (this.badge && this.badge.length > 20) {
-            console.error(`${I18N$m['en'].badgeError} | ${I18N$m['fr'].badgeError}`);
+            console.error(`${I18N$n['en'].badgeError} | ${I18N$n['fr'].badgeError}`);
             this.errors.push('badge');
         }
         else if (this.errors.includes('badge')) {
@@ -418,14 +418,14 @@ const GcdsCard = class {
         }
     }
     render() {
-        const { cardTitle, cardTitleTag, href, badge, imgSrc, imgAlt, renderDescription, lang, errors, } = this;
+        const { cardTitle, cardTitleTag, href, badge, imgSrc, imgAlt, rel, target, renderDescription, lang, errors, } = this;
         const Element = cardTitleTag;
         const taggedAttr = {};
         if (badge) {
             taggedAttr['aria-describedby'] = 'gcds-badge';
         }
         if (this.validateRequiredProps()) {
-            return (index.h(index.Host, { key: 'e2311efdcaaadb272a36f44c3e3eb051b4767b5d' }, index.h("div", { key: '234bde32e565a54786b2f872762ed95c19c821cc', class: "gcds-card" }, badge && !errors.includes('badge') && (index.h("gcds-text", { key: '844bfe328181351d24e68b83f57b7d4f9a9a3b75', id: "gcds-badge", class: "gcds-badge", "text-role": "light", "margin-bottom": "0", size: "small" }, index.h("strong", { key: '565872d89c99d6c4541b2ec494b8abdbfc79d035' }, index.h("gcds-sr-only", { key: '30196619952eb4d38d677db62184d9491e458c19', tag: "span" }, I18N$m[lang].tagged), badge))), imgSrc && (index.h("img", { key: 'b233e6e13e836831ab9c207483529a7424b5c887', src: imgSrc, alt: imgAlt ? imgAlt : '', class: "gcds-card__image" })), Element != 'a' ? (index.h(Element, Object.assign({ class: "gcds-card__title" }, taggedAttr), index.h("gcds-link", { href: href }, cardTitle))) : (index.h("gcds-link", Object.assign({ href: href, class: "gcds-card__title" }, taggedAttr), cardTitle)), renderDescription)));
+            return (index.h(index.Host, { key: '63362d1b4d0400fd13351181755b50976372b01c' }, index.h("div", { key: 'da6b99dc52d26f393c46f411cb886a76f29bb89d', class: "gcds-card" }, badge && !errors.includes('badge') && (index.h("gcds-text", { key: 'd6fb663560860206c180a33bd4fd0379a9d14a79', id: "gcds-badge", class: "gcds-badge", "text-role": "light", "margin-bottom": "0", size: "small" }, index.h("strong", { key: 'd80f3a9c559224d534fa6918bc7871f2125dc5ef' }, index.h("gcds-sr-only", { key: '6aeed4c241c3fe00e95f1f7f98f8c59bd3bd5fce', tag: "span" }, I18N$n[lang].tagged), badge))), imgSrc && (index.h("img", { key: '924bcbb696ef0a579370e2986e7cc4daa4580d1b', src: imgSrc, alt: imgAlt ? imgAlt : '', class: "gcds-card__image" })), Element != 'a' ? (index.h(Element, Object.assign({ class: "gcds-card__title" }, taggedAttr), index.h("gcds-link", { href: href }, cardTitle))) : (index.h("gcds-link", Object.assign({ href: href, class: "gcds-card__title", rel: rel, target: target }, taggedAttr), cardTitle)), renderDescription)));
         }
     }
     get el() { return index.getElement(this); }
@@ -769,7 +769,7 @@ const getDateInputError = (dateValues, format) => {
         errorResponse.reason.fr = dateInputErrorMessage.fr.invalidyear;
         // Invalid day
     }
-    else {
+    else if (!utils.isValidDay(`${year}-${month}-${day}`)) {
         errorResponse.errors.day = true;
         errorResponse.reason.en = dateInputErrorMessage.en.invalidday;
         errorResponse.reason.fr = dateInputErrorMessage.fr.invalidday;
@@ -916,13 +916,15 @@ function cleanUpValues(optionsArr, element) {
     });
 }
 const renderCheckbox = (checkbox, element, emitEvent, handleInput) => {
-    const { name, disabled, hasError, errorMessage, gcdsFocus, gcdsInput, gcdsChange, gcdsClick, gcdsBlur, required, hint, isGroup, lang, value, onBlurValidate, } = element;
+    const { name, disabled, hasError, errorMessage, gcdsFocus, gcdsInput, gcdsChange, gcdsClick, gcdsBlur, required, hint, isGroup, lang, value, checkboxTitle, form, hideLabel, onBlurValidate, } = element;
     const attrsInput = {
         name: name,
         id: checkbox.id,
         disabled: disabled,
-        required: checkbox.required,
+        required: required,
         value: checkbox.value,
+        title: checkboxTitle,
+        form: form,
     };
     const labelAttrs = {
         'label': checkbox.label,
@@ -932,6 +934,9 @@ const renderCheckbox = (checkbox, element, emitEvent, handleInput) => {
     if (!isGroup && required) {
         labelAttrs['required'] = required;
         attrsInput['required'] = required;
+    }
+    if (!isGroup && hideLabel) {
+        labelAttrs['hide-label'] = hideLabel;
     }
     if (checkbox.hint) {
         const hintID = `hint-${checkbox.id}`;
@@ -945,10 +950,19 @@ const renderCheckbox = (checkbox, element, emitEvent, handleInput) => {
         attrsInput['aria-description'] = errorMessage;
     }
     return (index.h("div", { class: `gcds-checkbox ${disabled ? 'gcds-checkbox--disabled' : ''} ${hasError ? 'gcds-checkbox--error' : ''}` },
-        index.h("input", Object.assign({ type: "checkbox" }, attrsInput, { onBlur: isGroup ? () => gcdsBlur.emit() : onBlurValidate, onFocus: () => gcdsFocus.emit(), onChange: e => handleInput(e, gcdsChange), onInput: e => handleInput(e, gcdsInput), onClick: e => !disabled ? emitEvent(e, gcdsClick) : e.stopImmediatePropagation() })),
+        index.h("input", Object.assign({ type: "checkbox" }, attrsInput, { onBlur: isGroup ? () => gcdsBlur.emit() : onBlurValidate, onFocus: () => gcdsFocus.emit(), onChange: e => handleInput(e, gcdsChange), onInput: e => handleInput(e, gcdsInput), onClick: e => !disabled ? emitEvent(e, gcdsClick) : e.stopImmediatePropagation(), ref: (el) => (element.shadowElement = [...(element.shadowElement || []), el]) })),
         index.h("gcds-label", Object.assign({}, labelAttrs, { onClick: e => e.stopPropagation() })),
         checkbox.hint || (!isGroup && hint) ? (index.h("gcds-hint", { "hint-id": checkbox.id }, !isGroup && hint ? hint : checkbox.hint)) : null,
         !isGroup && errorMessage ? (index.h("gcds-error-message", { messageId: checkbox.id }, errorMessage)) : null));
+};
+
+const I18N$m = {
+  en: {
+    required: ' (required)',
+  },
+  fr: {
+    required: ' (obligatoire)',
+  },
 };
 
 const gcdsCheckboxesCss = "@layer reset, default, disabled, error, focus;@layer reset{:host{display:block}:host .gcds-checkboxes__fieldset{border:0;min-inline-size:auto;padding:0}:host .gcds-checkboxes__fieldset legend{padding:0}:host .gcds-checkbox{padding:0}:host .gcds-checkbox gcds-label{display:block}:host .gcds-checkbox gcds-label>label:after,:host .gcds-checkbox gcds-label>label:before{box-sizing:border-box;content:\"\";cursor:pointer;position:absolute}}@layer default{:host .gcds-checkboxes__fieldset{margin:var(--gcds-checkbox-fieldset-margin)}:host .gcds-checkboxes__fieldset .gcds-checkboxes__legend{font:var(--gcds-checkbox-legend-font-desktop);margin:var(--gcds-checkbox-legend-margin)}:host .gcds-checkboxes__fieldset .gcds-checkboxes__legend .legend__required{font:var(--gcds-checkbox-legend-required-font-desktop)}@media only screen and (width < 48em){:host .gcds-checkboxes__fieldset .gcds-checkboxes__legend{font:var(--gcds-checkbox-legend-font-mobile)}:host .gcds-checkboxes__fieldset .gcds-checkboxes__legend .legend__required{font:var(--gcds-checkbox-legend-required-font-mobile)}}:host .gcds-checkboxes__fieldset .gcds-checkboxes__legend:not(:has(+gcds-hint)){margin:var(--gcds-checkbox-legend-hint-margin)}:host .gcds-checkbox{color:var(--gcds-checkbox-default-text);font:var(--gcds-checkbox-font);margin:var(--gcds-checkbox-margin)!important;max-width:var(--gcds-checkbox-max-width);min-height:calc(var(--gcds-checkbox-input-height-and-width) - var(--gcds-checkbox-padding));padding:var(--gcds-checkbox-padding) 0 0;position:relative;transition:color .15s ease-in-out}:host .gcds-checkbox :is(gcds-label,gcds-hint,gcds-error-message){padding:var(--gcds-checkbox-label-padding)!important}:host .gcds-checkbox gcds-hint::part(hint){margin:0}:host .gcds-checkbox gcds-label:after,:host .gcds-checkbox gcds-label:before,:host .gcds-checkbox input{position:absolute}:host .gcds-checkbox gcds-label>label:before,:host .gcds-checkbox input{height:var(--gcds-checkbox-input-height-and-width);left:0;top:0;width:var(--gcds-checkbox-input-height-and-width)}:host .gcds-checkbox input{opacity:0}:host .gcds-checkbox gcds-label>label{width:fit-content;--gcds-label-font-desktop:var(--gcds-checkbox-label-font-desktop);--gcds-label-font-mobile:var(--gcds-checkbox-label-font-mobile)}:host .gcds-checkbox gcds-label>label:before{background-color:var(--gcds-checkbox-default-background);border:var(--gcds-checkbox-input-border-width) solid;border-radius:var(--gcds-checkbox-input-border-radius);transition:border-color .15s ease-in-out,box-shadow .15s ease-in-out,outline .15s ease-in-out}:host .gcds-checkbox gcds-label>label:after{border:var(--gcds-checkbox-check-border-width) solid;border-block-start:0!important;border-inline-start:0!important;height:var(--gcds-checkbox-check-height);left:var(--gcds-checkbox-check-left);opacity:0;top:var(--gcds-checkbox-check-top);transform:rotate(40deg);width:var(--gcds-checkbox-check-width)}:host .gcds-checkbox input:checked+gcds-label>label:after{opacity:1}}@layer disabled{:host .gcds-checkbox.gcds-checkbox--disabled{color:var(--gcds-checkbox-disabled-text)}:host .gcds-checkbox.gcds-checkbox--disabled gcds-label>label{--gcds-label-text:currentColor;cursor:not-allowed}:host .gcds-checkbox.gcds-checkbox--disabled gcds-label>label:after,:host .gcds-checkbox.gcds-checkbox--disabled gcds-label>label:before{cursor:not-allowed}:host .gcds-checkbox.gcds-checkbox--disabled gcds-label>label:before{background-color:var(--gcds-checkbox-disabled-background);border-color:currentcolor}:host .gcds-checkbox.gcds-checkbox--disabled gcds-hint{--gcds-hint-text:currentColor}}@layer error{:host .gcds-checkbox.gcds-checkbox--error:not(:focus-within) gcds-label>label:before{border-color:var(--gcds-checkbox-danger-border)}:host .gcds-checkbox.gcds-checkbox--error:not(:focus-within) gcds-label>label:after{color:var(--gcds-checkbox-danger-border)}}@layer focus{:host .gcds-checkbox:focus-within input:focus+gcds-label>label:before{background:var(--gcds-checkbox-focus-background);box-shadow:var(--gcds-checkbox-focus-box-shadow);color:var(--gcds-checkbox-focus-color);outline:var(--gcds-checkbox-focus-outline-width) solid currentcolor;outline-offset:var(--gcds-checkbox-input-border-width)}:host .gcds-checkbox:focus-within input:focus+gcds-label>label:after{color:var(--gcds-checkbox-focus-color)}}";
@@ -971,7 +985,17 @@ const GcdsCheckboxes = class {
             hostRef.$hostElement$["s-ei"] = this.internals;
         }
         this.isGroup = false;
+        // @ts-ignore - Used by renderCheckbox() to set title on error
+        this.checkboxTitle = '';
         this._validator = defaultValidator;
+        /**
+         * For single checkbox, specifies if the label is hidden or not.
+         */
+        this.hideLabel = false;
+        /**
+         * For checkbox groups, specifies if the legend is hidden or not.
+         */
+        this.hideLegend = false;
         /**
          * Value for checkboxes component.
          */
@@ -1018,6 +1042,7 @@ const GcdsCheckboxes = class {
                 else {
                     this.internals.setFormValue(null);
                 }
+                this.updateValidity();
             }
             customEvent.emit([...this.value]);
         };
@@ -1069,6 +1094,7 @@ const GcdsCheckboxes = class {
                 this.internals.setFormValue(this.value.toString());
             }
         }
+        this.updateValidity();
     }
     validateErrorMessage() {
         if (this.disabled) {
@@ -1081,6 +1107,12 @@ const GcdsCheckboxes = class {
     validateValidator() {
         this._validator = getValidator(this.validator);
     }
+    /**
+       * Read-only property of the checkboxes, returns a ValidityState object that represents the validity states this element is in.
+       */
+    get validity() {
+        return this.internals.validity;
+    }
     validateHasError() {
         if (this.disabled) {
             this.hasError = false;
@@ -1091,6 +1123,7 @@ const GcdsCheckboxes = class {
      */
     async validate() {
         utils.handleValidationResult(this.el, this._validator.validate(this.value), this.isGroup ? this.legend : this.optionsArr[0].label, this.gcdsError, this.gcdsValid, this.lang);
+        this.checkboxTitle = this.errorMessage;
     }
     /*
      * FormData listener to append values like native checkboxes
@@ -1129,6 +1162,34 @@ const GcdsCheckboxes = class {
     formStateRestoreCallback(state) {
         this.internals.setFormValue(state);
         this.value = [...state.split(',')];
+    }
+    /**
+     * Check the validity of gcds-checkboxes
+     */
+    async checkValidity() {
+        return this.internals.checkValidity();
+    }
+    /**
+     * Get validationMessage of gcds-checkboxes
+     */
+    async getValidationMessage() {
+        return this.internals.validationMessage;
+    }
+    /**
+     * Update gcds-checkboxes's validity using internal input
+     */
+    updateValidity() {
+        var _a;
+        if (((_a = this.shadowElement) === null || _a === void 0 ? void 0 : _a.length) > 0) {
+            const validity = utils.validateRadioCheckboxGroup(this.shadowElement);
+            let validationMessage = null;
+            if (validity === null || validity === void 0 ? void 0 : validity.valueMissing) {
+                validationMessage = this.lang === 'en' ? 'Choose an option to continue.' : 'Choisissez une option pour continuer.';
+            }
+            this.internals.setValidity(validity, validationMessage, this.shadowElement[0]);
+            // Set input title when HTML error occruring
+            this.checkboxTitle = validationMessage;
+        }
     }
     /*
      * Observe lang attribute change
@@ -1170,13 +1231,21 @@ const GcdsCheckboxes = class {
             utils.logError('gcds-checkboxes', this.errors);
         }
         this.initialState = this.value;
-        this.inheritedAttributes = utils.inheritAttributes(this.el, this.shadowElement);
     }
     async componentDidUpdate() {
         // Validate props again if changed after render
         const valid = this.validateRequiredProps();
         if (!valid) {
             utils.logError('gcds-checkboxes', this.errors);
+        }
+    }
+    async componentDidLoad() {
+        this.updateValidity();
+        // Logic to enable autofocus
+        if (this.autofocus) {
+            requestAnimationFrame(() => {
+                this.shadowElement[0].focus();
+            });
         }
     }
     /*
@@ -1218,8 +1287,9 @@ const GcdsCheckboxes = class {
             fieldsetAttrs['aria-labelledby'] =
                 `${fieldsetAttrs['aria-labelledby']} ${hintID}`.trim();
         }
+        this.shadowElement = [];
         if (this.validateRequiredProps()) {
-            return (index.h(index.Host, { key: '1c4a5af6bf3886cf38fe0a9eb05781aabab35bbf', onBlur: () => this.isGroup && this.onBlurValidate() }, this.isGroup ? (index.h("fieldset", Object.assign({ class: "gcds-checkboxes__fieldset" }, fieldsetAttrs), index.h("legend", { id: "checkboxes-legend", class: "gcds-checkboxes__legend" }, legend, required ? (index.h("span", { class: "legend__required" }, " (required)")) : null), hint ? (index.h("gcds-hint", { id: "checkboxes-hint", "hint-id": "checkboxes" }, hint)) : null, errorMessage ? (index.h("div", null, index.h("gcds-error-message", { id: "checkboxes-error", messageId: "checkboxes" }, errorMessage))) : null, this.optionsArr &&
+            return (index.h(index.Host, { key: 'f37866363b587b6c228032f6940efa6e3bb4e90c', onBlur: () => this.isGroup && this.onBlurValidate() }, this.isGroup ? (index.h("fieldset", Object.assign({ class: "gcds-checkboxes__fieldset" }, fieldsetAttrs), index.h("legend", { id: "checkboxes-legend", class: "gcds-checkboxes__legend" }, this.hideLegend ? (index.h("gcds-sr-only", { tag: "span" }, legend, required && index.h("span", { class: "legend__required" }, I18N$m[this.lang].required))) : (index.h(index.Fragment, null, legend, required && index.h("span", { class: "legend__required" }, I18N$m[this.lang].required)))), hint ? (index.h("gcds-hint", { id: "checkboxes-hint", "hint-id": "checkboxes" }, hint)) : null, errorMessage ? (index.h("div", null, index.h("gcds-error-message", { id: "checkboxes-error", messageId: "checkboxes" }, errorMessage))) : null, this.optionsArr &&
                 this.optionsArr.map(checkbox => {
                     return renderCheckbox(checkbox, this, utils.emitEvent, this.handleInput);
                 }))) : (this.optionsArr &&
@@ -1317,6 +1387,8 @@ const I18N$l = {
     valueFormatfull: 'YYYY-MM-DD',
     valueFormatcompact: 'YYYY-MM',
     required: ' (required)',
+    rangeUnderflow: 'Date must be on or after {{min}}.',
+    rangeOverflow: 'Date must be on or before {{max}}.',
   },
   fr: {
     year: 'Année',
@@ -1342,6 +1414,8 @@ const I18N$l = {
     valueFormatfull: 'YYYY-MM-DD',
     valueFormatcompact: 'YYYY-MM',
     required: ' (obligatoire)',
+    rangeUnderflow: 'La date doit être le {{min}} ou après.',
+    rangeOverflow: 'La date doit être le {{max}} ou avant.',
   },
 };
 
@@ -1363,6 +1437,8 @@ const GcdsDateInput = class {
             this.internals = hostRef.$hostElement$.attachInternals();
             hostRef.$hostElement$["s-ei"] = this.internals;
         }
+        // Array to store which native HTML errors are happening on the input
+        this.htmlValidationErrors = [];
         this._validator = defaultValidator;
         /**
          * Specifies if a form field is required or not.
@@ -1459,6 +1535,19 @@ const GcdsDateInput = class {
             this.splitFormValue();
             this.internals.setFormValue(this.value);
         }
+        else {
+            this.yearValue = '';
+            this.monthValue = '';
+            this.dayValue = '';
+            this.internals.setFormValue(null);
+        }
+        this.updateValidity();
+    }
+    /**
+     * Read-only property of the date-input, returns a ValidityState object that represents the validity states this element is in.
+     */
+    get validity() {
+        return this.internals.validity;
     }
     validateValidator() {
         this._validator = getValidator(this.validator);
@@ -1467,9 +1556,27 @@ const GcdsDateInput = class {
      * Call any active validators
      */
     async validate() {
+        var _a, _b, _c, _d;
         this.hasError = utils.handleValidationResult(this.el, this._validator.validate(this.format === 'full'
             ? `${this.yearValue}-${this.monthValue}-${this.dayValue}`
             : `${this.yearValue}-${this.monthValue}`), this.legend, this.gcdsError, this.gcdsValid, this.lang, { day: false, month: false, year: false });
+        // Don't use the valueMissing and badInput errors here since they are handled by the validator above
+        if (!this.internals.checkValidity() && !((_a = this.internals.validity) === null || _a === void 0 ? void 0 : _a.valueMissing) && !((_b = this.internals.validity) === null || _b === void 0 ? void 0 : _b.badInput)) {
+            this.errorMessage = (_c = this.htmlValidationErrors[0]) === null || _c === void 0 ? void 0 : _c.errorMessage;
+            this.hasError = Object.assign(Object.assign({}, this.hasError), (_d = this.htmlValidationErrors[0]) === null || _d === void 0 ? void 0 : _d.hasError);
+        }
+    }
+    /**
+     * Check the validity of gcds-date-input
+     */
+    async checkValidity() {
+        return this.internals.checkValidity();
+    }
+    /**
+     * Get validationMessage of gcds-date-input
+     */
+    async getValidationMessage() {
+        return this.internals.validationMessage;
     }
     /*
      * Event listeners
@@ -1498,6 +1605,123 @@ const GcdsDateInput = class {
     formStateRestoreCallback(state) {
         this.internals.setFormValue(state);
         this.value = state;
+    }
+    /*
+     * Combine validity states of internal form elements and validate
+     * Returns combined ValidityState, array of elements with errors and error message
+     */
+    checkAndValidateValidity() {
+        var _a, _b, _c, _d, _e, _f;
+        // Order elements based on format and language
+        const elements = [this.monthSelect, this.yearInput];
+        if (this.format === 'full') {
+            this.lang === 'en' ? elements.splice(1, 0, this.dayInput) : elements.unshift(this.dayInput);
+        }
+        this.htmlValidationErrors = [];
+        let valid = true;
+        let valueMissing = false;
+        let badInput = false;
+        let rangeUnderflow = false;
+        let rangeOverflow = false;
+        let formError = [];
+        let errorMessage = null;
+        // Check if required or some value has been entered
+        if (this.required || this.value != null) {
+            elements.forEach(el => {
+                // valueMissing validation
+                if (el.value === '' || el.value == null) {
+                    valueMissing = true;
+                    valid = false;
+                    formError.push(el);
+                }
+            });
+            errorMessage = getDateInputError({
+                day: (_a = this.dayInput) === null || _a === void 0 ? void 0 : _a.value,
+                month: (_b = this.monthSelect) === null || _b === void 0 ? void 0 : _b.value,
+                year: (_c = this.yearInput) === null || _c === void 0 ? void 0 : _c.value
+            }, this.format).reason[this.lang];
+        }
+        // Check if any field has bad input
+        if (this.required && !valueMissing) {
+            const badInputError = getDateInputError({
+                day: (_d = this.dayInput) === null || _d === void 0 ? void 0 : _d.value,
+                month: (_e = this.monthSelect) === null || _e === void 0 ? void 0 : _e.value,
+                year: (_f = this.yearInput) === null || _f === void 0 ? void 0 : _f.value
+            }, this.format);
+            if (badInputError.reason.en != '') {
+                badInput = true;
+                errorMessage = badInputError.reason[this.lang];
+                formError = elements;
+                this.htmlValidationErrors.push({
+                    error: 'badInput',
+                    hasError: badInputError.errors,
+                    errorMessage
+                });
+            }
+        }
+        // Only check min if all values are present and valid
+        if (this.value != null && this.min && !valueMissing && !badInput) {
+            const setDate = new Date(this.value);
+            const minDate = new Date(this.min);
+            if (setDate < minDate) {
+                valid = false;
+                rangeUnderflow = true;
+                formError = elements;
+                errorMessage = I18N$l[this.lang].rangeUnderflow.replace('{{min}}', this.min);
+                this.htmlValidationErrors.push({
+                    error: 'rangeUnderflow',
+                    hasError: { day: true, month: true, year: true },
+                    errorMessage
+                });
+            }
+        }
+        // Only check max if all values are present, valid and no min error
+        if (this.value != null && this.max && !valueMissing && !badInput && !rangeUnderflow) {
+            const setDate = new Date(this.value);
+            const maxDate = new Date(this.max);
+            if (setDate > maxDate) {
+                valid = false;
+                rangeOverflow = true;
+                errorMessage = I18N$l[this.lang].rangeOverflow.replace('{{max}}', this.max);
+                this.htmlValidationErrors.push({
+                    error: 'rangeOverflow',
+                    hasError: { day: true, month: true, year: true },
+                    errorMessage
+                });
+                formError = elements;
+            }
+        }
+        const validity = {
+            valueMissing,
+            typeMismatch: false,
+            patternMismatch: false,
+            tooLong: false,
+            tooShort: false,
+            rangeUnderflow,
+            rangeOverflow,
+            stepMismatch: false,
+            badInput,
+            customError: false,
+            valid,
+        };
+        return {
+            validity,
+            formError,
+            errorMessage
+        };
+    }
+    /**
+     * Update gcds-date-input's validity using internal form elements
+     */
+    updateValidity() {
+        if ((this.format === 'full' && (!this.yearInput || !this.monthSelect || !this.dayInput)) || (this.format === 'compact' && (!this.yearInput || !this.monthSelect)))
+            return;
+        const { validity, formError, errorMessage } = this.checkAndValidateValidity();
+        let validationMessage = null;
+        if ((validity === null || validity === void 0 ? void 0 : validity.valueMissing) || (validity === null || validity === void 0 ? void 0 : validity.badInput) || (validity === null || validity === void 0 ? void 0 : validity.rangeUnderflow) || (validity === null || validity === void 0 ? void 0 : validity.rangeOverflow)) {
+            validationMessage = errorMessage;
+        }
+        this.internals.setValidity(validity, validationMessage, formError[0]);
     }
     /*
      * Observe lang attribute change
@@ -1532,6 +1756,7 @@ const GcdsDateInput = class {
             this.value = `${yearValue}-${monthValue}`;
         }
         this.internals.setFormValue(this.value);
+        this.updateValidity();
         return true;
     }
     /**
@@ -1579,8 +1804,18 @@ const GcdsDateInput = class {
             this.initialValue = this.value;
         }
     }
+    async componentDidLoad() {
+        this.updateValidity();
+        // Logic to enable autofocus
+        if (this.autofocus) {
+            requestAnimationFrame(() => {
+                var _a;
+                (_a = this.fieldset) === null || _a === void 0 ? void 0 : _a.focus();
+            });
+        }
+    }
     render() {
-        const { legend, name, format, required, hint, errorMessage, disabled, lang, hasError, } = this;
+        const { legend, name, format, required, hint, errorMessage, disabled, lang, hasError, form, } = this;
         const requiredAttr = {};
         if (required) {
             requiredAttr['aria-required'] = 'true';
@@ -1596,10 +1831,10 @@ const GcdsDateInput = class {
         }
         // Array of months 01 - 12
         const options = Array.from({ length: 12 }, (_, i) => i + 1 < 10 ? `0${i + 1}` : `${i + 1}`);
-        const month = (index.h("gcds-select", Object.assign({ key: '7036ccea3931372a5a182a6a392db606045a0da5', label: I18N$l[lang].month, selectId: "month", name: "month", defaultValue: I18N$l[lang].selectmonth, disabled: disabled, onInput: e => this.handleInput(e, 'month'), onChange: e => this.handleInput(e, 'month'), value: this.monthValue, class: `gcds-date-input__month ${hasError['month'] ? 'gcds-date-input--error' : ''}` }, requiredAttr, { "aria-invalid": hasError['month'].toString(), "aria-description": hasError['month'] && errorMessage }), options.map(option => (index.h("option", { key: option, value: option }, I18N$l[lang]['months'][option])))));
-        const year = (index.h("gcds-input", Object.assign({ key: 'b0be7d9e018a48119d9448035e4c5ec1d5eaf85f', name: "year", label: I18N$l[lang].year, inputId: "year", type: "number", size: 4, disabled: disabled, value: this.yearValue, onInput: e => this.handleInput(e, 'year'), onChange: e => this.handleInput(e, 'year'), class: `gcds-date-input__year ${hasError['year'] ? 'gcds-date-input--error' : ''}`, "validate-on": 'other' }, requiredAttr, { "aria-invalid": hasError['year'].toString(), "aria-description": hasError['year'] && errorMessage })));
-        const day = (index.h("gcds-input", Object.assign({ key: 'aff040a276b1fa0e1258ced275b4b46813dec447', name: "day", label: I18N$l[lang].day, inputId: "day", type: "number", size: 2, disabled: disabled, value: this.dayValue, onInput: e => this.handleInput(e, 'day'), onChange: e => this.handleInput(e, 'day'), "validate-on": 'other', class: `gcds-date-input__day ${hasError['day'] ? 'gcds-date-input--error' : ''}` }, requiredAttr, { "aria-invalid": hasError['day'].toString(), "aria-description": hasError['day'] && errorMessage })));
-        return (index.h(index.Host, { key: '57441b137fd61b30700f5df2858fd0e196565d69', name: name, onBlur: () => this.onBlur() }, this.validateRequiredProps() && (index.h("fieldset", Object.assign({ key: 'b854c9516c33aff4409a3e321501a9b4337138a1', class: "gcds-date-input__fieldset" }, fieldsetAttrs), index.h("legend", { key: '499c80dd1000be586698ab3e2cd495d1a91b0187', id: "date-input-legend" }, legend, required ? (index.h("span", { class: "legend__required" }, I18N$l[lang].required)) : null), hint ? (index.h("gcds-hint", { id: "date-input-hint", "hint-id": "date-input" }, hint)) : null, errorMessage ? (index.h("div", null, index.h("gcds-error-message", { id: "date-input-error", messageId: "date-input" }, errorMessage))) : null, format == 'compact'
+        const month = (index.h("gcds-select", Object.assign({ key: '3825d2fc422c6291c0c4ec02ba160ce18a8f885d', label: I18N$l[lang].month, selectId: "month", name: "month", defaultValue: I18N$l[lang].selectmonth, disabled: disabled, onInput: e => this.handleInput(e, 'month'), onChange: e => this.handleInput(e, 'month'), value: this.monthValue, class: `gcds-date-input__month ${hasError['month'] ? 'gcds-date-input--error' : ''}` }, requiredAttr, { "aria-invalid": hasError['month'].toString(), "aria-description": hasError['month'] && errorMessage, form: form, ref: el => (this.monthSelect = el) }), options.map(option => (index.h("option", { key: option, value: option }, I18N$l[lang]['months'][option])))));
+        const year = (index.h("gcds-input", Object.assign({ key: '1e6d8f1f6fb1b3199aadfa1f7ad4dcd48f52f8c0', name: "year", label: I18N$l[lang].year, inputId: "year", type: "number", inputmode: "numeric", size: 4, disabled: disabled, value: this.yearValue, onInput: e => this.handleInput(e, 'year'), onChange: e => this.handleInput(e, 'year'), class: `gcds-date-input__year ${hasError['year'] ? 'gcds-date-input--error' : ''}`, "validate-on": 'other' }, requiredAttr, { "aria-invalid": hasError['year'].toString(), "aria-description": hasError['year'] && errorMessage, form: form, ref: el => (this.yearInput = el) })));
+        const day = (index.h("gcds-input", Object.assign({ key: '727e8f60daec7e1b873aa8f27a10d943e1f98d34', name: "day", label: I18N$l[lang].day, inputId: "day", type: "number", inputmode: "numeric", size: 2, disabled: disabled, value: this.dayValue, onInput: e => this.handleInput(e, 'day'), onChange: e => this.handleInput(e, 'day'), "validate-on": 'other', class: `gcds-date-input__day ${hasError['day'] ? 'gcds-date-input--error' : ''}` }, requiredAttr, { "aria-invalid": hasError['day'].toString(), "aria-description": hasError['day'] && errorMessage, form: form, ref: el => (this.dayInput = el) })));
+        return (index.h(index.Host, { key: '4c09f8426752a32086163716b8fc81abccb9e539', name: name, onBlur: () => this.onBlur() }, this.validateRequiredProps() && (index.h("fieldset", Object.assign({ key: '30d06040710f4c8008e2fbf58965ac7366237ab9', class: "gcds-date-input__fieldset" }, fieldsetAttrs, { ref: el => (this.fieldset = el) }), index.h("legend", { key: '457b053792630a37e04b5a37156fa91d6c292bfe', id: "date-input-legend" }, legend, required ? (index.h("span", { class: "legend__required" }, I18N$l[lang].required)) : null), hint ? (index.h("gcds-hint", { id: "date-input-hint", "hint-id": "date-input" }, hint)) : null, errorMessage ? (index.h("div", null, index.h("gcds-error-message", { id: "date-input-error", messageId: "date-input" }, errorMessage))) : null, format == 'compact'
             ? [month, year]
             : lang == 'en'
                 ? [month, day, year]
@@ -1972,7 +2207,12 @@ const GcdsFileUploader = class {
             this.internals = hostRef.$hostElement$.attachInternals();
             hostRef.$hostElement$["s-ei"] = this.internals;
         }
+        this.inputTitle = '';
         this._validator = defaultValidator;
+        /**
+         * Specifies if the label is hidden or not.
+         */
+        this.hideLabel = false;
         /**
          * Specifies if a form field is required or not.
          */
@@ -2018,6 +2258,9 @@ const GcdsFileUploader = class {
                 const changeEvt = new e.constructor(e.type, e);
                 this.el.dispatchEvent(changeEvt);
             }
+            else {
+                this.updateValidity();
+            }
             customEvent.emit(this.value);
         };
         this.removeFile = e => {
@@ -2043,6 +2286,7 @@ const GcdsFileUploader = class {
             this.gcdsRemoveFile.emit(this.value);
             this.gcdsChange.emit(this.value);
             this.el.dispatchEvent(new Event('change', { bubbles: true, composed: true }));
+            this.updateValidity();
         };
         /*
          * Set form data for internals
@@ -2091,10 +2335,29 @@ const GcdsFileUploader = class {
         }
     }
     /**
+     * Read-only property of the file uploader, returns a ValidityState object that represents the validity states this element is in.
+     */
+    get validity() {
+        return this.internals.validity;
+    }
+    /**
      * Call any active validators
      */
     async validate() {
         utils.handleValidationResult(this.el, this._validator.validate(this.shadowElement.files), this.label, this.gcdsError, this.gcdsValid, this.lang);
+        this.inputTitle = this.errorMessage;
+    }
+    /**
+     * Check the validity of gcds-file-uploader
+     */
+    async checkValidity() {
+        return this.internals.checkValidity();
+    }
+    /**
+     * Get validationMessage of gcds-file-uploader
+     */
+    async getValidationMessage() {
+        return this.internals.validationMessage;
     }
     submitListener(e) {
         if (e.target == this.el.closest('form')) {
@@ -2117,6 +2380,21 @@ const GcdsFileUploader = class {
         this.internals.setFormValue(state);
         this.value = state;
     }
+    /**
+     * Update gcds-file-uploader's validity using internal input
+     */
+    updateValidity() {
+        if (!this.shadowElement)
+            return;
+        const validity = this.shadowElement.validity;
+        let validationMessage = null;
+        if (validity === null || validity === void 0 ? void 0 : validity.valueMissing) {
+            validationMessage = this.lang === 'en' ? 'You must upload a file to continue.' : 'Vous devez téléverser un fichier pour continuer.';
+        }
+        this.internals.setValidity(validity, validationMessage, this.shadowElement);
+        // Set input title when HTML error occruring
+        this.inputTitle = validationMessage;
+    }
     /*
      * Handle drop event on file uploader
      */
@@ -2134,6 +2412,7 @@ const GcdsFileUploader = class {
             }
             this.gcdsChange.emit(this.value);
             this.el.dispatchEvent(new Event('change', { bubbles: true, composed: true }));
+            this.updateValidity();
         }
         // Focus file input after drop
         this.shadowElement.focus();
@@ -2161,14 +2440,25 @@ const GcdsFileUploader = class {
         this.validateValidator();
         this.inheritedAttributes = utils.inheritAttributes(this.el, this.shadowElement);
     }
+    async componentDidLoad() {
+        this.updateValidity();
+        // Logic to enable autofocus
+        if (this.autofocus) {
+            requestAnimationFrame(() => {
+                var _a;
+                (_a = this.shadowElement) === null || _a === void 0 ? void 0 : _a.focus();
+            });
+        }
+    }
     render() {
-        const { accept, disabled, errorMessage, hasError, hint, label, lang, multiple, name, required, uploaderId, value, inheritedAttributes, } = this;
+        const { accept, disabled, errorMessage, hasError, hint, label, hideLabel, lang, multiple, name, required, uploaderId, value, inputTitle, autofocus, form, inheritedAttributes, } = this;
         const attrsInput = Object.assign(Object.assign({ accept,
             disabled,
             multiple,
             name,
             required,
-            value }, inheritedAttributes), { 'aria-describedby': `${inheritedAttributes['aria-describedby']
+            value, title: inputTitle, autofocus,
+            form }, inheritedAttributes), { 'aria-describedby': `${inheritedAttributes['aria-describedby']
                 ? `${inheritedAttributes['aria-describedby']} `
                 : ''}file-uploader__summary` });
         const attrsLabel = {
@@ -2181,7 +2471,7 @@ const GcdsFileUploader = class {
             attrsInput['aria-describedby'] =
                 `${hintID}${errorID}${attrsInput['aria-describedby']}`;
         }
-        return (index.h(index.Host, { key: '3c4798ba95cfb45c77e484ea3836968f7d3698e1' }, index.h("div", { key: '115b140d32698bb3983683c31daee9de34831f08', class: `gcds-file-uploader-wrapper ${disabled ? 'gcds-disabled' : ''} ${hasError ? 'gcds-error' : ''}` }, index.h("gcds-label", Object.assign({ key: 'cfe225f2311c2a75ec06bd5c26c031223385b9ab' }, attrsLabel, { "label-for": uploaderId, lang: lang })), hint ? index.h("gcds-hint", { "hint-id": uploaderId }, hint) : null, errorMessage ? (index.h("gcds-error-message", { messageId: uploaderId }, errorMessage)) : null, index.h("div", { key: 'd185acf8dfa1ce7ba4fd20026d55dfb5b5bc77bf', class: `file-uploader__input ${value.length > 0 ? 'uploaded-files' : ''}`, onDrop: e => this.handleDrop(e), onDragOver: e => e.preventDefault() }, index.h("button", { key: '9a2288f444c5c259dc5bc0a6a4a035284634bd8e', type: "button", tabindex: "-1", onClick: () => this.shadowElement.click() }, I18N$i[lang].button.upload), index.h("input", Object.assign({ key: 'd90e7244310af4e497ce2002a1b05d058f8b2b45', type: "file", id: uploaderId }, attrsInput, { onBlur: () => this.onBlur(), onFocus: () => this.gcdsFocus.emit(), onInput: e => this.handleInput(e, this.gcdsInput), onChange: e => this.handleInput(e, this.gcdsChange), "aria-invalid": hasError ? 'true' : 'false', ref: element => (this.shadowElement = element) })), value.length > 0 ? (index.h("gcds-sr-only", { id: "file-uploader__summary" }, index.h("span", null, I18N$i[lang].summary.selected, " "), value.map(file => (index.h("span", null, file, " "))))) : (index.h("gcds-sr-only", { id: "file-uploader__summary" }, I18N$i[lang].summary.unselected))), value.length > 0
+        return (index.h(index.Host, { key: '7f8da364ccd3dd2247eb3ca0acfdf626350bc935' }, index.h("div", { key: '194df3b32d1751a1552d19a4a09f6794fd93e960', class: `gcds-file-uploader-wrapper ${disabled ? 'gcds-disabled' : ''} ${hasError ? 'gcds-error' : ''}` }, index.h("gcds-label", Object.assign({ key: '4ae5e97f811a21823866c153211ce7903175351e' }, attrsLabel, { "hide-label": hideLabel, "label-for": uploaderId, lang: lang })), hint ? index.h("gcds-hint", { "hint-id": uploaderId }, hint) : null, errorMessage ? (index.h("gcds-error-message", { messageId: uploaderId }, errorMessage)) : null, index.h("div", { key: 'f40d3488ea2aaa8d2833c4f1c988f67c847deb94', class: `file-uploader__input ${value.length > 0 ? 'uploaded-files' : ''}`, onDrop: e => this.handleDrop(e), onDragOver: e => e.preventDefault() }, index.h("button", { key: '9ce270d208d451d2b240d8049d5b5a07a5bf1791', type: "button", tabindex: "-1", onClick: () => this.shadowElement.click() }, I18N$i[lang].button.upload), index.h("input", Object.assign({ key: '9ef4ac5e052c73626541fdfc3f2eb98fc65f4482', type: "file", id: uploaderId }, attrsInput, { onBlur: () => this.onBlur(), onFocus: () => this.gcdsFocus.emit(), onInput: e => this.handleInput(e, this.gcdsInput), onChange: e => this.handleInput(e, this.gcdsChange), "aria-invalid": hasError ? 'true' : 'false', ref: element => (this.shadowElement = element) })), value.length > 0 ? (index.h("gcds-sr-only", { id: "file-uploader__summary" }, index.h("span", null, I18N$i[lang].summary.selected, " "), value.map(file => (index.h("span", null, file, " "))))) : (index.h("gcds-sr-only", { id: "file-uploader__summary" }, I18N$i[lang].summary.unselected))), value.length > 0
             ? value.map(file => (index.h("div", { class: "file-uploader__uploaded-file", "aria-label": `${I18N$i[lang].removeFile} ${file}.` }, index.h("gcds-text", { "margin-bottom": "0" }, file), index.h("button", { onClick: e => this.removeFile(e) }, index.h("span", null, I18N$i[lang].button.remove), index.h("gcds-icon", { name: "close", size: "text", "margin-left": "150" })))))
             : null)));
     }
@@ -3034,6 +3324,17 @@ const GcdsIcon = class {
 };
 GcdsIcon.style = gcdsIconCss;
 
+function isSuggestionObject(obj) {
+    if (typeof obj !== 'object' || obj === null)
+        return false;
+    const validKeys = ['value', 'label'];
+    const objKeys = Object.keys(obj);
+    const hasValidTypes = typeof obj.label === 'string' &&
+        (obj.value === undefined || typeof obj.value === 'string');
+    const hasOnlyValidKeys = objKeys.every(key => validKeys.includes(key));
+    return hasValidTypes && hasOnlyValidKeys;
+}
+
 const gcdsInputCss = "@layer reset, default, disabled, error, focus;@layer reset{:host{display:block}:host .gcds-input-wrapper{border:0;margin:0;padding:0}:host .gcds-input-wrapper input{box-sizing:border-box}}@layer default{:host .gcds-input-wrapper{color:var(--gcds-input-default-text);font:var(--gcds-input-font-desktop);max-width:75ch;transition:color .15s ease-in-out;width:100%}@media only screen and (width < 48em){:host .gcds-input-wrapper{font:var(--gcds-input-font-mobile)}}:host .gcds-input-wrapper input{background-color:var(--gcds-input-default-background);background-image:none;border:var(--gcds-input-border-width) solid;border-radius:var(--gcds-input-border-radius);color:var(--gcds-input-default-text);display:block;font:inherit!important;height:auto;margin:var(--gcds-input-margin)!important;max-width:100%;min-height:var(--gcds-input-min-width-and-height);min-width:var(--gcds-input-min-width-and-height);padding:var(--gcds-input-padding)!important;transition:border-color .15s ease-in-out,box-shadow .15s ease-in-out,outline .15s ease-in-out;width:100%}:host .gcds-input-wrapper input[type=number]{-moz-appearance:textfield}:host .gcds-input-wrapper input[type=number]::-webkit-inner-spin-button,:host .gcds-input-wrapper input[type=number]::-webkit-outer-spin-button{-webkit-appearance:none}}@layer disabled{:host .gcds-input-wrapper.gcds-disabled{color:var(--gcds-input-disabled-text)}:host .gcds-input-wrapper.gcds-disabled gcds-label{--gcds-label-text:currentColor}:host .gcds-input-wrapper.gcds-disabled gcds-hint{--gcds-hint-text:currentColor}:host .gcds-input-wrapper.gcds-disabled input:disabled{background-color:var(--gcds-input-disabled-background);border-color:var(--gcds-input-disabled-text);cursor:not-allowed}}@layer error{:host .gcds-input-wrapper input.gcds-error:not(:focus){border-color:var(--gcds-input-danger-border)}}@layer focus{:host .gcds-input-wrapper:focus-within input:focus{border-color:var(--gcds-input-focus-border);box-shadow:var(--gcds-input-focus-box-shadow);outline:var(--gcds-input-outline-width) solid var(--gcds-input-focus-border);outline-offset:var(--gcds-input-border-width)}}";
 
 const GcdsInput = class {
@@ -3042,6 +3343,7 @@ const GcdsInput = class {
         this.gcdsFocus = index.createEvent(this, "gcdsFocus");
         this.gcdsBlur = index.createEvent(this, "gcdsBlur");
         this.gcdsInput = index.createEvent(this, "gcdsInput");
+        this.gcdsSuggestionSelected = index.createEvent(this, "gcdsSuggestionSelected");
         this.gcdsChange = index.createEvent(this, "gcdsChange");
         this.gcdsError = index.createEvent(this, "gcdsError");
         this.gcdsValid = index.createEvent(this, "gcdsValid");
@@ -3076,6 +3378,7 @@ const GcdsInput = class {
          */
         // prettier-ignore
         this.type = 'text';
+        this.inputmode = null;
         /**
          * Set event to call validator
          */
@@ -3098,6 +3401,10 @@ const GcdsInput = class {
             this.value = val;
             this.internals.setFormValue(val ? val : null);
             if (e.type === 'change') {
+                if (this.suggestionsArr &&
+                    this.suggestionsArr.some((suggestion) => { var _a; return val == ((_a = suggestion.value) !== null && _a !== void 0 ? _a : suggestion.label); })) {
+                    this.gcdsSuggestionSelected.emit(this.value);
+                }
                 const changeEvt = new e.constructor(e.type, e);
                 this.el.dispatchEvent(changeEvt);
             }
@@ -3134,6 +3441,42 @@ const GcdsInput = class {
     }
     validateValidator() {
         this._validator = getValidator(this.validator);
+    }
+    validateSuggestions() {
+        if (this.suggestions == null ||
+            (typeof this.suggestions === 'string' && this.suggestions.trim() == '')) {
+            this.suggestionsArr = null;
+            return;
+        }
+        let invalidObject = false;
+        // Assign suggestionsArr from passed options string or array
+        if (typeof this.suggestions === 'string') {
+            try {
+                this.suggestions = JSON.parse(this.suggestions);
+            }
+            catch (e) {
+                utils.logError('gcds-input', ['Invalid JSON string for suggestions']);
+                this.suggestions = null;
+            }
+        }
+        if (Array.isArray(this.suggestions)) {
+            this.suggestionsArr = this.suggestions;
+        }
+        else {
+            this.suggestionsArr = null;
+        }
+        // Validate options has type SuggestionOption, we allow an empty array to be used.
+        if (this.suggestionsArr) {
+            invalidObject = this.suggestionsArr.some(dlObject => !isSuggestionObject(dlObject));
+        }
+        else {
+            invalidObject = true;
+        }
+        // Log error if no or invalid optionsObject
+        const errors = utils.handleErrors([], 'suggestions', this.suggestionsArr, invalidObject);
+        if (errors.length > 0) {
+            utils.logError('gcds-input', errors);
+        }
     }
     validateHasError() {
         if (this.disabled) {
@@ -3249,6 +3592,7 @@ const GcdsInput = class {
         // Define lang attribute
         this.lang = utils.assignLanguage(this.el);
         this.updateLang();
+        this.validateSuggestions();
         this.validateDisabledInput();
         this.validateHasError();
         this.validateErrorMessage();
@@ -3280,7 +3624,7 @@ const GcdsInput = class {
         }
     }
     render() {
-        const { disabled, errorMessage, hideLabel, hint, inputId, name, label, required, size, type, value, hasError, autocomplete, autofocus, form, max, maxlength, min, minlength, pattern, readonly, step, inputTitle, inheritedAttributes, lang, } = this;
+        const { disabled, errorMessage, hideLabel, hint, inputId, name, label, required, size, type, inputmode, value, hasError, autocomplete, autofocus, form, max, maxlength, min, minlength, pattern, readonly, step, inputTitle, inheritedAttributes, lang, } = this;
         // Use max-width to keep field responsive
         const style = {
             maxWidth: `calc(${size * 2}ch + 1.5rem)`,
@@ -3288,6 +3632,7 @@ const GcdsInput = class {
         const attrsInput = Object.assign({ disabled,
             required,
             type,
+            inputmode,
             autocomplete,
             autofocus,
             form,
@@ -3310,11 +3655,16 @@ const GcdsInput = class {
                 ? ` ${attrsInput['aria-describedby']}`
                 : ''}`;
         }
-        return (index.h(index.Host, { key: '9e1013a5309943d7d31bdbe27b0c40ad50547f20' }, index.h("div", { key: '05bdd407c9d032b45363937f384cd3bb4656d450', class: `gcds-input-wrapper ${disabled ? 'gcds-disabled' : ''} ${hasError ? 'gcds-error' : ''}` }, index.h("gcds-label", Object.assign({ key: 'd089b67c3e41629c03b25298fd61b972d2e9df0c' }, attrsLabel, { "hide-label": hideLabel, "label-for": inputId, lang: lang })), hint ? index.h("gcds-hint", { "hint-id": inputId }, hint) : null, errorMessage ? (index.h("gcds-error-message", { messageId: inputId }, errorMessage)) : null, index.h("input", Object.assign({ key: 'b596e0a0f64de1592f76614dbd1141baa07cec4f' }, attrsInput, { class: hasError ? 'gcds-error' : null, id: inputId, name: name, onBlur: () => this.onBlur(), onFocus: () => this.gcdsFocus.emit(), onInput: e => this.handleInput(e, this.gcdsInput), onChange: e => this.handleInput(e, this.gcdsChange), "aria-labelledby": `label-for-${inputId}`, "aria-invalid": inheritedAttributes['aria-invalid'] === 'true'
+        return (index.h(index.Host, { key: '8ba9b63b14c8c0e8625f7468be81462d3b719303' }, index.h("div", { key: '173a744866d8b3f6eb8e9727fa849123fb752933', class: `gcds-input-wrapper ${disabled ? 'gcds-disabled' : ''} ${hasError ? 'gcds-error' : ''}` }, index.h("gcds-label", Object.assign({ key: '4cad5a76c5912dfce86c3dd96aef58132483b05e' }, attrsLabel, { "hide-label": hideLabel, "label-for": inputId, lang: lang })), hint ? index.h("gcds-hint", { "hint-id": inputId }, hint) : null, errorMessage ? (index.h("gcds-error-message", { messageId: inputId }, errorMessage)) : null, index.h("input", Object.assign({ key: 'd19dd65df5c7993b6f08d2443b6b9a5b5fa01231' }, attrsInput, { class: hasError ? 'gcds-error' : null, id: inputId, name: name, onBlur: () => this.onBlur(), onFocus: () => this.gcdsFocus.emit(), onInput: e => this.handleInput(e, this.gcdsInput), onChange: e => this.handleInput(e, this.gcdsChange), "aria-labelledby": `label-for-${inputId}`, "aria-invalid": inheritedAttributes['aria-invalid'] === 'true'
                 ? inheritedAttributes['aria-invalid']
                 : errorMessage
                     ? 'true'
-                    : 'false', size: size, style: size ? style : null, part: "input", ref: element => (this.shadowElement = element) })))));
+                    : 'false', size: size, style: size ? style : null, list: this.suggestionsArr && this.suggestionsArr.length > 0
+                ? `datalist-for-${inputId}`
+                : null, part: "input", ref: element => (this.shadowElement = element) })), this.suggestionsArr && this.suggestionsArr.length > 0 ? (index.h("datalist", { id: `datalist-for-${inputId}` }, this.suggestionsArr.map((suggestionOption) => {
+            var _a;
+            return (index.h("option", { value: (_a = suggestionOption.value) !== null && _a !== void 0 ? _a : suggestionOption.label }, suggestionOption.label));
+        }))) : null)));
     }
     static get delegatesFocus() { return true; }
     static get formAssociated() { return true; }
@@ -3324,6 +3674,7 @@ const GcdsInput = class {
         "errorMessage": ["validateErrorMessage"],
         "value": ["watchValue"],
         "validator": ["validateValidator"],
+        "suggestions": ["validateSuggestions"],
         "hasError": ["validateHasError"],
         "aria-invalid": ["ariaInvalidWatcher"],
         "aria-description": ["ariaDescriptiondWatcher"]
@@ -3340,7 +3691,7 @@ const I18N$d = {
   },
 };
 
-const gcdsLabelCss = "@layer reset, default;@layer reset{:host{display:block}}@layer default{:host .gcds-label{color:var(--gcds-label-text);cursor:pointer;display:block;font:var(--gcds-label-font-desktop);margin:var(--gcds-label-margin)!important;max-width:100%}@media only screen and (width < 48em){:host .gcds-label{font:var(--gcds-label-font-mobile)}}:host .gcds-label.label--hidden{height:0;margin:0;opacity:0;overflow:hidden;width:0}:host .gcds-label .label--required{font-weight:var(--gcds-label-required-font-weight);margin:var(--gcds-label-required-margin)!important}}";
+const gcdsLabelCss = "@layer reset, default;@layer reset{:host{display:block}}@layer default{:host .gcds-label{color:var(--gcds-label-text);cursor:pointer;display:block;font:var(--gcds-label-font-desktop);margin:var(--gcds-label-margin)!important;max-width:100%}@media only screen and (width < 48em){:host .gcds-label{font:var(--gcds-label-font-mobile)}}:host .gcds-label.label--hidden>span{clip-path:inset(100%);clip:rect(1px,1px,1px,1px);height:1px;overflow:hidden;position:absolute;white-space:nowrap;width:1px}:host .gcds-label .label--required{font-weight:var(--gcds-label-required-font-weight);margin:var(--gcds-label-required-margin)!important}}";
 
 const GcdsLabel = class {
     constructor(hostRef) {
@@ -4234,11 +4585,16 @@ const GcdsRadios = class {
             this.internals = hostRef.$hostElement$.attachInternals();
             hostRef.$hostElement$["s-ei"] = this.internals;
         }
+        this.radioTitle = '';
         this._validator = defaultValidator;
         /**
          * Set event to call validator
          */
         this.validateOn = 'blur';
+        /**
+         * Specifies if the legend is hidden or not.
+         */
+        this.hideLegend = false;
         /**
          * Set additional HTML attributes not available in component properties
          */
@@ -4264,6 +4620,9 @@ const GcdsRadios = class {
             if (e.type === 'change') {
                 const changeEvt = new e.constructor(e.type, e);
                 this.el.dispatchEvent(changeEvt);
+            }
+            else {
+                this.updateValidity();
             }
             customEvent.emit(this.value);
         };
@@ -4332,7 +4691,14 @@ const GcdsRadios = class {
                 this.value = null;
                 this.internals.setFormValue(this.value);
             }
+            this.updateValidity();
         }
+    }
+    /**
+     * Read-only property of the input, returns a ValidityState object that represents the validity states this element is in.
+     */
+    get validity() {
+        return this.internals.validity;
     }
     validateValidator() {
         this._validator = getValidator(this.validator);
@@ -4342,6 +4708,19 @@ const GcdsRadios = class {
      */
     async validate() {
         utils.handleValidationResult(this.el, this._validator.validate(this.value), this.legend, this.gcdsError, this.gcdsValid, this.lang);
+        this.radioTitle = this.errorMessage;
+    }
+    /**
+     * Check the validity of gcds-radios
+     */
+    async checkValidity() {
+        return this.internals.checkValidity();
+    }
+    /**
+     * Get validationMessage of gcds-radios
+     */
+    async getValidationMessage() {
+        return this.internals.validationMessage;
     }
     submitListener(e) {
         if (e.target == this.el.closest('form')) {
@@ -4365,6 +4744,22 @@ const GcdsRadios = class {
     formStateRestoreCallback(state) {
         this.internals.setFormValue(state);
         this.value = state;
+    }
+    /**
+     * Update gcds-input's validity using internal input
+     */
+    updateValidity() {
+        var _a;
+        if (((_a = this.shadowElement) === null || _a === void 0 ? void 0 : _a.length) > 1) {
+            const validity = utils.validateRadioCheckboxGroup(this.shadowElement);
+            let validationMessage = null;
+            if (validity === null || validity === void 0 ? void 0 : validity.valueMissing) {
+                validationMessage = this.lang === 'en' ? 'Choose an option to continue.' : 'Choisissez une option pour continuer.';
+            }
+            this.internals.setValidity(validity, validationMessage, this.shadowElement[0]);
+            // Set input title when HTML error occruring
+            this.radioTitle = validationMessage;
+        }
     }
     /*
      * Observe lang attribute change
@@ -4391,7 +4786,6 @@ const GcdsRadios = class {
         // Assign required validator if needed
         requiredValidator(this.el, 'radio');
         this.validateValidator();
-        this.inheritedAttributes = utils.inheritAttributes(this.el, this.shadowElement);
         this.initialValue = this.value ? this.value : null;
         const valid = this.validateRequiredProps();
         if (!valid) {
@@ -4405,8 +4799,17 @@ const GcdsRadios = class {
             utils.logError('gcds-radios', this.errors);
         }
     }
+    async componentDidLoad() {
+        this.updateValidity();
+        // Logic to enable autofocus
+        if (this.autofocus) {
+            requestAnimationFrame(() => {
+                this.shadowElement[0].focus();
+            });
+        }
+    }
     render() {
-        const { lang, name, legend, value, required, hint, errorMessage, disabled, hasError, inheritedAttributes, } = this;
+        const { lang, name, legend, value, required, hint, errorMessage, disabled, hasError, radioTitle, form, inheritedAttributes, } = this;
         const fieldsetAttrs = {
             'tabindex': '-1',
             'aria-labelledby': 'radios-legend',
@@ -4417,9 +4820,9 @@ const GcdsRadios = class {
                 `${fieldsetAttrs['aria-labelledby']} ${hintID}`.trim();
         }
         if (this.validateRequiredProps()) {
-            return (index.h(index.Host, { key: '863fb42cf8b4ad89a28170ded8066c3220b6434e', onBlur: () => this.onBlurValidate() }, index.h("fieldset", Object.assign({ key: '460e85e366045fd2bffa39cba97603070bb029ff', class: "gcds-radios__fieldset" }, fieldsetAttrs), index.h("legend", { key: '8f37f944357de5f5a5b30758276ad3faee992851', id: "radios-legend", class: "gcds-radios__legend" }, legend, required ? (index.h("span", { class: "legend__required" }, I18N$7[lang].required)) : null), hint ? (index.h("gcds-hint", { id: "radios-hint", "hint-id": "radios" }, hint)) : null, errorMessage ? (index.h("gcds-error-message", { id: "radios-error", messageId: "radios" }, errorMessage)) : null, this.optionsArr &&
+            return (index.h(index.Host, { key: '09bebf9ebeec3959d7061acfebd1604656caefd4', onBlur: () => this.onBlurValidate() }, index.h("fieldset", Object.assign({ key: '3d52f3ce72cdcedbaf5dcf57b11d6033ff35c575', class: "gcds-radios__fieldset" }, fieldsetAttrs), index.h("legend", { key: 'af14ef3c9c4db9d1a12775fa51cf2f4aafe4bf54', id: "radios-legend", class: "gcds-radios__legend" }, this.hideLegend ? (index.h("gcds-sr-only", { tag: "span" }, legend, required && index.h("span", { class: "legend__required" }, I18N$7[lang].required))) : (index.h(index.Fragment, null, legend, required && index.h("span", { class: "legend__required" }, I18N$7[lang].required)))), hint ? (index.h("gcds-hint", { id: "radios-hint", "hint-id": "radios" }, hint)) : null, errorMessage ? (index.h("gcds-error-message", { id: "radios-error", messageId: "radios" }, errorMessage)) : null, this.optionsArr &&
                 this.optionsArr.map(radio => {
-                    const attrsInput = Object.assign({ name, disabled: disabled, required: required, value: radio.value, checked: radio.value === value }, inheritedAttributes);
+                    const attrsInput = Object.assign({ name, disabled: disabled, required: required, value: radio.value, checked: radio.value === value, title: radioTitle, form: form }, inheritedAttributes);
                     if (radio.hint) {
                         const hintID = radio.hint ? `hint-${radio.id} ` : '';
                         attrsInput['aria-describedby'] = `${hintID}${attrsInput['aria-describedby']
@@ -4430,7 +4833,7 @@ const GcdsRadios = class {
                         attrsInput['aria-invalid'] = 'true';
                         attrsInput['aria-description'] = errorMessage;
                     }
-                    return (index.h("div", { class: `gcds-radio ${disabled ? 'gcds-radio--disabled' : ''} ${hasError ? 'gcds-radio--error' : ''}` }, index.h("input", Object.assign({ id: radio.id, type: "radio" }, attrsInput, { onInput: e => this.handleInput(e, this.gcdsInput), onChange: e => this.handleInput(e, this.gcdsChange), onBlur: () => this.onBlur(), onFocus: () => this.gcdsFocus.emit() })), index.h("gcds-label", { label: radio.label, "label-for": radio.id, lang: lang, onClick: e => e.stopPropagation() }), radio.hint ? (index.h("gcds-hint", { "hint-id": radio.id }, radio.hint)) : null));
+                    return (index.h("div", { class: `gcds-radio ${disabled ? 'gcds-radio--disabled' : ''} ${hasError ? 'gcds-radio--error' : ''}` }, index.h("input", Object.assign({ id: radio.id, type: "radio" }, attrsInput, { onInput: e => this.handleInput(e, this.gcdsInput), onChange: e => this.handleInput(e, this.gcdsChange), onBlur: () => this.onBlur(), onFocus: () => this.gcdsFocus.emit(), ref: (el) => (this.shadowElement = [...(this.shadowElement || []), el]) })), index.h("gcds-label", { label: radio.label, "label-for": radio.id, lang: lang, onClick: e => e.stopPropagation() }), radio.hint ? (index.h("gcds-hint", { "hint-id": radio.id }, radio.hint)) : null));
                 }))));
         }
     }
@@ -4545,7 +4948,12 @@ const GcdsSelect = class {
             this.internals = hostRef.$hostElement$.attachInternals();
             hostRef.$hostElement$["s-ei"] = this.internals;
         }
+        this.selectTitle = '';
         this._validator = defaultValidator;
+        /**
+         * Specifies if the label is hidden or not.
+         */
+        this.hideLabel = false;
         /**
          * Specifies if a form field is required or not.
          */
@@ -4570,6 +4978,9 @@ const GcdsSelect = class {
                 const changeEvt = new e.constructor(e.type, e);
                 this.el.dispatchEvent(changeEvt);
             }
+            else {
+                this.updateValidity();
+            }
             customEvent.emit(this.value);
         };
         this.onBlur = () => {
@@ -4585,7 +4996,17 @@ const GcdsSelect = class {
         }
     }
     watchValue(val) {
-        this.internals.setFormValue(val ? val : null);
+        if (!this.shadowElement)
+            return;
+        if (val && this.checkIfValidValue(val)) {
+            this.internals.setFormValue(val);
+            this.shadowElement.value = val;
+        }
+        else {
+            this.internals.setFormValue(null);
+            this.value = null;
+        }
+        this.updateValidity();
     }
     validateErrorMessage() {
         if (this.disabled) {
@@ -4597,6 +5018,12 @@ const GcdsSelect = class {
         else if (this.errorMessage == '') {
             this.hasError = false;
         }
+    }
+    /**
+     * Read-only property of the select, returns a ValidityState object that represents the validity states this element is in.
+     */
+    get validity() {
+        return this.internals.validity;
     }
     validateValidator() {
         this._validator = getValidator(this.validator);
@@ -4620,6 +5047,19 @@ const GcdsSelect = class {
      */
     async validate() {
         utils.handleValidationResult(this.el, this._validator.validate(this.value), this.label, this.gcdsError, this.gcdsValid, this.lang);
+        this.selectTitle = this.errorMessage;
+    }
+    /**
+     * Check the validity of gcds-select
+     */
+    async checkValidity() {
+        return this.internals.checkValidity();
+    }
+    /**
+     * Get validationMessage of gcds-select
+     */
+    async getValidationMessage() {
+        return this.internals.validationMessage;
     }
     submitListener(e) {
         if (e.target == this.el.closest('form')) {
@@ -4641,11 +5081,32 @@ const GcdsSelect = class {
             this.internals.setFormValue(value);
             this.initialValue = this.value;
         }
-        if (option.hasAttribute('selected')) {
+        else if (option.hasAttribute('selected')) {
             this.value = value;
             this.internals.setFormValue(value);
             this.initialValue = this.value ? this.value : null;
         }
+    }
+    checkIfValidValue(value) {
+        let isValid = false;
+        this.options.forEach(option => {
+            if (option.nodeName === 'OPTION') {
+                const optionValue = option.getAttribute('value');
+                if (optionValue === value) {
+                    isValid = true;
+                }
+            }
+            else if (option.nodeName === 'OPTGROUP') {
+                const subOptions = Array.from(option.children);
+                subOptions.map(sub => {
+                    const subOptionValue = sub.getAttribute('value');
+                    if (subOptionValue === value) {
+                        isValid = true;
+                    }
+                });
+            }
+        });
+        return isValid;
     }
     /*
      * Form internal functions
@@ -4659,6 +5120,21 @@ const GcdsSelect = class {
     formStateRestoreCallback(state) {
         this.internals.setFormValue(state);
         this.value = state;
+    }
+    /**
+     * Update gcds-select's validity using internal select
+     */
+    updateValidity() {
+        if (!this.shadowElement)
+            return;
+        const validity = this.shadowElement.validity;
+        let validationMessage = null;
+        if (validity === null || validity === void 0 ? void 0 : validity.valueMissing) {
+            validationMessage = this.lang === 'en' ? 'Choose an option to continue.' : 'Choisissez une option pour continuer.';
+        }
+        this.internals.setValidity(validity, validationMessage, this.shadowElement);
+        // Set select title when HTML error occruring
+        this.selectTitle = validationMessage;
     }
     /*
      * Observe passed options and update if change
@@ -4712,17 +5188,28 @@ const GcdsSelect = class {
                     });
                 }
             });
+            this.value = this.checkIfValidValue(this.value) ? this.value : null;
         }
     }
     async componentDidLoad() {
         this.observeOptions();
+        this.updateValidity();
+        // Logic to enable autofocus
+        if (this.autofocus) {
+            requestAnimationFrame(() => {
+                var _a;
+                (_a = this.shadowElement) === null || _a === void 0 ? void 0 : _a.focus();
+            });
+        }
     }
     render() {
-        const { lang, selectId, label, required, disabled, defaultValue, value, hint, errorMessage, inheritedAttributes, hasError, name, options, } = this;
+        const { lang, selectId, label, hideLabel, required, disabled, defaultValue, value, hint, errorMessage, inheritedAttributes, hasError, name, options, selectTitle, autofocus, form, autocomplete, } = this;
         const attrsSelect = Object.assign({ name,
             disabled,
             required,
-            value }, inheritedAttributes);
+            value, title: selectTitle, autofocus,
+            form,
+            autocomplete }, inheritedAttributes);
         const attrsLabel = {
             label,
             required,
@@ -4734,7 +5221,7 @@ const GcdsSelect = class {
                 ? `${attrsSelect['aria-describedby']}`
                 : ''}`;
         }
-        return (index.h(index.Host, { key: 'f0926042e4a71b93d14a0e17bccee1df28807359' }, index.h("div", { key: 'bcf0fabf3ee8db8bf5eaa46a5adcbb5ef5d0ef8a', class: `gcds-select-wrapper ${disabled ? 'gcds-disabled' : ''} ${hasError ? 'gcds-error' : ''}` }, index.h("gcds-label", Object.assign({ key: '00ad8e8924c6793cfe63b3226b1d361f758e9aee' }, attrsLabel, { "label-for": selectId, lang: lang })), hint ? index.h("gcds-hint", { "hint-id": selectId }, hint) : null, errorMessage ? (index.h("gcds-error-message", { messageId: selectId }, errorMessage)) : null, index.h("select", Object.assign({ key: '4de00ba765ca550a1697f29abbb1fa0394736e39' }, attrsSelect, { id: selectId, onBlur: () => this.onBlur(), onFocus: () => this.gcdsFocus.emit(), onInput: e => this.handleInput(e, this.gcdsInput), onChange: e => this.handleInput(e, this.gcdsChange), "aria-invalid": inheritedAttributes['aria-invalid'] === 'true'
+        return (index.h(index.Host, { key: '896b50853f39ed4da9bfcaa2f9d7e90ff837c8d6' }, index.h("div", { key: 'b908f1cc32d6731196e9e2681ddad1956783f593', class: `gcds-select-wrapper ${disabled ? 'gcds-disabled' : ''} ${hasError ? 'gcds-error' : ''}` }, index.h("gcds-label", Object.assign({ key: '52627d1f6c3e0e33f17f504aa57d9804a23abca1' }, attrsLabel, { "hide-label": hideLabel, "label-for": selectId, lang: lang })), hint ? index.h("gcds-hint", { "hint-id": selectId }, hint) : null, errorMessage ? (index.h("gcds-error-message", { messageId: selectId }, errorMessage)) : null, index.h("select", Object.assign({ key: 'f996305b187039b81b40e491e104bd4a4e4c57ed' }, attrsSelect, { id: selectId, onBlur: () => this.onBlur(), onFocus: () => this.gcdsFocus.emit(), onInput: e => this.handleInput(e, this.gcdsInput), onChange: e => this.handleInput(e, this.gcdsChange), "aria-invalid": inheritedAttributes['aria-invalid'] === 'true'
                 ? inheritedAttributes['aria-invalid']
                 : errorMessage
                     ? 'true'
@@ -4978,7 +5465,7 @@ const GcdsSideNav = class {
         }
     }
     async focusOutListener(e) {
-        if (!this.el.contains(e.relatedTarget)) {
+        if (e.relatedTarget !== null && e.relatedTarget !== this.el && !this.el.contains(e.relatedTarget)) {
             if (this.navSize == 'mobile') {
                 if (this.mobile.hasAttribute('open')) {
                     await this.mobile.toggleNav();
@@ -4989,6 +5476,10 @@ const GcdsSideNav = class {
     async keyDownListener(e) {
         if (this.el.contains(document.activeElement)) {
             handleKeyDownNav(e, this.el, this.navItems);
+        }
+        if (this.navSize == 'mobile' && this.mobile.open == true && e.key == 'Escape') {
+            // Close mobile nav on ESC
+            await this.mobile.toggleNav();
         }
     }
     async gcdsClickListener(e) {
@@ -5049,7 +5540,7 @@ const GcdsSideNav = class {
     }
     render() {
         const { label, lang } = this;
-        return (index.h(index.Host, { key: 'b41f9b092e8f23a6353b7064b449731ffaaaa14b' }, index.h("nav", { key: '26b4d5a3a82cf9216f56a7b9b1151035df7d72c7', "aria-label": `${label}${I18N$5[lang].navLabel}`, class: "gcds-side-nav" }, index.h("h2", { key: '4eb8709e0f213912b559fa81da7478be87609db0', class: "gcds-side-nav__heading" }, label), index.h("ul", { key: '99881fe85061138b0885b11513bad6bae1521c7d' }, index.h("gcds-nav-group", { key: '631d8e89b0e174de1338ec11de22cc717fe64e0a', menuLabel: I18N$5[lang].menuLabel, closeTrigger: I18N$5[lang].closeTrigger, openTrigger: I18N$5[lang].menuLabel, class: "gcds-mobile-nav", ref: element => (this.mobile = element), lang: lang }, index.h("slot", { key: '2e860631635649db3c4dca11f0d2cc58f4eb4b8a' }))))));
+        return (index.h(index.Host, { key: '3650f2ae4f31243a54e38d06cd55768045c6b030' }, index.h("nav", { key: '481eed1102474259d4ff3e50147fcc61ad947fb5', "aria-label": `${label}${I18N$5[lang].navLabel}`, class: "gcds-side-nav" }, index.h("h2", { key: '8b208d88ad7cf6a3d2648b4b6671a97cdd65504d', class: "gcds-side-nav__heading" }, label), index.h("ul", { key: '666e982af5ad6ccf26205bdb4694ea33394952e3' }, index.h("gcds-nav-group", { key: 'a500af2436e4744ce191d3eaa2792fd1f7624300', menuLabel: I18N$5[lang].menuLabel, closeTrigger: I18N$5[lang].closeTrigger, openTrigger: I18N$5[lang].menuLabel, class: "gcds-mobile-nav", ref: element => (this.mobile = element), lang: lang }, index.h("slot", { key: 'ca022888ad172c313b72900d8152e1f5039b0a88' }))))));
     }
     get el() { return index.getElement(this); }
 };
@@ -5770,7 +6261,7 @@ const GcdsTopNav = class {
         }
     }
     async focusOutListener(e) {
-        if (!this.el.contains(e.relatedTarget)) {
+        if (e.relatedTarget !== null && e.relatedTarget !== this.el && !this.el.contains(e.relatedTarget)) {
             if (this.navSize == 'mobile') {
                 if (this.mobile.hasAttribute('open')) {
                     await this.mobile.toggleNav();
@@ -5781,6 +6272,10 @@ const GcdsTopNav = class {
     async keyDownListener(e) {
         if (this.el.contains(document.activeElement)) {
             handleKeyDownNav(e, this.el, this.navItems);
+        }
+        else if (this.navSize == 'mobile' && this.mobile.open == true && e.key == 'Escape') {
+            // Close mobile nav on ESC
+            await this.mobile.toggleNav();
         }
     }
     async gcdsClickListener(e) {
@@ -5842,7 +6337,7 @@ const GcdsTopNav = class {
     }
     render() {
         const { label, alignment, lang } = this;
-        return (index.h(index.Host, { key: '0a185f63b720d7a6b47ad9204a40b506f4dbcbd4' }, index.h("div", { key: '86accc24657db6c1532deaa30a04c5ad17f281cd', class: "gcds-top-nav" }, index.h("nav", { key: '52684b858af7b5d205dabe7eee8071d8b2de79d4', "aria-label": `${label}${I18N$1[lang].navLabel}` }, index.h("ul", { key: '1d106bcb07ca67ac7be572acf26c4fa3d9128996', class: "gcds-top-nav__container" }, index.h("gcds-nav-group", { key: 'cf80fff5c8c117f09ddcc1540a7361cba5e9aef7', menuLabel: I18N$1[lang].menuLabel, closeTrigger: I18N$1[lang].closeTrigger, openTrigger: I18N$1[lang].menuLabel, class: "gcds-mobile-nav gcds-mobile-nav-topnav", ref: element => (this.mobile = element), lang: lang }, index.h("slot", { key: '584ce592a08c84caabf664181ec2f3a769c9ac0d', name: "home" }), index.h("li", { key: 'd1a187f963160af82d10cd72bc1fa2c8bd1ffe0f', class: `nav-container__list nav-list--${alignment}` }, index.h("ul", { key: '3ece4687ccb79e67f30f5b08824acb254d1b1de8', class: `nav-container__list nav-list--${alignment}` }, index.h("slot", { key: 'edb4abbcabd29d9a65b79f27ac74da8c2896d092' })))))))));
+        return (index.h(index.Host, { key: '6f57bdfbba153b88e63282fe45d6497be0e81b5f' }, index.h("div", { key: '9401def5fca706a082db708de11f76beeccf5850', class: "gcds-top-nav" }, index.h("nav", { key: '10ddd1dbc5cb1c1d4044da7a2a8fcb9819ff0de9', "aria-label": `${label}${I18N$1[lang].navLabel}` }, index.h("ul", { key: '21e81dbff5922559832000e1a5347c974d7a2339', class: "gcds-top-nav__container" }, index.h("gcds-nav-group", { key: '34d58fa9187f7d0518a7a4d48952273efb774e67', menuLabel: I18N$1[lang].menuLabel, closeTrigger: I18N$1[lang].closeTrigger, openTrigger: I18N$1[lang].menuLabel, class: "gcds-mobile-nav gcds-mobile-nav-topnav", ref: element => (this.mobile = element), lang: lang }, index.h("slot", { key: '1908a485afa1cc4d3a1ed32697b6b47c341fb607', name: "home" }), index.h("li", { key: '9644412c24517b568f147a4035489c14e8472e4a', class: `nav-container__list nav-list--${alignment}` }, index.h("ul", { key: 'e5dca5fac0819e051825e9367b6be2e9e133eff7', class: `nav-container__list nav-list--${alignment}` }, index.h("slot", { key: 'c12dce812d8dccc4a109473d5c6f546422c491ff' })))))))));
     }
     get el() { return index.getElement(this); }
 };

@@ -1,7 +1,7 @@
 'use strict';
 
 var index = require('./index-DPc_YL85.js');
-var utils = require('./utils-DUYXmtTw.js');
+var utils = require('./utils-BMTdBAFF.js');
 
 const I18N = {
   en: {

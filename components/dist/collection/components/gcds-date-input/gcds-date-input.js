@@ -2,11 +2,14 @@ import { Host, h, } from "@stencil/core";
 import { assignLanguage, observerConfig, isValidDate, logError, handleValidationResult, } from "../../utils/utils";
 import { defaultValidator, getValidator, requiredValidator, } from "../../validators";
 import i18n from "./i18n/i18n";
+import { getDateInputError } from "../../validators/input-validators/input-validators";
 /**
  * A date input is a space to enter a known date.
  */
 export class GcdsDateInput {
     constructor() {
+        // Array to store which native HTML errors are happening on the input
+        this.htmlValidationErrors = [];
         this._validator = defaultValidator;
         /**
          * Specifies if a form field is required or not.
@@ -103,6 +106,19 @@ export class GcdsDateInput {
             this.splitFormValue();
             this.internals.setFormValue(this.value);
         }
+        else {
+            this.yearValue = '';
+            this.monthValue = '';
+            this.dayValue = '';
+            this.internals.setFormValue(null);
+        }
+        this.updateValidity();
+    }
+    /**
+     * Read-only property of the date-input, returns a ValidityState object that represents the validity states this element is in.
+     */
+    get validity() {
+        return this.internals.validity;
     }
     validateValidator() {
         this._validator = getValidator(this.validator);
@@ -111,9 +127,27 @@ export class GcdsDateInput {
      * Call any active validators
      */
     async validate() {
+        var _a, _b, _c, _d;
         this.hasError = handleValidationResult(this.el, this._validator.validate(this.format === 'full'
             ? `${this.yearValue}-${this.monthValue}-${this.dayValue}`
             : `${this.yearValue}-${this.monthValue}`), this.legend, this.gcdsError, this.gcdsValid, this.lang, { day: false, month: false, year: false });
+        // Don't use the valueMissing and badInput errors here since they are handled by the validator above
+        if (!this.internals.checkValidity() && !((_a = this.internals.validity) === null || _a === void 0 ? void 0 : _a.valueMissing) && !((_b = this.internals.validity) === null || _b === void 0 ? void 0 : _b.badInput)) {
+            this.errorMessage = (_c = this.htmlValidationErrors[0]) === null || _c === void 0 ? void 0 : _c.errorMessage;
+            this.hasError = Object.assign(Object.assign({}, this.hasError), (_d = this.htmlValidationErrors[0]) === null || _d === void 0 ? void 0 : _d.hasError);
+        }
+    }
+    /**
+     * Check the validity of gcds-date-input
+     */
+    async checkValidity() {
+        return this.internals.checkValidity();
+    }
+    /**
+     * Get validationMessage of gcds-date-input
+     */
+    async getValidationMessage() {
+        return this.internals.validationMessage;
     }
     /*
      * Event listeners
@@ -142,6 +176,123 @@ export class GcdsDateInput {
     formStateRestoreCallback(state) {
         this.internals.setFormValue(state);
         this.value = state;
+    }
+    /*
+     * Combine validity states of internal form elements and validate
+     * Returns combined ValidityState, array of elements with errors and error message
+     */
+    checkAndValidateValidity() {
+        var _a, _b, _c, _d, _e, _f;
+        // Order elements based on format and language
+        const elements = [this.monthSelect, this.yearInput];
+        if (this.format === 'full') {
+            this.lang === 'en' ? elements.splice(1, 0, this.dayInput) : elements.unshift(this.dayInput);
+        }
+        this.htmlValidationErrors = [];
+        let valid = true;
+        let valueMissing = false;
+        let badInput = false;
+        let rangeUnderflow = false;
+        let rangeOverflow = false;
+        let formError = [];
+        let errorMessage = null;
+        // Check if required or some value has been entered
+        if (this.required || this.value != null) {
+            elements.forEach(el => {
+                // valueMissing validation
+                if (el.value === '' || el.value == null) {
+                    valueMissing = true;
+                    valid = false;
+                    formError.push(el);
+                }
+            });
+            errorMessage = getDateInputError({
+                day: (_a = this.dayInput) === null || _a === void 0 ? void 0 : _a.value,
+                month: (_b = this.monthSelect) === null || _b === void 0 ? void 0 : _b.value,
+                year: (_c = this.yearInput) === null || _c === void 0 ? void 0 : _c.value
+            }, this.format).reason[this.lang];
+        }
+        // Check if any field has bad input
+        if (this.required && !valueMissing) {
+            const badInputError = getDateInputError({
+                day: (_d = this.dayInput) === null || _d === void 0 ? void 0 : _d.value,
+                month: (_e = this.monthSelect) === null || _e === void 0 ? void 0 : _e.value,
+                year: (_f = this.yearInput) === null || _f === void 0 ? void 0 : _f.value
+            }, this.format);
+            if (badInputError.reason.en != '') {
+                badInput = true;
+                errorMessage = badInputError.reason[this.lang];
+                formError = elements;
+                this.htmlValidationErrors.push({
+                    error: 'badInput',
+                    hasError: badInputError.errors,
+                    errorMessage
+                });
+            }
+        }
+        // Only check min if all values are present and valid
+        if (this.value != null && this.min && !valueMissing && !badInput) {
+            const setDate = new Date(this.value);
+            const minDate = new Date(this.min);
+            if (setDate < minDate) {
+                valid = false;
+                rangeUnderflow = true;
+                formError = elements;
+                errorMessage = i18n[this.lang].rangeUnderflow.replace('{{min}}', this.min);
+                this.htmlValidationErrors.push({
+                    error: 'rangeUnderflow',
+                    hasError: { day: true, month: true, year: true },
+                    errorMessage
+                });
+            }
+        }
+        // Only check max if all values are present, valid and no min error
+        if (this.value != null && this.max && !valueMissing && !badInput && !rangeUnderflow) {
+            const setDate = new Date(this.value);
+            const maxDate = new Date(this.max);
+            if (setDate > maxDate) {
+                valid = false;
+                rangeOverflow = true;
+                errorMessage = i18n[this.lang].rangeOverflow.replace('{{max}}', this.max);
+                this.htmlValidationErrors.push({
+                    error: 'rangeOverflow',
+                    hasError: { day: true, month: true, year: true },
+                    errorMessage
+                });
+                formError = elements;
+            }
+        }
+        const validity = {
+            valueMissing,
+            typeMismatch: false,
+            patternMismatch: false,
+            tooLong: false,
+            tooShort: false,
+            rangeUnderflow,
+            rangeOverflow,
+            stepMismatch: false,
+            badInput,
+            customError: false,
+            valid,
+        };
+        return {
+            validity,
+            formError,
+            errorMessage
+        };
+    }
+    /**
+     * Update gcds-date-input's validity using internal form elements
+     */
+    updateValidity() {
+        if ((this.format === 'full' && (!this.yearInput || !this.monthSelect || !this.dayInput)) || (this.format === 'compact' && (!this.yearInput || !this.monthSelect)))
+            return;
+        const { validity, formError, errorMessage } = this.checkAndValidateValidity();
+        let validationMessage = null;
+        if ((validity === null || validity === void 0 ? void 0 : validity.valueMissing) || (validity === null || validity === void 0 ? void 0 : validity.badInput) || (validity === null || validity === void 0 ? void 0 : validity.rangeUnderflow) || (validity === null || validity === void 0 ? void 0 : validity.rangeOverflow)) {
+            validationMessage = errorMessage;
+        }
+        this.internals.setValidity(validity, validationMessage, formError[0]);
     }
     /*
      * Observe lang attribute change
@@ -176,6 +327,7 @@ export class GcdsDateInput {
             this.value = `${yearValue}-${monthValue}`;
         }
         this.internals.setFormValue(this.value);
+        this.updateValidity();
         return true;
     }
     /**
@@ -223,8 +375,18 @@ export class GcdsDateInput {
             this.initialValue = this.value;
         }
     }
+    async componentDidLoad() {
+        this.updateValidity();
+        // Logic to enable autofocus
+        if (this.autofocus) {
+            requestAnimationFrame(() => {
+                var _a;
+                (_a = this.fieldset) === null || _a === void 0 ? void 0 : _a.focus();
+            });
+        }
+    }
     render() {
-        const { legend, name, format, required, hint, errorMessage, disabled, lang, hasError, } = this;
+        const { legend, name, format, required, hint, errorMessage, disabled, lang, hasError, form, } = this;
         const requiredAttr = {};
         if (required) {
             requiredAttr['aria-required'] = 'true';
@@ -240,10 +402,10 @@ export class GcdsDateInput {
         }
         // Array of months 01 - 12
         const options = Array.from({ length: 12 }, (_, i) => i + 1 < 10 ? `0${i + 1}` : `${i + 1}`);
-        const month = (h("gcds-select", Object.assign({ key: '7036ccea3931372a5a182a6a392db606045a0da5', label: i18n[lang].month, selectId: "month", name: "month", defaultValue: i18n[lang].selectmonth, disabled: disabled, onInput: e => this.handleInput(e, 'month'), onChange: e => this.handleInput(e, 'month'), value: this.monthValue, class: `gcds-date-input__month ${hasError['month'] ? 'gcds-date-input--error' : ''}` }, requiredAttr, { "aria-invalid": hasError['month'].toString(), "aria-description": hasError['month'] && errorMessage }), options.map(option => (h("option", { key: option, value: option }, i18n[lang]['months'][option])))));
-        const year = (h("gcds-input", Object.assign({ key: 'b0be7d9e018a48119d9448035e4c5ec1d5eaf85f', name: "year", label: i18n[lang].year, inputId: "year", type: "number", size: 4, disabled: disabled, value: this.yearValue, onInput: e => this.handleInput(e, 'year'), onChange: e => this.handleInput(e, 'year'), class: `gcds-date-input__year ${hasError['year'] ? 'gcds-date-input--error' : ''}`, "validate-on": 'other' }, requiredAttr, { "aria-invalid": hasError['year'].toString(), "aria-description": hasError['year'] && errorMessage })));
-        const day = (h("gcds-input", Object.assign({ key: 'aff040a276b1fa0e1258ced275b4b46813dec447', name: "day", label: i18n[lang].day, inputId: "day", type: "number", size: 2, disabled: disabled, value: this.dayValue, onInput: e => this.handleInput(e, 'day'), onChange: e => this.handleInput(e, 'day'), "validate-on": 'other', class: `gcds-date-input__day ${hasError['day'] ? 'gcds-date-input--error' : ''}` }, requiredAttr, { "aria-invalid": hasError['day'].toString(), "aria-description": hasError['day'] && errorMessage })));
-        return (h(Host, { key: '57441b137fd61b30700f5df2858fd0e196565d69', name: name, onBlur: () => this.onBlur() }, this.validateRequiredProps() && (h("fieldset", Object.assign({ key: 'b854c9516c33aff4409a3e321501a9b4337138a1', class: "gcds-date-input__fieldset" }, fieldsetAttrs), h("legend", { key: '499c80dd1000be586698ab3e2cd495d1a91b0187', id: "date-input-legend" }, legend, required ? (h("span", { class: "legend__required" }, i18n[lang].required)) : null), hint ? (h("gcds-hint", { id: "date-input-hint", "hint-id": "date-input" }, hint)) : null, errorMessage ? (h("div", null, h("gcds-error-message", { id: "date-input-error", messageId: "date-input" }, errorMessage))) : null, format == 'compact'
+        const month = (h("gcds-select", Object.assign({ key: '3825d2fc422c6291c0c4ec02ba160ce18a8f885d', label: i18n[lang].month, selectId: "month", name: "month", defaultValue: i18n[lang].selectmonth, disabled: disabled, onInput: e => this.handleInput(e, 'month'), onChange: e => this.handleInput(e, 'month'), value: this.monthValue, class: `gcds-date-input__month ${hasError['month'] ? 'gcds-date-input--error' : ''}` }, requiredAttr, { "aria-invalid": hasError['month'].toString(), "aria-description": hasError['month'] && errorMessage, form: form, ref: el => (this.monthSelect = el) }), options.map(option => (h("option", { key: option, value: option }, i18n[lang]['months'][option])))));
+        const year = (h("gcds-input", Object.assign({ key: '1e6d8f1f6fb1b3199aadfa1f7ad4dcd48f52f8c0', name: "year", label: i18n[lang].year, inputId: "year", type: "number", inputmode: "numeric", size: 4, disabled: disabled, value: this.yearValue, onInput: e => this.handleInput(e, 'year'), onChange: e => this.handleInput(e, 'year'), class: `gcds-date-input__year ${hasError['year'] ? 'gcds-date-input--error' : ''}`, "validate-on": 'other' }, requiredAttr, { "aria-invalid": hasError['year'].toString(), "aria-description": hasError['year'] && errorMessage, form: form, ref: el => (this.yearInput = el) })));
+        const day = (h("gcds-input", Object.assign({ key: '727e8f60daec7e1b873aa8f27a10d943e1f98d34', name: "day", label: i18n[lang].day, inputId: "day", type: "number", inputmode: "numeric", size: 2, disabled: disabled, value: this.dayValue, onInput: e => this.handleInput(e, 'day'), onChange: e => this.handleInput(e, 'day'), "validate-on": 'other', class: `gcds-date-input__day ${hasError['day'] ? 'gcds-date-input--error' : ''}` }, requiredAttr, { "aria-invalid": hasError['day'].toString(), "aria-description": hasError['day'] && errorMessage, form: form, ref: el => (this.dayInput = el) })));
+        return (h(Host, { key: '4c09f8426752a32086163716b8fc81abccb9e539', name: name, onBlur: () => this.onBlur() }, this.validateRequiredProps() && (h("fieldset", Object.assign({ key: '30d06040710f4c8008e2fbf58965ac7366237ab9', class: "gcds-date-input__fieldset" }, fieldsetAttrs, { ref: el => (this.fieldset = el) }), h("legend", { key: '457b053792630a37e04b5a37156fa91d6c292bfe', id: "date-input-legend" }, legend, required ? (h("span", { class: "legend__required" }, i18n[lang].required)) : null), hint ? (h("gcds-hint", { id: "date-input-hint", "hint-id": "date-input" }, hint)) : null, errorMessage ? (h("div", null, h("gcds-error-message", { id: "date-input-error", messageId: "date-input" }, errorMessage))) : null, format == 'compact'
             ? [month, year]
             : lang == 'en'
                 ? [month, day, year]
@@ -418,6 +580,105 @@ export class GcdsDateInput {
                 "setter": false,
                 "reflect": false,
                 "defaultValue": "false"
+            },
+            "autofocus": {
+                "type": "boolean",
+                "attribute": "autofocus",
+                "mutable": false,
+                "complexType": {
+                    "original": "boolean",
+                    "resolved": "boolean",
+                    "references": {}
+                },
+                "required": false,
+                "optional": false,
+                "docs": {
+                    "tags": [],
+                    "text": "If true, the date-input will be focused on component render"
+                },
+                "getter": false,
+                "setter": false,
+                "reflect": true
+            },
+            "max": {
+                "type": "string",
+                "attribute": "max",
+                "mutable": false,
+                "complexType": {
+                    "original": "string",
+                    "resolved": "string",
+                    "references": {}
+                },
+                "required": false,
+                "optional": true,
+                "docs": {
+                    "tags": [],
+                    "text": "The maximum date that the date-input field can accept.\nFormat: YYYY-MM-DD or YYYY-MM"
+                },
+                "getter": false,
+                "setter": false,
+                "reflect": true
+            },
+            "min": {
+                "type": "string",
+                "attribute": "min",
+                "mutable": false,
+                "complexType": {
+                    "original": "string",
+                    "resolved": "string",
+                    "references": {}
+                },
+                "required": false,
+                "optional": true,
+                "docs": {
+                    "tags": [],
+                    "text": "The minimum date that the date-input field can accept.\nFormat: YYYY-MM-DD or YYYY-MM"
+                },
+                "getter": false,
+                "setter": false,
+                "reflect": true
+            },
+            "form": {
+                "type": "string",
+                "attribute": "form",
+                "mutable": false,
+                "complexType": {
+                    "original": "string",
+                    "resolved": "string",
+                    "references": {}
+                },
+                "required": false,
+                "optional": true,
+                "docs": {
+                    "tags": [],
+                    "text": "The ID of the form that the date-input field belongs to."
+                },
+                "getter": false,
+                "setter": false,
+                "reflect": true
+            },
+            "validity": {
+                "type": "unknown",
+                "attribute": "validity",
+                "mutable": false,
+                "complexType": {
+                    "original": "ValidityState",
+                    "resolved": "ValidityState",
+                    "references": {
+                        "ValidityState": {
+                            "location": "global",
+                            "id": "global::ValidityState"
+                        }
+                    }
+                },
+                "required": false,
+                "optional": false,
+                "docs": {
+                    "tags": [],
+                    "text": "Read-only property of the date-input, returns a ValidityState object that represents the validity states this element is in."
+                },
+                "getter": true,
+                "setter": false
             },
             "validator": {
                 "type": "unknown",
@@ -597,6 +858,40 @@ export class GcdsDateInput {
                 },
                 "docs": {
                     "text": "Call any active validators",
+                    "tags": []
+                }
+            },
+            "checkValidity": {
+                "complexType": {
+                    "signature": "() => Promise<boolean>",
+                    "parameters": [],
+                    "references": {
+                        "Promise": {
+                            "location": "global",
+                            "id": "global::Promise"
+                        }
+                    },
+                    "return": "Promise<boolean>"
+                },
+                "docs": {
+                    "text": "Check the validity of gcds-date-input",
+                    "tags": []
+                }
+            },
+            "getValidationMessage": {
+                "complexType": {
+                    "signature": "() => Promise<string>",
+                    "parameters": [],
+                    "references": {
+                        "Promise": {
+                            "location": "global",
+                            "id": "global::Promise"
+                        }
+                    },
+                    "return": "Promise<string>"
+                },
+                "docs": {
+                    "text": "Get validationMessage of gcds-date-input",
                     "tags": []
                 }
             }

@@ -54,13 +54,15 @@ export function cleanUpValues(optionsArr, element) {
     });
 }
 export const renderCheckbox = (checkbox, element, emitEvent, handleInput) => {
-    const { name, disabled, hasError, errorMessage, gcdsFocus, gcdsInput, gcdsChange, gcdsClick, gcdsBlur, required, hint, isGroup, lang, value, onBlurValidate, } = element;
+    const { name, disabled, hasError, errorMessage, gcdsFocus, gcdsInput, gcdsChange, gcdsClick, gcdsBlur, required, hint, isGroup, lang, value, checkboxTitle, form, hideLabel, onBlurValidate, } = element;
     const attrsInput = {
         name: name,
         id: checkbox.id,
         disabled: disabled,
-        required: checkbox.required,
+        required: required,
         value: checkbox.value,
+        title: checkboxTitle,
+        form: form,
     };
     const labelAttrs = {
         'label': checkbox.label,
@@ -70,6 +72,9 @@ export const renderCheckbox = (checkbox, element, emitEvent, handleInput) => {
     if (!isGroup && required) {
         labelAttrs['required'] = required;
         attrsInput['required'] = required;
+    }
+    if (!isGroup && hideLabel) {
+        labelAttrs['hide-label'] = hideLabel;
     }
     if (checkbox.hint) {
         const hintID = `hint-${checkbox.id}`;
@@ -82,6 +87,6 @@ export const renderCheckbox = (checkbox, element, emitEvent, handleInput) => {
         attrsInput['aria-invalid'] = 'true';
         attrsInput['aria-description'] = errorMessage;
     }
-    return (h("div", { class: `gcds-checkbox ${disabled ? 'gcds-checkbox--disabled' : ''} ${hasError ? 'gcds-checkbox--error' : ''}` }, h("input", Object.assign({ type: "checkbox" }, attrsInput, { onBlur: isGroup ? () => gcdsBlur.emit() : onBlurValidate, onFocus: () => gcdsFocus.emit(), onChange: e => handleInput(e, gcdsChange), onInput: e => handleInput(e, gcdsInput), onClick: e => !disabled ? emitEvent(e, gcdsClick) : e.stopImmediatePropagation() })), h("gcds-label", Object.assign({}, labelAttrs, { onClick: e => e.stopPropagation() })), checkbox.hint || (!isGroup && hint) ? (h("gcds-hint", { "hint-id": checkbox.id }, !isGroup && hint ? hint : checkbox.hint)) : null, !isGroup && errorMessage ? (h("gcds-error-message", { messageId: checkbox.id }, errorMessage)) : null));
+    return (h("div", { class: `gcds-checkbox ${disabled ? 'gcds-checkbox--disabled' : ''} ${hasError ? 'gcds-checkbox--error' : ''}` }, h("input", Object.assign({ type: "checkbox" }, attrsInput, { onBlur: isGroup ? () => gcdsBlur.emit() : onBlurValidate, onFocus: () => gcdsFocus.emit(), onChange: e => handleInput(e, gcdsChange), onInput: e => handleInput(e, gcdsInput), onClick: e => !disabled ? emitEvent(e, gcdsClick) : e.stopImmediatePropagation(), ref: (el) => (element.shadowElement = [...(element.shadowElement || []), el]) })), h("gcds-label", Object.assign({}, labelAttrs, { onClick: e => e.stopPropagation() })), checkbox.hint || (!isGroup && hint) ? (h("gcds-hint", { "hint-id": checkbox.id }, !isGroup && hint ? hint : checkbox.hint)) : null, !isGroup && errorMessage ? (h("gcds-error-message", { messageId: checkbox.id }, errorMessage)) : null));
 };
 //# sourceMappingURL=checkbox.js.map

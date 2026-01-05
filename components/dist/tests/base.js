@@ -1,9 +1,8 @@
 import { test as base } from "@stencil/playwright";
 import path from "path";
 import { mixinFixtures as mixinCoverage } from "@bgotink/playwright-coverage";
-// This test mixin navigates to the component test page based on the test file name
-// and waits for the component to be ready in the shadow DOM.
-export const test = mixinCoverage(base.extend({
+import { devices } from "@playwright/test";
+const gcdsTestBase = base.extend({
     page: async ({ page }, use, testInfo) => {
         // Navigate to the component test page
         // Use the testInfo to get the file path and derive the component name
@@ -21,5 +20,14 @@ export const test = mixinCoverage(base.extend({
         }, componentName);
         await use(page);
     },
+});
+// This test mixin navigates to the component test page based on the test file name
+// and waits for the component to be ready in the shadow DOM.
+export const test = mixinCoverage(gcdsTestBase);
+export const testMobile = mixinCoverage(gcdsTestBase.extend({
+    contextOptions: Object.assign({}, devices['LG Optimus L70']),
+}));
+export const testTablet = mixinCoverage(gcdsTestBase.extend({
+    contextOptions: Object.assign({}, devices['Galaxy Tab S9'])
 }));
 //# sourceMappingURL=base.js.map
