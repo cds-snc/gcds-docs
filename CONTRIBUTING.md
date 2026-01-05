@@ -162,7 +162,7 @@ Si vous avez une nouvelle idée ou une suggestion d’amélioration, nous voulon
 
 Les demandes de fonctionnalités peuvent inclure des suggestions de nouveaux composants ou des fonctionnalités additionnelles à des composants, modèles, cadres ou raccourcis CSS existants.
 
-#### 1. Vérifier les demandes de fonctionnalités en attente
+#### 1. Vérifiez les demandes de fonctionnalités en attente
 
 Vérifiez nos [demandes de fonctionnalités en attente](https://github.com/cds-snc/gcds-components/issues?q=is%3Aissue%20state%3Aopen%20label%3A%22feature%20request%22) pour déterminer si votre demande est en double ou si une demande similaire a déjà été soumise.
 
