@@ -71,7 +71,8 @@ Tip: Use the reset type sparingly as it’s a destructive action.
 
 Use the link type when you’re expecting a person to:
 
-- Navigate to other pages or external sites.
+- Navigate to other pages.
+- Navigate to external sites. An external icon is added to the end of external links.
 
 Note: Use the [link component]({{ links.link }}) when you need to embed a link in paragraph text or navigation bars.
 

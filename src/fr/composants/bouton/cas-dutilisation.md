@@ -67,7 +67,8 @@ Utilisez le type «&nbsp;Réinitialisation&nbsp;» lorsque vous vous attendez à
 
 Utilisez le type «&nbsp;Lien&nbsp;» lorsque vous vous attendez à ce qu'une personne :
 
-- Se dirige vers d'autres pages ou sites externes.
+- Se dirige vers une autre page.
+- Se dirige vers un site externe. Une icône de lien externe sera ajoutée après le lien.
 
 Remarque : Utilisez le [composant lien]({{ links.link }}) pour intégrer un lien dans le texte d'un paragraphe ou d'une barre de navigation.
 
