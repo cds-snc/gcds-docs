@@ -41,18 +41,18 @@ La classe de transition définit la propriété `transition`. Elle applique une 
 
 {% shortcutPreview %}
 
-<a href="#" class="transition-fade-in">
+<span class="transition-fade-in">
   Lorsqu’on passe la souris dessus, cet élément apparaît graduellement.
-</a> 
+</span>
 {% endshortcutPreview %}
 
 ### Disparition graduelle<br/>`transition-fade-out`
 
 {% shortcutPreview %}
 
-<a href="#" class="transition-fade-out">
+<span class="transition-fade-out">
   Lorsqu’on passe la souris dessus, cet élément disparaît graduellement.
-</a> 
+</span>
 {% endshortcutPreview %}
 
 {% include "partials/responsive-layout.njk" %}

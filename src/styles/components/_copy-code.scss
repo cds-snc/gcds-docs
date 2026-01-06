@@ -8,6 +8,7 @@
 }
 
 .code-copy {
+  opacity: 0 !important;
   top: 1em !important;
   right: 1em !important;
   background-color: #2b2b2b;
@@ -27,4 +28,10 @@
 
 .code-copy-button:hover {
   --gcds-button-secondary-default-text: var(--gcds-link-default);
+}
+
+pre:focus {
+  outline: var(--gcds-outline-width) solid var(--gcds-focus-background);
+  outline-offset: var(--gcds-border-width-md);
+  box-shadow: 0 0 0 var(--gcds-border-width-md) var(--gcds-color-grayscale-0);
 }
