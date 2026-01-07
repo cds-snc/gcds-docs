@@ -47,9 +47,10 @@ This form is for people building government websites and digital products. You c
   <gcds-input type="email" name="email" input-id="email" label="Email address" autocomplete="email" required></gcds-input>
   <gcds-textarea name="message" label="Provide your feedback or ask a question if you need help" hint="Never include personal (Protected) information." textarea-id="message"></gcds-textarea>
 
-  <gcds-fieldset legend="Receive communication from GC Design System" legend-size="h3" hint="If you'd like us to contact you, choose one or both options.">
+  <gcds-fieldset legend="Receive communication from GC Design System" legend-size="h3" hint="If you’d like us to contact you, choose all the options that apply.">
     <gcds-checkboxes name="learn-more-mailing-list" options="{{ contactus[locale].mailingcheck | stringify | encode-html }}"></gcds-checkboxes>
     <gcds-checkboxes name="learn-more-research" options="{{ contactus[locale].researchcheck | stringify | encode-html }}"></gcds-checkboxes>
+    <gcds-checkboxes name="learn-more-gcds-forum" options="{{ contactus[locale].forumcheck | stringify | encode-html }}"></gcds-checkboxes>
   </gcds-fieldset>
 
   <gcds-radios legend="Select your experience with GC Design System to date" hint="Choose 1 option." name="familiarityGCDS" required options='{{ contactus[locale].radiooptions | stringify | encode-html}}'>

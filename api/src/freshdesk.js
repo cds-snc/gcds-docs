@@ -45,6 +45,7 @@ const buildTags = (learnMore) => {
     mailing_list: 'Design_Request_MailingList',
     demo: 'Design_Request_Demo',
     usability_research: 'Design_Request_Research',
+    gcds_forum: 'Design_Request_Forum',
   };
   
   if (learnMore && Array.isArray(learnMore)) {

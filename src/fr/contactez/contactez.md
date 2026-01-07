@@ -48,9 +48,10 @@ Pour obtenir de l’aide avec un service gouvernemental, aller à la page <gcds-
   <gcds-input type="email" name="email" input-id="email" label="Adresse courriel" autocomplete="email" required></gcds-input>
   <gcds-textarea name="message" label="Fournissez vos commentaires ou posez une question si vous avez besoin d’aide" hint="Incluez jamais de renseignement personnel (Protégé)." textarea-id="message"></gcds-textarea>
 
-  <gcds-fieldset legend="Recevez des communications de la part de Système de design GC" legend-size="h3" hint="Si vous souhaitez que nous vous contactions, choisissez une option ou les deux options.">
+  <gcds-fieldset legend="Recevez des communications de la part de Système de design GC" legend-size="h3" hint="Si vous souhaitez que nous vous contactions, choisissez toutes les options qui s’appliquent.">
     <gcds-checkboxes name="learn-more-mailing-list" options="{{ contactus[locale].mailingcheck | stringify | encode-html }}"></gcds-checkboxes>
     <gcds-checkboxes name="learn-more-research" options="{{ contactus[locale].researchcheck | stringify | encode-html }}"></gcds-checkboxes>
+    <gcds-checkboxes name="learn-more-gcds-forum" options="{{ contactus[locale].forumcheck | stringify | encode-html }}"></gcds-checkboxes>
   </gcds-fieldset>
 
   <gcds-radios legend="Indiquez votre expérience avec Système de design GC" hint="Sélectionnez 1 option." name="familiarityGCDS" required options='{{ contactus[locale].radiooptions | stringify | encode-html}}'>
