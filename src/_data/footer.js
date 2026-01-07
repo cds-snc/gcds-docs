@@ -19,17 +19,17 @@ module.exports = {
       mobile: 'Mobile applications',
       mobileurl: 'https://www.canada.ca/en/mobile.html',
       about: 'About Canada.ca',
-      abouturl: 'https://design.canada.ca/about/',
+      abouturl: 'https://www.canada.ca/en/government/about-canada-ca.html',
       terms: 'Terms of use',
       privacy: 'Privacy',
-    }
+    },
   },
   fr: {
     contextual: {
       heading: 'Système de design GC',
-      list: "Contactez-nous",
+      list: 'Contactez-nous',
       listurl: '/fr/contactez/',
-      a11y: 'Déclaration d\'accessibilité',
+      a11y: "Déclaration d'accessibilité",
       a11yurl: '/fr/accessibilite/',
       sla: 'Accord sur les niveaux de service',
       slaurl: '/fr/entente-sur-les-niveaux-de-service/',
@@ -44,9 +44,9 @@ module.exports = {
       mobile: 'Applications mobiles',
       mobileurl: 'https://www.canada.ca/fr/mobile.html',
       about: 'À propos de Canada.ca',
-      abouturl: 'https://conception.canada.ca/a-propos/',
-      terms: 'Conditions d\'utilisation',
+      abouturl: 'https://www.canada.ca/fr/gouvernement/a-propos-canada-ca.html',
+      terms: "Conditions d'utilisation",
       privacy: 'Confidentialité',
-    }
+    },
   },
 };

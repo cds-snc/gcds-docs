@@ -41,18 +41,18 @@ The transition class sets the `transition` property. It applies an animation tha
 
 {% shortcutPreview %}
 
-<a href="#" class="transition-fade-in">
+<span class="transition-fade-in">
   When hovered over, this element fades in.
-</a> 
+</span> 
 {% endshortcutPreview %}
 
 ### Fade out<br/>`transition-fade-out`
 
 {% shortcutPreview %}
 
-<a href="#" class="transition-fade-out">
+<span class="transition-fade-out">
   When hovered over, this element  fades out.
-</a> 
+</span> 
 {% endshortcutPreview %}
 
 {% include "partials/responsive-layout.njk" %}
