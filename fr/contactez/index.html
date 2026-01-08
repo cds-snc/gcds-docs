@@ -2700,7 +2700,7 @@
 <p><gcds-input type="text" name="name" input-id="name" label="Nom complet" autocomplete="name" required></gcds-input>
 <gcds-input type="email" name="email" input-id="email" label="Adresse courriel" autocomplete="email" required></gcds-input>
 <gcds-textarea name="message" label="Fournissez vos commentaires ou posez une question si vous avez besoin d’aide" hint="Incluez jamais de renseignement personnel (Protégé)." textarea-id="message"></gcds-textarea></p>
-  <gcds-fieldset legend="Recevez des communications de la part de Système de design GC" legend-size="h3" hint="Si vous souhaitez que nous vous contactions, choisissez une option ou les deux options.">
+  <gcds-fieldset legend="Recevez des communications de la part de Système de design GC" legend-size="h3" hint="Si vous souhaitez que nous vous contactions, choisissez toutes les options qui s’appliquent.">
     <gcds-checkboxes name="learn-more-mailing-list" options="[
 	{
 		&quot;id&quot;: &quot;learnMoreMailingList&quot;,
@@ -2713,6 +2713,13 @@
 		&quot;id&quot;: &quot;learnMoreResearch&quot;,
 		&quot;label&quot;: &quot;Contactez-moi pour les études sur l&apos;utilisabilité.&quot;,
 		&quot;value&quot;: &quot;learn-more-mailing-list&quot;
+	}
+]"></gcds-checkboxes>
+    <gcds-checkboxes name="learn-more-gcds-forum" options="[
+	{
+		&quot;id&quot;: &quot;learnMoreGcdsForum&quot;,
+		&quot;label&quot;: &quot;S&apos;inscrire au forum de Système de design GC&quot;,
+		&quot;value&quot;: &quot;learn-more-gcds-forum&quot;
 	}
 ]"></gcds-checkboxes>
   </gcds-fieldset>
@@ -2746,7 +2753,7 @@
 
 
           <gcds-date-modified class="mb-300">
-            2026-01-06
+            2026-01-08
           </gcds-date-modified>
         </main>
       </gcds-grid>
