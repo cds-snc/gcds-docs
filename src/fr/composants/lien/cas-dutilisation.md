@@ -40,19 +40,19 @@ Utilisez des liens pour :
 
 <hr class="mt-600" />
 
-## Choisissez la variante du lien
+## Choisir un rôle de lien
 
-Une variante sert à définir le style principal du lien.
+Un rôle sert à définir le style principal du lien.
 
-### Variante Default (par défaut)
+### Rôle Default (par défaut)
 
-Utilisez la variante `default` `variant` pour :
+Utilisez le `default` `role` pour :
 
 - La plupart des liens.
 - Les liens placés sur un fond clair.
 
-### Variante Light (clair)
+### Rôle Light (clair)
 
-Utilisez la variante `light` `variant` pour :
+Utilisez le `light` `role` pour :
 
 Les liens qui doivent apparaître sur un fond sombre. Faites en sorte que le rapport de contraste entre le lien clair et l'arrière-plan sombre soit conforme aux normes WCAG (Web Content Accessibility Guidelines).
