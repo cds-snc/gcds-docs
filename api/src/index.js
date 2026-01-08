@@ -59,6 +59,9 @@ app.post('/submission', async (req, res) => {
   if (body['learn-more-research']) {
     learnMore.push('usability_research');
   }
+  if (body['learn-more-gcds-forum']) {
+    learnMore.push('gcds_forum');
+  }
 
   let parameters;
   if (process.env['NODE_ENV'] === 'development') {
