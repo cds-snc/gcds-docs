@@ -31,6 +31,13 @@ module.exports = {
         value: 'learn-more-mailing-list',
       },
     ],
+    forumcheck: [
+      {
+        id: 'learnMoreGcdsForum',
+        label: 'Register for the GC Design System Forum.',
+        value: 'learn-more-gcds-forum',
+      },
+    ],
   },
   fr: {
     radiooptions: [
@@ -62,6 +69,13 @@ module.exports = {
         id: 'learnMoreResearch',
         label: "Contactez-moi pour les études sur l'utilisabilité.",
         value: 'learn-more-mailing-list',
+      },
+    ],
+    forumcheck: [
+      {
+        id: 'learnMoreGcdsForum',
+        label: "S'inscrire au forum de Système de design GC",
+        value: 'learn-more-gcds-forum',
       },
     ],
   },
