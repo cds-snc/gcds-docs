@@ -46,7 +46,7 @@ Un rôle sert à définir le style principal du lien.
 
 ### Rôle Default (par défaut)
 
-Utilisez le `default` `role` pour :
+Utilisez le `role` `default` pour :
 
 - La plupart des liens.
 - Les liens placés sur un fond clair.
