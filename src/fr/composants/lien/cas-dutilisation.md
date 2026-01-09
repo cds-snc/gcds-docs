@@ -40,7 +40,7 @@ Utilisez des liens pour :
 
 <hr class="mt-600" />
 
-## Choisir un rôle de lien
+## Choisissez le rôle du lien
 
 Un rôle sert à définir le style principal du lien.
 
