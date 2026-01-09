@@ -53,6 +53,6 @@ Utilisez le `role` `default` pour :
 
 ### Rôle Light (clair)
 
-Utilisez le `light` `role` pour :
+Utilisez le `role` `light` pour :
 
 Les liens qui doivent apparaître sur un fond sombre. Faites en sorte que le rapport de contraste entre le lien clair et l'arrière-plan sombre soit conforme aux normes WCAG (Web Content Accessibility Guidelines).
