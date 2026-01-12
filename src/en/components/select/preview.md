@@ -6,7 +6,7 @@ eleventyExcludeFromCollections: true
 templateEngineOverride: njk
 ---
 
-<gcds-select select-id="select-preview" label="Label" hint="Hint / Example message." default-value="Select option.">
+<gcds-select select-id="select-preview" label="Label" hint="Hint / Example message." default-value="Select option">
   <option>Option 1</option>
   <option>Option 2</option>
   <option>Option 3</option>
