@@ -40,19 +40,19 @@ Use links to:
 
 <hr class="mt-600"/>
 
-## Choose a link variant
+## Choose a link role
 
-A variant sets the main style of the link.
+A role sets the main style of the link.
 
-### Default variant
+### Default role
 
-Use the `default` `variant` for:
+Use the `default` `role` for:
 
 - Most links.
 - Links that are placed on a light background.
 
-### Light variant
+### Light role
 
-Use the `light` `variant` for:
+Use the `light` `role` for:
 
 Links that need to appear on a dark background. Make sure the contrast ratio between the light link and dark background meets (WCAG) Web Content Accessibility Guidelines standards.
