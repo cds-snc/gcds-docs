@@ -192,10 +192,10 @@
     "githubTokens": "https://github.com/cds-snc/gcds-tokens",
     "githubTokensIssues": "https://github.com/cds-snc/gcds-tokens/issues",
 
-    "npmGcdsComponents": "https://www.npmjs.com/package/@cdssnc/gcds-components",
-    "npmGcdsComponentsAngular": "https://www.npmjs.com/package/@cdssnc/gcds-components-angular",
-    "npmGcdsComponentsReact": "https://www.npmjs.com/package/@cdssnc/gcds-components-react",
-    "npmGcdsComponentsVue": "https://www.npmjs.com/package/@cdssnc/gcds-components-vue",
+    "npmGcdsComponents": "https://www.npmjs.com/package/@gcds-core/components",
+    "npmGcdsComponentsAngular": "https://www.npmjs.com/package/@gcds-core/components-angular",
+    "npmGcdsComponentsReact": "https://www.npmjs.com/package/@gcds-core/components-react",
+    "npmGcdsComponentsVue": "https://www.npmjs.com/package/@gcds-core/components-vue",
 
     "tbsStandardsOnWebA11y": "https://www.tbs-sct.canada.ca/pol/doc-fra.aspx?id=23601",
 
