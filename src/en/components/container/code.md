@@ -35,9 +35,28 @@ The `size` property sets the size of the container. It comes in 6 sizes:
 
 By default, the container size will be set to `full` which means it will take up the entire width of the parent container.
 
-### Centre the container
+### Align content with the page layout
 
-Containers are not centered automatically. To centre a container on a page, add the `centered` property.
+Use `layout="page"` when a container is part of the main page structure and needs to scale consistently with core layout components such as the [header]({{ links.header }}) and [footer]({{ links.footer }}).
+
+When `layout` is set to `page`, the container:
+
+- Uses a maximum width of 71.25rem (1140px).
+- Is centered automatically within the viewport.
+- Switches to 90% width on smaller screens.
+- Matches the layout behaviour of the header and footer components.
+
+This option should be used for primary page content where visual alignment with the header and footer is required. Using `layout="page"` ensures content maintains a consistent width, alignment, and reading experience across breakpoints. When `layout` is set to `page`, there is no need to define a container `size` or set `align`, as the page layout automatically controls width and alignment.
+
+### Position the container
+
+Use the `align` attribute to control how a container is positioned within its parent. It supports three options:
+
+- `start` - aligns the container horizontally to the start of the available space.
+- `center` - centers the container horizontally.
+- `end` - aligns the container horizontally to the end of the available space.
+
+**Note:** When the `layout` attribute is set to `page`, the `align` attribute is ignored, as the page layout automatically manages width and centering.
 
 {% include "partials/getcode.njk" %}
 

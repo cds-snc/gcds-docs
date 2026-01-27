@@ -63,7 +63,7 @@ Sélectionnez parmi les options suivantes, puis suivez les étapes pour installe
 Naviguez vers le dossier racine de votre projet et exécutez la commande suivante :
 
 ```js
-npm install @cdssnc/gcds-components
+npm install @gcds-core/components
 ```
 
 ### 2. Inclure Système de design GC dans votre projet
@@ -74,11 +74,11 @@ Ajoutez les balises `link` suivantes à l’intérieur de la balise `head` de vo
 <!-- Système de design GC -->
 <link
   rel="stylesheet"
-  href="/node_modules/@cdssnc/gcds-components/dist/gcds/gcds.css"
+  href="/node_modules/@gcds-core/components/dist/gcds/gcds.css"
 />
 <script
   type="module"
-  src="/node_modules/@cdssnc/gcds-components/dist/gcds/gcds.esm.js"
+  src="/node_modules/@gcds-core/components/dist/gcds/gcds.esm.js"
 ></script>
 ```
 
@@ -121,11 +121,11 @@ Version actuelle : Version <code><span id='cdn-latest-version'></span></code>, p
 <!-- Système de design GC -->
 <link
   rel="stylesheet"
-  href="https://cdn.design-system.alpha.canada.ca/@cdssnc/gcds-components@||version||/dist/gcds/gcds.css"
+  href="https://cdn.design-system.alpha.canada.ca/@gcds-core/components@||version||/dist/gcds/gcds.css"
 />
 <script
   type="module"
-  src="https://cdn.design-system.alpha.canada.ca/@cdssnc/gcds-components@||version||/dist/gcds/gcds.esm.js"
+  src="https://cdn.design-system.alpha.canada.ca/@gcds-core/components@||version||/dist/gcds/gcds.esm.js"
 ></script>
 ```
 

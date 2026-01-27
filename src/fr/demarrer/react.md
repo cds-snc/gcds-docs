@@ -34,7 +34,7 @@ Suivez ces étapes pour installer et utiliser les composants de Système de desi
 Naviguez vers le dossier racine de votre projet et exécutez la commande suivante :
 
 ```js
-npm install @cdssnc/gcds-components @cdssnc/gcds-components-react
+npm install @gcds-core/components @gcds-core/components-react
 ```
 
 ### 2. Importer Système de design GC
@@ -42,7 +42,7 @@ npm install @cdssnc/gcds-components @cdssnc/gcds-components-react
 Pour importer les styles de Système de design GC, insérez le code suivant dans le fichier `index.js` de votre application :
 
 ```js
-import '@cdssnc/gcds-components-react/gcds.css';
+import '@gcds-core/components-react/gcds.css';
 ```
 
 {% addCssShortcuts 'fr', '3' %}{% endaddCssShortcuts %}
