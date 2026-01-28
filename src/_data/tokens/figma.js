@@ -1,3 +1,3 @@
-let tokens = require('../../../node_modules/@cdssnc/gcds-tokens/build/figma/figma.tokens.json');
+let tokens = require('../../../node_modules/@gcds-core/tokens/build/figma/figma.tokens.json');
 
 module.exports = tokens;
