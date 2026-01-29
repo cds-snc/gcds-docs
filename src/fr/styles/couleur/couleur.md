@@ -111,7 +111,7 @@ Utilisez les unités de style de base pour :
 - Fournir une base pour construire (et potentiellement publier) vos propres unités de style.
 
 <div class="table-base-colors">
-{% include "partials/token_table.njk", token: 'color.grayscale color.blue color.red color.green color.yellow', type: 'color' %}
+{% include "partials/token_table.njk", token: 'color.black color.blue color.blue-muted color.blue-vivid color.grayscale color.green color.purple color.red color.white color.yellow', type: 'color' %}
 </div>
 
 Remarque : Les éléments de code utilisent l'orthographe américaine pour «&nbsp;colour&nbsp;» et «&nbsp;grey&nbsp;».

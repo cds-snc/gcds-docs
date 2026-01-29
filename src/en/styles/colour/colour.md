@@ -111,7 +111,7 @@ Use base design tokens to:
 - Provide a basis to build (and potentially contribute back) your own tokens.
 
 <div class="table-base-colors">
-{% include "partials/token_table.njk", token: 'color.grayscale color.blue color.blue-vivid color.red color.green color.yellow', type: 'color' %}
+{% include "partials/token_table.njk", token: 'color.black color.blue color.blue-muted color.blue-vivid color.grayscale color.green color.purple color.red color.white color.yellow', type: 'color' %}
 </div>
 
 Note: Code elements take American spelling for "colour" and "grey".

@@ -5,6 +5,11 @@ module.exports = {
     red: 'Red',
     green: 'Green',
     yellow: 'Yellow',
+    purple: 'Purple',
+    black: 'Black',
+    white: 'White',
+    blueVivid: 'Blue vivid',
+    blueMuted: 'Blue muted',
   },
   fr: {
     grayscale: 'Gris',
@@ -12,5 +17,10 @@ module.exports = {
     red: 'Rouge',
     green: 'Vert',
     yellow: 'Jaune',
+    purple: 'Violet',
+    black: 'Noir',
+    white: 'Blanc',
+    blueVivid: 'Bleu vif',
+    blueMuted: 'Bleu doux',
   },
 };
