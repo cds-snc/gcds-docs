@@ -155,6 +155,17 @@ module.exports = function (eleventyConfig) {
     return bottom;
   });
 
+  /*
+   * Reformat single colour token into expected format for token_table partial
+   */
+  eleventyConfig.addFilter('reformatColourToken', function (obj) {
+    if (!obj || typeof obj !== 'object') return {};
+
+    return {
+      '': obj,
+    };
+  });
+
   eleventyConfig.addFilter('colourFromValue', function (value, tokens) {
     let colourName = '';
     Object.keys(tokens).forEach(colour => {
@@ -163,7 +174,12 @@ module.exports = function (eleventyConfig) {
           colourName = `${colour}-${weightValue}`;
         }
       });
+
+      if (tokens[colour]['value'] && tokens[colour]['value'] === value) {
+        colourName = `${colour.replace(/-([a-z])/g, (_, char) => char.toUpperCase())}-`;
+      }
     });
+
     return colourName;
   });
 
