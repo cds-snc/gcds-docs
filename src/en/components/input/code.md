@@ -30,6 +30,11 @@ For the input to function properly, always use the following attributes with `<g
 
 {% include "partials/hint.njk" %}
 
+### Hide the input label
+
+- Set the `hide-label` attribute to true to visually hide the label while maintaining it for assistive technologies. 
+- Avoid adding hint text when you’re hiding the label or else provide an empty hint string.
+
 {% include "partials/getcode.njk" %}
 
 <iframe
