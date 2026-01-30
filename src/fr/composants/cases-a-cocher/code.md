@@ -48,6 +48,12 @@ L'attribut `options` utilise un tableau d'objets pour rendre chaque case à coch
 - Passez un seul objet à l'attribut `options` pour afficher une seule case à cocher sans jeu de champs.  
 - Utilisez les attributs `hint` et `error-message` pour ajouter des renseignements supplémentaires à la case à cocher.
 
+### Masquer la légende ou les étiquettes des cases à cocher 
+- Masquez visuellement la légende ou l’étiquette, tout en la conservant pour les technologies d’assistance. 
+  - Définissez l’attribut `hide-legend` à true afin de masquer visuellement la légende d’un groupe de cases à cocher. 
+  - Définissez l’attribut `hide-label` à true afin de masquer visuellement l’étiquette d’une seule case à cocher. 
+- Évitez d’ajouter du texte explicatif lorsque vous masquez la légende. Vous pouvez également fournir une chaîne vide pour le texte explicatif.
+
 {% include "partials/getcode.njk" %}
 
 <iframe
