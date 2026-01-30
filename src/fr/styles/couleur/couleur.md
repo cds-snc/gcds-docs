@@ -27,17 +27,19 @@ tokenTable:
     link-default: Couleur de lien par défaut pour les hyperliens sur un arrière-plan blanc.
     link-hover: Couleur de lien pointé pour les hyperliens sur un arrière-plan blanc.
     link-light: Couleur d'hyperlien pâle par défaut pour les arrière-plans à valeur 700 ou plus sombres (p. ex. --gcds-color-blue-700).
+    link-visited: Couleur de lien visité pour les hyperliens sur un arrière-plan blanc.
     bg-dark: Couleur foncée principale de l'arrière-plan. À utiliser avec du texte de nuance 100 ou plus clair (comme --gcds-text-light).
     bg-light: Couleur claire d'arrière plan (alternative à --gcds-bg-white). À utiliser avec du texte de nuance 700 ou plus foncé (comme --gcds-text-primary).
     bg-primary: Couleur de surbrillance de l'arrière-plan. À utiliser avec du texte de nuance 100 ou plus clair (comme --gcds-text-light).
     bg-white: Couleur principale de l'arrière-plan. À utiliser avec du texte de nuance 700 ou plus foncé (comme --gcds-text-primary).
     border-default: Couleur par défaut pour les bordures et les icônes sur un arrière-plan blanc.
     danger-background: La couleur de l'arrière-plan de danger pour accentuer une action destructrice ou un retour d'expérience critique en arrière-plan.
-    danger-border: La couleur de la bordure de danger sur blanc ou sur arrière-plans de danger pour accentuer une action destructrice ou un retour d'expérience critique.
-    danger-text: La couleur du texte de danger sur blanc ou arrière-plans de danger pour accentuer une action destructrice ou un retour d'expérience critique.
+    danger-border: La couleur de la bordure de danger sur arrière-plan blanc pour accentuer une action destructrice ou un retour d'expérience critique.
+    danger-text: La couleur du texte de danger sur arrière-plan blanc pour accentuer une action destructrice ou un retour d'expérience critique.
     disabled-background: Couleur d'arrière-plan désactivé. Utiliser judicieusement pour un élément interactif désactivé.
     disabled-text: Couleur du texte désactivé. Utiliser judicieusement pour un élément interactif désactivé.
     focus-background: Couleur du texte ciblé, exclusivement pour les éléments interactifs ciblés.
+    focus-border: Couleur de la bordure ciblée, exclusivement pour les éléments interactifs ciblés.
     focus-text: Couleur du texte ciblé, exclusivement pour les éléments interactifs ciblés.
     focus-textForm: Couleur du texte de formulaire ciblé, exclusivement pour les éléments interactifs ciblés dans un formulaire. Évitez d'utiliser cette unité de style pour des éléments autres que ceux d'un formulaire.
 # date: "git Last Modified"
