@@ -27,17 +27,19 @@ tokenTable:
     link-default: Default link colour for links on a white background.
     link-hover: Hover link colour for links on a white background.
     link-light: Main light link colour for links on 700 shade or darker background (like --gcds-color-blue-700).
+    link-visited: Visited link colour for links on a white background.
     bg-dark: Main dark background colour. Use with a text shade of 100 or lighter (like --gcds-text-light).
     bg-light: Light background colour (alternative to white). Use with a text shade of 700 or darker (like --gcds-text-primary).
     bg-primary: Highlight background colour. Use with a text shade of 100 or lighter (like --gcds-text-light).
     bg-white: Main background colour. Use with a text shade of 700 or darker (like --gcds-text-primary).
     border-default: Default border colour for borders and icons on a white background.
     danger-background: Danger background colour for background emphasis on a destructive action or critical feedback.
-    danger-border: Danger border colour for borders on white or danger backgrounds for emphasis on a destructive action or critical feedback.
-    danger-text: Danger text colour for white or danger backgrounds for emphasis on a destructive action or critical feedback.
+    danger-border: Danger border colour for borders on white backgrounds emphasizing a destructive action or critical feedback.
+    danger-text: Danger text colour for white backgrounds emphasizing a destructive action or critical feedback.
     disabled-background: Disabled background colour. Use sparingly for a disabled interactive element.
     disabled-text: Disabled text colour. Use sparingly for a disabled interactive element.
     focus-background: Focus background colour, exclusively for focus on an interactive element.
+    focus-border: Focus border colour, exclusively for focus on an interactive element.
     focus-text: Focus text colour, exclusively for focus on an interactive element.
     focus-textForm: Focus text-form colour, exclusively for focus on a form interactive element. Avoid using for non-form elements.
 date: 'git Last Modified'
