@@ -26,7 +26,7 @@ date: 'git Last Modified'
 - Utilisez le libellé de champ pour formuler des attentes claires sur le type de fichier qu'une personne peut ou doit télécharger.
 - Utilisez le texte explicatif pour préciser toute limite de téléversement.
 
-### Masquer l’étiquette seulement lorsque le but est clair
+### Masquez l’étiquette seulement lorsque le but est clair
 - Masquez visuellement l’étiquette uniquement lorsque le but du téléverseur de fichiers est clairement communiqué par le contexte, rendant l’étiquette visuellement redondante, comme dans les cas suivants&nbsp;:
   - tableaux ou autres mises en page où l’espace est limité;
   - paramètres et configurations.
