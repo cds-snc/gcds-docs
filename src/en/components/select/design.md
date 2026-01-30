@@ -36,3 +36,10 @@ date: 'git Last Modified'
 
 - Try asking the users other questions before using the select in order to reduce the amount of options.
 - If the list of items is smaller (6-7 items or less), consider using <gcds-link href="{{ links.radio }}">radio buttons</gcds-link> instead.
+
+### Hide the label only when the purpose is clear
+- Visually hide the label only when the purpose of the select is clearly communicated by surrounding context, making the label visually redundant, such as in:
+  - tables or other space-constrained layouts
+  - settings and configurations
+- Always provide a label to support assistive technologies.
+- Omit hint text if you hide the label, as it can lack context and be distracting or confusing.
