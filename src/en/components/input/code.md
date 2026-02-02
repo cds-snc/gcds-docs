@@ -30,6 +30,11 @@ For the input to function properly, always use the following attributes with `<g
 
 {% include "partials/hint.njk" %}
 
+### Use the `inputmode` attribute
+
+- Use the `inputmode` attribute to suggest an appropriate virtual keyboard on mobile devices, without changing how the value is validated.
+- Use `inputmode=”numeric”` with `type=”text”` for non-incremental numbers, such as account numbers, credit card numbers, or authentication codes. This will open the numeric keyboard on mobile devices.
+
 ### Hide the input label
 
 - Set the `hide-label` attribute to true to visually hide the label while maintaining it for assistive technologies. 
