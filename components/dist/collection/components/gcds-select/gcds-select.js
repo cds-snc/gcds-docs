@@ -208,8 +208,6 @@ export class GcdsSelect {
         };
         const observer = new MutationObserver(() => {
             this.options = Array.from(this.el.children);
-            // Reset value to null to prevent unwanted selection
-            this.value = null;
         });
         observer.observe(this.el, config);
     }
@@ -281,7 +279,7 @@ export class GcdsSelect {
                 ? `${attrsSelect['aria-describedby']}`
                 : ''}`;
         }
-        return (h(Host, { key: '896b50853f39ed4da9bfcaa2f9d7e90ff837c8d6' }, h("div", { key: 'b908f1cc32d6731196e9e2681ddad1956783f593', class: `gcds-select-wrapper ${disabled ? 'gcds-disabled' : ''} ${hasError ? 'gcds-error' : ''}` }, h("gcds-label", Object.assign({ key: '52627d1f6c3e0e33f17f504aa57d9804a23abca1' }, attrsLabel, { "hide-label": hideLabel, "label-for": selectId, lang: lang })), hint ? h("gcds-hint", { "hint-id": selectId }, hint) : null, errorMessage ? (h("gcds-error-message", { messageId: selectId }, errorMessage)) : null, h("select", Object.assign({ key: 'f996305b187039b81b40e491e104bd4a4e4c57ed' }, attrsSelect, { id: selectId, onBlur: () => this.onBlur(), onFocus: () => this.gcdsFocus.emit(), onInput: e => this.handleInput(e, this.gcdsInput), onChange: e => this.handleInput(e, this.gcdsChange), "aria-invalid": inheritedAttributes['aria-invalid'] === 'true'
+        return (h(Host, { key: 'b013745e4eff4fbea0a8c1cc345e5060e8e06db5' }, h("div", { key: 'a0afc1eba170ae6e33025112b5f48584e7a5c8e3', class: `gcds-select-wrapper ${disabled ? 'gcds-disabled' : ''} ${hasError ? 'gcds-error' : ''}` }, h("gcds-label", Object.assign({ key: '33ee9c668f0adfa00854d38c6fda8fbad9c08eb9' }, attrsLabel, { "hide-label": hideLabel, "label-for": selectId, lang: lang })), hint ? h("gcds-hint", { "hint-id": selectId }, hint) : null, errorMessage ? (h("gcds-error-message", { messageId: selectId }, errorMessage)) : null, h("select", Object.assign({ key: '98566628be047f76761eaae900d5cc339520f6e7' }, attrsSelect, { id: selectId, onBlur: () => this.onBlur(), onFocus: () => this.gcdsFocus.emit(), onInput: e => this.handleInput(e, this.gcdsInput), onChange: e => this.handleInput(e, this.gcdsChange), "aria-invalid": inheritedAttributes['aria-invalid'] === 'true'
                 ? inheritedAttributes['aria-invalid']
                 : errorMessage
                     ? 'true'

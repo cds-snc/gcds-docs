@@ -63,6 +63,15 @@ export default {
                 defaultValue: { summary: 'h1: 0, h2-h6: 600' },
             },
         },
+        headingRole: {
+            name: 'heading-role',
+            control: { type: 'select' },
+            options: ['light', 'primary', 'secondary'],
+            table: {
+                type: { summary: 'string' },
+                defaultValue: { summary: 'primary' },
+            },
+        },
         marginBottom: {
             name: 'margin-bottom',
             control: { type: 'select' },
@@ -118,18 +127,32 @@ export default {
 };
 const Template = args => `
 <!-- Web component code (HTML, Angular, Vue) -->
-<gcds-heading tag="${args.tag}" ${!args.characterLimit ? `character-limit="${args.characterLimit}"` : null} ${args.marginTop ? `margin-top="${args.marginTop}"` : null} ${args.marginBottom ? `margin-bottom="${args.marginBottom}"` : null}>
+<gcds-heading
+  tag="${args.tag}"
+  ${args.headingRole != 'primary' ? `heading-role="${args.headingRole}"` : null}
+  ${!args.characterLimit ? `character-limit="${args.characterLimit}"` : null}
+  ${args.marginTop ? `margin-top="${args.marginTop}"` : null}
+  ${args.marginBottom ? `margin-bottom="${args.marginBottom}"` : null}
+>
   ${args.default}
 </gcds-heading>
 
 <!-- React code -->
-<GcdsHeading tag="${args.tag}" ${!args.characterLimit ? `characterLimit="${args.characterLimit}"` : null} ${args.marginTop ? `marginTop="${args.marginTop}"` : null} ${args.marginBottom ? `marginBottom="${args.marginBottom}"` : null}>
+<GcdsHeading
+  tag="${args.tag}"
+  ${args.headingRole != 'primary' ? `headingRole="${args.headingRole}"` : null}
+  ${!args.characterLimit ? `characterLimit="${args.characterLimit}"` : null}
+  ${args.marginTop ? `marginTop="${args.marginTop}"` : null}
+  ${args.marginBottom ? `marginBottom="${args.marginBottom}"` : null}
+  >
   ${args.default}
 </GcdsHeading>
-`.replace(/ null/g, '');
+`.replace(/\s\snull\n/g, '');
 const TemplatePlayground = args => `
 <gcds-heading
   tag="${args.tag}"
+  ${args.headingRole != 'primary' ? `heading-role="${args.headingRole}"` : null}
+  ${!args.characterLimit ? `character-limit="${args.characterLimit}"` : null}
   ${args.marginTop ? `margin-top="${args.marginTop}"` : null}
   ${args.marginBottom ? `margin-bottom="${args.marginBottom}"` : null}
 >
@@ -142,6 +165,7 @@ Default.args = {
     tag: 'h2',
     characterLimit: true,
     default: 'Heading',
+    headingRole: 'primary',
 };
 // ------ Heading level ------
 export const LevelH1 = Template.bind({});
@@ -149,36 +173,63 @@ LevelH1.args = {
     tag: 'h1',
     characterLimit: true,
     default: 'Heading level 1',
+    headingRole: 'primary',
 };
 export const LevelH2 = Template.bind({});
 LevelH2.args = {
     tag: 'h2',
     characterLimit: true,
     default: 'Heading level 2',
+    headingRole: 'primary',
 };
 export const LevelH3 = Template.bind({});
 LevelH3.args = {
     tag: 'h3',
     characterLimit: true,
     default: 'Heading level 3',
+    headingRole: 'primary',
 };
 export const LevelH4 = Template.bind({});
 LevelH4.args = {
     tag: 'h4',
     characterLimit: true,
     default: 'Heading level 4',
+    headingRole: 'primary',
 };
 export const LevelH5 = Template.bind({});
 LevelH5.args = {
     tag: 'h5',
     characterLimit: true,
     default: 'Heading level 5',
+    headingRole: 'primary',
 };
 export const LevelH6 = Template.bind({});
 LevelH6.args = {
     tag: 'h6',
     characterLimit: true,
     default: 'Heading level 6',
+    headingRole: 'primary',
+};
+export const rolePrimary = Template.bind({});
+rolePrimary.args = {
+    tag: 'h2',
+    characterLimit: true,
+    default: 'Primary heading role',
+    headingRole: 'primary',
+};
+export const roleSecondary = Template.bind({});
+roleSecondary.args = {
+    tag: 'h2',
+    characterLimit: true,
+    default: 'Secondary heading role',
+    headingRole: 'secondary',
+};
+export const roleLight = Template.bind({});
+roleLight.args = {
+    tag: 'h2',
+    characterLimit: true,
+    default: 'Light heading role',
+    headingRole: 'light',
 };
 // ------ Heading events & props ------
 export const Props = Template.bind({});
@@ -186,6 +237,7 @@ Props.args = {
     tag: 'h2',
     characterLimit: true,
     default: 'Heading',
+    headingRole: 'primary',
 };
 // ------ Heading playground ------
 export const Playground = TemplatePlayground.bind({});
@@ -193,5 +245,6 @@ Playground.args = {
     tag: 'h2',
     characterLimit: true,
     default: 'Heading',
+    headingRole: 'primary',
 };
 //# sourceMappingURL=gcds-heading.stories.js.map

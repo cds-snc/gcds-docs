@@ -31,7 +31,8 @@ export declare class GcdsSearch {
     /**
      * Set a list of predefined search terms
      */
-    suggested: Array<string>;
+    suggested: string[] | string;
+    watchSuggestedHandler(): void;
     /**
      * Events
      */
@@ -59,6 +60,10 @@ export declare class GcdsSearch {
      * Language of rendered component
      */
     lang: string;
+    /**
+     * Array of suggested search terms
+     */
+    suggestedArray: string[];
     private handleInput;
     updateLang(): void;
     componentWillLoad(): Promise<void>;

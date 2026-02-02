@@ -48,6 +48,21 @@ declare const _default: {
                 };
             };
         };
+        headingRole: {
+            name: string;
+            control: {
+                type: string;
+            };
+            options: string[];
+            table: {
+                type: {
+                    summary: string;
+                };
+                defaultValue: {
+                    summary: string;
+                };
+            };
+        };
         marginBottom: {
             name: string;
             control: {
@@ -82,5 +97,8 @@ export declare const LevelH3: any;
 export declare const LevelH4: any;
 export declare const LevelH5: any;
 export declare const LevelH6: any;
+export declare const rolePrimary: any;
+export declare const roleSecondary: any;
+export declare const roleLight: any;
 export declare const Props: any;
 export declare const Playground: any;

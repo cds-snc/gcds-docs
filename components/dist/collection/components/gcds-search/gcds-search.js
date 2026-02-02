@@ -26,11 +26,32 @@ export class GcdsSearch {
          * Set the id of the search input
          */
         this.searchId = 'search';
+        /**
+         * Array of suggested search terms
+         */
+        this.suggestedArray = null;
         this.handleInput = (e, customEvent) => {
             const input = e.target;
             this.value = input.value;
             customEvent.emit(this.value);
         };
+    }
+    watchSuggestedHandler() {
+        if (this.suggested == null || this.suggested.length === 0) {
+            this.suggestedArray = null;
+            return;
+        }
+        if (typeof this.suggested === 'string') {
+            try {
+                this.suggested = JSON.parse(this.suggested);
+            }
+            catch (e) {
+                console.error('gcds-search: suggested prop is not valid JSON string', e);
+                this.suggestedArray = null;
+                return;
+            }
+        }
+        this.suggestedArray = this.suggested;
     }
     /*
      * Observe lang attribute change
@@ -46,9 +67,12 @@ export class GcdsSearch {
     async componentWillLoad() {
         // Define lang attribute
         this.lang = assignLanguage(this.el);
+        this.watchSuggestedHandler();
+        // Observe lang attribute changes
+        this.updateLang();
     }
     render() {
-        const { placeholder, action, method, name, value, lang, searchId, suggested, } = this;
+        const { placeholder, action, method, name, value, lang, searchId, suggestedArray, } = this;
         const labelText = `${I18N[lang].searchLabel.replace('{$}', placeholder)}`;
         const attrsInput = {
             name,
@@ -57,7 +81,7 @@ export class GcdsSearch {
         const formAction = action === '/sr/srb.html'
             ? `https://www.canada.ca/${lang}/sr/srb.html`
             : action;
-        return (h(Host, { key: '6f097c6decfc75124cfb075d08d9538fac97f247' }, h("section", { key: 'cac50e05b5b1993c7b582c077b52ebc0347c684d', class: "gcds-search" }, h("gcds-sr-only", { key: 'da41472fe9dc9dc4278a4324c5c59727bf659737', tag: "h2" }, I18N[lang].search), h("form", { key: 'd8daa855f964aea373212e226410c18a174fc2f7', action: formAction, method: method, role: "search", onSubmit: e => emitEvent(e, this.gcdsSubmit, this.value), class: "gcds-search__form" }, h("gcds-label", { key: 'eaa37cf81c073de64d06459be03f3d11bb35ee8b', label: labelText, "label-for": searchId, "hide-label": true }), h("input", Object.assign({ key: '7efdfeecf78cd58fae9fe13300da38a0883c40b2', type: "search", id: searchId }, (suggested ? { list: 'search-list' } : {}), { size: 34, maxLength: 170, onInput: e => this.handleInput(e, this.gcdsInput), onChange: e => this.handleInput(e, this.gcdsChange), onFocus: () => this.gcdsFocus.emit(), onBlur: () => this.gcdsBlur.emit() }, attrsInput, { class: "gcds-search__input", value: value })), suggested && (h("datalist", { key: 'a8c7737d2ad864cc08ac28fa19a4c3a4f2dbf654', id: "search-list" }, suggested.map((k, v) => (h("option", { value: k, key: v }))))), h("gcds-button", { key: 'b999f4297899ff1441b1fd201f14762b942b896a', type: "submit", class: "gcds-search__button", exportparts: "button" }, h("gcds-icon", { key: '148d9e7fb4265b12093070af8b0604341d300994', name: "search", label: I18N[lang].search, size: "h3" }))))));
+        return (h(Host, { key: 'a8447a475cd01c2470f0fcf59a811c7878993b45' }, h("section", { key: '85cd42252e0d347f31ed2cb00b34636e6c26eccc', class: "gcds-search" }, h("gcds-sr-only", { key: '750462bb0db188d542c56725d9b2e5ae76a3f4bb', tag: "h2" }, I18N[lang].search), h("form", { key: 'f8874db21951a4aeaa63e72f9ad186dae48e1470', action: formAction, method: method, role: "search", onSubmit: e => emitEvent(e, this.gcdsSubmit, this.value), class: "gcds-search__form" }, h("gcds-label", { key: '3397eebceaaa860ec6a33a3f04adbe02885051ae', label: labelText, "label-for": searchId, "hide-label": true }), h("input", Object.assign({ key: '6e8919b8ed8ccefd290672bd785b825a2aec5e19', type: "search", id: searchId }, (suggestedArray ? { list: 'search-list' } : {}), { size: 34, maxLength: 170, onInput: e => this.handleInput(e, this.gcdsInput), onChange: e => this.handleInput(e, this.gcdsChange), onFocus: () => this.gcdsFocus.emit(), onBlur: () => this.gcdsBlur.emit() }, attrsInput, { class: "gcds-search__input", value: value })), suggestedArray && (h("datalist", { key: 'd2447eb6daceafbb51cf617bf206d381f5b53629', id: "search-list" }, suggestedArray.map((k, v) => (h("option", { value: k, key: v }))))), h("gcds-button", { key: 'ba672e2400fd432988f4dd01c5f176b15b6b3716', type: "submit", class: "gcds-search__button", exportparts: "button" }, h("gcds-icon", { key: '61eaab4eaac77486c49136af763793310d1e3c49', name: "search", label: I18N[lang].search, size: "h3" }))))));
     }
     static get is() { return "gcds-search"; }
     static get encapsulation() { return "shadow"; }
@@ -193,18 +217,13 @@ export class GcdsSearch {
                 "reflect": false
             },
             "suggested": {
-                "type": "unknown",
+                "type": "string",
                 "attribute": "suggested",
-                "mutable": false,
+                "mutable": true,
                 "complexType": {
-                    "original": "Array<string>",
-                    "resolved": "string[]",
-                    "references": {
-                        "Array": {
-                            "location": "global",
-                            "id": "global::Array"
-                        }
-                    }
+                    "original": "string[] | string",
+                    "resolved": "string | string[]",
+                    "references": {}
                 },
                 "required": false,
                 "optional": false,
@@ -213,13 +232,15 @@ export class GcdsSearch {
                     "text": "Set a list of predefined search terms"
                 },
                 "getter": false,
-                "setter": false
+                "setter": false,
+                "reflect": false
             }
         };
     }
     static get states() {
         return {
-            "lang": {}
+            "lang": {},
+            "suggestedArray": {}
         };
     }
     static get events() {
@@ -301,5 +322,11 @@ export class GcdsSearch {
             }];
     }
     static get elementRef() { return "el"; }
+    static get watchers() {
+        return [{
+                "propName": "suggested",
+                "methodName": "watchSuggestedHandler"
+            }];
+    }
 }
 //# sourceMappingURL=gcds-search.js.map

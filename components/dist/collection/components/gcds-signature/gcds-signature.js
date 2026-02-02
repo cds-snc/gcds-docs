@@ -82,7 +82,9 @@ export class GcdsSignature {
         if (Tag === 'a') {
             sigAttrs['href'] = i18n[lang].link;
         }
-        return (h(Host, { key: '9371550c9068d0041b6c661746206cd0f9eab90b' }, type === 'signature' ? (h(Tag, Object.assign({}, sigAttrs), h("div", { innerHTML: selectSVG }))) : (h("div", { class: "gcds-signature", innerHTML: selectSVG }))));
+        return (h(Host, { key: '9371550c9068d0041b6c661746206cd0f9eab90b' }, type === 'signature' ? (h(Tag, Object.assign({}, sigAttrs), h("div", { innerHTML: selectSVG }), h("gcds-sr-only", { tag: "span", lang: lang === 'en' ? 'fr' : 'en' }, lang === 'en'
+            ? `/ ${i18n.fr.gc}`
+            : `/ ${i18n.en.gc}`))) : (h("div", { class: "gcds-signature", innerHTML: selectSVG }))));
     }
     static get is() { return "gcds-signature"; }
     static get encapsulation() { return "shadow"; }

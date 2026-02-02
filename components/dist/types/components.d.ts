@@ -713,6 +713,11 @@ export namespace Components {
          */
         "characterLimit"?: boolean;
         /**
+          * Sets the main style of the heading.
+          * @default 'primary'
+         */
+        "headingRole"?: 'light' | 'primary' | 'secondary';
+        /**
           * Adds margin below the heading. The default margin-botttom is 300.
           * @default '300'
          */
@@ -1229,7 +1234,7 @@ export namespace Components {
         /**
           * Set a list of predefined search terms
          */
-        "suggested": Array<string>;
+        "suggested": string[] | string;
         /**
           * Set the value of the search input
          */
@@ -3209,6 +3214,11 @@ declare namespace LocalJSX {
          */
         "characterLimit"?: boolean;
         /**
+          * Sets the main style of the heading.
+          * @default 'primary'
+         */
+        "headingRole"?: 'light' | 'primary' | 'secondary';
+        /**
           * Adds margin below the heading. The default margin-botttom is 300.
           * @default '300'
          */
@@ -3821,7 +3831,7 @@ declare namespace LocalJSX {
         /**
           * Set a list of predefined search terms
          */
-        "suggested"?: Array<string>;
+        "suggested"?: string[] | string;
         /**
           * Set the value of the search input
          */

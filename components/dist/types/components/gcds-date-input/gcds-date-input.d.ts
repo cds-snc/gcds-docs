@@ -157,6 +157,7 @@ export declare class GcdsDateInput {
      */
     private updateValidity;
     updateLang(): void;
+    private blockInvalidKeys;
     private handleInput;
     /**
      * Logic to combine all input values together based on format

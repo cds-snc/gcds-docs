@@ -15,6 +15,11 @@ export declare class GcdsHeading {
     tag: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
     validateTag(newValue: string): void;
     /**
+     * Sets the main style of the heading.
+     */
+    headingRole?: 'light' | 'primary' | 'secondary';
+    validateHeadingRole(newValue: string): void;
+    /**
      * Sets the line length to a maximum amount of characters per line for
      * each heading level, ensuring a comfortable, accessible reading length.
      */
