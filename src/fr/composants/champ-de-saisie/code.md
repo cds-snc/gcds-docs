@@ -22,13 +22,17 @@ Pour que le champ de saisie fonctionne correctement, utilisez toujours les attri
 
 ### Adaptez le champ de saisie au type de réponse
 
-- Définissez l'attribut de la taille du champ de saisie pour les réponses dont vous connaissez la longueur précise (taille "50" = 50 caractères). Par exemple, 6 caractères pour un code postal ou 10 caractères pour un numéro de téléphone.
+- Définissez l'attribut `size` pour les réponses dont vous connaissez la longueur précise (taille "50" = 50 caractères). Par exemple, 6 caractères pour un code postal ou 10 caractères pour un numéro de téléphone.
 - Réglez la saisie de manière à ce qu'elle couvre presque tout le conteneur, par exemple à 90 %, lorsque vous ne savez pas la longueur exacte de la réponse.
 - Utilisez le maximum de 75 caractères pour les réponses sans longueur fixe.
 
 {% include "partials/error-message.njk" %}
 
 {% include "partials/hint.njk" %}
+
+### Utiliser l’attribut `inputmode`
+- Utilisez l’attribut `inputmode` pour suggérer un clavier virtuel approprié sur les appareils mobiles, sans modifier la façon dont la valeur est validée.
+- Utilisez `inputmode=”numeric”` avec `type=”text”` pour les nombres ne pouvant pas être incrémentés, tels que les numéros de compte, les numéros de carte de crédit ou les codes d’authentification. Le clavier numérique s’ouvrira sur les appareils mobiles.
 
 ### Masquer l’étiquette du champ de saisie
 - Définissez l’attribut `hide-label` à true afin de masquer visuellement l’étiquette, tout en la conservant pour les technologies d’assistance. 
