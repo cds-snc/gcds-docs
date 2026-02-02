@@ -21,7 +21,7 @@ Examinez les cas d’utilisation de la pagination pour déterminer si elle répo
 
 ## Cas d’utilisation de la pagination
 
-Utilisez la pagination pour réduire la charge cognitive lorsqu’un contenu très long affiché sur une même page peut compliquer la navigation. La pagination permet aussi les actions suivantes :
+Utilisez la pagination pour réduire la charge cognitive lorsqu’un contenu très long affiché sur une même page peut compliquer la navigation. La pagination permet aussi les actions suivantes&nbsp;:
 
 - Afficher des résultats de recherches lorsqu’ils sont nombreux en réduisant ainsi le temps de chargement et le défilement.
 - Permettre aux personnes de parcourir du contenu indexé à l’aide du lien précédent, du lien suivant et des liens de pages.
@@ -35,3 +35,17 @@ Utilisez la pagination pour réduire la charge cognitive lorsqu’un contenu tr�
 <a href="{{ links.stepper }}">Indicateur d’étape</a> pour suivre l’avancement dans un processus à plusieurs étapes.
 
 Liens dans le composant <a href="{{ links.button }}">Bouton</a> pour naviguer entre deux pages qui ne se suivent pas ou vers des sites externes.
+
+<hr/>
+
+## Choisissez un format de pagination
+
+### Simple
+
+Utilisez la pagination simple lorsque le nombre de pages est faible (de 2 à 5 pages).
+
+### Liste
+
+Utilisez la pagination sous forme de liste lorsque&nbsp;:
+- le nombre de pages est élevé;
+- les liens «&nbsp;Précédent&nbsp;» et «&nbsp;Suivant&nbsp;» rendraient la navigation lourde ou difficile.
