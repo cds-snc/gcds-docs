@@ -27,7 +27,7 @@ date: 'git Last Modified'
 
 La classe justification individuelle définit la propriété `justify-self`. Elle détermine comment un élément de grille individuel est aligné le long de l'axe intraligne (ligne) dans sa zone de grille, lui permettant d’écraser le paramètre `justify-items` de la boîte pour cet élément précis.
 
-<gcds-notice type="info" notice-title-tag="h2" notice-title="Ce paramètre n’a aucun effet dans les boîtes d’éléments flexibles">
+<gcds-notice notice-role="info" notice-title-tag="h2" notice-title="Ce paramètre n’a aucun effet dans les boîtes d’éléments flexibles">
   <gcds-text>Dans une boîte d’élément flexible, la classe <code>justify-self</code> est ignorée et n'a aucun effet.</gcds-text>
 </gcds-notice>
 

@@ -6,7 +6,7 @@ eleventyExcludeFromCollections: true
 templateEngineOverride: njk
 ---
 
-<gcds-top-nav label="Top navigation component preview" alignment="right" lang="en">
+<gcds-top-nav label="Top navigation component preview" align="right" lang="en">
   <gcds-nav-link href="#red" slot="home">GC Notify</gcds-nav-link>
   <gcds-nav-link href="#red">Why GC Notify</gcds-nav-link>
   <gcds-nav-group menu-label="Features submenu" open-trigger="Features">

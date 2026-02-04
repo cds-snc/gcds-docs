@@ -39,7 +39,7 @@ date: 'git Last Modified'
 
 The background colour class sets the `background-color` property. It controls the colour of an element’s background.
 
-<gcds-notice type="warning" notice-title-tag="h2" notice-title="Use with caution">
+<gcds-notice notice-role="warning" notice-title-tag="h2" notice-title="Use with caution">
   <gcds-text><gcds-link href="{{ links.colourBackground }}">View GCDS colour guidance</gcds-link> to choose the right background colour for your context.</gcds-text>
 </gcds-notice>
 

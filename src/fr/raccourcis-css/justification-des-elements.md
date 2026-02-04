@@ -25,7 +25,7 @@ date: 'git Last Modified'
 
 La classe justification des éléments définit la propriété `justify-items`. Elle détermine comment les éléments individuels sont alignés le long de l'axe intraligne (ligne) dans leurs zones de grille. Elle détermine le positionnement horizontal du contenu à l'intérieur de chaque cellule de la grille.
 
-<gcds-notice type="info" notice-title-tag="h2" notice-title="Ce paramètre n’a aucun effet dans les boîtes d’éléments flexibles">
+<gcds-notice notice-role="info" notice-title-tag="h2" notice-title="Ce paramètre n’a aucun effet dans les boîtes d’éléments flexibles">
   <gcds-text>Dans une boîte d’élément flexible, la classe <code>justify-items</code> est ignorée et n'a aucun effet.</gcds-text>
 </gcds-notice>
 
