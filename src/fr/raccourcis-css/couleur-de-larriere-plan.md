@@ -39,7 +39,7 @@ date: 'git Last Modified'
 
 La classe couleur d’arrière-plan définit la propriété `background-color`. Elle détermine la couleur de l’arrière-plan d’un élément.
 
-<gcds-notice type="warning" notice-title-tag="h2" notice-title="Utiliser avec prudence">
+<gcds-notice notice-role="warning" notice-title-tag="h2" notice-title="Utiliser avec prudence">
   <gcds-text><gcds-link href="{{ links.colourBackground }}">Voir les conseils de Système de design GC en matière de couleur</gcds-link> pour choisir la bonne couleur d’arrière-plan pour votre contexte.</gcds-text>
 </gcds-notice>
 

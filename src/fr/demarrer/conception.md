@@ -14,7 +14,7 @@ date: 'git Last Modified'
 
 # Configurer la bibliothèque de Système de design GC
 
-<gcds-notice type="info" notice-title-tag="h2" notice-title="Avant de commencer">
+<gcds-notice notice-role="info" notice-title-tag="h2" notice-title="Avant de commencer">
   <gcds-text>Vous aurez besoin d’un compte Figma pour utiliser <gcds-link href="{{ links.figma }}" external>la bibliothèque de Système de design GC</gcds-link>. Il peut s’agir d’un compte gratuit.</gcds-text>
   <gcds-text>Allez à <gcds-link href="{{ links.figmaHomepage }}" external>Figma.com</gcds-link> pour créer un compte si vous n’en avez pas déjà un.</gcds-text>
 </gcds-notice>
