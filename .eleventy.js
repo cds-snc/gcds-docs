@@ -40,7 +40,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy('./src/favicon.ico');
   eleventyConfig.addPassthroughCopy({ './src/variables/': 'variables' });
   eleventyConfig.addPassthroughCopy({
-    './node_modules/@cdssnc/gcds-components/': 'components',
+    './node_modules/@gcds-core/components/': 'components',
   });
   eleventyConfig.addPassthroughCopy({
     './node_modules/@gcds-core/css-shortcuts/dist/gcds-css-shortcuts.min.css':
