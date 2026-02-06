@@ -335,7 +335,7 @@ module.exports = function (eleventyConfig) {
   // Add shortcode for CDN info
   eleventyConfig.addGlobalData('latestCdnVersion', async () => {
     return await getLatestCdnVersion(
-      'https://registry.npmjs.org/@cdssnc/gcds-components',
+      'https://registry.npmjs.org/@gcds-core/components',
     );
   });
   eleventyConfig.addGlobalData('latestShortcutsCdnVersion', async () => {

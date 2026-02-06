@@ -7,8 +7,6 @@
   "packageRules": [
     {
       "matchPackageNames": [
-        "@cdssnc/gcds-components",
-        "@cdssnc/gcds-tokens",
         "@gcds-core/*"
       ],
       "groupName": "GCDS packages",
