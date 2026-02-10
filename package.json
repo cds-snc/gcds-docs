@@ -30,7 +30,6 @@
     "@11ty/eleventy": "^2.0.1",
     "@11ty/eleventy-navigation": "^0.3.2",
     "@cdssnc/sanitize-pii": "^1.2.0",
-    "@gcds-core/components": "^1.0.0",
     "axios": "^1.12.1",
     "eleventy-plugin-code-clipboard": "^0.2.0",
     "html-entities": "^2.5.2",
@@ -40,6 +39,7 @@
   },
   "devDependencies": {
     "@11ty/eleventy-plugin-syntaxhighlight": "^5.0.0",
+    "@gcds-core/components": "^1.0.0",
     "@gcds-core/css-shortcuts": "^1.0.1",
     "@gcds-core/tokens": "^1.0.1",
     "@quasibit/eleventy-plugin-sitemap": "^2.1.4",
