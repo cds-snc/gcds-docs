@@ -12,15 +12,18 @@ eleventyNavigation:
 
 # À propos de Système de design GC
 
-Système de design GC offre des blocs de construction de base ainsi qu'un langage de configuration vous permettant de concevoir et de créer une expérience uniforme en laquelle les personnes vouées à utiliser vos services pourront avoir confiance. Les composants et les unités de style fournissent une image de marque et des expériences standard du gouvernement du Canada, peu importe votre infrastructure de développement.
+Système de design GC offre des blocs de base ainsi qu’un langage de conception qui vous aide à concevoir une expérience familière et digne de confiance pour les personnes utilisant vos services. Les composants et les unités de style assurent une image de marque et des expériences conformes aux normes du gouvernement du Canada, quel que soit votre environnement de développement. Vous trouverez le code, les ressources de design et la documentation en un seul endroit.
 
+## Stable et prêt pour la production
 Nous accordons la priorité aux composants et aux configurations utiles à la plupart des équipes du GC. ​​Nous testons actuellement la version alpha de Système de design GC, ce qui correspond à la première version utilisable d'un produit. Utilisez le système de design pour entamer la création d'un site Web ou d'une application et aidez-nous à l'améliorer pour les fonctionnaires.
 
-Le [Service numérique canadien](https://numerique.canada.ca/) crée et entretient Système de design GC avec l'aide de l'équipe du système de conception de Canada.ca.
+Ce système de design est conçu pour le long terme. Une équipe dédiée au [Service numérique canadien](https://numerique.canada.ca/) cse charge de son développement et de sa maintenance, en consultation avec le Bureau de l’expérience Canada.ca. De plus en plus d’équipes derrière les services numériques fédéraux contribuent également de façon précieuse.
 
-## Notre collaboration avec le système de conception de Canada.ca
+## La place de Système de design GC parmi les autres systèmes de conception
 
-Système de design GC intègre les éléments obligatoires de Canada.ca. Nous collaborons avec le Bureau de la transformation numérique (BTN) au sein du Service numérique canadien afin d'évaluer le système de design et d'ajouter des éléments à notre <gcds-link href="{{ links.roadmap }}">feuille de route</gcds-link>. Le BTN continue à offrir ses conseils et son soutien aux praticiens et praticiennes du Web et du numérique au sein du GC.
+Système de design GC s’inscrit à côté des autres systèmes de conception traditionnellement utilisés au gouvernement. Les équipes peuvent continuer à utiliser les systèmes existants pendant que nous envisageons une approche plus unifiée. Elles peuvent aussi créer des systèmes de design locaux à partir de Système de design GC pour répondre à leurs besoins, ce qui permet de maintenir une apparence et une expérience uniformes.
+
+Nous partageons ouvertement notre <gcds-link href="{{ links.roadmap }}">feuille de route</gcds-link> pour vous aider à planifier l’adoption de Système de design GC en fonction de vos propres échéanciers et besoins.
 
 ## Canaux de collaboration et de soutien
 
