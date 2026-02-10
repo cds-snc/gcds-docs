@@ -654,7 +654,7 @@ module.exports = function (eleventyConfig) {
 
   eleventyConfig.on('eleventy.after', () => {
     execSync(
-      `npx pagefind --site _site --exclude-selectors "gcds-side-nav, gcds-top-nav, gcds-breadcrumbs, .github-link, .figma-link, h1 > code, .component-preview" --glob \"**/*.html\"`,
+      `pagefind --site _site --exclude-selectors "gcds-side-nav, gcds-top-nav, gcds-breadcrumbs, .github-link, .figma-link, h1 > code, .component-preview" --glob \"**/*.html\"`,
       { encoding: 'utf-8' },
     );
   });
