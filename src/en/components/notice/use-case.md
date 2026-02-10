@@ -35,13 +35,13 @@ Banner for a message that applies to part of or the entire site or product.
 
 <hr class="mt-600"/>
 
-## Notice types
+## Notice roles
 
-Set the notice type based on the message context and corresponding visual appearance.
+Set the notice roles based on the message context and corresponding visual appearance.
 
 ### Information
 
-Use the information type to:
+Use the information role to:
 
 - Provide supplementary information to enhance the reader’s understanding of the surrounding content.
 - To offer tips or additional context that’s helpful in completing the main tasks on the page.
@@ -57,7 +57,7 @@ Use the information type to:
 
 ### Success
 
-Use the success notice type to:
+Use the success notice role to:
 
 - Communicate the successful completion of a task.
 - Reinforce positive outcomes or confirmations within the content.
@@ -72,7 +72,7 @@ Use the success notice type to:
 
 ### Warning
 
-Use the warning notice type to:
+Use the warning notice role to:
 
 - Caution people about issues or considerations when there’s no immediate need for action.
 - Inform people about changes, alterations to services, or other impactful but non-critical updates.
@@ -88,7 +88,7 @@ Use the warning notice type to:
 
 ### Danger
 
-Use the danger notice type to:
+Use the danger notice role to:
 
 - Highlight content that people must be aware of due to its severity and that could have major negative impacts if ignored.
 - Emphasize an issue or news that has serious implications to health and safety, security, and laws. Include a link to the most current information.
