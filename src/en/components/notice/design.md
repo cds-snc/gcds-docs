@@ -10,7 +10,7 @@ date: "git Last Modified"
 
 <ol class="anatomy-list">
   <li><strong>Guide line</strong> indicates visually the notice’s start and end.</li>
-  <li><strong>Icon</strong> indicates the type of notice.</li>
+  <li><strong>Icon</strong> indicates the notice role.</li>
   <li><strong>Title</strong> specifies the notice topic.</li>
   <li><strong>Message</strong> provides the notice details. </li>
 </ol>
@@ -19,14 +19,14 @@ date: "git Last Modified"
 
 ## Design and accessibility
 
-### Choose the appropriate notice type
+### Choose the appropriate notice role
 
-Refer to the use case tab for guidelines on when to use each notice type.
+Refer to the use case tab for guidelines on when to use each notice role.
 
 ### Write concise and descriptive headings and messages
 
 - Write a meaningful heading that’s short and simple to highlight the goal of the notice.
-- In the heading, use words like “warning” and “success” that match the meaning conveyed by the icon and colour of the notice type you selected.
+- In the heading, use words like “warning” and “success” that match the meaning conveyed by the icon and colour of the notice role you selected.
 - Craft the message (below the heading) to be brief and impactful, ideally within three sentences.
 - Save the details for the main content area of a page. The notice is meant to attract attention and create an information trail for anyone who needs to know more.
 
