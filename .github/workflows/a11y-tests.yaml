@@ -14,25 +14,20 @@ jobs:
   a11y-test:
     name: A11y test documentation site
     runs-on: ubuntu-latest
-    container:
-      image: cypress/included:11.2.0
-      options: --user 0
+
     steps:
       - name: Git Checkout
-        uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
+        uses: actions/checkout@v4
 
-      - name: Install
-        run: npm install
-
-      - uses: actions/setup-node@3235b876344d2a9aa001b8d1453c930bba69e610 # v3.9.1
+      - name: Setup Node
+        uses: actions/setup-node@v4
         with:
-          node-version: '18.x'
+          node-version: '18'
 
       - name: Cypress run
-        uses: cypress-io/github-action@2ad32e649e4db26c07674ebae31a297601dbcbaf # v6.10.8
+        uses: cypress-io/github-action@v6
         with:
           build: npm run build:eleventy
           start: npm run watch:eleventy
           wait-on: 'http://localhost:8080/en'
-          # wait for 2 minutes for the server to respond
           wait-on-timeout: 240
