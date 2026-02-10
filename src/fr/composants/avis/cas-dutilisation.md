@@ -35,13 +35,13 @@ Bannière pour un message s’appliquant à une partie ou à l’ensemble du sit
 
 <hr class="mt-600" />
 
-## Types d’avis
+## Rôles d’avis
 
-Définissez le type d’avis selon le contexte du message et l’apparence visuelle correspondante.
+Définissez le rôle d’avis selon le contexte du message et l’apparence visuelle correspondante.
 
 ### Information
 
-Utilisez le type d’avis «&nbsp;Information&nbsp;» pour :
+Utilisez le rôle d’avis «&nbsp;Information&nbsp;» pour :
 
 - Fournir des renseignements supplémentaires pour mieux faire comprendre au lectorat le contenu environnant.
 - Offrir des conseils ou davantage de contexte pour aider le lectorat à réaliser les principales tâches de la page.
@@ -53,7 +53,7 @@ Utilisez le type d’avis «&nbsp;Information&nbsp;» pour :
 
 ### Succès
 
-Utilisez le type d’avis «&nbsp;Succès&nbsp;» pour :
+Utilisez le rôle d’avis «&nbsp;Succès&nbsp;» pour :
 
 - Indiquer la réussite d’une tâche.
 - Renforcer les résultats positifs ou les confirmations au sein du contenu.
@@ -64,7 +64,7 @@ Utilisez le type d’avis «&nbsp;Succès&nbsp;» pour :
 
 ### Avertissement
 
-Utilisez les avis de type «&nbsp;Avertissement&nbsp;» pour :
+Utilisez les avis de rôle «&nbsp;Avertissement&nbsp;» pour :
 
 - Avertir les gens de problèmes ou de considérations dans des cas où il n’est pas nécessaire d’agir immédiatement.
 - Informer les gens de changements, de modifications apportées aux services ou d’autres mises à jour importantes, mais non critiques.
@@ -76,7 +76,7 @@ Utilisez les avis de type «&nbsp;Avertissement&nbsp;» pour :
 
 ### Danger
 
-Utilisez le type d’avis «&nbsp;Danger&nbsp;» pour :
+Utilisez le rôle d’avis «&nbsp;Danger&nbsp;» pour :
 
 - Mettre en évidence du contenu dont les gens doivent prendre connaissance compte tenu de sa gravité, sous peine de s’exposer à des incidences négatives majeures.
 - Mettre l’accent sur une question ou des nouvelles ayant de graves répercussions dans les domaines de la santé, de la sécurité et de la loi. Inclure un lien vers les renseignements les plus récents.
