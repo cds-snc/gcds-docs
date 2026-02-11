@@ -15,6 +15,19 @@ date: 'git Last Modified'
 
 GC Design System tokens are the smallest building blocks of the design system.
 
+<ul class="d-flex flex-wrap gap-300">
+  <li>
+    <gcds-link external href="{{ links.githubTokens }}">
+      GitHub token repo
+    </gcds-link>
+  </li>
+  <li>
+    <gcds-link external href="{{ links.figmaTokens }}">
+      Figma token library
+    </gcds-link>
+  </li>
+</ul>
+
 ## Capturing design decisions in code
 
 We've created a token to define each style decision in GC Design System. All of our components use tokens.

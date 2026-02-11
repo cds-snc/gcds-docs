@@ -17,6 +17,19 @@ translationKey: 'designtokens'
 
 Les unités de style de Système de design GC sont les plus petits blocs de construction du système de design.
 
+<ul class="d-flex flex-wrap gap-300">
+  <li>
+    <gcds-link external href="{{ links.githubTokens }}">
+      Référentiel d'unités de style Github
+    </gcds-link>
+  </li>
+  <li>
+    <gcds-link external href="{{ links.figmaTokens }}">
+      Bibliothèque d’unités de style Figma
+    </gcds-link>
+  </li>
+</ul>
+
 ## Représenter des choix stylistiques en code
 
 Nous avons créé une unité de style qui définit chaque choix stylistique dans Système de design GC. Tous nos composants utilisent des unités de style.
