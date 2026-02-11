@@ -99,8 +99,8 @@ Parcourez les dernières fonctionnalités et les derniers ajouts au code dans le
 **Dernières versions** :
 
 - Nouveau : Paquets stables v1.0.0 pour les <gcds-link href="{{ links.github }}" external>composants</gcds-link> et les <gcds-link href="{{ links.githubTokens }}" external>unités de style</gcds-link>
-- Mise à jour : échelle de couleurs élargie avec de nouvelles <gcds-link href="{{ links.colour }}">unités de style de base</gcds-link>
-- Nouveau : Bibliothèque Figma distincte pour les unités de style
+- Mise à jour : Échelle de couleurs élargie avec de nouvelles <gcds-link href="{{ links.colour }}">unités de style de base</gcds-link>
+- Nouveau : <gcds-link href="{{ links.figmaTokens }}" external>Bibliothèque d’unités de style</gcds-link> dans Figma
 
 </section>
 
