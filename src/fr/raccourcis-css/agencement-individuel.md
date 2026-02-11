@@ -27,7 +27,7 @@ date: 'git Last Modified'
 
 La classe agencement individuel définit la propriété `place-self`. Il s’agit d’un raccourci pour définir à la fois l’axe transversal et l’axe principal d’un seul élément de grille. Elle remplace le paramètre `place-items` de la boîte et détermine comment l’élément individuel est aligné dans sa zone de grille.
 
-<gcds-notice type="info" notice-title-tag="h2" notice-title="Aucun effet dans les boîtes d’éléments flexibles">
+<gcds-notice notice-role="info" notice-title-tag="h2" notice-title="Aucun effet dans les boîtes d’éléments flexibles">
   <gcds-text>Dans une boîte d’élément flexible, <code>justify-self</code> est ignoré. Ainsi, la classe <code>place-self</code> n'a aucun effet.</gcds-text>
 </gcds-notice>
 

@@ -13,7 +13,7 @@ date: 'git Last Modified'
   <li>La <strong>bordure optionnelle</strong> entoure le conteneur en indiquant la largeur.</li>
 </ol>
 
-<img class="b-sm b-default p-300" src="/images/en/components/anatomy/gcds-container-anatomy.svg" alt="Le composant conteneur avec des numéros indiquant les différentes parties de la structure du conteneur." />
+<img class="b-sm b-default p-300" src="/images/fr/components/anatomy/gcds-container-anatomy.svg" alt="Le composant conteneur avec des numéros indiquant les différentes parties de la structure du conteneur." />
 
 ## Design et accessibilité des conteneurs
 

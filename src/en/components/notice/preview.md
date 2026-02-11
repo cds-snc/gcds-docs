@@ -7,7 +7,7 @@ templateEngineOverride: njk
 ---
 
 <gcds-notice
-  type="success"
+  notice-role="success"
   notice-title="Success notice title"
   notice-title-tag="h2"
 >

@@ -73,7 +73,7 @@ date: 'git Last Modified'
 
 The font size class sets the `font-size` property. It controls how big or small text elements appear on the page.
 
-<gcds-notice type="warning" notice-title-tag="h2" notice-title="Use with caution">
+<gcds-notice notice-role="warning" notice-title-tag="h2" notice-title="Use with caution">
   <gcds-text>In most cases you do not need to use this class. Body text and heading elements are <gcds-link href="{{ links.typography }}">styled to match GCDS by default</gcds-link>. Use semantic HTML tags , like <code>h1</code>, <code>h2</code> whenever possible.</gcds-text>
 </gcds-notice>
 

@@ -27,7 +27,7 @@ date: 'git Last Modified'
 
 The text colour class sets the `color` property. It controls the colour of text.
 
-<gcds-notice type="warning" notice-title-tag="h2" notice-title="Use with caution">
+<gcds-notice notice-role="warning" notice-title-tag="h2" notice-title="Use with caution">
   <gcds-text><gcds-link href="{{ links.colourText }}">View GCDS colour guidance</gcds-link> to choose the right text colour for your context.</gcds-text>
 </gcds-notice>
 
