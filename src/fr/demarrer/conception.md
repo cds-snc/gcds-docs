@@ -15,7 +15,7 @@ date: 'git Last Modified'
 # Configurer la bibliothèque de Système de design GC
 
 <gcds-notice type="info" notice-title-tag="h2" notice-title="Avant de commencer">
-  <gcds-text>Vous aurez besoin d’un compte Figma pour utiliser <gcds-link href="{{ links.figma }}" external>la bibliothèque de Système de design GC</gcds-link>. Il peut s’agir d’un compte gratuit.</gcds-text>
+  <gcds-text>Vous aurez besoin d’un compte Figma pour utiliser <gcds-link href="{{ links.figma }}" external>la bibliothèque de Système de design GC</gcds-link> et la <gcds-link href="{{ links.figmaTokens }}" external>bibliothèque d’unités de style</gcds-link>. Il peut s’agir d’un compte gratuit.</gcds-text>
   <gcds-text>Allez à <gcds-link href="{{ links.figmaHomepage }}" external>Figma.com</gcds-link> pour créer un compte si vous n’en avez pas déjà un.</gcds-text>
 </gcds-notice>
 
@@ -23,9 +23,9 @@ date: 'git Last Modified'
 
 <ol class="list-decimal">
   <li>
-    Ouvrez la bibliothèque Système de design GC dans Figma.<br/>
+    Accédez à la bibliothèque de composants Système de design GC dans Figma.<br/>
     <gcds-button class="my-150" button-role="start" type="link" target="_blank" href="{{ links.figma }}">
-      Ouvrir la bibliothèque
+      Accéder à la bibliothèque
     </gcds-button>
   </li>
   <li><gcds-link href="{{ links.figmaCopy }}" external><strong>Copiez</strong> la bibliothèque</gcds-link> sur votre compte.</li>
@@ -33,6 +33,11 @@ date: 'git Last Modified'
   <li><gcds-link href="{{ links.figmaAdd }}" external><strong>Ajoutez</strong> la bibliothèque publiée</gcds-link> au fichier Figma que vous utilisez. <em>Seuls les titulaires de comptes payants peuvent effectuer cette étape.</em></li>
   <li><gcds-link href="{{ links.figmaStart }}" external><strong>Commencez à concevoir</strong></gcds-link> en recherchant des composants et des modèles par leur nom et en les glissant dans votre projet. Pour un aperçu des noms de composants, visitez notre <gcds-link href="{{ links.components }}">page des composants</gcds-link>.</li>
 </ol>
+
+### Également disponible
+
+- **<gcds-link href="{{ links.figmaTokens }}" external>Bibliothèque d’unités de style</gcds-link> :** Suivez les mêmes étapes pour accéder aux variables Figma des unités de style.
+- **<gcds-link href="{{ links.figmaEn }}" external>Bibliothèque de composants en anglais</gcds-link>:** À utiliser si vous préférez l’anglais comme langue de travail.
 
 ## Garder la bibliothèque à jour
 
