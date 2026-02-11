@@ -36,8 +36,8 @@ date: 'git Last Modified'
 
 ### Also available
 
-- **<gcds-link href="{{ links.figmaTokens }}" external>Token library</gcds-link>:** Follow the same steps to use our design tokens variables.
-- **<gcds-link href="{{ links.figmaFr }}" external>French component library</gcds-link>:** Use if you prefer to work in French.
+- <gcds-link href="{{ links.figmaTokens }}" external>Token library</gcds-link>: Follow the same steps to use our design tokens variables.
+- <gcds-link href="{{ links.figmaFr }}" external>French component library</gcds-link>: Use if you prefer to work in French.
 
 ## Keep the library up-to-date
 
