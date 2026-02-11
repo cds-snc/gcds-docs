@@ -15,7 +15,7 @@ date: 'git Last Modified'
 # Set up GC Design System library
 
 <gcds-notice type="info" notice-title-tag="h2" notice-title="Before you start">
-  <gcds-text>You’ll need a Figma account to use <gcds-link href="{{ links.figma }}" external>GC Design System library</gcds-link>. It can be a free account.</gcds-text>
+  <gcds-text>You’ll need a Figma account to use the <gcds-link href="{{ links.figma }}" external>GC Design System library</gcds-link> and the <gcds-link href="{{ links.figmaTokens }}" external>token library</gcds-link>. It can be a free account.</gcds-text>
   <gcds-text>Go to <gcds-link href="{{ links.figmaHomepage }}" external>Figma.com</gcds-link> to create an account if you do not already have one.</gcds-text>
 </gcds-notice>
 
@@ -33,6 +33,11 @@ date: 'git Last Modified'
   <li><gcds-link href="{{ links.figmaAdd }}" external><strong>Add</strong> the published library</gcds-link> to the Figma file you’re using. <em>This step is for paid accounts only.</em></li>
   <li><gcds-link href="{{ links.figmaStart }}" external><strong>Start designing</strong></gcds-link> by searching components and templates by name and dragging them into your project. For an overview of component names, visit our <gcds-link href="{{ links.components }}">components page</gcds-link>.</li>
 </ol>
+
+### Also available
+
+- **<gcds-link href="{{ links.figmaTokens }}" external>Token library</gcds-link>:** Follow the same steps to use our design tokens variables.
+- **French component library:** Use if you prefer to work in French.
 
 ## Keep the library up-to-date
 
