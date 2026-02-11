@@ -10,7 +10,7 @@ tags: ['paginationFR', 'header']
 
 _Autres noms : index de pages, navigation de pages._
 
-La pagination est une division du contenu entre plusieurs pages liées.
+La pagination est un composant de navigation qui répartit un contenu sur plusieurs pages liées.
 
 {% docLinks locale stage figma github %}
 {% enddocLinks %}

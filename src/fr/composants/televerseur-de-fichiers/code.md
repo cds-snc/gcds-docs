@@ -30,6 +30,10 @@ Utilisez l'attribut `multiple` pour permettre la sélection de plus d'un fichier
 
 Utilisez l'attribut `accept` pour définir les types de fichiers acceptés par le téléverseur de fichiers.
 
+### Masquer l’étiquette du téléverseur de fichiers
+- Définissez l’attribut `hide-label` à true afin de masquer visuellement l’étiquette, tout en la conservant pour les technologies d’assistance. 
+- Évitez d’ajouter du texte explicatif lorsque vous masquez l’étiquette. Vous pouvez également fournir une chaîne vide pour le texte explicatif.
+
 {% include "partials/getcode.njk" %}
 
 <iframe

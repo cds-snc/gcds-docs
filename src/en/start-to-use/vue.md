@@ -34,7 +34,7 @@ Follow these steps to install and use GC Design System components in your Vue pr
 Navigate to your project’s root folder and run the following command:
 
 ```js
-npm install @cdssnc/gcds-components-vue
+npm install @gcds-core/components-vue
 ```
 
 ### 2. Import GC Design System
@@ -42,7 +42,7 @@ npm install @cdssnc/gcds-components-vue
 In your `main.js` file, import the GC Design System components plugin and use it:
 
 ```js
-import { GcdsComponents } from '@cdssnc/gcds-components-vue';
+import { GcdsComponents } from '@gcds-core/components-vue';
 
 createApp(App).use(GcdsComponents).mount('#app');
 ```
@@ -59,14 +59,14 @@ There are 2 ways to do this:
 a. Import the styles to your `main.js` file, alongside your `style.css`:
 
 ```js
-import '@cdssnc/gcds-components-vue/gcds.css';
+import '@gcds-core/components-vue/gcds.css';
 import './style.css';
 ```
 
 b. Import the styles to your `App.vue` using the HTML `style` tag:
 
 ```html
-<style src="@cdssnc/gcds-components-vue/gcds.css">
+<style src="@gcds-core/components-vue/gcds.css">
   /* global styles */
 </style>
 ```

@@ -48,15 +48,23 @@ L’attribut input-type (type de champ de saisie) accepte les options suivantes 
 
 ### Saisie textuelle
 
-Utilisez cette option s'il n'existe pas déjà un autre type de champ de saisie approprié pour la réponse à ligne unique.
+À utiliser lorsqu’aucun autre type de champ de saisie n'est approprié pour une saisie sur une seule ligne.
 
-- Pour recueillir le nom d’une personne (son nom complet dans la plupart des cas).
-- En remplacement de la saisie numérique, pour des réponses à valeurs non numériques comme des estimations.
+- Pour recueillir le nom d’une personne, le plus souvent son nom complet.
+- En remplacement de la saisie numérique pour des choses comme&nbsp;:
+  - des approximations pouvant inclure des valeurs non numériques;
+  - des valeurs qui ne sont pas de véritables nombres, comme des numéros de compte, des numéros de carte de crédit ou des codes d’authentification;
+  - des nombres avec décimales.
 
 ### Saisie d'une adresse courriel
 
 - Pour recueillir des adresses courriel.
 - Pour exiger un format d’adresse courriel.
+
+### Saisie téléphone
+
+- Pour recueillir des numéros de téléphone.
+- Pour activer le clavier téléphonique sur les appareils mobiles.
 
 ### Saisie de mot de passe
 
@@ -67,7 +75,8 @@ Conseil :  Indiquez toute contrainte liée au mot de passe dans le texte explica
 
 ### Saisie numérique
 
-À utiliser pour rejeter les valeurs qui ne sont pas numériques.
+- Pour recueillir les nombres entiers qui peuvent augmenter ou diminuer, comme les quantités.
+- Pour rejeter les valeurs qui ne sont pas numériques.
 
 Conseil : Lorsque vous définissez une contrainte, comme une fourchette numérique, utilisez le texte explicatif pour transmettre une directive précise.
 

@@ -35,3 +35,18 @@ Use pagination for very lengthy content on a single page that might be difficult
 <a href="{{ links.stepper }}">Stepper</a> to track progress in a multi-step process.
 
 Links in the <a href="{{ links.button }}">button</a> component to navigate between non-sequential pages or to external sites.
+
+<hr/>
+
+## Choose a pagination display
+
+### Simple
+
+Use simple pagination when the number of pages is small (2 to 5 pages).
+
+### List
+
+Use list-styled pagination when:
+- The number of pages is large.
+- The “Previous” and “Next” links would make navigation cumbersome.
+
