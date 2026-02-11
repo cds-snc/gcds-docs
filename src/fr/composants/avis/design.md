@@ -19,7 +19,7 @@ date: 'git Last Modified'
 
 ## Design et accessibilité
 
-### Choisir le rôle d’avis approprié
+### Choisir le rôle approprié pour l’avis
 
 Référez-vous aux cas d’utilisation pour savoir quand utiliser chaque rôle d’avis.
 
