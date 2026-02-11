@@ -27,7 +27,7 @@ date: 'git Last Modified'
 
 La classe couleur de texte définit la propriété `color`. Elle détermine la couleur du texte.
 
-<gcds-notice type="warning" notice-title-tag="h2" notice-title="Utiliser avec prudence">
+<gcds-notice notice-role="warning" notice-title-tag="h2" notice-title="Utiliser avec prudence">
   <gcds-text><gcds-link href="{{ links.colourText }}">Voir les conseils de Système de design GC en matière de couleur</gcds-link> pour choisir la bonne couleur de texte pour votre contexte.</gcds-text>
 </gcds-notice>
 

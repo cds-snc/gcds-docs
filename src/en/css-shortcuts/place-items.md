@@ -25,7 +25,7 @@ date: 'git Last Modified'
 
 The place items class sets the `place-items` property. It is a shorthand for setting the cross axis and the main axis. It controls how items are aligned inside their grid areas along both axes in a grid container.
 
-<gcds-notice type="info" notice-title-tag="h2" notice-title="No effect in flexbox">
+<gcds-notice notice-role="info" notice-title-tag="h2" notice-title="No effect in flexbox">
   <gcds-text>In flexbox, <code>justify-items</code> is ignored, so <code>place-items</code> has no effect.</gcds-text>
 </gcds-notice>
 

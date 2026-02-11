@@ -27,7 +27,7 @@ date: 'git Last Modified'
 
 The place self class sets the `place-self` property. It is a shorthand for setting both the cross axis the main axis on a single grid item. It overrides the container’s `place-items` setting and controls how that individual item is aligned within its grid area.
 
-<gcds-notice type="info" notice-title-tag="h2" notice-title="No effect in flexbox">
+<gcds-notice notice-role="info" notice-title-tag="h2" notice-title="No effect in flexbox">
   <gcds-text>In flexbox, <code>justify-self</code> is ignored, so <code>place-self</code> has no effect.</gcds-text>
 </gcds-notice>
 

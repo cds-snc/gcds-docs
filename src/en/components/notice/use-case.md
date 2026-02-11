@@ -50,7 +50,7 @@ Use the information role to:
 <gcds-notice
   notice-title="Current status of the call for applications: Closed"
   notice-title-tag="h4"
-  type="info"
+  notice-role="info"
 >
   <gcds-text margin-bottom="0">Thank you for your interest in Canada Summer Jobs. Applications are now closed.</gcds-text>
 </gcds-notice>
@@ -65,7 +65,7 @@ Use the success notice role to:
 <gcds-notice
   notice-title="Your request for publicly available data from the list of charities has been successful"
   notice-title-tag="h4"
-  type="success"
+  notice-role="success"
 >
   <gcds-text margin-bottom="0">Processing your request may take up to four (4) weeks. We’ll contact you if we need more information.</gcds-text>
 </gcds-notice>
@@ -81,7 +81,7 @@ Use the warning notice role to:
 <gcds-notice
   notice-title="Changes to impaired driving and cannabis-related crime laws"
   notice-title-tag="h4"
-  type="warning"
+  notice-role="warning"
 >
   <gcds-text margin-bottom="0">New penalties for impaired driving and cannabis-related crimes may affect your immigration status in Canada. If you commit one of these crimes, you may not be able to come to or stay in Canada.</gcds-text>
 </gcds-notice>
@@ -97,7 +97,7 @@ Use the danger notice role to:
 <gcds-notice
   notice-title="If pregnant or considering pregnancy - Notice regarding both partners"
   notice-title-tag="h4"
-  type="danger"
+  notice-role="danger"
 >
   <gcds-text margin-bottom="0">Avoid travel to Costa Rica if you are pregnant or planning to conceive a child in the next 3 months.</gcds-text>
 </gcds-notice>

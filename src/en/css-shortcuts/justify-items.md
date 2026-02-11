@@ -25,7 +25,7 @@ date: 'git Last Modified'
 
 The justify items class sets the `justify-items` property. It controls how individual items are aligned along the inline (row) axis within their grid areas. It determines the horizontal positioning of content inside each grid cell.
 
-<gcds-notice type="info" notice-title-tag="h2" notice-title="No effect in flexbox">
+<gcds-notice notice-role="info" notice-title-tag="h2" notice-title="No effect in flexbox">
   <gcds-text>In flexbox, <code>justify-items</code> is ignored, so it has no effect.</gcds-text>
 </gcds-notice>
 

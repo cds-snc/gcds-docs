@@ -14,7 +14,7 @@ date: 'git Last Modified'
 
 # Contacter Système de design GC
 
-<gcds-notice type="info" notice-title-tag="h2" notice-title="Formulaire de soutien sur GitHub">
+<gcds-notice notice-role="info" notice-title-tag="h2" notice-title="Formulaire de soutien sur GitHub">
   <gcds-text>Avec un <gcds-link external href="{{ links.githubGetStarted }}">compte</gcds-link>, utilisez notre <gcds-link external href="{{ links.githubCompsIssues }}">Formulaire de soutien GitHub</gcds-link> pour signaler des bogues et obtenir un soutien technique. Vous pourrez accéder aux réponses de l’équipe, suivre les progrès réalisés concernant votre problèmes et voir les problèmes signalés par d’autres personnes.></gcds-text>
 </gcds-notice>
 

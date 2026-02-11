@@ -38,7 +38,7 @@ date: 'git Last Modified'
 
 La classe taille de lien définit la propriété `font`. Elle détermine la taille d'un lien.
 
-<gcds-notice type="warning" notice-title-tag="h2" notice-title="Utiliser avec prudence">
+<gcds-notice notice-role="warning" notice-title-tag="h2" notice-title="Utiliser avec prudence">
   <gcds-text>Dans la plupart des cas, il n’est pas nécessaire d'utiliser cette classe. Par défaut, le style des liens correspond <gcds-link href="{{ links.link }}">à celui de Système de design GC (SGDC)</gcds-link>. Utilisez la balise HTML sémantique <code>a</code> ou le composant SGDC <code>gcds-link</code> lorsque possible.</gcds-text>
 </gcds-notice>
 
