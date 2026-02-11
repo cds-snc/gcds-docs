@@ -76,7 +76,7 @@ Utilisez le rôle «&nbsp;Avertissement&nbsp;» pour :
 
 ### Danger
 
-Utilisez le rôle d’avis «&nbsp;Danger&nbsp;» pour :
+Utilisez le rôle «&nbsp;Danger&nbsp;» pour :
 
 - Mettre en évidence du contenu dont les gens doivent prendre connaissance compte tenu de sa gravité, sous peine de s’exposer à des incidences négatives majeures.
 - Mettre l’accent sur une question ou des nouvelles ayant de graves répercussions dans les domaines de la santé, de la sécurité et de la loi. Inclure un lien vers les renseignements les plus récents.
