@@ -14,7 +14,7 @@ Utilisez le composant d'avis pour transmettre aux gens des messages importants e
 
 ### Définir le rôle de l'avis
 
-Utilisez l'attribut `noticeRole` pour classer l'avis dans les catégories `info` (Information), `warning` (Avertissement), `danger` (Danger) ou `success` (Succès). Ce choix détermine le style visuel de l'avis et communique l'urgence ou l'importance du message au public.
+Utilisez l'attribut `notice-role` pour classer l'avis dans les catégories `info` (Information), `warning` (Avertissement), `danger` (Danger) ou `success` (Succès). Ce choix détermine le style visuel de l'avis et communique l'urgence ou l'importance du message au public.
 
 ### Précisez le titre et le niveau de l'en-tête de l'avis
 
