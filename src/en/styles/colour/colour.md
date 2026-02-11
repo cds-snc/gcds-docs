@@ -53,19 +53,19 @@ Colour tokens define colour for components and global styles.
 
 GC Design System components meet level AA of the <gcds-link external href="{{ links.wcag }}" target="_blank">Web Content Accessibility Guidelines (WCAG 2.1)</gcds-link> colour contrast standards for text and interactive elements.
 
-When you use global tokens, check if your colour combinations meet standards for accessible colour contrast using <gcds-link external href="{{ links.webaim }}" target="_blank">WebAIM Contrast Checker</gcds-link>.
+When you use global colour tokens, check if your colour combinations meet standards for accessible colour contrast using <gcds-link external href="{{ links.webaim }}" target="_blank">WebAIM Contrast Checker</gcds-link>.
 
 ## Select colour tokens purposefully
 
-Select global tokens based on their purpose and its match to your needs.
+Select global colour tokens based on their purpose and its match to your needs.
 
-Replace hard-coded values in your code with GC Design System colour tokens, like `var(--gcds-text-primary)` instead of #000000.
+Replace hard-coded values in your code with GC Design System colour tokens, like `var(--gcds-text-primary)` instead of #333333.
 
 ## Global colour tokens
 
-Use global tokens to:
+Use global colour tokens to:
 
-- Design layouts, text colours, and global (or site-wide) styles for typography or spacing.
+- Design layouts, text colours, and global (or site-wide) styles.
 - Communicate the meaning associated with that token. Global tokens are semantic.
 - Create new component tokens.
 
@@ -105,7 +105,7 @@ Use global state tokens:
 
 Only use base tokens when you've already checked for global tokens and you need something else for building your own components, tokens, or even images.
 
-Use base design tokens to:
+Use base colour design tokens to:
 
 - Fill a gap when no global tokens are available.
 - Design a custom visual, drawing from the full colour palette.

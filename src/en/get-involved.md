@@ -15,7 +15,7 @@ templateEngineOverride: njk,md
 
 A design system is never complete. We're committed to building with the people who use our products.
 
-Right now, we're testing GC Design System in alpha, the first usable phase of a product. We’re iterating based on common needs across the GC and those of the people we all serve.
+A growing community of government users helps shape GC Design System through their input. A dedicated team works with the community to continuously improve it for the GC and the people we all serve.
 
 ## Find out about GC Design System
 
@@ -32,7 +32,7 @@ Right now, we're testing GC Design System in alpha, the first usable phase of a 
   ></gcds-card>
 </gcds-grid>
 
-## GC Design System Forum
+## Connect with our community
 
 <gcds-grid columns="1fr" columns-tablet="1fr 1fr" columns-desktop="1fr 1fr">
   <gcds-card
