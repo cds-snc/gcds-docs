@@ -8,7 +8,7 @@ date: 'git Last Modified'
 
 # Système de design GC
 
-Créez des services gouvernementaux modernes, accessibles et humains.
+Un système de design officiel et prêt pour la production destiné au gouvernement du Canada. Créez des services gouvernementaux modernes, accessibles et humains.
 
 <gcds-button type="link" href="{{ links.startToUse }}">
   Démarrer
@@ -22,7 +22,7 @@ Créez des services gouvernementaux modernes, accessibles et humains.
 
 ## Choisissez Système de design GC
 
-Système de design GC est la source pour les fonctionnaires qui assurent la prestation des sites Web et produits du gouvernement du Canada. Construisez plus rapidement, sans compromettre l’identité de marque, l’accessibilité, ni le bilinguisme. 
+Système de design GC aide les fonctionnaires à concevoir des sites Web et des produits du gouvernement du Canada. Créez plus rapidement, sans compromettre ni l’identité de marque, ni l’accessibilité, ni le bilinguisme. Trouvez du code prêt pour la production, des ressources de design et de la documentation en un seul et même endroit. 
 
 ### Pour en savoir plus
 
@@ -98,8 +98,9 @@ Parcourez les dernières fonctionnalités et les derniers ajouts au code dans le
 
 **Dernières versions** :
 
-- Nouvelle fonctionnalité :  <gcds-link href="{{ links.shortcuts }}">Raccourcis CSS</gcds-link>
-- Mises à jour : Style et conseils d’utilisation pour le composant <gcds-link href="{{ links.sideNav }}">navigation latérale</gcds-link>
+- Nouveau : Paquets stables v1.0.0 pour les <gcds-link href="{{ links.github }}" external>composants</gcds-link> et les <gcds-link href="{{ links.githubTokens }}" external>unités de style</gcds-link>
+- Mise à jour : Échelle de couleurs élargie avec de nouvelles <gcds-link href="{{ links.colour }}">unités de style de base</gcds-link>
+- Nouveau : <gcds-link href="{{ links.figmaTokens }}" external>Bibliothèque d’unités de style</gcds-link> dans Figma
 
 </section>
 

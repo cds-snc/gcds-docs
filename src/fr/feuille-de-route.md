@@ -11,6 +11,9 @@ eleventyNavigation:
 ---
 
 # Feuille de route
+
+Cette feuille de route montre les travaux prévus pour Système de design GC. Bien que le système soit stable et adapté à la production, nous continuons à l’améliorer. Cette feuille de route peut vous être utile pour décider à quel moment l’adoption de Système de design GC conviendrait à votre service.
+
 ## Thèmes pour 2025/2026
 
 <ol class="list-disc ps-400 mb-300">
