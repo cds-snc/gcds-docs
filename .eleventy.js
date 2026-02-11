@@ -652,13 +652,6 @@ module.exports = function (eleventyConfig) {
     }
   });
 
-  eleventyConfig.on('eleventy.after', () => {
-    execSync(
-      `npx pagefind --site _site --exclude-selectors "gcds-side-nav, gcds-top-nav, gcds-breadcrumbs, .github-link, .figma-link, h1 > code, .component-preview" --glob \"**/*.html\"`,
-      { encoding: 'utf-8' },
-    );
-  });
-
   return {
     pathPrefix: process.env.PATH_PREFIX || '/',
     dir: {
