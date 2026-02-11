@@ -25,7 +25,7 @@ date: 'git Last Modified'
 
 The link colour class sets the `color` property. It controls the colour of a link.
 
-<gcds-notice type="warning" notice-title-tag="h2" notice-title="Use with caution">
+<gcds-notice notice-role="warning" notice-title-tag="h2" notice-title="Use with caution">
   <gcds-text><gcds-link href="{{ links.colourLink }}">View GCDS colour guidance</gcds-link> to choose the right link colour for your context.</gcds-text>
 </gcds-notice>
 

@@ -6,7 +6,7 @@ eleventyExcludeFromCollections: true
 templateEngineOverride: njk
 ---
 
-<gcds-top-nav label="Aperçu du composant de barre de navigation supérieure" alignment="right" lang="fr">
+<gcds-top-nav label="Aperçu du composant de barre de navigation supérieure" alignment="end" lang="fr">
   <gcds-nav-link href="#red" slot="home">Notification GC</gcds-nav-link>
   <gcds-nav-link href="#red">Pourquoi Notification GC</gcds-nav-link>
   <gcds-nav-group menu-label="Fonctionnalités"  open-trigger="Fonctionnalités">

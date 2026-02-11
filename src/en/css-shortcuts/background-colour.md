@@ -39,7 +39,7 @@ date: 'git Last Modified'
 
 The background colour class sets the `background-color` property. It controls the colour of an element’s background.
 
-<gcds-notice type="warning" notice-title-tag="h2" notice-title="Use with caution">
+<gcds-notice notice-role="warning" notice-title-tag="h2" notice-title="Use with caution">
   <gcds-text><gcds-link href="{{ links.colourBackground }}">View GCDS colour guidance</gcds-link> to choose the right background colour for your context.</gcds-text>
 </gcds-notice>
 
@@ -89,7 +89,7 @@ The background colour class sets the `background-color` property. It controls th
 
 {% shortcutPreview "p-150" %}
 
-<p class="bg-danger">
+<p class="bg-danger text-light">
   This element uses the danger background colour.
 </p>
 {% endshortcutPreview %}
@@ -117,7 +117,7 @@ The background colour class sets the `background-color` property. It controls th
 {% shortcutPreview "p-150" %}
 
 <div class="bg-danger">
-  <p class="bg-inherit">
+  <p class="bg-inherit text-light">
     This element inherits its parent's background colour.
   </p>
 </div>
