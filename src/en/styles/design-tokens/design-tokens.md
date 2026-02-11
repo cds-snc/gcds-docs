@@ -13,7 +13,7 @@ date: 'git Last Modified'
 
 # {{ title }}
 
-GC Design System tokens are the smallest building blocks of the design system.
+GC Design System tokens are the smallest building blocks of the design system. They have their own GitHub repo and Figma library.
 
 ## Capturing design decisions in code
 
@@ -35,7 +35,7 @@ GC Design System components have their own tokens. These component tokens are co
 
 When misused component tokens can change unexpectedly. They receive updates any time the component they're attached to gets updated.
 
-<img class="b-sm b-default p-300" src="/images/en/foundations/tokens/design-tokens-component.svg" alt="Three blue squares represent three steps to create the component design token for the default button background colour. To the right of the topmost square, the text reads colour #26374a. The first arrow points down to the next square whose text reads --gcds-color-blue-900. Another arrow points down from the second to the third square, whose text reads --gcds-button-primary-default-background. A third arrow points from the last square to a button with a dark blue background, showing the result of the new component design token."/>
+<img class="b-sm b-default p-300" src="/images/en/foundations/tokens/design-tokens-component.svg" alt="Three red squares represent three steps to create the component design token for the danger button background colour. To the right of the topmost square, the text reads colour #B3192E. The first arrow points down to the next square whose text reads --gcds-color-red-600. Another arrow points down from the second to the third square, whose text reads --gcds-button-danger-default-background. A third arrow points from the last square to a button with a red background, showing the result of the new component design token."/>
 
 ### Global design tokens
 
