@@ -27,7 +27,7 @@ date: 'git Last Modified'
 
 The font weight class sets the `font-weight` property. It controls how bold text is.
 
-<gcds-notice type="warning" notice-title-tag="h2" notice-title="Use with caution">
+<gcds-notice notice-role="warning" notice-title-tag="h2" notice-title="Use with caution">
   <gcds-text><gcds-link href="{{ links.typographyFontWeight }}">View GCDS typography guidance</gcds-link> to choose the right font weight for your context.</gcds-text>
 </gcds-notice>
 

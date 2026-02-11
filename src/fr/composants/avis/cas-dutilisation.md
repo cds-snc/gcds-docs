@@ -47,7 +47,7 @@ Utilisez le type d’avis «&nbsp;Information&nbsp;» pour :
 - Offrir des conseils ou davantage de contexte pour aider le lectorat à réaliser les principales tâches de la page.
 - Communiquer des renseignements non essentiels importants pour la réalisation de la tâche qu’une personne pourrait chercher à accomplir.
 
-<gcds-notice notice-title="État actuel de l’appel de candidatures : Fermé" notice-title-tag="h4" type="info">
+<gcds-notice notice-title="État actuel de l’appel de candidatures : Fermé" notice-title-tag="h4" notice-role="info">
   <gcds-text margin-bottom="0">Nous vous remercions de votre intérêt à l’égard du programme Emplois d’été Canada. L’appel de candidatures est maintenant fermé.</gcds-text>
 </gcds-notice>
 
@@ -58,7 +58,7 @@ Utilisez le type d’avis «&nbsp;Succès&nbsp;» pour :
 - Indiquer la réussite d’une tâche.
 - Renforcer les résultats positifs ou les confirmations au sein du contenu.
 
-<gcds-notice notice-title="Votre demande de données accessibles au public à partir de la liste des organismes de bienfaisance a été acceptée." notice-title-tag="h4" type="success">
+<gcds-notice notice-title="Votre demande de données accessibles au public à partir de la liste des organismes de bienfaisance a été acceptée." notice-title-tag="h4" notice-role="success">
   <gcds-text margin-bottom="0">Le traitement de votre demande peut prendre jusqu’à quatre (4) semaines. Nous communiquerons avec vous si nous avons besoin de plus amples renseignements.</gcds-text>
 </gcds-notice>
 
@@ -70,7 +70,7 @@ Utilisez les avis de type «&nbsp;Avertissement&nbsp;» pour :
 - Informer les gens de changements, de modifications apportées aux services ou d’autres mises à jour importantes, mais non critiques.
 - Attirer l’attention sur des renseignements concernant de futurs changements ou sur des répercussions possibles sur la santé, la sécurité et les lois.
 
-<gcds-notice notice-title="Modifications aux lois sur la conduite avec facultés affaiblies et la criminalité liée au cannabis" notice-title-tag="h4" type="warning">
+<gcds-notice notice-title="Modifications aux lois sur la conduite avec facultés affaiblies et la criminalité liée au cannabis" notice-title-tag="h4" notice-role="warning">
   <gcds-text margin-bottom="0">Les nouvelles peines pour conduite avec facultés affaiblies et infractions liées au cannabis pourraient avoir une incidence sur votre statut d’immigrant au Canada. Si vous commettez l’un de ces crimes, vous ne pourrez peut-être pas venir au Canada ou y rester.</gcds-text>
 </gcds-notice>
 
@@ -82,6 +82,6 @@ Utilisez le type d’avis «&nbsp;Danger&nbsp;» pour :
 - Mettre l’accent sur une question ou des nouvelles ayant de graves répercussions dans les domaines de la santé, de la sécurité et de la loi. Inclure un lien vers les renseignements les plus récents.
 - Signaler à une personne qu’elle doit agir immédiatement et lui donner les moyens de le faire, par exemple en lui fournissant un lien.
 
-<gcds-notice notice-title="Si vous êtes enceinte ou envisagez de concevoir un enfant – Avis concernant les deux partenaires" notice-title-tag="h4" type="danger">
+<gcds-notice notice-title="Si vous êtes enceinte ou envisagez de concevoir un enfant – Avis concernant les deux partenaires" notice-title-tag="h4" notice-role="danger">
   <gcds-text margin-bottom="0">Évitez de voyager au Costa Rica si vous êtes enceinte ou prévoyez de concevoir un enfant au cours des trois prochains mois.</gcds-text>
 </gcds-notice>
