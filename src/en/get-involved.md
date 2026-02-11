@@ -37,7 +37,7 @@ Right now, we're testing GC Design System in alpha, the first usable phase of a 
 <gcds-grid columns="1fr" columns-tablet="1fr 1fr" columns-desktop="1fr 1fr">
   <gcds-card
     card-title="Register for the GC Design System Forum"
-    href="{{ links.contactMailingList }}"
+    href="https://events.teams.microsoft.com/event/5981a141-75bc-47d3-9050-03a63adb8cb1@9ed55846-8a81-4246-acd8-b1a01abfc0d1"
     description="Register to our recurring Forum events to stay current with GC Design System, our partners and clients."
   ></gcds-card>
 </gcds-grid>

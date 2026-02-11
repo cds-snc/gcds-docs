@@ -37,7 +37,7 @@ Nous testons actuellement la version alpha de Système de design GC, ce qui corr
 <gcds-grid columns="1fr" columns-tablet="1fr 1fr" columns-desktop="1fr 1fr">
   <gcds-card
     card-title="Inscrivez-vous au forum de Système de design GC"
-    href="{{ links.contactMailingList }}"
+    href="https://events.teams.microsoft.com/event/5981a141-75bc-47d3-9050-03a63adb8cb1@9ed55846-8a81-4246-acd8-b1a01abfc0d1"
     description="Inscrivez-vous aux séances récurrentes du Forum de Système de design GC pour connaître les dernières nouvelles sur le produit, nos partenaires et nos clients. "
   ></gcds-card>
 </gcds-grid>
