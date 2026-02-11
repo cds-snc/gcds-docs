@@ -35,7 +35,7 @@ Bannière pour un message s’appliquant à une partie ou à l’ensemble du sit
 
 <hr class="mt-600" />
 
-## Rôles d’avis
+## Rôles de l’avis
 
 Définissez le rôle d’avis selon le contexte du message et l’apparence visuelle correspondante.
 
