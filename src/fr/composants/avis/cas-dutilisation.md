@@ -37,7 +37,7 @@ Bannière pour un message s’appliquant à une partie ou à l’ensemble du sit
 
 ## Rôles de l’avis
 
-Définissez le rôle d’avis selon le contexte du message et l’apparence visuelle correspondante.
+Définissez le rôle de l’avis selon le contexte du message et l’apparence visuelle correspondante.
 
 ### Information
 
