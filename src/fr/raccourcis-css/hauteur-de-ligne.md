@@ -33,7 +33,7 @@ date: 'git Last Modified'
 
 La classe hauteur de ligne définit la propriété `line-height`. Elle détermine l'espacement vertical entre les lignes de texte.
 
-<gcds-notice type="warning" notice-title-tag="h2" notice-title="Utiliser avec prudence">
+<gcds-notice notice-role="warning" notice-title-tag="h2" notice-title="Utiliser avec prudence">
   <gcds-text>Dans la plupart des cas, il n’est pas nécessaire d'utiliser cette classe. Par défaut, le style du corps du texte et des éléments de titre correspondent <gcds-link href="{{ links.typography }}">à ceux de Système de design GC</gcds-link>. Utilisez des balises HTML sémantiques, comme <code>h1</code> et <code>h2</code> lorsque possible..</gcds-text>
 </gcds-notice>
 

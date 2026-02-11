@@ -14,7 +14,7 @@ date: 'git Last Modified'
 
 # Set up GC Design System library
 
-<gcds-notice type="info" notice-title-tag="h2" notice-title="Before you start">
+<gcds-notice notice-role="info" notice-title-tag="h2" notice-title="Before you start">
   <gcds-text>You’ll need a Figma account to use the <gcds-link href="{{ links.figma }}" external>GC Design System library</gcds-link> and the <gcds-link href="{{ links.figmaTokens }}" external>token library</gcds-link>. It can be a free account.</gcds-text>
   <gcds-text>Go to <gcds-link href="{{ links.figmaHomepage }}" external>Figma.com</gcds-link> to create an account if you do not already have one.</gcds-text>
 </gcds-notice>

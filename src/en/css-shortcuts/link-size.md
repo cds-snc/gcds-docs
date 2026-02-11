@@ -38,7 +38,7 @@ date: 'git Last Modified'
 
 The link size class sets the `font` property. It controls how big or small a link is.
 
-<gcds-notice type="warning" notice-title-tag="h2" notice-title="Use with caution">
+<gcds-notice notice-role="warning" notice-title-tag="h2" notice-title="Use with caution">
   <gcds-text>In most cases you do not need to use this class. Links are <gcds-link href="{{ links.link }}">styled to match GCDS by default</gcds-link>. Use the semantic HTML tag <code>a</code> or the GCDS component <code>gcds-link</code> whenever possible.</gcds-text>
 </gcds-notice>
 
