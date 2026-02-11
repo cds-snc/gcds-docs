@@ -12,7 +12,7 @@ Utilisez le composant d'avis pour transmettre aux gens des messages importants e
 
 ## Accessibilité et lignes directrices relatives au code
 
-### Définir le rôle d'avis
+### Définir le rôle de l'avis
 
 Utilisez l'attribut `noticeRole` pour classer l'avis dans les catégories `info` (Information), `warning` (Avertissement), `danger` (Danger) ou `success` (Succès). Ce choix détermine le style visuel de l'avis et communique l'urgence ou l'importance du message au public.
 
