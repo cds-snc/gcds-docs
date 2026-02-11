@@ -64,7 +64,7 @@ Utilisez le rôle d’avis «&nbsp;Succès&nbsp;» pour :
 
 ### Avertissement
 
-Utilisez les avis de rôle «&nbsp;Avertissement&nbsp;» pour :
+Utilisez le rôle «&nbsp;Avertissement&nbsp;» pour :
 
 - Avertir les gens de problèmes ou de considérations dans des cas où il n’est pas nécessaire d’agir immédiatement.
 - Informer les gens de changements, de modifications apportées aux services ou d’autres mises à jour importantes, mais non critiques.
