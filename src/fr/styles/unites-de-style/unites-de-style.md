@@ -15,7 +15,7 @@ translationKey: 'designtokens'
 
 # {{ title }}
 
-Les unités de style de Système de design GC sont les plus petits blocs de construction du système de design.
+Les unités de style de Système de design GC sont les plus petits blocs de construction du système de design. Elles ont leur propre référentiel GitHub et bibliothèque Figma.
 
 ## Représenter des choix stylistiques en code
 
@@ -37,7 +37,7 @@ Les composants de Système de design GC possèdent leurs propres unités de styl
 
 Si elles sont utilisées incorrectement, les unités de style de composant peuvent avoir des comportements imprévisibles. Elles sont mises à jour chaque fois que le composant associé est mis à jour.
 
-<img class="b-sm b-default p-300" src="/images/fr/foundations/tokens/design-tokens-component.svg" alt="Trois carrés bleus représentent les trois étapes pour créer l’unité de style de la couleur d’arrière-plan du composant Bouton standard. À droite du carré le plus haut, un texte indique la couleur #26374a. Juste en-dessous du carré, une flèche pointe vers le carré suivant, à droite duquel un texte indique --gcds-color-blue-900. Une autre flèche pointe vers le troisième et dernier carré, à droite duquel un texte indique --gcds-button-primary-default-background. Une dernière flèche pointe du troisième carré à un bouton dont l’arrière-plan est bleu foncé, soit le résultat de l’unité de style nouvellement créée pour le composant."/>
+<img class="b-sm b-default p-300" src="/images/fr/foundations/tokens/design-tokens-component.svg" alt="Trois carrés rouges représentent les trois étapes pour créer l’unité de style de la couleur d’arrière-plan du composant Bouton danger. À droite du carré le plus haut, un texte indique la couleur #B3192E. Juste en-dessous du carré, une flèche pointe vers le carré suivant, à droite duquel un texte indique --gcds-color-blue-600. Une autre flèche pointe vers le troisième et dernier carré, à droite duquel un texte indique --gcds-button-danger-default-background. Une dernière flèche pointe du troisième carré à un bouton dont l’arrière-plan est rouge, soit le résultat de l’unité de style nouvellement créée pour le composant."/>
 
 ### Unités de style globales
 
