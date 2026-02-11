@@ -53,7 +53,7 @@ Utilisez le rôle «&nbsp;Information&nbsp;» pour :
 
 ### Succès
 
-Utilisez le rôle d’avis «&nbsp;Succès&nbsp;» pour :
+Utilisez le rôle «&nbsp;Succès&nbsp;» pour :
 
 - Indiquer la réussite d’une tâche.
 - Renforcer les résultats positifs ou les confirmations au sein du contenu.
