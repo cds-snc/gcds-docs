@@ -89,7 +89,7 @@ The background colour class sets the `background-color` property. It controls th
 
 {% shortcutPreview "p-150" %}
 
-<p class="bg-danger">
+<p class="bg-danger text-light">
   This element uses the danger background colour.
 </p>
 {% endshortcutPreview %}
@@ -117,7 +117,7 @@ The background colour class sets the `background-color` property. It controls th
 {% shortcutPreview "p-150" %}
 
 <div class="bg-danger">
-  <p class="bg-inherit">
+  <p class="bg-inherit text-light">
     This element inherits its parent's background colour.
   </p>
 </div>
