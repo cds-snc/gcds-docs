@@ -10,7 +10,7 @@ date: 'git Last Modified'
 
 <ol class="anatomy-list">
   <li>La <strong>ligne guide</strong> indique visuellement le début et la fin de l’avis.</li>
-  <li>L'<strong>icône</strong> indique le rôle d’avis.</li>
+  <li>L'<strong>icône</strong> indique le rôle de l’avis.</li>
   <li>Le <strong>titre</strong> précise le sujet de l’avis.</li>
   <li>Le <strong>message</strong> fournit les détails de l’avis.</li>
 </ol>
