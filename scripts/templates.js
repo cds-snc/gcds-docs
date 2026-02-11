@@ -22,9 +22,9 @@ async function downloadFile(url, outputDir, outputFileName) {
         pjson.devDependencies['@gcds-core/css-shortcuts'].replace(/^\^/, ''),
     );
     previewContent = previewContent.replace(
-      /gcds-components\@<version-number>/g,
-      'gcds-components@' +
-        pjson.devDependencies['@cdssnc/gcds-components'].replace(/^\^/, ''),
+      /components\@<version-number>/g,
+      'components@' +
+        pjson.devDependencies['@gcds-core/components'].replace(/^\^/, ''),
     );
 
     // Add code formatting for code files
