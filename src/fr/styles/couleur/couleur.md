@@ -53,19 +53,19 @@ Les unités de style de couleur définissent les couleurs pour les composants et
 
 Les composants de Système de design GC sont conformes <gcds-link external href="{{ links.wcag }}" target="_blank">au niveau AA des Règles pour l'accessibilité des contenus Web 2.1 (WCAG 2.1)</gcds-link> (site anglais) en matière de contraste des couleurs des éléments texte et des éléments interactifs.
 
-Lorsque vous utilisez des unités de style de couleur, vérifiez si vos combinaisons de couleurs satisfont aux normes en matière d'accessibilité du contraste des couleurs à l'aide de l'outil <gcds-link external href="{{ links.wcag }}" target="_blank">Web Aim Contrast Checker</gcds-link> (site anglais).
+Lorsque vous utilisez des unités de style de couleur globales, vérifiez si vos combinaisons de couleurs satisfont aux normes en matière d'accessibilité du contraste des couleurs à l'aide de l'outil <gcds-link external href="{{ links.wcag }}" target="_blank">Web Aim Contrast Checker</gcds-link> (site anglais).
 
 ## Soyez judicieux dans votre choix d'unités de style de couleur
 
 Sélectionnez les unités de style globales en fonction de leur utilisation prévue et de vos besoins.
 
-Remplacez les valeurs codées en dur dans votre code par les unités de style de couleur proposées par Système de design GC, comme `var(--gcds-text-primary)` plutôt que #000000.
+Remplacez les valeurs codées en dur dans votre code par les unités de style de couleur proposées par Système de design GC, comme `var(--gcds-text-primary)` plutôt que #333333.
 
 ## Unités de style de couleur globales
 
-Utilisez les unités de style globales pour :
+Utilisez les unités de style de couleur globales pour :
 
-- Concevoir des maquettes, des couleurs de texte et des styles globaux (ou de site) pour la typographie ou l'espacement.
+- Concevoir des maquettes, des couleurs de texte et des styles globaux (ou de site).
 - Communiquer le sens associé à l'unité de style. Les unités de style globales suivent des règles sémantiques.
 - Créer de nouvelles unités de style pour vos composants.
 
@@ -105,7 +105,7 @@ Utilisez les unités de style d'état global pour :
 
 Utilisez les unités de style de base lorsqu'il vous faut quelque chose de précis pour construire vos propres composants, unités de style ou images, mais vérifiez d'abord s'il existe des unités de style globales.
 
-Utilisez les unités de style de base pour :
+Utilisez les unités de style de couleur de base pour :
 
 - Combler les lacunes lorsqu'il n'existe aucune unité de style globale.
 - Concevoir un visuel personnalisé en faisant appel à la gamme de couleurs complète.
