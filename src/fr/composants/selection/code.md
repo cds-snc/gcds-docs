@@ -28,6 +28,10 @@ Utilisez l'attribut `default-value` pour configurer la première option dans la 
 
 {% include "partials/hint.njk" %}
 
+### Masquer l’étiquette de la sélection
+Définissez l’attribut hide-label à true afin de masquer visuellement l’étiquette, tout en la conservant pour les technologies d’assistance. 
+Évitez d’ajouter du texte explicatif lorsque vous masquez l’étiquette. Vous pouvez également fournir une chaîne vide pour le texte explicatif.
+
 {% include "partials/getcode.njk" %}
 
 <iframe

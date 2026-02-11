@@ -33,7 +33,7 @@ Follow these steps to install and use GC Design System components in your Angula
 Navigate to your project’s root folder and run the following command:
 
 ```js
-npm install @cdssnc/gcds-components @cdssnc/gcds-components-angular
+npm install @gcds-core/components @gcds-core/components-angular
 ```
 
 ### 2. Import GC Design System
@@ -41,7 +41,7 @@ npm install @cdssnc/gcds-components @cdssnc/gcds-components-angular
 Place the following code in the `app.module.ts` file of your app:
 
 ```js
-import { GcdsComponentsModule } from '@cdssnc/gcds-components-angular';
+import { GcdsComponentsModule } from '@gcds-core/components-angular';
 
 @NgModule({
   declarations: [
@@ -61,7 +61,7 @@ export class AppModule { }
 Place the following code in the `styles.scss` file of your app to import GC Design System styles:
 
 ```js
-@import '../node_modules/@cdssnc/gcds-components/dist/gcds/gcds.css';
+@import '../node_modules/@gcds-core/components/dist/gcds/gcds.css';
 ```
 
 {% addCssShortcuts 'en', '3' %}{% endaddCssShortcuts %}

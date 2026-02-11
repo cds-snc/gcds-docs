@@ -25,3 +25,11 @@ date: 'git Last Modified'
 
 - Use the input label to set clear expectations about the kind of file a person can or needs to upload.
 - Use the hint to specify any upload limitations.
+
+### Hide the label only when the purpose is clear
+
+- Visually hide the label only when the purpose of the file uploader is clearly communicated by surrounding context, making the label visually redundant, such as in:
+  - tables or other space-constrained layouts
+  - settings and configurations
+- Always provide a label to support assistive technologies.
+- Omit hint text if you hide the label, as it can lack context and be distracting or confusing.
