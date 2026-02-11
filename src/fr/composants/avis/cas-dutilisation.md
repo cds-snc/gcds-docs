@@ -41,7 +41,7 @@ Définissez le rôle de l’avis selon le contexte du message et l’apparence v
 
 ### Information
 
-Utilisez le rôle d’avis «&nbsp;Information&nbsp;» pour :
+Utilisez le rôle «&nbsp;Information&nbsp;» pour :
 
 - Fournir des renseignements supplémentaires pour mieux faire comprendre au lectorat le contenu environnant.
 - Offrir des conseils ou davantage de contexte pour aider le lectorat à réaliser les principales tâches de la page.
