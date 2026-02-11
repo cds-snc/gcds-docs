@@ -18,7 +18,7 @@ Whether you’re designing or building in code, get started using GC Design Syst
   <gcds-card
     card-title="Design"
     href="#design"
-    description="Learn how to start designing consistent GC experiences using the asset library in Figma."
+    description="Learn how to start designing consistent GC experiences using the asset libraries in Figma."
     img-src="/images/common/start-to-use/banner-design.svg"
     img-alt=""
     role="listitem"
@@ -35,20 +35,22 @@ Whether you’re designing or building in code, get started using GC Design Syst
 
 ## Design
 
-Use GC Design System library in Figma to create consistent and accessible front-end experiences for Government of Canada tools and services. Our components are designed for both static sites and dynamic applications.
+Use the GC Design System libraries in Figma to create consistent and accessible front-end experiences for Government of Canada tools and services. Our components are designed for both static sites and dynamic applications.
 
-The library includes:
+The component library is available in English and French, so you can work in the language of your choice. It includes:
 
 - Accessible components
 - Quick-start page templates
 - Mandatory branding elements for Canada.ca
+
+An optional token library is also availablre. It includes the foundational design tokens used across our components, such as colour, spacing, typography, and more.
 
 ### How it works
 
 GC Design System uses Figma to host our component designs. Figma is a tool that lets you create clickable prototypes of apps and websites using the GC Design System library.
 
 <gcds-button button-role="secondary" type="link" href="{{ links.startToUseDesign }}">
-  Start designing
+  Set up a Figma library
 </gcds-button>
 
 ## Develop
@@ -70,5 +72,5 @@ GC Design System provides reusable and customizable web components. The componen
 - The design system is independent of the Web Experience Toolkit (WET) and GCWeb.
 
 <gcds-button button-role="secondary" type="link" href="{{ links.startToUseDevelop }}">
-  Start developing
+  Install GC Design System
 </gcds-button>
