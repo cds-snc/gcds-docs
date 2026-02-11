@@ -25,7 +25,7 @@ Les unités de style de Système de design GC sont les plus petits blocs de cons
   </li>
   <li>
     <gcds-link external href="{{ links.figmaTokens }}">
-      Référentiel d'unités de style Figma
+      Bibliothèque d’unités de style Figma
     </gcds-link>
   </li>
 </ul>
