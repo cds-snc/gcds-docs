@@ -26,7 +26,7 @@ Référez-vous aux cas d’utilisation pour savoir quand utiliser chaque rôle d
 ### Rédigez des titres et des messages concis et descriptifs
 
 - Rédigez un titre significatif, court et simple pour souligner l’objectif de l’avis.
-- Dans le titre, utilisez des titres comme «&nbsp;Avertissement&nbsp;» et «&nbsp;Succès&nbsp;» correspondant au sens transmis par l’icône et la couleur du rôle d’avis sélectionné.
+- Dans le titre, utilisez des titres comme «&nbsp;Avertissement&nbsp;» et «&nbsp;Succès&nbsp;» correspondant au sens transmis par l’icône et la couleur du rôle de l’avis sélectionné.
 - Rédigez un message (en dessous du titre) bref et percutant. Idéalement, faites en sorte qu’il ne dépasse pas trois phrases.
 - Enregistrez les détails pour la zone de contenu principale d’une page. L’avis doit attirer l’attention et créer une «&nbsp;piste d’information&nbsp;» pour toute personne ayant besoin d’en savoir plus.
 
