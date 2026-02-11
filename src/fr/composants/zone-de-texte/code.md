@@ -33,6 +33,10 @@ Pour que la zone de texte fonctionne correctement, utilisez toujours les attribu
 
 {% include "partials/hint.njk" %}
 
+### Masquer l’étiquette de la zone de texte 
+- Définissez l’attribut `hide-label` à true afin de masquer visuellement l’étiquette, tout en la conservant pour les technologies d’assistance. 
+- Évitez d’ajouter du texte explicatif lorsque vous masquez l’étiquette. Vous pouvez également fournir une chaîne vide pour le texte explicatif.
+
 {% include "partials/getcode.njk" %}
 
 <iframe

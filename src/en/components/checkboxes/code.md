@@ -52,6 +52,13 @@ Within the `options` attribute, always use the object's `id` and `label` propert
 - Pass a single object to the `options` attribute to render a single checkbox without a fieldset.  
 - Use the `hint` and `error-message` attributes to add additional information to the checkbox.
 
+### Hide the checkboxes legend or labels
+
+- Visually hide the legend or label, while maintaining it for assistive technologies.
+  - Set the `hide-legend` attribute to true to visually hide the legend for checkbox groups.
+  - Set the `hide-label` attribute to true to visually hide the label for a single checkbox.
+- Avoid adding hint text when you’re hiding the legend or else provide an empty hint string.
+
 {% include "partials/getcode.njk" %}
 
 <iframe

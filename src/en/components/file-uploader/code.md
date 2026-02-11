@@ -30,6 +30,11 @@ Allow the selection of more than one file using the `multiple` attribute.
 
 Define the file types the file uploader accepts using the `accept` attribute.
 
+### Hide the file uploader label
+
+- Set the `hide-label` attribute to true to visually hide the label while maintaining it for assistive technologies.
+- Avoid adding hint text when you’re hiding the label or else provide an empty hint string.
+
 {% include "partials/getcode.njk" %}
 
 <iframe

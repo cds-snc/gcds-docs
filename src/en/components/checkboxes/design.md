@@ -32,3 +32,11 @@ date: 'git Last Modified'
 - Avoid assuming a person will know how to use a checkbox.  
 - Use the hint text to specify they can make multiple selections. For example, "Select all that apply".  
 - Avoid pre-selecting a checkbox. This makes it more likely that users will miss a question and submit the wrong answer.
+
+### Hide the legend or labels only when the purpose is clear
+
+- Visually hide the legend or labels only when the purpose of the checkboxes is clearly communicated by surrounding context, making the label visually redundant, such as in:
+  - tables or other space-constrained layouts
+  - settings and configurations
+- Always provide a legend and labels to support assistive technologies.
+- Omit hint text if you hide the legend, as it can lack context and be distracting or confusing.
