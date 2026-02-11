@@ -18,7 +18,7 @@ Que vous soyez à l’étape de la conception ou du codage, commencez à utilise
   <gcds-card
     card-title="Conception"
     href="#conception"
-    description="Apprenez à concevoir des expériences du GC cohérentes en utilisant la bibliothèque d’éléments de conception dans Figma."
+    description="Apprenez à concevoir des expériences du GC cohérentes en utilisant les bibliothèques de ressources de conception dans Figma."
     img-src="/images/common/start-to-use/banner-design.svg"
     img-alt=""
     role="listitem"
@@ -35,25 +35,29 @@ Que vous soyez à l’étape de la conception ou du codage, commencez à utilise
 
 ## Conception
 
-Utilisez la bibliothèque de Système de design GC dans Figma pour créer des expériences frontales cohérentes et accessibles pour les outils et services du gouvernement du Canada. Nos composants sont conçus pour les sites statiques et les applications dynamiques.
+Utilisez les bibliothèques de Système de design GC dans Figma pour créer des expériences frontales cohérentes et accessibles pour les outils et services du gouvernement du Canada. Nos composants sont conçus pour les sites statiques et les applications dynamiques.
 
-La bibliothèque comprend :
+La bibliothèque de composants est offerte en français et en anglais, selon votre préférence de langue de travail. Elle comprend :
 
 - Composants accessibles
 - Modèles de page de démarrage rapide
 - Éléments de marque obligatoires pour Canada.ca
 
+Une bibliothèque facultative d’unités de style est également offerte. Elle comprend les styles fondamentaux utilisés dans nos composants, notamment pour les couleurs, l’espacement, la typographie, et autres.
+
 ### Fonctionnement
 
-Système de design GC héberge ses composants dans Figma. Figma est un outil qui permet de créer des prototypes cliquables d’applications et de sites Web en utilisant la bibliothèque de Système de design GC.
+Système de design GC héberge ses composants et ses unités de style dans Figma. Figma est un outil qui permet de créer des prototypes cliquables d’applications et de sites Web en utilisant la bibliothèque de Système de design GC.
 
 <gcds-button button-role="secondary" type="link" href="{{ links.startToUseDesign }}">
-  Commencer à concevoir
+  Configurer une bibliothèque Figma
 </gcds-button>
 
 ## Développement
 
-- Que vous construisiez des pages HTML statiques ou des applications dynamiques faisant appel à un cadre JavaScript, Système de design GC peut vous aider. Simplifiez votre livraison numérique.
+Que vous construisiez des pages HTML statiques ou des applications dynamiques faisant appel à un cadre JavaScript, Système de design GC peut vous aider. 
+
+- Simplifiez votre livraison numérique.
 - Travaillez dans le cadre que vous souhaitez utiliser.
 - Créez des expériences numériques reconnaissables et dignes de confiance du gouvernement du Canada.
 - Construisez des produits qui <gcds-link href="{{links.accessibility}}">répondent aux normes d’accessibilité du GC ou qui les surpassent</gcds-link>.
@@ -68,5 +72,5 @@ Système de design GC propose des composants Web réutilisables et personnalisab
 - Système de design GC est indépendant de la Boîte à outils de l’expérience Web (BOEW) et de GCWeb.
 
 <gcds-button button-role="secondary" type="link" href="{{ links.startToUseDevelop }}">
-  Commencer à développer
+  Installer Système de design GC
 </gcds-button>
