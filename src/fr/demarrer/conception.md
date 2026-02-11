@@ -36,8 +36,8 @@ date: 'git Last Modified'
 
 ### Également disponible
 
-- **<gcds-link href="{{ links.figmaTokens }}" external>Bibliothèque d’unités de style</gcds-link> :** Suivez les mêmes étapes pour accéder aux variables Figma des unités de style.
-- **<gcds-link href="{{ links.figmaEn }}" external>Bibliothèque de composants en anglais</gcds-link>:** À utiliser si vous préférez l’anglais comme langue de travail.
+- <gcds-link href="{{ links.figmaTokens }}" external>Bibliothèque d’unités de style</gcds-link> : Suivez les mêmes étapes pour accéder aux variables Figma des unités de style.
+- <gcds-link href="{{ links.figmaEn }}" external>Bibliothèque de composants en anglais</gcds-link> : À utiliser si vous préférez l’anglais comme langue de travail.
 
 ## Garder la bibliothèque à jour
 
