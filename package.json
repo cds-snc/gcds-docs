@@ -30,7 +30,7 @@
     "@11ty/eleventy": "^2.0.1",
     "@11ty/eleventy-navigation": "^0.3.2",
     "@cdssnc/sanitize-pii": "^1.2.0",
-    "axios": "^1.12.1",
+    "axios": "^1.13.5",
     "eleventy-plugin-code-clipboard": "^0.2.0",
     "html-entities": "^2.5.2",
     "markdown-it": "^13.0.0",
