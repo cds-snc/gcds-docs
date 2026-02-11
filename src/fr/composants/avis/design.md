@@ -21,7 +21,7 @@ date: 'git Last Modified'
 
 ### Choisir le rôle approprié pour l’avis
 
-Référez-vous aux cas d’utilisation pour savoir quand utiliser chaque rôle d’avis.
+Référez-vous aux cas d’utilisation pour savoir quand utiliser chaque rôle.
 
 ### Rédigez des titres et des messages concis et descriptifs
 
