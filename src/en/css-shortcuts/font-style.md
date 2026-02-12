@@ -21,7 +21,7 @@ date: 'git Last Modified'
 
 The font style class sets the `font-style` property. It adds or removes italic styling of text.
 
-<gcds-notice type="warning" notice-title-tag="h2" notice-title="Use with caution">
+<gcds-notice notice-role="warning" notice-title-tag="h2" notice-title="Use with caution">
   <gcds-text><gcds-link href="{{ links.typographyFontStyles }}">View GCDS typography guidance</gcds-link> to choose the right font style for your context.</gcds-text>
 </gcds-notice>
 

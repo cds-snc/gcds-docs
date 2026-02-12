@@ -11,6 +11,9 @@ eleventyNavigation:
 ---
 
 # Roadmap
+
+This roadmap shows planned work for GC Design System. While the system is stable and suitable for production use, improvements continue. You can use this roadmap to help you decide when adopting GC Design System makes sense for your service.
+
 ## Themes for 2025/2026
 
 <ol class="list-disc ps-400 mb-300">

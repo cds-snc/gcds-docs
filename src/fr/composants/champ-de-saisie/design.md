@@ -26,6 +26,20 @@ date: 'git Last Modified'
 - Évitez d'utiliser des expressions familières et des verbes courants qui ne sont pas connus des personnes ne parlant pas couramment l'anglais ou le français.
 - Expliquez tout terme qui pourrait porter à confusion. Par exemple, «&nbsp;Pseudonyme (nom que vous souhaitez utiliser)&nbsp;».
 
+### Masquez l’étiquette seulement lorsque le but est clair
+- Masquez visuellement l’étiquette seulement lorsque le but du champ de saisie est clairement communiqué par le contexte, rendant l’étiquette visuellement redondante, comme dans les cas suivants&nbsp;:
+  - interfaces de clavardage ou de messagerie;
+  - composants de recherche;
+  - tableaux ou autres mises en page où l’espace est limité;
+  - champs de saisie de nom de fichier dans les applications web;
+  - paramètres et configurations.
+- Fournissez toujours une étiquette pour soutenir les technologies d’assistance.
+- N’ajoutez pas de texte explicatif si vous masquez l’étiquette, puisque celui-ci manque alors de contexte et peut distraire ou prêter à confusion.
+
+### Limitez l’utilisation du texte fictif
+- Dans les formulaires, évitez d’utiliser du texte fictif pour remplacer une étiquette ou pour transmettre des instructions ou des renseignements à retenir, car cela peut créer des problèmes d’accessibilité.
+- En dehors des formulaires, utilisez du texte fictif uniquement pour renforcer un objectif déjà clair selon le contexte visible (par exemple, dans les interfaces de recherche ou de conversation).
+
 ### Adaptez la taille du champ de saisie au type de réponse
 
 - Définissez l'attribut de la taille du champ de saisie pour les réponses dont vous connaissez la longueur précise (taille "50" = 50 caractères). Par exemple, 6 caractères pour un code postal ou 10 caractères pour un numéro de téléphone.

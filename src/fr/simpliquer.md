@@ -15,7 +15,7 @@ templateEngineOverride: njk,md
 
 Un système de design ne connaît jamais de fin. Nous nous engageons à construire avec les personnes qui utilisent nos produits. Voici nos travaux en cours et ceux qui s’en viennent.
 
-Nous testons actuellement la version alpha de Système de design GC, ce qui correspond à la première version utilisable d’un produit. Nous faisons évoluer cette version en fonction des besoins courants au sein du GC et de ceux des gens que nous servons tous et toutes.
+Une communauté croissante d’utilisatrices et utilisateurs au gouvernement contribue à l’évolution de Système de design GC par ses commentaires. Une équipe dédiée collabore avec la communauté pour l’améliorer continuellement au service du GC et des gens que nous servons.
 
 ## Découvrez Système de design GC
 
@@ -32,7 +32,7 @@ Nous testons actuellement la version alpha de Système de design GC, ce qui corr
   ></gcds-card>
 </gcds-grid>
 
-## Forum de Système de design GC
+## Entrez en contact avec notre communauté
 
 <gcds-grid columns="1fr" columns-tablet="1fr 1fr" columns-desktop="1fr 1fr">
   <gcds-card

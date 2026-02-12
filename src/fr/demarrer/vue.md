@@ -34,7 +34,7 @@ Suivez ces étapes pour installer et utiliser les composants de Système de desi
 Naviguez vers le dossier racine de votre projet et exécutez la commande suivante :
 
 ```js
-npm install @cdssnc/gcds-components-vue
+npm install @gcds-core/components-vue
 ```
 
 ### 2. Importer Système de design GC
@@ -42,7 +42,7 @@ npm install @cdssnc/gcds-components-vue
 Dans votre fichier `main.js`, importez le plugiciel des composants de Système de design GC et utilisez-le :
 
 ```js
-import { GcdsComponents } from '@cdssnc/gcds-components-vue';
+import { GcdsComponents } from '@gcds-core/components-vue';
 
 createApp(App).use(GcdsComponents).mount('#app');
 ```
@@ -59,14 +59,14 @@ Il y a 2 façons de le faire :
 a. Importez les styles dans votre fichier `main.js`, à côté de votre `style.css`:
 
 ```js
-import '@cdssnc/gcds-components-vue/gcds.css';
+import '@gcds-core/components-vue/gcds.css';
 import './style.css';
 ```
 
 b. Importez les styles dans fichier `App.vue` en utilisant la balise HTML `style` :
 
 ```html
-<style src="@cdssnc/gcds-components-vue/gcds.css">
+<style src="@gcds-core/components-vue/gcds.css">
   /* global styles */
 </style>
 ```

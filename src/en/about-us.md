@@ -12,15 +12,19 @@ eleventyNavigation:
 
 # About GC Design System
 
-GC Design System offers basic building blocks and a pattern language to help you design and build a trusted, unified experience for the people using your services. Components and design tokens provide standard Government of Canada branding and experiences for any framework you're using.
+GC Design System offers basic building blocks and a pattern language to help you design and build a trusted, unified experience for the people using your services. Components and design tokens provide standard Government of Canada branding and experiences for any framework you're using. You’ll find the code, design assets, and documentation all in one place.
 
-We're prioritizing common components and patterns that most GC teams can use. ​​Right now, we're testing GC Design System in alpha, the first usable phase of a product. Use it as a starting point for a website or application and help us improve the design system for public servants.
+## Stable and ready for production
 
-The [Canadian Digital Service](https://digital.canada.ca) builds and maintains GC Design System in consultation with the Canada.ca design system team.
+GC Design System is stable, but not static. We continue to improve it in a thoughtful and predictable way, with versioned releases that help teams understand what kind of change to expect. We prioritize common components and patterns that most GC teams rely on to build digital services. 
 
-## How we're working with Canada.ca design system
+This design system is built for the long-term. A dedicated team at the [Canadian Digital Service](https://digital.canada.ca) builds and maintains it, in consultation with the Canada.ca Experience Office. A growing number of teams building digital services also provides valuable input and contributions.
 
-GC Design System is incorporating the mandatory elements of Canada.ca. We're working together with the Digital Transformation Office at the Canadian Digital Service to evaluate the design system and add to the <gcds-link href="{{ links.roadmap }}">roadmap</gcds-link>. They continue to provide guidance and support to web and digital practitioners in the GC.
+## How GC Design System fits with other design systems
+
+GC Design System coexists with design systems historically used across government. Teams can continue using existing systems as we work toward a more unified approach. Teams can also build local design systems on top of GC Design System to meet their needs, while maintaining a cohesive look and feel.
+
+We share our <gcds-link href="{{ links.roadmap }}">roadmap</gcds-link> openly to help you plan adoption based on your own timelines and needs.
 
 ## Collaboration and support channels
 

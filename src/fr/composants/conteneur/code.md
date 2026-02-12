@@ -15,12 +15,12 @@ Utilisez les conteneurs pour ajouter un élément enveloppant avec à une largeu
 ### Limiter la largeur du contenu
 
 - Veillez à ce que vos lignes de texte ne dépassent pas 65 caractères pour obtenir une longueur de lecture acceptable.
-- Limitez la largeur de la colonne pour éviter que les grands écrans n’affichent des lignes de texte trop longues et difficiles à lire.
+- Limitez la largeur de la colonne pour éviter que les grands écrans n'affichent des lignes de texte trop longues et difficiles à lire.
 - Évitez de dépasser la largeur maximale de 71,25 rem (1140 px).
 
 ### Ajouter une taille de conteneur
 
-La propriété `size` définit la taille d’un conteneur. Six tailles sont disponibles :
+La propriété `size` définit la taille d'un conteneur. Six tailles sont disponibles :
 
 | Taille | REM      | Pixels (px) |
 | ------ | -------- | ----------- |
@@ -35,9 +35,28 @@ La propriété `size` définit la taille d’un conteneur. Six tailles sont disp
 
 La taille du conteneur par défaut est `full`, ce qui signifie que le conteneur occupera la largeur totale du conteneur parent.
 
-### Centrer le conteneur
+### Aligner le contenu avec la mise en page
 
-Les conteneurs ne sont pas automatiquement centrés. Pour centrer un conteneur sur une page, ajoutez la propriété `centered`.
+Utilisez `layout="page"` pour aligner visuellement le contenu de la page avec [l'en-tête]({{ links.header }}) et le [pied de page]({{ links.footer }}).
+
+Lorsque `layout` est défini sur `page`, le conteneur :
+
+- Utilise une largeur maximale de 71,25 rem (1140 px).
+- Est centré automatiquement dans la fenêtre d'affichage.
+- Passe à une largeur de 90 % sur les écrans plus petits.
+- Adopte le même comportement de mise en page que l'en-tête et le pied de page.
+
+L'utilisation de `layout="page"` garantit une largeur, un alignement et une expérience de lecture cohérents, quel que soit le point de rupture. Lorsque `layout` est défini sur `page`, il est inutile de définir une taille (`size`) ou un alignement (`alignment`) pour le conteneur, car la mise en page gère automatiquement la largeur et l'alignement.
+
+### Positionner le conteneur
+
+Utilisez l'attribut `alignment` pour contrôler le positionnement d'un conteneur dans son conteneur parent. Trois options sont disponibles :
+
+- `start` : positionne le conteneur horizontalement au début de l'espace disponible.
+- `center` : centre le conteneur horizontalement.
+- `end` : positionne le conteneur horizontalement à la fin de l'espace disponible.
+
+**Remarque :** Lorsque l'attribut `layout` est défini sur `page`, l'attribut `alignment` est ignoré; la mise en page gère automatiquement la largeur et le centrage.
 
 {% include "partials/getcode.njk" %}
 

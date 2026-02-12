@@ -154,6 +154,7 @@
     "figma": "https://www.figma.com/community/file/1369337721343886324",
     "figmaAdd": "https://help-figma-com.translate.goog/hc/en-us/articles/1500008731201-Add-or-remove-a-library-from-a-design-file?_x_tr_sl=auto&_x_tr_tl=fr-CA&_x_tr_hl=en-US&_x_tr_pto=wapp",
     "figmaCopy": "https://help-figma-com.translate.goog/hc/en-us/articles/360038510873-Duplicate-Community-files?_x_tr_sl=auto&_x_tr_tl=fr&_x_tr_hl=en&_x_tr_pto=wapp#:~:text=about%20saving%20files%20%E2%86%92-,Duplicate%20files,-Duplicate%20a%20file",
+    "figmaEn": "https://www.figma.com/community/file/1128687821123298228",
     "figmaHomepage": "https://www.figma.com/fr-fr/",
     "figmaPublish": "https://help.figma.com/hc/fr/articles/360025508373-Publier-une-biblioth%C3%A8que",
     "figmaStart": "https://help.figma.com/hc/fr/articles/360039150173-Cr%C3%A9er-et-ins%C3%A9rer-des-instances-de-composant",
@@ -193,10 +194,10 @@
     "githubTokens": "https://github.com/cds-snc/gcds-tokens",
     "githubTokensIssues": "https://github.com/cds-snc/gcds-tokens/issues",
 
-    "npmGcdsComponents": "https://www.npmjs.com/package/@cdssnc/gcds-components",
-    "npmGcdsComponentsAngular": "https://www.npmjs.com/package/@cdssnc/gcds-components-angular",
-    "npmGcdsComponentsReact": "https://www.npmjs.com/package/@cdssnc/gcds-components-react",
-    "npmGcdsComponentsVue": "https://www.npmjs.com/package/@cdssnc/gcds-components-vue",
+    "npmGcdsComponents": "https://www.npmjs.com/package/@gcds-core/components",
+    "npmGcdsComponentsAngular": "https://www.npmjs.com/package/@gcds-core/components-angular",
+    "npmGcdsComponentsReact": "https://www.npmjs.com/package/@gcds-core/components-react",
+    "npmGcdsComponentsVue": "https://www.npmjs.com/package/@gcds-core/components-vue",
 
     "tbsStandardsOnWebA11y": "https://www.tbs-sct.canada.ca/pol/doc-fra.aspx?id=23601",
 

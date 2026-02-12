@@ -27,17 +27,19 @@ tokenTable:
     link-default: Default link colour for links on a white background.
     link-hover: Hover link colour for links on a white background.
     link-light: Main light link colour for links on 700 shade or darker background (like --gcds-color-blue-700).
+    link-visited: Visited link colour for links on a white background.
     bg-dark: Main dark background colour. Use with a text shade of 100 or lighter (like --gcds-text-light).
     bg-light: Light background colour (alternative to white). Use with a text shade of 700 or darker (like --gcds-text-primary).
     bg-primary: Highlight background colour. Use with a text shade of 100 or lighter (like --gcds-text-light).
     bg-white: Main background colour. Use with a text shade of 700 or darker (like --gcds-text-primary).
     border-default: Default border colour for borders and icons on a white background.
     danger-background: Danger background colour for background emphasis on a destructive action or critical feedback.
-    danger-border: Danger border colour for borders on white or danger backgrounds for emphasis on a destructive action or critical feedback.
-    danger-text: Danger text colour for white or danger backgrounds for emphasis on a destructive action or critical feedback.
+    danger-border: Danger border colour for borders on white backgrounds emphasizing a destructive action or critical feedback.
+    danger-text: Danger text colour for white backgrounds emphasizing a destructive action or critical feedback.
     disabled-background: Disabled background colour. Use sparingly for a disabled interactive element.
     disabled-text: Disabled text colour. Use sparingly for a disabled interactive element.
     focus-background: Focus background colour, exclusively for focus on an interactive element.
+    focus-border: Focus border colour, exclusively for focus on an interactive element.
     focus-text: Focus text colour, exclusively for focus on an interactive element.
     focus-textForm: Focus text-form colour, exclusively for focus on a form interactive element. Avoid using for non-form elements.
 date: 'git Last Modified'
@@ -51,19 +53,19 @@ Colour tokens define colour for components and global styles.
 
 GC Design System components meet level AA of the <gcds-link external href="{{ links.wcag }}" target="_blank">Web Content Accessibility Guidelines (WCAG 2.1)</gcds-link> colour contrast standards for text and interactive elements.
 
-When you use global tokens, check if your colour combinations meet standards for accessible colour contrast using <gcds-link external href="{{ links.webaim }}" target="_blank">WebAIM Contrast Checker</gcds-link>.
+When you use global colour tokens, check if your colour combinations meet standards for accessible colour contrast using <gcds-link external href="{{ links.webaim }}" target="_blank">WebAIM Contrast Checker</gcds-link>.
 
 ## Select colour tokens purposefully
 
-Select global tokens based on their purpose and its match to your needs.
+Select global colour tokens based on their purpose and its match to your needs.
 
-Replace hard-coded values in your code with GC Design System colour tokens, like `var(--gcds-text-primary)` instead of #000000.
+Replace hard-coded values in your code with GC Design System colour tokens, like `var(--gcds-text-primary)` instead of #333333.
 
 ## Global colour tokens
 
-Use global tokens to:
+Use global colour tokens to:
 
-- Design layouts, text colours, and global (or site-wide) styles for typography or spacing.
+- Design layouts, text colours, and global (or site-wide) styles.
 - Communicate the meaning associated with that token. Global tokens are semantic.
 - Create new component tokens.
 
@@ -103,7 +105,7 @@ Use global state tokens:
 
 Only use base tokens when you've already checked for global tokens and you need something else for building your own components, tokens, or even images.
 
-Use base design tokens to:
+Use base colour design tokens to:
 
 - Fill a gap when no global tokens are available.
 - Design a custom visual, drawing from the full colour palette.
@@ -111,7 +113,7 @@ Use base design tokens to:
 - Provide a basis to build (and potentially contribute back) your own tokens.
 
 <div class="table-base-colors">
-{% include "partials/token_table.njk", token: 'color.grayscale color.blue color.red color.green color.yellow', type: 'color' %}
+{% include "partials/token_table.njk", token: 'color.black color.blue color.blue-muted color.blue-vivid color.grayscale color.green color.purple color.red color.white color.yellow', type: 'color' %}
 </div>
 
 Note: Code elements take American spelling for "colour" and "grey".

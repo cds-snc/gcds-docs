@@ -46,16 +46,24 @@ Date selectors when you want someone to choose a not-yet-known date, like for ap
 Set the input type based on how the input will validate the values a person enters.
 The input `type` attribute accepts the following options:
 
-### Text input uses
+### Text input
 
-- Use when no other specfic input type is available for single-line entry.
+Use when no other specfic input type is available for single-line entry.
 - To collect a person's name, in most cases by full name.
-- Instead of the number input, for things like estimates that can have non-numerical values.
+- Instead of the number input, for things like:
+  - Estimates that can have non-numerical values.
+  - Values that are not true numbers, like account numbers, credit card numbers, or authentication codes.
+  - Numbers with decimals.
 
 ### Email input
 
 - For email address collection.
 - To require an email address format.
+
+### Tel input
+
+- To collect phone numbers.
+- To enable the phone keyboard on mobile devices.
 
 ### Password input
 
@@ -66,7 +74,8 @@ Tip: Communicate any password constraints in the hint text for the input so the 
 
 ### Number input
 
-To reject values that are non numerical.
+- To collect whole numbers that can increase or decrease, like quantities.
+- To reject values that are non numerical.
 
 Tip: When you set a constraint, like a numerical range, use hint text to relay a precise instruction.
 

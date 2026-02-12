@@ -73,7 +73,7 @@ date: 'git Last Modified'
 
 La classe police définit la propriété `font`. Détermine le style de police, la taille, le poids, la famille et la hauteur de ligne d'un élément de texte.
 
-<gcds-notice type="warning" notice-title-tag="h2" notice-title="Utiliser avec prudence">
+<gcds-notice notice-role="warning" notice-title-tag="h2" notice-title="Utiliser avec prudence">
   <gcds-text>Dans la plupart des cas, il n’est pas nécessaire d'utiliser cette classe. Par défaut, le style du corps du texte et des éléments de titre correspondent <gcds-link href="{{ links.typography }}">à ceux de Système de design GC</gcds-link>. Utilisez des balises HTML sémantiques, comme <code>h1</code> et <code>h2</code> orsque possible.</gcds-text>
 </gcds-notice>
 

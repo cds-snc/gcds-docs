@@ -39,7 +39,7 @@ date: 'git Last Modified'
 
 La classe couleur d’arrière-plan définit la propriété `background-color`. Elle détermine la couleur de l’arrière-plan d’un élément.
 
-<gcds-notice type="warning" notice-title-tag="h2" notice-title="Utiliser avec prudence">
+<gcds-notice notice-role="warning" notice-title-tag="h2" notice-title="Utiliser avec prudence">
   <gcds-text><gcds-link href="{{ links.colourBackground }}">Voir les conseils de Système de design GC en matière de couleur</gcds-link> pour choisir la bonne couleur d’arrière-plan pour votre contexte.</gcds-text>
 </gcds-notice>
 
@@ -89,7 +89,7 @@ La classe couleur d’arrière-plan définit la propriété `background-color`. 
 
 {% shortcutPreview "p-150" %}
 
-<p class="bg-danger">
+<p class="bg-danger text-light">
   Cet élément utilise la couleur d’arrière-plan de danger.
 </p>
 {% endshortcutPreview %}
@@ -117,7 +117,7 @@ La classe couleur d’arrière-plan définit la propriété `background-color`. 
 {% shortcutPreview "p-150" %}
 
 <div class="bg-danger">
-  <p class="bg-inherit">
+  <p class="bg-inherit text-light">
     Cet élément hérite sa couleur d’arrière-plan de l’élément parent.
   </p>
 </div>

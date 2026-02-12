@@ -30,3 +30,12 @@ date: 'git Last Modified'
 - Ne supposez pas qu'une personne saura comment utiliser une case à cocher.
 - Utilisez le texte explicatif pour indiquer que plusieurs sélections sont possibles. Par exemple, «&nbsp;cochez toutes les cases qui s'appliquent&nbsp;».
 - Évitez de présélectionner une case à cocher. Cela augmente les risques que les utilisateur·rice·s sautent une question ou soumettent une mauvaise réponse.
+
+### Masquer la légende ou les étiquettes seulement lorsque le but est clair
+
+- Masquez visuellement la légende ou les étiquettes uniquement lorsque le but des cases à cocher est clairement communiqué par le contexte, rendant l’étiquette visuellement redondante, comme dans les cas suivants&nbsp;:
+  - tableaux ou autres mises en page où l’espace est limité;
+  - paramètres et configurations.
+- Fournissez toujours une légende et des étiquettes pour soutenir les technologies d’assistance.
+- N’ajoutez pas de texte explicatif si vous masquez la légende, puisque celui-ci manque alors de contexte et peut distraire ou prêter à confusion.
+
