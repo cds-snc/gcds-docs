@@ -20,7 +20,7 @@ date: 'git Last Modified'
 
 ### Always include the step title after the stepper
 
-The step title and the stepper are a heading on the page. This is a H1, H2, or H3, depending on the [heading hierarchy](https://design-system.alpha.canada.ca/en/components/heading/design/#order-heading-levels-hierarchically) of the page.
+The step title and the stepper are a heading on the page. This is a H1, H2, or H3, depending on the [heading hierarchy](https://design-system.canada.ca/en/components/heading/design/#order-heading-levels-hierarchically) of the page.
 
 ### Assign a goal to each step in your sequence
 
