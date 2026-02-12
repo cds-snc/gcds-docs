@@ -46,17 +46,17 @@ When `layout` is set to `page`, the container:
 - Switches to 90% width on smaller screens.
 - Matches the layout behaviour of the header and footer components.
 
-This option should be used for primary page content where visual alignment with the header and footer is required. Using `layout="page"` ensures content maintains a consistent width, alignment, and reading experience across breakpoints. When `layout` is set to `page`, there is no need to define a container `size` or set `align`, as the page layout automatically controls width and alignment.
+This option should be used for primary page content where visual alignment with the header and footer is required. Using `layout="page"` ensures content maintains a consistent width, alignment, and reading experience across breakpoints. When `layout` is set to `page`, there is no need to define a container `size` or set `alignment`, as the page layout automatically controls width and alignment.
 
 ### Position the container
 
-Use the `align` attribute to control how a container is positioned within its parent. It supports three options:
+Use the `alignment` attribute to control how a container is positioned within its parent. It supports three options:
 
 - `start` - aligns the container horizontally to the start of the available space.
 - `center` - centers the container horizontally.
 - `end` - aligns the container horizontally to the end of the available space.
 
-**Note:** When the `layout` attribute is set to `page`, the `align` attribute is ignored, as the page layout automatically manages width and centering.
+**Note:** When the `layout` attribute is set to `page`, the `alignment` attribute is ignored, as the page layout automatically manages width and centering.
 
 {% include "partials/getcode.njk" %}
 
