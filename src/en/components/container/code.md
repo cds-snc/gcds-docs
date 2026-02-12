@@ -37,26 +37,26 @@ By default, the container size will be set to `full` which means it will take up
 
 ### Align content with the page layout
 
-Use `layout="page"` when a container is part of the main page structure and needs to scale consistently with core layout components such as the [header]({{ links.header }}) and [footer]({{ links.footer }}).
+Use `layout="page"` to visually align page content with the [header]({{ links.header }}) and [footer]({{ links.footer }}).
 
 When `layout` is set to `page`, the container:
 
 - Uses a maximum width of 71.25rem (1140px).
-- Is centered automatically within the viewport.
+- Is centred automatically within the viewport.
 - Switches to 90% width on smaller screens.
 - Matches the layout behaviour of the header and footer components.
 
-This option should be used for primary page content where visual alignment with the header and footer is required. Using `layout="page"` ensures content maintains a consistent width, alignment, and reading experience across breakpoints. When `layout` is set to `page`, there is no need to define a container `size` or set `alignment`, as the page layout automatically controls width and alignment.
+Using `layout="page"` ensures content maintains a consistent width, alignment, and reading experience across breakpoints. When `layout` is set to `page`, there is no need to define a container `size` or set `alignment`, as the page layout automatically controls width and alignment.
 
 ### Position the container
 
 Use the `alignment` attribute to control how a container is positioned within its parent. It supports three options:
 
-- `start` - aligns the container horizontally to the start of the available space.
-- `center` - centers the container horizontally.
-- `end` - aligns the container horizontally to the end of the available space.
+- `start` - position the container horizontally to the start of the available space.
+- `center` - centres the container horizontally.
+- `end` - position the container horizontally to the end of the available space.
 
-**Note:** When the `layout` attribute is set to `page`, the `alignment` attribute is ignored, as the page layout automatically manages width and centering.
+**Note:** When the `layout` attribute is set to `page`, the `alignment` attribute is ignored, the page layout automatically manages width and centring.
 
 {% include "partials/getcode.njk" %}
 
