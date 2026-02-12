@@ -98,10 +98,10 @@ var loadModule = (cmpMeta, hostRef, hmrVersionId) => {
                     return import(
                       /* webpackMode: "lazy" */
                       './gcds-topic-menu.entry.js').then(processMod, consoleError);
-                case 'gcds-alert_40':
+                case 'gcds-alert_38':
                     return import(
                       /* webpackMode: "lazy" */
-                      './gcds-alert_40.entry.js').then(processMod, consoleError);
+                      './gcds-alert_38.entry.js').then(processMod, consoleError);
           }
       }
   return import(

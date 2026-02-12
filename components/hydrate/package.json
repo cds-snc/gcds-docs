@@ -1,5 +1,5 @@
 {
-  "name": "@cdssnc/gcds-components/hydrate",
+  "name": "@gcds-core/components/hydrate",
   "description": "gcds component hydration app.",
   "main": "index.js",
   "types": "index.d.ts",

@@ -2,6 +2,14 @@ export default {
     title: 'Components/Container',
     argTypes: {
         // Props
+        alignment: {
+            control: { type: 'select' },
+            options: ['start', 'center', 'end'],
+            table: {
+                type: { summary: 'string' },
+                defaultValue: { summary: '-' },
+            },
+        },
         border: {
             control: { type: 'select' },
             options: [false, true],
@@ -10,21 +18,12 @@ export default {
                 defaultValue: { summary: false },
             },
         },
-        centered: {
+        layout: {
             control: { type: 'select' },
-            options: [false, true],
+            options: ['full', 'page'],
             table: {
-                type: { summary: 'boolean' },
-                defaultValue: { summary: false },
-            },
-        },
-        mainContainer: {
-            name: 'main-container',
-            control: { type: 'select' },
-            options: [false, true],
-            table: {
-                type: { summary: 'boolean' },
-                defaultValue: { summary: false },
+                type: { summary: 'string' },
+                defaultValue: { summary: '-' },
             },
         },
         margin: {
@@ -136,12 +135,12 @@ export default {
 };
 const Template = args => `
 <!-- Web component code (HTML, Angular, Vue) -->
-<gcds-container ${args.size != 'full' ? `size="${args.size}"` : null} ${args.border ? 'border' : null} ${args.centered ? 'centered' : null} ${args.tag != 'div' ? `tag="${args.tag}"` : null} ${args.mainContainer ? 'main-container' : null} ${args.margin ? `margin="${args.margin}"` : null} ${args.padding ? `padding="${args.padding}"` : null}>
+<gcds-container ${args.size != 'full' ? `size="${args.size}"` : null} ${args.border ? 'border' : null} ${args.alignment ? `alignment="${args.alignment}"` : null} ${args.tag != 'div' ? `tag="${args.tag}"` : null} ${args.layout ? `layout="${args.layout}"` : null} ${args.margin ? `margin="${args.margin}"` : null} ${args.padding ? `padding="${args.padding}"` : null}>
   ${args.default ? args.default : null}
 </gcds-container>
 
 <!-- React code -->
-<GcdsContainer ${args.size != 'full' ? `size="${args.size}"` : null} ${args.border ? 'border' : null} ${args.centered ? `centered` : null} ${args.tag != 'div' ? `tag="${args.tag}"` : null} ${args.mainContainer ? 'mainContainer' : null} ${args.margin ? `margin="${args.margin}"` : null} ${args.padding ? `padding="${args.padding}"` : null}>
+<GcdsContainer ${args.size != 'full' ? `size="${args.size}"` : null} ${args.border ? 'border' : null} ${args.alignment ? `alignment="${args.alignment}"` : null} ${args.tag != 'div' ? `tag="${args.tag}"` : null} ${args.layout ? `layout="${args.layout}"` : null} ${args.margin ? `margin="${args.margin}"` : null} ${args.padding ? `padding="${args.padding}"` : null}>
   ${args.default ? args.default : null}
 </GcdsContainer>
 `.replace(/ null/g, '');
@@ -283,9 +282,9 @@ const TemplatePlayground = args => `
 <gcds-container
   ${args.size != 'full' ? `size="${args.size}"` : null}
   ${args.border ? 'border' : null}
-  ${args.centered ? 'centered' : null}
+  ${args.alignment ? `alignment="${args.alignment}"` : null}
   ${args.tag != 'div' ? `tag="${args.tag}"` : null}
-  ${args.mainContainer ? `main-container="${args.mainContainer}"` : null}
+  ${args.layout ? `layout="${args.layout}"` : null}
   ${args.margin ? `margin="${args.margin}"` : null}
   ${args.padding ? `padding="${args.padding}"` : null}
 >
@@ -297,9 +296,7 @@ export const Default = Template.bind({});
 Default.args = {
     size: 'md',
     border: true,
-    centered: false,
     tag: 'div',
-    mainContainer: false,
     padding: '300',
     default: '<p>This is a responsive container, you can replace this text with any content or other components.</p>',
 };
@@ -309,7 +306,6 @@ SizeFull.args = {
     size: 'full',
     border: true,
     tag: 'div',
-    mainContainer: false,
     padding: '300',
     default: '<p>This is a responsive container, the size is set to "full". You can replace this text with any content or other components.</p>',
 };
@@ -318,7 +314,6 @@ SizeXl.args = {
     size: 'xl',
     border: true,
     tag: 'div',
-    mainContainer: false,
     padding: '300',
     default: '<p>This is a responsive container, the size is set to "xl". You can replace this text with any content or other components.</p>',
 };
@@ -327,7 +322,6 @@ SizeLg.args = {
     size: 'lg',
     border: true,
     tag: 'div',
-    mainContainer: false,
     padding: '300',
     default: '<p>This is a responsive container, the size is set to "lg". You can replace this text with any content or other components.</p>',
 };
@@ -336,7 +330,6 @@ SizeMd.args = {
     size: 'md',
     border: true,
     tag: 'div',
-    mainContainer: false,
     padding: '300',
     default: '<p>This is a responsive container, the size is set to "md". You can replace this text with any content or other components.</p>',
 };
@@ -345,7 +338,6 @@ SizeSm.args = {
     size: 'sm',
     border: true,
     tag: 'div',
-    mainContainer: false,
     padding: '300',
     default: '<p>This is a responsive container, the size is set to "sm". You can replace this text with any content or other components.</p>',
 };
@@ -354,30 +346,55 @@ SizeXs.args = {
     size: 'xs',
     border: true,
     tag: 'div',
-    mainContainer: false,
     padding: '300',
     default: '<p>This is a responsive container, the size is set to "xs". You can replace this text with any content or other components.</p>',
 };
-// ------ Container centered ------
-export const Centered = Template.bind({});
-Centered.args = {
+// ------ Container alignment ------
+export const AlignmentStart = Template.bind({});
+AlignmentStart.args = {
     size: 'sm',
     border: true,
-    centered: true,
+    alignment: 'start',
     tag: 'div',
-    mainContainer: false,
     padding: '300',
-    default: '<p>This container is centered.</p>',
+    default: '<p>This container is aligned to the start.</p>',
 };
-// ------ Main page container ------
-export const MainContainer = Template.bind({});
-MainContainer.args = {
-    size: 'xl',
+export const AlignmentCenter = Template.bind({});
+AlignmentCenter.args = {
+    size: 'sm',
+    border: true,
+    alignment: 'center',
+    tag: 'div',
+    padding: '300',
+    default: '<p>This container is aligned to the center.</p>',
+};
+export const AlignmentEnd = Template.bind({});
+AlignmentEnd.args = {
+    size: 'sm',
+    border: true,
+    alignment: 'end',
+    tag: 'div',
+    padding: '300',
+    default: '<p>This container is aligned to the end.</p>',
+};
+// ------ Container layout ------
+export const LayoutFull = Template.bind({});
+LayoutFull.args = {
+    size: 'full',
+    border: true,
+    tag: 'div',
+    layout: 'full',
+    padding: '300',
+    default: '<p>This container spans the full width (100%) of its parent.</p>',
+};
+export const LayoutPage = Template.bind({});
+LayoutPage.args = {
+    size: 'full',
     border: true,
     tag: 'main',
-    mainContainer: true,
+    layout: 'page',
     padding: '300',
-    default: '<p>This container is the main page container.</p>',
+    default: '<p>This container uses a max width of 1140px and switches to 90% width on smaller screens to scale consistently with core page layout components such as the header and footer.</p>',
 };
 // ------ Container margin ------
 export const Margin = TemplateMargin.bind({});
@@ -390,9 +407,7 @@ export const Props = Template.bind({});
 Props.args = {
     size: 'md',
     tag: 'div',
-    mainContainer: false,
     padding: '300',
-    centered: false,
     border: true,
     default: '<p>This is a responsive container, you can replace this text with any content or other components.</p>',
 };
@@ -401,9 +416,8 @@ export const Playground = TemplatePlayground.bind({});
 Playground.args = {
     size: 'full',
     tag: 'div',
-    mainContainer: false,
     padding: '300',
-    centered: false,
+    alignment: 'start',
     border: true,
     default: '<p>This is a responsive container, you can replace this text with any content or other components.</p>',
 };

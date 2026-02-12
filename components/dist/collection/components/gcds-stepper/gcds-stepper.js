@@ -79,7 +79,7 @@ export class GcdsStepper {
     }
     render() {
         const { currentStep, lang, totalSteps, tag } = this;
-        return (h(Host, { key: '668131869ea8b9e4542e097e28efbfae9b5a6bae' }, this.validateRequiredProps() && (h("gcds-heading", { key: 'e50a066d662ef3e606e21da157731de6e6b6b78a', tag: tag, class: "gcds-stepper", "margin-top": "0", "margin-bottom": "225" }, h("span", { key: 'c573ba75a978b689698fb8eab50caa08853d12e3', class: "gcds-stepper__steps" }, `${i18n[lang].step} ${currentStep} ${i18n[lang].of} ${totalSteps}`, h("gcds-sr-only", { key: 'fea60de171d7e2412957e922944421f9cbb6d379' }, " : ")), h("slot", { key: '679d080d48b257b840ee9d78e693f06df548faee' })))));
+        return (h(Host, { key: 'f1993913f8b72d290795ec115d98c71b632f15ff' }, this.validateRequiredProps() && (h("gcds-heading", { key: 'a9e463a3af19661b6288f14fdb50e0370b8ed13b', tag: tag, class: "gcds-stepper", "margin-top": "0", "margin-bottom": "225" }, h("span", { key: '3a243f6d77c772e72d9d4e5a3220c0e6a6708acd', class: "gcds-stepper__steps" }, `${i18n[lang].step} ${currentStep} ${i18n[lang].of} ${totalSteps}`, h("gcds-sr-only", { key: '3be1e619a4c90784dfa9bb04fd96c9abf6765c7e' }, " : ")), h("slot", { key: 'ba84993194f42e578c15b4c88bd8b85549bc77cb' })))));
     }
     static get is() { return "gcds-stepper"; }
     static get encapsulation() { return "shadow"; }

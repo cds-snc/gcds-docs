@@ -12,10 +12,6 @@ export declare class GcdsFooter {
      */
     display?: 'compact' | 'full';
     /**
-     * GcdsSignature - The variant of the Government of Canada wordmark
-     */
-    wordmarkVariant: 'colour' | 'white';
-    /**
      * Heading for contextual slot and nav landmark
      */
     contextualHeading: string;

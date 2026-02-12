@@ -1552,12 +1552,6 @@
       
       
     
-      
-      
-    
-      
-      
-    
   
 
 
@@ -1597,7 +1591,7 @@
 </gcds-header>
 
     <div class="content-wrapper">
-      <gcds-grid columns="minmax(0, 1fr)" columns-desktop="320px minmax(0, 1fr)" tag="div" container="xl" centered class="xl:px-0 sm:px-600 px-225 general-layout">
+      <gcds-grid columns="minmax(0, 1fr)" columns-desktop="320px minmax(0, 1fr)" tag="div" container="xl" alignment="center" class="xl:px-0 sm:px-600 px-225 general-layout">
         
 
 
@@ -2770,14 +2764,22 @@ Input component preview
 <h2 id="choose-an-input-type">Choose an input type</h2>
 <p>Set the input type based on how the input will validate the values a person enters.
 The input <code>type</code> attribute accepts the following options:</p>
-<h3 id="text-input-uses">Text input uses</h3>
-<ul class="list-disc mb-300"><li>Use when no other specfic input type is available for single-line entry.</li>
-<li>To collect a person's name, in most cases by full name.</li>
-<li>Instead of the number input, for things like estimates that can have non-numerical values.</li>
+<h3 id="text-input">Text input</h3>
+<p>Use when no other specfic input type is available for single-line entry.</p>
+<ul class="list-disc mb-300"><li>To collect a person's name, in most cases by full name.</li>
+<li>Instead of the number input, for things like:<ul class="list-disc mb-300"><li>Estimates that can have non-numerical values.</li>
+<li>Values that are not true numbers, like account numbers, credit card numbers, or authentication codes.</li>
+<li>Numbers with decimals.</li>
+</ul>
+</li>
 </ul>
 <h3 id="email-input">Email input</h3>
 <ul class="list-disc mb-300"><li>For email address collection.</li>
 <li>To require an email address format.</li>
+</ul>
+<h3 id="tel-input">Tel input</h3>
+<ul class="list-disc mb-300"><li>To collect phone numbers.</li>
+<li>To enable the phone keyboard on mobile devices.</li>
 </ul>
 <h3 id="password-input">Password input</h3>
 <ul class="list-disc mb-300"><li>For password collection and validation.</li>
@@ -2785,7 +2787,9 @@ The input <code>type</code> attribute accepts the following options:</p>
 </ul>
 <p>Tip: Communicate any password constraints in the hint text for the input so the person choosing the password knows exactly what the rules are.</p>
 <h3 id="number-input">Number input</h3>
-<p>To reject values that are non numerical.</p>
+<ul class="list-disc mb-300"><li>To collect whole numbers that can increase or decrease, like quantities.</li>
+<li>To reject values that are non numerical.</li>
+</ul>
 <p>Tip: When you set a constraint, like a numerical range, use hint text to relay a precise instruction.</p>
 <h3 id="search-input">Search input</h3>
 <p>To collect search queries.</p>

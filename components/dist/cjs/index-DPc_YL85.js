@@ -118,10 +118,10 @@ var loadModule = (cmpMeta, hostRef, hmrVersionId) => {
                     return Promise.resolve().then(function () { return /*#__PURE__*/_interopNamespace(require(
                         /* webpackMode: "lazy" */
                         './gcds-topic-menu.cjs.entry.js')); }).then(processMod, consoleError);
-                case 'gcds-alert_40.cjs':
+                case 'gcds-alert_38.cjs':
                     return Promise.resolve().then(function () { return /*#__PURE__*/_interopNamespace(require(
                         /* webpackMode: "lazy" */
-                        './gcds-alert_40.cjs.entry.js')); }).then(processMod, consoleError);
+                        './gcds-alert_38.cjs.entry.js')); }).then(processMod, consoleError);
           }
       }
   return (function (t) { return Promise.resolve().then(function () { return /*#__PURE__*/_interopNamespace(require(t)); }); })(

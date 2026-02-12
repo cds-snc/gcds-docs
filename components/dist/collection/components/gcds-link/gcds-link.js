@@ -15,7 +15,7 @@ export class GcdsLink {
         /**
          * Sets the main style of the link.
          */
-        this.variant = 'default';
+        this.linkRole = 'default';
         /**
          * Set the link size
          */
@@ -37,10 +37,10 @@ export class GcdsLink {
          */
         this.inheritedAttributes = {};
     }
-    validateVariant(newValue) {
+    validateLinkRole(newValue) {
         const values = ['default', 'light'];
         if (!values.includes(newValue)) {
-            this.variant = 'default';
+            this.linkRole = 'default';
         }
     }
     validateSize(newValue) {
@@ -68,7 +68,7 @@ export class GcdsLink {
     }
     componentWillLoad() {
         // Validate attributes and set defaults
-        this.validateVariant(this.variant);
+        this.validateLinkRole(this.linkRole);
         this.validateSize(this.size);
         this.validateDisplay(this.display);
         this.inheritedAttributes = inheritAttributes(this.el, this.shadowElement, [
@@ -79,7 +79,7 @@ export class GcdsLink {
         this.updateLang();
     }
     render() {
-        const { size, lang, display, href, rel, target, external, download, type, inheritedAttributes, variant, } = this;
+        const { size, lang, display, href, rel, target, external, download, type, inheritedAttributes, linkRole, } = this;
         const attrs = {
             href,
             rel,
@@ -88,7 +88,7 @@ export class GcdsLink {
             type,
         };
         const isExternal = target === '_blank' || external;
-        return (h(Host, { key: '8cd9092b220f6cea2f5311e3053e0fbed489b40e' }, h("a", Object.assign({ key: '112763038c0564dd208a1172c28c26026c27b511', tabIndex: 0 }, attrs, { class: `gcds-link link--${size} ${display != 'inline' ? `d-${display}` : ''} ${variant != 'default' ? `variant-${variant}` : ''}`, ref: element => (this.shadowElement = element), target: isExternal ? '_blank' : target, rel: isExternal ? 'noopener noreferrer' : rel }, inheritedAttributes, { part: "link", onBlur: () => this.gcdsBlur.emit(), onFocus: () => this.gcdsFocus.emit(), onClick: e => emitEvent(e, this.gcdsClick, href) }), h("slot", { key: '749225ef8d310a8499061c7b8e6831ea3d68cad0' }), target === '_blank' || external ? (h("gcds-icon", { name: "external", label: i18n[lang].external, "margin-left": "75" })) : download !== undefined ? (h("gcds-icon", { name: "download", label: i18n[lang].download, "margin-left": "75" })) : href && href.toLowerCase().startsWith('mailto:') ? (h("gcds-icon", { name: "email", label: i18n[lang].email, "margin-left": "75" })) : (href &&
+        return (h(Host, { key: '8d4e6b5cd3ed08a2a562489238739f2906c02ad0' }, h("a", Object.assign({ key: '14abc020fd24945d6e144f27073f0077d086e424', tabIndex: 0 }, attrs, { class: `gcds-link link--${size} ${display != 'inline' ? `d-${display}` : ''} ${linkRole != 'default' ? `role-${linkRole}` : ''}`, ref: element => (this.shadowElement = element), target: isExternal ? '_blank' : target, rel: isExternal ? 'noopener noreferrer' : rel }, inheritedAttributes, { part: "link", onBlur: () => this.gcdsBlur.emit(), onFocus: () => this.gcdsFocus.emit(), onClick: e => emitEvent(e, this.gcdsClick, href) }), h("slot", { key: 'ada44987d3f50baa632557bbe745390cbfba03e3' }), target === '_blank' || external ? (h("gcds-icon", { name: "external", label: i18n[lang].external, "margin-left": "75" })) : download !== undefined ? (h("gcds-icon", { name: "download", label: i18n[lang].download, "margin-left": "75" })) : href && href.toLowerCase().startsWith('mailto:') ? (h("gcds-icon", { name: "email", label: i18n[lang].email, "margin-left": "75" })) : (href &&
             href.toLowerCase().startsWith('tel:') && (h("gcds-icon", { name: "phone", label: i18n[lang].phone, "margin-left": "75" }))))));
     }
     static get is() { return "gcds-link"; }
@@ -105,9 +105,9 @@ export class GcdsLink {
     }
     static get properties() {
         return {
-            "variant": {
+            "linkRole": {
                 "type": "string",
-                "attribute": "variant",
+                "attribute": "link-role",
                 "mutable": true,
                 "complexType": {
                     "original": "'default' | 'light'",
@@ -340,8 +340,8 @@ export class GcdsLink {
     static get elementRef() { return "el"; }
     static get watchers() {
         return [{
-                "propName": "variant",
-                "methodName": "validateVariant"
+                "propName": "linkRole",
+                "methodName": "validateLinkRole"
             }, {
                 "propName": "size",
                 "methodName": "validateSize"

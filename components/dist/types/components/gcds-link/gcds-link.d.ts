@@ -13,8 +13,8 @@ export declare class GcdsLink {
     /**
      * Sets the main style of the link.
      */
-    variant?: 'default' | 'light';
-    validateVariant(newValue: string): void;
+    linkRole?: 'default' | 'light';
+    validateLinkRole(newValue: string): void;
     /**
      * Set the link size
      */

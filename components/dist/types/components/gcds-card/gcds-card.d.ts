@@ -21,7 +21,7 @@ export declare class GcdsCard {
      * This property does not modify the font size. It is used to assign the heading level
      * in order to maintain heading hierarchy and accessibility for assistive technologies.
      */
-    cardTitleTag: 'h3' | 'h4' | 'h5' | 'h6' | 'a';
+    cardTitleTag?: 'h3' | 'h4' | 'h5' | 'h6';
     /**
      * The description attribute specifies the body of text that appears on the card
      */

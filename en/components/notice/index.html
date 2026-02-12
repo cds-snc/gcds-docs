@@ -1552,12 +1552,6 @@
       
       
     
-      
-      
-    
-      
-      
-    
   
 
 
@@ -1597,7 +1591,7 @@
 </gcds-header>
 
     <div class="content-wrapper">
-      <gcds-grid columns="minmax(0, 1fr)" columns-desktop="320px minmax(0, 1fr)" tag="div" container="xl" centered class="xl:px-0 sm:px-600 px-225 general-layout">
+      <gcds-grid columns="minmax(0, 1fr)" columns-desktop="320px minmax(0, 1fr)" tag="div" container="xl" alignment="center" class="xl:px-0 sm:px-600 px-225 general-layout">
         
 
 
@@ -2763,10 +2757,10 @@ Notice component preview
 <p><a href="/en/components/error-message">Error message</a> or <a href="/en/components/error-summary">error summary</a> for errors in a form field, on a page, or in a flow.</p>
 <p>Banner for a message that applies to part of or the entire site or product.</p>
 <hr class="mt-600"/>
-<h2 id="notice-types">Notice types</h2>
-<p>Set the notice type based on the message context and corresponding visual appearance.</p>
+<h2 id="notice-roles">Notice roles</h2>
+<p>Set the notice roles based on the message context and corresponding visual appearance.</p>
 <h3 id="information">Information</h3>
-<p>Use the information type to:</p>
+<p>Use the information role to:</p>
 <ul class="list-disc mb-300"><li>Provide supplementary information to enhance the reader’s understanding of the surrounding content.</li>
 <li>To offer tips or additional context that’s helpful in completing the main tasks on the page.</li>
 <li>Communicate non-critical information that’s important for the job or task a person would want to do.</li>
@@ -2774,24 +2768,24 @@ Notice component preview
 <p><gcds-notice
   notice-title="Current status of the call for applications: Closed"
   notice-title-tag="h4"
-  type="info"
+  notice-role="info"
 >
 <gcds-text margin-bottom="0">Thank you for your interest in Canada Summer Jobs. Applications are now closed.</gcds-text>
 </gcds-notice></p>
 <h3 id="success">Success</h3>
-<p>Use the success notice type to:</p>
+<p>Use the success notice role to:</p>
 <ul class="list-disc mb-300"><li>Communicate the successful completion of a task.</li>
 <li>Reinforce positive outcomes or confirmations within the content.</li>
 </ul>
 <p><gcds-notice
   notice-title="Your request for publicly available data from the list of charities has been successful"
   notice-title-tag="h4"
-  type="success"
+  notice-role="success"
 >
 <gcds-text margin-bottom="0">Processing your request may take up to four (4) weeks. We’ll contact you if we need more information.</gcds-text>
 </gcds-notice></p>
 <h3 id="warning">Warning</h3>
-<p>Use the warning notice type to:</p>
+<p>Use the warning notice role to:</p>
 <ul class="list-disc mb-300"><li>Caution people about issues or considerations when there’s no immediate need for action.</li>
 <li>Inform people about changes, alterations to services, or other impactful but non-critical updates.</li>
 <li>Draw attention to information about future changes or possible implications to health and safety,  security, and laws.</li>
@@ -2799,12 +2793,12 @@ Notice component preview
 <p><gcds-notice
   notice-title="Changes to impaired driving and cannabis-related crime laws"
   notice-title-tag="h4"
-  type="warning"
+  notice-role="warning"
 >
 <gcds-text margin-bottom="0">New penalties for impaired driving and cannabis-related crimes may affect your immigration status in Canada. If you commit one of these crimes, you may not be able to come to or stay in Canada.</gcds-text>
 </gcds-notice></p>
 <h3 id="danger">Danger</h3>
-<p>Use the danger notice type to:</p>
+<p>Use the danger notice role to:</p>
 <ul class="list-disc mb-300"><li>Highlight content that people must be aware of due to its severity and that could have major negative impacts if ignored.</li>
 <li>Emphasize an issue or news that has serious implications to health and safety, security, and laws. Include a link to the most current information.</li>
 <li>Flag when a person needs to take action right away and provide a means to do so, like a link.</li>
@@ -2812,7 +2806,7 @@ Notice component preview
 <p><gcds-notice
   notice-title="If pregnant or considering pregnancy - Notice regarding both partners"
   notice-title-tag="h4"
-  type="danger"
+  notice-role="danger"
 >
 <gcds-text margin-bottom="0">Avoid travel to Costa Rica if you are pregnant or planning to conceive a child in the next 3 months.</gcds-text>
 </gcds-notice></p>

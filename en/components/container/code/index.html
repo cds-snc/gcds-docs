@@ -1552,12 +1552,6 @@
       
       
     
-      
-      
-    
-      
-      
-    
   
 
 
@@ -1597,7 +1591,7 @@
 </gcds-header>
 
     <div class="content-wrapper">
-      <gcds-grid columns="minmax(0, 1fr)" columns-desktop="320px minmax(0, 1fr)" tag="div" container="xl" centered class="xl:px-0 sm:px-600 px-225 general-layout">
+      <gcds-grid columns="minmax(0, 1fr)" columns-desktop="320px minmax(0, 1fr)" tag="div" container="xl" alignment="center" class="xl:px-0 sm:px-600 px-225 general-layout">
         
 
 
@@ -2805,8 +2799,22 @@ Container component preview
 </table>
 <br/>
 <p>By default, the container size will be set to <code>full</code> which means it will take up the entire width of the parent container.</p>
-<h3 id="centre-the-container">Centre the container</h3>
-<p>Containers are not centered automatically. To centre a container on a page, add the <code>centered</code> property.</p>
+<h3 id="align-content-with-the-page-layout">Align content with the page layout</h3>
+<p>Use <code>layout=&quot;page&quot;</code> to visually align page content with the <a href="/en/components/header">header</a> and <a href="/en/components/footer">footer</a>.</p>
+<p>When <code>layout</code> is set to <code>page</code>, the container:</p>
+<ul class="list-disc mb-300"><li>Uses a maximum width of 71.25rem (1140px).</li>
+<li>Is centred automatically within the viewport.</li>
+<li>Switches to 90% width on smaller screens.</li>
+<li>Matches the layout behaviour of the header and footer components.</li>
+</ul>
+<p>Using <code>layout=&quot;page&quot;</code> ensures content maintains a consistent width, alignment, and reading experience across breakpoints. When <code>layout</code> is set to <code>page</code>, there is no need to define a container <code>size</code> or set <code>alignment</code>, as the page layout automatically controls width and alignment.</p>
+<h3 id="position-the-container">Position the container</h3>
+<p>Use the <code>alignment</code> attribute to control how a container is positioned within its parent. It supports three options:</p>
+<ul class="list-disc mb-300"><li><code>start</code> - position the container horizontally to the start of the available space.</li>
+<li><code>center</code> - centres the container horizontally.</li>
+<li><code>end</code> - position the container horizontally to the end of the available space.</li>
+</ul>
+<p><strong>Note:</strong> When the <code>layout</code> attribute is set to <code>page</code>, the <code>alignment</code> attribute is ignored, the page layout automatically manages width and centring.</p>
 <h3 id="get-your-code">Get your code</h3>
 <p>Generate an instance of the component you need by selecting its code properties.</p>
 <ol class="list-decimal mb-300"><li>

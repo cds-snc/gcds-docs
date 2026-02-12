@@ -24,7 +24,8 @@ export default {
             type: {
                 required: true,
             },
-        }, type: {
+        }, noticeRole: {
+            name: 'notice-role',
             control: { type: 'select' },
             options: ['success', 'danger', 'info', 'warning'],
             table: {
@@ -50,17 +51,17 @@ export default {
 };
 const Template = args => `
 <!-- Web component code (HTML, Angular, Vue) -->
-<gcds-notice type="${args.type}" notice-title-tag="${args.noticeTitleTag}" notice-title="${args.noticeTitle}" ${args.lang != 'en' ? `lang="${args.lang}"` : null}>
+<gcds-notice notice-role="${args.noticeRole}" notice-title-tag="${args.noticeTitleTag}" notice-title="${args.noticeTitle}" ${args.lang != 'en' ? `lang="${args.lang}"` : null}>
   ${args.default.trim() != '' ? `<gcds-text>${args.default}</gcds-text>` : null}
 </gcds-notice>
 
 <!-- React code -->
-<GcdsNotice type="${args.type}" noticeTitleTag="${args.noticeTitleTag}" noticeTitle="${args.noticeTitle}" ${args.lang != 'en' ? `lang="${args.lang}"` : null}>
+<GcdsNotice noticeRole="${args.noticeRole}" noticeTitleTag="${args.noticeTitleTag}" noticeTitle="${args.noticeTitle}" ${args.lang != 'en' ? `lang="${args.lang}"` : null}>
   ${args.default.trim() != '' ? `<GcdsText>${args.default}</GcdsText>` : null}
 </GcdsNotice>
 `.replace(/ null/g, '');
 const TemplatePlayground = args => `
-<gcds-notice type="${args.type}" notice-title-tag="${args.noticeTitleTag}" notice-title="${args.noticeTitle}" ${args.lang != 'en' ? `lang="${args.lang}"` : null}>
+<gcds-notice notice-role="${args.noticeRole}" notice-title-tag="${args.noticeTitleTag}" notice-title="${args.noticeTitle}" ${args.lang != 'en' ? `lang="${args.lang}"` : null}>
   ${args.default.trim() != '' ? `<gcds-text>${args.default}</gcds-text>` : null}
 </gcds-notice>
 `;
@@ -69,7 +70,7 @@ export const Default = Template.bind({});
 Default.args = {
     noticeTitle: 'Title',
     noticeTitleTag: 'h2',
-    type: 'success',
+    noticeRole: 'success',
     default: 'Message.',
     lang: 'en',
 };
@@ -78,7 +79,7 @@ export const Success = Template.bind({});
 Success.args = {
     noticeTitle: 'Title',
     noticeTitleTag: 'h2',
-    type: 'success',
+    noticeRole: 'success',
     default: 'Message.',
     lang: 'en',
 };
@@ -87,7 +88,7 @@ export const Danger = Template.bind({});
 Danger.args = {
     noticeTitle: 'Title',
     noticeTitleTag: 'h2',
-    type: 'danger',
+    noticeRole: 'danger',
     default: 'Message.',
     lang: 'en',
 };
@@ -96,7 +97,7 @@ export const Info = Template.bind({});
 Info.args = {
     noticeTitle: 'Title',
     noticeTitleTag: 'h2',
-    type: 'info',
+    noticeRole: 'info',
     default: 'Message.',
     lang: 'en',
 };
@@ -105,7 +106,7 @@ export const Warning = Template.bind({});
 Warning.args = {
     noticeTitle: 'Title',
     noticeTitleTag: 'h2',
-    type: 'warning',
+    noticeRole: 'warning',
     default: 'Message.',
     lang: 'en',
 };
@@ -114,7 +115,7 @@ export const h2 = Template.bind({});
 h2.args = {
     noticeTitle: 'Title',
     noticeTitleTag: 'h2',
-    type: 'success',
+    noticeRole: 'success',
     default: 'Message.',
     lang: 'en',
 };
@@ -123,7 +124,7 @@ export const h3 = Template.bind({});
 h3.args = {
     noticeTitle: 'Title',
     noticeTitleTag: 'h3',
-    type: 'success',
+    noticeRole: 'success',
     default: 'Message.',
     lang: 'en',
 };
@@ -132,7 +133,7 @@ export const h4 = Template.bind({});
 h4.args = {
     noticeTitle: 'Title',
     noticeTitleTag: 'h4',
-    type: 'success',
+    noticeRole: 'success',
     default: 'Message.',
     lang: 'en',
 };
@@ -141,7 +142,7 @@ export const h5 = Template.bind({});
 h5.args = {
     noticeTitle: 'Title',
     noticeTitleTag: 'h5',
-    type: 'success',
+    noticeRole: 'success',
     default: 'Message.',
     lang: 'en',
 };
@@ -150,7 +151,7 @@ export const Props = Template.bind({});
 Props.args = {
     noticeTitle: 'Title',
     noticeTitleTag: 'h2',
-    type: 'success',
+    noticeRole: 'success',
     default: 'Message.',
     lang: 'en',
 };
@@ -159,7 +160,7 @@ export const Playground = TemplatePlayground.bind({});
 Playground.args = {
     noticeTitle: 'Title',
     noticeTitleTag: 'h2',
-    type: 'success',
+    noticeRole: 'success',
     default: 'Message.',
     lang: 'en',
 };

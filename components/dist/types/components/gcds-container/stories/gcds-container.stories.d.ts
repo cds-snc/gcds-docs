@@ -1,6 +1,20 @@
 declare const _default: {
     title: string;
     argTypes: {
+        alignment: {
+            control: {
+                type: string;
+            };
+            options: string[];
+            table: {
+                type: {
+                    summary: string;
+                };
+                defaultValue: {
+                    summary: string;
+                };
+            };
+        };
         border: {
             control: {
                 type: string;
@@ -15,32 +29,17 @@ declare const _default: {
                 };
             };
         };
-        centered: {
+        layout: {
             control: {
                 type: string;
             };
-            options: boolean[];
+            options: string[];
             table: {
                 type: {
                     summary: string;
                 };
                 defaultValue: {
-                    summary: boolean;
-                };
-            };
-        };
-        mainContainer: {
-            name: string;
-            control: {
-                type: string;
-            };
-            options: boolean[];
-            table: {
-                type: {
                     summary: string;
-                };
-                defaultValue: {
-                    summary: boolean;
                 };
             };
         };
@@ -116,8 +115,11 @@ export declare const SizeLg: any;
 export declare const SizeMd: any;
 export declare const SizeSm: any;
 export declare const SizeXs: any;
-export declare const Centered: any;
-export declare const MainContainer: any;
+export declare const AlignmentStart: any;
+export declare const AlignmentCenter: any;
+export declare const AlignmentEnd: any;
+export declare const LayoutFull: any;
+export declare const LayoutPage: any;
 export declare const Margin: any;
 export declare const Padding: any;
 export declare const Props: any;

@@ -135,6 +135,20 @@ declare const _default: {
                 };
             };
         };
+        alignment: {
+            control: {
+                type: string;
+            };
+            options: string[];
+            table: {
+                type: {
+                    summary: string;
+                };
+                defaultValue: {
+                    summary: string;
+                };
+            };
+        };
         alignContent: {
             name: string;
             control: {
@@ -249,5 +263,8 @@ export declare const Fixed: any;
 export declare const Hybrid: any;
 export declare const Individual: any;
 export declare const Tag: any;
+export declare const AlignmentStart: any;
+export declare const AlignmentCenter: any;
+export declare const AlignmentEnd: any;
 export declare const Props: any;
 export declare const Playground: any;

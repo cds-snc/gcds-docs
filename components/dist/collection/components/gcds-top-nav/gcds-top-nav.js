@@ -12,7 +12,7 @@ export class GcdsTopNav {
         /**
          * Nav alignment
          */
-        this.alignment = 'left';
+        this.alignment = 'start';
         /**
          * Queue of nav items for keyboard navigation
          */
@@ -58,7 +58,9 @@ export class GcdsTopNav {
         }
     }
     async focusOutListener(e) {
-        if (e.relatedTarget !== null && e.relatedTarget !== this.el && !this.el.contains(e.relatedTarget)) {
+        if (e.relatedTarget !== null &&
+            e.relatedTarget !== this.el &&
+            !this.el.contains(e.relatedTarget)) {
             if (this.navSize == 'mobile') {
                 if (this.mobile.hasAttribute('open')) {
                     await this.mobile.toggleNav();
@@ -70,7 +72,9 @@ export class GcdsTopNav {
         if (this.el.contains(document.activeElement)) {
             handleKeyDownNav(e, this.el, this.navItems);
         }
-        else if (this.navSize == 'mobile' && this.mobile.open == true && e.key == 'Escape') {
+        else if (this.navSize == 'mobile' &&
+            this.mobile.open == true &&
+            e.key == 'Escape') {
             // Close mobile nav on ESC
             await this.mobile.toggleNav();
         }
@@ -134,7 +138,7 @@ export class GcdsTopNav {
     }
     render() {
         const { label, alignment, lang } = this;
-        return (h(Host, { key: '6f57bdfbba153b88e63282fe45d6497be0e81b5f' }, h("div", { key: '9401def5fca706a082db708de11f76beeccf5850', class: "gcds-top-nav" }, h("nav", { key: '10ddd1dbc5cb1c1d4044da7a2a8fcb9819ff0de9', "aria-label": `${label}${I18N[lang].navLabel}` }, h("ul", { key: '21e81dbff5922559832000e1a5347c974d7a2339', class: "gcds-top-nav__container" }, h("gcds-nav-group", { key: '34d58fa9187f7d0518a7a4d48952273efb774e67', menuLabel: I18N[lang].menuLabel, closeTrigger: I18N[lang].closeTrigger, openTrigger: I18N[lang].menuLabel, class: "gcds-mobile-nav gcds-mobile-nav-topnav", ref: element => (this.mobile = element), lang: lang }, h("slot", { key: '1908a485afa1cc4d3a1ed32697b6b47c341fb607', name: "home" }), h("li", { key: '9644412c24517b568f147a4035489c14e8472e4a', class: `nav-container__list nav-list--${alignment}` }, h("ul", { key: 'e5dca5fac0819e051825e9367b6be2e9e133eff7', class: `nav-container__list nav-list--${alignment}` }, h("slot", { key: 'c12dce812d8dccc4a109473d5c6f546422c491ff' })))))))));
+        return (h(Host, { key: '18c2287d2897c0083e18ce0328b9ad3e11b653ab' }, h("div", { key: '51a67d89ffc0e6bed7f681d6db1ed723a14c1039', class: "gcds-top-nav" }, h("nav", { key: '320708f41cab0cdfb939b946192e7ed29ba905ba', "aria-label": `${label}${I18N[lang].navLabel}` }, h("ul", { key: '9cbcfc3fa23425bbc586e852b1933e14758831b6', class: "gcds-top-nav__container" }, h("gcds-nav-group", { key: '6ab0535a65cf3bd35269e1029eb3372209558d8d', menuLabel: I18N[lang].menuLabel, closeTrigger: I18N[lang].closeTrigger, openTrigger: I18N[lang].menuLabel, class: "gcds-mobile-nav gcds-mobile-nav-topnav", ref: element => (this.mobile = element), lang: lang }, h("slot", { key: '9e38ad5476d2936ea73932b3ee843e966536affd', name: "home" }), h("li", { key: '46c97c91d1b91d44d4e79eec0ffd1e1d1973f372', class: `nav-container__list nav-list--${alignment}` }, h("ul", { key: '7f2a4294e6b3f43b814805c8628de5856b120ff1', class: `nav-container__list nav-list--${alignment}` }, h("slot", { key: 'a5e81e5b63fadcd353eef2738cc7455068604c2e' })))))))));
     }
     static get is() { return "gcds-top-nav"; }
     static get encapsulation() { return "shadow"; }
@@ -174,8 +178,8 @@ export class GcdsTopNav {
                 "attribute": "alignment",
                 "mutable": false,
                 "complexType": {
-                    "original": "'left' | 'center' | 'right'",
-                    "resolved": "\"center\" | \"left\" | \"right\"",
+                    "original": "'start' | 'end'",
+                    "resolved": "\"end\" | \"start\"",
                     "references": {}
                 },
                 "required": false,
@@ -187,7 +191,7 @@ export class GcdsTopNav {
                 "getter": false,
                 "setter": false,
                 "reflect": false,
-                "defaultValue": "'left'"
+                "defaultValue": "'start'"
             }
         };
     }

@@ -31,10 +31,6 @@ export declare class GcdsGrid {
      */
     container?: 'full' | 'xl' | 'lg' | 'md' | 'sm' | 'xs';
     /**
-     * Defines if grid container is centered or not
-     */
-    centered?: boolean;
-    /**
      * Defines element as grid or inline-grid container
      */
     display?: 'grid' | 'inline-grid';
@@ -69,6 +65,11 @@ export declare class GcdsGrid {
      */
     tag?: 'article' | 'aside' | 'div' | 'dl' | 'main' | 'nav' | 'ol' | 'section' | 'ul';
     validateTag(newValue: string): void;
+    /**
+     * Defines the grid's alignment if the grid containers
+     * size is smaller than the parent's size.
+     */
+    alignment?: 'start' | 'center' | 'end';
     /**
      * If total grid size is less than the size of its grid container,
      * this property aligns the grid along the block (column) axis

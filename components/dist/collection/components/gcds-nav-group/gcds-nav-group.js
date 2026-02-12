@@ -82,7 +82,7 @@ export class GcdsNavGroup {
             this.navStyle = 'dropdown';
             // Get the alignment value from the parent + append the corresponding class
             const alignment = this.el.parentNode.getAttribute('alignment');
-            if (alignment === 'right') {
+            if (alignment === 'end') {
                 this.navStyle += ' dropdown-right';
             }
             if (this.open) {
@@ -100,18 +100,18 @@ export class GcdsNavGroup {
     }
     render() {
         const { closeTrigger, menuLabel, open, openTrigger } = this;
-        return (h(Host, { key: 'e83cd752015541c3d3c66df11acea95bb47d328f', role: "listitem", open: open }, h("button", { key: 'c454fdad83340bfda53c6be88fad4d04832b616d', "aria-haspopup": "true", tabIndex: 0, "aria-expanded": open.toString(), ref: element => (this.triggerElement = element), class: `gcds-nav-group__trigger gcds-trigger--${this.navStyle}`, onBlur: () => this.gcdsBlur.emit(), onFocus: () => this.gcdsFocus.emit(), onClick: e => {
+        return (h(Host, { key: 'dc41c8634f5207f3264c193fa4b643a5d7460bcb', role: "listitem", open: open }, h("button", { key: '993f5335ec64d025e881c8d3149bc2f6507ae919', "aria-haspopup": "true", tabIndex: 0, "aria-expanded": open.toString(), ref: element => (this.triggerElement = element), class: `gcds-nav-group__trigger gcds-trigger--${this.navStyle}`, onBlur: () => this.gcdsBlur.emit(), onFocus: () => this.gcdsFocus.emit(), onClick: e => {
                 const event = emitEvent(e, this.gcdsClick);
                 if (event) {
                     this.toggleNav();
                 }
-            } }, h("gcds-icon", { key: '6a2a04d5728d1b23860522b3419c054621abae4f', name: this.navStyle === 'expandable'
+            } }, h("gcds-icon", { key: '78f16f4980aa7aa8b0226b4760763ba41ecc0e2b', name: this.navStyle === 'expandable'
                 ? open
                     ? 'chevron-down'
                     : 'chevron-right'
                 : open
                     ? 'chevron-up'
-                    : 'chevron-down' }), closeTrigger && open ? closeTrigger : openTrigger), h("ul", { key: 'be77203e415fe750b349dec603812cd8a8cb5bab', "aria-label": menuLabel, class: `gcds-nav-group__list gcds-nav--${this.navStyle}` }, h("slot", { key: '0e98b6827f549b1ff852d15dbbe7e4f8a0546c24' }))));
+                    : 'chevron-down' }), closeTrigger && open ? closeTrigger : openTrigger), h("ul", { key: '349c7a14f3e13ef7344ea40e35ac8c9000f8d390', "aria-label": menuLabel, class: `gcds-nav-group__list gcds-nav--${this.navStyle}` }, h("slot", { key: '73a3ba354f2a90a0cea6edfe9e47b1ad5c85e92d' }))));
     }
     static get is() { return "gcds-nav-group"; }
     static get encapsulation() { return "shadow"; }

@@ -57,8 +57,6 @@ export { GcdsNotice as GcdsNotice } from '../types/components/gcds-notice/gcds-n
 export { defineCustomElement as defineCustomElementGcdsNotice } from './gcds-notice';
 export { GcdsPagination as GcdsPagination } from '../types/components/gcds-pagination/gcds-pagination';
 export { defineCustomElement as defineCustomElementGcdsPagination } from './gcds-pagination';
-export { GcdsPhaseBanner as GcdsPhaseBanner } from '../types/components/gcds-phase-banner/gcds-phase-banner';
-export { defineCustomElement as defineCustomElementGcdsPhaseBanner } from './gcds-phase-banner';
 export { GcdsRadios as GcdsRadios } from '../types/components/gcds-radios/gcds-radios';
 export { defineCustomElement as defineCustomElementGcdsRadios } from './gcds-radios';
 export { GcdsSearch as GcdsSearch } from '../types/components/gcds-search/gcds-search';
@@ -81,8 +79,6 @@ export { GcdsTopNav as GcdsTopNav } from '../types/components/gcds-top-nav/gcds-
 export { defineCustomElement as defineCustomElementGcdsTopNav } from './gcds-top-nav';
 export { GcdsTopicMenu as GcdsTopicMenu } from '../types/components/gcds-topic-menu/gcds-topic-menu';
 export { defineCustomElement as defineCustomElementGcdsTopicMenu } from './gcds-topic-menu';
-export { GcdsVerifyBanner as GcdsVerifyBanner } from '../types/components/gcds-verify-banner/gcds-verify-banner';
-export { defineCustomElement as defineCustomElementGcdsVerifyBanner } from './gcds-verify-banner';
 
 /**
  * Get the base path to where the assets can be found. Use "setAssetPath(path)"

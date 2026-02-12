@@ -143,6 +143,14 @@ export default {
                 defaultValue: { summary: 'div' },
             },
         },
+        alignment: {
+            control: { type: 'select' },
+            options: ['center', 'end', 'start'],
+            table: {
+                type: { summary: 'string' },
+                defaultValue: { summary: '-' },
+            },
+        },
         alignContent: {
             name: 'align-content',
             control: { type: 'select' },
@@ -235,12 +243,12 @@ export default {
 };
 const Template = args => `
 <!-- Web component code (HTML, Angular, Vue) -->
-<gcds-grid ${args.tag != 'div' ? `tag="${args.tag}"` : null} ${args.container != 'full' ? `container="${args.container}"` : null} ${args.columnsDesktop ? `columns-desktop="${args.columnsDesktop}"` : null} ${args.columnsTablet ? `columns-tablet="${args.columnsTablet}"` : null} ${args.columns ? `columns="${args.columns}"` : null} ${args.alignContent ? `align-content="${args.alignContent}"` : null} ${args.justifyContent ? `justify-content="${args.justifyContent}"` : null} ${args.placeContent ? `place-content="${args.placeContent}"` : null} ${args.alignItems ? `align-items="${args.alignItems}"` : null} ${args.justifyItems ? `justify-items="${args.justifyItems}"` : null} ${args.placeItems ? `place-items="${args.placeItems}"` : null} ${args.equalRowHeight ? `equal-row-height` : null} ${args.gap != '300' ? `gap="${args.gap}"` : null} ${args.gapTablet ? `gap-tablet="${args.gapTablet}"` : null} ${args.gapDesktop ? `gap-desktop="${args.gapDesktop}"` : null}>
+<gcds-grid ${args.tag != 'div' ? `tag="${args.tag}"` : null} ${args.container != 'full' ? `container="${args.container}"` : null} ${args.columnsDesktop ? `columns-desktop="${args.columnsDesktop}"` : null} ${args.columnsTablet ? `columns-tablet="${args.columnsTablet}"` : null} ${args.columns ? `columns="${args.columns}"` : null} ${args.alignment ? `alignment="${args.alignment}"` : null} ${args.alignContent ? `align-content="${args.alignContent}"` : null} ${args.justifyContent ? `justify-content="${args.justifyContent}"` : null} ${args.placeContent ? `place-content="${args.placeContent}"` : null} ${args.alignItems ? `align-items="${args.alignItems}"` : null} ${args.justifyItems ? `justify-items="${args.justifyItems}"` : null} ${args.placeItems ? `place-items="${args.placeItems}"` : null} ${args.equalRowHeight ? `equal-row-height` : null} ${args.gap != '300' ? `gap="${args.gap}"` : null} ${args.gapTablet ? `gap-tablet="${args.gapTablet}"` : null} ${args.gapDesktop ? `gap-desktop="${args.gapDesktop}"` : null}>
   ${args.default ? args.default : null}
 </gcds-grid>
 
 <!-- React code -->
-<GcdsGrid ${args.tag != 'div' ? `tag="${args.tag}"` : null} ${args.container != 'full' ? `container="${args.container}"` : null} ${args.columnsDesktop ? `columnsDesktop="${args.columnsDesktop}"` : null} ${args.columnsTablet ? `columnsTablet="${args.columnsTablet}"` : null} ${args.columns ? `columns="${args.columns}"` : null} ${args.alignContent ? `alignContent="${args.alignContent}"` : null} ${args.justifyContent ? `justifyContent="${args.justifyContent}"` : null} ${args.placeContent ? `placeContent="${args.placeContent}"` : null} ${args.alignItems ? `alignItems="${args.alignItems}"` : null} ${args.justifyItems ? `justifyItems="${args.justifyItems}"` : null} ${args.placeItems ? `placeItems="${args.placeItems}"` : null} ${args.equalRowHeight ? `equalRowHeight` : null} ${args.gap != '300' ? `gap="${args.gap}"` : null} ${args.gapTablet ? `gapTablet="${args.gapTablet}"` : null} ${args.gapDesktop ? `gapDesktop="${args.gapDesktop}"` : null}>
+<GcdsGrid ${args.tag != 'div' ? `tag="${args.tag}"` : null} ${args.container != 'full' ? `container="${args.container}"` : null} ${args.columnsDesktop ? `columnsDesktop="${args.columnsDesktop}"` : null} ${args.columnsTablet ? `columnsTablet="${args.columnsTablet}"` : null} ${args.columns ? `columns="${args.columns}"` : null} ${args.alignment ? `alignment="${args.alignment}"` : null} ${args.alignContent ? `alignContent="${args.alignContent}"` : null} ${args.justifyContent ? `justifyContent="${args.justifyContent}"` : null} ${args.placeContent ? `placeContent="${args.placeContent}"` : null} ${args.alignItems ? `alignItems="${args.alignItems}"` : null} ${args.justifyItems ? `justifyItems="${args.justifyItems}"` : null} ${args.placeItems ? `placeItems="${args.placeItems}"` : null} ${args.equalRowHeight ? `equalRowHeight` : null} ${args.gap != '300' ? `gap="${args.gap}"` : null} ${args.gapTablet ? `gapTablet="${args.gapTablet}"` : null} ${args.gapDesktop ? `gapDesktop="${args.gapDesktop}"` : null}>
   ${args.default ? args.default : null}
 </GcdsGrid>
 `.replace(/ null/g, '');
@@ -264,6 +272,7 @@ const TemplatePlayground = args => `
   ${args.columnsDesktop ? `columns-desktop="${args.columnsDesktop}"` : null}
   ${args.columnsTablet ? `columns-tablet="${args.columnsTablet}"` : null}
   ${args.columns ? `columns="${args.columns}"` : null}
+  ${args.alignment ? `alignment="${args.alignment}"` : null}
   ${args.alignContent ? `align-content="${args.alignContent}"` : null}
   ${args.justifyContent ? `justify-content="${args.justifyContent}"` : null}
   ${args.placeContent ? `place-content="${args.placeContent}"` : null}
@@ -417,6 +426,49 @@ Tag.args = {
     gap: '300',
     tag: 'article',
     default: `<p>This is some example content to display the grid component.</p>
+  <p>This is some example content to display the grid component.</p>
+  <p>This is some example content to display the grid component.</p>`,
+};
+// ------ Grid alignment ------
+export const AlignmentStart = Template.bind({});
+AlignmentStart.args = {
+    columnsDesktop: '1fr 1fr 1fr 1fr',
+    columnsTablet: '1fr 1fr',
+    columns: '1fr',
+    container: 'md',
+    alignment: 'start',
+    gap: '300',
+    tag: 'div',
+    default: `<p>This is some example content to display the grid component.</p>
+  <p>This is some example content to display the grid component.</p>
+  <p>This is some example content to display the grid component.</p>
+  <p>This is some example content to display the grid component.</p>`,
+};
+export const AlignmentCenter = Template.bind({});
+AlignmentCenter.args = {
+    columnsDesktop: '1fr 1fr 1fr 1fr',
+    columnsTablet: '1fr 1fr',
+    columns: '1fr',
+    container: 'md',
+    alignment: 'center',
+    gap: '300',
+    tag: 'div',
+    default: `<p>This is some example content to display the grid component.</p>
+  <p>This is some example content to display the grid component.</p>
+  <p>This is some example content to display the grid component.</p>
+  <p>This is some example content to display the grid component.</p>`,
+};
+export const AlignmentEnd = Template.bind({});
+AlignmentEnd.args = {
+    columnsDesktop: '1fr 1fr 1fr 1fr',
+    columnsTablet: '1fr 1fr',
+    columns: '1fr',
+    container: 'md',
+    alignment: 'end',
+    gap: '300',
+    tag: 'div',
+    default: `<p>This is some example content to display the grid component.</p>
+  <p>This is some example content to display the grid component.</p>
   <p>This is some example content to display the grid component.</p>
   <p>This is some example content to display the grid component.</p>`,
 };

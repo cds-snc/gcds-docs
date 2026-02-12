@@ -1549,12 +1549,6 @@
       
       
     
-      
-      
-    
-      
-      
-    
   
 
   
@@ -1603,7 +1597,7 @@
 </gcds-header>
 
     <div class="content-wrapper">
-      <gcds-grid columns="minmax(0, 1fr)" columns-desktop="320px minmax(0, 1fr)" tag="div" container="xl" centered class="xl:px-0 sm:px-600 px-225 general-layout">
+      <gcds-grid columns="minmax(0, 1fr)" columns-desktop="320px minmax(0, 1fr)" tag="div" container="xl" alignment="center" class="xl:px-0 sm:px-600 px-225 general-layout">
         
 
 
@@ -2691,7 +2685,7 @@
 </gcds-side-nav>
         <main id="mc" class="general-layout" data-pagefind-body>
           <h1 id="installation-dans-un-projet-angular">Installation dans un projet Angular</h1>
-<p>Afin de faciliter l'intégration des composants Web de Système de design GC à vos projets Angular, le paquet <gcds-link href="https://www.npmjs.com/package/@cdssnc/gcds-components-angular" external>gcds-components-angular</gcds-link> propose des enveloppes Angular.</p>
+<p>Afin de faciliter l'intégration des composants Web de Système de design GC à vos projets Angular, le paquet <gcds-link href="https://www.npmjs.com/package/@gcds-core/components-angular" external>gcds-components-angular</gcds-link> propose des enveloppes Angular.</p>
 <p>Ces enveloppes faciltent le travail avec les composants Web dans l'écosystème Angular en empêchant l'actualisation inutile du rendu grâce à une détection des changements découplée, et en permettant aux contrôles de formulaire de fonctionner avec <code>ngModel</code> et les formulaires réactifs.</p>
 <p>Les composants Web héritent les propriétés et l'interopérabilité natives.</p>
 <h2 id="instructions-dinstallation-dans-angular">Instructions d’installation dans Angular</h2>
@@ -2700,7 +2694,7 @@
 <p>Naviguez vers le dossier racine de votre projet et exécutez la commande suivante :</p>
 
 <div style="position: relative" id="code-container-24" >
-  <pre class="language-js"><code id="code-24" class="language-js">npm install @cdssnc<span class="token operator">/</span>gcds<span class="token operator">-</span>components @cdssnc<span class="token operator">/</span>gcds<span class="token operator">-</span>components<span class="token operator">-</span>angular</code></pre>
+  <pre class="language-js"><code id="code-24" class="language-js">npm install @gcds<span class="token operator">-</span>core<span class="token operator">/</span>components @gcds<span class="token operator">-</span>core<span class="token operator">/</span>components<span class="token operator">-</span>angular</code></pre>
 
   <button class="code-copy "
     data-clipboard-target="#code-24"
@@ -2712,7 +2706,7 @@
 <p>Insérez le code suivant dans le fichier <code>app.module.ts</code> de votre application :</p>
 
 <div style="position: relative" id="code-container-31" >
-  <pre class="language-js"><code id="code-31" class="language-js"><span class="token keyword">import</span> <span class="token punctuation">{</span> GcdsComponentsModule <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@cdssnc/gcds-components-angular'</span><span class="token punctuation">;</span>
+  <pre class="language-js"><code id="code-31" class="language-js"><span class="token keyword">import</span> <span class="token punctuation">{</span> GcdsComponentsModule <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@gcds-core/components-angular'</span><span class="token punctuation">;</span>
 
 @<span class="token function">NgModule</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
   <span class="token literal-property property">declarations</span><span class="token operator">:</span> <span class="token punctuation">[</span>
@@ -2737,7 +2731,7 @@
 <p>Pour importer les styles de Système de design GC, insérez le code suivant dans le fichier <code>styles.scss</code> de votre application :</p>
 
 <div style="position: relative" id="code-container-35" >
-  <pre class="language-js"><code id="code-35" class="language-js">@<span class="token keyword">import</span> <span class="token string">'../node_modules/@cdssnc/gcds-components/dist/gcds/gcds.css'</span><span class="token punctuation">;</span></code></pre>
+  <pre class="language-js"><code id="code-35" class="language-js">@<span class="token keyword">import</span> <span class="token string">'../node_modules/@gcds-core/components/dist/gcds/gcds.css'</span><span class="token punctuation">;</span></code></pre>
 
   <button class="code-copy "
     data-clipboard-target="#code-35"

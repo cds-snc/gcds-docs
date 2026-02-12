@@ -3258,7 +3258,7 @@ var setScopedSSR = (opts) => {
 var needsScopedSSR = () => scopedSSR;
 var scopedSSR = false;
 
-const I18N$t = {
+const I18N$r = {
   en: {
     valueMissing: 'Enter information to continue.',
     typeMismatch: {
@@ -3502,35 +3502,35 @@ function handleValidationResult(element, validationResult, label, errorEv, valid
 function formatHTMLErrorMessage(error, lang, el) {
     switch (error) {
         case 'valueMissing':
-            return I18N$t[lang][error];
+            return I18N$r[lang][error];
         case 'typeMismatch':
             if (el.type === 'url' || el.type === 'email') {
-                return I18N$t[lang][error][el.type];
+                return I18N$r[lang][error][el.type];
             }
             else {
-                return I18N$t[lang][error];
+                return I18N$r[lang][error];
             }
         case 'tooLong':
-            return I18N$t[lang][error]
+            return I18N$r[lang][error]
                 .replace('{max}', el.maxlength || el.characterCount)
                 .replace('{current}', el.value.length);
         case 'tooShort':
-            return I18N$t[lang][error]
+            return I18N$r[lang][error]
                 .replace('{min}', el.minlength)
                 .replace('{current}', el.value.length);
         case 'rangeUnderflow':
-            return I18N$t[lang][error].replace('{min}', el.min);
+            return I18N$r[lang][error].replace('{min}', el.min);
         case 'rangeOverflow':
-            return I18N$t[lang][error].replace('{max}', el.max);
+            return I18N$r[lang][error].replace('{max}', el.max);
         case 'stepMismatch':
-            return I18N$t[lang][error]
+            return I18N$r[lang][error]
                 .replace('{lower}', Math.floor(Number(el.value) / Number(el.step)) * Number(el.step))
                 .replace('{upper}', Math.floor(Number(el.value) / Number(el.step)) * Number(el.step) +
                 Number(el.step));
         case 'badInput':
         case 'patternMismatch':
         default:
-            return I18N$t[lang][error];
+            return I18N$r[lang][error];
     }
 }
 /**
@@ -3558,7 +3558,7 @@ function validateRadioCheckboxGroup(elements) {
     }
 }
 
-const I18N$s = {
+const I18N$q = {
   en: {
     label: {
       danger: 'This is a critical alert.',
@@ -3640,14 +3640,14 @@ class GcdsAlert {
     render() {
         const { alertRole, container, heading, hideCloseBtn, hideRoleIcon, isFixed, isOpen, lang, } = this;
         return (hAsync(Host, { key: '9ca55e2b6562e7dfda9e367b21b5d2aa3bbe37d7' }, isOpen ? (hAsync("div", { class: `gcds-alert alert--role-${alertRole} ${isFixed ? 'alert--is-fixed' : ''}`, role: "alert", "aria-label": alertRole === 'danger'
-                ? I18N$s[lang].label.danger
+                ? I18N$q[lang].label.danger
                 : alertRole === 'info'
-                    ? I18N$s[lang].label.info
+                    ? I18N$q[lang].label.info
                     : alertRole === 'success'
-                        ? I18N$s[lang].label.success
+                        ? I18N$q[lang].label.success
                         : alertRole === 'warning'
-                            ? I18N$s[lang].label.warning
-                            : null }, hAsync("gcds-container", { size: isFixed ? container : 'full', centered: true }, hAsync("div", { class: "alert__container" }, !hideRoleIcon && (hAsync("gcds-icon", { "aria-hidden": "true", class: "alert__icon", size: "h5", "margin-right": "175", name: alertRole === 'danger'
+                            ? I18N$q[lang].label.warning
+                            : null }, hAsync("gcds-container", { size: isFixed ? container : 'full', alignment: "center" }, hAsync("div", { class: "alert__container" }, !hideRoleIcon && (hAsync("gcds-icon", { "aria-hidden": "true", class: "alert__icon", size: "h5", "margin-right": "175", name: alertRole === 'danger'
                 ? 'exclamation-circle'
                 : alertRole === 'info'
                     ? 'info-circle'
@@ -3660,7 +3660,7 @@ class GcdsAlert {
                 if (event) {
                     this.isOpen = false;
                 }
-            }, "aria-label": I18N$s[lang].closeBtn }, hAsync("gcds-icon", { "aria-hidden": "true", name: "close", size: "text" }))))))) : null));
+            }, "aria-label": I18N$q[lang].closeBtn }, hAsync("gcds-icon", { "aria-hidden": "true", name: "close", size: "text" }))))))) : null));
     }
     get el() { return getElement(this); }
     static get style() { return gcdsAlertCss; }
@@ -3683,7 +3683,7 @@ class GcdsAlert {
     }; }
 }
 
-const I18N$r = {
+const I18N$p = {
   en: {
     label: 'Breadcrumb',
     link: 'https://www.canada.ca/en.html',
@@ -3730,7 +3730,7 @@ class GcdsBreadcrumbs {
     }
     render() {
         const { hideCanadaLink, lang } = this;
-        return (hAsync(Host, { key: '03039bf66fd3e4f7939818708e4b2e3eecb9ea16' }, hAsync("nav", { key: 'a544a335b8a3308bac153517792c2ff9b24cc436', "aria-label": I18N$r[lang].label, class: "gcds-breadcrumbs" }, hAsync("ol", { key: 'f4daf2765861e5b362e50c5197e34457c2088aa4', class: hideCanadaLink ? '' : 'has-canada-link' }, !hideCanadaLink ? (hAsync("gcds-breadcrumbs-item", { href: I18N$r[lang].link }, "Canada.ca")) : null, hAsync("slot", { key: '0001a34312ea97c7e9c4f41f656051482184142e' })))));
+        return (hAsync(Host, { key: '03039bf66fd3e4f7939818708e4b2e3eecb9ea16' }, hAsync("nav", { key: 'a544a335b8a3308bac153517792c2ff9b24cc436', "aria-label": I18N$p[lang].label, class: "gcds-breadcrumbs" }, hAsync("ol", { key: 'f4daf2765861e5b362e50c5197e34457c2088aa4', class: hideCanadaLink ? '' : 'has-canada-link' }, !hideCanadaLink ? (hAsync("gcds-breadcrumbs-item", { href: I18N$p[lang].link }, "Canada.ca")) : null, hAsync("slot", { key: '0001a34312ea97c7e9c4f41f656051482184142e' })))));
     }
     get el() { return getElement(this); }
     static get style() { return gcdsBreadcrumbsCss; }
@@ -3779,7 +3779,7 @@ class GcdsBreadcrumbsItem {
     }; }
 }
 
-const I18N$q = {
+const I18N$o = {
   en: {
     label: 'Opens in a new tab.',
   },
@@ -3788,7 +3788,7 @@ const I18N$q = {
   },
 };
 
-const gcdsButtonCss = "@layer reset, default, roles, size, disabled, hover, focus, active, mobile;@layer reset{:host{display:inline-block}:host .gcds-button{box-sizing:border-box;cursor:pointer;text-decoration:none}:host slot{display:initial}}@layer default{:host .gcds-button{border:var(--gcds-button-border-width) solid transparent;border-radius:var(--gcds-button-border-radius);display:inline-block;font:var(--gcds-button-font-desktop);padding:var(--gcds-button-padding);text-align:center;text-wrap:balance;transition:all .15s ease-in-out;width:var(--gcds-button-width)}@media only screen and (width < 48em){:host .gcds-button{font:var(--gcds-button-font-mobile)}}}@layer roles{:host .gcds-button.button--role-danger{background-color:var(--gcds-button-danger-default-background);color:var(--gcds-button-danger-default-text)}:host .gcds-button.button--role-primary{background-color:var(--gcds-button-primary-default-background);color:var(--gcds-button-primary-default-text)}:host .gcds-button.button--role-start{background-color:var(--gcds-button-start-default-background);color:var(--gcds-button-start-default-text);font:var(--gcds-button-start-font-desktop);padding:var(--gcds-button-start-padding)}@media only screen and (width < 48em){:host .gcds-button.button--role-start{font:var(--gcds-button-start-font-mobile)}}:host .gcds-button.button--role-secondary{background-color:var(--gcds-button-secondary-default-background);border:var(--gcds-button-border-width) solid;color:var(--gcds-button-secondary-default-text)}}@layer size{:host .gcds-button.button--small{font:var(--gcds-button-small-font);padding:var(--gcds-button-small-padding)}}@layer disabled{:host([disabled]){pointer-events:none}:host([disabled]) .gcds-button[aria-disabled=true]{cursor:not-allowed;opacity:var(--gcds-button-shared-disabled-opacity);pointer-events:none}}@layer hover{@media (hover:hover){:host .gcds-button:hover.button--role-danger{background-color:var(--gcds-button-danger-hover-background)}:host .gcds-button:hover.button--role-primary{background-color:var(--gcds-button-primary-hover-background)}:host .gcds-button:hover.button--role-start{background-color:var(--gcds-button-start-hover-background)}:host .gcds-button:hover.button--role-secondary{background-color:var(--gcds-button-secondary-hover-background)}}}@layer focus{:host .gcds-button:focus{background-color:var(--gcds-button-shared-focus-background);border-color:var(--gcds-button-shared-focus-background);box-shadow:var(--gcds-button-shared-focus-box-shadow);color:var(--gcds-button-shared-focus-text);outline:var(--gcds-button-shared-focus-outline-width) solid var(--gcds-button-shared-focus-background);outline-offset:var(--gcds-button-border-width)}}@layer active{:host .gcds-button:active{background-color:var(--gcds-button-shared-active-background);border-color:var(--gcds-button-shared-active-background)}}@layer mobile{@media screen and (max-width:30rem){:host{display:block}:host .gcds-button{margin:var(--gcds-button-mobile-margin);width:var(--gcds-button-mobile-width)}}}";
+const gcdsButtonCss = "@layer reset, default, roles, size, disabled, hover, focus, active, mobile;@layer reset{:host{display:inline-block}:host .gcds-button{box-sizing:border-box;cursor:pointer;text-decoration:none}:host slot{display:initial}}@layer default{:host .gcds-button{border:var(--gcds-button-border-width) solid transparent;border-radius:var(--gcds-button-border-radius);display:inline-block;font:var(--gcds-button-font-desktop);padding:var(--gcds-button-padding);text-align:center;text-wrap:balance;transition:all .15s ease-in-out;width:var(--gcds-button-width)}@media only screen and (width < 48em){:host .gcds-button{font:var(--gcds-button-font-mobile)}}}@layer roles{:host .gcds-button.button--role-danger{background-color:var(--gcds-button-danger-default-background);color:var(--gcds-button-danger-default-text)}:host .gcds-button.button--role-primary{background-color:var(--gcds-button-primary-default-background);color:var(--gcds-button-primary-default-text)}:host .gcds-button.button--role-start{background-color:var(--gcds-button-start-default-background);color:var(--gcds-button-start-default-text);font:var(--gcds-button-start-font-desktop);padding:var(--gcds-button-start-padding)}@media only screen and (width < 48em){:host .gcds-button.button--role-start{font:var(--gcds-button-start-font-mobile)}}:host .gcds-button.button--role-secondary{background-color:var(--gcds-button-secondary-default-background);border:var(--gcds-button-border-width) solid;color:var(--gcds-button-secondary-default-text)}}@layer size{:host .gcds-button.button--small{font:var(--gcds-button-small-font-desktop);padding:var(--gcds-button-small-padding)}@media only screen and (width < 48em){:host .gcds-button.button--small{font:var(--gcds-button-small-font-mobile)}}}@layer disabled{:host([disabled]){pointer-events:none}:host([disabled]) .gcds-button[aria-disabled=true]{cursor:not-allowed;opacity:var(--gcds-button-shared-disabled-opacity);pointer-events:none}}@layer hover{@media (hover:hover){:host .gcds-button:hover.button--role-danger{background-color:var(--gcds-button-danger-hover-background)}:host .gcds-button:hover.button--role-primary{background-color:var(--gcds-button-primary-hover-background)}:host .gcds-button:hover.button--role-start{background-color:var(--gcds-button-start-hover-background)}:host .gcds-button:hover.button--role-secondary{background-color:var(--gcds-button-secondary-hover-background)}}}@layer focus{:host .gcds-button:focus{background-color:var(--gcds-button-shared-focus-background);border-color:var(--gcds-button-shared-focus-background);box-shadow:var(--gcds-button-shared-focus-box-shadow);color:var(--gcds-button-shared-focus-text);outline:var(--gcds-button-shared-focus-outline-width) solid var(--gcds-button-shared-focus-background);outline-offset:var(--gcds-button-border-width)}}@layer active{:host .gcds-button:active{background-color:var(--gcds-button-shared-active-background);border-color:var(--gcds-button-shared-active-background);color:var(--gcds-button-shared-active-text)}}@layer mobile{@media screen and (max-width:30rem){:host{display:block}:host .gcds-button{margin:var(--gcds-button-mobile-margin);width:var(--gcds-button-mobile-width)}}}";
 
 /**
  * The button is an interactive object that emphasizes an action.
@@ -3918,7 +3918,7 @@ class GcdsButton {
                 target,
                 download,
             };
-        return (hAsync(Host, { key: 'e9340ebfb8c10ce33a593b6b7f54394949317506' }, hAsync(Tag, Object.assign({ key: 'c62ba255b62ddbff1c3dbef61a4e64973df1bccb' }, attrs, { id: buttonId, onBlur: () => this.gcdsBlur.emit(), onFocus: () => this.gcdsFocus.emit(), onClick: e => !disabled ? this.handleClick(e) : e.stopImmediatePropagation(), class: `gcds-button button--role-${buttonRole} button--${size}`, ref: element => (this.shadowElement = element) }, inheritedAttributes, { part: "button" }), hAsync("slot", { key: 'f922fc8e16a85bce258204ff670bc6aaa81ca119' }), type === 'link' && target === '_blank' ? (hAsync("gcds-icon", { name: "external", label: I18N$q[lang].label, "margin-left": "150" })) : null)));
+        return (hAsync(Host, { key: 'e9340ebfb8c10ce33a593b6b7f54394949317506' }, hAsync(Tag, Object.assign({ key: 'c62ba255b62ddbff1c3dbef61a4e64973df1bccb' }, attrs, { id: buttonId, onBlur: () => this.gcdsBlur.emit(), onFocus: () => this.gcdsFocus.emit(), onClick: e => !disabled ? this.handleClick(e) : e.stopImmediatePropagation(), class: `gcds-button button--role-${buttonRole} button--${size}`, ref: element => (this.shadowElement = element) }, inheritedAttributes, { part: "button" }), hAsync("slot", { key: 'f922fc8e16a85bce258204ff670bc6aaa81ca119' }), type === 'link' && target === '_blank' ? (hAsync("gcds-icon", { name: "external", label: I18N$o[lang].label, "margin-left": "150" })) : null)));
     }
     static get delegatesFocus() { return true; }
     get el() { return getElement(this); }
@@ -3953,7 +3953,7 @@ class GcdsButton {
     }; }
 }
 
-const I18N$p = {
+const I18N$n = {
   en: {
     tagged: 'Tagged:',
     badgeError: 'gcds-card: The badge attribute has a character limit of 20 characters.',
@@ -3978,12 +3978,6 @@ class GcdsCard {
         this.gcdsBlur = createEvent(this, "gcdsBlur");
         this.gcdsClick = createEvent(this, "gcdsClick");
         /**
-         * The card title tag property specifies the HTML heading element for the title.
-         * This property does not modify the font size. It is used to assign the heading level
-         * in order to maintain heading hierarchy and accessibility for assistive technologies.
-         */
-        this.cardTitleTag = 'a';
-        /**
          * State to track validation on properties
          * Contains a list of properties that have an error associated with them
          */
@@ -4007,7 +4001,7 @@ class GcdsCard {
     }
     validateBadge() {
         if (this.badge && this.badge.length > 20) {
-            console.error(`${I18N$p['en'].badgeError} | ${I18N$p['fr'].badgeError}`);
+            console.error(`${I18N$n['en'].badgeError} | ${I18N$n['fr'].badgeError}`);
             this.errors.push('badge');
         }
         else if (this.errors.includes('badge')) {
@@ -4065,7 +4059,7 @@ class GcdsCard {
             taggedAttr['aria-describedby'] = 'gcds-badge';
         }
         if (this.validateRequiredProps()) {
-            return (hAsync(Host, { key: '63362d1b4d0400fd13351181755b50976372b01c' }, hAsync("div", { key: 'da6b99dc52d26f393c46f411cb886a76f29bb89d', class: "gcds-card" }, badge && !errors.includes('badge') && (hAsync("gcds-text", { key: 'd6fb663560860206c180a33bd4fd0379a9d14a79', id: "gcds-badge", class: "gcds-badge", "text-role": "light", "margin-bottom": "0", size: "small" }, hAsync("strong", { key: 'd80f3a9c559224d534fa6918bc7871f2125dc5ef' }, hAsync("gcds-sr-only", { key: '6aeed4c241c3fe00e95f1f7f98f8c59bd3bd5fce', tag: "span" }, I18N$p[lang].tagged), badge))), imgSrc && (hAsync("img", { key: '924bcbb696ef0a579370e2986e7cc4daa4580d1b', src: imgSrc, alt: imgAlt ? imgAlt : '', class: "gcds-card__image" })), Element != 'a' ? (hAsync(Element, Object.assign({ class: "gcds-card__title" }, taggedAttr), hAsync("gcds-link", { href: href }, cardTitle))) : (hAsync("gcds-link", Object.assign({ href: href, class: "gcds-card__title", rel: rel, target: target }, taggedAttr), cardTitle)), renderDescription)));
+            return (hAsync(Host, { key: 'dd00869ab8d4fb7fd9abf68b0432899a475cedf8' }, hAsync("div", { key: '8f57992a1de761c5510f037b2a8136459f07b14d', class: "gcds-card" }, badge && !errors.includes('badge') && (hAsync("gcds-text", { key: '42c7fc2a3c8b69d1cc454adb9ca1767fc9986566', id: "gcds-badge", class: "gcds-badge", "text-role": "light", "margin-bottom": "0", size: "small" }, hAsync("strong", { key: '32c13a05860a19a0a43ea995f645507604d9452c' }, hAsync("gcds-sr-only", { key: '2e47faade10e8138cbca10994293d9cd23c573a5', tag: "span" }, I18N$n[lang].tagged), badge))), imgSrc && (hAsync("img", { key: '6ccf1faa6faf20a9991e5374fef4ce96b71532ae', src: imgSrc, alt: imgAlt ? imgAlt : '', class: "gcds-card__image" })), Element ? (hAsync(Element, Object.assign({ class: "gcds-card__title" }, taggedAttr), hAsync("gcds-link", { href: href }, cardTitle))) : (hAsync("gcds-link", Object.assign({ href: href, class: "gcds-card__title", rel: rel, target: target }, taggedAttr), cardTitle)), renderDescription)));
         }
     }
     get el() { return getElement(this); }
@@ -4616,7 +4610,7 @@ const renderCheckbox = (checkbox, element, emitEvent, handleInput) => {
         !isGroup && errorMessage ? (hAsync("gcds-error-message", { messageId: checkbox.id }, errorMessage)) : null));
 };
 
-const I18N$o = {
+const I18N$m = {
   en: {
     required: ' (required)',
   },
@@ -4952,7 +4946,7 @@ class GcdsCheckboxes {
         }
         this.shadowElement = [];
         if (this.validateRequiredProps()) {
-            return (hAsync(Host, { key: 'f37866363b587b6c228032f6940efa6e3bb4e90c', onBlur: () => this.isGroup && this.onBlurValidate() }, this.isGroup ? (hAsync("fieldset", Object.assign({ class: "gcds-checkboxes__fieldset" }, fieldsetAttrs), hAsync("legend", { id: "checkboxes-legend", class: "gcds-checkboxes__legend" }, this.hideLegend ? (hAsync("gcds-sr-only", { tag: "span" }, legend, required && hAsync("span", { class: "legend__required" }, I18N$o[this.lang].required))) : (hAsync(Fragment, null, legend, required && hAsync("span", { class: "legend__required" }, I18N$o[this.lang].required)))), hint ? (hAsync("gcds-hint", { id: "checkboxes-hint", "hint-id": "checkboxes" }, hint)) : null, errorMessage ? (hAsync("div", null, hAsync("gcds-error-message", { id: "checkboxes-error", messageId: "checkboxes" }, errorMessage))) : null, this.optionsArr &&
+            return (hAsync(Host, { key: 'f37866363b587b6c228032f6940efa6e3bb4e90c', onBlur: () => this.isGroup && this.onBlurValidate() }, this.isGroup ? (hAsync("fieldset", Object.assign({ class: "gcds-checkboxes__fieldset" }, fieldsetAttrs), hAsync("legend", { id: "checkboxes-legend", class: "gcds-checkboxes__legend" }, this.hideLegend ? (hAsync("gcds-sr-only", { tag: "span" }, legend, required && hAsync("span", { class: "legend__required" }, I18N$m[this.lang].required))) : (hAsync(Fragment, null, legend, required && hAsync("span", { class: "legend__required" }, I18N$m[this.lang].required)))), hint ? (hAsync("gcds-hint", { id: "checkboxes-hint", "hint-id": "checkboxes" }, hint)) : null, errorMessage ? (hAsync("div", null, hAsync("gcds-error-message", { id: "checkboxes-error", messageId: "checkboxes" }, errorMessage))) : null, this.optionsArr &&
                 this.optionsArr.map(checkbox => {
                     return renderCheckbox(checkbox, this, emitEvent, this.handleInput);
                 }))) : (this.optionsArr &&
@@ -5008,7 +5002,7 @@ class GcdsCheckboxes {
     }; }
 }
 
-const gcdsContainerCss = "@layer reset, default, border, centered, main, margin, padding, size;@layer reset{:host{display:block}:host .gcds-container{box-sizing:border-box;display:block;margin:0;padding:0}:host .gcds-container slot{display:initial}}@layer default{:host .gcds-container[class*=size]{width:var(--gcds-container-size-full)}}@layer border{:host .gcds-container.container-border{border:var(--gcds-container-border)}}@layer centered{:host .gcds-container.container-centered{margin-inline:auto!important}}@layer main{:host .gcds-container.container-main:not(.size-full){width:90%}}@layer margin{:host .gcds-container.m-0{margin:var(--gcds-container-spacing-0)}:host .gcds-container.m-25{margin:var(--gcds-container-spacing-25)}:host .gcds-container.m-50{margin:var(--gcds-container-spacing-50)}:host .gcds-container.m-75{margin:var(--gcds-container-spacing-75)}:host .gcds-container.m-100{margin:var(--gcds-container-spacing-100)}:host .gcds-container.m-125{margin:var(--gcds-container-spacing-125)}:host .gcds-container.m-150{margin:var(--gcds-container-spacing-150)}:host .gcds-container.m-175{margin:var(--gcds-container-spacing-175)}:host .gcds-container.m-200{margin:var(--gcds-container-spacing-200)}:host .gcds-container.m-225{margin:var(--gcds-container-spacing-225)}:host .gcds-container.m-250{margin:var(--gcds-container-spacing-250)}:host .gcds-container.m-300{margin:var(--gcds-container-spacing-300)}:host .gcds-container.m-350{margin:var(--gcds-container-spacing-350)}:host .gcds-container.m-400{margin:var(--gcds-container-spacing-400)}:host .gcds-container.m-450{margin:var(--gcds-container-spacing-450)}:host .gcds-container.m-500{margin:var(--gcds-container-spacing-500)}:host .gcds-container.m-550{margin:var(--gcds-container-spacing-550)}:host .gcds-container.m-600{margin:var(--gcds-container-spacing-600)}:host .gcds-container.m-650{margin:var(--gcds-container-spacing-650)}:host .gcds-container.m-700{margin:var(--gcds-container-spacing-700)}:host .gcds-container.m-750{margin:var(--gcds-container-spacing-750)}:host .gcds-container.m-800{margin:var(--gcds-container-spacing-800)}:host .gcds-container.m-850{margin:var(--gcds-container-spacing-850)}:host .gcds-container.m-900{margin:var(--gcds-container-spacing-900)}:host .gcds-container.m-950{margin:var(--gcds-container-spacing-950)}:host .gcds-container.m-1000{margin:var(--gcds-container-spacing-1000)}:host .gcds-container.m-1050{margin:var(--gcds-container-spacing-1050)}:host .gcds-container.m-1100{margin:var(--gcds-container-spacing-1100)}:host .gcds-container.m-1150{margin:var(--gcds-container-spacing-1150)}:host .gcds-container.m-1200{margin:var(--gcds-container-spacing-1200)}:host .gcds-container.m-1250{margin:var(--gcds-container-spacing-1250)}}@layer padding{:host .gcds-container.p-0{padding:var(--gcds-container-spacing-0)}:host .gcds-container.p-25{padding:var(--gcds-container-spacing-25)}:host .gcds-container.p-50{padding:var(--gcds-container-spacing-50)}:host .gcds-container.p-75{padding:var(--gcds-container-spacing-75)}:host .gcds-container.p-100{padding:var(--gcds-container-spacing-100)}:host .gcds-container.p-125{padding:var(--gcds-container-spacing-125)}:host .gcds-container.p-150{padding:var(--gcds-container-spacing-150)}:host .gcds-container.p-175{padding:var(--gcds-container-spacing-175)}:host .gcds-container.p-200{padding:var(--gcds-container-spacing-200)}:host .gcds-container.p-225{padding:var(--gcds-container-spacing-225)}:host .gcds-container.p-250{padding:var(--gcds-container-spacing-250)}:host .gcds-container.p-300{padding:var(--gcds-container-spacing-300)}:host .gcds-container.p-350{padding:var(--gcds-container-spacing-350)}:host .gcds-container.p-400{padding:var(--gcds-container-spacing-400)}:host .gcds-container.p-450{padding:var(--gcds-container-spacing-450)}:host .gcds-container.p-500{padding:var(--gcds-container-spacing-500)}:host .gcds-container.p-550{padding:var(--gcds-container-spacing-550)}:host .gcds-container.p-600{padding:var(--gcds-container-spacing-600)}:host .gcds-container.p-650{padding:var(--gcds-container-spacing-650)}:host .gcds-container.p-700{padding:var(--gcds-container-spacing-700)}:host .gcds-container.p-750{padding:var(--gcds-container-spacing-750)}:host .gcds-container.p-800{padding:var(--gcds-container-spacing-800)}:host .gcds-container.p-850{padding:var(--gcds-container-spacing-850)}:host .gcds-container.p-900{padding:var(--gcds-container-spacing-900)}:host .gcds-container.p-950{padding:var(--gcds-container-spacing-950)}:host .gcds-container.p-1000{padding:var(--gcds-container-spacing-1000)}:host .gcds-container.p-1050{padding:var(--gcds-container-spacing-1050)}:host .gcds-container.p-1100{padding:var(--gcds-container-spacing-1100)}:host .gcds-container.p-1150{padding:var(--gcds-container-spacing-1150)}:host .gcds-container.p-1200{padding:var(--gcds-container-spacing-1200)}:host .gcds-container.p-1250{padding:var(--gcds-container-spacing-1250)}}@layer size{:host .gcds-container.size-xl{max-width:var(--gcds-container-size-xl)}:host .gcds-container.size-lg{max-width:var(--gcds-container-size-lg)}:host .gcds-container.size-md{max-width:var(--gcds-container-size-md)}:host .gcds-container.size-sm{max-width:var(--gcds-container-size-sm)}:host .gcds-container.size-xs{max-width:var(--gcds-container-size-xs)}}";
+const gcdsContainerCss = "@layer reset, default, border, margin, padding, alignment, size, layout;@layer reset{:host{display:block}:host .gcds-container{box-sizing:border-box;display:block;margin:0;padding:0}:host .gcds-container slot{display:initial}}@layer default{:host .gcds-container[class*=size]{width:var(--gcds-container-size-full)}}@layer border{:host .gcds-container.container-border{border:var(--gcds-container-border)}}@layer margin{:host .gcds-container.m-0{margin:var(--gcds-container-spacing-0)}:host .gcds-container.m-25{margin:var(--gcds-container-spacing-25)}:host .gcds-container.m-50{margin:var(--gcds-container-spacing-50)}:host .gcds-container.m-75{margin:var(--gcds-container-spacing-75)}:host .gcds-container.m-100{margin:var(--gcds-container-spacing-100)}:host .gcds-container.m-125{margin:var(--gcds-container-spacing-125)}:host .gcds-container.m-150{margin:var(--gcds-container-spacing-150)}:host .gcds-container.m-175{margin:var(--gcds-container-spacing-175)}:host .gcds-container.m-200{margin:var(--gcds-container-spacing-200)}:host .gcds-container.m-225{margin:var(--gcds-container-spacing-225)}:host .gcds-container.m-250{margin:var(--gcds-container-spacing-250)}:host .gcds-container.m-300{margin:var(--gcds-container-spacing-300)}:host .gcds-container.m-350{margin:var(--gcds-container-spacing-350)}:host .gcds-container.m-400{margin:var(--gcds-container-spacing-400)}:host .gcds-container.m-450{margin:var(--gcds-container-spacing-450)}:host .gcds-container.m-500{margin:var(--gcds-container-spacing-500)}:host .gcds-container.m-550{margin:var(--gcds-container-spacing-550)}:host .gcds-container.m-600{margin:var(--gcds-container-spacing-600)}:host .gcds-container.m-650{margin:var(--gcds-container-spacing-650)}:host .gcds-container.m-700{margin:var(--gcds-container-spacing-700)}:host .gcds-container.m-750{margin:var(--gcds-container-spacing-750)}:host .gcds-container.m-800{margin:var(--gcds-container-spacing-800)}:host .gcds-container.m-850{margin:var(--gcds-container-spacing-850)}:host .gcds-container.m-900{margin:var(--gcds-container-spacing-900)}:host .gcds-container.m-950{margin:var(--gcds-container-spacing-950)}:host .gcds-container.m-1000{margin:var(--gcds-container-spacing-1000)}:host .gcds-container.m-1050{margin:var(--gcds-container-spacing-1050)}:host .gcds-container.m-1100{margin:var(--gcds-container-spacing-1100)}:host .gcds-container.m-1150{margin:var(--gcds-container-spacing-1150)}:host .gcds-container.m-1200{margin:var(--gcds-container-spacing-1200)}:host .gcds-container.m-1250{margin:var(--gcds-container-spacing-1250)}}@layer padding{:host .gcds-container.p-0{padding:var(--gcds-container-spacing-0)}:host .gcds-container.p-25{padding:var(--gcds-container-spacing-25)}:host .gcds-container.p-50{padding:var(--gcds-container-spacing-50)}:host .gcds-container.p-75{padding:var(--gcds-container-spacing-75)}:host .gcds-container.p-100{padding:var(--gcds-container-spacing-100)}:host .gcds-container.p-125{padding:var(--gcds-container-spacing-125)}:host .gcds-container.p-150{padding:var(--gcds-container-spacing-150)}:host .gcds-container.p-175{padding:var(--gcds-container-spacing-175)}:host .gcds-container.p-200{padding:var(--gcds-container-spacing-200)}:host .gcds-container.p-225{padding:var(--gcds-container-spacing-225)}:host .gcds-container.p-250{padding:var(--gcds-container-spacing-250)}:host .gcds-container.p-300{padding:var(--gcds-container-spacing-300)}:host .gcds-container.p-350{padding:var(--gcds-container-spacing-350)}:host .gcds-container.p-400{padding:var(--gcds-container-spacing-400)}:host .gcds-container.p-450{padding:var(--gcds-container-spacing-450)}:host .gcds-container.p-500{padding:var(--gcds-container-spacing-500)}:host .gcds-container.p-550{padding:var(--gcds-container-spacing-550)}:host .gcds-container.p-600{padding:var(--gcds-container-spacing-600)}:host .gcds-container.p-650{padding:var(--gcds-container-spacing-650)}:host .gcds-container.p-700{padding:var(--gcds-container-spacing-700)}:host .gcds-container.p-750{padding:var(--gcds-container-spacing-750)}:host .gcds-container.p-800{padding:var(--gcds-container-spacing-800)}:host .gcds-container.p-850{padding:var(--gcds-container-spacing-850)}:host .gcds-container.p-900{padding:var(--gcds-container-spacing-900)}:host .gcds-container.p-950{padding:var(--gcds-container-spacing-950)}:host .gcds-container.p-1000{padding:var(--gcds-container-spacing-1000)}:host .gcds-container.p-1050{padding:var(--gcds-container-spacing-1050)}:host .gcds-container.p-1100{padding:var(--gcds-container-spacing-1100)}:host .gcds-container.p-1150{padding:var(--gcds-container-spacing-1150)}:host .gcds-container.p-1200{padding:var(--gcds-container-spacing-1200)}:host .gcds-container.p-1250{padding:var(--gcds-container-spacing-1250)}}@layer alignment{:host .gcds-container.alignment-start{margin-inline-start:0!important}:host .gcds-container.alignment-center{margin-inline:auto!important}:host .gcds-container.alignment-end{margin-inline-end:0!important;margin-inline-start:auto!important}}@layer size{:host .gcds-container.size-xl{max-width:var(--gcds-container-size-xl)}:host .gcds-container.size-lg{max-width:var(--gcds-container-size-lg)}:host .gcds-container.size-md{max-width:var(--gcds-container-size-md)}:host .gcds-container.size-sm{max-width:var(--gcds-container-size-sm)}:host .gcds-container.size-xs{max-width:var(--gcds-container-size-xs)}}@layer layout{:host .gcds-container.layout-full{max-width:100%!important}:host .gcds-container.layout-page{margin-inline:auto!important;max-width:90%!important;width:var(--gcds-container-size-xl)!important}}";
 
 /**
  * A container is a basic box layout with a set width for its contents.
@@ -5019,22 +5013,9 @@ class GcdsContainer {
     constructor(hostRef) {
         registerInstance(this, hostRef);
         /**
-         * Props
-         */
-        /**
          * Defines if the container has a border.
          */
         this.border = false;
-        /**
-         * Defines if the container is centered.
-         */
-        this.centered = false;
-        /**
-         * Defines if the container is the main page container. When true,
-         * the width will be set to 90% for smaller screens to ensure consistency
-         * with the responsiveness of other core layout components (header + footer).
-         */
-        this.mainContainer = false;
         /**
          * Defines container size.
          */
@@ -5045,17 +5026,17 @@ class GcdsContainer {
         this.tag = 'div';
     }
     render() {
-        const { border, centered, mainContainer, margin, padding, size, tag } = this;
+        const { alignment, border, layout, margin, padding, size, tag } = this;
         const Tag = tag;
-        return (hAsync(Host, { key: '158cd288fe99ffdcc6d6d98ed0679521989516ab' }, hAsync(Tag, { key: '64af2b520df43454dce4e7154533192484bcf502', class: `
+        return (hAsync(Host, { key: 'c8b1e6c3e57435cc8998b15b27cb46d7c6aa2957' }, hAsync(Tag, { key: '2288e5b16bcb4a169b9ba792f17fba37966041a8', class: `
             gcds-container
             ${border ? 'container-border' : ''}
-            ${centered ? 'container-centered' : ''}
-            ${mainContainer ? 'container-main' : ''}
+            ${alignment && layout != 'page' ? `alignment-${alignment}` : ''}
+            ${layout ? `layout-${layout}` : ''}
             ${margin ? `m-${margin}` : ''}
             ${padding ? `p-${padding}` : ''}
             ${size ? `size-${size}` : ''}
-          ` }, hAsync("slot", { key: 'd396a7a600b82d553fd23674400677cbdd2e9a06' }))));
+          ` }, hAsync("slot", { key: '660586f2cb48bcfdf6eec5917e58cd6775c2f387' }))));
     }
     get el() { return getElement(this); }
     static get style() { return gcdsContainerCss; }
@@ -5063,9 +5044,9 @@ class GcdsContainer {
         "$flags$": 9,
         "$tagName$": "gcds-container",
         "$members$": {
+            "alignment": [1],
             "border": [4],
-            "centered": [4],
-            "mainContainer": [4, "main-container"],
+            "layout": [1],
             "margin": [1],
             "padding": [1],
             "size": [1],
@@ -5077,7 +5058,7 @@ class GcdsContainer {
     }; }
 }
 
-const I18N$n = {
+const I18N$l = {
   en: {
     year: 'Year',
     month: 'Month',
@@ -5405,7 +5386,7 @@ class GcdsDateInput {
                 valid = false;
                 rangeUnderflow = true;
                 formError = elements;
-                errorMessage = I18N$n[this.lang].rangeUnderflow.replace('{{min}}', this.min);
+                errorMessage = I18N$l[this.lang].rangeUnderflow.replace('{{min}}', this.min);
                 this.htmlValidationErrors.push({
                     error: 'rangeUnderflow',
                     hasError: { day: true, month: true, year: true },
@@ -5420,7 +5401,7 @@ class GcdsDateInput {
             if (setDate > maxDate) {
                 valid = false;
                 rangeOverflow = true;
-                errorMessage = I18N$n[this.lang].rangeOverflow.replace('{{max}}', this.max);
+                errorMessage = I18N$l[this.lang].rangeOverflow.replace('{{max}}', this.max);
                 this.htmlValidationErrors.push({
                     error: 'rangeOverflow',
                     hasError: { day: true, month: true, year: true },
@@ -5572,10 +5553,10 @@ class GcdsDateInput {
         }
         // Array of months 01 - 12
         const options = Array.from({ length: 12 }, (_, i) => i + 1 < 10 ? `0${i + 1}` : `${i + 1}`);
-        const month = (hAsync("gcds-select", Object.assign({ key: 'e6f090b288f964719d989890c1757af3a5339551', label: I18N$n[lang].month, selectId: "month", name: "month", defaultValue: I18N$n[lang].selectmonth, disabled: disabled, onInput: e => this.handleInput(e, 'month'), onChange: e => this.handleInput(e, 'month'), value: this.monthValue, class: `gcds-date-input__month ${hasError['month'] ? 'gcds-date-input--error' : ''}` }, requiredAttr, { "aria-invalid": hasError['month'].toString(), "aria-description": hasError['month'] && errorMessage, form: form, ref: el => (this.monthSelect = el) }), options.map(option => (hAsync("option", { key: option, value: option }, I18N$n[lang]['months'][option])))));
-        const year = (hAsync("gcds-input", Object.assign({ key: 'ed5b22815eaee48211a8feb25cf9198a4b601c9e', name: "year", label: I18N$n[lang].year, inputId: "year", type: "text", inputmode: "numeric", size: 4, disabled: disabled, value: this.yearValue, onInput: e => this.handleInput(e, 'year'), onChange: e => this.handleInput(e, 'year'), onKeyDown: this.blockInvalidKeys, class: `gcds-date-input__year ${hasError['year'] ? 'gcds-date-input--error' : ''}`, "validate-on": 'other' }, requiredAttr, { "aria-invalid": hasError['year'].toString(), "aria-description": hasError['year'] && errorMessage, form: form, ref: el => (this.yearInput = el) })));
-        const day = (hAsync("gcds-input", Object.assign({ key: '6d79af7da5be2ade8ea8f962c15233294e6042e7', name: "day", label: I18N$n[lang].day, inputId: "day", type: "text", inputmode: "numeric", size: 2, disabled: disabled, value: this.dayValue, onInput: e => this.handleInput(e, 'day'), onChange: e => this.handleInput(e, 'day'), onKeyDown: this.blockInvalidKeys, "validate-on": 'other', class: `gcds-date-input__day ${hasError['day'] ? 'gcds-date-input--error' : ''}` }, requiredAttr, { "aria-invalid": hasError['day'].toString(), "aria-description": hasError['day'] && errorMessage, form: form, ref: el => (this.dayInput = el) })));
-        return (hAsync(Host, { key: 'bd299bd117299d1b0500413185a10a32501b7490', name: name, onBlur: () => this.onBlur() }, this.validateRequiredProps() && (hAsync("fieldset", Object.assign({ key: '02d4a393d8336c29d060716f5ddd9c3e1eb4c46d', class: "gcds-date-input__fieldset" }, fieldsetAttrs, { ref: el => (this.fieldset = el) }), hAsync("legend", { key: 'deb09ce61953147d78b00eb1ac45a821651ec80f', id: "date-input-legend" }, legend, required ? (hAsync("span", { class: "legend__required" }, I18N$n[lang].required)) : null), hint ? (hAsync("gcds-hint", { id: "date-input-hint", "hint-id": "date-input" }, hint)) : null, errorMessage ? (hAsync("div", null, hAsync("gcds-error-message", { id: "date-input-error", messageId: "date-input" }, errorMessage))) : null, format == 'compact'
+        const month = (hAsync("gcds-select", Object.assign({ key: 'e6f090b288f964719d989890c1757af3a5339551', label: I18N$l[lang].month, selectId: "month", name: "month", defaultValue: I18N$l[lang].selectmonth, disabled: disabled, onInput: e => this.handleInput(e, 'month'), onChange: e => this.handleInput(e, 'month'), value: this.monthValue, class: `gcds-date-input__month ${hasError['month'] ? 'gcds-date-input--error' : ''}` }, requiredAttr, { "aria-invalid": hasError['month'].toString(), "aria-description": hasError['month'] && errorMessage, form: form, ref: el => (this.monthSelect = el) }), options.map(option => (hAsync("option", { key: option, value: option }, I18N$l[lang]['months'][option])))));
+        const year = (hAsync("gcds-input", Object.assign({ key: 'ed5b22815eaee48211a8feb25cf9198a4b601c9e', name: "year", label: I18N$l[lang].year, inputId: "year", type: "text", inputmode: "numeric", size: 4, disabled: disabled, value: this.yearValue, onInput: e => this.handleInput(e, 'year'), onChange: e => this.handleInput(e, 'year'), onKeyDown: this.blockInvalidKeys, class: `gcds-date-input__year ${hasError['year'] ? 'gcds-date-input--error' : ''}`, "validate-on": 'other' }, requiredAttr, { "aria-invalid": hasError['year'].toString(), "aria-description": hasError['year'] && errorMessage, form: form, ref: el => (this.yearInput = el) })));
+        const day = (hAsync("gcds-input", Object.assign({ key: '6d79af7da5be2ade8ea8f962c15233294e6042e7', name: "day", label: I18N$l[lang].day, inputId: "day", type: "text", inputmode: "numeric", size: 2, disabled: disabled, value: this.dayValue, onInput: e => this.handleInput(e, 'day'), onChange: e => this.handleInput(e, 'day'), onKeyDown: this.blockInvalidKeys, "validate-on": 'other', class: `gcds-date-input__day ${hasError['day'] ? 'gcds-date-input--error' : ''}` }, requiredAttr, { "aria-invalid": hasError['day'].toString(), "aria-description": hasError['day'] && errorMessage, form: form, ref: el => (this.dayInput = el) })));
+        return (hAsync(Host, { key: 'bd299bd117299d1b0500413185a10a32501b7490', name: name, onBlur: () => this.onBlur() }, this.validateRequiredProps() && (hAsync("fieldset", Object.assign({ key: '02d4a393d8336c29d060716f5ddd9c3e1eb4c46d', class: "gcds-date-input__fieldset" }, fieldsetAttrs, { ref: el => (this.fieldset = el) }), hAsync("legend", { key: 'deb09ce61953147d78b00eb1ac45a821651ec80f', id: "date-input-legend" }, legend, required ? (hAsync("span", { class: "legend__required" }, I18N$l[lang].required)) : null), hint ? (hAsync("gcds-hint", { id: "date-input-hint", "hint-id": "date-input" }, hint)) : null, errorMessage ? (hAsync("div", null, hAsync("gcds-error-message", { id: "date-input-error", messageId: "date-input" }, errorMessage))) : null, format == 'compact'
             ? [month, year]
             : lang == 'en'
                 ? [month, day, year]
@@ -5627,7 +5608,7 @@ class GcdsDateInput {
     }; }
 }
 
-const I18N$m = {
+const I18N$k = {
   en: {
     date: 'Date modified:',
     version: 'Version ',
@@ -5698,7 +5679,7 @@ class GcdsDateModified {
     }
     render() {
         const { lang, type } = this;
-        return (hAsync(Host, { key: 'cda63407c2b6dc57f860d505f61a9f78c15c96b3' }, this.validateRequiredProps() && (hAsync("dl", { key: '3324ca2c0c64c5f89c4a398344f3892fb1637073', class: "gcds-date-modified" }, hAsync("dt", { key: '46bb18c35af4cfccd2e8cc71943fb3bee51de503' }, hAsync("gcds-text", { key: 'd9b12fc046a396ba12817b210eb100980c59d720', display: "inline", "margin-bottom": "0" }, type === 'version' ? I18N$m[lang].version : I18N$m[lang].date)), hAsync("dd", { key: 'cc81cb879d8fc1a06832aa6f80d29c179892afc7' }, hAsync("gcds-text", { key: 'cebba414553c7357b8bf9033d4d84e2a2ec03521', display: "inline", "margin-bottom": "0" }, type === 'version' ? (hAsync("slot", null)) : (hAsync("time", null, hAsync("slot", null)))))))));
+        return (hAsync(Host, { key: 'cda63407c2b6dc57f860d505f61a9f78c15c96b3' }, this.validateRequiredProps() && (hAsync("dl", { key: '3324ca2c0c64c5f89c4a398344f3892fb1637073', class: "gcds-date-modified" }, hAsync("dt", { key: '46bb18c35af4cfccd2e8cc71943fb3bee51de503' }, hAsync("gcds-text", { key: 'd9b12fc046a396ba12817b210eb100980c59d720', display: "inline", "margin-bottom": "0" }, type === 'version' ? I18N$k[lang].version : I18N$k[lang].date)), hAsync("dd", { key: 'cc81cb879d8fc1a06832aa6f80d29c179892afc7' }, hAsync("gcds-text", { key: 'cebba414553c7357b8bf9033d4d84e2a2ec03521', display: "inline", "margin-bottom": "0" }, type === 'version' ? (hAsync("slot", null)) : (hAsync("time", null, hAsync("slot", null)))))))));
     }
     get el() { return getElement(this); }
     static get style() { return gcdsDateModifiedCss; }
@@ -5823,7 +5804,7 @@ class GcdsErrorMessage {
     }; }
 }
 
-const I18N$l = {
+const I18N$j = {
   en: {
     heading: 'There was a problem',
     subheading: 'Errors were found on this page:',
@@ -5966,7 +5947,7 @@ class GcdsErrorSummary {
         const { heading, errorQueue, lang, hasSubmitted, errorLinks } = this;
         return (hAsync(Host, { key: 'a42f126a2bbbe41621a5c56d04c87b31e87d0363' }, hAsync("div", { key: 'eeee2e16453b3c7911042cabb079ab072d3bcd09', role: "alert", tabindex: "-1", ref: element => (this.shadowElement = element), class: `gcds-error-summary ${(hasSubmitted || errorLinks) && Object.keys(errorQueue).length > 0
                 ? 'gcds-show'
-                : ''}` }, hAsync("gcds-heading", { key: '5c0aa122bc9f7a1dc250d856734d99befb88502e', tag: "h2", "margin-top": "0", "margin-bottom": "225" }, heading !== null && heading !== void 0 ? heading : I18N$l[lang].heading), hAsync("ol", { key: '2fd12eca1a9ffe4f11aedfdd3b93d3a0becf7420', class: "summary__errorlist" }, (hasSubmitted || errorLinks) &&
+                : ''}` }, hAsync("gcds-heading", { key: '5c0aa122bc9f7a1dc250d856734d99befb88502e', tag: "h2", "margin-top": "0", "margin-bottom": "225" }, heading !== null && heading !== void 0 ? heading : I18N$j[lang].heading), hAsync("ol", { key: '2fd12eca1a9ffe4f11aedfdd3b93d3a0becf7420', class: "summary__errorlist" }, (hasSubmitted || errorLinks) &&
             Object.keys(errorQueue).length > 0 &&
             Object.keys(errorQueue).map(key => {
                 return (hAsync("li", { class: "summary__listitem" }, hAsync("gcds-link", { size: "regular", href: errorLinks ? key : '#', onClick: e => {
@@ -6000,7 +5981,7 @@ class GcdsErrorSummary {
     }; }
 }
 
-const I18N$k = {
+const I18N$i = {
   en: {
     legendSizeError: 'gcds-fieldset: Invalid size.',
   },
@@ -6027,7 +6008,7 @@ class GcdsFieldset {
     validateLegendSize(newValue) {
         const values = ['h2', 'h3', 'h4', 'h5', 'h6'];
         if (!values.includes(newValue)) {
-            console.error(`${I18N$k['en'].legendSizeError} | ${I18N$k['fr'].legendSizeError}`);
+            console.error(`${I18N$i['en'].legendSizeError} | ${I18N$i['fr'].legendSizeError}`);
         }
     }
     async componentWillLoad() {
@@ -6061,7 +6042,7 @@ class GcdsFieldset {
     }; }
 }
 
-const I18N$j = {
+const I18N$h = {
   en: {
     button: {
       remove: 'Remove',
@@ -6090,7 +6071,7 @@ const I18N$j = {
   },
 };
 
-const gcdsFileUploaderCss = "@layer reset, default, input, files, disabled, error, focus, active;@layer reset{:host{display:block}:host .gcds-file-uploader-wrapper{border:0;margin:0;padding:0}:host .gcds-file-uploader-wrapper button{cursor:pointer;font:inherit;outline:0}}@layer default{:host .gcds-file-uploader-wrapper{align-items:flex-start;color:var(--gcds-file-uploader-default-text);display:flex;flex-direction:column;font:var(--gcds-file-uploader-font-desktop);max-width:90%;transition:color .15s ease-in-out}@media only screen and (width < 48em){:host .gcds-file-uploader-wrapper{font:var(--gcds-file-uploader-font-mobile)}}:host .gcds-file-uploader-wrapper button{border-radius:var(--gcds-file-uploader-file-button-border-radius);transition:all .15s ease-in-out}}@layer input{:host .gcds-file-uploader-wrapper .file-uploader__input{display:inline-block;position:relative}:host .gcds-file-uploader-wrapper .file-uploader__input button{background-color:var(--gcds-file-uploader-button-background);border:var(--gcds-file-uploader-button-border-width) solid var(--gcds-file-uploader-button-text);color:var(--gcds-file-uploader-button-text);font-weight:var(--gcds-file-uploader-button-font-weight);margin:var(--gcds-file-uploader-button-margin);padding:var(--gcds-file-uploader-button-padding)}:host .gcds-file-uploader-wrapper .file-uploader__input input{cursor:pointer;height:100%;left:0;opacity:0;position:absolute;top:0;width:100%}:host .gcds-file-uploader-wrapper .file-uploader__input input::-webkit-file-upload-button{cursor:pointer}:host .gcds-file-uploader-wrapper .file-uploader__input #file-uploader__summary{height:0;margin:0;overflow:hidden;visibility:hidden}}@layer files{:host .gcds-file-uploader-wrapper .file-uploader__uploaded-file{align-items:center;border:var(--gcds-file-uploader-file-border-width) solid var(--gcds-file-uploader-file-border-color);display:flex;justify-content:space-between;max-width:var(--gcds-file-uploader-file-max-width);padding:var(--gcds-file-uploader-file-padding);width:100%}:host .gcds-file-uploader-wrapper .file-uploader__uploaded-file:not(:last-of-type){border-block-end:0}:host .gcds-file-uploader-wrapper .file-uploader__uploaded-file:last-of-type{margin:var(--gcds-file-uploader-button-margin)}:host .gcds-file-uploader-wrapper .file-uploader__uploaded-file gcds-text{overflow:auto}:host .gcds-file-uploader-wrapper .file-uploader__uploaded-file gcds-text::part(text){overflow:hidden;text-overflow:ellipsis;white-space:nowrap}:host .gcds-file-uploader-wrapper .file-uploader__uploaded-file button{align-items:center;background:transparent;border:0;color:var(--gcds-file-uploader-file-button-default-text);display:flex;font-weight:var(--gcds-file-uploader-button-font-weight);margin:var(--gcds-file-uploader-file-button-margin);padding:var(--gcds-file-uploader-file-button-padding)}:host .gcds-file-uploader-wrapper .file-uploader__uploaded-file button:not(:focus) span{overflow:visible;text-decoration:underline var(--gcds-file-uploader-file-button-default-decoration-thickness);text-underline-offset:var(\n          --gcds-file-uploader-file-button-underline-offset\n        )}}@layer disabled{:host .gcds-file-uploader-wrapper.gcds-disabled{color:var(--gcds-file-uploader-disabled-text)}:host .gcds-file-uploader-wrapper.gcds-disabled gcds-label{--gcds-label-text:currentColor}:host .gcds-file-uploader-wrapper.gcds-disabled gcds-hint{--gcds-hint-text:currentColor}:host .gcds-file-uploader-wrapper.gcds-disabled :is(.file-uploader__input,.file-uploader__uploaded-file){pointer-events:none}:host .gcds-file-uploader-wrapper.gcds-disabled .file-uploader__input button,:host .gcds-file-uploader-wrapper.gcds-disabled .file-uploader__uploaded-file,:host .gcds-file-uploader-wrapper.gcds-disabled .file-uploader__uploaded-file button{color:inherit}:host .gcds-file-uploader-wrapper.gcds-disabled .file-uploader__input button{background-color:var(--gcds-file-uploader-disabled-background);border-color:currentColor}}@layer error{:host .gcds-file-uploader-wrapper.gcds-error .file-uploader__uploaded-file{border-color:var(--gcds-file-uploader-file-danger-border-color)}}@layer hover{@media (hover:hover){:host .gcds-file-uploader-wrapper .file-uploader__input:not(:focus-within):hover button{background-color:var(--gcds-file-uploader-hover-button-background)}:host .gcds-file-uploader-wrapper .file-uploader__uploaded-file button:not(:focus):hover{color:var(--gcds-file-uploader-file-button-hover-text)}:host .gcds-file-uploader-wrapper .file-uploader__uploaded-file button:not(:focus):hover span{text-decoration-thickness:var(\n            --gcds-file-uploader-file-button-hover-decoration-thickness\n          )}}}@layer focus{:host .gcds-file-uploader-wrapper:focus-within .file-uploader__uploaded-file:focus-within{border-color:var(--gcds-file-uploader-file-focus-border-color)}:host .gcds-file-uploader-wrapper:focus-within .file-uploader__input:focus-within button,:host .gcds-file-uploader-wrapper:focus-within .file-uploader__uploaded-file button:focus{background-color:var(--gcds-file-uploader-focus-button-background);border-color:var(--gcds-file-uploader-focus-button-background);color:var(--gcds-file-uploader-focus-button-text);outline:var(--gcds-file-uploader-button-outline-width) solid var(--gcds-file-uploader-focus-button-background);outline-offset:var(--gcds-file-uploader-focus-button-outline-offset)}}@layer active{:host .gcds-file-uploader-wrapper .file-uploader__input:has(input:active) button{background-color:var(--gcds-file-uploader-active-button-background);border-color:var(--gcds-file-uploader-active-button-background);color:var(--gcds-file-uploader-active-button-text)}}";
+const gcdsFileUploaderCss = "@layer reset, default, input, files, disabled, error, focus, active;@layer reset{:host{display:block}:host .gcds-file-uploader-wrapper{border:0;margin:0;padding:0}:host .gcds-file-uploader-wrapper button{cursor:pointer;font:inherit;outline:0}}@layer default{:host .gcds-file-uploader-wrapper{align-items:flex-start;color:var(--gcds-file-uploader-default-text);display:flex;flex-direction:column;font:var(--gcds-file-uploader-font-desktop);max-width:90%;transition:color .15s ease-in-out}@media only screen and (width < 48em){:host .gcds-file-uploader-wrapper{font:var(--gcds-file-uploader-font-mobile)}}:host .gcds-file-uploader-wrapper button{border-radius:var(--gcds-file-uploader-button-border-radius);transition:all .15s ease-in-out}}@layer input{:host .gcds-file-uploader-wrapper .file-uploader__input{display:inline-block;position:relative}:host .gcds-file-uploader-wrapper .file-uploader__input button{background-color:var(--gcds-file-uploader-button-background);border:var(--gcds-file-uploader-button-border-width) solid var(--gcds-file-uploader-button-text);color:var(--gcds-file-uploader-button-text);font-weight:var(--gcds-file-uploader-button-font-weight);margin:var(--gcds-file-uploader-button-margin);padding:var(--gcds-file-uploader-button-padding)}:host .gcds-file-uploader-wrapper .file-uploader__input input{cursor:pointer;height:100%;left:0;opacity:0;position:absolute;top:0;width:100%}:host .gcds-file-uploader-wrapper .file-uploader__input input::-webkit-file-upload-button{cursor:pointer}:host .gcds-file-uploader-wrapper .file-uploader__input #file-uploader__summary{height:0;margin:0;overflow:hidden;visibility:hidden}}@layer files{:host .gcds-file-uploader-wrapper .file-uploader__uploaded-file{align-items:center;border:var(--gcds-file-uploader-file-border-width) solid var(--gcds-file-uploader-file-border-color);display:flex;justify-content:space-between;max-width:var(--gcds-file-uploader-file-max-width);padding:var(--gcds-file-uploader-file-padding);width:100%}:host .gcds-file-uploader-wrapper .file-uploader__uploaded-file:not(:last-of-type){border-block-end:0}:host .gcds-file-uploader-wrapper .file-uploader__uploaded-file:last-of-type{margin:var(--gcds-file-uploader-button-margin)}:host .gcds-file-uploader-wrapper .file-uploader__uploaded-file gcds-text{overflow:auto}:host .gcds-file-uploader-wrapper .file-uploader__uploaded-file gcds-text::part(text){overflow:hidden;text-overflow:ellipsis;white-space:nowrap}:host .gcds-file-uploader-wrapper .file-uploader__uploaded-file button{align-items:center;background:transparent;border:0;color:var(--gcds-file-uploader-file-button-default-text);display:flex;font-weight:var(--gcds-file-uploader-button-font-weight);margin:var(--gcds-file-uploader-file-button-margin);padding:var(--gcds-file-uploader-file-button-padding)}:host .gcds-file-uploader-wrapper .file-uploader__uploaded-file button:not(:focus) span{overflow:visible;text-decoration:underline var(--gcds-file-uploader-file-button-default-decoration-thickness);text-underline-offset:var(\n          --gcds-file-uploader-file-button-underline-offset\n        )}}@layer disabled{:host .gcds-file-uploader-wrapper.gcds-disabled{color:var(--gcds-file-uploader-disabled-text)}:host .gcds-file-uploader-wrapper.gcds-disabled gcds-label{--gcds-label-text:currentColor}:host .gcds-file-uploader-wrapper.gcds-disabled gcds-hint{--gcds-hint-text:currentColor}:host .gcds-file-uploader-wrapper.gcds-disabled :is(.file-uploader__input,.file-uploader__uploaded-file){pointer-events:none}:host .gcds-file-uploader-wrapper.gcds-disabled .file-uploader__input button,:host .gcds-file-uploader-wrapper.gcds-disabled .file-uploader__uploaded-file,:host .gcds-file-uploader-wrapper.gcds-disabled .file-uploader__uploaded-file button{color:inherit}:host .gcds-file-uploader-wrapper.gcds-disabled .file-uploader__input button{background-color:var(--gcds-file-uploader-disabled-background);border-color:currentColor}}@layer error{:host .gcds-file-uploader-wrapper.gcds-error .file-uploader__uploaded-file{border-color:var(--gcds-file-uploader-file-danger-border-color)}}@layer hover{@media (hover:hover){:host .gcds-file-uploader-wrapper .file-uploader__input:not(:focus-within):hover button{background-color:var(--gcds-file-uploader-hover-button-background)}:host .gcds-file-uploader-wrapper .file-uploader__uploaded-file button:not(:focus):hover{color:var(--gcds-file-uploader-file-button-hover-text)}:host .gcds-file-uploader-wrapper .file-uploader__uploaded-file button:not(:focus):hover span{text-decoration-thickness:var(\n            --gcds-file-uploader-file-button-hover-decoration-thickness\n          )}}}@layer focus{:host .gcds-file-uploader-wrapper:focus-within .file-uploader__uploaded-file:focus-within{border-color:var(--gcds-file-uploader-file-focus-border-color)}:host .gcds-file-uploader-wrapper:focus-within .file-uploader__input:focus-within button,:host .gcds-file-uploader-wrapper:focus-within .file-uploader__uploaded-file button:focus{background-color:var(--gcds-file-uploader-focus-button-background);border-color:var(--gcds-file-uploader-focus-button-background);color:var(--gcds-file-uploader-focus-button-text);outline:var(--gcds-file-uploader-focus-button-outline-width) solid var(--gcds-file-uploader-focus-button-background);outline-offset:var(--gcds-file-uploader-focus-button-outline-offset)}}@layer active{:host .gcds-file-uploader-wrapper .file-uploader__input:has(input:active) button{background-color:var(--gcds-file-uploader-active-button-background);border-color:var(--gcds-file-uploader-active-button-background);color:var(--gcds-file-uploader-active-button-text)}}";
 
 /**
  * A file uploader is a space to select and add supporting documentation.
@@ -6376,8 +6357,8 @@ class GcdsFileUploader {
             attrsInput['aria-describedby'] =
                 `${hintID}${errorID}${attrsInput['aria-describedby']}`;
         }
-        return (hAsync(Host, { key: '7f8da364ccd3dd2247eb3ca0acfdf626350bc935' }, hAsync("div", { key: '194df3b32d1751a1552d19a4a09f6794fd93e960', class: `gcds-file-uploader-wrapper ${disabled ? 'gcds-disabled' : ''} ${hasError ? 'gcds-error' : ''}` }, hAsync("gcds-label", Object.assign({ key: '4ae5e97f811a21823866c153211ce7903175351e' }, attrsLabel, { "hide-label": hideLabel, "label-for": uploaderId, lang: lang })), hint ? hAsync("gcds-hint", { "hint-id": uploaderId }, hint) : null, errorMessage ? (hAsync("gcds-error-message", { messageId: uploaderId }, errorMessage)) : null, hAsync("div", { key: 'f40d3488ea2aaa8d2833c4f1c988f67c847deb94', class: `file-uploader__input ${value.length > 0 ? 'uploaded-files' : ''}`, onDrop: e => this.handleDrop(e), onDragOver: e => e.preventDefault() }, hAsync("button", { key: '9ce270d208d451d2b240d8049d5b5a07a5bf1791', type: "button", tabindex: "-1", onClick: () => this.shadowElement.click() }, I18N$j[lang].button.upload), hAsync("input", Object.assign({ key: '9ef4ac5e052c73626541fdfc3f2eb98fc65f4482', type: "file", id: uploaderId }, attrsInput, { onBlur: () => this.onBlur(), onFocus: () => this.gcdsFocus.emit(), onInput: e => this.handleInput(e, this.gcdsInput), onChange: e => this.handleInput(e, this.gcdsChange), "aria-invalid": hasError ? 'true' : 'false', ref: element => (this.shadowElement = element) })), value.length > 0 ? (hAsync("gcds-sr-only", { id: "file-uploader__summary" }, hAsync("span", null, I18N$j[lang].summary.selected, " "), value.map(file => (hAsync("span", null, file, " "))))) : (hAsync("gcds-sr-only", { id: "file-uploader__summary" }, I18N$j[lang].summary.unselected))), value.length > 0
-            ? value.map(file => (hAsync("div", { class: "file-uploader__uploaded-file", "aria-label": `${I18N$j[lang].removeFile} ${file}.` }, hAsync("gcds-text", { "margin-bottom": "0" }, file), hAsync("button", { onClick: e => this.removeFile(e) }, hAsync("span", null, I18N$j[lang].button.remove), hAsync("gcds-icon", { name: "close", size: "text", "margin-left": "150" })))))
+        return (hAsync(Host, { key: '7f8da364ccd3dd2247eb3ca0acfdf626350bc935' }, hAsync("div", { key: '194df3b32d1751a1552d19a4a09f6794fd93e960', class: `gcds-file-uploader-wrapper ${disabled ? 'gcds-disabled' : ''} ${hasError ? 'gcds-error' : ''}` }, hAsync("gcds-label", Object.assign({ key: '4ae5e97f811a21823866c153211ce7903175351e' }, attrsLabel, { "hide-label": hideLabel, "label-for": uploaderId, lang: lang })), hint ? hAsync("gcds-hint", { "hint-id": uploaderId }, hint) : null, errorMessage ? (hAsync("gcds-error-message", { messageId: uploaderId }, errorMessage)) : null, hAsync("div", { key: 'f40d3488ea2aaa8d2833c4f1c988f67c847deb94', class: `file-uploader__input ${value.length > 0 ? 'uploaded-files' : ''}`, onDrop: e => this.handleDrop(e), onDragOver: e => e.preventDefault() }, hAsync("button", { key: '9ce270d208d451d2b240d8049d5b5a07a5bf1791', type: "button", tabindex: "-1", onClick: () => this.shadowElement.click() }, I18N$h[lang].button.upload), hAsync("input", Object.assign({ key: '9ef4ac5e052c73626541fdfc3f2eb98fc65f4482', type: "file", id: uploaderId }, attrsInput, { onBlur: () => this.onBlur(), onFocus: () => this.gcdsFocus.emit(), onInput: e => this.handleInput(e, this.gcdsInput), onChange: e => this.handleInput(e, this.gcdsChange), "aria-invalid": hasError ? 'true' : 'false', ref: element => (this.shadowElement = element) })), value.length > 0 ? (hAsync("gcds-sr-only", { id: "file-uploader__summary" }, hAsync("span", null, I18N$h[lang].summary.selected, " "), value.map(file => (hAsync("span", null, file, " "))))) : (hAsync("gcds-sr-only", { id: "file-uploader__summary" }, I18N$h[lang].summary.unselected))), value.length > 0
+            ? value.map(file => (hAsync("div", { class: "file-uploader__uploaded-file", "aria-label": `${I18N$h[lang].removeFile} ${file}.` }, hAsync("gcds-text", { "margin-bottom": "0" }, file), hAsync("button", { onClick: e => this.removeFile(e) }, hAsync("span", null, I18N$h[lang].button.remove), hAsync("gcds-icon", { name: "close", size: "text", "margin-left": "150" })))))
             : null)));
     }
     static get delegatesFocus() { return true; }
@@ -6425,7 +6406,7 @@ class GcdsFileUploader {
     }; }
 }
 
-const I18N$i = {
+const I18N$g = {
   en: {
     gov: {
       heading: 'Government of Canada',
@@ -6755,27 +6736,26 @@ class GcdsFooter {
         }
     }
     get renderSignature() {
-        const signVariant = this.wordmarkVariant ? this.wordmarkVariant : 'colour';
         if (this.el.querySelector('[slot="signature"]')) {
             return hAsync("slot", { name: "wordmark" });
         }
         else {
-            return (hAsync("div", { class: "sub__wordmark" }, hAsync("gcds-signature", { type: "wordmark", variant: signVariant, lang: this.lang })));
+            return (hAsync("div", { class: "sub__wordmark" }, hAsync("gcds-signature", { type: "wordmark", lang: this.lang })));
         }
     }
     render() {
         const { lang, display, contextualHeading, contextualLinksObject, subLinks, subLinksObject, renderSignature, } = this;
-        const govNav = I18N$i[lang].gov.menu;
-        const themeNav = I18N$i[lang].themes.menu;
-        const siteNav = I18N$i[lang].site.menu;
+        const govNav = I18N$g[lang].gov.menu;
+        const themeNav = I18N$g[lang].themes.menu;
+        const siteNav = I18N$g[lang].site.menu;
         let contextualLinkCount = 0;
         let subLinkCount = 0;
-        return (hAsync(Host, { key: 'b3085c45d846bacbff55a8eb9b1c00a89430886b', role: "contentinfo", "aria-label": "Footer" }, hAsync("gcds-sr-only", { key: '606efe8477781956571e6f5f491a33a3a62f04b4', tag: "h2" }, I18N$i[lang].about), contextualLinksObject && contextualHeading && (hAsync("div", { key: 'f4dc0c8107d91eed92c48a29bea4d11cc27ca1aa', class: "gcds-footer__contextual" }, hAsync("div", { key: '2be8f275989cfc74bf6b2df084ca4728672df764', class: "contextual__container" }, hAsync("nav", { key: '0e95de45f38aa31290b69802459dd8b613bce6fe', "aria-labelledby": "contextual__heading" }, hAsync("h3", { key: 'cfcf705300e7697459313ac429a1cfdc18dd3bd2', id: "contextual__heading", class: "contextual__heading" }, contextualHeading), hAsync("ul", { key: 'e40575b0fb05baf1755e4f6112aa653b971d05c5', class: "contextual__list" }, Object.keys(contextualLinksObject).map(key => {
+        return (hAsync(Host, { key: '7e858fa9f2bfaa8f683fe26375b091761fff459a', role: "contentinfo", "aria-label": "Footer" }, hAsync("gcds-sr-only", { key: '7496ed74840b2b387980e59ddd89c3549db525a7', tag: "h2" }, I18N$g[lang].about), contextualLinksObject && contextualHeading && (hAsync("div", { key: 'fc3e8e4cd20c619b14ac3131a101b57be2a2591b', class: "gcds-footer__contextual" }, hAsync("div", { key: 'b198915a312df2c4c0b5a9c94792bf3d609f9325', class: "contextual__container" }, hAsync("nav", { key: '647836ad40250308d7e57e49e437aea02e40f772', "aria-labelledby": "contextual__heading" }, hAsync("h3", { key: '776b38488c416f4d13a2ed0397694be2436e7e2a', id: "contextual__heading", class: "contextual__heading" }, contextualHeading), hAsync("ul", { key: 'e766519d02dc672fc0127e0d25871948d2b1a2a3', class: "contextual__list" }, Object.keys(contextualLinksObject).map(key => {
             if (contextualLinkCount < 3) {
                 contextualLinkCount++;
                 return (hAsync("li", null, hAsync("gcds-link", { size: "small", href: contextualLinksObject[key] }, key)));
             }
-        })))))), display === 'full' ? (hAsync("div", { class: "gcds-footer__main" }, hAsync("div", { class: "main__container" }, hAsync("nav", { class: "main__govnav", "aria-labelledby": "govnav__heading" }, hAsync("h3", { id: "govnav__heading" }, I18N$i[lang].gov.heading), hAsync("ul", { class: "govnav__list" }, Object.keys(govNav).map(value => (hAsync("li", null, hAsync("gcds-link", { size: "small", href: govNav[value].link }, govNav[value].text)))))), hAsync("nav", { class: "main__themenav", "aria-labelledby": "themenav__heading" }, hAsync("gcds-sr-only", { tag: "h4", id: "themenav__heading" }, I18N$i[lang].themes.heading), hAsync("ul", { class: "themenav__list" }, Object.keys(themeNav).map(value => (hAsync("li", null, hAsync("gcds-link", { size: "small", href: themeNav[value].link }, themeNav[value].text))))))))) : null, hAsync("div", { key: 'f22c6b3df1149c3c5f8be387f8e8f6409474703f', class: "gcds-footer__sub" }, hAsync("div", { key: '81e35cd5397e1a9f0c373e14d1f16568c70eb690', class: "sub__container" }, hAsync("nav", { key: 'ee7c37a240a121893142c51f887d49ad98add671', "aria-labelledby": "sub__heading" }, hAsync("gcds-sr-only", { key: '75fef71daa19b43442a973ac70053a7ce90c7a6e', tag: "h3", id: "sub__heading" }, I18N$i[lang].site.heading), hAsync("ul", { key: '4d3f7e2cb406dd420def9b0580892bb54d985269' }, subLinks
+        })))))), display === 'full' ? (hAsync("div", { class: "gcds-footer__main" }, hAsync("div", { class: "main__container" }, hAsync("nav", { class: "main__govnav", "aria-labelledby": "govnav__heading" }, hAsync("h3", { id: "govnav__heading" }, I18N$g[lang].gov.heading), hAsync("ul", { class: "govnav__list" }, Object.keys(govNav).map(value => (hAsync("li", null, hAsync("gcds-link", { size: "small", href: govNav[value].link }, govNav[value].text)))))), hAsync("nav", { class: "main__themenav", "aria-labelledby": "themenav__heading" }, hAsync("gcds-sr-only", { tag: "h4", id: "themenav__heading" }, I18N$g[lang].themes.heading), hAsync("ul", { class: "themenav__list" }, Object.keys(themeNav).map(value => (hAsync("li", null, hAsync("gcds-link", { size: "small", href: themeNav[value].link }, themeNav[value].text))))))))) : null, hAsync("div", { key: 'f374a7be6e1e64ae23bd409ed9b1da0351f1f479', class: "gcds-footer__sub" }, hAsync("div", { key: '1f38f3666e22111dbeb70b210e8931173fd7b7cc', class: "sub__container" }, hAsync("nav", { key: '8d25d9b17f46f90d7f6278007bd53a6237fa7e6e', "aria-labelledby": "sub__heading" }, hAsync("gcds-sr-only", { key: '05afc9849b76b122ddbc8e554b9d8005aca73b0e', tag: "h3", id: "sub__heading" }, I18N$g[lang].site.heading), hAsync("ul", { key: '72aa0a35a40880e1916a45d0abc848ab3b3c2c6a' }, subLinks
             ? Object.keys(subLinksObject).map(key => {
                 if (subLinkCount < 5) {
                     subLinkCount++;
@@ -6797,7 +6777,6 @@ class GcdsFooter {
         "$tagName$": "gcds-footer",
         "$members$": {
             "display": [1537],
-            "wordmarkVariant": [1, "wordmark-variant"],
             "contextualHeading": [1, "contextual-heading"],
             "contextualLinks": [1025, "contextual-links"],
             "subLinks": [1025, "sub-links"],
@@ -6809,7 +6788,7 @@ class GcdsFooter {
     }; }
 }
 
-const I18N$h = {
+const I18N$f = {
   en: {
     gapDesktopError: 'gcds-grid: Invalid spacing value for gap-desktop.',
     gapTabletError: 'gcds-grid: Invalid spacing value for gap-tablet.',
@@ -6849,10 +6828,6 @@ class GcdsGrid {
     constructor(hostRef) {
         registerInstance(this, hostRef);
         /**
-         * Defines if grid container is centered or not
-         */
-        this.centered = false;
-        /**
          * Defines element as grid or inline-grid container
          */
         this.display = 'grid';
@@ -6883,14 +6858,14 @@ class GcdsGrid {
         const values = GridGapArray;
         if (newValue != undefined && !values.includes(newValue)) {
             this.gapTablet = undefined;
-            console.error(`${I18N$h['en'].gapTabletError} | ${I18N$h['fr'].gapTabletError}`);
+            console.error(`${I18N$f['en'].gapTabletError} | ${I18N$f['fr'].gapTabletError}`);
         }
     }
     validateGapDesktop(newValue) {
         const values = GridGapArray;
         if (newValue != undefined && !values.includes(newValue)) {
             this.gapDesktop = undefined;
-            console.error(`${I18N$h['en'].gapDesktopError} | ${I18N$h['fr'].gapDesktopError}`);
+            console.error(`${I18N$f['en'].gapDesktopError} | ${I18N$f['fr'].gapDesktopError}`);
         }
     }
     validateTag(newValue) {
@@ -6917,7 +6892,7 @@ class GcdsGrid {
         this.validateGapDesktop(this.gapDesktop);
     }
     render() {
-        const { alignContent, alignItems, columns, columnsDesktop, columnsTablet, container, centered, display, equalRowHeight, gap, gapTablet, gapDesktop, justifyContent, justifyItems, placeContent, placeItems, tag, } = this;
+        const { alignment, alignContent, alignItems, columns, columnsDesktop, columnsTablet, container, display, equalRowHeight, gap, gapTablet, gapDesktop, justifyContent, justifyItems, placeContent, placeItems, tag, } = this;
         const Tag = tag;
         const classNames = `
       gcds-grid
@@ -6952,7 +6927,7 @@ class GcdsGrid {
             setGridProperty(gapDesktop, 'gap', '-desktop');
             return gridStyles;
         }
-        return (hAsync(Host, null, container ? (hAsync("gcds-container", { size: container, centered: centered }, hAsync(Tag, { class: classNames, style: handleGridStyles() }, hAsync("slot", null)))) : (hAsync(Tag, { class: classNames, style: handleGridStyles() }, hAsync("slot", null)))));
+        return (hAsync(Host, null, container ? (hAsync("gcds-container", { size: container, alignment: alignment }, hAsync(Tag, { class: classNames, style: handleGridStyles() }, hAsync("slot", null)))) : (hAsync(Tag, { class: classNames, style: handleGridStyles() }, hAsync("slot", null)))));
     }
     get el() { return getElement(this); }
     static get watchers() { return {
@@ -6970,13 +6945,13 @@ class GcdsGrid {
             "columnsTablet": [1, "columns-tablet"],
             "columnsDesktop": [1, "columns-desktop"],
             "container": [1],
-            "centered": [4],
             "display": [1],
             "equalRowHeight": [4, "equal-row-height"],
             "gap": [1025],
             "gapTablet": [1025, "gap-tablet"],
             "gapDesktop": [1025, "gap-desktop"],
             "tag": [1025],
+            "alignment": [1],
             "alignContent": [1, "align-content"],
             "justifyContent": [1, "justify-content"],
             "placeContent": [1, "place-content"],
@@ -7069,7 +7044,7 @@ class GcdsGridCol {
     }; }
 }
 
-const I18N$g = {
+const I18N$e = {
   en: {
     skip: 'Skip to main content',
     skipLabel: 'Skip to',
@@ -7125,7 +7100,7 @@ class GcdsHeader {
             return hAsync("slot", { name: "skip-to-nav" });
         }
         else if (this.skipToHref) {
-            return (hAsync("nav", { class: "gcds-header__skip-to-nav", "aria-label": I18N$g[this.lang].skipLabel }, hAsync("gcds-link", { href: this.skipToHref }, I18N$g[this.lang].skip)));
+            return (hAsync("nav", { class: "gcds-header__skip-to-nav", "aria-label": I18N$e[this.lang].skipLabel }, hAsync("gcds-link", { href: this.skipToHref }, I18N$e[this.lang].skip)));
         }
         else {
             return;
@@ -7143,14 +7118,11 @@ class GcdsHeader {
         }
     }
     get renderSignature() {
-        const signVariant = this.signatureVariant
-            ? this.signatureVariant
-            : 'colour';
         if (this.el.querySelector('[slot="signature"]')) {
             return hAsync("slot", { name: "signature" });
         }
         else {
-            return (hAsync("div", { class: "brand__signature" }, hAsync("gcds-signature", { type: "signature", variant: signVariant, "has-link": this.signatureHasLink, lang: this.lang })));
+            return (hAsync("div", { class: "brand__signature" }, hAsync("gcds-signature", { type: "signature", "has-link": this.signatureHasLink, lang: this.lang })));
         }
     }
     get renderSearch() {
@@ -7172,7 +7144,7 @@ class GcdsHeader {
     }
     render() {
         const { renderSkipToNav, renderToggle, renderSignature, renderSearch, hasSearch, hasBanner, hasBreadcrumb, } = this;
-        return (hAsync(Host, { key: 'a7aec791ab78ca2491fd9dfc043e3b42453de2a4', role: "banner" }, renderSkipToNav, hasBanner ? hAsync("slot", { name: "banner" }) : null, hAsync("div", { key: '1ffdfb16dbd583dc45d65edde526f10ca5445d3d', class: "gcds-header__brand" }, hAsync("div", { key: 'fd921bdd08e088d99849ee37e67ff70502630cfb', class: `brand__container ${!hasSearch ? 'container--simple' : ''}` }, renderToggle, renderSignature, renderSearch)), hAsync("slot", { key: '6ace8183cce4cf7de0c04c99763194f002ea4e3f', name: "menu" }), hasBreadcrumb ? (hAsync("div", { class: "gcds-header__container" }, hAsync("slot", { name: "breadcrumb" }))) : null));
+        return (hAsync(Host, { key: '2787783d5b595f8f64b189017993dc6cf1cb6be2', role: "banner" }, renderSkipToNav, hasBanner ? hAsync("slot", { name: "banner" }) : null, hAsync("div", { key: 'cad8a5a1262b661ac8575eb2c29b0e8eeeaec778', class: "gcds-header__brand" }, hAsync("div", { key: 'adefc05190f8b6c0d2d75df7d423f230f6d8f6fa', class: `brand__container ${!hasSearch ? 'container--simple' : ''}` }, renderToggle, renderSignature, renderSearch)), hAsync("slot", { key: 'e83e3939de4a1846196072f0e87417942dc19b42', name: "menu" }), hasBreadcrumb ? (hAsync("div", { class: "gcds-header__container" }, hAsync("slot", { name: "breadcrumb" }))) : null));
     }
     get el() { return getElement(this); }
     static get style() { return gcdsHeaderCss; }
@@ -7181,7 +7153,6 @@ class GcdsHeader {
         "$tagName$": "gcds-header",
         "$members$": {
             "langHref": [513, "lang-href"],
-            "signatureVariant": [1, "signature-variant"],
             "signatureHasLink": [4, "signature-has-link"],
             "skipToHref": [1, "skip-to-href"],
             "lang": [32]
@@ -7320,7 +7291,7 @@ class GcdsHint {
     }; }
 }
 
-const I18N$f = {
+const I18N$d = {
   en: {
     nameError: 'gcds-icon: Invalid name.',
   },
@@ -7360,7 +7331,7 @@ class GcdsIcon {
             'warning-triangle',
         ];
         if (!values.includes(newValue)) {
-            console.error(`${I18N$f['en'].nameError} | ${I18N$f['fr'].nameError}`);
+            console.error(`${I18N$d['en'].nameError} | ${I18N$d['fr'].nameError}`);
         }
     }
     validateSize(newValue) {
@@ -7817,7 +7788,7 @@ class GcdsInput {
     }; }
 }
 
-const I18N$e = {
+const I18N$c = {
   en: {
     required: 'required',
   },
@@ -7855,7 +7826,7 @@ class GcdsLabel {
     }
     render() {
         const { hideLabel, labelFor, label, required, lang } = this;
-        return (hAsync(Host, { key: '74bd8cdab28f3e11ad1af0e5d90ffbcdfeca4f3b', id: `label-for-${labelFor}` }, hAsync("label", { key: 'a99ff6d66462b03f1b40759ada8dfe53eaa985ce', htmlFor: labelFor, class: `gcds-label ${hideLabel ? 'label--hidden' : ''}` }, hAsync("span", { key: '1740af0193beae308a1227d729493c257e6ee813' }, label), required ? (hAsync("span", { "aria-hidden": "true", class: "label--required" }, "(", I18N$e[lang].required, ")")) : null)));
+        return (hAsync(Host, { key: '74bd8cdab28f3e11ad1af0e5d90ffbcdfeca4f3b', id: `label-for-${labelFor}` }, hAsync("label", { key: 'a99ff6d66462b03f1b40759ada8dfe53eaa985ce', htmlFor: labelFor, class: `gcds-label ${hideLabel ? 'label--hidden' : ''}` }, hAsync("span", { key: '1740af0193beae308a1227d729493c257e6ee813' }, label), required ? (hAsync("span", { "aria-hidden": "true", class: "label--required" }, "(", I18N$c[lang].required, ")")) : null)));
     }
     get el() { return getElement(this); }
     static get style() { return gcdsLabelCss; }
@@ -7875,7 +7846,7 @@ class GcdsLabel {
     }; }
 }
 
-const I18N$d = {
+const I18N$b = {
   en: {
     abbreviation: 'fr',
     heading: 'Language selection',
@@ -7918,7 +7889,7 @@ class GcdsLangToggle {
     }
     render() {
         const { lang, href } = this;
-        return (hAsync(Host, { key: 'abb80842d149c0505fdfaeb1bea1d693f8ab7acd' }, hAsync("div", { key: '544f51158c13552ca6d918a976851ae114d8b15b', class: "gcds-lang-toggle" }, hAsync("gcds-sr-only", { key: 'ad847ef3d7b32528ac5a02d86907e7646a6133b6', id: "lang-toggle__heading", tag: "h2" }, I18N$d[lang].heading), hAsync("gcds-link", { key: '7ed33cd0eee4468e60294eb449627a546128f9b8', size: "regular", href: href, lang: I18N$d[lang].abbreviation }, hAsync("span", { key: 'd1586f4d7c5b2b0b16f5e123e0dbc1715e9a7616' }, I18N$d[lang].language), hAsync("abbr", { key: '38bfded01448eeccd475feca0275d34cbb8745b3', title: I18N$d[lang].language }, I18N$d[lang].abbreviation)))));
+        return (hAsync(Host, { key: 'abb80842d149c0505fdfaeb1bea1d693f8ab7acd' }, hAsync("div", { key: '544f51158c13552ca6d918a976851ae114d8b15b', class: "gcds-lang-toggle" }, hAsync("gcds-sr-only", { key: 'ad847ef3d7b32528ac5a02d86907e7646a6133b6', id: "lang-toggle__heading", tag: "h2" }, I18N$b[lang].heading), hAsync("gcds-link", { key: '7ed33cd0eee4468e60294eb449627a546128f9b8', size: "regular", href: href, lang: I18N$b[lang].abbreviation }, hAsync("span", { key: 'd1586f4d7c5b2b0b16f5e123e0dbc1715e9a7616' }, I18N$b[lang].language), hAsync("abbr", { key: '38bfded01448eeccd475feca0275d34cbb8745b3', title: I18N$b[lang].language }, I18N$b[lang].abbreviation)))));
     }
     get el() { return getElement(this); }
     static get style() { return gcdsLangToggleCss; }
@@ -7935,7 +7906,7 @@ class GcdsLangToggle {
     }; }
 }
 
-const I18N$c = {
+const I18N$a = {
   en: {
     external: ' (Opens destination in a new tab.)',
     phone: ' (Attempts to open a phone app.)',
@@ -7950,7 +7921,7 @@ const I18N$c = {
   },
 };
 
-const gcdsLinkCss = "@layer reset, default, display, size, variant, hover, visited, focus;@layer reset{:host{display:inline}:host slot{display:initial}}@layer default{:host .gcds-link{color:var(--gcds-link-default);cursor:pointer;text-decoration-color:currentColor;text-decoration-style:solid;text-decoration-thickness:var(--gcds-link-decoration-thickness);text-underline-offset:var(--gcds-link-underline-offset);transition:all .35s}}@layer display{:host .gcds-link.d-block{display:block}}@layer size{:host .gcds-link.link--small{font:var(--gcds-link-font-small-desktop)}@media only screen and (width < 48em){:host .gcds-link.link--small{font:var(--gcds-link-font-small-mobile)}}:host .gcds-link.link--regular{font:var(--gcds-link-font-regular-desktop)}@media only screen and (width < 48em){:host .gcds-link.link--regular{font:var(--gcds-link-font-regular-mobile)}}:host .gcds-link.link--inherit{font:inherit}}@layer variant{:host .gcds-link.variant-light{color:var(--gcds-link-light)}}@layer hover{@media (hover:hover){:host .gcds-link:hover{text-decoration-thickness:var(--gcds-link-hover-decoration-thickness)}:host .gcds-link:hover:not(.variant-light){color:var(--gcds-link-hover)}}}@layer visited{:host .gcds-link:not(.variant-light):visited{color:var(--gcds-link-visited)}}@layer focus{:host .gcds-link:focus{background-color:var(--gcds-link-focus-background);border-radius:var(--gcds-link-focus-border-radius);box-shadow:var(--gcds-link-focus-box-shadow);color:var(--gcds-link-focus-text);outline:var(--gcds-link-focus-outline-width) solid var(--gcds-link-focus-background);outline-offset:var(--gcds-link-focus-outline-offset);text-decoration:none}}";
+const gcdsLinkCss = "@layer reset, default, display, size, roles, hover, visited, focus;@layer reset{:host{display:inline}:host slot{display:initial}}@layer default{:host .gcds-link{color:var(--gcds-link-default);cursor:pointer;text-decoration-color:currentColor;text-decoration-style:solid;text-decoration-thickness:var(--gcds-link-decoration-thickness);text-underline-offset:var(--gcds-link-underline-offset);transition:all .35s}}@layer display{:host .gcds-link.d-block{display:block}}@layer size{:host .gcds-link.link--small{font:var(--gcds-link-font-small-desktop)}@media only screen and (width < 48em){:host .gcds-link.link--small{font:var(--gcds-link-font-small-mobile)}}:host .gcds-link.link--regular{font:var(--gcds-link-font-regular-desktop)}@media only screen and (width < 48em){:host .gcds-link.link--regular{font:var(--gcds-link-font-regular-mobile)}}:host .gcds-link.link--inherit{font:inherit}}@layer roles{:host .gcds-link.role-light{color:var(--gcds-link-light)}}@layer hover{@media (hover:hover){:host .gcds-link:hover{text-decoration-thickness:var(--gcds-link-hover-decoration-thickness)}:host .gcds-link:hover:not(.role-light){color:var(--gcds-link-hover)}}}@layer visited{:host .gcds-link:not(.role-light):visited{color:var(--gcds-link-visited)}}@layer focus{:host .gcds-link:focus{background-color:var(--gcds-link-focus-background);border-radius:var(--gcds-link-focus-border-radius);box-shadow:var(--gcds-link-focus-box-shadow);color:var(--gcds-link-focus-text);outline:var(--gcds-link-focus-outline-width) solid var(--gcds-link-focus-background);outline-offset:var(--gcds-link-focus-outline-offset);text-decoration:none}}";
 
 /**
  * A link is a navigational element that brings a person to a new page, website, file, or section on the current page.
@@ -7969,7 +7940,7 @@ class GcdsLink {
         /**
          * Sets the main style of the link.
          */
-        this.variant = 'default';
+        this.linkRole = 'default';
         /**
          * Set the link size
          */
@@ -7991,10 +7962,10 @@ class GcdsLink {
          */
         this.inheritedAttributes = {};
     }
-    validateVariant(newValue) {
+    validateLinkRole(newValue) {
         const values = ['default', 'light'];
         if (!values.includes(newValue)) {
-            this.variant = 'default';
+            this.linkRole = 'default';
         }
     }
     validateSize(newValue) {
@@ -8022,7 +7993,7 @@ class GcdsLink {
     }
     componentWillLoad() {
         // Validate attributes and set defaults
-        this.validateVariant(this.variant);
+        this.validateLinkRole(this.linkRole);
         this.validateSize(this.size);
         this.validateDisplay(this.display);
         this.inheritedAttributes = inheritAttributes(this.el, this.shadowElement, [
@@ -8033,7 +8004,7 @@ class GcdsLink {
         this.updateLang();
     }
     render() {
-        const { size, lang, display, href, rel, target, external, download, type, inheritedAttributes, variant, } = this;
+        const { size, lang, display, href, rel, target, external, download, type, inheritedAttributes, linkRole, } = this;
         const attrs = {
             href,
             rel,
@@ -8042,12 +8013,12 @@ class GcdsLink {
             type,
         };
         const isExternal = target === '_blank' || external;
-        return (hAsync(Host, { key: '8cd9092b220f6cea2f5311e3053e0fbed489b40e' }, hAsync("a", Object.assign({ key: '112763038c0564dd208a1172c28c26026c27b511', tabIndex: 0 }, attrs, { class: `gcds-link link--${size} ${display != 'inline' ? `d-${display}` : ''} ${variant != 'default' ? `variant-${variant}` : ''}`, ref: element => (this.shadowElement = element), target: isExternal ? '_blank' : target, rel: isExternal ? 'noopener noreferrer' : rel }, inheritedAttributes, { part: "link", onBlur: () => this.gcdsBlur.emit(), onFocus: () => this.gcdsFocus.emit(), onClick: e => emitEvent(e, this.gcdsClick, href) }), hAsync("slot", { key: '749225ef8d310a8499061c7b8e6831ea3d68cad0' }), target === '_blank' || external ? (hAsync("gcds-icon", { name: "external", label: I18N$c[lang].external, "margin-left": "75" })) : download !== undefined ? (hAsync("gcds-icon", { name: "download", label: I18N$c[lang].download, "margin-left": "75" })) : href && href.toLowerCase().startsWith('mailto:') ? (hAsync("gcds-icon", { name: "email", label: I18N$c[lang].email, "margin-left": "75" })) : (href &&
-            href.toLowerCase().startsWith('tel:') && (hAsync("gcds-icon", { name: "phone", label: I18N$c[lang].phone, "margin-left": "75" }))))));
+        return (hAsync(Host, { key: '8d4e6b5cd3ed08a2a562489238739f2906c02ad0' }, hAsync("a", Object.assign({ key: '14abc020fd24945d6e144f27073f0077d086e424', tabIndex: 0 }, attrs, { class: `gcds-link link--${size} ${display != 'inline' ? `d-${display}` : ''} ${linkRole != 'default' ? `role-${linkRole}` : ''}`, ref: element => (this.shadowElement = element), target: isExternal ? '_blank' : target, rel: isExternal ? 'noopener noreferrer' : rel }, inheritedAttributes, { part: "link", onBlur: () => this.gcdsBlur.emit(), onFocus: () => this.gcdsFocus.emit(), onClick: e => emitEvent(e, this.gcdsClick, href) }), hAsync("slot", { key: 'ada44987d3f50baa632557bbe745390cbfba03e3' }), target === '_blank' || external ? (hAsync("gcds-icon", { name: "external", label: I18N$a[lang].external, "margin-left": "75" })) : download !== undefined ? (hAsync("gcds-icon", { name: "download", label: I18N$a[lang].download, "margin-left": "75" })) : href && href.toLowerCase().startsWith('mailto:') ? (hAsync("gcds-icon", { name: "email", label: I18N$a[lang].email, "margin-left": "75" })) : (href &&
+            href.toLowerCase().startsWith('tel:') && (hAsync("gcds-icon", { name: "phone", label: I18N$a[lang].phone, "margin-left": "75" }))))));
     }
     get el() { return getElement(this); }
     static get watchers() { return {
-        "variant": ["validateVariant"],
+        "linkRole": ["validateLinkRole"],
         "size": ["validateSize"],
         "display": ["validateDisplay"]
     }; }
@@ -8056,7 +8027,7 @@ class GcdsLink {
         "$flags$": 9,
         "$tagName$": "gcds-link",
         "$members$": {
-            "variant": [1025],
+            "linkRole": [1025, "link-role"],
             "size": [1025],
             "display": [1025],
             "href": [1],
@@ -8074,7 +8045,7 @@ class GcdsLink {
     }; }
 }
 
-const gcdsNavGroupCss = "@layer reset, defaults, sideNav, topNav, mobileNav, desktop, mobile, hover, focus;@layer reset{:host *{box-sizing:border-box;margin:0;padding:0}}@layer defaults{:host{align-self:flex-end;display:flex;flex-direction:column;position:relative}:host .gcds-nav-group__trigger{align-items:center;background:transparent;border:0;color:var(--gcds-nav-group-trigger-text);cursor:pointer;display:flex;font:var(--gcds-nav-group-font);padding:var(--gcds-nav-group-trigger-padding);text-align:left;width:100%}:host .gcds-nav-group__trigger[aria-expanded=false]+.gcds-nav-group__list{display:none}:host .gcds-nav-group__trigger-desc{display:none}:host ul{list-style:none}}@layer sideNav{:host .gcds-trigger--expandable{font-weight:var(--gcds-nav-group-side-nav-trigger-font-weight);margin-block-end:var(--gcds-nav-group-side-nav-trigger-margin)}:host .gcds-trigger--expandable gcds-icon{margin-inline-end:var(--gcds-nav-group-side-nav-trigger-icon-margin)}}@layer topNav{:host .gcds-trigger--dropdown{padding:var(--gcds-nav-group-top-nav-trigger-padding);text-decoration:underline solid currentColor var(--gcds-nav-group-top-nav-trigger-decoration-thickness);text-decoration-color:transparent;text-underline-offset:var(\n      --gcds-nav-group-top-nav-trigger-underline-offset\n    );transition:all .25s ease-in-out}:host .gcds-trigger--dropdown[aria-expanded=true]{background-color:var(\n        --gcds-nav-group-top-nav-trigger-expanded-background-color\n      )}:host .gcds-trigger--dropdown gcds-icon{margin-inline-start:var(--gcds-nav-group-top-nav-trigger-icon-margin);order:2}}@layer mobileNav{:host(.gcds-mobile-nav){width:100%}:host(.gcds-mobile-nav) .gcds-trigger--expandable{border:var(--gcds-nav-group-mobile-trigger-border-width) solid;border-radius:var(--gcds-nav-group-mobile-trigger-border-radius);color:var(--gcds-nav-group-mobile-trigger-text);flex-direction:row-reverse;justify-content:center;margin-block-start:var(--gcds-nav-group-mobile-trigger-margin);text-align:center}:host(.gcds-mobile-nav) .gcds-trigger--expandable gcds-icon{display:none}:host([open].gcds-mobile-nav){background-color:var(--gcds-nav-group-mobile-background);height:100vh;left:0;overflow-y:scroll;padding:var(--gcds-nav-group-mobile-padding)!important;position:fixed;top:0;width:100%;z-index:100}}@layer desktop{@media only screen and (width >= 64em){:host .gcds-nav-group__trigger{max-width:var(--gcds-nav-group-trigger-max-width)}:host .gcds-nav--expandable{padding-inline-start:var(--gcds-nav-group-side-nav-dropdown-padding)}:host .gcds-nav--dropdown{background-color:var(--gcds-nav-group-top-nav-dropdown-background);border-radius:var(--gcds-border-radius-md);box-shadow:var(--gcds-nav-group-top-nav-dropdown-box-shadow);left:0;margin-block-start:var(--gcds-spacing-200);padding:var(--gcds-nav-group-top-nav-dropdown-padding);position:absolute;top:100%;width:var(--gcds-nav-group-top-nav-dropdown-width);z-index:1}:host .gcds-nav--dropdown.dropdown-right{left:auto;right:0}:host(.gcds-mobile-nav)>.gcds-nav--expandable{display:block;padding:0}:host(.gcds-mobile-nav) .gcds-trigger--expandable{display:none}:host(.gcds-mobile-nav-topnav)>.gcds-nav--expandable{display:flex}}}@layer mobile{@media only screen and (width < 64em){:host(.gcds-mobile-nav)>.gcds-nav--expandable{margin:var(--gcds-nav-group-mobile-list-margin)}:host([open]:not(.gcds-mobile-nav)) .gcds-nav-group__list{padding-inline-start:var(--gcds-nav-group-side-nav-dropdown-padding)}}@media only screen and (48em < width < 64em){:host(.gcds-mobile-nav) .gcds-trigger--expandable{align-self:flex-start;width:auto}}}@layer hover{@media (hover:hover){:host .gcds-nav-group__trigger:hover{color:var(--gcds-nav-group-trigger-hover-text)}:host .gcds-trigger--dropdown:hover{color:var(--gcds-nav-group-top-nav-trigger-hover-text);text-decoration-color:var(--gcds-nav-group-top-nav-trigger-hover-text);text-decoration-thickness:var(\n          --gcds-nav-group-top-nav-trigger-hover-decoration-thickness\n        )}:host .gcds-trigger--expandable:hover{background-color:var(\n          --gcds-nav-group-side-nav-trigger-hover-background\n        )}}}@layer focus{:host .gcds-nav-group__trigger:focus{background-color:var(--gcds-nav-group-trigger-focus-background);border-color:var(--gcds-nav-group-trigger-focus-background);border-radius:var(--gcds-nav-group-trigger-focus-border-radius);box-shadow:var(--gcds-nav-group-trigger-focus-box-shadow);color:var(--gcds-nav-group-trigger-focus-text);outline:var(--gcds-nav-group-trigger-focus-outline);outline-offset:var(--gcds-nav-group-trigger-focus-outline-offset);text-decoration:none}}";
+const gcdsNavGroupCss = "@layer reset, defaults, sideNav, topNav, mobileNav, desktop, mobile, hover, focus;@layer reset{:host *{box-sizing:border-box;margin:0;padding:0}}@layer defaults{:host{align-self:flex-end;display:flex;flex-direction:column;position:relative}:host .gcds-nav-group__trigger{align-items:center;background:transparent;border:0;color:var(--gcds-nav-group-trigger-text);cursor:pointer;display:flex;font:var(--gcds-nav-group-font);padding:var(--gcds-nav-group-trigger-padding);text-align:left;width:100%}:host .gcds-nav-group__trigger[aria-expanded=false]+.gcds-nav-group__list{display:none}:host .gcds-nav-group__trigger-desc{display:none}:host ul{list-style:none}}@layer sideNav{:host .gcds-trigger--expandable{font-weight:var(--gcds-nav-group-side-nav-trigger-font-weight);margin-block-end:var(--gcds-nav-group-side-nav-trigger-margin)}:host .gcds-trigger--expandable gcds-icon{margin-inline-end:var(--gcds-nav-group-side-nav-trigger-icon-margin)}}@layer topNav{:host .gcds-trigger--dropdown{color:var(--gcds-nav-group-top-nav-trigger-text);padding:var(--gcds-nav-group-top-nav-trigger-padding);text-decoration:underline solid currentColor var(--gcds-nav-group-top-nav-trigger-decoration-thickness);text-decoration-color:transparent;text-underline-offset:var(\n      --gcds-nav-group-top-nav-trigger-underline-offset\n    );transition:all .25s ease-in-out}:host .gcds-trigger--dropdown[aria-expanded=true]{background-color:var(\n        --gcds-nav-group-top-nav-trigger-expanded-background-color\n      )}:host .gcds-trigger--dropdown gcds-icon{margin-inline-start:var(--gcds-nav-group-top-nav-trigger-icon-margin);order:2}}@layer mobileNav{:host(.gcds-mobile-nav){width:100%}:host(.gcds-mobile-nav) .gcds-trigger--expandable{border:var(--gcds-nav-group-mobile-trigger-border-width) solid;border-radius:var(--gcds-nav-group-mobile-trigger-border-radius);color:var(--gcds-nav-group-mobile-trigger-text);flex-direction:row-reverse;justify-content:center;margin-block-start:var(--gcds-nav-group-mobile-trigger-margin);text-align:center}:host(.gcds-mobile-nav) .gcds-trigger--expandable gcds-icon{display:none}:host([open].gcds-mobile-nav){background-color:var(--gcds-nav-group-mobile-background);height:100vh;left:0;overflow-y:scroll;padding:var(--gcds-nav-group-mobile-padding)!important;position:fixed;top:0;width:100%;z-index:100}}@layer desktop{@media only screen and (width >= 64em){:host .gcds-nav-group__trigger{max-width:var(--gcds-nav-group-trigger-max-width)}:host .gcds-nav--expandable{padding-inline-start:var(--gcds-nav-group-side-nav-dropdown-padding)}:host .gcds-nav--dropdown{background-color:var(--gcds-nav-group-top-nav-dropdown-background);border-radius:var(--gcds-border-radius-md);box-shadow:var(--gcds-nav-group-top-nav-dropdown-box-shadow);left:0;margin-block-start:var(--gcds-spacing-200);padding:var(--gcds-nav-group-top-nav-dropdown-padding);position:absolute;top:100%;width:var(--gcds-nav-group-top-nav-dropdown-width);z-index:1}:host .gcds-nav--dropdown.dropdown-right{left:auto;right:0}:host(.gcds-mobile-nav)>.gcds-nav--expandable{display:block;padding:0}:host(.gcds-mobile-nav) .gcds-trigger--expandable{display:none}:host(.gcds-mobile-nav-topnav)>.gcds-nav--expandable{display:flex}}}@layer mobile{@media only screen and (width < 64em){:host(.gcds-mobile-nav)>.gcds-nav--expandable{margin:var(--gcds-nav-group-mobile-list-margin)}:host([open]:not(.gcds-mobile-nav)) .gcds-nav-group__list{padding-inline-start:var(--gcds-nav-group-side-nav-dropdown-padding)}}@media only screen and (48em < width < 64em){:host(.gcds-mobile-nav) .gcds-trigger--expandable{align-self:flex-start;width:auto}}}@layer hover{@media (hover:hover){:host .gcds-nav-group__trigger:hover{color:var(--gcds-nav-group-trigger-hover-text)}:host .gcds-trigger--dropdown:hover{color:var(--gcds-nav-group-top-nav-trigger-hover-text);text-decoration-color:var(--gcds-nav-group-top-nav-trigger-hover-text);text-decoration-thickness:var(\n          --gcds-nav-group-top-nav-trigger-hover-decoration-thickness\n        )}:host .gcds-trigger--expandable:hover{background-color:var(\n          --gcds-nav-group-side-nav-trigger-hover-background\n        )}}}@layer focus{:host .gcds-nav-group__trigger:focus{background-color:var(--gcds-nav-group-trigger-focus-background);border-color:var(--gcds-nav-group-trigger-focus-background);border-radius:var(--gcds-nav-group-trigger-focus-border-radius);box-shadow:var(--gcds-nav-group-trigger-focus-box-shadow);color:var(--gcds-nav-group-trigger-focus-text);outline:var(--gcds-nav-group-trigger-focus-outline);outline-offset:var(--gcds-nav-group-trigger-focus-outline-offset);text-decoration:none}}";
 
 /**
  * Navigational group with expandable or dropdown functionality, allowing for better organization of navigation links.
@@ -8162,7 +8133,7 @@ class GcdsNavGroup {
             this.navStyle = 'dropdown';
             // Get the alignment value from the parent + append the corresponding class
             const alignment = this.el.parentNode.getAttribute('alignment');
-            if (alignment === 'right') {
+            if (alignment === 'end') {
                 this.navStyle += ' dropdown-right';
             }
             if (this.open) {
@@ -8180,18 +8151,18 @@ class GcdsNavGroup {
     }
     render() {
         const { closeTrigger, menuLabel, open, openTrigger } = this;
-        return (hAsync(Host, { key: 'e83cd752015541c3d3c66df11acea95bb47d328f', role: "listitem", open: open }, hAsync("button", { key: 'c454fdad83340bfda53c6be88fad4d04832b616d', "aria-haspopup": "true", tabIndex: 0, "aria-expanded": open.toString(), ref: element => (this.triggerElement = element), class: `gcds-nav-group__trigger gcds-trigger--${this.navStyle}`, onBlur: () => this.gcdsBlur.emit(), onFocus: () => this.gcdsFocus.emit(), onClick: e => {
+        return (hAsync(Host, { key: 'dc41c8634f5207f3264c193fa4b643a5d7460bcb', role: "listitem", open: open }, hAsync("button", { key: '993f5335ec64d025e881c8d3149bc2f6507ae919', "aria-haspopup": "true", tabIndex: 0, "aria-expanded": open.toString(), ref: element => (this.triggerElement = element), class: `gcds-nav-group__trigger gcds-trigger--${this.navStyle}`, onBlur: () => this.gcdsBlur.emit(), onFocus: () => this.gcdsFocus.emit(), onClick: e => {
                 const event = emitEvent(e, this.gcdsClick);
                 if (event) {
                     this.toggleNav();
                 }
-            } }, hAsync("gcds-icon", { key: '6a2a04d5728d1b23860522b3419c054621abae4f', name: this.navStyle === 'expandable'
+            } }, hAsync("gcds-icon", { key: '78f16f4980aa7aa8b0226b4760763ba41ecc0e2b', name: this.navStyle === 'expandable'
                 ? open
                     ? 'chevron-down'
                     : 'chevron-right'
                 : open
                     ? 'chevron-up'
-                    : 'chevron-down' }), closeTrigger && open ? closeTrigger : openTrigger), hAsync("ul", { key: 'be77203e415fe750b349dec603812cd8a8cb5bab', "aria-label": menuLabel, class: `gcds-nav-group__list gcds-nav--${this.navStyle}` }, hAsync("slot", { key: '0e98b6827f549b1ff852d15dbbe7e4f8a0546c24' }))));
+                    : 'chevron-down' }), closeTrigger && open ? closeTrigger : openTrigger), hAsync("ul", { key: '349c7a14f3e13ef7344ea40e35ac8c9000f8d390', "aria-label": menuLabel, class: `gcds-nav-group__list gcds-nav--${this.navStyle}` }, hAsync("slot", { key: '73a3ba354f2a90a0cea6edfe9e47b1ad5c85e92d' }))));
     }
     get el() { return getElement(this); }
     static get style() { return gcdsNavGroupCss; }
@@ -8215,7 +8186,7 @@ class GcdsNavGroup {
     }; }
 }
 
-const gcdsNavLinkCss = "@layer reset, default, variants, hover, active, focus;@layer reset{:host .gcds-nav-link{box-sizing:border-box}:host .gcds-nav-link slot{display:initial}}@layer default{:host .gcds-nav-link{border-inline:var(--gcds-nav-link-border-width) solid transparent;color:var(--gcds-nav-link-default-text);display:flex;font:var(--gcds-nav-link-font);margin-block-end:var(--gcds-nav-link-margin);padding:var(--gcds-nav-link-padding);text-decoration-color:currentColor;text-decoration-line:underline;text-decoration-style:solid;text-decoration-thickness:var(\n      --gcds-nav-link-default-decoration-thickness\n    );text-underline-offset:var(--gcds-nav-link-default-underline-offset);transition:all .25s ease-in-out}@media only screen and (width < 64em){:host .gcds-nav-link{font:var(--gcds-nav-link-font-mobile);min-width:50%}}@media only screen and (width > 48em){:host .gcds-nav-link{max-width:var(--gcds-nav-link-default-max-width)}}:host .gcds-nav-link[aria-current=page]{pointer-events:none;text-decoration:none}}@layer variants{@media only screen and (width >= 64em){:host>.gcds-nav-link--topnav.gcds-nav-link{border-block:var(--gcds-nav-link-border-width) solid transparent;border-inline:0;color:var(--gcds-nav-link-top-nav-text);margin:var(--gcds-nav-link-top-nav-margin);padding:var(--gcds-nav-link-top-nav-padding)}:host>.gcds-nav-link--topnav.gcds-nav-link:not(:hover){text-decoration-color:transparent}:host([slot=home])>.gcds-nav-link{font:var(--gcds-nav-link-top-nav-home-font);padding:var(--gcds-nav-link-top-nav-home-padding)}}:host>.gcds-nav-link--sidenav.gcds-nav-link{padding:var(--gcds-nav-link-side-nav-padding)}}@layer hover{@media (hover:hover){:host .gcds-nav-link:hover{color:var(--gcds-nav-link-hover-text);text-decoration-thickness:var(\n        --gcds-nav-link-hover-decoration-thickness\n      )}:host>.gcds-nav-link--dropdown.gcds-nav-link:hover,:host>.gcds-nav-link--sidenav.gcds-nav-link:hover{color:var(--gcds-nav-link-hover-text)}:host>.gcds-nav-link--sidenav.gcds-nav-link:hover{background-color:var(--gcds-nav-link-side-nav-hover-background)}:host>.gcds-nav-link--dropdown.gcds-nav-link:hover{background-color:var(--gcds-nav-link-top-nav-hover-background)}}}@layer active{:host .gcds-nav-link[aria-current=page]{background-color:var(--gcds-nav-link-active-background);border-inline-start-color:var(--gcds-nav-link-active-border-color);color:var(--gcds-nav-link-active-text)}@media only screen and (width >= 64em){:host>.gcds-nav-link--topnav.gcds-nav-link[aria-current=page]{background-color:transparent;border-block-end-color:var(--gcds-nav-link-active-border-color);color:var(--gcds-nav-link-top-nav-text)}}:host>.gcds-nav-link--sidenav.gcds-nav-link[aria-current=page]{font-weight:var(--gcds-nav-link-active-font-weight)}}@layer focus{:host .gcds-nav-link:focus{background-color:var(--gcds-nav-link-focus-background);border-color:var(--gcds-nav-link-focus-background);border-radius:var(--gcds-nav-link-focus-border-radius);box-shadow:var(--gcds-nav-link-focus-box-shadow);color:var(--gcds-nav-link-focus-text);outline:var(--gcds-nav-link-focus-outline);outline-offset:var(--gcds-nav-link-focus-outline-offset);text-decoration:none}}";
+const gcdsNavLinkCss = "@layer reset, default, variants, hover, active, focus;@layer reset{:host .gcds-nav-link{box-sizing:border-box}:host .gcds-nav-link slot{display:initial}}@layer default{:host .gcds-nav-link{border-inline:var(--gcds-nav-link-border-width) solid transparent;color:var(--gcds-nav-link-default-text);display:flex;font:var(--gcds-nav-link-font);margin-block-end:var(--gcds-nav-link-margin);padding:var(--gcds-nav-link-padding);text-decoration-color:currentColor;text-decoration-line:underline;text-decoration-style:solid;text-decoration-thickness:var(\n      --gcds-nav-link-default-decoration-thickness\n    );text-underline-offset:var(--gcds-nav-link-default-underline-offset);transition:all .25s ease-in-out}@media only screen and (width < 64em){:host .gcds-nav-link{font:var(--gcds-nav-link-font-mobile);min-width:50%}}@media only screen and (width > 48em){:host .gcds-nav-link{max-width:var(--gcds-nav-link-default-max-width)}}:host .gcds-nav-link[aria-current=page]{pointer-events:none;text-decoration:none}}@layer variants{@media only screen and (width >= 64em){:host>.gcds-nav-link--topnav.gcds-nav-link{border-block:var(--gcds-nav-link-border-width) solid transparent;border-inline:0;color:var(--gcds-nav-link-top-nav-text);margin:var(--gcds-nav-link-top-nav-margin);padding:var(--gcds-nav-link-top-nav-padding)}:host>.gcds-nav-link--topnav.gcds-nav-link:not(:hover){text-decoration-color:transparent}:host([slot=home])>.gcds-nav-link{color:var(--gcds-nav-link-top-nav-text-primary);font:var(--gcds-nav-link-top-nav-home-font);padding:var(--gcds-nav-link-top-nav-home-padding)}}:host>.gcds-nav-link--sidenav.gcds-nav-link{padding:var(--gcds-nav-link-side-nav-padding)}}@layer hover{@media (hover:hover){:host .gcds-nav-link:hover{color:var(--gcds-nav-link-hover-text);text-decoration-thickness:var(\n        --gcds-nav-link-hover-decoration-thickness\n      )}:host>.gcds-nav-link--dropdown.gcds-nav-link:hover,:host>.gcds-nav-link--sidenav.gcds-nav-link:hover{color:var(--gcds-nav-link-hover-text)}:host>.gcds-nav-link--sidenav.gcds-nav-link:hover{background-color:var(--gcds-nav-link-side-nav-hover-background)}:host>.gcds-nav-link--dropdown.gcds-nav-link:hover{background-color:var(--gcds-nav-link-top-nav-hover-background)}}}@layer active{:host .gcds-nav-link[aria-current=page]{background-color:var(--gcds-nav-link-active-background);border-inline-start-color:var(--gcds-nav-link-active-border-color);color:var(--gcds-nav-link-active-text)}@media only screen and (width >= 64em){:host>.gcds-nav-link--topnav.gcds-nav-link[aria-current=page]{background-color:transparent;border-block-end-color:currentColor;color:var(--gcds-nav-link-top-nav-text-primary)}}:host>.gcds-nav-link--sidenav.gcds-nav-link[aria-current=page]{font-weight:var(--gcds-nav-link-active-font-weight)}}@layer focus{:host .gcds-nav-link:focus{background-color:var(--gcds-nav-link-focus-background);border-color:var(--gcds-nav-link-focus-background);border-radius:var(--gcds-nav-link-focus-border-radius);box-shadow:var(--gcds-nav-link-focus-box-shadow);color:var(--gcds-nav-link-focus-text);outline:var(--gcds-nav-link-focus-outline);outline-offset:var(--gcds-nav-link-focus-outline-offset);text-decoration:none}}";
 
 /**
  * Navigation link within a navigation group or menu, allowing users to navigate to different sections of a website or application.
@@ -8288,7 +8259,7 @@ class GcdsNavLink {
     }; }
 }
 
-const I18N$b = {
+const I18N$9 = {
   en: {
     success: 'Success: ',
     info: 'Information: ',
@@ -8303,7 +8274,7 @@ const I18N$b = {
   },
 };
 
-const gcdsNoticeCss = "@layer reset, default, type;@layer reset{:host{display:block}:host .gcds-notice{box-sizing:border-box;text-align:left}:host .gcds-notice slot{display:initial}}@layer default{:host .gcds-notice{color:var(--gcds-notice-text);display:grid;gap:var(--gcds-notice-icon-gap);grid-template-columns:var(--gcds-notice-icon-width) auto}:host .gcds-notice .notice__heading{--gcds-heading-h2-desktop:var(\n        --gcds-notice-content-heading-font-desktop\n      );--gcds-heading-h2-mobile:var(--gcds-notice-content-heading-font-mobile);--gcds-heading-h4-desktop:var(\n        --gcds-notice-content-heading-font-desktop\n      );--gcds-heading-h4-mobile:var(--gcds-notice-content-heading-font-mobile);--gcds-heading-h5-desktop:var(\n        --gcds-notice-content-heading-font-desktop\n      );--gcds-heading-h5-mobile:var(--gcds-notice-content-heading-font-mobile);margin-block-start:var(--gcds-notice-content-heading-margin-block-start-desktop)}@media only screen and (width < 48em){:host .gcds-notice .notice__heading{margin-block-start:var(--gcds-notice-content-heading-margin-block-start-mobile)}}:host .gcds-notice .notice__icon{margin:var(--gcds-notice-icon-margin)}:host .gcds-notice .notice__icon:before{background-color:currentColor;content:\"\";display:block;height:var(--gcds-notice-icon-before-height);margin:0 auto;width:var(--gcds-notice-border-width)}:host .gcds-notice .notice__icon:after{background-color:currentColor;content:\"\";display:block;height:var(--gcds-notice-icon-after-height);margin:0 auto;width:var(--gcds-notice-border-width)}:host .gcds-notice ::slotted(*){font:var(--gcds-notice-content-slotted-font-desktop);margin-block-start:0}@media only screen and (width < 48em){:host .gcds-notice ::slotted(*){font:var(--gcds-notice-content-slotted-font-mobile)}}:host .gcds-notice ::slotted(:last-child){margin-block-end:0}:host .gcds-notice ::slotted(:not(:last-child)){margin-block-end:var(--gcds-notice-content-slotted-margin)}:host .gcds-notice ::slotted(ol),:host .gcds-notice ::slotted(ul){margin-inline-start:var(--gcds-notice-content-slotted-list-margin);padding:0}}@layer type{:host .gcds-notice.notice--type-danger .notice__icon{color:var(--gcds-notice-danger-text)}:host .gcds-notice.notice--type-info .notice__icon{color:var(--gcds-notice-info-text)}:host .gcds-notice.notice--type-success .notice__icon{color:var(--gcds-notice-success-text)}:host .gcds-notice.notice--type-warning .notice__icon{color:var(--gcds-notice-warning-text)}}";
+const gcdsNoticeCss = "@layer reset, default, type;@layer reset{:host{display:block}:host .gcds-notice{box-sizing:border-box;text-align:left}:host .gcds-notice slot{display:initial}}@layer default{:host .gcds-notice{color:var(--gcds-notice-text);display:grid;gap:var(--gcds-notice-icon-gap);grid-template-columns:var(--gcds-notice-icon-width) auto}:host .gcds-notice .notice__heading{--gcds-heading-h2-desktop:var(\n        --gcds-notice-content-heading-font-desktop\n      );--gcds-heading-h2-mobile:var(--gcds-notice-content-heading-font-mobile);--gcds-heading-h4-desktop:var(\n        --gcds-notice-content-heading-font-desktop\n      );--gcds-heading-h4-mobile:var(--gcds-notice-content-heading-font-mobile);--gcds-heading-h5-desktop:var(\n        --gcds-notice-content-heading-font-desktop\n      );--gcds-heading-h5-mobile:var(--gcds-notice-content-heading-font-mobile);margin-block-start:var(\n        --gcds-notice-content-heading-margin-block-start-desktop\n      )}@media only screen and (width < 48em){:host .gcds-notice .notice__heading{margin-block-start:var(\n          --gcds-notice-content-heading-margin-block-start-mobile\n        )}}:host .gcds-notice .notice__icon{margin:var(--gcds-notice-icon-margin)}:host .gcds-notice .notice__icon:before{background-color:currentColor;content:\"\";display:block;height:var(--gcds-notice-icon-before-height);margin:0 auto;width:var(--gcds-notice-border-width)}:host .gcds-notice .notice__icon:after{background-color:currentColor;content:\"\";display:block;height:var(--gcds-notice-icon-after-height);margin:0 auto;width:var(--gcds-notice-border-width)}:host .gcds-notice ::slotted(*){font:var(--gcds-notice-content-slotted-font-desktop);margin-block-start:0}@media only screen and (width < 48em){:host .gcds-notice ::slotted(*){font:var(--gcds-notice-content-slotted-font-mobile)}}:host .gcds-notice ::slotted(:last-child){margin-block-end:0}:host .gcds-notice ::slotted(:not(:last-child)){margin-block-end:var(--gcds-notice-content-slotted-margin)}:host .gcds-notice ::slotted(ol),:host .gcds-notice ::slotted(ul){margin-inline-start:var(--gcds-notice-content-slotted-list-margin);padding:0}}@layer type{:host .gcds-notice.notice--role-danger .notice__icon{color:var(--gcds-notice-danger-text)}:host .gcds-notice.notice--role-info .notice__icon{color:var(--gcds-notice-info-text)}:host .gcds-notice.notice--role-success .notice__icon{color:var(--gcds-notice-success-text)}:host .gcds-notice.notice--role-warning .notice__icon{color:var(--gcds-notice-warning-text)}}";
 
 /**
  * The notice is a short, prominent message that’s part of the page content.
@@ -8322,12 +8293,12 @@ class GcdsNotice {
          */
         this.errors = [];
     }
-    validateType() {
-        if (!this.type) {
-            this.errors.push('type');
+    validateNoticeRole() {
+        if (!this.noticeRole) {
+            this.errors.push('noticeRole');
         }
-        else if (this.errors.includes('type')) {
-            this.errors.splice(this.errors.indexOf('type'), 1);
+        else if (this.errors.includes('noticeRole')) {
+            this.errors.splice(this.errors.indexOf('noticeRole'), 1);
         }
     }
     validateNoticeTitle() {
@@ -8368,10 +8339,10 @@ class GcdsNotice {
     }
     validateRequiredProps() {
         this.validateNoticeTitle();
-        this.validateType();
+        this.validateNoticeRole();
         this.validateNoticeTitleTag();
         this.validateChildren();
-        if (this.errors.includes('type') ||
+        if (this.errors.includes('noticeRole') ||
             this.errors.includes('noticeTitle') ||
             this.errors.includes('noticeTitleTag') ||
             this.errors.includes('children')) {
@@ -8389,14 +8360,14 @@ class GcdsNotice {
         }
     }
     render() {
-        const { type, noticeTitle, noticeTitleTag } = this;
-        const iconTypes = {
+        const { noticeRole, noticeTitle, noticeTitleTag } = this;
+        const iconRoles = {
             danger: 'exclamation-circle',
             info: 'info-circle',
             success: 'checkmark-circle',
             warning: 'warning-triangle',
         };
-        return (hAsync(Host, { key: '8a00f86f682e7a061c99658762079acc79d2277e' }, this.validateRequiredProps() && (hAsync("section", { key: '04219293eafd3fe86c13826820644a02584a389d', class: `gcds-notice notice--type-${type}` }, hAsync("gcds-icon", { key: '9d095dbcf44d3d39a408f55531164e76ae969b42', class: "notice__icon", size: "h4", name: iconTypes[type] }), hAsync("div", { key: '525e51d6030072ee8b88a99e4e01078868e6df87' }, hAsync("gcds-heading", { key: 'fd5adaf2b185a71d0d70e5174af1d590fb405c2c', tag: noticeTitleTag, "margin-top": "0", "margin-bottom": "100", class: "notice__heading" }, hAsync("gcds-sr-only", { key: 'b8955dccf72340580e7cf30ae2bba76b7704b50e', tag: "span" }, I18N$b[this.lang][type]), noticeTitle), hAsync("slot", { key: '781c621945781994d22fc5c0e9974ac852e0fe39' }))))));
+        return (hAsync(Host, { key: 'eeefda750a72d686551bf8fb9d19e01041443383' }, this.validateRequiredProps() && (hAsync("section", { key: '6e02932b54e765e2209dbfce48d195cf49c18b71', class: `gcds-notice notice--role-${noticeRole}` }, hAsync("gcds-icon", { key: '3dc298767a00715811ccec1f9c372acf919fd3d4', class: "notice__icon", size: "h4", name: iconRoles[noticeRole] }), hAsync("div", { key: '214a8893e623fa271f673cb79df6a732a6c72964' }, hAsync("gcds-heading", { key: 'ea7a87df48aa86ca8c85128dfcdd49ea39430217', tag: noticeTitleTag, "margin-top": "0", "margin-bottom": "100", class: "notice__heading" }, hAsync("gcds-sr-only", { key: '517fd7249667e0f971b009f65b070dc11440d69e', tag: "span" }, I18N$9[this.lang][noticeRole]), noticeTitle), hAsync("slot", { key: 'fdf48fa2daceb1af2f8058e53e4a3d00d6424444' }))))));
     }
     get el() { return getElement(this); }
     static get style() { return gcdsNoticeCss; }
@@ -8404,7 +8375,7 @@ class GcdsNotice {
         "$flags$": 9,
         "$tagName$": "gcds-notice",
         "$members$": {
-            "type": [1],
+            "noticeRole": [1, "notice-role"],
             "noticeTitle": [1, "notice-title"],
             "noticeTitleTag": [1, "notice-title-tag"],
             "errors": [32],
@@ -8416,7 +8387,7 @@ class GcdsNotice {
     }; }
 }
 
-const I18N$a = {
+const I18N$8 = {
   en: {
     next: 'Next',
     listNext: 'Next',
@@ -8601,16 +8572,16 @@ class GcdsPagination {
             'href': href,
             'tabindex': 0,
             'aria-label': !end
-                ? I18N$a[this.lang].pageNumberOf
+                ? I18N$8[this.lang].pageNumberOf
                     .replace('{#}', page)
                     .replace('{total}', this.totalPages)
                     .replace('{label}', this.label)
                 : end == 'next'
-                    ? `${I18N$a[this.lang].nextPage}: ${I18N$a[this.lang].pageNumberOf
+                    ? `${I18N$8[this.lang].nextPage}: ${I18N$8[this.lang].pageNumberOf
                         .replace('{#}', ++page)
                         .replace('{total}', this.totalPages)
                         .replace('{label}', this.label)}`
-                    : `${I18N$a[this.lang].previousPage}: ${I18N$a[this.lang].pageNumberOf
+                    : `${I18N$8[this.lang].previousPage}: ${I18N$8[this.lang].pageNumberOf
                         .replace('{#}', --page)
                         .replace('{total}', this.totalPages)
                         .replace('{label}', this.label)}`,
@@ -8624,11 +8595,11 @@ class GcdsPagination {
         if (end) {
             return (hAsync("li", null, end === 'next' ? (hAsync("a", Object.assign({}, linkAttrs, { class: !mobile
                     ? 'gcds-pagination-end-button'
-                    : 'gcds-pagination-end-button-mobile' }), hAsync("span", null, I18N$a[this.lang].listNext), hAsync("gcds-icon", { "margin-left": "150", name: "chevron-right" }))) : (hAsync("a", Object.assign({}, linkAttrs, { class: !mobile
+                    : 'gcds-pagination-end-button-mobile' }), hAsync("span", null, I18N$8[this.lang].listNext), hAsync("gcds-icon", { "margin-left": "150", name: "chevron-right" }))) : (hAsync("a", Object.assign({}, linkAttrs, { class: !mobile
                     ? 'gcds-pagination-end-button'
                     : 'gcds-pagination-end-button-mobile' }), hAsync("gcds-icon", { "margin-right": "150", name: "chevron-left" }), hAsync("span", null, mobile
-                ? I18N$a[this.lang].previousMobile
-                : I18N$a[this.lang].listPrevious)))));
+                ? I18N$8[this.lang].previousMobile
+                : I18N$8[this.lang].listPrevious)))));
         }
         else {
             return (hAsync("li", { class: page != 1 && page != this.totalPages
@@ -8739,7 +8710,7 @@ class GcdsPagination {
     }
     render() {
         const { display, label, previousHref, previousLabel, nextHref, nextLabel, lang, } = this;
-        return (hAsync(Host, { key: '9a81d301de4f742c83fd7a07b016569b993aaac1', role: "navigation", "aria-label": label }, hAsync("div", { key: 'd8cfd7c590b889f58d04db1781c528589e052b1f', class: "gcds-pagination" }, display === 'list' ? (hAsync("div", null, hAsync("ul", { class: "gcds-pagination-list" }, this.listitems), hAsync("ul", { class: "gcds-pagination-list-mobile-prevnext" }, this.mobilePrevNext))) : (hAsync("ul", { class: "gcds-pagination-simple" }, previousHref && (hAsync("li", { class: "gcds-pagination-simple-listitem" }, hAsync("a", { href: previousHref, tabindex: 0, "aria-label": `${I18N$a[lang].previousPage}${previousLabel ? `: ${previousLabel}` : ''}`, onBlur: () => this.gcdsBlur.emit(), onFocus: () => this.gcdsFocus.emit(), onClick: e => emitEvent(e, this.gcdsClick, previousHref) }, hAsync("gcds-icon", { "margin-right": "150", name: "chevron-left", size: "h6" }), hAsync("div", { class: "gcds-pagination-simple-text" }, I18N$a[lang].previous), hAsync("span", null, previousLabel)))), nextHref && (hAsync("li", { class: "gcds-pagination-simple-listitem" }, hAsync("a", { href: nextHref, tabindex: 0, "aria-label": `${I18N$a[lang].nextPage}${nextLabel ? `: ${nextLabel}` : ''}`, onBlur: () => this.gcdsBlur.emit(), onFocus: () => this.gcdsFocus.emit(), onClick: e => emitEvent(e, this.gcdsClick, nextHref) }, hAsync("gcds-icon", { "margin-right": "150", name: "chevron-right", size: "h6" }), hAsync("div", { class: "gcds-pagination-simple-text" }, I18N$a[lang].next), hAsync("span", null, nextLabel)))))))));
+        return (hAsync(Host, { key: '9a81d301de4f742c83fd7a07b016569b993aaac1', role: "navigation", "aria-label": label }, hAsync("div", { key: 'd8cfd7c590b889f58d04db1781c528589e052b1f', class: "gcds-pagination" }, display === 'list' ? (hAsync("div", null, hAsync("ul", { class: "gcds-pagination-list" }, this.listitems), hAsync("ul", { class: "gcds-pagination-list-mobile-prevnext" }, this.mobilePrevNext))) : (hAsync("ul", { class: "gcds-pagination-simple" }, previousHref && (hAsync("li", { class: "gcds-pagination-simple-listitem" }, hAsync("a", { href: previousHref, tabindex: 0, "aria-label": `${I18N$8[lang].previousPage}${previousLabel ? `: ${previousLabel}` : ''}`, onBlur: () => this.gcdsBlur.emit(), onFocus: () => this.gcdsFocus.emit(), onClick: e => emitEvent(e, this.gcdsClick, previousHref) }, hAsync("gcds-icon", { "margin-right": "150", name: "chevron-left", size: "h6" }), hAsync("div", { class: "gcds-pagination-simple-text" }, I18N$8[lang].previous), hAsync("span", null, previousLabel)))), nextHref && (hAsync("li", { class: "gcds-pagination-simple-listitem" }, hAsync("a", { href: nextHref, tabindex: 0, "aria-label": `${I18N$8[lang].nextPage}${nextLabel ? `: ${nextLabel}` : ''}`, onBlur: () => this.gcdsBlur.emit(), onFocus: () => this.gcdsFocus.emit(), onClick: e => emitEvent(e, this.gcdsClick, nextHref) }, hAsync("gcds-icon", { "margin-right": "150", name: "chevron-right", size: "h6" }), hAsync("div", { class: "gcds-pagination-simple-text" }, I18N$8[lang].next), hAsync("span", null, nextLabel)))))))));
     }
     get el() { return getElement(this); }
     static get watchers() { return {
@@ -8770,80 +8741,6 @@ class GcdsPagination {
     }; }
 }
 
-const I18N$9 = {
-  en: {
-    label: 'Banner',
-  },
-  fr: {
-    label: 'Bannière',
-  },
-};
-
-const gcdsPhaseBannerCss = "@layer reset, default, fixed, role, wide, compact;@layer reset{:host{display:block}:host slot{display:initial}}@layer default{:host .gcds-phase-banner{container:component banner/inline-size;font:var(--gcds-phase-banner-font);line-height:var(--gcds-phase-banner-line-height)}:host .gcds-phase-banner .banner__content{padding:var(--gcds-phase-banner-padding)}:host .gcds-phase-banner .banner__icon{display:flex;margin:0}:host .gcds-phase-banner .banner__icon.icon--left{margin-inline-end:var(--gcds-phase-banner-icon-margin)}:host .gcds-phase-banner .banner__icon.icon--right{margin-inline-start:var(--gcds-phase-banner-icon-margin)}:host .gcds-phase-banner .banner__icon ::slotted(img),:host .gcds-phase-banner .banner__icon ::slotted(svg){max-height:var(--gcds-phase-banner-icon-max-height)}:host .gcds-phase-banner .banner__details{align-items:baseline;display:flex;flex-wrap:wrap}:host .gcds-phase-banner .banner__details ::slotted(a),:host .gcds-phase-banner .banner__details ::slotted(gcds-button){flex:0 0 auto}:host .gcds-phase-banner .banner__details ::slotted(a),:host .gcds-phase-banner .banner__details ::slotted(small),:host .gcds-phase-banner .banner__details ::slotted(span){font-size:80%!important}:host .gcds-phase-banner .banner__details ::slotted(p){font:var(--gcds-phase-banner-font);margin:0}:host .gcds-phase-banner .banner__details ::slotted(a){color:inherit}:host .gcds-phase-banner .banner__details ::slotted(gcds-button){margin:var(--gcds-phase-banner-details-cta-margin);transform:scale(90%)}}@layer fixed{:host .gcds-phase-banner.banner-is-fixed{position:sticky;top:0;width:100%;z-index:9999}}@layer role{:host .gcds-phase-banner.banner--role-primary{background-color:var(--gcds-phase-banner-primary-background);color:var(--gcds-phase-banner-primary-text)}:host .gcds-phase-banner.banner--role-secondary{background-color:var(--gcds-phase-banner-secondary-background);color:var(--gcds-phase-banner-secondary-text)}}@layer wide{@container banner (width >= 36em){:host .gcds-phase-banner .banner__content{display:flex}}}@layer compact{@container banner (width < 36em){:host .gcds-phase-banner .banner__content .banner__icon{display:none}}}";
-
-/**
- * Phase banner displays a banner indicating the current phase of a project or feature, with optional icons and call-to-action elements.
- *
- * @slot banner-cta - Slot for the call-to-action element in the banner.
- * @slot banner-icon-left - Slot for displaying an icon/image on the left of the banner.
- * @slot banner-icon-right - Slot for displaying an icon/image on the right of the banner.
- * @slot banner-text - Slot for the main content of the banner.
- */
-class GcdsPhaseBanner {
-    constructor(hostRef) {
-        registerInstance(this, hostRef);
-        /**
-         * Props
-         */
-        /**
-         * Defines banner role.
-         */
-        this.bannerRole = 'primary';
-        /**
-         * Defines the container width of the phase banner content
-         */
-        this.container = 'xl';
-    }
-    /**
-     * Events
-     */
-    /*
-     * Observe lang attribute change
-     */
-    updateLang() {
-        const observer = new MutationObserver(mutations => {
-            if (mutations[0].oldValue != this.el.lang) {
-                this.lang = this.el.lang;
-            }
-        });
-        observer.observe(this.el, observerConfig);
-    }
-    async componentWillLoad() {
-        // Define lang attribute
-        this.lang = assignLanguage(this.el);
-        this.updateLang();
-    }
-    render() {
-        const { bannerRole, container, isFixed, lang } = this;
-        return (hAsync(Host, { key: '9e22cdaf600a5c04b1a6866e7ca6386a1c52b22f' }, hAsync("div", { key: '8815335957b79321257d2652ab9412071678c835', class: `gcds-phase-banner banner--role-${bannerRole} ${isFixed ? 'banner--is-fixed' : ''}`, role: "status", "aria-label": I18N$9[lang].label }, hAsync("gcds-container", { key: 'f2ea1e5e0462f877f5f220762dc2ba0731177956', size: container, centered: true }, hAsync("div", { key: '8f53b7147fa6cda3d0c93e48d1af7e7ee5e939b3', class: "banner__content" }, hAsync("figure", { key: '065b45c6af563cde9a1239e0d156e7851cd5ec9b', class: "banner__icon icon--left" }, hAsync("slot", { key: '0ebff7836c9f90e51d99ce83ade049a4560061a9', name: "banner-icon-left" })), hAsync("div", { key: '75c91c8cefc6258a786d7a8a5bb0a12192701555', class: "banner__details" }, hAsync("slot", { key: '02d2d3d4bc23219520073a35c14da40e4a98df44', name: "banner-text" }), hAsync("slot", { key: 'd23c8e87203df30dfbb97682fc610acbb4477b90', name: "banner-cta" })), hAsync("figure", { key: 'eb80fcd4a211eae36bfeaf198c75f6fdf0eac375', class: "banner__icon icon--right" }, hAsync("slot", { key: 'ab144b1be3f32ab0efdb19ad5be68f12b342e745', name: "banner-icon-right" })))))));
-    }
-    get el() { return getElement(this); }
-    static get style() { return gcdsPhaseBannerCss; }
-    static get cmpMeta() { return {
-        "$flags$": 9,
-        "$tagName$": "gcds-phase-banner",
-        "$members$": {
-            "bannerRole": [1, "banner-role"],
-            "container": [1],
-            "isFixed": [4, "is-fixed"],
-            "lang": [32]
-        },
-        "$listeners$": undefined,
-        "$lazyBundleId$": "-",
-        "$attrsToReflect$": []
-    }; }
-}
-
 function isRadioObject(obj) {
     if (typeof obj !== 'object' || obj === null)
         return false;
@@ -8860,7 +8757,7 @@ function isRadioObject(obj) {
     return hasValidTypes && hasOnlyValidKeys;
 }
 
-const I18N$8 = {
+const I18N$7 = {
   en: {
     required: ' (required)',
   },
@@ -9125,7 +9022,7 @@ class GcdsRadios {
                 `${fieldsetAttrs['aria-labelledby']} ${hintID}`.trim();
         }
         if (this.validateRequiredProps()) {
-            return (hAsync(Host, { key: '09bebf9ebeec3959d7061acfebd1604656caefd4', onBlur: () => this.onBlurValidate() }, hAsync("fieldset", Object.assign({ key: '3d52f3ce72cdcedbaf5dcf57b11d6033ff35c575', class: "gcds-radios__fieldset" }, fieldsetAttrs), hAsync("legend", { key: 'af14ef3c9c4db9d1a12775fa51cf2f4aafe4bf54', id: "radios-legend", class: "gcds-radios__legend" }, this.hideLegend ? (hAsync("gcds-sr-only", { tag: "span" }, legend, required && hAsync("span", { class: "legend__required" }, I18N$8[lang].required))) : (hAsync(Fragment, null, legend, required && hAsync("span", { class: "legend__required" }, I18N$8[lang].required)))), hint ? (hAsync("gcds-hint", { id: "radios-hint", "hint-id": "radios" }, hint)) : null, errorMessage ? (hAsync("gcds-error-message", { id: "radios-error", messageId: "radios" }, errorMessage)) : null, this.optionsArr &&
+            return (hAsync(Host, { key: '3bd16e4a6cc77fc6114f37791a4342baef496716', onBlur: () => this.onBlurValidate() }, hAsync("fieldset", Object.assign({ key: '8c91df0fae62ebcae079551bc5362e1770d2da23', class: "gcds-radios__fieldset" }, fieldsetAttrs), hAsync("legend", { key: '7372c1addc1d1c715b58ca0dd3dcc75fc6c38be4', id: "radios-legend", class: "gcds-radios__legend" }, this.hideLegend ? (hAsync("gcds-sr-only", { tag: "span" }, legend, required && hAsync("span", { class: "legend__required" }, I18N$7[lang].required))) : (hAsync(Fragment, null, legend, required && hAsync("span", { class: "legend__required" }, I18N$7[lang].required)))), hint ? (hAsync("gcds-hint", { id: "radios-hint", "hint-id": "radios" }, hint)) : null, errorMessage ? (hAsync("gcds-error-message", { id: "radios-error", messageId: "radios" }, errorMessage)) : null, this.optionsArr &&
                 this.optionsArr.map(radio => {
                     const attrsInput = Object.assign({ name, disabled: disabled, required: required, value: radio.value, checked: radio.value === value, title: radioTitle, form: form }, inheritedAttributes);
                     if (radio.hint) {
@@ -9187,7 +9084,7 @@ class GcdsRadios {
     }; }
 }
 
-const I18N$7 = {
+const I18N$6 = {
   en: {
     search: 'Search',
     searchLabel: 'Search {$}',
@@ -9278,7 +9175,7 @@ class GcdsSearch {
     }
     render() {
         const { placeholder, action, method, name, value, lang, searchId, suggestedArray, } = this;
-        const labelText = `${I18N$7[lang].searchLabel.replace('{$}', placeholder)}`;
+        const labelText = `${I18N$6[lang].searchLabel.replace('{$}', placeholder)}`;
         const attrsInput = {
             name,
             placeholder: labelText,
@@ -9286,7 +9183,7 @@ class GcdsSearch {
         const formAction = action === '/sr/srb.html'
             ? `https://www.canada.ca/${lang}/sr/srb.html`
             : action;
-        return (hAsync(Host, { key: 'a8447a475cd01c2470f0fcf59a811c7878993b45' }, hAsync("section", { key: '85cd42252e0d347f31ed2cb00b34636e6c26eccc', class: "gcds-search" }, hAsync("gcds-sr-only", { key: '750462bb0db188d542c56725d9b2e5ae76a3f4bb', tag: "h2" }, I18N$7[lang].search), hAsync("form", { key: 'f8874db21951a4aeaa63e72f9ad186dae48e1470', action: formAction, method: method, role: "search", onSubmit: e => emitEvent(e, this.gcdsSubmit, this.value), class: "gcds-search__form" }, hAsync("gcds-label", { key: '3397eebceaaa860ec6a33a3f04adbe02885051ae', label: labelText, "label-for": searchId, "hide-label": true }), hAsync("input", Object.assign({ key: '6e8919b8ed8ccefd290672bd785b825a2aec5e19', type: "search", id: searchId }, (suggestedArray ? { list: 'search-list' } : {}), { size: 34, maxLength: 170, onInput: e => this.handleInput(e, this.gcdsInput), onChange: e => this.handleInput(e, this.gcdsChange), onFocus: () => this.gcdsFocus.emit(), onBlur: () => this.gcdsBlur.emit() }, attrsInput, { class: "gcds-search__input", value: value })), suggestedArray && (hAsync("datalist", { key: 'd2447eb6daceafbb51cf617bf206d381f5b53629', id: "search-list" }, suggestedArray.map((k, v) => (hAsync("option", { value: k, key: v }))))), hAsync("gcds-button", { key: 'ba672e2400fd432988f4dd01c5f176b15b6b3716', type: "submit", class: "gcds-search__button", exportparts: "button" }, hAsync("gcds-icon", { key: '61eaab4eaac77486c49136af763793310d1e3c49', name: "search", label: I18N$7[lang].search, size: "h3" }))))));
+        return (hAsync(Host, { key: '86ac279eefbc17baee674c2997e127d3b5a20802' }, hAsync("section", { key: 'c61a273e09c805540ca3a1a31cdcb749c7e04b1f', class: "gcds-search" }, hAsync("gcds-sr-only", { key: '14f5c0f5d537821b1ee7e573824fb4e8f52ce9d0', tag: "h2" }, I18N$6[lang].search), hAsync("form", { key: 'd4bc7d4570f4d456216e8388edf9e2632c5d97ca', action: formAction, method: method, role: "search", onSubmit: e => emitEvent(e, this.gcdsSubmit, this.value), class: "gcds-search__form" }, hAsync("gcds-label", { key: 'f9b12776718938c81ae1e832b7e9cbd990e36b4e', label: labelText, "label-for": searchId, "hide-label": true }), hAsync("input", Object.assign({ key: '949cebb5efdf13db2ac669d5f7ed87892e235b10', type: "search", id: searchId }, (suggestedArray ? { list: 'search-list' } : {}), { size: 34, maxLength: 170, onInput: e => this.handleInput(e, this.gcdsInput), onChange: e => this.handleInput(e, this.gcdsChange), onFocus: () => this.gcdsFocus.emit(), onBlur: () => this.gcdsBlur.emit() }, attrsInput, { class: "gcds-search__input", value: value })), suggestedArray && (hAsync("datalist", { key: '99dae417e4c831258c23d4149e89cc7391ecd058', id: "search-list" }, suggestedArray.map((k, v) => (hAsync("option", { value: k, key: v }))))), hAsync("gcds-button", { key: '666e36ab503ef667109cd437ed797dbb77ca8aff', type: "submit", class: "gcds-search__button", exportparts: "button" }, hAsync("gcds-icon", { key: 'c116c3c0d584bf47417852aec4211ca0a7b4a304', name: "search", label: I18N$6[lang].search, size: "h3" }))))));
     }
     get el() { return getElement(this); }
     static get watchers() { return {
@@ -9607,7 +9504,7 @@ class GcdsSelect {
                 ? `${attrsSelect['aria-describedby']}`
                 : ''}`;
         }
-        return (hAsync(Host, { key: 'b013745e4eff4fbea0a8c1cc345e5060e8e06db5' }, hAsync("div", { key: 'a0afc1eba170ae6e33025112b5f48584e7a5c8e3', class: `gcds-select-wrapper ${disabled ? 'gcds-disabled' : ''} ${hasError ? 'gcds-error' : ''}` }, hAsync("gcds-label", Object.assign({ key: '33ee9c668f0adfa00854d38c6fda8fbad9c08eb9' }, attrsLabel, { "hide-label": hideLabel, "label-for": selectId, lang: lang })), hint ? hAsync("gcds-hint", { "hint-id": selectId }, hint) : null, errorMessage ? (hAsync("gcds-error-message", { messageId: selectId }, errorMessage)) : null, hAsync("select", Object.assign({ key: '98566628be047f76761eaae900d5cc339520f6e7' }, attrsSelect, { id: selectId, onBlur: () => this.onBlur(), onFocus: () => this.gcdsFocus.emit(), onInput: e => this.handleInput(e, this.gcdsInput), onChange: e => this.handleInput(e, this.gcdsChange), "aria-invalid": inheritedAttributes['aria-invalid'] === 'true'
+        return (hAsync(Host, { key: '880e20d5e7fb9a84bc4e5e413b405c9fa162a136' }, hAsync("div", { key: '15360120f3b67e2e507583ce7f000ca957440fb0', class: `gcds-select-wrapper ${disabled ? 'gcds-disabled' : ''} ${hasError ? 'gcds-error' : ''}` }, hAsync("gcds-label", Object.assign({ key: '3330dda4ebfd959ab6d9b1d98a588509fe70416e' }, attrsLabel, { "hide-label": hideLabel, "label-for": selectId, lang: lang })), hint ? hAsync("gcds-hint", { "hint-id": selectId }, hint) : null, errorMessage ? (hAsync("gcds-error-message", { messageId: selectId }, errorMessage)) : null, hAsync("select", Object.assign({ key: '518196d275c5163e239fc2adcafe0b52c16ac4bf' }, attrsSelect, { id: selectId, onBlur: () => this.onBlur(), onFocus: () => this.gcdsFocus.emit(), onInput: e => this.handleInput(e, this.gcdsInput), onChange: e => this.handleInput(e, this.gcdsChange), "aria-invalid": inheritedAttributes['aria-invalid'] === 'true'
                 ? inheritedAttributes['aria-invalid']
                 : errorMessage
                     ? 'true'
@@ -9830,7 +9727,7 @@ async function getNavItems(el) {
     return indexedItems;
 }
 
-const I18N$6 = {
+const I18N$5 = {
   en: {
     closeTrigger: 'Close',
     menuLabel: 'Menu',
@@ -9845,7 +9742,7 @@ const I18N$6 = {
   },
 };
 
-const gcdsSideNavCss = "@layer reset, default, desktop, mobile;@layer reset{:host{display:block}:host *{box-sizing:border-box;margin:0;padding:0}}@layer default{:host{width:100%}:host .gcds-side-nav__heading{font:var(--gcds-side-nav-heading-font);margin-block-end:var(--gcds-side-nav-heading-margin);padding:var(--gcds-side-nav-heading-padding)}}@layer desktop{@media only screen and (width >= 64em){:host .gcds-side-nav{max-width:var(--gcds-side-nav-max-width)}}}@layer mobile{@media only screen and (width < 64em){:host .gcds-side-nav__heading{display:block;height:0;margin:0;overflow:hidden;padding:0;width:0}}}";
+const gcdsSideNavCss = "@layer reset, default, desktop, mobile;@layer reset{:host{display:block}:host *{box-sizing:border-box;margin:0;padding:0}}@layer default{:host{width:100%}:host .gcds-side-nav__heading{color:var(--gcds-side-nav-heading-color);font:var(--gcds-side-nav-heading-font);margin-block-end:var(--gcds-side-nav-heading-margin);padding:var(--gcds-side-nav-heading-padding)}}@layer desktop{@media only screen and (width >= 64em){:host .gcds-side-nav{max-width:var(--gcds-side-nav-max-width)}}}@layer mobile{@media only screen and (width < 64em){:host .gcds-side-nav__heading{display:block;height:0;margin:0;overflow:hidden;padding:0;width:0}}}";
 
 /**
  * A side navigation is a vertical list of page links on the left side of the screen.
@@ -9963,7 +9860,7 @@ class GcdsSideNav {
     }
     render() {
         const { label, lang } = this;
-        return (hAsync(Host, { key: '3650f2ae4f31243a54e38d06cd55768045c6b030' }, hAsync("nav", { key: '481eed1102474259d4ff3e50147fcc61ad947fb5', "aria-label": `${label}${I18N$6[lang].navLabel}`, class: "gcds-side-nav" }, hAsync("h2", { key: '8b208d88ad7cf6a3d2648b4b6671a97cdd65504d', class: "gcds-side-nav__heading" }, label), hAsync("ul", { key: '666e982af5ad6ccf26205bdb4694ea33394952e3' }, hAsync("gcds-nav-group", { key: 'a500af2436e4744ce191d3eaa2792fd1f7624300', menuLabel: I18N$6[lang].menuLabel, closeTrigger: I18N$6[lang].closeTrigger, openTrigger: I18N$6[lang].menuLabel, class: "gcds-mobile-nav", ref: element => (this.mobile = element), lang: lang }, hAsync("slot", { key: 'ca022888ad172c313b72900d8152e1f5039b0a88' }))))));
+        return (hAsync(Host, { key: '8221fa7bc5a7504bc9373dcd791a955ccf7595a8' }, hAsync("nav", { key: 'd03d74cdcf03e78fdfe4ea8f782d44eb0a4c3229', "aria-label": `${label}${I18N$5[lang].navLabel}`, class: "gcds-side-nav" }, hAsync("h2", { key: '296c2207b09b4ac48f2d753e03ef1f3f7bbb9443', class: "gcds-side-nav__heading" }, label), hAsync("ul", { key: '487bf04ce21f73a22dd12582257463c670025b64' }, hAsync("gcds-nav-group", { key: 'd22d5cad3feca464205e5449175c532ee62756a7', menuLabel: I18N$5[lang].menuLabel, closeTrigger: I18N$5[lang].closeTrigger, openTrigger: I18N$5[lang].menuLabel, class: "gcds-mobile-nav", ref: element => (this.mobile = element), lang: lang }, hAsync("slot", { key: '25f76853bdba7ac0b60c871dc29238d2b9321278' }))))));
     }
     get el() { return getElement(this); }
     static get style() { return gcdsSideNavCss; }
@@ -9985,7 +9882,7 @@ class GcdsSideNav {
     }; }
 }
 
-const I18N$5 = {
+const I18N$4 = {
   en: {
     link: 'https://canada.ca/en.html',
     gc: 'Government of Canada',
@@ -10028,7 +9925,7 @@ var WordmarkFr = `<svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="1
 	</g>
 </svg>`;
 
-const gcdsSignatureCss = "@layer reset, default, type.signature, type.wordmark, variant.colour, variant.white, desktop, highcontrast;@layer reset{:host{display:block;width:fit-content}}@layer default{:host .gcds-signature{display:flex}:host svg{display:block;max-width:100%}:host svg .fip_flag{fill:var(--gcds-signature-color-flag)}}@layer type.signature{:host(:not([type=wordmark])) svg{height:var(--gcds-signature-signature-height)}}@layer type.wordmark{:host([type=wordmark]) svg{height:var(--gcds-signature-wordmark-height);width:auto}}@layer variant.colour{:host(:not([variant=white])) svg .fip_text{fill:var(--gcds-signature-color-text)}}@layer variant.white{:host([variant=white]) svg :is(.fip_text){fill:var(--gcds-signature-white-default)}}@layer desktop{@media screen and (width >= 64em){:host(:not([type=wordmark])) svg{height:var(--gcds-signature-signature-height-desktop)}}}@layer highcontrast{@media (prefers-color-scheme:light){:host svg .fip_text{fill:var(--gcds-signature-color-text)}}@media (prefers-color-scheme:dark){:host svg .fip_text{fill:var(--gcds-signature-white-default)}}}";
+const gcdsSignatureCss = "@layer reset, default, type.signature, type.wordmark, variant.colour, variant.white, desktop, highcontrast;@layer reset{:host{display:block;width:fit-content}}@layer default{:host .gcds-signature{display:flex}:host svg{display:block;max-width:100%}:host svg .fip_flag{fill:var(--gcds-signature-color-flag)}}@layer type.signature{:host(:not([type=wordmark])) svg{height:var(--gcds-signature-signature-height)}}@layer type.wordmark{:host([type=wordmark]) svg{height:var(--gcds-signature-wordmark-height);width:auto}}@layer variant.colour{:host(:not([variant=white])) svg .fip_text{fill:var(--gcds-signature-color-text)}}@layer variant.white{:host([variant=white]) svg :is(.fip_text){fill:var(--gcds-signature-white-default)}}@layer desktop{@media screen and (width >= 64em){:host(:not([type=wordmark])) svg{height:var(--gcds-signature-signature-height-desktop)}}}@layer highcontrast{@media (forced-colors:active){:host svg .fip_text{fill:CanvasText}}}";
 
 /**
  * The signature is the Government of Canada landmark identifier found in the header or footer.
@@ -10104,11 +10001,11 @@ class GcdsSignature {
         };
         const Tag = hasLink ? 'a' : 'div';
         if (Tag === 'a') {
-            sigAttrs['href'] = I18N$5[lang].link;
+            sigAttrs['href'] = I18N$4[lang].link;
         }
-        return (hAsync(Host, { key: '9371550c9068d0041b6c661746206cd0f9eab90b' }, type === 'signature' ? (hAsync(Tag, Object.assign({}, sigAttrs), hAsync("div", { innerHTML: selectSVG }), hAsync("gcds-sr-only", { tag: "span", lang: lang === 'en' ? 'fr' : 'en' }, lang === 'en'
-            ? `/ ${I18N$5.fr.gc}`
-            : `/ ${I18N$5.en.gc}`))) : (hAsync("div", { class: "gcds-signature", innerHTML: selectSVG }))));
+        return (hAsync(Host, { key: '3c6dc33d52689afe90a217cf6af7d57d5f5832ea' }, type === 'signature' ? (hAsync(Tag, Object.assign({}, sigAttrs), hAsync("div", { innerHTML: selectSVG }), hAsync("gcds-sr-only", { tag: "span", lang: lang === 'en' ? 'fr' : 'en' }, lang === 'en'
+            ? `/ ${I18N$4.fr.gc}`
+            : `/ ${I18N$4.en.gc}`))) : (hAsync("div", { class: "gcds-signature", innerHTML: selectSVG }))));
     }
     get el() { return getElement(this); }
     static get watchers() { return {
@@ -10158,7 +10055,7 @@ class GcdsSrOnly {
     }
     render() {
         const Tag = this.tag;
-        return (hAsync(Host, { key: 'c3d546661babf7e4c34bbf46600431ea761b2624' }, hAsync(Tag, { key: '32bd3afe9621aa3bcd787bdb95d64ecb18819e0e' }, hAsync("slot", { key: 'd2c250f425e5e988995957b984f7c05e3413651c' }))));
+        return (hAsync(Host, { key: '007ca59b715103f7a106650bb40a74724e8532f3' }, hAsync(Tag, { key: '6f4c944c09c4d1fbd620a2ddbd6b638634844307' }, hAsync("slot", { key: '32d15621851a85f0378455d397190bc4782d86f0' }))));
     }
     static get watchers() { return {
         "tag": ["validateTag"]
@@ -10176,7 +10073,7 @@ class GcdsSrOnly {
     }; }
 }
 
-const I18N$4 = {
+const I18N$3 = {
   en: {
     step: 'Step',
     of: 'of',
@@ -10268,7 +10165,7 @@ class GcdsStepper {
     }
     render() {
         const { currentStep, lang, totalSteps, tag } = this;
-        return (hAsync(Host, { key: '668131869ea8b9e4542e097e28efbfae9b5a6bae' }, this.validateRequiredProps() && (hAsync("gcds-heading", { key: 'e50a066d662ef3e606e21da157731de6e6b6b78a', tag: tag, class: "gcds-stepper", "margin-top": "0", "margin-bottom": "225" }, hAsync("span", { key: 'c573ba75a978b689698fb8eab50caa08853d12e3', class: "gcds-stepper__steps" }, `${I18N$4[lang].step} ${currentStep} ${I18N$4[lang].of} ${totalSteps}`, hAsync("gcds-sr-only", { key: 'fea60de171d7e2412957e922944421f9cbb6d379' }, " : ")), hAsync("slot", { key: '679d080d48b257b840ee9d78e693f06df548faee' })))));
+        return (hAsync(Host, { key: 'f1993913f8b72d290795ec115d98c71b632f15ff' }, this.validateRequiredProps() && (hAsync("gcds-heading", { key: 'a9e463a3af19661b6288f14fdb50e0370b8ed13b', tag: tag, class: "gcds-stepper", "margin-top": "0", "margin-bottom": "225" }, hAsync("span", { key: '3a243f6d77c772e72d9d4e5a3220c0e6a6708acd', class: "gcds-stepper__steps" }, `${I18N$3[lang].step} ${currentStep} ${I18N$3[lang].of} ${totalSteps}`, hAsync("gcds-sr-only", { key: '3be1e619a4c90784dfa9bb04fd96c9abf6765c7e' }, " : ")), hAsync("slot", { key: 'ba84993194f42e578c15b4c88bd8b85549bc77cb' })))));
     }
     get el() { return getElement(this); }
     static get watchers() { return {
@@ -10375,7 +10272,7 @@ class GcdsText {
     }
     render() {
         const { characterLimit, display, marginTop, marginBottom, size, textRole } = this;
-        return (hAsync(Host, { key: '60d33fada39b1dd1af0af482be9d9d3d158d248b', class: `${display != 'block' ? `d-${display}` : ''}` }, hAsync("p", { key: '5c890123f5244dd5a67f01819bbd309d67f2458a', class: `
+        return (hAsync(Host, { key: '2633edb632cbb2afa8a88b8bd9508d2f298c1d90', class: `${display != 'block' ? `d-${display}` : ''}` }, hAsync("p", { key: '3c06bbe8cd91246a4f212e54631d3c790a90ab19', class: `
             gcds-text
             ${textRole ? `role-${textRole}` : ''}
             ${characterLimit ? 'limit' : ''}
@@ -10410,17 +10307,17 @@ class GcdsText {
     }; }
 }
 
-const I18N$3 = {
+const I18N$2 = {
   en: {
     characters: {
-      allowed: 'characters allowed',
-      left: 'characters left',
+      left: 'Characters left: ',
+      maxlength: 'You can enter up to {{num}} characters',
     },
   },
   fr: {
     characters: {
-      allowed: 'caractères maximum',
-      left: 'caractères restants',
+      left: 'Caractères restants\u00A0: ',
+      maxlength: "Vous pouvez saisir jusqu'à {{num}} caractères",
     },
   },
 };
@@ -10449,7 +10346,15 @@ class GcdsTextarea {
         // Array to store which native HTML errors are happening on the textarea
         this.htmlValidationErrors = [];
         this.textareaTitle = '';
+        // For accurate character count updates
+        this.lastInputTimeStamp = null;
+        this.lastInputValue = '';
+        this.valueChecker = null;
         this._validator = defaultValidator;
+        /**
+         * If true, character limit counter will not be displayed under the textarea.
+         */
+        this.hideLimit = false;
         /**
          * Specifies if a textarea element is disabled or not.
          */
@@ -10474,11 +10379,25 @@ class GcdsTextarea {
          * Set additional HTML attributes not available in component properties
          */
         this.inheritedAttributes = {};
+        this.onFocus = () => {
+            this.gcdsFocus.emit();
+            // Start value checking on input
+            this.valueChecker = window.setInterval(() => {
+                if (!this.lastInputTimeStamp ||
+                    Date.now() - 500 >= this.lastInputTimeStamp) {
+                    this.updateIfValueChanged();
+                }
+            }, 1000);
+        };
         this.onBlur = () => {
             if (this.validateOn == 'blur') {
                 this.validate();
             }
             this.gcdsBlur.emit();
+            // Cancel value checking on blur
+            if (this.valueChecker) {
+                window.clearInterval(this.valueChecker);
+            }
         };
         this.handleInput = (e, customEvent) => {
             const val = e.target && e.target.value;
@@ -10491,6 +10410,9 @@ class GcdsTextarea {
             }
             else {
                 this.updateValidity();
+                if (this.maxlength) {
+                    this.lastInputTimeStamp = Date.now();
+                }
             }
             customEvent.emit(this.value);
         };
@@ -10534,6 +10456,20 @@ class GcdsTextarea {
     validateHasError() {
         if (this.disabled) {
             this.hasError = false;
+        }
+    }
+    /**
+     * Update character count if value has changed
+     */
+    updateIfValueChanged() {
+        if (this.shadowElement.value !== this.lastInputValue) {
+            this.lastInputValue = this.shadowElement.value;
+            setTimeout(() => {
+                const srCount = this.el.shadowRoot.querySelector(`#textarea__sr-count-${this.textareaId}`);
+                if (srCount) {
+                    srCount.textContent = `${I18N$2[this.lang].characters.left}${this.value === undefined ? this.maxlength : this.maxlength - this.value.length}`;
+                }
+            }, 1500);
         }
     }
     /**
@@ -10643,16 +10579,16 @@ class GcdsTextarea {
         ]);
         this.internals.setFormValue(this.value ? this.value : null);
         this.initialValue = this.value ? this.value : null;
+        this.lastInputValue = this.value ? this.value : '';
     }
     componentDidLoad() {
         let lengthValidity;
         // maxlength/minlength validation on load
-        if (this.value && (this.minlength || this.characterCount)) {
+        if (this.value && (this.minlength || this.maxlength)) {
             if (this.minlength && this.value.length < this.minlength) {
                 lengthValidity = { tooShort: true };
             }
-            else if (this.characterCount &&
-                this.value.length > this.characterCount) {
+            else if (this.maxlength && this.value.length > this.maxlength) {
                 lengthValidity = { tooLong: true };
             }
         }
@@ -10666,7 +10602,7 @@ class GcdsTextarea {
         }
     }
     render() {
-        const { autofocus, characterCount, cols, disabled, errorMessage, hideLabel, hint, label, minlength, required, rows, textareaId, value, hasError, inheritedAttributes, lang, name, textareaTitle, } = this;
+        const { autofocus, cols, disabled, errorMessage, form, hideLabel, hideLimit, hint, label, maxlength, minlength, required, rows, textareaId, value, hasError, inheritedAttributes, lang, name, textareaTitle, } = this;
         // Use max-width instead of cols attribute to keep field responsive
         const style = {
             maxWidth: `${cols * 1.5}ch`,
@@ -10678,20 +10614,20 @@ class GcdsTextarea {
         const attrsTextarea = Object.assign({ name,
             autofocus,
             disabled,
+            form,
+            maxlength,
             minlength,
             required,
             rows, title: textareaTitle }, inheritedAttributes);
-        if (hint || errorMessage || characterCount) {
+        if (hint || errorMessage || maxlength) {
             const hintID = hint ? `hint-${textareaId} ` : '';
             const errorID = errorMessage ? `error-message-${textareaId} ` : '';
-            const countID = characterCount ? `textarea__count-${textareaId} ` : '';
+            const countID = maxlength ? `textarea__count-${textareaId} ` : '';
             attrsTextarea['aria-describedby'] = `${hintID}${errorID}${countID}${attrsTextarea['aria-describedby']
                 ? `${attrsTextarea['aria-describedby']}`
                 : ''}`;
         }
-        return (hAsync(Host, { key: '462ff694237b5ece2b94a25006fa2166c82c3130' }, hAsync("div", { key: '418df2a7b21570cb908dd30cb958a01fe95f2f87', class: `gcds-textarea-wrapper ${disabled ? 'gcds-disabled' : ''} ${hasError ? 'gcds-error' : ''}` }, hAsync("gcds-label", Object.assign({ key: '9e09924f599db5ef90109d0ae5141e00fce25455' }, attrsLabel, { "hide-label": hideLabel, "label-for": textareaId, lang: lang })), hint ? hAsync("gcds-hint", { "hint-id": textareaId }, hint) : null, errorMessage ? (hAsync("gcds-error-message", { messageId: textareaId }, errorMessage)) : null, hAsync("textarea", Object.assign({ key: '3dc1cafeace916ff5fe1b644a0a47223d0e2c76c' }, attrsTextarea, { class: hasError ? 'gcds-error' : null, id: textareaId, onBlur: () => this.onBlur(), onFocus: () => this.gcdsFocus.emit(), onInput: e => this.handleInput(e, this.gcdsInput), onChange: e => this.handleInput(e, this.gcdsChange), "aria-labelledby": `label-for-${textareaId}`, "aria-invalid": errorMessage ? 'true' : 'false', maxlength: characterCount ? characterCount : null, style: cols ? style : null, ref: element => (this.shadowElement = element) }), value), characterCount ? (hAsync("gcds-text", { id: `textarea__count-${textareaId}`, "aria-live": "polite" }, value == undefined
-            ? `${characterCount} ${I18N$3[lang].characters.allowed}`
-            : `${characterCount - value.length} ${I18N$3[lang].characters.left}`)) : null)));
+        return (hAsync(Host, { key: '5f44ed3469dff257e990ce0350f4fbd8553c9a0d' }, hAsync("div", { key: 'b4ab687437aa45420a5701170f7d3f8aef67a73d', class: `gcds-textarea-wrapper ${disabled ? 'gcds-disabled' : ''} ${hasError ? 'gcds-error' : ''}` }, hAsync("gcds-label", Object.assign({ key: '9ece7412c657f8a1c554075912db279a3c8a8c35' }, attrsLabel, { "hide-label": hideLabel, "label-for": textareaId, lang: lang })), hint ? hAsync("gcds-hint", { "hint-id": textareaId }, hint) : null, errorMessage ? (hAsync("gcds-error-message", { messageId: textareaId }, errorMessage)) : null, hAsync("textarea", Object.assign({ key: '2a010536fbba3c406b18df2f0dbb5d3e07fd1964' }, attrsTextarea, { class: hasError ? 'gcds-error' : null, id: textareaId, onBlur: () => this.onBlur(), onFocus: () => this.onFocus(), onInput: e => this.handleInput(e, this.gcdsInput), onChange: e => this.handleInput(e, this.gcdsChange), "aria-labelledby": `label-for-${textareaId}`, "aria-invalid": errorMessage ? 'true' : 'false', style: cols ? style : null, ref: element => (this.shadowElement = element) }), value), maxlength ? (hAsync(Fragment, null, hAsync("gcds-sr-only", { tag: "span", id: `textarea__count-${textareaId}` }, I18N$2[lang].characters.maxlength.replace('{{num}}', maxlength)), !hideLimit && (hAsync("gcds-text", { id: `textarea__visual-count-${textareaId}`, "aria-hidden": "true" }, I18N$2[lang].characters.left, value == undefined ? maxlength : maxlength - value.length)), hAsync("gcds-sr-only", { tag: "span" }, hAsync("span", { id: `textarea__sr-count-${textareaId}`, role: "status", "aria-atomic": "true" })))) : null)));
     }
     static get delegatesFocus() { return true; }
     static get formAssociated() { return true; }
@@ -10709,7 +10645,9 @@ class GcdsTextarea {
         "$tagName$": "gcds-textarea",
         "$members$": {
             "autofocus": [516],
-            "characterCount": [2, "character-count"],
+            "form": [513],
+            "hideLimit": [4, "hide-limit"],
+            "maxlength": [514],
             "minlength": [514],
             "cols": [2],
             "disabled": [1028],
@@ -10734,11 +10672,11 @@ class GcdsTextarea {
         },
         "$listeners$": [[4, "submit", "submitListener"]],
         "$lazyBundleId$": "-",
-        "$attrsToReflect$": [["autofocus", "autofocus"], ["minlength", "minlength"]]
+        "$attrsToReflect$": [["autofocus", "autofocus"], ["form", "form"], ["maxlength", "maxlength"], ["minlength", "minlength"]]
     }; }
 }
 
-const I18N$2 = {
+const I18N$1 = {
   en: {
     closeTrigger: 'Close',
     menuLabel: 'Menu',
@@ -10753,7 +10691,7 @@ const I18N$2 = {
   },
 };
 
-const gcdsTopNavCss = "@layer reset, default, desktop;@layer reset{:host{display:block}:host *{box-sizing:border-box;margin:0}:host ul{padding:0}}@layer default{:host .gcds-top-nav .gcds-top-nav__container{display:flex;flex-direction:column;margin-inline:auto;max-width:var(--gcds-top-nav-max-width);width:90%}}@layer desktop{@media only screen and (width >= 64em){:host .gcds-top-nav{border-block-end:var(--gcds-top-nav-border-width) solid var(--gcds-top-nav-border-color)}:host .gcds-top-nav .gcds-top-nav__container{align-items:flex-end;flex-direction:row}:host .gcds-top-nav .nav-container__list{align-items:flex-end;display:flex;width:fit-content}:host .gcds-top-nav .nav-container__list.nav-list--right{margin-inline-start:auto}:host .gcds-top-nav .nav-container__list.nav-list--center{margin-inline:auto}}}";
+const gcdsTopNavCss = "@layer reset, default, desktop;@layer reset{:host{display:block}:host *{box-sizing:border-box;margin:0}:host ul{padding:0}}@layer default{:host .gcds-top-nav .gcds-top-nav__container{display:flex;flex-direction:column;margin-inline:auto;max-width:var(--gcds-top-nav-max-width);width:90%}}@layer desktop{@media only screen and (width >= 64em){:host .gcds-top-nav{border-block-end:var(--gcds-top-nav-border-width) solid var(--gcds-top-nav-border-color)}:host .gcds-top-nav .gcds-top-nav__container{align-items:flex-end;flex-direction:row}:host .gcds-top-nav .nav-container__list{align-items:flex-end;display:flex;width:fit-content}:host .gcds-top-nav .nav-container__list.nav-list--end{margin-inline-start:auto}}}";
 
 /**
  * A top navigation is a horizontal list of page links.
@@ -10766,7 +10704,7 @@ class GcdsTopNav {
         /**
          * Nav alignment
          */
-        this.alignment = 'left';
+        this.alignment = 'start';
         /**
          * Queue of nav items for keyboard navigation
          */
@@ -10812,7 +10750,9 @@ class GcdsTopNav {
         }
     }
     async focusOutListener(e) {
-        if (e.relatedTarget !== null && e.relatedTarget !== this.el && !this.el.contains(e.relatedTarget)) {
+        if (e.relatedTarget !== null &&
+            e.relatedTarget !== this.el &&
+            !this.el.contains(e.relatedTarget)) {
             if (this.navSize == 'mobile') {
                 if (this.mobile.hasAttribute('open')) {
                     await this.mobile.toggleNav();
@@ -10824,7 +10764,9 @@ class GcdsTopNav {
         if (this.el.contains(document.activeElement)) {
             handleKeyDownNav(e, this.el, this.navItems);
         }
-        else if (this.navSize == 'mobile' && this.mobile.open == true && e.key == 'Escape') {
+        else if (this.navSize == 'mobile' &&
+            this.mobile.open == true &&
+            e.key == 'Escape') {
             // Close mobile nav on ESC
             await this.mobile.toggleNav();
         }
@@ -10888,7 +10830,7 @@ class GcdsTopNav {
     }
     render() {
         const { label, alignment, lang } = this;
-        return (hAsync(Host, { key: '6f57bdfbba153b88e63282fe45d6497be0e81b5f' }, hAsync("div", { key: '9401def5fca706a082db708de11f76beeccf5850', class: "gcds-top-nav" }, hAsync("nav", { key: '10ddd1dbc5cb1c1d4044da7a2a8fcb9819ff0de9', "aria-label": `${label}${I18N$2[lang].navLabel}` }, hAsync("ul", { key: '21e81dbff5922559832000e1a5347c974d7a2339', class: "gcds-top-nav__container" }, hAsync("gcds-nav-group", { key: '34d58fa9187f7d0518a7a4d48952273efb774e67', menuLabel: I18N$2[lang].menuLabel, closeTrigger: I18N$2[lang].closeTrigger, openTrigger: I18N$2[lang].menuLabel, class: "gcds-mobile-nav gcds-mobile-nav-topnav", ref: element => (this.mobile = element), lang: lang }, hAsync("slot", { key: '1908a485afa1cc4d3a1ed32697b6b47c341fb607', name: "home" }), hAsync("li", { key: '9644412c24517b568f147a4035489c14e8472e4a', class: `nav-container__list nav-list--${alignment}` }, hAsync("ul", { key: 'e5dca5fac0819e051825e9367b6be2e9e133eff7', class: `nav-container__list nav-list--${alignment}` }, hAsync("slot", { key: 'c12dce812d8dccc4a109473d5c6f546422c491ff' })))))))));
+        return (hAsync(Host, { key: '18c2287d2897c0083e18ce0328b9ad3e11b653ab' }, hAsync("div", { key: '51a67d89ffc0e6bed7f681d6db1ed723a14c1039', class: "gcds-top-nav" }, hAsync("nav", { key: '320708f41cab0cdfb939b946192e7ed29ba905ba', "aria-label": `${label}${I18N$1[lang].navLabel}` }, hAsync("ul", { key: '9cbcfc3fa23425bbc586e852b1933e14758831b6', class: "gcds-top-nav__container" }, hAsync("gcds-nav-group", { key: '6ab0535a65cf3bd35269e1029eb3372209558d8d', menuLabel: I18N$1[lang].menuLabel, closeTrigger: I18N$1[lang].closeTrigger, openTrigger: I18N$1[lang].menuLabel, class: "gcds-mobile-nav gcds-mobile-nav-topnav", ref: element => (this.mobile = element), lang: lang }, hAsync("slot", { key: '9e38ad5476d2936ea73932b3ee843e966536affd', name: "home" }), hAsync("li", { key: '46c97c91d1b91d44d4e79eec0ffd1e1d1973f372', class: `nav-container__list nav-list--${alignment}` }, hAsync("ul", { key: '7f2a4294e6b3f43b814805c8628de5856b120ff1', class: `nav-container__list nav-list--${alignment}` }, hAsync("slot", { key: 'a5e81e5b63fadcd353eef2738cc7455068604c2e' })))))))));
     }
     get el() { return getElement(this); }
     static get style() { return gcdsTopNavCss; }
@@ -10911,7 +10853,7 @@ class GcdsTopNav {
     }; }
 }
 
-const I18N$1 = {
+const I18N = {
   en: {
     buttonLabel:
       'Press the SPACEBAR to expand or the escape key to collapse this menu. Use the Up and Down arrow keys to choose a submenu item. Press the Enter or Right arrow key to expand it, or the Left arrow or Escape key to collapse it. Use the Up and Down arrow keys to choose an item on that level and the Enter key to access it.',
@@ -10933,7 +10875,7 @@ const snapshots = {
   fr: '<li role="presentation"><a role="menuitem" tabindex="-1" aria-haspopup="true" aria-controls="gc-mnu-jobs" aria-expanded="false" href="#">Emplois et milieu de travail</a><ul id="gc-mnu-jobs" role="menu" aria-orientation="vertical"><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/emplois.html">Emplois<span class="visible-xs-inline visible-sm-inline">: accueil</span></a></li><li role="separator"></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/emplois/opportunites.html">Trouver un emploi</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/emplois/formation.html">Formation</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/gestion-entreprise">Embauche et gestion de personnel</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/demarrage-entreprise">Démarrage d\'entreprise</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/emplois/milieu-travail.html">Normes en milieu de travail</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/finance/pensions.html">Pensions et retraite</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/prestations/ae.html">Prestations d\'assurance-emploi et congés</a></li><li role="separator" aria-orientation="vertical"></li><li role="presentation"><a data-keep-expanded="md-min" href="#" role="menuitem" tabindex="-1" aria-haspopup="true" aria-controls="gc-mnu-jobs-sub" aria-expanded="true">En demande</a><ul id="gc-mnu-jobs-sub" role="menu" aria-orientation="vertical"><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/emploi-developpement-social/programmes/assurance-emploi/ae-liste/assurance-emploi-re/acceder-re.html">Voir vos Relevés d’emploi</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/emploi-developpement-social/services/numero-assurance-sociale.html">Demander un numéro d’assurance-sociale</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/emploi-developpement-social/services/travailleurs-etrangers.html">Embaucher un travailleur étranger temporaire</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/immigration-refugies-citoyennete/services/immigrer-canada/entree-express.html">Immigrer en tant que travailleur qualifié</a></li></ul></li></ul></li><li role="presentation"><a role="menuitem" tabindex="-1" aria-haspopup="true" aria-controls="gc-mnu-cit" aria-expanded="false" href="#">Immigration et citoyenneté</a><ul id="gc-mnu-cit" role="menu" aria-orientation="vertical"><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/immigration-citoyennete.html">Immigration<span class="hidden-xs hidden-sm">et citoyenneté</span><span class="visible-xs-inline visible-sm-inline">: accueil</span></a></li><li role="separator"></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/immigration-refugies-citoyennete/services/demande.html">Ma demande</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/immigration-refugies-citoyennete/services/visiter-canada.html">Visiter</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/immigration-refugies-citoyennete/services/immigrer-canada.html">Immigrer</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/immigration-refugies-citoyennete/services/travailler-canada.html">Travailler</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/immigration-refugies-citoyennete/services/etudier-canada.html">Étudier</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/immigration-refugies-citoyennete/services/citoyennete-canadienne.html">Citoyenneté</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/immigration-refugies-citoyennete/services/nouveaux-immigrants.html">Nouveaux immigrants</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/immigration-refugies-citoyennete/services/canadiens.html">Canadiens</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/immigration-refugies-citoyennete/services/refugies.html">Réfugiés et octroi de l’asile</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/immigration-citoyennete/application-loi-infractions.html">Application de la loi et infractions</a></li><li role="separator" aria-orientation="vertical"></li><li role="presentation"><a data-keep-expanded="md-min" href="#" role="menuitem" tabindex="-1" aria-haspopup="true" aria-controls="gc-mnu-cit-sub" aria-expanded="true">En demande</a><ul id="gc-mnu-cit-sub" role="menu" aria-orientation="vertical"><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/immigration-refugies-citoyennete/services/demande/compte.html">Se connecter ou créer un compte pour présenter une demande en ligne</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/immigration-refugies-citoyennete/services/demande/verifier-etat.html">Vérifier l’état de sa demande</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="http://www.cic.gc.ca/francais/information/delais/index.asp">Vérifier les délais de traitement des demandes</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/immigration-refugies-citoyennete/services/demande/formulaires-demande-guides.html">Trouver un formulaire de demande</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="http://www.cic.gc.ca/francais/information/frais/index.asp">Payer les frais</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="http://www.cic.gc.ca/francais/visiter/visas.asp">Déterminer si vous avez besoin d’une AVE ou d’un visa pour visiter le Canada</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="http://www.cic.gc.ca/francais/centre-aide/index-en-vedette-can.asp">Trouver réponse à ses questions dans le Centre d’aide</a></li></ul></li></ul></li><li role="presentation"><a role="menuitem" tabindex="-1" aria-haspopup="true" aria-controls="gc-mnu-travel" aria-expanded="false" href="#">Voyage et tourisme</a><ul id="gc-mnu-travel" role="menu" aria-orientation="vertical"><li role="presentation"><a role="menuitem" tabindex="-1" href="https://voyage.gc.ca/">Voyage<span class="hidden-xs hidden-sm">et tourisme</span><span class="visible-xs-inline visible-sm-inline">: accueil</span></a></li><li role="separator"></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://voyage.gc.ca/voyager/avertissements">Conseils aux voyageurs et avertissements</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://voyage.gc.ca/voyage-covid">COVID-19 : voyage, dépistage et frontières</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/immigration-refugies-citoyennete/services/visiter-canada.html?outside">Visiter le Canada</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://voyage.gc.ca/voyager">Voyager à l’étranger</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://voyage.gc.ca/avion">Voyager en avion</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://voyage.gc.ca/retour">Retour au Canada</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/immigration-refugies-citoyennete/services/passeports-canadiens.html">Passeports et documents de voyage canadiens</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://voyage.gc.ca/tourisme-canadien">Attraits touristiques, événements et expériences au Canada</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://voyage.gc.ca/assistance">Assistance à l’extérieur du Canada</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://voyage.gc.ca/restez-branches">Restez branchés</a></li><li role="separator" aria-orientation="vertical"></li><li role="presentation"><a data-keep-expanded="md-min" href="#" role="menuitem" tabindex="-1" aria-haspopup="true" aria-controls="gc-mnu-travel-sub" aria-expanded="true">En demande</a><ul id="gc-mnu-travel-sub" role="menu" aria-orientation="vertical"><li role="presentation"><a role="menuitem" tabindex="-1" href="https://voyage.gc.ca/assistance/assistance-d-urgence">Assistance d\'urgence à l\'étranger</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.cic.gc.ca/francais/visiter/visas.asp">Vérifiez si vous avez besoin d’un visa pour voyager au Canada</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/immigration-refugies-citoyennete/services/visiter-canada/ave.html">Présentez une demande d’Autorisation de voyage électronique (AVE)</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.cbsa-asfc.gc.ca/services/travel-voyage/prog/nexus/menu-fra.html">Adhérez à NEXUS</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://voyage.gc.ca/voyager/inscription">Inscrivez-vous comme Canadien à l’étranger</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://voyage.gc.ca/voyager/documents/assurance-voyage">Assurance voyage</a></li></ul></li></ul></li><li role="presentation"><a role="menuitem" tabindex="-1" aria-haspopup="true" aria-controls="gc-mnu-biz" aria-expanded="false" href="#">Entreprises et industrie</a><ul id="gc-mnu-biz" role="menu" aria-orientation="vertical"><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/entreprises.html">Entreprises<span class="hidden-xs hidden-sm">et industrie</span><span class="visible-xs-inline visible-sm-inline">: accueil</span></a></li><li role="separator"></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/entreprises/lancer.html">Démarrage d\'entreprise</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/entreprises/subventions.html">Subventions et financement pour les entreprises</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/entreprises/impots.html">Taxes et impôt des entreprises</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/entreprises/societes-de-regime-federal.html">Sociétés de régime fédéral</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/entreprises/engager.html">Embauche et gestion de personnel</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/entreprises/commerce.html">Commerce international et investissements</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/entreprises/permis.html">Permis, licences et règlements</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/entreprises/faire-affaire.html">Faire affaire avec le gouvernement</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/science/innovation.html">Recherche-développement et innovation</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/entreprises/recherche.html">Recherche et renseignements d\'affaires</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/entreprises/pi.html">Propriété intellectuelle et droit d\'auteur</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/entreprises/maintenirfairecroitreameliorerentreprise.html">Administration de votre entreprise</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/entreprises/proteger.html">Protection de votre entreprise</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/entreprises/faillites.html">Insolvabilité pour les entreprises</a></li><li role="separator" aria-orientation="vertical"></li><li role="presentation"><a data-keep-expanded="md-min" href="#" role="menuitem" tabindex="-1" aria-haspopup="true" aria-controls="gc-mnu-biz-sub" aria-expanded="true">En demande</a><ul id="gc-mnu-biz-sub" role="menu" aria-orientation="vertical"><li role="presentation"><a role="menuitem" tabindex="-1" href="https://ised-isde.canada.ca/cc/lgcy/fdrlCrpSrch.html?lang=fra">Trouver une société</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.cbsa-asfc.gc.ca/prog/manif/portal-portail-fra.html">Déclarer vos produits importés</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://ised-isde.canada.ca/opic/recherche-marques/srch?null=&lang=fre">Chercher des marques de commerce</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.cbsa-asfc.gc.ca/trade-commerce/tariff-tarif/2018/html/tblmod-1-fra.html">Réviser les tarifs des douanes pour l’importation de produits</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.ic.gc.ca/opic-cipo/cpd/fra/introduction.html">Trouver un brevet</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.cbsa-asfc.gc.ca/comm-fra.html">Importer et exporter à partir du Canada</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://ic.gc.ca/eic/site/cd-dgc.nsf/fra/h_cs03922.html">Trouver un nom pour votre compagnie</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://ised-isde.canada.ca/cc/lgcy/hm.html?locale=fr_CA">Apporter des changements à votre société (Centre de dépôt en ligne)</a></li></ul></li></ul></li><li role="presentation"><a role="menuitem" tabindex="-1" aria-haspopup="true" aria-controls="gc-mnu-benny" aria-expanded="false" href="#">Prestations</a><ul id="gc-mnu-benny" role="menu" aria-orientation="vertical"><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/prestations.html">Prestations<span class="visible-xs-inline visible-sm-inline">: accueil</span></a></li><li role="separator"></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/prestations/ae.html">Prestations d&#39;assurance-emploi et cong&eacute;s</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/prestations/famille.html">Prestations pour les familles et les proches aidants</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/prestations/pensionspubliques.html">Pensions publiques</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/prestations/etudes.html">Aide financière aux étudiants et planification des études</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/prestations/logement.html">Prestations relatives au logement</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/prestations/handicap.html">Prestations d’invalidité</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="http://www.canada.ca/fr/services/prestations/clientele.html">Prestations par clientèle</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/prestations/calendrier.html">Dates de paiement des prestations</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://benefitsfinder.services.gc.ca/hm?GoCTemplateCulture=fr-CA&cl=true">Chercheur de prestations</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/prestations/aviser-gouvernement-deces.html">Aviser le gouvernement d’un décès</a></li><li role="separator" aria-orientation="vertical"></li><li role="presentation"><a data-keep-expanded="md-min" href="#" role="menuitem" tabindex="-1" aria-haspopup="true" aria-controls="gc-mnu-benny-sub" aria-expanded="true">En demande</a><ul id="gc-mnu-benny-sub" role="menu" aria-orientation="vertical"><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/prestations/ae/assurance-emploi-reguliere.html">Présenter une demande d’assurance-emploi</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/prestations/education/aide-etudiants/bourses-prets.html">Faire une demande de bourses et de prêts d’études</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/gouvernement/ouvrir-session-dossier-compte-en-ligne.html">Ouvrir une session pour un compte en ligne du gouvernement du Canada</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.tpsgc-pwgsc.gc.ca/recgen/txt/depot-deposit-fra.html">Inscrivez-vous au dépôt direct</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/agence-revenu/services/prestations-enfants-familles/calculateur-prestations-enfants-familles.html">Calculateur de prestations pour enfants et familles</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/prestations/ae/assurance-emploi-declaration-internet.html">Soumettre une déclaration d’assurance-emploi</a></li></ul></li></ul></li><li role="presentation"><a role="menuitem" tabindex="-1" aria-haspopup="true" aria-controls="gc-mnu-health" aria-expanded="false" href="#">Santé</a><ul id="gc-mnu-health" role="menu" aria-orientation="vertical"><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/sante.html">Santé<span class="visible-xs-inline visible-sm-inline">: accueil</span></a></li><li role="separator"></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/sante/aliments-et-nutrition.html">Aliments et nutrition</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/sante-publique/services/maladies.html">Maladies et affections</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/sante-publique/sujets/immunisation-et-vaccins.html">Vaccins et immunisation</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/sante/medicaments-et-produits-sante.html">Médicaments et produits de santé</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/sante/securite-produits.html">Sécurité des produits</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/sante/securite-et-risque-pour-sante.html">Sécurité et risque pour la santé</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/sante/vie-saine.html">Vie saine</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/sante/sante-autochtones.html">Santé des Autochtones</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/sante/systeme-et-services-sante.html">Système et services de santé</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/sante/science-recherche-et-donnees.html">Science, recherche et données</a></li><li role="separator" aria-orientation="vertical"></li><li role="presentation"><a data-keep-expanded="md-min" href="#" role="menuitem" tabindex="-1" aria-haspopup="true" aria-controls="gc-mnu-health-sub" aria-expanded="true">En demande</a><ul id="gc-mnu-health-sub" role="menu" aria-orientation="vertical"><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/sante-canada/services/drogues-medicaments/cannabis/titulaires-licences-demandeurs-industrie/cultivateurs-transformateurs-vendeurs-autorises.html">Cultivateurs, transformateurs et vendeurs de cannabis qui détiennent une licence</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="http://www.canadiensensante.gc.ca/recall-alert-rappel-avis/index-fra.php">Rappels d\'aliments et de produits et alertes de sécurité</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/sante-canada/services/guides-alimentaires-canada.html">Guide alimentaire du Canada</a></li></ul></li></ul></li><li role="presentation"><a role="menuitem" tabindex="-1" aria-haspopup="true" aria-controls="gc-mnu-taxes" aria-expanded="false" href="#">Impôts</a><ul id="gc-mnu-taxes" role="menu" aria-orientation="vertical"><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/impots.html">Impôts<span class="visible-xs-inline visible-sm-inline">: accueil</span></a></li><li role="separator"></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/impots/impot-sur-le-revenu.html">Impôt sur le revenu</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/agence-revenu/services/impot/entreprises/sujets/tps-tvh-entreprises.html">TPS/TVH</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/agence-revenu/services/impot/entreprises/sujets/retenues-paie.html">Retenues sur la paie</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/impots/numero-dentreprise.html">Numéro d\'entreprise</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/impots/regimes-depargne-et-de-pension.html">Régimes d’épargne et de pension</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/impots/prestations-pour-enfants-et-familles.html">Crédits d’impôt et prestations pour les particuliers</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/impots/taxes-daccise-droits-et-prelevements.html">Taxes d’accise, droits et prélèvements</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/impots/bienfaisance.html">Organismes de bienfaisance et dons</a></li><li role="separator" aria-orientation="vertical"></li><li role="presentation"><a data-keep-expanded="md-min" href="#" role="menuitem" tabindex="-1" aria-haspopup="true" aria-controls="gc-mnu-taxes-sub" aria-expanded="true">En demande</a><ul id="gc-mnu-taxes-sub" role="menu" aria-orientation="vertical"><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/agence-revenu/services/services-electroniques/services-numeriques-particuliers/dossier-particuliers.html">Mon dossier</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/agence-revenu/services/services-electroniques/services-numeriques-entreprises/dossier-entreprise.html">Mon dossier d\'entreprise</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/agence-revenu/services/services-electroniques/representer-client.html">Représenter un client</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/agence-revenu/services/services-electroniques/services-numeriques-entreprises/impotnet-tps-tvh.html">Transmettre une déclaration de TPS/TVH (IMPÔTNET)</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/agence-revenu/services/faire-paiement-a-agence-revenu-canada.html">Faire un paiement à l\'Agence du revenu du Canada</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/agence-revenu/services/prestations-enfants-familles/dates-versement-prestations.html">Trouver la date du prochain versement des prestations</a></li></ul></li></ul></li><li role="presentation"><a role="menuitem" tabindex="-1" aria-haspopup="true" aria-controls="gc-mnu-enviro" aria-expanded="false" href="#">Environnement et ressources naturelles</a><ul id="gc-mnu-enviro" role="menu" aria-orientation="vertical"><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/environnement.html">Environnement<span class="hidden-xs hidden-sm">et ressources naturelles</span><span class="visible-xs-inline visible-sm-inline">: accueil</span></a></li><li role="separator"></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/environnement/meteo.html">Météo, climat et catastrophes naturelles</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/environnement/energie.html">Énergie</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/environnement/ressources-naturelles.html">Ressources naturelles</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://agriculture.canada.ca/fr/agriculture-environnement">Agriculture et environnement</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/environnement/peches.html">Pêches</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/environnement/faune-flore-especes.html">Faune, flore et espèces</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/environnement/pollution-gestion-dechets.html">Pollution et gestion des déchets</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/environnement/conservation.html">Conservation et protection de l\'environnement</a></li><li role="separator" aria-orientation="vertical"></li><li role="presentation"><a data-keep-expanded="md-min" href="#" role="menuitem" tabindex="-1" aria-haspopup="true" aria-controls="gc-mnu-enviro-sub" aria-expanded="true">En demande</a><ul id="gc-mnu-enviro-sub" role="menu" aria-orientation="vertical"><li role="presentation"><a role="menuitem" tabindex="-1" href="https://meteo.gc.ca/canada_f.html">Prévisions météo locales</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.rncan.gc.ca/energie/efficacite/transports/20997">Véhicules écoénergétiques</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.rncan.gc.ca/maisons">Efficacité énergétique des maisons</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/environnement-changement-climatique/services/registre-public-especes-peril.html">Espèces en péril</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/environnement-changement-climatique/services/meteo-saisonniere-dangereuse.html">Préparation aux conditions météorologiques dangereuses</a></li></ul></li></ul></li><li role="presentation"><a role="menuitem" tabindex="-1" aria-haspopup="true" aria-controls="gc-mnu-defence" aria-expanded="false" href="#">Sécurité nationale et défense</a><ul id="gc-mnu-defence" role="menu" aria-orientation="vertical"><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/defense.html"><span class="hidden-xs hidden-sm">Sécurité nationale et défense</span><span class="visible-xs-inline visible-sm-inline">Défense : accueil</span></a></li><li role="separator"></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/defense/securitenationale.html">Sécurité nationale</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/defense/fac.html">Forces armées canadiennes</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/defense/achat-mise-a-niveau-equipement-defense.html">Achat et mise à niveau d’équipement de la Défense</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="http://www.tc.gc.ca/fr/services/surete-transports.html">Sûreté des transports</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/defense/securiserfrontiere.html">Sécuriser la frontière</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/defense/cybersecurite.html">Cybersécurité</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/defense/emplois.html">Emplois en sécurité nationale et en défense</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/gouvernement/fonctionpublique/avantagesmilitaires.html">Services et avantages sociaux du personnel militaire</a></li><li role="separator" aria-orientation="vertical"></li><li role="presentation"><a data-keep-expanded="md-min" href="#" role="menuitem" tabindex="-1" aria-haspopup="true" aria-controls="gc-mnu-defence-sub" aria-expanded="true">En demande</a><ul id="gc-mnu-defence-sub" role="menu" aria-orientation="vertical"><li role="presentation"><a role="menuitem" tabindex="-1" href="https://forces.ca/fr/carrieres/">Emplois dans les Forces armées canadiennes</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/ministere-defense-nationale/services/histoire-militaire/histoire-patrimoine/insignes-drapeaux/grades/insignes-grade-fonction.html">Grades militaires</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/defense/fac/equipement.html">Équipement de la Défense</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/ministere-defense-nationale/services/cadets-rangers-juniors-canadiens/cadets/rejoignez-nous.html">Joignez-vous aux cadets</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="http://dgpaapp.forces.gc.ca/fr/politique-defense-canada/index.asp">Politique de défense du Canada</a></li></ul></li></ul></li><li role="presentation"><a role="menuitem" tabindex="-1" aria-haspopup="true" aria-controls="gc-mnu-culture" aria-expanded="false" href="#">Culture, histoire et sport</a><ul id="gc-mnu-culture" role="menu" aria-orientation="vertical"><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/culture.html">Culture<span class="hidden-xs hidden-sm">, histoire et sport</span><span class="visible-xs-inline visible-sm-inline">: accueil</span></a></li><li role="separator"></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/patrimoine-canadien/services/financement.html">Financement - Culture, histoire et sport</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/culture/evenements-celebrations-commemorations.html">Événements, célébrations et commémorations</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/culture/attraits-culturels.html">Lieux et attraits culturels</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/culture/identite-canadienne-societe.html">Identité canadienne et société</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/culture/sport.html">Sport</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/culture/histoire-patrimoine.html">Histoire et patrimoine</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/culture/arts-media.html">Arts et média</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/culture/programmes-culturels-jeunes.html">Programmes culturels pour les jeunes</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/culture/commerce-investissement-culturels.html">Commerce et investissement culturels</a></li><li role="separator" aria-orientation="vertical"></li><li role="presentation"><a data-keep-expanded="md-min" href="#" role="menuitem" tabindex="-1" aria-haspopup="true" aria-controls="gc-mnu-culture-sub" aria-expanded="true">En demande</a><ul id="gc-mnu-culture-sub" role="menu" aria-orientation="vertical"><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.veterans.gc.ca/fra/remembrance/memorials/canadian-virtual-war-memorial">Visitez le Mémorial virtuel de guerre du Canada</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/culture/identite-canadienne-societe/hymnes-symboles.html">Hymnes et symboles du Canada</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://crtc.gc.ca/fra/8045/d2018.htm">Trouvez une décision du CRTC</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://bibliotheque-archives.canada.ca/fra/collection/aide-recherche/genealogie-histoire-famille/Pages/genealogie-histoire-famille.aspx">Faites des recherches sur votre histoire familiale</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.bac-lac.gc.ca/fra/recensements/Pages/recensements.aspx">Cherchez des documents de recensement</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/culture/attraits-culturels/attraits-capitale-canada.html">Lieux et attraits dans la capitale du Canada</a></li></ul></li></ul></li><li role="presentation"><a role="menuitem" tabindex="-1" aria-haspopup="true" aria-controls="gc-mnu-policing" aria-expanded="false" href="#">Services de police, justice et urgences</a><ul id="gc-mnu-policing" role="menu" aria-orientation="vertical"><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/police.html">Services de police<span class="hidden-xs hidden-sm">, justice et urgences</span><span class="visible-xs-inline visible-sm-inline">: accueil</span></a></li><li role="separator"></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/police/servicespolice.html">Services de police</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/police/justice.html">Justice</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/police/urgences.html">Urgences</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/police/correctionnels.html">Services correctionnels</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/police/liberationconditionnelle.html">Libération conditionnelle, suspension du casier, radiation et clémence</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/police/victimes.html">Victimes d\'actes criminels</a></li><li role="separator" aria-orientation="vertical"></li><li role="presentation"><a data-keep-expanded="md-min" href="#" role="menuitem" tabindex="-1" aria-haspopup="true" aria-controls="gc-mnu-policing-sub" aria-expanded="true">En demande</a><ul id="gc-mnu-policing-sub" role="menu" aria-orientation="vertical"><li role="presentation"><a role="menuitem" tabindex="-1" href="http://www.rcmp-grc.gc.ca/cfp-pcaf/online_en-ligne/index-fra.htm">Demander ou renouveler un permis d\'arme à feu</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="http://www.rcmp-grc.gc.ca/fr/verification-casier-judiciaire">Obtenir une attestation de vérification de casier judiciaire</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/commission-liberations-conditionnelles/services/suspension-du-casier/guide-et-formulaires-de-demande.html">Demander la suspension d’un casier judiciaire</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.preparez-vous.gc.ca/cnt/hzd/drng-fr.aspx">Que faire durant une urgence</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/police/servicespolice/securite-communautaire-police/conduite-facultes-affaiblies.html">Connaissez la loi sur la conduite avec facultés affaiblies</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/police/servicespolice/aider-resoudre-un-crime.html">Aidez à résoudre un crime</a></li></ul></li></ul></li><li role="presentation"><a role="menuitem" tabindex="-1" aria-haspopup="true" aria-controls="gc-mnu-trans" aria-expanded="false" href="#">Transport et infrastructure</a><ul id="gc-mnu-trans" role="menu" aria-orientation="vertical"><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/transport.html">Transport<span class="hidden-xs hidden-sm">et infrastructure</span><span class="visible-xs-inline visible-sm-inline">: accueil</span></a></li><li role="separator"></li><li role="presentation"><a role="menuitem" tabindex="-1" href="http://www.tc.gc.ca/fr/services/aviation.html">Aviation</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="http://www.tc.gc.ca/fr/services/maritime.html">Transport maritime</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="http://www.tc.gc.ca/fr/services/routier.html">Transport routier</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="http://www.tc.gc.ca/fr/services/ferroviaire.html">Transport ferroviaire</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="http://www.tc.gc.ca/fr/services/marchandises-dangereuses.html">Marchandises dangereuses</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="http://www.tc.gc.ca/fr/services/infrastructures.html">Infrastructure</a></li><li role="separator" aria-orientation="vertical"></li><li role="presentation"><a data-keep-expanded="md-min" href="#" role="menuitem" tabindex="-1" aria-haspopup="true" aria-controls="gc-mnu-trans-sub" aria-expanded="true">En demande</a><ul id="gc-mnu-trans-sub" role="menu" aria-orientation="vertical"><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/transport/vehicules-zero-emission.html">Véhicules zéro émission</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="http://www.tc.gc.ca/fr/services/aviation/securite-drones.html">Sécurité des drones</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="http://www.tc.gc.ca/fr/services/surete-transports/aerienne/articles-interdits-bord-avion.html">Articles interdits à bord d’un avion</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="http://www.tc.gc.ca/fra/securitemaritime/epe-immabatiments-menu-728.htm">Immatriculer votre bâtiment</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="http://www.tc.gc.ca/fr/services/routier/securite-sieges-auto-enfants.html">Sécurité des sièges d\'auto pour enfants</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="http://www.tc.gc.ca/fra/tmd/clair-tdesm-211.htm">Transporter des marchandises dangereuses - Règlements</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="http://www.tc.gc.ca/fr/transports-canada/organisation/lois-reglements/reglements/sor-96-433.html">Règlement de l’aviation canadien</a></li></ul></li></ul></li><li role="presentation"><a role="menuitem" tabindex="-1" aria-haspopup="true" aria-controls="gc-mnu-canworld" aria-expanded="false" href="#">Canada et le monde</a><ul id="gc-mnu-canworld" role="menu" aria-orientation="vertical"><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.international.gc.ca/world-monde/index.aspx?lang=fra">Le Canada et le monde<span class="visible-xs-inline visible-sm-inline">: accueil</span></a></li><li role="separator"></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.international.gc.ca/world-monde/offices-bureaux/index.aspx?lang=fra">Bureaux internationaux et contacts d’urgence</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.international.gc.ca/world-monde/study_work_travel-etude_travail_voyage/index.aspx?lang=fra">Étude, travail et voyage partout dans le monde</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.international.gc.ca/world-monde/country-pays/index.aspx?lang=fra">Information par pays et territoires</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.international.gc.ca/world-monde/stories-histoires/index.aspx?lang=fra">Histoires</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.international.gc.ca/world-monde/international_relations-relations_internationales/index.aspx?lang=fra">Relations internationales</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.international.gc.ca/world-monde/issues_development-enjeux_developpement/index.aspx?lang=fra">Enjeux mondiaux et aide internationale</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.international.gc.ca/world-monde/funding-financement/index.aspx?lang=fra">Financement d’initiatives internationales</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/entreprises/commerce.html">Commerce international et investissement</a></li><li role="separator" aria-orientation="vertical"></li><li role="presentation"><a data-keep-expanded="md-min" href="#" role="menuitem" tabindex="-1" aria-haspopup="true" aria-controls="gc-mnu-canworld-sub" aria-expanded="true">En demande</a><ul id="gc-mnu-canworld-sub" role="menu" aria-orientation="vertical"><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.educanada.ca/scholarships-bourses/non_can/index.aspx?lang=fra">Trouver une bourse d’études canadienne en tant qu’étudiant international</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://treaty-accord.gc.ca/index.aspx?Lang=fra">Traités internationaux signés par le Canada</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.educanada.ca/index.aspx?lang=fra">Trouver des occasions d’étude ou de recherche au Canada</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://voyage.gc.ca/assistance/ambassades-consulats">Communiquer avec une ambassade ou un consulat</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.international.gc.ca/protocol-protocole/reps.aspx?lang=fra">Communiquer avec un représentant étranger au Canada</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.international.gc.ca/gac-amc/about-a_propos/services/authentication-authentification/step-etape-1.aspx?lang=fra">Authentifier un document</a></li></ul></li></ul></li><li role="presentation"><a role="menuitem" tabindex="-1" aria-haspopup="true" aria-controls="gc-mnu-money" aria-expanded="false" href="#">Argent et finances</a><ul id="gc-mnu-money" role="menu" aria-orientation="vertical"><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/finance.html"><span class="hidden-xs hidden-sm">Argent et finances</span><span class="visible-xs-inline visible-sm-inline">Finances : accueil</span></a></li><li role="separator"></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/finance/gerer.html">Gérer votre argent</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/finance/dettes.html">Dettes et emprunts</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/finance/epargne.html">Épargne et investissement</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/finance/financementetudes.html">Financement des études</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/finance/pensions.html">Pensions et retraite</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/finance/fraude.html">Protection contre la fraude et les escroqueries</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/finance/outils.html">Calculatrices et outils financiers</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/agence-consommation-matiere-financiere/services/programmes-litteratie-financiere.html">Programmes de littératie financière</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/finance/questions-consommation.html">Questions de consommation</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/finance/faillite.html">Insolvabilité</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/impots.html">Impôts</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/gouvernement/systeme/finances.html">Finances publiques</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/entreprises/subventions.html">Subventions et financement pour les entreprises</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/entreprises/permis/secteursindustriereglementationfederale/regleservicesfinanciers.html">Réglementation des services financiers et monétaires</a></li><li role="separator" aria-orientation="vertical"></li><li role="presentation"><a data-keep-expanded="md-min" href="#" role="menuitem" tabindex="-1" aria-haspopup="true" aria-controls="gc-mnu-money-sub" aria-expanded="true">En demande</a><ul id="gc-mnu-money-sub" role="menu" aria-orientation="vertical"><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.ic.gc.ca/app/scr/bsf-osb/ins/connexion.html?lang=fra">Trouver un dossier de faillite ou d’insolvabilité</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/emplois/education/aide-financiere-etudiants/pret-etudiants.html">Prêts étudiants</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.tpsgc-pwgsc.gc.ca/recgen/txt/depot-deposit-fra.html">Inscrivez-vous au dépôt direct</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/agence-consommation-matiere-financiere/services/hypotheques.html">Obtenir des renseignements sur les hypothèques</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/agence-consommation-matiere-financiere/services/dossier-pointage-credit.html">Dossiers et cotes de crédit</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://itools-ioutils.fcac-acfc.gc.ca/BP-PB/planificateur-budgetaire">Faire un budget</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/agence-revenu/services/impot/administrateurs-regimes-enregistres/fesp/plafonds-cd-reer-rpdb-celi-mgap.html">Taux et limites de contribution</a></li></ul></li></ul></li><li role="presentation"><a role="menuitem" tabindex="-1" aria-haspopup="true" aria-controls="gc-mnu-science" aria-expanded="false" href="#">Science et innovation</a><ul id="gc-mnu-science" role="menu" aria-orientation="vertical"><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/science.html">Science<span class="hidden-xs hidden-sm">et innovation</span><span class="visible-xs-inline visible-sm-inline">: accueil</span></a></li><li role="separator"></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/science/financementrecherche.html">Financement, subventions et prix pour la recherche</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/science/themesscientifiques.html">Thèmes scientifiques</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/science/donnees-ouvertes.html">Données ouvertes, statistiques et archives</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/science/instituts.html">Instituts et établissements de recherches</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/science/innovation.html">R-D et innovation</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/entreprises/pi.html">Propriété intellectuelle et droit d\'auteur</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/science/repertoirescientifiques.html">Répertoire des scientifiques et des professionnels de la recherche</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/science/ressourcespedagogiques.html">Ressources pédagogiques scientifiques</a></li><li role="separator" aria-orientation="vertical"></li><li role="presentation"><a data-keep-expanded="md-min" href="#" role="menuitem" tabindex="-1" aria-haspopup="true" aria-controls="gc-mnu-science-sub" aria-expanded="true">En demande</a><ul id="gc-mnu-science-sub" role="menu" aria-orientation="vertical"><li role="presentation"><a role="menuitem" tabindex="-1" href="https://cnrc.canada.ca/fr/certifications-evaluations-normes/codes-canada/publications-codes-canada">Code national du bâtiment</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://cnrc.canada.ca/fr/horloge-web/">Heures officielles au Canada</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://cnrc.canada.ca/fr/recherche-developpement/produits-services/logiciels-applications/calculatrice-soleil/">Trouver les heures de levers et de couchers du soleil</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://cnrc.canada.ca/fr/soutien-linnovation-technologique/soutien-financier-linnovation-technologique-pari-cnrc">Bourses pour l’innovation technologique (PARI)</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="https://science-libraries.canada.ca/fra/accueil/">Bibliothèque scientifique fédérale</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="http://asc-csa.gc.ca/fra/astronomie/auroramax/hd-480.asp">Aurores boréales en direct</a></li></ul></li></ul></li>',
 };
 
-const gcdsTopicMenuCss = "@layer reset, default, mobile, xsMobile, focus;@layer reset{:host{display:block}:host *{box-sizing:border-box;margin:0}}@layer default{:host .gcds-topic-menu__heading,:host .gcds-topic-menu__main{display:inherit;height:0;margin:0;overflow:hidden;width:0}:host .visible-sm-inline{display:none}:host .gcds-topic-menu{font:var(--gcds-topic-menu-font);margin-inline:auto;max-width:var(--gcds-topic-menu-max-width);position:relative;width:90%}:host .gcds-topic-menu button[aria-haspopup=true]{background-color:var(--gcds-topic-menu-button-background);border:var(--gcds-topic-menu-border-width) solid var(--gcds-topic-menu-button-border);color:var(--gcds-topic-menu-button-text);cursor:pointer;font:inherit;margin-inline-start:0;padding:var(--gcds-topic-menu-button-padding);text-transform:uppercase}:host .gcds-topic-menu button[aria-haspopup=true].gcds-topic-menu--home{background-color:var(--gcds-topic-menu-button-home-background);border-color:var(--gcds-topic-menu-button-home-border-color);color:var(--gcds-topic-menu-button-home-text)}:host .gcds-topic-menu button[aria-haspopup=true]:hover,:host .gcds-topic-menu button[aria-haspopup=true][aria-expanded=true]{background-color:var(--gcds-topic-menu-button-expanded-background);border-color:var(--gcds-topic-menu-button-expanded-border-color);color:var(--gcds-topic-menu-button-expanded-text)}:host .gcds-topic-menu [aria-haspopup=true][aria-expanded=false]+[role=menu]{display:none}:host .gcds-topic-menu button[aria-haspopup=true][aria-expanded=true]+[role=menu]{z-index:9991}:host .gcds-topic-menu button[aria-haspopup=true][aria-expanded=true]+[role=menu] [role=menuitem]{position:relative;z-index:9991}:host .gcds-topic-menu [aria-haspopup=true][aria-expanded=true]+[role=menu]{z-index:9990}:host .gcds-topic-menu [role=menu]{background-color:var(--gcds-topic-menu-topiclist-background);color:var(--gcds-topic-menu-themelist-text);list-style:none;margin:0;padding:0;position:absolute;width:var(--gcds-topic-menu-themelist-width)}:host .gcds-topic-menu [role=menu][data-top-menu]{-webkit-box-shadow:var(--gcds-topic-menu-topiclist-box-shadow);box-shadow:var(--gcds-topic-menu-topiclist-box-shadow)}:host .gcds-topic-menu [role=menu]>li{border-inline-start:var(--gcds-topic-menu-border-width) solid var(--gcds-topic-menu-themelist-item-border)}:host .gcds-topic-menu [role=menu]>li:first-child{border-block-start:var(--gcds-topic-menu-border-width) solid var(--gcds-topic-menu-themelist-item-border)}:host .gcds-topic-menu [role=menu] [role=menu]{border-block-start:var(--gcds-topic-menu-border-width) solid var(--gcds-topic-menu-topiclist-border);color:var(--gcds-topic-menu-topiclist-text);left:var(--gcds-topic-menu-topiclist-left);margin-block-end:var(--gcds-topic-menu-topiclist-margin-block-end);min-height:var(--gcds-topic-menu-topiclist-min-height);padding:var(--gcds-topic-menu-topiclist-padding);top:0;width:var(--gcds-topic-menu-topiclist-width)}:host .gcds-topic-menu [role=menu] [role=menu] li{border:0;width:45%}:host .gcds-topic-menu [role=menu] [role=menu] li [role=menuitem]{border-block-end:0;border-inline-end:0;color:var(--gcds-topic-menu-topiclist-menuitem-text);padding:var(--gcds-topic-menu-topiclist-menuitem-padding);text-decoration:underline;width:auto}:host .gcds-topic-menu [role=menu] [role=menu] li [role=menuitem][aria-haspopup=true],:host .gcds-topic-menu [role=menu] [role=menu] li [role=menuitem][aria-haspopup=true]:hover{color:var(--gcds-topic-menu-topiclist-menuitem-popup-text);font:var(--gcds-topic-menu-topiclist-menuitem-popup-font);text-decoration:none}@media (hover:hover){:host .gcds-topic-menu [role=menu] [role=menu] li [role=menuitem]:hover{color:var(--gcds-topic-menu-topiclist-menuitem-hover-text);text-decoration-thickness:var(\n                    --gcds-topic-menu-topiclist-menuitem-hover-text-decoration-thickness\n                  )}}:host .gcds-topic-menu [role=menu] [role=menu] li:first-child{margin-block-end:var(\n                --gcds-topic-menu-topiclist-item-first-margin-block-end\n              );width:100%}:host .gcds-topic-menu [role=menu] [role=menu] li:first-child [role=menuitem]{font:var(--gcds-topic-menu-topiclist-item-first-font);text-decoration:underline}:host .gcds-topic-menu [role=menu] [role=menu] li:last-child{left:var(--gcds-topic-menu-topiclist-item-last-left);position:absolute;top:var(--gcds-topic-menu-topiclist-item-last-top)}:host .gcds-topic-menu [role=menu] [role=menu] li:last-child [aria-expanded=true]{background:transparent}:host .gcds-topic-menu [role=menu] [role=menu] li:last-child [role=menu]{list-style:disc;padding-block-start:0}:host .gcds-topic-menu [role=menu] [role=menu] [role=menu]{background:transparent;border-block-start:0;-webkit-box-shadow:none;box-shadow:none;left:auto;min-height:auto;top:auto;width:auto}:host .gcds-topic-menu [role=menu] [role=menu] [role=menu] li{width:var(--gcds-topic-menu-mostrequested-item-width)}:host .gcds-topic-menu [role=menu] [role=menu] [role=menu] li:first-child{margin-block-end:var(\n                  --gcds-topic-menu-mostrequested-item-first-margin-block-end\n                )}:host .gcds-topic-menu [role=menu] [role=menu] [role=menu] li:first-child [role=menuitem]{font:inherit;text-decoration:underline;width:auto}:host .gcds-topic-menu [role=menu] [role=menu] [role=menu] li:last-child{left:auto;position:relative;top:auto}@media screen and (61.9375rem <= width <= 74.9375rem){:host .gcds-topic-menu [role=menu] [role=menu] li{width:auto}:host .gcds-topic-menu [role=menu] [role=menu] li:last-child{left:auto;margin-block-start:var(\n                --gcds-topic-menu-mostrequested-item-last-margin-block-start\n              );position:relative;top:auto}:host .gcds-topic-menu [role=menu] [role=menu] [role=menu]{margin-block-end:0;padding-block-end:0;position:relative}:host .gcds-topic-menu [role=menu] [role=menu] [role=menu] li:last-child{margin-block-start:0}}:host .gcds-topic-menu [role=menuitem],:host .gcds-topic-menu [role=menuitem]:visited{border-block-end:var(--gcds-topic-menu-border-width) solid var(--gcds-topic-menu-menuitem-border-block-end);box-sizing:border-box;color:var(--gcds-topic-menu-menuitem-text);display:block;font:var(--gcds-topic-menu-font);padding:var(--gcds-topic-menu-menuitem-padding);text-decoration:none;text-underline-offset:var(\n          --gcds-topic-menu-menuitem-text-underline-offset\n        );width:var(--gcds-topic-menu-menuitem-width)}:host .gcds-topic-menu [role=menuitem]:focus,:host .gcds-topic-menu [role=menuitem]:visited:focus{z-index:9999!important}:host .gcds-topic-menu [role=menuitem]:hover,:host .gcds-topic-menu [role=menuitem]:visited:hover,:host .gcds-topic-menu [role=menuitem]:visited[aria-expanded=true],:host .gcds-topic-menu [role=menuitem][aria-expanded=true]{background-color:var(--gcds-topic-menu-menuitem-expanded-background);color:var(--gcds-topic-menu-menuitem-expanded-text)}:host .gcds-topic-menu [role=menuitem][aria-haspopup=true][aria-expanded=false][aria-controls]:not([aria-controls*=sub]):not(:hover){background-color:var(--gcds-topic-menu-themelist-background)}}@layer mobile{@media screen and (width <= 61.9375rem){:host .gcds-topic-menu .visible-sm-inline{display:inline-block;text-decoration:underline}:host .gcds-topic-menu .hidden-sm{display:none}:host .gcds-topic-menu [role=menu]{margin-block-end:var(\n          --gcds-topic-menu-mobile-themelist-margin-block-start\n        );position:static;width:auto}:host .gcds-topic-menu [role=menu] [role=menu]{border-block-start:0;-webkit-box-shadow:none;box-shadow:none;margin-block-end:0;min-height:auto;padding:0;width:auto}:host .gcds-topic-menu [role=menu] [role=menu] li{width:auto}:host .gcds-topic-menu [role=menu] [role=menu] li [role=menuitem]{border-block-end:var(--gcds-topic-menu-border-width) solid var(\n                  --gcds-topic-menu-mobile-topiclist-menuitem-border-block-end\n                );padding:var(--gcds-topic-menu-mobile-topiclist-menuitem-padding)}@media (hover:hover){:host .gcds-topic-menu [role=menu] [role=menu] li [role=menuitem]:hover{background-color:transparent;color:var(\n                    --gcds-topic-menu-mobile-topiclist-menuitem-hover-text\n                  )}}:host .gcds-topic-menu [role=menu] [role=menu] li [role=menuitem][aria-haspopup]{font:inherit}:host .gcds-topic-menu [role=menu] [role=menu] li:first-child{margin-block-end:0}:host .gcds-topic-menu [role=menu] [role=menu] li:first-child [role=menuitem]{border-block-end:var(--gcds-topic-menu-border-width) solid var(\n                  --gcds-topic-menu-mobile-topiclist-item-first-menuitem-border\n                );color:var(\n                --gcds-topic-menu-mobile-topiclist-item-first-menuitem-text\n              );text-decoration:underline;width:auto}:host .gcds-topic-menu [role=menu] [role=menu] li:last-child{left:auto;position:static;top:auto}:host .gcds-topic-menu [role=menu] [role=menu] li:last-child [role=menuitem]{border-block-end:var(--gcds-topic-menu-border-width) solid var(--gcds-topic-menu-mobile-mostrequested-border);color:var(\n                --gcds-topic-menu-mobile-topiclist-item-last-menuitem-text\n              );text-decoration:none}@media (hover:hover){:host .gcds-topic-menu [role=menu] [role=menu] li:last-child [role=menuitem]:hover{color:var(\n                    --gcds-topic-menu-mobile-topiclist-item-last-menuitem-hover-text\n                  );text-decoration:underline}}:host .gcds-topic-menu [role=menu] [role=menu] li:last-child [role=menu]{list-style:none;padding-block-start:0}:host .gcds-topic-menu [role=menu] [role=menu] li:last-child [role=menu] li{width:auto}:host .gcds-topic-menu [role=menu] [role=menu] li:last-child [role=menu] li [role=menuitem]{border-block-end:var(--gcds-topic-menu-border-width) solid var(--gcds-topic-menu-mobile-mostrequested-border)}@media (hover:hover){:host .gcds-topic-menu [role=menu] [role=menu] li:last-child [role=menu] li [role=menuitem]:hover{color:var(\n                        --gcds-topic-menu-mobile-mostrequested-hover-text\n                      );text-decoration:underline}}:host .gcds-topic-menu [role=menu] [role=menu] li:first-child,:host .gcds-topic-menu [role=menu] [role=menu] li:last-child{background-color:var(\n              --gcds-topic-menu-mobile-mostrequested-background\n            )}:host .gcds-topic-menu [role=menuitem]{width:auto}:host .gcds-topic-menu [aria-expanded=true]:not(button)+[role=menu] li{margin-inline-start:var(\n              --gcds-topic-menu-mobile-item-expanded-margin-inline-start\n            )}:host .gcds-topic-menu [aria-expanded=true]:not(button)+[role=menu] li:first-child,:host .gcds-topic-menu [aria-expanded=true]:not(button)+[role=menu] li:last-child{margin-inline-start:0}:host .gcds-topic-menu [aria-expanded=true]:not(button)+[role=menu] li:first-child [role=menuitem],:host .gcds-topic-menu [aria-expanded=true]:not(button)+[role=menu] li:last-child [role=menuitem]{padding-inline-start:var(\n                  --gcds-topic-menu-mobile-item-expanded-padding-inline-start\n                )}:host .gcds-topic-menu [aria-expanded=true]:not(button)+[role=menu] li:last-child [role=menu] [role=menuitem]{padding-inline-start:0}:host .gcds-topic-menu [aria-expanded=true]:not(button)+[role=menu] [role=menu] li{margin-inline-start:var(\n              --gcds-topic-menu-mobile-mostrequested-expanded-margin-inline-start\n            )}:host .gcds-topic-menu [aria-expanded=true]+[role=menu] [role=menu] [role=menu]{background-color:var(\n            --gcds-topic-menu-mobile-mostrequested-background\n          )}:host .gcds-topic-menu [aria-haspopup]:not(button):before{content:\"\\25BA\\a0\"}:host .gcds-topic-menu [aria-haspopup][aria-expanded=true]:not(button):before{content:\"\\25BC\\a0\"}:host .gcds-topic-menu button[aria-haspopup=true][aria-expanded=true]+[role=menu]{border-inline-end:var(--gcds-topic-menu-border-width) solid var(--gcds-topic-menu-mobile-themelist-border)}}}@layer xsMobile{@media screen and (width <= 47.9375rem){:host .gcds-topic-menu>[role=menu]{margin-inline:calc(-50vw + 50%)}}}@layer focus{:host .gcds-topic-menu :is(button[aria-haspopup=true],[role=menuitem]):focus{background-color:var(--gcds-topic-menu-focus-background);border-color:var(--gcds-topic-menu-focus-background);border-inline-end:0;border-radius:var(--gcds-topic-menu-focus-border-radius);box-shadow:var(--gcds-topic-menu-focus-box-shadow);color:var(--gcds-topic-menu-focus-text);outline:var(--gcds-topic-menu-focus-outline);outline-offset:var(--gcds-topic-menu-focus-outline-offset)}}";
+const gcdsTopicMenuCss = "@layer reset, default, mobile, xsMobile, focus;@layer reset{:host{display:block}:host *{box-sizing:border-box;margin:0}}@layer default{:host .gcds-topic-menu__heading,:host .gcds-topic-menu__main{display:inherit;height:0;margin:0;overflow:hidden;width:0}:host .visible-sm-inline{display:none}:host .gcds-topic-menu{font:var(--gcds-topic-menu-font);margin-inline:auto;max-width:var(--gcds-topic-menu-max-width);position:relative;width:90%}:host .gcds-topic-menu button[aria-haspopup=true]{background-color:var(--gcds-topic-menu-button-background);border:var(--gcds-topic-menu-border-width) solid var(--gcds-topic-menu-button-border);color:var(--gcds-topic-menu-button-text);cursor:pointer;font:inherit;margin-inline-start:0;padding:var(--gcds-topic-menu-button-padding);text-transform:uppercase}:host .gcds-topic-menu button[aria-haspopup=true].gcds-topic-menu--home{background-color:var(--gcds-topic-menu-button-home-background);border-color:var(--gcds-topic-menu-button-home-border-color);color:var(--gcds-topic-menu-button-home-text)}:host .gcds-topic-menu button[aria-haspopup=true]:hover,:host .gcds-topic-menu button[aria-haspopup=true][aria-expanded=true]{background-color:var(--gcds-topic-menu-button-expanded-background);border-color:var(--gcds-topic-menu-button-expanded-border-color);color:var(--gcds-topic-menu-button-expanded-text)}:host .gcds-topic-menu [aria-haspopup=true][aria-expanded=false]+[role=menu]{display:none}:host .gcds-topic-menu button[aria-haspopup=true][aria-expanded=true]+[role=menu]{z-index:9991}:host .gcds-topic-menu button[aria-haspopup=true][aria-expanded=true]+[role=menu] [role=menuitem]{position:relative;z-index:9991}:host .gcds-topic-menu [aria-haspopup=true][aria-expanded=true]+[role=menu]{z-index:9990}:host .gcds-topic-menu [role=menu]{background-color:var(--gcds-topic-menu-topiclist-background);color:var(--gcds-topic-menu-themelist-text);list-style:none;margin:0;padding:0;position:absolute;width:var(--gcds-topic-menu-themelist-width)}:host .gcds-topic-menu [role=menu][data-top-menu]{-webkit-box-shadow:var(--gcds-topic-menu-topiclist-box-shadow);box-shadow:var(--gcds-topic-menu-topiclist-box-shadow)}:host .gcds-topic-menu [role=menu]>li{border-inline-start:var(--gcds-topic-menu-border-width) solid var(--gcds-topic-menu-themelist-item-border)}:host .gcds-topic-menu [role=menu]>li:first-child{border-block-start:var(--gcds-topic-menu-border-width) solid var(--gcds-topic-menu-themelist-item-border)}:host .gcds-topic-menu [role=menu] [role=menu]{border-block-start:var(--gcds-topic-menu-border-width) solid var(--gcds-topic-menu-topiclist-border);color:var(--gcds-topic-menu-topiclist-text);left:var(--gcds-topic-menu-topiclist-left);margin-block-end:var(--gcds-topic-menu-topiclist-margin-block-end);min-height:var(--gcds-topic-menu-topiclist-min-height);padding:var(--gcds-topic-menu-topiclist-padding);top:0;width:var(--gcds-topic-menu-topiclist-width)}:host .gcds-topic-menu [role=menu] [role=menu] li{border:0;width:45%}:host .gcds-topic-menu [role=menu] [role=menu] li [role=menuitem]{border-block-end:0;border-inline-end:0;color:var(--gcds-topic-menu-topiclist-menuitem-text);padding:var(--gcds-topic-menu-topiclist-menuitem-padding);text-decoration:underline;width:auto}:host .gcds-topic-menu [role=menu] [role=menu] li [role=menuitem][aria-haspopup=true],:host .gcds-topic-menu [role=menu] [role=menu] li [role=menuitem][aria-haspopup=true]:hover{color:var(--gcds-topic-menu-topiclist-menuitem-popup-text);font:var(--gcds-topic-menu-topiclist-menuitem-popup-font);text-decoration:none}@media (hover:hover){:host .gcds-topic-menu [role=menu] [role=menu] li [role=menuitem]:hover{color:var(--gcds-topic-menu-topiclist-menuitem-hover-text);text-decoration-thickness:var(\n                    --gcds-topic-menu-topiclist-menuitem-hover-text-decoration-thickness\n                  )}}:host .gcds-topic-menu [role=menu] [role=menu] li:first-child{margin-block-end:var(\n                --gcds-topic-menu-topiclist-item-first-margin-block-end\n              );width:100%}:host .gcds-topic-menu [role=menu] [role=menu] li:first-child [role=menuitem]{font:var(--gcds-topic-menu-topiclist-item-first-font);text-decoration:underline}:host .gcds-topic-menu [role=menu] [role=menu] li:last-child{left:var(--gcds-topic-menu-topiclist-item-last-left);position:absolute;top:var(--gcds-topic-menu-topiclist-item-last-top)}:host .gcds-topic-menu [role=menu] [role=menu] li:last-child [aria-expanded=true]{background:transparent}:host .gcds-topic-menu [role=menu] [role=menu] li:last-child [role=menu]{list-style:disc;padding-block-start:0}:host .gcds-topic-menu [role=menu] [role=menu] [role=menu]{background:transparent;border-block-start:0;-webkit-box-shadow:none;box-shadow:none;left:auto;min-height:auto;top:auto;width:auto}:host .gcds-topic-menu [role=menu] [role=menu] [role=menu] li{width:var(--gcds-topic-menu-mostrequested-item-width)}:host .gcds-topic-menu [role=menu] [role=menu] [role=menu] li:first-child{margin-block-end:var(\n                  --gcds-topic-menu-mostrequested-item-first-margin-block-end\n                )}:host .gcds-topic-menu [role=menu] [role=menu] [role=menu] li:first-child [role=menuitem]{font:inherit;text-decoration:underline;width:auto}:host .gcds-topic-menu [role=menu] [role=menu] [role=menu] li:last-child{left:auto;position:relative;top:auto}@media screen and (61.9375rem <= width <= 74.9375rem){:host .gcds-topic-menu [role=menu] [role=menu] li{width:auto}:host .gcds-topic-menu [role=menu] [role=menu] li:last-child{left:auto;margin-block-start:var(\n                --gcds-topic-menu-mostrequested-item-last-margin-block-start\n              );position:relative;top:auto}:host .gcds-topic-menu [role=menu] [role=menu] [role=menu]{margin-block-end:0;padding-block-end:0;position:relative}:host .gcds-topic-menu [role=menu] [role=menu] [role=menu] li:last-child{margin-block-start:0}}:host .gcds-topic-menu [role=menuitem],:host .gcds-topic-menu [role=menuitem]:visited{border-block-end:var(--gcds-topic-menu-border-width) solid var(--gcds-topic-menu-menuitem-border-block-end);box-sizing:border-box;color:var(--gcds-topic-menu-menuitem-text);display:block;font:var(--gcds-topic-menu-font);padding:var(--gcds-topic-menu-menuitem-padding);text-decoration:none;text-underline-offset:var(\n          --gcds-topic-menu-menuitem-text-underline-offset\n        );width:var(--gcds-topic-menu-menuitem-width)}:host .gcds-topic-menu [role=menuitem]:focus,:host .gcds-topic-menu [role=menuitem]:visited:focus{z-index:9999!important}:host .gcds-topic-menu [role=menuitem]:hover,:host .gcds-topic-menu [role=menuitem]:visited:hover,:host .gcds-topic-menu [role=menuitem]:visited[aria-expanded=true],:host .gcds-topic-menu [role=menuitem][aria-expanded=true]{background-color:var(--gcds-topic-menu-menuitem-expanded-background);color:var(--gcds-topic-menu-menuitem-expanded-text)}:host .gcds-topic-menu [role=menuitem][aria-haspopup=true][aria-expanded=false][aria-controls]:not([aria-controls*=sub]):not(:hover){background-color:var(--gcds-topic-menu-themelist-background)}}@layer mobile{@media screen and (width <= 61.9375rem){:host .gcds-topic-menu .visible-sm-inline{display:inline-block;text-decoration:underline}:host .gcds-topic-menu .hidden-sm{display:none}:host .gcds-topic-menu [role=menu]{margin-block-end:var(\n          --gcds-topic-menu-mobile-themelist-margin-block-start\n        );position:static;width:auto}:host .gcds-topic-menu [role=menu] [role=menu]{border-block-start:0;-webkit-box-shadow:none;box-shadow:none;margin-block-end:0;min-height:auto;padding:0;width:auto}:host .gcds-topic-menu [role=menu] [role=menu] li{width:auto}:host .gcds-topic-menu [role=menu] [role=menu] li [role=menuitem]{border-block-end:var(--gcds-topic-menu-border-width) solid var(\n                  --gcds-topic-menu-mobile-topiclist-menuitem-border-block-end\n                );padding:var(--gcds-topic-menu-mobile-topiclist-menuitem-padding)}@media (hover:hover){:host .gcds-topic-menu [role=menu] [role=menu] li [role=menuitem]:hover{background-color:transparent;color:var(\n                    --gcds-topic-menu-mobile-topiclist-menuitem-hover-text\n                  )}}:host .gcds-topic-menu [role=menu] [role=menu] li [role=menuitem][aria-haspopup]{font:inherit}:host .gcds-topic-menu [role=menu] [role=menu] li:first-child{margin-block-end:0}:host .gcds-topic-menu [role=menu] [role=menu] li:first-child [role=menuitem]{border-block-end:var(--gcds-topic-menu-border-width) solid var(\n                  --gcds-topic-menu-mobile-topiclist-item-first-menuitem-border\n                );color:var(\n                --gcds-topic-menu-mobile-topiclist-item-first-menuitem-text\n              );text-decoration:underline;width:auto}:host .gcds-topic-menu [role=menu] [role=menu] li:last-child{left:auto;position:static;top:auto}:host .gcds-topic-menu [role=menu] [role=menu] li:last-child [role=menuitem]{border-block-end:var(--gcds-topic-menu-border-width) solid var(--gcds-topic-menu-mobile-mostrequested-border);color:var(\n                --gcds-topic-menu-mobile-topiclist-item-last-menuitem-text\n              );text-decoration:none}@media (hover:hover){:host .gcds-topic-menu [role=menu] [role=menu] li:last-child [role=menuitem]:hover{color:var(\n                    --gcds-topic-menu-mobile-topiclist-item-last-menuitem-hover-text\n                  );text-decoration:underline}}:host .gcds-topic-menu [role=menu] [role=menu] li:last-child [role=menu]{list-style:none;padding-block-start:0}:host .gcds-topic-menu [role=menu] [role=menu] li:last-child [role=menu] li{width:auto}:host .gcds-topic-menu [role=menu] [role=menu] li:last-child [role=menu] li [role=menuitem]{border-block-end:var(--gcds-topic-menu-border-width) solid var(--gcds-topic-menu-mobile-mostrequested-border)}@media (hover:hover){:host .gcds-topic-menu [role=menu] [role=menu] li:last-child [role=menu] li [role=menuitem]:hover{color:var(\n                        --gcds-topic-menu-mobile-mostrequested-hover-text\n                      );text-decoration:underline}}:host .gcds-topic-menu [role=menu] [role=menu] li:first-child,:host .gcds-topic-menu [role=menu] [role=menu] li:last-child{background-color:var(\n              --gcds-topic-menu-mobile-mostrequested-background\n            )}:host .gcds-topic-menu [role=menuitem]{width:auto}:host .gcds-topic-menu [aria-expanded=true]:not(button)+[role=menu] li{margin-inline-start:var(\n              --gcds-topic-menu-mobile-item-expanded-margin-inline-start\n            )}:host .gcds-topic-menu [aria-expanded=true]:not(button)+[role=menu] li:first-child,:host .gcds-topic-menu [aria-expanded=true]:not(button)+[role=menu] li:last-child{margin-inline-start:0}:host .gcds-topic-menu [aria-expanded=true]:not(button)+[role=menu] li:first-child [role=menuitem],:host .gcds-topic-menu [aria-expanded=true]:not(button)+[role=menu] li:last-child [role=menuitem]{padding-inline-start:var(\n                  --gcds-topic-menu-mobile-item-expanded-padding-inline-start\n                )}:host .gcds-topic-menu [aria-expanded=true]:not(button)+[role=menu] li:last-child [role=menu] [role=menuitem]{padding-inline-start:0}:host .gcds-topic-menu [aria-expanded=true]:not(button)+[role=menu] [role=menu] li{margin-inline-start:var(\n              --gcds-topic-menu-mobile-mostrequested-expanded-margin-inline-start\n            )}:host .gcds-topic-menu [aria-expanded=true]+[role=menu] [role=menu] [role=menu]{background-color:var(\n            --gcds-topic-menu-mobile-mostrequested-background\n          )}:host .gcds-topic-menu [aria-haspopup]:not(button):before{content:\"\\25BA\\a0\"}:host .gcds-topic-menu [aria-haspopup][aria-expanded=true]:not(button):before{content:\"\\25BC\\a0\"}:host .gcds-topic-menu button[aria-haspopup=true][aria-expanded=true]+[role=menu]{border-inline-end:var(--gcds-topic-menu-border-width) solid var(--gcds-topic-menu-mobile-themelist-border)}}}@layer xsMobile{@media screen and (width <= 47.9375rem){:host .gcds-topic-menu>[role=menu]{margin-inline:calc(-50vw - -50%)}}}@layer focus{:host .gcds-topic-menu :is(button[aria-haspopup=true],[role=menuitem]):focus{background-color:var(--gcds-topic-menu-focus-background);border-color:var(--gcds-topic-menu-focus-background);border-inline-end:0;border-radius:var(--gcds-topic-menu-focus-border-radius);box-shadow:var(--gcds-topic-menu-focus-box-shadow);color:var(--gcds-topic-menu-focus-text);outline:var(--gcds-topic-menu-focus-outline);outline-offset:var(--gcds-topic-menu-focus-outline-offset)}}";
 
 /**
  * The theme and topic menu is a navigation to the top tasks of Government of Canada websites.
@@ -11265,7 +11207,7 @@ class GcdsTopicMenu {
     }
     render() {
         const { home, lang } = this;
-        return (hAsync(Host, { key: 'cab12f3f051aa002f093b6e8216d84b6b0bdd599' }, hAsync("nav", { key: '666b10254a3db1a918e86652c2428443cf5e9331', class: "gcds-topic-menu", "aria-labelledby": "gcds-topic-menu__heading" }, hAsync("gcds-sr-only", { key: 'b8a6240445b127329bfac3b89b1bfd100c795a5a', id: "gcds-topic-menu__heading", tag: "h2" }, I18N$1[lang].menuLabelFull), hAsync("button", { key: 'bf6f56eef56613363bcb1de5c8bf6eeee552ad46', "aria-haspopup": "true", "aria-expanded": this.open.toString(), "aria-label": I18N$1[lang].buttonLabel, onClick: async () => await this.toggleNav(), ref: element => (this.menuButton = element), class: home && 'gcds-topic-menu--home' }, this.lang == 'en' ? (hAsync(Fragment, null, hAsync("gcds-sr-only", { tag: "span" }, I18N$1[lang].menuLabelHidden), I18N$1[lang].menuToggle)) : (hAsync(Fragment, null, I18N$1[lang].menuToggle, hAsync("gcds-sr-only", { tag: "span" }, I18N$1[lang].menuLabelHidden))), hAsync("gcds-icon", { key: '004a3e997a9e7daed34ce5bc5679af166e8a1c14', name: "chevron-down", "margin-left": "100", size: "text-small" })), hAsync("ul", { key: 'a2bfed1ba8771ff6631d4576a555b8385f698e06', role: "menu", "aria-orientation": "vertical", "data-top-menu": true, innerHTML: this.listItems, ref: element => (this.themeList = element) }))));
+        return (hAsync(Host, { key: 'ea92a830119382cdd950f7346cb750b954fb77e5' }, hAsync("nav", { key: '36bad924be21e3b404b2b65bcc7de63ad3b07a79', class: "gcds-topic-menu", "aria-labelledby": "gcds-topic-menu__heading" }, hAsync("gcds-sr-only", { key: '1c5c7fff833cb328a828c6a3abd336f8c82062fc', id: "gcds-topic-menu__heading", tag: "h2" }, I18N[lang].menuLabelFull), hAsync("button", { key: '2c5be1c6a65708bf3f9a1e71692e12654c28c028', "aria-haspopup": "true", "aria-expanded": this.open.toString(), "aria-label": I18N[lang].buttonLabel, onClick: async () => await this.toggleNav(), ref: element => (this.menuButton = element), class: home && 'gcds-topic-menu--home' }, this.lang == 'en' ? (hAsync(Fragment, null, hAsync("gcds-sr-only", { tag: "span" }, I18N[lang].menuLabelHidden), I18N[lang].menuToggle)) : (hAsync(Fragment, null, I18N[lang].menuToggle, hAsync("gcds-sr-only", { tag: "span" }, I18N[lang].menuLabelHidden))), hAsync("gcds-icon", { key: 'd778a38a9a3967ff4e52a76033b15d4863b39aa1', name: "chevron-down", "margin-left": "100", size: "text-small" })), hAsync("ul", { key: 'e9bcb8fbb357f8d05c09849ceff2fde3f5fd1806', role: "menu", "aria-orientation": "vertical", "data-top-menu": true, innerHTML: this.listItems, ref: element => (this.themeList = element) }))));
     }
     get el() { return getElement(this); }
     static get style() { return gcdsTopicMenuCss; }
@@ -11285,125 +11227,6 @@ class GcdsTopicMenu {
             "updateNavItemQueue": [64]
         },
         "$listeners$": [[4, "keydown", "keyDownListener"]],
-        "$lazyBundleId$": "-",
-        "$attrsToReflect$": []
-    }; }
-}
-
-const I18N = {
-  en: {
-    summary: {
-      text: 'An official website of the Government of Canada.',
-      link: 'Learn to recognize one',
-    },
-    content: {
-      description:
-        "It can be hard to know what sites to trust. Here's how to identify a Government of Canada website before you share any info:",
-      url: {
-        heading: 'Canada.ca or gc.ca',
-        text: "Government of Canada website's normally use Canada.ca or gc.ca in the URL.",
-      },
-      languages: {
-        heading: "Available in both of Canada's Official Languages",
-        text: 'Information will be available in both English and French.',
-      },
-      https: {
-        heading: 'HTTPS',
-        text: 'Secure Government of Canada websites use',
-      },
-      contact: {
-        heading: 'A point of contact',
-        text: 'Contact information will have Canada.ca, gc.ca, or the department name in the email address.',
-      },
-    },
-  },
-  fr: {
-    summary: {
-      text: 'Les sites Web officiels du gouvernement du Canada.',
-      link: 'Comment les reconnaître',
-    },
-    content: {
-      description:
-        "Il peut être difficile de savoir quels sites sont fiables. Avant de partager des renseignements, vérifiez les points suivant pour déterminer s'il s'agit bien d'un site du gouvernement du Canada:",
-      url: {
-        heading: 'Canada.ca ou gc.ca',
-        text: "On retrouve normalement Canada.ca ou gc.ca dans l'adresse URL d'un site Web du gouvernement du Canada.",
-      },
-      languages: {
-        heading: 'Offert dans les deux langues officielles',
-        text: 'Vérifiez que les renseignements sont accessibles en français et en anglais.',
-      },
-      https: {
-        heading: 'HTTPS',
-        text: "Lorsqu'un navigateur affiche les sites Web sécuritaires du gouvernement du Canada, on retrouve",
-      },
-      contact: {
-        heading: 'Un point de communication',
-        text: "On retrouve Canada.ca, gc.ca ou le nom du ministère dans l'URL de toute adresse courriel du gouvernement du Canada.",
-      },
-    },
-  },
-};
-
-var CanadaFlag = `<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 67.3 33" width="25">
-  <path fill="#FF0000" d="M0,0h16v32.5H0V0z M46.5,16.6l-1-0.5c-0.5-0.2-0.3-0.6-0.2-1.1v-0.2l1-3.6l-2.9,0.6c-0.5,0.1-0.9,0.2-1.1-0.3 l-0.7-1.7l-2.8,3c-0.8,0.8-1.5,0.4-1.2-0.8l1.3-6.2l-1.9,1c-0.5,0.2-0.7,0.3-1-0.2l-2.2-4.4l-2.3,4.6c-0.2,0.3-0.6,0.2-0.9-0.1 l-2.1-1.2l1.4,6.8c0.2,0.9-0.5,1.3-1,0.7L26,9.8l-0.9,1.7c-0.2,0.4-0.4,0.6-1.2,0.4L21,11.3l1.2,3.6c0.1,0.6,0.1,0.9-0.2,1.1 l-1.3,0.7l6,4.9c0.5,0.4,0.4,0.9,0.2,1.5l-0.7,1.7l5.1-1c1.1-0.2,1.6-0.2,1.6,0.4l-0.2,6.3h1.7l-0.2-6.3c0-0.6,0.5-0.6,1.2-0.4 l5.5,1l-0.5-1.7c-0.2-0.7-0.4-0.9,0.2-1.5L46.5,16.6z M51.4,0v32.5h16V0H51.4z" />
-</svg>`;
-
-var ContentToggleArrow = `<svg xmlns="http://www.w3.org/2000/svg"  width="12" height="7.4" viewBox="0 0 12 7.4">
-  <path d="M10.6,0L6,4.6L1.4,0L0,1.4l6,6l6-6L10.6,0z" />
-</svg>`;
-
-const gcdsVerifyBannerCss = "@layer reset, default, fixed, container;@layer reset{:host{display:block}}@layer default{:host .gcds-verify-banner{background-color:var(--gcds-verify-banner-background);color:var(--gcds-verify-banner-text);font:var(--gcds-verify-banner-font)}:host .gcds-verify-banner :is(summary,.verify-banner__content){font-size:90%}:host .gcds-verify-banner summary{cursor:pointer;display:flex;margin-inline:auto;padding-block:var(--gcds-verify-banner-summary-padding)}:host .gcds-verify-banner summary :is(.svg-container,p small){margin:var(--gcds-verify-banner-summary-content-margin)}:host .gcds-verify-banner summary p{align-items:center;display:flex;flex-wrap:wrap;line-height:var(--gcds-verify-banner-line-height);margin:0}:host .gcds-verify-banner summary .verify-banner__toggle{background:none;border:0;color:var(--gcds-verify-banner-toggle-text);flex:0 0 auto;font-weight:var(--gcds-verify-banner-toggle-font-weight);padding:0;pointer-events:none;text-decoration:underline}:host .gcds-verify-banner summary .verify-banner__toggle .svg-container path{fill:var(--gcds-verify-banner-toggle-text)}:host .gcds-verify-banner .verify-banner__content{border-block-start:var(--gcds-verify-banner-content-border-width) solid var(--gcds-verify-banner-content-border-color);margin:0 auto;padding-block-end:var(--gcds-verify-banner-content-padding-block-end);padding-block-start:var(\n        --gcds-verify-banner-content-padding-block-start\n      )}:host .gcds-verify-banner .verify-banner__content li{list-style:none}:host .gcds-verify-banner .verify-banner__content li :is(h4,p){width:90%}:host .gcds-verify-banner .verify-banner__content h4{margin:var(--gcds-verify-banner-content-heading-margin)}:host .gcds-verify-banner .verify-banner__content p{line-height:var(--gcds-verify-banner-line-height);margin:0}:host .gcds-verify-banner[open] summary .verify-banner__toggle svg{transform:rotate(-180deg)}}@layer fixed{:host .gcds-verify-banner.verify-banner--is-fixed{position:sticky;top:0;width:var(--gcds-verify-banner-max-content-width-full);z-index:9999}}@layer container{:host .gcds-verify-banner .container-lg,:host .gcds-verify-banner .container-md,:host .gcds-verify-banner .container-sm,:host .gcds-verify-banner .container-xl,:host .gcds-verify-banner .container-xs{width:90%}:host .gcds-verify-banner .container-full{max-width:var(--gcds-verify-banner-container-full);padding-inline:var(--gcds-verify-banner-container-padding)}:host .gcds-verify-banner .container-xl{max-width:var(--gcds-verify-banner-container-xl)}:host .gcds-verify-banner .container-lg{max-width:var(--gcds-verify-banner-container-lg)}:host .gcds-verify-banner .container-md{max-width:var(--gcds-verify-banner-container-md)}:host .gcds-verify-banner .container-sm{max-width:var(--gcds-verify-banner-container-sm)}:host .gcds-verify-banner .container-xs{max-width:var(--gcds-verify-banner-container-xs)}}";
-
-/**
- * Verify banner helps users verify they are on an official Government of Canada website by providing clear information on how to recognize legitimate Government of Canada domains and secure connections.
- */
-class GcdsVerifyBanner {
-    constructor(hostRef) {
-        registerInstance(this, hostRef);
-        /**
-         * Props
-         */
-        /**
-         * Defines the container width of the verify banner content
-         */
-        this.container = 'xl';
-        /**
-         * Defines if the banner's position is fixed.
-         */
-        this.isFixed = false;
-    }
-    /*
-     * Observe lang attribute change
-     */
-    updateLang() {
-        const observer = new MutationObserver(mutations => {
-            if (mutations[0].oldValue != this.el.lang) {
-                this.lang = this.el.lang;
-            }
-        });
-        observer.observe(this.el, observerConfig);
-    }
-    async componentWillLoad() {
-        // Define lang attribute
-        this.lang = assignLanguage(this.el);
-        this.updateLang();
-    }
-    render() {
-        const { container, isFixed, lang } = this;
-        return (hAsync(Host, { key: '81973537a21ff8bc06d7af751286180909137d4f' }, hAsync("details", { key: 'ea98f8b396c065be3338f62f1b4bdfbffddc6d68', class: `gcds-verify-banner ${isFixed ? 'verify-banner--is-fixed' : ''}` }, hAsync("summary", { key: 'b83b678363782e280872028016c1830f057f79a5', class: container ? `container-${container}` : '', "aria-expanded": "false", role: "button" }, hAsync("span", { key: 'ea8489486256e7cf983ea62b534b3b953ffbdfd9', class: "svg-container", innerHTML: CanadaFlag }), hAsync("p", { key: '441d0f62bfaa8232766fa25d4f293856d5919fc5' }, hAsync("small", { key: 'fd9985644c5d448e783fe121392dcc752a11894c' }, I18N[lang].summary.text), hAsync("button", { key: 'e367c1f16b77914512d7191d9c4acb979da28898', class: "verify-banner__toggle" }, hAsync("small", { key: '1b7cec1da1f70df3108188f67c58df05e9f43265' }, I18N[lang].summary.link), hAsync("span", { key: '88387f3e006781d43354182badf4db34ac890752', class: "svg-container", innerHTML: ContentToggleArrow })))), hAsync("div", { key: '2a90d1b70f1ccf1c08f2d887f6bd4ec89138362a', class: `verify-banner__content ${container ? `container-${container}` : ''}` }, hAsync("p", { key: 'c70e302d34681c52dbb2157020955821de2e66a0' }, hAsync("small", { key: '91e86ac20f3241a976463438b7164183e16584ec' }, I18N[lang].content.description)), hAsync("br", { key: '802f4c5b24f4b63b9764056638329a1be0580e2a' }), hAsync("gcds-grid", { key: 'c9347190bdd322599825eb56bc78e63fcf28702f', tag: "ul", container: "lg", columns: "1fr", "columns-tablet": container === 'xs' || container === 'sm' ? '1fr' : '1fr 1fr' }, hAsync("li", { key: 'bcbd1951e53638d63f335c3960c3be067f674f25' }, hAsync("h4", { key: '093d8a04f8eb8ddb1d3b8aa07e430f2cc0ddc76d' }, I18N[lang].content.url.heading), hAsync("p", { key: 'd5c47c818ecde61d8ef45138408231ec8332eee9' }, hAsync("small", { key: '21e821fe073fa5260ba129da8e53f226e5f7922d' }, I18N[lang].content.url.text))), hAsync("li", { key: '6bf334ae274e581dc7e7529b8e078123aa501836' }, hAsync("h4", { key: '38001a7718f7a4384d8dbd7816285e193bd80f0f' }, I18N[lang].content.languages.heading), hAsync("p", { key: 'a42c56b425effc00caf0a2b2d3c79aea52c7a4d5' }, hAsync("small", { key: 'c05571e761970df2293667ca25f91d657d7784ff' }, I18N[lang].content.languages.text))), hAsync("li", { key: 'f6c5b8619a5014470dd835c684244ac145f2c5fd' }, hAsync("h4", { key: '3ac2cf2d08c5f94d07bcd7fbe1786b7a138d4f0d' }, I18N[lang].content.https.heading), hAsync("p", { key: '596499c8b77e7260776da2ab782670820687a2b0' }, hAsync("small", { key: '9b81bf698364397d705d0c20df078cb5f2f97171' }, I18N[lang].content.https.text, " ", hAsync("strong", { key: 'b187d642957907d9501d13c617e3e54c1fa11887' }, "https://"), "."))), hAsync("li", { key: '086c41a49bebea39aa287aa213e288ddd4c4d2f8' }, hAsync("h4", { key: 'dd45cc64f0ad0779e28f228fdee78d6216c4c747' }, I18N[lang].content.contact.heading), hAsync("p", { key: '745ab9a7fcfff95e6df069e182f334ecda0b27dd' }, hAsync("small", { key: '7c7ae86324f385e9b23461126a418ecbb8f09a16' }, I18N[lang].content.contact.text))))))));
-    }
-    get el() { return getElement(this); }
-    static get style() { return gcdsVerifyBannerCss; }
-    static get cmpMeta() { return {
-        "$flags$": 9,
-        "$tagName$": "gcds-verify-banner",
-        "$members$": {
-            "container": [1],
-            "isFixed": [4, "is-fixed"],
-            "lang": [32]
-        },
-        "$listeners$": undefined,
         "$lazyBundleId$": "-",
         "$attrsToReflect$": []
     }; }
@@ -11439,7 +11262,6 @@ registerComponents([
   GcdsNavLink,
   GcdsNotice,
   GcdsPagination,
-  GcdsPhaseBanner,
   GcdsRadios,
   GcdsSearch,
   GcdsSelect,
@@ -11451,7 +11273,6 @@ registerComponents([
   GcdsTextarea,
   GcdsTopNav,
   GcdsTopicMenu,
-  GcdsVerifyBanner,
 ]);
 
 exports.hydrateApp = hydrateApp;

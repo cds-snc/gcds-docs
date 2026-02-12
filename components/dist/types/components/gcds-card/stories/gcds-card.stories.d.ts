@@ -4,6 +4,7 @@ declare const _default: {
 };
 export default _default;
 export declare const Default: any;
+export declare const CardTitleTag: any;
 export declare const Description: any;
 export declare const Slot: any;
 export declare const Badge: any;

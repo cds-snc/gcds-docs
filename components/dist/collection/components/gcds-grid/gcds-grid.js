@@ -26,10 +26,6 @@ const GridGapArray = [
 export class GcdsGrid {
     constructor() {
         /**
-         * Defines if grid container is centered or not
-         */
-        this.centered = false;
-        /**
          * Defines element as grid or inline-grid container
          */
         this.display = 'grid';
@@ -94,7 +90,7 @@ export class GcdsGrid {
         this.validateGapDesktop(this.gapDesktop);
     }
     render() {
-        const { alignContent, alignItems, columns, columnsDesktop, columnsTablet, container, centered, display, equalRowHeight, gap, gapTablet, gapDesktop, justifyContent, justifyItems, placeContent, placeItems, tag, } = this;
+        const { alignment, alignContent, alignItems, columns, columnsDesktop, columnsTablet, container, display, equalRowHeight, gap, gapTablet, gapDesktop, justifyContent, justifyItems, placeContent, placeItems, tag, } = this;
         const Tag = tag;
         const classNames = `
       gcds-grid
@@ -129,7 +125,7 @@ export class GcdsGrid {
             setGridProperty(gapDesktop, 'gap', '-desktop');
             return gridStyles;
         }
-        return (h(Host, null, container ? (h("gcds-container", { size: container, centered: centered }, h(Tag, { class: classNames, style: handleGridStyles() }, h("slot", null)))) : (h(Tag, { class: classNames, style: handleGridStyles() }, h("slot", null)))));
+        return (h(Host, null, container ? (h("gcds-container", { size: container, alignment: alignment }, h(Tag, { class: classNames, style: handleGridStyles() }, h("slot", null)))) : (h(Tag, { class: classNames, style: handleGridStyles() }, h("slot", null)))));
     }
     static get is() { return "gcds-grid"; }
     static get encapsulation() { return "shadow"; }
@@ -220,26 +216,6 @@ export class GcdsGrid {
                 "getter": false,
                 "setter": false,
                 "reflect": false
-            },
-            "centered": {
-                "type": "boolean",
-                "attribute": "centered",
-                "mutable": false,
-                "complexType": {
-                    "original": "boolean",
-                    "resolved": "boolean",
-                    "references": {}
-                },
-                "required": false,
-                "optional": true,
-                "docs": {
-                    "tags": [],
-                    "text": "Defines if grid container is centered or not"
-                },
-                "getter": false,
-                "setter": false,
-                "reflect": false,
-                "defaultValue": "false"
             },
             "display": {
                 "type": "string",
@@ -376,6 +352,25 @@ export class GcdsGrid {
                 "setter": false,
                 "reflect": false,
                 "defaultValue": "'div'"
+            },
+            "alignment": {
+                "type": "string",
+                "attribute": "alignment",
+                "mutable": false,
+                "complexType": {
+                    "original": "'start' | 'center' | 'end'",
+                    "resolved": "\"center\" | \"end\" | \"start\"",
+                    "references": {}
+                },
+                "required": false,
+                "optional": true,
+                "docs": {
+                    "tags": [],
+                    "text": "Defines the grid's alignment if the grid containers\nsize is smaller than the parent's size."
+                },
+                "getter": false,
+                "setter": false,
+                "reflect": false
             },
             "alignContent": {
                 "type": "string",

@@ -17,12 +17,12 @@ export class GcdsNotice {
          */
         this.errors = [];
     }
-    validateType() {
-        if (!this.type) {
-            this.errors.push('type');
+    validateNoticeRole() {
+        if (!this.noticeRole) {
+            this.errors.push('noticeRole');
         }
-        else if (this.errors.includes('type')) {
-            this.errors.splice(this.errors.indexOf('type'), 1);
+        else if (this.errors.includes('noticeRole')) {
+            this.errors.splice(this.errors.indexOf('noticeRole'), 1);
         }
     }
     validateNoticeTitle() {
@@ -63,10 +63,10 @@ export class GcdsNotice {
     }
     validateRequiredProps() {
         this.validateNoticeTitle();
-        this.validateType();
+        this.validateNoticeRole();
         this.validateNoticeTitleTag();
         this.validateChildren();
-        if (this.errors.includes('type') ||
+        if (this.errors.includes('noticeRole') ||
             this.errors.includes('noticeTitle') ||
             this.errors.includes('noticeTitleTag') ||
             this.errors.includes('children')) {
@@ -84,14 +84,14 @@ export class GcdsNotice {
         }
     }
     render() {
-        const { type, noticeTitle, noticeTitleTag } = this;
-        const iconTypes = {
+        const { noticeRole, noticeTitle, noticeTitleTag } = this;
+        const iconRoles = {
             danger: 'exclamation-circle',
             info: 'info-circle',
             success: 'checkmark-circle',
             warning: 'warning-triangle',
         };
-        return (h(Host, { key: '8a00f86f682e7a061c99658762079acc79d2277e' }, this.validateRequiredProps() && (h("section", { key: '04219293eafd3fe86c13826820644a02584a389d', class: `gcds-notice notice--type-${type}` }, h("gcds-icon", { key: '9d095dbcf44d3d39a408f55531164e76ae969b42', class: "notice__icon", size: "h4", name: iconTypes[type] }), h("div", { key: '525e51d6030072ee8b88a99e4e01078868e6df87' }, h("gcds-heading", { key: 'fd5adaf2b185a71d0d70e5174af1d590fb405c2c', tag: noticeTitleTag, "margin-top": "0", "margin-bottom": "100", class: "notice__heading" }, h("gcds-sr-only", { key: 'b8955dccf72340580e7cf30ae2bba76b7704b50e', tag: "span" }, i18n[this.lang][type]), noticeTitle), h("slot", { key: '781c621945781994d22fc5c0e9974ac852e0fe39' }))))));
+        return (h(Host, { key: 'eeefda750a72d686551bf8fb9d19e01041443383' }, this.validateRequiredProps() && (h("section", { key: '6e02932b54e765e2209dbfce48d195cf49c18b71', class: `gcds-notice notice--role-${noticeRole}` }, h("gcds-icon", { key: '3dc298767a00715811ccec1f9c372acf919fd3d4', class: "notice__icon", size: "h4", name: iconRoles[noticeRole] }), h("div", { key: '214a8893e623fa271f673cb79df6a732a6c72964' }, h("gcds-heading", { key: 'ea7a87df48aa86ca8c85128dfcdd49ea39430217', tag: noticeTitleTag, "margin-top": "0", "margin-bottom": "100", class: "notice__heading" }, h("gcds-sr-only", { key: '517fd7249667e0f971b009f65b070dc11440d69e', tag: "span" }, i18n[this.lang][noticeRole]), noticeTitle), h("slot", { key: 'fdf48fa2daceb1af2f8058e53e4a3d00d6424444' }))))));
     }
     static get is() { return "gcds-notice"; }
     static get encapsulation() { return "shadow"; }
@@ -107,9 +107,9 @@ export class GcdsNotice {
     }
     static get properties() {
         return {
-            "type": {
+            "noticeRole": {
                 "type": "string",
-                "attribute": "type",
+                "attribute": "notice-role",
                 "mutable": false,
                 "complexType": {
                     "original": "'danger' | 'info' | 'success' | 'warning'",
@@ -120,7 +120,7 @@ export class GcdsNotice {
                 "optional": false,
                 "docs": {
                     "tags": [],
-                    "text": "Set notice type."
+                    "text": "The notice role property specifies the style of notice to be displayed."
                 },
                 "getter": false,
                 "setter": false,

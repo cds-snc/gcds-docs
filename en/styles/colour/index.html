@@ -1535,12 +1535,6 @@
     
       
       
-    
-      
-      
-    
-      
-      
 
         
 
@@ -1597,7 +1591,7 @@
 </gcds-header>
 
     <div class="content-wrapper">
-      <gcds-grid columns="minmax(0, 1fr)" columns-desktop="320px minmax(0, 1fr)" tag="div" container="xl" centered class="xl:px-0 sm:px-600 px-225 general-layout">
+      <gcds-grid columns="minmax(0, 1fr)" columns-desktop="320px minmax(0, 1fr)" tag="div" container="xl" alignment="center" class="xl:px-0 sm:px-600 px-225 general-layout">
         
 
 
@@ -2688,13 +2682,13 @@
 <p>Colour tokens define colour for components and global styles.</p>
 <h2 id="colour-tokens-and-accessibility">Colour tokens and accessibility</h2>
 <p>GC Design System components meet level AA of the <gcds-link external href="https://www.w3.org/TR/WCAG21/" target="_blank">Web Content Accessibility Guidelines (WCAG 2.1)</gcds-link> colour contrast standards for text and interactive elements.</p>
-<p>When you use global tokens, check if your colour combinations meet standards for accessible colour contrast using <gcds-link external href="https://webaim.org/resources/contrastchecker/" target="_blank">WebAIM Contrast Checker</gcds-link>.</p>
+<p>When you use global colour tokens, check if your colour combinations meet standards for accessible colour contrast using <gcds-link external href="https://webaim.org/resources/contrastchecker/" target="_blank">WebAIM Contrast Checker</gcds-link>.</p>
 <h2 id="select-colour-tokens-purposefully">Select colour tokens purposefully</h2>
-<p>Select global tokens based on their purpose and its match to your needs.</p>
-<p>Replace hard-coded values in your code with GC Design System colour tokens, like <code>var(--gcds-text-primary)</code> instead of #000000.</p>
+<p>Select global colour tokens based on their purpose and its match to your needs.</p>
+<p>Replace hard-coded values in your code with GC Design System colour tokens, like <code>var(--gcds-text-primary)</code> instead of #333333.</p>
 <h2 id="global-colour-tokens">Global colour tokens</h2>
-<p>Use global tokens to:</p>
-<ul class="list-disc mb-300"><li>Design layouts, text colours, and global (or site-wide) styles for typography or spacing.</li>
+<p>Use global colour tokens to:</p>
+<ul class="list-disc mb-300"><li>Design layouts, text colours, and global (or site-wide) styles.</li>
 <li>Communicate the meaning associated with that token. Global tokens are semantic.</li>
 <li>Create new component tokens.</li>
 </ul>
@@ -2707,10 +2701,13 @@
         <thead>
             <tr><th>Preview</th><th>Token name</th><th>Contrast ratio</th><th>Hex</th><th>Purpose</th></tr>
         </thead>
-    <tr class="row-light"><td><div role="img" aria-label="Gray 0" class="color-preview" style="background-color: #FFF; border: 1px solid black"></div></td><td>
-                        <span lang="en">--gcds-text-light</span></td><td>1</td><td>#FFF</td><td>Main light text colour. Use on a background shade of 700 or darker (like --gcds-bg-dark).</td></tr><tr class="row-primary"><td><div role="img" aria-label="Gray 900" class="color-preview" style="background-color: #333333; border: 1px solid #FFF"></div></td><td>
-                        <span lang="en">--gcds-text-primary</span></td><td>12.63</td><td>#333333</td><td>Main text colour. Use on a background shade of 50 or lighter (like --gcds-bg-white).</td></tr><tr class="row-secondary"><td><div role="img" aria-label="Gray 800" class="color-preview" style="background-color: #43474E; border: 1px solid #FFF"></div></td><td>
-                        <span lang="en">--gcds-text-secondary</span></td><td>9.33</td><td>#43474E</td><td>Contrast text colour (alternative to primary). Use on a background shade of 50 or lighter (like --gcds-bg-white).</td></tr></table>
+    <tr class="row-light"><td><div role="img" aria-label="White " class="color-preview" style="background-color: #ffffff; border: 1px solid black"></div></td><td>
+                        <span lang="en">
+                          --gcds-text-light</span></td><td>1</td><td>#ffffff</td><td>Main light text colour. Use on a background shade of 700 or darker (like --gcds-bg-dark).</td></tr><tr class="row-primary"><td><div role="img" aria-label="Gray 800" class="color-preview" style="background-color: #333333; border: 1px solid #FFF"></div></td><td>
+                        <span lang="en">
+                          --gcds-text-primary</span></td><td>12.63</td><td>#333333</td><td>Main text colour. Use on a background shade of 50 or lighter (like --gcds-bg-white).</td></tr><tr class="row-secondary"><td><div role="img" aria-label="Gray 650" class="color-preview" style="background-color: #595959; border: 1px solid #FFF"></div></td><td>
+                        <span lang="en">
+                          --gcds-text-secondary</span></td><td>7</td><td>#595959</td><td>Contrast text colour (alternative to primary). Use on a background shade of 50 or lighter (like --gcds-bg-white).</td></tr></table>
 </div>
 <h3 id="link">Link</h3>
 <div class="mb-300 table-overflow">
@@ -2718,11 +2715,15 @@
         <thead>
             <tr><th>Preview</th><th>Token name</th><th>Contrast ratio</th><th>Hex</th><th>Purpose</th></tr>
         </thead>
-    <tr class="row-default"><td><div role="img" aria-label="Blue 650" class="color-preview" style="background-color: #284162; border: 1px solid #FFF"></div></td><td>
-                        <span lang="en">--gcds-link-default</span></td><td>10.38</td><td>#284162</td><td>Default link colour for links on a white background.</td></tr><tr class="row-hover"><td><div role="img" aria-label="Blue 850" class="color-preview" style="background-color: #0535d2; border: 1px solid #FFF"></div></td><td>
-                        <span lang="en">--gcds-link-hover</span></td><td>8.58</td><td>#0535d2</td><td>Hover link colour for links on a white background.</td></tr><tr class="row-light"><td><div role="img" aria-label="Gray 0" class="color-preview" style="background-color: #FFF; border: 1px solid black"></div></td><td>
-                        <span lang="en">--gcds-link-light</span></td><td>1</td><td>#FFF</td><td>Main light link colour for links on 700 shade or darker background (like --gcds-color-blue-700).</td></tr><tr class="row-visited"><td><div role="img" aria-label=" 700" class="color-preview" style="background-color: #7532B8; border: 1px solid #FFF"></div></td><td>
-                        <span lang="en">--gcds-link-visited</span></td><td>7.22</td><td>#7532B8</td><td></td></tr></table>
+    <tr class="row-default"><td><div role="img" aria-label="Blue 700" class="color-preview" style="background-color: #1f497a; border: 1px solid #FFF"></div></td><td>
+                        <span lang="en">
+                          --gcds-link-default</span></td><td>9.16</td><td>#1f497a</td><td>Default link colour for links on a white background.</td></tr><tr class="row-hover"><td><div role="img" aria-label="Blue vivid " class="color-preview" style="background-color: #1354ec; border: 1px solid #FFF"></div></td><td>
+                        <span lang="en">
+                          --gcds-link-hover</span></td><td>5.98</td><td>#1354ec</td><td>Hover link colour for links on a white background.</td></tr><tr class="row-light"><td><div role="img" aria-label="White " class="color-preview" style="background-color: #ffffff; border: 1px solid black"></div></td><td>
+                        <span lang="en">
+                          --gcds-link-light</span></td><td>1</td><td>#ffffff</td><td>Main light link colour for links on 700 shade or darker background (like --gcds-color-blue-700).</td></tr><tr class="row-visited"><td><div role="img" aria-label="Purple 650" class="color-preview" style="background-color: #4b248f; border: 1px solid #FFF"></div></td><td>
+                        <span lang="en">
+                          --gcds-link-visited</span></td><td>10.77</td><td>#4b248f</td><td>Visited link colour for links on a white background.</td></tr></table>
 </div>
 <h3 id="background">Background</h3>
 <div class="mb-300 table-overflow">
@@ -2730,11 +2731,15 @@
         <thead>
             <tr><th>Preview</th><th>Token name</th><th>Contrast ratio</th><th>Hex</th><th>Purpose</th></tr>
         </thead>
-    <tr class="row-dark"><td><div role="img" aria-label="Gray 900" class="color-preview" style="background-color: #333333; border: 1px solid #FFF"></div></td><td>
-                        <span lang="en">--gcds-bg-dark</span></td><td>12.63</td><td>#333333</td><td>Main dark background colour. Use with a text shade of 100 or lighter (like --gcds-text-light).</td></tr><tr class="row-light"><td><div role="img" aria-label="Gray 50" class="color-preview" style="background-color: #F1F2F3; border: 1px solid black"></div></td><td>
-                        <span lang="en">--gcds-bg-light</span></td><td>1.12</td><td>#F1F2F3</td><td>Light background colour (alternative to white). Use with a text shade of 700 or darker (like --gcds-text-primary).</td></tr><tr class="row-primary"><td><div role="img" aria-label="Blue 900" class="color-preview" style="background-color: #26374A; border: 1px solid #FFF"></div></td><td>
-                        <span lang="en">--gcds-bg-primary</span></td><td>12.15</td><td>#26374A</td><td>Highlight background colour. Use with a text shade of 100 or lighter (like --gcds-text-light).</td></tr><tr class="row-white"><td><div role="img" aria-label="Gray 0" class="color-preview" style="background-color: #FFF; border: 1px solid black"></div></td><td>
-                        <span lang="en">--gcds-bg-white</span></td><td>1</td><td>#FFF</td><td>Main background colour. Use with a text shade of 700 or darker (like --gcds-text-primary).</td></tr></table>
+    <tr class="row-dark"><td><div role="img" aria-label="Gray 800" class="color-preview" style="background-color: #333333; border: 1px solid #FFF"></div></td><td>
+                        <span lang="en">
+                          --gcds-bg-dark</span></td><td>12.63</td><td>#333333</td><td>Main dark background colour. Use with a text shade of 100 or lighter (like --gcds-text-light).</td></tr><tr class="row-light"><td><div role="img" aria-label="Gray 50" class="color-preview" style="background-color: #f2f2f2; border: 1px solid black"></div></td><td>
+                        <span lang="en">
+                          --gcds-bg-light</span></td><td>1.11</td><td>#f2f2f2</td><td>Light background colour (alternative to white). Use with a text shade of 700 or darker (like --gcds-text-primary).</td></tr><tr class="row-primary"><td><div role="img" aria-label="Blue muted " class="color-preview" style="background-color: #26374a; border: 1px solid #FFF"></div></td><td>
+                        <span lang="en">
+                          --gcds-bg-primary</span></td><td>12.15</td><td>#26374a</td><td>Highlight background colour. Use with a text shade of 100 or lighter (like --gcds-text-light).</td></tr><tr class="row-white"><td><div role="img" aria-label="White " class="color-preview" style="background-color: #ffffff; border: 1px solid black"></div></td><td>
+                        <span lang="en">
+                          --gcds-bg-white</span></td><td>1</td><td>#ffffff</td><td>Main background colour. Use with a text shade of 700 or darker (like --gcds-text-primary).</td></tr></table>
 </div>
 <h3 id="border">Border</h3>
 <div class="mb-300 table-overflow">
@@ -2742,8 +2747,9 @@
         <thead>
             <tr><th>Preview</th><th>Token name</th><th>Contrast ratio</th><th>Hex</th><th>Purpose</th></tr>
         </thead>
-    <tr class="row-default"><td><div role="img" aria-label="Gray 500" class="color-preview" style="background-color: #7D828B; border: 1px solid #FFF"></div></td><td>
-                        <span lang="en">--gcds-border-default</span></td><td>3.86</td><td>#7D828B</td><td>Default border colour for borders and icons on a white background.</td></tr></table>
+    <tr class="row-default"><td><div role="img" aria-label="Gray 450" class="color-preview" style="background-color: #8c8c8c; border: 1px solid #FFF"></div></td><td>
+                        <span lang="en">
+                          --gcds-border-default</span></td><td>3.36</td><td>#8c8c8c</td><td>Default border colour for borders and icons on a white background.</td></tr></table>
 </div>
 <h3 id="danger">Danger</h3>
 <div class="mb-300 table-overflow">
@@ -2751,10 +2757,13 @@
         <thead>
             <tr><th>Preview</th><th>Token name</th><th>Contrast ratio</th><th>Hex</th><th>Purpose</th></tr>
         </thead>
-    <tr class="row-background"><td><div role="img" aria-label="Red 100" class="color-preview" style="background-color: #FBDDDA; border: 1px solid black"></div></td><td>
-                        <span lang="en">--gcds-danger-background</span></td><td>1.27</td><td>#FBDDDA</td><td>Danger background colour for background emphasis on a destructive action or critical feedback.</td></tr><tr class="row-border"><td><div role="img" aria-label="Red 500" class="color-preview" style="background-color: #d3080c; border: 1px solid #FFF"></div></td><td>
-                        <span lang="en">--gcds-danger-border</span></td><td>5.51</td><td>#d3080c</td><td>Danger border colour for borders on white or danger backgrounds for emphasis on a destructive action or critical feedback.</td></tr><tr class="row-text"><td><div role="img" aria-label="Red 700" class="color-preview" style="background-color: #A62A1E; border: 1px solid #FFF"></div></td><td>
-                        <span lang="en">--gcds-danger-text</span></td><td>7.06</td><td>#A62A1E</td><td>Danger text colour for white or danger backgrounds for emphasis on a destructive action or critical feedback.</td></tr></table>
+    <tr class="row-background"><td><div role="img" aria-label="Red 600" class="color-preview" style="background-color: #b3192e; border: 1px solid #FFF"></div></td><td>
+                        <span lang="en">
+                          --gcds-danger-background</span></td><td>6.78</td><td>#b3192e</td><td>Danger background colour for background emphasis on a destructive action or critical feedback.</td></tr><tr class="row-border"><td><div role="img" aria-label="Red 600" class="color-preview" style="background-color: #b3192e; border: 1px solid #FFF"></div></td><td>
+                        <span lang="en">
+                          --gcds-danger-border</span></td><td>6.78</td><td>#b3192e</td><td>Danger border colour for borders on white backgrounds emphasizing a destructive action or critical feedback.</td></tr><tr class="row-text"><td><div role="img" aria-label="Red 600" class="color-preview" style="background-color: #b3192e; border: 1px solid #FFF"></div></td><td>
+                        <span lang="en">
+                          --gcds-danger-text</span></td><td>6.78</td><td>#b3192e</td><td>Danger text colour for white backgrounds emphasizing a destructive action or critical feedback.</td></tr></table>
 </div>
 <h3 id="disabled">Disabled</h3>
 <div class="mb-300 table-overflow">
@@ -2762,9 +2771,11 @@
         <thead>
             <tr><th>Preview</th><th>Token name</th><th>Contrast ratio</th><th>Hex</th><th>Purpose</th></tr>
         </thead>
-    <tr class="row-background"><td><div role="img" aria-label="Gray 100" class="color-preview" style="background-color: #D6D9DD; border: 1px solid black"></div></td><td>
-                        <span lang="en">--gcds-disabled-background</span></td><td>1.41</td><td>#D6D9DD</td><td>Disabled background colour. Use sparingly for a disabled interactive element.</td></tr><tr class="row-text"><td><div role="img" aria-label="Gray 700" class="color-preview" style="background-color: #545961; border: 1px solid #FFF"></div></td><td>
-                        <span lang="en">--gcds-disabled-text</span></td><td>7.05</td><td>#545961</td><td>Disabled text colour. Use sparingly for a disabled interactive element.</td></tr></table>
+    <tr class="row-background"><td><div role="img" aria-label="Gray 150" class="color-preview" style="background-color: #d9d9d9; border: 1px solid black"></div></td><td>
+                        <span lang="en">
+                          --gcds-disabled-background</span></td><td>1.41</td><td>#d9d9d9</td><td>Disabled background colour. Use sparingly for a disabled interactive element.</td></tr><tr class="row-text"><td><div role="img" aria-label="Gray 500" class="color-preview" style="background-color: #808080; border: 1px solid #FFF"></div></td><td>
+                        <span lang="en">
+                          --gcds-disabled-text</span></td><td>3.94</td><td>#808080</td><td>Disabled text colour. Use sparingly for a disabled interactive element.</td></tr></table>
 </div>
 <h3 id="focus">Focus</h3>
 <div class="mb-300 table-overflow">
@@ -2772,14 +2783,17 @@
         <thead>
             <tr><th>Preview</th><th>Token name</th><th>Contrast ratio</th><th>Hex</th><th>Purpose</th></tr>
         </thead>
-    <tr class="row-background"><td><div role="img" aria-label="Blue 850" class="color-preview" style="background-color: #0535d2; border: 1px solid #FFF"></div></td><td>
-                        <span lang="en">--gcds-focus-background</span></td><td>8.58</td><td>#0535d2</td><td>Focus background colour, exclusively for focus on an interactive element.</td></tr><tr class="row-border"><td><div role="img" aria-label="Blue 850" class="color-preview" style="background-color: #0535d2; border: 1px solid #FFF"></div></td><td>
-                        <span lang="en">--gcds-focus-border</span></td><td>8.58</td><td>#0535d2</td><td></td></tr><tr class="row-text"><td><div role="img" aria-label="Gray 0" class="color-preview" style="background-color: #FFF; border: 1px solid black"></div></td><td>
-                        <span lang="en">--gcds-focus-text</span></td><td>1</td><td>#FFF</td><td>Focus text colour, exclusively for focus on an interactive element.</td></tr></table>
+    <tr class="row-background"><td><div role="img" aria-label="Blue vivid " class="color-preview" style="background-color: #1354ec; border: 1px solid #FFF"></div></td><td>
+                        <span lang="en">
+                          --gcds-focus-background</span></td><td>5.98</td><td>#1354ec</td><td>Focus background colour, exclusively for focus on an interactive element.</td></tr><tr class="row-border"><td><div role="img" aria-label="Blue vivid " class="color-preview" style="background-color: #1354ec; border: 1px solid #FFF"></div></td><td>
+                        <span lang="en">
+                          --gcds-focus-border</span></td><td>5.98</td><td>#1354ec</td><td>Focus border colour, exclusively for focus on an interactive element.</td></tr><tr class="row-text"><td><div role="img" aria-label="White " class="color-preview" style="background-color: #ffffff; border: 1px solid black"></div></td><td>
+                        <span lang="en">
+                          --gcds-focus-text</span></td><td>1</td><td>#ffffff</td><td>Focus text colour, exclusively for focus on an interactive element.</td></tr></table>
 </div>
 <h2 id="base-colour-tokens">Base colour tokens</h2>
 <p>Only use base tokens when you've already checked for global tokens and you need something else for building your own components, tokens, or even images.</p>
-<p>Use base design tokens to:</p>
+<p>Use base colour design tokens to:</p>
 <ul class="list-disc mb-300"><li>Fill a gap when no global tokens are available.</li>
 <li>Design a custom visual, drawing from the full colour palette.</li>
 <li>Support your own components.</li>
@@ -2791,35 +2805,231 @@
         <thead>
             <tr><th>Preview</th><th>Token name</th><th>Contrast ratio</th><th>Hex</th><th>Purpose</th></tr>
         </thead>
-    <tr class="row-0"><td><div role="img" aria-label="Gray 0" class="color-preview" style="background-color: #FFF; border: 1px solid black"></div></td><td>
-                        <span lang="en">--gcds-color-grayscale-0</span></td><td>1</td><td>#FFF</td><td></td></tr><tr class="row-50"><td><div role="img" aria-label="Gray 50" class="color-preview" style="background-color: #F1F2F3; border: 1px solid black"></div></td><td>
-                        <span lang="en">--gcds-color-grayscale-50</span></td><td>1.12</td><td>#F1F2F3</td><td></td></tr><tr class="row-100"><td><div role="img" aria-label="Gray 100" class="color-preview" style="background-color: #D6D9DD; border: 1px solid black"></div></td><td>
-                        <span lang="en">--gcds-color-grayscale-100</span></td><td>1.41</td><td>#D6D9DD</td><td></td></tr><tr class="row-300"><td><div role="img" aria-label="Gray 300" class="color-preview" style="background-color: #A8ADB4; border: 1px solid black"></div></td><td>
-                        <span lang="en">--gcds-color-grayscale-300</span></td><td>2.25</td><td>#A8ADB4</td><td></td></tr><tr class="row-500"><td><div role="img" aria-label="Gray 500" class="color-preview" style="background-color: #7D828B; border: 1px solid #FFF"></div></td><td>
-                        <span lang="en">--gcds-color-grayscale-500</span></td><td>3.86</td><td>#7D828B</td><td></td></tr><tr class="row-700"><td><div role="img" aria-label="Gray 700" class="color-preview" style="background-color: #545961; border: 1px solid #FFF"></div></td><td>
-                        <span lang="en">--gcds-color-grayscale-700</span></td><td>7.05</td><td>#545961</td><td></td></tr><tr class="row-800"><td><div role="img" aria-label="Gray 800" class="color-preview" style="background-color: #43474E; border: 1px solid #FFF"></div></td><td>
-                        <span lang="en">--gcds-color-grayscale-800</span></td><td>9.33</td><td>#43474E</td><td></td></tr><tr class="row-900"><td><div role="img" aria-label="Gray 900" class="color-preview" style="background-color: #333333; border: 1px solid #FFF"></div></td><td>
-                        <span lang="en">--gcds-color-grayscale-900</span></td><td>12.63</td><td>#333333</td><td></td></tr><tr class="row-1000"><td><div role="img" aria-label="Gray 1000" class="color-preview" style="background-color: #000; border: 1px solid #FFF"></div></td><td>
-                        <span lang="en">--gcds-color-grayscale-1000</span></td><td>21</td><td>#000</td><td></td></tr><tr class="row-100"><td><div role="img" aria-label="Blue 100" class="color-preview" style="background-color: #D7E5F5; border: 1px solid black"></div></td><td>
-                        <span lang="en">--gcds-color-blue-100</span></td><td>1.27</td><td>#D7E5F5</td><td></td></tr><tr class="row-500"><td><div role="img" aria-label="Blue 500" class="color-preview" style="background-color: #6584A6; border: 1px solid #FFF"></div></td><td>
-                        <span lang="en">--gcds-color-blue-500</span></td><td>3.88</td><td>#6584A6</td><td></td></tr><tr class="row-650"><td><div role="img" aria-label="Blue 650" class="color-preview" style="background-color: #284162; border: 1px solid #FFF"></div></td><td>
-                        <span lang="en">--gcds-color-blue-650</span></td><td>10.38</td><td>#284162</td><td></td></tr><tr class="row-700"><td><div role="img" aria-label="Blue 700" class="color-preview" style="background-color: #33465c; border: 1px solid #FFF"></div></td><td>
-                        <span lang="en">--gcds-color-blue-700</span></td><td>9.67</td><td>#33465c</td><td></td></tr><tr class="row-750"><td><div role="img" aria-label="Blue 750" class="color-preview" style="background-color: #1E7B96; border: 1px solid #FFF"></div></td><td>
-                        <span lang="en">--gcds-color-blue-750</span></td><td>4.85</td><td>#1E7B96</td><td></td></tr><tr class="row-800"><td><div role="img" aria-label="Blue 800" class="color-preview" style="background-color: #2b4380; border: 1px solid #FFF"></div></td><td>
-                        <span lang="en">--gcds-color-blue-800</span></td><td>9.47</td><td>#2b4380</td><td></td></tr><tr class="row-850"><td><div role="img" aria-label="Blue 850" class="color-preview" style="background-color: #0535d2; border: 1px solid #FFF"></div></td><td>
-                        <span lang="en">--gcds-color-blue-850</span></td><td>8.58</td><td>#0535d2</td><td></td></tr><tr class="row-900"><td><div role="img" aria-label="Blue 900" class="color-preview" style="background-color: #26374A; border: 1px solid #FFF"></div></td><td>
-                        <span lang="en">--gcds-color-blue-900</span></td><td>12.15</td><td>#26374A</td><td></td></tr><tr class="row-100"><td><div role="img" aria-label="Red 100" class="color-preview" style="background-color: #FBDDDA; border: 1px solid black"></div></td><td>
-                        <span lang="en">--gcds-color-red-100</span></td><td>1.27</td><td>#FBDDDA</td><td></td></tr><tr class="row-500"><td><div role="img" aria-label="Red 500" class="color-preview" style="background-color: #d3080c; border: 1px solid #FFF"></div></td><td>
-                        <span lang="en">--gcds-color-red-500</span></td><td>5.51</td><td>#d3080c</td><td></td></tr><tr class="row-700"><td><div role="img" aria-label="Red 700" class="color-preview" style="background-color: #A62A1E; border: 1px solid #FFF"></div></td><td>
-                        <span lang="en">--gcds-color-red-700</span></td><td>7.06</td><td>#A62A1E</td><td></td></tr><tr class="row-900"><td><div role="img" aria-label="Red 900" class="color-preview" style="background-color: #822117; border: 1px solid #FFF"></div></td><td>
-                        <span lang="en">--gcds-color-red-900</span></td><td>9.63</td><td>#822117</td><td></td></tr><tr class="row-flag"><td><div role="img" aria-label="Red flag" class="color-preview" style="background-color: #eb2d37; border: 1px solid #FFF"></div></td><td>
-                        <span lang="en">--gcds-color-red-flag</span></td><td>4.23</td><td>#eb2d37</td><td></td></tr><tr class="row-100"><td><div role="img" aria-label="Green 100" class="color-preview" style="background-color: #E6F6EC; border: 1px solid black"></div></td><td>
-                        <span lang="en">--gcds-color-green-100</span></td><td>1.11</td><td>#E6F6EC</td><td></td></tr><tr class="row-500"><td><div role="img" aria-label="Green 500" class="color-preview" style="background-color: #289F58; border: 1px solid #FFF"></div></td><td>
-                        <span lang="en">--gcds-color-green-500</span></td><td>3.39</td><td>#289F58</td><td></td></tr><tr class="row-700"><td><div role="img" aria-label="Green 700" class="color-preview" style="background-color: #03662A; border: 1px solid #FFF"></div></td><td>
-                        <span lang="en">--gcds-color-green-700</span></td><td>7.14</td><td>#03662A</td><td></td></tr><tr class="row-800"><td><div role="img" aria-label="Green 800" class="color-preview" style="background-color: #023b1a; border: 1px solid #FFF"></div></td><td>
-                        <span lang="en">--gcds-color-green-800</span></td><td>12.78</td><td>#023b1a</td><td></td></tr><tr class="row-100"><td><div role="img" aria-label="Yellow 100" class="color-preview" style="background-color: #FAEDD1; border: 1px solid black"></div></td><td>
-                        <span lang="en">--gcds-color-yellow-100</span></td><td>1.16</td><td>#FAEDD1</td><td></td></tr><tr class="row-500"><td><div role="img" aria-label="Yellow 500" class="color-preview" style="background-color: #B3800F; border: 1px solid #FFF"></div></td><td>
-                        <span lang="en">--gcds-color-yellow-500</span></td><td>3.49</td><td>#B3800F</td><td></td></tr></table>
+    <tr class="row-"><td><div role="img" aria-label="Black " class="color-preview" style="background-color: #000000; border: 1px solid #FFF"></div></td><td>
+                        <span lang="en">
+                          --gcds-color-black</span></td><td>21</td><td>#000000</td><td></td></tr><tr class="row-50"><td><div role="img" aria-label="Blue 50" class="color-preview" style="background-color: #ebf2fa; border: 1px solid black"></div></td><td>
+                        <span lang="en">
+                          --gcds-color-blue-50</span></td><td>1.12</td><td>#ebf2fa</td><td></td></tr><tr class="row-100"><td><div role="img" aria-label="Blue 100" class="color-preview" style="background-color: #d6e4f5; border: 1px solid black"></div></td><td>
+                        <span lang="en">
+                          --gcds-color-blue-100</span></td><td>1.29</td><td>#d6e4f5</td><td></td></tr><tr class="row-150"><td><div role="img" aria-label="Blue 150" class="color-preview" style="background-color: #c2d7f0; border: 1px solid black"></div></td><td>
+                        <span lang="en">
+                          --gcds-color-blue-150</span></td><td>1.47</td><td>#c2d7f0</td><td></td></tr><tr class="row-200"><td><div role="img" aria-label="Blue 200" class="color-preview" style="background-color: #adcaeb; border: 1px solid black"></div></td><td>
+                        <span lang="en">
+                          --gcds-color-blue-200</span></td><td>1.69</td><td>#adcaeb</td><td></td></tr><tr class="row-250"><td><div role="img" aria-label="Blue 250" class="color-preview" style="background-color: #99bde6; border: 1px solid black"></div></td><td>
+                        <span lang="en">
+                          --gcds-color-blue-250</span></td><td>1.94</td><td>#99bde6</td><td></td></tr><tr class="row-300"><td><div role="img" aria-label="Blue 300" class="color-preview" style="background-color: #85afe0; border: 1px solid black"></div></td><td>
+                        <span lang="en">
+                          --gcds-color-blue-300</span></td><td>2.28</td><td>#85afe0</td><td></td></tr><tr class="row-350"><td><div role="img" aria-label="Blue 350" class="color-preview" style="background-color: #70a2db; border: 1px solid black"></div></td><td>
+                        <span lang="en">
+                          --gcds-color-blue-350</span></td><td>2.66</td><td>#70a2db</td><td></td></tr><tr class="row-400"><td><div role="img" aria-label="Blue 400" class="color-preview" style="background-color: #5c95d6; border: 1px solid #FFF"></div></td><td>
+                        <span lang="en">
+                          --gcds-color-blue-400</span></td><td>3.12</td><td>#5c95d6</td><td></td></tr><tr class="row-450"><td><div role="img" aria-label="Blue 450" class="color-preview" style="background-color: #4788d1; border: 1px solid #FFF"></div></td><td>
+                        <span lang="en">
+                          --gcds-color-blue-450</span></td><td>3.67</td><td>#4788d1</td><td></td></tr><tr class="row-500"><td><div role="img" aria-label="Blue 500" class="color-preview" style="background-color: #337acc; border: 1px solid #FFF"></div></td><td>
+                        <span lang="en">
+                          --gcds-color-blue-500</span></td><td>4.37</td><td>#337acc</td><td></td></tr><tr class="row-550"><td><div role="img" aria-label="Blue 550" class="color-preview" style="background-color: #2e6eb8; border: 1px solid #FFF"></div></td><td>
+                        <span lang="en">
+                          --gcds-color-blue-550</span></td><td>5.19</td><td>#2e6eb8</td><td></td></tr><tr class="row-600"><td><div role="img" aria-label="Blue 600" class="color-preview" style="background-color: #2962a3; border: 1px solid #FFF"></div></td><td>
+                        <span lang="en">
+                          --gcds-color-blue-600</span></td><td>6.23</td><td>#2962a3</td><td></td></tr><tr class="row-650"><td><div role="img" aria-label="Blue 650" class="color-preview" style="background-color: #24568f; border: 1px solid #FFF"></div></td><td>
+                        <span lang="en">
+                          --gcds-color-blue-650</span></td><td>7.49</td><td>#24568f</td><td></td></tr><tr class="row-700"><td><div role="img" aria-label="Blue 700" class="color-preview" style="background-color: #1f497a; border: 1px solid #FFF"></div></td><td>
+                        <span lang="en">
+                          --gcds-color-blue-700</span></td><td>9.16</td><td>#1f497a</td><td></td></tr><tr class="row-750"><td><div role="img" aria-label="Blue 750" class="color-preview" style="background-color: #193d66; border: 1px solid #FFF"></div></td><td>
+                        <span lang="en">
+                          --gcds-color-blue-750</span></td><td>11.04</td><td>#193d66</td><td></td></tr><tr class="row-800"><td><div role="img" aria-label="Blue 800" class="color-preview" style="background-color: #143152; border: 1px solid #FFF"></div></td><td>
+                        <span lang="en">
+                          --gcds-color-blue-800</span></td><td>13.2</td><td>#143152</td><td></td></tr><tr class="row-850"><td><div role="img" aria-label="Blue 850" class="color-preview" style="background-color: #0f253d; border: 1px solid #FFF"></div></td><td>
+                        <span lang="en">
+                          --gcds-color-blue-850</span></td><td>15.52</td><td>#0f253d</td><td></td></tr><tr class="row-900"><td><div role="img" aria-label="Blue 900" class="color-preview" style="background-color: #0a1829; border: 1px solid #FFF"></div></td><td>
+                        <span lang="en">
+                          --gcds-color-blue-900</span></td><td>17.86</td><td>#0a1829</td><td></td></tr><tr class="row-"><td><div role="img" aria-label="Blue muted " class="color-preview" style="background-color: #26374a; border: 1px solid #FFF"></div></td><td>
+                        <span lang="en">
+                          --gcds-color-blue-muted</span></td><td>12.15</td><td>#26374a</td><td></td></tr><tr class="row-"><td><div role="img" aria-label="Blue vivid " class="color-preview" style="background-color: #1354ec; border: 1px solid #FFF"></div></td><td>
+                        <span lang="en">
+                          --gcds-color-blue-vivid</span></td><td>5.98</td><td>#1354ec</td><td></td></tr><tr class="row-50"><td><div role="img" aria-label="Gray 50" class="color-preview" style="background-color: #f2f2f2; border: 1px solid black"></div></td><td>
+                        <span lang="en">
+                          --gcds-color-grayscale-50</span></td><td>1.11</td><td>#f2f2f2</td><td></td></tr><tr class="row-100"><td><div role="img" aria-label="Gray 100" class="color-preview" style="background-color: #e6e6e6; border: 1px solid black"></div></td><td>
+                        <span lang="en">
+                          --gcds-color-grayscale-100</span></td><td>1.24</td><td>#e6e6e6</td><td></td></tr><tr class="row-150"><td><div role="img" aria-label="Gray 150" class="color-preview" style="background-color: #d9d9d9; border: 1px solid black"></div></td><td>
+                        <span lang="en">
+                          --gcds-color-grayscale-150</span></td><td>1.41</td><td>#d9d9d9</td><td></td></tr><tr class="row-200"><td><div role="img" aria-label="Gray 200" class="color-preview" style="background-color: #cccccc; border: 1px solid black"></div></td><td>
+                        <span lang="en">
+                          --gcds-color-grayscale-200</span></td><td>1.6</td><td>#cccccc</td><td></td></tr><tr class="row-250"><td><div role="img" aria-label="Gray 250" class="color-preview" style="background-color: #bfbfbf; border: 1px solid black"></div></td><td>
+                        <span lang="en">
+                          --gcds-color-grayscale-250</span></td><td>1.83</td><td>#bfbfbf</td><td></td></tr><tr class="row-300"><td><div role="img" aria-label="Gray 300" class="color-preview" style="background-color: #b3b3b3; border: 1px solid black"></div></td><td>
+                        <span lang="en">
+                          --gcds-color-grayscale-300</span></td><td>2.09</td><td>#b3b3b3</td><td></td></tr><tr class="row-350"><td><div role="img" aria-label="Gray 350" class="color-preview" style="background-color: #a6a6a6; border: 1px solid black"></div></td><td>
+                        <span lang="en">
+                          --gcds-color-grayscale-350</span></td><td>2.43</td><td>#a6a6a6</td><td></td></tr><tr class="row-400"><td><div role="img" aria-label="Gray 400" class="color-preview" style="background-color: #999999; border: 1px solid black"></div></td><td>
+                        <span lang="en">
+                          --gcds-color-grayscale-400</span></td><td>2.84</td><td>#999999</td><td></td></tr><tr class="row-450"><td><div role="img" aria-label="Gray 450" class="color-preview" style="background-color: #8c8c8c; border: 1px solid #FFF"></div></td><td>
+                        <span lang="en">
+                          --gcds-color-grayscale-450</span></td><td>3.36</td><td>#8c8c8c</td><td></td></tr><tr class="row-500"><td><div role="img" aria-label="Gray 500" class="color-preview" style="background-color: #808080; border: 1px solid #FFF"></div></td><td>
+                        <span lang="en">
+                          --gcds-color-grayscale-500</span></td><td>3.94</td><td>#808080</td><td></td></tr><tr class="row-550"><td><div role="img" aria-label="Gray 550" class="color-preview" style="background-color: #737373; border: 1px solid #FFF"></div></td><td>
+                        <span lang="en">
+                          --gcds-color-grayscale-550</span></td><td>4.74</td><td>#737373</td><td></td></tr><tr class="row-600"><td><div role="img" aria-label="Gray 600" class="color-preview" style="background-color: #666666; border: 1px solid #FFF"></div></td><td>
+                        <span lang="en">
+                          --gcds-color-grayscale-600</span></td><td>5.74</td><td>#666666</td><td></td></tr><tr class="row-650"><td><div role="img" aria-label="Gray 650" class="color-preview" style="background-color: #595959; border: 1px solid #FFF"></div></td><td>
+                        <span lang="en">
+                          --gcds-color-grayscale-650</span></td><td>7</td><td>#595959</td><td></td></tr><tr class="row-700"><td><div role="img" aria-label="Gray 700" class="color-preview" style="background-color: #4d4d4d; border: 1px solid #FFF"></div></td><td>
+                        <span lang="en">
+                          --gcds-color-grayscale-700</span></td><td>8.45</td><td>#4d4d4d</td><td></td></tr><tr class="row-750"><td><div role="img" aria-label="Gray 750" class="color-preview" style="background-color: #404040; border: 1px solid #FFF"></div></td><td>
+                        <span lang="en">
+                          --gcds-color-grayscale-750</span></td><td>10.36</td><td>#404040</td><td></td></tr><tr class="row-800"><td><div role="img" aria-label="Gray 800" class="color-preview" style="background-color: #333333; border: 1px solid #FFF"></div></td><td>
+                        <span lang="en">
+                          --gcds-color-grayscale-800</span></td><td>12.63</td><td>#333333</td><td></td></tr><tr class="row-850"><td><div role="img" aria-label="Gray 850" class="color-preview" style="background-color: #262626; border: 1px solid #FFF"></div></td><td>
+                        <span lang="en">
+                          --gcds-color-grayscale-850</span></td><td>15.13</td><td>#262626</td><td></td></tr><tr class="row-900"><td><div role="img" aria-label="Gray 900" class="color-preview" style="background-color: #1a1a1a; border: 1px solid #FFF"></div></td><td>
+                        <span lang="en">
+                          --gcds-color-grayscale-900</span></td><td>17.4</td><td>#1a1a1a</td><td></td></tr><tr class="row-50"><td><div role="img" aria-label="Green 50" class="color-preview" style="background-color: #ebfaf0; border: 1px solid black"></div></td><td>
+                        <span lang="en">
+                          --gcds-color-green-50</span></td><td>1.07</td><td>#ebfaf0</td><td></td></tr><tr class="row-100"><td><div role="img" aria-label="Green 100" class="color-preview" style="background-color: #d6f5e1; border: 1px solid black"></div></td><td>
+                        <span lang="en">
+                          --gcds-color-green-100</span></td><td>1.16</td><td>#d6f5e1</td><td></td></tr><tr class="row-150"><td><div role="img" aria-label="Green 150" class="color-preview" style="background-color: #c2f0d3; border: 1px solid black"></div></td><td>
+                        <span lang="en">
+                          --gcds-color-green-150</span></td><td>1.25</td><td>#c2f0d3</td><td></td></tr><tr class="row-200"><td><div role="img" aria-label="Green 200" class="color-preview" style="background-color: #adebc4; border: 1px solid black"></div></td><td>
+                        <span lang="en">
+                          --gcds-color-green-200</span></td><td>1.35</td><td>#adebc4</td><td></td></tr><tr class="row-250"><td><div role="img" aria-label="Green 250" class="color-preview" style="background-color: #99e6b5; border: 1px solid black"></div></td><td>
+                        <span lang="en">
+                          --gcds-color-green-250</span></td><td>1.46</td><td>#99e6b5</td><td></td></tr><tr class="row-300"><td><div role="img" aria-label="Green 300" class="color-preview" style="background-color: #85e0a6; border: 1px solid black"></div></td><td>
+                        <span lang="en">
+                          --gcds-color-green-300</span></td><td>1.58</td><td>#85e0a6</td><td></td></tr><tr class="row-350"><td><div role="img" aria-label="Green 350" class="color-preview" style="background-color: #70db97; border: 1px solid black"></div></td><td>
+                        <span lang="en">
+                          --gcds-color-green-350</span></td><td>1.71</td><td>#70db97</td><td></td></tr><tr class="row-400"><td><div role="img" aria-label="Green 400" class="color-preview" style="background-color: #5cd689; border: 1px solid black"></div></td><td>
+                        <span lang="en">
+                          --gcds-color-green-400</span></td><td>1.83</td><td>#5cd689</td><td></td></tr><tr class="row-450"><td><div role="img" aria-label="Green 450" class="color-preview" style="background-color: #47d17a; border: 1px solid black"></div></td><td>
+                        <span lang="en">
+                          --gcds-color-green-450</span></td><td>1.96</td><td>#47d17a</td><td></td></tr><tr class="row-500"><td><div role="img" aria-label="Green 500" class="color-preview" style="background-color: #33cc6b; border: 1px solid black"></div></td><td>
+                        <span lang="en">
+                          --gcds-color-green-500</span></td><td>2.1</td><td>#33cc6b</td><td></td></tr><tr class="row-550"><td><div role="img" aria-label="Green 550" class="color-preview" style="background-color: #2eb860; border: 1px solid black"></div></td><td>
+                        <span lang="en">
+                          --gcds-color-green-550</span></td><td>2.57</td><td>#2eb860</td><td></td></tr><tr class="row-600"><td><div role="img" aria-label="Green 600" class="color-preview" style="background-color: #29a356; border: 1px solid #FFF"></div></td><td>
+                        <span lang="en">
+                          --gcds-color-green-600</span></td><td>3.24</td><td>#29a356</td><td></td></tr><tr class="row-650"><td><div role="img" aria-label="Green 650" class="color-preview" style="background-color: #248f4b; border: 1px solid #FFF"></div></td><td>
+                        <span lang="en">
+                          --gcds-color-green-650</span></td><td>4.11</td><td>#248f4b</td><td></td></tr><tr class="row-700"><td><div role="img" aria-label="Green 700" class="color-preview" style="background-color: #1f7a40; border: 1px solid #FFF"></div></td><td>
+                        <span lang="en">
+                          --gcds-color-green-700</span></td><td>5.36</td><td>#1f7a40</td><td></td></tr><tr class="row-750"><td><div role="img" aria-label="Green 750" class="color-preview" style="background-color: #196636; border: 1px solid #FFF"></div></td><td>
+                        <span lang="en">
+                          --gcds-color-green-750</span></td><td>7.01</td><td>#196636</td><td></td></tr><tr class="row-800"><td><div role="img" aria-label="Green 800" class="color-preview" style="background-color: #14522b; border: 1px solid #FFF"></div></td><td>
+                        <span lang="en">
+                          --gcds-color-green-800</span></td><td>9.24</td><td>#14522b</td><td></td></tr><tr class="row-850"><td><div role="img" aria-label="Green 850" class="color-preview" style="background-color: #0f3d20; border: 1px solid #FFF"></div></td><td>
+                        <span lang="en">
+                          --gcds-color-green-850</span></td><td>12.29</td><td>#0f3d20</td><td></td></tr><tr class="row-900"><td><div role="img" aria-label="Green 900" class="color-preview" style="background-color: #0a2915; border: 1px solid #FFF"></div></td><td>
+                        <span lang="en">
+                          --gcds-color-green-900</span></td><td>15.66</td><td>#0a2915</td><td></td></tr><tr class="row-50"><td><div role="img" aria-label="Purple 50" class="color-preview" style="background-color: #f0ebfa; border: 1px solid black"></div></td><td>
+                        <span lang="en">
+                          --gcds-color-purple-50</span></td><td>1.16</td><td>#f0ebfa</td><td></td></tr><tr class="row-100"><td><div role="img" aria-label="Purple 100" class="color-preview" style="background-color: #e1d6f5; border: 1px solid black"></div></td><td>
+                        <span lang="en">
+                          --gcds-color-purple-100</span></td><td>1.38</td><td>#e1d6f5</td><td></td></tr><tr class="row-150"><td><div role="img" aria-label="Purple 150" class="color-preview" style="background-color: #d3c2f0; border: 1px solid black"></div></td><td>
+                        <span lang="en">
+                          --gcds-color-purple-150</span></td><td>1.64</td><td>#d3c2f0</td><td></td></tr><tr class="row-200"><td><div role="img" aria-label="Purple 200" class="color-preview" style="background-color: #c4adeb; border: 1px solid black"></div></td><td>
+                        <span lang="en">
+                          --gcds-color-purple-200</span></td><td>1.99</td><td>#c4adeb</td><td></td></tr><tr class="row-250"><td><div role="img" aria-label="Purple 250" class="color-preview" style="background-color: #b599e6; border: 1px solid black"></div></td><td>
+                        <span lang="en">
+                          --gcds-color-purple-250</span></td><td>2.42</td><td>#b599e6</td><td></td></tr><tr class="row-300"><td><div role="img" aria-label="Purple 300" class="color-preview" style="background-color: #a685e0; border: 1px solid black"></div></td><td>
+                        <span lang="en">
+                          --gcds-color-purple-300</span></td><td>2.97</td><td>#a685e0</td><td></td></tr><tr class="row-350"><td><div role="img" aria-label="Purple 350" class="color-preview" style="background-color: #9770db; border: 1px solid #FFF"></div></td><td>
+                        <span lang="en">
+                          --gcds-color-purple-350</span></td><td>3.71</td><td>#9770db</td><td></td></tr><tr class="row-400"><td><div role="img" aria-label="Purple 400" class="color-preview" style="background-color: #895cd6; border: 1px solid #FFF"></div></td><td>
+                        <span lang="en">
+                          --gcds-color-purple-400</span></td><td>4.59</td><td>#895cd6</td><td></td></tr><tr class="row-450"><td><div role="img" aria-label="Purple 450" class="color-preview" style="background-color: #7a47d1; border: 1px solid #FFF"></div></td><td>
+                        <span lang="en">
+                          --gcds-color-purple-450</span></td><td>5.75</td><td>#7a47d1</td><td></td></tr><tr class="row-500"><td><div role="img" aria-label="Purple 500" class="color-preview" style="background-color: #6b33cc; border: 1px solid #FFF"></div></td><td>
+                        <span lang="en">
+                          --gcds-color-purple-500</span></td><td>7.06</td><td>#6b33cc</td><td></td></tr><tr class="row-550"><td><div role="img" aria-label="Purple 550" class="color-preview" style="background-color: #602eb8; border: 1px solid #FFF"></div></td><td>
+                        <span lang="en">
+                          --gcds-color-purple-550</span></td><td>8.13</td><td>#602eb8</td><td></td></tr><tr class="row-600"><td><div role="img" aria-label="Purple 600" class="color-preview" style="background-color: #5629a3; border: 1px solid #FFF"></div></td><td>
+                        <span lang="en">
+                          --gcds-color-purple-600</span></td><td>9.36</td><td>#5629a3</td><td></td></tr><tr class="row-650"><td><div role="img" aria-label="Purple 650" class="color-preview" style="background-color: #4b248f; border: 1px solid #FFF"></div></td><td>
+                        <span lang="en">
+                          --gcds-color-purple-650</span></td><td>10.77</td><td>#4b248f</td><td></td></tr><tr class="row-700"><td><div role="img" aria-label="Purple 700" class="color-preview" style="background-color: #401f7a; border: 1px solid #FFF"></div></td><td>
+                        <span lang="en">
+                          --gcds-color-purple-700</span></td><td>12.38</td><td>#401f7a</td><td></td></tr><tr class="row-750"><td><div role="img" aria-label="Purple 750" class="color-preview" style="background-color: #361966; border: 1px solid #FFF"></div></td><td>
+                        <span lang="en">
+                          --gcds-color-purple-750</span></td><td>14.11</td><td>#361966</td><td></td></tr><tr class="row-800"><td><div role="img" aria-label="Purple 800" class="color-preview" style="background-color: #2b1452; border: 1px solid #FFF"></div></td><td>
+                        <span lang="en">
+                          --gcds-color-purple-800</span></td><td>15.85</td><td>#2b1452</td><td></td></tr><tr class="row-850"><td><div role="img" aria-label="Purple 850" class="color-preview" style="background-color: #200f3d; border: 1px solid #FFF"></div></td><td>
+                        <span lang="en">
+                          --gcds-color-purple-850</span></td><td>17.54</td><td>#200f3d</td><td></td></tr><tr class="row-900"><td><div role="img" aria-label="Purple 900" class="color-preview" style="background-color: #150a29; border: 1px solid #FFF"></div></td><td>
+                        <span lang="en">
+                          --gcds-color-purple-900</span></td><td>18.96</td><td>#150a29</td><td></td></tr><tr class="row-50"><td><div role="img" aria-label="Red 50" class="color-preview" style="background-color: #fce9eb; border: 1px solid black"></div></td><td>
+                        <span lang="en">
+                          --gcds-color-red-50</span></td><td>1.16</td><td>#fce9eb</td><td></td></tr><tr class="row-100"><td><div role="img" aria-label="Red 100" class="color-preview" style="background-color: #f9d2d7; border: 1px solid black"></div></td><td>
+                        <span lang="en">
+                          --gcds-color-red-100</span></td><td>1.37</td><td>#f9d2d7</td><td></td></tr><tr class="row-150"><td><div role="img" aria-label="Red 150" class="color-preview" style="background-color: #f5bcc4; border: 1px solid black"></div></td><td>
+                        <span lang="en">
+                          --gcds-color-red-150</span></td><td>1.63</td><td>#f5bcc4</td><td></td></tr><tr class="row-200"><td><div role="img" aria-label="Red 200" class="color-preview" style="background-color: #f2a6b0; border: 1px solid black"></div></td><td>
+                        <span lang="en">
+                          --gcds-color-red-200</span></td><td>1.93</td><td>#f2a6b0</td><td></td></tr><tr class="row-250"><td><div role="img" aria-label="Red 250" class="color-preview" style="background-color: #ef8f9c; border: 1px solid black"></div></td><td>
+                        <span lang="en">
+                          --gcds-color-red-250</span></td><td>2.31</td><td>#ef8f9c</td><td></td></tr><tr class="row-300"><td><div role="img" aria-label="Red 300" class="color-preview" style="background-color: #ec7988; border: 1px solid black"></div></td><td>
+                        <span lang="en">
+                          --gcds-color-red-300</span></td><td>2.74</td><td>#ec7988</td><td></td></tr><tr class="row-350"><td><div role="img" aria-label="Red 350" class="color-preview" style="background-color: #e96375; border: 1px solid #FFF"></div></td><td>
+                        <span lang="en">
+                          --gcds-color-red-350</span></td><td>3.22</td><td>#e96375</td><td></td></tr><tr class="row-400"><td><div role="img" aria-label="Red 400" class="color-preview" style="background-color: #e64d61; border: 1px solid #FFF"></div></td><td>
+                        <span lang="en">
+                          --gcds-color-red-400</span></td><td>3.75</td><td>#e64d61</td><td></td></tr><tr class="row-450"><td><div role="img" aria-label="Red 450" class="color-preview" style="background-color: #e2364d; border: 1px solid #FFF"></div></td><td>
+                        <span lang="en">
+                          --gcds-color-red-450</span></td><td>4.31</td><td>#e2364d</td><td></td></tr><tr class="row-500"><td><div role="img" aria-label="Red 500" class="color-preview" style="background-color: #df2039; border: 1px solid #FFF"></div></td><td>
+                        <span lang="en">
+                          --gcds-color-red-500</span></td><td>4.76</td><td>#df2039</td><td></td></tr><tr class="row-550"><td><div role="img" aria-label="Red 550" class="color-preview" style="background-color: #c91d34; border: 1px solid #FFF"></div></td><td>
+                        <span lang="en">
+                          --gcds-color-red-550</span></td><td>5.66</td><td>#c91d34</td><td></td></tr><tr class="row-600"><td><div role="img" aria-label="Red 600" class="color-preview" style="background-color: #b3192e; border: 1px solid #FFF"></div></td><td>
+                        <span lang="en">
+                          --gcds-color-red-600</span></td><td>6.78</td><td>#b3192e</td><td></td></tr><tr class="row-650"><td><div role="img" aria-label="Red 650" class="color-preview" style="background-color: #9c1628; border: 1px solid #FFF"></div></td><td>
+                        <span lang="en">
+                          --gcds-color-red-650</span></td><td>8.2</td><td>#9c1628</td><td></td></tr><tr class="row-700"><td><div role="img" aria-label="Red 700" class="color-preview" style="background-color: #861322; border: 1px solid #FFF"></div></td><td>
+                        <span lang="en">
+                          --gcds-color-red-700</span></td><td>9.85</td><td>#861322</td><td></td></tr><tr class="row-750"><td><div role="img" aria-label="Red 750" class="color-preview" style="background-color: #70101d; border: 1px solid #FFF"></div></td><td>
+                        <span lang="en">
+                          --gcds-color-red-750</span></td><td>11.79</td><td>#70101d</td><td></td></tr><tr class="row-800"><td><div role="img" aria-label="Red 800" class="color-preview" style="background-color: #590d17; border: 1px solid #FFF"></div></td><td>
+                        <span lang="en">
+                          --gcds-color-red-800</span></td><td>14.04</td><td>#590d17</td><td></td></tr><tr class="row-850"><td><div role="img" aria-label="Red 850" class="color-preview" style="background-color: #430a11; border: 1px solid #FFF"></div></td><td>
+                        <span lang="en">
+                          --gcds-color-red-850</span></td><td>16.27</td><td>#430a11</td><td></td></tr><tr class="row-900"><td><div role="img" aria-label="Red 900" class="color-preview" style="background-color: #2d060b; border: 1px solid #FFF"></div></td><td>
+                        <span lang="en">
+                          --gcds-color-red-900</span></td><td>18.38</td><td>#2d060b</td><td></td></tr><tr class="row-"><td><div role="img" aria-label="White " class="color-preview" style="background-color: #ffffff; border: 1px solid black"></div></td><td>
+                        <span lang="en">
+                          --gcds-color-white</span></td><td>1</td><td>#ffffff</td><td></td></tr><tr class="row-50"><td><div role="img" aria-label="Yellow 50" class="color-preview" style="background-color: #fef7e7; border: 1px solid black"></div></td><td>
+                        <span lang="en">
+                          --gcds-color-yellow-50</span></td><td>1.06</td><td>#fef7e7</td><td></td></tr><tr class="row-100"><td><div role="img" aria-label="Yellow 100" class="color-preview" style="background-color: #fcefcf; border: 1px solid black"></div></td><td>
+                        <span lang="en">
+                          --gcds-color-yellow-100</span></td><td>1.14</td><td>#fcefcf</td><td></td></tr><tr class="row-150"><td><div role="img" aria-label="Yellow 150" class="color-preview" style="background-color: #fbe7b6; border: 1px solid black"></div></td><td>
+                        <span lang="en">
+                          --gcds-color-yellow-150</span></td><td>1.22</td><td>#fbe7b6</td><td></td></tr><tr class="row-200"><td><div role="img" aria-label="Yellow 200" class="color-preview" style="background-color: #fade9e; border: 1px solid black"></div></td><td>
+                        <span lang="en">
+                          --gcds-color-yellow-200</span></td><td>1.31</td><td>#fade9e</td><td></td></tr><tr class="row-250"><td><div role="img" aria-label="Yellow 250" class="color-preview" style="background-color: #f9d686; border: 1px solid black"></div></td><td>
+                        <span lang="en">
+                          --gcds-color-yellow-250</span></td><td>1.4</td><td>#f9d686</td><td></td></tr><tr class="row-300"><td><div role="img" aria-label="Yellow 300" class="color-preview" style="background-color: #f7ce6e; border: 1px solid black"></div></td><td>
+                        <span lang="en">
+                          --gcds-color-yellow-300</span></td><td>1.49</td><td>#f7ce6e</td><td></td></tr><tr class="row-350"><td><div role="img" aria-label="Yellow 350" class="color-preview" style="background-color: #f6c655; border: 1px solid black"></div></td><td>
+                        <span lang="en">
+                          --gcds-color-yellow-350</span></td><td>1.59</td><td>#f6c655</td><td></td></tr><tr class="row-400"><td><div role="img" aria-label="Yellow 400" class="color-preview" style="background-color: #f5be3d; border: 1px solid black"></div></td><td>
+                        <span lang="en">
+                          --gcds-color-yellow-400</span></td><td>1.7</td><td>#f5be3d</td><td></td></tr><tr class="row-450"><td><div role="img" aria-label="Yellow 450" class="color-preview" style="background-color: #f4b625; border: 1px solid black"></div></td><td>
+                        <span lang="en">
+                          --gcds-color-yellow-450</span></td><td>1.81</td><td>#f4b625</td><td></td></tr><tr class="row-500"><td><div role="img" aria-label="Yellow 500" class="color-preview" style="background-color: #f2ad0d; border: 1px solid black"></div></td><td>
+                        <span lang="en">
+                          --gcds-color-yellow-500</span></td><td>1.95</td><td>#f2ad0d</td><td></td></tr><tr class="row-550"><td><div role="img" aria-label="Yellow 550" class="color-preview" style="background-color: #da9c0b; border: 1px solid black"></div></td><td>
+                        <span lang="en">
+                          --gcds-color-yellow-550</span></td><td>2.4</td><td>#da9c0b</td><td></td></tr><tr class="row-600"><td><div role="img" aria-label="Yellow 600" class="color-preview" style="background-color: #c28b0a; border: 1px solid #FFF"></div></td><td>
+                        <span lang="en">
+                          --gcds-color-yellow-600</span></td><td>3</td><td>#c28b0a</td><td></td></tr><tr class="row-650"><td><div role="img" aria-label="Yellow 650" class="color-preview" style="background-color: #aa7909; border: 1px solid #FFF"></div></td><td>
+                        <span lang="en">
+                          --gcds-color-yellow-650</span></td><td>3.85</td><td>#aa7909</td><td></td></tr><tr class="row-700"><td><div role="img" aria-label="Yellow 700" class="color-preview" style="background-color: #916808; border: 1px solid #FFF"></div></td><td>
+                        <span lang="en">
+                          --gcds-color-yellow-700</span></td><td>5.01</td><td>#916808</td><td></td></tr><tr class="row-750"><td><div role="img" aria-label="Yellow 750" class="color-preview" style="background-color: #795706; border: 1px solid #FFF"></div></td><td>
+                        <span lang="en">
+                          --gcds-color-yellow-750</span></td><td>6.6</td><td>#795706</td><td></td></tr><tr class="row-800"><td><div role="img" aria-label="Yellow 800" class="color-preview" style="background-color: #614505; border: 1px solid #FFF"></div></td><td>
+                        <span lang="en">
+                          --gcds-color-yellow-800</span></td><td>8.89</td><td>#614505</td><td></td></tr><tr class="row-850"><td><div role="img" aria-label="Yellow 850" class="color-preview" style="background-color: #493404; border: 1px solid #FFF"></div></td><td>
+                        <span lang="en">
+                          --gcds-color-yellow-850</span></td><td>11.82</td><td>#493404</td><td></td></tr><tr class="row-900"><td><div role="img" aria-label="Yellow 900" class="color-preview" style="background-color: #302303; border: 1px solid #FFF"></div></td><td>
+                        <span lang="en">
+                          --gcds-color-yellow-900</span></td><td>15.35</td><td>#302303</td><td></td></tr></table>
 </div>
 </div>
 <p>Note: Code elements take American spelling for &quot;colour&quot; and &quot;grey&quot;.</p>

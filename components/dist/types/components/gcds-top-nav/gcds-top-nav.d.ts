@@ -13,7 +13,7 @@ export declare class GcdsTopNav {
     /**
      * Nav alignment
      */
-    alignment: 'left' | 'center' | 'right';
+    alignment: 'start' | 'end';
     /**
      * Sticky navigation flag
      */

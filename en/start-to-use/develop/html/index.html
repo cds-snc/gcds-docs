@@ -1552,12 +1552,6 @@
       
       
     
-      
-      
-    
-      
-      
-    
   
 
 
@@ -1603,7 +1597,7 @@
 </gcds-header>
 
     <div class="content-wrapper">
-      <gcds-grid columns="minmax(0, 1fr)" columns-desktop="320px minmax(0, 1fr)" tag="div" container="xl" centered class="xl:px-0 sm:px-600 px-225 general-layout">
+      <gcds-grid columns="minmax(0, 1fr)" columns-desktop="320px minmax(0, 1fr)" tag="div" container="xl" alignment="center" class="xl:px-0 sm:px-600 px-225 general-layout">
         
 
 
@@ -2725,7 +2719,7 @@
 <p>Navigate to your project’s root folder and run the following command:</p>
 
 <div style="position: relative" id="code-container-30" >
-  <pre class="language-js"><code id="code-30" class="language-js">npm install @cdssnc<span class="token operator">/</span>gcds<span class="token operator">-</span>components</code></pre>
+  <pre class="language-js"><code id="code-30" class="language-js">npm install @gcds<span class="token operator">-</span>core<span class="token operator">/</span>components</code></pre>
 
   <button class="code-copy "
     data-clipboard-target="#code-30"
@@ -2740,11 +2734,11 @@
   <pre class="language-html"><code id="code-37" class="language-html"><span class="token comment">&lt;!-- GC Design System --></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>link</span>
   <span class="token attr-name">rel</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>stylesheet<span class="token punctuation">"</span></span>
-  <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>/node_modules/@cdssnc/gcds-components/dist/gcds/gcds.css<span class="token punctuation">"</span></span>
+  <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>/node_modules/@gcds-core/components/dist/gcds/gcds.css<span class="token punctuation">"</span></span>
 <span class="token punctuation">/></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span>
   <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>module<span class="token punctuation">"</span></span>
-  <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>/node_modules/@cdssnc/gcds-components/dist/gcds/gcds.esm.js<span class="token punctuation">"</span></span>
+  <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>/node_modules/@gcds-core/components/dist/gcds/gcds.esm.js<span class="token punctuation">"</span></span>
 <span class="token punctuation">></span></span><span class="token script"></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span></code></pre>
 
   <button class="code-copy "
@@ -2802,11 +2796,11 @@
   <pre class="language-html"><code id="code-80" class="language-html"><span class="token comment">&lt;!-- GC Design System --></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>link</span>
   <span class="token attr-name">rel</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>stylesheet<span class="token punctuation">"</span></span>
-  <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>https://cdn.design-system.alpha.canada.ca/@cdssnc/gcds-components@||version||/dist/gcds/gcds.css<span class="token punctuation">"</span></span>
+  <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>https://cdn.design-system.alpha.canada.ca/@gcds-core/components@||version||/dist/gcds/gcds.css<span class="token punctuation">"</span></span>
 <span class="token punctuation">/></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span>
   <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>module<span class="token punctuation">"</span></span>
-  <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>https://cdn.design-system.alpha.canada.ca/@cdssnc/gcds-components@||version||/dist/gcds/gcds.esm.js<span class="token punctuation">"</span></span>
+  <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>https://cdn.design-system.alpha.canada.ca/@gcds-core/components@||version||/dist/gcds/gcds.esm.js<span class="token punctuation">"</span></span>
 <span class="token punctuation">></span></span><span class="token script"></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span></code></pre>
 
   <button class="code-copy "
@@ -2873,7 +2867,7 @@
     try {
       // Fetch package metadata
       const response = await fetch(
-        'https://registry.npmjs.org/@cdssnc/gcds-components',
+        'https://registry.npmjs.org/@gcds-core/components',
       );
       const data = await response.json();
 
@@ -2898,12 +2892,12 @@
       console.error('Error fetching latest version:', error);
 
       // Update the latest version and release date in the description
-      cdnLatestVersion.textContent = '0.47.0';
-      cdnLatestVersionDate.textContent = '2026-01-20';
+      cdnLatestVersion.textContent = '1.0.0';
+      cdnLatestVersionDate.textContent = '2026-02-05';
 
       // Update CDN links with fallback version if fetch fails
       codeElements.forEach(element => {
-        element.textContent = element.textContent.replace('||version||', '0.47.0');
+        element.textContent = element.textContent.replace('||version||', '1.0.0');
       });
     }
   }

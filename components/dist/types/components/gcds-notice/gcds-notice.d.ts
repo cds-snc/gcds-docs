@@ -9,10 +9,10 @@ export declare class GcdsNotice {
      * Props
      */
     /**
-     * Set notice type.
+     * The notice role property specifies the style of notice to be displayed.
      */
-    type: 'danger' | 'info' | 'success' | 'warning';
-    validateType(): void;
+    noticeRole: 'danger' | 'info' | 'success' | 'warning';
+    validateNoticeRole(): void;
     /**
      * Set the notice title.
      */

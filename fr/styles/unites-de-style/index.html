@@ -1549,12 +1549,6 @@
       
       
     
-      
-      
-    
-      
-      
-    
   
 
   
@@ -1597,7 +1591,7 @@
 </gcds-header>
 
     <div class="content-wrapper">
-      <gcds-grid columns="minmax(0, 1fr)" columns-desktop="320px minmax(0, 1fr)" tag="div" container="xl" centered class="xl:px-0 sm:px-600 px-225 general-layout">
+      <gcds-grid columns="minmax(0, 1fr)" columns-desktop="320px minmax(0, 1fr)" tag="div" container="xl" alignment="center" class="xl:px-0 sm:px-600 px-225 general-layout">
         
 
 
@@ -2685,7 +2679,19 @@
 </gcds-side-nav>
         <main id="mc" class="general-layout" data-pagefind-body>
           <h1 id="unites-de-style">Unités de style</h1>
-<p>Les unités de style de Système de design GC sont les plus petits blocs de construction du système de design.</p>
+<p>Les unités de style de Système de design GC sont les plus petits blocs de construction du système de design. Elles ont leur propre référentiel GitHub et bibliothèque Figma.</p>
+<ul class="d-flex flex-wrap gap-300">
+  <li>
+    <gcds-link external href="https://github.com/cds-snc/gcds-tokens">
+      Référentiel d'unités de style Github
+    </gcds-link>
+  </li>
+  <li>
+    <gcds-link external href="https://www.figma.com/community/file/1602785216717583156/gcds-token-library">
+      Bibliothèque d’unités de style Figma
+    </gcds-link>
+  </li>
+</ul>
 <h2 id="representer-des-choix-stylistiques-en-code">Représenter des choix stylistiques en code</h2>
 <p>Nous avons créé une unité de style qui définit chaque choix stylistique dans Système de design GC. Tous nos composants utilisent des unités de style.</p>
 <p>Les unités de style documentent les choix stylistiques à l'aide de variables dans des blocs de code réutilisables. Elles remplacent toute valeur codée en dur, comme les codes de couleur et les pixels.</p>
@@ -2696,7 +2702,7 @@
 <h3 id="unite-de-style-de-composant">Unité de style de composant</h3>
 <p>Les composants de Système de design GC possèdent leurs propres unités de style. Ces unités de style sont propres aux composants. Il est déconseillé de les utiliser ailleurs.</p>
 <p>Si elles sont utilisées incorrectement, les unités de style de composant peuvent avoir des comportements imprévisibles. Elles sont mises à jour chaque fois que le composant associé est mis à jour.</p>
-<img class="b-sm b-default p-300" src="/images/fr/foundations/tokens/design-tokens-component.svg" alt="Trois carrés bleus représentent les trois étapes pour créer l’unité de style de la couleur d’arrière-plan du composant Bouton standard. À droite du carré le plus haut, un texte indique la couleur #26374a. Juste en-dessous du carré, une flèche pointe vers le carré suivant, à droite duquel un texte indique --gcds-color-blue-900. Une autre flèche pointe vers le troisième et dernier carré, à droite duquel un texte indique --gcds-button-primary-default-background. Une dernière flèche pointe du troisième carré à un bouton dont l’arrière-plan est bleu foncé, soit le résultat de l’unité de style nouvellement créée pour le composant."/>
+<img class="b-sm b-default p-300" src="/images/fr/foundations/tokens/design-tokens-component.svg" alt="Trois carrés rouges représentent les trois étapes pour créer l’unité de style de la couleur d’arrière-plan du composant Bouton danger. À droite du carré le plus haut, un texte indique la couleur #B3192E. Juste en-dessous du carré, une flèche pointe vers le carré suivant, à droite duquel un texte indique --gcds-color-blue-600. Une autre flèche pointe vers le troisième et dernier carré, à droite duquel un texte indique --gcds-button-danger-default-background. Une dernière flèche pointe du troisième carré à un bouton dont l’arrière-plan est rouge, soit le résultat de l’unité de style nouvellement créée pour le composant."/>
 <h3 id="unites-de-style-globales">Unités de style globales</h3>
 <p>Les unités de style globales (y compris les unités de style d'état) sont conçues pour être utilisées par les unités de style des composants et les utilisateur·rice·s. Elles sont souvent utilisées pour construire des unités de style de composant.</p>
 <p>Les unités de style globales suivent des règles sémantiques. C'est-à-dire qu'elles sont associées à certains sens ou contextes. Vous pouvez les utiliser à leur fin prévue dans vos conceptions.</p>

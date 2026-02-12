@@ -1549,12 +1549,6 @@
       
       
     
-      
-      
-    
-      
-      
-    
   
 
   
@@ -1597,7 +1591,7 @@
 </gcds-header>
 
     <div class="content-wrapper">
-      <gcds-grid columns="minmax(0, 1fr)" columns-desktop="320px minmax(0, 1fr)" tag="div" container="xl" centered class="xl:px-0 sm:px-600 px-225 general-layout">
+      <gcds-grid columns="minmax(0, 1fr)" columns-desktop="320px minmax(0, 1fr)" tag="div" container="xl" alignment="center" class="xl:px-0 sm:px-600 px-225 general-layout">
         
 
 
@@ -2766,6 +2760,21 @@ Aperçu du composant de champ de saisie
 <li>Évitez d'employer un jargon technique, comme « adresse électronique du sujet » ou « ID du compte ». Soyez plutôt précis·e et employez un ton personnel, comme « nom complet » et « âge de l'enfant ».</li>
 <li>Évitez d'utiliser des expressions familières et des verbes courants qui ne sont pas connus des personnes ne parlant pas couramment l'anglais ou le français.</li>
 <li>Expliquez tout terme qui pourrait porter à confusion. Par exemple, « Pseudonyme (nom que vous souhaitez utiliser) ».</li>
+</ul>
+<h3 id="masquez-letiquette-seulement-lorsque-le-but-est-clair">Masquez l’étiquette seulement lorsque le but est clair</h3>
+<ul class="list-disc mb-300"><li>Masquez visuellement l’étiquette seulement lorsque le but du champ de saisie est clairement communiqué par le contexte, rendant l’étiquette visuellement redondante, comme dans les cas suivants :<ul class="list-disc mb-300"><li>interfaces de clavardage ou de messagerie;</li>
+<li>composants de recherche;</li>
+<li>tableaux ou autres mises en page où l’espace est limité;</li>
+<li>champs de saisie de nom de fichier dans les applications web;</li>
+<li>paramètres et configurations.</li>
+</ul>
+</li>
+<li>Fournissez toujours une étiquette pour soutenir les technologies d’assistance.</li>
+<li>N’ajoutez pas de texte explicatif si vous masquez l’étiquette, puisque celui-ci manque alors de contexte et peut distraire ou prêter à confusion.</li>
+</ul>
+<h3 id="limitez-lutilisation-du-texte-fictif">Limitez l’utilisation du texte fictif</h3>
+<ul class="list-disc mb-300"><li>Dans les formulaires, évitez d’utiliser du texte fictif pour remplacer une étiquette ou pour transmettre des instructions ou des renseignements à retenir, car cela peut créer des problèmes d’accessibilité.</li>
+<li>En dehors des formulaires, utilisez du texte fictif uniquement pour renforcer un objectif déjà clair selon le contexte visible (par exemple, dans les interfaces de recherche ou de conversation).</li>
 </ul>
 <h3 id="adaptez-la-taille-du-champ-de-saisie-au-type-de-reponse">Adaptez la taille du champ de saisie au type de réponse</h3>
 <ul class="list-disc mb-300"><li>Définissez l'attribut de la taille du champ de saisie pour les réponses dont vous connaissez la longueur précise (taille &quot;50&quot; = 50 caractères). Par exemple, 6 caractères pour un code postal ou 10 caractères pour un numéro de téléphone.</li>

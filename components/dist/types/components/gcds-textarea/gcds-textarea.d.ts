@@ -10,20 +10,31 @@ export declare class GcdsTextarea {
     private shadowElement?;
     private htmlValidationErrors;
     private textareaTitle;
+    private lastInputTimeStamp;
+    private lastInputValue;
+    private valueChecker;
     _validator: Validator<string>;
     /**
      * Props
      */
     /**
-     * If true, the input will be focused on component render
+     * If true, the textarea will be focused on component render.
      */
     autofocus: boolean;
     /**
-     * Sets the maxlength attribute for the textarea element.
+     * The ID of the form that the textarea belongs to.
      */
-    characterCount?: number;
+    form?: string;
     /**
-     * The minimum number of characters that the input field can accept.
+     * If true, character limit counter will not be displayed under the textarea.
+     */
+    hideLimit?: boolean;
+    /**
+     * The maximum number of characters that the textarea field can accept.
+     */
+    maxlength?: number;
+    /**
+     * The minimum number of characters that the textarea field can accept.
      */
     minlength?: number;
     /**
@@ -109,6 +120,7 @@ export declare class GcdsTextarea {
      * Emitted when the textarea has focus.
      */
     gcdsFocus: EventEmitter<void>;
+    private onFocus;
     /**
      * Emitted when the textarea loses focus.
      */
@@ -122,6 +134,10 @@ export declare class GcdsTextarea {
      * Emitted when the textarea has received input.
      */
     gcdsInput: EventEmitter<string>;
+    /**
+     * Update character count if value has changed
+     */
+    private updateIfValueChanged;
     private handleInput;
     /**
      * Call any active validators

@@ -1549,12 +1549,6 @@
       
       
     
-      
-      
-    
-      
-      
-    
   
 
   
@@ -1597,7 +1591,7 @@
 </gcds-header>
 
     <div class="content-wrapper">
-      <gcds-grid columns="minmax(0, 1fr)" columns-desktop="320px minmax(0, 1fr)" tag="div" container="xl" centered class="xl:px-0 sm:px-600 px-225 general-layout">
+      <gcds-grid columns="minmax(0, 1fr)" columns-desktop="320px minmax(0, 1fr)" tag="div" container="xl" alignment="center" class="xl:px-0 sm:px-600 px-225 general-layout">
         
 
 
@@ -2771,13 +2765,21 @@ Aperçu du composant de champ de saisie
 <p>Définissez le type de champ de saisie en fonction de la méthode de validation des valeurs saisies par une personne.
 L’attribut input-type (type de champ de saisie) accepte les options suivantes :</p>
 <h3 id="saisie-textuelle">Saisie textuelle</h3>
-<p>Utilisez cette option s'il n'existe pas déjà un autre type de champ de saisie approprié pour la réponse à ligne unique.</p>
-<ul class="list-disc mb-300"><li>Pour recueillir le nom d’une personne (son nom complet dans la plupart des cas).</li>
-<li>En remplacement de la saisie numérique, pour des réponses à valeurs non numériques comme des estimations.</li>
+<p>À utiliser lorsqu’aucun autre type de champ de saisie n'est approprié pour une saisie sur une seule ligne.</p>
+<ul class="list-disc mb-300"><li>Pour recueillir le nom d’une personne, le plus souvent son nom complet.</li>
+<li>En remplacement de la saisie numérique pour des choses comme :<ul class="list-disc mb-300"><li>des approximations pouvant inclure des valeurs non numériques;</li>
+<li>des valeurs qui ne sont pas de véritables nombres, comme des numéros de compte, des numéros de carte de crédit ou des codes d’authentification;</li>
+<li>des nombres avec décimales.</li>
+</ul>
+</li>
 </ul>
 <h3 id="saisie-dune-adresse-courriel">Saisie d'une adresse courriel</h3>
 <ul class="list-disc mb-300"><li>Pour recueillir des adresses courriel.</li>
 <li>Pour exiger un format d’adresse courriel.</li>
+</ul>
+<h3 id="saisie-telephone">Saisie téléphone</h3>
+<ul class="list-disc mb-300"><li>Pour recueillir des numéros de téléphone.</li>
+<li>Pour activer le clavier téléphonique sur les appareils mobiles.</li>
 </ul>
 <h3 id="saisie-de-mot-de-passe">Saisie de mot de passe</h3>
 <ul class="list-disc mb-300"><li>Pour la collecte et la validation de mots de passe.</li>
@@ -2785,7 +2787,9 @@ L’attribut input-type (type de champ de saisie) accepte les options suivantes 
 </ul>
 <p>Conseil :  Indiquez toute contrainte liée au mot de passe dans le texte explicatif du champ de saisie afin que les personnes sachent exactement quelles sont les règles.</p>
 <h3 id="saisie-numerique">Saisie numérique</h3>
-<p>À utiliser pour rejeter les valeurs qui ne sont pas numériques.</p>
+<ul class="list-disc mb-300"><li>Pour recueillir les nombres entiers qui peuvent augmenter ou diminuer, comme les quantités.</li>
+<li>Pour rejeter les valeurs qui ne sont pas numériques.</li>
+</ul>
 <p>Conseil : Lorsque vous définissez une contrainte, comme une fourchette numérique, utilisez le texte explicatif pour transmettre une directive précise.</p>
 <h3 id="saisie-dune-cle-de-recherche">Saisie d'une clé de recherche</h3>
 <ul class="list-disc mb-300"><li>Pour collecter une valeur à rechercher.</li>

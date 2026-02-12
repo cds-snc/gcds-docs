@@ -1552,12 +1552,6 @@
       
       
     
-      
-      
-    
-      
-      
-    
   
 
 
@@ -1597,7 +1591,7 @@
 </gcds-header>
 
     <div class="content-wrapper">
-      <gcds-grid columns="minmax(0, 1fr)" columns-desktop="320px minmax(0, 1fr)" tag="div" container="xl" centered class="xl:px-0 sm:px-600 px-225 general-layout">
+      <gcds-grid columns="minmax(0, 1fr)" columns-desktop="320px minmax(0, 1fr)" tag="div" container="xl" alignment="center" class="xl:px-0 sm:px-600 px-225 general-layout">
         
 
 
@@ -2766,6 +2760,14 @@ File uploader component preview
 <h3 id="write-clear-labels-and-hints">Write clear labels and hints</h3>
 <ul class="list-disc mb-300"><li>Use the input label to set clear expectations about the kind of file a person can or needs to upload.</li>
 <li>Use the hint to specify any upload limitations.</li>
+</ul>
+<h3 id="hide-the-label-only-when-the-purpose-is-clear">Hide the label only when the purpose is clear</h3>
+<ul class="list-disc mb-300"><li>Visually hide the label only when the purpose of the file uploader is clearly communicated by surrounding context, making the label visually redundant, such as in:<ul class="list-disc mb-300"><li>tables or other space-constrained layouts</li>
+<li>settings and configurations</li>
+</ul>
+</li>
+<li>Always provide a label to support assistive technologies.</li>
+<li>Omit hint text if you hide the label, as it can lack context and be distracting or confusing.</li>
 </ul>
 
 

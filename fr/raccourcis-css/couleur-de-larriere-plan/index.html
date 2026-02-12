@@ -1549,12 +1549,6 @@
       
       
     
-      
-      
-    
-      
-      
-    
   
 
   
@@ -1599,7 +1593,7 @@
 </gcds-header>
 
     <div class="content-wrapper">
-      <gcds-grid columns="minmax(0, 1fr)" columns-desktop="320px minmax(0, 1fr)" tag="div" container="xl" centered class="xl:px-0 sm:px-600 px-225 general-layout">
+      <gcds-grid columns="minmax(0, 1fr)" columns-desktop="320px minmax(0, 1fr)" tag="div" container="xl" alignment="center" class="xl:px-0 sm:px-600 px-225 general-layout">
         
 
 
@@ -2690,7 +2684,7 @@
         <main id="mc" class="general-layout" data-pagefind-body>
           <h1 id="couleur-de-larriereplan">Couleur de l’arrière-plan</h1>
 <p>La classe couleur d’arrière-plan définit la propriété <code>background-color</code>. Elle détermine la couleur de l’arrière-plan d’un élément.</p>
-<gcds-notice type="warning" notice-title-tag="h2" notice-title="Utiliser avec prudence">
+<gcds-notice notice-role="warning" notice-title-tag="h2" notice-title="Utiliser avec prudence">
   <gcds-text><gcds-link href="/fr/styles/couleur#arriereplan">Voir les conseils de Système de design GC en matière de couleur</gcds-link> pour choisir la bonne couleur d’arrière-plan pour votre contexte.</gcds-text>
 </gcds-notice>
 <p><gcds-heading tag="h2">Survol</gcds-heading></p>
@@ -2783,8 +2777,8 @@
 </div></p>
 <h3 id="dangerbrbgdanger">Danger<br/><code>bg-danger</code></h3>
 <p><div class="b-md shortcut-preview">
-<div class="preview-demo p-300"><p class="bg-danger p-150"> Cet élément utilise la couleur d’arrière-plan de danger.</p></div>
-<pre><code class="language-html">&lt;p class=&quot;bg-danger&quot;&gt;
+<div class="preview-demo p-300"><p class="bg-danger text-light p-150"> Cet élément utilise la couleur d’arrière-plan de danger.</p></div>
+<pre><code class="language-html">&lt;p class=&quot;bg-danger text-light&quot;&gt;
   Cet élément utilise la couleur d’arrière-plan de danger.
 &lt;/p&gt;</code></pre>
 </div></p>
@@ -2804,9 +2798,9 @@
 </div></p>
 <h3 id="heriteebrbginherit">Héritée<br/><code>bg-inherit</code></h3>
 <p><div class="b-md shortcut-preview">
-<div class="preview-demo p-300"><div class="bg-danger p-150"><p class="bg-inherit"> Cet élément hérite sa couleur d’arrière-plan de l’élément parent.</p></div></div>
+<div class="preview-demo p-300"><div class="bg-danger p-150"><p class="bg-inherit text-light"> Cet élément hérite sa couleur d’arrière-plan de l’élément parent.</p></div></div>
 <pre><code class="language-html">&lt;div class=&quot;bg-danger&quot;&gt;
-  &lt;p class=&quot;bg-inherit&quot;&gt;
+  &lt;p class=&quot;bg-inherit text-light&quot;&gt;
     Cet élément hérite sa couleur d’arrière-plan de l’élément parent.
   &lt;/p&gt;
 &lt;/div&gt;</code></pre>

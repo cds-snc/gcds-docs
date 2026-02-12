@@ -1549,12 +1549,6 @@
       
       
     
-      
-      
-    
-      
-      
-    
   
 
   
@@ -1597,7 +1591,7 @@
 </gcds-header>
 
     <div class="content-wrapper">
-      <gcds-grid columns="minmax(0, 1fr)" columns-desktop="320px minmax(0, 1fr)" tag="div" container="xl" centered class="xl:px-0 sm:px-600 px-225 general-layout">
+      <gcds-grid columns="minmax(0, 1fr)" columns-desktop="320px minmax(0, 1fr)" tag="div" container="xl" alignment="center" class="xl:px-0 sm:px-600 px-225 general-layout">
         
 
 
@@ -2757,11 +2751,11 @@ Aperçu du composant conteneur
 <h2 id="codage-et-accessibilite-des-conteneurs">Codage et accessibilité des conteneurs</h2>
 <h3 id="limiter-la-largeur-du-contenu">Limiter la largeur du contenu</h3>
 <ul class="list-disc mb-300"><li>Veillez à ce que vos lignes de texte ne dépassent pas 65 caractères pour obtenir une longueur de lecture acceptable.</li>
-<li>Limitez la largeur de la colonne pour éviter que les grands écrans n’affichent des lignes de texte trop longues et difficiles à lire.</li>
+<li>Limitez la largeur de la colonne pour éviter que les grands écrans n'affichent des lignes de texte trop longues et difficiles à lire.</li>
 <li>Évitez de dépasser la largeur maximale de 71,25 rem (1140 px).</li>
 </ul>
 <h3 id="ajouter-une-taille-de-conteneur">Ajouter une taille de conteneur</h3>
-<p>La propriété <code>size</code> définit la taille d’un conteneur. Six tailles sont disponibles :</p>
+<p>La propriété <code>size</code> définit la taille d'un conteneur. Six tailles sont disponibles :</p>
 <table>
 <thead>
 <tr>
@@ -2805,8 +2799,22 @@ Aperçu du composant conteneur
 </table>
 <br/>
 <p>La taille du conteneur par défaut est <code>full</code>, ce qui signifie que le conteneur occupera la largeur totale du conteneur parent.</p>
-<h3 id="centrer-le-conteneur">Centrer le conteneur</h3>
-<p>Les conteneurs ne sont pas automatiquement centrés. Pour centrer un conteneur sur une page, ajoutez la propriété <code>centered</code>.</p>
+<h3 id="aligner-le-contenu-avec-la-mise-en-page">Aligner le contenu avec la mise en page</h3>
+<p>Utilisez <code>layout=&quot;page&quot;</code> pour aligner visuellement le contenu de la page avec <a href="/fr/composants/en-tete">l'en-tête</a> et le <a href="/fr/composants/pied-de-page">pied de page</a>.</p>
+<p>Lorsque <code>layout</code> est défini sur <code>page</code>, le conteneur :</p>
+<ul class="list-disc mb-300"><li>Utilise une largeur maximale de 71,25 rem (1140 px).</li>
+<li>Est centré automatiquement dans la fenêtre d'affichage.</li>
+<li>Passe à une largeur de 90 % sur les écrans plus petits.</li>
+<li>Adopte le même comportement de mise en page que l'en-tête et le pied de page.</li>
+</ul>
+<p>L'utilisation de <code>layout=&quot;page&quot;</code> garantit une largeur, un alignement et une expérience de lecture cohérents, quel que soit le point de rupture. Lorsque <code>layout</code> est défini sur <code>page</code>, il est inutile de définir une taille (<code>size</code>) ou un alignement (<code>alignment</code>) pour le conteneur, car la mise en page gère automatiquement la largeur et l'alignement.</p>
+<h3 id="positionner-le-conteneur">Positionner le conteneur</h3>
+<p>Utilisez l'attribut <code>alignment</code> pour contrôler le positionnement d'un conteneur dans son conteneur parent. Trois options sont disponibles :</p>
+<ul class="list-disc mb-300"><li><code>start</code> : positionne le conteneur horizontalement au début de l'espace disponible.</li>
+<li><code>center</code> : centre le conteneur horizontalement.</li>
+<li><code>end</code> : positionne le conteneur horizontalement à la fin de l'espace disponible.</li>
+</ul>
+<p><strong>Remarque :</strong> Lorsque l'attribut <code>layout</code> est défini sur <code>page</code>, l'attribut <code>alignment</code> est ignoré; la mise en page gère automatiquement la largeur et le centrage.</p>
 <h3 id="obtenez-votre-code">Obtenez votre code</h3>
 <p>Générez une version du composant dont vous avez besoin en sélectionnant les propriétés de code correspondantes ou explorez les possibilités en choisissant différentes valeurs de code.</p>
 <ol class="list-decimal mb-300"><li>

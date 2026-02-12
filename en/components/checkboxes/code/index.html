@@ -1552,12 +1552,6 @@
       
       
     
-      
-      
-    
-      
-      
-    
   
 
 
@@ -1597,7 +1591,7 @@
 </gcds-header>
 
     <div class="content-wrapper">
-      <gcds-grid columns="minmax(0, 1fr)" columns-desktop="320px minmax(0, 1fr)" tag="div" container="xl" centered class="xl:px-0 sm:px-600 px-225 general-layout">
+      <gcds-grid columns="minmax(0, 1fr)" columns-desktop="320px minmax(0, 1fr)" tag="div" container="xl" alignment="center" class="xl:px-0 sm:px-600 px-225 general-layout">
         
 
 
@@ -2810,6 +2804,13 @@ Checkbox component preview
 <h3 id="for-a-single-checkbox">For a single checkbox</h3>
 <ul class="list-disc mb-300"><li>Pass a single object to the <code>options</code> attribute to render a single checkbox without a fieldset.</li>
 <li>Use the <code>hint</code> and <code>error-message</code> attributes to add additional information to the checkbox.</li>
+</ul>
+<h3 id="hide-the-checkboxes-legend-or-labels">Hide the checkboxes legend or labels</h3>
+<ul class="list-disc mb-300"><li>Visually hide the legend or label, while maintaining it for assistive technologies.<ul class="list-disc mb-300"><li>Set the <code>hide-legend</code> attribute to true to visually hide the legend for checkbox groups.</li>
+<li>Set the <code>hide-label</code> attribute to true to visually hide the label for a single checkbox.</li>
+</ul>
+</li>
+<li>Avoid adding hint text when you’re hiding the legend or else provide an empty hint string.</li>
 </ul>
 <h3 id="get-your-code">Get your code</h3>
 <p>Generate an instance of the component you need by selecting its code properties.</p>

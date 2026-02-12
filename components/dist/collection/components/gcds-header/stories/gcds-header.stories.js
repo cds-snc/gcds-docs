@@ -31,14 +31,6 @@ export default {
                 type: { summary: 'boolean' },
                 defaultValue: { summary: true },
             },
-        }, signatureVariant: {
-            name: 'signature-variant',
-            control: 'select',
-            options: ['colour', 'white'],
-            table: {
-                type: { summary: 'string' },
-                defaultValue: { summary: 'colour' },
-            },
         }
     }, langProp), {
         // Slots
@@ -104,9 +96,6 @@ const Template = args => `
   ${!args.signatureHasLink
     ? `signature-has-link="${args.signatureHasLink}"`
     : null}
-  ${args.signatureVariant != 'colour'
-    ? `signature-variant="${args.signatureVariant}"`
-    : null}
   ${args.lang != 'en' ? `lang="${args.lang}"` : null}
 >
   ${args.menu ? `<div slot="menu">${args.menu}</div>` : null}
@@ -123,9 +112,6 @@ const Template = args => `
   skipToHref="${args.skipToHref}"
   ${!args.signatureHasLink
     ? `signatureHasLink="${args.signatureHasLink}"`
-    : null}
-  ${args.signatureVariant != 'colour'
-    ? `signatureVariant="${args.signatureVariant}"`
     : null}
   ${args.lang != 'en' ? `lang="${args.lang}"` : null}
 >
@@ -145,9 +131,6 @@ const TemplatePlayground = args => `
   ${!args.signatureHasLink
     ? `signature-has-link="${args.signatureHasLink}"`
     : null}
-  ${args.signatureVariant != 'colour'
-    ? `signature-variant="${args.signatureVariant}"`
-    : null}
   ${args.lang != 'en' ? `lang="${args.lang}"` : null}
 >
   ${args.menu ? `<div slot="menu">${args.menu}</div>` : null}
@@ -162,7 +145,6 @@ Default.args = {
     langHref: '#',
     skipToHref: '#',
     signatureHasLink: true,
-    signatureVariant: 'colour',
     menu: '',
     breadcrumb: '',
     search: '',
@@ -176,7 +158,6 @@ SkipTo.args = {
     langHref: '#',
     skipToHref: '#',
     signatureHasLink: true,
-    signatureVariant: 'colour',
     skipTo: 'Skip-to-nav slot',
     lang: 'en',
 };
@@ -185,7 +166,6 @@ Banner.args = {
     langHref: '#',
     skipToHref: '#',
     signatureHasLink: true,
-    signatureVariant: 'colour',
     banner: 'Banner slot',
     lang: 'en',
 };
@@ -194,7 +174,6 @@ Toggle.args = {
     langHref: '#',
     skipToHref: '#',
     signatureHasLink: true,
-    signatureVariant: 'colour',
     toggle: 'Toggle slot',
     lang: 'en',
 };
@@ -203,7 +182,6 @@ Menu.args = {
     langHref: '#',
     skipToHref: '#',
     signatureHasLink: true,
-    signatureVariant: 'colour',
     menu: 'Menu slot',
     lang: 'en',
 };
@@ -212,7 +190,6 @@ Breadcrumbs.args = {
     langHref: '#',
     skipToHref: '#',
     signatureHasLink: true,
-    signatureVariant: 'colour',
     breadcrumb: 'Breadcrumbs slot',
     lang: 'en',
 };
@@ -221,7 +198,6 @@ All.args = {
     langHref: '#',
     skipToHref: '#',
     signatureHasLink: true,
-    signatureVariant: 'colour',
     skipTo: 'Skip-to-nav slot',
     banner: 'Banner slot',
     toggle: 'Toggle slot',
@@ -234,7 +210,6 @@ Props.args = {
     langHref: '#',
     skipToHref: '#',
     signatureHasLink: true,
-    signatureVariant: 'colour',
     menu: '',
     breadcrumb: '',
     search: '',
@@ -248,7 +223,6 @@ Playground.args = {
     langHref: '#',
     skipToHref: '#',
     signatureHasLink: true,
-    signatureVariant: 'colour',
     menu: '',
     breadcrumb: '',
     search: '',

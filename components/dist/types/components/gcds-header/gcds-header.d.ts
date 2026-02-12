@@ -20,10 +20,6 @@ export declare class GcdsHeader {
      */
     langHref: string;
     /**
-     * GcdsSignature - The variant of the Government of Canada signature
-     */
-    signatureVariant: 'colour' | 'white';
-    /**
      * GcdsSignature - GCDS signature links to Canada.ca
      */
     signatureHasLink: boolean;

@@ -1549,12 +1549,6 @@
       
       
     
-      
-      
-    
-      
-      
-    
   
 
   
@@ -1603,7 +1597,7 @@
 </gcds-header>
 
     <div class="content-wrapper">
-      <gcds-grid columns="minmax(0, 1fr)" columns-desktop="320px minmax(0, 1fr)" tag="div" container="xl" centered class="xl:px-0 sm:px-600 px-225 general-layout">
+      <gcds-grid columns="minmax(0, 1fr)" columns-desktop="320px minmax(0, 1fr)" tag="div" container="xl" alignment="center" class="xl:px-0 sm:px-600 px-225 general-layout">
         
 
 
@@ -2691,7 +2685,7 @@
 </gcds-side-nav>
         <main id="mc" class="general-layout" data-pagefind-body>
           <h1 id="installation-dans-un-projet-vue">Installation dans un projet Vue</h1>
-<p>Pour faciliter l’intégration des composants Web de Système de design GC dans les projets Vue, le paquet <gcds-link href="https://www.npmjs.com/package/@cdssnc/gcds-components-vue" external>gcds-components-vue</gcds-link> propose différentes enveloppes Vue.</p>
+<p>Pour faciliter l’intégration des composants Web de Système de design GC dans les projets Vue, le paquet <gcds-link href="https://www.npmjs.com/package/@gcds-core/components-vue" external>gcds-components-vue</gcds-link> propose différentes enveloppes Vue.</p>
 <p>Ces enveloppes facilitent le travail avec les composants Web dans l’écosystème Vue en permettant la vérification des types, l’intégration avec <code>Vue Router</code>, et la prise en charge de la fonction <code>v-model</code> avec les contrôles de formulaire.</p>
 <p>Les composants Web héritent les propriétés et l’interopérabilité natives.</p>
 <h2 id="instructions-dinstallation-dans-vue">Instructions d’installation dans Vue</h2>
@@ -2700,7 +2694,7 @@
 <p>Naviguez vers le dossier racine de votre projet et exécutez la commande suivante :</p>
 
 <div style="position: relative" id="code-container-24" >
-  <pre class="language-js"><code id="code-24" class="language-js">npm install @cdssnc<span class="token operator">/</span>gcds<span class="token operator">-</span>components<span class="token operator">-</span>vue</code></pre>
+  <pre class="language-js"><code id="code-24" class="language-js">npm install @gcds<span class="token operator">-</span>core<span class="token operator">/</span>components<span class="token operator">-</span>vue</code></pre>
 
   <button class="code-copy "
     data-clipboard-target="#code-24"
@@ -2712,7 +2706,7 @@
 <p>Dans votre fichier <code>main.js</code>, importez le plugiciel des composants de Système de design GC et utilisez-le :</p>
 
 <div style="position: relative" id="code-container-31" >
-  <pre class="language-js"><code id="code-31" class="language-js"><span class="token keyword">import</span> <span class="token punctuation">{</span> GcdsComponents <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@cdssnc/gcds-components-vue'</span><span class="token punctuation">;</span>
+  <pre class="language-js"><code id="code-31" class="language-js"><span class="token keyword">import</span> <span class="token punctuation">{</span> GcdsComponents <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@gcds-core/components-vue'</span><span class="token punctuation">;</span>
 
 <span class="token function">createApp</span><span class="token punctuation">(</span>App<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span>GcdsComponents<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">mount</span><span class="token punctuation">(</span><span class="token string">'#app'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
 
@@ -2731,7 +2725,7 @@
 <p>a. Importez les styles dans votre fichier <code>main.js</code>, à côté de votre <code>style.css</code>:</p>
 
 <div style="position: relative" id="code-container-42" >
-  <pre class="language-js"><code id="code-42" class="language-js"><span class="token keyword">import</span> <span class="token string">'@cdssnc/gcds-components-vue/gcds.css'</span><span class="token punctuation">;</span>
+  <pre class="language-js"><code id="code-42" class="language-js"><span class="token keyword">import</span> <span class="token string">'@gcds-core/components-vue/gcds.css'</span><span class="token punctuation">;</span>
 <span class="token keyword">import</span> <span class="token string">'./style.css'</span><span class="token punctuation">;</span></code></pre>
 
   <button class="code-copy "
@@ -2743,7 +2737,7 @@
 <p>b. Importez les styles dans fichier <code>App.vue</code> en utilisant la balise HTML <code>style</code> :</p>
 
 <div style="position: relative" id="code-container-46" >
-  <pre class="language-html"><code id="code-46" class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>style</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>@cdssnc/gcds-components-vue/gcds.css<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token style"><span class="token language-css">
+  <pre class="language-html"><code id="code-46" class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>style</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>@gcds-core/components-vue/gcds.css<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token style"><span class="token language-css">
   <span class="token comment">/* global styles */</span>
 </span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>style</span><span class="token punctuation">></span></span></code></pre>
 

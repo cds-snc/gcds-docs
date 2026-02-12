@@ -1549,12 +1549,6 @@
       
       
     
-      
-      
-    
-      
-      
-    
   
 
   
@@ -1597,7 +1591,7 @@
 </gcds-header>
 
     <div class="content-wrapper">
-      <gcds-grid columns="minmax(0, 1fr)" columns-desktop="320px minmax(0, 1fr)" tag="div" container="xl" centered class="xl:px-0 sm:px-600 px-225 general-layout">
+      <gcds-grid columns="minmax(0, 1fr)" columns-desktop="320px minmax(0, 1fr)" tag="div" container="xl" alignment="center" class="xl:px-0 sm:px-600 px-225 general-layout">
         
 
 
@@ -2760,20 +2754,33 @@ Aperçu du composant de zone de texte
 </ol>
 <img class="b-sm b-default p-300" src="/images/fr/components/anatomy/gcds-textarea-anatomy.svg" alt="L'anatomie de la zone de texte identifiant l'étiquette, le message d'aide et le champ qui forme le composant" />
 <h2 id="conception-et-accessibilite-des-zones-de-texte">Conception et accessibilité des zones de texte</h2>
-<h3 id="redigez-une-etiquette-court-precis-et-unique">Rédigez une étiquette court, précis et unique</h3>
+<h3 id="redigez-une-etiquette-courte-precise-et-unique">Rédigez une étiquette courte, précise et unique</h3>
 <ul class="list-disc mb-300"><li>Demandez les renseignements requis avec le plus de concision possible. La forme interrogative peut rendre une étiquette inutilement longue et l'utilisateur·rice pourrait ne pas la lire en entier.</li>
-<li>Choisissez des étiquettes uniques pour chaque champ de saisie et zone de texte dans une page. Une personne parcourant les champs entendra le texte de l'étiquette en succession rapide et n'aura pas d'indication pour associer l'etiquette avec chaque contexte.</li>
+<li>Choisissez des étiquettes uniques pour chaque champ de saisie et zone de texte dans une page. Une personne parcourant les champs entendra les étiquettes se succéder rapidement, sans indication permettant de savoir à quel contexte chaque étiquette correspond.</li>
 <li>Évitez d'employer un jargon technique, comme « adresse électronique du sujet » ou « ID du compte ». Soyez plutôt précis·e et employez un ton personnel, comme « nom complet » et « âge de l'enfant ».</li>
 <li>Évitez d'utiliser des expressions familières et des verbes courants qui ne sont pas connus des personnes ne parlant pas couramment l'anglais ou le français.</li>
-<li>Expliquez tout terme qui pourrait porter à confusion. Par exemple, « Biographie (Dites nous quelques mots à propos de vous-même) ».</li>
+<li>Expliquez tout terme qui pourrait porter à confusion. Par exemple, « Biographie (dites nous quelques mots à propos de vous-même) ».</li>
+</ul>
+<h3 id="masquez-letiquette-seulement-lorsque-le-but-est-clair">Masquez l’étiquette seulement lorsque le but est clair</h3>
+<ul class="list-disc mb-300"><li>Masquez visuellement l’étiquette seulement lorsque le but de la zone de texte est clairement communiqué par le contexte, rendant l’étiquette visuellement redondante, comme dans les cas suivants :<ul class="list-disc mb-300"><li>interfaces de clavardage ou de messagerie;</li>
+<li>composants de recherche;</li>
+<li>tableaux ou autres mises en page où l’espace est limité;</li>
+</ul>
+</li>
+<li>Fournissez toujours une étiquette pour soutenir les technologies d’assistance.</li>
+<li>N’ajoutez pas de texte explicatif si vous masquez l’étiquette, puisque celui-ci manque alors de contexte et peut distraire ou prêter à confusion.</li>
+</ul>
+<h3 id="limitez-lutilisation-du-texte-fictif">Limitez l’utilisation du texte fictif</h3>
+<ul class="list-disc mb-300"><li>Dans les formulaires, évitez d’utiliser du texte fictif pour remplacer une étiquette ou pour transmettre des instructions ou des renseignements à retenir, car cela peut créer des problèmes d’accessibilité.</li>
+<li>En dehors des formulaires, utilisez du texte fictif uniquement pour renforcer un objectif déjà clair selon le contexte visible (par exemple, dans les interfaces de recherche ou de conversation).</li>
 </ul>
 <h3 id="favorisez-la-reussite-de-la-tache-en-ajoutant-du-texte-explicatif">Favorisez la réussite de la tâche en ajoutant du texte explicatif</h3>
 <ul class="list-disc mb-300"><li>Ajoutez du texte explicatif pour aider l'utilisateur·rice à fournir une valeur valide dans la zone de texte.</li>
 <li>Rédigez un texte explicatif qui est instructif, court et précis.</li>
 </ul>
-<h3 id="ecrire-des-messages-derreur-pour-les-zones-de-texte-requises">Écrire des messages d'erreur pour les zones de texte requises</h3>
+<h3 id="ecrivez-des-messages-derreur-pour-les-zones-de-texte-obligatoires">Écrivez des messages d'erreur pour les zones de texte obligatoires</h3>
 <ul class="list-disc mb-300"><li>Utilisez les <a href="/fr/composants/message-derreur/">messages d'erreur</a> pour traiter les saisies manquantes ou non valides.</li>
-<li>Rédigez un <a href="/fr/composants/message-derreur/">message d'erreur</a> pour tout zone de texte obligatoire. Si un champ est facultatif, évitez de lui associer un <a href="/fr/composants/message-derreur/">message d'erreur</a>.</li>
+<li>Rédigez un <a href="/fr/composants/message-derreur/">message d'erreur</a> pour toute zone de texte obligatoire. Si un champ est facultatif, évitez de lui associer un <a href="/fr/composants/message-derreur/">message d'erreur</a>.</li>
 <li>Évitez de critiquer la personne qui utilise le produit. Dites-lui plutôt exactement ce qu'elle doit faire pour progresser.</li>
 </ul>
 

@@ -68,12 +68,11 @@ export class GcdsFooter {
         }
     }
     get renderSignature() {
-        const signVariant = this.wordmarkVariant ? this.wordmarkVariant : 'colour';
         if (this.el.querySelector('[slot="signature"]')) {
             return h("slot", { name: "wordmark" });
         }
         else {
-            return (h("div", { class: "sub__wordmark" }, h("gcds-signature", { type: "wordmark", variant: signVariant, lang: this.lang })));
+            return (h("div", { class: "sub__wordmark" }, h("gcds-signature", { type: "wordmark", lang: this.lang })));
         }
     }
     render() {
@@ -83,12 +82,12 @@ export class GcdsFooter {
         const siteNav = I18N[lang].site.menu;
         let contextualLinkCount = 0;
         let subLinkCount = 0;
-        return (h(Host, { key: 'b3085c45d846bacbff55a8eb9b1c00a89430886b', role: "contentinfo", "aria-label": "Footer" }, h("gcds-sr-only", { key: '606efe8477781956571e6f5f491a33a3a62f04b4', tag: "h2" }, I18N[lang].about), contextualLinksObject && contextualHeading && (h("div", { key: 'f4dc0c8107d91eed92c48a29bea4d11cc27ca1aa', class: "gcds-footer__contextual" }, h("div", { key: '2be8f275989cfc74bf6b2df084ca4728672df764', class: "contextual__container" }, h("nav", { key: '0e95de45f38aa31290b69802459dd8b613bce6fe', "aria-labelledby": "contextual__heading" }, h("h3", { key: 'cfcf705300e7697459313ac429a1cfdc18dd3bd2', id: "contextual__heading", class: "contextual__heading" }, contextualHeading), h("ul", { key: 'e40575b0fb05baf1755e4f6112aa653b971d05c5', class: "contextual__list" }, Object.keys(contextualLinksObject).map(key => {
+        return (h(Host, { key: '7e858fa9f2bfaa8f683fe26375b091761fff459a', role: "contentinfo", "aria-label": "Footer" }, h("gcds-sr-only", { key: '7496ed74840b2b387980e59ddd89c3549db525a7', tag: "h2" }, I18N[lang].about), contextualLinksObject && contextualHeading && (h("div", { key: 'fc3e8e4cd20c619b14ac3131a101b57be2a2591b', class: "gcds-footer__contextual" }, h("div", { key: 'b198915a312df2c4c0b5a9c94792bf3d609f9325', class: "contextual__container" }, h("nav", { key: '647836ad40250308d7e57e49e437aea02e40f772', "aria-labelledby": "contextual__heading" }, h("h3", { key: '776b38488c416f4d13a2ed0397694be2436e7e2a', id: "contextual__heading", class: "contextual__heading" }, contextualHeading), h("ul", { key: 'e766519d02dc672fc0127e0d25871948d2b1a2a3', class: "contextual__list" }, Object.keys(contextualLinksObject).map(key => {
             if (contextualLinkCount < 3) {
                 contextualLinkCount++;
                 return (h("li", null, h("gcds-link", { size: "small", href: contextualLinksObject[key] }, key)));
             }
-        })))))), display === 'full' ? (h("div", { class: "gcds-footer__main" }, h("div", { class: "main__container" }, h("nav", { class: "main__govnav", "aria-labelledby": "govnav__heading" }, h("h3", { id: "govnav__heading" }, I18N[lang].gov.heading), h("ul", { class: "govnav__list" }, Object.keys(govNav).map(value => (h("li", null, h("gcds-link", { size: "small", href: govNav[value].link }, govNav[value].text)))))), h("nav", { class: "main__themenav", "aria-labelledby": "themenav__heading" }, h("gcds-sr-only", { tag: "h4", id: "themenav__heading" }, I18N[lang].themes.heading), h("ul", { class: "themenav__list" }, Object.keys(themeNav).map(value => (h("li", null, h("gcds-link", { size: "small", href: themeNav[value].link }, themeNav[value].text))))))))) : null, h("div", { key: 'f22c6b3df1149c3c5f8be387f8e8f6409474703f', class: "gcds-footer__sub" }, h("div", { key: '81e35cd5397e1a9f0c373e14d1f16568c70eb690', class: "sub__container" }, h("nav", { key: 'ee7c37a240a121893142c51f887d49ad98add671', "aria-labelledby": "sub__heading" }, h("gcds-sr-only", { key: '75fef71daa19b43442a973ac70053a7ce90c7a6e', tag: "h3", id: "sub__heading" }, I18N[lang].site.heading), h("ul", { key: '4d3f7e2cb406dd420def9b0580892bb54d985269' }, subLinks
+        })))))), display === 'full' ? (h("div", { class: "gcds-footer__main" }, h("div", { class: "main__container" }, h("nav", { class: "main__govnav", "aria-labelledby": "govnav__heading" }, h("h3", { id: "govnav__heading" }, I18N[lang].gov.heading), h("ul", { class: "govnav__list" }, Object.keys(govNav).map(value => (h("li", null, h("gcds-link", { size: "small", href: govNav[value].link }, govNav[value].text)))))), h("nav", { class: "main__themenav", "aria-labelledby": "themenav__heading" }, h("gcds-sr-only", { tag: "h4", id: "themenav__heading" }, I18N[lang].themes.heading), h("ul", { class: "themenav__list" }, Object.keys(themeNav).map(value => (h("li", null, h("gcds-link", { size: "small", href: themeNav[value].link }, themeNav[value].text))))))))) : null, h("div", { key: 'f374a7be6e1e64ae23bd409ed9b1da0351f1f479', class: "gcds-footer__sub" }, h("div", { key: '1f38f3666e22111dbeb70b210e8931173fd7b7cc', class: "sub__container" }, h("nav", { key: '8d25d9b17f46f90d7f6278007bd53a6237fa7e6e', "aria-labelledby": "sub__heading" }, h("gcds-sr-only", { key: '05afc9849b76b122ddbc8e554b9d8005aca73b0e', tag: "h3", id: "sub__heading" }, I18N[lang].site.heading), h("ul", { key: '72aa0a35a40880e1916a45d0abc848ab3b3c2c6a' }, subLinks
             ? Object.keys(subLinksObject).map(key => {
                 if (subLinkCount < 5) {
                     subLinkCount++;
@@ -132,25 +131,6 @@ export class GcdsFooter {
                 "setter": false,
                 "reflect": true,
                 "defaultValue": "'compact'"
-            },
-            "wordmarkVariant": {
-                "type": "string",
-                "attribute": "wordmark-variant",
-                "mutable": false,
-                "complexType": {
-                    "original": "'colour' | 'white'",
-                    "resolved": "\"colour\" | \"white\"",
-                    "references": {}
-                },
-                "required": false,
-                "optional": false,
-                "docs": {
-                    "tags": [],
-                    "text": "GcdsSignature - The variant of the Government of Canada wordmark"
-                },
-                "getter": false,
-                "setter": false,
-                "reflect": false
             },
             "contextualHeading": {
                 "type": "string",

@@ -1549,12 +1549,6 @@
       
       
     
-      
-      
-    
-      
-      
-    
   
 
   
@@ -1597,7 +1591,7 @@
 </gcds-header>
 
     <div class="content-wrapper">
-      <gcds-grid columns="minmax(0, 1fr)" columns-desktop="320px minmax(0, 1fr)" tag="div" container="xl" centered class="xl:px-0 sm:px-600 px-225 general-layout">
+      <gcds-grid columns="minmax(0, 1fr)" columns-desktop="320px minmax(0, 1fr)" tag="div" container="xl" alignment="center" class="xl:px-0 sm:px-600 px-225 general-layout">
         
 
 
@@ -2755,8 +2749,8 @@ Aperçu du composant de Avis
   <h2 id="creer-un-avis">Créer un avis</h2>
 <p>Utilisez le composant d'avis pour transmettre aux gens des messages importants et propres au contexte. L'avis communique divers niveaux d'urgence et différents messages à l'aide de contenu et d'éléments visuels.</p>
 <h2 id="accessibilite-et-lignes-directrices-relatives-au-code">Accessibilité et lignes directrices relatives au code</h2>
-<h3 id="definir-le-type-davis">Définir le type d'avis</h3>
-<p>Utilisez l'attribut <code>type</code> pour classer l'avis dans les catégories <code>info</code> (Information), <code>warning</code> (Avertissement), <code>danger</code> (Danger) ou <code>success</code> (Succès). Ce choix détermine le style visuel de l'avis et communique l'urgence ou l'importance du message au public.</p>
+<h3 id="definir-le-role-de-lavis">Définir le rôle de l'avis</h3>
+<p>Utilisez l'attribut <code>notice-role</code> pour classer l'avis dans les catégories <code>info</code> (Information), <code>warning</code> (Avertissement), <code>danger</code> (Danger) ou <code>success</code> (Succès). Ce choix détermine le style visuel de l'avis et communique l'urgence ou l'importance du message au public.</p>
 <h3 id="precisez-le-titre-et-le-niveau-de-lentete-de-lavis">Précisez le titre et le niveau de l'en-tête de l'avis</h3>
 <ul class="list-disc mb-300"><li>Utilisez l'attribut <code>notice-title</code> pour créer un titre clair et informatif pour l'avis. Veillez à ce que le titre transmette l'objectif du message.</li>
 <li>Utilisez <code>notice-title-tag</code> pour définir <a href="/fr/composants/titre/design/#classez-les-niveaux-de-titre-de-maniere-hierarchique">le bon niveau</a> de titre pour l'avis. La définition du niveau adapté pour le titre n'a pas d'incidence sur la taille de la police, mais elle permet de maintenir la bonne hiérarchie et l'accessibilité pour les technologies d'assistance.</li>

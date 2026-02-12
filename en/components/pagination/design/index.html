@@ -1552,12 +1552,6 @@
       
       
     
-      
-      
-    
-      
-      
-    
   
 
 
@@ -1597,7 +1591,7 @@
 </gcds-header>
 
     <div class="content-wrapper">
-      <gcds-grid columns="minmax(0, 1fr)" columns-desktop="320px minmax(0, 1fr)" tag="div" container="xl" centered class="xl:px-0 sm:px-600 px-225 general-layout">
+      <gcds-grid columns="minmax(0, 1fr)" columns-desktop="320px minmax(0, 1fr)" tag="div" container="xl" alignment="center" class="xl:px-0 sm:px-600 px-225 general-layout">
         
 
 
@@ -2754,28 +2748,29 @@ Pagination component preview
 
   <h2 id="pagination-anatomy">Pagination anatomy</h2>
 <h3 id="simple-pagination-anatomy">Simple pagination anatomy</h3>
-<h4 id="previous-link">Previous link</h4>
 <ol class="anatomy-list">
-  <li>The <strong>previous arrow</strong> is a visual aid to indicate navigating backward, to previous pages in the page flow.</li>
-  <li>The <strong>previous text</strong> is the text that accompanies the previous arrow and indicates that the user would be navigating to the previous page in the flow.</li>
-  <li>The <strong>previous label</strong> indicates the label of the previous page to the user.</li>
+  <li>The <strong>previous link</strong> navigates to the previous page in the flow when selected.</li>
+  <li>The <strong>previous chevron</strong> is a visual aid to indicate navigating backward, to previous pages in the page flow.</li>
+  <li>The <strong>previous text</strong> is the text that accompanies the previous chevron and indicates that the user would be navigating to the previous page in the flow.</li>
+  <li>The <strong>previous label</strong> provides context about the page the user will navigate to next.</li>
+  <li>The <strong>next link</strong> navigates to the next page in the flow when selected.</li>
+  <li>The <strong>next chevron</strong> is a visual aid to signal forward navigation in the flow.</li>
+  <li>The <strong>next text</strong> is the text that accompanies the next chevron and indicates that the user would be navigating to the next page in the flow.</li>
+  <li>The <strong>next label</strong> provides context about the page the user will navigate back to.</li>
 </ol>
-<img class="b-sm b-default p-300" src="/images/en/components/anatomy/gcds-pagination-simple-previous-anatomy.svg" alt="The pagination component with numbers pointing to individual parts of the simple pagination's previous link anatomy." />
-<h4 id="next-link">Next link</h4>
-<ol class="anatomy-list">
-  <li>The <strong>next text</strong> is the text that accompanies the next arrow and indicates that the user would be navigating to the next page in the flow.</li>
-  <li>The <strong>next arrow</strong> is a visual aid indicating that you would be navigating forwards in the page flow.</li>
-  <li>The <strong>next label</strong> indicates the label of the previous page to the user.</li>
-</ol>
-<img class="b-sm b-default p-300" src="/images/en/components/anatomy/gcds-pagination-simple-next-anatomy.svg" alt="The pagination component with numbers pointing to individual parts of the simple pagination's next link anatomy." />
-<h3 id="list-styled-pagination-anatomy">List styled pagination anatomy</h3>
+<img class="b-sm b-default p-300" src="/images/en/components/anatomy/gcds-pagination-simple-anatomy.svg" alt="The pagination component with numbers pointing to individual parts of the simple pagination's anatomy." />
+<h3 id="liststyled-pagination-anatomy">List-styled pagination anatomy</h3>
 <h4 id="large-screens">Large screens</h4>
 <ol class="anatomy-list">
   <li>The <strong>previous link</strong> navigates to the previous page in the flow when selected.</li>
+  <li>The <strong>previous chevron</strong> is a visual aid to indicate navigating backward, to previous pages in the page flow.</li>
+  <li>The <strong>previous text</strong> is the text that accompanies the previous chevron and indicates that the user would be navigating to the previous page in the flow.</li>
   <li>A <strong>page link</strong> navigates to it’s corresponding page in the flow.</li>
   <li>The <strong>current page</strong> indicates the page the user is currently on.</li>
   <li>An <strong>ellipsis</strong> replaces any pages that are being skipped.</li>
   <li>The <strong>next link</strong> navigates to the next page in the flow when selected.</li>
+  <li>The <strong>next text</strong> is the text that accompanies the next chevron and indicates that the user would be navigating to the next page in the flow.</li>
+  <li>The <strong>next chevron</strong> is a visual aid indicating that you would be navigating forwards in the page flow.</li>
 </ol>
 <img class="b-sm b-default p-300" src="/images/en/components/anatomy/gcds-pagination-list-large-anatomy.svg" alt="The pagination component with numbers pointing to individual parts of the large screen list pagination anatomy." />
 <h4 id="small-screens">Small screens</h4>
@@ -2784,34 +2779,34 @@ Pagination component preview
   <li>The <strong>current page</strong> indicates the page the user is currently on.</li>
   <li>An <strong>ellipsis</strong> replaces any pages that are being skipped.</li>
   <li>The <strong>previous link</strong> navigates to the previous page in the flow when selected.</li>
+  <li>The <strong>previous chevron</strong> is a visual aid to indicate navigating backward, to previous pages in the page flow.</li>
+  <li>The <strong>previous text</strong> is the text that accompanies the previous chevron and indicates that the user would be navigating to the previous page in the flow.</li>
+  <li>The <strong>next text</strong> is the text that accompanies the next chevron and indicates that theuser would be navigating to the next page in the flow.</li>
+  <li>The <strong>next chevron</strong> is a visual aid indicating that you would be navigating forwards in the page flow.</li>
   <li>The <strong>next link</strong> navigates to the next page in the flow when selected.</li>
 </ol>
 <img class="b-sm b-default p-300" src="/images/en/components/anatomy/gcds-pagination-list-small-anatomy.svg" alt="The pagination component with numbers pointing to individual parts of the small screen list pagination anatomy." />
-<h4 id="previous-link">Previous link</h4>
-<ol class="anatomy-list">
-  <li>The <strong>previous arrow</strong> is a visual aid to indicate navigating backward, to previous pages in the page flow.</li>
-  <li>The <strong>previous text</strong> is the text that accompanies the previous arrow and indicates that the user would be navigating to the previous page in the flow.</li>
-</ol>
-<img class="b-sm b-default p-300" src="/images/en/components/anatomy/gcds-pagination-list-previous-anatomy.svg" alt="The pagination component with numbers pointing to individual parts of the list pagination's previous link anatomy." />
-<h4 id="next-link">Next link</h4>
-<ol class="anatomy-list">
-  <li>The <strong>next text</strong> is the text that accompanies the next arrow and indicates that the user would be navigating to the next page in the flow.</li>
-  <li>The <strong>next arrow</strong> is a visual aid indicating that you would be navigating forwards in the page flow.</li>
-</ol>
-<img class="b-sm b-default p-300" src="/images/en/components/anatomy/gcds-pagination-list-next-anatomy.svg" alt="The pagination component with numbers pointing to individual parts of the list pagination's next link anatomy." />
 <h2 id="design-and-accessibility-for-pagination">Design and accessibility for pagination</h2>
 <h3 id="make-pagination-content-findable">Make pagination content findable</h3>
 <ul class="list-disc mb-300"><li>Put the most important information on the first few pages so there is a lower chance of it being missed.</li>
-<li>Place the pagination component immediately under the page content you’re displaying, aligned to the left.</li>
-<li>Ensure the navigational links appear as a single row and don't wrap onto the next line.</li>
+<li>Place the pagination component immediately under the page content, aligned to the left.</li>
+<li>Display navigation links in a way that supports visual scanning:<ul class="list-disc mb-300"><li>In a single row without wrapping in list-styled pagination.</li>
+<li>Vertically stacked to support users of screen magnification in simple pagination.</li>
 </ul>
-<h3 id="use-simple-pagination-for-a-small-number-of-pages">Use simple pagination for a small number of pages</h3>
-<p>Simple pagination is most suitable for 2-5 pages.</p>
-<ul class="list-disc mb-300"><li>Use subheadings in simple pagination to let the user know where they are in the flow.</li>
-<li>Include the page number and total number of pages, or the page title in the subheading to give more more context.</li>
+</li>
 </ul>
-<h3 id="use-list-styled-pagination-for-a-large-number-of-pages">Use list styled pagination for a large number of pages</h3>
-<p>Use list styled pagination for large numbers of pages when using the ‘Previous’ and ‘Next’ links would make navigation cumbersome.</p>
+<h3 id="help-people-understand-where-they-are">Help people understand where they are</h3>
+<ul class="list-disc mb-300"><li>In simple pagination, use a label under the “Previous” and “Next” text to let the user know where they are in the flow. Include the page title or the page number and total number of pages to provide context on the adjacent pages.</li>
+<li>Avoid showing the “Previous” link on the first page or the “Next” link on the last page.</li>
+</ul>
+<h3 id="show-the-relevant-number-of-pages">Show the relevant number of pages</h3>
+<p>In list-styled pagination, show enough page links to fill the horizontal space.</p>
+<p>Always show:</p>
+<ul class="list-disc mb-300"><li>The current page</li>
+<li>The first and last pages</li>
+<li>The pages immediately before and after the current page</li>
+</ul>
+<p>On larger screens, show additional pages before and after the current page when space allows.</p>
 
 
   <section data-pagefind-ignore class="my-600 bt-sm b-dark ">

@@ -1549,12 +1549,6 @@
       
       
     
-      
-      
-    
-      
-      
-    
   
 
   
@@ -1597,7 +1591,7 @@
 </gcds-header>
 
     <div class="content-wrapper">
-      <gcds-grid columns="minmax(0, 1fr)" columns-desktop="320px minmax(0, 1fr)" tag="div" container="xl" centered class="xl:px-0 sm:px-600 px-225 general-layout">
+      <gcds-grid columns="minmax(0, 1fr)" columns-desktop="320px minmax(0, 1fr)" tag="div" container="xl" alignment="center" class="xl:px-0 sm:px-600 px-225 general-layout">
         
 
 
@@ -2688,7 +2682,7 @@
   
     <h1 id="pagination-brgcdspagination">Pagination <br><code>&lt;gcds-pagination&gt;</code></h1>
 <p><em>Autres noms : index de pages, navigation de pages.</em></p>
-<p>La pagination est une division du contenu entre plusieurs pages liées.</p>
+<p>La pagination est un composant de navigation qui répartit un contenu sur plusieurs pages liées.</p>
 <p><ul class="d-flex flex-wrap gap-300">
 <li class="github-link">
 <gcds-link external href="https://github.com/cds-snc/gcds-components/tree/main/packages/web/src/components/gcds-pagination">GitHub</gcds-link>
@@ -2764,6 +2758,15 @@ Aperçu du composant de la pagination
 <h2 id="composants-connexes">Composants connexes</h2>
 <p><a href="/fr/composants/indicateur-detape">Indicateur d’étape</a> pour suivre l’avancement dans un processus à plusieurs étapes.</p>
 <p>Liens dans le composant <a href="/fr/composants/bouton">Bouton</a> pour naviguer entre deux pages qui ne se suivent pas ou vers des sites externes.</p>
+<hr/>
+<h2 id="choisissez-un-format-de-pagination">Choisissez un format de pagination</h2>
+<h3 id="simple">Simple</h3>
+<p>Utilisez la pagination simple lorsque le nombre de pages est faible (de 2 à 5 pages).</p>
+<h3 id="liste">Liste</h3>
+<p>Utilisez la pagination sous forme de liste lorsque :</p>
+<ul class="list-disc mb-300"><li>le nombre de pages est élevé;</li>
+<li>les liens « Précédent » et « Suivant » rendraient la navigation lourde ou difficile.</li>
+</ul>
 
 
   <section data-pagefind-ignore class="my-600 bt-sm b-dark ">
