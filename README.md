@@ -4,7 +4,7 @@
 
 # GC Design System Docs
 
-GC Design System Docs is a documentation website for GC Design System. You can find the full documentation on [https://design-system.alpha.canada.ca/](https://design-system.alpha.canada.ca/).
+GC Design System Docs is a documentation website for GC Design System. You can find the full documentation on [https://design-system.canada.ca/](https://design-system.canada.ca/).
 <br/>
 <br/>
 
@@ -78,7 +78,7 @@ Code released under the [MIT License](https://github.com/cds-snc/gcds-docs/blob/
 
 # Documentation de Système de design GC
 
-Docs de Système de design GC est un site Web contenant de la documentation portant sur Système de design GC. Toute la documentation est accessible à [https://systeme-design.alpha.canada.ca/](https://systeme-design.alpha.canada.ca/).
+Docs de Système de design GC est un site Web contenant de la documentation portant sur Système de design GC. Toute la documentation est accessible à [https://systeme-design.canada.ca/](https://systeme-design.canada.ca/).
 
 ## Outils
 

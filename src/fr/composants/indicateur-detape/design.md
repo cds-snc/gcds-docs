@@ -20,7 +20,7 @@ date: 'git Last Modified'
 
 ### Incluez toujours le titre d'étape après l'indicateur d'étape
 
-Le titre d'étape et l'indicateur d'étape constituent un titre. Il s'agit d'un titre H1, H2 ou H3, selon la [hiérarchie des titres](https://systeme-design.alpha.canada.ca/fr/composants/titre/design/#classez-les-niveaux-de-titre-de-maniere-hierarchique) de la page.
+Le titre d'étape et l'indicateur d'étape constituent un titre. Il s'agit d'un titre H1, H2 ou H3, selon la [hiérarchie des titres](https://systeme-design.canada.ca/fr/composants/titre/design/#classez-les-niveaux-de-titre-de-maniere-hierarchique) de la page.
 
 ### Attribuez un objectif à chaque étape de votre séquence
 
