@@ -9,7 +9,6 @@
     "build:sass": "sass src/styles:src/styles",
     "build:eleventy": "eleventy",
     "build": "npm-run-all build:sass --parallel build:*",
-    "postbuild": "npm run search:index",
     "create-component-page": "node scripts/gen-component-page.js",
     "format": "npx prettier --write .",
     "start": "npm-run-all build:sass --parallel watch:*",
