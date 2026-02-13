@@ -29,13 +29,13 @@
     "url": "https://github.com/cds-snc/gcds-docs/issues"
   },
   "dependencies": {
-    "@11ty/eleventy": "^2.0.1",
+    "@11ty/eleventy": "^3.1.2",
     "@11ty/eleventy-navigation": "^0.3.2",
     "@cdssnc/sanitize-pii": "^1.2.0",
     "axios": "^1.12.1",
     "eleventy-plugin-code-clipboard": "^0.2.0",
     "html-entities": "^2.5.2",
-    "markdown-it": "^13.0.0",
+    "markdown-it": "^14.1.1",
     "moment": "^2.29.1",
     "npm-run-all2": "^5.0.0"
   },
