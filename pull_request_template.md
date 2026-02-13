@@ -68,7 +68,7 @@ For complex PRs, in lieu of a simple approval or "LGTM" ✅, include the followi
 ---
 
 **Design checklist (if applicable)**
-
+For designers, include the following with your approval:
 - [ ] I have verified layout, spacing, visual hierarchy, and behaviour.
 - [ ] The changes align with design expectations, component guidance, and the design system.
 - [ ] I have verified accessibility considerations (contrast, focus states, semantics, motion, etc.).
@@ -79,7 +79,7 @@ For complex PRs, in lieu of a simple approval or "LGTM" ✅, include the followi
 ---
 
 **Content checklist (if applicable)**
-
+For content, include the following with your approval:
 - [ ] I understand the context and intent of the content changes.
 - [ ] I have reviewed all content for clarity, readability, tone, and plain language alignment.
 - [ ] I have reviewed English and French content for accuracy, terminology consistency, and parity.
