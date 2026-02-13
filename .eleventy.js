@@ -50,6 +50,10 @@ module.exports = function (eleventyConfig) {
     './node_modules/@cdssnc/sanitize-pii/dist/umd/sanitize-pii.min.js':
       './scripts/sanitize-pii.min.js',
   });
+  eleventyConfig.addPassthroughCopy({
+    './src/.well-known/security.txt': 
+      '.well-known/security.txt' 
+  });
   // Add copy fo a11y testing
   eleventyConfig.addPassthroughCopy('./.pa11yci.json');
 
