@@ -25,7 +25,7 @@ date: 'git Last Modified'
 
 La classe agencement des éléments définit la propriété `place-items`. Il s’agit d’un raccourci pour définir à la fois l'axe transversal et l'axe principal. Elle détermine comment les éléments sont alignés à l'intérieur de leurs zones de grille le long des deux axes dans une boîte de grille.
 
-<gcds-notice type="info" notice-title-tag="h2" notice-title="Aucun effet dans les boîtes d’éléments flexibles.">
+<gcds-notice notice-role="info" notice-title-tag="h2" notice-title="Aucun effet dans les boîtes d’éléments flexibles.">
   <gcds-text>Dans une boîte d’élément flexible, <code>justify-items</code> est ignorée. Ainsi, la classe <code>place-items</code> n'a aucun effet.</gcds-text>
 </gcds-notice>
 

@@ -27,7 +27,7 @@ date: 'git Last Modified'
 
 La classe poids de police définit la propriété `font-weight`. Elle détermine à quel point le texte est en gras.
 
-<gcds-notice type="warning" notice-title-tag="h2" notice-title="Utiliser avec prudence">
+<gcds-notice notice-role="warning" notice-title-tag="h2" notice-title="Utiliser avec prudence">
   <gcds-text><gcds-link href="{{ links.typographyFontWeight }}">Consulter les directives typographiques de Système de design GC</gcds-link> pour choisir le bon poids de police pour votre contexte.</gcds-text>
 </gcds-notice>
 

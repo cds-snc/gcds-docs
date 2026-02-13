@@ -21,7 +21,7 @@ date: 'git Last Modified'
 
 La classe style de police définit la propriété `font-style`. Elle ajoute ou supprime le style italique du texte.
 
-<gcds-notice type="warning" notice-title-tag="h2" notice-title="Utiliser avec prudence">
+<gcds-notice notice-role="warning" notice-title-tag="h2" notice-title="Utiliser avec prudence">
   <gcds-text><gcds-link href="{{ links.typographyFontStyles }}">Consulter les directives typographiques de Système de design GC</gcds-link> pour choisir le style de police pour votre contexte.</gcds-text>
 </gcds-notice>
 

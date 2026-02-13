@@ -36,3 +36,10 @@ date: 'git Last Modified'
 
 - Essayez de poser des questions aux utilisateur·rice·s avant d'utiliser la sélection afin de réduire le nombre d'options.
 - Si une liste d'éléments contient moins d'options (6-7 éléments ou moins), envisagez plutôt l'utilisation de <gcds-link href="{{ links.radio }}">boutons radio</gcds-link>.
+
+### Masquez l’étiquette seulement lorsque le but est clair
+- Masquez visuellement l’étiquette seulement lorsque le but de la sélection est clairement communiqué par le contexte, rendant l’étiquette visuellement redondante, comme dans les cas suivants&nbsp;:
+  - tableaux ou autres mises en page où l’espace est limité;
+  - paramètres et configurations.
+- Fournissez toujours une étiquette pour soutenir les technologies d’assistance.
+- N’ajoutez pas de texte explicatif si vous masquez l’étiquette, puisque celui-ci manque alors de contexte et peut distraire ou prêter à confusion.

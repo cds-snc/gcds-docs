@@ -9,7 +9,7 @@ date: 'git Last Modified'
 
 # GC Design System
 
-Build modern, accessible, human government services people can use.
+An official, production-ready design system for the Government of Canada. Build modern, accessible, human government services people can use.
 
 <gcds-button type="link" href="{{ links.startToUse }}">
   Start to use
@@ -23,7 +23,7 @@ Build modern, accessible, human government services people can use.
 
 ## Choose GC Design System
 
-GC Design System is the source for public servants delivering Government of Canada websites and products. Build  faster without compromising brand identity, accessibility, or bilingualism. 
+GC Design System helps public servants deliver Government of Canada websites and products. Build faster without compromising brand identity, accessibility, or bilingualism. Find production-ready code, design assets, and documentation in one place. 
 
 ### Learn more
 
@@ -99,8 +99,9 @@ Browse the latest code additions and features in the <gcds-link href="{{ links.r
 
 **Recent releases**:
 
-- New feature: <gcds-link href="{{ links.shortcuts }}">CSS shortcuts</gcds-link>
-- Update: Styling and guidance for <gcds-link href="{{ links.sideNav }}">Side nav</gcds-link>
+- New: Stable v1.0.0 packages for <gcds-link href="{{ links.github }}" external>components</gcds-link> and <gcds-link href="{{ links.githubTokens }}" external>design tokens</gcds-link>
+- Update: Expanded colour scale with new and updated <gcds-link href="{{ links.colour }}">base tokens</gcds-link>
+- New: Dedicated <gcds-link href="{{ links.figmaTokens }}" external>Figma library for design tokens</gcds-link>
 
 </section>
 

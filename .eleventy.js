@@ -40,7 +40,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy('./src/favicon.ico');
   eleventyConfig.addPassthroughCopy({ './src/variables/': 'variables' });
   eleventyConfig.addPassthroughCopy({
-    './node_modules/@cdssnc/gcds-components/': 'components',
+    './node_modules/@gcds-core/components/': 'components',
   });
   eleventyConfig.addPassthroughCopy({
     './node_modules/@gcds-core/css-shortcuts/dist/gcds-css-shortcuts.min.css':
@@ -155,6 +155,17 @@ module.exports = function (eleventyConfig) {
     return bottom;
   });
 
+  /*
+   * Reformat single colour token into expected format for token_table partial
+   */
+  eleventyConfig.addFilter('reformatColourToken', function (obj) {
+    if (!obj || typeof obj !== 'object') return {};
+
+    return {
+      '': obj,
+    };
+  });
+
   eleventyConfig.addFilter('colourFromValue', function (value, tokens) {
     let colourName = '';
     Object.keys(tokens).forEach(colour => {
@@ -163,7 +174,12 @@ module.exports = function (eleventyConfig) {
           colourName = `${colour}-${weightValue}`;
         }
       });
+
+      if (tokens[colour]['value'] && tokens[colour]['value'] === value) {
+        colourName = `${colour.replace(/-([a-z])/g, (_, char) => char.toUpperCase())}-`;
+      }
     });
+
     return colourName;
   });
 
@@ -319,7 +335,7 @@ module.exports = function (eleventyConfig) {
   // Add shortcode for CDN info
   eleventyConfig.addGlobalData('latestCdnVersion', async () => {
     return await getLatestCdnVersion(
-      'https://registry.npmjs.org/@cdssnc/gcds-components',
+      'https://registry.npmjs.org/@gcds-core/components',
     );
   });
   eleventyConfig.addGlobalData('latestShortcutsCdnVersion', async () => {
@@ -634,13 +650,6 @@ module.exports = function (eleventyConfig) {
     if (runMode === 'build') {
       await downloadTemplates();
     }
-  });
-
-  eleventyConfig.on('eleventy.after', () => {
-    execSync(
-      `npx pagefind --site _site --exclude-selectors "gcds-side-nav, gcds-top-nav, gcds-breadcrumbs, .github-link, .figma-link, h1 > code, .component-preview" --glob \"**/*.html\"`,
-      { encoding: 'utf-8' },
-    );
   });
 
   return {

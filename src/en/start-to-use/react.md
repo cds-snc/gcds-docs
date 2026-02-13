@@ -34,7 +34,7 @@ Follow these steps to install and use GC Design System components in your React 
 Navigate to your project’s root folder and run the following command:
 
 ```js
-npm install @cdssnc/gcds-components @cdssnc/gcds-components-react
+npm install @gcds-core/components @gcds-core/components-react
 ```
 
 ### 2. Import GC Design System
@@ -42,7 +42,7 @@ npm install @cdssnc/gcds-components @cdssnc/gcds-components-react
 Place the following code in the `index.js` file of your app to import GC Design System styles:
 
 ```js
-import '@cdssnc/gcds-components-react/gcds.css';
+import '@gcds-core/components-react/gcds.css';
 ```
 
 {% addCssShortcuts 'en', '3' %}{% endaddCssShortcuts %}

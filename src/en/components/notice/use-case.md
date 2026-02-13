@@ -35,13 +35,13 @@ Banner for a message that applies to part of or the entire site or product.
 
 <hr class="mt-600"/>
 
-## Notice types
+## Notice roles
 
-Set the notice type based on the message context and corresponding visual appearance.
+Set the notice roles based on the message context and corresponding visual appearance.
 
 ### Information
 
-Use the information type to:
+Use the information role to:
 
 - Provide supplementary information to enhance the reader’s understanding of the surrounding content.
 - To offer tips or additional context that’s helpful in completing the main tasks on the page.
@@ -50,14 +50,14 @@ Use the information type to:
 <gcds-notice
   notice-title="Current status of the call for applications: Closed"
   notice-title-tag="h4"
-  type="info"
+  notice-role="info"
 >
   <gcds-text margin-bottom="0">Thank you for your interest in Canada Summer Jobs. Applications are now closed.</gcds-text>
 </gcds-notice>
 
 ### Success
 
-Use the success notice type to:
+Use the success notice role to:
 
 - Communicate the successful completion of a task.
 - Reinforce positive outcomes or confirmations within the content.
@@ -65,14 +65,14 @@ Use the success notice type to:
 <gcds-notice
   notice-title="Your request for publicly available data from the list of charities has been successful"
   notice-title-tag="h4"
-  type="success"
+  notice-role="success"
 >
   <gcds-text margin-bottom="0">Processing your request may take up to four (4) weeks. We’ll contact you if we need more information.</gcds-text>
 </gcds-notice>
 
 ### Warning
 
-Use the warning notice type to:
+Use the warning notice role to:
 
 - Caution people about issues or considerations when there’s no immediate need for action.
 - Inform people about changes, alterations to services, or other impactful but non-critical updates.
@@ -81,14 +81,14 @@ Use the warning notice type to:
 <gcds-notice
   notice-title="Changes to impaired driving and cannabis-related crime laws"
   notice-title-tag="h4"
-  type="warning"
+  notice-role="warning"
 >
   <gcds-text margin-bottom="0">New penalties for impaired driving and cannabis-related crimes may affect your immigration status in Canada. If you commit one of these crimes, you may not be able to come to or stay in Canada.</gcds-text>
 </gcds-notice>
 
 ### Danger
 
-Use the danger notice type to:
+Use the danger notice role to:
 
 - Highlight content that people must be aware of due to its severity and that could have major negative impacts if ignored.
 - Emphasize an issue or news that has serious implications to health and safety, security, and laws. Include a link to the most current information.
@@ -97,7 +97,7 @@ Use the danger notice type to:
 <gcds-notice
   notice-title="If pregnant or considering pregnancy - Notice regarding both partners"
   notice-title-tag="h4"
-  type="danger"
+  notice-role="danger"
 >
   <gcds-text margin-bottom="0">Avoid travel to Costa Rica if you are pregnant or planning to conceive a child in the next 3 months.</gcds-text>
 </gcds-notice>

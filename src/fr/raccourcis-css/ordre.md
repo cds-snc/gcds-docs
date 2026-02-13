@@ -47,7 +47,7 @@ date: 'git Last Modified'
 
 La classe ordre définit la propriété `order`. Elle détermine l'ordre visuel des éléments dans une boîte d’élément flexible. Par défaut, les éléments flexibles suivent l'ordre dans lequel ils apparaissent dans le HTML. La propriété `order` peut changer leur position sans modifier la structure HTML.
 
-<gcds-notice type="warning" notice-title-tag="h2" notice-title="Utiliser avec prudence">
+<gcds-notice notice-role="warning" notice-title-tag="h2" notice-title="Utiliser avec prudence">
   <gcds-text>L'utilisation de la propriété <code>order</code> modifie l'ordre visuel des éléments flexibles sans modifier leur ordre dans le HTML. Si les ordres visuels et de lecture ne correspondent pas, cela peut causer de la confusion pour les personnes qui utilisent la navigation au clavier ou les lecteurs d'écran. Testez avec des technologies d'assistance pour garantir que l'information est claire et accessible.</gcds-text>
 </gcds-notice>
 

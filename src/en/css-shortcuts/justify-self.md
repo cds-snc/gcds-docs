@@ -27,7 +27,7 @@ date: 'git Last Modified'
 
 The justify self class sets the `justify-self` property. It controls how an individual grid item is aligned along the inline (row) axis within its grid area, allowing it to override the container’s `justify-items` setting for that specific item.
 
-<gcds-notice type="info" notice-title-tag="h2" notice-title="No effect in flexbox">
+<gcds-notice notice-role="info" notice-title-tag="h2" notice-title="No effect in flexbox">
   <gcds-text>In flexbox, <code>justify-self</code> is ignored, so it has no effect.</gcds-text>
 </gcds-notice>
 

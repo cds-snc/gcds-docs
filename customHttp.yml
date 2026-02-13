@@ -19,9 +19,9 @@ customHeaders:
         value: >-
           report-uri https://csp-report-to.security.cdssandbox.xyz/report;
           default-src 'self' https://kit.fontawesome.com/ https://cdn.jsdelivr.net/npm/;
-          font-src 'self' fonts.gstatic.com https://unpkg.com/font-awesome@4.7.0/ https://cdnjs.cloudflare.com/ajax/libs/font-awesome/ https://cdn.design-system.alpha.canada.ca/@cdssnc/ https://cdn.design-system.alpha.canada.ca/@gcds-core/;
-          script-src 'self' 'wasm-unsafe-eval' https://cdn.design-system.alpha.canada.ca www.googletagmanager.com www.google-analytics.com https://cdnjs.cloudflare.com/ajax/libs/font-awesome/ https://cdn.jsdelivr.net/npm/ 'unsafe-inline';
-          frame-src www.googletagmanager.com www.google-analytics.com https://cds-snc.github.io/ https://design-system.alpha.canada.ca/ https://systeme-design.alpha.canada.ca/;
+          font-src 'self' fonts.gstatic.com https://unpkg.com/font-awesome@4.7.0/ https://cdnjs.cloudflare.com/ajax/libs/font-awesome/ https://cdn.design-system.alpha.canada.ca/@cdssnc/ https://cdn.design-system.alpha.canada.ca/@gcds-core/ https://cdn.design-system.canada.ca/@gcds-core/;
+          script-src 'self' 'wasm-unsafe-eval' https://cdn.design-system.canada.ca https://cdn.design-system.alpha.canada.ca www.googletagmanager.com www.google-analytics.com https://cdnjs.cloudflare.com/ajax/libs/font-awesome/ https://cdn.jsdelivr.net/npm/ 'unsafe-inline';
+          frame-src www.googletagmanager.com www.google-analytics.com https://cds-snc.github.io/ https://design-system.canada.ca/ https://systeme-design.canada.ca/ https://design-system.alpha.canada.ca/ https://systeme-design.alpha.canada.ca/;
           connect-src 'self' www.googletagmanager.com www.google-analytics.com www.canada.ca https://registry.npmjs.org;
           img-src 'self' data: https: www.w3.org;
           style-src 'unsafe-inline' https: 'strict-dynamic' 'self' https://fonts.googleapis.com;

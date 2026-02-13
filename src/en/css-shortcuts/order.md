@@ -47,7 +47,7 @@ date: 'git Last Modified'
 
 The order class sets the `order` property. It controls the visual order of items within a flex container. By default, flex items follow the order in which they appear in the HTML. The `order` property can change their position without modifying the HTML structure.
 
-<gcds-notice type="warning" notice-title-tag="h2" notice-title="Use with caution">
+<gcds-notice notice-role="warning" notice-title-tag="h2" notice-title="Use with caution">
   <gcds-text>Using the <code>order</code> property changes the visual order of flex items without altering their order in the HTML. If the visual and reading orders don’t match, it can cause confusion for people who use keyboard navigation or screenreaders. Test with assistive technologies to ensure information is clear and accessible.</gcds-text>
 </gcds-notice>
 
