@@ -35,7 +35,7 @@
     "axios": "^1.12.1",
     "eleventy-plugin-code-clipboard": "^0.2.0",
     "html-entities": "^2.5.2",
-    "markdown-it": "^13.0.0",
+    "markdown-it": "^14.0.0",
     "moment": "^2.29.1",
     "npm-run-all2": "^5.0.0"
   },
