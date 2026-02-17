@@ -1,5 +1,5 @@
 ---
-title: Textarea
+title: Text area
 layout: 'layouts/component-documentation.njk'
 translationKey: 'textareaDesign'
 tags: ['textareaEN', 'design']
@@ -27,6 +27,7 @@ date: 'git Last Modified'
 - Explain any term that may not be clear. For example, "Bio (tell us a bit about your background).
 
 ### Hide the label only when the purpose is clear
+
 - Visually hide the label only when the purpose of the text area is clearly communicated by surrounding context, making the label visually redundant, such as in:
   - chat or messaging interfaces
   - search components
@@ -35,6 +36,7 @@ date: 'git Last Modified'
 - Omit hint text if you hide the label, as it can lack context and be distracting or confusing.
 
 ### Limit the use of placeholder text
+
 - In forms, avoid using placeholder text to replace a label or to convey instructions or information a person needs to remember, as it can create accessibility issues.
 - Outside of forms, use placeholder text only to reinforce a purpose that is already clear from visible context (for example, in search or conversational interfaces).
 

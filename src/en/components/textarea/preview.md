@@ -1,5 +1,5 @@
 ---
-title: Textarea component preview
+title: Text area component preview
 layout: 'layouts/component-preview.njk'
 tags: ['textareaEN', 'preview']
 eleventyExcludeFromCollections: true
