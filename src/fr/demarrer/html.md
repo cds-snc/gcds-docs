@@ -121,11 +121,11 @@ Version actuelle : Version <code><span id='cdn-latest-version'></span></code>, p
 <!-- Système de design GC -->
 <link
   rel="stylesheet"
-  href="https://cdn.design-system.alpha.canada.ca/@gcds-core/components@||version||/dist/gcds/gcds.css"
+  href="https://cdn.design-system.canada.ca/@gcds-core/components@||version||/dist/gcds/gcds.css"
 />
 <script
   type="module"
-  src="https://cdn.design-system.alpha.canada.ca/@gcds-core/components@||version||/dist/gcds/gcds.esm.js"
+  src="https://cdn.design-system.canada.ca/@gcds-core/components@||version||/dist/gcds/gcds.esm.js"
 ></script>
 ```
 
@@ -164,7 +164,7 @@ Ajoutez la balise `link` suivante à l’intérieur de la balise `head` de vos f
 <!-- Raccourcis CSS de Système de design GC -->
 <link
   rel="stylesheet"
-  href="https://cdn.design-system.alpha.canada.ca/@gcds-core/css-shortcuts@{{ installation.cssshortcutsversion }}/dist/gcds-css-shortcuts.min.css"
+  href="https://cdn.design-system.canada.ca/@gcds-core/css-shortcuts@{{ installation.cssshortcutsversion }}/dist/gcds-css-shortcuts.min.css"
 />
 ```
 
