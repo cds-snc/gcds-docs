@@ -58,13 +58,13 @@ Voici ce sur quoi nous nous concentrerons chaque trimestre.
 | Livrable | État |
 |-------------|--------|
 | Lancement de la v1 des Raccourcis CSS | ✅ Terminé |
-| Améliorations en matière de sécurité | 🔄 En cours |
+| Améliorations en matière de sécurité | ✅ Terminé |
 
 #### Recherche
 | Activité | État |
 |----------|--------|
 | Analyse post-production | ✅ Terminé |
-| Recherche sur le composant Tableau de données | Dépriorisé |
+| Recherche sur le composant Tableau de données | 🔄 En cours  |
 | Tests d’accessibilité généralisés avec Fable | ✅ Terminé |
 | Analyse des tickets de soutien | ✅ Terminé |
 
@@ -84,27 +84,25 @@ Voici ce sur quoi nous nous concentrerons chaque trimestre.
 #### Produit
 | Livrable | État |
 |-------------|--------|
-| Sortie d’alpha: mise en production | 🔄 En cours |
-| Lancement du composant Tableau de données | Dépriorisé |
+| Sortie d’alpha: mise en production | ✅ Terminé |
 | Applications de démarrage supplémentaires pour React et Angular | 📅 Prévu |
-| Explorer le plugiciel d’accessibilité Sa11y | 📅 Prévu |
+| Explorer le plugiciel d’accessibilité Sa11y | 🔽 Dépriorisé |
 
 #### Recherche
 | Activité | État |
 |----------|--------|
-| Besoins en matière de flexibilité et de personnalisation | Dépriorisé |
-| Composant Tableau de données : utilisabilité et accessibilité | Dépriorisé |
+| Besoins en matière de flexibilité et de personnalisation | 🔽 Dépriorisé |
 | Utilisabilité des Raccourcis CSS | ✅ Terminé |
-| Analyse des tickets de soutien | 📅 Prévu |
-| Tests d’accessibilité généralisés avec Fable | 📅 Prévu |
+| Analyse des tickets de soutien | ✅ Terminé |
+| Tests d’accessibilité généralisés avec Fable | ✅ Terminé |
 
 #### Mobilisation et collaboration
 | Activité | État |
 |----------|--------|
-| Démos en anglais et français | 📅 Prévu |
-| Forum de Système de design GC | 📅 Prévu |
-| Infolettre et articles de blogue | 📅 Prévu |
-| Collaboration avec Pêches et Océans Canada et Bibliothèque et Archives Canada sur l’application de démarrage .NET | 📅 Prévu |
+| Démos en anglais et français | ✅ Terminé |
+| Forum de Système de design GC | ✅ Terminé |
+| Infolettre et articles de blogue | ✅ Terminé |
+| Collaboration avec Pêches et Océans Canada et Bibliothèque et Archives Canada sur l’application de démarrage .NET | 🔄 En cours |
 
 </gcds-details>
 
@@ -113,9 +111,9 @@ Voici ce sur quoi nous nous concentrerons chaque trimestre.
 #### Produit
 | Livrable | État |
 |-------------|--------|
-| Publication du composant Tableau de données | 📅 Prévu |
-| Composant ou modèle supplémentaire: Saisie semi-automatique ou Modal (contribution de Pêches et Océans Canada) | 📅 Prévu |
-| Résoudre les obstacles à l’adoption prioritaires | 📅 Prévu |
+| Publication du composant Tableau de données | 🔄 En cours |
+| Composant ou modèle supplémentaire: Saisie semi-automatique ou Modal (contribution de Pêches et Océans Canada) | 🔽 Dépriorisé |
+| Résoudre les obstacles à l’adoption prioritaires | 🔄 En cours |
 
 #### Recherche
 | Activité | État |
@@ -123,7 +121,7 @@ Voici ce sur quoi nous nous concentrerons chaque trimestre.
 | Présentation du raisonnement design et accessibilité | 📅 Prévu |
 | Besoins en matière de flexibilité et de personnalisation | 📅 Prévu |
 | Validation du processus d’intégration | 📅 Prévu |
-| Composant Tableau de données : utilisabilité et accessibilité | 📅 Prévu |
+| Composant Tableau de données : utilisabilité et accessibilité | 🔄 En cours |
 | Analyse des tickets de soutien | 📅 Prévu |
 
 #### Mobilisation et collaboration
