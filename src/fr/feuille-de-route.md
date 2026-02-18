@@ -58,7 +58,7 @@ Voici ce sur quoi nous nous concentrerons chaque trimestre.
 | Livrable | État |
 |-------------|--------|
 | Lancement de la v1 des Raccourcis CSS | ✅ Terminé |
-| Améliorations en matière de sécurité | 🔄 En cours |
+| Améliorations en matière de sécurité | ✅ Terminé |
 
 #### Recherche
 | Activité | État |
