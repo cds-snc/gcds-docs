@@ -64,7 +64,7 @@ Here's what we'll be focusing on in each quarter.
 | Activity | Status |
 |----------|--------|
 | Post launch analysis | ✅ Completed |
-| Data table component research | Deprioritized |
+| Data table component research | 🔽 Deprioritized |
 | General accessibility testing with Fable | ✅ Completed |
 | Support ticket analysis | ✅ Completed |
 
@@ -84,27 +84,26 @@ Here's what we'll be focusing on in each quarter.
 #### Product
 | Deliverable | Status |
 |-------------|--------|
-| Exit alpha: go live | 🔄 In progress |
-| Release Data table component | Deprioritized |
+| Exit alpha: go live | ✅ Completed  |
 | Additional starter apps for React, Angular | 📅 Planned |
-| Explore [Sa11y](https://sa11y.netlify.app/) accessibility plugin | 📅 Planned |
+| Explore [Sa11y](https://sa11y.netlify.app/) accessibility plugin | 🔽 Deprioritized |
 
 #### Research
 | Activity | Status |
 |----------|--------|
-| Flexibility and customization needs | Deprioritized |
+| Flexibility and customization needs | 🔽 Deprioritized |
 | Data table component usability and accessibility | Deprioritized |
 | CSS Shortcuts usability | ✅ Completed |
-| Support ticket analysis | 📅 Planned |
-| General accessibility testing with Fable | 📅 Planned |
+| Support ticket analysis | ✅ Completed |
+| General accessibility testing with Fable | ✅ Completed  |
 
 #### Engagement & Collaboration
 | Activity | Status |
 |----------|--------|
-| English and French demos | 📅 Planned |
-| GC Design System Forum | 📅 Planned |
-| Newsletter and blog posts | 📅 Planned |
-| Collaboration with Department of Fisheries and Oceans and Library and Archives Canada on .NET starter app | 📅 Planned |
+| English and French demos | ✅ Completed  |
+| GC Design System Forum | ✅ Completed |
+| Newsletter and blog posts | ✅ Completed  |
+| Collaboration with Department of Fisheries and Oceans and Library and Archives Canada on .NET starter app | 🔄 In progress |
 
 </gcds-details>
 
@@ -113,9 +112,9 @@ Here's what we'll be focusing on in each quarter.
 #### Product
 | Deliverable | Status |
 |-------------|--------|
-| Release Data table component | 📅 Planned |
+| Release Data table component | 🔄 In progress |
 | Additional component or pattern: Autocomplete or Modal (Department of Fisheries and Oceans contribution) | 📅 Planned |
-| Resolve priority blockers to adoption | 📅 Planned |
+| Resolve priority blockers to adoption | 🔄 In progress |
 
 #### Research
 | Activity | Status |
@@ -123,7 +122,7 @@ Here's what we'll be focusing on in each quarter.
 | Design and a11y rationale | 📅 Planned |
 | Flexibility and customization needs | 📅 Planned |
 | Onboarding validation | 📅 Planned |
-| Data table component usability and accessibility | 📅 Planned |
+| Data table component usability and accessibility | 🔄 In progress |
 | Support ticket analysis | 📅 Planned |
 
 #### Engagement and collaboration
