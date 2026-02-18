@@ -58,13 +58,13 @@ Here's what we'll be focusing on in each quarter.
 | Deliverable | Status |
 |-------------|--------|
 | Launch CSS Shortcuts v1 | ✅ Completed |
-| Security enhancements | 🔄 In progress |
+| Security enhancements | ✅ Completed |
 
 #### Research
 | Activity | Status |
 |----------|--------|
 | Post launch analysis | ✅ Completed |
-| Data table component research | 🔽 Deprioritized |
+| Data table component research | 🔄 In progress |
 | General accessibility testing with Fable | ✅ Completed |
 | Support ticket analysis | ✅ Completed |
 
@@ -92,7 +92,6 @@ Here's what we'll be focusing on in each quarter.
 | Activity | Status |
 |----------|--------|
 | Flexibility and customization needs | 🔽 Deprioritized |
-| Data table component usability and accessibility | Deprioritized |
 | CSS Shortcuts usability | ✅ Completed |
 | Support ticket analysis | ✅ Completed |
 | General accessibility testing with Fable | ✅ Completed  |
@@ -113,7 +112,7 @@ Here's what we'll be focusing on in each quarter.
 | Deliverable | Status |
 |-------------|--------|
 | Release Data table component | 🔄 In progress |
-| Additional component or pattern: Autocomplete or Modal (Department of Fisheries and Oceans contribution) | 📅 Planned |
+| Additional component or pattern: Autocomplete or Modal (Department of Fisheries and Oceans contribution) | 🔽 Deprioritized |
 | Resolve priority blockers to adoption | 🔄 In progress |
 
 #### Research
