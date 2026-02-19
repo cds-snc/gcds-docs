@@ -21,10 +21,10 @@ Take a look at what problems fieldsets solve to see if they fit the problem youâ
 
 ## Problems fieldsets solve
 
-Logically grouping form elements or components helps support understanding and usability. Use a fieldset to group form components when they relate to the same topic. 
+Logically grouping form elements or components helps support understanding and usability. Use a fieldset to group form components when they relate to the same topic.
 
 <hr/>
 
 ## Related components
 
-<a href="{{ links.input }}">Inputs</a> or <a href="{{ links.textarea }}">text areas</a> when you are requesting a written response from a person.
+<a href="{{ links.input }}">Inputs</a> or <a href="{{ links.textarea }}">textareas</a> when you are requesting a written response from a person.

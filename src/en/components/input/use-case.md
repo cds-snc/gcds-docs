@@ -35,7 +35,7 @@ Note: Only collect information you're authorized to handle and be sure to safegu
 
 ## Related components
 
-<a href="{{ links.textarea }}">Text areas</a> for multi-line freeform responses.
+<a href="{{ links.textarea }}">Textareas</a> for multi-line freeform responses.
 
 Date selectors when you want someone to choose a not-yet-known date, like for appointment scheduling.
 
@@ -49,6 +49,7 @@ The input `type` attribute accepts the following options:
 ### Text input
 
 Use when no other specfic input type is available for single-line entry.
+
 - To collect a person's name, in most cases by full name.
 - Instead of the number input, for things like:
   - Estimates that can have non-numerical values.

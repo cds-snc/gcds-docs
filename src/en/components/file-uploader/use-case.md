@@ -28,6 +28,6 @@ Use the file uploader to:
 
 ## Related components
 
-<a href="{{ links.textarea }}">Text areas</a> for multi-line freeform responses.
+<a href="{{ links.textarea }}">Textareas</a> for multi-line freeform responses.
 
 <a href="{{ links.button }}">Buttons</a> when you want to take a person to another page to access additional content or move to the next step in a task.

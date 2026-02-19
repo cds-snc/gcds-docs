@@ -6,11 +6,11 @@ permalink: false
 tags: ['textareaEN', 'header']
 ---
 
-# Text area <br>`<gcds-textarea>`
+# Textarea <br>`<gcds-textarea>`
 
 _Also called: text box._
 
-A text area is a space to enter long-form information in response to a question or instruction.
+A textarea is a space to enter long-form information in response to a question or instruction.
 
 {% docLinks locale stage figma github %}
 {% enddocLinks %}

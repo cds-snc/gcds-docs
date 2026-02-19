@@ -6,28 +6,29 @@ tags: ['textareaEN', 'design']
 date: 'git Last Modified'
 ---
 
-## Text area anatomy
+## Textarea anatomy
 
 <ol class="anatomy-list">
-  <li>The <strong>text area label</strong> states the information a person should enter in the field. Label text is left aligned and in sentence case (only the initial letter is capitalized).</li>
-  <li>The <strong>hint text</strong> communicates specific requirements for each text area to support task success.</li>
+  <li>The <strong>textarea label</strong> states the information a person should enter in the field. Label text is left aligned and in sentence case (only the initial letter is capitalized).</li>
+  <li>The <strong>hint text</strong> communicates specific requirements for each textarea to support task success.</li>
   <li>The <strong>field</strong> is the container a person interacts with to provide their response.</li>
 </ol>
 
-<img class="b-sm b-default p-300" src="/images/en/components/anatomy/gcds-textarea-anatomy.svg" alt="Text area anatomy showing the Text area label, Hint text/ example message and dark blue outline white box for text input."/>
+<img class="b-sm b-default p-300" src="/images/en/components/anatomy/gcds-textarea-anatomy.svg" alt="Textarea anatomy showing the Textarea label, Hint text/ example message and dark blue outline white box for text input."/>
 
-## Design and accessibility for text areas
+## Design and accessibility for textareas
 
-### Write a short, specific, unique text area label
+### Write a short, specific, unique textarea label
 
 - Ask only for the information you need using as few words as possible. Phrasing as a question can make a label unnecessarily long.
-- Choose unique labels for each text area and [input]({{ links.input }}) within a page. A person browsing fields will hear the label text in rapid succession without cues to tell which label is for which context.
+- Choose unique labels for each textarea and [input]({{ links.input }}) within a page. A person browsing fields will hear the label text in rapid succession without cues to tell which label is for which context.
 - Avoid using technical jargon, like "subject email address" or "account ID". Instead be specific and personal, "full name", "child’s age".
 - Avoid using colloquialisms and common verb phrases that are unfamiliar to non-fluent speakers.
 - Explain any term that may not be clear. For example, "Bio (tell us a bit about your background).
 
 ### Hide the label only when the purpose is clear
-- Visually hide the label only when the purpose of the text area is clearly communicated by surrounding context, making the label visually redundant, such as in:
+
+- Visually hide the label only when the purpose of the textarea is clearly communicated by surrounding context, making the label visually redundant, such as in:
   - chat or messaging interfaces
   - search components
   - tables or other space-constrained layouts
@@ -35,15 +36,16 @@ date: 'git Last Modified'
 - Omit hint text if you hide the label, as it can lack context and be distracting or confusing.
 
 ### Limit the use of placeholder text
+
 - In forms, avoid using placeholder text to replace a label or to convey instructions or information a person needs to remember, as it can create accessibility issues.
 - Outside of forms, use placeholder text only to reinforce a purpose that is already clear from visible context (for example, in search or conversational interfaces).
 
-### Support task success for text areas with hint text
+### Support task success for textareas with hint text
 
-- Add hint text to help a person filling in a text area to provide a complete value.
+- Add hint text to help a person filling in a textarea to provide a complete value.
 - Write hint text to be instructional, brief, and specific.
 
-### Write error messages for required text areas
+### Write error messages for required textareas
 
 - Use [error messages]({{ links.errorMessage }}) to address missing and invalid entries.
 - Write an error message for all required inputs. If a field is optional, avoid using an error message.
