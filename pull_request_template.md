@@ -21,10 +21,10 @@ _TODO: Replace the instructions below as needed. Describe any steps required to 
 ### Preview links
 
 **English**
-- [English preview](add-link)
+- [English preview](https://pr-X.djtlis5vpn8jd.amplifyapp.com/)
 
 **French**
-- [French preview](add-link)
+- [French preview](https://pr-X.d35vdwuoev573o.amplifyapp.com/)
 
 
 ## ✍️ Author checklist | Liste de vérification de l'auteur
