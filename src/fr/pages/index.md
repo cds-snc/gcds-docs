@@ -10,7 +10,7 @@ date: 'git Last Modified'
 
 Un système de design officiel et prêt pour la production destiné au gouvernement du Canada. Créez des services gouvernementaux modernes, accessibles et humains.
 
-<gcds-button type="link" href="{{ links.startToUse }}" onclick="if(typeof gtag !== 'undefined') gtag('event', 'click', {'event_category': 'home_page', 'event_label': 'start_to_use'})">
+<gcds-button type="link" href="{{ links.startToUse }}">
   Démarrer
 </gcds-button>
 
