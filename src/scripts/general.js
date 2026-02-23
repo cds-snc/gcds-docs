@@ -23,11 +23,11 @@ window.addEventListener('load', function () {
 
 document.addEventListener('click', function (e) {
   // Find the closest clickable element (button, a, gcds-button, gcds-link)
-  let el = e.target.closest('button, a, gcds-button, gcds-link');
+  const el = e.target.closest('button, a, gcds-button, gcds-link');
   if (!el) return;
 
   // Only track left-clicks or keyboard activations
-  if (e.type === 'click' && e.button !== 0) return;
+  if (e.button !== 0) return;
 
   // Get label and url
   const label = el.textContent ? el.textContent.trim() : '';
