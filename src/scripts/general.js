@@ -31,16 +31,27 @@ document.addEventListener('click', function (e) {
 
   // Get label and url
   const label = el.textContent ? el.textContent.trim() : '';
-  const url =
+  const rawUrl =
     el.getAttribute('href') ||
     el.getAttribute('data-href') ||
     window.location.href;
+
+  let safeUrl = window.location.pathname;
+  try {
+    const parsed = new URL(rawUrl, window.location.origin);
+    // Only allow http(s) URLs and strip query/hash to avoid leaking PII
+    if (parsed.protocol === 'http:' || parsed.protocol === 'https:') {
+      safeUrl = parsed.pathname;
+    }
+  } catch (err) {
+    // If URL parsing fails, keep the fallback safeUrl (current pathname)
+  }
 
   if (typeof gtag !== 'undefined') {
     gtag('event', 'click', {
       event_category: 'gcds_click',
       event_label: label,
-      event_url: url,
+      event_url: safeUrl,
     });
   }
 });
