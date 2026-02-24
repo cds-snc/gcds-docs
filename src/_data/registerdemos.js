@@ -133,5 +133,47 @@ module.exports = [
     endtime: '15:00',
     lang: 'fr',
     link: 'https://events.teams.microsoft.com/event/74264437-4e00-4028-806d-88b14840fbe6@9ed55846-8a81-4246-acd8-b1a01abfc0d1',
+  },
+  {
+    date: '2026-06-09',
+    starttime: '14:00',
+    endtime: '15:00',
+    lang: 'en',
+    link: 'https://events.teams.microsoft.com/event/efeeb9d5-f47d-4f15-bcea-a57e0f2f7bdf@9ed55846-8a81-4246-acd8-b1a01abfc0d1',
+  },
+  {
+    date: '2026-06-18',
+    starttime: '14:00',
+    endtime: '15:00',
+    lang: 'fr',
+    link: 'https://events.teams.microsoft.com/event/d026e2c1-9d00-44fd-a67b-2f0693bcf9cd@9ed55846-8a81-4246-acd8-b1a01abfc0d1',
+  },
+  {
+    date: '2026-08-11',
+    starttime: '14:00',
+    endtime: '15:00',
+    lang: 'en',
+    link: 'https://events.teams.microsoft.com/event/78be9261-6c3b-4aee-bb34-34ed8c43a60d@9ed55846-8a81-4246-acd8-b1a01abfc0d1',
+  },
+  {
+    date: '2026-08-20',
+    starttime: '14:00',
+    endtime: '15:00',
+    lang: 'fr',
+    link: 'https://events.teams.microsoft.com/event/ac640233-1a27-4975-84c0-c0184372957e@9ed55846-8a81-4246-acd8-b1a01abfc0d1',
+  },
+  {
+    date: '2026-10-13',
+    starttime: '14:00',
+    endtime: '15:00',
+    lang: 'en',
+    link: 'https://events.teams.microsoft.com/event/6c35b8d6-3529-4e7a-9cde-2dfc202a4fa5@9ed55846-8a81-4246-acd8-b1a01abfc0d1',
+  },
+  {
+    date: '2026-10-22',
+    starttime: '14:00',
+    endtime: '15:00',
+    lang: 'fr',
+    link: 'https://events.teams.microsoft.com/event/08e1910e-3dea-4fd1-ad57-b42676f1d56a@9ed55846-8a81-4246-acd8-b1a01abfc0d1',
   }
 ];
