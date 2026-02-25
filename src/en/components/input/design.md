@@ -21,7 +21,7 @@ date: 'git Last Modified'
 ### Write a short, specific, unique input label
 
 - Ask for the information you need using as few words as possible. Phrasing as a question can make a label unnecessarily long and a person may not read the whole thing.
-- Choose unique labels for each input and [text area]({{ links.textarea }}) within a page, like "Your full name", "Manager's name".
+- Choose unique labels for each input and [textarea]({{ links.textarea }}) within a page, like "Your full name", "Manager's name".
 - Avoid using technical jargon, like "subject email address" or "account ID". Instead be specific and personal, like "full name", "child's age".
 - Avoid using colloquialisms and common verb phrases that are unfamiliar to non-fluent speakers.
 - Explain any term that may not be clear. For example, "Handle (name you'd like to go by)".
