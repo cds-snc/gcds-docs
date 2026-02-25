@@ -45,7 +45,7 @@ _TODO: Replace the instructions below as needed. Describe any steps required to 
 
 **Ready for review (all items must be checked):**
 - [ ] I have verified the English and French versions are accurate, consistent, and properly displayed.
-- [ ] I have verified content follows GC plain language and writing standards (if applicable).
+- [ ] I have verified content follows GC Design System product content standards (if applicable).
 - [ ] I have verified changes on mobile viewports.
 - [ ] I have verified changes across supported browsers.
 - [ ] I have checked accessibility and ensured accessibility requirements continue to meet standards. :accessibility:
