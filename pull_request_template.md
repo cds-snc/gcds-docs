@@ -89,7 +89,7 @@ For content, include the following with your approval:
 - [ ] I have reviewed English and French content for accuracy, terminology consistency, and parity.
 - [ ] Terminology and naming follow GC and design system standards.
 - [ ] I have verified links, references, and examples are correct and functional.
-- [ ]  I have verified descriptive (alt) text for accuracy and brevity.
+- [ ] I have verified descriptive (alt) text for accuracy and brevity.
 - [ ] The content follows and does not contradict design system guidance elsewhere on the site.
 - [ ] No spelling, grammar, or formatting issues are present.
 
