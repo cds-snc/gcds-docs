@@ -32,6 +32,7 @@ date: 'git Last Modified'
 - Within link text, place the most important information first, as this is helpful to screen-reader users.
 - Provide enough information in the link text on the link's purpose, rather than relying on the surrounding content. Some assistive technologies present links separately.
 - Keep link text short and distinctive so a person is able to scan the links on a page. Generally limit text to 60 characters and avoid going over 80 characters. When writing in English, keep in mind French content will be around 30% longer.
+- If the destination’s exact page title isn’t suitable for link text, include at least one keyword from that title.
 
 Tip: Use navigation elements like [breadcrumbs]({{ links.breadcrumbs }}) or [top navigation]({{ links.topNav }}) so a person knows how to return to their original location.
 
