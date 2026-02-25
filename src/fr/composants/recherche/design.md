@@ -37,6 +37,7 @@ Voici les éléments requis pour la recherche sur les sites du GC.
         <li>« Rechercher dans [institution/programme/produit] » en français</li>
       </ul>
     </li>
+  <li>Évitez les acronymes, sauf s'ils sont nécessaires pour raccourcir le texte à des fins d'accessibilité.</li>
   </ul>
   <gcds-text margin-bottom="0"><strong>Remarque :</strong> Par exception, les pages destinées uniquement à un public de la fonction publique peuvent appliquer une indexation de recherche personnalisée dans certains contextes précis.</gcds-text>
 </gcds-details>
