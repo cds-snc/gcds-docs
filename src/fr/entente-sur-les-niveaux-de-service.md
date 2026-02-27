@@ -18,8 +18,8 @@ L’équipe de Système de design GC fait référence à l’équipe du SNC qui 
 
 **Vous êtes client de Système de design GC si vous êtes :**
 
-- — un ministère ou un organisme gouvernemental utilisant Système de design GC;
-- — un·e employé·e ou un fournisseur officiel actuel·le d’un ministère ou d’un organisme utilisant Système de design GC.
+- un ministère ou un organisme gouvernemental utilisant Système de design GC;
+- un·e employé·e ou un fournisseur officiel actuel·le d’un ministère ou d’un organisme utilisant Système de design GC.
 
 **Cette entente couvre les responsabilités du SNC pour le Système de design GC. Exclusions :**
 
