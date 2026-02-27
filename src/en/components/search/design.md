@@ -37,6 +37,7 @@ Here’s what’s required for search on GC sites.
         <li>“<span lang="fr">Rechercher dans [institution/programme/produit]</span>” in French</li>
       </ul>
     </li>
+  <li>Avoid acronyms unless necessary to shorten text for accessibility.</li>
   </ul>
   <gcds-text margin-bottom="0"><strong>Note:</strong> As an exception, pages solely intended for a public service audience may apply a customized search indexation in particular contexts.</gcds-text>
 </gcds-details>
