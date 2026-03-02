@@ -2683,6 +2683,7 @@
 <li>Handling support requests and inquiries during regular business hours (9am to 5pm Eastern Time).</li>
 <li>Responding within one business day to incidents. GC Design System follows the <gcds-link href="https://www.tbs-sct.canada.ca/pol/doc-eng.aspx?id=32611" external>TBS Directive on Security Management</gcds-link> and follows an incident response process to resolve issues in a timely manner.</li>
 <li>Patching security vulnerabilities in a timely manner, where CDS determines the level of threat a security vulnerability possesses. Major vulnerabilities are patched as soon as possible but no more than a week after the root cause is found. External dependencies for code are subject to longer timelines.</li>
+<li>GCDS Components v1.0.0 (<code>@gcds-core/components</code>) is designed to ensure API stability within the 1.x release line, so teams can adopt GCDS Components knowing that minor and patch releases seek to avoid breaking changes. Breaking changes should only occur in major releases, not in minor updates or patches. If you're currently using <code>@cdssnc/gcds-components</code>, you’ll need to migrate to continue receiving updates, fixes, and future improvements. Follow the migration guide: <gcds-link href="https://github.com/cds-snc/gcds-components/blob/main/.docs/migration/stable-v1.md" external>Migrating from <code>@cdssnc/gcds-components</code> to <code>@gcds-core/components</code></gcds-link>.</li>
 <li>Restoring the system to operation in case of an unplanned outage.</li>
 <li>Alerting clients via our <a href="/en">website</a> and <a href="/en/contact">mailing list</a>, if GC Design System is unavailable for any reason, as soon as CDS learns of this.</li>
 <li>Ensuring the system is available for use, with a page load time of less than 10 seconds in Canada on high-speed Internet, unless the product is experiencing a denial of service attack or there are issues with <a href="#gc-design-system-infrastructure-and-platform-providers-are-responsible-for">GC Design System infrastructure and platform providers</a>.</li>
@@ -2776,7 +2777,7 @@
 
 
           <gcds-date-modified class="mb-300">
-            2026-02-27
+            2026-03-02
           </gcds-date-modified>
         </main>
       </gcds-grid>
