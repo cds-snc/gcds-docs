@@ -20,9 +20,10 @@ For the date input to function properly, always use the following attributes wit
 - `format`
 
 ### Format the date input
-- Choose the format of the date input by entering either `full` or `compact` in the `format` attribute of the date input.
-- The `full` value will render the date input with a year, month, and day form field in the order month, day, and year in English and the order of day, month, and year in French.
-- The `compact` value will render the date input with a year and month form field in the order of month and year in both English and French.
+- Choose the format of the date input by entering either `full`,  `compact`, or `iso` in the `format` attribute of the date input.
+- The `full` value will render the date input with a year, month, and day form field in the order month, day, and year in English and the order of day, month, and year in French. The month is written in this format. 
+- The `compact` value will render the date input with a year and month form field in the order of month and year in both English and French. The month is written in this format. 
+-  The `iso` value will render the date input with a year, month, and day form field in that order. All inputs are numeric in this format, following ISO standards.  
 - The `format` attribute also formats the value received and outputted by the date input. The value will be formatted `YYYY-MM-DD` while set as `full` and `YYYY-MM` while set as `compact`.
 
 ### Entering and receiving the value from date input
