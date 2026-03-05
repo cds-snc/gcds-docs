@@ -31,6 +31,7 @@ date: 'git Last Modified'
 - Placez l'information la plus importante au début du texte du lien afin de faciliter la lecture pour les personnes utilisant des technologies d'assistance.
 - Fournissez dans le texte du lien suffisamment d'information sur son but, plutôt que de vous fier au contexte. Certaines technologies d'assistance présentent les liens de façon distincte.
 - Gardez le texte des liens court et précis afin qu'une personne puisse parcourir les liens et trouver ce qu'elle cherche. En règle générale, limitez le texte à 60 caractères et évitez de dépasser 80 caractères.
+- Si le titre exact de la page de destination est trop long pour le texte du lien, incluez un ou plusieurs mots-clés reconnaissables provenant de ce titre.
 
 Conseil : Utilisez des éléments de navigation comme le [chemin de navigation]({{ links.breadcrumbs }}) ou la [barre de navigation supérieure]({{ links.topNav }}) pour qu'une personne puisse revenir à leur emplacement original.
 
