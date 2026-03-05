@@ -40,12 +40,19 @@ Use a date input to gather a date from a person when you're expecting them to wr
 
 <hr class="mt-600"/>
 
-## Component types
+## Component formats
 
-### Day, month, year format
-- For a specific date the person will know or can easily find.
+### Month, day, year
+- A specific date the person will know or can easily find.
+- Used in English for written dates.
 
-### Month, year format
-- For a date that does not have a day, like a driver’s licence expiry date.
-- For an approximate date, like the date they lost their ID card  (month and year).
-- For a date the person may not know the exact day of.
+### Day, month, year 
+- A specific date the person will know or can easily find.
+- Used in French for written dates.
+
+### Year, month, day
+- A specific date the person will know or can easily find.
+- Used internationally for numeric dates.
+
+### Month, year 
+- For an approximate date.
