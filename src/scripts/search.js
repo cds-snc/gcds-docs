@@ -1,5 +1,24 @@
 import * as pagefind from '/pagefind/pagefind.js';
 
+/* Responsive placeholder logic */
+const searchComponent = document.querySelector('gcds-search');
+
+if (searchComponent) {
+  const mq = window.matchMedia('(max-width: 399px)');
+
+  function updatePlaceholder(e) {
+    searchComponent.setAttribute(
+      'placeholder',
+      e.matches
+        ? searchComponent.dataset.placeholderShort
+        : searchComponent.dataset.placeholderLong,
+    );
+  }
+
+  updatePlaceholder(mq);
+  mq.addEventListener('change', updatePlaceholder);
+}
+
 const url = new URLSearchParams(window.location.search);
 
 pagefind.options({
@@ -26,7 +45,7 @@ if (searchTerm) {
   try {
     const search = await pagefind.search(searchTerm);
     results = search.results;
-  } catch(error) {
+  } catch (error) {
     console.log('Error:', error);
   }
 
@@ -65,8 +84,8 @@ if (searchTerm) {
           <li>Utilisez des termes de recherche plus généraux</li>
         </ul>
       `,
-    }
-  }
+    },
+  };
 
   const spinnerText = document.createElement('gcds-sr-only');
   spinnerText.innerHTML = langObject[lang].loading;
@@ -82,7 +101,10 @@ if (searchTerm) {
     document.getElementById('results-count').append(resultsHeading);
 
     const totalPages = Math.ceil(results.length / pageSize);
-    let pageResults = results.slice(pageSize * (index - 1), pageSize * index + 1);
+    let pageResults = results.slice(
+      pageSize * (index - 1),
+      pageSize * index + 1,
+    );
     const bulkResults = document.createElement('div');
 
     // length could also be from search.unfilteredResultCount
