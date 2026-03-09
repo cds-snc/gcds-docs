@@ -15,12 +15,7 @@ eleventyNavigation:
 
 # Résultats de la recherche
 
-<gcds-search
-  action="/fr/recherche"
-  search-id="ds-search"
-  placeholder="Système de design GC"
-  id="searchbar"
->
+<gcds-search class="mb-300" action="/fr/recherche" search-id="ds-search" placeholder="Système de design GC" data-placeholder-long="{{ search[locale].placeholder }}" data-placeholder-short="{{ search[locale].shortPlaceholder }}" id="searchbar">
 </gcds-search>
 
 <gcds-text size="small">
