@@ -77,6 +77,7 @@
 
     "comingSoon": "/fr/developpement-en-cours",
     "demo": "/fr/demo",
+    "gcdsInUse": "/fr/sdgc-en-usage",
     "releaseNotes": "https://github.com/cds-snc/gcds-components/blob/main/CHANGELOG.md#journal-des-modifications",
     "privacy": "/fr/avis-de-confidentialite/",
     "termsOfUse": "/fr/conditions-dutilisation",
@@ -177,6 +178,7 @@
     "freshdesk": "https://www.freshworks.com/freshdesk/",
     "freshworks": "https://www.freshworks.com/",
     "freshworksPrivacy": "https://www.freshworks.com/privacy/",
+    "gcdsDrupalTheme": "https://www.drupal.org/project/gcds",
     "gcPrivacy": "https://www.canada.ca/fr/transparence/confidentialite.html",
     "gcNotify": "https://notification.canada.ca/accueil",
     "gcNotifyTermsOfUse": "https://notification.canada.ca/conditions-dutilisation",

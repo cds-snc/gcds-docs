@@ -16,7 +16,7 @@ GC Design System offers basic building blocks and a pattern language to help you
 
 ## Stable and ready for production
 
-GC Design System is stable, but not static. We continue to improve it in a thoughtful and predictable way, with versioned releases that help teams understand what kind of change to expect. We prioritize common components and patterns that most GC teams rely on to build digital services. 
+GC Design System is stable, but not static. We continue to improve it in a thoughtful and predictable way, with versioned releases that help teams understand what kind of change to expect. We prioritize common components and patterns that most GC teams rely on to build digital services.
 
 This design system is built for the long-term. A dedicated team at the [Canadian Digital Service](https://digital.canada.ca) builds and maintains it, in consultation with the Canada.ca Experience Office. A growing number of teams building digital services also provides valuable input and contributions.
 
@@ -26,11 +26,11 @@ GC Design System coexists with design systems historically used across governmen
 
 We share our <gcds-link href="{{ links.roadmap }}">roadmap</gcds-link> openly to help you plan adoption based on your own timelines and needs.
 
-## Collaboration and support channels
+## Community and support
 
-Check out our [Get involved page]({{ links.getInvolved }}) to learn about what we're working on and how you can contribute.
-
-Visit our <gcds-link external href="{{ links.githubCompsIssues }}">GitHub repo</gcds-link> to report an issue or make a suggestion.
+- Check out our [Get involved page]({{ links.getInvolved }}) to learn about what we're working on and how you can contribute.
+- Visit our <gcds-link external href="{{ links.githubCompsIssues }}">GitHub repo</gcds-link> to report an issue or make a suggestion.
+- See how <gcds-link href="{{ links.gcdsInUse }}">teams use GC Design System</gcds-link> across government.
 
 ## Ship faster with GC Design System
 

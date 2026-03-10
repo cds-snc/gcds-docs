@@ -23,11 +23,11 @@ An official, production-ready design system for the Government of Canada. Build 
 
 ## Choose GC Design System
 
-GC Design System helps public servants deliver Government of Canada websites and products. Build faster without compromising brand identity, accessibility, or bilingualism. Find production-ready code, design assets, and documentation in one place. 
+GC Design System helps public servants deliver Government of Canada websites and products. Build faster without compromising brand identity, accessibility, or bilingualism. Find production-ready code, design assets, and documentation in one place.
 
 ### Learn more
 
-Learn <gcds-link href="{{ links.about }}">about us</gcds-link>, our regular <gcds-link href="{{ links.accessibility }}">accessibility testing</gcds-link>, and how you can improve accessibility in your products and websites.
+Learn <gcds-link href="{{ links.about }}">about us</gcds-link>, the <gcds-link href="{{ links.gcdsInUse }}">teams using GC Design System</gcds-link>, our regular <gcds-link href="{{ links.accessibility }}">accessibility testing</gcds-link>, and how you can improve accessibility in your products and websites.
 
 ### Get involved
 
@@ -54,7 +54,8 @@ Apply or combine these tools to address common service scenarios. Design and bui
     <gcds-link href="{{ links.components }}">Components</gcds-link>
   </gcds-heading>
 
-  Meet common service interaction needs with the code, design, and guidance for user interface components.
+Meet common service interaction needs with the code, design, and guidance for user interface components.
+
 </div>
 
 <img class="align-self-center d-none md:d-block" src="/images/common/home/templates.jpg" alt="A vertical rectangle with pink that fades to blue." />
@@ -64,7 +65,8 @@ Apply or combine these tools to address common service scenarios. Design and bui
     <gcds-link href="{{ links.pageTemplates }}">Page templates</gcds-link>
   </gcds-heading>
 
-  Start your project with pre-built page layouts that provide a consistent, recognizable Canada.ca experience.
+Start your project with pre-built page layouts that provide a consistent, recognizable Canada.ca experience.
+
 </div>
 
 <img class="align-self-center d-none md:d-block" src="/images/en/home/shortcuts.jpg" alt="A badge in the top left with the word new. Three slightly overlapping, horizontal dots in darkening shades of blue." />
@@ -74,7 +76,8 @@ Apply or combine these tools to address common service scenarios. Design and bui
     <gcds-link href="{{ links.shortcuts }}">CSS Shortcuts <gcds-sr-only>(New)</gcds-sr-only></gcds-link>
   </gcds-heading>
 
-  Apply pre-defined styles and layouts by adding our custom CSS utility classes to your HTML. 
+Apply pre-defined styles and layouts by adding our custom CSS utility classes to your HTML.
+
 </div>
 
 <img class="align-self-center d-none md:d-block" src="/images/common/home/styles.jpg" alt="A cluster of four dots in purple, blue, green, and yellow." />
@@ -84,7 +87,8 @@ Apply or combine these tools to address common service scenarios. Design and bui
     <gcds-link href="{{ links.styles }}">Styles</gcds-link>
   </gcds-heading>
 
-  Explore coded brand and design decisions that shape a consistent visual experience. 
+Explore coded brand and design decisions that shape a consistent visual experience.
+
 </div>
 
 </gcds-grid>

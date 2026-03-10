@@ -27,81 +27,90 @@ Voici ce sur quoi nous nous concentrerons chaque trimestre.
 <gcds-details details-title="1er trimestre : avril 2025 à juin 2025">
 
 #### Produits
-| Livrable | État |
-|-------------|--------|
+
+| Livrable                                                                          | État       |
+| --------------------------------------------------------------------------------- | ---------- |
 | Améliorer le processus d’intégration pour les personnes qui font du développement | ✅ Terminé |
 | Améliorer le processus d’intégration pour les personnes qui font de la conception | ✅ Terminé |
-| Améliorer les composants de saisie de formulaire avec une fonction de validation | ✅ Terminé |
+| Améliorer les composants de saisie de formulaire avec une fonction de validation  | ✅ Terminé |
 
 #### Recherche
-| Activité | État |
-|----------|--------|
+
+| Activité                                         | État       |
+| ------------------------------------------------ | ---------- |
 | Utilisabilité des icônes de Système de design GC | ✅ Terminé |
-| Tests d’accessibilité généralisés avec Fable | ✅ Terminé |
-| Analyse des tickets de soutien | ✅ Terminé |
+| Tests d’accessibilité généralisés avec Fable     | ✅ Terminé |
+| Analyse des tickets de soutien                   | ✅ Terminé |
 
 #### Mobilisation et collaboration
-| Activité | État |
-|----------|--------|
-| Démos en englais et français | ✅ Terminé |
-| Forum de Système de design GC | ✅ Terminé |
-| Infolettre et articles de blog | ✅ Terminé |
-| Ajout du Bureau de la transformation numérique dans les nouveaux liens du pied de page | ✅ Terminé |
+
+| Activité                                                                                       | État       |
+| ---------------------------------------------------------------------------------------------- | ---------- |
+| Démos en englais et français                                                                   | ✅ Terminé |
+| Forum de Système de design GC                                                                  | ✅ Terminé |
+| Infolettre et articles de blog                                                                 | ✅ Terminé |
+| Ajout du Bureau de la transformation numérique dans les nouveaux liens du pied de page         | ✅ Terminé |
 | Dialogue avec le Bureau de l’accessibilité des TI pour la prochaine évaluation d’accessibilité | ✅ Terminé |
-| Exploration du composant modal de Pêches et Océans Canada | ✅ Terminé |
+| Exploration du composant modal de Pêches et Océans Canada                                      | ✅ Terminé |
 
 </gcds-details>
 
 <gcds-details details-title="2e trimestre : juillet 2025 à septembre 2025">
 
 #### Produit
-| Livrable | État |
-|-------------|--------|
+
+| Livrable                              | État       |
+| ------------------------------------- | ---------- |
 | Lancement de la v1 des Raccourcis CSS | ✅ Terminé |
-| Améliorations en matière de sécurité | ✅ Terminé |
+| Améliorations en matière de sécurité  | ✅ Terminé |
 
 #### Recherche
-| Activité | État |
-|----------|--------|
-| Analyse post-production | ✅ Terminé |
-| Recherche sur le composant Tableau de données | 🔄 En cours  |
-| Tests d’accessibilité généralisés avec Fable | ✅ Terminé |
-| Analyse des tickets de soutien | ✅ Terminé |
+
+| Activité                                      | État        |
+| --------------------------------------------- | ----------- |
+| Analyse post-production                       | ✅ Terminé  |
+| Recherche sur le composant Tableau de données | 🔄 En cours |
+| Tests d’accessibilité généralisés avec Fable  | ✅ Terminé  |
+| Analyse des tickets de soutien                | ✅ Terminé  |
 
 #### Mobilisation et collaboration
-| Activité | État |
-|----------|--------|
-| Démos en anglais et français | ✅ Terminé |
-| Forum de Système de design GC incluant une présentation de Pêches et Océans Canada | ✅ Terminé |
-| Infolettre et articles de blogue | ✅ Terminé |
-| Collaboration avec Ressources naturelles Canada sur le plugiciel MapML | 🔄 En cours |
-| Collaboration avec Pêches et Océans Canada sur l’application de démarrage Angular | 🔄 En cours |
+
+| Activité                                                                           | État        |
+| ---------------------------------------------------------------------------------- | ----------- |
+| Démos en anglais et français                                                       | ✅ Terminé  |
+| Forum de Système de design GC incluant une présentation de Pêches et Océans Canada | ✅ Terminé  |
+| Infolettre et articles de blogue                                                   | ✅ Terminé  |
+| Collaboration avec Ressources naturelles Canada sur le plugiciel MapML             | 🔄 En cours |
+| Collaboration avec Pêches et Océans Canada sur l’application de démarrage Angular  | 🔄 En cours |
 
 </gcds-details>
 
 <gcds-details details-title="3e trimestre : octobre 2025 à décembre 2025">
 
 #### Produit
-| Livrable | État |
-|-------------|--------|
-| Sortie d’alpha: mise en production | ✅ Terminé |
-| Applications de démarrage supplémentaires pour React et Angular | 📅 Prévu |
-| Explorer le plugiciel d’accessibilité Sa11y | 🔽 Dépriorisé |
+
+| Livrable                                                        | État          |
+| --------------------------------------------------------------- | ------------- |
+| Sortie d’alpha: mise en production                              | ✅ Terminé    |
+| Applications de démarrage supplémentaires pour React et Angular | 📅 Prévu      |
+| Explorer le plugiciel d’accessibilité Sa11y                     | 🔽 Dépriorisé |
 
 #### Recherche
-| Activité | État |
-|----------|--------|
+
+| Activité                                                 | État          |
+| -------------------------------------------------------- | ------------- |
 | Besoins en matière de flexibilité et de personnalisation | 🔽 Dépriorisé |
-| Utilisabilité des Raccourcis CSS | ✅ Terminé |
-| Analyse des tickets de soutien | ✅ Terminé |
-| Tests d’accessibilité généralisés avec Fable | ✅ Terminé |
+| Utilisabilité des Raccourcis CSS                         | ✅ Terminé    |
+| Analyse des tickets de soutien                           | ✅ Terminé    |
+| Tests d’accessibilité généralisés avec Fable             | ✅ Terminé    |
 
 #### Mobilisation et collaboration
-| Activité | État |
-|----------|--------|
-| Démos en anglais et français | ✅ Terminé |
-| Forum de Système de design GC | ✅ Terminé |
-| Infolettre et articles de blogue | ✅ Terminé |
+
+| Activité                                                                                                          | État        |
+| ----------------------------------------------------------------------------------------------------------------- | ----------- |
+| Démos en anglais et français                                                                                      | ✅ Terminé  |
+| Forum de Système de design GC                                                                                     | ✅ Terminé  |
+| Infolettre et articles de blogue                                                                                  | ✅ Terminé  |
 | Collaboration avec Pêches et Océans Canada et Bibliothèque et Archives Canada sur l’application de démarrage .NET | 🔄 En cours |
 
 </gcds-details>
@@ -109,32 +118,36 @@ Voici ce sur quoi nous nous concentrerons chaque trimestre.
 <gcds-details details-title="4e trimestre : janvier 2026 à mars 2026">
 
 #### Produit
-| Livrable | État |
-|-------------|--------|
-| Publication du composant Tableau de données | 🔄 En cours |
+
+| Livrable                                                                                                       | État          |
+| -------------------------------------------------------------------------------------------------------------- | ------------- |
+| Publication du composant Tableau de données                                                                    | 🔄 En cours   |
 | Composant ou modèle supplémentaire: Saisie semi-automatique ou Modal (contribution de Pêches et Océans Canada) | 🔽 Dépriorisé |
-| Résoudre les obstacles à l’adoption prioritaires | 🔄 En cours |
+| Résoudre les obstacles à l’adoption prioritaires                                                               | 🔄 En cours   |
 
 #### Recherche
-| Activité | État |
-|----------|--------|
-| Présentation du raisonnement design et accessibilité | 📅 Prévu |
-| Besoins en matière de flexibilité et de personnalisation | 📅 Prévu |
-| Validation du processus d’intégration | 📅 Prévu |
+
+| Activité                                                      | État        |
+| ------------------------------------------------------------- | ----------- |
+| Présentation du raisonnement design et accessibilité          | 📅 Prévu    |
+| Besoins en matière de flexibilité et de personnalisation      | 📅 Prévu    |
+| Validation du processus d’intégration                         | 📅 Prévu    |
 | Composant Tableau de données : utilisabilité et accessibilité | 🔄 En cours |
-| Analyse des tickets de soutien | 📅 Prévu |
+| Analyse des tickets de soutien                                | 📅 Prévu    |
 
 #### Mobilisation et collaboration
-| Activité | État |
-|----------|--------|
-| Démos en anglais et français | 📅 Prévu |
-| Forum de Système de design GC | 📅 Prévu |
-| Infolettre et articles de blogue | 📅 Prévu |
-| Collaboration avec le Bureau de la transformation numérique sur les modèles les plus utilisés de Canada.ca  | 📅 Prévu |
+
+| Activité                                                                                                   | État     |
+| ---------------------------------------------------------------------------------------------------------- | -------- |
+| Démos en anglais et français                                                                               | 📅 Prévu |
+| Forum de Système de design GC                                                                              | 📅 Prévu |
+| Infolettre et articles de blogue                                                                           | 📅 Prévu |
+| Collaboration avec le Bureau de la transformation numérique sur les modèles les plus utilisés de Canada.ca | 📅 Prévu |
 
 </gcds-details>
-  
+
 ## Réalisé en 2024/2025
+
 <gcds-details details-title="Croissance du produit">
 <ul class="list-disc ps-400 mb-300">
   <li>Alignement des éléments obligatoires avec Canada.ca</li>
@@ -167,11 +180,14 @@ Voici ce sur quoi nous nous concentrerons chaque trimestre.
 </ul>
 </gcds-details>
 
-## Canaux de collaboration et de soutien
+## Communauté et soutien
+
 - Consultez notre page [s'impliquer]({{ links.getInvolved }}) pour savoir sur quoi nous travaillons et comment vous pouvez y contribuer.
 - Visitez notre <gcds-link external href="{{ links.githubCompsIssues }}">référentiel GitHub</gcds-link> pour signaler un problème ou faire une suggestion.
+- Découvrez comment certaines <gcds-link href="{{ links.gcdsInUse }}">équipes utilisent Système de design GC</gcds-link> à travers le gouvernement.
 
 ## Les changements sont à prévoir
-La feuille de route du produit est sujette à des modifications causées par des changements de priorités, la disponibilité des ressources et des dépendances non planifiées. Tout élément qui n’a pas été commencé peut être reclassé dans l’ordre des priorités ou remplacé par un autre élément plus important. Les éléments déjà entamés peuvent subir des retards lorsqu’il y a des défis à surmonter ou lorsque nous apprenons de nouvelles choses en cours de route. 
 
-Nous partageons cette feuille de route afin d’encourager la transparence, la collaboration et l’harmonisation avec nos parties prenantes.  Vos commentaires et contributions sont toujours les bienvenus afin d’améliorer notre trajectoire.
+La feuille de route du produit est sujette à des modifications causées par des changements de priorités, la disponibilité des ressources et des dépendances non planifiées. Tout élément qui n’a pas été commencé peut être reclassé dans l’ordre des priorités ou remplacé par un autre élément plus important. Les éléments déjà entamés peuvent subir des retards lorsqu’il y a des défis à surmonter ou lorsque nous apprenons de nouvelles choses en cours de route.
+
+Nous partageons cette feuille de route afin d’encourager la transparence, la collaboration et l’harmonisation avec nos parties prenantes. Vos commentaires et contributions sont toujours les bienvenus afin d’améliorer notre trajectoire.
