@@ -42,11 +42,11 @@ Use a date input to gather a date from a person when you're expecting them to wr
 
 ## Component formats
 
-### Month, day, year
+### Month, day, year _(English only)_
 - A specific date the person will know or can easily find.
 - Used in English for written dates.
 
-### Day, month, year 
+### Day, month, year _(French only)_
 - A specific date the person will know or can easily find.
 - Used in French for written dates.
 
