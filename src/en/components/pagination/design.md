@@ -34,9 +34,9 @@ date: 'git Last Modified'
   <li>A <strong>page link</strong> navigates to it’s corresponding page in the flow.</li>
   <li>The <strong>current page</strong> indicates the page the user is currently on.</li>
   <li>An <strong>ellipsis</strong> replaces any pages that are being skipped.</li>
-  <li>The <strong>next link</strong> navigates to the next page in the flow when selected.</li>
   <li>The <strong>next text</strong> is the text that accompanies the next chevron and indicates that the user would be navigating to the next page in the flow.</li>
   <li>The <strong>next chevron</strong> is a visual aid indicating that you would be navigating forwards in the page flow.</li>
+  <li>The <strong>next link</strong> navigates to the next page in the flow when selected.</li>
 </ol>
 
 <img class="b-sm b-default p-300" src="/images/en/components/anatomy/gcds-pagination-list-large-anatomy.svg" alt="The pagination component with numbers pointing to individual parts of the large screen list pagination anatomy." />
