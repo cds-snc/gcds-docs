@@ -1,0 +1,28 @@
+---
+type MarginSize = '0' | '300';
+type TextRole = 'primary' | 'secondary' | 'light';
+type TextSize = 'body' | 'small';
+
+interface Props {
+  mt?: MarginSize;
+  mb?: MarginSize;
+  role?: TextRole;
+  size?: TextSize;
+}
+
+const {
+  mt = '0',
+  mb = '300',
+  role = 'primary',
+  size = 'body'
+} = Astro.props;
+---
+
+<gcds-text
+  size={size}
+  text-role={role}
+  margin-top={mt}
+  margin-bottom={mb}
+>
+  <slot />
+</gcds-text>

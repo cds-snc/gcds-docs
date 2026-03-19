@@ -1,0 +1,67 @@
+<!DOCTYPE html><style>.anatomy-list[data-astro-cid-7okrx3m5]{counter-reset:item;margin-block-end:var(--gcds-spacing-450);>li{position:relative;max-width:65ch;counter-increment:item;margin-block-end:var(--gcds-spacing-300);padding-inline-start:var(--gcds-spacing-450);&:before{position:absolute;left:0;display:inline-block;width:var(--gcds-spacing-350);height:var(--gcds-spacing-350);font:var(--gcds-font-text-small);text-align:center;content:counter(item);margin-inline-end:var(--gcds-spacing-150);background:#c54600;color:var(--gcds-text-light);border-radius:var(--gcds-border-radius-xl)}}ul{list-style:disc;margin-inline-start:var(--gcds-spacing-300)}}.preview-container{border:1px solid var(--gcds-border-default);margin-block-end:var(--gcds-spacing-300)}.code-preview{padding:var(--gcds-spacing-300)}.button-group{margin-block-start:var(--gcds-spacing-300)}.code-block{all:unset;width:100%;display:block;box-sizing:border-box;overflow-x:auto;background:var(--gcds-bg-light);border-block-start:1px solid var(--gcds-border-default);padding:var(--gcds-spacing-300)}.hidden{display:none}.copy-status{color:var(--gcds-color-green-700);margin-inline-start:var(--gcds-spacing-150)}gcds-button{margin-inline-end:var(--gcds-spacing-200)}.doc-links[data-astro-cid-rcx3pijo] img[data-astro-cid-rcx3pijo]{width:1.5rem;height:1.5rem;margin-inline-end:var(--gcds-spacing-100)}gcds-header[data-astro-cid-3ef6ksr2]{z-index:100;position:fixed;top:0;left:0;width:100%;background-color:var(--gcds-bg-white);--gcds-header-margin: 0;--gcds-header-container-max-width: none}gcds-side-nav[data-astro-cid-dmqpwcec]{z-index:1;position:fixed;top:calc(6.9375rem + 3px);left:0;bottom:0;width:20rem;overflow-y:scroll;background-color:var(--gcds-bg-white);border-inline-end:var(--gcds-border-width-sm) solid var(--gcds-header-brand-border-color);padding:var(--gcds-spacing-300)}gcds-side-nav[data-astro-cid-dmqpwcec] img[data-astro-cid-dmqpwcec]{width:1.25rem;height:1.25rem;margin-inline-end:var(--gcds-spacing-200)}.tabs-nav[data-astro-cid-xlvzfuxv]{display:flex;border-block-end:var(--gcds-border-width-md) solid var(--gcds-color-grayscale-100)}.tab[data-astro-cid-xlvzfuxv]{font:var(--gcds-font-text);background-color:transparent;border:none;color:var(--gcds-link-default);padding:var(--gcds-spacing-225) var(--gcds-spacing-150) var(--gcds-spacing-175) var(--gcds-spacing-150)}.tab[data-astro-cid-xlvzfuxv].active{font-weight:700;border:var(--gcds-border-width-md) solid var(--gcds-color-grayscale-100);border-block-end:0 solid var(--gcds-color-grayscale-0);border-radius:var(--gcds-button-border-radius) var(--gcds-button-border-radius) 0 0;box-shadow:0 var(--gcds-border-width-xl) 0 calc(var(--gcds-border-width-md) * -1) var(--gcds-color-grayscale-0)}.tabs-content[data-astro-cid-xlvzfuxv]{padding:var(--gcds-spacing-300) 0}
+</style><meta charset="utf-8"/>
+<p>Take a look at what buttons do to see if they fit the problem you’re solving for. Then select the best subtype, called the button role, for the use case you need to meet.</p>
+<div class="preview-container"> <div class="code-preview"> <div class="demo-container"> <gcds-button button-role="primary">Primary</gcds-button> </div> <div class="button-group"> <gcds-button class="toggle-btn" button-role="secondary" size="small">
+View Code
+</gcds-button> <gcds-button class="copy-btn" button-role="secondary" size="small">
+Copy Code
+</gcds-button> <span class="copy-status"></span> </div> </div> <pre class="code-block hidden">    <code class="code-content"></code>
+  </pre> </div> <script type="module" is:client>
+  window.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.preview-container').forEach(container => {
+      const toggleBtn = container.querySelector('.toggle-btn');
+      const copyBtn = container.querySelector('.copy-btn');
+      const codeBlock = container.querySelector('.code-block');
+      const copyStatus = container.querySelector('.copy-status');
+      const demoContainer = container.querySelector('.demo-container');
+      const codeContent = container.querySelector('.code-content');
+
+      function escapeHtml(unsafe) {
+        return unsafe
+          .replace(/&/g, "&amp;")
+          .replace(/</g, "&lt;")
+          .replace(/>/g, "&gt;")
+          .replace(/"/g, "&quot;")
+          .replace(/'/g, "&#039;");
+      }
+
+      const rawHtml = demoContainer.innerHTML.trim();
+      codeContent.innerHTML = escapeHtml(rawHtml);
+
+      let isCodeVisible = false;
+
+      toggleBtn.addEventListener('click', (event) => {
+        event.stopPropagation();
+
+        isCodeVisible = !isCodeVisible;
+
+        if (isCodeVisible) {
+          codeBlock.classList.remove('hidden');
+          toggleBtn.textContent = 'Hide Code';
+        } else {
+          codeBlock.classList.add('hidden');
+          toggleBtn.textContent = 'View Code';
+        }
+      });
+
+      copyBtn.addEventListener('click', async (event) => {
+        event.stopPropagation();
+
+        try {
+          const code = codeContent.innerText.trim();
+          await navigator.clipboard.writeText(code);
+          copyStatus.textContent = 'Copied!';
+        } catch {
+          copyStatus.textContent = 'Copy failed';
+        }
+
+        setTimeout(() => (copyStatus.textContent = ''), 2000);
+      });
+    });
+  });
+</script>
+<h2 id="button-anatomy">Button anatomy</h2>
+<ul class="anatomy-list" data-astro-cid-7okrx3m5> <li><p>The <strong>container</strong> gives the button its visual prominence.</p></li><li><p>The <strong>label</strong> states the action that’ll happen when someone
+interacts with the button. Text is in sentence case, where only the first
+letter is capitalized.</p></li> </ul>
+<img class="b-sm b-default p-300" src="/_astro/gcds-button-anatomy.D92mXkYf.svg" alt="Button anatomy: A label reads “Button label” surrounded by a blue container.">

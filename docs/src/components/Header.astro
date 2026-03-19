@@ -1,0 +1,43 @@
+---
+import { routes, supportedLocales } from '../i18n/config';
+
+const { currentLocale, routeKey } = Astro.props;
+const otherLocale = supportedLocales.find(loc => loc !== currentLocale);
+
+// Helper function to build translated path
+function getFullRoutePath(routeKey, locale, routes) {
+  for (const parentKey in routes) {
+    if (parentKey === routeKey) {
+      return `/${locale}/${routes[parentKey][locale]}`;
+    }
+    if (routes[parentKey].children && routes[parentKey].children[routeKey]) {
+      return `/${locale}/${routes[parentKey][locale]}/${routes[parentKey].children[routeKey][locale]}`;
+    }
+  }
+  return `/${locale}/`;
+}
+
+const href = getFullRoutePath(routeKey, otherLocale, routes);
+---
+
+<gcds-header
+  lang={currentLocale}
+  lang-href={href}
+  skip-to-href="#main-content"
+>
+  <gcds-search slot="search"></gcds-search>
+</gcds-header>
+
+<style>
+  gcds-header {
+    z-index: 100;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: var(--gcds-bg-white);
+
+    --gcds-header-margin : 0;
+    --gcds-header-container-max-width: none;
+  }
+</style>

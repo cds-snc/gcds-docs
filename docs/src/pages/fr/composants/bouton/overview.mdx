@@ -1,0 +1,29 @@
+---
+---
+
+import { AnatomyImage, AnatomyList, CodePreview } from "../../../../components";
+import anatomy from "./assets/gcds-button-anatomy.svg";
+
+Jetez un coup d'œil à ce que font les boutons pour vérifier s'ils permettent de résoudre votre problème. Sélectionnez ensuite le meilleur sous-type, appelé « rôle du bouton », pour le cas d'utilisation dont vous avez besoin.
+
+<CodePreview>
+  <gcds-button button-role="primary">Soumettre</gcds-button>
+</CodePreview>
+
+## Structure du bouton
+
+<AnatomyList>
+  <li>
+    Le <strong>conteneur</strong> donne au bouton son poids visuel.
+  </li>
+  <li>
+    Le <strong>libellé</strong> indique l'action qui se produira en
+    interagissant avec le bouton. Le texte est en minuscules, seule la lettre
+    initiale est en majuscule.
+  </li>
+</AnatomyList>
+
+<AnatomyImage
+  src={anatomy.src}
+  alt="Structure du bouton - Un libellé indique « libellé de bouton » à l'intérieur d'un conteneur bleu."
+/>

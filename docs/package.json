@@ -1,0 +1,24 @@
+{
+  "name": "ds-astro-test",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/mdx": "^5.0.2",
+    "@astrojs/react": "^5.0.1",
+    "@gcds-core/components-react": "^1.0.0",
+    "@types/react": "^19.1.5",
+    "@types/react-dom": "^19.1.5",
+    "astro": "^6.0.7",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0"
+  },
+  "devDependencies": {
+    "@gcds-core/components": "^1.0.0"
+  }
+}
