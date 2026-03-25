@@ -10,11 +10,11 @@ eleventyNavigation:
   hideMain: true
 ---
 
-# Accessibility in the GC Design System
+# Accessibility in GC Design System
 
 ## Our accessibility standards
 
-The GC Design System meets or exceeds WCAG 2.1 AA, making it fully compliant with <gcds-link external href="https://www.tbs-sct.canada.ca/pol/doc-eng.aspx?id=23601"> Government of Canada accessibility standards</gcds-link>.
+GC Design System meets or exceeds WCAG 2.1 AA, making it fully compliant with <gcds-link external href="https://www.tbs-sct.canada.ca/pol/doc-eng.aspx?id=23601"> Government of Canada accessibility standards</gcds-link>.
 
 Public servants who use the components as intended are creating Government of Canada websites and applications in line with accessibility standards.
 
@@ -99,6 +99,6 @@ class="mt-600"> </gcds-card>
 
 ## Contact us
 
-If you have any questions or encounter any accessibility barriers while using the GC Design System,‌ [contact us]({{ links.contact }}).
+If you have any questions or encounter any accessibility barriers while using GC Design System,‌ [contact us]({{ links.contact }}).
 
 We’re committed to addressing any issues promptly to ensure an inclusive experience for all.
