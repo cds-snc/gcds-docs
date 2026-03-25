@@ -1,48 +1,77 @@
-# Astro Starter Kit: Basics
+# GC Design System Docs (Astro)
 
-```sh
-npm create astro@latest -- --template basics
-```
+This package contains the Astro-based documentation site under `docs/`.
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)
-
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
-
-![just-the-basics](https://github.com/withastro/astro/assets/2244813/a0a5533c-a856-4198-8470-2d67b1d7c554)
-
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
+## Project structure
 
 ```text
-/
+/docs
 ├── public/
+│   ├── assets/gcds/                # Synced GCDS runtime assets (copied from node_modules)
 │   └── favicon.svg
+├── scripts/
+│   └── copy-gcds-assets.mjs        # Prebuild/predev asset sync
 ├── src/
+│   ├── assets/                     # Images used by pages/components
+│   ├── components/
+│   │   ├── Breadcrumbs.astro
+│   │   ├── Header.astro
+│   │   ├── Nav.astro
+│   │   └── HelpUs/
+│   │       └── HelpUs.astro
+│   ├── content-pages/              # Route content (localized page modules)
+│   │   ├── en/
+│   │   └── fr/
+│   ├── i18n/
+│   │   ├── config.ts               # Locale + route slug config
+│   │   └── messages/
+│   │       └── help-us.ts          # Centralized HelpUs translations
 │   ├── layouts/
-│   │   └── Layout.astro
-│   └── pages/
-│       └── index.astro
-└── package.json
+│   │   └── BaseLayout.astro
+│   ├── pages/
+│   │   └── [locale]/[...slug].astro # Dynamic static route entry (getStaticPaths)
+│   ├── scripts/                    # Browser behavior modules used by Astro components
+│   │   ├── code-preview.js
+│   │   ├── tabs.js
+│   │   └── html.js
+│   ├── styles/
+│   │   ├── global.css              # Single CSS entrypoint
+│   │   ├── base/
+│   │   ├── layout/
+│   │   ├── components/
+│   │   ├── pages/
+│   │   └── utilities/
+│   └── utils/
+│       ├── docs-static-paths.ts    # Route manifest + nav data
+│       ├── breadcrumbs.ts          # Breadcrumb path + label utilities
+│       └── i18n.ts
+├── astro.config.mjs
+├── package.json
+└── tsconfig.json
 ```
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+## Ownership boundaries
 
-## 🧞 Commands
+- **Routing**: `src/pages/[locale]/[...slug].astro` + `src/utils/docs-static-paths.ts`
+- **Localized copy**: `src/i18n/messages/*`
+- **Layout shell**: `src/layouts/BaseLayout.astro`
+- **Navigation/Breadcrumbs**: `src/components/Nav.astro`, `src/components/Breadcrumbs.astro`, `src/utils/breadcrumbs.ts`
+- **Global styles**: `src/styles/global.css` (imports modular CSS files)
+- **Client-side behavior**: `src/scripts/*` imported by components
 
-All commands are run from the root of the project, from a terminal:
+## Commands
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+Run from `docs/`:
 
-## 👀 Want to learn more?
+```bash
+npm install
+npm run dev
+npm run build
+npm run preview
+```
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+To serve built output manually (production-like static host):
+
+```bash
+python3 -m http.server --directory dist 8080
+```
