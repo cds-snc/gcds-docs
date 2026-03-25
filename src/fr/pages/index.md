@@ -15,7 +15,7 @@ Un système de design officiel et prêt pour la production destiné au gouvernem
 </gcds-button>
 
 <gcds-button type="link" href="{{ links.registerDemo }}" button-role="secondary">
-  Participez à une démo
+  Participer à une démo
 </gcds-button>
 
 <section class="bt-sm mt-500">
