@@ -23,10 +23,10 @@ Une communauté croissante d’utilisatrices et utilisateurs au gouvernement con
   <gcds-card
     card-title="Recevez nos communications"
     href="{{ links.contactMailingList }}"
-    description="Abonnez-vous à notre liste d'envoi pour manquer aucune communication de Système de design GC concernant les mises à jour, les lancements ou encore les évènements spéciaux."
+    description="Abonnez-vous à notre liste d’envoi pour ne manquer aucune communication de Système de design GC concernant les mises à jour, les lancements ou encore les évènements spéciaux."
   ></gcds-card>
   <gcds-card
-    card-title="Participez à une demo"
+    card-title="Participez à une démo"
     href="{{ links.registerDemo }}"
     description="Assistez à une présentation du prototypage et du développement d’expériences Web à l’aide du système de design et participez à une séance de questions-réponses."
   ></gcds-card>
@@ -38,7 +38,7 @@ Une communauté croissante d’utilisatrices et utilisateurs au gouvernement con
   <gcds-card
     card-title="Inscrivez-vous au forum de Système de design GC"
     href="https://events.teams.microsoft.com/event/5981a141-75bc-47d3-9050-03a63adb8cb1@9ed55846-8a81-4246-acd8-b1a01abfc0d1"
-    description="Inscrivez-vous aux séances récurrentes du Forum de Système de design GC pour connaître les dernières nouvelles sur le produit, nos partenaires et nos clients. "
+    description="Inscrivez-vous aux séances récurrentes du forum de Système de design GC pour connaître les dernières nouvelles sur le produit, nos partenaires et nos clients. "
   ></gcds-card>
 </gcds-grid>
 
@@ -52,14 +52,14 @@ Nous recherchons activement des contributions pour les éléments suivants :
 
 - **Des tableaux de données** pour organiser et afficher une grande quantité de données dans des rangées et des colonnes.
 
-Nous nous intéressons également aux problèmes concernant les interactions avec les utilisateurs et utilisatrice ou aux solutions qui peuvent s’appliquer aux différents services du GC.
+Nous nous intéressons également aux problèmes concernant les interactions avec les utilisateurs et utilisatrices ou aux solutions qui peuvent s’appliquer aux différents services du GC.
 
 Soumettez vos contributions à nos prochaines priorités directement dans GitHub, en <gcds-link href="{{ links.githubGetStarted }}" external>créant un compte</gcds-link>.
 
-Fournissez l'un des éléments suivants pour chaque composant ou modèle de page :
+Fournissez l’un des éléments suivants pour chaque composant ou modèle de page :
 
-- **Exemples de designs** : captures d'écran, prototypes, liens vers des services en ligne.
-- **Résultats de recherche** : recherches préliminaires, exemples de cas d'utilisation ou tests d'utilisabilité.
+- **Exemples de designs** : captures d’écran, prototypes, liens vers des services en ligne.
+- **Résultats de recherche** : recherches préliminaires, exemples de cas d'utilisation ou tests d’utilisabilité.
 - **Code** : code de prototype ou de production, ou implémentations du produit.
 
 <gcds-button button-role="secondary" type="link" href="{{ links.githubCompsPriority }}" external>Contribuer sur GitHub</gcds-button>
