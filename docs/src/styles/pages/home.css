@@ -1,0 +1,16 @@
+.section--hero {
+  background: url(https://design-system.alpha.canada.ca/images/common/home/home-hero.jpg) top center no-repeat;
+  background-size: cover;
+}
+
+.section--hero div {
+  background: linear-gradient(to right, var(--gcds-bg-primary), transparent);
+}
+
+.section--hero article {
+  z-index: 20;
+  position: relative;
+  padding: 10rem 0;
+  --gcds-heading-default-text: #fff;
+}
+

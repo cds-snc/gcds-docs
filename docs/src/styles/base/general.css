@@ -1,0 +1,33 @@
+@keyframes fade {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+body {
+  animation: fade 0.05s normal forwards ease-in-out;
+}
+
+.remove-empty-p p:empty {
+  display: none;
+}
+
+iframe {
+  max-width: 100%;
+}
+
+.max-width-content {
+  width: var(--gcds-text-character-limit);
+  max-width: 100%;
+}
+
+.side-nav {
+  top: 0;
+  max-height: 100dvh;
+  overflow-y: auto;
+  scrollbar-gutter: stable;
+}

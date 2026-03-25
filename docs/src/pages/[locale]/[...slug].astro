@@ -1,0 +1,22 @@
+---
+import { getDocsStaticPaths, type DocsStaticPathProps } from "../../utils/docs-static-paths";
+
+const pageModules = import.meta.glob("../../content-pages/**/*.{astro,mdx}", {
+  eager: true,
+});
+
+export function getStaticPaths() {
+  return getDocsStaticPaths();
+}
+
+const { componentPath, label } = Astro.props as DocsStaticPathProps;
+const pageModule = pageModules[componentPath] as { default?: unknown } | undefined;
+
+if (!pageModule?.default) {
+  throw new Error(`Missing page module for route component path: ${componentPath}`);
+}
+
+const Page = pageModule.default as any;
+---
+
+<Page pageTitle={label} />

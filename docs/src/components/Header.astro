@@ -1,23 +1,17 @@
 ---
-import { routes, supportedLocales } from '../i18n/config';
+import { supportedLocales } from '../i18n/config';
+import Breadcrumbs from './Breadcrumbs.astro';
+import type { Locale, RouteKey } from '../utils/docs-static-paths';
+import { getFullRoutePath } from '../utils/breadcrumbs';
 
-const { currentLocale, routeKey } = Astro.props;
-const otherLocale = supportedLocales.find(loc => loc !== currentLocale);
-
-// Helper function to build translated path
-function getFullRoutePath(routeKey, locale, routes) {
-  for (const parentKey in routes) {
-    if (parentKey === routeKey) {
-      return `/${locale}/${routes[parentKey][locale]}`;
-    }
-    if (routes[parentKey].children && routes[parentKey].children[routeKey]) {
-      return `/${locale}/${routes[parentKey][locale]}/${routes[parentKey].children[routeKey][locale]}`;
-    }
-  }
-  return `/${locale}/`;
+interface Props {
+  currentLocale: Locale;
+  routeKey: RouteKey;
 }
 
-const href = getFullRoutePath(routeKey, otherLocale, routes);
+const { currentLocale, routeKey } = Astro.props as Props;
+const otherLocale = supportedLocales.find(loc => loc !== currentLocale) || currentLocale;
+const href = getFullRoutePath(routeKey, otherLocale as Locale);
 ---
 
 <gcds-header
@@ -25,19 +19,6 @@ const href = getFullRoutePath(routeKey, otherLocale, routes);
   lang-href={href}
   skip-to-href="#main-content"
 >
+  <Breadcrumbs currentLocale={currentLocale} routeKey={routeKey} />
   <gcds-search slot="search"></gcds-search>
 </gcds-header>
-
-<style>
-  gcds-header {
-    z-index: 100;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background-color: var(--gcds-bg-white);
-
-    --gcds-header-margin : 0;
-    --gcds-header-container-max-width: none;
-  }
-</style>

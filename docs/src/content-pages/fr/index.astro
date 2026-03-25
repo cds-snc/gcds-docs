@@ -15,17 +15,17 @@ import toolsTemplates from '../../assets/img/home/tools-templates.png';
 import toolsTokens from '../../assets/img/home/tools-tokens.png';
 ---
 
-<BaseLayout pageTitle="Home" paddingTop={false}>
+<BaseLayout pageTitle="D'accueil" paddingTop={false}>
   <section class="section--hero" slot="hero">
     <div>
       <article class="container-xl mx-auto">
-        <Heading tag="h1">GC Design System</Heading>
-        <Text role="light"><strong>Build modern, accessible, human <br/>government services people can use.</strong></Text>
+        <Heading tag="h1">Système de design GC</Heading>
+        <Text role="light"><strong>Créez des services gouvernementaux modernes<br/>accessibles et humains destinés au public.</strong></Text>
       </article>
     </div>
   </section>
   <section class="section--start">
-    <Heading tag="h2">Start using GC Design System</Heading>
+    <Heading tag="h2">Commencez à utiliser GC Design System</Heading>
     <gcds-grid class="mt-600" columns-tablet="1fr 1fr" columns="1fr">
       <div>
         <img
@@ -34,9 +34,9 @@ import toolsTokens from '../../assets/img/home/tools-tokens.png';
           width="45"
           height="45"
         />
-        <Heading tag="h3" mt="0">Design experiences</Heading>
-        <Text>Visit our Figma library to explore design assets.</Text>
-        <gcds-link href="" external>Start designing</gcds-link>
+        <Heading tag="h3" mt="0">Concevoir des expériences</Heading>
+        <Text>Visitez notre bibliothèque Figma pour explorer nos ressources de conception.</Text>
+        <gcds-link href="" external>Commencez à concevoir</gcds-link>
       </div>
       <div>
         <img
@@ -45,48 +45,48 @@ import toolsTokens from '../../assets/img/home/tools-tokens.png';
           width="45"
           height="45"
         />
-        <Heading tag="h3" mt="0">Develop products</Heading>
-        <Text>Install the component package.</Text>
-        <gcds-link href="" external>Start developing</gcds-link>
+        <Heading tag="h3" mt="0">Développez des produits</Heading>
+        <Text>Installez l'ensemble de composants.</Text>
+        <gcds-link href="" external>Commencer à développer</gcds-link>
       </div>
     </gcds-grid>
   </section>
   <section class="section--tools">
-    <Heading tag="h2">A design system just for you</Heading>
-    <Text>Take a look around. <a href="">Tell us what you think.</a></Text>
+    <Heading tag="h2">Un système de design rien que pour vous</Heading>
+    <Text>Explorez notre outil de conception. <a href="">Donnez-nous votre avis.</a></Text>
     <gcds-grid columns-desktop="1fr 1fr 1fr" columns-tablet="1fr 1fr" columns="1fr">
       <gcds-card
-        card-title="Design tokens"
+        card-title="Unités de style"
         href="#"
-        description="Find out about our design tokens, spacing, and typography styles that make up the base of GC Design System."
+        description="Découvrez nos jetons de conception, nos espacements et nos styles typographiques qui constituent la base du système de conception GC."
         img-src={toolsTokens.src}
       />
       <gcds-card
-        card-title="Components"
+        card-title="Composants"
         href="#"
-        description="Select reusable code for common components, paired with best practice advice, for the framework you're using."
+        description="Sélectionnez du code réutilisable pour les composants courants, associé à des conseils de bonnes pratiques, pour le framework que vous utilisez."
         img-src={toolsComponents.src}
       />
       <gcds-card
-        card-title="CSS framework"
+        card-title="Cadre CSS"
         href="#"
         description="TODO - Lorem Ipsum is dummy text of the printing and  typesetting industry. Lorem Ipsum has been dummy text since the 1500s."
         img-src={toolsCssUtil.src}
       />
       <gcds-card
-        card-title="Page templates"
+        card-title="Modèles de page"
         href="#"
-        description="Start your project with basic, pre-built pages that provide a consistent, recognizable Canada.ca experience."
+        description="Commencez votre projet avec des pages de base prédéfinies qui offrent une expérience Canada.ca cohérente et reconnaissable."
         img-src={toolsTemplates.src}
       />
       <gcds-card
-        card-title="Patterns"
+        card-title="Motifs"
         href="#"
         description="TODO - Lorem Ipsum is dummy text of the printing and  typesetting industry. Lorem Ipsum has been dummy text since the 1500s."
         img-src={toolsTemplates.src}
       />
       <gcds-card
-        card-title="Learning videos"
+        card-title="Vidéos d'apprentissage"
         href="#"
         description="TODO - Lorem Ipsum is dummy text of the printing and  typesetting industry. Lorem Ipsum has been dummy text since the 1500s."
         img-src={toolsTemplates.src}
@@ -94,70 +94,50 @@ import toolsTokens from '../../assets/img/home/tools-tokens.png';
     </gcds-grid>
   </section>
   <section class="banner-mailing-list bg-full-width bg-light-blue my-600 py-600">
-    <Heading tag="h2" mt="0">Subscribe to our mailing list</Heading>
-    <Text>Subscribe to our mailing list to get GC Design System updates, release communications, and special events.</Text>
-    <gcds-button>Subscribe</gcds-button>
+    <Heading tag="h2" mt="0">Abonnez-vous à notre liste de diffusion</Heading>
+    <Text>Abonnez-vous à notre liste de diffusion pour recevoir les mises à jour du système de conception GC, les communications de sortie et les événements spéciaux.</Text>
+    <gcds-button>S'abonner</gcds-button>
   </section>
   <section class="section--new">
-    <Heading tag="h2">What's new</Heading>
+    <Heading tag="h2">Nouveautés</Heading>
     <gcds-grid columns-desktop="1fr 1fr 1fr" columns-tablet="1fr 1fr" columns="1fr">
       <gcds-card
-        card-title="Attend a demo"
+        card-title="Participer à une démo"
         href="#"
-        description="Learn how GC Design System can work for you and your team."
+        description="Découvrir comment Système de design GC peut fonctionner pour vous et votre équipe."
         img-src={newDemo.src}
       />
       <gcds-card
-        card-title="About accessibility"
+        card-title="L'accessibilité"
         href="#"
-        description="Review accessibility practices and checks within the design system."
+        description="Passez en revue les pratiques et les examens en matière d'accessibilité au sein du système de design."
         img-src={newAccessibility.src}
       />
       <gcds-card
-        card-title="Roadmap"
+        card-title="Feuille de route"
         href="#"
         description="TODO"
         img-src={newRoadmap.src}
       />
       <gcds-card
-        card-title="Get involved"
+        card-title="S'impliquer"
         href="#"
-        description="Check out what the team's working on and how you can contribute."
+        description="Découvrez sur quoi l'équipe travaille et comment vous pouvez y contribuer."
         img-src={newGetInvolved.src}
       />
       <gcds-card
-        card-title="Catch up on releases"
+        card-title="Dernières versions"
         href="#"
-        description="Read about the latest additions and features."
+        description="Découvrez les derniers ajouts et les nouvelles fonctionnalités."
         img-src={newReleases.src}
       />
       <gcds-card
-        card-title="Learning videos"
+        card-title="Vidéos d'apprentissage"
         href="#"
         description="TODO"
         img-src={newVideos.src}
       />
     </gcds-grid>
   </section>
-  <HelpUs />
+  <HelpUs locale="fr" />
 </BaseLayout>
-
-<style>
-  .section--hero {
-    background: url(https://design-system.alpha.canada.ca/images/common/home/home-hero.jpg) top center no-repeat;
-    background-size: auto;
-    background-size: cover;
-
-    div {
-      background: linear-gradient(to right, var(--gcds-bg-primary), transparent);
-    }
-
-    article {
-      z-index: 20;
-      position: relative;
-      padding: 10rem 0;
-
-      --gcds-heading-default-text: #fff;
-    }
-  }
-</style>

@@ -1,0 +1,19 @@
+---
+import type { Locale, RouteKey } from "../utils/docs-static-paths";
+import { getBreadcrumbItems } from "../utils/breadcrumbs";
+
+interface Props {
+  currentLocale: Locale;
+  routeKey: RouteKey;
+}
+
+const { currentLocale, routeKey } = Astro.props as Props;
+const breadcrumbItems = getBreadcrumbItems(currentLocale, routeKey);
+---
+
+<gcds-breadcrumbs lang={currentLocale} slot="breadcrumb">
+  {breadcrumbItems.map((item) => (
+    <gcds-breadcrumbs-item href={item.href}>{item.label}</gcds-breadcrumbs-item>
+  ))}
+</gcds-breadcrumbs>
+

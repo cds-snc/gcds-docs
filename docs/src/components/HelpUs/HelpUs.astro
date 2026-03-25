@@ -1,24 +1,26 @@
 ---
 import { Heading, Text } from '../../components';
-import I18N from './i18n';
+import { helpUsMessages, type HelpUsLocale } from '../../i18n/messages/help-us';
 
-// Get the current locale from the URL
-const pathname = Astro.url.pathname.replace(/\/$/, '');
-const parts = pathname.split('/').filter(Boolean);
-const lang = parts[0];
+interface Props {
+  locale: HelpUsLocale;
+}
+
+const { locale } = Astro.props as Props;
+const content = helpUsMessages[locale] || helpUsMessages.en;
 ---
 
 <section>
-  <Heading tag="h2">{I18N[lang].heading}</Heading>
+  <Heading tag="h2">{content.heading}</Heading>
 
-  {I18N[lang].text.map((paragraph) => (
+  {content.text.map((paragraph) => (
     <Text>{paragraph}</Text>
   ))}
 
   <gcds-button button-role="secondary" type="link" href="#">
-    {I18N[lang].btnFeedback}
+    {content.btnFeedback}
   </gcds-button>
   <gcds-button button-role="secondary" type="link" href="#">
-    {I18N[lang].btnReport}
+    {content.btnReport}
   </gcds-button>
 </section>

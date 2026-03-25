@@ -1,15 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
+import { escapeHtml } from "../scripts/html.js";
 
-import "./CodePreview.css";
-
-const escapeHtml = (unsafe) => {
-  return unsafe
-    .replace(/&/g, "&amp;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;")
-    .replace(/"/g, "&quot;")
-    .replace(/'/g, "&#039;");
-};
 
 export default function CodePreview({ children }) {
   const [isCodeVisible, setIsCodeVisible] = useState(false);

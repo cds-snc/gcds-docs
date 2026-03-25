@@ -1,6 +1,7 @@
 ---
 import { Footer, Header, Nav } from '../components';
 import { routes } from '../i18n/config';
+import type { Locale, RouteKey } from '../utils/docs-static-paths';
 import { findRouteKeyFromPath } from '../utils/i18n';
 
 import '../styles/global.css';
@@ -11,8 +12,8 @@ const { pageTitle, paddingTop = true } = Astro.props;
 const pathname = Astro.url.pathname.replace(/\/$/, '');
 const parts = pathname.split('/').filter(Boolean);
 
-const currentLocale = parts[0];
-const routeKey = findRouteKeyFromPath(currentLocale, parts, routes);
+const currentLocale = parts[0] as Locale;
+const routeKey = findRouteKeyFromPath(currentLocale, parts, routes) as RouteKey;
 ---
 
 <html lang={currentLocale}>
@@ -40,35 +41,30 @@ const routeKey = findRouteKeyFromPath(currentLocale, parts, routes);
     <link rel="stylesheet" href="https://cdn.design-system.alpha.canada.ca/@cdssnc/gcds-utility@1.9.0/dist/gcds-utility.min.css">
 
     <!-- GC Design System -->
-    <link rel="stylesheet" href="/node_modules/@gcds-core/components/dist/gcds/gcds.css">
-    <script type="module" src="/node_modules/@gcds-core/components/dist/gcds/gcds.esm.js"></script>
+    <link rel="stylesheet" href="/assets/gcds/gcds.css">
+    <script type="module" src="/assets/gcds/gcds.esm.js"></script>
   </head>
   <body>
     <Header currentLocale={currentLocale} routeKey={routeKey} />
-    <Nav />
-    <div id="main-content" class={paddingTop ? 'has-padding' : ''}>
-      <slot name="hero" />
-      <gcds-container size="xl" tag="main" alignment="center">
-        <slot />
-        <gcds-date-modified>21.05.2025</gcds-date-modified>
-      </gcds-container>
+
+    <div class="content-wrapper">
+      <gcds-grid
+        columns="minmax(0, 1fr)"
+        columns-desktop="20rem minmax(0, 1fr)"
+        tag="div"
+        container="xl"
+        alignment="center"
+        class="layout-grid"
+      >
+        <Nav currentLocale={currentLocale} routeKey={routeKey} />
+        <main id="main-content" class={paddingTop ? 'has-padding' : ''}>
+          <slot name="hero" />
+          <slot />
+          <gcds-date-modified class="date-modified">21.05.2025</gcds-date-modified>
+        </main>
+      </gcds-grid>
+
       <Footer />
     </div>
   </body>
 </html>
-
-<style>
-  body,
-  html {
-    height: 100%;
-  }
-
-  #main-content {
-    width: calc(100vw - 20rem);
-    margin: 6.9375rem 0 0 20rem;
-  }
-
-  #main-content.has-padding {
-    padding-block-start: var(--gcds-spacing-600);
-  }
-</style>

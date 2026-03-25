@@ -1,0 +1,6 @@
+.doc-links img {
+  width: 1.5rem;
+  height: 1.5rem;
+  margin-inline-end: var(--gcds-spacing-100);
+}
+

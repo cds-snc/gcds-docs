@@ -1,0 +1,30 @@
+.bg-full-width {
+  position: relative;
+  width: calc(100% + var(--gcds-spacing-225));
+  margin-inline: calc(-1 * var(--gcds-spacing-100));
+  padding-inline: var(--gcds-spacing-100);
+}
+
+.bg-full-width::before,
+.bg-full-width::after {
+  position: absolute;
+  top: 0;
+  width: 100vw;
+  height: 100%;
+  content: "";
+  background-color: inherit;
+}
+
+.bg-full-width::before {
+  left: calc(-100vw + 0.01px);
+}
+
+.bg-full-width::after {
+  right: calc(-100vw + 0.01px);
+}
+
+.bg-light-blue {
+  background-color: var(--gcds-color-blue-100);
+  color: var(--gcds-color-blue-800);
+}
+
