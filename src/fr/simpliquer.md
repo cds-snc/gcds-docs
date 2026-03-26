@@ -13,9 +13,9 @@ templateEngineOverride: njk,md
 
 # S'impliquer
 
-Un système de design ne connaît jamais de fin. Nous nous engageons à construire avec les personnes qui utilisent nos produits. Voici nos travaux en cours et ceux qui s’en viennent.
+Un système de design ne connaît jamais de fin. Nous nous engageons à construire avec les personnes qui utilisent nos produits.
 
-Une communauté croissante d’utilisatrices et utilisateurs au gouvernement contribue à l’évolution de Système de design GC par ses commentaires. Une équipe dédiée collabore avec la communauté pour l’améliorer continuellement au service du GC et des gens que nous servons.
+Une communauté croissante d’utilisatrices et utilisateurs au gouvernement contribue à l’évolution de Système de design GC par ses commentaires. Une équipe dédiée collabore avec elle pour l’améliorer continuellement, au service du GC et des gens que nous servons.
 
 ## Découvrez Système de design GC
 
