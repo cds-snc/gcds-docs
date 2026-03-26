@@ -63,7 +63,7 @@ Fournissez l’un des éléments suivants pour chaque composant ou modèle de pa
 - **Code** : code de prototype ou de production, ou implémentations du produit.
 
 <gcds-button button-role="secondary" type="link" href="{{ links.githubCompsPriority }}" external>Contribuer sur GitHub</gcds-button>
-<gcds-button button-role="secondary" type="link" href="{{ links.contact }}" external>Contactez-nous</gcds-button>
+<gcds-button button-role="secondary" type="link" href="{{ links.contact }}" external>Nous contacter</gcds-button>
 
 <hr class="mt-600" />
 
@@ -76,7 +76,7 @@ Les demandes de fonctionnalités peuvent inclure des suggestions de nouveaux com
 Envoyez votre demande de fonctionnalité directement dans GitHub, en <gcds-link href="{{ links.githubGetStarted }}" external>créant un compte</gcds-link>.
 
 <gcds-button button-role="secondary" type="link" href="{{ links.githubCompsPriority }}" external>Contribuer sur GitHub</gcds-button>
-<gcds-button button-role="secondary" type="link" href="{{ links.contact }}" external>Contactez-nous</gcds-button>
+<gcds-button button-role="secondary" type="link" href="{{ links.contact }}" external>Nous contacter</gcds-button>
 
 <hr class="mt-600"/>
 
