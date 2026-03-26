@@ -1,3 +1,4 @@
+@import "@gcds-core/css-shortcuts/dist/gcds-css-shortcuts.min.css";
 @import "./base/general.css";
 @import "./base/typography.css";
 @import "./layout/base-layout.css";

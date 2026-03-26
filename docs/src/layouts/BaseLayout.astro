@@ -1,5 +1,5 @@
 ---
-import { Footer, Header, Nav } from '../components';
+import { Footer, Header, SideBar } from '../components';
 import { routes } from '../i18n/config';
 import type { Locale, RouteKey } from '../utils/docs-static-paths';
 import { findRouteKeyFromPath } from '../utils/i18n';
@@ -19,7 +19,7 @@ const routeKey = findRouteKeyFromPath(currentLocale, parts, routes) as RouteKey;
 <html lang={currentLocale}>
   <head>
     <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="https://design-system.alpha.canada.ca/favicon.ico" />
+    <link rel="icon" href="/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="generator" content={Astro.generator} />
     <title>{pageTitle} | GC Design System</title>
@@ -37,8 +37,6 @@ const routeKey = findRouteKeyFromPath(currentLocale, parts, routes) as RouteKey;
       rel="stylesheet"
     />
 
-    <!-- GC Design System Utility -->
-    <link rel="stylesheet" href="https://cdn.design-system.alpha.canada.ca/@cdssnc/gcds-utility@1.9.0/dist/gcds-utility.min.css">
 
     <!-- GC Design System -->
     <link rel="stylesheet" href="/assets/gcds/gcds.css">
@@ -56,7 +54,7 @@ const routeKey = findRouteKeyFromPath(currentLocale, parts, routes) as RouteKey;
         alignment="center"
         class="layout-grid"
       >
-        <Nav currentLocale={currentLocale} routeKey={routeKey} />
+        <SideBar currentLocale={currentLocale} routeKey={routeKey} />
         <main id="main-content" class={paddingTop ? 'has-padding' : ''}>
           <slot name="hero" />
           <slot />

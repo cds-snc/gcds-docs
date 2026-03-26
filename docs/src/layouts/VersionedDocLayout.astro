@@ -1,0 +1,35 @@
+---
+import BaseLayout from "./BaseLayout.astro";
+import VersionSwitcher from "../components/VersionSwitcher.astro";
+import type { Locale } from "../utils/docs-static-paths";
+import type { VersionedSectionKey } from "../utils/version-manifest";
+interface Props {
+  pageTitle: string;
+  locale: Locale;
+  section: VersionedSectionKey;
+  version: string;
+  pageKey: string;
+}
+const { pageTitle, locale, section, version, pageKey } = Astro.props as Props;
+---
+<BaseLayout pageTitle={pageTitle}>
+  <VersionSwitcher
+    locale={locale}
+    section={section}
+    currentVersion={version}
+    pageKey={pageKey}
+  />
+  <div id="version-fallback-notice" class="mb-300" hidden>
+    <gcds-notice notice-title-tag="h2" notice-role="warning">
+      This page does not exist in the selected version. You are on the closest available landing page.
+    </gcds-notice>
+  </div>
+  <slot />
+</BaseLayout>
+<script is:inline>
+  const params = new URLSearchParams(window.location.search);
+  if (params.get("fallback") === "1") {
+    const notice = document.getElementById("version-fallback-notice");
+    if (notice) notice.hidden = false;
+  }
+</script>

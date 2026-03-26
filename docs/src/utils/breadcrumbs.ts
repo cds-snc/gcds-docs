@@ -13,6 +13,8 @@ const labels: Record<string, Record<Locale, string>> = {
   about: { en: "About us", fr: "A propos" },
   components: { en: "Components", fr: "Composants" },
   button: { en: "Button", fr: "Bouton" },
+  cssShortcuts: { en: "CSS Shortcuts", fr: "Raccourcis CSS" },
+  tokens: { en: "Tokens", fr: "Jetons" },
 };
 
 const getLabel = (key: string, locale: Locale) => labels[key]?.[locale] || key;
@@ -60,4 +62,3 @@ export const getBreadcrumbItems = (currentLocale: Locale, routeKey: RouteKey): B
 
   return breadcrumbItems;
 };
-

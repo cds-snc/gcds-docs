@@ -1,0 +1,75 @@
+---
+import {
+  buildLatestPath,
+  buildVersionPath,
+  getPageDefinition,
+  type Locale,
+  type VersionedSectionKey,
+  versionManifest,
+} from "../utils/version-manifest";
+
+interface Props {
+  locale: Locale;
+  section: VersionedSectionKey;
+  currentVersion: string;
+  pageKey: string;
+}
+
+const { locale, section, currentVersion, pageKey } = Astro.props as Props;
+const sectionMeta = versionManifest[section];
+const page = getPageDefinition(section, pageKey);
+
+if (!page) {
+  throw new Error(`Unknown versioned page key '${pageKey}' for section '${section}'`);
+}
+
+const options = sectionMeta.versions.map(version => {
+  const snapshot = page.snapshots[version]?.[locale];
+  const sectionLanding = getPageDefinition(section, "section");
+  const fallback = sectionLanding
+    ? buildVersionPath(locale, section, version, sectionLanding.slugs[locale])
+    : buildLatestPath(locale, section, []);
+
+  const href = snapshot
+    ? version === sectionMeta.latest
+      ? buildLatestPath(locale, section, page.slugs[locale])
+      : buildVersionPath(locale, section, version, page.slugs[locale])
+    : `${fallback}?fallback=1&missing=${encodeURIComponent(page.labels[locale])}&from=${encodeURIComponent(currentVersion)}`;
+
+  return {
+    version,
+    href,
+    missing: !snapshot,
+  };
+});
+---
+
+<div class="version-switcher d-flex align-items-center gap-200 mb-300">
+  <label for="version-switcher" class="mb-0">Version</label>
+  <select id="version-switcher" data-current={currentVersion}>
+    {options.map(option => (
+      <option
+        value={option.version}
+        data-href={option.href}
+        selected={option.version === currentVersion}
+      >
+        {option.version}{option.missing ? " (fallback)" : ""}
+      </option>
+    ))}
+  </select>
+</div>
+
+<script is:inline>
+  const select = document.getElementById("version-switcher");
+  if (select) {
+    select.addEventListener("change", event => {
+      const target = event.currentTarget;
+      const option = target.options[target.selectedIndex];
+      const href = option.getAttribute("data-href");
+      if (href) {
+        window.location.assign(href);
+      }
+    });
+  }
+</script>
+

@@ -1,13 +1,27 @@
 import { routes } from "../i18n/config";
+import {
+  type Locale,
+  type VersionedRouteKey,
+  type VersionedSectionKey,
+  versionManifest,
+} from "./version-manifest";
 
-export type Locale = "en" | "fr";
-export type RouteKey = "home" | "about" | "button";
+export type { Locale };
+
+export type RouteKey = "home" | "about" | VersionedRouteKey;
 export type DocsStaticPathProps = {
   routeKey: RouteKey;
   label: string;
   section?: string;
   componentPath: string;
   nav?: boolean;
+  versioning?: {
+    section: VersionedSectionKey;
+    version: string;
+    latest: string;
+    pageKey: string;
+    explicit: boolean;
+  };
 };
 
 const locales: Locale[] = ["en", "fr"];
@@ -37,7 +51,7 @@ type NavSection = {
   links: NavLink[];
 };
 
-const routeLabels: Record<RouteKey, LocalizedLabel> = {
+const routeLabels: Record<"home" | "about", LocalizedLabel> = {
   home: {
     en: "Home",
     fr: "Accueil",
@@ -46,18 +60,7 @@ const routeLabels: Record<RouteKey, LocalizedLabel> = {
     en: "About us",
     fr: "À propos",
   },
-  button: {
-    en: "Button",
-    fr: "Bouton",
-  },
 };
-
-const sectionLabels = {
-  components: {
-    en: "Components",
-    fr: "Composants",
-  },
-} satisfies Record<string, LocalizedLabel>;
 
 const externalLinks = {
   en: [
@@ -105,15 +108,16 @@ type PageDefinition = {
   nav?: boolean;
   slugs: Record<Locale, string[] | undefined>;
   componentPaths: Record<Locale, string>;
+  versioning?: DocsStaticPathProps["versioning"];
 };
 
-const pageDefinitions: PageDefinition[] = [
+const unversionedPages: PageDefinition[] = [
   {
     routeKey: "home",
     labels: routeLabels.home,
     slugs: {
-      en: undefined,
-      fr: undefined,
+      en: [],
+      fr: [],
     },
     componentPaths: {
       en: "../../content-pages/en/index.astro",
@@ -132,52 +136,77 @@ const pageDefinitions: PageDefinition[] = [
       fr: "../../content-pages/fr/a-propos.astro",
     },
   },
-  {
-    routeKey: "button",
-    labels: routeLabels.button,
-    section: sectionLabels.components,
-    slugs: {
-      en: [routes.components.en, routes.components.children.button.en],
-      fr: [routes.components.fr, routes.components.children.button.fr],
-    },
-    componentPaths: {
-      en: "../../content-pages/en/components/button/page.astro",
-      fr: "../../content-pages/fr/composants/bouton/page.astro",
-    },
-  },
-  {
-    routeKey: "button",
-    labels: {
-      en: "Button overview",
-      fr: "Aperçu du bouton",
-    },
-    nav: false,
-    slugs: {
-      en: [routes.components.en, routes.components.children.button.en, "overview"],
-      fr: [routes.components.fr, routes.components.children.button.fr, "overview"],
-    },
-    componentPaths: {
-      en: "../../content-pages/en/components/button/overview-page.astro",
-      fr: "../../content-pages/fr/composants/bouton/overview-page.astro",
-    },
-  },
-  {
-    routeKey: "button",
-    labels: {
-      en: "Button examples",
-      fr: "Exemples de bouton",
-    },
-    nav: false,
-    slugs: {
-      en: [routes.components.en, routes.components.children.button.en, "examples"],
-      fr: [routes.components.fr, routes.components.children.button.fr, "examples"],
-    },
-    componentPaths: {
-      en: "../../content-pages/en/components/button/examples-page.astro",
-      fr: "../../content-pages/fr/composants/bouton/examples-page.astro",
-    },
-  },
 ];
+
+const getVersionedPagesForLocale = (locale: Locale): PageDefinition[] => {
+  const definitions: PageDefinition[] = [];
+
+  for (const sectionKey of Object.keys(versionManifest) as VersionedSectionKey[]) {
+    const section = versionManifest[sectionKey];
+
+    for (const page of section.pages) {
+      for (const version of section.versions) {
+        const snapshot = page.snapshots[version]?.[locale];
+        if (!snapshot) {
+          continue;
+        }
+
+        const base = section.baseSlugs[locale];
+        const latestSlugs = [base, ...page.slugs[locale]];
+        const explicitSlugs = [base, version, ...page.slugs[locale]];
+
+        if (version === section.latest) {
+          const isSection = page.pageKey === "section";
+          const isTopLevelPage = page.slugs[locale].length === 1;
+          definitions.push({
+            routeKey: page.routeKey,
+            labels: page.labels,
+            nav: isSection || isTopLevelPage,
+            section: isTopLevelPage ? { en: section.navLabels.en, fr: section.navLabels.fr } : undefined,
+            slugs: {
+              en: locale === "en" ? latestSlugs : undefined,
+              fr: locale === "fr" ? latestSlugs : undefined,
+            },
+            componentPaths: {
+              en: locale === "en" ? snapshot : "",
+              fr: locale === "fr" ? snapshot : "",
+            },
+            versioning: {
+              section: sectionKey,
+              version,
+              latest: section.latest,
+              pageKey: page.pageKey,
+              explicit: false,
+            },
+          });
+        }
+
+        definitions.push({
+          routeKey: page.routeKey,
+          labels: page.labels,
+          nav: false,
+          slugs: {
+            en: locale === "en" ? explicitSlugs : undefined,
+            fr: locale === "fr" ? explicitSlugs : undefined,
+          },
+          componentPaths: {
+            en: locale === "en" ? snapshot : "",
+            fr: locale === "fr" ? snapshot : "",
+          },
+          versioning: {
+            section: sectionKey,
+            version,
+            latest: section.latest,
+            pageKey: page.pageKey,
+            explicit: true,
+          },
+        });
+      }
+    }
+  }
+
+  return definitions;
+};
 
 const buildLocaleHref = (locale: Locale, slug?: string) => {
   const path = slug ?? "";
@@ -185,11 +214,19 @@ const buildLocaleHref = (locale: Locale, slug?: string) => {
 };
 
 export const getDocsStaticPaths = (): DocsStaticPath[] => {
-  return locales.flatMap(locale =>
-    pageDefinitions.map(definition => ({
+  return locales.flatMap(locale => {
+    const versionedPages = getVersionedPagesForLocale(locale);
+    const pageDefinitions = [...unversionedPages, ...versionedPages].filter(
+      definition => definition.slugs[locale] !== undefined,
+    );
+
+    return pageDefinitions.map(definition => {
+      const slugParts = definition.slugs[locale];
+      const slug = slugParts && slugParts.length > 0 ? slugParts.join("/") : undefined;
+      return {
       params: {
         locale,
-        slug: definition.slugs[locale]?.join("/"),
+        slug,
       },
       props: {
         routeKey: definition.routeKey,
@@ -197,9 +234,11 @@ export const getDocsStaticPaths = (): DocsStaticPath[] => {
         section: definition.section?.[locale],
         componentPath: definition.componentPaths[locale],
         nav: definition.nav,
+        versioning: definition.versioning,
       },
-    })),
-  );
+    };
+    });
+  });
 };
 
 export const getNavData = (locale: Locale) => {

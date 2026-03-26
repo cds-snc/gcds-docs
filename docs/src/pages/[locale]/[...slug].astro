@@ -1,9 +1,10 @@
 ---
 import { getDocsStaticPaths, type DocsStaticPathProps } from "../../utils/docs-static-paths";
 
-const pageModules = import.meta.glob("../../content-pages/**/*.{astro,mdx}", {
-  eager: true,
-});
+const pageModules = {
+  ...import.meta.glob("../../content-pages/**/*.{astro,mdx}", { eager: true }),
+  ...import.meta.glob("../../content-versioned/**/*.{astro,mdx}", { eager: true }),
+};
 
 export function getStaticPaths() {
   return getDocsStaticPaths();
@@ -19,4 +20,4 @@ if (!pageModule?.default) {
 const Page = pageModule.default as any;
 ---
 
-<Page pageTitle={label} />
+<Page {...Astro.props} pageTitle={label} />

@@ -8,7 +8,9 @@ export function findRouteKeyFromPath(
   routes: any
 ) {
   const firstSlug = parts[1] || "";
-  const secondSlug = parts[2] || "";
+  const maybeVersion = parts[2] || "";
+  const isVersionSegment = /^\d+\.\d+\.\d+$/.test(maybeVersion);
+  const secondSlug = isVersionSegment ? (parts[3] || "") : maybeVersion;
 
   for (const key in routes) {
     if (routes[key][locale] === firstSlug) {

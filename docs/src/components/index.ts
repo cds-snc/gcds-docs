@@ -7,6 +7,6 @@ export { default as Footer } from "./Footer.astro";
 export { default as Header } from "./Header.astro";
 export { default as Heading } from "./Heading.astro";
 export { default as HelpUs } from "./HelpUs/HelpUs.astro";
-export { default as Nav } from "./Nav.astro";
+export { default as SideBar } from "./SideBar.astro";
 export { default as Tabs } from "./Tabs.astro";
 export { default as Text } from "./Text.astro";
