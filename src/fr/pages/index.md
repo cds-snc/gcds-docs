@@ -123,7 +123,7 @@ Explorez notre <gcds-link href="{{ links.roadmap }}">feuille de route</gcds-link
 Si vous avez des questions, si vous voulez <gcds-link href="{{ links.getInvolved }}">vous impliquer</gcds-link> ou si vous voulez vous inscrire à notre liste de diffusion, n’hésitez pas à communiquer avec nous.
 
 <gcds-button type="link" href="{{ links.contact }}" button-role="secondary">
-  Contactez-nous
+  Nous contacter
 </gcds-button>
 
 </section>
