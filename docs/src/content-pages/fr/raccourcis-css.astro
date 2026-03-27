@@ -1,9 +1,10 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
+
+const { lastModified } = Astro.props;
 ---
 
-<BaseLayout pageTitle="Raccourcis CSS">
+<BaseLayout pageTitle="Raccourcis CSS" lastModified={lastModified}>
   <h1>Raccourcis CSS</h1>
   <p>La documentation des raccourcis CSS sera ajoutée ici.</p>
 </BaseLayout>
-

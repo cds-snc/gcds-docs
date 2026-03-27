@@ -3,11 +3,12 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 
 import { Heading, Text } from '../../components';
 
+const { lastModified } = Astro.props;
 const skills = ["HTML", "CSS", "JavaScript", "React", "Astro", "Rédaction de documents"];
 const happy = true;
 ---
 
-<BaseLayout pageTitle="À propos">
+<BaseLayout pageTitle="À propos" lastModified={lastModified}>
   <Heading tag="h1">À propos de nous</Heading>
   <Text>Cette page est un exemple de test et d'apprentissage créé avec Astro, montrant comment structurer et afficher des composants, transmettre des propriétés et utiliser la logique de base dans un fichier <code>.astro</code>. Voici un aperçu du processus :</Text>
 

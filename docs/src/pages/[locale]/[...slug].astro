@@ -1,5 +1,6 @@
 ---
 import { getDocsStaticPaths, type DocsStaticPathProps } from "../../utils/docs-static-paths";
+import { getFileModifiedTime } from "../../utils/file-modified";
 
 const pageModules = {
   ...import.meta.glob("../../content-pages/**/*.{astro,mdx}", { eager: true }),
@@ -11,13 +12,19 @@ export function getStaticPaths() {
 }
 
 const { componentPath, label } = Astro.props as DocsStaticPathProps;
-const pageModule = pageModules[componentPath] as { default?: unknown } | undefined;
+const pageModule = pageModules[componentPath] as { default?: unknown; frontmatter?: { lastModified?: string } } | undefined;
 
 if (!pageModule?.default) {
   throw new Error(`Missing page module for route component path: ${componentPath}`);
 }
 
 const Page = pageModule.default as any;
+
+// Use git-based lastModified from remark plugin (for MDX) or fall back to file stats (for Astro)
+let lastModified = pageModule.frontmatter?.lastModified;
+if (!lastModified) {
+  lastModified = await getFileModifiedTime(componentPath, "DD MMMM YYYY");
+}
 ---
 
-<Page {...Astro.props} pageTitle={label} />
+<Page {...Astro.props} pageTitle={label} lastModified={lastModified} />

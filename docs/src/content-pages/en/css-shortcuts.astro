@@ -1,9 +1,10 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
+
+const { lastModified } = Astro.props;
 ---
 
-<BaseLayout pageTitle="CSS Shortcuts">
+<BaseLayout pageTitle="CSS Shortcuts" lastModified={lastModified}>
   <h1>CSS Shortcuts</h1>
   <p>Documentation for CSS shortcuts will be added here.</p>
 </BaseLayout>
-

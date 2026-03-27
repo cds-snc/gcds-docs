@@ -1,9 +1,10 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
+
+const { lastModified } = Astro.props;
 ---
 
-<BaseLayout pageTitle="Jetons de conception">
+<BaseLayout pageTitle="Jetons de conception" lastModified={lastModified}>
   <h1>Jetons de conception</h1>
   <p>La documentation des jetons de conception sera ajoutée ici.</p>
 </BaseLayout>
-

@@ -1,9 +1,10 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
+
+const { lastModified } = Astro.props;
 ---
 
-<BaseLayout pageTitle="Design Tokens">
+<BaseLayout pageTitle="Design Tokens" lastModified={lastModified}>
   <h1>Design Tokens</h1>
   <p>Documentation for design tokens will be added here.</p>
 </BaseLayout>
-

@@ -3,11 +3,12 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 
 import { Heading, Text } from '../../components';
 
+const { lastModified } = Astro.props;
 const skills = ["HTML", "CSS", "JavaScript", "React", "Astro", "Writing Docs"];
 const happy = true;
 ---
 
-<BaseLayout pageTitle="About us">
+<BaseLayout pageTitle="About us" lastModified={lastModified}>
   <Heading tag="h1">About us</Heading>
   <Text>This page is a test and learning example built using Astro, demonstrating how to structure and render components, pass props, and use basic logic inside an <code>.astro</code> file. Here's a breakdown of what's happening:</Text>
 

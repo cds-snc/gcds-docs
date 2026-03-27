@@ -9,10 +9,11 @@ interface Props {
   section: VersionedSectionKey;
   version: string;
   pageKey: string;
+  lastModified?: string;
 }
-const { pageTitle, locale, section, version, pageKey } = Astro.props as Props;
+const { pageTitle, locale, section, version, pageKey, lastModified } = Astro.props as Props;
 ---
-<BaseLayout pageTitle={pageTitle}>
+<BaseLayout pageTitle={pageTitle} lastModified={lastModified}>
   <VersionSwitcher
     locale={locale}
     section={section}
@@ -20,7 +21,7 @@ const { pageTitle, locale, section, version, pageKey } = Astro.props as Props;
     pageKey={pageKey}
   />
   <div id="version-fallback-notice" class="mb-300" hidden>
-    <gcds-notice notice-title-tag="h2" notice-role="warning">
+    <gcds-notice notice-title="Page doesn't exist in this version" notice-title-tag="h2" notice-role="warning">
       This page does not exist in the selected version. You are on the closest available landing page.
     </gcds-notice>
   </div>

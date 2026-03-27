@@ -16,7 +16,7 @@ This package contains the Astro-based documentation site under `docs/`.
 │   ├── components/
 │   │   ├── Breadcrumbs.astro
 │   │   ├── Header.astro
-│   │   ├── Nav.astro
+│   │   ├── SideNav.astro
 │   │   └── HelpUs/
 │   │       └── HelpUs.astro
 │   ├── content-pages/              # Route content (localized page modules)
@@ -55,7 +55,7 @@ This package contains the Astro-based documentation site under `docs/`.
 - **Routing**: `src/pages/[locale]/[...slug].astro` + `src/utils/docs-static-paths.ts`
 - **Localized copy**: `src/i18n/messages/*`
 - **Layout shell**: `src/layouts/BaseLayout.astro`
-- **Navigation/Breadcrumbs**: `src/components/Nav.astro`, `src/components/Breadcrumbs.astro`, `src/utils/breadcrumbs.ts`
+- **Navigation/Breadcrumbs**: `src/components/SideBar.astro`, `src/components/Breadcrumbs.astro`, `src/utils/breadcrumbs.ts`
 - **Global styles**: `src/styles/global.css` (imports modular CSS files)
 - **Client-side behavior**: `src/scripts/*` imported by components
 
@@ -75,3 +75,7 @@ To serve built output manually (production-like static host):
 ```bash
 python3 -m http.server --directory dist 8080
 ```
+
+## Additional docs
+
+- Versioning model and maintenance guide: [`VERSIONING.md`](./VERSIONING.md)

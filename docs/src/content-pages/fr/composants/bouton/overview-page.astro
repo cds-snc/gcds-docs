@@ -1,7 +1,8 @@
 ---
 import BaseLayout from '../../../../layouts/BaseLayout.astro';
 import ButtonOverview from './overview.mdx';
+const { lastModified } = Astro.props;
 ---
-<BaseLayout pageTitle="Aperçu du bouton">
+<BaseLayout pageTitle="Aperçu du bouton" lastModified={lastModified}>
   <ButtonOverview />
 </BaseLayout>

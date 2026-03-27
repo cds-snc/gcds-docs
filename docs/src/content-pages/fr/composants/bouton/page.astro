@@ -3,9 +3,10 @@ import BaseLayout from '../../../../layouts/BaseLayout.astro';
 import { DocLinks, Tabs } from '../../../../components';
 import ButtonOverview from './overview.mdx';
 import ButtonExamples from './examples.mdx';
+const { lastModified } = Astro.props;
 ---
 
-<BaseLayout pageTitle="Bouton">
+<BaseLayout pageTitle="Bouton" lastModified={lastModified}>
   <h1>Bouton <br /><code>&lt;gcds-button&gt;</code></h1>
 
   <p><em>Autres noms : appel à l’action.</em></p>

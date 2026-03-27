@@ -1,3 +1,6 @@
+/*
+ * This script copies the GCDS assets from the node_modules directory to the public/assets directory.
+ */
 import { access, cp, mkdir } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";

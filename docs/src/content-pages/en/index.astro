@@ -3,6 +3,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 
 import { Heading, HelpUs, Text } from '../../components';
 
+const { lastModified } = Astro.props;
 import newAccessibility from '../../assets/img/home/new-accessibility.jpg';
 import newDemo from '../../assets/img/home/new-demo.jpg';
 import newGetInvolved from '../../assets/img/home/new-get-involved.jpg';
@@ -15,7 +16,7 @@ import toolsTemplates from '../../assets/img/home/tools-templates.png';
 import toolsTokens from '../../assets/img/home/tools-tokens.png';
 ---
 
-<BaseLayout pageTitle="Home" paddingTop={false}>
+<BaseLayout pageTitle="Home" paddingTop={false} lastModified={lastModified}>
   <section class="section--hero" slot="hero">
     <div>
       <article class="container-xl mx-auto">
