@@ -53,7 +53,7 @@ We’re actively seeking contributions for the following items:
 ---
 
 ### Components
-  - **Tag / Pill:** For categorizing and highlighting content, statuses, or metadata in a clear and consistent way.
+  - **Tag / Badge:** For categorizing and highlighting content, statuses, or metadata in a clear and consistent way.
   - **Modal:** For interruptive interactions that require user attention, such as confirmations or important actions.
   - **Alert:** For communicating system status, feedback, and important messages to users.
   - **Tabs:** For organizing related content into sections within the same view.
