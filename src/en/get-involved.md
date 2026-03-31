@@ -50,7 +50,47 @@ You can contribute to upcoming GC Design System work.
 
 We’re actively seeking contributions for the following items:
 
-- **Data tables** to organize and display large amounts of data in rows and columns.
+---
+
+### Components
+
+<ul>
+  <li><strong>Tag / Label:</strong> For categorizing and highlighting content, statuses, or metadata in a clear and consistent way.</li>
+  
+  <li><strong>Modal:</strong> For interruptive interactions that require user attention, such as confirmations or important actions.</li>
+  
+  <li><strong>Alert:</strong> For communicating system status, feedback, and important messages to users.</li>
+  
+  <li><strong>Tabs:</strong> For organizing related content into sections within the same view.</li>
+  
+  <li><strong>Subway / On this page:</strong> For helping users navigate longer pages or multi-step content with clear structure and orientation.</li>
+  
+  <li><strong>Autocomplete (Select):</strong> For improving usability when selecting from long or complex lists.</li>
+</ul>
+
+---
+
+### Styles
+
+<ul>
+  <li><strong>More Icons:</strong> A consistent set of icons to support common actions and concepts across more GC services.</li>
+  
+  <li><strong>Colours:</strong> Continued evolution of the colour system to support accessibility, flexibility, and clarity in different contexts.</li>
+</ul>
+
+---
+
+### Templates and getting started
+
+<ul>
+  <li><strong>Page templates:</strong> Reusable page structures for common service patterns to help teams get started quickly.</li>
+  
+  <li><strong>Starter apps:</strong> Reference implementations that show how to use GCDS in real environments and reduce setup time.</li>
+  
+  <li><strong>Patterns:</strong> Common interaction patterns and layouts that help teams build consistent, usable services faster.</li>
+</ul>
+
+---
 
 We’re also interested in user interactions that have a common application across GC services.
 
@@ -79,10 +119,6 @@ Submit your feature request directly in GitHub, with an <gcds-link href="{{ link
 <gcds-button button-role="secondary" type="link" href="{{ links.contact }}" external>Contact us</gcds-button>
 
 <hr class="mt-600" />
-
-## What else is coming soon
-
-### Upcoming components and templates
 
 More on our <gcds-link href="{{ links.roadmap }}">roadmap</gcds-link>.
 
