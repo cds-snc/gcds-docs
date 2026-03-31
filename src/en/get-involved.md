@@ -60,26 +60,14 @@ We’re actively seeking contributions for the following items:
   - **Subway / On this page:** For helping users navigate longer pages or multi-step content with clear structure and orientation.
   - **Autocomplete (Select):** For improving usability when selecting from long or complex lists.
 
-
----
-
-
 ### Styles
   - **More Icons:** A consistent set of icons to support common actions and concepts across more GC services.
   - **Colours:** Continued evolution of the colour system to support accessibility, flexibility, and clarity in different contexts.
-
-
----
-
 
 ### Templates and getting started
 - **Page templates:** Reusable page structures for common service patterns to help teams get started quickly.
 - **Starter apps:** Reference implementations that show how to use GCDS in real environments and reduce setup time.
 - **Patterns:** Common interaction patterns and layouts that help teams build consistent, usable services faster.
-
-
----
-
 
 We’re also interested in user interactions that have a common application across GC services.
 
