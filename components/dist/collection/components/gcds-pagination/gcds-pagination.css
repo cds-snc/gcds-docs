@@ -1,1 +1,488 @@
-@layer reset, default, list, simple, wide, compact, hover, active, focus;@layer reset{:host{display:block}:host .gcds-pagination ul{list-style:none;padding:0}}@layer default{:host .gcds-pagination{container:component pagination/inline-size}:host .gcds-pagination li a{border-radius:var(--gcds-pagination-border-radius);color:var(--gcds-pagination-default-text);font:var(--gcds-pagination-font-desktop)}@media only screen and (width < 48em){:host .gcds-pagination li a{font:var(--gcds-pagination-font-mobile)}}}@layer list{:host .gcds-pagination :is(.gcds-pagination-list,.gcds-pagination-list-mobile-prevnext){display:flex;flex-direction:row;margin:0;width:fit-content}:host .gcds-pagination :is(.gcds-pagination-list,.gcds-pagination-list-mobile-prevnext) li{margin:var(--gcds-pagination-listitem-margin)}:host .gcds-pagination :is(.gcds-pagination-list,.gcds-pagination-list-mobile-prevnext) li a,:host .gcds-pagination :is(.gcds-pagination-list,.gcds-pagination-list-mobile-prevnext) li>span.gcds-pagination-list-ellipses{align-items:center;display:flex;height:3rem;justify-content:center;min-width:3rem}:host .gcds-pagination :is(.gcds-pagination-list,.gcds-pagination-list-mobile-prevnext) li a.gcds-pagination-end-button,:host .gcds-pagination :is(.gcds-pagination-list,.gcds-pagination-list-mobile-prevnext) li a.gcds-pagination-end-button-mobile,:host .gcds-pagination :is(.gcds-pagination-list,.gcds-pagination-list-mobile-prevnext) li>span.gcds-pagination-list-ellipses.gcds-pagination-end-button,:host .gcds-pagination :is(.gcds-pagination-list,.gcds-pagination-list-mobile-prevnext) li>span.gcds-pagination-list-ellipses.gcds-pagination-end-button-mobile{height:auto;min-width:auto;padding:var(--gcds-pagination-list-end-button-padding);text-decoration:none;width:auto}:host .gcds-pagination :is(.gcds-pagination-list,.gcds-pagination-list-mobile-prevnext) li a.gcds-pagination-end-button span,:host .gcds-pagination :is(.gcds-pagination-list,.gcds-pagination-list-mobile-prevnext) li a.gcds-pagination-end-button-mobile span,:host .gcds-pagination :is(.gcds-pagination-list,.gcds-pagination-list-mobile-prevnext) li>span.gcds-pagination-list-ellipses.gcds-pagination-end-button span,:host .gcds-pagination :is(.gcds-pagination-list,.gcds-pagination-list-mobile-prevnext) li>span.gcds-pagination-list-ellipses.gcds-pagination-end-button-mobile span{text-decoration:underline}:host .gcds-pagination :is(.gcds-pagination-list,.gcds-pagination-list-mobile-prevnext) li.gcds-pagination-mobile-prevnext{display:none}:host .gcds-pagination :is(.gcds-pagination-list,.gcds-pagination-list-mobile-prevnext) li.gcds-pagination-list-mobile-ellipses{display:none}:host .gcds-pagination .gcds-pagination-list-mobile-prevnext{display:flex;margin:var(--gcds-pagination-mobile-list-prevnext-margin)}:host .gcds-pagination>div{width:fit-content}}@layer simple{:host .gcds-pagination-simple{display:flex;flex-direction:column;justify-content:space-between}:host .gcds-pagination-simple li{margin:var(--gcds-pagination-simple-listitem-margin)}:host .gcds-pagination-simple li:has(+li){border-block-end:var(--gcds-pagination-simple-listitem-divider-border);margin-block-end:var(--gcds-pagination-simple-listitem-divider-margin);padding:var(--gcds-pagination-simple-listitem-divider-padding)}:host .gcds-pagination-simple li a{display:grid;padding:var(--gcds-pagination-simple-padding)}:host .gcds-pagination-simple li a>gcds-icon{grid-area:icon}:host .gcds-pagination-simple li a>.gcds-pagination-simple-text{grid-area:text;margin:var(--gcds-pagination-simple-listitem-text-margin)}:host .gcds-pagination-simple li a>span{font-weight:var(--gcds-pagination-simple-label-font-weight);grid-area:label}:host .gcds-pagination-simple .gcds-pagination-simple-listitem a{text-decoration:none}:host .gcds-pagination-simple .gcds-pagination-simple-listitem a .gcds-pagination-simple-text,:host .gcds-pagination-simple .gcds-pagination-simple-listitem a span{text-decoration:underline}:host .gcds-pagination-simple .gcds-pagination-simple-listitem a{grid-template-areas:"icon text" "icon label";grid-template-columns:2rem 6fr}}@layer wide{@container pagination (width > 44em){:host .gcds-pagination-list-mobile-prevnext{display:none}}}@layer compact{@container pagination (width <= 44em){:host .gcds-pagination :is(.gcds-pagination-list,.gcds-pagination-list-mobile-prevnext) li a{border:var(--gcds-pagination-border-width) solid}:host .gcds-pagination :is(.gcds-pagination-list,.gcds-pagination-list-mobile-prevnext) li>span.gcds-pagination-list-ellipses{min-width:auto}:host .gcds-pagination :is(.gcds-pagination-list,.gcds-pagination-list-mobile-prevnext) li:has(>a.gcds-pagination-end-button){margin:0}:host .gcds-pagination :is(.gcds-pagination-list,.gcds-pagination-list-mobile-prevnext) li .gcds-pagination-end-button{display:none}:host .gcds-pagination :is(.gcds-pagination-list,.gcds-pagination-list-mobile-prevnext) li.gcds-pagination-mobile-prevnext{display:block}}@container pagination (width <= 30em){:host .gcds-pagination-list .gcds-pagination-list-breakpoint-sm{display:none}}@container pagination (width <= 27.5em){:host .gcds-pagination-list .gcds-pagination-list-breakpoint-xs{display:none}}@container pagination (width <= 25em){:host .gcds-pagination-list .gcds-pagination-list-breakpoint-xxs{display:none}}@container pagination (width <= 19em){:host .gcds-pagination-list li{margin:var(--gcds-pagination-mobile-list-item-margin)}}}@layer hover{@media (hover:hover){:host .gcds-pagination ul li a:hover{background:var(--gcds-pagination-hover-background);color:var(--gcds-pagination-hover-text)}}}@layer active{:host .gcds-pagination ul li a:active:not(:focus),:host .gcds-pagination ul li a[aria-current*=page]:not(:focus){background:var(--gcds-pagination-active-background);border-color:var(--gcds-pagination-active-background);color:var(--gcds-pagination-active-text);text-decoration:none}}@layer focus{:host .gcds-pagination ul li a:focus{background-color:var(--gcds-pagination-focus-background);border-color:var(--gcds-pagination-focus-background);box-shadow:var(--gcds-pagination-focus-box-shadow);color:var(--gcds-pagination-focus-text);outline:var(--gcds-pagination-focus-outline-width) solid var(--gcds-pagination-focus-background);outline-offset:var(--gcds-pagination-border-width);text-decoration:none}}
+@charset "UTF-8";
+@layer reset, default, list, simple, wide, compact, hover, active, focus;
+@layer reset {
+  :host {
+    display: block;
+  }
+  :host .gcds-pagination ul {
+    padding: 0;
+    list-style: none;
+  }
+}
+@layer default {
+  :host .gcds-pagination {
+    container: component pagination/inline-size;
+  }
+  :host .gcds-pagination li a {
+    color: var(--gcds-pagination-default-text);
+    font: var(--gcds-pagination-font-desktop);
+    border-radius: var(--gcds-pagination-border-radius);
+  }
+  @media only screen and (width < 48em) {
+    :host .gcds-pagination li a {
+      font: var(--gcds-pagination-font-mobile);
+    }
+  }
+}
+@layer list {
+  :host .gcds-pagination :is(.gcds-pagination-list, .gcds-pagination-list-mobile-prevnext) {
+    display: flex;
+    flex-direction: row;
+    margin: 0;
+    max-width: 100%;
+  }
+  :host .gcds-pagination :is(.gcds-pagination-list, .gcds-pagination-list-mobile-prevnext) li {
+    margin: var(--gcds-pagination-listitem-margin);
+  }
+  :host .gcds-pagination :is(.gcds-pagination-list, .gcds-pagination-list-mobile-prevnext) li a, :host .gcds-pagination :is(.gcds-pagination-list, .gcds-pagination-list-mobile-prevnext) li > span.gcds-pagination-list-ellipses {
+    height: 3rem;
+    min-width: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  :host .gcds-pagination :is(.gcds-pagination-list, .gcds-pagination-list-mobile-prevnext) li a.gcds-pagination-end-button, :host .gcds-pagination :is(.gcds-pagination-list, .gcds-pagination-list-mobile-prevnext) li a.gcds-pagination-end-button-mobile, :host .gcds-pagination :is(.gcds-pagination-list, .gcds-pagination-list-mobile-prevnext) li > span.gcds-pagination-list-ellipses.gcds-pagination-end-button, :host .gcds-pagination :is(.gcds-pagination-list, .gcds-pagination-list-mobile-prevnext) li > span.gcds-pagination-list-ellipses.gcds-pagination-end-button-mobile {
+    padding: var(--gcds-pagination-list-end-button-padding);
+    width: auto;
+    min-width: auto;
+    height: auto;
+    text-decoration: none;
+  }
+  :host .gcds-pagination :is(.gcds-pagination-list, .gcds-pagination-list-mobile-prevnext) li a.gcds-pagination-end-button span, :host .gcds-pagination :is(.gcds-pagination-list, .gcds-pagination-list-mobile-prevnext) li a.gcds-pagination-end-button-mobile span, :host .gcds-pagination :is(.gcds-pagination-list, .gcds-pagination-list-mobile-prevnext) li > span.gcds-pagination-list-ellipses.gcds-pagination-end-button span, :host .gcds-pagination :is(.gcds-pagination-list, .gcds-pagination-list-mobile-prevnext) li > span.gcds-pagination-list-ellipses.gcds-pagination-end-button-mobile span {
+    text-decoration: underline;
+  }
+  :host .gcds-pagination :is(.gcds-pagination-list, .gcds-pagination-list-mobile-prevnext) li.gcds-pagination-mobile-prevnext {
+    display: none;
+  }
+  :host .gcds-pagination :is(.gcds-pagination-list, .gcds-pagination-list-mobile-prevnext) li.gcds-pagination-list-mobile-ellipses {
+    display: none;
+  }
+  :host .gcds-pagination .gcds-pagination-list-mobile-prevnext {
+    margin: var(--gcds-pagination-mobile-list-prevnext-margin);
+  }
+}
+@layer simple {
+  :host .gcds-pagination-simple {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  :host .gcds-pagination-simple li {
+    margin: var(--gcds-pagination-simple-listitem-margin);
+  }
+  :host .gcds-pagination-simple li:has(+ li) {
+    margin-block-end: var(--gcds-pagination-simple-listitem-divider-margin);
+    border-block-end: var(--gcds-pagination-simple-listitem-divider-border);
+    padding: var(--gcds-pagination-simple-listitem-divider-padding);
+  }
+  :host .gcds-pagination-simple li a {
+    display: grid;
+    padding: var(--gcds-pagination-simple-padding);
+  }
+  :host .gcds-pagination-simple li a > gcds-icon {
+    grid-area: icon;
+  }
+  :host .gcds-pagination-simple li a > .gcds-pagination-simple-text {
+    grid-area: text;
+    margin: var(--gcds-pagination-simple-listitem-text-margin);
+  }
+  :host .gcds-pagination-simple li a > span {
+    grid-area: label;
+    font-weight: var(--gcds-pagination-simple-label-font-weight);
+  }
+  :host .gcds-pagination-simple .gcds-pagination-simple-listitem a {
+    text-decoration: none;
+  }
+  :host .gcds-pagination-simple .gcds-pagination-simple-listitem a .gcds-pagination-simple-text,
+  :host .gcds-pagination-simple .gcds-pagination-simple-listitem a span {
+    text-decoration: underline;
+  }
+  :host .gcds-pagination-simple .gcds-pagination-simple-listitem a {
+    grid-template-areas: "icon text" "icon label";
+    grid-template-columns: 2rem 6fr;
+  }
+}
+@layer wide {
+  /* List display: list */
+  :host .gcds-pagination-list-mobile-prevnext {
+    display: none;
+  }
+  :host .gcds-pagination-list li:first-child {
+    margin-inline-start: 0 !important;
+  }
+  :host .gcds-pagination-list li:last-child {
+    margin-inline-end: 0 !important;
+  }
+}
+@layer compact {
+  /*
+    Pagination responsiveness logic
+    ----------------------------
+    This layer progressively reduces pagination UI based on:
+    - Container width.
+    - Number of items.
+    - "Collapse" helper classes.
+  */
+  /* ---------- Ellipsis replacement for collapsed items ---------- */
+  /*
+    Handle "collapsed" pagination items for smaller viewports.
+    This logic loops over left/right groups (1-3) and:
+    - Targets the last item in a collapsed group that doesn't already have an ellipsis.
+    - Replaces the link with a single ellipsis (…) for compact display.
+  */
+  @container pagination (width <= 39em) {
+    :host .gcds-pagination .gcds-pagination-list:has(.collapse-left-1):not(:has(.collapse-left-2)):not(:has(.list-ellipsis-left)) {
+      /* Target last item in the collapse group */
+    }
+    :host .gcds-pagination .gcds-pagination-list:has(.collapse-left-1):not(:has(.collapse-left-2)):not(:has(.list-ellipsis-left)) .collapse-left-1:not(:has(+ .collapse-left-1)) {
+      position: relative;
+      display: block;
+      min-width: 3rem;
+    }
+    @media only screen and (width < 31em) {
+      :host .gcds-pagination .gcds-pagination-list:has(.collapse-left-1):not(:has(.collapse-left-2)):not(:has(.list-ellipsis-left)) .collapse-left-1:not(:has(+ .collapse-left-1)) {
+        min-width: 1rem;
+      }
+    }
+    :host .gcds-pagination .gcds-pagination-list:has(.collapse-left-1):not(:has(.collapse-left-2)):not(:has(.list-ellipsis-left)) .collapse-left-1:not(:has(+ .collapse-left-1)):after {
+      content: "…";
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    :host .gcds-pagination .gcds-pagination-list:has(.collapse-left-1):not(:has(.collapse-left-2)):not(:has(.list-ellipsis-left)) .collapse-left-1:not(:has(+ .collapse-left-1)) {
+      /* Hide original link to avoid duplication */
+    }
+    :host .gcds-pagination .gcds-pagination-list:has(.collapse-left-1):not(:has(.collapse-left-2)):not(:has(.list-ellipsis-left)) .collapse-left-1:not(:has(+ .collapse-left-1)) a {
+      display: none;
+    }
+    :host .gcds-pagination .gcds-pagination-list:has(.collapse-left-2):not(:has(.collapse-left-3)):not(:has(.list-ellipsis-left)) {
+      /* Target last item in the collapse group */
+    }
+    :host .gcds-pagination .gcds-pagination-list:has(.collapse-left-2):not(:has(.collapse-left-3)):not(:has(.list-ellipsis-left)) .collapse-left-2:not(:has(+ .collapse-left-2)) {
+      position: relative;
+      display: block;
+      min-width: 3rem;
+    }
+    @media only screen and (width < 31em) {
+      :host .gcds-pagination .gcds-pagination-list:has(.collapse-left-2):not(:has(.collapse-left-3)):not(:has(.list-ellipsis-left)) .collapse-left-2:not(:has(+ .collapse-left-2)) {
+        min-width: 1rem;
+      }
+    }
+    :host .gcds-pagination .gcds-pagination-list:has(.collapse-left-2):not(:has(.collapse-left-3)):not(:has(.list-ellipsis-left)) .collapse-left-2:not(:has(+ .collapse-left-2)):after {
+      content: "…";
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    :host .gcds-pagination .gcds-pagination-list:has(.collapse-left-2):not(:has(.collapse-left-3)):not(:has(.list-ellipsis-left)) .collapse-left-2:not(:has(+ .collapse-left-2)) {
+      /* Hide original link to avoid duplication */
+    }
+    :host .gcds-pagination .gcds-pagination-list:has(.collapse-left-2):not(:has(.collapse-left-3)):not(:has(.list-ellipsis-left)) .collapse-left-2:not(:has(+ .collapse-left-2)) a {
+      display: none;
+    }
+    :host .gcds-pagination .gcds-pagination-list:has(.collapse-left-3):not(:has(.collapse-left-4)):not(:has(.list-ellipsis-left)) {
+      /* Target last item in the collapse group */
+    }
+    :host .gcds-pagination .gcds-pagination-list:has(.collapse-left-3):not(:has(.collapse-left-4)):not(:has(.list-ellipsis-left)) .collapse-left-3:not(:has(+ .collapse-left-3)) {
+      position: relative;
+      display: block;
+      min-width: 3rem;
+    }
+    @media only screen and (width < 31em) {
+      :host .gcds-pagination .gcds-pagination-list:has(.collapse-left-3):not(:has(.collapse-left-4)):not(:has(.list-ellipsis-left)) .collapse-left-3:not(:has(+ .collapse-left-3)) {
+        min-width: 1rem;
+      }
+    }
+    :host .gcds-pagination .gcds-pagination-list:has(.collapse-left-3):not(:has(.collapse-left-4)):not(:has(.list-ellipsis-left)) .collapse-left-3:not(:has(+ .collapse-left-3)):after {
+      content: "…";
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    :host .gcds-pagination .gcds-pagination-list:has(.collapse-left-3):not(:has(.collapse-left-4)):not(:has(.list-ellipsis-left)) .collapse-left-3:not(:has(+ .collapse-left-3)) {
+      /* Hide original link to avoid duplication */
+    }
+    :host .gcds-pagination .gcds-pagination-list:has(.collapse-left-3):not(:has(.collapse-left-4)):not(:has(.list-ellipsis-left)) .collapse-left-3:not(:has(+ .collapse-left-3)) a {
+      display: none;
+    }
+    :host .gcds-pagination .gcds-pagination-list:has(.collapse-right-1):not(:has(.collapse-right-2)):not(:has(.list-ellipsis-right)) {
+      /* Target last item in the collapse group */
+    }
+    :host .gcds-pagination .gcds-pagination-list:has(.collapse-right-1):not(:has(.collapse-right-2)):not(:has(.list-ellipsis-right)) .collapse-right-1:not(:has(+ .collapse-right-1)) {
+      position: relative;
+      display: block;
+      min-width: 3rem;
+    }
+    @media only screen and (width < 31em) {
+      :host .gcds-pagination .gcds-pagination-list:has(.collapse-right-1):not(:has(.collapse-right-2)):not(:has(.list-ellipsis-right)) .collapse-right-1:not(:has(+ .collapse-right-1)) {
+        min-width: 1rem;
+      }
+    }
+    :host .gcds-pagination .gcds-pagination-list:has(.collapse-right-1):not(:has(.collapse-right-2)):not(:has(.list-ellipsis-right)) .collapse-right-1:not(:has(+ .collapse-right-1)):after {
+      content: "…";
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    :host .gcds-pagination .gcds-pagination-list:has(.collapse-right-1):not(:has(.collapse-right-2)):not(:has(.list-ellipsis-right)) .collapse-right-1:not(:has(+ .collapse-right-1)) {
+      /* Hide original link to avoid duplication */
+    }
+    :host .gcds-pagination .gcds-pagination-list:has(.collapse-right-1):not(:has(.collapse-right-2)):not(:has(.list-ellipsis-right)) .collapse-right-1:not(:has(+ .collapse-right-1)) a {
+      display: none;
+    }
+    :host .gcds-pagination .gcds-pagination-list:has(.collapse-right-2):not(:has(.collapse-right-3)):not(:has(.list-ellipsis-right)) {
+      /* Target last item in the collapse group */
+    }
+    :host .gcds-pagination .gcds-pagination-list:has(.collapse-right-2):not(:has(.collapse-right-3)):not(:has(.list-ellipsis-right)) .collapse-right-2:not(:has(+ .collapse-right-2)) {
+      position: relative;
+      display: block;
+      min-width: 3rem;
+    }
+    @media only screen and (width < 31em) {
+      :host .gcds-pagination .gcds-pagination-list:has(.collapse-right-2):not(:has(.collapse-right-3)):not(:has(.list-ellipsis-right)) .collapse-right-2:not(:has(+ .collapse-right-2)) {
+        min-width: 1rem;
+      }
+    }
+    :host .gcds-pagination .gcds-pagination-list:has(.collapse-right-2):not(:has(.collapse-right-3)):not(:has(.list-ellipsis-right)) .collapse-right-2:not(:has(+ .collapse-right-2)):after {
+      content: "…";
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    :host .gcds-pagination .gcds-pagination-list:has(.collapse-right-2):not(:has(.collapse-right-3)):not(:has(.list-ellipsis-right)) .collapse-right-2:not(:has(+ .collapse-right-2)) {
+      /* Hide original link to avoid duplication */
+    }
+    :host .gcds-pagination .gcds-pagination-list:has(.collapse-right-2):not(:has(.collapse-right-3)):not(:has(.list-ellipsis-right)) .collapse-right-2:not(:has(+ .collapse-right-2)) a {
+      display: none;
+    }
+    :host .gcds-pagination .gcds-pagination-list:has(.collapse-right-3):not(:has(.collapse-right-4)):not(:has(.list-ellipsis-right)) {
+      /* Target last item in the collapse group */
+    }
+    :host .gcds-pagination .gcds-pagination-list:has(.collapse-right-3):not(:has(.collapse-right-4)):not(:has(.list-ellipsis-right)) .collapse-right-3:not(:has(+ .collapse-right-3)) {
+      position: relative;
+      display: block;
+      min-width: 3rem;
+    }
+    @media only screen and (width < 31em) {
+      :host .gcds-pagination .gcds-pagination-list:has(.collapse-right-3):not(:has(.collapse-right-4)):not(:has(.list-ellipsis-right)) .collapse-right-3:not(:has(+ .collapse-right-3)) {
+        min-width: 1rem;
+      }
+    }
+    :host .gcds-pagination .gcds-pagination-list:has(.collapse-right-3):not(:has(.collapse-right-4)):not(:has(.list-ellipsis-right)) .collapse-right-3:not(:has(+ .collapse-right-3)):after {
+      content: "…";
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    :host .gcds-pagination .gcds-pagination-list:has(.collapse-right-3):not(:has(.collapse-right-4)):not(:has(.list-ellipsis-right)) .collapse-right-3:not(:has(+ .collapse-right-3)) {
+      /* Hide original link to avoid duplication */
+    }
+    :host .gcds-pagination .gcds-pagination-list:has(.collapse-right-3):not(:has(.collapse-right-4)):not(:has(.list-ellipsis-right)) .collapse-right-3:not(:has(+ .collapse-right-3)) a {
+      display: none;
+    }
+  }
+  /* ---------- Base adjustments ---------- */
+  /*
+    Minor layout tweaks for smaller containers:
+    - Reduces spacing.
+  */
+  @container pagination (width <= 34em) {
+    :host .gcds-pagination .gcds-pagination-list li {
+      margin: var(--gcds-pagination-mobile-list-item-margin);
+    }
+  }
+  /* ---------- Pagination with 3 collapse groups ---------- */
+  /*
+    Most compressed pagination state.
+    - Hide deeper collapse groups first.
+    - Remove more items when prev/next buttons are present.
+  */
+  @container pagination (width <= 39em) {
+    :host .gcds-pagination .gcds-pagination-list:has(.collapse-right-3) .collapse-left-3,
+    :host .gcds-pagination .gcds-pagination-list:has(.collapse-right-3) .collapse-right-3,
+    :host .gcds-pagination .gcds-pagination-list:has(.collapse-right-3) .collapse-left-2,
+    :host .gcds-pagination .gcds-pagination-list:has(.collapse-right-3) .collapse-right-2, :host .gcds-pagination .gcds-pagination-list:has(.collapse-left-3) .collapse-left-3,
+    :host .gcds-pagination .gcds-pagination-list:has(.collapse-left-3) .collapse-right-3,
+    :host .gcds-pagination .gcds-pagination-list:has(.collapse-left-3) .collapse-left-2,
+    :host .gcds-pagination .gcds-pagination-list:has(.collapse-left-3) .collapse-right-2 {
+      display: none;
+    }
+    :host .gcds-pagination .gcds-pagination-list:has(.collapse-right-3), :host .gcds-pagination .gcds-pagination-list:has(.collapse-left-3) {
+      /* Extra reduction when both prev + next exist */
+    }
+    :host .gcds-pagination .gcds-pagination-list:has(.collapse-right-3):has(.list-btn-prev ~ .list-btn-next) .collapse-left-1,
+    :host .gcds-pagination .gcds-pagination-list:has(.collapse-right-3):has(.list-btn-prev ~ .list-btn-next) .collapse-right-1, :host .gcds-pagination .gcds-pagination-list:has(.collapse-left-3):has(.list-btn-prev ~ .list-btn-next) .collapse-left-1,
+    :host .gcds-pagination .gcds-pagination-list:has(.collapse-left-3):has(.list-btn-prev ~ .list-btn-next) .collapse-right-1 {
+      display: none;
+    }
+  }
+  :host .gcds-pagination .gcds-pagination-list:has(.collapse-right-3), :host .gcds-pagination .gcds-pagination-list:has(.collapse-left-3) {
+    /* No prev/next → delay full collapse */
+  }
+  @container pagination (width <= 22em) {
+    :host .gcds-pagination .gcds-pagination-list:has(.collapse-right-3) .collapse-left-1,
+    :host .gcds-pagination .gcds-pagination-list:has(.collapse-right-3) .collapse-right-1, :host .gcds-pagination .gcds-pagination-list:has(.collapse-left-3) .collapse-left-1,
+    :host .gcds-pagination .gcds-pagination-list:has(.collapse-left-3) .collapse-right-1 {
+      display: none;
+    }
+  }
+  /* ---------- Pagination with 2 collapse groups ---------- */
+  /*
+    Medium compression state.
+    - Remove all collapsed items at smaller widths.
+  */
+  @container pagination (width <= 39em) {
+    :host .gcds-pagination .gcds-pagination-list:has(.collapse-right-2):not(:has(.collapse-right-3)) .collapse-left-2,
+    :host .gcds-pagination .gcds-pagination-list:has(.collapse-right-2):not(:has(.collapse-right-3)) .collapse-right-2,
+    :host .gcds-pagination .gcds-pagination-list:has(.collapse-right-2):not(:has(.collapse-right-3)) .collapse-left-1,
+    :host .gcds-pagination .gcds-pagination-list:has(.collapse-right-2):not(:has(.collapse-right-3)) .collapse-right-1, :host .gcds-pagination .gcds-pagination-list:has(.collapse-left-2):not(:has(.collapse-left-3)) .collapse-left-2,
+    :host .gcds-pagination .gcds-pagination-list:has(.collapse-left-2):not(:has(.collapse-left-3)) .collapse-right-2,
+    :host .gcds-pagination .gcds-pagination-list:has(.collapse-left-2):not(:has(.collapse-left-3)) .collapse-left-1,
+    :host .gcds-pagination .gcds-pagination-list:has(.collapse-left-2):not(:has(.collapse-left-3)) .collapse-right-1 {
+      display: none;
+    }
+  }
+  /* ---------- Pagination with 1 collapse groups ---------- */
+  /*
+    Light compression state.
+    - Only nearest overflow items are hidden.
+  */
+  @container pagination (width <= 39em) {
+    :host .gcds-pagination .gcds-pagination-list:has(.collapse-right-1):not(:has(.collapse-right-2)) .collapse-left-1,
+    :host .gcds-pagination .gcds-pagination-list:has(.collapse-right-1):not(:has(.collapse-right-2)) .collapse-right-1, :host .gcds-pagination .gcds-pagination-list:has(.collapse-left-1):not(:has(.collapse-left-2)) .collapse-left-1,
+    :host .gcds-pagination .gcds-pagination-list:has(.collapse-left-1):not(:has(.collapse-left-2)) .collapse-right-1 {
+      display: none;
+    }
+  }
+  /* ---------- Prev/next button collapse helper ---------- */
+  /*
+    Moves prev/next buttons below the pagination list
+    when container width is too small.
+  */
+  /*
+    Controls when full pagination switches to compact mode.
+    - Number of list items.
+    - Presence of "collapse" helper classes.
+    - Presence of prev/next buttons.
+    - Container width.
+  */
+  :host .gcds-pagination {
+    /* Full pagination (prev + next button present) */
+  }
+  :host .gcds-pagination:has(.gcds-pagination-list .list-btn-prev) :has(.gcds-pagination-list .list-btn-next):has(li:nth-child(8)) {
+    /*
+      Largest layout allowed:
+      Only when no collapse-3 + no adjacent collapse-2 pairs.
+    */
+  }
+  @container pagination (width <= 29em) {
+    :host .gcds-pagination:has(.gcds-pagination-list .list-btn-prev) :has(.gcds-pagination-list .list-btn-next):has(li:nth-child(8)):not(:has(.collapse-left-3, .collapse-right-3)):not(:has(.collapse-left-2 + .collapse-left-2,
+    .collapse-right-2 + .collapse-right-2)) .gcds-pagination-list .gcds-pagination-end-button {
+      display: none;
+    }
+    :host .gcds-pagination:has(.gcds-pagination-list .list-btn-prev) :has(.gcds-pagination-list .list-btn-next):has(li:nth-child(8)):not(:has(.collapse-left-3, .collapse-right-3)):not(:has(.collapse-left-2 + .collapse-left-2,
+    .collapse-right-2 + .collapse-right-2)) .gcds-pagination-list-mobile-prevnext {
+      display: flex;
+    }
+  }
+  @container pagination (width <= 26em) {
+    :host .gcds-pagination:has(.gcds-pagination-list .list-btn-prev) :has(.gcds-pagination-list .list-btn-next):has(li:nth-child(8)):not(:has(.collapse-left-3, .collapse-right-3)) .gcds-pagination-list .gcds-pagination-end-button {
+      display: none;
+    }
+    :host .gcds-pagination:has(.gcds-pagination-list .list-btn-prev) :has(.gcds-pagination-list .list-btn-next):has(li:nth-child(8)):not(:has(.collapse-left-3, .collapse-right-3)) .gcds-pagination-list-mobile-prevnext {
+      display: flex;
+    }
+  }
+  :host .gcds-pagination:has(.gcds-pagination-list .list-btn-prev) :has(.gcds-pagination-list .list-btn-next) {
+    /* Progressive tightening as item count decreases */
+  }
+  @container pagination (width <= 23em) {
+    :host .gcds-pagination:has(.gcds-pagination-list .list-btn-prev) :has(.gcds-pagination-list .list-btn-next):has(li:nth-child(7)) .gcds-pagination-list .gcds-pagination-end-button {
+      display: none;
+    }
+    :host .gcds-pagination:has(.gcds-pagination-list .list-btn-prev) :has(.gcds-pagination-list .list-btn-next):has(li:nth-child(7)) .gcds-pagination-list-mobile-prevnext {
+      display: flex;
+    }
+  }
+  @container pagination (width <= 22em) {
+    :host .gcds-pagination:has(.gcds-pagination-list .list-btn-prev) :has(.gcds-pagination-list .list-btn-next):has(li:nth-child(6)) .gcds-pagination-list .gcds-pagination-end-button {
+      display: none;
+    }
+    :host .gcds-pagination:has(.gcds-pagination-list .list-btn-prev) :has(.gcds-pagination-list .list-btn-next):has(li:nth-child(6)) .gcds-pagination-list-mobile-prevnext {
+      display: flex;
+    }
+  }
+  @container pagination (width <= 18em) {
+    :host .gcds-pagination:has(.gcds-pagination-list .list-btn-prev) :has(.gcds-pagination-list .list-btn-next):has(li:nth-child(5)) .gcds-pagination-list .gcds-pagination-end-button {
+      display: none;
+    }
+    :host .gcds-pagination:has(.gcds-pagination-list .list-btn-prev) :has(.gcds-pagination-list .list-btn-next):has(li:nth-child(5)) .gcds-pagination-list-mobile-prevnext {
+      display: flex;
+    }
+  }
+  :host .gcds-pagination {
+    /* Most collapsed pagination with collapse-3 classes */
+  }
+  @container pagination (width <= 16em) {
+    :host .gcds-pagination:has(.gcds-pagination-list .collapse-left-3,
+    .gcds-pagination-list .collapse-right-3) .gcds-pagination-list .gcds-pagination-end-button {
+      display: none;
+    }
+    :host .gcds-pagination:has(.gcds-pagination-list .collapse-left-3,
+    .gcds-pagination-list .collapse-right-3) .gcds-pagination-list-mobile-prevnext {
+      display: flex;
+    }
+  }
+  /* ---------- Mobile specific styles ---------- */
+  @media only screen and (width < 31em) {
+    :host .gcds-pagination :is(.gcds-pagination-list, .gcds-pagination-list-mobile-prevnext) li a {
+      border: var(--gcds-pagination-border-width) solid currentColor;
+    }
+    :host .gcds-pagination :is(.gcds-pagination-list, .gcds-pagination-list-mobile-prevnext) li > span.gcds-pagination-list-ellipses {
+      min-width: auto;
+    }
+    :host .gcds-pagination :is(.gcds-pagination-list, .gcds-pagination-list-mobile-prevnext) li a.gcds-pagination-end-button {
+      height: 2rem;
+    }
+  }
+}
+@layer hover {
+  @media (hover: hover) {
+    :host .gcds-pagination ul li a:hover {
+      background: var(--gcds-pagination-hover-background);
+      color: var(--gcds-pagination-hover-text);
+    }
+  }
+}
+@layer active {
+  :host .gcds-pagination ul li a:active:not(:focus), :host .gcds-pagination ul li a[aria-current*=page]:not(:focus) {
+    color: var(--gcds-pagination-active-text);
+    background: var(--gcds-pagination-active-background);
+    border-color: var(--gcds-pagination-active-background);
+    text-decoration: none;
+  }
+}
+@layer focus {
+  :host .gcds-pagination ul li a:focus {
+    color: var(--gcds-pagination-focus-text);
+    background-color: var(--gcds-pagination-focus-background);
+    outline: var(--gcds-pagination-focus-outline-width) solid var(--gcds-pagination-focus-background);
+    outline-offset: var(--gcds-pagination-border-width);
+    box-shadow: var(--gcds-pagination-focus-box-shadow);
+    text-decoration: none;
+    border-color: var(--gcds-pagination-focus-background);
+  }
+}

@@ -69,7 +69,7 @@ export class GcdsPagination {
             linkAttrs['aria-current'] = 'page';
         }
         if (end) {
-            return (h("li", null, end === 'next' ? (h("a", Object.assign({}, linkAttrs, { class: !mobile
+            return (h("li", { class: `list-btn-${end === 'next' ? 'next' : 'prev'}` }, end === 'next' ? (h("a", Object.assign({}, linkAttrs, { class: !mobile
                     ? 'gcds-pagination-end-button'
                     : 'gcds-pagination-end-button-mobile' }), h("span", null, I18N[this.lang].listNext), h("gcds-icon", { "margin-left": "150", name: "chevron-right" }))) : (h("a", Object.assign({}, linkAttrs, { class: !mobile
                     ? 'gcds-pagination-end-button'
@@ -89,66 +89,65 @@ export class GcdsPagination {
     configureListPagination() {
         this.listitems = [];
         this.mobilePrevNext = [];
+        // Add "previous" button if not on first page
         if (this.currentPage != 1) {
             this.listitems.push(this.configurePaginationStep(this.currentPage, 'previous'));
             this.mobilePrevNext.push(this.configurePaginationStep(this.currentPage, 'previous', true));
         }
-        // Flags to see if ellipses already rendered
+        // Flags to see if ellipses have been rendered
         let previousEllipses = false;
         let nextEllipses = false;
         for (let i = 1; i <= this.totalPages; i++) {
-            // Left side mobile ellipses
-            if (i == 2 &&
+            // === Conditions for showing page numbers ===
+            const alwaysRender = i === 1 ||
+                i === this.totalPages ||
+                i === this.currentPage ||
+                (i >= this.currentPage - 2 && i <= this.currentPage + 2) ||
+                this.totalPages < 10;
+            // Special cases for first few or last few pages
+            const edgeRender = (this.currentPage <= 5 && i <= 7) ||
+                (this.currentPage >= this.totalPages - 4 && i >= this.totalPages - 6) ||
+                (this.currentPage === 5 && i === 2) ||
+                (this.currentPage === this.totalPages - 4 && i === this.totalPages - 1);
+            if (alwaysRender || edgeRender) {
+                this.listitems.push(this.configurePaginationStep(i));
+                continue;
+            }
+            // === Left ellipsis ===
+            if (!previousEllipses && i < this.currentPage - 2) {
+                this.listitems.push(h("li", { class: "list-ellipsis-left", "aria-hidden": "true" }, h("span", { class: "gcds-pagination-list-ellipses" }, "\u2026")));
+                previousEllipses = true;
+                continue;
+            }
+            // === Right ellipsis ===
+            if (!nextEllipses && i > this.currentPage + 2 && i < this.totalPages) {
+                this.listitems.push(h("li", { class: "list-ellipsis-right", "aria-hidden": "true" }, h("span", { class: "gcds-pagination-list-ellipses" }, "\u2026")));
+                nextEllipses = true;
+                continue;
+            }
+            // === Mobile-specific ellipses ===
+            if ((i === 2 &&
                 this.currentPage < 6 &&
                 this.currentPage > 3 &&
-                this.totalPages > 9) {
-                this.listitems.push(h("li", { class: `gcds-pagination-list-mobile-ellipses`, "aria-hidden": "true" }, h("span", { class: "gcds-pagination-list-ellipses" }, "...")));
+                this.totalPages > 9) ||
+                (i === 2 &&
+                    this.totalPages < 10 &&
+                    this.totalPages > 5 &&
+                    this.currentPage > 3)) {
+                this.listitems.push(h("li", { class: "gcds-pagination-list-mobile-ellipses", "aria-hidden": "true" }, h("span", { class: "gcds-pagination-list-ellipses" }, "\u2026")));
             }
-            else if (i == 2 &&
-                this.totalPages < 10 &&
-                this.totalPages > 5 &&
-                this.currentPage > 3) {
-                this.listitems.push(h("li", { class: `gcds-pagination-list-mobile-ellipses`, "aria-hidden": "true" }, h("span", { class: "gcds-pagination-list-ellipses" }, "...")));
-            }
-            if (i == this.currentPage ||
-                i == 1 ||
-                i == this.totalPages ||
-                (i >= this.currentPage - 2 && i <= this.currentPage + 2) ||
-                this.totalPages < 10) {
-                this.listitems.push(this.configurePaginationStep(i));
-            }
-            else if ((this.currentPage <= 5 && i <= 7) ||
-                (this.currentPage >= this.totalPages - 4 && i >= this.totalPages - 6)) {
-                this.listitems.push(this.configurePaginationStep(i));
-            }
-            else if ((this.currentPage == 5 && i == 2) ||
-                (this.currentPage == this.totalPages - 4 && i == this.totalPages - 1)) {
-                this.listitems.push(this.configurePaginationStep(i));
-            }
-            else if (!previousEllipses && i < this.currentPage - 2) {
-                this.listitems.push(h("li", { "aria-hidden": "true" }, h("span", { class: "gcds-pagination-list-ellipses" }, "...")));
-                previousEllipses = true;
-            }
-            else if (!nextEllipses &&
-                i > this.currentPage + 2 &&
-                i < this.totalPages) {
-                this.listitems.push(h("li", { "aria-hidden": "true" }, h("span", { class: "gcds-pagination-list-ellipses" }, "...")));
-                nextEllipses = true;
-            }
-            // Right side mobile ellipses
-            if (i == this.totalPages - 1 &&
+            if ((i === this.totalPages - 1 &&
                 this.currentPage > this.totalPages - 5 &&
                 this.currentPage < this.totalPages - 2 &&
-                this.totalPages > 9) {
-                this.listitems.push(h("li", { class: `gcds-pagination-list-mobile-ellipses`, "aria-hidden": "true" }, h("span", { class: "gcds-pagination-list-ellipses" }, "...")));
-            }
-            else if (i == this.totalPages - 1 &&
-                this.totalPages < 10 &&
-                this.totalPages > 5 &&
-                this.currentPage < this.totalPages - 2) {
-                this.listitems.push(h("li", { class: `gcds-pagination-list-mobile-ellipses`, "aria-hidden": "true" }, h("span", { class: "gcds-pagination-list-ellipses" }, "...")));
+                this.totalPages > 9) ||
+                (i === this.totalPages - 1 &&
+                    this.totalPages < 10 &&
+                    this.totalPages > 5 &&
+                    this.currentPage < this.totalPages - 2)) {
+                this.listitems.push(h("li", { class: "gcds-pagination-list-mobile-ellipses", "aria-hidden": "true" }, h("span", { class: "gcds-pagination-list-ellipses" }, "\u2026")));
             }
         }
+        // Add "next" button if not on last page
         if (this.currentPage != this.totalPages) {
             this.listitems.push(this.configurePaginationStep(this.currentPage, 'next'));
             this.mobilePrevNext.push(this.configurePaginationStep(this.currentPage, 'next', true));
@@ -186,13 +185,13 @@ export class GcdsPagination {
     }
     render() {
         const { display, label, previousHref, previousLabel, nextHref, nextLabel, lang, } = this;
-        return (h(Host, { key: '9a81d301de4f742c83fd7a07b016569b993aaac1', role: "navigation", "aria-label": label }, h("div", { key: 'd8cfd7c590b889f58d04db1781c528589e052b1f', class: "gcds-pagination" }, display === 'list' ? (h("div", null, h("ul", { class: "gcds-pagination-list" }, this.listitems), h("ul", { class: "gcds-pagination-list-mobile-prevnext" }, this.mobilePrevNext))) : (h("ul", { class: "gcds-pagination-simple" }, previousHref && (h("li", { class: "gcds-pagination-simple-listitem" }, h("a", { href: previousHref, tabindex: 0, "aria-label": `${I18N[lang].previousPage}${previousLabel ? `: ${previousLabel}` : ''}`, onBlur: () => this.gcdsBlur.emit(), onFocus: () => this.gcdsFocus.emit(), onClick: e => emitEvent(e, this.gcdsClick, previousHref) }, h("gcds-icon", { "margin-right": "150", name: "chevron-left", size: "h6" }), h("div", { class: "gcds-pagination-simple-text" }, I18N[lang].previous), h("span", null, previousLabel)))), nextHref && (h("li", { class: "gcds-pagination-simple-listitem" }, h("a", { href: nextHref, tabindex: 0, "aria-label": `${I18N[lang].nextPage}${nextLabel ? `: ${nextLabel}` : ''}`, onBlur: () => this.gcdsBlur.emit(), onFocus: () => this.gcdsFocus.emit(), onClick: e => emitEvent(e, this.gcdsClick, nextHref) }, h("gcds-icon", { "margin-right": "150", name: "chevron-right", size: "h6" }), h("div", { class: "gcds-pagination-simple-text" }, I18N[lang].next), h("span", null, nextLabel)))))))));
+        return (h(Host, { key: 'cbc86d7dde35094165a7ff3d04da441b95110e50', role: "navigation", "aria-label": label }, h("div", { key: '4a0a0af18597e5b63e6f7b7bb1b65338be6ca023', class: "gcds-pagination" }, display === 'list' ? (h("div", null, h("ul", { class: "gcds-pagination-list" }, this.listitems), h("ul", { class: "gcds-pagination-list-mobile-prevnext" }, this.mobilePrevNext))) : (h("ul", { class: "gcds-pagination-simple" }, previousHref && (h("li", { class: "gcds-pagination-simple-listitem" }, h("a", { href: previousHref, tabindex: 0, "aria-label": `${I18N[lang].previousPage}${previousLabel ? `: ${previousLabel}` : ''}`, onBlur: () => this.gcdsBlur.emit(), onFocus: () => this.gcdsFocus.emit(), onClick: e => emitEvent(e, this.gcdsClick, previousHref) }, h("gcds-icon", { "margin-right": "150", name: "chevron-left", size: "h6" }), h("div", { class: "gcds-pagination-simple-text" }, I18N[lang].previous), h("span", null, previousLabel)))), nextHref && (h("li", { class: "gcds-pagination-simple-listitem" }, h("a", { href: nextHref, tabindex: 0, "aria-label": `${I18N[lang].nextPage}${nextLabel ? `: ${nextLabel}` : ''}`, onBlur: () => this.gcdsBlur.emit(), onFocus: () => this.gcdsFocus.emit(), onClick: e => emitEvent(e, this.gcdsClick, nextHref) }, h("gcds-icon", { "margin-right": "150", name: "chevron-right", size: "h6" }), h("div", { class: "gcds-pagination-simple-text" }, I18N[lang].next), h("span", null, nextLabel)))))))));
     }
     static get is() { return "gcds-pagination"; }
     static get encapsulation() { return "shadow"; }
     static get originalStyleUrls() {
         return {
-            "$": ["gcds-pagination.css"]
+            "$": ["gcds-pagination.scss"]
         };
     }
     static get styleUrls() {

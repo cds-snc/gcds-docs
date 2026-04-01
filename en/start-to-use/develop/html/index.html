@@ -1622,11 +1622,11 @@
 
 
 <gcds-side-nav label="GC Design System" class="side-nav lg:position-sticky box-border overflow-x-visible align-self-start px-75">
-  <gcds-nav-link href="/en">Home</gcds-nav-link>
+  <gcds-nav-link slot="home" href="/en">GC Design System</gcds-nav-link>
   <gcds-nav-link href="/en/start-to-use" current>Start to use</gcds-nav-link>
 
   
-  
+
   <gcds-nav-group
     menu-label="Page templates"
     open-trigger="Page templates"
@@ -1649,7 +1649,7 @@
 </gcds-nav-group>
 
   
-  
+
   <gcds-nav-group
     menu-label="Components"
     open-trigger="Components"
@@ -2892,12 +2892,12 @@
       console.error('Error fetching latest version:', error);
 
       // Update the latest version and release date in the description
-      cdnLatestVersion.textContent = '1.0.0';
-      cdnLatestVersionDate.textContent = '2026-02-05';
+      cdnLatestVersion.textContent = '1.1.0';
+      cdnLatestVersionDate.textContent = '2026-04-01';
 
       // Update CDN links with fallback version if fetch fails
       codeElements.forEach(element => {
-        element.textContent = element.textContent.replace('||version||', '1.0.0');
+        element.textContent = element.textContent.replace('||version||', '1.1.0');
       });
     }
   }
@@ -2908,7 +2908,7 @@
 </script>
 
           <gcds-date-modified class="mb-300">
-            2026-03-31
+            2026-04-01
           </gcds-date-modified>
         </main>
       </gcds-grid>
