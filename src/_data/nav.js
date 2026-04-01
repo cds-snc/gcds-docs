@@ -1,7 +1,7 @@
 module.exports = {
   en: {
     label: 'GC Design System',
-    home: 'Home',
+    home: 'GC Design System',
     contact: 'Contact',
     contactus: 'Contact us',
     colourtokens: 'Colour tokens',
@@ -21,7 +21,7 @@ module.exports = {
   },
   fr: {
     label: 'Système de design GC',
-    home: 'Accueil',
+    home: 'Système de design GC',
     contact: 'Contact',
     contactus: 'Contactez-nous',
     colourtokens: 'Unités de style de couleur',

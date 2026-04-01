@@ -37,11 +37,12 @@
     "html-entities": "^2.5.2",
     "markdown-it": "^14.0.0",
     "moment": "^2.29.1",
-    "npm-run-all2": "^5.0.0"
+    "npm-run-all2": "^5.0.0",
+    "update": "^0.7.4"
   },
   "devDependencies": {
     "@11ty/eleventy-plugin-syntaxhighlight": "^5.0.0",
-    "@gcds-core/components": "^1.0.0",
+    "@gcds-core/components": "^1.1.0",
     "@gcds-core/css-shortcuts": "^1.0.1",
     "@gcds-core/tokens": "^1.0.1",
     "@quasibit/eleventy-plugin-sitemap": "^2.1.4",
