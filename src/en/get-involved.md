@@ -97,6 +97,8 @@ Submit your feature request directly in GitHub, with an <gcds-link href="{{ link
 
 <hr class="mt-600" />
 
+## What else is coming soon
+
 More on our <gcds-link href="{{ links.roadmap }}">roadmap</gcds-link>.
 
 {% include "partials/helpus.njk" %}
