@@ -20,9 +20,9 @@ Utilisez un champ de date pour recueillir une date lorsque vous attendez d’une
 
 ### Appliquez un format au champ de date
 - Choisissez le format en indiquant soit `full`, `compact` ou `iso` dans l’attribut `format` du champ de date.
-- La valeur `full` affichera un composant de champ de date avec des champs pour le jour, le mois et l’année dont l’ordre en français est Jour, Mois, Année et dont l’ordre en anglais est Mois, Jour, Année. Dans ce format, le mois est écrit au long.
-- La valeur `compact` affichera un composant de champ de date avec des champs pour le mois et l’année dont l’ordre est Mois, Année aussi bien en français qu’en anglais. Dans ce format, le mois est écrit au long.
-- La valeur `iso` affichera un composant de champ de date avec des champs pour l’année, le mois et le jour, dans cet ordre. Dans ce format, toute valeur est inscrite sous forme numérique, conformément aux normes ISO.
+- La valeur `full` affichera un composant de champ de date avec des champs pour le jour, le mois et l’année dont l’ordre en français est Jour, Mois, Année et dont l’ordre en anglais est Mois, Jour, Année. Dans ce format, le mois est écrit en lettres et le jour et l'année sont écrits en chiffres.
+- La valeur `compact` affichera un composant de champ de date avec des champs pour le mois et l’année dont l’ordre est Mois, Année aussi bien en français qu’en anglais. Dans ce format, le mois est écrit en lettres et l'année est écrite en chiffres.
+- La valeur `iso` affichera un composant de champ de date avec des champs pour l’année, le mois et le jour, dans cet ordre. Dans ce format, toute valeur est écrite en chiffres, conformément aux normes ISO.
 - L’attribut `format` applique également un format à la valeur reçue et rendue par le champ de date du côté système. Si la valeur définie est `full`, le format reçu et rendu sera `YYYY-MM-DD`. Si la valeur définie est `compact`, le format reçu et rendu sera  `YYYY-MM`.
 
 ### Valeurs du champ de date reçues et rendues
