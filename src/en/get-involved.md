@@ -61,7 +61,7 @@ We’re actively seeking contributions for the following items:
   - **Autocomplete (Select):** For improving usability when selecting from long or complex lists.
 
 ### Styles
-  - **More Icons:** A consistent set of icons to support common actions and concepts across more GC services.
+  - **More icons:** A consistent set of icons to support common actions and concepts across more GC services.
   - **Colours:** Continued evolution of the colour system to support accessibility, flexibility, and clarity in different contexts.
 
 ### Templates and getting started
