@@ -15,6 +15,7 @@ eleventyNavigation:
 Système de design GC offre des blocs de base ainsi qu’un langage de conception qui vous aide à concevoir une expérience familière et digne de confiance pour les personnes utilisant vos services. Les composants et les unités de style assurent une image de marque et des expériences conformes aux normes du gouvernement du Canada, quel que soit votre environnement de développement. Vous trouverez le code, les ressources de design et la documentation en un seul endroit.
 
 ## Stable et prêt pour la production
+
 Nous accordons la priorité aux composants et aux configurations utiles à la plupart des équipes du GC. ​​Nous testons actuellement la version alpha de Système de design GC, ce qui correspond à la première version utilisable d'un produit. Utilisez le système de design pour entamer la création d'un site Web ou d'une application et aidez-nous à l'améliorer pour les fonctionnaires.
 
 Ce système de design est conçu pour le long terme. Une équipe dédiée au [Service numérique canadien](https://numerique.canada.ca/) cse charge de son développement et de sa maintenance, en consultation avec le Bureau de l’expérience Canada.ca. De plus en plus d’équipes derrière les services numériques fédéraux contribuent également de façon précieuse.
@@ -25,11 +26,11 @@ Système de design GC s’inscrit à côté des autres systèmes de conception t
 
 Nous partageons ouvertement notre <gcds-link href="{{ links.roadmap }}">feuille de route</gcds-link> pour vous aider à planifier l’adoption de Système de design GC en fonction de vos propres échéanciers et besoins.
 
-## Canaux de collaboration et de soutien
+## Communauté et soutien
 
-Consultez notre page [s'impliquer]({{ links.getInvolved }}) pour savoir sur quoi nous travaillons et comment vous pouvez y contribuer.
-
-Visitez notre <gcds-link external href="{{ links.githubCompsIssues }}">référentiel GitHub</gcds-link> pour signaler un problème ou faire une suggestion.
+- Consultez notre page [s'impliquer]({{ links.getInvolved }}) pour savoir sur quoi nous travaillons et comment vous pouvez y contribuer.
+- Visitez notre <gcds-link external href="{{ links.githubCompsIssues }}">référentiel GitHub</gcds-link> pour signaler un problème ou faire une suggestion.
+- Découvrez comment certaines <gcds-link href="{{ links.gcdsInUse }}">équipes utilisent Système de design GC</gcds-link> à travers le gouvernement.
 
 ## Des résultats plus rapides avec Système de design GC
 

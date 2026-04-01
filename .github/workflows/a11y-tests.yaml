@@ -9,11 +9,34 @@ on:
       - main
   pull_request:
     types: [opened, reopened, synchronize]
+    paths:
+      - package.json
+      - package-lock.json
+      - .eleventy.js
+      - src/**
+      - utils/**
+      - .github/workflows/a11y-tests.yaml
+      - cypress/**
+      - scripts/templates.js
 
 jobs:
   a11y-test:
-    name: A11y test documentation site
+    name: ${{ matrix.test.name }}
     runs-on: ubuntu-latest
+
+    permissions:
+      contents: read
+
+    strategy:
+      fail-fast: false
+      matrix:
+        test:
+          - name: English site
+            spec: cypress/e2e/a11y-en.cy.js
+            url: 'http://localhost:8080/en'
+          - name: French site
+            spec: cypress/e2e/a11y-fr.cy.js
+            url: 'http://localhost:8080/fr'
 
     steps:
       - name: Git Checkout
@@ -29,6 +52,7 @@ jobs:
         with:
           build: npm run build:eleventy
           start: npm run watch:eleventy
-          wait-on: 'http://localhost:8080/en'
+          wait-on: ${{ matrix.test.url }}
           # wait for 2 minutes for the server to respond
           wait-on-timeout: 240
+          spec: ${{ matrix.test.spec }}

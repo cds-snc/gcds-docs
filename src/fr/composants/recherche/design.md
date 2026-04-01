@@ -30,13 +30,17 @@ Voici les éléments requis pour la recherche sur les sites du GC.
   <ul class="list-disc">
     <li>Utilisez l’indexation par défaut de la recherche du GC.</li>
     <li>Définissez l’indexation pour tout le contenu de Canada.ca ou à l’échelle d’un organisme ou d’un programme.</li>
-    <li>Pour la recherche à l’échelle du site Canada.ca, maintenez le texte de l’espace réservé par défaut « <span lang="en">Search Canada.ca</span> » en anglais et « Rechercher dans Canada.ca » en français.</li>
-    <li>Pour la recherche à l’échelle d’un organisme, d’un programme ou d’un produit, utilisez le texte de l’espace réservé suivant :
-      <ul class="ms-300">
-        <li>« <span lang="en">Search [institution/program/product] </span>» en anglais</li>
-        <li>« Rechercher dans [institution/programme/produit] » en français</li>
-      </ul>
-    </li>
+  </ul>
+  <gcds-text>Pour la recherche à l’échelle du site Canada.ca</gcds-text>
+  <ul class="list-disc">
+    <li>Maintenez le texte de l’espace réservé par défaut « <span lang="en">Search Canada.ca</span> » en anglais.</li>
+    <li>Maintenez le texte de l’espace réservé par défaut « Rechercher dans Canada.ca » en français.</li>
+  </ul>
+  <gcds-text>Pour la recherche à l’échelle d’un organisme, d’un programme ou d’un produit utilisez le texte de l’espace réservé suivant :</gcds-text>
+  <ul class="list-disc">
+    <li>Maintenez le texte de l’espace réservé « <span lang="en">Search [institution/program/product] </span>» en anglais.</li>
+    <li>Maintenez le texte de l’espace réservé« Rechercher dans [institution/programme/produit] » en français.</li>
+    <li>Évitez les acronymes, sauf s'ils sont nécessaires pour raccourcir le texte à des fins d'accessibilité visuelle.</li>
   </ul>
   <gcds-text margin-bottom="0"><strong>Remarque :</strong> Par exception, les pages destinées uniquement à un public de la fonction publique peuvent appliquer une indexation de recherche personnalisée dans certains contextes précis.</gcds-text>
 </gcds-details>

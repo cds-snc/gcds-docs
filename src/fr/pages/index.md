@@ -22,18 +22,18 @@ Un système de design officiel et prêt pour la production destiné au gouvernem
 
 ## Choisissez Système de design GC
 
-Système de design GC aide les fonctionnaires à concevoir des sites Web et des produits du gouvernement du Canada. Créez plus rapidement, sans compromettre ni l’identité de marque, ni l’accessibilité, ni le bilinguisme. Trouvez du code prêt pour la production, des ressources de design et de la documentation en un seul et même endroit. 
+Système de design GC aide les fonctionnaires à concevoir des sites Web et des produits du gouvernement du Canada. Créez plus rapidement, sans compromettre ni l’identité de marque, ni l’accessibilité, ni le bilinguisme. Trouvez du code prêt pour la production, des ressources de design et de la documentation en un seul et même endroit.
 
 ### Pour en savoir plus
 
-Renseignez-vous <gcds-link href="{{ links.about }}">sur le SNC</gcds-link>, nos <gcds-link href="{{ links.accessibility }}">tests réguliers en matière d’accessibilité</gcds-link> et sur les manières dont vous pouvez améliorer l’accessibilité de vos produits et sites Web.
+Renseignez-vous <gcds-link href="{{ links.about }}">à propos de Système de design GC</gcds-link>, <gcds-link href="{{ links.gcdsInUse }}">des équipes qui l’utilisent</gcds-link>, de nos <gcds-link href="{{ links.accessibility }}">tests réguliers en matière d’accessibilité</gcds-link> et des façons d’améliorer l’accessibilité de vos produits et sites Web.
 
 ### S’impliquer
 
 Nous adaptons continuellement notre produit pour mieux répondre à vos besoins et vous offrir plus d’options.
 
 <gcds-button type="link" href="{{ links.getInvolved }}" button-role="secondary">
-  S’impliquer 
+  S’impliquer
 </gcds-button>
 
 </section>
@@ -53,7 +53,8 @@ Appliquez ou combinez ces outils pour aborder les scénarios de services communs
     <gcds-link href="{{ links.components }}">Composants</gcds-link>
   </gcds-heading>
 
-  Répondez aux besoins communs en matière d’interaction des services à l’aide du code, de la conception et des conseils pour la mise en œuvre de composants d’interface utilisateur.
+Répondez aux besoins communs en matière d’interaction des services à l’aide du code, de la conception et des conseils pour la mise en œuvre de composants d’interface utilisateur.
+
 </div>
 
 <img class="align-self-center d-none md:d-block" src="/images/common/home/templates.jpg" alt="Un rectangle vertical rempli d'un dégradé du rose au bleu." />
@@ -63,7 +64,8 @@ Appliquez ou combinez ces outils pour aborder les scénarios de services communs
     <gcds-link href="{{ links.pageTemplates }}">Modèles de page</gcds-link>
   </gcds-heading>
 
-  Commencez votre projet à l’aide de pages préconstruites offrant une expérience uniforme et reconnaissable pour Canada.ca.
+Commencez votre projet à l’aide de pages préconstruites offrant une expérience uniforme et reconnaissable pour Canada.ca.
+
 </div>
 
 <img class="align-self-center d-none md:d-block" src="/images/fr/accueil/shortcuts.jpg" alt="Un badge en haut à gauche avec le mot nouveau. Trois points horizontaux légèrement superposés dans des tons de bleu successivement foncés." />
@@ -73,7 +75,8 @@ Appliquez ou combinez ces outils pour aborder les scénarios de services communs
     <gcds-link href="{{ links.shortcuts }}">Raccourcis CSS <gcds-sr-only>(Nouveau)</gcds-sr-only></gcds-link>
   </gcds-heading>
 
-  Appliquez des styles et des mises en page prédéfinis en ajoutant nos classes utilitaires CSS personnalisées à votre code HTML.
+Appliquez des styles et des mises en page prédéfinis en ajoutant nos classes utilitaires CSS personnalisées à votre code HTML.
+
 </div>
 
 <img class="align-self-center d-none md:d-block" src="/images/common/home/styles.jpg" alt="Un groupe de quatre points violets, bleus, verts et jaunes." />
@@ -83,7 +86,8 @@ Appliquez ou combinez ces outils pour aborder les scénarios de services communs
     <gcds-link href="{{ links.styles }}">Styles</gcds-link>
   </gcds-heading>
 
-  Explorez les décisions de marque et de design codées qui façonnent une expérience visuelle cohérente.
+Explorez les décisions de marque et de design codées qui façonnent une expérience visuelle cohérente.
+
 </div>
 
 </gcds-grid>
@@ -100,7 +104,7 @@ Parcourez les dernières fonctionnalités et les derniers ajouts au code dans le
 
 - Nouveau : Paquets stables v1.0.0 pour les <gcds-link href="{{ links.github }}" external>composants</gcds-link> et les <gcds-link href="{{ links.githubTokens }}" external>unités de style</gcds-link>
 - Mise à jour : Échelle de couleurs élargie avec de nouvelles <gcds-link href="{{ links.colour }}">unités de style de base</gcds-link>
-- Nouveau : <gcds-link href="{{ links.figmaTokens }}" external>Bibliothèque d’unités de style</gcds-link> dans Figma
+- Nouveau : <gcds-link href="{{ links.figmaTokens }}" external>Bibliothèque Figma</gcds-link> distincte pour les unités de style
 
 </section>
 
@@ -108,7 +112,7 @@ Parcourez les dernières fonctionnalités et les derniers ajouts au code dans le
 
 ## À venir
 
-Explorez notre <gcds-link href="{{ links.roadmap }}">feuille de route</gcds-link> pour suivre nos progrès et voir sur quoi nous travaillerons prochainement. 
+Explorez notre <gcds-link href="{{ links.roadmap }}">feuille de route</gcds-link> pour suivre nos progrès et voir sur quoi nous travaillerons prochainement.
 
 </section>
 
