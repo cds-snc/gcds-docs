@@ -42,7 +42,7 @@ Sélecteur de date : lorsque vous voulez que la personne choisisse une date qui 
 
 ## Formats du composant
 
-### Format Jour, Mois, Année _(anglais seulement)_
+### Format Mois, Année, Jour _(anglais seulement)_
 - Une date précise que la personne connaît ou peut facilement trouver.
 - Utilisé en anglais pour les dates écrites au long.
 
