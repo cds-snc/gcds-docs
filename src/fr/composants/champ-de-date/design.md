@@ -18,7 +18,7 @@ date: 'git Last Modified'
   <li>Le <strong>champ de saisie</strong> de l’année comporte 4 chiffres.</li>
 </ol>
 
-<img class="b-sm b-default p-300" src="/images/fr/components/anatomy/gcds-date-input-anatomy.svg" alt="L’anatomie du champ de date représentée par 6 éléments: la légende du jeu de champs, l’étiquette Jour, le champ de saisir du jour, l’étiquette Mois, le champ de sélection du mois, l’étiquette année et le champ de saisie de l’année." />
+<img class="b-sm b-default p-300" src="/images/fr/components/anatomy/gcds-date-input-anatomy.svg" alt="Structure du champ de date représentée par 6 éléments : la légende du jeu de champs, l’étiquette Jour, le champ de saisie du jour, l’étiquette Mois, le champ de sélection du mois, l’étiquette Année et le champ de saisie de l’année." />
 
 
 ## Accessibilité et design des champs de date
