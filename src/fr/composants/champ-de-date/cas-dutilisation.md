@@ -40,13 +40,20 @@ Sélecteur de date : lorsque vous voulez que la personne choisisse une date qui 
 
 <hr class="mt-600" />
 
-## Types du composant
+## Formats du composant
 
-### Format Jour, Mois, Année
-- Pour une date précise que la personne connaît ou peut facilement trouver.
+### Format Jour, Mois, Année _(anglais seulement)_
+- Une date précise que la personne connaît ou peut facilement trouver.
+- Utilisé en anglais pour les dates écrites au long.
 
-### Format Mois, Année
-- Pour une date qui n’inclut pas de jour, comme la date d’expiration d’un permis de conduire.
-- Pour une date approximative, comme la date où une carte d’identité a été perdue (mois et année).
-- Pour une date dont la personne risque d’ignorer le jour exact.
+### Format Jour, Mois, Année _(français seulement)_
+- Une date précise que la personne connaît ou peut facilement trouver.
+- Utilisé en français pour les dates écrites au long.
+
+### Année, Mois, Jour
+- Une date précise que la personne connaît ou peut facilement trouver.
+- Utilisé sur le plan international pour les dates au format numérique.
+
+### Mois, Année
+- Une date approximative.
 
