@@ -1,7 +1,7 @@
 ---
 title: Champ de date
-layout: ’layouts/component-documentation.njk’
-translationKey: ’ dateinputCode'
+layout: 'layouts/component-documentation.njk'
+translationKey: 'dateinputCode'
 tags: ['dateinputFR', 'code']
 date: "git Last Modified"
 ---
