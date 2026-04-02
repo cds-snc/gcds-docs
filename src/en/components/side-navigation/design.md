@@ -23,8 +23,6 @@ date: 'git Last Modified'
 - The home nav link can be a shorter version of the full name.
 - For logos, include descriptive text.
 
-Note: On mobile, the home nav link does not link to the homepage.
-
 ### Choose meaningful nav link text
 
 - Make link text clear and specific to help a person decide if they should leave the current page. Spell out where a person will go or what they’ll find when they select a link.
