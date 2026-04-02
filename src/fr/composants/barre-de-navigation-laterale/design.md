@@ -23,8 +23,6 @@ date: 'git Last Modified'
 - Vous pouvez utiliser une forme raccourcie du nom complet.
 - Pour les logos, ajoutez du texte descriptif.
 
-Remarque : Sur les appareils mobiles, le lien d'accueil n'est pas un hyperlien vers la page d'accueil.
-
 ### Choisissez du texte pertinent pour les liens de navigation
 
 - Rendez le texte du lien clair et précis pour aider une personne à décider si elle doit quitter la page actuelle. Indiquez l’endroit où une personne sera redirigée ou ce qu’elle trouvera en cliquant sur un lien.
