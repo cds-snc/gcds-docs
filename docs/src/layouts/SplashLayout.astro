@@ -1,0 +1,33 @@
+---
+import '../styles/global.css';
+import '../styles/pages/splash.css';
+
+interface Props {
+    pageTitle: string;
+}
+
+const { pageTitle } = Astro.props as Props;
+---
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <link rel="icon" href="/favicon.ico" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="generator" content={Astro.generator} />
+        <title>{pageTitle} | GC Design System</title>
+        <meta name="og:title" content={`${pageTitle} | GC Design System`} />
+
+        <!-- GC Design System CSS Shortcuts -->
+        <link
+                rel="stylesheet"
+                href="/node_modules/@gcds-core/css-shortcuts/dist/gcds-css-shortcuts.min.css"
+        />
+        <link rel="stylesheet" href="/assets/gcds/gcds.css" />
+        <script type="module" src="/assets/gcds/gcds.esm.js"></script>
+    </head>
+    <body class="splash-body">
+        <slot />
+    </body>
+</html>
+

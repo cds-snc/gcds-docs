@@ -36,9 +36,12 @@ const routeKey = findRouteKeyFromPath(currentLocale, parts, routes);
     <!--  rel="stylesheet"-->
     <!--/>-->
 
-    <!-- GC Design System Utility -->
-    <link rel="stylesheet" href="https://cdn.design-system.canada.ca/@cdssnc/gcds-utility@1.9.0/dist/gcds-utility.min.css">
-
+    <!-- GC Design System CSS Shortcuts -->
+    <link
+        rel="stylesheet"
+        href="/node_modules/@gcds-core/css-shortcuts/dist/gcds-css-shortcuts.min.css"
+    />
+    
     <!-- GC Design System -->
     <link rel="stylesheet" href="/node_modules/@gcds-core/components/dist/gcds/gcds.css">
     <script type="module" src="/node_modules/@gcds-core/components/dist/gcds/gcds.esm.js"></script>

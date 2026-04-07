@@ -3,8 +3,10 @@
   "type": "module",
   "version": "0.0.1",
   "scripts": {
+    "predev": "node scripts/copy-gcds-assets.mjs",
     "dev": "astro dev",
     "build": "astro build",
+    "prebuild": "node scripts/copy-gcds-assets.mjs",
     "preview": "astro preview",
     "astro": "astro"
   },
@@ -12,6 +14,7 @@
     "@astrojs/mdx": "^4.3.0",
     "@astrojs/react": "^4.3.0",
     "@gcds-core/components-react": "^1.0.0",
+    "@gcds-core/css-shortcuts": "^1.1.0",
     "@types/react": "^19.1.5",
     "@types/react-dom": "^19.1.5",
     "astro": "^5.7.13",
