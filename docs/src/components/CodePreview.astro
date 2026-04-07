@@ -1,0 +1,80 @@
+---
+import './CodePreview.css';
+---
+
+<div class="preview-container">
+  <div class="code-preview">
+    <div class="demo-container">
+      <slot />
+    </div>
+
+    <div class="button-group">
+      <gcds-button class="toggle-btn" button-role="secondary" size="small">
+        View Code
+      </gcds-button>
+      <gcds-button class="copy-btn" button-role="secondary" size="small">
+        Copy Code
+      </gcds-button>
+      <span class="copy-status"></span>
+    </div>
+  </div>
+
+  <pre class="code-block hidden">
+    <code class="code-content"></code>
+  </pre>
+</div>
+
+<script type="module" is:client>
+  window.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.preview-container').forEach(container => {
+      const toggleBtn = container.querySelector('.toggle-btn');
+      const copyBtn = container.querySelector('.copy-btn');
+      const codeBlock = container.querySelector('.code-block');
+      const copyStatus = container.querySelector('.copy-status');
+      const demoContainer = container.querySelector('.demo-container');
+      const codeContent = container.querySelector('.code-content');
+
+      function escapeHtml(unsafe) {
+        return unsafe
+          .replace(/&/g, "&amp;")
+          .replace(/</g, "&lt;")
+          .replace(/>/g, "&gt;")
+          .replace(/"/g, "&quot;")
+          .replace(/'/g, "&#039;");
+      }
+
+      const rawHtml = demoContainer.innerHTML.trim();
+      codeContent.innerHTML = escapeHtml(rawHtml);
+
+      let isCodeVisible = false;
+
+      toggleBtn.addEventListener('click', (event) => {
+        event.stopPropagation();
+
+        isCodeVisible = !isCodeVisible;
+
+        if (isCodeVisible) {
+          codeBlock.classList.remove('hidden');
+          toggleBtn.textContent = 'Hide Code';
+        } else {
+          codeBlock.classList.add('hidden');
+          toggleBtn.textContent = 'View Code';
+        }
+      });
+
+      copyBtn.addEventListener('click', async (event) => {
+        event.stopPropagation();
+
+        try {
+          const code = codeContent.innerText.trim();
+          await navigator.clipboard.writeText(code);
+          copyStatus.textContent = 'Copied!';
+        } catch {
+          copyStatus.textContent = 'Copy failed';
+        }
+
+        setTimeout(() => (copyStatus.textContent = ''), 2000);
+      });
+    });
+  });
+</script>

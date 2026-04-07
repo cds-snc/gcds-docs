@@ -1,0 +1,36 @@
+.preview-container {
+  border: 1px solid var(--gcds-border-default);
+  margin-block-end: var(--gcds-spacing-300);
+}
+
+.code-preview {
+  padding: var(--gcds-spacing-300);
+}
+
+.button-group {
+  margin-block-start: var(--gcds-spacing-300);
+}
+
+.code-block {
+  all: unset;
+  width: 100%;
+  display: block;
+  box-sizing: border-box;
+  overflow-x: auto;
+  background: var(--gcds-bg-light);
+  border-block-start: 1px solid var(--gcds-border-default);
+  padding: var(--gcds-spacing-300);
+}
+
+.hidden {
+  display: none;
+}
+
+.copy-status {
+  color: var(--gcds-color-green-700);
+  margin-inline-start: var(--gcds-spacing-150);
+}
+
+gcds-button {
+  margin-inline-end: var(--gcds-spacing-200);
+}

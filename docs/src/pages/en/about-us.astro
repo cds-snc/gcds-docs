@@ -1,0 +1,32 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+import { Heading, Text } from '../../components';
+
+const skills = ["HTML", "CSS", "JavaScript", "React", "Astro", "Writing Docs"];
+const happy = true;
+---
+
+<BaseLayout pageTitle="About us">
+  <Heading tag="h1">About us</Heading>
+  <Text>This page is a test and learning example built using Astro, demonstrating how to structure and render components, pass props, and use basic logic inside an <code>.astro</code> file. Here's a breakdown of what's happening:</Text>
+
+  <Heading tag="h2">Layout and Imports</Heading>
+  <Text>The page imports a custom <code>BaseLayout</code> layout component and wraps all content within it, setting the <code>pageTitle</code> and <code>locale</code> as props.</Text>
+  <Text>It also imports <code>Heading</code> and <code>Text</code> components for semantic and styled rendering of the title and text content.</Text>
+
+  <Heading tag="h2">Data Setup</Heading>
+  <Text>Several variables are declared using Astro's frontmatter (<code>---</code> section):</Text>
+  <Text>Skills: An array of strings representing technical skills is generated dynamically from the skills array using <code>.map()</code>:</Text>
+  <p class="mb-300">
+    {skills.map((skill, index) => (
+      <>
+        <span>{skill}</span>
+        {index !== skills.length - 1 && ', '}
+      </>
+    ))}
+  </p>
+
+  <Text><code>happy</code> boolean used to control conditional rendering:</Text>
+  {happy && <Text>I am happy to be learning Astro!</Text>}
+</BaseLayout>
