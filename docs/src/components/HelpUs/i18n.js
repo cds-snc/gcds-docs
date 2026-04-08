@@ -12,7 +12,7 @@ const I18N = {
     heading: "Aidez-nous à nous améliorer",
     text: [
       "Vous avez des questions ou des demandes? Faites-nous part de vos commentaires à l'aide de notre formulaire de contact.",
-      "Quelque chose ne va pas? Signalez-le sur GitHub en créant un compte. Vous pourrez accéder aux réponses de l'équipe, suivre les progrès réalisés concernant votre problèmes et voir les problèmes signalés par d'autres personnes.",
+      "Quelque chose ne va pas? Signalez-le sur GitHub _en créant un compte. Vous pourrez accéder aux réponses de l'équipe, suivre les progrès réalisés concernant votre problèmes et voir les problèmes signalés par d'autres personnes.",
     ],
     btnFeedback: "Fournir des commentaires",
     btnReport: "Signaler un problème sur Github",

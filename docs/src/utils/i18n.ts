@@ -1,5 +1,5 @@
 /**
- * Given a locale and URL parts (e.g., ['en', 'components', 'button']),
+ * Given a locale and URL parts (e.g., ['_en', 'components', 'button']),
  * this function looks up the corresponding route key from the i18n routes config.
  */
 export function findRouteKeyFromPath(

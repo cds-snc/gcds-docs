@@ -1,0 +1,69 @@
+---
+import Text from '../../components/Text.astro';
+import Ol from '../../components/markdown/ol.astro';
+import Ul from '../../components/markdown/ul.astro';
+
+const CONTENT_PAGES_PATH = '../../content/pages';
+
+// Vite requires glob patterns to be string literals.
+const renderPageModules = import.meta.glob('../../content/pages/**/*.{astro,mdx}', { eager: true });
+
+export function getStaticPaths() {
+  const contentPagesPath = '../../content/pages';
+  const staticPageModules = import.meta.glob('../../content/pages/**/*.{astro,mdx}', { eager: true });
+
+  return Object.keys(staticPageModules).map((filePath) => {
+    const normalizedPath = filePath.replace(`${contentPagesPath}/`, '');
+    const segments = normalizedPath.split('/');
+
+    const locale = segments[0];
+    const fileWithoutExt = segments.slice(1).join('/').replace(/\.(astro|mdx)$/, '');
+    // Strip trailing "/index" so that both "about.mdx" and "about/index.mdx"
+    // resolve to the same slug (e.g. "about"), and a top-level "index.mdx"
+    // resolves to an empty slug (the locale root).
+    const normalizedBase = fileWithoutExt.replace(/\/index$/, '');
+    const slugParts = normalizedBase === 'index' || normalizedBase === '' ? [] : normalizedBase.split('/');
+
+    return {
+      params: {
+        locale,
+        slug: slugParts.length > 0 ? slugParts.join('/') : undefined
+      }
+    };
+  });
+}
+
+const locale = Astro.params.locale;
+const slugParam = Astro.params.slug;
+const slugPath = Array.isArray(slugParam) ? slugParam.join('/') : slugParam ?? '';
+const fileBase = slugPath === '' ? 'index' : slugPath;
+
+// Check all four possible file locations for a given slug, in priority order:
+//   1. en/about.astro          — flat .astro file
+//   2. en/about.mdx            — flat .mdx file
+//   3. en/about/index.astro    — nested .astro index
+//   4. en/about/index.mdx      — nested .mdx index
+const astroKey = `${CONTENT_PAGES_PATH}/${locale}/${fileBase}.astro`;
+const mdxKey = `${CONTENT_PAGES_PATH}/${locale}/${fileBase}.mdx`;
+const astroIndexKey = `${CONTENT_PAGES_PATH}/${locale}/${fileBase}/index.astro`;
+const mdxIndexKey = `${CONTENT_PAGES_PATH}/${locale}/${fileBase}/index.mdx`;
+
+const pageModule =
+  renderPageModules[astroKey] ??
+  renderPageModules[mdxKey] ??
+  renderPageModules[astroIndexKey] ??
+  renderPageModules[mdxIndexKey];
+const Content = pageModule?.default;
+// Global MDX component substitutions — applies to all .mdx pages automatically.
+// Markdown paragraphs render as <gcds-text> instead of plain <p>.
+const mdxComponents = {
+  p: Text,
+  ol: Ol, // renders <ol class="list-decimal mb-300"> (CSS Shortcuts)
+  ul: Ul, // renders <ul class="list-disc mb-300"> (CSS Shortcuts)
+};
+---
+
+{/* Pass mdxComponents to remap markdown elements globally across all .mdx pages.
+    e.g. plain paragraphs render as <gcds-text> instead of <p>.
+    Add more mappings to mdxComponents in the frontmatter to override other elements (h1, ul, li, etc.). */}
+{Content ? <Content components={mdxComponents} /> : <p>Page not found.</p>}

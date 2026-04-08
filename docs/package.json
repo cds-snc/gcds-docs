@@ -3,25 +3,28 @@
   "type": "module",
   "version": "0.0.1",
   "scripts": {
-    "predev": "node scripts/copy-gcds-assets.mjs",
+    "predev": "node scripts/validate-routes.mjs && node scripts/copy-gcds-assets.mjs",
     "dev": "astro dev",
     "build": "astro build",
-    "prebuild": "node scripts/copy-gcds-assets.mjs",
+    "prebuild": "node scripts/validate-routes.mjs && node scripts/copy-gcds-assets.mjs",
     "preview": "astro preview",
     "astro": "astro"
   },
   "dependencies": {
     "@astrojs/mdx": "^4.3.0",
     "@astrojs/react": "^4.3.0",
-    "@gcds-core/components-react": "^1.0.0",
+    "@gcds-core/components-react": "^1.1.0",
     "@gcds-core/css-shortcuts": "^1.1.0",
     "@types/react": "^19.1.5",
     "@types/react-dom": "^19.1.5",
     "astro": "^5.7.13",
+    "chalk": "^5.6.2",
     "react": "^19.1.0",
-    "react-dom": "^19.1.0"
+    "react-dom": "^19.1.0",
+    "rehype-autolink-headings": "^7.1.0",
+    "rehype-slug": "^6.0.0"
   },
   "devDependencies": {
-    "@gcds-core/components": "^1.0.0"
+    "@gcds-core/components": "^1.1.0"
   }
 }

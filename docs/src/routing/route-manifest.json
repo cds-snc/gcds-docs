@@ -1,0 +1,98 @@
+{
+  "sideNavRoutes": [
+    {
+      "type": "slot",
+      "slotName": "home",
+      "label": {"en": "GC Design System", "fr": "Système de design GC"},
+      "slug": {"en": "", "fr": ""}
+    },
+    {
+      "type": "home",
+      "versioned": false,
+      "routeKey": "home",
+      "label": {"en": "GC Design System", "fr": "Système de design GC"},
+      "slug": {"en": "", "fr": ""},
+      "files": {"en": "index", "fr": "index"},
+      "navOnly": false
+    },
+    {
+      "type": "link",
+      "versioned": false,
+      "routeKey": "start-to-use",
+      "label": {"en": "Start to use", "fr": "Démarrer"},
+      "slug": {"en": "start-to-use", "fr": "demarrer"},
+      "files": {"en": "start-to-use", "fr": "demarrer"},
+      "navOnly": true
+    },
+    {
+      "type": "group",
+      "versioned": true,
+      "groupKey": "page-templates",
+      "routeKey": "page-templates",
+      "label": {"en": "Page templates", "fr": "Modèles de page"},
+      "navOnly": false,
+      "items": [
+        {
+          "pageKey": "overview",
+          "routeKey": "page-templates",
+          "label": {"en": "Page templates overview", "fr": "Aperçu des modèles de page"},
+          "slug": {"en": "", "fr": ""},
+          "files": {"en": "index", "fr": "index"}
+        }
+      ]
+    },
+    {
+      "type": "group",
+      "versioned": true,
+      "groupKey": "components",
+      "routeKey": "components",
+      "label": {"en": "Components", "fr": "Composants"},
+      "manifestKey": "components",
+      "pinOverviewItem": true,
+      "sortItems": "a-z"
+    },
+    {
+      "type": "group",
+      "versioned": true,
+      "groupKey": "css-shortcuts",
+      "routeKey": "css-shortcuts",
+      "label": {"en": "CSS Shortcuts", "fr": "Raccourcis CSS"},
+      "manifestKey": "cssShortcuts"
+    },
+    {
+      "type": "group",
+      "versioned": true,
+      "groupKey": "styles",
+      "routeKey": "styles",
+      "label": {"en": "Styles", "fr": "Styles"},
+      "manifestKey": "tokens"
+    },
+    {
+      "type": "group",
+      "versioned": true,
+      "groupKey": "contact",
+      "routeKey": "contact",
+      "label": {"en": "Contact", "fr": "Contact"},
+      "items": [
+        {
+          "pageKey": "contact",
+          "routeKey": "contact",
+          "label": {"en": "Contact us", "fr": "Contactez-nous"},
+          "slug": {"en": "contact", "fr": "contactenez"}
+        },
+        {
+          "pageKey": "get-involved",
+          "routeKey": "get-involved",
+          "label": {"en": "Get Involved", "fr": "Impliquez-vous"},
+          "slug": {"en": "get-involved", "fr": "impliquer"}
+        },
+        {
+          "pageKey": "register-for-a-demo",
+          "routeKey": "register-for-a-demo",
+          "label": {"en": "Find a demo", "fr": "Trouvez une démo"},
+          "slug": {"en": "register-for-a-demo", "fr": "inscrivez-vous-a-une-demonstration"}
+        }
+      ]
+    }
+  ]
+}

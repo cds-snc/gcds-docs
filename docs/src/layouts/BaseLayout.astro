@@ -4,6 +4,7 @@ import { routes } from '../i18n/config';
 import { findRouteKeyFromPath } from '../utils/i18n';
 
 import '../styles/global.css';
+import SideNav from "../components/SideNav.astro";
 
 const { pageTitle, paddingTop = true } = Astro.props;
 
@@ -18,43 +19,31 @@ const routeKey = findRouteKeyFromPath(currentLocale, parts, routes);
 <html lang={currentLocale}>
   <head>
     <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="https://design-system.canada.ca/favicon.ico" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="generator" content={Astro.generator} />
     <title>{pageTitle} | GC Design System</title>
     <meta name="og:title" content={`${pageTitle} | GC Design System`} />
-
-    <!-- GC Fonts -->
-    <!--<link rel="preconnect" href="https://fonts.googleapis.com">-->
-    <!--<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>-->
-    <!--<link-->
-    <!--  href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"-->
-    <!--  rel="stylesheet"-->
-    <!--/>-->
-    <!--<link-->
-    <!--  href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap"-->
-    <!--  rel="stylesheet"-->
-    <!--/>-->
 
     <!-- GC Design System CSS Shortcuts -->
     <link
         rel="stylesheet"
         href="/node_modules/@gcds-core/css-shortcuts/dist/gcds-css-shortcuts.min.css"
     />
-    
+
     <!-- GC Design System -->
     <link rel="stylesheet" href="/node_modules/@gcds-core/components/dist/gcds/gcds.css">
     <script type="module" src="/node_modules/@gcds-core/components/dist/gcds/gcds.esm.js"></script>
   </head>
   <body>
     <Header currentLocale={currentLocale} routeKey={routeKey} />
-    <Nav />
-    <div id="main-content" class={paddingTop ? 'has-padding' : ''}>
-      <slot name="hero" />
-      <gcds-container size="xl" tag="main" alignment="center">
-        <slot />
-        <gcds-date-modified>21.05.2025</gcds-date-modified>
-      </gcds-container>
+    <div class="content-wrapper">
+      <gcds-grid columns="minmax(0, 1fr)" columns-desktop="320px minmax(0, 1fr)" tag="div" container="xl" alignment="center" class="xl:px-0 sm:px-600 px-225 general-layout">
+        <SideNav />
+        <main id="main-content" class={`mb-200 ${paddingTop ? 'has-padding' : ''}`}>
+          <slot />
+        </main>
+      </gcds-grid>
       <Footer />
     </div>
   </body>
@@ -65,11 +54,11 @@ const routeKey = findRouteKeyFromPath(currentLocale, parts, routes);
   html {
     height: 100%;
   }
-
-  #main-content {
-    width: calc(100vw - 20rem);
-    margin: 6.9375rem 0 0 20rem;
-  }
+  //
+  //#main-content {
+  //  width: calc(100vw - 20rem);
+  //  margin: 6.9375rem 0 0 20rem;
+  //}
 
   #main-content.has-padding {
     padding-block-start: var(--gcds-spacing-600);
