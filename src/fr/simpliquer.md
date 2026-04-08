@@ -50,7 +50,24 @@ Vous pouvez contribuer à l’avenir de Système de design GC.
 
 Nous recherchons activement des contributions pour les éléments suivants :
 
-- **Des tableaux de données** pour organiser et afficher une grande quantité de données dans des rangées et des colonnes.
+---
+
+### Composants
+- **Indicateur/Badge :** Pour catégoriser et mettre en évidence le contenu, l’état d’un élément ou les métadonnées de façon claire et cohérente.
+- **Modale :** Pour les interactions qui interrompent le flux d’une activité et qui nécessitent l’attention de l’utilisateur, comme les confirmations ou les actions importantes.
+- **Alerte :** Pour communiquer l’état du système, la rétroaction et les messages importants aux utilisateurs et utilisatrices.
+- **Onglets :** Pour organiser le contenu connexe en sections dans un même contexte d’affichage.
+- **Navigation style metro / Sur cette page :** Pour aider les utilisateurs à naviguer dans des pages plus longues ou à parcourir du contenu à plusieurs étapes grâce à une structure et une orientation claires.
+- **Remplissage automatique (sélection) :** Pour améliorer la convivialité lors de la sélection à partir de listes longues ou complexes.
+
+### Styles
+- **Plus d’icônes :** Un ensemble cohérent d’icônes pour soutenir les actions et les notions communes dans un plus grand nombre de services du gouvernement du Canada.
+- **Couleurs :** Évolution continue du système de couleurs afin de favoriser l’accessibilité, la flexibilité et la clarté dans différents contextes.
+
+### Modèles et démarrage
+- **Modèles de page :** Structures de page réutilisables pour des formules de services courants visant à aider les équipes à se lancer rapidement dans l’élaboration de leurs produits.
+- **Applications de démarrage :** Exemples de mises en œuvre qui montrent comment utiliser Système de design GC dans des environnements réels afin d’aider à accélérer la configuration initiale.
+- **Blocs réutilisables :** Formules d’interaction courantes et mises en page qui aident les équipes à créer plus rapidement des services cohérents et utilisables.
 
 Nous nous intéressons également aux problèmes concernant les interactions avec les utilisateurs et utilisatrice ou aux solutions qui peuvent s’appliquer aux différents services du GC.
 
