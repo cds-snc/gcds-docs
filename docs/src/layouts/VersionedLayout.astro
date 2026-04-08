@@ -44,12 +44,12 @@ const lastModified = await getLastModifiedForRoute(Astro.url.pathname, {
     <!-- GC Design System CSS Shortcuts -->
     <link
       rel="stylesheet"
-      href="/node_modules/@gcds-core/css-shortcuts/dist/gcds-css-shortcuts.min.css"
+      href="/assets/gcds/gcds-css-shortcuts.min.css"
     />
 
     <!-- GC Design System -->
-    <link rel="stylesheet" href="/node_modules/@gcds-core/components/dist/gcds/gcds.css" />
-    <script type="module" src="/node_modules/@gcds-core/components/dist/gcds/gcds.esm.js"></script>
+    <link rel="stylesheet" href="/assets/gcds/gcds.css" />
+    <script type="module" src="/assets/gcds/gcds.esm.js"></script>
   </head>
   <body>
     <Header currentLocale={currentLocale} routeKey={routeKey} />
