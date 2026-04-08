@@ -1,0 +1,16 @@
+---
+interface Props {
+  value?: string;
+  locale?: string;
+}
+
+const { value, locale = 'en' } = Astro.props as Props;
+const normalized = value ? value.slice(0, 10) : undefined;
+---
+
+{normalized && (
+  <gcds-date-modified lang={locale} class="mt-600">
+    {normalized}
+  </gcds-date-modified>
+)}
+

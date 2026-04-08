@@ -5,7 +5,7 @@ const { currentLocale, routeKey } = Astro.props;
 const otherLocale = supportedLocales.find(loc => loc !== currentLocale);
 
 // Helper function to build translated path
-function getFullRoutePath(routeKey, locale, routes) {
+function getFullRoutePath({routeKey, locale, routes}: { routeKey: any, locale: any, routes: any }) {
   for (const parentKey in routes) {
     if (parentKey === routeKey) {
       return `/${locale}/${routes[parentKey][locale]}`;
@@ -17,7 +17,7 @@ function getFullRoutePath(routeKey, locale, routes) {
   return `/${locale}/`;
 }
 
-const href = getFullRoutePath(routeKey, otherLocale, routes);
+const href = getFullRoutePath({routeKey: routeKey, locale: otherLocale, routes: routes});
 ---
 
 <gcds-header

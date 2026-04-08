@@ -53,7 +53,8 @@ const pageModule =
   renderPageModules[mdxKey] ??
   renderPageModules[astroIndexKey] ??
   renderPageModules[mdxIndexKey];
-const Content = pageModule?.default;
+const Content = pageModule?.default as any;
+
 // Global MDX component substitutions — applies to all .mdx pages automatically.
 // Markdown paragraphs render as <gcds-text> instead of plain <p>.
 const mdxComponents = {
@@ -67,3 +68,4 @@ const mdxComponents = {
     e.g. plain paragraphs render as <gcds-text> instead of <p>.
     Add more mappings to mdxComponents in the frontmatter to override other elements (h1, ul, li, etc.). */}
 {Content ? <Content components={mdxComponents} /> : <p>Page not found.</p>}
+

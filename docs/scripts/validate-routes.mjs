@@ -31,10 +31,20 @@ class RouteValidator {
    */
   getCandidateFiles(locale, slugPath) {
     const fileBase = slugPath === '' ? 'index' : slugPath;
-    return [
+    const candidates = [
       path.join(this.contentPagesRoot, locale, `${fileBase}.astro`),
       path.join(this.contentPagesRoot, locale, `${fileBase}.mdx`)
     ];
+
+    // Support nested content folders like "start-to-use/index.mdx".
+    if (fileBase !== 'index') {
+      candidates.push(
+        path.join(this.contentPagesRoot, locale, fileBase, 'index.astro'),
+        path.join(this.contentPagesRoot, locale, fileBase, 'index.mdx')
+      );
+    }
+
+    return candidates;
   }
 
   /**

@@ -3,6 +3,7 @@ export { default as AnatomyList } from "./AnatomyList.astro";
 export { default as CodePreview } from "./CodePreview.astro";
 export { default as CodePreviewReact } from "./CodePreviewReact.jsx";
 export { default as DocLinks } from "./DocLinks.astro";
+export { default as DateModified } from "./DateModified.astro";
 export { default as Footer } from "./Footer.astro";
 export { default as Header } from "./Header.astro";
 export { default as Heading } from "./Heading.astro";

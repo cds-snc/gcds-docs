@@ -7,7 +7,17 @@ import { getLastModifiedForRoute } from '../utils/lastModified';
 import '../styles/global.css';
 import SideNav from '../components/SideNav.astro';
 
-const { pageTitle, paddingTop = true } = Astro.props;
+interface Props {
+  pageTitle: string;
+  paddingTop?: boolean;
+  contentRoot?: string;
+}
+
+const {
+  pageTitle,
+  paddingTop = true,
+  contentRoot = 'src/content/versioned'
+} = Astro.props as Props;
 
 // Determine the current locale and route key based on the URL.
 const pathname = Astro.url.pathname.replace(/\/$/, '');
@@ -17,7 +27,7 @@ const currentLocale = parts[0];
 const routeKey = findRouteKeyFromPath(currentLocale, parts, routes);
 
 const lastModified = await getLastModifiedForRoute(Astro.url.pathname, {
-  contentRoot: 'src/content/pages',
+  contentRoot,
   locale: currentLocale
 });
 ---
@@ -33,12 +43,12 @@ const lastModified = await getLastModifiedForRoute(Astro.url.pathname, {
 
     <!-- GC Design System CSS Shortcuts -->
     <link
-        rel="stylesheet"
-        href="/node_modules/@gcds-core/css-shortcuts/dist/gcds-css-shortcuts.min.css"
+      rel="stylesheet"
+      href="/node_modules/@gcds-core/css-shortcuts/dist/gcds-css-shortcuts.min.css"
     />
 
     <!-- GC Design System -->
-    <link rel="stylesheet" href="/node_modules/@gcds-core/components/dist/gcds/gcds.css">
+    <link rel="stylesheet" href="/node_modules/@gcds-core/components/dist/gcds/gcds.css" />
     <script type="module" src="/node_modules/@gcds-core/components/dist/gcds/gcds.esm.js"></script>
   </head>
   <body>
@@ -61,13 +71,6 @@ const lastModified = await getLastModifiedForRoute(Astro.url.pathname, {
   html {
     height: 100%;
   }
-
-  /*
-  #main-content {
-    width: calc(100vw - 20rem);
-    margin: 6.9375rem 0 0 20rem;
-  }
-  */
 
   #main-content.has-padding {
     padding-block-start: var(--gcds-spacing-600);
