@@ -325,7 +325,7 @@ class RouteValidator {
         chalk.yellow(`${missingRoutes.length} ${warningLabel}:`)
     );
     for (const missing of missingRoutes) {
-      const urlPath = `/${missing.locale}/${missing.routePath}`.replace(/\/$/, '/');
+      const urlPath = `/${missing.locale}/${missing.routePath}`;
       const candidateList = missing.candidates
         .map((candidate) => path.relative(projectRoot, candidate))
         .join(chalk.gray(' | '));
