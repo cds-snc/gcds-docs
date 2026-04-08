@@ -1,4 +1,4 @@
-import { access, readFile } from 'node:fs/promises';
+import { access, readFile, readdir } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import chalk from 'chalk';
@@ -11,6 +11,8 @@ class RouteValidator {
   constructor() {
     this.routeManifestPath = path.join(projectRoot, 'src', 'routing', 'route-manifest.json');
     this.contentPagesRoot = path.join(projectRoot, 'src', 'content', 'pages');
+    this.versionedContentRoot = path.join(projectRoot, 'src', 'content', 'versioned');
+    this.versionConfigPath = path.join(projectRoot, 'src', 'routing', 'versioned', 'version-config.json');
     this.locales = ['en', 'fr'];
   }
 
@@ -48,6 +50,21 @@ class RouteValidator {
   }
 
   /**
+   * Get candidate versioned files for a locale + section + version + slug.
+   */
+  getVersionedCandidateFiles(locale, contentDir, version, slugPath) {
+    const sectionRoot = path.join(this.versionedContentRoot, contentDir, version, locale);
+    const fileBase = slugPath === '' ? 'index' : slugPath;
+
+    return [
+      path.join(sectionRoot, `${fileBase}.astro`),
+      path.join(sectionRoot, `${fileBase}.mdx`),
+      path.join(sectionRoot, fileBase, 'index.astro'),
+      path.join(sectionRoot, fileBase, 'index.mdx')
+    ];
+  }
+
+  /**
    * Join URL segments, filtering out empty values
    */
   joinUrlSegments(...segments) {
@@ -61,6 +78,159 @@ class RouteValidator {
    */
   localized(value, locale) {
     return value?.[locale] ?? '';
+  }
+
+  compareSemver(a, b) {
+    const aParts = a.split('.').map(Number);
+    const bParts = b.split('.').map(Number);
+
+    for (let i = 0; i < Math.max(aParts.length, bParts.length); i += 1) {
+      const aVal = aParts[i] ?? 0;
+      const bVal = bParts[i] ?? 0;
+      if (aVal !== bVal) {
+        return aVal - bVal;
+      }
+    }
+
+    return 0;
+  }
+
+  async getVersionDirectories(contentDir) {
+    const sectionPath = path.join(this.versionedContentRoot, contentDir);
+    try {
+      const entries = await readdir(sectionPath, { withFileTypes: true });
+      return entries
+        .filter((entry) => entry.isDirectory() && /^\d+\.\d+\.\d+$/.test(entry.name))
+        .map((entry) => entry.name)
+        .sort((a, b) => this.compareSemver(a, b));
+    } catch {
+      return [];
+    }
+  }
+
+  async loadVersionConfig() {
+    try {
+      const content = await readFile(this.versionConfigPath, 'utf8');
+      const parsed = JSON.parse(content);
+      if (!Array.isArray(parsed?.sections)) {
+        return [];
+      }
+
+      return parsed.sections.map((section) => ({
+        routeKey: section.routeKey,
+        contentDir: section.contentDir,
+        manifestPath: path.join(projectRoot, 'src', 'routing', 'versioned', section.manifest),
+        versions: Array.isArray(section.versions) ? section.versions : [],
+        // Preferred: itemVersionRules { [slug]: { availableFrom, removedSince } }
+        // Backward-compatible: itemAvailability { [slug]: { from, to } }
+        itemRules: section.itemVersionRules ?? section.itemRules ?? section.itemAvailability ?? {}
+      }));
+    } catch {
+      return [];
+    }
+  }
+
+  async loadManifestItems(manifestPath) {
+    try {
+      const content = await readFile(manifestPath, 'utf8');
+      const parsed = JSON.parse(content);
+      return Array.isArray(parsed?.items) ? parsed.items : [];
+    } catch {
+      return [];
+    }
+  }
+
+  isItemExpectedInVersion(section, item, version) {
+    const itemKey = this.localized(item?.slug, 'en') || this.localized(item?.slug, 'fr');
+    const rule = section.itemRules?.[itemKey];
+    if (!rule) {
+      return true;
+    }
+
+    const addedOn = rule.availableFrom ?? rule.addedOn ?? rule.from;
+    const removedSince = rule.removedSince;
+    const to = rule.to;
+
+    if (addedOn && this.compareSemver(version, addedOn) < 0) {
+      return false;
+    }
+
+    // removedSince means item is NOT expected from that version onward.
+    if (removedSince && this.compareSemver(version, removedSince) >= 0) {
+      return false;
+    }
+
+    // Legacy upper-bound support: to means item is expected through that version.
+    if (to && this.compareSemver(version, to) > 0) {
+      return false;
+    }
+
+    return true;
+  }
+
+  /**
+   * Validate versioned routes against manifest entries for each configured version.
+   *
+   * This is version-aware and supports intentional additions/removals through
+   * itemVersionRules in version-config.json (availableFrom / removedSince).
+   */
+  async validateVersionedManifestRoutes() {
+    const checks = [];
+    const notes = [];
+    const sections = await this.loadVersionConfig();
+
+    for (const section of sections) {
+      const versions = section.versions
+        .filter((version) => /^\d+\.\d+\.\d+$/.test(version))
+        .sort((a, b) => this.compareSemver(a, b));
+
+      if (versions.length === 0) {
+        continue;
+      }
+
+      const availableVersionDirs = await this.getVersionDirectories(section.contentDir);
+      const items = await this.loadManifestItems(section.manifestPath);
+      const versionedItems = items.filter((item) => item?.versioned === true);
+
+      notes.push(
+        `${section.routeKey}: checking configured versions [${versions.join(', ')}] against manifest (${path.relative(projectRoot, section.manifestPath)})`
+      );
+
+      for (const version of versions) {
+        if (!availableVersionDirs.includes(version)) {
+          notes.push(`${section.routeKey}: configured version ${version} has no matching content directory`);
+          continue;
+        }
+
+        for (const item of versionedItems) {
+          if (!this.isItemExpectedInVersion(section, item, version)) {
+            continue;
+          }
+
+          for (const locale of this.locales) {
+            const slug = this.localized(item?.slug, locale);
+            const routePath = this.joinUrlSegments(section.routeKey, version, slug);
+            checks.push({
+              locale,
+              routePath,
+              source: `${section.routeKey}@${version}`,
+              candidates: this.getVersionedCandidateFiles(locale, section.contentDir, version, slug)
+            });
+          }
+        }
+      }
+    }
+
+    const missingRoutes = [];
+
+    for (const check of checks) {
+      const existing = await Promise.all(check.candidates.map((file) => this.fileExists(file)));
+      if (!existing.some(Boolean)) {
+        missingRoutes.push(check);
+      }
+    }
+
+    return { missingRoutes, notes };
   }
 
   /**
@@ -129,12 +299,22 @@ class RouteValidator {
   /**
    * Format and log missing routes with colors
    */
-  reportMissingRoutes(missingRoutes) {
+  reportMissingRoutes(missingRoutes, options = {}) {
+    const {
+      okMessage = 'all checked routes have matching files in src/content/pages',
+      warningLabel = 'route(s) do not have matching files in src/content/pages',
+      infoLines = []
+    } = options;
+
+    for (const infoLine of infoLines) {
+      console.log(chalk.blue('i') + chalk.bold.blue(' [route-check] INFO: ') + chalk.gray(infoLine));
+    }
+
     if (missingRoutes.length === 0) {
       console.log(
         chalk.green('✓') +
           chalk.bold(' [route-check] OK: ') +
-          chalk.gray('all checked routes have matching files in src/content/pages')
+          chalk.gray(okMessage)
       );
       return;
     }
@@ -142,7 +322,7 @@ class RouteValidator {
     console.warn(
       chalk.yellow('⚠') +
         chalk.bold.yellow(' [route-check] WARNING: ') +
-        chalk.yellow(`${missingRoutes.length} route(s) do not have matching files in src/content/pages:`)
+        chalk.yellow(`${missingRoutes.length} ${warningLabel}:`)
     );
     for (const missing of missingRoutes) {
       const urlPath = `/${missing.locale}/${missing.routePath}`.replace(/\/$/, '/');
@@ -169,7 +349,21 @@ class RouteValidator {
 
     const checks = this.generateRouteChecks(routes);
     const missingRoutes = await this.findMissingRoutes(checks);
-    this.reportMissingRoutes(missingRoutes);
+    this.reportMissingRoutes(missingRoutes, {
+      okMessage: 'all non-versioned checked routes have matching files in src/content/pages',
+      warningLabel: 'non-versioned route(s) do not have matching files in src/content/pages'
+    });
+
+    const versionedResult = await this.validateVersionedManifestRoutes();
+    this.reportMissingRoutes(versionedResult.missingRoutes, {
+      okMessage: 'all configured versioned manifest routes have matching files in src/content/versioned',
+      warningLabel: 'configured versioned manifest route(s) do not have matching files in src/content/versioned',
+      infoLines: [
+        'Versioned validation checks each section against its manifest for configured versions in version-config.json.',
+        'Use itemVersionRules with availableFrom/removedSince in version-config.json to model additions/removals across versions.',
+        ...versionedResult.notes
+      ]
+    });
   }
 }
 

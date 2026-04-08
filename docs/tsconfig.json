@@ -12,6 +12,12 @@
     "paths": {
       "~assets/*": [
         "src/assets/*"
+      ],
+      "~components": [
+        "src/components/index"
+      ],
+      "~layouts/*": [
+        "src/layouts/*"
       ]
     },
     "jsx": "react-jsx",

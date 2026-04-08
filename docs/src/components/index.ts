@@ -10,3 +10,4 @@ export { default as Heading } from "./Heading.astro";
 export { default as HelpUs } from "./HelpUs/HelpUs.astro";
 export { default as Tabs } from "./Tabs.astro";
 export { default as Text } from "./Text.astro";
+export { default as VersionSwitcher } from "./VersionSwitcher.astro";

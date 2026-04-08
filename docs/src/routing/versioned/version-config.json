@@ -1,0 +1,25 @@
+{
+  "sections": [
+    {
+      "routeKey": "components",
+      "contentDir": "components",
+      "manifest": "component-manifest.json",
+      "versions": ["1.0.0", "1.1.0"],
+      "itemVersionRules": {}
+    },
+    {
+      "routeKey": "css-shortcuts",
+      "contentDir": "css-shortcuts",
+      "manifest": "css-shortcut-manifest.json",
+      "versions": ["1.0.0"],
+      "itemVersionRules": {}
+    },
+    {
+      "routeKey": "styles",
+      "contentDir": "tokens",
+      "manifest": "tokens-manifest.json",
+      "versions": ["1.0.0"],
+      "itemVersionRules": {}
+    }
+  ]
+}
