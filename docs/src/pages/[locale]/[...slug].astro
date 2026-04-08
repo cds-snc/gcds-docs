@@ -2,11 +2,12 @@
 import Text from '../../components/Text.astro';
 import Ol from '../../components/markdown/ol.astro';
 import Ul from '../../components/markdown/ul.astro';
+import type { ContentPageModule } from '../../types/content';
 
 const CONTENT_PAGES_PATH = '../../content/pages';
 
 // Vite requires glob patterns to be string literals.
-const renderPageModules = import.meta.glob('../../content/pages/**/*.{astro,mdx}', { eager: true });
+const renderPageModules = import.meta.glob('../../content/pages/**/*.{astro,mdx}', { eager: true }) as Record<string, ContentPageModule>;
 
 export function getStaticPaths() {
   const contentPagesPath = '../../content/pages';
@@ -53,7 +54,7 @@ const pageModule =
   renderPageModules[mdxKey] ??
   renderPageModules[astroIndexKey] ??
   renderPageModules[mdxIndexKey];
-const Content = pageModule?.default as any;
+const Content = pageModule?.default;
 
 // Global MDX component substitutions — applies to all .mdx pages automatically.
 // Markdown paragraphs render as <gcds-text> instead of plain <p>.
