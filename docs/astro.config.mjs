@@ -2,6 +2,7 @@ import { defineConfig } from "astro/config";
 import mdx from "@astrojs/mdx";
 import react from "@astrojs/react";
 import rehypeSlug from "rehype-slug";
+import { fileURLToPath } from "node:url";
 
 // Astro uses remark (for .md syntax) and rehype (for HTML output) instead of
 // markdown-it. The equivalent of Eleventy's markdownLibrary config lives here.
@@ -30,6 +31,13 @@ export default defineConfig({
     //   [rehypeAutolinkHeadings, { behavior: "wrap" }]
     rehypePlugins: [rehypeSlug],
     // remarkPlugins: [remarkDisableBlockquote, remarkDisableCode],
+  },
+  vite: {
+    resolve: {
+      alias: {
+        "~assets": fileURLToPath(new URL("./src/assets", import.meta.url)),
+      },
+    },
   },
   integrations: [mdx(), react()],
 });
