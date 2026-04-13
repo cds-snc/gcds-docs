@@ -57,7 +57,7 @@ Nous recherchons activement des contributions pour les éléments suivants :
 - **Modale :** Pour les interactions qui interrompent le flux d’une activité et qui nécessitent l’attention de l’utilisateur, comme les confirmations ou les actions importantes.
 - **Alerte :** Pour communiquer l’état du système, la rétroaction et les messages importants aux utilisateurs et utilisatrices.
 - **Onglets :** Pour organiser le contenu connexe en sections dans un même contexte d’affichage.
-- **Navigation style metro / Sur cette page :** Pour aider les utilisateurs à naviguer dans des pages plus longues ou à parcourir du contenu à plusieurs étapes grâce à une structure et une orientation claires.
+- **Navigation style métro / Sur cette page :** Pour aider les utilisateurs à naviguer dans les pages longues ou les contenus à plusieurs étapes grâce à une structure et des repères clairs.
 - **Remplissage automatique (sélection) :** Pour améliorer la convivialité lors de la sélection à partir de listes longues ou complexes.
 
 ### Styles
