@@ -58,7 +58,7 @@ Nous recherchons activement des contributions pour les éléments suivants :
 - **Alerte :** Pour communiquer l’état du système, la rétroaction et les messages importants aux utilisateurs et utilisatrices.
 - **Onglets :** Pour organiser le contenu connexe en sections dans un même contexte d’affichage.
 - **Navigation style métro / Sur cette page :** Pour aider les utilisateurs à naviguer dans les pages longues ou les contenus à plusieurs étapes grâce à une structure et des repères clairs.
-- **Remplissage automatique (sélection) :** Pour améliorer la convivialité lors de la sélection à partir de listes longues ou complexes.
+- **Remplissage automatique (sélection) :** Pour améliorer l’utilisabilité lors de la sélection d’une option dans une liste longue ou complexe.
 
 ### Styles
 - **Plus d’icônes :** Un ensemble cohérent d’icônes pour soutenir les actions et les notions communes dans un plus grand nombre de services du gouvernement du Canada.
