@@ -53,7 +53,7 @@ Nous recherchons activement des contributions pour les éléments suivants :
 ---
 
 ### Composants
-- **Indicateur/Badge :** Pour catégoriser et mettre en évidence le contenu, l’état d’un élément ou les métadonnées de façon claire et cohérente.
+- **Étiquette/Badge :** Pour catégoriser et mettre en évidence le contenu, l’état d’un élément ou les métadonnées de façon claire et cohérente.
 - **Modale :** Pour les interactions qui interrompent le flux d’une activité et qui nécessitent l’attention de l’utilisateur, comme les confirmations ou les actions importantes.
 - **Alerte :** Pour communiquer l’état du système, la rétroaction et les messages importants aux utilisateurs et utilisatrices.
 - **Onglets :** Pour organiser le contenu connexe en sections dans un même contexte d’affichage.
