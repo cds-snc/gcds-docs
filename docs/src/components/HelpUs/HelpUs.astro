@@ -1,24 +1,30 @@
 ---
 import { Heading, Text } from '../../components';
-import I18N from './i18n';
+import { defaultLocale } from '../../i18n/config';
+import { getLocalizedRecord, resolveLocaleFromPathname } from '../../utils/i18n';
+import { messages } from './messages.js';
 
-// Get the current locale from the URL
-const pathname = Astro.url.pathname.replace(/\/$/, '');
-const parts = pathname.split('/').filter(Boolean);
-const lang = parts[0];
+const locale = resolveLocaleFromPathname(Astro.url.pathname);
+const localizedContent = getLocalizedRecord(messages, locale, defaultLocale);
 ---
 
 <section>
-  <Heading tag="h2">{I18N[lang].heading}</Heading>
+  <Heading tag="h2">{localizedContent.heading}</Heading>
 
-  {I18N[lang].text.map((paragraph) => (
+  {localizedContent.text.map((paragraph: string) => (
     <Text>{paragraph}</Text>
   ))}
 
-  <gcds-button button-role="secondary" type="link" href="#">
-    {I18N[lang].btnFeedback}
+  <gcds-button button-role="secondary" type="link" href={localizedContent.btnFeedbackHref}>
+    {localizedContent.btnFeedback}
   </gcds-button>
-  <gcds-button button-role="secondary" type="link" href="#">
-    {I18N[lang].btnReport}
+  <gcds-button
+    button-role="secondary"
+    type="link"
+    href={localizedContent.btnReportHref}
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    {localizedContent.btnReport}
   </gcds-button>
 </section>

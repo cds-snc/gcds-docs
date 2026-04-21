@@ -1,7 +1,7 @@
 ---
 import { DateModified, Footer, Header } from '../components';
-import { defaultLocale, routes, supportedLocales } from '../i18n/config';
-import { findRouteKeyFromPath, getContentRoot, getLocaleFromPathname, getPathParts } from '../utils/i18n';
+import { routes } from '../i18n/config';
+import { findRouteKeyFromPath, getContentRoot, getPathParts, resolveLocaleFromPathname } from '../utils/i18n';
 import { getLastModifiedForRoute } from '../utils/lastModified';
 
 import '../styles/global.css';
@@ -11,7 +11,7 @@ const { pageTitle, paddingTop = true } = Astro.props;
 
 // Determine the current locale and route key based on the URL.
 const parts = getPathParts(Astro.url.pathname);
-const currentLocale = getLocaleFromPathname(Astro.url.pathname, supportedLocales, defaultLocale);
+const currentLocale = resolveLocaleFromPathname(Astro.url.pathname);
 const routeKey = findRouteKeyFromPath(currentLocale, parts, routes);
 
 const lastModified = await getLastModifiedForRoute(Astro.url.pathname, {

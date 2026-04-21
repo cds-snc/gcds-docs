@@ -1,9 +1,42 @@
+import { defaultLocale, supportedLocales, type Locale } from '../i18n/config';
+
 /**
  * Split a pathname into URL segments, ignoring trailing slash and empty parts.
  * Example: "/en/components/button/" -> ["en", "components", "button"]
  */
 export function getPathParts(pathname: string): string[] {
   return pathname.replace(/\/$/, '').split('/').filter(Boolean);
+}
+
+/**
+ * Resolve a locale from the pathname with fallback to the configured default.
+ */
+export function resolveLocaleFromPathname(pathname: string): Locale {
+  const requested = getPathParts(pathname)[0];
+  return supportedLocales.includes(requested as Locale) ? (requested as Locale) : defaultLocale;
+}
+
+/**
+ * Backwards-compatible locale resolver with customizable locale set and fallback.
+ */
+export function getLocaleFromPathname<T extends string>(
+  pathname: string,
+  locales: readonly T[] = supportedLocales as unknown as readonly T[],
+  fallbackLocale: T = defaultLocale as unknown as T,
+): T {
+  const requested = getPathParts(pathname)[0] as T | undefined;
+  return requested && locales.includes(requested) ? requested : fallbackLocale;
+}
+
+/**
+ * Safely retrieve a localized entry by locale, with guaranteed fallback.
+ */
+export function getLocalizedRecord<T, L extends string>(
+  record: Record<L, T>,
+  locale: string,
+  fallbackLocale: L,
+): T {
+  return (locale in record ? record[locale as L] : record[fallbackLocale]);
 }
 
 /**
@@ -20,21 +53,6 @@ export function isVersionedPath(pathname: string): boolean {
  */
 export function getContentRoot(pathname: string): string {
   return isVersionedPath(pathname) ? 'src/content/versioned' : 'src/content/pages';
-}
-
-/**
- * Resolve a locale from pathname based on a supported locale list.
- */
-export function getLocaleFromPathname<T extends string>(
-  pathname: string,
-  supportedLocales: readonly T[],
-  fallbackLocale: T,
-): T {
-  const requestedLocale = getPathParts(pathname)[0];
-  if (requestedLocale && supportedLocales.includes(requestedLocale as T)) {
-    return requestedLocale as T;
-  }
-  return fallbackLocale;
 }
 
 /**
