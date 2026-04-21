@@ -253,7 +253,7 @@ class RouteValidator {
     const checks = [];
 
     for (const route of routes) {
-      // Will support versioned routes later
+      // TODO: Add support for versioned routes
       if (route.versioned === true) {
         continue;
       }
