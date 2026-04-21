@@ -49,6 +49,7 @@ document.addEventListener('click', function (e) {
 
   if (typeof gtag !== 'undefined') {
     gtag('event', 'click', {
+
       event_category: 'gcds_click',
       event_label: label,
       event_url: safeUrl,

@@ -1,6 +1,6 @@
-import { execSync } from 'node:child_process';
+import { execFileSync } from 'node:child_process';
 import { stat } from 'node:fs/promises';
-import path from 'node:path';
+import * as path from 'node:path';
 
 /**
  * Get the last modified date of a file using Git history.
@@ -13,7 +13,7 @@ import path from 'node:path';
 export async function getLastModified(filePath: string): Promise<string | null> {
   try {
     // git log -1 returns the most recent commit date for this file.
-    const gitDate = execSync(`git log -1 --format=%cI -- "${filePath}"`, {
+    const gitDate = execFileSync('git', ['log', '-1', '--format=%cI', '--', filePath], {
       encoding: 'utf-8',
     }).trim();
 
@@ -110,5 +110,3 @@ export async function getFormattedLastModifiedForRoute(
   const isoDate = await getLastModifiedForRoute(pathname, options);
   return isoDate ? formatDate(isoDate, locale) : undefined;
 }
-
-
