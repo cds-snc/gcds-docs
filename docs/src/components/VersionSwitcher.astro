@@ -1,5 +1,6 @@
 ---
 import versionConfig from "../routing/versioned/version-config.json";
+import { getPathParts, resolveLocaleFromPathname } from '../utils/i18n';
 
 type PackageType = "component" | "css-shortcuts" | "tokens";
 
@@ -28,8 +29,8 @@ const versions = (section?.versions ?? []).slice().sort((a, b) =>
 const latestVersion = versions[0];
 const selectedVersion = value ?? latestVersion;
 
-const pathSegments = Astro.url.pathname.split("/").filter(Boolean);
-const localeSegment = pathSegments[0] ?? "en";
+const pathSegments = getPathParts(Astro.url.pathname);
+const localeSegment = resolveLocaleFromPathname(Astro.url.pathname);
 const sectionSegment = pathSegments[1] ?? section?.routeKey ?? "components";
 const hasVersionInPath = /^\d+\.\d+\.\d+$/.test(pathSegments[2] ?? "");
 const pageSlug = hasVersionInPath

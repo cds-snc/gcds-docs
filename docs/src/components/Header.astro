@@ -1,23 +1,15 @@
 ---
-import { routes, supportedLocales } from '../i18n/config';
+import { defaultLocale, routes, supportedLocales, type Locale } from '../i18n/config';
+import { buildLocalizedRoutePath } from '../utils/i18n';
 
-const { currentLocale, routeKey } = Astro.props;
-const otherLocale = supportedLocales.find(loc => loc !== currentLocale);
-
-// Helper function to build translated path
-function getFullRoutePath({routeKey, locale, routes}: { routeKey: any, locale: any, routes: any }) {
-  for (const parentKey in routes) {
-    if (parentKey === routeKey) {
-      return `/${locale}/${routes[parentKey][locale]}`;
-    }
-    if (routes[parentKey].children && routes[parentKey].children[routeKey]) {
-      return `/${locale}/${routes[parentKey][locale]}/${routes[parentKey].children[routeKey][locale]}`;
-    }
-  }
-  return `/${locale}/`;
+interface Props {
+  currentLocale: Locale;
+  routeKey: string;
 }
 
-const href = getFullRoutePath({routeKey: routeKey, locale: otherLocale, routes: routes});
+const { currentLocale, routeKey } = Astro.props as Props;
+const otherLocale = supportedLocales.find((locale) => locale !== currentLocale) ?? defaultLocale;
+const href = buildLocalizedRoutePath(routeKey, otherLocale, routes);
 ---
 
 <gcds-header
@@ -27,3 +19,4 @@ const href = getFullRoutePath({routeKey: routeKey, locale: otherLocale, routes: 
 >
   <gcds-search slot="search"></gcds-search>
 </gcds-header>
+

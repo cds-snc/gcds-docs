@@ -56,6 +56,27 @@ export function getContentRoot(pathname: string): string {
 }
 
 /**
+ * Build a locale-prefixed route path for a given route key.
+ */
+export function buildLocalizedRoutePath(
+  routeKey: string,
+  locale: string,
+  routes: any,
+): string {
+  for (const parentKey in routes) {
+    if (parentKey === routeKey) {
+      return `/${locale}/${routes[parentKey][locale]}`;
+    }
+
+    if (routes[parentKey].children && routes[parentKey].children[routeKey]) {
+      return `/${locale}/${routes[parentKey][locale]}/${routes[parentKey].children[routeKey][locale]}`;
+    }
+  }
+
+  return `/${locale}/`;
+}
+
+/**
  * Given a locale and URL parts (e.g., ['_en', 'components', 'button']),
  * this function looks up the corresponding route key from the i18n routes config.
  */
