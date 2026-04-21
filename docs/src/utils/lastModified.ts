@@ -85,28 +85,3 @@ export async function getLastModifiedForRoute(
 
   return undefined;
 }
-
-/**
- * Resolve a route pathname to a content file and return a formatted last-modified date.
- *
- * Example pathname: /en/start-to-use/
- * Candidate files checked (in order):
- * - <root>/en/start-to-use.astro
- * - <root>/en/start-to-use.mdx
- * - <root>/en/start-to-use/index.astro
- * - <root>/en/start-to-use/index.mdx
- */
-export async function getFormattedLastModifiedForRoute(
-  pathname: string,
-  options: RouteLastModifiedOptions = {}
-): Promise<string | undefined> {
-  const normalizedPath = pathname.replace(/\/$/, '');
-  const parts = normalizedPath.split('/').filter(Boolean);
-  const locale = options.locale ?? parts[0];
-  if (!locale) {
-    return undefined;
-  }
-
-  const isoDate = await getLastModifiedForRoute(pathname, options);
-  return isoDate ? formatDate(isoDate, locale) : undefined;
-}
