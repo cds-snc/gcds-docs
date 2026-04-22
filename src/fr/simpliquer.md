@@ -13,9 +13,9 @@ templateEngineOverride: njk,md
 
 # S'impliquer
 
-Un système de design ne connaît jamais de fin. Nous nous engageons à construire avec les personnes qui utilisent nos produits. Voici nos travaux en cours et ceux qui s’en viennent.
+Un système de design ne connaît jamais de fin. Nous nous engageons à construire avec les personnes qui utilisent nos produits.
 
-Une communauté croissante d’utilisatrices et utilisateurs au gouvernement contribue à l’évolution de Système de design GC par ses commentaires. Une équipe dédiée collabore avec la communauté pour l’améliorer continuellement au service du GC et des gens que nous servons.
+Une communauté croissante d’utilisatrices et utilisateurs au gouvernement contribue à l’évolution de Système de design GC par ses commentaires. Une équipe dédiée collabore avec elle pour l’améliorer continuellement, au service du GC et des gens que nous servons.
 
 ## Découvrez Système de design GC
 
@@ -23,10 +23,10 @@ Une communauté croissante d’utilisatrices et utilisateurs au gouvernement con
   <gcds-card
     card-title="Recevez nos communications"
     href="{{ links.contactMailingList }}"
-    description="Abonnez-vous à notre liste d'envoi pour manquer aucune communication de Système de design GC concernant les mises à jour, les lancements ou encore les évènements spéciaux."
+    description="Abonnez-vous à notre liste d’envoi pour ne manquer aucune communication de Système de design GC concernant les mises à jour, les lancements ou encore les évènements spéciaux."
   ></gcds-card>
   <gcds-card
-    card-title="Participez à une demo"
+    card-title="Participez à une démo"
     href="{{ links.registerDemo }}"
     description="Assistez à une présentation du prototypage et du développement d’expériences Web à l’aide du système de design et participez à une séance de questions-réponses."
   ></gcds-card>
@@ -38,7 +38,7 @@ Une communauté croissante d’utilisatrices et utilisateurs au gouvernement con
   <gcds-card
     card-title="Inscrivez-vous au forum de Système de design GC"
     href="https://events.teams.microsoft.com/event/5981a141-75bc-47d3-9050-03a63adb8cb1@9ed55846-8a81-4246-acd8-b1a01abfc0d1"
-    description="Inscrivez-vous aux séances récurrentes du Forum de Système de design GC pour connaître les dernières nouvelles sur le produit, nos partenaires et nos clients. "
+    description="Inscrivez-vous aux séances récurrentes du forum de Système de design GC pour connaître les dernières nouvelles sur le produit, nos partenaires et nos clients. "
   ></gcds-card>
 </gcds-grid>
 
@@ -50,20 +50,37 @@ Vous pouvez contribuer à l’avenir de Système de design GC.
 
 Nous recherchons activement des contributions pour les éléments suivants :
 
-- **Des tableaux de données** pour organiser et afficher une grande quantité de données dans des rangées et des colonnes.
+---
 
-Nous nous intéressons également aux problèmes concernant les interactions avec les utilisateurs et utilisatrice ou aux solutions qui peuvent s’appliquer aux différents services du GC.
+### Composants
+- **Étiquette/Badge :** Pour catégoriser et mettre en évidence le contenu, l’état d’un élément ou les métadonnées de façon claire et cohérente.
+- **Modale :** Pour les interactions qui interrompent le flux d’une activité et qui nécessitent l’attention de l’utilisateur, comme les confirmations ou les actions importantes.
+- **Alerte :** Pour communiquer l’état du système, la rétroaction et les messages importants aux utilisateurs et utilisatrices.
+- **Onglets :** Pour organiser le contenu connexe en sections dans un même contexte d’affichage.
+- **Navigation style métro / Sur cette page :** Pour aider les utilisateurs à naviguer dans les pages longues ou les contenus à plusieurs étapes grâce à une structure et des repères clairs.
+- **Remplissage automatique (sélection) :** Pour améliorer l’utilisabilité lors de la sélection d’une option dans une liste longue ou complexe.
+
+### Styles
+- **Plus d’icônes :** Un ensemble cohérent d’icônes pour soutenir les actions et les notions communes dans un plus grand nombre de services du gouvernement du Canada.
+- **Couleurs :** Évolution continue du système de couleurs afin de favoriser l’accessibilité, la flexibilité et la clarté dans différents contextes.
+
+### Modèles et démarrage
+- **Modèles de page :** Structures de page réutilisables pour des formules de services courants visant à aider les équipes à se lancer rapidement dans l’élaboration de leurs produits.
+- **Applications de démarrage :** Exemples de mises en œuvre qui montrent comment utiliser Système de design GC dans des environnements réels afin d’aider à accélérer la configuration initiale.
+- **Blocs réutilisables :** Formules d’interaction courantes et mises en page qui aident les équipes à créer plus rapidement des services cohérents et utilisables.
+
+Nous nous intéressons également aux problèmes concernant les interactions avec les utilisateurs et utilisatrices ou aux solutions qui peuvent s’appliquer aux différents services du GC.
 
 Soumettez vos contributions à nos prochaines priorités directement dans GitHub, en <gcds-link href="{{ links.githubGetStarted }}" external>créant un compte</gcds-link>.
 
-Fournissez l'un des éléments suivants pour chaque composant ou modèle de page :
+Fournissez l’un des éléments suivants pour chaque composant ou modèle de page :
 
-- **Exemples de designs** : captures d'écran, prototypes, liens vers des services en ligne.
-- **Résultats de recherche** : recherches préliminaires, exemples de cas d'utilisation ou tests d'utilisabilité.
+- **Exemples de designs** : captures d’écran, prototypes, liens vers des services en ligne.
+- **Résultats de recherche** : recherches préliminaires, exemples de cas d'utilisation ou tests d’utilisabilité.
 - **Code** : code de prototype ou de production, ou implémentations du produit.
 
 <gcds-button button-role="secondary" type="link" href="{{ links.githubCompsPriority }}" external>Contribuer sur GitHub</gcds-button>
-<gcds-button button-role="secondary" type="link" href="{{ links.contact }}" external>Contactez-nous</gcds-button>
+<gcds-button button-role="secondary" type="link" href="{{ links.contact }}" external>Nous contacter</gcds-button>
 
 <hr class="mt-600" />
 
@@ -76,7 +93,7 @@ Les demandes de fonctionnalités peuvent inclure des suggestions de nouveaux com
 Envoyez votre demande de fonctionnalité directement dans GitHub, en <gcds-link href="{{ links.githubGetStarted }}" external>créant un compte</gcds-link>.
 
 <gcds-button button-role="secondary" type="link" href="{{ links.githubCompsPriority }}" external>Contribuer sur GitHub</gcds-button>
-<gcds-button button-role="secondary" type="link" href="{{ links.contact }}" external>Contactez-nous</gcds-button>
+<gcds-button button-role="secondary" type="link" href="{{ links.contact }}" external>Nous contacter</gcds-button>
 
 <hr class="mt-600"/>
 

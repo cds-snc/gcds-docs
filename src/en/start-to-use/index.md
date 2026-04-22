@@ -43,7 +43,7 @@ The component library is available in English and French, so you can work in the
 - Quick-start page templates
 - Mandatory branding elements for Canada.ca
 
-An optional token library is also availablre. It includes the foundational design tokens used across our components, such as colour, spacing, typography, and more.
+An optional token library is also available. It includes the foundational design tokens used across our components, such as colour, spacing, typography, and more.
 
 ### How it works
 
