@@ -104,6 +104,13 @@ class RouteValidator {
         .map((entry) => entry.name)
         .sort((a, b) => this.compareSemver(a, b));
     } catch {
+      console.warn(
+        chalk.yellow('⚠') +
+          chalk.bold.yellow(' [route-check] WARNING: ') +
+          chalk.yellow(
+            `getVersionDirectories: something went wrong when getting version directories: ${path.relative(projectRoot, this.versionedContentRoot)}`,
+          ),
+      );
       return [];
     }
   }
@@ -126,6 +133,13 @@ class RouteValidator {
         itemRules: section.itemVersionRules ?? section.itemRules ?? section.itemAvailability ?? {}
       }));
     } catch {
+      console.warn(
+        chalk.yellow('⚠') +
+          chalk.bold.yellow(' [route-check] WARNING: ') +
+          chalk.yellow(
+            `loadVersionConfig: something went wrong when reading version config: ${path.relative(projectRoot, this.versionConfigPath)}`,
+          ),
+      );
       return [];
     }
   }
@@ -136,6 +150,13 @@ class RouteValidator {
       const parsed = JSON.parse(content);
       return Array.isArray(parsed?.items) ? parsed.items : [];
     } catch {
+      console.warn(
+        chalk.yellow('⚠') +
+          chalk.bold.yellow(' [route-check] WARNING: ') +
+          chalk.yellow(
+            `loadManifestItems: manifest file not found or unreadable: ${path.relative(projectRoot, manifestPath)}`,
+          ),
+      );
       return [];
     }
   }
