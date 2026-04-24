@@ -28,7 +28,7 @@ For the date input to function properly, always use the following attributes wit
 
 ### Entering and receiving the value from date input
 Date input can receive and output different value formats depending on the `format` attribute:
-- The `full` format will expect/output a value formatted `YYYY-MM-DD`.
+- The `full` and `iso` format will expect/output a value formatted `YYYY-MM-DD`.
 - The `compact` format will expect/output a value formatted `YYYY-MM`.
 
 {% include "partials/valid-props.njk" %}
