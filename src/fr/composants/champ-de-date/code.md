@@ -27,7 +27,7 @@ Utilisez un champ de date pour recueillir une date lorsque vous attendez d’une
 
 ### Valeurs du champ de date reçues et rendues
 Le champ de date peut recevoir et rendre des valeurs d’un format différent que celui affiché côté utilisateur en fonction de l’attribut `format`.
-- Le format `full` produira une valeur dont le format est `YYYY-MM-DD`.
+- Les formats `full` et `iso` produisent une valeur dont le format est `YYYY-MM-DD`.
 - Le format `compact` produira une valeur dont le format est `YYYY-MM`.
 
 {% include "partials/valid-props.njk" %}
