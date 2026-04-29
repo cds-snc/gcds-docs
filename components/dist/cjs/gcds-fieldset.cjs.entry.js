@@ -36,7 +36,7 @@ const GcdsFieldset = class {
     render() {
         const { hint, inheritedAttributes, legend, legendSize } = this;
         const fieldsetAttrs = Object.assign({}, inheritedAttributes);
-        return (index.h(index.Host, { key: '3cd874d549d298eaab3347e3a804d3bec7d1e4a9' }, index.h("fieldset", Object.assign({ key: '431a72699d4e23445c4f7e8e52422351ceb16e9f', class: "gcds-fieldset" }, fieldsetAttrs, { "aria-labelledby": hint ? `fieldset-legend fieldset-hint` : `fieldset-legend`, tabindex: "-1", ref: element => (this.shadowElement = element) }), index.h("legend", { key: '9a24d81b5304693d0aa32b4895b2505c0fb28ff9', id: "fieldset-legend", class: `size-${legendSize}` }, legend), hint ? (index.h("gcds-hint", { id: "fieldset-hint", "hint-id": "fieldset" }, hint)) : null, index.h("slot", { key: 'a820afec5165dd7175809e0c69269e99dfa85ec8' }))));
+        return (index.h(index.Host, { key: 'dd720d61b6783589d04ed65873ff637990e95dea' }, index.h("fieldset", Object.assign({ key: 'a9540b09ad410113059c2840f9720185e0fb00ff', class: "gcds-fieldset" }, fieldsetAttrs, { "aria-labelledby": hint ? `fieldset-legend fieldset-hint` : `fieldset-legend`, tabindex: "-1", ref: element => (this.shadowElement = element) }), index.h("legend", { key: '9a1769bf1ce495e521d658914a837a09de0d23fa', id: "fieldset-legend", class: `size-${legendSize}` }, legend), hint ? (index.h("gcds-hint", { id: "fieldset-hint", "hint-id": "fieldset" }, hint)) : null, index.h("slot", { key: '087bf52d9872db591bced7ebefbf1252f4e270d2' }))));
     }
     static get delegatesFocus() { return true; }
     get el() { return index.getElement(this); }

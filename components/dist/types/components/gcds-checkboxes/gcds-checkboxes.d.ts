@@ -41,8 +41,8 @@ export declare class GcdsCheckboxes {
     disabled: boolean;
     validateDisabledCheckbox(): void;
     /**
-   * If true, the checkobox will be focused on component render
-   */
+     * If true, the checkbox will be focused on component render
+     */
     autofocus: boolean;
     /**
      * The ID of the form that the checkboxes belong to.
@@ -80,8 +80,8 @@ export declare class GcdsCheckboxes {
      */
     validateOn: 'blur' | 'submit' | 'other';
     /**
-       * Read-only property of the checkboxes, returns a ValidityState object that represents the validity states this element is in.
-       */
+     * Read-only property of the checkboxes, returns a ValidityState object that represents the validity states this element is in.
+     */
     get validity(): ValidityState;
     /**
      * Set additional HTML attributes not available in component properties

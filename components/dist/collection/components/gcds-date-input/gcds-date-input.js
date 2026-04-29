@@ -114,7 +114,10 @@ export class GcdsDateInput {
         }
     }
     validateFormat() {
-        if (!this.format || (this.format != 'full' && this.format != 'compact')) {
+        if (!this.format ||
+            (this.format !== 'full' &&
+                this.format !== 'compact' &&
+                this.format !== 'iso')) {
             this.errors.push('format');
         }
         else if (this.errors.includes('format')) {
@@ -148,9 +151,11 @@ export class GcdsDateInput {
      */
     async validate() {
         var _a, _b, _c, _d;
-        this.hasError = handleValidationResult(this.el, this._validator.validate(this.format === 'full'
+        const format = this.format;
+        const value = format === 'full' || format === 'iso'
             ? `${this.yearValue}-${this.monthValue}-${this.dayValue}`
-            : `${this.yearValue}-${this.monthValue}`), this.legend, this.gcdsError, this.gcdsValid, this.lang, { day: false, month: false, year: false });
+            : `${this.yearValue}-${this.monthValue}`;
+        this.hasError = handleValidationResult(this.el, this._validator.validate(value, { params: { format } }), this.legend, this.gcdsError, this.gcdsValid, this.lang, { day: false, month: false, year: false });
         // Don't use the valueMissing and badInput errors here since they are handled by the validator above
         if (!this.internals.checkValidity() && !((_a = this.internals.validity) === null || _a === void 0 ? void 0 : _a.valueMissing) && !((_b = this.internals.validity) === null || _b === void 0 ? void 0 : _b.badInput)) {
             this.errorMessage = (_c = this.htmlValidationErrors[0]) === null || _c === void 0 ? void 0 : _c.errorMessage;
@@ -204,9 +209,12 @@ export class GcdsDateInput {
     checkAndValidateValidity() {
         var _a, _b, _c, _d, _e, _f;
         // Order elements based on format and language
-        const elements = [this.monthSelect, this.yearInput];
+        let elements = [this.monthInput, this.yearInput];
         if (this.format === 'full') {
             this.lang === 'en' ? elements.splice(1, 0, this.dayInput) : elements.unshift(this.dayInput);
+        }
+        else if (this.format === 'iso') {
+            elements = [this.yearInput, this.monthInput, this.dayInput];
         }
         this.htmlValidationErrors = [];
         let valid = true;
@@ -228,7 +236,7 @@ export class GcdsDateInput {
             });
             errorMessage = getDateInputError({
                 day: (_a = this.dayInput) === null || _a === void 0 ? void 0 : _a.value,
-                month: (_b = this.monthSelect) === null || _b === void 0 ? void 0 : _b.value,
+                month: (_b = this.monthInput) === null || _b === void 0 ? void 0 : _b.value,
                 year: (_c = this.yearInput) === null || _c === void 0 ? void 0 : _c.value
             }, this.format).reason[this.lang];
         }
@@ -236,7 +244,7 @@ export class GcdsDateInput {
         if (this.required && !valueMissing) {
             const badInputError = getDateInputError({
                 day: (_d = this.dayInput) === null || _d === void 0 ? void 0 : _d.value,
-                month: (_e = this.monthSelect) === null || _e === void 0 ? void 0 : _e.value,
+                month: (_e = this.monthInput) === null || _e === void 0 ? void 0 : _e.value,
                 year: (_f = this.yearInput) === null || _f === void 0 ? void 0 : _f.value
             }, this.format);
             if (badInputError.reason.en != '') {
@@ -305,7 +313,9 @@ export class GcdsDateInput {
      * Update gcds-date-input's validity using internal form elements
      */
     updateValidity() {
-        if ((this.format === 'full' && (!this.yearInput || !this.monthSelect || !this.dayInput)) || (this.format === 'compact' && (!this.yearInput || !this.monthSelect)))
+        if (((this.format === 'full' || this.format === 'iso') &&
+            (!this.yearInput || !this.monthInput || !this.dayInput)) ||
+            (this.format === 'compact' && (!this.yearInput || !this.monthInput)))
             return;
         const { validity, formError, errorMessage } = this.checkAndValidateValidity();
         let validationMessage = null;
@@ -329,21 +339,27 @@ export class GcdsDateInput {
      * Logic to combine all input values together based on format
      */
     setValue() {
-        const { monthValue, format } = this;
-        let { yearValue, dayValue } = this;
-        // Logic to make sure the day input is registered correctly
-        if (dayValue && dayValue.length === 1 && dayValue != '0') {
-            dayValue = '0' + dayValue;
-            this.dayValue = dayValue;
+        const { format } = this;
+        let { yearValue, monthValue, dayValue } = this;
+        // Sanitizes a numeric date value, optionally normalizing to two digits with padding
+        const sanitizeValue = (value, pad = true) => {
+            if (!value || value === '0')
+                return value;
+            let sanitizedValue = value.replace(/[eE-]/g, '');
+            // Normalize to two digits if possible, e.g. '3' -> '03'
+            if (pad)
+                sanitizedValue = String(parseInt(sanitizedValue, 10)).padStart(2, '0');
+            return sanitizedValue;
+        };
+        dayValue = sanitizeValue(dayValue);
+        this.dayValue = dayValue;
+        if (format === 'iso') {
+            monthValue = sanitizeValue(monthValue);
+            this.monthValue = monthValue;
         }
-        else if (dayValue && dayValue.length == 3 && dayValue[0] === '0') {
-            dayValue = dayValue.substring(1);
-            this.dayValue = dayValue;
-        }
-        // Clean up year and day values by removing any e, E or - characters
-        dayValue = dayValue === null || dayValue === void 0 ? void 0 : dayValue.replace(/[eE-]/g, '');
-        yearValue = yearValue === null || yearValue === void 0 ? void 0 : yearValue.replace(/[eE-]/g, '');
-        if (format === 'full') {
+        yearValue = sanitizeValue(yearValue, false);
+        this.yearValue = yearValue;
+        if (format === 'full' || format === 'iso') {
             this.value = `${yearValue}-${monthValue}-${dayValue}`;
         }
         else if (format === 'compact') {
@@ -357,7 +373,7 @@ export class GcdsDateInput {
      * Split value into parts depending on format
      */
     splitFormValue() {
-        if (this.format == 'compact') {
+        if (this.format === 'compact') {
             const splitValue = this.value.split('-');
             this.yearValue = splitValue[0];
             this.monthValue = splitValue[1];
@@ -425,14 +441,20 @@ export class GcdsDateInput {
         }
         // Array of months 01 - 12
         const options = Array.from({ length: 12 }, (_, i) => i + 1 < 10 ? `0${i + 1}` : `${i + 1}`);
-        const month = (h("gcds-select", Object.assign({ key: 'e6f090b288f964719d989890c1757af3a5339551', label: i18n[lang].month, selectId: "month", name: "month", defaultValue: i18n[lang].selectmonth, disabled: disabled, onInput: e => this.handleInput(e, 'month'), onChange: e => this.handleInput(e, 'month'), value: this.monthValue, class: `gcds-date-input__month ${hasError['month'] ? 'gcds-date-input--error' : ''}` }, requiredAttr, { "aria-invalid": hasError['month'].toString(), "aria-description": hasError['month'] && errorMessage, form: form, ref: el => (this.monthSelect = el) }), options.map(option => (h("option", { key: option, value: option }, i18n[lang]['months'][option])))));
-        const year = (h("gcds-input", Object.assign({ key: 'ed5b22815eaee48211a8feb25cf9198a4b601c9e', name: "year", label: i18n[lang].year, inputId: "year", type: "text", inputmode: "numeric", size: 4, disabled: disabled, value: this.yearValue, onInput: e => this.handleInput(e, 'year'), onChange: e => this.handleInput(e, 'year'), onKeyDown: this.blockInvalidKeys, class: `gcds-date-input__year ${hasError['year'] ? 'gcds-date-input--error' : ''}`, "validate-on": 'other' }, requiredAttr, { "aria-invalid": hasError['year'].toString(), "aria-description": hasError['year'] && errorMessage, form: form, ref: el => (this.yearInput = el) })));
-        const day = (h("gcds-input", Object.assign({ key: '6d79af7da5be2ade8ea8f962c15233294e6042e7', name: "day", label: i18n[lang].day, inputId: "day", type: "text", inputmode: "numeric", size: 2, disabled: disabled, value: this.dayValue, onInput: e => this.handleInput(e, 'day'), onChange: e => this.handleInput(e, 'day'), onKeyDown: this.blockInvalidKeys, "validate-on": 'other', class: `gcds-date-input__day ${hasError['day'] ? 'gcds-date-input--error' : ''}` }, requiredAttr, { "aria-invalid": hasError['day'].toString(), "aria-description": hasError['day'] && errorMessage, form: form, ref: el => (this.dayInput = el) })));
-        return (h(Host, { key: 'bd299bd117299d1b0500413185a10a32501b7490', name: name, onBlur: () => this.onBlur() }, this.validateRequiredProps() && (h("fieldset", Object.assign({ key: '02d4a393d8336c29d060716f5ddd9c3e1eb4c46d', class: "gcds-date-input__fieldset" }, fieldsetAttrs, { ref: el => (this.fieldset = el) }), h("legend", { key: 'deb09ce61953147d78b00eb1ac45a821651ec80f', id: "date-input-legend" }, legend, required ? (h("span", { class: "legend__required" }, i18n[lang].required)) : null), hint ? (h("gcds-hint", { id: "date-input-hint", "hint-id": "date-input" }, hint)) : null, errorMessage ? (h("div", null, h("gcds-error-message", { id: "date-input-error", messageId: "date-input" }, errorMessage))) : null, format == 'compact'
-            ? [month, year]
-            : lang == 'en'
-                ? [month, day, year]
-                : [day, month, year]))));
+        const month = this.format !== 'iso' ? (h("gcds-select", Object.assign({ label: i18n[lang].month, selectId: "month", name: "month", defaultValue: i18n[lang].selectmonth, disabled: disabled, onInput: e => this.handleInput(e, 'month'), onChange: e => this.handleInput(e, 'month'), value: this.monthValue, class: `gcds-date-input__month ${hasError['month'] ? 'gcds-date-input--error' : ''}` }, requiredAttr, { "aria-invalid": hasError['month'].toString(), "aria-description": hasError['month'] && errorMessage, form: form, ref: el => (this.monthInput = el) }), options.map(option => (h("option", { key: option, value: option }, i18n[lang]['months'][option]))))) : (h("gcds-input", Object.assign({ name: "month", label: i18n[lang].month, inputId: "month", type: "text", inputmode: "numeric", size: 2, disabled: disabled, value: this.monthValue, onInput: e => this.handleInput(e, 'month'), onChange: e => this.handleInput(e, 'month'), onKeyDown: this.blockInvalidKeys, class: `gcds-date-input__month ${hasError['month'] ? 'gcds-date-input--error' : ''}`, "validate-on": 'other' }, requiredAttr, { "aria-invalid": hasError['month'].toString(), "aria-description": hasError['month'] && errorMessage, form: form, ref: el => (this.monthInput = el) })));
+        const year = (h("gcds-input", Object.assign({ key: '907c1530ef58d67b0ce6eaa9a5804ae9d6141f62', name: "year", label: i18n[lang].year, inputId: "year", type: "text", inputmode: "numeric", size: 4, disabled: disabled, value: this.yearValue, onInput: e => this.handleInput(e, 'year'), onChange: e => this.handleInput(e, 'year'), onKeyDown: this.blockInvalidKeys, class: `gcds-date-input__year ${hasError['year'] ? 'gcds-date-input--error' : ''}`, "validate-on": 'other' }, requiredAttr, { "aria-invalid": hasError['year'].toString(), "aria-description": hasError['year'] && errorMessage, form: form, ref: el => (this.yearInput = el) })));
+        const day = (h("gcds-input", Object.assign({ key: '52d6f0fc6df755042b9d2f9908aa31ac0037564b', name: "day", label: i18n[lang].day, inputId: "day", type: "text", inputmode: "numeric", size: 2, disabled: disabled, value: this.dayValue, onInput: e => this.handleInput(e, 'day'), onChange: e => this.handleInput(e, 'day'), onKeyDown: this.blockInvalidKeys, "validate-on": 'other', class: `gcds-date-input__day ${hasError['day'] ? 'gcds-date-input--error' : ''}` }, requiredAttr, { "aria-invalid": hasError['day'].toString(), "aria-description": hasError['day'] && errorMessage, form: form, ref: el => (this.dayInput = el) })));
+        let formatArray;
+        if (format === 'iso') {
+            formatArray = [year, month, day];
+        }
+        else if (format === 'compact') {
+            formatArray = [month, year];
+        }
+        else if (format === 'full') {
+            formatArray = lang === 'en' ? [month, day, year] : [day, month, year];
+        }
+        return (h(Host, { key: '94dec21a77e42646ecaae7593f9609ec3419a2f3', name: name, onBlur: () => this.onBlur() }, this.validateRequiredProps() && (h("fieldset", Object.assign({ key: '30ec72bc476564064bbc086e69a3b8722c91d71b', class: "gcds-date-input__fieldset" }, fieldsetAttrs, { ref: el => (this.fieldset = el) }), h("legend", { key: 'ed3fbeaaf9fe91b6f322741d93dfff40bbb2356a', id: "date-input-legend" }, legend, required ? (h("span", { class: "legend__required" }, i18n[lang].required)) : null), hint ? (h("gcds-hint", { id: "date-input-hint", "hint-id": "date-input" }, hint)) : null, errorMessage ? (h("div", null, h("gcds-error-message", { id: "date-input-error", messageId: "date-input" }, errorMessage))) : null, formatArray))));
     }
     static get is() { return "gcds-date-input"; }
     static get encapsulation() { return "shadow"; }
@@ -493,15 +515,15 @@ export class GcdsDateInput {
                 "attribute": "format",
                 "mutable": false,
                 "complexType": {
-                    "original": "'full' | 'compact'",
-                    "resolved": "\"compact\" | \"full\"",
+                    "original": "'full' | 'compact' | 'iso'",
+                    "resolved": "\"compact\" | \"full\" | \"iso\"",
                     "references": {}
                 },
                 "required": true,
                 "optional": false,
                 "docs": {
                     "tags": [],
-                    "text": "Set this property to full to show month, day, and year form elements. Set it to compact to show only the month and year form elements."
+                    "text": "Set this property to full to show month, day, and year form elements. Set it to compact to show only the month and year form elements.  Set it to `iso` to use numeric month input and `YYYY-MM-DD` entry order."
                 },
                 "getter": false,
                 "setter": false,

@@ -55,9 +55,11 @@ export class GcdsNavGroup {
             if (this.open) {
                 this.navPosiiton = window.scrollY;
                 document.body.style.position = 'fixed';
+                document.body.style.width = '100%';
             }
             else {
                 document.body.style.removeProperty('position');
+                document.body.style.removeProperty('width');
                 window.scrollTo(0, this.navPosiiton);
             }
         }
@@ -100,18 +102,18 @@ export class GcdsNavGroup {
     }
     render() {
         const { closeTrigger, menuLabel, open, openTrigger } = this;
-        return (h(Host, { key: 'dc41c8634f5207f3264c193fa4b643a5d7460bcb', role: "listitem", open: open }, h("button", { key: '993f5335ec64d025e881c8d3149bc2f6507ae919', "aria-haspopup": "true", tabIndex: 0, "aria-expanded": open.toString(), ref: element => (this.triggerElement = element), class: `gcds-nav-group__trigger gcds-trigger--${this.navStyle}`, onBlur: () => this.gcdsBlur.emit(), onFocus: () => this.gcdsFocus.emit(), onClick: e => {
+        return (h(Host, { key: '159a59d35c9f64a266d942fb9a57ba9973c6b968', role: "listitem", open: open }, h("div", { key: '90f518b5fcfed0ae7a7574eb153651a6915a9b64', class: "gcds-nav-group__container" }, h("button", { key: '3c95cf1d6787abdd1ee1ef924579cd03c175409d', "aria-haspopup": "true", tabIndex: 0, "aria-expanded": open.toString(), ref: element => (this.triggerElement = element), class: `gcds-nav-group__trigger gcds-trigger--${this.navStyle}`, onBlur: () => this.gcdsBlur.emit(), onFocus: () => this.gcdsFocus.emit(), onClick: e => {
                 const event = emitEvent(e, this.gcdsClick);
                 if (event) {
                     this.toggleNav();
                 }
-            } }, h("gcds-icon", { key: '78f16f4980aa7aa8b0226b4760763ba41ecc0e2b', name: this.navStyle === 'expandable'
+            } }, h("gcds-icon", { key: 'c533dfb1c4393a3453b53b7e7353c01adaf582e4', name: this.navStyle === 'expandable'
                 ? open
                     ? 'chevron-down'
                     : 'chevron-right'
                 : open
                     ? 'chevron-up'
-                    : 'chevron-down' }), closeTrigger && open ? closeTrigger : openTrigger), h("ul", { key: '349c7a14f3e13ef7344ea40e35ac8c9000f8d390', "aria-label": menuLabel, class: `gcds-nav-group__list gcds-nav--${this.navStyle}` }, h("slot", { key: '73a3ba354f2a90a0cea6edfe9e47b1ad5c85e92d' }))));
+                    : 'chevron-down' }), closeTrigger && open ? closeTrigger : openTrigger), h("ul", { key: '5a5395d27b0f6c39a63c1605a0112f0c27d6a678', "aria-label": menuLabel, class: `gcds-nav-group__list gcds-nav--${this.navStyle}` }, h("slot", { key: '68763c8422c0ee0d0d28b5b4a6ad680682156d58' })))));
     }
     static get is() { return "gcds-nav-group"; }
     static get encapsulation() { return "shadow"; }

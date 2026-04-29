@@ -1,5 +1,5 @@
 import { Fragment, Host, h, } from "@stencil/core";
-import { assignLanguage, emitEvent, logError, handleErrors, isValid, handleValidationResult, validateRadioCheckboxGroup } from "../../utils/utils";
+import { assignLanguage, emitEvent, logError, handleErrors, isValid, handleValidationResult, validateRadioCheckboxGroup, } from "../../utils/utils";
 import { defaultValidator, getValidator, requiredValidator, } from "../../validators";
 import { cleanUpValues, renderCheckbox, validateOptionsArray, } from "./checkbox";
 import i18n from "./i18n/i18n";
@@ -132,8 +132,8 @@ export class GcdsCheckboxes {
         this._validator = getValidator(this.validator);
     }
     /**
-       * Read-only property of the checkboxes, returns a ValidityState object that represents the validity states this element is in.
-       */
+     * Read-only property of the checkboxes, returns a ValidityState object that represents the validity states this element is in.
+     */
     get validity() {
         return this.internals.validity;
     }
@@ -208,7 +208,10 @@ export class GcdsCheckboxes {
             const validity = validateRadioCheckboxGroup(this.shadowElement);
             let validationMessage = null;
             if (validity === null || validity === void 0 ? void 0 : validity.valueMissing) {
-                validationMessage = this.lang === 'en' ? 'Choose an option to continue.' : 'Choisissez une option pour continuer.';
+                validationMessage =
+                    this.lang === 'en'
+                        ? 'Choose an option to continue.'
+                        : 'Choisissez une option pour continuer.';
             }
             this.internals.setValidity(validity, validationMessage, this.shadowElement[0]);
             // Set input title when HTML error occruring
@@ -313,7 +316,7 @@ export class GcdsCheckboxes {
         }
         this.shadowElement = [];
         if (this.validateRequiredProps()) {
-            return (h(Host, { key: 'f37866363b587b6c228032f6940efa6e3bb4e90c', onBlur: () => this.isGroup && this.onBlurValidate() }, this.isGroup ? (h("fieldset", Object.assign({ class: "gcds-checkboxes__fieldset" }, fieldsetAttrs), h("legend", { id: "checkboxes-legend", class: "gcds-checkboxes__legend" }, this.hideLegend ? (h("gcds-sr-only", { tag: "span" }, legend, required && h("span", { class: "legend__required" }, i18n[this.lang].required))) : (h(Fragment, null, legend, required && h("span", { class: "legend__required" }, i18n[this.lang].required)))), hint ? (h("gcds-hint", { id: "checkboxes-hint", "hint-id": "checkboxes" }, hint)) : null, errorMessage ? (h("div", null, h("gcds-error-message", { id: "checkboxes-error", messageId: "checkboxes" }, errorMessage))) : null, this.optionsArr &&
+            return (h(Host, { key: 'a523f6d77cd9e2fd3f30b9d90fc4ca4e32c97f22', onBlur: () => this.isGroup && this.onBlurValidate() }, this.isGroup ? (h("fieldset", Object.assign({ class: "gcds-checkboxes__fieldset" }, fieldsetAttrs), h("legend", { id: "checkboxes-legend", class: "gcds-checkboxes__legend" }, this.hideLegend ? (h("gcds-sr-only", { tag: "span" }, legend, required && (h("span", { class: "legend__required" }, i18n[this.lang].required)))) : (h(Fragment, null, legend, required && (h("span", { class: "legend__required" }, i18n[this.lang].required))))), hint ? (h("gcds-hint", { id: "checkboxes-hint", "hint-id": "checkboxes" }, hint)) : null, errorMessage ? (h("div", null, h("gcds-error-message", { id: "checkboxes-error", messageId: "checkboxes" }, errorMessage))) : null, this.optionsArr &&
                 this.optionsArr.map(checkbox => {
                     return renderCheckbox(checkbox, this, emitEvent, this.handleInput);
                 }))) : (this.optionsArr &&
@@ -455,7 +458,7 @@ export class GcdsCheckboxes {
                 "optional": false,
                 "docs": {
                     "tags": [],
-                    "text": "If true, the checkobox will be focused on component render"
+                    "text": "If true, the checkbox will be focused on component render"
                 },
                 "getter": false,
                 "setter": false,

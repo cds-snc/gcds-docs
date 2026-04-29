@@ -54,7 +54,7 @@ export class GcdsIcon {
     }
     render() {
         const { label, marginLeft, marginRight, name, size } = this;
-        return (h(Host, { key: '9767ef8285004f25317ad156ac39d21a0267c6d3' }, h("span", { key: 'c7a3dfe9ed1b093e5a6d9a37bdc5c11e7154b462', class: `
+        return (h(Host, { key: 'acfcce1cb6a96e3f96c95c19e8a06ffa91be2306' }, h("span", { key: '97dd8217a134541eb55ad6addc1b1fb3e9872790', class: `
             gcds-icon gcds-icon-${name}
             ${marginLeft ? `ml-${marginLeft}` : ''}
             ${marginRight ? `mr-${marginRight}` : ''}

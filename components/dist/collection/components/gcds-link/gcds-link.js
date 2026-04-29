@@ -78,8 +78,29 @@ export class GcdsLink {
         this.lang = assignLanguage(this.el);
         this.updateLang();
     }
+    /**
+     * Returns the correct icon for the link, if applicable.
+     * If none of these conditions match, no icon is rendered.
+     */
+    getIcon() {
+        const { href, target, external, download, lang } = this;
+        const isExternal = target === '_blank' || external;
+        if (isExternal) {
+            return h("gcds-icon", { name: "external", label: i18n[lang].external });
+        }
+        if (download !== undefined) {
+            return h("gcds-icon", { name: "download", label: i18n[lang].download });
+        }
+        if (href === null || href === void 0 ? void 0 : href.toLowerCase().startsWith('mailto:')) {
+            return h("gcds-icon", { name: "email", label: i18n[lang].email });
+        }
+        if (href === null || href === void 0 ? void 0 : href.toLowerCase().startsWith('tel:')) {
+            return h("gcds-icon", { name: "phone", label: i18n[lang].phone });
+        }
+        return null;
+    }
     render() {
-        const { size, lang, display, href, rel, target, external, download, type, inheritedAttributes, linkRole, } = this;
+        const { size, display, href, rel, target, external, download, type, inheritedAttributes, linkRole, } = this;
         const attrs = {
             href,
             rel,
@@ -88,8 +109,7 @@ export class GcdsLink {
             type,
         };
         const isExternal = target === '_blank' || external;
-        return (h(Host, { key: '8d4e6b5cd3ed08a2a562489238739f2906c02ad0' }, h("a", Object.assign({ key: '14abc020fd24945d6e144f27073f0077d086e424', tabIndex: 0 }, attrs, { class: `gcds-link link--${size} ${display != 'inline' ? `d-${display}` : ''} ${linkRole != 'default' ? `role-${linkRole}` : ''}`, ref: element => (this.shadowElement = element), target: isExternal ? '_blank' : target, rel: isExternal ? 'noopener noreferrer' : rel }, inheritedAttributes, { part: "link", onBlur: () => this.gcdsBlur.emit(), onFocus: () => this.gcdsFocus.emit(), onClick: e => emitEvent(e, this.gcdsClick, href) }), h("slot", { key: 'ada44987d3f50baa632557bbe745390cbfba03e3' }), target === '_blank' || external ? (h("gcds-icon", { name: "external", label: i18n[lang].external, "margin-left": "75" })) : download !== undefined ? (h("gcds-icon", { name: "download", label: i18n[lang].download, "margin-left": "75" })) : href && href.toLowerCase().startsWith('mailto:') ? (h("gcds-icon", { name: "email", label: i18n[lang].email, "margin-left": "75" })) : (href &&
-            href.toLowerCase().startsWith('tel:') && (h("gcds-icon", { name: "phone", label: i18n[lang].phone, "margin-left": "75" }))))));
+        return (h(Host, { key: '7fa892f419ed82d2218a8166cb9df9087309f049' }, h("a", Object.assign({ key: '1b771e086f262c942e89359aab40a242cdeca8e7', tabIndex: 0 }, attrs, { class: `gcds-link link--${size} ${display != 'inline' ? `d-${display}` : ''} ${linkRole != 'default' ? `role-${linkRole}` : ''}`, ref: element => (this.shadowElement = element), target: isExternal ? '_blank' : target, rel: isExternal ? 'noopener noreferrer' : rel }, inheritedAttributes, { part: "link", onBlur: () => this.gcdsBlur.emit(), onFocus: () => this.gcdsFocus.emit(), onClick: e => emitEvent(e, this.gcdsClick, href) }), h("slot", { key: '86a797523cf073c1e75e3adfb224ff10f8344a76' }), this.getIcon() && (h("span", { key: '61a96d99ba2782a0853bdc7d4dff5a4a250f8858', class: "text-icon-group" }, "\u00A0", this.getIcon())))));
     }
     static get is() { return "gcds-link"; }
     static get encapsulation() { return "shadow"; }

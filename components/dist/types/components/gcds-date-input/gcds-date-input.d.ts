@@ -9,7 +9,7 @@ export declare class GcdsDateInput {
     private initialValue?;
     private fieldset?;
     private yearInput?;
-    private monthSelect?;
+    private monthInput?;
     private dayInput?;
     private htmlValidationErrors;
     _validator: Validator<string>;
@@ -24,9 +24,9 @@ export declare class GcdsDateInput {
     legend: string;
     validateLegend(): void;
     /**
-     * Set this property to full to show month, day, and year form elements. Set it to compact to show only the month and year form elements.
+     * Set this property to full to show month, day, and year form elements. Set it to compact to show only the month and year form elements.  Set it to `iso` to use numeric month input and `YYYY-MM-DD` entry order.
      */
-    format: 'full' | 'compact';
+    format: 'full' | 'compact' | 'iso';
     validateFormat(): void;
     /**
      * Combined date value from the two/three form elements. Format: YYYY-MM-DD or YYYY-MM

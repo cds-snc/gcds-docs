@@ -1,2 +1,2 @@
-import{G as o,d as s}from"./p-C2_5JJxc.js";const t=o;const c=s;export{t as GcdsHeading,c as defineCustomElement};
+import{G as o,d as s}from"./p-Cr4NRPlO.js";const r=o;const t=s;export{r as GcdsHeading,t as defineCustomElement};
 //# sourceMappingURL=gcds-heading.js.map

@@ -11,9 +11,9 @@ export const defaultValidator = {
 };
 export function combineValidators(v1, v2) {
     return {
-        validate: (x) => {
-            const res1 = v1.validate(x);
-            const res2 = v2.validate(x);
+        validate: (x, context) => {
+            const res1 = v1.validate(x, context);
+            const res2 = v2.validate(x, context);
             if ((typeof res1 === 'object' && !res1.valid) ||
                 (typeof res1 === 'boolean' && !res1)) {
                 return typeof res1 === 'object'

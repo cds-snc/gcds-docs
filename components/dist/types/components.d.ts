@@ -172,7 +172,7 @@ export namespace Components {
      */
     interface GcdsCheckboxes {
         /**
-          * If true, the checkobox will be focused on component render
+          * If true, the checkbox will be focused on component render
          */
         "autofocus": boolean;
         /**
@@ -313,9 +313,9 @@ export namespace Components {
          */
         "form"?: string;
         /**
-          * Set this property to full to show month, day, and year form elements. Set it to compact to show only the month and year form elements.
+          * Set this property to full to show month, day, and year form elements. Set it to compact to show only the month and year form elements.  Set it to `iso` to use numeric month input and `YYYY-MM-DD` entry order.
          */
-        "format": 'full' | 'compact';
+        "format": 'full' | 'compact' | 'iso';
         /**
           * Get validationMessage of gcds-date-input
          */
@@ -2527,7 +2527,7 @@ declare namespace LocalJSX {
      */
     interface GcdsCheckboxes {
         /**
-          * If true, the checkobox will be focused on component render
+          * If true, the checkbox will be focused on component render
          */
         "autofocus"?: boolean;
         /**
@@ -2680,9 +2680,9 @@ declare namespace LocalJSX {
          */
         "form"?: string;
         /**
-          * Set this property to full to show month, day, and year form elements. Set it to compact to show only the month and year form elements.
+          * Set this property to full to show month, day, and year form elements. Set it to compact to show only the month and year form elements.  Set it to `iso` to use numeric month input and `YYYY-MM-DD` entry order.
          */
-        "format": 'full' | 'compact';
+        "format": 'full' | 'compact' | 'iso';
         /**
           * Hint displayed below the legend and above form fields.
          */

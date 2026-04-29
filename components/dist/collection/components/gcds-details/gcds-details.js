@@ -49,12 +49,12 @@ export class GcdsDetails {
     }
     render() {
         const { detailsTitle, open } = this;
-        return (h(Host, { key: '165e069eb5507fe81e7f2e3f23d70cf3e5979aa7' }, h("div", { key: 'a9bbede603871396dcdbfe6d8a4a25952b611f58', class: "gcds-details" }, h("button", { key: 'fa1db12503e14a3e99781759a3fc5f1544a24235', "aria-expanded": open.toString(), "aria-controls": "details__panel", onBlur: () => this.gcdsBlur.emit(), onFocus: () => this.gcdsFocus.emit(), onClick: e => {
+        return (h(Host, { key: '0d107b1dc773b9cedb53f2ff49ffdfef927ee462' }, h("div", { key: '8e6c82eb769d30fcdd00551cdc57a68cbe5f12a8', class: "gcds-details" }, h("button", { key: '2deb6b323c9f24e4fd7e80b9d399a2df7d2d1fa3', "aria-expanded": open.toString(), "aria-controls": "details__panel", onBlur: () => this.gcdsBlur.emit(), onFocus: () => this.gcdsFocus.emit(), onClick: e => {
                 const event = emitEvent(e, this.gcdsClick);
                 if (event) {
                     this.toggle();
                 }
-            }, class: "details__summary", id: "details__summary" }, detailsTitle), h("details", { key: 'b63ec18b239b98bbb308989a4b71d4bda95372be', open: open, id: "details__panel", class: "details__panel", "aria-labelledby": "details__summary", onToggle: ev => this.handleToggle(ev), ref: element => (this.detailsElement = element) }, h("summary", { key: 'f64cf84f9a239e19e8978e8511b94bc7b2e7dfc0' }, detailsTitle), h("slot", { key: 'd438628d3f47d1a15f4e03a603a86f08bf25a658' })))));
+            }, class: "details__summary", id: "details__summary" }, detailsTitle), h("details", { key: 'a5767c51f7bff82551439dff6302521fbeaefe2e', open: open, id: "details__panel", class: "details__panel", "aria-labelledby": "details__summary", onToggle: ev => this.handleToggle(ev), ref: element => (this.detailsElement = element) }, h("summary", { key: '3072f177cb51207b9b94e70666c71aba4336705a' }, detailsTitle), h("slot", { key: 'ba33ecdb88ed9a51914713a16e4260c265634b5e' })))));
     }
     static get is() { return "gcds-details"; }
     static get encapsulation() { return "shadow"; }

@@ -3966,7 +3966,7 @@ const I18N$n = {
   },
 };
 
-const gcdsCardCss = "@layer reset, default, link, hover, focus;@layer reset{:host{display:block}:host *{box-sizing:border-box;margin:0;padding:0}:host slot{display:initial}}@layer default{:host .gcds-card{background-color:var(--gcds-card-background-color);border:var(--gcds-card-border);color:var(--gcds-card-color);display:block;height:100%;max-width:var(--gcds-card-max-width);overflow:hidden;padding:var(--gcds-card-padding);position:relative}:host .gcds-card .gcds-badge{background-color:var(--gcds-card-badge-background-color);left:0;padding:var(--gcds-card-badge-padding);position:absolute;text-wrap:nowrap;top:0}@media only screen and (width < 48em){:host .gcds-card .gcds-badge{padding:var(--gcds-card-badge-mobile-padding)}}:host .gcds-card .gcds-card__image{display:block;margin:var(--gcds-card-image-margin);width:100%}:host .gcds-card .gcds-card__title{font:var(--gcds-card-title-font-desktop);width:fit-content}@media only screen and (width < 48em){:host .gcds-card .gcds-card__title{font:var(--gcds-card-title-font-mobile)}}:host .gcds-card .gcds-card__title:has(+.gcds-card__description){margin:var(--gcds-card-title-margin)}:host .gcds-card .gcds-card__description{--gcds-text-size-body-desktop:var(--gcds-card-description-font-desktop)}@media only screen and (width < 48em){:host .gcds-card .gcds-card__description{font:var(--gcds-card-description-font-mobile)}}}@layer link{:host .gcds-card gcds-link::part(link):after{bottom:0;content:\"\";left:0;pointer-events:auto;position:absolute;right:0;top:0}}@layer hover{@media (hover:hover){:host .gcds-card:hover{background-color:var(--gcds-card-hover-background-color);box-shadow:var(--gcds-card-hover-box-shadow);cursor:pointer}}}@layer focus{:host .gcds-card:focus-within{box-shadow:var(--gcds-card-focus-box-shadow);outline:var(--gcds-card-focus-outline);outline-offset:var(--gcds-card-focus-outline-offset)}:host gcds-link::part(link):focus{background-color:var(--gcds-card-focus-link-background-color);border:var(--gcds-card-focus-link-border);box-shadow:var(--gcds-card-focus-link-box-shadow);color:var(--gcds-card-focus-link-color);outline:var(--gcds-card-focus-link-outline);text-decoration:underline currentColor var(--gcds-card-focus-link-text-decoration-thickness)}}";
+const gcdsCardCss = "@layer reset, default, link, hover, focus;@layer reset{:host{display:block}:host *{box-sizing:border-box;margin:0;padding:0}:host slot{display:initial}}@layer default{:host .gcds-card{background-color:var(--gcds-card-background-color);border:var(--gcds-card-border);color:var(--gcds-card-color);display:block;height:100%;max-width:var(--gcds-card-max-width);overflow:hidden;padding:var(--gcds-card-padding);position:relative}:host .gcds-card .gcds-badge{background-color:var(--gcds-card-badge-background-color);left:0;padding:var(--gcds-card-badge-padding);position:absolute;text-wrap:nowrap;top:0}@media only screen and (width < 48em){:host .gcds-card .gcds-badge{padding:var(--gcds-card-badge-mobile-padding)}}:host .gcds-card .gcds-card__image{display:block;margin:var(--gcds-card-image-margin);width:100%}:host .gcds-card .gcds-card__title{font:var(--gcds-card-title-font-desktop);width:fit-content}@media only screen and (width < 48em){:host .gcds-card .gcds-card__title{font:var(--gcds-card-title-font-mobile)}}:host .gcds-card .gcds-card__title:has(+.gcds-card__description){margin:var(--gcds-card-title-margin)}:host .gcds-card .gcds-card__description{--gcds-text-size-body-desktop:var(--gcds-card-description-font-desktop)}:host .gcds-card .gcds-card__description>*{position:relative;z-index:1}@media only screen and (width < 48em){:host .gcds-card .gcds-card__description{font:var(--gcds-card-description-font-mobile)}}}@layer link{:host .gcds-card gcds-link::part(link):after{bottom:0;content:\"\";left:0;pointer-events:auto;position:absolute;right:0;top:0;z-index:0}}@layer hover{@media (hover:hover){:host .gcds-card:hover{background-color:var(--gcds-card-hover-background-color);box-shadow:var(--gcds-card-hover-box-shadow);cursor:pointer}}}@layer focus{:host .gcds-card:focus-within{box-shadow:var(--gcds-card-focus-box-shadow);outline:var(--gcds-card-focus-outline);outline-offset:var(--gcds-card-focus-outline-offset)}:host gcds-link::part(link):focus{background-color:var(--gcds-card-focus-link-background-color);border:var(--gcds-card-focus-link-border);box-shadow:var(--gcds-card-focus-link-box-shadow);color:var(--gcds-card-focus-link-color);outline:var(--gcds-card-focus-link-outline);text-decoration:underline currentColor var(--gcds-card-focus-link-text-decoration-thickness)}}";
 
 /**
  * A card is a box containing structured, actionable content on a single topic.
@@ -4106,9 +4106,9 @@ const defaultValidator = {
 };
 function combineValidators(v1, v2) {
     return {
-        validate: (x) => {
-            const res1 = v1.validate(x);
-            const res2 = v2.validate(x);
+        validate: (x, context) => {
+            const res1 = v1.validate(x, context);
+            const res2 = v2.validate(x, context);
             if ((typeof res1 === 'object' && !res1.valid) ||
                 (typeof res1 === 'boolean' && !res1)) {
                 return typeof res1 === 'object'
@@ -4304,31 +4304,40 @@ const requiredSelectField = {
 const dateInputErrorMessage = {
     en: {
         all: 'Enter the date.',
+        missingmonthinput: 'Enter the month.',
         missingmonth: 'Select the month.',
         missingyear: 'Enter the year.',
         missingday: 'Enter the day.',
         missingmonthday: 'Select the month and enter the day.',
         missingmonthyear: 'Select the month and enter the year.',
+        missingmonthinputday: 'Enter the month and day.',
+        missingmonthinputyear: 'Enter the year and month.',
         missingdayyear: 'Enter the day and year.',
         invalidyearlength: 'Year must be 4 digits.',
         invalidyear: 'Enter a valid year.',
+        invalidmonth: 'Enter a valid month.',
         invalidday: 'Enter a valid day.',
     },
     fr: {
         all: 'Saisissez la date.',
+        missingmonthinput: 'Saisissez le mois.',
         missingmonth: 'Sélectionnez un mois.',
         missingyear: "Saisissez l'année.",
         missingday: 'Saisissez le jour.',
         missingmonthday: 'Saisissez le jour et sélectionnez un mois.',
         missingmonthyear: "Sélectionnez un mois et saisissez l'année.",
+        missingmonthinputday: 'Saisissez le mois et le jour.',
+        missingmonthinputyear: "Saisissez l'année et le mois.",
         missingdayyear: "Saisissez le jour et l'année.",
         invalidyearlength: "L'année doit inclure 4 chiffres.",
         invalidyear: 'Entrez une année valide.',
+        invalidmonth: 'Saisissez un mois valide.',
         invalidday: 'Saisissez un jour valide.',
     },
 };
 const requiredDateInput = {
-    validate: (date) => {
+    validate: (date, context) => {
+        var _a, _b;
         if (isValidDate(date)) {
             return {
                 valid: true,
@@ -4344,9 +4353,10 @@ const requiredDateInput = {
             month: splitDate[1],
             year: splitDate[0],
         };
-        const format = splitDate.length === 3 ? 'full' : 'compact';
-        const error = getDateInputError(dateObject, format);
-        return error;
+        // Backwards compatibility if params.format is not supplied
+        const inferredFormat = splitDate.length === 3 ? 'full' : 'compact';
+        const format = (_b = (_a = context === null || context === void 0 ? void 0 : context.params) === null || _a === void 0 ? void 0 : _a.format) !== null && _b !== void 0 ? _b : inferredFormat;
+        return getDateInputError(dateObject, format);
     },
 };
 const getDateInputError = (dateValues, format) => {
@@ -4372,7 +4382,7 @@ const getDateInputError = (dateValues, format) => {
         errorResponse.reason.fr = dateInputErrorMessage.fr.all;
         // No day set
     }
-    else if (!day && month && year && format === 'full') {
+    else if (!day && month && year && (format === 'full' || format === 'iso')) {
         errorResponse.errors.day = true;
         errorResponse.reason.en = dateInputErrorMessage.en.missingday;
         errorResponse.reason.fr = dateInputErrorMessage.fr.missingday;
@@ -4381,8 +4391,14 @@ const getDateInputError = (dateValues, format) => {
     else if ((day && !month && year) ||
         (!day && !month && year && format === 'compact')) {
         errorResponse.errors.month = true;
-        errorResponse.reason.en = dateInputErrorMessage.en.missingmonth;
-        errorResponse.reason.fr = dateInputErrorMessage.fr.missingmonth;
+        if (format === 'iso') {
+            errorResponse.reason.en = dateInputErrorMessage.en.missingmonthinput;
+            errorResponse.reason.fr = dateInputErrorMessage.fr.missingmonthinput;
+        }
+        else {
+            errorResponse.reason.en = dateInputErrorMessage.en.missingmonth;
+            errorResponse.reason.fr = dateInputErrorMessage.fr.missingmonth;
+        }
         // No year set
     }
     else if ((day && month && !year) ||
@@ -4395,8 +4411,14 @@ const getDateInputError = (dateValues, format) => {
     else if (!day && !month && year) {
         errorResponse.errors.day = true;
         errorResponse.errors.month = true;
-        errorResponse.reason.en = dateInputErrorMessage.en.missingmonthday;
-        errorResponse.reason.fr = dateInputErrorMessage.fr.missingmonthday;
+        if (format === 'iso') {
+            errorResponse.reason.en = dateInputErrorMessage.en.missingmonthinputday;
+            errorResponse.reason.fr = dateInputErrorMessage.fr.missingmonthinputday;
+        }
+        else {
+            errorResponse.reason.en = dateInputErrorMessage.en.missingmonthday;
+            errorResponse.reason.fr = dateInputErrorMessage.fr.missingmonthday;
+        }
         // No day and year set
     }
     else if (!day && month && !year) {
@@ -4409,20 +4431,32 @@ const getDateInputError = (dateValues, format) => {
     else if (day && !month && !year) {
         errorResponse.errors.year = true;
         errorResponse.errors.month = true;
-        errorResponse.reason.en = dateInputErrorMessage.en.missingmonthyear;
-        errorResponse.reason.fr = dateInputErrorMessage.fr.missingmonthyear;
+        if (format === 'iso') {
+            errorResponse.reason.en = dateInputErrorMessage.en.missingmonthinputyear;
+            errorResponse.reason.fr = dateInputErrorMessage.fr.missingmonthinputyear;
+        }
+        else {
+            errorResponse.reason.en = dateInputErrorMessage.en.missingmonthyear;
+            errorResponse.reason.fr = dateInputErrorMessage.fr.missingmonthyear;
+        }
         // Year is formatted incorrectly
     }
-    else if (year.length != 4) {
+    else if (year.toString().length != 4) {
         errorResponse.errors.year = true;
         errorResponse.reason.en = dateInputErrorMessage.en.invalidyearlength;
         errorResponse.reason.fr = dateInputErrorMessage.fr.invalidyearlength;
         // Year format
     }
-    else if (year < 0 || year > 9999) {
+    else if (Number(year) < 0 || Number(year) > 9999) {
         errorResponse.errors.year = true;
         errorResponse.reason.en = dateInputErrorMessage.en.invalidyear;
         errorResponse.reason.fr = dateInputErrorMessage.fr.invalidyear;
+        // Invalid month
+    }
+    else if (Number(month) < 1 || Number(month) > 12) {
+        errorResponse.errors.month = true;
+        errorResponse.reason.en = dateInputErrorMessage.en.invalidmonth;
+        errorResponse.reason.fr = dateInputErrorMessage.fr.invalidmonth;
         // Invalid day
     }
     else if (!isValidDay(`${year}-${month}-${day}`)) {
@@ -4767,8 +4801,8 @@ class GcdsCheckboxes {
         this._validator = getValidator(this.validator);
     }
     /**
-       * Read-only property of the checkboxes, returns a ValidityState object that represents the validity states this element is in.
-       */
+     * Read-only property of the checkboxes, returns a ValidityState object that represents the validity states this element is in.
+     */
     get validity() {
         return this.internals.validity;
     }
@@ -4843,7 +4877,10 @@ class GcdsCheckboxes {
             const validity = validateRadioCheckboxGroup(this.shadowElement);
             let validationMessage = null;
             if (validity === null || validity === void 0 ? void 0 : validity.valueMissing) {
-                validationMessage = this.lang === 'en' ? 'Choose an option to continue.' : 'Choisissez une option pour continuer.';
+                validationMessage =
+                    this.lang === 'en'
+                        ? 'Choose an option to continue.'
+                        : 'Choisissez une option pour continuer.';
             }
             this.internals.setValidity(validity, validationMessage, this.shadowElement[0]);
             // Set input title when HTML error occruring
@@ -4948,7 +4985,7 @@ class GcdsCheckboxes {
         }
         this.shadowElement = [];
         if (this.validateRequiredProps()) {
-            return (hAsync(Host, { key: 'f37866363b587b6c228032f6940efa6e3bb4e90c', onBlur: () => this.isGroup && this.onBlurValidate() }, this.isGroup ? (hAsync("fieldset", Object.assign({ class: "gcds-checkboxes__fieldset" }, fieldsetAttrs), hAsync("legend", { id: "checkboxes-legend", class: "gcds-checkboxes__legend" }, this.hideLegend ? (hAsync("gcds-sr-only", { tag: "span" }, legend, required && hAsync("span", { class: "legend__required" }, I18N$m[this.lang].required))) : (hAsync(Fragment, null, legend, required && hAsync("span", { class: "legend__required" }, I18N$m[this.lang].required)))), hint ? (hAsync("gcds-hint", { id: "checkboxes-hint", "hint-id": "checkboxes" }, hint)) : null, errorMessage ? (hAsync("div", null, hAsync("gcds-error-message", { id: "checkboxes-error", messageId: "checkboxes" }, errorMessage))) : null, this.optionsArr &&
+            return (hAsync(Host, { key: 'a523f6d77cd9e2fd3f30b9d90fc4ca4e32c97f22', onBlur: () => this.isGroup && this.onBlurValidate() }, this.isGroup ? (hAsync("fieldset", Object.assign({ class: "gcds-checkboxes__fieldset" }, fieldsetAttrs), hAsync("legend", { id: "checkboxes-legend", class: "gcds-checkboxes__legend" }, this.hideLegend ? (hAsync("gcds-sr-only", { tag: "span" }, legend, required && (hAsync("span", { class: "legend__required" }, I18N$m[this.lang].required)))) : (hAsync(Fragment, null, legend, required && (hAsync("span", { class: "legend__required" }, I18N$m[this.lang].required))))), hint ? (hAsync("gcds-hint", { id: "checkboxes-hint", "hint-id": "checkboxes" }, hint)) : null, errorMessage ? (hAsync("div", null, hAsync("gcds-error-message", { id: "checkboxes-error", messageId: "checkboxes" }, errorMessage))) : null, this.optionsArr &&
                 this.optionsArr.map(checkbox => {
                     return renderCheckbox(checkbox, this, emitEvent, this.handleInput);
                 }))) : (this.optionsArr &&
@@ -5244,7 +5281,10 @@ class GcdsDateInput {
         }
     }
     validateFormat() {
-        if (!this.format || (this.format != 'full' && this.format != 'compact')) {
+        if (!this.format ||
+            (this.format !== 'full' &&
+                this.format !== 'compact' &&
+                this.format !== 'iso')) {
             this.errors.push('format');
         }
         else if (this.errors.includes('format')) {
@@ -5278,9 +5318,11 @@ class GcdsDateInput {
      */
     async validate() {
         var _a, _b, _c, _d;
-        this.hasError = handleValidationResult(this.el, this._validator.validate(this.format === 'full'
+        const format = this.format;
+        const value = format === 'full' || format === 'iso'
             ? `${this.yearValue}-${this.monthValue}-${this.dayValue}`
-            : `${this.yearValue}-${this.monthValue}`), this.legend, this.gcdsError, this.gcdsValid, this.lang, { day: false, month: false, year: false });
+            : `${this.yearValue}-${this.monthValue}`;
+        this.hasError = handleValidationResult(this.el, this._validator.validate(value, { params: { format } }), this.legend, this.gcdsError, this.gcdsValid, this.lang, { day: false, month: false, year: false });
         // Don't use the valueMissing and badInput errors here since they are handled by the validator above
         if (!this.internals.checkValidity() && !((_a = this.internals.validity) === null || _a === void 0 ? void 0 : _a.valueMissing) && !((_b = this.internals.validity) === null || _b === void 0 ? void 0 : _b.badInput)) {
             this.errorMessage = (_c = this.htmlValidationErrors[0]) === null || _c === void 0 ? void 0 : _c.errorMessage;
@@ -5334,9 +5376,12 @@ class GcdsDateInput {
     checkAndValidateValidity() {
         var _a, _b, _c, _d, _e, _f;
         // Order elements based on format and language
-        const elements = [this.monthSelect, this.yearInput];
+        let elements = [this.monthInput, this.yearInput];
         if (this.format === 'full') {
             this.lang === 'en' ? elements.splice(1, 0, this.dayInput) : elements.unshift(this.dayInput);
+        }
+        else if (this.format === 'iso') {
+            elements = [this.yearInput, this.monthInput, this.dayInput];
         }
         this.htmlValidationErrors = [];
         let valid = true;
@@ -5358,7 +5403,7 @@ class GcdsDateInput {
             });
             errorMessage = getDateInputError({
                 day: (_a = this.dayInput) === null || _a === void 0 ? void 0 : _a.value,
-                month: (_b = this.monthSelect) === null || _b === void 0 ? void 0 : _b.value,
+                month: (_b = this.monthInput) === null || _b === void 0 ? void 0 : _b.value,
                 year: (_c = this.yearInput) === null || _c === void 0 ? void 0 : _c.value
             }, this.format).reason[this.lang];
         }
@@ -5366,7 +5411,7 @@ class GcdsDateInput {
         if (this.required && !valueMissing) {
             const badInputError = getDateInputError({
                 day: (_d = this.dayInput) === null || _d === void 0 ? void 0 : _d.value,
-                month: (_e = this.monthSelect) === null || _e === void 0 ? void 0 : _e.value,
+                month: (_e = this.monthInput) === null || _e === void 0 ? void 0 : _e.value,
                 year: (_f = this.yearInput) === null || _f === void 0 ? void 0 : _f.value
             }, this.format);
             if (badInputError.reason.en != '') {
@@ -5435,7 +5480,9 @@ class GcdsDateInput {
      * Update gcds-date-input's validity using internal form elements
      */
     updateValidity() {
-        if ((this.format === 'full' && (!this.yearInput || !this.monthSelect || !this.dayInput)) || (this.format === 'compact' && (!this.yearInput || !this.monthSelect)))
+        if (((this.format === 'full' || this.format === 'iso') &&
+            (!this.yearInput || !this.monthInput || !this.dayInput)) ||
+            (this.format === 'compact' && (!this.yearInput || !this.monthInput)))
             return;
         const { validity, formError, errorMessage } = this.checkAndValidateValidity();
         let validationMessage = null;
@@ -5459,21 +5506,27 @@ class GcdsDateInput {
      * Logic to combine all input values together based on format
      */
     setValue() {
-        const { monthValue, format } = this;
-        let { yearValue, dayValue } = this;
-        // Logic to make sure the day input is registered correctly
-        if (dayValue && dayValue.length === 1 && dayValue != '0') {
-            dayValue = '0' + dayValue;
-            this.dayValue = dayValue;
+        const { format } = this;
+        let { yearValue, monthValue, dayValue } = this;
+        // Sanitizes a numeric date value, optionally normalizing to two digits with padding
+        const sanitizeValue = (value, pad = true) => {
+            if (!value || value === '0')
+                return value;
+            let sanitizedValue = value.replace(/[eE-]/g, '');
+            // Normalize to two digits if possible, e.g. '3' -> '03'
+            if (pad)
+                sanitizedValue = String(parseInt(sanitizedValue, 10)).padStart(2, '0');
+            return sanitizedValue;
+        };
+        dayValue = sanitizeValue(dayValue);
+        this.dayValue = dayValue;
+        if (format === 'iso') {
+            monthValue = sanitizeValue(monthValue);
+            this.monthValue = monthValue;
         }
-        else if (dayValue && dayValue.length == 3 && dayValue[0] === '0') {
-            dayValue = dayValue.substring(1);
-            this.dayValue = dayValue;
-        }
-        // Clean up year and day values by removing any e, E or - characters
-        dayValue = dayValue === null || dayValue === void 0 ? void 0 : dayValue.replace(/[eE-]/g, '');
-        yearValue = yearValue === null || yearValue === void 0 ? void 0 : yearValue.replace(/[eE-]/g, '');
-        if (format === 'full') {
+        yearValue = sanitizeValue(yearValue, false);
+        this.yearValue = yearValue;
+        if (format === 'full' || format === 'iso') {
             this.value = `${yearValue}-${monthValue}-${dayValue}`;
         }
         else if (format === 'compact') {
@@ -5487,7 +5540,7 @@ class GcdsDateInput {
      * Split value into parts depending on format
      */
     splitFormValue() {
-        if (this.format == 'compact') {
+        if (this.format === 'compact') {
             const splitValue = this.value.split('-');
             this.yearValue = splitValue[0];
             this.monthValue = splitValue[1];
@@ -5555,14 +5608,20 @@ class GcdsDateInput {
         }
         // Array of months 01 - 12
         const options = Array.from({ length: 12 }, (_, i) => i + 1 < 10 ? `0${i + 1}` : `${i + 1}`);
-        const month = (hAsync("gcds-select", Object.assign({ key: 'e6f090b288f964719d989890c1757af3a5339551', label: I18N$l[lang].month, selectId: "month", name: "month", defaultValue: I18N$l[lang].selectmonth, disabled: disabled, onInput: e => this.handleInput(e, 'month'), onChange: e => this.handleInput(e, 'month'), value: this.monthValue, class: `gcds-date-input__month ${hasError['month'] ? 'gcds-date-input--error' : ''}` }, requiredAttr, { "aria-invalid": hasError['month'].toString(), "aria-description": hasError['month'] && errorMessage, form: form, ref: el => (this.monthSelect = el) }), options.map(option => (hAsync("option", { key: option, value: option }, I18N$l[lang]['months'][option])))));
-        const year = (hAsync("gcds-input", Object.assign({ key: 'ed5b22815eaee48211a8feb25cf9198a4b601c9e', name: "year", label: I18N$l[lang].year, inputId: "year", type: "text", inputmode: "numeric", size: 4, disabled: disabled, value: this.yearValue, onInput: e => this.handleInput(e, 'year'), onChange: e => this.handleInput(e, 'year'), onKeyDown: this.blockInvalidKeys, class: `gcds-date-input__year ${hasError['year'] ? 'gcds-date-input--error' : ''}`, "validate-on": 'other' }, requiredAttr, { "aria-invalid": hasError['year'].toString(), "aria-description": hasError['year'] && errorMessage, form: form, ref: el => (this.yearInput = el) })));
-        const day = (hAsync("gcds-input", Object.assign({ key: '6d79af7da5be2ade8ea8f962c15233294e6042e7', name: "day", label: I18N$l[lang].day, inputId: "day", type: "text", inputmode: "numeric", size: 2, disabled: disabled, value: this.dayValue, onInput: e => this.handleInput(e, 'day'), onChange: e => this.handleInput(e, 'day'), onKeyDown: this.blockInvalidKeys, "validate-on": 'other', class: `gcds-date-input__day ${hasError['day'] ? 'gcds-date-input--error' : ''}` }, requiredAttr, { "aria-invalid": hasError['day'].toString(), "aria-description": hasError['day'] && errorMessage, form: form, ref: el => (this.dayInput = el) })));
-        return (hAsync(Host, { key: 'bd299bd117299d1b0500413185a10a32501b7490', name: name, onBlur: () => this.onBlur() }, this.validateRequiredProps() && (hAsync("fieldset", Object.assign({ key: '02d4a393d8336c29d060716f5ddd9c3e1eb4c46d', class: "gcds-date-input__fieldset" }, fieldsetAttrs, { ref: el => (this.fieldset = el) }), hAsync("legend", { key: 'deb09ce61953147d78b00eb1ac45a821651ec80f', id: "date-input-legend" }, legend, required ? (hAsync("span", { class: "legend__required" }, I18N$l[lang].required)) : null), hint ? (hAsync("gcds-hint", { id: "date-input-hint", "hint-id": "date-input" }, hint)) : null, errorMessage ? (hAsync("div", null, hAsync("gcds-error-message", { id: "date-input-error", messageId: "date-input" }, errorMessage))) : null, format == 'compact'
-            ? [month, year]
-            : lang == 'en'
-                ? [month, day, year]
-                : [day, month, year]))));
+        const month = this.format !== 'iso' ? (hAsync("gcds-select", Object.assign({ label: I18N$l[lang].month, selectId: "month", name: "month", defaultValue: I18N$l[lang].selectmonth, disabled: disabled, onInput: e => this.handleInput(e, 'month'), onChange: e => this.handleInput(e, 'month'), value: this.monthValue, class: `gcds-date-input__month ${hasError['month'] ? 'gcds-date-input--error' : ''}` }, requiredAttr, { "aria-invalid": hasError['month'].toString(), "aria-description": hasError['month'] && errorMessage, form: form, ref: el => (this.monthInput = el) }), options.map(option => (hAsync("option", { key: option, value: option }, I18N$l[lang]['months'][option]))))) : (hAsync("gcds-input", Object.assign({ name: "month", label: I18N$l[lang].month, inputId: "month", type: "text", inputmode: "numeric", size: 2, disabled: disabled, value: this.monthValue, onInput: e => this.handleInput(e, 'month'), onChange: e => this.handleInput(e, 'month'), onKeyDown: this.blockInvalidKeys, class: `gcds-date-input__month ${hasError['month'] ? 'gcds-date-input--error' : ''}`, "validate-on": 'other' }, requiredAttr, { "aria-invalid": hasError['month'].toString(), "aria-description": hasError['month'] && errorMessage, form: form, ref: el => (this.monthInput = el) })));
+        const year = (hAsync("gcds-input", Object.assign({ key: '907c1530ef58d67b0ce6eaa9a5804ae9d6141f62', name: "year", label: I18N$l[lang].year, inputId: "year", type: "text", inputmode: "numeric", size: 4, disabled: disabled, value: this.yearValue, onInput: e => this.handleInput(e, 'year'), onChange: e => this.handleInput(e, 'year'), onKeyDown: this.blockInvalidKeys, class: `gcds-date-input__year ${hasError['year'] ? 'gcds-date-input--error' : ''}`, "validate-on": 'other' }, requiredAttr, { "aria-invalid": hasError['year'].toString(), "aria-description": hasError['year'] && errorMessage, form: form, ref: el => (this.yearInput = el) })));
+        const day = (hAsync("gcds-input", Object.assign({ key: '52d6f0fc6df755042b9d2f9908aa31ac0037564b', name: "day", label: I18N$l[lang].day, inputId: "day", type: "text", inputmode: "numeric", size: 2, disabled: disabled, value: this.dayValue, onInput: e => this.handleInput(e, 'day'), onChange: e => this.handleInput(e, 'day'), onKeyDown: this.blockInvalidKeys, "validate-on": 'other', class: `gcds-date-input__day ${hasError['day'] ? 'gcds-date-input--error' : ''}` }, requiredAttr, { "aria-invalid": hasError['day'].toString(), "aria-description": hasError['day'] && errorMessage, form: form, ref: el => (this.dayInput = el) })));
+        let formatArray;
+        if (format === 'iso') {
+            formatArray = [year, month, day];
+        }
+        else if (format === 'compact') {
+            formatArray = [month, year];
+        }
+        else if (format === 'full') {
+            formatArray = lang === 'en' ? [month, day, year] : [day, month, year];
+        }
+        return (hAsync(Host, { key: '94dec21a77e42646ecaae7593f9609ec3419a2f3', name: name, onBlur: () => this.onBlur() }, this.validateRequiredProps() && (hAsync("fieldset", Object.assign({ key: '30ec72bc476564064bbc086e69a3b8722c91d71b', class: "gcds-date-input__fieldset" }, fieldsetAttrs, { ref: el => (this.fieldset = el) }), hAsync("legend", { key: 'ed3fbeaaf9fe91b6f322741d93dfff40bbb2356a', id: "date-input-legend" }, legend, required ? (hAsync("span", { class: "legend__required" }, I18N$l[lang].required)) : null), hint ? (hAsync("gcds-hint", { id: "date-input-hint", "hint-id": "date-input" }, hint)) : null, errorMessage ? (hAsync("div", null, hAsync("gcds-error-message", { id: "date-input-error", messageId: "date-input" }, errorMessage))) : null, formatArray))));
     }
     static get delegatesFocus() { return true; }
     static get formAssociated() { return true; }
@@ -5681,7 +5740,7 @@ class GcdsDateModified {
     }
     render() {
         const { lang, type } = this;
-        return (hAsync(Host, { key: 'cda63407c2b6dc57f860d505f61a9f78c15c96b3' }, this.validateRequiredProps() && (hAsync("dl", { key: '3324ca2c0c64c5f89c4a398344f3892fb1637073', class: "gcds-date-modified" }, hAsync("dt", { key: '46bb18c35af4cfccd2e8cc71943fb3bee51de503' }, hAsync("gcds-text", { key: 'd9b12fc046a396ba12817b210eb100980c59d720', display: "inline", "margin-bottom": "0" }, type === 'version' ? I18N$k[lang].version : I18N$k[lang].date)), hAsync("dd", { key: 'cc81cb879d8fc1a06832aa6f80d29c179892afc7' }, hAsync("gcds-text", { key: 'cebba414553c7357b8bf9033d4d84e2a2ec03521', display: "inline", "margin-bottom": "0" }, type === 'version' ? (hAsync("slot", null)) : (hAsync("time", null, hAsync("slot", null)))))))));
+        return (hAsync(Host, { key: '8d15998c9617fa0ac4bb3fdc3dae6fc6bdce9413' }, this.validateRequiredProps() && (hAsync("dl", { key: '4de9578f1f96c965847214b82b2285303931c75f', class: "gcds-date-modified" }, hAsync("dt", { key: '0c7d1942bbcd97af004c3c111abab9e9fa359e1a' }, hAsync("gcds-text", { key: '918144a11135a26ebb0168f24c9d85492e9fcf4a', display: "inline", "margin-bottom": "0" }, type === 'version' ? I18N$k[lang].version : I18N$k[lang].date)), hAsync("dd", { key: '62e867808d365eeaceea76b3d613c158014eb44a' }, hAsync("gcds-text", { key: 'b352283de5aadff853688ff828cbd27364adc3b2', display: "inline", "margin-bottom": "0" }, type === 'version' ? (hAsync("slot", null)) : (hAsync("time", null, hAsync("slot", null)))))))));
     }
     get el() { return getElement(this); }
     static get style() { return gcdsDateModifiedCss; }
@@ -5699,7 +5758,7 @@ class GcdsDateModified {
     }; }
 }
 
-const gcdsDetailsCss = "@layer reset, default, hover, focus, print;@layer reset{:host{display:block}:host .details__summary{background-color:transparent;border-color:transparent;cursor:pointer;display:block}:host .details__panel slot{display:initial}:host .details__panel ::slotted(:first-child){margin-block-start:0}:host .details__panel ::slotted(:last-child){margin-block-end:0}:host .details__panel ::slotted(ol),:host .details__panel ::slotted(ul){padding:0}}@layer default{:host .gcds-details .details__summary{color:var(--gcds-details-default-text);font:var(--gcds-details-font-desktop);padding:var(--gcds-details-summary-padding);position:relative;text-align:left;text-decoration-color:currentColor;text-decoration-line:underline;text-decoration-style:solid;text-decoration-thickness:var(\n        --gcds-details-default-decoration-thickness\n      );text-underline-offset:.2em;transition:background-color .15s ease-in-out,color .15s ease-in-out}@media only screen and (width < 48em){:host .gcds-details .details__summary{font:var(--gcds-details-font-mobile)}}:host .gcds-details .details__summary:before{border-block-end:var(--gcds-details-summary-arrow-border-top-bottom) solid transparent;border-block-start:var(--gcds-details-summary-arrow-border-top-bottom) solid transparent;border-inline-start:var(--gcds-details-summary-arrow-border-left) solid currentColor;content:\"\";height:0;left:var(--gcds-details-summary-arrow-left);position:absolute;top:var(--gcds-details-summary-arrow-top);transition:transform .15s ease-in-out;width:0}:host .gcds-details .details__summary[aria-expanded=false]+.details__panel{clip-path:inset(100%);clip:rect(1px,1px,1px,1px);height:1px;overflow:hidden;position:absolute;white-space:nowrap;width:1px}:host .gcds-details .details__summary[aria-expanded=true]:before{transform:rotate(90deg)}:host .gcds-details .details__panel{margin:var(--gcds-details-panel-margin);padding:var(--gcds-details-panel-padding);position:relative}:host .gcds-details .details__panel summary{display:none}:host .gcds-details .details__panel:before{background-color:var(--gcds-details-panel-border-color);content:\"\";display:block;height:100%;left:0;position:absolute;top:0;width:var(--gcds-details-panel-border-width)}:host .gcds-details .details__panel ::slotted(*){font:var(--gcds-details-font-desktop)}@media only screen and (width < 48em){:host .gcds-details .details__panel ::slotted(*){font:var(--gcds-details-font-mobile)}}:host .gcds-details .details__panel ::slotted(:not(:last-child)){margin-block-end:var(--gcds-details-panel-slotted-margin)!important;margin-block-start:0!important}:host .gcds-details .details__panel ::slotted(ol),:host .gcds-details .details__panel ::slotted(ul){margin-inline-start:var(\n          --gcds-details-panel-slotted-margin\n        )!important}:host .gcds-details .details__panel ::slotted(small){font:var(--gcds-details-font-small-desktop)}@media only screen and (width < 48em){:host .gcds-details .details__panel ::slotted(small){font:var(--gcds-details-font-small-mobile)}}}@layer hover{@media (hover:hover){:host .gcds-details .details__summary:hover:not(:focus){color:var(--gcds-details-hover-text);text-decoration-thickness:var(--gcds-details-hover-decoration-thickness);text-underline-offset:.2em}:host .gcds-details .details__summary:hover:not(:focus):before{color:var(--gcds-details-hover-text)}}}@layer focus{:host .gcds-details .details__summary:focus{background-color:var(--gcds-details-focus-background);border-radius:var(--gcds-details-focus-border-radius);box-shadow:var(--gcds-details-focus-box-shadow);color:var(--gcds-details-focus-text);outline:var(--gcds-details-focus-outline);outline-offset:var(--gcds-details-focus-outline-offset);text-decoration:none}}@layer print{@media print{:host .gcds-details .details__summary{color:var(--gcds-details-print-summary-text);font-weight:var(--gcds-details-print-summary-font-weight);text-decoration:none}:host .gcds-details .details__summary:before{transform:rotate(90deg)}:host .gcds-details .details__panel{clip-path:none;clip:auto;border-left:var(--gcds-details-panel-border-width) solid var(--gcds-details-panel-border-color);display:block;height:auto;overflow:visible;position:static;white-space:normal;width:auto}}}";
+const gcdsDetailsCss = "@layer reset, default, hover, focus, print;@layer reset{:host{display:block}:host .details__summary{background-color:transparent;border-color:transparent;cursor:pointer;display:block}:host .details__panel slot{display:initial}:host .details__panel ::slotted(:first-child){margin-block-start:0}:host .details__panel ::slotted(:last-child){margin-block-end:0}:host .details__panel ::slotted(ol),:host .details__panel ::slotted(ul){padding:0}}@layer default{:host .gcds-details .details__summary{color:var(--gcds-details-default-text);font:var(--gcds-details-font-desktop);padding:var(--gcds-details-summary-padding);position:relative;text-align:left;text-decoration-color:currentColor;text-decoration-line:underline;text-decoration-style:solid;text-decoration-thickness:var(\n        --gcds-details-default-decoration-thickness\n      );text-underline-offset:var(--gcds-details-summary-underline-offset);transition:background-color .15s ease-in-out,color .15s ease-in-out}@media only screen and (width < 48em){:host .gcds-details .details__summary{font:var(--gcds-details-font-mobile)}}:host .gcds-details .details__summary:before{border-block-end:var(--gcds-details-summary-arrow-border-top-bottom) solid transparent;border-block-start:var(--gcds-details-summary-arrow-border-top-bottom) solid transparent;border-inline-start:var(--gcds-details-summary-arrow-border-left) solid currentColor;content:\"\";height:0;left:var(--gcds-details-summary-arrow-left);position:absolute;top:var(--gcds-details-summary-arrow-top);transition:transform .15s ease-in-out;width:0}:host .gcds-details .details__summary[aria-expanded=false]+.details__panel{clip-path:inset(100%);clip:rect(1px,1px,1px,1px);height:1px;overflow:hidden;position:absolute;white-space:nowrap;width:1px}:host .gcds-details .details__summary[aria-expanded=true]:before{transform:rotate(90deg)}:host .gcds-details .details__panel{margin:var(--gcds-details-panel-margin);padding:var(--gcds-details-panel-padding);position:relative}:host .gcds-details .details__panel summary{display:none}:host .gcds-details .details__panel:before{background-color:var(--gcds-details-panel-border-color);content:\"\";display:block;height:100%;left:0;position:absolute;top:0;width:var(--gcds-details-panel-border-width)}:host .gcds-details .details__panel ::slotted(*){font:var(--gcds-details-font-desktop)}@media only screen and (width < 48em){:host .gcds-details .details__panel ::slotted(*){font:var(--gcds-details-font-mobile)}}:host .gcds-details .details__panel ::slotted(:not(:last-child)){margin-block-end:var(--gcds-details-panel-slotted-margin)!important;margin-block-start:0!important}:host .gcds-details .details__panel ::slotted(ol),:host .gcds-details .details__panel ::slotted(ul){margin-inline-start:var(\n          --gcds-details-panel-slotted-margin\n        )!important}:host .gcds-details .details__panel ::slotted(small){font:var(--gcds-details-font-small-desktop)}@media only screen and (width < 48em){:host .gcds-details .details__panel ::slotted(small){font:var(--gcds-details-font-small-mobile)}}}@layer hover{@media (hover:hover){:host .gcds-details .details__summary:hover:not(:focus){color:var(--gcds-details-hover-text);text-decoration-thickness:var(--gcds-details-hover-decoration-thickness)}:host .gcds-details .details__summary:hover:not(:focus):before{color:var(--gcds-details-hover-text)}}}@layer focus{:host .gcds-details .details__summary:focus{background-color:var(--gcds-details-focus-background);border-radius:var(--gcds-details-focus-border-radius);box-shadow:var(--gcds-details-focus-box-shadow);color:var(--gcds-details-focus-text);outline:var(--gcds-details-focus-outline);outline-offset:var(--gcds-details-focus-outline-offset);text-decoration:none}}@layer print{@media print{:host .gcds-details .details__summary{color:var(--gcds-details-print-summary-text);font-weight:var(--gcds-details-print-summary-font-weight);text-decoration:none}:host .gcds-details .details__summary:before{transform:rotate(90deg)}:host .gcds-details .details__panel{clip-path:none;clip:auto;border-left:var(--gcds-details-panel-border-width) solid var(--gcds-details-panel-border-color);display:block;height:auto;overflow:visible;position:static;white-space:normal;width:auto}}}";
 
 /**
  * Details is an interactive switch for a person to expand or collapse content.
@@ -5754,12 +5813,12 @@ class GcdsDetails {
     }
     render() {
         const { detailsTitle, open } = this;
-        return (hAsync(Host, { key: '165e069eb5507fe81e7f2e3f23d70cf3e5979aa7' }, hAsync("div", { key: 'a9bbede603871396dcdbfe6d8a4a25952b611f58', class: "gcds-details" }, hAsync("button", { key: 'fa1db12503e14a3e99781759a3fc5f1544a24235', "aria-expanded": open.toString(), "aria-controls": "details__panel", onBlur: () => this.gcdsBlur.emit(), onFocus: () => this.gcdsFocus.emit(), onClick: e => {
+        return (hAsync(Host, { key: '0d107b1dc773b9cedb53f2ff49ffdfef927ee462' }, hAsync("div", { key: '8e6c82eb769d30fcdd00551cdc57a68cbe5f12a8', class: "gcds-details" }, hAsync("button", { key: '2deb6b323c9f24e4fd7e80b9d399a2df7d2d1fa3', "aria-expanded": open.toString(), "aria-controls": "details__panel", onBlur: () => this.gcdsBlur.emit(), onFocus: () => this.gcdsFocus.emit(), onClick: e => {
                 const event = emitEvent(e, this.gcdsClick);
                 if (event) {
                     this.toggle();
                 }
-            }, class: "details__summary", id: "details__summary" }, detailsTitle), hAsync("details", { key: 'b63ec18b239b98bbb308989a4b71d4bda95372be', open: open, id: "details__panel", class: "details__panel", "aria-labelledby": "details__summary", onToggle: ev => this.handleToggle(ev), ref: element => (this.detailsElement = element) }, hAsync("summary", { key: 'f64cf84f9a239e19e8978e8511b94bc7b2e7dfc0' }, detailsTitle), hAsync("slot", { key: 'd438628d3f47d1a15f4e03a603a86f08bf25a658' })))));
+            }, class: "details__summary", id: "details__summary" }, detailsTitle), hAsync("details", { key: 'a5767c51f7bff82551439dff6302521fbeaefe2e', open: open, id: "details__panel", class: "details__panel", "aria-labelledby": "details__summary", onToggle: ev => this.handleToggle(ev), ref: element => (this.detailsElement = element) }, hAsync("summary", { key: '3072f177cb51207b9b94e70666c71aba4336705a' }, detailsTitle), hAsync("slot", { key: 'ba33ecdb88ed9a51914713a16e4260c265634b5e' })))));
     }
     get el() { return getElement(this); }
     static get style() { return gcdsDetailsCss; }
@@ -5790,7 +5849,7 @@ class GcdsErrorMessage {
     }
     render() {
         const { messageId } = this;
-        return (hAsync(Host, { key: '045fc9bca1001d5ad8a083333b64293c8152c4e5', id: `error-message-${messageId}`, class: "gcds-error-message-wrapper" }, hAsync("gcds-text", { key: 'de9f869bdbe90f798821bffbe8aa9e930d703544', class: "error-message", role: "alert", "margin-bottom": "75" }, hAsync("gcds-icon", { key: '0f579edfda3b98171166c90ee6b87d4e025762da', name: "warning-triangle", "margin-right": "50" }), hAsync("strong", { key: '92704a625f29719fc7f31426fb6d20756213de30' }, hAsync("slot", { key: '657508619840d11cfdd81fb207de294bc1256de7' })))));
+        return (hAsync(Host, { key: 'c46004716d37a41b000ff3ffab62c63180e188ba', id: `error-message-${messageId}`, class: "gcds-error-message-wrapper" }, hAsync("gcds-text", { key: 'c53d63bc30351226b2d03eed6c9f86eaec4652f2', class: "error-message", role: "alert", "margin-bottom": "75" }, hAsync("gcds-icon", { key: '3bf459de433f1e89e24137b262e69e191059487d', name: "warning-triangle", "margin-right": "50" }), hAsync("strong", { key: 'b5447dbab78b57dd418906e7132970569f818308' }, hAsync("slot", { key: '4ff24d41c1cab1e0cece130dac6a391806241c0f' })))));
     }
     get el() { return getElement(this); }
     static get style() { return gcdsErrorMessageCss; }
@@ -5947,9 +6006,9 @@ class GcdsErrorSummary {
     }
     render() {
         const { heading, errorQueue, lang, hasSubmitted, errorLinks } = this;
-        return (hAsync(Host, { key: 'a42f126a2bbbe41621a5c56d04c87b31e87d0363' }, hAsync("div", { key: 'eeee2e16453b3c7911042cabb079ab072d3bcd09', role: "alert", tabindex: "-1", ref: element => (this.shadowElement = element), class: `gcds-error-summary ${(hasSubmitted || errorLinks) && Object.keys(errorQueue).length > 0
+        return (hAsync(Host, { key: 'aabdf11e63871b1b04b82510cf1e204cfe4af997' }, hAsync("div", { key: '3a42ace253a21dc1b2f6532f31002c4769da154b', role: "alert", tabindex: "-1", ref: element => (this.shadowElement = element), class: `gcds-error-summary ${(hasSubmitted || errorLinks) && Object.keys(errorQueue).length > 0
                 ? 'gcds-show'
-                : ''}` }, hAsync("gcds-heading", { key: '5c0aa122bc9f7a1dc250d856734d99befb88502e', tag: "h2", "margin-top": "0", "margin-bottom": "225" }, heading !== null && heading !== void 0 ? heading : I18N$j[lang].heading), hAsync("ol", { key: '2fd12eca1a9ffe4f11aedfdd3b93d3a0becf7420', class: "summary__errorlist" }, (hasSubmitted || errorLinks) &&
+                : ''}` }, hAsync("gcds-heading", { key: 'da08c194ae8467fd49e25ded57cef1ce76c59bf3', tag: "h2", "margin-top": "0", "margin-bottom": "225" }, heading !== null && heading !== void 0 ? heading : I18N$j[lang].heading), hAsync("ol", { key: 'f3c9ac34f213bc43777c4f0cd8fc5f3649b1a62b', class: "summary__errorlist" }, (hasSubmitted || errorLinks) &&
             Object.keys(errorQueue).length > 0 &&
             Object.keys(errorQueue).map(key => {
                 return (hAsync("li", { class: "summary__listitem" }, hAsync("gcds-link", { size: "regular", href: errorLinks ? key : '#', onClick: e => {
@@ -6021,7 +6080,7 @@ class GcdsFieldset {
     render() {
         const { hint, inheritedAttributes, legend, legendSize } = this;
         const fieldsetAttrs = Object.assign({}, inheritedAttributes);
-        return (hAsync(Host, { key: '3cd874d549d298eaab3347e3a804d3bec7d1e4a9' }, hAsync("fieldset", Object.assign({ key: '431a72699d4e23445c4f7e8e52422351ceb16e9f', class: "gcds-fieldset" }, fieldsetAttrs, { "aria-labelledby": hint ? `fieldset-legend fieldset-hint` : `fieldset-legend`, tabindex: "-1", ref: element => (this.shadowElement = element) }), hAsync("legend", { key: '9a24d81b5304693d0aa32b4895b2505c0fb28ff9', id: "fieldset-legend", class: `size-${legendSize}` }, legend), hint ? (hAsync("gcds-hint", { id: "fieldset-hint", "hint-id": "fieldset" }, hint)) : null, hAsync("slot", { key: 'a820afec5165dd7175809e0c69269e99dfa85ec8' }))));
+        return (hAsync(Host, { key: 'dd720d61b6783589d04ed65873ff637990e95dea' }, hAsync("fieldset", Object.assign({ key: 'a9540b09ad410113059c2840f9720185e0fb00ff', class: "gcds-fieldset" }, fieldsetAttrs, { "aria-labelledby": hint ? `fieldset-legend fieldset-hint` : `fieldset-legend`, tabindex: "-1", ref: element => (this.shadowElement = element) }), hAsync("legend", { key: '9a1769bf1ce495e521d658914a837a09de0d23fa', id: "fieldset-legend", class: `size-${legendSize}` }, legend), hint ? (hAsync("gcds-hint", { id: "fieldset-hint", "hint-id": "fieldset" }, hint)) : null, hAsync("slot", { key: '087bf52d9872db591bced7ebefbf1252f4e270d2' }))));
     }
     static get delegatesFocus() { return true; }
     get el() { return getElement(this); }
@@ -6359,7 +6418,7 @@ class GcdsFileUploader {
             attrsInput['aria-describedby'] =
                 `${hintID}${errorID}${attrsInput['aria-describedby']}`;
         }
-        return (hAsync(Host, { key: '7f8da364ccd3dd2247eb3ca0acfdf626350bc935' }, hAsync("div", { key: '194df3b32d1751a1552d19a4a09f6794fd93e960', class: `gcds-file-uploader-wrapper ${disabled ? 'gcds-disabled' : ''} ${hasError ? 'gcds-error' : ''}` }, hAsync("gcds-label", Object.assign({ key: '4ae5e97f811a21823866c153211ce7903175351e' }, attrsLabel, { "hide-label": hideLabel, "label-for": uploaderId, lang: lang })), hint ? hAsync("gcds-hint", { "hint-id": uploaderId }, hint) : null, errorMessage ? (hAsync("gcds-error-message", { messageId: uploaderId }, errorMessage)) : null, hAsync("div", { key: 'f40d3488ea2aaa8d2833c4f1c988f67c847deb94', class: `file-uploader__input ${value.length > 0 ? 'uploaded-files' : ''}`, onDrop: e => this.handleDrop(e), onDragOver: e => e.preventDefault() }, hAsync("button", { key: '9ce270d208d451d2b240d8049d5b5a07a5bf1791', type: "button", tabindex: "-1", onClick: () => this.shadowElement.click() }, I18N$h[lang].button.upload), hAsync("input", Object.assign({ key: '9ef4ac5e052c73626541fdfc3f2eb98fc65f4482', type: "file", id: uploaderId }, attrsInput, { onBlur: () => this.onBlur(), onFocus: () => this.gcdsFocus.emit(), onInput: e => this.handleInput(e, this.gcdsInput), onChange: e => this.handleInput(e, this.gcdsChange), "aria-invalid": hasError ? 'true' : 'false', ref: element => (this.shadowElement = element) })), value.length > 0 ? (hAsync("gcds-sr-only", { id: "file-uploader__summary" }, hAsync("span", null, I18N$h[lang].summary.selected, " "), value.map(file => (hAsync("span", null, file, " "))))) : (hAsync("gcds-sr-only", { id: "file-uploader__summary" }, I18N$h[lang].summary.unselected))), value.length > 0
+        return (hAsync(Host, { key: '342d3516761caa694a7d9f8d38aac3020a5b2e39' }, hAsync("div", { key: 'fd0dfb14b09fc103b9bfd7c3c4660849e62ba6b3', class: `gcds-file-uploader-wrapper ${disabled ? 'gcds-disabled' : ''} ${hasError ? 'gcds-error' : ''}` }, hAsync("gcds-label", Object.assign({ key: 'f81d17ed5e7bf8aba3437c07c0a08f38d1419ba2' }, attrsLabel, { "hide-label": hideLabel, "label-for": uploaderId, lang: lang })), hint ? hAsync("gcds-hint", { "hint-id": uploaderId }, hint) : null, errorMessage ? (hAsync("gcds-error-message", { messageId: uploaderId }, errorMessage)) : null, hAsync("div", { key: 'b6987706077db9afa75f38e66afcc2f4ebb32bc8', class: `file-uploader__input ${value.length > 0 ? 'uploaded-files' : ''}`, onDrop: e => this.handleDrop(e), onDragOver: e => e.preventDefault() }, hAsync("button", { key: 'a6feb4b86f3b6cc7fd9998bc3179f043e7f64365', type: "button", tabindex: "-1", onClick: () => this.shadowElement.click() }, I18N$h[lang].button.upload), hAsync("input", Object.assign({ key: '7d730c993cef70cd1dac600a58e5acef40bdfabd', type: "file", id: uploaderId }, attrsInput, { onBlur: () => this.onBlur(), onFocus: () => this.gcdsFocus.emit(), onInput: e => this.handleInput(e, this.gcdsInput), onChange: e => this.handleInput(e, this.gcdsChange), "aria-invalid": hasError ? 'true' : 'false', ref: element => (this.shadowElement = element) })), value.length > 0 ? (hAsync("gcds-sr-only", { id: "file-uploader__summary" }, hAsync("span", null, I18N$h[lang].summary.selected, " "), value.map(file => (hAsync("span", null, file, " "))))) : (hAsync("gcds-sr-only", { id: "file-uploader__summary" }, I18N$h[lang].summary.unselected))), value.length > 0
             ? value.map(file => (hAsync("div", { class: "file-uploader__uploaded-file", "aria-label": `${I18N$h[lang].removeFile} ${file}.` }, hAsync("gcds-text", { "margin-bottom": "0" }, file), hAsync("button", { onClick: e => this.removeFile(e) }, hAsync("span", null, I18N$h[lang].button.remove), hAsync("gcds-icon", { name: "close", size: "text", "margin-left": "150" })))))
             : null)));
     }
@@ -6752,12 +6811,12 @@ class GcdsFooter {
         const siteNav = I18N$g[lang].site.menu;
         let contextualLinkCount = 0;
         let subLinkCount = 0;
-        return (hAsync(Host, { key: '7e858fa9f2bfaa8f683fe26375b091761fff459a', role: "contentinfo", "aria-label": "Footer" }, hAsync("gcds-sr-only", { key: '7496ed74840b2b387980e59ddd89c3549db525a7', tag: "h2" }, I18N$g[lang].about), contextualLinksObject && contextualHeading && (hAsync("div", { key: 'fc3e8e4cd20c619b14ac3131a101b57be2a2591b', class: "gcds-footer__contextual" }, hAsync("div", { key: 'b198915a312df2c4c0b5a9c94792bf3d609f9325', class: "contextual__container" }, hAsync("nav", { key: '647836ad40250308d7e57e49e437aea02e40f772', "aria-labelledby": "contextual__heading" }, hAsync("h3", { key: '776b38488c416f4d13a2ed0397694be2436e7e2a', id: "contextual__heading", class: "contextual__heading" }, contextualHeading), hAsync("ul", { key: 'e766519d02dc672fc0127e0d25871948d2b1a2a3', class: "contextual__list" }, Object.keys(contextualLinksObject).map(key => {
+        return (hAsync(Host, { key: '6a0f9c4059caa2e30ef02a4bb51a552152c2bc4e', role: "contentinfo", "aria-label": "Footer" }, hAsync("gcds-sr-only", { key: 'c6303a1cec09909530a3301fa5e5b2ef991a41d1', tag: "h2" }, I18N$g[lang].about), contextualLinksObject && contextualHeading && (hAsync("div", { key: '07b21b1d7d83972f74c8bb0ab78a9e54f84c87eb', class: "gcds-footer__contextual" }, hAsync("div", { key: '64417ee815a86dbf4871972bcfd138721dfdc497', class: "contextual__container" }, hAsync("nav", { key: '4de71bc121ab044532922ce8e21278dc2d9329df', "aria-labelledby": "contextual__heading" }, hAsync("h3", { key: '1ddcfa84c72e86ffb9c1558988dbc70c940e6c98', id: "contextual__heading", class: "contextual__heading" }, contextualHeading), hAsync("ul", { key: '10f038c6286ca9e9e0ec1892797bd22d5cd7c1cf', class: "contextual__list" }, Object.keys(contextualLinksObject).map(key => {
             if (contextualLinkCount < 3) {
                 contextualLinkCount++;
                 return (hAsync("li", null, hAsync("gcds-link", { size: "small", href: contextualLinksObject[key] }, key)));
             }
-        })))))), display === 'full' ? (hAsync("div", { class: "gcds-footer__main" }, hAsync("div", { class: "main__container" }, hAsync("nav", { class: "main__govnav", "aria-labelledby": "govnav__heading" }, hAsync("h3", { id: "govnav__heading" }, I18N$g[lang].gov.heading), hAsync("ul", { class: "govnav__list" }, Object.keys(govNav).map(value => (hAsync("li", null, hAsync("gcds-link", { size: "small", href: govNav[value].link }, govNav[value].text)))))), hAsync("nav", { class: "main__themenav", "aria-labelledby": "themenav__heading" }, hAsync("gcds-sr-only", { tag: "h4", id: "themenav__heading" }, I18N$g[lang].themes.heading), hAsync("ul", { class: "themenav__list" }, Object.keys(themeNav).map(value => (hAsync("li", null, hAsync("gcds-link", { size: "small", href: themeNav[value].link }, themeNav[value].text))))))))) : null, hAsync("div", { key: 'f374a7be6e1e64ae23bd409ed9b1da0351f1f479', class: "gcds-footer__sub" }, hAsync("div", { key: '1f38f3666e22111dbeb70b210e8931173fd7b7cc', class: "sub__container" }, hAsync("nav", { key: '8d25d9b17f46f90d7f6278007bd53a6237fa7e6e', "aria-labelledby": "sub__heading" }, hAsync("gcds-sr-only", { key: '05afc9849b76b122ddbc8e554b9d8005aca73b0e', tag: "h3", id: "sub__heading" }, I18N$g[lang].site.heading), hAsync("ul", { key: '72aa0a35a40880e1916a45d0abc848ab3b3c2c6a' }, subLinks
+        })))))), display === 'full' ? (hAsync("div", { class: "gcds-footer__main" }, hAsync("div", { class: "main__container" }, hAsync("nav", { class: "main__govnav", "aria-labelledby": "govnav__heading" }, hAsync("h3", { id: "govnav__heading" }, I18N$g[lang].gov.heading), hAsync("ul", { class: "govnav__list" }, Object.keys(govNav).map(value => (hAsync("li", null, hAsync("gcds-link", { size: "small", href: govNav[value].link }, govNav[value].text)))))), hAsync("nav", { class: "main__themenav", "aria-labelledby": "themenav__heading" }, hAsync("gcds-sr-only", { tag: "h4", id: "themenav__heading" }, I18N$g[lang].themes.heading), hAsync("ul", { class: "themenav__list" }, Object.keys(themeNav).map(value => (hAsync("li", null, hAsync("gcds-link", { size: "small", href: themeNav[value].link }, themeNav[value].text))))))))) : null, hAsync("div", { key: '4909ad3592fd2304df8353e11947eca69aaa56aa', class: "gcds-footer__sub" }, hAsync("div", { key: '3c4d3282dd8ead4b87df28591d94d6e6d327ef8d', class: "sub__container" }, hAsync("nav", { key: 'ee1baa7d6ea78245af3451f128182683b51649a8', "aria-labelledby": "sub__heading" }, hAsync("gcds-sr-only", { key: 'fa65fa21472446b67ea15179f27394ff95f238bf', tag: "h3", id: "sub__heading" }, I18N$g[lang].site.heading), hAsync("ul", { key: '630f20304416893db2c67a6cda4400205a822a4b' }, subLinks
             ? Object.keys(subLinksObject).map(key => {
                 if (subLinkCount < 5) {
                     subLinkCount++;
@@ -7057,7 +7116,7 @@ const I18N$e = {
   },
 };
 
-const gcdsHeaderCss = "@layer reset, default, brand, menu, wide;@layer reset{:host{display:block}:host slot{display:initial}}@layer default{:host{margin:var(--gcds-header-margin)!important}:host .gcds-header__container{justify-content:space-between;margin:0 auto;max-width:var(--gcds-header-container-max-width);width:90%}:host .gcds-header__skip-to-nav{margin-inline:auto;position:absolute;text-align:center;top:var(--gcds-header-skiptonav-top);width:100%}:host .gcds-header__skip-to-nav gcds-link{left:0;position:absolute;top:0;width:inherit;z-index:3}:host .gcds-header__skip-to-nav gcds-link:not(:focus){height:0;overflow:hidden;width:0;clip:rect(0,0,0,0)}}@layer brand{:host .gcds-header__brand{border-block-end:var(--gcds-header-brand-border-width) solid var(--gcds-header-brand-border-color);container:component brand/inline-size;padding:var(--gcds-header-brand-padding)}:host .gcds-header__brand .brand__container{display:grid;grid-gap:var(--gcds-header-brand-grid-gap);grid-template-areas:\"signature toggle\" \"search search\";grid-template-columns:1fr .1fr;margin:0 auto;max-width:var(--gcds-header-container-max-width);width:90%}:host .gcds-header__brand .brand__container.container--simple{grid-template-areas:\"signature toggle\"}:host .gcds-header__brand .brand__container :is(.brand__toggle,slot[name=toggle]){grid-area:toggle;text-align:right}:host .gcds-header__brand .brand__container :is(.brand__signature,slot[name=signature]){align-content:center;grid-area:signature}:host .gcds-header__brand .brand__container .brand__search{display:block;grid-area:search;max-width:100%}:host .gcds-header__brand .brand__container .brand__search ::slotted(gcds-search){--gcds-search-input-width:35ch}}@layer menu{:host{--gcds-nav-group-mobile-trigger-margin:var(\n      --gcds-header-menu-top-nav-mobile-trigger-margin\n    )}}@layer wide{@container brand (width >= 51em){:host .gcds-header__brand .brand__container{grid-template-areas:\"toggle toggle\" \"signature search\";grid-template-columns:1fr 1fr}:host .gcds-header__brand .brand__container .brand__search,:host .gcds-header__brand .brand__container slot[name=search]{margin-inline-start:auto;width:fit-content}}}";
+const gcdsHeaderCss = "@layer reset, default, brand, menu, wide;@layer reset{:host{display:block}:host slot{display:initial}}@layer default{:host{margin:var(--gcds-header-margin)!important}:host .gcds-header__container{justify-content:space-between;margin:0 auto;max-width:var(--gcds-header-container-max-width);width:90%}:host .gcds-header__skip-to-nav{margin-inline:auto;position:absolute;text-align:center;top:var(--gcds-header-skiptonav-top);width:100%}:host .gcds-header__skip-to-nav gcds-link{left:0;position:absolute;top:0;width:inherit;z-index:3}:host .gcds-header__skip-to-nav gcds-link:not(:focus){height:0;overflow:hidden;width:0;clip:rect(0,0,0,0)}:host{--gcds-top-nav-width-full:var(--gcds-top-nav-width-constrained)}}@layer brand{:host .gcds-header__brand{border-block-end:var(--gcds-header-brand-border-width) solid var(--gcds-header-brand-border-color);container:component brand/inline-size;padding:var(--gcds-header-brand-padding)}:host .gcds-header__brand .brand__container{display:grid;grid-gap:var(--gcds-header-brand-grid-gap);grid-template-areas:\"signature toggle\" \"search search\";grid-template-columns:1fr .1fr;margin:0 auto;max-width:var(--gcds-header-container-max-width);width:90%}:host .gcds-header__brand .brand__container.container--simple{grid-template-areas:\"signature toggle\"}:host .gcds-header__brand .brand__container :is(.brand__toggle,slot[name=toggle]){grid-area:toggle;text-align:right}:host .gcds-header__brand .brand__container :is(.brand__signature,slot[name=signature]){align-content:center;grid-area:signature}:host .gcds-header__brand .brand__container .brand__search{display:block;grid-area:search;max-width:100%}:host .gcds-header__brand .brand__container .brand__search ::slotted(gcds-search){--gcds-search-input-width:35ch}}@layer menu{:host{--gcds-nav-group-mobile-trigger-margin:var(\n      --gcds-header-menu-top-nav-mobile-trigger-margin\n    )}}@layer wide{@container brand (width >= 51.2em){:host .gcds-header__brand .brand__container{grid-template-areas:\"toggle toggle\" \"signature search\";grid-template-columns:1fr 1fr}:host .gcds-header__brand .brand__container .brand__search,:host .gcds-header__brand .brand__container slot[name=search]{margin-inline-start:auto;width:fit-content}}}";
 
 /**
  * The header is the responsive Government of Canada branded header landmark.
@@ -7146,7 +7205,7 @@ class GcdsHeader {
     }
     render() {
         const { renderSkipToNav, renderToggle, renderSignature, renderSearch, hasSearch, hasBanner, hasBreadcrumb, } = this;
-        return (hAsync(Host, { key: '2787783d5b595f8f64b189017993dc6cf1cb6be2', role: "banner" }, renderSkipToNav, hasBanner ? hAsync("slot", { name: "banner" }) : null, hAsync("div", { key: 'cad8a5a1262b661ac8575eb2c29b0e8eeeaec778', class: "gcds-header__brand" }, hAsync("div", { key: 'adefc05190f8b6c0d2d75df7d423f230f6d8f6fa', class: `brand__container ${!hasSearch ? 'container--simple' : ''}` }, renderToggle, renderSignature, renderSearch)), hAsync("slot", { key: 'e83e3939de4a1846196072f0e87417942dc19b42', name: "menu" }), hasBreadcrumb ? (hAsync("div", { class: "gcds-header__container" }, hAsync("slot", { name: "breadcrumb" }))) : null));
+        return (hAsync(Host, { key: 'e13f9438f4b30aee0de9c97c7fbce2e80d3ee1ff', role: "banner" }, renderSkipToNav, hasBanner ? hAsync("slot", { name: "banner" }) : null, hAsync("div", { key: 'cb78ebfcfc947c038c8adb21c5242e11f6f4ebaf', class: "gcds-header__brand" }, hAsync("div", { key: '835349463a8459e9fc423e984e555461d584fde5', class: `brand__container ${!hasSearch ? 'container--simple' : ''}` }, renderToggle, renderSignature, renderSearch)), hAsync("slot", { key: 'ccd900088b66a0e031f14afc2402284ed9e3988a', name: "menu" }), hasBreadcrumb ? (hAsync("div", { class: "gcds-header__container" }, hAsync("slot", { name: "breadcrumb" }))) : null));
     }
     get el() { return getElement(this); }
     static get style() { return gcdsHeaderCss; }
@@ -7232,13 +7291,13 @@ class GcdsHeading {
     render() {
         const { characterLimit, marginTop, marginBottom, tag, headingRole } = this;
         const Tag = tag;
-        return (hAsync(Host, { key: '27a2ae93a052f3ed90830b1834c510a3da6aaeb1' }, hAsync(Tag, { key: '582d4079c24ad038345816c59331500238824e03', class: `
+        return (hAsync(Host, { key: '5d6d74358f199427e5c9994d9c7a7b472d11a911' }, hAsync(Tag, { key: 'af7503ae216fa3ee40bdac28e0323c0f877946bd', class: `
             gcds-heading
             ${headingRole ? `role-${headingRole}` : ''}
             ${characterLimit ? 'limit' : ''}
             ${marginTop ? `mt-${marginTop}` : ''}
             ${marginBottom ? `mb-${marginBottom}` : ''}
-          ` }, hAsync("slot", { key: '54569b6f4c34e43be86c45e61b80723e3aa3043c' }))));
+          ` }, hAsync("slot", { key: '2b60752a725f01335d1885d97409175462dc173d' }))));
     }
     get el() { return getElement(this); }
     static get watchers() { return {
@@ -7277,7 +7336,7 @@ class GcdsHint {
     }
     render() {
         const { hintId } = this;
-        return (hAsync(Host, { key: '61a3e7529f1f8cdab787a3be7f6b1d38b06cf29d', id: `hint-${hintId}` }, hAsync("gcds-text", { key: '32304bb4004c7357f63ea4c04b39be5fa1b491a8', class: "gcds-hint", "margin-bottom": "0", part: "hint" }, hAsync("slot", { key: '2313fb6ca5b5fde4572e522c86d249508eecf900' }))));
+        return (hAsync(Host, { key: '43409b1e4ecafb39638dc4ce60ba021024737559', id: `hint-${hintId}` }, hAsync("gcds-text", { key: '4681f54c9870c6eacc680bf3e4b1fce706d4aa59', class: "gcds-hint", "margin-bottom": "0", part: "hint" }, hAsync("slot", { key: '2c5b966609edebec1090969cc9e02b13205aadfb' }))));
     }
     get el() { return getElement(this); }
     static get style() { return gcdsHintCss; }
@@ -7359,7 +7418,7 @@ class GcdsIcon {
     }
     render() {
         const { label, marginLeft, marginRight, name, size } = this;
-        return (hAsync(Host, { key: '9767ef8285004f25317ad156ac39d21a0267c6d3' }, hAsync("span", { key: 'c7a3dfe9ed1b093e5a6d9a37bdc5c11e7154b462', class: `
+        return (hAsync(Host, { key: 'acfcce1cb6a96e3f96c95c19e8a06ffa91be2306' }, hAsync("span", { key: '97dd8217a134541eb55ad6addc1b1fb3e9872790', class: `
             gcds-icon gcds-icon-${name}
             ${marginLeft ? `ml-${marginLeft}` : ''}
             ${marginRight ? `mr-${marginRight}` : ''}
@@ -7722,7 +7781,7 @@ class GcdsInput {
                 ? ` ${attrsInput['aria-describedby']}`
                 : ''}`;
         }
-        return (hAsync(Host, { key: '8ba9b63b14c8c0e8625f7468be81462d3b719303' }, hAsync("div", { key: '173a744866d8b3f6eb8e9727fa849123fb752933', class: `gcds-input-wrapper ${disabled ? 'gcds-disabled' : ''} ${hasError ? 'gcds-error' : ''}` }, hAsync("gcds-label", Object.assign({ key: '4cad5a76c5912dfce86c3dd96aef58132483b05e' }, attrsLabel, { "hide-label": hideLabel, "label-for": inputId, lang: lang })), hint ? hAsync("gcds-hint", { "hint-id": inputId }, hint) : null, errorMessage ? (hAsync("gcds-error-message", { messageId: inputId }, errorMessage)) : null, hAsync("input", Object.assign({ key: 'd19dd65df5c7993b6f08d2443b6b9a5b5fa01231' }, attrsInput, { class: hasError ? 'gcds-error' : null, id: inputId, name: name, onBlur: () => this.onBlur(), onFocus: () => this.gcdsFocus.emit(), onInput: e => this.handleInput(e, this.gcdsInput), onChange: e => this.handleInput(e, this.gcdsChange), "aria-labelledby": `label-for-${inputId}`, "aria-invalid": inheritedAttributes['aria-invalid'] === 'true'
+        return (hAsync(Host, { key: 'b76e47c010dd01a1a75da9e9de0c3a1c7ccc63a6' }, hAsync("div", { key: '82bf8e2f6bdc4000b43b5f20de322ec4e551987e', class: `gcds-input-wrapper ${disabled ? 'gcds-disabled' : ''} ${hasError ? 'gcds-error' : ''}` }, hAsync("gcds-label", Object.assign({ key: 'f693f9bb7803e33fbbcf9f32be06cd9853b078fd' }, attrsLabel, { "hide-label": hideLabel, "label-for": inputId, lang: lang })), hint ? hAsync("gcds-hint", { "hint-id": inputId }, hint) : null, errorMessage ? (hAsync("gcds-error-message", { messageId: inputId }, errorMessage)) : null, hAsync("input", Object.assign({ key: 'd669799bd304f8e4d90315e2e3d64f4f7847d9c0' }, attrsInput, { class: hasError ? 'gcds-error' : null, id: inputId, name: name, onBlur: () => this.onBlur(), onFocus: () => this.gcdsFocus.emit(), onInput: e => this.handleInput(e, this.gcdsInput), onChange: e => this.handleInput(e, this.gcdsChange), "aria-labelledby": `label-for-${inputId}`, "aria-invalid": inheritedAttributes['aria-invalid'] === 'true'
                 ? inheritedAttributes['aria-invalid']
                 : errorMessage
                     ? 'true'
@@ -7828,7 +7887,7 @@ class GcdsLabel {
     }
     render() {
         const { hideLabel, labelFor, label, required, lang } = this;
-        return (hAsync(Host, { key: '74bd8cdab28f3e11ad1af0e5d90ffbcdfeca4f3b', id: `label-for-${labelFor}` }, hAsync("label", { key: 'a99ff6d66462b03f1b40759ada8dfe53eaa985ce', htmlFor: labelFor, class: `gcds-label ${hideLabel ? 'label--hidden' : ''}` }, hAsync("span", { key: '1740af0193beae308a1227d729493c257e6ee813' }, label), required ? (hAsync("span", { "aria-hidden": "true", class: "label--required" }, "(", I18N$c[lang].required, ")")) : null)));
+        return (hAsync(Host, { key: '37a6681d7fed70d37313a5d93d5d61de1502e538', id: `label-for-${labelFor}` }, hAsync("label", { key: '1ce8e12182daeeff2d47e667028c735c9bab44e3', htmlFor: labelFor, class: `gcds-label ${hideLabel ? 'label--hidden' : ''}` }, hAsync("span", { key: '5883396a2787821cf582b66bf21e6553fcc2641e' }, label), required ? (hAsync("span", { "aria-hidden": "true", class: "label--required" }, "(", I18N$c[lang].required, ")")) : null)));
     }
     get el() { return getElement(this); }
     static get style() { return gcdsLabelCss; }
@@ -7891,7 +7950,7 @@ class GcdsLangToggle {
     }
     render() {
         const { lang, href } = this;
-        return (hAsync(Host, { key: 'abb80842d149c0505fdfaeb1bea1d693f8ab7acd' }, hAsync("div", { key: '544f51158c13552ca6d918a976851ae114d8b15b', class: "gcds-lang-toggle" }, hAsync("gcds-sr-only", { key: 'ad847ef3d7b32528ac5a02d86907e7646a6133b6', id: "lang-toggle__heading", tag: "h2" }, I18N$b[lang].heading), hAsync("gcds-link", { key: '7ed33cd0eee4468e60294eb449627a546128f9b8', size: "regular", href: href, lang: I18N$b[lang].abbreviation }, hAsync("span", { key: 'd1586f4d7c5b2b0b16f5e123e0dbc1715e9a7616' }, I18N$b[lang].language), hAsync("abbr", { key: '38bfded01448eeccd475feca0275d34cbb8745b3', title: I18N$b[lang].language }, I18N$b[lang].abbreviation)))));
+        return (hAsync(Host, { key: '62aa9c22bff1a0f8778c5835f7e63646cbfe1a46' }, hAsync("div", { key: '88d41598195886ac785f5892a98b21b4ec6305a1', class: "gcds-lang-toggle" }, hAsync("gcds-sr-only", { key: '6237c11ac97300f34d12b1514353715ff08cc3c7', id: "lang-toggle__heading", tag: "h2" }, I18N$b[lang].heading), hAsync("gcds-link", { key: 'd71e4738bf386fce9bd917c7ebad9996e668c109', size: "regular", href: href, lang: I18N$b[lang].abbreviation }, hAsync("span", { key: 'ad354cf5d68967abc49af62bd13dcb403f1247b0' }, I18N$b[lang].language), hAsync("abbr", { key: '5d4d1a9b12e51c2fdb1740aea1d0a237b926ba85', title: I18N$b[lang].language }, I18N$b[lang].abbreviation)))));
     }
     get el() { return getElement(this); }
     static get style() { return gcdsLangToggleCss; }
@@ -7923,7 +7982,7 @@ const I18N$a = {
   },
 };
 
-const gcdsLinkCss = "@layer reset, default, display, size, roles, hover, visited, focus;@layer reset{:host{display:inline}:host slot{display:initial}}@layer default{:host .gcds-link{color:var(--gcds-link-default);cursor:pointer;text-decoration-color:currentColor;text-decoration-style:solid;text-decoration-thickness:var(--gcds-link-decoration-thickness);text-underline-offset:var(--gcds-link-underline-offset);transition:all .35s}}@layer display{:host .gcds-link.d-block{display:block}}@layer size{:host .gcds-link.link--small{font:var(--gcds-link-font-small-desktop)}@media only screen and (width < 48em){:host .gcds-link.link--small{font:var(--gcds-link-font-small-mobile)}}:host .gcds-link.link--regular{font:var(--gcds-link-font-regular-desktop)}@media only screen and (width < 48em){:host .gcds-link.link--regular{font:var(--gcds-link-font-regular-mobile)}}:host .gcds-link.link--inherit{font:inherit}}@layer roles{:host .gcds-link.role-light{color:var(--gcds-link-light)}}@layer hover{@media (hover:hover){:host .gcds-link:hover{text-decoration-thickness:var(--gcds-link-hover-decoration-thickness)}:host .gcds-link:hover:not(.role-light){color:var(--gcds-link-hover)}}}@layer visited{:host .gcds-link:not(.role-light):visited{color:var(--gcds-link-visited)}}@layer focus{:host .gcds-link:focus{background-color:var(--gcds-link-focus-background);border-radius:var(--gcds-link-focus-border-radius);box-shadow:var(--gcds-link-focus-box-shadow);color:var(--gcds-link-focus-text);outline:var(--gcds-link-focus-outline-width) solid var(--gcds-link-focus-background);outline-offset:var(--gcds-link-focus-outline-offset);text-decoration:none}}";
+const gcdsLinkCss = "@layer reset, default, display, size, roles, hover, visited, focus;@layer reset{:host{display:inline}:host slot{display:initial}}@layer default{:host .gcds-link{color:var(--gcds-link-default);cursor:pointer;text-decoration-color:currentColor;text-decoration-style:solid;text-decoration-thickness:var(--gcds-link-decoration-thickness);text-underline-offset:var(--gcds-link-underline-offset);transition:all .35s}:host .gcds-link .text-icon-group{white-space:nowrap}}@layer display{:host .gcds-link.d-block{display:block}}@layer size{:host .gcds-link.link--small{font:var(--gcds-link-font-small-desktop)}@media only screen and (width < 48em){:host .gcds-link.link--small{font:var(--gcds-link-font-small-mobile)}}:host .gcds-link.link--regular{font:var(--gcds-link-font-regular-desktop)}@media only screen and (width < 48em){:host .gcds-link.link--regular{font:var(--gcds-link-font-regular-mobile)}}:host .gcds-link.link--inherit{font:inherit}}@layer roles{:host .gcds-link.role-light{color:var(--gcds-link-light)}}@layer hover{@media (hover:hover){:host .gcds-link:hover{text-decoration-thickness:var(--gcds-link-hover-decoration-thickness)}:host .gcds-link:hover:not(.role-light){color:var(--gcds-link-hover)}}}@layer visited{:host .gcds-link:not(.role-light):visited{color:var(--gcds-link-visited)}}@layer focus{:host .gcds-link:focus{background-color:var(--gcds-link-focus-background);border-radius:var(--gcds-link-focus-border-radius);box-shadow:var(--gcds-link-focus-box-shadow);color:var(--gcds-link-focus-text);outline:var(--gcds-link-focus-outline-width) solid var(--gcds-link-focus-background);outline-offset:var(--gcds-link-focus-outline-offset);text-decoration:none}}";
 
 /**
  * A link is a navigational element that brings a person to a new page, website, file, or section on the current page.
@@ -8005,8 +8064,29 @@ class GcdsLink {
         this.lang = assignLanguage(this.el);
         this.updateLang();
     }
+    /**
+     * Returns the correct icon for the link, if applicable.
+     * If none of these conditions match, no icon is rendered.
+     */
+    getIcon() {
+        const { href, target, external, download, lang } = this;
+        const isExternal = target === '_blank' || external;
+        if (isExternal) {
+            return hAsync("gcds-icon", { name: "external", label: I18N$a[lang].external });
+        }
+        if (download !== undefined) {
+            return hAsync("gcds-icon", { name: "download", label: I18N$a[lang].download });
+        }
+        if (href === null || href === void 0 ? void 0 : href.toLowerCase().startsWith('mailto:')) {
+            return hAsync("gcds-icon", { name: "email", label: I18N$a[lang].email });
+        }
+        if (href === null || href === void 0 ? void 0 : href.toLowerCase().startsWith('tel:')) {
+            return hAsync("gcds-icon", { name: "phone", label: I18N$a[lang].phone });
+        }
+        return null;
+    }
     render() {
-        const { size, lang, display, href, rel, target, external, download, type, inheritedAttributes, linkRole, } = this;
+        const { size, display, href, rel, target, external, download, type, inheritedAttributes, linkRole, } = this;
         const attrs = {
             href,
             rel,
@@ -8015,8 +8095,7 @@ class GcdsLink {
             type,
         };
         const isExternal = target === '_blank' || external;
-        return (hAsync(Host, { key: '8d4e6b5cd3ed08a2a562489238739f2906c02ad0' }, hAsync("a", Object.assign({ key: '14abc020fd24945d6e144f27073f0077d086e424', tabIndex: 0 }, attrs, { class: `gcds-link link--${size} ${display != 'inline' ? `d-${display}` : ''} ${linkRole != 'default' ? `role-${linkRole}` : ''}`, ref: element => (this.shadowElement = element), target: isExternal ? '_blank' : target, rel: isExternal ? 'noopener noreferrer' : rel }, inheritedAttributes, { part: "link", onBlur: () => this.gcdsBlur.emit(), onFocus: () => this.gcdsFocus.emit(), onClick: e => emitEvent(e, this.gcdsClick, href) }), hAsync("slot", { key: 'ada44987d3f50baa632557bbe745390cbfba03e3' }), target === '_blank' || external ? (hAsync("gcds-icon", { name: "external", label: I18N$a[lang].external, "margin-left": "75" })) : download !== undefined ? (hAsync("gcds-icon", { name: "download", label: I18N$a[lang].download, "margin-left": "75" })) : href && href.toLowerCase().startsWith('mailto:') ? (hAsync("gcds-icon", { name: "email", label: I18N$a[lang].email, "margin-left": "75" })) : (href &&
-            href.toLowerCase().startsWith('tel:') && (hAsync("gcds-icon", { name: "phone", label: I18N$a[lang].phone, "margin-left": "75" }))))));
+        return (hAsync(Host, { key: '7fa892f419ed82d2218a8166cb9df9087309f049' }, hAsync("a", Object.assign({ key: '1b771e086f262c942e89359aab40a242cdeca8e7', tabIndex: 0 }, attrs, { class: `gcds-link link--${size} ${display != 'inline' ? `d-${display}` : ''} ${linkRole != 'default' ? `role-${linkRole}` : ''}`, ref: element => (this.shadowElement = element), target: isExternal ? '_blank' : target, rel: isExternal ? 'noopener noreferrer' : rel }, inheritedAttributes, { part: "link", onBlur: () => this.gcdsBlur.emit(), onFocus: () => this.gcdsFocus.emit(), onClick: e => emitEvent(e, this.gcdsClick, href) }), hAsync("slot", { key: '86a797523cf073c1e75e3adfb224ff10f8344a76' }), this.getIcon() && (hAsync("span", { key: '61a96d99ba2782a0853bdc7d4dff5a4a250f8858', class: "text-icon-group" }, "\u00A0", this.getIcon())))));
     }
     get el() { return getElement(this); }
     static get watchers() { return {
@@ -8047,7 +8126,7 @@ class GcdsLink {
     }; }
 }
 
-const gcdsNavGroupCss = "@layer reset, defaults, sideNav, topNav, mobileNav, desktop, mobile, hover, focus;@layer reset{:host *{box-sizing:border-box;margin:0;padding:0}}@layer defaults{:host{align-self:flex-end;display:flex;flex-direction:column;position:relative}:host .gcds-nav-group__trigger{align-items:center;background:transparent;border:0;color:var(--gcds-nav-group-trigger-text);cursor:pointer;display:flex;font:var(--gcds-nav-group-font);padding:var(--gcds-nav-group-trigger-padding);text-align:left;width:100%}:host .gcds-nav-group__trigger[aria-expanded=false]+.gcds-nav-group__list{display:none}:host .gcds-nav-group__trigger-desc{display:none}:host ul{list-style:none}}@layer sideNav{:host .gcds-trigger--expandable{margin-block-end:var(--gcds-nav-group-side-nav-trigger-margin)}:host .gcds-trigger--expandable gcds-icon{margin-inline-end:var(--gcds-nav-group-side-nav-trigger-icon-margin)}}@layer topNav{:host .gcds-trigger--dropdown{padding:var(--gcds-nav-group-top-nav-trigger-padding);text-decoration:underline solid currentColor var(--gcds-nav-group-top-nav-trigger-decoration-thickness);text-decoration-color:transparent;text-underline-offset:var(\n      --gcds-nav-group-top-nav-trigger-underline-offset\n    );transition:all .25s ease-in-out}:host .gcds-trigger--dropdown[aria-expanded=true]{background-color:var(\n        --gcds-nav-group-top-nav-trigger-expanded-background-color\n      )}:host .gcds-trigger--dropdown gcds-icon{margin-inline-start:var(--gcds-nav-group-top-nav-trigger-icon-margin);order:2}}@layer mobileNav{:host(.gcds-mobile-nav){width:100%}:host(.gcds-mobile-nav) .gcds-trigger--expandable{border:var(--gcds-nav-group-mobile-trigger-border-width) solid;border-radius:var(--gcds-nav-group-mobile-trigger-border-radius);color:var(--gcds-nav-group-mobile-trigger-text);flex-direction:row-reverse;justify-content:center;margin-block-start:var(--gcds-nav-group-mobile-trigger-margin);text-align:center}:host(.gcds-mobile-nav) .gcds-trigger--expandable gcds-icon{display:none}:host([open].gcds-mobile-nav){background-color:var(--gcds-nav-group-mobile-background);height:100vh;left:0;overflow-y:scroll;padding:var(--gcds-nav-group-mobile-padding)!important;position:fixed;top:0;width:100%;z-index:100}}@layer desktop{@media only screen and (width >= 64em){:host .gcds-nav-group__trigger{max-width:var(--gcds-nav-group-trigger-max-width)}:host .gcds-nav--expandable{padding-inline-start:var(--gcds-nav-group-side-nav-dropdown-padding)}:host .gcds-nav--dropdown{background-color:var(--gcds-nav-group-top-nav-dropdown-background);border-radius:var(--gcds-border-radius-md);box-shadow:var(--gcds-nav-group-top-nav-dropdown-box-shadow);left:0;margin-block-start:var(--gcds-spacing-200);padding:var(--gcds-nav-group-top-nav-dropdown-padding);position:absolute;top:100%;width:var(--gcds-nav-group-top-nav-dropdown-width);z-index:1}:host .gcds-nav--dropdown.dropdown-right{left:auto;right:0}:host(.gcds-mobile-nav)>.gcds-nav--expandable{display:block;padding:0}:host(.gcds-mobile-nav) .gcds-trigger--expandable{display:none}:host(.gcds-mobile-nav-topnav)>.gcds-nav--expandable{display:flex}}}@layer mobile{@media only screen and (width < 64em){:host(.gcds-mobile-nav)>.gcds-nav--expandable{margin:var(--gcds-nav-group-mobile-list-margin)}:host([open]:not(.gcds-mobile-nav)) .gcds-nav-group__list{padding-inline-start:var(--gcds-nav-group-side-nav-dropdown-padding)}}@media only screen and (48em < width < 64em){:host(.gcds-mobile-nav) .gcds-trigger--expandable{align-self:flex-start;width:auto}}}@layer hover{@media (hover:hover){:host .gcds-nav-group__trigger:hover{color:var(--gcds-nav-group-trigger-hover-text)}:host .gcds-trigger--dropdown:hover{color:var(--gcds-nav-group-top-nav-trigger-hover-text);text-decoration-color:var(--gcds-nav-group-top-nav-trigger-hover-text);text-decoration-thickness:var(\n          --gcds-nav-group-top-nav-trigger-hover-decoration-thickness\n        )}:host .gcds-trigger--expandable:hover{background-color:var(\n          --gcds-nav-group-side-nav-trigger-hover-background\n        )}}}@layer focus{:host .gcds-nav-group__trigger:focus{background-color:var(--gcds-nav-group-trigger-focus-background);border-color:var(--gcds-nav-group-trigger-focus-background);border-radius:var(--gcds-nav-group-trigger-focus-border-radius);box-shadow:var(--gcds-nav-group-trigger-focus-box-shadow);color:var(--gcds-nav-group-trigger-focus-text);outline:var(--gcds-nav-group-trigger-focus-outline);outline-offset:var(--gcds-nav-group-trigger-focus-outline-offset);text-decoration:none}}";
+const gcdsNavGroupCss = "@layer reset, defaults, sideNav, topNav, mobileNav, desktop, mobile, hover, focus;@layer reset{:host *{box-sizing:border-box;margin:0;padding:0}}@layer defaults{:host{align-self:flex-end;display:flex;flex-direction:column;position:relative}:host .gcds-nav-group__trigger{align-items:center;background:transparent;border:0;color:var(--gcds-nav-group-trigger-text);cursor:pointer;display:flex;font:var(--gcds-nav-group-font);padding:var(--gcds-nav-group-trigger-padding);text-align:left;width:100%}:host .gcds-nav-group__trigger[aria-expanded=false]+.gcds-nav-group__list{display:none}:host .gcds-nav-group__trigger-desc{display:none}:host ul{list-style:none}}@layer sideNav{:host .gcds-trigger--expandable{margin-block-end:var(--gcds-nav-group-side-nav-trigger-margin)}:host .gcds-trigger--expandable gcds-icon{margin-inline-end:var(--gcds-nav-group-side-nav-trigger-icon-margin)}}@layer topNav{:host .gcds-trigger--dropdown{padding:var(--gcds-nav-group-top-nav-trigger-padding);text-decoration:underline solid currentColor var(--gcds-nav-group-top-nav-trigger-decoration-thickness);text-decoration-color:transparent;text-underline-offset:var(\n      --gcds-nav-group-top-nav-trigger-underline-offset\n    );transition:all .25s ease-in-out}:host .gcds-trigger--dropdown[aria-expanded=true]{background-color:var(\n        --gcds-nav-group-top-nav-trigger-expanded-background-color\n      )}:host .gcds-trigger--dropdown gcds-icon{margin-inline-start:var(--gcds-nav-group-top-nav-trigger-icon-margin);order:2}}@layer mobileNav{:host(.gcds-mobile-nav){width:100%}:host(.gcds-mobile-nav) .gcds-trigger--expandable{border:var(--gcds-nav-group-mobile-trigger-border-width) solid;border-radius:var(--gcds-nav-group-mobile-trigger-border-radius);color:var(--gcds-nav-group-mobile-trigger-text);flex-direction:row-reverse;justify-content:center;margin-block-start:var(--gcds-nav-group-mobile-trigger-margin);text-align:center}:host(.gcds-mobile-nav) .gcds-trigger--expandable gcds-icon{display:none}:host([open].gcds-mobile-nav){background-color:var(--gcds-nav-group-mobile-overlay-background);height:100vh;left:0;position:fixed;top:0;width:100%;z-index:100}:host([open].gcds-mobile-nav) .gcds-nav-group__container{background-color:var(--gcds-nav-group-mobile-background);border-radius:var(--gcds-nav-group-mobile-border-radius);bottom:0;height:var(--gcds-nav-group-mobile-height);left:0;overflow-y:scroll;padding:var(--gcds-nav-group-mobile-padding)!important;position:fixed;width:100%}}@layer desktop{@media only screen and (width >= 64em){:host .gcds-nav-group__trigger{max-width:var(--gcds-nav-group-trigger-max-width)}:host .gcds-nav--expandable{padding-inline-start:var(--gcds-nav-group-side-nav-dropdown-padding)}:host .gcds-nav--dropdown{background-color:var(--gcds-nav-group-top-nav-dropdown-background);border-radius:var(--gcds-border-radius-md);box-shadow:var(--gcds-nav-group-top-nav-dropdown-box-shadow);left:0;margin-block-start:var(--gcds-spacing-200);padding:var(--gcds-nav-group-top-nav-dropdown-padding);position:absolute;top:100%;width:var(--gcds-nav-group-top-nav-dropdown-width);z-index:1}:host .gcds-nav--dropdown.dropdown-right{left:auto;right:0}:host(.gcds-mobile-nav) .gcds-nav-group__container>.gcds-nav--expandable{display:block;padding:0}:host(.gcds-mobile-nav) .gcds-trigger--expandable{display:none}:host(.gcds-mobile-nav-topnav)>.gcds-nav-group__container>.gcds-nav--expandable{display:flex}}}@layer mobile{@media only screen and (width < 64em){:host(.gcds-mobile-nav)>.gcds-nav-group__container>.gcds-nav--expandable{margin:var(--gcds-nav-group-mobile-list-margin)}:host([open]:not(.gcds-mobile-nav)) .gcds-nav-group__list{padding-inline-start:var(--gcds-nav-group-side-nav-dropdown-padding)}}@media only screen and (48em < width < 64em){:host(.gcds-mobile-nav) .gcds-trigger--expandable{align-self:flex-start;width:auto}}}@layer hover{@media (hover:hover){:host .gcds-nav-group__trigger:hover{color:var(--gcds-nav-group-trigger-hover-text)}:host .gcds-trigger--dropdown:hover{color:var(--gcds-nav-group-top-nav-trigger-hover-text);text-decoration-color:var(--gcds-nav-group-top-nav-trigger-hover-text);text-decoration-thickness:var(\n          --gcds-nav-group-top-nav-trigger-hover-decoration-thickness\n        )}:host .gcds-trigger--expandable:hover{background-color:var(\n          --gcds-nav-group-side-nav-trigger-hover-background\n        )}}}@layer focus{:host .gcds-nav-group__trigger:focus{background-color:var(--gcds-nav-group-trigger-focus-background);border-color:var(--gcds-nav-group-trigger-focus-background);border-radius:var(--gcds-nav-group-trigger-focus-border-radius);box-shadow:var(--gcds-nav-group-trigger-focus-box-shadow);color:var(--gcds-nav-group-trigger-focus-text);outline:var(--gcds-nav-group-trigger-focus-outline);outline-offset:var(--gcds-nav-group-trigger-focus-outline-offset);text-decoration:none}}";
 
 /**
  * Navigational group with expandable or dropdown functionality, allowing for better organization of navigation links.
@@ -8108,9 +8187,11 @@ class GcdsNavGroup {
             if (this.open) {
                 this.navPosiiton = window.scrollY;
                 document.body.style.position = 'fixed';
+                document.body.style.width = '100%';
             }
             else {
                 document.body.style.removeProperty('position');
+                document.body.style.removeProperty('width');
                 window.scrollTo(0, this.navPosiiton);
             }
         }
@@ -8153,18 +8234,18 @@ class GcdsNavGroup {
     }
     render() {
         const { closeTrigger, menuLabel, open, openTrigger } = this;
-        return (hAsync(Host, { key: 'dc41c8634f5207f3264c193fa4b643a5d7460bcb', role: "listitem", open: open }, hAsync("button", { key: '993f5335ec64d025e881c8d3149bc2f6507ae919', "aria-haspopup": "true", tabIndex: 0, "aria-expanded": open.toString(), ref: element => (this.triggerElement = element), class: `gcds-nav-group__trigger gcds-trigger--${this.navStyle}`, onBlur: () => this.gcdsBlur.emit(), onFocus: () => this.gcdsFocus.emit(), onClick: e => {
+        return (hAsync(Host, { key: '159a59d35c9f64a266d942fb9a57ba9973c6b968', role: "listitem", open: open }, hAsync("div", { key: '90f518b5fcfed0ae7a7574eb153651a6915a9b64', class: "gcds-nav-group__container" }, hAsync("button", { key: '3c95cf1d6787abdd1ee1ef924579cd03c175409d', "aria-haspopup": "true", tabIndex: 0, "aria-expanded": open.toString(), ref: element => (this.triggerElement = element), class: `gcds-nav-group__trigger gcds-trigger--${this.navStyle}`, onBlur: () => this.gcdsBlur.emit(), onFocus: () => this.gcdsFocus.emit(), onClick: e => {
                 const event = emitEvent(e, this.gcdsClick);
                 if (event) {
                     this.toggleNav();
                 }
-            } }, hAsync("gcds-icon", { key: '78f16f4980aa7aa8b0226b4760763ba41ecc0e2b', name: this.navStyle === 'expandable'
+            } }, hAsync("gcds-icon", { key: 'c533dfb1c4393a3453b53b7e7353c01adaf582e4', name: this.navStyle === 'expandable'
                 ? open
                     ? 'chevron-down'
                     : 'chevron-right'
                 : open
                     ? 'chevron-up'
-                    : 'chevron-down' }), closeTrigger && open ? closeTrigger : openTrigger), hAsync("ul", { key: '349c7a14f3e13ef7344ea40e35ac8c9000f8d390', "aria-label": menuLabel, class: `gcds-nav-group__list gcds-nav--${this.navStyle}` }, hAsync("slot", { key: '73a3ba354f2a90a0cea6edfe9e47b1ad5c85e92d' }))));
+                    : 'chevron-down' }), closeTrigger && open ? closeTrigger : openTrigger), hAsync("ul", { key: '5a5395d27b0f6c39a63c1605a0112f0c27d6a678', "aria-label": menuLabel, class: `gcds-nav-group__list gcds-nav--${this.navStyle}` }, hAsync("slot", { key: '68763c8422c0ee0d0d28b5b4a6ad680682156d58' })))));
     }
     get el() { return getElement(this); }
     static get style() { return gcdsNavGroupCss; }
@@ -8188,7 +8269,7 @@ class GcdsNavGroup {
     }; }
 }
 
-const gcdsNavLinkCss = "@layer reset, default, variants, hover, active, focus;@layer reset{:host .gcds-nav-link{box-sizing:border-box}:host .gcds-nav-link slot{display:initial}}@layer default{:host .gcds-nav-link{border-inline:var(--gcds-nav-link-border-width) solid transparent;color:var(--gcds-nav-link-default-text);display:flex;font:var(--gcds-nav-link-font);margin-block-end:var(--gcds-nav-link-margin);padding:var(--gcds-nav-link-padding);text-decoration-color:currentColor;text-decoration-line:underline;text-decoration-style:solid;text-decoration-thickness:var(\n      --gcds-nav-link-default-decoration-thickness\n    );text-underline-offset:var(--gcds-nav-link-default-underline-offset);transition:all .25s ease-in-out}:host .gcds-nav-link[aria-current=page]{pointer-events:none;text-decoration:none}@media only screen and (width < 64em){:host .gcds-nav-link{font:var(--gcds-nav-link-font-mobile);min-width:50%}}@media only screen and (width > 48em){:host .gcds-nav-link{max-width:var(--gcds-nav-link-default-max-width)}}@media only screen and (width >= 64em){:host([slot=home])>.gcds-nav-link{font:var(--gcds-nav-link-home-font)}:host([slot=home])>.gcds-nav-link:not(:hover):not(:focus){color:var(--gcds-nav-link-home-text)!important}}}@layer variants{@media only screen and (width >= 64em){:host>.gcds-nav-link--topnav.gcds-nav-link{border-block:var(--gcds-nav-link-border-width) solid transparent;border-inline:0;color:var(--gcds-nav-link-top-nav-text);margin:var(--gcds-nav-link-top-nav-margin);padding:var(--gcds-nav-link-top-nav-padding)}:host>.gcds-nav-link--topnav.gcds-nav-link:not(:hover){text-decoration-color:transparent}:host([slot=home])>.gcds-nav-link--topnav.gcds-nav-link{padding:var(--gcds-nav-link-top-nav-home-padding)}}:host>.gcds-nav-link--sidenav.gcds-nav-link{padding:var(--gcds-nav-link-side-nav-padding)}@media only screen and (width >= 64em){:host([slot=home])>.gcds-nav-link--sidenav.gcds-nav-link{margin-block-end:var(--gcds-side-nav-heading-margin);padding:var(--gcds-side-nav-heading-padding)}}}@layer hover{@media (hover:hover){:host .gcds-nav-link:hover{color:var(--gcds-nav-link-hover-text);text-decoration-thickness:var(\n        --gcds-nav-link-hover-decoration-thickness\n      )}:host(:not([slot=home])) .gcds-nav-link:hover{background-color:var(--gcds-nav-link-side-nav-hover-background);color:var(--gcds-nav-link-hover-text)}}}@layer active{:host .gcds-nav-link[aria-current=page]{background-color:var(--gcds-nav-link-active-background);border-inline-start-color:var(--gcds-nav-link-active-border-color);color:var(--gcds-nav-link-active-text)}@media only screen and (width >= 64em){:host>.gcds-nav-link--topnav.gcds-nav-link[aria-current=page]{background-color:transparent;border-block-end-color:currentColor;color:var(--gcds-nav-link-home-text)}}:host>.gcds-nav-link--sidenav.gcds-nav-link[aria-current=page]{font-weight:var(--gcds-nav-link-active-font-weight)}}@layer focus{:host .gcds-nav-link:focus{background-color:var(--gcds-nav-link-focus-background);border-color:var(--gcds-nav-link-focus-background);border-radius:var(--gcds-nav-link-focus-border-radius);box-shadow:var(--gcds-nav-link-focus-box-shadow);color:var(--gcds-nav-link-focus-text);outline:var(--gcds-nav-link-focus-outline);outline-offset:var(--gcds-nav-link-focus-outline-offset);text-decoration:none}}";
+const gcdsNavLinkCss = "@layer reset, default, variants, hover, active, focus;@layer reset{:host .gcds-nav-link{box-sizing:border-box}:host .gcds-nav-link slot{display:initial}}@layer default{:host .gcds-nav-link{border-inline:var(--gcds-nav-link-border-width) solid transparent;color:var(--gcds-nav-link-default-text);display:flex;font:var(--gcds-nav-link-font);margin-block-end:var(--gcds-nav-link-margin);padding:var(--gcds-nav-link-padding);text-decoration-color:currentColor;text-decoration-line:underline;text-decoration-style:solid;text-decoration-thickness:var(\n      --gcds-nav-link-default-decoration-thickness\n    );text-underline-offset:var(--gcds-nav-link-default-underline-offset);transition:all .25s ease-in-out}:host .gcds-nav-link[aria-current=page]{pointer-events:none;text-decoration:none}@media only screen and (width < 64em){:host .gcds-nav-link{font:var(--gcds-nav-link-font-mobile);min-width:50%}}@media only screen and (width > 48em){:host .gcds-nav-link{max-width:var(--gcds-nav-link-default-max-width)}}@media only screen and (width >= 64em){:host([slot=home])>.gcds-nav-link{font:var(--gcds-nav-link-home-font)}:host([slot=home])>.gcds-nav-link:not(:hover){text-decoration-color:transparent}:host([slot=home])>.gcds-nav-link:not(:hover):not(:focus){color:var(--gcds-nav-link-home-text)!important}}}@layer variants{@media only screen and (width >= 64em){:host>.gcds-nav-link--topnav.gcds-nav-link{border-block:var(--gcds-nav-link-border-width) solid transparent;border-inline:0;color:var(--gcds-nav-link-top-nav-text);margin:var(--gcds-nav-link-top-nav-margin);padding:var(--gcds-nav-link-top-nav-padding)}:host([slot=home])>.gcds-nav-link--topnav.gcds-nav-link{padding:var(--gcds-nav-link-top-nav-home-padding)}}:host>.gcds-nav-link--sidenav.gcds-nav-link{padding:var(--gcds-nav-link-side-nav-padding)}@media only screen and (width >= 64em){:host([slot=home])>.gcds-nav-link--sidenav.gcds-nav-link{margin-block-end:var(--gcds-side-nav-heading-margin);padding:var(--gcds-side-nav-heading-padding)}}}@layer hover{@media (hover:hover){:host .gcds-nav-link:hover{color:var(--gcds-nav-link-hover-text);text-decoration-thickness:var(\n        --gcds-nav-link-hover-decoration-thickness\n      )}:host(:not([slot=home])) .gcds-nav-link:hover{background-color:var(--gcds-nav-link-side-nav-hover-background);color:var(--gcds-nav-link-hover-text)}}}@layer active{:host .gcds-nav-link[aria-current=page]{background-color:var(--gcds-nav-link-active-background);border-inline-start-color:var(--gcds-nav-link-active-border-color);color:var(--gcds-nav-link-active-text)}@media only screen and (width >= 64em){:host>.gcds-nav-link--topnav.gcds-nav-link[aria-current=page]{background-color:transparent;border-block-end-color:currentColor;color:var(--gcds-nav-link-home-text)}}:host>.gcds-nav-link--sidenav.gcds-nav-link[aria-current=page]{font-weight:var(--gcds-nav-link-active-font-weight)}}@layer focus{:host .gcds-nav-link:focus{background-color:var(--gcds-nav-link-focus-background);border-color:var(--gcds-nav-link-focus-background);border-radius:var(--gcds-nav-link-focus-border-radius);box-shadow:var(--gcds-nav-link-focus-box-shadow);color:var(--gcds-nav-link-focus-text);outline:var(--gcds-nav-link-focus-outline);outline-offset:var(--gcds-nav-link-focus-outline-offset);text-decoration:none}}";
 
 /**
  * Navigation link within a navigation group or menu, allowing users to navigate to different sections of a website or application.
@@ -8241,7 +8322,7 @@ class GcdsNavLink {
         if (current) {
             linkAttrs['aria-current'] = 'page';
         }
-        return (hAsync(Host, { key: '69d1a5cf3b6ec8277ecbc0b994c679a85485f288', role: "listitem" }, hAsync("a", Object.assign({ key: 'e6fa6df38ec8f39e69e6e030846353e969640680', class: `gcds-nav-link gcds-nav-link--${this.navStyle}`, href: href }, linkAttrs, { tabIndex: 0, onBlur: () => this.gcdsBlur.emit(), onFocus: () => this.gcdsFocus.emit(), onClick: e => emitEvent(e, this.gcdsClick, href), ref: element => (this.linkElement = element) }), hAsync("slot", { key: '77b17d920b3c8e9fed6467aff446f928d246cf19' }))));
+        return (hAsync(Host, { key: 'a6e2fa48b4b77a616dc53e40bc118cd919cf8ac2', role: "listitem" }, hAsync("a", Object.assign({ key: '2f7e253d103f1c87c7b4450f879288705cdf0795', class: `gcds-nav-link gcds-nav-link--${this.navStyle}`, href: href }, linkAttrs, { tabIndex: 0, onBlur: () => this.gcdsBlur.emit(), onFocus: () => this.gcdsFocus.emit(), onClick: e => emitEvent(e, this.gcdsClick, href), ref: element => (this.linkElement = element) }), hAsync("slot", { key: 'fa0abad92cfc665af35535215fb259477c3b704a' }))));
     }
     get el() { return getElement(this); }
     static get style() { return gcdsNavLinkCss; }
@@ -8369,7 +8450,7 @@ class GcdsNotice {
             success: 'checkmark-circle',
             warning: 'warning-triangle',
         };
-        return (hAsync(Host, { key: 'eeefda750a72d686551bf8fb9d19e01041443383' }, this.validateRequiredProps() && (hAsync("section", { key: '6e02932b54e765e2209dbfce48d195cf49c18b71', class: `gcds-notice notice--role-${noticeRole}` }, hAsync("gcds-icon", { key: '3dc298767a00715811ccec1f9c372acf919fd3d4', class: "notice__icon", size: "h4", name: iconRoles[noticeRole] }), hAsync("div", { key: '214a8893e623fa271f673cb79df6a732a6c72964' }, hAsync("gcds-heading", { key: 'ea7a87df48aa86ca8c85128dfcdd49ea39430217', tag: noticeTitleTag, "margin-top": "0", "margin-bottom": "100", class: "notice__heading" }, hAsync("gcds-sr-only", { key: '517fd7249667e0f971b009f65b070dc11440d69e', tag: "span" }, I18N$9[this.lang][noticeRole]), noticeTitle), hAsync("slot", { key: 'fdf48fa2daceb1af2f8058e53e4a3d00d6424444' }))))));
+        return (hAsync(Host, { key: '03e09c9feca750421af5461d3530a3b459f8c0a1' }, this.validateRequiredProps() && (hAsync("section", { key: 'a662553fe15c9b04690a5fa3b5904d7c8f04ebcf', class: `gcds-notice notice--role-${noticeRole}` }, hAsync("gcds-icon", { key: '710bf5e2c0eddf52f765d1247b79147139a57f44', class: "notice__icon", size: "h4", name: iconRoles[noticeRole] }), hAsync("div", { key: '148dc06af3014b33b0180865839cf920b18aabdd' }, hAsync("gcds-heading", { key: '7f9c4947154fc5ecf7cf7023968da3d5e7c48c46', tag: noticeTitleTag, "margin-top": "0", "margin-bottom": "100", class: "notice__heading" }, hAsync("gcds-sr-only", { key: 'f954a5fd1b3846dfe82e69be40eac77cc10a363a', tag: "span" }, I18N$9[this.lang][noticeRole]), noticeTitle), hAsync("slot", { key: 'ac208cbe2c085f09358cd043b5a925b881d21300' }))))));
     }
     get el() { return getElement(this); }
     static get style() { return gcdsNoticeCss; }
@@ -8719,7 +8800,7 @@ class GcdsPagination {
     }
     render() {
         const { display, label, previousHref, previousLabel, nextHref, nextLabel, lang, } = this;
-        return (hAsync(Host, { key: 'cbc86d7dde35094165a7ff3d04da441b95110e50', role: "navigation", "aria-label": label }, hAsync("div", { key: '4a0a0af18597e5b63e6f7b7bb1b65338be6ca023', class: "gcds-pagination" }, display === 'list' ? (hAsync("div", null, hAsync("ul", { class: "gcds-pagination-list" }, this.listitems), hAsync("ul", { class: "gcds-pagination-list-mobile-prevnext" }, this.mobilePrevNext))) : (hAsync("ul", { class: "gcds-pagination-simple" }, previousHref && (hAsync("li", { class: "gcds-pagination-simple-listitem" }, hAsync("a", { href: previousHref, tabindex: 0, "aria-label": `${I18N$8[lang].previousPage}${previousLabel ? `: ${previousLabel}` : ''}`, onBlur: () => this.gcdsBlur.emit(), onFocus: () => this.gcdsFocus.emit(), onClick: e => emitEvent(e, this.gcdsClick, previousHref) }, hAsync("gcds-icon", { "margin-right": "150", name: "chevron-left", size: "h6" }), hAsync("div", { class: "gcds-pagination-simple-text" }, I18N$8[lang].previous), hAsync("span", null, previousLabel)))), nextHref && (hAsync("li", { class: "gcds-pagination-simple-listitem" }, hAsync("a", { href: nextHref, tabindex: 0, "aria-label": `${I18N$8[lang].nextPage}${nextLabel ? `: ${nextLabel}` : ''}`, onBlur: () => this.gcdsBlur.emit(), onFocus: () => this.gcdsFocus.emit(), onClick: e => emitEvent(e, this.gcdsClick, nextHref) }, hAsync("gcds-icon", { "margin-right": "150", name: "chevron-right", size: "h6" }), hAsync("div", { class: "gcds-pagination-simple-text" }, I18N$8[lang].next), hAsync("span", null, nextLabel)))))))));
+        return (hAsync(Host, { key: 'c0f834df26c3200de92f20638255bf5e87557e7e', role: "navigation", "aria-label": label }, hAsync("div", { key: '5dd6f95d6ead43cdb50c03877027d6b376db0673', class: "gcds-pagination" }, display === 'list' ? (hAsync("div", null, hAsync("ul", { class: "gcds-pagination-list" }, this.listitems), hAsync("ul", { class: "gcds-pagination-list-mobile-prevnext" }, this.mobilePrevNext))) : (hAsync("ul", { class: "gcds-pagination-simple" }, previousHref && (hAsync("li", { class: "gcds-pagination-simple-listitem" }, hAsync("a", { href: previousHref, tabindex: 0, "aria-label": `${I18N$8[lang].previousPage}${previousLabel ? `: ${previousLabel}` : ''}`, onBlur: () => this.gcdsBlur.emit(), onFocus: () => this.gcdsFocus.emit(), onClick: e => emitEvent(e, this.gcdsClick, previousHref) }, hAsync("gcds-icon", { "margin-right": "150", name: "chevron-left", size: "h6" }), hAsync("div", { class: "gcds-pagination-simple-text" }, I18N$8[lang].previous), hAsync("span", null, previousLabel)))), nextHref && (hAsync("li", { class: "gcds-pagination-simple-listitem" }, hAsync("a", { href: nextHref, tabindex: 0, "aria-label": `${I18N$8[lang].nextPage}${nextLabel ? `: ${nextLabel}` : ''}`, onBlur: () => this.gcdsBlur.emit(), onFocus: () => this.gcdsFocus.emit(), onClick: e => emitEvent(e, this.gcdsClick, nextHref) }, hAsync("gcds-icon", { "margin-right": "150", name: "chevron-right", size: "h6" }), hAsync("div", { class: "gcds-pagination-simple-text" }, I18N$8[lang].next), hAsync("span", null, nextLabel)))))))));
     }
     get el() { return getElement(this); }
     static get watchers() { return {
@@ -9031,7 +9112,7 @@ class GcdsRadios {
                 `${fieldsetAttrs['aria-labelledby']} ${hintID}`.trim();
         }
         if (this.validateRequiredProps()) {
-            return (hAsync(Host, { key: '3bd16e4a6cc77fc6114f37791a4342baef496716', onBlur: () => this.onBlurValidate() }, hAsync("fieldset", Object.assign({ key: '8c91df0fae62ebcae079551bc5362e1770d2da23', class: "gcds-radios__fieldset" }, fieldsetAttrs), hAsync("legend", { key: '7372c1addc1d1c715b58ca0dd3dcc75fc6c38be4', id: "radios-legend", class: "gcds-radios__legend" }, this.hideLegend ? (hAsync("gcds-sr-only", { tag: "span" }, legend, required && hAsync("span", { class: "legend__required" }, I18N$7[lang].required))) : (hAsync(Fragment, null, legend, required && hAsync("span", { class: "legend__required" }, I18N$7[lang].required)))), hint ? (hAsync("gcds-hint", { id: "radios-hint", "hint-id": "radios" }, hint)) : null, errorMessage ? (hAsync("gcds-error-message", { id: "radios-error", messageId: "radios" }, errorMessage)) : null, this.optionsArr &&
+            return (hAsync(Host, { key: '7deee676b0827c3e01221aecefee0c4f3a7c5c06', onBlur: () => this.onBlurValidate() }, hAsync("fieldset", Object.assign({ key: '22b973e0119120f67a27012a6fad1daa13e9b3b8', class: "gcds-radios__fieldset" }, fieldsetAttrs), hAsync("legend", { key: '5cb85da0e84610d01a9caa75e0be0583b9bac3f2', id: "radios-legend", class: "gcds-radios__legend" }, this.hideLegend ? (hAsync("gcds-sr-only", { tag: "span" }, legend, required && hAsync("span", { class: "legend__required" }, I18N$7[lang].required))) : (hAsync(Fragment, null, legend, required && hAsync("span", { class: "legend__required" }, I18N$7[lang].required)))), hint ? (hAsync("gcds-hint", { id: "radios-hint", "hint-id": "radios" }, hint)) : null, errorMessage ? (hAsync("gcds-error-message", { id: "radios-error", messageId: "radios" }, errorMessage)) : null, this.optionsArr &&
                 this.optionsArr.map(radio => {
                     const attrsInput = Object.assign({ name, disabled: disabled, required: required, value: radio.value, checked: radio.value === value, title: radioTitle, form: form }, inheritedAttributes);
                     if (radio.hint) {
@@ -9192,7 +9273,7 @@ class GcdsSearch {
         const formAction = action === '/sr/srb.html'
             ? `https://www.canada.ca/${lang}/sr/srb.html`
             : action;
-        return (hAsync(Host, { key: '86ac279eefbc17baee674c2997e127d3b5a20802' }, hAsync("section", { key: 'c61a273e09c805540ca3a1a31cdcb749c7e04b1f', class: "gcds-search" }, hAsync("gcds-sr-only", { key: '14f5c0f5d537821b1ee7e573824fb4e8f52ce9d0', tag: "h2" }, I18N$6[lang].search), hAsync("form", { key: 'd4bc7d4570f4d456216e8388edf9e2632c5d97ca', action: formAction, method: method, role: "search", onSubmit: e => emitEvent(e, this.gcdsSubmit, this.value), class: "gcds-search__form" }, hAsync("gcds-label", { key: 'f9b12776718938c81ae1e832b7e9cbd990e36b4e', label: labelText, "label-for": searchId, "hide-label": true }), hAsync("input", Object.assign({ key: '949cebb5efdf13db2ac669d5f7ed87892e235b10', type: "search", id: searchId }, (suggestedArray ? { list: 'search-list' } : {}), { size: 35, maxLength: 170, onInput: e => this.handleInput(e, this.gcdsInput), onChange: e => this.handleInput(e, this.gcdsChange), onFocus: () => this.gcdsFocus.emit(), onBlur: () => this.gcdsBlur.emit() }, attrsInput, { class: "gcds-search__input", value: value })), suggestedArray && (hAsync("datalist", { key: '99dae417e4c831258c23d4149e89cc7391ecd058', id: "search-list" }, suggestedArray.map((k, v) => (hAsync("option", { value: k, key: v }))))), hAsync("gcds-button", { key: '666e36ab503ef667109cd437ed797dbb77ca8aff', type: "submit", class: "gcds-search__button", exportparts: "button" }, hAsync("gcds-icon", { key: 'c116c3c0d584bf47417852aec4211ca0a7b4a304', name: "search", label: I18N$6[lang].search, size: "h3" }))))));
+        return (hAsync(Host, { key: '351c19e77ee62b5206c951394a314db289c3db49' }, hAsync("section", { key: '0d9cc7c5371afb4cc29eb0d8f3fb3d9dc706d343', class: "gcds-search" }, hAsync("gcds-sr-only", { key: 'dfc2372361bdf8fd155f3171d24875c03c56e50e', tag: "h2" }, I18N$6[lang].search), hAsync("form", { key: 'f56f87af7732a18c62478e5cf3094d8ab17ee4b6', action: formAction, method: method, role: "search", onSubmit: e => emitEvent(e, this.gcdsSubmit, this.value), class: "gcds-search__form" }, hAsync("gcds-label", { key: '85cec480928ce03a339dd7651af655a2d567155c', label: labelText, "label-for": searchId, "hide-label": true }), hAsync("input", Object.assign({ key: '1ff9200998cd3cdf542e3ec0cd549c2c7dd02b68', type: "search", id: searchId }, (suggestedArray ? { list: 'search-list' } : {}), { size: 35, maxLength: 170, onInput: e => this.handleInput(e, this.gcdsInput), onChange: e => this.handleInput(e, this.gcdsChange), onFocus: () => this.gcdsFocus.emit(), onBlur: () => this.gcdsBlur.emit() }, attrsInput, { class: "gcds-search__input", value: value })), suggestedArray && (hAsync("datalist", { key: 'ff7ab30e2ed34a19ee8ca6e1c349cba075181ad7', id: "search-list" }, suggestedArray.map((k, v) => (hAsync("option", { value: k, key: v }))))), hAsync("gcds-button", { key: '85cd54e3279d2a502711749eb32769ced733fa7a', type: "submit", class: "gcds-search__button", exportparts: "button" }, hAsync("gcds-icon", { key: 'b32768c407f925990fae8ba60a719a7f7a7af218', name: "search", label: I18N$6[lang].search, size: "h3" }))))));
     }
     get el() { return getElement(this); }
     static get watchers() { return {
@@ -9513,7 +9594,7 @@ class GcdsSelect {
                 ? `${attrsSelect['aria-describedby']}`
                 : ''}`;
         }
-        return (hAsync(Host, { key: '880e20d5e7fb9a84bc4e5e413b405c9fa162a136' }, hAsync("div", { key: '15360120f3b67e2e507583ce7f000ca957440fb0', class: `gcds-select-wrapper ${disabled ? 'gcds-disabled' : ''} ${hasError ? 'gcds-error' : ''}` }, hAsync("gcds-label", Object.assign({ key: '3330dda4ebfd959ab6d9b1d98a588509fe70416e' }, attrsLabel, { "hide-label": hideLabel, "label-for": selectId, lang: lang })), hint ? hAsync("gcds-hint", { "hint-id": selectId }, hint) : null, errorMessage ? (hAsync("gcds-error-message", { messageId: selectId }, errorMessage)) : null, hAsync("select", Object.assign({ key: '518196d275c5163e239fc2adcafe0b52c16ac4bf' }, attrsSelect, { id: selectId, onBlur: () => this.onBlur(), onFocus: () => this.gcdsFocus.emit(), onInput: e => this.handleInput(e, this.gcdsInput), onChange: e => this.handleInput(e, this.gcdsChange), "aria-invalid": inheritedAttributes['aria-invalid'] === 'true'
+        return (hAsync(Host, { key: '3ef3899d6c59e12ca6ef85074ff10ae2c60f087d' }, hAsync("div", { key: 'fba1e0ec05d2e08b74afc7a9d05ef9c41fdaff69', class: `gcds-select-wrapper ${disabled ? 'gcds-disabled' : ''} ${hasError ? 'gcds-error' : ''}` }, hAsync("gcds-label", Object.assign({ key: 'fe86c0e2dcff4aecbbbefd9302e6602b64644159' }, attrsLabel, { "hide-label": hideLabel, "label-for": selectId, lang: lang })), hint ? hAsync("gcds-hint", { "hint-id": selectId }, hint) : null, errorMessage ? (hAsync("gcds-error-message", { messageId: selectId }, errorMessage)) : null, hAsync("select", Object.assign({ key: '293eaff57ecce8bfc5398ea041480932cba6f40d' }, attrsSelect, { id: selectId, onBlur: () => this.onBlur(), onFocus: () => this.gcdsFocus.emit(), onInput: e => this.handleInput(e, this.gcdsInput), onChange: e => this.handleInput(e, this.gcdsChange), "aria-invalid": inheritedAttributes['aria-invalid'] === 'true'
                 ? inheritedAttributes['aria-invalid']
                 : errorMessage
                     ? 'true'
@@ -9875,7 +9956,7 @@ class GcdsSideNav {
     }
     render() {
         const { label, lang } = this;
-        return (hAsync(Host, { key: 'cb1dce8bcf9a4f6f6a83f40b9ae35a1f69eecb55' }, hAsync("nav", { key: '4d6e131139f437afa494865a9a16546c28378764', "aria-label": `${label}${I18N$5[lang].navLabel}`, class: "gcds-side-nav" }, hAsync("ul", { key: '545b0eed21a11fcb2795a81ca3ad54f29a4311c6' }, hAsync("gcds-nav-group", { key: '62c894a97778e43064b83341ce52b064c4555779', menuLabel: I18N$5[lang].menuLabel, closeTrigger: I18N$5[lang].closeTrigger, openTrigger: I18N$5[lang].menuLabel, class: "gcds-mobile-nav", ref: element => (this.mobile = element), lang: lang }, hAsync("slot", { key: 'edaa0c63d976d732bc5294c59e2b0346572a2a31', name: "home" }, hAsync("li", { key: '45d762b61ace15f094077513b2aa09794e63e9e0', class: "gcds-side-nav__heading" }, label)), hAsync("slot", { key: '2ed4c1c3c852a3213fa095ce9f0df30ac437abd4' }))))));
+        return (hAsync(Host, { key: 'f442cae66ab5b6c7b82299647ffa270a88cfd3bf' }, hAsync("nav", { key: '0e8fa9b596ac27b198851f5b6f7d56e277ac82e8', "aria-label": `${label}${I18N$5[lang].navLabel}`, class: "gcds-side-nav" }, hAsync("ul", { key: '2ced3163911bf5007a03a83e3b6c03e13e74a2ba' }, hAsync("gcds-nav-group", { key: '412ce1205e32cc0c01b381134a21afbdb0ab5d14', menuLabel: I18N$5[lang].menuLabel, closeTrigger: I18N$5[lang].closeTrigger, openTrigger: I18N$5[lang].menuLabel, class: "gcds-mobile-nav", ref: element => (this.mobile = element), lang: lang }, hAsync("slot", { key: '59405925a392b28a8397ba62018d805a990cca31', name: "home" }, hAsync("li", { key: '04a61dced77e6f0cbd09a102606e69f0bb1f0ed8', class: "gcds-side-nav__heading" }, label)), hAsync("slot", { key: 'efce195284a2be15e5f1e19c8e20d3fd02515980' }))))));
     }
     get el() { return getElement(this); }
     static get style() { return gcdsSideNavCss; }
@@ -10018,7 +10099,7 @@ class GcdsSignature {
         if (Tag === 'a') {
             sigAttrs['href'] = I18N$4[lang].link;
         }
-        return (hAsync(Host, { key: 'eec74b983904b1498601a6c1d12ac5aaf6821208' }, type === 'signature' ? (hAsync(Tag, Object.assign({}, sigAttrs), hAsync("div", { innerHTML: selectSVG }), hAsync("gcds-sr-only", { tag: "span", lang: lang === 'en' ? 'fr' : 'en' }, lang === 'en'
+        return (hAsync(Host, { key: '94eec887a2b356422e39f24658ccf9a8352b533e' }, type === 'signature' ? (hAsync(Tag, Object.assign({}, sigAttrs), hAsync("div", { innerHTML: selectSVG }), hAsync("gcds-sr-only", { tag: "span", lang: lang === 'en' ? 'fr' : 'en' }, lang === 'en'
             ? `/ ${I18N$4.fr.gc}`
             : `/ ${I18N$4.en.gc}`))) : (hAsync("div", { class: "gcds-signature", innerHTML: selectSVG }))));
     }
@@ -10070,7 +10151,7 @@ class GcdsSrOnly {
     }
     render() {
         const Tag = this.tag;
-        return (hAsync(Host, { key: 'f2e667f21a09928c5b940cd4cc2c830ceed9f5d6' }, hAsync(Tag, { key: 'ace85b55311b598b9b1449f32dd03c7cffd7d6a0' }, hAsync("slot", { key: '3a05da8f35b06eaec871d03827532e8121c7b298' }))));
+        return (hAsync(Host, { key: '3383ec4736158a1272001467347592c58d1d125b' }, hAsync(Tag, { key: '30db2f8f3c3715b31330f6fbbce8b5ad87481a65' }, hAsync("slot", { key: '4df7666a95decef3d6a53e410c3236a1a40f8dd2' }))));
     }
     static get watchers() { return {
         "tag": ["validateTag"]
@@ -10180,7 +10261,7 @@ class GcdsStepper {
     }
     render() {
         const { currentStep, lang, totalSteps, tag } = this;
-        return (hAsync(Host, { key: 'd15ae2125394f3cfdbfccb6ec354044328dff24a' }, this.validateRequiredProps() && (hAsync("gcds-heading", { key: '01ba8e1736524f51efb7c3b4ac8ecad139162af5', tag: tag, class: "gcds-stepper", "margin-top": "0", "margin-bottom": "225" }, hAsync("span", { key: '55e102a27b4357dca87ab7655e3e460e408e8343', class: "gcds-stepper__steps" }, `${I18N$3[lang].step} ${currentStep} ${I18N$3[lang].of} ${totalSteps}`, hAsync("gcds-sr-only", { key: '82d574caac2f88de380f319c86f4f933819a2e0e' }, " : ")), hAsync("slot", { key: '261aef7f578b3e0b9db62216d68331777588ebff' })))));
+        return (hAsync(Host, { key: '3e35d92b373461bf3c3135724d02bf2009c0a6a6' }, this.validateRequiredProps() && (hAsync("gcds-heading", { key: '5d7485c25354ee819f4a62ecaef6cb27bc767730', tag: tag, class: "gcds-stepper", "margin-top": "0", "margin-bottom": "225" }, hAsync("span", { key: 'aa98533dd70df383a094f40217e6ad13aca4236d', class: "gcds-stepper__steps" }, `${I18N$3[lang].step} ${currentStep} ${I18N$3[lang].of} ${totalSteps}`, hAsync("gcds-sr-only", { key: '62ee5dd0528b52535a35c8c46e3fd716f4b196d1' }, " : ")), hAsync("slot", { key: 'cc168422742cd8e335fc068a97969ef074b14034' })))));
     }
     get el() { return getElement(this); }
     static get watchers() { return {
@@ -10287,7 +10368,7 @@ class GcdsText {
     }
     render() {
         const { characterLimit, display, marginTop, marginBottom, size, textRole } = this;
-        return (hAsync(Host, { key: '8219a6791a91322d1ce17a98f133303745d805a9', class: `${display != 'block' ? `d-${display}` : ''}` }, hAsync("p", { key: 'ddea4733adb26b3d854466f07cddc3c384ad448d', class: `
+        return (hAsync(Host, { key: '648db92f3454dab29f6a3fdb33e282b6268cc82b', class: `${display != 'block' ? `d-${display}` : ''}` }, hAsync("p", { key: '01045b0b67c9c5f1ea9ce19ebaa7d80ad2668ca0', class: `
             gcds-text
             ${textRole ? `role-${textRole}` : ''}
             ${characterLimit ? 'limit' : ''}
@@ -10642,7 +10723,7 @@ class GcdsTextarea {
                 ? `${attrsTextarea['aria-describedby']}`
                 : ''}`;
         }
-        return (hAsync(Host, { key: 'f807f25b63c0abb356df1365d9382f318bae2775' }, hAsync("div", { key: 'd27317f81d9523571726a5b2715517176b4a7af7', class: `gcds-textarea-wrapper ${disabled ? 'gcds-disabled' : ''} ${hasError ? 'gcds-error' : ''}` }, hAsync("gcds-label", Object.assign({ key: 'b05b09daf2c31c6aad4d0ffb304c05c2f217661b' }, attrsLabel, { "hide-label": hideLabel, "label-for": textareaId, lang: lang })), hint ? hAsync("gcds-hint", { "hint-id": textareaId }, hint) : null, errorMessage ? (hAsync("gcds-error-message", { messageId: textareaId }, errorMessage)) : null, hAsync("textarea", Object.assign({ key: '049f2689bf962525062abb78941ad3fec2a55ced' }, attrsTextarea, { class: hasError ? 'gcds-error' : null, id: textareaId, onBlur: () => this.onBlur(), onFocus: () => this.onFocus(), onInput: e => this.handleInput(e, this.gcdsInput), onChange: e => this.handleInput(e, this.gcdsChange), "aria-labelledby": `label-for-${textareaId}`, "aria-invalid": errorMessage ? 'true' : 'false', style: cols ? style : null, ref: element => (this.shadowElement = element) }), value), maxlength ? (hAsync(Fragment, null, hAsync("gcds-sr-only", { tag: "span", id: `textarea__count-${textareaId}` }, I18N$2[lang].characters.maxlength.replace('{{num}}', maxlength)), !hideLimit && (hAsync("gcds-text", { id: `textarea__visual-count-${textareaId}`, "aria-hidden": "true" }, I18N$2[lang].characters.left, value == undefined ? maxlength : maxlength - value.length)), hAsync("gcds-sr-only", { tag: "span" }, hAsync("span", { id: `textarea__sr-count-${textareaId}`, role: "status", "aria-atomic": "true" })))) : null)));
+        return (hAsync(Host, { key: '4c93c2645ce5374794cac263a3206ee8cc2ed1f5' }, hAsync("div", { key: 'c9c7c6b5b5f26e2c1c1e451ae64f478746b18e21', class: `gcds-textarea-wrapper ${disabled ? 'gcds-disabled' : ''} ${hasError ? 'gcds-error' : ''}` }, hAsync("gcds-label", Object.assign({ key: '43a9fed50882d577a2fbeb50519d233ef069b94c' }, attrsLabel, { "hide-label": hideLabel, "label-for": textareaId, lang: lang })), hint ? hAsync("gcds-hint", { "hint-id": textareaId }, hint) : null, errorMessage ? (hAsync("gcds-error-message", { messageId: textareaId }, errorMessage)) : null, hAsync("textarea", Object.assign({ key: '80d8daf6be299b6dd933842182e507ba119ad651' }, attrsTextarea, { class: hasError ? 'gcds-error' : null, id: textareaId, onBlur: () => this.onBlur(), onFocus: () => this.onFocus(), onInput: e => this.handleInput(e, this.gcdsInput), onChange: e => this.handleInput(e, this.gcdsChange), "aria-labelledby": `label-for-${textareaId}`, "aria-invalid": errorMessage ? 'true' : 'false', style: cols ? style : null, ref: element => (this.shadowElement = element) }), value), maxlength ? (hAsync(Fragment, null, hAsync("gcds-sr-only", { tag: "span", id: `textarea__count-${textareaId}` }, I18N$2[lang].characters.maxlength.replace('{{num}}', maxlength)), !hideLimit && (hAsync("gcds-text", { id: `textarea__visual-count-${textareaId}`, "aria-hidden": "true" }, I18N$2[lang].characters.left, value == undefined ? maxlength : maxlength - value.length)), hAsync("gcds-sr-only", { tag: "span" }, hAsync("span", { id: `textarea__sr-count-${textareaId}`, role: "status", "aria-atomic": "true" })))) : null)));
     }
     static get delegatesFocus() { return true; }
     static get formAssociated() { return true; }
@@ -10706,7 +10787,7 @@ const I18N$1 = {
   },
 };
 
-const gcdsTopNavCss = "@layer reset, default, desktop;@layer reset{:host{display:block}:host *{box-sizing:border-box;margin:0}:host ul{padding:0}}@layer default{:host .gcds-top-nav .gcds-top-nav__container{display:flex;flex-direction:column;margin-inline:auto;max-width:var(--gcds-top-nav-max-width);width:90%}}@layer desktop{@media only screen and (width >= 64em){:host .gcds-top-nav{border-block-end:var(--gcds-top-nav-border-width) solid var(--gcds-top-nav-border-color)}:host .gcds-top-nav .gcds-top-nav__container{align-items:flex-end;flex-direction:row}:host .gcds-top-nav .nav-container__list{align-items:flex-end;display:flex;width:fit-content}:host .gcds-top-nav .nav-container__list.nav-list--end{margin-inline-start:auto}}}";
+const gcdsTopNavCss = "@layer reset, default, desktop;@layer reset{:host{display:block}:host *{box-sizing:border-box;margin:0}:host ul{padding:0}}@layer default{:host .gcds-top-nav .gcds-top-nav__container{display:flex;flex-direction:column;margin-inline:auto;max-width:var(--gcds-top-nav-max-width);width:var(--gcds-top-nav-width-full)}}@layer desktop{@media only screen and (width >= 64em){:host .gcds-top-nav{border-block-end:var(--gcds-top-nav-border-width) solid var(--gcds-top-nav-border-color)}:host .gcds-top-nav .gcds-top-nav__container{align-items:flex-end;flex-direction:row;width:var(--gcds-top-nav-width-constrained)}:host .gcds-top-nav .nav-container__list{align-items:flex-end;display:flex;width:fit-content}:host .gcds-top-nav .nav-container__list.nav-list--end{margin-inline-start:auto}}}";
 
 /**
  * A top navigation is a horizontal list of page links.
@@ -10846,7 +10927,7 @@ class GcdsTopNav {
     }
     render() {
         const { label, alignment, lang } = this;
-        return (hAsync(Host, { key: 'b5891498135a91923fec6cea31c0cf294f1b5aba' }, hAsync("div", { key: 'bde31751abedae987bb85c12636102f92a3b6814', class: "gcds-top-nav" }, hAsync("nav", { key: '8e3cdf1d2e6f8b714612fed6c43ec42b81ab2c7b', "aria-label": `${label}${I18N$1[lang].navLabel}` }, hAsync("ul", { key: '5f687ee3eea1dc73c4b5bb620d1304fe5ac648d6', class: "gcds-top-nav__container" }, hAsync("gcds-nav-group", { key: '137bc7b72a9fa328aff0a60271269f20b1033ba7', menuLabel: I18N$1[lang].menuLabel, closeTrigger: I18N$1[lang].closeTrigger, openTrigger: I18N$1[lang].menuLabel, class: "gcds-mobile-nav gcds-mobile-nav-topnav", ref: element => (this.mobile = element), lang: lang }, hAsync("slot", { key: '4e8fd794e2e06459a069507c14c1ef4639dd453e', name: "home" }), hAsync("li", { key: '9ca94d212ccd1729f840036a2aed4b2c023f36fd', class: `nav-container__list nav-list--${alignment}` }, hAsync("ul", { key: '4ea1a55b4adb03b9614b320f2b52dc0a6e48cd5c', class: `nav-container__list nav-list--${alignment}` }, hAsync("slot", { key: '4eeb9ba9be3b3cc7906e94bc23c3ca8fb31464c8' })))))))));
+        return (hAsync(Host, { key: '8d59384709deb49ab45df787053bb8984db783ff' }, hAsync("div", { key: 'b0f1bbbde13877522bc3221519ddf248a7a2f332', class: "gcds-top-nav" }, hAsync("nav", { key: '34a0d7c4b66f34e8527fa8c1687e85e259f5f79e', "aria-label": `${label}${I18N$1[lang].navLabel}` }, hAsync("ul", { key: 'f48641ec799bc5d73de6a32f7e671b224a315262', class: "gcds-top-nav__container" }, hAsync("gcds-nav-group", { key: 'feccca515b89c8dfa0e93a100d077db20bcf5e5e', menuLabel: I18N$1[lang].menuLabel, closeTrigger: I18N$1[lang].closeTrigger, openTrigger: I18N$1[lang].menuLabel, class: "gcds-mobile-nav gcds-mobile-nav-topnav", ref: element => (this.mobile = element), lang: lang }, hAsync("slot", { key: '0eae3974ebce3d5ce961e6e21f4eee3d7d99b512', name: "home" }), hAsync("li", { key: 'dcdbda307ffadd1d454f07f310dd421b186c686e', class: `nav-container__list nav-list--${alignment}` }, hAsync("ul", { key: '164e125696131ee497fd098f92fdd8fe92200372', class: `nav-container__list nav-list--${alignment}` }, hAsync("slot", { key: '095f6aab8a072f72b920bb26cc2c033e9358dc1b' })))))))));
     }
     get el() { return getElement(this); }
     static get style() { return gcdsTopNavCss; }
@@ -11223,7 +11304,7 @@ class GcdsTopicMenu {
     }
     render() {
         const { home, lang } = this;
-        return (hAsync(Host, { key: '1936f54bc8f2ed6c9ec2e2def9f0f16321eded97' }, hAsync("nav", { key: 'a48ef744a47b8369bac52206ebf45b6daf770319', class: "gcds-topic-menu", "aria-labelledby": "gcds-topic-menu__heading" }, hAsync("gcds-sr-only", { key: '3f0efb671e1d51faf88b973f32b1a057c9d5bf66', id: "gcds-topic-menu__heading", tag: "h2" }, I18N[lang].menuLabelFull), hAsync("button", { key: '709a8b58c6856780b6a51d5f0fb05e95e851de81', "aria-haspopup": "true", "aria-expanded": this.open.toString(), "aria-label": I18N[lang].buttonLabel, onClick: async () => await this.toggleNav(), ref: element => (this.menuButton = element), class: home && 'gcds-topic-menu--home' }, this.lang == 'en' ? (hAsync(Fragment, null, hAsync("gcds-sr-only", { tag: "span" }, I18N[lang].menuLabelHidden), I18N[lang].menuToggle)) : (hAsync(Fragment, null, I18N[lang].menuToggle, hAsync("gcds-sr-only", { tag: "span" }, I18N[lang].menuLabelHidden))), hAsync("gcds-icon", { key: '23e4259a3af0365ab5ffa76b53b3c29875a51293', name: "chevron-down", "margin-left": "100", size: "text-small" })), hAsync("ul", { key: '4d87c64dae82ea600e7ffd7b5a22ae6815a72db5', role: "menu", "aria-orientation": "vertical", "data-top-menu": true, innerHTML: this.listItems, ref: element => (this.themeList = element) }))));
+        return (hAsync(Host, { key: 'f57f3ad6fed21288c1dee157293a55838ed3f621' }, hAsync("nav", { key: 'dca2b15071085e65059b7d885ca95187207c314a', class: "gcds-topic-menu", "aria-labelledby": "gcds-topic-menu__heading" }, hAsync("gcds-sr-only", { key: 'aeec862fe3f79f7b6c6d6b6fc666081af9d13073', id: "gcds-topic-menu__heading", tag: "h2" }, I18N[lang].menuLabelFull), hAsync("button", { key: '6a241941b31045146497c495a6f3055f1fde01e4', "aria-haspopup": "true", "aria-expanded": this.open.toString(), "aria-label": I18N[lang].buttonLabel, onClick: async () => await this.toggleNav(), ref: element => (this.menuButton = element), class: home && 'gcds-topic-menu--home' }, this.lang == 'en' ? (hAsync(Fragment, null, hAsync("gcds-sr-only", { tag: "span" }, I18N[lang].menuLabelHidden), I18N[lang].menuToggle)) : (hAsync(Fragment, null, I18N[lang].menuToggle, hAsync("gcds-sr-only", { tag: "span" }, I18N[lang].menuLabelHidden))), hAsync("gcds-icon", { key: 'd58eaf62692b3cb1ea320432cd039abbd19161ed', name: "chevron-down", "margin-left": "100", size: "text-small" })), hAsync("ul", { key: '9ea57afd155a5085be2dc684ef9da7caf08fdd23', role: "menu", "aria-orientation": "vertical", "data-top-menu": true, innerHTML: this.listItems, ref: element => (this.themeList = element) }))));
     }
     get el() { return getElement(this); }
     static get style() { return gcdsTopicMenuCss; }
