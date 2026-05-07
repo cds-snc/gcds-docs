@@ -6,11 +6,13 @@ tags: ['screenreaderonlyEN', 'code']
 date: 'git Last Modified'
 ---
 
-## Build a screenreader-only
+## On this page
 
-Use screenreader-only for assistive technology-specific text content that communicates information solely available by visual means.
+- [Coding and accessibility for screenreader-only](#coding-and-accessibility-for-screenreaderonly)
+- [Examples](#section-examples)
+- [Code builder](#code-builder)
 
-## Coding and Accessibility for screenreader-only
+## Coding and accessibility for screenreader-only
 
 ### Write helpful screenreader-only content
 
@@ -24,6 +26,48 @@ Use screenreader-only for assistive technology-specific text content that commun
 
 - Use the screenreader-only content to make sure the text will be read in the language associated with the component's language tag.
 - Avoid using an `aria-label` attribute to set another language because some assistive technologies will default to page's source language.
+
+<!-- ----- Examples ----- -->
+
+{% examplesContent "en", "examples" %}
+{% endexamplesContent %}
+
+### In this section
+
+- [Optional attributes](#section-optional)
+- [Slots](#section-slot)
+
+<!-- Optional section -->
+
+{% examplesContent "en", "optional" %}
+{% endexamplesContent %}
+
+#### `tag`
+
+The `tag` attribute sets the appropriate HTML element for the content. By default, it is set to `p`.
+
+{% examplesPreview %}
+<gcds-sr-only tag="h2">
+  Text only seen by assistive technologies.
+</gcds-sr-only>
+{% endexamplesPreview %}
+
+<!-- Slot section -->
+
+{% examplesContent "en", "slot" %}
+{% endexamplesContent %}
+
+#### `default`
+
+The `default` slot is for placing the hidden accessible content.
+
+{% examplesPreview %}
+<gcds-sr-only>
+  Text only seen by assistive technologies.
+</gcds-sr-only>
+{% endexamplesPreview %}
+
+<!-- ----- Code builder ----- -->
 
 {% include "partials/getcode.njk" %}
 

@@ -51,8 +51,7 @@ module.exports = function (eleventyConfig) {
       './scripts/sanitize-pii.min.js',
   });
   eleventyConfig.addPassthroughCopy({
-    './src/.well-known/security.txt': 
-      '.well-known/security.txt' 
+    './src/.well-known/security.txt': '.well-known/security.txt',
   });
   // Add copy fo a11y testing
   eleventyConfig.addPassthroughCopy('./.pa11yci.json');
@@ -486,6 +485,85 @@ module.exports = function (eleventyConfig) {
       </div>
     `;
   });
+
+  // Add shortcode for example intro text
+  eleventyConfig.addPairedShortcode(
+    'examplesContent',
+    (children, locale, section) => {
+      const langStrings = {
+        en: {
+          examples: {
+            heading: 'Examples',
+            text: 'Explore the different ways you can configure the component. Each example shows a working implementation and ready-to-copy code.',
+          },
+          essential: {
+            heading: 'Essential attributes',
+            text: 'These attributes are needed for the component to function correctly.',
+          },
+          optional: {
+            heading: 'Optional attributes',
+            text: 'These attributes allow you to customize or extend the component’s behaviour and presentation.',
+          },
+          slot: {
+            heading: 'Slots',
+            text: 'The default slot allows you to inject custom content into the component’s primary content area, and named slots, into specific areas.',
+          },
+        },
+        fr: {
+          examples: {
+            heading: 'Exemples',
+            text: 'Explorez les différentes façons de configurer le composant. Chaque exemple présente une mise en œuvre fonctionnelle et du code prêt à copier.',
+          },
+          essential: {
+            heading: 'Attributs essentiels',
+            text: 'Ces attributs sont requis pour que le composant fonctionne correctement.',
+          },
+          optional: {
+            heading: 'Attributs facultatifs',
+            text: 'Ces attributs vous permettent de personnaliser ou d’enrichir le comportement et la présentation du composant.',
+          },
+          slot: {
+            heading: 'Emplacements (slots)',
+            text: 'L’emplacement par défaut vous permet d’injecter du contenu personnalisé dans la zone de contenu principale du composant, et les emplacements nommés, dans des zones spécifiques.',
+          },
+        },
+      };
+
+      const headingLevel = section === 'examples' ? 'h2' : 'h3';
+
+      return `
+      <div>
+        <gcds-heading id="section-${section}" tag="${headingLevel}">
+          ${langStrings[locale][section].heading}
+        </gcds-heading>
+        <gcds-text>${langStrings[locale][section].text}</gcds-text>
+      </div>
+    `;
+    },
+  );
+
+  // Add shortcode for example tab code previews
+  eleventyConfig.addPairedShortcode(
+    'examplesPreview',
+    (children, className) => {
+      const content = children.trim();
+
+      // Minify weird Eleventy spacing in rendered HTML preview
+      const renderedHTML = content
+        .replace(/&nbsp;/g, ' ')
+        .replace(/\s+/g, ' ')
+        .replace(/\s+</g, '<')
+        .replace(/\s+>/g, '>')
+        .trim();
+
+      return `
+      <div class="${className} b-md shortcut-preview examples-preview">
+        <div class="preview-demo d-grid gap-300 p-300">${renderedHTML}</div>
+        <pre><code class="language-html font-size-text-small">${encode(content)}</code></pre>
+      </div>
+    `;
+    },
+  );
 
   eleventyConfig.addPairedShortcode(
     'baseComponentPreview',

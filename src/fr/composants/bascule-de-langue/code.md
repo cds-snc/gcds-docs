@@ -6,18 +6,44 @@ tags: ['langtoggleFR', 'code']
 date: 'git Last Modified'
 ---
 
-## Créer une bascule de langue
+## Sur cette page
 
-Utilisez une bascule de langue pour que les gens puissent passer d’une langue à l’autre sans que cela ne les détourne de leur parcours.
+- [Codage et accessibilité de bascule de langue](#codage-et-accessibilite-de-bascule-de-langue)
+- [Exemples](#section-examples)
+- [Générateur de code](#generateur-de-code)
 
-Placez la bascule de langue en haut à droite de l’en-tête. Cet emplacement prévisible la rendra plus facile à trouver.
+## Codage et accessibilité de bascule de langue
 
-## Codage et accessibilité de la bascule de langue
-
+- Placez la bascule de langue en haut à droite de l’en-tête. Cet emplacement prévisible la rendra plus facile à trouver.
 - Utilisez `href-attribute` pour définir l’URL de la page dans l’autre langue officielle.
 - Paramétrez l’attribut `lang` de façon à ce que la bascule de langue indique `en` sur la page en langue française et `fr` sur la page en langue anglaise.
 
 Remarque : Si vous utilisez le composant En-tête, la bascule de langue peut être définie à l’aide de l’attribut `lang-href`.
+
+<!-- ----- Examples ----- -->
+
+{% examplesContent "fr", "examples" %}
+{% endexamplesContent %}
+
+### Dans cette section
+
+- [Attributs essentiels](#section-essential)
+
+<!-- Required section -->
+
+{% examplesContent "fr", "essential" %}
+{% endexamplesContent %}
+
+#### `href`
+
+L'attribut `href` définit l'URL de la même page dans une autre langue, généralement l'anglais ou le français. Utilisez-le pour fournir un lien permettant aux utilisateurs de basculer entre les versions linguistiques disponibles.
+
+{% examplesPreview %}
+<gcds-lang-toggle href="#">
+</gcds-lang-toggle>
+{% endexamplesPreview %}
+
+<!-- ----- Code builder ----- -->
 
 {% include "partials/getcode.njk" %}
 

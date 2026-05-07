@@ -6,13 +6,13 @@ tags: ['detailsFR', 'code']
 date: 'git Last Modified'
 ---
 
-## Création d'un composant Détails
+## Sur cette page
 
-Utilisez le composant Détails pour offrir un aperçu du contenu que vous avez dissimulé et qu'il est possible d'afficher.
+- [Codage et accessibilité pour le composant détails](#codage-et-accessibilite-pour-le-composant-details)
+- [Exemples](#section-examples)
+- [Générateur de code](#generateur-de-code)
 
-Utilisez le composant Détails pour permettre à une personne d'activer l'affichage de contenu supplémentaire correspondant au titre affiché.
-
-## Codage et accessibilité pour le composant Détails
+## Codage et accessibilité pour le composant détails
 
 ### Présentez le composant Détails pour en faciliter la compréhension
 
@@ -29,6 +29,64 @@ Pour aider une personne à accéder au contenu du composant Détails :
 - Choisissez des titres distinctifs pour que les gens comprennent la différence. Les titres identiques ou similaires peuvent prêter à confusion.
 - Évitez de placer un composant Détails dans un autre, là où personne ne penserait à chercher ce contenu.
   0 Faites en sorte que le contenu du composant Détails puisse faire l'objet d'une recherche.
+
+<!-- ----- Examples ----- -->
+
+{% examplesContent "fr", "examples" %}
+{% endexamplesContent %}
+
+### Dans cette section
+
+- [Attributs essentiels](#section-essential)
+- [Attributs facultatifs](#section-optional)
+- [Emplacements (slots)](#section-slot)
+
+<!-- Required section -->
+
+{% examplesContent "fr", "essential" %}
+{% endexamplesContent %}
+
+#### `details-title`
+
+L'attribut `details-title` définit le libellé qui résume le contenu du composant détails.
+
+{% examplesPreview %}
+<gcds-details details-title="Apprenez-en plus sur ce sujet">
+  <gcds-text margin-bottom="0">Renseignements supplémentaires.</gcds-text>
+</gcds-details>
+{% endexamplesPreview %}
+
+<!-- Optional section -->
+
+{% examplesContent "fr", "optional" %}
+{% endexamplesContent %}
+
+#### `open`
+
+L'attribut `open` contrôle si le composant est ouvert par défaut ou non.
+
+{% examplesPreview %}
+<gcds-details details-title="Apprenez-en plus sur ce sujet" open>
+  <gcds-text margin-bottom="0">Renseignements supplémentaires.</gcds-text>
+</gcds-details>
+{% endexamplesPreview %}
+
+<!-- Slot section -->
+
+{% examplesContent "fr", "slot" %}
+{% endexamplesContent %}
+
+#### `default`
+
+L'emplacement par défaut sert à ajouter du contenu à l'intérieur du composant.
+
+{% examplesPreview %}
+<gcds-details details-title="Apprenez-en plus sur ce sujet">
+  <gcds-text margin-bottom="0">Renseignements supplémentaires.</gcds-text>
+</gcds-details>
+{% endexamplesPreview %}
+
+<!-- ----- Code builder ----- -->
 
 {% include "partials/getcode.njk" %}
 

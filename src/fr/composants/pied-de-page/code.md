@@ -6,11 +6,13 @@ tags: ['footerFR', 'code']
 date: 'git Last Modified'
 ---
 
-## Créer un pied de page
+## Sur cette page
 
-Utilisez le repère de pied de page de la marque du gouvernement du Canada pour obtenir un repère cohérent, accessible et adapté à votre site ou produit.
+- [Codage et accessibilité de pied de page](#codage-et-accessibilite-de-pied-de-page)
+- [Exemples](#section-examples)
+- [Générateur de code](#generateur-de-code)
 
-## Codage et accessibilité du pied de page
+## Codage et accessibilité de pied de page
 
 ### Choisir un mode d'affichage à l'aide de la propriété d'affichage
 
@@ -62,6 +64,65 @@ Pour la bande de lien du pied de page, réglez l'élément `sub-links` en passan
 “Étiquette du 3e lien”: “href”
 }
 ```
+
+<!-- ----- Examples ----- -->
+
+{% examplesContent "fr", "examples" %}
+{% endexamplesContent %}
+
+### Dans cette section
+
+- [Attributs facultatifs](#section-optional)
+
+<!-- Optional section -->
+
+{% examplesContent "fr", "optional" %}
+{% endexamplesContent %}
+
+#### `contextual-heading`
+
+L'attribut `contextual-heading` définit le texte du titre de la section de navigation contextuelle dans le pied de page. Ce titre sert aussi à identifier le repère de navigation du pied de page, ce qui améliore la structure et l'accessibilité.
+
+{% examplesPreview %}
+<gcds-footer contextual-heading="Navigation contextuelle" contextual-links='{ "À propos": "#", "Contact": "#" }'>
+</gcds-footer>
+{% endexamplesPreview %}
+
+#### `contextual-links`
+
+L'attribut `contextual-links` définit l'ensemble des liens affichés dans la section de navigation contextuelle du pied de page. Utilisez un objet où chaque clé correspond au libellé du lien et chaque valeur correspond à l'URL. Format : `{ link-label: link-href }`.
+
+{% examplesPreview %}
+<gcds-footer contextual-heading="Navigation contextuelle" contextual-links='{ "À propos": "#", "Contact": "#" }'>
+</gcds-footer>
+{% endexamplesPreview %}
+
+#### `display`
+
+L'attribut `display` contrôle les sections du pied de page qui sont affichées. Par défaut, il est défini à `compact`, ce qui affiche uniquement la section de sous-pied de page.
+
+{% examplesPreview %}
+<gcds-footer>
+</gcds-footer>
+{% endexamplesPreview %}
+
+Lorsqu'il est défini à `full`, les sections principale et de sous-pied de page sont toutes deux affichées.
+
+{% examplesPreview %}
+<gcds-footer display="full">
+</gcds-footer>
+{% endexamplesPreview %}
+
+#### `sub-links`
+
+L'attribut `sub-links` définit l'ensemble des liens affichés dans la section de sous-pied de page. Utilisez un objet où chaque clé correspond au libellé du lien et chaque valeur correspond à l'URL. Format : `{ link-label: link-href }`.
+
+{% examplesPreview %}
+<gcds-footer sub-links='{ "Avis": "#", "Confidentialité": "#" }'>
+</gcds-footer>
+{% endexamplesPreview %}
+
+<!-- ----- Code builder ----- -->
 
 {% include "partials/getcode.njk" %}
 

@@ -1,6 +1,6 @@
 module.exports = {
   en: {
-    heading: 'Get your code',
+    heading: 'Code builder',
     paragraph:
       'Generate an instance of the component you need by selecting its code properties.',
     listitems: [
@@ -11,7 +11,7 @@ module.exports = {
     note: '**Note:** The code builder uses English for all code elements, which follows standard practice.',
   },
   fr: {
-    heading: 'Obtenez votre code',
+    heading: 'Générateur de code',
     paragraph:
       'Générez une version du composant dont vous avez besoin en sélectionnant les propriétés de code correspondantes ou explorez les possibilités en choisissant différentes valeurs de code.',
     listitems: [

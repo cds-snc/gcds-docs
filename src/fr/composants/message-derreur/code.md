@@ -6,11 +6,11 @@ tags: ['errormessageFR', 'code']
 date: 'git Last Modified'
 ---
 
-## Création d'un message d'erreur
+## Sur cette page
 
-Rédigez un message d'erreur pour chaque contrainte de réponse d'un composant, lorsque ce composant est requis.
-
-Tous les composants du système de conception GC sont déjà livrés avec une gestion des erreurs par défaut pour les composants de formulaire requis.
+- [Codage et accessibilité des messages d'erreur](#codage-et-accessibilite-des-messages-derreur)
+- [Exemples](#section-examples)
+- [Générateur de code](#generateur-de-code)
 
 ## Codage et accessibilité des messages d'erreur
 
@@ -20,6 +20,8 @@ Tous les composants du système de conception GC sont déjà livrés avec une ge
 - Rédigez un message d'erreur spécifique pour éviter qu'il s'affiche à nouveau alors que l'utilisateur·rice pensait l'avoir corrigé.
 - Ne proposez pas d'étapes supplémentaires. Précisez ce qu'il faut faire pour corriger l'erreur pour que l'on puisse prendre des mesures et soumettre de nouveau — voire revalider — les modifications sans devoir suivre des étapes supplémentaires.
 - Fournissez une ou deux solutions pour corriger l'erreur, plutôt qu'une démarche en plusieurs étapes.
+
+Remarque : Tous les composants du système de conception GC sont déjà livrés avec une gestion des erreurs par défaut pour les composants de formulaire requis.
 
 ### Rédigez un message d'erreur classique
 
@@ -35,6 +37,48 @@ La personne qui reçoit un message d'erreur doit :
 - Savoir quoi faire pour la corriger;
 - Être en mesure de réaliser des modifications;
 - Soumettre à nouveau les modifications ou les valider sans avoir à remplir à nouveau le formulaire complet.
+
+<!-- ----- Examples ----- -->
+
+{% examplesContent "fr", "examples" %}
+{% endexamplesContent %}
+
+### Dans cette section
+
+- [Attributs essentiels](#section-essential)
+- [Emplacements (slots)](#section-slot)
+
+<!-- Required section -->
+
+{% examplesContent "fr", "essential" %}
+{% endexamplesContent %}
+
+#### `message-id`
+
+L'attribut `message-id` définit l'identifiant unique du message d'erreur.
+
+{% examplesPreview %}
+<gcds-error-message message-id="message-default">
+  Message d'erreur.
+</gcds-error-message>
+{% endexamplesPreview %}
+
+<!-- ----- Slots section ----- -->
+
+{% examplesContent "fr", "slot" %}
+{% endexamplesContent %}
+
+#### `default`
+
+L'emplacement par défaut sert à ajouter le texte du message d'erreur.
+
+{% examplesPreview %}
+<gcds-error-message message-id="message-default">
+  Message d'erreur.
+</gcds-error-message>
+{% endexamplesPreview %}
+
+<!-- ----- Code builder ----- -->
 
 {% include "partials/getcode.njk" %}
 

@@ -6,9 +6,11 @@ tags: ['screenreaderonlyFR', 'code']
 date: 'git Last Modified'
 ---
 
-## Création d'un masquage accessible
+## Sur cette page
 
-Utilisez le masquage accessible sur du texte destiné aux technologies d'assistance pour communiquer des informations généralement exprimées par des moyens visuels uniquement.
+- [Codage et accessibilité du masquage accessible](#codage-et-accessibilite-du-masquage-accessible)
+- [Exemples](#section-examples)
+- [Générateur de code](#generateur-de-code)
 
 ## Codage et accessibilité du masquage accessible
 
@@ -24,6 +26,48 @@ Utilisez le masquage accessible sur du texte destiné aux technologies d'assista
 
 - Utilisez le composant masquage accessible pour vous assurer que le texte sera lu dans la langue associée à la balise de langue du composant.
 - Évitez d'utiliser un attribut `aria-label` pour définir une langue additionnelle, car certaines technologies d'assistance utiliseront la langue source de la page par défaut.
+
+<!-- ----- Examples ----- -->
+
+{% examplesContent "fr", "examples" %}
+{% endexamplesContent %}
+
+### Dans cette section
+
+- [Attributs facultatifs](#section-optional)
+- [Emplacements (slots)](#section-slot)
+
+<!-- Optional section -->
+
+{% examplesContent "fr", "optional" %}
+{% endexamplesContent %}
+
+#### `tag`
+
+L'attribut `tag` définit l'élément HTML approprié pour le contenu. Par défaut, il est défini à `p`.
+
+{% examplesPreview %}
+<gcds-sr-only tag="h2">
+  Texte consultable seulement par les technologies d'assistance.
+</gcds-sr-only>
+{% endexamplesPreview %}
+
+<!-- Slot section -->
+
+{% examplesContent "fr", "slot" %}
+{% endexamplesContent %}
+
+#### `default`
+
+L'emplacement par défaut sert à placer le contenu accessible masqué visuellement.
+
+{% examplesPreview %}
+<gcds-sr-only>
+  Texte consultable seulement par les technologies d'assistance.
+</gcds-sr-only>
+{% endexamplesPreview %}
+
+<!-- ----- Code builder ----- -->
 
 {% include "partials/getcode.njk" %}
 

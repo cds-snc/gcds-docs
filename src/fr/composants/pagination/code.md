@@ -6,11 +6,13 @@ tags: ['paginationFR', 'code']
 date: 'git Last Modified'
 ---
 
-## Créer un composant de pagination
+## Sur cette page
 
-Utilisez la pagination pour séparer le contenu et le répartir sur plusieurs pages. Cela peut faciliter la lecture de sections de contenu importantes et permettre à une personne de se repérer dans les documents.
+- [Codage et accessibilité de pagination](#codage-et-accessibilite-de-pagination)
+- [Exemples](#section-examples)
+- [Générateur de code](#generateur-de-code)
 
-## Codage et accessibilité pour le composant pagination
+## Codage et accessibilité de pagination
 
 ### Configurez la pagination simple
 
@@ -80,6 +82,114 @@ url = {
 ```
 
 {% endraw %}
+
+<!-- ----- Examples ----- -->
+
+{% examplesContent "fr", "examples" %}
+{% endexamplesContent %}
+
+### Dans cette section
+
+- [Attributs essentiels](#section-essential)
+- [Attributs facultatifs](#section-optional)
+
+<!-- Required section -->
+
+{% examplesContent "fr", "essential" %}
+{% endexamplesContent %}
+
+#### `label`
+
+L'attribut `label` définit le texte qui identifie le repère de navigation de la pagination, lui donnant un nom clair et accessible.
+
+{% examplesPreview %}
+<gcds-pagination label="pagination sous forme de liste" total-pages="15" current-page="9" lang="fr">
+</gcds-pagination>
+{% endexamplesPreview %}
+
+<!-- Optional section -->
+
+{% examplesContent "fr", "optional" %}
+{% endexamplesContent %}
+
+#### `current-page`
+
+L'attribut `current-page` définit la page actuelle pour une pagination en liste.
+
+{% examplesPreview %}
+<gcds-pagination label="pagination sous forme de liste" total-pages="15" current-page="9" lang="fr">
+</gcds-pagination>
+{% endexamplesPreview %}
+
+#### `display`
+
+L'attribut display définit le style d'affichage de la pagination. Les options sont :
+
+- `list` (par défaut)
+- `simple`
+
+<!-- Force line break -->
+
+{% examplesPreview %}
+<gcds-pagination label="pagination sous forme de liste" display="list" total-pages="15" current-page="9">
+</gcds-pagination>
+{% endexamplesPreview %}
+
+#### `next-href`
+
+L'attribut `next-href` définit l'URL de la page suivante pour une pagination simple.
+
+{% examplesPreview %}
+<gcds-pagination label="pagination simple" display="simple" previous-href="#" next-href="#" previous-label="Titre de la page" next-label="3 de 3" lang="fr">
+</gcds-pagination>
+{% endexamplesPreview %}
+
+#### `next-label`
+
+L'attribut `next-label` définit le libellé de la page suivante pour une pagination simple.
+
+{% examplesPreview %}
+<gcds-pagination label="pagination simple" display="simple" previous-href="#" next-href="#" previous-label="Titre de la page" next-label="3 de 3" lang="fr">
+</gcds-pagination>
+{% endexamplesPreview %}
+
+#### `previous-href`
+
+L'attribut `previous-href` définit l'URL de la page précédente pour une pagination simple.
+
+{% examplesPreview %}
+<gcds-pagination label="pagination simple" display="simple" previous-href="#" next-href="#" previous-label="Titre de la page" next-label="3 de 3" lang="fr">
+</gcds-pagination>
+{% endexamplesPreview %}
+
+#### `previous-label`
+
+L'attribut `previous-label` définit le libellé de la page précédente pour une pagination simple.
+
+{% examplesPreview %}
+<gcds-pagination label="pagination simple" display="simple" previous-href="#" next-href="#" previous-label="Titre de la page" next-label="3 de 3" lang="fr">
+</gcds-pagination>
+{% endexamplesPreview %}
+
+#### `total-pages`
+
+L'attribut `total-pages` définit le nombre total de pages pour une pagination en liste.
+
+{% examplesPreview %}
+<gcds-pagination label="pagination sous forme de liste" total-pages="15" current-page="9" lang="fr">
+</gcds-pagination>
+{% endexamplesPreview %}
+
+#### `url`
+
+L'attribut `url` définit l'objet (en JavaScript) ou la chaîne (en HTML) qui génère les chaînes de requête et le fragment pour les liens de pagination en liste.
+
+{% examplesPreview %}
+<gcds-pagination label="pagination sous forme de liste" total-pages="15" current-page="9" url='{"queryStrings": { "querystring::offset": 10 }, "fragment": "main" }'>
+</gcds-pagination>
+{% endexamplesPreview %}
+
+<!-- ----- Code builder ----- -->
 
 {% include "partials/getcode.njk" %}
 

@@ -6,9 +6,11 @@ tags: ['datemodifiedEN', 'code']
 date: 'git Last Modified'
 ---
 
-## Build a date modified component
+## On this page
 
-Use the date modified component to identify the date a web page was last updated or the current version of an application.
+- [Coding and accessibility for date modified](#coding-and-accessibility-for-date-modified)
+- [Examples](#section-examples)
+- [Code builder](#code-builder)
 
 ## Coding and accessibility for date modified
 
@@ -16,6 +18,56 @@ Use the date modified component to identify the date a web page was last updated
 
 - Use the YYYY-MM-DD date format across all web pages.
 - If using the `type: version`, consider using a standard version number format across all products.
+
+<!-- ----- Examples ----- -->
+
+{% examplesContent "en", "examples" %}
+{% endexamplesContent %}
+
+### In this section
+
+- [Optional attributes](#section-optional)
+- [Slots](#section-slot)
+
+<!-- Optional section -->
+
+{% examplesContent "en", "optional" %}
+{% endexamplesContent %}
+
+#### `type`
+
+The `type` attribute controls how the date-modified information is presented. By default, it is set to `date`, which displays the last modified date of the content.
+
+{% examplesPreview %}
+<gcds-date-modified>
+  2023-01-26
+</gcds-date-modified>
+{% endexamplesPreview %}
+
+When set to `version`, the component displays a version number instead.
+
+{% examplesPreview %}
+<gcds-date-modified type="version">
+  v1.0.0
+</gcds-date-modified>
+{% endexamplesPreview %}
+
+<!-- Slot section -->
+
+{% examplesContent "en", "slot" %}
+{% endexamplesContent %}
+
+#### `default`
+
+The `default` slot is for adding the date modified or version text.
+
+{% examplesPreview %}
+<gcds-date-modified>
+  2023-01-26
+</gcds-date-modified>
+{% endexamplesPreview %}
+
+<!-- ----- Code builder ----- -->
 
 {% include "partials/getcode.njk" %}
 

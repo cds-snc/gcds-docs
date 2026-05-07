@@ -6,11 +6,13 @@ tags: ['linkFR', 'code']
 date: 'git Last Modified'
 ---
 
-## Créer un lien
+## Sur cette page
 
-Le lien est un élément de navigation qui amène une personne à une nouvelle page, à une nouvelle section de la page actuelle ou à un autre site Web.
+- [Codage et accessibilité des liens](#codage-et-accessibilite-des-liens)
+- [Exemples](#section-examples)
+- [Générateur de code](#generateur-de-code)
 
-## Accessibilité et codage des liens
+## Codage et accessibilité des liens
 
 ### Fournissez des informations pour télécharger des fichiers
 
@@ -35,6 +37,141 @@ Remarque : Seuls les fichiers dont l'URL est de la même origine que le site We
   - Lorsqu'une personne serait surprise de se retrouver ailleurs de manière inattendue.
 - Indiquez clairement où mène le lien, afin qu'une personne puisse décider si elle doit quitter la page actuelle.
 - Communiquez clairement lorsque les liens sont assortis de conditions particulières. Par exemple, lorsqu'ils sont uniquement accessibles à l'intérieur d'un réseau fermé en raison d'un pare-feu.
+
+<!-- ----- Examples ----- -->
+
+{% examplesContent "fr", "examples" %}
+{% endexamplesContent %}
+
+### Dans cette section
+
+- [Attributs essentiels](#section-essential)
+- [Attributs facultatifs](#section-optional)
+- [Emplacements (slots)](#section-slot)
+
+<!-- Required section -->
+
+{% examplesContent "fr", "essential" %}
+{% endexamplesContent %}
+
+#### `href`
+
+L'attribut `href` définit l'URL de la page vers laquelle pointe le lien.
+
+{% examplesPreview %}
+<gcds-link href="#">Lien de navigation</gcds-link>
+{% endexamplesPreview %}
+
+<!-- Optional section -->
+
+{% examplesContent "fr", "optional" %}
+{% endexamplesContent %}
+
+#### `display`
+
+L'attribut `display` définit le comportement d'affichage du lien. Les options sont&nbsp;:
+
+- `inline` (par défaut)
+- `block`
+
+<!-- Force line break -->
+
+{% examplesPreview %}
+<gcds-link display="block" href="#">
+  Lien de navigation
+</gcds-link>
+{% endexamplesPreview %}
+
+#### `download`
+
+L'attribut `download` indique que la cible (le fichier spécifié dans l'attribut href) sera téléchargée lorsque l'utilisateur clique sur le lien.
+
+{% examplesPreview %}
+<gcds-link href="download.pdf" download="file.pdf" type="application/pdf">
+  Télécharger le document (PDF, 1,5 Mb)
+</gcds-link>
+{% endexamplesPreview %}
+
+#### `external`
+
+L'attribut `external` contrôle si le lien est externe ou non. Lorsqu'il est défini à true, une icône de lien externe est ajoutée après le lien.
+
+{% examplesPreview %}
+<gcds-link external href="#">Lien de navigation</gcds-link>
+{% endexamplesPreview %}
+
+#### `link-role`
+
+L'attribut `link-role` définit le style principal du lien. Les options sont :
+
+- `default` (par défaut)
+- `light`
+
+<!-- Force line break -->
+
+{% examplesPreview %}
+
+<div class="bg-dark p-300">
+  <gcds-link link-role="light" href="#">
+    Lien de navigation
+  </gcds-link>
+</div>
+{% endexamplesPreview %}
+
+#### `rel`
+
+L'attribut `rel` définit la relation entre le document actuel et le document lié. Il est souvent utilisé pour des raisons de sécurité et de confidentialité, notamment lorsque les liens s'ouvrent dans un nouvel onglet ou une nouvelle fenêtre.
+
+{% examplesPreview %}
+<gcds-link rel="license" href="#license">Lien de navigation</gcds-link>
+{% endexamplesPreview %}
+
+#### `size`
+
+L'attribut `size` définit la taille du lien. Les options sont :
+
+- `inherit` (par défaut)
+- `regular`
+- `small`
+
+<!-- Force line break -->
+
+{% examplesPreview %}
+<gcds-link size="small" href="#">Lien de navigation</gcds-link>
+{% endexamplesPreview %}
+
+#### `target`
+
+L'attribut `target` définit où s'ouvre le lien. Par exemple, il peut ouvrir le lien dans le même contexte de navigation ou dans un nouvel onglet ou une nouvelle fenêtre.
+
+{% examplesPreview %}
+<gcds-link target="_blank" href="#">Lien de navigation</gcds-link>
+{% endexamplesPreview %}
+
+#### `type`
+
+L'attribut `type` définit le type de média du document lié.
+
+{% examplesPreview %}
+<gcds-link href="download.pdf" download="file.pdf" type="application/pdf">
+  Télécharger le document (PDF, 1,5 Mb)
+</gcds-link>
+{% endexamplesPreview %}
+
+<!-- Slot section -->
+
+{% examplesContent "fr", "slot" %}
+{% endexamplesContent %}
+
+#### `default`
+
+L'emplacement par défaut sert à placer le texte du lien.
+
+{% examplesPreview %}
+<gcds-link href="#">Lien de navigation</gcds-link>
+{% endexamplesPreview %}
+
+<!-- ----- Code builder ----- -->
 
 {% include "partials/getcode.njk" %}
 

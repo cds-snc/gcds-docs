@@ -6,9 +6,11 @@ tags: ['cardFR', 'code']
 date: 'git Last Modified'
 ---
 
-## Créer une carte
+## Sur cette page
 
-Utilisez des cartes pour aider une personne à découvrir et à lire en un coup d'œil des résumés ou des éléments progressifs de renseignements sur un même thème.
+- [Codage et accessibilité des cartes](#codage-et-accessibilite-des-cartes)
+- [Exemples](#section-examples)
+- [Générateur de code](#generateur-de-code)
 
 ## Codage et accessibilité des cartes
 
@@ -43,6 +45,132 @@ Organisez les cartes à l'aide du [composant de la grille]({{ links.grid }}).
 - Essayez d'inclure les mêmes propriétés pour chaque carte d'une même section dans une page. Par exemple : si une carte comporte une image, toutes les cartes comportent une image.
 
 {% include "partials/valid-props.njk" %}
+
+<!-- ----- Examples ----- -->
+
+{% examplesContent "fr", "examples" %}
+{% endexamplesContent %}
+
+### Dans cette section
+
+- [Attributs essentiels](#section-essential)
+- [Attributs facultatifs](#section-optional)
+- [Emplacements (slots)](#section-slot)
+
+<!-- Required section -->
+
+{% examplesContent "fr", "essential" %}
+{% endexamplesContent %}
+
+#### `card-title`
+
+L'attribut `card-title` définit le titre affiché sur la carte.
+
+{% examplesPreview %}
+<gcds-card card-title="Titre de la carte" href="#">
+</gcds-card>
+{% endexamplesPreview %}
+
+#### `href`
+
+L'attribut `href` précise l'URL de la page vers laquelle pointe le lien.
+
+{% examplesPreview %}
+<gcds-card card-title="Titre de la carte" href="#">
+</gcds-card>
+{% endexamplesPreview %}
+
+<!-- Optional section -->
+
+{% examplesContent "fr", "optional" %}
+{% endexamplesContent %}
+
+#### `badge`
+
+L'attribut `badge` définit le texte du badge qui apparaît dans le coin supérieur gauche de la carte. Le badge est limité à 20 caractères.
+
+{% examplesPreview %}
+<gcds-card card-title="Titre de la carte" badge="Balise" href="#">
+</gcds-card>
+{% endexamplesPreview %}
+
+#### `card-title-tag`
+
+L'attribut `card-title-tag` définit l'élément de titre HTML pour le titre de la carte. Cette propriété ne modifie pas la taille de la police. Utilisez-la pour assigner un niveau de titre approprié et maintenir la hiérarchie des titres et l'accessibilité. Les options sont :
+
+- `h3`
+- `h4`
+- `h5`
+- `h6`
+
+<!-- Force line break -->
+
+{% examplesPreview %}
+<gcds-card card-title="Titre de la carte" card-title-tag="h3" href="#">
+</gcds-card>
+{% endexamplesPreview %}
+
+#### `description`
+
+L'attribut `description` définit le texte qui apparaît sur la carte.
+
+{% examplesPreview %}
+<gcds-card card-title="Titre de la carte" href="#" description="Description destinée à accompagner le titre.">
+</gcds-card>
+{% endexamplesPreview %}
+
+#### `img-alt`
+
+L'attribut `img-alt` définit le texte alternatif de l'image fournie. S'il n'est pas défini, l'image est considérée comme décorative.
+
+{% examplesPreview %}
+<gcds-card card-title="Titre de la carte" href="#" img-alt="Le composant Carte montre un encadré contenant une image rectangulaire dans la moitié supérieure. Juste en dessous se trouve une barre bleue rectangulaire occupant les trois quarts de la largeur de l'encadré et représentant le titre de la carte. Encore en dessous, deux barres grises plus longues l'une au-dessus de l'autre représentent respectivement la zone consacrée au contexte et la zone consacrée aux métadonnées." img-src="/images/common/components/preview-card.svg">
+</gcds-card>
+{% endexamplesPreview %}
+
+#### `img-src`
+
+L'attribut `img-src` définit l'URL ou le chemin d'accès de l'image à afficher.
+
+{% examplesPreview %}
+<gcds-card card-title="Titre de la carte" href="#" img-alt="Le composant Carte montre un encadré contenant une image rectangulaire dans la moitié supérieure. Juste en dessous se trouve une barre bleue rectangulaire occupant les trois quarts de la largeur de l'encadré et représentant le titre de la carte. Encore en dessous, deux barres grises plus longues l'une au-dessus de l'autre représentent respectivement la zone consacrée au contexte et la zone consacrée aux métadonnées." img-src="/images/common/components/preview-card.svg">
+</gcds-card>
+{% endexamplesPreview %}
+
+#### `rel`
+
+L'attribut `rel` définit la relation entre le document actuel et le document lié. Il est souvent utilisé pour des raisons de sécurité et de confidentialité, notamment lorsque les liens s'ouvrent dans un nouvel onglet ou une nouvelle fenêtre.
+
+{% examplesPreview %}
+<gcds-card card-title="Titre de la carte" href="#" rel="noopener noreferrer">
+</gcds-card>
+{% endexamplesPreview %}
+
+#### `target`
+
+L'attribut `target` définit où s'ouvre le lien. Par exemple, il peut ouvrir le lien dans le même contexte de navigation ou dans un nouvel onglet ou une nouvelle fenêtre.
+
+{% examplesPreview %}
+<gcds-card card-title="Titre de la carte" href="#" target="_blank">
+</gcds-card>
+{% endexamplesPreview %}
+
+<!-- Slot section -->
+
+{% examplesContent "fr", "slot" %}
+{% endexamplesContent %}
+
+#### `default`
+
+L'emplacement par défaut sert à ajouter du contenu descriptif à la carte. Il remplace l'attribut description s'il est utilisé.
+
+{% examplesPreview %}
+<gcds-card card-title="Titre de la carte" href="#">
+  Description destinée à accompagner le titre.
+</gcds-card>
+{% endexamplesPreview %}
+
+<!-- ----- Code builder ----- -->
 
 {% include "partials/getcode.njk" %}
 

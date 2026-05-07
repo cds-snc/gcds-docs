@@ -6,11 +6,13 @@ tags: ['linkEN', 'code']
 date: 'git Last Modified'
 ---
 
-## Build a Link
+## On this page
 
-A link is a navigational element that takes a person to a website or opens a source, like a pdf.
+- [Coding and accessibility for links](#coding-and-accessibility-for-links)
+- [Examples](#section-examples)
+- [Code builder](#code-builder)
 
-## Accessibility and coding for links
+## Coding and accessibility for links
 
 ### Provide information for download files
 
@@ -35,6 +37,141 @@ Note: Only files with URLs of the same origin as the website will be downloaded 
   - When it could be a surprise for a person to find themselves somewhere else unexpectedly.
 - Make it obvious where a link will lead, so a person can decide if they should leave the current page.
 - Communicate clearly when links have special conditions. For example, when they’re only available inside a closed network because of a firewall.
+
+<!-- ----- Examples ----- -->
+
+{% examplesContent "en", "examples" %}
+{% endexamplesContent %}
+
+### In this section
+
+- [Essential attributes](#section-essential)
+- [Optional attributes](#section-optional)
+- [Slots](#section-slot)
+
+<!-- Required section -->
+
+{% examplesContent "en", "essential" %}
+{% endexamplesContent %}
+
+#### `href`
+
+The `href` attribute specifies the URL of the page the link goes to.
+
+{% examplesPreview %}
+<gcds-link href="#">Navigation link</gcds-link>
+{% endexamplesPreview %}
+
+<!-- Optional section -->
+
+{% examplesContent "en", "optional" %}
+{% endexamplesContent %}
+
+#### `display`
+
+The `display` attribute sets the display behaviour of the link. The available options are:
+
+- `inline` (default)
+- `block`
+
+<!-- Force line break -->
+
+{% examplesPreview %}
+<gcds-link display="block" href="#">
+  Navigation link
+</gcds-link>
+{% endexamplesPreview %}
+
+#### `download`
+
+The `download` attribute specifies that the target (the file specified in the href attribute) will be downloaded when a user clicks on the hyperlink.
+
+{% examplesPreview %}
+<gcds-link href="download.pdf" download="file.pdf" type="application/pdf">
+  Download document (PDF, 1.5 MB)
+</gcds-link>
+{% endexamplesPreview %}
+
+#### `external`
+
+The `external` attribute controls whether the link is external or not. When set to `true`, an external icon is added after the link.
+
+{% examplesPreview %}
+<gcds-link external href="#">Navigation link</gcds-link>
+{% endexamplesPreview %}
+
+#### `link-role`
+
+The `link-role` sets the main style of the link. The available options are:
+
+- `default` (default)
+- `light`
+
+<!-- Force line break -->
+
+{% examplesPreview %}
+
+<div class="bg-dark p-300">
+  <gcds-link link-role="light" href="#">
+    Navigation link
+  </gcds-link>
+</div>
+{% endexamplesPreview %}
+
+#### `rel`
+
+The `rel` attribute specifies the relationship between the current document and the linked document. It is commonly used for security and privacy purposes, especially when links open in a new tab or window.
+
+{% examplesPreview %}
+<gcds-link rel="license" href="#license">Navigation link</gcds-link>
+{% endexamplesPreview %}
+
+#### `size`
+
+The `size` attribute sets the link size. The available options are:
+
+- `inherit` (default)
+- `regular`
+- `small`
+
+<!-- Force line break -->
+
+{% examplesPreview %}
+<gcds-link size="small" href="#">Navigation link</gcds-link>
+{% endexamplesPreview %}
+
+#### `target`
+
+The `target` attribute specifies where the linked resource is opened. For example, it can open the link in the same browsing context or in a new tab or window.
+
+{% examplesPreview %}
+<gcds-link target="_blank" href="#">Navigation link</gcds-link>
+{% endexamplesPreview %}
+
+#### `type`
+
+The `type` attribute specifies the media type of the linked document.
+
+{% examplesPreview %}
+<gcds-link href="download.pdf" download="file.pdf" type="application/pdf">
+  Download document (PDF, 1.5 MB)
+</gcds-link>
+{% endexamplesPreview %}
+
+<!-- Slot section -->
+
+{% examplesContent "en", "slot" %}
+{% endexamplesContent %}
+
+#### `default`
+
+The `default` slot is for placing the link text.
+
+{% examplesPreview %}
+<gcds-link href="#">Navigation link</gcds-link>
+{% endexamplesPreview %}
+
+<!-- ----- Code builder ----- -->
 
 {% include "partials/getcode.njk" %}
 

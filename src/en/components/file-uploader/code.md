@@ -6,11 +6,13 @@ tags: ['fileuploaderEN', 'code']
 date: 'git Last Modified'
 ---
 
-## Build a file uploader
+## On this page
 
-Use the file uploader to allow a person to select and review files they’d like to include with their submission.
+- [Coding and accessibility for file uploader](#coding-and-accessibility-for-file-uploader)
+- [Examples](#section-examples)
+- [Code builder](#code-builder)
 
-## Code and accessibility for file uploader
+## Coding and accessibility for file uploader
 
 ### Apply required attributes
 
@@ -34,6 +36,177 @@ Define the file types the file uploader accepts using the `accept` attribute.
 
 - Set the `hide-label` attribute to true to visually hide the label while maintaining it for assistive technologies.
 - Avoid adding hint text when you’re hiding the label or else provide an empty hint string.
+
+<!-- ----- Examples ----- -->
+
+{% examplesContent "en", "examples" %}
+{% endexamplesContent %}
+
+### In this section
+
+- [Essential attributes](#section-essential)
+- [Optional attributes](#section-optional)
+
+<!-- Required section -->
+
+{% examplesContent "en", "essential" %}
+{% endexamplesContent %}
+
+#### `label`
+
+The `label` attribute defines the label for the file uploader.
+
+{% examplesPreview %}
+<gcds-file-uploader uploader-id="file-uploader-preview" label="Label" name="file-uploader-preview">
+</gcds-file-uploader>
+{% endexamplesPreview %}
+
+#### `name`
+
+The `name` attribute identifies the file uploader component within a form. It is used to reference the uploaded files when a form is submitted.
+
+{% examplesPreview %}
+<gcds-file-uploader uploader-id="file-uploader-preview" label="Label" name="file-uploader-preview">
+</gcds-file-uploader>
+{% endexamplesPreview %}
+
+#### `uploader-id`
+
+The `uploader-id` attribute specifies the unique identifier for the file uploader.
+
+{% examplesPreview %}
+<gcds-file-uploader uploader-id="file-uploader-preview" label="Label" name="file-uploader-preview">
+</gcds-file-uploader>
+{% endexamplesPreview %}
+
+<!-- Optional section -->
+
+{% examplesContent "en", "optional" %}
+{% endexamplesContent %}
+
+#### `accept`
+
+The `accept` attribute defines the file types the file uploader accepts.
+
+{% examplesPreview %}
+<gcds-file-uploader accept="image/*" uploader-id="file-uploader-preview" label="Label" name="file-uploader-preview">
+</gcds-file-uploader>
+{% endexamplesPreview %}
+
+#### `autofocus`
+
+The `autofocus` attribute controls whether the file uploader will be focused automatically when the page loads. By default, it is set to `false`. When set to `true`, the file uploader is focused on render.
+
+{% examplesPreview %}
+<gcds-file-uploader autofocus uploader-id="file-uploader-preview" label="Label" name="file-uploader-preview">
+</gcds-file-uploader>
+{% endexamplesPreview %}
+
+#### `disabled`
+
+The `disabled` attribute controls whether the file uploader is disabled or not. By default, it is set to `false`.
+
+{% examplesPreview %}
+<gcds-file-uploader disabled uploader-id="file-uploader-preview" label="Label" name="file-uploader-preview">
+</gcds-file-uploader>
+{% endexamplesPreview %}
+
+#### `error-message`
+
+The `error-message` attribute defines the error message to display for an invalid file input.
+
+{% examplesPreview %}
+<gcds-file-uploader error-message="Error message" uploader-id="file-uploader-preview" label="Label" name="file-uploader-preview">
+</gcds-file-uploader>
+{% endexamplesPreview %}
+
+#### `files`
+
+The `files` attribute provides a `FileList` object containing the files selected by the user. It updates automatically when the user selects files.
+
+{% examplesPreview %}
+<gcds-file-uploader uploader-id="file-uploader-preview" label="Label" name="file-uploader-preview">
+</gcds-file-uploader>
+
+<script>
+  const uploader = document.querySelector('gcds-file-uploader');
+  const dt = new DataTransfer();
+  dt.items.add(new File(['hello'], 'hello.txt', {type: 'text/plain'}));
+  uploader.files = dt.files;
+</script>
+
+{% endexamplesPreview %}
+
+#### `form`
+
+The `form` attribute specifies the ID of the form that the file uploader belongs to.
+
+{% examplesPreview %}
+<gcds-file-uploader form="form-id" uploader-id="file-uploader-preview" label="Label" name="file-uploader-preview">
+</gcds-file-uploader>
+{% endexamplesPreview %}
+
+#### `hide-label`
+
+The `hide-label` attribute controls whether the label is hidden or not.
+
+{% examplesPreview %}
+<gcds-file-uploader hide-label uploader-id="file-uploader-preview" label="Label" name="file-uploader-preview">
+</gcds-file-uploader>
+{% endexamplesPreview %}
+
+#### `hint`
+
+The `hint` attribute defines the hint text displayed under the label.
+
+{% examplesPreview %}
+<gcds-file-uploader hint="Hint / Example message." uploader-id="file-uploader-preview" label="Label" name="file-uploader-preview">
+</gcds-file-uploader>
+{% endexamplesPreview %}
+
+#### `multiple`
+
+The `multiple` attribute controls whether the user is allowed to select more than one file.
+
+{% examplesPreview %}
+<gcds-file-uploader multiple uploader-id="file-uploader-preview" label="Label" name="file-uploader-preview">
+</gcds-file-uploader>
+{% endexamplesPreview %}
+
+#### `required`
+
+The `required` attribute controls whether the file input is required or not. When set to `true`, it adds “required” after the label, and activates the required validator.
+
+{% examplesPreview %}
+<gcds-file-uploader required uploader-id="file-uploader-preview" label="Label" name="file-uploader-preview">
+</gcds-file-uploader>
+{% endexamplesPreview %}
+
+#### `validate-on`
+
+The `validate-on` attribute defines the validation event for the file uploader.
+
+{% examplesPreview %}
+<gcds-file-uploader validate-on="other" uploader-id="file-uploader-preview" label="Label" name="file-uploader-preview">
+</gcds-file-uploader>
+{% endexamplesPreview %}
+
+#### `value`
+
+The `value` attribute contains the names of all currently selected files. It updates as selections change.
+
+{% examplesPreview %}
+<gcds-file-uploader uploader-id="file-uploader-preview" label="Label" name="file-uploader-preview">
+</gcds-file-uploader>
+
+<script>
+  const uploader = document.querySelector('gcds-file-uploader');
+  uploader.value = ['hello.txt', 'resume.pdf'];
+</script>
+
+{% endexamplesPreview %}
+
+<!-- ----- Code builder ----- -->
 
 {% include "partials/getcode.njk" %}
 

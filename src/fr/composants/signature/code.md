@@ -6,11 +6,13 @@ tags: ['signatureFR', 'code']
 date: 'git Last Modified'
 ---
 
-## Cas d'utilisation principal
+## Sur cette page
 
-Utilisez la signature comme image de marque claire et reconnaissable du gouvernement du Canada pour votre site ou produit.
+- [Codage et accessibilité de signature](#codage-et-accessibilite-de-signature)
+- [Exemples](#section-examples)
+- [Générateur de code](#generateur-de-code)
 
-## Codage et accessibilité de la signature
+## Codage et accessibilité de signature
 
 ### Utilisation des types de signature et de mot-symbole
 
@@ -24,6 +26,67 @@ Utilisez la signature dans <gcds-link href="{{ links.header }}">l'en-tête</gcds
 - Définissez les paramètres de langue de la page en utilisant l'attribut `lang`. L'attribut `Fr` définira le français comme la langue de la page et l'attribut `En` définira l'anglais comme la langue de la page.
 - Utilisez un lien hypertexte dans la signature pour qu'elle puisse mener à la page d'accueil Canada.ca dans la même langue officielle que la page actuelle. Définissez l'attribut `has-link` à `true` pour créer un lien hypertexte vers Canada.ca.
 - Définissez le composant comme `colour` ou `white` en utilisant l'attribut `variant`.
+
+<!-- ----- Examples ----- -->
+
+{% examplesContent "fr", "examples" %}
+{% endexamplesContent %}
+
+### Dans cette section
+
+- [Attributs facultatifs](#section-optional)
+
+<!-- Optional section -->
+
+{% examplesContent "fr", "optional" %}
+{% endexamplesContent %}
+
+#### `has-link`
+
+L'attribut `has-link` contrôle si la signature est cliquable et pointe vers Canada.ca. Par défaut, il est défini à `false`, ce qui affiche la signature comme contenu statique non cliquable.
+
+{% examplesPreview %}
+<gcds-signature></gcds-signature>
+{% endexamplesPreview %}
+
+Lorsqu'il est défini à `true`, la signature devient cliquable et pointe vers Canada.ca.
+
+{% examplesPreview %}
+<gcds-signature has-link="true"></gcds-signature>
+{% endexamplesPreview %}
+
+#### `type`
+
+L'attribut `type` définit le visuel affiché dans le composant de signature. Par défaut, il est défini à `signature`, ce qui affiche la signature.
+
+{% examplesPreview %}
+<gcds-signature></gcds-signature>
+{% endexamplesPreview %}
+
+Lorsqu'il est défini à `wordmark`, le composant affiche le mot-symbole à la place.
+
+{% examplesPreview %}
+<gcds-signature type="wordmark"></gcds-signature>
+{% endexamplesPreview %}
+
+#### `variant`
+
+L'attribut `variant` définit la couleur de la signature. Par défaut, il est défini à `colour`, ce qui affiche la version colorée.
+
+{% examplesPreview %}
+<gcds-signature></gcds-signature>
+{% endexamplesPreview %}
+
+Lorsqu'il est défini à `white`, le composant affiche la version blanche, adaptée aux arrière-plans foncés.
+
+{% examplesPreview %}
+
+<div class="bg-dark p-300">
+  <gcds-signature variant="white"></gcds-signature>
+</div>
+{% endexamplesPreview %}
+
+<!-- ----- Code builder ----- -->
 
 {% include "partials/getcode.njk" %}
 

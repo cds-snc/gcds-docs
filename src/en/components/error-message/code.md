@@ -6,11 +6,11 @@ tags: ['errormessageEN', 'code']
 date: 'git Last Modified'
 ---
 
-## Build an error message
+## On this page
 
-Use an error message for each response constraint of a component, when that component is required.
-
-All GC Design System components already come with default error handling for required form components.
+- [Coding and accessibility for error messages](#coding-and-accessibility-for-error-messages)
+- [Examples](#section-examples)
+- [Code builder](#code-builder)
 
 ## Coding and accessibility for error messages
 
@@ -20,6 +20,8 @@ All GC Design System components already come with default error handling for req
 - Make your error message specific to avoid a user getting the same error message again after they thought they fixed the error.
 - Avoid introducing additional steps. Let a person know exactly what to do to fix the error so they can take action and resubmit or revalidate without having to do extra work.
 - Provide one or two solutions for fixing the error, not a multi-step process.
+
+Note: All GC Design System components already come with default error handling for required form components.
 
 ### Follow a predictable format for error messages
 
@@ -35,6 +37,48 @@ A person who receives an error message needs to:
 - Know what to do to fix it.
 - Be able to make the changes.
 - Resubmit or revalidate without having to fill out the whole form again.
+
+<!-- ----- Examples ----- -->
+
+{% examplesContent "en", "examples" %}
+{% endexamplesContent %}
+
+### In this section
+
+- [Essential attributes](#section-essential)
+- [Slots](#section-slot)
+
+<!-- Required section -->
+
+{% examplesContent "en", "essential" %}
+{% endexamplesContent %}
+
+#### `message-id`
+
+The `message-id` attribute specifies the unique identifier for the error message.
+
+{% examplesPreview %}
+<gcds-error-message message-id="message-default">
+  Error message.
+</gcds-error-message>
+{% endexamplesPreview %}
+
+<!-- ----- Slots section ----- -->
+
+{% examplesContent "en", "slot" %}
+{% endexamplesContent %}
+
+#### `default`
+
+The `default` slot is for adding the error message text.
+
+{% examplesPreview %}
+<gcds-error-message message-id="message-default">
+  Error message.
+</gcds-error-message>
+{% endexamplesPreview %}
+
+<!-- ----- Code builder ----- -->
 
 {% include "partials/getcode.njk" %}
 

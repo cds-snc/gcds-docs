@@ -6,9 +6,11 @@ tags: ['stepperFR', 'code']
 date: 'git Last Modified'
 ---
 
-## Créer un indicateur d'étape
+## Sur cette page
 
-Utilisez un indicateur d'étape pour guider les personnes lorsqu'une séquence (formulaire ou processus) peut être divisée en étapes claires qui s'étendent sur plus d'une page.
+- [Codage et accessibilité des indicateurs d'étape](#codage-et-accessibilite-des-indicateurs-detape)
+- [Exemples](#section-examples)
+- [Générateur de code](#generateur-de-code)
 
 ## Codage et accessibilité des indicateurs d'étape
 
@@ -21,6 +23,74 @@ Utilisez l'attribut `current-step` pour indiquer l'étape à laquelle la personn
 Utilisez l'attribut `tag` pour attribuer la balise de titre appropriée à l'indicateur d'étape. L'indicateur d'étape peut s'afficher sous la forme d'un `h1`, `h2` ou `h3`.
 
 {% include "partials/valid-props.njk" %}
+
+<!-- ----- Examples ----- -->
+
+{% examplesContent "fr", "examples" %}
+{% endexamplesContent %}
+
+### Dans cette section
+
+- [Attributs essentiels](#section-essential)
+- [Attributs facultatifs](#section-optional)
+- [Emplacements (slots)](#section-slot)
+
+<!-- Required section -->
+
+{% examplesContent "fr", "essential" %}
+{% endexamplesContent %}
+
+#### `current-step`
+
+L'attribut `current-step` définit l'étape actuelle.
+
+{% examplesPreview %}
+<gcds-stepper current-step="1" total-steps="4">
+  Titre de la section
+</gcds-stepper>
+{% endexamplesPreview %}
+
+#### `total-steps`
+
+L'attribut `total-steps` définit le nombre total d'étapes.
+
+{% examplesPreview %}
+<gcds-stepper current-step="1" total-steps="4">
+  Titre de la section
+</gcds-stepper>
+{% endexamplesPreview %}
+
+<!-- Optional section -->
+
+{% examplesContent "fr", "optional" %}
+{% endexamplesContent %}
+
+#### `tag`
+
+L'attribut `tag` définit l'élément de titre HTML pour l'indicateur d'étape. Par défaut, il est défini à `h2`.
+
+{% examplesPreview %}
+<gcds-stepper current-step="1" total-steps="4" tag="h3">
+  Titre de la section
+</gcds-stepper>
+{% endexamplesPreview %}
+
+<!-- Slot section -->
+
+{% examplesContent "fr", "slot" %}
+{% endexamplesContent %}
+
+#### `default`
+
+L'emplacement par défaut sert à placer le texte du titre.
+
+{% examplesPreview %}
+<gcds-stepper current-step="1" total-steps="4">
+  Titre de la section
+</gcds-stepper>
+{% endexamplesPreview %}
+
+<!-- ----- Code builder ----- -->
 
 {% include "partials/getcode.njk" %}
 

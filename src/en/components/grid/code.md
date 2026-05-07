@@ -7,11 +7,13 @@ date: 'git Last Modified'
 templateEngineOverride: njk,md
 ---
 
-## Build a grid
+## On this page
 
-Use grids to create flexible and responsive layouts for various screen sizes. The grid component uses CSS grid to allow for more complex layouts.
+- [Coding and accessibility for grids](#coding-and-accessibility-for-grids)
+- [Examples](#section-examples)
+- [Code builder](#code-builder)
 
-## Code and accessibility for grids
+## Coding and accessibility for grids
 
 ### Adjust layouts to optimize the experience on different screen sizes
 
@@ -75,11 +77,12 @@ Mobile
 </div>
 
 {% viewCode 'en', 'preview-grid-flexible', 'gcds-grid' %}
-  <gcds-grid tag="article" columns-desktop="1fr 1fr 1fr" columns-tablet="1fr 1fr" columns="1fr">
-    <p>This is some example content to display the grid component.</p>
-    <p>This is some example content to display the grid component.</p>
-    <p>This is some example content to display the grid component.</p>
-  </gcds-grid>
+<gcds-grid tag="article" columns-desktop="1fr 1fr 1fr" columns-tablet="1fr 1fr" columns="1fr">
+
+<p>This is some example content to display the grid component.</p>
+<p>This is some example content to display the grid component.</p>
+<p>This is some example content to display the grid component.</p>
+</gcds-grid>
 {% endviewCode %}
 
 Set the minimum and maximum width to design equal-width columns with restrictions to limit how wide they will span on any screen size.
@@ -124,12 +127,341 @@ Mobile
 </div>
 
 {% viewCode 'en', 'preview-grid-fixed-width', 'gcds-grid' %}
-  <gcds-grid tag="article" columns="repeat(auto-fit, minmax(100px, 300px))">
-    <p>This is some example content to display the grid component.</p>
-    <p>This is some example content to display the grid component.</p>
-    <p>This is some example content to display the grid component.</p>
-  </gcds-grid>
+<gcds-grid tag="article" columns="repeat(auto-fit, minmax(100px, 300px))">
+
+<p>This is some example content to display the grid component.</p>
+<p>This is some example content to display the grid component.</p>
+<p>This is some example content to display the grid component.</p>
+</gcds-grid>
 {% endviewCode %}
+
+<!-- ----- Examples ----- -->
+
+{% examplesContent "en", "examples" %}
+{% endexamplesContent %}
+
+### In this section
+
+- [Optional attributes](#section-optional)
+- [Slots](#section-slot)
+
+<!-- Optional section -->
+
+{% examplesContent "en", "optional" %}
+{% endexamplesContent %}
+
+#### `align-content`
+
+The `align-content` attribute sets the alignment of the grid along the block (column) axis when the total grid size is less than the size of its grid container. The available options are:
+
+- `center`
+- `end`
+- `space-around`
+- `space-between`
+- `space-evenly`
+- `start`
+- `stretch`
+
+<!-- Force line break -->
+
+{% examplesPreview "example-styled-items examples-grid" %}
+<gcds-grid align-content="space-between" columns-desktop="1fr 1fr 1fr" columns-tablet="1fr 1fr" columns="1fr">
+  <p>1</p>
+  <p>2</p>
+  <p>3</p>
+  <p>4</p>
+  <p>5</p>
+  <p>6</p>
+</gcds-grid>
+{% endexamplesPreview %}
+
+#### `align-items`
+
+The `align-items` attribute sets the alignment of grid items along the block (column) axis. The available options are:
+
+- `baseline`
+- `center`
+- `end`
+- `start`
+- `stretch`
+
+<!-- Force line break -->
+
+{% examplesPreview "example-styled-items" %}
+<gcds-grid align-items="baseline" columns-desktop="1fr 1fr 1fr" columns-tablet="1fr 1fr" columns="1fr">
+  <p>1</p>
+  <p class="pb-800">2</p>
+  <p class="pt-900">3</p>
+</gcds-grid>
+{% endexamplesPreview %}
+
+#### `alignment`
+
+The `alignment` attribute sets the grid’s alignment if the grid container’s size is smaller than the parent’s size. The available options are:
+
+- `center`
+- `end`
+- `start`
+
+<!-- Force line break -->
+
+{% examplesPreview "example-styled-items" %}
+<gcds-grid alignment="end" container="sm" columns-desktop="1fr 1fr 1fr" columns-tablet="1fr 1fr" columns="1fr">
+  <p>1</p>
+  <p>2</p>
+  <p>3</p>
+</gcds-grid>
+{% endexamplesPreview %}
+
+#### `columns`
+
+The `columns` attribute defines the default number of grid columns for all viewports if `columns-tablet` and `columns-desktop` are not defined. Option to set different layouts for desktop with `columns-desktop` and for tablet with `columns-tablet`.
+
+{% examplesPreview "example-styled-items" %}
+<gcds-grid columns="1fr 1fr">
+  <p>1</p>
+  <p>2</p>
+  <p>3</p>
+</gcds-grid>
+{% endexamplesPreview %}
+
+#### `columns-desktop`
+
+The `columns-desktop` attribute provides the option to set a different number of grid columns for desktop screens.
+
+{% examplesPreview "example-styled-items" %}
+<gcds-grid columns-desktop="1fr 1fr 1fr" columns-tablet="1fr 1fr" columns="1fr">
+  <p>1</p>
+  <p>2</p>
+  <p>3</p>
+</gcds-grid>
+{% endexamplesPreview %}
+
+#### `columns-tablet`
+
+The `columns-tablet` attribute provides the option to set a different number of grid columns for tablet screens. If `columns-desktop` is not defined, `columns-tablet` will be used to define the number of columns for desktop as well.
+
+{% examplesPreview "example-styled-items" %}
+<gcds-grid columns-tablet="1fr 1fr" columns="1fr">
+  <p>1</p>
+  <p>2</p>
+  <p>3</p>
+</gcds-grid>
+{% endexamplesPreview %}
+
+#### `container`
+
+The `container` attribute defines the grid container size. The available options are:
+
+- `full`
+- `xl`
+- `lg`
+- `md`
+- `sm`
+- `xs`
+
+<!-- Force line break -->
+
+{% examplesPreview "example-styled-items" %}
+<gcds-grid container="sm" columns-desktop="1fr 1fr 1fr" columns-tablet="1fr 1fr" columns="1fr">
+  <p>1</p>
+  <p>2</p>
+  <p>3</p>
+</gcds-grid>
+{% endexamplesPreview %}
+
+#### `display`
+
+The `display` attribute defines the element as a `grid` or `inline-grid` container. The available options are:
+
+- `grid` (default)
+- `inline-grid`
+
+<!-- Force line break -->
+
+{% examplesPreview "example-styled-items" %}
+<gcds-grid display="inline-grid" columns-desktop="1fr 1fr 1fr" columns-tablet="1fr 1fr" columns="1fr">
+  <p>1</p>
+  <p>2</p>
+  <p>3</p>
+</gcds-grid>
+{% endexamplesPreview %}
+
+#### `gap`
+
+The `gap` attribute defines the horizontal and vertical spacing between items in a grid container for all viewports if `gap-tablet` and `gap-desktop` are not defined. Option to set different spacing for desktop with `gap-desktop` and for tablet with `gap-tablet`.
+
+{% examplesPreview "example-styled-items" %}
+<gcds-grid gap="450" columns-desktop="1fr 1fr 1fr" columns-tablet="1fr 1fr" columns="1fr">
+  <p>1</p>
+  <p>2</p>
+  <p>3</p>
+  <p>4</p>
+  <p>5</p>
+  <p>6</p>
+</gcds-grid>
+{% endexamplesPreview %}
+
+#### `gap-desktop`
+
+The `gap-desktop` attribute provides the option to set horizontal and vertical spacing between items in a grid container for desktop screens.
+
+{% examplesPreview "example-styled-items" %}
+<gcds-grid gap-desktop="800" gap="400" columns-desktop="1fr 1fr 1fr" columns-tablet="1fr 1fr" columns="1fr">
+  <p>1</p>
+  <p>2</p>
+  <p>3</p>
+  <p>4</p>
+  <p>5</p>
+  <p>6</p>
+</gcds-grid>
+{% endexamplesPreview %}
+
+#### `gap-tablet`
+
+The `gap-tablet` attribute provides the option to set horizontal and vertical spacing between items in a grid container for tablet screens. If `gap-desktop` is not defined, `gap-tablet` will be used to define the spacing for desktop screens as well.
+
+{% examplesPreview "example-styled-items" %}
+<gcds-grid gap-tablet="500" gap="400" columns-desktop="1fr 1fr 1fr" columns-tablet="1fr 1fr" columns="1fr">
+  <p>1</p>
+  <p>2</p>
+  <p>3</p>
+  <p>4</p>
+  <p>5</p>
+  <p>6</p>
+</gcds-grid>
+{% endexamplesPreview %}
+
+#### `justify-content`
+
+The `justify-content` attribute sets the alignment of the grid along the inline (row) axis if the total grid size is less than the size of its grid container. The available options are:
+
+- `center`
+- `end`
+- `space-around`
+- `space-between`
+- `space-evenly`
+- `start`
+- `stretch`
+
+<!-- Force line break -->
+
+{% examplesPreview "example-styled-items" %}
+<gcds-grid justify-content="center" columns-desktop="1fr 1fr 1fr" columns-tablet="1fr 1fr" columns="1fr">
+  <p>1</p>
+  <p>2</p>
+  <p>3</p>
+</gcds-grid>
+{% endexamplesPreview %}
+
+#### `justify-items`
+
+The `justify-items` attribute sets the alignment of the grid items along the inline (row) axis. The available options are:
+
+- `center`
+- `end`
+- `start`
+- `stretch`
+
+<!-- Force line break -->
+
+{% examplesPreview "example-styled-items" %}
+<gcds-grid justify-items="center" columns-desktop="1fr 1fr 1fr" columns-tablet="1fr 1fr" columns="1fr">
+  <p>1</p>
+  <p>2</p>
+  <p>3</p>
+</gcds-grid>
+{% endexamplesPreview %}
+
+#### `place-content`
+
+The `place-content` attribute sets both the `align-content` and `justify-content` attributes. The available options are:
+
+- `center`
+- `end`
+- `space-around`
+- `space-between`
+- `space-evenly`
+- `start`
+- `stretch`
+
+<!-- Force line break -->
+
+{% examplesPreview "example-styled-items" %}
+<gcds-grid place-content="space-around" columns-desktop="1fr 1fr 1fr" columns-tablet="1fr 1fr" columns="1fr">
+  <p>1</p>
+  <p>2</p>
+  <p>3</p>
+  <p>4</p>
+  <p>5</p>
+  <p>6</p>
+</gcds-grid>
+{% endexamplesPreview %}
+
+#### `place-items`
+
+The `place-items` attribute sets both the `align-items` and `justify-items` attributes. The available options are:
+
+- `center`
+- `end`
+- `start`
+- `stretch`
+
+<!-- Force line break -->
+
+{% examplesPreview "example-styled-items" %}
+<gcds-grid place-items="end" columns-desktop="1fr 1fr 1fr" columns-tablet="1fr 1fr" columns="1fr">
+  <p>1</p>
+  <p>2</p>
+  <p>3</p>
+  <p>4</p>
+  <p>5</p>
+  <p>6</p>
+</gcds-grid>
+{% endexamplesPreview %}
+
+#### `tag`
+
+The `tag` attribute sets the HTML element used to render the grid container. By default, it is set to `div`. The available options are:
+
+- `div` (default)
+- `article`
+- `aside`
+- `dl`
+- `main`
+- `nav`
+- `ol`
+- `section`
+- `ul`
+
+<!-- Force line break -->
+
+{% examplesPreview "example-styled-items" %}
+<gcds-grid tag="article" columns-desktop="1fr 1fr 1fr" columns-tablet="1fr 1fr" columns="1fr">
+  <p>1</p>
+  <p>2</p>
+  <p>3</p>
+</gcds-grid>
+{% endexamplesPreview %}
+
+<!-- ----- Slots section ----- -->
+
+{% examplesContent "en", "slot" %}
+{% endexamplesContent %}
+
+#### `default`
+
+The `default` slot is for placing the grid items.
+
+{% examplesPreview "example-styled-items" %}
+<gcds-grid columns-desktop="1fr 1fr 1fr 1fr" columns-tablet="1fr 1fr" columns="1fr">
+  <p>1</p>
+  <p>2</p>
+  <p>3</p>
+</gcds-grid>
+{% endexamplesPreview %}
+
+<!-- ----- Code builder ----- -->
 
 {% include "partials/getcode.njk" %}
 

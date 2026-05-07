@@ -6,9 +6,11 @@ tags: ['themeand-topic-menuFR', 'code']
 date: 'git Last Modified'
 ---
 
-## Création d'un menu thématique
+## Sur cette page
 
-Utilisez le menu thématique pour permettre aux utilisateur·rice·s de naviguer à travers l'ensemble des sites du gouvernement du Canada.
+- [Codage et accessibilité du menu thématique](#codage-et-accessibilite-du-menu-thematique)
+- [Exemples](#section-examples)
+- [Générateur de code](#generateur-de-code)
 
 ## Codage et accessibilité du menu thématique
 
@@ -17,6 +19,31 @@ Utilisez le menu thématique pour permettre aux utilisateur·rice·s de naviguer
 Ajoutez directement le menu thématique à l'<gcds-link href="{{ links.header }}">en-tête</gcds-link> en passant un élément secondaire avec l'attribut `slot="menu"` dans l'en-tête. Cela placera le menu thématique dans l'en-tête, à la suite de la bascule de la langue, la signature et la barre de recherche.
 
 Remarque : Si vous souhaitez ajouter un menu de thèmes et sujets à la page d'accueil de Canada.ca, utilisez l'attribut `home` pour utiliser le style approprié.
+
+<!-- ----- Examples ----- -->
+
+{% examplesContent "fr", "examples" %}
+{% endexamplesContent %}
+
+### Dans cette section
+
+- [Attributs facultatifs](#section-optional)
+
+<!-- Optional section -->
+
+{% examplesContent "fr", "optional" %}
+{% endexamplesContent %}
+
+#### `home`
+
+L'attribut `home` définit le style de la page d'accueil.
+
+{% examplesPreview %}
+<gcds-topic-menu home>
+</gcds-topic-menu>
+{% endexamplesPreview %}
+
+<!-- ----- Code builder ----- -->
 
 {% include "partials/getcode.njk" %}
 

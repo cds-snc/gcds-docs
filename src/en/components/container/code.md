@@ -6,11 +6,13 @@ tags: ['containerEN', 'code']
 date: 'git Last Modified'
 ---
 
-## Build a container
+## On this page
 
-Use containers to add a wrapper element with a defined maximum width, providing a container for other content and components that are typically arranged vertically from top to bottom.
+- [Coding and accessibility for containers](#coding-and-accessibility-for-containers)
+- [Examples](#section-examples)
+- [Code builder](#code-builder)
 
-## Code and accessibility for containers
+## Coding and accessibility for containers
 
 ### Limit width of content
 
@@ -57,6 +59,128 @@ Use the `alignment` attribute to control how a container is positioned within it
 - `end` - position the container horizontally to the end of the available space.
 
 **Note:** When the `layout` attribute is set to `page`, the `alignment` attribute is ignored, the page layout automatically manages width and centring.
+
+<!-- ----- Examples ----- -->
+
+{% examplesContent "en", "examples" %}
+{% endexamplesContent %}
+
+### In this section
+
+- [Optional attributes](#section-optional)
+- [Slots](#section-slot)
+
+<!-- Optional section -->
+
+{% examplesContent "en", "optional" %}
+{% endexamplesContent %}
+
+#### `alignment`
+
+The `alignment` attribute sets how the container is positioned within its parent. This property is ignored when `layout` is set to `page`, as the `page` `layout` has higher priority. The available options are:
+
+- `center`
+- `end`
+- `start`
+
+<!-- Force line break -->
+
+{% examplesPreview %}
+<gcds-container alignment="center" size="sm" border padding="300">
+  <p>Container</p>
+</gcds-container>
+{% endexamplesPreview %}
+
+#### `border`
+
+The `border` attribute controls whether the container has a border or not.
+
+{% examplesPreview %}
+<gcds-container border padding="300">
+  <p>Container</p>
+</gcds-container>
+{% endexamplesPreview %}
+
+#### `layout`
+
+The `layout` attribute sets how the container aligns with the page layout. The available options are:
+
+- `full`
+- `page`
+
+<!-- Force line break -->
+
+{% examplesPreview %}
+<gcds-container layout="full" border padding="300">
+  <p>Container</p>
+</gcds-container>
+{% endexamplesPreview %}
+
+#### `margin`
+
+The `margin` attribute sets the container margin. Left and right margins are not applied if the container’s alignment attribute is defined, since alignment has higher priority.
+
+{% examplesPreview %}
+<gcds-container margin="800" size="xs" border padding="300">
+  <p>Container</p>
+</gcds-container>
+{% endexamplesPreview %}
+
+#### `padding`
+
+The `padding` attribute sets the container’s padding, which is the inner spacing between the container’s border and its content.
+
+{% examplesPreview %}
+<gcds-container padding="600" border>
+  <p>Container</p>
+</gcds-container>
+{% endexamplesPreview %}
+
+#### `size`
+
+The `size` attribute sets the width of the container. The available options are:
+
+- `full` (default)
+- `xl`
+- `lg`
+- `md`
+- `sm`
+- `xs`
+
+<!-- Force line break -->
+
+{% examplesPreview %}
+<gcds-container size="sm" border padding="300">
+  <p>Container</p>
+</gcds-container>
+{% endexamplesPreview %}
+
+#### `tag`
+
+The `tag` attribute sets the HTML element used to render the container. By default, it is set to `div`.
+
+{% examplesPreview %}
+<gcds-container tag="section" border padding="300">
+  <p>Container</p>
+</gcds-container>
+{% endexamplesPreview %}
+
+<!-- Slot section -->
+
+{% examplesContent "en", "slot" %}
+{% endexamplesContent %}
+
+#### `default`
+
+The `default` slot is for adding content inside the container.
+
+{% examplesPreview %}
+<gcds-container border padding="300">
+  <p>Container</p>
+</gcds-container>
+{% endexamplesPreview %}
+
+<!-- ----- Code builder ----- -->
 
 {% include "partials/getcode.njk" %}
 
