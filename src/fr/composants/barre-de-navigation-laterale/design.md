@@ -9,7 +9,7 @@ date: 'git Last Modified'
 ## Structure de la barre de navigation latérale
 
 <ol class="anatomy-list">
-  <li>Le <strong>libellé repère de navigation</strong> affiche le nom du produit ou du site et est utilisé par les technologies d’assistance.</li>
+  <li>Le <strong>lien d'accueil</strong> identifie le site à l'aide d'un élément texte ou d'un logo et sert à naviguer vers la page d'accueil. Il utilise un lien de navigation qui est ajouté dans l'empacement <code>home</code>.</li>
   <li>Le <strong>lien de navigation</strong> mène à une page donnée. Le lien est surligné en bleu pour indiquer l’état actuel de la page.</li>
   <li>Le <strong>groupe de navigation</strong> affiche le nom du groupe et développe et réduit le sous-menu. Le sous-menu est une liste de liens de navigation connexes qui sont révélés lorsque le groupe de navigation se développe. L’icône du chevron pointe vers la droite lorsque le sous-menu est réduit et vers le bas lorsqu’il est développé.</li>
 </ol>
@@ -18,12 +18,10 @@ date: 'git Last Modified'
 
 ## Design et accessibilité de la barre de navigation latérale
 
-### Définir le libellé
+### Définir le lien d'accueil
 
 - Vous pouvez utiliser une forme raccourcie du nom complet.
 - Pour les logos, ajoutez du texte descriptif.
-
-Remarque : Sur les appareils mobiles, le libellé n’est pas un hyperlien vers la page d’accueil.
 
 ### Choisissez du texte pertinent pour les liens de navigation
 
