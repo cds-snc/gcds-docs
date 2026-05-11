@@ -163,7 +163,7 @@ L'attribut `required` contrôle si le jeu de boutons radio est obligatoire ou no
 L'attribut `validate-on` définit l'événement de validation pour les boutons radio.
 
 {% examplesPreview %}
-<gcds-radios validate-on="other" legend="Légende" name="radio" options='[{"id":"form-radio-1","label":"Libellé 1","hint":"Ceci est une description ou un exemple à titre de clarification.", "value": "radio1"},{"id":"form-radio-r","label":"Libellé 2","hint":"Ceci est une description ou un exemple à titre de clarification.", "value": "radio2"}]'>
+<gcds-radios validate-on="other" required legend="Légende" name="radio" options='[{"id":"form-radio-1","label":"Libellé 1","hint":"Ceci est une description ou un exemple à titre de clarification.", "value": "radio1"},{"id":"form-radio-r","label":"Libellé 2","hint":"Ceci est une description ou un exemple à titre de clarification.", "value": "radio2"}]'>
 </gcds-radio>
 {% endexamplesPreview %}
 

@@ -286,7 +286,7 @@ L'attribut `type` définit le type de saisie. Les options sont :
 L'attribut `validate-on` définit l'événement de validation pour le champ de saisie.
 
 {% examplesPreview %}
-<gcds-input validate-on="other" input-id="input-example" label="Étiquette de champ" name="input-example">
+<gcds-input validate-on="other" required input-id="input-example" label="Étiquette de champ" name="input-example">
 </gcds-input>
 {% endexamplesPreview %}
 

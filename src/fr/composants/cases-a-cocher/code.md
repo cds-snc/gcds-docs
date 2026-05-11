@@ -185,7 +185,7 @@ L'attribut `required` contrôle si le groupe de cases à cocher est obligatoire 
 L'attribut `validate-on` définit l'événement de validation pour les cases à cocher.
 
 {% examplesPreview %}
-<gcds-checkboxes validate-on="other" legend="Légende" name="checkexample" options='[{"id": "form-check-1", "label": "Libellé", "hint": "Ceci est une description ou un exemple à titre de clarification.", "value": "check1"}, {"id": "form-check-2", "label": "Libellé", "hint": "Ceci est une description ou un exemple à titre de clarification.", "value": "check2"}]'>
+<gcds-checkboxes validate-on="other" required legend="Légende" name="checkexample" options='[{"id": "form-check-1", "label": "Libellé", "hint": "Ceci est une description ou un exemple à titre de clarification.", "value": "check1"}, {"id": "form-check-2", "label": "Libellé", "hint": "Ceci est une description ou un exemple à titre de clarification.", "value": "check2"}]'>
 </gcds-checkboxes>
 {% endexamplesPreview %}
 

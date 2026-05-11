@@ -163,7 +163,7 @@ The `required` attribute controls whether the radio fieldset is required or not.
 The `validate-on` attribute defines the validation event for the radios.
 
 {% examplesPreview %}
-<gcds-radios validate-on="other" legend="Legend" name="radio" options='[{"id":"form-radio-1","label":"Label 1","hint":"Description or example to make the option clearer", "value": "radio1"},{"id":"form-radio-r","label":"Label 2","hint":"Description or example to make the option clearer", "value": "radio2"}]'>
+<gcds-radios validate-on="other" required legend="Legend" name="radio" options='[{"id":"form-radio-1","label":"Label 1","hint":"Description or example to make the option clearer", "value": "radio1"},{"id":"form-radio-r","label":"Label 2","hint":"Description or example to make the option clearer", "value": "radio2"}]'>
 </gcds-radio>
 {% endexamplesPreview %}
 

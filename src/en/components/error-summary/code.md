@@ -68,7 +68,7 @@ The `heading` attribute defines the error summary heading.
 
 #### `listen`
 
-The `listen` attribute controls whether the error summary should listen for the `GcdsError` event to generate a list of errors or not. By default, it is set to `true`.
+The `listen` attribute controls whether the error summary should listen for the `gcdsError` event to generate a list of errors or not. By default, it is set to `true`.
 
 {% examplesPreview %}
 <gcds-error-summary error-links='{ "#error-href-1": "Error summary item.", "#error-href-2": "Error summary item.", "#error-href-3": "Error summary item." }' listen>

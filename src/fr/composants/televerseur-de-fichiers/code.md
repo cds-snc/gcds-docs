@@ -187,7 +187,7 @@ L'attribut `required` contrôle si le téléverseur de fichiers est obligatoire 
 L'attribut `validate-on` définit l'événement de validation pour le téléverseur de fichiers.
 
 {% examplesPreview %}
-<gcds-file-uploader validate-on="other" uploader-id="file-uploader-preview" label="Libellé" name="file-uploader-preview">
+<gcds-file-uploader validate-on="other" required uploader-id="file-uploader-preview" label="Libellé" name="file-uploader-preview">
 </gcds-file-uploader>
 {% endexamplesPreview %}
 

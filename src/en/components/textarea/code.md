@@ -198,7 +198,7 @@ The `rows` attribute defines the number of visible text rows in the textarea, wh
 The `validate-on` attribute defines the validation event for the textarea.
 
 {% examplesPreview %}
-<gcds-textarea validate-on="other" textarea-id="textarea-example" label="Label" name="textarea-example">
+<gcds-textarea validate-on="other" required textarea-id="textarea-example" label="Label" name="textarea-example">
 </gcds-textarea>
 {% endexamplesPreview %}
 

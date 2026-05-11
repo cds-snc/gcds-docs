@@ -198,7 +198,7 @@ L'attribut `rows` définit le nombre de lignes visibles dans la zone de texte, c
 L'attribut `validate-on` définit l'événement de validation pour la zone de texte.
 
 {% examplesPreview %}
-<gcds-textarea validate-on="other" textarea-id="textarea-example" label="Libellé de champ" name="textarea-example">
+<gcds-textarea validate-on="other" required textarea-id="textarea-example" label="Libellé de champ" name="textarea-example">
 </gcds-textarea>
 {% endexamplesPreview %}
 

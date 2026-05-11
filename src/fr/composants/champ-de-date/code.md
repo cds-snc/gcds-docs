@@ -166,7 +166,7 @@ L'attribut `required` contrôle si le champ de date est obligatoire ou non. Lors
 L'attribut `validate-on` définit l'événement de validation pour le champ de date.
 
 {% examplesPreview %}
-<gcds-date-input validate-on="other" format="full" legend="Légende" name="example-default">
+<gcds-date-input validate-on="other" required format="full" legend="Légende" name="example-default">
 </gcds-date-input>
 {% endexamplesPreview %}
 

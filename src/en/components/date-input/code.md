@@ -166,7 +166,7 @@ The `required` attribute controls whether the date input field is required or no
 The `validate-on` attribute defines the validation event for the date input.
 
 {% examplesPreview %}
-<gcds-date-input validate-on="other" format="full" legend="Legend" name="example-default">
+<gcds-date-input validate-on="other" required format="full" legend="Legend" name="example-default">
 </gcds-date-input>
 {% endexamplesPreview %}
 

@@ -286,7 +286,7 @@ The `type` attribute defines the input type. The available options are:
 The `validate-on` attribute defines the validation event for the input.
 
 {% examplesPreview %}
-<gcds-input validate-on="other" input-id="input-example" label="Label" name="input-example">
+<gcds-input validate-on="other" required input-id="input-example" label="Label" name="input-example">
 </gcds-input>
 {% endexamplesPreview %}
 

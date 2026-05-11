@@ -187,7 +187,7 @@ The `required` attribute controls whether the file input is required or not. Whe
 The `validate-on` attribute defines the validation event for the file uploader.
 
 {% examplesPreview %}
-<gcds-file-uploader validate-on="other" uploader-id="file-uploader-preview" label="Label" name="file-uploader-preview">
+<gcds-file-uploader validate-on="other" required uploader-id="file-uploader-preview" label="Label" name="file-uploader-preview">
 </gcds-file-uploader>
 {% endexamplesPreview %}
 

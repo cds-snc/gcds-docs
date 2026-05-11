@@ -185,7 +185,7 @@ The `required` attribute controls whether the checkbox fieldset is required or n
 The `validate-on` attribute defines the validation event for the checkboxes.
 
 {% examplesPreview %}
-<gcds-checkboxes validate-on="other" legend="Legend" name="checkexample" options='[{"id": "form-check-1", "label": "Label", "hint": "Description or example to make the option clearer.", "value": "check1"}, {"id": "form-check-2", "label": "Label", "hint": "Description or example to make the option clearer.", "value": "check2"}]'>
+<gcds-checkboxes validate-on="other" required legend="Legend" name="checkexample" options='[{"id": "form-check-1", "label": "Label", "hint": "Description or example to make the option clearer.", "value": "check1"}, {"id": "form-check-2", "label": "Label", "hint": "Description or example to make the option clearer.", "value": "check2"}]'>
 </gcds-checkboxes>
 {% endexamplesPreview %}
 

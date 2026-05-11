@@ -205,7 +205,7 @@ The `required` attribute controls whether the radio fieldset is required or not.
 The `validate-on` attribute defines the validation event for the radios.
 
 {% examplesPreview %}
-<gcds-select validate-on="other" select-id="select-preview" label="Label" name="select-preview" default-value="Select option">
+<gcds-select validate-on="other" required select-id="select-preview" label="Label" name="select-preview" default-value="Select option">
   <option value="1">Option 1</option>
   <option value="2">Option 2</option>
   <option value="3">Option 3</option>

@@ -205,7 +205,7 @@ L'attribut `required` contrôle si la sélection est obligatoire ou non. Lorsqu'
 L'attribut `validate-on` définit l'événement de validation pour le composant de sélection.
 
 {% examplesPreview %}
-<gcds-select validate-on="other" select-id="select-preview" label="Libellé" name="select-preview" default-value="Sélectionner une option">
+<gcds-select validate-on="other" required select-id="select-preview" label="Libellé" name="select-preview" default-value="Sélectionner une option">
   <option value="1">Option 1</option>
   <option value="2">Option 2</option>
   <option value="3">Option 3</option>
