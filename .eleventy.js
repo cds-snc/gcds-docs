@@ -558,7 +558,7 @@ module.exports = function (eleventyConfig) {
 
       return `
       <div class="${className} b-md shortcut-preview examples-preview">
-        <div class="preview-demo d-grid gap-300 p-300">${renderedHTML}</div>
+        <div inert class="preview-demo d-grid gap-300 p-300">${renderedHTML}</div>
         <pre><code class="language-html font-size-text-small">${encode(content)}</code></pre>
       </div>
     `;
