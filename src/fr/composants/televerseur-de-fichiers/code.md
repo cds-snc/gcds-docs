@@ -120,23 +120,6 @@ L'attribut `error-message` définit le message d'erreur à afficher pour un fich
 </gcds-file-uploader>
 {% endexamplesPreview %}
 
-#### `files`
-
-L'attribut `files` fournit un objet `FileList` contenant les fichiers sélectionnés par l'utilisateur. Cet attribut se met à jour automatiquement lorsque l'utilisateur sélectionne des fichiers.
-
-{% examplesPreview %}
-<gcds-file-uploader uploader-id="file-uploader-preview" label="Libellé" name="file-uploader-preview">
-</gcds-file-uploader>
-
-<script>
-  const uploader = document.querySelector('gcds-file-uploader');
-  const dt = new DataTransfer();
-  dt.items.add(new File(['hello'], 'hello.txt', {type: 'text/plain'}));
-  uploader.files = dt.files;
-</script>
-
-{% endexamplesPreview %}
-
 #### `form`
 
 L'attribut `form` définit l'identifiant du formulaire auquel appartient le téléverseur de fichiers.
@@ -189,21 +172,6 @@ L'attribut `validate-on` définit l'événement de validation pour le télévers
 {% examplesPreview %}
 <gcds-file-uploader validate-on="other" required uploader-id="file-uploader-preview" label="Libellé" name="file-uploader-preview">
 </gcds-file-uploader>
-{% endexamplesPreview %}
-
-#### `value`
-
-L'attribut `value` contient les noms de tous les fichiers actuellement sélectionnés. Il se met à jour à chaque changement de sélection.
-
-{% examplesPreview %}
-<gcds-file-uploader uploader-id="file-uploader-preview" label="Libellé" name="file-uploader-preview">
-</gcds-file-uploader>
-
-<script>
-  const uploader = document.querySelector('gcds-file-uploader');
-  uploader.value = ['hello.txt', 'resume.pdf'];
-</script>
-
 {% endexamplesPreview %}
 
 <!-- ----- Code builder ----- -->

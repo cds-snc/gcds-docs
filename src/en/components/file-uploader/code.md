@@ -120,23 +120,6 @@ The `error-message` attribute defines the error message to display for an invali
 </gcds-file-uploader>
 {% endexamplesPreview %}
 
-#### `files`
-
-The `files` attribute provides a `FileList` object containing the files selected by the user. It updates automatically when the user selects files.
-
-{% examplesPreview %}
-<gcds-file-uploader uploader-id="file-uploader-preview" label="Label" name="file-uploader-preview">
-</gcds-file-uploader>
-
-<script>
-  const uploader = document.querySelector('gcds-file-uploader');
-  const dt = new DataTransfer();
-  dt.items.add(new File(['hello'], 'hello.txt', {type: 'text/plain'}));
-  uploader.files = dt.files;
-</script>
-
-{% endexamplesPreview %}
-
 #### `form`
 
 The `form` attribute specifies the ID of the form that the file uploader belongs to.
@@ -189,21 +172,6 @@ The `validate-on` attribute defines the validation event for the file uploader.
 {% examplesPreview %}
 <gcds-file-uploader validate-on="other" required uploader-id="file-uploader-preview" label="Label" name="file-uploader-preview">
 </gcds-file-uploader>
-{% endexamplesPreview %}
-
-#### `value`
-
-The `value` attribute contains the names of all currently selected files. It updates as selections change.
-
-{% examplesPreview %}
-<gcds-file-uploader uploader-id="file-uploader-preview" label="Label" name="file-uploader-preview">
-</gcds-file-uploader>
-
-<script>
-  const uploader = document.querySelector('gcds-file-uploader');
-  uploader.value = ['hello.txt', 'resume.pdf'];
-</script>
-
 {% endexamplesPreview %}
 
 <!-- ----- Code builder ----- -->
