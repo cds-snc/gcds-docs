@@ -140,8 +140,6 @@ The `value` attribute defines the data that will be sent to the server when the 
 
 <!-- Optional for links section -->
 
-### Optional attributes for `type=link`
-
 #### `download`
 
 The `download` attribute specifies that activating the button will download the file referenced by the `href` attribute, rather than navigating to it.

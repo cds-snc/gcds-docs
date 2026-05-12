@@ -50,7 +50,7 @@ To help a reader's experience accessing details content:
 
 The `details-title` attribute defines the label that summarizes the details content.
 
-{% examplesPreview %}
+{% examplesPreview "170" %}
 <gcds-details details-title="Learn more about this topic">
   <gcds-text margin-bottom="0">Additional information.</gcds-text>
 </gcds-details>
@@ -80,7 +80,7 @@ The `open` attribute controls whether the details component is open by default o
 
 The `default` slot is for adding content inside the details component.
 
-{% examplesPreview %}
+{% examplesPreview "170" %}
 <gcds-details details-title="Learn more about this topic">
   <gcds-text margin-bottom="0">Additional information.</gcds-text>
 </gcds-details>

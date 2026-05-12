@@ -578,10 +578,14 @@ module.exports = function (eleventyConfig) {
             <link rel="stylesheet" href="/components/dist/gcds/gcds.css">
             <script type="module" src="/components/dist/gcds/gcds.esm.js"></script>
           </head>
-          <body class="${className} shortcut-preview examples-preview">
+          <body class="${className || ''} shortcut-preview examples-preview">
             <div class="preview-demo p-300 d-grid gap-300">
               ${renderedHTML}
             </div>
+            <script>
+              document.addEventListener('click', function(e) {const path = e.composedPath(); const link = path.find(el => el instanceof HTMLAnchorElement); if (link) {e.preventDefault();}});
+              document.addEventListener('DOMContentLoaded', () => {document.querySelectorAll('[autofocus]').forEach(el => el.autofocus = false);});
+            </script>
           </body>
         </html>
       `;
